@@ -391,8 +391,20 @@ sens	      sA~s
 c'est         sEt2 $u
 qu'à          ka
 qu'y          ki
-(sud est)     sydEst
-(nord est)    nOREst
+s'y              si
+m'y              mi
+t'y              ti
+l'y              li
+(sud est)       sydEst
+(nord est)      nOREst
+écho            Eko
+l'écho          leko
+open            OpEn
+espeak          ispik
+nvda             $abbrev
+outlook         autluk
+reader          Rid'Wr
+potentiomètre   pOtA~sjOmEtr
 
 processus	pROsEsys
 
@@ -402,7 +414,7 @@ azimut		azim'yt
 brut		br'yt
 but		by $verb
 but		byt
-connecticut	kOnEktik'yt
+connecticut	kOnEktikyt
 helmut		Elmut
 mazout		mazut
 out		aut
@@ -411,7 +423,7 @@ scorbut		skOrbyt
 scout		skut
 scouts		skut
 stout		staut
-uppercut	ypErk'yt
+uppercut	ypErkyt
 ut		yt
 zut		syt
 
@@ -420,20 +432,20 @@ zut		syt
 
 //Downing_street
 //Dun_and_Bradstreet
-bridget		bRidZ'Et
-exocet		EgzOs'Et
+bridget		bRidZEt
+exocet		EgzOsEt
 fret		fR'Et
-gadget		gadZ'Et
-hamlet		aml'Et
-internet	E~tErn'Et
-jacket		Zak'Et
-knesset		knEs'Et
-lazaret		lazar'Et
-margaret	margar'Et
-net		n'Et
+gadget		gadZEt
+hamlet		amlEt
+internet	E~tErnEt
+jacket		ZakEt
+knesset		knEsEt
+lazaret		lazarEt
+margaret	margarEt
+net		nEt
 offset		OfsEt
-pickpocket	pikpOk'Et
-racket		Rak'Et
+pickpocket	pikpOkEt
+racket		RakEt
 set		sEt
 soviet		sOvjEt
 //ticket		tikE
@@ -479,7 +491,7 @@ forum		fOR@m
 boy		bOj
 byte		bajt
 bytes		bajts
-debian		dEbj'An
+debian		dEbjAn
 download	dOnlod
 emacs		Emaks
 emacspeak	Emakspik
@@ -491,7 +503,7 @@ gnome		gnom
 gnu		gnu
 insight		insajt
 liszt 		list
-(mac os x)	makoEs'iks
+(mac os x)	makoEsiks
 night		najt
 redhat		rEdat
 schubert	SubEr
