@@ -1,0 +1,290 @@
+
+// This file in UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_a	a
+_o	o
+_y	,igr'iEQa
+
+_.	punto
+
+
+// numbers
+_0       TE*o
+_1       'uno
+_2       d'os
+_3       t@-*'es
+_4       kw'at@-*o
+_5       T'inko
+_6       s'eIs
+_7       sj'Ete
+_8       'otSo
+_9       nw'Eve
+_1X      dj'ET
+_11      'onTe
+_12      d'oTe
+_13      t@-*'ETe
+_14      kat'orTe
+_15      k'inTe
+_20      v'eInte
+_2X      v'eInt
+_3X      t@-*'eInta
+_4X      kwa*'Enta
+_5X      Tinkw'Enta
+_6X      sEs'Enta
+_7X      sEt'Enta
+_8X      otS'Enta
+_9X      nov'Enta
+_0C      T'ientos
+_1C0     T'ien         // exactly one hundred
+_1C      T'iento
+_5C      kinj'Entos
+_0M1     m'il
+_1M1     m'il          // no '1' before thousand
+_0M2     mil^'ones
+_1M2     'unmil^'on
+_0M4     _bil^'ones
+_1M4     'unbil^'on
+_0and    i
+_dpt     koma
+
+
+
+// articles
+el           $u
+los          $u
+la           $u
+las          $u
+lo           $u
+les          $u
+
+un           $u
+una          $u
+unos         $u
+unas         $u
+
+este         $u+   // this
+esta         $u+
+estos        $u+
+estas        $u+
+esto         $u+
+
+ese          $u+   // that
+esa          $u+
+esos         $u+
+esas         $u+
+eso          $u+
+
+aquel        $u+   // that
+aquella      $u+
+aquellos     $u+
+aquellas     $u+
+
+
+
+// pronouns
+yo	$u+
+tu	$u+
+tú	$u+
+usted	$u+
+él	$u+
+ella	$u+
+nosotros	$u+
+nosotras	$u+
+vosotros	$u+
+vosotras	$u+
+as	$u+
+ustedes	$u+
+ellos	$u+
+ellas	$u+
+ud      $u+
+uds     $u+
+
+me      $u+  // reflexive pronouns
+te      $u+
+se	$u+
+nos     $u+
+os      $u+
+
+
+// possessives
+mi	$u+
+mis	$u+
+tu      $u+
+tus     $u+
+su	$u+
+sus	$u+
+nuestro   $u+
+nuestros  $u+
+nuestra   $u+
+nuestras  $u+
+vuestro   $u+
+vuestros  $u+
+vuestra   $u+
+vuestras  $u+
+
+// prepositions
+a            $u $brk    // at
+al           $u $brk
+de           $u           // of,from
+del          $u
+(de la)      d,ela
+en           $u $brk
+con          $u $pause    // with
+por          $u $pause    // for,through,along,via
+para         $u $pause    // for,in order,by
+entre        $u $pause
+desde        $pause       // from,since
+después      $pause       // after
+
+// conjunctions
+y            %i $pause    // and
+o            $u $pause    // or
+
+así          $pause
+aunque       $u $pause    // although
+siquiera     $pause
+porque       $pause       // because
+
+// questions
+que          $u+ $pause   // what
+cuál         $pause       // which
+cuáles       $pause
+cómo         $pause       // how
+
+// negative
+no           $u
+
+// auxillary verbs
+ser	$u
+soy	$u
+eras	$u
+es	$u
+somos	$u
+sois    $u
+son	$u
+
+fui	$u
+fuiste	$u
+fue	$u
+fuimos	$u
+fuisteis	$u
+fueron	$u
+
+era	$u
+eras	$u
+éramos	$u
+erais	$u
+eran	$u
+
+seré	$u
+serás	$u
+será	$u
+seremos	$u
+seréis	$u
+serán	$u
+
+sería	$u
+serías	$u
+seríamos	$u
+seríais	$u
+serían	$u
+
+
+estar	$u
+estoy	$u
+estás	$u
+está	$u
+estamos	$u
+estáis	$u
+están	$u
+
+estuve	$u
+estuviste	$u
+estuvo	$u
+estuvimos	$u
+estuvisteis	$u
+estuvieron	$u
+
+estaba	$u
+estabas	$u
+estaba	$u
+estábamos	$u
+estabais	$u
+estaban	$u
+
+estaré	$u
+estarás	$u
+estará	$u
+estaremos	$u
+estaréis	$u
+estarán	$u
+
+estaría	$u
+estarías	$u
+estaríamos	$u
+estaríais	$u
+estarían	$u
+
+haber	$u
+he	$u
+has	$u
+hay	$u
+hemos	$u
+habéis	$u
+han	$u
+ha	$u      // ??
+
+hube	$u
+hubiste	$u
+hubo	$u
+hubimos	$u
+hubisteis	$u
+hubieron	$u
+
+había	$u
+habías	$u
+habíamos	$u
+habíais	$u
+habían	$u
+
+habré	$u
+habrás	$u
+habrá	$u
+habremos	$u
+habréis	$u
+habrán	$u
+
+tener   $u   // to have
+tengo   $u
+tienes  $u
+tiene   $u
+tenemos $u
+tenéis  $u
+tienen  $u
+
+hacer    $u+  // to do/make
+hago     $u+
+haces    $u+
+hace     $u+
+hacemos  $u+
+hacéis   $u+
+hacen    $u+
+
+
+// some common adjectives and adverbs
+algún    $u        // some
+algunos  $u
+alguna   $u
+
+
+
+
+// pronunciation exceptions
+
+méxico       mExiko
+mexicano     mExikano
+

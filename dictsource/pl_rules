@@ -1,0 +1,409 @@
+
+.group	 a
+		a		a
+		a	(_A	a_
+		ae	(_	E 	// latin plural
+
+// czasowniki forma przypuszczająca - trzecia sylaba od końca
+	@ł)	a	(by_	=a
+	@ł)	a	(bym_	=a
+	@ł)	a	(byś_	=a
+
+	@)	a	(łby_	=a
+	@)	a	(łbym_	=a
+	@)	a	(łbyś_	=a
+
+.group	 ą
+		ą		O~
+		ą	(_	O~_
+		ą	(_A	O~_
+		ą	(p	Om
+		ą	(b	Om
+		ą	(t	On
+		ą	(c	On
+		ą	(d	On
+		ą	(ć	On^
+		ą	(dź	On^
+		ą	(ci	On^
+		ą	(dzi	On^
+		ą	(k	ON
+		ą	(g	ON
+		ą	(l	O
+		ą	(ł	O
+
+.group	 b
+		b		b
+	ja)	bł	(ko	p
+		b	(_A	p
+		b	(i	b;
+		bi	(A	b;j
+
+.group	 c
+		c		ts
+		ch		h
+		ch	(i	C
+		chi	(A	hj
+	psy)	chi	(a	Ci
+		c	(i	ts;
+		ci	(A	ts;
+		cz		tS
+		c	(osin	k
+		c	(osecans	k
+		c	(otang	k
+	cose)	c	(ans	k
+		ch	(ev	S		// chevrolet
+		ch	(err	S
+	_ro)	ck	(A	k
+
+.group	 ć
+		ć		ts;
+		ć	(b	dz;
+		ć	(g	dz;
+
+.group	 d
+		d		d
+		d	(_A	t
+		d	(i	d;
+		di	(A	dj
+		dz		dz
+		dz	(_A	ts
+		dz	(i	dz;
+		dzi	(A	dz;
+		dź		dz;
+		dź	(_A	ts;
+		dż		dZ
+		dż	(_A	tS
+	_o)	dż		d|Z
+	_po)	dż		d|Z
+
+.group	 e
+		e		E
+	_osi)	e	(mset_	=E
+	_sied)	e	(mset_	=E
+		e	(_A	E_
+
+.group	 ~
+		~
+
+.group	 ę
+		ę		E~
+		ę	(_	E
+		ę	(_A	E_
+		ę	(p	Em
+		ę	(b	Em
+		ę	(t	En
+		ę	(c	En
+		ę	(d	En
+	_dziewi)	ę	(ćset	=En^
+		ęć	(dzie	En^
+		ę	(dzi	En^		// kędzior
+		ę	(ci	En^
+		ę	(ć	En^
+		ę	(si	En^
+		ę	(ś	En^
+		ę	(dź	En^
+		ę	(k	EN
+		ę	(g	EN
+		ę	(l	E
+		ę	(ł	E
+	i)	ę	(tna	E		// piętnaście
+
+.group	 f
+		f		f
+		fi	(A	f;j
+
+.group	 g
+		g		g
+		g	(i	g;
+	hi)	gi	(e	gj
+		g	(_A	k
+		gł	(_	g
+		gł	(_A	k
+		gate	(s	gEjt
+
+.group	 h
+		h		h
+		hi	(A	hj
+		h	(i	C
+
+.group	 i
+		i		i
+		i	(A_+	j
+	A)	i	(A	j
+	C)	i	(A	;
+
+	_kl)	i	(e	;ij
+
+	_martyn)	i	(k	i
+	_martyn)	i	(c	i
+	_kon)	i	(c++	i
+	_kon)	i	(k++	i
+	_lajkon)	i	(c	i
+	_lajkon)	i	(k	i
+
+// pentatonika etc. - not complete yet
+	@n)	i	(kA_	=i
+	@n)	i	(ce_	=i
+	@n)	i	(kach_	=i
+	@n)	i	(ków_	=i
+	@n)	i	(kom_	=i
+	@tm)	i	(kA_	=i
+	@tm)	i	(ce_	=i
+	@tm)	i	(kach_	=i
+	@tm)	i	(ków_	=i
+	@tm)	i	(kom_	=i
+
+// czasowniki tryb przypuszczający
+
+	@)	i	(łby_	=i
+	@)	i	(łbym_	=i
+	@)	i	(łbyś_	=i
+	@l)	i	(by_	=i
+	@n)	i	(by_	=i
+	@l)	i	(śmy_	=i
+	@n)	i	(ście_	=i
+	@l)	i	(ście_	=i
+
+	@)	i	(byśmy_	=i
+	@)	i	(byście_	=i
+
+	@C)	ie	(libyśmy_	=;E
+	@C)	ie	(libyście_	=;E
+	@C)	ie	(liby_	=;E
+
+	@C)	ia	(łybyśmy_	=;a
+	@C)	ia	(łybyście_	=;a
+	@C)	ia	(łyby_	=;a
+
+.group	 j
+		j		j
+
+.group	 k
+		k		k
+		k	(i	c
+		kł	(_	k
+		ki	(A	kj
+
+.group	 l
+		l		l
+		l	(_	l_
+		li	(A	lj
+	_po)	li	(A	li
+
+.group	 ł
+		ł		w
+	A)	ł	(_	w_
+	mys)	ł	(_	w_
+		ł	(_
+
+.group	 m
+		m		m
+		m	(_	m_
+	A)	mi	(A	mj
+	_zie)	mi	(A	m;
+	_)	mj	(rA	majO
+
+.group	 n
+		n		n
+		n	(_	n_
+		n	(i	n^
+		ni	(A	n^;
+		n	(k	N
+		n	(g	N
+		n	(ć	n^
+		n	(ci	n^
+		n	(dź	n^
+		n	(dzi	n^
+
+.group	 ń
+		ń		n^
+		ń	(_	n^_
+
+.group	 o
+		o		O
+		o	(_A	O_
+
+// notebook + declination
+	_n)	oteboo	(C	Owtbu
+
+.group	 ó
+		ó		u
+
+.group	 p
+		p		p
+		ph	(A	f
+	_ko)	pi	(A	pj
+	_fotoko)	pi	(A	pj
+// base form also in 'pl_list'
+	_)	ppł	(k	pOtpuwkOvni
+	_)	ppł	(c	pOtpuwkOvni
+	_)	pł	(k	puwkOvni
+	_)	pł	(c	puwkOvni
+
+.group	 q
+		q		k
+		qu	(A	kv 	// quorum
+
+.group	 r
+		r		*
+	K)	r	(A	@-*
+		ri	(A	*j
+		rz		Z
+	c)	rz	(A	S
+	ć)	rz	(A	S
+	cz)	rz	(A	S
+	f)	rz	(A	S
+	h)	rz		S
+	k)	rz		S
+	p)	rz		S
+	s)	rz	(A	S
+	ś)	rz	(A	S
+	sz)	rz	(A	S
+	t)	rz		S
+		r	(zi	*
+	A)	r	(zł	*		// obmierzły
+	ma)	r	(zn	r		// marznąć etc.
+	ma)	r	(zlin	*		// zmarzlina
+	_zama)	r	(za	*		// zamarzać
+	_zma)	r	(za	*
+	odma)	r	(za	*
+
+.group	 s
+		s		s
+		si	(nus	si
+		si	(liko	si
+	elik)	si	(r	si
+	plek)	si	(g	si
+	_mak)	si	(_	si
+	_mak)	si	(m	si
+		s	(i	S;
+		si	(A	S;
+		sz		S
+
+.group	 ś
+		ś		S;
+		ść	(dzie	Z;
+
+.group	 t
+		t		t
+		t	(i	t;
+		ti	(A	tj
+		t	(rz	t| 	// trzetrzelewska
+		t	(s	t|
+
+.group	 u
+		u		u
+		u(_A		u_
+	a)	u		w		// autobus
+	e)	u		w
+	na)	u	(k	u
+	na)	u	(cz	u
+	de)	u	(s	u
+
+.group	 v
+		v		v
+
+.group	 w
+		w		v
+	ier)	wsz	(A	S		// pierwszy
+		w	(_A	f
+	c)	w	(A	f
+	ć)	w	(A	f
+	cz)	w	(A	f
+
+	f)	w	(A	f
+	h)	w	(A	f
+	k)	w	(A	f
+	p)	w	(A	f
+	s)	w	(A	f
+	ś)	w	(A	f
+	sz)	w	(A	f
+	t)	w	(A	f
+	_)	window		wyndOw
+
+.group	 x
+		x		ks
+
+.group	 y
+		y		y
+		y	(_A	y_
+	_)	y	(A	j
+	czter)	y	(stA	=y
+	_pat)	y	(++	y
+	@t)	y	(kA_	=y
+	@t)	y	(ce_	=y
+	@t)	y	(kach_	=y
+	@t)	y	(ków_	=y
+	@t)	y	(kom_	=y
+	muz)	y	(kA_	=y
+	muz)	y	(ce_	=y
+	muz)	y	(kach_	=y
+	muz)	y	(ków_	=y
+	muz)	y	(kom_	=y
+
+// czasowniki i spójniki
+
+	@ł)	y	(byśmy_	=y
+	@ł)	y	(byście_	=y
+	@ł)	y	(by_	=y
+
+	eb)	y	(śmy_	=y
+	eb)	y	(ście_	=y
+	_ab)	y	(ście_	=y
+	_ab)	y	(śmy_	=y
+
+.group	 z
+		z		z
+		z	(_A	s
+		z	(i	Z;
+		zi	(A	Z;
+	_ro)	z	(iC	z
+
+.group	 ź
+		ź		Z;
+		ź	(_A	S;
+
+.group	 ż
+		ż		Z
+		ż	(_A	S
+
+// "Polished" pronunciation
+.group	 th
+	_e)	th	(anak	t 	// my nick!!!
+		th		s
+	_)	th		z
+
+// "Polished" simple pronunciation of some foreign letters
+
+.group		ü
+		ü		i
+
+.group	 ö
+		ö		E
+
+.group	 ä
+		ä		E
+
+.group	 ž
+		ž		Z
+
+.group	 č
+		č		tS
+
+.group	 š
+		š		S
+
+// ... and some common non-alphabetic characters
+.group
+		$		dOla*
+		@		mawpa
+		%		p@-*OtsEnt
+		+		plus
+		#		haS
+		=		*'uvna||S;E
+		/		dz;ElOnE
+		*		gv;astka
+		|		k@-*Eska||p;OnOva
+		^		pOtENga
+		&		End
+		`		Odv@-*Otny||apOst@-*Of

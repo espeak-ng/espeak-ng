@@ -1,0 +1,85 @@
+volume 16
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/  r     5  r  _
+0  r   3     5  r  _
+0  r/ NULL   0  r
+0  r- NULL   0  r
+0  l- NULL   0  l
+0  w/ NULL   0  w
+0  j/ NULL   0  j
+2  ;   i     0  NULL
+0  ;  NULL   0  j
+0  -  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL
+0  *  NULL   0  r
+
+0  I   NULL  0  i
+0  U   NULL  0  u
+0  E   NULL  0  e
+0  &   NULL  0  a
+0  @   NULL  0  e
+0  aI  NULL  60 a  j
+
+0  tS; NULL  0  tS'
+0  dZ; NULL  0  dZ'
+0  l^  NULL  0  L
+0  n^  NULL  0  J
+0  N   NULL  0  n
+0  h   NULL  0  x
+
+// CR1 doesn't like same phonemes twice
+0  d   d     5  d  _
+0  s   s     5  s  _
+0  z   z     5  z  _
+0  t   t     5  t  _
+0  m   m     5  m  _
+0  n   n     5  n  _
+0  r   r     5  r  _
+0  k   k     5  k  _
+0  e   e     5  e  _
+0  o   o     5  o  _
+0  a   a     5  a  _
+0  &   a     5  a  _
+
+// map English phonemes to Hungarian
+0  3   r     5  r  _
+0  @   NULL  0  a
+0  eI  NULL  60 e  j
+0  aU  NULL  60 a  u
+0  oU  NULL  0  o
+0  @L  NULL  40 e  l
+0  @2  NULL  0  e    // @
+0  @5  NULL  0  e    // @
+0  3   NULL  0  r    // @
+0  a2  NULL  0  a    // @
+0  I2  NULL  0  i
+0  I   NULL  0  i
+0  a   NULL  0  a
+0  aa  NULL  0  a
+0  V   NULL  0  a    // @
+0  U   NULL  0  u
+0  0   NULL  0  o
+0  i:  NULL  0  i
+0  u:  NULL  0  u
+0  A:  NULL  0  a
+0  3:  NULL  0  r    // @
+0  aI  NULL  60 a  j
+0  OI  NULL  60 o  j
+0  i@  NULL  60 i  r    // @
+0  e@  NULL  70 e  r
+0  o@  NULL  70 o  r    // @
+0  O@  NULL  70 o  r    // @
+0  O   NULL  0  o
+0  O:  NULL  0  a
+0  A:  NULL  0  a
+0  A@  NULL  70 a  r
+0  U@  NULL  60 u  r    // @
+0  aI@ NULL  70 a  r    // @
+0  aU@ NULL  0  a
+
+0  T   NULL  0  t
+0  D   NULL  0  z
+0  w   NULL  0  v

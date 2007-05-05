@@ -1,0 +1,141 @@
+ 
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 120
+  formants vowel/ii_3
+  linkout ;
+endphoneme
+
+phoneme i:
+  vowel starttype (i) endtype (i)
+  length 230
+  formants vowel/i_3
+  linkout ;
+endphoneme
+
+phoneme &
+  vowel starttype (e) endtype (e)
+  length 130
+  formants vowel/ee_6
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 130
+  formants vowel/e_mid2
+endphoneme
+
+phoneme e:
+  vowel starttype (e) endtype (e)
+  length 280
+  formants vowel/e_mid
+endphoneme
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 140
+  formants vowel/a
+endphoneme
+
+phoneme a:
+  vowel starttype (a) endtype (a)
+  length 290
+  formants vowel/a
+endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 130
+  formants vowel/oo_1
+endphoneme
+
+phoneme o:
+  vowel starttype (o) endtype (o)
+  length 280
+  formants vowel/oo_1
+endphoneme
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 130
+  formants vowel/u_2
+endphoneme
+
+phoneme u:
+  vowel starttype (u) endtype (u)
+  length 280
+  formants vowel/u_bck
+endphoneme
+
+
+phoneme aU
+  vowel starttype (a) endtype (u)
+  length 270
+  formants vdiph/au_4
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 260
+  formants vdiph/eu
+endphoneme
+
+phoneme oU
+  vowel starttype (o) endtype (u)
+  length 260
+  formants vdiph/ou_2
+endphoneme
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 260
+  formants vdiph/eei_3
+endphoneme
+
+
+
+phoneme r-
+  vowel  starttype (@)  endtype (@)
+  length 220
+  formants vowelr/r-voc
+endphoneme
+
+phoneme r:
+  vowel  starttype (@)  endtype (@)
+  length 300
+  formants vowelr/r-voc
+endphoneme
+
+phoneme l-
+  vowel  starttype (@)  endtype (@)
+  length 140
+  formants vwl_hi/l-voc
+endphoneme
+
+phoneme l:
+  vowel  starttype (@)  endtype (@)
+  length 250
+  formants vwl_hi/l-voc
+endphoneme
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/2       // use 'dark' [l] after a vowel
+  formants l/l
+  after _ l/_l  t l/tl
+  before _ l/l_2
+endphoneme
+
+phoneme w
+  liquid
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w2
+  after _  w/w2
+endphoneme
+
+

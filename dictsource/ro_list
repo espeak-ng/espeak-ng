@@ -1,0 +1,511 @@
+
+// This file in UTF8 encoded
+
+// Letters
+//========
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+// Use ş ţ (with cedilla) not ș ț (with comma) in these translation files
+
+// character names
+_a	a
+_ă	'@
+_â	,ydin'a
+b	be
+c	tSe
+d	de
+_e	e
+f	fe
+g	dZe
+h	haS
+_i	i
+_î	,ydin'i
+j	Ze
+k	ka
+_l	le
+_m	me
+_n	ne
+_o	o
+p	pe
+q	kju
+r	re
+_s	se
+ş	Se
+t	te
+ţ	tse
+_u	u
+v	ve
+w	dublu've
+x	iks
+y	'igrek
+z	zet
+
+â	,ydin'a $atend
+ă	'@ $atend
+î	,ydin'i $atend
+
+_.	punkt
+
+
+// numeric
+//********
+_0	z'e*o
+_1	'unu
+_2	d'oI
+_2f	d'ou@
+_3	t@-*'eI
+_4	p'at@-*u
+_5	tS'intSI^
+_6	S'ase
+_7	S'apte
+_8	'opt
+_9	n'oU@
+_10	z'etSe
+
+_11	'unsp@-*ez,etSe
+_12	d'oIsp@-*ez,etSe
+_13	t@-*'eIsp@-*ez,etSe
+_14	p'aIsp@-*ez,etSe
+_15	tS'intSI^sp@-*ez,etSe
+_16	S'aIsp@-*ez,etSe
+_17	S'aptesp@-*ez,etSe
+_18	'optsp@-*ez,etSe
+_19	n'oU@sp@-*ez,etSe
+
+//_11	'unSpe
+//_12	d'oISpe
+//_13	t@-*'eISpe
+//_14	p'aISpe
+//_15	tS'inSpe
+//_16	S'aISpe
+//_17	S'apteSpe
+//_18	'optiSpe
+//_19	n'oU@Spe
+
+_20	doU@z'etSI^
+_30	t@-*eIz'etSI^
+_40	pat@-*uz'etSI^
+_50	tSintSI^z'etSI^
+_60	SaIz'etSI^
+_70	Saptez'etSI^
+_80	optz'etSI^
+_90	noU@z'etSI^
+
+_2X	d'oU@zetSI^
+_3X	t@-*'eIzetSI^
+_4X	p'at@-*uzetSI^
+_5X	tS'intSI^zetSI^
+_6X	S'aIzetSI^
+_7X	S'aptezetSI^
+_8X	'optzetSI^
+_9X	n'oU@zetSI^
+
+_0C	s'ute
+_1C	,os'ut@
+_2C	d'oU@s'ute
+
+_0M1	m'iI
+_1M1	,om'ie
+_ofM1	m'iI
+_0M2	mil'jOane
+_1M2	'unmil'jon
+_0M3	mil'jarde
+_1M3	'unmil'jard
+_0M4	bil'jOane
+_1M4	'unbil'jon
+_0M5	bil'jarde
+_1M5	'unbil'jard
+
+_0of	de
+_0and	_Si
+_dpt	_v'irgul@
+_0Z2	s'utimi
+_0Z3	m'iImi
+
+
+// Abbreviations
+//**************
+etc	ettS'ete*a
+s.a	Si'aSa
+ş.a.	Si'aSa
+s.a.m.d	Se|aSamaIdeparte
+ş.a.m.d	Se|aSamaIdeparte
+
+
+// articles
+un	$u
+o	$u
+nişte	$u
+unui	$u
+unei	$u
+unor	$u
+unele	$u	// some
+
+ăsta    $u1+    // this
+asta    $u+
+acest	$u+     // this
+aceasta	$u+
+această	$u+
+
+acel	$u+     // that
+acea	$u+	// that
+acei	$u+     // those
+acele	$u+     // those
+
+cei	$u+	// the, those
+cel	$u+	// that, he who
+cea	$u+	// that, she who
+cele	$u+	// those
+
+// pronouns
+eu	jeU $u+
+tu	$u+
+el	jel $u+
+ea	ja $u+
+//noi	$u+
+voi	$u+
+ele	jele $u+
+
+mă	$u
+te	$u
+îl	$u
+o	$u
+ne	$u
+vă	$u
+îi	$u
+le	$u
+se	$u
+îmi	$u
+îţi	$u
+ţi	$u
+mi	$u
+şi	$u
+
+care	$u $brk   // who that which what
+ceea	$u $brk   // that
+
+
+// possessive adjectives
+meu	$u+
+mei	$u+
+mea	$u+
+//mele	$u+
+tău	$u+
+tăi	$u+
+ta	$u+
+tale	$u+
+său	$u+
+săi	$u+
+sa	$u+
+sale	$u+
+lui	$u+
+ei	jeI $u+
+//nostru	$u+
+noştri	$u+
+noastră	$u+
+//noastre	$u+
+vostru	$u+
+voştri	$u+
+voastră	$u+
+voastre	$u+
+lor	$u+
+
+
+
+// prepositions
+al	$u $brk	// of, genative article
+a	$u $brk $verbf
+ai	$u $brk
+ale	$u $brk
+
+in	$u $brk
+în	$u $brk
+pe	$u $brk
+ce	$u $brk
+la      $u $brk
+de	$u
+(de la)	dela $u
+din	$u $brk
+pentru	$u $brk
+cu	$u		// with
+fără	f,@r@ $pause		// without
+fara	f,@r@ $pause	// (fără)
+lângă	$brk		// beside
+prin	$brk 		// through
+după	$brk		// after, behind
+dupa	dup@ $brk	// (după)	
+dintre	$brk		// between
+intre	$brk		// between
+asupra	$brk		// about, on, with
+sub	$brk		// below
+până	$pause		// from, until
+despre	$brk		// about, on
+spre	$brk		// towards
+către	k'@t@-*e $brk	// towards
+
+
+// conjunctions
+// şi	$u $pause	// and
+iar	$pause		// and, again
+sau	$u $pause	// or
+ori	$u $pause	// or
+dar	$u $pause	// but
+deoarece $pause		// because
+dacă	$u $pause	// if
+daca	dak@ $u $pause	// (dacă)
+când	$u $pause	// when
+cum	$pause		// how, as, since
+astfel	$pause		// thus
+deşi	$2 $pause	// although
+fie	fie $u		// either
+însă	$pause		// but, yet, however
+atunci	$pause		// therefore
+(de atunci) d%e||at'untSi $pause   // since then
+nici	$pause		// neither
+deci	$pause		// therefore, so that
+fiindcă	$pause		// because, since, as
+fiind	$pause
+
+
+// negative
+nu	$u+
+
+// questions
+
+
+// some common adjectives and adverbs
+aşa		$2 $brk		// so, thus
+orice		$u3+	// any
+totuşi		$1 $brk	// never, though, nevertheless
+totusi		$1 $brk	// (totuşi)
+unde		$brk	// where
+
+
+// auxillary verbs  (be, have, can, etc)
+să	$u
+
+
+sunt	$u+            // to be
+eşti	jeStI^ $u+
+este	jeste $u+
+suntem	$u1+
+sunteţi	$u1+
+sunt	$u+
+e	je $u
+e       e  $atend
+fost	$u+            // been
+eram	je*am $u2+     // was
+erai	je*aI $u2+
+era	je*a $u2+
+eraţi	je*ats;I^ $u2+
+erau	je*aU $u2+
+
+avea	ave|a $u3+    // to have
+as	$u+ $verbf
+ai	$u+ $verbf
+ar	$u+ $verbf
+am	$u+ $verbf
+aţi	$u+ $verbf
+au	$u+
+are	$u+	// ??
+avem	$u+
+aveţi	$u+
+
+voi	$u+ $verbf    // will
+vei	$u+ $verbf
+va	$u+ $verbf
+vom	$u+ $verbf
+veţi	$u+ $verbf
+vor	$u+ $verbf
+
+există	$u	// there is
+
+face	$u+	// to do
+
+putea	$u2+	// may
+pot	$u+ $verbf
+poţi    $u+ $verbf
+poate   $u+ $verbf
+putem   $u+ $verbf
+puteţi  $u+ $verbf
+
+trebui		t@-*ebw'i        // to have to
+trebuie		$2     // @-
+
+
+
+// Final "i" is stressed
+absolvi		$3
+ciocni		$2
+citi		$2
+dărui		d@*w'i
+deosebi		$3
+descoperi  	$4
+deveni		$3
+întâlni		$3
+izbi		$2
+lovi		$2
+opri		$2
+pocni		$2
+răsuci		$3
+teori		$2
+
+
+// hyphenated contractions
+(să l)	s@l     $u
+(să i)	s@I     $u
+(să şi)	s@S;I^  $u
+(să mi)	s@m;I^  $u
+(te am)	team    $u
+(te ai) teaj    $u
+(ne am) team    $u
+(l a)	la      $u
+(l au)	laU     $u
+(l am)	lam     $u
+(l aţi)	lats;I^ $u
+(v aţi)	vats;I^ $u
+(i am)	jam     $u
+(a şi)  aS;I^   $u
+(într o) ynt@-*o
+(dintr o) dint@-ro
+
+// MAIN WORD DICTIONARY
+//*********************
+// Use of $alt:
+// replaces final [j] by ['i]  (i.e. "i" is stressed if followed by a vowel)
+
+abil		$2
+abzice		$2
+acelaş		$2
+adventice	$3
+aer		aIer
+aici		a'itSI^
+altceva         $3
+apoi		$2
+artefice	$3
+asemenea	$2
+
+biseric		$2
+
+capitol		$2
+careva          $3
+cândva		$2
+câteva		$3
+cerbice		$2
+ceva            $2
+cicatrice	$3      // @-
+cineva          $3
+chimi		$alt
+chimic		$1
+complice	$2
+contrazice	$3
+creier		$1	// @-
+
+deja		$2
+denzic		$2
+denzice		$2
+deoarece	$4
+destul		$2
+dincolo		$1
+director	$2
+dori		$2
+
+edit		$1
+egale		$2
+energi		$alt
+elice		$2
+exista		$3
+
+factice		$2
+fenicşi		$1
+fenix		$1
+ferice		$1
+filozofi	$alt
+filozofii	$4
+fizic		$1
+fizicul		$1
+folosi		$3
+
+gastronomi	$alt
+gâgâlice	$3
+găurice		$2
+ghilimele	$3
+gimnastic	$2
+gimnaziu	dZimn'azju
+
+imagin		$2
+înainte		yna'inte
+interzice	$3
+
+latice		$2
+limit		$1
+lipsi		$2
+logic           $1
+
+matrice		$2
+maxim		$1
+maximum		$1
+merit		$1
+mia		m'ia
+mie		m'ie
+minum		$1
+minumum		$1
+murdărie	murd@*'ie
+muzik		$1
+
+nimic		$2
+novice		$2
+numai		$1	// only
+
+oareşice	$4
+obişnuit        obiSnw'it
+ocol		$2
+ordin		$1
+orice		$3
+ovidiu		ovidj'u
+
+pagin		$1
+parodi		pa*od'i
+parodii		$3
+plânger		$1
+politic		$2
+pricin		$1
+prieten         $2
+prietenie	p@-*jeten'ie
+privi		$3
+propice		$2
+protocol	$4
+
+regul		$1
+reguli		$1
+repede		$1
+repezi		$1
+români          romyn'i
+rotocol		$3
+
+sadic		$1
+sâmbătă		$1
+securice	$3
+sergiu		sergj'u
+sigur		$1
+simbolic	$2
+spaţiu		spatsju
+
+tanti		tanti
+târcol		$2
+târziu		tyrz'iu
+terapi          $alt
+terapii		$3
+
+ultim		$1
+undeva          $3
+
+veder		$2
+vineri		$1
+vinovăţi        $alt
+vinovăţii       $4
+virgulă		$1
+virus		$1
+

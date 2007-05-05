@@ -1,0 +1,238 @@
+// This file is UTF-8 encoded
+
+.group a
+          _) a (_         a:
+             a            a:
+             a (CC        A
+             a (C_        A
+             aa           a:
+             aai          a:j
+             au           VU
+             ay           a:j
+
+
+.group b
+          _) b (_         be:
+             b            b
+             bb           b
+             b (_N        p
+             bs (_N       ps
+
+          _) be (@P2      b@
+          _) bee          be:
+          _) beu          bY:
+
+
+.group c
+          _) c (_         se:
+             c (e         s
+             c (i         s
+             c            k
+          a) ch           x
+          o) ch           x
+             ch           C
+
+
+.group d
+          _) d (_         de:
+             d            d
+             dd           d
+             dt           t
+             d (_N        t
+             ds (_N       ts
+
+
+.group e
+          _) e (_         e:
+             e            e:
+          C) e (_         @
+             e (CC        E
+             e (C_        E
+             e (r         I:
+             eï (+        @_I
+             ei (+        EI
+             ee (r        I:
+             ee           e:
+             eeuw         eU
+             eu           Y:
+          @) en (_        @n
+          @) er (_        @r
+          @) eren (_      @r@n
+             eau          o: //words with French origin
+
+          _) er (@P2      Er
+
+          &) e (nB@       @
+          &) e (rC@       @
+
+
+.group f
+          _) f (_         Ef
+             f            f
+             ff           f
+
+
+.group g
+          _) g (_         Qe:
+             g            x
+          _) g            Q
+             gg           g
+
+          _) ge (@P2      Q@
+          _) gee          Qe:
+          _) geu          QY:
+
+
+.group h
+          _) h (_         hA:
+             h            h
+          C) h (K
+
+          _) her (@P3     hEr
+
+
+.group i
+          _) i (          i:
+             i            i
+             ij (+        EI
+             i (CC        I
+             i (C_        I
+             ie           i
+             ieuw         iw
+
+          @) ig (_        @x
+
+
+.group j
+          _) j (_         je:
+             j            j
+
+
+.group k
+          _) k (_         kA
+             k            k
+             kk           k
+
+
+.group l
+          _) l (_         El
+             l            l
+             ll           l
+          @) lijk         lIk
+
+
+.group m
+          _) m (_         Em
+             m            m
+             mm           m
+
+
+.group n
+          _) n (_         En
+             n            n
+             nn           n
+             ng (_        N
+             nj           n^
+
+
+.group o
+          _) o (_         o:
+             o            o:
+             o (CC        O
+             o (C_        O
+             o (r         o:
+             oo (r        o:
+             ooi          o:j
+             oo           o:
+             oe           u
+             oei          uj
+             ou           VU
+
+          _) ont (@P3     Ont
+          _) onder        Ond@r
+
+
+.group p
+          _) p (_         pe:
+             p            p
+             pp           p
+
+
+.group q
+          _) q (_         ky
+             q            k
+             qu           kv
+
+
+.group r
+          _) r (_         Er
+             r            r
+          A) r (A       *
+          C) r (A       @-*
+             rr         *r
+
+
+.group s
+             s            s
+             ss           s
+             sch          s;
+             sj           S
+
+
+.group t
+          _) t (_         te:
+             t            t
+             tt           t
+             tie (_       tsi
+             tj           t;
+             tsj          tS
+
+
+.group u
+          _) u (_         y
+             u            y
+             u (CC        8
+             u (C_        8
+             uu           y
+             ui           Wy
+             uw           yU
+             uw (_        yU
+
+
+.group v
+          _) v (_         fe:
+             v            v
+
+          _) ver (@P3     v@r
+
+
+.group w
+          _) w (_         ve:
+             w            v2
+
+
+.group x
+          _) x (_         Iks
+             x            ks
+
+
+.group y
+          _) y (_         EI
+             y            i
+
+
+.group z
+          _) z (_         zEt
+             z            z
+
+
+
+.group
+            éé            e:
+            , (D          k'Oma:
+             %            pro:s'Ent
+            @             'a:pEnst,a:rt;@
+
+             .            p8nt
+             . (.        _:
+        \.)  .

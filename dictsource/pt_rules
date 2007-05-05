@@ -1,0 +1,602 @@
+// translation rules Brazilian
+// This file is UTF-8 encoded
+
+// Options
+// ?1  European Portuguese
+// ?2  Brazilian Portuguese
+
+// Letter groups
+// A  a vowel
+// C  a consonant
+// G  a voiced consonant
+// K  not a vowel
+
+.group a
+       _) a (_       a
+          a          a
+       &) a (_       =&       // in final unstressed syllable
+       &) a (s_      =&
+       &) a (_a      =&/      // ?? elide final a before a
+       &) a (_à      =&/
+?1        a (_       =&       // in final unstressed syllable
+?1        a (s_      =&
+?1        a (_a      =&/      // ?? elide final a before a
+?1        a (_à      =&/
+
+          a (C_      &
+          a (r_      'a
+?1 p) a (d_     =E
+          a (CC_     &
+?1        al (_      'al // eg: Portugal, capital, etc.
+?2        al (K      aU
+?2        alh        alj
+
+          a (m       &~
+          a (n       &~
+          am (_      =&~N
+          am (C      &~m
+          an (K      &~N
+          a (nhA     &~
+          am (_      =&U~
+
+          ai         aI
+          ai (s      aI
+          a (iCK     a
+          ay         aI
+          ao         aU
+          au         aU
+          au (s      aU
+          a (uCK     a
+
+
+.group â
+          â          ''&
+          â (m       ''&~
+          â (n       ''&~
+          âm (K      ''&~m
+          ân (K      ''&~N
+          ânh        ''&~n^
+
+
+.group à
+          à          a
+       _) à (s_      aI
+
+          à (m       &~
+          à (n       &~
+          àm (K      &~m
+          àn (K      &~N
+          à (nhA     &~n^
+
+
+.group á
+          á          ''a
+          ái         ''aI
+          ái (s      ''aI
+          á (iCK     ''a
+          áy         ''aI
+          áu         ''aU
+          áu (s      ''aU
+          á (uCK     ''a
+
+
+.group ã
+          ã          &~
+          ão         &U~
+
+
+.group b
+       _) b (_       be
+          b          b
+          b (b
+
+
+.group c
+       _) c (_       se
+          c          k
+          c (Y       s         // ce ci
+          ch         S
+          c (c              //drop “c” in European Portuguese (eg: seleccionar)
+?1     A) ct         t      //drop “c” in European Portuguese (eg: exacto)
+?1     A) cç         s      //drop “c” in European Portuguese (eg: selecção)
+?1 conta) ct      ct
+
+
+.group d
+       _) d (_       de
+          d          d
+          d (d
+?2        d (i       dZ
+?2        d (í       dZ
+?2        d (e_      dZ
+
+
+.group e
+       _) e (_       E
+          e          e
+          e (_       =i
+          e (s_      =i
+?2        e (_AN     =i/      // ?? elide to [j] if next word starts with a vowel
+?2    &l) e (_AN     =i       //    but not after l or r
+?2    &r) e (_AN     =i
+?1        e (_       =y
+?1        e (s_      =y
+?1        e (_iN     =i/      // drop final [i] is next word starts with another i
+
+?1        e (e       i //eg: candeeiro
+?2        ee         i
+
+          e (be_     E
+          e (bes_    E
+          e (ce_     E
+          e (ces_    E
+?2        el (K      EU
+?2        elh        elj
+
+?1 e (rtA_       'E // Eg: Alberto, aberta, etc...
+          em (C      eIm
+          en (K      eIN
+          enh        en^
+
+          em (_      =eIN
+          em (s_     =eIN
+          en (_      =eIN
+          en (s_     =eIN
+
+
+          ei         eI
+          ei (s      eI
+          e (iCK     e
+          ey         eI
+          eu         eU
+          eu (s      eU
+          e (uCK     e
+
+?1     _) es (C@@    S        // drop initial "e".
+?1    _) e (f       i // efectuar, etc.
+?1 C) e (cC       'E // eg: seleccionar, efectuar, selecção, etc...
+?1     C) e (ã       i // leão, panteão, etc.
+?1     C) e (a       i // oceano, etc.
+?1 _C) e (CACA       =y  //definições.
+?1 _C) e (CCACAr       =y   // desligar.
+?1 _C) e (CKAr      =y // fechar
+?1 _C) e (CCACAr       =y // terminar.
+?1 _C) e (CACC     =y // recicla, reciclagem, etc...
+?1 _f) e (rrament       =y // ferramenta, ferramentas.
+?1 hip) e (r       ,E // eg: hiper
+?1 sup) e (r       ,E // super
+?1 int) e (rC       'E // Interno
+?1 int) e (rr       E // Interno
+?1 n) e (t       ,E // eg: net
+
+?1 e (l_       ,E
+
+
+.group é
+          é          ''E
+          éi         ''EI
+          éi (s      ''EI
+          é (iCK     ''E
+          éy         ''eI
+          éu         ''EU
+          éu (s      ''EU
+          é (uCK     ''E
+          ém (_      ''eIN
+          ém (s_     ''eIN
+          én (_      ''eIN
+          én (s_     ''eIN
+
+
+.group ê
+          ê          ''e
+          êm (_      ''eIN
+          êm (C      ''eIm
+          ên (K      ''eIN
+          ênh        ''en^
+          êm (_      ''eIN
+
+
+.group f
+?1     _) f (_       Ef;     // individual letter
+?1     _) f (__      Ef      // individual letter at end-of-word
+       _) f (_       'Efe
+          f          f
+          f (f
+
+
+.group g
+?1     _) g (_       ge
+       _) g (_       Ze
+          g          g
+          g (g
+          g (Y       Z        // ge gi
+          gu (Y      g
+?1        guen (C    gw'eIN    // aguenta, etc.
+?1     n) gu (A      gw // eg: língua, etc.
+
+
+.group h
+       _) h (_       ag'a
+          h              // silent
+
+
+.group i
+       _) i (_       i
+          i          i
+          i (A       j
+      Cr) i          i
+      Cl) i          i
+          i (_       'i
+
+?2        il (K      iU
+?2        ilh        ilj
+
+          im (_      iN
+          im (C      im
+          in (g      iN
+          in (k      iN
+          inh        in^
+
+          i (A_      'i
+          io (_      iU
+          io (s_     iU
+          i (oCK     i
+          iu (_      iU
+          iu (s_     iU
+          i (uCK     i
+
+      áC) i (A_       j
+     áCC) i (A_       j
+      âC) i (A_       j
+     âCC) i (A_       j
+      éC) i (A_       j
+     éCC) i (A_       j
+      êC) i (A_       j
+     êCC) i (A_       j
+      íC) i (A_       j
+     íCC) i (A_       j
+      óC) i (A_       j
+     óCC) i (A_       j
+      ôC) i (A_       j
+     ôCC) i (A_       j
+      úC) i (A_       j
+     úCC) i (A_       j
+
+?1       @) ing (_      _^_EN
+?1       @) ings (_     _^_EN
+
+
+.group í
+          í          ''i
+          í (m       ''i
+          í (n       ''i
+          ím (_      ''iN
+          ím (C      ''im
+          ín (K      ''iN
+          ính        ''in^
+
+
+.group j
+       _) j (_       Z'Ot&
+          j          Z
+
+.group k
+?1     _) k (_       k'ap&
+?2       _) k (_       ka
+          k          k
+          k (k
+
+
+.group l
+?1     _) l (_       El;       // individual letter
+?1     _) l (__      El        // individual letter at end-of-word
+       _) l (_       'Ele
+          l          l
+          l (l
+          lh         l^
+       A) lh         lj
+?1     A) lh         l^  // ??
+
+
+.group m
+?1     _) m (_       Em;
+?1     _) m (__      Em
+       _) m (_       'eme
+          m          m
+          m (m
+
+
+.group n
+?1     _) n (_       En;
+?1     _) n (__      En
+       _) n (_       'ene
+          n          n
+          n (n
+          nh         n^
+?1     A) nn         n     //drop “n” in European Portuguese (eg: connosco).
+
+
+.group o
+          o          o
+       @) o (_       =u
+          o (s_      =u
+?1     @) o (_       =U
+?1        o (s_      =U
+          ou         ow
+          oi         oI
+          oi (s      oI
+          o (iCK     o
+          oo         u
+?1     v) oo (_      ow
+          oy         OI
+
+          o (Ca_     O
+?1        o (Cá_     'O
+?1        o (Cé_     'O
+?1        o (Cí_     'O
+?1        o (Có_     'O
+?1        o (Cú_     'O
+?1        ol (_      Ol
+?2        ol (K      Ow
+?2        olh        olj
+
+?1          om (_      'om
+?2          om (_      oN
+          o (ma_     o
+?1          om (C      'om
+?2          om (C      om
+          on (K      oN
+          o (na_     o
+          onh        on^
+          o (rmA_    O
+          o (rmAC    O
+
+?1          oz (_      OS
+?2          oz (_      Oz
+          o (zes_    O
+          o (ra_     O
+          o (ras_    O
+?1 _C) o (CACACC       =u // Documento, documentação, etc.
+?1 _C) o (CCAC       =u // formatar, formato.
+
+
+.group ô
+          ô          ''o
+          ôm (_      ''oN
+          ôm (C      ''om
+          ôn (K      ''oN
+          ônh        ''on^
+
+
+.group ó
+          ó          ''O
+
+          ói         ''OI
+          ói (s      ''OI
+          ó (iCK     ''O
+          óu         ''Ow 
+          óy         ''OI
+
+
+.group õ
+          õ          o~
+          õe         o~j
+
+
+.group p
+       _) p (_       pe
+          p          p
+          p (p
+?1        ph         f     //Didn’t use in European Portuguese (eg: English)
+?1        ple (_     _^_EN
+
+
+.group q
+       _) q (_       ke
+          q          k
+          qu         kw
+          qü         kw
+          qu (Y      k
+          qu (K      ku
+?1     _) qua        kwa     // quatro, etc.
+?1     _) que        ke      // quente, etc.
+?1     C) quen (C    kw'eIN     // cinquenta, etc.
+?1     A) quen (C    kw'eIN     // frequência, etc.
+?1        quec       kes     // esquece, etc.
+?1        queç       kes     // esqueça.
+?1     A) que (nA_   ke      // pequeno, etc.
+?1     C) quê (_     ke      // porquê, etc.
+?1        que (l     ke      // aquele, etc.
+?1        que (r_    ke      // qualquer, etc.
+?1        qui        ki      // quinta, esquilo, etc.
+?1     _) quind      kuind   // quindecágono, etc.
+?1  tran) qui        kui     // tranquilo, etc.
+?1     _) quo        kuo     // quoficiente, etc.
+
+ 
+.group r
+?1     _) r (_       'Err;    // individual letter
+?1     _) r (__      'Err     // individual letter at end-of-word
+       _) r (_       'Exe
+       _) r (_\$     xe'aU    // currency
+          r          r
+?1       A) r (A       :r
+?2       A) r (A       *
+?1       A) r (_A      :r
+?2       A) r (_A      *
+          rr         x
+?1       C) r (A       :r
+?2       C) r (A       @-*
+       _) r          x
+       l) r          x
+       n) r          x
+       s) r          x
+?1     A) r (_       =@- //now, tis sound isn’t perfect but is is acceptable.
+
+
+.group s
+?1     _) s (_       'Ess|;    [s]+[;] not [s;] phoneme
+?1     _) s (__      'Ess
+       _) s (_       'Ese
+          s          s
+          ss         s
+          sc (Y      s
+          sç         s
+       A) s (A       z
+?1          s (_       S
+?2           s (_       s
+          s (_A      z     // next word starts with vowel
+          s (_G      z     // next word starts with voiced consonant
+
+       A) s (_S1     s
+       A) s (_AS1    z     // next word starts with vowel
+       A) s (_GS1    z     // next word starts with voiced consonant
+
+?1     A) s (C       S
+?1     A) ss         s
+?1     A) s (G+      Z
+?1     A) s (_KS1    S
+?1     A) s (_G+S1   Z
+
+
+.group t
+       _) t (_       te
+          t          t
+          t (t
+?2        t (i       tS
+?2        t (í       tS
+?2        t (e_      tS
+?1          th         _^_EN
+?1          tion (_    _^_EN
+
+
+.group u
+       _) u (_       u
+          u          u
+          u (A       w
+          u (_A      w
+       r) u (A       u
+       r) u (_A      u
+          u (A_      'u
+
+          ui         'uI
+          ui (_      uI
+          ui (s      'uI
+          u (iCK     u
+          uy         uI
+
+          um (_      u~N
+          um (C      u~m
+          un (K      u~N
+          unh        u~n^
+
+       g) u (Y
+
+
+.group ú
+          ú          ''u
+          úm (_      ''u~N
+          úm (C      ''u~m
+          ún (K      ''u~N
+          únh        ''u~n^
+
+.group v
+       _) v (_       ve
+          v          v
+          v (v
+
+
+.group w
+       _) w (_       d'ablju
+          w          w
+?1          w (_       _^_EN
+
+
+.group x
+?1       _) x (_       SiS
+?2       _) x (_       Sis
+          x (A       S
+       A) x (A       ks
+       e) x (A       z
+       e) x (o_      ks
+      ai) x (A       S
+      ei) x (A       S
+      au) x          s
+      ou) x          s
+          x (C       s
+          x (s
+          x (_       ks
+     ale) x (a       S
+     pro) x (i       s  // aproximado, aproximadamente, aproximar, etc.
+     pró) x (i       s  // próximo, etc.
+
+
+.group y
+       _) y (_       'ipsiloN
+          y          i
+          y (A       j
+
+
+.group z
+       _) z (_       ze
+          z          z
+          z (z
+?1          z (_       S
+?2          z (_       s
+          z (_A      z
+          z (_G      z
+
+?1     A) z (C       S
+?1     A) z (G+      Z
+?1     A) z (_C      S
+?1     A) z (_G+     Z
+
+.group
+          ç          s
+       _) ç (_       s'esed'il^&
+
+          ü          u
+
+          ß          s
+
+          %          pors'eNtu
+          $          sif@-*'&U~
+     _r_) $
+	−          m'enus
+	+          maIs
+	&	'e
+	@	ax'ob&
+	¤	'eU*u
+	€	'eU*u
+	§	pa*'ag@-*,afu
+
+    // don't speak multiple occurances of these symbols
+          , (D       v'irgul&
+          .          p'oNtu
+          . (.       _:
+      \.) .
+
+          *          aste*r'isku
+      *)  * (*
+          ** 
+     **)  * (_       _::
+
+     __)  - (_D      m'enus
+     A_)  - (_D      _
+     C_)  - (_D      _
+      --) -
+
+          =            __igw'&l_
+          = (==        
+      =)  = (=         
+     ==)  = (_         _::
+
+
+
+
+
+
+
+
+
+

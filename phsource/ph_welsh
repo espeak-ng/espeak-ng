@@ -1,0 +1,244 @@
+
+//====================================================
+//  Welsh
+//====================================================
+
+
+// Short Vowels
+//=============
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 150
+  formants vowel/a
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 150
+  formants vowel/ee_2
+endphoneme
+
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/ii
+endphoneme
+
+
+phoneme Y   // symbol used in place of I"  (I bar)
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/ii#
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 150
+  formants vowel/oo_2
+endphoneme
+
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vowel/u_bck
+endphoneme
+
+
+phoneme V
+  vowel starttype (@) endtype (@)
+  length 150
+  formants vowel/@
+endphoneme
+
+
+// Long Vowels
+//============
+
+phoneme i:
+  vowel starttype (i) endtype (i)
+  length 180
+  formants vowel/i
+  reduceto I  4
+endphoneme
+
+
+phoneme y:     // symbol used in place of i" (i bar)
+  vowel starttype (i) endtype (i)
+  length 180
+  formants vowel/i#
+  reduceto Y  4
+endphoneme
+
+
+phoneme u:
+  vowel starttype (u) endtype (u)
+  length 190
+  formants vowel/u
+  reduceto U  4
+endphoneme
+
+
+phoneme e:
+  vowel starttype (e) endtype (e)
+  length 210
+  formants vowel/e
+  reduceto E  4
+endphoneme
+
+
+phoneme o:
+  vowel starttype (o) endtype (o)
+  length 210
+  formants vowel/o_2
+  reduceto O  4
+endphoneme
+
+
+phoneme A:
+  vowel starttype (a) endtype (a)
+  length 230
+  formants vowel/aa_2
+  reduceto a  4
+endphoneme
+
+
+// Diphthongs
+//===========
+
+phoneme AY
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vdiph/aai_2
+endphoneme
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 210
+  formants vdiph/ai_2
+endphoneme
+
+
+phoneme aY
+  vowel starttype (a) endtype (i)
+  length 210
+  formants vdiph/ai_2
+endphoneme
+
+
+phoneme aU
+  vowel starttype (a) endtype (u)
+  length 210
+  formants vdiph/au_4
+endphoneme
+
+
+phoneme @I
+  vowel starttype (@) endtype (i)
+  length 210
+  formants vdiph/@i_2
+endphoneme
+
+
+phoneme @Y
+  vowel starttype (@) endtype (i)
+  length 210
+  formants vdiph/@i_2
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 210
+  formants vdiph/eu
+endphoneme
+
+
+phoneme Iu
+  vowel starttype (i) endtype (u)
+  length 210
+  formants vdiph2/iu_4
+endphoneme
+
+
+phoneme Yu
+  vowel starttype (i) endtype (u)
+  length 210
+  formants vdiph2/iu_4
+endphoneme
+
+
+phoneme OI
+  vowel starttype (o) endtype (i)
+  length 210
+  formants vdiph/ooi
+endphoneme
+
+
+phoneme OY
+  vowel starttype (o) endtype (i)
+  length 210
+  formants vdiph/ooi
+endphoneme
+
+
+phoneme uI
+  vowel starttype (u) endtype (i)
+  length 210
+  formants vdiph/ui_3
+endphoneme
+
+
+phoneme uY
+  vowel starttype (u) endtype (i)
+  length 210
+  formants vdiph/ui_3
+endphoneme
+
+
+// CONSONANTS
+//===========
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants NULL
+  before _ r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+
+phoneme g
+  vcd vel stop
+  vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  formants g/g+x/g2%150
+  before _ g/g_+x/g_%140
+  after _ NULL
+  after @ g/xg
+  lengthmod 5
+  switchvoicing k
+endphoneme
+

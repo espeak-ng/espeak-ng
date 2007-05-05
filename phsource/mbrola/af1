@@ -1,0 +1,71 @@
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/ NULL   0  r
+0  r- NULL   0  r
+0  w/ NULL   0  w
+0  j/ NULL   0  j
+0  ;  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL
+0  *  NULL   0  r
+
+0  x2 NULL   0  x
+0  S  NULL   0  s
+0  Z  NULL   0  z
+0  _! NULL   0  ?
+0  e@ NULL   0  e
+0  A: NULL   0  a
+0  o@ NULL   0  o
+0  Y@ NULL   0  2
+0  a  NULL   0  A
+0  I  NULL   0  @
+0  &  NULL   0  {
+0  W  NULL   0  9
+0  eI NULL   0  &
+0  @U NULL   0  $
+0  Yy NULL   0  }
+0  A~ NULL   0  A
+0  e~ NULL   0  E
+0  o~ NULL   0  O
+0  aI NULL  60  A j
+0  AI NULL  75  a j
+0  OI NULL  60  O j
+0  oI NULL  70  u j
+0  uI NULL  60  u j
+0  aU NULL  60  A u
+0  iu NULL  50  i u
+0  e: NULL   0  E
+0  i: NULL   0  i
+0  u: NULL   0  u
+
+0  @2  NULL   0  @
+0  @5  NULL   0  @
+0  I2  NULL   0  i
+0  a2  NULL   0  a
+0  aa  NULL   0  a
+0  0   NULL   0  O
+0  A@  NULL   0  a
+0  i@  NULL   0  e
+0  e@  NULL  60  E  @
+0  o@  NULL  70  O  @
+0  O@  NULL  70  O  @
+0  U@  NULL  60  u  @
+0  O:  NULL   0  O
+0  oU  NULL   0  $
+0  @2  NULL   0  @
+0  3   NULL   0  @
+0  3:  NULL   0  @
+0  U   NULL   0  u
+0  V   NULL   0  a
+0  aI@ NULL  60  { @
+0  aU@ NULL  70  A @
+0  @L  NULL   0  l
+0  T   NULL   0  t
+0  D   NULL   0  z
+0  dZ  NULL  40  d z
+0  tS  NULL  40  t s
+0  c   NULL   0  k
+
+
+
+

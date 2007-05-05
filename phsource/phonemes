@@ -1,0 +1,1162 @@
+
+// This is the master phoneme file.
+
+
+// These are fixed phoneme code numbers, which can be used
+// directly within the program.
+phonemenumber 1 <
+phonemenumber 2 %%
+phonemenumber 3 %
+phonemenumber 4 ,
+phonemenumber 5 ,,
+phonemenumber 6 '
+phonemenumber 7 ''
+phonemenumber 8 =       //  stress previous syllable
+phonemenumber 9 _:      //  pause
+phonemenumber 10 _      //  short pause
+phonemenumber 11 _!     //  short pause, no link
+phonemenumber 12 :
+phonemenumber 13 @
+phonemenumber 14 @-
+phonemenumber 15 ||
+phonemenumber 16 (r)
+phonemenumber 17 1      // (numeral 1)  default tone (for tone language)
+phonemenumber 18 (X1)   // capital letter indication
+phonemenumber 19 ?      // glottal stop
+phonemenumber 20 -      // syllabic consonant
+phonemenumber 21 _^_    //  Change language
+phonemenumber 22 _X1    // a language specific action
+phonemenumber 23 _|     // very short pause
+
+// The base phoneme table contains the utility phonemes, the consonants,
+// and a schwa.  The vowels are defined in the language specific phoneme
+// tables, which can also redefine consonants if they wish.
+
+
+//*******************************************************************
+// UTILITY PHONEMES
+//*******************************************************************
+
+phoneme <   //  Start of control string
+  pause
+  length 0
+  lengthmod 1
+endphoneme
+
+phoneme %%  //  Unstressed
+  stress
+  length 0
+endphoneme
+
+phoneme %   //  Diminished stress
+  stress
+  length 1
+endphoneme
+
+phoneme ,   //  Secondary stress
+  stress
+  length 2
+endphoneme
+
+phoneme ,,  //  Secondary stress
+  stress
+  length 3
+endphoneme
+
+phoneme '   //  Primary stress
+  stress
+  length 4
+endphoneme
+
+phoneme ''  //  Primary stress (priority)
+  stress
+  length 5
+endphoneme
+
+phoneme =   //  Place stress on previous vowel
+  stress
+  length 2
+endphoneme
+
+phoneme ||  //   End Word
+  pause
+  length 0
+  lengthmod 1
+endphoneme
+
+phoneme _   //  Short pause
+  pause
+  formants NULL
+  starttype _ endtype _
+  length 25
+  lengthmod 1
+endphoneme
+
+phoneme _! //   Short pause, don't replace by linking
+  pause
+  formants NULL
+  starttype _ endtype _
+  length 25
+  lengthmod 1
+  nolink
+endphoneme
+
+phoneme _|   //  Very short pause
+  pause
+  formants NULL
+  starttype _ endtype _
+  length 1
+  lengthmod 1
+endphoneme
+
+phoneme _:   //   Standard pause
+  pause
+  formants NULL
+  starttype _ endtype _
+  length 75
+  lengthmod 1
+endphoneme
+
+phoneme _::  //   Long pause
+  pause
+  formants NULL
+  starttype _ endtype _
+  length 150
+  lengthmod 1
+endphoneme
+
+phoneme  _^_  //  Change dictionary (followed by language-code in ascii
+  pause
+  starttype _ endtype _
+  length 10
+  lengthmod 1
+endphoneme 
+
+phoneme  _X1  //  a language specific action
+  pause
+  starttype _ endtype _
+  length 10
+  lengthmod 1
+endphoneme 
+
+phoneme ?  // glottal stop
+  pause
+  vowelin  glstop
+  vowelout glstop
+  formants NULL
+  starttype _ endtype _
+  length 45
+  lengthmod 5   // ??
+  nolink
+endphoneme
+
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 60
+endphoneme
+
+phoneme - //  Indicates the previous phoneme is a syllabic consonant
+  virtual
+  length 0
+endphoneme
+
+
+phoneme @    //  Schwa
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@
+  unstressed
+  length 140
+endphoneme
+
+
+phoneme @-   //  very short schwa
+  vowel
+  starttype (@)  endtype (@)
+  formants vowel/@-
+  unstressed
+  length 50
+endphoneme
+
+
+//*******************************************************************
+// Other sounds
+//*******************************************************************
+
+phoneme (X1)  // click, use for indicating capital letters
+  vls alv frc sibilant
+  lengthmod 3
+  wave ustop/percus10
+endphoneme
+
+
+//*******************************************************************
+// VIRTUAL - referred to in vowels'   vowel  starttype and endtype
+// These each apply to a class of vowels
+//*******************************************************************
+
+phoneme (@)  virtual
+  after  j j/j@
+  after  ; j2/j2@
+  after  w w/w@
+  after  l l/l@
+  after  L l/l@
+  after  l^ l^/j2@
+  after  r r/r@-15
+  after  r- r2/r2@
+  after  m m/m@
+  after  n n/n@
+  after  N nn/nn@
+  after  n^ n^/n^@
+  before l/ DFT-60+l/L1_@L
+  before l/2 DFT-60+l/L2_@L
+  before l DFT-50+l/xl
+  before w DFT-30+w/xw
+  before j DFT-30+j/xj
+  before r DFT-50+r/xr
+  before r- DFT-60+r/xr
+  before r/ DFT+r3/r_@
+endphoneme
+
+phoneme (a)  virtual
+  after  j j/ja
+  after  ; j2/j2a
+  after  w w/wa
+  after  l l/la
+  after  L l/la
+  after  l^ l^/j2a
+  after  r r/ra-15
+  after  r- r2/r2a
+  after  m m/ma
+  after  n n/na
+  after  N nn/nna
+  after  n^ n^/n^a
+  before l/ DFT-40+l/L1_aL
+  before l/2 DFT-40+l/L2_aL
+  before l DFT-40+l/xl
+  before w DFT-30+w/xw
+  before j DFT-30+j/xj
+  before r DFT-50+r/xr
+  before r- DFT-60+r/xr
+  before r/ DFT+r3/r_a
+endphoneme
+
+phoneme (e)  virtual
+  after  j j/je
+  after  ; j2/j2e
+  after  w w/we
+  after  l l/le
+  after  L l/le
+  after  l^ l^/j2e
+  after  r r/re-15
+  after  r- r2/r2e
+  after  m m/me
+  after  n n/ne
+  after  N nn/nne
+  after  n^ n^/n^e
+  before l/ DFT-30+l/L1_eL
+  before l/2 DFT-40+l/L2_eL
+  before l DFT-40+l/xl
+  before w DFT-30+w/xw
+  before j DFT-30+j/xj
+  before r DFT-50+r/xr
+  before r- DFT-60+r/xr
+  before r/ DFT+r3/r_e
+endphoneme
+
+phoneme (i)  virtual
+  after  j j/ji
+  after  ; j2/j2i
+  after  w w/wi
+  after  l l/li-10
+  after  L l/li
+  after  l^ l^/j2i
+  after  r r/ri-15
+  after  r- r2/r2i
+  after  m m/mi
+  after  n n/ni
+  after  N nn/nni
+  after  n^ n^/n^i
+  before l/ DFT-30+l/L1_iL
+  before l/2 DFT-30+l/L2_iL
+  before N DFT-40+nn/inn
+  before ; DFT-40+j2/xj2
+  before l DFT-40+l/xl
+  before j DFT-30+j/xj
+  before  r- DFT-60+r/xr
+  before r/ DFT+r3/r_i
+endphoneme
+
+phoneme (o)  virtual
+  after  j j/jo
+  after  ; j2/j2o
+  after  w w/wo
+  after  l l/lo
+  after  L l/lo
+  after  l^ l^/j2o
+  after  r r/ro-15
+  after  r- r2/r2o
+  after  m m/mo
+  after  n n/no
+  after  N nn/nno
+  after  n^ n^/n^o
+  before l/ DFT-40+l/L1_oL
+  before l/2 DFT-40+l/L2_oL
+  before l DFT-40+l/xl
+  before w DFT-30+w/xw
+  before j DFT-30+j/xj
+  before r DFT-50+r/xr
+  before r- DFT-60+r/xr
+  before r/ DFT+r3/r_o
+endphoneme
+
+phoneme (u)  virtual
+  after  j j/ju
+  after  ; j2/j2u
+  after  w w/wu
+  after  l l/lu
+  after  L l/lu
+  after  l^ l^/j2u
+  after  r r/ru-15
+  after  r- r2/r2u
+  after  m m/mu
+  after  n n/nu
+  after  N nn/nnu
+  after  n^ n^/n^u
+  before l/ DFT-40+l/L1_uL
+  before l/2 DFT-40+l/L2_uL
+  before l DFT-40+l/xl
+  before w DFT-30+w/xw
+  before j DFT-30+j/xj
+  before r DFT-50+r/xr
+  before r- DFT-60+r/xr
+  before r/ DFT+r3/r_u
+endphoneme
+
+phoneme (r)  virtual
+// use to mean general sonorant
+endphoneme
+
+
+//*******************************************************************
+// SONORANTS
+//*******************************************************************
+
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  formants r/r
+  after _ r/_r
+  after t r/tr
+  after p r/tr
+  after k r/tr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr
+  after p r/trr
+  after k r/trr
+endphoneme
+
+
+phoneme r-   // linking r, used between certain vowels and a following vowel
+  liquid
+  length 100
+  lengthmod 0
+  formants r/r
+  after _ r2/_r2
+endphoneme
+
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/
+  formants l/l
+  after _  l/_l
+  after t  l/tl
+  after l/ l/l_long    // double l, make it longer
+endphoneme
+
+
+phoneme l/    // used for [l] when not before a vowel
+  liquid
+  length 100
+  lengthmod 7
+  formants l/l_
+  before (r) l/_l
+  beforevowel l
+endphoneme
+
+
+phoneme l/2    // 'dark' [l] after a vowel
+  liquid
+  length 100
+  lengthmod 7
+  beforevowel l
+endphoneme
+
+
+phoneme l^    // palatal l
+  vowelout len=60 lenadd rate
+  liquid
+  formants l^/l^
+  after _ l^/_l^
+  lengthmod 7
+endphoneme
+
+
+phoneme w
+  liquid
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w
+  after _ w/_w
+endphoneme
+
+
+phoneme w/    // used for [w] when not before a vowel
+  liquid
+  vowelout  len=50
+  length 100
+  formants w/w_
+  lengthmod 7
+  beforevowel w
+endphoneme
+
+
+phoneme j
+  liquid
+  palatal
+  length 100
+  beforenotvowel j/
+  formants NULL
+  after _ j/_j
+  lengthmod 7
+endphoneme
+
+
+phoneme j/    // used for [j] when not before a vowel
+  liquid
+  palatal
+  vowelout len=70
+  length 100
+  formants j/j_
+  lengthmod 7
+  beforevowel j
+endphoneme
+
+
+
+
+phoneme ;     // linking j, (formerly [j-]) used between (i) vowels
+              // and a following vowel
+              // also to palatalize consonants
+  liquid
+  palatal
+  length 100
+  lengthmod 0
+  formants NULL
+  beforenotvowel NULL    // this is to ignore this phoneme if not before a vowel
+  after _ j2/_j2
+endphoneme
+
+
+phoneme m
+  vcd blb nasal
+  vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ m/_m
+  before _ m/m_
+  before (r) m/mj
+endphoneme
+
+
+phoneme n
+  vcd alv nasal
+  vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ n/_n
+  after n n/_n      // lengthen [nn]
+  before _ n/n_
+  before (r) n/nj
+endphoneme
+
+
+phoneme n.
+  vcd rfx nasal
+  starttype n  endtype n
+  vowelout f1=2 f2=1700 -300 250  f3=-400 80  rms=20 brk colr=2
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ n/_n
+  after n n/_n      // lengthen [nn]
+  before _ n/n_
+  before (r) n/nj
+endphoneme
+
+
+
+phoneme n^
+  vcd pal nasal palatal
+  vowelout f1=3 f2=2300 300 400  f3=100 80  brk rate
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ n^/_n^
+  before _ n^/n^_
+  before (r) n/nj
+endphoneme
+
+
+
+phoneme N
+  vcd vel nasal
+//  vowelout  brk
+  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  length 100
+  formants NULL
+  after _ nn/_nn
+  before _ nn/nn_
+  before (r) nn/nnj
+  lengthmod 8            // longer than 'n'
+endphoneme
+
+phoneme **    //   TEST flap after consonant
+  liquid alv
+  vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15
+  vowelin f1=0  f2=1700 -300 300  f3=-300 80 rms=20
+  formants r3/@tap+r3/rx
+  vowelin f1=0  f2=1700 -300 300  f3=-400 80 rms=20
+  before (i) r3/@tap_i+r3/rx
+  before (e) r3/@tap_i+r3/rx
+  vowelin f1=2  f2=1700 -300 300  f3=-300 80 rms=20
+  before (a) r3/@tap+r3/rx
+endphoneme
+
+
+
+//*******************************************************************
+// VOICED STOPS
+//*******************************************************************
+
+
+
+phoneme  b
+  vcd blb stop
+  vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
+  formants b/b+x/b
+  before _ b/b_+x/b_
+  before (a) b/ba+x/b
+  before (@) b/b@+x/b
+  before (e) b/be+x/b
+  before (i) b/bi+x/b
+  before (o) b/bo+x/b
+  before (u) b/bu+x/b
+  before @-  b/b@2+x/b
+  after _ NULL
+  after @ b/xb
+  lengthmod 5
+  switchvoicing p
+endphoneme
+
+
+
+phoneme d
+  vcd alv stop
+  vowelin f1=2  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/d+x/d
+  before _ d/d_+x/d_
+  before r d/dr+x/d
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+phoneme d[
+  vcd dnt stop
+  vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  vowelout f1=2 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t[
+endphoneme
+
+
+phoneme *    //   flap
+  vcd alv flp
+  vowelout f1=3 f2=1500 -400 300  f3=-200 80 rms=35 len=50
+  vowelin f1=0  f2=1500 -300 300  f3=-200 80 rms=20
+  formants d/tap3+r3/rx%200
+  vowelin f1=0  f2=1500 -300 300  f3=-200 80 rms=20
+  before (i) d/tap1+r3/rx%150
+  before (e) d/tap1+r3/rx%150
+  vowelin f1=2  f2=1500 -300 300  f3=-200 80 rms=20
+  before (a) d/tap3+r3/rx%200
+  before r d/dr
+  lengthmod 3
+endphoneme
+
+phoneme *2    //   TEST flap
+  vcd alv flp
+  vowelout f1=2 f2=1700 -300 200  f3=-300 60 len=15 brk
+  vowelin f1=2  f2=1700 -300 150  f3=-200 80
+  formants d/tap2+x/d_dnt%30
+  after _ NULL
+  after @ d/x_tap
+  vowelin f1=1  f2=1700 -300 150  f3=-200 80
+  before (i) d/tap2+x/d_dnt%30
+  lengthmod 3
+  switchvoicing t
+endphoneme
+
+
+
+
+phoneme dZ
+  vcd pla afr sibilant
+  vowelin f1=2  f2=2300 200 400  f3=100 80
+  vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+  formants dzh/dzh+x/dzh
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing tS
+endphoneme
+
+
+phoneme dz;       // this should be different from dZ;
+  vcd pla afr sibilant palatal
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  formants dzh/dzh+x/dz_pzd
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing ts;
+endphoneme
+
+
+phoneme dZ;
+  vcd pla afr sibilant palatal
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  formants dzh/dzh+x/dz_pzd
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing tS;
+endphoneme
+
+
+phoneme J
+  vcd pla afr sibilant
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  formants dzh/dz_pzd+x/dzh%40
+  before _ dzh/dz_pzd_+x/dz_pzd_%70
+  after _ NULL
+  after @ dzh/xdz_pzd
+  lengthmod 5
+  switchvoicing c
+endphoneme
+
+
+
+phoneme g
+  vcd vel stop
+  vowelin f1=2  f2=2300 200 300  f3=-300 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+//  formants g/g+x/g
+  formants g/g+x/g2%150
+  before _ g/g_+x/g_
+  after _ NULL
+  after @ g/xg
+  lengthmod 5
+  switchvoicing k
+endphoneme
+
+
+phoneme g-     // linking g, used between N and a vowel
+  vcd vel stop
+  vowelin f1=2  f2=2300 200 400  f3=-100 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  formants g2/g+x/g2_
+  before _ g2/g_+x/g2_
+  after _ NULL
+  after @ g2/xg
+  lengthmod 5
+endphoneme
+
+
+
+//*******************************************************************
+// VOICED fricatives
+//*******************************************************************
+
+
+phoneme B
+  vcd blb frc
+  vowelin  f1=2  f2=1000 -300 -200  f3=-100 100
+  vowelout f1=2  f2=1000 -500 -300  f3=-100 60  len=50
+  lengthmod 6
+  formants voc/bh+vocw/v
+  before _ voc/v_+vocw/v
+  switchvoicing f
+endphoneme
+
+
+phoneme v
+  vcd lbd frc
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  lengthmod 6
+  formants voc/v+vocw/v
+  before _ voc/v_+vocw/v
+  switchvoicing f
+endphoneme
+
+
+phoneme D
+  vcd dnt frc
+  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
+  formants voc/dh+vocw/dh
+  before _ voc/dh_+vocw/dh
+  lengthmod 6
+  switchvoicing T
+endphoneme
+
+
+phoneme z
+  vcd alv frc sibilant
+  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 
+  formants voc/z+ufric/s_
+  before _ voc/z_+ufric/s_%80
+  lengthmod 6
+  switchvoicing s
+endphoneme
+
+
+phoneme Z
+  vcd pla frc sibilant
+  vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  formants voc/zh+vocw/zh
+  before _ voc/zh_+vocw/zh
+  lengthmod 6
+  switchvoicing S
+endphoneme
+
+
+phoneme z;
+  vcd pal frc sibilant palatal
+  vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  formants voc/z_pzd+ufric/s_pzd%40
+  before _ voc/z_pzd_+ufric/s_pzd%40
+  lengthmod 6
+  switchvoicing s;
+endphoneme
+
+
+phoneme Z;
+  vcd pal frc sibilant palatal
+  vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  formants voc/z_pzd+ufric/sh_pzd_
+  before _ voc/z_pzd_+ufric/sh_pzd_
+  lengthmod 6
+  switchvoicing Z;
+endphoneme
+
+
+
+
+phoneme Q
+  vcd vel frc
+  vowelin f1=2  f2=2300 200 400  f3=-100 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  lengthmod 6
+  formants voc/Q+vocw/Q
+  before _ voc/Q_+vocw/Q_
+  switchvoicing x
+endphoneme
+
+phoneme Q^
+  vcd vel frc
+  vowelin f1=2  f2=2700 400 600  f3=200 80
+  vowelout f1=2  f2=2700 40 600  f3=200 80 brk
+  lengthmod 6
+  formants voc/Q+vocw/Q
+  before _ voc/Q_+vocw/Q_
+  switchvoicing x
+endphoneme
+
+
+
+//*******************************************************************
+// UNVOICED STOPS
+//*******************************************************************
+
+
+
+phoneme p
+  vls blb stop
+//  vowelin  f1=0  f2=1000 -50 -50  f3=-200 80
+//  vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=30
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  lengthmod 2
+  wave ustop/p
+  before _ ustop/p_
+  before r ustop/pr
+  before @- ustop/p_unasp
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+phoneme t
+  vls alv stop
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t
+  before _ ustop/t_
+  before @- ustop/t_dnt%50
+  before r ustop/tr
+  switchvoicing d
+endphoneme
+
+
+phoneme t[        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%25
+  before r ustop/tr
+  switchvoicing d[
+endphoneme
+
+
+
+phoneme tS
+  vls pla afr sibilant
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  lengthmod 2
+  wave ustop/tsh
+  before _ ustop/tsh_
+  switchvoicing dZ
+endphoneme
+
+
+phoneme ts;      // this should be different from tS;
+  vls pal afr sibilant palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  lengthmod 2
+  wave ustop/ts_pzd
+  before _ ustop/ts_pzd
+  switchvoicing dz;
+endphoneme
+
+
+phoneme tS;
+  vls pal afr sibilant palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  lengthmod 2
+  wave ustop/ts_pzd
+  before _ ustop/ts_pzd
+  switchvoicing dZ;
+endphoneme
+
+
+
+
+phoneme c
+  vls pal stop
+  vowelin f1=0  f2=2700 400 600  f3=500 80 rate len=80
+  vowelout f1=0  f2=2700 400 600  f3=300 80
+  lengthmod 2
+  wave ustop/c%130
+  before _ ustop/ki%80
+endphoneme
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 300  f3=-200 80
+  vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  lengthmod 2
+  wave ustop/k
+  before _ ustop/k_
+  before r ustop/kr
+  before @- ustop/k_unasp%70
+  before l ustop/kl
+  before (i) ustop/ki
+  switchvoicing g
+endphoneme
+
+phoneme q
+  vls uvl stop
+  vowelin f1=1  f2=1700 0 200  f3=-300 80 f4 paus rms=35
+  vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
+  lengthmod 2
+  wave ustop/k_unasp%60
+  before _ ustop/k_unasp%50
+endphoneme
+
+
+
+//*******************************************************************
+// UNVOICED fricatives
+//*******************************************************************
+
+
+
+phoneme f
+  vls lbd frc
+  vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  lengthmod 3
+  wave ufric/f
+  before _ ufric/f_
+  switchvoicing v
+endphoneme
+
+
+phoneme T
+  vls dnt frc
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 3
+  wave ufric/th
+  before _ ufric/th_
+  switchvoicing D
+endphoneme
+
+
+phoneme s
+  vls alv frc sibilant
+  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 3
+  wave ufric/s
+  before _ ufric/s_
+  before p ufric/s!
+  before t ufric/s!
+  before k ufric/s!
+  switchvoicing z
+endphoneme
+
+
+phoneme S
+  vls pla frc sibilant
+  vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  vowelout f1=0  f2=2100 100 300  f3=-100 80
+  length 100
+  lengthmod 3
+  wave ufric/sh
+  before _ ufric/sh_
+  switchvoicing Z
+endphoneme
+
+
+phoneme s;
+  vls pal frc sibilant palatal
+  vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  vowelout f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  length 100
+  lengthmod 3
+  wave ufric/s_pzd%50
+  before _ ufric/s_pzd%50
+  switchvoicing z;
+endphoneme
+
+
+phoneme S;
+  vls pal frc sibilant palatal
+  vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
+  vowelout f1=1  f2=2700 400 600  f3=200 70 rate
+  length 100
+  lengthmod 3
+  wave ufric/sh_pzd
+  before _ ufric/sh_pzd_
+  switchvoicing Z;
+endphoneme
+
+
+phoneme L   // Welsh "ll"
+  vls alv frc
+  length 100
+  lengthmod 3
+  wave ufric/ll%80
+//  before _ ufric/ll_
+endphoneme
+
+
+phoneme C
+  vls pal frc palatal
+  vowelin f1=0  f2=2700 400 600  f3=200 70
+  vowelout f1=0 f2=2700 400 600  f3=200 70  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/ch
+endphoneme
+
+
+phoneme x
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/x
+  switchvoicing Q
+endphoneme
+
+
+phoneme h
+  vls glt apr
+  length 100
+  lengthmod 3
+  wave ufric/h_%70         // no vowel following
+  before (@) ufric/h@
+  before (a) ufric/ha
+  before (e) ufric/he
+  before (i) ufric/hi
+  before (o) ufric/ho
+  before (u) ufric/hu
+endphoneme
+
+
+
+
+//*******************************************************************
+// ADDITIONAL PHONEME TABLES
+//*******************************************************************
+
+
+phonemetable en base
+include ph_english
+
+phonemetable en_n en
+include ph_english_n
+
+phonemetable en_us en
+include ph_english_us
+
+phonemetable en_sc en
+include ph_english_sc
+
+phonemetable en_rp en
+include ph_english_rp
+
+phonemetable en_wm en
+include ph_english_wm
+
+phonemetable af base
+include ph_af
+
+phonemetable cy base
+include ph_welsh
+
+phonemetable de base
+include ph_german
+
+phonemetable eo base
+include ph_esperanto
+
+phonemetable fi base
+include ph_finnish
+
+phonemetable fr base
+include ph_french
+
+phonemetable fr_ca fr
+include ph_french_ca
+
+phonemetable hi base
+include ph_hindi
+
+phonemetable hu base
+include ph_hungarian
+
+phonemetable nl base
+include ph_dutch
+
+phonemetable pl base
+include ph_polish
+
+phonemetable sk pl
+include ph_slovak
+
+phonemetable cs sk
+include ph_czech
+
+phonemetable hr sk
+include ph_croatian
+
+phonemetable ru base
+include ph_russian
+
+
+phonemetable it base
+include ph_italian
+
+phonemetable es it
+include ph_spanish
+
+phonemetable pt it
+include ph_pt_brazil
+
+phonemetable pt_pt pt
+include ph_portuguese
+
+phonemetable ro it
+include ph_romanian
+
+phonemetable el it
+include ph_greek
+
+phonemetable sv base
+include ph_swedish
+
+phonemetable no base
+include ph_norwegian
+
+
+phonemetable vi base
+include ph_vi
+
+phonemetable zh_yue base
+include ph_zh_yue
+
+phonemetable sw base
+include ph_swahili

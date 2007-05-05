@@ -1,0 +1,238 @@
+ // translation rules for Slovak
+// This file is UTF-8 encoded
+
+// Letters
+_a    a:
+á     d,l-he:'a:
+ä     'a:prehlasovane:
+b     be:
+c     tse:
+č     tSe:
+d     de:
+ď     d;e:
+e     e:
+é     d,l-he:'e:
+f     ef
+g     ge:
+h     ha:
+i     i:
+í     d,l-he:'i:
+j     je:
+_k     ka:
+l     el
+ľ     el^
+ĺ     d,l-he:'el
+m     em
+n     en
+ň     en^
+_o    o:
+ó     d,l-he:'o:
+ô     'o:sv,oka:n^om
+p     pe:
+q     kve:
+r     er
+_s    es
+š     eS
+t     te:
+ť     t;e:
+u     u:
+ú     dl-he:'u:
+_v    ve:
+w     dv'ojite:,ve:
+x     iks
+y     ipsilon
+ý     d,l-he:'i:
+_z    zet
+ž     Zet
+
+
+
+// Numbers
+_0    n'ula
+_1    j'ed;en
+_2    dv'a
+_3    t'@-*i
+_4    St'i*i
+_5    p'&t;
+_6    S'est;
+_7    s'ed;em
+_8    'osem
+_9    d;'ev&t;
+_10   d;'esat;
+_11   j'ed;ena:st;
+_12   dv'ana:st;
+_13   t@-*'ina:st;
+_14   Str-n'a:st;
+_15   p'&tna:st;
+_16   S'estna:st;
+_17   s'ed;emna:st;
+_18   'osemna:st;
+_19   d;'ev&tna:st;
+_2X   dv'adsat;
+_3X   t@-*'idsat;
+_4X   St'i*idsat;
+_5X   p'&t;d;esjat
+_6X   S'est;d;esjat
+_7X   s'ed;emdsjat
+_8X   'osemd;esjat
+_9X   d'ev&t;d;esjat
+_0C   st'o
+_2C   dv'est'o
+_0M1  t;'isi:ts
+_1M1  t;'isi:ts
+_2M1  dv'et;'isi:ts
+_0M2  m'ilio:n
+_0M3  m'iljarda
+_dpt  _:tSj,arka_
+
+
+// Pronouns
+sa       $u+            // reflexive
+si       $u+            // reflexive
+ho  $u+
+
+// Prepositions
+o        o_ $u $brk $alt2
+k        k  $brk         // at,on,to
+v        v_  $brk        // at,in,into
+z        z_  $brk        // from,of
+na       $u     $alt2    // at,for,into
+po       $pause $alt2    // about,after
+pod      $pause $alt2    // under
+s        s_ $pause       // with
+so       $pause $alt2    // with
+bezo     $pause $alt2    // without
+bez      $pause $alt2    // without
+pri      $pause $alt2    // about,beside,at
+
+// Conjunctions
+a        $u $pause      // and
+alebo    $u $pause      // or
+inak     $u $pause      // or
+síce     $u $pause      // or
+ale      $pause         // however
+však     $pause         // but
+okrem    $pause         // except
+mimo     $pause         // except
+čo       $u $pause      // which,whatever
+aj       $u $pause      // even
+že       $u $pause      // if,that
+
+ako      $u $pause      // as
+
+// Negative
+nie      $u
+
+
+// Auxillary verbs
+
+byť      $u    // to be
+som      $u
+si       $u
+je       $u
+sme      $u
+ste      $u
+sú       $u
+bol      $u+   // been
+
+
+// treat as letters if at the end of the clause
+a        a:    $atend    // letter-a
+k        ke:   $atend    // letter-k
+o        o:    $atend    // letter-o
+s        es    $atend
+v        ve:   $atend
+z        zet   $atend
+
+// Exceptions
+
+// don't soften (d,n,t) before e,i
+aktívni     $alt
+definitívne $alt
+demo        $alt
+depresívni  $alt
+diagnostík diagnosti:k
+enter       $alt
+fénix       $alt
+flexibilní  $alt
+hodni       $alt
+ídea        $alt
+ídee        $alt
+ideí        $alt
+ídei        $alt
+ídeou       $alt
+ídeu        $alt
+ídey        $alt
+individuálne $alt
+iní         $alt
+init        $alt
+introvertní $alt
+jeden       $alt
+júni        $alt
+každej      $alt
+legislatívne $alt
+logistík    $alt
+mánia       $alt
+mánie       $alt
+mániou      $alt
+mániu       $alt
+martin      $alt
+matkini     $alt
+matkiní     $alt
+midi        $alt
+mimovládne  $alt
+mladej      $alt
+mladí       $alt
+nadísť      $alt
+negatívne   $alt
+odeň        $alt
+odísť       $alt
+okienečko   $alt
+okolití     $alt
+onen        $alt
+oní         $alt
+opatrní     $alt
+ostatní     $alt
+pekní       $alt
+peter       $alt
+pijatika    $alt
+podeň       $alt
+podísť      $alt
+postihnutí post;ihnuti:
+poverení    $alt
+požiarne    $alt
+predeň      $alt
+predísť     $alt
+presvedčení $alt
+príbuzní    $alt
+priemerní   $alt
+prijatí     $alt
+pripravení  $alt
+rôzne       $alt
+samotní     $alt
+schopní     $alt
+štatutárni  $alt
+súčasní     $alt
+sveter      $alt
+teda        $alt
+tejto       $alt
+televízne   $alt
+temer       $alt
+ten         $alt
+teraz       $alt
+tí          $alt
+tie         $alt
+tieto       $alt
+títo        $alt
+únia        $alt
+únie        $alt
+únii        $alt
+úniu        $alt
+vážení      $alt
+vínečko     $alt
+vinen       $alt
+vinní       $alt
+všeteční    $alt
+vtedy       $alt
+žiadni      $alt
+zruční      $alt

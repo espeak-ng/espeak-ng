@@ -1,0 +1,281 @@
+
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/2       // use 'dark' [l] after a vowel
+  formants l/l
+  after _ l/_l  t l/tl
+  before _ l/l_2
+endphoneme
+
+
+phoneme r
+  liquid starttype r endtype r
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+phoneme ts
+  vls alv afr sibilant
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/ts
+endphoneme
+
+
+phoneme dZ;
+  vcd pal afr sibilant palatal
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  formants dzh/dzh+x/dz_pzd
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing ts;
+endphoneme
+
+
+phoneme tS;
+  vls pal afr sibilant palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  lengthmod 2
+  wave ustop/ts_pzd
+  before _ ustop/ts_pzd
+  switchvoicing dz;
+endphoneme
+
+
+
+// Palatalized versions of consonants
+
+phoneme t
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%60
+  before _ ustop/t_dnt%30
+  before r ustop/tr
+  switchvoicing d
+endphoneme
+
+phoneme t;
+  vls pal stop palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=1  f2=2700 400 600  f3=200 70 len=50
+  lengthmod 2
+  wave ustop/t_pzd%60
+  before _ ustop/t_pzd%30
+  switchvoicing d;
+endphoneme
+
+
+phoneme d
+  vcd dnt stop
+  vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  vowelout f1=2 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+phoneme d;
+  vcd alv stop palatal
+  vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
+  vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100
+  formants d/d+x/d_pzd%80
+  before _ d/d_+x/d_pzd%40
+  before r d/dr+x/d_pzd%80
+  after _ NULL
+  after @ d/xd_pzd
+  lengthmod 5
+  switchvoicing t;
+endphoneme
+
+
+
+//*******************************************************************
+// VOWELS
+//*******************************************************************
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 130
+  formants vwl_ru/i
+endphoneme
+
+phoneme I#
+  vowel starttype (i) endtype (i)
+  length 80
+  formants vwl_ru/ii#
+endphoneme
+
+phoneme y
+  vowel starttype (i) endtype (i)
+  length 130
+  formants vwl_ru/i#
+endphoneme
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 80
+  formants vwl_ru/ii
+endphoneme
+
+phoneme I2
+  vowel starttype (i) endtype (i)
+  length 80
+  formants vwl_ru/ii
+endphoneme
+
+phoneme I3
+  vowel starttype (i) endtype (i)
+  length 80
+  formants vwl_ru/ii
+endphoneme
+
+phoneme E
+  vowel  starttype (e)  endtype (e)
+  length 200
+  formants vwl_ru/e
+endphoneme
+
+phoneme E#
+  vowel  starttype (e)  endtype (e)
+  length 100
+  formants vwl_ru/E#
+endphoneme
+
+phoneme E2
+  vowel  starttype (e)  endtype (e)
+  length 80
+  formants vwl_ru/E@
+endphoneme
+
+phoneme E3
+  vowel  starttype (e)  endtype (e)
+  length 80
+  formants vwl_ru/E@
+endphoneme
+
+phoneme A
+  vowel  starttype (a)  endtype (a)
+  length 150
+  formants vwl_ru/a
+endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 100
+  formants vwl_ru/o
+endphoneme
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 80
+  formants vwl_ru/oo
+endphoneme
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vwl_ru/u
+endphoneme
+
+phoneme u#
+  vowel starttype (u) endtype (u)
+  length 80
+  formants vwl_ru/u#
+endphoneme
+
+phoneme u"
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vwl_ru/u#u
+endphoneme
+
+phoneme 8
+  vowel starttype (o) endtype (o)
+  length 150
+  formants vwl_ru/8
+  reduceto V  4
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 190
+  formants vwl_ru/ee
+endphoneme
+
+phoneme ju
+  vowel starttype (u) endtype (u)
+  length 190
+  formants vwl_ru/ju
+endphoneme
+
+phoneme ja
+  vowel  starttype (i) endtype (a)
+  length 200
+  formants vwl_ru/ja
+endphoneme
+
+phoneme V
+  vowel  starttype (a)  endtype (@)
+  length 80
+  formants vowel/V_2
+  unstressed
+endphoneme
+
+phoneme V#
+  vowel  starttype (a)  endtype (@)
+  length 80
+  formants vowel/V_2
+  unstressed
+endphoneme
+
+//phoneme U
+//  vowel  starttype (u)  endtype (u)
+//  length 140
+//  formants vowel/uu
+//  unstressed
+//endphoneme
+
+phoneme Y // will not be used in future
+ vowel  starttype (u)  endtype (u)
+  length 140
+  formants vowel/ii#
+  unstressed
+endphoneme
+
+phoneme a
+  vowel   starttype (a)  endtype (a)
+  formants vwl_ru/aa
+  length 100
+endphoneme
+
+

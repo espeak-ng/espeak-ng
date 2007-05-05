@@ -1,0 +1,116 @@
+phoneme @    //  Schwa
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@
+  length 140
+endphoneme
+
+phoneme @2    //  Schwa (raised)
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@_fnt
+  length 140
+endphoneme
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 140
+  formants vowel/a
+  reduceto &  4
+endphoneme
+
+
+phoneme &
+  vowel starttype (a) endtype (a)
+  length 140
+  formants vowel/a#_2
+endphoneme
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vdiph/ai
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 130
+  formants vowel/e_mid
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 130
+  formants vowel/e
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 120
+  formants vowel/i_3
+  linkout ;
+  reduceto I  4
+endphoneme
+
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 120
+  formants vowel/ii_3
+  linkout ;
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 130
+  formants vowel/u_bck
+  reduceto U  4
+endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 130
+  formants vowel/uu_bck
+endphoneme
+
+
+
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p_unasp
+  before _ ustop/p_unasp_%80
+  before r ustop/pr
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%35
+  switchvoicing d
+endphoneme
+
+
+phoneme x
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/xx
+  switchvoicing Q
+endphoneme
+

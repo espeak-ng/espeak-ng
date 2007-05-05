@@ -1,0 +1,1420 @@
+/***************************************************************************
+ *   Copyright (C) 2005 by Jonathan Duddington                             *
+ *   jonsd@users.sourceforge.net                                           *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+#include "StdAfx.h"
+
+#include "stdio.h"
+#include "ctype.h"
+#include "wctype.h"
+#include "string.h"
+#include "stdlib.h"
+#include "speech.h"
+
+#ifdef PLATFORM_WINDOWS
+#include "windows.h"
+#else
+#ifndef PLATFORM_RISCOS
+#include "dirent.h"
+#endif
+#endif
+
+#include "speak_lib.h"
+#include "voice.h"
+#include "phoneme.h"
+#include "synthesize.h"
+#include "translate.h"
+
+
+MNEM_TAB genders [] = {
+	{"unknown", 0},
+	{"male", 1},
+	{"female", 2},
+	{NULL, 0 }};
+
+// limit the rate of change for each formant number
+//static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate
+static int formant_rate_22050[9] = {50, 100, 165, 200, 200, 200, 200, 200, 200};  // values for 22kHz sample rate
+int formant_rate[9];         // values adjusted for actual sample rate
+
+
+
+#define DEFAULT_LANGUAGE_PRIORITY  5
+#define N_VOICES_LIST  100
+static int n_voices_list = 0;
+static espeak_VOICE *voices_list[N_VOICES_LIST];
+static int len_path_voices;
+
+espeak_VOICE *voice_selected = NULL;
+char voice_name[40];
+
+
+
+#define V_NAME       1
+#define V_LANGUAGE   2
+#define V_GENDER     3
+#define V_TRANSLATOR  4
+#define V_PHONEMES    5
+#define V_DICTIONARY  6
+
+// these affect voice quality, are independent of language
+#define V_FORMANT     7
+#define V_PITCH       8
+#define V_ECHO        9
+#define V_FLUTTER    10
+#define V_ROUGHNESS  11
+#define V_CLARITY    12
+#define V_TONE       13
+
+// these override defaults set by the translator
+#define V_WORDGAP    15
+#define V_INTONATION 16
+#define V_STRESSLENGTH  17
+#define V_STRESSAMP  18
+#define V_STRESSADD  19
+#define V_DICTRULES   20
+#define V_STRESSRULE  21
+#define V_CHARSET     22
+#define V_NUMBERS     23
+#define V_OPTION      24
+
+#define V_MBROLA     25
+
+// these need a phoneme table to have been specified
+#define V_REPLACE    26
+
+
+
+typedef struct {
+	const char *mnem;
+	int data;
+} keywtab_t;
+
+static keywtab_t keyword_tab[] = {
+	{"name",       V_NAME},
+	{"language",   V_LANGUAGE},
+	{"gender",     V_GENDER},
+
+	{"formant",    V_FORMANT},
+	{"pitch",      V_PITCH},
+	{"phonemes",   V_PHONEMES},
+   {"translator", V_TRANSLATOR},
+	{"dictionary", V_DICTIONARY},
+	{"stressLength", V_STRESSLENGTH},
+	{"stressAmp",  V_STRESSAMP},
+	{"stressAdd",  V_STRESSADD},
+	{"intonation", V_INTONATION},
+	{"dictrules",	V_DICTRULES},
+	{"stressrule", V_STRESSRULE},
+	{"charset",    V_CHARSET},
+	{"replace",    V_REPLACE},
+	{"words",      V_WORDGAP},
+	{"echo",       V_ECHO},
+	{"flutter",    V_FLUTTER},
+	{"roughness",  V_ROUGHNESS},
+	{"clarity",    V_CLARITY},
+	{"tone",       V_TONE},
+	{"numbers",    V_NUMBERS},
+	{"option",     V_OPTION},
+	{"mbrola",     V_MBROLA},
+
+	// these just set a value in langopts.param[]
+	{"l_dieresis", 0x100+LOPT_DIERESES},
+//	{"l_lengthen", 0x100+LOPT_IT_LENGTHEN},
+	{"l_prefix",   0x100+LOPT_PREFIXES},
+	{"l_regressive_v", 0x100+LOPT_REGRESSIVE_VOICING},
+	{"l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE},
+	{"l_sonorant_min", 0x100+LOPT_SONORANT_MIN},
+	{"l_length_mods", 0x100+LOPT_LENGTH_MODS},
+	{NULL,   0} };
+
+#define N_VOICES 100
+static int n_voices_tab = 0;
+static voice_t *voices_tab[N_VOICES];
+
+#define N_VOICE_VARIANTS   12
+const char variants_either[N_VOICE_VARIANTS] = {1,2,12,3,13,4,14,5,11,0};
+const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,0};
+const char variants_female[N_VOICE_VARIANTS] = {11,12,13,14,0};
+const char *variant_lists[3] = {variants_either, variants_male, variants_female};
+
+
+int tone_points[10] = {250,140, 1200,110, -1,0, -1,0, -1,0};
+
+void SetToneAdjust(voice_t *voice, int *tone_pts)
+{//==============================================
+	int ix;
+	int pt;
+	int y;
+	int freq1=0;
+	int freq2;
+	int height1 = tone_pts[1];
+	int height2;
+	double rate;
+
+	for(pt=0; pt<10; pt+=2)
+	{
+		if(tone_pts[pt] == -1)
+		{
+			tone_pts[pt] = N_TONE_ADJUST*8;
+			if(pt > 0)
+				tone_pts[pt+1] = tone_pts[pt-1];
+		}
+		freq2 = tone_pts[pt] / 8;   // 8Hz steps
+		height2 = tone_pts[pt+1];
+		if((freq2 - freq1) > 0)
+		{
+			rate = double(height2-height1)/(freq2-freq1);
+
+			for(ix=freq1; ix<freq2; ix++)
+			{
+				y = height1 + int(rate * (ix-freq1));
+				if(y > 255)
+					y = 255;
+				voice->tone_adjust[ix] = y;
+			}
+		}
+		freq1 = freq2;
+		height1 = height2;
+	}
+}
+
+
+void ReadTonePoints(char *string, int *tone_pts)
+{//=============================================
+// tone_pts[] is int[10]
+	int ix;
+
+	for(ix=0; ix<10; ix++)
+		tone_pts[ix] = -1;
+
+	sscanf(string,"%d %d %d %d %d %d %d %d",
+		&tone_pts[0],&tone_pts[1],&tone_pts[2],&tone_pts[3],
+		&tone_pts[4],&tone_pts[5],&tone_pts[6],&tone_pts[7]);
+}
+
+
+void VoiceReset(int tone_only)
+{//===========================
+// Set voice to the default values
+	int  pk;
+
+	// default is:  pitch 82,118
+	voice->pitch_base =   0x49000;    // default, 73 << 12;
+	voice->pitch_range =  0x0f30;     // default = 0x1000
+
+	voice->echo_delay = 0;
+	voice->echo_amp = 0;
+	voice->flutter = 64;
+	voice->n_harmonic_peaks = 5;
+	voice->peak_shape = 1;
+#ifdef PLATFORM_RISCOS
+	voice->roughness = 1;
+#else
+	voice->roughness = 2;
+#endif
+
+	for(pk=0; pk<N_PEAKS; pk++)
+	{
+		voice->freq[pk] = 256;
+		voice->height[pk] = 256;
+		voice->width[pk] = 256;
+
+		// adjust formant smoothing depending on sample rate
+		formant_rate[pk] = (formant_rate_22050[pk] * 22050)/samplerate;
+	}
+
+	// This table provides the opportunity for tone control.
+	// Adjustment of harmonic amplitudes, steps of 8Hz
+	// value of 128 means no change
+//	memset(voice->tone_adjust,128,sizeof(voice->tone_adjust));
+SetToneAdjust(voice,tone_points);
+
+	// default values of speed factors
+	voice->speedf1 = 256;
+	voice->speedf2 = 238;
+	voice->speedf3 = 232;
+
+	if(tone_only == 0)
+	{
+		n_replace_phonemes = 0;
+		option_tone1 = 0;
+		option_quiet = 0;
+		LoadMbrolaTable(NULL,NULL);
+	}
+}  // end of VoiceReset
+
+
+static void VoiceFormant(char *p)
+{//==============================
+	// Set parameters for a formant
+	int ix;
+	int formant;
+	int freq = -1;
+	int height = -1;
+	int width = -1;
+
+	ix = sscanf(p,"%d %d %d %d",&formant,&freq,&height,&width);
+	if(ix < 2)
+		return;
+
+	if((formant < 0) || (formant > 8))
+		return;
+
+	if(freq >= 0)
+		voice->freq[formant] = int(freq * 2.56001);
+	if(height >= 0)
+		voice->height[formant] = int(height * 2.56001);
+	if(width >= 0)
+		voice->width[formant] = int(width * 2.56001);
+}
+
+
+static voice_t *VoiceLookup(char *voicename)
+{//=========================================
+	int ix;
+	voice_t *v;
+
+	for(ix=0; ix < N_VOICES; ix++)
+	{
+		if(ix == n_voices_tab)
+		{
+			// found a free slot
+			v = (voice_t *)Alloc(sizeof(voice_t));
+			if(v == NULL)
+				return(NULL);
+			voices_tab[n_voices_tab++] = v;
+			strncpy0(v->name,voicename,sizeof(v->name));
+			return(v);
+		}
+		else
+		if(strcmp(voices_tab[ix]->name,voicename)==0)
+		{
+			return(voices_tab[ix]);   // found the entry for the specified voice name
+		}
+	}
+	return(NULL);  // table is full
+}  // end of VoiceLookup
+
+
+
+
+
+static void PhonemeReplacement(int type, char *p)
+{//==============================================
+	int n;
+	int  phon;
+	int flags = 0;
+	char phon_string1[12];
+	char phon_string2[12];
+
+	strcpy(phon_string2,"NULL");
+	n = sscanf(p,"%d %s %s",&flags,phon_string1,phon_string2);
+	if((n < 2) || (n_replace_phonemes >= N_REPLACE_PHONEMES))
+		return;
+
+	if((phon = LookupPh(phon_string1)) == 0)
+		return;  // not recognised
+
+	replace_phonemes[n_replace_phonemes].old_ph = phon;
+	replace_phonemes[n_replace_phonemes].new_ph = LookupPh(phon_string2);
+	replace_phonemes[n_replace_phonemes++].type = flags;
+}  //  end of PhonemeReplacement
+
+
+
+static int Read8Numbers(char *data_in,int *data)
+{//=============================================
+// Read 8 integer numbers
+	return(sscanf(data_in,"%d %d %d %d %d %d %d %d",
+		&data[0],&data[1],&data[2],&data[3],&data[4],&data[5],&data[6],&data[7]));
+}
+
+
+voice_t *LoadVoice(char *vname, int control)
+{//==========================================
+// control, bit 0  1= no_default
+//          bit 1  1 = change tone only, not language
+//          bit 2  1 = don't report error on LoadDictionary
+
+	FILE *f_voice = NULL;
+	keywtab_t *k;
+	char *p;
+	int  key;
+	int  ix;
+	int  n;
+	int  value;
+	int  error = 0;
+	int  tone_only = control & 2;
+	int  language_set = 0;
+	int  phonemes_set = 0;
+	int  stress_amps_set = 0;
+	int  stress_lengths_set = 0;
+	int  stress_add_set = 0;
+	int  conditional_rules = 0;
+	LANGUAGE_OPTIONS *langopts = NULL;
+
+	voice_t *v;
+	Translator *new_translator = NULL;
+
+	char voicename[40];
+	char language_name[40];
+	char translator_name[40];
+	char new_dictionary[40];
+	char phonemes_name[40];
+	char *language_type;
+	char buf[200];
+	char langname[4];
+
+	int stress_amps[8];
+	int stress_lengths[8];
+	int stress_add[8];
+
+	int pitch1;
+	int pitch2;
+
+	strcpy(voicename,vname);
+	if(voicename[0]==0)
+		strcpy(voicename,"default");
+
+	sprintf(buf,"%s%cvoices%c%s",path_home,PATHSEP,PATHSEP,voicename);
+
+	if(GetFileLength(buf) <= 0)
+	{
+		// look for the voice in a sub-directory of the language name
+		langname[0] = voicename[0];
+		langname[1] = voicename[1];
+		langname[2] = 0;
+		sprintf(buf,"%s%cvoices%c%s%c%s",path_home,PATHSEP,PATHSEP,langname,PATHSEP,voicename);
+	}
+
+	f_voice = fopen(buf,"r");
+
+	language_type = "en";    // default
+	if(f_voice == NULL)
+	{
+		if(control & 3)
+			return(NULL);  // can't open file
+
+		if(SelectPhonemeTableName(voicename) >= 0)
+			language_type = voicename;
+	}
+
+	if(!tone_only && (translator != NULL))
+	{
+		delete translator;
+		translator = NULL;
+	}
+
+	strcpy(translator_name,language_type);
+	strcpy(new_dictionary,language_type);
+	strcpy(phonemes_name,language_type);
+
+
+	if((v = VoiceLookup(voicename)) != NULL)
+		voice = v;
+	VoiceReset(tone_only);
+
+	if(!tone_only)
+		SelectPhonemeTableName(phonemes_name);  // set up phoneme_tab
+
+
+	while((f_voice != NULL) && (fgets(buf,sizeof(buf),f_voice) != NULL))
+	{
+		if((p = strstr(buf,"//")) != NULL)
+			*p = 0;
+
+		// isolate the attribute name
+		for(p=buf; (*p != 0) && !isspace(*p); p++);
+		*p++ = 0;
+
+		if(buf[0] == 0) continue;
+
+		key = 0;
+		for(k=keyword_tab; k->mnem != NULL; k++)
+		{
+			if(strcmp(buf,k->mnem)==0)
+			{
+				key = k->data;
+				break;
+			}
+		}
+
+		switch(key)
+		{
+		case V_LANGUAGE:
+			// only act on the first language line
+			if(language_set || tone_only)
+				break;
+
+			sscanf(p,"%s",language_name);
+			language_type = strtok(language_name,"-");
+			language_set = 1;
+			strcpy(translator_name,language_type);
+			strcpy(new_dictionary,language_type);
+			strcpy(phonemes_name,language_type);
+			SelectPhonemeTableName(phonemes_name);
+
+			if(new_translator != NULL)
+					delete new_translator;
+
+			new_translator = SelectTranslator(translator_name);
+			langopts = &new_translator->langopts;
+			break;
+
+		case V_NAME:
+		case V_GENDER:
+			break;
+
+		case V_TRANSLATOR:        // language_name
+			if(tone_only) break;
+
+			sscanf(p,"%s",translator_name);
+
+			if(new_translator != NULL)
+					delete new_translator;
+
+			new_translator = SelectTranslator(translator_name);
+			langopts = &new_translator->langopts;
+			break;
+
+		case V_DICTIONARY:        // dictionary
+			sscanf(p,"%s",new_dictionary);
+			break;
+
+		case V_PHONEMES:        // phoneme table
+			sscanf(p,"%s",phonemes_name);
+			break;
+
+		case V_FORMANT:
+			VoiceFormant(p);
+			break;
+
+		case V_PITCH:
+			// default is  pitch 82 118
+			n = sscanf(p,"%d %d",&pitch1,&pitch2);
+			voice->pitch_base = (pitch1 - 9) << 12;
+			voice->pitch_range = (pitch2 - pitch1) * 108;
+			break;
+
+		case V_STRESSLENGTH:   // stressLength
+			stress_lengths_set = Read8Numbers(p,stress_lengths);
+			break;
+
+		case V_STRESSAMP:   // stressAmp
+			stress_amps_set = Read8Numbers(p,stress_amps);
+			break;
+
+		case V_STRESSADD:   // stressAdd
+			stress_add_set = Read8Numbers(p,stress_add);
+			break;
+
+		case V_INTONATION:   // intonation
+			sscanf(p,"%d %d",&option_tone1,&option_tone2);
+			break;
+
+		case V_DICTRULES:   // conditional dictionary rules and list entries
+			while(*p != 0)
+			{
+				while(isspace(*p)) p++;
+				n = -1;
+				if((n = atoi(p)) > 0)
+				{
+					p++;
+					conditional_rules |= (1 << n);
+				}
+				while(isalnum(*p)) p++;
+			}
+			break;
+
+		case V_REPLACE:
+			if(phonemes_set == 0)
+			{
+				// must set up a phoneme table before we can lookup phoneme mnemonics
+				SelectPhonemeTableName(phonemes_name);
+				phonemes_set = 1;
+			}
+			PhonemeReplacement(key,p);
+			break;
+
+		case V_WORDGAP:   // words
+			sscanf(p,"%d %d",&langopts->word_gap, &langopts->vowel_pause);
+			break;
+
+		case V_STRESSRULE:
+			sscanf(p,"%d %d %d %d",&langopts->stress_rule,
+				&langopts->stress_flags,
+				&langopts->unstressed_wd1,
+				&langopts->unstressed_wd2);
+			break;
+
+		case V_CHARSET:
+			if((sscanf(p,"%d",&value)==1) && (value < N_CHARSETS))
+				new_translator->charset_a0 = charsets[value];
+			break;
+
+		case V_NUMBERS:
+			sscanf(p,"%d",&langopts->numbers);
+			break;
+
+		case V_OPTION:
+			if(sscanf(p,"%d %d",&ix,&value) == 2)
+			{
+				if((ix >= 0) && (ix < N_LOPTS))
+					langopts->param[ix] = value;
+			}
+			break;
+
+		case V_ECHO:
+			// echo.  suggest: 135mS  11%
+			value = 0;
+			voice->echo_amp = 0;
+			sscanf(p,"%d %d",&voice->echo_delay,&voice->echo_amp);
+			break;
+
+		case V_FLUTTER:   // flutter
+			if(sscanf(p,"%d",&value)==1)
+				voice->flutter = value * 32;
+			break;
+
+		case V_ROUGHNESS:   // roughness
+			if(sscanf(p,"%d",&value)==1)
+				voice->roughness = value;
+			break;
+
+		case V_CLARITY:  // formantshape
+			if(sscanf(p,"%d",&value)==1)
+			{
+				if(value > 4)
+				{
+					voice->peak_shape = 1;  // squarer formant peaks
+					value = 4;
+				}
+				voice->n_harmonic_peaks = 1+value;
+			}
+			break;
+
+		case V_TONE:
+			{
+				int tone_data[10];
+				ReadTonePoints(p,tone_data);
+				SetToneAdjust(voice,tone_data);
+			}
+			break;
+
+		case V_MBROLA:
+			{
+				char name[40];
+				char phtrans[40];
+				phtrans[0] = 0;
+				sscanf(p,"%s %s",name,phtrans);
+				LoadMbrolaTable(name,phtrans);
+			}
+			break;
+
+		default:
+			if((key & 0xff00) == 0x100)
+			{
+				sscanf(p,"%d",&langopts->param[key &0xff]);
+			}
+			else
+			{
+				fprintf(stderr,"Bad voice attribute: %s\n",buf);
+			}
+			break;
+		}
+	}
+	if(f_voice != NULL)
+		fclose(f_voice);
+
+	if((new_translator == NULL) && (!tone_only))
+	{
+		// not set by language attribute
+		new_translator = SelectTranslator(translator_name);
+	}
+
+	for(ix=0; ix<N_PEAKS; ix++)
+	{
+		voice->freq2[ix] = voice->freq[ix];
+		voice->height2[ix] = voice->height[ix];
+		voice->width2[ix] = voice->width[ix];
+	}
+
+	if(tone_only)
+	{
+		new_translator = translator;
+	}
+	else
+	{
+		if((ix = SelectPhonemeTableName(phonemes_name)) < 0)
+		{
+			fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
+		}
+		voice->phoneme_tab_ix = ix;
+		error = new_translator->LoadDictionary(new_dictionary, control & 4);
+		if(dictionary_name[0]==0)
+			return(NULL);   // no dictionary loaded
+
+		new_translator->dict_condition = conditional_rules;
+	}
+
+	langopts = &new_translator->langopts;
+
+
+	if((value = langopts->param[LOPT_LENGTH_MODS]) != 0)
+	{
+		SetLengthMods(new_translator,value);
+	}
+
+	voice->width[0] = (voice->width[0] * 105)/100;
+
+	if(!tone_only)
+	{
+		translator = new_translator;
+		strcpy(voice_name,voicename);
+	}
+
+	// relative lengths of different stress syllables
+	for(ix=0; ix<stress_lengths_set; ix++)
+	{
+		translator->stress_lengths[ix] = stress_lengths[ix];
+	}
+	for(ix=0; ix<stress_add_set; ix++)
+	{
+		translator->stress_lengths[ix] += stress_add[ix];
+	}
+	for(ix=0; ix<stress_amps_set; ix++)
+	{
+		translator->stress_amps[ix] = stress_amps[ix];
+		translator->stress_amps_r[ix] = stress_amps[ix] -1;
+	}
+
+	return(voice);
+}  //  end of LoadVoice
+
+
+voice_t *LoadVoiceVariant(const char *vname, int variant)
+{//======================================================
+	voice_t *v;
+	char *p;
+	char buf[40];
+
+	strcpy(buf,vname);
+	if((p = strchr(buf,'+')) != NULL)
+	{
+		// The voice name has a +variant suffix
+		*p = 0;
+		variant = atoi(p+1);
+	}
+	v = LoadVoice(buf,0);
+	if((v != NULL) && (variant > 0))
+	{
+		sprintf(buf,"!variant%d",variant);
+		LoadVoice(buf,2);
+	}
+	return(v);
+}
+
+
+
+static int __cdecl VoiceNameSorter(const void *p1, const void *p2)
+{//=======================================================
+	int ix;
+	espeak_VOICE *v1 = *(espeak_VOICE **)p1;
+	espeak_VOICE *v2 = *(espeak_VOICE **)p2;
+
+
+	if((ix = strcmp(&v1->languages[1],&v2->languages[1])) != 0)  // primary language name
+		return(ix);
+	if((ix = v1->languages[0] - v2->languages[0]) != 0)  // priority number
+		return(ix);
+	return(strcmp(v1->name,v2->name));
+}
+
+
+static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
+{//========================================================
+	int ix;
+	espeak_VOICE *v1 = *(espeak_VOICE **)p1;
+	espeak_VOICE *v2 = *(espeak_VOICE **)p2;
+
+	if((ix = v2->score - v1->score) != 0)
+		return(ix);
+	return(strcmp(v2->name,v1->name));
+}
+
+
+static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
+{//======================================================================================================
+	int ix;
+	char *p;
+	int c1, c2;
+	int language_priority;
+	int n_parts;
+	int matching;
+	int matching_parts;
+	int score = 0;
+	int x;
+	int ratio;
+	int required_age;
+	int diff;
+
+	p = voice->languages;  // list of languages+dialects for which this voice is suitable
+
+	if(voice_spec->languages == NULL)
+	{
+		score = 100;
+	}
+	else
+	{
+		// compare the required language with each of the languages of this voice
+		while(*p != 0)
+		{
+			language_priority = *p++;
+
+			matching = 1;
+			matching_parts = 0;
+			n_parts = 1;
+
+			for(ix=0; ; ix++)
+			{
+				if((ix >= spec_lang_len) || ((c1 = voice_spec->languages[ix]) == '-'))
+					c1 = 0;
+				if((c2 = p[ix]) == '-')
+					c2 = 0;
+
+				if(c1 != c2)
+				{
+					matching = 0;
+				}
+
+				if(p[ix] == '-')
+				{
+					n_parts++;
+					if(matching)
+						matching_parts++;
+				}
+				if(p[ix] == 0)
+					break;
+			}
+			p += (ix+1);
+			matching_parts += matching;  // number of parts which match
+
+			if(matching_parts == 0)
+				break;   // no matching parts for this language
+
+			x = 5;
+			// reduce the score if not all parts of the required language match
+			if((diff = (spec_n_parts - matching_parts)) > 0)
+				x -= diff;
+
+			// reduce score if the language is more specific than required
+			if((diff = (n_parts - matching_parts)) > 0)
+				x -= diff;
+
+			x = x*100 - (language_priority * 2);
+
+			if(x > score)
+				score = x;
+		}
+	}
+	if(score == 0)
+		return(0);
+
+	if((voice_spec->name != NULL) && (strcmp(voice_spec->name,voice->name)==0))
+	{
+		// match on voice name
+		score += 400;
+	}
+
+	if(((voice_spec->gender == 1) || (voice_spec->gender == 2)) &&
+		((voice->gender == 1) || (voice->gender == 2)))
+	{
+		if(voice_spec->gender == voice->gender)
+			score += 50;
+		else
+			score -= 50;
+	}
+
+	if((voice_spec->age <= 12) && (voice->gender == 2) && (voice->age > 12))
+	{
+		score += 5;  // give some preference for non-child female voice if a child is requested
+	}
+
+	if(voice->age != 0)
+	{
+		if(voice_spec->age == 0)
+			required_age = 30;
+		else
+			required_age = voice_spec->age;
+
+		ratio = (required_age*100)/voice->age;
+		if(ratio < 100)
+			ratio = 10000/ratio;
+		ratio = (ratio - 100)/10;    // 0=exact match, 10=out by factor of 2
+		x = 5 - ratio;
+		if(x > 0) x = 0;
+
+		score = score + x;
+
+		if(voice_spec->age > 0)
+			score += 10;    // required age specified, favour voices with a specified age (near it)
+	}
+	if(score < 1)
+		score = 1;
+	return(score);
+}  // end of ScoreVoice
+
+
+static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices)
+{//=========================================================================
+	int ix;
+	int score;
+	int nv;           // number of candidates
+	int n_parts=1;
+	int lang_len=0;
+	char *p;
+	espeak_VOICE *vp;
+
+	// count number of parts in the specified language
+	if(voice_select->languages != NULL)
+	{
+		lang_len = strlen(voice_select->languages);
+		for(p = voice_select->languages; *p != 0; p++)
+		{
+			if(*p == '-')
+				n_parts++;
+		}
+	}
+
+	// select those voices which match the specified language
+	nv = 0;
+	for(ix=0; ix<n_voices_list; ix++)
+	{
+		if((score = ScoreVoice(voice_select, n_parts, lang_len, voices_list[ix])) > 0)
+		{
+			voices[nv++] = vp = voices_list[ix];
+			vp->score = score;
+		}
+	}
+	voices[nv] = NULL;  // list terminator
+
+	if(nv==0)
+		return(0);
+
+	// sort the selected voices by their score
+	qsort(voices,nv,sizeof(espeak_VOICE *),(int (__cdecl *)(const void *,const void *))VoiceScoreSorter);
+
+	return(nv);
+}  // end of SetVoiceScores
+
+
+
+
+static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*leafname)
+{//===================================================================================
+// Read a Voice file, allocate a VOICE_DATA and set data from the
+// file's  language, gender, name  lines
+
+	char linebuf[120];
+	char vname[80];
+	char vgender[80];
+	char vlanguage[80];
+	char languages[300];  // allow space for several alternate language names and priorities
+
+
+	unsigned int len;
+	int langix = 0;
+	int n_languages = 0;
+	char *p;
+	espeak_VOICE *voice_data;
+	int priority;
+	int age;
+	int n_variants = 3;    // default, number of variants of this voice before using another voice
+	int gender;
+
+#ifdef PLATFORM_WINDOWS
+	if(memcmp(leafname,"mb-",3) == 0)
+	{
+		// check whether the mbrola speech data is present for this voice
+		memcpy(vname,&leafname[3],3);
+		vname[3] = 0;
+		sprintf(linebuf,"%s/mbrola/%s",path_home,vname);
+
+		if(GetFileLength(linebuf) <= 0)
+			return(0);
+	}
+#endif
+
+	vname[0] = 0;
+	vgender[0] = 0;
+	age = 0;
+
+	while(fgets(linebuf,sizeof(linebuf),f_in) != NULL)
+	{
+		linebuf[strlen(linebuf)-1] = 0;
+
+		if(memcmp(linebuf,"name",4)==0)
+		{
+			p = &linebuf[4];
+			while(isspace(*p)) p++;
+			strncpy0(vname,p,sizeof(vname));
+		}
+		else
+		if(memcmp(linebuf,"language",8)==0)
+		{
+			priority = DEFAULT_LANGUAGE_PRIORITY;
+			vlanguage[0] = 0;
+
+			sscanf(&linebuf[8],"%s %d",vlanguage,&priority);
+			len = strlen(vlanguage) + 2;
+			// check for space in languages[]
+			if(len < (sizeof(languages)-langix-1))
+			{
+				languages[langix] = priority;
+
+				strcpy(&languages[langix+1],vlanguage);
+				langix += len;
+				n_languages++;
+			}
+		}
+		else
+		if(memcmp(linebuf,"gender",6)==0)
+		{
+			sscanf(&linebuf[6],"%s %d",vgender,&age);
+		}
+		else
+		if(memcmp(linebuf,"variants",8)==0)
+		{
+			sscanf(&linebuf[8],"%d",&n_variants);
+		}
+	}
+	languages[langix++] = 0;
+
+	gender = LookupMnem(genders,vgender);
+
+	if(n_languages == 0)
+	{
+#ifdef deleted
+// Read voice variant files
+// Don't use this, instead preset the variants_* arrays
+
+		// no language is specified, this voice file only affects the voice characteristics
+		if(memcmp(leafname,"!variant",8)==0)
+		{
+			if(((variant = atoi(&leafname[8])) > 0) && (strlen(variants_either) < N_VOICE_VARIANTS))
+			{
+				char string[2];
+				string[0] = variant;
+				string[1] = 0;
+				strcat(variants_either,string);
+				if(gender == 1)
+					strcat(variants_male,string);
+				if(gender == 2)
+					strcat(variants_female,string);
+			}
+		}
+#endif
+		return(NULL);    // no language lines in the voice file
+	}
+
+	p = (char *)calloc(sizeof(espeak_VOICE) + langix + strlen(fname) + strlen(vname) + 3, 1);
+	voice_data = (espeak_VOICE *)p;
+	p = &p[sizeof(espeak_VOICE)];
+
+	memcpy(p,languages,langix);
+	voice_data->languages = p;
+
+	strcpy(&p[langix],fname);
+	voice_data->identifier = &p[langix];
+	voice_data->name = &p[langix];
+
+	if(vname[0] != 0)
+	{
+		langix += strlen(fname)+1;
+		strcpy(&p[langix],vname);
+		voice_data->name = &p[langix];
+	}
+
+	voice_data->age = age;
+	voice_data->gender = gender;
+	voice_data->variant = 0;
+	voice_data->xx1 = n_variants;
+	return(voice_data);
+}  // end of ReadVoiceFile
+
+
+static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
+{//============================================================================
+	int ix;
+	int match_fname = -1;
+	int match_fname2 = -1;
+	int match_name = -1;
+	char *id;
+	int last_part_len;
+	char last_part[41];
+
+	sprintf(last_part,"%c%s",PATHSEP,name);
+	last_part_len = strlen(last_part);
+
+	for(ix=0; voices[ix] != NULL; ix++)
+	{
+		if(strcmp(name,voices[ix]->name)==0)
+		{
+			match_name = ix;   // found matching voice name
+			break;
+		}
+		else
+		if(strcmp(name,id = voices[ix]->identifier)==0)
+		{
+			match_fname = ix;  // matching identifier, use this if no matching name
+		}
+		else
+		if(strcmp(last_part,&id[strlen(id)-last_part_len])==0)
+		{
+			match_fname2 = ix;
+		}
+	}
+
+	if(match_name < 0)
+	{
+		match_name = match_fname;  // no matching name, try matching filename
+		if(match_name < 0)
+			match_name = match_fname2;  // try matching just the last part of the filename
+	}
+
+	if(match_name < 0)
+		return(NULL);
+
+	return(voices[match_name]);
+}  //  end of SelectVoiceByName
+
+
+
+
+espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
+{//================================================================
+// Returns a path within espeak-voices, with a possible +variant suffix
+	int nv;           // number of candidates
+	int ix, ix2;
+	int j;
+	int n_variants;
+	int variant_number;
+	int gender;
+	int skip;
+	int aged=1;
+	const char *p, *p_start;
+	espeak_VOICE *vp = NULL;
+	espeak_VOICE *vp2;
+	espeak_VOICE *voices[N_VOICES_LIST]; // list of candidates
+	espeak_VOICE *voices2[N_VOICES_LIST+N_VOICE_VARIANTS];
+
+	espeak_VOICE voice_variants[N_VOICE_VARIANTS];
+
+	if(n_voices_list == 0)
+		espeak_ListVoices(NULL);   // create the voices list
+
+	// select and sort voices for the required language
+	nv = SetVoiceScores(voice_select,voices);
+
+	if(nv == 0)
+	{
+		// no matching voice, choose the default
+		if((voices[0] = SelectVoiceByName(voices_list,"default")) != NULL)
+			nv = 1;
+	}
+
+	gender = 0;
+	if((voice_select->gender == 2) || ((voice_select->age > 0) && (voice_select->age < 13)))
+		gender = 2;
+	else
+	if(voice_select->gender == 1)
+		gender = 1;
+
+#define AGE_OLD  60
+	if(voice_select->age < AGE_OLD)
+		aged = 0;
+
+	p = p_start = variant_lists[gender];
+	if(aged == 0)
+		p++;   // the first voice in the variants list is older
+
+	// add variants for the top voices
+	n_variants = 0;
+	for(ix=0, ix2=0; ix<nv; ix++)
+	{
+		vp = voices[ix];
+		// is the main voice the required gender?
+		skip=0;
+		if((gender != 0) && (vp->gender != gender))
+		{
+			skip=1;
+		}
+		if((ix2==0) && aged && (vp->age < AGE_OLD))
+		{
+			skip=1;
+		}
+		if(skip==0)
+		{
+			voices2[ix2++] = vp; 
+		}
+
+		for(j=0; (j < vp->xx1) && (n_variants < N_VOICE_VARIANTS);)
+		{
+			if((variant_number = *p) == 0)
+			{
+				p = p_start;
+				continue;
+			}
+
+			vp2 = &voice_variants[n_variants++];        // allocate space for voice variant
+			memcpy(vp2,vp,sizeof(espeak_VOICE));        // copy from the original voice
+			vp2->variant = variant_number;
+			voices2[ix2++] = vp2;
+			p++;
+			j++;
+		}
+	}
+	// add any more variants to the end of the list
+	while((vp != NULL) && ((variant_number = *p++) != 0) && (n_variants < N_VOICE_VARIANTS))
+	{
+		vp2 = &voice_variants[n_variants++];        // allocate space for voice variant
+		memcpy(vp2,vp,sizeof(espeak_VOICE));        // copy from the original voice
+		vp2->variant = variant_number;
+		voices2[ix2++] = vp2;
+	}
+
+	// index the sorted list by the required variant number
+	vp = voices2[voice_select->variant % ix2];
+	*variant = vp->variant;
+	return(vp);
+}  //  end of SelectVoice
+
+
+
+void GetVoices(const char *path)
+{//=============================
+	FILE *f_voice;
+	espeak_VOICE *voice_data;
+	int ftype;
+	char fname[80];
+
+#ifdef PLATFORM_RISCOS
+#else
+#ifdef PLATFORM_WINDOWS
+   WIN32_FIND_DATA FindFileData;
+   HANDLE hFind = INVALID_HANDLE_VALUE;
+   DWORD dwError;
+
+	sprintf(fname,"%s\\*",path);
+	hFind = FindFirstFile(fname, &FindFileData);
+	if(hFind == INVALID_HANDLE_VALUE)
+		return;
+
+	do {
+		sprintf(fname,"%s%c%s",path,PATHSEP,FindFileData.cFileName);
+
+		ftype = GetFileLength(fname);
+
+		if((ftype == -2) && (FindFileData.cFileName[0] != '.'))
+		{
+			// a sub-sirectory
+			GetVoices(fname);
+		}
+		else
+		if(ftype > 0)
+		{
+			// a regular line, add it to the voices list	
+			if((f_voice = fopen(fname,"r")) == NULL)
+				continue;
+		
+			// pass voice file name within the voices directory
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
+			fclose(f_voice);
+
+			if(voice_data != NULL)
+			{
+				voices_list[n_voices_list++] = voice_data;
+			}
+		}
+	} while(FindNextFile(hFind, &FindFileData) != 0);
+	FindClose(hFind);
+
+#else
+	DIR *dir;
+	struct dirent *ent;
+
+	if((dir = opendir(path)) == NULL)
+		return;
+
+	while((ent = readdir(dir)) != NULL)
+	{
+		if(n_voices_list >= (N_VOICES_LIST-2))
+			break;   // voices list is full
+
+		sprintf(fname,"%s%c%s",path,PATHSEP,ent->d_name);
+
+		ftype = GetFileLength(fname);
+
+		if((ftype == -2) && (ent->d_name[0] != '.'))
+		{
+			// a sub-sirectory
+			GetVoices(fname);
+		}
+		else
+		if(ftype > 0)
+		{
+			// a regular line, add it to the voices list	
+			if((f_voice = fopen(fname,"r")) == NULL)
+				continue;
+		
+			// pass voice file name within the voices directory
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, ent->d_name);
+			fclose(f_voice);
+
+			if(voice_data != NULL)
+			{
+				voices_list[n_voices_list++] = voice_data;
+			}
+		}
+	}
+	closedir(dir);
+#endif
+#endif
+}   // end of GetVoices
+
+
+
+espeak_ERROR SetVoiceByName(const char *name)
+{//=========================================
+	espeak_VOICE *v;
+	int variant=0;
+	char *p;
+	char buf[80];
+
+	strncpy0(buf,name,sizeof(buf));
+	if((p = strchr(buf,'+')) != NULL)
+	{
+		// remove the voice variant suffix, from eg. en+3
+		*p = 0;
+		variant = atoi(p+1);
+	}
+
+	if(n_voices_list == 0)
+		espeak_ListVoices(NULL);   // create the voices list
+
+	if((v = SelectVoiceByName(voices_list,buf)) != NULL)
+	{
+		if(LoadVoiceVariant(v->identifier,variant) != NULL)
+		{
+			voice_selected = v;
+			WavegenSetVoice(voice);
+			return(EE_OK);
+		}
+	}
+	return(EE_INTERNAL_ERROR);   // voice name not found
+}  // end of espeak_SetVoiceByName
+
+
+
+espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
+{//============================================================
+	int variant;
+
+	voice_selected = SelectVoice(voice_selector,&variant);
+
+	LoadVoiceVariant(voice_selected->identifier,variant);
+	WavegenSetVoice(voice);
+	return(EE_OK);
+}  //  end of espeak_SetVoiceByProperties
+
+
+
+
+//=======================================================================
+//  Library Interface Functions
+//=======================================================================
+#pragma GCC visibility push(default)
+
+
+ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
+{//========================================================================
+#ifndef PLATFORM_RISCOS
+	int ix;
+	static espeak_VOICE *voices[N_VOICES_LIST];
+	char selected_voice_id[80];
+	char path_voices[80];
+
+	// free previous voice list data
+	if((voice_selected != NULL) && (voice_selected->identifier != NULL))
+		strncpy0(selected_voice_id,voice_selected->identifier,sizeof(selected_voice_id));
+	else
+		selected_voice_id[0] = 0;
+	voice_selected = NULL;
+
+	for(ix=0; ix<n_voices_list; ix++)
+	{
+		if(voices_list[ix] != NULL)
+			free(voices_list[ix]);
+	}
+	n_voices_list = 0;
+
+	sprintf(path_voices,"%s%cvoices",path_home,PATHSEP);
+	len_path_voices = strlen(path_voices)+1;
+
+	GetVoices(path_voices);
+	voices_list[n_voices_list] = NULL;  // voices list terminator
+
+	// sort the voices list
+	qsort(voices_list,n_voices_list,sizeof(espeak_VOICE *),
+		(int (__cdecl *)(const void *,const void *))VoiceNameSorter);
+
+	// restore pointer to current voice
+	if(selected_voice_id[0] != 0)
+	{
+		for(ix=0; ix<n_voices_list; ix++)
+		{
+			if(strcmp(selected_voice_id, voices_list[ix]->identifier)==0)
+			{
+				voice_selected = voices_list[ix];
+				break;
+			}
+		}
+	}
+
+	if(voice_spec)
+	{
+		// select the voices which match the voice_spec, and sort them by preference
+		SetVoiceScores(voice_spec,voices);
+		return((const espeak_VOICE **)voices);
+	}
+
+#endif
+	return((const espeak_VOICE **)voices_list);
+}  //  end of espeak_ListVoices
+
+
+
+ESPEAK_API espeak_VOICE *espeak_GetCurrentVoice(void)
+{//==================================================
+	return(voice_selected);
+}
+
+#pragma GCC visibility pop
+
+

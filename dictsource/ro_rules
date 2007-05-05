@@ -1,0 +1,329 @@
+// translation rules for Romanian
+// This file is UTF-8 encoded
+
+
+
+.group a
+        a        a
+        ai       aI
+        ai (_    'aI
+        au       aU   // ?? only at end of word ??
+        au (_    'aU
+        a (AAA   a
+     &) a (_S1q  a
+    gi) a (_S1q  'a
+    V@) a (_     'a	
+    ăi) a (_     'a
+     @) abil (_  'abil
+     _) anti (@P4  anti
+     @) ale (_   'ale
+
+.group ă
+        ă        @
+        ăi       @I
+        ău       @U  // ?? only at end of word ??
+        ău (_    @U
+
+        ăi (m_   @'i
+        ăi (t_   @'i
+        ăi (ţi_  @'i
+
+     &) ă (_S1   @
+        ări (A_  @*'i
+        ării (_  @*'iI
+        ări (AA_ @*'i
+
+.group â
+        â        y
+        âi       yI
+        âu       yU
+
+
+.group b
+        b        b
+     @) b (i_    b;
+
+     @) b (il_   =b
+    mo) bil (_   b'il
+
+
+.group c
+        c        k
+        c (e     tS
+        c (i     tS
+        ci (o    tS
+        cii      tSiI
+        ch       k
+    @@) col (_   =kol
+    @@) coli (_S1t  =I^
+    @@) cole (_S1t  =e
+
+.group d
+        d        d
+     @) d (i_    d;
+
+
+.group e
+        e        e
+        ei       eI
+//        eu       eU   // only at end of word ??
+//        eu       e[u    // ??
+        eu (_    'eU
+        ea       ea
+     &) ea (_S2q ea
+        eai      eaj
+        eau      eaw
+        eoa      'eOa
+        eo       eo
+        e (AAA   e
+
+     &) e (_S1q  e
+    &C) e (re_   %e
+ 
+   _ac) ee (a	 eI
+
+     r) ei (er_  'eI
+
+     @) e (re_   =e
+     @) e (ri_   =e
+     @) e (rea_  =e
+     i) e (re_   e
+     i) e (ri_   e
+     i) e (rea_  e
+
+
+.group f
+        f        f
+     @) f (i_    f;
+
+
+.group g
+        g        g
+        g (e     dZ
+        g (i     dZ
+        gii      dZiI
+        gh       g
+
+
+.group h
+        h        h
+     @) h (i_    C
+
+
+.group i
+        i        i
+        i (A     j
+    &C) i (_N$1q i/
+     &) i (_N$1q i
+     &) i (-N$1q i        // don't reduce to [I^] if a hyphen follows
+    &') i (_     i
+   ţi-) i (_     _        // combined with previous word as [iI]
+    Cr) i (_     i
+    V&) i (_     'i       // verb
+    ăC) ia (_    'ia
+    âC) ia (_    'ia
+    ăC) ie (_    'ie
+    âC) ie (_    'ie
+     @) ie (_S1q    =ie
+        iei (_   'ieI
+        ii       iI
+     &) ii (_S2q iI
+        iii      iji
+        iu (_    iU
+        iu       ju
+
+     &) ic (_    =ik
+     &) ice (_   =itSe
+     &) ing (_   %iNg     // foreign words
+        i (t_    'i
+
+   @ic) ii (_S2q ilor
+   @ic) ilor (_S4q ilor
+
+
+.group î
+        î        y
+
+
+.group j
+        j        Z
+     @) j (i_    Z;
+
+
+.group k
+        k        k
+
+
+.group l
+        l        l
+     @) l (i_    l;
+     _) l (_     le
+     -) l (_     l         // -l
+
+    iu) l (_S1t   l
+     &) le (_S2t  le
+     &) lor (_S3t lor
+     &) lui (_S3t luI
+     &) logi (A_  lodZ'i
+     &) logii (_  lodZ'iI
+
+.group m
+     _) m (_     me
+        m        m
+     @) m (i_    m;
+     _) m (-a    m
+
+
+.group n
+     _) n (_     ne
+        n        n
+     @) n (i_    n;
+        n (g     N
+        n (k     N
+     @) n (tic_  =n
+     @) n (ic_   =n
+     _) n (-a     n
+
+
+.group o
+        o        o
+        oa       Oa
+        oai      Oaj
+        oi       oI
+        oi (_    'oI
+        ou       oU
+        ou (_    'oU
+        o (AAA   o
+
+
+.group p
+        p        p
+     @) p (i_    p;
+
+
+
+.group q
+        q        k
+        qu       kw
+
+
+.group r
+        r          r
+     A) r (A       *
+     C) r (A       @-*
+        rr         *r
+     A) r (i_      *;
+
+     _) re (@P2v   re
+     _) re (gul    re
+    @u) ri (_NS2t   rI^
+    @u) rile (_S4t rile
+
+
+.group s
+     _) s (_     se
+     _) s (-a    s
+        s        s
+     @) s (i_    s;
+
+     &) sprezece (_S8t sp@-*ez,etSe
+
+
+.group ş
+        ş        S
+     @) ş (i_    S;
+
+
+.group t
+        t        t
+        tt (_    t
+     @) t (i_    t;
+
+
+.group ţ
+        ţ        ts
+    @)  ţ (i_    ts;
+//    @)  ţi (-mă  ts;'i
+//    @)  ţi (-vă  ts;'i
+//    @)  ţi (-le  ts;'i
+//    @)  ţi (-i   ts;'iI
+//    @)  ţi (-l   ts;'i
+
+
+.group u
+        u        u
+        u (A     w
+        ui       uI
+        ui (e    wi
+    V&) ui (_    w2'i
+        ui (m_   w2'i
+        ui (t_   w2'i
+        ui (ţi_  w2'i
+     &) ul  (_S2t ul
+
+   @ic) ul (_S2 ul
+   @ic) uri (_S3 urI^
+   @ic) urile (_S5 urile
+   @ic) urilor (_S6 urilor
+
+
+.group v
+        v        v
+     @) v (i_    v;
+
+
+.group w
+        w        w
+
+
+.group x
+        x        ks
+     A) x (A     gz
+    ma) x (i     ks
+     e) x (e     ks
+  cone) x (iu    ks
+     i) x (e     ks
+     o) x (e     ks       // boxele
+     o) x (i     ks       // oxigen
+     a) x (ia    ks       // axial
+   ale) x        ks
+    ta) x        ks
+
+
+.group y
+        y        i
+        y (A     j
+
+
+.group z
+        z        z
+     @) z (i_    z;
+
+
+
+.group
+        ö        Y
+
+        %        prosent   // ??
+        $        dolar
+        +        plus
+        &        perlwet
+        @        a*'ond
+        /        sleS
+        €        'eU*o
+
+        , (D     v'irgol@
+
+        .        puntk
+        . (.     _:
+   \.)  .
+
+   __)  - (_D    m'inus
+   A_)  - (_D    _
+   C_)  - (_D    _
+    --) -
+
+        *        aste*isk
+    *)  * (*
+        **
+   **)  * (_     _::

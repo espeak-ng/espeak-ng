@@ -1,0 +1,347 @@
+// translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+	_)	a(_	a:
+		a	a:
+		a (CK	a
+		ai      aI (K
+                ao (_   aU
+
+	&)	a (_S1q  a     // lookup it_list without suffix
+
+	@)	a (ce_	=a
+	@)	a (ci_	=a
+		a (ista_  a
+		a (ismo_  a
+	@)	a (bile_  'a
+	@)	a (ggine_ 'a
+
+	_)	ae (ro    aI
+	@)	avano (_S5  'avano
+		
+.group b
+	_)	b(_	bi:
+		b       b
+		bb      b:
+		
+.group c
+	_)	c(_	tSi:
+		c	k
+		cc	k:
+		c (e	tS
+		c (é	tS
+		c (è	tS
+		c (i	tS
+		c (ì	tS
+		cc (e	tS:
+		cc (é	tS:
+		cc (è	tS:
+		cc (i	tS:
+		cc (ì	tS:
+		ch	k
+		cch	k:
+		ci (a	tS
+		ci (à	tS
+		ci (o	tS
+		ci (ò	tS
+		ci (u	tS
+		ci (ù	tS
+		cci (a	tS:
+		cci (à	tS:
+		cci (o	tS:
+		cci (ò	tS:
+		cci (u	tS:
+		cci (ù	tS:
+		
+.group d
+	_)	d(_	di:
+		d	d
+		dd	d:
+
+.group e
+	_)	e(_	e:
+		e	e:
+		e (CK	e
+		ei	ej (K
+
+	&)	e (_S1q  e     // lookup it_list without suffix
+	@)	e (ce_	=e
+	@)	e (ci_	=e
+
+	@)	e (nte_   E
+	@m)	e (nte_   e
+	@)	e (nza_   E
+	@)	e (vole_  'e
+	@)	e (rrimo_ 'E
+	@)	e (simo_  'e
+
+	@)	evano(_S5  'evano
+
+		
+.group f
+	_)	f(_	Effe
+		f	f
+
+	@A)	f (ico_  =f
+	@A)	f (ilo_  =f
+	@A)	f (ero_  =f
+		
+.group g
+	_)	g(_	dZi:
+		g	g
+		gg	g:
+		gh	g
+		g (e	dZ
+		g (é	dZ
+		g (è	dZ
+		g (i	dZ
+		g (ì	dZ
+		gi (a	dZ
+		gi (à	dZ
+		gi (o	dZ
+		gi (ò	dZ
+		gi (u	dZ
+		gi (ù	dZ
+		gg (e	dZ:
+		gg (é	dZ:
+		gg (è	dZ:
+		gg (i	dZ:
+		gg (ì	dZ:
+		ggi (a	dZ:
+		ggi (à	dZ:
+		ggi (o	dZ:
+		ggi (ò	dZ:
+		ggi (u	dZ:
+		ggi (ù	dZ:
+		gl (i	l^
+		gl (ì	l^
+		gli (A  l^
+	_)	gl	gl
+		gn	n^
+		gu (A   gw
+
+	@)	g (ero_  =g
+
+	
+.group h
+	_)	h(_	ak:a
+		h
+
+.group i
+	_)	i(_	i:
+		i	i:
+		i (CK	i
+		i (A	j
+	l)	i (A	%i
+	r)	i (A	%i
+       _C)	i (a    i
+		i (o    i
+		i (ò	i
+        @)      ia (_   =i%a
+        @)      io (_   =i%o
+	a)	i (+	j
+	e)	i (+	j
+	o)	i (+	j
+
+	&)	i (_S1q  i     // lookup it_list without suffix
+
+	@)	i (ce_	=i
+	@)	i (ci_	=i
+        @)      i (de_  =i
+        @)      i (do_  =i
+	@)	i (le_  =i
+	@)	i (li_  =i
+	@)	iera (_   i'E:ra
+	@)	iere (_   i'E:re
+        @)      i (ente_  i
+	@)	i (ante_  i
+	@)	i (bile_  'i
+	@)	issimo(_S6 'issimo
+	@)	issero(_S6 'issero
+
+		
+.group j
+	_)	j(_	dZe:j
+		j	j
+
+.group k
+	_)	k(_	kap:a
+		k	k
+		kk	k:
+		
+.group l
+	_)	l(_	Elle
+		l	l
+               ll (C    l_
+               ll (_    l
+		
+.group m
+	_)	m(_	Emme
+		m	m
+		
+.group n
+	_)	n(_	Enne
+		n	n
+		n (g	N
+		n (k	N
+		
+.group o
+	_)	o(_	O:
+		o	o:
+		o (CK	o
+		oi	oI (K
+
+	&)	o (_S1q  o     // lookup it_list without suffix 
+
+	@)	o (ista_   o
+	@)	o (ismo_   o
+	@)	o (gnolo_  'o
+	@)	o (nzolo_  'o
+	@)	o (grafo_  'O
+	@)	o (fono_   'O
+	@)	o (metro_  'O
+	@)	o (logo_   'O
+
+	
+.group p
+	_)	p(_	pi:
+		p	p
+		pp	p:
+        _)      pn (@@   n
+	_)	ps (A@	s
+
+.group q
+	_)	q(_	ku:
+		q	kw
+		qu	kw
+
+.group r
+	_)	r(_	ERRe
+		r	R
+		rr	RR
+	A)	r (A	r
+		
+.group s
+	_)	s(_	Esse
+		s	z
+	_)	s	s
+
+	l)      s       s
+	p)      s       s
+	k)	s	s
+		s (c	s
+		s (f	s
+		s (k	s
+		s (p	s
+		s (q	s
+		ss	ss
+		s (t	s
+		s (x	s
+		sc (e	S
+		sc (é	S
+		sc (è	S
+		sc (i	S
+		sc (ì	S
+	A)	sc (e	SS
+	A)	sc (é	SS
+	A)	sc (è	SS
+	A)	sc (i	SS
+	A)	sc (ì	SS
+		sch (e	sk
+		sch (é	sk
+		sch (è	sk
+		sch (i	sk
+		sch (ì	sk
+		sh (K	S    // foreign words
+	K)	sh	S    // foreign words
+		
+		
+.group t
+	_)	t(_	ti:
+		t	t
+		tt	t:
+		
+.group u
+	_)	u(_	U:
+		u	U:
+		u (CK	U
+		u (A	w2
+	Kr)	u (A	U
+	Kl)	u (A	U
+
+	@)	u (dine_  'u
+	@)	u (colo_  'u
+
+.group v
+	_)	v(_	vU:
+		v	v
+	
+.group w
+	_)	w(_	d'op:jav'U
+		w	w2
+
+.group x
+	_)	x(_	'iks
+		x	ks
+		
+.group y
+	_)	y(_	'ipsilon
+		y	j
+		y (K	i        // foreign words
+	
+		
+.group z
+	_)	z(_	ze:ta
+		z	ts
+	A)	z	ts:
+	A)	zz	ts:
+
+        _)	z (i	dz
+
+.group
+		à	'a:
+		à (CK	'a
+		é	'e:
+		é (CK	'e
+		è	'E:
+		è (CK	'E
+		ì	'i:
+		ì (CK	'i
+		ó	'o:
+		ó (CK	'o
+		ò	'O:
+		ò (CK	'O
+		ù	'U:
+		ù (CK	'U
+
+		%       pertS'ento
+		$	dolla:ro
+		₤       lira
+		£       sterl'ina
+		&	_!e
+		@       ki'otS:ola
+		©       k'opiraIt
+		+	pjU
+		.       pUnto
+		, (D    v'irgola
+		:       d,Uep'Unte
+		;       p'Untoev'irgola
+		!       _p'Untoesklamat'ivo_
+	!)	!
+		?	_p'UntointeRogat'ivo_
+	?)	?
+		\\	bakslaS
+		/	slaS
+
+        __)  - (_D         meno
+        A_)  - (_D        _
+        C_)  - (_D        _
+         --) -
+		−	meno
+
+		*	asterisko
+	*)	* (*
+		**           
+	**)	* (_	_::

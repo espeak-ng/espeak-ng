@@ -1,0 +1,209 @@
+
+// This file in UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+_s	Es
+_t	te:
+
+_.	p8nt
+
+// numbers
+_0	n'8l
+_1	'e:n
+_2	tv2'e:
+_3	dr'i
+_4	f'ir
+_5	f'EIf
+_6	z'Es
+_7	z'e:f@n
+_8	'Axt
+_9	n'e:x@n
+_10	t'in
+_11	'Elf
+_12	tw'Alf
+_13	d'e:rtin
+_14	f'e:rtin
+_15	f'EIftin
+_16	z'Estin
+_17	z'e:f@ntin
+_18	'Axtin
+_19	n'e:x@ntin
+_2X	tv2'Int@x
+_3X	d'e:rt@x
+_4X	f'e:rt@x
+_5X	f'EIft@x
+_6X	z'Est@x
+_7X	z'e:f@nt@x
+_8X	t'Axt@x
+_9X	n'e:g@nt@x
+_0C	h'OndErt
+_0M2	d'WyzEnt
+_1M1	d'WyzEnt
+_0M2	m'iljun
+_0M3	m'iljArt
+_0M4	b'iljun
+_0and	En
+_dpt	_k'Oma:
+
+
+// articles
+de	d@
+het	h@t
+een	@n
+
+
+// pronouns
+ik		$u
+me		$u
+jij		$u
+je		$u
+gij		$u
+ge		$u
+u		$u
+hij		$u
+zij		$u
+ze		$u
+het		$u
+wij		$u
+we		$u
+jullie		$u
+hen		$u
+zich		$u
+
+// possessives
+mijn		$u
+m'n		m@n
+jouw		$u
+uw		$u
+zijn		$u
+z'n		$u
+haar		$u
+d'r		$u
+ons		$u
+onze		$u
+jullie		$u
+hun		$u
+
+// demonstrative
+deze		$u
+die		$u $brk
+dit		$u
+dat		$u
+wat		$u
+er		$u
+waar		$pause
+
+// prepositions
+in		$u+ $brk	// in
+op		$u+ $brk	// in
+aan		$u+ $pause	// at, on
+bij		$u+ $pause	// at, near
+om		$u+ $brk	// at
+met		$u+ $pause	// with, by
+over		$u+ $pause	// about
+na		$u+ $pause	// after
+door		$u+ $pause	// through, by
+tot		$u+ $pause	// until
+uit		$u+ $pause	// from, out of
+voor		$u+ $pause	// for, in front of
+van		$u+ $brk	// from, of
+zonder		$u+ $pause	// without
+
+
+// conjunctions
+en	$u $pause	// and
+dus	$u $pause	// so
+maar	$u $pause	// but
+of	$u $pause	// or
+want	$u $pause	// for
+
+als	$u $pause	// if,when
+alsof	$pause		// as if
+behalve	$pause		// except
+dat	$u $pause	// that
+hoewel	$pause		// although
+of	$u $pause	// whether
+omdat	$pause		// because
+nadat	$pause		// after
+nudat	$pause		// now that
+sinds	$pause		// since
+tenzij	$pause		// unless
+terwijl	$pause		// while
+totdat	$pause		// until
+toen	$pause		// when (in past)
+voordat	$pause		// before
+wanneer	$pause		// when
+zoals	$pause		// just
+zolang	$pause		// as long as
+zover	$pause		// as far as
+
+
+
+// negative
+niet		$u+
+
+
+// questions
+
+
+// auxillary verbs  (be, have, can, etc)
+zijn	$u	// to be
+ben	$u
+bent	$u
+is	$u
+was	$u
+waren	$u
+geweest	$u
+
+hebben  $u          // to have
+heb	$u
+hebt	$u
+heeft	$u
+hadden	$u
+gehad	$u
+
+zullen	$u            // will, shall
+zal	$u
+zult	$u
+zou	$u
+zouden	$u
+
+kunnen	$u            // can
+kan	$u
+kunt	$u
+kon	$u
+konden	$u
+gekund	$u
+
+mogen	$u             // to be allowed
+mag	$u
+mocht	$u
+mochten	$u
+gemogen	$u
+
+willen	$u            // to want
+wil	$u
+wilt	$u
+wou	$u
+wilde	$u
+wilden	$u
+gewild	$u
+
+worden	$u
+wordt	$u
+werd	$u
+
+// some common adjectives and adverbs
+
+
+// Pronounce as English
+game        _^_EN
+player      _^_EN
+the         _^_EN
+
+// pronunciation exceptions
+

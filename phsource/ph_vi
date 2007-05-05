@@ -1,0 +1,298 @@
+ 
+//====================================================
+//  Vietnamese Phonemes
+//====================================================
+
+
+phoneme 1   //  tone: level
+  stress
+  length 11
+  tone 28 32 envelope/p_level NULL
+endphoneme
+
+
+phoneme 2   //  tone: low falling
+  stress
+  length 12
+  tone 20  8 envelope/p_fall NULL
+endphoneme
+
+
+phoneme 3   //  tone rising
+  stress
+  length 13
+  tone 28 43 envelope/p_rise NULL
+endphoneme
+
+
+phoneme 4   //  tone curve (dipping rising)
+  stress
+  length 14
+  tone 28  5 envelope/p_fallrise NULL
+endphoneme
+
+
+phoneme 5   //  tone: broken (creaking rising)
+  stress
+  length 15
+  tone 28 45 envelope/vi_5 envelope/vi_5amp
+endphoneme
+
+
+phoneme 6   //  tone drop  (constricted)
+  stress
+  length 16
+  tone 30  5 envelope/vi_6 envelope/vi_6amp
+endphoneme
+
+
+phoneme 7   //  tone 1 at end of clause
+  stress
+  length 17
+  tone 30  20 envelope/p_fall NULL
+endphoneme
+
+
+// Vowels
+//=======
+
+
+phoneme a
+  vowel starttype (@) endtype (@)
+  length 130
+  formants vowel/a_4
+endphoneme
+
+phoneme a:
+  vowel starttype (a) endtype (a)
+  length 260
+  formants vowel/a_2
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 200
+  formants vowel/ee_3
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 200
+  formants vowel/e
+endphoneme
+
+
+phoneme i
+  vowel  starttype (i)  endtype (i)
+  length 190
+  formants vowel/i_en
+  after w w/wi
+  linkout ;
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 200
+  formants vowel/aa_4
+endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 200
+  formants vowel/oo_1
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 200
+  formants vowel/u_7
+endphoneme
+
+phoneme y
+  vowel starttype (u) endtype (u)
+  length 200
+  formants vowel/y#
+endphoneme
+
+
+
+phoneme @
+  vowel  starttype (@)  endtype (a)
+  length 130
+  formants vowel/a#_3
+endphoneme
+
+
+phoneme @:
+  vowel  starttype (@)  endtype (@)
+  length 260
+  formants vowel/V_3
+endphoneme
+
+
+
+// Diphthongs
+//===========
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vdiph/&i_3
+endphoneme
+
+
+phoneme a:I
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vdiph/ai
+endphoneme
+
+
+phoneme @I
+  vowel starttype (@) endtype (i)
+  length 250
+  formants vdiph/@i_4
+endphoneme
+
+
+phoneme @:I
+  vowel starttype (@) endtype (i)
+  length 250
+  formants vdiph/Vi
+endphoneme
+
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 200
+  formants vdiph/ei
+endphoneme
+
+
+phoneme EI
+  vowel starttype (e) endtype (i)
+  length 200
+  formants vdiph/eei
+endphoneme
+
+
+phoneme OI
+  vowel starttype (o) endtype (i)
+  length 200
+  formants vdiph/0i
+endphoneme
+
+
+phoneme oI
+  vowel starttype (o) endtype (i)
+  length 200
+  formants vdiph/oi
+endphoneme
+
+
+phoneme uI
+  vowel starttype (u) endtype (i)
+  length 200
+  formants vdiph/ui
+endphoneme
+
+phoneme yI
+  vowel starttype (u) endtype (i)
+  length 200
+  formants vdiph/u-i
+endphoneme
+
+
+
+
+phoneme aU
+  vowel starttype (a) endtype (u)
+  length 230
+  formants vdiph/aau_4
+endphoneme
+
+
+phoneme a:U
+  vowel starttype (a) endtype (u)
+  length 250
+  formants vdiph/au
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 200
+  formants vdiph/eu
+endphoneme
+
+
+phoneme EU
+  vowel starttype (e) endtype (u)
+  length 200
+  formants vdiph/eeu
+endphoneme
+
+phoneme iU
+  vowel starttype (i) endtype (u)
+  length 200
+  formants vdiph2/iu
+endphoneme
+
+phoneme @U
+  vowel  starttype (@)  endtype (u)
+  length 200
+  formants vdiph/@u_en
+endphoneme
+
+phoneme @:U
+  vowel  starttype (@)  endtype (u)
+  length 250
+  formants vdiph/@u_en
+endphoneme
+
+
+
+phoneme i@
+  vowel  starttype (i)  endtype (@)
+  length 230
+  formants vdiph2/ii@_3
+endphoneme
+
+phoneme y@
+  vowel  starttype (i)  endtype (@)
+  length 200
+  formants vdiph2/u-@
+endphoneme
+
+phoneme u@
+  vowel  starttype (u)  endtype (@)
+  length 200
+  formants vdiph2/uu@
+endphoneme
+
+
+
+phoneme t[        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=1  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt2%60
+  before _ ustop/t_dnt%30 
+  switchvoicing d
+endphoneme
+
+
+phoneme kh
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=200 80
+  vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/x%50
+  switchvoicing Q
+endphoneme
+

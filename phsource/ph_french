@@ -1,0 +1,279 @@
+
+//====================================================
+//  French
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 40      // shorter than for fr-ca
+endphoneme
+
+
+
+phoneme @
+  vowel starttype (@) endtype (@)
+  length 120
+  formants vowel/@_2
+endphoneme
+
+
+phoneme a
+  vowel  starttype (a)  endtype (a)
+  length 166
+  formants vowel/a_en
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 172
+  formants vowel/e
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 164
+  formants vowel/ee
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 158
+  formants vowel/i
+  linkout ;
+endphoneme
+
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 166
+  formants vowel/o
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 190
+  formants vowel/0
+endphoneme
+
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 174
+  formants vowel/u
+endphoneme
+
+
+phoneme y
+  vowel starttype (e) endtype (u)
+  length 148
+  formants vowel/y_2
+endphoneme
+
+
+phoneme Y
+  vowel starttype (@) endtype (@)
+  length 214
+  formants vowel/y#
+endphoneme
+
+
+phoneme W
+  vowel starttype (@) endtype (@)
+  length 198
+  formants vowel/oe
+endphoneme
+
+
+phoneme w^i
+  vowel starttype (i) endtype (i)
+  length 220
+  formants vdiph/yi_fr
+endphoneme
+
+
+
+
+phoneme A~
+  vowel  starttype (a) endtype (a)
+  length 222
+  formants vnasal/aa_n
+endphoneme
+
+
+phoneme E~    // same as W~ for fr-fr
+  vowel  starttype (e)  endtype (e)
+  length 192
+  formants vnasal/W_n
+endphoneme
+
+
+phoneme O~
+  vowel  starttype (o)  endtype (o)
+  length 222
+  formants vnasal/oo_n
+endphoneme
+
+
+phoneme W~
+  vowel  starttype (@)  endtype (@)
+  length 204
+  formants vnasal/W_n
+endphoneme
+
+
+
+// These vowels map to others in fr-fr, but are distinct in fr-ca
+
+phoneme I  // same as [i]
+  vowel  starttype (i) endtype (i)
+  length 158
+  formants vowel/i
+  linkout ;
+endphoneme
+
+phoneme U  // same as [u]
+  vowel starttype (u) endtype (u)
+  length 174
+  formants vowel/u
+endphoneme
+
+phoneme y"  // same as [y]
+  vowel starttype (u) endtype (u)
+  length 148
+  formants vowel/y_2
+endphoneme
+
+phoneme E:  // slightly longer than [E]
+  vowel starttype (e) endtype (e)
+  length 212
+  formants vowel/e
+endphoneme
+
+phoneme A   // same as [a]
+  vowel  starttype (a)  endtype (a)
+  length 166
+  formants vowel/a_en
+endphoneme
+
+
+
+
+// CONSONANTS
+//===========
+// uses the consonants in file "phonemes", unless overridden here
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/r
+  after _ r/_r  t r/tr p r/tr k r/tr
+  before _ r/r_
+endphoneme
+
+
+
+phoneme R
+  liquid
+//  vcd uvl frc
+  vowelin f1=0  f2=1500 -400 400  f3=-400 80
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants vwl_fr/@R+r3/rx%80
+endphoneme
+
+
+phoneme R2
+  liquid
+//  vcd uvl frc
+  vowelin f1=0  f2=1500 -400 400  f3=-400 80
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants vwl_fr/@R2+r3/rx%120
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+endphoneme
+
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%40
+  switchvoicing d
+endphoneme
+
+
+phoneme t2      // silent unless followed by vowel
+  beforenotvowel NULL
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%40
+endphoneme
+
+
+phoneme z2      // silent unless followed by vowel
+  beforenotvowel NULL
+  vcd alv frc sibilant
+  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 
+  formants voc/z+ufric/s_
+  before _ voc/z_+ufric/s_
+  lengthmod 6
+endphoneme
+
+
+phoneme d       // dental variant of /d/
+  vcd dnt stop
+  vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  vowelout f1=2 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/k%60     // reduce strength of noise burst
+  before _ ustop/k_
+  before r ustop/kr
+  before l ustop/kl
+  before (i) ustop/ki
+  switchvoicing g
+endphoneme
+
+
+

@@ -1,0 +1,208 @@
+ // translation rules for Croatian
+// This file is UTF-8 encoded
+
+// Letters
+b     b@
+c     ts@
+č     tS@
+ć     tS;@2
+d     d@
+dž    dZ@
+đ     dZ;@2
+f     f@
+g     g@
+h     x@
+j     j@2
+k     k@
+l     l@
+lj    l^@
+m     m@
+n     n@
+nj    n^@
+p     p@
+q     kvE
+r     r-
+_s    s@
+š     S@
+t     t@
+v     v@
+w     dv'ost@-*UkovE
+x     iks
+y     ipsilon
+z     z@
+ž     Z@
+
+_??   znak          // unknown symbol
+_?A   slovo         // unknown letter
+©     'aUtorsk&||p@-*'av&
+%     posto
++     plus
+€     Eu*o
+@     _Et
+&     _End
+!     'usklItSnIk
+:     dv'ototSk&
+#     b@-*'oj
+/     k@-*'oz
+\\    b'EkslES
+^     tsirkUmflEks
+~     tild&
+¤     valUt&
+§     oldom&k
+µ     mikro
+¶     tSlan&k
+°     st'up&n^
+
+_$    dol&r
+_-    minus
+_*    zvj'ezdIts@
+_=    jedn&ko
+_@    t'r-gov,&tSko||'i
+_(    'otvo*,En&||'ok@-*Ugl&
+_)    z'atvo*,En&||'ok@-*Ugl&
+_'    apost@-*of
+_*    zvjezdIts&
+_,    za*Ez
+_-    tsr-tIts&
+_.    totSk&
+_;    t'otSk&z,a*Ez
+_<    man^I
+_=    jedn&ko
+_>    vEtS;I
+_?    upItnIk
+_&    t'r-gov,&tSk||'a
+_[    'otvo*,En&||'ugl&t&
+_]    z'atvo*,En&||'ugl&t&
+__    ts'r-t&
+_`    g@-*'avIs
+_{    'otvo*,En&||v'itItS,&st&
+_|    okom,It&
+_}    z'atvo*,En&||v'itItS,&st&
+
+
+
+
+// Numbers
+_0    n'ul&
+_1    j'ed&n
+_2    dv'a
+_2f   dv'ije
+_3    t@-*'i
+_4    tS'EtI*I
+_5    p'Et
+_6    S'Est
+_7    s'Ed&m
+_8    'os&m
+_9    d'EvEt
+_10   d'EsEt
+_11   j'ed&naIst
+_12   dv'anaIst
+_13   t@-*'inaIst
+_14   tS'Etr-naIst
+_15   p'EtnaIst
+_16   S'EsnaIst
+_17   s'Ed&mnaIst
+_18   'os&mnaIst
+_19   d'EvEtnaIst
+_2X   dv'adEsEt
+_3X   t@-*'idEsEt
+_4X   tS'Etr-dEsEt
+_5X   p'EdEsEt
+_6X   S'EzdEsEt
+_7X   s'Ed&mdEsEt
+_8X   'os&mdEsEt
+_9X   d'EvEdEsEt
+_0C   st'o_
+_2C   dvj'est'o
+_6C   S'Est'o
+_0M1  t'isUtS;&
+_0MA1 t'isUtS;e
+_1M1  t'isUtS;U
+_0M2  m'ilijUna
+_0MA2 m'ilijUna
+_1M2  m'ilijUn
+_0M3  m'iliardI
+_0MA3 m'iliarde
+_1M3  m'iliardU
+_0M4  b'ilijUna
+_1M4  b'ilijUn
+_dpt  _:z'a*Ez_
+
+
+// Demonstratives
+tko      $u+
+što      $u+
+koga     $pause
+čega     $pause
+
+
+// Pronouns
+
+
+// Prepositions
+o        $u $brk
+u        $u $brk
+s        s_ $brk
+
+
+// Conjunctions
+a        $u $pause    // and
+i        $u $pause    // and
+but      $pause       // but
+nego     $pause       // but
+ili      $u $pause    // or
+
+
+
+
+// Auxillary verbs
+li       $u      // question
+da       $u+     // ??
+
+sam      $u      // to be, short form
+si       $u
+je       $u
+smo      $u
+ste      $u
+su       $u
+
+bio      $u       // to be, past tense
+bila     $u
+bilo     $u
+bili     $u
+
+nisam    $u+      // to be, negative
+nisi     $u+
+nije     $u+
+nismo    $u+
+niste    $u+
+nisu     $u+
+
+imam     $u+      // to have
+imaš     $u+
+ima      $u+
+imamo    $u+
+imate    $u+
+imaju    $u+
+
+nemam    $u+      // to have, negative
+nemaš    $u+
+nema     $u+
+nemamo   $u+
+nemate   $u+
+nemaju   $u+
+
+
+
+
+
+// treat as letters if at the end of the clause
+a        a    $atend    // letter-a
+i        i    $atend    // letter-i
+o        o    $atend    // letter-o
+s        s@   $atend
+u        u    $atend
+
+
+// Exceptions
+

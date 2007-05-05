@@ -1,0 +1,120 @@
+
+//====================================================
+//  Esperanto
+//====================================================
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vowel/a_2
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 160
+  formants vowel/i
+  linkout ;
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/oo
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 170
+  formants vowel/u
+endphoneme
+
+
+phoneme aU
+  vowel starttype (a) endtype (u)
+  length 240
+  formants vdiph/au_4
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 240
+  formants vdiph/eu
+endphoneme
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 260
+  formants vdiph/ai
+endphoneme
+
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 250
+  formants vdiph/eei_2
+endphoneme
+
+
+phoneme OI
+  vowel starttype (o) endtype (i)
+  length 260
+  formants vdiph/ooi
+endphoneme
+
+
+phoneme uI
+  vowel starttype (u) endtype (i)
+  length 250
+  formants vdiph/ui
+endphoneme
+
+
+// CONSONANTS
+//===========
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+phoneme ts
+  vls alv afr sibilant
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/ts
+endphoneme
+
+

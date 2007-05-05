@@ -1,0 +1,192 @@
+
+
+//=========================================================
+// Dutch
+//=========================================================
+
+
+// Vowels
+//=======
+
+
+phoneme @   //  Schwa
+  vowel starttype (@) endtype (@)
+  formants vowel/@_4
+  unstressed
+  length 125
+endphoneme
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 160
+  formants vowel/i_2
+  after w w/wi2
+endphoneme
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 130
+  formants vowel/ii
+endphoneme
+
+phoneme y
+  vowel starttype (u) endtype (u)
+  length 180
+  formants vowel/y
+endphoneme
+
+phoneme 8
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/y#
+endphoneme
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vowel/u_bck
+endphoneme
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/e_mid2
+endphoneme
+
+phoneme E2    //  as[E] but reduces to @ if unstressed
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/ee_2
+  reduceto @  0
+endphoneme
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 150
+  formants vowel/o_6
+endphoneme
+
+phoneme a:
+  vowel starttype (a) endtype (a)
+  length 210
+  formants vowel/a
+endphoneme
+
+phoneme A
+  vowel starttype (a) endtype (a)
+  length 160
+  formants vowel/aa_7
+endphoneme
+
+
+// Diphthongs
+//===========
+
+phoneme e:
+  vowel starttype (e) endtype (i)
+  length 190
+  formants vdiph/ei
+endphoneme
+
+phoneme Y:
+  vowel starttype (@) endtype (@)
+  length 220
+  formants vdiph/y#y_3
+endphoneme
+
+phoneme o:
+  vowel starttype (o) endtype (u)
+  length 200
+  formants vdiph/Vu_3
+endphoneme
+
+
+phoneme EI
+  vowel starttype (a) endtype (i)
+  length 210
+  formants vdiph/eei_4
+endphoneme
+
+phoneme Wy
+  vowel starttype (@) endtype (u)
+  length 220
+  formants vdiph/&y
+endphoneme
+
+phoneme VU
+  vowel starttype (a) endtype (o)
+  length 220
+  formants vdiph/aau_2
+endphoneme
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 220
+  formants vdiph/eu
+endphoneme
+
+phoneme yU
+  vowel starttype (u) endtype (u)
+  length 220
+  formants vdiph2/yu
+endphoneme
+
+
+
+
+// CONSONANTS
+//===========
+
+
+phoneme r
+  liquid
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // variant of [r] when not preceding a vowel
+  liquid vowel2
+  length 100
+  lengthmod 7   //
+  formants NULL
+endphoneme
+
+
+phoneme v2        // approximant, not fricative
+  vcd lbd frc
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  lengthmod 6
+  formants voc/v
+  before _ voc/v_
+  switchvoicing f
+endphoneme
+
+phoneme Q
+  vcd vel frc
+  vowelin f1=2  f2=2300 200 300  f3=-300 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  lengthmod 6
+  formants voc/Q_less+vocw/Q2%140
+  before _ voc/Q_+vocw/Q_
+  switchvoicing x
+endphoneme
+
+
+
+phoneme x2        // a stronger version of [x] (for Afrikaans)
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=-100 100
+  vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/x2      // stronger version
+endphoneme
+
+

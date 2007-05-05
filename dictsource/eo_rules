@@ -1,0 +1,212 @@
+// translation rules
+// This file is UTF-8 encoded
+
+// includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
+
+.group a
+	_)	a(_	a
+		a	a
+		aj	aI
+		a (jx   a
+		aux	aU
+		aŭ	aU
+     D_-_)      a (_    %a    //'a' after a number
+     D_-_)      an (_   %an   //'an' after a number
+       D_)      a (_    %a    //'a' after a number
+       D_)      an (_   %an   //'an' after a number
+		
+.group b
+	_)	b(_	bo
+		b       b
+		
+.group c
+	_)	c(_	tso
+	_)	ch(_	tSo
+	_)	cx(_	tSo
+		c	ts
+		ch (K	tS    // foreign words
+	K)	ch	tS    // foreign words
+		cx	tS
+		
+		
+.group d
+	_)	d(_	do
+		d	d
+
+.group e
+	_)	e(_	e
+		e	e
+		ej	eI
+		e (jx	e
+		eux	eU
+		eŭ	eU
+		
+.group f
+	_)	f(_	fo
+		f	f
+		
+.group g
+	_)	g(_	go
+	_)	gx(_	dZo
+		g	g
+		gh (K	dZ
+		gx	dZ
+				
+.group h
+	_)	h(_	ho
+	_)	hx(_	xo
+		h	h
+		hh	x
+		hx	x
+		
+		
+.group i
+	_)	i(_	i
+		i	i
+		
+.group j
+	_)	j(_	jo
+	_)	jx(_	Zo
+		j	j
+		jh (C	Z
+		jx	Z
+		
+.group k
+	_)	k(_	ko
+		k	k
+		
+.group l
+	_)	l(_	lo
+		l	l
+		ll (_	l
+		
+.group m
+	_)	m(_	mo
+		m	m
+		
+.group n
+	_)	n(_	no
+		n	n
+		n (_S1	n
+		
+.group o
+	_)	o(_	o
+		o	o
+		oj	OI
+		o (jx   o
+		
+.group p
+	_)	p(_	po
+		p	p
+		ph (K	f    // foreign words
+	K)	ph	f    // foreign words
+		
+.group q
+	_)	q(_	kwo
+		q	k
+		qu	kv
+		
+.group r
+	_)	r(_	ro
+		r	r
+		rr      @-*r
+	A)	r (A	*
+//	A)	r (A	@-*
+	C)	r (A	@-*
+		
+.group s
+	_)	s(_	so
+	_)	sh(_	So
+	_)	sx(_	So
+		s	s
+		sx	S
+		sh (K	S    // foreign words
+	K)	sh	S    // foreign words
+		
+		
+.group t
+	_)	t(_	to
+		t	t
+		th (K	T    // foreign words
+	K)	th	T    // foreign words
+		
+.group u
+	_)	u(_	u
+	_)	ux(_	wo
+		u	u
+		uj	uI
+		u (jx   u
+		ux	w
+		
+		
+.group v
+	_)	v(_	vo
+		v	v
+		
+.group w
+	_)	w(_	du'oblav,o
+		w	w
+	K)	wh	w    // foreign words
+		
+.group x
+	_)	x(_	ikso
+		x	ks
+		
+.group y
+	_)	y(_	ipsilono
+		y	j
+	K)	y (K	i
+	
+		
+.group z
+	_)	z(_	zo
+		z	z
+			
+		
+.group
+	_)	ĉ (_	tSo
+		ĉ	tS
+
+	_)	ĝ (_	dZo
+		ĝ	dZ
+
+	_)	ĥ (_	xo
+		ĥ	x
+
+	_)	ĵ (_	Zo
+		ĵ	Z
+
+	_)	ŝ (_	So
+		ŝ	S
+
+	_)	ŭ (_	wo
+		ŭ	w
+
+		
+		=	,,egala,
+		\	malantaIstreko
+		/	streko
+		'	
+		+	plus
+	_)	++ (_	plusplus
+
+		.	punkto
+		. (.     _:
+	\.)     .
+
+
+		. (D	_:k'omo_
+		*	asterisko
+			pundo
+		 (D	_pundOI_:
+	        !	,ekkrio,
+		:	dupunkto
+		-	_
+		- (_a	
+		$	dolaro
+		$ (D	_dolarOI_:
+		%	protsento
+		@	po
+		&	%kaI
+			
+

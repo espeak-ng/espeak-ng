@@ -1,0 +1,549 @@
+
+//====================================================
+//  Hindi 
+//====================================================
+
+phoneme : //  Lengthen the previous vowel by "length"
+  virtual
+  length 80
+endphoneme
+
+phoneme @
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/@_bck
+  before H vowel/@_low
+  reduceto  NULL 0
+endphoneme
+
+phoneme V
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/V_3
+  before H vowel/@_low
+  reduceto  @  4
+endphoneme
+
+phoneme @2
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/@_low
+endphoneme
+
+phoneme @3
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/@_3
+  reduceto  @- 0
+endphoneme
+
+phoneme @4
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/@
+endphoneme
+
+
+
+
+phoneme i:
+  vowel long starttype (i) endtype (i)
+  length 220
+  formants vowel/i_fnt
+  linkout ;
+endphoneme
+
+phoneme i         // as [i:] but not marked as 'long'
+  vowel starttype (i) endtype (i)
+  length 220
+  formants vowel/i_fnt
+  linkout ;
+endphoneme
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 100
+  formants vowel/ii_3
+  linkout ;
+endphoneme
+
+phoneme e:
+  vowel long starttype (e) endtype (e)
+  length 210
+  formants vowel/e_2
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 130
+  formants vowel/e_2
+endphoneme
+
+phoneme E:
+  vowel long starttype (e) endtype (e)
+  length 210
+  formants vdiph/ee-e
+endphoneme
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 130
+  formants vowel/e_mid
+endphoneme
+
+phoneme E~ 
+  vowel  starttype (e)  endtype (e)
+  length 230
+  formants vnasal/ee_n2
+endphoneme
+
+
+phoneme &:
+  vowel long starttype (a) endtype (a)
+  length 210
+  formants vowel/&
+endphoneme
+
+
+phoneme a:
+  vowel long starttype (a) endtype (a)
+  length 230
+  formants vwl_hi/A
+endphoneme
+
+phoneme a
+  vowel long starttype (a) endtype (a)
+  length 130
+  formants vowel/a#_3
+endphoneme
+
+
+phoneme o:
+  vowel long starttype (o) endtype (o)
+  length 210
+  formants vowel/o_2
+endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 130
+  formants vowel/o
+endphoneme
+
+phoneme O:
+  vowel long starttype (o) endtype (o)
+  length 200
+  formants vowel/oo_4
+endphoneme
+
+phoneme o~
+  vowel long starttype (o) endtype (o)
+  length 220
+  formants vnasal/o_n
+endphoneme
+
+phoneme O~
+  vowel long starttype (o) endtype (o)
+  length 230
+  formants vnasal/oo_n2
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 130
+  formants vowel/0
+endphoneme
+
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 120
+  formants vowel/uu_bck
+endphoneme
+
+
+phoneme u:
+  vowel long starttype (u) endtype (u)
+  length 220
+  formants vowel/u_bck
+endphoneme
+
+phoneme u2:
+  vowel long starttype (u) endtype (u)
+  length 220
+  formants vowel/u
+endphoneme
+
+
+
+phoneme r-
+  vowel  starttype (@)  endtype (@)
+  unstressed
+  length 220
+  formants vowelr/r-voc
+endphoneme
+
+phoneme l-
+  vowel  starttype (@)  endtype (@)
+  unstressed
+  length 200
+  formants vwl_hi/l-voc
+endphoneme
+
+
+
+// Diphthongs
+//===========
+
+
+phoneme aI
+  vowel long starttype (@) endtype (i)
+  length 240
+  long
+  formants vdiph/&i
+endphoneme
+
+phoneme aU
+  vowel long starttype (a) endtype (u)
+  length 240
+  long
+  formants vdiph/aau_3
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+
+
+phoneme v        // no fricative noise
+  vcd lbd frc
+  vowelin  f1=1  f2=900 -300 -300  f3=-100 100
+  vowelout f1=1  f2=900 -500 -300  f3=-100 60  len=50
+  lengthmod 6
+  formants voc/v
+  before _ voc/v_
+  switchvoicing f
+endphoneme
+
+
+
+phoneme h        // use with voiced aspirated conants [bh] [dh] etc
+  vls glt apr
+  length 100
+  lengthmod 3
+  wave ufric/h_%70         // no vowel following
+  before (@) ufric/h@+35
+  before (a) ufric/ha+35
+  before (e) ufric/he+35
+  before (i) ufric/hi+35
+  before (o) ufric/ho+35
+  before (u) ufric/hu+35
+endphoneme
+
+phoneme H       // use for full "h"
+  vls glt apr
+  length 100
+  lengthmod 3
+  wave ufric/h_%70         // no vowel following
+  before (@) ufric/h@
+  before (a) ufric/ha
+  before (e) ufric/he
+  before (i) ufric/hi
+  before (o) ufric/ho
+  before (u) ufric/hu
+endphoneme
+
+
+
+// bilabial plosives
+//==================
+
+phoneme p
+  vls blb stop
+  vowelin  f1=1  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=1  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p_unasp
+  before _ ustop/p_unasp_%80
+  before r ustop/pr
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+phoneme ph
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p
+  before _ ustop/p_
+  before r ustop/pr
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+phoneme  b       // this is [b]
+  vcd blb stop
+  vowelout f1=1  f2=1000 -500 -300  f3=-300 80 brk
+  formants b/b+x/b
+  before _ b/b_+x/b
+  before (a) b/ba+x/b
+  before (@) b/b@+x/b
+  before (e) b/be+x/b
+  before (i) b/bi+x/b
+  before (o) b/bo+x/b
+  before (u) b/bu+x/b
+  before @-  b/b@2+x/b
+  after _ NULL
+  after @ b/xb
+  lengthmod 5
+  switchvoicing p
+endphoneme
+
+
+//phoneme  bh     // use [b]+[h]
+//  vcd blb stop
+//  vowelout f1=1  f2=1000 -500 -300  f3=-300 80 brk
+//  formants b/b+x/b
+//  before _ b/b_+x/b_
+//  before (a) b/ba+x/b
+//  before (@) b/b@+x/b
+//  before (e) b/be+x/b
+//  before (i) b/bi+x/b
+//  before (o) b/bo+x/b
+//  before (u) b/bu+x/b
+//  before @-  b/b@2+x/b
+//  after _ NULL
+//  after @ b/xb
+//  lengthmod 5
+//  switchvoicing p
+//endphoneme
+
+
+
+// dental plosives
+//==================
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=1  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt2%60
+  before _ ustop/t_dnt%35 
+  switchvoicing d
+endphoneme
+
+phoneme th        // dental variant of /t/ Same as [t] for now
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50+ufric/h@
+  switchvoicing d
+endphoneme
+
+
+
+phoneme d       // (weak) dental variant of /d/
+  vcd dnt stop
+  vowelin f1=2  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80  rms=20 len=1
+  formants d/d_dnt+x/d_dnt%50
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%60
+  after _ NULL
+  after @ d/xd_dnt
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+//phoneme dh      // use [d]+[h]
+//  vcd dnt stop
+//  vowelin f1=1  f2=1700 -200 200  f3=100 80
+//  vowelout f1=1 f2=1700 -200 200  f3=100 80  rms=20 len=1
+//  formants d/d+x/d_dnt%60
+//  before _ d/d_+x/d_
+//  before r d/dr+x/d_dnt%60
+//  after _ NULL
+//  after @ d/xd
+//  lengthmod 5
+//  switchvoicing t
+//endphoneme
+
+
+
+// retroflex plosives
+//===================
+
+phoneme t.
+  vls rfx stop
+  vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  lengthmod 2
+  wave  ustop/t_short
+  before _ ustop/t_
+  before r ustop/tr
+  switchvoicing d
+endphoneme
+
+phoneme t.h
+  vls rfx stop
+  vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  lengthmod 2
+  wave  ustop/t
+  before _ ustop/t_
+  before r ustop/tr
+  switchvoicing d
+endphoneme
+
+phoneme d.
+  vcd rfx stop
+  vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+  formants d/d+x/d
+  before _ d/d_+x/d_
+  before r d/dr+x/d
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+//phoneme d.h        // use [d.]+[h]
+//  vcd rfx stop
+//  vowelin f1=1  f2=1800 -300 300  f3=-400 80
+//  vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+//  formants d/d+x/d
+//  before _ d/d_+x/d_
+//  before r d/dr+x/d
+//  after _ NULL
+//  after @ d/xd
+//  lengthmod 5
+//  switchvoicing t
+//endphoneme
+
+
+
+// palatal plosives
+//=================
+
+// also try [tS] and [dZ]
+
+phoneme c    // this is [ts;]
+  vls pal afr sibilant
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
+  lengthmod 2
+  wave ustop/ts_pzd2%80
+  before _ ustop/ts_pzd_
+  switchvoicing J
+endphoneme
+
+
+phoneme ch    // this is [ts;] 
+  vls pal afr sibilant
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
+  lengthmod 2
+  wave ustop/ts_pzd
+  before _ ustop/ts_pzd
+  switchvoicing J
+endphoneme
+
+
+phoneme J   // this is [dz;]
+  vcd pla afr sibilant
+  vowelin f1=1  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  formants dzh/dzh+x/dz_pzd
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL  @ dzh/xdzh
+  lengthmod 5
+  switchvoicing c
+endphoneme
+
+phoneme J2  // TEST
+  vcd pla afr sibilant
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  formants dzh/dz_pzd+x/dzh%40
+  before _ dzh/dz_pzd_+x/dz_pzd_%70
+  after _ NULL
+  after @ dzh/xdz_pzd
+  lengthmod 5
+  switchvoicing c
+endphoneme
+
+
+
+//phoneme xJh   //  use [J]+[h]
+//  vcd pla afr sibilant
+//  vowelin f1=1  f2=2700 400 600  f3=300 80 rate len=70
+//  formants dzh/dzh+x/dz_pzd
+//  before _ dzh/dzh_+x/dzh_
+//  after _ NULL  @ dzh/xdzh
+//  lengthmod 5
+//  switchvoicing ts;
+//endphoneme
+
+
+
+// velar plosives
+//==================
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 300  f3=-150 80
+  vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  lengthmod 2
+  wave ustop/k_unasp%60   // weaker
+  before _ ustop/k_unasp%50
+  before r ustop/kr
+  before l ustop/kl
+  before (i) ustop/ki
+  switchvoicing g
+endphoneme
+
+phoneme kh   // this is english [k]
+  vls vel stop
+  vowelin f1=0  f2=2300 200 300  f3=-150 80
+  vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  lengthmod 2
+  wave ustop/k
+  before _ ustop/k_
+  before r ustop/kr
+  before l ustop/kl
+  switchvoicing g
+endphoneme
+
+
+phoneme g     //
+  vcd vel stop
+  vowelin f1=1  f2=2300 200 300  f3=-300 80
+  vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
+  formants g/g+x/g2
+  before _ g/g_+x/g2_
+  after _ NULL
+  after @ g2/xg
+  lengthmod 5
+endphoneme
+
+//phoneme gh     // this is English [g]  // use [g]+[h]
+//  vcd vel stop
+//  vowelin f1=1  f2=2300 200 400  f3=-100 80
+//  vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
+//  formants g/g+x/g
+//  before _ g/g_+x/g_
+//  after _ NULL
+//  after @ g/xg
+//  lengthmod 5
+//  switchvoicing k
+//endphoneme
+

@@ -1,0 +1,137 @@
+
+//====================================================
+//  Portuguese/Portugal  - based on Portuguese/Brazil
+//====================================================
+
+
+
+phoneme &
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/a#_3
+  unstressed
+endphoneme
+
+phoneme &/       // Used for final "a" when next word starts with "a"
+  vowel starttype (@) endtype (@)
+  beforevowel NULL
+  length 180
+  formants vowel/a#_3
+endphoneme
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vowel/a_2
+  reduceto &  4
+endphoneme
+
+phoneme &~
+  vowel  starttype (e) endtype (@)
+  length 240
+  formants vnasal/ee_n2
+endphoneme
+
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e_mid
+  reduceto y  2
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 160
+  formants vowel/e
+  reduceto y  2
+endphoneme
+
+phoneme y
+  vowel starttype (@) endtype (@)
+  length 100
+  formants vowel/i#_5
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/i
+  linkout ;
+endphoneme
+
+
+phoneme i/            // changes to NULL before a vowel
+  vowel starttype (i) endtype (i)
+  beforevowel NULL
+  length 100
+  formants vowel/i#_5
+  linkout ;
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/0_2
+//  reduceto o  4
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o
+  reduceto u  2
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_6
+endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 100
+  beforevowel w
+  formants vowel/u_6
+endphoneme
+
+
+phoneme EU
+  vowel starttype (e) endtype (u)
+  length 220
+  formants vdiph/eeu_2
+endphoneme
+
+
+
+phoneme w
+  starttype w  endtype w
+  liquid
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w2
+  after _  w/w2
+endphoneme
+
+
+
+phoneme x      // [r] for Portugal
+  liquid
+//  vcd uvl frc
+  vowelin f1=0  f2=1500 -400 400  f3=-400 80
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants vwl_fr/@R+r3/rx%120
+endphoneme
+
+
+

@@ -1,0 +1,348 @@
+
+//====================================================
+//  Finnish
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 150
+endphoneme
+
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 140
+  formants vowel/i_4
+  linkout ;
+  reduceto I 1
+endphoneme
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 140
+  formants vowel/ii_3
+  linkout ;
+endphoneme
+
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 150
+  formants vowel/e_mid2
+endphoneme
+
+
+phoneme &
+  vowel starttype (a) endtype (a)
+  length 150
+  formants vowel/&
+endphoneme
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 170
+  formants vowel/aa
+  reduceto a2  1
+endphoneme
+
+phoneme a2
+  vowel starttype (a) endtype (a)
+  length 170
+  formants vowel/aa#
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 155
+  formants vowel/oo_1
+endphoneme
+
+phoneme Y
+  vowel starttype (@) endtype (@)
+  length 155
+  formants vowel/y#
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/u_bck
+endphoneme
+
+phoneme u1    // TEST
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/u_2
+endphoneme
+
+phoneme U    // TEST
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/uu_4
+endphoneme
+
+
+
+phoneme y
+  vowel starttype (u) endtype (u)
+  length 155
+  formants vowel/y
+endphoneme
+
+
+
+
+// Diphthongs
+//===========
+
+phoneme ai
+  vowel starttype (a) endtype (i)
+  length 310
+  long
+  formants vdiph/aai_3
+endphoneme
+
+phoneme &i
+  vowel starttype (a) endtype (i)
+  length 290
+  long
+  formants vdiph/&i
+endphoneme
+
+phoneme oi
+  vowel starttype (o) endtype (i)
+  length 280
+  long
+  formants vdiph/ooi
+endphoneme
+
+phoneme ei
+  vowel starttype (e) endtype (i)
+  length 280
+  long
+  formants vdiph/eei_2
+endphoneme
+
+phoneme Yi
+  vowel starttype (@) endtype (i)
+  length 270
+  long
+  formants vdiph/y#i
+endphoneme
+
+phoneme ui
+  vowel starttype (u) endtype (i)
+  length 270
+  long
+  formants vdiph/ui
+endphoneme
+
+phoneme yi
+  vowel starttype (u) endtype (i)
+  length 270
+  long
+  formants vdiph/yi
+endphoneme
+
+
+phoneme au
+  vowel starttype (a) endtype (u)
+  length 300
+  long
+  formants vdiph/aau
+endphoneme
+
+phoneme ou
+  vowel starttype (o) endtype (u)
+  length 280
+  long
+  formants vdiph/ou
+endphoneme
+
+phoneme eu
+  vowel starttype (e) endtype (u)
+  length 280
+  long
+  formants vdiph/eu_2
+endphoneme
+
+phoneme iu
+  vowel starttype (i) endtype (u)
+  length 280
+  long
+  formants vdiph2/iu_2
+endphoneme
+
+
+phoneme &y
+  vowel starttype (a) endtype (u)
+  length 280
+  long
+  formants vdiph/&y
+endphoneme
+
+phoneme ey
+  vowel starttype (e) endtype (u)
+  length 280
+  long
+  formants vdiph/eey
+endphoneme
+
+phoneme Yy
+  vowel starttype (@) endtype (u)
+  length 270
+  long
+  formants vdiph/y#y
+endphoneme
+
+phoneme iy
+  vowel starttype (i) endtype (u)
+  length 260
+  long
+  formants vdiph2/iy
+endphoneme
+
+
+phoneme uo
+  vowel starttype (u) endtype (o)
+  length 280
+  long
+  formants vdiph2/uo
+endphoneme
+
+phoneme ie
+  vowel starttype (i) endtype (e)
+  length 280
+  long
+  formants vdiph2/ie
+endphoneme
+
+phoneme yY
+  vowel starttype (u) endtype (@)
+  length 280
+  long
+  formants vdiph2/y-y#
+endphoneme
+
+
+
+
+// CONSONANTS
+//===========
+
+
+
+phoneme r
+  liquid starttype r endtype r
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+
+phoneme v        // approximant, not fricative
+  vcd lbd frc
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  lengthmod 6
+  formants voc/v
+  before _ voc/v_
+  switchvoicing f
+endphoneme
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%35
+  switchvoicing d
+endphoneme
+
+
+
+phoneme d       // (weak) dental variant of /d/
+  vcd dnt stop
+  vowelin f1=2  f2=1700  -100 200  f3=0 80
+  vowelout f1=2 f2=1700  -100 200  f3=0 80  rms=20
+//  vowelin f1=2  f2=2095 100 200  f3=100 80
+//  vowelout f1=2 f2=3000 100 200  f3=100 80  rms=20 len=1
+  formants d/d+x/d_dnt%60
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%60
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p_unasp
+  before _ ustop/p_unasp_%80
+  before r ustop/pr
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/k_unasp%60   // weaker
+  before _ ustop/k_
+  before r ustop/kr
+  before l ustop/kl
+  before (i) ustop/ki
+  switchvoicing g
+endphoneme
+
+
+phoneme s2
+  vls alv frc sibilant
+  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 3
+  wave ufric/s_continue
+  before _ ufric/s_
+  before p ufric/s!
+  before t ufric/s!
+  before k ufric/s!
+  switchvoicing z
+endphoneme
+
+
+phoneme h
+  vls glt apr
+  length 100
+  lengthmod 3
+  wave ufric/h_%70         // no vowel following
+  before (@) ufric/h@
+  before (a) ufric/ha
+  before (e) ufric/he
+  before (i) ufric/hi
+  before (o) ufric/hu_fi%70
+  before (u) ufric/hu_fi%80
+endphoneme
+

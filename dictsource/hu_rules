@@ -1,0 +1,220 @@
+// Hungarian translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+        a        A
+
+.group á
+        á        a:
+
+.group b
+        b        b
+        bb       b:
+
+.group c
+        c        ts
+        cc       ts:
+        cs       tS
+        ccs      tS:
+
+.group d
+        d        d
+        dd       d:
+        dz       dz
+     A) dz (A    dz:
+        dzs      dZ
+     A) dzs      dZ:
+
+     C) ds       tS
+        ds (C    tS
+     A) ds (A    tS:
+        dsz      dz
+        dsz (C   ts
+     A) dsz (A   ts:
+        dz       dz
+     A) dz (A    d:z
+     C) dzs      Z
+     A) dzs (A   Z:
+     C) dj       J
+     A) dj (A    J:
+
+
+.group e
+        e        E
+
+  D_-_) es (_    %ES
+
+.group é
+        é        e:
+
+.group ë
+        ë        e
+
+.group f
+        f        f
+
+.group g
+        g        g
+        gg       g:
+        gy       J
+        ggy      J:
+
+        gys      tS
+     A) gys (A   tS:
+        gysz     ts
+     A) gysz (A  ts:
+        gyz      dz
+     A) gyz (A   d:z
+     C) gyzs     Z
+     A) gyzs (A  Z:
+     C) gyj      J
+     A) gyj (A   J:
+
+.group h
+        h        h
+        h (_
+
+.group i
+        i        i
+
+.group í
+        í        i:
+
+.group j
+        j        j
+     C) j (K     C
+
+.group k
+        k        k
+        kk       k:
+
+.group l
+        l        l
+        ly       j
+        lj       jj
+
+.group m
+        m        m
+
+.group n
+        n        n
+        n (g     N
+        n (k     N
+        n (p     m
+        n (b     m
+        ny       n^
+        ny (k    N
+        ny (g    N
+
+        nj       n^
+        nyj      n^
+
+
+.group o
+        o        o
+
+.group ó
+        ó        o:
+
+.group ö
+        ö        Y
+
+.group ő
+        ő        Y:
+
+.group p
+        p        p
+        pp       p:
+
+.group q
+        q        kv
+        qu       kv
+
+.group r
+        r        r
+     A) r (A     *
+     C) r (A     @-*
+        rr       *r
+
+.group s
+        s        S
+        sz       s
+        ssz      ss2
+
+.group t
+     _) t (_     te:
+     -) t (_     t
+        t        t
+        tt       t:
+        ty       c
+        tty      c:
+
+        ts       tS
+     A) ts (A    tS:
+        tys      tS
+     A) tys (A   tS:
+        tsz      ts
+     A) tsz (A   ts:
+        tysz     ts
+     A) tysz (A  ts:
+        tz       dz
+     A) tz (A    d:z
+        tyz      dz
+     A) tyz (A   d:z
+     C) tzs      Z
+     A) tzs (A   Z:
+     C) tyzs     Z
+     A) tyzs (A  Z:
+     C) tj       c
+     A) tj (A    c:
+     C) tyj      c
+     A) tyj (A   c:
+
+
+.group u
+        u        u
+
+.group ú
+        ú        u:
+
+.group ü
+        ü        y
+
+.group ű
+        ű        y:
+
+.group v
+        v        v
+
+.group w
+        w        v
+
+.group x
+        x        ks
+
+.group y
+        y        j
+     K) y (K     i
+
+.group z
+        z        z
+        zs       Z
+
+
+.group
+        %        sa:zAle:k
+        $        dolla:r
+        @        kukAts
+        €        Eu*o
+        +        plus
+
+        .        pont
+        . (.     _:
+   \.)  .
+
+
+        *        tS'illAg    // asterisk
+    *)  * (*
+        **
+   **)  * (_     _::
