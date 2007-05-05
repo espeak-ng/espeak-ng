@@ -19,7 +19,7 @@
  ***************************************************************************/
 #include "StdAfx.h"
 
- 
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -525,7 +525,14 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 
 	if((word[0] == '0') && (prev_thousands == 0) && (word[1] != langopts.decimal_sep))
 	{
-		return(0);     // number string with leading zero, speak as individual digits
+		if((n_digits == 2) && (word[3] == ':') && isdigit(word[5]) && isspace(word[7]))
+		{
+			// looks like a time 02:30, omit the leading zero
+		}
+		else
+		{
+			return(0);     // number string with leading zero, speak as individual digits
+		}
 	}
 
 	if((langopts.numbers & 0x1000) && (word[n_digits] == ' '))
