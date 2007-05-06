@@ -594,8 +594,8 @@ static char *VoiceFromStack(int *voice_variant)
 	{
 		sp = &ssml_stack[ix];
 
-		if(sp->voice_name[0] != 0)
-			strcpy(voice_name, sp->voice_name);
+//		if(sp->voice_name[0] != 0)
+			strcpy(voice_name, sp->voice_name);    // don't inherit name from previous levels ??
 		if(sp->language[0] != 0)
 			strcpy(language, sp->language);
 		if(sp->voice_gender != 0)

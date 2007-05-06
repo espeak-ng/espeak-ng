@@ -46,7 +46,7 @@
 
 #define FLAG_CAPITAL        0x8000  /* pronunciation if initial letter is upper case */
 #define FLAG_DOT           0x10000  /* ignore '.' after word (abbreviation) */
-#define FLAG_ABBREV        0x20000  /* use this pronunciation rather than split into letters */
+#define FLAG_ABBREV        0x20000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
 #define FLAG_STEM          0x40000  // must have a suffix
 
 #define FLAG_DOUBLING      0x80000  // doubles the following consonant

@@ -1280,6 +1280,7 @@
              ch (ord      k
         an)  ch (or       k
          o)  ch (_        k
+        oo)  ch (_        tS
        _ta)  ch           k
         ta)  ch           tS
        sta)  ch           S
@@ -1605,6 +1606,7 @@
        acB)  e (_         I2
              e (Cic_      E
              e (Cical     'E
+             e (Cium      i:
          t)  ech (_       Ek
          m)  e (chanic    I
         @@)  eble (_      @b@L
@@ -1860,6 +1862,7 @@
              eir          e@
          w)  eir          i@
          l)  ei (s        E
+        th)  ei (sC       i:I
         _s)  eis (m       aIz
          f)  ei (t_       I
              ei (th       aI
@@ -3211,6 +3214,7 @@
          _)  mobile       moUbaIl
         im)  mobile       moUbaIl
              mobile       m@bi:l
+             mono (ga     m@n'0
              mo (noto     m@
          _)  mono         m0noU
              mon (opol    m@n
@@ -3503,6 +3507,8 @@
        _id)  ol (a        0l
       petr)  ol (_        @L
          s)  ol (em       0l
+         s)  ol (ic       @l
+         s)  ol (il       @l
          t)  ol (er       0l
          m)  ol (ec       @l
          m)  ol (ecule    0l

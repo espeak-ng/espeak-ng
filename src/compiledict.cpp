@@ -654,6 +654,9 @@ void copy_rule_string(char *string, int &state)
 				case 'T':
 					c = RULE_ALT1;
 					break;
+				case 'W':
+					c = 0x31;
+					break;
 				case 'L':
 					// expect two digits
 					c = *p++ - '0';

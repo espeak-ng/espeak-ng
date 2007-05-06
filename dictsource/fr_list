@@ -12,23 +12,23 @@
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
-_à      a:aksA~grav
-â       a:aksA~sirkO~flEks
-ä       a:trema
+_à      a:aksA~gRav
+â       a:aksA~siRkO~flEks
+ä       a:tRema
 ç	sesedij
-ë	@:trema
+ë	@:tRema
 é	@:aksA~Egy
-è	@:aksA~grav
-ê	@:aksA~sirkO~flEks
-ï	i:trema
-ë	@:trema
+è	@:aksA~gRav
+ê	@:aksA~siRkO~flEks
+ï	i:tRema
+ë	@:tRema
 ñ	Entilde
-ô	o:aksA~sirkO~flEks
-ö       o:trema
-ù       u:aksA~grav
-û	u:aksA~sirkO~flEks
-ü	u:trema
-_y      i:gr'Ek
+ô	o:aksA~siRkO~flEks
+ö       o:tRema
+ù       u:aksA~gRav
+û	u:aksA~siRkO~flEks
+ü	u:tRema
+_y      i:gR'Ek
 
 
 
@@ -41,57 +41,57 @@ _??  sE~b'OL
 !   Eksklamassj'O~
 _"   gijm'E
 _#   dj'Ez
-_$   dOl'ar
-_%   purs'A~
+_$   dOl'aR
+_%   puRs'A~
 _&   e
-_'   apOstr'Of
-_(   'uvr@-parA~t'Ez
-_)   f'Erm parA~t'Ez
-_*   astErisk:
+_'   apOstR'Of
+_(   'uvR@-paRA~t'Ez
+_)   f'ERm paRA~t'Ez
+_*   astERisk:
 _+   plys
-_,   virg'yl
-_-   tir'E
+_,   viRg'yl
+_-   tiR'E
 _.   pw'E~
 _/   sl'aS
 _:   d'Ypw'E~
-_;   pw'E~virg'yl
-_<   E~ferj'Wr
+_;   pw'E~viRg'yl
+_<   E~feRj'WR
 _=   eg'al
-_>   syperj'Wr
+_>   sypeRj'WR
 _?   kEstj'O~
 _@   at
-_[   uvr@-_kroS'E
+_[   uvR@-_kRoS'E
 _\   b'aksl'aS
-_]   f'Erm_kroS'E
-_^   sirkOnfl'Eks
+_]   f'ERm_kRoS'E
+_^   siRkOnfl'Eks
 __   sulin^'e
-_`   aks'A~_gr'av
-_{   uvr_akOl'ad
-_|   b'ar
-_}   f'Erm_akOl'ad
+_`   aks'A~_gR'av
+_{   uvR_akOl'ad
+_|   b'aR
+_}   f'ERm_akOl'ad
 _~   tild'e
 _¢   sEnt
 _¥   i;'En
-_£   l'ivr
-_°   d@gr'e
+_£   l'ivR
+_°   d@gR'e
 _±   pl'yz_'u_mw'E~
-_×   myltip@-lj'e_p'ar
-_÷   diviz'e_p'ar
-_¼   W~_k'ar
+_×   myltip@-lj'e_p'aR
+_÷   diviz'e_p'aR
+_¼   W~_k'aR
 _½   W~_d@m'i
-_¾   trw'a k'ar
-_©   _^_k'0pIr,aIt_^_
-_®  r@Zistr'@d_m'ark
+_¾   tRw'a k'aR
+_©   _^_k'0pIR,aIt_^_
+_®  R@ZistR'@d_m'aRk
 
 
 
 // numeric
 
-_0	zer'o
+_0	zeR'o
 _1	W~
 _2	d'Y
-_3	trw'a
-_4	k'atr
+_3	tRw'a
+_4	k'atR
 _5	s'E~c
 _6	s'is
 six	siz2
@@ -102,8 +102,8 @@ _10	d'is
 dix	diz2
 _11	O~z
 _12	d'uz
-_13	tr'Ez
-_14	kat'Orz
+_13	tR'Ez
+_14	kat'ORz
 _15	k'E~z
 _16	s'Ez
 _17	d'is:'Et
@@ -112,17 +112,17 @@ _19	d'is:n'@f
 _20	v'E~ 
 _21	v'E~te:E~
 _22	v'E~td'Y
-_23	v'E~t:trw'a
-_24	v'E~tk'atr
+_23	v'E~t:tRw'a
+_24	v'E~tk'atR
 _25	v'E~ts'E~c
 _26	v'E~ts'is
 _27	v'E~ts'Et
 _28	v'E~tw^it
 _29	v'E~tn'@f
-_3X	tr'A~t
-_31	tr'A~te:E~
-_4X	kar'A~t
-_41	kar'A~te:E~
+_3X	tR'A~t
+_31	tR'A~te:E~
+_4X	kaR'A~t
+_41	kaR'A~te:E~
 _5X	sE~k'A~t
 _51	sE~k'A~te:E~
 _6X	swas'A~t
@@ -130,31 +130,31 @@ _61	swas'A~te:E~
 _7X	swas'A~t:d'is
 _71	swas'A~te:O~z
 _72	swas'A~t:d'uz
-_73	swas'A~t:tr'Ez
-_74	swas'A~t:kat'Orz
+_73	swas'A~t:tR'Ez
+_74	swas'A~t:kat'ORz
 _75	swas'A~t:k'E~z
 _76	swas'A~t:s'Ez
 _77	swas'A~t:d'is:'Et
 _78	swas'A~t:d'is:'w^it
 _79	swas'A~t:d'is:n'@f
-_8X	k'atr@v'E~
-_80	k'atr@v'E~z2
-_9X	k'atr@v'E~d'is
-_91	k'atr@v'E~:O~z
-_92	k'atr@v'E~:d'uz
-_93	k'atr@v'E~:tr'Ez
-_94	k'atr@v'E~:kat'Orz
-_95	k'atr@v'E~:k'E~z
-_96	k'atr@v'E~:s'Ez
-_97	k'atr@v'E~:d'is:'Et
-_98	k'atr@v'E~:d'is:'w^it
-_99	k'atr@v'E~:d'is:n'@f
+_8X	k'atR@v'E~
+_80	k'atR@v'E~z2
+_9X	k'atR@v'E~d'is
+_91	k'atR@v'E~:O~z
+_92	k'atR@v'E~:d'uz
+_93	k'atR@v'E~:tR'Ez
+_94	k'atR@v'E~:kat'ORz
+_95	k'atR@v'E~:k'E~z
+_96	k'atR@v'E~:s'Ez
+_97	k'atR@v'E~:d'is:'Et
+_98	k'atR@v'E~:d'is:'w^it
+_99	k'atR@v'E~:d'is:n'@f
 _0C	s'A~
 _1C0	s'A~t2
 _0M1	m'il
 _1M1	m'il
 _0M2	milj'O~
-_0M3	milj'ar
+_0M3	milj'aR
 _0and	e
 _dpt	pw'E~
 
@@ -167,9 +167,9 @@ abc		'a b'e s'e
 ac		'a s'e
 api		'a p'e 'i
 cio		s'e'i;'o
-ctrl		kO~tr'ol
-dept		depart@m'A~
-etc		etseter'a
+ctrl		kO~tR'ol
+dept		depaRt@m'A~
+etc		etseteR'a
 hmm		h@m
 ibm		'i:b'e:'Em
 ip		'i:p'e
@@ -179,31 +179,30 @@ mbrola		Em'bRola
 mlle		mad@mwaz'El
 mme		mad'am
 mr		m@sj'Y
-p.s		pOstkript'Om
-ratp		'Er:'a:t'e:p'e
+p.s		pOstkRipt'Om
+ratp		'ER:'a:t'e:p'e
 s.t.p		s'il:t'@:pl'E
 s.v.p		s'il:v'u:pl'E
 st		s'E~
 ste		s'E~t
 stp		s'il:t'@:pl'E
 svp		s'il:v'u:pl'E
-url		'y:'Er:'El
+url		'y:'ER:'El
 usb		'y:'Es:'be
 utf		y:te:Ef
 xfce		iksEfse@
-xy		'iks:igr'Ek
+xy		'iks:igR'Ek
 
 ii               d'Y          $abbrev    // roman numerals
-iii              trw'a        $abbrev
-iv               k'atr        $abbrev
+iii              tRw'a        $abbrev
+iv               k'atR        $abbrev
 
 
-dr               dOkt'Wr       $dot $capital
+dr               dOkt'WR       $dot $capital
 prof                           $dot
 
 
 
-// numbers
 
 // articles
 le	$u $nounf
@@ -348,8 +347,8 @@ tout	$u
 
 // Letters which can be words
 //===========================
-à       a:aksA~grav  $atend
-y       i:gr'Ek      $atend
+à       a:aksA~gRav  $atend
+y       i:gR'Ek      $atend
 
 
 
@@ -357,15 +356,15 @@ y       i:gr'Ek      $atend
 
 scient           si
 bénéficient      benefisi $verb
-président        prezidA~t2
-président        prezidt2 $verb
+président        pRezidA~t2
+président        pRezidt2 $verb
 
 
 // MAIN WORD DICTIONARY
 //*********************
 
-monsieur m@sjY		// monsieur
-montréal mO~real	// Montréal
+monsieur         m@sjY
+montréal         mO~Real
 (il y a)         ili;a $u
 (il y)           ili $u
 (n'est ce pas)   nEspa
@@ -385,7 +384,7 @@ montréal mO~real	// Montréal
 bus	      bys
 echo          Eko
 fils	      fis
-mars	      mars
+mars	      maRs
 pays	      pEi
 sens	      sA~s
 c'est         sEt2 $u
@@ -403,45 +402,43 @@ open            OpEn
 espeak          ispik
 nvda             $abbrev
 outlook         autluk
-reader          Rid'Wr
-potentiomètre   pOtA~sjOmEtr
+reader          Rid'WR
+potentiomètre   pOtA~sjOmEtR
 
 processus	pROsEsys
 
 // ut (t is said)
 août		ut
 azimut		azim'yt
-brut		br'yt
+brut		bR'yt
 but		by $verb
 but		byt
 connecticut	kOnEktikyt
 helmut		Elmut
 mazout		mazut
 out		aut
-rut		ryt
-scorbut		skOrbyt
+rut		Ryt
+scorbut		skORbyt
 scout		skut
 scouts		skut
 stout		staut
-uppercut	ypErkyt
+uppercut	ypERkyt
 ut		yt
 zut		syt
 
 
 // et (t is said)
 
-//Downing_street
-//Dun_and_Bradstreet
 bridget		bRidZEt
 exocet		EgzOsEt
 fret		fR'Et
 gadget		gadZEt
 hamlet		amlEt
-internet	E~tErnEt
+internet	E~tERnEt
 jacket		ZakEt
 knesset		knEsEt
-lazaret		lazarEt
-margaret	margarEt
+lazaret		lazaREt
+margaret	maRgaREt
 net		nEt
 offset		OfsEt
 pickpocket	pikpOkEt
@@ -453,38 +450,38 @@ soviet		sOvjEt
 // ct (ct are not said)
 aspect		aspE
 aspects		aspE
-circonspect	circO~spE
-irrespect	irEspE
-prospect	prOspE
-respect		rEspE
+circonspect	ciRcO~spE
+irrespect	iREspE
+prospect	pROspE
+respect		REspE
 suspect		syspE
 
 // st (t is not said)
-prévost		prevo
+prévost		pRevo
 
 // urt (t is said)
-kurt		kurt
-yaourt		jaurt
-yoghourt	yogurt
-yogourt		yogurt
+kurt		kuRt
+yaourt		jauRt
+yoghourt	yoguRt
+yogourt		yoguRt
 
 // ort (t said)
-short		SOrt
+short		SORt
 
 // art (t said)
-stewart		stiwart
-steward		stiwart
-stuttgart	Stutgart
-hart		art
-kart		kart
-smart		smart
+stewart		stiwaRt
+steward		stiwaRt
+stuttgart	StutgaRt
+hart		aRt
+kart		kaRt
+smart		smaRt
 
 // irt
-flirt		fl@rt
-(sweat shirt)	swEtS@rt
-tee-shirt	tiS@rt
+flirt		fl@Rt
+(sweat shirt)	swEtS@Rt
+tee-shirt	tiS@Rt
 
-parfum		parfW~
+parfum		paRfW~
 forum		fOR@m
 
 // words from other languages
@@ -520,9 +517,9 @@ yacht		jot
 // tions (tjO~ instead of sjO~)
 achetions	aS@tjO~z2
 ajoutions	aZutjO~z2
-apportions	apOrtjO~z2
-apprêtions	aprEtjO~z2
-arrêtions	arEtjO~z2
+apportions	apORtjO~z2
+apprêtions	apREtjO~z2
+arrêtions	aREtjO~z2
 assistions	asistjO~
 bastions	bastjO~z2
 battions	batjO~z2
@@ -538,39 +535,39 @@ digestions	diZEstjO~z2
 discutions	diskytjO~z2
 doutions	dutjO~z2
 débutions	debytjO~z2
-désertions	dezErtjO~z2
+désertions	dezERtjO~z2
 détentions	detA~tjO~z2
 escomptions	EskO~tjO~z2
 existions	EgzistjO~z2
 exploitions	EksplwatjO~z2
-exportions	EkspOrtjO~z2
+exportions	EkspORtjO~z2
 gestions	ZEstjO~z2
 habitions	abitjO~z2
-heurtions	@rtjO~z2
+heurtions	@RtjO~z2
 indigestions	E~diZEstjO~z2
 insistions	E~sistjO~z2
 jetions		Z@tjO~z2
 limitions	limitjO~z2
 manifestions	manifEstjO~z2
-méritions	meritjO~z2
-partions	partjO~z2
-pressentions	prEsA~tjO~z2
-présentions	prezA~tjO~z2
-prêtions	prEtjO~z2
+méritions	meRitjO~z2
+partions	paRtjO~z2
+pressentions	pREsA~tjO~z2
+présentions	pRezA~tjO~z2
+prêtions	pREtjO~z2
 quittions	kitjO~z2
-rations		ratjO~z2
-redoutions	r@dutjO~z2
-regrettions	r@grEtjO~z2
-représentions	r@prezA~tjO~z2
-respections	rEspEktjO~z2
-ressentions	r@sA~tjO~z2
-restions	rEstjO~z2
-répétions	repetjO~z2
+rations		RatjO~z2
+redoutions	R@dutjO~z2
+regrettions	R@gREtjO~z2
+représentions	R@pRezA~tjO~z2
+respections	REspEktjO~z2
+ressentions	R@sA~tjO~z2
+restions	REstjO~z2
+répétions	RepetjO~z2
 sentions	sA~tjO~z2
-sortions	sOrtjO~z2
+sortions	sORtjO~z2
 souhaitions	suEtjO~z2
 soumettions	sumEtjO~z2
-supportions	sypOrtjO~z2
+supportions	sypORtjO~z2
 tentions	tA~tjO~z2
 traitions	tREtjO~z2
 votions		vOtjO~z2 $u

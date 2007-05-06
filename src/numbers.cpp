@@ -45,6 +45,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	int n_bytes;
 	int letter;
 	int len;
+	int next;
 	unsigned char *p;
 	char ph_stress[2];
 	char capital[20];
@@ -69,7 +70,11 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 
 	len = utf8_out(letter,&single_letter[2]);
 	single_letter[2+len] = ' ';
-	memcpy(&single_letter[3+len],&word[n_bytes],3);   // include the next letter, after a space, in case it affects the translation rules
+
+	next = 0x31;
+	if(word[n_bytes] == ' ')
+		next = ' ';
+	single_letter[3+len] = next;   // follow by space-space if the end of the word, or space-0x31
 
 	single_letter[1] = '_';
 	if(Lookup(&single_letter[1],ph_buf) == 0)

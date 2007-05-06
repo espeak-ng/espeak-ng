@@ -34,23 +34,28 @@ _??	s'imbolu
 
 _.	p'oNtu
 _!	,eskl&mas'&U~
-_"	'asp&s
-_#	k,ardZin'aU
+?1   _"	'asp&S
+?2   _"	'asp&s
+?1   _#	k,ardin'al
+?2   _#	k,ardZin'aU
 _$	s,if@-*'&U~
 _%	pors'eINtu
 _&	'e
-_'	ap'Ost@-*,ofu
+?1   _'	ap'Ost@-*,ofy
+?2   _'	ap'Ost@-*,ofu
 _(	,ab@-*ipa*'eINtezi
 _)	f,ES&pa*'eINtezi
 _*	,aste*'isku
-_+	m'aIs
+?1   _+	m'aIS
+?2   _+	m'aIs
 _,	v'irgul&
 _-	'ifeIN
 _/	b'aQ&
 _:	d,oIsp'oNtus
 _;	p,oNtu_iv'irgul&
 _<	men'Or
-_=	igw'aU
+?1   _=	igw'al
+?2   _=	igw'aU
 _>	maI'Or
 _?	,iNtex,ogas'&U~
 _@	ax'ob&
@@ -61,12 +66,15 @@ _^	s,irkuNfl'Eksu
 __	s,ublin^'adu
 _`	g@-*'avi
 _{	,ab@-*iS'avi
-_|	b,ax&v,ertSik'aU
+?1   _|	b,ax&v,ertSik'al
+?2   _|	b,ax&v,ertSik'aU
 _}	f,ES&S'avi
-_~	tS'iU
+?1   _~	t'il
+?2   _~	tS'iU
 _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
-_"	'ab@-*i;'asp&z d'upl&s
+?1   _"	'ab@-*i;'asp&S d'upl&S
+?2   _"	'ab@-*i;'asp&z d'upl&s
 
 
 // numeric
@@ -155,10 +163,25 @@ _0Z3	mil'Ezim&      // 1000ths
 
 // ABBREVIATIONS
 //**************
-(http ://)       ag,atete'pe_
-a.c		,as'e
+abadv    $abbrev
+a.c		'as'e
+adsl     $abbrev
+apedv    $abbrev
+?1   apedv      ,a,pe,,E,de've
+bios       b'i,OS
 d.c		d,es'e
-etc	,ets'Ete*&
+cpu      $abbrev
+//?1   cpu       ,se,pe'u
+?1   cpuc       ,se,pe,u'se
+edp      $abbrev
+?1   etc	,ets'Et:r&
+?2   etc	,ets'Ete*&
+?2   (http ://)       ag,atete'pe_
+nvda     $abbrev
+unts     $abbrev
+unts     $abbrev
+?1   usb       ,u,Esy'be
+?2   usb      $abbrev
 
 
 // articles
@@ -516,7 +539,7 @@ era        'Er&
 abacaxi      abakaSi
 axé          aSE
 elixir       eliSir
-?1fixe       fiSe
+?1 fixe       fiSe
 lixo         l'iSu
 roxo         x'oSu
 
@@ -524,9 +547,9 @@ roxo         x'oSu
 ?1 alt        'alt
 ?1 bacalhau   b,&k&lj'aU
 ?1 caps       k'aps
-?1 ctrl       k'oNt:r'Ol
+   ctrl       k'oNt:r,Ol
 ?1 delete     dil'i:t
-?1 design     diz'aIn //? In Brasilian Portuguese
+?1 design     diz'aIn
 ?1 down       d'aUn
 ?1 download   d'aUnloUd
 ?1 escape     Sk'eIpy
@@ -541,8 +564,7 @@ layout        l'eI,aUt
 ?1 mail       meIl
 ?2 mail       m'eja	
 ?1 menu       mEnU
-?1 num        _^_EN
-?1 ok         Ok'eI
+   ok         Ok'eI
 ?1 pause      p'au:z
 ?1 page       p'eIdZ
 ?1 scroll     _^_EN
@@ -562,18 +584,20 @@ alan       'al@n
 ?1 access     'aksEs
 debian        d'Ebj&~N
 espeak        isp'i:k
-speak         spi:k
+espeakedit       isp'i:k,Ed,it
 firefox       f'ai@foks
 ?1 hal        hal
 ?1 jaws       dZ'au:z
-?1 linux      l'inUks
+?1 linux      l,in'uks
 ?2 linux      l'inuks
 openoffice    'opeIN|'Ofis
-?1 reader     r'i:d&@
+?1 reader     _^_EN
 slackware     sl'akwe@
+speak         spi:k
 suse          z'u:ts@
 ubuntu        ub'untu
-unix          j'u:niks
+?1   unix          ,u:n'iks
+?2   unix          j'u:niks
 ?1 windows    _^_EN
 
 
@@ -624,4 +648,5 @@ müller      m'iler
 ronchi      r'OnCi:
 vogel       f'o:g@l
 volkmann    f'Olkman
+
 

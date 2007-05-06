@@ -13,6 +13,7 @@
 
 .group a
        _) a (_       a
+       _) a (_W      'a       // in an acronym
           a          a
        &) a (_       =&       // in final unstressed syllable
        &) a (s_      =&
@@ -25,7 +26,7 @@
 
           a (C_      &
           a (r_      'a
-?1 p) a (d_     =E
+?1     p) a (d_      =E
           a (CC_     &
 ?1        al (_      'al // eg: Portugal, capital, etc.
 ?2        al (K      aU
@@ -38,6 +39,7 @@
           an (K      &~N
           a (nhA     &~
           am (_      =&U~
+?1        a (z_      'a   //eg: paz, rapaz, capaz, etc...
 
           ai         aI
           ai (s      aI
@@ -133,7 +135,7 @@
 ?2        el (K      EU
 ?2        elh        elj
 
-?1 e (rtA_       'E // Eg: Alberto, aberta, etc...
+?1        e (rtA_    'E // Eg: Alberto, aberta, etc...
           em (C      eIm
           en (K      eIN
           enh        en^
@@ -152,24 +154,26 @@
           eu (s      eU
           e (uCK     e
 
-?1     _) es (C@@    S        // drop initial "e".
-?1    _) e (f       i // efectuar, etc.
-?1 C) e (cC       'E // eg: seleccionar, efectuar, selecção, etc...
-?1     C) e (ã       i // leão, panteão, etc.
-?1     C) e (a       i // oceano, etc.
-?1 _C) e (CACA       =y  //definições.
-?1 _C) e (CCACAr       =y   // desligar.
-?1 _C) e (CKAr      =y // fechar
-?1 _C) e (CCACAr       =y // terminar.
-?1 _C) e (CACC     =y // recicla, reciclagem, etc...
-?1 _f) e (rrament       =y // ferramenta, ferramentas.
-?1 hip) e (r       ,E // eg: hiper
-?1 sup) e (r       ,E // super
-?1 int) e (rC       'E // Interno
-?1 int) e (rr       E // Interno
-?1 n) e (t       ,E // eg: net
-
-?1 e (l_       ,E
+?1     _) es (C@@     S   // drop initial "e".
+?1     _) e (f        i   // efectuar, etc.
+?1    _n) e (nhu      i   // eg: nenhum, nenhuma, nenhuns, nenhumas.
+?1     C) e (cC      ,E   // eg: seleccionar, efectuar, etc...
+?1     C) ecç        'E's // eg: selecção, etc...
+?1     C) e (ã        i   // leão, panteão, etc.
+?1     C) e (a        i   // oceano, etc.
+?1    _C) e (CACA     y   //definições.
+?1    _C) e (CCACAr   y   // desligar.
+?1     C) e (CCAC     y   // eg: deslocamento, etc...
+?1    _C) e (CKAr     y   // fechar
+?1    _C) e (CCACAr   y   // terminar.
+?1    _C) e (CACC     y   // recicla, reciclagem, etc...
+?1    _f) e (rrament  y   // ferramenta, ferramentas.
+?1   hip) e (r       ,E   // eg: hiper
+?1   sup) e (r       ,E   // super
+?1   int) e (rC      'E   // Interno
+?1   int) e (rr       E   // eg: Enterra
+?1     n) e (t       ,E   // eg: net
+?1        e (l_      ,E   // eg: possível, manuel, etc...
 
 
 .group é
@@ -197,8 +201,8 @@
 
 
 .group f
-?1     _) f (_       Ef;     // individual letter
-?1     _) f (__      Ef      // individual letter at end-of-word
+?1     _) f (_W      Ef;     // within an acronym
+?1     _) f (_       Ef      // individual letter or end-of-acronym
        _) f (_       'Efe
           f          f
           f (f
@@ -206,6 +210,7 @@
 
 .group g
 ?1     _) g (_       ge
+?1     _) g (_W      Ze      // within an acronym
        _) g (_       Ze
           g          g
           g (g
@@ -216,7 +221,8 @@
 
 
 .group h
-       _) h (_       ag'a
+?1     _) h (_       &g'a
+?2     _) h (_       ag'a
           h              // silent
 
 
@@ -262,8 +268,8 @@
       úC) i (A_       j
      úCC) i (A_       j
 
-?1       @) ing (_      _^_EN
-?1       @) ings (_     _^_EN
+?1     @) ing (_      _^_EN
+?1     @) ings (_     _^_EN
 
 
 .group í
@@ -282,14 +288,14 @@
 
 .group k
 ?1     _) k (_       k'ap&
-?2       _) k (_       ka
+?2     _) k (_       ka
           k          k
           k (k
 
 
 .group l
-?1     _) l (_       El;       // individual letter
-?1     _) l (__      El        // individual letter at end-of-word
+?1     _) l (_W      El;       // within an acronym
+?1     _) l (_       El
        _) l (_       'Ele
           l          l
           l (l
@@ -299,16 +305,16 @@
 
 
 .group m
-?1     _) m (_       Em;
-?1     _) m (__      Em
+?1     _) m (_W      'Em;
+?1     _) m (_       Em
        _) m (_       'eme
           m          m
           m (m
 
 
 .group n
-?1     _) n (_       En;
-?1     _) n (__      En
+?1     _) n (_W      'En
+?1     _) n (_       En
        _) n (_       'ene
           n          n
           n (n
@@ -327,37 +333,33 @@
           oi (s      oI
           o (iCK     o
           oo         u
-?1     v) oo (_      ow
+?1     C) oo (_      ow // eg: voo, enjoo, etc...
           oy         OI
 
           o (Ca_     O
-?1        o (Cá_     'O
-?1        o (Cé_     'O
-?1        o (Cí_     'O
-?1        o (Có_     'O
-?1        o (Cú_     'O
 ?1        ol (_      Ol
 ?2        ol (K      Ow
 ?2        olh        olj
 
-?1          om (_      'om
-?2          om (_      oN
+?1        om (_      'om
+?2        om (_      oN
           o (ma_     o
-?1          om (C      'om
-?2          om (C      om
+?1        om (C      'om
+?2        om (C      om
           on (K      oN
           o (na_     o
           onh        on^
           o (rmA_    O
           o (rmAC    O
 
-?1          oz (_      OS
-?2          oz (_      Oz
+?1        oz (_      OS
+?2        oz (_      Oz
           o (zes_    O
           o (ra_     O
           o (ras_    O
-?1 _C) o (CACACC       =u // Documento, documentação, etc.
-?1 _C) o (CCAC       =u // formatar, formato.
+?1     _) o (C       O   // eg: olá, orla, opção, etc...
+?1    _C) o (CACACC  u   // Documento, documentação, etc.
+?1     C) o (CCAC    u   // formatar, formato.
 
 
 .group ô
@@ -415,18 +417,18 @@
 
  
 .group r
-?1     _) r (_       'Err;    // individual letter
-?1     _) r (__      'Err     // individual letter at end-of-word
+?1     _) r (_W     'Err;    // within an acronym
+?1     _) r (_      'Err
        _) r (_       'Exe
        _) r (_\$     xe'aU    // currency
           r          r
-?1       A) r (A       :r
-?2       A) r (A       *
-?1       A) r (_A      :r
-?2       A) r (_A      *
+?1     A) r (A       :r
+?2     A) r (A       *
+?1     A) r (_A      :r
+?2     A) r (_A      *
           rr         x
-?1       C) r (A       :r
-?2       C) r (A       @-*
+?1     C) r (A       :r
+?2     C) r (A       @-*
        _) r          x
        l) r          x
        n) r          x
@@ -435,18 +437,18 @@
 
 
 .group s
-?1     _) s (_       'Ess|;    [s]+[;] not [s;] phoneme
-?1     _) s (__      'Ess
-       _) s (_       'Ese
+?1     _) s (_W     'Es|;    within an acronym  [s]+[;] not [s;] phoneme
+?1     _) s (_      'Es
+?2     _) s (_      'Ese
           s          s
           ss         s
           sc (Y      s
           sç         s
        A) s (A       z
-?1          s (_       S
-?2           s (_       s
-          s (_A      z     // next word starts with vowel
-          s (_G      z     // next word starts with voiced consonant
+?1     @) s (_       S
+?2     @) s (_       s
+       @) s (_A      z     // next word starts with vowel
+       @) s (_G      z     // next word starts with voiced consonant
 
        A) s (_S1     s
        A) s (_AS1    z     // next word starts with vowel
@@ -466,8 +468,8 @@
 ?2        t (i       tS
 ?2        t (í       tS
 ?2        t (e_      tS
-?1          th         _^_EN
-?1          tion (_    _^_EN
+?1        th         _^_EN
+?1        tion (_    _^_EN
 
 
 .group u
@@ -507,14 +509,15 @@
 
 
 .group w
-       _) w (_       d'ablju
+?1     _) w (_       d'&bl,iu
+?2     _) w (_       d'ablju
           w          w
-?1          w (_       _^_EN
+?1        w (_       _^_EN
 
 
 .group x
-?1       _) x (_       SiS
-?2       _) x (_       Sis
+?1     _) x (_       SiS
+?2     _) x (_       Sis
           x (A       S
        A) x (A       ks
        e) x (A       z
@@ -532,7 +535,8 @@
 
 
 .group y
-       _) y (_       'ipsiloN
+?1       _) y (_       'ipsil,ON
+?2       _) y (_       'ipsiloN
           y          i
           y (A       j
 
@@ -541,15 +545,16 @@
        _) z (_       ze
           z          z
           z (z
-?1          z (_       S
-?2          z (_       s
-          z (_A      z
-          z (_G      z
+?1     @) z (_       S
+?2     @) z (_       s
+       @) z (_A      z
+       @) z (_G      z
 
 ?1     A) z (C       S
 ?1     A) z (G+      Z
 ?1     A) z (_C      S
 ?1     A) z (_G+     Z
+
 
 .group
           ç          s
@@ -590,6 +595,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 
