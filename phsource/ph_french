@@ -12,14 +12,14 @@ endphoneme
 
 phoneme @
   vowel starttype (@) endtype (@)
-  length 120
+  length 130
   formants vowel/@_2
 endphoneme
 
 
 phoneme a
   vowel  starttype (a)  endtype (a)
-  length 166
+  length 160
   formants vowel/a_en
 endphoneme
 
@@ -40,7 +40,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 158
+  length 150
   formants vowel/i
   linkout ;
 endphoneme
@@ -49,14 +49,14 @@ endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 166
+  length 160
   formants vowel/o_4
 endphoneme
 
 
 phoneme O
   vowel starttype (o) endtype (o)
-  length 190
+  length 170
   formants vowel/o_6
 endphoneme
 
@@ -64,7 +64,7 @@ endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 174
+  length 150
   formants vowel/u
 endphoneme
 
@@ -85,7 +85,7 @@ endphoneme
 
 phoneme W
   vowel starttype (@) endtype (@)
-  length 198
+  length 170
   formants vowel/oe
 endphoneme
 
@@ -101,21 +101,21 @@ endphoneme
 
 phoneme A~
   vowel  starttype (a) endtype (a)
-  length 222
+  length 160
   formants vnasal/aa_n3
 endphoneme
 
 
 phoneme E~    // same as W~ for fr-fr
   vowel  starttype (e)  endtype (e)
-  length 192
+  length 170
   formants vnasal/W_n
 endphoneme
 
 
 phoneme O~
   vowel  starttype (o)  endtype (o)
-  length 222
+  length 160
   formants vnasal/o_n3
 endphoneme
 
@@ -168,12 +168,24 @@ endphoneme
 //===========
 // uses the consonants in file "phonemes", unless overridden here
 
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/
+  formants l/l_2
+  after _  l/_l
+  after t  l/tl
+  after l/ l/l_long    // double l, make it longer
+endphoneme
+
+
+
 phoneme r
   liquid
   length 100
   lengthmod 7
   beforenotvowel r/
-  trill
   formants r/r
   after _ r/_r  t r/tr p r/tr k r/tr
   before _ r/r_
@@ -188,7 +200,7 @@ phoneme R
   length 100
   lengthmod 7
   beforenotvowel r/
-  formants vwl_fr/@R+r3/rx%80
+  formants vwl_fr/@R2
 endphoneme
 
 
@@ -199,7 +211,6 @@ phoneme R2
   length 100
   lengthmod 7
   beforenotvowel r/
-  trill
   formants vwl_fr/@R2+r3/rx%120
 endphoneme
 

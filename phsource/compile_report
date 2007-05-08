@@ -12,7 +12,7 @@
       de  28  114
       eo  15  103
       fi  40  122
-      fr  32  115
+      fr  33  115
    fr_ca  11  115
       hi  50  127
       hu  24  108
@@ -103,7 +103,7 @@
   1  l^/_l^         base
   1  l^/l^          base
   7  l/l            base en af sk ru pt ro
-  9  l/_l           base en af de sk ru pt ro
+ 10  l/_l           base en af de fr sk ru pt ro
   1  l/l_           base
   2  l/l@           base
   1  l/L1_aL        base
@@ -112,7 +112,7 @@
   1  l/L1_@L        base
   1  l/L1_oL        base
   1  l/L1_uL        base
-  5  l/l_2          en af sk ru pt
+  6  l/l_2          en af fr sk ru pt
   1  l/L2_aL        base
   1  l/L2_eL        base
   1  l/L2_iL        base
@@ -124,10 +124,10 @@
   2  l/le           base
   1  l/L_eL_af      af
   2  l/li           base
-  2  l/l_long       base ro
+  3  l/l_long       base fr ro
   2  l/lo           base
   2  l/lu           base
-  7  l/tl           base en af sk ru pt ro
+  8  l/tl           base en af fr sk ru pt ro
   6  l/xl           base
   2  m/_m           base ro
   2  m/m_           base ro
@@ -180,7 +180,7 @@
   7  r3/r_n         base cy eo fr pl ru it
   1  r3/r_o         base
   1  r3/r_u         base
- 29  r3/rx          base af cy eo fr fr_ca pl ru it pt_pt ro
+ 28  r3/rx          base af cy eo fr fr_ca pl ru it pt_pt ro
   2  r3/@tap        base
   2  r3/@tap_i      base
   7  r/r            base en_sc de fr hu it
@@ -537,8 +537,8 @@
   2  vwl_en_wm/aa   en_wm
   1  vwl_en_wm/i    en_wm
   2  vwl_en_wm/ii   en_wm
-  2  vwl_fr/@R      fr pt_pt
-  2  vwl_fr/@R2     fr fr_ca
+  1  vwl_fr/@R      pt_pt
+  3  vwl_fr/@R2     fr fr_ca
   1  vwl_hi/A       hi
   3  vwl_hi/l-voc   hi sk
   2  vwl_no/&       no
