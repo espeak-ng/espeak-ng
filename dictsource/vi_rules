@@ -1,4 +1,4 @@
- 
+
 .group a
         a      a:
         ai     a:I
@@ -387,7 +387,7 @@
         qu       kw
 
 .group r
-        r        D
+        r        z;
 
 .group s
         s        s

@@ -145,7 +145,7 @@ int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *pat
 
    path: The directory which contains the espeak-data directory, or NULL for the default location.
 
-   Returns: sample rate in Hz
+   Returns: sample rate in Hz, or -1 (EE_INTERNAL_ERROR).
 */
 
 typedef int (t_espeak_callback)(short*, int, espeak_EVENT*);

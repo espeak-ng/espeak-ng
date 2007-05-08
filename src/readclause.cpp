@@ -1841,8 +1841,11 @@ void InitText2(void)
 	ssml_sp->voice_variant = 0;
 	ssml_sp->voice_gender = 0;
 	ssml_sp->voice_age = 0;
-	strncpy0(ssml_sp->voice_name,pvoice->name,sizeof(ssml_sp->voice_name));
-	strncpy0(ssml_sp->language,&pvoice->languages[1],sizeof(ssml_sp->language));
+	if(pvoice != NULL)
+	{
+		strncpy0(ssml_sp->voice_name,pvoice->name,sizeof(ssml_sp->voice_name));
+		strncpy0(ssml_sp->language,&pvoice->languages[1],sizeof(ssml_sp->language));
+	}
 	current_voice_id[0] = 0;
 
 	n_param_stack = 1;

@@ -47,6 +47,9 @@ MNEM_TAB genders [] = {
 	{"female", 2},
 	{NULL, 0 }};
 
+//int tone_points[10] = {250,140, 1200,110, -1,0, -1,0, -1,0};
+int tone_points[10] = {600,180, 1200,140, 2000,110, 3000,110, -1,0};
+
 // limit the rate of change for each formant number
 //static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate
 static int formant_rate_22050[9] = {50, 100, 165, 200, 200, 200, 200, 200, 200};  // values for 22kHz sample rate
@@ -155,7 +158,6 @@ const char variants_female[N_VOICE_VARIANTS] = {11,12,13,14,0};
 const char *variant_lists[3] = {variants_either, variants_male, variants_female};
 
 
-int tone_points[10] = {250,140, 1200,110, -1,0, -1,0, -1,0};
 
 void SetToneAdjust(voice_t *voice, int *tone_pts)
 {//==============================================
@@ -544,11 +546,6 @@ voice_t *LoadVoice(char *vname, int control)
 	}
 
 	f_voice = fopen(buf,"r");
-	if(first_voice == NULL)
-	{
-		first_voice = ReadVoiceFile(f_voice,buf+len_path_voices,voicename);
-		rewind(f_voice);
-	}
 
 	language_type = "en";    // default
 	if(f_voice == NULL)
@@ -559,6 +556,13 @@ voice_t *LoadVoice(char *vname, int control)
 		if(SelectPhonemeTableName(voicename) >= 0)
 			language_type = voicename;
 	}
+
+	if(first_voice == NULL)
+	{
+		first_voice = ReadVoiceFile(f_voice,buf+strlen(path_voices),voicename);
+		rewind(f_voice);
+	}
+
 
 	if(!tone_only && (translator != NULL))
 	{

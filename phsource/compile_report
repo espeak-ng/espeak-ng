@@ -1,38 +1,38 @@
 33 phoneme tables
           new total
-    base  89   89
-      en  52  136
-    en_n  29  136
-   en_us  36  136
-   en_sc  39  138
-   en_rp  34  136
-   en_wm  30  136
-      af  37  120
-      cy  30  115
-      de  28  112
-      eo  15  101
-      fi  40  120
-      fr  32  113
-   fr_ca  11  113
-      hi  50  125
-      hu  24  106
-      nl  25  109
-      pl  17  100
-      sk  22  115
-      cs   6  116
-      hr  15  119
-      ru  35  116
-      it  28  109
-      es   7  109
-      pt  25  124
-   pt_pt  17  124
-      ro  36  133
-      el   7  109
-      sv  25  111
-      no  29  115
-      vi  41  126
-  zh_yue  32  117
-      sw  14   98
+    base  91   91
+      en  52  138
+    en_n  29  138
+   en_us  36  138
+   en_sc  39  140
+   en_rp  34  138
+   en_wm  30  138
+      af  37  122
+      cy  30  117
+      de  28  114
+      eo  15  103
+      fi  40  122
+      fr  32  115
+   fr_ca  11  115
+      hi  50  127
+      hu  24  108
+      nl  25  111
+      pl  17  102
+      sk  22  117
+      cs   6  118
+      hr  15  121
+      ru  36  119
+      it  28  111
+      es   7  111
+      pt  25  126
+   pt_pt  17  126
+      ro  36  135
+      el   7  111
+      sv  25  113
+      no  29  117
+      vi  41  128
+  zh_yue  32  119
+      sw  14  100
 
   3  b/b            base hi ro
   2  b/b_           base hi
@@ -216,7 +216,9 @@
   1  ufric/sh_      base
   2  ufric/sh_pzd   base ro
   3  ufric/sh_pzd_  base
-  5  ufric/s_pzd    base ro
+  2  ufric/sh_rfx   base
+  3  ufric/s_pzd    base ro
+  2  ufric/s_pzd_   base
   1  ufric/sx_sv    sv
   1  ufric/th       base
   1  ufric/th_      base
@@ -343,8 +345,8 @@
   1  vdiph/y#y      fi
   2  vdiph/y#y_2    af zh_yue
   1  vdiph/y#y_3    nl
-  2  vnasal/aa_n    en fr
-  1  vnasal/aa_n3   af
+  1  vnasal/aa_n    en
+  2  vnasal/aa_n3   af fr
   2  vnasal/ee_n    en fr_ca
   3  vnasal/ee_n2   hi pl pt_pt
   2  vnasal/e_n     af pt
@@ -356,7 +358,8 @@
   1  vnasal/oi_n    pt
   2  vnasal/o_n     hi pt
   1  vnasal/o_n2    af
-  2  vnasal/oo_n    en fr
+  1  vnasal/o_n3    fr
+  1  vnasal/oo_n    en
   2  vnasal/oo_n2   hi pl
   1  vnasal/&u_n    pt
   1  vnasal/u_n     pt
@@ -375,18 +378,18 @@
   1  vocw/Q2        nl
   6  vocw/v         base ro
   4  vocw/zh        base ro
-  1  vocw/zh_rfx    cs
+  3  vocw/zh_rfx    base cs
   3  voc/z          base fr ro
   3  voc/z_         base fr ro
-  2  voc/zh         base ro
-  2  voc/zh_        base ro
+  3  voc/zh         base ro
+  3  voc/zh_        base ro
   1  voc/zh_2       cs
   2  voc/z_pzd      base
   2  voc/z_pzd_     base
  14  vowel/@        base en en_us en_rp cy hi hr
   1  vowel/@-       base
   4  vowel/&        en_rp fi hi sv
-  5  vowel/0        en fr hi it pt
+  4  vowel/0        en hi it pt
   4  vowel/0_2      en_n en_wm pt_pt sw
   5  vowel/0_3      en_us en_sc en_rp hu
   1  vowel/@_2      fr
@@ -402,7 +405,7 @@
   5  vowel/a_2      eo it pt_pt ro vi
   3  vowel/a#_2     hr sv sw
   5  vowel/a_3      en_sc cs
- 11  vowel/a#_3     en en_n en_us en_wm de hi pt_pt vi zh_yue
+ 12  vowel/a#_3     en en_n en_us en_wm de hi ru pt_pt vi zh_yue
   4  vowel/a_4      en_wm el vi
   2  vowel/a_5      sv sw
   7  vowel/aa       en_us fi fr_ca no zh_yue
@@ -445,13 +448,13 @@
   2  vowel/ii_4     en_rp
   6  vowel/ii_en    en en_n
   5  vowel/@_low    hi ro no
-  9  vowel/o        en en_wm de fr hi it pt_pt sv
+  8  vowel/o        en en_wm de hi it pt_pt sv
   4  vowel/o_2      cy hi hu no
   2  vowel/o-_2     en_n en_wm
   2  vowel/o_3      en_sc
   1  vowel/o-_3     en_rp
-  1  vowel/o_4      en_n
-  1  vowel/o_6      nl
+  2  vowel/o_4      en_n fr
+  2  vowel/o_6      fr nl
   4  vowel/oe       en af de fr
   1  vowel/oe_2     no
   1  vowel/oe_4     sv

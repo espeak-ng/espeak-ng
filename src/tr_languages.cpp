@@ -224,13 +224,13 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','r'):  // french
 		{
-			static int stress_lengths_fr[8] = {180, 180,  180, 180,  0, 0,  220, 220};
+			static int stress_lengths_fr[8] = {180, 160,  180, 190,  0, 0,  220, 220};
 			static int stress_amps_fr[8] = {16,14, 20,20, 20,24, 24,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = 3;      // stress on final syllable
-			tr->langopts.stress_flags = 0x20;  // don't use secondary stress
+			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
 			tr->langopts.numbers = 0x1509;

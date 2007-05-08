@@ -774,12 +774,23 @@ phoneme Z
 endphoneme
 
 
+phoneme z.
+  vcd pla frc sibilant
+  vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  vowelout f1=2  f2=1800 -100 300  f3=-300 80 brk
+  formants voc/zh+vocw/zh_rfx
+  before _ voc/zh_+vocw/zh_rfx
+  lengthmod 6
+  switchvoicing s.
+endphoneme
+
+
 phoneme z;
   vcd pal frc sibilant palatal
   vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
   vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-  formants voc/z_pzd+ufric/s_pzd%40
-  before _ voc/z_pzd_+ufric/s_pzd%40
+  formants voc/z_pzd+ufric/s_pzd%80
+  before _ voc/z_pzd_+ufric/s_pzd_%80
   lengthmod 6
   switchvoicing s;
 endphoneme
@@ -994,9 +1005,21 @@ phoneme s;
   vowelout f1=1  f2=2700 400 600  f3=200 70 rate len=70
   length 100
   lengthmod 3
-  wave ufric/s_pzd%50
-  before _ ufric/s_pzd%50
+  wave ufric/s_pzd
+  before _ ufric/s_pzd_
   switchvoicing z;
+endphoneme
+
+
+phoneme s.
+  vls pla frc sibilant
+  vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  vowelout f1=0  f2=1800 -100 300  f3=-300 80
+  length 100
+  lengthmod 3
+  wave ufric/sh_rfx%80
+  before _ ufric/sh_rfx%60
+  switchvoicing z.
 endphoneme
 
 

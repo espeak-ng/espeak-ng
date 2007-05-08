@@ -278,4 +278,10 @@ phoneme a
   length 100
 endphoneme
 
+phoneme a#
+  vowel   starttype (a)  endtype (a)
+  formants vowel/a#_3
+  length 100
+endphoneme
+
 

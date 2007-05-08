@@ -50,14 +50,14 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 166
-  formants vowel/o
+  formants vowel/o_4
 endphoneme
 
 
 phoneme O
   vowel starttype (o) endtype (o)
   length 190
-  formants vowel/0
+  formants vowel/o_6
 endphoneme
 
 
@@ -102,7 +102,7 @@ endphoneme
 phoneme A~
   vowel  starttype (a) endtype (a)
   length 222
-  formants vnasal/aa_n
+  formants vnasal/aa_n3
 endphoneme
 
 
@@ -116,7 +116,7 @@ endphoneme
 phoneme O~
   vowel  starttype (o)  endtype (o)
   length 222
-  formants vnasal/oo_n
+  formants vnasal/o_n3
 endphoneme
 
 
@@ -188,7 +188,6 @@ phoneme R
   length 100
   lengthmod 7
   beforenotvowel r/
-  trill
   formants vwl_fr/@R+r3/rx%80
 endphoneme
 
@@ -240,7 +239,7 @@ endphoneme
 phoneme z2      // silent unless followed by vowel
   beforenotvowel NULL
   vcd alv frc sibilant
-  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 
+  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
   formants voc/z+ufric/s_
   before _ voc/z_+ufric/s_
   lengthmod 6
@@ -274,6 +273,7 @@ phoneme k
   before (i) ustop/ki
   switchvoicing g
 endphoneme
+
 
 
 

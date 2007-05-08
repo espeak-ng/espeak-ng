@@ -646,11 +646,13 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
     buf_length = 200;
   outbuf_size = (buf_length * samplerate)/500;
   outbuf = (unsigned char*)realloc(outbuf,outbuf_size);
-  out_start = outbuf;
+  if((out_start = outbuf) == NULL)
+		return(EE_INTERNAL_ERROR);
 
   // allocate space for event list.  Allow 500 events per minute
   n_event_list = (buf_length*500)/1000;
-  event_list = (espeak_EVENT *)realloc(event_list,sizeof(espeak_EVENT) * n_event_list);
+  if((event_list = (espeak_EVENT *)realloc(event_list,sizeof(espeak_EVENT) * n_event_list)) == NULL)
+		return(EE_INTERNAL_ERROR);
 
   option_phonemes = 0;
 
@@ -1050,7 +1052,9 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 
 #endif
 	Free(event_list);
+	event_list = NULL;
 	Free(outbuf);
+	outbuf = NULL;
 	FreePhData();
 
 	return EE_OK;
