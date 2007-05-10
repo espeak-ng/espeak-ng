@@ -1,4 +1,4 @@
-// translation rules Brazilian
+﻿// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -161,17 +161,17 @@
 ?1     C) ecç        'E's // eg: selecção, etc...
 ?1     C) e (ã        i   // leão, panteão, etc.
 ?1     C) e (a        i   // oceano, etc.
-?1    _C) e (CACA     y   //definições.
-?1    _C) e (CCACAr   y   // desligar.
-?1     C) e (CCAC     y   // eg: deslocamento, etc...
-?1    _C) e (CKAr     y   // fechar
-?1    _C) e (CCACAr   y   // terminar.
-?1    _C) e (CACC     y   // recicla, reciclagem, etc...
-?1    _f) e (rrament  y   // ferramenta, ferramentas.
+?1    _d) e (fini     y   //definições.
+?1    _d) e (slig   y   // desligar.
+?1     _d) e (sloc     y   // eg: deslocamento, etc...
+?1    _f) e (ch     y   // fechar
+?1    _t) e (rmin   y   // terminar.
+?1    _r) e (cicl     y   // recicla, reciclagem, etc...
+?1    _f) e (rramenta  y   // ferramenta, ferramentas.
+?1   _p) e (squ       y // pesquisar
 ?1   hip) e (r       ,E   // eg: hiper
 ?1   sup) e (r       ,E   // super
-?1   int) e (rC      'E   // Interno
-?1   int) e (rr       E   // eg: Enterra
+?1   int) e (rn      ,E   // Interno
 ?1     n) e (t       ,E   // eg: net
 ?1        e (l_      ,E   // eg: possível, manuel, etc...
 
@@ -218,11 +218,11 @@
           gu (Y      g
 ?1        guen (C    gw'eIN    // aguenta, etc.
 ?1     n) gu (A      gw // eg: língua, etc.
+?1   gu (ém_       g // eg: alguém, ninguém, etc...
 
 
 .group h
-?1     _) h (_       &g'a
-?2     _) h (_       ag'a
+     _) h (_       ag'a
           h              // silent
 
 
@@ -319,7 +319,7 @@
           n          n
           n (n
           nh         n^
-?1     A) nn         n     //drop “n” in European Portuguese (eg: connosco).
+?1     A) nn         n     //drop “n” (eg: connosco).
 
 
 .group o
@@ -341,11 +341,10 @@
 ?2        ol (K      Ow
 ?2        olh        olj
 
-?1        om (_      'om
-?2        om (_      oN
+        om (_      oN
           o (ma_     o
-?1        om (C      'om
-?2        om (C      om
+
+        om (C      om
           on (K      oN
           o (na_     o
           onh        on^
@@ -409,7 +408,7 @@
 ?1     A) que (nA_   ke      // pequeno, etc.
 ?1     C) quê (_     ke      // porquê, etc.
 ?1        que (l     ke      // aquele, etc.
-?1        que (r_    ke      // qualquer, etc.
+?1        que (r_    kE      // qualquer, etc.
 ?1        qui        ki      // quinta, esquilo, etc.
 ?1     _) quind      kuind   // quindecágono, etc.
 ?1  tran) qui        kui     // tranquilo, etc.
@@ -595,6 +594,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

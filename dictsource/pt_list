@@ -1,4 +1,4 @@
-
+﻿
 // This file in UTF8 encoded
 
 // Options
@@ -93,32 +93,32 @@ _¿	,iNtex,ogas,&U~,iNvertS'id&
 _5	s'iNku
 ?1_6	s'eIS
 ?2_6	s'eIs
-?1_7	s'Et
+?1_7	s'Ety
 ?2_7	s'EtSi
 _8	'oItu
-?1_9	n'Ov
+?1_9	n'Ovy
 ?2_9	n'Ovi
 ?1_10	d'ES
 ?2_10	d'Ez
-?1_11	'oNz
+?1_11	'oNzy
 ?2_11	'oNzi
-?1_12	d'oz
+?1_12	d'ozy
 ?2_12	d'ozi
-?1_13	t:r'ez
+?1_13	t:r'ezy
 ?2_13	t@-*'ezi
-?1_14	k&t'Orz
+?1_14	k&t'orzy
 ?2_14	kat'Orzi
-?1_15	k'iNz
+?1_15	k'iNzy
 ?2_15	k'iNzi
 ?1_16	dyz&s'eiS
 ?2_16	d,ezes'eIs
-?1_17	dyz&s'Et
+?1_17	dyz&s'Ety
 ?2_17	d,ezes'EtSi
 ?1_18	dyz'Oitu
 ?2_18	dez'oItu
-?1_19	dyz&n'Ov
+?1_19	dyz&n'Ovy
 ?2_19	dezen'Ovi
-?1_2X	v'iNt
+?1_2X	v'iNty
 ?2_2X	v'iNtSi
 ?1_3X	tr'iNt&
 ?2_3X	t@-*'iNt&
@@ -130,7 +130,8 @@ _5X	siNkw'eINt&
 ?1_7X	syt'eINt&
 ?2_7X	set'eINt&
 _8X	oIt'eINt&
-_9X	nov'eINt&
+?1   _9X	nuv'eINt&
+?2   _9X	nov'eINt&
 _1C0	s'eIN
 ?1_0C	s'eINtuS
 ?2_0C	s'eINtuz
@@ -163,25 +164,42 @@ _0Z3	mil'Ezim&      // 1000ths
 
 // ABBREVIATIONS
 //**************
+aapp      $abbrev 
 abadv    $abbrev
+abc       $abbrev 
 a.c		'as'e
 adsl     $abbrev
+ae       $abbrev 
+aids       $abbrev 
 apedv    $abbrev
-?1   apedv      ,a,pe,,E,de've
+avc       $abbrev 
 bios       b'i,OS
 d.c		d,es'e
+cne       $abbrev 
 cpu      $abbrev
-//?1   cpu       ,se,pe'u
-?1   cpuc       ,se,pe,u'se
+cpuc       $abbrev
+dpoc       $abbrev 
+ecg       $abbrev 
 edp      $abbrev
 ?1   etc	,ets'Et:r&
 ?2   etc	,ets'Ete*&
-?2   (http ://)       ag,atete'pe_
+hiv       $abbrev 
+(http ://)       ag,atete'pe_
+icc     $abbrev 
+IEEE       $abbrev // Institute of Electrical and Electronics Engineers 
+iss       $abbrev 
+jpeg       Z,Ot&p'Eg
+mpeg       ,Emp'Eg
+nba       $abbrev 
 nvda     $abbrev
+oms       $abbrev 
+omt       $abbrev 
+osi   $abbrev
+?1   sa       ,Esj'a
+?1   sos       ,Esj,O'Es
+ue     $abbrev 
 unts     $abbrev
-unts     $abbrev
-?1   usb       ,u,Esy'be
-?2   usb      $abbrev
+usb      $abbrev
 
 
 // articles
@@ -539,66 +557,114 @@ era        'Er&
 abacaxi      abakaSi
 axé          aSE
 elixir       eliSir
-?1 fixe       fiSe
+?1 fixe       f'iSy
 lixo         l'iSu
 roxo         x'oSu
 
 // foreign words
 ?1 alt        'alt
 ?1 bacalhau   b,&k&lj'aU
-?1 caps       k'aps
-   ctrl       k'oNt:r,Ol
-?1 delete     dil'i:t
-?1 design     diz'aIn
-?1 down       d'aUn
-?1 download   d'aUnloUd
+?1   back       _^_EN
+?1   blind       _^_EN
+?1   braille       b:r'aily
+?1   cancel       _^_EN
+?1 caps       _^_EN
+?1    ctrl       k'oNt:r,Ol
+?2    ctrl       k'oNt:r,OU
+?1 delete       _^_EN
+?1 design       _^_EN
+?1 down       _^_EN
+?1 download   _^_EN
+?1   end       _^_EN
 ?1 escape     Sk'eIpy
-?1 eyes       w'aIz
+?1   eyes       _^_EN
+?1   gmail       g,em'eIl
 ?1 google     g'u:g&l 
-hardware      h'ardwe@
-?1 kernel     k'ErnEl
+?1   hardware      _^_EN
+?2hardware      h'ardwe@
+?1   home       _^_EN
+?1   hotmail       _^_EN
+?1   install       _^_EN
+?1 kernel     k'Ern,El
 ?2 kernel     k'ErnEU
-?1 line       l'aIn
+?1 line       _^_EN
 layout        l'eI,aUt
 ?1 lock       _^_EN
-?1 mail       meIl
+?1 mail       _^_EN
 ?2 mail       m'eja	
-?1 menu       mEnU
+?1 menu       menu
+?1   next       _^_EN
    ok         Ok'eI
 ?1 pause      p'au:z
-?1 page       p'eIdZ
+?1 page       _^_EN
+?1   scanner       _^_EN
+?1   shift       S'ift
 ?1 scroll     _^_EN
 site          s'aIt
 software      s'Oftwe@
-?1 up         _^_EN
-?1 upload     _^_EN
+?1   space       _^_EN
+?1   sporting       sp'Ort,ing
+?1   tab       t'ab
+?1   up         _^_EN
+?1   upload     _^_EN
 ?1 window     _^_EN
-?1 yes        j'Es
+?1   yahoo       _^_EN
+?1 yes        _^_EN
 
 
 // common person names
 alan       'al@n
+louis       _^_FR
 
 
 // foreign product names
-?1 access     'aksEs
-debian        d'Ebj&~N
+?1 access     _^_EN
+?1   adobe       &d'Oby
+?1   debian       _^_EN
+?2   debian        d'Ebj&~N
+?1   excel       _^_EN
+?1   express       _^_EN
 espeak        isp'i:k
 espeakedit       isp'i:k,Ed,it
-firefox       f'ai@foks
-?1 hal        hal
+?1   fedora       _^_EN
+?1   firefox       _^_EN
+?2   firefox       f'ai@foks
+?1   front       _^_EN
+?1   hal       _^_EN
 ?1 jaws       dZ'au:z
 ?1 linux      l,in'uks
 ?2 linux      l'inuks
+?1   live       _^_EN
+?1   maker       _^_EN
+?1   media       _^_EN
+?1   messenger       _^_EN
+?1   microsoft       m,ik:r'os,Oft
+?1   movie       _^_EN
+?1   nero       n'E:ru
+?1   office       _^_EN
 openoffice    'opeIN|'Ofis
+?1   outlook       _^_EN
+?1   paint       p'aint
+?1   player       _^_EN
+?1   point       _^_EN
+?1   power       _^_EN
+?1   product       _^_EN
+?1   Publisher       _^_EN
 ?1 reader     _^_EN
+?1   setup       _^_EN
+?1   scout       _^_EN // Nero Scout       
+?1   skype       _^_EN
 slackware     sl'akwe@
+?1   smart       _^_EN // nero StartSmart
 speak         spi:k
 suse          z'u:ts@
+?1   start       _^_EN // nero StartSmart
+?1   time       _^_EN // nero show time
 ubuntu        ub'untu
 ?1   unix          ,u:n'iks
 ?2   unix          j'u:niks
 ?1 windows    _^_EN
+?1   WinRAR       _^_EN
 
 
 
@@ -648,5 +714,6 @@ müller      m'iler
 ronchi      r'OnCi:
 vogel       f'o:g@l
 volkmann    f'Olkman
+
 
 

@@ -123,6 +123,11 @@
         ó        o:
         ú        u:
 
+        ä        _^_DE   // use German voice
+        ö        _^_DE
+        ü        _^_DE
+        ß        _^_DE
+
         $        dol&r
 
         .        totSk&
@@ -143,3 +148,42 @@
         = (==        
     =)  = (=         
    ==)  = (_         _::
+
+.group 0xce   // Greek letters
+
+	α	alf&_
+	ά	alf&_||tonos
+	β	b'et&_
+	γ	g&m&_
+	δ	delt&_
+	ε	Epsilon
+	έ	Epsilon||tonos
+	ζ	zet&_
+	η	et&_
+	ή	et&_||tonos
+	θ	txet&_
+	ι	jot&_
+	ί	jot&_||tonos
+	κ	k&p&_
+	λ	l&md&_
+	μ	mi_
+	ν	ni_
+	ξ	k_si_
+	ο	omi_k@-*on_
+
+.group 0xcf   // Greek letters
+
+	π	pi_
+	ρ	@-*o_
+	σ	sigm&_
+	ς	grtSko_||z&vrS@no_||sigm&_
+	τ	t&U_
+	υ	grtSki_||IpsIlon_
+	ύ	grtSki||IpsIlon_||tonos
+	φ	fi_
+	χ	h_i
+	ψ	pss'I
+	ω	omeg&_
+	ώ	omeg&_||tonos
+	ό	omi_k@-*on_||tonos
+

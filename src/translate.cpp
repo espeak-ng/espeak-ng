@@ -393,7 +393,7 @@ Translator::Translator()
 	SetLetterBits(this,1,"bcdfgjklmnpqstvxz");      // B  hard consonants, excluding h,r,w
 	SetLetterBits(this,2,"bcdfghjklmnpqrstvwxz");  // C  all consonants
 	SetLetterBits(this,3,"hlmnr");                 // H  'soft' consonants
-
+	SetLetterBits(this,4,"cfhkpqstx");             // F  voiceless consonants
 	SetLetterBits(this,5,"bdgjlmnrvwyz");   // G voiced
 	SetLetterBits(this,6,"eiy");   // Letter group Y, front vowels
 	SetLetterBits(this,7,"aeiouy");  // vowels, including y
@@ -1470,18 +1470,28 @@ static int EmbeddedCommand(unsigned int &source_index)
 
 
 
-int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in)
-{//======================================================================
+int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in, int *insert)
+{//===================================================================================
 	// To allow language specific examination and replacement of characters
 
 	const wchar_t *p;
+	unsigned int new_c;
+
+	if(c == 0) return(0);
 
 	if(langopts.replace_chars != NULL)
 	{
 		// there is a list of character codes to be substituted with alternative codes
 		if((p = wcschr(langopts.replace_chars,c)) != NULL)
 		{
-			return(langopts.replacement_chars[p - langopts.replace_chars]);
+			new_c = langopts.replacement_chars[p - langopts.replace_chars];
+			if(new_c & 0xffe00000)
+			{
+				// there is a second character to be inserted
+				*insert = (new_c >> 16);
+				new_c &= 0xffff;
+			}
+			return(new_c);
 		}
 	}
 	return(c);
@@ -1500,6 +1510,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int prev_out2;
 	int prev_in2=0;
 	int next_in;
+	int char_inserted=0;
 	int clause_pause;
 	int pre_pause=0;
 	int pre_pause_add=0;
@@ -1626,9 +1637,19 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			utf8_in(&prev_in,&source[source_index-1],1);  //  prev_in = source[source_index-1];
 		}
 		prev_source_index = source_index;
-		source_index += utf8_in(&cc,&source[source_index],0);   // cc = source[source_index++];
-		c = cc;
+
+		if(char_inserted)
+		{
+			c = char_inserted;
+			char_inserted = 0;
+		}
+		else
+		{
+			source_index += utf8_in(&cc,&source[source_index],0);   // cc = source[source_index++];
+			c = cc;
+		}
 		utf8_in(&next_in,&source[source_index],0);
+
 		if((c == CTRL_EMBEDDED) || (c == ctrl_embedded))
 		{
 			// start of embedded command in the text
@@ -1705,7 +1726,9 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 				c = '\'';
 			}
 
-			c = TranslateChar(&source[source_index],prev_in,c,next_in);  // optional language specific function
+			c = TranslateChar(&source[source_index], prev_in,c, next_in, &char_inserted);  // optional language specific function
+			if(char_inserted)
+				next_in = char_inserted;
 
 			if(!IsAlpha(c) && !iswspace(c) && (c != '\''))
 			{

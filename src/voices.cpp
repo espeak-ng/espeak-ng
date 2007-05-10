@@ -48,7 +48,7 @@ MNEM_TAB genders [] = {
 	{NULL, 0 }};
 
 //int tone_points[10] = {250,140, 1200,110, -1,0, -1,0, -1,0};
-int tone_points[10] = {600,180, 1200,140, 2000,110, 3000,110, -1,0};
+int tone_points[10] = {600,170, 1200,135, 2000,110, 3000,110, -1,0};
 
 // limit the rate of change for each formant number
 //static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate

@@ -1,39 +1,39 @@
  
 phoneme i
   vowel starttype (i) endtype (i)
-  length 120
+  length 110
   formants vowel/ii_3
   linkout ;
 endphoneme
 
 phoneme i:
   vowel starttype (i) endtype (i)
-  length 230
+  length 260
   formants vowel/i_3
   linkout ;
 endphoneme
 
 phoneme &
   vowel starttype (e) endtype (e)
-  length 130
+  length 120
   formants vowel/ee_6
 endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
-  length 130
+  length 120
   formants vowel/e_mid2
 endphoneme
 
 phoneme e:
   vowel starttype (e) endtype (e)
-  length 280
+  length 290
   formants vowel/e_mid
 endphoneme
 
 phoneme a
   vowel starttype (a) endtype (a)
-  length 140
+  length 120
   formants vowel/a
 endphoneme
 
@@ -45,19 +45,19 @@ endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 130
+  length 120
   formants vowel/oo_1
 endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
-  length 280
+  length 290
   formants vowel/oo_1
 endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 130
+  length 110
   formants vowel/u_2
 endphoneme
 

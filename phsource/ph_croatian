@@ -13,7 +13,7 @@ endphoneme
 
 phoneme a
   vowel starttype (a) endtype (a)
-  length 140
+  length 150
   formants vowel/a
   reduceto &  4
 endphoneme
@@ -35,14 +35,14 @@ endphoneme
 
 phoneme E
   vowel starttype (e) endtype (e)
-  length 130
+  length 140
   formants vowel/e_mid
 endphoneme
 
 
 phoneme e
   vowel starttype (e) endtype (e)
-  length 130
+  length 140
   formants vowel/e
 endphoneme
 
@@ -61,6 +61,13 @@ phoneme I
   length 120
   formants vowel/ii_3
   linkout ;
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 140
+  formants vowel/oo_1
 endphoneme
 
 

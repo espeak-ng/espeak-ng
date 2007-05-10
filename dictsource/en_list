@@ -980,6 +980,7 @@ iconbar          aIk0nbA@
 imagine          I2madZI2n
 impedance        I2mpi:d@ns
 imperative       I2mpEr@tIv
+impi              $1
 imprecise        I2mprIs'aIs
 inappropriate    ,Ina2proUpri@t
 incense          Ins'Ens       $verb
@@ -1461,6 +1462,7 @@ rearm            ri:'A@m
 rebel            rI2bEl        $verb
 recall           ri:kO:l
 recall            $2           $verb
+recalled         rI2kO:ld
 recess           ri:sEs
 recipe           rEsIpi:
 reciprocal       rI2sIpr@k@L
@@ -1558,7 +1560,6 @@ saline           seIlaIn
 san              ,san
 sardine           $2
 satan            seIt@n
-satellite        sat@laIt
 saucepan         sO:sp@n
 saudi            saUdI2
 says             sEz
@@ -1906,6 +1907,7 @@ Cheadle          tSi:d@L
 Cheshire         tSES3
 Chiswick         tSIzIk
 Dolgellau        d0lg'EClaI
+Dover            doUv3
 Dumfries         dVmfr'i:s
 Dyfed            d'VvId
 Edinburgh        EdInb%Vr@
@@ -2436,6 +2438,7 @@ might            ,maIt          $verbf $strend2 $only
 (might have to)  ,maIth'avt@5   $verbf $atend
 
 have             %hav           $pastf $only
+haves            havz
 (have been)      %hav%bIn       $pastf
 (have to)        havtU          $atend
 has              %ha2z          $pastf $only

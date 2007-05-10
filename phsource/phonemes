@@ -1174,7 +1174,6 @@ include ph_swedish
 phonemetable no base
 include ph_norwegian
 
-
 phonemetable vi base
 include ph_vi
 

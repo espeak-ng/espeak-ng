@@ -1,6 +1,6 @@
 phoneme e
   vowel starttype (e) endtype (e)
-  length 130
+  length 120
   formants vowel/e_mid
 endphoneme
 
@@ -12,7 +12,7 @@ endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 130
+  length 120
   formants vowel/oo_2
 endphoneme
 

@@ -8,53 +8,65 @@
         a (vb    A:
         a (vd    A:
         a (va    a
-        a (rt_  A:
+        a (rt_   A:
+        a (vg    A:
         a (r_    a
-        a (r_    a
-       b) a (r_    A:
-       bb) a (r_    a
+      p)a (d_    a
+     b) a (r_    A:
+    bb) a (r_    a
         a (CC    a
         a (_     a
      &) a (_     a2
-        a (re_    a 
-        a  (rn   A:
-        a  (rna   a
-     l) a (rs   A:
+        a (re_   a 
+        a (rn    A:
+        a (rna   a
+     l) a (rs    A:
      k) a (ta	,a
-     m) a (j	a
-    om) a (t	A:
-    st) a (rt	A:
-    gr) a (m	a
-        a (x	a
-     p) a (nel	a
-     k) a (n	a
-     j) a (n	a
-     r) a (de	a
-    eg) a (n	a
-    er) a (d	a
-    er) a (t	a
-     d) a (n_	a
+     m) a (j	 a
+    om) a (t	 A:
+    _m) a (ter	 a
+    st) a (rt	 A:
+    gr) a (m	 a
+        a (x	 a
+     p) a (nel	 a
+        a (uto	 a
+     k) a (n	 a
+     n) a (d	 a
+     j) a (n	 a
+     r) a (de	 a
+    eg) a (n	 a
+    er) a (d	 a
+    er) a (t	 a
+     d) a (n_	 a
+    st) a (t_	 a
    tot) a (l	'A:
-     v) a (ld	A:
-     v) a (rd	A:
-    sm) a (rt	A:
-     r) a (t	A:
-     s) a (maC	a
-    ng) a (d	a
-     m) a (n	a
-     t) a (t	A:
-   ent) a (r	A:
-        a (t_	a
-        a (st	a
-     s) a (s_	a
-     s) a (d_	a
-    er) a (t_	a
-    åg) a (n	a
-     t) a (n_	a
-    el) a (d	a
-    nn) a (n	a
-  mell) a (n	a
-        arbet	arbe:t
+     v) a (ld	 A:
+     v) a (rd	 A:
+    sm) a (rt	 A:
+     r) a (t	 A:
+     s) a (maC	 a
+    ng) a (d	 a
+     m) a (n	 a
+     t) a (t	 A:
+   ent) a (r	 A:
+        a (t_	 a
+        ast	 ast
+     s) a (s_	 a
+     s) a (d_	 a
+    er) a (t_	 a
+    åg) a (n	 a
+     t) a (n_	 a
+    el) a (d	 a
+    nn) a (n	 a
+  mell) a (n	 a
+   _sk) a (d     A:
+  ansv) a (r     A:
+    ll) a (de    a
+    _v) a (nl    A:
+     d) a (d_    a
+    tt) a (C_    a
+    dd) a (C_    a
+        arbet	 arbe:t
 
 .group b
         b        b
@@ -78,7 +90,11 @@
 .group d
         d        d
         d (d
-        dagen	dA:gEn
+        dagen	 dA:gEn
+	disken	 dIskEn
+	djup	 j'u-p
+	djur	 j'u-r
+	dum	 d8m
 
 .group e
         e        e:
@@ -91,7 +107,9 @@
      d) e (lv	 e:
      d) e (ln	 e:
      d) e (lt	 e:
-
+     d) e (bat	 E
+     s) e (kund	 E
+     ch) e (f	 E:
         e (ta    E
         e (x     E
      &) e (_     E
@@ -113,6 +131,9 @@
    nyh) e (t	 e:
      r) e (sul	 E
      r) e (sur	 E
+     r) e (dak	 E
+     v) e (ta	 e:
+     r) e (ta	 e:
     pr) e (n	 E
      _) e (tik	 E
      r) e (ce	 E
@@ -140,6 +161,7 @@ espeak   _^_EN
         h        h
         h (h
         hj       j
+	hög	 hY:g
         heading   _^_EN
 
 .group i
@@ -172,9 +194,9 @@ espeak   _^_EN
      _) k (ö     S;
         k (öp    S;
         karta	 kA:rta
-        kategori	 katEg,u:ri:
-        kalend	kal'End
-        känsl	SEnsl
+        kategori	katEg,u:ri:
+        kalend	 kal'End
+        känsl	 S;Ensl
 
 .group l
         l        l
@@ -185,12 +207,17 @@ espeak   _^_EN
 .group m
         m        m
         m (m
-        menu   _^_EN	
-        människ     m'EnIsx,
-        medlem	m'e:dlEm
-        maga	maga
+        menu     _^_EN	
+        människ  m'EnIsx,
+        medlem	 m'e:dlEm
+        maga	 maga
+        meny	 mEn'y:
+        minimera	mIni:m'e:ra2
+        maximera	maksi:m'e:ra2
         motor	 m'u:tOr
         motorer	 m'Otu:rEr
+        model	 mOd'El
+        musik	 mu-s'i:k
 
 .group n
         n        n
@@ -198,7 +225,8 @@ espeak   _^_EN
         ng       N
         n (k     N
         network   _^_EN
-        normal	nOrmA:l
+        normal   nOrmA:l
+	natur    n'at'u-r
 
 .group o
         o        u:
@@ -229,11 +257,14 @@ espeak   _^_EN
         och	'Ok
      k) o (ns	 O
     pr) o (cent	 O
+     p) o (lis	 O
+     p) o (pu	 O
 
 .group p
         p        p
         p (p
         paket	pak'e:t
+   parentes 	par@nt,e:s
 
 .group q
         q        k
@@ -295,6 +326,7 @@ espeak   _^_EN
         u (n     8
         u (tl    u-
      r) u (m_    8:
+	utmärk	 'u-tm@rk
 
 .group v
         v        v
@@ -322,7 +354,8 @@ espeak   _^_EN
         å        o:
         å (CC    O
     tr) å (d     'o:
-     v) å (rt    'o:
+     v) å (r     'o:
+     h) å (r     'o:
 
 .group ä
         ä        E:

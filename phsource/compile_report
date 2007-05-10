@@ -20,7 +20,7 @@
       pl  17  102
       sk  22  117
       cs   6  118
-      hr  15  121
+      hr  16  121
       ru  36  119
       it  28  111
       es   7  111
@@ -460,7 +460,7 @@
   1  vowel/oe_4     sv
   2  vowel/o_mid    hu ro
   8  vowel/oo       en_sc de eo es el sv no zh_yue
- 10  vowel/oo_1     en_n en_rp en_wm af fi sk vi
+ 11  vowel/oo_1     en_n en_rp en_wm af fi sk hr vi
   3  vowel/oo_2     en_sc cy cs
   1  vowel/oo_3     af
   2  vowel/oo_4     hi pl

@@ -876,6 +876,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int final_ph;
 	int mnem;
 	int post_tonic;
+	int opt_length;
 
 	unsigned char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_type[N_WORD_PHONEMES/2];
@@ -1143,19 +1144,20 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			tonic = langopts.unstressed_wd2;   /* more than one syllable, used secondary stress as the main stress */
 	}
 
+	max_stress = 0;
+	max_stress_posn = 0;
+	for(v=1; v<vowel_count; v++)
+	{
+		if(vowel_stress[v] >= max_stress)
+		{
+			max_stress = vowel_stress[v];
+			max_stress_posn = v;
+		}
+	}
+
 	if(tonic >= 0)
 	{
 		/* find position of highest stress, and replace it by 'tonic' */
-		max_stress = 0;
-		max_stress_posn = 0;
-		for(v=1; v<vowel_count; v++)
-		{
-			if(vowel_stress[v] >= max_stress)
-			{
-				max_stress = vowel_stress[v];
-				max_stress_posn = v;
-			}
-		}
 
 		/* don't disturb an explicitly set stress by 'unstress-at-end' flag */
 		if((tonic > max_stress) || (max_stress <= 4))
@@ -1303,20 +1305,36 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 					break;
 			}
 
-			if(langopts.param[LOPT_IT_LENGTHEN] && (*p == phonLENGTHEN))
-			{
-				// remove lengthen indicator from non-stressed syllables
-				if(v_stress < 4)
-					p++;
-				else
-				if((langopts.param[LOPT_IT_LENGTHEN]==2) && (v != (vowel_count - 2)))
-					p++;    // LANG=Italian, remove lengthen indicator from non-penultimate syllables
-			}
-
 			if(vowel_stress[v] > max_stress)
 			{
 				max_stress = vowel_stress[v];
 			}
+
+			if((*p == phonLENGTHEN) && ((opt_length = langopts.param[LOPT_IT_LENGTHEN]) != 0))
+			{
+				// remove lengthen indicator from non-stressed syllables
+				int shorten=0;
+
+				if(opt_length & 0x10)
+				{
+					// only allow lengthen indicator on the highest stress syllable in the word
+					if(v != max_stress_posn)
+						shorten = 1;
+				}
+				else
+				if(v_stress < 4)
+				{
+					// only allow lengthen indicator if stress >= 4.
+					shorten = 1;
+				}
+
+				if(((opt_length & 0xf)==2) && (v != (vowel_count - 2)))
+					shorten = 1;    // LANG=Italian, remove lengthen indicator from non-penultimate syllables
+
+				if(shorten)
+					p++;
+			}
+
 			v++;
 		}
 
@@ -1553,6 +1571,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 	int  letter_group;
 	int  distance_right;
 	int  distance_left;
+	int  lg_pts;
 
 	MatchRecord match;
 	static MatchRecord best;
@@ -1682,7 +1701,10 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					letter_group = *rule++ - 'A';
 					if(IsLetter(letter_w,letter_group))
 					{
-						match.points += (20-distance_right);
+						lg_pts = 20;
+						if(letter_group==2)
+							lg_pts = 19;  // fewer points for C, general consonant
+						match.points += (lg_pts-distance_right);
 						post_ptr += letter_xbytes;
 					}
 					else
@@ -1830,7 +1852,10 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					letter_group = *rule++ - 'A';
 					if(IsLetter(letter_w,letter_group))
 					{
-						match.points += (20-distance_left);
+						lg_pts = 20;
+						if(letter_group==2)
+							lg_pts = 19;  // fewer points for C, general consonant
+						match.points += (lg_pts-distance_left);
 						pre_ptr -= letter_xbytes;
 					}
 					else

@@ -212,6 +212,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define N_LOPTS      12
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
+ // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
 #define LOPT_IT_LENGTHEN        2
  // 1=german
 #define LOPT_PREFIXES        3
@@ -295,8 +296,8 @@ typedef struct {
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
-	const wchar_t *replace_chars;   // characters to be substitutes
-	const wchar_t *replacement_chars;  // substitutes for replace_chars
+	const wchar_t *replace_chars;      // characters to be substitutes
+	const unsigned int *replacement_chars;  // substitutes for replace_chars
 } LANGUAGE_OPTIONS;
 
 
@@ -392,7 +393,7 @@ protected:
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
 	virtual int RemoveEnding(char *word, int end_type, char *word_copy);
-	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
+	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in, int *insert);
    virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
 	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 

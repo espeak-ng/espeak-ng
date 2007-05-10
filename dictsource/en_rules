@@ -967,6 +967,7 @@
  _it_separ)  ate (_       @t
        par)  ates (_      eIt|s
          @)  ated (++_    eItId
+        _s)  atel (l      at@
          @)  ati (_       'A:tI
              at (im_      'eIt
          @)  ating (++_   eItIN
@@ -2603,6 +2604,7 @@
              ise (_       aIz
              iser (_      aIz3
          @)  ism (_$3de   Iz@m
+        an)  ism (_$3d    Iz@m
        @iB)  ism (_$3d    Iz@m
              is (er+_     aIz
              iz (er_      aIz
@@ -3682,6 +3684,7 @@
         ch)  or (d        O@
          l)  or (d        O@
         _m)  or           O@
+        _m)  orr          0r
         _m)  ore          o@
         nd)  or (_        3
         nt)  or (_        o@
@@ -5040,8 +5043,8 @@
              'll (_$3     @L
 
 
-.group 0xce
-//        $group (++    _^_EL
+.group 0xce   // Greek letters
+// 0xce is the first byte of the utf-8 code for these characters
 
 	α	'alf@_
 	ά	'alf@_
@@ -5063,8 +5066,7 @@
 	ξ	ks'aI_
 	ο	oUm'aIkr0n_
 
-.group 0xcf
-//        $group (++    _^_EL
+.group 0xcf   // Greek letters
 
 	π	p'aI_
 	ρ	r'oU_
