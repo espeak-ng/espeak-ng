@@ -1476,21 +1476,32 @@ int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in, int *i
 
 	const wchar_t *p;
 	unsigned int new_c;
+	int upper_case = 0;
 
 	if(c == 0) return(0);
 
 	if(langopts.replace_chars != NULL)
 	{
 		// there is a list of character codes to be substituted with alternative codes
-		if((p = wcschr(langopts.replace_chars,c)) != NULL)
+
+		if((p = wcschr(langopts.replace_chars,c)) == NULL)
+		{
+			// Try converting to lower case
+			if((p = wcschr(langopts.replace_chars,towlower(c))) != NULL)
+				upper_case =1;
+		}
+
+		if(p != NULL)
 		{
 			new_c = langopts.replacement_chars[p - langopts.replace_chars];
 			if(new_c & 0xffe00000)
 			{
-				// there is a second character to be inserted
+				// there is a second character to be inserted (don't convert the case of the second character)
 				*insert = (new_c >> 16);
 				new_c &= 0xffff;
 			}
+			if(upper_case)
+				new_c = towupper(new_c);
 			return(new_c);
 		}
 	}
@@ -1636,6 +1647,10 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 		{
 			utf8_in(&prev_in,&source[source_index-1],1);  //  prev_in = source[source_index-1];
 		}
+
+		if(prev_source_index == source_index)
+			char_inserted = 0;   // have done an unget, so discard any character to be inserted
+
 		prev_source_index = source_index;
 
 		if(char_inserted)

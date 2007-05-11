@@ -72,7 +72,7 @@ _,   k0m@
 _-   h,aIf@n
 _.   st0p
 _/   stroUk
-_:   koUl0n
+_:   koUl@n
 _;   sEmIk'oUl0n
 _<   ElaNg@L
 _=   i:kw@Lz
@@ -1262,6 +1262,7 @@ omelet           0ml@t
 omelette         0ml@t
 opaque           oUp'eIk
 opine            oUp'aIn
+opossum          @p0s@m
 opponent         @poUn@nt
 oppose           @poUz
 opposer          @poUz3
@@ -2216,6 +2217,7 @@ Neville          nEvIl
 Nicholas         nIk@l@s
 Nicosia          nIk@s'i:@
 Nigel            naIdZ@L
+Nguyen           nu:jEn
 Omar             oUmA@
 Oscar            0sk3
 Ottawa           0ta2w@
@@ -2376,7 +2378,7 @@ be               %bi:          $pastf $only
 been             ,bi:n         $pastf $only
 being            ,bi:IN        $pastf $only $strend2
 is               I2z            $pastf $only // use contraction for 'is a'
-am               %am            $nounf $only
+// am               %am            $nounf $only  // now in en_rules
 are              %A@            $pastf $only
 was              %w0z           $pastf $only
 wast             %w0st         $only $pastf $only

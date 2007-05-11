@@ -379,6 +379,14 @@ phoneme r-   // linking r, used between certain vowels and a following vowel
 endphoneme
 
 
+phoneme R
+  liquid
+  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  formants r3/r_trill+r3/r_trill.wav%60
+  lengthmod 6
+endphoneme
+
 phoneme l
   liquid
   length 100
@@ -847,6 +855,7 @@ phoneme p
   wave ustop/p
   before _ ustop/p_
   before r ustop/pr
+  before R ustop/pr
   before @- ustop/p_unasp
   before l ustop/pl
   switchvoicing b
@@ -862,6 +871,7 @@ phoneme t
   before _ ustop/t_
   before @- ustop/t_dnt%50
   before r ustop/tr
+  before R ustop/tr
   switchvoicing d
 endphoneme
 
@@ -929,6 +939,7 @@ phoneme k
   wave ustop/k
   before _ ustop/k_
   before r ustop/kr
+  before R ustop/kr
   before @- ustop/k_unasp%70
   before l ustop/kl
   before (i) ustop/ki
@@ -1173,6 +1184,9 @@ include ph_swedish
 
 phonemetable no base
 include ph_norwegian
+
+phonemetable is base
+include ph_icelandic
 
 phonemetable vi base
 include ph_vi

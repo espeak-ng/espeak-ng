@@ -590,6 +590,9 @@
          m)  al (no       %al
 
 .group am
+          _) am (_        %am
+         D_) am (_        ,eI'Em
+        D__) am (_        ,eI'Em
          C)  am (d        aam
          C)  am (pl       aam
          l)  am (pl       am
@@ -1816,7 +1819,7 @@
         @d)  ed (_$2dvei   I2d
        &ch)  ed (_$2vei    t
        &sh)  ed (_$2vei    t
-       Csh)  ed (_         Ed
+      @Csh)  ed (_         Ed
         @f)  ed (_$2vdei   t
         @g)  ed (_$1vi     d
         @k)  ed (_$2vdei   t
@@ -4624,7 +4627,7 @@
          r)  u (th        u:
          _)  u (til       ju:
              u (tion      'ju:
-         n)  u (tri       ju:
+         K)  u (tri       ju:
              u (ty        ju:
        min)  u (te        I
        vac)  uu           ju:
@@ -5107,14 +5110,16 @@
 
              \\           bakstroUk
              /            stroUk
+?3           \\           bakslaS
+?3           /            slaS
              '
              £            paUnd
              !           _:Ekskl@meIS@n_:
           !) !
              ? (?         kwEstS@nmA@ks
           ?) ?
-             :            koUl0n
-             $            d0l@
+             :            koUl@n
+             $            d0l3
              %            p3sEnt
 ?5           %            pVRs'Ent
              @            at_:

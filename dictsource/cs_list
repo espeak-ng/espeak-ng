@@ -31,15 +31,15 @@ _o    o:
 ô     uo:
 p     pe:
 q     kve:
-r     er
-ř     eR
+r     eR
+ř     eR^
 _s    es
 š     eS
 t     te:
 ť     ce:
 u     u:
 ú     dl'oUhe:,u:
-ů     'u:s_k@-r'oUZkem
+ů     'u:s_kR'oUZkem
 _v    ve:
 w     dv'ojve:
 x     iks
@@ -49,43 +49,43 @@ _z    zet
 ž     Zet
 
 :     dv'ojtetSka
-%     p@-*otsento
+%     pRotsento
 +     plus
-€     eU*o
+€     eURo
 @     zavina:tS
 &     ampr-sent
-#     gRi:Zek
+#     gR^i:Zek
 /     lomeno
 \\    beksleS
-!     vigRitSn^i:k
+!     vigR^itSn^i:k
 °     stupen^
-×     kra:t
+×     kRa:t
 ÷     Jeleno
-§     pa*ag@-*af
+§     paRagRaf
 ~     tilda
-^     zdRi:Ska
-©     k'opi*ajt
+^     zdR^i:Ska
+©     k'opiRajt
 
-_$    dola:r
-_'    apost@-*of
+_$    dola:R
+_'    apostRof
 _"    uvozovki
-_,    tSa:rka
+_,    tSa:Rka
 _-    mi:nus
-_;    zdRedn^i:k
-_=    rovno
+_;    zdR^edn^i:k
+_=    Rovno
 _*    hvjezJitSka
 _?    otazn^i:k
 __    pottr-Zen^i:
-_`    'ob@-*a:ts,ena:||tS'a:rka
-_(    za:vorka
-_)    za:vorkazavRi:t
-_[    h@-*'anata:||z'a:vorka
-_]    h@-*'anata:||z'avRi:t
-_{    sl'oZena:||z'a:vorka
-_}    sl'oZena:||z'avRi:t
+_`    'obRa:ts,ena:||tS'a:Rka
+_(    za:voRka
+_)    za:vorkazavR^i:t
+_[    hR'anata:||z'a:voRka
+_]    hR'anata:||z'avR^i:t
+_{    sl'oZena:||z'a:voRka
+_}    sl'oZena:||z'avR^i:t
 _<    menSi:
 _>    vjetSi:
-_|    sv'isla:||tS'a:*a
+_|    sv'isla:||tS'a:Ra
 _??   simbol
 _?A   znak
 
@@ -95,8 +95,8 @@ _0    n'ula
 _1    j'eden
 _2    dv'a
 _2f   dvj'e
-_3    tRi
-_4    tSt'iRi
+_3    tR^i
+_4    tSt'iR^i
 _5    p'jet
 _6    S'est
 _7    s'edum
@@ -105,7 +105,7 @@ _9    d'evjet
 _10   d'eset
 _11   j'edena:tst
 _12   dv'ana:tst
-_13   tR'ina:tst
+_13   tR^'ina:tst
 _14   tSt'r-na:tst
 _15   p'atna:tst
 _16   S'estna:tst
@@ -113,8 +113,8 @@ _17   s'edumna:tst
 _18   'osumna:tst
 _19   d'evatena:tst
 _2X   dv'atset
-_3X   tR'itset
-_4X   tSt'iRitset
+_3X   tR^'itset
+_4X   tSt'iR^itset
 _5X   p'adesa:t
 _6X   S'edesa:t
 _7X   s'edumdesa:t
@@ -123,8 +123,8 @@ _9X   d'evadesa:t
 _0C   s'et
 _1C   st'o
 _2C   dvj'esc'e
-_3C   tR'ist'a
-_4C   tStiRist'a
+_3C   tR^'ist'a
+_4C   tStiR^ist'a
 
 _1M1  c'isi:ts
 _0MA1 c'isi:tse
@@ -134,15 +134,15 @@ _1M2  m'ilio:n
 _0MA2 m'ilio:ni
 _0M2  m'ilio:nu:
 
-_1M3  m'iliarda
-_0MA3 m'iliardi
-_0M3  m'iliard
+_1M3  m'iliaRda
+_0MA3 m'iliaRdi
+_0M3  m'iliaRd
 
 _1M4  b'ilio:n
 _0MA4 b'ilio:ni
 _0M4  b'ilio:nu:
 
-_dpt  _:tSa:rka_
+_dpt  _:tSa:Rka_
 _.    tetSka
 
 
@@ -301,7 +301,7 @@ gn       gigan^utn
 gpa      $abbrev
 gw       gigavat
 (http ://)  ha:tetepe:
-hz       herts
+hz       heRts
 ibm      $abbrev
 ip       $abbrev
 khz      kiloherts
@@ -310,7 +310,7 @@ km       kilometr-
 kn       kilon^utn
 kpa      $abbrev
 kw       kilovat
-mhz      megaherts
+mhz      megaheRts
 mkr      $abbrev
 mlr      $abbrev
 mpa      $abbrev
@@ -334,6 +334,7 @@ rc       $abbrev
 rlc      $abbrev
 rlr      $abbrev
 rs       $abbrev
+rss      $abbrev
 rx       $abbrev
 scsi     $abbrev
 sr       $abbrev
@@ -364,7 +365,7 @@ delete     dili:t
 down       daUn
 exchange   ikstSeIndZ
 home       hoUm
-insert     inzert
+insert     inzeRt
 lazer      leIzr-
 newton     n^u:tn
 num        nam
@@ -372,9 +373,8 @@ outlook    aUtlu:k
 page       peIdZ
 power      paUr-
 scroll     skro:l
-search     sertS
+search     seRtS
 size       sajz
-this       Dis
 unie       unije
 untitled   antitl-
 up         ap

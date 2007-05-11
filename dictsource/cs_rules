@@ -201,7 +201,7 @@
         iu (_    ijo
      _) i (on    j
 
-        ight     ajt   // right, night
+     C) ight     ajt   // right, night
 
 
 .group í
@@ -376,21 +376,24 @@ _mícha) ni       n^i
         pě       pje
 
 .group q
-        q        k
+        q        kv
         qu       kv
 
 .group r
-        r        r
-     A) r (A     *
-     C) r (A     @-*
-        rr       *r
-     K) r (K     r-
+//        r        r
+//     A) r (A     *
+//     C) r (A     @-*
+//        rr       *r
+       K) r (K     r-
 
-        right    rajt
+//        right    rajt
+
+        r        R
+        right    Rajt
 
 
 .group ř
-        ř        R
+        ř        R^
 
 .group s
         s        s
@@ -398,7 +401,6 @@ _mícha) ni       n^i
         ss (A_   s
 
         scape    skeIp
-     _) sch      S
         shift    Sift
   _pre) s (id    z
         selec (t silek
@@ -626,7 +628,7 @@ _flegma) ti      ti
         ŕ        r-
         ü        i
 
-        $        dola:r
+        $        dola:R
 
         .        tetSka
         . (.     _:
