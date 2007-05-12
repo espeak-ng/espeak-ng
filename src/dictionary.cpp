@@ -1097,7 +1097,16 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		stress = 3;
 
 
-	if((langopts.stress_flags & 0x1000) && (vowel_stress[1] == 0))
+	if((langopts.stress_flags & 0x1000) && (vowel_count == 2))
+	{
+		// Two syllable word, if one syllable has primary stress, then give the other secondary stress
+		if(vowel_stress[1] == 4)
+			vowel_stress[2] = 3;
+		if(vowel_stress[2] == 4)
+			vowel_stress[1] = 3;
+	}
+#if deleted
+	if((langopts.stress_flags & 0x2000) && (vowel_stress[1] == 0))
 	{
 		// If there is only one syllable before the primary stress, give it a secondary stress
 		if((vowel_count > 2) && (vowel_stress[2] >= 4))
@@ -1105,6 +1114,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			vowel_stress[1] = 3;
 		}
 	}
+#endif
 
 	for(v=1; v<vowel_count; v++)
 	{

@@ -255,7 +255,8 @@ typedef struct {
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
 // bit8=stress last syllable if it doesn't end in a vowel
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
-// bit12= If there is only one syllable before the primary stress, give it a secondary stress
+// bit12= In a 2-syllable word, if one has primary stress then give the other secondary stress
+// bit13= If there is only one syllable before the primary stress, give it a secondary stress
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable

@@ -1997,8 +1997,8 @@ memset(markers_used,0,sizeof(markers_used));
 	}
 
 	// write a word so that further data doesn't start at displ=0
-	fwrite(&version_phdata,4,1,f_phdata);
-	fwrite(&version_phdata,4,1,f_phindex);
+	Write4Bytes(f_phdata,version_phdata);
+	Write4Bytes(f_phindex,version_phdata);
 
 	memset(ref_hash_tab,0,sizeof(ref_hash_tab));
 

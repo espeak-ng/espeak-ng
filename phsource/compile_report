@@ -18,7 +18,7 @@
       hu  24  109
       nl  25  112
       pl  17  103
-      sk  22  118
+      sk  23  118
       cs   7  119
       hr  16  122
       ru  36  120
@@ -248,15 +248,15 @@
   7  ustop/p_unasp  base fi hi hu hr it ro
   6  ustop/p_unasp_ fi hi hu hr it ro
   2  ustop/t        base hi
-  4  ustop/t_       base hi el
+  5  ustop/t_       base hi sk el
  26  ustop/t_dnt    base fi fr hi hu pl hr ru it ro vi sw
   2  ustop/t_dnt2   hi vi
   4  ustop/t_pzd    pl ru
-  7  ustop/tr       base hi ru el
+  9  ustop/tr       base hi sk ru el
   8  ustop/ts       de eo hu pl ru it ro zh_yue
   2  ustop/tsh      base zh_yue
   2  ustop/tsh_     base zh_yue
-  2  ustop/t_short  hi el
+  3  ustop/t_short  hi sk el
   8  ustop/ts_pzd   base hi ru
   2  ustop/ts_pzd_  hi hu
   2  ustop/ts_pzd2  hi hu

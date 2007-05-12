@@ -383,7 +383,8 @@ phoneme R
   liquid
   vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  formants r3/r_trill+r3/r_trill.wav%60
+  formants r3/r_trill+r3/r_trill.wav%45
+  trill
   lengthmod 6
 endphoneme
 
@@ -1028,7 +1029,7 @@ phoneme s.
   vowelout f1=0  f2=1800 -100 300  f3=-300 80
   length 100
   lengthmod 3
-  wave ufric/sh_rfx%80
+  wave ufric/sh_rfx%90
   before _ ufric/sh_rfx%60
   switchvoicing z.
 endphoneme

@@ -639,7 +639,7 @@ Translator_Russian::Translator_Russian() : Translator()
 	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
 	langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
 	langopts.stress_rule = 5;
-	langopts.stress_flags = 0x1020;
+	langopts.stress_flags = 0x0020;  // waas 0x1010
 
 	langopts.numbers = 0x409;
 	langopts.phoneme_change = 1;
@@ -702,7 +702,7 @@ PH('V','#'),PH('I','3'),PH('I','2'),PH('E','3')};
                 /*4*/        {'i', PH('I','#'), 'i',         'i', PH('I','#'), 'i'},        // I#
                 /*5*/        {'E', PH('E','#'), 'E',         'e', PH('E','#'), 'e'},        // E# 
                 /*6*/        {'E', PH('E','2'), 'E',         'e', PH('E','2'), 'e'},        // E2  Uses 3,4,5 columns.
-                /*7*/        {'i', 'V', 'i',                 'A', 'V', 'A'},                // V#
+                /*7*/        {PH('j','a'), 'V', PH('j','a'), 'A', 'V', 'A'},                // V#
                 /*8*/        {PH('j','a'), 'I', PH('j','a'), 'e', 'I', 'e'},                // I3 Uses 3,4,5 columns.
                 /*9*/        {'e', 'I', 'e',                 'e', 'I', 'e'},                // I2
                 /*10*/       {'e', PH('E', '2'), 'e',        'e', PH('E','2'), 'e'}         // E3

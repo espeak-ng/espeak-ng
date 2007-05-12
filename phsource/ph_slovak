@@ -138,4 +138,16 @@ phoneme w
   after _  w/w2
 endphoneme
 
+phoneme t
+  vls alv stop
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_short
+  before _ ustop/t_
+  before r ustop/tr
+  before R ustop/tr
+  switchvoicing d
+endphoneme
+
 
