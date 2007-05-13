@@ -387,7 +387,6 @@ phoneme t.
   lengthmod 2
   wave  ustop/t_short
   before _ ustop/t_
-  before r ustop/tr
   switchvoicing d
 endphoneme
 

@@ -332,16 +332,26 @@ _administratív) n (e n
         qu       kv
 
 .group r
-        r        r
-     A) r (A     *
-     C) r (A     @-*
-        rr       *r
+//        r        r
+//     A) r (A     *
+//     C) r (A     @-*
+//        rr       *r
 
      K) r (K     r-
+        r        R
+        rr       R
 
 
 .group ŕ
         ŕ        r:
+
+.group ř        // Czech r-caron
+        ř        R^
+     p) ř        R^/   // quieter after unvoiced consonant
+     f) ř        R^/
+     t) ř        R^/
+     k) ř        R^/
+
 
 .group s
         s        s

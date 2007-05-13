@@ -50,7 +50,7 @@ endphoneme
 
 phoneme y
   vowel starttype (@) endtype (@)
-  length 100
+  length 110
   formants vowel/i#_5
 endphoneme
 
@@ -96,7 +96,7 @@ endphoneme
 
 phoneme U
   vowel starttype (u) endtype (u)
-  length 100
+  length 110
   beforevowel w
   formants vowel/u_6
 endphoneme

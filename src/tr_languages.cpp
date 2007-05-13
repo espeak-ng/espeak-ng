@@ -357,6 +357,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
+			tr->langopts.numbers = 0x11049;
 		}
 		break;
 

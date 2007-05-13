@@ -18,16 +18,16 @@
       hu  24  109
       nl  25  112
       pl  17  103
-      sk  23  118
-      cs   7  119
-      hr  16  122
+      sk  25  120
+      cs   5  120
+      hr  16  124
       ru  36  120
-      it  28  111
-      es   7  111
-      pt  25  126
-   pt_pt  17  126
-      ro  36  135
-      el   7  111
+      it  28  112
+      es   6  112
+      pt  25  127
+   pt_pt  17  127
+      ro  36  136
+      el   7  112
       sv  25  114
       no  29  118
       is  27  113
@@ -184,25 +184,25 @@
   1  r3/r_i         base
   7  r3/r_n         base cy eo fr pl ru it
   1  r3/r_o         base
-  2  r3/r_trill     base cs
-  2  r3/r_trill.wav base cs
+  1  r3/r_trill     base
+  1  r3/r_trill.wav base
   1  r3/r_u         base
  30  r3/rx          base af cy eo fr fr_ca pl ru it pt_pt ro is
-  1  r3/rz_cs       cs
+  2  r3/rz_cs       sk
   2  r3/@tap        base
   2  r3/@tap_i      base
   7  r/r            base en_sc de fr hu it
   5  r/_r           base en_sc fr hu it
- 18  r/r_           base en_sc af cy de eo fi fr hu nl pl ru ++
+ 17  r/r_           base en_sc af cy de eo fi fr hu nl pl ru ++
   1  r/r@           base
   1  r/ra           base
   1  r/re           base
   1  r/ri           base
   1  r/ro           base
- 32  r/rr           base af cy de eo fi nl pl ru it es ro ++
+ 30  r/rr           base af cy de eo fi nl pl ru it ro no ++
   1  r/ru           base
  15  r/tr           base en_sc fr hu it
- 63  r/trr          base af cy de eo fi nl pl ru it es ro ++
+ 60  r/trr          base af cy de eo fi nl pl ru it ro sv ++
  11  r/xr           base
   1  ufric/ch       base
   3  ufric/f        base de ro
@@ -252,7 +252,7 @@
  26  ustop/t_dnt    base fi fr hi hu pl hr ru it ro vi sw
   2  ustop/t_dnt2   hi vi
   4  ustop/t_pzd    pl ru
-  9  ustop/tr       base hi sk ru el
+  5  ustop/tr       base hi ru
   8  ustop/ts       de eo hu pl ru it ro zh_yue
   2  ustop/tsh      base zh_yue
   2  ustop/tsh_     base zh_yue
@@ -392,8 +392,9 @@
   2  vocw/zh_rfx    base
   3  voc/z          base fr ro
   3  voc/z_         base fr ro
-  4  voc/zh         base cs ro
+  4  voc/zh         base sk ro
   3  voc/zh_        base ro
+  1  voc/zh_2       sk
   2  voc/z_pzd      base
   2  voc/z_pzd_     base
  14  vowel/@        base en en_us en_rp cy hi hr

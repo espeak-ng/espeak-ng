@@ -250,7 +250,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			if(regression & 0x2)
 			{
 				// LANG=Russian, [v] amd [v;] don't cause regression, or [R^]
-				if((ph->mnemonic == 'v') || (ph->mnemonic == ((';'<<8)+'v')) || (ph->mnemonic == (('^'<<8)+'R')))
+				if((ph->mnemonic == 'v') || (ph->mnemonic == ((';'<<8)+'v')) || ((ph->mnemonic & 0xff)== 'R'))
 					type = phLIQUID;
 			}
 

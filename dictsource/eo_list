@@ -5,8 +5,8 @@
 _0		nul
 _1		'unu
 _2		d'u
-_3		tr'i
-_4		kv'ar
+_3		t@-r'i
+_4		kv'aR
 _5		kv'in
 _6		s'es
 _7		s'ep
@@ -14,8 +14,8 @@ _8		'ok
 _9		n'aU
 _1X		d'ek
 _2X		d'udek
-_3X		tr'idek
-_4X		kv'ardek
+_3X		t@-*'idek
+_4X		kv'aRdek
 _5X		kv'indek
 _6X		s'esdek
 _7X		s'epdek
@@ -33,6 +33,23 @@ _dpt		komo_
 _.	punkto
 
 t.e		t'e,e
+
+
+// Abbreviations
+a.k        ,antaUk@-*'isto
+akk        alinome
+anst       anstataU
+bea         $abbrev
+ekz        ekzemple
+i.a        'i'a
+k.a        kaIal'iaI
+k.c        kaItset'eRe
+n.b        n'otu||b'one
+nro        numeRo
+pĝ         paZo
+p.k        p,ostk@-*'isto
+uea         $abbrev
+uk          $abbrev
 
 
 // includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)

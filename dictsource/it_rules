@@ -218,10 +218,12 @@
 		qu	kw
 
 .group r
-	_)	r(_	ERRe
-		r	R
-		rr	RR
-	A)	r (A	r
+	_)	r(_	ER*e
+	C)	r	@-*
+		r	r
+	_)	r	R
+		rr	R*
+	A)	r (A	R
 		
 .group s
 	_)	s(_	Esse

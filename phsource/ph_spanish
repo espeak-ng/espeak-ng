@@ -32,23 +32,6 @@ phoneme g
 endphoneme
 
 
-
-
-
-phoneme R
-  liquid starttype r endtype r
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
-endphoneme
-
-
-
 phoneme D
   vcd dnt frc
   vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
@@ -57,6 +40,7 @@ phoneme D
   lengthmod 6
   switchvoicing T
 endphoneme
+
 
 phoneme s
   vls alv frc sibilant

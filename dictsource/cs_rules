@@ -384,16 +384,20 @@ _mícha) ni       n^i
 //     A) r (A     *
 //     C) r (A     @-*
 //        rr       *r
+//        right    rajt
        K) r (K     r-
 
-//        right    rajt
-
         r        R
+        rr       R
         right    Rajt
 
 
 .group ř
         ř        R^
+     p) ř        R^/   // quieter after unvoiced consonant
+     f) ř        R^/
+     t) ř        R^/
+     k) ř        R^/
 
 .group s
         s        s

@@ -1,4 +1,4 @@
-﻿// translation rules Brazilian
+// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -29,6 +29,7 @@
 ?1     p) a (d_      =E
           a (CC_     &
 ?1        al (_      'al // eg: Portugal, capital, etc.
+//?1        al (C      ''al // Algarve, alto, etc...
 ?2        al (K      aU
 ?2        alh        alj
 
@@ -40,6 +41,7 @@
           a (nhA     &~
           am (_      =&U~
 ?1        a (z_      'a   //eg: paz, rapaz, capaz, etc...
+?1     C) acç        'a's // eg: selecção, etc...
 
           ai         aI
           ai (s      aI
@@ -157,23 +159,35 @@
 ?1     _) es (C@@     S   // drop initial "e".
 ?1     _) e (f        i   // efectuar, etc.
 ?1    _n) e (nhu      i   // eg: nenhum, nenhuma, nenhuns, nenhumas.
+?1        e (la_     'E   // eg: cadela, janela, vela, etc...
 ?1     C) e (cC      ,E   // eg: seleccionar, efectuar, etc...
 ?1     C) ecç        'E's // eg: selecção, etc...
 ?1     C) e (ã        i   // leão, panteão, etc.
 ?1     C) e (a        i   // oceano, etc.
+?1     C) e (o       'i   // eg: geologia, etc...
+?1     C) e (ú        i   // conteúdo, etc.
+?1    Cã) e           j   // cães, mãe, etc...
+?1     d) e (fici     y   // deficiênte, deficiência, etc...
 ?1    _d) e (fini     y   //definições.
-?1    _d) e (slig   y   // desligar.
-?1     _d) e (sloc     y   // eg: deslocamento, etc...
-?1    _f) e (ch     y   // fechar
-?1    _t) e (rmin   y   // terminar.
+?1    _d) e (slig     y   // desligar.
+?1    _d) e (sloc     y   // eg: deslocamento, etc...
+?1    _f) e (ch       y   // fechar
+?1    _p) e (rcentag  y   // percentagem
+?1     p) e (ssoa     y   //pessoal, pessoais, etc.
+?1    pr) e (f        y   // preferências, etc.
+?1    _t) e (rmin     y   // terminar.
 ?1    _r) e (cicl     y   // recicla, reciclagem, etc...
-?1    _f) e (rramenta  y   // ferramenta, ferramentas.
-?1   _p) e (squ       y // pesquisar
+?1    _v) e (loci     y   // velocidade
+?1    _f) e (rramenta y   // ferramenta, ferramentas.
+?1    _p) e (squ      y   // pesquisar
 ?1   hip) e (r       ,E   // eg: hiper
 ?1   sup) e (r       ,E   // super
-?1   int) e (rn      ,E   // Interno
-?1     n) e (t       ,E   // eg: net
-?1        e (l_      ,E   // eg: possível, manuel, etc...
+?1    _m) e (ga      ,E   // mega
+?1  _int) e (rn      ,E   // Interno
+?1     n) e (t       'E   // eg: net
+?1        e (l_      'E   // eg: possível, manuel, etc...
+?1     v) e (l_      ,E   // eg: possível, amovível, disponível, etc...
+?1     l) e (ta      'E   // eg: bicicleta, atleta.
 
 
 .group é
@@ -210,19 +224,19 @@
 
 .group g
 ?1     _) g (_       ge
-?1     _) g (_W      Ze      // within an acronym
+?1     _) g (_W      Ze     // within an acronym
        _) g (_       Ze
           g          g
           g (g
-          g (Y       Z        // ge gi
+          g (Y       Z      // ge gi
           gu (Y      g
 ?1        guen (C    gw'eIN    // aguenta, etc.
-?1     n) gu (A      gw // eg: língua, etc.
-?1   gu (ém_       g // eg: alguém, ninguém, etc...
+?1     n) gu (A      gw     // eg: língua, etc.
+?1        gu (ém_    g      // eg: alguém, ninguém, etc...
 
 
 .group h
-     _) h (_       ag'a
+       _) h (_       ag'a
           h              // silent
 
 
@@ -268,6 +282,7 @@
       úC) i (A_       j
      úCC) i (A_       j
 
+?1     _) i (ntern     'i  //inter
 ?1     @) ing (_      _^_EN
 ?1     @) ings (_     _^_EN
 
@@ -301,11 +316,11 @@
           l (l
           lh         l^
        A) lh         lj
-?1     A) lh         l^  // ??
+?1     A) lh         l^  // 
 
 
 .group m
-?1     _) m (_W      'Em;
+?1     _) m (_W      Em;
 ?1     _) m (_       Em
        _) m (_       'eme
           m          m
@@ -313,7 +328,7 @@
 
 
 .group n
-?1     _) n (_W      'En
+?1     _) n (_W      En;
 ?1     _) n (_       En
        _) n (_       'ene
           n          n
@@ -337,7 +352,7 @@
           oy         OI
 
           o (Ca_     O
-?1        ol (_      Ol
+?1        o (l_      'O
 ?2        ol (K      Ow
 ?2        olh        olj
 
@@ -356,9 +371,13 @@
           o (zes_    O
           o (ra_     O
           o (ras_    O
-?1     _) o (C       O   // eg: olá, orla, opção, etc...
-?1    _C) o (CACACC  u   // Documento, documentação, etc.
-?1     C) o (CCAC    u   // formatar, formato.
+?1     _) o (C       O     // eg: olá, orla, opção, etc...
+?1    _C) o (CACAC   u     // Documento, documentação, localizar, etc.
+?1     f) o (rmat    u     // formatar, formato.
+?1    _p) o (rtuC    u     // Portugal, Portucalense, etc...
+?1    _s) o (lu      u     // solução, soluções.
+?1  interr) o (g     u     // eg: interrogação
+?1     f) o (rmulá   u     // eg: formulário, formulários.
 
 
 .group ô
@@ -401,6 +420,7 @@
           qu (K      ku
 ?1     _) qua        kwa     // quatro, etc.
 ?1     _) que        ke      // quente, etc.
+?1   _) quei (C       k'eI   // queira, queima, etc...
 ?1     C) quen (C    kw'eIN     // cinquenta, etc.
 ?1     A) quen (C    kw'eIN     // frequência, etc.
 ?1        quec       kes     // esquece, etc.
@@ -436,16 +456,16 @@
 
 
 .group s
-?1     _) s (_W     'Es|;    within an acronym  [s]+[;] not [s;] phoneme
-?1     _) s (_      'Es
-?2     _) s (_      'Ese
+?1     _) s (_W      Es|;    within an acronym  [s]+[;] not [s;] phoneme
+?1     _) s (_       Es
+?2     _) s (_       Ese
           s          s
           ss         s
           sc (Y      s
           sç         s
        A) s (A       z
 ?1     @) s (_       S
-?2     @) s (_       s
+?2      s (_       s
        @) s (_A      z     // next word starts with vowel
        @) s (_G      z     // next word starts with voiced consonant
 
@@ -534,8 +554,8 @@
 
 
 .group y
-?1       _) y (_       'ipsil,ON
-?2       _) y (_       'ipsiloN
+?1     _) y (_       'ips,ilON
+?2     _) y (_       'ipsiloN
           y          i
           y (A       j
 
@@ -558,6 +578,7 @@
 .group
           ç          s
        _) ç (_       s'esed'il^&
+
 
           ü          u
 
@@ -594,6 +615,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

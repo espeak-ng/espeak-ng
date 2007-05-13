@@ -9,6 +9,27 @@
 
 // character names
 //****************
+a      A:
+b      be:
+c      se:
+d      de:
+f      Ef
+g      ge:
+h      ho:
+j      je:
+k      ko:
+l      El
+m      e:m
+n      En
+p      pe:
+q      ku-:
+r      Err
+s      Es
+t      te:
+v      ve:
+w      d'Ob:e:l,ve:
+x      Eks
+z      sEt
 
 
 // numeric
@@ -16,15 +37,40 @@
 _0        n'Ul
 _1        'E:n
 _2        t'u:
-_3        tr'e:
-_4        f'i:rE
+_3        t@-*'e:
+_4        f'i:*E
 _5        f'E:m
 _6        s'Eks
 _7        S'u-:
 _8        'Ot:@2
 _9        n'i:
+_10       t'i:
+_11       'Elle:v@2
+_12       t'u:lv
+_13       t@-*'Et:@n
+_14       fj'Urt@n
+_15       f'e:mt@n
+_16       s'e:kst@n
+_17       s'yt:@n
+_18       'At:@n
+_19       n'It:@n
+_2X       s;'u-:@2
+_3X       t@-*'Et:i:
+_4X       f'Y:rti:
+_5X       f'e:mti:
+_6X       s'e:ksti:
+_7X       s'yt:i:
+_8X       'Ot:i:
+_9X       n'It:i:
+_0C       h'u-:nd@-*e:d@2
+_0M1      t'u-:s@n
+_1M2      m'Illi:;,u:n
+_0M2      m'Illi:;,u:n@r
 
 
+
+_0and     u:g
+_dpt      kOmmA
 
 
 // abbreviations
@@ -163,6 +209,12 @@ bør	$u+
 bare    $u          // only
 også	$brk        // also
 
+
+// letters which are also words
+_å     o:
+å      o:   $atend
+_i     i:
+i      i:   $atend
 
 // MAIN WORD DICTIONARY
 //*********************

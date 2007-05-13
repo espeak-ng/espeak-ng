@@ -33,6 +33,9 @@
 	_)	d(_	do
 		d	d
 
+	_)	d (-ro_   dokt'o
+	_)	d (-rino_ d,okto
+
 .group e
 	_)	e(_	e
 		e	e
@@ -44,6 +47,9 @@
 .group f
 	_)	f(_	fo
 		f	f
+
+	_)	f (-ino_  fR%aUl
+	_)	f (-lo_   fRaU
 		
 .group g
 	_)	g(_	go
@@ -63,6 +69,7 @@
 .group i
 	_)	i(_	i
 		i	i
+
 		
 .group j
 	_)	j(_	jo
@@ -79,6 +86,9 @@
 	_)	l(_	lo
 		l	l
 		ll (_	l
+
+	-)	lo (_	l%o
+
 		
 .group m
 	_)	m(_	mo
@@ -88,6 +98,9 @@
 	_)	n(_	no
 		n	n
 		n (_S1	n
+
+        _)	n (-ro_  num'e
+
 		
 .group o
 	_)	o(_	o
@@ -107,12 +120,12 @@
 		qu	kv
 		
 .group r
-	_)	r(_	ro
-		r	r
-		rr      @-*r
-	A)	r (A	*
-//	A)	r (A	@-*
+	_)	r(_	Ro
+		r	R
+	A)	r (A	R
 	C)	r (A	@-*
+
+       -)	ro (_   R%o
 		
 .group s
 	_)	s(_	so
@@ -122,6 +135,9 @@
 		sx	S
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
+
+	_)	s (-ino_   s,injoR
+	_)	s (-ro_    sinj'o
 		
 		
 .group t
@@ -184,8 +200,8 @@
 
 		
 		=	,,egala,
-		\	malantaIstreko
-		/	streko
+		\	malantaIst@-*eko
+		/	st@-*eko
 		'	
 		+	plus
 	_)	++ (_	plusplus
@@ -196,16 +212,16 @@
 
 
 		. (D	_:k'omo_
-		*	asterisko
+		*	asteRisko
 			pundo
 		 (D	_pundOI_:
-	        !	,ekkrio,
+	        !	,ekk@-*io,
 		:	dupunkto
 		-	_
 		- (_a	
-		$	dolaro
-		$ (D	_dolarOI_:
-		%	protsento
+		$	dolaRo
+		$ (D	_dolaROI_:
+		%	p@-*otsento
 		@	po
 		&	%kaI
 			

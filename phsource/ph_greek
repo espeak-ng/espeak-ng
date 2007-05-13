@@ -33,7 +33,6 @@ phoneme t         // revert to alveolar /t/
   lengthmod 2
   wave  ustop/t_short%80
   before _ ustop/t_
-  before r ustop/tr
   switchvoicing d
 endphoneme
 

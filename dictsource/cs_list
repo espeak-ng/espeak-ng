@@ -95,7 +95,7 @@ _0    n'ula
 _1    j'eden
 _2    dv'a
 _2f   dvj'e
-_3    tR^i
+_3    tR^/i
 _4    tSt'iR^i
 _5    p'jet
 _6    S'est
@@ -105,7 +105,7 @@ _9    d'evjet
 _10   d'eset
 _11   j'edena:tst
 _12   dv'ana:tst
-_13   tR^'ina:tst
+_13   tR^/'ina:tst
 _14   tSt'r-na:tst
 _15   p'atna:tst
 _16   S'estna:tst
@@ -113,7 +113,7 @@ _17   s'edumna:tst
 _18   'osumna:tst
 _19   d'evatena:tst
 _2X   dv'atset
-_3X   tR^'itset
+_3X   tR^/'itset
 _4X   tSt'iR^itset
 _5X   p'adesa:t
 _6X   S'edesa:t
@@ -123,7 +123,7 @@ _9X   d'evadesa:t
 _0C   s'et
 _1C   st'o
 _2C   dvj'esc'e
-_3C   tR^'ist'a
+_3C   tR^/'ist'a
 _4C   tStiR^ist'a
 
 _1M1  c'isi:ts
