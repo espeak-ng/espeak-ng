@@ -71,7 +71,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	len = utf8_out(letter,&single_letter[2]);
 	single_letter[2+len] = ' ';
 
-	next = 0x31;
+	next = RULE_SPELLING;
 	if(word[n_bytes] == ' ')
 		next = ' ';
 	single_letter[3+len] = next;   // follow by space-space if the end of the word, or space-0x31

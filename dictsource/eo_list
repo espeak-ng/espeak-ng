@@ -37,6 +37,7 @@ t.e		t'e,e
 
 // Abbreviations
 a.k        ,antaUk@-*'isto
+a.k.       ,antaUk@-*'isto
 akk        alinome
 anst       anstataU
 bea         $abbrev
@@ -48,6 +49,7 @@ n.b        n'otu||b'one
 nro        numeRo
 pĝ         paZo
 p.k        p,ostk@-*'isto
+p.k.       p,ostk@-*'isto
 uea         $abbrev
 uk          $abbrev
 

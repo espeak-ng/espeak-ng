@@ -76,10 +76,11 @@
         qu       kv
 
 .group r
-        r        r
+        r        R
      A) r (A     *
      K) r (A     @-*
-        rr       *r
+        rr       R
+        r (_     R
 
      K) r (K     r-
 

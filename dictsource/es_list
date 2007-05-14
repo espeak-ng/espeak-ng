@@ -1,16 +1,6 @@
 
 // This file in UTF8 encoded
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
-_a	a
-_o	o
-_y	,igr'iEQa
-
-_.	punto
-
 
 // numbers
 _0       TE*o
@@ -27,7 +17,7 @@ _1X      dj'ET
 _11      'onTe
 _12      d'oTe
 _13      t@-*'ETe
-_14      kat'orTe
+_14      kat'oRTe
 _15      k'inTe
 _20      v'eInte
 _2X      v'eInt
@@ -280,6 +270,19 @@ algún    $u        // some
 algunos  $u
 alguna   $u
 
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_a	a
+a       a  $atend
+_o	o
+o       o  $atend
+_y	,ig@-*'iEQa
+y	,ig@-*'iEQa  $atend
+
+_.	punto
 
 
 

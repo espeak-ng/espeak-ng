@@ -123,6 +123,7 @@
 #define RULE_IFVERB     26   // V
 #define RULE_LETTERGP   27   // L + letter group number
 #define RULE_ALT1       28   // word has $alt attribute
+#define RULE_SPELLING   31   // while spelling letter-by-letter
 #define RULE_LAST_RULE   28
 
 #define LETTERGP_A	0

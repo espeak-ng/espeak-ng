@@ -2,49 +2,42 @@
 
 // Italian:  any [E] or [O] phonemes in unstressed words must be listed explicitly
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
-_e	e:
-_i	i:
-_o	O:
 
 // character names
 _cap k'apital
 _??  s'imbolo
 
 _!   p'Untoesklamat'ivo
-_"   virgolet:e
+_"   viRgolet:e
 _#   kantSellet:o
-_$   dolla:ro
-_%   pertS'ento
+_$   dolla:Ro
+_%   peRtS'ento
 _&   _!e:
-_'   ap'Ostrofo
-_(   ap'ertapar'entezi
-_)   kj,Uzapar'entezi
-_*   asterisko
+_'   ap'OstRofo
+_(   ap'eRtapaR'entezi
+_)   kj,UzapaR'entezi
+_*   asteRisko
 _+   pjU
-_,   v'irgola
-_-   trat:ino
+_,   v'iRgola
+_-   t@-*at:ino
 _.   pUnto
 _/   slaS
 _:   d,Uep'Unte
-_;   p'Untoev'irgola
-_<   ap'erta'angolo
+_;   p'Untoev'iRgola
+_<   ap'eRta'angolo
 _=   Ugwale
 _>   kj,Uza'angolo
 _?   p'UntointeRogat'ivo
 _@   ki'otS:ola
-_[   ap'ertakw'adra
+_[   ap'eRtakw'ad@-*a
 _\   bakslaS
-_]   kj,Uzakw'adra
+_]   kj,Uzakw'ad@-*a
 _^   kap:UtS:o
-__   'Underskore
-_`   bakpraIm
-_{   ap'ertagr'af:a
+__   'UndeRskoRe
+_`   bakp@-*aIm
+_{   ap'eRtag@-*'af:a
 _|   b'aRa
-_}   kj,Uzagr'af:a
+_}   kj,Uzag@-*'af:a
 _~   tilde
 
 
@@ -63,16 +56,16 @@ _9	n'Ove
 _10     di'etSi
 _11     'unditSi
 _12     d'oditSi
-_13     tr'editSi
-_14     kwat:'OrditSi
+_13     t@-*'editSi
+_14     kwat:'ORditSi
 _15     kw'imditSi
 _16     s'editSi
 _17     ditSas:'Et:e
 _18     ditS'Ot:o
 _19     ditSann'ove
 _2X     v'ente
-_3X     tr'enta
-_4X     kwar'anta
+_3X     t@-*'enta
+_4X     kwaR'anta
 _5X     tSinkw'anta
 _6X     sess'anta
 _7X     set:'anta
@@ -83,11 +76,11 @@ _0M1    m'ila
 _1M1	m'ille
 _0M2    mili'oni
 _1M2	unmili'one
-_0M3	mili'ardi
-_1M3	unmili'ardo
+_0M3	mili'aRdi
+_1M3	unmili'aRdo
 _0M4    bili'oni
 _1M4	unbili'one
-_dpt    _v'irgola
+_dpt    _v'iRgola
 _0Z2	tSent'ezimi     // 100ths
 _0Z3	mill'ezimi      // 1000ths
 
@@ -351,6 +344,17 @@ facevamo	$u+
 facevate	$u+
 facevano	$u+
 
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_e	e:
+e       e:  $atend
+_i	i:
+i       i:  $atend
+_o	O:
+o       O:  $atend
+
 
 // exceptions
 aereo        $2
@@ -365,5 +369,5 @@ celsius     tsElsj'us
 conoscerla   $1
 no          nO
 posta       pOsta
-tesser      tess'Er
+tesser      tess'ER
 uomini       $1

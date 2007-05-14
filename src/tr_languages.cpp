@@ -265,6 +265,47 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
+
+	case L('h','r'):   // Croatian
+		{
+			static const wchar_t replace_chars_hr[] = 
+				{0x430,0x431,0x446,0x45b,0x447,0x434,0x452,0x45f,
+				0x435,0x444,0x433,0x445,0x438,0x458,0x43a,0x43b,
+				0x459,0x43c,0x43d,0x45a,0x43e,0x43f,0x440,0x441,
+				0x448,0x442,0x443,0x432,0x437,0x436,
+				0x453,0x455,0x45c,0};  // ѓ  ѕ  ќ
+
+			static const unsigned int replacement_chars_hr[] =
+				{'a','b','c',0x107,0x10d,'d',0x111,'d'+(0x17e<<16),
+				'e','f','g','h','i','j','k','l',
+				'l'+('j'<<16),'m','n','n'+('j'<<16),'o','p','r','s',
+				0x161,'t','u','v','z',0x17e,
+				0x111,'d'+('z'<<16),0x107,0};
+
+			static int stress_amps_hr[8] = {16,16, 20,20, 20,24, 24,22 };
+			static int stress_lengths_hr[8] = {180,160, 200,200, 0,0, 220,230};
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_hr,stress_amps_hr);
+			tr->charset_a0 = charsets[2];   // ISO-8859-2
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.stress_flags = 0x10;  
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
+ 			tr->langopts.max_initial_consonants = 5;
+			tr->langopts.spelling_stress = 1;
+
+			tr->langopts.numbers = 0x1c0d + 0x84000;
+			tr->langopts.numbers2 = 0xa;  // variant numbers before thousands,milliards
+			tr->langopts.replace_chars = replace_chars_hr;
+			tr->langopts.replacement_chars = replacement_chars_hr;
+
+			SetLetterVowel(tr,'y');
+			SetLetterVowel(tr,'r');
+		}
+		break;
+
+
 	case L('h','u'):   // Hungarian
 		{
 			static int stress_amps_hu[8] = {16,16, 20,20, 20,24, 24,22 };
@@ -422,24 +463,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('s','k'):   // Slovak
 	case L('c','s'):   // Czech
-	case L('h','r'):   // Croatian
 		{
-			static const wchar_t replace_chars_hr[] = 
-				{0x430,0x431,0x446,0x45b,0x447,0x434,0x452,0x45f,
-				0x435,0x444,0x433,0x445,0x438,0x458,0x43a,0x43b,
-				0x459,0x43c,0x43d,0x45a,0x43e,0x43f,0x440,0x441,
-				0x448,0x442,0x443,0x432,0x437,0x436,
-				0x453,0x455,0x45c,0};  // ѓ  ѕ  ќ
-
-			static const unsigned int replacement_chars_hr[] =
-				{'a','b','c',0x107,0x10d,'d',0x111,'d'+(0x17e<<16),
-				'e','f','g','h','i','j','k','l',
-				'l'+('j'<<16),'m','n','n'+('j'<<16),'o','p','r','s',
-				0x161,'t','u','v','z',0x17e,
-				0x111,'d'+('z'<<16),0x107,0};
-
 			static int stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
-//			static int stress_lengths_sk[8] = {180,180, 200,200, 0,0, 210,220};
 			static int stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 			static char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
@@ -455,16 +480,9 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
 			tr->langopts.numbers = 0x1c0d + 0x84000;
-			if(name2 == L('h','r'))
-			{
-				tr->langopts.numbers2 = 0xa;  // variant numbers before thousands,milliards
-				tr->langopts.replace_chars = replace_chars_hr;
-				tr->langopts.replacement_chars = replacement_chars_hr;
-			}
 
 			if(name2 == L('c','s'))
 				tr->langopts.numbers2 = 0x8;  // variant numbers before milliards
-
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');

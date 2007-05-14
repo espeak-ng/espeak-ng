@@ -1515,7 +1515,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int c;
 	int cc;
 	unsigned int source_index=0;
-	unsigned int prev_source_index;
+	unsigned int prev_source_index=0;
 	int prev_in;
 	int prev_out=' ';
 	int prev_out2;

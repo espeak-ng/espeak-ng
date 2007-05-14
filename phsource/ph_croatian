@@ -10,10 +10,16 @@ phoneme @2    //  Schwa (raised)
   length 140
 endphoneme
 
+phoneme @3    //  Schwa (raised)
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@_4
+  length 140
+endphoneme
+
 
 phoneme a
   vowel starttype (a) endtype (a)
-  length 150
+  length 160
   formants vowel/a
   reduceto &  4
 endphoneme
@@ -50,7 +56,7 @@ endphoneme
 phoneme i
   vowel starttype (i) endtype (i)
   length 120
-  formants vowel/i_3
+  formants vowel/i_6
   linkout ;
   reduceto I  4
 endphoneme
@@ -70,17 +76,23 @@ phoneme o
   formants vowel/oo_1
 endphoneme
 
+phoneme 8
+  vowel starttype (o) endtype (o)
+  length 140
+  formants vowel/o-
+endphoneme
+
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 130
+  length 140
   formants vowel/u_bck
   reduceto U  4
 endphoneme
 
 phoneme U
   vowel starttype (u) endtype (u)
-  length 130
+  length 140
   formants vowel/uu_bck
 endphoneme
 
@@ -117,7 +129,18 @@ phoneme x
   vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
   length 100
   lengthmod 3
-  wave ufric/xx
+  wave ufric/x_hr%45
   switchvoicing Q
 endphoneme
+
+phoneme x2  // TEST
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/xx%120
+  switchvoicing Q
+endphoneme
+
 

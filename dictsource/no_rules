@@ -86,13 +86,16 @@
 
 .group l
         l        l
+        ll (K    l
         lj       j
 
 .group m
         m        m
+        mm (K    m
 
 .group n
         n        n
+        nn (K    n
         ng       N
         n (k     N
 
@@ -120,6 +123,7 @@
 
 .group r
         r        r
+        rr       R
      K) r        @-*
      A) r (A     *
      r) r
@@ -128,6 +132,7 @@
 .group s
         s        s
         ss       ss
+        ss (_    s
         sch      S
         sj       S
         skj      S
@@ -154,6 +159,7 @@
 
 .group v
         v        v
+        vv (_    v
 
 .group w
         w        v
@@ -169,6 +175,7 @@
 .group z
         z        s
         zz       z
+        zz (_    z
 
 .group å
         å        o:
