@@ -1329,6 +1329,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 	espeak_VOICE *v;
 	int variant=0;
 	char *p;
+	char variant_name[20];
 	static char buf[60];
 
 	strncpy0(buf,name,sizeof(buf));
@@ -1339,10 +1340,18 @@ espeak_ERROR SetVoiceByName(const char *name)
 		variant = atoi(p+1);
 	}
 
-// first check for a voice with this filename
+	// first check for a voice with this filename
 	if(LoadVoice(buf,1) != NULL)
 	{
 		voice_selected = first_voice;
+
+		if(variant > 0)
+		{
+			// apply a voice variant
+			sprintf(variant_name,"!variant%d",variant);
+			LoadVoice(variant_name,2);
+		}
+
 		WavegenSetVoice(voice);
 		return(EE_OK);
 	}

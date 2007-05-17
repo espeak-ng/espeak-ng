@@ -479,10 +479,15 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1c0d + 0x84000;
+		//	tr->langopts.numbers = 0x1c0d + 0x84000;
+			tr->langopts.numbers = 0x1c01 + 0x84000;
+			tr->langopts.thousands_sep = 0;   //no thousands separator
+			tr->langopts.decimal_sep = ',';
 
 			if(name2 == L('c','s'))
+			{
 				tr->langopts.numbers2 = 0x8;  // variant numbers before milliards
+			}
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');

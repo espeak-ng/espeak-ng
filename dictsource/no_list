@@ -63,11 +63,11 @@ _7X       s'yt:i:
 _8X       'Ot:i:
 _9X       n'It:i:
 _0C       h'u-:nd@-*e:d@2
+_1C       'Et||h'u-:nd@-*e:d@2
 _0M1      t'u-:s@n
-_1M2      m'Illi:;,u:n
+_0M1      'Et||t'u-:s@n
 _0M2      m'Illi:;,u:n@r
-
-
+_1M2      'e:n||m'Illi:;,u:n
 
 _0and     u:g
 _dpt      kOmmA
@@ -79,7 +79,7 @@ _dpt      kOmmA
 
 // articles
 en	$u
-et	$u
+et	Et $u
 ei	$u
 
 
@@ -178,7 +178,7 @@ ikke	$u
 // auxillary verbs  (be, have, can, etc)
 
 være	$u+
-er	$u
+er	E:r $u
 var	$u
 vært	$u
 
@@ -218,3 +218,4 @@ i      i:   $atend
 
 // MAIN WORD DICTIONARY
 //*********************
+

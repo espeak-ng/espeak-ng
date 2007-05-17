@@ -1954,7 +1954,7 @@ memset(markers_used,0,sizeof(markers_used));
 	if((f_errors = fopen_log(f_errors,fname,"w")) == NULL)
 		f_errors = stderr;
 
-	sprintf(fname,"%s/%s",path_home,"phondata_manifest");
+	sprintf(fname,"%s/%s",path_home,"phondata-manifest");
 	if((f_phcontents = fopen_log(f_phcontents,fname,"w")) == NULL)
 		f_phcontents = stderr;
 

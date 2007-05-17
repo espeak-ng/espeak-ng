@@ -29,6 +29,7 @@
         e        E
      j) e        e
         e (j     e
+        ej (K    eI
 
 .group f
         f        f
@@ -42,6 +43,7 @@
 
 .group i
         i        i
+        ij (K    iI
 
 .group j
         j        j
@@ -67,6 +69,8 @@
 .group o
         o        o
         ou       oU
+        oj (K    oI
+        o (r     8
 
 .group p
         p        p
@@ -96,6 +100,7 @@
 
 .group u
         u        u
+        uj (K    wi
 
 .group v
         v        v

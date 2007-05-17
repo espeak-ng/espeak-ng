@@ -1035,7 +1035,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	int first_phoneme = 1;
 	int source_ix;
 	int len;
-	int limit;
+	int sylimit;        // max. number of syllables in a word to be combined with a preceding preposition
 	char *new_language;
 	unsigned char bad_phoneme[4];
 
@@ -1112,11 +1112,12 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	{
 		flags = translator->TranslateWord(word, next_pause, wtab);
 
-		if((flags & FLAG_ALT2_TRANS) && ((limit = langopts.param[LOPT_COMBINE_WORDS]) > 0))
+		if((flags & FLAG_ALT2_TRANS) && ((sylimit = langopts.param[LOPT_COMBINE_WORDS]) > 0))
 		{
 			char *p2;
 			int ok = 1;
 			int flags2;
+			int c_word2;
 			char ph_buf[N_WORD_PHONEMES];
 
 			// LANG=cs,sk
@@ -1124,7 +1125,13 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			p2 = word;
 			while(*p2 != ' ') p2++;
 
-			if(limit & 0x100)
+			utf8_in(&c_word2, p2+1, 0);   // first character of the next word;
+			if(!iswalpha(c_word2))
+			{
+				ok =0;
+			}
+
+			if(sylimit & 0x100)
 			{
 				// only if the second word has $alt attribute
 				strcpy(ph_buf,word_phonemes);
@@ -1140,7 +1147,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			{
 				*p2 = '-'; // replace next space by hyphen
 				flags = translator->TranslateWord(word, next_pause, wtab);  // translate the combined word
-				if(CountSyllables(p) > (limit & 0xf))
+				if(CountSyllables(p) > (sylimit & 0xf))
 				{
 					// revert to separate words
 					*p2 = ' ';

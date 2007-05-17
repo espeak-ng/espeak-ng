@@ -20,7 +20,7 @@
       pl  17  103
       sk  25  120
       cs   5  120
-      hr  19  127
+      hr  23  129
       ru  36  120
       it  28  112
       es   6  112
@@ -45,16 +45,16 @@
   2  b/bo           base hi
   2  b/bu           base hi
   2  b/xb           base hi
- 14  d/d            base fi fr hi hu pl ru it ro el sw
- 15  d/d_           base fi fr hi hu pl ru it ro el sw
+ 15  d/d            base fi fr hi hu pl hr ru it ro el sw
+ 16  d/d_           base fi fr hi hu pl hr ru it ro el sw
   1  d/d_dnt        hi
- 16  d/dr           base fi fr hi hu pl ru it ro el sw
+ 17  d/dr           base fi fr hi hu pl hr ru it ro el sw
   1  d/tap          ro
   2  d/tap1         base
   2  d/tap2         base
   2  d/tap3         base
   1  d/tap_i        ro
- 12  d/xd           base fi fr hi hu pl ru it ro el sw
+ 13  d/xd           base fi fr hi hu pl hr ru it ro el sw
   1  d/xd_dnt       hi
   2  d/xd_pzd       pl ru
   1  d/x_tap        base
@@ -245,7 +245,7 @@
   2  ustop/p_       base hi
   1  ustop/percus10 base
   8  ustop/pl       base fi hi hu hr it ro
-  9  ustop/pr       base fi hi hu hr it ro
+  8  ustop/pr       base fi hi hu it ro
   7  ustop/p_unasp  base fi hi hu hr it ro
   6  ustop/p_unasp_ fi hi hu hr it ro
   2  ustop/t        base hi
@@ -319,6 +319,7 @@
   2  vdiph/eeu_3    en_n en_wm
   1  vdiph/eey      fi
   6  vdiph/ei       nl it pt is vi zh_yue
+  1  vdiph/ei_2     hr
   8  vdiph/eu       en cy eo nl sk it pt vi
   1  vdiph/eu_2     fi
   2  vdiph/&i       fi hi
@@ -327,13 +328,13 @@
   3  vdiph/@i_3     en_wm ro zh_yue
   1  vdiph/&i_3     vi
   1  vdiph/@i_4     vi
-  1  vdiph/ii       ro
+  2  vdiph/ii       hr ro
   1  vdiph/i#i      ro
   4  vdiph/oi       en_wm de it vi
   1  vdiph/oi_2     af
  10  vdiph/ooi      en en_n en_us en_rp cy eo fi no zh_yue
   1  vdiph/ooi_2    af
-  1  vdiph/ooi_3    en_wm
+  2  vdiph/ooi_3    en_wm hr
   2  vdiph/ou       fi zh_yue
   2  vdiph/ou_2     sk ro
   1  vdiph/ou_3     is
@@ -602,8 +603,8 @@
   5  w/xw           base
  20  x/b            base hi ro is
   2  x/b_           base is
-  7  x/d            base hi el is
- 14  x/d_           base fi fr hi hu pl ru it ro el is sw
+  9  x/d            base hi hr el is
+ 15  x/d_           base fi fr hi hu pl hr ru it ro el is ++
  22  x/d_dnt        base fi fr hi hu pl ru it ro sw
   6  x/d_pzd        pl ru
   3  x/dzh          base hi

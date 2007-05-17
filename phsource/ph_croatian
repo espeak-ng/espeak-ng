@@ -32,13 +32,6 @@ phoneme &
 endphoneme
 
 
-phoneme aI
-  vowel starttype (a) endtype (i)
-  length 250
-  formants vdiph/ai
-endphoneme
-
-
 phoneme E
   vowel starttype (e) endtype (e)
   length 140
@@ -97,6 +90,36 @@ phoneme U
 endphoneme
 
 
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 230
+  formants vdiph/ai
+endphoneme
+
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 220
+  formants vdiph/ei_2
+  linkout ;
+endphoneme
+
+
+phoneme iI
+  vowel starttype (i) endtype (i)
+  length 250
+  formants vdiph/ii
+  linkout ;
+endphoneme
+
+
+phoneme oI
+  vowel starttype (o) endtype (i)
+  length 220
+  formants vdiph/ooi_3
+  linkout ;
+endphoneme
+
 
 
 phoneme p
@@ -104,9 +127,8 @@ phoneme p
   vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
   vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
   lengthmod 2
-  wave ustop/p_unasp
+  wave ustop/p_unasp%120
   before _ ustop/p_unasp_%80
-  before r ustop/pr
   before l ustop/pl
   switchvoicing b
 endphoneme
@@ -121,6 +143,21 @@ phoneme t        // dental variant of /t/
   before _ ustop/t_dnt%35
   switchvoicing d
 endphoneme
+
+
+phoneme d
+  vcd alv stop
+  vowelin f1=2  f2=1700 -300 300  f3=-100 80 rms=45
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/d+x/d%50
+  before _ d/d_+x/d_
+  before r d/dr+x/d
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
 
 
 phoneme x

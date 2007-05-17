@@ -26,7 +26,7 @@ _s    s@
 š     S@
 t     t@
 v     v@
-w     dv'ost@-*UkovE
+w     dv'ost@-*Uko||v@
 x     iks
 y     ipsilon
 z     z@
@@ -76,7 +76,7 @@ _]    z'atvo*,En&||'ugl&t&
 __    ts'r-t&
 _`    g@-*'avIs
 _{    'otvo*,En&||v'itItS,&st&
-_|    okom,It&
+_|    okom,Its&
 _}    z'atvo*,En&||v'itItS,&st&
 
 
@@ -148,7 +148,7 @@ s        s_ $brk
 // Conjunctions
 a        $u $pause    // and
 i        $u $pause    // and
-but      $pause       // but
+ali      $pause       // but
 nego     $pause       // but
 ili      $u $pause    // or
 

@@ -967,7 +967,10 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	fname_speech = WavFileName();
 	OpenWaveFile2(fname_speech);
 
-	first=1;
+	first = 0;
+	if(start > 0)
+		first=1;     // a selection, use fade-in
+
 	sp2 = NULL;
 	for(ix=start; ix<=end; ix++)
 	{
