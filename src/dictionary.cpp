@@ -1645,6 +1645,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					if(common_phonemes != NULL)
 					{
 						match.phonemes = common_phonemes;
+						if(*match.phonemes == RULE_CONDITION)
+							match.phonemes += 2;   // skip over condition number
 						while(((rb = *match.phonemes++) != 0) && (rb != RULE_PHONEMES));
 					}
 					else

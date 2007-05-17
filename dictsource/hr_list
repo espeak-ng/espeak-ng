@@ -52,6 +52,33 @@ _?A   slovo         // unknown letter
 µ     mikro
 ¶     tSlan&k
 °     st'up&n^
+_"    n'avodnIk
+_‚    'otvo*,En@||n'avodnIk
+_„    sp'utSEn@||n'avodnIk
+…     t@-*'i_||t'otSke
+†     k@-*'iZ
+‡     dv'ost@-*'uk@||k@-*'iZ
+‰     p@-*'omil
+_‹    'otvo*,En@||n'avodnIk
+_‘    'otvo*,En@||n'avodnIk
+_’    jedn'ost@-*'uk@||n'avodnIk
+_“    'otvo*,En@||n'avodnIk
+_”    zatvo*,En@||n'avodnIk
+•     k@-*'upna||t'otSk@
+_–    en||ts'r-t&
+_—    em||ts'r-t&
+™     p@-*'oizv'odZatS
+˘     b@-*,EvIs
+¨     p@-*Ijegl&s
+_«    'otvo*,En@||n'avodnIk
+_­    p@-*Ivr,Emen&||tsr-tIts&
+·     p'ut&
+¸     s,EdIl&
+_»    z'atvo*,En@||n'avodnIk
+®     r,Egist@-*'atsIj&
+ł     l@||s&||tsr-tItsom
+×     p'ut&
+÷     p'od'ijeljen'o
 
 _$    dol&r
 _-    minus
@@ -128,6 +155,136 @@ _0M4  b'ilijUna
 _1M4  b'ilijUn
 _dpt  _:z'a*Ez_
 
+// Roman numerals
+ii	$abbrev
+iii	$abbrev
+iv	$abbrev
+vii	$abbrev
+viii	$abbrev
+ix	$abbrev
+xi	$abbrev
+xii	$abbrev
+xiii	$abbrev
+xiv	$abbrev
+xvi	$abbrev
+xvii	$abbrev
+xviii	$abbrev
+xix	$abbrev
+xxi	$abbrev
+xxii	$abbrev
+xxiii	$abbrev
+xxiv	$abbrev
+xxvi	$abbrev
+xxvii	$abbrev
+xxviii	$abbrev
+xxix	$abbrev
+xxxi	$abbrev
+xxxii	$abbrev
+xxxiii	$abbrev
+xxxiv	$abbrev
+xxxvi	$abbrev
+xxxvii	$abbrev
+xxxviii  $abbrev
+xxxix	$abbrev
+
+// Abbreviations
+ab	$only $abbrev
+abc	$abbrev
+abs	$abbrev
+agm	$abbrev
+amd	$only $abbrev
+amg	$only $abbrev
+arg	$only $abbrev
+atp	$abbrev
+avg	$abbrev
+brf	$abbrev
+brl	$abbrev
+brx	$abbrev
+cca	$abbrev
+cdr	$abbrev
+cdrw	$abbrev
+clr	$abbrev
+cr	$only $abbrev
+ctrl	$abbrev
+doo	$abbrev
+ecdl	$only $abbrev
+esc	$only $abbrev
+eu	$only $abbrev
+eur	$only $abbrev
+faq	$abbrev
+fbi	$abbrev
+fr	$only $abbrev
+frm	$abbrev
+frx	$abbrev
+gr	$only $abbrev
+grr	$abbrev
+grrr	$abbrev
+grp	$abbrev
+grps	$abbrev
+hho	$abbrev
+hr	$only $abbrev
+hrk	$only $abbrev
+hrt	$only $abbrev
+hrv	$only $abbrev
+hzzo	$abbrev
+ibm	$abbrev
+jrr	$abbrev
+nr	$only $abbrev
+nrg	$abbrev
+nvda	$abbrev
+oem	$abbrev
+off	$only $abbrev
+omw	$abbrev
+pr	$only $abbrev
+prn	$abbrev
+raw	$only $abbrev
+rb	$abbrev
+rba	$abbrev
+rc	$only $abbrev
+rcc	$abbrev
+rcd	$abbrev
+rcs	$abbrev
+rd	$only $abbrev
+rds	$abbrev
+rgb	$abbrev
+rh	$only $abbrev
+rk	$only $abbrev
+rn	$abbrev
+rm	$only $abbrev
+rmx	$abbrev
+rp	$only $abbrev
+rs	$abbrev
+rss	$abbrev
+rta	$abbrev
+rtf	$abbrev
+rtl	$abbrev
+rttl	$abbrev
+rtv	$abbrev
+rx	$abbrev
+rw	$abbrev
+scr	$only $abbrev
+sr	$only $abbrev
+srd	$only $abbrev
+udt	$abbrev
+url	$only $abbrev
+vba	$only $abbrev
+vbr	$abbrev
+vga	$abbrev
+wbr	$abbrev
+xy	$abbrev
+
+dr	$dot $abbrev
+mr	$dot $abbrev
+mrs	$dot $abbrev
+itd	$dot $abbrev
+npr	$dot $abbrev
+str	$only $dot $abbrev
+
+inc	$dot
+prof	$dot
+sl	$dot
+tj	$dot
+tzv	$dot
 
 // Demonstratives
 tko      $u+
@@ -205,4 +362,6 @@ u        u    $atend
 
 
 // Exceptions
+utf      u||te||ef
+
 

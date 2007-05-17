@@ -151,7 +151,7 @@ phoneme d
   vowelout f1=2 f2=1700 -300 300  f3=-100 80
   formants d/d+x/d%50
   before _ d/d_+x/d_
-  before r d/dr+x/d
+  before r d/dr+x/d%50
   after _ NULL
   after @ d/xd
   lengthmod 5
