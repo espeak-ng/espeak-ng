@@ -141,52 +141,53 @@ _dpt	pOInt
 // ABBREVIATIONS
 //**************
 
-abc              eIbi:s'i:
-ac               eI'si:
-adfs             eIdi:Ef'Es
-a.k.a            aka2_!
-agm              eIdZi:'Em 
-ai               eI;'aI
-api              apI2
-asap             eIEseIpi:
-awol             eIw0l
-cio              si:aI'oU
-ctrl             k0ntr'oUl
-dept             dI2pA@tm@nt
-diy              di:aI'waI
-eg               fO@Egz'aamp@L
-etc              Et'sEtr@
-eur              jU@
-hmm              h@m
-(http ://)       eItSti:ti:'pi:_
-ibm              aIbi:Em
-ie               aIi:_!        $pause
-i.e              aIi:_!        $pause
-irc              aI;A@s'i:
-lbs              paUndz
-ltd              lImItId
-mc               m@k
-oem              oUi:'Em
-ok               oU'keI
-os               oUEs
-riscos           rIskoUEs
-sae              EseI'i:
-seac             si:ak
-st               s@nt
-th               T
-thu              T3:        // Thursday
-?5 thu           TIR        // Thursday
-ufo              ju:Ef'oU
-ui               ,ju:'aI
-uk               ju:k'eI
-url              ju:A@'El
-usa              ju:Es'eI
-wwii             dVb@Lju:dVb@Lju:t'u:
-xy               EkswaI
+abc	$abbrev
+ac	$abbrev
+adfs	$abbrev
+a.k.a	aka2_!
+agm	$abbrev 
+ai	$abbrev
+api	$abbrev
+asap	$abbrev
+awol	eIw0l
+cio	$abbrev
+ctrl	k0ntr'oUl
+dept	dI2pA@tm@nt
+diy	$abbrev
+edt	$abbrev
+eg	fO@Egz'aamp@L
+est	$abbrev
+etc	Et'sEtr@
+eur	jU@
+hmm	h@m
+(http ://)   eItSti:ti:'pi:_
+ibm	$abbrev
+ie	aIi:_!   $pause
+i.e	aIi:_!   $pause
+irc	$abbrev
+lbs	paUndz
+ltd	lImItId
+mc	m@k
+oem	$abbrev
+ok	$abbrev
+os	$abbrev
+riscos	rIskoUEs
+sae	$abbrev
+st	s@nt
+th	T
+thu	T3:        // Thursday
+?5 thu	TIR        // Thursday
+ufo	$abbrev
+ui	$abbrev
+uk	$abbrev
+url	$abbrev
+usa	$abbrev
+wwii	dVb@Lju:dVb@Lju:t'u:
+xy	$abbrev
 
-ii               tu:          $abbrev    // roman numerals
-iii              Tri:         $abbrev
-iv               fo@          $abbrev
+ii	tu:       $abbrev    // roman numerals
+iii	Tri:      $abbrev
+iv	fo@       $abbrev
 
 
 nd                $only
@@ -194,14 +195,14 @@ rd                $only
 th                $only
 st                $only
 
-mr               mIst3         $dot
-mrs              mIsIz         $dot
+mr	mIst3     $dot
+mrs	mIsIz     $dot
 //ms               mIz         $dot
-dr               d0kt3         $dot $capital
-lt                             $dot
-prof                           $dot
-rev                            $dot
-st                             $dot
+dr      d0kt3     $dot $capital
+lt                $dot
+prof              $dot
+rev               $dot
+st                $dot
 
 
 
@@ -448,6 +449,7 @@ bastion          basti@n
 batman           batman
 belisha          b@l'i:S@
 bely             bI2laI
+beryl            bEr@L
 basal            beIs@L
 best             bEst
 beta             bi:t@
@@ -866,7 +868,6 @@ foretell         fo@t'El
 forever           $2
 forewarn          $2
 formid           fO@m'Id       // formidable
-forte            fo@teI
 foyer            fOIeI
 freelance        fri:laans
 frigate          frIg@t
@@ -1327,6 +1328,7 @@ peculiar         pI2kju:lI3
 pedalo           pEd@loU
 pejorative       p@dZ0r@tIv
 penal            pi:n@L
+?4 penchant      p0nS0n
 peninsula        p@n'InsjUl@
 penis            pi:nI2s
 perfectly        p3:fEktlI2
@@ -1672,6 +1674,7 @@ sundae           sVndeI
 sundial          sVndaI@l
 suite            swi:t         $onlys
 superb           su:p'3:b
+superfluous      su:p'3:flu:@s
 superman         su:p3man
 supplier         s@plaI3
 suppose                        $2

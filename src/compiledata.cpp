@@ -75,6 +75,7 @@
 
 extern void Write4Bytes(FILE *f, int value);
 extern void MakeVowelLists(void);
+extern void FindPhonemesUsed(void);
 extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname);
 extern char voice_name[];
 
@@ -1824,6 +1825,76 @@ void Compile::Report(void)
 }
 
 
+
+static int ph_sorter(char **a, char **b)
+{//======================================
+	int ix;
+	int t1, t2;
+	char mnem1[6];
+
+	PHONEME_TAB *p1 = (PHONEME_TAB *)(*a);
+	PHONEME_TAB *p2 = (PHONEME_TAB *)(*b);
+
+	t1 = p1->type;
+	if(t1 > phVOWEL) t1 = phVOWEL+1;
+
+	t2 = p2->type;
+	if(t2 > phVOWEL) t2 = phVOWEL+1;
+
+	if((ix = t1 - t2) != 0)
+		return(ix);
+
+	strcpy(mnem1,WordToString(p1->mnemonic));
+  return(strcasecmp(mnem1,WordToString(p2->mnemonic)));
+}   /* end of ph_sorter */
+
+
+
+void PrintPhonemesUsed(FILE *f, const char *dictname)
+{//==================================================
+	int ix;
+	PHONEME_TAB *ph;
+	PHONEME_TAB *ph_tab[N_PHONEME_TAB];
+	int count = 0;
+	int n_ph = 0;
+	int section = 0;
+
+	fprintf(f,"\n\nDictionary %s_dict\n",dictname);
+	fflush(f);
+
+	for(ix=0; (ix<N_PHONEME_TAB) && (phoneme_tab[ix] != NULL); ix++)
+	{
+		if(phoneme_tab_flags[ix] & 2)
+		{
+			ph_tab[n_ph++] = phoneme_tab[ix];
+		}
+	}
+
+	qsort((void *)ph_tab,n_ph,sizeof(PHONEME_TAB *),(int (*)(const void *,const void *))ph_sorter);
+
+	for(ix=0; ix<n_ph; ix++)
+	{
+		ph = ph_tab[ix];
+
+		if(ph->type > 1)
+		{
+			if((ph->type > phVOWEL) && (section == 0))
+			{
+				section = 1;
+				count = 0;
+				fputc('\n',f);
+			}
+			if((count & 0x7) == 0)
+				fputc('\n',f);
+			fprintf(f,"%-4s ",WordToString(ph->mnemonic));
+			count++;
+		}
+	}
+	fputc('\n',f);
+}  // end of  PrintPhonemesUsed
+
+
+
 wxString CompileAllDictionaries()
 {//==============================
 	wxString filename;
@@ -1834,6 +1905,7 @@ wxString CompileAllDictionaries()
 	int errors = 0;
 	int dict_count = 0;
 	FILE *log;
+	FILE *f_phused;
 	char dictname[80];
 	char fname_log[80];
 	char save_voice_name[80];
@@ -1866,6 +1938,13 @@ wxString CompileAllDictionaries()
 
 	sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 	log = fopen(fname_log,"w");
+	sprintf(fname_log,"%s%s",path_dsource,"dict_phonemes");
+	f_phused = fopen(fname_log,"w");
+
+	if(f_phused)
+	{
+		fprintf(f_phused,"Phonemes which are used in the *_rules and *_list files\n");
+	}
 
 	bool cont = dir.GetFirst(&filename, _T("*_rules"), wxDIR_FILES);
 	while ( cont )
@@ -1883,10 +1962,19 @@ wxString CompileAllDictionaries()
 			errors += err;
 		}
 
+		if(f_phused != NULL)
+		{
+			memset(phoneme_tab_flags,0,sizeof(phoneme_tab_flags));
+			FindPhonemesUsed();
+			PrintPhonemesUsed(f_phused,dictname);
+		}
+
 		cont = dir.GetNext(&filename);
 	}
 	if(log != NULL)
 		fclose(log);
+	if(f_phused != NULL)
+		fclose(f_phused);
 
 	LoadVoice(save_voice_name,1);
 

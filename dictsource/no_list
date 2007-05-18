@@ -65,7 +65,7 @@ _9X       n'It:i:
 _0C       h'u-:nd@-*e:d@2
 _1C       'Et||h'u-:nd@-*e:d@2
 _0M1      t'u-:s@n
-_0M1      'Et||t'u-:s@n
+_1M1      'Et||t'u-:s@n
 _0M2      m'Illi:;,u:n@r
 _1M2      'e:n||m'Illi:;,u:n
 
@@ -84,13 +84,13 @@ ei	$u
 
 
 // pronouns
-jeg	$u+
+jeg	jaI $u+
 du	$u+
 han	$u+
 hun	$u+
 vi	$u+
 dere	$u+
-de	$u+
+de	di: $u+
 
 meg	$u+
 deg	$u+
@@ -104,8 +104,7 @@ denne	$u+
 dette	$u+
 disse	$u+
 den	$u+
-det	$u+
-de	$u+
+det	de: $u+
 
 
 // possessive adjectives
@@ -135,7 +134,7 @@ i	$u $brk     // in
 av	$u $brk     // of, off, by
 bak     $pause      // behind
 etter	$u $pause   // after
-for	$u $pause   // for
+for	fOr: $u $pause   // for
 foran   $pause      // in front of
 fra	$u $pause   // from
 in	$u $brk     // in
@@ -216,6 +215,9 @@ _å     o:
 _i     i:
 i      i:   $atend
 
+
+
 // MAIN WORD DICTIONARY
 //*********************
 
+kom         kOm

@@ -1261,7 +1261,11 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				else
 				{
 					// unstressed syllable within a word
-					v_stress = 1;      /* change from 0 (unstressed) to 1 (diminished stress) */
+					if((vowel_stress[v-1] != 1) || ((langopts.stress_flags & 0x10000) == 0))
+					{
+						v_stress = 1;      /* change from 0 (unstressed) to 1 (diminished stress) */
+						vowel_stress[v] = v_stress;
+					}
 				}
 			}
 
@@ -1383,7 +1387,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K','V','L','T'};
+			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K','V','L','T','X','?','W'};
 
 
 	match_type = 0;
@@ -1805,6 +1809,23 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					}
 					break;
 
+				case RULE_NOVOWELS:
+					{
+						char *p = post_ptr + letter_xbytes;
+						while(letter_w != RULE_SPACE)
+						{
+							if(IsLetter(letter_w,LETTERGP_VOWEL2))
+							{
+								failed = 1;
+								break;
+							}
+							p += utf8_in(&letter_w,p,0);
+						}
+						if(!failed)
+							match.points += (19-distance_right);
+					}
+					break;
+
 				case RULE_INC_SCORE:
 					match.points += 20;      // force an increase in points
 					break;
@@ -1930,6 +1951,13 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						match.points += 19;
 					else
 						failed = 1;
+					break;
+
+				case RULE_NOVOWELS:
+					if(word_vowel_count== 0)
+						match.points += 19;
+					else
+						failed =1;
 					break;
 
 				case RULE_IFVERB:
@@ -2710,7 +2738,8 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 
 int Translator::Lookup(char *word, char *ph_out)
 {//=============================================
-	return(LookupDictList(word,ph_out,NULL,0));
+	unsigned int flags;
+	return(LookupDictList(word,ph_out,&flags,0));
 }
 
 

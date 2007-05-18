@@ -5,7 +5,7 @@
 
 phoneme : //  Lengthen the previous vowel by "length"
   virtual
-  length 80
+  length 100
 endphoneme
 
 phoneme @
@@ -13,7 +13,7 @@ phoneme @
   length 130
   formants vowel/@_bck
   before H vowel/@_low
-  reduceto  NULL 0
+  reduceto  @- 0
 endphoneme
 
 phoneme V
@@ -48,14 +48,14 @@ endphoneme
 
 phoneme i:
   vowel long starttype (i) endtype (i)
-  length 220
+  length 230
   formants vowel/i_fnt
   linkout ;
 endphoneme
 
 phoneme i         // as [i:] but not marked as 'long'
   vowel starttype (i) endtype (i)
-  length 220
+  length 230
   formants vowel/i_fnt
   linkout ;
 endphoneme
@@ -69,7 +69,7 @@ endphoneme
 
 phoneme e:
   vowel long starttype (e) endtype (e)
-  length 210
+  length 220
   formants vowel/e_2
 endphoneme
 
@@ -81,7 +81,7 @@ endphoneme
 
 phoneme E:
   vowel long starttype (e) endtype (e)
-  length 210
+  length 220
   formants vdiph/ee-e
 endphoneme
 
@@ -100,7 +100,7 @@ endphoneme
 
 phoneme &:
   vowel long starttype (a) endtype (a)
-  length 210
+  length 220
   formants vowel/&
 endphoneme
 
@@ -120,7 +120,7 @@ endphoneme
 
 phoneme o:
   vowel long starttype (o) endtype (o)
-  length 210
+  length 220
   formants vowel/o_2
 endphoneme
 
@@ -132,7 +132,7 @@ endphoneme
 
 phoneme O:
   vowel long starttype (o) endtype (o)
-  length 200
+  length 210
   formants vowel/oo_4
 endphoneme
 
@@ -165,14 +165,8 @@ endphoneme
 
 phoneme u:
   vowel long starttype (u) endtype (u)
-  length 220
+  length 230
   formants vowel/u_bck
-endphoneme
-
-phoneme u2:
-  vowel long starttype (u) endtype (u)
-  length 220
-  formants vowel/u
 endphoneme
 
 

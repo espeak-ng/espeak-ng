@@ -4,6 +4,7 @@
 .group a
         a        a
         aj (K    aI
+        a (r     A        // don't reduce to [&]
 
 .group b
         b        b
@@ -70,7 +71,7 @@
         o        o
         ou       oU
         oj (K    oI
-        o (r     8
+     &) o (r_    8
 
 .group p
         p        p

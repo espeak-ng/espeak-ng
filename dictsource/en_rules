@@ -317,6 +317,7 @@
          c)  ad (enc      eId
              ad (eq       ad
          _)  ad (i        ad
+        gl)  ad (i        ad
              adjec        adZEk
              ad (le       eId
              ad (junct_   ad
@@ -479,7 +480,7 @@
          _)  al (i        al
          _)  al (ig       a2l
          _)  ali (Be      a2laI
-         &)  al (isC_     @l
+         &)  ali (sC_     @li
          &)  al (isCic    @l
          _)  al (k        al
          _)  all (@       a2l
@@ -2677,6 +2678,7 @@
         pl)  ia (nt       'aI@
        ill)  ia (nt       I2@
         al)  ia (nt       I2@
+        _p)  ia (nA       i@
              iar          aI@
         @l)  iar (_       i@
              iara (_      I'A:r@
@@ -3754,6 +3756,7 @@
          &)  or (ous      @
              orough       Vr@
        eff)  or (t        3
+         f)  orte (_      'o@teI
          w)  or (t_       o@
          w)  or (r        V
          w)  or (n        o@
@@ -4473,6 +4476,7 @@
          _)  tri (vi      trI
              tsch         tS
          _)  two          tu:
+             ttu (r       t@
          @)  tur (A       tS@r
          @)  tur (al_     tS=@r
          @)  tur (y       tS@r

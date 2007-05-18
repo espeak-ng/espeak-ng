@@ -122,9 +122,10 @@
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
 #define RULE_LETTERGP   27   // L + letter group number
-#define RULE_ALT1       28   // word has $alt attribute
-#define RULE_SPELLING   31   // while spelling letter-by-letter
-#define RULE_LAST_RULE   28
+#define RULE_ALT1       28   // T word has $alt attribute
+#define RULE_NOVOWELS   29   // X no vowels up to word boundary
+#define RULE_SPELLING   31   // W while spelling letter-by-letter
+#define RULE_LAST_RULE   31
 
 #define LETTERGP_A	0
 #define LETTERGP_B	1
@@ -258,6 +259,7 @@ typedef struct {
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
 // bit12= In a 2-syllable word, if one has primary stress then give the other secondary stress
 // bit13= If there is only one syllable before the primary stress, give it a secondary stress
+// bit16= Don't diminish consecutive syllables within a word.
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable

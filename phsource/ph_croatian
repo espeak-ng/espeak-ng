@@ -25,6 +25,13 @@ phoneme a
 endphoneme
 
 
+phoneme A          // 'a' before 'r', doesn't reduce to [&]
+  vowel starttype (a) endtype (a)
+  length 160
+  formants vowel/a
+endphoneme
+
+
 phoneme &
   vowel starttype (a) endtype (a)
   length 140
@@ -72,7 +79,7 @@ endphoneme
 phoneme 8
   vowel starttype (o) endtype (o)
   length 140
-  formants vowel/o-
+  formants vowel/8_2
 endphoneme
 
 
@@ -92,14 +99,14 @@ endphoneme
 
 phoneme aI
   vowel starttype (a) endtype (i)
-  length 230
+  length 250
   formants vdiph/ai
 endphoneme
 
 
 phoneme eI
   vowel starttype (e) endtype (i)
-  length 220
+  length 250
   formants vdiph/ei_2
   linkout ;
 endphoneme
@@ -115,11 +122,18 @@ endphoneme
 
 phoneme oI
   vowel starttype (o) endtype (i)
-  length 220
+  length 250
   formants vdiph/ooi_3
   linkout ;
 endphoneme
 
+
+phoneme uI
+  vowel starttype (u) endtype (i)
+  length 250
+  formants vdiph/ui_4
+  linkout ;
+endphoneme
 
 
 phoneme p
@@ -167,16 +181,6 @@ phoneme x
   length 100
   lengthmod 3
   wave ufric/x_hr%45
-  switchvoicing Q
-endphoneme
-
-phoneme x2  // TEST
-  vls vel frc
-  vowelin f1=0  f2=2300 200 400  f3=-100 80
-  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
-  length 100
-  lengthmod 3
-  wave ufric/xx%120
   switchvoicing Q
 endphoneme
 

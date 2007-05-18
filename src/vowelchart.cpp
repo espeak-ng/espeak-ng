@@ -373,10 +373,12 @@ void VowelChart(int control, char *fname)
 
 
 
-static void FindPhonemesUsed(void)
-{//===============================
+void FindPhonemesUsed(void)
+{//========================
 	int hash;
 	char *p;
+	char *start;
+	char *group;
 	char *next;
 	unsigned char c;
 	int count = 0;
@@ -386,15 +388,24 @@ static void FindPhonemesUsed(void)
 	p = translator->data_dictrules;
 	while(*p != 0)
 	{
+		if(*p == RULE_CONDITION)
+			p+=2;
 		if(*p == RULE_GROUP_END)
+		{
 			p++;
+			if(*p == 0) break;
+		}
 		if(*p == RULE_GROUP_START)
+		{
+			group = p;
 			p += (strlen(p)+1);
+		}
 
 		while((((c = *p) != RULE_PHONEMES)) && (c != 0)) p++;
 		count++;
 		if(c == RULE_PHONEMES)
 		{
+			start = p;
 			p++;
 			while(*p != 0)
 			{

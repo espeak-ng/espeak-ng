@@ -657,6 +657,9 @@ void copy_rule_string(char *string, int &state)
 				case 'W':
 					c = RULE_SPELLING;
 					break;
+				case 'X':
+					c = RULE_NOVOWELS;
+					break;
 				case 'L':
 					// expect two digits
 					c = *p++ - '0';

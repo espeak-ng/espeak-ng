@@ -14,13 +14,13 @@
       fi  40  123
       fr  33  115
    fr_ca  11  115
-      hi  50  128
+      hi  49  127
       hu  24  109
       nl  25  112
       pl  17  103
       sk  25  120
       cs   5  120
-      hr  23  129
+      hr  24  130
       ru  36  120
       it  28  112
       es   6  112
@@ -233,7 +233,6 @@
   2  ufric/x        base vi
   4  ufric/x2       af nl pt
   1  ufric/x_hr     hr
-  1  ufric/xx       hr
   1  ustop/c        base
   5  ustop/k        base en fr hi sw
   9  ustop/k_       base en fi fr hi hu it el sw
@@ -346,6 +345,7 @@
   1  vdiph/u-i      vi
   1  vdiph/ui_2     af
   2  vdiph/ui_3     cy
+  1  vdiph/ui_4     hr
   1  vdiph/Vi       vi
   1  vdiph/Vu       af
   2  vdiph/Vu_2     en_us en_wm
@@ -411,9 +411,9 @@
   1  vowel/3_3      en_rp
   3  vowel/3_en     en en_wm af
   2  vowel/@_4      nl hr
-  2  vowel/8_2      en_us sv
+  3  vowel/8_2      en_us hr sv
   1  vowel/8_3      zh_yue
- 10  vowel/a        en_n cy de hu nl pl sk hr
+ 11  vowel/a        en_n cy de hu nl pl sk hr
   4  vowel/a#       en_sc it pt
   5  vowel/a_2      eo it pt_pt ro vi
   4  vowel/a#_2     hr sv is sw
@@ -463,7 +463,6 @@
   6  vowel/ii_en    en en_n
   5  vowel/@_low    hi ro no
   8  vowel/o        en en_wm de hi it pt_pt sv
-  1  vowel/o-       hr
   4  vowel/o_2      cy hi hu no
   2  vowel/o-_2     en_n en_wm
   2  vowel/o_3      en_sc
@@ -487,7 +486,7 @@
   3  vowelr/r-voc   hi sk
   2  vowelr/V3_r    en en_sc
   1  vowelr/V_r     en
-  8  vowel/u        en_n cy de eo fr hi cs
+  7  vowel/u        en_n cy de eo fr cs
   5  vowel/u#       en en_sc
   3  vowel/u_2      fi sk ro
   1  vowel/u#_2     sv

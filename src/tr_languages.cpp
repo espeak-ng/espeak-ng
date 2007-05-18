@@ -244,7 +244,7 @@ Translator *SelectTranslator(const char *name)
 			static const wchar_t replace_chars_hi[11] = {0x966,0x967,0x968,0x969,0x96a,0x96b,0x96c,0x96d,0x96e,0x96f,0};  // digits 0-9
 			static const unsigned int replacement_chars_hi[11] = {0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0};
 			static int stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
-			static int stress_amps_hi[8] = {17,14, 20,20, 20,24, 24,22 };
+			static int stress_amps_hi[8] = {17,14, 20,19, 20,24, 24,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hi,stress_amps_hi);
@@ -252,7 +252,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable
-			tr->langopts.stress_flags =  0x4;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->langopts.numbers = 0x811 + 0x40000;
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
 			tr->langopts.replace_chars = replace_chars_hi;
@@ -392,7 +392,7 @@ Translator *SelectTranslator(const char *name)
 	case L('n','o'):  // Norwegian
 		{
 			static int stress_amps_no[] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_no[8] = {160,140, 200,200, 0,0, 250,270};
+			static int stress_lengths_no[8] = {160,140, 200,190, 0,0, 220,240};
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_no,stress_amps_no);
 
