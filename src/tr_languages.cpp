@@ -372,7 +372,15 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
-	case L('n','l'):
+	case L('l','a'):  //Latin
+		{
+			tr = new Translator();
+			tr->charset_a0 = charsets[4];   // ISO-8859-4, includes a,e,i,o,u-macron
+			tr->langopts.stress_rule = 2;
+		}
+		break;
+
+	case L('n','l'):  // Dutch
 		{
 			static const int stress_lengths_nl[8] = {160,135, 210,210,  0, 0, 260,280};
 			tr = new Translator();
