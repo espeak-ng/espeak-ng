@@ -1,4 +1,4 @@
-
+﻿
 // This file in UTF8 encoded
 
 // Options
@@ -104,7 +104,7 @@ _8	'oItu
 ?2_11	'oNzi
 ?1_12	d'ozy
 ?2_12	d'ozi
-?1_13	t:r'ezy
+?1_13	tr'ezy
 ?2_13	t@-*'ezi
 ?1_14	k&t'orzy
 ?2_14	kat'Orzi
@@ -200,6 +200,14 @@ osi       $abbrev
 ue        $abbrev 
 unts      $abbrev
 usb       $abbrev
+
+
+dr                           $dot
+mr                           $dot
+mrs                           $dot
+prof       pr'Of         $dot
+sr                           $dot
+sra                ,Es;'Errj'a           $dot
 
 
 // articles
@@ -578,6 +586,7 @@ roxo         x'oSu
 ?1 doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
+?1   dj       d,i:dZ'eI
 ?1 down       d'a,wn
 ?1 download   d'a,wnl'oud
 ?1 end        'end
@@ -609,7 +618,8 @@ layout        l'eI,aUt
 ?1 pause      p'au:z
 ?1 page       p'eIdZ
 ?1 readme     r'i:dmi:
-?1 scanner    sk'En&@
+?1   sapi       s,ap'i
+?1 scanner    sk'En&r
 ?1 shift      S'ift
 ?1 scroll     sk:r'ol
    site       s'aIt
@@ -617,6 +627,8 @@ layout        l'eI,aUt
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing
 ?1 tab        t'ab
+?1   telemóvel       t,El,Em'OvEl
+?1    telemóveis       t,El,Em'OveIS
 ?1 up         &p
 ?1 upload     &pl'oud
 ?1 window     w'iNd'ou
@@ -715,6 +727,7 @@ von           f'On
 ?1   elton        'Elt&N
 ?1   halison      &l'is&N
 klein       kl'aIn      // Very common on southern Brazil.
+?1   kleverson       kl'Evers&N
 krueger     k@-*'iZer
 krüger      k@-*'iZer
 kühl        k'il
@@ -726,6 +739,7 @@ müller      m'iler
 ronchi      r'OnCi:
 vogel       f'o:g@l
 volkmann    f'Olkman
+
 
 
 

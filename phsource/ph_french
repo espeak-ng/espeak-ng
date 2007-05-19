@@ -50,14 +50,14 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 160
-  formants vowel/o_4
+  formants vowel/o
 endphoneme
 
 
 phoneme O
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/o_6
+  formants vowel/o_mid
 endphoneme
 
 
@@ -284,6 +284,7 @@ phoneme k
   before (i) ustop/ki
   switchvoicing g
 endphoneme
+
 
 
 

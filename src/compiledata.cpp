@@ -1825,6 +1825,25 @@ void Compile::Report(void)
 }
 
 
+#ifdef PLATFORM_WINDOWS
+int strcasecmp(const char *s1, const char *s2)
+{
+	int ix=0;
+	int diff;
+
+	for(;;)
+	{
+		if((diff = (tolower(s1[ix]) - tolower(s2[ix]))) != 0)
+			return(diff);
+
+		if((s1[ix] == 0) || (s2[ix] == 0))
+			return(diff);
+
+		ix++;
+	}
+}
+#endif
+
 
 static int ph_sorter(char **a, char **b)
 {//======================================

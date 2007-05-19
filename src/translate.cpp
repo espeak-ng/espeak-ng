@@ -426,6 +426,7 @@ Translator::Translator()
 	langopts.decimal_sep = '.';
 
 	memcpy(punct_to_tone,punctuation_to_tone,sizeof(punct_to_tone));
+	punct_to_tone[0][3] = 0;   // exclamation, use period until we can improve the exclamation intonation 
 }
 
 
@@ -1507,8 +1508,10 @@ int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in, int *i
 				*insert = (new_c >> 16);
 				new_c &= 0xffff;
 			}
+#ifndef PLATFORM_RISCOS
 			if(upper_case)
 				new_c = towupper(new_c);
+#endif
 			return(new_c);
 		}
 	}

@@ -29,7 +29,7 @@
 ?1     p) a (d_      =E
           a (CC_     &
 ?1        al (_      'al // eg: Portugal, capital, etc.
-//?1        al (C      ''al // Algarve, alto, etc...
+?1   _) a (lC      ,a // Algarve, alto, etc...
 ?2        al (K      aU
 ?2        alh        alj
 
@@ -103,7 +103,7 @@
           c (c              //drop “c” in European Portuguese (eg: seleccionar)
 ?1     A) ct         t      //drop “c” in European Portuguese (eg: exacto)
 ?1     A) cç         s      //drop “c” in European Portuguese (eg: selecção)
-?1 conta) ct      ct
+?1    conta) ct (A       kt // eg: contacto, contactar, contactável, incontactável, etc...
 
 
 .group d
@@ -441,24 +441,24 @@
        _) r (_       'Exe
        _) r (_\$     xe'aU    // currency
           r          r
-?1     A) r (A       :r
+?1     A) r (A       r
 ?2     A) r (A       *
-?1     A) r (_A      :r
+?1     A) r (_A      r
 ?2     A) r (_A      *
           rr         x
-?1     C) r (A       :r
+?1     C) r (A       r
 ?2     C) r (A       @-*
        _) r          x
        l) r          x
        n) r          x
        s) r          x
-?1     A) r (_       =@- //now, tis sound isn’t perfect but is is acceptable.
+?1     A) r (_       r // this letter is imperfect.
 
 
 .group s
 ?1     _) s (_W      Es|;    within an acronym  [s]+[;] not [s;] phoneme
 ?1     _) s (_       Es
-?2     _) s (_       Ese
+?2     _) s (_       'Ese
           s          s
           ss         s
           sc (Y      s
@@ -619,6 +619,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

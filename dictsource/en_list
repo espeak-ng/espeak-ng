@@ -2517,6 +2517,8 @@ she's            %Si:z         $pastf
 we've            %wi:v         $pastf
 they've          %DeIv         $pastf
 
+we'd             %wi:d         $pastf
+
 I                aI            $u+ $verbf $only
 (I am)           %aIa2m
 he               %hi:          $verbsf

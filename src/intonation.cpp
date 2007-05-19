@@ -267,9 +267,7 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
    {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
    20, 25,   34, 20,  drops_0, 3, 3,   15, 25, 0},
 
-//   {PITCHdrop, 38, 1,  PITCHdrop, 42,25,              // exclamation
-//   20, 25,   34, 22,  drops_0, 3, 3,   12, 8, 0},
-   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
+   {PITCHdrop, 38, 1,  PITCHdrop, 42,25,              // exclamation
    20, 25,   34, 22,  drops_0, 3, 3,   12, 8, 0},
 
 

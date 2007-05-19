@@ -462,17 +462,17 @@
   2  vowel/ii_4     en_rp
   6  vowel/ii_en    en en_n
   5  vowel/@_low    hi ro no
-  8  vowel/o        en en_wm de hi it pt_pt sv
+  9  vowel/o        en en_wm de fr hi it pt_pt sv
   4  vowel/o_2      cy hi hu no
   2  vowel/o-_2     en_n en_wm
   2  vowel/o_3      en_sc
   1  vowel/o-_3     en_rp
-  2  vowel/o_4      en_n fr
-  2  vowel/o_6      fr nl
+  1  vowel/o_4      en_n
+  1  vowel/o_6      nl
   4  vowel/oe       en af de fr
   1  vowel/oe_2     no
   1  vowel/oe_4     sv
-  2  vowel/o_mid    hu ro
+  3  vowel/o_mid    fr hu ro
   8  vowel/oo       en_sc de eo es el sv no zh_yue
  11  vowel/oo_1     en_n en_rp en_wm af fi sk hr vi
   3  vowel/oo_2     en_sc cy cs
