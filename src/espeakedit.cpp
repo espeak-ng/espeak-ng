@@ -343,86 +343,9 @@ void MyFrame::OnQuit(wxCommandEvent& event)
 	}
 }
 
-//#define xcharset
-#ifdef xcharset
-#include "iconv.h"
-void CharsetToUnicode(const char *charset)
-{//=======================================
-// write a 8bit charset to unicode translation table to file
-// charset:  eg. "ISO-8859-1"
-	iconv_t cd;
-	unsigned char inbuf[4];
-	size_t n_inbuf;
-	unsigned char outbuf[12];
-	size_t n_outbuf;
-	int n;
-	int ix;
-	int x, y;
-	FILE *f;
-	char *p_inbuf;
-	char *p_outbuf;
-
-	f = fopen("/home/jsd1/tmp1/unicode1","a");
-
-	cd = iconv_open("WCHAR_T",charset);
-	if (cd == (iconv_t) -1)
-	{
-		fprintf(stderr,"Error - iconv_open\n");
-		return;
-	}
-
-	fprintf(f,"towlower_tab\n   ");
-	for(ix=0x80; ix<=0x241; ix++)
-	{
-		y = 0;
-		if(iswalpha(ix))
-		{
-			x = towlower(ix);
-			if(x == ix)
-				y = 0xff;
-			else
-				y = x - ix;
-		}
-		if((y == 0xff) || (y < 0))
-			fprintf(f,"0xff,");  // ignore the 5 obscure cases where uc > lc
-		else
-		{
-			fprintf(f,"%4d,",y);
-		}
-		if((ix&15)==15)
-			fprintf(f,"  // %x\n   ",ix & ~15);
-	}
-
-	fprintf(f,"\n%s\n   ",charset);
-	for(ix=0x80; ix<0x100; ix++)
-	{
-		inbuf[0] = ix;
-		inbuf[1] = 0;
-		inbuf[2] = 0;
-		outbuf[0] = 0;
-		outbuf[1] = 0;
-		n_inbuf = 2;
-		n_outbuf = sizeof(outbuf);
-		p_inbuf = (char *)inbuf;
-		p_outbuf = (char *)outbuf;
-
-		n = iconv(cd, &p_inbuf, &n_inbuf, &p_outbuf, &n_outbuf);
-
-		fprintf(f,"0x%.2x%.2x, ",outbuf[1],outbuf[0]);
-		if((ix&7)==7)
-			fprintf(f,"// %.2x\n   ",ix & ~7);
-	}
-	fclose(f);
-
-	iconv_close(cd);
-}
-#endif
-
 
 void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {//===================================================
-//CharsetToUnicode("ISO-8859-3");
-//CharsetToUnicode("ISCII");
 	char buf[120];
 
 	sprintf(buf,about_string,espeak_Info(NULL));
