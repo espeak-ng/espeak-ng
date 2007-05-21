@@ -15,19 +15,19 @@
       fr  33  115
    fr_ca  11  115
       hi  49  127
-      hu  24  109
+      hu  26  111
       nl  25  112
       pl  17  103
       sk  25  120
       cs   5  120
-      hr  24  130
+      hr  26  132
       ru  36  120
       it  28  112
       es   6  112
       pt  25  127
    pt_pt  17  127
       ro  36  136
-      el   7  112
+      el   8  112
       sv  25  114
       no  29  118
       is  27  113
@@ -184,7 +184,10 @@
   1  r3/r_i         base
   6  r3/r_n         base cy eo fr pl ru
   1  r3/r_o         base
+  2  r3/r_test1.wav hu hr
+  2  r3/r_test2.wav hu hr
   3  r3/r_trill     base eo it
+  4  r3/r_trill2    hu hr
   3  r3/r_trill.wav base eo it
   1  r3/r_u         base
  28  r3/rx          base af cy eo fr fr_ca pl ru pt_pt ro is
@@ -446,7 +449,7 @@
  10  vowel/e_mid2   af de fi nl sk ro el sw
   1  vowel/@_fnt    hr
   1  vowel/@_hgh    no
- 17  vowel/i        en_n en_rp en_wm cy eo fr hu pl it pt pt_pt ro ++
+ 18  vowel/i        en_n en_rp en_wm cy eo fr hu pl it pt pt_pt ro ++
   1  vowel/i#       cy
   3  vowel/i_2      de nl sv
   2  vowel/i_3      af sk

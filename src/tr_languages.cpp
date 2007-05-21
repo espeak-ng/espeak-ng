@@ -122,6 +122,7 @@ Translator *SelectTranslator(const char *name)
 
 			// character codes offset by 0x380
 			static const char el_vowels[] = {0x10,0x2c,0x2d,0x2e,0x2f,0x30,0x31,0x35,0x37,0x39,0x3f,0x45,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0};
+			static const char el_fvowels[] = {0x2d,0x2e,0x2f,0x35,0x37,0x39,0x45,0x4d,0};
 			static const char el_voiceless[]= {0x38,0x3a,0x3f,0x40,0x42,0x43,0x44,0x46,0x47,0};
 			static const char el_consonants[]={0x32,0x33,0x34,0x36,0x38,0x3a,0x3b,0x3c,0x3d,0x3e,0x40,0x41,0x42,0x43,0x44,0x46,0x47,0x48,0};
 			static const wchar_t el_char_apostrophe[] = {0x3c3,0};  // σ
@@ -137,6 +138,7 @@ Translator *SelectTranslator(const char *name)
 			SetLetterBits(tr,LETTERGP_A,el_vowels);
 			SetLetterBits(tr,LETTERGP_B,el_voiceless);
 			SetLetterBits(tr,LETTERGP_C,el_consonants);
+			SetLetterBits(tr,LETTERGP_Y,el_fvowels);    // front vowels: ε η ι υ
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = 2;
@@ -321,7 +323,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x56;  // move secondary stress from light to a following heavy syllable
-			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x1;
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 

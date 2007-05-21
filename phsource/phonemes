@@ -924,8 +924,8 @@ endphoneme
 
 phoneme c
   vls pal stop
-  vowelin f1=0  f2=2700 400 600  f3=500 80 rate len=80
-  vowelout f1=0  f2=2700 400 600  f3=300 80
+  vowelin f1=0  f2=2700 200 500  f3=500 80 rate len=80
+  vowelout f1=0  f2=2700 300 500  f3=300 80
   lengthmod 2
   wave ustop/c%130
   before _ ustop/ki%80

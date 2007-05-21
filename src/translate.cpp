@@ -1150,13 +1150,19 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			if(sylimit & 0x100)
 			{
 				// only if the second word has $alt attribute
-				strcpy(ph_buf,word_phonemes);
 				flags2 = translator->TranslateWord(p2+1, 0, wtab+1);
+				strcpy(ph_buf,word_phonemes);
 				if((flags2 & FLAG_ALT_TRANS) == 0)
 				{
 					ok = 0;
 					strcpy(word_phonemes,ph_buf);
 				}
+			}
+
+			if((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD))
+			{
+				// not if the next word is end-of-sentence
+				ok = 0;
 			}
 
 			if(ok)

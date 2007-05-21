@@ -1153,6 +1153,13 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 					DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
 				}
 			}
+			else
+			{
+				if(p->synthflags & SFLAG_LENGTHEN)
+				{
+					DoPause(50);
+				}
+			}
 
 			if(pre_voiced)
 			{

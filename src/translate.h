@@ -236,6 +236,9 @@ extern const int param_defaults[N_SPEECH_PARAM];
  // don't reduce the strongest vowel in a word which is marked 'unstressed'
 #define LOPT_KEEP_UNSTR_VOWEL  10
  // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
+ // bits 0-3  N syllables
+ // bit 4=only if the second word has $alt attribute
+ // bit 5=not if the second word is end-of-sentence
 #define LOPT_COMBINE_WORDS 11
 
 
