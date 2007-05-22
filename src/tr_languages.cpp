@@ -122,8 +122,8 @@ Translator *SelectTranslator(const char *name)
 
 			// character codes offset by 0x380
 			static const char el_vowels[] = {0x10,0x2c,0x2d,0x2e,0x2f,0x30,0x31,0x35,0x37,0x39,0x3f,0x45,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0};
-			static const char el_fvowels[] = {0x2d,0x2e,0x2f,0x35,0x37,0x39,0x45,0x4d,0};
-			static const char el_voiceless[]= {0x38,0x3a,0x3f,0x40,0x42,0x43,0x44,0x46,0x47,0};
+			static const char el_fvowels[] = {0x2d,0x2e,0x2f,0x35,0x37,0x39,0x45,0x4d,0}; // ε η ι υ  έ ή ί ύ
+			static const char el_voiceless[]= {0x38,0x3a,0x3e,0x40,0x42,0x43,0x44,0x46,0x47,0};  // θ κ ξ π ς σ τ φ χ 
 			static const char el_consonants[]={0x32,0x33,0x34,0x36,0x38,0x3a,0x3b,0x3c,0x3d,0x3e,0x40,0x41,0x42,0x43,0x44,0x46,0x47,0x48,0};
 			static const wchar_t el_char_apostrophe[] = {0x3c3,0};  // σ
 
@@ -259,6 +259,8 @@ Translator *SelectTranslator(const char *name)
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
 			tr->langopts.replace_chars = replace_chars_hi;
 			tr->langopts.replacement_chars = replacement_chars_hi;
+
+			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBitsRange(tr,LETTERGP_A,0x06,0x14);   // vowel letters
 			SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs + virama
 			SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
@@ -311,7 +313,7 @@ Translator *SelectTranslator(const char *name)
 	case L('h','u'):   // Hungarian
 		{
 			static int stress_amps_hu[8] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_hu[8] = {180,150, 200,180, 0,0, 230,270};
+			static int stress_lengths_hu[8] = {180,160, 200,180, 0,0, 230,270};
 			static const wchar_t replace_chars_hu[] = {0xd4,0xf4,0xdb,0xfb,0};
 			static const unsigned int replacement_chars_hu[] = {0x150,0x151,0x170,0x171,0};     // allow o,u-circumflex for o,u-double-acute
 
@@ -322,7 +324,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.replacement_chars = replacement_chars_hu;
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.stress_flags = 0x56;  // move secondary stress from light to a following heavy syllable
+			tr->langopts.stress_flags = 0x16;  // move secondary stress from light to a following heavy syllable
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x1;
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
@@ -336,14 +338,15 @@ Translator *SelectTranslator(const char *name)
 	case L('i','s'):   // Icelandic
 		{
 			static int stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_is[8] = {180,140, 200,200, 0,0, 240,260};
-			static const wchar_t is_L08[] = {'c','f','h','k','p','s','t','x',0xfe,0};  // voiceless conants, including 'þ'
+			static int stress_lengths_is[8] = {180,160, 200,200, 0,0, 240,260};
+			static const wchar_t is_L08[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_is,stress_amps_is);
 			tr->langopts.stress_rule = 1;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11;    // remove lengthen indicator from unstressed vowels
 
+			ResetLetterBits(tr,0x18);
 			SetLetterBits(tr,4,"kpst");   // Letter group F
 			SetLetterBits(tr,3,"jvr");    // Letter group H
 			tr->letter_groups[8] = is_L08;
@@ -502,6 +505,7 @@ Translator *SelectTranslator(const char *name)
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');
+			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,5,sk_voiced);
 		}
 		break;

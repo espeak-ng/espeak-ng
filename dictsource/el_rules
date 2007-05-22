@@ -6,7 +6,8 @@
 // Α α, Β β, Γ γ, Δ δ, Ε ε, Ζ ζ, Η η, Θ θ, Ι ι, Κ κ, Λ λ, Μ μ, Ν ν, Ξ ξ,
 // Ο ο, Π π, Ρ ρ, Σ σ ς (word-final form), Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω.
 
-// Y:  ε η ι υ  (+tonos variants, front vowels).
+// Letter group B:   θ κ ξ π ς σ τ φ χ  (voiceless consonants)
+// Letter group Y:   ε η ι υ  έ ή ί ύ  (front vowels).
 
 
 .group α
@@ -42,6 +43,7 @@
 .group δ
            δ        D
            δ (δ
+
 
 .group ε
            ε        e

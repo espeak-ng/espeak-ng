@@ -916,6 +916,7 @@ void TestTest(int control)
 	unsigned int ix=0;
 	char textbuf[2000];
 	espeak_VOICE voice;
+	espeak_VOICE *voice2;
 
 //FindPhonemesUsed();
 //return;
@@ -956,7 +957,10 @@ if(control==2)
 	voice.gender = 0;
 	voice.age = 0;
 	voice.variant = 0;
-	espeak_SetVoiceByName("en");
+	ix = espeak_SetVoiceByName("pt-xx");
+
+	voice2 = espeak_GetCurrentVoice();
+
 //	espeak_SetVoiceByProperties(&voice);
 	espeak_SetParameter(espeakRANGE,0,0);
 	espeak_Synth(textbuf,ix+1,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML,NULL,NULL);

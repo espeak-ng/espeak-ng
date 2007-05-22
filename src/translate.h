@@ -504,6 +504,7 @@ int lookupwchar(const unsigned short *list,int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);
+void ResetLetterBits(Translator *tr, int groups);
 void SetLetterBits(Translator *tr, int group, const char *string);
 void SetLetterBitsRange(Translator *tr, int group, int first, int last);
 void SetLetterVowel(Translator *tr, int c);

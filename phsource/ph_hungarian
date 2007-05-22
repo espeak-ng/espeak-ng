@@ -135,7 +135,7 @@ phoneme d       // dental variant of /d/
   vowelin f1=2  f2=1500 -300 300  f3=-150 80
   vowelout f1=2 f2=1500 -300 300  f3=-150 80
   formants d/d+x/d_dnt%110
-  before _ d/d_+x/d_
+  before _ d/d_+x/d_dnt%80
   before r d/dr+x/d_dnt%110
   after _ NULL
   after @ d/xd

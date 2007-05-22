@@ -30,7 +30,7 @@
       el   8  112
       sv  25  114
       no  29  118
-      is  27  113
+      is  32  117
       vi  41  129
   zh_yue  32  120
       sw  14  101
@@ -143,6 +143,7 @@
   1  n^/_n^         base
   1  n^/n^_         base
   1  n^/n^@         base
+  1  n^/n^#_        is
   6  n/_n           base ro
   3  n/n_           base ro
   1  n/n@           base
@@ -233,13 +234,14 @@
   1  ufric/sx_sv    sv
   1  ufric/th       base
   1  ufric/th_      base
+  1  ufric/tl#      is
   2  ufric/x        base vi
   4  ufric/x2       af nl pt
   1  ufric/x_hr     hr
   1  ustop/c        base
   5  ustop/k        base en fr hi sw
   9  ustop/k_       base en fi fr hi hu it el sw
- 11  ustop/ki       base en af fi fr hi hu it sw
+ 12  ustop/ki       base en af fi fr hi hu it is sw
  10  ustop/kl       base en fi fr hi hu it el sw
  11  ustop/kr       base en fi fr hi hu it el sw
   9  ustop/k_unasp  base fi hi hu it el
@@ -339,7 +341,7 @@
   2  vdiph/ooi_3    en_wm hr
   2  vdiph/ou       fi zh_yue
   2  vdiph/ou_2     sk ro
-  1  vdiph/ou_3     is
+  2  vdiph/ou_3     is
   1  vdiph/@u       en_wm
   1  vdiph/@u_2     en_rp
   1  vdiph/@u_3     ro
@@ -386,8 +388,8 @@
   2  voc/Q          base
   4  voc/Q_         base nl pt
   2  voc/Q_less     nl pt
-  5  voc/v          base fi hi nl ro
-  6  voc/v_         base fi hi nl ro
+  6  voc/v          base fi hi nl ro is
+  7  voc/v_         base fi hi nl ro is
   4  vocw/dh        base es
   2  vocw/Q         base
   3  vocw/Q_        base nl
@@ -606,8 +608,8 @@
  20  x/b            base hi ro is
   2  x/b_           base is
   9  x/d            base hi hr el is
- 15  x/d_           base fi fr hi hu pl hr ru it ro el is ++
- 22  x/d_dnt        base fi fr hi hu pl ru it ro sw
+ 14  x/d_           base fi fr hi pl hr ru it ro el is sw
+ 23  x/d_dnt        base fi fr hi hu pl ru it ro sw
   6  x/d_pzd        pl ru
   3  x/dzh          base hi
   5  x/dzh_         base hi ru

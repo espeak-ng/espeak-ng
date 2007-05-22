@@ -629,6 +629,21 @@ void SetLetterVowel(Translator *tr, int c)
 	tr->letter_bits[c] = 0x81;   // group 0 only
 }
 
+void ResetLetterBits(Translator *tr, int groups)
+{//=============================================
+// Clear all the specified groups
+	unsigned int ix;
+	unsigned int mask;
+
+	mask = ~groups;
+
+	for(ix=0; ix<sizeof(tr->letter_bits); ix++)
+	{
+		tr->letter_bits[ix] &= mask;
+	}
+}
+
+
 void SetLetterBits(Translator *tr, int group, const char *string)
 {//==============================================================
 	int bits;

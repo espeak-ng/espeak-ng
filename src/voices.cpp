@@ -1341,7 +1341,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 	}
 
 	// first check for a voice with this filename
-	if(LoadVoice(buf,1) != NULL)
+	if((first_voice == NULL) && (LoadVoice(buf,1) != NULL))
 	{
 		voice_selected = first_voice;
 

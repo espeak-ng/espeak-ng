@@ -653,7 +653,7 @@ static void SmoothSpect(void)
 			modified = 0;
 
 			if(frame->frflags & FRFLAG_FORMANT_RATE)
-				len = (len * 13)/10;      // allow slightly greater rate of change for this frame (was 12/10)
+				len = (len * 12)/10;      // allow slightly greater rate of change for this frame (was 12/10)
 
 			for(pk=0; pk<6; pk++)
 			{
