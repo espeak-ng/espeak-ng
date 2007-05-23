@@ -381,12 +381,23 @@ endphoneme
 
 phoneme R
   liquid
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  formants r3/r_trill2+r3/r_trill2.wav%65
+  trill
+  lengthmod 6
+endphoneme
+
+phoneme R2   // this is [R] from Slovak/Czech
+  liquid
   vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
   formants r3/r_trill+r3/r_trill.wav%50
   trill
   lengthmod 6
 endphoneme
+
+
 
 phoneme l
   liquid
@@ -526,7 +537,7 @@ endphoneme
 
 phoneme n^
   vcd pal nasal palatal
-  vowelout f1=3 f2=2300 300 400  f3=100 80  brk rate
+  vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   length 100
   lengthmod 4
   formants NULL

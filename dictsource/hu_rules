@@ -133,10 +133,11 @@
         qu       kv
 
 .group r
-        r        r
-     A) r (A     *
-     C) r (A     @-*
-        rr       *r
+        r        R
+     A) r (A     R
+     C) r (A     R
+        r (C     r
+        rr       R
 
 .group s
         s        S

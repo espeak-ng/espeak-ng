@@ -37,7 +37,7 @@ extern wxString path_phsource;
 extern wxString path_dictsource;
 
 extern char path_source[80];
-extern char path_dsource[80];
+extern char path_dsource[120];
 
 extern int option_speed;
 

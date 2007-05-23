@@ -480,7 +480,7 @@
          _)  al (i        al
          _)  al (ig       a2l
          _)  ali (Be      a2laI
-         &)  ali (sC_     @li
+         &)  ali (sC_     @lI
          &)  al (isCic    @l
          _)  al (k        al
          _)  all (@       a2l
@@ -5115,6 +5115,8 @@
              š            S
              ş            S
              ž            Z
+             þ            T
+             ð            D
 
 
              \\           bakstroUk

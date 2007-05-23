@@ -51,7 +51,7 @@ wxString path_dictsource;
 wxString path_speaktext;
 int option_speed=160;
 
-char path_dsource[80];
+char path_dsource[120];
 
 BEGIN_EVENT_TABLE(Options, wxDialog)
 		EVT_BUTTON(wxID_SAVE,Options::OnCommand)

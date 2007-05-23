@@ -151,7 +151,7 @@ phoneme r
 endphoneme
 
 
-phoneme R2
+phoneme R2x
   liquid starttype r endtype r
   length 100
   lengthmod 7
@@ -164,7 +164,7 @@ phoneme R2
 endphoneme
 
 
-phoneme R
+phoneme R3x
   liquid
   vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk

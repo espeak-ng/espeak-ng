@@ -1,39 +1,39 @@
 34 phoneme tables
           new total
-    base  92   92
-      en  52  139
-    en_n  29  139
-   en_us  36  139
-   en_sc  39  141
-   en_rp  34  139
-   en_wm  30  139
-      af  37  123
-      cy  30  118
-      de  28  115
-      eo  16  104
-      fi  40  123
+    base  93   93
+      en  52  140
+    en_n  29  140
+   en_us  36  140
+   en_sc  39  142
+   en_rp  34  140
+   en_wm  30  140
+      af  37  124
+      cy  30  119
+      de  28  116
+      eo  13  105
+      fi  40  124
       fr  33  115
    fr_ca  11  115
-      hi  49  127
-      hu  26  111
-      nl  25  112
-      pl  17  103
-      sk  25  120
-      cs   5  120
-      hr  26  132
-      ru  36  120
-      it  28  112
-      es   6  112
-      pt  25  127
-   pt_pt  17  127
-      ro  36  136
-      el   8  112
-      sv  25  114
-      no  29  118
-      is  32  117
-      vi  41  129
-  zh_yue  32  120
-      sw  14  101
+      hi  49  128
+      hu  24  110
+      nl  25  113
+      pl  17  104
+      sk  26  121
+      cs   5  121
+      hr  25  131
+      ru  36  121
+      it  28  114
+      es   6  114
+      pt  25  129
+   pt_pt  17  129
+      ro  36  138
+      el   8  114
+      sv  25  115
+      no  29  119
+      is  32  118
+      vi  41  130
+  zh_yue  32  121
+      sw  14  102
 
   3  b/b            base hi ro
   2  b/b_           base hi
@@ -177,36 +177,35 @@
   1  r2/r2i         base
   1  r2/r2o         base
   1  r2/r2u         base
-  7  r3/r_          base af cy eo fr pl ru
+  6  r3/r_          base af cy fr pl ru
   1  r3/r_@         base
   1  r3/r#_         is
   1  r3/r_a         base
   1  r3/r_e         base
   1  r3/r_i         base
-  6  r3/r_n         base cy eo fr pl ru
+  5  r3/r_n         base cy fr pl ru
   1  r3/r_o         base
-  2  r3/r_test1.wav hu hr
-  2  r3/r_test2.wav hu hr
-  3  r3/r_trill     base eo it
-  4  r3/r_trill2    hu hr
-  3  r3/r_trill.wav base eo it
+  3  r3/r_trill     base sk it
+  2  r3/r_trill2    base hr
+  2  r3/r_trill2.wav base hr
+  3  r3/r_trill.wav base sk it
   1  r3/r_u         base
- 28  r3/rx          base af cy eo fr fr_ca pl ru pt_pt ro is
+ 26  r3/rx          base af cy fr fr_ca pl ru pt_pt ro is
   2  r3/rz_cs       sk
   2  r3/@tap        base
   2  r3/@tap_i      base
   7  r/r            base en_sc de fr hu it
   5  r/_r           base en_sc fr hu it
- 17  r/r_           base en_sc af cy de eo fi fr hu nl pl ru ++
+ 16  r/r_           base en_sc af cy de fi fr hu nl pl ru it ++
   1  r/r@           base
   1  r/ra           base
   1  r/re           base
   1  r/ri           base
   1  r/ro           base
- 29  r/rr           base af cy de eo fi nl pl ru it ro no ++
+ 26  r/rr           base af cy de fi nl pl ru it ro no sw
   1  r/ru           base
  15  r/tr           base en_sc fr hu it
- 57  r/trr          base af cy de eo fi nl pl ru it ro sv ++
+ 51  r/trr          base af cy de fi nl pl ru it ro sv no ++
  11  r/xr           base
   1  ufric/ch       base
   3  ufric/f        base de ro

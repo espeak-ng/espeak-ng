@@ -184,20 +184,11 @@ phoneme x
   switchvoicing Q
 endphoneme
 
-phoneme R2   // test
+phoneme R
   liquid
   vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
-  formants r3/r_trill2+r3/r_test1.wav%140
-  trill
-  lengthmod 6
-endphoneme
-
-phoneme R3  // test
-  liquid
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
-  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
-  formants r3/r_trill2+r3/r_test2.wav%140
+  formants r3/r_trill2+r3/r_trill2.wav%65
   trill
   lengthmod 6
 endphoneme

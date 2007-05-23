@@ -280,13 +280,23 @@ void Free(void *ptr)
 static void init_path(const char *path)
 {//====================================
 #ifdef PLATFORM_WINDOWS
+	HKEY RegKey;
+	unsigned long size;
+	unsigned long var_type;
+	unsigned char buf[100];
+
 	if(path != NULL)
 	{
 		sprintf(path_home,"%s/espeak-data",path);
 		return;
 	}
+	buf[0] = 0;
+	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
+	size = sizeof(buf);
+	var_type = REG_SZ;
+	RegQueryValueEx(RegKey, "path", 0, &var_type, buf, &size);
 
-	strcpy(path_home,"c:\\Program Files\\espeak\\espeak-data");
+	sprintf(path_home,"%s\\espeak-data",buf);
 
 #else
 	if(path != NULL)

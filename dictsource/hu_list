@@ -13,7 +13,7 @@ m         Em
 n         En
 p         pe:
 q         ku:
-r         Er
+r         ER
 s         S_
 s         ES  $atend
 _s        ES
@@ -30,7 +30,7 @@ _.        pont
 _0        n'ullA
 _1        'EJ
 _2        k'EttY:
-_3        h'a:rom
+_3        h'a:Rom
 _4        n'e:J
 _5        'Yt
 _6        h'At
@@ -51,9 +51,9 @@ _9X       k'ilEntsvEn
 _0C       s'a:z_
 _1C       s'a:z
 
-_0M1      'EzEr
-_1M1      'EzEr
-_2M1      k'e:t,EzEr
+_0M1      'EzER
+_1M1      'EzER
+_2M1      k'e:t,EzER
 _0M2      m'illio:
 _1M2      m'illio:
 _2M2      k'e:tm,illio:
@@ -68,7 +68,7 @@ _dpt      v,Ess2Y:
 
 // Articles
 a         $u
-a         A: $atend
+a         A: $atend     // letter "a"
 az        $u
 
 ez        $u   // this

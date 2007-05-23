@@ -83,7 +83,7 @@
 .group r
         r        R
      A) r (A     R
-     K) r (A     @-*
+     K) r (A     R
         rr       R
         r (_     R
 
@@ -101,7 +101,8 @@
 
 .group u
         u        u
-        uj (K    wi
+        uj (K    uI
+     X) uj (_    u'i
 
 .group v
         v        v

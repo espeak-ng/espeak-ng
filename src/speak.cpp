@@ -538,7 +538,11 @@ int main (int argc, char **argv)
 	if(flag_compile)
 	{
 #ifdef PLATFORM_WINDOWS
-		CompileDictionary("C:\\Program Files\\eSpeak\\dictsource\\",dictionary_name,NULL,NULL);
+		char path_dsource[120];
+		strcpy(path_dsource,path_home);
+		path_dsource[strlen(path_home)-11] = 0;  // renove "espeak-data" from the end
+		strcat(path_dsource,"dictsource\\");
+		CompileDictionary(path_dsource,dictionary_name,NULL,NULL);
 #else
 		CompileDictionary(NULL,dictionary_name,NULL,NULL);
 #endif

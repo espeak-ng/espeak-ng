@@ -312,8 +312,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('h','u'):   // Hungarian
 		{
-			static int stress_amps_hu[8] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_hu[8] = {180,160, 200,180, 0,0, 230,270};
+			static int stress_amps_hu[8] = {17,16, 20,19, 20,24, 24,22 };
+			static int stress_lengths_hu[8] = {180,160, 200,190, 0,0, 220,240};
 			static const wchar_t replace_chars_hu[] = {0xd4,0xf4,0xdb,0xfb,0};
 			static const unsigned int replacement_chars_hu[] = {0x150,0x151,0x170,0x171,0};     // allow o,u-circumflex for o,u-double-acute
 
@@ -323,9 +323,10 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.replace_chars = replace_chars_hu;
 			tr->langopts.replacement_chars = replacement_chars_hu;
 
+			tr->langopts.vowel_pause = 0x10;
 			tr->langopts.stress_rule = 0;
-			tr->langopts.stress_flags = 0x16;  // move secondary stress from light to a following heavy syllable
-			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x1;
+			tr->langopts.stress_flags = 0x16;
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 
@@ -338,13 +339,15 @@ Translator *SelectTranslator(const char *name)
 	case L('i','s'):   // Icelandic
 		{
 			static int stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_is[8] = {180,160, 200,200, 0,0, 240,260};
+			static int stress_lengths_is[8] = {180,155, 200,200, 0,0, 240,250};
 			static const wchar_t is_L08[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_is,stress_amps_is);
 			tr->langopts.stress_rule = 1;
+			tr->langopts.stress_flags = 0x10;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11;    // remove lengthen indicator from unstressed vowels
+			tr->langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
 
 			ResetLetterBits(tr,0x18);
 			SetLetterBits(tr,4,"kpst");   // Letter group F

@@ -43,7 +43,7 @@ Dictionary de_dict
 
 3    @    @-   a    A:   aI   aU   E    
 E2   E:   e:   I    i:   O    o:   OI   
-U    u:   u:   W    y    y:   Y:   
+U    u:   W    y    y:   Y:   
 
 *    ;    b    C    d    D    f    g    
 h    j    k    l    m    n    N    p    
@@ -66,9 +66,9 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  E    e@   eI   I    i    I2   i:   
-i@   IR   O    O:   o:   O@   o@   OI   
-oU   O~   U    u:   U@   V    VR   
+aU@  E    e@   eI   I    I2   i:   i@   
+IR   O    O:   o:   O@   o@   OI   oU   
+O~   U    u:   U@   V    VR   
 
 :    ;    b    C    d    D    dZ   f    
 g    g-   h    j    k    l    L    m    
@@ -112,8 +112,8 @@ S    s2   t    v    Z
 
 Dictionary fr_dict
 
-@    @-   a    A    A~   e    E    E~   
-i    o    O    oU   O~   u    U    u:   
+@    @-   a    A    aU   A~   e    E    
+E~   i    I    o    O    O    O~   u    
 W    w^i  W~   y    Y    
 
 (o)  :    ;    b    c    d    dZ   f    
@@ -141,23 +141,23 @@ Dictionary hr_dict
 &    8    @    @-   @2   a    A    a:   
 aI   aU   E    e    e:   eI   i    I    
 i:   iI   l-   o    o:   oI   oU   r-   
-u    U    u:   
+u    U    u:   uI   
 
 *    b    d    d;   dZ   dZ;  f    g    
 h    j    k    l    l^   m    n    N    
-n^   p    r    R    s    S    t    tS   
-ts   tS;  v    w    x    z    Z    
+n^   p    r    R    s    S    t    t;   
+tS   ts   tS;  v    x    z    Z    
 
 
 Dictionary hu_dict
 
-@-   A    a:   E    e    e:   i    i:   
-o    o:   u    u:   y    Y    y:   Y:   
+A    a:   E    e    e:   i    i:   o    
+o:   u    u:   y    Y    y:   Y:   
 
 *    :    b    c    C    d    dZ   f    
 g    h    j    J    k    l    m    n    
-N    n^   p    r    s    S    s2   t    
-tS   ts   v    z    Z    
+N    n^   p    r    R    s    S    s2   
+t    tS   ts   v    z    Z    
 
 
 Dictionary it_dict
@@ -212,8 +212,8 @@ Dictionary pt_dict
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
-i    i/   iU   o    O    oI   OI   o~   
-U    u    uI   u~   y    
+i    i/   iU   i~   o    O    oI   OI   
+o~   U    u    uI   u~   y    
 
 *    :    ;    b    C    d    dZ   f    
 g    h    j    k    l    l^   m    n    
@@ -312,11 +312,11 @@ tS   v    w    z
 Dictionary is_dict
 
 &    @-   a    aI   aU   e    E    eI   
-i    I    o    O    oU   u    W    y    
-Yy   
+i    I    o    O    oU   oU2  u    W    
+y    Yy   
 
 *    :    ;    b    c    C    d    D    
-f    g    h    j    J    k    l    L    
-l#   m    m#   n    N    n#   N#   n^   
-n^#  p    Q    r    r#   s    S    t    
-T    tl#  v    x    z    
+f    g    h    j    J    k    l    l#   
+m    m#   n    N    n#   N#   n^   n^#  
+p    Q    r    r#   s    S    t    T    
+tl#  v    x    z    
