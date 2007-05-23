@@ -295,7 +295,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	case MENU_SPEAK_TRANSLATE:
 		SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
-		strncpy0(buf,t_source->GetValue().mb_str(wxConvLocal),sizeof(buf));
+		strncpy0(buf,t_source->GetValue().mb_str(wxConvUTF8),sizeof(buf));
 		phon_out[0] = 0;
 		n_ph_list = 0;
 		clause_count = 0;
@@ -329,14 +329,13 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			rewind(f_trans);
 			while(fgets(buf,sizeof(buf),f_trans) != NULL)
 			{
-				t_phonetic->AppendText(wxString(buf,wxConvLocal));
+				t_phonetic->AppendText(wxString(buf,wxConvUTF8));
 			}
 			t_phonetic->AppendText(_T("---\n"));
 			fclose(f_trans);
 			remove(fname_temp);
 		}
 		t_phonetic->AppendText(wxString(phon_out,wxConvLocal));
-// MbrolaTranslate(ph_list,n_ph_list,stdout);     // for Testing
 		break;
 
 	case T_PROCESS:

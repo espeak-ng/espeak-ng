@@ -30,7 +30,7 @@
       el   8  114
       sv  25  115
       no  29  119
-      is  32  118
+      is  33  119
       vi  41  130
   zh_yue  32  121
       sw  14  102
@@ -513,6 +513,7 @@
   1  vowel/V_4      en_sc
   6  vowel/y        en de fi hu nl zh_yue
  10  vowel/y#       en en_wm de fi fr hu nl ro vi zh_yue
+  1  vowel/y##      is
   2  vowel/y_2      fr
   2  vowel/y#_2     hu sv
   1  vowel/y_3      af

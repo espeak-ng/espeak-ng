@@ -87,6 +87,12 @@ phoneme y
   formants vowel/yy_4
 endphoneme
 
+phoneme y#
+  vowel starttype (@) endtype (@)
+  length 130
+  formants vowel/y##
+endphoneme
+
 phoneme W
   vowel starttype (@) endtype (@)
   length 130

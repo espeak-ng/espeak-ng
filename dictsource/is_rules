@@ -18,6 +18,7 @@
         au (CC   Yy
 
      _) al (@P2N ,a:l
+     _) a (ll+   &
 
 .group á
         á        aU:
@@ -222,13 +223,13 @@
 
 
 .group r
-     _) r        @-*
+     _) r        R2
      C) r        @-*
-     A) r (A     @-*
+     A) r (A     R
    L08) r        r#
         r (L08   r#
         r (_     r#
-        r        r
+        r        R
         rl       dl
         rl (K    rtl#
         rn       rdn#
@@ -256,6 +257,7 @@
         u (CC    y
      K) u (ng    u
      K) u (nk    u
+     &) ur (_    y#r#
 
 
 .group ú
