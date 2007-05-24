@@ -447,7 +447,7 @@
 ?2     A) r (_A      *
           rr         x
 ?1     C) r (A       r
-?2     C) r (A       @-*
+?2     C) r (A       R   // was [@-*]
        _) r          x
        l) r          x
        n) r          x

@@ -397,6 +397,15 @@ phoneme R2   // this is [R] from Slovak/Czech
   lengthmod 6
 endphoneme
 
+phoneme R3
+  liquid
+  vowelin  f1=2  f2=70 -300 300  f3=-300 80 dnt
+  vowelout f1=2  f2=70 -300 300  f3=-300 80 brk
+  formants r3/r_trill+r3/r_trill3.wav%60
+  trill
+  lengthmod 6
+endphoneme
+
 
 
 phoneme l

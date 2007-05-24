@@ -31,7 +31,7 @@ endphoneme
 phoneme &~
   vowel  starttype (@) endtype (@)
   length 240
-  formants vnasal/&_n
+  formants vnasal/e#_n
 endphoneme
 
 phoneme &U~
@@ -61,6 +61,14 @@ phoneme &/       // Used for final "a" when next word starts with "a"
   length 180
   formants vowel/a#
 endphoneme
+
+phoneme &#
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/a#_3
+  unstressed
+endphoneme
+
 
 phoneme A            // for "al" in European Portuguese
   vowel starttype (a) endtype (a)
@@ -112,6 +120,13 @@ phoneme u
   length 160
   formants vowel/u_bck
 endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/uu_bck
+endphoneme
+
 
 
 
