@@ -438,16 +438,17 @@
   1  vowel/@_bck    hi
  13  vowel/e        en en_n af cy eo fr hu hr it pt pt_pt vi
   2  vowel/e#       en_sc
-  7  vowel/e_2      en_sc de hi hu sv no
+  6  vowel/e_2      en_sc de hi sv no
+  1  vowel/e_3      hu
   1  vowel/e_5      en_sc
   3  vowel/ee       fr pl sv
   2  vowel/e_e      en_sc is
   7  vowel/ee_1     en en_n pl it sv no zh_yue
-  4  vowel/ee_2     en cy hu nl
+  3  vowel/ee_2     en cy nl
   1  vowel/ee#_2    sv
   3  vowel/ee_3     af pt vi
   3  vowel/ee_6     en_n sk sv
- 11  vowel/e_mid    en_rp en_wm fr_ca hi sk cs hr es pt_pt no is
+ 12  vowel/e_mid    en_rp en_wm fr_ca hi hu sk cs hr es pt_pt no is
  10  vowel/e_mid2   af de fi nl sk ro el sw
   1  vowel/@_fnt    hr
   1  vowel/@_hgh    no

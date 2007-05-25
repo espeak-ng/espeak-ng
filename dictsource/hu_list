@@ -88,9 +88,9 @@ ez        $u   // this
 
 
 // Conjunctions
-és        $u $pause  // and
-de        $u $pause  // but
-vagy      $u $pause  // or
+és        $u $pause $strend2 // and
+de        $u+ $pause  // but
+vagy      $u+ $pause  // or
 
 mert      $pause     // because
 miatt     $pause     // because
@@ -100,6 +100,9 @@ habár     $pause     // although
 ha        $u $pause  // if
 
 
+// Prepositions etc.
+
+
 // Negative
 nem       $u+
 ne        $u+
@@ -107,6 +110,7 @@ ne        $u+
 
 // Unstressed adverbs etc.
 néhány    $u+
+is        $u         // ??
 
 
 // Verbs

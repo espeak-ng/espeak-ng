@@ -8,16 +8,17 @@
         a        A:
         a (C%    A
         a (_     A
-     X) a (CCX   A  // single syllable with >= 2 final consonants
+     X) a (CCK   A  // single syllable with >= 2 final consonants
+                    // or initial syllable with 3 consonants
         ai       AI
         au       aU
 
         aa       o:   // å
         aa (C%   O
-     X) aa (CCX  O
+     X) aa (CCK  O
         ae       a:   // æ
         ae (C%   a
-     X) ae (CCX  a
+     X) ae (CCK  a
 
 
 .group b
@@ -45,7 +46,7 @@
 .group e
         e        e:
         e (C%    E
-     X) e (CCX   E
+     X) e (CCK   E
         ei       aI
         e (rC    a           //  ??
      &) e (_     @2
@@ -76,7 +77,7 @@
 .group i
         i        i:
         i (C%    I
-     X) i (CCX   I
+     X) i (CCK   I
      &) ig (_    I
 
 .group j
@@ -109,12 +110,12 @@
 .group o
         o        u:
         o (C%    O
-     X) o (CCX   O
+     X) o (CCK   O
         oi       OI
 
         oe       Y:   // ø
         oe (C%   W
-     X) oe (CCX  W
+     X) oe (CCK  W
         oey      Yy
 
         o (nd    U
@@ -164,7 +165,7 @@
 .group u
         u        u-:
         u (C%    u-
-     X) u (CCX   u-
+     X) u (CCK   u-
         ui       u-I
 
 .group v
@@ -191,29 +192,29 @@
 .group å
         å        o:
         å (C%    O
-     X) å (CCX   O
+     X) å (CCK   O
 
 .group æ
         æ        E:
         æ (r     a:
         æ (C%    a
-     X) æ (CCX   a
+     X) æ (CCK   a
 
 .group ø
         ø        Y:
         ø (C%    W
-     X) ø (CCX   W
+     X) ø (CCK   W
         øy       Yy
 
 .group ä
         ä        E:
         ä (C%    E
-     X) ä (CCX   E
+     X) ä (CCK   E
 
 .group ö
         ö        Y:
         ö (C%    W
-     X) ö (CCX   W
+     X) ö (CCK   W
 
 .group
         é        'e:

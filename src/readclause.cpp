@@ -286,7 +286,7 @@ static int GetC(void)
 					break;
 				}
 
-				if(((c2 & 0xc0) != 0x80) && ((c2 & m) != 0))
+				if((c2 & 0xc0) != 0x80)
 				{
 					GetC_unget(c2);
 					break;
@@ -963,7 +963,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 			return(0);  // <s> or <p> without language spec, nothing to do
 	
 		ssml_sp = &ssml_stack[n_ssml_stack++];
-	
+
 		attrcopy_utf8(ssml_sp->language,lang,sizeof(ssml_sp->language));
 		attrcopy_utf8(ssml_sp->voice_name,name,sizeof(ssml_sp->voice_name));
 		ssml_sp->voice_variant = attrnumber(variant,1,0)-1;

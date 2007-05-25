@@ -325,7 +325,8 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.vowel_pause = 0x10;
 			tr->langopts.stress_rule = 0;
-			tr->langopts.stress_flags = 0x16;
+			tr->langopts.stress_flags = 0x36;
+			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;

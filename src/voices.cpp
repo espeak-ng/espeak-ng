@@ -874,7 +874,7 @@ voice_t *LoadVoiceVariant(const char *vname, int variant)
 	if((v != NULL) && (variant > 0))
 	{
 		sprintf(buf,"!variant%d",variant);
-		LoadVoice(buf,2);
+		v = LoadVoice(buf,2);
 	}
 	return(v);
 }
@@ -1038,8 +1038,9 @@ static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_
 }  // end of ScoreVoice
 
 
-static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices)
-{//=========================================================================
+static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int control)
+{//======================================================================================
+// control: bit0=1  include mbrola voices
 	int ix;
 	int score;
 	int nv;           // number of candidates
@@ -1063,9 +1064,13 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices)
 	nv = 0;
 	for(ix=0; ix<n_voices_list; ix++)
 	{
+		vp = voices_list[ix];
+		if(((control & 1) == 0) && (memcmp(vp->identifier,"mb/",3) == 0))
+			continue;
+
 		if((score = ScoreVoice(voice_select, n_parts, lang_len, voices_list[ix])) > 0)
 		{
-			voices[nv++] = vp = voices_list[ix];
+			voices[nv++] = vp;
 			vp->score = score;
 		}
 	}
@@ -1154,7 +1159,7 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
 		espeak_ListVoices(NULL);   // create the voices list
 
 	// select and sort voices for the required language
-	nv = SetVoiceScores(voice_select,voices);
+	nv = SetVoiceScores(voice_select,voices,0);
 
 	if(nv == 0)
 	{
@@ -1441,7 +1446,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	if(voice_spec)
 	{
 		// select the voices which match the voice_spec, and sort them by preference
-		SetVoiceScores(voice_spec,voices);
+		SetVoiceScores(voice_spec,voices,1);
 		return((const espeak_VOICE **)voices);
 	}
 

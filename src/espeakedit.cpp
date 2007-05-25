@@ -156,7 +156,10 @@ extern void VoiceReset(int control);
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
 	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
-		setlocale(LC_CTYPE,"");
+	{
+		if(setlocale(LC_CTYPE,"UTF-8") == NULL)
+			setlocale(LC_CTYPE,"");
+	}
 
 
   // Create the main frame window

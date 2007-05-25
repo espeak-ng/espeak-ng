@@ -858,12 +858,6 @@ void CharsetToUnicode(const char *charset)
 
 
 
-char* text[]=
-{
-  "<voice xml:lang=\"en\" variant=\"1\">eSpeak.</voice>",
-  " <voice xml:lang=\"en\" gender=\"male\" variant=\"1\"><prosody rate=\"1.0\"> normally would, </prosody></voice>"
-};
-
 
 #ifdef deleted
 void Test2()
@@ -908,6 +902,11 @@ int x;
 }
 #endif
 
+char* text1[]=
+{
+  "<voice xml:lang=\"en\" variant=\"2\">eSpeak.</voice>",
+  " <voice xml:lang=\"fr\" gender=\"male\" variant=\"3\"><prosody rate=\"1.0\"> normally would, </prosody></voice>"
+};
 
 void TestTest(int control)
 {//=======================
@@ -924,7 +923,7 @@ void TestTest(int control)
 //CharsetToUnicode("ISCII");
 
 
-return;
+//return;
 
 if(control==2)
 {
@@ -951,25 +950,18 @@ if(control==2)
 
 	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL);
 	espeak_SetSynthCallback(TestSynthCallback);
-//	espeak_SetUriCallback(TestUriCallback);
 
-	voice.languages = "fr";
-	voice.gender = 0;
-	voice.age = 0;
-	voice.variant = 0;
-	ix = espeak_SetVoiceByName("pt-xx");
+  unsigned int unique_identifier=0;
+  int index=0;
+  espeak_Synth(text1[index], strlen(text1[index])+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
 
-	voice2 = espeak_GetCurrentVoice();
+  espeak_SetParameter(espeakPUNCTUATION, 1, 0);
+  espeak_Synchronize();
+  //  espeak_Cancel();
+  espeak_SetParameter(espeakPUNCTUATION, 1, 0);
 
-//	espeak_SetVoiceByProperties(&voice);
-	espeak_SetParameter(espeakRANGE,0,0);
-	espeak_Synth(textbuf,ix+1,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML,NULL,NULL);
-
-//	for(voice.variant = 1; voice.variant < 9; voice.variant++)
-//	{
-//		espeak_SetVoiceByProperties(&voice);
-//		espeak_Synth(textbuf,ix+1,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML,NULL,NULL);
-//	}
+  index++;
+  espeak_Synth(text1[index], strlen(text1[index])+1, 0, POS_CHARACTER, 0, espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
 }
 
 

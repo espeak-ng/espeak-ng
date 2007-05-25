@@ -109,7 +109,7 @@ _16	s'Ez
 _17	d'is:'Et
 _18	d'is:'w^it
 _19	d'is:n'@f
-_20	v'E~ 
+_20	v'E~
 _21	v'E~te:E~
 _22	v'E~td'Y
 _23	v'E~t:tRw'a
@@ -214,38 +214,38 @@ une	$u $nounf
 
 
 // conjonctions
-et	e $u $pause
-ou	$u $pause
-car	$u $pause
-soit	$u $pause
-mais	$u $pause
-ou	u $u $pause
-donc	$u $pause
-or	$u $pause
-ni	$u $pause
-car	$u $pause
-cependant  $u $pause
-néanmoins  $u $pause
-toutefois  $u $pause
+et	e $u $brk
+ou	$u $brk
+car	$u $brk
+soit	$u $brk
+mais	$u $brk
+ou	u $u $brk
+donc	$u $brk
+or	$u $brk
+ni	$u $brk
+car	$u $brk
+cependant  $u $brk
+néanmoins  $u $brk
+toutefois  $u $brk
 
 
-comme	   $u $pause
-lorsque	   $u $pause
-puisque	   $u $pause
-quand	   $u $pause
-que	   $u $pause
-qui	   $u $pause
-quoique	   $u $pause
-si	   $u $pause
+comme	   $u $brk
+lorsque	   $u $brk
+puisque	   $u $brk
+quand	   $u $brk
+que	   $u $brk
+qui	   $u $brk
+quoique	   $u $brk
+si	   $u $brk
 
-// (à cause que)   $u $pause
-// (ainsi que)     $u $pause
-// (à mesure que)  $u $pause
-// (après que)     $u $pause
-// (à moins que)   $u $pause
-// (au lieu que)   $u $pause
-// (aussitôt que)  $u $pause
-// (pendant que)   $u $pause
+// (à cause que)   $u $brk
+// (ainsi que)     $u $brk
+// (à mesure que)  $u $brk
+// (après que)     $u $brk
+// (à moins que)   $u $brk
+// (au lieu que)   $u $brk
+// (aussitôt que)  $u $brk
+// (pendant que)   $u $brk
 // (pourvu que)    $u $pause
 
 // pronouns
@@ -284,7 +284,7 @@ vos	$u+
 leurs	$u+
 
 // prepositions
-de	$u $nounf
+de $u $nounf
 du	$u+ $nounf
 des	dEz2 $u $nounf
 ?2 des  dez2 $u+ $nounf
@@ -294,21 +294,21 @@ des	dEz2 $u $nounf
 au	$u $brk
 aux	$u $brk
 
-dans	$u+ $pause
-sur	$u+ $pause
-par	$u+ $pause
-pour	$u+ $pause
+dans	$u+ $brk
+sur	$u+ $brk
+par	$u+ $brk
+pour	$u+ $brk
 en	$u+ $brk
-(en effet) A~nEf'E $pause
+(en effet) A~nEf'E $brk
 
-vers	$u+ $pause
-avec	$u+ $pause
-sans	$u+ $pause
-sous	$u+ $pause
-entre	$u+ $pause
-contre	$u+ $pause
+vers	$u+ $brk
+avec	$u+ $brk
+sans	$u+ $brk
+sous	$u+ $brk
+entre	$u+ $brk
+contre	$u+ $brk
 
-durant	$pause
+durant	$brk
 
 // negative
 ne	$u
@@ -386,6 +386,7 @@ echo          Eko
 fils	      fis
 mars	      maRs
 pays	      pEi
+pourcent    purs'A~
 sens	      sA~s
 c'est         sEt2 $u
 qu'à          ka
