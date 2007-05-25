@@ -132,10 +132,9 @@ fprintf(f_events,"Finished\n");
 	}
 
 	fwrite(wav,numsamples*2,1,f_wavtest);
-
 	while((type = events->type) != 0)
 	{
-		fprintf(f_events,"%4d %4d (%2d):  %d  ",events->audio_position,events->text_position,events->length,type);
+		fprintf(f_events,"%5d %4d  (%2d)   %d   ",events->audio_position,events->text_position,events->length,type);
 		if((type==3) || (type==4))
 			fprintf(f_events,"'%s'\n",events->id.name);
 		else
@@ -904,8 +903,8 @@ int x;
 
 char* text1[]=
 {
-  "<voice xml:lang=\"en\" variant=\"2\">eSpeak.</voice>",
-  " <voice xml:lang=\"fr\" gender=\"male\" variant=\"3\"><prosody rate=\"1.0\"> normally would, </prosody></voice>"
+  "Hello World.  This is the second sentence",
+  "Testing"
 };
 
 void TestTest(int control)
@@ -947,8 +946,9 @@ if(control==2)
 
 	OpenWaveFile3("/home/jsd1/speechdata/text/test.wav",samplerate);
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
+	fprintf(f_events,"Audio Text Length Type Id\n");
 
-	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL);
+	espeak_Initialize(AUDIO_OUTPUT_SYNCH_PLAYBACK,0,NULL);
 	espeak_SetSynthCallback(TestSynthCallback);
 
   unsigned int unique_identifier=0;
