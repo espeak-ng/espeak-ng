@@ -567,7 +567,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		suppress_null = 1;
 	}
 
-	if(word[n_digits] == langopts.decimal_sep)
+	if((word[n_digits] == langopts.decimal_sep) && isdigit(word[n_digits+1]))
 	{
 		// this "word" ends with a decimal point
 		Lookup("_dpt",ph_append);

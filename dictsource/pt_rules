@@ -28,8 +28,8 @@
           a (r_      'a
 ?1     p) a (d_      =E
           a (CC_     &
-?1        al (_      'al // eg: Portugal, capital, etc.
-?1   _) a (lC      ,a // Algarve, alto, etc...
+?1        al (_      'Al // eg: Portugal, capital, etc.
+?1        a (lK      ,A   // Algarve, alto, etc...
 ?2        al (K      aU
 ?2        alh        alj
 
@@ -81,6 +81,7 @@
           áy         ''aI
           áu         ''aU
           áu (s      ''aU
+          ál         ''Al
           á (uCK     ''a
 
 
@@ -130,14 +131,32 @@
 ?1        e (e       i //eg: candeeiro
 ?2        ee         i
 
-          e (be_     E
-          e (bes_    E
-          e (ce_     E
-          e (ces_    E
 ?2        el (K      EU
 ?2        elh        elj
 
-?1        e (rtA_    'E // Eg: Alberto, aberta, etc...
+          e (be_     E
+          e (bem_    E
+          e (bes_    E
+          e (ce_     E
+          e (cem_    E
+          e (ces_    E
+          e (stA_    E
+          e (stAm_   E
+          e (stAs_   E
+
+          e (rnA_    E
+          e (rnAm_    E
+          e (rnAs_    E
+          e (rtA_    E
+          e (rtAm_    E
+          e (rtAs_    E
+
+          e (x_      E
+          e (xA_     E
+          e (xAm_    E
+          e (xAs_    E
+
+
           em (C      eIm
           en (K      eIN
           enh        en^
@@ -339,10 +358,8 @@
 
 .group o
           o          o
-       @) o (_       =u
-          o (s_      =u
-?1     @) o (_       =U
-?1        o (s_      =U
+       @) o (_       =U
+          o (s_      =U
           ou         ow
           oi         oI
           oi (s      oI
@@ -363,10 +380,15 @@
           on (K      oN
           o (na_     o
           onh        on^
-          o (rmA_    O
-          o (rmAC    O
+          o (rCA_    O
+          o (rCAm_    O
+          o (rCAs_    O
+        o (stA_        O
+        o (stAm_        O
+        o (stAs_        O
 
-?1        oz (_      OS
+?2        ox (_        Oks
+?1        oz (_      Os#
 ?2        oz (_      Oz
           o (zes_    O
           o (ra_     O
@@ -447,7 +469,7 @@
 ?2     A) r (_A      *
           rr         x
 ?1     C) r (A       r
-?2     C) r (A       R   // was [@-*]
+?2     C) r (A       R
        _) r          x
        l) r          x
        n) r          x
@@ -463,9 +485,10 @@
           ss         s
           sc (Y      s
           sç         s
+          sh         S
        A) s (A       z
-?1     @) s (_       S
-?2      s (_       s
+?1     @) s (_       s#
+?2        s (_       s#
        @) s (_A      z     // next word starts with vowel
        @) s (_G      z     // next word starts with voiced consonant
 
@@ -473,10 +496,10 @@
        A) s (_AS1    z     // next word starts with vowel
        A) s (_GS1    z     // next word starts with voiced consonant
 
-?1     A) s (C       S
+?1     A) s (C       s#
 ?1     A) ss         s
 ?1     A) s (G+      Z
-?1     A) s (_KS1    S
+?1     A) s (_KS1    s#
 ?1     A) s (_G+S1   Z
 
 
@@ -535,12 +558,11 @@
 
 
 .group x
-?1     _) x (_       SiS
-?2     _) x (_       Sis
+       _) x (_       Sis#
           x (A       S
        A) x (A       ks
-       e) x (A       z
-       e) x (o_      ks
+      _e) x (A       z
+       e) x (A       ks
       ai) x (A       S
       ei) x (A       S
       au) x          s

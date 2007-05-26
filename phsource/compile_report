@@ -7,7 +7,7 @@
    en_sc  39  143
    en_rp  34  141
    en_wm  30  141
-      af  37  125
+      af  38  125
       cy  30  120
       de  28  117
       eo  13  106
@@ -24,8 +24,8 @@
       ru  36  122
       it  28  115
       es   6  115
-      pt  27  131
-   pt_pt  17  131
+      pt  28  132
+   pt_pt  20  132
       ro  36  139
       el   8  115
       sv  25  116
@@ -185,19 +185,19 @@
   1  r3/r_i         base
   5  r3/r_n         base cy fr pl ru
   1  r3/r_o         base
-  4  r3/r_trill     base sk it
+  8  r3/r_trill     base af sk it pt
   2  r3/r_trill2    base hr
   2  r3/r_trill2.wav base hr
-  1  r3/r_trill3.wav base
-  3  r3/r_trill.wav base sk it
+  4  r3/r_trill3.wav base af
+  4  r3/r_trill.wav base sk it pt
   1  r3/r_u         base
  26  r3/rx          base af cy fr fr_ca pl ru pt_pt ro is
   2  r3/rz_cs       sk
   2  r3/@tap        base
   2  r3/@tap_i      base
-  7  r/r            base en_sc de fr hu it
-  5  r/_r           base en_sc fr hu it
- 16  r/r_           base en_sc af cy de fi fr hu nl pl ru it ++
+  8  r/r            base en_sc de fr hu it pt_pt
+  6  r/_r           base en_sc fr hu it pt_pt
+ 17  r/r_           base en_sc af cy de fi fr hu nl pl ru it ++
   1  r/r@           base
   1  r/ra           base
   1  r/re           base
@@ -205,7 +205,7 @@
   1  r/ro           base
  26  r/rr           base af cy de fi nl pl ru it ro no sw
   1  r/ru           base
- 15  r/tr           base en_sc fr hu it
+ 18  r/tr           base en_sc fr hu it pt_pt
  51  r/trr          base af cy de fi nl pl ru it ro sv no ++
  11  r/xr           base
   1  ufric/ch       base
@@ -220,12 +220,12 @@
   3  ufric/hu       base hi
   2  ufric/hu_fi    fi
   2  ufric/ll       base is
-  2  ufric/s        base es
- 10  ufric/s_       base fi fr hu es ro
- 12  ufric/s!       base fi hu es
+  3  ufric/s        base es pt
+ 11  ufric/s_       base fi fr hu es pt ro
+ 15  ufric/s!       base fi hu es pt
   2  ufric/s_continue fi hu
-  1  ufric/sh       base
-  1  ufric/sh_      base
+  2  ufric/sh       base pt_pt
+  2  ufric/sh_      base pt_pt
   2  ufric/sh_pzd   base ro
   3  ufric/sh_pzd_  base
   2  ufric/sh_rfx   base
@@ -365,10 +365,11 @@
   1  vdiph/y#y_3    nl
   1  vnasal/aa_n    en
   2  vnasal/aa_n3   af fr
+  1  vnasal/a#_n    pt
+  2  vnasal/a#u_n   pt pt_pt
   2  vnasal/ee_n    en fr_ca
   3  vnasal/ee_n2   hi pl pt_pt
   2  vnasal/e_n     af pt
-  1  vnasal/e#_n    pt
   1  vnasal/i_n     pt
   1  vnasal/m-      sw
   1  vnasal/n-      sw
@@ -379,7 +380,6 @@
   1  vnasal/o_n3    fr
   1  vnasal/oo_n    en
   2  vnasal/oo_n2   hi pl
-  1  vnasal/&u_n    pt
   1  vnasal/u_n     pt
   3  vnasal/W_n     en fr
   1  voc/bh         base
@@ -423,7 +423,7 @@
   5  vowel/a_2      eo it pt_pt ro vi
   4  vowel/a#_2     hr sv is sw
   6  vowel/a_3      en_sc cs is
- 13  vowel/a#_3     en en_n en_us en_wm de hi ru pt pt_pt vi zh_yue
+ 12  vowel/a#_3     en en_n en_us en_wm de hi ru pt_pt vi zh_yue
   4  vowel/a_4      en_wm el vi
   2  vowel/a_5      sv sw
   7  vowel/aa       en_us fi fr_ca no zh_yue
@@ -613,10 +613,10 @@
  14  x/d_           base fi fr hi pl hr ru it ro el is sw
  23  x/d_dnt        base fi fr hi hu pl ru it ro sw
   6  x/d_pzd        pl ru
-  3  x/dzh          base hi
+  4  x/dzh          base hi
   5  x/dzh_         base hi ru
   4  x/dz_pzd       base hi ru
-  2  x/dz_pzd_      base hi
+  1  x/dz_pzd_      hi
   4  x/g_           base cy es is
   5  x/g2           base cy hi es is
   3  x/g2_          base hi

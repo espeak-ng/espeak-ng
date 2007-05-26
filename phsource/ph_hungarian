@@ -32,14 +32,14 @@ phoneme e:
 endphoneme
 
 phoneme A
-  vowel starttype (a) endtype (a)
+  vowel starttype (o) endtype (o)
   length 140
   formants vowel/0_3
 endphoneme
 
 phoneme a:
-  vowel starttype (o) endtype (o)
-  length 240
+  vowel starttype (a) endtype (a)
+  length 280
   formants vowel/a
 endphoneme
 

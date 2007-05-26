@@ -70,7 +70,7 @@ _*   ast@rIsk:
 _+   plVs
 _,   k0m@
 _-   h,aIf@n
-_.   st0p
+_.   d0t
 _/   stroUk
 _:   koUl@n
 _;   sEmIk'oUl0n
@@ -962,6 +962,7 @@ hominem          h0mInEm
 horizontal        $3
 hospitable       h0sp'It@b@L
 hostage          h0stIdZ
+hostess          hoUstEs
 hotel            hoUt'El
 house            haUz          $verb 
 however           $2
@@ -1405,6 +1406,7 @@ pros             proUz
 proceed          proUsi:d      $onlys
 proceed                        $verb
 proceed                        $only
+progeny          pr0dZ@nI2
 progress         proUgrEs      $only
 progress                       $verb
 project          pr0dZEkt      $onlys
@@ -1420,6 +1422,7 @@ psst             psst
 psyche           saIki:
 psyched          saIkd
 psychiatrist     saIk'aI@trIst
+psychiatry       saIk'aI@trI2
 psychosis        saIk'oUsIs
 psychotic        saIk'0tIk
 pud              pUd           // and pudding
@@ -1581,6 +1584,7 @@ sclera           skli@r@
 seabed           si:bEd
 sealion          si:laI@n
 seance           seI0ns
+seconded         sEk'0ndId
 secrecy          si:kr@sI2
 secret           si:kr@t
 secretive        si:kr@tI2v
@@ -1625,6 +1629,7 @@ site             saIt          // for sited
 ski              ski:
 skies            skaIz
 skied            ski:d
+skua             sku:@
 snooker          snu:k3
 society          s@saI@tI2
 sofa             soUf@
@@ -2101,6 +2106,7 @@ Totonto          t@r0ntoU
 Timor            ti:mo@
 Tokyo            toUkIoU
 Toulouse         tu:l'u:z
+Tripoli          trIp@lI2
 Ukraine          ju:kr'eIn
 Ural             ju:@r@L
 Utah             ju:tA:

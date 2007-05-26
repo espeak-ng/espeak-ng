@@ -30,14 +30,14 @@ endphoneme
 
 phoneme &~
   vowel  starttype (@) endtype (@)
-  length 240
-  formants vnasal/e#_n
+  length 200
+  formants vnasal/a#_n
 endphoneme
 
 phoneme &U~
-  vowel  starttype (a) endtype (@)
+  vowel  starttype (@) endtype (u)
   length 240
-  formants vnasal/&u_n
+  formants vnasal/a#u_n
 endphoneme
 
 phoneme oI~
@@ -62,17 +62,10 @@ phoneme &/       // Used for final "a" when next word starts with "a"
   formants vowel/a#
 endphoneme
 
-phoneme &#
-  vowel starttype (@) endtype (@)
-  length 180
-  formants vowel/a#_3
-  unstressed
-endphoneme
-
 
 phoneme A            // for "al" in European Portuguese
   vowel starttype (a) endtype (a)
-  length 180
+  length 200
   formants vowel/aa_7
 //  reduceto &  4
 endphoneme
@@ -186,8 +179,17 @@ phoneme l
 endphoneme
 
 
+phoneme x   // this is [R] from Slovak/Czech
+  liquid
+  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  formants r3/r_trill+r3/r_trill.wav%50
+  trill
+  lengthmod 6
+endphoneme
 
-phoneme x   // for "r"
+
+phoneme x2   // for "r"
   vcd vel frc
   vowelin f1=0  f2=1500 0 400  f3=-500 100
   vowelout f1=0 f2=1500 0 400  f3=-500 100  rms=20
@@ -197,4 +199,17 @@ phoneme x   // for "r"
   switchvoicing x
 endphoneme
 
+
+phoneme s#     // This is [s] for Brazi;, [S] for Portugal
+  vls alv frc sibilant
+  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 3
+  wave ufric/s
+  before _ ufric/s_
+  before p ufric/s!
+  before t ufric/s!
+  before k ufric/s!
+  switchvoicing z
+endphoneme
 

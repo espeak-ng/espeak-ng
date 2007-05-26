@@ -312,8 +312,9 @@ Translator *SelectTranslator(const char *name)
 
 	case L('h','u'):   // Hungarian
 		{
-			static int stress_amps_hu[8] = {17,16, 20,19, 20,24, 24,22 };
-			static int stress_lengths_hu[8] = {180,160, 200,190, 0,0, 220,240};
+			static int stress_amps_hu[8] = {17,17, 19,19, 20,24, 24,22 };
+			static int stress_lengths_hu[8] = {190,190, 190,190, 0,0, 200,210};
+//			static int stress_lengths_hu[8] = {180,180, 200,190, 0,0, 210,225};
 			static const wchar_t replace_chars_hu[] = {0xd4,0xf4,0xdb,0xfb,0};
 			static const unsigned int replacement_chars_hu[] = {0x150,0x151,0x170,0x171,0};     // allow o,u-circumflex for o,u-double-acute
 
@@ -323,17 +324,18 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.replace_chars = replace_chars_hu;
 			tr->langopts.replacement_chars = replacement_chars_hu;
 
-			tr->langopts.vowel_pause = 0x10;
+			tr->langopts.vowel_pause = 0x20;
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x36;
 			tr->langopts.unstressed_wd1 = 2;
-			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x2;  // don't propagate over v
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 
 			tr->langopts.numbers = 0x1809;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
+//SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
@@ -440,7 +442,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('p','t'):  // Portuguese
 		{
-			static int stress_lengths_pt[8] = {170, 120,  210, 210,  0, 0,  270, 295};
+			static int stress_lengths_pt[8] = {180, 125,  210, 210,  0, 0,  270, 295};
 			static int stress_amps_pt[8] = {16,13, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_pt,stress_amps_pt);

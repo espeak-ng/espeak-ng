@@ -18,6 +18,13 @@
         cs       tS
         ccs      tS:
 
+    me) ch (a    C
+    te) ch (n    C
+  pszi) ch       C
+  pszy) ch       C
+   mün) ch (en   C
+
+
 .group d
         d        d
         dd       d:
@@ -61,8 +68,8 @@
 
         gys      tS
      A) gys (A   tS:
-        gysz     ts
-     A) gysz (A  ts:
+        gysz     Js
+     A) gysz (A  Js:
         gyz      dz
      A) gyz (A   d:z
      C) gyzs     dZ
@@ -105,11 +112,12 @@
         n (b     m
         ny       n^
         nny      n^n^
+        nj       n^
+        nyj      n^
+
         ny (k    N
         ny (g    N
 
-        nj       n^
-        nyj      n^
 
 
 .group o
