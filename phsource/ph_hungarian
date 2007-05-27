@@ -10,7 +10,7 @@ phoneme i:
   vowel starttype (i) endtype (i)
   length 200
   formants vowel/i
-  linkout ;
+//  linkout ;
 endphoneme
 
 phoneme E
@@ -33,7 +33,7 @@ endphoneme
 
 phoneme A
   vowel starttype (o) endtype (o)
-  length 140
+  length 150
   formants vowel/0_3
 endphoneme
 
@@ -183,8 +183,6 @@ phoneme k    // unsapirated
   before (i) ustop/ki
   switchvoicing g
 endphoneme
-
-
 
 
 

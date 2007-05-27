@@ -66,9 +66,45 @@ endphoneme
 phoneme A            // for "al" in European Portuguese
   vowel starttype (a) endtype (a)
   length 200
-  formants vowel/aa_7
-//  reduceto &  4
+  formants vowel/a_3
 endphoneme
+
+phoneme A2            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 200
+  formants vowel/aa_7
+endphoneme
+
+phoneme A3            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 200
+  formants vowel/a_5
+endphoneme
+
+phoneme A4            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 200
+  formants vowel/a_2
+endphoneme
+
+phoneme A5            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 200
+  formants vowel/a
+endphoneme
+
+phoneme A6            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 200
+  formants vowel/V_4
+endphoneme
+
+phoneme A7            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 200
+  formants vowel/a#_2
+endphoneme
+
 
 
 phoneme E

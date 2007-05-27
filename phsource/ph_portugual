@@ -32,6 +32,12 @@ phoneme &~
   formants vnasal/ee_n2
 endphoneme
 
+phoneme &U~
+  vowel  starttype (@) endtype (u)
+  length 240
+  formants vnasal/a#u_n
+endphoneme
+
 
 
 phoneme E
@@ -131,6 +137,30 @@ phoneme x      // [r] for Portugal
   beforenotvowel r/
   trill
   formants vwl_fr/@R+r3/rx%120
+endphoneme
+
+
+phoneme R
+  liquid starttype r endtype r
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/r
+  after _ r/_r  t r/tr p r/tr k r/tr
+  before _ r/r_
+endphoneme
+
+
+phoneme s#     // This is [s] for Brazi;, [S] for Portugal
+  vls pla frc sibilant
+  vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  vowelout f1=0  f2=2100 100 300  f3=-100 80
+  length 100
+  lengthmod 3
+  wave ufric/sh
+  before _ ufric/sh_
+  switchvoicing Z
 endphoneme
 
 

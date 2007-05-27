@@ -5,12 +5,16 @@
 .group a
         a        A
 
+     _) a (_     %A
+
 .group á
         á        a:
 
 .group b
         b        b
         bb       b:
+
+        bizal (mát   b'iz'Al       // TEST
 
 .group c
         c        ts
@@ -23,6 +27,9 @@
   pszi) ch       C
   pszy) ch       C
    mün) ch (en   C
+  maso) ch (istA C
+
+  _sto) ck (holm  k
 
 
 .group d
@@ -53,6 +60,7 @@
 
 .group é
         é        e:
+        éi (é    e::i:
 
 .group ë
         ë        e
@@ -76,6 +84,11 @@
      A) gyzs (A  dZ:
      C) gyj      J
      A) gyj (A   J:
+
+    _e) gy (es   J:
+    _e) gy (ik   J:
+_minde) gy (ik   J:
+
 
 .group h
         h        h
@@ -113,7 +126,6 @@
         ny       n^
         nny      n^n^
         nj       n^
-        nyj      n^
 
         ny (k    N
         ny (g    N
@@ -152,12 +164,17 @@
         sz       s
         ssz      ss2
 
+        sz (öld    Sz
+
+
 .group t
      _) t (_     te:
      -) t (_     t
         t        t
         tt       t:
         ty       c
+     s) ty       c:    //
+     z) ty       c:    // keztyű
         tty      c:
 
         ts       tS
@@ -212,6 +229,13 @@
         zs       Z
         zzs      Z:
 
+    ga) zs (ág     zS
+   _ví) zsz (int   zs:
+   _gá) zsz (ámla  zs:
+   _gá) zsz (ámlá  zs:
+   _ré) zs (ó      zS
+   _há) zs (or     zS
+   _vá) zs (or     zS
 
 .group
         %        sa:zAle:k

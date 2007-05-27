@@ -313,7 +313,7 @@ Translator *SelectTranslator(const char *name)
 	case L('h','u'):   // Hungarian
 		{
 			static int stress_amps_hu[8] = {17,17, 19,19, 20,24, 24,22 };
-			static int stress_lengths_hu[8] = {190,190, 190,190, 0,0, 200,210};
+			static int stress_lengths_hu[8] = {185,190, 190,190, 0,0, 210,220};
 //			static int stress_lengths_hu[8] = {180,180, 200,190, 0,0, 210,225};
 			static const wchar_t replace_chars_hu[] = {0xd4,0xf4,0xdb,0xfb,0};
 			static const unsigned int replacement_chars_hu[] = {0x150,0x151,0x170,0x171,0};     // allow o,u-circumflex for o,u-double-acute
@@ -328,7 +328,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x36;
 			tr->langopts.unstressed_wd1 = 2;
-			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x2;  // don't propagate over v
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 

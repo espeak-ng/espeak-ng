@@ -1,29 +1,3 @@
-// Letters
-_a        A:
-b         be:
-c         tse:
-d         de:
-f         Ef
-g         ge:
-h         ha:
-j         je:
-k         ka:
-l         El
-m         Em
-n         En
-p         pe:
-q         ku:
-r         ER
-s         S_
-s         ES  $atend
-_s        ES
-v         ve:
-w         duplAve:
-x         iks
-y         ipsilAn
-z         ze:
-_.        pont
-
 
 // Numbers
 
@@ -68,10 +42,10 @@ _dpt      v,Ess2Y:
 
 // Articles
 a         $u
-a         A: $atend     // letter "a"
 az        $u
+aki       $u+   // that
 
-ez        $u   // this
+ez        $u+   // this
 
 
 // Pronouns
@@ -154,6 +128,33 @@ tudsz     $u+
 tudunk    $u+
 tudtok    $u+
 tudnak    $u+
+
+// Letters
+_a        A:
+a         A: $atend     // letter "a"
+b         be:
+c         tse:
+d         de:
+f         Ef
+g         ge:
+h         ha:
+j         je:
+k         ka:
+l         El
+m         Em
+n         En
+p         pe:
+q         ku:
+r         ER
+s         S_
+s         ES  $atend
+_s        ES
+v         ve:
+w         duplAve:
+x         iks
+y         ipsilAn
+z         ze:
+_.        pont
 
 
 // Main Exceptions List
