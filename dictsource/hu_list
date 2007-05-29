@@ -78,7 +78,7 @@ ha        $u $pause  // if
 
 
 // Negative
-nem       $u+
+nem       $alt2 $strend
 ne        $u+
 
 

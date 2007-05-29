@@ -474,11 +474,12 @@
   2  vowel/o_3      en_sc
   1  vowel/o-_3     en_rp
   1  vowel/o_4      en_n
+  1  vowel/o-_4     ro
   1  vowel/o_6      nl
   4  vowel/oe       en af de fr
   1  vowel/oe_2     no
   1  vowel/oe_4     sv
-  3  vowel/o_mid    fr hu ro
+  2  vowel/o_mid    fr hu
   8  vowel/oo       en_sc de eo es el sv no zh_yue
  11  vowel/oo_1     en_n en_rp en_wm af fi sk hr vi
   3  vowel/oo_2     en_sc cy cs

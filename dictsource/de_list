@@ -379,6 +379,7 @@ noch             $pause
 (noch nicht)    n'Ox||n,ICt  $brk
 (nicht mehr)    n'ICt||,me:*
 (nicht mehr)    n,ICt||m'e:*  $atend
+(nicht nur)     nICt||nu:* $pause
 (gar nicht)     g,A:*n'ICt
 
 // should these be in the Rules because they can be a prefix in a

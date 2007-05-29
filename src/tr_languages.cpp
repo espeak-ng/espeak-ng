@@ -326,10 +326,11 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.vowel_pause = 0x20;
 			tr->langopts.stress_rule = 0;
-			tr->langopts.stress_flags = 0x36;
+			tr->langopts.stress_flags = 0x8036;
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
+			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
 			tr->langopts.long_stop = 130;
 
 			tr->langopts.numbers = 0x1809;
@@ -347,7 +348,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_is,stress_amps_is);
-			tr->langopts.stress_rule = 1;
+			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x10;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11;    // remove lengthen indicator from unstressed vowels
 			tr->langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;

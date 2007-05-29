@@ -130,6 +130,7 @@ _minde) gy (ik   J:
         ny (k    N
         ny (g    N
 
+     _) nem (-   n,Em       // has $alt2 attribute in hu_list, combine with the next word
 
 
 .group o
@@ -236,6 +237,9 @@ _minde) gy (ik   J:
    _ré) zs (ó      zS
    _há) zs (or     zS
    _vá) zs (or     zS
+_szára) zs (ág     zS
+   _kö) zs (ég     zS
+
 
 .group
         %        sa:zAle:k

@@ -1,4 +1,5 @@
 
+
 // This file in UTF8 encoded
 
 // Letters
@@ -137,34 +138,42 @@ s.a.m.d	Se|aSamaIdeparte
 // articles
 un	$u
 o	$u
-nişte	$u
-unui	$u
-unei	$u
-unor	$u
-unele	$u	// some
+nişte	$u1
+una $u1+
+unul $u1+
+unuia $u1+
+uneia $u1+
+unui	$u1
+unei	$u1
+unor	$u1
+unora $u1+
+unele	$u1	// some
 
 ăsta    $u1+    // this
 asta    $u+
 acest	$u+     // this
+aceşti $u
+aceştia $u
+acestora $u2+
 aceasta	$u+
 această	$u+
 
 acel	$u+     // that
 acea	$u+	// that
 acei	$u+     // those
-acele	$u+     // those
+acele	$u1+     // those
 
 cei	$u+	// the, those
 cel	$u+	// that, he who
 cea	$u+	// that, she who
-cele	$u+	// those
+cele	$u1+	// those
 
 // pronouns
 eu	jeU $u+
 tu	$u+
 el	jel $u+
 ea	ja $u+
-//noi	$u+
+noi	$u+
 voi	$u+
 ele	jele $u+
 
@@ -183,6 +192,10 @@ se	$u
 mi	$u
 şi	$u
 
+însuşi $u1+
+ânsăşi $u1+
+însumi $u1+
+
 care	$u $brk   // who that which what
 ceea	$u $brk   // that
 
@@ -191,23 +204,23 @@ ceea	$u $brk   // that
 meu	$u+
 mei	$u+
 mea	$u+
-//mele	$u+
+mele	$u1+
 tău	$u+
 tăi	$u+
 ta	$u+
-tale	$u+
+tale	$u1+
 său	$u+
 săi	$u+
 sa	$u+
-sale	$u+
+sale	$u1+
 lui	$u+
 ei	jeI $u+
-//nostru	$u+
-noştri	$u+
-noastră	$u+
-//noastre	$u+
+nostru	$u1+
+noştri	noSt*i $u1+
+noastră	$u1+
+noastre	$u1+
 vostru	$u+
-voştri	$u+
+voştri	voSt*i $u1+
 voastră	$u+
 voastre	$u+
 lor	$u+
@@ -277,7 +290,7 @@ nu	$u+
 
 // some common adjectives and adverbs
 aşa		$2 $brk		// so, thus
-orice		$u3+	// any
+orice	 $u3+ 	// any
 totuşi		$1 $brk	// never, though, nevertheless
 totusi		$1 $brk	// (totuşi)
 unde		$brk	// where
@@ -337,30 +350,193 @@ trebuie		$2     // @-
 
 
 // Final "i" is stressed
-absolvi		$3
-ciocni		$2
-citi		$2
-dărui		d@*w'i
-deosebi		$3
-descoperi  	$4
-deveni		$3
-întâlni		$3
-izbi		$2
-lovi		$2
-opri		$2
-pocni		$2
-răsuci		$3
-teori		$2
+absolvi	$3
+afurisi	$4
+agonisi	$4
+ameţi	$3
+blagoslovi	$4
+borbi	$2
+boţi	$2
+buşi	$2
+călăuzi	$4
+căptuşi	$2
+cârmi	$2
+catadicsi	$4
+cerşi	$2
+ciocni	$2
+citi	$2
+cloci	$2
+cuveni	$3
+dărui	d@*w'i
+deosebi	$3
+depăsi	$3
+descoperi	$4
+desluşi	$2
+deveni	$3
+dormi	$2
+feri	$2
+fugi	$2
+gândi	$2
+găsi	$2
+grăbi	$4
+greşi	$2
+hăcui	$3
+îmbâcsi	$3
+împărţi	$3
+încălzi	$3
+încreţi	$3
+înghiţi	$3
+îngriji	$3
+întâlni	$3
+înteţi	$3
+învârti	$3
+izbi	$2
+linguşi	$3
+lovi	$2
+mânji	$2
+mirosi	$2
+moleşi	$3
+necăji	$3
+opri	$2
+pândi	$2
+păşi	$2
+păzi	$2
+plăti	$2
+pocni	$2
+povesti	$3
+prăbuşi	$3
+prăji	$2
+primi	$2
+răci	$2
+râfni	$2
+răguşi	$3
+răscoli	$3
+răspândi	$3
+răsuci	$3
+risipi	$3
+rotunji	$2
+săvârşi $3
+sclifosi	$3
+sfârşi	$2
+sfriji	$2
+slobozi	$3
+suci	$2
+ticsi	$2
+trezi	$2
+ursi	$2
+urzi	$2
+veşteji	$3
+vrăji	$2
+
+
+// final "a" or "ea" is stressed(verbs)
+agonisea	$2
+agrea	ag@-*e'a
+ajuta	$3
+alerga	$3
+apăra	$3
+ataca	$2
+băga	$2
+călăuzea	$4
+călca	$2
+cânta	$2
+căsca	$2
+căuta	$2
+cerşea	$2
+continua	kontinu'a
+crea	k@-*e'a
+credea	$3
+creştea	$2
+dădea	$2
+depista	$3
+desfunda	$2
+distra	$2
+dorea	$2
+dormea	$2
+făcea	$2
+ferea	$2
+fugea	$2
+furişa	$2
+gândea	$2
+hăcuia	$3
+îmbâcsea	$3
+împărţea	$3
+încalzea	$3
+încărca	$3
+încerca	$3
+închega	$2
+încreţea	$3
+înfăşura	$4
+înfunda	$2
+întâmpla	$3
+interesa	$4
+înteţea	$2
+înteţea	$3
+intra	$2
+întreba	$3
+învârtea	$3
+învingea	$2
+invita	$2
+juca	$2
+lăsa	$2
+lingea	$2
+mânca	$2
+mângâia	$3
+memora	$2
+mergea	$2
+merita	$3
+negocia	negotSi'a
+paraliza	$4
+părea	$2
+pavea	pave'a
+păzea	$2
+pleca	$2
+povestea	$2
+prepara	$3
+răbda	$2
+răcea	$2
+rămânea	$3
+răscolea	$3
+răsucea	$2
+repara	$3
+repera	$3
+respira	$3
+reuşea	$3
+revenea	$2
+săpa	$2
+scotea	$2
+sfărâma	$3
+spăla	$2
+spera	$2
+stăpânea	$2
+stătea	$2
+strica	$2
+sucea	$2
+suda	$2
+supăra	$3
+trăgea	$2
+trezea	$2
+valora	$3
+vâna	$2
+vedea	$2
+vira	$2
+vorbea	$2
+zbura	$2
 
 
 // hyphenated contractions
 (să l)	s@l     $u
 (să i)	s@I     $u
 (să şi)	s@S;I^  $u
+(care l) carel $u
 (să mi)	s@m;I^  $u
 (te am)	team    $u
 (te ai) teaj    $u
-(ne am) team    $u
+(ne am) neam    $u
+(n o) no $u
+(n aS) naS $u
+(n a) na $u
+(c o) co $u
 (l a)	la      $u
 (l au)	laU     $u
 (l am)	lam     $u
@@ -383,16 +559,22 @@ adventice	$3
 aer		aIer
 aici		a'itSI^
 altceva         $3
+america		$2
+americii	$2
+americile	$2
 apoi		$2
 artefice	$3
 asemenea	$2
+adu		$1
 
 biseric		$2
 
+capete		$1
 capitol		$2
 careva          $3
 cândva		$2
 câteva		$3
+câtorva		$3
 cerbice		$2
 ceva            $2
 cicatrice	$3      // @-
@@ -401,6 +583,7 @@ chimi		$alt
 chimic		$1
 complice	$2
 contrazice	$3
+consideră	$3
 creier		$1	// @-
 
 deja		$2
@@ -411,6 +594,7 @@ destul		$2
 dincolo		$1
 director	$2
 dori		$2
+doctor		$1
 
 edit		$1
 egale		$2
@@ -427,6 +611,7 @@ filozofii	$4
 fizic		$1
 fizicul		$1
 folosi		$3
+fiind		fi'ind
 
 gastronomi	$alt
 gâgâlice	$3
@@ -437,10 +622,17 @@ gimnaziu	dZimn'azju
 
 imagin		$2
 înainte		yna'inte
+legături	$3
+legătură	$3
+legăturile	$3
+înjurătură	$4
+înjurături	$4
+înjurăturile	$4
 interzice	$3
 
 latice		$2
 limit		$1
+
 lipsi		$2
 logic           $1
 
@@ -450,26 +642,40 @@ maximum		$1
 merit		$1
 mia		m'ia
 mie		m'ie
-minum		$1
-minumum		$1
+minim		$1
+minimum		$1
 murdărie	murd@*'ie
 muzik		$1
+mării		$1
+mişto		$1
+metri		met*i
 
 nimic		$2
 novice		$2
 numai		$1	// only
+număr		$1
+numărul		$1
 
-oareşice	$4
+oameni		$1
+oareşice	oa*eSTSe $4
 obişnuit        obiSnw'it
 ocol		$2
 ordin		$1
-orice		$3
-ovidiu		ovidj'u
+dezordine	$2
+orice		o*I^tSe  $2
+oricare		o*I^ka*e  $3
+oricând		o*I^kynd  $3
+ovidiu		ov'idju
 
 pagin		$1
 parodi		pa*od'i
 parodii		$3
 plânger		$1
+plăcere		$2
+plăceri		$2
+plăcerilor	$2
+polonic		$3
+polonicul	$3
 politic		$2
 pricin		$1
 prieten         $2
@@ -477,21 +683,31 @@ prietenie	p@-*jeten'ie
 privi		$3
 propice		$2
 protocol	$4
+promitem	$2
 
 regul		$1
 reguli		$1
 repede		$1
 repezi		$1
-români          romyn'i
+români          rom'ynI^
 rotocol		$3
 
 sadic		$1
+scrieri		$1
+scrierile	$1
+scrierilor	$1
 sâmbătă		$1
 securice	$3
-sergiu		sergj'u
+secol		$1
+secolul		$1
+secolele	$1
+secolului	$1
+secolelor	$1
+sergiu		s'ergju
 sigur		$1
 simbolic	$2
 spaţiu		spatsju
+spuneţi		sp'unetsI^
 
 tanti		tanti
 târcol		$2
@@ -508,4 +724,6 @@ vinovăţi        $alt
 vinovăţii       $4
 virgulă		$1
 virus		$1
+
+zarzări		$1
 

@@ -138,10 +138,10 @@ t.h  th   v    w    x    z
 
 Dictionary hr_dict
 
-&    8    @    @-   @2   a    A    a:   
-aI   aU   E    e    e:   eI   i    I    
-i:   iI   l-   o    o:   oI   oU   O~   
-r-   u    U    u:   uI   
+&    @    @-   @2   a    A    a:   aI   
+aU   E    e    e:   eI   i    I    i:   
+iI   l-   o    o:   oI   oU   O~   r-   
+u    U    u:   uI   
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    l^   m    n    N    n^   
@@ -222,21 +222,6 @@ s#   s;   t    tS   ts   v    w    x
 z    Z    
 
 
-Dictionary ro_dict
-
-@    @-   @I   @U   a    aI   aU   e    
-ea   eI   eo   eU   i    i/   I^   iI   
-iU   o    Oa   oI   oU   u    uI   y    
-Y    yI   yU   
-
-*    *;   b    b;   C    d    d;   dZ   
-f    f;   g    h    j    k    l    l;   
-m    m;   n    N    n;   p    p;   r    
-s    S    s;   S;   t    t;   tS   ts   
-ts;  v    v;   w    w2   z    Z    z;   
-Z;   
-
-
 Dictionary ru_dict
 
 8    @-   A    a    E    e    E#   E2   
@@ -307,6 +292,21 @@ oi   ong  ou   u    ui   yu
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
 tS   v    w    z    
+
+
+Dictionary ro_dict
+
+@    @-   @I   @U   a    aI   aU   e    
+ea   eI   eo   eU   i    i/   I^   iI   
+iU   o    Oa   oI   oU   u    uI   y    
+Y    yI   yU   
+
+*    *;   b    b;   c    C    d    d;   
+dZ   f    f;   g    h    j    k    l    
+l;   m    m;   n    N    n;   p    p;   
+r    s    S    s;   S;   t    T    t;   
+tS   ts   ts;  v    v;   w    w2   z    
+Z    z;   Z;   
 
 
 Dictionary is_dict

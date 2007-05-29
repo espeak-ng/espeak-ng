@@ -71,13 +71,14 @@
         eu (_    'eU
         ea       ea
      &) ea (_S2q ea
-        eai      eaj
+     &) eSi      eaj
         eau      eaw
         eoa      'eOa
         eo       eo
         e (AAA   e
 
-     &) e (_S1q  e
+     @) eş (_S2t eS
+// &) es (_S1q e
     &C) e (re_   %e
  
    _ac) ee (a	 eI
@@ -134,12 +135,10 @@
 
      &) ic (_    =ik
      &) ice (_   =itSe
+     &) icile (_  =itSile  // ??
+     &) icilor (_ =itSilor // ??
      &) ing (_   %iNg     // foreign words
         i (t_    'i
-
-   @ic) ii (_S2q ilor
-   @ic) ilor (_S4q ilor
-
 
 .group î
         î        y
@@ -172,6 +171,7 @@
         m        m
      @) m (i_    m;
      _) m (-a    m
+@-_) mi  mI^                // ??
 
 
 .group n
@@ -228,10 +228,17 @@
 
      &) sprezece (_S8t sp@-*ez,etSe
 
+     @) sem (_S3t   sem 
+     @) seră (_S4t  se*@
+     @) serăm (_S5t se*@m
+     @) serăţi (_S6t se*@tsI^
+     @) seşi (_S4t   seSI^
+
 
 .group ş
         ş        S
      @) ş (i_    S;
+
 
 
 .group t
@@ -303,18 +310,18 @@
 
 .group
         ö        Y
-
-        %        prosent   // ??
+    D_) % la_sut@
+        %        protSent
         $        dolar
         +        plus
-        &        perlwet
+        &        ampersand
         @        a*'ond
         /        sleS
         €        'eU*o
 
-        , (D     v'irgol@
+        , (D     v'irgul@
 
-        .        puntk
+        .        punkt
         . (.     _:
    \.)  .
 
@@ -327,3 +334,4 @@
     *)  * (*
         **
    **)  * (_     _::
+

@@ -575,8 +575,11 @@ voice_t *LoadVoice(char *vname, int control)
 	strcpy(phonemes_name,language_type);
 
 
-	if((v = VoiceLookup(voicename)) != NULL)
-		voice = v;
+	if(!tone_only)
+	{
+		if((v = VoiceLookup(voicename)) != NULL)
+			voice = v;
+	}
 	VoiceReset(tone_only);
 
 	if(!tone_only)

@@ -20,13 +20,13 @@ m     m@
 n     n@
 nj    n^@
 p     p@
-q     kv@ // new
-r     R@ // new
+q     kv@
+r     R@
 _s    s@
 š     S@
 t     t@
 v     v@
-w     dv'ost@-*Uko||v@
+w     dvost@-*uko||v@
 x     iks
 y     ipsilon
 z     z@
@@ -363,5 +363,6 @@ u        u    $atend
 
 // Exceptions
 utf      u||te||ef
+
 
 

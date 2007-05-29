@@ -53,7 +53,7 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/o_mid
+  formants vowel/o-_4
 endphoneme
 
 phoneme u

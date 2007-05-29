@@ -892,6 +892,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int mnem;
 	int post_tonic;
 	int opt_length;
+	int done;
 
 	unsigned char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_type[N_WORD_PHONEMES/2];
@@ -1131,6 +1132,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	}
 #endif
 
+	done = 0;
 	for(v=1; v<vowel_count; v++)
 	{
 		if(vowel_stress[v] == 0)
@@ -1138,6 +1140,13 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			if((langopts.stress_flags & 0x10) && (stress < 4) && (v == vowel_count-1))
 			{
 				// flag: don't give secondary stress to final vowel
+			}
+			else
+			if((langopts.stress_flags & 0x8000) && (done == 0))
+			{
+				vowel_stress[v] = (char)stress;
+				done =1;
+				stress = 3;  /* use secondary stress for remaining syllables */
 			}
 			else
 			if((vowel_stress[v-1] <= 1) && (vowel_stress[v+1] <= 1))
@@ -1156,6 +1165,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 // should start with secondary stress on the first syllable, or should it count back from
 // the primary stress and put secondary stress on alternate syllables?
 				vowel_stress[v] = (char)stress;
+				done =1;
 				stress = 3;  /* use secondary stress for remaining syllables */
 			}
 		}
@@ -1787,7 +1797,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case '-':
-					if((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER))
+					if((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER)))
 					{
 						match.points += (22-distance_right);    // one point more than match against space
 					}
