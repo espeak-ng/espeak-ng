@@ -152,15 +152,12 @@ endphoneme
 
 
 phoneme r
-  liquid
+  liquid  starttype #r endtype #r
   lengthmod 7
   beforenotvowel r/
   trill
   formants vwl_sv/r_sv3
-//  formants r/rr
-//  after _ r/rr
   after t r/trr p r/trr k r/trr
-//  before _ r/r_
 endphoneme
 
 

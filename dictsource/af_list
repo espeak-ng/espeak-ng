@@ -1,4 +1,4 @@
-﻿//maintainer: Willem van der Walt
+//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -86,16 +86,19 @@ _dpt    'pWnt
 
 // Place names
 
-afrika      'A:frika
 bethlehem   bEt_liEm
+brittanje   $2
 ceylon      s@lOn
 china       S'ina
 engeland    'EN@lant
+kongo       kONgu
 mesopotamië mEsuput'A:mi@
+mosambiek   musamb'ik
 thaba       tA:ba
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
 paarl       p&:r@L
+portugal    $1
 pretoria    prit'o@ria
 stellenbosch st%&l@mbOs 
 worcester   v'ust@r
@@ -109,6 +112,8 @@ annette     an'Et
 aucamp      @Ukamp
 benjamin    bEndZ@m@n
 botha       bo@ta
+bothma      bOtma
+breytenbach breIt@nbax2
 carl        kA:r@L
 charles     _^_EN
 chris       krIs
@@ -118,6 +123,8 @@ christine   kr@st'i:n
 coetzee     kuts'e@
 debora      d@bo@ra
 der         d@r
+deventer d'e@v@nt@r
+elize       il'i:z
 esegiël    is'e@x2i_@l
 eugene      judZ'i:n
 eugène     yZ'En
@@ -132,6 +139,7 @@ gustav      gustaf
 jacobus     jako@bWs
 jacques     ZA:k
 jesus       ji:sWs
+joey        dZ@ui
 john        _^_EN
 le l@
 leandra     li'andra
@@ -146,14 +154,15 @@ michiel $2
 natasha n%at'aSa
 paul        p@Ul
 paulus      p@UlWs
+pierre p'e@r
 petrus      pe@trWs
 phoebe      fi:bi
-plooy pl'oI
 preez       pr'e@
 rebekka     r@bEka
 ronel       run'&l
 rousseau    r@s@U
 roux r'u
+schalk sk'alk
 scheepers   ske@p@rs
 schoor      sko@r
 shakespeare _^_EN
@@ -306,6 +315,7 @@ mej         m@jWfr@U
 mev         m@fr@U
 dr          d'Okt@r
 insp        InspEkt'Y@r
+kapt kapt'eIn
 prof        pruf'Es@r
 st          s@nt
 supt        suprEntEnd'Ent
@@ -343,11 +353,13 @@ bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
 biblioteek    $4
+bostaande b'o@stA:nd@
 
 dadelik       dA:d@lIk
 darem         dar@m
 derde         d&:rd@
 dekade        dEk'A:d@
+deurgaans     $1
 diegene       dix2,e@n@
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
@@ -358,6 +370,7 @@ ekself %&ks'&lf
 ekstra $1
 
 elders        &ld@rs
+elite         il'i:t
 enige         e@nIx2@
 era           e@ra
 erger         &rg@r
@@ -401,7 +414,6 @@ inderdaad     @nd@rd'A:t
 ingang        Inx2aN
 intens @nt'Ens
 intensiteit   $4
-ironie        irun'i
 
 joernalis $3
 
@@ -409,12 +421,10 @@ joernalis $3
 kafee         kaf'e@
 kantoor       $2
 kapitaal      kapit'A:l
-koevert       kuf'&rt
 kollega       kul'e@x2a
 komaan        kOmA:n
 komberse      kOmb'&rs@
 kombers       kOmb'&rs
-konferensie   kOnf@r'e:nsi
 kopiereg      kup'ir&x2
 krediet       kr@dit
 kritiek       krIt'ik
@@ -425,7 +435,6 @@ latere l'A:t@r@
 lekker        l&k@r
 lekkerder     l&k@rd@r
 lekkerste     l&k@rst@
-lughawe       lWx2h,A:v@
 
 makabere m%ak'A:b@r@
 matige        mA:t@x2@
@@ -472,6 +481,8 @@ ongewoons     $1
 onkunde       $1
 onlangs       $1
 onmag         $1
+onmin         $1
+onraad        $1
 onrus         $1
 oorkom        $2
 oorleef       $2

@@ -189,15 +189,3 @@ phoneme aU
 endphoneme
 
 
-
-phoneme r
-  liquid
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
-endphoneme
-

@@ -226,7 +226,7 @@ sui     $u
 sugli   $u
 sulle   $u
 
-con	$u $pause	// with
+con	$u $pause $only	// with
 col     $u
 coi     $u
 
@@ -236,7 +236,7 @@ accanto    $u+ $brk     // beside
 verso      $u+ $brk     // toward
 sopra	   $u+ $brk	// above
 sotto	   $u+ $brk	// below
-per        $u $pause    // for
+per        $u $pause $only   // for
 eccetto    $pause       // except
 senza      $pause       // without
 durante    $pause       // during

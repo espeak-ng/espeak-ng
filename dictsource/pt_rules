@@ -81,7 +81,7 @@
           áy         ''aI
           áu         ''aU
           áu (s      ''aU
-          ál         ''Al
+?1        ál         ''Al
           á (uCK     ''a
 
 
@@ -140,9 +140,11 @@
           e (ce_     E
           e (cem_    E
           e (ces_    E
-          e (stA_    E
+
+e (stA_    E
           e (stAm_   E
           e (stAs_   E
+        e (strA_        E
 
           e (rnA_    E
           e (rnAm_    E
@@ -155,7 +157,7 @@
           e (xA_     E
           e (xAm_    E
           e (xAs_    E
-
+?2        _n) e (t        E
 
           em (C      eIm
           en (K      eIN
@@ -165,7 +167,6 @@
           em (s_     =eIN
           en (_      =eIN
           en (s_     =eIN
-
 
           ei         eI
           ei (s      eI
@@ -370,7 +371,7 @@
 
           o (Ca_     O
 ?1        o (l_      'O
-?2        ol (K      Ow
+?2        ol (_      Ow
 ?2        olh        olj
 
         om (_      oN

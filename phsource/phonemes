@@ -202,7 +202,7 @@ phoneme (@)  virtual
   after  l l/l@
   after  L l/l@
   after  l^ l^/j2@
-  after  r r/r@-15
+  after  #r r/r@-15
   after  r- r2/r2@
   after  m m/m@
   after  n n/n@
@@ -213,7 +213,7 @@ phoneme (@)  virtual
   before l DFT-50+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
-  before r DFT-50+r/xr
+  before #r DFT-50+r/xr
   before r- DFT-60+r/xr
   before r/ DFT+r3/r_@
 endphoneme
@@ -225,7 +225,7 @@ phoneme (a)  virtual
   after  l l/la
   after  L l/la
   after  l^ l^/j2a
-  after  r r/ra-15
+  after  #r r/ra-15
   after  r- r2/r2a
   after  m m/ma
   after  n n/na
@@ -236,7 +236,7 @@ phoneme (a)  virtual
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
-  before r DFT-50+r/xr
+  before #r DFT-50+r/xr
   before r- DFT-60+r/xr
   before r/ DFT+r3/r_a
 endphoneme
@@ -248,7 +248,7 @@ phoneme (e)  virtual
   after  l l/le
   after  L l/le
   after  l^ l^/j2e
-  after  r r/re-15
+  after  #r r/re-15
   after  r- r2/r2e
   after  m m/me
   after  n n/ne
@@ -259,7 +259,7 @@ phoneme (e)  virtual
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
-  before r DFT-50+r/xr
+  before #r DFT-50+r/xr
   before r- DFT-60+r/xr
   before r/ DFT+r3/r_e
 endphoneme
@@ -271,7 +271,7 @@ phoneme (i)  virtual
   after  l l/li-10
   after  L l/li
   after  l^ l^/j2i
-  after  r r/ri-15
+  after  #r r/ri-15
   after  r- r2/r2i
   after  m m/mi
   after  n n/ni
@@ -283,7 +283,7 @@ phoneme (i)  virtual
   before ; DFT-40+j2/xj2
   before l DFT-40+l/xl
   before j DFT-30+j/xj
-  before  r- DFT-60+r/xr
+  before r- DFT-60+r/xr
   before r/ DFT+r3/r_i
 endphoneme
 
@@ -305,7 +305,7 @@ phoneme (o)  virtual
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
-  before r DFT-50+r/xr
+  before #r DFT-50+r/xr
   before r- DFT-60+r/xr
   before r/ DFT+r3/r_o
 endphoneme
@@ -328,13 +328,17 @@ phoneme (u)  virtual
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
-  before r DFT-50+r/xr
+  before #r DFT-50+r/xr
   before r- DFT-60+r/xr
   before r/ DFT+r3/r_u
 endphoneme
 
 phoneme (r)  virtual
 // use to mean general sonorant
+endphoneme
+
+phoneme #r   virtual
+// use for English r in virtual phonemes
 endphoneme
 
 
@@ -344,7 +348,7 @@ endphoneme
 
 
 phoneme r
-  liquid
+  liquid starttype #r endtype #r
   length 100
   lengthmod 7
   beforenotvowel r/

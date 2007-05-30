@@ -202,14 +202,6 @@ phoneme tl#
 endphoneme
 
 
-phoneme r#2
-  vls alv frc
-  vowelin f1=0  f2=1700 -300 300  f3=-300 80
-  vowelout f1=0 f2=1700 -300 250  f3=-300 80  rms=20
-  lengthmod 2
-  wave r3/rx%90
-endphoneme
-
 phoneme r#   // used for [r] when not preceding a vowel
   liquid
   length 100

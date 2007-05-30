@@ -254,17 +254,15 @@ phoneme x2
 endphoneme
 
 
-
 phoneme r
   liquid
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
+  length 60
+  vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
+  vowelout f1=2  f2=1700 -300 -200  f3=-1300 80
+  formants r3/r_trill+r3/r_trill3.wav%99
+  before _ r3/r_trill+r3/r_trill3.wav%99
+  trill  
+  lengthmod 6
 endphoneme
 
 
@@ -276,17 +274,6 @@ phoneme r/   // used for [r] when not preceding a vowel
   after  @   NULL
   after _ r/rr
   after t r/trr p r/trr k r/trr
-endphoneme
-
-phoneme R
-  liquid
-  length 60
-  vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
-  vowelout f1=2  f2=1700 -300 -200  f3=-1300 80
-  formants r3/r_trill+r3/r_trill3.wav%99
-  before _ r3/r_trill+r3/r_trill3.wav%99
-  trill  
-  lengthmod 6
 endphoneme
 
 

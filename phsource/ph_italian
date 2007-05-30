@@ -139,42 +139,6 @@ endphoneme
 //===========
 
 
-phoneme r
-  liquid
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/r
-  after _ r/_r  t r/tr p r/tr k r/tr
-  before _ r/r_
-endphoneme
-
-
-phoneme R2x
-  liquid starttype r endtype r
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
-endphoneme
-
-
-phoneme R3x
-  liquid
-  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
-  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  beforenotvowel r/
-  formants r3/r_trill+r3/r_trill.wav%50
-  trill
-  lengthmod 6
-endphoneme
-
-
 
 phoneme w2
   starttype w  endtype w

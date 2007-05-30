@@ -238,7 +238,7 @@ endphoneme
 
 
 phoneme r
-  liquid starttype r endtype r
+  liquid  starttype #r endtype #r
   length 100
   lengthmod 7
   beforenotvowel r/

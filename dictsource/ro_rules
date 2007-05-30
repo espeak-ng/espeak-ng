@@ -1,3 +1,4 @@
+
 // translation rules for Romanian
 // This file is UTF-8 encoded
 
@@ -135,15 +136,20 @@
 
      &) ic (_    =ik
      &) ice (_   =itSe
-     &) icile (_  =itSile  // ??
-     &) icilor (_ =itSilor // ??
+     &) icile (_  =itSile 
+     &) icilor (_ =itSilor
+@) icii (_ =itSiI
+
      &) ing (_   %iNg     // foreign words
-        i (t_    'i
+
+i (t_    'i
 
 .group î
         î        y
 
 
+
+@) î (_ 'y
 .group j
         j        Z
      @) j (i_    Z;
@@ -171,7 +177,8 @@
         m        m
      @) m (i_    m;
      _) m (-a    m
-@-_) mi  mI^                // ??
+
+     -) mi (_    mi/
 
 
 .group n
@@ -228,11 +235,11 @@
 
      &) sprezece (_S8t sp@-*ez,etSe
 
-     @) sem (_S3t   sem 
-     @) seră (_S4t  se*@
-     @) serăm (_S5t se*@m
-     @) serăţi (_S6t se*@tsI^
-     @) seşi (_S4t   seSI^
+     @) sem (_S1t   sem 
+     @) seră (_S2t  se*@
+     @) serăm (_S3t se*@m
+     @) serăţi (_S4t se*@tsI^
+     @) seşi (_S2t   seSI^
 
 
 .group ş
@@ -256,6 +263,7 @@
 //    @)  ţi (-i   ts;'iI
 //    @)  ţi (-l   ts;'i
 
+     -) ţi (_    ts;i/
 
 .group u
         u        u
@@ -334,4 +342,5 @@
     *)  * (*
         **
    **)  * (_     _::
+
 

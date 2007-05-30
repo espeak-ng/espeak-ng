@@ -124,31 +124,6 @@ endphoneme
 
 
 
-
-phoneme r
-  liquid
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
-endphoneme
-
-
-phoneme r/   // used for [r] when not preceding a vowel
-  liquid
-  length 100
-  lengthmod 2   //
-  formants r3/r_+r3/rx
-  before n   r3/r_n+r3/rx
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-endphoneme
-
-
 phoneme w
   liquid
   length 100

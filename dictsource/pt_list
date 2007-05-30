@@ -575,13 +575,13 @@ roxo         x'oSU
 ?1 braille    b:r'aily
 ?1 cancel     k'&ns'El
 ?1 caps       k'aps
-?1   com       kom
+?1 com        kom
  ctrl       k'oNt:r,Ol
 ?1   dat       d'at
 ?1 doc        d'Ok
 ?1 delete     d'il'it
 ?1 design     d,iz'ain
-?1   dj       d,i:dZ'eI
+?1 dj         d,i:dZ'eI
 ?1 down       d'a,wn
 ?1 download   d'a,wnl'oud
 ?1 end        'end
@@ -589,20 +589,26 @@ roxo         x'oSU
 ?1 exe        'Ezy
 ?1 explorer   ,ekspl'O:r&@-
 ?1 eyes       'aiz
+?2 frame      fR'eImi
 ?1 gmail      g,em'eIl
+?2 Gmail      Zem'eIl
 ?1 google     g'u:g&l 
+?2 google     g'ugol
 ?1 hardware   'ard,w'E@
 ?2 hardware   x'ardwe@-
 ?1 home       'omy
+?2 home       x'owmi
 ?1 hotmail    'Otm'eIl
+?2 hotmail    xotm'eIl
 ?1 install    ,inst'al
 ?2 internet   iNtern'Et
+?2 Intranet   iNtRan'Et
 ?1 kernel     k'Ern,El
-?2 kernel     k'ErnEU
+?2 kernel     k'Ern@l
 ?1 line       l'ain
-layout        l'eI,aUt
+   layout     l'eI,aUt
 ?1 lock       l'Ok
-?1 mail       m'eIl
+   mail       m'eIl
 ?1 maior      m'&j'O@
 ?2 maior      maI'Or
 ?1 menor      myn'O@
@@ -610,11 +616,15 @@ layout        l'eI,aUt
 ?1 menu       menu
 ?1 next       n'Ekst
    ok         Ok'eI
+?2 offline    Ofl'aIN
+?2 online     oNlaIN
+   org        Org
 ?1 ovo        'ovu
 ?1 pause      p'au:z
-?1 page       p'eIdZ
+   page       p'eIdZ
+   python     p'aIT&~N
 ?1 readme     r'i:dmi:
-?1   sapi       s,ap'i
+?1 sapi       s,ap'i
 ?1 scanner    sk'En&r
 ?1 shift      S'ift
 ?1 scroll     sk:r'ol
@@ -624,8 +634,8 @@ layout        l'eI,aUt
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing
 ?1 tab        t'ab
-?1   telemóvel       t,El,Em'OvEl
-?1    telemóveis       t,El,Em'OveIs#
+?1 telemóvel  t,El,Em'OvEl
+?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
 ?1 upload     &pl'oud
 ?1 window     w'iNd'ou
@@ -651,6 +661,7 @@ louis       _^_FR
    firefox     f'ai@fOks
 ?1 front       f:r'ont
 ?1 jaws        dZ'au:z
+?2 jaws        dZ'Os
 ?1 linux       l,in'uks
 ?2 linux       l'inUks
 ?1 live        l'aiv

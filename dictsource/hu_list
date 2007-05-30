@@ -40,6 +40,19 @@ _2M4      k'e:tb,illio:
 _dpt      v,Ess2Y:
 
 
+// Abbreviations
+km	kilo:me:tER
+mm      milime:tER
+
+ill	illEdvE  $dot
+stb	SAtYb:i  $dot
+vö	vEZd _!'Yss2E
+pl	pe:lda:ul  $dot
+mta	$abbrev
+a.m	An^n^i||m'int  $dot
+
+
+
 // Articles
 a         $u
 az        $u
@@ -82,9 +95,61 @@ nem       $alt2 $strend
 ne        $u+
 
 
-// Unstressed adverbs etc.
+// Unstressed adverbs prepositions etc.
 néhány    $u+
-is        $u         // ??
+is        $u         // also
+
+elöl	$u
+elől	$u
+elé	$u
+előtt	$u
+
+mögül	$u
+mögött	$u
+mögé	$u
+
+kívül	$u
+után	$u
+
+alól	$u
+alá	$u
+alatt	$u
+
+felől	$u
+felé	$u
+fölé	$u
+felett	$u
+fölött	$u
+
+mellől	$u
+mellé	$u
+mellett	$u
+
+közül	$u
+közé	$u
+között	$u
+
+ba	$u
+be	$u
+ra	$u
+re	$u
+ik	$u
+es	$u
+os	$u
+ós	$u
+ös	$u
+ból	$u
+ből	$u
+ról	$u
+ről	$u
+án	$u
+én	$u
+on	$u
+en	$u
+ön	$u
+szor	$u
+szer	$u
+ször	$u
 
 
 // Verbs
@@ -130,31 +195,48 @@ tudtok    $u+
 tudnak    $u+
 
 // Letters
-_a        A:
-a         A: $atend     // letter "a"
-b         be:
-c         tse:
-d         de:
-f         Ef
-g         ge:
-h         ha:
-j         je:
-k         ka:
-l         El
-m         Em
-n         En
-p         pe:
-q         ku:
-r         ER
-s         S_
-s         ES  $atend
-_s        ES
-v         ve:
-w         duplAve:
-x         iks
-y         ipsilAn
-z         ze:
-_.        pont
+_a	A:
+a	A: $atend     // letter "a"
+b	be:
+c	tse:
+d	de:
+f	Ef
+g	ge:
+h	ha:
+j	je:
+k	ka:
+l	El
+m	Em
+n	En
+p	pe:
+q	ku
+r	ER
+s	S_
+s	ES  $atend
+_s	ES
+v	ve:
+w	duplAve:
+x	iks
+y	ipsilon
+z	ze:
+
+cs	tSe:
+dz	dze:
+dzs	dZe:
+sz	Es
+zs	Ze:
+gy	Je:
+ty	ce:
+ly	Ellipsilon
+ny	En^
+
+_.	pont
+%	sa:zAle:k
+@	kukAts
+€	Eu*o
++	plus
+§	p'A*AgRAfuS
+
 
 
 // Main Exceptions List

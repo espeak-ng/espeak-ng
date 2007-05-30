@@ -338,7 +338,7 @@ phoneme r/   // used for [r] when not preceding a vowel
 endphoneme
 
 phoneme r
-  liquid
+  liquid  starttype #r endtype #r
   length 100
   lengthmod 7
   beforenotvowel r/

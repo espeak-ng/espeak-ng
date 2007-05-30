@@ -98,17 +98,6 @@ endphoneme
 // CONSONANTS
 //===========
 
-phoneme r
-  liquid
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/r
-  after _ r/_r  t r/tr p r/tr k r/tr
-  before _ r/r_
-endphoneme
-
 
 phoneme ts
   vls alv afr sibilant

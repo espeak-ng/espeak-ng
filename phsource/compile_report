@@ -1,39 +1,39 @@
 34 phoneme tables
           new total
-    base  94   94
-      en  52  141
-    en_n  29  141
-   en_us  36  141
-   en_sc  39  143
-   en_rp  34  141
-   en_wm  30  141
-      af  38  125
-      cy  30  120
-      de  28  117
-      eo  13  106
-      fi  40  125
-      fr  33  116
-   fr_ca  11  116
-      hi  49  129
-      hu  24  111
-      nl  25  114
-      pl  17  105
-      sk  26  122
-      cs   5  122
-      hr  25  132
-      ru  36  122
-      it  28  115
-      es   6  115
-      pt  34  138
-   pt_pt  20  138
-      ro  36  139
-      el   8  115
-      sv  25  116
-      no  29  120
-      is  33  120
-      vi  41  131
-  zh_yue  32  122
-      sw  14  103
+    base  95   95
+      en  52  142
+    en_n  29  142
+   en_us  36  142
+   en_sc  39  144
+   en_rp  34  142
+   en_wm  30  142
+      af  37  126
+      cy  29  121
+      de  28  118
+      eo  13  107
+      fi  40  126
+      fr  32  117
+   fr_ca  11  117
+      hi  49  130
+      hu  23  112
+      nl  26  116
+      pl  15  106
+      sk  26  123
+      cs   5  123
+      hr  25  133
+      ru  36  123
+      it  25  114
+      es   6  114
+      pt  34  137
+   pt_pt  20  137
+      ro  36  138
+      el   8  114
+      sv  25  117
+      no  28  121
+      is  32  120
+      vi  41  132
+  zh_yue  32  123
+      sw  14  104
 
   3  b/b            base hi ro
   2  b/b_           base hi
@@ -177,36 +177,36 @@
   1  r2/r2i         base
   1  r2/r2o         base
   1  r2/r2u         base
-  6  r3/r_          base af cy fr pl ru
+  4  r3/r_          base af fr ru
   1  r3/r_@         base
   1  r3/r#_         is
   1  r3/r_a         base
   1  r3/r_e         base
   1  r3/r_i         base
-  5  r3/r_n         base cy fr pl ru
+  3  r3/r_n         base fr ru
   1  r3/r_o         base
-  8  r3/r_trill     base af sk it pt
+ 11  r3/r_trill     base af cy nl sk pt
   2  r3/r_trill2    base hr
   2  r3/r_trill2.wav base hr
-  4  r3/r_trill3.wav base af
-  4  r3/r_trill.wav base sk it pt
+  8  r3/r_trill3.wav base af cy nl
+  3  r3/r_trill.wav base sk pt
   1  r3/r_u         base
- 26  r3/rx          base af cy fr fr_ca pl ru pt_pt ro is
+ 21  r3/rx          base af fr fr_ca ru pt_pt ro is
   2  r3/rz_cs       sk
   2  r3/@tap        base
   2  r3/@tap_i      base
-  8  r/r            base en_sc de fr hu it pt_pt
-  6  r/_r           base en_sc fr hu it pt_pt
- 17  r/r_           base en_sc af cy de fi fr hu nl pl ru it ++
+  5  r/r            base en_sc de pt_pt
+  3  r/_r           base en_sc pt_pt
+  9  r/r_           base en_sc de fi nl ru pt_pt ro sw
   1  r/r@           base
   1  r/ra           base
   1  r/re           base
   1  r/ri           base
   1  r/ro           base
- 26  r/rr           base af cy de fi nl pl ru it ro no sw
+ 14  r/rr           base af de fi nl ru ro sw
   1  r/ru           base
- 18  r/tr           base en_sc fr hu it pt_pt
- 51  r/trr          base af cy de fi nl pl ru it ro sv no ++
+  9  r/tr           base en_sc pt_pt
+ 30  r/trr          base af de fi nl ru ro sv sw
  11  r/xr           base
   1  ufric/ch       base
   3  ufric/f        base de ro

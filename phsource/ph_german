@@ -217,7 +217,7 @@ endphoneme
 // This is actually the ENGLISH "rolling r". For german, we now use * in the dictionary,
 // so this phoneme will only be used in english words in german texts.
 phoneme r
-  liquid
+  liquid  starttype #r  endtype #r
   lengthmod 7
   beforenotvowel r/
   trill

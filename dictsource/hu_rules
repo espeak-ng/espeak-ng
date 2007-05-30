@@ -31,6 +31,17 @@
 
   _sto) ck (holm  k
 
+ kilen) c (sz    tS
+  nyol) c (sz    tS
+   har) c (sz    tS
+   lán) c (sz    tS
+   pol) c (so    tS
+   per) c (sz    tS
+   por) c (sé    tS
+   por) c (sz    tS
+   rán) c (sz    tS
+   tán) c (sz    tS
+
 
 .group d
         d        d
@@ -86,7 +97,9 @@
      A) gyj (A   J:
 
     _e) gy (es   J:
+    _e) gy (et   J:
     _e) gy (ik   J:
+    _e) gy (üt   J:
 _minde) gy (ik   J:
 
 
@@ -114,8 +127,14 @@ _minde) gy (ik   J:
         lly      jj
         lj       jj
 
+    mi) ll (i    l
+
+
 .group m
         m        m
+
+    ko) mm (unis  m
+
 
 .group n
         n        n
@@ -164,6 +183,8 @@ _minde) gy (ik   J:
         s        S
         sz       s
         ssz      ss2
+
+    ki) s (ebb   SS
 
         sz (öld    Sz
 
@@ -230,6 +251,16 @@ _minde) gy (ik   J:
         zs       Z
         zzs      Z:
 
+    gá) z (sz    z
+    gé) z (sz    z
+    há) z (so    z
+    há) z (sz    z
+    lá) z (sz    z
+    má) zc (sz   z
+    mé) zc (sz   z
+    tű) z (sz    z
+    ví) z (sz    z
+
     ga) zs (ág     zS
    _ví) zsz (int   zs:
    _gá) zsz (ámla  zs:
@@ -242,11 +273,7 @@ _szára) zs (ág     zS
 
 
 .group
-        %        sa:zAle:k
         $        dolla:r
-        @        kukAts
-        €        Eu*o
-        +        plus
 
         .        pont
         . (.     _:
