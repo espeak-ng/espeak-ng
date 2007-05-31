@@ -32,6 +32,7 @@ phoneme &~
   vowel  starttype (@) endtype (@)
   length 200
   formants vnasal/a#_n
+  reduceto &  4
 endphoneme
 
 phoneme &U~
@@ -63,46 +64,10 @@ phoneme &/       // Used for final "a" when next word starts with "a"
 endphoneme
 
 
-phoneme A            // for "al" in European Portuguese
-  vowel starttype (a) endtype (a)
-  length 200
-  formants vowel/a_3
-endphoneme
-
-phoneme A2            // for "al" in European Portuguese
-  vowel starttype (a) endtype (a)
-  length 200
-  formants vowel/aa_7
-endphoneme
-
-phoneme A3            // for "al" in European Portuguese
-  vowel starttype (a) endtype (a)
-  length 200
-  formants vowel/a_5
-endphoneme
-
-phoneme A4            // for "al" in European Portuguese
+phoneme A            // for "al" in European Portuguese, don't reduce to [&]
   vowel starttype (a) endtype (a)
   length 200
   formants vowel/a_2
-endphoneme
-
-phoneme A5            // for "al" in European Portuguese
-  vowel starttype (a) endtype (a)
-  length 200
-  formants vowel/a
-endphoneme
-
-phoneme A6            // for "al" in European Portuguese
-  vowel starttype (a) endtype (a)
-  length 200
-  formants vowel/V_4
-endphoneme
-
-phoneme A7            // for "al" in European Portuguese
-  vowel starttype (a) endtype (a)
-  length 200
-  formants vowel/a#_2
 endphoneme
 
 

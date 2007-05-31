@@ -344,7 +344,7 @@ Translator *SelectTranslator(const char *name)
 		{
 			static int stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
 			static int stress_lengths_is[8] = {180,155, 200,200, 0,0, 240,250};
-			static const wchar_t is_L08[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
+			static const wchar_t is_lettergroup_B[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_is,stress_amps_is);
@@ -356,7 +356,7 @@ Translator *SelectTranslator(const char *name)
 			ResetLetterBits(tr,0x18);
 			SetLetterBits(tr,4,"kpst");   // Letter group F
 			SetLetterBits(tr,3,"jvr");    // Letter group H
-			tr->letter_groups[8] = is_L08;
+			tr->letter_groups[1] = is_lettergroup_B;
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = 0xe9;
 			tr->langopts.numbers2 = 0x2;
@@ -656,10 +656,6 @@ Translator_Russian::Translator_Russian() : Translator()
 	static const char ru_voiced[] = {0x11,0x12,0x13,0x14,0x16,0x17,0};    // letter group G  (voiced obstruents)
 	static const char ru_ivowels[] = {0x2c,0x15,0x31,0x18,0x2e,0x2f,0};   // letter group Y  (iotated vowels & soft-sign)
 
-	// these are unicode character codes
-	static const wchar_t ru_L08[] = {0x43a,0x43f,0x441,0x442,0x444,0x445,0};  // кпстфх
-	static const wchar_t ru_L09[] = {0x431,0x433,0x434,0x436,0x43b,0x43c,0x43d,0x440,0};  // бгджзлмнр
-
 	SetupTranslator(this,stress_lengths_ru,stress_amps_ru);
 
 	charset_a0 = charsets[18];   // KOI8-R
@@ -677,9 +673,6 @@ Translator_Russian::Translator_Russian() : Translator()
 	SetLetterBits(this,5,ru_voiced);
 	SetLetterBits(this,6,ru_ivowels);
 	SetLetterBits(this,7,ru_vowels);
-
-	letter_groups[8] = ru_L08;        // This is  L08  in ru_rules
-	letter_groups[9] = ru_L09;        // This is  L09  in ru_rules
 
 	langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
 	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;

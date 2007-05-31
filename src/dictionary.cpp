@@ -213,6 +213,7 @@ void Translator::InitGroups(void)
 		groups2_count[ix]=0;
 		groups2_start[ix]=255;  // indicates "not set"
 	}
+	memset(letterGroups,0,sizeof(letterGroups));
 
 	p = data_dictrules;
 	while(*p != 0)
@@ -223,30 +224,44 @@ void Translator::InitGroups(void)
 			break;
 		}
 		p++;
-		len = strlen(p);
-		p_name = p;
-		c = p_name[0];
-		
-		p += (len+1);
-		if(len == 1)
-		{
-			groups1[c] = p;
-		}
-		else
-		if(len == 0)
-		{
-			groups1[0] = p;
-		}
-		else
-		{
-			if(groups2_start[c] == 255)
-				groups2_start[c] = n_groups2;
 
-			groups2_count[c]++;
-			groups2[n_groups2] = p;
-			c2 = p_name[1];
-			groups2_name[n_groups2++] = (c + (c2 << 8));
+		if(p[0] == RULE_LETTERGP2)
+		{
+			ix = p[1] - 'A';
+			p += 2;
+			if((ix >= 0) && (ix < N_LETTER_GROUPS))
+			{
+				letterGroups[ix] = p;
+			}
 		}
+		else
+		{
+			len = strlen(p);
+			p_name = p;
+			c = p_name[0];
+			
+			p += (len+1);
+			if(len == 1)
+			{
+				groups1[c] = p;
+			}
+			else
+			if(len == 0)
+			{
+				groups1[0] = p;
+			}
+			else
+			{
+				if(groups2_start[c] == 255)
+					groups2_start[c] = n_groups2;
+	
+				groups2_count[c]++;
+				groups2[n_groups2] = p;
+				c2 = p_name[1];
+				groups2_name[n_groups2++] = (c + (c2 << 8));
+			}
+		}
+
 		// skip over all the rules in this group
 		rule_count = 0;
 		while(*p != RULE_GROUP_END)
@@ -587,6 +602,31 @@ return(0);
 
 }   /* end of Unpronounceable */
 
+
+
+int Translator::IsLetterGroup(char *word, int group)
+{//=================================================
+	// match the word against a list of utf-8 strings
+	char *p;
+	char *w;
+
+	p = letterGroups[group];
+
+	while(*p != 0)
+	{
+		w = word;
+		while(*p == *w)
+		{
+			*w++;
+			*p++;
+		}
+		if(*p == 0)
+			return(w-word);   // matched a complete string
+
+		while(*p++ != 0);  // skip to end of string
+	}
+	return(0);
+}
 
 
 int Translator::IsLetter(int letter, int group)
@@ -1412,8 +1452,9 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K','V','L','T','X','?','W'};
+			'@','&','%','+','#','S','D','Z','A','L',' ',' ',' ',' ',' ','N','K','V',' ','T','X','?','W'};
 
+	static char symbols_lg[] = {'A','B','C','H','F','G','Y'};
 
 	match_type = 0;
    buf_pre[0] = 0;
@@ -1466,24 +1507,22 @@ char *Translator::DecodeRule(const char *group, char *rule)
 		else
 		if(rb == RULE_LETTERGP)
 		{
+			c = symbols_lg[*rule++ - 'A'];
+		}
+		else
+		if(rb == RULE_LETTERGP2)
+		{
 			value = *rule++ - 'A';
-			if(value >= 8)
-			{
-				p[0] = 'L';
-				p[1] = (value / 10) + '0';
-				c = (value % 10) + '0';
+			p[0] = 'L';
+			p[1] = (value / 10) + '0';
+			c = (value % 10) + '0';
 
-				if(match_type == RULE_PRE)
-				{
-					p[0] = c;
-					c = 'L';
-				}
-				p+=2;
-			}
-			else
+			if(match_type == RULE_PRE)
 			{
-				c = symbols[value + RULE_LETTER_GROUPS];
+				p[0] = c;
+				c = 'L';
 			}
+			p+=2;
 		}
 		else
 		if(rb <= RULE_LAST_RULE)
@@ -1611,6 +1650,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 	int  distance_right;
 	int  distance_left;
 	int  lg_pts;
+	int  n_bytes;
 
 	MatchRecord match;
 	static MatchRecord best;
@@ -1626,6 +1666,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 	if(rule == NULL)
 	{
 		match_out->points = 0;
+		(*word)++;
 		return;
 	}
 
@@ -1750,6 +1791,17 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					}
 					else
 						failed = 1;
+					break;
+
+				case RULE_LETTERGP2:   // match against a list of utf-t strings
+					letter_group = *rule++ - 'A';
+					if((n_bytes = IsLetterGroup(post_ptr-1,letter_group)) >0)
+					{
+						match.points += (20-distance_right);
+						post_ptr += (n_bytes-1);
+					}
+					else
+						failed =1;
 					break;
 
 				case RULE_NOTVOWEL:

@@ -1,7 +1,7 @@
 // Spelling-to-phoneme rules for Icelandic
 // This file is UTF8 encoded.
 
-// letter group L08  voiceless consonants
+// letter group B  voiceless consonants c,f,h,k,p,t,x,þ
 // letter group F  p,t,k,s
 // letter group H  j,r,v,
 
@@ -43,7 +43,7 @@
 
 .group ð
         ð        D
-        ð (L08   T
+        ð (B     T
         ð (__    T    // before pause
 
 
@@ -154,23 +154,23 @@
 .group l
         l        l
         l (_     l#
-        l (L08X  l#
+        l (BX    l#
         ll       dl
-        ll (L08  tl#
+        ll (B8   tl#
         ll (_    tl#  // ??
 
 
 .group m
         m        m
         mm (K    m
-   L08) m        hm#
-        m (L08   m#
+     B) m        hm#
+        m (B     m#
 
 
 .group n
         n        n
-   L08) n        hn#
-        n (L08   n#
+     B) n        hn#
+        n (B     n#
         n (g     N
         ng (_    Ng
         ngt (K   N#d
@@ -209,7 +209,7 @@
 .group p
      _) p        p
         p        p
-   L08) p        b
+     B) p        b
      s) p        b
         p (K     b
         p (s     f
@@ -226,8 +226,8 @@
      _) r        R2
      C) r        @-*
      A) r (A     R
-   L08) r        r#
-        r (L08   r#
+     B) r        r#
+        r (B     r#
         r (_     r#
         r        R
         rl       dl
@@ -244,7 +244,7 @@
 .group t
      _) t        t
         t        t
-   L08) t        d
+     B) t        d
      s) t        d
         t (K     d
         tt       hd

@@ -378,7 +378,6 @@ void FindPhonemesUsed(void)
 	int hash;
 	char *p;
 	char *start;
-	char *group;
 	char *next;
 	unsigned char c;
 	int count = 0;
@@ -397,7 +396,12 @@ void FindPhonemesUsed(void)
 		}
 		if(*p == RULE_GROUP_START)
 		{
-			group = p;
+			if(p[1] == RULE_LETTERGP2)
+			{
+				while(*p != RULE_GROUP_END) p++;
+				continue;
+			}
+
 			p += (strlen(p)+1);
 		}
 

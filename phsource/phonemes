@@ -402,7 +402,7 @@ phoneme R2   // this is [R] from Slovak/Czech
 endphoneme
 
 phoneme R3  // Afrikaans
-  liquid
+  liquid  starttype #r endtype #r
   length 60
   vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
   vowelout f1=2  f2=1700 -300 -200  f3=-1300 80

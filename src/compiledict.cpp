@@ -665,7 +665,7 @@ void copy_rule_string(char *string, int &state)
 					c = *p++ - '0';
 					value = *p++ - '0';
 					c = c * 10 + value;
-					if((value < 0) || (value > 9) || (c <= 0) || (c >= N_LETTER_TYPES))
+					if((value < 0) || (value > 9) || (c <= 0) || (c >= N_LETTER_GROUPS))
 					{
 						c = 0;
 						fprintf(f_log,"%5d: Expected 2 digits after 'L'",linenum);
@@ -676,11 +676,11 @@ void copy_rule_string(char *string, int &state)
 					{
 						// pre-rule, put the group number before the RULE_LETTERGP command
 						output[ix++] = c;
-						c = RULE_LETTERGP;
+						c = RULE_LETTERGP2;
 					}
 					else
 					{
-						output[ix++] = RULE_LETTERGP;
+						output[ix++] = RULE_LETTERGP2;
 					}
 					break;
 
@@ -1076,8 +1076,47 @@ void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 
 
 
-int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
-{//=============================================================
+static int compile_lettergroup(char *input, FILE *f_out)
+{//=====================================================
+	char *p;
+	int group;
+
+	p = input;
+	if(!isdigit(p[0]) || !isdigit(p[1]))
+	{
+		return(1);
+	}
+
+	group = atoi(&p[1]);
+	if(group >= N_LETTER_GROUPS)
+		return(1);
+
+	while(!isspace2(*p)) p++;
+
+	fputc(RULE_GROUP_START,f_out);
+	fputc(RULE_LETTERGP2,f_out);
+	fputc(group + 'A', f_out);
+
+	for(;;)
+	{
+		while(isspace2(*p)) p++;
+		if(*p == 0)
+			break;
+		
+		while((*p & 0xff) > ' ')
+		{
+			fputc(*p++, f_out);
+		}
+		fputc(0,f_out);
+	}
+	fputc(RULE_GROUP_END,f_out);
+
+	return(0);
+}
+
+
+static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
+{//====================================================================
 	char *prule;
 	unsigned char *p;
 	int ix;
@@ -1107,6 +1146,16 @@ int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 		linenum++;
 		buf = fgets(buf1,sizeof(buf1),f_in);
 		if((buf != NULL) && (buf[0] == '\r')) buf++;  // ignore extra \r in \r\n 
+
+		if((buf != NULL) && (memcmp(buf,".L",2)==0))
+		{
+			if(compile_lettergroup(&buf[2], f_out) != 0)
+			{
+				fprintf(f_log,"%5d: Bad lettergroup\n",linenum);
+				error_count++;
+			}
+			continue;
+		}
 
 		if((buf == NULL) || (memcmp(buf,".group",6)==0))
 		{

@@ -532,13 +532,15 @@ int Compile::NextItem(int type)
 	{
 		item_string[ix++] = c;
 		c = fgetc(f_in);
+		if(feof(f_in))
+			break;
 		if(item_string[ix-1] == '=')
 			break;
 	}
-	ungetc(c,f_in);
 	item_string[ix] = 0;
 
-	if(feof(f_in)) return(-1);
+	if(!feof(f_in))
+		ungetc(c,f_in);
 
 	keyword = -1;
 

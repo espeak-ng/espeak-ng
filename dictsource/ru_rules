@@ -9,8 +9,6 @@
 // G  voiced: б в г д ж з
 // H  hard consonant:  ъ ж ц ш
 // Y  iotated vowel, softsign:  ь е ё и ю я
-// L08 кпстфх
-// L09 бгджзлмнр
 
 
 .group а

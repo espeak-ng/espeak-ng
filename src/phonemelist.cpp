@@ -419,6 +419,22 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 }
 #endif
 
+		if((ph->reduce_to != 0) && (ph->type != phVOWEL) && !(plist2->synthflags & SFLAG_DICTIONARY))
+		{
+			// reduction for vowels has already been done in SetWordStress
+			int reduce_level;
+
+			if(next->type == phVOWEL)
+			{
+				reduce_level = (ph->phflags >> 28) & 7;
+				if((&plist2[1])->stress < reduce_level)
+				{
+					// look at the stress of the following vowel
+					ph = phoneme_tab[ph->reduce_to];
+				}
+			}
+		}
+
 		if((plist2+1)->synthflags & SFLAG_LENGTHEN)
 		{
 			static char types_double[] = {phFRICATIVE,phVFRICATIVE,phNASAL,phLIQUID,0};

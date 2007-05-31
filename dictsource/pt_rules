@@ -28,8 +28,8 @@
           a (r_      'a
 ?1     p) a (d_      =E
           a (CC_     &
-?1        al (_      'Al // eg: Portugal, capital, etc.
-?1        a (lK      ,A   // Algarve, alto, etc...
+?1        a (l_      'A       // eg: Portugal, capital, etc.
+?1        a (lK      ,A       // Algarve, Almerinda, etc...
 ?2        al (K      aU
 ?2        alh        alj
 
@@ -141,10 +141,10 @@
           e (cem_    E
           e (ces_    E
 
-e (stA_    E
+          e (stA_    E
           e (stAm_   E
           e (stAs_   E
-        e (strA_        E
+          e (strA_        E
 
           e (rnA_    E
           e (rnAm_    E
@@ -157,7 +157,7 @@ e (stA_    E
           e (xA_     E
           e (xAm_    E
           e (xAs_    E
-?2        _n) e (t        E
+?2    _n) e (t       E
 
           em (C      eIm
           en (K      eIN
@@ -475,7 +475,7 @@ e (stA_    E
        l) r          x
        n) r          x
        s) r          x
-?1     A) r (_       r // this letter is imperfect.
+?1     A) r (_       r-       // [r-] is English linking-r
 
 
 .group s

@@ -29,6 +29,8 @@
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
+#define N_LETTER_GROUPS   20
+
 
 /* flags from word dictionary */
 // bits 0-3  stressed syllable,  7=unstressed
@@ -110,18 +112,11 @@
 #define RULE_ENDING		14
 #define RULE_DIGIT		15   // D digit
 #define RULE_NONALPHA	16   // Z non-alpha
-#define RULE_LETTER_GROUPS 17  // 17 to 23
-#define RULE_LETTER1		17   // A vowels
-#define RULE_LETTER2		18   // B 'hard' consonants 
-#define RULE_LETTER3		19   // C all consonants
-#define RULE_LETTER4		20   // H letter group
-#define RULE_LETTER5    21   // F letter group
-#define RULE_LETTER6		22   // G letter group
-#define RULE_LETTER7    23   // Y letter group
+#define RULE_LETTERGP   17   // A B C H F G Y   letter group number
+#define RULE_LETTERGP2  18   // L + letter group number
 #define RULE_NO_SUFFIX  24   // N
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
-#define RULE_LETTERGP   27   // L + letter group number
 #define RULE_ALT1       28   // T word has $alt attribute
 #define RULE_NOVOWELS   29   // X no vowels up to word boundary
 #define RULE_SPELLING   31   // W while spelling letter-by-letter
@@ -355,8 +350,7 @@ public:
 // holds properties of characters: vowel, consonant, etc for pronunciation rules
 	unsigned char letter_bits[256];
 	int letter_bits_offset;
-#define N_LETTER_TYPES 20
-	const wchar_t *letter_groups[N_LETTER_TYPES];
+	const wchar_t *letter_groups[8];
 
 	/* index1=option, index2 by 0=. 1=, 2=?, 3=! 4=none */
 	unsigned char punct_to_tone[4][5];
@@ -394,6 +388,7 @@ private:
 	void ApplySpecialAttribute(char *phonemes, int dict_flags);
 
 	int IsLetter(int letter, int group);
+	int IsLetterGroup(char *word, int group);
 
 	void CalcPitches_Tone(int clause_tone);
 
@@ -420,6 +415,7 @@ protected:
 	
 	unsigned char groups2_count[256];    // number of 2 letter groups for this initial letter
 	unsigned char groups2_start[256];    // index into groups2
+	char *letterGroups[N_LETTER_GROUPS];
 	
 	int n_ph_list2;
 	PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes

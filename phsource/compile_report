@@ -24,8 +24,8 @@
       ru  36  123
       it  25  114
       es   6  114
-      pt  34  137
-   pt_pt  20  137
+      pt  28  131
+   pt_pt  20  131
       ro  36  138
       el   8  114
       sv  25  117
@@ -418,14 +418,14 @@
   2  vowel/@_4      nl hr
   3  vowel/8_2      en_us hr sv
   1  vowel/8_3      zh_yue
- 12  vowel/a        en_n cy de hu nl pl sk hr pt
+ 11  vowel/a        en_n cy de hu nl pl sk hr
   4  vowel/a#       en_sc it pt
   6  vowel/a_2      eo it pt pt_pt ro vi
-  5  vowel/a#_2     hr pt sv is sw
-  7  vowel/a_3      en_sc cs pt is
+  4  vowel/a#_2     hr sv is sw
+  6  vowel/a_3      en_sc cs is
  12  vowel/a#_3     en en_n en_us en_wm de hi ru pt_pt vi zh_yue
   4  vowel/a_4      en_wm el vi
-  3  vowel/a_5      pt sv sw
+  2  vowel/a_5      sv sw
   7  vowel/aa       en_us fi fr_ca no zh_yue
   1  vowel/aa#      fi
   3  vowel/aa_2     en cy
@@ -433,7 +433,7 @@
   2  vowel/aa_4     sv vi
   2  vowel/aa_5     en_n
   1  vowel/aa_6     de
-  2  vowel/aa_7     nl pt
+  1  vowel/aa_7     nl
   4  vowel/a_en     en fr
   1  vowel/@_bck    hi
  13  vowel/e        en en_n af cy eo fr hu hr it pt pt_pt vi
@@ -513,7 +513,7 @@
   2  vowel/V        en en_sc
   3  vowel/V_2      af ru
   3  vowel/V_3      en_rp hi vi
-  2  vowel/V_4      en_sc pt
+  1  vowel/V_4      en_sc
   6  vowel/y        en de fi hu nl zh_yue
  10  vowel/y#       en en_wm de fi fr hu nl ro vi zh_yue
   1  vowel/y##      is
