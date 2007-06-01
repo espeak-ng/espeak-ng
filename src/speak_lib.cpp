@@ -225,7 +225,7 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 		wave_init();
 		wave_set_callback_is_output_enabled( fifo_is_command_enabled);
 		my_audio = wave_open("alsa");
-		event_init(synth_callback);
+		event_init();
 #endif
 		break;
 
@@ -624,6 +624,9 @@ ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback* SynthCallback)
 {//======================================================================
 	ENTER("espeak_SetSynthCallback");
 	synth_callback = SynthCallback;
+#ifdef USE_ASYNC
+	event_set_callback(synth_callback);
+#endif
 }
 
 ESPEAK_API void espeak_SetUriCallback(int (* UriCallback)(int, const char*, const char *))

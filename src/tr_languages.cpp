@@ -343,7 +343,7 @@ Translator *SelectTranslator(const char *name)
 	case L('i','s'):   // Icelandic
 		{
 			static int stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_is[8] = {180,155, 200,200, 0,0, 240,250};
+			static int stress_lengths_is[8] = {180,160, 200,200, 0,0, 240,250};
 			static const wchar_t is_lettergroup_B[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
 			tr = new Translator();

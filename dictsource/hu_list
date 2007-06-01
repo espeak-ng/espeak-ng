@@ -31,9 +31,9 @@ _2M1      k'e:t,EzER
 _0M2      m'illio:
 _1M2      m'illio:
 _2M2      k'e:tm,illio:
-_0M3      m'illia:rd
-_1M3      m'illia:rd
-_1M3      k'e:tm,illia:rd
+_0M3      m'illia:Rd
+_1M3      m'illia:Rd
+_1M3      k'e:tm,illia:Rd
 _0M4      b'illio:
 _1M4      b'illio:
 _2M4      k'e:tb,illio:
@@ -150,6 +150,11 @@ en	$u
 szor	$u
 szer	$u
 ször	$u
+
+
+// word pairs
+
+(hogy az)  hoJ,Az
 
 
 // Verbs

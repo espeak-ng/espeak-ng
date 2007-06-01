@@ -27,7 +27,8 @@ Note: the timeout is checked against the real progress of the audio stream, whic
 // First function to be called.
 // the callback will be called when the event actually occurs.
 // The callback is detailled in speak_lib.h .
-void event_init(t_espeak_callback* cb);
+void event_init(void);
+void event_set_callback(t_espeak_callback* cb);
 
 // Clear any pending event.
 //

@@ -74,12 +74,15 @@ static void* polling_thread(void*);
 
 //>
 //<event_init
-void event_init(t_espeak_callback* SynthCallback)
+
+void event_set_callback(t_espeak_callback* SynthCallback)
+{
+  my_callback = SynthCallback;
+}
+
+void event_init(void)
 {
   ENTER("event_init");
-
-  my_callback = SynthCallback;
-  SHOW("event_init > my_callback=0x%x\n", my_callback);
 
   my_event_is_running=0;
 
@@ -192,6 +195,10 @@ static void event_notify(espeak_EVENT* event)
 ENTER("event_notify");
 
 	static unsigned int a_old_uid = 0;
+
+	espeak_EVENT events[2];
+	memcpy(&events[0],event,sizeof(espeak_EVENT));     // the event parameter in the callback function should be an array of eventd
+	events[1].type = espeakEVENT_LIST_TERMINATED;           // ... terminated by an event type=0
 
 	if (event && my_callback)
 	{

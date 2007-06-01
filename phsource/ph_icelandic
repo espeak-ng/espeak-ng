@@ -223,11 +223,11 @@ endphoneme
 
 phoneme b
   vls blb stop
-  vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
-  vowelin  f1=2  f2=1000 -300 -200  f3=-200 80 rms=30
+  vowelin  f1=1  f2=1000 -300 -200  f3=-200 80 rms=27
+  vowelout f1=2  f2=1000 -300 -300  f3=-300 80 brk
   lengthmod 5
   wave x/b
-  before _ x/b_
+//  before _ x/b_
 endphoneme
 
 
