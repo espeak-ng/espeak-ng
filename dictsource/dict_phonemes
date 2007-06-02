@@ -208,20 +208,6 @@ t    t;   tS   ts   ts;  v    w    x
 z    Z    Z;   
 
 
-Dictionary pt_dict
-
-&    &/   &U~  &~   @    @-   a    A    
-aI   aU   e    E    eI   EI   eU   EU   
-i    i/   iU   i~   o    O    oI   OI   
-o~   U    u    uI   u~   y    
-
-*    :    ;    b    C    d    dZ   f    
-g    h    j    k    l    l^   m    n    
-N    n^   p    Q    r    R    r-   s    
-S    s#   s;   t    T    tS   ts   v    
-w    x    z    Z    
-
-
 Dictionary ru_dict
 
 8    @-   A    a    E    e    E#   E2   
@@ -292,6 +278,20 @@ oi   ong  ou   u    ui   yu
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
 tS   v    w    z    
+
+
+Dictionary pt_dict
+
+&    &/   &U~  &~   @    @-   a    A    
+aI   aU   e    E    eI   EI   eU   EU   
+i    i/   iU   i~   o    O    oI   OI   
+o~   U    u    uI   u~   y    
+
+*    :    ;    b    C    d    dZ   f    
+g    h    j    k    l    l^   m    n    
+N    n^   p    Q    r    R    r-   s    
+S    s#   s;   t    T    tS   ts   v    
+w    x    z    Z    
 
 
 Dictionary ro_dict

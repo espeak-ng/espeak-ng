@@ -152,6 +152,9 @@
           e (rtA_    E
           e (rtAm_    E
           e (rtAs_    E
+          e (rrA_    E
+          e (rrAm_    E
+          e (rrAs_    E
 
           e (x_      E
           e (xA_     E
@@ -642,6 +645,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

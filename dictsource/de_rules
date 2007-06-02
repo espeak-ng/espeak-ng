@@ -11,6 +11,7 @@
              a (C%        a
              a (CC        a
              a (sch       a
+        &CC) a (_         =A:
 
              ai           aI
              ay           aI
@@ -32,6 +33,7 @@
          @A) al (_        'al
           @) an (_        'an
           @) ant (_       'ant
+          _) anthropo     ,ant@-*o:p%o:
           @) atisch (_S6  'A:tIS
           @) atisieren (_S9  A:tIs'i:*@n
              anier (_     'A:ni:3
@@ -140,6 +142,7 @@
 
              ell (_       'El
           &) e (_$1       @
+         @t) e (_S1       @
           &) e (BB_       E2
              e (gt_+      e:
           &) el (_        @l
@@ -149,10 +152,11 @@
           @) er (r        E*
           @) er (nC       E*
           @) er (_$2      3
-          &) ere (_       @*@
-          &) eren (_$1    n
-          &) erer (_      @*3
-          &) eres (_$1    s
+          &) ere (_$3     @*@
+          &) erem (_$4    @*@m
+          &) eren (_$4    @*@n
+          &) erer (_$4    @*3
+          &) eres (_$4    @*@s
           &) er (C_       @*
           &) er (n_       @r
           &) er (r_       E
@@ -172,6 +176,7 @@
           &) erung (_     =@*UN
 
           _) ein (@P3     'aIn
+             ein (and     _|%aIn
           _) emp (@P3     _|%Emp
           _) ent (@P3     _|%Ent
           _) enten        Ent@n
@@ -248,6 +253,7 @@
 
           _) haupt (@@P5     h'aUpt
           _) high            _^_EN
+          _) hinter (@       h,Int3
           _) hyper           _^_EN
 
 
@@ -262,11 +268,13 @@
              i (CC        I
              i (sch       I
           @) i (ng        I
+        &CC) i (_         =i:
 
           &) ie (ll_      i:,E
           &) ier (_       'i:3
           r) ien (@       IEn
           &) ien (_S1     n
+         &n) ien (_       I@n
           &) iens (_      =I;@ns
           &) ient (_      =I;@nt
         sch) ie (n        i:
@@ -315,6 +323,7 @@
 
           @) lich (_$4    lIC
              lady         _^_EN
+          @) lo (gisch    l'o:
 
 .group m
           _) m (_         Em
@@ -355,6 +364,7 @@
              o (C%        O
              o (CC        O
              o (sch       O
+        &CC) o (_         =o:
 
           _) ober (@P4    _|,o:b3
           _) ober (ste    o:b3
@@ -450,6 +460,7 @@
              thrill       _^_EN
           @) tient (_     tsI'Ent
           @) tion (_      tsI'o:n
+          @) ti (v_       t'i:
           _) trail        _^_EN
           _) train        _^_EN
           _) tranqu       _^_EN
@@ -480,6 +491,9 @@
           &) uela (_      u:,e:la
           @) uerisch (_   'u:*IS
           _) user         _^_EN
+
+          _) ueber (@P5   _|,y:b3
+
 
 .group v
           _) v (_         faU
@@ -517,7 +531,7 @@
 
 
 .group y
-          _) y (_         UpsIlOn
+          _) y (_         ypsIlOn
 
              y            y:
              y (CC        y

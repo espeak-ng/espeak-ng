@@ -454,6 +454,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags =  0x6 | 0x10; 
 			tr->langopts.numbers = 0xa69 + 0x2000;
 			tr->punct_to_tone[0][3] = 2;   // use exclamation intonation
+			SetLetterVowel(tr,'y');
 		}
 		break;
 
