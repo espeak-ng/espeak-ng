@@ -31,16 +31,18 @@
 
   _sto) ck (holm  k
 
- kilen) c (sz    tS
-  nyol) c (sz    tS
-   har) c (sz    tS
-   lán) c (sz    tS
-   pol) c (so    tS
-   per) c (sz    tS
-   por) c (sé    tS
-   por) c (sz    tS
-   rán) c (sz    tS
-   tán) c (sz    tS
+ kilen) c (sz    ts
+  kvar) c (sz    ts
+  mala) c (sá    ts
+  nyol) c (sz    ts
+   har) c (sz    ts
+   lán) c (sz    ts
+   per) c (sz    ts
+   pol) c (so    ts
+   por) c (sé    ts
+   por) c (sz    ts
+   rán) c (sz    ts
+   tán) c (sz    ts
 
 
 .group d
@@ -186,7 +188,8 @@ _minde) gy (ik   J:
 
     ki) s (ebb   SS
 
-        sz (öld    Sz
+        sz (öld  Sz
+    va) s (zabl  S||
 
 
 .group t
@@ -251,22 +254,22 @@ _minde) gy (ik   J:
         zs       Z
         zzs      Z:
 
-    gá) z (sz    z
+    gá) z (sz    z||    // don't devoice [z] to [s]
     gé) z (sz    z
-    há) z (so    z
+    há) z (so    z||
     há) z (sz    z
     lá) z (sz    z
     má) zc (sz   z
     mé) zc (sz   z
+  nehé) z (sé    z||
     tű) z (sz    z
-    ví) z (sz    z
+    vi) z (sz    z||
+    ví) z (sz    z||
 
     ga) zs (ág     zS
-   _ví) zsz (int   zs:
    _gá) zsz (ámla  zs:
    _gá) zsz (ámlá  zs:
    _ré) zs (ó      zS
-   _há) zs (or     zS
    _vá) zs (or     zS
 _szára) zs (ág     zS
    _kö) zs (ég     zS
