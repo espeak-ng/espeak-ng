@@ -1445,10 +1445,12 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	int  match_type;
 	int  finished=0;
 	int  value;
+	int  flags;
+	int  suffix_char;
 	int  condition_num=0;
    char buf[60];
    char buf_pre[60];
-	char suffix[12];
+	char suffix[20];
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
@@ -1495,11 +1497,19 @@ char *Translator::DecodeRule(const char *group, char *rule)
 		
 		if(rb == RULE_ENDING)
 		{
-			if(rule[0] & (SUFX_P>>8))
-				sprintf(suffix,"P%d",rule[1] & 0x7f);
-			else
-				sprintf(suffix,"$%d(%x)",rule[1] & 0x7f,rule[0] & 0x7f);
-			rule += 2;
+			static char *flag_chars = "ei vtfq t";
+			flags = ((rule[0] & 0x7f)<< 8) + (rule[1] & 0x7f);
+			suffix_char = 'S';
+			if(flags & (SUFX_P >> 8))
+				suffix_char = 'P';
+			sprintf(suffix,"%c%d",suffix_char,rule[2] & 0x7f);
+			rule += 3;
+			for(ix=0;ix<9;ix++)
+			{
+				if(flags & 1)
+					sprintf(&suffix[strlen(suffix)],"%c",flag_chars[ix]);
+				flags = (flags >> 1);
+			}
 			strcpy(p,suffix);
 			p += strlen(suffix);
 			c = ' ';

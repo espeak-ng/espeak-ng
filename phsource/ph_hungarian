@@ -189,4 +189,12 @@ phoneme s2     // second part of geminated [s:]
 endphoneme
 
 
+phoneme z2      // [z] but without switchvoicing
+  vcd alv frc sibilant
+  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 
+  formants voc/z+ufric/s_
+  before _ voc/z_+ufric/s_%80
+  lengthmod 6
+endphoneme
+
 

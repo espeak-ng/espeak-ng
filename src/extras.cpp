@@ -193,6 +193,216 @@ static const unsigned short KOI8_R[0x60] = {
 #define N_CHARS  34
 int *p_unicode;
 int unicode[80];
+#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
+
+
+
+void DecodePhonemes2(const char *inptr, char *outptr)
+//===================================================
+// Translate from internal phoneme codes into phoneme mnemonics
+{
+	unsigned char phcode;
+	unsigned char c;
+	unsigned int  mnem;
+	PHONEME_TAB *ph;
+	const char *p;
+	int ix;
+	int j;
+	int start;
+	static const char *stress_chars = "==,,'*  ";
+
+	unsigned int replace_ph[] = {',',PH('@','-'),'W','3','y',PH('A',':'),'*',PH('_','!'),PH('_','|'),PH('O','I'),PH('Y',':'),PH('p','F'),0};
+	const char *replace_ph2[] = {NULL,NULL,      "9","@r","Y",  "a:",        "r",   "?",        "?",        "OY",       "2:",   "pf" ,NULL};
+
+
+	start = 1;
+	for(ix=0; (phcode = inptr[ix]) != 0; ix++)
+	{
+		if(phcode == 255)
+			continue;     /* indicates unrecognised phoneme */
+		if((ph = phoneme_tab[phcode]) == NULL)
+			continue;
+	
+		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->spect == 0))
+		{
+			if(ph->std_length > 3)
+				*outptr++ = stress_chars[ph->std_length];
+		}
+		else
+		{
+			mnem = ph->mnemonic;
+			if(ph->type == phPAUSE)
+			{
+				if(start)
+					continue;   // omit initial [?]
+
+				if(inptr[ix+1] == phonSCHWA_SHORT)
+					continue;   // omit [?] before [@-*]
+			}
+
+			start = 0;
+			p = NULL;
+
+			for(j=0;;j++)
+			{
+				if(replace_ph[j] == 0)
+					break;
+
+				if(mnem == replace_ph[j])
+				{
+					p = replace_ph2[j];
+					if(p == NULL)
+						mnem = 0;
+					break;
+				}
+			}
+
+			if(p != NULL)
+			{
+				while((c = *p++) != 0)
+				{
+					*outptr++ = c;
+				}
+			}
+			else
+			if(mnem != 0)
+			{
+				while((c = (mnem & 0xff)) != 0)	
+				{
+					*outptr++ = c;
+					mnem = mnem >> 8;
+				}
+			}
+		}
+	}
+	*outptr = 0;    /* string terminator */
+}   //  end of DecodePhonemes
+
+
+void Lexicon_De()
+{//==============
+// Compare eSpeak's translation of German words with a pronunciation lexicon
+	FILE *f_in;
+	FILE *f_out;
+	int ix;
+	int c;
+	char *p;
+	int stress;
+	int count=0;
+	int start;
+	int matched=0;
+	char buf[120];
+	char word[80];
+	char word2[80];
+	char type[80];
+	char pronounce[80];
+	char pronounce2[80];
+	char phonemes[80];
+	WORD_TAB winfo;
+
+	static char *vowels = "aeiouyAEIOU29@";
+
+	wxString fname = wxFileSelector(_T("German Lexicon"),wxString(path_home,wxConvLocal),
+		_T(""),_T(""),_T("*"),wxOPEN);
+
+	strcpy(buf,fname.mb_str(wxConvLocal));
+	if((f_in = fopen(buf,"r")) == NULL)
+	{
+		wxLogError(_T("Can't read file ")+fname);
+		return;
+	}
+	
+	if((f_out = fopen("compare_de","w")) == NULL)
+	{
+		wxLogError(_T("Can't write file "));
+		return;
+	}
+	LoadVoice("de",0);
+
+	word2[0] = ' ';
+	while(!feof(f_in))
+	{
+		count++;
+
+		if(fgets(buf,sizeof(buf),f_in) == NULL)
+			break;
+
+		sscanf(buf,"%s\t%s\t%s",word,type,pronounce);
+
+		// convert word to lower-case
+		for(ix=0, p=&word2[1];;)
+		{
+			ix += utf8_in(&c,&word[ix],0);
+			c = towlower(c);
+			p += utf8_out(c,p);
+			if(c == 0)
+				break;
+		}
+		strcpy(word,&word2[1]);
+		strcat(&word2[1],"  ");
+
+		// remove | syllable boundaries
+		stress=0;
+		start=1;
+		for(ix=0, p=pronounce2;;ix++)
+		{
+			c = pronounce[ix];
+			if(c == '\'')
+			{
+				stress=4;
+				continue;
+			}
+			if(c == ',')
+			{
+				stress=3;
+				continue;
+			}
+			if(c == '|')
+				continue;
+
+			if((c == '?') && start)
+				continue;      // omit initial [?]
+
+			start =0;
+			if(stress && (strchr(vowels,c) != NULL))
+			{
+				if(stress == 4)
+					*p++ = '\'';
+				if(stress == 3)
+					*p++ = ',';
+				stress = 0;
+			}
+
+			*p++ = c;
+			if(c == 0)
+				break;
+
+			if(strchr("eiouy",c) && pronounce[ix+1] != ':')
+				*p++ = ':';    // ensure [;] after these vowels
+		}
+
+		// translate
+		memset(&winfo,0,sizeof(winfo));
+		translator->TranslateWord(&word2[1],0,&winfo);
+
+		DecodePhonemes2(translator->word_phonemes,phonemes);  // also need to change some phoneme names
+
+		if(strcmp(phonemes,pronounce2) == 0)
+		{
+			matched++;
+		}
+		else
+		{
+			if(strlen(word) < 8)
+				strcat(word,"\t");
+			fprintf(f_out,"%s\t%s\t%s\n",word,phonemes,pronounce2);
+		}
+	}
+
+	fclose(f_in);
+	fclose(f_out);
+	wxLogStatus(_T("Completed, equal=%d  different=%d"),matched,count-matched);
+}
 
 
 void Lexicon_Ru()
@@ -496,6 +706,9 @@ void CompareLexicon(int id)
 	{
 	case MENU_LEXICON_RU:
 		Lexicon_Ru();
+		break;
+	case MENU_LEXICON_DE:
+		Lexicon_De();
 		break;
 	}
 }  // end of CompareLexicon

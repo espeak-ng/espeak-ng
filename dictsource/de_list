@@ -85,225 +85,6 @@ vgl      fE*gl'aIC@
 z.b      tsUmb'aISpi:l
 
 
-// English words 
-//==============
-// de_rules includes the words ending in "-ing"
-access		_^_EN
-account		_^_EN
-aid		_^_EN  // aids
-appeal		_^_EN
-apple		_^_EN
-baseball	_^_EN
-bbc		_^_EN
-beat		_^_EN
-browser         _^_EN
-byte		_^_EN
-camcorder	_^_EN
-chart		_^_EN
-coach		_^_EN
-coke		_^_EN
-computer	_^_EN
-cool		_^_EN
-couch		_^_EN
-cursor		_^_EN
-dj		_^_EN
-email		_^_EN
-ensemble	_^_FR
-event		_^_EN
-firewall	_^_EN
-foul		_^_EN
-foyer		_^_EN
-frame		_^_EN
-freak		_^_EN
-gin		_^_EN
-groupie		_^_EN
-hip		_^_EN
-homepage	_^_EN
-hooligan	_^_EN
-interface	_^_EN
-jean		_^_EN
-jet		_^_EN
-job		_^_EN
-joke		_^_EN
-joystick	_^_EN
-junkie		_^_EN
-laptop		_^_EN
-laser		_^_EN
-level		_^_EN
-login		_^_EN
-look		_^_EN
-macho		_^_EN
-mail		_^_EN
-message		_^_EN
-offline		_^_EN
-online		_^_EN
-out		_^_EN
-pair		_^_EN
-penthouse	_^_EN
-pidgin		_^_EN
-plot		_^_EN
-poster		_^_EN
-receiver	_^_EN
-remake		_^_EN
-roadie		_^_EN
-roastbeef	_^_EN
-quiz		_^_EN
-run             _^_EN
-scanner		_^_EN
-science		_^_EN
-server		_^_EN
-sex		_^_EN
-sexy		_^_EN
-shirt		_^_EN
-show		_^_EN
-single          _^_EN
-slip		_^_EN
-slum		_^_EN
-small		_^_EN
-snob		_^_EN
-song		_^_EN
-spam		_^_EN
-spirit          _^_EN
-squaw		_^_EN
-suite		_^_EN
-sweatshirt	_^_EN
-talk		_^_EN
-teaser		_^_EN
-tech		_^_EN
-terminal	_^_EN
-trip		_^_EN
-tuner		_^_EN
-unix		_^_EN
-window		_^_EN
-word		_^_EN
-
-
-// Main exceptions list
-//=====================
-allein           $2
-andre           and@-*@        // andere
-anomalie         $2
-akazie           $alt
-arie             $alt
-arterie          $alt
-außerdem        aUs3de:m
-
-beben           be:b@n
-beere           be:*@
-bestie          bEstI@
-best            bEst
-beten           be:t@n
-bronchie         $alt
-
-ciao            tSaU
-coup            ku:
-
-dahlie           $alt
-deshalb          $2
-dezember         $2
-duett           du:'Et
-
-direkt           $2
-dritte          d@-*It@
-
-einander        aIn'and3
-einig           aInIC
-endivie          $alt
-erde            E*d@
-erst            E*st
-
-furie            $alt
-
-geben           ge:b@n
-geber           ge:b3
-gegenüber       ge:g@n'y:b3
-gemein          g@maIn
-genial          ge:nI'al
-geranie         ge:*'A:nI@
-gessen          gEs@n
-geste           ge:st@
-gestern         gEst3n
-gestrig         gEst@-*IC
-glorie           $alt
-grazie           $alt
-
-handy           handI
-historie         $alt
-hm              h@m
-hostie           $alt
-
-immobilie        $alt
-injurie          $alt
-insbesondere     $3
-interess        Int@*'Es
-
-januar          janu:A:*
-
-kamelie          $alt
-kastanie         $alt
-kid             kId
-kommend         kOm'End
-komödie          $alt
-kurie            $alt
-
-lappalie         $alt
-lilie            $alt
-linie            $alt
-luetisch        lu:'e:tIS
-
-machen          max@n
-marginalie       $alt
-materie          $alt
-menuette        mEnu:'Et
-mikrofiche	maIk@-*o:fIS
-miteinander      $1
-mitte           mIt@
-mumie            $alt
-
-oberen          o:b@*@n
-oboe            o:bo:@
-orgie            $alt
-ok              o:k'e:
-
-petersilie       $alt
-pinie            $alt
-präsident        $3
-prämie           $alt
-problem         p@-*Obl'e:m
-
-reliquie         $alt
-rupie            $alt
-
-sagt            zA:gt
-selbst          zElpst
-serie           se:*I;@
-service         sE*vIs
-sofort           $2
-sogar            $2
-soweit           $2
-sowohl           $2
-system          z%IstEm
-
-tag             tA:g
-the             D@         // English
-theater         te:'A:t3
-tuerei          tu:*aI
-
-unten           Unt@n
-
-verein          fE*'aIn
-vielleicht       $2
-vorbei          fO*b'aI
-
-//wahrscheinlich   $2
-warum           vA:*'Um
-
-zoom            zu:m
-zuerst          tsu:'E*st
-zudem           tsu:'de:m
-zurück           $2
-
-
 // definite article
 der             %dE*
 die             %di:
@@ -331,7 +112,8 @@ bevor           be:f'o:*  $pause
 also                      $pause $strend
 wenn            ,vEn      $pause $strend
 sowie            $2       $pause
-
+obgleich         $2       $pause
+obwohl           $2       $pause
 deren           ,dE*@n    $brk
 
 // prepositions
@@ -525,4 +307,233 @@ soll            ,zOl
 sollst          ,zOlst
 sollte          ,zOlt@
 sollten         ,zOlt@n
+
+
+
+
+// English words 
+//==============
+// de_rules includes the words ending in "-ing"
+access		_^_EN
+account		_^_EN
+aid		_^_EN  // aids
+appeal		_^_EN
+apple		_^_EN
+baseball	_^_EN
+bbc		_^_EN
+beat		_^_EN
+browser         _^_EN
+byte		_^_EN
+camcorder	_^_EN
+chart		_^_EN
+coach		_^_EN
+coke		_^_EN
+computer	_^_EN
+cool		_^_EN
+couch		_^_EN
+cursor		_^_EN
+dj		_^_EN
+email		_^_EN
+ensemble	_^_FR
+event		_^_EN
+firewall	_^_EN
+foul		_^_EN
+foyer		_^_EN
+frame		_^_EN
+freak		_^_EN
+gin		_^_EN
+groupie		_^_EN
+hip		_^_EN
+homepage	_^_EN
+hooligan	_^_EN
+interface	_^_EN
+jean		_^_EN
+jet		_^_EN
+job		_^_EN
+joke		_^_EN
+joystick	_^_EN
+junkie		_^_EN
+laptop		_^_EN
+laser		_^_EN
+level		_^_EN
+login		_^_EN
+look		_^_EN
+macho		_^_EN
+mail		_^_EN
+message		_^_EN
+offline		_^_EN
+online		_^_EN
+out		_^_EN
+pair		_^_EN
+penthouse	_^_EN
+pidgin		_^_EN
+plot		_^_EN
+poster		_^_EN
+receiver	_^_EN
+remake		_^_EN
+roadie		_^_EN
+roastbeef	_^_EN
+quiz		_^_EN
+run             _^_EN
+scanner		_^_EN
+science		_^_EN
+server		_^_EN
+sex		_^_EN
+sexy		_^_EN
+shirt		_^_EN
+show		_^_EN
+single          _^_EN
+slip		_^_EN
+slum		_^_EN
+small		_^_EN
+snob		_^_EN
+song		_^_EN
+spam		_^_EN
+spirit          _^_EN
+squaw		_^_EN
+suite		_^_EN
+sweatshirt	_^_EN
+talk		_^_EN
+teaser		_^_EN
+tech		_^_EN
+terminal	_^_EN
+trip		_^_EN
+tuner		_^_EN
+unix		_^_EN
+window		_^_EN
+word		_^_EN
+
+
+// Main exceptions list
+//=====================
+abort           ab'O*t
+allein           $2
+andre           and@-*@        // andere
+anomalie         $2
+akazie           $alt
+arie             $alt
+arterie          $alt
+außerdem        aUs3de:m
+
+beben           be:b@n
+beere           be:*@
+bestie          bEstI@
+best            bEst
+beten           be:t@n
+bronchie         $alt
+
+ciao            tSaU
+coup            ku:
+
+dahlie           $alt
+deshalb          $2
+dezember         $2
+diadem          di:ad'e:m
+duett           du:'Et
+
+direkt           $2
+dritte          d@-*It@
+
+einander        aIn'and3
+einig           aInIC  $only
+einige          aInIg@ $u+
+einiges         aInIg@s $u+
+endivie          $alt
+erde            E*d@
+erst            E*st
+
+furie            $alt
+
+geben           ge:b@n
+geber           ge:b3
+gegenüber       ge:g@n'y:b3
+gemein          g@maIn
+genial          ge:nI'al
+geranie         ge:*'A:nI@
+gessen          gEs@n
+geste           ge:st@
+gestern         gEst3n
+gestrig         gEst@-*IC
+glorie           $alt
+grazie           $alt
+
+handy           handI
+heimat          haImat
+historie         $alt
+hm              h@m
+hostie           $alt
+
+immobilie        $alt
+injurie          $alt
+insbesondere     $3
+interess        Int@*'Es
+
+januar          janu:A:*
+
+kamelie          $alt
+kastanie         $alt
+kid             kId
+kommend         kOm'End
+komödie          $alt
+kurie            $alt
+
+lappalie         $alt
+lilie            $alt
+linie            $alt
+luetisch        lu:'e:tIS
+
+machen          max@n
+marginalie       $alt
+materie          $alt
+menuette        mEnu:'Et
+mikrofiche	maIk@-*o:fIS
+miteinander      $1
+mitte           mIt@
+mumie            $alt
+
+oberen          o:b@*@n
+oboe            o:bo:@
+orgie            $alt
+ok              o:k'e:
+
+petersilie       $alt
+pinie            $alt
+präsident        $3
+prämie           $alt
+problem         p@-*Obl'e:m
+
+reliquie         $alt
+rupie            $alt
+
+sabbat          zabat
+sagt            zA:gt
+selbst          zElpst
+serie           se:*I;@
+service         sE*vIs
+sofort           $2
+sogar            $2
+soweit           $2
+sowohl           $2
+system          z%IstEm
+
+tag             tA:g
+the             D@         // English
+theater         te:'A:t3
+tuerei          tu:*aI
+
+unten           Unt@n
+
+woher           vo:h'e:r
+
+verein          fE*'aIn
+vielleicht       $2
+vorbei          fO*b'aI
+
+//wahrscheinlich   $2
+warum           vA:*'Um
+
+zoom            zu:m
+zuerst          tsu:'E*st
+zudem           tsu:'de:m
+zurück           $2
 

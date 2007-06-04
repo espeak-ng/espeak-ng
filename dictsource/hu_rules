@@ -254,25 +254,24 @@ _minde) gy (ik   J:
         zs       Z
         zzs      Z:
 
-    gá) z (sz    z||    // don't devoice [z] to [s]
-    gé) z (sz    z
-    há) z (so    z||
-    há) z (sz    z
-    lá) z (sz    z
-    má) zc (sz   z
-    mé) zc (sz   z
-  nehé) z (sé    z||
-    tű) z (sz    z
-    vi) z (sz    z||
-    ví) z (sz    z||
+    gá) z (sz    z2    // don't devoice [z] to [s]
+    gé) z (sz    z2
+    há) z (so    z2
+    há) z (sz    z2
+    lá) z (sz    z2
+    má) zc (sz   z2
+    mé) zc (sz   z2
+  nehé) z (sé    z2
+    tű) z (sz    z2
+    ví) z (sz    z2
 
-    ga) zs (ág     zS
-   _gá) zsz (ámla  zs:
-   _gá) zsz (ámlá  zs:
-   _ré) zs (ó      zS
-   _vá) zs (or     zS
-_szára) zs (ág     zS
-   _kö) zs (ég     zS
+    ga) zs (ág     z2S
+   _gá) zsz (ámla  z2s:
+   _gá) zsz (ámlá  z2s:
+   _ré) zs (ó      z2S
+   _vá) zs (or     z2S
+_szára) zs (ág     z2S
+   _kö) zs (ég     z2S
 
 
 .group

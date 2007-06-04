@@ -9,13 +9,13 @@
    en_wm  30  142
       af  37  126
       cy  29  121
-      de  28  118
+      de  29  119
       eo  13  107
       fi  40  126
       fr  32  117
    fr_ca  11  117
       hi  49  130
-      hu  23  112
+      hu  24  113
       nl  26  116
       pl  15  106
       sk  26  123
@@ -221,7 +221,7 @@
   2  ufric/hu_fi    fi
   2  ufric/ll       base is
   3  ufric/s        base es pt
- 11  ufric/s_       base fi fr hu es pt ro
+ 13  ufric/s_       base fi fr hu es pt ro
  15  ufric/s!       base fi hu es pt
   2  ufric/s_continue fi hu
   2  ufric/sh       base pt_pt
@@ -397,8 +397,8 @@
   6  vocw/v         base ro
   4  vocw/zh        base ro
   2  vocw/zh_rfx    base
-  3  voc/z          base fr ro
-  3  voc/z_         base fr ro
+  4  voc/z          base fr hu ro
+  4  voc/z_         base fr hu ro
   4  voc/zh         base sk ro
   3  voc/zh_        base ro
   1  voc/zh_2       sk
@@ -432,7 +432,7 @@
   1  vowel/aa_3     af
   2  vowel/aa_4     sv vi
   2  vowel/aa_5     en_n
-  1  vowel/aa_6     de
+  2  vowel/aa_6     de
   1  vowel/aa_7     nl
   4  vowel/a_en     en fr
   1  vowel/@_bck    hi

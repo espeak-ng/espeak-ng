@@ -157,7 +157,7 @@ o:   u    u:   y    Y    y:   Y:
 *    :    b    c    C    d    dZ   f    
 g    h    j    J    k    l    m    n    
 N    n^   p    r    R    s    S    s2   
-t    tS   ts   v    z    Z    
+t    tS   ts   v    z    Z    z2   
 
 
 Dictionary it_dict
@@ -298,15 +298,15 @@ Dictionary ro_dict
 
 @    @-   @I   @U   a    aI   aU   e    
 ea   eI   eo   eU   i    i/   I^   iI   
-iU   o    Oa   oI   oU   u    uI   y    
-Y    yI   yU   
+iU   o    O    Oa   oI   oU   u    uI   
+y    Y    yI   yU   
 
 *    *;   b    b;   c    C    d    d;   
 dZ   f    f;   g    h    j    k    l    
 l;   m    m;   n    N    n;   p    p;   
-r    s    S    s;   S;   t    T    t;   
-tS   ts   ts;  v    v;   w    w2   z    
-Z    z;   Z;   
+r    s    S    s;   S;   t    t;   tS   
+ts   ts;  v    v;   w    z    Z    z;   
+Z;   
 
 
 Dictionary is_dict

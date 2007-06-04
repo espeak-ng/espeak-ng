@@ -161,12 +161,15 @@ această	$u+
 acel	$u+     // that
 acea	$u+	// that
 acei	$u+     // those
-acele	$u1+     // those
+acele	$u2+     // those
 
 cei	$u+	// the, those
 cel	$u+	// that, he who
 cea	$u+	// that, she who
 cele	$u1+	// those
+ăia	$u1+
+ălora	$u1+
+
 
 // pronouns
 eu	jeU $u+
@@ -195,9 +198,17 @@ mi	$u
 însuşi $u1+
 ânsăşi $u1+
 însumi $u1+
+nimeni $u1+
+nimănui $u3+
 
-care	$u $brk   // who that which what
-ceea	$u $brk   // that
+care	$u1 $brk
+// who that which what
+ceea	$u $brk // that   
+căruia	$u1  
+căreia	$u1
+cărora	$u1
+ăltora	$u1+
+ 
 
 
 // possessive adjectives
@@ -275,7 +286,7 @@ deşi	$2 $pause	// although
 fie	fie $u		// either
 însă	$pause		// but, yet, however
 atunci	$pause		// therefore
-(de atunci) d%e||at'untSi $pause   // since then
+(de atunci) d%e||at'untSI^ $pause   // since then
 nici	$pause		// neither
 deci	$pause		// therefore, so that
 fiindcă	$pause		// because, since, as
@@ -354,24 +365,27 @@ absolvi	$3
 afurisi	$4
 agonisi	$4
 ameţi	$3
+amuţi	$3
+
 blagoslovi	$4
-borbi	$2
 boţi	$2
 buşi	$2
+
 călăuzi	$4
-căptuşi	$2
+căptuşi	$3
 cârmi	$2
+
+căzni $2
 catadicsi	$4
 cerşi	$2
-ciocni	$2
 citi	$2
 cloci	$2
 cuveni	$3
 dărui	d@*w'i
 deosebi	$3
-depăsi	$3
+depăşi	$3
 descoperi	$4
-desluşi	$2
+desluşi	$3
 deveni	$3
 dormi	$2
 feri	$2
@@ -387,34 +401,53 @@ hăcui	$3
 încreţi	$3
 înghiţi	$3
 îngriji	$3
+
+înroşi $3
 întâlni	$3
 înteţi	$3
 învârti	$3
+învrednici $4
 izbi	$2
 linguşi	$3
+
+lipi $2
 lovi	$2
 mânji	$2
-mirosi	$2
+mirosi	$3
 moleşi	$3
+
+muri mur'i
 necăji	$3
+oferi $3
+
 opri	$2
 pândi	$2
 păşi	$2
+părăsi $3
+
 păzi	$2
 plăti	$2
-pocni	$2
 povesti	$3
 prăbuşi	$3
 prăji	$2
+
 primi	$2
+
+porni $2
 răci	$2
 râfni	$2
+
+rânji $2
 răguşi	$3
 răscoli	$3
 răspândi	$3
 răsuci	$3
-risipi	$3
-rotunji	$2
+risipi $3
+
+rosti $2
+rostogoli $4
+rotunji	$3
+
 săvârşi $3
 sclifosi	$3
 sfârşi	$2
@@ -427,9 +460,21 @@ ursi	$2
 urzi	$2
 veşteji	$3
 vrăji	$2
+vorbi $2
+
 
 
 // final "a" or "ea" is stressed(verbs)
+
+înroşi $3
+învărtejea $4
+învărtea $3
+învolbura $4
+agita $3
+apărea $3
+amuţea $3
+asculta $3
+aştepta $3
 agonisea	$2
 agrea	ag@-*e'a
 ajuta	$3
@@ -444,10 +489,14 @@ căsca	$2
 căuta	$2
 cerşea	$2
 continua	kontinu'a
+
+conţinea $3
 crea	k@-*e'a
 credea	$3
 creştea	$2
 dădea	$2
+
+depăsea $3
 depista	$3
 desfunda	$2
 distra	$2
@@ -485,14 +534,22 @@ mângâia	$3
 memora	$2
 mergea	$2
 merita	$3
+
+murea $2
 negocia	negotSi'a
+oferea $3
+
 paraliza	$4
 părea	$2
-pavea	pave'a
+
+palea	pale'a
 păzea	$2
 pleca	$2
+
+pornea $2
 povestea	$2
 prepara	$3
+prelungea $3
 răbda	$2
 răcea	$2
 rămânea	$3
@@ -503,9 +560,16 @@ repera	$3
 respira	$3
 reuşea	$3
 revenea	$2
+
+rostea $2
 săpa	$2
+
+sărea $2
+semăna $3
 scotea	$2
 sfărâma	$3
+
+sosea $2
 spăla	$2
 spera	$2
 stăpânea	$2
@@ -528,7 +592,7 @@ zbura	$2
 (să l)	s@l     $u
 (să i)	s@I     $u
 (să şi)	s@S;I^  $u
-(care l) carel $u
+(care l) karel $u
 (să mi)	s@m;I^  $u
 (te am)	team    $u
 (te ai) teaj    $u
@@ -542,6 +606,11 @@ zbura	$2
 (l am)	lam     $u
 (l aţi)	lats;I^ $u
 (v aţi)	vats;I^ $u
+
+(v au) vaU $u
+(v am) vam $u
+(s o) so $u
+(nu i) nui $u
 (i am)	jam     $u
 (a şi)  aS;I^   $u
 (într o) ynt@-*o
@@ -556,13 +625,38 @@ abil		$2
 abzice		$2
 acelaş		$2
 adventice	$3
+africa $1
+africii $1
+
 aer		aIer
 aici		a'itSI^
+
+alegem $2
+alegeţi $2
 altceva         $3
+
+altcuiva $3
+altcumva $3
+amic $2
+amici $2
+amice $2
+amicii $2
+amicul $2
+amicului $2
+amicilor $2
+amicelor $2
+inamic $3
+inamicul $3
+inamicului $3
+inamicilor $3
 america		$2
 americii	$2
 americile	$2
 apoi		$2
+
+aprig $1
+aprige $1
+aprigi $1
 artefice	$3
 asemenea	$2
 adu		$1
@@ -577,15 +671,29 @@ câteva		$3
 câtorva		$3
 cerbice		$2
 ceva            $2
-cicatrice	$3      // @-
+cicatrice	$3     
 cineva          $3
 chimi		$alt
 chimic		$1
 complice	$2
 contrazice	$3
 consideră	$3
-creier		$1	// @-
+creier		$1	
+credem $1
+credeţi $1
+crivăt $1
+crivătul $1
+crivătului $1
 
+cuiva $2
+
+cumva $2
+dădu $2
+deget $1
+degetul $1
+degetele $1
+degetului $1
+degetelor $1
 deja		$2
 denzic		$2
 denzice		$2
@@ -600,9 +708,15 @@ edit		$1
 egale		$2
 energi		$alt
 elice		$2
+
+expedia $3
 exista		$3
 
 factice		$2
+facem $1
+faceţi $1
+făcu $2
+
 fenicşi		$1
 fenix		$1
 ferice		$1
@@ -622,9 +736,17 @@ gimnaziu	dZimn'azju
 
 imagin		$2
 înainte		yna'inte
+
+întotdeauna yntotdea'una
+încăpere $3
+încăperea $3
+încăperile $3
+încăperii $3
+încăperilor $3
 legături	$3
-legătură	$3
 legăturile	$3
+
+legăturilor $3
 înjurătură	$4
 înjurături	$4
 înjurăturile	$4
@@ -639,6 +761,9 @@ logic           $1
 matrice		$2
 maxim		$1
 maximum		$1
+
+mergem $1
+mergeţi $1
 merit		$1
 mia		m'ia
 mie		m'ie
@@ -647,8 +772,14 @@ minimum		$1
 murdărie	murd@*'ie
 muzik		$1
 mării		$1
-mişto		$1
-metri		met*i
+mijloc $1
+mijloace $1
+mijlocul $1
+mijlocului $1
+mijloacele $1
+mijloacelor $1
+minus $1
+mişto $2
 
 nimic		$2
 novice		$2
@@ -657,10 +788,20 @@ număr		$1
 numărul		$1
 
 oameni		$1
-oareşice	oa*eSTSe $4
+
+oamenii $1
+oamenilor $1
+oareşice	oa*eStSe $4
 obişnuit        obiSnw'it
 ocol		$2
+
+omăt $2
 ordin		$1
+
+ordinul $1
+ordinului $1
+ordinelor $1
+ordinele $1
 dezordine	$2
 orice		o*I^tSe  $2
 oricare		o*I^ka*e  $3
@@ -677,6 +818,8 @@ plăcerilor	$2
 polonic		$3
 polonicul	$3
 politic		$2
+
+pretutindeni $3
 pricin		$1
 prieten         $2
 prietenie	p@-*jeten'ie
@@ -684,7 +827,16 @@ privi		$3
 propice		$2
 protocol	$4
 promitem	$2
+promiteţi $2
+putere $2
+puteri $2
+puterea $2
+puterii $2
+puterilor $2
 
+răcnet $1
+răcnete $1
+răcnetelor $1
 regul		$1
 reguli		$1
 repede		$1
@@ -706,19 +858,40 @@ secolelor	$1
 sergiu		s'ergju
 sigur		$1
 simbolic	$2
+
+singur $1
+şosea $2
 spaţiu		spatsju
 spuneţi		sp'unetsI^
 
 tanti		tanti
+
 târcol		$2
 târziu		tyrz'iu
 terapi          $alt
 terapii		$3
+trecu $2
+trecem $1
+treceţi $1
+trebuie $1
+trebuia $3
+
 
 ultim		$1
+
+ultimul $1
+ultimele $1
+umăr $1
+umărul $1
 undeva          $3
 
 veder		$2
+vehicul $2
+vehiculul $2
+vehicului $2
+vehicule $2
+vehiculelor $2
+
 vineri		$1
 vinovăţi        $alt
 vinovăţii       $4
@@ -726,4 +899,5 @@ virgulă		$1
 virus		$1
 
 zarzări		$1
+
 
