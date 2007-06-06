@@ -652,11 +652,17 @@ static void SmoothSpect(void)
 			frame = frame2 = (frame_t *)q[2];
 			modified = 0;
 
+			if(frame->frflags & FRFLAG_BREAK)
+				break;
+
 			if(frame->frflags & FRFLAG_FORMANT_RATE)
 				len = (len * 12)/10;      // allow slightly greater rate of change for this frame (was 12/10)
 
 			for(pk=0; pk<6; pk++)
 			{
+				if((frame->frflags & FRFLAG_BREAK_LF) && (pk < 3))
+					continue;
+
 				allowed = (formant_rate[pk] * len)/256;
 
 				diff = frame->ffreq[pk] - frame1->ffreq[pk];

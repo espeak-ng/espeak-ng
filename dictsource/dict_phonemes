@@ -66,9 +66,9 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  E    e@   eI   I    I2   i:   i@   
-IR   O    O:   o:   O@   o@   OI   oU   
-O~   U    u:   U@   V    VR   
+aU@  E    e@   eI   I    i    I2   i:   
+i@   IR   O    O:   o:   O@   o@   OI   
+oU   O~   U    u:   U@   V    VR   
 
 :    ;    b    C    d    D    dZ   f    
 g    g-   h    j    k    l    L    m    
@@ -112,12 +112,12 @@ S    s2   t    v    Z
 
 Dictionary fr_dict
 
-@    @-   a    A    A~   e    E    E:   
-E~   i    o    O    O    O~   u    W    
-w^i  W~   y    Y    
+@    @-   a    A    A~   e    E    E~   
+i    o    O    O~   u    W    w^i  W~   
+y    Y    y"   
 
-(o)  :    ;    b    c    d    dZ   f    
-g    h    j    k    l    L    l/2  m    
+(i)  :    ;    b    c    d    dZ   f    
+g    h    j    k    l    L    l/   m    
 n    N    n^   p    r    R    s    S    
 t    t2   tS   v    w    z    Z    z2   
 
@@ -139,9 +139,9 @@ t.h  th   v    w    x    z
 Dictionary hr_dict
 
 &    @    @-   @2   a    A    a:   aI   
-aU   E    e    e:   eI   E~   i    I    
-i:   iI   l-   o    o:   oI   oU   O~   
-r-   u    U    u:   uI   
+aU   E    e    e:   E~   i    I    i:   
+l-   o    o:   oU   r-   u    U    u:   
+y    
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    l^   m    n    N    n^   
@@ -284,7 +284,7 @@ Dictionary pt_dict
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
-i    i/   iU   i~   o    O    oI   OI   
+e~   i    i/   iU   o    O    oI   OI   
 o~   U    u    uI   u~   y    
 
 *    :    ;    b    C    d    dZ   f    

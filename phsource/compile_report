@@ -1,39 +1,39 @@
 34 phoneme tables
           new total
-    base  95   95
-      en  52  142
-    en_n  29  142
-   en_us  36  142
-   en_sc  39  144
-   en_rp  34  142
-   en_wm  30  142
-      af  37  126
-      cy  29  121
-      de  29  119
-      eo  13  107
-      fi  40  126
-      fr  32  117
-   fr_ca  11  117
-      hi  49  130
-      hu  24  113
-      nl  26  116
-      pl  15  106
-      sk  26  123
-      cs   5  123
+    base  96   96
+      en  52  143
+    en_n  29  143
+   en_us  37  143
+   en_sc  39  145
+   en_rp  34  143
+   en_wm  30  143
+      af  37  127
+      cy  29  122
+      de  29  120
+      eo  13  108
+      fi  40  127
+      fr  32  118
+   fr_ca  11  118
+      hi  49  131
+      hu  24  114
+      nl  26  117
+      pl  15  107
+      sk  26  124
+      cs   5  124
       hr  25  133
-      ru  36  123
-      it  25  114
-      es   6  114
-      pt  28  131
-   pt_pt  20  131
-      ro  36  138
-      el   8  114
-      sv  25  117
-      no  28  121
-      is  32  120
-      vi  41  132
-  zh_yue  32  123
-      sw  14  104
+      ru  36  124
+      it  25  115
+      es   6  115
+      pt  28  132
+   pt_pt  20  132
+      ro  36  139
+      el   8  115
+      sv  25  118
+      no  28  122
+      is  32  121
+      vi  41  133
+  zh_yue  32  124
+      sw  14  105
 
   3  b/b            base hi ro
   2  b/b_           base hi
@@ -416,7 +416,7 @@
   1  vowel/3_3      en_rp
   3  vowel/3_en     en en_wm af
   2  vowel/@_4      nl hr
-  3  vowel/8_2      en_us hr sv
+  2  vowel/8_2      en_us sv
   1  vowel/8_3      zh_yue
  11  vowel/a        en_n cy de hu nl pl sk hr
   4  vowel/a#       en_sc it pt
@@ -490,12 +490,12 @@
   2  vowelr/aa_r    en_sc
   1  vowelr/oo_r    en_sc
   1  vowelr/o_r     en_sc
-  3  vowelr/r-voc   hi sk
+  4  vowelr/r-voc   hi sk hr
   2  vowelr/V3_r    en en_sc
   1  vowelr/V_r     en
   7  vowel/u        en_n cy de eo fr cs
   5  vowel/u#       en en_sc
-  3  vowel/u_2      fi sk ro
+  4  vowel/u_2      fi sk hr ro
   1  vowel/u#_2     sv
   1  vowel/u_3      ro
   1  vowel/u#_3     en_n
@@ -509,7 +509,7 @@
   2  vowel/uu_2     de it
   1  vowel/uu_3     af
   2  vowel/uu_4     fi sv
-  8  vowel/uu_bck   fr_ca hi hu hr pt no zh_yue
+  7  vowel/uu_bck   fr_ca hi hu pt no zh_yue
   2  vowel/V        en en_sc
   3  vowel/V_2      af ru
   3  vowel/V_3      en_rp hi vi
@@ -610,7 +610,7 @@
   5  w/xw           base
  20  x/b            base hi ro is
   1  x/b_           base
-  9  x/d            base hi hr el is
+ 10  x/d            base en_us hi hr el is
  14  x/d_           base fi fr hi pl hr ru it ro el is sw
  23  x/d_dnt        base fi fr hi hu pl ru it ro sw
   6  x/d_pzd        pl ru

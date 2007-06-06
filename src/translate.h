@@ -206,7 +206,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      12
+#define N_LOPTS      13
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -235,6 +235,8 @@ extern const int param_defaults[N_SPEECH_PARAM];
  // bit 4=only if the second word has $alt attribute
  // bit 5=not if the second word is end-of-sentence
 #define LOPT_COMBINE_WORDS 11
+ // change [t] when followed by unstressed vowel
+#define LOPT_REDUCE_T 12
 
 
 typedef struct {

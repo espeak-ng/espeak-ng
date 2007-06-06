@@ -34,77 +34,77 @@ z     z@
 
 _??   znak          // unknown symbol
 _?A   slovo         // unknown letter
-©     'aUtorsk&||p@-*'av&
-%     posto
+©     'aUtoRsk&||p@-*av&
+%     p'osto
 +     plus
-€     Eu*o
-@     _Et
-&     _End
+€     'euRo
+@     _'at
+&     _'end
 !     'usklItSnIk
 :     dv'ototSk&
-#     b@-*'oj
-/     k@-*'oz
+#     b@-*'oj_
+/     k@-*'oz_
 \\    b'EkslES
-^     tsirkUmflEks
-~     tild&
-¤     valUt&
-§     oldom&k
-µ     mikro
-¶     tSlan&k
+^     ts'irkumfleks
+~     t'ild&
+¤     v'alut&
+§     'odlom&k
+µ     m'ik@-*o
+¶     tSl'an&k
 °     st'up&n^
 _"    n'avodnIk
-_‚    'otvo*,En@||n'avodnIk
-_„    sp'utSEn@||n'avodnIk
-…     t@-*'i_||t'otSke
+_‚    'otvoReni||n'avodnIk
+_„    sp'uSteni||n'avodnIk
+…     t@-*'i||t'otSke
 †     k@-*'iZ
-‡     dv'ost@-*'uk@||k@-*'iZ
+‡     dv'ost@-*Uki||k@-*'iZ
 ‰     p@-*'omil
-_‹    'otvo*,En@||n'avodnIk
-_‘    'otvo*,En@||n'avodnIk
-_’    jedn'ost@-*'uk@||n'avodnIk
-_“    'otvo*,En@||n'avodnIk
-_”    zatvo*,En@||n'avodnIk
-•     k@-*'upna||t'otSk@
-_–    en||ts'r-t&
-_—    em||ts'r-t&
-™     p@-*'oizv'odZatS
-˘     b@-*,EvIs
-¨     p@-*Ijegl&s
-_«    'otvo*,En@||n'avodnIk
-_­    p@-*Ivr,Emen&||tsr-tIts&
+_‹    'otvoReni||n'avodnIk
+_‘    'otvoReni||n'avodnIk
+_’    j'ednost@-*'uki||n'avodnIk
+_“    'otvoReni||n'avodnIk
+_”    z'atvoReni||n'avodnIk
+•     k@-*'upna||t'otSk&
+_–    En||ts'r-t&
+_—    Em||ts'r-t&
+™     p@-*'o'izvodZ&tS
+˘     b@-*'evis
+¨     p@-*'ijegl&s
+_«    'otvoReni||n'avodnIk
+_­    p@-*'iv@-*emen&||ts'r-t'its&
 ·     p'ut&
-¸     s,EdIl&
-_»    z'atvo*,En@||n'avodnIk
-®     r,Egist@-*'atsIj&
-ł     l@||s&||tsr-tItsom
+¸     sed'il&
+_»    z'atvoReni||n'avodnIk
+®     R'egist@-*atsIj&
+ł     l@||s&||ts'r-t'itsom
 ×     p'ut&
-÷     p'od'ijeljen'o
+÷     p'odijel^,eno
 
-_$    dol&r
-_-    minus
-_*    zvj'ezdIts@
-_=    jedn&ko
-_@    t'r-gov,&tSko||'i
-_(    'otvo*,En&||'ok@-*Ugl&
-_)    z'atvo*,En&||'ok@-*Ugl&
-_'    apost@-*of
-_*    zvjezdIts&
-_,    za*Ez
-_-    tsr-tIts&
-_.    totSk&
+_$    d'ol&R
+_-    m'inus
+_*    zvj'ezdits@
+_=    j'edn&ko
+_@    t'r-g'ov&tSko||'a
+_(    'otvoRen&||z'ag@-*ad&
+_)    z'atvoRen&||z'ag@-*ad&
+_'    'apost@-*of
+_*    zvj'ezdits&
+_,    z'aRez
+_-    ts'r-t'its&
+_.    t'otSk&
 _;    t'otSk&z,a*Ez
-_<    man^I
-_=    jedn&ko
-_>    vEtS;I
-_?    upItnIk
-_&    t'r-gov,&tSk||'a
-_[    'otvo*,En&||'ugl&t&
-_]    z'atvo*,En&||'ugl&t&
+_<    m'an^i||'od
+_=    j'edn&ko
+_>    v'etSi||'od
+_?    'upitnIk
+_&    t'r-g'ov&tSko||'i
+_[    'otvoRen&||'ugl&t&
+_]    z'atvoRen&||'ugl&t&
 __    ts'r-t&
-_`    g@-*'avIs
-_{    'otvo*,En&||v'itItS,&st&
-_|    okom,Its&
-_}    z'atvo*,En&||v'itItS,&st&
+_`    g@-*'avis
+_{    'otvoRen&||v'ititS&st&
+_|    'okomits&
+_}    z'atvoRen&||v'ititS&st&
 
 
 
@@ -112,7 +112,7 @@ _}    z'atvo*,En&||v'itItS,&st&
 // Numbers
 _0    n'ul&
 _1    j'ed&n
-_2    dv'a
+_2    d'v'a
 _2f   dv'ije
 _3    t@-*'i
 _4    tS'EtI*I
@@ -188,55 +188,203 @@ xxxviii  $abbrev
 xxxix	$abbrev
 
 // Abbreviations
-ab	$only $abbrev
+aaa	$abbrev
+aac	$abbrev
+ab	$only $abbrev $capital
 abc	$abbrev
+abk	$only $abbrev
 abs	$abbrev
+acc $only $abbrev
+acf $only $abbrev
+acfm $abbrev
+acg $only $abbrev
+acgm $abbrev
+acl $only $abbrev
+acm $only $abbrev
+acw $only $abbrev
+add	$only $abbrev
+adn $only $abbrev
+adp $only $abbrev
+adsl	$abbrev
 agm	$abbrev
+ahk $only $abbrev
+aif $only $abbrev
+aip $only $abbrev
+alg $only $abbrev
+alm $only $abbrev
 amd	$only $abbrev
+amf $only $abbrev
 amg	$only $abbrev
+aph $only $abbrev
+apj $only $abbrev
+apl $only $abbrev
+apm $only $abbrev
+app $only $abbrev
 arg	$only $abbrev
+arj	$only $abbrev
+asc $only $abbrev
+asf $only $abbrev
+asm $only $abbrev
+asn $only $abbrev
+asp $only $abbrev
+asx $only $abbrev
+atf $only $abbrev
 atp	$abbrev
+av	$only $abbrev
 avg	$abbrev
+avr $only $abbrev
+awb $only $abbrev
+awt $only $abbrev
 brf	$abbrev
 brl	$abbrev
 brx	$abbrev
 cca	$abbrev
+cda $only $abbrev
 cdr	$abbrev
 cdrw	$abbrev
+cgi $abbrev
 clr	$abbrev
+cpe $only $abbrev
+cpu $only $abbrev
 cr	$only $abbrev
+crt $only $abbrev
 ctrl	$abbrev
+daa $only $abbrev
 doo	$abbrev
+dox $only $abbrev
+dqy $abbrev
+dsr $only $abbrev
+ear $only $abbrev
 ecdl	$only $abbrev
+ecp $only $abbrev
+ecs $only $abbrev
+elm $only $abbrev
+emf $only $abbrev
+emh $only $abbrev
+eml $only $abbrev
+ems $only $abbrev
+epf $only $abbrev
+eq $only $abbrev
 esc	$only $abbrev
+etd $only $abbrev
 eu	$only $abbrev
 eur	$only $abbrev
+exc $only $abbrev
 faq	$abbrev
 fbi	$abbrev
+ffa $only $abbrev
 fr	$only $abbrev
 frm	$abbrev
+frt $only $abbrev
 frx	$abbrev
+gho $only $abbrev
 gr	$only $abbrev
 grr	$abbrev
 grrr	$abbrev
 grp	$abbrev
 grps	$abbrev
+grs $only $abbrev
+grx $only $abbrev
+gui $only $abbrev
 hho	$abbrev
 hr	$only $abbrev
 hrk	$only $abbrev
-hrt	$only $abbrev
+hrt	$only $abbrev $capital
 hrv	$only $abbrev
+hta $only $abbrev
 hzzo	$abbrev
 ibm	$abbrev
+icc $only $abbrev
+icm $only $abbrev
+ics $only $abbrev
+idb $only $abbrev
+idc $only $abbrev
+idm $only $abbrev
+iff $only $abbrev
+ifu $only $abbrev
+ilk $only $abbrev
+img $only $abbrev
+iml $only $abbrev
+isdn $abbrev
+isl $only $abbrev
+isp $only $abbrev
+iss $only $abbrev
+iq $only $abbrev
+iqy $only $abbrev
+itw $only $abbrev
+itz $only $abbrev
+ivf $only $abbrev
+jpi $only $abbrev
 jrr	$abbrev
+jse $only $abbrev
+lha $abbrev
+liq $only $abbrev
+maq $only $abbrev
+maw $only $abbrev
+mda $only $abbrev
+mde $only $abbrev
+mdi $only $abbrev
+mga $only $abbrev
+mge $only $abbrev
+mgi $only $abbrev
+mpa $only $abbrev
+mpe $only $abbrev
+mpr $only $abbrev
+msi $only $abbrev
+mup $abbrev $capital
+nco $only $abbrev
+nfo $only $abbrev
+nji $only $abbrev
 nr	$only $abbrev
+nra $only $abbrev
+nrb $only $abbrev
+nrc $only $abbrev
+nre $only $abbrev
+nrf $only $abbrev
 nrg	$abbrev
+nrh $only $abbrev
+nri $only $abbrev
+nrm $only $abbrev
+nrq $only $abbrev
+nrs $only $abbrev
+nru $only $abbrev
+nrw $only $abbrev
+nsa $only $abbrev
+nsi $only $abbrev
 nvda	$abbrev
+obd $only $abbrev
+obj $only $abbrev
+obt $only $abbrev
+obz $only $abbrev
+ocr $only $abbrev
+ocx $only $abbrev
 oem	$abbrev
 off	$only $abbrev
+oft $only $abbrev
+ofx $only $abbrev
+ogc $only $abbrev
+ogg	$only $abbrev
+ogl $only $abbrev
 omw	$abbrev
+oqy $only $abbrev
+os $only $abbrev $capital
+oss $only $abbrev
+otf $only $abbrev
+otm $only $abbrev
+pda $abbrev
+pdi $only $abbrev
+pgi $only $abbrev
+pho $only $abbrev
+pko $only $abbrev
+pma $only $abbrev
+ppa $only $abbrev
 pr	$only $abbrev
+prf $only $abbrev
+prg $only $abbrev
 prn	$abbrev
+prt $only $abbrev
+qbr $abbrev
+qpr $abbrev
 raw	$only $abbrev
 rb	$abbrev
 rba	$abbrev
@@ -249,10 +397,17 @@ rds	$abbrev
 rgb	$abbrev
 rh	$only $abbrev
 rk	$only $abbrev
-rn	$abbrev
 rm	$only $abbrev
+rma $only $abbrev
+rme $only $abbrev
+rmf $only $abbrev
+rmi $only $abbrev
+rmt $only $abbrev
 rmx	$abbrev
+rn $only $abbrev
+rnk $only $abbrev
 rp	$only $abbrev
+rqy $only $abbrev
 rs	$abbrev
 rss	$abbrev
 rta	$abbrev
@@ -260,19 +415,56 @@ rtf	$abbrev
 rtl	$abbrev
 rttl	$abbrev
 rtv	$abbrev
-rx	$abbrev
 rw	$abbrev
+rwo $only $abbrev
+rx	$abbrev
+sbr $only $abbrev
 scr	$only $abbrev
 sr	$only $abbrev
 srd	$only $abbrev
+ssa $only $abbrev
+sys $only $abbrev
+tpu $only $abbrev
+udf $only $abbrev
+udl $only $abbrev
 udt	$abbrev
+uhh $abbrev
+uif $only $abbrev
+uip $only $abbrev
 url	$only $abbrev
+usd	$only $abbrev
+usr	$only $abbrev
+uss	$only $abbrev
+uu $only $abbrev
+uue $only $abbrev
+uup $only $abbrev
+uxd $only $abbrev
 vba	$only $abbrev
+vbe $only $abbrev
 vbr	$abbrev
 vga	$abbrev
+wax $only $abbrev
 wbr	$abbrev
+wiz $only $abbrev
+wma $only $abbrev
+wri $only $abbrev
+wta	$abbrev
+xam $only $abbrev
+xba $only $abbrev
+xiw $only $abbrev
+xla $only $abbrev
+xpa $only $abbrev
+xpi $only $abbrev
+xsi $only $abbrev
+xxa $only $abbrev
+xxe $only $abbrev
 xy	$abbrev
+xyz	$abbrev
+yu $only $abbrev
+zaa $only $abbrev
+zoo $only $abbrev
 
+br	$dot $abbrev
 dr	$dot $abbrev
 mr	$dot $abbrev
 mrs	$dot $abbrev
@@ -314,7 +506,6 @@ ili      $u $pause    // or
 
 // Auxillary verbs
 li       $u      // question
-da       $u+     // ??
 
 sam      $u      // to be, short form
 si       $u
@@ -362,7 +553,11 @@ u        u    $atend
 
 
 // Exceptions
-utf      u||te||ef
-
-
+docx	d'ots||'iks
+jpeg	j@2||p'eg
+macx	m'ats||'iks
+potx	p'ot||'iks
+sisx	s'is||'iks
+start	st'aRt
+utf	u||te||ef
 

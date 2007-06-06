@@ -2041,10 +2041,20 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_NOVOWELS:
-					if(word_vowel_count== 0)
-						match.points += 19;
-					else
-						failed =1;
+					{
+						char *p = pre_ptr - letter_xbytes - 1;
+						while(letter_w != RULE_SPACE)
+						{
+							if(IsLetter(letter_w,LETTERGP_VOWEL2))
+							{
+								failed = 1;
+								break;
+							}
+							p -= utf8_in(&letter_w,p,1);
+						}
+						if(!failed)
+							match.points += (19-distance_left);
+					}
 					break;
 
 				case RULE_IFVERB:

@@ -52,7 +52,7 @@ endphoneme
 
 phoneme a
   vowel  starttype (a)  endtype (@)
-  length 180
+  length 200
   formants vwl_en_us/a
   reduceto a2  0
 endphoneme
@@ -61,7 +61,7 @@ endphoneme
 phoneme a2
   vowel  starttype (@)  endtype (@)
   unstressed
-  length 140
+  length 150
   formants vowel/a#_3
   linkout r-
 endphoneme
@@ -69,7 +69,7 @@ endphoneme
 
 phoneme aa   //   'bath' etc.
   vowel  starttype (a)  endtype (@)
-  length 190
+  length 200
   formants vwl_en_us/a
 //  formants vowel/a_2
   linkout r-
@@ -293,6 +293,15 @@ phoneme r/   // used for [r] when not preceding a vowel
   length 100
   lengthmod 2   //
   formants NULL
+endphoneme
+
+
+phoneme t#    // reduced [t] as in "city"
+  vls alv stop
+  vowelin f1=2  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  lengthmod 2
+  wave  x/d%70
 endphoneme
 
 

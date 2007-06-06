@@ -31,6 +31,7 @@
 #define FRFLAG_LEN_MOD         0x04   // reduce effect of length adjustment
 #define FRFLAG_BREAK_LF        0x08   // but keep f3 upwards
 #define FRFLAG_BREAK           0x10   // don't merge with next frame
+#define FRFLAG_BREAK_2         0x18   // FRFLAG_BREAK_LF or FRFLAG_BREAK
 #define FRFLAG_FORMANT_RATE    0x20   // Flag5 allow increased rate of change of formant freq
 #define FRFLAG_MODULATE        0x40   // Flag6 modulate amplitude of some cycles to give trill
 #define FRFLAG_DEFER_WAV       0x80   // Flag7 defer mixing WAV until the next frame

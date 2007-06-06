@@ -77,6 +77,7 @@
 #define phonSWITCH      21
 #define phonX1          22      // a language specific action
 #define phonPAUSE_VSHORT 23
+#define phonT_REDUCED   24
 
 
 // place of articulation

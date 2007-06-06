@@ -27,6 +27,7 @@ phonemenumber 20 -      // syllabic consonant
 phonemenumber 21 _^_    //  Change language
 phonemenumber 22 _X1    // a language specific action
 phonemenumber 23 _|     // very short pause
+phonemenumber 24 t#     // reduced version of [t]
 
 // The base phoneme table contains the utility phonemes, the consonants,
 // and a schwa.  The vowels are defined in the language specific phoneme

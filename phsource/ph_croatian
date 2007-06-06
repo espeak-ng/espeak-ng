@@ -76,12 +76,6 @@ phoneme o
   formants vowel/oo_1
 endphoneme
 
-phoneme 8
-  vowel starttype (o) endtype (o)
-  length 140
-  formants vowel/8_2
-endphoneme
-
 
 phoneme u
   vowel starttype (u) endtype (u)
@@ -93,7 +87,8 @@ endphoneme
 phoneme U
   vowel starttype (u) endtype (u)
   length 140
-  formants vowel/uu_bck
+//  formants vowel/uu_bck
+  formants vowel/u_2
 endphoneme
 
 
@@ -182,6 +177,12 @@ phoneme x
   lengthmod 3
   wave ufric/x_hr%45
   switchvoicing Q
+endphoneme
+
+phoneme r-
+  vowel  starttype (@)  endtype (@)
+  length 240
+  formants vowelr/r-voc
 endphoneme
 
 phoneme R

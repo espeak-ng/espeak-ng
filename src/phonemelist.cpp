@@ -408,16 +408,16 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			}
 		}
 
-#ifdef deleted
-// experimenting with [t] glottaling
-if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n')))
-{
-	if(((plist2+1)->sourceix != 0) || ((plist2-1)->stress == 4) && (next->type == phVOWEL))
-	{
-		ph = phoneme_tab[phonGLOTTALSTOP];
-	}
-}
-#endif
+		if(langopts.param[LOPT_REDUCE_T])
+		{
+			if((ph->mnemonic == 't') && (plist2->sourceix == 0) && ((prev->type == phVOWEL) || (prev->mnemonic == 'n')))
+			{
+				if(((plist2+1)->sourceix == 0) && ((plist2+1)->stress < 4) && (next->type == phVOWEL))
+				{
+					ph = phoneme_tab[phonT_REDUCED];
+				}
+			}
+		}
 
 		if((ph->reduce_to != 0) && (ph->type != phVOWEL) && !(plist2->synthflags & SFLAG_DICTIONARY))
 		{
