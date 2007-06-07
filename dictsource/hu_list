@@ -44,12 +44,13 @@ _dpt      v,Ess2Y:
 km	kilo:me:tER
 mm      milime:tER
 
+a.m	An^n^i||m'int  $dot
+gpu	$abbrev
 ill	illEdvE  $dot
+mta	$abbrev
+pl	pe:lda:ul  $dot
 stb	SAtYb:i  $dot
 vö	v'EZd||_'Yss2E
-pl	pe:lda:ul  $dot
-mta	$abbrev
-a.m	An^n^i||m'int  $dot
 
 
 
@@ -246,4 +247,14 @@ _.	pont
 
 // Main Exceptions List
 //=====================
+
+
+// Places
+oslo		oslo:
+osló		oslo:
+
+
+// Names
+ricárd		R'iCArd
+richard		R'iCARd
 

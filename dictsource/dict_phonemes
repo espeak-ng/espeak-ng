@@ -66,14 +66,15 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  E    e@   eI   I    i    I2   i:   
-i@   IR   O    O:   o:   O@   o@   OI   
-oU   O~   U    u:   U@   V    VR   
+aU@  E    e@   eI   I    I2   i:   i@   
+IR   O    O:   o:   O@   o@   OI   oU   
+O~   U    u:   U@   V    VR   
 
 :    ;    b    C    d    D    dZ   f    
 g    g-   h    j    k    l    L    m    
 n    N    p    Q    r    r-   s    S    
-t    T    tS   v    w    x    z    Z    
+t    T    t2   tS   v    w    x    z    
+Z    
 
 
 Dictionary eo_dict

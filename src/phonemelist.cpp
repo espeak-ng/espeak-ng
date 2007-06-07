@@ -412,7 +412,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		{
 			if((ph->mnemonic == 't') && (plist2->sourceix == 0) && ((prev->type == phVOWEL) || (prev->mnemonic == 'n')))
 			{
-				if(((plist2+1)->sourceix == 0) && ((plist2+1)->stress < 4) && (next->type == phVOWEL))
+				if(((plist2+1)->sourceix == 0) && ((plist2+1)->stress < 3) && (next->type == phVOWEL))
 				{
 					ph = phoneme_tab[phonT_REDUCED];
 				}

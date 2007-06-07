@@ -13,6 +13,19 @@ phoneme k
   before i@ ustop/ki
 endphoneme
 
+phoneme t2   // [t] which doesn't reduce
+  vls alv stop
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t
+  before _ ustop/t_
+  before @- ustop/t_dnt%50
+  before r ustop/tr
+  before R ustop/tr
+  switchvoicing d
+endphoneme
+
 
 phoneme N
   vcd vel nasal

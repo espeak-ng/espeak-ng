@@ -1,12 +1,12 @@
 34 phoneme tables
           new total
     base  96   96
-      en  52  143
-    en_n  29  143
-   en_us  37  143
-   en_sc  39  145
-   en_rp  34  143
-   en_wm  30  143
+      en  53  144
+    en_n  29  144
+   en_us  37  144
+   en_sc  39  146
+   en_rp  34  144
+   en_wm  30  144
       af  37  127
       cy  29  122
       de  29  120
@@ -252,12 +252,12 @@
   8  ustop/pr       base fi hi hu it ro
   7  ustop/p_unasp  base fi hi hu hr it ro
   6  ustop/p_unasp_ fi hi hu hr it ro
-  2  ustop/t        base hi
-  5  ustop/t_       base hi sk el
- 26  ustop/t_dnt    base fi fr hi hu pl hr ru it ro vi sw
+  3  ustop/t        base en hi
+  6  ustop/t_       base en hi sk el
+ 27  ustop/t_dnt    base en fi fr hi hu pl hr ru it ro vi ++
   2  ustop/t_dnt2   hi vi
   4  ustop/t_pzd    pl ru
-  5  ustop/tr       base hi ru
+  7  ustop/tr       base en hi ru
   8  ustop/ts       de eo hu pl ru it ro zh_yue
   2  ustop/tsh      base zh_yue
   2  ustop/tsh_     base zh_yue

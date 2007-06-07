@@ -51,7 +51,7 @@ endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
-  length 240
+  length 270
   formants vowel/o_2
 endphoneme
 

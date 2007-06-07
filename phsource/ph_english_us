@@ -95,7 +95,7 @@ endphoneme
 phoneme I2
   vowel  starttype (i)  endtype (i)
   unstressed
-  length 130
+  length 120
   formants vwl_en_us/ii
   linkout ;
 endphoneme
@@ -225,14 +225,14 @@ endphoneme
 
 phoneme aI
   vowel  starttype (a)  endtype (i)
-  length 210
+  length 220
   formants vdiph/ai_2
 endphoneme
 
 
 phoneme eI
   vowel  starttype (e)  endtype (i)
-  length 210
+  length 220
   formants vdiph/eei_3
 endphoneme
 
@@ -246,7 +246,7 @@ endphoneme
 
 phoneme e@
   vowel  starttype (e)  endtype (@)
-  length 250
+  length 260
   formants vwl_en_us/er
   appendph r
 endphoneme
@@ -298,10 +298,10 @@ endphoneme
 
 phoneme t#    // reduced [t] as in "city"
   vls alv stop
-  vowelin f1=2  f2=1700 -300 300  f3=-100 80
-  vowelout f1=2 f2=1700 -300 300  f3=-100 80
-  lengthmod 2
-  wave  x/d%70
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 300  f3=-100 80
+  lengthmod 5
+  wave  x/d%80
 endphoneme
 
 

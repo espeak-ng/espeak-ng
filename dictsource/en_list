@@ -2351,6 +2351,9 @@ on               ,0n           $strend2
 into             ,IntU
 onto             ,0ntU         $strend2
 unto             ,VntU
+?3 into          ,Int2U
+?3 onto          ,0nt2U         $strend2
+?3 unto          ,Vnt2U
 upon             @p,0n
 from             %fr0m
 (from where)     %fr0m||w'e@   $pause
