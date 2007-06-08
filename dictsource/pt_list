@@ -1,4 +1,4 @@
-
+﻿
 // This file in UTF8 encoded
 
 // Options
@@ -85,8 +85,10 @@ _"	'abRi;'asp&||d'upl&s#
 ?1_1	'um
 ?2_1	'uN
 _2	d'oIs#
-_3	tR'es#
-_4	kw'atRu
+?1 _3	tr'es#
+?2 _3	tR'es#
+?1 _4	kw'atru
+?2 _4	kw'atRu
 _5	s'iNku
 _6	s'eIs#
 ?1_7	s'Ety
@@ -100,7 +102,7 @@ _8	'oItu
 ?2_11	'oNzi
 ?1_12	d'ozy
 ?2_12	d'ozi
-?1_13	tR'ezy
+?1_13	tr'ezy
 ?2_13	tR'ezi
 ?1_14	k&t'orzy
 ?2_14	kat'orzi
@@ -116,7 +118,8 @@ _8	'oItu
 ?2_19	dezen'Ovi
 ?1_2X	v'iNty
 ?2_2X	v'iNtSi
-_3X	tR'iNt&
+?1 _3X	tr'iNt&
+?2 _3X	tR'iNt&
 
 ?1_4X	kw&r'eNt&
 ?2_4X	kwa*'eINt&
@@ -134,7 +137,7 @@ _1C0	s'eIN
 _1C	s'eINtu
 ?1_2C	duz'eINtus#
 ?2_2C	duz'eINtUs#
-?1_3C	tRyz'eNtus#
+?1_3C	tryz'eNtus#
 ?2_3C	tRez'eNtUs#
 ?1_5C	kin^'eINtus#
 ?2_5C	kin^'eINtUs#
@@ -569,7 +572,6 @@ roxo         x'oSU
 
 // foreign words
 ?1 alt        'alt
-?1 bacalhau   b,&k&lj'aU
 ?1 back       b'Ek
 ?1 blind      bl'aind
 ?1 braille    b:r'aily
@@ -586,19 +588,19 @@ roxo         x'oSU
 ?1 download   d'a,wnl'oud
 ?1 end        'end
 ?1 escape     Sk'eIpy
-?1 exe        'Ezy
-?1 explorer   ,ekspl'O:r&@-
+?1 explorer   ,ekspl'O:r&r-
 ?1 eyes       'aiz
+?1 frame      fr'eImy
 ?2 frame      fR'eImi
 ?1 gmail      g,em'eIl
 ?2 Gmail      Zem'eIl
 ?1 google     g'u:g&l 
 ?2 google     g'ugol
-?1 hardware   'ard,w'E@
+?1 hardware   'ard,w'Er-
 ?2 hardware   x'ardwe@-
 ?1 home       'omy
 ?2 home       x'owmi
-?1 hotmail    'Otm'eIl
+?1 hotmail    h'Otm'eIl
 ?2 hotmail    xotm'eIl
 ?1 install    ,inst'al
 ?2 internet   iNtern'Et
@@ -609,9 +611,9 @@ roxo         x'oSU
    layout     l'eI,aUt
 ?1 lock       l'Ok
    mail       m'eIl
-?1 maior      m'&j'O@
+?1 maior      m,&j'Or-
 ?2 maior      maI'Or
-?1 menor      myn'O@
+?1 menor      myn'Or-
 ?2 menor      men'Or
 ?1 menu       menu
 ?1 next       n'Ekst
@@ -630,7 +632,8 @@ roxo         x'oSU
 ?1 scroll     sk:r'ol
 ?1 site       s'aIt
 ?2 site       s'aItSi
-   software   s'Oftwe@-
+?1   software   s'Oft,w'Er-
+?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing
 ?1 tab        t'ab
@@ -638,8 +641,7 @@ roxo         x'oSU
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
 ?1 upload     &pl'oud
-?1 window     w'iNd'ou
-?1 yahoo      'i,a'u
+?1 yahoo      'i,ah'u
 ?2 yahoo      iax'u
 ?1 yes        j'Es
 
@@ -654,34 +656,35 @@ louis       _^_FR
 ?1 adobe       &d'Oby
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
-?1 express     ,Ekspr,Es
+?1 express     ,Ekspr'Es
    espeak      isp'i:k
-?1 espeakedit   isp'i:k,Ed,it
+?1 espeakedit   isp'i:kEd,it
 ?1 fedora      _^_EN
-   firefox     f'ai@fOks
-?1 front       f:r'ont
+?1   firefox     f'ai&rfOks
+?2    firefox     f'ai@fOks
+?1 front       fr'ont
 ?1 jaws        dZ'au:z
 ?2 jaws        dZ'Os
 ?1 linux       l,in'uks
 ?2 linux       l'inUks
 ?1 live        l'aiv
-?1 maker       m'eIk&@
+?1 maker       m'eIk&r-
 ?1 media       m'Ed,i&
-?1 messenger   m'Es&ndZ&@
+?1 messenger   m'Es&ndZ&r-
 ?1 microsoft   m,ik:r'os,Oft
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
-?1 nero        n'E:ru
+?1 nero        n'Eru
 ?1 office      'Of,is
    openoffice  'opeIN|'Ofis
 ?1 outlook     'autl'uk
 ?1 paint       p'aint
-?1 player      pl'eI&@-
+?1 player      pl'eI&r-
 ?1 point       p'oint
-?1 power       p'aU&@
+?1 power       p'aU&r-
 ?1 product     p:r'&d&kt
-?1 Publisher   p'&bl,iS&@
-?1 reader      _^_EN
+?1 Publisher   p'&bl,iS&r-
+?1 reader      r'id,&r-
 ?1 setup       s'Et'&p
 ?1 scout       sk'aut // Nero scout       
 ?1 skype       sk'aip
@@ -696,6 +699,7 @@ louis       _^_FR
 ?2 unix        j'uniks
 ?1 windows     w'iNd'ou:z
 ?2 windows     w'iNdows
+?1 window     w'iNd'ou
 ?2 window      w'iNdow
 
 
@@ -752,6 +756,7 @@ müller      m'iler
 ronchi      r'OnCi:
 vogel       f'o:g@l
 volkmann    f'Olkman
+
 
 
 

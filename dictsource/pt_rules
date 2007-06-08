@@ -1,4 +1,4 @@
-// translation rules Brazilian
+﻿// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -567,6 +567,7 @@
        A) x (A       ks
       _e) x (A       z
        e) x (A       ks
+?1    e) x (CA       S   // eg: texto, contexto, etc…
       ai) x (A       S
       ei) x (A       S
       au) x          s
@@ -645,6 +646,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 
