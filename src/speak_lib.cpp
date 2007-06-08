@@ -635,8 +635,8 @@ ESPEAK_API void espeak_SetUriCallback(int (* UriCallback)(int, const char*, cons
 	uri_callback = UriCallback;
 }
 
-ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path)
-{//================================================================================================
+ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)
+{//=============================================================================================================
 ENTER("espeak_Initialize");
 	int param;
 
@@ -665,13 +665,14 @@ ENTER("espeak_Initialize");
 	if((out_start = outbuf) == NULL)
 		return(EE_INTERNAL_ERROR);
 	
-	// allocate space for event list.  Allow 500 events per minute
-	n_event_list = (buf_length*500)/1000;
+	// allocate space for event list.  Allow 200 events per second
+	n_event_list = (buf_length*200)/1000;
 	if((event_list = (espeak_EVENT *)realloc(event_list,sizeof(espeak_EVENT) * n_event_list)) == NULL)
 		return(EE_INTERNAL_ERROR);
 	
 	option_phonemes = 0;
-	
+	option_phoneme_events = (options & 1);
+
 	SetVoiceByName("default");
 	
 	for(param=0; param<N_SPEECH_PARAM; param++)

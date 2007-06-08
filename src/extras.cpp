@@ -121,6 +121,7 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {//====================================================================
 	int type;
 
+fprintf(f_events,"--\n");
 if(f_wavtest == NULL) return(0);
 
 	if(wav == NULL)
@@ -137,6 +138,9 @@ fprintf(f_events,"Finished\n");
 		fprintf(f_events,"%5d %4d  (%2d)   %d   ",events->audio_position,events->text_position,events->length,type);
 		if((type==3) || (type==4))
 			fprintf(f_events,"'%s'\n",events->id.name);
+		else
+		if(type==espeakEVENT_PHONEME)
+			fprintf(f_events,"[%s]\n",WordToString(events->id.number));
 		else
 			fprintf(f_events,"%d\n",events->id.number);
 
@@ -1105,7 +1109,7 @@ void Test3()
 	espeak_VOICE *newvoice;
 int x;
 
-	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL);
+	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL,0);
 	memset(&voicespec,0,sizeof(voicespec));
 	voicespec.languages = "de";
 	espeak_SetVoiceByProperties(&voicespec);
@@ -1161,7 +1165,7 @@ if(control==2)
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
 	fprintf(f_events,"Audio Text Length Type Id\n");
 
-	espeak_Initialize(AUDIO_OUTPUT_SYNCH_PLAYBACK,0,NULL);
+	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,0,NULL,1);
 	espeak_SetSynthCallback(TestSynthCallback);
 
   unsigned int unique_identifier=0;

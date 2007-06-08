@@ -418,7 +418,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x104:   // --voices
-			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL);
+			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL,0);
 			DisplayVoices(stdout,optarg);
 			exit(0);
 
@@ -431,7 +431,7 @@ int main (int argc, char **argv)
 	if(option_waveout || quiet)
 	{
 		// writing to a file (or no output), we can use synchronous mode
-		samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL);
+		samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL,0);
 
 		espeak_SetSynthCallback(SynthCallback);
 		if(option_waveout)
@@ -443,7 +443,7 @@ int main (int argc, char **argv)
 	else
 	{
 		// play the sound output
-		samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,0,NULL);
+		samplerate = espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,0,NULL,0);
 	}
 	
 

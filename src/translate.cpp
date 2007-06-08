@@ -45,6 +45,7 @@ FILE *f_trans = NULL;     // phoneme output text
 int option_tone1 = 0;
 int option_tone2 = 0;
 int option_phonemes = 0;
+int option_phoneme_events = 0;
 int option_quiet = 0;
 int option_endpause = 0;  // suppress pause after end of text
 int option_capitals = 0;

@@ -448,6 +448,7 @@ extern int option_tone2;
 extern int option_waveout;
 extern int option_quiet;
 extern int option_phonemes;
+extern int option_phoneme_events;
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
 extern int option_harmonic1;
 extern int option_multibyte;

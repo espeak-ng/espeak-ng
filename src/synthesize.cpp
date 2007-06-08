@@ -1101,7 +1101,11 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->prepause > 0)
 			DoPause(p->prepause);
 
-// printf("phoneme [%s]\n",WordToString(p->ph->mnemonic));
+		if(option_phoneme_events)
+		{
+			DoMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, p->ph->mnemonic);
+		}
+
 		switch(p->type)
 		{
 		case phPAUSE:

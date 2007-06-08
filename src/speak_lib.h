@@ -40,7 +40,8 @@ typedef enum {
   espeakEVENT_MARK,                // Mark
   espeakEVENT_PLAY,                // Audio element
   espeakEVENT_END,                 // End of sentence
-  espeakEVENT_MSG_TERMINATED       // End of message
+  espeakEVENT_MSG_TERMINATED,      // End of message
+  espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
 } espeak_EVENT_TYPE;
 
 
@@ -54,7 +55,7 @@ typedef struct {
 	int sample;           // sample id (internal use)
 	void* user_data;      // pointer supplied by the calling program
 	union {
-		int number;        // used for WORD and SENTENCE events
+		int number;        // used for WORD and SENTENCE events. For PHONEME events this is the phoneme mnemonic.
 		const char *name;  // used for MARK and PLAY events.  UTF8 string
 	} id;
 } espeak_EVENT;
@@ -137,13 +138,16 @@ typedef enum {
 #ifdef __cplusplus
 extern "C"
 #endif
-int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path);
+int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path, int options);
 /* Must be called before any synthesis functions are called.
    output: the audio data can either be played by eSpeak or passed back by the SynthCallback function.
 
    buflength:  The length in mS of sound buffers passed to the SynthCallback function.
 
    path: The directory which contains the espeak-data directory, or NULL for the default location.
+
+   options: bit 0: 1=allow espeakEVENT_PHONEME events.
+
 
    Returns: sample rate in Hz, or -1 (EE_INTERNAL_ERROR).
 */
