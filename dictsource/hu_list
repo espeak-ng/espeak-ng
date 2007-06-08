@@ -1,43 +1,43 @@
 
 // Numbers
 
-_0        n'ullA
-_1        'EJ
-_2        k'EttY:
-_3        h'a:Rom
-_4        n'e:J
-_5        'Yt
-_6        h'At
-_7        h'e:t
-_8        n^'olts
-_9        k'ilEnts
-_10       t'i:z
-_1X       t'izEn
-_20       h'u:s
-_2X       h'uson
-_3X       h'Armints
-_4X       n'EJvEn
-_5X       'YtvEn
-_6X       h'AtvAn
-_7X       h'EtvEn
-_8X       n^'oltsvAn
-_9X       k'ilEntsvEn
-_0C       s'a:z_
-_1C       s'a:z
+_0        nullA
+_1        EJ
+_2        kEttY:
+_3        ha:Rom
+_4        ne:J
+_5        Yt
+_6        hAt
+_7        he:t
+_8        n^olts
+_9        kilEnts
+_10       ti:z
+_1X       tizEn
+_20       hu:s
+_2X       huson
+_3X       hArmints
+_4X       nEJvEn
+_5X       YtvEn
+_6X       hAtvAn
+_7X       hEtvEn
+_8X       n^oltsvAn
+_9X       kilEntsvEn
+_0C       sa:z
+_1C       sa:z
 
-_0M1      'EzER
-_1M1      'EzER
-_2M1      k'e:t,EzER
-_0M2      m'illio:
-_1M2      m'illio:
-_2M2      k'e:tm,illio:
-_0M3      m'illia:Rd
-_1M3      m'illia:Rd
-_1M3      k'e:tm,illia:Rd
-_0M4      b'illio:
-_1M4      b'illio:
-_2M4      k'e:tb,illio:
-_dpt      v,Ess2Y:
+_0M1      EzER
+_1M1      EzER
+_2M1      ke:tEzER
+_0M2      millio:
+_1M2      millio:
+_2M2      ke:tmillio:
+_0M3      millia:Rd
+_1M3      millia:Rd
+_1M3      ke:tmillia:Rd
+_0M4      billio:
+_1M4      billio:
+_2M4      ke:tbillio:
+_dpt      ||_vEss2Y:_
 
 
 // Abbreviations
@@ -249,12 +249,8 @@ _.	pont
 //=====================
 
 
-// Places
-oslo		oslo:
-osló		oslo:
-
 
 // Names
-ricárd		R'iCArd
-richard		R'iCARd
+ricárd		RiCArd
+richard		RiCARd
 

@@ -2442,6 +2442,9 @@ can              %kan           $verbf $only $strend2
 can't            kA:nt          $verbf $only $strend2
 (can't have)     kA:nta2v       $pastf
 (can't have to)   ,kA:nt'avt@5       $verbf $atend
+?3 can't            kant          $verbf $only $strend2
+?3 (can't have)     kanta2v       $pastf
+?3 (can't have to)   ,kant'avt@5       $verbf $atend
 could            %kUd           $verbf $strend2 $only
 (could have)     ,kUda2v        $pastf
 (could have)     kUdhav         $pastf $atend

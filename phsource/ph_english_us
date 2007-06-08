@@ -218,8 +218,8 @@ endphoneme
 
 phoneme oU
   vowel  starttype (@)  endtype (u)
-  length 210
-  formants vdiph/Vu_2
+  length 230
+  formants vdiph/8u
 endphoneme
 
 

@@ -291,6 +291,7 @@
   1  vdiph2/y#@     af
   1  vdiph2/yu      nl
   1  vdiph2/y-y#    fi
+  1  vdiph/8u       en_us
   1  vdiph/aai      zh_yue
   2  vdiph/aai_2    af cy
   1  vdiph/aai_3    fi
@@ -353,7 +354,7 @@
   1  vdiph/ui_4     hr
   1  vdiph/Vi       vi
   1  vdiph/Vu       af
-  2  vdiph/Vu_2     en_us en_wm
+  1  vdiph/Vu_2     en_wm
   1  vdiph/Vu_3     nl
   2  vdiph/&y       fi nl
   2  vdiph/yi       fi no
