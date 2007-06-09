@@ -1938,6 +1938,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				case RULE_NO_SUFFIX:
 					if(word_flags & FLAG_SUFFIX_REMOVED)
 						failed = 1;             // a suffix has been removed
+					else
+						match.points++;
 					break;
 
 				default:

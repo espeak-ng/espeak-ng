@@ -39,7 +39,6 @@
 //******************************************************************************************************
 
 
-
 FILE *f_wavtest = NULL;
 FILE *f_events = NULL;
 
@@ -215,8 +214,8 @@ void DecodePhonemes2(const char *inptr, char *outptr)
 	int start;
 	static const char *stress_chars = "==,,'*  ";
 
-	unsigned int replace_ph[] = {',',PH('@','-'),'W','3','y',PH('A',':'),'*',PH('_','!'),PH('_','|'),PH('O','I'),PH('Y',':'),PH('p','F'),0};
-	const char *replace_ph2[] = {NULL,NULL,      "9","@r","Y",  "a:",        "r",   "?",        "?",        "OY",       "2:",   "pf" ,NULL};
+	unsigned int replace_ph[] = {',',PH('@','-'),'W','3','y',PH('A',':'),'*',PH('_','!'),PH('_','|'),PH('O','I'),PH('Y',':'),PH('p','F'),PH('E','2'),0};
+	const char *replace_ph2[] = {NULL,NULL,      "9","@r","Y",  "a:",        "r",   "?",        "?",        "OY",       "2:",   "pf" ,"E",NULL};
 
 
 	start = 1;
@@ -229,7 +228,7 @@ void DecodePhonemes2(const char *inptr, char *outptr)
 	
 		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->spect == 0))
 		{
-			if(ph->std_length > 3)
+			if(ph->std_length > 2)
 				*outptr++ = stress_chars[ph->std_length];
 		}
 		else
@@ -302,12 +301,12 @@ void Lexicon_De()
 	char pronounce[80];
 	char pronounce2[80];
 	char phonemes[80];
+	char phonemes2[80];
 	WORD_TAB winfo;
 
-	static char *vowels = "aeiouyAEIOU29@";
+	static char *vowels = "aeiouyAEIOUY29@";
 
-	wxString fname = wxFileSelector(_T("German Lexicon"),wxString(path_home,wxConvLocal),
-		_T(""),_T(""),_T("*"),wxOPEN);
+	wxString fname = wxFileSelector(_T("German Lexicon"),path_dir1,_T(""),_T(""),_T("*"),wxOPEN);
 
 	strcpy(buf,fname.mb_str(wxConvLocal));
 	if((f_in = fopen(buf,"r")) == NULL)
@@ -315,6 +314,7 @@ void Lexicon_De()
 		wxLogError(_T("Can't read file ")+fname);
 		return;
 	}
+	path_dir1 = wxFileName(fname).GetPath();
 	
 	if((f_out = fopen("compare_de","w")) == NULL)
 	{
@@ -331,7 +331,7 @@ void Lexicon_De()
 		if(fgets(buf,sizeof(buf),f_in) == NULL)
 			break;
 
-		sscanf(buf,"%s\t%s\t%s",word,type,pronounce);
+		sscanf(buf,"%s %s %s",word,type,pronounce);
 
 		// convert word to lower-case
 		for(ix=0, p=&word2[1];;)
@@ -397,9 +397,27 @@ void Lexicon_De()
 		}
 		else
 		{
-			if(strlen(word) < 8)
-				strcat(word,"\t");
-			fprintf(f_out,"%s\t%s\t%s\n",word,phonemes,pronounce2);
+			// remove secondary stress
+			strcpy(phonemes2,phonemes);
+			p = phonemes;
+			for(ix=0; ;ix++)
+			{
+				if((c = phonemes2[ix]) != ',')
+					*p++ = c;
+				if(c == 0)
+					break;
+			}
+
+			if(strcmp(phonemes,pronounce2) == 0)
+			{
+				matched++;
+			}
+			else
+			{
+				if(strlen(word) < 8)
+					strcat(word,"\t");
+				fprintf(f_out,"%s\t%s\t%s\n",word,phonemes,pronounce2);
+			}
 		}
 	}
 

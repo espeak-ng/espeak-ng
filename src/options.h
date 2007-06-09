@@ -35,6 +35,7 @@ extern wxString path_pitches;
 extern wxString path_voices;
 extern wxString path_phsource;
 extern wxString path_dictsource;
+extern wxString path_dir1;
 
 extern char path_source[80];
 extern char path_dsource[120];
