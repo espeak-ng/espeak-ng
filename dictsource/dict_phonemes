@@ -41,14 +41,14 @@ x    z
 
 Dictionary de_dict
 
-3    @    @-   a    A:   aI   aU   E    
-E2   E:   e:   I    i:   O    o:   OI   
-U    u:   W    y    y:   Y:   
+3    @    @-   a    A    A:   aI   aU   
+E    E2   E:   e:   I    i:   O    o:   
+OI   U    u:   W    y    y:   Y:   
 
-*    ;    b    C    d    D    f    g    
-h    j    k    l    m    n    N    p    
-pF   r    s    S    t    tS   ts   v    
-x    z    
+*    :    ;    b    C    C2   d    D    
+f    g    h    j    k    l    m    n    
+N    p    pF   r    s    S    t    tS   
+ts   v    x    z    Z    
 
 
 Dictionary el_dict

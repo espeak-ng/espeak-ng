@@ -9,7 +9,7 @@
    en_wm  30  144
       af  37  127
       cy  29  122
-      de  29  120
+      de  30  121
       eo  13  108
       fi  40  127
       fr  32  118
@@ -208,7 +208,7 @@
   9  r/tr           base en_sc pt_pt
  30  r/trr          base af de fi nl ru ro sv sw
  11  r/xr           base
-  1  ufric/ch       base
+  2  ufric/ch       base de
   3  ufric/f        base de ro
   2  ufric/f_       base ro
   4  ufric/h_       base fi hi

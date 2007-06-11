@@ -2115,7 +2115,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 			}
 
 #ifdef LOG_TRANSLATE
-			if((option_phonemes == 2) && (match.points > 0))
+			if((option_phonemes == 2) && (match.points > 0) && ((word_flags & FLAG_NO_TRACE) == 0))
 			{
 				// show each rule that matches, and it's points score
 				int pts;
@@ -2137,7 +2137,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 	}
 
 #ifdef LOG_TRANSLATE
-	if(option_phonemes == 2)
+	if((option_phonemes == 2) && ((word_flags & FLAG_NO_TRACE)==0))
 	{
 		if(group_length <= 1)
 			fprintf(f_trans,"\n");
@@ -2188,7 +2188,7 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 		return(0);
 
 #ifdef LOG_TRANSLATE
-	if(option_phonemes == 2)
+	if((option_phonemes == 2) && ((word_flags & FLAG_NO_TRACE)==0))
 	{
 		char wordbuf[120];
 		int  ix;
@@ -2345,8 +2345,20 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 			if((match1.end_type != 0) && (end_phonemes != NULL))
 			{
 				/* a standard ending has been found, re-translate the word without it */
-				strcpy(end_phonemes,match1.phonemes);
-				return(match1.end_type);
+				if((match1.end_type & SUFX_P) && (word_flags & FLAG_NO_PREFIX))
+				{
+					// ignore the match on a prefix
+				}
+				else
+				{
+					if((match1.end_type & SUFX_P) && ((match1.end_type & 0x7f) == 0))
+					{
+						// no prefix length specified
+						match1.end_type |= p - p_start;
+					}
+					strcpy(end_phonemes,match1.phonemes);
+					return(match1.end_type);
+				}
 			}
 			if(match1.del_fwd != NULL)
 				*match1.del_fwd = REPLACED_E;

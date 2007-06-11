@@ -87,13 +87,13 @@ phoneme A:
   vowel starttype (a) endtype (a)
   length 240
   formants vowel/aa_6
-  reduceto a  4     // ??
 endphoneme
 
 phoneme A
   vowel starttype (a) endtype (a)
-  length 200
+  length 240
   formants vowel/aa_6
+  reduceto a  4     // ??
 endphoneme
 
 
@@ -145,7 +145,7 @@ endphoneme
 
 phoneme e:
   vowel starttype (e) endtype (e)
-  length 200
+  length 190
   formants vowel/e_2
   before * DFT+40
 endphoneme
@@ -210,6 +210,17 @@ phoneme pF
   lengthmod 2
   wave ufric/f    // could replace this with a [pf] wav file
 endphoneme
+
+phoneme C2     // for "ig" -> [IC] or [Ig]
+  vls pal frc palatal
+  beforevowel g
+  vowelin f1=0  f2=2700 400 600  f3=200 70
+  vowelout f1=0 f2=2700 400 600  f3=200 70  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/ch
+endphoneme
+
 
 phoneme l/    // used for [l] when not before a vowel
   liquid

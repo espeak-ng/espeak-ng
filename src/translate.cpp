@@ -606,6 +606,7 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	int unpron_length;
 	int add_plural_suffix = 0;
 	int prefix_flags = 0;
+	int confirm_prefix;
 	int spell_word;
 	int wflags = wtab->flags;
 	int wmark = wtab->wmark;
@@ -755,9 +756,42 @@ printf("TR3  length=%d\n",length);
 			c_temp = word[-1];
 
 			found = 0;
+			confirm_prefix = 1;
 			while(end_type & SUFX_P)
 			{
 				// Found a standard prefix, remove it and retranslate
+
+				if(confirm_prefix)
+				{
+					int end2;
+					char phonemes2[N_WORD_PHONEMES];
+					char end_phonemes2[N_WORD_PHONEMES];
+
+					// remove any standard suffix and confirm that the prefix is still recognised
+					end2 = TranslateRules(word, phonemes2, N_WORD_PHONEMES, end_phonemes2, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
+					if(end2)
+					{
+						RemoveEnding(word,end2,word_copy);
+						end_type = TranslateRules(word, phonemes, N_WORD_PHONEMES, end_phonemes, wflags|FLAG_NO_TRACE, dictionary_flags);
+						memcpy(word,word_copy,strlen(word_copy));
+						if((end_type & SUFX_P) == 0)
+						{
+							// after removing the suffix, the prefix is no longer recognised.
+							// Keep the suffix, but don't use the prefix
+							end_type = end2;
+							strcpy(phonemes,phonemes2);
+							strcpy(end_phonemes,end_phonemes2);
+							if(option_phonemes == 2)
+							{
+								DecodePhonemes(end_phonemes,end_phonemes2);
+								fprintf(f_trans,"  suffix [%s]\n\n",end_phonemes2);
+							}
+						}
+						confirm_prefix = 0;
+						continue;
+					}
+				}
+
 				strcat(prefix_phonemes,end_phonemes);
 				end_phonemes[0] = 0;
 				prefix_type = end_type;
@@ -775,6 +809,7 @@ printf("TR3  length=%d\n",length);
 				}
 				c_temp = word[-1];
 				word[-1] = ' ';
+				confirm_prefix = 1;
 
 				end_type = 0;
 				found = LookupDictList(word,phonemes,&dictionary_flags2,SUFX_P | (wflags << 16));
@@ -817,8 +852,9 @@ strcpy(phonemes2,phonemes);
 						dictionary_flags = dictionary_flags2;
 					if(found)
 						prefix_phonemes[0] = 0;  // matched whole word, don't need prefix now
-					if(found || (dictionary_flags2 != 0))
-						prefix_flags = 1;
+
+//					if(found || (dictionary_flags2 != 0))
+//						prefix_flags = 1;        // ?? this looks wrong
 				}
 				if(found == 0)
 				{

@@ -689,7 +689,7 @@ void copy_rule_string(char *string, int &state)
 				case '$':   // obsolete, replaced by S
 				case 'S':
 					output[ix++] = RULE_ENDING;
-					value = 0x80;
+					value = 0;
 					while(!isspace2(c = *p++) && (c != 0))
 					{
 						switch(c)
@@ -720,14 +720,14 @@ void copy_rule_string(char *string, int &state)
 							break;
 						default:
 							if(isdigit(c))
-								value = (c - '0') + 0x80;
+								value = (value*10) + (c - '0');
 							break;
 						}
 					}
 					p--;
 					output[ix++] = sxflags >> 16;
 					output[ix++] = sxflags >> 8;
-					c = value;
+					c = value | 0x80;
 					break;
 				}
 			}

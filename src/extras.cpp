@@ -214,8 +214,8 @@ void DecodePhonemes2(const char *inptr, char *outptr)
 	int start;
 	static const char *stress_chars = "==,,'*  ";
 
-	unsigned int replace_ph[] = {',',PH('@','-'),'W','3','y',PH('A',':'),'*',PH('_','!'),PH('_','|'),PH('O','I'),PH('Y',':'),PH('p','F'),PH('E','2'),0};
-	const char *replace_ph2[] = {NULL,NULL,      "9","@r","Y",  "a:",        "r",   "?",        "?",        "OY",       "2:",   "pf" ,"E",NULL};
+	unsigned int replace_ph[] = {',',PH('@','-'),'W','3','y','A',PH('A',':'),'*',PH('_','!'),PH('_','|'),PH('O','I'),PH('Y',':'),PH('p','F'),PH('E','2'),0};
+	const char *replace_ph2[] = {NULL,NULL,"9","@r","Y","a:",  "a:",        "r",   "?",        "?",        "OY",       "2:",   "pf" ,"E",NULL};
 
 
 	start = 1;
@@ -289,11 +289,13 @@ void Lexicon_De()
 	FILE *f_out;
 	int ix;
 	int c;
+	int c2;
 	char *p;
 	int stress;
 	int count=0;
 	int start;
 	int matched=0;
+	int defer_stress = 0;
 	char buf[120];
 	char word[80];
 	char word2[80];
@@ -367,7 +369,32 @@ void Lexicon_De()
 			if((c == '?') && start)
 				continue;      // omit initial [?]
 
+			if(c == '<')
+			{
+				if((c2 = pronounce[ix+1]) == 'i')
+				{
+					defer_stress =1;
+#ifdef deleted
+					if(stress == 4)
+					{
+						*p++ = 'i';
+						c =':';
+					}
+					else
+#endif
+					{
+						c = 'I';
+					}
+					ix++;
+				}
+			}
+
 			start =0;
+			if(defer_stress)
+			{
+				defer_stress = 0;
+			}
+			else
 			if(stress && (strchr(vowels,c) != NULL))
 			{
 				if(stress == 4)

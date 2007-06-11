@@ -1156,7 +1156,7 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
 	espeak_VOICE *voices[N_VOICES_LIST]; // list of candidates
 	espeak_VOICE *voices2[N_VOICES_LIST+N_VOICE_VARIANTS];
 
-	espeak_VOICE voice_variants[N_VOICE_VARIANTS];
+	static espeak_VOICE voice_variants[N_VOICE_VARIANTS];
 
 	if(n_voices_list == 0)
 		espeak_ListVoices(NULL);   // create the voices list

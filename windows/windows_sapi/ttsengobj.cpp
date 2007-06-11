@@ -295,7 +295,7 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 	gEmphasis = 0;
 	gSayas = 0;
 
-	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,path_install);
+	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,path_install,0);
 	espeak_SetVoiceByName(voice);
 	espeak_SetSynthCallback(SynthCallback);
 	

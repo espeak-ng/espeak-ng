@@ -30,8 +30,7 @@
         e        E
      j) e        e
         e (j     e
-     r) e        e
-    ._) exe (%ekse        // filetype
+    ._) exe      %ekse        // filetype
 
 .group f
         f        f
@@ -45,7 +44,7 @@
 
 .group i
         i        i
-    ._) ini (%ini         // filetype
+    ._) ini      %ini         // filetype
 
 .group j
         j        j
