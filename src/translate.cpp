@@ -965,11 +965,11 @@ strcpy(phonemes2,phonemes);
 	{
 		// the word has attribute to stress or unstress when at end of clause
 		if(dictionary_flags & (FLAG_STRESS_END | FLAG_STRESS_END2))
-			ChangeWordStress(word_phonemes,4);
+			ChangeWordStress(this,word_phonemes,4);
 //			SetWordStress(word_phonemes,0,4,prev_last_stress);
 		else
 		if(dictionary_flags & FLAG_UNSTRESS_END)
-			ChangeWordStress(word_phonemes,3);
+			ChangeWordStress(this,word_phonemes,3);
 //			SetWordStress(word_phonemes,0,3,prev_last_stress);
 	}
 	if(wflags & FLAG_STRESSED_WORD)

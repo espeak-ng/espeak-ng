@@ -715,8 +715,8 @@ void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 
 
 
-int GetVowelStress(unsigned char *phonemes, unsigned char *vowel_stress, int &vowel_count, int &stressed_syllable)
-{//===============================================================================================================
+static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char *vowel_stress, int &vowel_count, int &stressed_syllable)
+{//======================================================================================================================================
 
 	unsigned char phcode;
 	PHONEME_TAB *ph;
@@ -825,7 +825,12 @@ int GetVowelStress(unsigned char *phonemes, unsigned char *vowel_stress, int &vo
 		for(ix=1; ix<count; ix++)
 		{
 			if(vowel_stress[ix] == 4)
-				vowel_stress[ix] = 0;
+			{
+				if(tr->langopts.stress_flags & 0x20000)
+					vowel_stress[ix] = 0;
+				else
+					vowel_stress[ix] = 3;
+			}
 
 			if(vowel_stress[ix] == 5)
 			{
@@ -847,8 +852,8 @@ static char stress_phonemes[] = {phonSTRESS_U, phonSTRESS_D, phonSTRESS_2, phonS
 		phonSTRESS_P, phonSTRESS_TONIC, phonSTRESS_TONIC};
 
 
-void ChangeWordStress(char *word, int new_stress)
-{//==============================================
+void ChangeWordStress(Translator *tr, char *word, int new_stress)
+{//==============================================================
 	int ix;
 	unsigned char *p;
 	int  max_stress;
@@ -858,7 +863,7 @@ void ChangeWordStress(char *word, int new_stress)
 	unsigned char vowel_stress[N_WORD_PHONEMES/2];
 
 	strcpy((char *)phonetic,word);
-	max_stress = GetVowelStress(phonetic,vowel_stress,vowel_count,stressed_syllable);
+	max_stress = GetVowelStress(tr, phonetic,vowel_stress,vowel_count,stressed_syllable);
 
 	if(new_stress >= 4)
 	{
@@ -971,7 +976,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		unstressed_word = 1;
 	}
 
-	max_stress = GetVowelStress(phonetic,vowel_stress,vowel_count,stressed_syllable);
+	max_stress = GetVowelStress(this,phonetic,vowel_stress,vowel_count,stressed_syllable);
 
 	// heavy or light syllables
 	ix = 1;
@@ -2159,8 +2164,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 
 
-int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_phonemes, int word_flags, int dict_flags)
-{//=====================================================================================================================
+int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, int dict_flags)
+{//===========================================================================================================================
 /* Translate a word bounded by space characters
    Append the result to 'phonemes' and any standard prefix/suffix in 'end_phonemes' */
 	
@@ -2175,11 +2180,13 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 	int  g1;            /* first group for this letter */
 	int  n;
 	int  letter;
+	int  ix;
 	int  digit_count=0;
-	char *p_start;
+	char *p;
 	MatchRecord match1;
 	MatchRecord match2;
 	char ph_buf[40];
+	char word_copy[N_WORD_BYTES];
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
 
 	char group_name[4];
@@ -2187,13 +2194,21 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 	if(data_dictrules == NULL)
 		return(0);
 
+	for(ix=0; ix<(N_WORD_BYTES-1);)
+	{
+		c = p_start[ix];
+		word_copy[ix++] = c;
+	}
+	word_copy[ix] = 0;
+
+
 #ifdef LOG_TRANSLATE
 	if((option_phonemes == 2) && ((word_flags & FLAG_NO_TRACE)==0))
 	{
 		char wordbuf[120];
 		int  ix;
 
-		for(ix=0; ((c = p[ix]) != ' ') && (c != 0); ix++)
+		for(ix=0; ((c = p_start[ix]) != ' ') && (c != 0); ix++)
 		{
 			wordbuf[ix] = c;
 		}
@@ -2202,7 +2217,7 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 	}
 #endif
 
-	p_start = p;
+	p = p_start;
 	word_vowel_count = 0;
 	word_stressed_count = 0;
 	
@@ -2357,6 +2372,7 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 						match1.end_type |= p - p_start;
 					}
 					strcpy(end_phonemes,match1.phonemes);
+					memcpy(p_start,word_copy,strlen(word_copy));
 					return(match1.end_type);
 				}
 			}
@@ -2368,6 +2384,7 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 
 	// any language specific changes ?
 	ApplySpecialAttribute(phonemes,dict_flags);
+	memcpy(p_start,word_copy,strlen(word_copy));
 	return(0);
 }   /* end of TranslateRules */
 

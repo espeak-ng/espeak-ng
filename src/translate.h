@@ -263,6 +263,7 @@ typedef struct {
 // bit13= If there is only one syllable before the primary stress, give it a secondary stress
 // bit15= Give stress to the first unstressed syllable
 // bit16= Don't diminish consecutive syllables within a word.
+// bit17= "priority" stress reduces other primary stress to "unstressed" not "secondary"
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -498,7 +499,7 @@ Translator *SelectTranslator(const char *name);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name);
 void LoadConfig(void);
 int PhonemeCode(unsigned int mnem);
-void ChangeWordStress(char *word, int new_stress);
+void ChangeWordStress(Translator *tr, char *word, int new_stress);
 int TransposeAlphabet(char *text, int offset, int min, int max);
 int utf8_in(int *c, char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);

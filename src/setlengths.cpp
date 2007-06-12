@@ -300,13 +300,16 @@ void Translator::CalcLengths()
 			if(next->type==phVOWEL)
 			{
 				pre_voiced = 1;
-			}
+			}   // drop through
 		case phFRICATIVE:
 			if(p->newword)
 				p->prepause = 15;
 
 			if(next->type==phPAUSE && prev->type==phNASAL && !(p->ph->phflags&phFORTIS))
 				p->prepause = 25;
+
+			if(prev->ph->phflags & phBRKAFTER)
+				p->prepause = 30;
 
 			if((p->ph->phflags & phSIBILANT) && next->type==phSTOP && !next->newword)
 			{
