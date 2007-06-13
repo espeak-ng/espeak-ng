@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title></title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<A href="docindex.html">Back</A>
+<hr>
+<h2>ANALYSIS</h2>
+<hr>
+(Further notes are needed)
+<p>
+Recordings of spoken words and phrases can be analysed to try and make eSpeak match a language more closely.
+
+Unlike most other (larger and better quality) synthesizers, eSpeak's data is not produced directly from recorded sounds.  To use an analogy, it's like a drawing or sketch compared with a photograph. Or vector graphics compared with a bitmap image.  It's smaller, less accurate, with less subtlety, but it can sometimes show some aspects of the picture more clearly than a more accurate image.
+
+<h4>Recording Sounds</h4>
+Recordings should be made while speaking slowly, clearly, and firmly and loudly (but not shouting).  Speak about half a metre from the microphone.  Try to avoid background noise and hum interference from electrical power cables.
+
+
+<h4>Praat</h4>
+I use a modified version of the praat program (<a href="www.praat.org">www.praat.org</a>) to view and analyse both sound recordings and output from eSpeak.  The modification adds a new function (<code>Spectrum->To_eSpeak</code>) which analysis a voiced sound and produces a file which can be loaded into espeakedit.  Details of the modification are in the <code>"praat-mod"</code> directory in the espeakedit package. 
+
+The analysis contains a sequence of frames, one per cycle at the speech's fundamental frequency.  Each frame is a short time spectrum, together with praat's estimation of the f1 to f5 formant frequencies at the time of that cycle.
+
+I also use Praat's <code>New->Record_mono_sound</code> function to make sound recordings.
+
+<h3>Vowels and Diphthongs</h3>
+<h4>Analysing a Recording</h4>
+
+Make a recording, with a male voice, and trim it in Praat to keep just the required vowel sound.  Then use the new <code>Spectrum->To_eSpeak</code> modification (this was named <code>To_Spectrogram2</code> in earlier versions) to analyse the sound.  It produces a file named <code>"spectrum.dat"</code>.
+
+Load the <code>"spectrum.dat"</code> file into espeakedit.  Espeakedit has two Open functions, <code>File->Open</code> and <code>File->Open2</code>.  They are the same, except that they remember different paths.  I generally use <code>File->Open2</code> for reading the <code>"spectrum.dat"</code> file.
+
+The data is displayed in espeakedit as a sequence of spectrum frames (see <a href="editor.html">editor.html</a>).
+
+<h4>Tone Quality</h4>
+
+It can be difficult to match the tonal quality of a new vowel to be compatible with existing vowel files.  This is determined by the relative heights and widths of the formant peaks.  These vary depending on how the recording was made, the microphone, and the strength and tone of the voice.  Also the positions of the higher peaks (F3 upwards) can vary depending on the characteristics of the speaker's voice.  Formant peaks correspond to resonances within the mouth and throat, and they depend on its size and shape.  With a female voice, all the formants (F1 upwards) are generally shifted to higher frequencies.
+
+For these reasons, it's best to use a male voice, and to use its analysed spectra only as guidance.  Rather than construct formant-peaks entirely to match the analysed data, instead copy keyframes from a similar existing vowel.  Then make small adjustments to match the position of the F1, F2, F3 formant peaks and hopefully produce the required vowel sound.
+
+<h4>Using an Existing Vowel File</h4>
+
+Choose a similar vowel file from <code>phsource/vowel</code> and open it into espeakedit.  It may be useful to use <code>phsource/vowel/vowelchart</code> as a map to show how vowel files compare with each other.  You can select a keyframe from the vowel file and use CTRL-C and CTRL-V to copy the green formant peaks onto a frame of the new spectrum sequence.  Then adjust the peaks to match the new frame.  Press F1 to hear the sound of the formant peaks in the selected frame.
+
+The F0 peak is provided in order to adjust the correct balance of low frequencies, below the F1 peak.  If the sound is too muffled, or conversely, too "thin", try adjusting the amplitude or position of the F0 peak.
+
+
+<h4>Length and Amplitude</h4>
+
+Use an existing vowel file as a guide for how to set the amplitude and length of the keyframes.  At the right of each keyframe, its length is shown in mS and under that is its relative (RMS) amplitude.
+
+The second keyframe should be marked with a red marker (use CTRL-M to toggle this).  This divides the vowel into the front-part (with one frame), and the rest.
+
+Use F2 to play the sound of the new vowel sequence.  It will also produce a WAV file (the default name is speech.wav) which you can read into praat to see whether it has a sensible shape.
+
+
+<h4>Using the New Vowel</h4>
+
+Make a new directory (eg. vwl_xx) in phsource for your new vowels.  Save the spectrum sequence with a name which you have chosen for it.
+
+You can then edit the phoneme file for your language (eg. phsource/ph_xxx), and change a phoneme to refer to your new vowel file. Then do <code>Data->Compile_Phoneme_Data</code> from espeakedit's menubar to re-compile the phoneme data.
+
+</body>
+</html>

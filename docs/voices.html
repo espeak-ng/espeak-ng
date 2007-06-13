@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>eSpeak: Voice Files</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<A href="index.html">Back</A>
+<hr>
+<h2>5. VOICES</h2>
+<hr>
+<h3>5.1 Voice Files</h3>
+A Voice file specifies a language (and possibly a language variant or dialect) together with various attributes that affect the characteristics of the voice quality and how the language is spoken.<p>
+Voice files are placed in the <code>espeak-data/voices</code> directory, or within subdirectories in there.<p>
+The available voice files can be listed by:<pre>
+   espeak --voices
+or
+   espeak --voices=&lt;language&gt;</pre>
+<hr>
+<h3>5.2 Contents of Voice Files</h3>
+The <strong>language</strong> attribute is mandatory.  All the other attributes are optional.
+<p>
+<h4>Identification Attributes</h4>
+<ul>
+<dl>
+<dt>
+<strong>name &nbsp;&lt;name&gt;</strong><br>
+<dd>A name given to this voice.
+<p>
+<dt>
+<strong>language &nbsp;&lt;language code&gt; [&lt;priority&gt;]</strong><br>
+<dd>This attribute should appear before the other attributes which are listed below.<p>
+It selectes the default behaviour and characteristics for the language, and sets default values for
+"phonemes", "dictionary" and other attributes. The &lt;language code&gt; should be a two-letter ISO 639-1 language code.  One or more language variant codes may be appended, separated by hyphens.  (eg.  en-uk-north).<p>
+The optional &lt;priority&gt; value gives the preference of this voice compared with others for the specified language.  A low value indicates a more preferred voice.  The default value is 5.<p>
+More than one <strong>language</strong> line may be present.  A voice may be selected for other related languages (variants which have the same initial 2 letter language code as the specified language), but it will be less preferred for these.  Different language variants may be specified by additional <strong>language</strong> lines in order to indicate that this is a preferred voice for them also.  Eg.<pre>
+   language en-uk-north
+   language en</pre>
+indicates that this is voice is for the "en-uk-north" dialect, but it is also a main choice when a general "en" language is specified.  Without the second <strong>language</strong> line, it would be disfavoured for "en" for being a more specialised voice.
+<p>
+<dt>
+<strong>gender &nbsp;&lt;gender&gt; [&lt;age&gt;]</strong><br>
+<ul>&lt;gender&gt may be  male, female, or unknown.<br>
+&lt;age&gt; is optional and gives an age in years.
+</dl>
+</ul>
+<h4>Voice Attributes</h4>
+<ul>
+<dl>
+<dt>
+<strong>pitch &nbsp;&lt;base&gt; &lt;range&gt;</strong><br>
+<dd>   Two integer values.
+   The first gives a base pitch to the voice (value in Hz)
+   The second controls the range of pitches used by the voice. Setting
+   it equal to the base pitch will give a monotone. The default values are 82 118.
+<p>
+<dt>
+<strong>formant &nbsp;&lt;number&gt; &lt;frequency&gt; &lt;strength&gt; &lt;width&gt;</strong><br>
+<dd>   Systematically adjusts the frequency, strength, and width of the
+   resonance peaks of the voice.  Values are percentages of the
+   default values.  Changing these affects the tone/quality of the voice.
+<ul>
+   <li>Formants 1,2,3 are the standard three formants which define vowels.</li>
+   <li>Formant 0 is used to give a low frequency component to the sounds, of
+      frequency lower than F1.</li>
+   <li>Formants 4,5 are higher than F3.  They affect the quality of the voice.</li>
+   <li>Formants 6,7,8 are weak, high frequency, additions to vowels to give
+      a clearer sound.</li>
+</ul>
+<p>
+<dt>
+<strong>echo &nbsp;&lt;delay&gt; &lt;amplitude&gt;</strong><br>
+<dd>   Parameter 1 gives the delay in mS  (0 to 250mS).<br>
+   Parameter 2 gives the echo amplitude (0 to 100).<br>
+
+   Adding some echo can give a clearer or more interesting sound,
+   especially when listening through a domestic stereo sound system,
+   rather than small computer speakers.
+<dt>
+<strong>tone</strong><br>
+<dd>  Controls the tone of the sound.<br>
+<strong>tone</strong> is followed by up to 4 pairs of &lt;frequency&gt; &lt;amplitude&gt; which define a frequency response graph.  Frequency is
+in Hz and amplitude is in the range 0 to 255. The default is:<p>
+<code> &nbsp; tone 600 170 &nbsp;1200 135 &nbsp;2000 110</code><p>
+This means that from frequency 0Hz to 600Hz the amplitude is 170. From
+600Hz to 1200Hz the amplitude decreases from 170 to 135, then decreases to 110 at 2000Hz
+and remains at 110 at higher frequencies.  This adjustment applies only to voiced sounds such as
+vowels and sonorant consonants (such as [n] and [l]). Unvoiced sounds such
+as [s] are unaffected.<p>
+This <strong>tone</strong> statement can also appear in <code>espeak-data/config</code>, in which case it applies to all voices which
+don't have their own <strong>tone</strong> statement.
+<p>
+<dt>
+<strong>flutter &nbsp;&lt;value&gt;</strong><br>
+<dd>   Default value: 2.<br>
+
+   Adds pitch fluctuations to give a wavering or older-sounding voice.
+   A large value (eg. 20) makes the voice sound "croaky".
+<p>
+<dt>
+<strong>roughness &nbsp;&lt;value&gt;</strong><br>
+<dd>   Default value: 2. Range 0 - 7<br>
+
+   Reduces the amplitude of alternate waveform cycles in order to make the voice sound creaky.
+<p>
+<dt>
+<strong>voicing &nbsp;&lt;value&gt;</strong><br>
+<dd>   Default value: 100.<br>
+
+   Adjusts the strength of formant-synthesized sounds (vowels and sonorant consonants).
+<p>
+<dt>
+<strong>breath &nbsp;&lt;up to 8 integer values&gt;</strong><br>
+<dd>   Default values: 0.<br>
+
+   Adds noise which corresponds to the formant frequency peaks.  The values give the strength
+   of noise for each formant peak (formants 1 to 8).
+<p>
+   Use together with a low or zero value of the <strong>voicing</strong> attribute to make a "wisper".
+   For example:<br>
+   <code>breath &nbsp; 75 75 60 40 15 10<br>
+         breathw &nbsp;150 150 200 200 400 400<br>
+         voicing &nbsp;18<br>
+         flutter &nbsp;20<br>
+         formant &nbsp; 0 100 0 100 &nbsp; // remove formant 0
+   </code>
+
+<p>
+<dt>
+<strong>breathw &nbsp;&lt;up to 8 integer values&gt;</strong><br>
+<dd> 
+   These values give bandwidths of the noise peaks of the <strong>breath</strong> attribute.  If <strong>breathw</strong> values are not given, then suitable default values will be used.
+<p>
+</dl>
+</ul>
+<h4>Language Attributes</h4>
+<ul>
+<dl>
+<p>
+<dt>
+<strong>phonemes &nbsp;&lt;name&gt;</strong><br>
+<dd>Specifies which set of phonemes to use from those contained in the
+   phontab, phonindex, and phondata data files.
+   This is a <strong>phonemetable</strong> name as given in the "phoneme" source file.
+<p>
+   This parameter is usually not needed as it is set by default to the first two letters of the "language" parameter.
+   However, different voices of the same language can use different phoneme sets, to give different accents.
+</dd>
+<dt>
+<strong>dictionary &nbsp;&lt;name&gt;</strong><br>
+<dd>   Specifies which pair of dictionary files to use.  eg. "english"
+   indicates that <em>speak-data/en_dict</em> should
+   be used to translate from words to phonemes.  This parameter is usually
+   not needed as it is set by default to the first two letters of "language" parameter.</dd>
+<p>
+<dt>
+<strong>dictrules &nbsp;&lt;list of rule numbers&gt;</strong><br>
+<dd>
+Gives a list of conditional dictionary rules which are applied for this voice.  Rule numbers are in the range 0 to 31 and are specific to a language.  They can apply to rules in the langauge's <b>_rules</b> dictionary file and also its <b>_list</b> exceptions list.
+See <a href="dictionary.html">dictionary.html</a>.
+</dd>
+<p>
+<dt>
+<strong>replace &nbsp;&lt;flags&gt; &lt;phoneme&gt; &lt;replacement phoneme&gt;</strong><br>
+<dd>   Replace a phoneme by another whenever it occurs.<p>
+   &lt;replacement phoneme&gt; may be NULL.<p>
+   Flags: bit 0:  replacement only occurs on the final phoneme of a word.<br>
+   Flags: bit 1:  replacement doesn't occur in stressed syllables.<br>
+   eg.
+<pre>
+      replace  0  h  NULL      // drops h's
+      replace  0  V  U         // replaces vowel in 'strut' by that in 'foot'
+                               // as occurs in northern British English
+      replace  3  N  n         // change 'fishing' to 'fishin' etc.
+                               // (only the last phoneme of a word, only in unstressed syllables)
+</pre>
+   The phoneme mnemonics can be defined for each language, but some are listed in <A href="phonemes.html">phonemes.html</A>
+</dd>
+<p>
+<dt>
+<strong>stressLength &nbsp;&lt;8 integer values&gt;</strong><br>
+<dd>   Eight integer parameters.  These control the relative lengths of the vowels in
+   stressed and unstressed syllables.
+<ul>
+<li>      0 &nbsp; unstressed
+</li><li>      1 &nbsp; diminished. Its use depends on the language. In English it's used for unstressed syllables within multisyllabic words. In Spanish it's used for unstressed final syllables.
+</li><li>      2 &nbsp; secondary stress
+</li><li>      3 &nbsp; words marked as "unstressed" in the dictionary
+</li><li>      4 &nbsp; &nbsp;  not currently used
+</li><li>      5 &nbsp; &nbsp;  not currently used
+</li><li>      6 &nbsp; stressed syllable (the main syllable in stressed words)
+</li><li>      7 &nbsp; tonic syllable (by default, the last stressed syllable in the clause)
+</li></ul>
+</dd>
+<p>
+<dt>
+<strong>stressAdd &nbsp;&lt;8 integer values&gt;</strong><br>
+<dd>   Eight integer parameters.  These are added to the voice's corresponding stressLength values.  They are used in the voice variant files in <code>espeak-data/voices/!v</code> to give some variety.  Negative values may be used.</dd>
+<p>
+<dt>
+<strong>stressAmp &nbsp;&lt;8 integer values&gt;</strong><br>
+<dd>   Eight integer parameters.  These control the relative amplitudes of the vowels in
+   stressed and unstressed syllables (see stressLength above).
+   The general default values are:  16, 16, 20, 20, 20, 24, 24, 22, although these defaults may be different for particular languages.</dd>
+<p>
+<dt>
+<strong>intonation &nbsp;&lt;param1&gt; &lt;param2&gt;</strong><br>
+<dd>   (for further development)<br>
+
+
+</dd>
+<p>
+<dt>
+<strong>charset &nbsp;&lt;param1&gt;</strong><br>
+<dd>
+The ISO 8859 character set number. (not all are implemented).
+</dd>
+<p>
+Additional attributes are available to set various internal options which control how language is processed.  These would normally be set in the program code rather than in a voice file.
+<p>
+<dt>
+<strong>stressrule &nbsp;&lt;param1&gt; &lt;param2&gt; &lt;param3&gt; &lt;param4&gt;</strong><br>
+<dd>
+Controls how different stress levels are applied to the syllables of a word.
+</dd>
+</ul>
+<hr>
+<h3>5.3 Voice Files Provided</h3>
+A number of Voice files are provided in the <code>espeak-data/voices</code> directory.
+You can select one of these with the <strong>-v &lt;voice filename&gt;</strong> parameter to the
+speak command.
+<p>
+<dl>
+<dt>
+<strong>default</strong><br>
+<dd>   This voice is used if none is specified in the speak command.  Copy your preferred voice to "default" so you can use the speak command without the need to specify a voice.</dd>
+</dl>
+For a list of voices provided for English and other languages see <a href="languages.html">Languages</a>.
+
+</body>
+</html>

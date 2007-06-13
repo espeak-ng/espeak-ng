@@ -1,0 +1,75 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>espeakedit</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<A href="docindex.html">Back</A>
+<hr>
+<h2>ESPEAKEDIT PROGRAM</h2>
+<hr>
+The <strong>espeakedit</strong> program is used to prepare phoneme data for the eSpeak speech synthesizer.<p>
+It has two main functions:
+<ul>
+<li>Prepare keyframe files for individual vowels and voiced consonants.  These each contain a sequence of keyframes which define how formant peaks (peaks in the frequency spectrum) vary during the sound.<p>
+<li>Process the master <strong>phonemes</strong> file which, by including the phoneme files for the various languages, defines all their phonemes and references the keyframe files and the sound sample files which they use.  <strong>espeakedit</strong> processes these and compiles them into the <strong>phondata</strong>, <strong>phonindex</strong>, and <strong>phontab</strong> files in the <strong>espeak-data</strong> directory which are used by the eSpeak speech synthesizer. 
+</ul>
+<hr>
+<h3>Installation</h3>
+<strong>espeakedit</strong> needs the following packages:<br>
+(The package names mentioned here are those from the Ubuntu "Dapper" Linux distribution).
+<ul>
+<li><strong>sox</strong> &nbsp; (a universal sound sample translator)
+<li><strong>libwxgtk2.6-0</strong> &nbsp; (wxWidgets Cross-platform C++ GUI toolkit)
+<li><strong>portaudio0</strong> &nbsp; (Portaudio V18, portable audio I/O)
+</ul>
+In addition, a modified version of <strong>praat</strong> (<a href="www.praat.org">www.praat.org</a>) is used to view and analyse WAV sound files.
+This needs the package  <strong>libmotif3</strong>  to run and  <strong>libmotif-dev</strong>  to compile.
+<hr>
+<h3>Quick Guide</h3>
+This will quickly illustrate the main features.  Details of the interface and key commands are given in <a href="editor_if.html">editor_if.html</a><p>
+For more detailed information on analysing sound recordings and preparing phoneme definitions and keyframe data see <a href="analyse.html">analyse.html</a> (to be written).
+<h4>Compiling Phoneme Data</h4>
+<ol>
+<li>Run the <strong>espeakedit</strong> program.<p>
+<li>Select <b>Data->Compile phoneme data</b> from the menu bar.  Dialog boxes will ask you to locate the directory (<b>phsource</b>) which contains the master phonemes file, and the directory (<b>dictsource,</b>) which contains the dictionary files (en_rules, en_list, etc).  Once specified, espeakedit will remember their locations, although they can be changed later from <b>Options->Paths</b>.<p>
+<li>A message in the status line at the bottom of the espeakedit window will indicate whether there are any errors in the phoneme data, and how many language's dictionary files have been compiled.  The compiled data is placed into the <b>espeak-data</b> directory, ready for use by the speak program.  If errors are found in the phoneme data, they are listed in a file <b>error_log</b> in the <b>phsource</b> directory.</li>
+<p>
+NOTE: espeakedit can be used from the command line to compile the phoneme data, with the command: <b> espeakedit --compile</b>
+<li>Select <b>Tools->Make vowels chart->From compiled phoneme data</b>.  This will look for the vowels in the compiled phoneme data of each language and produce a vowel chart (.png file) in <b>phsource/vowelcharts</b>.  These charts plot the vowels' F1 (formant 1) frequency against their F2 frequency, which corresponds approximately to their open/close and front/back positions. The colour in the circle for each vowel indicates its F3 frequency, red indicates a low F3, through yellow and green to blue and violet for a high F3. In the case of a diphthong, a line is drawn from the circle to the position of the end of the vowel.
+</ol>
+<h4>Keyframe Sequences</h4>
+<ol>
+<li>Select <b>File->Open</b> from the menu bar and select a vowel file, <b>phsource/vowel/a</b>.  This will open a tab in the espeakedit window which contains a sequence of 4 keyframes.  Each keyframe shows a black graph, which is the outline of an original analysed spectrum from a sound recording, and also a green line, which shows the formant peaks which have been added (using the black graph as a guide) and which produce the sound.<p>
+<li>Click in the "a" tab window and then press the <b>F2</b> key.  This will produce and play the sound of the keyframe sequence.  The first time you do this, you'll get a save dialog asking where you want the WAV file to be saved.  Once you give a location all future sounds will be stored in that same location, although it can be changed from <b>Options->Paths</b>.<p>
+<li>Click on the second of the four frames, the one with the red square.  Press <b>F1</b>.  That plays the sound of just that frame.<p>
+<li>Press the <b>1</b> (number one) key.  That selects formant F1 and a red triangle appears under the F1 formant peak to indicate that it's selected.  Also an = sign appears next to formant 1 in the formants list in the left panel of the window.<p>
+<li>Press the left-arrow key a couple of times to move the F1 peak to the left.  The red triangle and its associated green formant peak moves lower frequency.  Its numeric value in the formants list in the left panel decreases.<p>
+<li>Press the <b>F1</b> key again.  The frame will give a slightly different vowel sound.  As you move the F1 peak slightly up and down and then press <b>F1</b> again, the sound changes.  Similarly if you press the <b>2</b> key to select the F2 formant, then moving that will also change the sound.  If you move the F1 peak down to about 700 Hz (and reduce its height a bit with the down-arrow key) and move F2 up to 1400 Hz, then you'll hear a "er" schwa [@] sound instead of the original [a].<p>
+<li>Select <b>File->Open</b> and choose <b>phsource/vowel/aI</b>.  This opens a new tab labelled "aI" which contains more frames.  This is the [aI] diphthong and if you click in the tab window and press <b>F2</b> you'll hear the English word "eye".  If you click on each frame in turn and press <b>F1</b> then you can hear each of the keyframes in turn.  They sound different, starting with an [A] sound (as in "palm"), going through something like [@] in "her" and ending with something like [I] in "kit" (or perhaps a French é).  Together they make the diphthong [aI].
+</ol>
+<h4>Text and Prosody Windows</h4>
+<ol>
+<li>Click on the <b>Text</b> tab in the left panel. Two text windows appear in the panel with buttons <b>Translate</b> and <b>Speak</b> below them.<p>
+<li>Type some text into the top window and click the <b>Translate</b> button.  The phonetic translation will appear in the lower window.<p>
+<li>Click the <b>Speak</b> button.  The text will be spoken and a <b>Prosody</b> tab will open in the main window.<p>
+<li>Click on a vowel phoneme which is displayed in the Prosody tab. A red line appears under it to indicate that it has been selected.<p>
+<li>Use the <b>up-arrow</b> or <b>down-arrow</b> key to move the vowel's blue pitch contour up or down.  Then click the <b>Speak</b> button again to hear the effect of the altered pitch.  If the adjacent phoneme also has a pitch contour then you may hear a discontinuity in the sound if it no longer matches with the one which you have moved.<p>
+<li>Hold down the <b>Ctrl</b> key while using the <b>up-arrow</b> or <b>down-arrow</b> keys.  The gradient of the pitch contour will change.<p>
+<li>Click with the right mouse button over a phoneme.  A menu allows you to select a different pitch envelope shape.  Details of the currently selected phoneme appear in the Status line at the bottom of the window.  The <b>Stress</b> number gives the stress level of the phoneme (see voices.html for a list).<p>
+<li>Click the <b>Translate</b> button.  This re-translates the text and restores the original pitches.<p>
+<li>Click on a vowel phoneme in the Prosody window and use the <b>&lt;</b> and <b>&gt;</b> keys to shorten or lengthen it.<p>
+</ol>
+The Prosody window can be used to experiment with different phoneme lengths and different intonation.<p>
+
+<hr>
+
+</body>
+</html>
+
+
+

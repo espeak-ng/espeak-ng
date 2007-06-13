@@ -1,0 +1,209 @@
+
+//====================================================
+//  Italian
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 70
+endphoneme
+
+
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vowel/a_2
+  reduceto a/  4
+endphoneme
+
+
+phoneme a/
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/a#
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/ee_1
+  reduceto  e  4        // [E] only in stressed syllables
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/i
+  linkout ;
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/0
+  reduceto  o  4        // [O] only in stressed syllables
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_bck
+endphoneme
+
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/uu_2
+endphoneme
+
+
+phoneme aU
+  vowel starttype (a) endtype (u)
+  length 270
+  formants vdiph/au_4
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 260
+  formants vdiph/eu
+endphoneme
+
+
+phoneme iU
+  vowel starttype (i) endtype (u)
+  length 240
+  formants vdiph2/iu
+endphoneme
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vdiph/ai
+endphoneme
+
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 250
+  formants vdiph/ei
+endphoneme
+
+
+phoneme oI
+  vowel starttype (o) endtype (i)
+  length 240
+  formants vdiph/oi
+endphoneme
+
+
+phoneme uI
+  vowel starttype (u) endtype (i)
+  length 240
+  formants vdiph/ui
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+
+
+
+phoneme w2
+  starttype w  endtype w
+  liquid
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w2
+  after _  w/w2
+endphoneme
+
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p_unasp
+  before _ ustop/p_unasp_%80
+  before r ustop/pr
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+phoneme ts
+  vls alv afr sibilant
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/ts
+endphoneme
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%35
+  switchvoicing d
+endphoneme
+
+
+
+phoneme d       // dental variant of /d/
+  vcd dnt stop
+  vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  vowelout f1=2 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/k_unasp%70   // weaker
+  before _ ustop/k_
+  before r ustop/kr
+  before l ustop/kl
+  before (i) ustop/ki
+  switchvoicing g
+endphoneme
+
+
+

@@ -49,7 +49,7 @@
 #include "sintab.h"
 
 
-
+#define PI  3.1415927
 #define PI2 6.283185307
 #define STEPSIZE  64                // 2.9mS at 22 kHz sample rate
 #define N_WAV_BUF   10
@@ -81,6 +81,9 @@ static int echo_head;
 static int echo_tail;
 static int echo_amp = 0;
 static short echo_buf[N_ECHO_BUF];
+
+static int voicing;
+RESONATOR rbreath[N_PEAKS];
 
 static int harm_sqrt_n = 0;
 
@@ -123,6 +126,9 @@ static int phaseinc;
 static int cycle_samples;         // number of samples in a cycle at current pitch
 static int cbytes;
 static int hf_factor;
+
+static double minus_pi_t;
+static double two_pi_t;
 
 
 unsigned char *out_ptr;
@@ -770,6 +776,7 @@ static void WavegenSetEcho(void)
 	int delay;
 	int amp;
 
+	voicing = wvoice->voicing;
 	delay = wvoice->echo_delay;
 	amp = wvoice->echo_amp;
 
@@ -824,6 +831,8 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	if(wvoice == NULL)
 		return(1);
 	hmax = (peaks[wvoice->n_harmonic_peaks].freq + peaks[wvoice->n_harmonic_peaks].right)/pitch;
+	if(hmax >= MAX_HARMONIC)
+		hmax = MAX_HARMONIC-1;
 
 	// restrict highest harmonic to half the samplerate
 	hmax_samplerate = (((samplerate * 19)/40) << 16)/pitch;   // only 95% of Nyquist freq
@@ -961,6 +970,110 @@ static void AdvanceParameters()
 
 
 
+static double resonator(RESONATOR *r, double input)
+{//================================================
+	double x;
+
+	x = r->a * input + r->b * r->x1 + r->c * r->x2;
+	r->x2 = r->x1;
+	r->x1 = x;
+
+ return x;
+}
+
+
+
+static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
+{//====================================================================
+// freq    Frequency of resonator in Hz
+// bwidth  Bandwidth of resonator in Hz
+// init    Initialize internal data
+
+	double x;
+	double arg;
+
+	if(init)
+	{
+		rp->x1 = 0;
+		rp->x2 = 0;
+	}
+
+   // x  =  exp(-pi * bwidth * t)
+	arg = minus_pi_t * bwidth;
+	x = exp(arg);
+
+	// c  =  -(x*x)
+	rp->c = -(x * x);
+
+	// b = x * 2*cos(2 pi * freq * t)
+
+	arg = two_pi_t * freq;
+	rp->b = x * cos(arg) * 2.0;
+
+	// a = 1.0 - b - c
+	rp->a = 1.0 - rp->b - rp->c;
+}  // end if setresonator
+
+
+
+void InitBreath(void)
+{//==================
+	int ix;
+
+	minus_pi_t = -PI / samplerate;
+	two_pi_t = -2.0 * minus_pi_t;
+
+	for(ix=0; ix<N_PEAKS; ix++)
+	{
+		setresonator(&rbreath[ix],2000,200,1);
+	}
+}  // end of InitBreath
+
+
+
+void SetBreath()
+{//=============
+	int pk;
+
+	if(wvoice->breath[0] == 0)
+		return;
+
+	for(pk=1; pk<N_PEAKS; pk++)
+	{
+		if(wvoice->breath[pk] != 0)
+		{
+			// breath[0] indicates that some breath formants are needed
+			// set the freq from the current ynthesis formant and the width from the voice data
+			setresonator(&rbreath[pk], peaks[pk].freq >> 16, wvoice->breathw[pk],0);
+		}
+	}
+}  // end of SetBreath
+
+
+#define getrandom(min,max) ((rand()%(int)(((max)+1)-(min)))+(min))
+
+int ApplyBreath(void)
+{//==================
+	int noise;
+	int ix;
+	int amp;
+	int value = 0;
+
+	noise = getrandom(-4095,4095);
+
+	for(ix=1; ix < N_PEAKS; ix++)
+	{
+		if((amp = wvoice->breath[ix]) > 0)
+		{
+			amp *= (peaks[ix].height >> 13);
+			value += int(resonator(&rbreath[ix],noise) * amp);
+		}
+	}
+	return (value);
+}
+
+
+
 static int Wavegen()
 {//=================
 	unsigned short waveph;
@@ -1015,6 +1128,7 @@ static int Wavegen()
 			hswitch ^= 1;
 			maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[hswitch],1);
 
+			SetBreath();
 		}
 		else
 		if((samplecount & 0x07) == 0)
@@ -1150,6 +1264,17 @@ static int Wavegen()
 			h++;
 		}
 #endif
+
+		if(voicing != 64)
+		{
+			total = (total >> 6) * voicing;
+		}
+
+		if(wvoice->breath[0])
+		{
+			total +=  ApplyBreath();
+		}
+
 		// mix with sampled wave if required
 		z2 = 0;
 		if(mix_wavefile_ix < n_mix_wavefile)

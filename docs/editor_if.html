@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>Editor - Spectrum</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<A href="docindex.html">Back</A>
+<hr>
+<h2>USER INTERFACE - FORMANT EDITOR</h2>
+<hr>
+<h3>Frame Sequence Display</h3>
+The eSpeak editor can display a number of frame-sequencies in tabbed windows.  Each frame can contain a short-time frequency spectrum, covering the period of one cycle at the sound's pitch. Frames can also show:
+<ul>
+<LI>Blue vertical lines showing the estimated position of the f1 to f5 formants (if the sequence was produced by praat analysis).  These should correspond with the peaks in the spectrum, but may not do so exactly<p>
+<li>Numbers at the right side of the frame showing the position from the start of the sequence in mS, and the pitch of the sound.<p>
+<li>Up to 9 formant peaks (numbered 0 to 9) added by the user, usually to match the peaks in the spectrum, in order to produce the required sound.  These are shown in green, can be moved by keyboard presses as described below, and may merge if they are close together.  If a frame has formant peaks then it is a Keyframe and is shown with a pale yellow background.<p>
+<li>If formant peaks are present, a relative amplitude (r.m.s.) value is shown at the right side of the frame.
+<li>
+</ul>
+<h3>Text Tab</h3>
+Enter text in the top left text window.  Click the <b>Translate</b> button to see the phonetic transcription in the text window below.  Then click the <b>Speak</b> button to speak the text and show the results in the <b>Prosody</b> tab, if that is open.
+<p>
+If changes are made in the <b>Prosody</b> tab, then clicking <b>Speak</b> will speak the modified prosody while <b>Translate</b> will revert to the default prosody settings for the text.
+<p>
+To enter phonetic symbols (Kirschenbaum encoding) in the top left text window, enclose them within [[  ]].
+<h3>Spect Tab</h3>
+The "Spect" tab in the left panel of the eSpeak editor shows information about the currently selected frame and sequence.
+<ul>
+<li>The <strong>Formants</strong> section displays the Frequency, Height, and Width of each formant peak (peaks 0 to 8).  Peaks 6, 7, 8 don't have a variable width.<p>
+<li><strong>% amp - Frame</strong> can be used to adjust the amplitiude of the frame.  If you change this value then the rms amplitude value at the right side of the frame will change.  The formant peaks don't change, just the overall amplitude of the frame.<p>
+<li><strong>mS</strong> shows the time in mS until the next keyframe (or end of sequence if there is none).  The spin control initially shows the same value, but this can be changed in order to increase or decrease the effctive length of a keyframe.<p>
+<li><strong>% amp - Sequence</strong> /ul> adjusts the amplitude of the whole sequence.  Changing this values changes the rms amplitudes of all the keyframes in the sequence.<p>
+<li><strong>% mS - Sequence</strong> /ul> shows the total length of the sequence.<p>
+<li><strong>Graph</strong><br>
+Yellow vertical lines show the position of keyframes within the sequence.<br>
+Black bars on these show the frequencies of formant peaks which have been set at these keyframes.<br>
+Thick red lines, if present, show the formants, as detected in the original analysis.<br>
+Thin black line, if present, shows the pitch profile measured in the original analysis.
+</ul>
+</li>
+</ul>
+<h3>Key Commands</h3>
+<ul>
+<li><strong>Selection</strong>.<p>
+The selected frame(s) are shown with a red border.  The selected formant peak is also indicated by an equals ("=") sign next to its number in the "Spect" panel to the right of the window.<p>
+The selected formant peak is shown with a red triangle under the peak.<p>
+Keyframes are shown with a pale yellow background. A keyframe is any frame with any formant peaks which are not zero height.  If all formant peaks become zero height, the frame is no longer a keyframe.  If you increase a peak's height the frame becomes a keyframe.
+
+<dl>
+<dt><strong>Numbers 0 to 8</strong>
+<dd>Select formant peak number 0 to 8.
+<dt><strong>Page Up/Down</strong>
+<dd>Move to next/previous frame
+</dl>
+<li><strong>Formant movement</strong>.  With the following keys, holding down <b>Shift</b> causes slower movement.
+<dl>
+<dt>Left
+<dd>Moves the selected formant peak to higher frequency.
+<dt>Right
+<dd>Moves the selected formant peak to lower frequency.
+<dt>Up
+<dd>Increases height of the selected formant peak.
+<dt>Down
+<dd>Decreases height of the selected formant peak.
+<dt><strong>&lt;</strong>
+<dd>Narrows the selected formant peak.
+<dt><strong>&gt;</strong>
+<dd>Widens the selected formant peak.
+<dt><strong>CTRL &lt;</strong>
+<dd>Narrows the selected formant peak.
+<dt><strong>CTRL &gt;</strong>
+<dd>Widens the selected formant peak.
+<dt><b>/</b>
+<dd>Makes the selected formant peak symmetrical.
+</dl>
+<li><strong>Frame Cut and Paste</strong>
+<dl>
+<dt><b>CTRL A</b>
+<dd>Select all frames in the sequence.
+<dt><b>CTRL C</b>
+<dd>Copy selected frames to (internal) clipboard.
+<dt><b>CTRL V</b>
+<dd>Paste frames from the clipboard to overwrite the contents of the selected frame and the frames which follow it. Only the formant peaks information is pasted.
+<dt><b>CTRL SHIFT V</b>
+<dd>Paste frames from the clippoard to insert them  above the selected frame.
+<dt><b>CTRL X</b>
+<dd>Delete the selected frames.
+</dl>
+<li><strong>Frame editing</strong>
+<dl>
+<dt><b>CTRL D</b>
+<dd>Copy the formant peaks down to the selected frame from the next keyframe above.
+<dt><b>CTRL SHIFT D</b>
+<dd>Copy the formant peaks up to the selected frame from the next key-frame below.
+<dt><b>CTRL Z</b>
+<dd>Set all formant peaks in the selected frame to zero height.  It is no longer a key-frame.
+<dt><b>CTRL I</b>
+<dd>Set the formant peaks in the selected frame as an interpolation between the next keyframes above and below it.  A dialog box allows you to enter a percentage. 50% gives values half-way between the two adjacent key-frames, 0% gives values equal to the one above, and 100% equal to the one below.
+</dl>
+<li><strong>Display and Sound</strong>
+<dl>
+<dt><b>CTRL Q</b>
+<dd>Shows interpolated formant peaks on non-keyframes.  These frames don't become keyframes until any of the peaks are edited to increase their height.
+<dt><b>CTRL SHIFT Q</b>
+<dd>Removes the interpolated formant peaks display.
+<dt><b>CTRL G</b>
+<dd>Toggle grid on and off.
+<dt><b>F1</b>
+<dd>Play sound made from the one selected keyframe.
+<dt><b>F2</b>
+<dd>Play sound made from all the keyframes in the sequence.
+</ul>
+<p>&nbsp;
+<hr>
+<h2>USER INTERFACE - PROSODY EDITOR</h2>
+<hr>
+<ul><LI>
+<dl>
+<dt><b>Left</b>
+<dd>Move to previous phoneme.
+<dt><b>Right</b>
+<dd>Move to next phoneme.
+<dt><b>Up</b>
+<dd>Increase pitch.
+<dt><b>Down</b>
+<dd>Decrease pitch.
+<dt><b>Ctrl Up</b>
+<dd>Increase pitch range.
+<dt><b>Ctrl Down</b>
+<dd>Decrease pitch range.
+<dt><b>&gt;</b>
+<dd>Increase length.
+<dt><b>&lt;</b>
+<dd>Decrease length.
+</dd>
+</dl>
+</LI>
+</ul>
+</body>
+</html>

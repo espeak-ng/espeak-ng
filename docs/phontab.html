@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>eSpeak: Phoneme tables</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<A href="docindex.html">Back</A>
+<hr>
+<h2>PHONEME TABLES</h2>
+<hr>
+A phoneme table defines all the phonemes which are used by a language, together with their properties and the data for their production as sounds.
+<p>
+Generally each language has its own phoneme table, although additional phoneme tables can be used for different voices within the language.  These alternatives are referenced from Voices files.
+<p>
+A phoneme table does not need to define all the phonemes used by a language.  Instead it can reference a previously defined phoneme table, whose phonemes it inherits.  These can then be used as they are, or overridden by new definitions, or new phonemes added.  For example, a phoneme table may redefine (or add) some of the vowels that it uses, but inherit most of its consonants from a standard set.
+<p>
+<blockquote>Note: This specification is not yet complete and does not include the definitions of the formant sequence specifications.
+<br>
+The source files for the phoneme data is in the "phsource" directory in the espeakedit download package.
+</blockquote>
+<p>&nbsp;<hr>
+<h3>Phoneme files</h3>
+The phoneme tables are defined in a master phoneme file, named <strong>phonemes</strong>.  This starts with the <strong>base</strong> phoneme table followed by other phoneme tables for languages and voices which inherit phonemes from the <strong>base</strong> table or from each other.
+<p>
+In addition to phoneme definitions, the phoneme file can contain the following:
+<dl>
+<dt><strong>include</strong> &lt;filename&gt;
+<dd>Includes the text of the specified file at this point. This allows different phoneme tables to be kept in different text files, for convenience.  &lt;filename&gt; is a relative path.  The included file can itself contain <strong>include</strong> statements.
+<p>
+<dt><strong>phonemetable</strong> &lt;name&gt; &lt;parent&gt;
+<dd>Starts a new phoneme table, and ends the previous table.<br>
+&lt;name&gt; Is the name of this phoneme table. This name is used in Voices files.<br>
+&lt;parent&gt; Is the name of a previously defined phoneme table whose phoneme definitions are inherited by this one.  The name <strong>base</strong> indicates the first (base) phoneme table.
+<p>
+<dt><strong>phonemenumber</strong> &lt;integer&gt;
+<dd>This statement is used at the start of the master <strong>phonemes</strong> file to define some specific code numbers for various phonemes which are used directly within the <strong>speak</strong> program.
+</dl>
+<p>&nbsp;<hr>
+<h3>Phoneme definitions</h3>
+A phoneme table contains a list of phoneme definitions. Each starts with the keyword <strong>phoneme</strong> and the phoneme name (this is the name used in the pronunciation rules), and ends with the keyword <strong>endphoneme</strong>.  For example:
+<pre>  phoneme aI
+    vowel
+    length 230
+    formants vowels/ai
+    starttype (a) endtype (I)
+  endphoneme
+
+  phoneme s
+    vls alv frc sibilant
+    vowelin  f1=0  f2=1700 -300 300  f3=-100 100
+    vowelout f1=0  f2=1700 -300 250  f3=-100 100  rms=20
+    lengthmod 3
+    wave unvoc/s
+    before _ unvoc/s_
+    before p unvoc/s!
+    before t unvoc/s!
+    before k unvoc/s!
+    switchvoicing z
+  endphoneme
+
+</pre>
+<p>
+Within the phoneme definition the following lines may occur:  ( (V) indicates only for vowels, (C) only for consonants)
+<p>
+<ul>
+<dl><dt>Type. One of these must be present.
+<dd><table>
+<tr><TD width="100"><b>vowel</b></TD></tr>
+<tr><TD><b>liquid</b></TD><td>semi-vowels, such as:&nbsp; <code> r, l, j, w</code></td></tr>
+<tr><TD><b>nasal</b></TD><td>nasal eg:&nbsp; <code> m, n, N</code></td></tr>
+<tr><TD><b>stop</b></TD><td>stop eg:&nbsp; <code> p, b, t, d, k, g</code></td></tr>
+<tr><TD><b>frc</b></TD><td>fricative eg:&nbsp; <code> f, v, T, D, s, z, S, Z, C, x</code></td></tr>
+<tr><TD><b>afr</b></TD><td>affricate eg:&nbsp; <code> tS, dZ</code></td></tr>
+<tr><TD><b>pause</b></TD><td></td></tr>
+<tr><TD><b>stress</b></TD><td>stress symbols, eg: ' , = %</td></tr>
+<tr><TD><b>virtual</b></TD><td>Used to represent a class of phonemes. See section ("Phoneme Pairs", below)</td></tr>
+</table>
+</dl>
+<dl><dt>Properties:
+<dd><table>
+<tr><TD width="100"><b>vls</b></TD><td>(C) voiceless  eg. <code>  p, t, k, f, s</code></TD></tr>
+<tr><TD><b>vcd</b></TD><td>(C) voiced  eg. <code>  b, d, g, v, z</code></td></tr>
+<tr><TD><b>sibilant</b></TD><td>(C) eg: <code>  s, z, S, Z, tS, dZ</code></td></tr>
+<tr><TD><b>palatal</b></TD><td>(C) A palatal or palatalized consonant.</td></tr>
+<tr><TD><b>unstressed</b></TD><td>(V) This vowel is always unstressed, unless explicitly marked otherwise.</td></tr>
+<tr><TD><b>nolink</b></TD><td>Prevent any linking from the previous phoneme.</td></tr>
+<tr><TD><b>trill</b></TD><td>(C) Apply trill to the voicing.</td></tr>
+</table>
+</dl>
+<dl><dt>Place of Articulation (C):
+<dd><table>
+<tr><TD><b>blb &nbsp;</b></TD><td width="100">bi-labial</TD>
+<TD><b>ldb &nbsp;</b></TD><td width="110">labio-dental</TD>
+<TD><b>dnt &nbsp;</b></TD><td>dental</TD></tr>
+
+<tr><TD><b>alv</b></TD><td>alveolar</td>
+<TD><b>rfx</b></TD><td>retroflex</TD>
+<TD><b>pla</b></TD><td>palato-alveolar</TD></tr>
+
+<tr><TD><b>pal</b></TD><td>palatal</td>
+<TD><b>vel</b></TD><td>velar</TD>
+<TD><b>lbv</b></TD><td>labio-velar</TD></tr>
+
+<tr><TD><b>uvl</b></TD><td>uvular</td>
+<TD><b>phr</b></TD><td>pharyngeal</TD>
+<TD><b>glt</b></TD><td>glottal</TD></tr>
+
+</table>
+</dl>
+
+<dl>
+<dt><strong>length</strong>
+<dd>(V) The relative length of the phoneme, typically about 140 for a short vowel and from 200 to 250 for a long vowel or diphong.  Currently used only for vowels.
+<p>
+<dt><strong>formants</strong> &lt;sound spec&gt;
+<dd>&lt;sound spece&gt; is a relative path to a file which defines how to generate the sound (a vowel or voiced consonant) from a sequence of formant values. (see **)
+<p>
+<dt><strong>wave</strong> &lt;wavefile&gt;
+<dd>(C) This is an alternative to <strong>formants</strong>. &nbsp;&lt;wavefile&gt; is a relative path to a WAV file (22 kHz, 16 bits) which will be played to produce the sound.  This method is used for unvoiced consonants. &lt;wavefile&gt; does not include a .WAV filename extension, although the file to which it refers may or may not have one.
+<p>
+<dt><strong>before</strong> &lt;phoneme&gt; &lt;sound spec&gt;
+<dd>This specifies an alternative realization when the phoneme followed by another specified phoneme. <strong>before</strong> may be followed by several &lt;phoneme&gt; &lt;sound seq&gt; pairs.
+<p>
+<dt><strong>after</strong> &lt;phoneme&gt; &lt;sound spec&gt;
+<dd>This specifies an alternative realization when the phoneme follows another specified phoneme. Vowels are considered as two parts, start and end, so both a <strong>before</strong> and an <strong>after</strong> condition may apply to the same vowel.
+<p>
+<dt><strong>starttype</strong> &lt;phoneme&gt;
+<dd>Allocates this phoneme to a category for the purposes of choosing the variant of a phoneme that precedes it.  See section "Phoneme Pairs" below.
+<p>
+<dt><strong>endtype</strong> &lt;phoneme&gt;
+<dd>Allocates this phoneme to a category for the purposes of choosing the variant of a phoneme that follows it.  See section "Phoneme Pairs" below.
+<p>
+<dt><strong>reduceto</strong> &lt;phoneme&gt; &lt;level&gt;
+<dd>(V) Change to the specified phoneme (such as schwa, @) if this syllable has a stress level less than that specified by &lt;level&gt;
+<p>
+<dt><strong>linkout</strong> &lt;phoneme&gt;
+<dd>If the following phoneme is a vowel then this additional phoneme will be inserted before it.
+<p>
+<dt><strong>beforevowel</strong> &lt;phoneme&gt;
+<dd>The phoneme changes to this one if the next phoneme is a vowel.
+<p>
+<dt><strong>beforevowelpause</strong> &lt;phoneme&gt;
+<dd>Change to this if the next phoneme is a vowel or pause.
+<p>
+<dt><strong>beforenotvowel</strong> &lt;phoneme&gt;
+<dd>Change to this if the next phoneme is <strong>not</strong> a vowel.
+<p>
+<dt><strong>lengthmod</strong> &lt;integer&gt;
+<dd>(C) Determines how this consonant affects the length of the previous vowel. This value is used as index into the <code>length_mods</code> table in the <code>CalcLengths()</code> function in the speak program.
+<p>
+<dt><strong>vowelin</strong> &lt;vowel transition data&gt;
+<dd>(C) Specifies the effects of this consonant on the formants of a following vowel. See "vowel transitions", below.
+<p>
+<dt><strong>vowelout</strong> &lt;vowel transition data&gt;
+<dd>(C) Specifies the effects of this consonant on the formants of a preceding vowel. See "vowel transitions", below.
+<p>
+
+</dl>
+</ul>
+<p>&nbsp;<hr>
+<h3>Phoneme Pairs</h3>
+The pronunciation of a phoneme can depend on the phonemes before and after it. Some of this modification is done automatically - the program automatically adjusts the beginning and end of a vowel to match its adjacent sounds.  You can also specify variant pronunciations in the phoneme table.
+<p>
+The <strong>before</strong> and <strong>after</strong> statements can specify different sound variants to be used when the phoneme is before or is after another specified phoneme.  The adjacent phoneme that's specified in a <strong>before</strong> or <strong>after</strong> statement may refer not just to one, but to other phonemes too.  For example:<pre>   before ; unvoc/s;</pre>means that the sound <code>unvoc/s;</code> is used (rather than <code>unvoc/s</code> if the following phoneme is <code>[;]</code>.  But this rule also applies if the next phoneme is another type of pause, <code>[_]</code> or <code>[;;]</code>.  This is because these two include a line<pre>   starttype ;</pre>in their phoneme specifications.  This means that they look like a <code>[;]</code> to a preceding phoneme.
+<p>
+When looking for a matching <strong>before</strong> or <strong>after</strong> rule, if an exact match is not found, then a match is looked for by replacing either or both of the two phonemes by their <strong>starttype</strong> and <strong>endtype</strong> groups as appropriate.
+<p>
+<strong>virtual</strong> phonemes can be defined for use in <strong>starttype</strong> and <strong>endtype</strong> statements.  For example, a virtual phoneme <code>[ (i) ]</code> is used to represent vowels which start with and end with an <code>[i]</code> type sound. So <code>[i:]</code> and <code>[I]</code> have <code> starttype (i) </code> and those, plus diphthongs such as <code>[aI]  [eI]  [OI]</code> have <code> endtype (i) </code>.  By convension, names of virtual phonemes include a pair of round brackets.
+<p>&nbsp;<hr>
+<h3>Sound Specifications</h3>
+There are three ways to produce sounds:
+<ul>
+<li>Playing a WAV file.  This is used for unvoiced consonants such as <code> [p] [t] [s]</code>.
+<li>Generating a wave from a sequence of formant parameters.  This is used for vowels and also for sonorants such as <code> [l] [j] [n]</code>.
+<li>A mixture of these.  A stored WAV file is mixed with a wave generated from formant parameters.  This is used for voiced stops and fricatives such as <code> [b] [g] [v] [z]</code>.
+</ul>
+A <em>&lt;sound spec&gt;</em> in the phoneme table can refer to a WAV file, a formant sequence, or a mixture of both. It can also include a numeric value to adjust the length of the sound.
+<p>&nbsp;<hr>
+<h3>Vowel Transitions</h3>
+These specify how a consonant affects an adjacent vowel.  A consonant may cause a transition in the vowel's formants as the mouth changes shape between the consonant and the vowel.  The following attributes may be specified.  Note that the maximum rate of change of formant frequencies is limited by the speak program.<p>
+<ul><dl>
+<dt><strong>len=&lt;integer&gt;</strong>
+<dd>Nominal length of the transition in mS.  If omitted a default value is used.
+<dt><strong>rms=&lt;integer&gt;</strong>
+<dd>Adjusts the amplitude of the vowel at the end of the transition.  If omitted a default value is used.
+<dt><strong>f1=&lt;integer&gt;</strong>
+<dd>
+0: &nbsp; f1 formant frequency unchanged.<br>
+1: &nbsp; f1 formant frequency decreases.<br>
+2: &nbsp; f1 formant frequency decreases more.
+<dt><strong>f2=&lt;freq&gt; &lt;min&gt; &lt;max&gt;</strong>
+<dd>
+&lt;freq&gt;: &nbsp; The frequency towards which the f2 formant moves (Hz).<br>
+&lt;min&gt;: &nbsp; Signed integer (Hz).&nbsp;  The minimum f2 frequency change.<br>
+&lt;max&gt;: &nbsp; Signed integer (Hz).&nbsp;  The maximum f2 frequency change.
+<dt><strong>f3=&lt;change&gt; &lt;amplitude&gt;</strong>
+<dd>
+&lt;change&gt;: &nbsp; Signed integer (Hz).&nbsp; Frequence change of f3, f4, and f5 formants.<br>
+&lt;amplitude&gt;: &nbsp; Amplitude of the f3, f4, and f5 formants at the end of the transition. 100 = no change.
+<dt><strong>brk</strong>
+<dd>Break. Do not merge the synthesized wave of the consonant into the vowel.  This will produce a discontinuity in the formants.
+<dt><strong>rate</strong>
+<dd>Allow a greater maximum rate of change of formant frequencies.
+<dt><strong>glstop</strong>
+<dd>Indicates a glottal stop.
+</dl></ul>
+</body>
+</html>

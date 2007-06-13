@@ -84,23 +84,26 @@ char voice_name[40];
 #define V_ROUGHNESS  11
 #define V_CLARITY    12
 #define V_TONE       13
+#define V_VOICING    14
+#define V_BREATH     15
+#define V_BREATHW    16
 
 // these override defaults set by the translator
-#define V_WORDGAP    15
-#define V_INTONATION 16
-#define V_STRESSLENGTH  17
-#define V_STRESSAMP  18
-#define V_STRESSADD  19
-#define V_DICTRULES   20
-#define V_STRESSRULE  21
-#define V_CHARSET     22
-#define V_NUMBERS     23
-#define V_OPTION      24
+#define V_WORDGAP    17
+#define V_INTONATION 18
+#define V_STRESSLENGTH  19
+#define V_STRESSAMP  20
+#define V_STRESSADD  21
+#define V_DICTRULES   22
+#define V_STRESSRULE  23
+#define V_CHARSET     24
+#define V_NUMBERS     25
+#define V_OPTION      26
 
-#define V_MBROLA     25
+#define V_MBROLA     27
 
 // these need a phoneme table to have been specified
-#define V_REPLACE    26
+#define V_REPLACE    28
 
 
 
@@ -133,6 +136,9 @@ static keywtab_t keyword_tab[] = {
 	{"roughness",  V_ROUGHNESS},
 	{"clarity",    V_CLARITY},
 	{"tone",       V_TONE},
+	{"voicing",    V_VOICING},
+	{"breath",     V_BREATH},
+	{"breathw",    V_BREATHW},
 	{"numbers",    V_NUMBERS},
 	{"option",     V_OPTION},
 	{"mbrola",     V_MBROLA},
@@ -352,7 +358,9 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 void VoiceReset(int tone_only)
 {//===========================
 // Set voice to the default values
+
 	int  pk;
+	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
 
 	// default is:  pitch 82,118
 	voice->pitch_base =   0x49000;    // default, 73 << 12;
@@ -363,17 +371,21 @@ void VoiceReset(int tone_only)
 	voice->flutter = 64;
 	voice->n_harmonic_peaks = 5;
 	voice->peak_shape = 1;
+	voice->voicing = 64;
 #ifdef PLATFORM_RISCOS
 	voice->roughness = 1;
 #else
 	voice->roughness = 2;
 #endif
 
+	InitBreath();
 	for(pk=0; pk<N_PEAKS; pk++)
 	{
 		voice->freq[pk] = 256;
 		voice->height[pk] = 256;
 		voice->width[pk] = 256;
+		voice->breath[pk] = 0;
+		voice->breathw[pk] = breath_widths[pk];  // default breath formant woidths
 
 		// adjust formant smoothing depending on sample rate
 		formant_rate[pk] = (formant_rate_22050[pk] * 22050)/samplerate;
@@ -767,6 +779,19 @@ voice_t *LoadVoice(char *vname, int control)
 				ReadTonePoints(p,tone_data);
 				SetToneAdjust(voice,tone_data);
 			}
+			break;
+
+		case V_VOICING:
+			if(sscanf(p,"%d",&value)==1)
+				voice->voicing = (value * 64)/100;
+			break;
+
+		case V_BREATH:
+				voice->breath[0] = Read8Numbers(p,&voice->breath[1]);
+			break;
+
+		case V_BREATHW:
+				voice->breathw[0] = Read8Numbers(p,&voice->breathw[1]);
 			break;
 
 		case V_MBROLA:

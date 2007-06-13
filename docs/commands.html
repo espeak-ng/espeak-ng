@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>eSpeak Speech Synthesizer</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<A href="index.html">Back</A>
+<hr>
+<h2>2.1 INSTALLATION</h2>
+<hr>
+(This section only applies to Linux and other Posix systems).<br>
+There are two versions of the command line program. They both have the same command parameters (see below).
+<ol>
+<li><strong>espeak</strong> uses speech engine in the <strong>libespeak</strong> shared library.  The libespeak library must first be installed.
+<p>
+<li><strong>speak</strong> is a stand-alone version which includes its own copy of the speech engine.
+</ol>
+Place the <strong>espeak</strong> or <strong>speak</strong> executable file in the command path, eg in <strong>/usr/local/bin</strong>
+<p>
+Place the "<strong>espeak-data</strong>" directory in /usr/share as <strong>/usr/share/espeak-data</strong>.<br>
+Alternatively if it is placed in the user's home directory (i.e. <strong>/home/&lt;user&gt;/espeak-data</strong>)
+then that will be used instead.
+<p>
+<h4>Dependencies</h4>
+<strong>espeak</strong> uses the PortAudio sound library (version 18), so you will need to have the <strong>libportaudio0</strong> library package installed.  It may be already, since it's used by other software, such as OpenOffice.org and the Audacity sound editor.<p>
+Some Linux distrubitions (eg. SuSe 10) have version 19 of PortAudio which has a slightly different API. The speak program can be compiled to use version 19 of PortAudio by copying the file portaudio19.h to portaudio.h before compiling.<p>
+ The speak program may be compiled without using PortAudio, by removing the line<pre>   #define USE_PORTAUDIO
+</pre>in the file speech.h. 
+<p>&nbsp;<hr>
+<h2>2.2 COMMAND OPTIONS</h2>
+<hr>
+<h3>2.2.1 Examples</h3>
+To use at the command line, type:<br>
+ &nbsp; <strong>espeak "This is a test"</strong><br>
+or<br>
+ &nbsp; <strong>espeak -f &lt;text file&gt;</strong>
+<p>
+Or just type<br>
+ &nbsp; <strong>espeak</strong><br>
+followed by text on subsequent lines. Each line is spoken when
+RETURN is pressed.<br>Use <strong>espeak -x</strong> to see the corresponding phoneme codes.
+<p>&nbsp;<hr>
+<h3>2.2.2 Use with KDE Text-to-Speech (KTTS)</h3>
+To add to KDE-Text-to-Speech Manager (KTTSMgr), use it as a "Command" talker
+with "command for speaking texts" set to:<br>
+   <strong>cat %f | espeak --stdin -w %w</strong>
+<p>
+Note:
+<ul>
+<li>When used by the KTTS system, I noticed a slight background hiss with the speech, which is not present when I use <strong>espeak</strong> directly from the command line. This was because KDE sound default was set to "8 bits" rather than 16 bits.
+<li>KTTSMgr breaks the text into sentences to pass to the speech engine, but it mistakenly assumes sentence breaks when dots follow abbreviations and therefore pauses after the dots in "eg. Mr. John B. Smith etc."  Speaking a text file directly with <strong>espeak</strong> gives better results in this respect.
+<li>Speaking text from a web page using KTTS often causes headings and image captions to be run together with the following text as a single sentence.  Speaking the HTML directly  with the <strong>-m</strong> option set (i.e. using <strong>espeak -m -f text.html</strong>), may help if this is a problem. 
+</ul>
+<p>&nbsp;<hr>
+<h3>2.2.3 The Command Line Options</h3>
+<dl>
+<dt>
+<strong>espeak [options] ["words"]</strong><br>
+<dd>Text input can be taken either from a file, from a string in the command, or from stdin.
+<p>
+<dt>
+<strong>-f &lt;text file&gt;</strong><br>
+<dd>Speaks a text file.
+<p>
+<dt>
+<strong> --stdin</strong><br>
+<dd>Takes the text input from stdin.
+<p>
+<dt>
+If neither -f nor --stdin is given, then the text input is taken from "words" (a text string within double quotes). <br>If that is not present then text is taken from stdin, but each line is treated as a separate sentence.
+<p>
+<dt>
+<strong>-a &lt;integer&gt;</strong><br>
+<dd>Sets amplitude (volume) in a range of 0 to 200.  The default is 100.
+<p>
+<dt>
+<strong>-p &lt;integer&gt;</strong><br>
+<dd>Adjusts the pitch in a range of 0 to 99.  The default is 50.
+<p>
+<dt>
+<strong>-s &lt;integer&gt;</strong><br>
+<dd>Sets the speed in words-per-minute (approximate values for the default voice, others may
+differ slightly). The default value is 170. I generally use a faster speed
+of 190.  Range 80 to 370.
+<p>
+<dt>
+<strong>-b</strong><br>
+<dd>Indicates that the input text is in the 8-bit character set which corresponds to the language (eg. Latin-2 for Polish). Without this option, eSpeak assumes text is UTF8, but will automatically switch to the 8-bit character set if it finds an illegal UTF8 sequence.  That may give wrong results if some 8-bit character sequences look like valid UFT8 multibyte characters.
+<p>
+<dt>
+<strong>-l &lt;integer&gt;</strong><br>
+<dd>Line-break length, default value 0.  If set, then lines which are shorter
+than this are treated as separate clauses and spoken separately with a
+break between them.  This can be useful for some text files, but bad for
+others.
+<p>
+<dt>
+<strong>-m</strong><br>
+<dd>Indicates that the text contains SSML (Speech Synthesis Markup Language) tags or other XML tags.  Those SSML tags which are supported are interpreted.  Other tags, including HTML, are ignored, except that some HTML tags such as &lt;hr&gt; &lt;h2&gt; and &lt;li&gt; ensure a break in the speech.
+<p>
+<dt>
+<strong>-v &lt;voice filename&gt;[+&lt;variant&gt;]</strong><br>
+<dd>Sets a Voice for the speech, usually to select a language. eg:
+<pre>   espeak -vaf</pre>
+To use the Afrikaans voice.  A modifier after the voice name can be used to vary the tone of the voice, eg:
+<pre>   espeak -vaf+3</pre>
+The variants are <code> +1  +2  +3  +4  +5 </code> for male voices and <code> +11 +12 +13 +14 </code> which simulate female voices by using higher pitches.
+<p>
+&lt;voice filename&gt; is a file within the <code>espeak-data/voices</code> directory.<br>
+Voice files can specify a language, different pitches, tonal qualities, and prosody for the voice.
+See the <a href="voices.html">voices.html</a> file.<p>
+Voice names which start with <b>mb-</b> are for use with Mbrola diphone voices, see <a href="mbrola.html">mbrola.html</a><p>
+Some languages may need additional dictionary data, see <a href="languages.html">languages.html</a> 
+<p>
+<dt>
+<strong>-w &lt;wave file&gt;</strong><br>
+<dd>Writes the speech output to a file in WAV format, rather than speaking it.
+<p>
+<dt>
+<strong>-x</strong><br>
+<dd>The phoneme mnemonics, into which the input text is translated, are
+shown on stdout.
+<p>
+<dt>
+<strong>-X</strong><br>
+<dd>As -x, but in addition, details are shown of the pronunciation rule and dictionary list lookup.  This can be useful to see why a certain pronunciation is being produced.  Each matching pronunciation rule is listed, together with its score, the highest scoring rule being used in the translation.  "Found:" indicates the word was found in the dictionary lookup list, and "Flags:" means the word was found with only properties and not a pronunciation.  You can see when a word has been retranslated after removing a prefix or suffix.
+<p>
+<dt><strong>-q</strong><br><dd>
+Quiet. No sound is generated.  This may be useful with the -x option.
+<p>
+<dt>
+<strong>-z</strong><br>
+<dd>The option removes the end-of-sentence pause which normally occurs at the end of the text.
+<p>
+<dt>
+<strong>--stdout</strong><br>
+<dd>Writes the speech output to stdout rather than speaking it.
+<p>
+<dt><strong>--compile[=&lt;voice name&gt;]</strong><br>
+<dd>
+Compile the pronunciation rule and dictionary lookup data from their source files in the current directory.  The Voice determines which language's files are compiled.  For example, if it's an English voice, then <em>en_rules</em>, <em>en_list</em>, and <em>en_extra</em> (if present), are compiled to replace <em>en_dict</em>  in the <em>speak-data</em> directory.  If no Voice is specified then the default Voice is used.
+<p>
+<dt><strong>--punct[="&lt;characters&gt;"]</strong><br>
+<dd>
+Speaks the names of punctuation characters when they are encountered in the text.  If &lt;characters&gt; are given, then only those listed punctuation characters are spoken, eg.  <code> --punct=".,;?"</code>
+<p>
+<dt>
+<strong>--voices[=&lt;language code&gt;]</strong><br>
+<dd>Lists the available voices.<br>
+If =&lt;language code&gt; is present then only those voices which are suitable for that language are listed.<br>
+
+</dl>
+<p>&nbsp;<hr>
+<h3>2.2.4 The Input Text</h3>
+<dl>
+<dt><b>HTML Input</b>
+<dd>
+If the -m option is used to indicate marked-up text, then HTML can be spoken directly.
+<p>
+<dt><b>Phoneme Input</b>
+<dd>
+As well as plain text, phoneme mnemonics can be used in the text input to <strong>espeak</strong>.  They are enclosed within double square brackets.  Spaces are used to separate words and all stressed syllables must be marked explicitly.<br>
+ &nbsp; eg: &nbsp; <code> [[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]] </code>
+</dl>
+</body>
+</b>

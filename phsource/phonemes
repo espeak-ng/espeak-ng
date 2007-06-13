@@ -1125,6 +1125,8 @@ endphoneme
 // ADDITIONAL PHONEME TABLES
 //*******************************************************************
 
+phonemetable base2 base
+include ph_base2
 
 phonemetable en base
 include ph_english
@@ -1190,22 +1192,22 @@ phonemetable ru base
 include ph_russian
 
 
-phonemetable it base
+phonemetable it base2
 include ph_italian
 
-phonemetable es it
+phonemetable es base2
 include ph_spanish
 
-phonemetable pt it
+phonemetable pt base2
 include ph_pt_brazil
 
 phonemetable pt_pt pt
 include ph_portugual
 
-phonemetable ro it
+phonemetable ro base2
 include ph_romanian
 
-phonemetable el it
+phonemetable el base2
 include ph_greek
 
 phonemetable sv base

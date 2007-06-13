@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+	<TITLE></TITLE>
+</HEAD>
+<BODY LANG="en-GB" DIR="LTR">
+<A href="docindex.html">Back</A>
+<HR>
+<H2>6. ADDING OR IMPROVING A LANGUAGE</H2>
+<HR>
+Most of the work doesn't need any programming knowledge.  Just an understanding of the language, an
+awareness of its features, patience and attention to detail.  Wikipedia is a good source of basic phonetic information, eg
+<a href="http://en.wikipedia.org/wiki/Vowel">http://en.wikipedia.org/wiki/Vowel</a>
+<P>
+In many cases it should be fairly easy to add a rough implementation of a new language, hopefully
+enough to be intelligible.<br>
+After that it's a gradual process of improvement to:
+<ul>
+<li>Make the spelling-to-phoneme translation rules more accurate, including the position of stressed
+syllables within words. Some languages are easier than others. I expect most are easier than English.
+<p><li>Improve the sounds of the phonemes.  This may consist of making small adjustments to vowel and diphthong quality,
+or adjusting the strength of consonants.  Bigger changes may be recording new or replacement consonant
+sounds, or even writing program code to implement new types of sounds.
+<p><li>Marking some common words in the dictionary that should be unstressed (words such as "the", "is"), should be preceded
+by a short pause (such as "and", "but"), or have other attributes, in order to make the speech flow better.
+<p><li>Improve the rhythm of the speech by adjusting the relative lengths of vowels in different contexts, eg. stressed/unstressed syllable,
+or depending on the following phonemes.  This is important for making the speech sound good for the language.
+<p><li>Identify or implement new functions in the program to improve the speech, or to deal with
+characteristics of the language which are not currently implemented.  For example, a different intonation module.
+</ul>
+If you are interested in working on a language, please contact me to set up the initial data and to
+discuss the features of the language.
+<HR>
+<H3>6.1 Language Code</H3>
+<P>Generally, the language's international ISO 639-1 code is used to
+identify the language. It is used in the filenames which
+contains the language's data. In the examples below the code &quot;<B>en</B>&quot;
+(English) is used as an example. Replace this with the code of your
+language.<p>
+It is possible to have different variants of a language, for example where the sound of some phonemes changed,
+or where some of the pronunciation rules differ.
+<HR>
+<H3>6.2 Phoneme File</H3>
+<P>You must first decide on the set of phonemes to be used for the
+language. These should be listed and defined in a phonemes file such as
+<B>ph_english</B>. A reference to this file is then included at the end of
+the <B>phonemes,</B> file (the master phoneme file), eg:</P>
+<PRE>   phonemetable  en  base
+   include  ph_english</PRE><P>
+This example defines a phoneme table &quot;<B>en</B>&quot; which inherits
+the contents of phoneme table &quot;<B>base</B>&quot;. Its contents are
+found in the file <B>ph_english</B>.</P>
+<P>The <B>base</B> phoneme table contains definitions of a basic set of
+consonants, and also some &quot;control&quot; phonemes such as stress marks and
+pauses. The phoneme table for a language will generally inherit this,
+or alternatively it may inherit the phoneme table of another language
+which in turn inherits the <B>base</B> phoneme table.</P>
+<P>The phonemes file for the language defines those additional
+phonemes which are not inherited (generally the vowels and diphthongs, plus any additional
+consonants), or phonemes whose definitions differ from the
+inherited version (eg. the redefinition of a consonant).</P>
+<P>Details of the contents of phonemes files are given in
+<A href="phontab.html">phontab.html</A>.</P>
+The <B>Compile phoneme data</B> function of the <B>espeakedit</B>
+program compiles the phonemes files to produce the files
+<B>espeak-data/phontab</B>, <B>phonindex</B>, and <B>phondata.</B><P>
+For information on how to analyse recorded sounds of the language and to
+prepare the corresponding phoneme data, see (not yet written).<p>
+For an initial draft a language will often be able to use vowels and
+consonants which have already been set up for another language.
+<HR>
+<H3>6.3 Dictionary Files</H3>
+<P STYLE="font-weight: medium">Once the language's phonemes have been
+defined, then pronunciation dictionary data can be produced in order
+to translate the language's source text into phonemes. This consists
+of two source files: <B>en_rules</B> (the spelling to phoneme rules) and
+<B>en_list</B> (an exceptions list, and attributes of certain words). The corresponding compiled data
+file is <B>espeak-data/en_dict</B> which is produced from <B>en_rules</B>
+and <B>en_list</B> sources by the command: <B>speak&nbsp; --compile=en</B>.</P>
+<P STYLE="font-weight: medium">Details of the contents of the
+dictionary files are given in <A href="dictionary.html">dictionary.html</A>.</P>
+<P STYLE="font-weight: medium">The <B>en_list</B> file contains not
+only pronunciation exceptions, but also gives attributes to specific
+words, Most notable of these are:</P>
+<P STYLE="font-weight: medium"><B>$u </B>Some common words should be
+marked as &quot;unstressed&quot; in order to make the speech flow better.
+These words generally include articles (eg: a, the, this, that),
+auxillary verbs (eg: is, have, will, can, may), pronouns and
+possessive adjectives (eg: he, his), some common prepositions (eg:
+of, to, in, of), some common conjunctions (eg. and, or, if)., some
+common adverbs and adjectives (eg. any, already)</P>
+<P><B>$pause </B>Some words should be marked to have a short pause
+before then, in order to produce natural pauses in long sentences.
+These include conjunctions (eg. and, or, but, however) and perhaps
+some prepositions.</P>
+<HR>
+<H3>6.4 Voice File</H3>
+<P STYLE="font-weight: medium">Each language should have one or more
+voice files in <B>espeak-data/voices</B>. The filename of the default voice
+for a language should be the same as the language code.</P>
+<P STYLE="font-weight: medium">Details of the contants of voice files
+are given in <A href="voices.html">voices.html</A>.</P>
+<P STYLE="font-weight: medium">The simplest voice file would contain
+just a single line to give the language code, eg:</P>
+<PRE STYLE="margin-bottom: 0.5cm">   language en</PRE><P STYLE="font-weight: medium">
+This language code specifies the phoneme table (i.e. <b>phonemetable  en</b> and the
+dictionary (i.e. <B>espeak-data/en_dict</B>) to be used. If needed, these can be
+overridden by <B>phonemes</B> and <B>dictionary</B> attributes in the
+voices file.</P>
+<HR>
+<H3>6.5 Program Code</H3>
+<P STYLE="font-weight: medium">The behaviour of the speak program is
+controlled by various options (eg. whether words are stressed on the first,
+last, or penultimate syllable). The function <B>SetTranslator()</B> at the
+start of the <B>tr_languages.cpp</B> file recognizes the language
+code and sets the appropriate set of options.</P>
+<P STYLE="font-weight: medium">For a new language, you would add its
+language code and the required options in <B>SetTranslator()</B>. However, this
+may not be necessary during testing because most of the options can also be
+set from the voice file in
+<B>espeak-data/voices</B>.</P>
+<P STYLE="font-weight: medium">If necessary, you can define a new
+translator class for a language, and select this in the
+SetTranslator() function. This inherits the standard functions
+from the base translator class, but allows you to replace these where
+needed by new functions which are written specially for this
+language.</P>
+<hr>
+
+</BODY>
+</HTML>

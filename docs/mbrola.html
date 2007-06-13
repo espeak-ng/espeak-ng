@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>espeakedit: Mbrola Voices</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<A href="docindex.html">Back</A>
+<hr>
+<h2>MBROLA VOICES</h2>
+<hr>
+The Mbrola project is a collection of diphone voices for speech synthesis.  They do not include any text-to-phoneme translation, so this must be done by another program.  The Mbrola voices are cost-free but are not open source.  They are available from the Mbrola website at:<br>
+  <a href="http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html">http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html</a>
+
+<p>
+eSpeak can be used as a front-end to Mbrola.  It provides the spelling-to-phoneme translation and intonation, which Mbrola then uses to generate speech sound.
+
+<h3>Voice Names</h3>
+
+To use a Mbrola voice, eSpeak needs information to translate from its own phonemes to the equivalent Mbrola phonemes.  This has been set up for only some voices so far.
+<p>
+The eSpeak voices which use Mbrola are named as:<br>
+ &nbsp; <b>mb-</b>xxx
+<p>
+where xxx is the name of a Mbrola voice (eg. <b>mb-en1</b>  for the Mbrola "<b>en1</b>" English voice).  These voice files are in eSpeak's directory <code>espeak-data/voices/mbrola</code>.
+<p>
+The installation instructions below use the Mbrola voice "en1" as an example.  You can use other mbrola voices for which there is an equivalent eSpeak voice in <code>espeak-data/voices/mbrola</code>.
+<p>
+There are some additional eSpeak Mbrola voices which speak English text using a Mbrola voice for a different language.  These contain the name of the Mbrola voice with a suffix <b>-en</b>.  For example, the voice <b>mb-de4-en</b> will speak English text with a German accent by using the Mbrola <b>de4</b> voice.
+
+<h3>Windows Installation</h3>
+
+The SAPI5 version of eSpeak uses the mbrola.dll.
+<ol>
+<li>Install eSpeak. Include the voice <b>mb-en1</b> in the
+list of voices during the eSpeak installation.
+<p>
+<li>Install the PC/Windows version of Mbrola (MbrolaTools35.exe) from:
+<a href="http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe"> http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pcwin/MbrolaTools35.exe</a>.
+<p>
+<li>Get the <b>en1</b> voice from:
+<a href="http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html"> http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html</a>
+unpack the archive, and copy the "<b>en1</b>" data file (not the whole "en1"
+directory) into
+<code>C:/Program Files/eSpeak/espeak-data/mbrola</code>.
+<p>
+<li>Use the voice <b>espeak-MB-EN1</b> from the list of SAPI5 voices.
+</ol>
+<h3>Linux Installation</h3>
+
+I don't think there's a Linux shared library version of Mbrola (equivalent to mbrola.dll), so eSpeak has to pipe phoneme data to the command-line Mbrola.
+<ol>
+<li>To install the Linux Mbrola binary, download:
+<a href="http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip"> http://www.tcts.fpms.ac.be/synthesis/mbrola/bin/pclinux/mbr301h.zip</a>.
+Unpack the archive, and copy and rename the file: <code>mbrola-linux-i386</code> to
+<code>mbrola</code> somewhere in your executable path (eg. <code>/usr/bin/mbrola</code> ).
+<p>
+<li>Get the en1 voice from:
+<a href="http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html"> http://www.tcts.fpms.ac.be/synthesis/mbrola/mbrcopybin.html</a>.
+Unpack the archive, and copy the "<b>en1</b>" data file (not the whole "en1"
+directory) somewhere convenient (eg. <code>/usr/share/mbrola/en1</code> ).
+<p>
+<li>If you use the eSpeak voice "<b>mb-en1</b>" then eSpeak will generate
+Mbrola phoneme data on its stdout.  You can pipe this into Mbrola.
+<p>
+<code>espeak -v mb-en1 -f textfile | mbrola -e /usr/share/mbrola/en1 -
+test.wav</code>
+<p>
+will put the Mbrola speech output into a WAV file.  Or you can pipe the output from Mbrola through aplay:
+<p>
+<code>espeak -v mb-en1 -f textfile | mbrola -e /usr/share/mbrola/en1 - - | aplay -r16000 -fS16</code>
+<p>
+The -e option prevents Mbrola from stopping if it finds a combination
+of phonemes which it doesn't recognise.
+</ol>
+<h3>Mbrola Voice Files</h3>
+
+eSpeak's voice files for Mbrola voices are in directory <code>espeak-data/voices/mbrola</code>.  They contain a line:<br>
+ &nbsp; <code>mbrola  &lt;voice&gt;  &lt;translation&gt;</code>
+<br>
+eg.<br>
+ &nbsp; <code>mbrola  en1  en1_phtrans</code>
+<ul>
+<li><b>&lt;voice&gt;</b> is the name of the Mbrola voice.
+<p>
+<li><b>&lt;translation&gt;</b> is a translation file to convert between eSpeak phonemes and the equivalent Mbrola phonemes.  These are kept in:
+  <code>espeak-data/mbrola_ph</code>
+</ul>
+They are binary files which are compiled, using espeakedit, from source files in <code>phsource/mbrola</code>. Details to be defined.
+
+</body>
+</html>

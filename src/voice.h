@@ -36,6 +36,7 @@ typedef struct {
 	int echo_amp;
 	int n_harmonic_peaks;  // highest formant which is formed from adding harmonics
 	int peak_shape;        // alternative shape for formant peaks (0=standard 1=squarer)
+	int voicing;          // 100% = 64, level of formant-synthesized sound
 
 	// parameters used by Wavegen
 	int freq[N_PEAKS];    // 100% = 256
@@ -46,6 +47,9 @@ typedef struct {
 	int freq2[N_PEAKS];    // 100% = 256
 	int height2[N_PEAKS];  // 100% = 256
 	int width2[N_PEAKS];   // 100% = 256
+
+	int breath[N_PEAKS];  // amount of breath for each formant. breath[0] indicates whether any are set.
+	int breathw[N_PEAKS];  // width of each breath formant
 
 	// This table provides the opportunity for tone control.
 	// Adjustment of harmonic amplitudes, steps of 8Hz

@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>eSpeak Speech Synthesizer</title>
+  <meta name="GENERATOR" content="Quanta Plus">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+<A href="index.html">Back</A>
+<hr>
+<h2>3. LANGUAGES</h2>
+<hr>
+<h4>Help Needed</h4>
+Many of these are just experimental attempts at these languages, produced after a quick reading of the corresponding article on wikipedia.org.  They will need work or advice from native speakers to improve them.  Please contact me if you want to advise or assist with these or other languages.<p>
+The sound of some phonemes may be poorly implemented, particularly [r] since I'm English and therefore unable to make a "proper" [r] sound.<p>
+A major factor is the rhythm or cadance.  An Italian speaker told me the Italian voice improved from "difficult to understand" to "good" by changing the relative length of stressed syllables.  Identifying unstressed function words in the xx_list file is also important to make the speech flow well.  See <a href="add_language.html">Adding or Improving a Language</a>
+<h4>Character sets</h4>
+Languages recognise text either as UTF8 or alternatively in an 8-bit character set which is appropriate for that language.  For example, for Polish this is Latin2, for Russian it is KOI8-R.  This choice can be overridden by a line in the voices file to specify an ISO 8859 character set, eg. for Russian the line:<br>
+<pre>     charset 5</pre>
+will mean that ISO 8859-5 is used as the 8-bit character set rather than KOI8-R.
+<p>
+In the case of a language which uses a non-Latin character set (eg. Greek or Russian) if the text contains a word with Latin characters then that particular word will be pronounced using English pronunciation rules and English phonemes.  Speaking entirely English text using a Greek or Russian voice will sound OK, but each word is spoken separately so it won't flow properly.
+<p>
+Sample texts in various languages can be found at  <a href="http://meta.wikimedia.org/wiki/List_of_Wikipedias"> http://&lt;language&gt;.wikipedia.org</a>  and <a href="http://www.gutenberg.org">www.gutenberg.org</a>
+<h3>3.1 Voice Files</h3>
+
+A number of Voice files are provided in the <code>espeak-data/voices</code> directory.
+You can select one of these with the <strong>-v &lt;voice filename&gt;</strong> parameter to the
+speak command, eg:
+<pre>   espeak -vaf</pre>
+to speak using the Afrikaans voice.
+<p>
+For details of the voice files see <a href="voices.html">Voices</a>.
+<h4>Default Voice</h4>
+<ul>
+<dl>
+<dt>
+<strong>default</strong><br>
+<dd>   This voice is used if none is specified in the speak command.  Copy your preferred voice to "default" so you can use the speak command without the need to specify a voice.</dd>
+</dl>
+</ul>
+<h3>3.2 English Voices</h3>
+<ul><dl>
+<dt>
+<strong>en</strong><br>
+<dd>   is the standard default English voice.</dd>
+<p>
+<dt>
+<strong>en-sc</strong><br>
+<dd>   Scottish English.
+<p>
+<dt>
+<strong>en-r</strong><br>
+<dd>   Some slight vowel changes, and a "rhotic" accent, where "r" is pronounced even when not followed by a vowel.  This may sound less "British" to an American.
+<p>
+<dt>
+<strong>en-n<br>
+en-rp<br>
+en-wm</strong><br>
+<dd>   are different English voices.  These can be considered caricatures of
+   various British accents: Northern, Received Pronunciation, West Midlands
+   respectively.</dd>
+<p>
+
+</dl></ul>
+<h3>3.3 Voice Variants</h3>
+To make alternative voices for a language, you can make additional voice files in espeak-data/voices which contains commands to change various voice and pronunciation attributes.  See <a href="voices.html">voices.html</a>.
+<p>
+Alternatively there are some preset voice variants which can be applied to any of the language voices, by appending <code>+</code> and a number. Their effects are defined by files in <code>espeak-data/voices/!v</code>.
+<p>
+The variant numbers are <code> +1  +2  +3  +4  +5 </code> for male voices and <code> +11 +12 +13 +14 </code> for female voices. For example:
+<pre>   espeak -ven+3</pre>
+<h3>3.4 Other Languages</h3>
+The eSpeak speech synthesizer does text to speech for the following additional langauges.
+<ul>
+<dl>
+<p>
+<dt>
+<strong>af &nbsp;Afrikaans</strong><br>
+<dd>This has been worked on by a native speaker and it should be OK.</dd>
+<p>
+<dt>
+<strong>cs &nbsp;Czech</strong><br>
+<dd>Usable.
+</dd>
+<p>
+<dt>
+<strong>de &nbsp;German</strong><br>
+<dd>This has improved from easlier versions.  A problem is stress placement (which like English is irregular), prosody, and the use of compound words where correct detection of the sub-word boundaries would probably be needed for accurate pronunciation.
+</dd>
+<p>
+<dt>
+<strong>el &nbsp;Greek</strong><br>
+<dd>Stress position is marked in text and spelling is fairly regular, so it shouldn't be too bad.  It uses a different alphabet and switches to English pronunciation for words which contain Latin characters a-z.</dd>
+<p>
+<dt>
+<strong>eo &nbsp;Esperanto</strong><br>
+<dd>Esperanto has simple and regular pronunciation rules, so it should be OK, although I'm not
+   certain how it's supposed to sound, other than what I've read in an introduction.
+   Text can be either UTF-8, or Latin3 alphabet, or
+   can use the Latin1 convention of two-letter combinations (cx,
+   gx, etc).</dd>
+<p>
+<dt>
+<strong>es &nbsp;Spanish</strong><br>
+<dd>Not much feedback yet, but spelling is regular and stress is explicitly marked when it deviates from the normal rules, so it might be reasonably intelligible.  This would be a good opportunity for a native Spanish speaker to assist.  Perhaps we could have different variants for Castilian Spanish, Mexican Spanish, etc., in a similar way to how I've done different English accents.</dd>
+<p>
+<dt>
+<strong>fi &nbsp;Finnish</strong><br>
+<dd>This has had assistance from native speakers and should be usable.
+</dd>
+<p>
+<dt>
+<strong>fr &nbsp;French</strong><br>
+<dd>Needs improvement, both for spelling-to-phoneme rules and the sounds and prosody.
+</dd>
+<p>
+<dt>
+<strong>hr &nbsp;Croatian</strong><br>
+<dd>Usable, but I'm unsure whether wrong stressed syllables are a problem.
+</dd>
+<p>
+<dt>
+<strong>hu &nbsp;Hungarian</strong><br>
+<dd>This has had assistance from a native speaker and it should be OK. 
+</dd>
+<p>
+<dt>
+<strong>it &nbsp;Italian</strong><br>
+<dd>This has had some feedback from a native speaker but more work is needed.  Spelling is fairly regular, but stress marks and vowel accents are often omitted from text, so for some words the dictionary/exceptions list will need to determine the stress position or whether to use open/close [e] or [E] and [o] or [O].</dd>
+<p>
+<dt>
+<strong>pt &nbsp;Portuguese (Brazil)</strong><br>
+<dd>Brazilian Portuguese.  This has had assistance from a native speaker and it should be OK.  Like Italian there is further work to do about the ambiguity in the spelling between open/close "e" and "o" vowels.<p>
+</dd>
+<p>
+<dt>
+<strong>pt-pt &nbsp;Portuguese (European)</strong><br>
+<dd>
+</dd>
+<p>
+<dt>
+<strong>ro &nbsp;Romanian</strong><br>
+<dd>Probably OK. More work is needed to improve the position of stress within words.
+</dd>
+<p>
+<dt>
+<strong>sk &nbsp;Slovak</strong><br>
+<dd>A little initial feedback.
+</dd>
+<p>
+<dt>
+<strong>sv &nbsp;Swedish</strong><br>
+<dd>This has now had some work done on the pronunciation rules, so it should be useable.
+</dd>
+<p>
+<dt>
+<strong>sw &nbsp;Swahihi</strong><br>
+<dd>Not much feedback yet, but the spelling and stress rules are fairly regular, so it's probably usable.
+</dd>
+<p>
+</dl></ul>
+<h3>3.5 Provisional Languages</h3>
+These languages are only initial naive implementations which have had little or no feedback and improvement from native speakers.
+<ul>
+<dl>
+<p>
+<dt>
+<strong>cy &nbsp;Welsh</strong><br>
+<dd>An initial guess, awaiting feedback.
+</dd>
+<p>
+<dt>
+<strong>hi &nbsp;Hindi</strong><br>
+<dd>This is interesting because it uses the Devanagari characters.  I'm not sure about Hindi stress rules, and I expect the sound of aspirated/unaspirated consonant pairs needs improvement.
+</dd>
+<p>
+<dt>
+<strong>nl &nbsp;Dutch</strong><br>
+<dd>Probably needs improvement of the spelling-to-phoneme rules.
+</dd>
+<p>
+<dt>
+<strong>is &nbsp;Icelandic</strong><br>
+<dd>An initial guess, awaiting feedback.
+</dd>
+<p>
+<dt>
+<strong>no &nbsp;Norwegian</strong><br>
+<dd>An initial guess, awaiting feedback.
+</dd>
+<p>
+<dt>
+<strong>pl &nbsp;Polish</strong><br>
+<dd>Some initial feedback, but I'm told it's difficult to understand, so more work is needed.
+</dd>
+<p>
+<dt>
+<strong>ru &nbsp;Russian</strong><br>
+<dd>So far it's just an initial attempt with basic pronunciation rules.  Work is needed especially on the consonants.  Russian has two versions of most consonants, "hard" and "soft" (palatalised) and in most cases eSpeak doesn't yet make a proper distinction.<br>
+Russian stress position is unpredictable so a large lookup dictionary is needed of those words where eSpeak doesn't guess correctly.  To avoid increasing the size of the basic eSpeak package, this is available separately at: <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>
+</dd>
+<p>
+<dt>
+<strong>vi &nbsp;Vietnamese</strong><br>
+<dd>This is interesting because it's a tone language.  I don't know how it should sound, so it's just a guess and I need feedback.
+</dd>
+<p>
+<dt>
+<strong>zhy &nbsp;Cantonese Chinese</strong><br>
+<dd>Just a naive simple one-to-one translation from single Simplified Chinese characters to phonetic equivalents in Cantonese.  No attempt so far at disambiguation, grouping characters into words, or adjusting tones according to their surrounding syllables.  This voice needs Chinese character to phonetic translation data, which is available as a separate download at:  <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>.<br>The voice can also read Jyutping romanised text.
+</dd>
+<h3>3.6 Mbrola Voices</h3>
+Some additional voices, whose name start with <b>mb-</b> (for example <b>mb-en1</b>) use eSpeak as a front-end to Mbrola diphone voices.  eSpeak does the spelling-to-phoneme translation and intonation.
+See <a href="mbrola.html">mbrola.html</a>. 
+<p>
+
+</body>
+</html>

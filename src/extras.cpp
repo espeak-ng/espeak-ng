@@ -42,10 +42,11 @@
 FILE *f_wavtest = NULL;
 FILE *f_events = NULL;
 
-int OpenWaveFile3(const char *path, int rate)
-/******************************************/
+FILE *OpenWaveFile3(const char *path)
+/***********************************/
 {
 	int *p;
+	FILE *f;
 
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
@@ -54,56 +55,54 @@ int OpenWaveFile3(const char *path, int rate)
 
 
 	if(path == NULL)
-		return(2);
+		return(NULL);
 
 	// set the sample rate in the header
 	p = (int *)(&wave_hdr[24]);
-	p[0] = rate;
-	p[1] = rate * 2;
+	p[0] = samplerate;
+	p[1] = samplerate * 2;
 
-	f_wavtest = fopen(path,"wb");
+	f = fopen(path,"wb");
 
-	if(f_wavtest != NULL)
+	if(f != NULL)
 	{
-		fwrite(wave_hdr,1,sizeof(wave_hdr),f_wavtest);
-		return(0);
+		fwrite(wave_hdr,1,sizeof(wave_hdr),f);
 	}
-	return(1);
+	return(f);
 }   //  end of OpenWaveFile
 
 
 
 
-void CloseWaveFile3(int rate)
-/******************/
+void CloseWaveFile3(FILE *f)
+/*************************/
 {
    unsigned int pos;
    static int value;
 
 
-   fflush(f_wavtest);
-   pos = ftell(f_wavtest);
+   fflush(f);
+   pos = ftell(f);
 
    value = pos - 8;
-   fseek(f_wavtest,4,SEEK_SET);
-   fwrite(&value,4,1,f_wavtest);
+   fseek(f,4,SEEK_SET);
+   fwrite(&value,4,1,f);
 
-	value = rate;
-	fseek(f_wavtest,24,SEEK_SET);
-	fwrite(&value,4,1,f_wavtest);
+	value = samplerate;
+	fseek(f,24,SEEK_SET);
+	fwrite(&value,4,1,f);
 
-	value = rate*2;
-	fseek(f_wavtest,28,SEEK_SET);
-	fwrite(&value,4,1,f_wavtest);
+	value = samplerate*2;
+	fseek(f,28,SEEK_SET);
+	fwrite(&value,4,1,f);
 
    value = pos - 44;
-   fseek(f_wavtest,40,SEEK_SET);
-   fwrite(&value,4,1,f_wavtest);
+   fseek(f,40,SEEK_SET);
+   fwrite(&value,4,1,f);
 
-   fclose(f_wavtest);
-   f_wavtest = NULL;
+   fclose(f);
 
-} // end of CloseWaveFile2
+} // end of CloseWaveFile3
 
 
 int TestUriCallback(int type, const char *uri, const char *base)
@@ -126,7 +125,8 @@ if(f_wavtest == NULL) return(0);
 	if(wav == NULL)
 	{
 fprintf(f_events,"Finished\n");
-		CloseWaveFile3(samplerate);
+		CloseWaveFile3(f_wavtest);
+		f_wavtest = NULL;
 		fclose(f_events);
 		return(0);
 	}
@@ -1183,8 +1183,7 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
-
-//return;
+return;
 
 if(control==2)
 {
@@ -1206,7 +1205,7 @@ if(control==2)
 	textbuf[ix] = 0;
 	fclose(f);
 
-	OpenWaveFile3("/home/jsd1/speechdata/text/test.wav",samplerate);
+	f_wavtest = OpenWaveFile3("/home/jsd1/speechdata/text/test.wav");
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
 	fprintf(f_events,"Audio Text Length Type Id\n");
 

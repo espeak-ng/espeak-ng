@@ -266,22 +266,22 @@
 		tt	t:
 		
 .group u
-	_)	u(_	U:
-		u	U:
-		u (CK	U
+	_)	u(_	u:
+		u	u:
+		u (CK	u
 		u (A	w2
-	Kr)	u (A	U
-	Kl)	u (A	U
+	Kr)	u (A	u
+	Kl)	u (A	u
 
 	@)	u (dine_  'u
 	@)	u (colo_  'u
 
 .group v
-	_)	v(_	vU:
+	_)	v(_	vu:
 		v	v
 	
 .group w
-	_)	w(_	d'op:jav'U
+	_)	w(_	d'op:jav'u
 		w	w2
 
 .group x
@@ -315,8 +315,8 @@
 		ó (CK	'o
 		ò	'O:
 		ò (CK	'O
-		ù	'U:
-		ù (CK	'U
+		ù	'u:
+		ù (CK	'u
 
 		%       pertS'ento
 		$	dolla:ro
@@ -325,14 +325,14 @@
 		&	_!e
 		@       ki'otS:ola
 		©       k'opiraIt
-		+	pjU
-		.       pUnto
+		+	pju
+		.       punto
 		, (D    v'irgola
-		:       d,Uep'Unte
-		;       p'Untoev'irgola
-		!       _p'Untoesklamat'ivo_
+		:       d,uep'unte
+		;       p'untoev'irgola
+		!       _p'untoesklamat'ivo_
 	!)	!
-		?	_p'UntointeRogat'ivo_
+		?	_p'untointeRogat'ivo_
 	?)	?
 		\\	bakslaS
 		/	slaS

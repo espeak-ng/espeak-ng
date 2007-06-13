@@ -82,6 +82,15 @@ typedef struct {
 }  wavegen_peaks_t;
 
 typedef struct {
+	double a;
+	double b;
+	double c;
+	double x1;
+	double x2;
+}  RESONATOR;
+
+
+typedef struct {
    short length;
    unsigned char  n_frames;
    unsigned char  flags;
@@ -240,3 +249,5 @@ int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int 
 int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
 		int which, PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause);
+
+void InitBreath(void);
