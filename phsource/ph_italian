@@ -52,7 +52,7 @@ endphoneme
 phoneme O
   vowel starttype (o) endtype (o)
   length 170
-//  formants vowel/oo_4
+  formants vowel/oo_4
 //  formants vowel/0
   reduceto  o  4        // [O] only in stressed syllables
 endphoneme

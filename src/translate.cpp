@@ -1601,6 +1601,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int dict_flags;        // returned from dictionary lookup
 	int word_flags;        // set here
 	int embedded_count = 0;
+	int letter_count = 0;
 	char *word;
 	char *p;
 	int j, k;
@@ -1854,6 +1855,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			{
 				if(!IsAlpha(prev_out) || (langopts.ideographs && (c >= 0x3000)))
 				{
+					letter_count = 0;
+
 					if((prev_out != ' ') && (prev_out != '\''))
 					{
 						// start of word, insert space if not one there already
@@ -1874,6 +1877,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 						}
 					}
 				}
+
+				letter_count++;
 
 				if(iswupper(c))
 				{
@@ -1909,7 +1914,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 						source_index = prev_source_index;  // unget
 					}
 #endif
-					if((all_upper_case) && ((ix - words[word_count].start) > 1))
+					if((all_upper_case) && (letter_count > 2))
 					{
 						if((c == 's') && (next_in==' '))
 						{

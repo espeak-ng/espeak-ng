@@ -98,6 +98,7 @@ public:
 	void ZeroPeaks();
 	void CopyPeaks(SpectFrame *sf);
 	void ToggleMarker(int n);
+	void ApplyVoiceMods();
 	
 	void MakeWave(int peaks, PitchEnvelope &pitch, int amplitude, int duration);
 	void MakeHtab(int numh, int *htab, int pitch);

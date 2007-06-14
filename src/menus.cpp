@@ -129,7 +129,7 @@ wxMenuBar *MakeMenu(int type)
 	menu_bar->Append(voice_menu, _T("&Voice"));
 	menu_bar->Append(option_menu, _T("&Options"));
 	menu_bar->Append(tools_menu, _T("&Tools"));
-	menu_bar->Append(data_menu, _T("&Data"));
+	menu_bar->Append(data_menu, _T("&Compile"));
 	menu_bar->Append(help_menu, _T("&Help"));
 
 	return(menu_bar);

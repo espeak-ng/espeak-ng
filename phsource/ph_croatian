@@ -10,12 +10,6 @@ phoneme @2    //  Schwa (raised)
   length 140
 endphoneme
 
-phoneme @3    //  Schwa (raised)
-  vowel   starttype (@)  endtype (@)
-  formants vowel/@_4
-  length 140
-endphoneme
-
 
 phoneme a
   vowel starttype (a) endtype (a)
@@ -84,10 +78,10 @@ phoneme u
   reduceto U  4
 endphoneme
 
+
 phoneme U
   vowel starttype (u) endtype (u)
   length 140
-//  formants vowel/uu_bck
   formants vowel/u_2
 endphoneme
 
@@ -99,48 +93,6 @@ phoneme aI
 endphoneme
 
 
-phoneme eI
-  vowel starttype (e) endtype (i)
-  length 250
-  formants vdiph/ei_2
-  linkout ;
-endphoneme
-
-
-phoneme iI
-  vowel starttype (i) endtype (i)
-  length 250
-  formants vdiph/ii
-  linkout ;
-endphoneme
-
-
-phoneme oI
-  vowel starttype (o) endtype (i)
-  length 250
-  formants vdiph/ooi_3
-  linkout ;
-endphoneme
-
-
-phoneme uI
-  vowel starttype (u) endtype (i)
-  length 250
-  formants vdiph/ui_4
-  linkout ;
-endphoneme
-
-
-phoneme p
-  vls blb stop
-  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
-  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
-  lengthmod 2
-  wave ustop/p_unasp%120
-  before _ ustop/p_unasp_%80
-  before l ustop/pl
-  switchvoicing b
-endphoneme
 
 
 phoneme t        // dental variant of /t/

@@ -21,6 +21,7 @@
         cc       ts:
         cs       tS
         ccs      tS:
+        cz       ts
 
   anar) ch (i    C
 hierar) ch (i    C
@@ -130,6 +131,7 @@ _minde) gy (ik   J:
 .group k
         k        k
         kk       k:
+     _) köz      kYz
 
 .group l
         l        l
@@ -143,7 +145,7 @@ _minde) gy (ik   J:
 .group m
         m        m
 
-    ko) mm (unis  m
+    ko) mm (uni  m
 
 
 .group n
@@ -183,11 +185,11 @@ _minde) gy (ik   J:
         qu       kv
 
 .group r
-        r        R
-     A) r (A     *
-     C) r (A     R
-        r (C     R
-        rr       R*
+        r        R2
+     A) r (A     R2
+     C) r (A     R2
+        r (C     R2
+        rr       R2*
 
 .group s
         s        S
@@ -196,6 +198,7 @@ _minde) gy (ik   J:
 
    hel) s (inki  z
     ki) s (ebb   SS
+_munká) s        S
     _o) slo      slo:
     _o) sló      slo:
 

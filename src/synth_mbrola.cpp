@@ -196,6 +196,7 @@ int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONE
 	// bit 0  skip the next phoneme
 	// bit 1  match this and Previous phoneme
 	// bit 2  only at the start of a word
+	// bit 4  don't match two phonemes across a word boundary
 
 	pr = mbrola_tab;
 	while(pr->name != 0)
@@ -205,9 +206,17 @@ int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONE
 			if(pr->next_phoneme == 0)
 				found = 1;
 			else
+			if((pr->next_phoneme == ':') && (plist->synthflags & SFLAG_LENGTHEN))
+			{
+				found = 1;
+			}
+			else
 			{
 				if(pr->control & 2)
 					other_ph = ph_prev;
+				else
+				if((pr->control & 8) && ((plist+1)->newword))
+					other_ph = phoneme_tab[phPAUSE];  // don't match the next phoneme over a word boundary
 				else
 					other_ph = ph_next;
 

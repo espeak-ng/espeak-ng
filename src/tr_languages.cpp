@@ -271,6 +271,7 @@ Translator *SelectTranslator(const char *name)
 
 
 	case L('h','r'):   // Croatian
+	case L('s','r'):   // Serbian
 		{
 			static const wchar_t replace_chars_hr[] = 
 				{0x430,0x431,0x446,0x45b,0x447,0x434,0x452,0x45f,
@@ -389,6 +390,10 @@ Translator *SelectTranslator(const char *name)
 			tr = new Translator();
 			tr->charset_a0 = charsets[4];   // ISO-8859-4, includes a,e,i,o,u-macron
 			tr->langopts.stress_rule = 2;
+			tr->langopts.stress_flags = 0x21;
+			tr->langopts.unstressed_wd1 = 0;
+			tr->langopts.unstressed_wd2 = 2;
+			tr->langopts.param[LOPT_DIERESES] = 1;
 		}
 		break;
 

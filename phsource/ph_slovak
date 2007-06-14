@@ -87,6 +87,13 @@ phoneme oU
   formants vdiph/ou_2
 endphoneme
 
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 270
+  formants vdiph/ai
+endphoneme
+
 phoneme eI
   vowel starttype (e) endtype (i)
   length 260
@@ -174,6 +181,31 @@ phoneme t
   wave  ustop/t_short
   before _ ustop/t_
   switchvoicing d
+endphoneme
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p_unasp%120
+  before _ ustop/p_unasp_%80
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/k_unasp%60   // weaker
+  before _ ustop/k_
+  before r ustop/kr
+  before l ustop/kl
+  before (i) ustop/ki
+  switchvoicing g
 endphoneme
 
 

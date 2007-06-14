@@ -1188,12 +1188,18 @@ include ph_czech
 phonemetable hr sk
 include ph_croatian
 
+phonemetable sr hr
+include ph_serbian
+
 phonemetable ru base
 include ph_russian
 
 
 phonemetable it base2
 include ph_italian
+
+phonemetable la base
+include ph_latin
 
 phonemetable es base2
 include ph_spanish

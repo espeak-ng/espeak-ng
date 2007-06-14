@@ -89,7 +89,7 @@ endphoneme
 
 phoneme Y:
   vowel starttype (@) endtype (@)
-  length 240
+  length 270
   formants vowel/y#
 endphoneme
 

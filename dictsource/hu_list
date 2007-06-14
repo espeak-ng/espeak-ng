@@ -45,13 +45,23 @@ km	kilo:me:tER
 mm      milime:tER
 
 a.m	An^n^i||m'int  $dot
+dr	doktoR  $dot
 gpu	$abbrev
+id	idY:SEb:  $dot
 ill	illEdvE  $dot
+ifj	ifjAb:  $dot
 mta	$abbrev
 pl	pe:lda:ul  $dot
 stb	SAtYb:i  $dot
+ú.n	u:JnEvEzEt:
 vö	v'EZd||_'Yss2E
 
+ii	kEttY:  $abbrev
+iii	ha:Rom  $abbrev
+iv	ne:J  $abbrev
+vi	hAt  $abbrev
+vii	he:t  $abbrev
+viii	n^olts  $abbrev
 
 
 // Articles
@@ -135,6 +145,7 @@ be	$u
 ra	$u
 re	$u
 ik	$u
+as	$u
 es	$u
 os	$u
 ós	$u
@@ -251,6 +262,9 @@ _.	pont
 
 
 // Names
-ricárd		RiCArd
+Engels		ENgEls
+Kéthly		ke:thli
+ricárd		RiCARd
 richard		RiCARd
-
+Szamuelly	sAmuElli
+Szamuely	sAmuElli

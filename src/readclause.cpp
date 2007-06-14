@@ -239,8 +239,11 @@ static int GetC(void)
 	int c;
 	int c1;
 	int c2;
+	int cbuf[4];
+	int ix;
 	int n_bytes;
 	unsigned char m;
+	static int ungot2 = 0;
 	static const unsigned char mask[4] = {0xff,0x1f,0x0f,0x07};
 	static const unsigned char mask2[4] = {0,0x80,0x20,0x30};
 
@@ -250,7 +253,16 @@ static int GetC(void)
 		return(c1);
 	}
 
-	c1 = GetC_get();
+	if(ungot2 != 0)
+	{
+		c1 = ungot2;
+		ungot2 = 0;
+	}
+	else
+	{
+		c1 = GetC_get();
+	}
+
 	if(option_multibyte == espeakCHARS_WCHAR)
 	{
 		count_characters++;
@@ -271,14 +283,13 @@ static int GetC(void)
 		if(((c1 & 0xf8) == 0xf0) && ((c1 & 0x0f) <= 4))
 			n_bytes = 3;
 
-		if(n_bytes > 0)
+		if((ix = n_bytes) > 0)
 		{
-			c = c1 & mask[n_bytes];
-			m = mask2[n_bytes];
-			while(n_bytes > 0)
+			c = c1 & mask[ix];
+			m = mask2[ix];
+			while(ix > 0)
 			{
-				c2 = GetC_get();
-				if(c2 == 0)
+				if((c2 = cbuf[ix] = GetC_get()) == 0)
 				{
 					if(option_multibyte==espeakCHARS_AUTO)
 						option_multibyte=espeakCHARS_8BIT;   // change "auto" option to "no"
@@ -288,14 +299,17 @@ static int GetC(void)
 
 				if((c2 & 0xc0) != 0x80)
 				{
+					// This is not UTF8.  Change to 8-bit characterset.
+					if(n_bytes > 1)
+						ungot2 = cbuf[2];
 					GetC_unget(c2);
 					break;
 				}
 				m = 0x80;
 				c = (c << 6) + (c2 & 0x3f);
-				n_bytes--;
+				ix--;
 			}
-			if(n_bytes == 0)
+			if(ix == 0)
 			{
 				count_characters++;
 				return(c);

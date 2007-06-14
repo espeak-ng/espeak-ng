@@ -29,9 +29,9 @@ _=   ugwale
 _>   kj,uza'angolo
 _?   p'untointeRogat'ivo
 _@   ki'otS:ola
-_[   ap'eRtakw'ad@-*a
+_[   ap'eRtakw2'ad@-*a
 _\   bakslaS
-_]   kj,uzakw'ad@-*a
+_]   kj,uzakw2'ad@-*a
 _^   kap:utS:o
 __   'undeRskoRe
 _`   bakp@-*aIm
@@ -47,8 +47,8 @@ _0	dz'eRo
 _1	'uno
 _2	d'ue
 _3	tR'e
-_4	kw'at:Ro
-_5	tS'inkwe
+_4	kw2'at:Ro
+_5	tS'inkw2e
 _6	s'ej
 _7	s'Et:e
 _8	'Ot:o
@@ -57,16 +57,16 @@ _10     di'etSi
 _11     'unditSi
 _12     d'oditSi
 _13     t@-*'editSi
-_14     kwat:'ORditSi
-_15     kw'imditSi
+_14     kw2at:'ORditSi
+_15     kw2'imditSi
 _16     s'editSi
 _17     ditSas:'Et:e
 _18     ditS'Ot:o
 _19     ditSann'ove
 _2X     v'ente
 _3X     t@-*'enta
-_4X     kwaR'anta
-_5X     tSinkw'anta
+_4X     kw2aR'anta
+_5X     tSinkw2'anta
 _6X     sess'anta
 _7X     set:'anta
 _8X     ot'anta
@@ -348,6 +348,8 @@ facevano	$u+
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
+_a	a:
+a	a:  $atend
 _e	e:
 e       e:  $atend
 _i	i:

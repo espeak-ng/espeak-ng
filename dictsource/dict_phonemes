@@ -157,8 +157,8 @@ o:   u    u:   y    Y    y:   Y:
 
 *    :    b    c    C    d    dZ   f    
 g    h    j    J    k    l    m    n    
-N    n^   p    r    R    s    S    s2   
-t    tS   ts   v    z    Z    z2   
+N    n^   p    r    R    R2   s    S    
+s2   t    tS   ts   v    z    Z    z2   
 
 
 Dictionary it_dict
@@ -321,3 +321,27 @@ f    g    h    j    J    k    l    l#
 m    m#   n    N    n#   N#   n^   n^#  
 p    Q    r    R    r#   R2   s    S    
 t    T    tl#  v    x    z    
+
+
+Dictionary la_dict
+
+@-   a    a:   aI   aU   E    e:   EU   
+I    i:   O    o:   OI   U    u:   y    
+y:   
+
+*    :    <h>  b    d    f    g    h    
+j    k    l    m    n    N    p    r    
+R    s    t    w    z    
+
+
+Dictionary sr_dict
+
+&    @    @-   @2   a    A    a:   aI   
+aU   E    e    e:   E~   i    I    i:   
+l-   o    o:   oU   r-   u    U    u:   
+y    
+
+*    b    d    dZ   dZ;  f    g    h    
+j    k    l    l^   m    n    N    n^   
+p    r    R    s    S    t    tS   ts   
+tS;  v    x    z    Z    

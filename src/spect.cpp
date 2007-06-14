@@ -377,6 +377,21 @@ void SpectFrame::ToggleMarker(int n)
 }
 
 
+void SpectFrame::ApplyVoiceMods()
+{//==============================
+	// apply the modifications to the formants which are defined in the current voice
+	int pk;
+
+	for(pk=0; pk<N_PEAKS; pk++)
+	{
+		peaks[pk].pkfreq = (peaks[pk].pkfreq * voice->freq2[pk])/256;
+		peaks[pk].pkheight = (peaks[pk].pkheight * voice->height2[pk])/256;
+		peaks[pk].pkwidth = (peaks[pk].pkwidth * voice->width2[pk])/256;
+		peaks[pk].pkright = (peaks[pk].pkright * voice->width2[pk])/256;
+	}
+}
+
+
 
 double SpectFrame::GetRms(int seq_amplitude)
 {//=========================================
