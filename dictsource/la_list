@@ -1,0 +1,146 @@
+﻿// This file is UTF-8 encoded
+
+
+
+// Letter names
+//========
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+a	a:
+b	be:
+c	ke:
+d	de:
+e	e:
+f	Ef
+g	ge:
+h	ha:
+i	i:
+//j
+k	ka:
+l	El
+m	Em
+n	En
+o	o:
+p	pe:
+q	kwu: // k<w>u:
+r	Er
+s	Es
+t	te:
+u	u:
+v	u: // same as u
+//w
+x	Eks
+y	i: 'graIka
+z	'ze:ta
+
+
+
+
+
+// ABBREVIATIONS
+//========
+
+(a. u. c.)   ab wRb,E  kOnd'i:ta //ab urbe condita
+(a. d.)      'antE d'I;Em      //ante diem;
+(D. M.)      d,i:s m'a:nIbUs   //Dīs Mānibus
+
+//(D. O. M.) = Deo Optimo Maximo (op tempels);
+//(D. D.) = dono of donum dedit (bij geschenken voor de goden);
+//(D. D. D.) = dat, donat, dedicat of dat, dicat, dedicat (bij geschenken voor de goden);
+//(E. M. V.) = egregiae memoriae vir;
+//(EQ. R.) = eques Romanus.
+//FF. = fecerunt;
+//(F. I.) = fieri iussit;
+//FL. = Flavius; Flaviā (tribu) uit de tribus Flavia;
+//FR. or FRU. = frumentum, frumentarius.
+//(H. C.) = Hispania citerior;
+//(H. H.) = heredes;
+//(H. E. T.) = heres ex testamento;
+//H. S. eig. L L S (dwz. libra libra semis) of II S (dwz. duo semis), daaruit H S (21/2 as): sestertie (een munt).
+
+ib.  'Ibi: d,Em //ibīdem
+ibd. 'Ibi: d,Em //ibīdem
+IDIB.  'i:dIbUs //Īdibus, from Īdūs
+IDQ.  i:d'EmkwE //īdemque
+
+//I. H. F. C. = ipsius heres faciundum curavit;
+//IM. = immunis ;
+//IMP. = imperium, imperator.
+//I M P. (afk.) = imperator or imperium.
+
+(i. e.)  ,Id Est //id est
+
+//m.p. (Mel.) = manu propria e
+//O. M. = optimus maximus
+//P. C. = patres conscripti;
+//P. M. = pontifex maximus;
+//P. R. = populus Romanus.
+//Q. B. F. F. S. // quod bonum felix faustumque sit
+//Q. F. F. S. // quod felix faustumque sit
+//R. P. = res publica.
+//S. C. = senatūs consultum;
+//S. P. Q. R. = senatus populusque Romanus.
+//v. c. = vir clarissimus;
+//v. f. = verba fecit.
+
+
+// FUNCTION WORDS
+//========
+
+et $u
+a $u
+ad $u
+ab $u
+in $u
+cum $u
+e $u
+ex $u
+inter $u
+apud $u
+ergo $pause
+
+// forms of esse
+
+sum $u
+es $u
+est $u
+sumus $u
+estis $u
+sunt $u
+
+eram $u
+eras $u
+erat $u
+eramus $u
+eratis $u
+erant $u
+
+ero $u
+eris $u
+erit $u
+erimus $u
+eritis $u
+erunt $u
+
+fui $u
+fuisti $u
+fuit $u
+fuimus $u
+fuistis $u
+fuereunt $u
+
+fueram $u
+fueras $u
+fuerat $u
+fueramus $u
+fueratis $u
+fuerant $u
+
+fuero $u
+fueris $u
+fuerit $u
+fuerimus $u
+fueritis $u
+fuerunt $u

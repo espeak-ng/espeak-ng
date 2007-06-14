@@ -1,0 +1,34 @@
+0  r/  NULL  0  r
+0  w/  NULL  0  w
+0  ;   NULL  0  NULL
+0  @-  NULL  0  NULL
+0  *   NULL  0  r
+1  R   *     0  rr
+0  R   NULL  0  r
+
+1  p   <h>   0  p_h
+1  t   <h>   0  t_h
+1  k   <h>   0  k_h
+
+0  p   :     0  pp
+0  b   :     0  bb
+0  t   :     0  tt
+0  d   :     0  dd
+0  k   :     0  kk
+0  g   :     0  gg
+
+9  f   f     0  ff
+9  s   s     0  ss
+9  z   z     0  zz
+9  m   m     0  mm
+9  n   n     0  nn
+
+9  j/  j     0  jj
+0  j/  NULL  0  j
+0  l/  NULL  0  l
+9  l/2 l     0  ll
+0  l/2 NULL  0  l
+
+0  aI   NULL  0  ae
+0  aU   NULL  0  au
+0  oI   NULL  0  oe

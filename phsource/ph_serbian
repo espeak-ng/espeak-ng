@@ -1,0 +1,9 @@
+// include any phonemes which are different from those
+// which are inherited from the base language(s)
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 160
+  formants vowel/a
+  reduceto &  4
+endphoneme
