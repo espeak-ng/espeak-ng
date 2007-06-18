@@ -7,7 +7,7 @@
 phoneme a
   vowel starttype (a) endtype (a)
   length 180
-  formants vowel/a_2
+  formants vowel/a
   reduceto a/  4
 endphoneme
 
@@ -15,14 +15,14 @@ endphoneme
 phoneme a/
   vowel starttype (@) endtype (@)
   length 180
-  formants vowel/a#
+  formants vowel/a_5
 endphoneme
 
 
 phoneme e
   vowel starttype (e) endtype (e)
   length 170
-  formants vowel/e
+  formants vowel/e_2
   reduceto e/ 4
 endphoneme
 
@@ -48,6 +48,15 @@ phoneme i
   formants vowel/i
   linkout ;
 endphoneme
+
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/i_4
+  linkout ;
+endphoneme
+
 
 
 phoneme o

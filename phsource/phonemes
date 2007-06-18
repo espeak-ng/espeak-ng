@@ -1235,5 +1235,5 @@ phonemetable sw base
 include ph_swahili
 
 
-phonemetable f_en base
-include pf_english
+//phonemetable f_en base
+//include pf_english
