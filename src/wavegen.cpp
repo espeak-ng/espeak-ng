@@ -1063,7 +1063,7 @@ int ApplyBreath(void)
 
 	for(ix=1; ix < N_PEAKS; ix++)
 	{
-		if((amp = wvoice->breath[ix]) > 0)
+		if((amp = wvoice->breath[ix]) != 0)
 		{
 			amp *= (peaks[ix].height >> 13);
 			value += int(resonator(&rbreath[ix],noise) * amp);

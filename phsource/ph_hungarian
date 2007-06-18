@@ -76,7 +76,7 @@ endphoneme
 
 phoneme y:
   vowel starttype (u) endtype (u)
-  length 220
+  length 270
   formants vowel/y
   before r/ vwl_de/r_y+70
 endphoneme

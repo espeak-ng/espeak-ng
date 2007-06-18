@@ -440,6 +440,9 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 			{
 				// don't process the next clause until the previous clause has finished generating speech.
 				// This ensures that <audio> tag (which causes end-of-clause) is at a sound buffer boundary
+
+				event_list[0].type = espeakEVENT_LIST_TERMINATED;
+
 				if(SpeakNextClause(NULL,NULL,1)==0)
 				{
 #ifdef USE_ASYNC

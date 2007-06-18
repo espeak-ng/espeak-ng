@@ -28,6 +28,12 @@
 
 #include <stdio.h>
 
+#define ESPEAK_API_REVISION  2
+/*
+Revision 2
+   Added parameter "options" to eSpeakInitialize()
+
+*/
          /********************/
          /*  Initialization  */
          /********************/

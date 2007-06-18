@@ -10,10 +10,12 @@
 // used. I and V were used for both the vowels /i/ and /u/, and the semivowels /j/ and
 // /w/. Here the distinction between U and the V for /u/ and /w/ is assumed, as is the
 // case in most modern texts. Also long vowels are indicated with macrons. Diaresis is
-// used to prevent a diphtong being formed
+// used to prevent a diphtong being formed. Y with macron has to be replaced by 'yy', 
+// since this character is incompatible with older unicode versions.
 
 
-.L01 ae au eu oe a e i o u y ā ē ī ō ū ë ü é
+
+.L01 ae au eu oe a e i o u yy y ā ē ī ō ū ë ü é
 .L02 ng qu pr tr cr chr br dr gr pl cl bl gl ph th ch 
 
 .group a
@@ -41,6 +43,7 @@
 .group c
              c            k
              cc           k:
+             cch          k:<h> // e.g. bracchium
              ch           k<h>
 
 
@@ -75,6 +78,7 @@
              g            g
              gg           g:
              g (n         N
+             ggu (A       g:w // Does this ever occur?
              gu (A        gw //g<w>
 
 
@@ -159,6 +163,7 @@
 .group p
              p            p
              pp           p:
+             pph          p:<h>
              ph           p<h>
 
 
@@ -182,6 +187,7 @@
 .group t
              t            t
              tt           t:
+             tth          t:<h> //Does this occur? It does at least across word boundaries e.g. leget Thyni
              th           t<h>
 
 
@@ -195,7 +201,7 @@
              u (x+        U
     // Cases in which 'u' is pronounced as the semi-vowel /w/
           A) u (A++       w
-          _) u (++        w
+          _) u (A+        w
 
 
 .group ū
@@ -214,8 +220,8 @@
 
 
 .group y
-             y            y
-             yy           y:
+             y            y  // Kirshenbaum I.
+             yy           y: // Should be y with macron, which is not present in older Unicode versions
 
 
 .group z

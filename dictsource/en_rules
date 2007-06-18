@@ -4860,10 +4860,11 @@
         _C)  y            aI
         _C)  y (ph        aI
         _C)  y (st        I
-       _CC)  y            aI
+        XC)  y            aI
       _CCC)  y            aI
         CC)  y (n_        I
-        Cr)  y            I2
+//        Cr)  y            I2
+       _sC)  y            aI
          c)  y (cl        aI
          c)  y (clic_     aI
        bic)  y (cl        I
@@ -4872,6 +4873,7 @@
          h)  y (Cr        aI
          c)  y (lin       I
         th)  y (l_        aI
+        fl)  y            aI
         gl)  y (ph        I
          k)  y (l_        aI
          n)  y (l_        aI
@@ -4882,7 +4884,6 @@
         @C)  y (mAn_      I
          d)  y (nas       I
          w)  y (n         I
-        cr)  y (CC        I
         gl)  y (ce        I
          d)  yse (n       Is@
          f)  y (_         aI

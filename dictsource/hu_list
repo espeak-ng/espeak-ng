@@ -15,7 +15,7 @@ _10       ti:z
 _1X       tizEn
 _20       hu:s
 _2X       huson
-_3X       hArmints
+_3X       hARmints
 _4X       nEJvEn
 _5X       YtvEn
 _6X       hAtvAn
@@ -53,7 +53,8 @@ ifj	ifjAb:  $dot
 mta	$abbrev
 pl	pe:lda:ul  $dot
 stb	SAtYb:i  $dot
-ú.n	u:JnEvEzEt:
+u.n	u:JnEvEzEt:   $dot
+ú.n	u:JnEvEzEt:   $dot
 vö	v'EZd||_'Yss2E
 
 ii	kEttY:  $abbrev
@@ -163,10 +164,32 @@ szor	$u
 szer	$u
 ször	$u
 
+ellen	$u	// against
+elé	$u	// before
+óta	$u	// since
+
+sok	$u	// many
+kevés	$u	// few
+se	$u $pause  // neither
+sem	$u $pause  // nor
+miatt   $u $pause  // because
+
+ban	$u
+ben	$u
+hoz	$u
+hez	$u
+höz	$u
+ig	$u
+nál	$u
+nél	$u
+tól	$u
+től	$u
+
 
 // word pairs
 
-(hogy az)  hoJ,Az
+(hogy az)  h,oJ,Az
+(hogy aki) h,oJ,Aki
 
 
 // Verbs
@@ -262,9 +285,5 @@ _.	pont
 
 
 // Names
-Engels		ENgEls
-Kéthly		ke:thli
-ricárd		RiCARd
-richard		RiCARd
-Szamuelly	sAmuElli
-Szamuely	sAmuElli
+ricárd		RiCa:Rd
+richard		RiCa:Rd

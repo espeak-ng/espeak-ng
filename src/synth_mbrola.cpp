@@ -549,7 +549,9 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		{
 			name = '_';
 			len = (p->length * speed_factor1)/256;
-			if(len == 0) continue;
+//			if(len == 0) continue;
+			if(len == 0)
+				len = 1;
 		}
 		else
 			len = (70 * speed_factor2)/256;

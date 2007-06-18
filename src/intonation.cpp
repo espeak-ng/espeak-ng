@@ -36,8 +36,6 @@
 */
 
 static int tone_pitch_env;    /* used to return pitch envelope */
-static int pitch_base = 128;
-static int pitch_range = 128;
 
 
 static int vowel_ix;
@@ -444,36 +442,40 @@ static int count_increments(int ix, int end_ix, int min_stress)
 
 static void set_pitch(int ix, int base, int drop)
 /***********************************************/
-/* Set the pitch of a vowel in vowel_tab.  Base & drop are Hz * 256 */
+// Set the pitch of a vowel in vowel_tab.  Base & drop are Hz * 256
 {
 	int  pitch1, pitch2;
 	int  flags = 0;
-	int  pitch_range2;
-	int  pitch_base2;
+int x;
 
-/* fprintf(f_log,"base=%3d,drop=%3d ",base>>8,drop>>8); */
+	/* adjust experimentally */
+	int  pitch_range2 = 148;
+	int  pitch_base2 = 72;
 
-	/* adjust for experimentally optimal value for default of 128 */
-	pitch_range2 = pitch_range + 20;
-	pitch_base2 = pitch_base - (128-72);
+// fprintf(f_log,"base=%3d,drop=%3d ",base>>8,drop>>8);
+
+//	pitch_range2 = pitch_range + 20;
+//	pitch_base2 = pitch_base - (128-72);
 
 	if(base < 0)  base = 0;
 
 	pitch2 = ((base * pitch_range2 ) >> 15) + pitch_base2;
 
-	if(drop >= 0)
+	if(drop < 0)
 	{
-		pitch1 = pitch2 + ((drop * pitch_range2) >> 15);
-	}
-	else
-	{
-		pitch1 = pitch2 - ((drop * pitch_range2) >> 15);
 		flags = 0x80;
+		drop = -drop;
 	}
 
-if(pitch1 > 511) pitch1 = 511;
-if(pitch2 > 511) pitch2 = 511;
-/* fprintf(f_log," %d p1=%3d p2=%3d  %x\n",vowel_tab[ix] & 0x3f,pitch1,pitch2,flags); */
+	pitch1 = pitch2 + ((drop * pitch_range2) >> 15);
+//x = (pitch1 - pitch2) / 4;  // TEST
+//pitch1 -= x;
+//pitch2 += x;
+
+	if(pitch1 > 511) pitch1 = 511;
+	if(pitch2 > 511) pitch2 = 511;
+
+// fprintf(f_log," %d p1=%3d p2=%3d  %x\n",vowel_tab[ix] & 0x3f,pitch1,pitch2,flags);
 	vowel_tab[ix] = (vowel_tab[ix] & 0x3f) + flags
 							+ (pitch1 << 8) + (pitch2 << 17);
 

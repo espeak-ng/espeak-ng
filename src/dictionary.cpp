@@ -1342,7 +1342,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			if(v_stress > 0)
 				*output++ = stress_phonemes[v_stress];  // mark stress of all vowels except 0 (unstressed)
 
-			while((ph->reduce_to != 0) && !(dictionary_flags & FLAG_FOUND))
+			while((ph->reduce_to != 0) && (((dictionary_flags & FLAG_FOUND)==0) || (langopts.param[LOPT_REDUCE] & 1)))
 			{
 				// this vowel can be reduced to another if the stress is below a specified value
 				int reduce = 0;
@@ -1368,8 +1368,9 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				}
 
 				if(max_stress == 1) max_stress = 0;
-				if(unstressed_word && langopts.param[LOPT_KEEP_UNSTR_VOWEL] && (v_stress >= max_stress))
+				if(unstressed_word && (langopts.param[LOPT_REDUCE] & 0x2) && (v_stress >= max_stress))
 				{
+					// don't reduce the most stressed syllable in an unstressed word
 					reduce = 0;
 				}
 
@@ -2066,6 +2067,13 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 				case RULE_IFVERB:
 					if(expect_verb)
+						match.points += 1;
+					else
+						failed = 1;
+					break;
+
+				case RULE_CAPITAL:
+					if(word_flags & FLAG_FIRST_UPPER)
 						match.points += 1;
 					else
 						failed = 1;
@@ -2802,23 +2810,28 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 	int  found;
 	char *word2;
 	unsigned char c;
+	int  nbytes;
+	int  c2;
 	char word[N_WORD_BYTES];
 
 	length = 0;
 	word2 = word1;
-	while((word2[1]==' ') && (word2[2]=='.'))
+
+	while((word2[nbytes = utf8_in(&c2,word2,0)]==' ') && (word2[nbytes+1]=='.'))
 	{
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
-		word[length++] = word2[0];
+		memcpy(&word[length],word2,nbytes);
+		length += nbytes;
 		word[length++] = '.';
-		word2 += 4;
+		word2 += nbytes+3;
 	}
 	if(length > 0)
 	{
 		// found an abbreviation containing dots
-		word[length] = word2[0];
-		word[length+1] = 0;
+		nbytes = utf8_in(&c2,word2,0);
+		memcpy(&word[length],word2,nbytes);
+		word[length+nbytes] = 0;
 		found =  LookupDict2(word,word2,ph_out,flags,end_flags);
 		if(found)
 		{

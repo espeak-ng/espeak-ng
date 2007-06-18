@@ -64,6 +64,14 @@ phoneme &    //  more open [E]
 endphoneme
 
 
+phoneme &:    //  more open [E] longer
+  vowel  starttype (e)  endtype (e)
+  length 280
+  formants vowel/ee_3
+  before l/2 DFT-30+l/L_eL_af
+endphoneme
+
+
 phoneme @L   // syllabic L
   vowel  starttype (@)  endtype l
   length 160
@@ -119,7 +127,7 @@ endphoneme
 
 phoneme @U
   vowel  starttype (@)  endtype (u)
-  length 220
+  length 170
   formants vdiph/Vu
 endphoneme
 
@@ -205,7 +213,7 @@ endphoneme
 
 phoneme O:
   vowel  starttype (o)  endtype (o)
-  length 240
+  length 280
   formants vowel/oo_1
 endphoneme
 

@@ -116,6 +116,7 @@
 #define RULE_NONALPHA	16   // Z non-alpha
 #define RULE_LETTERGP   17   // A B C H F G Y   letter group number
 #define RULE_LETTERGP2  18   // L + letter group number
+#define RULE_CAPITAL    19   //    word starts with a capital letter
 #define RULE_NO_SUFFIX  24   // N
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
@@ -230,8 +231,9 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_IT_DOUBLING     8
  // max. amplitude for vowel at the end of a clause
 #define LOPT_MAXAMP_EOC      9
- // don't reduce the strongest vowel in a word which is marked 'unstressed'
-#define LOPT_KEEP_UNSTR_VOWEL  10
+ // bit 0=reduce even if phonemes are specified in the **_list file
+ // bit 1=don't reduce the strongest vowel in a word which is marked 'unstressed'
+#define LOPT_REDUCE  10
  // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
  // bits 0-3  N syllables
  // bit 4=only if the second word has $alt attribute

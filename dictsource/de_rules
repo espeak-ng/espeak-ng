@@ -54,9 +54,12 @@
 
              a (_         A:
              a (C_        A:
+          @) a (bl_       'A:
+          @) a (bel_      'A:
           s) a (g         A:
          @l) a (g         A:
         scl) a (g         A:
+        sor) a (ch        A:
           s) a (m_        A:
           s) a (mkeit     A:
              a (isier     a
@@ -71,6 +74,7 @@
           n) al (_        'A:l
        &kan) al (_        ,A:l
       &sign) al (_        ,A:l
+          r) al (_        'A:l
           @) an (_        'A:n
         ein) an (der      'an
           @) ant (_       'ant
@@ -194,8 +198,23 @@
              design       _^_EN
              dge (_       _^_EN
           _) dia          d,i:a
+          _) diver        d%i:vE*
+          _) dort (C@P4   d'O*t
              drive        _^_EN
           _) drug         _^_EN
+          _) durch (@P5   d'U*C
+          _) durch (b     d%U*C
+          _) durch (f     d%U*C
+          _) durch (kr    d%U*C
+          _) durch (la    d%U*C
+          _) durchque     d%U*Ckve:
+          _) durch (schau d%U*C
+          _) durch (st    d%U*C
+          _) durch (su    d%U*C
+          _) durch (tre   d%U*C
+          _) durch (w     d%U*C
+          _) durch (wachP5  d'U*C
+          _) durchweg     dUrCve:k
 
 
 .group e
@@ -275,12 +294,16 @@
          @@) erisch       @*IS
           &) erung (_     =@*UN
 
+          _) e (ff        %E
           _) eil (aP3     'aIl
           _) eil (fP3     'aIl
           _) ein (@P3     _!'aIn
              ein (and     _|%aIn
           _) eine (r@     aIn@
           _) einig        aInIg
+          _) e (lek       %e:
+          _) elektro (@P7 e:l'Ekt@-*o:
+          _) elen         e:lEn
         mod) e (l@        E
           s) e (lig       e:
           _) emp (@P3     _|%Emp
@@ -290,10 +313,13 @@
           _) ent (@P3     _|%Ent
           _) enten        Ent@n
           _) ent (er      Ent
+          &) e (nz_       'E
           _) epi (@       ,e:pi:
           _) epi (sk      e:pI
           _) er (@P2      _|%E*
           _) er (gie      E*
+          &) er (ig_      @*
+          &) er (igst     @*
           _) er (beK      E*
           _) er (HC       E*        //  lC, mC, nC, rC
           _) ergeb (nis   E*g'e:b
@@ -305,6 +331,7 @@
           _) entert       _^_EN
              er (dig      e:*
           _) erob (er     %E*o:b
+          @) ett (_       'Et
           @) eur (_       'Y:*
              euse (_      'Y:z@
              eusen (_     'Y:z@n
@@ -353,6 +380,7 @@
              gehen        ge:@n
           _) geh (eX      ge:
              general      ge:nE*'al
+             general (is  ge:n@*al
           _) g (ener      g
           _) g (eo+       g
           _) ge (orP2     g@
@@ -382,6 +410,9 @@
           _) herunter (P8    hE*'Unt3
           _) hervor (P6      hE*f'Or
           _) hier (@         h%i:*
+          _) hilf (@P4       h'Ilf
+          _) hilfs (@P5      h'Ilfs
+          _) hilfe (@P5      h'Ilf@
 
           _) hinab  (P5      hIn'ab
           _) hinan  (P5      hIn'an
@@ -402,6 +433,7 @@
           _) hinter (@       h,Int3
           _) hoch (@P4       h'o:x
              hoch            ho:x
+             homogen         h,o:mo:ge:n
           _) hyper           _^_EN
 
 
@@ -418,6 +450,8 @@
           @) i (ng        I
         &CC) i (_         =i:
 
+          @) i (bl_       'i:
+          @) i (bel_      'i:
              ib (t_       i:p
 
           @) i (at_       I
@@ -449,8 +483,12 @@
      polit)  ik           'i:k
          @)  ik (el_      'i:k
 
+          _) illeg        ,Ile:g
+          _) i (llu       %I
+          _) i (mag       I
           r) i (na_       'i:
           @) ing (_N      _^_EN
+          _) in (k        %In
           _) inter        Int@*
           @) ion (_       j'o:n
           @) io (n        Io:
@@ -462,6 +500,7 @@
           @) ite (_       'i:t@
           @) ität (_S4    i:t'E:t
 
+          &) ium (_       =i:Um
          @s) i (v_        'i:
          @t) i (v_        'i:
 
@@ -473,6 +512,7 @@
 
           &) ie (ll_      i:,E
           &) ie (r_       'i:
+          u) ie (r_       _|'i:
           &) ie (rlich    'i:
           r) ien (@       IEn
           &) ien (_       =I@n
@@ -486,16 +526,10 @@
           s) ien (_       'i:@n
           t) ien (_       'i:@n
           &) iens (_      =I;@ns
-          &) ient (_      =I;@nt
+          &) ient (_      I'Ent
+          &) ienz (_      I'Ents
         sch) ie (n        i:
-//          @) ieren        'i:*@n
           @) ie (reX      'i:
-//          @) iere (_      'i:*@
-//          @) ierer (_     'i:*3
-//          @) ieret (_     'i:*@t
-//          @) ierest (_    'i:*@st
-//          @) ierst (_     'i:*st
-//          @) iert (_      'i:*t
              ierungs      'i:*UNs
              ierung       'i:*UN
      bakter) ie           =I@
@@ -580,7 +614,7 @@
              mitt (eC     mIt
              mitt (l      mIt
           _) mo (rb       m%O
-          _) motor        mo:to:*
+          _) motor        m%o:to:*
           _) ms           _^_EN
              musik        m%u:zi:k
 
@@ -631,6 +665,8 @@
           r) oo (m        u:
           z) oo (m        u:
          &t) or (_        =o:*
+          &) oren (_      'o:*@n
+         st) o (ss        o:
 
 
 
@@ -674,6 +710,8 @@
           C) r            @-*
           _) r            @-*
           _) rh           @-*
+
+             rangier      @-*A:NZ'i:*
 
 .group s
           _) s (_         Es
@@ -823,6 +861,7 @@
           _) u (rl        u:
           _) u (rv        u:
              us (_        Us
+         _d) u (sch       u:
           _) user         _^_EN
          ol) u (t_        u:
 

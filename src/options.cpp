@@ -49,6 +49,7 @@ wxString path_voices;
 wxString path_phsource;
 wxString path_dictsource;
 wxString path_speaktext;
+wxString path_modifiervoice;
 wxString path_dir1;
 int option_speed=160;
 
@@ -167,6 +168,7 @@ void ConfigInit()
 	pConfig->Read(_T("/phsource"),&path_phsource,basedir+_T("/phsource"));
 	pConfig->Read(_T("/dictsource"),&path_dictsource,basedir+_T("/dictsource"));
 	pConfig->Read(_T("/speaktext"),&path_speaktext,wxEmptyString);
+	pConfig->Read(_T("/modifiervoice"),&path_modifiervoice,basedir);
 	pConfig->Read(_T("/dir1"),&path_dir1,basedir);
 	option_speed = pConfig->Read(_T("/speed"),160);
 	ConfigSetPaths();
@@ -193,6 +195,7 @@ void ConfigSave(int exit)
 	pConfig->Write(_T("/dictsource"),path_dictsource);
 	pConfig->Write(_T("/speaktext"),path_speaktext);
 	pConfig->Write(_T("/speed"),option_speed);
+	pConfig->Write(_T("/modifiervoice"),path_modifiervoice);
 	pConfig->Write(_T("/dir1"),path_dir1);
 
 	if(exit)

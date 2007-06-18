@@ -28,6 +28,7 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "spect.h"
+#include "options.h"
 #include "wx/txtstrm.h"
 #include "wx/brush.h"
 #include "wx/datstrm.h"
@@ -37,6 +38,7 @@ extern int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int co
 
 extern unsigned char pk_shape1[];
 extern int pk_select;
+extern char voice_name[];
 
 wxPen BLUE_PEN(wxColour(0,0,255),2,wxSOLID);
 wxBrush BRUSH_SELECTED_PEAK(wxColour(255,180,180),wxSOLID);
@@ -381,6 +383,18 @@ void SpectFrame::ApplyVoiceMods()
 {//==============================
 	// apply the modifications to the formants which are defined in the current voice
 	int pk;
+	char voice_name1[40];
+
+	strcpy(voice_name1, voice_name);  // remember current voice name
+
+	if(LoadVoice(path_modifiervoice.mb_str(wxConvLocal),0x13) == NULL)
+	{
+		wxLogError(_T("Can't read voice: ")+path_modifiervoice);
+		OnOptions2(MENU_PATH4);
+		return;
+	}
+
+	wxLogStatus(_T("Convert using voice: ")+path_modifiervoice);
 
 	for(pk=0; pk<N_PEAKS; pk++)
 	{
@@ -389,6 +403,7 @@ void SpectFrame::ApplyVoiceMods()
 		peaks[pk].pkwidth = (peaks[pk].pkwidth * voice->width2[pk])/256;
 		peaks[pk].pkright = (peaks[pk].pkright * voice->width2[pk])/256;
 	}
+	LoadVoice(voice_name1,1);
 }
 
 

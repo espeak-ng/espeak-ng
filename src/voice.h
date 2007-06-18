@@ -66,7 +66,7 @@ extern USHORT voice_pcnt[N_PEAKS+1][3];
 extern voice_t *voice;
 extern int tone_points[10];
 
-voice_t *LoadVoice(char *voice_name, int control);
+voice_t *LoadVoice(const char *voice_name, int control);
 voice_t *LoadVoiceVariant(const char *voice_name, int variant);
 void WavegenSetVoice(voice_t *v);
 void ReadTonePoints(char *string, int *tone_pts);

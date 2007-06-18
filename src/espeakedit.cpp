@@ -192,6 +192,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH3, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH4, MyFrame::OnOptions)
    EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
@@ -356,12 +357,13 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 	(void)wxMessageBox(wxString(buf,wxConvLocal), _T("About eSpeak Editor"));
 }
 
-void MyFrame::OnOptions(wxCommandEvent& event)
-{
+
+void OnOptions2(int event_id)
+{//==========================
 	wxString string;
 	int value;
 
-	switch(event.GetId())
+	switch(event_id)
 	{
 	case MENU_PARAMS:
 		value = wxGetNumberFromUser(_T(""),_T(""),_T("Speed"),option_speed,80,320);
@@ -397,10 +399,27 @@ void MyFrame::OnOptions(wxCommandEvent& event)
 			path_speech = string;
 		}
 		break;
+
+	case MENU_PATH4:
+		string = wxFileSelector(_T("Voice file to modify formant peaks"),wxFileName(path_speech).GetPath(),
+			_T(""),_T("WAV"),_T("*"),wxSAVE);
+		if(!string.IsEmpty())
+		{
+			path_modifiervoice = string;
+		}
+		break;
 	}
 
 	ConfigSetPaths();
 }
+
+
+void MyFrame::OnOptions(wxCommandEvent& event)
+{//===========================================
+	OnOptions2(event.GetId());
+}
+
+
 
 
 void MyFrame::OnTools(wxCommandEvent& event)

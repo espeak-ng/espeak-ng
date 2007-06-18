@@ -1,0 +1,44 @@
+// for voices "it3" "it4"
+
+0  r/  NULL  0  r
+0  w/  NULL  0  w
+0  l/  NULL  0  l
+0  j/  NULL  0  i
+0  ;   NULL  0  NULL
+0  @-  NULL  0  NULL
+0  *   NULL  0  r
+0  R   NULL  0  r
+0  _|  NULL  0  _
+
+
+0  p   :     50  p p
+0  b   :     50  b b
+0  t   :     50  t t
+0  d   :     50  d d
+0  k   :     50  k k
+0  g   :     50  g g
+
+1  d   z     0  dz
+0  n^  NULL  0  J
+0  l^  NULL  0  L
+0  N   NULL  0  ng
+0  n   f     0  nf
+0  w2  NULL  0  w
+
+
+0  aI  NULL  60  a1 i
+0  aU  NULL  60  a1 u
+0  oI  NULL  60  o1 i
+
+0  i   NULL  0  i1
+0  e   NULL  0  e1
+0  e/  NULL  0  e
+0  E   NULL  0  E1
+0  a   NULL  0  a1
+0  a/  NULL  0  a
+0  O   NULL  0  O1
+0  o   NULL  0  o1
+0  o/  NULL  0  o
+0  u   NULL  0  u1
+0  U   NULL  0  u
+

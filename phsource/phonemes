@@ -1233,3 +1233,7 @@ include ph_zh_yue
 
 phonemetable sw base
 include ph_swahili
+
+
+phonemetable f_en base
+include pf_english

@@ -352,7 +352,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x10;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11;    // remove lengthen indicator from unstressed vowels
-			tr->langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
+			tr->langopts.param[LOPT_REDUCE] = 2;
 
 			ResetLetterBits(tr,0x18);
 			SetLetterBits(tr,4,"kpst");   // Letter group F
@@ -381,6 +381,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 2;    // remove lengthen indicator from unstressed or non-penultimate syllables
 			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
+			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.numbers = 0x2709;
 		}
 		break;
@@ -682,7 +683,7 @@ Translator_Russian::Translator_Russian() : Translator()
 
 	langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
 	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
-	langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
+	langopts.param[LOPT_REDUCE] = 2;
 	langopts.stress_rule = 5;
 	langopts.stress_flags = 0x0020;  // waas 0x1010
 

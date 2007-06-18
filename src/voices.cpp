@@ -52,7 +52,8 @@ int tone_points[10] = {600,170, 1200,135, 2000,110, 3000,110, -1,0};
 
 // limit the rate of change for each formant number
 //static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate
-static int formant_rate_22050[9] = {50, 100, 160, 200, 200, 200, 200, 200, 200};  // values for 22kHz sample rate
+static int formant_rate_22050[9] = {250, 200, 200, 200, 200, 200, 200, 200, 200};  // values for 22kHz sample rate
+//static int formant_rate_22050[9] = {50, 100, 165, 200, 200, 200, 200, 200, 200};  // values for 22kHz sample rate
 int formant_rate[9];         // values adjusted for actual sample rate
 
 
@@ -498,11 +499,12 @@ static int Read8Numbers(char *data_in,int *data)
 }
 
 
-voice_t *LoadVoice(char *vname, int control)
+voice_t *LoadVoice(const char *vname, int control)
 {//==========================================
 // control, bit 0  1= no_default
 //          bit 1  1 = change tone only, not language
 //          bit 2  1 = don't report error on LoadDictionary
+//          bit 4  1 = vname = full path
 
 	FILE *f_voice = NULL;
 	keywtab_t *k;
@@ -545,16 +547,25 @@ voice_t *LoadVoice(char *vname, int control)
 	if(voicename[0]==0)
 		strcpy(voicename,"default");
 
-	sprintf(path_voices,"%s%cvoices%c",path_home,PATHSEP,PATHSEP);
-	sprintf(buf,"%s%s",path_voices,voicename);
-
-	if(GetFileLength(buf) <= 0)
+	if(control & 0x10)
 	{
-		// look for the voice in a sub-directory of the language name
-		langname[0] = voicename[0];
-		langname[1] = voicename[1];
-		langname[2] = 0;
-		sprintf(buf,"%s%s%c%s",path_voices,langname,PATHSEP,voicename);
+		strcpy(buf,vname);
+		if(GetFileLength(buf) <= 0)
+			return(NULL);
+	}
+	else
+	{
+		sprintf(path_voices,"%s%cvoices%c",path_home,PATHSEP,PATHSEP);
+		sprintf(buf,"%s%s",path_voices,voicename);
+
+		if(GetFileLength(buf) <= 0)
+		{
+			// look for the voice in a sub-directory of the language name
+			langname[0] = voicename[0];
+			langname[1] = voicename[1];
+			langname[2] = 0;
+			sprintf(buf,"%s%s%c%s",path_voices,langname,PATHSEP,voicename);
+		}
 	}
 
 	f_voice = fopen(buf,"r");
@@ -788,6 +799,11 @@ voice_t *LoadVoice(char *vname, int control)
 
 		case V_BREATH:
 				voice->breath[0] = Read8Numbers(p,&voice->breath[1]);
+				for(ix=1; ix<8; ix++)
+				{
+					if(ix & 1)
+						voice->breath[ix] = -voice->breath[ix];
+				}
 			break;
 
 		case V_BREATHW:

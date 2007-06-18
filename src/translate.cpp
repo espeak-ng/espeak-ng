@@ -631,10 +631,6 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 		word_length++;
 	}
 	word = word1;
-//#define DEBUG3
-#ifdef DEBUG3
-printf("TR1  wlen=%d, %x %x %x %x %x %x %x %x\n",word_length,word[0],word[1],word[2],word[3],word[4],word[5],word[6],word[7]);
-#endif
 
 	// try an initial lookup in the dictionary list, we may find a pronunciation specified, or
 	// we may just find some flags
@@ -679,9 +675,6 @@ if((wmark > 0) && (wmark < 8))
 		}
 	}
 
-#ifdef DEBUG3
-printf("TR2  spell_word=%d\n",spell_word);
-#endif
 	if(spell_word > 0)
 	{
 		// Speak as individual letters
@@ -714,9 +707,6 @@ printf("TR2  spell_word=%d\n",spell_word);
 		{
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
-#ifdef DEBUG3
-printf("TR3  length=%d\n",length);
-#endif
 			word += TranslateLetter(word,phonemes,0);
 			if(phonemes[0] == phonSWITCH)
 			{

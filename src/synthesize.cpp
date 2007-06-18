@@ -660,12 +660,29 @@ static void SmoothSpect(void)
 
 			for(pk=0; pk<6; pk++)
 			{
+				int f1, f2;
+
 				if((frame->frflags & FRFLAG_BREAK_LF) && (pk < 3))
 					continue;
 
-				allowed = (formant_rate[pk] * len)/256;
+				f1 = frame1->ffreq[pk];
+				f2 = frame->ffreq[pk];
 
-				diff = frame->ffreq[pk] - frame1->ffreq[pk];
+				// backwards
+				if((diff = f2 - f1) > 0)
+				{
+					allowed = f1*2 + f2;
+				}
+				else
+				{
+					allowed = f1 + f2*2;
+				}
+
+				// the allowed change is specified as percentage (%*10) of the frequency
+				// take "frequency" as 1/3 from the lower freq
+				allowed = (allowed * formant_rate[pk])/3000;
+				allowed = (allowed * len)/256;
+
 				if(diff > allowed)
 				{
 					if(modified == 0)
@@ -726,17 +743,30 @@ static void SmoothSpect(void)
 			frame = frame2 = (frame_t *)q[3];
 			modified = 0;
 
-			if(frame->frflags & FRFLAG_BREAK)
+			if(frame1->frflags & FRFLAG_BREAK)
 				break;
 
-			if(frame->frflags & FRFLAG_FORMANT_RATE)
+			if(frame1->frflags & FRFLAG_FORMANT_RATE)
 				len = (len *6)/5;      // allow slightly greater rate of change for this frame
 
 			for(pk=0; pk<6; pk++)
 			{
-				allowed = (formant_rate[pk] * len)/256;
+				int f1, f2;
+				f1 = frame1->ffreq[pk];
+				f2 = frame->ffreq[pk];
 
-				diff = frame->ffreq[pk] - frame1->ffreq[pk];
+				// forwards
+				if((diff = f2 - f1) > 0)
+				{
+					allowed = f1*2 + f2;
+				}
+				else
+				{
+					allowed = f1 + f2*2;
+				}
+				allowed = (allowed * formant_rate[pk])/3000;
+				allowed = (allowed * len)/256;
+
 				if(diff > allowed)
 				{
 					if(modified == 0)

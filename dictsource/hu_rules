@@ -14,14 +14,14 @@
         b        b
         bb       b:
 
-        biz (A   b'iz,       // TEST
+        biz (A   b'iz,       // bizalmas  etc.
 
 .group c
         c        ts
         cc       ts:
         cs       tS
         ccs      tS:
-        cz       ts
+     !) cz       ts         // in names which start with a capital letter
 
   anar) ch (i    C
 hierar) ch (i    C
@@ -31,6 +31,7 @@ hierar) ch (i    C
   pszy) ch       C
    mün) ch (en   C
   maso) ch (istA C
+   szé) ch       tS
 
  kilen) c (sz    ts
   kvar) c (sz    ts
@@ -48,6 +49,8 @@ hierar) ch (i    C
   _szé) che (ny   tSe:
   _szé) ché (ny   tSe:
   _sto) ck (holm  k
+
+     _) church   tSYRtS
 
 
 .group d
@@ -139,6 +142,11 @@ _minde) gy (ik   J:
         lly      jj
         lj       jj
 
+     C) ly (_    li
+ _kéth) ly       li
+szamue) lly	 lli
+szamue) ly	 lli
+
     mi) ll (i    l
 
 
@@ -167,6 +175,9 @@ _minde) gy (ik   J:
 .group o
         o        o
 
+    _r) oose (velt   u:z
+
+
 .group ó
         ó        o:
 
@@ -185,11 +196,11 @@ _minde) gy (ik   J:
         qu       kv
 
 .group r
-        r        R2
-     A) r (A     R2
-     C) r (A     R2
-        r (C     R2
-        rr       R2*
+        r        R
+     A) r (A     R
+     C) r (A     R
+        r (C     R
+        rr       RR
 
 .group s
         s        S
@@ -204,6 +215,10 @@ _munká) s        S
 
         sz (öld  Sz
     va) s (zabl  S||
+     _) semmelweiss  sEmmElvEjs
+ engel) s        s
+
+     _) saar     sAAR
 
 
 .group t
@@ -236,6 +251,8 @@ _munká) s        S
      A) tj (A    c:
      C) tyj      c
      A) tyj (A   c:
+
+   _ka) ty (n    ti
 
 
 .group u
@@ -289,9 +306,15 @@ _szára) zs (ág     z2S
 
 
 .group
-        $        dolla:r
+        $       dolla:R
+	ä	e
+	æ	e
+	ß	s
+	ç	tS
+	ñ	n^
+	ø	Y
 
-        .        pont
+        .       pont
         . (.     _:
    \.)  .
 

@@ -23,14 +23,22 @@ phoneme e
   vowel starttype (e) endtype (e)
   length 170
   formants vowel/e
+  reduceto e/ 4
 endphoneme
+
+phoneme e/
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e
+endphoneme
+
 
 
 phoneme E
   vowel starttype (e) endtype (e)
   length 170
   formants vowel/e_mid
-  reduceto  e  4        // [E] only in stressed syllables
+//  reduceto  e/  3        // [E] only in stressed syllables ?
 endphoneme
 
 
@@ -46,6 +54,13 @@ phoneme o
   vowel starttype (o) endtype (o)
   length 170
   formants vowel/o
+  reduceto  o/ 4
+endphoneme
+
+phoneme o/
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o
 endphoneme
 
 
@@ -53,12 +68,18 @@ phoneme O
   vowel starttype (o) endtype (o)
   length 170
   formants vowel/oo_4
-//  formants vowel/0
-  reduceto  o  4        // [O] only in stressed syllables
+//  reduceto  o/  3        // [O] only in stressed syllables ?
 endphoneme
 
 
 phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_bck
+  reduceto  U  4
+endphoneme
+
+phoneme U
   vowel starttype (u) endtype (u)
   length 160
   formants vowel/u_bck

@@ -651,6 +651,9 @@ void copy_rule_string(char *string, int &state)
 				case '#':
 					c = RULE_DEL_FWD;
 					break;
+				case '!':
+					c = RULE_CAPITAL;
+					break;
 				case 'T':
 					c = RULE_ALT1;
 					break;

@@ -35,12 +35,15 @@ extern wxString path_pitches;
 extern wxString path_voices;
 extern wxString path_phsource;
 extern wxString path_dictsource;
+extern wxString path_modifiervoice;
 extern wxString path_dir1;
 
 extern char path_source[80];
 extern char path_dsource[120];
 
 extern int option_speed;
+
+extern void OnOptions2(int event_id);
 
 // not currently used
 class Options : public wxDialog  {

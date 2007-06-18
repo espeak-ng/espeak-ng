@@ -119,19 +119,9 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {//====================================================================
 	int type;
 
-fprintf(f_events,"--\n");
-if(f_wavtest == NULL) return(0);
+	fprintf(f_events,"--\n");
+	if(f_wavtest == NULL) return(0);
 
-	if(wav == NULL)
-	{
-fprintf(f_events,"Finished\n");
-		CloseWaveFile3(f_wavtest);
-		f_wavtest = NULL;
-		fclose(f_events);
-		return(0);
-	}
-
-	fwrite(wav,numsamples*2,1,f_wavtest);
 	while((type = events->type) != 0)
 	{
 		fprintf(f_events,"%5d %4d  (%2d)   %d   ",events->audio_position,events->text_position,events->length,type);
@@ -145,6 +135,17 @@ fprintf(f_events,"Finished\n");
 
 		events++;
 	}
+
+	if(wav == NULL)
+	{
+		fprintf(f_events,"Finished\n");
+		CloseWaveFile3(f_wavtest);
+		f_wavtest = NULL;
+		fclose(f_events);
+		return(0);
+	}
+
+	fwrite(wav,numsamples*2,1,f_wavtest);
 	return(0);
 }
 
@@ -991,6 +992,7 @@ void ConvertToUtf8()
 	fclose(f_in);
 	fclose(f_out);
 
+	wxLogStatus(_T("Written to: ")+fname+_T("_1"));
 
 }  // end of ConvertToItf8
 
@@ -1163,11 +1165,7 @@ int x;
 }
 #endif
 
-char* text1[]=
-{
-  "Hello World.  This is the second sentence",
-  "Testing"
-};
+char* text1 = "Hello World.  This is the second sentence";
 
 void TestTest(int control)
 {//=======================
@@ -1183,7 +1181,7 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
-return;
+//return;
 
 if(control==2)
 {
@@ -1209,20 +1207,18 @@ if(control==2)
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
 	fprintf(f_events,"Audio Text Length Type Id\n");
 
-	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,0,NULL,1);
+	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,1000,NULL,1);
 	espeak_SetSynthCallback(TestSynthCallback);
 
   unsigned int unique_identifier=0;
   int index=0;
-  espeak_Synth(text1[index], strlen(text1[index])+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
+  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
 
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);
   espeak_Synchronize();
   //  espeak_Cancel();
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);
 
-  index++;
-  espeak_Synth(text1[index], strlen(text1[index])+1, 0, POS_CHARACTER, 0, espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
 }
 
 

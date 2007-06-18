@@ -29,6 +29,14 @@
 
 #include <stdio.h>
 
+
+#define ESPEAK_LIB_REVISION  2
+/*
+Revision 2
+   Added parameter "options" to eSpeakInitialize()
+
+*/
+
          /********************/
          /*  Initialization  */
          /********************/
@@ -41,8 +49,7 @@ typedef enum {
   espeakEVENT_MARK,                // Mark
   espeakEVENT_PLAY,                // Audio element
   espeakEVENT_END,                 // End of sentence
-  espeakEVENT_MSG_TERMINATED,      // End of message
-  espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_MSG_TERMINATED       // End of message
 } espeak_EVENT_TYPE;
 
 
@@ -56,7 +63,7 @@ typedef struct {
 	int sample;           // sample id (internal use)
 	void* user_data;      // pointer supplied by the calling program
 	union {
-		int number;        // used for WORD and SENTENCE events. For PHONEME events this is the phoneme mnemonic.
+		int number;        // used for WORD and SENTENCE events
 		const char *name;  // used for MARK and PLAY events.  UTF8 string
 	} id;
 } espeak_EVENT;
@@ -139,7 +146,7 @@ typedef enum {
 #ifdef __cplusplus
 extern "C"
 #endif
-ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path, int options);
+ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path);
 /* Must be called before any synthesis functions are called.
    output: the audio data can either be played by eSpeak or passed back by the SynthCallback function.
 
@@ -147,10 +154,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, cons
 
    path: The directory which contains the espeak-data directory, or NULL for the default location.
 
-   options: bit 0: 1=allow espeakEVENT_PHONEME events.
-
-
-   Returns: sample rate in Hz, or -1 (EE_INTERNAL_ERROR).
+   Returns: sample rate in Hz
 */
 
 typedef int (t_espeak_callback)(short*, int, espeak_EVENT*);
@@ -368,9 +372,9 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 
       espeakVOLUME:  volume in range 0-100    0=silence
 
-      espeakPITCH:   base pitch, range 0-100.  50=normal
+      espeakPITCH:   base pitch in Hz
 
-      espeakRANGE:   pitch range, range 0-100. 0-monotone, 50=normal
+      espeakRANGE:   pitch range in Hz
 
       espeakPUNCTUATION:  which punctuation characters to announce:
          value in espeak_PUNCT_TYPE (none, all, some), 

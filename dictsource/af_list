@@ -139,6 +139,7 @@ grange      x2rA:nsi
 gustav      gustaf
 jacobus     jako@bWs
 jacques     ZA:k
+jane        _^_EN
 jean        ZA~n
 jesus       ji:sWs
 joey        dZ@Ui
@@ -154,6 +155,7 @@ louw l'@U
 maria mar'ia
 martin m'A:rt@n
 michiel $2
+mostert m'Ost@rt
 natasha n%at'aSa
 paul        p@Ul
 paulus      p@UlWs
@@ -233,15 +235,15 @@ omdat		$pause
 sodat		$pause
 voordat		$pause
 nadat		$pause
-totdat		$pause
+totdat		tOdat $pause
 as		,as  $pause
 soos		$pause
-solank		$pause
+solank		s%o@laNk $pause
 sodra		$pause
 sowel 		so@v'&l
 sedert		$pause
 alhoewel        alhuv'&l $pause
-tensy		$pause
+tensy		$2 $pause
 aangesien	$pause
 wie		$pause
 wanneer		$pause
@@ -332,6 +334,7 @@ bv          beIf'o@rbe@lt
 aanbid        $2
 aanstaande    $2
 agenda        ax2'Enda
+ aikôna  %aik'O:na
 algehele      alx2@h,e@l@
 alles         al@s
 alternatiewe  $4
@@ -363,11 +366,11 @@ darem         dar@m
 derde         d&:rd@
 dekade        dEk'A:d@
 deurgaans     $1
-diegene       dix2,e@n@
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
 dusver        dWsf&r
 
+eenkeer       $1
 effense       Ef@ns@
 ekself %&ks'&lf
 ekstra $1
@@ -424,7 +427,6 @@ joernalis $3
 kafee         kaf'e@
 kantoor       $2
 kapitaal      kapit'A:l
-kollega       kul'e@x2a
 komaan        kOmA:n
 komberse      kOmb'&rs@
 kombers       kOmb'&rs
@@ -493,7 +495,6 @@ oorspronklike $2
 oranje        $2
 
 patriotisme   patri|ut'Ism@
-parlement     parl@m'Ent
 penorent      pEno@rEnt
 per           pIr
 persent       p@rsEnt
@@ -552,7 +553,7 @@ verantwoordelikheid f@rantv'o@rd@l@keIt
 verdere       f&rd@r@
 vere          fe@r@
 vererger      f@r&rg@r
-ver           f&r
+ver           f'&:r
 verg          f&rx2
 vergete       f@rx2e@t@
 vergewe       f@rx2e@v@

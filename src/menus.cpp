@@ -93,6 +93,8 @@ wxMenuBar *MakeMenu(int type)
 	paths_menu->Append(MENU_PATH1, _T("Phoneme data source"));
 	paths_menu->Append(MENU_PATH2, _T("Dictionary data source"));
 	paths_menu->Append(MENU_PATH3, _T("Synthesized sound WAV file"));
+	speak_menu->AppendSeparator();
+	paths_menu->Append(MENU_PATH4, _T("Voice file to modify formant peaks"));
 
 	option_menu = new wxMenu;
 	option_menu->Append(MENU_PATHS, _T("Set &paths"), paths_menu);
