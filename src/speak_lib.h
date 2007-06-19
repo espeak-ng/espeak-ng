@@ -191,7 +191,7 @@ int SynthCallback(short *wav, int numsamples, espeak_EVENT *events);
 extern "C"
 #endif
 void espeak_SetUriCallback(int (*UriCallback)(int, const char*, const char*));
-/* This function must be called before synthesis functions are used, in order to deal with
+/* This function may be called before synthesis functions are used, in order to deal with
    <audio> tags.  It specifies a callback function which is called when an <audio> element is
    encountered and allows the calling program to indicate whether the sound file which
    is specified in the <audio> element is available and is to be played.

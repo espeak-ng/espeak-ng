@@ -300,7 +300,7 @@ static int GetC(void)
 				if((c2 & 0xc0) != 0x80)
 				{
 					// This is not UTF8.  Change to 8-bit characterset.
-					if(n_bytes > 1)
+					if((n_bytes == 2) && (ix == 1))
 						ungot2 = cbuf[2];
 					GetC_unget(c2);
 					break;
@@ -502,7 +502,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 				sprintf(p,"\001+10S%s",tone_punct_on);
 				while(punct_count-- > 0)
 					sprintf(buf,"%s %s",buf,punctname);
-				sprintf(p,"%s %s\001S",buf,tone_punct_off);
+				sprintf(p,"%s %s\001-10S",buf,tone_punct_off);
 			}
 			else
 			{

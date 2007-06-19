@@ -227,7 +227,8 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_LENGTH_MODS    6
  // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN    7
- // Italian "syntactic doubling"
+ // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
+ // bit 1=also after a word which ends with a stressed vowel
 #define LOPT_IT_DOUBLING     8
  // max. amplitude for vowel at the end of a clause
 #define LOPT_MAXAMP_EOC      9

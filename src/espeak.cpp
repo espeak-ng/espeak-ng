@@ -183,8 +183,8 @@ static void Write4Bytes(FILE *f, int value)
 
 
 
-int OpenWavFile(const char *path, int rate)
-//=========================================
+int OpenWavFile(char *path, int rate)
+//===================================
 {
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
@@ -197,7 +197,7 @@ int OpenWavFile(const char *path, int rate)
 	if(path[0] == 0)
 		return(0);
 
-	if(path == "stdout")
+	if(strcmp(path,"stdout")==0)
 		f_wavfile = stdout;
 	else
 		f_wavfile = fopen(path,"wb");
@@ -220,7 +220,7 @@ static void CloseWavFile(int rate)
 {
 	unsigned int pos;
 
-	if((f_wavfile==NULL) || (wavefile == "stdout"))
+	if((f_wavfile==NULL) || (f_wavfile == stdout))
 		return;
 
 	fflush(f_wavfile);

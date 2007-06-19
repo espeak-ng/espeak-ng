@@ -16,7 +16,7 @@
       fr  32  118
    fr_ca  11  118
       hi  49  131
-      hu  24  114
+      hu  23  113
       nl  26  117
       pl  15  107
       sk  29  125
@@ -224,7 +224,7 @@
   2  ufric/hu_fi    fi
   2  ufric/ll       base is
   3  ufric/s        base es pt
- 13  ufric/s_       base fi fr hu es pt ro
+ 11  ufric/s_       base fi fr hu es pt ro
  15  ufric/s!       base fi hu es pt
   2  ufric/s_continue fi hu
   2  ufric/sh       base pt_pt
@@ -399,8 +399,8 @@
   6  vocw/v         base ro
   4  vocw/zh        base ro
   2  vocw/zh_rfx    base
-  4  voc/z          base fr hu ro
-  4  voc/z_         base fr hu ro
+  3  voc/z          base fr ro
+  3  voc/z_         base fr ro
   4  voc/zh         base sk ro
   3  voc/zh_        base ro
   1  voc/zh_2       sk

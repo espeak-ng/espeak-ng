@@ -758,6 +758,7 @@ if((wmark > 0) && (wmark < 8))
 					char end_phonemes2[N_WORD_PHONEMES];
 
 					// remove any standard suffix and confirm that the prefix is still recognised
+					phonemes2[0] = 0;
 					end2 = TranslateRules(word, phonemes2, N_WORD_PHONEMES, end_phonemes2, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
 					if(end2)
 					{

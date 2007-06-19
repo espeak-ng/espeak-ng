@@ -27,7 +27,7 @@ _5	'fynf
 _6	'zEks
 _7	'zi:b@n
 _8	'_axt
-_9 	'nOIn
+_9 	'nOYn
 _10	'tse:n
 _11	'_Elf
 _12	'tsvWlf
@@ -37,7 +37,7 @@ _15	'fynftse:n
 _16	'zEktse:n
 _17	'zi:btse:n
 _18	'_axttse:n
-_19	'nOIntse:n
+_19	'nOYntse:n
 _2X	'tsvantsIC
 _3X	'd@-*aItsIC
 _4X	'fi:*tsIC
@@ -45,7 +45,7 @@ _5X	'fynftsIC
 _6X	'zEktsIC
 _7X	'zi:btsIC
 _8X	'_axttsIC
-_9X	'nOIntsIC
+_9X	'nOYntsIC
 _0C	'hUnd3t
 _0M1	'taUz@nt
 _1M1	'taUz@nt    // no '1' before thousand
@@ -67,12 +67,12 @@ bd       band
 bde      bEnd@
 bzw      b@tsi:hUNsvaIz@
 chr      k@-*Istu:s
-dm       d'OItSm,A:*k     $capital $only $abbrev
+dm       d'OYtSm,A:*k     $capital $only $abbrev
 dr       dOkt'o:*
 evtl     e:vEntu:'El
 od       o:d3
 fr       f@-*aU
-frl      f@-*OIlaIn
+frl      f@-*OYlaIn
 hr       hE*
 hrsg     hE*'aUsge:b3
 inkl     Inklu:s'i:v@
@@ -127,7 +127,7 @@ beim            baIm      $u+ $brk
 bis             bIs       $u+ $pause
 da                        $u+
 durch                     $u+ $pause
-für             fy:*      $u+ $pause
+für             fy:*      $u+ $pause $only
 gegen           ge:g@n    $u+ $pause
 gegend          ge:g@nt
 hin             hIn
@@ -468,6 +468,8 @@ extravagant      $1
 extrem          Ekstr'e:m
 
 feuerrot         $3
+friedvoll       f@-*'i:tf,Ol
+furchen         fU*C@n
 furie            $alt
 
 geben           ge:b@n
@@ -533,10 +535,14 @@ mikrofiche	maIk@-*o:fIS
 miteinander      $1
 mitte           mIt@
 modell          mo:d'El
+monoton          $3
+monsun           $2
+montag          mo:ntA:k
+mors            mO*s
 mumie            $alt
 
 nebulos          $3
-negligier       ne:gli:Z'i:*
+negligent       ne:gli:dZ'Ent
 
 oberen          o:b@*@n
 oboe            o:bo:@
@@ -544,6 +550,7 @@ orgie            $alt
 ok              o:k'e:
 
 passage         pas'aZ@
+perplex          $2
 petersilie       $alt
 pinie            $alt
 planet          plan'Et
@@ -551,7 +558,8 @@ pochier         pOS'i:*
 pochs           pOxs
 präsident        $3
 prämie           $alt
-problem         p@-*Obl'e:m
+privatisier     p@-*i:vati:z'i:*
+problematisier  p@-*o:ble:m'a:tIzi:*
 
 reliquie         $alt
 rupie            $alt

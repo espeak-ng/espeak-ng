@@ -70,17 +70,21 @@
          tr) ain          En
              akqu         %akv
          @A) al (_        'A:l
+          g) al (_        'A:l
           k) al (_        'A:l
           n) al (_        'A:l
        &kan) al (_        ,A:l
       &sign) al (_        ,A:l
           r) al (_        'A:l
+          t) al (_        'A:l
           @) an (_        'A:n
         ein) an (der      'an
           @) ant (_       'ant
           _) anthropo     ,ant@-*o:p%o:
           _) anti (@P4    ,anti:
              anier (_N     'A:ni:3
+          _) an (ten      an
+          _) an (th       an
           _) appe (ll@    ,apE
           _) archa (i     %a*CA
              arier (_N     'A:*i:3
@@ -172,6 +176,7 @@
           _) ch (or       k
 
         bre) ch (en       x
+             chro         k@-*o:
          nä) chs (t       Cs
              c (ie        s
         pla) c (ie        ts
@@ -191,6 +196,7 @@
              dt           t
              ddt          t
 
+          _) daten (@P5   d'at@n
           _) deal         _^_EN
           _) deme         de:mE
              demo (g      de:mo:
@@ -229,7 +235,7 @@
              e (x         E
 
              ei           aI
-             eu           OI
+             eu           OY
              ey (_        e:
 
              eb (t_       e:p
@@ -242,13 +248,19 @@
              e (gt_+      e:
           &) el (_        @l
           &) eln (_S1     n
+          &) elnd (_S2    nt
           &) e (lt_       @
           &) em (_NS2     @m
           &) em (_        'e:m
           _) end (C@P3    'Ent
           _) endo (@      ,Endo:
           @) en (_S2      @n
-          &) end (_N      @nt
+          &) end (_NS3    @nt
+          &) ende (_S4    @nd@
+          &) endem (_S5   @nd@m
+          &) enden (_S5   @nd@n
+          &) ender (_S5   @nd3
+          &) endes (_S5   @nd@s
           &) end (_       @nd
         ier) end (_NS3    @nt
         ier) end (_       @nd
@@ -260,7 +272,7 @@
           @) er (r        E*
           @) er (ti       E*
           @) er (nC       E*
-          @) er (_S2      3
+          @) er (_S2     3
           &) ere (_S3     @*@
           &) erem (_S4    @*@m
           &) eren (_S4    @*@n
@@ -313,6 +325,9 @@
           _) ent (@P3     _|%Ent
           _) enten        Ent@n
           _) ent (er      Ent
+          t) en (t        En
+         qu) en (tA       En
+          &) en (tum      @n
           &) e (nz_       'E
           _) epi (@       ,e:pi:
           _) epi (sk      e:pI
@@ -350,8 +365,12 @@
           _) flug         fl'u:g
              foto         fo:to:
           _) free         _^_EN
-          _) feudal       f%OIdA:l
-          _) feuer (@     fOI@*
+          _) feudal       f%OYdA:l
+          _) feuer (@     fOY@*
+          _) frev         f@-*e:f
+          _) froh (@P4    f@-*'o:
+          _) frohlock     f@-*o:l'Ok
+          _) fung (A      fUNg
 
 .group g
           _) g (_         ge:
@@ -478,7 +497,9 @@
 
              i (i         i:_!
 
-         @)  ik (_        'i:k
+         s)  ik (_        'i:k
+        @r)  ik (_        Ik
+        br)  ik (_        'i:k
         @t)  ik (_        =i:k
      polit)  ik           'i:k
          @)  ik (el_      'i:k
@@ -492,6 +513,7 @@
           _) inter        Int@*
           @) ion (_       j'o:n
           @) io (n        Io:
+             io           Io:
           @) is (_        Is
           &) isch (_      =IS
              is (mus_     'Is
@@ -510,7 +532,7 @@
              ieh          i:
          @)  ie (_        'i:
 
-          &) ie (ll_      i:,E
+          &) ie (ll_      I'E
           &) ie (r_       'i:
           u) ie (r_       _|'i:
           &) ie (rlich    'i:
@@ -614,6 +636,7 @@
              mitt (eC     mIt
              mitt (l      mIt
           _) mo (rb       m%O
+          _) mono (@      m,o:no:
           _) motor        m%o:to:*
           _) ms           _^_EN
              musik        m%u:zi:k
@@ -625,12 +648,19 @@
              ng           N
 //             ng (A        Ng
 //             ng (l        Ng
+          o) ng (e        ng
+          o) ng (A        Ng
              ng (r        Ng
              nk           Nk
              nk (A        nk
+         fu) nk           Nk
 
              nce (_       _^_EN
+          _) ne (b        ne:
              nebeneina (nd  n,e:b@n_|aIn'a
+          _) ne (g        ne:
+             neglig       ne:gli:Z
+             neglige      ne:gli:Z
         &in) nen (_S3     @n
           &) ness         _^_EN
              news         _^_EN
@@ -658,7 +688,9 @@
           _) ob (jek      %Op
           _) obst (reP4   'o:pst
           @) o (g_        'o:
+          t) ogen (_      o:g'e:n
           @) o (gin_      'o:
+             o (l_        'o:
              o (m_        'o:
          @A) o (n_        'o:
           @) oo (_        u:
@@ -666,6 +698,7 @@
           z) oo (m        u:
          &t) or (_        =o:*
           &) oren (_      'o:*@n
+             oso (_       'o:zo:
          st) o (ss        o:
 
 
@@ -680,8 +713,9 @@
              passagie     pasaZ'i:
           _) pay          _^_EN
           _) peri         p,e:*i:
+          _) perio        p,e:*Io:
           _) periphe      p,e:*i:fe:
-
+          _) personen (@P8 pE*s'o:n@n
              philie       f'i:li:
           _) pro (@       %p@-*o:
 
@@ -690,10 +724,14 @@
           _) poly (@P4    p,o:ly:
              partei       p%a*taI
           _) perfe (k     p%E*fE
+          _) polik        p'o:li:k
+          _) po (lit        p%o:
              pool         _^_EN
              power        _^_EN
           _) preß (@P4    p@-*'Es
           _) prinzipien (@P9  p@-*Ints'i:pI@
+          _) privat (@P6  p@-*i:v'A:t
+             problem      p@-*%o:ble:m
           _) psycho (@P6  ps,y:Co:
           _) psycho (ti   psy:C'o:
           _) pu (e        p%u:
@@ -806,6 +844,7 @@
           _) teen         _^_EN
              thrill       _^_EN
         _pa) th           t
+             the (era     te:
           @) tient (_     tsI'Ent
           @) tion         tsI,o:n
           @) tion (_      tsI'o:n
@@ -943,9 +982,19 @@
           _) z (_         tsEt
              z            ts
           z) z
-             ziell        tsj'El
 
-          _) zer (@       %tsE*
+          _) zentral (@P7 tsEnt@-*'A:l
+          _) zentral (i   tsEnt@-*al
+          _) zer (@P3     tsE*
+          _) zere (b      tse:*e:
+          _) zere (m      tse:*e:
+             ziell        tsj'El
+          _) zie (ge@P3   ts'aI
+          _) zeit (@P4    ts'aIt
+          _) ziel (@P4    ts'i:l
+          _) zier (@P4    ts'i:*
+          _) zigaretten (@P10 tsi:ga*'Et@n
+          _) zigeu        tsi:g'OY
           _) zu (C@P2     ts%u:
           _) zu (nC       tsU
           _) zurück (@P6  tsu:*'yk
@@ -955,7 +1004,7 @@
 .group ä
              ä            E:
              äh (+        e:
-             äu           OI
+             äu           OY
 
              ä (C%        E
              ä (CC        E
@@ -969,6 +1018,7 @@
              ö            Y:
              öh (+        Y:
 
+             ö (_         'Y:
              ö (C%        W
              ö (CC        W
              ö (sch       W
@@ -993,11 +1043,14 @@
 
 
 .group
+             é            e:
+             ée           'e:
+             é (_         'e:
              , (D         kOma
              /            slaS
              %            p@-*o:ts'Ent
              $            dOl@
-             €            OI*o:
+             €            OY*o:
              £            paUnd
 
              .            pUnkt

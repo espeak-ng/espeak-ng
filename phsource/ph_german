@@ -129,7 +129,7 @@ phoneme aI
 endphoneme
 
 
-phoneme OI
+phoneme OY
   vowel starttype (o) endtype (i)
   length 220
   formants vdiph/oi

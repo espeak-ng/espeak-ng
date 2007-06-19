@@ -73,7 +73,7 @@ _3X   t@-*'idsat;
 _4X   St'i*idsat;
 _5X   p'&t;d;esjat
 _6X   S'est;d;esjat
-_7X   s'ed;emdsjat
+_7X   s'ed;emd;esjat
 _8X   'osemd;esjat
 _9X   d'ev&t;d;esjat
 _0C   st'o
@@ -138,7 +138,7 @@ bol      $u+   // been
 
 // treat as letters if at the end of the clause
 a        a:    $atend    // letter-a
-k        ke:   $atend    // letter-k
+k        ka:   $atend    // letter-k
 o        o:    $atend    // letter-o
 s        es    $atend
 v        ve:   $atend

@@ -379,7 +379,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 2;    // remove lengthen indicator from unstressed or non-penultimate syllables
-			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
+//			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.numbers = 0x2709;

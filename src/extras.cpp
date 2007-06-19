@@ -1209,6 +1209,7 @@ if(control==2)
 
 	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,1000,NULL,1);
 	espeak_SetSynthCallback(TestSynthCallback);
+	espeak_SetUriCallback(TestUriCallback);
 
   unsigned int unique_identifier=0;
   int index=0;
