@@ -105,6 +105,15 @@ phoneme i:
   before * DFT+40
 endphoneme
 
+phoneme i2
+  vowel starttype (i) endtype (i)
+  length 180
+  formants vowel/i_2
+  after w w/wi2
+  before * DFT+40
+  reduceto  I  4
+endphoneme
+
 
 phoneme u:
   vowel starttype (u) endtype (u)

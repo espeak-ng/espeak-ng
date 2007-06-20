@@ -1,4 +1,4 @@
-﻿// translation rules Brazilian
+// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -137,9 +137,22 @@
           e (be_     E
           e (bem_    E
           e (bes_    E
+          e (ca_    E
           e (ce_     E
           e (cem_    E
           e (ces_    E
+	  
+          e (clA_    E
+          e (clAs_    E
+          e (clAm_    E
+          e (co_    E
+
+          e (la_    E
+          e (las_    E
+
+          e (rA_    E
+		e (rAm_    E
+		        e (rAs_    E
 
           e (stA_    E
           e (stAm_   E
@@ -148,13 +161,27 @@
 
           e (rnA_    E
           e (rnAm_    E
-          e (rnAs_    E
-          e (rtA_    E
+        e (rnAs_    E
+
+e (rtA_    E
           e (rtAm_    E
           e (rtAs_    E
-          e (rrA_    E
+
+e (rrA_    E
           e (rrAm_    E
           e (rrAs_    E
+
+          e (rvA_    E
+          e (rvAm_    E
+          e (rvAs_    E
+
+          e (ve_    E
+          e (vem_    E
+          e (ves_    E
+  
+        e (rrAs_    E
+
+
 
           e (x_      E
           e (xA_     E
@@ -384,7 +411,12 @@
           on (K      oN
           o (na_     o
           onh        on^
-          o (rCA_    O
+
+        o (brA_        O
+        o (brAm_        O
+        o (brAs_        O
+
+o (rCA_        O
           o (rCAm_    O
           o (rCAs_    O
         o (stA_        O

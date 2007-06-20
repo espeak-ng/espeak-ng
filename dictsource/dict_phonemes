@@ -43,8 +43,8 @@ x    z
 Dictionary de_dict
 
 3    @    @-   a    A    A:   aI   aU   
-E    E2   E:   e:   I    i:   O    o:   
-OY   U    u:   W    y    y:   Y:   
+E    E2   E:   e:   I    i2   i:   O    
+o:   OY   U    u:   W    y    y:   Y:   
 
 *    :    ;    b    C    C2   d    D    
 dZ   f    g    h    j    k    l    m    
@@ -156,10 +156,10 @@ Dictionary hu_dict
 A    a:   E    e    e:   i    i:   o    
 o:   u    u:   y    Y    y:   Y:   
 
-*    :    b    c    C    d    dZ   f    
-g    h    j    J    k    l    m    n    
-N    n^   p    R    s    S    s2   t    
-tS   ts   v    z    Z    
+:    b    c    C    d    dZ   f    g    
+h    j    J    k    l    m    n    N    
+n^   p    R    s    S    s2   t    tS   
+ts   v    z    Z    
 
 
 Dictionary it_dict

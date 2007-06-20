@@ -10,7 +10,7 @@
    en_wm  30  144
       af  38  128
       cy  29  122
-      de  30  121
+      de  31  122
       eo  13  108
       fi  40  127
       fr  32  118
@@ -456,7 +456,7 @@
   1  vowel/@_hgh    no
  19  vowel/i        base2 en_n en_rp en_wm cy eo fr hu pl it pt pt_pt ++
   1  vowel/i#       cy
-  4  vowel/i_2      de nl la sv
+  5  vowel/i_2      de nl la sv
   2  vowel/i_3      af sk
   4  vowel/i_4      fi hu it is
   5  vowel/i_5      en_sc
@@ -607,7 +607,7 @@
   1  w/wa           base
   1  w/we           base
   3  w/wi           base vi zh_yue
- 11  w/wi2          en en_n en_us en_sc en_rp en_wm de nl la sv no
+ 12  w/wi2          en en_n en_us en_sc en_rp en_wm de nl la sv no
   1  w/wo           base
   1  w/wu           base
   5  w/xw           base

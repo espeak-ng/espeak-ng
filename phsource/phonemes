@@ -1147,7 +1147,7 @@ phonemetable en_wm en
 include ph_english_wm
 
 phonemetable af base
-include ph_af
+include ph_afrikaans
 
 phonemetable cy base
 include ph_welsh
@@ -1208,7 +1208,7 @@ phonemetable pt base2
 include ph_pt_brazil
 
 phonemetable pt_pt pt
-include ph_portugual
+include ph_portugal
 
 phonemetable ro base2
 include ph_romanian

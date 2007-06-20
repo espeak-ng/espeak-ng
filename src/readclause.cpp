@@ -38,7 +38,7 @@
 
 espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant);
 
-char *xmlbase = NULL;    // base URL from <speak>
+char *xmlbase = "";    // base URL from <speak>
 
 int namedata_ix=0;
 int n_namedata = 0;
@@ -1316,6 +1316,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	case SSML_AUDIO + SSML_CLOSE:
 		if(uri_callback == NULL)
 			break;
+		PopParamStack(tag_type, outbuf, outix);
 		return(CLAUSE_NONE);
 
 	case SSML_BREAK:

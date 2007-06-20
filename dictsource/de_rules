@@ -122,6 +122,11 @@
           _) ba (lA       b%a
           _) ba (ll@      b%a
           &) bar (_S3     bA:*
+          &) bare (_S4    bA:*@
+          &) barem (_S5   bA:*@m
+          &) baren (_S5   bA:*@n
+          &) barer (_S5   bA:*3
+          &) bares (_S5   bA:*@s
           _) b (ebC       b
           _) b (ecC       b
           _) b (eet       b
@@ -242,6 +247,7 @@
              eg (t_       e:k
 
              ell (_       'El
+         ll) e (l         e:
           &) e (_S1       @
          @t) e (_S1       @
           &) e (BB_       E2
@@ -284,7 +290,8 @@
           &) er (r_       E
           w) er (k_       E*
           &) er (nd_      @*
-          @) erin (_      @rIn
+          &) erin (_      @*In
+          &) erisch (_    @*IS 
           @) es (_S2      @s
           &) et (_        @t
          ig) et (_S2      @t
@@ -322,6 +329,8 @@
           _) emph (@      %Emf
           _) emp (ir      %Emp
           _) ene (rg      %e:nE
+          @) en (i        e:n
+          @) e (nsi       E
           _) ent (@P3     _|%Ent
           _) enten        Ent@n
           _) ent (er      Ent
@@ -341,6 +350,7 @@
           _) er (stC      E*
           _) er (ste      E*
           _) er (ste@@P2  _|%E*
+          @) er (v        E*
         mod) er (n        E*
 
           _) entert       _^_EN
@@ -406,7 +416,7 @@
              ge (rman     gE
              ge (rät      g@
           @) ght (_       _^_EN
-             graph        g@-*A:f
+             graph        g@-*Af
              graph (_     g@-*'A:f
              green        _^_EN
              guide        _^_EN
@@ -511,6 +521,9 @@
           @) ing (_N      _^_EN
           _) in (k        %In
           _) inter        Int@*
+          &) in (_        i2n
+          l) in (_        'i:n
+          s) in (_        'i:n
           @) ion (_       j'o:n
           @) io (n        Io:
              io           Io:
@@ -572,18 +585,20 @@
           k) k
 
 //          @) keit (_$4    kaIt
+//          @) keiten (_$6  kaIt@n
 
              kolleg       k%Ole:g
+          _) komme (C@    k%OmE
           _) ko (mp       k%O
           _) ko (mpost    kO
+          _) ko (n@       k%O
+          _) ko (nter     kO
 
 
 .group l
           _) l (_         El
              l            l
           l) l
-             lin (_       l'i:n
-          l) lin (_       'i:n
 
              lady         _^_EN
           _) land (C@P4   l'ant
@@ -650,6 +665,7 @@
 //             ng (l        Ng
           o) ng (e        ng
           o) ng (A        Ng
+          u) ng (i        Ng
              ng (r        Ng
              nk           Nk
              nk (A        nk
@@ -691,6 +707,7 @@
           t) ogen (_      o:g'e:n
           @) o (gin_      'o:
              o (l_        'o:
+             o (lsam      o:
              o (m_        'o:
          @A) o (n_        'o:
           @) oo (_        u:
@@ -710,6 +727,7 @@
              pf           pF
              ph           f
 
+          _) para (@      p,a*a
              passagie     pasaZ'i:
           _) pay          _^_EN
           _) peri         p,e:*i:
@@ -765,7 +783,6 @@
              sch (en_     sC
           _) sh           S
              sh (K        S
-
              sou (nd      saU
           p) s (a         s
           p) s (i         s
@@ -930,6 +947,8 @@
           _) vehe         ve:he:
           _) ver (@P3     f%E*
           _) ver (bal     v%E*
+          @) versich      fE*z,IC
+          @) vergess      fE*g,Es
           _) viel (@P4    f'i:l
           _) vier (g@P4   f'i:*
           _) viet         vIEt

@@ -1165,7 +1165,7 @@ int x;
 }
 #endif
 
-char* text1 = "Hello World.  This is the second sentence";
+char* text1 = "Hello World2. <audio src=\"here\"> Some text</audio>  This is the second sentence";
 
 void TestTest(int control)
 {//=======================
@@ -1174,7 +1174,7 @@ void TestTest(int control)
 	unsigned int ix=0;
 	char textbuf[2000];
 	espeak_VOICE voice;
-	espeak_VOICE *voice2;
+	unsigned int unique_identifier=0;
 
 //FindPhonemesUsed();
 //return;
@@ -1211,8 +1211,6 @@ if(control==2)
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 
-  unsigned int unique_identifier=0;
-  int index=0;
   espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
 
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);
