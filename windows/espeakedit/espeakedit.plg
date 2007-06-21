@@ -1,0 +1,149 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: minimal - Win32 Unicode Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"vc_mswu\minimal/sample.res" /i ".\..\..\lib\vc_lib\mswu" /i ".\..\..\include" /i "." /i ".\..\..\samples" /i "\wxWidgets-2.6.2\samples" /d "__WXMSW__" /d "_UNICODE" /d "_WINDOWS" /d "NOPCH" "C:\wxWidgets-2.6.2\samples\sample.rc"" 
+Creating temporary file "C:\DOCUME~1\JSD1~1.PC0\LOCALS~1\Temp\RSP64.tmp" with contents
+[
+/nologo /MD /W4 /GR /O2 /I ".\..\..\lib\vc_lib\mswu" /I ".\..\..\include" /I "." /I ".\..\..\samples" /D "WIN32" /D "__WXMSW__" /D "_UNICODE" /D "_WINDOWS" /D "NOPCH" /Fo"vc_mswu\minimal/" /Fd"vc_mswu\minimal.pdb" /FD /EHsc /c 
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledata.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\debug.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\espeak_command.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\espeakedit.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\event.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\extras.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\fifo.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\formantdlg.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\intonation.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\menus.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\numbers.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\options.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\phonemelist.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\prosodydisplay.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\readclause.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\setlengths.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\speak_lib.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\spect.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\spectdisplay.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\spectseq.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\synth_mbrola.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\synthdata.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\synthesize.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\tr_english.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\tr_languages.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\translate.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\transldlg.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\voicedlg.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\voices.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\vowelchart.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\wave.cpp"
+"C:\wxWidgets-2.6.2\projects\espeakedit\src\wavegen.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\JSD1~1.PC0\LOCALS~1\Temp\RSP64.tmp" 
+Creating temporary file "C:\DOCUME~1\JSD1~1.PC0\LOCALS~1\Temp\RSP65.tmp" with contents
+[
+wxmsw28u_core.lib wxbase28u.lib wxmsw28u_adv.lib winmm.lib PAStaticWMME.lib wxtiff.lib wxjpeg.lib wxpng.lib wxzlib.lib wxregexu.lib wxexpat.lib kernel32.lib user32.lib gdi32.lib comdlg32.lib winspool.lib winmm.lib shell32.lib comctl32.lib ole32.lib oleaut32.lib uuid.lib rpcrt4.lib advapi32.lib wsock32.lib odbc32.lib /nologo /subsystem:windows /incremental:no /pdb:"vc_mswu/espeakedit.pdb" /machine:I386 /out:"espeakedit.exe" /libpath:".\..\..\lib\vc_lib" 
+".\vc_mswu\minimal\compiledata.obj"
+".\vc_mswu\minimal\compiledict.obj"
+".\vc_mswu\minimal\debug.obj"
+".\vc_mswu\minimal\dictionary.obj"
+".\vc_mswu\minimal\espeak_command.obj"
+".\vc_mswu\minimal\espeakedit.obj"
+".\vc_mswu\minimal\event.obj"
+".\vc_mswu\minimal\extras.obj"
+".\vc_mswu\minimal\fifo.obj"
+".\vc_mswu\minimal\formantdlg.obj"
+".\vc_mswu\minimal\intonation.obj"
+".\vc_mswu\minimal\menus.obj"
+".\vc_mswu\minimal\numbers.obj"
+".\vc_mswu\minimal\options.obj"
+".\vc_mswu\minimal\phonemelist.obj"
+".\vc_mswu\minimal\prosodydisplay.obj"
+".\vc_mswu\minimal\readclause.obj"
+".\vc_mswu\minimal\setlengths.obj"
+".\vc_mswu\minimal\speak_lib.obj"
+".\vc_mswu\minimal\spect.obj"
+".\vc_mswu\minimal\spectdisplay.obj"
+".\vc_mswu\minimal\spectseq.obj"
+".\vc_mswu\minimal\synth_mbrola.obj"
+".\vc_mswu\minimal\synthdata.obj"
+".\vc_mswu\minimal\synthesize.obj"
+".\vc_mswu\minimal\tr_english.obj"
+".\vc_mswu\minimal\tr_languages.obj"
+".\vc_mswu\minimal\translate.obj"
+".\vc_mswu\minimal\transldlg.obj"
+".\vc_mswu\minimal\voicedlg.obj"
+".\vc_mswu\minimal\voices.obj"
+".\vc_mswu\minimal\vowelchart.obj"
+".\vc_mswu\minimal\wave.obj"
+".\vc_mswu\minimal\wavegen.obj"
+".\vc_mswu\minimal\sample.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\JSD1~1.PC0\LOCALS~1\Temp\RSP65.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+compiledata.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+compiledict.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(205) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(218) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(341) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(354) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(379) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(384) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(586) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(615) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(621) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(668) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(670) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(731) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(732) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(733) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(867) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(1195) : warning C4244: '=' : conversion from 'unsigned int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\compiledict.cpp(1197) : warning C4244: '=' : conversion from 'unsigned int' to 'unsigned char', possible loss of data
+debug.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+dictionary.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(256) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(398) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(442) : warning C4244: '=' : conversion from 'unsigned int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(458) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(588) : warning C4244: 'argument' : conversion from 'int' to 'unsigned short', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(636) : warning C4244: 'argument' : conversion from 'int' to 'unsigned short', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(875) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(886) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(1006) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(1066) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(1337) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(1533) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(1534) : warning C4244: '=' : conversion from 'int' to 'unsigned char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(1844) : warning C4244: 'argument' : conversion from 'int' to 'unsigned short', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2021) : warning C4244: 'argument' : conversion from 'int' to 'unsigned short', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2422) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2434) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2445) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2514) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2552) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+C:\wxWidgets-2.6.2\projects\espeakedit\src\dictionary.cpp(2557) : warning C4244: '=' : conversion from 'int' to 'char', possible loss of data
+espeak_command.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+espeakedit.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+event.cpp
+C:\wxWidgets-2.6.2\projects\espeakedit\src\speech.h(21) : error C2501: 'xxtest' : missing storage-class or type specifiers
+extras.cpp
+cl.exe terminated at user request.
+
+</pre>
+</body>
+</html>

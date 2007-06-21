@@ -138,6 +138,14 @@ phoneme aI
 endphoneme
 
 
+phoneme EI
+  vowel  starttype (e)  endtype (i)
+  length 210
+  formants vdiph/eei
+endphoneme
+
+
+
 phoneme OY
   vowel starttype (o) endtype (i)
   length 220

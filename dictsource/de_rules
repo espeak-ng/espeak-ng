@@ -47,10 +47,17 @@
           _) a (natioP1   'A:
           _) anath        anat
           _) an (der      an
+          _) angli (@     aNgli:
+          _) anglo (@     ,aNglo:
+          _) anheim (C@P6 anh'aIm
+          _) animal       ,ani:mA:l
+          _) anim         ,ani:m
+          _) ani (s       %ani:
           _) anti (@P4    ,antI
           _) an (tw       an
           _) auf (@P3     _!'aUf
           _) aus (@P3     _!'aUs
+          _) aus (ku      aUs
 
              a (_         A:
              a (C_        A:
@@ -58,10 +65,12 @@
           @) a (bel_      'A:
           s) a (g         A:
          @l) a (g         A:
+       schl) ag (ge       A:k
         scl) a (g         A:
-        sor) a (ch        A:
+        spr) a (ch        A:
           s) a (m_        A:
           s) a (mkeit     A:
+         gr) a (mm_       'a
              a (isier     a
           _) achs (@P4    'aks
           _) achs (el     'aks
@@ -97,7 +106,10 @@
              a (tion      a
           _) au (Ceinand  aU
           _) aufent       aUf@nt
+             austra (l    %aUst@-*A
           _) authen       aUtEn
+             ay (_        EI
+          p) ay           EI
 
 .group b
           _) b (_         be:
@@ -162,10 +174,9 @@
          äu) ch           C
          eu) ch           C
           C) chen (_$4    C@n
-          ä) chen (_$4    C@n
-          e) chen (_$4    C@n
-//          i) chen (_$4    C@n
-          ü) chen (_$4    C@n
+          ä) chen (_      C@n
+          e) chen (_      C@n
+          ü) chen (_      C@n
 
           _) chr          k@-*
              chs          ks (_
@@ -201,6 +212,9 @@
              dt           t
              ddt          t
 
+          _) darüber (@P7 da*'y:b@*
+          _) darum (@P5   da*'Um
+          _) darunter (@P8 da*'Unt@*
           _) daten (@P5   d'at@n
           _) deal         _^_EN
           _) deme         de:mE
@@ -561,7 +575,7 @@
           s) ien (_       'i:@n
           t) ien (_       'i:@n
           &) iens (_      =I;@ns
-          &) ient (_      I'Ent
+             ient (_      I'Ent
           &) ienz (_      I'Ents
         sch) ie (n        i:
           @) ie (reX      'i:
@@ -729,7 +743,6 @@
 
           _) para (@      p,a*a
              passagie     pasaZ'i:
-          _) pay          _^_EN
           _) peri         p,e:*i:
           _) perio        p,e:*Io:
           _) periphe      p,e:*i:fe:
@@ -745,7 +758,7 @@
           _) polik        p'o:li:k
           _) po (lit        p%o:
              pool         _^_EN
-             power        _^_EN
+             power        paU@*
           _) preß (@P4    p@-*'Es
           _) prinzipien (@P9  p@-*Ints'i:pI@
           _) privat (@P6  p@-*i:v'A:t
@@ -768,6 +781,7 @@
           _) rh           @-*
 
              rangier      @-*A:NZ'i:*
+          _) re (d        re:
 
 .group s
           _) s (_         Es

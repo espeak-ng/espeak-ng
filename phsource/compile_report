@@ -10,7 +10,7 @@
    en_wm  30  144
       af  38  128
       cy  29  122
-      de  31  122
+      de  32  123
       eo  13  108
       fi  40  127
       fr  32  118
@@ -318,7 +318,7 @@
   1  vdiph/au_3     en_rp
   6  vdiph/au_4     base2 cy eo sk it is
   1  vdiph/ee-e     hi
-  3  vdiph/eei      en pt vi
+  4  vdiph/eei      en de pt vi
   2  vdiph/eei_2    eo fi
   3  vdiph/eei_3    en_us en_rp sk
   1  vdiph/eei_4    nl

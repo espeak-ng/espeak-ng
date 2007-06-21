@@ -2061,7 +2061,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 							p -= utf8_in(&letter_w,p,1);
 						}
 						if(!failed)
-							match.points += (19-distance_left);
+							match.points += 3;
 					}
 					break;
 
@@ -2106,7 +2106,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					if(letter == rb)
 					{
 						if(letter == RULE_SPACE)
-							match.points += 3;
+							match.points += 4;
 						else
 							match.points += (21-distance_left);
 					}
