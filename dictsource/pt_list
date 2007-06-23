@@ -515,21 +515,21 @@ _é	,e&g'udU
 a       a $atend
 e       E $atend        // assume letter-e at end of sentence
 o       O $atend
-à	,agR'avi $atend
-é	,e||&g'udU $atend
+à	a $atend
+é	E $atend
 
-á	,a||&g'udU
-â	,a||sirkuNfl'EksU
-ã	,atS'iU
-ç	s,esed'elj&
-è       ,egR'avi
-ê	,e||sirkuNfl'EksU
-í	,i&g'udU
-ó	,o&g'udU
-ô	,o||sirkuNfl'EksU
-õ	,otS'iU
-ú	,u&g'udU
-ü	,utR'em&
+_á	,a||&g'udU
+_â	,a||sirkuNfl'EksU
+_ã	,atS'iU
+_ç	s,esed'elj&
+_è       ,egR'avi
+_ê	,e||sirkuNfl'EksU
+_í	,i&g'udU
+_ó	,o&g'udU
+_ô	,o||sirkuNfl'EksU
+_õ	,otS'iU
+_ú	,u&g'udU
+_ü	,utR'em&
 
 
 // some common adjectives and adverbs

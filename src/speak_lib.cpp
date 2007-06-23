@@ -283,6 +283,7 @@ static void init_path(const char *path)
 	HKEY RegKey;
 	unsigned long size;
 	unsigned long var_type;
+	char *env;
 	unsigned char buf[100];
 
 	if(path != NULL)
@@ -290,6 +291,14 @@ static void init_path(const char *path)
 		sprintf(path_home,"%s/espeak-data",path);
 		return;
 	}
+
+	if((env = getenv("espeak-path")) != NULL)
+	{
+		sprintf(path_home,"%s/espeak-data",env);
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists 
+	}
+
 	buf[0] = 0;
 	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
 	size = sizeof(buf);
@@ -299,10 +308,19 @@ static void init_path(const char *path)
 	sprintf(path_home,"%s\\espeak-data",buf);
 
 #else
+	char *env;
+
 	if(path != NULL)
 	{
 		snprintf(path_home,sizeof(path_home),"%s/espeak-data",path);
 		return;
+	}
+
+	if((env = getenv("ESPEAK-DATA-PATH")) != NULL)
+	{
+		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists 
 	}
 
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));

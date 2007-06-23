@@ -188,11 +188,11 @@ void VoiceDlg::OnCommand(wxCommandEvent& event)
 		break;
 
 	case VD_LOAD:
-		Load();
+//		Load();
 		break;
 
 	case VD_SAVE:
-		Save();
+//		Save();
 		break;
 
 	case VD_USEPITCH:
@@ -260,6 +260,7 @@ void VoiceDlg::OnSpin(wxSpinEvent& event)
 	ReadParams();
 }
 
+#ifdef deleted
 void VoiceDlg::Save()
 {//==================
 	int pk;
@@ -326,7 +327,7 @@ void VoiceDlg::Load()
 	SetSpinCtrl(voicedlg->vd_pitch2,pitch2);
 	ReadParams();
 }  // end of VoiceDlg::Load
-
+#endif
 
 void VoiceDlg::SetFromSpect(SpectSeq* spect)
 {//=========================================

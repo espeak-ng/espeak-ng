@@ -150,6 +150,8 @@ extern unsigned char env_fall[128];
 extern unsigned char env_rise[128];
 extern unsigned char env_frise[128];
 
+#define MAX_PITCH_VALUE  101
+extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 
 // queue of commands for wavegen
 #define WCMD_AMPLITUDE 1

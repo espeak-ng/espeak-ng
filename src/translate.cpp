@@ -287,7 +287,7 @@ const unsigned short *charsets[N_CHARSETS] = {
 // use this table if vowel is not the last in the word
 static unsigned char length_mods_en[100] = {
 /*  a   ,   t   s   n   d   z   r   N   <- next */
-	100,120,100,105, 95,110,110,100, 95, 100,  /* a  <- next2 */
+	100,120,100,105,100,110,110,100, 95, 100,  /* a  <- next2 */
 	105,120,105,110,125,130,135,115,125, 100,  /* , */
 	105,120, 75,100, 75,105,120, 85, 75, 100,  /* t */
 	105,120, 85,105, 95,115,120,100, 95, 100,  /* s */
@@ -846,6 +846,8 @@ strcpy(phonemes2,phonemes);
 
 //					if(found || (dictionary_flags2 != 0))
 //						prefix_flags = 1;        // ?? this looks wrong
+					if((found==0) && (dictionary_flags2 != 0))
+						prefix_flags = 1;
 				}
 				if(found == 0)
 				{

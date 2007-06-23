@@ -202,7 +202,6 @@ void DisplayVoices(FILE *f_out, char *language)
 static void PitchAdjust(int pitch_adjustment)
 {//==========================================
 	int ix, factor;
-	extern unsigned char pitch_adjust_tab[100];
 
 	voice->pitch_base = (voice->pitch_base * pitch_adjust_tab[pitch_adjustment])/128;
 
@@ -228,7 +227,15 @@ static void init_path(void)
 	HKEY RegKey;
 	unsigned long size;
 	unsigned long var_type;
+	char *env;
 	unsigned char buf[100];
+
+	if((env = getenv("espeak-path")) != NULL)
+	{
+		sprintf(path_home,"%s/espeak-data",env);
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists 
+	}
 
 	buf[0] = 0;
 	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
@@ -238,6 +245,15 @@ static void init_path(void)
 
 	sprintf(path_home,"%s\\espeak-data",buf);
 #else
+	char *env;
+
+	if((env = getenv("ESPEAK-DATA-PATH")) != NULL)
+	{
+		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists 
+	}
+
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{

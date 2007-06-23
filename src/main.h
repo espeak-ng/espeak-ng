@@ -86,7 +86,7 @@ class MyChild: public wxMDIChildFrame
     void OnSaveAs(wxCommandEvent& event);
     void OnSaveSelect(wxCommandEvent& event);
     void OnSavePitchenv(wxCommandEvent& event);
-    void OnVoiceDlg(wxCommandEvent& event);
+//    void OnVoiceDlg(wxCommandEvent& event);
 
 DECLARE_EVENT_TABLE()
 };

@@ -5,14 +5,50 @@
 // 1.  Change ['i:] to [=I@] at end of word 
 
 
-// Letters
-//========
+// Characters
+//===========
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
+// Include a _ before a character if it's name should only be
+// spoken when "speak punctuation" option is on.
+
 _.	pUnkt
 _,	kOma
+
+€	OY*o:
+£	paUnd
+%	p@-*o:ts'Ent
+&	Unt
+@	kl'ame:*,af@
+#	nUm3
++	plUs
+=	glaIC
+~	tIld@
+\ 	bEkslES
+
+_|	paIp
+_:	d'Op@lp,UNkt
+_;	St@-*'ICpUNkt
+__	,Unt3St@-*'IC
+_-	b'IndEst@-*,IC
+_!	'aUs_|@-*,u:fe:ts,aIC@n
+_?	f@-*'Age:ts,aIC@n
+_'	'apOst@-*,Of
+_"	'anf,y:*UNsts,aIC@n
+_/	S@-*'Egst@-*IC
+_(	kl'am3||_|'aUf
+_)	kl'am3||ts'u:
+_{	g@Sv'aIft@kl'am3||_|'aUf
+_}	g@Sv'aIft@kl'am3||ts'u:
+_[	'EkIg@kl'am3||_|'aUf
+_]	'ECIg@kl'am3||ts'u:
+_<	klaIn3
+_>	g@-*Ws3
+_`	g@-*A:v
+_^	sI*kUmflEks
+_—	g@d'ank@nSt@-*,IC
 
 
 // Numbers

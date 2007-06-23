@@ -186,6 +186,7 @@ void SetParameter(int parameter, int value, int relative)
 
 	case espeakPITCH:
 		if(new_value > 99) new_value = 99;
+		if(new_value < 0) new_value = 0;
 		embedded_value[EMBED_P] = new_value;
 		break;
 

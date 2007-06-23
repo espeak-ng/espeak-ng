@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -91,6 +91,7 @@ brittanje   $2
 ceylon      s@lOn
 china       S'ina
 engeland    'EN@lant
+kanada      kanad%a
 kongo       kONgu
 mesopotamië mEsuput'A:mi@
 mosambiek   musamb'ik
@@ -116,6 +117,7 @@ bothma      bOtma
 breytenbach breIt@nbax2
 carl        kA:r@L
 charles     _^_EN
+chopin      S%OpA~
 chris       krIs
 christo     krIstu
 christian   krIstian
@@ -137,6 +139,8 @@ george      _^_EN
 gerhard     x2&rart
 grange      x2rA:nsi
 gustav      gustaf
+haydn       hAId@n
+helena      hil'e@na
 jacobus     jako@bWs
 jacques     ZA:k
 jane        _^_EN
@@ -144,6 +148,7 @@ jean        ZA~n
 jesus       ji:sWs
 joey        dZ@Ui
 john        _^_EN
+lategan     lA:t@x2an
 le l@
 leandra     li'andra
 leroux      l@ru
@@ -155,10 +160,12 @@ louw l'@U
 maria mar'ia
 martin m'A:rt@n
 michiel $2
-mostert m'Ost@rt
+mostert     m'Ost@rt
+mozart      mo@tsart
 natasha n%at'aSa
 paul        p@Ul
 paulus      p@UlWs
+philip      fIl@p
 pierre p'e@r
 petrus      pe@trWs
 phoebe      fi:bi
@@ -171,6 +178,7 @@ schalk sk'alk
 scheepers   ske@p@rs
 schoor      sko@r
 shakespeare _^_EN
+tania       tanja
 terblanche  t@rblA:nS
 theron tr'On
 viljoen     $2
@@ -235,6 +243,7 @@ omdat		$pause
 sodat		$pause
 voordat		$pause
 nadat		$pause
+ofskoon         $2 $pause
 totdat		tOdat $pause
 as		,as  $pause
 soos		$pause
@@ -334,7 +343,7 @@ bv          beIf'o@rbe@lt
 aanbid        $2
 aanstaande    $2
 agenda        ax2'Enda
- aikôna  %aik'O:na
+algaande      $2
 algehele      alx2@h,e@l@
 alles         al@s
 alternatiewe  $4
@@ -358,7 +367,6 @@ betekenis     b@te@k@n@s
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
-biblioteek    $4
 bostaande b'o@stA:nd@
 
 dadelik       dA:d@lIk
@@ -401,12 +409,12 @@ gomorra       x2@mOra
 
 hallo         h'Il,@U
 hanteer       $2
+hardop        hart?Op
 heeltemal     he@lt@mal
 heengaan      he@nx2A:n
 hek           h&k
 hekke         h&k@
 helaas        he@l'A:s
-hele          he@l@
 here          he@r@
 hoewel        huv'&l
 hoofsaaklik   $2
@@ -416,8 +424,8 @@ idee          $2
 ietwat        itvat
 ignoreer      ix2no@r'e@r
 inagneming    @nax2ne@m@N
-inderdaad     @nd@rd'A:t
 ingang        Inx2aN
+inkluis       $2
 intens @nt'Ens
 intensiteit   $4
 
@@ -435,6 +443,7 @@ krediet       kr@dit
 kritiek       krIt'ik
 kultuur       $2
 kunsmatige    kWnsm'A:t@x2@
+kwansuis      $2
 
 latere l'A:t@r@
 lekker        l&k@r
@@ -472,7 +481,7 @@ numeri        nWm@ri
 
 omtrent       Omtr'Ent
 onbegrip      $1
-onderstebo    On@rst@b,o@
+onderweg      $3
 onderwyser    $3
 ongeag        $1
 ongeduld      $1
@@ -491,6 +500,8 @@ onraad        $1
 onrus         $1
 oorkom        $2
 oorleef       $2
+oorsee        $2
+oorsese       $2
 oorspronklike $2
 oranje        $2
 
@@ -517,10 +528,8 @@ sobere s'o@b@r@
 sombere s'Omb@r@
 sodra         so@dr'A:
 sogenaamde    s'o@x2@n,A:md@
-soldaat       $2
-soldate       $2
-sononder      sOn,On@r
-sonop         sOn,Op
+sononder      sOn_On@r
+sonop         sOn_Op
 sover         so@f&r
 spesmaas      $2
 stabiel       stab'il
@@ -542,11 +551,7 @@ uiteindelik   $2
 
 vaarwel       fA:rv'&l
 vanaf         fanaf
-vandag        $2
-vandaan       $2
-vanjaar       $2
-vanoggend     fan'Ox2@nt
-vanuit        fan'Yyt
+vandat      $1
 veraf         f&r_af
 verafgeleë    f&rafx2@le@@
 verantwoordelikheid f@rantv'o@rd@l@keIt
@@ -571,6 +576,7 @@ voorgee       fo@rx2e@
 voorkom       $2
 voormalige    fo@rm'A:l@x2@
 voorsien      $2
+vorendag      $3
 vorige        fo@r@x2@
 vrek          fr&k
 

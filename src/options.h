@@ -32,7 +32,6 @@ extern void ConfigSetPaths();
 extern wxString path_spectload;
 extern wxString path_spectload2;
 extern wxString path_pitches;
-extern wxString path_voices;
 extern wxString path_phsource;
 extern wxString path_dictsource;
 extern wxString path_modifiervoice;

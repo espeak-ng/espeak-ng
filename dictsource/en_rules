@@ -563,7 +563,7 @@
          f)  all (a       al
          f)  all (ib      al
         _C)  all (ow      al
-         h)  all (w       O:l
+         h)  all (C       O:l
         sm)  all          O:l
         st)  all          O:l
          t)  all          O:l
@@ -4227,8 +4227,9 @@
          _)  re (dC       rE
          _)  re (dr       r%i:
          _)  re (eduP2    r%i:
-         _)  re (eqP2     r%i:
+         _)  re (emP2     r%i:
          _)  re (enP2     r%i:
+         _)  re (eqP2     r%i:
          _)  re (exP2     r%i:
              referend     rEf@r'End
              re (fug      rE

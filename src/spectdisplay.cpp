@@ -1007,7 +1007,7 @@ void InitSpectrumDisplay()
 	menu_spectdisplay->Append(207,_T("Hide Interpolation	CTRL+SHIFT+Q"));
 	menu_spectdisplay->Append(205,_T("Zero Peaks	CTRL+Z"));
 	menu_spectdisplay->Append(210,_T("Toggle Marker"),menu_markers);
-	menu_spectdisplay->Append(211,_T("Apply the formant adjustments from current voice"));
+	menu_spectdisplay->Append(211,_T("Apply the formant adjustments from a voice file"));
 	menu_spectdisplay->AppendSeparator();
 	menu_spectdisplay->Append(208,_T("Play Selected Frame	F1"));
 	menu_spectdisplay->Append(209,_T("Play All	F2"));

@@ -75,7 +75,7 @@ phoneme t
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
   wave  ustop/t_dnt%60
-  before _ ustop/t_dnt%30
+  before _ ustop/t_dnt%35
   before r ustop/tr
   switchvoicing d
 endphoneme

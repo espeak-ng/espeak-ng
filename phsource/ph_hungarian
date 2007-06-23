@@ -8,7 +8,7 @@ endphoneme
 
 phoneme i:
   vowel starttype (i) endtype (i)
-  length 200
+  length 220
   formants vowel/i
 //  linkout ;
 endphoneme
@@ -27,7 +27,7 @@ endphoneme
 
 phoneme e:
   vowel starttype (e) endtype (e)
-  length 240
+  length 250
   formants vowel/e_3
 endphoneme
 
@@ -114,7 +114,7 @@ phoneme t        // dental variant of /t/
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
   wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%35
+  before _ ustop/t_dnt%45
   switchvoicing d
 endphoneme
 

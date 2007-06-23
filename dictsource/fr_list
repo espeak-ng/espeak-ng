@@ -179,7 +179,7 @@ mbrola		Em'bRola
 mlle		mad@mwaz'El
 mme		mad'am
 mr		m@sj'Y
-p.s		pOstkRipt'Om
+p.s		pOftkRipt'Om
 ratp		'ER:'a:t'e:p'e
 s.t.p		s'il:t'@:pl'E
 s.v.p		s'il:v'u:pl'E
@@ -318,7 +318,8 @@ où	$pause
 
 // auxillary verbs  (be, have, can, etc)
 suis	$u+  $verb
-est	E $u+
+est	Et2  $u+
+d'est	d'Est
 sommes  $u+
 êtes	$u+
 sont	$u+
@@ -356,8 +357,13 @@ y       i:gR'Ek      $atend
 
 scient           si
 bénéficient      benefisi $verb
-président        pRezidA~t2
+président        pRezid'A~
 président        pRezidt2 $verb
+résident         Rezid'A~
+résident         Rezidt2 $verb
+évident         evid'A~
+évident         evidt2 $verb
+couvent           k'uvt2  $verb
 
 
 // MAIN WORD DICTIONARY
@@ -387,6 +393,20 @@ fils	      fis
 mars	      maRs
 pays	      pEi
 pourcent      puRs'A~
+absent        abs'A~
+ardent        ard'A~
+prudent       pRyd'A~
+imprudent     E~pRyd'A~
+discident     disid'A~
+accident      aksid'A~
+occident      Oksid'A~
+l'occident    lOksid'A~
+orient        Orj'A~
+l'orient      lOrj'A~
+secret        sYkR'E
+secrets       sYkR'E
+
+
 sens	      sA~s
 c'est         sEt2 $u
 qu'à          ka

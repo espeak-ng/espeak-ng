@@ -911,7 +911,7 @@ phoneme t[        // dental variant of /t/
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
   wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%25
+  before _ ustop/t_dnt%35
   before r ustop/tr
   switchvoicing d[
 endphoneme
@@ -1235,5 +1235,8 @@ phonemetable sw base
 include ph_swahili
 
 
-//phonemetable f_en base
+//phonemetable basef base
+//include pf
+
+//phonemetable f_en basef
 //include pf_english

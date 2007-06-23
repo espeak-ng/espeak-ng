@@ -139,16 +139,6 @@ extern void VoiceReset(int control);
 		CompileInit();
 		exit(0);
 	}
-	if(strcmp(param,"--lex=ru")==0)
-	{
-		if(LoadPhData() != 1)
-		{
-			fprintf(stderr,"Failed to load phoneme data\n");
-			exit(1);
-		}
-		CompareLexicon(MENU_LEXICON_RU);
-		exit(0);
-	}
 }
 
 	gui_flag = 1;
@@ -531,8 +521,8 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 
 	case MENU_SPEAK_VOICE:
 		transldlg->ReadVoice();
-		if(voicedlg != NULL)
-			voicedlg->WriteParams();
+//		if(voicedlg != NULL)
+//			voicedlg->WriteParams();
 		SetVoiceTitle(voice_name);
 		break;
 	}

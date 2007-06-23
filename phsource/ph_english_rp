@@ -99,7 +99,7 @@ endphoneme
 
 
 phoneme U
-  vowel  starttype (u)  endtype (u)
+  vowel  starttype (o)  endtype (o)
   length 150
   formants vowel/o-_3
 endphoneme

@@ -45,7 +45,6 @@ wxString path_spectload2;
 wxString path_pitches;
 wxString path_wave;
 wxString path_speech;
-wxString path_voices;
 wxString path_phsource;
 wxString path_dictsource;
 wxString path_speaktext;
@@ -162,7 +161,6 @@ void ConfigInit()
 	pConfig->Read(_T("/pitchpath"),&path_pitches,basedir+_T("/pitch"));
 	pConfig->Read(_T("/wavepath"),&path_wave,wxEmptyString);
 	pConfig->Read(_T("/speechpath"),&path_speech,wxEmptyString);
-	pConfig->Read(_T("/voicepath"),&path_voices,basedir+_T("/voices"));
 	pConfig->Read(_T("/voicename"),&string,wxEmptyString);
 	strcpy(voice_name,string.mb_str(wxConvLocal));
 	pConfig->Read(_T("/phsource"),&path_phsource,basedir+_T("/phsource"));
@@ -189,7 +187,6 @@ void ConfigSave(int exit)
 	pConfig->Write(_T("/pitchpath"),path_pitches);
 	pConfig->Write(_T("/wavepath"),path_wave);
 	pConfig->Write(_T("/speechpath"),path_speech);
-	pConfig->Write(_T("/voicepath"),path_voices);
 	pConfig->Write(_T("/voicename"),wxString(voice_name,wxConvLocal));
 	pConfig->Write(_T("/phsource"),path_phsource);
 	pConfig->Write(_T("/dictsource"),path_dictsource);

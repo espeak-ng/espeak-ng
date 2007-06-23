@@ -144,7 +144,7 @@ int wcmdq_tail=0;
 
 // pitch,speed,
 int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,50, 0,170,0,0,0,0,0};
-static int embedded_max[N_EMBEDDED_VALUES]     = {0,99,360,300,99,99,99, 0,360,0,0,0,0,4};
+static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,360,300,99,99,99, 0,360,0,0,0,0,4};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;
@@ -303,7 +303,7 @@ static unsigned char wavemult[N_WAVEMULT] = {
    
 
 // set from y = pow(2,x) * 128,  x=-1 to 1
-unsigned char pitch_adjust_tab[100] = {
+unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
     64, 65, 66, 67, 68, 69, 70, 71,
     72, 73, 74, 75, 76, 77, 78, 79,
     80, 81, 82, 83, 84, 86, 87, 88,
@@ -316,7 +316,7 @@ unsigned char pitch_adjust_tab[100] = {
    174,176,179,181,184,186,189,191,
    194,197,199,202,205,208,211,214,
    217,220,223,226,229,232,236,239,
-   242,246,249,252 };
+   242,246,249,252, 254,255 };
 
 int WavegenFill(int fill_zeros);
 
@@ -1440,6 +1440,7 @@ void SetEmbedded(int control, int value)
 	int command;
 	int ix;
 	int factor;
+	int pitch_value;
 
 	command = control & 0x1f;
 	if((control & 0x60) == 0x60)
@@ -1462,7 +1463,10 @@ void SetEmbedded(int control, int value)
 	case EMBED_P:
 	case EMBED_T:
 		// adjust formants to give better results for a different voice pitch
-		factor = 256 + (25 * (embedded_value[EMBED_P] - 50))/50;
+		if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
+			pitch_value = MAX_PITCH_VALUE;
+
+		factor = 256 + (25 * (pitch_value - 50))/50;
 		for(ix=0; ix<=5; ix++)
 		{
 			wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
@@ -1521,6 +1525,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	int x;
 	int base;
 	int range;
+	int pitch_value;
 
 #ifdef LOG_FRAMES
 f_log=fopen("log-espeakedit","a");
@@ -1547,7 +1552,12 @@ f_log=NULL;
 		pitch2 = x;
 	}
 
-	base = (wvoice->pitch_base * pitch_adjust_tab[embedded_value[EMBED_P]])/128;
+	if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
+		pitch_value = MAX_PITCH_VALUE;
+	if(pitch_value < 0)
+		pitch_value = 0;
+
+	base = (wvoice->pitch_base * pitch_adjust_tab[pitch_value])/128;
 	range =  (wvoice->pitch_range * embedded_value[EMBED_R])/50;
 
 	// compensate for change in pitch when the range is narrowed or widened

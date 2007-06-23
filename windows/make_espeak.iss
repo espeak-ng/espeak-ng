@@ -2,12 +2,13 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.26
+AppVerName=eSpeak version 1.26.10
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeak
 Compression=lzma
 SolidCompression=yes
+ShowLanguageDialog=auto
 
 [InstallDelete]
 Type: files; Name: "{app}\espeak.dll"
@@ -33,6 +34,36 @@ Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_3"; Flags: d
 Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_4"; Flags: deletekey uninsdeletekey
 Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_5"; Flags: deletekey uninsdeletekey
 Root: HKLM; Subkey: "Software\Microsoft\Speech\PhoneConverters\Tokens\eSpeak"; Flags: deletekey uninsdeletekey
+
+
+[Languages]
+Name: "en"; MessagesFile: "compiler:Default.isl"
+Name: "af"; MessagesFile: "compiler:Languages\Afrikaans.isl"
+Name: "cs"; MessagesFile: "compiler:Languages\Czech.isl"
+Name: "de"; MessagesFile: "compiler:Languages\German.isl"
+Name: "el"; MessagesFile: "compiler:Languages\Greek.isl"
+Name: "es"; MessagesFile: "compiler:Languages\Spanish.isl"
+Name: "fi"; MessagesFile: "compiler:Languages\Finnish.isl"
+Name: "fr"; MessagesFile: "compiler:Languages\French.isl"
+Name: "hr"; MessagesFile: "compiler:Languages\Croatian.isl"
+Name: "hu"; MessagesFile: "compiler:Languages\Hungarian.isl"
+Name: "it"; MessagesFile: "compiler:Languages\Italian.isl"
+Name: "nl"; MessagesFile: "compiler:Languages\Dutch.isl"
+Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
+Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
+Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
+Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
+Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
+Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
+
+[CustomMessages]
+v1=Select which voices to install
+v2=or press Enter to accept defaults
+v3=Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+13
+
+pt.v1=Seleccione as vozes que pretende instalar
+pt.v2=ou precione enter para aceitar as predefinidas.
+pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras características, ex: pt+13
 
 
 
@@ -81,6 +112,13 @@ begin
   $41: Result := 'sw';
   $52: Result := 'cy';
   end;
+
+  // is there a match on the full language code?
+  case language of
+  $816: Result := 'pt-pt';
+  $81a: Result := 'sr';
+  $c1a: Result := 'sr';
+  end;
 end;
 
 
@@ -123,6 +161,7 @@ begin
   'ro': value := $418;
   'ru': value := $419;
   'sk': value := $41b;
+  'sr': value := $81a;
   'sv': value := $41d;
   'sw': value := $441;
   'vi': value := $42a;
@@ -283,10 +322,8 @@ var
 begin
   // Create the language selection page
   lang := ActiveLanguage;
-  Page := CreateInputQueryPage(wpSelectDir,
-  'Select which voices to install', 'or press Enter to accept defaults',
-  'Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+13');
-  
+  Page := CreateInputQueryPage(wpSelectDir,CustomMessage('v1'),CustomMessage('v2'),CustomMessage('v3'));
+
   // Add items (False means it's not a password edit)
   Page.Add('', False);
   Page.Add('', False);

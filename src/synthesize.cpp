@@ -67,8 +67,6 @@ static voice_t *new_voice=NULL;
 int n_soundicon_tab=0;
 SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
-#define RMS1  16      //
-#define RMS2  20      // 16 - 20
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
 #define RMS_START  28  // 14 - 30
 
