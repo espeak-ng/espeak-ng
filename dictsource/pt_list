@@ -6,9 +6,27 @@
 // ?2  Brazilian Portuguese
 
 
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
 
 
 // character names
+
+_á	,a&g'udU
+_à	,agR'avi
+_â	,asirkuNfl'EksU
+_ã	,atS'iU
+_ç	s,esed'elj&
+_é	,e&g'udU
+_ê	,asirkuNfl'EksU
+_í	,i&g'udU
+_ó	,o&g'udU
+_ô	,osirkuNfl'EksU
+_õ	,otS'iU
+_ú	,u&g'udU
+_ü	,utR'em&
 
 _cap	maI'uskulU
 _?A	l'etR&
@@ -183,20 +201,19 @@ unts      $abbrev
 usb       $abbrev
 
 // roman numerals
-?1 ii	d'oIs#      $abbrev
+?1 ii	d'oIs#       $abbrev    
 ?1 iii	tr'es#      $abbrev
-?1 iv	kw'atru     $abbrev
+?1 iv	kw'atru       $abbrev
 
 
-dr	$dot
-dra	$dot
-mr	$dot
-mrs	$dot
-prof	pr'Of  $dot
-sr	$dot
-?1 sra	,Es;'Errj'a $dot
-?2 sra	$dot
-
+dr                           $dot
+dra                           $dot
+mr                           $dot
+mrs                           $dot
+prof       pr'Of         $dot
+sr                           $dot
+?1 sra                ,Es;'Errj'a           $dot
+?2 sra              $dot
 
 // articles
 o	$u+
@@ -502,34 +519,12 @@ há	$u+
 
 
 // Letter names
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
-//   a e o à é  can also be words
-
 _a      a
 _e      E
 _o	O
-_à	,agR'avi
-_é	,e&g'udU
 a       a $atend
 e       E $atend        // assume letter-e at end of sentence
 o       O $atend
-à	a $atend
-é	E $atend
-
-_á	,a||&g'udU
-_â	,a||sirkuNfl'EksU
-_ã	,atS'iU
-_ç	s,esed'elj&
-_è       ,egR'avi
-_ê	,e||sirkuNfl'EksU
-_í	,i&g'udU
-_ó	,o&g'udU
-_ô	,o||sirkuNfl'EksU
-_õ	,otS'iU
-_ú	,u&g'udU
-_ü	,utR'em&
 
 
 // some common adjectives and adverbs
@@ -600,7 +595,7 @@ roxo         x'oSU
 ?1 end        'end
 ?1 escape     Sk'eIpy
 ?1 explorer   ,ekspl'O:r&r-
-?2 explorer   ekspl'O*er
+?2        Explorer        ekspl'O*er
 ?1 eyes       'aiz
 ?1 frame      fr'eImy
 ?2 frame      fR'eImi
@@ -627,7 +622,7 @@ roxo         x'oSU
 ?2 maior      maI'Or
 ?1 menor      myn'Or-
 ?2 menor      men'Or
-?2 mouse      m'aUzi
+?2        mouse        m'aUzi
 ?1 menu       menu
 ?1 next       n'Ekst
    ok         Ok'eI
@@ -645,8 +640,8 @@ roxo         x'oSU
 ?1 scroll     sk:r'ol
 ?1 site       s'aIt
 ?2 site       s'aItSi
-?1 software   s'Oft,w'Er-
-?2 software   s'Oftwe@-
+?1   software   s'Oft,w'Er-
+?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing
 ?1 tab        t'ab
@@ -673,8 +668,8 @@ louis       _^_FR
    espeak      isp'i:k
 ?1 espeakedit   isp'i:kEd,it
 ?1 fedora      _^_EN
-?1 firefox     f'ai&rfOks
-?2 firefox     f'ai@fOks
+?1   firefox     f'ai&rfOks
+?2    firefox     f'ai@fOks
 ?1 front       fr'ont
 ?1 jaws        dZ'au:z
 ?2 jaws        dZ'Os
@@ -691,6 +686,7 @@ louis       _^_FR
 ?1 office      'Of,is
    openoffice  'opeIN|'Ofis
 ?1 outlook     'autl'uk
+?2        Outlook        ,aUtl'uk
 ?1 paint       p'aint
 ?1 player      pl'eI&r-
 ?1 point       p'oint
@@ -699,9 +695,10 @@ louis       _^_FR
 ?1 Publisher   p'&bl,iS&r-
 ?1 reader      r'id,&r-
 ?1 setup       s'Et'&p
-?1 scout       sk'aut // Nero scout
+?1 scout       sk'aut // Nero scout       
 ?1 skype       sk'aip
-   slackware   sl'akwe@
+?2        Skype        sk'aIp
+        Slackware   sl'akwe@-
 ?1 smart       sm'art // nero StartSmart
    speak       spi:k
    suse        z'u:ts@

@@ -364,6 +364,8 @@ résident         Rezidt2 $verb
 évident         evid'A~
 évident         evidt2 $verb
 couvent           k'uvt2  $verb
+concurrent        kO~kyR'A~
+récurrent        rekyR'A~
 
 
 // MAIN WORD DICTIONARY
@@ -408,7 +410,7 @@ secrets       sYkR'E
 
 
 sens	      sA~s
-c'est         sEt2 $u
+c'est         sEt2 $u+
 qu'à          ka
 qu'y          ki
 s'y              si

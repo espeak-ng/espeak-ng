@@ -4,7 +4,7 @@
 _0        nullA
 _1        EJ
 _2        kEttY:
-_3        ha:Rom
+_3        ha:R2om
 _4        ne:J
 _5        Yt
 _6        hAt
@@ -15,7 +15,7 @@ _10       ti:z
 _1X       tizEn
 _20       hu:s
 _2X       huson
-_3X       hARmints
+_3X       hAR2mints
 _4X       nEJvEn
 _5X       YtvEn
 _6X       hAtvAn
@@ -25,15 +25,15 @@ _9X       kilEntsvEn
 _0C       sa:z
 _1C       sa:z
 
-_0M1      EzER
-_1M1      EzER
-_2M1      ke:tEzER
+_0M1      EzER2
+_1M1      EzER2
+_2M1      ke:tEzER2
 _0M2      millio:
 _1M2      millio:
 _2M2      ke:tmillio:
-_0M3      millia:Rd
-_1M3      millia:Rd
-_1M3      ke:tmillia:Rd
+_0M3      millia:R2d
+_1M3      millia:R2d
+_1M3      ke:tmillia:R2d
 _0M4      billio:
 _1M4      billio:
 _2M4      ke:tbillio:
@@ -41,11 +41,11 @@ _dpt      ||_vEss2Y:_
 
 
 // Abbreviations
-km	kilo:me:tER
-mm      milime:tER
+km	kilo:me:tER2
+mm      milime:tER2
 
 a.m	An^n^i||m'int  $dot
-dr	doktoR  $dot
+dr	doktoR2  $dot
 gpu	$abbrev
 id	idY:SEb:  $dot
 ill	illEdvE  $dot
@@ -58,11 +58,32 @@ u.n	u:JnEvEzEt:   $dot
 vö	v'EZd||_'Yss2E
 
 ii	kEttY:  $abbrev
-iii	ha:Rom  $abbrev
+iii	ha:R2om  $abbrev
 iv	ne:J  $abbrev
 vi	hAt  $abbrev
 vii	he:t  $abbrev
 viii	n^olts  $abbrev
+ix	kilEnts  $abbrev
+xi	tizEnEJ  $abbrev
+xii	tizEnkEttY:  $abbrev
+xiii	tizEnha:Rom  $abbrev
+xiv	tizEnne:J  $abbrev
+xv	tizEnYt  $abbrev
+xvi	tizEnhAt  $abbrev
+xvii	tizEnhe:t  $abbrev
+xviii	tizEnn^olts  $abbrev
+xix	tizEnkilEnts  $abbrev
+xx	hu:s  $abbrev
+xxi	husonEJ  $abbrev
+xxii	husonkEttY:  $abbrev
+xxiii	husonha:Rom  $abbrev
+xxiv	husonne:J  $abbrev
+xxv	husonYt  $abbrev
+xxvi	husonhAt  $abbrev	
+xxvii	husonhe:t  $abbrev
+xxviii	husonn^olts  $abbrev
+xxix	husonkilEnts  $abbrev
+xxx	hARmints  $abbrev
 
 
 // Articles
@@ -141,9 +162,9 @@ közül	$u
 közé	$u
 között	$u
 
-ba	$u
+ba	$u	// into
 be	$u
-ra	$u
+ra	$u	// onto
 re	$u
 ik	$u
 as	$u
@@ -151,16 +172,16 @@ es	$u
 os	$u
 ós	$u
 ös	$u
-ból	$u
+ból	$u	// from inside
 ből	$u
 ról	$u
 ről	$u
 án	$u
 én	$u
-on	$u
+on	$u	// on
 en	$u
 ön	$u
-szor	$u
+szor	$u	// times
 szer	$u
 ször	$u
 
@@ -174,16 +195,36 @@ se	$u $pause  // neither
 sem	$u $pause  // nor
 miatt   $u $pause  // because
 
-ban	$u
+ban	$u	// in
 ben	$u
 hoz	$u
 hez	$u
 höz	$u
-ig	$u
-nál	$u
+ig	$u	// up to
+nál	$u	// by
 nél	$u
-tól	$u
+tól	$u	// from
 től	$u
+
+be	$u	//into
+ki	$u	// out of
+le	$u	// down
+fel	$u	// up
+föl	$u	// up
+meg	$u	// finish an action
+el	$u	// away
+át	$u	//through
+rá	$u	//onto
+ide	$u	// here
+oda	$u	// there
+szét	$u	//apart
+össze	$u	//connect with
+vissza	$u	//back
+ellen	$u	//against
+
+volna	$u	// would
+részén	$u	//on ... part of
+
 
 
 // word pairs
@@ -273,9 +314,9 @@ ny	En^
 _.	pont
 %	sa:zAle:k
 @	kukAts
-€	EuRo
+€	EuR2o
 +	plus
-§	pRARAgRAfuS
+§	pR2AR2AgR2AfuS
 
 
 

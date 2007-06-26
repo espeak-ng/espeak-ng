@@ -403,6 +403,8 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 
 //hf_reduce = 70;      // ?? using fixed amount rather than the parameter??
 
+	target = (target * voice->formant_factor)/256;
+
 	x = (target - fr->ffreq[2]) / 2;
 	if(x > max) x = max;
 	if(x < min) x = min;

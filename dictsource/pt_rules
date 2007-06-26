@@ -137,7 +137,8 @@
           e (be_     E
           e (bem_    E
           e (bes_    E
-          e (ca_    E
+
+e (ca_    E
           e (ce_     E
           e (cem_    E
           e (ces_    E
@@ -154,6 +155,10 @@
 		e (rAm_    E
 		        e (rAs_    E
 
+		        e (rsA_    E
+		        e (rsAm_    E
+		        e (rsAs_    E
+			
           e (stA_    E
           e (stAm_   E
           e (stAs_   E
@@ -205,6 +210,10 @@ e (rrA_    E
           eu         eU
           eu (s      eU
           e (uCK     e
+
+        j) e (tA_        E
+        j) e (tAm_        E
+        j) e (tAs_        E	
 
 ?1     _) es (C@@     S   // drop initial "e".
 ?1     _) e (f        i   // efectuar, etc.
@@ -399,7 +408,9 @@ e (rrA_    E
 ?1     C) oo (_      ow // eg: voo, enjoo, etc...
           oy         OI
 
-          o (Ca_     O
+        o (g_        O
+        o (gs_        O
+o (Ca_     O
 ?1        o (l_      'O
 ?2        ol (_      Ow
 ?2        olh        olj

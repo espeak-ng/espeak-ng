@@ -36,7 +36,8 @@ typedef struct {
 	int echo_amp;
 	int n_harmonic_peaks;  // highest formant which is formed from adding harmonics
 	int peak_shape;        // alternative shape for formant peaks (0=standard 1=squarer)
-	int voicing;          // 100% = 64, level of formant-synthesized sound
+	int voicing;           // 100% = 64, level of formant-synthesized sound
+	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
 
 	// parameters used by Wavegen
 	int freq[N_PEAKS];    // 100% = 256

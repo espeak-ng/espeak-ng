@@ -1110,6 +1110,8 @@ static int Wavegen()
 				hswitch = 0;
 				harmspect = hspect[0];
 				maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[0],0);
+
+				// adjust amplitude to compensate for fewer harmonics at higher pitch
 				amplitude2 = (amplitude * pitch)/(100 << 12);
 
             // switch sign of harmonics above about 900Hz, to reduce max peak amplitude

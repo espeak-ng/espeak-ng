@@ -49,7 +49,7 @@ _2	d'ue
 _3	tR'e
 _4	kw2'at:Ro
 _5	tS'inkw2e
-_6	s'ej
+_6	s'Ej
 _7	s'Et:e
 _8	'Ot:o
 _9	n'Ove
@@ -63,7 +63,7 @@ _16     s'editSi
 _17     ditSas:'Et:e
 _18     ditS'Ot:o
 _19     ditSann'ove
-_2X     v'ente
+_2X     v'entj
 _3X     t@-*'enta
 _4X     kw2aR'anta
 _5X     tSinkw2'anta
@@ -123,8 +123,8 @@ li	$u+
 
 
 // words that double the following consonant
-qualche  $double
-come     $double
+qualche  // $double
+come     // $double
 
 // possessive adjectives
 mio	$u
@@ -163,9 +163,9 @@ quelle  $u      // those
 
 
 // conjunctions
-e		$u $pause $double  // and
+e		$u $pause // $double  // and
 ed		$u $pause
-o		$u $pause $double  // or
+o		$u $pause // $double  // or
 se		$pause      // if
 ma		$pause      // but
 perché		$pause      // because
@@ -182,7 +182,7 @@ che             $u $pause   // which
 
 
 // prepositions
-a       $u $double
+a       $u // $double
 al      $u
 allo    $u
 alla    $u
@@ -218,7 +218,7 @@ negli   $u $brk
 nelle   $u $brk
 ne      $u $brk
 
-su	$u $double	// on
+su	$u //$double	// on
 sul	$u
 sullo   $u
 sulla	$u	// on the
@@ -245,13 +245,13 @@ durante    $pause       // during
 // aux verb, to be
 sono	$u
 sei	$u
-è	E  $u $double
+è	E  $u //$double
 siamo	$u
 siete	$u
 sono	$u
 fui	$u
 fosti	$u
-fu	$u $double
+fu	$u //$double
 fummo	$u
 foste	$u
 furono	$u
@@ -283,9 +283,9 @@ sareste	$u
 sarebbero	$u
 
 // aux verb, to have
-ho	$u $double
-hai	$u $double
-ha	$u $double
+ho	$u //$double
+hai	$u //$double
+ha	$u //$double
 abbiamo	$u
 avete	$u
 hanno	$u
@@ -368,8 +368,9 @@ tavol       $1   $stem
 vent        vEnt $stem
 
 celsius     tsElsj'us
-conoscerla   $1
+conoscerla   $2
 no          nO
 posta       pOsta
 tesser      tess'ER
 uomini       $1
+internet     'internet

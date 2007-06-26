@@ -366,6 +366,7 @@ void VoiceReset(int tone_only)
 	// default is:  pitch 82,118
 	voice->pitch_base =   0x49000;    // default, 73 << 12;
 	voice->pitch_range =  0x0f30;     // default = 0x1000
+	voice->formant_factor = 256;
 
 	voice->echo_delay = 0;
 	voice->echo_amp = 0;
@@ -681,10 +682,15 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_PITCH:
+			{
+				double factor;
 			// default is  pitch 82 118
 			n = sscanf(p,"%d %d",&pitch1,&pitch2);
 			voice->pitch_base = (pitch1 - 9) << 12;
 			voice->pitch_range = (pitch2 - pitch1) * 108;
+			factor = float(pitch1 - 82)/82;
+			voice->formant_factor = (1+factor/4) * 256;
+			}
 			break;
 
 		case V_STRESSLENGTH:   // stressLength

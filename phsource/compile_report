@@ -1,7 +1,7 @@
 37 phoneme tables
           new total
     base  96   96
-   base2  24  114
+   base2  23  114
       en  53  144
     en_n  29  144
    en_us  37  144
@@ -24,7 +24,7 @@
       hr  19  129
       sr   2  129
       ru  36  124
-      it  16  117
+      it  17  117
       la  21  114
       es   6  114
       pt  28  131

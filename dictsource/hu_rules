@@ -15,7 +15,7 @@
         bb       b:
 
         biz (A   b'iz,       // bizalmas  etc.
-
+	biedermeier  bi:dER2ma:jER2
 .group c
         c        ts
         cc       ts:
@@ -32,6 +32,8 @@ hierar) ch (i    C
    mün) ch (en   C
   maso) ch (istA C
    szé) ch       tS
+   _zi) ch (y    tS
+
 
  kilen) c (sz    ts
   kvar) c (sz    ts
@@ -50,7 +52,7 @@ hierar) ch (i    C
   _szé) ché (ny   tSe:
   _sto) ck (holm  k
 
-     _) church   tSYRtS
+     _) church   tSYR2tS
 
 
 .group d
@@ -140,7 +142,7 @@ _minde) gy (ik   J:
         l        l
         ly       j
         lly      jj
-        lj       jj
+        lj       lj
 
      C) ly (_    li
  _kéth) ly       li
@@ -196,15 +198,11 @@ szamue) ly	 lli
         qu       kv
 
 .group r
-        r        R
-     A) r (A     R
-     C) r (A     R
-        r (C     R
-        r (ó_    R2
+        r        R2
         rr       RR
 
-     _) richa (rd RiCa:
-     _) richá (rd RiCa:
+     _) richa (rd R2iCa:
+     _) richá (rd R2iCa:
 
 
 .group s
@@ -222,8 +220,10 @@ _munká) s        S
     va) s (zabl  S||
      _) semmelweiss  sEmmElvEjs
  engel) s        s
+    mu) ss (olini ss2
+     _) saar     sa:R2
 
-     _) saar     sa:R
+   _wa) sh (ing  S
 
 
 .group t
@@ -258,6 +258,7 @@ _munká) s        S
      A) tyj (A   c:
 
    _ka) ty (n    ti
+vörösmar) ty     ti
 
 
 .group u
@@ -282,7 +283,8 @@ _munká) s        S
         x        ks
 
 .group y
-        y        j
+     _) y        j
+        y        i
      K) y (K     i
 
 .group z
@@ -301,6 +303,8 @@ _munká) s        S
     tű) z (sz    z
     ví) z (sz    z
    tor) z (szülött z
+   tor) z (ság   z
+ _vité) z        z
 
     ga) zs (ág     zS
    _gá) zsz (ámla  zs:
@@ -312,7 +316,7 @@ _szára) zs (ág     zS
 
 
 .group
-        $       dolla:R
+        $       dolla:R2
 	ä	e
 	æ	e
 	ß	s

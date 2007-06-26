@@ -3,12 +3,6 @@
 //  Italian
 //====================================================
 
-phoneme : //  Lengthen previous vowel by "length"
-  virtual
-  length 70
-endphoneme
-
-
 
 
 phoneme a

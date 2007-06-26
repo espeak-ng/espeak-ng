@@ -154,7 +154,7 @@ endphoneme
 
 phoneme : //  Lengthen previous vowel by "length"
   virtual
-  length 60
+  length 70
 endphoneme
 
 phoneme - //  Indicates the previous phoneme is a syllabic consonant
@@ -295,7 +295,7 @@ phoneme (o)  virtual
   after  l l/lo
   after  L l/lo
   after  l^ l^/j2o
-  after  r r/ro-15
+  after  #r r/ro-15
   after  r- r2/r2o
   after  m m/mo
   after  n n/no
@@ -318,7 +318,7 @@ phoneme (u)  virtual
   after  l l/lu
   after  L l/lu
   after  l^ l^/j2u
-  after  r r/ru-15
+  after  #r r/ru-15
   after  r- r2/r2u
   after  m m/mu
   after  n n/nu
@@ -1235,8 +1235,8 @@ phonemetable sw base
 include ph_swahili
 
 
-//phonemetable basef base
-//include pf
+phonemetable basef base
+include pf
 
-//phonemetable f_en basef
-//include pf_english
+phonemetable f_en basef
+include pf_english
