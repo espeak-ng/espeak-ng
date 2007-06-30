@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #include "speech.h"
@@ -84,14 +84,10 @@ static const char *help_text =
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
 "--voices=<langauge>\n"
 "\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n";
-
-
-#ifdef deleted
+"\t   If <language> is omitted, then list all voices.\n"
 "-k <integer>\n"
 "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
 "\t   higher values = a pitch increase (try -k20).\n";
-#endif
 
 
 void DisplayVoices(FILE *f_out, char *language);
@@ -245,14 +241,13 @@ static void init_path(void)
 
 	sprintf(path_home,"%s\\espeak-data",buf);
 #else
-	char *env;
-
-	if((env = getenv("ESPEAK-DATA-PATH")) != NULL)
-	{
-		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
-		if(GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists 
-	}
+//	char *env;
+//	if((env = getenv("ESPEAK-DATA-PATH")) != NULL)
+//	{
+//		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
+//		if(GetFileLength(path_home) == -2)
+//			return;   // an espeak-data directory exists 
+//	}
 
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)

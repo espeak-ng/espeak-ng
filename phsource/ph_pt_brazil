@@ -176,7 +176,6 @@ phoneme l
   formants l/l
   after _ l/_l
   after t l/tl
-  before _ l/l_2
 endphoneme
 
 

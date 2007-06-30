@@ -104,7 +104,7 @@
           c (c              //drop “c” in European Portuguese (eg: seleccionar)
 ?1     A) ct         t      //drop “c” in European Portuguese (eg: exacto)
 ?1     A) cç         s      //drop “c” in European Portuguese (eg: selecção)
-?1    conta) ct (A       kt // eg: contacto, contactar, contactável, incontactável, etc...
+?1 conta) ct (A      kt // eg: contacto, contactar, contactável, incontactável, etc...
 
 
 .group d
@@ -138,53 +138,52 @@
           e (bem_    E
           e (bes_    E
 
-e (ca_    E
+          e (ca_     E
           e (ce_     E
           e (cem_    E
           e (ces_    E
-	  
-          e (clA_    E
-          e (clAs_    E
-          e (clAm_    E
-          e (co_    E
 
-          e (la_    E
+          e (clA_    E
+          e (clAs_   E
+          e (clAm_   E
+          e (co_     E
+
+          e (la_     E
           e (las_    E
 
-          e (rA_    E
-		e (rAm_    E
-		        e (rAs_    E
+          e (rA_     E
+          e (rAm_    E
+          e (rAs_    E
 
-		        e (rsA_    E
-		        e (rsAm_    E
-		        e (rsAs_    E
-			
+          e (rsA_    E
+          e (rsAm_   E
+          e (rsAs_   E
           e (stA_    E
           e (stAm_   E
           e (stAs_   E
-          e (strA_        E
+          e (strA_   E
 
           e (rnA_    E
-          e (rnAm_    E
-        e (rnAs_    E
+          e (rnAm_   E
+          e (rnAs_   E
 
-e (rtA_    E
-          e (rtAm_    E
-          e (rtAs_    E
+          e (rtA_    E
+          e (rtAm_   E
+          e (rtAs_   E
 
-e (rrA_    E
-          e (rrAm_    E
-          e (rrAs_    E
+          e (rrA_    E
+          e (rrAm_   E
+          e (rrAs_   E
 
           e (rvA_    E
-          e (rvAm_    E
-          e (rvAs_    E
+          e (rvAm_   E
+          e (rvAs_   E
 
-          e (ve_    E
+          e (ve_     E
           e (vem_    E
           e (ves_    E
-  
-        e (rrAs_    E
+
+          e (rrAs_   E
 
 
 
@@ -211,9 +210,9 @@ e (rrA_    E
           eu (s      eU
           e (uCK     e
 
-        j) e (tA_        E
-        j) e (tAm_        E
-        j) e (tAs_        E	
+        j) e (tA_     E
+        j) e (tAm_    E
+        j) e (tAs_    E	
 
 ?1     _) es (C@@     S   // drop initial "e".
 ?1     _) e (f        i   // efectuar, etc.
@@ -226,6 +225,7 @@ e (rrA_    E
 ?1     C) e (o       'i   // eg: geologia, etc...
 ?1     C) e (ú        i   // conteúdo, etc.
 ?1    Cã) e           j   // cães, mãe, etc...
+?1     c) e (rea      y   // cereais
 ?1     d) e (fici     y   // deficiênte, deficiência, etc...
 ?1    _d) e (fini     y   //definições.
 ?1    _d) e (slig     y   // desligar.
@@ -233,9 +233,17 @@ e (rrA_    E
 ?1    _f) e (ch       y   // fechar
 ?1    _p) e (rcentag  y   // percentagem
 ?1     p) e (ssoa     y   //pessoal, pessoais, etc.
+?1   pr) e (cis       y   // precisar
 ?1    pr) e (f        y   // preferências, etc.
-?1    _t) e (rmin     y   // terminar.
 ?1    _r) e (cicl     y   // recicla, reciclagem, etc...
+?1     r) e (cor      y   // recorrer, recordar
+?1     r) e (luz      y   // eg: reluzir
+?1     r) e (lva     ,E   // eg: relvado
+?1     r) e (smung    y   // resmungar
+?1     r) e (ss       y   // eg: ressequidos
+?1     r) e (volv     y   // revolver
+?1     r) e (vel      y   // revelar
+?1    _t) e (rmin     y   // terminar.
 ?1    _v) e (loci     y   // velocidade
 ?1    _f) e (rramenta y   // ferramenta, ferramentas.
 ?1    _p) e (squ      y   // pesquisar
@@ -291,7 +299,8 @@ e (rrA_    E
           gu (Y      g
 ?1        guen (C    gw'eIN    // aguenta, etc.
 ?1     n) gu (A      gw     // eg: língua, etc.
-?1        gu (ém_    g      // eg: alguém, ninguém, etc...
+?1   man) gu (ei     g   // mangueira
+?1        gu (ém_    g   // eg: alguém, ninguém, etc...
 
 
 .group h
@@ -409,32 +418,32 @@ e (rrA_    E
           oy         OI
 
         o (g_        O
-        o (gs_        O
-o (Ca_     O
+        o (gs_       O
+        o (Ca_       O
 ?1        o (l_      'O
 ?2        ol (_      Ow
 ?2        olh        olj
 
-        om (_      oN
+          om (_      oN
           o (ma_     o
 
-        om (C      om
+          om (C      om
           on (K      oN
           o (na_     o
           onh        on^
 
-        o (brA_        O
-        o (brAm_        O
-        o (brAs_        O
+          o (brA_    O
+          o (brAm_   O
+          o (brAs_   O
 
-o (rCA_        O
-          o (rCAm_    O
-          o (rCAs_    O
-        o (stA_        O
-        o (stAm_        O
-        o (stAs_        O
+          o (rCA_    O
+          o (rCAm_   O
+          o (rCAs_   O
+          o (stA_    O
+          o (stAm_   O
+          o (stAs_   O
 
-?2        ox (_        Oks
+?2        ox (_      Oks
 ?1        oz (_      Os#
 ?2        oz (_      Oz
           o (zes_    O
@@ -444,9 +453,11 @@ o (rCA_        O
 ?1    _C) o (CACAC   u     // Documento, documentação, localizar, etc.
 ?1     f) o (rmat    u     // formatar, formato.
 ?1    _p) o (rtuC    u     // Portugal, Portucalense, etc...
+?1    pr) o (f       u
 ?1    _s) o (lu      u     // solução, soluções.
 ?1  interr) o (g     u     // eg: interrogação
 ?1     f) o (rmulá   u     // eg: formulário, formulários.
+?1     v) o (lt      O
 
 
 .group ô
@@ -489,7 +500,7 @@ o (rCA_        O
           qu (K      ku
 ?1     _) qua        kwa     // quatro, etc.
 ?1     _) que        ke      // quente, etc.
-?1   _) quei (C       k'eI   // queira, queima, etc...
+?1     _) quei (C    k'eI   // queira, queima, etc
 ?1     C) quen (C    kw'eIN     // cinquenta, etc.
 ?1     A) quen (C    kw'eIN     // frequência, etc.
 ?1        quec       kes     // esquece, etc.
@@ -610,7 +621,7 @@ o (rCA_        O
        A) x (A       ks
       _e) x (A       z
        e) x (A       ks
-?1    e) x (CA       S   // eg: texto, contexto, etc…
+?1     e) x (CA      S
       ai) x (A       S
       ei) x (A       S
       au) x          s
@@ -621,6 +632,10 @@ o (rCA_        O
      ale) x (a       S
      pro) x (i       s  // aproximado, aproximadamente, aproximar, etc.
      pró) x (i       s  // próximo, etc.
+?1     i) x (a_      S
+?1     i) x (as_     S
+
+
 
 
 .group y
@@ -649,9 +664,7 @@ o (rCA_        O
           ç          s
        _) ç (_       s'esed'il^&
 
-
           ü          u
-
           ß          s
 
           %          pors'eNtu
@@ -689,6 +702,7 @@ o (rCA_        O
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

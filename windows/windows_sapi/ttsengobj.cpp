@@ -1,25 +1,28 @@
-/*******************************************************************************
-* TtsEngObj.cpp *
-*---------------*
-*   Description:
-*       This module is the main implementation file for the CTTSEngObj class.
-*-------------------------------------------------------------------------------
-*  Creation Date: 03/24/99
-*  Copyright (c) Microsoft Corporation. All rights reserved.
-*  All Rights Reserved
-*
-*******************************************************************************/
+/***************************************************************************
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 3 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
+ ***************************************************************************/
 
-//--- Additional includes
 #include "stdafx.h"
 #include "TtsEngObj.h"
 
 #include "src/speak_lib.h"
 #include "stdio.h"
 
-//--- Local
-
-//#define LOG_DEBUG
 
 
 #define CTRL_EMBEDDED  1
@@ -176,14 +179,8 @@ static int ConvertRange(int range)
 	return(range_table[range+10]/2);
 }
 
-/*****************************************************************************
-* CTTSEngObj::FinalConstruct *
-*----------------------------*
-*   Description:
-*       Constructor
-*****************************************************************************/
 HRESULT CTTSEngObj::FinalConstruct()
-{
+{//=================================
     SPDBG_FUNC( "CTTSEngObj::FinalConstruct" );
     HRESULT hr = S_OK;
 
@@ -203,14 +200,9 @@ if(f_log2) fprintf(f_log2,"\n****\n");
     return hr;
 } /* CTTSEngObj::FinalConstruct */
 
-/*****************************************************************************
-* CTTSEngObj::FinalRelease *
-*--------------------------*
-*   Description:
-*       destructor
-*****************************************************************************/
+
 void CTTSEngObj::FinalRelease()
-{
+{//============================
     SPDBG_FUNC( "CTTSEngObj::FinalRelease" );
 
     delete m_pWordList;
@@ -646,17 +638,9 @@ HRESULT CTTSEngObj::CheckActions( ISpTTSEngineSite* pOutputSite )
 
 
 
-/*****************************************************************************
-* CTTSEngObj::GetVoiceFormat *
-*----------------------------*
-*   Description:
-*       This method returns the output data format associated with the
-*   specified format Index. Formats are in order of quality with the best
-*   starting at 0.
-*****************************************************************************/
 STDMETHODIMP CTTSEngObj::GetOutputFormat( const GUID * pTargetFormatId, const WAVEFORMATEX * pTargetWaveFormatEx,
                                           GUID * pDesiredFormatId, WAVEFORMATEX ** ppCoMemDesiredWaveFormatEx )
-{
+{//========================================================================
     SPDBG_FUNC( "CTTSEngObj::GetVoiceFormat" );
     HRESULT hr = S_OK;
 	enum SPSTREAMFORMAT sample_rate = SPSF_22kHz16BitMono;

@@ -292,7 +292,6 @@ phoneme l
   beforenotvowel l/2       // 'dark' [l]
   formants l/l
   after _ l/_l  t l/tl
-  before _ l/l_2
 endphoneme
 
 phoneme c

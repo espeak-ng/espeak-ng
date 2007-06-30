@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.26.10
+AppVerName=eSpeak version 1.27
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeak
@@ -63,7 +63,7 @@ v3=Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+13
 
 pt.v1=Seleccione as vozes que pretende instalar
 pt.v2=ou precione enter para aceitar as predefinidas.
-pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras características, ex: pt+13
+pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras caracterï¿½sticas, ex: pt+13
 
 
 
@@ -96,6 +96,7 @@ begin
   $0b: Result := 'fi';
   $0c: Result := 'fr';
   $0e: Result := 'hu';
+  $0f: Result := 'is';
   $10: Result := 'it';
   $13: Result := 'nl';
   $14: Result := 'no';

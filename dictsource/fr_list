@@ -33,22 +33,38 @@ _y      i:gR'Ek
 
 
 // character names
+!	Eksklamassj'O~
+$	dOlaR
+@	aRobas
+%	puRsA~
+&	_e
++	plys
+~	tild'e
+€	@R'o
+¢	sEnt
+¥	i;'En
+£	l'ivR
+°	d@gR'e
+±	pl'yz_'u_mw'E~
+×	myltip@-lj'e_p'aR
+÷	diviz'e_p'aR
+¼	W~_k'aR
+½	W~_d@m'i
+¾	tRw'a k'aR
+©	_^_EN
+®	R@ZistR'@d_m'aRk
+
 
 //_cap k,ap@-t@L
 _?A  lEt@
 _??  sE~b'OL
 
-!   Eksklamassj'O~
 _"   gijm'E
 _#   dj'Ez
-_$   dOl'aR
-_%   puRs'A~
-_&   e
 _'   apOstR'Of
 _(   'uvR@-paRA~t'Ez
 _)   f'ERm paRA~t'Ez
 _*   astERisk:
-_+   plys
 _,   viRg'yl
 _-   tiR'E
 _.   pw'E~
@@ -59,7 +75,6 @@ _<   E~feRj'WR
 _=   eg'al
 _>   sypeRj'WR
 _?   kEstj'O~
-_@   at
 _[   uvR@-_kRoS'E
 _\   b'aksl'aS
 _]   f'ERm_kRoS'E
@@ -69,19 +84,6 @@ _`   aks'A~_gR'av
 _{   uvR_akOl'ad
 _|   b'aR
 _}   f'ERm_akOl'ad
-_~   tild'e
-_¢   sEnt
-_¥   i;'En
-_£   l'ivR
-_°   d@gR'e
-_±   pl'yz_'u_mw'E~
-_×   myltip@-lj'e_p'aR
-_÷   diviz'e_p'aR
-_¼   W~_k'aR
-_½   W~_d@m'i
-_¾   tRw'a k'aR
-_©   _^_k'0pIR,aIt_^_
-_®  R@ZistR'@d_m'aRk
 
 
 
@@ -323,6 +325,9 @@ d'est	d'Est
 sommes  $u+
 êtes	$u+
 sont	$u+
+eu	y
+eue	y
+eues	y
 
 étais	$u+
 était	$u+
@@ -361,11 +366,11 @@ président        pRezid'A~
 président        pRezidt2 $verb
 résident         Rezid'A~
 résident         Rezidt2 $verb
-évident         evid'A~
-évident         evidt2 $verb
-couvent           k'uvt2  $verb
-concurrent        kO~kyR'A~
-récurrent        rekyR'A~
+évident          evid'A~
+évident          evidt2 $verb
+couvent          k'uvt2  $verb
+concurrent       kO~kyR'A~
+récurrent        RekyR'A~
 
 
 // MAIN WORD DICTIONARY
@@ -394,17 +399,16 @@ echo          Eko
 fils	      fis
 mars	      maRs
 pays	      pEi
-pourcent      puRs'A~
 absent        abs'A~
-ardent        ard'A~
+ardent        aRd'A~
 prudent       pRyd'A~
 imprudent     E~pRyd'A~
 discident     disid'A~
 accident      aksid'A~
 occident      Oksid'A~
 l'occident    lOksid'A~
-orient        Orj'A~
-l'orient      lOrj'A~
+orient        ORj'A~
+l'orient      lORj'A~
 secret        sYkR'E
 secrets       sYkR'E
 
@@ -421,12 +425,13 @@ l'y              li
 (nord est)      nOREst
 écho            Eko
 l'écho          leko
-open            OpEn
+cci              $abbrev
 espeak          ispik
 nvda             $abbrev
+open            Op'@n
 outlook         autluk
-reader          Rid'WR
 potentiomètre   pOtA~sjOmEtR
+reader          Rid'WR
 
 processus	pROsEsys
 
@@ -517,7 +522,7 @@ emacs		Emaks
 emacspeak	Emakspik
 espeak		@spik
 firefox		faj@RfOks
-thunderbird	f@ndErb@Rd
+thunderbird	f@ndERb@Rd
 girl		g@Rl
 gnome		gnom
 gnu		gnu
@@ -525,7 +530,7 @@ insight		insajt
 liszt 		list
 (mac os x)	makoEsiks
 night		najt
-redhat		rEdat
+redhat		REdat
 schubert	SubER
 sun		s@n
 sunlight	s@nlajt
@@ -533,7 +538,7 @@ ubuntu		ubuntu
 viavoice	viavOjs
 windows		windoz
 word		wORd
-wright		wrajt
+wright		_^_EN
 yacht		jot
 
 
@@ -600,5 +605,6 @@ votions		vOtjO~z2 $u
 
 // no liaison
 (quelqu'un)	kElkW~
+pourcent	puRs'A~
 vincent		vE~sA~
 

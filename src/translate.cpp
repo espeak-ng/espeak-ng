@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #include <stdio.h>
@@ -922,8 +922,22 @@ strcpy(phonemes2,phonemes);
 	{
 		if((langopts.param[LOPT_PREFIXES]) || (prefix_type & SUFX_T))
 		{
+			char *p;
 			// German, keep a secondary stress on the stem
 			SetWordStress(phonemes,dictionary_flags,3,0);
+
+			// reduce all but the first primary stress
+			ix=0;
+			for(p=prefix_phonemes; *p != 0; p++)
+			{
+				if(*p == phonSTRESS_P)
+				{
+					if(ix==0)
+						ix=1;
+					else
+						*p = phonSTRESS_3;
+				}
+			}
 			strcpy(word_phonemes,prefix_phonemes);
 			strcat(word_phonemes,phonemes);
 			SetWordStress(word_phonemes,dictionary_flags,-1,0);
@@ -1421,7 +1435,8 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			{
 				if(first_phoneme && langopts.param[LOPT_IT_DOUBLING])
 				{
-					if((prev_dict_flags & FLAG_DOUBLING)  || (end_stressed_vowel && (langopts.param[LOPT_IT_DOUBLING] == 2)))
+					if(((prev_dict_flags & FLAG_DOUBLING) && (langopts.param[LOPT_IT_DOUBLING] & 1)) || 
+						(end_stressed_vowel && (langopts.param[LOPT_IT_DOUBLING] & 2)))
 					{
 						// italian, double the initial consonant if the previous word ends with a
 						// stressed vowel, or is marked with a flag
@@ -1534,7 +1549,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in, int *i
 	// To allow language specific examination and replacement of characters
 
 	const wchar_t *p;
-	unsigned int new_c;
+	unsigned int new_c, c2;
 	int upper_case = 0;
 
 	if(c == 0) return(0);
@@ -1555,8 +1570,12 @@ int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in, int *i
 			new_c = langopts.replacement_chars[p - langopts.replace_chars];
 			if(new_c & 0xffe00000)
 			{
-				// there is a second character to be inserted (don't convert the case of the second character)
-				*insert = (new_c >> 16);
+				// there is a second character to be inserted
+				// don't convert the case of the second character unless the next letter is also upper case
+				c2 = new_c >> 16;
+				if(upper_case && iswupper(next_in))
+					c2 = towupper(c2);
+				*insert = c2;
 				new_c &= 0xffff;
 			}
 #ifndef PLATFORM_RISCOS

@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #include <stdio.h>
@@ -226,7 +226,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','r'):  // french
 		{
-			static int stress_lengths_fr[8] = {180, 160,  180, 190,  0, 0,  220, 220};
+			static int stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 235};
 			static int stress_amps_fr[8] = {16,14, 20,20, 20,24, 24,22 };
 
 			tr = new Translator();
@@ -379,10 +379,10 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 2;    // remove lengthen indicator from unstressed or non-penultimate syllables
-//			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
+			tr->langopts.param[LOPT_IT_DOUBLING] = 2;    // double the first consonant if the previous word ends in a stressed vowel
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
-			tr->langopts.numbers = 0x2709;
+			tr->langopts.numbers = 0x2709 + 0x800;
 		}
 		break;
 
@@ -391,12 +391,30 @@ Translator *SelectTranslator(const char *name)
 			tr = new Translator();
 			tr->charset_a0 = charsets[4];   // ISO-8859-4, includes a,e,i,o,u-macron
 			tr->langopts.stress_rule = 2;
-			tr->langopts.stress_flags = 0x21;
+			tr->langopts.stress_flags = 0x20;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_DIERESES] = 1;
 		}
 		break;
+
+	case L('m','k'):   // Macedonian
+		{
+			static wchar_t vowels_cyrillic[] = {0x430,0x435,0x438,0x439,0x43e,0x443,0x44b,0x44d,0x44e,0x44f,0x450,0x451,0x456,0x457,0x45d,0x45e,0};
+			static int stress_amps_mk[8] = {16,16, 20,20, 20,24, 24,22 };
+			static int stress_lengths_mk[8] = {180,160, 200,200, 0,0, 220,230};
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_mk,stress_amps_mk);
+			tr->charset_a0 = charsets[2];   // ISO-8859-2
+			tr->letter_groups[0] = vowels_cyrillic;
+
+			tr->langopts.stress_rule = 4;   // antipenultimate
+			tr->langopts.numbers = 0x0c29 + 0x84000;
+			tr->langopts.numbers2 = 0xa;  // variant numbers before thousands,milliards
+		}
+		break;
+
 
 	case L('n','l'):  // Dutch
 		{

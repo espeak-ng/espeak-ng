@@ -1,5 +1,5 @@
 
-
+// Translations for Romanian words
 // This file in UTF8 encoded
 
 // Letters
@@ -43,11 +43,14 @@ x	iks
 y	'igrek
 z	zet
 
-â	,ydin'a $atend
-ă	'@ $atend
-î	,ydin'i $atend
 
 _.	punkt
+$	dolar
++	plus
+&	ampersand
+@	a*'ond
+/	sleS
+€	'eU*o
 
 
 // numeric
@@ -318,7 +321,6 @@ suntem	$u1+
 sunteţi	$u1+
 sunt	$u+
 e	je $u
-e       e  $atend
 fost	$u+            // been
 eram	je*am $u2+     // was
 erai	je*aI $u2+
@@ -901,3 +903,10 @@ virus		$1
 zarzări		$1
 
 
+// speak as letter names 
+a       a  $atend
+â	,ydin'a  $atend
+ă	'@  $atend
+e       e  $atend
+î	,ydin'i  $atend
+o       o  $atend

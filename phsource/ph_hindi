@@ -324,37 +324,42 @@ endphoneme
 
 phoneme t        // dental variant of /t/
   vls dnt stop
-  vowelin f1=1  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  vowelin f1=1  f2=1500 -300 300  f3=-100 80  amp=18
+  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt2%60
+  wave  ustop/t_hi%60
   before _ ustop/t_dnt%35 
+//  before _ ustop/t_hi%35
   switchvoicing d
 endphoneme
+
+
 
 phoneme th        // dental variant of /t/ Same as [t] for now
   vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50+ufric/h@
+  wave  ustop/t_hi%50+ufric/h@
   switchvoicing d
 endphoneme
 
 
 
-phoneme d       // (weak) dental variant of /d/
+phoneme d       // dental variant of /d/
   vcd dnt stop
-  vowelin f1=2  f2=1700 -300 300  f3=-100 80
-  vowelout f1=2 f2=1700 -300 300  f3=-100 80  rms=20 len=1
-  formants d/d_dnt+x/d_dnt%50
+  vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  vowelout f1=2 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
   before _ d/d_+x/d_
-  before r d/dr+x/d_dnt%60
+  before r d/dr+x/d_dnt%110
   after _ NULL
-  after @ d/xd_dnt
+  after @ d/xd
   lengthmod 5
   switchvoicing t
 endphoneme
+
+
 
 //phoneme dh      // use [d]+[h]
 //  vcd dnt stop

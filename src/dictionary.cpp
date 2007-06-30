@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #define LOG_TRANSLATE
@@ -1074,6 +1074,21 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		{
 			/* no explicit stress - stress the final vowel */
 			stressed_syllable = vowel_count - 1;
+			if(max_stress == 0)
+			{
+				vowel_stress[stressed_syllable] = 4;
+			}
+			max_stress = 4;
+		}
+		break;
+
+	case 4:   // stress on antipenultimate vowel
+		if(stressed_syllable == 0)
+		{
+			stressed_syllable = vowel_count - 3;
+			if(stressed_syllable < 1)
+				stressed_syllable = 1;
+
 			if(max_stress == 0)
 			{
 				vowel_stress[stressed_syllable] = 4;

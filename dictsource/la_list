@@ -1,5 +1,8 @@
-﻿// This file is UTF-8 encoded
+// This file is UTF-8 encoded
+// all words lower case
 
+// Uses of $alt:
+// 1.  Change ['i:] to [=I@] at end of word 
 
 
 // Letter names
@@ -35,71 +38,176 @@ x	Eks
 y	i: 'graIka
 z	'ze:ta
 
-
-
-
-
 // ABBREVIATIONS
 //========
 
-(a. u. c.)   ab wRb,E  kOnd'i:ta //ab urbe condita
-(a. d.)      'antE d'I;Em      //ante diem;
-(D. M.)      d,i:s m'a:nIbUs   //Dīs Mānibus
-
-//(D. O. M.) = Deo Optimo Maximo (op tempels);
-//(D. D.) = dono of donum dedit (bij geschenken voor de goden);
-//(D. D. D.) = dat, donat, dedicat of dat, dicat, dedicat (bij geschenken voor de goden);
-//(E. M. V.) = egregiae memoriae vir;
-//(EQ. R.) = eques Romanus.
-//FF. = fecerunt;
-//(F. I.) = fieri iussit;
-//FL. = Flavius; Flaviā (tribu) uit de tribus Flavia;
-//FR. or FRU. = frumentum, frumentarius.
-//(H. C.) = Hispania citerior;
-//(H. H.) = heredes;
-//(H. E. T.) = heres ex testamento;
-//H. S. eig. L L S (dwz. libra libra semis) of II S (dwz. duo semis), daaruit H S (21/2 as): sestertie (een munt).
-
-ib.  'Ibi: d,Em //ibīdem
-ibd. 'Ibi: d,Em //ibīdem
-IDIB.  'i:dIbUs //Īdibus, from Īdūs
-IDQ.  i:d'EmkwE //īdemque
-
-//I. H. F. C. = ipsius heres faciundum curavit;
-//IM. = immunis ;
-//IMP. = imperium, imperator.
-//I M P. (afk.) = imperator or imperium.
-
-(i. e.)  ,Id Est //id est
-
-//m.p. (Mel.) = manu propria e
-//O. M. = optimus maximus
-//P. C. = patres conscripti;
-//P. M. = pontifex maximus;
-//P. R. = populus Romanus.
-//Q. B. F. F. S. // quod bonum felix faustumque sit
-//Q. F. F. S. // quod felix faustumque sit
-//R. P. = res publica.
-//S. C. = senatūs consultum;
-//S. P. Q. R. = senatus populusque Romanus.
-//v. c. = vir clarissimus;
-//v. f. = verba fecit.
+(a. u. c.)   ab||wRb,E||kOnd'i:ta //ab urbe condita
+(a. d.)      'antE||d'I;Em      //ante diem;
+(D. M.)      d,i:s||m'a:nIbUs   //Dīs Mānibus
+ib           'Ibi:||d,Em //ibīdem
+ibd          'Ibi:||d,Em //ibīdem
+Idib         'i:dIbUs //Īdibus, from Īdūs
+Idq          i:d'EmkwE //īdemque
+(i. e.)      ,Id||Est //id est
 
 
 // FUNCTION WORDS
 //========
 
-et $u
+// adverbs
+
+non
+
+// Pronouns:
+// Relative pronouns. These should probably be unstressed most of the time, hence the $u markers.
+// However, since some of them are identical to interrogative pronouns, which should be
+// stressed, we will not 'unstress' these to be on the safe side.
+
+quī $u
+quae $u
+quod $u
+quae $u
+// cūius $u (also an interrogative pronoun)
+quōrum $u
+quārum $u
+// cui $u (also an interrogative pronoun)
+quibus $u
+// quem $u (also an interrogative pronoun)
+quās $u
+quam $u
+quōs $u
+// quō $u (also an interrogative pronoun)
+
+
+// Personal pronouns.
+// Note that the nominative forms are not marked as unstressed. This is because
+// Latin is a pro-drop language like Italian or Polish, and therefore nominative
+// personal pronouns should often be emphasised.
+
+// ego $u (probably should be stressed as it is nominative)
+// nōs $u (probably should be stressed as it is nominative)
+// t? $u (probably should be stressed as it is nominative)
+// vōs $u (probably should be stressed as it is nominative)
+// is $u (probably should be stressed as it is nominative)
+// e? $u (probably should be stressed as it is nominative)
+// i? $u (probably should be stressed as it is nominative)
+// ea $u (probably should be stressed as it is nominative)
+// eae $u (probably should be stressed as it is nominative)
+// id $u (probably should be stressed as it is nominative)
+// ea $u (probably should be stressed as it is nominative)
+
+meī $u
+nostrum $u
+tu? $u
+vestrum $u
+mihi $u
+nōbīs $u
+tibi $u
+vōbīs $u
+mē $u
+// nōs (identical to nominative form)
+tē $u
+// vōs (identical to nominative form)
+
+eius $u
+eōrum $u
+eārum $u
+eō $u
+eōs $u
+iīs $u
+eum $u
+eīs $u
+eam $u
+eās $u
+id $u
+ea $u
+eī $u
+eā $u
+
+// Reflexive pronouns - should these all be unstressed?
+
+se $u
+su? $u
+sibi $u
+
+
+
+// prepositions
+
 a $u
+ac $u
 ad $u
 ab $u
 in $u
 cum $u
 e $u
 ex $u
-inter $u
+ante $u
 apud $u
+circa $u
+circum $u
+contra $u
+de $u
+erga $u
+extra $u
+in $u
+infra $u
+inter $u
+intra $u
+iuxta $u
+ob $u
+penes $u
+per $u
+pone $u
+post $u
+prae $u
+praeter $u
+praeterea $u
+pro $u
+prope $u
+propius $u
+proximus $u
+propter $u
+secundum $u
+sine $u
+sub $u
+subter $u
+super $u
+supra $u
+trans $u
+ultra $u
+versus $u
+
+// conjunctions
+
+atque $pause
+atqui $pause
+at $pause
+aut $pause
+autem $pause
+dum $pause
+enim $pause
+et $u $brk
+etenim $pause
+etiam $pause
 ergo $pause
+etsi $pause
+idcirco $pause
+ideo $pause
+nam $pause
+namque $pause
+nec $pause
+nisi $pause
+propterea $pause
+prout $pause
+quamdiu $pause
+quamquam $pause
+quando $pause
+quasi $pause
+quemadmodum $pause
+quoad $pause
+quod $pause
+
 
 // forms of esse
 
@@ -110,37 +218,159 @@ sumus $u
 estis $u
 sunt $u
 
-eram $u
-eras $u
-erat $u
-eramus $u
-eratis $u
+erām $u
+erās $u
+erāt $u
+erāmus $u
+erātis $u
 erant $u
 
-ero $u
+erō $u
 eris $u
 erit $u
 erimus $u
 eritis $u
 erunt $u
 
-fui $u
-fuisti $u
+fuī $u
+fuīstī $u
 fuit $u
 fuimus $u
-fuistis $u
+fuīstis $u
 fuereunt $u
 
 fueram $u
-fueras $u
+fuerās $u
 fuerat $u
-fueramus $u
-fueratis $u
-fuerant $u
+fuerāmus $u
+fuerātis $u
+fuērunt $u
 
-fuero $u
-fueris $u
+fuerō $u
+fuerīs $u
 fuerit $u
-fuerimus $u
-fueritis $u
+fuerīmus $u
+fuerītis $u
 fuerunt $u
+
+este $u
+esto $u
+estote $u
+sunto $u
+
+
+// numerals 1-100
+
+i		'u:nUs $capital 
+ii		d'UO $capital 
+iii		t@-*,e:s 
+iv		kw'at:UOR 
+v		kw'i:NkwE 
+vi		s,Eks $capital 
+vii		s'EptEm 
+viii		'Okto: 
+ix		n'OwEm 
+x		d'EkEm 
+
+xi		'u:ndEkIm
+xii		dU'OdEkIm
+xiii		t@-*,e:d'EkIm
+xiv		kwat:w'ORdEkIm
+xv		kw,i:nd'EkIm
+xvi		s'EdEkIm
+xvii		sEpt'EndEkIm
+xviii		dUOdEwIg'IntI
+xix		u:ndEwIg'IntI 
+xx		wi:g'Inti:
+
+xxi		wi:g'Inti:||'u:nUs
+xxii		wi:g'Inti:||d'UO
+xxiii		wi:g'Inti:||t@-*,e:s
+xxiv		wi:g'Inti:||kw'at:UOR
+xxv		wi:g'Inti:||kw'i:NkwE
+xxvi		wi:g'Inti:||s,Eks
+xxvii		wi:g'Inti:||s'EptEm
+xxviii	wi:g'Inti:||'Okto:
+xxix		wi:g'Inti:||n'OwEm
+xxx		t@-*i:g'Inta:
+
+xxxi		t@-*i:g'Inta:||'u:nUs
+xxxii		t@-*i:g'Inta:||d'UO
+xxxiii	t@-*i:g'Inta:||t@-*,e:s
+xxxiv		t@-*i:g'Inta:||kw'at:UOR
+xxxv		t@-*i:g'Inta:||kw'i:NkwE
+xxxvi		t@-*i:g'Inta:||s,Eks
+xxxvii	t@-*i:g'Inta:||s'EptEm
+xxxviii	t@-*i:g'Inta:||'Okto:
+xxxix		t@-*i:g'Inta:||n'OwEm
+xl		kwad@-*a:g'Inta:
+
+xli		kwad@-*a:g'Inta:||'u:nUs
+xlii		kwad@-*a:g'Inta:||d'UO
+xliii		kwad@-*a:g'Inta:||t@-*,e:s
+xliv		kwad@-*a:g'Inta:||kw'at:UOR
+xlv		kwad@-*a:g'Inta:||kw'i:NkwE
+xlvi		kwad@-*a:g'Inta:||s,Eks
+xlvii		kwad@-*a:g'Inta:||s'EptEm
+xlviii	kwad@-*a:g'Inta:||'Okto:
+xlix		kwad@-*a:g'Inta:||n'OwEm
+l		kwi:Nkwa:g'Inta:
+
+li		kwi:Nkwa:g'Inta:||'u:nUs $capital
+lii		kwi:Nkwa:g'Inta:||d'UO
+liii		kwi:Nkwa:g'Inta:||t@-*,e:s
+liv		kwi:Nkwa:g'Inta:||kw'at:UOR
+lv		kwi:Nkwa:g'Inta:||kw'i:NkwE
+lvi		kwi:Nkwa:g'Inta:||s,Eks
+lvii		kwi:Nkwa:g'Inta:||s'EptEm
+lviii		kwi:Nkwa:g'Inta:||'Okto:
+lix		kwi:Nkwa:g'Inta:||n'OwEm
+lx		sEksa:g'Inta:
+
+lxi		sEksa:g'Inta:||'u:nUs
+lxii		sEksa:g'Inta:||d'UO
+lxiii		sEksa:g'Inta:||t@-*,e:s
+lxiv		sEksa:g'Inta:||kw'at:UOR
+lxv		sEksa:g'Inta:||kw'i:NkwE
+lxvi		sEksa:g'Inta:||s,Eks
+lxvii		sEksa:g'Inta:||s'EptEm
+lxviii	sEksa:g'Inta:||'Okto:
+lxix		sEksa:g'Inta:||n'OwEm
+lxx		sEptUa:g'Inta: $capital
+
+lxxi		sEptUa:g'Inta:||'u:nUs
+lxxii		sEptUa:g'Inta:||d'UO
+lxxiii	sEptUa:g'Inta:||t@-*,e:s
+lxxiv		sEptUa:g'Inta:||kw'at:UOR
+lxxv		sEptUa:g'Inta:||kw'i:NkwE
+lxxvi		sEptUa:g'Inta:||s,Eks
+lxxvii	sEptUa:g'Inta:||s'EptEm
+lxxviii	sEptUa:g'Inta:||'Okto:
+lxxix		sEptUa:g'Inta:||n'OwEm
+lxxx		Okto:g'Inta:
+
+lxxxi		Okto:g'Inta:||'u:nUs
+lxxxii	Okto:g'Inta:||d'UO
+lxxxiii	Okto:g'Inta:||t@-*,e:s
+lxxxiv	Okto:g'Inta:||kw'at:UOR
+lxxxv		Okto:g'Inta:||kw'i:NkwE
+lxxxvi	Okto:g'Inta:||s,Eks
+lxxxvii	Okto:g'Inta:||s'EptEm
+lxxxviii	Okto:g'Inta:||'Okto:
+lxxxix	Okto:g'Inta:||n'OwEm
+xc		no:na:g'Inta:
+
+xci		no:na:g'Inta:||'u:nUs
+xcii		no:na:g'Inta:||d'UO
+xciii		no:na:g'Inta:||t@-*,e:s
+xciv		no:na:g'Inta:||kw'at:UOR
+xcv		no:na:g'Inta:||kw'i:NkwE
+xcvi		no:na:g'Inta:||s,Eks
+xcvii		no:na:g'Inta:||s'EptEm
+xcviii	no:na:g'Inta:||'Okto:
+xcix		no:na:g'Inta:||n'OwEm
+c		k'EntUm
+
+// This list could be expanded further, however programming
+// the pronunciation would be more efficient.
+

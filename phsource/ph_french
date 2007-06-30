@@ -12,7 +12,7 @@ endphoneme
 
 phoneme @
   vowel starttype (@) endtype (@)
-  length 130
+  length 160
   formants vowel/@_2
 endphoneme
 
@@ -20,7 +20,7 @@ endphoneme
 phoneme a
   vowel  starttype (a)  endtype (a)
   length 160
-  formants vowel/a_en
+  formants vowel/a_3
 endphoneme
 
 
@@ -40,17 +40,16 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 150
+  length 160
   formants vowel/i
   linkout ;
 endphoneme
 
 
-
 phoneme o
   vowel starttype (o) endtype (o)
-  length 160
-  formants vowel/o
+  length 170
+  formants vowel/o_3
 endphoneme
 
 
@@ -64,29 +63,39 @@ endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 150
-  formants vowel/u
+  length 160
+  formants vowel/u_2
 endphoneme
 
 
 phoneme y
   vowel starttype (e) endtype (u)
-  length 148
+  length 160
   formants vowel/y_2
 endphoneme
 
 
 phoneme Y
   vowel starttype (@) endtype (@)
-  length 214
+  length 170
   formants vowel/y#
+endphoneme
+
+
+phoneme w
+  liquid
+  length 120
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w
+  after _ w/_w
 endphoneme
 
 
 phoneme W
   vowel starttype (@) endtype (@)
   length 170
-  formants vowel/oe
+  formants vowel/@_2
 endphoneme
 
 
@@ -172,67 +181,65 @@ phoneme l
   liquid
   length 100
   lengthmod 7
-  beforenotvowel l/
-  formants l/l_2
-  after _  l/_l
-  after t  l/tl
+//  beforenotvowel l/
+  formants l/l_3
+//  after _  l/_l
+//  after t  l/tl
   after l/ l/l_long    // double l, make it longer
 endphoneme
 
 
-
-
-phoneme R
-  liquid
-//  vcd uvl frc
-  vowelin f1=0  f2=1500 -400 400  f3=-400 80
+phoneme r
+  vcd uvl frc
+  vowelin f1=0  f2=800 -100 100  f3=-400 100
   length 100
   lengthmod 7
   beforenotvowel r/
-  formants vwl_fr/@R2
+  formants vwl_fr/@R%40
 endphoneme
 
 
-phoneme R2
-  liquid
-//  vcd uvl frc
-  vowelin f1=0  f2=1500 -400 400  f3=-400 80
+phoneme R
+  vcd uvl frc
+  vowelin f1=0  f2=800 -100 100  f3=-400 100
   length 100
   lengthmod 7
   beforenotvowel r/
-  formants vwl_fr/@R2+r3/rx%120
+  formants vwl_fr/@R%40
 endphoneme
 
 
 phoneme r/   // used for [r] when not preceding a vowel
-  liquid
+  vcd uvl frc
   length 100
   lengthmod 2   //
-  formants r3/r_+r3/rx
-  before n   r3/r_n+r3/rx
+  formants r/r
+//   before n   r3/r_n+r3/rx
 endphoneme
 
 
-
-phoneme t        // dental variant of /t/
-  vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+phoneme t
+  vls alv stop
+  vowelin f1=0  f2=1700 -100 100  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%40
+  wave  ustop/t%50
+  before _ ustop/t_%40
+  before @- ustop/t%50
+//  before r ustop/tr
+//  before R ustop/tr
   switchvoicing d
 endphoneme
 
 
 phoneme t2      // silent unless followed by vowel
   beforenotvowel NULL
-  vls dnt stop
+  vls alv stop
   vowelin f1=0  f2=1600 -300 300  f3=-100 80
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%40
+  wave  ustop/t
+  before _ ustop/t_
 endphoneme
 
 
@@ -243,20 +250,6 @@ phoneme z2      // silent unless followed by vowel
   formants voc/z+ufric/s_
   before _ voc/z_+ufric/s_
   lengthmod 6
-endphoneme
-
-
-phoneme d       // dental variant of /d/
-  vcd dnt stop
-  vowelin f1=2  f2=1500 -300 300  f3=-150 80
-  vowelout f1=2 f2=1500 -300 300  f3=-150 80
-  formants d/d+x/d_dnt%110
-  before _ d/d_+x/d_
-  before r d/dr+x/d_dnt%110
-  after _ NULL
-  after @ d/xd
-  lengthmod 5
-  switchvoicing t
 endphoneme
 
 
@@ -273,6 +266,18 @@ phoneme k
   before (i) ustop/ki
   switchvoicing g
 endphoneme
+
+
+phoneme v
+  vcd lbd frc
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  lengthmod 6
+  formants voc/v_+vocw/v
+  before _ voc/v_+vocw/v
+  switchvoicing f
+endphoneme
+
 
 
 

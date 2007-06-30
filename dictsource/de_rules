@@ -1,3 +1,24 @@
+
+// ***************************************************************************
+// *   Copyright (C) 2006 to 2007 by Jonathan Duddington                     *
+// *   email: jonsd@users.sourceforge.net                                    *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, write see:                           *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
+
+
 // This file is UTF-8 encoded
 
 .group a
@@ -74,6 +95,7 @@
              a (isier     a
           _) achs (@P4    'aks
           _) achs (el     'aks
+          j) ag (d        A:k
           _) air          _^_EN
              ai (sch      A:I
          tr) ain          En
@@ -307,10 +329,7 @@
           &) erin (_      @*In
           &) erisch (_    @*IS 
           @) es (_S2      @s
-          &) et (_        @t
-         ig) et (_S2      @t
-         &t) et (_S2      @t
-        ier) et (_S2      @t
+          &) et (_S2      @t
           &) est (_S3     @st
           &) este (_S4    @st@
           &) estem (_S5   @st@m
@@ -328,12 +347,14 @@
           &) erung (_     =@*UN
 
           _) e (ff        %E
+          l) e (g_        'e:
           _) eil (aP3     'aIl
           _) eil (fP3     'aIl
           _) ein (@P3     _!'aIn
              ein (and     _|%aIn
           _) eine (r@     aIn@
           _) einig        aInIg
+          _) eisen (@P5   'aIz@n
           _) e (lek       %e:
           _) elektro (@P7 e:l'Ekt@-*o:
           _) elen         e:lEn
@@ -370,6 +391,7 @@
           _) entert       _^_EN
              er (dig      e:*
           _) erob (er     %E*o:b
+          @) esen (_      e:z@n
           @) ett (_       'Et
           @) eur (_       'Y:*
              euse (_      'Y:z@
@@ -470,8 +492,10 @@
           _) hinter (@P6     h,Int3
 
           _) haupt (@@P5     h'aUpt
+          _) haus (@P4         h'aUs
  //         @) heit (_S4       haIt
           _) hero            h%e:*o:
+          _) herz (er@P4     h'E*ts
           _) high            _^_EN
           _) hinter (@       h,Int3
           _) hoch (@P4       h'o:x
@@ -563,6 +587,7 @@
           &) ie (r_       'i:
           u) ie (r_       _|'i:
           &) ie (rlich    'i:
+          d) ienst        i:nst
           r) ien (@       IEn
           &) ien (_       =I@n
          &b) ien (_       =i:@n
@@ -787,7 +812,8 @@
           _) s (_         Es
              s            s
              s (A         z
-             s (_$1       s
+             s (_NS1      s
+             s (_         z    // suffix has been removed
           A) s (_N        s
           A) s (_         z
              ss           s
@@ -821,6 +847,9 @@
           _) safe         _^_EN
           &) schaft (_S6  Saft
              schein (lich S'aIn
+          _) schul (@P5   S'u:l
+          _) schul (d     S'Ul
+
              schwer       Sve:*
           _) sechs (P5    z'Eks
           _) selbst (@@P6 z'Elpst
@@ -872,15 +901,19 @@
         ier) testes (_S6  t@st@s
 
              tch          tS
+             t (chen_     t
           _) teen         _^_EN
+          _) tele (@      t,e:le:
              thrill       _^_EN
         _pa) th           t
              the (era     te:
+          _) tief (@P4    t'i:f
           @) tient (_     tsI'Ent
           @) tion         tsI,o:n
           @) tion (_      tsI'o:n
           _) trail        _^_EN
           _) tranqu       _^_EN
+             traver       t@-*%avE*
           _) tw           _^_EN
 
 .group u
@@ -900,21 +933,26 @@
              ub (t_       u:p
              ug (t_       u:k
 
+          _) um (@P2      Um
+          _) umbe (@P4    'Umb@
+          _) umge (@P4    'Umg@
+          _) um (orgP2    'Um
+          _) um (stAP2    'Um
           @) u (m_        U
          rt) u (m_        u:
           _) un           Un
           _) un (@P2      _|'Un
-          _) unab (@P4    _|,Un_|'ap
-          _) unan (@P4    _|,Un_|'an
-          _) unauf (@P5   _|,Un_|'aUf
-          _) unaus (@P5   _|,Un_|'aUs
+          _) unab (@P4    _|'Un_|ap
+          _) unan (@P4    _|'Un_|an
+          _) unauf (@P5   _|'Un_|aUf
+          _) unaus (@P5   _|'Un_|aUs
           _) unbe (@P4    _|'Unb@
-          _) unein (@P5   _|,Un_|'aIn
+          _) unein (@P5   _|'Un_|aIn
           _) unge (@P4    _|'Ung@
           _) unver (@P5   _|'UnfE*
           _) un (i        u:n
           _) un (in@P2    _|'Un
-          _) unum (@P4    _|,Un_|'Um
+          _) unum (@P4    _|'Un_|Um
           _) under        _^_EN
           _) unter (@P5   _|,Unt3
 
@@ -933,7 +971,7 @@
              us (_        Us
          _d) u (sch       u:
           _) user         _^_EN
-         ol) u (t_        u:
+         Al) u (t_        u:
 
           _) ueber (@P5   _|,y:b3
 
@@ -944,7 +982,6 @@
           v) v
              v (_N        f
 
-          _) v            f
           _) vie          fi:
           _) vi (CC       vI
           _) vi           vi:
@@ -954,13 +991,15 @@
           _) v (ie        f
           _) v (iet       v
           _) v (iz        f
-          _) v (oll       f
-          _) v (olk       f
+             v (oll       f
+             v (olk       f
+             v (ölC       f
           _) v (on        f
 
           _) vehe         ve:he:
           _) ver (@P3     f%E*
           _) ver (bal     v%E*
+          _) ver (tik     vE*
           @) versich      fE*z,IC
           @) vergess      fE*g,Es
           _) viel (@P4    f'i:l
@@ -990,6 +1029,10 @@
           _) wh           _^_EN
           &) ware (_      _^_EN
           _) wasch (@P5   v'aS
+          _) wasser (@P6  v'as@*
+          _) weg (C@P3    v'e:k
+          _) weit (C@P4   v'aIt
+          _) weiter (@P6  v'aIt@*
           _) wo (hin      v%o:
           _) wohl (@P4    v'o:l
              work         _^_EN
@@ -1069,6 +1112,8 @@
              üg (t_       y:k
 
           _) über (@P4    _|,y:b3
+          _) über (be@P4  _!'y:b3
+          _) über (gangs  y:b3
 
 .group ß
           _) ß (_         EstsEt

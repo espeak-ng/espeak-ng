@@ -1,12 +1,12 @@
 #ifndef SPEAK_LIB_H
 #define SPEAK_LIB_H
 /***************************************************************************
- *   Copyright (C) 2006 by Jonathan Duddington                             *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -15,9 +15,8 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
 
@@ -28,6 +27,12 @@
 
 #include <stdio.h>
 
+#define ESPEAK_API_REVISION  2
+/*
+Revision 2
+   Added parameter "options" to eSpeakInitialize()
+
+*/
          /********************/
          /*  Initialization  */
          /********************/
@@ -40,7 +45,8 @@ typedef enum {
   espeakEVENT_MARK,                // Mark
   espeakEVENT_PLAY,                // Audio element
   espeakEVENT_END,                 // End of sentence
-  espeakEVENT_MSG_TERMINATED       // End of message
+  espeakEVENT_MSG_TERMINATED,      // End of message
+  espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
 } espeak_EVENT_TYPE;
 
 
@@ -54,7 +60,7 @@ typedef struct {
 	int sample;           // sample id (internal use)
 	void* user_data;      // pointer supplied by the calling program
 	union {
-		int number;        // used for WORD and SENTENCE events
+		int number;        // used for WORD and SENTENCE events. For PHONEME events this is the phoneme mnemonic.
 		const char *name;  // used for MARK and PLAY events.  UTF8 string
 	} id;
 } espeak_EVENT;
@@ -137,13 +143,16 @@ typedef enum {
 #ifdef __cplusplus
 extern "C"
 #endif
-int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path);
+int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path, int options);
 /* Must be called before any synthesis functions are called.
    output: the audio data can either be played by eSpeak or passed back by the SynthCallback function.
 
    buflength:  The length in mS of sound buffers passed to the SynthCallback function.
 
    path: The directory which contains the espeak-data directory, or NULL for the default location.
+
+   options: bit 0: 1=allow espeakEVENT_PHONEME events.
+
 
    Returns: sample rate in Hz, or -1 (EE_INTERNAL_ERROR).
 */
@@ -181,7 +190,7 @@ int SynthCallback(short *wav, int numsamples, espeak_EVENT *events);
 extern "C"
 #endif
 void espeak_SetUriCallback(int (*UriCallback)(int, const char*, const char*));
-/* This function must be called before synthesis functions are used, in order to deal with
+/* This function may be called before synthesis functions are used, in order to deal with
    <audio> tags.  It specifies a callback function which is called when an <audio> element is
    encountered and allows the calling program to indicate whether the sound file which
    is specified in the <audio> element is available and is to be played.

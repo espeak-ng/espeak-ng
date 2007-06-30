@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 // this version keeps wavemult window as a constant fraction
@@ -1050,8 +1050,6 @@ void SetBreath()
 }  // end of SetBreath
 
 
-#define getrandom(min,max) ((rand()%(int)(((max)+1)-(min)))+(min))
-
 int ApplyBreath(void)
 {//==================
 	int noise;
@@ -1059,13 +1057,14 @@ int ApplyBreath(void)
 	int amp;
 	int value = 0;
 
-	noise = getrandom(-4095,4095);
+	// use two random numbers, for alternate formants
+	noise = (rand() & 0x3fff) - 0x2000;
 
 	for(ix=1; ix < N_PEAKS; ix++)
 	{
 		if((amp = wvoice->breath[ix]) != 0)
 		{
-			amp *= (peaks[ix].height >> 13);
+			amp *= (peaks[ix].height >> 14);
 			value += int(resonator(&rbreath[ix],noise) * amp);
 		}
 	}

@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #include <stdio.h>
@@ -31,7 +31,6 @@
 #include "synthesize.h"
 #include "translate.h"
 
-#define OPT_PH_COMMON      // sort rules by phoneme string, common phoneme string output only once
 //#define OPT_FORMAT         // format the text and write formatted copy to Log file 
 //#define OUTPUT_FORMAT
 
@@ -206,7 +205,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 			c = *p;
 		}
 		
-		if((c == '$') && (step != 1))
+		if((c == '$') && isalnum(p[1]))
 		{
 			/* read keyword parameter */
 			mnemptr = p;
@@ -902,7 +901,8 @@ static int __cdecl string_sorter(char **a, char **b)
 	pa += (strlen(pa)+1);
 	pb += (strlen(pb)+1);
    return(strcmp(pa,pb));
-}   /* end of strcmp2 */
+}   /* end of string_sorter */
+
 
 static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 {//===================================================
@@ -1020,7 +1020,7 @@ void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 #endif
 
 
-
+//#define LIST_GROUP_INFO
 void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 {//=======================================================================
 	int ix;
@@ -1031,17 +1031,18 @@ void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 	char *p2, *p3;
 	const char *common;
 
-//fprintf(f_log,"Group %2s n=%2d at 0x%x\n",name,n_rules,ftell(f_out));
+	short nextchar_count[256];
+	memset(nextchar_count,0,sizeof(nextchar_count));
+
 	len_name = strlen(name);
 
 #ifdef OUTPUT_FORMAT
 	print_rule_group(f_log,n_rules,rules,name);
 #endif
 
+	// sort the rules in this group by their phoneme string
 	common = "";
-#ifdef OPT_PH_COMMON
 	qsort((void *)rules,n_rules,sizeof(char *),(int (__cdecl *)(const void *,const void *))string_sorter);
-#endif
 
 	if(strcmp(name,"9")==0)
 		len_name = 0;    //  don't remove characters from numeric match strings
@@ -1053,8 +1054,8 @@ void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 		p3 = &p[len1];
 		p2 = p3 + len_name;        // remove group name from start of match string
 		len2 = strlen(p2);
-//fprintf(f_log,"%4x  %2d  len1=%2d  %2x %2x %2x %2x len2=%2d  %2x %2x %2x %2x %2x %2x %2x\n",
-//	ftell(f_out),ix,len1,p[0],p[1],p[2],p[3],len2,p3[0],p3[1],p3[2],p3[3],p3[4],p3[5],p3[6]);
+
+		nextchar_count[(unsigned char)(p2[0])]++;   // the next byte after the group name
 
 		if((common[0] != 0) && (strcmp(p,common)==0))
 		{
@@ -1063,18 +1064,25 @@ void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 		}
 		else
 		{
-#ifdef OPT_PH_COMMON
 			if((ix < n_rules-1) && (strcmp(p,rules[ix+1])==0))
 			{
 				common = rules[ix];   // phoneme string is same as next, set as common
 				fputc(RULE_PH_COMMON,f_out);
 			}
-#endif
+
 			fwrite(p2,len2,1,f_out);
 			fputc(RULE_PHONEMES,f_out);
 			fwrite(p,len1,1,f_out);
 		}
 	}
+
+#ifdef LIST_GROUP_INFO
+	for(ix=32; ix<256; ix++)
+	{
+		if(nextchar_count[ix] > 30)
+			printf("Group %s   %c  %d\n",name,ix,nextchar_count[ix]);
+	}
+#endif
 }  //  end of output_rule_group
 
 

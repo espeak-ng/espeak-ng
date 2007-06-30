@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #include <stdio.h>
@@ -325,18 +325,24 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	int h;
 	int ix;
 
-	static const short sqrt_tab[100] = {
-     0, 64, 90,110,128,143,156,169,181,192,202,212,221,230,239,247,
-   256,263,271,278,286,293,300,306,313,320,326,332,338,344,350,356,
-   362,367,373,378,384,389,394,399,404,409,414,419,424,429,434,438,
-   443,448,452,457,461,465,470,474,478,483,487,491,495,499,503,507,
-   512,515,519,523,527,531,535,539,543,546,550,554,557,561,565,568,
-   572,576,579,583,586,590,593,596,600,603,607,610,613,617,620,623,
-   627,630,633,636 };
+	static const short sqrt_tab[200] = {
+	  0, 64, 90,110,128,143,156,169,181,192,202,212,221,230,239,247,
+	256,263,271,278,286,293,300,306,313,320,326,332,338,344,350,356,
+	362,367,373,378,384,389,394,399,404,409,414,419,424,429,434,438,
+	443,448,452,457,461,465,470,474,478,483,487,491,495,499,503,507,
+	512,515,519,523,527,531,535,539,543,546,550,554,557,561,565,568,
+	572,576,579,583,586,590,593,596,600,603,607,610,613,617,620,623,
+	627,630,633,636,640,643,646,649,652,655,658,662,665,668,671,674,
+	677,680,683,686,689,692,695,698,701,704,706,709,712,715,718,721,
+	724,726,729,732,735,738,740,743,746,749,751,754,757,759,762,765,
+	768,770,773,775,778,781,783,786,789,791,794,796,799,801,804,807,
+	809,812,814,817,819,822,824,827,829,832,834,836,839,841,844,846,
+	849,851,853,856,858,861,863,865,868,870,872,875,877,879,882,884,
+	886,889,891,893,896,898,900,902};
 
 	if(fr->rms == 0) return;    // check for divide by zero
 	x = (new_rms * 64)/fr->rms;
-	if(x >= 100) x = 99;
+	if(x >= 200) x = 199;
 
 	x = sqrt_tab[x];   // sqrt(new_rms/fr->rms)*0x200;
 
@@ -464,6 +470,7 @@ int FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsig
 {//==============================================================================================================================
 	int ix;
 	int formant;
+	int next_rms;
 
 	int len;
 	int rms;
@@ -489,7 +496,7 @@ static short vcolouring[N_VCOLOUR][5] = {
 		return(0);
 
 	len = (data1 & 0x3f) * 2;
-	rms = ((data1 >> 6) & 0x3f) * 2;
+	rms = (data1 >> 6) & 0x3f;
 	flags = (data1 >> 12);
 
 	f2 = (data2 & 0x3f) * 50;
@@ -517,26 +524,39 @@ static short vcolouring[N_VCOLOUR][5] = {
 		seq[0].frflags |= FRFLAG_LEN_MOD;              // reduce length modification
 		fr->frflags |= FRFLAG_LEN_MOD;
 
+		next_rms = seq[1].frame->rms;
+
 		if(f2 != 0)
 		{
+			if(rms & 0x20)
+			{
+				set_frame_rms(fr,(next_rms * (rms & 0x1f))/30);
+			}
 			AdjustFormants(fr, f2, f2_min, f2_max, f1, f3_adj, f3_amp, flags);
-			set_frame_rms(fr,rms);
+
+			if((rms & 0x20) == 0)
+			{
+				set_frame_rms(fr,rms*2);
+			}
 		}
 		else
 		{
-			set_frame_rms(fr,RMS_START);
+			if(flags & 8)
+				set_frame_rms(fr,(next_rms*24)/32);
+			else
+				set_frame_rms(fr,RMS_START);
 		}
 
 		if(flags & 8)
 		{
-			set_frame_rms(fr,seq[1].frame->rms - 5);
+//			set_frame_rms(fr,next_rms - 5);
 			modn_flags = 0x800 + (VowelCloseness(fr) << 8);
 		}
 	}
 	else
 	{
 		// exit from vowel
-
+		rms = rms*2;
 		if((f2 != 0) || (flags != 0))
 		{
 

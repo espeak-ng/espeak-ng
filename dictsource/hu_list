@@ -1,3 +1,9 @@
+// Translations for Hungarian words
+// This file is UTF-8 encoded.
+
+// Conditional rules:
+// ?1   speak "i" as Roman number
+
 
 // Numbers
 
@@ -57,6 +63,7 @@ u.n	u:JnEvEzEt:   $dot
 ú.n	u:JnEvEzEt:   $dot
 vö	v'EZd||_'Yss2E
 
+?1 i	EJ	$abbrev
 ii	kEttY:  $abbrev
 iii	ha:R2om  $abbrev
 iv	ne:J  $abbrev
@@ -87,7 +94,7 @@ xxx	hARmints  $abbrev
 
 
 // Articles
-a         $u
+a         $u     // the
 az        $u
 aki       $u+   // that
 
@@ -118,6 +125,7 @@ bár       $pause     // although
 habár     $pause     // although
 
 ha        $u $pause  // if
+noha        $u $pause  // even thought
 
 
 // Prepositions etc.
@@ -132,29 +140,29 @@ ne        $u+
 néhány    $u+
 is        $u         // also
 
-elöl	$u
+elöl	$u      // in front of
 elől	$u
 elé	$u
 előtt	$u
 
-mögül	$u
+mögül	$u      // behind
 mögött	$u
 mögé	$u
 
 kívül	$u
-után	$u
+után	$u     // after
 
 alól	$u
 alá	$u
-alatt	$u
+alatt	$u    // below
 
-felől	$u
+felől	$u    // above
 felé	$u
 fölé	$u
-felett	$u
+felett	$u    // above
 fölött	$u
 
-mellől	$u
+mellől	$u    // besides
 mellé	$u
 mellett	$u
 
@@ -166,7 +174,7 @@ ba	$u	// into
 be	$u
 ra	$u	// onto
 re	$u
-ik	$u
+ik	$u      // -th
 as	$u
 es	$u
 os	$u
@@ -174,7 +182,7 @@ os	$u
 ös	$u
 ból	$u	// from inside
 ből	$u
-ról	$u
+ról	$u      // from top of, about
 ről	$u
 án	$u
 én	$u
@@ -197,7 +205,7 @@ miatt   $u $pause  // because
 
 ban	$u	// in
 ben	$u
-hoz	$u
+hoz	$u      // to
 hez	$u
 höz	$u
 ig	$u	// up to
@@ -316,7 +324,9 @@ _.	pont
 @	kukAts
 €	EuR2o
 +	plus
-§	pR2AR2AgR2AfuS
+§	pAR2AgR2AfuS
+Ft	foR2int
+$	dolla:R2
 
 
 

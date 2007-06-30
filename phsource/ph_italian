@@ -49,7 +49,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 150
+  length 140
   formants vowel/i
   linkout ;
 endphoneme

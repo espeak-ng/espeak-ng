@@ -84,7 +84,7 @@ If neither -f nor --stdin is given, then the text input is taken from "words" (a
 <strong>-s &lt;integer&gt;</strong><br>
 <dd>Sets the speed in words-per-minute (approximate values for the default voice, others may
 differ slightly). The default value is 170. I generally use a faster speed
-of 190.  Range 80 to 370.
+of 185.  Range 80 to 370.
 <p>
 <dt>
 <strong>-b</strong><br>
@@ -137,7 +137,7 @@ Quiet. No sound is generated.  This may be useful with the -x option.
 <p>
 <dt>
 <strong>--stdout</strong><br>
-<dd>Writes the speech output to stdout rather than speaking it.
+<dd>Writes the speech output to stdout as it is produced, rather than speaking it.  The data starts with a WAV file header which indicates the sample rate and format of the data.  The length fields are set to zero because the length of the data is unknown when the header is produced.
 <p>
 <dt><strong>--compile[=&lt;voice name&gt;]</strong><br>
 <dd>

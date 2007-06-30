@@ -279,7 +279,7 @@ phoneme *;    //   flap
   vcd alv flp
   vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15 colr=1
   formants d/tap+r3/rx
-  vowelin f1=0  f2=1700 -300 300  f3=-400 80 rms=20
+  vowelin f1=0  f2=1700 -300 300  f3=-400 80
   before (i) d/tap_i+r3/rx
   lengthmod 2
 endphoneme

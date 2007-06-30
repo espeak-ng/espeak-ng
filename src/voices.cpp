@@ -1,10 +1,10 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Jonathan Duddington                             *
- *   jonsd@users.sourceforge.net                                           *
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
- *   the Free Software Foundation; either version 2 of the License, or     *
+ *   the Free Software Foundation; either version 3 of the License, or     *
  *   (at your option) any later version.                                   *
  *                                                                         *
  *   This program is distributed in the hope that it will be useful,       *
@@ -13,10 +13,10 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write to the                         *
- *   Free Software Foundation, Inc.,                                       *
- *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
+
 #include "StdAfx.h"
 
 #include "stdio.h"
@@ -684,12 +684,12 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_PITCH:
 			{
 				double factor;
-			// default is  pitch 82 118
-			n = sscanf(p,"%d %d",&pitch1,&pitch2);
-			voice->pitch_base = (pitch1 - 9) << 12;
-			voice->pitch_range = (pitch2 - pitch1) * 108;
-			factor = float(pitch1 - 82)/82;
-			voice->formant_factor = (1+factor/4) * 256;
+				// default is  pitch 82 118
+				n = sscanf(p,"%d %d",&pitch1,&pitch2);
+				voice->pitch_base = (pitch1 - 9) << 12;
+				voice->pitch_range = (pitch2 - pitch1) * 108;
+				factor = double(pitch1 - 82)/82;
+				voice->formant_factor = (int)((1+factor/4) * 256);  // nominal formant shift for a different voice pitch
 			}
 			break;
 
@@ -807,7 +807,7 @@ voice_t *LoadVoice(const char *vname, int control)
 				voice->breath[0] = Read8Numbers(p,&voice->breath[1]);
 				for(ix=1; ix<8; ix++)
 				{
-					if(ix & 1)
+					if(ix % 2)
 						voice->breath[ix] = -voice->breath[ix];
 				}
 			break;

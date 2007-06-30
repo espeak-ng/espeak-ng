@@ -16,6 +16,7 @@
 
         biz (A   b'iz,       // bizalmas  etc.
 	biedermeier  bi:dER2ma:jER2
+
 .group c
         c        ts
         cc       ts:
@@ -75,7 +76,7 @@ hierar) ch (i    C
      C) dj       J
      A) dj (A    J:
 
-   ren) d (szerint  d
+   ren) d (szer  d
 
 
 .group e
@@ -103,10 +104,6 @@ hierar) ch (i    C
      A) gys (A   tS:
         gysz     Js
      A) gysz (A  Js:
-        gyz      dz
-     A) gyz (A   d:z
-     C) gyzs     dZ
-     A) gyzs (A  dZ:
      C) gyj      J
      A) gyj (A   J:
 
@@ -116,12 +113,11 @@ hierar) ch (i    C
     _e) gy (üt   J:
 _minde) gy (ik   J:
 
-    na) gysz (abású  Js
+    na) gysz (a  Js
 
 
 .group h
         h        h
-        h (_
 
 .group i
         i        i
@@ -131,7 +127,6 @@ _minde) gy (ik   J:
 
 .group j
         j        j
-     C) j (K     C
 
 .group k
         k        k
@@ -142,7 +137,6 @@ _minde) gy (ik   J:
         l        l
         ly       j
         lly      jj
-        lj       lj
 
      C) ly (_    li
  _kéth) ly       li
@@ -162,14 +156,10 @@ szamue) ly	 lli
         n        n
         n (g     N
         n (k     N
-        n (p     m
-        n (b     m
         ny       n^
         nny      n^n^
         nj       n^
 
-        ny (k    N
-        ny (g    N
 
      _) nem (-   n,Em       // has $alt2 attribute in hu_list, combine with the next word
 
@@ -192,6 +182,7 @@ szamue) ly	 lli
 .group p
         p        p
         pp       p:
+        p (v     p_
 
 .group q
         q        kv
@@ -219,6 +210,8 @@ _munká) s        S
         sz (öld  Sz
     va) s (zabl  S||
      _) semmelweiss  sEmmElvEjs
+     _) semmelweis  sEmmElvEjs
+     _) semmelweiß sEmmElvEjs
  engel) s        s
     mu) ss (olini ss2
      _) saar     sa:R2
@@ -232,26 +225,10 @@ _munká) s        S
         t        t
         tt       t:
         ty       c
-     s) ty       c:    //
-     z) ty       c:    // keztyű
+//     s) ty       c:    //
+//     z) ty       c:    // keztyű
         tty      c:
 
-        ts       tS
-     A) ts (A    tS:
-        tys      tS
-     A) tys (A   tS:
-        tsz      ts
-     A) tsz (A   ts:
-        tysz     ts
-     A) tysz (A  ts:
-        tz       dz
-     A) tz (A    t:z
-        tyz      dz
-     A) tyz (A   t:z
-     C) tzs      dZ
-     A) tzs (A   dZ:
-     C) tyzs     dZ
-     A) tyzs (A  dZ:
      C) tj       c
      A) tj (A    c:
      C) tyj      c
@@ -275,6 +252,7 @@ vörösmar) ty     ti
 
 .group v
         v        v
+     _) versailles vER2sa:j
 
 .group w
         w        v

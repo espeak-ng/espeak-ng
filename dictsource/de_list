@@ -168,9 +168,9 @@ gegen           ge:g@n    $u+ $pause
 gegend          ge:g@nt
 hin             hIn
 in              In        $u+ $brk
-(in die)        %Ind%i:
-(in den)        %Ind%e:n
-(in der)        %Ind%E*
+//(in die)        %Ind%i:
+//(in den)        %Ind%e:n
+//(in der)        %Ind%E*
 im              Im        $u+ $brk
 ins             Ins       $u+ $brk
 mit             mIt       $u+ $pause
@@ -178,7 +178,7 @@ nach            nax       $u+ $brk
 ob              ,Ob       $pause $strend $only
 pro             ,p@-*o:     $pause
 von             fOn       $u+ $brk
-(von dem)       %fOn%de:m $brk
+//(von dem)       %fOn%de:m $brk
 vom             fOm       $u+ $brk
 vor             ,fO*      $strend
 zu              tsu:      $u+ $brk
@@ -187,8 +187,8 @@ zur             tsu:*     $u+ $pause
 über            ,yb3      $pause $strend
 unter           ,Unt3     $pause $strend
 um              Um        $u+ $brk
-(um die)        %Umd%i:   $brk
-(um den)        %Umd%e:m  $brk
+//(um die)        %Umd%i:   $brk
+//(um den)        %Umd%e:m  $brk
 während         $pause
 
 // misc
@@ -514,6 +514,7 @@ furie            $alt
 geben           ge:b@n
 gebt            ge:bt
 gegenüber       ge:g@n'y:b3
+geglichen       g@glIC@n
 gemein          g@maIn
 genial          ge:nI'al
 geranie         ge:*'A:nI@
@@ -525,6 +526,8 @@ glorie           $alt
 grazie           $alt
 
 handy           handI
+häuschen        hOYsC@n
+hausier         haUz'i:*
 heimat          haImat
 herberg         hE*bE*g
 historie         $alt
@@ -547,6 +550,7 @@ inkaisch        INkA:IS
 inkonstant       $1
 insbesondere     $3
 interess        Int@*'Es
+intern          Int'E*n
 
 januar          janu:A:*
 
@@ -609,6 +613,8 @@ rupie            $alt
 
 sabbat          zabat
 sagt            zA:gt
+salopp           $2
+schult          Su:lt
 selbst          zElpst
 serie           se:*I;@
 service         sE*vIs
@@ -622,14 +628,20 @@ stalagmit       stalagm'It
 system          z%IstEm
 
 tag             tA:g
+telegen         te:le:g'e:n
 the             D@         // English
 theater         te:'A:t3
 train           t@-*e:n
 turin            $2
 tuerei          tu:*aI
 
+umweg            $1
 unten           Unt@n
 
+wasserung       vas@*UN    // because -ung isn't marked as a suffix
+weiterung       vaIt@*UN
+weither         vaIth'E*
+weitum          vaIt_|'Um
 woher           vo:h'e:r
 
 verein          fE*'aIn

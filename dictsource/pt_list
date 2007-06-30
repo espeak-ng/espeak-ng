@@ -563,11 +563,19 @@ flocos       $alt
 lopes        $alt
 jogos        $alt
 
+// Close [O]
+?1 calculadora k,Alkul&d'or&
+?1 professora  pr,ufys'or&
+?1 senhora     syn^'or&
+?1 sobre       s'obry
+
+
 
 // Open [E]
 nela         n'El&
 nessa        n'Es&
-era         'E*&
+?1 era         'Er&
+?2 era         'E*&
 
 abacaxi      abakaSi
 axé          aSE
@@ -766,6 +774,7 @@ müller      m'iler
 ronchi      r'OnCi:
 vogel       f'o:g@l
 volkmann    f'Olkman
+
 
 
 

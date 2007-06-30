@@ -1,6 +1,6 @@
 
 //====================================================
-//  Greek  - based on Italian
+//  Greek  - based on base2
 //====================================================
 
 
@@ -35,8 +35,8 @@ endphoneme
 
 phoneme t         // revert to alveolar /t/
   vls alv stop
-  vowelin f1=1  f2=1700 -300 300  f3=-100 80  rms=30
-  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  vowelin f1=1  f2=1600 -300 300  f3=-100 80  amp=11
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
   wave  ustop/t_short%80
   before _ ustop/t_

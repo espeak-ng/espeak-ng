@@ -161,7 +161,6 @@ phoneme l
   beforenotvowel l/2       // use 'dark' [l] after a vowel
   formants l/l
   after _ l/_l  t l/tl
-  before _ l/l_2
 endphoneme
 
 phoneme w

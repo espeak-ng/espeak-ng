@@ -3,7 +3,7 @@
 
 
 .group a
-	_)	a(_	a:
+	_)	a(_	a
 		a	a:
 		a (CK	a
 		ai      aI (K
@@ -11,25 +11,29 @@
 
 	&)	a (_S1q  a     // lookup it_list without suffix
 
-	@)	a (ce_	=a
-	@)	a (ci_	=a
-		a (ista_  a
+	@)	a (cA_	=a
+	@)	a (che_	=a
+		a (istA_  a
 		a (ismo_  a
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 
 	_)	ae (ro    aI
 	@)	avano (_S5  'avano
-		
+		a (tterA_   'a
+
 .group b
-	_)	b(_	bi:
+	_)	b(_	bi
 		b       b
 		bb      b:
+
+	li)	be	=be
 		
 .group c
-	_)	c(_	tSi:
+	_)	c(_	tSi
 		c	k
 		cc	k:
+		c ('    tS
 		c (e	tS
 		c (é	tS
 		c (è	tS
@@ -54,26 +58,29 @@
 		cci (ò	tS:
 		cci (u	tS:
 		cci (ù	tS:
+	@)	co (lA_ =ko
 		
 .group d
-	_)	d(_	di:
+	_)	d(_	di
 		d	d
 		dd	d:
+	n)	dere    =deRe
 
 .group e
-	_)	e(_	e:
+	_)	e(_	e
 		e	e:
 		e (CK	e
 		ei	ej (K
 
 	&)	e (_S1q  e     // lookup it_list without suffix
-	@)	e (ce_	=e
+//	@)	e (ce_	=e
 	@)	e (ci_	=e
+	C)	e (re_	=e
 
 	@)	e (nte_   E
 	@m)	e (nte_   e
 	@)	e (nza_   E
-	@)	e (vole_  'e
+	@)	e (volA_  'e
 	@)	e (rrimo_ 'E
 	@)	e (simo_  'e
 
@@ -81,15 +88,16 @@
 
 		
 .group f
-	_)	f(_	Effe
+	_)	f(_	effe
 		f	f
 
 	@A)	f (ico_  =f
+	@A)	f (ichA_ =f
 	@A)	f (ilo_  =f
 	@A)	f (ero_  =f
 		
 .group g
-	_)	g(_	dZi:
+	_)	g(_	dZi
 		g	g
 		gg	g:
 		gh	g
@@ -98,12 +106,12 @@
 		g (è	dZ
 		g (i	dZ
 		g (ì	dZ
-		gi (a	dZ
-		gi (à	dZ
-		gi (o	dZ
-		gi (ò	dZ
-		gi (u	dZ
-		gi (ù	dZ
+		gi (a	dZj
+		gi (à	dZj
+		gi (o	dZj
+		gi (ò	dZj
+		gi (u	dZj
+		gi (ù	dZj
 		gg (e	dZ:
 		gg (é	dZ:
 		gg (è	dZ:
@@ -115,6 +123,7 @@
 		ggi (ò	dZ:
 		ggi (u	dZ:
 		ggi (ù	dZ:
+	@)	gger (lo_ =dZ:eR
 		gl (i	l^
 		gl (ì	l^
 		gli (A  l^
@@ -123,14 +132,16 @@
 		gu (A   gw
 
 	@)	g (ero_  =g
+	@)	gno (lA_ n^'o
 
 	
 .group h
 	_)	h(_	ak:a
 		h
+		ha      h'a
 
 .group i
-	_)	i(_	i:
+	_)	i(_	i
 		i	i:
 		i (CK	i
 		i (A	j
@@ -147,19 +158,20 @@
 
 	&)	i (_S1q  i     // lookup it_list without suffix
 
-	@)	i (ce_	=i
+	@)	i (co_	=i
 	@)	i (ci_	=i
-        @)      i (de_  =i
-        @)      i (do_  =i
+        @)      i (dA_  =i
+        @)      i (dere_  'i
 	@)	i (le_  =i
 	@)	i (li_  =i
-	@)	iera (_   i'E:ra
-	@)	iere (_   i'E:re
+	@)	iera (_   i'E:Ra
+	@)	iere (_   i'E:Re
         @)      i (ente_  i
 	@)	i (ante_  i
 	@)	i (bile_  'i
 	@)	issimo(_S6 'issimo
 	@)	issero(_S6 'issero
+	@)	i (sti   'i
 
 		
 .group j
@@ -180,6 +192,8 @@
 .group m
 	_)	m(_	Emme
 		m	m
+	A)	mi (a   m'i:
+	@)	mi (co_ m'i:
 		
 .group n
 	_)	n(_	Enne
@@ -192,7 +206,7 @@
 		n (k	N
 		
 .group o
-	_)	o(_	O:
+	_)	o(_	o
 		o	o:
 		o (CK	o
 		oi	oI (K
@@ -207,32 +221,36 @@
 	@)	o (fono_   'O
 	@)	o (metro_  'O
 	@)	o (logo_   'O
+		o (str     'O
+	@)	o (lo_     =o
 
 	
 .group p
-	_)	p(_	pi:
+	_)	p(_	pi
 		p	p
 		pp	p:
         _)      pn (@@   n
 	_)	ps (A@	s
+	@m)	p (ere_ =p
 
 .group q
-	_)	q(_	ku:
+	_)	q(_	ku
 		q	kw2
 		qu	kw2
 
 .group r
 	_)	r(_	ER*e
 	C)	r	@-*
-		r	R
-	_)	r	R
+		r	@-*
+	_)	r	@-*
 		rr	R*
 	A)	r (A	R
 		
 .group s
-	_)	s(_	Esse
-		s	z
+	_)	s(_	esse
+		s	s
 	_)	s	s
+	A)	s (A	z
 
 	l)      s       s
 	p)      s       s
@@ -250,11 +268,11 @@
 		sc (è	S
 		sc (i	S
 		sc (ì	S
-	A)	sc (e	SS
-	A)	sc (é	SS
-	A)	sc (è	SS
-	A)	sc (i	SS
-	A)	sc (ì	SS
+//	A)	sc (e	SS
+//	A)	sc (é	SS
+//	A)	sc (è	SS
+//	A)	sc (i	SS
+//	A)	sc (ì	SS
 		sch (e	sk
 		sch (é	sk
 		sch (è	sk
@@ -262,15 +280,15 @@
 		sch (ì	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
-		
+	@)	sia	s'ia	
 		
 .group t
-	_)	t(_	ti:
+	_)	t(_	ti
 		t	t
 		tt	t:
 		
 .group u
-	_)	u(_	u:
+	_)	u(_	u
 		u	u:
 		u (CK	u
 		u (A	w2
@@ -281,7 +299,7 @@
 	@)	u (colo_  'u
 
 .group v
-	_)	v(_	vu:
+	_)	v(_	vu
 		v	v
 	
 .group w
@@ -299,9 +317,8 @@
 	
 		
 .group z
-	_)	z(_	ze:ta
+	_)	z(_	dze:ta
 		z	ts
-	A)	z	ts:
 	A)	zz	ts:
 
         _)	z (i	dz
@@ -332,14 +349,14 @@
 		+	pju
 		.       punto
 		, (D    v'irgola
-		:       d,uep'unte
+		:       d,uep'unti
 		;       p'untoev'irgola
 		!       _p'untoesklamat'ivo_
 	!)	!
 		?	_p'untointeRogat'ivo_
 	?)	?
-		\\	bakslaS
-		/	slaS
+		\\	kont@-*ob'aR*a
+		/	b'aR*a
 
         __)  - (_D         meno
         A_)  - (_D        _

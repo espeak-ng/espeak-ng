@@ -75,7 +75,7 @@ _8X     'tax2tIx2
 _9X     'ne@x2@ntIx2
 _0C     'hOn@rt
 _0M1    'd'Yys@nt
-_0M2    'mIljun
+_0M2    mIlj'un
 _0M3     mIlj'art
 _0and   _!En
 _dpt    'pWnt
@@ -91,6 +91,7 @@ brittanje   $2
 ceylon      s@lOn
 china       S'ina
 engeland    'EN@lant
+jerusalem   j@r'ysalEm
 kanada      kanad%a
 kongo       kONgu
 mesopotamië mEsuput'A:mi@
@@ -107,6 +108,7 @@ worcester   v'ust@r
 
 // People names
 Abiméleg    abin'e@lEx2
+allah       %alA:
 André       'andreI
 annette     an'Et
 aucamp      @Ukamp
@@ -117,6 +119,7 @@ bothma      bOtma
 breytenbach breIt@nbax2
 carl        kA:r@L
 charles     _^_EN
+charlie     tSA:li
 chopin      S%OpA~
 chris       krIs
 christo     krIstu
@@ -131,6 +134,7 @@ esegiël    is'e@x2i_@l
 estelle     %ist&l
 eugene      judZ'i:n
 eugène     yZ'En
+farao       fA:ro@
 ferreira    f@r&:r@
 fourie      fur'i
 francois    franSwa
@@ -148,6 +152,9 @@ jean        ZA~n
 jesus       ji:sWs
 joey        dZ@Ui
 john        _^_EN
+jordaan     $2
+josef       jo@s@f
+langenhoven laN@nho@f@n
 lategan     lA:t@x2an
 le l@
 leandra     li'andra
@@ -159,9 +166,11 @@ louise      luw'i:z
 louw l'@U
 maria mar'ia
 martin m'A:rt@n
+michelle    miS'&l
 michiel $2
 mostert     m'Ost@rt
 mozart      mo@tsart
+naomi       na_'o@mi
 natasha n%at'aSa
 paul        p@Ul
 paulus      p@UlWs
@@ -170,6 +179,7 @@ pierre p'e@r
 petrus      pe@trWs
 phoebe      fi:bi
 preez       pr'e@
+rachmaninoff rax2m'aninOf
 rebekka     r@bEka
 ronel       run'&l
 rousseau    r@s@U
@@ -212,10 +222,9 @@ sal		$u
 sou 		$u
 kan		$u $strend
 kon		$u $strend
-wil		$u $strend
+wil		$u $strend $only
 word		$u
 gaan            $u $only
-kry		$u
 
 
 // conjunctions and questions
@@ -238,6 +247,7 @@ desondanks      dEs?OndaNks $pause
 ondanks         'OndaNks $pause
 verder		f'&rd@r $pause
 nogtans		$pause
+inteendeel      $2 $pause
 intussen	$pause
 omdat		$pause
 sodat		$pause
@@ -342,15 +352,17 @@ bv          beIf'o@rbe@lt
 
 aanbid        $2
 aanstaande    $2
-agenda        ax2'Enda
+adagio        ad'A:dZi;%@U
 algaande      $2
 algehele      alx2@h,e@l@
 alles         al@s
+alreeds       $2
 alternatiewe  $4
 amen          A:mEn
 anatomie      $4
 asof          asOf
-asook         aso@k
+asook         %as_o@k
+aspris        $2
 asseblief     as@bl'if
 babelaas      bab@lA:s
 bedjie        bE:ici
@@ -361,7 +373,6 @@ bene          be@n@
 beswil        bEsv@l	
 bêre          b&:r@
 beskryf b@skr'eIf
-beste         bEst@
 bestes        bEst@s
 betekenis     b@te@k@n@s
 bewe          be@v@
@@ -369,6 +380,8 @@ bewend        be@v@nt
 bewering      b@ve@rIN
 bostaande b'o@stA:nd@
 
+cabernet      kab@rn'eI
+camembert     kam@mb'&:r
 dadelik       dA:d@lIk
 darem         dar@m
 derde         d&:rd@
@@ -395,8 +408,11 @@ exodus        Eks'o@dWs
 figuur        f@x2yr
 finalis       $3
 finaliste     $3
+frontaal      $2
+frontale      $2
 
 garages       g@rA:dZ@s
+gawes         x2A:v@s
 gee	      x2e@
 geen	      x2e@n
 gegewens      x2@x2e@v@ns
@@ -406,6 +422,7 @@ genesis       x2e@n@s@s
 //gesamentlik   x2@sA:m@ntl@k
 gooi          x2OI
 gomorra       x2@mOra
+graffiti      graf'iti
 
 hallo         h'Il,@U
 hanteer       $2
@@ -416,9 +433,10 @@ hek           h&k
 hekke         h&k@
 helaas        he@l'A:s
 here          he@r@
+hiernamaals   hi:rn'A:mA:ls
 hoewel        huv'&l
+hokaai        hOkAI
 hoofsaaklik   $2
-hotel         hut'&l
 
 idee          $2
 ietwat        itvat
@@ -429,17 +447,15 @@ inkluis       $2
 intens @nt'Ens
 intensiteit   $4
 
-joernalis $3
+jawoord       jA:vo@rt
 
 
 kafee         kaf'e@
-kantoor       $2
 kapitaal      kapit'A:l
 komaan        kOmA:n
 komberse      kOmb'&rs@
 kombers       kOmb'&rs
 kopiereg      kup'ir&x2
-krediet       kr@dit
 kritiek       krIt'ik
 kultuur       $2
 kunsmatige    kWnsm'A:t@x2@
@@ -450,9 +466,11 @@ lekker        l&k@r
 lekkerder     l&k@rd@r
 lekkerste     l&k@rst@
 
+macaroni      makar'o@ni
+madame        mad'A:m
 makabere m%ak'A:b@r@
-matige        mA:t@x2@
 meegee        me@x2e@
+merlot        m&rl'o@
 militêre      mIl@t'&:r@
 minister      m@nIst@r
 minute        m@nyt@
@@ -465,6 +483,7 @@ motor         mo@t@r
 motortjie     mo@t@rki
 
 nadele        nA:de@l@
+namens        nA:m@ns
 nature        nat'yr@
 nalatigheid   nA:l'A:t@x2eIt
 namate        $2
@@ -474,11 +493,11 @@ netjiese      nEicis@
 netsowel      nEtso@v&l
 nietemin      n'it@m@n
 nobelprys     $2
-nogal         nOx2al
 normale       nOrm'A:l@
 november      $2
 numeri        nWm@ri
 
+oeuvre        W:vr@
 omtrent       Omtr'Ent
 onbegrip      $1
 onderweg      $3
@@ -493,7 +512,6 @@ ongewens      $1
 ongewensde    $3
 ongewoons     $1
 onkunde       $1
-onlangs       $1
 onmag         $1
 onmin         $1
 onraad        $1
@@ -509,6 +527,7 @@ patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
 per           pIr
 persent       p@rsEnt
+prakseer      $2
 program       prux2r'am
 
 reeds         re@ts
@@ -583,6 +602,8 @@ vrek          fr&k
 waarskynlik   $2
 waarskynlike  $2
 wangedrag     vanx2@drax2
+weergalm      $2
+weerklink     $2
 weg           v&x2
 weggewens     v&x2@v'E:ns
 

@@ -579,12 +579,12 @@ endphoneme
 phoneme **    //   TEST flap after consonant
   liquid alv
   vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15
-  vowelin f1=0  f2=1700 -300 300  f3=-300 80 rms=20
+  vowelin f1=0  f2=1700 -300 300  f3=-300 80
   formants r3/@tap+r3/rx
-  vowelin f1=0  f2=1700 -300 300  f3=-400 80 rms=20
+  vowelin f1=0  f2=1700 -300 300  f3=-400 80
   before (i) r3/@tap_i+r3/rx
   before (e) r3/@tap_i+r3/rx
-  vowelin f1=2  f2=1700 -300 300  f3=-300 80 rms=20
+  vowelin f1=2  f2=1700 -300 300  f3=-300 80
   before (a) r3/@tap+r3/rx
 endphoneme
 
@@ -648,12 +648,12 @@ phoneme *    //   flap
   vcd alv flp
   brkafter
   vowelout f1=3 f2=1500 -400 300  f3=-200 80 rms=35 len=50
-  vowelin f1=0  f2=1500 -300 300  f3=-200 80 rms=20
+  vowelin f1=0  f2=1500 -300 300  f3=-200 80
   formants d/tap3+r3/rx%200
-  vowelin f1=0  f2=1500 -300 300  f3=-200 80 rms=20
+  vowelin f1=0  f2=1500 -300 300  f3=-200 80
   before (i) d/tap1+r3/rx%150
   before (e) d/tap1+r3/rx%150
-  vowelin f1=2  f2=1500 -300 300  f3=-200 80 rms=20
+  vowelin f1=2  f2=1500 -300 300  f3=-200 80
   before (a) d/tap3+r3/rx%200
   before r d/dr
   lengthmod 3
@@ -876,9 +876,7 @@ endphoneme
 
 phoneme p
   vls blb stop
-//  vowelin  f1=0  f2=1000 -50 -50  f3=-200 80
-//  vowelout f1=0  f2=1000 -500 -350  f3=-200 80
-  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=30
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
   lengthmod 2
   wave ustop/p
@@ -1188,6 +1186,9 @@ include ph_czech
 phonemetable hr sk
 include ph_croatian
 
+phonemetable mk hr
+include ph_macedonian
+
 phonemetable sr hr
 include ph_serbian
 
@@ -1235,8 +1236,8 @@ phonemetable sw base
 include ph_swahili
 
 
-phonemetable basef base
-include pf
+//phonemetable basef base
+//include pf
 
-phonemetable f_en basef
-include pf_english
+//phonemetable f_en basef
+//include pf_english

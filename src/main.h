@@ -1,13 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////
-// Name:        sashtest.h
-// Purpose:     Layout window/sash sample
-// Author:      Julian Smart
-// Modified by:
-// Created:     04/01/98
-// RCS-ID:      $Id: sashtest.h,v 1.4 2002/03/17 14:15:55 VZ Exp $
-// Copyright:   (c) Julian Smart
-// Licence:     wxWindows license
-/////////////////////////////////////////////////////////////////////////////
 
 #include "wx/toolbar.h"
 #include "wx/laywin.h"

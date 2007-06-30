@@ -2,7 +2,7 @@
 <HTML>
 <HEAD>
 	<META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
-	<TITLE></TITLE>
+	<TITLE>eSpeak: Adding a Language</TITLE>
 </HEAD>
 <BODY LANG="en-GB" DIR="LTR">
 <A href="docindex.html">Back</A>
@@ -22,18 +22,18 @@ syllables within words. Some languages are easier than others. I expect most are
 <p><li>Improve the sounds of the phonemes.  This may consist of making small adjustments to vowel and diphthong quality,
 or adjusting the strength of consonants.  Bigger changes may be recording new or replacement consonant
 sounds, or even writing program code to implement new types of sounds.
-<p><li>Marking some common words in the dictionary that should be unstressed (words such as "the", "is"), should be preceded
+<p><li>Marking some common words in the dictionary that should be unstressed (words such as "the", "is"), or should be preceded
 by a short pause (such as "and", "but"), or have other attributes, in order to make the speech flow better.
 <p><li>Improve the rhythm of the speech by adjusting the relative lengths of vowels in different contexts, eg. stressed/unstressed syllable,
 or depending on the following phonemes.  This is important for making the speech sound good for the language.
 <p><li>Identify or implement new functions in the program to improve the speech, or to deal with
 characteristics of the language which are not currently implemented.  For example, a different intonation module.
 </ul>
-If you are interested in working on a language, please contact me to set up the initial data and to
-discuss the features of the language.
+<b><em>If you are interested in working on a language, please contact me to set up the initial data and to
+discuss the features of the language.</em></b>
 <HR>
 <H3>6.1 Language Code</H3>
-<P>Generally, the language's international ISO 639-1 code is used to
+<P>Generally, the language's international <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 code</a> is used to
 identify the language. It is used in the filenames which
 contains the language's data. In the examples below the code &quot;<B>en</B>&quot;
 (English) is used as an example. Replace this with the code of your
@@ -66,7 +66,7 @@ The <B>Compile phoneme data</B> function of the <B>espeakedit</B>
 program compiles the phonemes files to produce the files
 <B>espeak-data/phontab</B>, <B>phonindex</B>, and <B>phondata.</B><P>
 For information on how to analyse recorded sounds of the language and to
-prepare the corresponding phoneme data, see (not yet written).<p>
+prepare the corresponding phoneme data, see <a href="editor_if.html">espeakedit</a> and <a href="analyse.html">analysis</a>).<p>
 For an initial draft a language will often be able to use vowels and
 consonants which have already been set up for another language.
 <HR>
@@ -126,7 +126,6 @@ SetTranslator() function. This inherits the standard functions
 from the base translator class, but allows you to replace these where
 needed by new functions which are written specially for this
 language.</P>
-<hr>
 
 </BODY>
 </HTML>
