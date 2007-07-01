@@ -325,9 +325,6 @@ d'est	d'Est
 sommes  $u+
 êtes	$u+
 sont	$u+
-eu	y
-eue	y
-eues	y
 
 étais	$u+
 était	$u+
@@ -342,8 +339,11 @@ serons	$u+
 serez	$u+
 seront	$u+
 
+eu	y $u+
 eus	yz2 $u+
 eut	yt2 $u+
+eue	y $u+
+eues	yz2 $u+
 
 // some common adjectives and adverbs
 
@@ -398,19 +398,24 @@ bus	      bys
 echo          Eko
 fils	      fis
 mars	      maRs
+juin	      ZwE~
+adéquat       adekuat2
+adéquate      adekuat
+adéquats      adekuaz2
+adéquates     adekuatz2
 pays	      pEi
-absent        abs'A~
-ardent        aRd'A~
-prudent       pRyd'A~
-imprudent     E~pRyd'A~
-discident     disid'A~
-accident      aksid'A~
-occident      Oksid'A~
-l'occident    lOksid'A~
-orient        ORj'A~
-l'orient      lORj'A~
-secret        sYkR'E
-secrets       sYkR'E
+absent        absA~
+ardent        aRdA~
+prudent       pRydA~
+imprudent     E~pRydA~
+discident     disidA~
+accident      aksidA~
+occident      OksidA~
+l'occident    lOksidA~
+orient        ORjA~
+l'orient      lORjA~
+secret        sYkRE
+secrets       sYkRE
 
 
 sens	      sA~s

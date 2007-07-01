@@ -15,7 +15,7 @@
 
 
 
-.L01 ae au eu oe a e i o u yy y ā ē ī ō ū ë ü é
+.L01 ae au eu oe a e i o u yy y ā ē ī ō ū ë ü é æ
 .L02 ng qu pr tr cr chr br dr gr pl cl bl gl ph th ch 
 
 .group a
@@ -34,6 +34,9 @@
 .group ā
              ā            a:
 
+
+.group æ
+             æ            aI
 
 .group b
              b            b

@@ -16,7 +16,7 @@
       fr  33  118
    fr_ca  11  118
       hi  49  131
-      hu  23  113
+      hu  22  112
       nl  26  117
       pl  15  107
       sk  29  125
@@ -437,7 +437,7 @@
   1  vowel/aa_7     nl
   3  vowel/a_en     en fr
   1  vowel/@_bck    hi
- 15  vowel/e        base2 en en_n af cy eo fr hu hr it la pt ++
+ 14  vowel/e        base2 en en_n af cy eo fr hr it la pt pt_pt ++
   2  vowel/e#       en_sc
   7  vowel/e_2      en_sc de hi it sv no
   1  vowel/e_3      hu
@@ -532,7 +532,6 @@
   1  vwl_af/@       af
   1  vwl_af/I       af
   2  vwl_af/r@      af
-  2  vwl_de/r_y     hu
   6  vwl_en/aI@     en en_n en_us en_sc en_rp en_wm
   2  vwl_en/aI@_2   en_sc
   5  vwl_en/aU@     en en_n en_us en_sc en_wm

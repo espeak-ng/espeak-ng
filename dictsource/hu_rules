@@ -35,7 +35,7 @@ hierar) ch (i    C
    szé) ch       tS
    _zi) ch (y    tS
 
-
+    dA) c (sz    ts
  kilen) c (sz    ts
   kvar) c (sz    ts
   mala) c (sá    ts
@@ -89,7 +89,7 @@ hierar) ch (i    C
         éi (é    e::i:
 
 .group ë
-        ë        e
+        ë        Y
 
 .group f
         f        f
@@ -114,6 +114,9 @@ hierar) ch (i    C
 _minde) gy (ik   J:
 
     na) gysz (a  Js
+
+     _) goethe   gY:tE
+     _) goethé   gY:te:
 
 
 .group h
@@ -184,6 +187,9 @@ szamue) ly	 lli
         pp       p:
         p (v     p_
 
+     _) potsdam  potsda:m
+
+
 .group q
         q        kv
         qu       kv
@@ -191,6 +197,7 @@ szamue) ly	 lli
 .group r
         r        R2
         rr       RR
+        rm       R2_m
 
      _) richa (rd R2iCa:
      _) richá (rd R2iCa:
@@ -227,6 +234,7 @@ _munká) s        S
         ty       c
 //     s) ty       c:    //
 //     z) ty       c:    // keztyű
+        ttj      tc:
         tty      c:
 
      C) tj       c
@@ -295,8 +303,8 @@ _szára) zs (ág     zS
 
 .group
         $       dolla:R2
-	ä	e
-	æ	e
+	ä	E
+	æ	E
 	ß	s
 	ç	tS
 	ñ	n^

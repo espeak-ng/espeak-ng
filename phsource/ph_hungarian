@@ -1,10 +1,51 @@
- 
+
+// Short vowels
+
+phoneme A
+  vowel starttype (o) endtype (o)
+  length 140
+  formants vowel/0_3
+endphoneme
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/e_mid
+endphoneme
+
 phoneme i
   vowel starttype (i) endtype (i)
-  length 130
+  length 140
   formants vowel/i_4
   linkout ;
 endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 130
+  formants vowel/o_mid
+endphoneme
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 130
+  formants vowel/uu_bck
+endphoneme
+
+phoneme Y
+  vowel starttype (@) endtype (@)
+  length 130
+  formants vowel/y#_2
+endphoneme
+
+phoneme y
+  vowel starttype (u) endtype (u)
+  length 130
+  formants vowel/yy_4
+endphoneme
+
+
+// Long Vowels
 
 phoneme i:
   vowel starttype (i) endtype (i)
@@ -13,83 +54,39 @@ phoneme i:
 //  linkout ;
 endphoneme
 
-phoneme E
-  vowel starttype (e) endtype (e)
-  length 130
-  formants vowel/e_mid
-endphoneme
-
-phoneme e
-  vowel starttype (e) endtype (e)
-  length 140
-  formants vowel/e
-endphoneme
-
 phoneme e:
   vowel starttype (e) endtype (e)
-  length 250
+  length 240
   formants vowel/e_3
-endphoneme
-
-phoneme A
-  vowel starttype (o) endtype (o)
-  length 150
-  formants vowel/0_3
 endphoneme
 
 phoneme a:
   vowel starttype (a) endtype (a)
-  length 270
+  length 240
   formants vowel/a
-endphoneme
-
-phoneme o
-  vowel starttype (o) endtype (o)
-  length 140
-  formants vowel/o_mid
 endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
-  length 270
+  length 240
   formants vowel/o_2
-endphoneme
-
-phoneme u
-  vowel starttype (u) endtype (u)
-  length 140
-  formants vowel/uu_bck
 endphoneme
 
 phoneme u:
   vowel starttype (u) endtype (u)
-  length 200
+  length 240
   formants vowel/u_bck
-endphoneme
-
-phoneme y
-  vowel starttype (u) endtype (u)
-  length 140
-  formants vowel/yy_4
-  before r/ vwl_de/r_y+60
 endphoneme
 
 phoneme y:
   vowel starttype (u) endtype (u)
-  length 270
+  length 240
   formants vowel/y
-  before r/ vwl_de/r_y+70
-endphoneme
-
-phoneme Y
-  vowel starttype (@) endtype (@)
-  length 140
-  formants vowel/y#_2
 endphoneme
 
 phoneme Y:
   vowel starttype (@) endtype (@)
-  length 270
+  length 240
   formants vowel/y#
 endphoneme
 
