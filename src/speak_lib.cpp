@@ -292,7 +292,7 @@ static void init_path(const char *path)
 		return;
 	}
 
-	if((env = getenv("ESPEAK-DATA-PATH")) != NULL)
+	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
 	{
 		sprintf(path_home,"%s/espeak-data",env);
 		if(GetFileLength(path_home) == -2)
@@ -316,7 +316,7 @@ static void init_path(const char *path)
 		return;
 	}
 
-//	if((env = getenv("ESPEAK-DATA-PATH")) != NULL)
+//	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
 //	{
 //		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
 //		if(GetFileLength(path_home) == -2)

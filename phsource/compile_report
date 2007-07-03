@@ -36,7 +36,7 @@
       no  28  122
       is  32  121
       vi  41  133
-  zh_yue  32  124
+     zhy  32  124
       sw  14  105
 
   3  b/b            base hi ro
@@ -66,10 +66,10 @@
   2  dzh/dz_pzd_    base hi
   5  dzh/xdzh       base hi ru
   2  dzh/xdz_pzd    base hi
-  4  envelope/p_fall vi zh_yue
+  4  envelope/p_fall vi zhy
   1  envelope/p_fallrise vi
-  3  envelope/p_level vi zh_yue
-  3  envelope/p_rise vi zh_yue
+  3  envelope/p_level vi zhy
+  3  envelope/p_rise vi zhy
   1  envelope/vi_5  vi
   1  envelope/vi_5amp vi
   1  envelope/vi_6  vi
@@ -157,14 +157,14 @@
   1  n/ni           base
   1  nn/inn         base
   4  n/nj           base ro
-  3  nn/_nn         base en zh_yue
-  3  nn/nn_         base en zh_yue
+  3  nn/_nn         base en zhy
+  3  nn/nn_         base en zhy
   1  nn/nn@         base
   1  nn/nn#_        is
   1  nn/nna         base
   1  nn/nne         base
   1  nn/nni         base
-  2  nn/nnj         base zh_yue
+  2  nn/nnj         base zhy
   1  nn/nno         base
   1  nn/nnu         base
   1  n^/n^o         base
@@ -260,9 +260,9 @@
   2  ustop/t_hi     hi
   4  ustop/t_pzd    pl ru
   7  ustop/tr       base en hi ru
-  8  ustop/ts       base2 de eo hu pl ru ro zh_yue
-  2  ustop/tsh      base zh_yue
-  2  ustop/tsh_     base zh_yue
+  8  ustop/ts       base2 de eo hu pl ru ro zhy
+  2  ustop/tsh      base zhy
+  2  ustop/tsh_     base zhy
   3  ustop/t_short  hi sk el
   8  ustop/ts_pzd   base hi ru
   2  ustop/ts_pzd_  hi hu
@@ -278,7 +278,7 @@
   1  vdiph2/ii@     en
   1  vdiph2/ii@_2   en_wm
   1  vdiph2/ii@_3   vi
-  3  vdiph2/iu      base2 vi zh_yue
+  3  vdiph2/iu      base2 vi zhy
   1  vdiph2/iu_2    fi
   1  vdiph2/iu_3    af
   2  vdiph2/iu_4    cy
@@ -294,11 +294,11 @@
   1  vdiph2/yu      nl
   1  vdiph2/y-y#    fi
   1  vdiph/8u       en_us
-  1  vdiph/aai      zh_yue
+  1  vdiph/aai      zhy
   2  vdiph/aai_2    af cy
   1  vdiph/aai_3    fi
   1  vdiph/aau      fi
-  4  vdiph/aau_2    de nl la zh_yue
+  4  vdiph/aau_2    de nl la zhy
   1  vdiph/aau_3    hi
   1  vdiph/aau_4    vi
   1  vdiph/ae       fr_ca
@@ -313,7 +313,7 @@
   1  vdiph/ai_en    en
   3  vdiph/au       en af vi
   1  vdiph/au#      en_sc
-  2  vdiph/au_2     en_us zh_yue
+  2  vdiph/au_2     en_us zhy
   1  vdiph/au_3     en_rp
   6  vdiph/au_4     base2 cy eo sk it is
   1  vdiph/ee-e     hi
@@ -321,34 +321,34 @@
   2  vdiph/eei_2    eo fi
   3  vdiph/eei_3    en_us en_rp sk
   1  vdiph/eei_4    nl
-  3  vdiph/eeu      pt vi zh_yue
+  3  vdiph/eeu      pt vi zhy
   2  vdiph/eeu_2    la pt_pt
   2  vdiph/eeu_3    en_n en_wm
   1  vdiph/eey      fi
-  7  vdiph/ei       base2 nl la pt is vi zh_yue
+  7  vdiph/ei       base2 nl la pt is vi zhy
   8  vdiph/eu       base2 en cy eo nl sk pt vi
   1  vdiph/eu_2     fi
   2  vdiph/&i       fi hi
   3  vdiph/@i_2     af cy
   1  vdiph/i@_2     af
-  3  vdiph/@i_3     en_wm ro zh_yue
+  3  vdiph/@i_3     en_wm ro zhy
   1  vdiph/&i_3     vi
   1  vdiph/@i_4     vi
   1  vdiph/ii       ro
   1  vdiph/i#i      ro
   6  vdiph/oi       base2 en_wm de it la vi
   1  vdiph/oi_2     af
- 10  vdiph/ooi      en en_n en_us en_rp cy eo fi no zh_yue
+ 10  vdiph/ooi      en en_n en_us en_rp cy eo fi no zhy
   1  vdiph/ooi_2    af
   1  vdiph/ooi_3    en_wm
-  2  vdiph/ou       fi zh_yue
+  2  vdiph/ou       fi zhy
   2  vdiph/ou_2     sk ro
   2  vdiph/ou_3     is
   1  vdiph/@u       en_wm
   1  vdiph/@u_2     en_rp
   1  vdiph/@u_3     ro
   3  vdiph/@u_en    en vi
-  6  vdiph/ui       base2 en eo fi vi zh_yue
+  6  vdiph/ui       base2 en eo fi vi zhy
   1  vdiph/u-i      vi
   1  vdiph/ui_2     af
   2  vdiph/ui_3     cy
@@ -362,7 +362,7 @@
   1  vdiph/y#i_2    is
   1  vdiph/yi_fr    fr
   1  vdiph/y#y      fi
-  2  vdiph/y#y_2    af zh_yue
+  2  vdiph/y#y_2    af zhy
   1  vdiph/y#y_3    nl
   1  vnasal/aa_n    en
   2  vnasal/aa_n3   af fr
@@ -418,16 +418,16 @@
   3  vowel/3_en     en en_wm af
   1  vowel/@_4      nl
   2  vowel/8_2      en_us sv
-  1  vowel/8_3      zh_yue
+  1  vowel/8_3      zhy
  14  vowel/a        en_n cy de hu nl pl sk hr sr it la
   4  vowel/a#       base2 en_sc pt
   7  vowel/a_2      base2 eo la pt pt_pt ro vi
   4  vowel/a#_2     hr sv is sw
   7  vowel/a_3      en_sc fr cs is
- 12  vowel/a#_3     en en_n en_us en_wm de hi ru pt_pt vi zh_yue
+ 12  vowel/a#_3     en en_n en_us en_wm de hi ru pt_pt vi zhy
   4  vowel/a_4      en_wm el vi
   3  vowel/a_5      it sv sw
-  7  vowel/aa       en_us fi fr_ca no zh_yue
+  7  vowel/aa       en_us fi fr_ca no zhy
   1  vowel/aa#      fi
   3  vowel/aa_2     en cy
   1  vowel/aa_3     af
@@ -444,7 +444,7 @@
   1  vowel/e_5      en_sc
   3  vowel/ee       fr pl sv
   2  vowel/e_e      en_sc is
-  8  vowel/ee_1     base2 en en_n pl la sv no zh_yue
+  8  vowel/ee_1     base2 en en_n pl la sv no zhy
   3  vowel/ee_2     en cy nl
   1  vowel/ee#_2    sv
   4  vowel/ee_3     af pt vi
@@ -463,7 +463,7 @@
   1  vowel/i_6      hr
   3  vowel/i_en     en en_us vi
   2  vowel/i_fnt    hi
- 10  vowel/ii       en_wm cy de fr_ca nl is zh_yue
+ 10  vowel/ii       en_wm cy de fr_ca nl is zhy
   3  vowel/ii#      cy pl ru
   1  vowel/ii_2     la
   7  vowel/ii_3     en_rp fi hi sk hr sv no
@@ -482,7 +482,7 @@
   1  vowel/oe_2     no
   1  vowel/oe_4     sv
   2  vowel/o_mid    fr hu
-  9  vowel/oo       en_sc de eo la es el sv no zh_yue
+  9  vowel/oo       en_sc de eo la es el sv no zhy
  11  vowel/oo_1     en_n en_rp en_wm af fi sk hr vi
   3  vowel/oo_2     en_sc cy cs
   1  vowel/oo_3     af
@@ -511,13 +511,13 @@
   3  vowel/uu_2     base2 de la
   1  vowel/uu_3     af
   2  vowel/uu_4     fi sv
-  7  vowel/uu_bck   fr_ca hi hu pt no zh_yue
+  7  vowel/uu_bck   fr_ca hi hu pt no zhy
   2  vowel/V        en en_sc
   3  vowel/V_2      af ru
   3  vowel/V_3      en_rp hi vi
   1  vowel/V_4      en_sc
-  6  vowel/y        en de fi hu nl zh_yue
- 10  vowel/y#       en en_wm de fi fr hu nl ro vi zh_yue
+  6  vowel/y        en de fi hu nl zhy
+ 10  vowel/y#       en en_wm de fi fr hu nl ro vi zhy
   1  vowel/y##      is
   2  vowel/y_2      fr
   2  vowel/y#_2     hu sv
@@ -595,8 +595,8 @@
   1  vwl_ru/u#      ru
   1  vwl_ru/u#u     ru
   1  vwl_sv/r_sv3   sv
-  1  vwl_zh/aang    zh_yue
-  1  vwl_zh/ong     zh_yue
+  1  vwl_zh/aang    zhy
+  1  vwl_zh/ong     zhy
   2  w/w            base fr
   2  w/_w           base fr
   1  w/w_           base
@@ -604,7 +604,7 @@
   8  w/w2           base2 pl sk pt_pt
   1  w/wa           base
   1  w/we           base
-  3  w/wi           base vi zh_yue
+  3  w/wi           base vi zhy
  12  w/wi2          en en_n en_us en_sc en_rp en_wm de nl la sv no
   1  w/wo           base
   1  w/wu           base

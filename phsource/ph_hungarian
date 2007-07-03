@@ -62,13 +62,13 @@ endphoneme
 
 phoneme a:
   vowel starttype (a) endtype (a)
-  length 240
+  length 260
   formants vowel/a
 endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
-  length 240
+  length 260
   formants vowel/o_2
 endphoneme
 
@@ -86,7 +86,7 @@ endphoneme
 
 phoneme Y:
   vowel starttype (@) endtype (@)
-  length 240
+  length 260
   formants vowel/y#
 endphoneme
 

@@ -1229,7 +1229,7 @@ include ph_icelandic
 phonemetable vi base
 include ph_vi
 
-phonemetable zh_yue base
+phonemetable zhy base
 include ph_zh_yue
 
 phonemetable sw base

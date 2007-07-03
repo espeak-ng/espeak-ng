@@ -400,13 +400,14 @@ Translator *SelectTranslator(const char *name)
 
 	case L('m','k'):   // Macedonian
 		{
-			static wchar_t vowels_cyrillic[] = {0x430,0x435,0x438,0x439,0x43e,0x443,0x44b,0x44d,0x44e,0x44f,0x450,0x451,0x456,0x457,0x45d,0x45e,0};
+			static wchar_t vowels_cyrillic[] = {0x440,  // also include 'р' [R]
+				 0x430,0x435,0x438,0x439,0x43e,0x443,0x44b,0x44d,0x44e,0x44f,0x450,0x451,0x456,0x457,0x45d,0x45e,0};
 			static int stress_amps_mk[8] = {16,16, 20,20, 20,24, 24,22 };
 			static int stress_lengths_mk[8] = {180,160, 200,200, 0,0, 220,230};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_mk,stress_amps_mk);
-			tr->charset_a0 = charsets[2];   // ISO-8859-2
+			tr->charset_a0 = charsets[5];   // ISO-8859-5
 			tr->letter_groups[0] = vowels_cyrillic;
 
 			tr->langopts.stress_rule = 4;   // antipenultimate
@@ -705,7 +706,8 @@ Translator_Russian::Translator_Russian() : Translator()
 	langopts.stress_rule = 5;
 	langopts.stress_flags = 0x0020;  // waas 0x1010
 
-	langopts.numbers = 0x409;
+	langopts.numbers = 0x80409;
+	langopts.numbers2 = 0x2;  // variant numbers before thousands
 	langopts.phoneme_change = 1;
 	langopts.testing = 2;
 

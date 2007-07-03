@@ -12,20 +12,22 @@
 
 
 // Numbers
-_0	n'ol
-_1	Od;'in
+_0	n'ojl^
+_1	ojd;'in
+_1f	odn'a
 _2	dv'A
-_3	t;r'i
-_4	ts;It'yr;I
+_2f	dv;'e
+_3	tR;'i
+_4	tS;It'yR;I
 _5	p;'jat;
 _6	S'Es;t;
-_7	s;'em
+_7	s;'ejm
 _8	v'os;E2m
-_9	d;'ev;It;
+_9	d;'evI3t;
 _10	d;'es;It;
 _11	Od;'innVttsVt;
 _12	dv;In'AttsVt;
-_13	tr;In'AttsVt;
+_13	tR;In'AttsVt;
 _14	ts;It'y@-*nVttsVt;
 _15	p;Itn'AttsVt;
 _16	SE#stn'AttsVt;
@@ -35,10 +37,10 @@ _19	d;E2v;Itn'AttsVt;
 _2X	dv'AttsVt;
 _3X	tr;'ittsVt;
 _4X	s'o@-*Ok
-_5X	p;Id;d;Is;'jat
+_5X	p;Vd;d;Is;'jat
 _6X	SE2z;d;d;Is;'jat
-_7X	s;'emd;E2s;It
-_8X	v'os;E2md;E2s;It
+_7X	s;'emd;E2s;Vt
+_8X	v'os;E2md;E2s;Vt
 _9X	d;E2v;In'ostO
 _0C	st'o
 _2C	dv;'es;t;I
@@ -48,11 +50,16 @@ _5C	p;,It;s'ot
 _6C	S,E#s;t;s'ot
 _7C	s;,Ims'ot
 _8C	vOs;Ims'ot
-_9C	d;E2v;It;s'ot
-_0M1	t'ys;Its;V
+_9C	dev;Vn'ostO
 _1M1	t'ys;Its;V     // no '1' before thousand
-_0M2	m;,IlI;'on
-_0M3	m;,IlI;'art
+_0MA1	t'ys;Its;i
+_0M1	t'ys;Vts;
+_1M2	m;,IlI;'on
+_0MA2	m;,IlI;'ona
+_0M2	m;,IlI;'onof
+_1M3	m;,IlI;'art
+_0MA3	m;,IlI;'arda
+_0M3	m;,IlI;'artof
 _dpt	_:'i_:        // start of decimal fraction
 _dpt2	_d;Is;'atYx   // end of decimal fraction
 

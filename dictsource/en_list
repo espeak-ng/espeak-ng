@@ -16,7 +16,6 @@
 // ?6  'one' = [wVn], 'of' = [Vv]
 // ?7  Scottish
 
-
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
 
@@ -2690,4 +2689,5 @@ like             laIk          $strend2
 
 // General American
 // ?3 status        statVs
+
 

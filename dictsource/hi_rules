@@ -228,10 +228,10 @@
 ?1      ढ़ (_     r-   // nukta
 
 .group ण
-        ण        nV   // (temporary) same as dental [n]
-        ण (B     n
-?1      ण (_     n
-     ्) ण (_     nV
+        ण        n.V   // (temporary) same as dental [n]
+        ण (B     n.
+?1      ण (_     n.
+     ्) ण (_     n.V
 
 .group त
         त        tV
@@ -255,11 +255,11 @@
 ?1      ध (_     dh
 
 .group न
-        न        n.V
-        न (B     n.
-?1      न (_     n.
-     ्) न (_     n.V
-     र्) न (_     n.          // r +virama
+        न        nV
+        न (B     n
+?1      न (_     n
+     ्) न (_     nV
+     र्) न (_     n          // r +virama
 
 
 .group ऩ

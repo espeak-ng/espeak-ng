@@ -581,7 +581,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			language_type = voicename;
 	}
 
-	if(first_voice == NULL)
+	if((first_voice == NULL) && (f_voice != NULL))
 	{
 		first_voice = ReadVoiceFile(f_voice,buf+strlen(path_voices),voicename);
 		rewind(f_voice);
