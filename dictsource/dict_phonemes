@@ -11,8 +11,8 @@ Yy
 
 -    :    ;    b    c    d    dZ   f    
 g    h    j    k    l    m    n    N    
-p    r    r-   s    S    t    tS   v    
-w    x2   z    Z    
+p    r    r-   s    S    t    tS   ts   
+v    w    x2   z    Z    
 
 
 Dictionary cs_dict
@@ -110,7 +110,7 @@ yi   Yy   yY
 
 *    :    b    d    f    g    h    j    
 k    l    m    n    N    p    r    s    
-S    s2   t    v    Z    
+S    s2   t    ts   v    Z    
 
 
 Dictionary fr_dict
@@ -122,7 +122,7 @@ y    Y
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    L    m    n    N    
 n^   p    R    s    S    t    t2   tS   
-v    w    z    Z    z2   
+ts   v    w    z    Z    z2   
 
 
 Dictionary hi_dict
@@ -142,9 +142,8 @@ t.h  th   v    w    x    z
 Dictionary hr_dict
 
 &    @    @-   @2   a    A    a:   aI   
-aU   E    e    e:   E~   i    I    i:   
-l-   o    o:   oU   r-   u    U    u:   
-y    
+aU   E    e    e:   i    I    i:   l-   
+o    o:   oU   r-   u    U    u:   y    
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    l^   m    n    N    n^   
@@ -183,7 +182,7 @@ y    Y:   yU
 *    :    ;    b    C    d    f    g    
 h    j    k    l    m    n    N    n^   
 p    Q    r    s    S    s;   t    tS   
-v    v2   w    x    z    
+ts   v    v2   w    x    z    
 
 
 Dictionary no_dict
@@ -322,7 +321,7 @@ y    y#   Yy
 f    g    h    j    J    k    l    l#   
 m    m#   n    N    n#   N#   n^   n^#  
 p    Q    r    R    r#   R2   s    S    
-t    T    tl#  v    x    z    
+t    T    tl#  ts   v    x    z    
 
 
 Dictionary la_dict
@@ -339,9 +338,8 @@ r    R    s    t    w    z
 Dictionary sr_dict
 
 &    @    @-   @2   a    A    a:   aI   
-aU   E    e    e:   E~   i    I    i:   
-l-   o    o:   oU   r-   u    U    u:   
-y    
+aU   E    e    e:   i    I    i:   l-   
+o    o:   oU   r-   u    U    u:   y    
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    l^   m    n    N    n^   

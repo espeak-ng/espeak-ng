@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -434,13 +434,22 @@ static char *M_Variant(int value)
 {//==============================
 	// returns M, or perhaps MA for some cases
 	
-	// for Polish language - two forms of plural!
-	if ((translator->langopts.numbers & 0x80000) &&
-		((value % 10)>=2) &&
-		((value % 10)<=4) &&
-		((value % 100)>20 || (value % 100)<10))
+	if(((value % 100)>20) || ((value % 100)<10))   // but not teens, 10 to 19
 	{
-		return("MA");
+		if ((translator->langopts.numbers2 & 0x40) &&
+			((value % 10)>=2) &&
+			((value % 10)<=4))
+		{
+		// for Polish language - two forms of plural!
+			return("0MA");
+		}
+
+		if((translator->langopts.numbers2 & 0x80) &&
+			((value % 10)==1))
+		{
+			return("1MA");
+		}
+
 	}
 	return("M");
 }
@@ -465,7 +474,7 @@ int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 			Lookup("_0of",ph_of);
 		}
 
-		sprintf(string,"_0%s%d",M_Variant(value),thousandplex);
+		sprintf(string,"_%s%d",M_Variant(value),thousandplex);
 
 		if(Lookup(string,ph_thousands) == 0)
 		{
@@ -610,7 +619,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	else
 	if((thousandplex > 1) && prev_thousands && (prev_value > 0))
 	{
-		sprintf(string,"_0%s%d",M_Variant(value),thousandplex+1);
+		sprintf(string,"_%s%d",M_Variant(value),thousandplex+1);
 		if(Lookup(string,buf1)==0)
 		{
 			// speak this thousandplex if there was no word for the previous thousandplex

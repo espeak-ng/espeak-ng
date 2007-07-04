@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -1544,48 +1544,71 @@ static int EmbeddedCommand(unsigned int &source_index)
 
 
 
-int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in, int *insert)
-{//===================================================================================
+int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert)
+{//=====================================================================================================
 	// To allow language specific examination and replacement of characters
 
-	const wchar_t *p;
+	int ix;
+	unsigned int word;
 	unsigned int new_c, c2;
 	int upper_case = 0;
+	static int ignore_next = 0;
 
+	if(ignore_next)
+	{
+		ignore_next = 0;
+		return(8);
+	}
 	if(c == 0) return(0);
 
-	if(langopts.replace_chars != NULL)
+	if(langopts.replace_chars == NULL)
+		return(c);
+
+	// there is a list of character codes to be substituted with alternative codes
+
+	if(iswupper(c))
 	{
-		// there is a list of character codes to be substituted with alternative codes
+		c = towlower(c);
+		upper_case = 1;
+	}
 
-		if((p = wcschr(langopts.replace_chars,c)) == NULL)
+	new_c = 0;
+	for(ix=0; (word = langopts.replace_chars[ix]) != 0; ix++)
+	{
+		if(c == (word & 0xffff))
 		{
-			// Try converting to lower case
-			if((p = wcschr(langopts.replace_chars,towlower(c))) != NULL)
-				upper_case =1;
-		}
-
-		if(p != NULL)
-		{
-			new_c = langopts.replacement_chars[p - langopts.replace_chars];
-			if(new_c & 0xffe00000)
+			if((word >> 16) == 0)
 			{
-				// there is a second character to be inserted
-				// don't convert the case of the second character unless the next letter is also upper case
-				c2 = new_c >> 16;
-				if(upper_case && iswupper(next_in))
-					c2 = towupper(c2);
-				*insert = c2;
-				new_c &= 0xffff;
+				new_c = langopts.replacement_chars[ix];
+				break;
 			}
-#ifndef PLATFORM_RISCOS
-			if(upper_case)
-				new_c = towupper(new_c);
-#endif
-			return(new_c);
+			if((word >> 16) == tolower(next_in))
+			{
+				new_c = langopts.replacement_chars[ix];
+				ignore_next = 1;
+				break;
+			}
 		}
 	}
-	return(c);
+
+	if(new_c == 0)
+		return(c);    // no substitution
+
+	if(new_c & 0xffe00000)
+	{
+		// there is a second character to be inserted
+		// don't convert the case of the second character unless the next letter is also upper case
+		c2 = new_c >> 16;
+		if(upper_case && iswupper(next_in))
+			c2 = towupper(c2);
+		*insert = c2;
+		new_c &= 0xffff;
+	}
+#ifndef PLATFORM_RISCOS
+	if(upper_case)
+		new_c = towupper(new_c);
+#endif
+	return(new_c);
 }
 
 
@@ -1823,6 +1846,9 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			}
 
 			c = TranslateChar(&source[source_index], prev_in,c, next_in, &char_inserted);  // optional language specific function
+			if(c == 8)
+				continue;  // ignore this character
+
 			if(char_inserted)
 				next_in = char_inserted;
 

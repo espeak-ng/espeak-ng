@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -34,6 +34,7 @@ extern void ConfigSetPaths();
 extern wxString path_spectload;
 extern wxString path_spectload2;
 extern wxString path_pitches;
+extern wxString path_phfile;
 extern wxString path_phsource;
 extern wxString path_dictsource;
 extern wxString path_modifiervoice;

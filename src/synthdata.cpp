@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.27.03  03.Jul.07";
+const char *version_string = "1.27.04  04.Jul.07";
 const int version_phdata  = 0x012701;
 
 int option_device_number = -1;

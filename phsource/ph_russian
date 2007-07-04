@@ -124,7 +124,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 130
+  length 100
   formants vwl_ru/i
 endphoneme
 
@@ -136,7 +136,7 @@ endphoneme
 
 phoneme y
   vowel starttype (i) endtype (i)
-  length 130
+  length 100
   formants vwl_ru/i#
 endphoneme
 
@@ -184,7 +184,7 @@ endphoneme
 
 phoneme A
   vowel  starttype (a)  endtype (a)
-  length 150
+  length 100
   formants vwl_ru/a
 endphoneme
 
@@ -202,7 +202,7 @@ endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 150
+  length 80
   formants vwl_ru/u
 endphoneme
 
@@ -227,7 +227,7 @@ endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
-  length 190
+  length 100
   formants vwl_ru/ee
 endphoneme
 

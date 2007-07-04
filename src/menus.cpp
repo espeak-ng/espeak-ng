@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -89,10 +89,11 @@ wxMenuBar *MakeMenu(int type)
 	
 	// OPTIONS MENU
 	paths_menu = new wxMenu;
+	paths_menu->Append(MENU_PATH0, _("Master phonemes file"));
 	paths_menu->Append(MENU_PATH1, _("Phoneme data source"));
 	paths_menu->Append(MENU_PATH2, _("Dictionary data source"));
 	paths_menu->Append(MENU_PATH3, _("Synthesized sound WAV file"));
-	speak_menu->AppendSeparator();
+	paths_menu->AppendSeparator();
 	paths_menu->Append(MENU_PATH4, _("Voice file to modify formant peaks"));
 
 	option_menu = new wxMenu;

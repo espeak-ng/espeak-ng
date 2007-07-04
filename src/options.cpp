@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -45,6 +45,7 @@ wxString path_spectload2;
 wxString path_pitches;
 wxString path_wave;
 wxString path_speech;
+wxString path_phfile;
 wxString path_phsource;
 wxString path_dictsource;
 wxString path_speaktext;
@@ -164,6 +165,7 @@ void ConfigInit()
 	pConfig->Read(_T("/voicename"),&string,wxEmptyString);
 	strcpy(voice_name,string.mb_str(wxConvLocal));
 	pConfig->Read(_T("/phsource"),&path_phsource,basedir+_T("/phsource"));
+	pConfig->Read(_T("/phfile"),&path_phfile,path_phsource+_T("/phonemes"));
 	pConfig->Read(_T("/dictsource"),&path_dictsource,basedir+_T("/dictsource"));
 	pConfig->Read(_T("/speaktext"),&path_speaktext,wxEmptyString);
 	pConfig->Read(_T("/modifiervoice"),&path_modifiervoice,basedir);
@@ -189,6 +191,7 @@ void ConfigSave(int exit)
 	pConfig->Write(_T("/speechpath"),path_speech);
 	pConfig->Write(_T("/voicename"),wxString(voice_name,wxConvLocal));
 	pConfig->Write(_T("/phsource"),path_phsource);
+	pConfig->Write(_T("/phfile"),path_phfile);
 	pConfig->Write(_T("/dictsource"),path_dictsource);
 	pConfig->Write(_T("/speaktext"),path_speaktext);
 	pConfig->Write(_T("/speed"),option_speed);

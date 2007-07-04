@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -180,6 +180,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
    EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
    EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
    EVT_MENU(MENU_PARAMS, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH0, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH3, MyFrame::OnOptions)
@@ -366,6 +367,15 @@ void OnOptions2(int event_id)
 		}
 		break;
 
+	case MENU_PATH0:
+		string = wxFileSelector(_T("Master phonemes file"),wxFileName(path_phfile).GetPath(),
+			_T(""),_T(""),_T("*"),wxOPEN);
+		if(!string.IsEmpty())
+		{
+			path_phfile = string;
+		}
+		break;
+
 	case MENU_PATH1:
 		string = wxDirSelector(_T("Phoneme source directory"),path_phsource);
 		if(!string.IsEmpty())
@@ -393,7 +403,7 @@ void OnOptions2(int event_id)
 
 	case MENU_PATH4:
 		string = wxFileSelector(_T("Voice file to modify formant peaks"),wxFileName(path_speech).GetPath(),
-			_T(""),_T("WAV"),_T("*"),wxSAVE);
+			_T(""),_T(""),_T("*"),wxOPEN);
 		if(!string.IsEmpty())
 		{
 			path_modifiervoice = string;

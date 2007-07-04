@@ -1,23 +1,23 @@
 38 phoneme tables
           new total
-    base  96   96
+    base  97   97
    base2  23  114
-      en  53  144
-    en_n  29  144
-   en_us  37  144
-   en_sc  39  146
-   en_rp  34  144
-   en_wm  30  144
-      af  38  128
-      cy  29  122
-      de  32  123
-      eo  13  108
-      fi  40  127
-      fr  33  118
-   fr_ca  11  118
-      hi  49  131
+      en  54  145
+    en_n  29  145
+   en_us  37  145
+   en_sc  39  147
+   en_rp  34  145
+   en_wm  30  145
+      af  38  129
+      cy  29  123
+      de  31  123
+      eo  12  108
+      fi  40  128
+      fr  33  119
+   fr_ca  11  119
+      hi  49  132
       hu  22  112
-      nl  26  117
+      nl  26  118
       pl  15  107
       sk  29  125
       cs   5  125
@@ -26,18 +26,18 @@
       sr   2  129
       ru  36  124
       it  17  117
-      la  21  114
+      la  21  115
       es   6  114
       pt  28  131
    pt_pt  20  131
       ro  36  138
       el   8  114
-      sv  25  118
-      no  28  122
-      is  32  121
-      vi  41  133
-     zhy  32  124
-      sw  14  105
+      sv  25  119
+      no  28  123
+      is  32  122
+      vi  41  134
+     zhy  32  125
+      sw  14  106
 
   3  b/b            base hi ro
   2  b/b_           base hi
@@ -260,7 +260,7 @@
   2  ustop/t_hi     hi
   4  ustop/t_pzd    pl ru
   7  ustop/tr       base en hi ru
-  8  ustop/ts       base2 de eo hu pl ru ro zhy
+  7  ustop/ts       base base2 hu pl ru ro zhy
   2  ustop/tsh      base zhy
   2  ustop/tsh_     base zhy
   3  ustop/t_short  hi sk el

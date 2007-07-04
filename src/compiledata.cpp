@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -65,7 +65,8 @@
 #define tSWITCHVOICING  21
 #define tVOWELIN  22
 #define tVOWELOUT 23
-#define tAPPENDPH 24
+#define tAPPENDPH 24         // always insert another phoneme (linkout) after this one
+#define tIMPORTPH 25
 
 #define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
@@ -123,6 +124,7 @@ private:
 	void AddSpectList(int *list, int control);
 	void AddEnvelope(int *list);
 	void VowelTransition(int which, unsigned int *trans);
+	void ImportPhoneme(void);
 
 
 	FILE *f_in;
@@ -190,6 +192,7 @@ static keywtab_t keywords[] = {
 	{"fricative", 0x1000000+phFRICATIVE},
 	{"vstop",     0x1000000+phVSTOP},
 	{"vfricative",0x1000000+phVFRICATIVE},
+	{"delete_phoneme", 0x1000000+phDELETED},
 
 	// type of consonant
 	{"stop",      0x1000000+phSTOP},
@@ -226,6 +229,7 @@ static keywtab_t keywords[] = {
 	{"vowelin",22},
 	{"vowelout",23},
 	{"appendph",24},
+	{"import_phoneme",25},
 
 	// flags
 	{"wavef",      0x2000000+phWAVE},
@@ -1229,6 +1233,49 @@ void Compile::VowelTransition(int which, unsigned int *trans)
 }  // end of VowelTransition
 
 
+void Compile::ImportPhoneme(void)
+{//==============================
+	int ix;
+	unsigned int mnem;
+	unsigned int ph_mnem;
+	unsigned int ph_code;
+	PHONEME_TAB_LIST *phtab = NULL;
+
+	NextItem(tSTRING);
+	mnem = StringToWord(item_string);
+
+	NextItem(tSTRING);
+	for(ix=0; ix<n_phoneme_tabs; ix++)
+	{
+		if(strcmp(phoneme_tab_list2[ix].name,item_string) == 0)
+		{
+			phtab = &phoneme_tab_list2[ix];
+			break;
+		}
+	}
+	if(phtab == NULL)
+	{
+		Error("Unknown phoneme table",item_string);
+		return;  // phoneme table not found
+	}
+
+	for(ix=1; ix<256; ix++)
+	{
+		if(mnem == phtab->phoneme_tab_ptr[ix].mnemonic)
+		{
+			ph_mnem = ph->mnemonic;
+			ph_code = ph->code;
+			memcpy(ph,&phtab->phoneme_tab_ptr[ix],sizeof(PHONEME_TAB));
+			ph->mnemonic = ph_mnem;
+			ph->code = ph_code;
+			break;
+		}
+	}
+	if(ix == 256)
+	{
+		Error("Import phoneme not found",WordToString(mnem));
+	}
+}
 
 int Compile::CPhoneme()
 {//====================
@@ -1382,6 +1429,10 @@ int Compile::CPhoneme()
 			VowelTransition(2,vowel_out);
 			break;
 
+		case tIMPORTPH:
+			ImportPhoneme();
+			break;
+
 		default:
 			Error("Syntax error",item_string);
 			break;
@@ -1429,6 +1480,11 @@ int Compile::CPhoneme()
 	}
 
 	ph->std_length |= 0x8000;  // 'locally declared' indicator
+
+	if(ph->type == phDELETED)
+	{
+		ph->mnemonic = 0x01;  // will not be recognised
+	}
 
 	return(phindex);
 }  // end of Compile::CPhoneme
@@ -2030,22 +2086,23 @@ memset(markers_used,0,sizeof(markers_used));
 	f_errors = stderr;
 
 	strncpy0(current_fname,source,sizeof(current_fname));
-	sprintf(fname,"%s%s",path_source,source);
+
+	strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
 	f_in = fopen_log(f_errors,fname,"rb");
 	if(f_in == NULL)
 	{
 		if(gui_flag)
 		{
-			wxString dir = wxDirSelector(_T("Directory for 'phonemes' file"),path_phsource);
-			if(!dir.IsEmpty())
+			wxString phfile = wxFileSelector(_T("Master phonemes file"),path_phsource,
+			_T(""),_T(""),_T("*"),wxOPEN);
+
+			if(!phfile.IsEmpty())
 			{
-				path_phsource = dir;
-				strncpy0(path_source,path_phsource.mb_str(wxConvLocal),sizeof(path_source)-1);
-				strcat(path_source,"/");
+				path_phfile = phfile;
 			}
 		}
 
-		sprintf(fname,"%s%s",path_source,source);
+		strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
 		f_in = fopen_log(f_errors,fname,"rb");
 		if(f_in == NULL)
 		{

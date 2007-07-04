@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -400,9 +400,16 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 
 			if(alternative > 1)
 			{
+				PHONEME_TAB *ph2;
+				ph2 = ph;
 				ph = phoneme_tab[alternative];
+
 				if(ph->type == phVOWEL)
+				{
 					plist2->synthflags |= SFLAG_SYLLABLE;
+					if(ph2->type != phVOWEL)
+						plist2->stress = 0;   // change from non-vowel to vowel, make sure it's unstressed
+				}
 				else
 					plist2->synthflags &= ~SFLAG_SYLLABLE;
 			}

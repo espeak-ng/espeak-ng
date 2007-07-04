@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -290,11 +290,12 @@ typedef struct {
 	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
 	// bit16=dot after number indicates ordinal
 	// bit18=special word for 100,000s LANG=sw
-	// bit19=(LANG=pl) two forms of plural, M or MA
 
 	int numbers;
 
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
+	// bit6=(LANG=pl) two forms of plural, M or MA
+	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
 	int numbers2;
 
 	int thousands_sep;
@@ -307,7 +308,7 @@ typedef struct {
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
-	const wchar_t *replace_chars;      // characters to be substitutes
+	const unsigned int *replace_chars;      // characters to be substitutes
 	const unsigned int *replacement_chars;  // substitutes for replace_chars
 } LANGUAGE_OPTIONS;
 
@@ -404,7 +405,7 @@ protected:
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
 	virtual int RemoveEnding(char *word, int end_type, char *word_copy);
-	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in, int *insert);
+	virtual int TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert);
    virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
 	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 

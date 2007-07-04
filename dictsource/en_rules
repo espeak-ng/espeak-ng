@@ -14,7 +14,7 @@
 // *   GNU General Public License for more details.                          *
 // *                                                                         *
 // *   You should have received a copy of the GNU General Public License     *
-// *   along with this program; if not, write see:                           *
+// *   along with this program; if not, see:                                 *
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
@@ -32,6 +32,7 @@
 .group a
          _)  a (_         a2
          _)  a (-         'eI
+         _)  a (-half     a2
          _)  a (_D        ,eI
          _)  a's (_       eIz
         D_)  a (_         eI
@@ -61,6 +62,8 @@
         &b)  a (_         =@
     grandC)  a (_         A:
              aa           A:
+             aa (a        a:
+        aa)  aa           a:
              aar          'A@
              a (Bo_       'A:
         _C)  a (ble       eI

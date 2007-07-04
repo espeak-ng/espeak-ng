@@ -13,7 +13,7 @@
  *   GNU General Public License for more details.                          *
  *                                                                         *
  *   You should have received a copy of the GNU General Public License     *
- *   along with this program; if not, write see:                           *
+ *   along with this program; if not, see:                                 *
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
@@ -59,6 +59,7 @@ static voice_t *wvoice;
 FILE *f_log = NULL;
 int option_waveout = 0;
 int option_harmonic1 = 11;   // 10
+int option_log_frames = 0;
 static int flutter_amp = 64;
 
 static int general_amplitude = 60;
@@ -1529,12 +1530,15 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	int pitch_value;
 
 #ifdef LOG_FRAMES
-f_log=fopen("log-espeakedit","a");
-if(f_log != NULL)
+if(option_log_frames)
 {
-fprintf(f_log,"	  %3d %3d\n",pitch1,pitch2);
-fclose(f_log);
-f_log=NULL;
+	f_log=fopen("log-espeakedit","a");
+	if(f_log != NULL)
+	{
+		fprintf(f_log,"	  pitch %3d %3d  %3dmS\n",pitch1,pitch2,(length*1000)/samplerate);
+		fclose(f_log);
+		f_log=NULL;
+	}
 }
 #endif
 	if((pitch_env = env)==NULL)
@@ -1592,14 +1596,18 @@ void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2)
 	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
 
 #ifdef LOG_FRAMES
-f_log=fopen("log-espeakedit","a");
-if(f_log != NULL)
+if(option_log_frames)
 {
-fprintf(f_log,"%3dmS  %4d/%3d %4d/%3d %4d/%3d %4d/%3d   %4d/%3d %4d/%3d %4d/%3d %4d/%3d\n",length*1000/samplerate,
-	fr1->ffreq[0],fr1->fheight[0],fr1->ffreq[1],fr1->fheight[1], fr1->ffreq[2],fr1->fheight[2], fr1->ffreq[3],fr1->fheight[3],
-	fr2->ffreq[0],fr2->fheight[0],fr2->ffreq[1],fr2->fheight[1], fr2->ffreq[2],fr2->fheight[2], fr2->ffreq[3],fr2->fheight[3] );
-fclose(f_log);
-f_log=NULL;
+	f_log=fopen("log-espeakedit","a");
+	if(f_log != NULL)
+	{
+		fprintf(f_log,"%3dmS  %3d %3d %4d %4d (%3d %3d %3d %3d)  to  %3d %3d %4d %4d (%3d %3d %3d %3d)\n",length*1000/samplerate,
+			fr1->ffreq[0],fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->fheight[0],fr1->fheight[1],fr1->fheight[2],fr1->fheight[3],
+			fr2->ffreq[0],fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->fheight[0],fr2->fheight[1],fr2->fheight[2],fr2->fheight[3] );
+	
+	fclose(f_log);
+	f_log=NULL;
+	}
 }
 #endif
 
@@ -1675,6 +1683,28 @@ f_log=NULL;
 	}
 }  // end of SetSynth
 
+
+#ifdef LOG_FRAMES
+static void LogMarker(int type, int value)
+{//=======================================
+	if(option_log_frames == 0)
+		return;
+
+	if((type == espeakEVENT_PHONEME) || (type == espeakEVENT_SENTENCE))
+	{
+		f_log=fopen("log-espeakedit","a");
+		if(f_log)
+		{
+			if(type == espeakEVENT_PHONEME)
+				fprintf(f_log,"Phoneme [%s]\n",WordToString(value));
+			else
+				fprintf(f_log,"\n");
+			fclose(f_log);
+			f_log = NULL;
+		}
+	}
+}
+#endif
 
 static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
 {//====================================================================================
@@ -1849,7 +1879,9 @@ int WavegenFill(int fill_zeros)
 
 		case WCMD_MARKER:
 			MarkerEvent(q[1],q[2],q[3],out_ptr);
-
+#ifdef LOG_FRAMES
+			LogMarker(q[1],q[3]);
+#endif
 			if(q[1] == 1)
 			{
 				current_source_index = q[2] & 0xffffff;

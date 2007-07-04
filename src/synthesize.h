@@ -236,6 +236,7 @@ extern unsigned char *out_end;
 extern int event_list_ix;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback* synth_callback;
+extern int option_log_frames;
 
 #define N_SOUNDICON_TAB  100
 extern int n_soundicon_tab;
