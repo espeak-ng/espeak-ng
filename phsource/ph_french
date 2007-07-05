@@ -213,7 +213,7 @@ phoneme r/   // used for [r] when not preceding a vowel
   vcd uvl frc
   length 100
   lengthmod 2   //
-  formants r/r
+  formants r3/r_
 //   before n   r3/r_n+r3/rx
 endphoneme
 
@@ -276,6 +276,31 @@ phoneme v
   formants voc/v_+vocw/v
   before _ voc/v_+vocw/v
   switchvoicing f
+endphoneme
+
+
+phoneme B
+  vcd blb frc
+  vowelin  f1=2  f2=1000 -300 -200  f3=-100 100
+  vowelout f1=2  f2=1000 -500 -300  f3=-100 60  len=50
+  lengthmod 6
+  formants b/b
+  switchvoicing f
+endphoneme
+
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  lengthmod 2
+  wave ustop/p
+  before _ ustop/p_
+//  before r ustop/pr
+//  before R ustop/pr
+  before @- ustop/p_unasp
+  before l ustop/pl
+  switchvoicing b
 endphoneme
 
 

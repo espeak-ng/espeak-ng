@@ -1,1 +1,166 @@
-// Initially empty
+phoneme @    //  Schwa
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@
+  length 140
+endphoneme
+
+phoneme @2    //  Schwa (raised)
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@_fnt
+  length 140
+endphoneme
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 160
+  formants vowel/a
+  reduceto &  4
+endphoneme
+
+
+phoneme A          // 'a' before 'r', doesn't reduce to [&]
+  vowel starttype (a) endtype (a)
+  length 160
+  formants vowel/a
+endphoneme
+
+
+phoneme &
+  vowel starttype (a) endtype (a)
+  length 140
+  formants vowel/a#_2
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/e_mid
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/e
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 120
+  formants vowel/i_6
+  linkout ;
+  reduceto I  4
+endphoneme
+
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 120
+  formants vowel/ii_3
+  linkout ;
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 140
+  formants vowel/oo_1
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/u_bck
+  reduceto U  4
+endphoneme
+
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/u_2
+endphoneme
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vdiph/ai
+endphoneme
+
+
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%35
+  switchvoicing d
+endphoneme
+
+
+phoneme d
+  vcd alv stop
+  vowelin f1=2  f2=1700 -300 300  f3=-100 80 amp=16
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/d+x/d%50
+  before _ d/d_+x/d_
+  before r d/dr+x/d%50
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+
+phoneme x
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/x_hr%45
+  switchvoicing Q
+endphoneme
+
+phoneme r-
+  vowel  starttype (@)  endtype (@)
+  length 240
+  formants vowelr/r-voc
+endphoneme
+
+phoneme R
+  liquid
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  formants r3/r_trill2+r3/r_trill2.wav%65
+  trill
+  lengthmod 6
+endphoneme
+
+phoneme k^
+  vls pal stop
+  vowelin f1=0  f2=2700 400 600  f3=400 80
+  vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
+  lengthmod 2
+  wave ustop/ki
+endphoneme
+
+phoneme dZ;
+  vcd pal afr sibilant palatal
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  formants dzh/dzh+x/dz_pzd
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing ts;
+endphoneme

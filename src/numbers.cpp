@@ -451,7 +451,7 @@ static char *M_Variant(int value)
 		}
 
 	}
-	return("M");
+	return("0M");
 }
 
 

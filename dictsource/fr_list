@@ -39,12 +39,12 @@ $	dOlaR
 %	puRsA~
 &	_e
 +	plys
-~	tild'e
-€	@R'o
+~	tilde
+€	@Ro
 ¢	sEnt
-¥	i;'En
-£	l'ivR
-°	d@gR'e
+¥	i;En
+£	livR
+°	d@gRe
 ±	pl'yz_'u_mw'E~
 ×	myltip@-lj'e_p'aR
 ÷	diviz'e_p'aR
@@ -59,30 +59,30 @@ $	dOlaR
 _?A  lEt@
 _??  sE~b'OL
 
-_"   gijm'E
-_#   dj'Ez
-_'   apOstR'Of
+_"   gijmE
+_#   djEz
+_'   apOstROf
 _(   'uvR@-paRA~t'Ez
 _)   f'ERm paRA~t'Ez
 _*   astERisk:
-_,   viRg'yl
-_-   tiR'E
-_.   pw'E~
-_/   sl'aS
+_,   viRgyl
+_-   tiRE
+_.   pwE~
+_/   slaS
 _:   d'Ypw'E~
 _;   pw'E~viRg'yl
-_<   E~feRj'WR
-_=   eg'al
-_>   sypeRj'WR
-_?   kEstj'O~
-_[   uvR@-_kRoS'E
+_<   E~feRjWR
+_=   egal
+_>   sypeRjWR
+_?   kEstjO~
+_[   uvR@-_kRoSE
 _\   b'aksl'aS
 _]   f'ERm_kRoS'E
-_^   siRkOnfl'Eks
-__   sulin^'e
+_^   siRkOnflEks
+__   sulin^e
 _`   aks'A~_gR'av
-_{   uvR_akOl'ad
-_|   b'aR
+_{   uvR_akOlad
+_|   baR
 _}   f'ERm_akOl'ad
 
 
@@ -165,42 +165,42 @@ _dpt	pw'E~
 //**************
 
 (http ://)	aSt,et,ep'e
-abc		'a b'e s'e
-ac		'a s'e
-api		'a p'e 'i
-cio		s'e'i;'o
-ctrl		kO~tR'ol
-dept		depaRt@m'A~
-etc		etseteR'a
+abc		$abbrev
+ac		$abbrev
+api		$abbrev
+cio		$abbrev
+ctrl		kO~tRol
+dept		depaRt@mA~
+etc		etseteRa
 hmm		h@m
-ibm		'i:b'e:'Em
-ip		'i:p'e
-kde		kade@
-m.		m@sj'Y
+ibm		$abbrev
+ip		$abbrev
+kde		$abbrev
+m.		m@sjY
 mbrola		Em'bRola
-mlle		mad@mwaz'El
-mme		mad'am
-mr		m@sj'Y
-p.s		pOftkRipt'Om
-ratp		'ER:'a:t'e:p'e
+mlle		mad@mwazEl
+mme		madam
+mr		m@sjY
+p.s		postskRiptOm
+ratp		$abbrev
 s.t.p		s'il:t'@:pl'E
 s.v.p		s'il:v'u:pl'E
 st		s'E~
 ste		s'E~t
 stp		s'il:t'@:pl'E
 svp		s'il:v'u:pl'E
-url		'y:'ER:'El
-usb		'y:'Es:'be
-utf		y:te:Ef
+url		$abbrev
+usb		$abbrev
+utf		$abbrev
 xfce		iksEfse@
-xy		'iks:igR'Ek
+xy		$abbrev
 
 ii               d'Y          $abbrev    // roman numerals
 iii              tRw'a        $abbrev
 iv               k'atR        $abbrev
 
 
-dr               dOkt'WR       $dot $capital
+dr               dOkt WR       $dot $capital
 prof                           $dot
 
 
@@ -411,11 +411,9 @@ imprudent     E~pRydA~
 discident     disidA~
 accident      aksidA~
 occident      OksidA~
-l'occident    lOksidA~
 orient        ORjA~
-l'orient      lORjA~
 secret        sYkRE
-secrets       sYkRE
+secrets       sYkREz2
 
 
 sens	      sA~s
@@ -433,7 +431,7 @@ l'écho          leko
 cci              $abbrev
 espeak          ispik
 nvda             $abbrev
-open            Op'@n
+open            Op'En
 outlook         autluk
 potentiomètre   pOtA~sjOmEtR
 reader          Rid'WR
@@ -512,7 +510,7 @@ smart		smaRt
 // irt
 flirt		fl@Rt
 (sweat shirt)	swEtS@Rt
-tee-shirt	tiS@Rt
+(tee shirt)	tiS@Rt
 
 parfum		paRfW~
 forum		fOR@m
@@ -610,6 +608,6 @@ votions		vOtjO~z2 $u
 
 // no liaison
 (quelqu'un)	kElkW~
-pourcent	puRs'A~
+pourcent	puRsA~
 vincent		vE~sA~
 
