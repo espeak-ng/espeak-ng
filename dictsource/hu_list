@@ -63,34 +63,7 @@ u.n	u:JnEvEzEt:   $dot
 ú.n	u:JnEvEzEt:   $dot
 vö	v'EZd||_'Yss2E
 
-?1 i	EJ	$abbrev
-ii	kEttY:  $abbrev
-iii	ha:R2om  $abbrev
-iv	ne:J  $abbrev
-vi	hAt  $abbrev
-vii	he:t  $abbrev
-viii	n^olts  $abbrev
-ix	kilEnts  $abbrev
-xi	tizEnEJ  $abbrev
-xii	tizEnkEttY:  $abbrev
-xiii	tizEnha:Rom  $abbrev
-xiv	tizEnne:J  $abbrev
-xv	tizEnYt  $abbrev
-xvi	tizEnhAt  $abbrev
-xvii	tizEnhe:t  $abbrev
-xviii	tizEnn^olts  $abbrev
-xix	tizEnkilEnts  $abbrev
-xx	hu:s  $abbrev
-xxi	husonEJ  $abbrev
-xxii	husonkEttY:  $abbrev
-xxiii	husonha:Rom  $abbrev
-xxiv	husonne:J  $abbrev
-xxv	husonYt  $abbrev
-xxvi	husonhAt  $abbrev	
-xxvii	husonhe:t  $abbrev
-xxviii	husonn^olts  $abbrev
-xxix	husonkilEnts  $abbrev
-xxx	hARmints  $abbrev
+?1 i	EJ	$abbrev     // option for Roman number
 
 
 // Articles
@@ -135,6 +108,8 @@ noha        $u $pause  // even thought
 nem       $alt2 $strend
 ne        $u+
 
+e         $u          // "-e" question
+e         $atend      // stressed at end of sentence
 
 // Unstressed adverbs prepositions etc.
 néhány    $u+
@@ -189,6 +164,8 @@ ről	$u
 on	$u	// on
 en	$u
 ön	$u
+an	$u	// so many persons
+ón	$u
 szor	$u	// times
 szer	$u
 ször	$u
@@ -240,6 +217,9 @@ folytán	$u	// because of
 egyaránt $u	// alike
 minden	$u	// all
 részben	$u	// partly
+
+egyik	$u	// one of
+másik	$u	// the other
 
 
 // word pairs
@@ -340,6 +320,8 @@ $	dolla:R2
 
 // Main Exceptions List
 //=====================
+
+nato	na:to:
 
 
 

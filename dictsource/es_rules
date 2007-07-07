@@ -1,12 +1,16 @@
-// translation rules
+// translation rules for Spanish
 // This file is UTF-8 encoded
+
+// Conditional rules
+// ?1  Castilian
+// ?2  Latin America
 
 
 .group a
        _) a (_       a
           a          a
           ai         aI
-          ay         aI
+          ay (K      aI
           ay (_      'aI
 
 
@@ -39,7 +43,7 @@
           e          E
           e (_       e
           ei         eI
-          ey         eI
+          ey (K      eI
           ey (_      'eI
        _) eu         eU
 
@@ -153,7 +157,7 @@
 
 
 .group v
-       _) v (_       ve
+       _) v (_       uve
           v          v
        _) v          v
        m) v          v
@@ -161,7 +165,7 @@
 
 
 .group w
-       _) w (_       d'oBle,u
+       _) w (_       ,uve||d'oBle
           w          w
 
 

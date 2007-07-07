@@ -3,43 +3,45 @@
 
 
 // numbers
-_0       TE*o
-_1       'uno
-_2       d'os
-_3       t@-*'es
-_4       kw'at@-*o
-_5       T'inko
-_6       s'eIs
-_7       sj'Ete
-_8       'otSo
-_9       nw'Eve
-_1X      dj'ET
-_11      'onTe
-_12      d'oTe
-_13      t@-*'ETe
-_14      kat'oRTe
-_15      k'inTe
-_20      v'eInte
-_2X      v'eInt
-_3X      t@-*'eInta
-_4X      kwa*'Enta
-_5X      Tinkw'Enta
-_6X      sEs'Enta
-_7X      sEt'Enta
-_8X      otS'Enta
-_9X      nov'Enta
-_0C      T'ientos
-_1C0     T'ien         // exactly one hundred
-_1C      T'iento
-_5C      kinj'Entos
-_0M1     m'il
-_1M1     m'il          // no '1' before thousand
-_0M2     mil^'ones
-_1M2     'unmil^'on
-_0M4     _bil^'ones
-_1M4     'unbil^'on
-_0and    i
-_dpt     koma
+_0	TE*o
+_1	'uno
+_2	d'os
+_3	t@-*'es
+_4	kw'at@-*o
+_5	T'inko
+_6	s'eIs
+_7	sj'Ete
+_8	'otSo
+_9	nw'Eve
+_1X	dj'ET
+_11	'onTe
+_12	d'oTe
+_13	t@-*'ETe
+_14	kat'oRTe
+_15	k'inTe
+_20	v'eInte
+_2X	v'eInt
+_3X	t@-*'eInta
+_4X	kwa*'Enta
+_5X	Tinkw'Enta
+_6X	sEs'Enta
+_7X	sEt'Enta
+_8X	otS'Enta
+_9X	nov'Enta
+_0C	T'ientos
+_1C0	T'ien         // exactly one hundred
+_1C	T'iento
+_5C	kinj'Entos
+_7C	s,EtETj'Entos
+_9C	n,ovETj'Entos
+_0M1	m'il
+_1M1	m'il          // no '1' before thousand
+_0M2	mil^'ones
+_1M2	'unmil^'on
+_0M4	_bil^'ones
+_1M4	'unbil^'on
+_0and	i
+_dpt	koma
 
 
 
@@ -101,7 +103,7 @@ os      $u+
 
 
 // possessives
-mi	$u+
+mi	mi $u+
 mis	$u+
 tu      $u+
 tus     $u+

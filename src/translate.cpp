@@ -438,6 +438,7 @@ Translator::Translator()
 	langopts.length_mods0 = length_mods_en0;
 	langopts.long_stop = 100;
 
+	langopts.max_roman = 49;
 	langopts.thousands_sep = ',';
 	langopts.decimal_sep = '.';
 
@@ -667,7 +668,13 @@ if((wmark > 0) && (wmark < 8))
 			found = TranslateNumber(word,phonemes,&dictionary_flags,wflags);
 		}
 
-		if((wflags & FLAG_ALL_UPPER) && (clause_upper_count <= clause_lower_count) &&
+		if(!found & ((word_flags & FLAG_UPPERS) != FLAG_FIRST_UPPER))
+		{
+			// either all upper or all lower case
+			found = TranslateRoman(word,phonemes);
+		}
+
+		if(!found && (wflags & FLAG_ALL_UPPER) && (clause_upper_count <= clause_lower_count) &&
 			!(dictionary_flags & (FLAG_ABBREV | FLAG_SKIPWORDS)) && (word_length>1) && (word_length<4) && iswalpha(first_char))
 		{
 			// An upper case word in a lower case clause. This could be an abbreviation.
@@ -1635,6 +1642,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int phoneme_mode = 0;
 	int dict_flags;        // returned from dictionary lookup
 	int word_flags;        // set here
+	int next_word_flags;
 	int embedded_count = 0;
 	int letter_count = 0;
 	char *word;
@@ -1715,6 +1723,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	word_count = 0;
 	single_quoted = 0;
 	word_flags = 0;
+	next_word_flags = 0;
 	expect_verb=0;
 	expect_past=0;
 	expect_verb_s=0;
@@ -1827,7 +1836,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			}
 		}
 		else
-		if((option_sayas2 & 0xf0) != 1)
+		if((option_sayas2 & 0xf0) != 0x10)
 		{
 if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out))
 {
@@ -1937,6 +1946,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 						c = ' ';      // change from upper to lower case, start new word at the last uppercase
 						prev_in2 = c;
 						source_index = prev_source_index;  // unget
+						next_word_flags |= FLAG_NOSPACE;
 					}
 //#endif
 				}
@@ -2116,7 +2126,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 				for(k=j; charix[k]!=0; k++);
 				words[word_count].length = k-j;
 
-				word_flags = 0;
+				word_flags = next_word_flags;
+				next_word_flags = 0;
 				pre_pause = 0;
 				word_mark = 0;
 				all_upper_case = FLAG_ALL_UPPER;

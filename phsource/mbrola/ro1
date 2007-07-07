@@ -6,24 +6,26 @@
 0  r/ NULL   0   r
 0  r- NULL   0   r
 0  g- NULL   0   NULL
-0  w/ NULL   0   w
+0  w NULL   0   u
+0  w/ NULL   0   u
 0  *  NULL   0   r
 0  ;  NULL   0   NULL
 0  a  e      15  a  _
 0  a  NULL   0   a
 0  @- NULL   0   NULL
+0  j/ NULL   0   j
 0  I^ _      0   I
 0  I^ NULL   20  I  _
 0  @U NULL   60  @  w
 0  aU NULL   60  a  w
-0  eU NULL   60  e  w
+0  eU NULL   80  e  u
 0  iU NULL   60  i  w
-0  yU NULL   60  l  w
+0  yU NULL   60  1  w
 0  oU NULL   60  o  w
 0  @I NULL   60  @  j
 0  iI NULL   60  i  j
 0  aI NULL   60  a  j
-0  eI NULL   60  e  j
+0  eI NULL   100  e i
 0  oI NULL   60  o  j
 0  uI NULL   60  u  j
 0  yI NULL   60  1  j

@@ -1546,6 +1546,10 @@ f_input = f_in;  // for GetC etc
 						c1 = j;
 					}
 				}
+				if((sayas_mode == 0x14) && (c1 <= 0x20))
+				{
+					c1 += 0xe000;  // move into unicode private usage area
+				}
 			}
 			else
 			if(c1 == '<')

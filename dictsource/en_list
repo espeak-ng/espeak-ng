@@ -54,6 +54,8 @@ z	zEd
 _cap k,ap@-t@L
 _?A  lEt3
 _??  sImb@L
+_#9  tab
+_#32 speIs
 
 _!   Ekskl@m'eIS@n
 _"   kwoUts
@@ -135,6 +137,7 @@ _0M3	b'Ili@n
 _0and	@n
 ?3 _0and
 _dpt	pOInt
+_roman	roUm@n_
 
 
 // ABBREVIATIONS
@@ -186,10 +189,6 @@ utc     $abbrev
 u.s     ju:'Es
 wwii	dVb@Lju:dVb@Lju:t'u:
 xy	$abbrev
-
-ii	tu:       $abbrev    // roman numerals
-iii	Tri:      $abbrev
-iv	fo@       $abbrev
 
 
 nd                $only

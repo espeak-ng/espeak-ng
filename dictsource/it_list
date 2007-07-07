@@ -118,8 +118,8 @@ mi	$u+
 ti	$u+
 si      $u+
 ci	$u+
-vi	$u+
-li	$u+
+vi	vi $u+
+li	li $u+
 
 
 // words that double the following consonant

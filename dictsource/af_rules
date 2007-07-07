@@ -16,6 +16,7 @@
              a (C         a
           C) a (Csier     %a // (ge)finansier/kassier
           j) a (pan       %a //japan first a sound and stress
+
           C) abie        'A:bi
              abo (C       %abO // move default stress and fix a and o sounds: abominasie/abonnement/aborsie
           _) a (bC        %a // abdy/ablatief/ablusie/abstrak, etdc.
@@ -37,6 +38,11 @@
           _) aka          a%k@ //akademie etc.
              akkedis      a%k@d'Is //akkedis and compounds
              ae           A:       //should be A:@ but sounds wrong
+          konst) abel A:b@l //exception for konstabel in compounds
+          t) abel %ab'&l //tabelopskrif temperatuurtabel etc.
+          t) abell %ab'&l //tabelle fix double l 
+          w) a (tering A: //watering exception to the rest
+          C) a (tering %a //short unstressed a before tering formatering etc. except watering
              ai           aI
              adres        %adrEs // fix last e sound of adres as last part of compounds
           _) alle (C      al@ // alledaags/e/allerhande
@@ -734,7 +740,8 @@
        CoeC) e (C         @ //fix e in boetedoening, boedelbelasting and many others
         orr) e (l         @ //fix e in borrel, orrel, korrel  in compounds
      intell) e (k        %E //intellek, and friends
-
+          p) e (ring 'e@ //imansipering and others e sound and stress
+          roep) e (ring 'e@ //groepering e sound and stress
              eval (u      %iv%al // evaluasie/evalueer/evaluering
         CAt) e (gn        & //fix e in mikrotegnologie and others
          ei) e            @ //eiewys and others
@@ -924,6 +931,7 @@
              iber (i@     %ibe@r // Liberië/Siberië/Liberiese/Siberiese/Iberiese
              ie           i
           h) i (dro       i //hidro in compounds
+          _) in (a@ In_ //inasem inagneming etc.
           _) iese (C      ,is@ // iesegrimmig and derivitives
              ieus         i'Y@s // this ending always takes stress
           C) i (g         @// figuur/figure/stoksielsaligalleenA
@@ -1320,7 +1328,6 @@
              minder (jar  m@n@r // move default stress: minderjarig and derivitives
              miner (A     m@n@r // mineraal and many compounds
              mi (neur     m%i // move default stress: mineur and compounds
-             minnares (_  m@n%arEs // fix stress and e sound: minnares/medeminnares and similar
              mikr (o      mikr
              ministers    m@n'Ist@rs
              mise (ra     m@s // fix stress and drop e: miserabel/-e/-s/-ste
@@ -1449,6 +1456,7 @@
           _) na (skeer    n''A: // restore default stress: naskeermiddel/-room
           _) na (tC       na // many compounds beginning with nat
              na (tuur     n%a // natuur and compounds and derivitives
+             navig n%av%ix2 //navigasie, navigeer etc.
           @) na (_        na // shorten final na, except for:
           r) na (_        nA: // daarna/hierna/waarna
              nadruklik    nA:dr'Wkl@k // nadruklik/e
@@ -2176,12 +2184,15 @@
              te (oo       t@ // geboorteoorskot/kosteoorweging/siekteoorsaak/terroristeoorlog
           _) teraarde     t%&r?A:rd@ // move default stress and fix e sounds: teraardebestelling/-s
           n) terie        t@r'i // galanterie/infanterie and compounds
+          wa) te (ring t@ //water exception to rest
+          Ca) te (ring t'e@ //opdatering formatering etc.
           _) tering       te@r@N // tering and compounds
              tesou (rie   t%Es%u //tesourie and compounds
       moles) tering       te@r@N // molestering/kindermolestering
           _) ter (l       t@r // move default stress: terloops/-e
           @) term (_      t&r@ // correct pronunciation of e
           @) terme (_     t&rm@ // correct pronunciation of 1st e
+          sin) te (ti te@ //sintetiseer, compounds and derivitives
              tern (K      t'&:r@-n //lantern ekstern etc.
              tern (e_     t'&rn // interne/eksterne
           _) ter (nA      t@r // terneergedruk/ternouernood
@@ -2302,6 +2313,7 @@
              ven (ster    fe~n // nasalise
              ven (yn      f@n // venyn/venynig
              ver          f@r
+             virtu v@rtS%y //virtueel virtuose etc. fix v and t sounds and assure lack of stress
           _) ver (@P3     f@r
              verant (w    f@r%ant // (on)verantwoordelik/-heid/verantwoording
              verende      f'e@r@nd@
@@ -2459,7 +2471,7 @@
              woe (styn    v%u // move default stress: woestyn and compounds
              wolke        vOlk@ // nimbuswolke/wolkekrabber
              woorde       vo@rd@
-
+             w (yser v //padwyser and many others with wyser in compounds
           nt) w (A v
 
 .group x
@@ -2515,7 +2527,7 @@
              ** 
         **)  * (_         _::
 
-             +            plus
+             +            pl'Ws
          _)  ++ (_        pluspl'us
     \+\+\+)  +          // ignore + after the first 3
 

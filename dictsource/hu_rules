@@ -6,14 +6,12 @@
         a        A
      _) a (_     %A
 
-   !_n) ato      a:to:      // NATO
-
 .group á
         á        a:
 
 .group b
         b        b
-        bb       b:
+//        bb       b:
 
         biz (A   b'iz,       // bizalmas  etc.
 	biedermeier  bi:dER2ma:jER2
@@ -59,7 +57,7 @@ hierar) ch (i    C
 
 .group d
         d        d
-        dd       d:
+//        dd       d:
         dz       dz
      A) dz (A    d:z
         dzs      dZ
@@ -82,7 +80,6 @@ hierar) ch (i    C
 
 .group e
         e        E
-
   D_-_) es (_    %ES
 
 .group é
@@ -97,7 +94,7 @@ hierar) ch (i    C
 
 .group g
         g        g
-        gg       g:
+//        gg       g:
         gy       J
         ggy      J:
 
@@ -109,7 +106,8 @@ hierar) ch (i    C
      A) gyj (A   J:
 
     _e) gy (es   J:
-    _e) gy (et   J:
+    _e) gy (et_  J:
+    _e) gy (etlen  J:
     _e) gy (ik   J:
     _e) gy (üt   J:
 _minde) gy (ik   J:
@@ -135,6 +133,7 @@ _minde) gy (ik   J:
 .group k
         k        k
         kk       k:
+        kk (C    kk
      _) köz      kYz
 
 .group l
@@ -186,6 +185,7 @@ szamue) ly	 lli
 .group p
         p        p
         pp       p:
+        pp (C    pp
         p (v     p_
 
      _) potsdam  potsda:m
@@ -199,6 +199,7 @@ szamue) ly	 lli
         r        R2
         rr       RR
         rm       R2_m
+        r (cc    R
 
      _) richa (rd R2iCa:
      _) richá (rd R2iCa:
@@ -232,6 +233,7 @@ _munká) s        S
      -) t (_     t
         t        t
         tt       t:
+        tt (C    tt
         ty       c
 //     s) ty       c:    //
 //     z) ty       c:    // keztyű

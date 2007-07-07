@@ -51,12 +51,17 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	char capital[20];
 	char ph_buf[30];
 	char ph_buf2[50];
-	static char single_letter[8] = {0};
+	static char single_letter[10] = {0,0};
 
 	ph_buf[0] = 0;
 	capital[0] = 0;
 
 	n_bytes = utf8_in(&letter,word,0);
+
+	if((letter & 0xfff00) == 0x0e000)
+	{
+		letter &= 0xff;   // uncode private usage area
+	}
 
 	if(control > 2)
 	{
@@ -68,8 +73,17 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	}
 	letter = towlower(letter);
 
+	if((letter <= 32) || iswspace(letter))
+	{
+		// lookup space as _&32 etc.
+		sprintf(&single_letter[1],"_#%d ",letter);
+		Lookup(&single_letter[1],ph_buf);
+		strcat(phonemes,ph_buf);
+		return(n_bytes);
+	}
+
 	len = utf8_out(letter,&single_letter[2]);
-	single_letter[2+len] = ' ';
+	single_letter[len+2] = ' ';
 
 	next = RULE_SPELLING;
 	if(word[n_bytes] == ' ')
@@ -186,6 +200,67 @@ void Translator::SetSpellingStress(char *phonemes, int control)
 
 
 
+int Translator::TranslateRoman(char *word, char *ph_out)
+{//=====================================================
+	int c;
+	char *p;
+	int acc;
+	int prev;
+	int value;
+	int subtract;
+	unsigned int flags;
+	char number_chars[N_WORD_BYTES];
+
+	static char *roman_numbers = "ixcmvld";
+	static int roman_values[] = {1,10,100,1000,5,50,500};
+ 
+	if((langopts.numbers & NUM_ROMAN) == 0)
+		return(0);
+
+	acc = 0;
+	prev = 0;
+	subtract = 0x7fff;
+
+	while((c = *word++) != ' ')
+	{
+		if((p = strchr(roman_numbers,c)) == NULL)
+			return(0);
+
+		value = roman_values[p - roman_numbers];
+
+		if((prev==5) || (prev==50) || (prev==500))
+		{
+			if(value >= prev)
+				return(0);
+		}
+		if((prev != 0) && (prev < value))
+		{
+			if(((acc % 10) != 0) || ((prev*10) < value))
+				return(0);
+			subtract = prev;
+			value -= subtract;
+		}
+		else
+		if(value >= subtract)
+			return(0);
+		else
+			acc += prev;
+		prev = value;
+	}
+	acc += prev;
+	if(acc < 2)
+		return(0);
+
+	if(acc > langopts.max_roman)
+		return(0);
+
+	Lookup("_roman",ph_out);   // precede by "roman" if _rom is defined in *_list
+	p = &ph_out[strlen(ph_out)];
+
+	sprintf(number_chars," %d ",acc);
+	TranslateNumber(&number_chars[1],p,&flags,0);
+	return(1);
+}  // end of TranslateRoman
 
 
 int Translator::LookupNum2(int value, int control, char *ph_out)
@@ -589,7 +664,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		{
 			if((thousandplex > 0) && (value < 1000))
 			{
-				if(langopts.numbers & 0x40000)
+				if(langopts.numbers2 & 0x100)
 				{
 					if((thousandplex == 1) && (value >= 100))
 					{

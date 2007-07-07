@@ -155,37 +155,7 @@ _0M4  b'ilijUna
 _1M4  b'ilijUn
 _dpt  _:z'a*Ez_
 
-// Roman numerals
-ii	$abbrev
-iii	$abbrev
-iv	$abbrev
-vii	$abbrev
-viii	$abbrev
-ix	$abbrev
-xi	$abbrev
-xii	$abbrev
-xiii	$abbrev
-xiv	$abbrev
-xvi	$abbrev
-xvii	$abbrev
-xviii	$abbrev
-xix	$abbrev
-xxi	$abbrev
-xxii	$abbrev
-xxiii	$abbrev
-xxiv	$abbrev
-xxvi	$abbrev
-xxvii	$abbrev
-xxviii	$abbrev
-xxix	$abbrev
-xxxi	$abbrev
-xxxii	$abbrev
-xxxiii	$abbrev
-xxxiv	$abbrev
-xxxvi	$abbrev
-xxxvii	$abbrev
-xxxviii  $abbrev
-xxxix	$abbrev
+
 
 // Abbreviations
 aaa	$abbrev

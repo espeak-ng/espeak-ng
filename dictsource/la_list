@@ -259,118 +259,44 @@ estote $u
 sunto $u
 
 
-// numerals 1-100
+// numerals
+
+ii	II	// word, not numeric
+vi	wI	// word, not numeric
 
 i		'u:nUs $capital 
 ii		d'UO $capital 
-iii		t@-*,e:s 
-iv		kw'at:UOR 
-v		kw'i:NkwE 
 vi		s,Eks $capital 
-vii		s'EptEm 
-viii		'Okto: 
-ix		n'OwEm 
-x		d'EkEm 
 
-xi		'u:ndEkIm
-xii		dU'OdEkIm
-xiii		t@-*,e:d'EkIm
-xiv		kwat:w'ORdEkIm
-xv		kw,i:nd'EkIm
-xvi		s'EdEkIm
-xvii		sEpt'EndEkIm
-xviii		dUOdEwIg'IntI
-xix		u:ndEwIg'IntI 
-xx		wi:g'Inti:
+_0	n'Ulla
+_1	'u:nUs 
+_2	d'UO 
+_3	t@-*,e:s 
+_4	kw'at:UOR 
+_5	kw'i:NkwE 
+_6	s,Eks
+_7	s'EptEm 
+_8	'Okto: 
+_9	n'OwEm 
+_10	d'EkEm 
 
-xxi		wi:g'Inti:||'u:nUs
-xxii		wi:g'Inti:||d'UO
-xxiii		wi:g'Inti:||t@-*,e:s
-xxiv		wi:g'Inti:||kw'at:UOR
-xxv		wi:g'Inti:||kw'i:NkwE
-xxvi		wi:g'Inti:||s,Eks
-xxvii		wi:g'Inti:||s'EptEm
-xxviii	wi:g'Inti:||'Okto:
-xxix		wi:g'Inti:||n'OwEm
-xxx		t@-*i:g'Inta:
+_11	'u:ndEkIm
+_12	dU'OdEkIm
+_13	t@-*,e:d'EkIm
+_14	kwat:w'ORdEkIm
+_15	kw,i:nd'EkIm
+_16	s'EdEkIm
+_17	sEpt'EndEkIm
+_18	dUOdEwIg'IntI
+_19	u:ndEwIg'IntI 
 
-xxxi		t@-*i:g'Inta:||'u:nUs
-xxxii		t@-*i:g'Inta:||d'UO
-xxxiii	t@-*i:g'Inta:||t@-*,e:s
-xxxiv		t@-*i:g'Inta:||kw'at:UOR
-xxxv		t@-*i:g'Inta:||kw'i:NkwE
-xxxvi		t@-*i:g'Inta:||s,Eks
-xxxvii	t@-*i:g'Inta:||s'EptEm
-xxxviii	t@-*i:g'Inta:||'Okto:
-xxxix		t@-*i:g'Inta:||n'OwEm
-xl		kwad@-*a:g'Inta:
-
-xli		kwad@-*a:g'Inta:||'u:nUs
-xlii		kwad@-*a:g'Inta:||d'UO
-xliii		kwad@-*a:g'Inta:||t@-*,e:s
-xliv		kwad@-*a:g'Inta:||kw'at:UOR
-xlv		kwad@-*a:g'Inta:||kw'i:NkwE
-xlvi		kwad@-*a:g'Inta:||s,Eks
-xlvii		kwad@-*a:g'Inta:||s'EptEm
-xlviii	kwad@-*a:g'Inta:||'Okto:
-xlix		kwad@-*a:g'Inta:||n'OwEm
-l		kwi:Nkwa:g'Inta:
-
-li		kwi:Nkwa:g'Inta:||'u:nUs $capital
-lii		kwi:Nkwa:g'Inta:||d'UO
-liii		kwi:Nkwa:g'Inta:||t@-*,e:s
-liv		kwi:Nkwa:g'Inta:||kw'at:UOR
-lv		kwi:Nkwa:g'Inta:||kw'i:NkwE
-lvi		kwi:Nkwa:g'Inta:||s,Eks
-lvii		kwi:Nkwa:g'Inta:||s'EptEm
-lviii		kwi:Nkwa:g'Inta:||'Okto:
-lix		kwi:Nkwa:g'Inta:||n'OwEm
-lx		sEksa:g'Inta:
-
-lxi		sEksa:g'Inta:||'u:nUs
-lxii		sEksa:g'Inta:||d'UO
-lxiii		sEksa:g'Inta:||t@-*,e:s
-lxiv		sEksa:g'Inta:||kw'at:UOR
-lxv		sEksa:g'Inta:||kw'i:NkwE
-lxvi		sEksa:g'Inta:||s,Eks
-lxvii		sEksa:g'Inta:||s'EptEm
-lxviii	sEksa:g'Inta:||'Okto:
-lxix		sEksa:g'Inta:||n'OwEm
-lxx		sEptUa:g'Inta: $capital
-
-lxxi		sEptUa:g'Inta:||'u:nUs
-lxxii		sEptUa:g'Inta:||d'UO
-lxxiii	sEptUa:g'Inta:||t@-*,e:s
-lxxiv		sEptUa:g'Inta:||kw'at:UOR
-lxxv		sEptUa:g'Inta:||kw'i:NkwE
-lxxvi		sEptUa:g'Inta:||s,Eks
-lxxvii	sEptUa:g'Inta:||s'EptEm
-lxxviii	sEptUa:g'Inta:||'Okto:
-lxxix		sEptUa:g'Inta:||n'OwEm
-lxxx		Okto:g'Inta:
-
-lxxxi		Okto:g'Inta:||'u:nUs
-lxxxii	Okto:g'Inta:||d'UO
-lxxxiii	Okto:g'Inta:||t@-*,e:s
-lxxxiv	Okto:g'Inta:||kw'at:UOR
-lxxxv		Okto:g'Inta:||kw'i:NkwE
-lxxxvi	Okto:g'Inta:||s,Eks
-lxxxvii	Okto:g'Inta:||s'EptEm
-lxxxviii	Okto:g'Inta:||'Okto:
-lxxxix	Okto:g'Inta:||n'OwEm
-xc		no:na:g'Inta:
-
-xci		no:na:g'Inta:||'u:nUs
-xcii		no:na:g'Inta:||d'UO
-xciii		no:na:g'Inta:||t@-*,e:s
-xciv		no:na:g'Inta:||kw'at:UOR
-xcv		no:na:g'Inta:||kw'i:NkwE
-xcvi		no:na:g'Inta:||s,Eks
-xcvii		no:na:g'Inta:||s'EptEm
-xcviii	no:na:g'Inta:||'Okto:
-xcix		no:na:g'Inta:||n'OwEm
-c		k'EntUm
-
-// This list could be expanded further, however programming
-// the pronunciation would be more efficient.
-
+_2X	wi:g'Inti:
+_3X	t@-*i:g'Inta:
+_4X	kwad@-*a:g'Inta:
+_5X	kwi:Nkwa:g'Inta:
+_6X	sEksa:g'Inta:
+_7X	sEptUa:g'Inta:
+_8X	Okto:g'Inta:
+_9X	no:na:g'Inta:
+_0C	k'EntUm
+_0M1	m'IllE

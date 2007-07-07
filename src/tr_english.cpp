@@ -44,8 +44,7 @@ Translator_English::Translator_English() : Translator()
 	langopts.stress_rule = 0;
 	langopts.word_gap = 0;
 
-	langopts.numbers = 0x41;
-
+	langopts.numbers = 0x41 + NUM_ROMAN;
 }
 
 

@@ -69,12 +69,14 @@
 // wordflags, flags in source word
 #define FLAG_ALL_UPPER     0x1    /* no lower case letters in the word */
 #define FLAG_FIRST_UPPER   0x2    /* first letter is upper case */
+#define FLAG_UPPERS        0x3    // FLAG_ALL_UPPER | FLAG_FIRST_UPPER
 #define FLAG_HAS_PLURAL    0x4    /* upper-case word with s or 's lower-case ending */
 #define FLAG_PHONEMES      0x8    /* word is phonemes */
 #define FLAG_LAST_WORD     0x10   /* last word in clause */
 #define FLAG_STRESSED_WORD 0x20   /* this word has explicit stress */
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 #define FLAG_HYPHEN        0x80
+#define FLAG_NOSPACE       0x100  // word is not seperated from previous word by a space
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
 #define FLAG_HYPHEN_AFTER    0x4000
@@ -275,6 +277,7 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
+#define NUM_ROMAN   0x20000
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
 	// bit3=  , decimal separator, not .
@@ -289,15 +292,16 @@ typedef struct {
 	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
 	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
 	// bit16=dot after number indicates ordinal
-	// bit18=special word for 100,000s LANG=sw
+	// bit17=recognize roman numbers
 
 	int numbers;
 
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
+	// bit8=(LANG=sw) special word for 100,000s
 	int numbers2;
-
+	int max_roman;
 	int thousands_sep;
 	int decimal_sep;
 	int intonation;          // 1=tone language
@@ -388,6 +392,7 @@ private:
 	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
 	int LookupThousands(int value, int thousandplex, char *ph_out);
    int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
+	int TranslateRoman(char *word, char *ph_out);
 
 	void InitGroups(void);
 	void AppendPhonemes(char *string, int size, const char *ph);

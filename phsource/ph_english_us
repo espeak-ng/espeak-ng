@@ -154,7 +154,7 @@ phoneme 3:
   vowel  starttype (@)  endtype (@)
   length 230
   formants vwl_en_us/3_us
-  reduceto @  0
+//  reduceto @  0
   linkout r-
 endphoneme
 

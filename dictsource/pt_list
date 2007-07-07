@@ -28,6 +28,11 @@ _õ	,otS'iU
 _ú	,u&g'udU
 _ü	,utR'em&
 
+i	i        // speak i v x as letters, not Roman numbers
+v	ve
+x	Sis#
+
+
 _cap	maI'uskulU
 _?A	l'etR&
 _??	s'imbolU
@@ -80,23 +85,23 @@ _"	'abRi;'asp&||d'upl&s#
 // numeric
 //********
 
-?1_0	z'Eru
-?2_0	z'E*U
-?1_1	'um
-?2_1	'uN
-_2	d'oIs#
+?1 _0	z'Eru
+?2 _0	z'E*U
+?1 _1	'um
+?2 _1	'uN
+   _2	d'oIs#
 ?1 _3	tr'es#
 ?2 _3	tR'es#
 ?1 _4	kw'atru
 ?2 _4	kw'atRu
-_5	s'iNku
-_6	s'eIs#
-?1_7	s'Ety
-?2_7	s'EtSi
-_8	'oItu
-?1_9	n'Ovy
-?2_9	n'Ovi
-10	d'Es#
+   _5	s'iNku
+   _6	s'eIs#
+?1 _7	s'Ety
+?2 _7	s'EtSi
+   _8	'oItu
+?1 _9	n'Ovy
+?2 _9	n'Ovi
+   _10	d'Es#
 
 ?1_11	'oNzy
 ?2_11	'oNzi
@@ -200,20 +205,15 @@ ue        $abbrev
 unts      $abbrev
 usb       $abbrev
 
-// roman numerals
-?1 ii	d'oIs#       $abbrev    
-?1 iii	tr'es#      $abbrev
-?1 iv	kw'atru       $abbrev
 
-
-dr                           $dot
-dra                           $dot
-mr                           $dot
-mrs                           $dot
-prof       pr'Of         $dot
-sr                           $dot
-?1 sra                ,Es;'Errj'a           $dot
-?2 sra              $dot
+dr	$dot
+dra	$dot
+mr	$dot
+mrs	$dot
+prof	pr'Of	$dot
+sr	$dot
+?1 sra	,Es;'Errj'a	$dot
+?2 sra	$dot
 
 // articles
 o	$u+
