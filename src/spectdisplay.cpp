@@ -951,6 +951,8 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	}
 	wxFileName path = wxFileName(filename);
    leaf = path.GetName();
+
+	setlocale(LC_NUMERIC,"C");    // read numbers in the form 1.23456
 	spectseq->Load(stream);
 	spectseq->name = leaf;
 	spectseq->MakePitchenv(spectseq->pitchenv);

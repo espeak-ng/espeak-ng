@@ -288,6 +288,7 @@ static int initialise(void)
 #ifndef PLATFORM_WINDOWS
 	LoadConfig();  // causes problem on Windows, don't know why
 #endif
+	SetVoiceStack(NULL);
 	SynthesizeInit();
 
 	for(param=0; param<N_SPEECH_PARAM; param++)

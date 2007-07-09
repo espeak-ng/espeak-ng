@@ -170,6 +170,12 @@ phoneme u:
 endphoneme
 
 
+phoneme u~
+  vowel long starttype (u) endtype (u)
+  length 230
+  formants vnasal/u_n
+endphoneme
+
 
 phoneme r-
   vowel  starttype (@)  endtype (@)

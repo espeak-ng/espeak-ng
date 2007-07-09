@@ -1164,6 +1164,50 @@ int x;
 }
 #endif
 
+#define OUTPUT_MODE AUDIO_OUTPUT_PLAYBACK
+#define TEXT "Hello world."
+#define TEXT_SSML ("<speak>" TEXT "</speak>")
+static void
+speak(char *text)
+{
+  int result;
+  result = espeak_Synth(text, strlen(text) + 1, 0, POS_CHARACTER, 0, espeakSSML, NULL, NULL);
+  assert(result == EE_OK);
+}
+
+
+int test4() {
+  espeak_ERROR result;
+  int sample_rate;
+  sample_rate = espeak_Initialize(OUTPUT_MODE, 2000, NULL, 0);
+  assert(sample_rate != EE_INTERNAL_ERROR);
+  espeak_SetSynthCallback(synth_callback);
+
+  espeak_VOICE voice;
+  memset(&voice, 0, sizeof(espeak_VOICE));
+    voice.languages = "en";
+	//voice.gender = 2;
+  voice.age = 4;
+
+  result = espeak_SetVoiceByProperties(&voice);
+  assert(result == EE_OK);
+  speak(TEXT_SSML);
+  speak(TEXT_SSML);
+  espeak_Synchronize();
+
+#ifdef deleted
+  /* Now the same ting without ssml tags. */
+result = espeak_SetVoiceByProperties(&voice);
+  assert(result == EE_OK);
+  speak(TEXT);
+  speak(TEXT);
+  espeak_Synchronize();
+#endif
+  result = espeak_Terminate();
+  assert(result == EE_OK);
+
+  return 0;
+}
 
 char* text1 = "Hello World2. <audio src=\"here\"> Some text</audio>  This is the second sentence";
 
@@ -1181,6 +1225,7 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
+test4();
 return;
 
 if(control==2)

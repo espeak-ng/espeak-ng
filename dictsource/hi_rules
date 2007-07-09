@@ -32,6 +32,8 @@
 
 .group ऊ
         ऊ        u:
+        ऊं        u~  // + anusvara
+        ऊँ        u~  // + candrabinbu
 
 .group ऋ
         ऋ        rI
@@ -50,6 +52,8 @@
 
 .group ऐ
         ऐ        E:  // ?? [aI] [E:] [&:] 
+        ऐं        E~
+        ऐँ        E~
 ?2      ऐ        aI  // ?? [aI] [E:] [&:] 
 
 
@@ -89,6 +93,8 @@
 
 .group ू
         ू        u:
+        ूं        u~
+        ूँ        u~
 
 .group ृ
         ृ        rI
@@ -107,6 +113,8 @@
 
 .group ै
         ै        E:    // ?? [aI] [E:] [&:] 
+        ैं        E~
+        ैँ        E~
 ?2      ै        aI    // ?? [aI] [E:] [&:] 
 
 .group ॉ

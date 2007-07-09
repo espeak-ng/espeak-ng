@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.27.06  07.Jul.07";
+const char *version_string = "1.27.07  09.Jul.07";
 const int version_phdata  = 0x012701;
 
 int option_device_number = -1;
@@ -160,6 +160,9 @@ void FreePhData(void)
 	Free(phoneme_tab_data);
 	Free(phoneme_index);
 	Free(spects_data);
+	phoneme_tab_data=NULL;
+	phoneme_index=NULL;
+	spects_data=NULL;
 }
 
 

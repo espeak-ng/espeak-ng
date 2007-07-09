@@ -426,6 +426,7 @@ int initialise(void)
 
 	WavegenInit(22050,0);
 	LoadPhData();
+	SetVoiceStack(NULL);
 	SynthesizeInit();
 	return(0);
 }

@@ -15,7 +15,7 @@
       fi  40  127
       fr  35  118
    fr_ca  11  118
-      hi  49  131
+      hi  50  132
       hu  22  112
       nl  26  117
       pl  15  107
@@ -145,8 +145,8 @@
   1  n^/n^_         base
   1  n^/n^@         base
   1  n^/n^#_        is
-  6  n/_n           base ro
-  3  n/n_           base ro
+  4  n/_n           base ro
+  2  n/n_           base ro
   1  n/n@           base
   1  n/n#_          is
   1  n^/n^a         base
@@ -169,6 +169,8 @@
   1  nn/nnu         base
   1  n^/n^o         base
   1  n/no           base
+  2  n/_nr          base
+  1  n/nr_          base
   1  n^/n^u         base
   1  n/nu           base
   1  r2/_r2         base
@@ -381,7 +383,7 @@
   1  vnasal/o_n3    fr
   1  vnasal/oo_n    en
   2  vnasal/oo_n2   hi pl
-  1  vnasal/u_n     pt
+  2  vnasal/u_n     hi pt
   3  vnasal/W_n     en fr
   1  voc/bh         base
   2  voc/dh         base es

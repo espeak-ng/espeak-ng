@@ -921,6 +921,26 @@ int AddNameData(const char *name, int wide)
 }  //  end of AddNameData
 
 
+void SetVoiceStack(espeak_VOICE *v)
+{//================================
+	SSML_STACK *sp;
+	sp = &ssml_stack[0];
+
+	if(v == NULL)
+	{
+		memset(sp,0,sizeof(ssml_stack[0]));
+		return;
+	}
+	if(v->languages != NULL)
+		strcpy(sp->language,v->languages);
+	if(v->name != NULL)
+		strcpy(sp->voice_name,v->name);
+	sp->voice_variant = v->variant;
+	sp->voice_age = v->age;
+	sp->voice_gender = v->gender;
+}
+
+
 static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 {//=====================================================
 // Determines whether voice attribute are specified in this tag, and if so, whether this means
@@ -1367,7 +1387,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		return(CLAUSE_VOICE);
 
 	case SSML_SPEAK + SSML_CLOSE:
-		terminator = CLAUSE_PARAGRAPH;
+		terminator = CLAUSE_PERIOD;
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != (tag_type - SSML_CLOSE)))
@@ -1853,6 +1873,7 @@ void InitText2(void)
 	option_punctuation = speech_parameters[espeakPUNCTUATION];
 	option_capitals = speech_parameters[espeakCAPITALS];
 
+//#ifdef deleted
 	pvoice = espeak_GetCurrentVoice();
 
 	ssml_sp = &ssml_stack[0];
@@ -1865,6 +1886,7 @@ void InitText2(void)
 		strncpy0(ssml_sp->voice_name,pvoice->name,sizeof(ssml_sp->voice_name));
 		strncpy0(ssml_sp->language,&pvoice->languages[1],sizeof(ssml_sp->language));
 	}
+//#endif
 	current_voice_id[0] = 0;
 
 	n_param_stack = 1;

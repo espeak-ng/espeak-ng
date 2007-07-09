@@ -539,13 +539,14 @@ endphoneme
 phoneme n.
   vcd rfx nasal
   starttype n  endtype n
-  vowelout f1=2 f2=1700 -300 250  f3=-400 80  rms=20 brk colr=2
+  vowelin f1=2 f2=1200 -300 250  f3=-500 80  rms=20 colr=2
+  vowelout f1=2 f2=1200 -300 250  f3=-500 80  rms=20 brk colr=2
   length 100
   lengthmod 4
   formants NULL
-  after _ n/_n
-  after n n/_n      // lengthen [nn]
-  before _ n/n_
+  after _ n/_nr
+  after n n/_nr      // lengthen [nn]
+  before _ n/nr_
   before (r) n/nj
 endphoneme
 

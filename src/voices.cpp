@@ -1189,6 +1189,7 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
 {//================================================================
 // Returns a path within espeak-voices, with a possible +variant suffix
+// variant is an output-only parameter
 	int nv;           // number of candidates
 	int ix, ix2;
 	int j;
@@ -1382,6 +1383,7 @@ void GetVoices(const char *path)
 espeak_ERROR SetVoiceByName(const char *name)
 {//=========================================
 	espeak_VOICE *v;
+	espeak_VOICE voice_selector;
 	int variant=0;
 	char *p;
 	char variant_name[20];
@@ -1395,7 +1397,13 @@ espeak_ERROR SetVoiceByName(const char *name)
 		variant = atoi(p+1);
 	}
 
+	memset(&voice_selector,0,sizeof(voice_selector));
+	voice_selector.variant = variant;
+	voice_selector.name = (char *)name;
+
 	// first check for a voice with this filename
+	// This may avoid the need to call espeak_ListVoices().
+
 	if((first_voice == NULL) && (LoadVoice(buf,1) != NULL))
 	{
 		voice_selected = first_voice;
@@ -1408,6 +1416,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 		}
 
 		WavegenSetVoice(voice);
+		SetVoiceStack(&voice_selector);
 		return(EE_OK);
 	}
 
@@ -1420,11 +1429,12 @@ espeak_ERROR SetVoiceByName(const char *name)
 		{
 			voice_selected = v;
 			WavegenSetVoice(voice);
+			SetVoiceStack(&voice_selector);
 			return(EE_OK);
 		}
 	}
 	return(EE_INTERNAL_ERROR);   // voice name not found
-}  // end of espeak_SetVoiceByName
+}  // end of SetVoiceByName
 
 
 
@@ -1436,8 +1446,10 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 
 	LoadVoiceVariant(voice_selected->identifier,variant);
 	WavegenSetVoice(voice);
+	SetVoiceStack(voice_selector);
+
 	return(EE_OK);
-}  //  end of espeak_SetVoiceByProperties
+}  //  end of SetVoiceByProperties
 
 
 

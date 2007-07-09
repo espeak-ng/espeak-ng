@@ -349,6 +349,7 @@ static int initialise(void)
 	}
 
 	voice_selected = NULL;
+	SetVoiceStack(NULL);
 	SynthesizeInit();
 	InitNamedata();
 

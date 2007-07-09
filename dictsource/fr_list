@@ -388,30 +388,31 @@ montréal         mO~Real
 (cent une)       s'A~||yn
 (cent onzième)   s'A~||O~zj'Em
 (cent onze)      s'A~||O~z
-(en haillon)     A~||naj'O~
 (on habille)     O~||nab'ij
-(un haillon)     W~||naj'O~
-(mon haillon)    m'O~||najO~
-(son haillon)    s'O~||najO~
-(ton haillon)    tO~||na=jO~
-bus	      bys
-echo          Eko
-fils	      fis
-mars	      maRs
-juin	      ZwE~
+absent        absA~
+accident      aksidA~
 adéquat       adekuat2
 adéquate      adekuat
 adéquats      adekuaz2
 adéquates     adekuatz2
-pays	      pEi
-absent        absA~
 ardent        aRdA~
-prudent       pRydA~
-imprudent     E~pRydA~
+boeufs        bY
+bus	      bys
+choeur        kWr
 discident     disidA~
-accident      aksidA~
+echo          Eko
+fils	      fis
+haillon     _|ajO~
+haricot     _|aRiko
+haricots    _|aRikoz2
+imprudent     E~pRydA~
+juin	      ZwE~
+mars	      maRs
 occident      OksidA~
+oeufs         Y
 orient        ORjA~
+pays	      pEi
+prudent       pRydA~
 secret        sYkRE
 secrets       sYkREz2
 
@@ -423,11 +424,9 @@ qu'y          ki
 s'y              si
 m'y              mi
 t'y              ti
-l'y              li
 (sud est)       sydEst
 (nord est)      nOREst
 écho            Eko
-l'écho          leko
 cci              $abbrev
 espeak          ispik
 nvda             $abbrev
@@ -610,4 +609,5 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
