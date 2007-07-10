@@ -322,6 +322,28 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 int WavegenFill(int fill_zeros);
 
 
+#ifdef LOG_FRAMES
+static void LogMarker(int type, int value)
+{//=======================================
+	if(option_log_frames == 0)
+		return;
+
+	if((type == espeakEVENT_PHONEME) || (type == espeakEVENT_SENTENCE))
+	{
+		f_log=fopen("log-espeakedit","a");
+		if(f_log)
+		{
+			if(type == espeakEVENT_PHONEME)
+				fprintf(f_log,"Phoneme [%s]\n",WordToString(value));
+			else
+				fprintf(f_log,"\n");
+			fclose(f_log);
+			f_log = NULL;
+		}
+	}
+}
+#endif
+
 void WcmdqStop()
 {//=============
 	wcmdq_head = 0;
@@ -1495,7 +1517,10 @@ void SetEmbedded(int control, int value)
 
 void WavegenSetVoice(voice_t *v)
 {//=============================
-	wvoice = v;
+	static voice_t v2;
+
+	memcpy(&v2,v,sizeof(v2));
+	wvoice = &v2;
 
 	if(v->peak_shape==0)
 		pk_shape = pk_shape1;
@@ -1683,28 +1708,6 @@ if(option_log_frames)
 	}
 }  // end of SetSynth
 
-
-#ifdef LOG_FRAMES
-static void LogMarker(int type, int value)
-{//=======================================
-	if(option_log_frames == 0)
-		return;
-
-	if((type == espeakEVENT_PHONEME) || (type == espeakEVENT_SENTENCE))
-	{
-		f_log=fopen("log-espeakedit","a");
-		if(f_log)
-		{
-			if(type == espeakEVENT_PHONEME)
-				fprintf(f_log,"Phoneme [%s]\n",WordToString(value));
-			else
-				fprintf(f_log,"\n");
-			fclose(f_log);
-			f_log = NULL;
-		}
-	}
-}
-#endif
 
 static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
 {//====================================================================================
@@ -1894,6 +1897,7 @@ int WavegenFill(int fill_zeros)
 
 		case WCMD_VOICE:
 			WavegenSetVoice((voice_t *)q[1]);
+			free((voice_t *)q[1]);
 			break;
 
 		case WCMD_EMBEDDED:

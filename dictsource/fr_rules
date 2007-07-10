@@ -627,7 +627,7 @@
 	_)	t (_        te
 		t           t	// bataille
 		t (_        t2  // silent at end of word unless next word starts with a vowel
-		ts (_       z2  // silent at end of word unless next word starts with a vowel
+		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
 	C)	t (_        t	// compost watt soft script malttact abrupt 
 	n)	t (_        t2	// emprunt
 	r)	t (_        t2	// fort

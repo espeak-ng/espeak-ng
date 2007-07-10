@@ -600,16 +600,20 @@ static char *VoiceFromStack(int *voice_variant)
 	voice_select.age = ssml_stack[0].voice_age;
 	voice_select.gender = ssml_stack[0].voice_gender;
 	voice_select.variant = ssml_stack[0].voice_variant;
-	voice_select.name = voice_name;
-	voice_select.languages = language;
 	voice_select.identifier = NULL;
 
 	for(ix=0; ix<n_ssml_stack; ix++)
 	{
 		sp = &ssml_stack[ix];
 
-//		if(sp->voice_name[0] != 0)
-			strcpy(voice_name, sp->voice_name);    // don't inherit name from previous levels ??
+		if(sp->voice_name[0] != 0)
+		{
+			strcpy(voice_name, sp->voice_name);
+			language[0] = 0;
+			voice_select.gender = 0;
+			voice_select.age = 0;
+			voice_select.variant = 0;
+		}
 		if(sp->language[0] != 0)
 			strcpy(language, sp->language);
 		if(sp->voice_gender != 0)
@@ -620,6 +624,8 @@ static char *VoiceFromStack(int *voice_variant)
 			voice_select.variant = sp->voice_variant;
 	}
 
+	voice_select.name = voice_name;
+	voice_select.languages = language;
 	v = SelectVoice(&voice_select,&variant);
 	*voice_variant = variant;
 	if((v == NULL) || (v->identifier == NULL))
@@ -1862,7 +1868,6 @@ void InitNamedata(void)
 void InitText2(void)
 {//=================
 	int param;
-	espeak_VOICE *pvoice;
 
 	n_ssml_stack =1;
 	n_param_stack = 1;
@@ -1873,23 +1878,8 @@ void InitText2(void)
 	option_punctuation = speech_parameters[espeakPUNCTUATION];
 	option_capitals = speech_parameters[espeakCAPITALS];
 
-//#ifdef deleted
-	pvoice = espeak_GetCurrentVoice();
-
-	ssml_sp = &ssml_stack[0];
-	ssml_sp->tag_type = 0;
-	ssml_sp->voice_variant = 0;
-	ssml_sp->voice_gender = 0;
-	ssml_sp->voice_age = 0;
-	if(pvoice != NULL)
-	{
-		strncpy0(ssml_sp->voice_name,pvoice->name,sizeof(ssml_sp->voice_name));
-		strncpy0(ssml_sp->language,&pvoice->languages[1],sizeof(ssml_sp->language));
-	}
-//#endif
 	current_voice_id[0] = 0;
 
-	n_param_stack = 1;
 	ignore_text = 0;
 	clear_skipping_text = 0;
 	count_characters = -1;

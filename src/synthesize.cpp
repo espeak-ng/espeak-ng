@@ -1001,8 +1001,13 @@ static void DoMarker(int type, int char_posn, int length, int value)
 
 static void DoVoice(voice_t *v)
 {//============================
+// allocate memory for a copy of the voice data, and free it in wavegenfill()
+	voice_t *v2;
+
+	v2 = (voice_t *)malloc(sizeof(voice_t));
+	memcpy(v2,v,sizeof(voice_t));
 	wcmdq[wcmdq_tail][0] = WCMD_VOICE;
-	wcmdq[wcmdq_tail][1] = (long)v;
+	wcmdq[wcmdq_tail][1] = (long)(v2);
 	WcmdqInc();
 }
 

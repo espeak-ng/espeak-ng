@@ -1201,16 +1201,51 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
 	const char *p, *p_start;
 	espeak_VOICE *vp = NULL;
 	espeak_VOICE *vp2;
+	espeak_VOICE voice_select2;
 	espeak_VOICE *voices[N_VOICES_LIST]; // list of candidates
 	espeak_VOICE *voices2[N_VOICES_LIST+N_VOICE_VARIANTS];
-
 	static espeak_VOICE voice_variants[N_VOICE_VARIANTS];
+
+	memcpy(&voice_select2,voice_select,sizeof(voice_select2));
 
 	if(n_voices_list == 0)
 		espeak_ListVoices(NULL);   // create the voices list
 
+	if((voice_select2.languages == NULL) || (voice_select2.languages[0] == 0))
+	{
+		// no language is specified. Get language from the named voice
+		int var;
+		char *p2;
+		static char buf[60];
+	
+		if(voice_select2.name == NULL)
+		{
+			if((voice_select2.name = voice_select2.identifier) == NULL)
+				voice_select2.name = "default";
+		}
+	
+		strncpy0(buf,voice_select2.name,sizeof(buf));
+		if((p2 = strchr(buf,'+')) != NULL)
+		{
+			// remove the voice variant suffix, from eg. en+3
+			*p2 = 0;
+			var = atoi(p2+1);
+		}
+		vp = SelectVoiceByName(voices_list,buf);
+		if(vp != NULL)
+		{
+			voice_select2.languages = &(vp->languages[1]);
+
+			if((voice_select2.gender==0) && (voice_select2.age==0) && (voice_select2.variant==0))
+			{
+				*variant = var;
+				return(vp);
+			}
+		}
+	}
+
 	// select and sort voices for the required language
-	nv = SetVoiceScores(voice_select,voices,0);
+	nv = SetVoiceScores(&voice_select2,voices,0);
 
 	if(nv == 0)
 	{
@@ -1220,14 +1255,14 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
 	}
 
 	gender = 0;
-	if((voice_select->gender == 2) || ((voice_select->age > 0) && (voice_select->age < 13)))
+	if((voice_select2.gender == 2) || ((voice_select2.age > 0) && (voice_select2.age < 13)))
 		gender = 2;
 	else
-	if(voice_select->gender == 1)
+	if(voice_select2.gender == 1)
 		gender = 1;
 
 #define AGE_OLD  60
-	if(voice_select->age < AGE_OLD)
+	if(voice_select2.age < AGE_OLD)
 		aged = 0;
 
 	p = p_start = variant_lists[gender];
@@ -1280,7 +1315,7 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant)
 	}
 
 	// index the sorted list by the required variant number
-	vp = voices2[voice_select->variant % ix2];
+	vp = voices2[voice_select2.variant % ix2];
 	*variant = vp->variant;
 	return(vp);
 }  //  end of SelectVoice
@@ -1398,7 +1433,6 @@ espeak_ERROR SetVoiceByName(const char *name)
 	}
 
 	memset(&voice_selector,0,sizeof(voice_selector));
-	voice_selector.variant = variant;
 	voice_selector.name = (char *)name;
 
 	// first check for a voice with this filename

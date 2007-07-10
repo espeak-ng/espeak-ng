@@ -671,10 +671,11 @@ if((wmark > 0) && (wmark < 8))
 		if(!found & ((word_flags & FLAG_UPPERS) != FLAG_FIRST_UPPER))
 		{
 			// either all upper or all lower case
-			found = TranslateRoman(word,phonemes);
+			if((found = TranslateRoman(word,phonemes)) != 0)
+				dictionary_flags |= FLAG_ABBREV;      // don't spell capital Roman numbers as individual letters
 		}
 
-		if(!found && (wflags & FLAG_ALL_UPPER) && (clause_upper_count <= clause_lower_count) &&
+		if((wflags & FLAG_ALL_UPPER) && (clause_upper_count <= clause_lower_count) &&
 			!(dictionary_flags & (FLAG_ABBREV | FLAG_SKIPWORDS)) && (word_length>1) && (word_length<4) && iswalpha(first_char))
 		{
 			// An upper case word in a lower case clause. This could be an abbreviation.

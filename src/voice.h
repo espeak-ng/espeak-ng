@@ -40,14 +40,14 @@ typedef struct {
 	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
 
 	// parameters used by Wavegen
-	int freq[N_PEAKS];    // 100% = 256
-	int height[N_PEAKS];  // 100% = 256
-	int width[N_PEAKS];   // 100% = 256
+	short freq[N_PEAKS];    // 100% = 256
+	short height[N_PEAKS];  // 100% = 256
+	short width[N_PEAKS];   // 100% = 256
 
 	// copies without temporary adjustments from embedded commands
-	int freq2[N_PEAKS];    // 100% = 256
-	int height2[N_PEAKS];  // 100% = 256
-	int width2[N_PEAKS];   // 100% = 256
+	short freq2[N_PEAKS];    // 100% = 256
+	short height2[N_PEAKS];  // 100% = 256
+	short width2[N_PEAKS];   // 100% = 256
 
 	int breath[N_PEAKS];  // amount of breath for each formant. breath[0] indicates whether any are set.
 	int breathw[N_PEAKS];  // width of each breath formant

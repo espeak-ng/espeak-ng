@@ -1185,9 +1185,10 @@ int test4() {
 
   espeak_VOICE voice;
   memset(&voice, 0, sizeof(espeak_VOICE));
-    voice.languages = "en";
-	//voice.gender = 2;
-  voice.age = 4;
+//	voice.name = "default";
+ //   voice.languages = "en";
+	voice.gender = 2;
+//  voice.age = 4;
 
   result = espeak_SetVoiceByProperties(&voice);
   assert(result == EE_OK);
