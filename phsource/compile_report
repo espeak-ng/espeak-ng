@@ -16,7 +16,7 @@
       fr  35  118
    fr_ca  11  118
       hi  50  132
-      hu  22  112
+      hu  23  112
       nl  26  117
       pl  15  107
       sk  29  125
@@ -24,7 +24,7 @@
       hr  19  129
       mk  21  130
       sr   2  129
-      ru  36  124
+      ru  38  126
       it  17  117
       la  21  114
       es   6  114
@@ -105,8 +105,8 @@
   1  l^/j2u         base
   1  l^/_l^         base
   1  l^/l^          base
-  8  l/l            base en af sk ru la pt ro
- 10  l/_l           base en af de sk ru la pt ro
+  9  l/l            base en af hu sk ru la pt ro
+ 11  l/_l           base en af de hu sk ru la pt ro
   1  l/l_           base
   2  l/l@           base
   1  l/L1_aL        base
@@ -129,16 +129,16 @@
   4  l/l_long       base fr la ro
   2  l/lo           base
   2  l/lu           base
-  8  l/tl           base en af sk ru la pt ro
+  9  l/tl           base en af hu sk ru la pt ro
   6  l/xl           base
-  2  m/_m           base ro
-  2  m/m_           base ro
+  3  m/_m           base ru ro
+  3  m/m_           base ru ro
   1  m/m@           base
   1  m/m#_          is
   1  m/ma           base
   1  m/me           base
   1  m/mi           base
-  2  m/mj           base ro
+  3  m/mj           base ru ro
   1  m/mo           base
   1  m/mu           base
   1  n^/_n^         base
@@ -574,9 +574,9 @@
   1  vwl_no/u#2     no
   1  vwl_no/y#      no
   1  vwl_no/y#y     no
-  1  vwl_ro/ii-     ro
+  2  vwl_ro/ii-     ru ro
   1  vwl_ro/li      ro
-  1  vwl_ro/mi      ro
+  2  vwl_ro/mi      ru ro
   1  vwl_ro/ni      ro
   1  vwl_ru/8       ru
   1  vwl_ru/a       ru

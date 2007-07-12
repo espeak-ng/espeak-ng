@@ -779,7 +779,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 			continue;
 		}
 
-		if((ph->type == phVOWEL) && (ph->code != phonSCHWA_SHORT))
+		if((ph->type == phVOWEL) && !(ph->phflags & phNONSYLLABIC))
 		{
 			vowel_stress[count] = (char)stress;
 			if((stress >= 4) && (stress >= max_stress))
@@ -892,7 +892,7 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	p = phonetic;
 	while(*p != 0)
 	{
-		if((phoneme_tab[*p]->type == phVOWEL) && (*p != phonSCHWA_SHORT))
+		if((phoneme_tab[*p]->type == phVOWEL) && !(phoneme_tab[*p]->phflags & phNONSYLLABIC))
 		{
 			if(vowel_stress[ix] != 0)
 				*word++ = stress_phonemes[vowel_stress[ix]];
@@ -982,7 +982,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	ix = 1;
 	for(p = phonetic; *p != 0; p++)
 	{
-		if((phoneme_tab[p[0]]->type == phVOWEL) && (p[0] != phonSCHWA_SHORT))
+		if((phoneme_tab[p[0]]->type == phVOWEL) && !(phoneme_tab[p[0]]->phflags & phNONSYLLABIC))
 		{
 			int weight = 0;
 			int lengthened = 0;
@@ -1314,7 +1314,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			prev_last_stress = 0;
 		}
 		else
-		if(((ph->type == phVOWEL) && (ph->code != phonSCHWA_SHORT)) || (*p == phonSYLLABIC))
+		if(((ph->type == phVOWEL) && !(ph->phflags & phNONSYLLABIC)) || (*p == phonSYLLABIC))
 		{
 			// a vowel, or a consonant followed by a syllabic consonant marker
 

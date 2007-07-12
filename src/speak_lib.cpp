@@ -61,6 +61,7 @@ static espeak_AUDIO_OUTPUT my_mode=AUDIO_OUTPUT_SYNCHRONOUS;
 static int synchronous_mode = 1;
 t_espeak_callback* synth_callback = NULL;
 int (* uri_callback)(int, const char *, const char *) = NULL;
+int (* phoneme_callback)(const char *) = NULL;
 
 char path_home[120];
 
@@ -655,6 +656,12 @@ ESPEAK_API void espeak_SetUriCallback(int (* UriCallback)(int, const char*, cons
 {//=======================================================================================
 	ENTER("espeak_SetUriCallback");
 	uri_callback = UriCallback;
+}
+
+
+ESPEAK_API void espeak_SetPhonemeCallback(int (* PhonemeCallback)(const char*))
+{//===========================================================================
+	phoneme_callback = PhonemeCallback;
 }
 
 ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length, const char *path, int options)

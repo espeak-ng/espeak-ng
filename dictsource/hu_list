@@ -7,48 +7,48 @@
 
 // Numbers
 
-_0	nullA
-_1	EJ
-_2	kEttY:
-_3	ha:R2om
-_4	ne:J
-_5	Yt
-_6	hAt
-_7	he:t
-_8	n^olts
-_9	kilEnts
-_10	ti:z
-_1X	tizEn
-_20	hu:s
-_2X	huson
-_3X	hAR2mints
-_4X	nEJvEn
-_5X	YtvEn
-_6X	hAtvAn
-_7X	hEtvEn
-_8X	n^oltsvAn
-_9X	kilEntsvEn
-_0C	sa:z
-_1C	sa:z
+_0        nullA
+_1        EJ
+_2        kEttY:
+_3        ha:R2om
+_4        ne:J
+_5        Yt
+_6        hAt
+_7        he:t
+_8        n^olts
+_9        kilEnts
+_10       ti:z
+_1X       tizEn
+_20       hu:s
+_2X       huson
+_3X       hAR2mints
+_4X       nEJvEn
+_5X       YtvEn
+_6X       hAtvAn
+_7X       hEtvEn
+_8X       n^oltsvAn
+_9X       kilEntsvEn
+_0C       sa:z
+_1C       sa:z
 
-_0M1	EzER2
-_1M1	EzER2
-_2M1	ke:tEzER2
-_0M2	millio:
-_1M2	millio:
-_2M2	ke:tmillio:
-_0M3	millia:R2d
-_1M3	millia:R2d
-_2M3	ke:tmillia:R2d
-_0M4	billio:
-_1M4	billio:
-_2M4	ke:tbillio:
-_dpt	||_vEss2Y:_
+_0M1      EzER2
+_1M1      EzER2
+_2M1      ke:tEzER2
+_0M2      millio:
+_1M2      millio:
+_2M2      ke:tmillio:
+_0M3      millia:R2d
+_1M3      millia:R2d
+_1M3      ke:tmillia:R2d
+_0M4      billio:
+_1M4      billio:
+_2M4      ke:tbillio:
+_dpt      ||_vEss2Y:_
 
 
 // Abbreviations
 km	kilo:me:tER2
-mm	milime:tER2
+mm      milime:tER2
 
 a.m	An^n^i||m'int  $dot
 dr	doktoR2  $dot
@@ -88,14 +88,14 @@ ez        $u+   // this
 
 
 // Conjunctions
-és        $u $pause $strend2 // and
+és        $u  $strend2 // and
 de        $u+ $pause  // but
 vagy      $u+ $pause  // or
 
-mert      $pause     // because
-miatt     $pause     // because
-bár       $pause     // although
-habár     $pause     // although
+mert      $u $pause     // because
+miatt     $u           // because
+bár       $u $pause     // although
+habár     $u $pause     // although
 
 ha        $u $pause  // if
 noha      $u $pause  // even thought
@@ -107,6 +107,9 @@ noha      $u $pause  // even thought
 // Negative
 nem       $alt2 $strend
 ne        $u+
+
+e         $u          // "-e" question
+e         $atend      // stressed at end of sentence
 
 // Unstressed adverbs prepositions etc.
 néhány    $u+
@@ -159,7 +162,7 @@ hoz	$u      // to
 höz	$u
 ig	$u	// up to
 ik	$u      // -th
-nak     $u      // of, him/her
+nak     $u    // of, him/her
 nek     $u
 nál	$u	// by
 nél	$u
@@ -169,20 +172,20 @@ os	$u
 ra	$u	// onto
 re	$u
 ról	$u      // from top of, about
-röl     $u
+röl	$u
 ről	$u
 szer	$u
 szor	$u	// times
-szór    $u
+szór	$u
 ször	$u
-tól     $u    // from
-töl     $u 
+tól	$u    // from
+töl	$u 
 től	$u
 val     $u    // with
 vel     $u
 án	$u    // on that day
-é       $u    // his, her
-éi      $u    // his, her multiple
+é	$u    // his, her
+éi	$u    // his, her multiple
 én	$u
 ón	$u
 ós	$u
@@ -195,9 +198,8 @@ elé	$u	// before
 
 sok	$u	// many
 kevés	$u	// few
-se	$u $pause  // neither
-sem	$u $pause  // nor
-miatt   $u $pause  // because
+se	$u       // neither
+sem	$u       // nor
 
 
 be	$u	//into
@@ -287,7 +289,6 @@ b	be:
 c	tse:
 d	de:
 _e	E
-e         $atend      // stressed at end of sentence
 f	Eff
 g	ge:
 h	ha:

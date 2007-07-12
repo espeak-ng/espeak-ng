@@ -121,8 +121,8 @@ y    Y
 
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    L    m    n    N    
-n^   p    R    s    S    t    t2   tS   
-v    w    z    Z    z2   
+n^   p    r    R    s    S    t    t2   
+tS   v    w    z    Z    z2   
 
 
 Dictionary hi_dict
@@ -214,15 +214,15 @@ z    Z    Z;
 Dictionary ru_dict
 
 8    @-   A    a    E    e    E#   E2   
-E3   i    I    I#   I2   I3   ja   ju   
-o    O    u    u"   u#   V    V#   y    
-Y    
+E3   i    I    I#   I2   I3   I^   ja   
+ju   o    O    u    u"   u#   V    V#   
+y    Y    
 
 *    ;    b    d    d;   dZ;  f    g    
-j    k    l    l^   m    n    n^   p    
-r    R    s    S    s;   S;   t    t;   
-ts   ts;  tS;  v    x    z    Z    z;   
-Z;   
+j    k    l    l^   m    m;   n    n^   
+p    r    R    s    S    s;   S;   t    
+t;   ts   ts;  tS;  v    x    z    Z    
+z;   Z;   
 
 
 Dictionary sk_dict

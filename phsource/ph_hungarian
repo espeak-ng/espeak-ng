@@ -185,4 +185,15 @@ phoneme s2     // second part of geminated [s:]
   switchvoicing z
 endphoneme
 
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/
+  formants l/l
+  after _  l/_l
+  after t  l/tl
+//  after l/ l/l_long    // double l, make it longer
+endphoneme
+
 

@@ -442,7 +442,7 @@ p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 			end_of_clause = 0;
 			for(p2 = p+1; p2->newword== 0; p2++)
 			{
-				if(p2->type == phVOWEL)
+				if((p2->type == phVOWEL) && !(p2->ph->phflags & phNONSYLLABIC))
 					more_syllables++;
 			}
 			if((p2->newword & 2) && (more_syllables==0))

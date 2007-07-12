@@ -502,6 +502,7 @@ extern char *p_textinput;
 extern wchar_t *p_wchar_input;
 extern int ungot_char;
 extern int (* uri_callback)(int, const char *, const char *);
+extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
 Translator *SelectTranslator(const char *name);

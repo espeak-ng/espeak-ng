@@ -49,6 +49,7 @@
 char path_home[120];
 char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
+int (* phoneme_callback)(const char *) = NULL;
 
 
 static const char *help_text =

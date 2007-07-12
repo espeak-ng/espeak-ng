@@ -200,9 +200,10 @@ int unicode[80];
 
 
 
-void DecodePhonemes2(const char *inptr, char *outptr)
+static void DecodePhonemes2(const char *inptr, char *outptr)
 //===================================================
 // Translate from internal phoneme codes into phoneme mnemonics
+// This version is for Lexicon_De()
 {
 	unsigned char phcode;
 	unsigned char c;
@@ -279,7 +280,7 @@ void DecodePhonemes2(const char *inptr, char *outptr)
 		}
 	}
 	*outptr = 0;    /* string terminator */
-}   //  end of DecodePhonemes
+}   //  end of DecodePhonemes2
 
 
 void Lexicon_De()

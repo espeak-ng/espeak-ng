@@ -173,6 +173,7 @@ ltd	lImItId
 mc	m@k
 oem	$abbrev
 ok	$abbrev
+otoh    $abbrev
 os	$abbrev
 riscos	rIskoUEs
 sae	$abbrev
@@ -334,7 +335,6 @@ amoral           eIm'0r@L
 amount           a2maUnt
 amply            amplI2        $verbf
 anal             eIn@L
-analogous        a2nal@g@s
 analog           an@l0g
 analogue         an@l0g
 analyses         a2nal@si:z
@@ -690,12 +690,14 @@ deficit          dEfIsIt
 definitive       dI2fInItIv
 deity            deI@tI2
 deja             deIZA:        $only
+deli             dElI2
 deliberate       dI2lIb@r@t
 delicate         dElIk@t
 delimit          dI2lImIt     // delimited
 demolish         dI2m0lIS
 demon            di:m@n
 demo             dEmoU
+demonstrative     $2
 denouement       deIn'u:mO~
 denier           dI2naI3
 deny             dI2naI
@@ -854,6 +856,7 @@ finite           faInaIt
 fishnet          fISnEt
 fiord            fi:O@d
 fix              fIks          // for fixer
+flagellum        fla2dZEl@m
 flexible         flEksIb@L
 flier            flaI3
 flourish         flVrI2S
@@ -948,6 +951,7 @@ herod            hEr@d
 heroe            hi@oU
 heroic           hI2roUIk
 heroin           hEroUIn
+heroism          hEroUIz@m
 heroine          hEroUIn
 herpes           h3:pi:z
 hideout          haIdaUt
@@ -1519,6 +1523,7 @@ replay           ri:pleI
 reply            rI2plaI       // for replied
 repost           r,i:p'oUst
 reprisal         rI2praIz@L
+reputable        rEpju:t@b@L
 reputation       rEpju:t'eIS@n
 requiem          rEkwIEm
 rescue           'rEskju:
@@ -2255,6 +2260,7 @@ Samantha         s@manT@
 Sarah            se@r@
 Seamus           SeIm@s
 Sean             SO:n
+Sebastian         $2
 Sheila           Si:l@
 Sonia            s0nj@
 Sophie           soUfI2

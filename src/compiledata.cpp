@@ -242,6 +242,7 @@ static keywtab_t keywords[] = {
 	{"palatal",    0x2000000+phPALATAL},
 	{"long",       0x2000000+phLONG},
 	{"brkafter",   0x2000000+phBRKAFTER},
+	{"nonsyllabic",0x2000000+phNONSYLLABIC},
 
 	// voiced / unvoiced
 	{"vcd",	0x2000000+phVOICED},

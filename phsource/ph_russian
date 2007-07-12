@@ -117,6 +117,28 @@ phoneme d;
 endphoneme
 
 
+phoneme I^          // "silent i", palatilizes the preceding consonant
+  vowel starttype (i) endtype (i)
+  length 70
+  unstressed nonsyllabic
+  formants vwl_ro/ii-
+  beforevowel ;
+  after  m;  vwl_ro/mi
+endphoneme
+
+phoneme m;
+  vcd blb nasal
+  vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
+  starttype m endtype m
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ m/_m
+  before _ m/m_
+  before (r) m/mj
+endphoneme
+
+
 
 //*******************************************************************
 // VOWELS

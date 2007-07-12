@@ -1547,6 +1547,11 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	{
 		fprintf(f_trans,"%s\n",translator->phon_out);
 	}
+	if(phoneme_callback != NULL)
+	{
+		phoneme_callback(translator->phon_out);
+	}
+
 	translator->CalcPitches(clause_tone);
 	translator->CalcLengths();
 

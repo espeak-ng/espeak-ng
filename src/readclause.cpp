@@ -1718,11 +1718,14 @@ f_input = f_in;  // for GetC etc
 
 		if(option_phoneme_input)
 		{
+			if(phoneme_mode > 0)
+				phoneme_mode--;
+			else
 			if((c1 == '[') && (c2 == '['))
-				phoneme_mode = 1;         // input is phoneme mnemonics, so don't look for punctuation
+				phoneme_mode = -1;     // input is phoneme mnemonics, so don't look for punctuation
 			else
 			if((c1 == ']') && (c2 == ']'))
-				phoneme_mode = 0;
+				phoneme_mode = 2;      // set phoneme_mode to zero after the next two characters
 		}
 
 		if(c1 == '\n')
@@ -1761,7 +1764,7 @@ if(option_ssml) parag=1;
 			linelength = 0;
 		}
 
-		if(option_punctuation && (phoneme_mode==0) && iswpunct(c1))
+		if(option_punctuation && (phoneme_mode==0) && (sayas_mode==0) && iswpunct(c1))
 		{
 			// option is set to explicitly speak punctuation characters
 			// if a list of allowed punctuation has been set up, check whether the character is in it

@@ -180,7 +180,8 @@ int SynthCallback(short *wav, int numsamples, espeak_EVENT *events);
       sometimes be zero (which does NOT indicate end of synthesis).
 
    events: an array of espeak_EVENT items which indicate word and sentence events, and
-      also the occurance if <mark> and <audio> elements within the text.
+      also the occurance if <mark> and <audio> elements within the text.  The list of
+      events is terminated by an event of type = 0.
 
 
    Callback returns: 0=continue synthesis,  1=abort synthesis.
@@ -266,7 +267,7 @@ espeak_ERROR espeak_Synth(const void *text,
 
       espeakSSML   Elements within < > are treated as SSML elements, or if not recognised are ignored.
 
-      espeakPHONEMES  Text within [[ ]] is treated as phonemes codes (in espeak's Hirschenbaum encoding).
+      espeakPHONEMES  Text within [[ ]] is treated as phonemes codes (in espeak's Hirshenbaum encoding).
 
       espeakENDPAUSE  If set then a sentence pause is added at the end of the text.  If not set then
          this pause is suppressed.

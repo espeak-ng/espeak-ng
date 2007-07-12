@@ -172,7 +172,7 @@ endphoneme
 
 
 phoneme @-   //  very short schwa
-  vowel
+  vowel nonsyllabic
   starttype (@)  endtype (@)
   formants vowel/@-
   unstressed

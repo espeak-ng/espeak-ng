@@ -335,12 +335,11 @@ Translator *SelectTranslator(const char *name)
 //			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
-			tr->langopts.long_stop = 130;
 
 			tr->langopts.numbers = 0x1809 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
-//SetLengthMods(tr,3);  // all equal
+SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
