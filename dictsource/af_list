@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -126,12 +126,18 @@ christo     krIstu
 christian   krIstian
 christine   kr@st'i:n
 coetzee     kuts'e@
+cronjé      krOnj'e@
 debora      d@bo@ra
 der         d@r
 deventer d'e@v@nt@r
+du		$u
+(du plessis) du||pl@s'i
+(du preez)  d@||pr'e@
+(du toit)   d@||toI
 elize       il'i:z
 esegiël    is'e@x2i_@l
 estelle     %ist&l
+etienne     Eti@n
 eugene      judZ'i:n
 eugène     yZ'En
 farao       fA:ro@
@@ -172,13 +178,13 @@ mostert     m'Ost@rt
 mozart      mo@tsart
 naomi       na_'o@mi
 natasha n%at'aSa
+naudé       nOd'e@
 paul        p@Ul
 paulus      p@UlWs
 philip      fIl@p
 pierre p'e@r
 petrus      pe@trWs
 phoebe      fi:bi
-preez       pr'e@
 rachmaninoff rax2m'aninOf
 rebekka     r@bEka
 ronel       run'&l
@@ -186,7 +192,9 @@ rousseau    r@s@U
 roux r'u
 schalk sk'alk
 scheepers   ske@p@rs
+schoeman    skuman
 schoor      sko@r
+schutte     skWt@
 shakespeare _^_EN
 tania       tanja
 terblanche  t@rblA:nS
@@ -197,12 +205,12 @@ marais      mar'E:
 mandela     mand'E:la
 celliers    sIlj'e@
 joubert     jub'&:r
-plessis     pl@s'i
+scarlatti   $2
 schalkwyk   skalkveIk
+schreiner   SraIn@r
 tony        t@Uni
 xhosa       kO:za
 
-toit        toI
 khumalo     kum'A:lu
 
 
@@ -295,7 +303,6 @@ voor		$u $strend2
 
 // misc unstressed
 de		d@
-du		$u
 dat		$u $strend
 te		t@
 nie $unstressend
@@ -514,6 +521,7 @@ ongewoons     $1
 onkunde       $1
 onmag         $1
 onmin         $1
+oplaas        $2
 onraad        $1
 onrus         $1
 oorkom        $2
@@ -527,6 +535,7 @@ patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
 per           pIr
 persent       p@rsEnt
+pinotage      pinut'A:Z
 prakseer      $2
 program       prux2r'am
 
@@ -541,7 +550,7 @@ rukkerig      rWk@r@x2
 samelewing    sA:m@l,e@v@N
 sedert        se@d@rt
 sektore       $2
-sinteties $2
+skares        skA:r@s
 skepsele      skEps@l@
 s'n           s'@n
 sobere s'o@b@r@

@@ -23,7 +23,7 @@
 // Conditional rules
 // ?2  Use long 'a' in 'bath'
 // ?3  General American
-// ?4  Not General American
+// ?!3  Not General American
 // ?5  split [3:] er [3:], ir [IR], ur [VR] 
 // ?6  'one' = [wVn], 'of' = [Vv]
 // ?7  Scottish

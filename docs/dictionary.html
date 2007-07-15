@@ -529,11 +529,21 @@ The dictionary list is searched from bottom to top.  The first match that satisf
 then if "to" is at the end of the clause, we get [tu:], if not then we get [t@].
 
 <p>&nbsp;<hr>
-<h3>4.5  Numbers and Character Names</h3>
-<h4>4.5.1 Letter names</h4>
+<h3>4.5  Conditional Rules</h3>
+Rules in a <b>_rules</b> file and entries in a <b>_list</b> file can be made conditional.  They apply only to some voices.  This can be useful to specify different pronunciations for different variants of a language (dialects or accents).<p>
+Conditional rules have &nbsp; <b>?</b> &nbsp; and a condition number at the start if the line in the <b>_rules</b> or <b>_list</b> file.  This means that the rule only applies of that condition number is specified in a <b>dictrules</b> line in the <a href="voices.html">voice file</a>.<p>
+If the rule starts with &nbsp; <b>?!</b> &nbsp; then the rule only applies if the condition number is <b>not</b> specified in the voice file. eg.<p>
+<pre>
+   ?3     can't     kant    // only use this if the voice has:  dictrules 3
+   ?!3    rather    rA:D3   // only use if the voice doesn't have:  dictrules 3
+</pre>
+
+<p>&nbsp;<hr>
+<h3>4.6  Numbers and Character Names</h3>
+<h4>4.6.1 Letter names</h4>
 The names of individual letters can be given either in the <b>_rules</b> or <b>_list</b> file.  Sometimes an individual letter is also used as a word in the language and its pronunciation as a word differs from its letter name.  If so, it should be listed in the <b>_list</b> file, preceded by an underscore, to give the letter name (as distinct from its pronunciation as a word).  eg. in English:
 <pre>   _a   eI</pre>
-<h4>4.5.2 Numbers</h4>
+<h4>4.6.2 Numbers</h4>
 The operation the TranslateNumber() function is controlled by the language's <code>langopts.numbers</code> option.  This constructs spoken numbers from fragments according to various options which can be set for each language.  The number fragments are given in the <b>_list</b> file.
 <p>
 <ul>
@@ -561,6 +571,7 @@ _0 to _9 &nbsp;
 <tr><TD>_dpt2<td>Word spoken (if any) at the end of all the digits after a decimal point.</tr>
 </tbody></table>
 </ul>
+
 
 </body>
 </html>

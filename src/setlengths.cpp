@@ -389,7 +389,7 @@ void Translator::CalcLengths()
 				if(p->type == phLIQUID)
 				{
 					p->length = speed1;
-p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
+//p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 				}
 
 				if(next->type == phVSTOP)

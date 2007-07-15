@@ -161,6 +161,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	int  ix;
 	int  step;
 	int  n_flag_codes = 0;
+	int  flag_offset;
 	int  length;
 	int  multiple_words = 0;
 	char *multiple_string = NULL;
@@ -189,7 +190,17 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	
 		if((c == '?') && (step==0))
 		{
+			// conditional rule, allow only if the numbered condition is set for the voice
+			flag_offset = 100;
+
 			p++;
+			if(*p == '!')
+			{
+				// allow only if the numbered condition is NOT set
+				flag_offset = 132;
+				p++;
+			}
+
 			ix = 0;
 			if(isdigit(*p))
 			{
@@ -201,7 +212,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 				ix = ix*10 + (*p-'0');
 				p++;
 			}
-			flag_codes[n_flag_codes++] = ix+100;
+			flag_codes[n_flag_codes++] = ix + flag_offset;
 			c = *p;
 		}
 		
@@ -859,7 +870,17 @@ char *compile_rule(char *input)
 	if(rule_cond[0] != 0)
 	{
 		ix = -1;
-		ix = atoi(rule_cond);
+		if(rule_cond[0] == '!')
+		{
+			// allow the rule only if the condition number is NOT set for the voice
+			ix = atoi(&rule_cond[1]) + 32;
+		}
+		else
+		{
+			// allow the rule only if the condition number is set for the voice
+			ix = atoi(rule_cond);
+		}
+
 		if((ix > 0) && (ix < 255))
 		{
 			output[len++] = RULE_CONDITION;

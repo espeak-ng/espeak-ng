@@ -713,6 +713,7 @@ if((wmark > 0) && (wmark < 8))
 		length = 999;
 		while(((length < 3) && (length > 0))|| (word_length > 1 && Unpronouncable(word)))
 		{
+			char *p;
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
 			word += TranslateLetter(word,phonemes,0);
@@ -722,13 +723,15 @@ if((wmark > 0) && (wmark < 8))
 				strcpy(word_phonemes,phonemes);
 				return(0);
 			}
-			if(memcmp(word,"'s ",3) == 0)
+
+			p = &word[word_length-3];
+			if(memcmp(p,"'s ",3) == 0)
 			{
 				// remove a 's suffix and pronounce this separately (not as an individual letter)
 				add_plural_suffix = 1;
-				word[0] = ' ';
-				word[1] = ' ';
-				break;
+				p[0] = ' ';
+				p[1] = ' ';
+				last_char = p[-1];
 			}
 
 			length=0;
@@ -1903,7 +1906,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			{
 				if(!IsAlpha(prev_out) || (langopts.ideographs && (c >= 0x3000)))
 				{
-					letter_count = 0;
+					if(prev_out != '\'')
+						letter_count = 0;    // don't reset count for an apostrophy within a word
 
 					if((prev_out != ' ') && (prev_out != '\''))
 					{

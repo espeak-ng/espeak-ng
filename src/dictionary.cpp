@@ -666,7 +666,7 @@ int Translator::IsVowel(int letter)
 
 void SetLetterVowel(Translator *tr, int c)
 {//=======================================
-	tr->letter_bits[c] = 0x81;   // group 0 only
+	tr->letter_bits[c] = (tr->letter_bits[c] & 0x40) | 0x81;  // keep value for group 6 (front vowels e,i,y)
 }
 
 void ResetLetterBits(Translator *tr, int groups)
@@ -1773,9 +1773,21 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				case RULE_CONDITION:
 					/* conditional rule, next byte gives condition number */
 					condition_num = *rule++;
-					if((dict_condition & (1L << condition_num))==0)
-						failed = 1;
+					
+					if(condition_num >= 32)
+					{
+						// allow the rule only if the condition number is NOT set
+						if((dict_condition & (1L << (condition_num-32))) != 0)
+							failed = 1;
+					}
 					else
+					{
+						// allow the rule only if the condition number is set
+						if((dict_condition & (1L << condition_num)) == 0)
+							failed = 1;
+					}
+
+					if(!failed)
 						match.points++;  // add one point for a matched conditional rule
 					break;
 				}
@@ -2677,8 +2689,18 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 			if(flag >= 100)
 			{
 				// conditional rule
-				if((dict_condition & (1 << (flag-100))) == 0)
-					condition_failed = 1;
+				if(flag >= 132)
+				{
+					// fail if this condition is set
+					if((dict_condition & (1 << (flag-132))) != 0)
+						condition_failed = 1;
+				}
+				else
+				{
+					// allow only if this condition is set
+					if((dict_condition & (1 << (flag-100))) == 0)
+						condition_failed = 1;
+				}
 			}
 			else
 			if(flag > 64)

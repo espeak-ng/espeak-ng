@@ -11,7 +11,7 @@
 // Conditional rules
 // ?2  Use long 'a' in 'bath'
 // ?3  General American
-// ?4  Not General American
+// ?!3  Not General American
 // ?5  split [3:] er [3:], ir [IR], ur [VR] 
 // ?6  'one' = [wVn], 'of' = [Vv]
 // ?7  Scottish
@@ -134,8 +134,7 @@ _0C	h'Vndr@d
 _0M1	T'aUz@nd
 _0M2	m'Ili@n
 _0M3	b'Ili@n
-_0and	@n
-?3 _0and
+?!3 _0and	@n
 _dpt	pOInt
 _roman	roUm@n_
 
@@ -1462,7 +1461,7 @@ rapport          rap'o@
 rarest           re@r@st
 rascal           raask@L
 ratatouille      rat@t'u:I2
-rather           rA:D3
+?!3 rather       rA:D3
 ratio            reISI2oU
 rationale        raS@n'al
 ravine           r@vi:n

@@ -502,7 +502,7 @@
 
 	alc)	oo (l       O		// alcool
 	z) 	oo          o		// zoo
-		oo          u		// pool
+		oo (X       u		// pool
 	_gal)	op (_       o		// galop
 
 	_sir) 	op (_       o		// sirop
@@ -772,3 +772,23 @@
 
 // symbols that are normally spoken when reading text
 		, (D        pilk:u
+	!	Eksklamassj'O~
+	$	dOlaR
+	@	aRobas
+	%	puRsA~
+	&	_e
+	+	plys
+	~	tilde
+	€	@Ro
+	¢	sEnt
+	¥	i;En
+	£	livR
+	°	d@gRe
+	±	pl'yz_'u_mw'E~
+	×	myltip@-lj'e_p'aR
+	÷	diviz'e_p'aR
+	¼	W~_k'aR
+	½	W~_d@m'i
+	¾	tRw'a k'aR
+	©	_^_EN
+	®	R@ZistR'@d_m'aRk
