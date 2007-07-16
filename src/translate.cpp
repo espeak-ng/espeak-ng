@@ -736,7 +736,8 @@ if((wmark > 0) && (wmark < 8))
 
 			length=0;
 			while(word[length] != ' ') length++;
-			word[-1] = ' ';            // prevent this affecting the pronunciation of the pronuncable part
+			if(length > 0)
+				word[-1] = ' ';            // prevent this affecting the pronunciation of the pronuncable part
 		}
 		SetSpellingStress(phonemes,0);
 
