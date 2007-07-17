@@ -1027,10 +1027,11 @@ int wave_is_busy(void* theHandler) {return 0;}
 void wave_terminate() {}
 uint32_t wave_get_read_position(void* theHandler) {return 0;}
 uint32_t wave_get_write_position(void* theHandler) {return 0;}
-uint32_t wave_get_remaining_time(uint32_t sample) {return 0;}
+int wave_get_remaining_time(uint32_t sample, uint32_t* time) {return 0;}
+void wave_flush(void* theHandler) {}
 typedef int (t_wave_callback)(void);
 void wave_set_callback_is_output_enabled(t_wave_callback* cb) {}
-extern uint32_t wave_test_get_write_buffer() {return 0;}
+extern void* wave_test_get_write_buffer() {return 0;}
 
 #endif  // of USE_PORTAUDIO
 

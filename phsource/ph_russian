@@ -121,7 +121,7 @@ phoneme I^          // "silent i", palatilizes the preceding consonant
   vowel starttype (i) endtype (i)
   length 70
   unstressed nonsyllabic
-  formants vwl_ro/ii-
+  formants vwl_ru/ii-
   beforevowel ;
   after  m;  vwl_ro/mi
 endphoneme

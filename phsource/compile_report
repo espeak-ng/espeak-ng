@@ -576,7 +576,7 @@
   1  vwl_no/u#2     no
   1  vwl_no/y#      no
   1  vwl_no/y#y     no
-  2  vwl_ro/ii-     ru ro
+  1  vwl_ro/ii-     ro
   1  vwl_ro/li      ro
   2  vwl_ro/mi      ru ro
   1  vwl_ro/ni      ro
@@ -590,6 +590,7 @@
   1  vwl_ru/i       ru
   1  vwl_ru/i#      ru
   3  vwl_ru/ii      ru
+  1  vwl_ru/ii-     ru
   1  vwl_ru/ii#     ru
   1  vwl_ru/ja      ru
   1  vwl_ru/ju      ru
