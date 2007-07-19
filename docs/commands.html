@@ -84,11 +84,18 @@ If neither -f nor --stdin is given, then the text input is taken from "words" (a
 <strong>-s &lt;integer&gt;</strong><br>
 <dd>Sets the speed in words-per-minute (approximate values for the default voice, others may
 differ slightly). The default value is 170. I generally use a faster speed
-of 185.  Range 80 to 370.
+of 190.  Range 80 to 370.
 <p>
 <dt>
 <strong>-b</strong><br>
 <dd>Indicates that the input text is in the 8-bit character set which corresponds to the language (eg. Latin-2 for Polish). Without this option, eSpeak assumes text is UTF8, but will automatically switch to the 8-bit character set if it finds an illegal UTF8 sequence.  That may give wrong results if some 8-bit character sequences look like valid UFT8 multibyte characters.
+<p>
+<dt>
+<strong>-k &lt;integer&gt;</strong><br>
+<dd>Indicate words which begin with capital letters.<p>
+1 &nbsp; Use a click sound to indicate when a word starts with a capital letter, or double click if word is all capitals.<p>
+2 &nbsp; Speak the word "capital" before a word which begins with a capital letter.<p>
+Other values: &nbsp; Increase the pitch for words which begin with a capital letter. The greater the value, the greater the increase in pitch.  Try -k20.
 <p>
 <dt>
 <strong>-l &lt;integer&gt;</strong><br>
@@ -100,6 +107,10 @@ others.
 <dt>
 <strong>-m</strong><br>
 <dd>Indicates that the text contains SSML (Speech Synthesis Markup Language) tags or other XML tags.  Those SSML tags which are supported are interpreted.  Other tags, including HTML, are ignored, except that some HTML tags such as &lt;hr&gt; &lt;h2&gt; and &lt;li&gt; ensure a break in the speech.
+<p>
+<dt>
+<strong>-q</strong><br><dd>
+Quiet. No sound is generated.  This may be useful with the -x option.
 <p>
 <dt>
 <strong>-v &lt;voice filename&gt;[+&lt;variant&gt;]</strong><br>
@@ -127,9 +138,6 @@ shown on stdout.
 <dt>
 <strong>-X</strong><br>
 <dd>As -x, but in addition, details are shown of the pronunciation rule and dictionary list lookup.  This can be useful to see why a certain pronunciation is being produced.  Each matching pronunciation rule is listed, together with its score, the highest scoring rule being used in the translation.  "Found:" indicates the word was found in the dictionary lookup list, and "Flags:" means the word was found with only properties and not a pronunciation.  You can see when a word has been retranslated after removing a prefix or suffix.
-<p>
-<dt><strong>-q</strong><br><dd>
-Quiet. No sound is generated.  This may be useful with the -x option.
 <p>
 <dt>
 <strong>-z</strong><br>
