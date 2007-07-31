@@ -1,0 +1,14 @@
+// moving towards US English
+name en-rhotic
+language en-r
+language en 3
+gender male
+
+phonemes en_us
+dictrules 3 6
+option 12 1       // reduce [t]
+
+stressLength 150 125 180 180 0 0 270 300
+stressAmp  17 16  20 20  20 22  23 20
+
+formant 1  99 100 100

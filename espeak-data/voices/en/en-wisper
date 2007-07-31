@@ -1,0 +1,15 @@
+name english-wisper
+language en-uk  10
+language en 10
+gender male
+
+pitch 82 117
+
+formant 0 100  0 100
+formant 1 100 80 100
+
+flutter 20
+
+voicing 17
+breath   75  75  50  40  15  10
+breathw 150 150 200 200 400 400
