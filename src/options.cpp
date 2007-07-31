@@ -125,21 +125,32 @@ void ConfigInit()
 	const char *path_base;
 	
 #ifdef PLATFORM_WINDOWS
+	int found = 0;
 	char buf[200];
 	wxRegKey *pRegKey = new wxRegKey(_T("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak"));
 
-	if(pRegKey->Exists() )
+	if((path_base = getenv("ESPEAK_DATA_PATH")) != NULL)
 	{
-		wxString RegVal;
-		pRegKey->QueryValue(_T("Path"),RegVal); 
-		strncpy0(buf,RegVal.mb_str(wxConvLocal),sizeof(buf));
-		path_base = buf;
+		sprintf(path_home,"%s\\espeak-data",path_base);
+		if(GetFileLength(path_home) == -2)
+			found = 1;   // an espeak-data directory exists 
 	}
-	else
+
+	if(found == 0)
 	{
-		path_base = "C:\\Program Files\\eSpeak";
+		if(pRegKey->Exists() )
+		{
+			wxString RegVal;
+			pRegKey->QueryValue(_T("Path"),RegVal); 
+			strncpy0(buf,RegVal.mb_str(wxConvLocal),sizeof(buf));
+			path_base = buf;
+		}
+		else
+		{
+			path_base = "C:\\Program Files\\eSpeak";
+		}
+		sprintf(path_home,"%s\\espeak-data",path_base);
 	}
-	sprintf(path_home,"%s\\espeak-data",path_base);
 #else
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	path_base = path_home;
