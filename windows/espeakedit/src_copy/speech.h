@@ -72,8 +72,9 @@ int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
 
-extern void strncpy0(char *to,const char *from, int size);
-extern char path_home[];
+#define N_PATH_HOME  120
+extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
-extern const int version_phdata;
 extern const char *version_string;
+extern const int version_phdata;
+extern void strncpy0(char *to,const char *from, int size);

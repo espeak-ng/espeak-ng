@@ -20,7 +20,7 @@
 
 #include "wx/wx.h"
 #include "wx/fileconf.h"
-#include "sys/stat.h"
+#include <sys/stat.h>
 #include "speech.h"
 
 #ifdef PLATFORM_WINDOWS
@@ -36,10 +36,8 @@ extern void strncpy0(char *to,const char *from, int size);
 extern int GetNumeric(wxTextCtrl *t);
 extern void SetNumeric(wxTextCtrl *t, int value);
 extern int samplerate;
-extern char path_home[120];            // .speak directory in user's HOME
 extern char voice_name[40];
 
-wxString basedir;
 wxString path_spectload;
 wxString path_spectload2;
 wxString path_pitches;
@@ -53,7 +51,7 @@ wxString path_modifiervoice;
 wxString path_dir1;
 int option_speed=160;
 
-char path_dsource[120];
+char path_dsource[sizeof(path_home)+20];
 
 BEGIN_EVENT_TABLE(Options, wxDialog)
 		EVT_BUTTON(wxID_SAVE,Options::OnCommand)
@@ -110,7 +108,7 @@ void Options::OnCommand(wxCommandEvent& event)
 
 void ConfigSetPaths()
 {//==================
-	// set paths from wxStrings
+	// set c_string paths from wxStrings
 	strncpy0(path_source,path_phsource.mb_str(wxConvLocal),sizeof(path_source)-1);
 	strcat(path_source,"/");
 
@@ -123,6 +121,7 @@ void ConfigInit()
 {//==============
 	long value;
 	wxString string;
+	wxString basedir;
 	const char *path_base;
 	
 #ifdef PLATFORM_WINDOWS
@@ -133,7 +132,7 @@ void ConfigInit()
 	{
 		wxString RegVal;
 		pRegKey->QueryValue(_T("Path"),RegVal); 
-		strcpy(buf,RegVal.mb_str(wxConvLocal));
+		strncpy0(buf,RegVal.mb_str(wxConvLocal),sizeof(buf));
 		path_base = buf;
 	}
 	else
@@ -156,7 +155,7 @@ void ConfigInit()
 #endif
 	WavegenInit(value,0);
 
-	pConfig->Read(_T("/basedir"),&basedir,wxString(path_base,wxConvLocal));
+	basedir = wxString(path_base,wxConvLocal);  // this is only used to set defaults for other paths if they are not in the config file
 	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/phsource"));
 	pConfig->Read(_T("/spectload2"),&path_spectload2,basedir+_T("/phsource"));
 	pConfig->Read(_T("/pitchpath"),&path_pitches,basedir+_T("/pitch"));
@@ -183,7 +182,6 @@ void ConfigSave(int exit)
 #ifndef PLATFORM_WINDOWS
 	pConfig->Write(_T("/samplerate"),samplerate);
 #endif
-	pConfig->Write(_T("/basedir"),basedir);
 	pConfig->Write(_T("/spectload"),path_spectload);
 	pConfig->Write(_T("/spectload2"),path_spectload2);
 	pConfig->Write(_T("/pitchpath"),path_pitches);

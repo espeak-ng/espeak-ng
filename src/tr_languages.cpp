@@ -288,6 +288,7 @@ Translator *SelectTranslator(const char *name)
 
 
 	case L('h','r'):   // Croatian
+	case L('b','s'):   // Bosnian
 	case L('s','r'):   // Serbian
 		{
 			static int stress_amps_hr[8] = {16,16, 20,20, 20,24, 24,22 };

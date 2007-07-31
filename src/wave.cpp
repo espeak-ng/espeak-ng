@@ -100,11 +100,11 @@ static void init_buffer()
   SHOW("init_buffer > myRead=0x%x, myWrite=0x%x, BUFFER_LENGTH=0x%x, myReadPosition = myWritePosition = 0\n", (int)myRead, (int)myWrite, BUFFER_LENGTH);
 }
 
-static int get_used_mem()
+static unsigned int get_used_mem()
 {
   char* aRead = myRead;
   char* aWrite = myWrite;
-  int used = 0;
+  unsigned int used = 0;
 
   assert ((aRead >= myBuffer)
 	  && (aRead <= myBuffer + BUFFER_LENGTH)
@@ -129,12 +129,13 @@ static int get_used_mem()
 
 static void start_stream()
 {
+  PaError err;
   SHOW_TIME("start_stream");
 
   my_stream_could_start=0;  
   mInCallbackFinishedState = false;
 
-  PaError err = Pa_StartStream(pa_stream);
+  err = Pa_StartStream(pa_stream);
   SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
   
 #if USE_PORTAUDIO == 19

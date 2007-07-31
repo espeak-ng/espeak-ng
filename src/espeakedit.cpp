@@ -427,8 +427,8 @@ void MyFrame::OnTools(wxCommandEvent& event)
 {//=========================================
 	int err;
 	FILE *log;
-	char fname_log[80];
-	char err_fname[130];
+	char fname_log[sizeof(path_dsource)+12];
+	char err_fname[sizeof(path_home)+15];
 
 	switch(event.GetId())
 	{

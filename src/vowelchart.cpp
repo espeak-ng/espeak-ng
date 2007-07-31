@@ -35,11 +35,11 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "options.h"
 
 /* Read a file of vowel symbols and f1,f2 formants, and produce a vowel diagram
 */
 extern wxString path_phsource;
-extern char path_source[];
 extern char voice_name[];
 
 extern char *spects_data;
@@ -458,8 +458,8 @@ void MakeVowelLists(void)
 	SPECT_SEQ *seq;
 	frame_t *frame;
 	int match_level;
-	char dirname[100];
-	char fname[120];
+	char dirname[sizeof(path_source)+20];
+	char fname[sizeof(dirname)+40];
 
 	progress = new wxProgressDialog(_T("Vowel charts"),_T(""),n_phoneme_tables);
 

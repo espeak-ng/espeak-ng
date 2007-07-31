@@ -1604,9 +1604,8 @@
 .group e
             e            E
          &) e (_
-            e (_         =@
-        _C) e (_         i:
-       _CC) e (_         i:
+        _C) e (_N        i:
+       _CC) e (_N        i:
         _C) e (Be_       i:
        _CC) e (Be_       i:
       _CCC) e (Be_       i:
@@ -2109,6 +2108,7 @@
         _C) er           3:
         _h) er (A        Er
        _CC) er           3:
+       _CC) er (A        Er
        _qu) er           3:
          c) er (am       I2r
          &) ere (_       3
@@ -2132,7 +2132,6 @@
          c) ere (mon     ErI2
          h) er (en       i@r
         st) ereo         ErI2oU
-       _st) er (A        Er
          m) er (ge       '3:
             erging       '3:dZI2N
          v) er (ge       '3:
@@ -2686,7 +2685,8 @@
             ied (_$2i    d            // suffix
             ie (c        aI
             ie (ce       i:
-        _C) ie (_        aI
+            ie (_        aI
+         &) ie (_        I2
         _r) ie           i:
             iedly        IdlI2
         _z) ie           i:
@@ -2714,7 +2714,7 @@
         cl) ie (nt       aI@
          &) ier (y       I2@r
             ier          i@
-            ier (_       i@
+         &) ier (_S2i    @
         _h) ie (r        aI@
         pl) ier (_       aI@
        _Cr) ier          aI@
@@ -2736,7 +2736,7 @@
        ser) ies (_       i:z
        _ar) ies (_       i:z
             iesc         I2Es
-         &) ie (st_      I2@
+         &) iest (_S3i   @st
         pr) ie (st       i:
         _v) ie (t        %i@
             ie (ve       i:
@@ -4245,6 +4245,7 @@
             regim        rEdZIm
             re (gist     rE
          _) re (i@P2     r,i:
+         _) rei (l       raI
          _) rele (g      rElI2
             rele (nt     rI2lE
             rele (v      rElI

@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.28.01  17.Jul.07";
+const char *version_string = "1.28.03  30.Jul.07";
 const int version_phdata  = 0x012801;
 
 int option_device_number = -1;
@@ -79,7 +79,7 @@ static int ReadPhFile(char **ptr, const char *fname)
 	FILE *f_in;
 	char *p;
 	unsigned int  length;
-	char buf[200];
+	char buf[sizeof(path_home)+40];
 
 	sprintf(buf,"%s%c%s",path_home,PATHSEP,fname);
 	length = GetFileLength(buf);
@@ -604,7 +604,7 @@ int SelectPhonemeTableName(const char *name)
 void LoadConfig(void)
 {//==================
 // Load configuration file, if one exists
-	char buf[130];
+	char buf[sizeof(path_home)+10];
 	FILE *f;
 	int ix;
 	char c1;

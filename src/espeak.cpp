@@ -22,7 +22,7 @@
 #include <string.h>
 #include <getopt.h>
 #include <time.h>
-#include "sys/stat.h"
+#include <sys/stat.h>
 
 #include "speak_lib.h"
 

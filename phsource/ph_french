@@ -41,7 +41,7 @@ endphoneme
 phoneme i
   vowel starttype (i) endtype (i)
   length 160
-  formants vowel/i
+  formants vowel/i_3
   linkout ;
 endphoneme
 
@@ -279,16 +279,6 @@ phoneme v
 endphoneme
 
 
-phoneme B
-  vcd blb frc
-  vowelin  f1=2  f2=1000 -300 -200  f3=-100 100
-  vowelout f1=2  f2=1000 -500 -300  f3=-100 60  len=50
-  lengthmod 6
-  formants b/b
-  switchvoicing f
-endphoneme
-
-
 phoneme p
   vls blb stop
   vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
@@ -302,6 +292,7 @@ phoneme p
   before l ustop/pl
   switchvoicing b
 endphoneme
+
 
 
 

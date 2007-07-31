@@ -210,9 +210,20 @@
           eu (s      eU
           e (uCK     e
 
-        j) e (tA_     E
-        j) e (tAm_    E
-        j) e (tAs_    E	
+?1     d) e (CAA     y
+?1     d) e (CACAA   y
+?1     d) e (CACAC   y
+?1     d) e (CACC    y
+?1     d) e (CCAA    y
+?1     d) e (nCAA    ,e
+?1     d) e (CCACA   y
+?1     d) e (nCACA   ,e
+?1     d) e (CCACCA  y
+?1     d) e (nCACCA  ,e
+
+       j) e (tA_     E
+       j) e (tAm_    E
+       j) e (tAs_    E	
 
 ?1     _) es (C@@     S   // drop initial "e".
 ?1     _) e (f        i   // efectuar, etc.
@@ -233,7 +244,7 @@
 ?1    _f) e (ch       y   // fechar
 ?1    _p) e (rcentag  y   // percentagem
 ?1     p) e (ssoa     y   //pessoal, pessoais, etc.
-?1   pr) e (cis       y   // precisar
+?1    pr) e (cis      y   // precisar
 ?1    pr) e (f        y   // preferências, etc.
 ?1    _r) e (cicl     y   // recicla, reciclagem, etc...
 ?1     r) e (cor      y   // recorrer, recordar
@@ -700,6 +711,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

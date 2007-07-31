@@ -30,7 +30,7 @@
 
 #include "speech.h"
 
-#include "sys/stat.h"
+#include <sys/stat.h>
 #ifndef PLATFORM_WINDOWS
 #include <unistd.h>
 #endif
@@ -63,7 +63,7 @@ t_espeak_callback* synth_callback = NULL;
 int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
 
-char path_home[120];
+char path_home[N_PATH_HOME];   // this is the espeak-data directory
 
 voice_t voicedata;
 voice_t *voice = &voicedata;
@@ -285,7 +285,7 @@ static void init_path(const char *path)
 	unsigned long size;
 	unsigned long var_type;
 	char *env;
-	unsigned char buf[100];
+	unsigned char buf[sizeof(path_home)-13];
 
 	if(path != NULL)
 	{
@@ -309,7 +309,7 @@ static void init_path(const char *path)
 	sprintf(path_home,"%s\\espeak-data",buf);
 
 #else
-	char *env;
+//	char *env;
 
 	if(path != NULL)
 	{

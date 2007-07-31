@@ -1301,9 +1301,9 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	FILE *f_out;
 	int offset_rules=0;
 	int value;
-	char fname_buf[130];
-	char fname_temp[130];
-	char path[80];
+	char fname_buf[sizeof(path_home)+15];
+	char fname_temp[sizeof(path_home)+15];
+	char path[sizeof(path_home)+40];       // path_dsource+20
 
 	error_count = 0;
 

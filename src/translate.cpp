@@ -1594,7 +1594,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 				new_c = langopts.replacement_chars[ix];
 				break;
 			}
-			if((word >> 16) == tolower(next_in))
+			if((word >> 16) == (unsigned int)tolower(next_in))
 			{
 				new_c = langopts.replacement_chars[ix];
 				ignore_next = 1;
@@ -1616,10 +1616,9 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 		*insert = c2;
 		new_c &= 0xffff;
 	}
-#ifndef PLATFORM_RISCOS
+
 	if(upper_case)
 		new_c = towupper(new_c);
-#endif
 	return(new_c);
 }
 

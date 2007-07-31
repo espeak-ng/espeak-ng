@@ -127,7 +127,7 @@ int Translator::LoadDictionary(const char *name, int no_error)
 	int length;
 	FILE *f;
 	unsigned int size;
-	char fname[130];
+	char fname[sizeof(path_home)+20];
 
 	strcpy(dictionary_name,name);   // currently loaded dictionary name
 

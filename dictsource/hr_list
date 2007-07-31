@@ -38,10 +38,12 @@ _?A   slovo         // unknown letter
 %     p'osto
 +     plus
 €     'euRo
+?2 €  'ev@-*o
 @     _'at
 &     _'end
 !     'usklItSnIk
 :     dv'ototSk&
+?2 :  dv'otatSk&
 #     b@-*'oj_
 /     k@-*'oz_
 \\    b'EkslES
@@ -52,10 +54,12 @@ _?A   slovo         // unknown letter
 µ     m'ik@-*o
 ¶     tSl'an&k
 °     st'up&n^
+?2 °  st'epen
 _"    n'avodnIk
 _‚    'otvoReni||n'avodnIk
 _„    sp'uSteni||n'avodnIk
 …     t@-*'i||t'otSke
+?2 …  t@-*'i||t'atSke
 †     k@-*'iZ
 ‡     dv'ost@-*Uki||k@-*'iZ
 ‰     p@-*'omil
@@ -65,6 +69,7 @@ _’    j'ednost@-*'uki||n'avodnIk
 _“    'otvoReni||n'avodnIk
 _”    z'atvoReni||n'avodnIk
 •     k@-*'upna||t'otSk&
+?2 •  k@-*'upna||t'atSk&
 _–    En||ts'r-t&
 _—    Em||ts'r-t&
 ™     p@-*'o'izvodZ&tS
@@ -93,6 +98,8 @@ _,    z'aRez
 _-    ts'r-t'its&
 _.    t'otSk&
 _;    t'otSk&z,a*Ez
+?2 _. t'atSk&
+?2 _; t'atSk&z,a*Ez
 _<    m'an^i||'od
 _=    j'edn&ko
 _>    v'etSi||'od
@@ -145,14 +152,22 @@ _6C   S'Est'o
 _0M1  t'isUtS;&
 _0MA1 t'isUtS;e
 _1M1  t'isUtS;U
+?2 _0M1  h'il^ad&
+?2 _0MA1 h'il^ade
+?2 _1M1  h'il^adU
 _0M2  m'ilijUna
 _0MA2 m'ilijUna
 _1M2  m'ilijUn
+?2 _0M2  m'ilijOna
+?2 _0MA2 m'ilijOna
+?2 _1M2  m'ilijOn
 _0M3  m'iliardI
 _0MA3 m'iliarde
 _1M3  m'iliardU
 _0M4  b'ilijUna
 _1M4  b'ilijUn
+?2 _0M4  b'ilijOna
+?2 _1M4  b'ilijOn
 _dpt  _:z'a*Ez_
 
 
@@ -450,6 +465,7 @@ tzv	$dot
 
 // Demonstratives
 tko      $u+
+?2 šta      $u+
 što      $u+
 koga     $pause
 čega     $pause

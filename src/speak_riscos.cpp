@@ -129,122 +129,6 @@ static const char *help_text =
 "\t   If <language> is omitted, then list all voices.\n";
 
 
-// additional Latin characters beyond the Latin1 character set
-#define MAX_WALPHA  0x233
-// indexed by character - 0x100
-// 0=not alphabetic, 0xff=lower case, other=value to add to upper case to convert to lower case
-static unsigned char walpha_tab[MAX_WALPHA-0xff] = {
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 100
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 110
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 120
-   0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,  // 130
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,  // 140
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 150
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 160
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,  // 170
-   0xff, 210,   1,0xff,   1,0xff, 206,   1,0xff, 205, 205,   1,0xff,0xff,  79, 202,  // 180
-    203,   1,0xff, 205, 207,0xff, 211, 209,   1,0xff,0xff,0xff, 211, 213,0xff, 214,  // 190
-      1,0xff,   1,0xff,   1,0xff, 218,   1,0xff, 218,0xff,0xff,   1,0xff, 218,   1,  // 1a0
-   0xff, 217, 217,   1,0xff,   1,0xff, 219,   1,0xff,0xff,0xff,   1,0xff,0xff,0xff,  // 1b0
-   0xff,0xff,0xff,0xff,   2,   1,0xff,   2,   1,0xff,   2,   1,0xff,   1,0xff,   1,  // 1c0
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,  // 1d0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1e0
-   0xff,   2,   1,0xff,   1,0xff,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1f0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 200
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 210
-   0xff,   0,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 220
-      1,0xff,   1,0xff };    // 230
-
-// use ctype.h functions for Latin1 (character < 0x100)
-int iswalpha(int c)
-{
-	if(c < 0x100)
-		return(isalpha(c));
-	if(c > MAX_WALPHA)
-		return(0);
-	return(walpha_tab[c-0x100]);
-}
-
-int iswdigit(int c)
-{
-	if(c < 0x100)
-		return(isdigit(c));
-	return(0);
-}
-
-int iswalnum(int c)
-{
-	if(iswdigit(c))
-		return(1);
-	return(iswalpha(c));
-}
-
-int towlower(int c)
-{
-	int x;
-	if(c < 0x100)
-		return(tolower(c));
-	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x100])==0xff))
-		return(c);  // already lower case
-	return(c + x);  // convert to lower case
-}
-
-int iswupper(int c)
-{
-	int x;
-	if(c < 0x100)
-		return(isupper(c));
-	if(((c > MAX_WALPHA) || (x = walpha_tab[c-0x100])==0) || (x == 0xff))
-		return(0);
-	return(1);
-}
-
-int iswlower(int c)
-{
-	if(c < 0x100)
-		return(islower(c));
-	if((c > MAX_WALPHA) || (walpha_tab[c-0x100] != 0xff))
-		return(0);
-	return(1);
-}
-
-int iswspace(int c)
-{
-	if(c < 0x100)
-		return(isspace(c));
-	return(0);
-}
-
-int iswpunct(int c)
-{
-	if(c < 0x100)
-		return(ispunct(c));
-	return(0);
-}
-
-const wchar_t *wcschr(const wchar_t *str, int c)
-{
-   while(*str != 0)
-   {
-      if(*str == c)
-         return(str);
-      str++;
-   }
-   return(NULL);
-}
-
-const int wcslen(const wchar_t *str)
-{
-	int ix=0;
-
-	while(*str != 0)
-	{
-		ix++;
-	}
-	return(ix);
-}
-
-
 int GetFileLength(const char *filename)
 {//====================================
 	int length=0;
@@ -284,7 +168,7 @@ void ReadVoiceNames2(char *directory)
 	_kernel_swi_regs regs;
 	_kernel_oserror *error;
 	char buf[80];
-	char directory2[80];
+	char directory2[sizeof(path_home)+100];
 
 	regs.r[0] = 10;
 	regs.r[1] = (int)directory;
@@ -324,7 +208,7 @@ void ReadVoiceNames2(char *directory)
 
 void ReadVoiceNames()
 {//===================
-	char directory[80];
+	char directory[sizeof(path_home)+10];
 
 	for(n_voice_files=0; n_voice_files<N_VOICE_NAMES; n_voice_files++)
 		voice_names[n_voice_files] = NULL;

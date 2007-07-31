@@ -1,6 +1,10 @@
 // translation rules for Croatian
 // This file is UTF-8 encoded
 
+// Conditional rules:
+// ?1  Croatian
+// ?2  Bosnian (Bosna and Hercegovina)
+
 .group a
         a        a
         a (j     A
@@ -136,6 +140,7 @@
         $        d'ol&R
 
         .        totSk&
+?2      .        tatSk&
         . (.     _:
    \.)  .
 

@@ -13,7 +13,7 @@
       de  32  123
       eo  13  108
       fi  40  127
-      fr  35  118
+      fr  34  118
    fr_ca  11  118
       hi  50  132
       hu  23  112
@@ -36,10 +36,10 @@
       no  28  122
       is  32  121
       vi  41  133
-     zhy  32  124
+     zhy  33  125
       sw  14  105
 
-  4  b/b            base fr hi ro
+  3  b/b            base hi ro
   2  b/b_           base hi
   2  b/b@           base hi
   2  b/b@2          base hi
@@ -456,10 +456,10 @@
  10  vowel/e_mid2   af de fi nl sk ro el sw
   2  vowel/@_fnt    hr mk
   1  vowel/@_hgh    no
- 19  vowel/i        base2 en_n en_rp en_wm cy eo fr hu pl it pt pt_pt ++
+ 18  vowel/i        base2 en_n en_rp en_wm cy eo fr hu pl it pt pt_pt ++
   1  vowel/i#       cy
   5  vowel/i_2      de nl la sv
-  2  vowel/i_3      af sk
+  3  vowel/i_3      af fr sk
   4  vowel/i_4      fi hu it is
   5  vowel/i_5      en_sc
   3  vowel/i#_5     pt_pt ro
@@ -602,6 +602,7 @@
   1  vwl_sv/r_sv3   sv
   1  vwl_zh/aang    zhy
   1  vwl_zh/ong     zhy
+  1  vwl_zh/ung     zhy
   2  w/w            base fr
   2  w/_w           base fr
   1  w/w_           base

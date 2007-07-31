@@ -59,7 +59,7 @@ int formant_rate[9];         // values adjusted for actual sample rate
 
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
-#define N_VOICES_LIST  100
+#define N_VOICES_LIST  150
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 static int len_path_voices;
@@ -226,11 +226,12 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 // Read a Voice file, allocate a VOICE_DATA and set data from the
 // file's  language, gender, name  lines
 
-	char linebuf[120];
+	char linebuf[80];
 	char vname[80];
 	char vgender[80];
 	char vlanguage[80];
 	char languages[300];  // allow space for several alternate language names and priorities
+	char fname_buf[sizeof(path_home)+15];
 
 
 	unsigned int len;
@@ -249,9 +250,9 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 		// check whether the mbrola speech data is present for this voice
 		memcpy(vname,&leafname[3],3);
 		vname[3] = 0;
-		sprintf(linebuf,"%s/mbrola/%s",path_home,vname);
+		sprintf(fname_buf,"%s/mbrola/%s",path_home,vname);
 
-		if(GetFileLength(linebuf) <= 0)
+		if(GetFileLength(fname_buf) <= 0)
 			return(0);
 	}
 #endif
@@ -534,7 +535,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char phonemes_name[40];
 	char *language_type;
 	char buf[200];
-	char path_voices[140];
+	char path_voices[sizeof(path_home)+12];
 	char langname[4];
 
 	int stress_amps[8];
@@ -1327,7 +1328,7 @@ void GetVoices(const char *path)
 	FILE *f_voice;
 	espeak_VOICE *voice_data;
 	int ftype;
-	char fname[140];
+	char fname[sizeof(path_home)+100];
 
 #ifdef PLATFORM_RISCOS
 #else
@@ -1500,7 +1501,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	int ix;
 	static espeak_VOICE *voices[N_VOICES_LIST];
 	char selected_voice_id[80];
-	char path_voices[130];
+	char path_voices[sizeof(path_home)+12];
 
 	// free previous voice list data
 	if((voice_selected != NULL) && (voice_selected->identifier != NULL))

@@ -116,7 +116,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans)
 
 	int size;
 	FILE *f_in;
-	char path[150];
+	char path[sizeof(path_home)+15];
 
 	mbrola_name[0] = 0;
 	if(mbrola_voice == NULL)

@@ -24,19 +24,23 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+#ifndef PLATFORM_DOS
 #ifdef PLATFORM_WINDOWS
 #include <windows.h>
 #include <winreg.h>
 #else
 #include <unistd.h>
 #endif
+#endif
+
 #ifndef NEED_GETOPT
 #include <getopt.h>
 #endif
 #include <time.h>
 #include <signal.h>
 #include <locale.h>
-#include "sys/stat.h"
+#include <sys/stat.h>
 
 #include "speak_lib.h"
 #include "voice.h"
@@ -46,7 +50,8 @@
 
 
 
-char path_home[120];
+char path_home[N_PATH_HOME];    // this is the espeak-data directory
+
 char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
@@ -225,11 +230,11 @@ static void init_path(void)
 	unsigned long size;
 	unsigned long var_type;
 	char *env;
-	unsigned char buf[100];
+	unsigned char buf[sizeof(path_home)-12];
 
-	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
+	if(((env = getenv("ESPEAK_DATA_PATH")) != NULL) && ((strlen(env)+12) < sizeof(path_home)))
 	{
-		sprintf(path_home,"%s/espeak-data",env);
+		sprintf(path_home,"%s\\espeak-data",env);
 		if(GetFileLength(path_home) == -2)
 			return;   // an espeak-data directory exists 
 	}
@@ -241,6 +246,9 @@ static void init_path(void)
 	RegQueryValueEx(RegKey, "path", 0, &var_type, buf, &size);
 
 	sprintf(path_home,"%s\\espeak-data",buf);
+#else
+#ifdef PLATFORM_DOS
+		strcpy(path_home,PATH_ESPEAK_DATA);
 #else
 //	char *env;
 //	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
@@ -255,6 +263,7 @@ static void init_path(void)
 	{
 		strcpy(path_home,PATH_ESPEAK_DATA);
 	}
+#endif
 #endif
 }
 
@@ -553,14 +562,22 @@ int main (int argc, char **argv)
 
 	if(flag_compile)
 	{
-#ifdef PLATFORM_WINDOWS
-		char path_dsource[120];
+#ifdef PLATFORM_DOS
+		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource,path_home);
-		path_dsource[strlen(path_home)-11] = 0;  // renove "espeak-data" from the end
+		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
+		strcat(path_dsource,"dictsource\\");
+		CompileDictionary(path_dsource,dictionary_name,NULL,NULL);
+#else
+#ifdef PLATFORM_WINDOWS
+		char path_dsource[sizeof(path_home)+20];
+		strcpy(path_dsource,path_home);
+		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
 		strcat(path_dsource,"dictsource\\");
 		CompileDictionary(path_dsource,dictionary_name,NULL,NULL);
 #else
 		CompileDictionary(NULL,dictionary_name,NULL,NULL);
+#endif
 #endif
 		exit(0);
 	}

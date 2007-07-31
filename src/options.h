@@ -40,8 +40,8 @@ extern wxString path_dictsource;
 extern wxString path_modifiervoice;
 extern wxString path_dir1;
 
-extern char path_source[80];
-extern char path_dsource[120];
+extern char path_source[sizeof(path_home)+20];
+extern char path_dsource[sizeof(path_home)+20];
 
 extern int option_speed;
 

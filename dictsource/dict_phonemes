@@ -143,8 +143,8 @@ Dictionary hr_dict
 
 &    @    @-   @2   a    A    a:   aI   
 aU   E    e    e:   E~   i    I    i:   
-l-   o    o:   oU   r-   u    U    u:   
-y    
+l-   O    o    o:   oU   r-   u    U    
+u:   y    
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    l^   m    n    N    n^   
@@ -334,19 +334,6 @@ y:
 *    :    ;    <h>  b    d    f    g    
 h    j    k    l    m    n    N    p    
 r    R    s    t    w    z    
-
-
-Dictionary sr_dict
-
-&    @    @-   @2   a    A    a:   aI   
-aU   E    e    e:   E~   i    I    i:   
-l-   o    o:   oU   r-   u    U    u:   
-y    
-
-*    b    d    dZ   dZ;  f    g    h    
-j    k    l    l^   m    n    N    n^   
-p    r    R    s    S    t    tS   ts   
-tS;  v    x    z    Z    
 
 
 Dictionary mk_dict

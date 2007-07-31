@@ -835,31 +835,32 @@ famine           famIn
 farewell                       $2
 fasten           faas@n
 fathom           faD@m
-favorite         feIv@-rIt     // sp.
+favorite         feIv@-rIt	// sp.
 favourite        feIv@-rIt
-favorites        feIv@-rIts     // sp.
+favorites        feIv@-rIts	// sp.
 favourites       feIv@-rIts
 feisty           faIstI2 
 feline           fi:laIn
 feminine         fEm@nIn
 fete             feIt
 fetus            fi:t@s
-fi               f,aI          // as in "hi-fi"
+fi               f,aI		// as in "hi-fi"
 fiasco           fi:'askoU
 fiery            faI@rI2
 finale           fIn'A:lI2
 finance          faInans       $only
 finance                        $verb
+finess           fI2nEs		// for finessed
 finesse          fI2nEs
 finite           faInaIt 
 fishnet          fISnEt
 fiord            fi:O@d
-fix              fIks          // for fixer
+fix              fIks		// for fixer
 flagellum        fla2dZEl@m
 flexible         flEksIb@L
 flier            flaI3
 flourish         flVrI2S
-focus            foUk@s       // ed,ing
+focus            foUk@s		// ed,ing
 foothold         fUthoUld
 forage           f0rIdZ
 force            fo@s
@@ -870,11 +871,11 @@ forestall        fo@st'O:l
 foretell         fo@t'El
 forever           $2
 forewarn          $2
-formid           fO@m'Id       // formidable
+formid           fO@m'Id	// formidable
 foyer            fOIeI
 freelance        fri:laans
 frigate          frIg@t
-fringer          frIndZ3       // infringer
+fringer          frIndZ3	// infringer
 fringing         frIndZIN
 frontend         fr'Vnt,End
 frontpage        fr'Vntp,eIdZ
@@ -916,7 +917,7 @@ gourmet          gU@meI
 graduate         gradju:@t
 graduate         gradju:eIt      $verb
 graffiti         gra2fi:tI2
-gredient         gri:di@nt     // ingredient
+gredient         gri:di@nt	// ingredient
 grenade          gr@neId
 grosvenor        groUv@n3
 groupie          gru:pI
@@ -1011,7 +1012,7 @@ inference        Inf@r@ns
 influenza        Influ:'Enz@
 infrastructure    $1 
 ingenuity        IndZIn'ju:I2tI2
-inherit          I2nhErIt      // inherited
+inherit          I2nhErIt	// inherited
 innard           In3d
 inner            In3
 inning           InIN
@@ -1020,7 +1021,7 @@ insert           Ins3:t        $onlys
 insert           Ins'3:t       $verb
 insightful        $2
 inspire          Insp'aI@
-instal           I2nstO:l      // instalment
+instal           I2nstO:l	// instalment
 installation     Inst@l'eIS@n
 instinctive       $2
 insult                         $2
@@ -1032,12 +1033,12 @@ intern           Int3:n
 interrogatory     $3
 inventory        Inv@ntrI2
 interface                      $1
-intermin         I2nt3:mIn     // interminable
+intermin         I2nt3:mIn	// interminable
 internet         Int3nEt
 interrupt                      $1 $onlys
 interrupt                      $3 $verb
 interval         Int3v@L
-interven         Int3v'i:n     // for intervening 
+interven         Int3v'i:n	// for intervening 
 intro             $1
 iris             aIrIs
 irony            aIr@nI2
@@ -2252,7 +2253,6 @@ Pandora           $2
 Penelope         p@nEl@pI2
 Phoebe           fi:bi:
 Rachel           reItS@L
-Reilly           raIlI2
 Rica             ri:ka2
 Robert           r0b3t
 Roderick         r0drIk

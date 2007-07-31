@@ -1,7 +1,9 @@
 #ifndef WAVE_H
 #define WAVE_H
 
+#ifndef PLATFORM_DOS
 #include "stdint.h"
+#endif
 
 extern int option_device_number;
 

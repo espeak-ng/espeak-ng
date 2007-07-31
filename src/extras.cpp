@@ -21,8 +21,9 @@
 #include <wx/dirdlg.h>
 #include "wx/filename.h"
 #include "wx/sound.h"
+#include "wx/dir.h"
 
-#include "sys/stat.h"
+#include <sys/stat.h>
 
 #include "speak_lib.h"
 #include "main.h"
@@ -487,7 +488,8 @@ void Lexicon_Ru()
 	int counts[20][20][10];
 
 	char phonemes[N_WORD_PHONEMES];
-	char buf[100];
+	char buf[120];
+	char fname[sizeof(path_dsource)+20];
 
 	// KOI8-R codes for Russian vowels
 	static char vowels[] = {0xa3,0xc0,0xc1,0xc5,0xc9,0xcf,0xd1,0xd5,0xd9,0xdc,0};
@@ -543,18 +545,18 @@ void Lexicon_Ru()
 	}
 	input_length = GetFileLength(buf);
 
-	sprintf(buf,"%s%c%s",path_dsource,PATHSEP,"ru_listx_1");
-	if((f_out = fopen(buf,"w")) == NULL)
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_listx_1");
+	if((f_out = fopen(fname,"w")) == NULL)
 	{
-		wxLogError(_T("Can't write to: ")+wxString(buf,wxConvLocal));
+		wxLogError(_T("Can't write to: ")+wxString(fname,wxConvLocal));
 		fclose(f_in);
 		return;
 	}
 
-	sprintf(buf,"%s%c%s",path_dsource,PATHSEP,"ru_log");
-	f_log = fopen(buf,"w");
-	sprintf(buf,"%s%c%s",path_dsource,PATHSEP,"ru_roots_1");
-	f_roots = fopen(buf,"w");
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_log");
+	f_log = fopen(fname,"w");
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_roots_1");
+	f_roots = fopen(fname,"w");
 
 	LoadVoice("ru",0);
 
@@ -1211,6 +1213,7 @@ result = espeak_SetVoiceByProperties(&voice);
   return 0;
 }
 
+
 char* text1 = "Hello World2. <audio src=\"here\"> Some text</audio>  This is the second sentence";
 
 void TestTest(int control)
@@ -1227,7 +1230,6 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
-test4();
 return;
 
 if(control==2)

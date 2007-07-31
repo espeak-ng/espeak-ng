@@ -101,7 +101,7 @@ private:
 	int CPhoneme();
 	void StartPhonemeTable(const char *name);
 	void EndPhonemeTable();
-	void CPhonemeFiles(char *path_source);
+	void CPhonemeFiles();
 	int NextItem(int type);
 	void UngetItem();
 	void Error(const char *msg);
@@ -173,7 +173,7 @@ private:
 
 };
 
-char path_source[80];
+char path_source[sizeof(path_home)+20];
 
 Compile *compile;
 
@@ -741,7 +741,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 	int resample_wav = 0;
 	char fname_temp[100];
 	int scale_factor=0;
-	char command[200];
+	char command[sizeof(path_source)+200];
 
 	fseek(f,24,SEEK_SET);
 	sr1 = Read4Bytes(f);
@@ -894,7 +894,7 @@ int Compile::LoadDataFile(const char *path, int control)
 	int hash;
 	int type_code=' ';
 	REF_HASH_TAB *p, *p2;
-	char buf[256];
+	char buf[sizeof(path_source)+120];
 
 	count_references++;
 
@@ -1630,12 +1630,12 @@ void Compile::StartPhonemeTable(const char *name)
 
 
 
-void Compile::CPhonemeFiles(char *path_source)
-{//===========================================
+void Compile::CPhonemeFiles()
+{//==========================
 	int phcode;
 	int item;
 	FILE *f;
-	char buf[120];
+	char buf[sizeof(path_source)+120];
 
 	linenum = 1;
 	n_phcodes = 1;  // don't use phoneme code=0, it's used as string terminator
@@ -1827,7 +1827,7 @@ void Compile::Report(void)
 	REF_HASH_TAB *p;
 	REF_HASH_TAB **list;
 	FILE *f_report;
-	char fname[80];
+	char fname[sizeof(path_source)+20];
 
 	// make a list of all the references and sort it
 	list = (REF_HASH_TAB **)malloc(count_references * sizeof(REF_HASH_TAB *));
@@ -1989,7 +1989,7 @@ wxString CompileAllDictionaries()
 	FILE *log;
 	FILE *f_phused;
 	char dictname[80];
-	char fname_log[80];
+	char fname_log[sizeof(path_dsource)+20];
 	char save_voice_name[80];
 
 	if(!wxDirExists(path_dictsource))
@@ -2073,7 +2073,7 @@ wxString CompileAllDictionaries()
 
 void Compile::CPhonemeTab(const char *source)
 {//========================================
-	char fname[130];
+	char fname[sizeof(path_source)+40];
 	wxString report;
 	wxString report_dict;
 
@@ -2176,7 +2176,7 @@ memset(markers_used,0,sizeof(markers_used));
 	n_phoneme_tabs = 0;
 	stack_ix = 0;
 	StartPhonemeTable("base");
-	CPhonemeFiles(path_source);
+	CPhonemeFiles();
 
 	EndPhonemeTable();
 	WritePhonemeTable();
@@ -2233,7 +2233,7 @@ void CompileMbrola()
 	char name1[40];
 	char name2[40];
 	char mbrola_voice[40];
-	char buf[150];
+	char buf[sizeof(path_home)+30];
 	int mbrola_ctrl = 20;   // volume in 1/16 ths
 	MBROLA_TAB data[N_PHONEME_TAB];
 
