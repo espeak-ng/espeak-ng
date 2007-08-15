@@ -265,8 +265,8 @@ int GetFileLength(const char *filename)
 char *Alloc(int size)
 {//==================
 	char *p;
-	if((p = (char *)malloc(size)) == NULL)
-		fprintf(stderr,"Can't allocate memory\n");
+	if((p = (char *)malloc(size+1)) == NULL)
+		fprintf(stderr,"Can't allocate memory\n");  // I was told that size+1 fixes a crash on 64-bit systems
 	return(p);
 }
 

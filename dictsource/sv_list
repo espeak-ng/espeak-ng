@@ -26,7 +26,7 @@ n	En
 //o	o:
 p	pe:
 q	ku-
-r	Er
+r	ER
 s	Es
 t	te:
 //u	u-
@@ -44,8 +44,8 @@ _.      p'8Nkt
 _0	n'Ol
 _1	'Et
 _2	tv'o:
-_3	tr'e:
-_4	f'y:ra
+_3	tR'e:
+_4	f'y:Ra
 _5	f'Em
 _6	s'Eks
 _7	sx'u-
@@ -54,26 +54,26 @@ _9	n'i:u:
 _10	t'i:;u:
 _11	'Elva
 _12	t'Olv
-_13	tr'EtOn
-_14	fj'u:rtOn
+_13	tR'EtOn
+_14	fj'u:RtOn
 _15	f'EmtOn
 _16	s'EkstOn
 _17	sx'8tOn
-_18	'A:rtOn
+_18	'A:RtOn
 _19	n'ItOn
-_2X	S;'u-gu:
-_3X	tr'Eti:
-_4X	f'Y:rtI
-_5X	f'Emti:
-_6X	s'Eksti:
-_7X	sx'8ti:
-_8X	'Oti:
-_9X	n'Iti:
-_0C	h'8ndra
+_2X	S;'u-gO
+_3X	tR'EtI
+_4X	f'WRtI
+_5X	f'EmtI
+_6X	s'EkstI
+_7X	sx'8tI
+_8X	'OtI
+_9X	n'ItI
+_0C	h'8ndRa
 _0M1	t'u-sEn
-_0M2	mIlj'u:nEr
+_0M2	mIlj'u:nER
 _1M2	mIlj'u:n
-_0M3	bIlj'u:nEr
+_0M3	bIlj'u:nER
 _1M3	bIlj'u:n
 _dpt    p'8Nkt
 
@@ -117,11 +117,11 @@ vår	$u+
 vårt	$u+
 våra	$u+
 er	$u+
-ert	e:rt $u+
+ert	e:Rt $u+
 era	$u+
-erat	E:rat $u+
-eran	E:ran $u+
-deras	de:ras $u+
+erat	E:Rat $u+
+eran	E:Ran $u+
+deras	de:Ras $u+
 
 // prepositions
 i	i: $u $brk	// in
@@ -133,7 +133,7 @@ för	$u $brk
 
 om	$u $brk		// about
 till	$u $brk		// to
-från	fr'o:n $u $brk		// from
+från	fR'o:n $u $brk		// from
 mot	$u $brk		// towards
 över	$brk		// over
 längs	$brk		// along
@@ -161,8 +161,8 @@ som	$u $pause	// that, which
 
 
 // auxillary verbs  (be, have, can, etc)
-är	'E:r $u		// is
-var	vA:r $u		// was 
+är	'E:R $u		// is
+var	vA:R $u		// was 
 
 har	$u		// has
 hade	hadE $u		// had
@@ -176,7 +176,7 @@ ville	$u		// wanted to
 ska	skA: $u		// should, supposed to
 skulle	$u
 bör	$u		// should, ought to
-borde	$u
+borde	b'u:RdE $u
 brukar	$u		// usually
 brukade	$u		// used to
 
@@ -184,62 +184,95 @@ brukade	$u		// used to
 // some common adjectives and adverbs
 någon	 n,o:gOn $u		// some
 något	 n,o:gOt $u
-några	  n'o:gra $u
+några	  n'o:gRa $u
 
 
 // MAIN WORD DICTIONARY
 //*********************
 andas	andas
-andras	andras
-arkiv    'arki:v
+andras	andRas
+ange	anje:
+anger	anje:R
+anges	anje:s
+arkiv    'aRki:v
 av      A:v    $u
 bäste     b'EstE
 betala    b'Et'A:l,a
 betalt    b'Et'A:lt
-bort	bOrt
+bort	bORt
+bott     b'Ut
 botten     b'OtEn
-bra	brA:
+bra	bRA:
 dan	dA:n
 dem	dEm
 dig	dEj
-dra	drA:
-därför	d'ErfY:r
+dra	dRA:
+därför	d'ERfY:R
+egen	e:gEn
+egna	e:gna
 emot    Em'u:t
+etc	e:te:s'e:
 ett	'Et
+far         fA:R
 fem         fEm
-fram     fr'am
-framme     fr'amE
+fram     fR'am
+framme     fR'amE
+framåt	   fRamOt
 gemensam	 jEm'e:nsam
 gemensamt	 jEm'e:nsamt
+greps	gRe:ps
+gripna	gRi:pna
 ha	hA:
-har	hA:r $u
+har	hA:R $u
 hej          hEj
+helt	he:lt
+heta	he:ta
 honom	hOnOm
 idag	Id,A:g
 in        In
+inom        InOm
 ja	jA:
 jan	jA:n
-klar	klA:r
+klar	klA:R
+klas	klA:s
+kvar	kvA:R
 log	 l'u:g
 mat	mA:t
 men	mEn
 mig	mEj
+måste	m'Ost@
+måsten	m'Ost@n
+nvda	Enve:de:A:
+ont	Unt
 ost	Ust
-program     prUgr'am
-redigera      rEdIS;'e:ra
+per	pE:R
+program     pRUgR'am
+redigera      REdIS;'e:Ra
+sade	 sA:dE
+sades	 sA:dEs
 sex      s'Eks
 sig	sEj
 skolan	 sk'u:lan
 son	so:n
+sonen	so:nEn
+stad	stA:d
+staden	stA:dEn
+stadens	stA:dEns
 stan	stA:n
-svar	svA:r
-tar	tA:r
+svar	svA:R
+tar	tA:R
 ta      tA:
+togs	t'u:gs
 tomt	t'Umt
 tom	t'Um
 torsdag	 t'u:SdA:g
+tredje	 tR'e:djE
+usa	 u-Es'A:
+usas	 u-Es'A:s
+usa:s	 u-Es'A:s
 vad	vA:d $u
-var	vA:r $u
+valt	vA:lt
+var	vA:R $u
 vem	vEm
 
 
@@ -255,8 +288,10 @@ email    _^_EN
 Explorer      _^_EN
 firefox	_^_EN
 frame	_^_EN
+gaim    _^_EN
 graphic	_^_EN
 heading    _^_EN
+headings    _^_EN
 image	_^_EN
 internet _^_EN
 jaws	_^_EN
@@ -272,7 +307,7 @@ no    _^_EN
 office     _^_EN
 one    _^_EN
 online    _^_EN
-orca    _^_EN
+orca    ORka
 password    _^_EN
 read   _^_EN
 software    _^_EN

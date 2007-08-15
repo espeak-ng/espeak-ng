@@ -2650,6 +2650,9 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 		return(0);
 	}
 
+	// Find the first entry in the list for this hash value which matches.
+	// This corresponds to the last matching entry in the *_list file.
+
 	while(*p != 0)
 	{
 		next = p + p[0];

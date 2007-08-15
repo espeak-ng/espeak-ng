@@ -1087,6 +1087,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
+	PHONEME_TAB *prev_ph;
 
 #ifdef TEST_MBROLA
 	if(mbrola_name[0] != 0)
@@ -1263,7 +1264,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				}
 			}
 
-			if((next->type==phVOWEL) || (next->type==phLIQUID))
+			if((next->type==phVOWEL) || ((next->type==phLIQUID)) && (next->newword==0))  // ?? test 14.Aug.2007
 			{
 				StartSyllable();
 				if(p->synthflags & SFLAG_LENGTHEN)
@@ -1317,6 +1318,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(p->ph->phflags & phTRILL)
 				modulation = 5;
 
+			prev_ph = prev->ph;
+//			if(p->newword)
+//				prev_ph = phoneme_tab[phonPAUSE];    // pronounce fully at the start of a word
+
 			if(!(p->synthflags & SFLAG_SEQCONTINUE))
 			{
 				DoAmplitude(p->amp,NULL);
@@ -1331,16 +1336,16 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(next->type==phVOWEL)
 			{
 				StartSyllable();
-				DoSpect(p->ph,prev->ph,next->ph,1,p,modulation);  // (,)r
+				DoSpect(p->ph,prev_ph,next->ph,1,p,modulation);  // (,)r
 			}
 			else
 			if(prev->type==phVOWEL && (p->synthflags & SFLAG_SEQCONTINUE))
 			{
-				DoSpect(p->ph,prev->ph,next->ph,1,p,modulation);
+				DoSpect(p->ph,prev_ph,next->ph,1,p,modulation);
 			}
 			else
 			{
-				DoSpect(p->ph,prev->ph,next->ph,1,p,modulation);
+				DoSpect(p->ph,prev_ph,next->ph,1,p,modulation);
 			}
 
 			break;

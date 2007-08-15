@@ -243,9 +243,10 @@ Dictionary sv_dict
 I    i:   O    o:   U    u-   u:   W    
 y    y:   Y:   
 
-:    ;    b    d    f    g    h    j    
-k    l    m    n    N    p    r    s    
-S    s.   S;   sx   t    v    w    z    
+:    ;    b    B    d    f    g    h    
+j    k    l    m    n    N    p    R    
+s    S    s.   S;   sx   t    v    w    
+z    
 
 
 Dictionary sw_dict

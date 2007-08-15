@@ -1,4 +1,4 @@
-﻿//maintainer: Willem van der Walt
+//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -102,15 +102,19 @@ europa      Y@r'o@pa
 portugal    $1
 pretoria    prit'o@ria
 stellenbosch st%&l@mbOs 
+upington    apiNt@n
 worcester   v'ust@r
 
 
 
 // People names
 Abiméleg    abin'e@lEx2
+abraham     A:bram
+alida       al'ida
 allah       %alA:
 André       'andreI
 annette     an'Et
+antoinette  antun'Et
 aucamp      @Ukamp
 benjamin    bEndZ@m@n
 bester b'Est@r
@@ -131,6 +135,7 @@ debora      d@bo@ra
 der         d@r
 deventer d'e@v@nt@r
 du		$u
+(du pisanie) du||pis'A:ni
 (du plessis) du||pl@s'i
 (du preez)  d@||pr'e@
 (du toit)   d@||toI
@@ -151,8 +156,10 @@ grange      x2rA:nsi
 gustav      gustaf
 haydn       hAId@n
 helena      hil'e@na
-jacobus     jako@bWs
+hilde       hild@
+ilse 'ilz@
 jacques     ZA:k
+james       _^_EN
 jane        _^_EN
 jean        ZA~n
 jesus       ji:sWs
@@ -170,7 +177,9 @@ levi        le@fi
 louis       luI
 louise      luw'i:z
 louw l'@U
-maria mar'ia
+marie       mA:ri
+marius      mA:riWs
+martha      marta
 martin m'A:rt@n
 michelle    miS'&l
 michiel $2
@@ -197,10 +206,12 @@ schoor      sko@r
 schutte     skWt@
 shakespeare _^_EN
 tania       tanja
+telemann    te@l@man
 terblanche  t@rblA:nS
 theron tr'On
 viljoen     $2
 villiers    vIli@rs
+violet      _^_EN $capital
 marais      mar'E:
 mandela     mand'E:la
 celliers    sIlj'e@
@@ -372,7 +383,6 @@ asook         %as_o@k
 aspris        $2
 asseblief     as@bl'if
 babelaas      bab@lA:s
-bedjie        bE:ici
 beide         beId@
 belangriker   b@laNr@k,Ir
 belangrikst@  b@laNr@kst@
@@ -401,8 +411,7 @@ dusver        dWsf&r
 eenkeer       $1
 effense       Ef@ns@
 ekself %&ks'&lf
-ekstra $1
-
+ekstra Ekstra
 elders        &ld@rs
 elite         il'i:t
 enige         e@nIx2@
@@ -418,6 +427,7 @@ finaliste     $3
 frontaal      $2
 frontale      $2
 
+g'n           x2In
 garages       g@rA:dZ@s
 gawes         x2A:v@s
 gee	      x2e@
@@ -441,6 +451,8 @@ hekke         h&k@
 helaas        he@l'A:s
 here          he@r@
 hiernamaals   hi:rn'A:mA:ls
+hierso        hi:rsO
+hoera         hur'A:
 hoewel        huv'&l
 hokaai        hOkAI
 hoofsaaklik   $2
@@ -529,7 +541,6 @@ oorleef       $2
 oorsee        $2
 oorsese       $2
 oorspronklike $2
-oranje        $2
 
 patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
@@ -552,7 +563,7 @@ sedert        se@d@rt
 sektore       $2
 skares        skA:r@s
 skepsele      skEps@l@
-s'n           s'@n
+s'n           s@n $u
 sobere s'o@b@r@
 sombere s'Omb@r@
 sodra         so@dr'A:
@@ -577,13 +588,16 @@ totsiens      $2
 uitdagings    YydA:x2@Ns
 uitdaging     YydA:x2@N
 uiteindelik   $2
+uiteraard     Yyt@r_'A:rt
 
 vaarwel       fA:rv'&l
 vanaf         fanaf
 vandat      $1
+vanne         fan@
 veraf         f&r_af
 verafgeleë    f&rafx2@le@@
 verantwoordelikheid f@rantv'o@rd@l@keIt
+verby         f@rbeI
 verdere       f&rd@r@
 vere          fe@r@
 vererger      f@r&rg@r
@@ -600,11 +614,15 @@ vers          f&:rs
 verste        f&rst@
 verte         f&rt@
 via           via
+volheid       $1
+voluit        fOl_Yyt
 volwassenes   fOlv'as@n@s
 voorgee       fo@rx2e@
+voorkeer      $1
 voorkom       $2
 voormalige    fo@rm'A:l@x2@
 voorsien      $2
+voorwaar      $2
 vorendag      $3
 vorige        fo@r@x2@
 vrek          fr&k
@@ -614,6 +632,5 @@ waarskynlike  $2
 wangedrag     vanx2@drax2
 weergalm      $2
 weerklink     $2
-weg           v&x2
 weggewens     v&x2@v'E:ns
 

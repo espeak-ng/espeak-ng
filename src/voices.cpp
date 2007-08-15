@@ -231,7 +231,6 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 	char vgender[80];
 	char vlanguage[80];
 	char languages[300];  // allow space for several alternate language names and priorities
-	char fname_buf[sizeof(path_home)+15];
 
 
 	unsigned int len;
@@ -245,6 +244,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 	int gender;
 
 #ifdef PLATFORM_WINDOWS
+	char fname_buf[sizeof(path_home)+15];
 	if(memcmp(leafname,"mb-",3) == 0)
 	{
 		// check whether the mbrola speech data is present for this voice
@@ -924,7 +924,7 @@ voice_t *LoadVoiceVariant(const char *vname, int variant)
 	v = LoadVoice(buf,0);
 	if((v != NULL) && (variant > 0))
 	{
-		sprintf(buf,"!variant%d",variant);
+		sprintf(buf,"!varnt%d",variant);  // changed from !variant1 to !varnt1 to avoid 8 char filenames on DOS
 		v = LoadVoice(buf,2);
 	}
 	return(v);
@@ -1446,7 +1446,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 		if(variant > 0)
 		{
 			// apply a voice variant
-			sprintf(variant_name,"!variant%d",variant);
+			sprintf(variant_name,"!varnt%d",variant);
 			LoadVoice(variant_name,2);
 		}
 

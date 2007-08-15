@@ -11,20 +11,26 @@
         a (rt_   A:
         a (vg    A:
         a (r_    a
-      p)a (d_    a
+        a (s_    a
+      p) a (d_    a
+      k) a (d_    a
+      k) a (s_    a
+      k) a (ni    a
      b) a (r_    A:
+     lt) a (t    A:
     bb) a (r_    a
         a (CC    a
         a (_     a
      &) a (_     a2
-        a (re_   a 
+        a (re   a 
         a (rn    A:
         a (rna   a
      l) a (rs    A:
+     idr) a    A:
      k) a (ta	,a
      m) a (j	 a
     om) a (t	 A:
-    _m) a (ter	 a
+    m) a (ter	 a
     st) a (rt	 A:
     gr) a (m	 a
         a (x	 a
@@ -33,13 +39,16 @@
      k) a (n	 a
      n) a (d	 a
      j) a (n	 a
-     r) a (de	 a
+      a (de	 a
     eg) a (n	 a
     er) a (d	 a
+    form) a (ti	 a
     er) a (t	 a
-     d) a (n_	 a
+     d) a (n	 a
     st) a (t_	 a
    tot) a (l	'A:
+   _gl) a (s	A:
+   _gl) a (ss	a
      v) a (ld	 A:
      v) a (rd	 A:
     sm) a (rt	 A:
@@ -47,15 +56,15 @@
      s) a (maC	 a
     ng) a (d	 a
      m) a (n	 a
-     t) a (t	 A:
+//     t) a (t	 A:
    ent) a (r	 A:
         a (t_	 a
         ast	 ast
-     s) a (s_	 a
-     s) a (d_	 a
-    er) a (t_	 a
+     s) a (s	 a
+     s) a (d	 a
+    er) a (t	 a
     åg) a (n	 a
-     t) a (n_	 a
+     t) a (n	 a
     el) a (d	 a
     nn) a (n	 a
   mell) a (n	 a
@@ -63,19 +72,41 @@
   ansv) a (r     A:
     ll) a (de    a
     _v) a (nl    A:
-     d) a (d_    a
-    tt) a (C_    a
-    dd) a (C_    a
-        arbet	 arbe:t
+     d) a (d    a
+     ppd) a (t    a
+     r) a (ba    a
+     ass) a    a
+     l) a (gl    A:
+     _d) a (g    A:
+     ik) a (ns    'A:
+     et) a (g    'A:
+     f) a (rt    'A:
+     f) a (rl    'A:
+     t) a (ti    a
+    tt) a (C    a
+    dd) a (C    a
+        arbet	 aRbe:t
+        amerik	 amERIk
+	agera	age:Ra
+	analy	analy:
+	_) avta	A:vtA:
+	_) avge	A:vje:
+	alkohol	alkUho:l
 
 .group b
         b        b
         b (b
+	bevakn	bEvA:kn
+	bredband	bRe:dband
+	begrav	bEgRA:v
+	begrip	BEgR'i:p
+	beslag	bEsl'A:g
+	beslagta	bEsl'A:gtA:
 
 .group c
         c        k
-        cc       k
-        cc (A    k:  // ??
+        cc       ks
+        cc (A    ks  // ??
         c (e     s
         c (i     s
         c (y     s
@@ -91,10 +122,20 @@
         d        d
         d (d
         dagen	 dA:gEn
-	disken	 dIskEn
+        daglig	 dA:glIg
+	diske	 dIskE
 	djup	 j'u-p
-	djur	 j'u-r
+	djur	 j'u-R
 	dum	 d8m
+	datorer		 dat'u:RER
+	dator		dA:tOR
+	data		dA:ta
+	databas		dA:tabA:s
+	drogen	dRo:gEn
+	droger	dRo:gER
+	design	_^_EN
+	download	_^_EN
+
 
 .group e
         e        e:
@@ -105,8 +146,11 @@
      b) e (k	 E
         e (j	 E
      d) e (lv	 e:
+     d) e (ls	 e:
+     m) e (dde	 e:
      d) e (ln	 e:
      d) e (lt	 e:
+     l) e (dn	 e:
      d) e (bat	 E
      s) e (kund	 E
      ch) e (f	 E:
@@ -116,7 +160,7 @@
      &) es (_    Es
      &) en (_    En
      &) ens (_   Ens
-     &) er (_    Er
+     &) er (_    ER
      &) et (_S2  Et         // ??
         e (ve    E
      t) e (lef	 E
@@ -132,29 +176,56 @@
      r) e (sul	 E
      r) e (sur	 E
      r) e (dak	 E
+     b) e (f	 E
+     b) e (k	 E
+     b) e (h	 E
+     b) e (s	 E
+     b) e (v	 E
      v) e (ta	 e:
      r) e (ta	 e:
+     r) e (dn	 e:
+     l) e (ta	 e:
+      e (nli	 e:
+      e (gent	 E
     pr) e (n	 E
      _) e (tik	 E
      r) e (ce	 E
-
+     m) e (tod	 E
+     p) e (ri	 E
+     xtr) e (m	 e:
+elek	'ElEk
 espeak   _^_EN
+ekonom	 'Eku:n,O:m
+erens	 ER'ans
+esent	 Es'Ent
+enhet	 e:nhe:t
 
 .group f
         f        f
         f (f
+	familj	fam'Ilj
+	formad	fORmad
 
 .group g
         g        g
         gg       g
         g (e     j
         g (i     j
+      or) g (ar     j
+      or) g (en     j
         g (y     j
         g (ä     j
         g (ö     j
         g (t     k
         g (n     N
         gj       j
+	lä) g (e g
+	gjord	 ju:Rd
+        gani    gan'I
+	garage	gaR'A:S
+	glöm	glWm
+	guide	g'aId
+	guider	g'aIdER
         group   _^_EN
 
 .group h
@@ -173,10 +244,15 @@ espeak   _^_EN
      t) i (d	 i:
    skr) i (v	 i:
      v) i (sn	 i:
+     l) i (kna	 i:
+ikon		 Ik'o:n
+	inne	 InE
         imag    _^_EN
 
 .group j
         j        j
+	java	 jA:va
+	jou (r	sxU
 
 .group k
         k        k
@@ -191,11 +267,17 @@ espeak   _^_EN
      _) k (i     S;
      _) k (y     S;
      _) k (ä     S;
+      k (änd     S;
+      k (änt     S;
+      k (änn     S;
      _) k (ö     S;
         k (öp    S;
-        karta	 kA:rta
-        kategori	katEg,u:ri:
+        karta	 kA:Rta
+        kategori	katEg,u:Ri:
         kalend	 kal'End
+	kommun	 kOm'u-n
+	kommunika	 kOm8nIka
+	kontor	kOnt'u:R
         känsl	 S;Ensl
 
 .group l
@@ -203,6 +285,11 @@ espeak   _^_EN
         l (l
         lg  (_   lj
      _) lj	 j
+låg		 l'o:g
+ljud		 j'u-d
+ljug		 j'u-g
+ligen	lIgEn
+	lager	lA:gER
 
 .group m
         m        m
@@ -212,21 +299,31 @@ espeak   _^_EN
         medlem	 m'e:dlEm
         maga	 maga
         meny	 mEn'y:
-        minimera	mIni:m'e:ra2
-        maximera	maksi:m'e:ra2
-        motor	 m'u:tOr
-        motorer	 m'Otu:rEr
+        minimera	mIni:m'e:Ra2
+        maximera	maksi:m'e:Ra2
+        motor	 m'u:tOR
+        motorer	 m'Otu:RER
         model	 mOd'El
         musik	 mu-s'i:k
+	medvet	me:dv'e:t
+	masken	maskEn
+	maskera	maske:Ra
+	mjuk	mju-k
+	masker	maskER
+	medborg	me:dbORj
+	mobil	mObi:l
+	modem	mOde:m
 
 .group n
         n        n
         n (n
         ng       N
+       fu) ng (er      ng
         n (k     N
         network   _^_EN
-        normal   nOrmA:l
-	natur    n'at'u-r
+        normal   nORmA:l
+	natur    n'at'u-R
+	nali	nalI
 
 .group o
         o        u:
@@ -247,24 +344,47 @@ espeak   _^_EN
      s) o (r	'O
      k) o (pi	'O
      f) o (rm	'O
-    pr) oj	 Usx
+    pr) oj	 Osx'
         o (ns	 U
+   nn)  o (ns	 O
    ss)  o (n	 O
      C) o (rs	 O
      k) o (rta	 O
      b) o (rt	 O
-        osparat	 u:spA:rat
+     rs) o (rd	 u:
+        o (rde	 o:
+     b) o (st	 u:
+     b) o (k	 u:
+     kr) o (k	 u:
+     kr) o (g	 u:
+     kr) o (n	 u:
+     f) o (tb	 u:
+     pr) o (v	 u:
+        osparat	 u:spA:Rat
         och	'Ok
      k) o (ns	 O
     pr) o (cent	 O
      p) o (lis	 O
      p) o (pu	 O
+     g) o (n	 O
+     sp) o (rt	 O
+     pp) o (rt	 O
+     upp) o (rt	 o:
+     l) o (n	 O
+     d) o (n	 O
+     k) o (d	 o:
+     _) o (j	 O
+        o (ni	 'o:
+	operat	OpERat
 
 .group p
         p        p
         p (p
+	påstå	po:sto:
         paket	pak'e:t
-   parentes 	par@nt,e:s
+   parentes 	paR@nt,e:s
+	privat	pRIvA:t
+	potatis	pOt'A:tIs
 
 .group q
         q        k
@@ -272,15 +392,21 @@ espeak   _^_EN
         qu       kw
 
 .group r
-        r        r
+        r        R
      r) r
         rs       s.
-        rsi (o   rsx'
+        rsi (o   Rsx'
         rsk      s.k
-        rsk (i   rsx
+        rsk (i   Rsx
         rss      s.
-        rg (_	 rj
-        radera	 rad'e:ra
+        rg (_	 Rj
+        radera	 Rad'e:Ra
+rafik		 Raf'i:k
+regel		 Re:gEl
+resor		 R'e:sOR
+rekord		 REk'o:Rd
+risk		 RIsk
+rubrik		 R8bR'i:k
 
 .group s
         s        s
@@ -292,15 +418,31 @@ espeak   _^_EN
         sk (y    sx
         sk (ä    sx
         sk (ö    sx
+	fi) s (k  s
+	fu) s (k  s
         skj      sx
         stj      sx
+        sio (n  sx'u:
         ssio (n  sx'u:
-        sport	 spOrt
+	spegel	spe:gEl
+	segel	se:gEl
+	spel	spe:l
         select   _^_EN
         säg	 sEj
-        sparat	 spA:rat
-        svarat	 svA:rat
-
+	service	 sY:Rvi:s
+        spara	 spA:Ra
+        svara	 svA:Ra
+	slog	 sl'u:g
+	stått	stOt
+	sverige	svERjE
+	säkerhet  s'E:k@Rh,e:t
+	skärm	sx'ERm
+	segla  se:gla
+	skolor	sku:lOR
+	snegla  sne:gla
+	spegla  spe:gla	
+	semest	sEm'Est
+	sweden		 _^_EN
 
 .group t
         t        t
@@ -313,6 +455,9 @@ espeak   _^_EN
         task    _^_EN
         talsyntes	 t'A:lsynt,e:s
         tabell	 tab'El
+	tagit	t'A:gIt
+	tangent	tanjEnt
+	teknik	tEkn'i:k
 
 .group u
         u        u-
@@ -325,12 +470,21 @@ espeak   _^_EN
         u (CC    8
         u (n     8
         u (tl    u-
+       sj) u (k    u-
      r) u (m_    8:
-	utmärk	 'u-tm@rk
+	utmärk	 'u-tm@Rk
+	b) u (tik   8
+	v) u (x   8
+	uppge	 8pje:
+upload	_^_EN
 
 .group v
         v        v
         v (v
+	varandra	vaRandRa
+	varn		vA:Rn
+	varan		vA:Ran
+	verk		vERk
 
 .group w
         w        v
@@ -345,6 +499,7 @@ espeak   _^_EN
 .group y
         y        y:
         y (CC    y
+	s) y (nska y:
 
 .group z
         z        s
@@ -355,7 +510,13 @@ espeak   _^_EN
         å (CC    O
     tr) å (d     'o:
      v) å (r     'o:
+     r) å (k     o:
      h) å (r     'o:
+     m) å (l     o:
+     n) å (l     o:
+     sk) å (l     o:
+     h) å (l     o:
+     h) å (ll     O
 
 .group ä
         ä        E:
@@ -363,7 +524,16 @@ espeak   _^_EN
         ä (r     E:
     tr) ä (d     E:
      v) ä (lk    E:
+     l) ä (sn    E:
+     v) ä (rd    E:
+     sk) ä (rg    E:
      l) ä (st    E:
+   n)  ä (tt    E
+   v)  ä (x    E
+     n) ä (t    E:
+     f) ä (rd    E:
+     r) ä (k    E:
+        ärl (d    'E:R
 
 
 .group ö
@@ -371,19 +541,20 @@ espeak   _^_EN
         ö (CC    'W
      f) ö (rd    'Y:
         ö (vr    'Y:
+       r) ö (m    'W
 
 
 .group
         é        'e:
 
 
-        %        prOs'Ent
-        $        d'Olar
+        %        pROs'Ent
+        $        d'OlaR
         +        pl8s
         &        _:'Ok
         @        sn'A:bElA:
-        /        sn'e:dstrEk
-        €        'Evru:
+        /        sn'e:dstREk
+        €        'EvRu:
 
 
         .        p'8Nt
@@ -395,7 +566,7 @@ espeak   _^_EN
    C_)  - (_D    _
     --) -
 
-        *        sx'E:rna
+        *        sx'E:Rna
     *)  * (*
         **
    **)  * (_     _::
