@@ -29,13 +29,13 @@
 
 #include "speak_lib.h"
 #include "speech.h"
-#include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.28.04  15.Aug.07";
+const char *version_string = "1.28.05  17.Aug.07";
 const int version_phdata  = 0x012801;
 
 int option_device_number = -1;
@@ -125,7 +125,13 @@ int LoadPhData()
 		return(-1);
    wavefile_data = (unsigned char *)spects_data;
 
-	version = *((unsigned int *)spects_data);
+	// read the version number from the first 4 bytes of phondata
+	version = 0;
+	for(ix=0; ix<4; ix++)
+	{
+		version += (wavefile_data[ix] << (ix*8));
+	}
+
 	if(version != version_phdata)
 	{
 		result = version;
@@ -635,7 +641,7 @@ void LoadConfig(void)
 			if(ix==2)
 			{
 				soundicon_tab[n_soundicon_tab].name = c1;
-				p = Alloc(strlen(string+1));
+				p = Alloc(strlen(string)+1);
 				strcpy(p,string);
 				soundicon_tab[n_soundicon_tab].filename = p;
 				soundicon_tab[n_soundicon_tab++].length = 0;

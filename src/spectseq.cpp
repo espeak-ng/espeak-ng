@@ -21,7 +21,10 @@
 #include "wx/wx.h"
 #include <math.h>
 
+#include "speak_lib.h"
 #include "speech.h"
+#include "phoneme.h"
+#include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
 #include "main.h"

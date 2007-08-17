@@ -54,9 +54,6 @@ typedef double DOUBLEX;
 
 
 
-#define N_PEAKS   9
-#define N_MARKERS 8
-
 
 typedef struct {
    const char *mnem;
@@ -65,32 +62,12 @@ typedef struct {
 int LookupMnem(MNEM_TAB *table, char *string);
 
 
-typedef struct {
-   short pkfreq;
-   short pkheight;
-   short pkwidth;
-   short pkright;
-}  peak_t;
-
-typedef struct {
-	short frflags;
-	unsigned char length;
-	unsigned char rms;
-	short ffreq[9];
-	unsigned char fheight[9];
-	unsigned char fwidth[6];          // width/4
-	unsigned char fright[6];          // width/4
-} frame_t;
-
-
-int  GetFileLength(const char *filename);
-char *Alloc(int size);
-void Free(void *ptr);
 
 #define N_PATH_HOME  120
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
-extern const char *version_string;
-extern const int version_phdata;
 extern void strncpy0(char *to,const char *from, int size);
+int  GetFileLength(const char *filename);
+char *Alloc(int size);
+void Free(void *ptr);
 

@@ -30,10 +30,10 @@
 #include "speak_lib.h"
 #include "main.h"
 #include "speech.h"
-#include "voice.h"
-#include "spect.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
+#include "spect.h"
 #include "translate.h"
 #include "options.h"
 

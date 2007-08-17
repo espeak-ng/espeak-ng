@@ -25,9 +25,9 @@
 #include "speak_lib.h"
 #include "speech.h"
 #include "phoneme.h"
-#include "voice.h"
 #include "main.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 #include "prosodydisplay.h"
 

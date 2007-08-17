@@ -125,7 +125,7 @@ void ProsodyDisplay::SelectPh(int index)
 	if(index < 0) return;
 
 	p = &phlist[index];
-	if(p == NULL) return;
+	if((p == NULL) || (p->ph == NULL)) return;
 
 	sprintf(buf,"Stress %d   Amp %2d   LenMod %2d   Pitch %3d %3d [env=%d]   Flags %.2x ",
 		p->tone,p->amp,p->length,p->pitch1,p->pitch2,p->env,p->ph->phflags);
@@ -293,7 +293,14 @@ void ProsodyDisplay::OnKey(wxKeyEvent& event)
 		p->length++;
 		break;
 
+	case WXK_TAB:
+		display = 0;
+		event.Skip();
+	transldlg->SetFocus();
+		break;
+
 	default:
+		display = 0;
 		event.Skip();
 		break;
 	}

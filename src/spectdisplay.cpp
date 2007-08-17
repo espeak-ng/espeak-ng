@@ -29,8 +29,11 @@
 
 #include <ctype.h>
 
-#include "main.h"
+#include "speak_lib.h"
 #include "speech.h"
+#include "main.h"
+#include "phoneme.h"
+#include "synthesize.h"
 #include "voice.h"
 #include "spect.h"
 #include "options.h"

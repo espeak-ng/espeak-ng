@@ -65,6 +65,28 @@ extern int embedded_value[N_EMBEDDED_VALUES];
 extern int embedded_default[N_EMBEDDED_VALUES];
 
 
+#define N_PEAKS   9
+#define N_MARKERS 8
+
+typedef struct {
+   short pkfreq;
+   short pkheight;
+   short pkwidth;
+   short pkright;
+}  peak_t;
+
+typedef struct {
+	short frflags;
+	unsigned char length;
+	unsigned char rms;
+	short ffreq[9];
+	unsigned char fheight[9];
+	unsigned char fwidth[6];          // width/4
+	unsigned char fright[6];          // width/4
+} frame_t;
+
+
+
 // formant data used by wavegen
 typedef struct {
 	int freq;     // Hz<<16
@@ -237,6 +259,8 @@ extern int event_list_ix;
 extern espeak_EVENT *event_list;
 extern t_espeak_callback* synth_callback;
 extern int option_log_frames;
+extern const char *version_string;
+extern const int version_phdata;
 
 #define N_SOUNDICON_TAB  100
 extern int n_soundicon_tab;

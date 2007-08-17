@@ -43,9 +43,9 @@
 #include <sys/stat.h>
 
 #include "speak_lib.h"
-#include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 
 

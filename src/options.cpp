@@ -20,6 +20,7 @@
 
 #include "wx/wx.h"
 #include "wx/fileconf.h"
+#include "wx/filename.h"
 #include <sys/stat.h>
 #include "speech.h"
 

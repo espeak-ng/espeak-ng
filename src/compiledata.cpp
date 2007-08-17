@@ -30,11 +30,11 @@
 #include "speak_lib.h"
 #include "main.h"
 #include "speech.h"
-#include "voice.h"
-#include "spect.h"
 #include "options.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
+#include "spect.h"
 
 
 #define tNUMBER   1

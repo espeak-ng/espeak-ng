@@ -30,9 +30,9 @@
 
 #include "speak_lib.h"
 #include "speech.h"
-#include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 
 #ifdef USE_PORTAUDIO
 #include "portaudio.h"

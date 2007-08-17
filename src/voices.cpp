@@ -35,9 +35,9 @@
 #endif
 
 #include "speak_lib.h"
-#include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 
 
@@ -306,26 +306,6 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 
 	if(n_languages == 0)
 	{
-#ifdef deleted
-// Read voice variant files
-// Don't use this, instead preset the variants_* arrays
-
-		// no language is specified, this voice file only affects the voice characteristics
-		if(memcmp(leafname,"!variant",8)==0)
-		{
-			if(((variant = atoi(&leafname[8])) > 0) && (strlen(variants_either) < N_VOICE_VARIANTS))
-			{
-				char string[2];
-				string[0] = variant;
-				string[1] = 0;
-				strcat(variants_either,string);
-				if(gender == 1)
-					strcat(variants_male,string);
-				if(gender == 2)
-					strcat(variants_female,string);
-			}
-		}
-#endif
 		return(NULL);    // no language lines in the voice file
 	}
 
@@ -442,11 +422,17 @@ static void VoiceFormant(char *p)
 
 static voice_t *VoiceLookup(char *voicename)
 {//=========================================
+// Keep a cache of previously used voices.
 	int ix;
 	voice_t *v;
 
 	for(ix=0; ix < N_VOICES; ix++)
 	{
+		if((ix < n_voices_tab) && (strcmp(voices_tab[ix]->name,voicename)==0))
+		{
+			return(voices_tab[ix]);   // found the entry for the specified voice name
+		}
+
 		if(ix == n_voices_tab)
 		{
 			// found a free slot
@@ -457,13 +443,8 @@ static voice_t *VoiceLookup(char *voicename)
 			strncpy0(v->name,voicename,sizeof(v->name));
 			return(v);
 		}
-		else
-		if(strcmp(voices_tab[ix]->name,voicename)==0)
-		{
-			return(voices_tab[ix]);   // found the entry for the specified voice name
-		}
 	}
-	return(NULL);  // table is full
+	return(voices_tab[0]);  // table is full, reuse the first entry
 }  // end of VoiceLookup
 
 
@@ -640,6 +621,9 @@ voice_t *LoadVoice(const char *vname, int control)
 				break;
 
 			sscanf(p,"%s",language_name);
+			if(strcmp(language_name,"variant")==0)
+				break;
+
 			language_type = strtok(language_name,"-");
 			language_set = 1;
 			strcpy(translator_name,language_type);
@@ -908,24 +892,63 @@ voice_t *LoadVoice(const char *vname, int control)
 }  //  end of LoadVoice
 
 
-voice_t *LoadVoiceVariant(const char *vname, int variant)
-{//======================================================
-	voice_t *v;
-	char *p;
-	char buf[40];
+char *ExtractVoiceVariantName(char *vname, int variant_num)
+{//========================================================
+// Remove any voice variant suffix (name or number) from a voice name
+// Returns the voice variant name
 
-	strcpy(buf,vname);
-	if((p = strchr(buf,'+')) != NULL)
+	char *p;
+	static char variant_name[20];
+
+	variant_name[0] = 0;
+
+	if((p = strchr(vname,'+')) != NULL)
 	{
 		// The voice name has a +variant suffix
-		*p = 0;
-		variant = atoi(p+1);
+		*p++ = 0;   // delete the suffix from the voice name
+		if(isdigit(*p))
+		{
+			variant_num = atoi(p);  // variant number
+		}
+		else
+		{
+			// voice variant name, not number
+			strcpy(variant_name,"!v/");
+			strncpy0(&variant_name[3],p,sizeof(variant_name)-3);
+		}	
 	}
-	v = LoadVoice(buf,0);
-	if((v != NULL) && (variant > 0))
+	
+	if(variant_num > 0)
 	{
-		sprintf(buf,"!varnt%d",variant);  // changed from !variant1 to !varnt1 to avoid 8 char filenames on DOS
-		v = LoadVoice(buf,2);
+		if(variant_num < 10)
+			sprintf(variant_name,"!v/m%d",variant_num);  // male
+		else
+			sprintf(variant_name,"!v/f%d",variant_num-10);  // female
+	}
+
+	return(variant_name);
+}  //  end of ExtractVoiceVariantName
+
+
+
+voice_t *LoadVoiceVariant(const char *vname, int variant_num)
+{//==========================================================
+// Load a voice file.
+// Also apply a voice variant if specified by "variant", or by "+number" or "+name" in the "vname"
+
+	voice_t *v;
+	char *variant_name;
+	char buf[60];
+
+	strncpy0(buf,vname,sizeof(buf));
+	variant_name = ExtractVoiceVariantName(buf,variant_num);
+
+	if((v = LoadVoice(buf,0)) == NULL)
+		return(NULL);
+
+	if(variant_name[0] != 0)
+	{
+		v = LoadVoice(variant_name,2);
 	}
 	return(v);
 }
@@ -982,6 +1005,12 @@ static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_
 	}
 	else
 	{
+		if((*p == 0) && (strcmp(voice_spec->languages,"variants")==0))
+		{
+			// match on a voice with no languages if the required language is "variants"
+			score = 100;
+		}
+
 		// compare the required language with each of the languages of this voice
 		while(*p != 0)
 		{
@@ -1337,6 +1366,7 @@ void GetVoices(const char *path)
    HANDLE hFind = INVALID_HANDLE_VALUE;
    DWORD dwError;
 
+#undef UNICODE         // we need FindFirstFileA() which takes an 8-bit c-string
 	sprintf(fname,"%s\\*",path);
 	hFind = FindFirstFile(fname, &FindFileData);
 	if(hFind == INVALID_HANDLE_VALUE)
@@ -1420,21 +1450,14 @@ espeak_ERROR SetVoiceByName(const char *name)
 {//=========================================
 	espeak_VOICE *v;
 	espeak_VOICE voice_selector;
-	int variant=0;
-	char *p;
-	char variant_name[20];
+	char *variant_name;
 	static char buf[60];
 
 	strncpy0(buf,name,sizeof(buf));
-	if((p = strchr(buf,'+')) != NULL)
-	{
-		// remove the voice variant suffix, from eg. en+3
-		*p = 0;
-		variant = atoi(p+1);
-	}
+	variant_name = ExtractVoiceVariantName(buf,0);
 
 	memset(&voice_selector,0,sizeof(voice_selector));
-	voice_selector.name = (char *)name;
+	voice_selector.name = buf;
 
 	// first check for a voice with this filename
 	// This may avoid the need to call espeak_ListVoices().
@@ -1443,10 +1466,8 @@ espeak_ERROR SetVoiceByName(const char *name)
 	{
 		voice_selected = first_voice;
 
-		if(variant > 0)
+		if(variant_name[0] != 0)
 		{
-			// apply a voice variant
-			sprintf(variant_name,"!varnt%d",variant);
 			LoadVoice(variant_name,2);
 		}
 
@@ -1460,9 +1481,14 @@ espeak_ERROR SetVoiceByName(const char *name)
 
 	if((v = SelectVoiceByName(voices_list,buf)) != NULL)
 	{
-		if(LoadVoiceVariant(v->identifier,variant) != NULL)
+		if(LoadVoice(v->identifier,0) != NULL)
 		{
 			voice_selected = v;
+
+			if(variant_name[0] != 0)
+			{
+				LoadVoice(variant_name,2);
+			}
 			WavegenSetVoice(voice);
 			SetVoiceStack(&voice_selector);
 			return(EE_OK);
