@@ -1,0 +1,24 @@
+Building speak.exe with djgpp:
+
+1.
+unzip the source with the unzip32.exe utility from djgpp.
+
+2.
+change into the src directory.
+copy the makefile.dj and the speech.h file into the src directory
+type in the src directory make -f makefile.dj
+
+3.
+copy the speak.exe into the main directory (cp speak.exe ..\speak.exe
+
+Now you can use speak.exe to produce wave-files:
+
+speak -v de -f test.txt -w test.wav
+
+or you can produce phonemes for mbrola:
+
+speak -v mb\mb-de4 -f test.txt >test.pho
+
+
+speak --voices will list all voices.
+Test it and enjoy.

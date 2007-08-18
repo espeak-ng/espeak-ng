@@ -1,0 +1,122 @@
+eSpeak - RISCOS Version
+========================
+
+NOTE:  The contents of the files in the espeak-dat directory,
+  and the format of their contents has changed for this version.
+  Please delete your old  espeak-dat  directory and replace it
+  with the new one in this package.
+
+
+Requirements
+============
+
+RISCOS 3.6 or later with 16 bit sound system enabled.
+
+On my 200MHz StrongArm, it takes 51 sec to process 6m 3s of speech output,
+so it will probably run OK on an ARM7 processor also. 
+
+
+
+Installation and Use
+====================
+
+1.  Copy the !eSpeak directory onto your harddrive.    
+
+2.  To load the Speak module:  double-click on !eSpeak.
+    
+    This sets the <eSpeak$Dir> system variable, and then runs
+    the "speakmod" file to load the Speak module.
+    
+    Note, <eSpeak$Dir> refers to the directory that contains the
+    espeak-dat directory, which contains the speech data. It must
+    be set before the module is loaded.
+       
+
+3.  Example commands:
+
+    *help speak
+      should now show version 3.10
+
+    *speak -h
+      shows the available commands
+            
+    *speak "this is some text"
+      speaks the string "this is some text"
+      
+    *speak -v en-f "this is some text"
+      speaks with a different voice
+      
+    *speak -f textfile
+      speaks the text from file "textfile"
+      
+    *speak -a30 "this is some text"
+      speaks more quietly (range 0 to 200)
+      
+    *speak -s200 "this is some text"
+      speaks more quickly (200 words per minute)
+    
+    The improvement in speech quality over Speak v.2 are most clearly
+    heard when listening through a good sound system (eg. domestic
+    stereo system) rather than small computer speakers.
+    
+    
+4.  Adding words to the pronunciation dictionary
+
+    The directory "data" contains pronunciation rules and exceptions
+    lists.  To add words, add the word and its pronunciation
+    phonemes to en_extra and then do the speak command
+   
+      speak --compile=en
+      
+    from within the data directory.  This will recompile the files:
+       en_dict  in the espeak_dat directory.
+       
+    Details of the phoneme codes are given in docs.phonemes/html
+    
+    You can see the translated phoneme codes for a word by
+       speak -x "word"
+
+    
+    
+Use with Pluto
+==============
+
+    !Pluto will use the new module if speakmod has already
+    been run.  Pluto's Speak dialog should show the new voices.
+    If you wish, you can give them more meaningful names by
+    renaming the files in espeak-dat.voices
+    
+    To install permanently in Pluto, you can copy "speakmod" into
+    !Pluto to replace the old speakmod for Speak version 2.
+    
+    Note that the system variable <eSpeak$dir> must be set before
+    speakmod is loaded.  This can be done by either:
+    
+    a.  Making sure that !eSpeak is seen by the RISC OS filer
+        before Pluto is run.
+    or
+    b.  Putting the line:
+           Set eSpeak$dir <obey$dir>
+        in the !Pluto.!Run file and copying the espeak-dat directory
+        into !Pluto
+    
+    Re-select the voices that Pluto uses.  These may have changed.
+    
+
+To Re-Compile the Speak Module
+==============================
+
+    Download the "speak-*-source.zip" package and follow the instruction
+    int the ReadMe file in the "riscos" directory.
+    
+
+Problems
+========
+
+1.  It uses the sound system directly rather than through the
+    SharedSound module, would allow the system volume control apply
+    to speech.
+    
+2.  There is no session management implemented, so changes to speed,
+    amplitude etc by one user of the module will affect the others.
+    

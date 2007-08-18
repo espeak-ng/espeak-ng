@@ -7,5 +7,5 @@ of eSpeak for Windows.
 
 Copy the source files from the Linux "src" directory into this
 "src" directory, EXCEPT for speech.h.   Keep the original Windows
-command-line version iof speech.h.
+command-line version of speech.h.
 

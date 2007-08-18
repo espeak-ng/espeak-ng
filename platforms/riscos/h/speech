@@ -1,0 +1,82 @@
+/***************************************************************************
+ *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
+ *   jsd@clara.co.uk                                                       *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 2 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+
+// Header file for RISCOS build
+
+#define N_PEAKS   9
+#define N_MARKERS 7
+
+// comment this out when compiling the "speak" process
+//#define SPECT_EDITOR
+
+#define PATHSEP   '.'
+#define USE_ASSEMBLER_1
+#define PLATFORM_RISCOS
+#define NEED_WCHAR_FUNCTIONS
+#define __cdecl               // define as null, needed for Borland compiler
+#define ESPEAK_API
+
+typedef unsigned short USHORT;
+typedef unsigned char  UCHAR;
+typedef int DOUBLEX;
+
+typedef struct {
+   const char *mnem;
+   int  value;
+} MNEM_TAB;
+int LookupMnem(MNEM_TAB *table, char *string);
+
+
+typedef struct {
+   short pkfreq;
+   short pkheight;
+   short pkwidth;
+   short pkright;
+}  peak_t;
+
+typedef struct {
+	short frflags;
+	unsigned char length;
+	unsigned char rms;
+	short ffreq[9];
+	unsigned char fheight[9];
+	unsigned char fwidth[6];          // width/4
+	unsigned char fright[6];          // width/4
+} frame_t;
+
+extern int GetFileLength(const char *filename);
+extern char *Alloc(int size);
+extern void Free(void *ptr);
+
+extern void strncpy0(char *to,const char *from, int size);
+extern char path_home[];
+extern const char *version_string;
+extern const int version_phdata;
+
+const int wcslen(const wchar_t *str);
+
+
+extern "C" {
+// optional assembler routine to speed-up Wavegen()
+int AddSineWaves(int waveph, int h_switch_sign, int maxh, int *harmspect);
+}
+
+#define strcasecmp(a,b)   strcmp(a,b)
+

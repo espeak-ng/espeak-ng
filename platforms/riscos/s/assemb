@@ -1,0 +1,127 @@
+; 32 bit version
+
+; SWI numbers
+OS_File             *  &8
+OS_Module           *  &1e
+XOS_AddCallBack     *  &20054
+XOS_RemoveCallBack  *  &2005f
+
+
+
+        GET     h.RegNames
+        EXPORT  DMA_Handler
+	EXPORT	AddSineWaves
+
+	IMPORT |callback_entry|
+	IMPORT |sound_entry|
+	IMPORT |sin_tab|
+
+
+        AREA   Assemb , CODE, READONLY
+
+
+; pointers to data items
+ADR_callback_entry
+		DCD    callback_entry
+ADR_sound_entry
+		DCD     sound_entry
+ADR_sin_tab
+		DCD	sin_tab
+
+
+
+
+
+DMA_Handler
+;**********
+; fill the sound buffer of the linear sound handler
+; preserve r11,r12,r13 (fp,ip,sp)
+
+	MOV	r5,ip		; need to save ip
+	MOV	ip,sp		;set up a stack
+	STMFD	sp!, {fp,ip,lr}
+	STMFD	sp!, {r5}
+
+	MOV	r12,r0		; put the module_data word in r12
+	BL	sound_entry     ; call C function through veneer in CMHG
+
+	; returns with r0=1 set callback,  r1=module_data address
+	CMP	r0,#1
+	BNE	DMA_return
+
+;---------
+	TEQ	pc,pc
+	MRSEQ	r8, CPSR	; 32bit version of call SWI from IRQ mode
+	MOVNE	r8,pc
+	ORR	r9,r8,#3
+	MSREQ	CPSR_c, r9
+	TEQNEP	r9,#0
+	NOP
+	STR	r14, [r13,#-4]!
+;---------
+
+	; r1=module_data address
+	LDR	r0,ADR_callback_entry  ; call C function through CMHG veneer
+	SWI	XOS_AddCallBack
+
+;---------
+	LDR	r14, [r13],#4  ; 32bit version of 'reenter original processor mode'
+	TEQ	pc,pc
+	MSREQ	CPSR_c, r8
+	TEQNEP	r8,#0
+	NOP
+;---------
+
+DMA_return
+	LDMFD	sp!,{ip}
+	LDMFD   sp, {fp,sp,pc}
+
+
+AddSineWaves
+;total += AddSineWaves(waveph, h_switch_sign, maxh, harmspect);
+; using this assembler routine increases overall speed by about 7.5%
+; define the USE_ASSEMBLER_1 macro in speech.h to enable this routine
+
+; input:  r0=waveph  r1=h_switch_sign  r2=maxh  r3=harmspect
+; local:  r5=sin_tab r6=total  r7=h  r8=theta
+; return(total)
+	MOV	ip,sp
+	STMFD	sp!, {r5-r9,ip,lr}
+	LDR	r5,ADR_sin_tab
+	MOV	r6,#0		; total = 0
+	MOV	r0,r0,LSL #16
+	MOV	r8,r0		; theta = waveph
+
+	MOV	r7,#1
+
+as1
+	MOV	ip,r8,LSR #21
+	LDR	r9,[r5,ip,LSL #1]	; sin_tab[theta >> 5]
+	MOV	r9,r9,LSL #16
+	MOV	r9,r9,ASR #16
+	LDR	ip,[r3,r7,LSL #2]	; harmspect[h]
+	MLA	r6,r9,ip,r6
+
+	ADD	r8,r8,r0		; theta += waveph
+	ADD	r7,r7,#1		; h++
+	CMP	r7,r1
+	BLE	as1
+
+	RSB	r6,r6,#0		; change sign
+
+as2
+	MOV	ip,r8,LSR #21
+	LDR	r9,[r5,ip,LSL #1]	; sin_tab[theta >> 5]
+	MOV	r9,r9,LSL #16
+	MOV	r9,r9,ASR #16
+	LDR	ip,[r3,r7,LSL #2]	; harmspect[h]
+	MLA	r6,r9,ip,r6
+
+	ADD	r8,r8,r0		; theta += waveph
+	ADD	r7,r7,#1		; h++
+	CMP	r7,r2
+	BLE	as2
+
+	MOV	r0,r6
+	LDMFD	sp, {r5-r9,sp,pc}
+   END

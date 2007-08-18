@@ -1,0 +1,11 @@
+typedef  int wchar_t;
+
+int iswalpha(int c);
+int iswdigit(int c);
+int iswalnum(int c);
+int towlower(int c);
+int iswupper(int c);
+int iswlower(int c);
+int iswspace(int c);
+int iswpunct(int c);
+

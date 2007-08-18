@@ -1,0 +1,61 @@
+BINDIR=/usr/bin
+INCDIR=/usr/include/espeak
+LIBDIR=/usr/lib
+DATADIR=espeak-data
+
+RELEASE = 1.28
+BIN_NAME = speak
+
+INSTALL = /usr/bin/install
+LN_SF = /bin/ln -sf
+MKDIR = mkdir -p
+
+speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
+	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
+	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
+	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp
+
+SRCS1=$(speak_SOURCES)
+OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
+LIBS1=
+
+
+CXXFLAGS=-O2
+
+
+all: $(BIN_NAME) 
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions $<
+
+$(BIN_NAME): $(OBJS1)
+	$(CXX) -o $@ $(OBJS1) $(LIBS1)
+
+clean:
+	rm -f *.o *.a *~
+
+distclean: clean
+	rm -f $(BIN_NAME)
+	rm -f $(BIN2_NAME)
+	rm -f $(LIB_NAME)*
+
+install: all
+	# Create directories
+	rm -rf $(DESTDIR)$(DATADIR)
+	$(MKDIR) $(DESTDIR)$(BINDIR)
+	$(MKDIR) $(DESTDIR)$(LIBDIR)
+	$(MKDIR) $(DESTDIR)$(INCDIR)
+	$(MKDIR) $(DESTDIR)$(DATADIR)
+	# Install espeak executable
+	$(INSTALL) -m 755 $(BIN2_NAME) $(DESTDIR)$(BINDIR)
+	# Install shared library
+	$(INSTALL) -m 755 $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)
+	# Install static library
+	$(INSTALL) -m 755 $(STATIC_LIB_NAME) $(DESTDIR)$(LIBDIR)
+	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIB_NAME).$(LIB_VERSION)
+	$(LN_SF) $(LIB_NAME).$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/$(LIB_NAME)
+	# Install development headers
+	$(INSTALL) -pm 644 speak_lib.h $(DESTDIR)$(INCDIR)
+	# Install data files
+	cp -prf ../espeak-data/* $(DESTDIR)$(DATADIR)
+

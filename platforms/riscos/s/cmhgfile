@@ -1,0 +1,22 @@
+
+
+initialisation-code: user_init
+
+title-string: Speak
+help-string: Speak 3.25 Text to Speech (32 bit)
+
+swi-chunk-base-number: &4ad80
+swi-handler-code: swi_handler
+swi-decoding-table: Speak,
+   Ready,X,Misc,Say,Sayw,Stop,X,Pitch,Speed,WordGap,PitchRange,X,X,Volume
+
+vector-handlers: callback_entry/callback_handler
+vector-handlers: sound_entry/sound_handler
+
+command-keyword-table: command_handler
+  SAY(min-args: 1, max-args: 255,
+        help-text: "Says English string <string>\n"),
+  SAYW(min-args: 1, max-args: 255,
+        help-text: "Says English string <string>\n"),
+  SPEAK(min-args: 1, max-args: 255,
+        help-text: "Says English string <string>\n")

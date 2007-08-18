@@ -1,0 +1,14 @@
+These files are for a version for RISC OS computers (formerly
+known as "Acorn" computers), which use ARM processors.
+
+
+To compile the  speakmod  module for RISC OS.
+
+1.  Run the "copysource" script to copy the source files from the
+    general  source.src  directory into the  riscos.cpp  and
+    riscos.h  directories.  These already contain the RISC OS
+    specific files.
+
+2.  Run the  Makefile  to  compile and link and produce the
+   "speakmod"  module.
+    I used the AcornC/C++ compiler.
