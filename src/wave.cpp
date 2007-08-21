@@ -1020,6 +1020,7 @@ void *wave_test_get_write_buffer()
 #else
 // notdef USE_PORTAUDIO
 
+void wave_flush(void* theHandler) {}
 void wave_init() {}
 void* wave_open(char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
@@ -1028,11 +1029,17 @@ int wave_is_busy(void* theHandler) {return 0;}
 void wave_terminate() {}
 uint32_t wave_get_read_position(void* theHandler) {return 0;}
 uint32_t wave_get_write_position(void* theHandler) {return 0;}
-int wave_get_remaining_time(uint32_t sample, uint32_t* time) {return 0;}
 void wave_flush(void* theHandler) {}
 typedef int (t_wave_callback)(void);
 void wave_set_callback_is_output_enabled(t_wave_callback* cb) {}
-extern void* wave_test_get_write_buffer() {return 0;}
+extern void* wave_test_get_write_buffer() {return NULL;}
+
+int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+{
+	if (!time) return(-1);
+	*time = (uint32_t)0;
+	return 0;
+}
 
 #endif  // of USE_PORTAUDIO
 

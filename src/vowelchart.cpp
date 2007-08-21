@@ -506,3 +506,55 @@ void MakeVowelLists(void)
 	LoadVoice(voice_name,0);  // reset the original phoneme table
 	delete progress;
 }
+
+
+extern int n_envelopes;
+extern char envelope_paths[][80];
+extern unsigned char envelope_dat[][128];
+
+#define HT_ENV 140
+#define WD_ENV 128*2
+
+void DrawEnvelopes()
+{//================
+	int ix_env;
+	int y_base;
+	int x;
+	unsigned char *env;
+	char name[80];
+
+	wxBitmap bitmap(WD_ENV,HT_ENV*n_envelopes);
+
+	// Create a memory DC
+	wxMemoryDC dc;
+	dc.SelectObject(bitmap);
+	dc.SetBrush(*wxWHITE_BRUSH);
+	dc.SetFont(*wxSWISS_FONT);
+	dc.Clear();
+
+
+	for(ix_env=0; ix_env<n_envelopes; ix_env++)
+	{
+		y_base = HT_ENV * ix_env;
+		dc.SetPen(*wxLIGHT_GREY_PEN);
+		dc.DrawLine(0,y_base+0,256,y_base+0);
+		dc.DrawLine(0,y_base+64,256,y_base+64);
+		dc.DrawLine(0,y_base+128,256,y_base+128);
+		dc.DrawLine(128,y_base+0,128,y_base+128);
+
+		dc.SetPen(*wxBLACK_PEN);
+		strncpy0(name,envelope_paths[ix_env],sizeof(name));
+		dc.DrawText(wxString(name,wxConvLocal),1,y_base);
+
+		env = envelope_dat[ix_env];
+		y_base = y_base+128;
+		for(x=0; x<127; x++)
+		{
+			dc.DrawLine(x*2, y_base-env[x]/2, (x+1)*2, y_base-env[x+1]/2);
+		}
+	}
+
+	bitmap.SaveFile(path_phsource+_T("/envelopes.png"),wxBITMAP_TYPE_PNG);
+
+}
+

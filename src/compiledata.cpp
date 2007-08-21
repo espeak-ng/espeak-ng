@@ -75,6 +75,7 @@
 extern void Write4Bytes(FILE *f, int value);
 extern void MakeVowelLists(void);
 extern void FindPhonemesUsed(void);
+extern void DrawEnvelopes();
 extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname);
 extern char voice_name[];
 
@@ -89,6 +90,14 @@ typedef struct {
 	unsigned char used_by[N_USED_BY];
 	char string[1];
 } REF_HASH_TAB;
+
+
+#define N_ENVELOPES  30
+#define ENV_LEN  128
+int n_envelopes = 0;
+char envelope_paths[N_ENVELOPES][80];
+unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
+
 
 
 class Compile
@@ -119,6 +128,7 @@ private:
 	int LoadSpect(const char *path, int control);
 	int LoadWavefile(FILE *f, const char *fname);
 	int LoadEnvelope(FILE *f, const char *fname);
+	int LoadEnvelope2(FILE *f, const char *fname);
 	int LoadDataFile(const char *path, int control);
 	int AddSpect(int phcode, int *list, int control);
 	void AddSpectList(int *list, int control);
@@ -879,6 +889,13 @@ int Compile::LoadEnvelope(FILE *f, const char *fname)
 	fread(buf,1,128,f);
 	fwrite(buf,1,128,f_phdata);
 
+	if(n_envelopes < N_ENVELOPES)
+	{
+		strncpy0(envelope_paths[n_envelopes],fname,sizeof(envelope_paths[0]));
+		memcpy(envelope_dat[n_envelopes],buf,sizeof(envelope_dat[0]));
+		n_envelopes++;
+	}
+
 	return(displ);
 }
 
@@ -971,6 +988,12 @@ int Compile::LoadDataFile(const char *path, int control)
 		type_code = 'E';
 	}
 	else
+	if(id == 0x45564E45)
+	{
+		ix = LoadEnvelope2(f,path);
+		type_code = 'E';
+	}
+	else
 	{
 		Error("File not SPEC or RIFF",path);
 		ix = -1;
@@ -979,7 +1002,6 @@ int Compile::LoadDataFile(const char *path, int control)
 
 	if(ix > 0)
 	{
-//		fprintf(f_phcontents,"%c  %-15s %4d 0x%.5x  %s\n",type_code,current_fname,linenum,ix & 0x7fffff,path);
 		fprintf(f_phcontents,"%c  0x%.5x  %s\n",type_code,ix & 0x7fffff,path);
 	}
 
@@ -1808,6 +1830,67 @@ void make_envs()
 }
 #endif
 
+int Compile::LoadEnvelope2(FILE *f, const char *fname)
+{//===================================================
+	int ix;
+	int n;
+	int x, y;
+	int displ;
+	int n_points;
+	char line_buf[128];
+	float env_x[20];
+	float env_y[20];
+	int env_lin[20];
+	unsigned char env[ENV_LEN];
+
+	n_points = 0;
+	fgets(line_buf,sizeof(line_buf),f);   // skip first line
+	while(!feof(f))
+	{
+		if(fgets(line_buf,sizeof(line_buf),f) == NULL)
+			break;
+
+		env_lin[n_points] = 0;
+		n = sscanf(line_buf,"%f %f %d",&env_x[n_points],&env_y[n_points],&env_lin[n_points]);
+		if(n >= 2)
+		{
+			env_x[n_points] *= 1.28;  // convert range 0-100 to 0-128
+			n_points++;
+		}
+	}
+	env_x[n_points] = env_x[n_points-1];
+	env_y[n_points] = env_y[n_points-1];
+
+	ix = -1;
+	for(x=0; x<ENV_LEN; x++)
+	{
+		if(x > env_x[ix+4])
+			ix++;
+
+		if(n_points > 3)
+			y = (int)(polint(&env_x[ix],&env_y[ix],4,x) * 2.55);  // convert to range 0-255
+		else
+			y = (int)(polint(&env_x[ix],&env_y[ix],3,x) * 2.55);
+		if(y < 0) y = 0;
+		if(y > 255) y = 255;
+		env[x] = y;
+	}
+
+
+	if(n_envelopes < N_ENVELOPES)
+	{
+		strncpy0(envelope_paths[n_envelopes],fname,sizeof(envelope_paths[0]));
+		memcpy(envelope_dat[n_envelopes],env,ENV_LEN);
+		n_envelopes++;
+	}
+
+	displ = ftell(f_phdata);
+	fwrite(env,1,128,f_phdata);
+
+	return(displ);
+}
+
+
 static int ref_sorter(char **a, char **b)
 {//======================================
 	
@@ -2081,6 +2164,7 @@ void Compile::CPhonemeTab(const char *source)
 make_envs();	
 #endif
 
+	n_envelopes = 0;
 	error_count = 0;
 memset(markers_used,0,sizeof(markers_used));
 
@@ -2192,7 +2276,7 @@ fprintf(f_errors,"Refs %d,  Reused %d\n",count_references,duplicate_references);
 	LoadPhData();
 	LoadVoice(voice_name,0);
 	Report();
-
+	DrawEnvelopes();
 
 	report_dict = CompileAllDictionaries();
 
