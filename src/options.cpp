@@ -37,7 +37,6 @@ extern void strncpy0(char *to,const char *from, int size);
 extern int GetNumeric(wxTextCtrl *t);
 extern void SetNumeric(wxTextCtrl *t, int value);
 extern int samplerate;
-extern char voice_name[40];
 
 wxString path_spectload;
 wxString path_spectload2;
@@ -53,6 +52,7 @@ wxString path_dir1;
 int option_speed=160;
 
 char path_dsource[sizeof(path_home)+20];
+char voice_name2[40];
 
 BEGIN_EVENT_TABLE(Options, wxDialog)
 		EVT_BUTTON(wxID_SAVE,Options::OnCommand)
@@ -174,7 +174,7 @@ void ConfigInit()
 	pConfig->Read(_T("/wavepath"),&path_wave,wxEmptyString);
 	pConfig->Read(_T("/speechpath"),&path_speech,wxEmptyString);
 	pConfig->Read(_T("/voicename"),&string,wxEmptyString);
-	strcpy(voice_name,string.mb_str(wxConvLocal));
+	strcpy(voice_name2,string.mb_str(wxConvLocal));
 	pConfig->Read(_T("/phsource"),&path_phsource,basedir+_T("/phsource"));
 	pConfig->Read(_T("/phfile"),&path_phfile,path_phsource+_T("/phonemes"));
 	pConfig->Read(_T("/dictsource"),&path_dictsource,basedir+_T("/dictsource"));
@@ -199,7 +199,7 @@ void ConfigSave(int exit)
 	pConfig->Write(_T("/pitchpath"),path_pitches);
 	pConfig->Write(_T("/wavepath"),path_wave);
 	pConfig->Write(_T("/speechpath"),path_speech);
-	pConfig->Write(_T("/voicename"),wxString(voice_name,wxConvLocal));
+	pConfig->Write(_T("/voicename"),wxString(voice_name2,wxConvLocal));
 	pConfig->Write(_T("/phsource"),path_phsource);
 	pConfig->Write(_T("/phfile"),path_phfile);
 	pConfig->Write(_T("/dictsource"),path_dictsource);

@@ -5,4 +5,6 @@ dictionary zhy
 gender male
 
 // interpret English letters as 1=English words, 2=jyutping
-dictrules 2
+dictrules 1
+
+words 1

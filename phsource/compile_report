@@ -10,7 +10,7 @@
    en_wm  30  144
       af  38  128
       cy  29  122
-      de  32  123
+      de  33  123
       eo  13  108
       fi  40  127
       fr  34  118
@@ -36,7 +36,7 @@
       no  28  122
       is  32  121
       vi  41  133
-     zhy  33  125
+     zhy  40  129
       sw  14  105
 
   3  b/b            base hi ro
@@ -95,6 +95,7 @@
   1  j/je           base
   1  j/ji           base
   1  j/jo           base
+  1  j/_j_short     de
   1  j/ju           base
   6  j/xj           base
   1  l^/j2@         base
@@ -157,14 +158,14 @@
   1  n/ni           base
   1  nn/inn         base
   4  n/nj           base ro
-  3  nn/_nn         base en zhy
-  3  nn/nn_         base en zhy
+  2  nn/_nn         base en
+  2  nn/nn_         base en
   1  nn/nn@         base
   1  nn/nn#_        is
   1  nn/nna         base
   1  nn/nne         base
   1  nn/nni         base
-  2  nn/nnj         base zhy
+  1  nn/nnj         base
   1  nn/nno         base
   1  nn/nnu         base
   1  n^/n^o         base
@@ -242,20 +243,20 @@
   4  ufric/x2       af nl pt
   1  ufric/x_hr     hr
   1  ustop/c        base
-  5  ustop/k        base en fr hi sw
+  6  ustop/k        base en fr hi zhy sw
  10  ustop/k_       base base2 en fi fr hi hu sk el sw
- 14  ustop/ki       base base2 en af fi fr hi hu sk mk is sw
- 11  ustop/kl       base base2 en fi fr hi hu sk el sw
- 12  ustop/kr       base base2 en fi fr hi hu sk el sw
- 10  ustop/k_unasp  base base2 fi hi hu sk el
-  3  ustop/p        base fr hi
+ 15  ustop/ki       base base2 en af fi fr hi hu sk mk is zhy ++
+ 12  ustop/kl       base base2 en fi fr hi hu sk el zhy sw
+ 14  ustop/kr       base base2 en fi fr hi hu sk el zhy sw
+ 11  ustop/k_unasp  base base2 fi hi hu sk el zhy
+  4  ustop/p        base fr hi zhy
   3  ustop/p_       base fr hi
   1  ustop/percus10 base
  10  ustop/pl       base base2 fi fr hi hu sk la ro
   9  ustop/pr       base base2 fi hi hu la ro
   9  ustop/p_unasp  base base2 fi fr hi hu sk la ro
   7  ustop/p_unasp_ base2 fi hi hu sk la ro
-  6  ustop/t        base en fr hi
+  7  ustop/t        base en fr hi zhy
   8  ustop/t_       base en fr hi sk el
  22  ustop/t_dnt    base base2 en fi hi hu pl hr ru ro vi sw
   1  ustop/t_dnt2   vi
@@ -312,17 +313,16 @@
   2  vdiph/ai_5     de la
   1  vdiph/ai_6     en_rp
   5  vdiph/ai_7     en_sc is
-  1  vdiph/ai_en    en
+  1  vdiph/ai_en2   en
   3  vdiph/au       en af vi
   1  vdiph/au#      en_sc
   2  vdiph/au_2     en_us zhy
   1  vdiph/au_3     en_rp
   6  vdiph/au_4     base2 cy eo sk it is
   1  vdiph/ee-e     hi
-  4  vdiph/eei      en de pt vi
+  5  vdiph/eei      en de nl pt vi
   3  vdiph/eei_2    en_us eo fi
   2  vdiph/eei_3    en_rp sk
-  1  vdiph/eei_4    nl
   3  vdiph/eeu      pt vi zhy
   2  vdiph/eeu_2    la pt_pt
   2  vdiph/eeu_3    en_n en_wm
@@ -469,9 +469,8 @@
  10  vowel/ii       en_wm cy de fr_ca nl is zhy
   3  vowel/ii#      cy pl ru
   1  vowel/ii_2     la
-  7  vowel/ii_3     en_rp fi hi sk hr sv no
-  2  vowel/ii_4     en_rp
-  6  vowel/ii_en    en en_n
+  8  vowel/ii_3     en en_rp fi hi sk hr sv no
+  7  vowel/ii_4     en en_n en_rp
   5  vowel/@_low    hi ro no
  11  vowel/o        base2 en en_wm de hi it la pt_pt sv
   4  vowel/o_2      cy hi hu no
@@ -503,7 +502,7 @@
   5  vowel/u_2      fi fr sk hr ro
   1  vowel/u#_2     sv
   2  vowel/u_3      en_us ro
-  1  vowel/u#_3     en_n
+  1  vowel/u_4      en_n
   2  vowel/u#_4     en_sc
   1  vowel/u_5      sw
   3  vowel/u_6      en_rp pt_pt
@@ -514,8 +513,8 @@
   1  vowel/uu_3     af
   2  vowel/uu_4     fi sv
   7  vowel/uu_bck   fr_ca hi hu pt no zhy
-  2  vowel/V        en en_sc
-  3  vowel/V_2      af ru
+  1  vowel/V        en_sc
+  4  vowel/V_2      en af ru
   3  vowel/V_3      en_rp hi vi
   1  vowel/V_4      en_sc
   6  vowel/y        en de fi hu nl zhy
@@ -601,6 +600,11 @@
   1  vwl_ru/u#u     ru
   1  vwl_sv/r_sv3   sv
   1  vwl_zh/aang    zhy
+  1  vwl_zh/ang     zhy
+  1  vwl_zh/eng     zhy
+  1  vwl_zh/ing     zhy
+  1  vwl_zh/ng      zhy
+  1  vwl_zh/oeng    zhy
   1  vwl_zh/ong     zhy
   1  vwl_zh/ung     zhy
   2  w/w            base fr

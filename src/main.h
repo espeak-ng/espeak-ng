@@ -18,6 +18,7 @@ extern int progress_max;
 extern int gui_flag;
 
 extern char *WavFileName();
+extern char voice_name2[40];
 
 class SpectDisplay;
 
@@ -90,7 +91,7 @@ public:
 
 	void OnKey(wxKeyEvent& event);
 	void SpeakFile(void);
-	void ReadVoice(void);
+	void ReadVoice(int variant);
 	void OnCommand(wxCommandEvent& event);
 
 private:
@@ -141,6 +142,7 @@ enum {
 	MENU_SPEAK_PAUSE,
 	MENU_SPEAK_STOP,
 	MENU_SPEAK_VOICE,
+	MENU_SPEAK_VOICE_VARIANT,
 	MENU_LOAD_WAV,
 
 	MENU_VOWELCHART,

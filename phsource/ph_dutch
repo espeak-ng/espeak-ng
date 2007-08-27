@@ -104,7 +104,7 @@ endphoneme
 phoneme EI
   vowel starttype (a) endtype (i)
   length 210
-  formants vdiph/eei_4
+  formants vdiph/eei
 endphoneme
 
 phoneme Wy

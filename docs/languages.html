@@ -67,10 +67,12 @@ en-wm</strong><br>
 <h3>3.3 Voice Variants</h3>
 To make alternative voices for a language, you can make additional voice files in espeak-data/voices which contains commands to change various voice and pronunciation attributes.  See <a href="voices.html">voices.html</a>.
 <p>
-Alternatively there are some preset voice variants which can be applied to any of the language voices, by appending <code>+</code> and a number. Their effects are defined by files in <code>espeak-data/voices/!v</code>.
+Alternatively there are some preset voice variants which can be applied to any of the language voices, by appending <code>+</code> and a variant name. Their effects are defined by files in <code>espeak-data/voices/!v</code>.
 <p>
-The variant numbers are <code> +1  +2  +3  +4  +5 </code> for male voices and <code> +11 +12 +13 +14 </code> for female voices. For example:
-<pre>   espeak -ven+3</pre>
+The variants are <code> +m1  +m2  +m3  +m4  +m5 </code> for male voices, <code> +f1 +f2 +f3 +f4 </code> for female voices, and <code> +croak  +wisper</code> for other effects. For example:
+<pre>   espeak -ven+m3</pre>
+The available voice variants can be listed with:<br>
+<pre>   espeak --voices=variant</pre>
 <h3>3.4 Other Languages</h3>
 The eSpeak speech synthesizer does text to speech for the following additional langauges.
 <ul>

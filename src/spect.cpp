@@ -384,7 +384,7 @@ void SpectFrame::ApplyVoiceMods()
 	int pk;
 	char voice_name1[40];
 
-	strcpy(voice_name1, voice_name);  // remember current voice name
+	strcpy(voice_name1, voice_name2);  // remember current voice name
 
 	if(LoadVoice(path_modifiervoice.mb_str(wxConvLocal),0x13) == NULL)
 	{

@@ -243,23 +243,51 @@ void TranslDlg::SpeakFile(void)
 
 
 
-void TranslDlg::ReadVoice()
-{//========================
+void TranslDlg::ReadVoice(int variant)
+{//===================================
 	wxString path;
 	wxString filename;
+	char *p;
+	char vname[40];
 	char fname[sizeof(path_home)+10];
 
-	sprintf(fname,"%s/voices",path_home);
-	path = wxFileSelector(_T("Load voice"),wxString(fname,wxConvLocal),_T(""),_T(""),_T("*"),wxOPEN);
-	if(path.IsEmpty())
-		return;
+	if(variant)
+	{
+		// remove variant from the previous voice name
+		if((p = strchr(voice_name2,'+')) != NULL)
+			*p = 0;
 
-	filename = path.Mid(strlen(fname)+1);
-	strcpy(fname,filename.mb_str(wxConvLocal));
+		sprintf(fname,"%s/voices/!v",path_home);
+		path = wxFileSelector(_T("Load voice variant"),wxString(fname,wxConvLocal),_T(""),_T(""),_T("*"),wxOPEN);
+		if(path.IsEmpty())
+		{
+			strcpy(fname,voice_name2);
+		}
+		else
+		{
+			filename = path.Mid(strlen(fname)+1);
+			strcpy(vname,filename.mb_str(wxConvLocal));
+			sprintf(fname,"%s+%s",voice_name2,vname);
+		}
+	}
+	else
+	{
+		sprintf(fname,"%s/voices",path_home);
+		path = wxFileSelector(_T("Load voice"),wxString(fname,wxConvLocal),_T(""),_T(""),_T("*"),wxOPEN);
+		if(path.IsEmpty())
+			return;
+
+		filename = path.Mid(strlen(fname)+1);
+		strcpy(fname,filename.mb_str(wxConvLocal));
+	}
 
 	if(SetVoiceByName(fname) != EE_OK)
 	{
 		wxLogError(_T("Failed to load voice data"));
+	}
+	else
+	{
+		strcpy(voice_name2,fname);
 	}
 	WavegenSetVoice(voice);
 }

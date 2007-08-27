@@ -69,7 +69,7 @@ endphoneme
 
 phoneme O
   vowel starttype (o) endtype (o)
-  length 140
+  length 120
   formants vowel/oo
   before * DFT+40
 endphoneme
@@ -247,6 +247,17 @@ phoneme l/    // used for [l] when not before a vowel
   before (r) l/_l
   beforevowel l
 endphoneme
+
+phoneme j
+  liquid
+  palatal
+  length 100
+  beforenotvowel j/
+  formants NULL
+  after _ j/_j_short
+  lengthmod 7
+endphoneme
+
 
 
 // This is actually the ENGLISH "rolling r". For german, we now use * in the dictionary,

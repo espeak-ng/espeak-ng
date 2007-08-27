@@ -66,7 +66,6 @@ static int len_path_voices;
 
 espeak_VOICE *voice_selected = NULL;
 espeak_VOICE *first_voice = NULL;
-char voice_name[40];
 
 
 
@@ -870,7 +869,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	if(!tone_only)
 	{
 		translator = new_translator;
-		strcpy(voice_name,voicename);
 	}
 
 	// relative lengths of different stress syllables
@@ -978,7 +976,7 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 
 	if((ix = v2->score - v1->score) != 0)
 		return(ix);
-	return(strcmp(v2->name,v1->name));
+	return(strcmp(v1->name,v2->name));
 }
 
 
@@ -1525,6 +1523,8 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {//========================================================================
 #ifndef PLATFORM_RISCOS
 	int ix;
+	int j;
+	espeak_VOICE *v;
 	static espeak_VOICE *voices[N_VOICES_LIST];
 	char selected_voice_id[80];
 	char path_voices[sizeof(path_home)+12];
@@ -1570,9 +1570,21 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	{
 		// select the voices which match the voice_spec, and sort them by preference
 		SetVoiceScores(voice_spec,voices,1);
-		return((const espeak_VOICE **)voices);
 	}
-
+	else
+	{
+		// omit variant voices
+		j = 0;
+		for(ix=0; (v = voices_list[ix]) != NULL; ix++)
+		{
+			if((v->languages[0] != 0) && (strcmp(&v->languages[1],"variant") != 0))
+			{
+				voices[j++] = v;
+			}
+		}
+		voices[j] = NULL;
+	}
+	return((const espeak_VOICE **)voices);
 #endif
 	return((const espeak_VOICE **)voices_list);
 }  //  end of espeak_ListVoices

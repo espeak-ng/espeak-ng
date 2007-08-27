@@ -2,7 +2,8 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.27
+AppVerName=eSpeak version 1.29
+
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeak
@@ -25,6 +26,7 @@ Source: "dictsource2\*"; DestDir: "{app}\dictsource"
 Source: "docs\*"; DestDir: "{app}\docs"; Flags: recursesubdirs
 Source: "command_line\*"; DestDir: "{app}\command_line"
 Source: "Readme.txt"; DestDir: "{app}"; Flags: isreadme
+Source: "License.txt"; DestDir: "{app}";
 
 [Registry]
 Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak"; Flags: deletekey uninsdeletekey
@@ -39,6 +41,7 @@ Root: HKLM; Subkey: "Software\Microsoft\Speech\PhoneConverters\Tokens\eSpeak"; F
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "af"; MessagesFile: "compiler:Languages\Afrikaans.isl"
+Name: "bs"; MessagesFile: "compiler:Languages\Bosnian.isl"
 Name: "cs"; MessagesFile: "compiler:Languages\Czech.isl"
 Name: "de"; MessagesFile: "compiler:Languages\German.isl"
 Name: "el"; MessagesFile: "compiler:Languages\Greek.isl"
@@ -59,12 +62,23 @@ Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
 [CustomMessages]
 v1=Select which voices to install
 v2=or press Enter to accept defaults
-v3=Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+13
+v3=Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+f3
+
+bs.v1=Odaberite jezik kojeg �elite instalirati
+bs.v2=ili pritisnite Enter za prihvat zadanih.
+bs.v3=Upi�ite, npr. bs (za Bosanski) ili s varjantom: bs+f3
+
+hr.v1=Odaberite jezik kojeg �elite instalirati
+hr.v2=ili pritisnite Enter za prihvat zadanih.
+hr.v3=Upi�ite, npr. hr (za Hrvatski) ili s varjantom: hr+f3
 
 pt.v1=Seleccione as vozes que pretende instalar
 pt.v2=ou precione enter para aceitar as predefinidas.
-pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras caracter�sticas, ex: pt+13
+pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras caracter�sticas, ex: pt+f3
 
+sr.v1=Molimo vas da odaberete glasove, koje �elite da instalirate
+sr.v2=ili pritisnite Enter za instalaciju podrazumevanih glasova.
+sr.v3=Da odaberetd glas, unesite ime glasa koje �elite instalirati, na primer sr, ili sr+f3
 
 
 [Code]
@@ -108,6 +122,7 @@ begin
   $1b: Result := 'sk';
   $1d: Result := 'sv';
   $2a: Result := 'vi';
+  $2f: Result := 'mk';
   $36: Result := 'af';
   $39: Result := 'hi';
   $41: Result := 'sw';
@@ -117,8 +132,10 @@ begin
   // is there a match on the full language code?
   case language of
   $816: Result := 'pt-pt';
+  $41a: Result := 'hr';
   $81a: Result := 'sr';
   $c1a: Result := 'sr';
+  $141a: Result := 'bs';
   end;
 end;
 
@@ -142,6 +159,7 @@ begin
   
   case lang1 of
   'af': value := $436;
+  'bs': value := $141a;
   'cs': value := $405;
   'cy': value := $452;
   'de': value := $407;
@@ -155,6 +173,7 @@ begin
   'hu': value := $40e;
   'is': value := $40f;
   'it': value := $410;
+  'mk': value := $42f;
   'nl': value := $413;
   'no': value := $414;
   'pl': value := $415;

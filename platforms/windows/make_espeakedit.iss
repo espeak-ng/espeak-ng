@@ -1,7 +1,7 @@
 
 [Setup]
 AppName=eSpeakEdit
-AppVerName=eSpeakEdit version 1.27
+AppVerName=eSpeakEdit version 1.29
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeakedit
@@ -16,12 +16,14 @@ Source: "dictsource\*"; DestDir: "{app}\dictsource"; Flags: recursesubdirs
 Source: "espeakedit\*"; DestDir: "{app}\espeakedit"; Flags: recursesubdirs
 Source: "phsource\*"; DestDir: "{app}\phsource"; Flags: recursesubdirs
 Source: "docs\*"; DestDir: "{app}\docs"; Flags: recursesubdirs
+Source: "License.txt"; DestDir: "{app}";
 ;Source: "Readme.txt"; DestDir: "{app}"; Flags: isreadme
 
 
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "af"; MessagesFile: "compiler:Languages\Afrikaans.isl"
+Name: "bs"; MessagesFile: "compiler:Languages\Bosnian.isl"
 Name: "cs"; MessagesFile: "compiler:Languages\Czech.isl"
 Name: "de"; MessagesFile: "compiler:Languages\German.isl"
 Name: "el"; MessagesFile: "compiler:Languages\Greek.isl"

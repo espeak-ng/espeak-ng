@@ -65,7 +65,6 @@ extern void MakeVowelLists(void);
 extern void MakeWordFreqList();
 
 extern const char *dict_name;
-extern char voice_name[];
 
 MyFrame *myframe = NULL;
 SpectDisplay *currentcanvas = NULL;
@@ -197,6 +196,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_SPEAK_STOP, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_PAUSE, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_VOICE, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_VOICE_VARIANT, MyFrame::OnSpeak)
 	EVT_MENU(MENU_LOAD_WAV, MyFrame::OnTools)
 	EVT_MENU(MENU_VOWELCHART1, MyFrame::OnTools)
 	EVT_MENU(MENU_VOWELCHART2, MyFrame::OnTools)
@@ -266,7 +266,7 @@ wxSashLayoutWindow *win;
 
 
 //	if(LoadVoice(voice_name,0) == NULL)
-	if(SetVoiceByName(voice_name) != EE_OK)
+	if(SetVoiceByName(voice_name2) != EE_OK)
 	{
 		if(error_flag==0)
 			wxLogError(_T("Failed to load voice data"));
@@ -274,7 +274,7 @@ wxSashLayoutWindow *win;
 	}
 	else
 	{
-		SetVoiceTitle(voice_name);
+		SetVoiceTitle(voice_name2);
 	}
 	WavegenSetVoice(voice);
 
@@ -531,10 +531,13 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 		break;
 
 	case MENU_SPEAK_VOICE:
-		transldlg->ReadVoice();
-//		if(voicedlg != NULL)
-//			voicedlg->WriteParams();
-		SetVoiceTitle(voice_name);
+		transldlg->ReadVoice(0);
+		SetVoiceTitle(voice_name2);
+		break;
+
+	case MENU_SPEAK_VOICE_VARIANT:
+		transldlg->ReadVoice(1);
+		SetVoiceTitle(voice_name2);
 		break;
 	}
 }

@@ -37,8 +37,7 @@
          _) a's (_       eIz
         D_) a (_         eI
             a            a
-        _C) a (_         A:
-       _CC) a (_         A:
+        XC) a (_         A:
             a (Be#       eI
             a (BeCo_     a
             a (BerC      a
@@ -47,8 +46,7 @@
          @) a (Biu       'eI
             a (Bet       a
             a (Bing      E
-        _C) a (By_       eI
-       _CC) a (By_       eI
+        XC) a (By_       eI
             a (Ca_       'A:
             a (Cable     'eI
             a (Cably     'eI
@@ -66,8 +64,7 @@
         aa) aa           a:
             aar          'A@
             a (Bo_       'A:
-        _C) a (ble       eI
-       _CC) a (ble       eI
+        XC) a (ble       eI
        CCC) a (ble       eI
        _en) a (bl        'eI
       _dis) a (ble       'eI
@@ -875,8 +872,7 @@
         qu) ar (t        O@
             ar (til      %A@
             ary (_       @rI2
-        _C) ary          e@rI2
-       _CC) ary          e@rI2
+        XC) ary          e@rI2
          w) ar           O@
         wh) ar           O@
          w) ar (r        0
@@ -1604,11 +1600,8 @@
 .group e
             e            E
          &) e (_
-        _C) e (_N        i:
-       _CC) e (_N        i:
-        _C) e (Be_       i:
-       _CC) e (Be_       i:
-      _CCC) e (Be_       i:
+        XC) e (_N        i:
+        XC) e (Be_       i:
          @) e (Cia_      'i:
             e (Bo_       'i:
             e (Boe_      'i:
@@ -1766,8 +1759,7 @@
          p) ean (_       'i@n
         _l) ea (mi       E
          b) ea (n        i:
-        _C) ea (n_       i:
-       _CC) ea (n_       i:
+        XC) ea (n_       i:
             ear          i@
          _) ear (l       3:
          _) ear (n       3:
@@ -2081,8 +2073,7 @@
          _) er (A        I2r
          _) er           3:
          _) err (A       Er
-        _C) err          Er
-       _CC) err          Er
+        XC) err          Er
             erre         'e@
             erred (_     '3:d
             er (_        3:
@@ -2105,15 +2096,13 @@
          m) er (c        3:
          p) er (cen      3
        exp) eri (en      i@rI2
-        _C) er           3:
+        XC) er           3:
         _h) er (A        Er
-       _CC) er           3:
        _CC) er (A        Er
        _qu) er           3:
          c) er (am       I2r
          &) ere (_       3
-        _C) ere (_       i@
-       _CC) ere (_       i@
+        XC) ere (_       i@
        sph) ere (_       i@
          c) ere (_       'i@
          i) ere (_       I2e@
@@ -2327,8 +2316,7 @@
          &) ey (_        I2
          @) ey (C@       I
         Cv) ey (_        eI
-        _C) ey           eI
-       _CC) ey           eI
+        XC) ey           eI
        _ab) ey           eI
         _k) ey (+        i:
             ey           aI
@@ -2430,8 +2418,7 @@
 .group i
             i            I
          _) i'           %aI
-        _C) i (_         aI
-       _CC) i (_         aI
+        XC) i (_         aI
          b) i (_         aI
          c) i (_         aI
          c) is (_        Is
@@ -2439,14 +2426,14 @@
          h) i (_         =aI
        &sk) i (_         =I2
             i (CCi_      'I
-        _C) i (Ca_       i:
+        XC) i (Ca_       i:
+        XC) i (Co_       i:
             i (Be#       aI
             i (Bee       I
             i (Bel_      I
             i (Bet_      I
          @) i (Cer       I
-        _C) i (Cer_      aI
-       _CC) i (Cer_      aI
+        XC) i (Cer_      aI
             i (ani_      I
             i (ber_      aI
             i (der+_     aI
@@ -2454,9 +2441,8 @@
          &) i (Cent      I
          &) i (Cenc      I
          _) i (Cy_       aI
-        _C) i (Cy_       aI
+        XC) i (Cy_       aI
         _p) i (ty_       I
-       _CC) i (Cy_       aI
      ntell) i            I
          _) i (a         aI
          _) i (b         aI
@@ -2635,8 +2621,7 @@
          p) izz (a       i:t|s
 
 .group ia
-        _C) ia           aI|@
-       _CC) ia           aI|@
+        XC) ia           aI|@
          &) iac (_       =Iak
          C) iar          aI@
             iar (iC      Iar
@@ -3088,16 +3073,14 @@
          r) iv (en       Iv
          r) iv (et       Iv
         _l) iv (el       aIv
-        _C) iv (el       Iv
-       _CC) iv (el       Iv
+        XC) iv (el       Iv
         _g) iv (e        Iv
         _l) iv (e        Iv
          r) iv (er       Iv
         dr) iv (er       aIv
         sh) iv (er       Iv
          v) iv (e        aIv
-       _CC) iv (en       Iv
-      _CCC) iv (en       Iv
+       XCC) iv (en       Iv
             iv (or_      aIv
 
 .group j
@@ -3334,15 +3317,13 @@
             o (Bing      oU
             o (BiA       'oU
          _) o (Bal       oU
-        _C) o (Bal       oU
-       _CC) o (Bal       oU
+        XC) o (Bal       oU
             o (_         oU
        @@C) o (_         =oU
         ig) o (_         oU
             o (Ba_       'oU
             o (Beon      'oU
-        _C) o (Bus_      oU
-       _CC) o (Bus_      oU
+        XC) o (Bus_      oU
          @) o (Ci_       'oU
             o (Co_       'oU
          @) o (lo_       0
@@ -3645,8 +3626,7 @@
          w) on (t        0n
          _) only         oUnlI2
          &) ony (_       @nI2
-        _C) ony          oUnI2
-       _CC) ony          oUnI2
+        XC) ony          oUnI2
             onymous      '0nIm@s
 
 .group oo
@@ -4871,7 +4851,6 @@
         _C) y (ph        aI
         _C) y (st        I
         XC) y            aI
-      _CCC) y            aI
         CC) y (n_        I
 //      Cr) y            I2
        _sC) y            aI

@@ -80,6 +80,7 @@ wxMenuBar *MakeMenu(int type)
 	// VOICE MENU
 	voice_menu = new wxMenu;
 	voice_menu->Append(MENU_SPEAK_VOICE, _("Select &Voice"));
+	voice_menu->Append(MENU_SPEAK_VOICE_VARIANT, _("Select Voice Va&riant"));
 
 	// DATA MENU
 	data_menu = new wxMenu;

@@ -77,7 +77,6 @@ extern void MakeVowelLists(void);
 extern void FindPhonemesUsed(void);
 extern void DrawEnvelopes();
 extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname);
-extern char voice_name[];
 
 static int markers_used[8];
 
@@ -2099,7 +2098,7 @@ wxString CompileAllDictionaries()
 		return(_T(" No dictionaries"));
 	}
 
-	strcpy(save_voice_name,voice_name);
+	strcpy(save_voice_name,voice_name2);
 
 	sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 	log = fopen(fname_log,"w");
@@ -2274,7 +2273,7 @@ fprintf(f_errors,"Refs %d,  Reused %d\n",count_references,duplicate_references);
 	fclose(f_phcontents);
 
 	LoadPhData();
-	LoadVoice(voice_name,0);
+	LoadVoice(voice_name2,0);
 	Report();
 	DrawEnvelopes();
 

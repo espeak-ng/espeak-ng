@@ -646,7 +646,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.tone_numbers = 9;
 			tr->langopts.ideographs = 1;
-			tr->langopts.word_gap = 0x4;   // length of a final vowel is less dependent on the next consonant
+			tr->langopts.word_gap = 0x5;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 		}
 		break;
 

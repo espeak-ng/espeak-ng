@@ -40,7 +40,6 @@
 /* Read a file of vowel symbols and f1,f2 formants, and produce a vowel diagram
 */
 extern wxString path_phsource;
-extern char voice_name[];
 
 extern char *spects_data;
 extern int n_phoneme_tables;
@@ -503,7 +502,7 @@ void MakeVowelLists(void)
 
 		VowelChart(1,fname);  // draw the vowel chart
 	}
-	LoadVoice(voice_name,0);  // reset the original phoneme table
+	LoadVoice(voice_name2,0);  // reset the original phoneme table
 	delete progress;
 }
 
