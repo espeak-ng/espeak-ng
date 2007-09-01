@@ -1020,7 +1020,7 @@ void *wave_test_get_write_buffer()
 #else
 // notdef USE_PORTAUDIO
 
-void wave_flush(void* theHandler) {}
+
 void wave_init() {}
 void* wave_open(char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}

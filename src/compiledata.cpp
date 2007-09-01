@@ -2294,7 +2294,7 @@ fprintf(f_errors,"Refs %d,  Reused %d\n",count_references,duplicate_references);
 
 	if(gui_flag == 0)
 	{
-		strcpy(fname,(report+report_dict).mb_str(wxConvLocal));
+		strncpy0(fname,(report+report_dict).mb_str(wxConvLocal),sizeof(fname));
 		fprintf(stderr,"%s\n",fname);
 		
 	}
