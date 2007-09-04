@@ -222,6 +222,7 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 
 	int error_flag = 0;
 	int result;
+	int param;
 
   // Create some dummy layout windows
 wxSashLayoutWindow *win;
@@ -278,6 +279,9 @@ wxSashLayoutWindow *win;
 	}
 	WavegenSetVoice(voice);
 
+	for(param=0; param<N_SPEECH_PARAM; param++)
+		param_stack[0].parameter[param] = param_defaults[param];
+	
 	SetParameter(espeakRATE,option_speed,0);
 
 	SetSpeed(3);

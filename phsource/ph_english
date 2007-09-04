@@ -152,7 +152,7 @@ endphoneme
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype (i)  endtype (i)
   length 140
-  formants vowel/ii_3
+  formants vowel/ii_en
   linkout ;
 endphoneme
 

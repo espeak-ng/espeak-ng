@@ -469,8 +469,9 @@
  10  vowel/ii       en_wm cy de fr_ca nl is zhy
   3  vowel/ii#      cy pl ru
   1  vowel/ii_2     la
-  8  vowel/ii_3     en en_rp fi hi sk hr sv no
+  7  vowel/ii_3     en_rp fi hi sk hr sv no
   7  vowel/ii_4     en en_n en_rp
+  1  vowel/ii_en    en
   5  vowel/@_low    hi ro no
  11  vowel/o        base2 en en_wm de hi it la pt_pt sv
   4  vowel/o_2      cy hi hu no
