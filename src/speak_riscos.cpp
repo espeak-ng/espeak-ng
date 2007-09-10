@@ -90,8 +90,6 @@ static _kernel_oserror errblk;
 
 
 USHORT voice_pcnt[N_PEAKS+1][3];
-voice_t voice_data;
-voice_t *voice;
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"

@@ -32,7 +32,7 @@ phoneme &~
   vowel  starttype (@) endtype (@)
   length 200
   formants vnasal/a#_n
-  reduceto &  4
+//  reduceto &  4
 endphoneme
 
 phoneme &U~

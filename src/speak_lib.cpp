@@ -47,7 +47,7 @@
 #include "wave.h"
 
 unsigned char *outbuf=NULL;
-extern espeak_VOICE *voice_selected;
+extern espeak_VOICE voice_selected;
 
 espeak_EVENT *event_list=NULL;
 int event_list_ix=0;
@@ -64,9 +64,6 @@ int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
 
 char path_home[N_PATH_HOME];   // this is the espeak-data directory
-
-voice_t voicedata;
-voice_t *voice = &voicedata;
 
 
 #ifdef USE_ASYNC
@@ -349,7 +346,7 @@ static int initialise(void)
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x)\n",result,version_phdata);
 	}
 
-	voice_selected = NULL;
+	memset(&voice_selected,0,sizeof(voice_selected));
 	SetVoiceStack(NULL);
 	SynthesizeInit();
 	InitNamedata();
@@ -711,7 +708,7 @@ ENTER("espeak_Initialize");
 	SetParameter(espeakVOLUME,100,0);
 	SetParameter(espeakCAPITALS,option_capitals,0);
 	SetParameter(espeakPUNCTUATION,option_punctuation,0);
-	WavegenSetVoice(voice);
+	DoVoiceChange(voice);
 	
 #ifdef USE_ASYNC
 	fifo_init();

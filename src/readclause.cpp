@@ -37,7 +37,6 @@
 #include <locale.h>
 #define N_XML_BUF   256
 
-espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant);
 
 char *xmlbase = "";    // base URL from <speak>
 
@@ -129,7 +128,6 @@ SSML_STACK *ssml_sp;
 SSML_STACK ssml_stack[N_SSML_STACK];
 
 char current_voice_id[40] = {0};
-int current_voice_variant = 0;
 
 
 #define N_PARAM_STACK  20
@@ -708,15 +706,14 @@ MNEM_TAB ssmltags[] = {
 
 
 
-static char *VoiceFromStack(int *voice_variant)
-{//============================================
+static char *VoiceFromStack()
+{//==========================
 // Use the voice properties from the SSML stack to choose a voice, and switch
 // to that voice if it's not the current voice
 	int ix;
 	SSML_STACK *sp;
-	espeak_VOICE *v;
+	char *v_id;
 	espeak_VOICE voice_select;
-	int variant;
 	char voice_name[40];
 	char language[40];
 
@@ -751,11 +748,10 @@ static char *VoiceFromStack(int *voice_variant)
 
 	voice_select.name = voice_name;
 	voice_select.languages = language;
-	v = SelectVoice(&voice_select,&variant);
-	*voice_variant = variant;
-	if((v == NULL) || (v->identifier == NULL))
+	v_id = SelectVoice(&voice_select);
+	if(v_id == NULL)
 		return("default");
-	return(v->identifier);
+	return(v_id);
 }  // end of VoiceFromStack
 
 
@@ -1088,7 +1084,6 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	wchar_t *age;
 	wchar_t *variant;
 	char *new_voice_id;
-	int voice_variant;
 
 	static const MNEM_TAB mnem_gender[] = {
 		{"male", 1},
@@ -1139,12 +1134,11 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 		ssml_sp->tag_type = tag_type;
 	}
 
-	new_voice_id = VoiceFromStack(&voice_variant);
-	if((strcmp(new_voice_id,current_voice_id) != 0) || (current_voice_variant != voice_variant))
+	new_voice_id = VoiceFromStack();
+	if(strcmp(new_voice_id,current_voice_id) != 0)
 	{
 		// add an embedded command to change the voice
 		strcpy(current_voice_id,new_voice_id);
-		current_voice_variant = voice_variant;
 		return(CLAUSE_BIT_VOICE);    // change of voice
 	}
 
@@ -1737,7 +1731,6 @@ f_input = f_in;  // for GetC etc
 					if(terminator & CLAUSE_BIT_VOICE)
 					{
 						// a change in voice, write the new voice name to the end of the buf
-						buf[ix++] = current_voice_variant;
 						p = current_voice_id;
 						while((*p != 0) && (ix < (n_buf-1)))
 						{

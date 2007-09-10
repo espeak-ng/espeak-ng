@@ -20,7 +20,7 @@
       nl  26  117
       pl  15  107
       sk  29  125
-      cs   5  125
+      cs   6  125
       hr  19  129
       mk   3  130
       sr   2  129
@@ -35,7 +35,7 @@
       sv  25  118
       no  28  122
       is  32  121
-      vi  41  133
+      vi  42  134
      zhy  40  129
       sw  14  105
 
@@ -66,6 +66,7 @@
   2  dzh/dz_pzd_    base hi
   6  dzh/xdzh       base hi mk ru
   2  dzh/xdz_pzd    base hi
+  1  envelope/p_512 vi
   4  envelope/p_fall vi zhy
   1  envelope/p_fallrise vi
   3  envelope/p_level vi zhy
@@ -343,6 +344,7 @@
  10  vdiph/ooi      en en_n en_us en_rp cy eo fi no zhy
   1  vdiph/ooi_2    af
   1  vdiph/ooi_3    en_wm
+  1  vdiph/oou      cs
   2  vdiph/ou       fi zhy
   2  vdiph/ou_2     sk ro
   2  vdiph/ou_3     is

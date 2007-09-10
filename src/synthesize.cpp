@@ -999,8 +999,8 @@ static void DoMarker(int type, int char_posn, int length, int value)
 }  // end of Synthesize::DoMarker
 
 
-static void DoVoice(voice_t *v)
-{//============================
+void DoVoiceChange(voice_t *v)
+{//===========================
 // allocate memory for a copy of the voice data, and free it in wavegenfill()
 	voice_t *v2;
 
@@ -1413,13 +1413,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		*n_ph = 0;
 	}
 
-	if(new_voice)
-	{
-		// finished the current clause, now change the voice if there was an embedded
-		// change voice command at the end of it (i.e. clause was broken at the change voice command)
-		DoVoice(new_voice);
-		new_voice = NULL;
-	}
 	return(0);  // finished the phoneme list
 }  //  end of Generate
 
@@ -1560,14 +1553,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	translator->CalcPitches(clause_tone);
 	translator->CalcLengths();
 
-	if(voice_change != NULL)
-	{
-		// voice change at the end of the clause (i.e. clause was terminated by a voice change)
-		new_voice = LoadVoiceVariant(voice_change+1,voice_change[0]); // add a Voice instruction to wavegen at the end of the clause
-		if(new_voice != NULL)
-			voice = new_voice; 
-	}
-
 	if(skipping_text)
 	{
 		n_phoneme_list = 0;
@@ -1585,6 +1570,20 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	Generate(phoneme_list,&n_phoneme_list,0);
 	WavegenOpenSound();
+
+	if(voice_change != NULL)
+	{
+		// voice change at the end of the clause (i.e. clause was terminated by a voice change)
+		new_voice = LoadVoiceVariant(voice_change,0); // add a Voice instruction to wavegen at the end of the clause
+	}
+
+	if(new_voice)
+	{
+		// finished the current clause, now change the voice if there was an embedded
+		// change voice command at the end of it (i.e. clause was broken at the change voice command)
+		DoVoiceChange(voice);
+		new_voice = NULL;
+	}
 
 	return(1);
 }  //  end of SpeakNextClause

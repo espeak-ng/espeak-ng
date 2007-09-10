@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.29
+AppVerName=eSpeak version 1.29.02
 
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
@@ -64,21 +64,21 @@ v1=Select which voices to install
 v2=or press Enter to accept defaults
 v3=Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+f3
 
-bs.v1=Odaberite jezik kojeg ï¿½elite instalirati
+bs.v1=Odaberite jezik kojeg želite instalirati
 bs.v2=ili pritisnite Enter za prihvat zadanih.
-bs.v3=Upiï¿½ite, npr. bs (za Bosanski) ili s varjantom: bs+f3
+bs.v3=Upišite, npr. bs (za Bosanski) ili s varjantom: bs+f3
 
-hr.v1=Odaberite jezik kojeg ï¿½elite instalirati
+hr.v1=Odaberite jezik kojeg želite instalirati
 hr.v2=ili pritisnite Enter za prihvat zadanih.
-hr.v3=Upiï¿½ite, npr. hr (za Hrvatski) ili s varjantom: hr+f3
+hr.v3=Upišite, npr. hr (za Hrvatski) ili s varjantom: hr+f3
 
 pt.v1=Seleccione as vozes que pretende instalar
 pt.v2=ou precione enter para aceitar as predefinidas.
-pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras caracterï¿½sticas, ex: pt+f3
+pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras caracter?sticas, ex: pt+f3
 
-sr.v1=Molimo vas da odaberete glasove, koje ï¿½elite da instalirate
+sr.v1=Molimo vas da odaberete glasove, koje želite da instalirate
 sr.v2=ili pritisnite Enter za instalaciju podrazumevanih glasova.
-sr.v3=Da odaberetd glas, unesite ime glasa koje ï¿½elite instalirati, na primer sr, ili sr+f3
+sr.v3=Da odaberete glas, unesite ime glasa kojeg želite instalirati, na primer sr, ili sr+f3
 
 
 [Code]

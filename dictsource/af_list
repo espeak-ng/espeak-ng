@@ -90,13 +90,11 @@ bethlehem   bEt_liEm
 brittanje   $2
 ceylon      s@lOn
 china       S'ina
-engeland    'EN@lant
 jerusalem   j@r'ysalEm
 kanada      kanad%a
 kongo       kONgu
 mesopotamië mEsuput'A:mi@
 mosambiek   musamb'ik
-thaba       tA:ba
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
 portugal    $1
@@ -110,6 +108,7 @@ worcester   v'ust@r
 // People names
 Abiméleg    abin'e@lEx2
 abraham     A:bram
+adrie       A:dri
 alida       al'ida
 allah       %alA:
 André       'andreI
@@ -119,7 +118,6 @@ aucamp      @Ukamp
 benjamin    bEndZ@m@n
 bester b'Est@r
 botha       bo@ta
-bothma      bOtma
 breytenbach breIt@nbax2
 carl        kA:r@L
 charles     _^_EN
@@ -154,15 +152,16 @@ george      _^_EN
 gerhard     x2&rart
 grange      x2rA:nsi
 gustav      gustaf
+havenga     hA:f@Nx2a
 haydn       hAId@n
 helena      hil'e@na
 hilde       hild@
 ilse 'ilz@
+isabel      is@b&l
 jacques     ZA:k
 james       _^_EN
 jane        _^_EN
 jean        ZA~n
-jesus       ji:sWs
 joey        dZ@Ui
 john        _^_EN
 jordaan     $2
@@ -177,6 +176,7 @@ levi        le@fi
 louis       luI
 louise      luw'i:z
 louw l'@U
+mbeki       mbE:ki
 marie       mA:ri
 marius      mA:riWs
 martha      marta
@@ -422,6 +422,7 @@ euro          Y@ru
 exodus        Eks'o@dWs
 
 figuur        f@x2yr
+filippense    f@l@pEns@
 finalis       $3
 finaliste     $3
 frontaal      $2
@@ -461,7 +462,6 @@ idee          $2
 ietwat        itvat
 ignoreer      ix2no@r'e@r
 inagneming    @nax2ne@m@N
-ingang        Inx2aN
 inkluis       $2
 intens @nt'Ens
 intensiteit   $4
@@ -489,6 +489,7 @@ macaroni      makar'o@ni
 madame        mad'A:m
 makabere m%ak'A:b@r@
 meegee        me@x2e@
+memoriam      mEm'o@riam
 merlot        m&rl'o@
 militêre      mIl@t'&:r@
 minister      m@nIst@r
@@ -542,6 +543,9 @@ oorsee        $2
 oorsese       $2
 oorspronklike $2
 
+pandemonium   pand@m'o@niWm
+parke         park@
+parkie        $1
 patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
 per           pIr
@@ -561,9 +565,11 @@ rukkerig      rWk@r@x2
 samelewing    sA:m@l,e@v@N
 sedert        se@d@rt
 sektore       $2
+singenot      sInx2@nOt
 skares        skA:r@s
 skepsele      skEps@l@
 s'n           s@n $u
+spaghetti     sp%agEt%i
 sobere s'o@b@r@
 sombere s'Omb@r@
 sodra         so@dr'A:
@@ -599,7 +605,6 @@ verafgeleë    f&rafx2@le@@
 verantwoordelikheid f@rantv'o@rd@l@keIt
 verby         f@rbeI
 verdere       f&rd@r@
-vere          fe@r@
 vererger      f@r&rg@r
 ver           f'&:r
 verg          f&rx2
@@ -621,7 +626,7 @@ voorgee       fo@rx2e@
 voorkeer      $1
 voorkom       $2
 voormalige    fo@rm'A:l@x2@
-voorsien      $2
+//voorsien      $2
 voorwaar      $2
 vorendag      $3
 vorige        fo@r@x2@

@@ -98,9 +98,7 @@ static const char *help_text =
 
 void DisplayVoices(FILE *f_out, char *language);
 
-voice_t voice_data;
 USHORT voice_pcnt[N_PEAKS+1][3];
-voice_t *voice;
 
 
 
@@ -591,7 +589,7 @@ int main (int argc, char **argv)
 	{
 		PitchAdjust(pitch_adjustment);
 	}
-	WavegenSetVoice(voice);
+	DoVoiceChange(voice);
 
 	if(filename[0]==0)
 	{

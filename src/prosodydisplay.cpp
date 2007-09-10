@@ -80,7 +80,7 @@ void InitProsodyDisplay()
 	menu_envelopes->Append(0x102,_T("Fall-rise"));
 	menu_envelopes->Append(0x103,_T("Fall-rise (R)"));
 	menu_envelopes->Append(0x104,_T("Fall-2"));
-	menu_envelopes->Append(0x105,_T("Fall-3"));
+	menu_envelopes->Append(0x106,_T("Fall-3"));
 
 	menu_prosody = new wxMenu;
 	menu_prosody->Append(1,_T("Pitch envelope"),menu_envelopes);

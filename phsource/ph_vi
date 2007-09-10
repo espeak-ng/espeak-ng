@@ -53,6 +53,12 @@ phoneme 7   //  tone 1 at end of clause
 endphoneme
 
 
+phoneme 8  // TEST
+  stress
+  length 18
+  tone 30  6 envelope/p_512 NULL
+endphoneme
+
 // Vowels
 //=======
 

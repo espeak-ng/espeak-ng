@@ -22,5 +22,11 @@ phoneme u:
   formants vowel/u
 endphoneme
 
+phoneme oU
+  vowel starttype (o) endtype (u)
+  length 260
+  formants vdiph/oou
+endphoneme
+
 
 
