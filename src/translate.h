@@ -34,8 +34,7 @@
 
 /* flags from word dictionary */
 // bits 0-3  stressed syllable,  7=unstressed
-#define FLAG_SKIPWORDS        0xe0  /* bits 5,6,7  number of words to skip */
-#define FLAG_SKIPWORDS_1      0x20
+#define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
 #define FLAG_ONLY            0x200
 #define BITNUM_FLAG_ONLY         9  // bit 9 is set
@@ -277,7 +276,8 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-#define NUM_ROMAN   0x20000
+#define NUM_ROMAN    0x20000
+#define NUM_ROMAN_UC 0x40000
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
 	// bit3=  , decimal separator, not .
@@ -293,6 +293,7 @@ typedef struct {
 	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
 	// bit16=dot after number indicates ordinal
 	// bit17=recognize roman numbers
+	// bit18=Roman numbers only if upper case
 
 	int numbers;
 
@@ -501,6 +502,8 @@ extern char ctrl_embedded;    // to allow an alternative CTRL for embedded comma
 extern char *p_textinput;
 extern wchar_t *p_wchar_input;
 extern int ungot_char;
+extern int dictionary_skipwords;
+
 extern int (* uri_callback)(int, const char *, const char *);
 extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);

@@ -5092,23 +5092,24 @@
 .group
 
 // non-ascii characters with specified pronunciations
-            é            eI
-         _) é            I2
-            ä            E
-            ë            E
-            ï            i:
-            ö            3:
-?5          ö            VR
-            ü            u:
-            ç            s
-            ß            s
-          _) ß (_         b'i:t@_
-            č            tS
-            š            S
-            ş            S
-            ž            Z
-            þ            T
-            ð            D
+	é	eI
+     _) é	I2
+	ê	E:
+	ä	E
+	ë	E
+	ï	i:
+	ö	3:
+?5	ö	VR
+	ü	u:
+	ç	s
+	ß	s
+     _) ß (_	b'i:t@_
+	č	tS
+	š	S
+	ş	S
+	ž	Z
+	þ	T
+	ð	D
 
 
             \\           bakstroUk

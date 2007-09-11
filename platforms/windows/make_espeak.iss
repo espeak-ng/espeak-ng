@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.29.02
+AppVerName=eSpeak version 1.29.03
 
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
@@ -159,7 +159,7 @@ begin
   
   case lang1 of
   'af': value := $436;
-  'bs': value := $141a;
+  'bs': value := $41a;   // should be $141a but Jaws crashes on startup
   'cs': value := $405;
   'cy': value := $452;
   'de': value := $407;

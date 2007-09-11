@@ -304,7 +304,7 @@ Translator *SelectTranslator(const char *name)
  			tr->langopts.max_initial_consonants = 5;
 			tr->langopts.spelling_stress = 1;
 
-			tr->langopts.numbers = 0x1c0d + 0x4000 + NUM_ROMAN;
+			tr->langopts.numbers = 0x1c0d + 0x4000 + NUM_ROMAN_UC;
 			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
 			tr->langopts.replace_chars = replace_cyrillic;
 			tr->langopts.replacement_chars = replace_cyrillic_latin;

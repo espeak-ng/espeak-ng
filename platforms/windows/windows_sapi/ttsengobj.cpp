@@ -298,10 +298,100 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 //=== ISpTTSEngine Implementation ============================================
 //
 
+#define L(c1,c2)  (c1<<8)+c2          // combine two characters into an integer
+
+static char *phoneme_names_en[] = {
+	NULL,NULL,NULL," ",NULL,NULL,NULL,NULL,"'",",",
+	"A:","a","V","0","aU","@","aI",
+	"b","tS","d","D","E","3:","eI",
+	"f","g","h","I","i:","dZ","k",
+	"l","m","n","N","oU","OI","p",
+	"r","s","S","t","T","U","u:",
+	"v","w","j","z","Z",
+	NULL
+ };
+
+
+
+int CTTSEngObj::WritePhonemes(SPPHONEID *phons, wchar_t *pW)
+{//=========================================================
+	int ph;
+	int ix=2;
+	int skip=0;
+	int maxph = 49;
+	char *p;
+	int j;
+	int lang;
+	char **phoneme_names;
+	char phbuf[200];
+	espeak_VOICE *voice;
+
+	voice = espeak_GetCurrentVoice();
+	lang = (voice->languages[1] << 8) + (voice->languages[2]);
+
+	phoneme_names = phoneme_names_en;
+	maxph = 0;
+
+	if(lang == L('e','n'))
+	{
+		phoneme_names = phoneme_names_en;
+		maxph = 49;
+	}
+
+	if(maxph == 0)
+		return(0);
+
+	strcpy(phbuf,"[[");
+	while(((ph = *phons++) != 0) && (ix < (sizeof(phbuf) - 3)))
+	{
+		if(skip)
+		{
+			skip = 0;
+			continue;
+		}
+		if(ph > maxph)
+			continue;
+
+		p = phoneme_names[phons[0]];  // look at the phoneme after this one
+		if(p != NULL)
+		{
+			if(p[0] == '\'')
+			{
+				phbuf[ix++] = '\'';  // primary stress, put before the vowel, not after
+				skip=1;
+			}
+			if(p[0] == ',')
+			{
+				phbuf[ix++] = ',';  // secondary stress
+				skip=1;
+			}
+		}
+
+		p = phoneme_names[ph];  // look at this phoneme
+
+		if(p != NULL)
+		{
+			strcpy(&phbuf[ix],p);
+			ix += strlen(p);
+		}
+	}
+	strcpy(&phbuf[ix],"]]");
+	ix += 2;
+
+	if(pW != NULL)
+	{
+		for(j=0; j<=ix; j++)
+		{
+			pW[j] = phbuf[j];
+		}
+	}
+	return(strlen(phbuf));
+}
+
 
 
 int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_start, ISpTTSEngineSite* pOutputSite, int *n_text)
-{//=============================================================================================================================
+{//============================================================================================================================
 
 	int action;
 	int control;
@@ -338,6 +428,7 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 
 		CheckActions(pOutputSite);
 		sayas = 0;
+		state = &pTextFragList->State;
 
 		switch(action)
 		{
@@ -366,7 +457,6 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 			}
 
 			// first set the volume, rate, pitch
-			state = &pTextFragList->State;
 			volume = (state->Volume * master_volume)/100;
 			speed = ConvertRate(state->RateAdj);
 			pitch = ConvertPitch(state->PitchAdj.MiddleAdj);
@@ -467,6 +557,14 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 				}
 			}
 			break;
+
+		case SPVA_Pronounce:
+			total += WritePhonemes(state->pPhoneIds, pW);
+			if(pW != NULL)
+			{
+				pW += total;
+			}
+			break;
 		}
 
 
@@ -478,6 +576,7 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 		*pW = 0;
 	}
 	*n_text = frag_count;
+
 	return(total);
 }   // end of ProcessFragList
 
@@ -600,7 +699,7 @@ STDMETHODIMP CTTSEngObj::Speak( DWORD dwSpeakFlags,
 
 		if(size > 0)
 		{
-			espeak_Synth(TextBuf,0,0,POS_CHARACTER,0,espeakCHARS_WCHAR | espeakKEEP_NAMEDATA,NULL,NULL);
+			espeak_Synth(TextBuf,0,0,POS_CHARACTER,0,espeakCHARS_WCHAR | espeakKEEP_NAMEDATA | espeakPHONEMES,NULL,NULL);
 		}
 	}
     return hr;

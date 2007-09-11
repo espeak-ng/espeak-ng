@@ -671,8 +671,12 @@ if((wmark > 0) && (wmark < 8))
 		if(!found & ((word_flags & FLAG_UPPERS) != FLAG_FIRST_UPPER))
 		{
 			// either all upper or all lower case
-			if((found = TranslateRoman(word,phonemes)) != 0)
-				dictionary_flags |= FLAG_ABBREV;      // don't spell capital Roman numbers as individual letters
+
+			if((langopts.numbers & NUM_ROMAN) || ((langopts.numbers & NUM_ROMAN_UC) && (word_flags & FLAG_ALL_UPPER)))
+			{
+				if((found = TranslateRoman(word,phonemes)) != 0)
+					dictionary_flags |= FLAG_ABBREV;      // don't spell capital Roman numbers as individual letters
+			}
 		}
 
 		if((wflags & FLAG_ALL_UPPER) && (clause_upper_count <= clause_lower_count) &&
@@ -1233,7 +1237,8 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 				}
 				else
 				{
-					flags |= FLAG_SKIPWORDS_1;
+					flags |= FLAG_SKIPWORDS;
+					dictionary_skipwords = 1;
 				}
 			}
 		}
@@ -1562,7 +1567,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 
 	int ix;
 	unsigned int word;
-	unsigned int new_c, c2;
+	unsigned int new_c, c2, c_lower;
 	int upper_case = 0;
 	static int ignore_next = 0;
 
@@ -1578,16 +1583,16 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 
 	// there is a list of character codes to be substituted with alternative codes
 
-	if(iswupper(c))
+	if(iswupper(c_lower = c))
 	{
-		c = towlower(c);
+		c_lower = towlower(c);
 		upper_case = 1;
 	}
 
 	new_c = 0;
 	for(ix=0; (word = langopts.replace_chars[ix]) != 0; ix++)
 	{
-		if(c == (word & 0xffff))
+		if(c_lower == (word & 0xffff))
 		{
 			if((word >> 16) == 0)
 			{
@@ -2217,7 +2222,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 		else
 		{
 			dict_flags = TranslateWord2(word, &words[ix], words[ix].pre_pause, words[ix+1].pre_pause);
-			ix += ((dict_flags >> 5) & 7);  // dictionary indicates skip next word(s)
+			if(dict_flags & FLAG_SKIPWORDS)
+				ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
 
 			if((dict_flags & FLAG_DOT) && (ix == word_count-1) && (terminator == CLAUSE_PERIOD))
 			{

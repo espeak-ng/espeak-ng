@@ -36,7 +36,7 @@
 #include "translate.h"
 
 
-
+int dictionary_skipwords;
 char dictionary_name[40];
 
 extern MNEM_TAB mnem_flags[];
@@ -2716,12 +2716,13 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 			else
 			if(flag > 40)
 			{
-				// flags 41,42,or 43  match more than one word
+				// flags 41 to 50  match more than one word
 				// This comes after the other flags
 				n_chars = next - p;
 				if(memcmp(word2,p,n_chars)==0)
 				{
-					dictionary_flags |= ((flag-40) << 5);   // set (bits 5-7) to 1,2,or 3
+					dictionary_flags |= FLAG_SKIPWORDS;
+					dictionary_skipwords = (flag - 40);
 					p = next;
 					word_end = word2 + n_chars;
 				}

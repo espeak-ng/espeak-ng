@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.29.02  10.Sep.07";
+const char *version_string = "1.29.04  11.Sep.07";
 const int version_phdata  = 0x012901;
 
 int option_device_number = -1;
@@ -204,7 +204,7 @@ static unsigned int LookupSound2(int index, unsigned int other_phcode, int contr
 {//================================================================================
 // control=1  get formant transition data only
 
-	int code;
+	unsigned int code;
 	unsigned int value, value2;
 	
 	while((value = phoneme_index[index++]) != 0)
@@ -224,11 +224,16 @@ static unsigned int LookupSound2(int index, unsigned int other_phcode, int contr
 					break;
 				case 1:
 					if(control==0)
+					{
 						seq_len_adjust = value2 >> 8;
+					}
 					break;
 				case 2:
 					if(control==0)
-						seq_len_adjust = -(value2 >> 8);
+					{
+						seq_len_adjust = value2 >> 8;
+						seq_len_adjust = -seq_len_adjust;
+					}
 					break;
 				case 3:
 					if(control==0)

@@ -214,9 +214,6 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 	static char *roman_numbers = "ixcmvld";
 	static int roman_values[] = {1,10,100,1000,5,50,500};
  
-	if((langopts.numbers & NUM_ROMAN) == 0)
-		return(0);
-
 	acc = 0;
 	prev = 0;
 	subtract = 0x7fff;

@@ -384,12 +384,19 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	}
 	length += n_flag_codes;
 
-	if((multiple_string != NULL) && (multiple_words > 0) && (multiple_words <= 4))
+	if((multiple_string != NULL) && (multiple_words > 0))
 	{
-		dict_line[length++] = 40 + multiple_words;
-		ix = multiple_string_end - multiple_string;
-		memcpy(&dict_line[length],multiple_string,ix);
-		length += ix;
+		if(multiple_words > 10)
+		{
+			fprintf(f_log,"%5d: Two many parts in a multi-word entry: %d\n",linenum,multiple_words);
+		}
+		else
+		{
+			dict_line[length++] = 40 + multiple_words;
+			ix = multiple_string_end - multiple_string;
+			memcpy(&dict_line[length],multiple_string,ix);
+			length += ix;
+		}
 	}
 	dict_line[0] = length;
 
