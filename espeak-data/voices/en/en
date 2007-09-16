@@ -4,6 +4,7 @@ language en 2
 gender male
 
 pitch 82 117
+replace 03 I i
+replace 03 I2 i
 
 formant 0 100 100 105
-

@@ -7,3 +7,5 @@ phonemes en_rp
 replace 00  o@  O@
 replace 03 I i
 replace 03 I2 i
+replace 03 @ a2
+replace 03 3 a2

@@ -35,10 +35,21 @@ endphoneme
 phoneme I
   vowel  starttype (i) endtype (i)
   length 140
-  formants vwl_en_wm/ii
+  formants vowel/ii_6
   before l vowel/ii
   linkout ;
 endphoneme
+
+
+phoneme I2
+  vowel  starttype (i)  endtype (i)
+  unstressed
+  length 140
+  formants vowel/ii_6
+  before l vowel/ii
+  linkout ;
+endphoneme
+
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype (i)  endtype (i)
@@ -71,16 +82,6 @@ phoneme U
 endphoneme
 
 
-phoneme I2
-  vowel  starttype (i)  endtype (i)
-  unstressed
-  length 140
-  formants vwl_en_wm/ii
-  before l vowel/ii
-  linkout ;
-endphoneme
-
-
 phoneme a2
   vowel  starttype (@)  endtype (@)
   unstressed
@@ -93,7 +94,7 @@ endphoneme
 phoneme A:
   vowel  starttype (a)  endtype (a)
   length 240
-  formants vwl_en_wm/aa
+  formants vowel/aa_5
   linkout r-
 endphoneme
 
@@ -101,7 +102,7 @@ endphoneme
 phoneme A@
   vowel  starttype (a)  endtype (a)
   length 240
-  formants vwl_en_wm/aa
+  formants vowel/aa_5
   linkout r-
 endphoneme
 
@@ -211,7 +212,7 @@ endphoneme
 phoneme i@
   vowel  starttype (i)  endtype (@)
   length 240
-  formants vdiph2/ii@_2
+  formants vdiph2/i@_2
   linkout r-
 endphoneme
 

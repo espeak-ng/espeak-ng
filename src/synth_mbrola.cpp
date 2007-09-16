@@ -487,7 +487,7 @@ int MbrolaSynth(char *p_mbrola)
 void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 {//======================================================================
 // Generate a mbrola pho file
-	int name;
+	unsigned int name;
 	int phix;
 	int len;
 	int len1;
@@ -534,6 +534,9 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		{
 			MbrolaEmbedded(embedded_ix, p->sourceix);
 		}
+		if(p->newword & 4)
+			MbrolaMarker(espeakEVENT_SENTENCE, (p->sourceix & 0x7ff) + clause_start_char, 0, count_sentences);
+
 		if(p->newword & 1)
 			MbrolaMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
 #endif
@@ -545,8 +548,9 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		if(name == 0)
 			continue;   // ignore this phoneme
 
-		if(ph->type == phPAUSE)
+		if((ph->type == phPAUSE) && (name == ph->mnemonic))
 		{
+			// a pause phoneme, which has not been changed by the translation
 			name = '_';
 			len = (p->length * speed_factor1)/256;
 //			if(len == 0) continue;

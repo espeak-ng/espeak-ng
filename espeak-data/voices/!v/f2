@@ -2,7 +2,7 @@ language variant
 name female2
 gender female
 
-pitch 140 220
+pitch 145 200
 formant 0 105  80 150
 formant 1 110  80 160
 formant 2 110  70 150

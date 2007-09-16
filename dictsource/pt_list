@@ -245,9 +245,10 @@ te	$u
 nos	$u 
 //se	$u
 
-este	$u+       // this
+este	$u+	'estSi       // this
+estes	$u+	'estSis       // these
 esta	'Est& $brk $u+
-esse	$u+       // that
+esse	$u+	'esi       // that
 essa	'Es& $brk  $u+
 aquele	$u+       // that
 aquela	$u+
@@ -267,10 +268,10 @@ seu	$u+
 sua	$u+
 seus	$u+
 suas	$u+
-nosso	$u+
-nossa	$u+
-nossos	$u+
-nossas	$u+
+nosso	$u+	n'OsU
+nossa	$u+	n'Os&
+nossos	$u+	n'OsUs
+nossas	$u+	n'Os&s
 dele	$u+
 dela	$u+
 deles	$u+
@@ -300,9 +301,9 @@ numas	$u $brk
 
 por	$u $brk	// by,for,through
 pelo	$u $brk
-pela	$u $brk
+pela	$u $brk	p'el&
 pelos	$u $brk
-pelas	$u $brk
+pelas	$u $brk	p'el&s
 
 a	$u $brk	// to,at
 ?1 a    & $u $brk
@@ -425,7 +426,7 @@ seriam	$u
 	// estar - to be
 estar	$u
 estou	$u
-está	$u
+está	$u	est'a
 estamos	$u
 estais	$u
 estão	$u
@@ -438,6 +439,7 @@ estive	$u
 esteve	$u
 estivemos	$u
 estiveram	$u
+estiver	$u	estSiv'Er
 
 estarei	$u
 estará	$u
@@ -586,9 +588,11 @@ roxo         x'oSU
 
 // foreign words
 ?1 alt        'alt
+?2        agosto        &g'ostU
 ?1 back       b'Ek
 ?1 blind      bl'aind
 ?1 braille    b:r'aily
+?2        Braille        bR'aili
 ?1 cancel     k'&ns'El
 ?1 caps       k'aps
 ?1 com        kom
@@ -612,24 +616,31 @@ roxo         x'oSU
 ?1 google     g'u:g&l 
 ?2 google     g'ugol
 ?1 hardware   'ard,w'Er-
-?2 hardware   x'ardwe@-
+?2 hardware   h'ardwe@-
 ?1 home       'omy
-?2 home       x'owmi
+?2 home       h'owmi
 ?1 hotmail    h'Otm'eIl
-?2 hotmail    xotm'eIl
+?2 hotmail    hotm'eIl
 ?1 install    ,inst'al
 ?2 internet   iNtern'Et
 ?2 Intranet   iNtRan'Et
+?2        inveja        iNv'EZ&
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
 ?1 line       l'ain
    layout     l'eI,aUt
+?2        logo        l'OgU
 ?1 lock       l'Ok
    mail       m'eIl
+        mails        m'eIls
 ?1 maior      m,&j'Or-
 ?2 maior      maI'Or
+?2        maiores        maI'O*is
 ?1 menor      myn'Or-
 ?2 menor      men'Or
+?2        menores        men'O*is
+?2        melhor        melj'Or
+?2        melhores        melj'O*is
 ?2        mouse        m'aUzi
 ?1 menu       menu
 ?1 next       n'Ekst
@@ -640,7 +651,9 @@ roxo         x'oSU
 ?1 ovo        'ovu
 ?1 pause      p'au:z
    page       p'eIdZ
-   python     p'aIT&~N
+?2        pior        pi'Or
+?2        piores        pi'O*is
+python     p'aIT&~N
 ?1 readme     r'i:dmi:
 ?1 sapi       s,ap'i
 ?1 scanner    sk'En&r
@@ -657,8 +670,11 @@ roxo         x'oSU
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
 ?1 upload     &pl'oud
+?2        web        w'Eb
+?2        verbete        verb'etSi
+?2        verbetes        verb'etSis
 ?1 yahoo      'i,ah'u
-?2 yahoo      iax'u
+?2 yahoo      iah'u
 ?1 yes        j'Es
 
 

@@ -117,7 +117,7 @@ int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 			Event = &Events[n_Events++];
 			Event->eEventId             = SPEI_TTS_BOOKMARK;
 			Event->elParamType          = SPET_LPARAM_IS_STRING;
-			Event->ullAudioStreamOffset = ((event->audio_position + audio_offset) * 441)/10;  // ms -> bytes
+			Event->ullAudioStreamOffset = ((event->audio_position + audio_offset) * srate)/10;  // ms -> bytes
 			Event->lParam               = (long)event->id.name;
 			Event->wParam               = wcstol((wchar_t *)event->id.name,&tailptr,10);
 		}
@@ -125,11 +125,11 @@ int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 		if(event->type == espeakEVENT_SENTENCE)
 		{
 			Event = &Events[n_Events++];
-            Event->eEventId             = SPEI_SENTENCE_BOUNDARY;
-            Event->elParamType          = SPET_LPARAM_IS_UNDEFINED;
-            Event->ullAudioStreamOffset = (event->audio_position * 441)/10;  // ms -> bytes
-            Event->lParam               = event->text_position-1 + text_offset;
-            Event->wParam               = 0;  // TEMP
+			Event->eEventId             = SPEI_SENTENCE_BOUNDARY;
+			Event->elParamType          = SPET_LPARAM_IS_UNDEFINED;
+			Event->ullAudioStreamOffset = ((event->audio_position + audio_offset) * srate)/10;  // ms -> bytes
+			Event->lParam               = 0;
+			Event->wParam               = 0;  // TEMP
 		}
 #endif
 	}
@@ -760,15 +760,15 @@ STDMETHODIMP CTTSEngObj::GetOutputFormat( const GUID * pTargetFormatId, const WA
 
 int FAR PASCAL CompileDictionary(const char *voice, const char *path_log)
 {//===========================================================
-	FILE *f_log;
+	FILE *f_log3;
 	char fname[120];
 
-	f_log = fopen(path_log,"w");
+	f_log3 = fopen(path_log,"w");
 	sprintf(fname,"%s/",path_install);
 
 	espeak_SetVoiceByName(voice);
-	espeak_CompileDictionary(fname,f_log);
-	fclose(f_log);
+	espeak_CompileDictionary(fname,f_log3);
+	fclose(f_log3);
 
 	return(0);
 }

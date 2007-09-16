@@ -1909,7 +1909,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			else
 			if(IsAlpha(c))
 			{
-				if(!IsAlpha(prev_out) || (langopts.ideographs && (c >= 0x3000)))
+				if(!IsAlpha(prev_out) || (langopts.ideographs && ((c >= 0x3000) || (prev_out >= 0x3000))))
 				{
 					if(prev_out != '\'')
 						letter_count = 0;    // don't reset count for an apostrophy within a word

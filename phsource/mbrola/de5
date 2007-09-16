@@ -17,10 +17,12 @@
 0  y  NULL   0  Y
 0  W  NULL   0  9
 0  A: NULL   0  a:
+0  A  NULL   0  a:
 0  Y: NULL   0  2:
 0  OI NULL   0  OY
 0  3  NULL   0  6
-0  _! NULL   0  ?
+//0  _! NULL   0  ?
+0  _| NULL   0  ?
 0  pF NULL   0  pf
 0  r  NULL   0  R
 

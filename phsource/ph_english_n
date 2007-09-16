@@ -56,7 +56,7 @@ endphoneme
 phoneme U
   vowel  starttype (o)  endtype (o)
   length 150
-  formants vowel/u
+  formants vowel/uu_bck
 endphoneme
 
 
@@ -88,8 +88,8 @@ endphoneme
 
 phoneme A@
   vowel  starttype (a)  endtype (@)
-  length 240
-  formants vowel/aa_5
+  length 250
+  formants vwl_en_n/aa_5
   linkout r-
 endphoneme
 
@@ -170,7 +170,7 @@ endphoneme
 
 
 phoneme oU
-  vowel  starttype (o)  endtype (u)
+  vowel  starttype (o)  endtype (o)
   length 210
   formants vowel/o_4
 endphoneme

@@ -498,7 +498,6 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_name[40];        // voice name for voice_selected
 	static char voice_languages[100];  // list of languages and priorities for voice_selected
 
-
 	strcpy(voicename,vname);
 	if(voicename[0]==0)
 		strcpy(voicename,"default");

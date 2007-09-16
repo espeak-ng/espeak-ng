@@ -501,7 +501,7 @@ int compile_dictlist_file(const char *path, const char* filename)
 	char *p;
 	int  count=0;
 	FILE *f_in;
-	char buf[256];
+	char buf[sizeof(path_home)+45];
 	char dict_line[128];
 	
 	sprintf(buf,"%s%s",path,filename);
@@ -1300,15 +1300,16 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 
 
 
-int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname)
-{//======================================================================================
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname_err)
+{//==========================================================================================
 // fname:  space to write the filename in case of error
 
 	FILE *f_in;
 	FILE *f_out;
 	int offset_rules=0;
 	int value;
-	char fname_buf[sizeof(path_home)+15];
+	char fname_in[sizeof(path_home)+45];
+	char fname_out[sizeof(path_home)+15];
 	char fname_temp[sizeof(path_home)+15];
 	char path[sizeof(path_home)+40];       // path_dsource+20
 
@@ -1316,8 +1317,6 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 
 	if(dsource == NULL)
 		dsource = "";
-	if(fname == NULL)
-		fname = fname_buf;
 
 	f_log = log;
 //f_log = fopen("log2.txt","w");
@@ -1325,10 +1324,20 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 		f_log = stderr;
 
 	sprintf(path,"%s%s_",dsource,dict_name);
-
-	sprintf(fname,"%s%c%s_dict",path_home,PATHSEP,dict_name);
-	if((f_out = fopen_log(fname,"wb+")) == NULL)
+	sprintf(fname_in,"%srules",path);
+	f_in = fopen_log(fname_in,"r");
+	if(f_in == NULL)
 	{
+		if(fname_err)
+			strcpy(fname_err,fname_in);
+		return(-1);
+	}
+
+	sprintf(fname_out,"%s%c%s_dict",path_home,PATHSEP,dict_name);
+	if((f_out = fopen_log(fname_out,"wb+")) == NULL)
+	{
+		if(fname_err)
+			strcpy(fname_err,fname_in);
 		return(-1);
 	}
 	sprintf(fname_temp,"%s%ctemp",path_home,PATHSEP);
@@ -1359,13 +1368,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	compile_dictlist_end(f_out);
 	offset_rules = ftell(f_out);
 	
-	sprintf(fname,"%srules",path);
-	fprintf(f_log,"Compiling: '%s'\n",fname);
-	f_in = fopen_log(fname,"r");
-	if(f_in == NULL)
-	{
-		return(-1);
-	}
+	fprintf(f_log,"Compiling: '%s'\n",fname_in);
 
 	compile_dictrules(f_in,f_out,fname_temp);
 	fclose(f_in);

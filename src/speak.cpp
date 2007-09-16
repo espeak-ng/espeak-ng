@@ -548,18 +548,11 @@ int main (int argc, char **argv)
 
 	initialise();
 
-	if(voicename[0] == 0)
-		strcpy(voicename,"default");
-
-	if(SetVoiceByName(voicename) != EE_OK)
-	{
-		fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
-		exit(2);
-	}
-
 
 	if(flag_compile)
 	{
+		LoadVoice(voicename,5);
+
 #ifdef PLATFORM_DOS
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource,path_home);
@@ -578,6 +571,16 @@ int main (int argc, char **argv)
 #endif
 #endif
 		exit(0);
+	}
+
+
+	if(voicename[0] == 0)
+		strcpy(voicename,"default");
+
+	if(SetVoiceByName(voicename) != EE_OK)
+	{
+		fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+		exit(2);
 	}
 
 	SetParameter(espeakRATE,speed,0);

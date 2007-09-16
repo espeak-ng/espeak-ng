@@ -14,5 +14,5 @@ formant 6 110  80 150
 formant 7 110  75 150
 formant 8 110  75 150
 
-stressAdd -20 -20 -20 -20 0 0 60 90
+stressAdd -20 -20 -20 -20 0 0 60 80
 stressAmp 18 16 20 20 20 20 20 20

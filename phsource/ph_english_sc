@@ -116,7 +116,7 @@ endphoneme
 
 phoneme 0
   vowel  starttype (o)   endtype (o)
-  length 180
+  length 200
   formants vowel/oo_2
   reduceto @  0
 endphoneme
