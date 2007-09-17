@@ -110,8 +110,8 @@ int mbrola_control = 0;
 
 
 
-espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans)
-{//========================================================================
+espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate)
+{//===================================================================================
 // Load a phoneme name translation table from espeak-data/mbrola
 
 	int size;
@@ -137,7 +137,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans)
 
 	setNoError_MBR(1);     // don't stop on phoneme errors
 #else
-	mb_handle = mbrolib_init( 22050 );
+	mb_handle = mbrolib_init(srate);
 	mbrolib_parameter m_parameters;
 
 	if(mb_handle == NULL)
@@ -176,11 +176,14 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans)
 #endif    // USE_MBROLA_LIB
 
 	option_quiet = 1;
-	samplerate = 16000;
+	samplerate = srate;
+	if(srate == 22050)
+		SetParameter(espeakVOICETYPE,0,0);
+	else
+		SetParameter(espeakVOICETYPE,1,0);
 	strcpy(mbrola_name,mbrola_voice);
-	SetParameter(espeakVOICETYPE,1,0);
 	return(EE_OK);
-}
+}  // end of LoadMbrolaTable
 
 
 int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)

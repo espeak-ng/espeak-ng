@@ -386,7 +386,7 @@ SetToneAdjust(voice,tone_points);
 		n_replace_phonemes = 0;
 		option_tone1 = 0;
 		option_quiet = 0;
-		LoadMbrolaTable(NULL,NULL);
+		LoadMbrolaTable(NULL,NULL,0);
 	}
 }  // end of VoiceReset
 
@@ -817,11 +817,13 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_MBROLA:
 			{
+				int srate = 16000;
 				char name[40];
 				char phtrans[40];
+
 				phtrans[0] = 0;
-				sscanf(p,"%s %s",name,phtrans);
-				LoadMbrolaTable(name,phtrans);
+				sscanf(p,"%s %s %d",name,phtrans,&srate);
+				LoadMbrolaTable(name,phtrans,srate);
 			}
 			break;
 

@@ -590,7 +590,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 	phlist[ix].length = 0;
 	phlist[ix].sourceix=0;
 	phlist[ix].synthflags = 0;
-   phlist[ix++].ph = phoneme_tab[phonPAUSE_VSHORT];
+   phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
 }  // end of MakePhonemeList

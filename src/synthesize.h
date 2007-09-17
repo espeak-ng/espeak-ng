@@ -268,7 +268,7 @@ extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 espeak_ERROR SetVoiceByName(const char *name);
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
-espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans);
+espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate);
 void SetParameter(int parameter, int value, int relative);
 void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola);
 int MbrolaSynth(char *p_mbrola);
