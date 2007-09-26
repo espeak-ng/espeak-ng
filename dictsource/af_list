@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -79,6 +79,7 @@ _0M2    mIlj'un
 _0M3     mIlj'art
 _0and   _!En
 _dpt    'pWnt
+_roman  rum'eIns@   
 
 
 
@@ -233,41 +234,45 @@ die		$u
 
 
 
-// unstressed verbs
+// unstressed and auxiliary verbs
 
-is		$u
-het		$u
-sal		$u
-sou 		$u
-kan		$u $strend
-kon		$u $strend
-wil		$u $strend $only
-word		$u
-gaan            $u $only
+is		$u $verbf
+het		$u $verbf
+sal		$u $verbf
+sou 		$u $verbf
+kan		$u $strend $verbf
+kon		$u $strend $verbf
+mag		max2 $verbf
+moes		mus $verbf
+moet		mut $verbf
+wil		$u $strend $only $verbf
+word		$u $verbf
+wou		$u $verbf
+gaan            $u $only $verbf
 
 
 // conjunctions and questions
 
 //maar
-toe		$u
+toe		$u $verbf
 //tog
 
-en		$u $pause
+en		$u $pause $verbf
 want		$pause
 of		$u $pause
-dan		$pause
-anders		$pause
-al		$pause
-daarom		$pause
-dus		$pause
-gevolglik	$pause
-daarna		$pause
-desondanks      dEs?OndaNks $pause
+dan		$pause $verbf
+anders		$pause $verbf
+al		$pause $verbf
+daarom		$pause $verbf
+dus		$pause $verbf
+gevolglik	$pause $verbf
+daarna		$pause $verbf
+desondanks      dEs?OndaNks $pause $verbf
 ondanks         'OndaNks $pause
 verder		f'&rd@r $pause
-nogtans		$pause
+nogtans		$pause $verbf
 inteendeel      $2 $pause
-intussen	$pause
+intussen	$pause $verbf
 omdat		$pause
 sodat		$pause
 voordat		$pause
@@ -315,8 +320,8 @@ voor		$u $strend2
 // misc unstressed
 de		d@
 dat		$u $strend
-te		t@
-nie $unstressend
+te		t@ $verbf
+nie $unstressend $verbextend
 
 soos		$u
 beker		be@k@r
@@ -325,20 +330,20 @@ bekers		be@k@rs
 
 
 // pronouns
-ek	&k 	$u
-jy		$u
-u		$u
-hy		$u
-sy		$u
-dit		$u
-ons		o~ns $u
-julle		$u
-hulle		$u
-hulleself       hWl@s&lf
-my		$u
-jou		$u
-hom		$u
-haar		$u
+ek	&k 	$u $verbf
+jy		$u $verbf
+u		$u $verbf
+hy		$u $verbf
+sy		$u $verbf
+dit		$u $verbf
+ons		o~ns $u $verbf
+julle		$u $verbf
+hulle		$u $verbf
+hulleself       hWl@s&lf $verbf
+my		$u $verbf
+jou		$u $verbf
+hom		$u $verbf
+haar		$u $verbf
 se		s@
 
 dis		$u
@@ -352,17 +357,17 @@ dis		$u
 
 // abbreviations
 
-mnr         mIn'e@r
-mej         m@jWfr@U
-mev         m@fr@U
-dr          d'Okt@r
-insp        InspEkt'Y@r
-kapt kapt'eIn
-prof        pruf'Es@r
-st          s@nt
-supt        suprEntEnd'Ent
-pres        pr@s@d'Ent
-bv          beIf'o@rbe@lt
+mnr         mIn'e@r $dot
+mej         m@jWfr@U $dot
+mev         m@fr@U $dot
+dr          d'Okt@r $dot
+insp        InspEkt'Y@r $dot
+kapt kapt'eIn $dot
+prof        pruf'Es@r $dot
+st          s@nt $dot
+supt        suprEntEnd'Ent $dot
+pres        pr@s@d'Ent $dot
+bv          beIf'o@rbe@lt $dot
 
 
 
@@ -495,6 +500,7 @@ militêre      mIl@t'&:r@
 minister      m@nIst@r
 minute        m@nyt@
 minuut        m@nyt
+misbruik      $2 $verb
 miskien       $2
 misterie      m@ste@ri
 monitor       mOnitOr
@@ -514,13 +520,15 @@ netsowel      nEtso@v&l
 nietemin      n'it@m@n
 nobelprys     $2
 normale       nOrm'A:l@
-november      $2
 numeri        nWm@ri
 
 oeuvre        W:vr@
 omtrent       Omtr'Ent
 onbegrip      $1
+onderrig      On@r'Ix2 $verb
+ondersoek     $3 $verb
 onderweg      $3
+onderwerp     $3 $verb
 onderwyser    $3
 ongeag        $1
 ongeduld      $1
@@ -542,6 +550,7 @@ oorleef       $2
 oorsee        $2
 oorsese       $2
 oorspronklike $2
+oorval        $2 $verb
 
 pandemonium   pand@m'o@niWm
 parke         park@
@@ -586,12 +595,10 @@ terwyl        t@rveIl
 tesame        t@sA:m@
 tevrede       t@fre@d@
 toegee        tux2e@
-toenemend     $2
 totale        tut'A:l@
 totsiens      $2
 
 
-uitdagings    YydA:x2@Ns
 uitdaging     YydA:x2@N
 uiteindelik   $2
 uiteraard     Yyt@r_'A:rt
@@ -602,7 +609,6 @@ vandat      $1
 vanne         fan@
 veraf         f&r_af
 verafgeleë    f&rafx2@le@@
-verantwoordelikheid f@rantv'o@rd@l@keIt
 verby         f@rbeI
 verdere       f&rd@r@
 vererger      f@r&rg@r
@@ -621,7 +627,6 @@ verte         f&rt@
 via           via
 volheid       $1
 voluit        fOl_Yyt
-volwassenes   fOlv'as@n@s
 voorgee       fo@rx2e@
 voorkeer      $1
 voorkom       $2

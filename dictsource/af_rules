@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -20,7 +20,7 @@
          &r) a (_         %a // short final a in words ending in -ra: infra/mantra/sentra, etc.
         &dr) a (_         A: // exceptwrds ending in -dra: ingedra/oorgedra, etc.
         &vr) a (_         A: // and wrds ending in -vra: oorgevra/uitgevra/vasvra, etc.
-         &t) a (_         %a // short final a: basta/delta/junta/pasta/many names
+         &t) a (_N        %a // short final a: basta/delta/junta/pasta/many names
              a (C         a
           C) a (Csier     %a // (ge)finansier/kassier
           j) a (pan       %a //japan first a sound and stress
@@ -162,7 +162,7 @@
              asem         A:s@m // asemgehaal/asemhaling/asemteug/ontwaseming
           _) as (ke       %as // move default stress: askeet/askete/asketies/askese
              assist       %as@st // assistent/e/assisteer
-             assiste (_  %as'Ist@ // rassiste
+             assiste (_   %as'Ist@ // rassiste stress and last e sound
              atten (C     at'En // attent/heid/onattent/attensies
           @) ator (K      'A:tOr // katalisator/diktatorskap and many similar
              augustus     Ox2'WstWs
@@ -758,7 +758,7 @@
           C) ensie (_     'Ensi // many words ending in stressed ensie(s)
           C) ensies       'Ensis // forensiese
           @) enswaar (dig @nsv'A:r // noemenswaardige/bejammerenswaardig
-         @C) ent (_       'Ent // orent/student/topstudent
+         @C) ent (K       'Ent // orent/student/presidentsrede
          en) ent (_       Ent // restore default stress: koppenent/voetenent
          @C) ent (e_      'Ent // plurals of some of the above
           C) er (tyd      @r // tegelykertyd/kindertyd/indertyd
@@ -904,6 +904,7 @@
           _) gri (mA      x2r@ // grimas/grimeer/-middel and other compounds/grimering
              grotere      x2ro@t@r@ // fix vowel sounds and stress: grotere/-s
              guerrilla    g@r'Ila
+             gésel        x2e@s@l // fix stress and e sounds: (ge)gésel/-ing
 
 .group ge
              ge           x2@
@@ -1185,7 +1186,7 @@
 .group j
              j            j
              j (j
-          _) ja (cobA     j%a // fix stress and a sound: Jacoba/Jacobus
+          _) ja (CobA     j%a // fix stress and a sound: Jacoba/Jacobus/Jakobus
              jakaranda    j%ak%ar'anda //jakaranda and compounds
              jaloe (sie   j%al%u // stress: jaloesie/beroepsjaloesie
              januarie     j'any,A:ri
@@ -1313,7 +1314,7 @@
              kommando     k%umandu // move stress, fix o sounds: kommando and compounds
              ko (pie@     k%u // kopiereg/kopie
              koe (rA      k%u // koerier/koerasie/koerant and compounds 
-             korrek k%urEk //korrek and derivitives
+             korrek       k%urEk //korrek and derivitives
              kort (stond  k%Ort // move default stress: kortstondig/-e/-heid
              koever (t    k%uf&r // koevert/-e/-jie and compounds
              kollege      k'OlidZ    // kollege/onderwyskollege
@@ -1488,7 +1489,7 @@
              mis (troos   m@s // mistroostig
              mis (vorm    m@s // stress on 2nd slb
              mode         m''o@d@ // fix e sound: modeontwerper/-maker, etc.
-             modee m@d'e@ //akkommodeer
+             modee        m@d'e@ //akkommodeer
              mode (l      m%o@d& // fix stress and e sound: model/-le and compounds
              mode (lle@   m%Od@ // fix stress and e sound: modelleer/modellering
              modern       m%ud&r@-n
@@ -1646,7 +1647,7 @@
 
 .group o
              o            o@
-         &C) o (_         %u // fix o at end of words: Marokko/(aanvang)saldo/risiko, etc.
+         &C) o (_N        %u // fix o at end of words: Marokko/(aanvang)saldo/risiko, etc.
         bur) o (_         ,o@ // but: buro and compounds like arbeidsburo
          rb) o (_         'o@ // and daarbo/hierbo/waarbo
          &s) o (_         o@ // and: sommerso/netso
@@ -1838,7 +1839,6 @@
              onder (hou   %On@r // move default stress: onderhou/-dend/-e
              onder (ne    %On@r // move default stress: onderneem/onderneming
              onderonsie   %On@r?o~nsi // fix stress, short break and nasalised o: onderonsie/-s
-             onder (rig   %On@r // exception to default stress rule
              onder (soeken %On@r // move default stress: ondersoekend/-e
              onder (skA   %On@r // exception to default stress rule
              onderstebo   %On@rst@bo@ // fix stress: onderstebo/koponderstebo
@@ -2712,6 +2712,8 @@
           s) w (il        v // fix w sound: groepswil/hemelswil/liefdeswil/korswil	
           s) w (yf        v // fix w sound: viswyf/ganswyfie/mannetjieswyfie
         ens) w v
+        ers) w            v // flenterswaai/kerswense/koerswaarde/kopersweerstand/trekkerswee/verkeerswisselaar
+        ers) w (eer_      w // but: kankersweer/uiersweer, etc.
         los) w            v // fix w sound: (los)wikkel/woel/wriemel
         mis) w            v // fix w sound: miswaas/misweer/miswurm
         vas) w            v // fix w sound: vaswikkel/-woel
@@ -2787,6 +2789,7 @@
           @) werste       vIrst@
           k) w (oA        v // fix w sound: dankwoord/werkwoord/skoonmaakwoede/spreekwoord
          @C) w (oCC       v // fix w sound: kubiekwortel/steekwond/onafhanklikwording/republiekwording/varkwors
+         @C) woning       vo@n@N // fix w sound in many compounds ending in -woning
              woe (styn    v%u // move default stress: woestyn and compounds
              wolke        vOlk@ // nimbuswolke/wolkekrabber
              woorde       vo@rd@
