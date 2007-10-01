@@ -817,6 +817,9 @@ static void WavegenSetEcho(void)
 		amp = embedded_value[EMBED_H];
 		delay = 130;
 	}
+
+	if(delay == 0)
+		amp = 0;
 	echo_head = (delay * samplerate)/1000;
 	echo_amp = amp;
 	// compensate (partially) for increase in amplitude due to echo
@@ -893,7 +896,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	{
 		peak_harmonic[pk] = peaks[pk].freq / pitch;
 		x = peaks[pk].height >> 14;
-		peak_height[pk] = x * x * 5;
+		peak_height[pk] = (x * x * 5)/2;
 
 		// only use harmonics up to half the samplerate
 		if(peak_harmonic[pk] >= hmax_samplerate)
@@ -905,7 +908,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	for(h=0; h<=hmax; h++, f+=pitch)
 	{
 		x = htab[h] >> 15;
-		htab[h] = (x * x) >> 7;
+		htab[h] = (x * x) >> 8;
 
 		if((ix = (f >> 19)) < N_TONE_ADJUST)
 		{
@@ -1134,7 +1137,7 @@ static int Wavegen()
 				maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[0],0);
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-				amplitude2 = (amplitude * pitch)/(100 << 12);
+				amplitude2 = (amplitude * pitch)/(100 << 11);
 
             // switch sign of harmonics above about 900Hz, to reduce max peak amplitude
 				h_switch_sign = 890 / (pitch >> 12);
@@ -1181,7 +1184,7 @@ static int Wavegen()
 				cycle_count++;
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-				amplitude2 = (amplitude * pitch)/(100 << 12);
+				amplitude2 = (amplitude * pitch)/(100 << 11);
 
 				if(glottal_flag > 0)
 				{

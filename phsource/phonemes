@@ -619,7 +619,7 @@ endphoneme
 
 phoneme d
   vcd alv stop
-  vowelin f1=2  f2=1700 -300 300  f3=-100 80
+  vowelin f1=1  f2=1700 -300 300  f3=-100 80
   vowelout f1=2 f2=1700 -300 300  f3=-100 80
   formants d/d+x/d
   before _ d/d_+x/d_
@@ -1240,5 +1240,8 @@ include ph_swahili
 //include pf
 //phonemetable f_en basef
 //include pf_english
+
+phonemetable en_x en
+include ph_english_x
 
 

@@ -931,7 +931,6 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int  ix;
 	int  v;
 	int  v_stress;
-	int  reduce_level;
 	int  stressed_syllable;      // position of stressed syllable
 	int  max_stress_posn;
 	int  unstressed_word = 0;
@@ -966,6 +965,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		if(phonetic[ix] == 0)
 			break;
 	}
+	if(ix == 0) return;
 	final_ph = phonetic[ix-1];
 
 	max_output = output + (N_WORD_PHONEMES-3);   /* check for overrun */
@@ -1360,53 +1360,6 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			if(v_stress > 0)
 				*output++ = stress_phonemes[v_stress];  // mark stress of all vowels except 0 (unstressed)
 
-			while((ph->reduce_to != 0) && (((dictionary_flags & FLAG_FOUND)==0) || (langopts.param[LOPT_REDUCE] & 1)))
-			{
-				// this vowel can be reduced to another if the stress is below a specified value
-				int reduce = 0;
-
-				switch(reduce_level = (ph->phflags >> 28) & 7)
-				{
-				case 0:
-					/* reduce unstressed-diminished to schwa */
-					if((vowel_stress[v+1] <= 1) && (v >= (vowel_count-2)))
-					{
-						/* not if followed by another, terminating, unstessed syllable */
-						break;
-					}  // drop through to next case
-				case 1:
-					if(v_stress == 1)   // diminished stress only
-						reduce = 1;
-					break;
-
-				default:
-					if(v_stress < reduce_level)
-						reduce = 1;
-					break;
-				}
-
-				if(max_stress == 1) max_stress = 0;
-				if(unstressed_word && (langopts.param[LOPT_REDUCE] & 0x2) && (v_stress >= max_stress))
-				{
-					// don't reduce the most stressed syllable in an unstressed word
-					reduce = 0;
-				}
-
-				if(reduce)
-				{
-					phcode = ph->reduce_to;
-					ph = phoneme_tab[phcode];
-#ifdef deleted
-					if(*p == phonLENGTHEN)
-					{
-						/* delete length indicator after vowel now that it has been reduced */
-						p++;
-					}
-#endif
-				}
-				else
-					break;
-			}
 
 			if(vowel_stress[v] > max_stress)
 			{

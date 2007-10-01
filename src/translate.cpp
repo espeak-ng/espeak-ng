@@ -923,7 +923,7 @@ strcpy(phonemes2,phonemes);
 		if(last_char == 'f')
 			TranslateRules(&word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
 		else
-		if(strchr_w("hsx",last_char)==NULL)
+		if((last_char==0) || (strchr_w("hsx",last_char)==NULL))
 			TranslateRules(&word_zz[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
 		else
 			TranslateRules(&word_iz[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);

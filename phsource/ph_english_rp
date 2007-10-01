@@ -160,7 +160,7 @@ endphoneme
 phoneme i:
   vowel  starttype (i)  endtype (i)
   length 175
-  formants vowel/i
+  formants vowel/i_2
   after w w/wi2
   linkout ;
 endphoneme

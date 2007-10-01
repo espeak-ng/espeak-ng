@@ -2481,6 +2481,7 @@ haves            havz
 has              %ha2z          $pastf $only
 has              haz            $only $atend
 (has been)       %haz%bIn       $pastf
+(has to)         haztU          $atend
 hath             %haT           $pastf $only
 had              %had           $pastf $strend2 $only
 (had been)       %had%bIn       $pastf

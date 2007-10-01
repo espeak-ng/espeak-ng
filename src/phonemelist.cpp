@@ -35,10 +35,6 @@
 int Translator::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
 {//======================================================================================================
 // Called for each phoneme in the phoneme list, to allow a language to make changes
-// flags: bit 0=1 last phoneme in a word
-//        bit 1=1 this is the highest stressed vowel in the current word
-//        bit 2=1 after the highest stressed vowel in the current word
-//        bit 3=1 the phonemes were specified explicitly, or found from an entry in the xx_list dictionary
 // ph     The current phoneme
 	return(0);
 }
@@ -184,7 +180,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 	PHONEME_TAB *ph;
 	PHONEME_TAB *prev, *next, *next2;
 	int unstress_count = 0;
-	int word_has_stress = 0;
+	int word_stress = 0;
 	int switched_language = 0;
 	int max_stress;
 	int voicing;
@@ -338,7 +334,21 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		}
 
 		if(plist2->sourceix)
-			word_has_stress = 0;   // start of a word
+		{
+			// start of a word
+			int k;
+			word_stress = 0;
+
+			// find the highest stress level in this word
+			for(k=j+1; k < n_ph_list2; k++)
+			{
+				if(ph_list3[k].sourceix)
+					break;   // start of the next word
+
+				if(ph_list3[k].stress > word_stress)
+					word_stress = ph_list3[k].stress;
+			}
+		}
 
 		if(ph == NULL) continue;
 
@@ -353,7 +363,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 				{
 					// in a sequence of unstressed syllables, reduce alternate syllables to 'diminished'
                // stress.  But not for the last phoneme of a stressed word
-					if((langopts.stress_flags & 0x2) || (word_has_stress && ((plist2+1)->sourceix!=0)))
+					if((langopts.stress_flags & 0x2) || ((word_stress > 3) && ((plist2+1)->sourceix!=0)))
 					{
 						// An unstressed final vowel of a stressed word
 						unstress_count=1;    // try again for next syllable
@@ -367,8 +377,6 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			else
 			{
 				unstress_count = 0;
-				if(plist2->stress > 3)
-					word_has_stress = 1;   // word has a primary or a secondary stress
 			}
 		}
 
@@ -426,20 +434,44 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			}
 		}
 
-		if((ph->reduce_to != 0) && (ph->type != phVOWEL) && !(plist2->synthflags & SFLAG_DICTIONARY))
-		{
-			// reduction for vowels has already been done in SetWordStress
-			int reduce_level;
 
-			if(next->type == phVOWEL)
+		while((ph->reduce_to != 0) && (!(plist2->synthflags & SFLAG_DICTIONARY)  || (langopts.param[LOPT_REDUCE] & 1)))
+		{
+			int reduce_level;
+			int stress_level;
+			int reduce = 0;
+
+			reduce_level = (ph->phflags >> 28) & 7;
+
+			if(ph->type == phVOWEL)
 			{
-				reduce_level = (ph->phflags >> 28) & 7;
-				if((&plist2[1])->stress < reduce_level)
-				{
-					// look at the stress of the following vowel
-					ph = phoneme_tab[ph->reduce_to];
-				}
+				stress_level = plist2->stress;
 			}
+			else
+			{
+				// consonant, get stress from the following vowel
+				if(next->type == phVOWEL)
+					stress_level = (plist2+1)->stress;
+				else
+					break;
+			}
+
+			if(stress_level == 1)
+				reduce = 1;    // stress = 'reduced'
+
+			if(stress_level < reduce_level)
+				reduce =1;
+
+			if((word_stress < 4) && (langopts.param[LOPT_REDUCE] & 0x2) && (stress_level >= word_stress))
+			{
+				// don't reduce the most stressed syllable in an unstressed word
+				reduce = 0;
+			}
+
+			if(reduce)
+				ph = phoneme_tab[ph->reduce_to];
+			else
+				break;
 		}
 
 		if((plist2+1)->synthflags & SFLAG_LENGTHEN)

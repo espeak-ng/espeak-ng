@@ -18,7 +18,7 @@ endphoneme
 phoneme a
   vowel  starttype (a)  endtype (a)
   length 170
-  formants vowel/a_4
+  formants vowel/a
   reduceto a2  0
 endphoneme
 
@@ -26,9 +26,8 @@ endphoneme
 phoneme E
   vowel  starttype (e)  endtype (e)
   length 150
-  formants vowel/e_mid
+  formants vowel/ee_1
   reduceto I  0
-//  before l/ DFT-30+L/eL_af
 endphoneme
 
 
@@ -79,6 +78,7 @@ phoneme U
   vowel  starttype (u)  endtype (u)
   length 150
   formants vowel/uu
+  linkout _|
 endphoneme
 
 
@@ -110,7 +110,7 @@ endphoneme
 phoneme aa   //   'bath' etc.
   vowel  starttype (a)  endtype (a)
   length 150
-  formants vowel/a_4
+  formants vowel/a
   linkout r-
 endphoneme
 

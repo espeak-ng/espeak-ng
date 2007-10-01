@@ -396,9 +396,9 @@ static void VoiceFormant(char *p)
 	// Set parameters for a formant
 	int ix;
 	int formant;
-	int freq = -1;
-	int height = -1;
-	int width = -1;
+	int freq = 100;
+	int height = 100;
+	int width = 100;
 
 	ix = sscanf(p,"%d %d %d %d",&formant,&freq,&height,&width);
 	if(ix < 2)
@@ -713,7 +713,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			{
 				while(isspace(*p)) p++;
 				n = -1;
-				if((n = atoi(p)) > 0)
+				if(((n = atoi(p)) > 0) && (n < 32))
 				{
 					p++;
 					conditional_rules |= (1 << n);
