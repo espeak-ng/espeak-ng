@@ -27,6 +27,7 @@
 hierar) ch (i    C
     me) ch (a    C
     te) ch (n    C
+   _pe) ch       C
   pszi) ch       C
   pszy) ch       C
    mün) ch (en   C
@@ -144,7 +145,7 @@ _minde) gy (ik   J:
         ly       j
         lly      jj
 
-     A) lj (A    ljj
+     A) lj (A    l^j
 
      C) ly (_    li
  _kéth) ly       li
@@ -166,7 +167,7 @@ szamue) ly	 lli
         n (k     N
         ny       n^
         nny      n^n^
-        nj       n^
+        nj       n^n^
 
 
      _) nem (-   n,Em       // has $alt2 attribute in hu_list, combine with the next word
@@ -304,6 +305,7 @@ vörösmar) ty     ti
    tor) z (szülött z
    tor) z (ság   z
  _vité) z        z
+   _ví) z (s     z
 
     ga) zs (ág     zS
    _gá) zsz (ámla  zs:

@@ -1241,7 +1241,7 @@ include ph_swahili
 //phonemetable f_en basef
 //include pf_english
 
-phonemetable en_x en
-include ph_english_x
+phonemetable en_wi en
+include ph_english_wi
 
 

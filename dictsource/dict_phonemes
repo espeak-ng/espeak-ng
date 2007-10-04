@@ -68,9 +68,9 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  E    e@   eI   I    I2   i:   i@   
-IR   O    O:   o:   O@   o@   OI   oU   
-O~   U    u:   U@   V    VR   
+aU@  E    e@   eI   I    i    I2   i:   
+i@   IR   O    O:   o:   O@   o@   OI   
+oU   O~   U    u:   U@   V    VR   
 
 :    ;    b    C    d    D    dZ   f    
 g    g-   h    j    k    l    L    m    
@@ -158,9 +158,9 @@ A    a:   E    e:   i    i:   o    o:
 u    u:   Y    y    y:   Y:   
 
 :    b    c    C    d    dZ   f    g    
-h    j    J    k    l    m    n    N    
-n^   p    R    R2   s    S    s2   t    
-tS   ts   v    z    Z    
+h    j    J    k    l    l^   m    n    
+N    n^   p    R    R2   s    S    s2   
+t    tS   ts   v    z    Z    
 
 
 Dictionary it_dict

@@ -1,4 +1,4 @@
-﻿//maintainer: Willem van der Walt
+//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -832,6 +832,7 @@
           al) ex (and %Ekz //alexanderbaai, alexandria etc.
           m) exik Eks%ik //mexiko mexikaans etc.
           t) exas Eks@s //Texaskoors and may be others
+          yd) e (l @ //ydel e sound in compounds verydeling
 
 
 .group f
@@ -1247,6 +1248,7 @@
              kri (oel     kr%i // move default stress: krioel and derivitives
              kristal      kr@stal // move default stress: kristal and many compounds
              krit (A      kr@t // kriteria/-ium/kritiseer and derivitives
+             krit (ies kr'it //krities and compounds
              krieket      krik@t //krieket e sound and stress
              krieketw     krik@tv //krieket followed by w in compounds always v
 
@@ -1312,6 +1314,7 @@
 .group ko
              ko (kon      k%u // fix 1st o sound and move default stress: kokon and compounds
              kommando     k%umandu // move stress, fix o sounds: kommando and compounds
+             kommissie k%umis%i //kommissie alone and in compounds
              ko (pie@     k%u // kopiereg/kopie
              koe (rA      k%u // koerier/koerasie/koerant and compounds 
              korrek       k%urEk //korrek and derivitives
