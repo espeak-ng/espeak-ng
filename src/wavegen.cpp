@@ -80,6 +80,7 @@ static int peak_height[N_PEAKS];
 #define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
 static int echo_head;
 static int echo_tail;
+static int echo_length = 0;   // period (in sample\) to ensure completion of echo at the end of speech, set in WavegenSetEcho()
 static int echo_amp = 0;
 static short echo_buf[N_ECHO_BUF];
 
@@ -821,11 +822,13 @@ static void WavegenSetEcho(void)
 	if(delay == 0)
 		amp = 0;
 	echo_head = (delay * samplerate)/1000;
+	echo_length = echo_head;       // ensure completion of echo at the end of speech
+//	echo_length = echo_head * 2;    // perhaps allow 2 echo periods at the end of speech ?
 	echo_amp = amp;
 	// compensate (partially) for increase in amplitude due to echo
 	general_amplitude = GetAmplitude();
 	general_amplitude = ((general_amplitude * (512-amp))/512);
-}
+}  // end of WavegenSetEcho
 
 
 
@@ -1362,6 +1365,9 @@ static int PlaySilence(int length, int resume)
 	static int n_samples;
 	int value=0;
 
+	if(length == 0)
+		return(0);
+
 	nsamples = 0;
 	samplecount = 0;
 
@@ -1826,6 +1832,7 @@ int WavegenFill(int fill_zeros)
 	int length;
 	int result;
 	static int resume=0;
+	static int echo_complete=0;
 
 #ifdef TEST_MBROLA
 	if(mbrola_name[0] != 0)
@@ -1836,6 +1843,17 @@ int WavegenFill(int fill_zeros)
 	{
 		if(WcmdqUsed() <= 0)
 		{
+#define echo2
+#ifdef echo2
+			if(echo_complete > 0)
+			{
+				// continue to play silence until echo is completed
+				resume = PlaySilence(echo_complete,resume);
+				if(resume == 1)
+					return(0);  // not yet finished
+			}
+#endif
+
 			if(fill_zeros)
 			{
 				while(out_ptr < out_end)
@@ -1855,12 +1873,16 @@ int WavegenFill(int fill_zeros)
 			break;
 
 		case WCMD_PAUSE:
+			if(resume==0)
+			{
+				echo_complete -= length;
+			}
 			n_mix_wavefile = 0;
-			if(length==0) break;
 			result = PlaySilence(length,resume);
 			break;
 
 		case WCMD_WAVE:
+			echo_complete = echo_length;
 			n_mix_wavefile = 0;
 			result = PlayWave(length,resume,(unsigned char*)q[2], q[3] & 0xff, q[3] >> 8);
 			break;
@@ -1880,6 +1902,7 @@ int WavegenFill(int fill_zeros)
 		case WCMD_SPECT2:   // as WCMD_SPECT but stop any concurrent wave file
 			n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
+			echo_complete = echo_length;
 			result = Wavegen2(length & 0xffff,q[1] >> 16,resume,(frame_t *)q[2],(frame_t *)q[3]);
 			break;
 

@@ -1,4 +1,4 @@
-
+﻿
 // This file in UTF8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
@@ -351,6 +351,11 @@ résident         Rezidt2 $verb
 couvent          k'uvt2  $verb
 concurrent       kO~kyR'A~
 récurrent        RekyR'A~
+ferment           fErm'A~
+ferment           f'Ermt2  $verb
+sergent           sErZ'A~
+serment           sErm'A~
+serpent           sErp'A~
 
 
 // MAIN WORD DICTIONARY
@@ -588,6 +593,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 
