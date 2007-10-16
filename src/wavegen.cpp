@@ -824,10 +824,12 @@ static void WavegenSetEcho(void)
 	echo_head = (delay * samplerate)/1000;
 	echo_length = echo_head;       // ensure completion of echo at the end of speech
 //	echo_length = echo_head * 2;    // perhaps allow 2 echo periods at the end of speech ?
+
+	// echo_amp units are 1/256ths of the amplitude of the original sound. 
 	echo_amp = amp;
 	// compensate (partially) for increase in amplitude due to echo
 	general_amplitude = GetAmplitude();
-	general_amplitude = ((general_amplitude * (512-amp))/512);
+	general_amplitude = ((general_amplitude * (500-amp))/500);
 }  // end of WavegenSetEcho
 
 
@@ -836,6 +838,8 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 {//============================================================================
 // Calculate the amplitude of each  harmonics from the formants
 // Only for formants 0 to 5
+
+// control 0=initial call, 1=every 64 cycles
 
    // pitch and freqs are Hz<<16
 
@@ -897,10 +901,15 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	// find the nearest harmonic for HF peaks where we don't use shape
 	for(; pk<N_PEAKS; pk++)
 	{
-		peak_harmonic[pk] = peaks[pk].freq / pitch;
 		x = peaks[pk].height >> 14;
 		peak_height[pk] = (x * x * 5)/2;
 
+		// find the nearest harmonic for HF peaks where we don't use shape
+		if(control == 0)
+		{
+			// set this initially, but make changes only at the quiet point
+			peak_harmonic[pk] = peaks[pk].freq / pitch;
+		}
 		// only use harmonics up to half the samplerate
 		if(peak_harmonic[pk] >= hmax_samplerate)
 			peak_height[pk] = 0;
@@ -1110,6 +1119,7 @@ static int Wavegen()
 	int h;
 	int ix;
 	int z, z1, z2;
+	int echo;
 	int ov;
 	static int maxh, maxh2;
 	int pk;
@@ -1185,6 +1195,12 @@ static int Wavegen()
 					return(0);
 
 				cycle_count++;
+
+				for(pk=wvoice->n_harmonic_peaks+1; pk<N_PEAKS; pk++)
+				{
+					// find the nearest harmonic for HF peaks where we don't use shape
+					peak_harmonic[pk] = peaks[pk].freq / (pitch*16);
+				}
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
 				amplitude2 = (amplitude * pitch)/(100 << 11);
@@ -1326,11 +1342,13 @@ static int Wavegen()
 		}
 
 		z1 = z2 + (((total>>7) * amplitude2) >> 14);
-		z = (z1 * agc) >> 8;
 
-		z += ((echo_buf[echo_tail++] * echo_amp) >> 8);
+		echo = (echo_buf[echo_tail++] * echo_amp);
+		z1 += echo >> 8;
 		if(echo_tail >= N_ECHO_BUF)
 			echo_tail=0;
+
+		z = (z1 * agc) >> 8;
 
 		// check for overflow, 16bit signed samples
 		if(z >= 32768)
