@@ -1494,7 +1494,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	if(flags & FLAG_STRESS_END2)
 	{
 		// this's word's stress could be increased later
-		ph_list2[max_stress_ix].stress |= 0x80;
+		ph_list2[max_stress_ix].synthflags |= SFLAG_PROMOTE_STRESS;
 	}
 
 	prev_dict_flags = flags;

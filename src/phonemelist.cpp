@@ -187,6 +187,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 	int regression;
 	int end_sourceix;
 	int alternative;
+	int first_vowel=0;   // first vowel in a word
 	PHONEME_LIST2 ph_list3[N_PHONEME_LIST];
 
 	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0};
@@ -210,12 +211,12 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		// the last word is unstressed, look for a previous word that can be stressed
 		while(--j >= 0)
 		{
-			if(ph_list2[j].stress & 0x80)  // dictionary flags indicated that this stress can be promoted
+			if(ph_list2[j].synthflags & SFLAG_PROMOTE_STRESS)  // dictionary flags indicated that this stress can be promoted
 			{
 				ph_list2[j].stress = 4;   // promote to stressed
 				break;
 			}
-			if((ph_list2[j].stress & 0x7f) >= 4)
+			if(ph_list2[j].stress >= 4)
 			{
 				// found a stressed syllable, so stop looking
 				break;
@@ -338,6 +339,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			// start of a word
 			int k;
 			word_stress = 0;
+			first_vowel = 1;
 
 			// find the highest stress level in this word
 			for(k=j+1; k < n_ph_list2; k++)
@@ -456,6 +458,9 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 					break;
 			}
 
+			if((stress_level == 1) && (first_vowel))
+				stress_level = 0;   // ignore 'dimished' stress on first syllable
+
 			if(stress_level == 1)
 				reduce = 1;    // stress = 'reduced'
 
@@ -473,6 +478,9 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			else
 				break;
 		}
+
+		if(ph->type == phVOWEL)
+			first_vowel = 0;
 
 		if((plist2+1)->synthflags & SFLAG_LENGTHEN)
 		{
@@ -519,23 +527,6 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		}
 
 		next2 = phoneme_tab[(plist2+2)->phcode];
-
-#ifdef deleted
-		if((ph->type != phVOWEL)  && (ph->type != phPAUSE)   //&& ((ph->phflags & phVOICED)==0)
-			&& (next->type == phLIQUID) && (next->mnemonic != ';') && (next2->type != phVOWEL))
-		{
-			// semi-vowel surrounded by consonants.  precede by a short schwa
-			insert_ph = phonSCHWA_SHORT;
-			insert_synthflags = SFLAG_SYLLABLE;
-		}
-
-		if((ph->type == phLIQUID) && (prev->type != phVOWEL) && (next->type != phVOWEL))
-		{
-			// semi-vowel surrounded by consonants.  precede by a short schwa
-			insert_ph = phonSCHWA_SHORT;
-			insert_synthflags = SFLAG_SYLLABLE;
-		}
-#endif
 
 		if((insert_ph == 0) && (ph->link_out != 0) && (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
 		{

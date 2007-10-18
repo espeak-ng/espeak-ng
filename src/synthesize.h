@@ -43,7 +43,7 @@
 #define SFLAG_LENGTHEN         0x08   // lengthen symbol : included after this phoneme
 #define SFLAG_DICTIONARY       0x10   // the pronunciation of this word was listed in the xx_list dictionary
 #define SFLAG_SWITCHED_LANG    0x20   // this word uses phonemes from a different language
-
+#define SFLAG_PROMOTE_STRESS   0x40   // this unstressed word can be promoted to stressed
 
 // embedded command numbers
 #define EMBED_P     1   // pitch

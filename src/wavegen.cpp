@@ -1341,7 +1341,7 @@ static int Wavegen()
 			z2 = (z2 * mix_wave_amp)/32;
 		}
 
-		z1 = z2 + (((total>>7) * amplitude2) >> 14);
+		z1 = z2 + (((total>>8) * amplitude2) >> 13);
 
 		echo = (echo_buf[echo_tail++] * echo_amp);
 		z1 += echo >> 8;
