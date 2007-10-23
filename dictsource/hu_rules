@@ -2,6 +2,12 @@
 // This file is UTF-8 encoded
 
 
+.replace
+//  allow o,u-circumflex for o,u-double-acute
+ ô	ő
+ û	ű
+
+
 .group a
         a        A
      _) a (_     %A

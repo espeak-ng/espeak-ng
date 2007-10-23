@@ -92,14 +92,14 @@ endphoneme
 
 
 phoneme I
-  vowel  starttype (e) endtype (e)
+  vowel  starttype (@) endtype (@)
   length 110
   formants vowel/e#
   before l/2 vowel/@_3-30+l/L2_@L
 endphoneme
 
 phoneme I2
-  vowel  starttype (e)  endtype (e)
+  vowel  starttype (@)  endtype (@)
   unstressed
   length 110
   formants vowel/e#

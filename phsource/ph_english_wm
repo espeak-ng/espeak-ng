@@ -62,7 +62,7 @@ endphoneme
 phoneme 0
   vowel  starttype (o)   endtype (o)
   length 140
-  formants vowel/0_3
+  formants vowel/oo_4
   reduceto @  0
 endphoneme
 
@@ -146,7 +146,7 @@ endphoneme
 phoneme O@
   vowel  starttype (o)  endtype (@)
   length 240
-  formants vowel/o
+  formants vowel/oo_1
   linkout r-
 endphoneme
 
@@ -154,7 +154,7 @@ endphoneme
 phoneme O
   vowel  starttype (o)  endtype (o)
   length 150
-  formants vowel/o
+  formants vowel/oo_1
   reduceto @  0
 endphoneme
 
@@ -189,7 +189,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype (@)  endtype (i)
-  length 210
+  length 230
   formants vdiph/@i_3
 endphoneme
 
@@ -228,7 +228,7 @@ endphoneme
 phoneme aI@
   vowel  starttype (a)  endtype (@)
   length 270
-  formants vwl_en/aI@
+  formants vwl_en/ooi@
   linkout r-
 endphoneme
 

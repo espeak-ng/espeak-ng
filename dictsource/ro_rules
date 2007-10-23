@@ -3,6 +3,10 @@
 // This file is UTF-8 encoded
 
 
+// replace s-comma, t-comma by s-cedilla, t-cedilla 
+.replace
+ ș	ş
+ ț	ţ
 
 
 .group a

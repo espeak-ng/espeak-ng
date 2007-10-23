@@ -38,6 +38,7 @@
 
 
 #define L_qa   0x716100
+#define L_grc  0x677263   // grc  Ancient Greek
 
 
 #define OFFSET_GREEK  0x380
@@ -45,19 +46,41 @@
 #define OFFSET_DEVANAGARI  0x900
 
 
-static const unsigned int replace_cyrillic[] = 
-	{0x430,0x431,0x446,0x45b,0x447,0x45f,0x455,0x434,0x452,
-	0x435,0x444,0x433,0x445,0x438,0x458,0x43a,0x459,
-	0x43b,0x43c,0x45a,0x43d,0x43e,0x43f,0x440,0x441,
-	0x448,0x442,0x443,0x432,0x437,0x436,
-	0x453,0x45c,0};  // ѓ  ѕ  ќ
-
-static const unsigned int replace_cyrillic_latin[] =
-	{'a','b','c',0x107,0x10d,'d'+(0x17e<<16),'d'+('z'<<16),'d',0x111,
-	'e','f','g','h','i','j','k','l'+('j'<<16),
-	'l','m','n'+('j'<<16),'n','o','p','r','s',
-	0x161,'t','u','v','z',0x17e,
-	0x111,0x107,0};
+static const unsigned int replace_cyrillic_latin[] = 
+	{0x430,'a',
+	0x431,'b',
+	0x446,'c',
+	0x45b,0x107,
+	0x447,0x10d,
+	0x45f,'d'+(0x17e<<16),
+	0x455,'d'+('z'<<16),
+	0x434,'d',
+	0x452,0x111,
+	0x435,'e',
+	0x444,'f',
+	0x433,'g',
+	0x445,'h',
+	0x438,'i',
+	0x458,'j',
+	0x43a,'k',
+	0x459,'l'+('j'<<16),
+	0x43b,'l',
+	0x43c,'m',
+	0x45a,'n'+('j'<<16),
+	0x43d,'n',
+	0x43e,'o',
+	0x43f,'p',
+	0x440,'r',
+	0x441,'s',
+	0x448,0x161,
+	0x442,'t',
+	0x443,'u',
+	0x432,'v',
+	0x437,'z',
+	0x436,0x17e,
+	0x453,0x111,
+	0x45c,0x107,
+0};  // ѓ  ѕ  ќ
 
 
 void SetupTranslator(Translator *tr, int *lengths, int *amps)
@@ -132,6 +155,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('e','l'):   // Greek
+	case L_grc:        // Ancient Greek
 		{
 			static int stress_lengths_el[8] = {155, 180,  210, 210,  0, 0,  270, 300};
 			static int stress_amps_el[8] = {15,12, 20,20, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
@@ -167,6 +191,12 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.numbers = 0xb09;
 			tr->langopts.numbers2 = 0x2;   // variant form of numbers before thousands
+
+			if(name2 == L_grc)
+			{
+				// ancient greek
+				tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;
+			}
 		}
 		break;
 
@@ -259,8 +289,6 @@ Translator *SelectTranslator(const char *name)
 	case L('h','i'):
 		{
 			static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
-			static const unsigned int replace_chars_hi[11] = {0x966,0x967,0x968,0x969,0x96a,0x96b,0x96c,0x96d,0x96e,0x96f,0};  // digits 0-9
-			static const unsigned int replacement_chars_hi[11] = {0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0};
 			static int stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static int stress_amps_hi[8] = {17,14, 20,19, 20,24, 24,22 };
 
@@ -274,8 +302,6 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers = 0x811;
 			tr->langopts.numbers2 = 0x100;
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
-			tr->langopts.replace_chars = replace_chars_hi;
-			tr->langopts.replacement_chars = replacement_chars_hi;
 
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBitsRange(tr,LETTERGP_A,0x06,0x14);   // vowel letters
@@ -306,8 +332,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.numbers = 0x1c0d + 0x4000 + NUM_ROMAN_UC;
 			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
-			tr->langopts.replace_chars = replace_cyrillic;
-			tr->langopts.replacement_chars = replace_cyrillic_latin;
+			tr->langopts.replace_chars = replace_cyrillic_latin;
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');
@@ -319,14 +344,10 @@ Translator *SelectTranslator(const char *name)
 		{
 			static int stress_amps_hu[8] = {17,17, 19,19, 20,24, 24,22 };
 			static int stress_lengths_hu[8] = {185,195, 195,190, 0,0, 210,220};
-			static const unsigned int replace_chars_hu[] = {0xd4,0xf4,0xdb,0xfb,0};
-			static const unsigned int replacement_chars_hu[] = {0x150,0x151,0x170,0x171,0};     // allow o,u-circumflex for o,u-double-acute
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hu,stress_amps_hu);
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
-			tr->langopts.replace_chars = replace_chars_hu;
-			tr->langopts.replacement_chars = replacement_chars_hu;
 
 			tr->langopts.vowel_pause = 0x20;
 			tr->langopts.stress_rule = 0;
@@ -417,9 +438,6 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 4;   // antipenultimate
 			tr->langopts.numbers = 0x0c29 + 0x4000;
 			tr->langopts.numbers2 = 0x8a;  // variant numbers before thousands,milliards
-
-			tr->langopts.replace_chars = replace_cyrillic_latin;
-			tr->langopts.replacement_chars = replace_cyrillic;
 		}
 		break;
 
@@ -495,8 +513,6 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static int stress_lengths_ro[8] = {170, 170,  180, 180,  0, 0,  240, 260};
 			static int stress_amps_ro[8] = {15,13, 18,18, 20,22, 22,22 };
-			static const unsigned int replace_chars_ro[5] = {0x218,0x219,0x21a,0x21b,0};
-			static const unsigned int replacement_chars_ro[5] = {0x15e,0x15f,0x162,0x163,0};     // replace s-comma, t-comma by s-cedilla, t-cedilla 
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ro,stress_amps_ro);
@@ -505,8 +521,6 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x100 + 0x6;
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
-			tr->langopts.replace_chars = replace_chars_ro;
-			tr->langopts.replacement_chars = replacement_chars_ro;
 			tr->langopts.numbers = 0x1829+0x6000 + NUM_ROMAN;
 			tr->langopts.numbers2 = 0x1e;  // variant numbers before all thousandplex
 		}

@@ -107,6 +107,13 @@ phoneme eI
 endphoneme
 
 
+phoneme EI
+  vowel starttype (e) endtype (i)
+  length 230
+  formants vdiph/eei
+endphoneme
+
+
 phoneme oI
   vowel starttype (o) endtype (i)
   length 240

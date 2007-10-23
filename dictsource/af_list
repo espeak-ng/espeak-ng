@@ -91,21 +91,26 @@ bethlehem   bEt_liEm
 brittanje   $2
 ceylon      s@lOn
 china       S'ina
+(graaff reinet) x2rA:f||r@n'Et
+italië      it'A:li;@
 jerusalem   j@r'ysalEm
 kanada      kanad%a
+knysna      neIsna
 kongo       kONgu
 mesopotamië mEsuput'A:mi@
 mosambiek   musamb'ik
-potchefstroom pOtSIfstr'o@m
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
+outeniekwa  @Ut@n'ikwa
 portugal    $1
+potchefstroom pOtSIfstr'o@m
 pretoria    prit'o@ria
 stellenbosch st%&l@mbOs 
+tunisië     $2
+turkye      $2
 upington    apiNt@n
 worcester   v'ust@r
-zimbabwe zI:mb'ab_wE
-
+zimbabwe    zI:mb'ab_wE
 
 
 
@@ -124,16 +129,19 @@ bester b'Est@r
 botha       bo@ta
 breytenbach breIt@nbax2
 carl        kA:r@L
+cecilia     s@si:lia
 charles     _^_EN
 charlie     tSA:li
 chopin      S%OpA~
 chris       krIs
 christo     krIstu
 christian   krIstian
+christelle  kr@st&l
 christine   kr@st'i:n
 coetzee     kuts'e@
 cronjé      krOnj'e@
 debora      d@bo@ra
+debussy     d@bus'i:
 der         d@r
 deventer d'e@v@nt@r
 du		$u
@@ -187,6 +195,7 @@ martha      marta
 martin m'A:rt@n
 michelle    miS'&l
 michiel $2
+miriam      mIri@m
 mostert     m'Ost@rt
 mozart      mo@tsart
 naomi       na_'o@mi
@@ -195,11 +204,14 @@ naudé       nOd'e@
 paul        p@Ul
 paulus      p@UlWs
 philip      fIl@p
+phillips    fIl@ps
 pierre p'e@r
 petrus      pe@trWs
 phoebe      fi:bi
 rachmaninoff rax2m'aninOf
 rebekka     r@bEka
+renée       r@neI
+retief      r@tif
 ronel       run'&l
 rousseau    r@s@U
 roux r'u
@@ -216,6 +228,7 @@ theron tr'On
 viljoen     $2
 villiers    vIli@rs
 violet      _^_EN $capital
+william     _^_EN
 marais      mar'E:
 mandela     mand'E:la
 celliers    sIlj'e@
@@ -292,7 +305,7 @@ alhoewel        alhuv'&l $pause
 tensy		$2 $pause
 aangesien	$pause
 wie		$pause
-wanneer		$pause
+wanneer		$1 $pause
 waar		$pause
 waarom		$pause
 waarheen	$pause
@@ -376,7 +389,6 @@ bv          beIf'o@rbe@lt $dot
 
 // main word list
 
-aanbid        $2
 aanstaande    $2
 adagio        ad'A:dZi;%@U
 algaande      $2
@@ -468,7 +480,6 @@ hokaai        hOkAI
 hoofsaaklik   $2
 
 idee          $2
-ietwat        itvat
 ignoreer      ix2no@r'e@r
 inagneming    @nax2ne@m@N
 inkluis       $2
@@ -476,16 +487,16 @@ intens @nt'Ens
 intensiteit   $4
 
 jawoord       jA:vo@rt
-
+jupiter       jupit@r
 
 kafee         kaf'e@
-kapitaal      kapit'A:l
+kaviaar       kavi'A:r
 komaan        kOmA:n
 komberse      kOmb'&rs@
 kombers       kOmb'&rs
 kopiereg      kup'ir&x2
 kritiek       krIt'ik
-kultuur       $2
+kulture       $2
 kunsmatige    kWnsm'A:t@x2@
 kwansuis      $2
 
@@ -497,6 +508,7 @@ lekkerste     l&k@rst@
 macaroni      makar'o@ni
 madame        mad'A:m
 makabere m%ak'A:b@r@
+maskering     mask'e@r@N $only
 meegee        me@x2e@
 memoriam      mEm'o@riam
 merlot        m&rl'o@
@@ -608,6 +620,8 @@ uiteindelik   $2
 uiteraard     Yyt@r_'A:rt
 
 vaarwel       fA:rv'&l
+vakant f%ak'ant
+vakante f%ak'ant@
 vanaf         fanaf
 vandat      $1
 vanne         fan@
@@ -619,7 +633,6 @@ vererger      f@r&rg@r
 ver           f'&:r
 verg          f&rx2
 vergete       f@rx2e@t@
-vergewe       f@rx2e@v@
 vermy         $2
 verre         f&:r@
 verregaande f&r@x2'A:nd@

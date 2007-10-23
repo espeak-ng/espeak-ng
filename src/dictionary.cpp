@@ -205,9 +205,9 @@ void Translator::InitGroups(void)
 	int  ix;
 	char *p;
 	char *p_name;
+	unsigned int *pw;
 	unsigned char c, c2;
 	int len;
-	int rule_count;
 
 	n_groups2 = 0;
 	for(ix=0; ix<256; ix++)
@@ -227,6 +227,18 @@ void Translator::InitGroups(void)
 			break;
 		}
 		p++;
+
+		if(p[0] == RULE_REPLACEMENTS)
+		{
+			pw = (unsigned int *)(((int)p+4) & ~3);  // advance to next word boundary
+			langopts.replace_chars = pw;
+			while(pw[0] != 0)
+			{
+				pw += 2;   // find the end of the replacement list, each entry is 2 words.
+			}
+			p = (char *)(pw+1);
+			continue;
+		}
 
 		if(p[0] == RULE_LETTERGP2)
 		{
@@ -266,11 +278,9 @@ void Translator::InitGroups(void)
 		}
 
 		// skip over all the rules in this group
-		rule_count = 0;
 		while(*p != RULE_GROUP_END)
 		{
 			p += (strlen(p) + 1);
-			rule_count++;
 		}
 		p++;
 	}

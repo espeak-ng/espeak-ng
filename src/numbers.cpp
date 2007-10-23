@@ -354,12 +354,14 @@ int Translator::LookupNum2(int value, int control, char *ph_out)
 		if(langopts.numbers & 0x200)
 		{
 			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-			ix = strlen(ph_tens)-1;
-			if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-				next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
-
-			if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
-				ph_tens[ix] = 0;
+			if((ix = strlen(ph_tens)-1) >= 0)
+			{
+				if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
+					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
+	
+				if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
+					ph_tens[ix] = 0;
+			}
 		}
 		sprintf(ph_out,"%s%s",ph_tens,ph_digits);
 	}
@@ -793,7 +795,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 			decimal_point = 0;
 		}
 	}
-	if(ph_out[0] != 0)
+	if((ph_out[0] != 0) && (ph_out[0] != phonSWITCH))
 	{
 		int next_char;
 		utf8_in(&next_char,&word[n_digits+1],0);

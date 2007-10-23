@@ -176,7 +176,6 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	char encoded_ph[200];
 	unsigned char bad_phoneme[4];
 	
-	
 	p = linebuf;
 	comment = NULL;
 	phonetic = word = "";
@@ -347,7 +346,8 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	
 	if((word[0] & 0x80)==0)  // 7 bit ascii only
 	{
-		// 1st letter - need to consider utf8 here
+		// If first letter is uppercase, convert to lower case.  (Only if it's 7bit ascii)
+		// ??? need to consider utf8 here
 		word[0] = tolower(word[0]);
 	}
 
@@ -789,8 +789,6 @@ char *compile_rule(char *input)
 	for(ix=0; finish==0; ix++)
 	{
 		c = input[ix];
-		if((c=='/') && (input[ix+1]=='/'))
-			c = input[ix] = '\n';    //  treat command as end of line
 
 		switch(c = input[ix])
 		{
@@ -1167,6 +1165,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	int different;
 	char *prev_rgroup_name;
 	unsigned int char_code;
+	int compile_mode=0;
 	char *buf;
 	char buf1[120];
 	char *rules[N_RULES];
@@ -1184,7 +1183,13 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	{
 		linenum++;
 		buf = fgets(buf1,sizeof(buf1),f_in);
-		if((buf != NULL) && (buf[0] == '\r')) buf++;  // ignore extra \r in \r\n 
+		if(buf != NULL)
+		{
+			if((p = (unsigned char *)strstr(buf,"//")) != NULL)
+				*p = 0;
+
+			if(buf[0] == '\r') buf++;  // ignore extra \r in \r\n 
+		}
 
 		if((buf != NULL) && (memcmp(buf,".L",2)==0))
 		{
@@ -1196,7 +1201,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			continue;
 		}
 
-		if((buf == NULL) || (memcmp(buf,".group",6)==0))
+		if((buf == NULL) || (buf[0] == '.'))
 		{
 			// next .group or end of file, write out the previous group
 
@@ -1212,46 +1217,106 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			}
 			n_rules = 0;
 
-			if(buf == NULL) break;   // end of file
-
-			p = (unsigned char *)&buf[6];
-			while((p[0]==' ') || (p[0]=='\t')) p++;    // Note: Windows isspace(0xe1) gives TRUE !
-			ix = 0;
-			while((*p > ' ') && (ix<12))
-				group_name[ix++] = *p++;
-			group_name[ix]=0;
-
-			if(sscanf(group_name,"0x%x",&char_code)==1)
+			if(compile_mode == 2)
 			{
-				// group character is given as a character code (max 16 bits)
-				p = (unsigned char *)group_name;
-
-				if(char_code > 0x100)
-				{
-					*p++ = (char_code >> 8);
-				}
-				*p++ = char_code;
-				*p = 0;
+				// end of the character replacements section
+				fwrite(&n_rules,1,4,f_out);   // write a zero word to terminate the replacemenmt list
 			}
 
-			if(strlen(group_name) > 2)
-			{
-				if(utf8_in(&c,group_name,0) < 2)
-				{
-					fprintf(f_log,"%5d: Group name longer than 2 bytes (UTF8)",linenum);
-					error_count++;
-				}
+			if(buf == NULL) break;   // end of file
 
-				group_name[2] = 0;
+			if(memcmp(buf,".replace",8)==0)
+			{
+				compile_mode = 2;
+				fputc(RULE_GROUP_START,f_out);
+				fputc(RULE_REPLACEMENTS,f_out);
+
+				// advance to next word boundary
+				while((ftell(f_out) & 3) != 0)
+					fputc(0,f_out);
+			}
+
+			if(memcmp(buf,".group",6)==0)
+			{
+				compile_mode = 1;
+
+				p = (unsigned char *)&buf[6];
+				while((p[0]==' ') || (p[0]=='\t')) p++;    // Note: Windows isspace(0xe1) gives TRUE !
+				ix = 0;
+				while((*p > ' ') && (ix<12))
+					group_name[ix++] = *p++;
+				group_name[ix]=0;
+	
+				if(sscanf(group_name,"0x%x",&char_code)==1)
+				{
+					// group character is given as a character code (max 16 bits)
+					p = (unsigned char *)group_name;
+	
+					if(char_code > 0x100)
+					{
+						*p++ = (char_code >> 8);
+					}
+					*p++ = char_code;
+					*p = 0;
+				}
+	
+				if(strlen(group_name) > 2)
+				{
+					if(utf8_in(&c,group_name,0) < 2)
+					{
+						fprintf(f_log,"%5d: Group name longer than 2 bytes (UTF8)",linenum);
+						error_count++;
+					}
+	
+					group_name[2] = 0;
+				}
 			}
 
 			continue;
 		}
 		
-		prule = compile_rule(buf);
-		if((prule != NULL) && (n_rules < N_RULES))
+		switch(compile_mode)
 		{
-			rules[n_rules++] = prule;
+		case 1:    //  .group
+			prule = compile_rule(buf);
+			if((prule != NULL) && (n_rules < N_RULES))
+			{
+				rules[n_rules++] = prule;
+			}
+			break;
+
+		case 2:   //  .replace
+			{
+				int replace1;
+				int replace2;
+				char *p;
+
+				p = buf;
+				replace1 = 0;
+				replace2 = 0;
+				while(isspace2(*p)) p++;
+				ix = 0;
+				while((unsigned char)(*p) > 0x20)   // not space or zero-byte
+				{
+					p += utf8_in(&c,p,0);
+					replace1 += (c << ix);
+					ix += 16;
+				}
+				while(isspace2(*p)) p++;
+				ix = 0;
+				while((unsigned char)(*p) > 0x20)
+				{
+					p += utf8_in(&c,p,0);
+					replace2 += (c << ix);
+					ix += 16;
+				}
+				if(replace1 != 0)
+				{
+					fwrite(&replace1,1,4,f_out);
+					fwrite(&replace2,1,4,f_out);
+				}
+			}
+			break;
 		}
 	}
 	fclose(f_temp);

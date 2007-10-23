@@ -1218,6 +1218,9 @@ include ph_romanian
 phonemetable el base2
 include ph_greek
 
+phonemetable grc base2
+include ph_greek_ancient
+
 phonemetable sv base
 include ph_swedish
 

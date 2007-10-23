@@ -38,12 +38,19 @@
              agter (dogt  %ax2t@r // move default stress: agterdogtig and derivitives
              agter (oor   %ax2t@r_ // move default stress: agteroor/-buig/-druk/-val, etc.
           &) agtig        'ax2t@x2 // this string almost always carries stress on a
+             ara (bi      %arA: // fix 1st a sound and stress: Arabië/Arabies/-e
+             ara (bier    %ar%a // Stress and a sounds: Arabier/-e
+          C) are (CA      A:r@ // e sound: amptenaredom/blaredak/garebiltong/haredos/jarelange
              a (riA       'A: // akwarium/barium/estuarium/herbarium/seminaria
+             a (ristokr   %a // shorten 1st a: aristokrasie/-kraat/-krate/-kraties
          @C) as (_        as // shorten final a of words ending in -as: rigtingvas/jonkmanskas, etc.
           C) asie        'A:si
+        Cst) asie         A:si // restore default stress: brandweer/spoorwegstasie and similar
+       AAst) asie         A:si // default stress: polisie/radio/televisie/uitsaaistasie, etc.
 
              a (CAA       %a
           d) a (goggen    %a //saterdagoggend and friends
+             ah (C        A: // lengthen a and drop h: Ahmed/Dahl/Mahler, etc.
              a (Cie       A: // apies/middagslapie
              a (Cy        %a
              a (CA        A:
@@ -102,6 +109,7 @@
              afrikaner    %afr%ikA:n@r // move stress to end: Afrikaner and compounds
              afrika       A:frika //Stress and 1st a sound: Afrika and compounds: Afrikatale/-state...
              af (skuw     %af // move default stress: afskuwelik and derivitives vs afsku
+             afsonderl    %afsOn@rl // stress, avoid af_ prefix and -lik suffix: afsonderlik/-e/-heid
              afstootl     %afsto@tl // move default stress: afstootlik/-e/-heid/-ste
              af (sydig    %af // fix stress: afsydig/-e/-heid
              afwesig      %afve@s@x2 // to steer clear of pre- and suffixes
@@ -141,6 +149,8 @@
              amandel      am'and@l    // amandel/s/-poeding/-tert...
              ambu (l      %amb%y // fix stress: ambulans and compounds/ambulant, etc.
           _) am (A        %am // amorfe/amok/amortisasie/amalgamasie
+             ambass (ade  %amb%as // move default stress: ambassade and compounds
+             ambassa (deu %amb%as%a // move default stress: ambassadeur and compounds
              amer (ik     %ame@r // Amerika/Amerikaner
           _) am (nA       %am // amnestie/amnesie
           _) amper        amp@r // fix e sound in words like: amperbroekie/amperse/ampertjies
@@ -148,7 +158,7 @@
              amus (e      %am%ys // shorten a and move stress
              anoniem      anun'im
           _) ar (gi       %ar // argief and compounds/argiewe
-          _) ar (giC      %ar% // argitek and compounds
+             argitek      %arx2%itEk // argitek and compounds/argitektuur
           _) arkad        %arkA:d // arkade/arkadia
           _) armes        ar?m@s // fix e sound: armes/armesorg
           _) ar (om       %ar // aroma/aromaties
@@ -161,10 +171,15 @@
              artille (rie %art@l@ // stress and vowel sounds: artillerie and compounds
              asem         A:s@m // asemgehaal/asemhaling/asemteug/ontwaseming
           _) as (ke       %as // move default stress: askeet/askete/asketies/askese
+             a (spersie   %a // move default stress: aspersie and compounds
              assist       %as@st // assistent/e/assisteer
              assiste (_   %as'Ist@ // rassiste stress and last e sound
+             atel (jee    %at@L // fix vowel sounds and stress: ateljee and compounds
+          C) athe (rina   %at@ // Catherina/Katherina
              atten (C     at'En // attent/heid/onattent/attensies
+             a (tomA      %a // fix stress and a sound: atome/(sub)atomies
           @) ator (K      'A:tOr // katalisator/diktatorskap and many similar
+          @) atories      %at'o@ris // stress on -ories: diktatories/organisatories/resperatories, etc.
              augustus     Ox2'WstWs
              avokado      %af%ukA:du // stress and o sounds
              avokade      %af%ukA:d@ // variant form of avokado
@@ -176,6 +191,7 @@
 .group aa
              aa           A:
              aai          AI
+             aan (bid     %A:n // move default stress: aanbid/-ding
              aangee (+    'A:nx2e@ // see rule: _) aange (@P5   A:nx@
           _) aange (@P5   'A:nx2@ // added stress mark to ensure stress on aan
              aandoenlik   %A:ndunl@k // move default stress: aandoenlik and derivitives, vs. aandoen
@@ -191,11 +207,13 @@
              aan (sien    %A:n // stress on 2nd slb
              aan (sien_N  'A:n // stress on 1st slb
              aan (skou    A:n' // stress aanskou/lik
-             aansteekl    %A:nste@kl // move default stress: aansteeklik/-e, vs. aansteek
+             aan (spreek  %A:n // stress on 2nd slb.: aanspreeklik
+             aan (spreek_N A:n // stress on 1st slb.: aanspreek
              aanste (llerig A:nst'& // aanstellerig/-e|-heid
              aansterk     'A:nst&rk // aansterk/ing
-             aan (stoot   %A:n // stress on 2nd slb.: aanstootlik
-             aan (stoot_N A:n // stress on 1st slb.: aanstoot
+             aan (stAAC   %A:n // stress on 2nd slb.: aanstootlik/aansteeklik
+             aan (stAAC_N A:n // stress on 1st slb.: aanstoot/aansteek
+             aan (tasb    %A:n // stress: (on)aantasbaar/-bare
              aantreklik   %A:ntr&kl@k // move default stress: aantreklik/-heid
              aan (trek_N  A:n // restore default stress: aantrek
              aan (vaar    %A:n // aanvaar/de/baar
@@ -216,9 +234,11 @@
              ange (lier   %aN@ // angelier/-e and compounds
              an (gina     %aN // move default stress, fix n/g sounds: angina
              angl (A      %A~Nx2l% // anglikaans/anglisisme/anglofiel
+             angleer      aNle@r // hangleer/slangleer and compounds
              angola       A~Nx2'o@la //Angola, Angolabos etc.
              angol (e     %A~Nx2%ul //Angolese etc.
           C) anette (_    %anEt // Janette/Sanette
+             ansjovi      anS''o@f@ // fix stress and o sound: ansjovis/-se/-smeer
              an (tjie     aIN
           _) ana          ,ana     // words starting with ana starts destressed
 // The following are experimental nasalisation of ans
@@ -235,12 +255,14 @@
              b (b
              b (_N        p
              b (eentjie++ b // exception to "bee" rule: beentjie/-s and compounds
+             bagasie      b@x2A:si // shorten 1st a: bagasie and compounds
           @) baarlik      b'A:rl@k // move default stress: wonderbaarlik/-e/-heid/-ste
              band (A      bant // fix t sound: bandomslag/-ontwerp/-opname
              band (e      band // fix d sound: bandeverkoper moterbande etc.
           @) ba (ren      b'A: // onrusbarend/opsienbarend and derivitives
              ba (ret      b%a // move default stress and shorten a sound: baret/-te
              ba (riton    ba // shorten a sound: bariton and compounds
+             ba (rok      b%a // fix stress and a sound: barok and compounds
              basi (s      bA:s@ // basis and compounds
              batal (jon   b%at%al // shorten 1st a sound, moved stress: bataljon and compounds
              bobbe (j     b%Ob@ //fix stress for bobbejaan and friends
@@ -280,9 +302,10 @@
              batte (ry    b%at@ // move default stress: battery/-e and compounds: batterysuur...
 
              bibli (oC    b@bl%i:% // biblioteek and compounds/biblioteke/bibliofiel/bibliografie...
-             bidd         b'Id // biddag/aanbidding
+             bidd         bId // biddag/aanbidding
              bid          bIt_ // biduur/aanbid
              binne        bIn@ // binnekom/binnelandse
+             bisan (tyn   b%is%an // move default stress: Bisantyns/-e
              bi (sar      b%i // move default stress: bisar/-re
              bla (tant    bl%a // shorten 1st a and move default stress: blatant/-e/-heid
           @) ble (_       _^_EN        // words ending in ble is English
@@ -302,11 +325,14 @@
              bo (tanie    b%o@ // stress on 2nd slb.: botanies/-e
              bota (nie_N  b%o@t%a // stress on 3rd slb.: botanie
           _) bowe         b''o@v@ // fix e sound in compounds: boweaards/bowemaans/bowetoon
+             bru (ta      br%y // move default stress: brutaal/brutale/brutaliteit
              buiten (ge   b'Yyt@n      // buitengewoon/s/buitengewone/buitengemeen
              buiten (ste  bYyt@n // restore default stress: buitenste/-s
              buiten (t    bYyt@n // restore default stress: buitentoe/buitentyds
              buiten       bYyt@n' // buitendien/buitensporig
              buite        b'Yyt@ // buitelandse/buitestander/buitewï¿½eld
+             bul (ga      b%ul // fix stress and u sound: Bulgaarse/Bulgare
+             bulle (tin   b%ul@ // fix stress and u sound: bulletin and compounds
              bybel        beIb@l // to correct pronunc. of e in compounds
              byder (C@    b%eId@r // byderhand/-s/byderwets
              by (een      b%eI_ // move default stress: byeen/byeenkoms/-te, etc.
@@ -338,6 +364,7 @@
              bed (t       bE // fix e and d sounds: bedtafeltjie/bedtyd
           @) bed (_       bEt // bruidsbed/dubbelbed; many compounds ending in bed
              be (de_      be@ // bede/gebede
+             bedes (_     be@d@s // bedes/seënbedes, etc.
              bedel        be@d@l // bedel/gebedel/bedelaar
              bedeling     b@de@l@N //bedeling and compounds
              bedev        be@d@f // bedevaart and compounds
@@ -352,6 +379,7 @@
              bell (+      b&l // inbeller/oorbelle/seepbelle
           _) bel (C       b&l // Belgies/belhamel
              bere (_      be@r@ //tediebere pandabere etc.
+          _) ber (t       b&r // fix e sound: Bert/Berta/Bertie/Bertus
              beste (_     bEst@ // fix e sound: beste/allerbeste/naasbeste/-s
              be (weging   b@ // draaibeweging/swaaibeweging
              bewende      be@v@nd@ // first e pronounced long
@@ -372,6 +400,7 @@
 
              beu (C       bY@ // beur/beuke/beul
              besig        be@s@x2
+             besig (tig   b@sIx2 // fix stress and e sound: besigtig/-ing
              bessie       bEsi
              berg         b&rx2
              berge        b&rg@
@@ -391,6 +420,7 @@
              ch           x2
           _) ch           x2
              chalet       S%aleI // chalet/-s/bergchalet
+             chau (C      S%@U // chauffeer/chauffeur/-s/chauvinis/-me/-ties
              ch (ol       k //cholera, cholestrol etc.
              ch (l        k // chloor and compounds
              ch (ro       k
@@ -421,6 +451,7 @@
              dekade (s    dEk'A:d@
              dekant (_    d@kant //try fix suidekant
           _) deli (ka     d%El%i // delikaat/delikate
+             delika (tess d%El%ik%a // move default stress: delikatesse/-s
 	
           @) dend (er     d@nd // beduidender/behoudender
           @) dend (ste    d@nt // beduidendste/behoudendste
@@ -445,8 +476,10 @@
              diaken       d%iA:k@n // diaken and compounds
              dia (lo      d%i_%a // move default stress: dialoog/dialoë and compounds
              dia (m       d%i%a // diamant and compounds
+             digi (ta     d%ix2%i // move default stress: digitaal/digitale
              di (gK       dI // force default stress: GEDIG/-TE/digbundel/digvorm, etc.
              dilemma      d@lEma // dilemma and compounds
+             di (mensie   d@ // fix stress and 1st i sound: (ontwikkelings)dimensie, etc.
              di (namie    d%i // move default stress: dinamies/-e
              dina (miet   d%in%a // stress to 3rd slb.: dinamiet and compounds
              direk        d%irEk // direk/-sie/-te/-theid/indirek...
@@ -477,10 +510,11 @@
              di (ssi      d@ // move default stress: dissipel/-s
              dissi (pl    d@s@ // fix stress: dissipline/-s and compounds
              distri (bu   d@str@ // distribusie/distribueer and compounds
-             dis (trik    d@s // stress: distrik/-te and compounds
+             dis (t       d@s // stress: distrik/-te and compounds/distansie/distinksie/distorsie/distraksie
+             distel       dIst@l // restore default stress: distel and compounds
           _) dode         d'o@d@  //dodelik dodemars etc.
              doel (tref   d%ul // move default stress: doeltreffend/-e/-ste
-             doktor (_    dOkt@r // make last o schwa
+             doktor (K    dOkt@r // make 2nd o schwa: doktor/doktorsgraad
              doku         dOky
              dominee (_   d'o@m@ni
              domin (A     dOmin' // domineer/dominering
@@ -517,7 +551,10 @@
              e (C         E
         CAC) e (CC        @ // fix e sound: nalatenskap/wapenstilstand
         CAC) e (C%        E // beesfilette/nougesette/onderbesette/voortgesette
+        kod) e (C         @ // fix e sound: kodenommer/kodetaal/kodewoord, etc.
+       Cond) e (CA        @ // blondekop/geskondenes/hondebelasting and many compounds/sondebok/sondelas
         CAC) e (rkK       & // fix e sound: deurgewerk; exception to: CAC) e (CC        
+       Cien) e (rC@       @ // fix e sound: opsienersamp/tienerstatus and many similar compounds
          @p) e (rtjie     @ // fix e sound: helpertjies/wegkruipertjie
           C) e (mm++      E // geelkoperemmer/wateremmer
        CAnn) e (CA        @ // banneling/sinnebeeld/spinnekop/-rak
@@ -525,6 +562,7 @@
          @C) e (bo        @ // compounds with boek/boer/boog/boom/bol/bord/borsel/bos/ grondbonebotter/kamdebo...
          @C) e (bu        @ // briewebus/ereburger/novellebundel/urinebuis/woedebui
          @C) e (by        @ // fix e sound: statebybel/-s
+          _) edel         e@d@l // fix 2nd e sound: edelgas/-steen/-stene/-metaal and many similar
           _) epi (C       %Ep%i //episode and others
        halw) e (K        @ // fix e sound: halwemaan/halwerweë/halwes
       liefd) e (C         @ // fix e in compounds starting with liefde: -blyk/-daad/-diens/-gawe/-groete/-werk, etc.
@@ -535,9 +573,11 @@
          mp) e (lde_      @ // fix e sound: gemompelde/oorrompelde/verskrompelde and similar
          @C) e (lk_       & // fix e sound: many compounds ending in kelk/melk
          @C) e (lke_      & // fix e sound: many compounds ending in -elke: blomkelke, etc.
-        uiC) e (l         @ // fix e sound in wrds like: buideldier/druipeling/skuifelpassie/struikelend/tuimelaar
+        uiC) e (K         @ // fix e sound in wrds like: bruidegom/druipeling/duinebesie/duisendpoot/kruisement...
+         yd) e (l         @ //ydel e sound in compounds verydeling
          ng) e (nd        @ // fix e sound: dringends/dwingends/deurdringender
              enge (l       EN@ // Engeland/Engelsman/Engelssprekend/hengelklub/mengeldrankie/-moes
+             ensiklope    %Ens%ikl%up@ // fix stress and vowel sounds: ensiklopedie and compounds
           C) e (pan       @ //fix e sound: instrumentepaneel/kolepan/liefdepand
          @k) e (tt@+      E // menseketting/etikette
          sp) e (lonk      @ // spelonk/rowerspelonk/spelonkagtig etc.
@@ -557,7 +597,6 @@
        toek) e (n         E // but: toekenning and compounds
           C) e (rj        @' // fieterjasies/kerjakker/kaperjolle
          aw) e (C@        @ // aweregs/dawerend and compounds of dawer/drawertjie/hawer and compounds/hawe and comp.
-        uim) e (C         @ // pruimedant/sluimeraar/sluimerend
              e (CA        e@
        CCan) e (CA        @ // swanepoel/swanesang/tranedal
       XCier) e (@         @ // dieresorg/-lewe..., many compounds/PIEREWAAI/-ER
@@ -574,6 +613,7 @@
          @d) e (kr       @ // fix e sound: vriendekring/-e
              e (kono@     %E // 1st e: ekonome/ekonomie/ekonomies/ekonoom
              e (mosi      %i // emosie/emosioneel, etc.
+        eun) e (rC        @ // fix e sound: ondersteunerskorps/sigeunermusiek and similar
         hal) e (rC@       @ // uithalerperd/-skut/-speler and similar
           C) e (ndh       =@ //asemrowendheid/beduidendheid/doeltreffendheid/dringendheid/voortvarendheid...
           u) eel          'e@l // words ending in ueel take stress on last slb
@@ -582,16 +622,22 @@
         gel) eer          e@r // words containing geleer take default stress: regsgeleerde
          @k) eer          e@r // words containing keer take default stress, except for:
          ik) eer          'e@r // abdikeer/kommunikeer, etc.
+         Cm) eer          e@r // words containing meer preceded by consonant take default stress: bergmeer/strandmeer, etc.
+         rm) eer          'e@r // but not words like: alarmeer/gereformeerd/transformeer
          sf) eer          e@r // sfeer at end of compounds does not take stress: atmosfeer, etc.
          sk) eer          e@r // words kontaining skeer take default stress: af/glad/kort/raakgeskeer
+         sl) eer          e@r // words containing sleer take default stress: seemsleer/volstruisleer
          Cs) eer          e@r // words containing seer (meaning pain) take default stress
+         ss) eer          'e@r // but many words cont. sseer take stress:  adresseer, etc.
+         Cv) eer          e@r // stress: (hoender/volstruisveer/dryfveer
           w) eer          e@r // stress may vary in words containing weer: lugafweer/donderweer
           u) eer          'e@r // aktueer/konstrueer/salueer, etc.
              effek        %e@fEk // move default stress and fix e sound: effek/-te/-tief
              eienaardig   %eI@nA:rd@x2 // move default stress: eienaardig/-ste
           @) ein (dig     'eIn // nimmereindige/nimmereindigend
+             eind (eks    eInt_ // fix d sound and make short pause: eindeksamen/-s and compounds
        sirk) e (l         @ // compounds: sirkelgang/sirkelvormig
-         nk) e (lb        @ // onwankelbaar/skenkelbeen/sprinkelbesproeiing
+         nk) e (lC        @ // onwankelbaar/skenkelbeen/sprinkelbesproeiing/kinkeldraai/kronkelpad/seunsenkelspel
           u) ele (+        'e@l@ // words ending in uele take stress on penultimate slb
           _) erde (C      &rd@ // fix connecting e in compounds: erdekruik/-ware and similar
           _) ere          e@r@ // ereamp/erediens/ererol/erevoorsitter
@@ -600,8 +646,9 @@
           C) ersyds       @rseIts // fix d and e sounds: enersyds/wedersyds, etc.
              ele (gant    ,e@l@ // elegant/onelegant
           C) e (k         & // 
+          C) e (kk@+      & // fix e sound: luilekker/-lewe
           C) e (kA+       e@
-          C) e (ks        E
+          C) e (ks+       E
           C) e (kt        E
              ekstase      Ekst'A:s@ // stress ekstase/s
        wink) e (l         @ // winkelvensters/-sentrum/-personeel/winkelier/winkelhaak
@@ -621,7 +668,7 @@
              ee           e@
              eetjie       e@ici // tweetjies/hanetreetjie
              eedjie       e@ici // kleedjie/tafelkleedjie/altaarkleedjie
-             eeu          iu
+             eeu          iu:
              ei           eI
              ey           eI
              eu           Y@
@@ -633,13 +680,14 @@
           m) e (nis       @      // geheimenis(vol)/verdoemenis
           C) e (toe_      @      // binnetoe/buitetoe
              e (gK        &
-          _) e (gal       %e@ // stress: egalig/-e
+          _) ega (l       %e@x2A: // stress: egalig/-e
           _) e (gipt      %e@ // move default stress: Egipte/Egiptenaar/Egipties
           C) ektomie      'Ektumi // histerektomie/vasektomie
           &) elik (ing    @l@k // verduideliking/s/vergoddeliking/verstedeliking
           
         app) elkoos       @lk'o@s // stress shifts to koos appelkooskonfeit
           &) e (l_        @
+      eiers) e (l         & // fix e sound: eiersel/-le/-letjie/-s
         @sk) e (l         & // kwyt(ge)skeld(ing)
         Cdd) e (le_       e@
         Csd) e (le_       e@
@@ -659,7 +707,6 @@
       blind) e (ling      @
         ind) e (ling      e@ 
          nd) e (ling      @
-        uiw) e (l@        @ // duiwelskind/suiwelprodukte and similar compounds
           _) eike         'eIk@ // many compounds with eike
           &) e (lC_       @
          @m) e (ld        & // aanmeld/voormeld
@@ -685,7 +732,7 @@
           _) ellende      e@l'End@
           _) ellendig     e@l'End@x2
              emalje       %e@malj@ // fix stress and e sounds: emalje and compounds
-             enig (ma     %EnIx2 // stress and e sound: enigma/-ties/-e
+          _) enig (ma     %EnIx2 // stress and e sound: enigma/-ties/-e
         lei) er (s        @r // leierskap/leiersgroep/leierskursus/leiersposisie...
          in) er (A        'e@r // kombinering/verkleinering...
          ff) er (@        @r // keffertjie/koffersleutel/offerande/opoffering
@@ -710,7 +757,7 @@
           &) erei (_      @reI
              e (r         &
         Ank) e (r@        @ // ankerpaal/kankerlyer/donkerbril
-        uik) e (rC        @ // fix e sound: many compounds with duiker/gebruiker/suiker
+         rp) e (rCC       @ // fix e sound: ontwerpersbaadjie/purperkleurig, etc.
 
         lew) e (ns        @
          &d) e (r@        @      // not initial or final syllable
@@ -721,6 +768,7 @@
              een (drag@   %e@n // eendrag has stress on 1st slb, but eendragtig and similar on 2nd
              eenge        'e@nx2@
           _) een (stemm   %e@n // move default stress: eenstemmig/-e/-heid
+          _) een (sy      %e@n // move default stress: eensydig/-e/-heid
           _) een (ton     %e@n // move default stress: eentonig
              een (Cjie    e@:iN // eendjie/Leentjie/steentjies
           _) een (voud@   %e@n // stress on 2nd slb: eenvoudig, but on 1st: eenvoud
@@ -756,10 +804,12 @@
           C) ewy (C       @veI // alewyn/compounds of brandewyn/sekondewyser
         _op) e (n         @
           C) ensie (_     'Ensi // many words ending in stressed ensie(s)
+          m) ensie (K     e~ns%i // words ending in -mensie/-s mostly take default stress: ontwikkelingsdimensies
           C) ensies       'Ensis // forensiese
           @) enswaar (dig @nsv'A:r // noemenswaardige/bejammerenswaardig
          @C) ent (K       'Ent // orent/student/presidentsrede
          en) ent (_       Ent // restore default stress: koppenent/voetenent
+         @s) ent (rA      Ent // winkelsentrum/studentesentrum, etc.
          @C) ent (e_      'Ent // plurals of some of the above
           C) er (tyd      @r // tegelykertyd/kindertyd/indertyd
           _) etens        'e@t@ns // etenstyd/klok/tafel/uur
@@ -772,7 +822,7 @@
           r) e (digering  E
         som) e (r         @ //someraand and others.
         _ew) e (++        @ //ewewig, ewekansig etc.
-          C) e (sk_       'E // grotesk/burlesk/humoresk
+          C) e (sk_++     'E // grotesk/humoresk
          _w) e (skus      E // fix stress and e sound: (suid)weskus and compounds
           C) e (ske_      'E // burleske/groteske
           C) e (sk@       @ // hondeskou/modeskou/erdeskottel/geleideskip/hardeskyf
@@ -795,7 +845,6 @@
       _mens) e            @ //mense at start of compounds
       _mens) e (k         @ //force correct behaviour before k
        @kom) e (ns_       @ //fix words ending in komens
-       suid) e            @ //suidekant, suidewind etc.
          @C) e (wa_       @ // goederewa/kolewa/ossewa/troepewa
          Ab) e (wa        @ //bewaking/bewaring in compounds polisiebewaking
          @C) e (waen      @ // plurals and diminutives of some of the above
@@ -814,7 +863,6 @@
     interpr) e (teer      @' //stress and e sound interpreteer
           _) e (ks        %E //move default stress in words starting with eks
          _C) e (on_ 'i //Leon, Deon etc.
-        uik) e (rs        @ //fix e in words containing uikers
        CoeC) e (C         @ //fix e in boetedoening, boedelbelasting and many others
         orr) e (l         @ //fix e in borrel, orrel, korrel  in compounds
      intell) e (k        %E //intellek, and friends
@@ -828,11 +876,12 @@
        werk) e (rs        @ //fix werkers in compounds werkershuis etc.
        Ceuw) e (l         @ //gesneuwelde heuwelhang etc. 
           v) e (nno       @ //vennoot and friends
+          _) euro (pe     %Y@r%o@ // stress: Europees/Europese
+          _) ewe (red     %e@v@ // move default stress: (on)eweredig/-e/-heid
              ex (+        _^_EN // words containing ex are English
           al) ex (and %Ekz //alexanderbaai, alexandria etc.
           m) exik Eks%ik //mexiko mexikaans etc.
           t) exas Eks@s //Texaskoors and may be others
-          yd) e (l @ //ydel e sound in compounds verydeling
 
 
 .group f
@@ -850,9 +899,11 @@
              fessor       fEs@r // fix last o sound: professor and compounds like universiteitsprofessor
              fessor (a@   f%Es@r // stress: professoraal/-ale/-aat/-ate
              fessore (_   f@so@r@ // stress: plural: professore and compounds
+             fi (sant     f%i // move default stress: fisant/-e and compounds
              fi (siek     f@ // correct 1st i sound and move default stress:
              filistyn     f@l@st'eIn  // filistyn/e
           _) fi (na@      f%i // finaal/finale/finansies
+             fla (mi      fl%a // move default stress: flamink/-e and compounds
              fla (grant   fl%a // shorten 1st a and move default stress: flagrant/-e
              flambo (jant fl%amb%u // move default stress: flambojant/-e/-heid
              flo (re      fl%u // move default stress, correct o sound: florerend
@@ -861,6 +912,7 @@
           @) fonie        fun'i // kakofonie/simfonieorkes/telefonie
              fon (tein    f%On // move default stress: fontein/fonteinwater, etc.
           _) for (C       f%Or // formeel/formele/forseer/fortuin
+             fore (l      f%ur& // fix stress and e sound: forel/-e and compounds
              formi (da    f%Orm%i // move default stress: formidabel/-e
           _) for (se_     f'Or // stress back to 1st slb; se rule: _) for (C 
              fos (fa      f%Os // move default stress: fosfaat/fosfate
@@ -878,8 +930,11 @@
              g            x2
              g (g
              gala (si     x2%alA: // move default stress: Galasiër/-s
+             gala (_      gA:l%a // fix g sound: gala/swemgala/gala-aand
              ga (lAC      x2%a // galant/galery/galon/galop
              gal (joen    x2%al // move default stress: galjoen/-e and compounds
+             gar (n       x2%ar // move default stress: garnaal/garnale/garneer/garnering and compounds
+         @C) garye        x2%ar'eI@ // Fix stress: Bulgarye/Hongarye
           _) gh           g
              gh (_        k
           @) gheid        x2eIt    // traagheid/leegheid/droogheid/stugheid
@@ -902,6 +957,9 @@
           _) graadse (s      x2r%A:tsE // fix stress and e sound: graadsesse/-sessies/-sesklas
           _) graad (vyf   x2r%A:t // move default stress: graadvyfs/graadvyfklas, etc.
              gra (niet    x2r%a // move default stress and fix a sound: graniet and compounds
+             gra (sieu    x2r%a // fix stress and shorten a sound: grasieus/-e
+          _) gras (A      x2ras_ // fix stress and a sound: graseter/grasoppervlakte/grasuie
+             gra (sie     x2rA: // but restore default stress and long a: grasie
           _) gri (mA      x2r@ // grimas/grimeer/-middel and other compounds/grimering
              grotere      x2ro@t@r@ // fix vowel sounds and stress: grotere/-s
              guerrilla    g@r'Ila
@@ -910,6 +968,7 @@
 .group ge
              ge           x2@
           C) ge (_        g@
+          _) gebede       x2@be@d@ // fix stress and vowel sounds: gebedeboek/-e/-tafel/-s
              gems         x2Ems // fix e sound: (baster)gemsbok/-bul/-ooi, etc.
              gene (_      x2e@n@ // gene/diegene
              gene (rA     x2@n@ // generaal/generasie/-s/genereer
@@ -987,7 +1046,6 @@
              hard (heid   hart // restore default stress: (ge)hardheid
              hard (lo     hart // restore default stress: hardloop/hardloper
              hard (ste    hart // restore default stress: (ge)hardste/-s
-          _) hare (C      hA:r@ // fix e sound: haredos/haregroei/harekam/harewasmiddel
           @) hartig       h'art@x2 // barmhartig/lighartigheid/lighartig...
              hart (stogte_  h%art // move default stress: hartstogtelik
              hart (stogte_N hart // restore default stress: hartstogte
@@ -997,7 +1055,7 @@
              hekse (C     hEks@ // fix 2nd e sound in compounds starting with hekse: heksebrousel, etc. 
           _) hele (K      he@l@ // hele/helend/heler
              heli (kop    h%&l%i // move default stress: helikopter and compounds
-             hemde        hEmd@ // naghemde/onderhemde/frokkiehemde
+             hem (C       hEm // naghemde/onderhemde/frokkiehemde/syhemp
              hemel        he@m@l // hemelblou/hemelhoog and many compounds with hemel
           _) her (@P3     h%&r
              her (berg    h&r // restore default stress: herberg/-e
@@ -1006,6 +1064,7 @@
              her (eK      he@r // here/herehuis/heretjie
              her (eni     h%&r? // fix e sound and stress: herenig
              her (eva     h&r? // fix e sound: herevalueer...
+             herfs        h&rfs // restore default stress: herfsskaduwees/herfsverhaal, etc.
              hersen       h&rs@n // restore default stress and fix 2nd e sound: hersenskim/-me/-mig/hersenskudding
              hertog (in   h%&rt%Ox2 // fix stress and o sound: (aarts/groot)hertogin/-ne and similar
              hertzog      h&rtsOx2 // fix stress and o sound: hertzog/-isme/-koekies
@@ -1024,6 +1083,8 @@
              histor       h%isto@r
              histri (on   h%istr%i // 1st i sound and stress: histrionies/-e/histrionisme/-isties
              hitler       hitl@r // Hitler in compounds like Hitlersnorretjie
+             hong (a      h%ONx2 // Hongaar/Hongare/Hongaarse
+             ho (nneur    h%O // move default stress: honneurs/-graad, etc.
              hoog (dra    h%o@x2 // stress: hoogdrawend and derivitives
              hor (los     h%Or // horlosie and compounds
              hor (mo      h%Or // move default stress: hormoon/hormone and compounds
@@ -1091,6 +1152,7 @@
         _em) i (r         @
              ië           e@:@-  // i followed by "deelteken e"
              iën          i'En   //i deelteken e n
+         or) iën          i;En // default stress: (beroeps)georiënteerd, etc.
              iëteit       %i@t'eIt // fix stress: (imk)piëteit/variëteit
 
              iee (C       i'e@ // distansieer/finansieer/finansieel/prieel
@@ -1148,7 +1210,7 @@
          en) is (K        @s // stress: beduidenis/bekentenis/gevangenis, etc.
        kris) is           @s // fix stress: krisis and compounds
         pol) is (_        @s // polis and compounds
-         ar) is (K        =@s // but sekretaris/argivaris/kommissaris/inventarislys/sekretarisvoël
+       @Car) is (K        =@s // but sekretaris/argivaris/kommissaris/inventarislys/sekretarisvoël
       litar) is           'Is // but militaris
        vuil) is           @s // stress: vuilis/tuinvuilis
          AC) iste (_      'Ist@ // aktiviste/humaniste/kommuniste/pianiste/soliste/violiste
@@ -1160,6 +1222,7 @@
          @n) iek (e_      'ik // unieke/compounds
         @kn) iek (_       ik // but piekniek
          @t) iek (_       'ik // antiek/etiek/taktiek
+       krit) iek          ik // restore default stress where -kritiek last in compounds: kunskritiek, etc.
          @t) iek (e_      'ik // antieke...
         @tr) iek (_       'ik // eksentriek/metriek
         @tr) iek (e_      'ik // eksentrieke/metrieke
@@ -1172,9 +1235,11 @@
           C) isie         'isi      // ambisie/ammunisie/komposisie/ammunisiekis
           C) isieus       isi'Y@s // ambisieus/suspisieuse
           C) isk (_       'Isk // asterisk/tamarisk
+          _) islam        islam // fix i sound: Islam/Islamiseer/Islamisme
           C) ispel        Isp@l // lispeling/kwispeling/kwispelstert
           @) isme (_      'Ism@ // isme always takes stress
           w) it (A        It // fix i sound: eiwitafskeiding/witagtig/kwiteer/grondserwituut
+             itali (a     %it%al%i // move default stress: Italianer/-s and compounds
              item         itEm // fix e sound in item and compounds
           @) iteit        it'eIt // stress on iteit endings
          @C) itis (_      'it@s // stress: many diseases ending in -itis
@@ -1197,7 +1262,7 @@
              jellie       dZ'Eli
              jesus        ji:sWs // Jesus also used as part of compounds: Jesusbaard/Jesusklong
              joer (na     j%ur // move default stress: joernaal/joernale/ compounds: joernaalinskrywing, etc.
-             johan        juh'an
+             joha (n      j%uha // Johan/Johanna/Johannie
              johannes     juh'an@s
              jonge        jON@ // jongeling/jongeres
              jong (etjie  jON // fix e sound: jongetjie/-s
@@ -1220,6 +1285,8 @@
              kelende (_   k@l@nd@
              kkelend (_   k@l@nt
              kkelende (_  k@l@nd@
+             kelner       k&ln@r // fix 2nd e sound in compounds like kelnerbaadjie, etc.
+             kelner (in   k%&ln@r // move default stress: kelnerin/-ne/-netjie
              kera (miek   k%&r%a // move default stress: keramiek and compounds
           n) kerend (_   k@r@nt //hunkerend and others
           n) kerende (_   k@r@nd@ //hunkerende and others
@@ -1239,6 +1306,7 @@
           @) keurig       k'Y@r@x2 // kieskeurig/noukeurig/(on)willekeurig and derivitives
           _) ki (ta       k%i // move default stress: kitaar and compounds
              klere        kle@r@
+             kli (maat    kl@ // move default stress: klimaat and compounds
              kli (niek    kl@ // fix stress and i sound: kliniek and compounds
              kklere       =kl'e@r@
              knip (A      knIp? // knipogie/geknipoog/
@@ -1248,7 +1316,7 @@
              kri (oel     kr%i // move default stress: krioel and derivitives
              kristal      kr@stal // move default stress: kristal and many compounds
              krit (A      kr@t // kriteria/-ium/kritiseer and derivitives
-             krit (ies kr'it //krities and compounds
+             krit (ies    kr'it //krities and compounds
              krieket      krik@t //krieket e sound and stress
              krieketw     krik@tv //krieket followed by w in compounds always v
 
@@ -1260,7 +1328,9 @@
           @) kundi (g     k'Wnd@ // wiskundige/onoordeelkundigheid and many similar
           i) kus          k'Ws // chemikus/historikus/politikus, etc.
              kwali (C@    kw%al%i // kwaliteit/kwalifiseer
+             kwaran (t    kw%ar@n // kwarantyn and compounds
           _) kwar (tA     kw%ar // move default stress: kwartaal/kwartier
+             kwartel      kwart@l_ // restore default stress: kwartel/-eier/-s and similar
              kwi (tans       kw@ // move default stress: kwitansie and compounds
 
 
@@ -1273,11 +1343,13 @@
              kabinet      k%ab%inEt // kabinet/drankkabinet/kabinetsvergadering
              ka (dawer    k%a // move default stress: kadawer and compounds
              kade (t      k%adE // shorten 1st a and move default stress: kadet and compounds
+             kafe (te     k%af@ // fix stress and vowel sounds: kafeteria and compounds
              kake (C      kA:k@ // kakebeen/skakelaar/skakelbord/skakelfunksie
              kalahari     kalah'A:ri // stress: Kalahari/-sand/-woestyn
              ka (lAnC     k%a // kalender and compounds/kalant/kalander and compounds
              kalender   k%alEnd@r // fix stress and vowel sounds: kalender/-s and compounds
              kali (b      k%ali // kaliber/kalibrasie/kalibreer
+             kal (koen    k%al // move default stress: kalkoen and compounds
              kalmeer      kalm'e@r // kalmeer/gekalmeer
              kalmer (A    kalm'e@r // kalmerend/e/kalmering
              kamer        kA:m@r // compounds: kamerindeling/kamerorkes, etc.
@@ -1288,9 +1360,11 @@
              kandi (dA    k%an%i // kandidaat/kandidate and compounds
          @A) kaner (_     k'A:n@r // Afrikaner/Amerikaner
           _) kan (to@     k%an move default stress: kantoor/kantore and compounds
+             kant (onder  kant_ // kantonderklere/-onderrok, etc.
              ka (pabel    k%a // move default stress and shorten 1st a sound: kapabel/-e
              kape (l      k%ap& // move default stress and fix e sound: kapel and compounds
              kape (la@    k%ap@ // fix e sound: kapelaan/kapelane and compounds
+             kapi (ta     k%ap%i // fix stress and 1st a sound: kapitaal and compounds/kapitalis/-me/-ties
              ka (pok      k%a // move default stress and shorten a: kapok and compounds
              kap (tein    k%ap // kaptein/kapteinskap/skeepskaptein
              kapsule      k%apsyl@ // stress and e sound: kapsule/-fabriek/-vorm, etc.
@@ -1312,9 +1386,10 @@
 
 
 .group ko
+             kode (ring   k%o@de@ // fix stress and vowel sounds: kodering and compounds
              ko (kon      k%u // fix 1st o sound and move default stress: kokon and compounds
              kommando     k%umandu // move stress, fix o sounds: kommando and compounds
-             kommissie k%umis%i //kommissie alone and in compounds
+             kommissie    k%umis%i //kommissie alone and in compounds
              ko (pie@     k%u // kopiereg/kopie
              koe (rA      k%u // koerier/koerasie/koerant and compounds 
              korrek       k%urEk //korrek and derivitives
@@ -1336,6 +1411,7 @@
              kommen (ta   k%Om@n // kommentaar/kommentator
           _) ko (mmo      k%u // move default stress and fix 1st o sound: kommosie/-s/kommoditeit/-e
              kompan (jie  k%Omp%an // move default stress: kompanjie/-stuin
+             konse (kwen  k%Ons@ // fix e sound: konsekwensies/konsekwent
              konserv      k%Ons@rv // fix stress and v sound: konservasie/konservatorium and compounds
              kom (plA     k%Om // komplot/kompleet
           _) kon (C       k%On
@@ -1348,6 +1424,8 @@
              konnekteer   kOnEkt'e@r // (ge)konnekteer
              konnek       k%unEk // fix stress and vowel sounds: konneksie/-s and compounds
              konkel       kONk@l // restore default stress and fix [N] sound: konkelaar/konkelwerk, etc.
+             konsen (tr   k%Ons@n // fix stress and e sound: konsentreer/konsentrerend/konsentrasie
+             konsen (trie k%OnsEn // fix stress and e sound: konsentries/-e
              konside (rA  k%Ons@d@ // fix vowel sounds: konsiderasie/konsidereer
              konsist      k%Ons@st // konsistorie and compounds/konsistensie
              konsul (A    k%Ons%Wl // konsulaat/konsulate/konsulêr
@@ -1373,6 +1451,7 @@
           _) la (kon      l%a // lakoniek/lakonies/lakonisme
              lam (len     l%am // move default stress: lamlendeling/lamlendig/-e/-heid
           _) lang (d      l%aN // langdradig/langdurig and their derivitivs
+          _) lange (CA    laN@ // e sound: langelaas/Langeberge
              lang (werp   l%aN // move default stress: langwerpig/-e/-heid
              lank (moe    l%aNk // move default stress: lankmoedig/-e/-heid
           _) lapel        l%ap'&l //lapelwapen etc.
@@ -1411,6 +1490,7 @@
              linker       lINk@r // blinkertjies/many compounds with linker and klinker
              lino (leum   l@no@ // fix stress and i sound: linoleum and compounds, e.g. linoleumvloere
           @) ll (_N       _^_EN // Words ending in -ll are English
+             lo (kalA     l%u // fix stress and o sound: lokale/ontvangslokale, etc.
           _) losge (@P5   l'Osx2@
           _) losies       l%us'is //losies at start always means "to stay"
           &) lm (K        l@-m
@@ -1443,6 +1523,7 @@
              man (da      m%an //mandaat and compounds
              mane (wale   m%an@ // fix stress and shorten a sound: manewale/-s and compounds
              manier       m@ni:r //manier and compounds
+             manipu       m%an%ip%y // fix stress and a sound: manipuleer/manipulering/manipulasie
              manu (sk    ,many
           _) ma (rA       m%a // short, unstressed a: Marietjie/Marina/Marinda/Marita/Maree/marog
              marine       m%arin@ // marine and compounds
@@ -1453,8 +1534,10 @@
              mar (sje     m%ar // move default stress: marsjeer and derivitives
              mas (biek    m%as // move default stress: masbieker/-s
              masjien      m@Sin // masjien and many compounds
+             masker       mask@r // fix e sound: maskerafdruk/-agtig/ontmaskering
              maso (chis   m%as%u // fix vowel sounds: masochis/-te/-ties/-e/-isme
              materi (A@   m%at%e@r%i // materiaal/materiale/materiële/materieel
+             materie (+   m%ate@r%i // stress and vowel sounds: materie and many compounds
              maties       m'A:tis //tamaties, outomaties etc.
              ma (tr       m%a // matriek and many compounds with matriek/MATRAS/MATROOS/MATROSE
           @) matig        m'A:t@x2 // doelmatig/gelykmatig/regmatig; matig takes stress in compounds
@@ -1491,7 +1574,7 @@
              mis (tiek    m@s
              mis (troos   m@s // mistroostig
              mis (vorm    m@s // stress on 2nd slb
-             mode         m''o@d@ // fix e sound: modeontwerper/-maker, etc.
+          _) mode         m''o@d@ // fix e sound: modeontwerper/-maker, etc.
              modee        m@d'e@ //akkommodeer
              mode (l      m%o@d& // fix stress and e sound: model/-le and compounds
              mode (lle@   m%Od@ // fix stress and e sound: modelleer/modellering
@@ -1503,6 +1586,8 @@
              moles (tA    mOl@s' // molesteer/der
              moles (_     m%ulEs // fix stress and e sound: moles/huismoles
              moles (te_   m%ulEs // fix stress and e sound: moleste and compounds
+             mo (narg     m%o@ // move default stress: monarg/monargies
+             monargie (_N m%o@n%arx2i // move stress to end: monargie
              monder (A    m%Onde@r // move default stress and lengthen 1st e sound
              monu (ment   m%On%y // monument/e/vrouemonument/monumenteel
           _) mor (C@      m%Or // move default stress: morbied/morfien/mortier
@@ -1513,7 +1598,7 @@
              musiek       m%Wsik
              musi (C      mysi' // musikant/musikus/musici
              muske (tier  m%Wsk@ // move default stress: musketier/-s
-             môre (@      mO:r@' // move default stress: môreaand/-middag/-oggend
+             môre (@      mO:r@ // HAT: all compounds starting with môre- take stress on 1st slb.
 
 .group me
              medalje      m@dalj@ // medalje/bronsmedalje/medaljewenner
@@ -1529,6 +1614,8 @@
              meganies     m@x2'A:nis
           _) meege (@P5   m'e@x2@
              me (juf      m@ // move default stress and shorten e sound
+             melancholie (_N m%El%aNk%o@li // fix stress and 1st e sound: melankolie
+             melanch      m%El%aNk // stress and 1st e sound: melancholies/melancholiek/-e/melancholikus/-ci
              memo (ran    m%Em%u // fix stress and vowel sounds: memorandum/memoranda and compounds
              meneer       m@n'e@r   // meneer/meneertjie
              menere       m@n'e@r@  // menere/beroepsmenere
@@ -1551,11 +1638,12 @@
              mentjie      m'EiNci // monumentjie/dokumentjies
         AAs) mes (_       mEs // fix last e sound in compounds like kombuismes
          Cs) mes (_       mEs // fix last e sound in compounds like slagtersmes
-             metaal       m@t'A:l
+             metaal       m@tA:l
              metale       m@t'A:l@
           _) meta (C      m%Et%a // metabolies/-e/metafoor/metafories
              meteen       mEt_'e@n  // meteen/meteens/almeteens
              mete (o      m%it%i // fix stress and e sounds: meteoor and compounds/meteore/meteories/-e
+             meteo (riet  m%it%i%u // fix stress and vowel sounds: meteoriet/-e and compounds
              metode       m@t'o@d@  // metode/s
              me (tod      m@ // metodies/metodiek
 
@@ -1628,8 +1716,10 @@
              nese (_      n'e@s@ //japannese soedannese stres and e sound
              netel        ne@t@l // netelig and derivitives/netel and compounds
              nogal        nOx2al // fix o sound: nogal/-s
+             nok (turn    n%Ok // move default stress: nokturne/-s
              no (minA     n%O // fix 1st o sound: (ge)nomineer/nominasie
              nommer (een  n%Om@r? // stress: nommereen in compounds like nommereenspeler
+             noncha (la   n%OnS%a // fix stress and ch sound: nonchalant/-e/-heid
              nood (saak   n%o@t // move default stress: noodsaaklik/-e/-heid, vs. noodsaak
              nood (saak_N no@t // restore default stress: (ge)noodsaak
              normaal      nOrm'A:l // normaal/normaalweg/abnormaal
@@ -1672,6 +1762,7 @@
              oranje       %o@ranj@ // fix stress and e sound in compounds: oranjeagtig/oranjekleur
           _) ordent       %OrdEnt // move default stress: ordentlik/-e/-er/-ste/-heid
              orent (K     %o@rEnt // fix stress of orent in compounds: kiertsorent/orentspring, etc.
+             orgi (de     %Orx2@ // move default stress: orgidee/orgideë and compounds
              orie         o@ri
              oriu         'o@riW
           _) or (ka       %Or // move default stress: orkaan/orkane/orkaanwaarskuwing...
@@ -1753,10 +1844,11 @@
           _) op (@P2      'Op // opeet/opeis/optredes/opoffering
              open (+      o@p@n // open/opening/e/s
              open (b      %o@p@n openbaar/openbare/openbaring
-          _) oper (A      %o@p@r // operasie/operateur/opereer
-          &) opera (sie   %o@p@rA: // default stress when operasie 2nd part of compound: hartoperasie, etc.
-             opera (_     'o@p@ra // stress: opera/operas
+          _) oper (A      %o@p@r // operateur/opereer
+             operasie     %o@p@rA:si // fix stress operasie/hartoperasie, etc.
+             opera (K     o@p@r%a // stress: opera/operas/operamusiek/-sanger
              opinie       o@p'ini // opinie/-s
+             opium        o@piWm // fix vowel sounds: opium and compounds
              op (nuut     %Op // move default stress: opnuut
              op (offer    Op // fix o sound: selfopperende, etc.
              oppon (A     %Op@n // opponent/opponeer
@@ -1769,7 +1861,7 @@
              opti (mA     %Opt%i // optimis/-me/-te/-ties/optimaal
              op (winde    %Op // move default stress: opwindend and derivitives
           _) or (ga       %Or // move default stress: orgaan/organe
-             organisasie  Orx2anis'A:si
+             organi (sA   %Orx2%ani
              ose (a       %o@S%i // fix stress and s and e sounds: oseaan/oseane and compounds
           @) oties        'o@tis // antibioties/eksoties/eroties/neuroties
              ower (@      o@v@r // lowergroen/betowerend/dowerig/compounds of owerheid
@@ -1809,6 +1901,7 @@
           _) onnie        Oni // onnie/-s; not on- prefix
              onreg (K     Onr&x2 // stress: onreg/te/onregmatig
              on (regv++   %On // stress: onregverdig/e/heid
+             on (sin_N    On // restore default stress: onsin
              on (skuld_N  'On // restore default stress: onskuld
           _) ont (@P3     %Ont
              ont (d@      %On // remove t sound: ontdaan/belastingontduiking/ontdooi
@@ -1834,9 +1927,10 @@
              ongeriefli (k Onx2@r'ifl@ // to avoid "-lik" suffix retranslation
              onder        On@r
              onder (bre   %On@r // move default stress: onderbreek/onderbreking
+             onder (danig %On@r // move default stress: onderdanig/-e/-heid
              onder (druk  %On@r // exception to default stress rule
              onder (duim  %On@r // exception to default stress rule
-             onder (enC   ''On@r_ // default stress: onderent
+          _) onder (enC   ''On@r_ // default stress: onderent
              onder (hande %On@r // move default stress: onderhandel and derivitives
              onder (hor   %On@r // exception to default stress rule:
              onder (hou   %On@r // move default stress: onderhou/-dend/-e
@@ -1848,6 +1942,8 @@
              onder (steu  %On@r // exception to default stress rule: ondersteun/-ing/-ers
              onder (vin   %On@r // exception to default stress rule: ondervind/ondervinding
              onder (vra   %On@r // move default stress: ondervra/-ging
+             onder (werping %On@r // move default stress: onderwerping/-sklousule
+             onder (worp  %On@r // move default stress: onderworpene/onderworpenheid, etc.
           _) onderge (@P7  'On@rx2@
           _) on (kant     On // stress on 1st slb.: onkant and compounds
              on (langs    On // stress on 1st slb.: onlangs/-e
@@ -1864,6 +1960,7 @@
              oontjie      oINki
              oondjie      oINki
              oombliklik   o@mbl'Ikl@k // stress: oombliklik/e
+          _) oopge (@P5   'o@px2@ // oopgesper, etc.
              oorbluf      o@rbl'Wf // stress: oorbluf/te
              oor (blyw    %o@r // move default stress: oorblywend/-e
              oorbodig     o@rb'o@d@x2 // stress: oorbodig/-e/-heid
@@ -1879,6 +1976,7 @@
              oorkoepel    o@rk'up@l // stress and pronunc. of el: oorkoepelend/oorkoepeling
           _) oorlede      o@rl'e@d@ // stress oorlede/ne/s
           oorle (wing     o@rl''e@ // stress on 2nd slb.: oorlewing/-sekuriteit/-situasie
+             oor (meester %o@r // move default stress: oormeester
              oor (reed    %o@r // move default stress
              oor (redA    %o@r // move default stress: oorredingskrag
              oor (rompel  %o@r // move default stress
@@ -1887,6 +1985,7 @@
              oor (spronk  %o@r // move default stress: (on)oorspronklik and compounds
              oor (stur   %o@r // move default stress: oorsturig/-e/-heid
              oor (tr      %o@r // oortree/oortreding/oortref
+             oor (trek    o@r // restore default stress: oortreksel/oortrekpapier/oortrektrui
              oor (tuig    %o@r // oortuig/oortuiging/oortuigende
           _) oor (vleuel  %o@r // move default stress: oorvleuel/-ing
           _) oor (vloedig %o@r // move default stress: oorvloedig/-e vs. oorvloed
@@ -1914,6 +2013,7 @@
              pantser      pants@r // fix e sound in compounds starting with pantser
              pa (pier     p%a // papier and compounds
              parle (ment  p%arl@ // move default stress and fix e sound: parlement and compounds, eg. 
+             parme (saan  p%arm@ // move default stress: parmesaan(kaas) and compounds
              parti (tu    p%art@ // fix stress and i sound: partituur/partiture and compounds
              pa (tat      p@ // patat/warmpatat/wurgpatat
              patie (K     p%at'i //words ending in patie has stress at end + a sound/simpatiek
@@ -1930,9 +2030,9 @@
              pa (Ciljoe   p%a% // fix stress: pawiljoen/paviljoen/-e and compounds
              polio        po@li;u // polio and compounds
           _) peli (ka     p%El%i // move default stress: pelikaan/pelikane
-//             @) pene (_   p@n@ // geroepene/ontslapene/uitgeworpene
              pen (dule    p%En // move defaul;t stress: pendule/-s
              pene (_      p@n@ // geroepenes/ontslapenes/uitgeworpenes
+             pene (trA    p%En@ // fix e sounds: penetrasie/(ge)penetreer
              pensi (oen   p%EnS%i; // move default stress: pensioen and compounds
           _) perde        p'&:rd@
           @) perde (_     p&:rd@ // compounds ending with perde
@@ -1944,6 +2044,7 @@
        skam) pere (_      p@r@ ?? shorten 1st e in ending
              perfek       p@rfEk // perfek/-te/-sie/-sionis
              peri (o      p%e@r%i; // stress: periode/-s and compounds
+             perle (moe   p%&rl@ // move default stress: perlemoen/perlemoer and compounds
              pe (rron     p@ // move default stress and fix e sound: perron and derivitives
           r) peling (_    p@l@N //verwerpeling etc.
               peloton     pEl@t'On
@@ -1953,7 +2054,10 @@
              perso (neel  p%&rs%u // personeel and compounds
              pervers      p@rf&rs   // pervers/perversie
           _) pe (trA_     pe@ // lengthen e sound: Petro/Petra
+             petrol       pEtr@l_ // o = schwa: petrol and compounds
+             petrol (eum  p@tro@l // move default stress and soften e: petroleum and compounds
              pe (tunia    p@ // fix stress and e sound: petunia/-s
+             phi (lippA_  f@ // fix stress and 1st i sound: Philippa/Philippi
           _) pi (la       p%i // move default stress: pilaar/pilare/pilatus
              pi (sto      p@ // pistool/pistole and compounds
              pizza        pitsa // fix zz sound: pizza and compounds
@@ -1976,6 +2080,9 @@
           _) pos (a       pOs //posadres/posadministrasie 
           _) post (K      p'@Ust- //post where it means after
           _) post (u      p%Ost // move default stress: postuur/posture/postuum and compounds of postuur
+             poten (sia   p%o@t%En // fix e sound: potensiaal/potensiale and compounds
+             poësie       p%u:@zi // bieg/natuurpoësie/poëversameling, etc.
+             poë (tA      p%u:e@ // poëties/-e/poëte
          ra) pporte (rA   p%Orte@ // fix stress and e sound: rapportering/rapporterende
           _) prak (tyk    pr%ak // stress: praktyk and compounds
              prefek       prifEk // fix vowel sounds: prefek/-te/-tuur and compounds
@@ -1983,6 +2090,7 @@
              pre (mier    pr@ // move default stress and fix e sound: premier and compounds
              pre (sA      pr@ // president/presies/present
              pre (se_     pre@ // fix e sound of words ending in -prese
+             preten (si   pr@te~n // fix stress and e sounds: pretensie/(on)pretensieus/-e
              primi (t     pr@m@ // make i sounds schwa: primitief/primitiewe
              prinsi (pA   pr@ns@ // move default stress: prinsipaal/prinsipale/prinsipaals/prinsipieel/-ële
              prinsipe (K  pr@nsip@ // stress on 2nd slb.: prinsipe/-s
@@ -1990,8 +2098,10 @@
              posisie      puz'isi
              predi (kant  pr%e@d@ // predikant and compounds
              prinse (s    pr@nsE // prinses/-se|-sie/-s
+          @) prinses (_   pr@nsEs // fix e sound in compounds ending in -prinses: feeprinses, etc.
              priv (a@     pr%if // privaat/private
              pro (blA     pr%u // probleem/probleme
+             proble (mati pr%Obl@ // fix vowel sounds: problematies/-e/problematiek
              profesie     prOf@s'i // fix vowel sounds and move stress
              pro (CA      pr%u // probeer/produk/proses/professie/provinsie
              prokie       pro@k%i //sprokie and compounds
@@ -2032,6 +2142,7 @@
           _) r (_D.       rant
           _) r (_DD.      rant
           _) r (_DDD      rant
+             raad (A      rA:t_ // fix d sound and short pause: raadop/voorraadopname, etc.
              radika (li   radika
              radika (le   radik'A:
              radikaa      radik'A:
@@ -2141,6 +2252,7 @@
              sigare (t    s@x2%arE // fix vowel sounds and move default stress
              sig (a@      s@x2 // sigaar/sigare/sigaardosie
              siklu (s     siklW // siklus and many compounds
+             silhoe (A    s@l%uw // silhoeët/-te/-teer
              sili (nd     s@lI // silinder(s)/silinderkoppe
              sinteties    s@nte@tis // sinteties/e/fotosinteties/-e
              si (viel     s@ // move default stress and fix i sound: siviel/-e
@@ -2151,10 +2263,13 @@
              saamge (P6   s'A:mx2@ // saamgepers/-de/saamgetel/saamgeêet
              saamgee      sA:mx2e@ // fix ee in saamgee; see rule: saamge (P6 
              sabot (A     s%ab%ut // sabotasie/saboteer
+             safari       s%afA:r%i // fix 1st a: safari/safaripak, etc.
+             sa (ff       s%a // move default stress: saffier and compounds/saffraan and compounds
              salaris      s@lA:r@s // salaris/aanvangsalaris/salarisskaal/-uitbetaling
-             salon        salOn // eetsalon/haarkappersalon
+             salo (n      s%alO // eetsalon/haarkappersalon
           _) sam (b       s%am // move default stress: sambok/-kke/sambreel/sambrele and compounds
           _) same (@P4    s'A:m@ // samekoms/sameswering
+          _) same (hA@    s%A:m@ // stress: (on)samehangend/samehorig/-e/-heid, but samehang
              samel (C     sA:m@l // versamelde: see rule:_) same (@P4    s'A:m@ 
              samen (+     sA:m@n // gesamentlik/-e
           _) san (da      s%an // move default stress: sandaal/-tjies/sandale
@@ -2177,12 +2292,13 @@
              se (llin     s%&' // stress on 'in: (met)gesellin/-ne/-netjie, etc.
           @) sel (wig     s'&l // stress: (ver)eenselwig and derivitives
           _) seme (Ct     s@mE // sementtafel/blad/vierkant/semester/-s
+          _) semi (_      sEmi // fix e sound: semi/semi-formeel, etc.
              semi (na     s%Em%i // seminaar/seminare/seminarium
 
              sening       se@n@N // sening/haaksening/heupsening
           _) senior       s''i:ni@r // default stress; fix vowl sounds: senior and compounds starting with senior
              senior (itei s%i:n%i%Or // fix vowel sounds: senioriteit
-             sen (trale   s%En // exception to default stress rule
+          _) sen (tra@    s%En // exception to default stress rule: sentraal/sentrale
           _) ser (e@      s@r // fix stress and 1st e sound: sereen/serene
              sere (moni   s%Er@ // seremonie/-meester/huwelikseremonie/seremonieel
              ser (sant    s@r // move default stress: sersant and compounds
@@ -2263,7 +2379,6 @@
           @) skynlik      sk'eInl@k oê­³kynlik/onwaarskeinlik/waarskynlikheid
              smelt        sm&lt
              sodom (iet   s,o@dOm // fix stress and 2nd o sound: sodomiet/-e
-             sonde (C@    sOnd@ // sondebok/sondelas
              son (geC     sOn // songebakte/-brande/-bruinde/-droogde
              sosial (i    so@Sial' // sosialis/sosialisme/sosialisties
              so (v        so@ // soveel/sover
@@ -2279,6 +2394,7 @@
           @) spre (ken    spr'e@ // stress: vanselfsprekend
           _) ste (ri      st%E // fix stress and e sound: steriel/-e/steriliteit
              stimu (lA    st@m%y // move default stress and fix i sound: stimuleer/stimulering/stimulasie
+          _) sub (a       sWb_ // subagent/subartikel/subatomies, etc.
              sub (li      s%Wb // move default stress: subliem/-e
              sub (stansie s%Wp // move default stress and fix b sound: substansie/-s/substansieel/-siële
              sub (ti      s%Wp // stress and b sound: subtiel/-ste/subtiliteit
@@ -2293,7 +2409,6 @@
              swart (gal   sw%art // move default stress: swartgallig
           @) swem (_      swEm // fix e sound of compounds ending in swem: uitswem/wegswem...
              swerk        sv&rk
-             swinkel      svINk@l
 
 .group st
          D_) ste          st@ //ste after numbers 22ste etc.
@@ -2303,6 +2418,7 @@
              staties      st'A:tis
              steding      ste@d@N // besteding and compounds
           C) steker       ste@k@r // e sound: (aan/dop/kwaad/rugsteker/-s/-y, etc.
+        _ne) stel         st@l // fix e sound: nestel/-end
         wor) stel         st@l //worstel e sound in compounds
           @) stel (iC     st@l // eersteling/gunsteling/wellusteling/worsteling/eerstelig and compounds
           @) ste (llen    st'& // belangstellendes/gerusstellend/regstellende/teleurstellend
@@ -2317,6 +2433,7 @@
              stene (_     ste@n@ //skoorstene, bakstene etc.
        chri) stene (_     st@n@ //fix christene and compounds
           @) stel (o      st@l      //bewusteloos/lustelose/rusteloosheid/kosteloos
+       mAre) ste (r       st& // fix e sound: more/môrester/-re
           @) sterkt       st&rkt // compounds ending in sterkte
 
         weg) ster (we     st&r      // wegsterwe/wegsterwende
@@ -2346,6 +2463,7 @@
              t (_dN           // final t, and next word starts with d
           A) tch          _^_EN // clutch/pitch/bitch
              tabak        tab'ak;
+             ta (blet     t%a // move default stress: tablet/-te and compounds
              tafe (re     t%af@ // fix vowel sounds: tafereel/taferele and compounds
           @) talig        t'A:l@x2 // Anderstalig/tweetalig
           _) ta (ma       t%a // tamatie and compounds
@@ -2362,6 +2480,7 @@
              t (ema++     t // compounds with tema
 
              tia (_       Sja
+             tiara        t%iA:ra // stress: tiara/-s
           _) tibet        t%ibEt // move default stress: Tibet/-aans/-e
           @) tief (_      t'if // alternatief/aktief/instinktief/(ak)kumulatief
           @) tiewe (_     t'iv@ // alternatiewe/aktiewe/instinktiewe/(ak)kumulatiewe
@@ -2369,6 +2488,8 @@
              ti (ra       t%i // move default stress tiran tirade
              tj           tS
           @) tj (a        tj // separate tj: agtjarig/blatjang/bontjas/olifantjag/ouditjaar/tweegatjakkals
+             tjello       tSElu // fix e sound and o in compounds: tjello/-konsert/-musiek/-sonata
+             tje (llis    tS%E // move default stress and fix e sound: tjellis/-te
              tj (ie       c
           _) tj (ie       tS
          ui) tj           tj // uitjaag/uitjou/uitjubel
@@ -2382,10 +2503,12 @@
           @) tion (_      _^_EN     //words ending in tion is English
           @) tions (_     _^_EN     //words ending in tions is English
              toegank      t%ux2'aNk // toeganklik/heid
+             toe (komsti  t%u // move default stress: toekomstig/-e
              toenemen     tun'e@m@n //toenemend/e/er
              toereike     t%ureIk@ // toereikend/heid
              toereken (b  t%ur'e@k@n // ontoerekenbaar/heid/ontoerekenbaarheid
              toneel       t%une@l
+             tonele       t%une@l@ // fix o sound: tonele and compounds
              toegeef      t%ux2e@f // move default stress: (on)toegeeflik/-e/-heid
              toege (wing  t'ux2e@ // exception to _) toege (@P5   tux2@
           _) toege (@P5   t'ux2@
@@ -2405,7 +2528,7 @@
           @) treer        tr'e@r // this slb always takes stress; many words
              tref (afs    trEf_ // fix e sound and insert short pause: trefafstand/-e
 
-             trek         tr&k
+             tre (k       tr&
              trekker      tr&k@r // voortrekkerleier/Voortrekkerstraat/salaristrekkersvergadering
              triomf (ant  tr%i%Omf // move default stress: triomfantlik/-e
           @) trise (_     tr'is@ // aktrise and similar
@@ -2447,6 +2570,10 @@
              teks (+      tEks // compounds with teks
              tent (_      tEnt //suurstoftent and others
              te (oo       t@ // geboorteoorskot/kosteoorweging/siekteoorsaak/terroristeoorlog
+          s) te (king te@ //ontsteking in compounds
+             te (rgend t'& //tergend and compounds
+          @C) te (rgend t'& //sieltergend and others
+
           _) teraarde     t%&r?A:rd@ // move default stress and fix e sounds: teraardebestelling/-s
           n) terie        t@r'i // galanterie/infanterie and compounds
           wa) te (ring t@ //water exception to rest
@@ -2487,6 +2614,7 @@
           &) tels (_S4    t@ls
        sleu) tel          t@l //sleutel in compounds
              te (l        t&
+          A) te (ling     t@ // betiteling/insluiteling/loteling/uitbeiteling/verstoteling
              teltjie      t@lki
           @) tel (o       t@l // hartelose/besluiteloos/gedagtelose
           &) tert (A      t@rt // fix e sound: agtertoe/foltertuig/gietertuit/kilometertoelae/lastertaal/letterteken
@@ -2529,7 +2657,6 @@
              u (CA        y
              uu           y
              ui           Yy
-             uiwe         Yyv@ //druiwesap and many others
              uie (C       Yy@ // graansuierdiens/kruiersloon/kuiergas/luierbroekie/sluierdoek/suierklep/getuienis
              uy           Yy
 
@@ -2543,6 +2670,7 @@
              uit (eenloop Yyt_ // restore default stress: uiteenloop
              uiteen (lop  %Yyt_%e@n // move stress to 3rd slb.: uiteenlopend/uiteenloping
              uitgee (+     'Yytx2e@ // se rule: _) uitge (@P5   Yytx2@
+             uit (kansel  ''Yyt // enforce stress on 1st slb: uitkanselleer
              uitsonderli (k  %YytsOn@rl@ // move default stress: uitsonderlik/-e vs. uitsonder
              uit (sorteer ''Yyt // remove stress from -eer and place on 1st slb
              uitspreekl   %Yytspre@kl // fix stress and avoid -lik suffix: onuitspreeklik/-e
@@ -2554,9 +2682,8 @@
              uitgewerk    Yytx2@v&rk // uitgewerk and derivitives; see rule: uitgewer
              uitgewerp    Yytx2@v&rp // fix vowel sounds, see rule: uitgewer
              uitke (n     YytkE // mix e sound: uitken
-          C) uiwer (A     Yyv@r // huiwerend/suiweringsaanleg and similar compounds
              ulti (ma     %Wlt%i // move default stress: ultimatum/-s
-             u (ra        %y // uraan and compounds/uranus
+          _) u (ra        %y // uraan and compounds/uranus
              urine        %yrin@ // urine and compounds
              urineer      yrin'e@r // stress to end
              utjie        Yyci
@@ -2577,6 +2704,9 @@
              vagina       vax2ina // fix v sound and shorten a sound: vagina/-s
              vagin (A@    v%ax2%in // move default stress: vaginale and similar
              vakansie     f@k'ansi
+             va (ku       v%a // fix stress and v sound: vakuum and compounds/vakume/evakueer
+             vak (unie    fak_ // restore default stress, insert short pause: vakunie and compounds
+             va (llei     f%a // fix stress and a sound: vallei/-e and compounds
           _) van (@         f%an // (on)vanpas/vanjaar/vandag/vanaand/vanoggend and many similar
           _) vang (@      faN // vangwa, etc.; see rule: _) van (@         f%an 
              vangen       f'aN@n // gevangene/gevangenis/bevangenheid
@@ -2590,6 +2720,7 @@
           @) vel (A       fe@l // aanbeveling/aanbevelingsbrief
              vele         f'e@l@ 
              ven (dusie   f@n // fix stress and e sound: vendusie and compounds
+             vene (siA    v@ni: // Venesië/Venesiese
              ven (ster    fe~n // nasalise
              ven (yn      f@n // venyn/venynig
              ver          f@r
@@ -2607,6 +2738,7 @@
              verende      f'e@r@nd@
              verer (ing   f@r_e@r // verering and compounds ending with verering, eg. heldeverering
              vergete      f@rx2'e@t@ // vergeterig/vergetelheid
+          _) vergewe      f@rx2e@v@ // vergewe/vergewend/-e
              vering       f'e@r@N   //motivering preservering etc.
          @C) vers (_      f&rs // teksvers/slotvers/kindervers and similar
          @C) vers (e_     f&rs // plurals of words like the above
@@ -2630,10 +2762,11 @@
              verte (l     f@rt& // oorvertelling/rondvertel and similar
              verter (A    f@rte@r // spysvertering and compounds/spysverterende
              ver (velA    f@r // vervelig/verveling (see: _) ver (@P3     f@r
+             verwe (_     f&rv@ // fix e sound: (olie/water)verwe, etc.
              verwery      f&rv@r%eI // fix stress and e sounds: verwery and compounds like huisverwery
              vi (brA      v%i // fix v and i sounds: vibrasie/vibreer
              vi (cto@     v%i // fix v and i sounds: victoriaans/-e
-             video v'idi;u //video and compounds
+             video        vidi;u //video and compounds
              vier (kantig  f%i:r // move default stress: vierkantig/-e vs. vierkant
 
              ville        _^_EN
@@ -2652,10 +2785,10 @@
           _) vasge (@P5   f'asx2@
              vleuel       flY@@l // fix last e sound in vleuel in words like vleuelklavier/tweevleuelig, etc.
              vlieë (nier  fl%i@ // move default stress: vlieënier and compounds
+             vodka        vOtka // fix v sound and a sound in compounds: vodka/-bottel, etc.
           @) voerig       f'ur@x2 // breedvoerig/uitvoeriger
-             volke        f'Olk@ // volke/-re: exception to: vo (lC       f%O
-             volk (ing    fOlk // bevolking: exception to: vo (lC       f%O
-             volk (s      fOlk // volksliedere/volksbeweging/volksleier and similar
+             volk         fOlk
+             vol (kome    f%Ol
              vo (llA_     fO // volle/vollê/Volla - exception to: vo (lC       f%O
              volle (dig   f%Ole@ // fix stress and e sound: (on)volledig/-e/-heid...
              vo (ller     fO // exception to: vo (lC       f%O
@@ -2695,6 +2828,7 @@
              vrygewig     freIx2'e@v@x2 // vrygewig/-e|-heid
              vry (wil     fr%eI // vrywillig/-lik|-heid
              vuldig       f'Wld@x2 // sorgvuldig/veelvuldig/vermenigvuldig and variants
+             vul (ka      f%Wl // move default stress: vulkaan/vulkane/vulkanies
 
 
 
@@ -2702,6 +2836,7 @@
              w            v
              w (w
           d) w            w
+         ad) w            v // w sound: badwater/bladwisselend/stadwaarts
          @C) w (erk       v // fix w sound: hardwerkend/handwerk/naaldwerk
         AAd) w            v // bloedweinig/draadwerk/huidweefsel/landgoedwyn/smeedwerk/skottelgoedwasser
          nd) w            v // aandwandeling/brandweer/eindwedstryd/grondwet/grondwal
@@ -2709,10 +2844,14 @@
           k) w            w
           k) w (And       v // fix w sound: buikwand/rukwinde
           s) w            w
+          s) w (r         v // fix w sound: skeepswrak/sielswroeging/aardswreedheid
+             wreed (a     vre@t_ // fix d sound and insert short pause: wreedaard/-s
+             wreed (aardig vr%e@t_ // move default stress: wreedaardig/-e/-heid
          @s) w (al        v // fix w sound: dwarswal/gruiswalle/loodswalvis
           s) w (eek       v // fix w sound: feesweek/kersweek/paasweek/vandeesweek/werksweek
          @s) w (iel       v // fix w sound: fietswiel/gewaarwordingswiel and similar compounds
           s) w (il        v // fix w sound: groepswil/hemelswil/liefdeswil/korswil	
+          C) winkel       vINk@l // w sound: boek/dames/plaaswinkel, etc.
           s) w (yf        v // fix w sound: viswyf/ganswyfie/mannetjieswyfie
         ens) w v
         ers) w            v // flenterswaai/kerswense/koerswaarde/kopersweerstand/trekkerswee/verkeerswisselaar
@@ -2724,6 +2863,7 @@
         ooC) w            v // booswig/grootwild/ooswaarts/
         out) w            v // houtwerk/soutwater and similar
          yd) w            v // fix w sound: sluittydwerk/(wa)wydwakker
+             wee (moedi   v%e@ // move default stress: weemoedig/-e/-heid
              weer (lê       v%e@r // move default stress
              weer (leg      w%e@r // move default stress: (on)weerlegbaar
           @) weg (_       v&x2 // blindweg/botweg and many similar
@@ -2736,12 +2876,13 @@
              werwel       v&rv@l // fix w and 2nd e sound: werwel and many compounds
              w (ese_      v //words ending in wese
           t) w            w
+          t) w (at        v // geut/put/soetwater, etc./ietwat
          it) w            v // inkuitwisser/witwyn/uitwoed/witwatersrand
           @) wa (_N       vA: // words ending in -wa: afleweringswa
           @) w (aen       v // strydwaens/afleweringswaentjie
           @s) w (And      v // kranswand/kuswind/meswond
           @s) w (An_      v // plurals of the above in -de: de treate
-          _) wan (o       van? // wanorde/wanopvatting
+          _) wan (A       van_ // wanorde/wanopvatting/wanaanpassing/winindruk
              wapen        vA:p@n // fix problems with compounds and derivitives of wapen: ontwapening/wapengeweld
 //wapenopleiding
          @k) ware         vA:r@ // breekware/blikware/lakware
@@ -2768,9 +2909,10 @@
              waarder (@   vard'e@r  // waarderend/e/waardering
           &) waardig      v'A:rd@x2 // stress on -waardig: merkwaardig/besienswaardigheid, etc.
           s) wed (C       vEt       // toetswedstryd/tenniswedstryd/afloswedloop
+          @) wed (str     vEt // fix e sound: buite/foto/rugbywedstryd
           s) wedd (@      vEd       // beroepswedder
              wedywer      vEteIv@r // pronunc. of d and e-sound in derivitives
-             weer (hou    w%e@r // exception to default stress rule
+             weer (hou    v%e@r // exception to default stress rule
              weer (spre   ve@r' // weerspreek/weersprekende/weerspreking
              weer (staan  v%e@r // weerstaan/onweerstaanbaar
           C) wering (_    ve@r@N //borswering, diefwering etc.
@@ -2782,6 +2924,7 @@
              wh           _^_EN // words containing wh are English
           _) wig          vIx2 // fix stress: gewig/-tig/-e
              wiking       vikiN // fix i sounds
+             wilhel (mi   v@lh%&l // move default stress: Wilhelmina/-straat
 
              wn           _^_EN // names containing town/Brackendowns/Brown
              worth        _^_EN
@@ -2829,6 +2972,7 @@
          ge) ë (rf        & // oorgeëf/-de
              ë (teit      @ // fix stress and e sound: variëteit and compounds
              ïgnoreer     ix2nur'e@r // geïgnoreer
+             ïllu (st     %il%W // geïllustreer/-de
              ï (nt        @ // geïnteresseerd
              ï (nC       'I // beïndruk/beïnvloed
              ïsol         %is%ul // geïsoleer/-d

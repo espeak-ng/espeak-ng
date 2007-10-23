@@ -118,6 +118,7 @@
 #define RULE_LETTERGP   17   // A B C H F G Y   letter group number
 #define RULE_LETTERGP2  18   // L + letter group number
 #define RULE_CAPITAL    19   //    word starts with a capital letter
+#define RULE_REPLACEMENTS 20  // section for character replacements
 #define RULE_NO_SUFFIX  24   // N
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
@@ -278,6 +279,7 @@ typedef struct {
 
 #define NUM_ROMAN    0x20000
 #define NUM_ROMAN_UC 0x40000
+
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
 	// bit3=  , decimal separator, not .
@@ -294,7 +296,6 @@ typedef struct {
 	// bit16=dot after number indicates ordinal
 	// bit17=recognize roman numbers
 	// bit18=Roman numbers only if upper case
-
 	int numbers;
 
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
@@ -302,6 +303,7 @@ typedef struct {
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
 	// bit8=(LANG=sw) special word for 100,000s
 	int numbers2;
+
 	int max_roman;
 	int thousands_sep;
 	int decimal_sep;
@@ -314,7 +316,6 @@ typedef struct {
 	char ideographs;      // treat as separate words
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	const unsigned int *replace_chars;      // characters to be substitutes
-	const unsigned int *replacement_chars;  // substitutes for replace_chars
 } LANGUAGE_OPTIONS;
 
 

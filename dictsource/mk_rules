@@ -1,6 +1,42 @@
 // translation rules for Macedonian
 // This file is UTF-8 encoded
 
+.replace
+ a	а
+ b	б
+ c	ц
+ ć	ћ
+ č	ч
+ dž	џ
+ dz	ѕ
+ d	д
+ đ	ђ
+ e	е
+ f	ф
+ g	г
+ h	х
+ i	и
+ j	ј
+ k	к
+ lj	љ
+ l	л
+ m	м
+ nj	њ
+ n	н
+ o	о
+ p	п
+ r	р
+ s	с
+ š	ш
+ t	т
+ u	у
+ v	в
+ z	з
+ ž	ж
+ đ	ѓ
+ ć	ќ
+
+
 .group а
           а        a
 

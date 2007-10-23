@@ -665,6 +665,10 @@ if((wmark > 0) && (wmark < 8))
  
 		if(!found && iswdigit(first_char))
 		{
+			Lookup("_0lang",word_phonemes);
+			if(word_phonemes[0] == phonSWITCH)
+				return(0);
+
 			found = TranslateNumber(word,phonemes,&dictionary_flags,wflags);
 		}
 
@@ -1560,16 +1564,14 @@ static int EmbeddedCommand(unsigned int &source_index)
 }  //  end of EmbeddedCommand
 
 
-
-int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert)
-{//=====================================================================================================
-	// To allow language specific examination and replacement of characters
-
+int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *insert)
+{//==================================================================================
 	int ix;
 	unsigned int word;
 	unsigned int new_c, c2, c_lower;
 	int upper_case = 0;
 	static int ignore_next = 0;
+	const unsigned int *replace_chars;
 
 	if(ignore_next)
 	{
@@ -1578,7 +1580,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 	}
 	if(c == 0) return(0);
 
-	if(langopts.replace_chars == NULL)
+	if((replace_chars = tr->langopts.replace_chars) == NULL)
 		return(c);
 
 	// there is a list of character codes to be substituted with alternative codes
@@ -1590,18 +1592,18 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 	}
 
 	new_c = 0;
-	for(ix=0; (word = langopts.replace_chars[ix]) != 0; ix++)
+	for(ix=0; (word = replace_chars[ix]) != 0; ix+=2)
 	{
 		if(c_lower == (word & 0xffff))
 		{
 			if((word >> 16) == 0)
 			{
-				new_c = langopts.replacement_chars[ix];
+				new_c = replace_chars[ix+1];
 				break;
 			}
 			if((word >> 16) == (unsigned int)tolower(next_in))
 			{
-				new_c = langopts.replacement_chars[ix];
+				new_c = replace_chars[ix+1];
 				ignore_next = 1;
 				break;
 			}
@@ -1625,6 +1627,14 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 	if(upper_case)
 		new_c = towupper(new_c);
 	return(new_c);
+
+}
+
+
+int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert)
+{//=====================================================================================================
+	// To allow language specific examination and replacement of characters
+	return(SubstituteChar(this,c,next_in,insert));
 }
 
 
