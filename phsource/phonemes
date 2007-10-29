@@ -895,7 +895,7 @@ phoneme t
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t
+  wave  ustop/t%90
   before _ ustop/t_
   before @- ustop/t_dnt%50
   before r ustop/tr

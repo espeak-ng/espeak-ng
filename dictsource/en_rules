@@ -29,6 +29,11 @@
 // ?7  Scottish
 // ?8  Use full vowel, not schwa in some word endings
 
+.replace
+   ﬀ   f     // ligature
+   ﬁ   fi
+   ﬂ   fl
+
 
 .group a
          _) a (_         a2
@@ -1653,6 +1658,7 @@
          l) egion        i:dZ@n
             egy (pt      i:dZI
          n) e (gro       i:
+            eh (_        eI
             ei           eI
          _) ei           aI
          c) ei           i:
@@ -3092,7 +3098,7 @@
          r) iv (el       Iv
          r) iv (en       Iv
          r) iv (et       Iv
-        _l) iv (el       aIv
+        _l) iv (eB       aIv
         XC) iv (el       Iv
         _g) iv (e        Iv
         _l) iv (e        Iv
@@ -3377,6 +3383,7 @@
             o (bliga     0
             o (bligato   %0
             o (blo       0
+        _r) o (ber       0
          r) o (bot       oU
          _) o (bs        %0
          _) obs (er      %0bz
@@ -5223,6 +5230,3 @@
             €        jU@roUz
             ♯        SA@p
             ♭        flat
-            ﬀ        f
-            ﬁ        fI
-            ﬂ        fl

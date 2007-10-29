@@ -44,6 +44,7 @@ static int error_count;
 static int transpose_offset;  // transpose character range for LookupDictList()
 static int transpose_min;
 static int transpose_max;
+static int text_mode = 0;
 
 int hash_counts[N_HASH_DICT];
 char *hash_chains[N_HASH_DICT];
@@ -94,9 +95,13 @@ MNEM_TAB mnem_flags[] = {
 	{"$pastf",     27},   /* past tense follows */
 	{"$verbextend",28},   /* extend influence of 'verb follows' */
 
-	{"$brk",       30},   /* a shorter $pause */
+	{"$text",      29},   // word translates to replcement text, not phonemes
+	{"$brk",       30},   // a shorter $pause
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
+
+	{"$textmode",  200},
+	{"$phonememode", 201},
 	{NULL,   -1}
 };
 
@@ -169,16 +174,36 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	
 	int len_word;
 	int len_phonetic;
+	int text_not_phonemes;   // this word specifies replacement text, not phonemes
 	
 	char *mnemptr;
 	char *comment;
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
 	unsigned char bad_phoneme[4];
-	
-	p = linebuf;
+
 	comment = NULL;
+	text_not_phonemes = 0;
 	phonetic = word = "";
+
+	p = linebuf;
+//	while(isspace2(*p)) p++;
+
+#ifdef deleted
+	if(*p == '$')
+	{
+		if(memcmp(p,"$textmode",9) == 0)
+		{
+			text_mode = 1;
+			return(0);
+		}
+		if(memcmp(p,"$phonememode",12) == 0)
+		{
+			text_mode = 0;
+			return(0);
+		}
+	}
+#endif
 
 	step = 0;
 	
@@ -224,7 +249,26 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	
 			ix = LookupMnem(mnem_flags,mnemptr);
 			if(ix > 0)
-				flag_codes[n_flag_codes++] = ix;
+			{
+				if(ix == 200)
+				{
+					text_mode = 1;
+				}
+				else
+				if(ix == 201)
+				{
+					text_mode = 0;
+				}
+				else
+				if(ix == BITNUM_FLAG_DICTTEXT)
+				{
+					text_not_phonemes = 1;
+				}
+				else
+				{
+					flag_codes[n_flag_codes++] = ix;
+				}
+			}
 			else
 			{
 				fprintf(f_log,"%5d: Unknown keyword: %s\n",linenum,mnemptr);
@@ -325,25 +369,35 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 #endif
 		return(0);   /* blank line */
 	}
-	EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
-	if(strchr(encoded_ph,phonSWITCH) != 0)
+
+	if(text_not_phonemes || text_mode)
 	{
-		flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;
+		strcpy(encoded_ph,phonetic);   // this is replacement text, so don't encode as phonemes
+		flag_codes[n_flag_codes++] = BITNUM_FLAG_DICTTEXT;
 	}
-	
-	for(ix=0; ix<255; ix++)
+	else
 	{
-		c = encoded_ph[ix];
-		if(c == 0)   break;
-	
-		if(c == 255)
+		EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
+		if(strchr(encoded_ph,phonSWITCH) != 0)
 		{
-			/* unrecognised phoneme, report error */
-			fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
-			error_count++;
+			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages
+		}
+
+		// check for errors in the phonemes codes
+		for(ix=0; ix<sizeof(encoded_ph); ix++)
+		{
+			c = encoded_ph[ix];
+			if(c == 0)   break;
+		
+			if(c == 255)
+			{
+				/* unrecognised phoneme, report error */
+				fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
+				error_count++;
+			}
 		}
 	}
-	
+
 	if((word[0] & 0x80)==0)  // 7 bit ascii only
 	{
 		// If first letter is uppercase, convert to lower case.  (Only if it's 7bit ascii)
@@ -504,6 +558,8 @@ int compile_dictlist_file(const char *path, const char* filename)
 	char buf[sizeof(path_home)+45];
 	char dict_line[128];
 	
+	text_mode = 0;
+
 	sprintf(buf,"%s%s",path,filename);
 	if((f_in = fopen(buf,"r")) == NULL)
 		return(-1);

@@ -36,10 +36,12 @@
 // bits 0-3  stressed syllable,  7=unstressed
 #define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
+
 #define FLAG_ONLY            0x200
+#define FLAG_ONLY_S          0x400
 #define BITNUM_FLAG_ONLY         9  // bit 9 is set
 #define BITNUM_FLAG_ONLY_S      10  // bit 10 is set
-#define FLAG_ONLY_S          0x400
+
 #define FLAG_STRESS_END      0x800  /* full stress if at end of clause */
 #define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
 #define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
@@ -61,6 +63,9 @@
 #define FLAG_PAST        0x4000000  /* pronunciation for past tense */
 #define FLAG_PASTF       0x8000000  /* past tense follows */
 #define FLAG_VERB_EXT   0x10000000  /* extend the 'verb follows' */
+
+#define FLAG_DICTTEXT   0x20000000  // word translates to replacement text, not phonemes
+#define BITNUM_FLAG_DICTTEXT    29
 
 #define FLAG_PAUSE1     0x40000000  // shorter prepause
 #define FLAG_FOUND      0x80000000  /* pronunciation was found in the dictionary list */
@@ -92,6 +97,7 @@
 #define SUFX_Q        0x4000   // don't retranslate
 #define SUFX_T        0x10000   // don't affect the stress position in the stem
 
+#define FLAG_ALLOW_DICTTEXT  0x02  // allow dictionary to translate to text rather than phonemes
 #define FLAG_SUFX       0x04
 #define FLAG_SUFX_S     0x08
 #define FLAG_SUFX_E_ADDED 0x10
@@ -417,7 +423,7 @@ protected:
 	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 
 	int IsVowel(int letter);
-	int LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags);
+	int LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags);
 	int Lookup(char *word, char *ph_out);
 
 	

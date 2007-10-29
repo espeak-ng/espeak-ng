@@ -528,6 +528,23 @@ The dictionary list is searched from bottom to top.  The first match that satisf
 </pre>
 then if "to" is at the end of the clause, we get [tu:], if not then we get [t@].
 
+<p>
+<h4>4.4.4  Translating a Word with another Word</h4>
+Rather than specifying the pronunciation of a word by a phoneme string, you can specify another "sounds like" word.<p>Use the attribute <b>$text</b>  eg.<p>
+<pre>
+    cough    coff   $text
+</pre>
+Alternatively, use the command <b>$textmode</b> on a line by itself to turn this on for all subsequent entries in the file, until it's turned off by <b>$phonememode</b>. eg.<p>
+<pre>
+    $textmode
+    cough     coff
+    through   threw
+    $phonememode
+</pre>
+This feature cannot be used for the special entries in the <b>_list</b> files which start with an underscore, such as numbers.<p>
+Currently "textmode" entries are only recognized for complete words, and not for for stems from which a prefix or suffix has been removed (eg. the word "coughs" would not match the example above).
+<p>
+
 <p>&nbsp;<hr>
 <h3>4.5  Conditional Rules</h3>
 Rules in a <b>_rules</b> file and entries in a <b>_list</b> file can be made conditional.  They apply only to some voices.  This can be useful to specify different pronunciations for different variants of a language (dialects or accents).<p>
@@ -571,6 +588,17 @@ _0 to _9 &nbsp;
 <tr><TD>_dpt2<td>Word spoken (if any) at the end of all the digits after a decimal point.</tr>
 </tbody></table>
 </ul>
+
+<p>&nbsp;<hr>
+<h3>4.7  Character Substitution</h3>
+Chracter substitutions can be specified by using a <b> .replace </b> section at the start of the <b> _rules </b> file.  Each line specified either one or two alphabetic characters to be replaced by another one or two alphabetic characters.  This substitution is done to a word before it is translated using the spelling-to-phoneme rules.  Only the lower-case version of the characters needs to be specified.  eg.<p>
+ &nbsp; .replace<br>
+&nbsp; &nbsp; &#xf4; &nbsp; &#x151; &nbsp; // (Hungarian) allow the use of o-circumflex instead of o-double-accute<br>
+&nbsp; &nbsp; &#xfb; &nbsp; &#x171;<p>
+&nbsp; &nbsp; cx &nbsp; &#x109; &nbsp; // (Esperanto) allow "cx" as an alternative to c-circumflex<p>
+
+&nbsp; &nbsp; &#xfb01; &nbsp; fi &nbsp; // replace a single character ligature by two characters
+<p>
 
 
 </body>

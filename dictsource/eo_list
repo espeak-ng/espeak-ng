@@ -32,6 +32,9 @@ _dpt		komo_
 
 _.	punkto
 
+v	vo	// not Roman numbers
+x	ikso
+
 t.e		t'e,e
 
 
@@ -54,22 +57,18 @@ uea         $abbrev
 uk          $abbrev
 
 
-// includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
 
 l'              la
 la              %la
 ne              $u+     // negative
-cxu             $u      // interogative particle
-cxi             $u
-ĉu              $u      // cxi  interogative particle
-ĉi              $u      // cxi  interogative particle
+ĉu              $u      // interogative particle
+ĉi              $u      // interogative particle
 ia              $u      // any
 
 // prepositions
 de              $u+ $brk
 (de la)         dela	$u $brk
 
-antaux          $u+ $pause
 antaŭ           $u+ $pause
 apud            $u+ $pause
 ol              $u+ $brk
@@ -87,7 +86,6 @@ je		$u $brk
 
 kun             $u+ $pause
 laŭ		$u+ $brk
-laux		$u+ $brk
 per             $u+ $brk
 preter          $u+ $brk
 pri		$u+ $pause
@@ -109,12 +107,10 @@ eĉ              $brk
 mi              $u
 ci              $u
 li              $u
-sxi             $u
 ŝi              $u
-gxi             $u
 ĝi              $u
 ni              $u
-vi              $u
+vi              vi $u
 ili             $u
 oni             $u
 si              $u
@@ -122,9 +118,7 @@ si              $u
 mia             $u+
 cia             $u+
 lia             $u+
-sxia            $u+
 ŝia             $u+
-gxia            $u+
 ĝia             $u+
 nia             $u+
 via             $u+
@@ -134,9 +128,7 @@ sia             $u+
 miaj             $u+
 ciaj             $u+
 liaj             $u+
-sxiaj            $u+
 ŝiaj             $u+
-gxiaj            $u+
 ĝiaj             $u+
 niaj             $u+
 viaj             $u+
@@ -193,9 +185,7 @@ tiam            $brk
 
 // conjunctions
 ke		$u $pause      // that (conj)
-aux		$u $pause
-aŭ		$u $pause      // aux
-cxar		$u $pause
+aŭ		$u $pause
 ĉar		$u $pause
 kaj		$u $pause
 sed		$u $pause

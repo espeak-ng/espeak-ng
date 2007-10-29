@@ -219,7 +219,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd1 = 1;
 			tr->langopts.unstressed_wd2 = 2;
 
-			tr->langopts.numbers = 0x1409;
+			tr->langopts.numbers = 0x1c09 + NUM_ROMAN;
 		}
 		break;
 

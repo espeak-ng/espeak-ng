@@ -470,7 +470,7 @@ const char *Translator::LookupSpecial(char *string)
 	char phonemes2[55];
 	static char buf[60];
 
-	if(LookupDictList(string,phonemes,&flags,0))
+	if(LookupDictList(&string,phonemes,&flags,0))
 	{
 		SetWordStress(phonemes,flags,-1,0);
 		DecodePhonemes(phonemes,phonemes2);

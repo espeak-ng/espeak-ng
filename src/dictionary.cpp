@@ -2795,7 +2795,11 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 			DecodePhonemes(phonetic,ph_decoded);
 			if(flags != NULL)
 				flags1 = *flags;
-			fprintf(f_trans,"Found: %s [%s]  %s\n",word1,ph_decoded,print_dflags(flags1));
+
+			if((dictionary_flags & FLAG_DICTTEXT) == 0)
+			{
+				fprintf(f_trans,"Found: %s [%s]  %s\n",word1,ph_decoded,print_dflags(flags1));
+			}
 		}
 		return(1);
 
@@ -2805,8 +2809,8 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 
 
 
-int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags)
-//===========================================================================================
+int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags)
+//==============================================================================================
 /* Lookup a specified word in the word dictionary.
    Returns phonetic data in 'phonetic' and bits in 'flags'
 
@@ -2815,14 +2819,16 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 {
 	int  length;
 	int  found;
+	char *word1;
 	char *word2;
 	unsigned char c;
 	int  nbytes;
 	int  c2;
 	char word[N_WORD_BYTES];
+	static char word_replacement[N_WORD_BYTES];
 
 	length = 0;
-	word2 = word1;
+	word2 = word1 = *wordptr;
 
 	while((word2[nbytes = utf8_in(&c2,word2,0)]==' ') && (word2[nbytes+1]=='.'))
 	{
@@ -2857,25 +2863,52 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 
 	found = LookupDict2(word,word1,ph_out,flags,end_flags);
 
-	if(found) return(1);
-	ph_out[0] = 0;
-
-	// try modifications to find a recognised word
-
-	if((end_flags & FLAG_SUFX_E_ADDED) && (word[length-1] == 'e'))
+	if(found == 0)
 	{
-		// try removing an 'e' which has been added by RemoveEnding
-		word[length-1] = 0;
-		found = LookupDict2(word,word1,ph_out,flags,end_flags);
-		if(found) return(1);
+		ph_out[0] = 0;
+	
+		// try modifications to find a recognised word
+	
+		if((end_flags & FLAG_SUFX_E_ADDED) && (word[length-1] == 'e'))
+		{
+			// try removing an 'e' which has been added by RemoveEnding
+			word[length-1] = 0;
+			found = LookupDict2(word,word1,ph_out,flags,end_flags);
+		}
+		else
+		if((end_flags & SUFX_D) && (word[length-1] == word[length-2]))
+		{
+			// try removing a double letter
+			word[length-1] = 0;
+			found = LookupDict2(word,word1,ph_out,flags,end_flags);
+		}
 	}
 
-	if((end_flags & SUFX_D) && (word[length-1] == word[length-2]))
+	if(found)
 	{
-		// try removing a double letter
-		word[length-1] = 0;
-		found = LookupDict2(word,word1,ph_out,flags,end_flags);
-		if(found) return(1);
+		if(*flags & FLAG_DICTTEXT)
+		{
+			// the word translates to replacement text, not to phonemes
+
+			if(end_flags & FLAG_ALLOW_DICTTEXT)
+			{
+				// only use replacement text if this is the original word, not if a prefix or suffix has been removed
+				word_replacement[0] = 0;
+				word_replacement[1] = ' ';
+				strcpy(&word_replacement[2],ph_out);   // replacement word, preceded by zerochar and space
+				*wordptr = &word_replacement[2];
+
+				if(option_phonemes == 2)
+				{
+					fprintf(f_trans,"Replace: %s  %s\n",word,*wordptr);
+				}
+			}
+
+			ph_out[0] = 0;
+			return(0);
+		}
+
+		return(1);
 	}
 
 	ph_out[0] = 0;
@@ -2887,7 +2920,7 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 int Translator::Lookup(char *word, char *ph_out)
 {//=============================================
 	unsigned int flags;
-	return(LookupDictList(word,ph_out,&flags,0));
+	return(LookupDictList(&word,ph_out,&flags,0));
 }
 
 

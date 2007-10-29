@@ -3,12 +3,19 @@
 
 // includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
 
+.replace
+   cx    ĉ
+   gx    ĝ
+   hx    ĥ
+   jx    ĵ
+   sx    ŝ
+   ux    ŭ
+
+
 .group a
 	_)	a(_	a
 		a	a
 		aj	aI
-		a (jx   a
-		aux	aU
 		aŭ	aU
      D_-_)      a (_    %a    //'a' after a number
      D_-_)      an (_   %an   //'an' after a number
@@ -22,11 +29,9 @@
 .group c
 	_)	c(_	tso
 	_)	ch(_	tSo
-	_)	cx(_	tSo
 		c	ts
 		ch (K	tS    // foreign words
 	K)	ch	tS    // foreign words
-		cx	tS
 		
 		
 .group d
@@ -40,8 +45,6 @@
 	_)	e(_	e
 		e	e
 		ej	eI
-		e (jx	e
-		eux	eU
 		eŭ	eU
 		
 .group f
@@ -53,17 +56,13 @@
 		
 .group g
 	_)	g(_	go
-	_)	gx(_	dZo
 		g	g
 		gh (K	dZ
-		gx	dZ
 				
 .group h
 	_)	h(_	ho
-	_)	hx(_	xo
 		h	h
 		hh	x
-		hx	x
 		
 		
 .group i
@@ -73,10 +72,8 @@
 		
 .group j
 	_)	j(_	jo
-	_)	jx(_	Zo
 		j	j
 		jh (C	Z
-		jx	Z
 		
 .group k
 	_)	k(_	ko
@@ -106,7 +103,6 @@
 	_)	o(_	o
 		o	o
 		oj	OI
-		o (jx   o
 		
 .group p
 	_)	p(_	po
@@ -131,9 +127,7 @@
 .group s
 	_)	s(_	so
 	_)	sh(_	So
-	_)	sx(_	So
 		s	s
-		sx	S
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
 
@@ -149,11 +143,8 @@
 		
 .group u
 	_)	u(_	u
-	_)	ux(_	wo
 		u	u
 		uj	uI
-		u (jx   u
-		ux	w
 		
 		
 .group v
