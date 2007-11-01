@@ -19,7 +19,6 @@
 
 #include "StdAfx.h"
 
-
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
@@ -211,7 +210,7 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 	unsigned int flags;
 	char number_chars[N_WORD_BYTES];
 
-	static char *roman_numbers = "ixcmvld";
+	static const char *roman_numbers = "ixcmvld";
 	static int roman_values[] = {1,10,100,1000,5,50,500};
  
 	acc = 0;
@@ -504,8 +503,8 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 
 
 
-static char *M_Variant(int value)
-{//==============================
+static const char *M_Variant(int value)
+{//====================================
 	// returns M, or perhaps MA for some cases
 	
 	if(((value % 100)>20) || ((value % 100)<10))   // but not teens, 10 to 19

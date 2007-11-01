@@ -308,7 +308,7 @@ void Lexicon_De()
 	char phonemes2[80];
 	WORD_TAB winfo;
 
-	static char *vowels = "aeiouyAEIOUY29@";
+	static const char *vowels = "aeiouyAEIOUY29@";
 
 	wxString fname = wxFileSelector(_T("German Lexicon"),path_dir1,_T(""),_T(""),_T("*"),wxOPEN);
 
@@ -477,7 +477,7 @@ void Lexicon_Ru()
 	int input_length;
 
 	int sfx;
-	char *suffix;
+	const char *suffix;
 	int wlen;
 	int len;
 	int check_root;
@@ -495,7 +495,7 @@ void Lexicon_Ru()
 	static char vowels[] = {0xa3,0xc0,0xc1,0xc5,0xc9,0xcf,0xd1,0xd5,0xd9,0xdc,0};
 
 	typedef struct {
-		char *suffix;
+		const char *suffix;
 		int  syllables;
 	} SUFFIX;
 
@@ -1173,7 +1173,7 @@ int x;
 #define TEXT "Hello world."
 #define TEXT_SSML ("<speak>" TEXT "</speak>")
 static void
-speak(char *text)
+speak(const char *text)
 {
   int result;
   result = espeak_Synth(text, strlen(text) + 1, 0, POS_CHARACTER, 0, espeakSSML, NULL, NULL);
@@ -1216,7 +1216,7 @@ result = espeak_SetVoiceByProperties(&voice);
 }
 
 
-char* text1 = "Hello World2. <audio src=\"here\"> Some text</audio>  This is the second sentence";
+const char* text1 = "Hello World2. <audio src=\"here\"> Some text</audio>  This is the second sentence";
 
 void TestTest(int control)
 {//=======================

@@ -482,7 +482,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char translator_name[40];
 	char new_dictionary[40];
 	char phonemes_name[40];
-	char *language_type;
+	const char *language_type;
 	char buf[200];
 	char path_voices[sizeof(path_home)+12];
 	char langname[4];
@@ -1005,7 +1005,7 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
 {//======================================================================================================
 	int ix;
-	char *p;
+	const char *p;
 	int c1, c2;
 	int language_priority;
 	int n_parts;
@@ -1146,7 +1146,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	int nv;           // number of candidates
 	int n_parts=0;
 	int lang_len=0;
-	char *p;
+	const char *p;
 	espeak_VOICE *vp;
 
 	// count number of parts in the specified language
@@ -1194,7 +1194,7 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 	int match_fname = -1;
 	int match_fname2 = -1;
 	int match_name = -1;
-	char *id;
+	const char *id;
 	int last_part_len;
 	char last_part[41];
 
@@ -1236,8 +1236,8 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 
 
 
-char *SelectVoice(espeak_VOICE *voice_select)
-{//==========================================
+char const *SelectVoice(espeak_VOICE *voice_select)
+{//================================================
 // Returns a path within espeak-voices, with a possible +variant suffix
 // variant is an output-only parameter
 	int nv;           // number of candidates
@@ -1525,7 +1525,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 {//============================================================
-	char *voice_id;
+	const char *voice_id;
 
 	voice_id = SelectVoice(voice_selector);
 

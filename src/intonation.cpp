@@ -811,10 +811,14 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	PHONEME_LIST *p;
 	int  ix;
 	int  count_stressed=0;
-	int  count_stressed2=0;
 	int  final_stressed=0;
 
 	int  tone_ph;
+	PHONEME_TAB *tph;
+	PHONEME_TAB *prev_tph;   // forget across word boundary
+	PHONEME_TAB *prevw_tph;  // remember across word boundary
+	PHONEME_TAB *prev2_tph;  // 2 tones previous
+	PHONEME_LIST *prev_p;
 
 	int  pitch_adjust = 13;     // pitch gradient through the clause - inital value
 	int  pitch_decrement = 3;   //   decrease by this for each stressed syllable
@@ -845,6 +849,62 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	}
 
 
+	prev_p = p = &phoneme_list[0];
+	prev_tph = prevw_tph = phoneme_tab[phonPAUSE];
+
+	// perform tone sandhi
+	for(ix=0; ix<n_phoneme_list; ix++, p++)
+	{
+		if((p->newword) && ((option_tone1 & 1)==0))
+		{
+			prev_tph = phoneme_tab[phonPAUSE];  // forget across word boundaries
+		}
+
+		if(p->type == phVOWEL)
+		{
+			tone_ph = p->tone_ph;
+			if(tone_ph == 0)
+				p->tone_ph = tone_ph = LookupPh("11");  // default tone 5
+
+			tph = phoneme_tab[tone_ph];
+
+			// Mandarin
+			if(translator_name == L('z','h'))
+			{
+				if(prev_tph->mnemonic == 0x343132)  // [214]
+				{
+					if(tph->mnemonic == 0x343132)   // [214]
+						prev_p->tone_ph = LookupPh("35");
+					else
+						prev_p->tone_ph = LookupPh("21"); 
+				}
+				if((prev_tph->mnemonic == 0x3135)  && (tph->mnemonic == 0x3135))  //  [51] + [51]
+				{
+					prev_p->tone_ph = LookupPh("53");
+				}
+
+				if(tph->mnemonic == 0x3131)  // [11] Tone 5
+				{
+					// tone 5, change its level depending on the previous tone (across word boundaries)
+					if(prevw_tph->mnemonic == 0x3535)
+						p->tone_ph = LookupPh("22");
+					if(prevw_tph->mnemonic == 0x3533)
+						p->tone_ph = LookupPh("33");
+					if(prevw_tph->mnemonic == 0x343132)
+						p->tone_ph = LookupPh("44");
+
+					// tone 5 is unstressed (shorter)
+					p->tone = 1;   // diminished stress
+				}
+			}
+
+			prev_p = p;
+			prev2_tph = prevw_tph;
+			prevw_tph = prev_tph = tph;
+		}
+	}
+
+	// convert tone numbers to pitch
 	p = &phoneme_list[0];
 	for(ix=0; ix<n_phoneme_list; ix++, p++)
 	{
@@ -852,24 +912,18 @@ void Translator::CalcPitches_Tone(int clause_tone)
 		{
 			tone_ph = p->tone_ph;
 
-			if(p->tone >= 2)
+			if(p->tone >= 0)  // TEST, consider all syllables as stressed
 			{
-				// a stressed syllable
-				if(p->tone >= 4)
+				if(ix == final_stressed)
 				{
-
-					count_stressed2++;
-					if(count_stressed2 == count_stressed)
-					{
-						// the last stressed syllable
-						pitch_adjust = pitch_low;
-					}
-					else
-					{
-						pitch_adjust -= pitch_decrement;
-						if(pitch_adjust <= pitch_low)
-							pitch_adjust = pitch_high;
-					}
+					// the last stressed syllable
+					pitch_adjust = pitch_low;
+				}
+				else
+				{
+					pitch_adjust -= pitch_decrement;
+					if(pitch_adjust <= pitch_low)
+						pitch_adjust = pitch_high;
 				}
 
 				if(tone_ph ==0)

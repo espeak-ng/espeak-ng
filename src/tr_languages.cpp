@@ -535,7 +535,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static int stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
 			static int stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
-			static char *sk_voiced = "bdgjlmnrvwzaeiouy";
+			static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_sk,stress_amps_sk);
@@ -647,18 +647,18 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('z','h'):
-	case L_qa + 'a':   // Test qaa
 		{
-			static int stress_lengths_qaa[8] = {200,200, 248,248, 248,0, 248,250};
-			static int stress_amps_qaa[] = {16,16, 20,20, 24,24, 24,22 };
+			static int stress_lengths_qaa[8] = {220,150, 230,230, 230,0, 230,250};
+			static int stress_amps_qaa[] = {22,18, 22,22, 22,22, 22,22 };
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_qaa,stress_amps_qaa);
 
-			tr->langopts.stress_rule = 0;
+			tr->langopts.stress_rule = 3;   // stress on final syllable of a "word"
+			tr->langopts.stress_flags = 1;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.vowel_pause = 0;
 			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
-			tr->langopts.tone_numbers = 9;
+			tr->langopts.tone_numbers = 9;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
 			tr->langopts.ideographs = 1;
 			tr->langopts.word_gap = 0x5;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 		}

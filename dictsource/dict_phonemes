@@ -68,26 +68,22 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  E    e@   eI   I    i    I2   i:   
-i@   IR   O    O:   o:   O@   o@   OI   
-oU   O~   U    u:   U@   V    VR   
+aU@  E    e@   eI   I    I2   i:   i@   
+IR   O    O:   o:   O@   o@   OI   oU   
+O~   U    u:   U@   V    VR   
 
 :    ;    b    C    d    D    dZ   f    
-g    g-   h    j    k    l    L    m    
-n    N    p    Q    r    r-   s    S    
-t    T    t2   tS   v    w    x    z    
-Z    
+g    h    j    k    l    m    n    N    
+p    Q    r    r-   s    S    t    T    
+t2   tS   v    w    x    z    Z    
 
 
 Dictionary eo_dict
 
-@-   a    aI   aU   e    eI   eU   i    
-o    OI   u    uI   
+@-   a    aI   aU   e    i    o    u    
 
-*    b    d    dZ   f    g    h    j    
-k    l    m    n    p    r    R    s    
-S    t    T    tS   ts   v    w    x    
-z    Z    
+*    b    d    k    l    m    n    p    
+r    R    s    t    ts   v    z    Z    
 
 
 Dictionary es_dict
@@ -346,3 +342,21 @@ I    o    r-   u
 k    k^   l    l^   m    n    n^   p    
 r    R    s    S    t    tS   ts   v    
 x    z    Z    
+
+
+Dictionary zh_dict
+
+
+
+Dictionary zhh_dict
+
+&?   0    0?   @    @?   @r   @u   A    
+A?   E    E~   i    i&?  i.   i0   i;   
+i?   i@   i@?  i[   iA   iA?  iE   iE~  
+io   io?  iu   i~   o    u    u&?  u?   
+u@   u@?  uA   uA?  uE   uE~  ui   u~   
+y    y?   y@   y@?  ya   y~   
+
+c;   f    h    k    kh   l    m    n    
+N    p    ph   s    s.   t    tc;  tc;  
+th   ts   ts.  ts.  tsh  v    z.   

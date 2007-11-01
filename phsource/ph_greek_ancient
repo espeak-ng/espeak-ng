@@ -3,11 +3,42 @@
 //  Ancient Greek  - based on base2
 //====================================================
 
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 100
+endphoneme
+
+
 phoneme y
   vowel starttype (i) endtype (i)
   length 160
   formants vowel/yy_4
 endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/e
+endphoneme
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 150
+  formants vowel/ee_1
+endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 140
+  formants vowel/o
+endphoneme
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 150
+  formants vowel/0
+endphoneme
+
 
 phoneme EU
   vowel starttype (e) endtype (u)

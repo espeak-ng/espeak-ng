@@ -67,7 +67,7 @@ extern USHORT voice_pcnt[N_PEAKS+1][3];
 extern voice_t *voice;
 extern int tone_points[10];
 
-char *SelectVoice(espeak_VOICE *voice_select);
+const char *SelectVoice(espeak_VOICE *voice_select);
 voice_t *LoadVoice(const char *voice_name, int control);
 voice_t *LoadVoiceVariant(const char *voice_name, int variant);
 void DoVoiceChange(voice_t *v);

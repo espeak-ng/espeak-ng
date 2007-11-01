@@ -230,7 +230,7 @@ void Translator::InitGroups(void)
 
 		if(p[0] == RULE_REPLACEMENTS)
 		{
-			pw = (unsigned int *)(((int)p+4) & ~3);  // advance to next word boundary
+			pw = (unsigned int *)(((long)p+4) & ~3);  // advance to next word boundary
 			langopts.replace_chars = pw;
 			while(pw[0] != 0)
 			{
@@ -617,8 +617,8 @@ return(0);
 
 
 
-int Translator::IsLetterGroup(char *word, int group)
-{//=================================================
+int Translator::IsLetterGroup(char *word, int group, int pre)
+{//==========================================================
 	// match the word against a list of utf-8 strings
 	char *p;
 	char *w;
@@ -1484,7 +1484,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
 		
 		if(rb == RULE_ENDING)
 		{
-			static char *flag_chars = "ei vtfq t";
+			static const char *flag_chars = "ei vtfq t";
 			flags = ((rule[0] & 0x7f)<< 8) + (rule[1] & 0x7f);
 			suffix_char = 'S';
 			if(flags & (SUFX_P >> 8))
@@ -1802,9 +1802,9 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						failed = 1;
 					break;
 
-				case RULE_LETTERGP2:   // match against a list of utf-t strings
+				case RULE_LETTERGP2:   // match against a list of utf-8 strings
 					letter_group = *rule++ - 'A';
-					if((n_bytes = IsLetterGroup(post_ptr-1,letter_group)) >0)
+					if((n_bytes = IsLetterGroup(post_ptr-1,letter_group,0)) >0)
 					{
 						match.points += (20-distance_right);
 						post_ptr += (n_bytes-1);
@@ -1981,6 +1981,17 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					}
 					else
 						failed = 1;
+					break;
+
+				case RULE_LETTERGP2:   // match against a list of utf-8 strings
+					letter_group = *rule++ - 'A';
+					if((n_bytes = IsLetterGroup(pre_ptr-letter_xbytes,letter_group,1)) >0)
+					{
+						match.points += (20-distance_right);
+						pre_ptr -= (n_bytes-1);
+					}
+					else
+						failed =1;
 					break;
 
 				case RULE_NOTVOWEL:
@@ -2345,7 +2356,7 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 				}
 			}
 		}
-	
+
 		if(match1.phonemes == NULL)
 			match1.phonemes = "";
 	
@@ -2567,10 +2578,10 @@ char *print_dflags(int flags)
 
 
 
-int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned int *flags, int end_flags)
-//======================================================================================================
+const char *Translator::LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags)
+//====================================================================================================================
 /* Find an entry in the word_dict file for a specified word.
-   Returns 1 if an entry is found
+   Returns NULL if no match, else returns 'word_end'
 
 	word   zero terminated word to match
 	word2  pointer to next word(s) in the input text (terminated by space)
@@ -2590,8 +2601,8 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 	int  condition_failed=0;
 	int  n_chars;
 	int  no_phonemes;
-	char *word_end;
-	char *word1;
+	const char *word_end;
+	const char *word1;
 	char word_buf[N_WORD_BYTES];
 
 	word1 = word;
@@ -2801,7 +2812,7 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 				fprintf(f_trans,"Found: %s [%s]  %s\n",word1,ph_decoded,print_dflags(flags1));
 			}
 		}
-		return(1);
+		return(word_end);
 
 	}
 	return(0);
@@ -2818,12 +2829,13 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 */
 {
 	int  length;
-	int  found;
-	char *word1;
-	char *word2;
+	const char *found;
+	const char *word1;
+	const char *word2;
 	unsigned char c;
 	int  nbytes;
 	int  c2;
+	int  len;
 	char word[N_WORD_BYTES];
 	static char word_replacement[N_WORD_BYTES];
 
@@ -2896,10 +2908,14 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 				word_replacement[0] = 0;
 				word_replacement[1] = ' ';
 				strcpy(&word_replacement[2],ph_out);   // replacement word, preceded by zerochar and space
+
+				word1 = *wordptr;
 				*wordptr = &word_replacement[2];
 
 				if(option_phonemes == 2)
 				{
+					len = found - word1;
+					memcpy(word,word1,len);   // include multiple matching words
 					fprintf(f_trans,"Replace: %s  %s\n",word,*wordptr);
 				}
 			}
@@ -2917,10 +2933,11 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 
 
 
-int Translator::Lookup(char *word, char *ph_out)
-{//=============================================
+int Translator::Lookup(const char *word, char *ph_out)
+{//===================================================
 	unsigned int flags;
-	return(LookupDictList(&word,ph_out,&flags,0));
+	char *word1 = (char *)word;
+	return(LookupDictList(&word1,ph_out,&flags,0));
 }
 
 

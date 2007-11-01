@@ -9,7 +9,7 @@ extern int option_device_number;
 
 extern void wave_init();
 // TBD: the arg could be "alsa", "oss",...
-extern void* wave_open(char* the_api);
+extern void* wave_open(const char* the_api);
 
 extern size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize);
 extern int wave_close(void* theHandler);

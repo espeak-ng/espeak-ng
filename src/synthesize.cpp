@@ -1541,6 +1541,10 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	// entries in the wavegen command queue
 	p_text = translator->TranslateClause(f_text,p_text,&clause_tone,&voice_change);
 
+	translator->CalcPitches(clause_tone);
+	translator->CalcLengths();
+
+	translator->GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
 	if(option_phonemes > 0)
 	{
 		fprintf(f_trans,"%s\n",translator->phon_out);
@@ -1550,8 +1554,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		phoneme_callback(translator->phon_out);
 	}
 
-	translator->CalcPitches(clause_tone);
-	translator->CalcLengths();
 
 	if(skipping_text)
 	{

@@ -178,6 +178,7 @@
 //     match 1 pre 2 post 0     - use common phoneme string
 //     match 1 pre 2 post 3 0   - empty phoneme string
 
+typedef const char *  constcharptr;
 
 typedef struct {
 	int points;
@@ -351,6 +352,7 @@ public:
 	int LoadDictionary(const char *name, int no_error);
 	virtual void CalcLengths();
 	virtual void CalcPitches(int clause_tone);
+	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
@@ -385,7 +387,6 @@ private:
 	int TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause);
 	int TranslateLetter(char *letter, char *phonemes, int control);
 	void SetSpellingStress(char *phonemes, int control);
-	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	void WriteMnemonic(int *ix, int mnem);
 	void MakePhonemeList(int post_pause, int new_sentence);
 	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
@@ -393,8 +394,8 @@ private:
 	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
-	int LookupDict2(char *word, char *word2, char *phonetic, unsigned int *flags, int end_flags);
-	const char *LookupSpecial(char *string);
+	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags);
+	const char *LookupSpecial(const char *string);
 	const char *LookupCharName(int c);
 	int LookupNum2(int value, int control, char *ph_out);
 	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
@@ -410,7 +411,7 @@ private:
 	void ApplySpecialAttribute(char *phonemes, int dict_flags);
 
 	int IsLetter(int letter, int group);
-	int IsLetterGroup(char *word, int group);
+	int IsLetterGroup(char *word, int group, int pre);
 
 	void CalcPitches_Tone(int clause_tone);
 
@@ -424,7 +425,7 @@ protected:
 
 	int IsVowel(int letter);
 	int LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags);
-	int Lookup(char *word, char *ph_out);
+	int Lookup(const char *word, char *ph_out);
 
 	
 	// groups1 and groups2 are indexes into data_dictrules, set up by InitGroups()
@@ -521,7 +522,7 @@ void LoadConfig(void);
 int PhonemeCode(unsigned int mnem);
 void ChangeWordStress(Translator *tr, char *word, int new_stress);
 int TransposeAlphabet(char *text, int offset, int min, int max);
-int utf8_in(int *c, char *buf, int backwards);
+int utf8_in(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 int lookupwchar(const unsigned short *list,int c);
 int Eof(void);

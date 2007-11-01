@@ -163,9 +163,9 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	char *p;
 	char *word;
 	char *phonetic;
-	int  ix;
+	unsigned int  ix;
 	int  step;
-	int  n_flag_codes = 0;
+	unsigned int  n_flag_codes = 0;
 	int  flag_offset;
 	int  length;
 	int  multiple_words = 0;
@@ -181,10 +181,11 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
 	unsigned char bad_phoneme[4];
+static char nullstring[] = {0};
 
 	comment = NULL;
 	text_not_phonemes = 0;
-	phonetic = word = "";
+	phonetic = word = nullstring;
 
 	p = linebuf;
 //	while(isspace2(*p)) p++;
@@ -1219,7 +1220,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	int n_rules=0;
 	int count=0;
 	int different;
-	char *prev_rgroup_name;
+	const char *prev_rgroup_name;
 	unsigned int char_code;
 	int compile_mode=0;
 	char *buf;
@@ -1247,16 +1248,6 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			if(buf[0] == '\r') buf++;  // ignore extra \r in \r\n 
 		}
 
-		if((buf != NULL) && (memcmp(buf,".L",2)==0))
-		{
-			if(compile_lettergroup(&buf[2], f_out) != 0)
-			{
-				fprintf(f_log,"%5d: Bad lettergroup\n",linenum);
-				error_count++;
-			}
-			continue;
-		}
-
 		if((buf == NULL) || (buf[0] == '.'))
 		{
 			// next .group or end of file, write out the previous group
@@ -1277,9 +1268,20 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			{
 				// end of the character replacements section
 				fwrite(&n_rules,1,4,f_out);   // write a zero word to terminate the replacemenmt list
+				compile_mode = 0;
 			}
 
 			if(buf == NULL) break;   // end of file
+
+			if(memcmp(buf,".L",2)==0)
+			{
+				if(compile_lettergroup(&buf[2], f_out) != 0)
+				{
+					fprintf(f_log,"%5d: Bad lettergroup\n",linenum);
+					error_count++;
+				}
+				continue;
+			}
 
 			if(memcmp(buf,".replace",8)==0)
 			{

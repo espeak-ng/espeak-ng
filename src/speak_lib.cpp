@@ -365,7 +365,9 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 	int length;
 	int finished = 0;
 	int count_buffers = 0;
+#ifdef USE_ASYNC
 	uint32_t a_write_pos=0;
+#endif
 
 #ifdef DEBUG_ENABLED
 	if (text)

@@ -47,7 +47,7 @@ extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 
 
 // size of the vowelchart png
-#define WIDTH  1200
+#define WIDTH  1580
 #define HEIGHT 800
 
 
@@ -131,8 +131,8 @@ static double log2a(double x)
 
 static int VowelX(int f2)
 {//======================
-	return(WIDTH - int((log2a(f2) - 9.49)*WIDTH/1.8));
-//	return(1024 - int((log2a(f2) - 9.50)*1020/1.8));
+	return(WIDTH - int((log2a(f2) - 9.40)*WIDTH/1.9));
+//	return(WIDTH - int((log2a(f2) - 9.49)*WIDTH/1.8));
 }
 
 static int VowelY(int f1)
@@ -168,7 +168,7 @@ static void DrawVowel(wxDC *dc, wxString name, int f1, int f2, int f3, int g1, i
 	if(y < 0) y = 0;
 	if(y > (HEIGHT-4)) y= (HEIGHT-4);
 	if(x < 0) x = 0;
-	if(x > (WIDTH-8)) x = (WIDTH-8);
+	if(x > (WIDTH-12)) x = (WIDTH-12);
 
 	r = z;
 	g = 255;
@@ -351,7 +351,7 @@ void VowelChart(int control, char *fname)
 		if((ix % 100) == 0)
 			dc.DrawText(wxString::Format(_T("%d"),ix),1,y);
 	}
-	for(ix=800; ix<=2400; ix+=100)
+	for(ix=700; ix<=2400; ix+=100)
 	{
 		x = VowelX(ix);
 		dc.DrawLine(x,0,x,HEIGHT);

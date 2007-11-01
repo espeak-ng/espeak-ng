@@ -490,22 +490,22 @@ int delete_espeak_command( t_espeak_command* the_command)
 	  
 	case ET_VOICE_SPEC:
 	  {
-	    espeak_VOICE* data = &(the_command->u.my_voice_spec);
+		espeak_VOICE* data = &(the_command->u.my_voice_spec);
 
-	    if (data->name)
-	      {
-		free(data->name);
-	      }
+		if (data->name)
+		{
+			free((void *)data->name);
+		}
 
-	    if (data->languages)
-	      {
-		free(data->languages);
-	      }
+		if (data->languages)
+		{
+			free((void *)data->languages);
+		}
 
-	    if (data->identifier)
-	      {
-		free(data->identifier);
-	      }
+		if (data->identifier)
+		{
+			free((void *)data->identifier);
+		}
 	  }
 	  break;
 

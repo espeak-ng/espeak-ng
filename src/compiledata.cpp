@@ -80,13 +80,11 @@ extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *l
 
 static int markers_used[8];
 
-#define N_USED_BY  12
 typedef struct {
 	void *link;
 	int value;
-	short n_uses;
-	short n_used_by;
-	unsigned char used_by[N_USED_BY];
+	int ph_mnemonic;
+	short ph_table;
 	char string[1];
 } REF_HASH_TAB;
 
@@ -906,11 +904,16 @@ int Compile::LoadDataFile(const char *path, int control)
 
 	FILE *f;
 	int id;
-	int ix;
 	int hash;
+	int addr = 0;
 	int type_code=' ';
 	REF_HASH_TAB *p, *p2;
 	char buf[sizeof(path_source)+120];
+
+	if(strcmp(path,"NULL")==0)
+		return(0);
+	if(strcmp(path,"DFT")==0)
+		return(1);
 
 	count_references++;
 
@@ -920,102 +923,80 @@ int Compile::LoadDataFile(const char *path, int control)
 	{
 		if(strcmp(path,p->string)==0)
 		{
-			int found = 0;
-
 			duplicate_references++;
-			p->n_uses++;
-
-			// add the current phoneme table to a list of users of this data file, if not already listed
-			for(ix=0; (ix < p->n_used_by) && (ix < N_USED_BY); ix++)
-			{
-				if(p->used_by[ix] == n_phoneme_tabs)
-				{
-					found = 1;
-					break;
-				}
-			}
-			if(found == 0)
-			{
-				if(ix < N_USED_BY)
-				{
-					p->used_by[ix] = n_phoneme_tabs;
-				}
-				p->n_used_by++;
-			}
-
-			return(p->value);    // already loaded this data
+			addr = p->value;    // already loaded this data
+			break;
 		}
 		p = (REF_HASH_TAB *)p->link;
 	}
 
-	sprintf(buf,"%s%s",path_source,path);
-
-	if(strcmp(path,"NULL")==0)
-		return(0);
-	if(strcmp(path,"DFT")==0)
-		return(1);
-
-	if((f = fopen(buf,"rb")) == NULL)
+	if(addr == 0)
 	{
-		sprintf(buf,"%s%s.wav",path_source,path);
+		sprintf(buf,"%s%s",path_source,path);
+	
 		if((f = fopen(buf,"rb")) == NULL)
 		{
-			Error("Can't read file",path);
-			return(0);
+			sprintf(buf,"%s%s.wav",path_source,path);
+			if((f = fopen(buf,"rb")) == NULL)
+			{
+				Error("Can't read file",path);
+				return(0);
+			}
+		}
+
+		id = Read4Bytes(f);
+		rewind(f);
+	
+		if(id == 0x43455053)
+		{
+			addr = LoadSpect(path, control);
+			type_code = 'S';
+		}
+		else
+		if(id == 0x46464952)
+		{
+			addr = LoadWavefile(f,path);
+			type_code = 'W';
+		}
+		else
+		if(id == 0x43544950)
+		{
+			addr = LoadEnvelope(f,path);
+			type_code = 'E';
+		}
+		else
+		if(id == 0x45564E45)
+		{
+			addr = LoadEnvelope2(f,path);
+			type_code = 'E';
+		}
+		else
+		{
+			Error("File not SPEC or RIFF",path);
+			addr = -1;
+		}
+		fclose(f);
+	
+		if(addr > 0)
+		{
+			fprintf(f_phcontents,"%c  0x%.5x  %s\n",type_code,addr & 0x7fffff,path);
 		}
 	}
 
-	id = Read4Bytes(f);
-//	fread(&id,1,4,f);
-	rewind(f);
-
-	if(id == 0x43455053)
-	{
-		ix = LoadSpect(path, control);
-		type_code = 'S';
-	}
-	else
-	if(id == 0x46464952)
-	{
-		ix = LoadWavefile(f,path);
-		type_code = 'W';
-	}
-	else
-	if(id == 0x43544950)
-	{
-		ix = LoadEnvelope(f,path);
-		type_code = 'E';
-	}
-	else
-	if(id == 0x45564E45)
-	{
-		ix = LoadEnvelope2(f,path);
-		type_code = 'E';
-	}
-	else
-	{
-		Error("File not SPEC or RIFF",path);
-		ix = -1;
-	}
-	fclose(f);
-
-	if(ix > 0)
-	{
-		fprintf(f_phcontents,"%c  0x%.5x  %s\n",type_code,ix & 0x7fffff,path);
-	}
-
 	// add this item to the hash table
-	p = ref_hash_tab[hash];
-	p2 = (REF_HASH_TAB *)malloc(sizeof(REF_HASH_TAB)+strlen(path)+1);
-	p2->value = ix;
-	p2->n_uses = 1;
-	p2->n_used_by = 1;
-	strcpy(p2->string,path);
-	p2->used_by[0] = n_phoneme_tabs;
-	p2->link = (char *)p;
-	ref_hash_tab[hash] = p2;
+	if(addr > 0)
+	{
+		p = ref_hash_tab[hash];
+		p2 = (REF_HASH_TAB *)malloc(sizeof(REF_HASH_TAB)+strlen(path)+1);
+		p2->value = addr;
+		p2->ph_mnemonic = ph->mnemonic;   // phoneme which uses this file
+		p2->ph_table = n_phoneme_tabs-1;
+		strcpy(p2->string,path);
+		p2->link = (char *)p;
+		ref_hash_tab[hash] = p2;
+	}
 
-	return(ix);
+	return(addr);
 }   //  end of Compile::LoadDataFile
 
 
@@ -1892,12 +1873,21 @@ int Compile::LoadEnvelope2(FILE *f, const char *fname)
 
 static int ref_sorter(char **a, char **b)
 {//======================================
-	
-	REF_HASH_TAB *p1 = (REF_HASH_TAB *)(*a);
- 	REF_HASH_TAB *p2 = (REF_HASH_TAB *)(*b);
+	int ix;
 
-  return(strcoll(p1->string,p2->string));
-}   /* end of strcmp2 */
+	REF_HASH_TAB *p1 = (REF_HASH_TAB *)(*a);
+	REF_HASH_TAB *p2 = (REF_HASH_TAB *)(*b);
+
+	ix = strcoll(p1->string,p2->string);
+	if(ix != 0)
+		return ix;
+
+	ix = p1->ph_table - p2->ph_table;
+	if(ix != 0)
+		return ix;
+
+	return(p1->ph_mnemonic - p2->ph_mnemonic);
+}   /* end of ref_sorter */
 
 
 
@@ -1909,10 +1899,13 @@ void Compile::Report(void)
 	REF_HASH_TAB *p;
 	REF_HASH_TAB **list;
 	FILE *f_report;
+	const char *data_path;
+	int prev_table;
+	int prev_mnemonic;
 	char fname[sizeof(path_source)+20];
 
 	// make a list of all the references and sort it
-	list = (REF_HASH_TAB **)malloc(count_references * sizeof(REF_HASH_TAB *));
+	list = (REF_HASH_TAB **)malloc((count_references)* sizeof(REF_HASH_TAB *));
 	if(list == NULL)
 		return;
 
@@ -1932,6 +1925,7 @@ void Compile::Report(void)
 	}
 	fputc('\n',f_report);
 
+	fprintf(f_report,"Data file      Used by\n");
 	ix = 0;
 	for(hash=0; (hash < 256) && (ix < count_references); hash++)
 	{
@@ -1945,25 +1939,35 @@ void Compile::Report(void)
 	n = ix;
 	qsort((void *)list,n,sizeof(REF_HASH_TAB *),(int (*)(const void *,const void *))ref_sorter);
 	
+	data_path = "";
+	prev_mnemonic = 0;
+	prev_table = 0;
 	for(ix=0; ix<n; ix++)
 	{
-		int j, ph_tab_num;
+		int j = 0;
 
-		fprintf(f_report,"%3d  %s",list[ix]->n_uses, list[ix]->string);
-		for(j = strlen(list[ix]->string); j < 14; j++)
+		if(strcmp(list[ix]->string, data_path) != 0)
+		{
+			data_path = list[ix]->string;
+			j = strlen(data_path);
+			fprintf(f_report,"%s",data_path);
+		}
+		else
+		{
+			if((list[ix]->ph_table == prev_table) && (list[ix]->ph_mnemonic == prev_mnemonic))
+				continue;   // same phoneme, don't list twice
+		}
+
+		while(j < 14)
 		{
 			fputc(' ',f_report);  // pad filename with spaces
+			j++;
 		}
-		for(j=0; (j < list[ix]->n_used_by) && (j<N_USED_BY); j++)
-		{
-			ph_tab_num = list[ix]->used_by[j];
-			fprintf(f_report," %s",phoneme_tab_list2[ph_tab_num-1].name);
-		}
-		if(j < list[ix]->n_used_by)
-		{
-			fprintf(f_report," ++");
-		}
+
+		fprintf(f_report,"  [%s] %s",WordToString(prev_mnemonic = list[ix]->ph_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
 		fputc('\n',f_report);
+
+		free(list[ix]);
 	}
 	free(list);
 	fclose(f_report);

@@ -42,7 +42,7 @@
 #include "prosodydisplay.h"
 
 
-static char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2007\n\n"
+static const char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2007\n\n"
 "Licensed under GNU General Public License version 3\n"
 "http://espeak.sourceforge.net/";
 

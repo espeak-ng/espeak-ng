@@ -38,7 +38,7 @@
 #define N_XML_BUF   256
 
 
-char *xmlbase = "";    // base URL from <speak>
+const char *xmlbase = "";    // base URL from <speak>
 
 int namedata_ix=0;
 int n_namedata = 0;
@@ -454,23 +454,19 @@ static int GetC(void)
 static void UngetC(int c)
 {//======================
 	ungot_char = c;
-
-	if((f_input != NULL) && feof(f_input))
-	{
-//		ungetc(' ',f_input);
-	}
 }
 
 
 
-const char *Translator::LookupSpecial(char *string)
-{//================================================
+const char *Translator::LookupSpecial(const char *string)
+{//======================================================
 	unsigned int flags;
 	char phonemes[55];
 	char phonemes2[55];
 	static char buf[60];
+	char *string1 = (char *)string;
 
-	if(LookupDictList(&string,phonemes,&flags,0))
+	if(LookupDictList(&string1,phonemes,&flags,0))
 	{
 		SetWordStress(phonemes,flags,-1,0);
 		DecodePhonemes(phonemes,phonemes2);
@@ -706,13 +702,13 @@ MNEM_TAB ssmltags[] = {
 
 
 
-static char *VoiceFromStack()
-{//==========================
+static const char *VoiceFromStack()
+{//================================
 // Use the voice properties from the SSML stack to choose a voice, and switch
 // to that voice if it's not the current voice
 	int ix;
 	SSML_STACK *sp;
-	char *v_id;
+	const char *v_id;
 	espeak_VOICE voice_select;
 	char voice_name[40];
 	char language[40];
@@ -1083,7 +1079,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	wchar_t *name;
 	wchar_t *age;
 	wchar_t *variant;
-	char *new_voice_id;
+	const char *new_voice_id;
 
 	static const MNEM_TAB mnem_gender[] = {
 		{"male", 1},

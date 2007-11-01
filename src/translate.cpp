@@ -513,8 +513,8 @@ int utf8_out(unsigned int c, char *buf)
 }  // end of utf8_out
 
 
-int utf8_in(int *c, char *buf, int backwards)
-{//==========================================
+int utf8_in(int *c, const char *buf, int backwards)
+{//================================================
 	int c1;
 	int n_bytes;
 	int ix;
@@ -1116,7 +1116,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	int source_ix;
 	int len;
 	int sylimit;        // max. number of syllables in a word to be combined with a preceding preposition
-	char *new_language;
+	const char *new_language;
 	unsigned char bad_phoneme[4];
 
 	len = wtab->length;
@@ -1769,6 +1769,12 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 		prev_out2 = prev_out;
 		utf8_in(&prev_out,&sbuf[ix-1],1);   // prev_out = sbuf[ix-1];
 
+		if(langopts.tone_numbers && isdigit(prev_out) && IsAlpha(prev_out2))
+		{
+			// tone numbers can be part of a word, consider them as alphabetic
+			prev_out = 'a';
+		}
+
 		if(prev_in2 != 0)
 		{
 			prev_in = prev_in2;
@@ -2270,7 +2276,6 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 
 	prev_clause_pause = clause_pause;
 
-	GetTranslatedPhonemeString(phon_out,sizeof(phon_out));
 	*tone_out = tone;
 
 	new_sentence = 0;

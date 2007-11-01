@@ -447,9 +447,9 @@ void espeak_CompileDictionary(const char *path, FILE *log);
 
 // voice table
 typedef struct {
-	char *name;            // a given name for this voice. UTF8 string.
-	char *languages;       // list of pairs of (byte) priority + (string) language (and dialect qualifier)
-	char *identifier;      // the filename for this voice within espeak-data/voices
+	const char *name;      // a given name for this voice. UTF8 string.
+	const char *languages;       // list of pairs of (byte) priority + (string) language (and dialect qualifier)
+	const char *identifier;      // the filename for this voice within espeak-data/voices
 	unsigned char gender;  // 0=none 1=male, 2=female,
 	unsigned char age;     // 0=not specified, or age in years
 	unsigned char variant; // only used when passed as a parameter to espeak_SetVoiceByProperties

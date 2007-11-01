@@ -1,4 +1,4 @@
-40 phoneme tables
+42 phoneme tables
           new total
     base  96   96
    base2  24  115
@@ -32,608 +32,1753 @@
    pt_pt  20  131
       ro  36  139
       el   8  115
-     grc   7  120
+     grc  12  120
       sv  25  118
       no  28  122
       is  32  121
       vi  42  134
      zhy  40  129
+      zh  60  144
+     zhh  38  175
       sw  14  105
    en_wi  30  144
 
-  3  b/b            base hi ro
-  2  b/b_           base hi
-  2  b/b@           base hi
-  2  b/b@2          base hi
-  2  b/ba           base hi
-  2  b/be           base hi
-  3  b/bi           base hi ro
-  2  b/bo           base hi
-  2  b/bu           base hi
-  2  b/xb           base hi
- 15  d/d            base base2 fi hi hu pl hr ru ro el sw
- 15  d/d_           base base2 fi hi hu pl hr ru ro el sw
- 16  d/dr           base base2 fi hi hu pl hr ru ro el sw
-  1  d/tap          ro
-  2  d/tap1         base
-  2  d/tap2         base
-  2  d/tap3         base
-  1  d/tap_i        ro
- 13  d/xd           base base2 fi hi hu pl hr ru ro el sw
-  2  d/xd_pzd       pl ru
-  1  d/x_tap        base
-  6  dzh/dzh        base hi mk ru
-  6  dzh/dzh_       base hi mk ru
-  2  dzh/dz_pzd     base hi
-  2  dzh/dz_pzd_    base hi
-  6  dzh/xdzh       base hi mk ru
-  2  dzh/xdz_pzd    base hi
-  1  envelope/p_512 vi
-  4  envelope/p_fall vi zhy
-  1  envelope/p_fallrise vi
-  3  envelope/p_level vi zhy
-  3  envelope/p_rise vi zhy
-  1  envelope/vi_5  vi
-  1  envelope/vi_5amp vi
-  1  envelope/vi_6  vi
-  1  envelope/vi_6amp vi
-  1  g2/g           base
-  1  g2/g_          base
-  2  g2/xg          base hi
-  4  g/g            base cy hi es
-  4  g/g_           base cy hi es
-  3  g/xg           base cy es
-  1  j2/_j2         base
-  1  j2/j2@         base
-  1  j2/j2a         base
-  1  j2/j2e         base
-  1  j2/j2i         base
-  1  j2/j2o         base
-  1  j2/j2u         base
-  1  j2/xj2         base
-  1  j/_j           base
-  1  j/j_           base
-  1  j/j@           base
-  1  j/ja           base
-  1  j/je           base
-  1  j/ji           base
-  1  j/jo           base
-  1  j/_j_short     de
-  1  j/ju           base
-  6  j/xj           base
-  1  l^/j2@         base
-  1  l^/j2a         base
-  1  l^/j2e         base
-  1  l^/j2i         base
-  1  l^/j2o         base
-  1  l^/j2u         base
-  1  l^/_l^         base
-  1  l^/l^          base
- 10  l/l            base en af hu sk ru la pt ro en_wi
- 12  l/_l           base en af de hu sk ru la pt ro en_wi
-  1  l/l_           base
-  2  l/l@           base
-  1  l/L1_aL        base
-  1  l/L1_eL        base
-  1  l/L1_iL        base
-  1  l/L1_@L        base
-  1  l/L1_oL        base
-  1  l/L1_uL        base
-  1  l/L2_aL        base
-  1  l/L2_eL        base
-  1  l/L2_iL        base
-  2  l/L2_@L        base en_sc
-  2  l/L2_oL        base en_sc
-  5  l/L2_uL        base en en_n en_us en_rp
-  2  l/l_3          de fr
-  2  l/la           base
-  2  l/le           base
-  2  l/L_eL_af      af
-  2  l/li           base
-  4  l/l_long       base fr la ro
-  2  l/lo           base
-  2  l/lu           base
- 10  l/tl           base en af hu sk ru la pt ro en_wi
-  6  l/xl           base
-  3  m/_m           base ru ro
-  3  m/m_           base ru ro
-  1  m/m@           base
-  1  m/m#_          is
-  1  m/ma           base
-  1  m/me           base
-  1  m/mi           base
-  3  m/mj           base ru ro
-  1  m/mo           base
-  1  m/mu           base
-  1  n^/_n^         base
-  1  n^/n^_         base
-  1  n^/n^@         base
-  1  n^/n^#_        is
-  4  n/_n           base ro
-  2  n/n_           base ro
-  1  n/n@           base
-  1  n/n#_          is
-  1  n^/n^a         base
-  1  n/na           base
-  1  n^/n^e         base
-  1  n/ne           base
-  1  n^/n^i         base
-  1  n/ni           base
-  1  nn/inn         base
-  4  n/nj           base ro
-  2  nn/_nn         base en
-  2  nn/nn_         base en
-  1  nn/nn@         base
-  1  nn/nn#_        is
-  1  nn/nna         base
-  1  nn/nne         base
-  1  nn/nni         base
-  1  nn/nnj         base
-  1  nn/nno         base
-  1  nn/nnu         base
-  1  n^/n^o         base
-  1  n/no           base
-  2  n/_nr          base
-  1  n/nr_          base
-  1  n^/n^u         base
-  1  n/nu           base
-  1  r2/_r2         base
-  1  r2/r2@         base
-  1  r2/r2a         base
-  1  r2/r2e         base
-  1  r2/r2i         base
-  1  r2/r2o         base
-  1  r2/r2u         base
-  4  r3/r_          base af fr ru
-  1  r3/r_@         base
-  1  r3/r#_         is
-  1  r3/r_a         base
-  1  r3/r_e         base
-  1  r3/r_i         base
-  2  r3/r_n         base ru
-  1  r3/r_o         base
- 11  r3/r_trill     base af cy nl sk pt
-  2  r3/r_trill2    base hr
-  2  r3/r_trill2.wav base hr
-  8  r3/r_trill3.wav base af cy nl
-  3  r3/r_trill.wav base sk pt
-  1  r3/r_u         base
- 18  r3/rx          base af fr_ca ru pt_pt ro is
-  2  r3/rz_cs       sk
-  2  r3/@tap        base
-  2  r3/@tap_i      base
-  5  r/r            base en_sc de pt_pt
-  3  r/_r           base en_sc pt_pt
-  9  r/r_           base en_sc de fi nl ru pt_pt ro sw
-  1  r/r@           base
-  1  r/ra           base
-  1  r/re           base
-  1  r/ri           base
-  1  r/ro           base
- 14  r/rr           base af de fi nl ru ro sw
-  1  r/ru           base
-  9  r/tr           base en_sc pt_pt
- 30  r/trr          base af de fi nl ru ro sv sw
- 11  r/xr           base
-  2  ufric/ch       base de
-  4  ufric/f        base de ro grc
-  2  ufric/f_       base ro
-  5  ufric/h_       base fi hi la
-  6  ufric/h@       base fi hi la
-  5  ufric/ha       base fi hi la
-  5  ufric/he       base fi hi la
-  5  ufric/hi       base fi hi la
-  4  ufric/ho       base hi la
-  4  ufric/hu       base hi la
-  2  ufric/hu_fi    fi
-  2  ufric/ll       base is
-  3  ufric/s        base es pt
- 11  ufric/s_       base fi fr hu es pt ro
- 15  ufric/s!       base fi hu es pt
-  2  ufric/s_continue fi hu
-  2  ufric/sh       base pt_pt
-  2  ufric/sh_      base pt_pt
-  2  ufric/sh_pzd   base ro
-  3  ufric/sh_pzd_  base
-  2  ufric/sh_rfx   base
-  3  ufric/s_pzd    base ro
-  2  ufric/s_pzd_   base
-  1  ufric/sx_sv    sv
-  1  ufric/th       base
-  1  ufric/th_      base
-  1  ufric/tl#      is
-  2  ufric/x        base vi
-  4  ufric/x2       af nl pt
-  1  ufric/x_hr     hr
-  1  ustop/c        base
-  6  ustop/k        base en fr hi zhy sw
- 10  ustop/k_       base base2 en fi fr hi hu sk el sw
- 15  ustop/ki       base base2 en af fi fr hi hu sk mk is zhy ++
- 12  ustop/kl       base base2 en fi fr hi hu sk el zhy sw
- 14  ustop/kr       base base2 en fi fr hi hu sk el zhy sw
- 11  ustop/k_unasp  base base2 fi hi hu sk el zhy
-  4  ustop/p        base fr hi zhy
-  3  ustop/p_       base fr hi
-  1  ustop/percus10 base
- 10  ustop/pl       base base2 fi fr hi hu sk la ro
-  9  ustop/pr       base base2 fi hi hu la ro
-  9  ustop/p_unasp  base base2 fi fr hi hu sk la ro
-  7  ustop/p_unasp_ base2 fi hi hu sk la ro
-  7  ustop/t        base en fr hi zhy
-  8  ustop/t_       base en fr hi sk el
- 22  ustop/t_dnt    base base2 en fi hi hu pl hr ru ro vi sw
-  1  ustop/t_dnt2   vi
-  2  ustop/t_hi     hi
-  4  ustop/t_pzd    pl ru
-  7  ustop/tr       base en hi ru
-  8  ustop/ts       base2 de eo hu pl ru ro zhy
-  2  ustop/tsh      base zhy
-  2  ustop/tsh_     base zhy
-  3  ustop/t_short  hi sk el
-  8  ustop/ts_pzd   base hi ru
-  2  ustop/ts_pzd_  hi hu
-  2  ustop/ts_pzd2  hi hu
-  3  vdiph/0i       pt grc vi
-  3  vdiph/0i_2     en_sc no en_wi
-  3  vdiph2/e@      en_sc en_wi
-  1  vdiph2/ea      ro
-  1  vdiph2/ei_3    en_wm
-  1  vdiph2/eo      ro
-  1  vdiph2/e[u     ro
-  1  vdiph2/i@      en_n
-  1  vdiph2/i@_2    en_wm
-  2  vdiph2/ie      fi en_wi
-  1  vdiph2/ii@     en
-  1  vdiph2/ii@_3   vi
-  3  vdiph2/iu      base2 vi zhy
-  1  vdiph2/iu_2    fi
-  1  vdiph2/iu_3    af
-  2  vdiph2/iu_4    cy
-  1  vdiph2/iy      fi
-  1  vdiph2/o@      af
-  1  vdiph2/oa      ro
-  2  vdiph2/o_oo    is en_wi
-  1  vdiph2/u-@     vi
-  1  vdiph2/u#@     en_sc
-  1  vdiph2/uo      fi
-  4  vdiph2/uu@     en en_n en_wm vi
-  1  vdiph2/y#@     af
-  1  vdiph2/yu      nl
-  1  vdiph2/y-y#    fi
-  1  vdiph/8u       en_us
-  1  vdiph/aai      zhy
-  2  vdiph/aai_2    af cy
-  1  vdiph/aai_3    fi
-  1  vdiph/aau      fi
-  5  vdiph/aau_2    de nl la zhy en_wi
-  1  vdiph/aau_3    hi
-  1  vdiph/aau_4    vi
-  1  vdiph/ae       fr_ca
-  1  vdiph/ae_2     en_n
-  8  vdiph/ai       base2 eo sk hr it pt vi en_wi
-  2  vdiph/ai_2     cy
-  1  vdiph/ai_3     no
-  1  vdiph/ai_4     af
-  2  vdiph/ai_5     de la
-  1  vdiph/ai_6     en_rp
-  5  vdiph/ai_7     en_sc is
-  1  vdiph/ai_en2   en
-  3  vdiph/au       en af vi
-  1  vdiph/au#      en_sc
-  2  vdiph/au_2     en_us zhy
-  1  vdiph/au_3     en_rp
-  6  vdiph/au_4     base2 cy eo sk it is
-  1  vdiph/ee-e     hi
-  5  vdiph/eei      base2 en de nl vi
-  3  vdiph/eei_2    en_us eo fi
-  2  vdiph/eei_3    en_rp sk
-  4  vdiph/eeu      pt grc vi zhy
-  2  vdiph/eeu_2    la pt_pt
-  2  vdiph/eeu_3    en_n en_wm
-  1  vdiph/eey      fi
-  7  vdiph/ei       base2 nl la pt is vi zhy
-  8  vdiph/eu       base2 en cy eo nl sk pt vi
-  1  vdiph/eu_2     fi
-  2  vdiph/&i       fi hi
-  3  vdiph/@i_2     af cy
-  1  vdiph/i@_2     af
-  3  vdiph/@i_3     en_wm ro zhy
-  1  vdiph/&i_3     vi
-  1  vdiph/@i_4     vi
-  1  vdiph/ii       ro
-  1  vdiph/i#i      ro
-  6  vdiph/oi       base2 en_wm de it la vi
-  1  vdiph/oi_2     af
-  9  vdiph/ooi      en en_n en_us cy eo fi no zhy
-  1  vdiph/ooi_2    af
-  2  vdiph/ooi_3    en_rp en_wm
-  2  vdiph/oou      cs grc
-  2  vdiph/ou       fi zhy
-  2  vdiph/ou_2     sk ro
-  2  vdiph/ou_3     is
-  1  vdiph/@u       en_wm
-  1  vdiph/@u_2     en_rp
-  1  vdiph/@u_3     ro
-  3  vdiph/@u_en    en vi
-  6  vdiph/ui       base2 en eo fi vi zhy
-  1  vdiph/u-i      vi
-  1  vdiph/ui_2     af
-  2  vdiph/ui_3     cy
-  1  vdiph/Vi       vi
-  1  vdiph/Vu       af
-  1  vdiph/Vu_2     en_wm
-  1  vdiph/Vu_3     nl
-  2  vdiph/&y       fi nl
-  3  vdiph/yi       fi grc no
-  1  vdiph/y#i      fi
-  1  vdiph/y#i_2    is
-  1  vdiph/yi_fr    fr
-  1  vdiph/y#y      fi
-  2  vdiph/y#y_2    af zhy
-  1  vdiph/y#y_3    nl
-  1  vnasal/aa_n    en
-  2  vnasal/aa_n3   af fr
-  1  vnasal/a#_n    pt
-  2  vnasal/a#u_n   pt pt_pt
-  2  vnasal/ee_n    en fr_ca
-  3  vnasal/ee_n2   hi pl pt_pt
-  2  vnasal/e_n     af pt
-  1  vnasal/i_n     pt
-  1  vnasal/m-      sw
-  1  vnasal/n-      sw
-  1  vnasal/nn-     sw
-  1  vnasal/oi_n    pt
-  2  vnasal/o_n     hi pt
-  1  vnasal/o_n2    af
-  1  vnasal/o_n3    fr
-  1  vnasal/oo_n    en
-  2  vnasal/oo_n2   hi pl
-  2  vnasal/u_n     hi pt
-  3  vnasal/W_n     en fr
-  1  voc/bh         base
-  2  voc/dh         base es
-  2  voc/dh_        base es
-  2  voc/Q          base
-  4  voc/Q_         base nl pt
-  2  voc/Q_less     nl pt
-  6  voc/v          base fi hi nl ro is
-  9  voc/v_         base fi fr hi nl ro is
-  4  vocw/dh        base es
-  2  vocw/Q         base
-  3  vocw/Q_        base nl
-  1  vocw/Q2        nl
-  8  vocw/v         base fr ro
-  4  vocw/zh        base ro
-  2  vocw/zh_rfx    base
-  3  voc/z          base fr ro
-  3  voc/z_         base fr ro
-  4  voc/zh         base sk ro
-  3  voc/zh_        base ro
-  1  voc/zh_2       sk
-  2  voc/z_pzd      base
-  2  voc/z_pzd_     base
- 13  vowel/@        base en en_us en_rp cy hi hr
-  1  vowel/@-       base
-  4  vowel/&        en_rp fi hi sv
-  4  vowel/0        base2 en hi pt
-  3  vowel/0_2      en_n pt_pt sw
-  4  vowel/0_3      en_us en_sc en_rp hu
-  2  vowel/@_2      fr
-  2  vowel/&_2      en_us
-  6  vowel/@_3      en_sc de hi
-  1  vowel/3_2      en_n
-  1  vowel/3_3      en_rp
-  3  vowel/3_en     en en_wm af
-  1  vowel/@_4      nl
-  2  vowel/8_2      en_us sv
-  1  vowel/8_3      zhy
- 16  vowel/a        en_n en_wm cy de hu nl pl sk hr sr it la
-  5  vowel/a#       base2 en_sc pt en_wi
- 11  vowel/a_2      base2 eo la pt pt_pt ro vi en_wi
-  4  vowel/a#_2     hr sv is sw
-  7  vowel/a_3      en_sc fr cs is
- 12  vowel/a#_3     en en_n en_us en_wm de hi ru pt_pt vi zhy
-  2  vowel/a_4      el vi
-  3  vowel/a_5      it sv sw
-  5  vowel/aa       fi fr_ca no zhy
-  2  vowel/aa#      fi en_wi
-  3  vowel/aa_2     en cy
-  1  vowel/aa_3     af
-  2  vowel/aa_4     sv vi
-  3  vowel/aa_5     en_n en_wm
-  2  vowel/aa_6     de
-  1  vowel/aa_7     nl
-  2  vowel/aa_8     en_us
-  3  vowel/a_en     en fr
-  1  vowel/@_bck    hi
- 17  vowel/e        base2 en en_n en_wm af cy eo fr hr it la pt ++
-  2  vowel/e#       en_sc
-  7  vowel/e_2      en_sc de hi it sv no
-  1  vowel/e_3      hu
-  1  vowel/e_5      en_sc
-  3  vowel/ee       fr pl sv
-  2  vowel/e_e      en_sc is
-  8  vowel/ee_1     base2 en en_n pl la sv no zhy
-  4  vowel/ee_2     en en_us cy nl
-  1  vowel/ee#_2    sv
-  4  vowel/ee_3     af pt vi
-  3  vowel/ee_6     en_n sk sv
- 12  vowel/e_mid    en_rp fr_ca hi hu sk cs hr it es pt_pt no is
- 10  vowel/e_mid2   af de fi nl sk ro el sw
-  3  vowel/@_fnt    hr en_wi
-  1  vowel/@_hgh    no
- 18  vowel/i        base2 en_n en_wm cy eo fr hu pl it pt pt_pt ro ++
-  2  vowel/i#       en_rp cy
-  6  vowel/i_2      en_rp de nl la sv
-  3  vowel/i_3      af fr sk
-  4  vowel/i_4      fi hu it is
-  5  vowel/i_5      en_sc
-  3  vowel/i#_5     pt_pt ro
-  1  vowel/i_6      hr
-  3  vowel/i_en     en en_us vi
-  3  vowel/i_fnt    hi en_wi
- 12  vowel/ii       en_rp en_wm cy de fr_ca nl is zhy
-  3  vowel/ii#      cy pl ru
-  1  vowel/ii_2     la
-  6  vowel/ii_3     fi hi sk hr sv no
-  5  vowel/ii_4     en en_n
-  2  vowel/ii_5     en_wi
-  2  vowel/ii_6     en_wm
-  1  vowel/ii_en    en
- 10  vowel/@_low    en_rp hi ro no
- 10  vowel/o        base2 en de hi it la pt_pt sv en_wi
-  4  vowel/o_2      cy hi hu no
-  2  vowel/o-_2     en_n en_wm
-  3  vowel/o_3      en_sc fr
-  1  vowel/o-_3     en_rp
-  1  vowel/o_4      en_n
-  1  vowel/o-_4     ro
-  1  vowel/o_6      nl
-  3  vowel/oe       en af de
-  1  vowel/oe_2     no
-  1  vowel/oe_4     sv
-  2  vowel/o_mid    fr hu
- 12  vowel/oo       en_sc de eo la es el sv no zhy en_wi
- 12  vowel/oo_1     en_n en_rp en_wm af fi sk hr vi
-  3  vowel/oo_2     en_sc cy cs
-  1  vowel/oo_3     af
-  6  vowel/oo_4     en_wm hi pl it en_wi
-  1  vowel/oo_5     is
-  6  vowel/oo_en    en en_n en_rp
-  2  vowelr/aa_r    en_sc
-  1  vowelr/oo_r    en_sc
-  1  vowelr/o_r     en_sc
-  4  vowelr/r-voc   hi sk hr
-  2  vowelr/V3_r    en en_sc
-  1  vowelr/V_r     en
-  7  vowel/u        cy de eo fr cs la en_wi
-  5  vowel/u#       en en_sc
-  5  vowel/u_2      fi fr sk hr ro
-  1  vowel/u#_2     sv
-  2  vowel/u_3      en_us ro
-  1  vowel/u_4      en_n
-  2  vowel/u#_4     en_sc
-  1  vowel/u_5      sw
-  2  vowel/u_6      pt_pt
-  1  vowel/u_7      vi
- 17  vowel/u_bck    base2 cy fi fr_ca hi hu nl pl sk hr it pt ++
-  1  vowel/u_fnt    en_rp
-  2  vowel/uu       en en_wm
-  3  vowel/uu_2     base2 de la
-  1  vowel/uu_3     af
-  2  vowel/uu_4     fi sv
-  9  vowel/uu_bck   en_n fr_ca hi hu pt no zhy en_wi
-  1  vowel/V        en_sc
-  5  vowel/V_2      en en_us af ru
-  3  vowel/V_3      en_rp hi vi
-  1  vowel/V_4      en_sc
-  6  vowel/y        en de fi hu nl zhy
- 10  vowel/y#       en en_wm de fi fr hu nl ro vi zhy
-  1  vowel/y##      is
-  2  vowel/y_2      fr
-  2  vowel/y#_2     hu sv
-  1  vowel/y_3      af
-  1  vowel/y#_3     is
-  1  vowel/y_4      no
-  1  vowel/y_5      sv
-  1  vowel/yy       fr_ca
-  1  vowel/yy_2     no
-  1  vowel/yy_3     sv
-  6  vowel/yy_4     de hu la grc is
-  1  vwl_af/@       af
-  1  vwl_af/I       af
-  2  vwl_af/r@      af
-  5  vwl_en/aI@     en en_n en_us en_sc en_rp
-  2  vwl_en/aI@_2   en_sc
-  5  vwl_en/aU@     en en_n en_us en_sc en_wm
- 12  vwl_en/@L      en en_us en_sc en_rp en_wm af
-  3  vwl_en/@L_2    en_sc
-  1  vwl_en_n/aa_5  en_n
-  2  vwl_en_n/O@    en_n
-  1  vwl_en_n/u_    en_n
-  1  vwl_en/ooi@    en_wm
-  3  vwl_en_rp/aa   en_rp
-  1  vwl_en_rp/aU@  en_rp
-  1  vwl_en_rp/e@   en_rp
-  1  vwl_en_rp/i@   en_rp
-  1  vwl_en_rp/oo   en_rp
-  1  vwl_en/u       en
-  4  vwl_en/u_L     en en_n en_us en_rp
-  2  vwl_en_us/3_us en_us
-  1  vwl_en_us/aai  en_us
-  2  vwl_en_us/ar   en_us
-  1  vwl_en_us/er   en_us
-  1  vwl_en_us/i_final3 en_us
-  2  vwl_en_us/ii   en_us
-  2  vwl_en_us/ir   en_us en_sc
-  1  vwl_en_us/oo   en_us
-  1  vwl_en_us/oor  en_us
-  3  vwl_en_us/or   en_us en_sc
-  1  vwl_en_us/ur   en_us
-  3  vwl_fr/@R      fr pt_pt
-  1  vwl_fr/@R2     fr_ca
-  1  vwl_hi/A       hi
-  3  vwl_hi/l-voc   hi sk
-  2  vwl_no/&       no
-  1  vwl_no/au-     no
-  1  vwl_no/u#      no
-  1  vwl_no/u#2     no
-  1  vwl_no/y#      no
-  1  vwl_no/y#y     no
-  1  vwl_ro/ii-     ro
-  1  vwl_ro/li      ro
-  2  vwl_ro/mi      ru ro
-  1  vwl_ro/ni      ro
-  1  vwl_ru/8       ru
-  1  vwl_ru/a       ru
-  1  vwl_ru/aa      ru
-  1  vwl_ru/e       ru
-  2  vwl_ru/E@      ru
-  1  vwl_ru/E#      ru
-  1  vwl_ru/ee      ru
-  1  vwl_ru/i       ru
-  1  vwl_ru/i#      ru
-  3  vwl_ru/ii      ru
-  1  vwl_ru/ii-     ru
-  1  vwl_ru/ii#     ru
-  1  vwl_ru/ja      ru
-  1  vwl_ru/ju      ru
-  1  vwl_ru/o       ru
-  1  vwl_ru/oo      ru
-  1  vwl_ru/u       ru
-  1  vwl_ru/u#      ru
-  1  vwl_ru/u#u     ru
-  1  vwl_sv/r_sv3   sv
-  1  vwl_zh/aang    zhy
-  1  vwl_zh/ang     zhy
-  1  vwl_zh/eng     zhy
-  1  vwl_zh/ing     zhy
-  1  vwl_zh/ng      zhy
-  1  vwl_zh/oeng    zhy
-  1  vwl_zh/ong     zhy
-  1  vwl_zh/ung     zhy
-  2  w/w            base fr
-  2  w/_w           base fr
-  1  w/w_           base
-  1  w/w@           base
-  8  w/w2           base2 pl sk pt_pt
-  1  w/wa           base
-  1  w/we           base
-  3  w/wi           base vi zhy
- 11  w/wi2          en en_n en_us en_sc en_rp de nl la sv no
-  1  w/wo           base
-  1  w/wu           base
-  5  w/xw           base
- 20  x/b            base hi ro is
-  1  x/b_           base
- 10  x/d            base en_us hi hr el is
- 13  x/d_           base base2 fi hi pl hr ru ro el is sw
- 21  x/d_dnt        base base2 fi hi hu pl ru ro sw
-  6  x/d_pzd        pl ru
-  4  x/dzh          base hi
-  6  x/dzh_         base hi mk ru
-  5  x/dz_pzd       base hi mk ru
-  1  x/dz_pzd_      hi
-  4  x/g_           base cy es is
-  5  x/g2           base cy hi es is
-  3  x/g2_          base hi
+Data file      Used by
+b/b             [b] base
+                [b] hi
+                [b;] ro
+b/b_            [b] base
+                [b] hi
+b/b@            [b] base
+                [b] hi
+b/b@2           [b] base
+                [b] hi
+b/ba            [b] base
+                [b] hi
+b/be            [b] base
+                [b] hi
+b/bi            [b] base
+                [b] hi
+                [b;] ro
+b/bo            [b] base
+                [b] hi
+b/bu            [b] base
+                [b] hi
+b/xb            [b] base
+                [b] hi
+d/d             [d] base
+                [d[] base
+                [d] base2
+                [d] fi
+                [d] hi
+                [d.] hi
+                [d] hu
+                [d] pl
+                [d;] pl
+                [d] hr
+                [d] ru
+                [d;] ru
+                [d;] ro
+                [d] el
+                [d] sw
+d/d_            [d] base
+                [d[] base
+                [d] base2
+                [d] fi
+                [d] hi
+                [d.] hi
+                [d] hu
+                [d] pl
+                [d;] pl
+                [d] hr
+                [d] ru
+                [d;] ru
+                [d;] ro
+                [d] el
+                [d] sw
+d/dr            [*] base
+                [d] base
+                [d[] base
+                [d] base2
+                [d] fi
+                [d] hi
+                [d.] hi
+                [d] hu
+                [d] pl
+                [d;] pl
+                [d] hr
+                [d] ru
+                [d;] ru
+                [d;] ro
+                [d] el
+                [d] sw
+d/tap           [*;] ro
+d/tap1          [*] base
+d/tap2          [*2] base
+d/tap3          [*] base
+d/tap_i         [*;] ro
+d/xd            [d] base
+                [d[] base
+                [d] base2
+                [d] fi
+                [d] hi
+                [d.] hi
+                [d] hu
+                [d] pl
+                [d] hr
+                [d] ru
+                [d;] ro
+                [d] el
+                [d] sw
+d/xd_pzd        [d;] pl
+                [d;] ru
+d/x_tap         [*2] base
+dzh/dzh         [dZ] base
+                [dZ;] base
+                [dz;] base
+                [J] hi
+                [dZ;] mk
+                [dZ;] ru
+dzh/dzh_        [dZ] base
+                [dZ;] base
+                [dz;] base
+                [J] hi
+                [dZ;] mk
+                [dZ;] ru
+dzh/dz_pzd      [J] base
+                [J2] hi
+dzh/dz_pzd_     [J] base
+                [J2] hi
+dzh/xdzh        [dZ] base
+                [dZ;] base
+                [dz;] base
+                [J] hi
+                [dZ;] mk
+                [dZ;] ru
+dzh/xdz_pzd     [J] base
+                [J2] hi
+envelope/p_214  [214] zh
+envelope/p_512  [8] vi
+envelope/p_fall  [2] vi
+                [7] vi
+                [1] zhy
+                [4] zhy
+                [11] zh
+                [21] zh
+                [51] zh
+                [22] zh
+                [33] zh
+                [53] zh
+envelope/p_fallrise  [4] vi
+envelope/p_level  [1] vi
+                [3] zhy
+                [6] zhy
+                [44] zh
+                [55] zh
+envelope/p_rise  [3] vi
+                [2] zhy
+                [5] zhy
+                [35] zh
+envelope/vi_5   [5] vi
+envelope/vi_5amp  [5] vi
+envelope/vi_6   [6] vi
+envelope/vi_6amp  [6] vi
+g2/g            [g-] base
+g2/g_           [g-] base
+g2/xg           [g-] base
+                [g] hi
+g/g             [g] base
+                [g] cy
+                [g] hi
+                [g] es
+g/g_            [g] base
+                [g] cy
+                [g] hi
+                [g] es
+g/xg            [g] base
+                [g] cy
+                [g] es
+j2/_j2          [;] base
+j2/j2@          [(@)] base
+j2/j2a          [(a)] base
+j2/j2e          [(e)] base
+j2/j2i          [(i)] base
+j2/j2o          [(o)] base
+j2/j2u          [(u)] base
+j2/xj2          [(i)] base
+j/_j            [j] base
+                [j] zh
+j/j_            [j/] base
+j/j@            [(@)] base
+j/ja            [(a)] base
+j/je            [(e)] base
+j/ji            [(i)] base
+j/j_long        [i;] zhh
+j/jo            [(o)] base
+j/_j_short      [j] de
+j/ju            [(u)] base
+j/xj            [(@)] base
+                [(a)] base
+                [(e)] base
+                [(i)] base
+                [(o)] base
+                [(u)] base
+l^/j2@          [(@)] base
+l^/j2a          [(a)] base
+l^/j2e          [(e)] base
+l^/j2i          [(i)] base
+l^/j2o          [(o)] base
+l^/j2u          [(u)] base
+l^/_l^          [l^] base
+l^/l^           [l^] base
+l/l             [l] base
+                [l] en
+                [l] af
+                [l] hu
+                [l] sk
+                [l] ru
+                [l] la
+                [l] pt
+                [l;] ro
+                [l] en_wi
+l/_l            [l] base
+                [l/] base
+                [l] en
+                [l] af
+                [l/] de
+                [l] hu
+                [l] sk
+                [l] ru
+                [l] la
+                [l] pt
+                [l;] ro
+                [l] zh
+                [l] en_wi
+l/l_            [l/] base
+l/l@            [(@)] base
+l/L1_aL         [(a)] base
+l/L1_eL         [(e)] base
+l/L1_iL         [(i)] base
+l/L1_@L         [(@)] base
+l/L1_oL         [(o)] base
+l/L1_uL         [(u)] base
+l/L2_aL         [(a)] base
+l/L2_eL         [(e)] base
+l/L2_iL         [(i)] base
+l/L2_@L         [(@)] base
+                [I] en_sc
+l/L2_oL         [(o)] base
+                [oU] en_sc
+l/L2_uL         [(u)] base
+                [u:] en
+                [u:] en_n
+                [u:] en_us
+                [u:] en_rp
+l/l_3           [l/] de
+                [l] fr
+l/la            [(a)] base
+l/le            [(e)] base
+l/L_eL_af       [&] af
+                [&:] af
+l/li            [(i)] base
+                [l] zh
+l/l_long        [l] base
+                [l] fr
+                [l] la
+                [l;] ro
+l/lo            [(o)] base
+l/lu            [(u)] base
+l/tl            [l] base
+                [l] en
+                [l] af
+                [l] hu
+                [l] sk
+                [l] ru
+                [l] la
+                [l] pt
+                [l;] ro
+                [l] en_wi
+l/xl            [(@)] base
+                [(a)] base
+                [(e)] base
+                [(i)] base
+                [(o)] base
+                [(u)] base
+m/_m            [m] base
+                [m;] ru
+                [m;] ro
+                [m] zh
+m/m_            [m] base
+                [m;] ru
+                [m;] ro
+m/m@            [(@)] base
+m/m#_           [m#] is
+m/ma            [(a)] base
+m/me            [(e)] base
+m/mi            [(i)] base
+m/mj            [m] base
+                [m;] ru
+                [m;] ro
+m/mo            [(o)] base
+m/mu            [(u)] base
+n^/_n^          [n^] base
+n^/n^_          [n^] base
+n^/n^@          [(@)] base
+n^/n^#_         [n^#] is
+n/_n            [n] base
+                [n;] ro
+                [n] zh
+n/n_            [n] base
+                [n;] ro
+                [n] zh
+n/n@            [(@)] base
+n/n#_           [n#] is
+n^/n^a          [(a)] base
+n/na            [(a)] base
+n^/n^e          [(e)] base
+n/ne            [(e)] base
+n^/n^i          [(i)] base
+n/ni            [(i)] base
+                [n] zh
+nn/inn          [(i)] base
+                [N] zh
+n/nj            [n] base
+                [n.] base
+                [n^] base
+                [n;] ro
+nn/_nn          [N] base
+                [N] en
+                [N] zh
+nn/nn_          [N] base
+                [N] en
+                [N] zh
+nn/nn@          [(@)] base
+nn/nn#_         [N#] is
+nn/nna          [(a)] base
+nn/nne          [(e)] base
+nn/nni          [(i)] base
+nn/nnj          [N] base
+nn/nno          [(o)] base
+nn/nnu          [(u)] base
+n^/n^o          [(o)] base
+n/no            [(o)] base
+n/_nr           [n.] base
+n/nr_           [n.] base
+n^/n^u          [(u)] base
+n/nu            [(u)] base
+r2/_r2          [r-] base
+r2/r2@          [(@)] base
+r2/r2a          [(a)] base
+r2/r2e          [(e)] base
+r2/r2i          [(i)] base
+r2/r2o          [(o)] base
+r2/r2u          [(u)] base
+r3/r_           [r/] base
+                [r/] af
+                [r/] fr
+                [r/] ru
+r3/r_@          [(@)] base
+r3/r#_          [r#] is
+r3/r_a          [(a)] base
+r3/r_e          [(e)] base
+r3/r_i          [(i)] base
+r3/r_n          [r/] base
+                [r/] ru
+r3/r_o          [(o)] base
+r3/r_trill      [R2] base
+                [R3] base
+                [r] af
+                [r] cy
+                [r] nl
+                [R] sk
+                [x] pt
+r3/r_trill2     [R] base
+                [R] hr
+r3/r_trill2.wav  [R] base
+                [R] hr
+r3/r_trill3.wav  [R3] base
+                [r] af
+                [r] cy
+                [r] nl
+r3/r_trill.wav  [R2] base
+                [R] sk
+                [x] pt
+r3/r_u          [(u)] base
+r3/rx           [*] base
+                [**] base
+                [r/] base
+                [r/] af
+                [R] fr_ca
+                [r/] ru
+                [x] pt_pt
+                [*;] ro
+                [r#] is
+r3/rz_cs        [R^] sk
+                [R^/] sk
+r3/@tap         [**] base
+r3/@tap_i       [**] base
+r/r             [r] base
+                [r-] base
+                [r] en_sc
+                [r] de
+                [R] pt_pt
+r/_r            [r] base
+                [r] en_sc
+                [R] pt_pt
+r/r_            [r] base
+                [r] en_sc
+                [r] de
+                [r] fi
+                [r2] nl
+                [r] ru
+                [R] pt_pt
+                [r] ro
+                [r] sw
+r/r@            [(@)] base
+r/ra            [(a)] base
+r/re            [(e)] base
+r/ri            [(i)] base
+r/ro            [(o)] base
+r/rr            [r/] base
+                [r/] af
+                [r] de
+                [r] fi
+                [r2] nl
+                [r] ru
+                [r/] ru
+                [r] ro
+                [r] sw
+r/ru            [(u)] base
+r/tr            [r] base
+                [r] en_sc
+                [R] pt_pt
+r/trr           [r/] base
+                [r/] af
+                [r] de
+                [r] fi
+                [r2] nl
+                [r] ru
+                [r/] ru
+                [r] ro
+                [r] sv
+                [r] sw
+r/xr            [(@)] base
+                [(a)] base
+                [(e)] base
+                [(i)] base
+                [(o)] base
+                [(u)] base
+ufric/c;        [c;] zh
+ufric/ch        [C] base
+                [C2] de
+ufric/f         [f] base
+                [pF] de
+                [f;] ro
+                [f] grc
+                [f] zh
+ufric/f_        [f] base
+                [f;] ro
+ufric/h_        [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+ufric/h@        [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [th] hi
+                [<h>] la
+ufric/ha        [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+ufric/he        [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+ufric/hi        [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+ufric/ho        [h] base
+                [H] hi
+                [h] hi
+                [<h>] la
+ufric/hu        [h] base
+                [H] hi
+                [h] hi
+                [<h>] la
+ufric/hu_fi     [h] fi
+ufric/ll        [L] base
+                [l#] is
+ufric/s         [s] base
+                [s] es
+                [s#] pt
+ufric/s_        [s] base
+                [z] base
+                [s2] fi
+                [z2] fr
+                [s2] hu
+                [s] es
+                [s#] pt
+                [z;] ro
+ufric/s!        [s] base
+                [s2] fi
+                [s2] hu
+                [s] es
+                [s#] pt
+ufric/s_continue  [s2] fi
+                [s2] hu
+ufric/sh        [S] base
+                [s#] pt_pt
+ufric/sh_       [S] base
+                [s#] pt_pt
+ufric/sh_pzd    [S;] base
+                [S;] ro
+ufric/sh_pzd_   [S;] base
+                [Z;] base
+ufric/sh_rfx    [s.] base
+ufric/s_pzd     [s;] base
+                [z;] base
+                [s;] ro
+ufric/s_pzd_    [s;] base
+                [z;] base
+ufric/sx_sv     [sx] sv
+ufric/th        [T] base
+ufric/th_       [T] base
+ufric/tl#       [tl#] is
+ufric/x         [x] base
+                [kh] vi
+ufric/x2        [x2] af
+                [x2] nl
+                [x2] pt
+ufric/x_hr      [x] hr
+ustop/c         [c] base
+ustop/k         [k] base
+                [k] en
+                [k] fr
+                [kh] hi
+                [k] zhy
+                [k] sw
+ustop/k_        [k] base
+                [k] base2
+                [k] en
+                [k] fi
+                [k] fr
+                [kh] hi
+                [k] hu
+                [k] sk
+                [k] el
+                [kh] zh
+                [k] sw
+ustop/ki        [c] base
+                [k] base
+                [k] base2
+                [k] en
+                [c] af
+                [k] fi
+                [k] fr
+                [k] hi
+                [k] hu
+                [k] sk
+                [k^] mk
+                [c] is
+                [k] zhy
+                [k] sw
+ustop/kl        [k] base
+                [k] base2
+                [k] en
+                [k] fi
+                [k] fr
+                [k] hi
+                [kh] hi
+                [k] hu
+                [k] sk
+                [k] el
+                [k] zhy
+                [k] sw
+ustop/kr        [k] base
+                [k] base2
+                [k] en
+                [k] fi
+                [k] fr
+                [k] hi
+                [kh] hi
+                [k] hu
+                [k] sk
+                [k] el
+                [k] zhy
+                [k] sw
+ustop/k_unasp   [k] base
+                [q] base
+                [k] base2
+                [k] fi
+                [k] hi
+                [k] hu
+                [k] sk
+                [k] el
+                [k] zhy
+ustop/k_unasp_  [k] zh
+ustop/p         [p] base
+                [p] fr
+                [ph] hi
+                [p] zhy
+ustop/p_        [p] base
+                [p] fr
+                [ph] hi
+                [ph] zh
+ustop/percus10  [(X1] base
+ustop/pl        [p] base
+                [p] base2
+                [p] fi
+                [p] fr
+                [p] hi
+                [ph] hi
+                [p] hu
+                [p] sk
+                [p] la
+                [p;] ro
+ustop/pr        [p] base
+                [p] base2
+                [p] fi
+                [p] hi
+                [ph] hi
+                [p] hu
+                [p] la
+                [p;] ro
+ustop/p_unasp   [p] base
+                [p] base2
+                [p] fi
+                [p] fr
+                [p] hi
+                [p] hu
+                [p] sk
+                [p] la
+                [p;] ro
+                [p] zh
+ustop/p_unasp_  [p] base2
+                [p] fi
+                [p] hi
+                [p] hu
+                [p] sk
+                [p] la
+                [p;] ro
+ustop/t         [t] base
+                [t2] en
+                [t] fr
+                [t2] fr
+                [t.h] hi
+                [t] zhy
+ustop/t_        [t] base
+                [t2] en
+                [t] fr
+                [t2] fr
+                [t.] hi
+                [t.h] hi
+                [t] sk
+                [t] el
+                [th] zh
+ustop/tc;       [tc;] zh
+ustop/tc;_unasp  [tc;] zh
+ustop/t_dnt     [t] base
+                [t[] base
+                [t] base2
+                [t2] en
+                [t] fi
+                [t] hi
+                [t] hu
+                [t] pl
+                [t] hr
+                [t] ru
+                [t;] ro
+                [t[] vi
+                [t] sw
+ustop/t_dnt2    [t[] vi
+ustop/t_hi      [t] hi
+                [th] hi
+ustop/t_pzd     [t;] pl
+                [t;] ru
+ustop/tr        [t] base
+                [t[] base
+                [t2] en
+                [t.h] hi
+                [t] ru
+ustop/ts        [ts] base2
+                [ts] de
+                [ts] eo
+                [ts] hu
+                [ts] pl
+                [ts] ru
+                [ts;] ro
+                [z] zhy
+                [tsh] zh
+ustop/tsh       [tS] base
+                [c] zhy
+ustop/tsh_      [tS] base
+                [c] zhy
+ustop/t_short   [t.] hi
+                [t] sk
+                [t] el
+ustop/ts_pzd    [tS;] base
+                [ts;] base
+                [ch] hi
+                [tS;] ru
+ustop/ts_pzd_   [c] hi
+                [c] hu
+ustop/ts_pzd2   [c] hi
+                [c] hu
+ustop/ts_rfx    [ts.] zh
+ustop/ts_rfx_unasp  [ts.] zh
+ustop/ts_unasp  [ts] zh
+ustop/t_unasp   [t] zh
+vdiph/0i        [OI] pt
+                [OI] grc
+                [OI] vi
+vdiph/0i_2      [OI] en_sc
+                [AI] no
+                [OI] en_wi
+vdiph2/e@       [3:] en_sc
+                [e@] en_sc
+                [e@] en_wi
+vdiph2/ea       [ea] ro
+                [iA?] zhh
+vdiph2/ei_3     [i:] en_wm
+vdiph2/eo       [eo] ro
+vdiph2/e[u      [e[u] ro
+vdiph2/i@       [i@] en_n
+                [i@] zhh
+                [i@?] zhh
+vdiph2/i@_2     [i@] en_wm
+vdiph2/ie       [ie] fi
+                [i@] en_wi
+vdiph2/ii@      [i@] en
+vdiph2/ii@_3    [i@] vi
+vdiph2/iioo     [io] zh
+                [i0] zhh
+                [io] zhh
+                [io?] zhh
+vdiph2/iu       [iU] base2
+                [iU] vi
+                [iu] zhy
+vdiph2/iu_2     [iu] fi
+vdiph2/iu_3     [iu] af
+                [iu] zhh
+vdiph2/iu_4     [Iu] cy
+                [Yu] cy
+                [y?] zhh
+vdiph2/iy       [iy] fi
+vdiph2/o@       [o@] af
+                [u@] zh
+                [u@] zhh
+                [u@?] zhh
+vdiph2/oa       [Oa] ro
+vdiph2/o_oo     [o] is
+                [o@] en_wi
+vdiph2/u-@      [y@] vi
+vdiph2/u#@      [U@] en_sc
+vdiph2/uo       [uo] fi
+vdiph2/uu@      [U@] en
+                [U@] en_n
+                [U@] en_wm
+                [u@] vi
+vdiph2/y#@      [Y@] af
+                [y@] zh
+                [y@] zhh
+                [y@?] zhh
+vdiph2/yu       [yU] nl
+                [y] zh
+vdiph2/y-y#     [yY] fi
+vdiph/8u        [oU] en_us
+                [ou] zh
+vdiph/aai       [aai] zhy
+vdiph/aai_2     [AI] af
+                [AY] cy
+vdiph/aai_3     [ai] fi
+vdiph/aau       [au] fi
+vdiph/aau_2     [aU] de
+                [VU] nl
+                [aU] la
+                [aau] zhy
+                [aU] en_wi
+vdiph/aau_3     [aU] hi
+vdiph/aau_4     [aU] vi
+vdiph/ae        [E:] fr_ca
+                [ai] zh
+vdiph/ae_2      [aI] en_n
+vdiph/ai        [aI] base2
+                [aI] eo
+                [aI] sk
+                [aI] hr
+                [aI] it
+                [aI] pt
+                [a:I] vi
+                [aI] en_wi
+vdiph/ai_2      [aI] cy
+                [aY] cy
+vdiph/ai_3      [aI] no
+vdiph/ai_4      [aI] af
+vdiph/ai_5      [aI] de
+                [aI] la
+vdiph/ai_6      [aI] en_rp
+vdiph/ai_7      [aI] en_sc
+                [aI2] en_sc
+                [aI] is
+vdiph/ai_en2    [aI] en
+vdiph/au        [aU] en
+                [aU] af
+                [a:U] vi
+vdiph/au#       [aU] en_sc
+vdiph/au_2      [aU] en_us
+                [au] zhy
+vdiph/au_3      [aU] en_rp
+vdiph/au_4      [aU] base2
+                [aU] cy
+                [aU] eo
+                [aU] sk
+                [aU] it
+                [aU] is
+vdiph/ee-e      [E:] hi
+vdiph/eei       [EI] base2
+                [eI] en
+                [EI] de
+                [EI] nl
+                [EI] vi
+vdiph/eei_2     [eI] en_us
+                [eI] eo
+                [ei] fi
+vdiph/eei_3     [eI] en_rp
+                [eI] sk
+vdiph/eeu       [EU] pt
+                [EU] grc
+                [EU] vi
+                [eu] zhy
+vdiph/eeu_2     [EU] la
+                [EU] pt_pt
+vdiph/eeu_3     [aU] en_n
+                [aU] en_wm
+vdiph/eey       [ey] fi
+vdiph/ei        [eI] base2
+                [e:] nl
+                [eI] la
+                [eI] pt
+                [eI] is
+                [eI] vi
+                [ei] zhy
+                [ei] zh
+vdiph/eu        [eU] base2
+                [eU] en
+                [eU] cy
+                [eU] eo
+                [eU] nl
+                [eU] sk
+                [eU] pt
+                [eU] vi
+vdiph/eu_2      [eu] fi
+vdiph/&i        [&i] fi
+                [aI] hi
+vdiph/@i_2      [eI] af
+                [@I] cy
+                [@Y] cy
+vdiph/i@_2      [e@] af
+vdiph/@i_3      [eI] en_wm
+                [@I] ro
+                [ai] zhy
+vdiph/&i_3      [aI] vi
+vdiph/@i_4      [@I] vi
+vdiph/ii        [iI] ro
+vdiph/i#i       [yI] ro
+vdiph/oi        [oI] base2
+                [OI] en_wm
+                [OY] de
+                [oI] it
+                [OI] la
+                [oI] vi
+vdiph/oi_2      [oI] af
+vdiph/ooi       [OI] en
+                [OI] en_n
+                [OI] en_us
+                [OI] cy
+                [OY] cy
+                [OI] eo
+                [oi] fi
+                [OI] no
+                [oi] zhy
+vdiph/ooi_2     [OI] af
+vdiph/ooi_3     [OI] en_rp
+                [aI] en_wm
+vdiph/oou       [oU] cs
+                [OU] grc
+vdiph/ou        [ou] fi
+                [ou] zhy
+vdiph/ou_2      [oU] sk
+                [oU] ro
+vdiph/ou_3      [oU] is
+                [oU2] is
+vdiph/@u        [u:] en_wm
+                [@u] zhh
+vdiph/@u_2      [oU] en_rp
+vdiph/@u_3      [@U] ro
+vdiph/@u_en     [oU] en
+                [@U] vi
+                [@:U] vi
+vdiph/ui        [uI] base2
+                [uI] en
+                [uI] eo
+                [ui] fi
+                [uI] vi
+                [ui] zhy
+vdiph/u-i       [yI] vi
+vdiph/ui_2      [uI] af
+vdiph/ui_3      [uI] cy
+                [uY] cy
+vdiph/ui_4      [ui] zhh
+vdiph/Vi        [@:I] vi
+vdiph/Vu        [@U] af
+vdiph/Vu_2      [oU] en_wm
+vdiph/Vu_3      [o:] nl
+vdiph/&y        [&y] fi
+                [Wy] nl
+vdiph/yi        [yi] fi
+                [yI] grc
+                [u-I] no
+vdiph/y#i       [Yi] fi
+vdiph/y#i_2     [Yy] is
+vdiph/yi_fr     [w^i] fr
+vdiph/y#y       [Yy] fi
+vdiph/y#y_2     [Yy] af
+                [eoi] zhy
+vdiph/y#y_3     [Y:] nl
+vnasal/aa_n     [A~] en
+vnasal/aa_n3    [A~] af
+                [A~] fr
+vnasal/a#_n     [&~] pt
+vnasal/a#u_n    [&U~] pt
+                [&U~] pt_pt
+vnasal/ee_n     [E~] en
+                [E~] fr_ca
+vnasal/ee_n2    [E~] hi
+                [E~] pl
+                [&~] pt_pt
+vnasal/e_n      [e~] af
+                [e~] pt
+                [E~] zhh
+vnasal/i_n      [i~] pt
+                [i~] zhh
+vnasal/m-       [m-] sw
+vnasal/n-       [n-] sw
+vnasal/nn-      [N-] sw
+vnasal/oi_n     [oI~] pt
+vnasal/o_n      [o~] hi
+                [o~] pt
+vnasal/o_n2     [o~] af
+vnasal/o_n3     [O~] fr
+vnasal/oo_n     [O~] en
+vnasal/oo_n2    [O~] hi
+                [O~] pl
+vnasal/u_n      [u~] hi
+                [u~] pt
+                [u~] zhh
+vnasal/W_n      [W~] en
+                [E~] fr
+                [W~] fr
+voc/bh          [B] base
+voc/dh          [D] base
+                [D] es
+voc/dh_         [D] base
+                [D] es
+voc/Q           [Q] base
+                [Q^] base
+voc/Q_          [Q] base
+                [Q^] base
+                [Q] nl
+                [x2] pt
+voc/Q_less      [Q] nl
+                [x2] pt
+voc/v           [v] base
+                [v] fi
+                [v] hi
+                [v2] nl
+                [v;] ro
+                [v] is
+voc/v_          [B] base
+                [v] base
+                [v] fi
+                [v] fr
+                [v] hi
+                [v2] nl
+                [v;] ro
+                [v] is
+vocw/dh         [D] base
+                [D] es
+vocw/Q          [Q] base
+                [Q^] base
+vocw/Q_         [Q] base
+                [Q^] base
+                [Q] nl
+vocw/Q2         [Q] nl
+vocw/v          [B] base
+                [v] base
+                [v] fr
+                [v;] ro
+vocw/zh         [Z] base
+                [Z;] ro
+vocw/zh_rfx     [z.] base
+voc/z           [z] base
+                [z2] fr
+                [z;] ro
+voc/z_          [z] base
+                [z2] fr
+                [z;] ro
+voc/zh          [Z] base
+                [z.] base
+                [R^] sk
+                [Z;] ro
+voc/zh_         [Z] base
+                [z.] base
+                [Z;] ro
+voc/zh_2        [R^/] sk
+voc/z_pzd       [Z;] base
+                [z;] base
+voc/z_pzd_      [Z;] base
+                [z;] base
+vowel/@         [@] base
+                [3] en
+                [@] en
+                [@2] en
+                [@5] en
+                [@] en_us
+                [@2] en_us
+                [@5] en_us
+                [3] en_rp
+                [@] en_rp
+                [V] cy
+                [@4] hi
+                [@] hr
+                [@] zhh
+                [@?] zhh
+vowel/@-        [@-] base
+vowel/&         [a] en_rp
+                [&] fi
+                [&:] hi
+                [&] sv
+vowel/0         [O] base2
+                [0] en
+                [O] hi
+                [O] pt
+                [O] grc
+                [0] zhh
+                [0?] zhh
+vowel/0_2       [0] en_n
+                [O] pt_pt
+                [o] sw
+vowel/0_3       [O:] en_us
+                [O] en_sc
+                [0] en_rp
+                [A] hu
+vowel/@_2       [@] fr
+                [W] fr
+vowel/&_2       [a] en_us
+                [aa] en_us
+                [&?] zhh
+vowel/@_3       [@] en_sc
+                [I] en_sc
+                [@2] en_sc
+                [@5] en_sc
+                [@] de
+                [@3] hi
+vowel/3_2       [3:] en_n
+                [@] zh
+vowel/3_3       [3:] en_rp
+vowel/3_en      [3:] en
+                [e@] en_wm
+                [3:] af
+vowel/@_4       [@] nl
+vowel/8_2       [U] en_us
+                [8] sv
+vowel/8_3       [eo] zhy
+vowel/a         [a] en_n
+                [aa] en_n
+                [a] en_wm
+                [aa] en_wm
+                [a] cy
+                [a] de
+                [a:] hu
+                [a:] nl
+                [a] pl
+                [a] sk
+                [a:] sk
+                [A] hr
+                [a] hr
+                [a] sr
+                [a] it
+                [a:] la
+                [a] zh
+vowel/a#        [a/] base2
+                [a2] en_sc
+                [&] pt
+                [&/] pt
+                [a2] en_wi
+vowel/a_2       [a] base2
+                [a] eo
+                [a] la
+                [A] pt
+                [a] pt_pt
+                [a] ro
+                [a:] vi
+                [a] en_wi
+                [A:] en_wi
+                [A@] en_wi
+                [aa] en_wi
+vowel/a#_2      [&] hr
+                [a2] sv
+                [&] is
+                [a/] sw
+vowel/a_3       [a] en_sc
+                [a/] en_sc
+                [A:] en_sc
+                [aa] en_sc
+                [a] fr
+                [a:] cs
+                [a] is
+vowel/a#_3      [a2] en
+                [a2] en_n
+                [a2] en_us
+                [a2] en_wm
+                [3] de
+                [@] de
+                [a] hi
+                [a#] ru
+                [&] pt_pt
+                [&/] pt_pt
+                [@] vi
+                [a] zhy
+vowel/a_4       [a/] el
+                [a] vi
+vowel/a_5       [a/] it
+                [a] sv
+                [a] sw
+vowel/aa        [a] fi
+                [A] fr_ca
+                [A] no
+                [A:] no
+                [aa] zhy
+                [A] zh
+                [A?] zhh
+vowel/aa#       [a2] fi
+                [0] en_wi
+vowel/aa_2      [A:] en
+                [A@] en
+                [A:] cy
+                [A] zh
+vowel/aa_3      [A:] af
+vowel/aa_4      [A:] sv
+                [O] vi
+vowel/aa_5      [A:] en_n
+                [A:] en_wm
+                [A@] en_wm
+vowel/aa_6      [A] de
+                [A:] de
+vowel/aa_7      [A] nl
+vowel/aa_8      [0] en_us
+                [A:] en_us
+vowel/a_en      [a] en
+                [aa] en
+                [A] fr
+vowel/@_bck     [@] hi
+                [@] zh
+vowel/e         [e] base2
+                [e:] en
+                [eI] en_n
+                [E] en_wm
+                [e:] af
+                [e:] cy
+                [e] eo
+                [e] fr
+                [E:] fr
+                [e] hr
+                [e/] it
+                [e:] la
+                [e] pt
+                [e] pt_pt
+                [e] grc
+                [e] vi
+                [E] en_wi
+                [eI] en_wi
+vowel/e#        [I] en_sc
+                [I2] en_sc
+vowel/e_2       [eI] en_sc
+                [e:] de
+                [e] hi
+                [e:] hi
+                [e] it
+                [e:] sv
+                [e:] no
+vowel/e_3       [e:] hu
+vowel/e_5       [i] en_sc
+vowel/ee        [E] fr
+                [E] pl
+                [E] sv
+vowel/e_e       [E] en_sc
+                [e] is
+vowel/ee_1      [E] base2
+                [e@] en
+                [e@] en_n
+                [E] pl
+                [E] la
+                [E] grc
+                [E:] sv
+                [E:] no
+                [e] zhy
+vowel/ee_2      [E] en
+                [E] en_us
+                [E] cy
+                [E2] nl
+                [E] zh
+vowel/ee#_2     [E-] sv
+vowel/ee_3      [&] af
+                [&:] af
+                [E] pt
+                [E] vi
+vowel/ee_6      [E] en_n
+                [&] sk
+                [E3] sv
+vowel/e_mid     [E] en_rp
+                [E] fr_ca
+                [E] hi
+                [E] hu
+                [e:] sk
+                [e] cs
+                [E] hr
+                [E] it
+                [E] es
+                [E] pt_pt
+                [E] no
+                [E] is
+vowel/e_mid2    [E] af
+                [E] de
+                [E2] de
+                [E:] de
+                [e] fi
+                [E] nl
+                [e] sk
+                [e] ro
+                [e] el
+                [e] sw
+vowel/@_fnt     [@2] hr
+                [@] en_wi
+                [@2] en_wi
+vowel/@_hgh     [@] no
+vowel/i         [i] base2
+                [i:] en_n
+                [i] en_wm
+                [i:] cy
+                [i] eo
+                [I] fr
+                [i:] hu
+                [i] pl
+                [i] it
+                [y] pt
+                [i/] pt
+                [i] pt_pt
+                [i/] ro
+                [i] el
+                [i:] no
+                [i] zhy
+                [i] zh
+                [i?] zhh
+                [i] sw
+                [i] en_wi
+vowel/i#        [i] en_rp
+                [y:] cy
+vowel/i_2       [i:] en_rp
+                [i2] de
+                [i:] de
+                [i] nl
+                [i:] la
+                [i:] sv
+vowel/i_3       [i] af
+                [i] fr
+                [i:] sk
+vowel/i_4       [i] fi
+                [i] hu
+                [I] it
+                [i] is
+vowel/i_5       [i:] en_sc
+vowel/i#_5      [y] pt_pt
+                [i/] pt_pt
+                [y] ro
+vowel/i_6       [i] hr
+vowel/i_en      [i:] en
+                [i:] en_us
+                [i] vi
+vowel/i_fnt     [i] hi
+                [i:] hi
+                [i:] en_wi
+vowel/ii        [I] en_rp
+                [I2] en_rp
+                [I] en_wm
+                [I2] en_wm
+                [I] cy
+                [I] de
+                [I:] de
+                [I] fr_ca
+                [I] nl
+                [I] is
+                [i] zhy
+vowel/ii#       [Y] cy
+                [y] pl
+                [Y] ru
+vowel/ii_2      [I] la
+                [i] zh
+vowel/ii_3      [I] fi
+                [I] hi
+                [i] sk
+                [I] hr
+                [I] sv
+                [I] no
+vowel/ii_4      [I] en
+                [I2] en
+                [I] en_n
+                [i] en_n
+                [I2] en_n
+vowel/ii_5      [I] en_wi
+                [I2] en_wi
+vowel/ii_6      [I] en_wm
+                [I2] en_wm
+vowel/ii_en     [i] en
+vowel/@_low     [3] en_rp
+                [@] en_rp
+                [@2] en_rp
+                [a2] en_rp
+                [@5] en_rp
+                [@] hi
+                [V] hi
+                [@2] hi
+                [@] ro
+                [@2] no
+vowel/o         [o] base2
+                [o:] en
+                [o:] de
+                [o] hi
+                [o] it
+                [o/] it
+                [o:] la
+                [o] pt_pt
+                [o] grc
+                [o:] sv
+                [o] zh
+                [u] zh
+                [oU] en_wi
+vowel/o-        [o-] zh
+vowel/o_2       [o:] cy
+                [o:] hi
+                [o:] hu
+                [o:] no
+vowel/o-_2      [V] en_n
+                [V] en_wm
+vowel/o_3       [oU] en_sc
+                [o] fr
+                [o] zhh
+vowel/o-_3      [U] en_rp
+vowel/o_4       [oU] en_n
+vowel/o-_4      [o] ro
+vowel/o_5       [o] zhh
+vowel/o_6       [O] nl
+vowel/oe        [W] en
+                [W] af
+                [W] de
+vowel/oe_2      [W] no
+vowel/oe_4      [W] sv
+vowel/o_mid     [O] fr
+                [o] hu
+vowel/oo        [O:] en_sc
+                [O] de
+                [o] eo
+                [O] la
+                [o] es
+                [o] el
+                [O] sv
+                [O] no
+                [o] zhy
+                [O] en_wi
+                [O:] en_wi
+                [O@] en_wi
+vowel/oo_1      [O:] en_n
+                [O:] en_rp
+                [O@] en_rp
+                [O] en_wm
+                [O:] en_wm
+                [O@] en_wm
+                [O:] af
+                [o] fi
+                [o] sk
+                [o:] sk
+                [o] hr
+                [o] vi
+vowel/oo_2      [0] en_sc
+                [O] cy
+                [o] cs
+vowel/oo_3      [O] af
+vowel/oo_4      [0] en_wm
+                [O:] hi
+                [O] pl
+                [O] it
+                [V] en_wi
+                [3:] en_wi
+vowel/oo_5      [O] is
+vowel/oo_en     [O] en
+                [O:] en
+                [O@] en
+                [o@] en
+                [O] en_n
+                [O] en_rp
+vowelr/aa_r     [A:] en_sc
+                [A@] en_sc
+vowelr/oo_r     [O@] en_sc
+vowelr/o_r      [o@] en_sc
+vowelr/r-voc    [r-] hi
+                [r-] sk
+                [r:] sk
+                [r-] hr
+vowelr/V3_r     [VR] en
+                [3] en_sc
+                [@r] zh
+vowelr/V_r      [IR] en
+vowel/u         [u:] cy
+                [u:] de
+                [u] eo
+                [U] fr
+                [u:] cs
+                [u:] la
+                [u] zh
+                [u:] en_wi
+vowel/u#        [u-] en
+                [u:] en_sc
+vowel/u_2       [u1] fi
+                [u] fr
+                [u] sk
+                [U] hr
+                [u] ro
+vowel/u#_2      [u-] sv
+vowel/u_3       [u:] en_us
+                [yU] ro
+vowel/u_4       [u:] en_n
+vowel/u#_4      [U] en_sc
+                [u:] en_sc
+vowel/u_5       [u] sw
+vowel/u_6       [U] pt_pt
+                [u] pt_pt
+vowel/u_7       [u] vi
+vowel/u_bck     [u] base2
+                [U] cy
+                [u] fi
+                [u] fr_ca
+                [u:] hi
+                [u:] hu
+                [u] nl
+                [u] pl
+                [u:] sk
+                [u] hr
+                [U] it
+                [u] it
+                [u] pt
+                [u:] sv
+                [u:] no
+                [u] is
+                [u] zhy
+vowel/u_fnt     [u:] en_rp
+                [u] zhh
+                [u?] zhh
+vowel/uu        [U] en
+                [U] en_wm
+vowel/uu_2      [U] base2
+                [U] de
+                [U] la
+vowel/uu_3      [u] af
+vowel/uu_4      [U] fi
+                [U] sv
+vowel/uu_bck    [U] en_n
+                [U] fr_ca
+                [U] hi
+                [u] hu
+                [U] pt
+                [U] no
+                [u] zhy
+                [U] en_wi
+vowel/V         [3] en_sc
+vowel/V_2       [V] en
+                [V] en_us
+                [a] af
+                [V] ru
+                [V#] ru
+vowel/V_3       [V] en_rp
+                [V] hi
+                [@:] vi
+vowel/V_4       [V] en_sc
+vowel/y         [y:] en
+                [y:] de
+                [y] fi
+                [y:] hu
+                [y] nl
+                [yu] zhy
+                [y] zh
+                [iu] zhh
+vowel/y#        [Y:] en
+                [3:] en_wm
+                [Y:] de
+                [Y] fi
+                [Y] fr
+                [Y:] hu
+                [8] nl
+                [Y] ro
+                [y] vi
+                [oe] zhy
+vowel/y##       [y#] is
+vowel/y_2       [y] fr
+                [y"] fr
+vowel/y#_2      [Y] hu
+                [Y:] sv
+vowel/y_3       [y] af
+vowel/y#_3      [W] is
+vowel/y_4       [y:] no
+vowel/y_5       [y:] sv
+vowel/yy        [y"] fr_ca
+vowel/yy_2      [y] no
+vowel/yy_3      [y] sv
+vowel/yy_4      [y] de
+                [y] hu
+                [y] la
+                [y:] la
+                [y] grc
+                [y] is
+vwl_af/@        [@] af
+vwl_af/I        [I] af
+vwl_af/r@       [@] af
+                [I] af
+vwl_en/aI@      [aI@] en
+                [aI@] en_n
+                [aI@] en_us
+                [aI@] en_sc
+                [aI@] en_rp
+vwl_en/aI@_2    [aI] en_sc
+                [aI@] en_sc
+vwl_en/aU@      [aU@] en
+                [aU@] en_n
+                [aU@] en_us
+                [aU@] en_sc
+                [aU@] en_wm
+vwl_en/@L       [@L] en
+                [@L] en_us
+                [@L] en_sc
+                [@L] en_rp
+                [@L] en_wm
+                [@L] af
+vwl_en/@L_2     [aI] en_sc
+                [@L] en_sc
+vwl_en_n/aa_5   [A@] en_n
+vwl_en_n/O@     [O@] en_n
+                [o@] en_n
+vwl_en_n/u_     [u:] en_n
+vwl_en/ooi@     [aI@] en_wm
+vwl_en_rp/aa    [A:] en_rp
+                [A@] en_rp
+                [aa] en_rp
+vwl_en_rp/aU@   [aU@] en_rp
+vwl_en_rp/e@    [e@] en_rp
+vwl_en_rp/i@    [i@] en_rp
+vwl_en_rp/oo    [U@] en_rp
+vwl_en/u        [u:] en
+vwl_en/u_L      [u:] en
+                [u:] en_n
+                [u:] en_us
+                [u:] en_rp
+vwl_en_us/3_us  [3] en_us
+                [3:] en_us
+vwl_en_us/aai   [aI] en_us
+vwl_en_us/ar    [A:] en_us
+                [A@] en_us
+vwl_en_us/er    [e@] en_us
+vwl_en_us/i_final3  [i] en_us
+vwl_en_us/ii    [I] en_us
+                [I2] en_us
+vwl_en_us/ir    [i@] en_us
+                [i@] en_sc
+vwl_en_us/oo    [O] en_us
+vwl_en_us/oor   [O@] en_us
+vwl_en_us/or    [O:] en_us
+                [o@] en_us
+                [O:] en_sc
+vwl_en_us/ur    [U@] en_us
+vwl_fr/@R       [R] fr
+                [r] fr
+                [x] pt_pt
+vwl_fr/@R2      [R] fr_ca
+vwl_hi/A        [a:] hi
+vwl_hi/l-voc    [l-] hi
+                [l-] sk
+                [l:] sk
+vwl_no/&        [a] no
+                [a:] no
+vwl_no/au-      [aU] no
+vwl_no/u#       [u-] no
+vwl_no/u#2      [u-:] no
+vwl_no/y#       [Y:] no
+vwl_no/y#y      [Yy] no
+vwl_ro/ii-      [I^] ro
+vwl_ro/li       [I^] ro
+vwl_ro/mi       [I^] ru
+                [I^] ro
+vwl_ro/ni       [I^] ro
+vwl_ru/8        [8] ru
+vwl_ru/a        [A] ru
+vwl_ru/aa       [a] ru
+vwl_ru/e        [E] ru
+vwl_ru/E@       [E2] ru
+                [E3] ru
+vwl_ru/E#       [E#] ru
+vwl_ru/ee       [e] ru
+vwl_ru/i        [i] ru
+vwl_ru/i#       [y] ru
+vwl_ru/ii       [I] ru
+                [I2] ru
+                [I3] ru
+vwl_ru/ii-      [I^] ru
+vwl_ru/ii#      [I#] ru
+vwl_ru/ja       [ja] ru
+vwl_ru/ju       [ju] ru
+vwl_ru/o        [o] ru
+vwl_ru/oo       [O] ru
+vwl_ru/u        [u] ru
+vwl_ru/u#       [u#] ru
+vwl_ru/u#u      [u"] ru
+vwl_sv/r_sv3    [r] sv
+vwl_zh/aang     [aan] zhy
+vwl_zh/aau      [Au] zh
+vwl_zh/ang      [ang] zhy
+vwl_zh/eng      [eng] zhy
+vwl_zh/i&       [i&?] zhh
+vwl_zh/iaa      [iA] zh
+vwl_zh/iaau     [iAu] zh
+vwl_zh/i_dnt    [i[] zh
+vwl_zh/iee      [iE] zh
+vwl_zh/iee_n    [iE~] zhh
+vwl_zh/ing      [ing] zhy
+vwl_zh/iou      [iou] zh
+vwl_zh/i_rfx    [i.] zh
+vwl_zh/ng       [ng] zhy
+vwl_zh/oeng     [oen] zhy
+vwl_zh/ong      [ong] zhy
+vwl_zh/ua       [u&?] zhh
+                [uA?] zhh
+vwl_zh/uaa      [uA] zh
+vwl_zh/uai      [uai] zh
+vwl_zh/uee_n    [uE~] zhh
+vwl_zh/uei      [uei] zh
+vwl_zh/ung      [ung] zhy
+vwl_zh/uo       [uo] zh
+vwl_zh/y&       [y&] zh
+vwl_zh/ya       [ya] zhh
+                [ya?] zhh
+vwl_zh/yee      [yE] zh
+vwl_zh/y_n      [y~] zhh
+w/w             [w] base
+                [w] fr
+w/_w            [w] base
+                [w] fr
+                [w] zh
+w/w_            [w/] base
+w/w@            [(@)] base
+w/w2            [w2] base2
+                [w] pl
+                [w] sk
+                [w] pt_pt
+w/wa            [(a)] base
+w/we            [(e)] base
+                [uE] zhh
+w/wi            [(i)] base
+                [i] vi
+                [i] zhy
+w/wi2           [i:] en
+                [i:] en_n
+                [i:] en_us
+                [i:] en_sc
+                [i:] en_rp
+                [i2] de
+                [i:] de
+                [i] nl
+                [i:] la
+                [i:] sv
+                [i:] no
+w/wo            [(o)] base
+w/wu            [(u)] base
+w/xw            [(@)] base
+                [(a)] base
+                [(e)] base
+                [(o)] base
+                [(u)] base
+x/b             [b] base
+                [b] hi
+                [b;] ro
+                [b] is
+x/b_            [b] base
+x/d             [d] base
+                [t#] en_us
+                [d.] hi
+                [d] hr
+                [d] el
+                [d] is
+x/d_            [d] base
+                [d[] base
+                [d] base2
+                [d] fi
+                [d] hi
+                [d.] hi
+                [d] pl
+                [d] hr
+                [d] ru
+                [d;] ro
+                [d] el
+                [d] is
+                [d] sw
+x/d_dnt         [*2] base
+                [d[] base
+                [d] base2
+                [d] fi
+                [d] hi
+                [d] hu
+                [d] pl
+                [d] ru
+                [d;] ro
+                [d] sw
+x/d_pzd         [d;] pl
+                [d;] ru
+x/dzh           [J] base
+                [dZ] base
+                [J2] hi
+x/dzh_          [dZ] base
+                [dZ;] base
+                [dz;] base
+                [J] hi
+                [dZ;] mk
+                [dZ;] ru
+x/dz_pzd        [dZ;] base
+                [dz;] base
+                [J] hi
+                [dZ;] mk
+                [dZ;] ru
+x/dz_pzd_       [J2] hi
+x/g_            [g] base
+                [g] cy
+                [g] es
+                [g] is
+x/g2            [g] base
+                [g] cy
+                [g] hi
+                [g] es
+                [g] is
+x/g2_           [g-] base
+                [g] hi
