@@ -105,12 +105,12 @@ void strncpy0(char *dest, const char *source, int size)
 void DisplayVoices(FILE *f_out, char *language)
 {//============================================
 	int ix;
-	char *p;
+	const char *p;
 	int len;
 	int count;
 	int scores = 0;
 	const espeak_VOICE *v;
-	char *lang_name;
+	const char *lang_name;
 	char age_buf[12];
 	const espeak_VOICE **voices;
 	espeak_VOICE voice_select;

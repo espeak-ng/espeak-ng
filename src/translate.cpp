@@ -1664,6 +1664,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int next_word_flags;
 	int embedded_count = 0;
 	int letter_count = 0;
+	int space_inserted = 0;
 	char *word;
 	char *p;
 	int j, k;
@@ -1786,9 +1787,6 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			utf8_in(&prev_in,&source[source_index-1],1);  //  prev_in = source[source_index-1];
 		}
 
-		if(prev_source_index == source_index)
-			char_inserted = 0;   // have done an unget, so discard any character to be inserted
-
 		prev_source_index = source_index;
 
 		if(char_inserted)
@@ -1846,7 +1844,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 				{
 					// break after the specified number of digits
 					c = ' ';
-					source_index = prev_source_index;  // unget
+					space_inserted = 1;
 					count_sayas_digits = 0;
 				}
 			}
@@ -1856,13 +1854,16 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 				if(iswdigit(prev_out))
 				{
 					c = ' ';
-					source_index = prev_source_index;  // unget
+					space_inserted = 1;
 				}
 			}
 		}
 		else
 		if((option_sayas2 & 0xf0) != 0x10)
 		{
+			// speak as words
+
+#ifdef deleted
 if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out))
 {
 	// TESTING, explicit indication of stressed syllable by /2 after the word
@@ -1870,6 +1871,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 	source_index++;
 	c = ' ';
 }
+#endif
 			if((c == 0x92) || (c == 0xb4) || (c == 0x2019))
 				c = '\'';    // 'microsoft' quote or sexed closing single quote - possibly used as apostrophe 
 
@@ -1897,7 +1899,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 					else
 					{
 						c = ' ';   // ensure we have an end-of-word terminator
-						source_index = prev_source_index;
+						space_inserted = 1;
 					}
 				}
 			}
@@ -1906,7 +1908,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 				if(!iswdigit(c) && (c != '.') && (c != ','))
 				{
 					c = ' ';   // terminate digit string with a space
-					source_index = prev_source_index;
+					space_inserted = 1;
 				}
 			}
 
@@ -1934,7 +1936,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 					{
 						// start of word, insert space if not one there already
 						c = ' ';
-						source_index = prev_source_index;  // unget
+						space_inserted = 1;
 					}
 					else
 					{
@@ -1960,8 +1962,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 					if(iswlower(prev_in))
 					{
 						c = ' ';      // lower case followed by upper case, treat as new word
+						space_inserted = 1;
 						prev_in2 = c;
-						source_index = prev_source_index;  // unget
 					}
 //#ifdef deleted
 // changed to break after the last uppercase letter, not before.  See below
@@ -1970,8 +1972,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 							(memcmp(&source[source_index],"s ",2) != 0))          // ENGLISH specific plural
 					{
 						c = ' ';      // change from upper to lower case, start new word at the last uppercase
+						space_inserted = 1;
 						prev_in2 = c;
-						source_index = prev_source_index;  // unget
 						next_word_flags |= FLAG_NOSPACE;
 					}
 //#endif
@@ -1984,8 +1986,8 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 					{
 // change to break after the last uppercase letter, not before.
 						c = ' ';      // more than one upper case followed by lower case, treat as new word
+						space_inserted = 1;
 						prev_in2 = c;
-						source_index = prev_source_index;  // unget
 					}
 #endif
 					if((all_upper_case) && (letter_count > 2))
@@ -2096,7 +2098,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 				if((prev_out != ' ') && !iswdigit(prev_out) && (prev_out != langopts.decimal_sep))   // TEST2
 				{
 					c = ' ';
-					source_index = prev_source_index;
+					space_inserted = 1;
 				}
 				else
 				if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
@@ -2110,6 +2112,13 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 
 		if(iswspace(c))
 		{
+			if(space_inserted)
+			{
+				source_index = prev_source_index;    // rewind to the previous character
+				char_inserted = 0;
+				space_inserted = 0;
+			}
+
 			if(prev_out == ' ')
 			{
 				continue;   // multiple spaces

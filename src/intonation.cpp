@@ -820,9 +820,9 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	PHONEME_TAB *prev2_tph;  // 2 tones previous
 	PHONEME_LIST *prev_p;
 
-	int  pitch_adjust = 13;     // pitch gradient through the clause - inital value
-	int  pitch_decrement = 3;   //   decrease by this for each stressed syllable
-	int  pitch_low =  0;         //   until it drops to this
+	int  pitch_adjust = 10;     // pitch gradient through the clause - inital value
+	int  pitch_decrement = 0;   //   decrease by this for each stressed syllable
+	int  pitch_low = 10;         //   until it drops to this
 	int  pitch_high = 10;       //   then reset to this
 
 	p = &phoneme_list[0];
@@ -912,7 +912,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 		{
 			tone_ph = p->tone_ph;
 
-			if(p->tone >= 0)  // TEST, consider all syllables as stressed
+			if(p->tone != 1)  // TEST, consider all syllables as stressed
 			{
 				if(ix == final_stressed)
 				{
@@ -925,21 +925,15 @@ void Translator::CalcPitches_Tone(int clause_tone)
 					if(pitch_adjust <= pitch_low)
 						pitch_adjust = pitch_high;
 				}
+			}
 
-				if(tone_ph ==0)
-				{
-					tone_ph = phonDEFAULTTONE;  // no tone specified, use default tone 1
-					p->tone_ph = tone_ph;
-				}
-				p->pitch1 = pitch_adjust + phoneme_tab[tone_ph]->start_type;
-				p->pitch2 = pitch_adjust + phoneme_tab[tone_ph]->end_type;
-			}
-			else
+			if(tone_ph ==0)
 			{
-				// what to do for unstressed syllables ?
-				p->pitch1 = 10;   // temporary
-				p->pitch2 = 14;
+				tone_ph = phonDEFAULTTONE;  // no tone specified, use default tone 1
+				p->tone_ph = tone_ph;
 			}
+			p->pitch1 = pitch_adjust + phoneme_tab[tone_ph]->start_type;
+			p->pitch2 = pitch_adjust + phoneme_tab[tone_ph]->end_type;
 		}
 	}
 

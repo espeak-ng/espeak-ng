@@ -1830,6 +1830,13 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						post_ptr += letter_xbytes;
 					}
 					else
+					if(langopts.tone_numbers)
+					{
+						// also match if there is no digit
+						match.points += (21-distance_right);
+						post_ptr--;
+					}
+					else
 						failed = 1;
 					break;
 					

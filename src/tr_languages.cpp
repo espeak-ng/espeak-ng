@@ -649,7 +649,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('z','h'):
 		{
 			static int stress_lengths_qaa[8] = {220,150, 230,230, 230,0, 230,250};
-			static int stress_amps_qaa[] = {22,18, 22,22, 22,22, 22,22 };
+			static int stress_amps_qaa[] = {22,16, 22,22, 22,22, 22,22 };
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_qaa,stress_amps_qaa);
 
