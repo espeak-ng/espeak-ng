@@ -490,7 +490,7 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 	int  stress;
 	PHONEME_LIST *plist;
 	
-	static const char *stress_chars = "==,,'*";
+	static const char *stress_chars = "==,,''";
 
 	if(phon_out != NULL)
 	{
@@ -2199,6 +2199,7 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	int  g1;            /* first group for this letter */
 	int  n;
 	int  letter;
+	int  any_alpha=0;
 	int  ix;
 	int  digit_count=0;
 	char *p;
@@ -2245,11 +2246,13 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	
 	while(((c = *p) != ' ') && (c != 0))
 	{
+		if(IsAlpha(wc))
+			any_alpha = wc;
 		wc_prev = wc;
 		wc_bytes = utf8_in(&wc,p,0);
 
 		n = groups2_count[c];
-		if(IsDigit(wc) && ((langopts.tone_numbers == 0) || !IsAlpha(wc_prev)))
+		if(IsDigit(wc) && ((langopts.tone_numbers == 0) || !any_alpha))
 		{
 			// lookup the number in *_list not *_rules
 	char string[8];

@@ -814,6 +814,8 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	int  final_stressed=0;
 
 	int  tone_ph;
+	int pause;
+	int tone_promoted;
 	PHONEME_TAB *tph;
 	PHONEME_TAB *prev_tph;   // forget across word boundary
 	PHONEME_TAB *prevw_tph;  // remember across word boundary
@@ -849,13 +851,21 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	}
 
 
+	pause = 1;
+	tone_promoted = 0;
+
 	prev_p = p = &phoneme_list[0];
 	prev_tph = prevw_tph = phoneme_tab[phonPAUSE];
 
 	// perform tone sandhi
 	for(ix=0; ix<n_phoneme_list; ix++, p++)
 	{
-		if((p->newword) && ((option_tone1 & 1)==0))
+		if((p->type == phPAUSE) && (p->ph->std_length > 50))
+		{
+			pause = 1;  // there is a pause since the previous vowel
+		}
+
+		if(p->newword)
 		{
 			prev_tph = phoneme_tab[phonPAUSE];  // forget across word boundaries
 		}
@@ -863,14 +873,32 @@ void Translator::CalcPitches_Tone(int clause_tone)
 		if(p->type == phVOWEL)
 		{
 			tone_ph = p->tone_ph;
-			if(tone_ph == 0)
-				p->tone_ph = tone_ph = LookupPh("11");  // default tone 5
-
 			tph = phoneme_tab[tone_ph];
 
 			// Mandarin
 			if(translator_name == L('z','h'))
 			{
+				if(tone_ph == 0)
+				{
+					if(pause || tone_promoted)
+					{
+						tone_ph = LookupPh("55");  // no previous vowel, use tone 1
+						tone_promoted = 1;
+					}
+					else
+					{
+						tone_ph = LookupPh("11");  // default tone 5
+					}
+
+					p->tone_ph = tone_ph;
+					tph = phoneme_tab[tone_ph];
+
+				}
+				else
+				{
+					tone_promoted = 0;
+				}
+
 				if(prev_tph->mnemonic == 0x343132)  // [214]
 				{
 					if(tph->mnemonic == 0x343132)   // [214]
@@ -901,6 +929,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 			prev_p = p;
 			prev2_tph = prevw_tph;
 			prevw_tph = prev_tph = tph;
+			pause = 0;
 		}
 	}
 

@@ -12,8 +12,8 @@ static const char* FILENAME="/tmp/espeak.log";
 
 void debug_init()
 {
-  fd_log = fopen(FILENAME,"a");
-  setvbuf(fd_log, NULL, _IONBF, 0);
+	if((fd_log = fopen(FILENAME,"a")) != NULL)
+		setvbuf(fd_log, NULL, _IONBF, 0);
 }
 
 void debug_enter(const char* text)
