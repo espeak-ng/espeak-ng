@@ -274,7 +274,7 @@ static int VowelChartList(wxDC *dc, wxBitmap *bitmap, char *fname)
 	int count=0;
 	wxFileName filename;
 	char name[40];
-	char buf[120];
+	char buf[200];
 	wxString path;
 
 	if(fname != NULL)

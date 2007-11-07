@@ -1239,9 +1239,6 @@ include ph_zh_yue
 phonemetable zh base
 include ph_zh
 
-phonemetable zhh zh
-include ph_zh_huai
-
 
 phonemetable sw base
 include ph_swahili

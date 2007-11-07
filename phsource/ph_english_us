@@ -277,7 +277,7 @@ endphoneme
 phoneme aI@
   vowel  starttype (a)  endtype (@)
   length 270
-  formants vwl_en/aI@
+  formants vwl_en_us/ai@
   linkout r-
 endphoneme
 

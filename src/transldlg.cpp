@@ -298,7 +298,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	#define N_PH_LIST  N_PHONEME_LIST
 
 	void *vp;
-	char buf[500];
+	char buf[1000];
 	char phon_out[N_PH_LIST*2];
 	int clause_tone;
 	int clause_count;
@@ -321,6 +321,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		}
 	case T_TRANSLATE:
 	case MENU_SPEAK_TRANSLATE:
+		option_multibyte = espeakCHARS_AUTO;
 		SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 		strncpy0(buf,t_source->GetValue().mb_str(wxConvUTF8),sizeof(buf));

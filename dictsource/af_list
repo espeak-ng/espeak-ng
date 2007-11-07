@@ -97,6 +97,7 @@ jerusalem   j@r'ysalEm
 kanada      kanad%a
 knysna      neIsna
 kongo       kONgu
+lesotho     l@sutu
 mesopotamië mEsuput'A:mi@
 mosambiek   musamb'ik
 (thaba nchu) tab'A:||ntSu
@@ -123,7 +124,6 @@ allah       %alA:
 André       'andreI
 annette     an'Et
 antoinette  antun'Et
-aucamp      @Ukamp
 benjamin    bEndZ@m@n
 bester b'Est@r
 botha       bo@ta
@@ -173,7 +173,7 @@ isabel      is@b&l
 jacques     ZA:k
 james       _^_EN
 jane        _^_EN
-jean        ZA~n
+Jean        ZA~n $capital
 joey        dZ@Ui
 john        _^_EN
 jordaan     $2
@@ -189,6 +189,7 @@ louis       luI
 louise      luw'i:z
 louw l'@U
 mbeki       mbE:ki
+malherbe      mal'&rb@
 marie       mA:ri
 marius      mA:riWs
 martha      marta
@@ -201,8 +202,6 @@ mozart      mo@tsart
 naomi       na_'o@mi
 natasha n%at'aSa
 naudé       nOd'e@
-paul        p@Ul
-paulus      p@UlWs
 philip      fIl@p
 phillips    fIl@ps
 pierre p'e@r
@@ -281,7 +280,7 @@ anders		$pause $verbf
 al		$pause $verbf
 daarom		$pause $verbf
 dus		$pause $verbf
-gevolglik	$pause $verbf
+gevolglik	$2 $pause $verbf
 daarna		$pause $verbf
 desondanks      dEs?OndaNks $pause $verbf
 ondanks         'OndaNks $pause
@@ -391,6 +390,7 @@ bv          beIf'o@rbe@lt $dot
 
 aanstaande    $2
 adagio        ad'A:dZi;%@U
+afkere        afke@r@
 algaande      $2
 algehele      alx2@h,e@l@
 alles         al@s
@@ -402,6 +402,8 @@ asof          asOf
 asook         %as_o@k
 aspris        $2
 asseblief     as@bl'if
+attraksie     $2
+
 babelaas      bab@lA:s
 beide         beId@
 belangriker   b@laNr@k,Ir
@@ -419,6 +421,7 @@ bostaande b'o@stA:nd@
 
 cabernet      kab@rn'eI
 camembert     kam@mb'&:r
+camouflage    kamufl'A:Z
 dadelik       dA:d@lIk
 darem         dar@m
 derde         d&:rd@
@@ -511,12 +514,14 @@ makabere m%ak'A:b@r@
 maskering     mask'e@r@N $only
 meegee        me@x2e@
 memoriam      mEm'o@riam
+mercedes      $2
 merlot        m&rl'o@
 militêre      mIl@t'&:r@
 minister      m@nIst@r
 minute        m@nyt@
 minuut        m@nyt
 misbruik      $2 $verb
+misbruikte    $2
 miskien       $2
 misterie      m@ste@ri
 monitor       mOnitOr
@@ -539,6 +544,7 @@ normale       nOrm'A:l@
 numeri        nWm@ri
 
 oeuvre        W:vr@
+omega         $2
 omtrent       Omtr'Ent
 onbegrip      $1
 onderrig      On@r'Ix2 $verb
@@ -546,6 +552,7 @@ ondersoek     $3 $verb
 onderweg      $3
 onderwerp     $3 $verb
 onderwyser    $3
+onding        $1
 ongeag        $1
 ongeduld      $1
 ongeloof      $1
@@ -575,14 +582,16 @@ patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
 per           pIr
 persent       p@rsEnt
+petite        p@tit
 pinotage      pinut'A:Z
+pirouette     p@ru:'Et
 prakseer      $2
-program       prux2r'am
 
 reeds         re@ts
 retireer      r@t@re@:r
 retoriek      r@tur'ik
 rimpeling     rImp@l@N
+rooipers      roIp&:rs
 roterende rut'e@r@nd@
 rukkerig      rWk@r@x2
 
@@ -598,6 +607,7 @@ spaghetti     sp%agEt%i
 sobere s'o@b@r@
 sombere s'Omb@r@
 sodra         so@dr'A:
+sodoende      s'o@d,und@
 sogenaamde    s'o@x2@n,A:md@
 sononder      sOn_On@r
 sonop         sOn_Op
@@ -607,21 +617,20 @@ stabiel       stab'il
 
 terdeë       $2
 terug         t@-rWx2
-terwyl        t@rveIl
 tesame        t@sA:m@
 tevrede       t@fre@d@
+tipes         tip@s
 toegee        tux2e@
 totale        tut'A:l@
 totsiens      $2
 
 
 uitdaging     YydA:x2@N
-uiteindelik   $2
 uiteraard     Yyt@r_'A:rt
 
 vaarwel       fA:rv'&l
-vakant f%ak'ant
-vakante f%ak'ant@
+vakant        f%ak'ant
+vakante       f%akant@
 vanaf         fanaf
 vandat      $1
 vanne         fan@
@@ -660,4 +669,4 @@ wangedrag     vanx2@drax2
 weergalm      $2
 weerklink     $2
 weggewens     v&x2@v'E:ns
-
+welaf         v&l_af

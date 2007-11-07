@@ -620,7 +620,7 @@ void LoadConfig(void)
 	int ix;
 	char c1;
 	char *p;
-	char string[120];
+	char string[200];
 
 	sprintf(buf,"%s%c%s",path_home,PATHSEP,"config");
 	if((f = fopen(buf,"r"))==NULL)

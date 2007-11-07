@@ -556,16 +556,17 @@ int compile_dictlist_file(const char *path, const char* filename)
 	char *p;
 	int  count=0;
 	FILE *f_in;
-	char buf[sizeof(path_home)+45];
+	char buf[200];
+	char fname[sizeof(path_home)+45];
 	char dict_line[128];
 	
 	text_mode = 0;
 
-	sprintf(buf,"%s%s",path,filename);
-	if((f_in = fopen(buf,"r")) == NULL)
+	sprintf(fname,"%s%s",path,filename);
+	if((f_in = fopen(fname,"r")) == NULL)
 		return(-1);
 
-	fprintf(f_log,"Compiling: '%s'\n",buf);
+	fprintf(f_log,"Compiling: '%s'\n",fname);
 
 	linenum=0;
 	
@@ -1224,7 +1225,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	unsigned int char_code;
 	int compile_mode=0;
 	char *buf;
-	char buf1[120];
+	char buf1[200];
 	char *rules[N_RULES];
 
 	int n_rgroups = 0;

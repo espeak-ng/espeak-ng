@@ -1,0 +1,242 @@
+// This file is UTF8 encoded
+
+.replace
+//replace tone mark with tone number
+ˉ 1
+ˊ 2
+ˇ 3
+ˋ 4
+ā a1
+á a2
+ǎ a3
+à a4
+ō o1
+ó o2
+ǒ o3
+ò o4
+ê ea
+ē e1
+é e2
+ě e3
+è e4
+ī i1
+í i2
+ǐ i3
+ì i4
+ū u1
+ú u2
+ǔ u3
+ù u4
+ǖ ü1
+ǘ ü2
+ǚ ü3
+ǜ ü4
+//some pinyin vaiants 
+ŋ ng
+ɑ a
+ɡ g 
+ẑ zh 
+ĉ ch 
+ŝ sh 
+
+.L01  j q x y
+
+// Note:  ngK  matches "ng" if not followed by a vowel
+// (D  will match on a digit and also if no digit is present. (special for tone
+language).
+
+.group a
+       a        A
+       ai	ai
+       a1i	ai55
+       a2i	ai35
+       a3i	ai214
+       a4i	ai51
+       ao	Au
+       a1o	Au55
+       a2o	Au35
+       a3o	Au214
+       a4o	Au51
+
+       a (DnK	a
+       a (DngK	A
+
+    y) a	iA
+    y) ao	iAu
+    y) a1o	iAu55
+    y) a2o	iAu35
+    y) a3o	iAu214
+    y) a4o	iAu51
+    y) a (DnK	iE
+    y) a (DngK	iA
+
+.group b
+       b        p
+
+.group c
+       c        tsh
+       ch       ts.h
+
+.group d
+       d        t
+
+.group e
+       e	o-
+    d) e	@
+    t) e	@
+    n) e	@
+    l) e	@
+    y) e	iE
+       ea	E
+       ei	ei
+       e1i	ei55
+       e2i	ei35
+       e3i	ei214
+       e4i	ei51
+
+       e (Dn	@ //en eng
+
+       er	@r
+       e1r	@r55
+       e2r	@r35
+       e3r	@r214
+       e4r	@r51
+
+.group f
+       f        f
+
+.group g
+       g        k
+
+.group h
+       h        x
+
+.group i
+       i        i //i in ing
+    z) i        i[
+    c) i        i[
+    s) i        i[
+    h) i        i. //after zh ch sh
+    r) i        i.
+       ia	iA
+       ia (DnK	iE
+       ia (DngK	iA
+       iao	iAu
+       ie	iE
+       io (DngK 	y
+       iu 	iou 
+
+.group j
+       j        tS;
+
+.group k
+       k        kh
+
+.group l
+       l        l
+
+.group m
+       m        m
+
+.group n
+       n        n
+       ng (K	N     // consider (ng+vowel) as (n g+vowel) ??
+
+.group o
+       o        o
+       o (DngK	u
+       ou	ou
+       o1u	ou55
+       o2u	ou35
+       o3u	ou214
+       o4u	ou51
+    y) o	io 
+    y) ou	iou
+    y) o1u	iou55
+    y) o2u	iou35
+    y) o3u	iou214
+    y) o4u	iou51
+
+.group p
+       p        ph
+
+.group q
+       q        tS;h
+
+.group r
+       r        z.
+
+.group s
+       s        s
+       sh       s.
+
+.group t
+       t        th
+
+.group u
+       u        u
+       ua	uA  //ua uan uang, and uan should be more different from uang
+       ua (DnK	ua
+       uai	uai
+       ua1i	uai55
+       ua2i	uai35
+       ua3i	uai214
+       ua4i	uai51
+       ue	yE //üe
+       ui	uei
+       u (DnK	u@
+       uo	uo
+
+  L01) u	y   /// j,q,x,y + u
+  L01) u (DnK	y@
+  L01) ua 	y&
+  L01) ue	yE
+
+.group ü
+       ü	y
+       üe	yE
+
+.group v //variant of ü
+       v	v // foreign words
+    l) v        y //ü
+    n) v        y //ü
+    l) ve	yE //üe
+    n) ve	yE //üe
+
+.group w
+       wa	wuA //wa wan wang
+       wai	wuai
+       wa1i	wuai55
+       wa2i	wuai35
+       wa3i	wuai214
+       wa4i	wuai51
+       wei	wuei
+       we1i	wuei55
+       we2i	wuei35
+       we3i	wuei214
+       we4i	wuei51
+       we	wu@ //wen weng
+       wo	wuo
+       wu	wu
+
+.group x
+       x        S;
+
+.group y
+       y	j //before a o e i
+       y (u	//NULL before u
+       yo (DngK	y
+       y (K     i    // foreign words
+
+.group z
+       z        ts
+       zh       ts.
+
+//tone number
+.group
+       1	55
+       2	35
+       3	214
+       4	51
+       5	11
+

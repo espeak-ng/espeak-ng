@@ -51,47 +51,46 @@ z	zEd
 
 
 // character names
-_cap k,ap@-t@L
-_?A  lEt3
-_??  sImb@L
-_#9  tab
-_#32 speIs
+_cap	k,ap@-t@L
+_?A	lEt3
+_??	sImb@L
+_#9	tab
+_#32	speIs
 
-_!   Ekskl@m'eIS@n
-_"   kwoUts
-_#   haS
-_$   d0l3
-_%   p3s'Ent
-?5 _%   pVRs'Ent
-_&   amp@sand
-_'   praIm
-_(   ElbrakIt
-_)   A@brakIt
-_*   ast@rIsk:
-_+   plVs
-_,   k0m@
-_-   h,aIf@n
-_.   d0t
-_/   stroUk
-_:   koUl@n
-_;   sEmIk'oUl0n
-_<   ElaNg@L
-_=   i:kw@Lz
-_>   A@aNg@L
-_?   kwEstS@n
-_@   at|saIn
-_[   Elskwe@
-_\   bakstroUk
-_]   A@skwe@
-_^   s3:kVmfl,Eks
-?5 _^   sIRkVmfl,Eks
-__   'Vnd3sk,o@
-_`   bakpraIm
-_{   ElbreIs
-_|   vi:b'A@
-_}   A@breIs
-_~   tIld@
-_£   paUnd
+_!	Ekskl@m'eIS@n
+_"	kwoUts
+_#	haS
+_$	d0l3
+_%	p3s'Ent
+?5 _%	pVRs'Ent
+_&	amp@sand
+_'	praIm
+_(	ElbrakIt
+_)	A@brakIt
+_*	ast@rIsk:
+_+	plVs
+_,	k0m@
+_-	h,aIf@n
+_.	d0t
+_/	stroUk
+_:	koUl@n
+_;	sEmIk'oUl0n
+_<	ElaNg@L
+_=	i:kw@Lz
+_>	A@aNg@L
+_?	kwEstS@n
+_@	at|saIn
+_[	Elskwe@
+_\	bakstroUk
+_]	A@skwe@
+_^	s3:kVmfl,Eks
+?5 _^	sIRkVmfl,Eks
+__	'Vnd3sk,o@
+_`	bakpraIm
+_{	ElbreIs
+_|	vi:b'A@
+_}	A@breIs
+_~	tIld@
 
 
 // numeric
@@ -437,6 +436,7 @@ ballet           baleI
 balloon          b@lu:n
 ballot           bal@t 
 baloney          b@loUnI2
+bagel            beIg@L
 banal            beIn@L
 banana           b@nA:n@
 banged           baNgd

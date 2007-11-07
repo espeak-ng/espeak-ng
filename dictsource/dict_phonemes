@@ -346,23 +346,11 @@ x    z    Z
 
 Dictionary zh_dict
 
-@r   a    A    ai   E    ei   i    i0   
-i[   iou  u    
+@    @r   a    A    ai   Au   E    ei   
+i    i.   i[   iou  o    o-   ou   u    
+uai  y    
 
-c;   j    k    kh   l    n    N    p    
-ph   R    R2   R3   s    tc;  tc;  th   
-ts   ts.  ts.  tsh  w    
-
-
-Dictionary zhh_dict
-
-&?   0    0?   @    @?   @r   @u   A    
-A?   E    E~   i    i&?  i.   i0   i;   
-i?   i@   i@?  i[   iA   iA?  iE   iE~  
-io   io?  iu   i~   o    u    u&?  u?   
-u@   u@?  uA   uA?  uE   uE~  ui   u~   
-y    y?   y@   y@?  ya   y~   
-
-c;   f    h    k    kh   l    m    n    
-N    p    ph   s    s.   t    tc;  tc;  
-th   ts   ts.  ts.  tsh  v    z.   
+f    j    k    kh   l    m    n    N    
+p    ph   R    R2   R3   s    s.   S;   
+t    th   ts   ts.  ts.  tS;  tS;  tsh  
+v    w    x    z    z.   

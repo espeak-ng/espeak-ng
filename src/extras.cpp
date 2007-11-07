@@ -298,7 +298,7 @@ void Lexicon_De()
 	int start;
 	int matched=0;
 	int defer_stress = 0;
-	char buf[120];
+	char buf[200];
 	char word[80];
 	char word2[80];
 	char type[80];
@@ -488,7 +488,7 @@ void Lexicon_Ru()
 	int counts[20][20][10];
 
 	char phonemes[N_WORD_PHONEMES];
-	char buf[120];
+	char buf[200];
 	char fname[sizeof(path_dsource)+20];
 
 	// KOI8-R codes for Russian vowels

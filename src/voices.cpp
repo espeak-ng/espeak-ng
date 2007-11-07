@@ -222,7 +222,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 // Read a Voice file, allocate a VOICE_DATA and set data from the
 // file's  language, gender, name  lines
 
-	char linebuf[80];
+	char linebuf[120];
 	char vname[80];
 	char vgender[80];
 	char vlanguage[80];
