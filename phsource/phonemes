@@ -882,7 +882,7 @@ phoneme p
   lengthmod 2
   wave ustop/p
   before _ ustop/p_
-  before r ustop/pr
+  before r ustop/pr%70
   before R ustop/pr
   before @- ustop/p_unasp
   before l ustop/pl
