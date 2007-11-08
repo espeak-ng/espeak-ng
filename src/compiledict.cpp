@@ -261,7 +261,7 @@ static char nullstring[] = {0};
 					text_mode = 0;
 				}
 				else
-				if(ix == BITNUM_FLAG_DICTTEXT)
+				if(ix == BITNUM_FLAG_TEXTMODE)
 				{
 					text_not_phonemes = 1;
 				}
@@ -371,10 +371,17 @@ static char nullstring[] = {0};
 		return(0);   /* blank line */
 	}
 
-	if(text_not_phonemes || text_mode)
+	if(text_mode)
+		text_not_phonemes = 1;
+
+	if(text_not_phonemes != translator->langopts.textmode)
+	{
+		flag_codes[n_flag_codes++] = BITNUM_FLAG_TEXTMODE;
+	}
+
+	if(text_not_phonemes)
 	{
 		strcpy(encoded_ph,phonetic);   // this is replacement text, so don't encode as phonemes
-		flag_codes[n_flag_codes++] = BITNUM_FLAG_DICTTEXT;
 	}
 	else
 	{

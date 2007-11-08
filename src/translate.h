@@ -64,8 +64,8 @@
 #define FLAG_PASTF       0x8000000  /* past tense follows */
 #define FLAG_VERB_EXT   0x10000000  /* extend the 'verb follows' */
 
-#define FLAG_DICTTEXT   0x20000000  // word translates to replacement text, not phonemes
-#define BITNUM_FLAG_DICTTEXT    29
+#define FLAG_TEXTMODE   0x20000000  // word translates to replacement text, not phonemes
+#define BITNUM_FLAG_TEXTMODE    29
 
 #define FLAG_PAUSE1     0x40000000  // shorter prepause
 #define FLAG_FOUND      0x80000000  /* pronunciation was found in the dictionary list */
@@ -97,7 +97,7 @@
 #define SUFX_Q        0x4000   // don't retranslate
 #define SUFX_T        0x10000   // don't affect the stress position in the stem
 
-#define FLAG_ALLOW_DICTTEXT  0x02  // allow dictionary to translate to text rather than phonemes
+#define FLAG_ALLOW_TEXTMODE  0x02  // allow dictionary to translate to text rather than phonemes
 #define FLAG_SUFX       0x04
 #define FLAG_SUFX_S     0x08
 #define FLAG_SUFX_E_ADDED 0x10
@@ -321,6 +321,7 @@ typedef struct {
 	char spelling_stress;   // 0=default, 1=stress first letter
 	char tone_numbers;
 	char ideographs;      // treat as separate words
+	char textmode;          // the meaning of FLAG_TEXTMODE is reversed 
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	const unsigned int *replace_chars;      // characters to be substitutes
 } LANGUAGE_OPTIONS;

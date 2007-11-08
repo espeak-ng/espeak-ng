@@ -642,7 +642,7 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	else
 	{
 		spell_word = 0;
-		found = LookupDictList(&word1,phonemes,&dictionary_flags,FLAG_ALLOW_DICTTEXT | wflags << 16);   // the original word
+		found = LookupDictList(&word1,phonemes,&dictionary_flags,FLAG_ALLOW_TEXTMODE | wflags << 16);   // the original word
 
 		if(phonemes[0] == phonSWITCH)
 		{

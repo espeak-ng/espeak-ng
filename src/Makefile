@@ -15,6 +15,20 @@ INSTALL = /usr/bin/install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
+#AUDIO = portaudio
+AUDIO = pulseaudio
+
+ifeq ($(AUDIO),pulseaudio)
+WAVE=wave_pulse.cpp
+LIB_AUDIO=pulse
+USE_AUDIO=USE_PULSEAUDIO
+else
+#portaudio
+WAVE=wave.cpp
+LIB_AUDIO=portaudio
+USE_AUDIO=USE_PORTAUDIO
+endif
+
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
@@ -24,22 +38,23 @@ libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp 
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp wave.cpp debug.cpp
+	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
 
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ -lportaudio -lpthread
+LIBS1=-lstdc++ -l$(LIB_AUDIO) -lpthread
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++ -lportaudio -lpthread
+LIBS2=-lstdc++ -l$(LIB_AUDIO) -lpthread
 
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ ./libespeak.so
 
-CXXFLAGS=-O2
+CXXFLAGS=-O2 -D$(USE_AUDIO)
+#CXXFLAGS=-D$(USE_AUDIO) -ggdb -DDEBUG_ENABLED
 
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)

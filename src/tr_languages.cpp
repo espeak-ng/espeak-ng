@@ -39,6 +39,7 @@
 
 #define L_qa   0x716100
 #define L_grc  0x677263   // grc  Ancient Greek
+#define L_zhy  0x7a6879   // zhy
 
 
 #define OFFSET_GREEK  0x380
@@ -647,20 +648,26 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('z','h'):
+	case L_zhy:
 		{
-			static int stress_lengths_qaa[8] = {220,150, 230,230, 230,0, 230,250};
-			static int stress_amps_qaa[] = {22,16, 22,22, 22,22, 22,22 };
-			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_qaa,stress_amps_qaa);
+			static int stress_lengths_zh[8] = {220,150, 230,230, 230,0, 230,250};
+			static int stress_amps_zh[] = {22,16, 22,22, 22,22, 22,22 };
+
+			tr = new Translator;
+			SetupTranslator(tr,stress_lengths_zh,stress_amps_zh);
 
 			tr->langopts.stress_rule = 3;   // stress on final syllable of a "word"
 			tr->langopts.stress_flags = 1;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.vowel_pause = 0;
 			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
-			tr->langopts.tone_numbers = 9;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
+			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
 			tr->langopts.ideographs = 1;
 			tr->langopts.word_gap = 0x5;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
+			if(name2 == L('z','h'))
+			{
+				tr->langopts.textmode = 1;
+			}
 		}
 		break;
 

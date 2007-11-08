@@ -2813,12 +2813,20 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 		{
 			unsigned int flags1 = 0;
 			char ph_decoded[N_WORD_PHONEMES];
+			int textmode;
+
 			DecodePhonemes(phonetic,ph_decoded);
 			if(flags != NULL)
 				flags1 = *flags;
 
-			if((dictionary_flags & FLAG_DICTTEXT) == 0)
+			if((dictionary_flags & FLAG_TEXTMODE) == 0)
+				textmode = 0;
+			else
+				textmode = 1;
+
+			if(textmode == translator->langopts.textmode)
 			{
+				// only show this line if the word translates to phonemes, not replacement text
 				fprintf(f_trans,"Found: %s [%s]  %s\n",word1,ph_decoded,print_dflags(flags1));
 			}
 		}
@@ -2908,11 +2916,15 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 
 	if(found)
 	{
-		if(*flags & FLAG_DICTTEXT)
+		// if textmode is the default, then words which have phonemes are marked.
+		if(langopts.textmode)
+			*flags ^= FLAG_TEXTMODE;
+
+		if(*flags & FLAG_TEXTMODE)
 		{
 			// the word translates to replacement text, not to phonemes
 
-			if(end_flags & FLAG_ALLOW_DICTTEXT)
+			if(end_flags & FLAG_ALLOW_TEXTMODE)
 			{
 				// only use replacement text if this is the original word, not if a prefix or suffix has been removed
 				word_replacement[0] = 0;

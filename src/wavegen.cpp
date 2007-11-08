@@ -892,7 +892,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		{
 			htab[h++] += pk_shape[(fp-f)/(p->left>>8)] * p->height;
 		}
-		for(;f < fhi; f+=pitch)
+		for(; f < fhi; f+=pitch)
 		{
 			htab[h++] += pk_shape[(f-fp)/(p->right>>8)] * p->height;
 		}
@@ -969,7 +969,8 @@ static void AdvanceParameters()
 	x = ((int)(Flutter_tab[Flutter_ix >> 6])-0x80) * flutter_amp;
 	Flutter_ix += Flutter_inc;
 	pitch += x;
-
+	if(pitch < 102400)
+		pitch = 102400;   // min pitch, 25 Hz  (25 << 12)
 
 	if(samplecount == samplecount_start)
 		return;
