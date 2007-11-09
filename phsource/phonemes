@@ -481,6 +481,7 @@ phoneme j
   beforenotvowel j/
   formants NULL
   after _ j/_j
+  after v NULL
   lengthmod 7
 endphoneme
 

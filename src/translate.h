@@ -364,9 +364,9 @@ public:
 	char phon_out[300];
 	char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 
-	int stress_amps[8];
-	int stress_amps_r[8];
-	int stress_lengths[8];
+	unsigned char stress_amps[8];
+	unsigned char stress_amps_r[8];
+	short stress_lengths[8];
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
 	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words

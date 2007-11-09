@@ -386,8 +386,8 @@ int IsDigit(unsigned int c)
 Translator::Translator()
 {//=====================
 	int ix;
-	static int stress_amps2[] = {16,16, 20,20, 20,24, 24,21 };
-	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
+	static const unsigned char stress_amps2[] = {16,16, 20,20, 20,24, 24,21 };
+	static const short stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
 	static const wchar_t empty_wstring[1] = {0};
 
 	charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8

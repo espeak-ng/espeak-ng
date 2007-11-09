@@ -21,7 +21,7 @@ phoneme 3    //  Schwa, used for rhotic schwa in American
   unstressed
   linkout r-
   beforevowel @
-  length 200
+  length 210
 endphoneme
 
 
@@ -156,19 +156,16 @@ endphoneme
 
 phoneme 3:
   vowel  starttype (@)  endtype (@)
-  length 190
-//  formants vwl_en_us/@r_us2
+  length 220
   formants vwl_en_us/3_us
-//  reduceto @  0
   linkout r-
 endphoneme
 
 
 phoneme i:
   vowel  starttype (i)  endtype (i)
-  length 150
-  formants vowel/i_en
-  after w w/wi2
+  length 160
+  formants vowel/i_6
   linkout ;
 endphoneme
 
@@ -185,7 +182,8 @@ endphoneme
 phoneme O@
   vowel  starttype (o)  endtype (@)
   length 270
-  formants vwl_en_us/oor
+//  formants vwl_en_us/oor
+  formants vwl_en_us/or
   appendph r
 endphoneme
 
@@ -208,7 +206,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype (u)  endtype (u)
-  length 160
+  length 170
   formants vowel/u#_5
 //  before l/2 vwl_en/u_L-40+l/L2_uL
 endphoneme
@@ -237,7 +235,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype (e)  endtype (i)
-  length 235
+  length 220
 //  formants vdiph/eei_2
   formants vwl_en_us/ei
 endphoneme

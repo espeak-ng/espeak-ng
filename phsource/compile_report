@@ -1282,9 +1282,9 @@ vowel/i_5       [i:] en_sc
 vowel/i#_5      [y] pt_pt
                 [i/] pt_pt
                 [y] ro
-vowel/i_6       [i] hr
+vowel/i_6       [i:] en_us
+                [i] hr
 vowel/i_en      [i:] en
-                [i:] en_us
                 [i] vi
 vowel/i_fnt     [i] hi
                 [i:] hi
@@ -1576,8 +1576,8 @@ vwl_en_us/ii    [I] en_us
 vwl_en_us/ir    [i@] en_us
                 [i@] en_sc
 vwl_en_us/oo    [O] en_us
-vwl_en_us/oor   [O@] en_us
 vwl_en_us/or    [O:] en_us
+                [O@] en_us
                 [o@] en_us
                 [O:] en_sc
 vwl_en_us/ur    [U@] en_us
@@ -1663,7 +1663,6 @@ w/wi            [(i)] base
                 [i] zhy
 w/wi2           [i:] en
                 [i:] en_n
-                [i:] en_us
                 [i:] en_sc
                 [i:] en_rp
                 [i2] de

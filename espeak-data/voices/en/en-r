@@ -8,10 +8,11 @@ phonemes en_us
 dictrules 3 6
 option 12 1       // reduce [t]
 
-stressLength 150 125 180 180 0 0 270 280
+stressLength 145 120 175 175 0 0 260 270
 stressAmp  17 16  20 20  20 22  23 20
 
 //replace 03 I  i
 //replace 03 I2 i
 
-formant 1  99 100 100
+formant 2  101 100 100
+formant 3  101 100 100
