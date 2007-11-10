@@ -146,4 +146,12 @@ phoneme R
   lengthmod 6
 endphoneme
 
+phoneme r*
+  vowel nonsyllabic
+  starttype (@)  endtype (@)
+  formants vowel/@-
+  unstressed
+  appendph *
+  length 50
+endphoneme
 

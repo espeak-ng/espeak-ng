@@ -81,8 +81,9 @@
 #define phonSWITCH      21
 #define phonX1          22      // a language specific action
 #define phonPAUSE_VSHORT 23
-#define phonT_REDUCED   24
-
+#define phonPAUSE_LONG  24
+#define phonT_REDUCED   25
+extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
 
 // place of articulation
 #define phPLACE        0xf0000

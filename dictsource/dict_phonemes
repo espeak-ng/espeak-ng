@@ -134,28 +134,8 @@ r    s    S    s.   t    T    t.   t.h
 th   v    w    x    z    
 
 
-Dictionary hr_dict
-
-&    @    @-   @2   a    A    a:   aI   
-aU   E    e    e:   E~   i    I    i:   
-l-   O    o    o:   oU   r-   u    U    
-u:   y    
-
-*    b    d    dZ   dZ;  f    g    h    
-j    k    l    l^   m    n    N    n^   
-p    r    R    s    S    t    tS   ts   
-tS;  v    x    z    Z    
-
-
 Dictionary hu_dict
 
-A    a:   E    e:   i    i:   o    o:   
-u    u:   Y    Y:   
-
-:    b    c    d    dZ   f    g    h    
-j    J    k    l    m    n    n^   p    
-R    R2   s    S    s2   t    tS   ts   
-v    z    Z    
 
 
 Dictionary it_dict
@@ -354,3 +334,16 @@ f    j    k    kh   l    m    n    N
 p    ph   R    R2   R3   s    s.   S;   
 t    th   ts   ts.  ts.  tS;  tS;  tsh  
 v    w    x    z    z.   
+
+
+Dictionary hbs_dict
+
+&    @    @2   a    A    a:   aI   aU   
+E    e    e:   E~   i    I    i:   l-   
+O    o    o:   oU   r*   r-   u    U    
+u:   y    
+
+*    b    d    dZ   dZ;  f    g    h    
+j    k    l    L    l^   m    n    N    
+n^   p    r    R    s    S    t    tS   
+ts   tS;  v    x    z    Z    

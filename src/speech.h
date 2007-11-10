@@ -63,8 +63,12 @@ typedef struct {
 int LookupMnem(MNEM_TAB *table, char *string);
 
 
+#ifdef PLATFORM_WINDOWS
+#define N_PATH_HOME  220
+#else
+#define N_PATH_HOME  150
+#endif
 
-#define N_PATH_HOME  120
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
 extern void strncpy0(char *to,const char *from, int size);

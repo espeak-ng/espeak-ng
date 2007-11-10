@@ -337,12 +337,12 @@ phoneme h
   vls glt apr
   length 100
   lengthmod 3
-  wave ufric/h_%70         // no vowel following
-  before (@) ufric/h@
-  before (a) ufric/ha
-  before (e) ufric/he
-  before (i) ufric/hi
-  before (o) ufric/hu_fi%70
-  before (u) ufric/hu_fi%80
+  wave h/h_%70         // no vowel following
+  before (@) h/h@
+  before (a) h/ha
+  before (e) h/he
+  before (i) h/hi
+  before (o) h/hu_fi%70
+  before (u) h/hu_fi%80
 endphoneme
 

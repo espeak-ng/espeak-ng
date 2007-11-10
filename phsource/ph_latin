@@ -149,13 +149,13 @@ phoneme <h>
   vls glt apr
   length 50
   lengthmod 3
-  wave ufric/h_%70         // no vowel following
-  before (@) ufric/h@
-  before (a) ufric/ha
-  before (e) ufric/he
-  before (i) ufric/hi
-  before (o) ufric/ho
-  before (u) ufric/hu
+  wave h/h_%70         // no vowel following
+  before (@) h/h@
+  before (a) h/ha
+  before (e) h/he
+  before (i) h/hi
+  before (o) h/ho
+  before (u) h/hu
 endphoneme
 
 

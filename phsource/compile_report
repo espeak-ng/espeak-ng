@@ -21,9 +21,9 @@
       pl  15  107
       sk  29  125
       cs   6  125
-      hr  19  129
-      mk   3  130
-      sr   2  129
+      hr  20  130
+      mk   3  131
+      sr  18  130
       ru  38  126
       it  17  118
       la  21  114
@@ -95,6 +95,7 @@ d/d_            [d] base
                 [d;] ro
                 [d] el
                 [d] sw
+d/d_dnt         [d] sr
 d/dr            [*] base
                 [d] base
                 [d[] base
@@ -137,6 +138,8 @@ dzh/dzh         [dZ] base
                 [dz;] base
                 [J] hi
                 [dZ;] mk
+                [dZ] sr
+                [dZ;] sr
                 [dZ;] ru
 dzh/dzh_        [dZ] base
                 [dZ;] base
@@ -197,6 +200,42 @@ g/g_            [g] base
 g/xg            [g] base
                 [g] cy
                 [g] es
+h/h_            [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+h/h@            [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [th] hi
+                [h] sr
+                [<h>] la
+h/ha            [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+h/he            [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+h/hi            [h] base
+                [h] fi
+                [H] hi
+                [h] hi
+                [<h>] la
+h/ho            [h] base
+                [H] hi
+                [h] hi
+                [<h>] la
+h/hu            [h] base
+                [H] hi
+                [h] hi
+                [<h>] la
+h/hu_fi         [h] fi
 j2/_j2          [;] base
 j2/j2@          [(@)] base
 j2/j2a          [(a)] base
@@ -302,10 +341,12 @@ l/xl            [(@)] base
                 [(o)] base
                 [(u)] base
 m/_m            [m] base
+                [m] sr
                 [m;] ru
                 [m;] ro
                 [m] zh
 m/m_            [m] base
+                [m] sr
                 [m;] ru
                 [m;] ro
 m/m@            [(@)] base
@@ -314,18 +355,24 @@ m/ma            [(a)] base
 m/me            [(e)] base
 m/mi            [(i)] base
 m/mj            [m] base
+                [m] sr
                 [m;] ru
                 [m;] ro
 m/mo            [(o)] base
+m/m_sr.wav      [m] sr
 m/mu            [(u)] base
 n^/_n^          [n^] base
+                [n^] sr
 n^/n^_          [n^] base
+                [n^] sr
 n^/n^@          [(@)] base
 n^/n^#_         [n^#] is
 n/_n            [n] base
+                [n] sr
                 [n;] ro
                 [n] zh
 n/n_            [n] base
+                [n] sr
                 [n;] ro
                 [n] zh
 n/n@            [(@)] base
@@ -342,12 +389,18 @@ nn/inn          [(i)] base
 n/nj            [n] base
                 [n.] base
                 [n^] base
+                [n] sr
+                [n^] sr
                 [n;] ro
+n^/nj_sr.wav    [N] sr
+                [n^] sr
 nn/_nn          [N] base
                 [N] en
+                [N] sr
                 [N] zh
 nn/nn_          [N] base
                 [N] en
+                [N] sr
                 [N] zh
 nn/nn@          [(@)] base
 nn/nn#_         [N#] is
@@ -355,12 +408,15 @@ nn/nna          [(a)] base
 nn/nne          [(e)] base
 nn/nni          [(i)] base
 nn/nnj          [N] base
+                [N] sr
 nn/nno          [(o)] base
 nn/nnu          [(u)] base
 n^/n^o          [(o)] base
 n/no            [(o)] base
 n/_nr           [n.] base
 n/nr_           [n.] base
+n/n_sr.wav      [N] sr
+                [n] sr
 n^/n^u          [(u)] base
 n/nu            [(u)] base
 r2/_r2          [r-] base
@@ -382,12 +438,18 @@ r3/r_i          [(i)] base
 r3/r_n          [r/] base
                 [r/] ru
 r3/r_o          [(o)] base
+r3/r_sr.wav     [R] sr
+                [r*] sr
+                [r-] sr
 r3/r_trill      [R2] base
                 [R3] base
                 [r] af
                 [r] cy
                 [r] nl
                 [R] sk
+                [R] sr
+                [r*] sr
+                [r-] sr
                 [x] pt
 r3/r_trill2     [R] base
                 [R] hr
@@ -467,6 +529,8 @@ r/xr            [(@)] base
                 [(u)] base
 ufric/ch        [C] base
                 [C2] de
+ufric/ch_sr     [h] sr
+                [x] sr
 ufric/f         [f] base
                 [pF] de
                 [f;] ro
@@ -474,41 +538,6 @@ ufric/f         [f] base
                 [f] zh
 ufric/f_        [f] base
                 [f;] ro
-ufric/h_        [h] base
-                [h] fi
-                [H] hi
-                [h] hi
-                [<h>] la
-ufric/h@        [h] base
-                [h] fi
-                [H] hi
-                [h] hi
-                [th] hi
-                [<h>] la
-ufric/ha        [h] base
-                [h] fi
-                [H] hi
-                [h] hi
-                [<h>] la
-ufric/he        [h] base
-                [h] fi
-                [H] hi
-                [h] hi
-                [<h>] la
-ufric/hi        [h] base
-                [h] fi
-                [H] hi
-                [h] hi
-                [<h>] la
-ufric/ho        [h] base
-                [H] hi
-                [h] hi
-                [<h>] la
-ufric/hu        [h] base
-                [H] hi
-                [h] hi
-                [<h>] la
-ufric/hu_fi     [h] fi
 ufric/ll        [L] base
                 [l#] is
 ufric/s         [s] base
@@ -539,6 +568,9 @@ ufric/sh_pzd    [S;] base
 ufric/sh_pzd_   [S;] base
                 [Z;] base
 ufric/sh_rfx    [s.] base
+ufric/sh_sr.wav  [S] sr
+                [Z] sr
+                [dZ] sr
 ufric/s_pzd     [s;] base
                 [z;] base
                 [s;] ro
@@ -554,6 +586,8 @@ ufric/x2        [x2] af
                 [x2] nl
                 [x2] pt
 ufric/x_hr      [x] hr
+ufric/x_sr      [h] sr
+                [x] sr
 ustop/c         [c] base
 ustop/k         [k] base
                 [k] en
@@ -720,6 +754,7 @@ ustop/t_short   [t.] hi
                 [t] el
 ustop/tsh_pzd   [tS;] zh
 ustop/tsh_pzd_unasp  [tS;] zh
+ustop/tsh_sr.wav  [tS] sr
 ustop/ts_pzd    [tS;] base
                 [ts;] base
                 [ch] hi
@@ -728,8 +763,12 @@ ustop/ts_pzd_   [c] hi
                 [c] hu
 ustop/ts_pzd2   [c] hi
                 [c] hu
+ustop/t_sr      [d] sr
+                [t] sr
 ustop/ts_rfx    [ts.] zh
 ustop/ts_rfx_unasp  [ts.] zh
+ustop/ts_sr.wav  [tS;] sr
+                [dZ;] sr
 ustop/ts_unasp  [ts] zh
 ustop/t_unasp   [t] zh
 vdiph/0i        [OI] pt
@@ -1016,6 +1055,7 @@ voc/z_          [z] base
 voc/zh          [Z] base
                 [z.] base
                 [R^] sk
+                [Z] sr
                 [Z;] ro
 voc/zh_         [Z] base
                 [z.] base
@@ -1036,6 +1076,7 @@ vowel/@         [@] base
                 [@4] hi
                 [@] hr
 vowel/@-        [@-] base
+                [r*] hr
 vowel/&         [a] en_rp
                 [&] fi
                 [&:] hi
@@ -1083,7 +1124,6 @@ vowel/a         [a] en_n
                 [a:] sk
                 [A] hr
                 [a] hr
-                [a] sr
                 [a] it
                 [a:] la
                 [a] zh

@@ -34,6 +34,7 @@
 //#define OPT_FORMAT         // format the text and write formatted copy to Log file 
 //#define OUTPUT_FORMAT
 
+extern void Write4Bytes(FILE *f, int value);
 int HashDictionary(const char *string);
 
 static FILE *f_log = NULL;
@@ -1378,8 +1379,8 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 				}
 				if(replace1 != 0)
 				{
-					fwrite(&replace1,1,4,f_out);
-					fwrite(&replace2,1,4,f_out);
+					Write4Bytes(f_out,replace1);   // write as little-endian
+					Write4Bytes(f_out,replace2);   // if big-endian, reverse the bytes in LoadDictionary()
 				}
 			}
 			break;

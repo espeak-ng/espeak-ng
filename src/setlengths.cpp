@@ -455,7 +455,7 @@ void Translator::CalcLengths()
 			{
 				len = langopts.length_mods0[next2->ph->length_mod *10+ next->ph->length_mod];
 
-				if((next->newword) && (langopts.word_gap & 0x4))
+				if((next->newword) && (langopts.word_gap & 0x20))
 				{
 					// consider as a pause + first phoneme of the next word
 					length_mod = (len + langopts.length_mods0[next->ph->length_mod *10+ 1])/2;

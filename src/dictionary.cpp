@@ -86,6 +86,21 @@ void strncpy0(char *to,const char *from, int size)
 	to[size-1] = 0;
 }
 
+#ifdef ARCH_BIG
+int reverse_word_bytes(int word)
+{//=============================
+	// reverse the order of bytes from little-endian to big-endian
+	int ix;
+	int word2 = 0;
+
+	for(ix=24; ix>=0; ix -= 8)
+	{
+		word2 |= (word >> ix) & 0xff;
+		word2 = word2 << 8;
+	}
+	return(word2);
+}
+#endif
 
 
 int LookupMnem(MNEM_TAB *table, char *string)
@@ -237,6 +252,15 @@ void Translator::InitGroups(void)
 				pw += 2;   // find the end of the replacement list, each entry is 2 words.
 			}
 			p = (char *)(pw+1);
+
+#ifdef ARCH_BIG
+			pw = (unsigned int *)langopts.replace_chars;
+			while(*pw != 0)
+			{
+				*pw = reverse_word_bytes(*pw);
+				pw++;
+			}
+#endif
 			continue;
 		}
 
@@ -1280,23 +1304,19 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 
 	if((ph = phoneme_tab[*p]) != NULL)
 	{
-		int gap = langopts.word_gap & 0xf00;
 
 		if(ph->type == phSTRESS)
 			ph = phoneme_tab[p[1]];
 
-		if(((gap) && (vowel_stress[1] >= 4) && (prev_stress >= 4)) || (langopts.word_gap & 0x8))
+#ifdef deleted
+		int gap = langopts.word_gap & 0x700;
+		if((gap) && (vowel_stress[1] >= 4) && (prev_stress >= 4))
 		{
 			/* two primary stresses together, insert a short pause */
-			if(gap == 0x0300)
-				*output++ = phonPAUSE;
-			else
-			if((gap == 0x0200) && (ph->type == phVOWEL))
-				*output++ = phonGLOTTALSTOP;
-			else
-				*output++ = phonPAUSE_SHORT;
+			*output++ = pause_phonemes[gap >> 8];
 		}
 		else
+#endif
 		if((langopts.vowel_pause & 0x30) && (ph->type == phVOWEL))
 		{
 			// word starts with a vowel

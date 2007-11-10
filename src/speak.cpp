@@ -221,12 +221,13 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 
 
 
-static void init_path(void)
-{//========================
+static void init_path(char *argv0)
+{//===============================
 #ifdef PLATFORM_WINDOWS
 	HKEY RegKey;
 	unsigned long size;
 	unsigned long var_type;
+	char *p;
 	char *env;
 	unsigned char buf[sizeof(path_home)-12];
 
@@ -234,9 +235,18 @@ static void init_path(void)
 	{
 		sprintf(path_home,"%s\\espeak-data",env);
 		if(GetFileLength(path_home) == -2)
-			return;   // an espeak-data directory exists 
+			return;   // an espeak-data directory exists in the directory specified by environment variable
 	}
 
+	strcpy(path_home,argv0);
+	if((p = strrchr(path_home,'\\')) != NULL)
+	{
+		strcpy(&p[1],"espeak-data");
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists in the same directory as the espeak program
+	}
+
+	// otherwise, look in the Windows Registry
 	buf[0] = 0;
 	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
 	size = sizeof(buf);
@@ -383,7 +393,7 @@ int main (int argc, char **argv)
 	option_multibyte = espeakCHARS_AUTO;  // auto
 	f_trans = stdout;
 
-	init_path();
+	init_path(argv[0]);
 
 #ifdef NEED_GETOPT
 	optind = 1;

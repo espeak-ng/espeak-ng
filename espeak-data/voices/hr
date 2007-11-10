@@ -1,6 +1,9 @@
 name croatian
 language hr
+language hbs
 gender male
+
+dictionary hbs
 
 // attributes towards !variant3
 pitch 81 120

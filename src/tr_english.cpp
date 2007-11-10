@@ -40,9 +40,7 @@ Translator_English::Translator_English() : Translator()
 	static const short stress_lengths2[8] = {182,140, 220,220, 0,0, 248,275};
 
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
-	langopts.vowel_pause = 0;
 	langopts.stress_rule = 0;
-	langopts.word_gap = 0;
 
 	langopts.numbers = 0x41 + NUM_ROMAN;
 }

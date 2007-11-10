@@ -254,11 +254,10 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 typedef struct {
-// bit0=don't link consonants with the next word
-// bit1=don't add linking phonemes
-// bit2=length of a final vowel doesn't depend on the next phoneme
+// bits0-2  separate words with (1=pause_vshort, 2=pause_short, 3=pause, 4=pause_long 5=[?] phonemme)
+// bit 3=don't use linking phoneme
 // bit4=longer pause before STOP, VSTOP,FRIC
-// bit8-11=separate words with adjacent stressed syllables with (1=pause, 2=long pausem 3=[?] phoneme)
+// bit5=length of a final vowel doesn't depend on the next phoneme
 	int word_gap;
 	int vowel_pause;
 	int stress_rule; // 1=first syllable, 2=penultimate,  3=last

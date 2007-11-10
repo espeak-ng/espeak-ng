@@ -27,7 +27,8 @@ phonemenumber 20 -      // syllabic consonant
 phonemenumber 21 _^_    //  Change language
 phonemenumber 22 _X1    // a language specific action
 phonemenumber 23 _|     // very short pause
-phonemenumber 24 t#     // reduced version of [t]
+phonemenumber 24 _::    // long pause
+phonemenumber 25 t#     // reduced version of [t]
 
 // The base phoneme table contains the utility phonemes, the consonants,
 // and a schwa.  The vowels are defined in the language specific phoneme
@@ -148,6 +149,7 @@ phoneme ?  // glottal stop
   starttype _ endtype _
   length 45
   lengthmod 5   // ??
+  beforenotvowel _  // change to pause_short
   nolink
 endphoneme
 
@@ -1109,13 +1111,13 @@ phoneme h
   vls glt apr
   length 100
   lengthmod 3
-  wave ufric/h_%70         // no vowel following
-  before (@) ufric/h@
-  before (a) ufric/ha
-  before (e) ufric/he
-  before (i) ufric/hi
-  before (o) ufric/ho
-  before (u) ufric/hu
+  wave h/h_%70         // no vowel following
+  before (@) h/h@
+  before (a) h/ha
+  before (e) h/he
+  before (i) h/hi
+  before (o) h/ho
+  before (u) h/hu
 endphoneme
 
 

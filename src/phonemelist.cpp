@@ -30,6 +30,7 @@
 #include "translate.h"
 
 
+const unsigned char pause_phonemes[8] = {0, phonPAUSE_VSHORT, phonPAUSE_SHORT, phonPAUSE, phonPAUSE_LONG, phonGLOTTALSTOP, phonPAUSE_LONG, phonPAUSE_LONG};
 
 
 int Translator::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
@@ -497,10 +498,6 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		{
 			int x;
 
-			if(langopts.word_gap & 1)
-			{
-				insert_ph = phonPAUSE_VSHORT;
-			}
 			if(langopts.vowel_pause && (ph->type != phPAUSE) && (next->type == phVOWEL))
 			{
 				if(langopts.vowel_pause & 0x04)
@@ -524,6 +521,11 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 					insert_ph = phonPAUSE_SHORT;
 				}
 			}
+
+			if((x = (langopts.word_gap & 0x7)) != 0)
+			{
+				insert_ph = pause_phonemes[x];
+			}
 		}
 
 		next2 = phoneme_tab[(plist2+2)->phcode];
@@ -540,7 +542,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 				}
 			}
 			else
-			if(((langopts.word_gap & 2)==0) || ((plist2+1)->sourceix == 0))
+			if(((langopts.word_gap & 8)==0) || ((plist2+1)->sourceix == 0))
 			{
 				// This phoneme can be linked to a following vowel by inserting a linking phoneme
 				if(next->type == phVOWEL)

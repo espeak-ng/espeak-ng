@@ -123,8 +123,6 @@ Translator *SelectTranslator(const char *name)
 
 			// 'diminished' is an unstressed final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10; 
-			tr->langopts.word_gap = 0;
-			tr->langopts.vowel_pause = 0;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
@@ -141,7 +139,7 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_de[8] = {150,130, 190,190,  0, 0, 260,275};
 			tr = new Translator();
 			tr->langopts.stress_rule = 0;
-			tr->langopts.word_gap = 0x2;   // don't use linking phonemes
+			tr->langopts.word_gap = 0x8;   // don't use linking phonemes
 			tr->langopts.vowel_pause = 0x30;
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			memcpy(tr->stress_lengths,stress_lengths_de,sizeof(tr->stress_lengths));
@@ -184,8 +182,6 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
-			tr->langopts.word_gap = 0;
-			tr->langopts.vowel_pause = 0;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
@@ -238,8 +234,6 @@ Translator *SelectTranslator(const char *name)
 			// stress last syllable if it doesn't end in vowel or "s" or "n"
 			// 'diminished' is an unstressed final syllable
 			tr->langopts.stress_flags = 0x200 | 0x6 | 0x10; 
-			tr->langopts.word_gap = 0;
-			tr->langopts.vowel_pause = 0;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
@@ -398,7 +392,6 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = 2;
-			tr->langopts.word_gap = 0;
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
@@ -449,7 +442,6 @@ SetLengthMods(tr,3);  // all equal
 			tr = new Translator();
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.word_gap = 0;
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.param[LOPT_DIERESES] = 1;
 			tr->langopts.param[LOPT_PREFIXES] = 1;
@@ -637,7 +629,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.word_gap = 0x4;   // length of a final vowel is less dependent on the next consonant
+			tr->langopts.word_gap = 0x20;   // length of a final vowel is less dependent on the next consonant
 			tr->langopts.vowel_pause = 4;
 			tr->letter_groups[0] = vowels_vi;
 //			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
@@ -650,7 +642,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('z','h'):
 	case L_zhy:
 		{
-			static const short stress_lengths_zh[8] = {220,150, 230,230, 230,0, 230,250};
+			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 230,250};
 			static const unsigned char stress_amps_zh[] = {22,16, 22,22, 22,22, 22,22 };
 
 			tr = new Translator;
@@ -663,7 +655,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
 			tr->langopts.ideographs = 1;
-			tr->langopts.word_gap = 0x5;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
+			tr->langopts.word_gap = 0x21;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 			if(name2 == L('z','h'))
 			{
 				tr->langopts.textmode = 1;
@@ -955,7 +947,6 @@ Translator_Afrikaans::Translator_Afrikaans() : Translator()
 
 	static const short stress_lengths2[8] = {170,140, 220,220,  0, 0, 250,270};
 	langopts.stress_rule = 0;
-	langopts.word_gap = 0;
 	langopts.vowel_pause = 0x30;
 	langopts.param[LOPT_DIERESES] = 1;
 	langopts.param[LOPT_PREFIXES] = 1;

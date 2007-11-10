@@ -1142,16 +1142,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
 		}
 
-		if((translator->langopts.word_gap & 1) || (translator->langopts.vowel_pause && (next->type == phVOWEL)))
-		{
-			// prevent word merging into next, make it look as though next is a pause
-			if((next->newword) && (next->type != phPAUSE))
-			{
-//				next_pause.ph = phoneme_tab[phonPAUSE];
-//				next = &next_pause;
-			}
-		}
-
 		EndAmplitude();
 
 		if(p->prepause > 0)

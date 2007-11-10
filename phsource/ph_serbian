@@ -1,9 +1,222 @@
-// include any phonemes which are different from those
-// which are inherited from the base language(s)
+// ufric/x_sr
+// ufric/ch_sr
+// ufric/sh_sr
+// ustop/t_sr
+// ustop/ts_sr
+// ustop/tsh_sr
+// r3/r_sr
+// m/m_sr
+// n/n_sr
+// n^/nj_sr
 
-phoneme a
-  vowel starttype (a) endtype (a)
-  length 160
-  formants vowel/a
-  reduceto &  4
+// This file inherits phonemes from ph_croatian
+// Only phonemes which differ from the inherited phonemes need
+// to be included here.
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_sr%50
+  before _ ustop/t_sr%35
+  switchvoicing d
+endphoneme
+
+
+phoneme d
+  vcd alv stop
+  vowelin f1=2  f2=1700 -300 300  f3=-100 80 amp=16
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/d_dnt+ustop/t_sr%50
+  before _ d/d_dnt+ustop/t_sr
+  before r d/d_dnt+ustop/t_sr%50
+  after _ d/d_dnt+ustop/t_sr
+  after @ d/d_dnt+ustop/t_sr
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+// This is for letter "h" at the beginning of a word
+phoneme x
+  vls vel frc
+  lengthmod 3
+  wave ufric/x_sr%70         // no vowel following
+  before (a) ufric/x_sr
+  before (e) ufric/ch_sr
+  before (i) ufric/ch_sr
+  before (o) ufric/x_sr
+  before (u) ufric/x_sr
+endphoneme
+
+
+// This is for letter "h" not at the beginning of  word
+phoneme h
+  vls vel frc
+  lengthmod 3
+  wave ufric/x_sr%70         // no vowel following
+  before (@) h/h@
+  before (a) ufric/x_sr
+  before (e) ufric/ch_sr
+  before (i) ufric/ch_sr
+  before (o) ufric/x_sr
+  before (u) ufric/x_sr
+endphoneme
+
+
+
+phoneme R
+  liquid
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  formants r3/r_trill+r3/r_sr.wav%65
+  after & r3/r_trill+r3/r_sr.wav
+  after e r3/r_trill+r3/r_sr.wav
+  after i r3/r_trill+r3/r_sr.wav
+  after o r3/r_trill+r3/r_sr.wav
+  after u r3/r_trill+r3/r_sr.wav
+  after y r3/r_trill+r3/r_sr.wav
+  trill
+  lengthmod 6
+endphoneme
+
+// This is "r" which doesn't follow a vowel
+phoneme r*
+  liquid
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  formants r3/r_trill+r3/r_sr.wav%65
+  trill
+  lengthmod 6
+endphoneme
+
+// This is "r" which doesn't have a vowel before or after it
+phoneme r-
+  liquid
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  formants r3/r_trill+r3/r_sr.wav%65
+  trill
+  lengthmod 6
+endphoneme
+
+
+
+phoneme dZ
+  vcd pla afr sibilant
+  vowelin f1=2  f2=2300 200 400  f3=100 80
+  vowelout f1=2  f2=2300 250 300  f3=100 80 brk
+  formants dzh/dzh+ufric/sh_sr.wav
+  before _ dzh/dzh+ufric/sh_sr.wav
+  after _ NULL
+  after @ dzh/dzh+ufric/sh_sr.wav
+  lengthmod 5
+  switchvoicing tS
+endphoneme
+
+
+phoneme dZ;
+  vcd pla afr sibilant palatal
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  formants dzh/dzh+ustop/ts_sr.wav
+  before _ dzh/dzh+ustop/ts_sr.wav
+  after _ NULL
+  after @ dzh/dzh+ustop/ts_sr.wav
+  lengthmod 5
+  switchvoicing tS;
+endphoneme
+
+
+phoneme tS
+  vls pla afr sibilant
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  lengthmod 2
+  wave ustop/tsh_sr.wav
+  before _ ustop/tsh_sr.wav
+  switchvoicing dZ
+endphoneme
+
+
+phoneme tS;
+  vls pal afr sibilant palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  lengthmod 2
+  wave ustop/ts_sr.wav
+  before _ ustop/ts_sr.wav
+  switchvoicing dZ;
+endphoneme
+
+
+phoneme Z
+  vcd pla frc sibilant
+  vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  formants voc/zh+ufric/sh_sr.wav
+  before _ voc/zh+ufric/sh_sr.wav
+  lengthmod 6
+  switchvoicing S
+endphoneme
+
+
+phoneme S
+  vls pla frc sibilant
+  vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  vowelout f1=0  f2=2100 100 300  f3=-100 80
+  length 100
+  lengthmod 3
+  wave ufric/sh_sr.wav
+  before _ ufric/sh_sr.wav
+  switchvoicing Z
+endphoneme
+
+
+phoneme m
+  vcd blb nasal
+  vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ m/_m+m/m_sr.wav
+  before _ m/m_+m/m_sr.wav
+  before (r) m/mj+m/m_sr.wav
+endphoneme
+
+
+phoneme n
+  vcd alv nasal
+  vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ n/_n+n/n_sr.wav
+  after n n/_n+n/n_sr.wav      // lengthen [nn]
+  before _ n/n_+n/n_sr.wav
+  before (r) n/nj+n/n_sr.wav
+endphoneme
+
+
+phoneme n^
+  vcd pal nasal palatal
+  vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ n^/_n^+n^/nj_sr.wav
+  before _ n^/n^_+n^/nj_sr.wav
+  before (r) n/nj+n^/nj_sr.wav
+endphoneme
+
+
+phoneme N
+  vcd vel nasal
+//  vowelout  brk
+  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  length 100
+  formants NULL
+  after _ nn/_nn+n/n_sr.wav
+  before _ nn/nn_+n/n_sr.wav
+  before (r) nn/nnj+n^/nj_sr.wav
+  lengthmod 8            // longer than 'n'
 endphoneme

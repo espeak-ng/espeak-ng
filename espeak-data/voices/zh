@@ -1,0 +1,29 @@
+name Mandarin test
+language zh
+gender male
+words 1
+
+//for some dialects
+
+//[en]: replace ng with n
+//[zh]: 无后鼻音，ng读成n
+//replace 0 N n
+
+//[en]: replace rfx consonants
+//[zh]: 无卷舌音，r读成l或z，er读成e
+//replace 0 ts.h tsh
+//replace 0 ts. ts
+//replace 0 s. s
+//replace 0 i. i[
+//replace 0 z. l
+//replace 0 z. z
+//replace 0 @r @
+
+//[en]: replace beginning n or l
+//[zh]: 不分nl，n读成l或l读成n
+//replace 2 n l
+//replace 2 l n
+
+//[en]: replace beginning w with v
+//[zh]: w读成v
+//replace 0 w  v

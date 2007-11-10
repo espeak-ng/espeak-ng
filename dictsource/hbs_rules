@@ -1,9 +1,15 @@
-// translation rules for Croatian
+
+// "hbs" is the ISO 639-3 code for Serbian/Croatian/Bosnian macrolanguage
 // This file is UTF-8 encoded
+
+//The next line gives a voice which is used to find a phoneme table to use to compile this dictionary
+//voice=hr
 
 // Conditional rules:
 // ?1  Croatian
-// ?2  Bosnian (Bosna and Hercegovina)
+// ?2  Serbian
+// ?3  Bosnian (Bosna and Hercegovina)
+// ?4  Serbian & Bosnian
 
 .group a
         a        a
@@ -34,7 +40,8 @@
         e        E
      j) e        e
         e (j     e
-    ._) exe      %ekse        // filetype
+     _) exe      %ekse        // filetype
+?2   _) exe      %eikse       // filetype
 
 .group f
         f        f
@@ -82,11 +89,12 @@
 .group q
         q        k
         qu       kv
+?2      qu       ku
 
 .group r
         r        R
      A) r (A     R
-     K) r (A     @-*
+     K) r (A     r*    // this phoneme expands to [@-*]
         rr       R
         r (_     R
 
@@ -140,7 +148,7 @@
         $        d'ol&R
 
         .        totSk&
-?2      .        tatSk&
+?4      .        tatSk&
         . (.     _:
    \.)  .
 
@@ -179,7 +187,7 @@
 	μ	m'i
 	ν	n'i
 	ξ	ks'i
-	ο	'omIk@-*on_
+	ο	'omIkr*on_
 
 .group 0xcf   // Greek letters
 
@@ -195,6 +203,6 @@
 	ψ	ps'i
 	ω	'omeg&
 	ώ	'omeg&||t'onos
-	ό	'omIk@-*on||t'onos
+	ό	'omIkr*on||t'onos
 
 

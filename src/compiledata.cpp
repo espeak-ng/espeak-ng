@@ -2072,11 +2072,15 @@ wxString CompileAllDictionaries()
 	int err;
 	int errors = 0;
 	int dict_count = 0;
+	FILE *f_in;
 	FILE *log;
 	FILE *f_phused;
 	char dictname[80];
 	char fname_log[sizeof(path_dsource)+20];
 	char save_voice_name[80];
+	char path[sizeof(path_home)+40];       // path_dsource+20
+	char buf[200];
+	char voicename[80];
 
 	if(!wxDirExists(path_dictsource))
 	{
@@ -2121,8 +2125,38 @@ wxString CompileAllDictionaries()
 		dictstr = fname.GetName().BeforeLast('_');
 		strcpy(dictname,dictstr.mb_str(wxConvLocal));
 		dict_count++;
+		strcpy(voicename,dictname);
 
-		LoadVoice(dictname,0);
+		// read the *_rules file to see if a phoneme table is specified though a voice name
+		sprintf(path,"%s%s_rules",path_dsource,dictname);
+		if((f_in = fopen(path,"r")) != NULL)
+		{
+			unsigned int ix;
+			unsigned int c;
+
+			for(ix=0; ix<20; ix++)
+			{
+				if(fgets(buf,sizeof(buf),f_in) == NULL)
+					break;
+
+				if(memcmp(buf,"//voice=",8)==0)
+				{
+					for(ix=0; ix<sizeof(voicename); ix++)
+					{
+						if(isspace(c = buf[ix+8]))
+						{
+							break;
+						}
+						voicename[ix] = c;
+					}
+					voicename[ix] = 0;
+					break;
+				}
+			}
+			fclose(f_in);
+		}
+
+		LoadVoice(voicename,0);
 
 		if((err = CompileDictionary(path_dsource, dictname,log,NULL)) > 0)
 		{

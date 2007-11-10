@@ -233,26 +233,26 @@ phoneme h        // use with voiced aspirated conants [bh] [dh] etc
   vls glt apr
   length 100
   lengthmod 3
-  wave ufric/h_%70         // no vowel following
-  before (@) ufric/h@+35
-  before (a) ufric/ha+35
-  before (e) ufric/he+35
-  before (i) ufric/hi+35
-  before (o) ufric/ho+35
-  before (u) ufric/hu+35
+  wave h/h_%70         // no vowel following
+  before (@) h/h@+35
+  before (a) h/ha+35
+  before (e) h/he+35
+  before (i) h/hi+35
+  before (o) h/ho+35
+  before (u) h/hu+35
 endphoneme
 
 phoneme H       // use for full "h"
   vls glt apr
   length 100
   lengthmod 3
-  wave ufric/h_%70         // no vowel following
-  before (@) ufric/h@
-  before (a) ufric/ha
-  before (e) ufric/he
-  before (i) ufric/hi
-  before (o) ufric/ho
-  before (u) ufric/hu
+  wave h/h_%70         // no vowel following
+  before (@) h/h@
+  before (a) h/ha
+  before (e) h/he
+  before (i) h/hi
+  before (o) h/ho
+  before (u) h/hu
 endphoneme
 
 
@@ -345,7 +345,7 @@ phoneme th        // dental variant of /t/ Same as [t] for now
   vowelin f1=0  f2=1500 -300 300  f3=-100 80
   vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_hi%50+ufric/h@
+  wave  ustop/t_hi%50+h/h@
   switchvoicing d
 endphoneme
 
