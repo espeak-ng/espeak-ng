@@ -203,6 +203,7 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 {//=====================================================
 	int c;
 	char *p;
+	const char *p2;
 	int acc;
 	int prev;
 	int value;
@@ -219,10 +220,10 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 
 	while((c = *word++) != ' ')
 	{
-		if((p = strchr(roman_numbers,c)) == NULL)
+		if((p2 = strchr(roman_numbers,c)) == NULL)
 			return(0);
 
-		value = roman_values[p - roman_numbers];
+		value = roman_values[p2 - roman_numbers];
 
 		if((prev==5) || (prev==50) || (prev==500))
 		{

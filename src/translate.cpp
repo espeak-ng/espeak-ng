@@ -371,6 +371,13 @@ int IsAlpha(unsigned int c)
 	return(0);
 }
 
+int IsDigit09(unsigned int c)
+{//=========================
+	if((c >= 0) && (c <= 9))
+		return(1);
+	return(0);
+}
+
 int IsDigit(unsigned int c)
 {//========================
 	if(iswdigit(c))
@@ -1770,7 +1777,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 		prev_out2 = prev_out;
 		utf8_in(&prev_out,&sbuf[ix-1],1);   // prev_out = sbuf[ix-1];
 
-		if(langopts.tone_numbers && isdigit(prev_out) && IsAlpha(prev_out2))
+		if(langopts.tone_numbers && IsDigit09(prev_out) && IsAlpha(prev_out2))
 		{
 			// tone numbers can be part of a word, consider them as alphabetic
 			prev_out = 'a';
@@ -1864,7 +1871,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			// speak as words
 
 #ifdef deleted
-if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out))
+if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_out))
 {
 	// TESTING, explicit indication of stressed syllable by /2 after the word
 	word_mark = next_in-'0';
@@ -1892,7 +1899,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			{
 				if(IsAlpha(prev_out))
 				{
-					if(langopts.tone_numbers && isdigit(c) && !isdigit(next_in))
+					if(langopts.tone_numbers && IsDigit09(c) && !IsDigit09(next_in))
 					{
 						// allow a tone number as part of the word
 					}
@@ -2091,7 +2098,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			else
 			if(iswdigit(c))
 			{
-				if(langopts.tone_numbers && IsAlpha(prev_out) && !isdigit(next_in))
+				if(langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in))
 				{
 				}
 				else
@@ -2211,6 +2218,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			continue;
 
 
+		// digits should have been converted to Latin alphabet ('0' to '9')
 		word = pw = &sbuf[words[ix].start];
 		for(n_digits=0; iswdigit(word[n_digits]); n_digits++);  // count consecutive digits
 		if((n_digits > 4) && (word[0] != '0'))

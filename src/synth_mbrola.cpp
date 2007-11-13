@@ -521,6 +521,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 #else
 //	fprintf(f_mbrola,";; v=%.2f\n",(float)(mbrola_control & 0xff)/16.0);   //  ;; v=  has no effect on mbrola
 #endif
+
 	for(phix=1; phix < n_phonemes; phix++)
 	{
 		mbr_buf[0] = 0;
@@ -674,7 +675,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 #ifdef USE_MBROLA_LIB
 	MbrolaSynth(NULL);
 #endif
-}  // end of SynthMbrola
+}  // end of MbrolaTranslate
 
 
 #ifdef TEST_MBROLA

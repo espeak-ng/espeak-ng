@@ -1,6 +1,6 @@
 phoneme @    //  Schwa
   vowel   starttype (@)  endtype (@)
-  formants vowel/@
+  formants vowel/@_hgh
   length 140
 endphoneme
 

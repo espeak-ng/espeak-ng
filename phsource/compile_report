@@ -1074,7 +1074,6 @@ vowel/@         [@] base
                 [@] en_rp
                 [V] cy
                 [@4] hi
-                [@] hr
 vowel/@-        [@-] base
                 [r*] hr
 vowel/&         [a] en_rp
@@ -1282,6 +1281,7 @@ vowel/@_fnt     [@2] hr
 vowel/@_hgh     [@] en_us
                 [@2] en_us
                 [@5] en_us
+                [@] hr
                 [@] no
 vowel/i         [i] base2
                 [i:] en_n

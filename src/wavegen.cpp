@@ -1762,11 +1762,12 @@ void Write4Bytes(FILE *f, int value)
 int OpenWaveFile(const char *path, int rate)
 /******************************************/
 {
+	// Set the length of 0x7fffffff for --stdout
+	// This will be changed to the correct length for -w (write to file)
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
 		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
-		2,0,0x10,0,'d','a','t','a',  0,0,0,0 };
-
+		2,0,0x10,0,'d','a','t','a',  0xff,0xff,0xff,0x7f};
 
 	if(path == NULL)
 		return(2);
@@ -1783,7 +1784,7 @@ int OpenWaveFile(const char *path, int rate)
 		fwrite(wave_hdr,1,24,f_wave);
 		Write4Bytes(f_wave,rate);
 		Write4Bytes(f_wave,rate * 2);
-		fwrite(&wave_hdr[32],1,8,f_wave);
+		fwrite(&wave_hdr[32],1,12,f_wave);
 		return(0);
 	}
 	return(1);
@@ -1862,8 +1863,6 @@ int WavegenFill(int fill_zeros)
 	{
 		if(WcmdqUsed() <= 0)
 		{
-#define echo2
-#ifdef echo2
 			if(echo_complete > 0)
 			{
 				// continue to play silence until echo is completed
@@ -1871,7 +1870,6 @@ int WavegenFill(int fill_zeros)
 				if(resume == 1)
 					return(0);  // not yet finished
 			}
-#endif
 
 			if(fill_zeros)
 			{
