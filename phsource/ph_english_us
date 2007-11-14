@@ -89,7 +89,7 @@ endphoneme
 
 phoneme I
   vowel  starttype (i) endtype (i)
-  length 120
+  length 150
   formants vwl_en_us/ii
   linkout ;
 endphoneme
@@ -98,7 +98,7 @@ endphoneme
 phoneme I2
   vowel  starttype (i)  endtype (i)
   unstressed
-  length 120
+  length 150
   formants vwl_en_us/ii
   linkout ;
 endphoneme
@@ -164,7 +164,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype (i)  endtype (i)
-  length 160
+  length 170
   formants vowel/i_6
   linkout ;
 endphoneme
@@ -236,8 +236,8 @@ endphoneme
 phoneme eI
   vowel  starttype (e)  endtype (i)
   length 220
-//  formants vdiph/eei_2
-  formants vwl_en_us/ei
+  formants vdiph2/ei_4
+//  formants vwl_en_us/ei
 endphoneme
 
 

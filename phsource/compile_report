@@ -782,6 +782,7 @@ vdiph2/e@       [3:] en_sc
                 [e@] en_wi
 vdiph2/ea       [ea] ro
 vdiph2/ei_3     [i:] en_wm
+vdiph2/ei_4     [eI] en_us
 vdiph2/eo       [eo] ro
 vdiph2/e[u      [e[u] ro
 vdiph2/i@       [i@] en_n
@@ -1609,7 +1610,6 @@ vwl_en_us/ai@   [aI@] en_us
 vwl_en_us/ar    [A:] en_us
                 [A@] en_us
 vwl_en_us/ee    [E] en_us
-vwl_en_us/ei    [eI] en_us
 vwl_en_us/er    [e@] en_us
 vwl_en_us/ii    [I] en_us
                 [I2] en_us
