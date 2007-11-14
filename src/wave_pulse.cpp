@@ -1,0 +1,882 @@
+/***************************************************************************
+ *   Copyright (C) 2007, Gilles Casse <gcasse@oralux.org>                  *
+ *   eSpeak driver for PulseAudio                                          *
+ *   based on the XMMS PulseAudio Plugin                                   *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 3 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write to the                         *
+ *   Free Software Foundation, Inc.,                                       *
+ *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
+ ***************************************************************************/
+// TBD:
+// * ARCH_BIG
+// * uint64? a_timing_info.read_index
+// * prebuf,... size?
+// * 0.9.6: pb pulse_free using tlength=8820 (max size never returned -> tlength=10000 ok, but higher drain).
+//
+#include "speech.h"
+
+#ifdef USE_ASYNC
+// This source file is only used for asynchronious modes
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+#include <sys/time.h>
+#include <time.h>
+#include <pulse/pulseaudio.h>
+
+#ifndef PLATFORM_WINDOWS
+#include <unistd.h>
+#endif
+#include "wave.h"
+#include "debug.h"
+
+//<Definitions
+
+enum {ONE_BILLION=1000000000};
+
+#ifdef USE_PULSEAUDIO
+
+
+static t_wave_callback* my_callback_is_output_enabled=NULL;
+
+#define SAMPLE_RATE 22050
+#define FRAMES_PER_BUFFER 512
+#define BUFFER_LENGTH (SAMPLE_RATE*2*sizeof(uint16_t))
+#define THRESHOLD (BUFFER_LENGTH/5)
+
+#define ESPEAK_FORMAT PA_SAMPLE_S16LE
+#define ESPEAK_CHANNEL 1
+
+
+static pa_context *context = NULL;
+static pa_stream *stream = NULL;
+static pa_threaded_mainloop *mainloop = NULL;
+
+static pa_cvolume volume;
+static int volume_valid = 0;
+
+static int do_trigger = 0;
+static uint64_t written = 0;
+static int time_offset_msec = 0;
+static int just_flushed = 0;
+
+static int connected = 0;
+
+#define CHECK_DEAD_GOTO(label, warn) do { \
+if (!mainloop || \
+    !context || pa_context_get_state(context) != PA_CONTEXT_READY || \
+    !stream || pa_stream_get_state(stream) != PA_STREAM_READY) { \
+        if (warn) \
+            printf("Connection died: %s\n", context ? pa_strerror(pa_context_errno(context)) : "NULL"); \
+        goto label; \
+    }  \
+} while(0);
+
+#define CHECK_CONNECTED(retval) \
+do { \
+    if (!connected) return retval; \
+} while (0);
+
+//>
+
+
+// static void display_timing_info(const pa_timing_info* the_time)
+// {
+//   const struct timeval *tv=&(the_time->timestamp);
+
+//   SHOW_TIME("ti>");
+//   SHOW("ti> timestamp=%03d.%03dms\n",(int)(tv->tv_sec%1000), (int)(tv->tv_usec/1000));
+//   SHOW("ti> synchronized_clocks=%d\n",the_time->synchronized_clocks);
+//   SHOW("ti> sink_usec=%ld\n",the_time->sink_usec);
+//   SHOW("ti> source_usec=%ld\n",the_time->source_usec);
+//   SHOW("ti> transport=%ld\n",the_time->transport_usec);
+//   SHOW("ti> playing=%d\n",the_time->playing);
+//   SHOW("ti> write_index_corrupt=%d\n",the_time->write_index_corrupt);
+//   SHOW("ti> write_index=0x%lx\n",the_time->write_index);
+//   SHOW("ti> read_index_corrupt=%d\n",the_time->read_index_corrupt);
+//   SHOW("ti> read_index=0x%lx\n",the_time->read_index);
+// }
+
+
+static void info_cb(struct pa_context *c, const struct pa_sink_input_info *i, int is_last, void *userdata) {
+  ENTER(__FUNCTION__);
+    assert(c);
+
+    if (!i)
+        return;
+
+    volume = i->volume;
+    volume_valid = 1;
+}
+
+static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata) {
+    pa_operation *o;
+  ENTER(__FUNCTION__);
+    
+    assert(c);
+
+    if (!stream ||
+        index != pa_stream_get_index(stream) ||
+        (t != (PA_SUBSCRIPTION_EVENT_SINK_INPUT|PA_SUBSCRIPTION_EVENT_CHANGE) &&
+         t != (PA_SUBSCRIPTION_EVENT_SINK_INPUT|PA_SUBSCRIPTION_EVENT_NEW)))
+        return;
+
+    if (!(o = pa_context_get_sink_input_info(c, index, info_cb, NULL))) {
+        printf("pa_context_get_sink_input_info() failed: %s\n", pa_strerror(pa_context_errno(c)));
+        return;
+    }
+    
+    pa_operation_unref(o);
+}
+
+static void context_state_cb(pa_context *c, void *userdata) {
+  ENTER(__FUNCTION__);
+    assert(c);
+
+    switch (pa_context_get_state(c)) {
+        case PA_CONTEXT_READY:
+        case PA_CONTEXT_TERMINATED:
+        case PA_CONTEXT_FAILED:
+            pa_threaded_mainloop_signal(mainloop, 0);
+            break;
+
+        case PA_CONTEXT_UNCONNECTED:
+        case PA_CONTEXT_CONNECTING:
+        case PA_CONTEXT_AUTHORIZING:
+        case PA_CONTEXT_SETTING_NAME:
+            break;
+    }
+}
+
+static void stream_state_cb(pa_stream *s, void * userdata) {
+  ENTER(__FUNCTION__);
+    assert(s);
+
+    switch (pa_stream_get_state(s)) {
+
+        case PA_STREAM_READY:
+        case PA_STREAM_FAILED:
+        case PA_STREAM_TERMINATED:
+            pa_threaded_mainloop_signal(mainloop, 0);
+            break;
+
+        case PA_STREAM_UNCONNECTED:
+        case PA_STREAM_CREATING:
+            break;
+    }
+}
+
+static void stream_success_cb(pa_stream *s, int success, void *userdata) {
+  ENTER(__FUNCTION__);
+    assert(s);
+
+    if (userdata)
+        *(int*) userdata = success;
+    
+    pa_threaded_mainloop_signal(mainloop, 0);
+}
+
+static void context_success_cb(pa_context *c, int success, void *userdata) {
+  ENTER(__FUNCTION__);
+    assert(c);
+
+    if (userdata)
+        *(int*) userdata = success;
+    
+    pa_threaded_mainloop_signal(mainloop, 0);
+}
+
+static void stream_request_cb(pa_stream *s, size_t length, void *userdata) {
+  ENTER(__FUNCTION__);
+    assert(s);
+
+    pa_threaded_mainloop_signal(mainloop, 0);
+}
+
+static void stream_latency_update_cb(pa_stream *s, void *userdata) {
+  //  ENTER(__FUNCTION__);
+    assert(s);
+
+    pa_threaded_mainloop_signal(mainloop, 0);
+}
+
+static int pulse_free(void) {
+  ENTER(__FUNCTION__);
+    size_t l = 0;
+    pa_operation *o = NULL;
+
+    CHECK_CONNECTED(0);
+
+    SHOW("pulse_free: %s (call)\n", "pa_threaded_main_loop_lock");
+    pa_threaded_mainloop_lock(mainloop);
+    CHECK_DEAD_GOTO(fail, 1);
+
+    if ((l = pa_stream_writable_size(stream)) == (size_t) -1) {
+        SHOW("pa_stream_writable_size() failed: %s", pa_strerror(pa_context_errno(context)));
+        l = 0;
+        goto fail;
+    }
+
+    SHOW("pulse_free: %s (ret=%d)\n", "pa_stream_writable_size", l);
+
+    /* If this function is called twice with no pulse_write() call in
+     * between this means we should trigger the playback */
+    if (do_trigger) {
+        int success = 0;
+
+	SHOW("pulse_free: %s (call)\n", "pa_stream_trigger");
+        if (!(o = pa_stream_trigger(stream, stream_success_cb, &success))) {
+            SHOW("pa_stream_trigger() failed: %s", pa_strerror(pa_context_errno(context)));
+            goto fail;
+        }
+        
+	SHOW("pulse_free: %s (call)\n", "pa_threaded_main_loop");
+        while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
+            CHECK_DEAD_GOTO(fail, 1);
+            pa_threaded_mainloop_wait(mainloop);
+        } 
+	SHOW("pulse_free: %s (ret)\n", "pa_threaded_main_loop");
+       
+        if (!success)
+            SHOW("pa_stream_trigger() failed: %s", pa_strerror(pa_context_errno(context)));
+    }
+    
+fail:
+    SHOW("pulse_free: %s (call)\n", "pa_operation_unref");
+    if (o)
+        pa_operation_unref(o);
+    
+    SHOW("pulse_free: %s (call)\n", "pa_threaded_main_loop_unlock");
+    pa_threaded_mainloop_unlock(mainloop);
+
+    do_trigger = !!l;
+    SHOW("pulse_free: %d (ret)\n", (int)l);
+    return (int) l;
+}
+
+static int pulse_playing(const pa_timing_info *the_timing_info) {
+  ENTER(__FUNCTION__);
+    int r = 0;
+    const pa_timing_info *i;
+
+    assert(the_timing_info);
+
+    CHECK_CONNECTED(0);
+    
+    pa_threaded_mainloop_lock(mainloop);
+
+    for (;;) {
+        CHECK_DEAD_GOTO(fail, 1);
+
+        if ((i = pa_stream_get_timing_info(stream)))
+	  {
+            break;        
+	  }
+        if (pa_context_errno(context) != PA_ERR_NODATA) {
+            SHOW("pa_stream_get_timing_info() failed: %s", pa_strerror(pa_context_errno(context)));
+            goto fail;
+        }
+
+        pa_threaded_mainloop_wait(mainloop);
+    }
+
+    r = i->playing;
+    memcpy((void*)the_timing_info, (void*)i, sizeof(pa_timing_info));
+
+    //    display_timing_info(i);
+
+fail:
+    pa_threaded_mainloop_unlock(mainloop);
+
+    return r;
+}
+
+
+// static void pulse_flush(int time) {
+//   ENTER(__FUNCTION__);
+//     pa_operation *o = NULL;
+//     int success = 0;
+
+//     CHECK_CONNECTED();
+
+//     pa_threaded_mainloop_lock(mainloop);
+//     CHECK_DEAD_GOTO(fail, 1);
+
+//     if (!(o = pa_stream_flush(stream, stream_success_cb, &success))) {
+//         SHOW("pa_stream_flush() failed: %s", pa_strerror(pa_context_errno(context)));
+//         goto fail;
+//     }
+    
+//     while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
+//         CHECK_DEAD_GOTO(fail, 1);
+//         pa_threaded_mainloop_wait(mainloop);
+//     }
+
+//     if (!success)
+//         SHOW("pa_stream_flush() failed: %s", pa_strerror(pa_context_errno(context)));
+    
+//     written = (uint64_t) (((double) time * pa_bytes_per_second(pa_stream_get_sample_spec(stream))) / 1000);
+//     just_flushed = 1;
+//     time_offset_msec = time;
+    
+// fail:
+//     if (o)
+//         pa_operation_unref(o);
+    
+//     pa_threaded_mainloop_unlock(mainloop);
+// }
+
+
+static void pulse_write(void* ptr, int length) {
+  ENTER(__FUNCTION__);
+
+
+  SHOW("pulse_write > length=%d\n", length);
+
+    CHECK_CONNECTED();
+
+    pa_threaded_mainloop_lock(mainloop);
+    CHECK_DEAD_GOTO(fail, 1);
+
+    if (pa_stream_write(stream, ptr, length, NULL, PA_SEEK_RELATIVE, (pa_seek_mode_t)0) < 0) {
+        SHOW("pa_stream_write() failed: %s", pa_strerror(pa_context_errno(context)));
+        goto fail;
+    }
+    
+    do_trigger = 0;
+    written += length;
+
+fail:
+    
+    pa_threaded_mainloop_unlock(mainloop);
+}
+
+static void drain(void) {
+    pa_operation *o = NULL;
+    int success = 0;
+
+    ENTER(__FUNCTION__);
+
+    CHECK_CONNECTED();
+
+    pa_threaded_mainloop_lock(mainloop);
+    CHECK_DEAD_GOTO(fail, 0);
+
+    SHOW_TIME("pa_stream_drain (call)");
+    if (!(o = pa_stream_drain(stream, stream_success_cb, &success))) {
+        printf("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
+        goto fail;
+    }
+    
+    SHOW_TIME("pa_threaded_mainloop_wait (call)");
+    while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
+        CHECK_DEAD_GOTO(fail, 1);
+        pa_threaded_mainloop_wait(mainloop);
+    }
+    SHOW_TIME("pa_threaded_mainloop_wait (ret)");
+
+    if (!success)
+        printf("pa_stream_drain() failed: %s\n", pa_strerror(pa_context_errno(context)));
+    
+fail:
+    SHOW_TIME("pa_operation_unref (call)");
+    if (o)
+        pa_operation_unref(o);
+ 
+    pa_threaded_mainloop_unlock(mainloop);
+    SHOW_TIME("drain (ret)");
+}
+
+
+static void pulse_close(void) {
+
+  ENTER(__FUNCTION__);
+    
+  drain();
+
+  connected = 0;
+
+  if (mainloop)
+    pa_threaded_mainloop_stop(mainloop);
+
+  if (stream) {
+    SHOW_TIME("pa_stream_disconnect (call)");
+    pa_stream_disconnect(stream);
+    pa_stream_unref(stream);
+    stream = NULL;
+  }
+
+  if (context) {
+    SHOW_TIME("pa_context_disconnect (call)");
+    pa_context_disconnect(context);
+    pa_context_unref(context);
+    context = NULL;
+  }
+  
+  if (mainloop) {
+  SHOW_TIME("pa_threaded_mainloop_free (call)");
+    pa_threaded_mainloop_free(mainloop);
+    mainloop = NULL;
+  }
+  SHOW_TIME("pulse_close (ret)");
+  
+}
+
+
+static int pulse_open()
+{
+  ENTER(__FUNCTION__);
+    pa_sample_spec ss;
+    pa_operation *o = NULL;
+    int success;
+
+    assert(!mainloop);
+    assert(!context);
+    assert(!stream);
+    assert(!connected);
+
+    ss.format = ESPEAK_FORMAT;
+    ss.rate = SAMPLE_RATE;
+    ss.channels = ESPEAK_CHANNEL;
+
+    if (!pa_sample_spec_valid(&ss))
+      return false;
+
+/*     if (!volume_valid) { */
+    pa_cvolume_reset(&volume, ss.channels);
+    volume_valid = 1;
+/*     } else if (volume.channels != ss.channels) */
+/*         pa_cvolume_set(&volume, ss.channels, pa_cvolume_avg(&volume)); */
+
+    SHOW_TIME("pa_threaded_mainloop_new (call)");
+    if (!(mainloop = pa_threaded_mainloop_new())) {
+        printf("Failed to allocate main loop\n");
+        goto fail;
+    }
+
+    pa_threaded_mainloop_lock(mainloop);
+
+    SHOW_TIME("pa_context_new (call)");
+    if (!(context = pa_context_new(pa_threaded_mainloop_get_api(mainloop), "eSpeak"))) {
+      printf("Failed to allocate context\n");
+      goto unlock_and_fail;
+    }
+
+    pa_context_set_state_callback(context, context_state_cb, NULL);
+    pa_context_set_subscribe_callback(context, subscribe_cb, NULL);
+
+    SHOW_TIME("pa_context_connect (call)");
+    if (pa_context_connect(context, NULL, (pa_context_flags_t)0, NULL) < 0) {
+        printf("Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+
+    SHOW_TIME("pa_threaded_mainloop_start (call)");
+    if (pa_threaded_mainloop_start(mainloop) < 0) {
+        printf("Failed to start main loop");
+        goto unlock_and_fail;
+    }
+
+    /* Wait until the context is ready */
+    SHOW_TIME("pa_threaded_mainloop_wait");
+    pa_threaded_mainloop_wait(mainloop);
+
+    if (pa_context_get_state(context) != PA_CONTEXT_READY) {
+        printf("Failed to connect to server: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+
+    SHOW_TIME("pa_stream_new");
+    if (!(stream = pa_stream_new(context, "unknown", &ss, NULL))) {
+        printf("Failed to create stream: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+
+    pa_stream_set_state_callback(stream, stream_state_cb, NULL);
+    pa_stream_set_write_callback(stream, stream_request_cb, NULL);
+    pa_stream_set_latency_update_callback(stream, stream_latency_update_cb, NULL);
+
+
+
+    pa_buffer_attr a_attr;
+
+    // TBD
+    a_attr.maxlength=132300;
+    a_attr.tlength=8820; //88200
+    //    a_attr.tlength=10000; //88200
+    a_attr.prebuf=2200;
+    a_attr.minreq=880;
+    a_attr.fragsize=882;
+
+
+
+    SHOW_TIME("pa_connect_playback");
+    if (pa_stream_connect_playback(stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), &volume, NULL) < 0) {
+        printf("Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+
+    /* Wait until the stream is ready */
+    SHOW_TIME("pa_threaded_mainloop_wait");
+    pa_threaded_mainloop_wait(mainloop);
+
+    if (pa_stream_get_state(stream) != PA_STREAM_READY) {
+        printf("Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+
+    /* Now subscribe to events */
+    SHOW_TIME("pa_context_subscribe");
+    if (!(o = pa_context_subscribe(context, PA_SUBSCRIPTION_MASK_SINK_INPUT, context_success_cb, &success))) {
+        printf("pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+    
+    success = 0;
+    SHOW_TIME("pa_threaded_mainloop_wait");
+    while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
+        CHECK_DEAD_GOTO(fail, 1);
+        pa_threaded_mainloop_wait(mainloop);
+    }
+
+    if (!success) {
+        printf("pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+
+    pa_operation_unref(o);
+
+    /* Now request the initial stream info */
+    if (!(o = pa_context_get_sink_input_info(context, pa_stream_get_index(stream), info_cb, NULL))) {
+        printf("pa_context_get_sink_input_info() failed: %s", pa_strerror(pa_context_errno(context)));
+        goto unlock_and_fail;
+    }
+    
+    SHOW_TIME("pa_threaded_mainloop_wait 2");
+    while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
+        CHECK_DEAD_GOTO(fail, 1);
+        pa_threaded_mainloop_wait(mainloop);
+    }
+
+/*     if (!volume_valid) { */
+/*         printf("pa_context_get_sink_input_info() failed: %s", pa_strerror(pa_context_errno(context))); */
+/*         goto unlock_and_fail; */
+/*     } */
+
+    do_trigger = 0;
+    written = 0;
+    time_offset_msec = 0;
+    just_flushed = 0;
+    connected = 1;
+    //    volume_time_event = NULL;
+    
+    pa_threaded_mainloop_unlock(mainloop);
+    SHOW_TIME("pulse_open (ret true)");
+   
+    return true;
+
+unlock_and_fail:
+
+    if (o)
+        pa_operation_unref(o);
+    
+    pa_threaded_mainloop_unlock(mainloop);
+    
+fail:
+
+    pulse_close();
+
+    SHOW_TIME("pulse_open (ret false)");
+    
+    return false;
+
+
+
+}
+
+void wave_flush(void* theHandler)
+{
+  ENTER("wave_flush");
+
+//   if (my_stream_could_start)
+//     {
+// //       #define buf 1024
+// //       static char a_buffer[buf*2];
+// //       memset(a_buffer,0,buf*2);
+// //       wave_write(theHandler, a_buffer, buf*2);
+//       start_stream();
+//     }
+}
+
+
+
+//<wave_set_callback_is_output_enabled
+
+void wave_set_callback_is_output_enabled(t_wave_callback* cb)
+{
+  my_callback_is_output_enabled = cb;
+}
+
+//>
+//<wave_init
+
+void display_buffer()
+{
+
+  const pa_buffer_attr *a_attr = pa_stream_get_buffer_attr (stream);
+
+  if (a_attr)
+    {
+      SHOW("attr> maxlength=%ld\n",a_attr->maxlength);
+      SHOW("attr> tlength=%ld\n",a_attr->tlength);
+      SHOW("attr> prebuf=%ld\n",a_attr->prebuf);
+      SHOW("attr> minreq=%ld\n",a_attr->minreq);
+      SHOW("attr> fragsize=%ld\n",a_attr->fragsize);
+    }
+}
+
+void wave_init()
+{
+  ENTER("wave_init");
+
+  stream = NULL;
+
+  pulse_open();
+
+  display_buffer();
+
+}
+
+//>
+//<wave_open
+
+void* wave_open(char* the_api)
+{
+  ENTER("wave_open");
+  return((void*)1);
+}
+
+//>
+//<wave_write
+
+size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize)
+{
+  ENTER("wave_write");
+  size_t bytes_to_write = theSize;
+  char* aBuffer=theMono16BitsWaveBuffer;
+
+  assert(stream);
+
+  size_t aTotalFreeMem=0;
+
+  while (1) 
+    {
+      if (my_callback_is_output_enabled 
+	  && (0==my_callback_is_output_enabled()))
+	{
+	  SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
+	  return 0;
+	}
+
+      aTotalFreeMem = pulse_free();
+      if (aTotalFreeMem >= bytes_to_write)
+	{
+	  SHOW("wave_write > aTotalFreeMem(%d) >= bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
+	  break;
+	}
+      SHOW("wave_write > wait: aTotalFreeMem(%d) < bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
+
+      // 500: threshold for avoiding to many calls to pulse_write
+      if (aTotalFreeMem>500)
+	{
+	  pulse_write(aBuffer, aTotalFreeMem);
+	  bytes_to_write -= aTotalFreeMem;
+	  aBuffer += aTotalFreeMem;
+	}
+
+      usleep(10000);
+    }
+
+  pulse_write(aBuffer, bytes_to_write);
+
+
+  SHOW_TIME("wave_write > LEAVE");
+
+  return theSize;
+}
+
+//>
+//<wave_close
+
+int wave_close(void* theHandler)
+{
+  SHOW_TIME("wave_close > ENTER");
+
+  drain();
+
+  return 0;
+}
+
+//>
+//<wave_is_busy
+
+int wave_is_busy(void* theHandler)
+{
+  SHOW_TIME("wave_is_busy");
+
+  pa_timing_info a_timing_info;
+  int active = pulse_playing(&a_timing_info);
+  SHOW("wave_is_busy: %d\n",active);
+  return active;
+}
+
+//>
+//<wave_terminate
+
+void wave_terminate()
+{
+  ENTER("wave_terminate");
+
+//   Pa_Terminate();
+
+  pulse_close();
+
+}
+
+//>
+//<wave_get_read_position, wave_get_write_position, wave_get_remaining_time
+
+uint32_t wave_get_read_position(void* theHandler)
+{
+  pa_timing_info a_timing_info;
+  pulse_playing(&a_timing_info);
+  SHOW("wave_get_read_position > %lx\n", a_timing_info.read_index);
+  return a_timing_info.read_index;
+}
+
+uint32_t wave_get_write_position(void* theHandler)
+{
+  pa_timing_info a_timing_info;
+  pulse_playing(&a_timing_info);
+  SHOW("wave_get_read_position > %lx\n", a_timing_info.write_index);
+  return a_timing_info.write_index;
+}
+
+int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+{
+  double a_time=0;
+
+  if (!time || !stream)
+    {
+      SHOW("event get_remaining_time> %s\n","audio device not available");	  
+      return -1;
+    }
+
+  pa_timing_info a_timing_info;
+  pulse_playing(&a_timing_info);
+
+  if (sample > a_timing_info.read_index)
+    {
+      // TBD: take in account time suplied by portaudio V18 API
+      a_time = sample - a_timing_info.read_index;
+      a_time = 0.5 + (a_time * 1000.0) / SAMPLE_RATE;
+    }
+  else
+    {
+      a_time = 0;
+    }
+
+  SHOW("wave_get_remaining_time > sample=%d, time=%d\n", sample, (uint32_t)a_time);
+
+  *time = (uint32_t)a_time;
+
+  return 0;
+}
+
+//>
+//<wave_test_get_write_buffer
+
+void *wave_test_get_write_buffer()
+{
+  return NULL;
+}
+
+
+#else
+// notdef USE_PULSEAUDIO
+
+
+void wave_init() {}
+void* wave_open(char* the_api) {return (void *)1;}
+size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
+int wave_close(void* theHandler) {return 0;}
+int wave_is_busy(void* theHandler) {return 0;}
+void wave_terminate() {}
+uint32_t wave_get_read_position(void* theHandler) {return 0;}
+uint32_t wave_get_write_position(void* theHandler) {return 0;}
+void wave_flush(void* theHandler) {}
+typedef int (t_wave_callback)(void);
+void wave_set_callback_is_output_enabled(t_wave_callback* cb) {}
+extern void* wave_test_get_write_buffer() {return NULL;}
+
+int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+{
+	if (!time) return(-1);
+	*time = (uint32_t)0;
+	return 0;
+}
+
+#endif  // of USE_PORTAUDIO
+
+//>
+//<clock_gettime2, add_time_in_ms
+
+void clock_gettime2(struct timespec *ts)
+{
+  struct timeval tv;
+
+  if (!ts)
+    {
+      return;
+    }
+
+  assert (gettimeofday(&tv, NULL) != -1);
+  ts->tv_sec = tv.tv_sec;
+  ts->tv_nsec = tv.tv_usec*1000;
+}
+
+void add_time_in_ms(struct timespec *ts, int time_in_ms)
+{
+  if (!ts)
+    {
+      return;
+    }
+
+  uint64_t t_ns = (uint64_t)ts->tv_nsec + 1000000 * (uint64_t)time_in_ms;
+  while(t_ns >= ONE_BILLION)
+    {
+      SHOW("event > add_time_in_ms ns: %d sec %Lu nsec \n", ts->tv_sec, t_ns);
+      ts->tv_sec += 1;
+      t_ns -= ONE_BILLION;	  
+    }
+  ts->tv_nsec = (long int)t_ns;
+}
+
+
+#endif   // USE_ASYNC
+
+//>

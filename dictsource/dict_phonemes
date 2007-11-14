@@ -250,9 +250,10 @@ x    z    Z    z;
 
 Dictionary zhy_dict
 
-a    aa   aai  aan  aau  ai   au   e    
-ei   eo   eoi  eu   i    iu   o    oe   
-oi   ong  ou   u    ui   yu   
+a    aa   aai  aan  aau  ai   ang  au   
+e    ei   eng  eo   eoi  eu   i    ing  
+iu   ng   o    oe   oen  oi   ong  ou   
+u    ui   ung  yu   
 
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
