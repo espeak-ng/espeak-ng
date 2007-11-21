@@ -529,18 +529,22 @@ static int LoadSoundFile(const char *fname, int index)
 		fname = fname2;
 	}
 	sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-	sprintf(command,"sox \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
-	if(system(command) < 0)
+	sprintf(command,"soxx \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
+	if(system(command) != 0)
 	{
+		// resample has failed, use the original file
 		fprintf(stderr,"Failed to resample: %s\n",command);
-		return(2);
+	}
+	else
+	{
+		fname = fname_temp;
 	}
 
-	length = GetFileLength(fname_temp);
-	f = fopen(fname_temp,"rb");
+	length = GetFileLength(fname);
+	f = fopen(fname,"rb");
 	if(f == NULL)
 	{
-		fprintf(stderr,"Can't read temp file: %s",fname_temp);
+		fprintf(stderr,"Can't read temp file: %s",fname);
 		return(3);
 	}
 

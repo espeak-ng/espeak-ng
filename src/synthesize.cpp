@@ -1040,7 +1040,7 @@ static void DoEmbedded(int &embix, int sourceix)
 					wcmdq[wcmdq_tail][0] = WCMD_WAVE;
 					wcmdq[wcmdq_tail][1] = soundicon_tab[value].length;
 					wcmdq[wcmdq_tail][2] = (long)soundicon_tab[value].data;
-					wcmdq[wcmdq_tail][3] = 0;   // 16 bit data
+					wcmdq[wcmdq_tail][3] = 0x1f00;   // 16 bit data, amp=32
 					WcmdqInc();
 				}
 			}

@@ -87,14 +87,21 @@ _roman  rum'eIns@
 
 // Place names
 
+bangladesh  baNglad'ES
 bethlehem   bEt_liEm
 brittanje   $2
+caledon     kalidOn
 ceylon      s@lOn
 china       S'ina
+galilea     x2al@l'i:a
 (graaff reinet) x2rA:f||r@n'Et
+griekeland  x2rik@lant
+israel      IsraI:l
 italië      it'A:li;@
 jerusalem   j@r'ysalEm
 kanada      kanad%a
+kenia       ki:nia
+kimberley   kimb@rli
 knysna      neIsna
 kongo       kONgu
 lesotho     l@sutu
@@ -126,10 +133,13 @@ annette     an'Et
 antoinette  antun'Et
 benjamin    bEndZ@m@n
 bester b'Est@r
+blomerus    blum'e@rWs
 botha       bo@ta
+bouwer      b@U@r
 breytenbach breIt@nbax2
 carl        kA:r@L
 cecilia     s@si:lia
+charl       SA:l
 charles     _^_EN
 charlie     tSA:li
 chopin      S%OpA~
@@ -149,7 +159,10 @@ du		$u
 (du plessis) du||pl@s'i
 (du preez)  d@||pr'e@
 (du toit)   d@||toI
+eksteen     $1
+elisabeth   il'isabEt
 elize       il'i:z
+elsabé      &ls@bi
 esegiël    is'e@x2i_@l
 estelle     %ist&l
 etienne     Eti@n
@@ -159,9 +172,12 @@ farao       fA:ro@
 ferreira    f@r&:r@
 fourie      fur'i
 francois    franSwa
+françois    frA~nsw'A:
 freud       frOId
+gabriël     x2A:bri@l
 george      _^_EN
 gerhard     x2&rart
+gouws       x2@Us
 grange      x2rA:nsi
 gustav      gustaf
 havenga     hA:f@Nx2a
@@ -169,15 +185,18 @@ haydn       hAId@n
 helena      hil'e@na
 hilde       hild@
 ilse 'ilz@
+ingrid      iNgr@d
 isabel      is@b&l
 jacques     ZA:k
 james       _^_EN
 jane        _^_EN
 Jean        ZA~n $capital
+joan        _^_EN
 joey        dZ@Ui
 john        _^_EN
 jordaan     $2
 josef       jo@s@f
+krige       krix2@
 langenhoven laN@nho@f@n
 lategan     lA:t@x2an
 le l@
@@ -189,11 +208,15 @@ louis       luI
 louise      luw'i:z
 louw l'@U
 mbeki       mbE:ki
+malan       mal'an
 malherbe      mal'&rb@
 marie       mA:ri
 marius      mA:riWs
+marlene     marl'e@:n
+marlise     marl'i:s
 martha      marta
 martin m'A:rt@n
+melanie     m@lA:ni
 michelle    miS'&l
 michiel $2
 miriam      mIri@m
@@ -216,21 +239,31 @@ rousseau    r@s@U
 roux r'u
 schalk sk'alk
 scheepers   ske@p@rs
+schmidt     Smit
 schoeman    skuman
+scholtz     skO:lts
 schoor      sko@r
 schutte     skWt@
+servaas     s@rfA:s
 shakespeare _^_EN
+stephan     ste@fan
+strauss     straUs
 tania       tanja
 telemann    te@l@man
 terblanche  t@rblA:nS
 theron tr'On
+toerien     $2
 viljoen     $2
 villiers    vIli@rs
+vincent     _^_EN
 violet      _^_EN $capital
 william     _^_EN
+yolande     jul'and@
+zyl         seIl
 marais      mar'E:
 mandela     mand'E:la
 celliers    sIlj'e@
+cilliers    sIlj'e@
 joubert     jub'&:r
 scarlatti   $2
 schalkwyk   skalkveIk
@@ -388,12 +421,16 @@ bv          beIf'o@rbe@lt $dot
 
 // main word list
 
+aandster      A:ntst&r
+aangaande     $2
 aanstaande    $2
 adagio        ad'A:dZi;%@U
 afkere        afke@r@
+agterstevoor  $4
 algaande      $2
 algehele      alx2@h,e@l@
 alles         al@s
+alom          al_'Om
 alreeds       $2
 alternatiewe  $4
 amen          A:mEn
@@ -452,6 +489,7 @@ frontaal      $2
 frontale      $2
 
 g'n           x2In
+gaandeweg     x2A:nd@v&x2
 garages       g@rA:dZ@s
 gawes         x2A:v@s
 gee	      x2e@
@@ -485,6 +523,7 @@ hoofsaaklik   $2
 idee          $2
 ignoreer      ix2no@r'e@r
 inagneming    @nax2ne@m@N
+indien        Indin $verb
 inkluis       $2
 intens @nt'Ens
 intensiteit   $4
@@ -495,8 +534,6 @@ jupiter       jupit@r
 kafee         kaf'e@
 kaviaar       kavi'A:r
 komaan        kOmA:n
-komberse      kOmb'&rs@
-kombers       kOmb'&rs
 kopiereg      kup'ir&x2
 kritiek       krIt'ik
 kulture       $2
@@ -510,7 +547,6 @@ lekkerste     l&k@rst@
 
 macaroni      makar'o@ni
 madame        mad'A:m
-makabere m%ak'A:b@r@
 maskering     mask'e@r@N $only
 meegee        me@x2e@
 memoriam      mEm'o@riam
@@ -539,6 +575,7 @@ netjies       nE:icis
 netjiese      nEicis@
 netsowel      nEtso@v&l
 nietemin      n'it@m@n
+nimmermeer    $1
 nobelprys     $2
 normale       nOrm'A:l@
 numeri        nWm@ri
@@ -595,7 +632,7 @@ rooipers      roIp&:rs
 roterende rut'e@r@nd@
 rukkerig      rWk@r@x2
 
-
+salute        sal'yt@
 samelewing    sA:m@l,e@v@N
 sedert        se@d@rt
 sektore       $2
@@ -617,6 +654,7 @@ stabiel       stab'il
 
 terdeë       $2
 terug         t@-rWx2
+tesaam        t@sA:m
 tesame        t@sA:m@
 tevrede       t@fre@d@
 tipes         tip@s
@@ -627,6 +665,7 @@ totsiens      $2
 
 uitdaging     YydA:x2@N
 uiteraard     Yyt@r_'A:rt
+uitermate     $3
 
 vaarwel       fA:rv'&l
 vakant        f%ak'ant
@@ -650,6 +689,7 @@ verse         f&:rs@
 vers          f&:rs
 verste        f&rst@
 verte         f&rt@
+vertes        f&rt@s
 via           via
 volheid       $1
 voluit        fOl_Yyt
@@ -670,3 +710,4 @@ weergalm      $2
 weerklink     $2
 weggewens     v&x2@v'E:ns
 welaf         v&l_af
+weleer        v&l_'e@r
