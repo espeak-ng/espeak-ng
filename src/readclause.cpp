@@ -1529,7 +1529,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		return(CLAUSE_COLON);
 
 	case SSML_SENTENCE:
-		if(ssml_sp->tag_type == SSML_SENTENCE)
+		if((ssml_sp != NULL) && (ssml_sp->tag_type == SSML_SENTENCE))
 		{
 			// new sentence implies end-of-sentence
 			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
@@ -1539,10 +1539,18 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 
 	case SSML_PARAGRAPH:
-		if((ssml_sp->tag_type == SSML_SENTENCE) || (ssml_sp->tag_type == SSML_PARAGRAPH))
+		if(ssml_sp != NULL)
 		{
-			// new paragraph implies end-of-sentence or end-of-paragraph
-			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
+			if(ssml_sp->tag_type == SSML_SENTENCE)
+			{
+				// new paragraph implies end-of-sentence or end-of-paragraph
+				voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
+			}
+			if(ssml_sp->tag_type == SSML_PARAGRAPH)
+			{
+				// new paragraph implies end-of-sentence or end-of-paragraph
+				voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE);
+			}
 		}
 		voice_change_flag |= GetVoiceAttributes(px, tag_type);
 		return(CLAUSE_PARAGRAPH + voice_change_flag);

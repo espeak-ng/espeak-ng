@@ -188,6 +188,7 @@ usa	$abbrev
 utc     $abbrev
 u.s     ju:'Es
 wwii	dVb@Lju:dVb@Lju:t'u:
+xxx	$abbrev		// not roman 30
 xy	$abbrev
 
 
@@ -1426,7 +1427,8 @@ project                        $verb
 promenade        pr0m@n'A:d
 pronoun          proUnaUn
 propaganda       pr0p@g'and@
-protegee         pr0t@dZeI
+protege          pr0t@ZeI
+protegee         pr0t@ZeI
 protest          proUtEst      $onlys
 protest                        $verb
 protocol         proUt@k0l
