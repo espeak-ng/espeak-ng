@@ -92,8 +92,13 @@ static unsigned char speed_lookup[290] = {
 	  15,  15,  14,  14,  13,	// 350
 	  13,  12,  12,  11,  11,	// 355
 	  10,  10,   9,   8,   8,	// 360
-	   7,   7,   6,   6,   5,	// 365
+	   7,   6,   5,   5,   4,	// 365
 };
+
+// speed_factor2 adjustments for speeds 370 to 390
+static unsigned char faster[] = {
+114,112,110,109,107,105,104,102,100,98, // 370-379
+96,94,92,90,88,85,83,80,78,75,72 }; //380-390
 
 static int speed1 = 130;
 static int speed2 = 121;
@@ -106,8 +111,9 @@ void SetSpeed(int control)
 	int x;
 	int s1;
 	int wpm;
+	int wpm2;
 
-	wpm = embedded_value[EMBED_S];
+	wpm2 = wpm = embedded_value[EMBED_S];
 	if(wpm > 369) wpm = 369;
 	if(wpm < 80) wpm = 80;
 
@@ -127,15 +133,23 @@ void SetSpeed(int control)
 		// these are used in synthesis file
 		s1 = (x * voice->speedf1)/256;
 		speed_factor1 = (256 * s1)/115;      // full speed adjustment, used for pause length
-if(speed_factor1 < 16)
-	speed_factor1 = 16;
+if(speed_factor1 < 15)
+	speed_factor1 = 15;
 		if(wpm >= 170)
 //			speed_factor2 = 100 + (166*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
-			speed_factor2 = 110 + (151*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+			speed_factor2 = 110 + (150*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
 		else
 			speed_factor2 = 128 + (128*s1)/130;  // = 215 at 170 wpm
+
+		if(wpm2 > 369)
+		{
+			if(wpm2 > 390)
+				wpm2 = 390;
+			speed_factor2 = faster[wpm2 - 370];
+		}
 	}
 
+	speed_min_sample_len = 450;
 }  //  end of SetSpeed
 
 
@@ -480,15 +494,15 @@ void Translator::CalcLengths()
 				length_mod *= speed3;
 
 			length_mod = length_mod / 128;
-//			if(length_mod < 24)
-//				length_mod = 24;     // restrict how much lengths can be reduced
-			if(length_mod < 9)
-				length_mod = 9;     // restrict how much lengths can be reduced
+//			if(length_mod < 9)
+//				length_mod = 9;     // restrict how much lengths can be reduced
+			if(length_mod < 8)
+				length_mod = 8;     // restrict how much lengths can be reduced
 
 			if(stress >= 7)
 			{
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
-				length_mod += 22;
+				length_mod += 20;
 			}
 			
 			length_mod = (length_mod * stress_lengths[stress])/128;

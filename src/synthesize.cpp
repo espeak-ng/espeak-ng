@@ -49,6 +49,7 @@ char mbrola_name[20];
 
 int speed_factor1;
 int speed_factor2;
+int speed_min_sample_len;
 
 static int  last_pitch_cmd;
 static int  last_amp_cmd;
@@ -220,6 +221,7 @@ static int DoSample2(int index, int which, int length_mod, int amp)
 	int length;
 	int length1;
 	int format;
+	int min_length;
 	int start=0;
 	long *q;
 	unsigned char *p;
@@ -247,11 +249,19 @@ static int DoSample2(int index, int which, int length_mod, int amp)
 
 
 	length = (length * speed_factor2)/256;
+	min_length = speed_min_sample_len;
+	if(format==0)
+		min_length *= 2;
+
+	if(length < min_length)
+		length = min_length;
+
 	if(length > length1)
 		length = length1;  // don't exceed wavefile length
 
 	if(format==0)
 		length /= 2;     // 2 byte samples
+
 
 	index += 4;
 

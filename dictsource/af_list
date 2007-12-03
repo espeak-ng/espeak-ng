@@ -41,7 +41,24 @@ w         ve@
 x         Eks
 y         eI
 z         zEd
-
+à         x2raf'Is?A:
+á         ak'yt?A:
+ä         de@lte@k@n?A:
+è         x2raf'Is?e@:
+é         ak'yt?e@:
+ê         kapi?e@:
+ë         de@lte@k@n?e@:
+ì         x2raf'Is?i
+í         ak'yt?i
+ï         de@lte@k@n?i
+ò         x2raf'Is?o@
+ó         ak'yt?o@
+ô         kapi?o@
+ö         de@lte@k@n?o@
+ù         x2raf'Is?y
+ú         ak'yt?y
+û         kapi?y
+ü         de@lte@k@n?y
 
 // numeric
 _0	'nWl
@@ -87,8 +104,10 @@ _roman  rum'eIns@
 
 // Place names
 
+asië        A:si@
 bangladesh  baNglad'ES
 bethlehem   bEt_liEm
+boekarest   bukarEst
 brittanje   $2
 caledon     kalidOn
 ceylon      s@lOn
@@ -100,8 +119,10 @@ israel      IsraI:l
 italië      it'A:li;@
 jerusalem   j@r'ysalEm
 kanada      kanad%a
+kanaän      kA:nA:an
 kenia       ki:nia
 kimberley   kimb@rli
+milaan      $2
 knysna      neIsna
 kongo       kONgu
 lesotho     l@sutu
@@ -117,6 +138,7 @@ stellenbosch st%&l@mbOs
 tunisië     $2
 turkye      $2
 upington    apiNt@n
+vesuvius    v@su:viWs
 worcester   v'ust@r
 zimbabwe    zI:mb'ab_wE
 
@@ -163,7 +185,7 @@ eksteen     $1
 elisabeth   il'isabEt
 elize       il'i:z
 elsabé      &ls@bi
-esegiël    is'e@x2i_@l
+eségiël    is'e@x2i_@l
 estelle     %ist&l
 etienne     Eti@n
 eugene      judZ'i:n
@@ -177,12 +199,15 @@ freud       frOId
 gabriël     x2A:bri@l
 george      _^_EN
 gerhard     x2&rart
+gloria      glO:ria
 gouws       x2@Us
 grange      x2rA:nsi
 gustav      gustaf
 havenga     hA:f@Nx2a
 haydn       hAId@n
 helena      hil'e@na
+herklaas    $1
+herman      $1
 hilde       hild@
 ilse 'ilz@
 ingrid      iNgr@d
@@ -196,8 +221,10 @@ joey        dZ@Ui
 john        _^_EN
 jordaan     $2
 josef       jo@s@f
+juanita     juan'ita
 krige       krix2@
 langenhoven laN@nho@f@n
+lasarus     lA:s@r%Ws
 lategan     lA:t@x2an
 le l@
 leandra     li'andra
@@ -208,6 +235,7 @@ louis       luI
 louise      luw'i:z
 louw l'@U
 mbeki       mbE:ki
+magdalena   $3
 malan       mal'an
 malherbe      mal'&rb@
 marie       mA:ri
@@ -217,9 +245,11 @@ marlise     marl'i:s
 martha      marta
 martin m'A:rt@n
 melanie     m@lA:ni
+meraai      m@rAI
 michelle    miS'&l
 michiel $2
 miriam      mIri@m
+mohammed    muh'am@t
 mostert     m'Ost@rt
 mozart      mo@tsart
 naomi       na_'o@mi
@@ -237,6 +267,7 @@ retief      r@tif
 ronel       run'&l
 rousseau    r@s@U
 roux r'u
+salomo      sA:l@mo@
 schalk sk'alk
 scheepers   ske@p@rs
 schmidt     Smit
@@ -427,6 +458,7 @@ aanstaande    $2
 adagio        ad'A:dZi;%@U
 afkere        afke@r@
 agterstevoor  $4
+agterweë      $3
 algaande      $2
 algehele      alx2@h,e@l@
 alles         al@s
@@ -450,7 +482,6 @@ beswil        bEsv@l
 bêre          b&:r@
 beskryf b@skr'eIf
 bestes        bEst@s
-betekenis     b@te@k@n@s
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
@@ -459,11 +490,15 @@ bostaande b'o@stA:nd@
 cabernet      kab@rn'eI
 camembert     kam@mb'&:r
 camouflage    kamufl'A:Z
+chemikalieë   $3
+
 dadelik       dA:d@lIk
 darem         dar@m
 derde         d&:rd@
 dekade        dEk'A:d@
+deurentyd     dy@r@nteIt
 deurgaans     $1
+deurkruis     $2
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
 dusver        dWsf&r
@@ -491,8 +526,7 @@ frontale      $2
 g'n           x2In
 gaandeweg     x2A:nd@v&x2
 garages       g@rA:dZ@s
-gawes         x2A:v@s
-gee	      x2e@
+gee           x2e@
 geen	      x2e@n
 gegewens      x2@x2e@v@ns
 geldelike     x2&ld@l@k@
@@ -513,6 +547,7 @@ hek           h&k
 hekke         h&k@
 helaas        he@l'A:s
 here          he@r@
+herrysenis    h&r'eIs@n@s
 hiernamaals   hi:rn'A:mA:ls
 hierso        hi:rsO
 hoera         hur'A:
@@ -520,6 +555,7 @@ hoewel        huv'&l
 hokaai        hOkAI
 hoofsaaklik   $2
 
+ibis          $1
 idee          $2
 ignoreer      ix2no@r'e@r
 inagneming    @nax2ne@m@N
@@ -571,6 +607,7 @@ nature        nat'yr@
 nalatigheid   nA:l'A:t@x2eIt
 namate        $2
 negeer        n@x2e@r
+negering      n@x2e@r@N
 netjies       nE:icis
 netjiese      nEicis@
 netsowel      nEtso@v&l
@@ -588,6 +625,7 @@ onderrig      On@r'Ix2 $verb
 ondersoek     $3 $verb
 onderweg      $3
 onderwerp     $3 $verb
+onderwyl      $3
 onderwyser    $3
 onding        $1
 ongeag        $1
@@ -605,6 +643,7 @@ onmin         $1
 oplaas        $2
 onraad        $1
 onrus         $1
+onvermoë      $1
 oorkom        $2
 oorleef       $2
 oorsee        $2
@@ -613,6 +652,7 @@ oorspronklike $2
 oorval        $2 $verb
 
 pandemonium   pand@m'o@niWm
+parate        par'A:t@
 parke         park@
 parkie        $1
 patriotisme   patri|ut'Ism@
@@ -622,20 +662,22 @@ persent       p@rsEnt
 petite        p@tit
 pinotage      pinut'A:Z
 pirouette     p@ru:'Et
-prakseer      $2
 
 reeds         re@ts
 retireer      r@t@re@:r
 retoriek      r@tur'ik
 rimpeling     rImp@l@N
+rinkink       $2
 rooipers      roIp&:rs
 roterende rut'e@r@nd@
 rukkerig      rWk@r@x2
 
 salute        sal'yt@
 samelewing    sA:m@l,e@v@N
-sedert        se@d@rt
+sanhedrin     sanh'e@dr@n
+sedertdien    $3
 sektore       $2
+sinagoge      s@n@x2o@x2@
 singenot      sInx2@nOt
 skares        skA:r@s
 skepsele      skEps@l@
@@ -657,7 +699,6 @@ terug         t@-rWx2
 tesaam        t@sA:m
 tesame        t@sA:m@
 tevrede       t@fre@d@
-tipes         tip@s
 toegee        tux2e@
 totale        tut'A:l@
 totsiens      $2
@@ -701,6 +742,7 @@ voormalige    fo@rm'A:l@x2@
 voorwaar      $2
 vorendag      $3
 vorige        fo@r@x2@
+voëlent       fo@@l_Ent
 vrek          fr&k
 
 waarskynlik   $2

@@ -67,42 +67,6 @@ endphoneme
 
 
 
-phoneme R
-  liquid
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
-  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
-  formants r3/r_trill+r3/r_sr.wav%65
-  after & r3/r_trill+r3/r_sr.wav
-  after e r3/r_trill+r3/r_sr.wav
-  after i r3/r_trill+r3/r_sr.wav
-  after o r3/r_trill+r3/r_sr.wav
-  after u r3/r_trill+r3/r_sr.wav
-  after y r3/r_trill+r3/r_sr.wav
-  trill
-  lengthmod 6
-endphoneme
-
-// This is "r" which doesn't follow a vowel
-phoneme r*
-  liquid
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
-  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
-  formants r3/r_trill+r3/r_sr.wav%65
-  trill
-  lengthmod 6
-endphoneme
-
-// This is "r" which doesn't have a vowel before or after it
-phoneme r-
-  liquid
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
-  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
-  formants r3/r_trill+r3/r_sr.wav%65
-  trill
-  lengthmod 6
-endphoneme
-
-
 
 phoneme dZ
   vcd pla afr sibilant
@@ -171,52 +135,3 @@ phoneme S
   switchvoicing Z
 endphoneme
 
-
-phoneme m
-  vcd blb nasal
-  vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
-  length 100
-  lengthmod 4
-  formants NULL
-  after _ m/_m+m/m_sr.wav
-  before _ m/m_+m/m_sr.wav
-  before (r) m/mj+m/m_sr.wav
-endphoneme
-
-
-phoneme n
-  vcd alv nasal
-  vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
-  length 100
-  lengthmod 4
-  formants NULL
-  after _ n/_n+n/n_sr.wav
-  after n n/_n+n/n_sr.wav      // lengthen [nn]
-  before _ n/n_+n/n_sr.wav
-  before (r) n/nj+n/n_sr.wav
-endphoneme
-
-
-phoneme n^
-  vcd pal nasal palatal
-  vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
-  length 100
-  lengthmod 4
-  formants NULL
-  after _ n^/_n^+n^/nj_sr.wav
-  before _ n^/n^_+n^/nj_sr.wav
-  before (r) n/nj+n^/nj_sr.wav
-endphoneme
-
-
-phoneme N
-  vcd vel nasal
-//  vowelout  brk
-  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
-  length 100
-  formants NULL
-  after _ nn/_nn+n/n_sr.wav
-  before _ nn/nn_+n/n_sr.wav
-  before (r) nn/nnj+n^/nj_sr.wav
-  lengthmod 8            // longer than 'n'
-endphoneme

@@ -373,7 +373,7 @@ int IsAlpha(unsigned int c)
 
 int IsDigit09(unsigned int c)
 {//=========================
-	if((c >= 0) && (c <= 9))
+	if((c >= '0') && (c <= '9'))
 		return(1);
 	return(0);
 }

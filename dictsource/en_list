@@ -602,6 +602,7 @@ commend          k@mEnd
 comment          k0mEnt
 commentary       k0m@ntrI2 
 committee        k@mItI2
+communique       k@mju:nIkeI
 community        k@mju:nItI2
 compat           k@mpat                // for compatible
 competed         k@mp'i:tId
@@ -2630,6 +2631,7 @@ also              $verbf
 already           O:lr,EdI2    $verbf $strend2
 
 not              ,n0t          $verbextend $only $strend
+not              n0t           $capital $abbrev   // don't spell "NOT"; speak it with stress
 (not have)       n0ta2v        $pastf $u1
 (not have)       n0thav        $pastf $atend
 (not have to)    ,n0thavt@5    $pastf $strend

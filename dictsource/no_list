@@ -49,16 +49,16 @@ _11       'Elle:v@2
 _12       t'u:lv
 _13       t@-*'Et:@n
 _14       fj'Urt@n
-_15       f'e:mt@n
-_16       s'e:kst@n
+_15       f'Emt@n
+_16       s'Ekst@n
 _17       s'yt:@n
 _18       'At:@n
 _19       n'It:@n
 _2X       s;'u-:@2
 _3X       t@-*'Et:i:
 _4X       f'Y:rti:
-_5X       f'e:mti:
-_6X       s'e:ksti:
+_5X       f'Emti:
+_6X       s'Eksti:
 _7X       s'yt:i:
 _8X       'Ot:i:
 _9X       n'It:i:
@@ -71,6 +71,40 @@ _1M2      'e:n||m'Illi:;,u:n
 
 _0and     u:g
 _dpt      kOmmA
+
+// punctuation and symbols
+//========================
+
+_!	u-:t@-*u:pstENn
+_"	AnfY:rS@l
+_#	nu-mm@rtENn
+_$	dOllA:r
+ %	p@-*'u:s'Ent
+ &	O:g
+_'	ApUst@-*'u:f
+_(	pa*aNt'e:s||b@j'ynn@r
+_)	pa*aNt'e:s||Sl'u-t:
+_*	ss;arn@2
+ +	plu-s
+_,	kOmmA
+_-	st@-*e:k
+_.	pu-Nktu-:m
+ /	sk@-*Ost@-*@k
+_:	ku:lOn
+_;	se:mi:ku:lOn
+_<	mInd@-*@2||En
+_=	arli:k
+_>	stWR@||En
+_?	spWrSmOlstENn
+ @	k@-*WllAlfA
+_[	v'Enst@-*@2||h'A:ke:pa*aNt'e:s
+_\	OmvEndt||sk@-*Ost@-*@k
+_]	h'Yy*@2||h'A:ke:pa*aNt'e:s
+ ^	sIrku-mflEks
+__	u-ndarSt@-*@k
+_`	'OmvEndt||ApUst@-*'u:f
+
+
 
 
 // abbreviations
@@ -221,3 +255,4 @@ i      i:   $atend
 //*********************
 
 kom         kOm
+system      syst'e:m

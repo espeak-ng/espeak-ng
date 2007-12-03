@@ -6,19 +6,17 @@
 
 .group a
         a        A:
-        a (C%    A
+        a (CC    A
         a (_     A
-     X) a (CCK   A  // single syllable with >= 2 final consonants
-                    // or initial syllable with 3 consonants
+//     X) a (CCK   A  // single syllable with >= 2 final consonants
+//                    // or initial syllable with 3 consonants
         ai       AI
         au       aU
 
         aa       o:   // å
-        aa (C%   O
-     X) aa (CCK  O
+        aa (CC   O
         ae       a:   // æ
-        ae (C%   a
-     X) ae (CCK  a
+        ae (CC   a
 
 
 .group b
@@ -45,13 +43,14 @@
 
 .group e
         e        e:
-        e (C%    E
-     X) e (CCK   E
+        e (CC    E
         ei       aI
         e (rC    a           //  ??
      &) e (_     @2
      &) e (C_    @
+     X) e (m_    E
      &) en (_    @n
+     &) ene (_   En@2      // @n@2 ??
      &) ens (_   @ns
      &) es (_    @s
      &) et (_    @t
@@ -76,8 +75,7 @@
 
 .group i
         i        i:
-        i (C%    I
-     X) i (CCK   I
+        i (CC    I
      &) ig (_    I
 
 .group j
@@ -109,13 +107,11 @@
 
 .group o
         o        u:
-        o (C%    O
-     X) o (CCK   O
+        o (CC    O
         oi       OI
 
         oe       Y:   // ø
-        oe (C%   W
-     X) oe (CCK  W
+        oe (CC   W
         oey      Yy
 
         o (nd    U
@@ -164,8 +160,7 @@
 
 .group u
         u        u-:
-        u (C%    u-
-     X) u (CCK   u-
+        u (CC    u-
         ui       u-I
 
 .group v
@@ -181,8 +176,7 @@
 
 .group y
         y        y:
-        y (C%    y
-     X) y (CCX   y
+        y (CC    y
 
 .group z
         z        s
@@ -191,33 +185,50 @@
 
 .group å
         å        o:
-        å (C%    O
-     X) å (CCK   O
+        å (CC    O
 
 .group æ
         æ        E:
         æ (r     a:
-        æ (C%    a
-     X) æ (CCK   a
+        æ (CC    a
 
 .group ø
         ø        Y:
-        ø (C%    W
-     X) ø (CCK   W
+        ø (CC    W
         øy       Yy
 
 .group ä
         ä        E:
-        ä (C%    E
-     X) ä (CCK   E
+        ä (CC    E
 
 .group ö
         ö        Y:
-        ö (C%    W
-     X) ö (CCK   W
+        ö (CC    W
 
 .group
         é        'e:
         ü        y:
 
+	$        dOllA:r
+	\\       OmvEndt||sk@-*Ost@-*@k
+        !        _:'u-:t@-*u:pstENn_:
+     !) !
 
+        .        pu-Nktu-:m
+        . (.     _:
+   \.)  .
+
+   __)  - (_D    mi:nu-:s
+   A_)  - (_D    _
+   C_)  - (_D    _
+    --) -
+
+        *        ss;arn@2
+    *)  * (*
+        **
+   **)  * (_     _::
+
+        =            arli:k
+        = (==        
+    =)  = (=         
+   ==)  = (_         _::

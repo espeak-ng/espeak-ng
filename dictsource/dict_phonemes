@@ -136,6 +136,13 @@ th   v    w    x    z
 
 Dictionary hu_dict
 
+A    a:   E    e:   i    i:   o    o:   
+u    u:   Y    Y:   
+
+:    b    c    d    dZ   f    g    h    
+j    J    k    l    m    n    n^   p    
+R    R2   s    S    s2   t    tS   ts   
+v    z    Z    
 
 
 Dictionary it_dict
@@ -250,10 +257,9 @@ x    z    Z    z;
 
 Dictionary zhy_dict
 
-a    aa   aai  aan  aau  ai   ang  au   
-e    ei   eng  eo   eoi  eu   i    ing  
-iu   ng   o    oe   oen  oi   ong  ou   
-u    ui   ung  yu   
+a    aa   aai  aan  aau  ai   au   e    
+ei   eo   eoi  eu   i    iu   o    oe   
+oi   ong  ou   u    ui   yu   
 
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    

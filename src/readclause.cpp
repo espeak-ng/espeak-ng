@@ -529,7 +529,7 @@ static int LoadSoundFile(const char *fname, int index)
 		fname = fname2;
 	}
 	sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-	sprintf(command,"soxx \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
+	sprintf(command,"sox \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
 	if(system(command) != 0)
 	{
 		// resample has failed, use the original file

@@ -23,7 +23,7 @@
       cs   6  125
       hr  20  130
       mk   3  131
-      sr  18  130
+      sr  11  130
       ru  38  126
       it  17  118
       la  21  114
@@ -341,12 +341,10 @@ l/xl            [(@)] base
                 [(o)] base
                 [(u)] base
 m/_m            [m] base
-                [m] sr
                 [m;] ru
                 [m;] ro
                 [m] zh
 m/m_            [m] base
-                [m] sr
                 [m;] ru
                 [m;] ro
 m/m@            [(@)] base
@@ -355,24 +353,18 @@ m/ma            [(a)] base
 m/me            [(e)] base
 m/mi            [(i)] base
 m/mj            [m] base
-                [m] sr
                 [m;] ru
                 [m;] ro
 m/mo            [(o)] base
-m/m_sr.wav      [m] sr
 m/mu            [(u)] base
 n^/_n^          [n^] base
-                [n^] sr
 n^/n^_          [n^] base
-                [n^] sr
 n^/n^@          [(@)] base
 n^/n^#_         [n^#] is
 n/_n            [n] base
-                [n] sr
                 [n;] ro
                 [n] zh
 n/n_            [n] base
-                [n] sr
                 [n;] ro
                 [n] zh
 n/n@            [(@)] base
@@ -389,18 +381,12 @@ nn/inn          [(i)] base
 n/nj            [n] base
                 [n.] base
                 [n^] base
-                [n] sr
-                [n^] sr
                 [n;] ro
-n^/nj_sr.wav    [N] sr
-                [n^] sr
 nn/_nn          [N] base
                 [N] en
-                [N] sr
                 [N] zh
 nn/nn_          [N] base
                 [N] en
-                [N] sr
                 [N] zh
 nn/nn@          [(@)] base
 nn/nn#_         [N#] is
@@ -408,15 +394,12 @@ nn/nna          [(a)] base
 nn/nne          [(e)] base
 nn/nni          [(i)] base
 nn/nnj          [N] base
-                [N] sr
 nn/nno          [(o)] base
 nn/nnu          [(u)] base
 n^/n^o          [(o)] base
 n/no            [(o)] base
 n/_nr           [n.] base
 n/nr_           [n.] base
-n/n_sr.wav      [N] sr
-                [n] sr
 n^/n^u          [(u)] base
 n/nu            [(u)] base
 r2/_r2          [r-] base
@@ -438,18 +421,12 @@ r3/r_i          [(i)] base
 r3/r_n          [r/] base
                 [r/] ru
 r3/r_o          [(o)] base
-r3/r_sr.wav     [R] sr
-                [r*] sr
-                [r-] sr
 r3/r_trill      [R2] base
                 [R3] base
                 [r] af
                 [r] cy
                 [r] nl
                 [R] sk
-                [R] sr
-                [r*] sr
-                [r-] sr
                 [x] pt
 r3/r_trill2     [R] base
                 [R] hr
@@ -1517,8 +1494,7 @@ vowel/uu_bck    [U] en_n
                 [U] no
                 [u] zhy
                 [U] en_wi
-vowel/V         [V] en_us
-                [3] en_sc
+vowel/V         [3] en_sc
 vowel/V_2       [V] en
                 [a] af
                 [V] ru
@@ -1527,6 +1503,7 @@ vowel/V_3       [V] en_rp
                 [V] hi
                 [@:] vi
 vowel/V_4       [V] en_sc
+vowel/V_6       [V] en_us
 vowel/y         [y:] en
                 [y:] de
                 [y] fi
@@ -1554,7 +1531,7 @@ vowel/y#_3      [W] is
 vowel/y_4       [y:] no
 vowel/y_5       [y:] sv
 vowel/yy        [y"] fr_ca
-vowel/yy_2      [y] no
+                [y] no
 vowel/yy_3      [y] sv
 vowel/yy_4      [y] de
                 [y] hu

@@ -248,7 +248,7 @@ extern unsigned char *envelope_data[16];
 extern int formant_rate[];         // max rate of change of each formant
 extern int speed_factor1;
 extern int speed_factor2;
-
+extern int speed_min_sample_len;
 
 extern long count_samples;
 extern int outbuf_size;

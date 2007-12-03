@@ -1253,8 +1253,8 @@
             ch (asm      k
             ch (ass      S
             ch (atea     S
-            chauffeu     SoUf@
-            chauvi       SoUv@
+            chau (f      SoU
+            chau (v      SoU
             ch (é+       S
             ch (ef       S
             ch (em       k
@@ -2260,10 +2260,10 @@
             etta (_      'Et@
             ette (_      'Et
        pal) ett (e       @t
-            eted (_      I2tId
+         &) eted (_      I2tId
          l) eted (_      'i:tId
         cr) eted (_      'i:tId
-            eting (_     I2tIN
+         &) eting (_     I2tIN
          l) eting (_     'i:tIN
         m) eter (_       i:t3
        _m) et (ic        @t
@@ -2595,7 +2595,6 @@
         _s) i (ph        aI
             i (que_      'i:
             i (qu_       i:
-       mun) ique         IkeI
             iquette      I2kEt
          @) i (scenC     'I
          &) i (zabl      aI
@@ -3302,6 +3301,7 @@
         &n) ne (_
          _) neo          ni:oU
          _) news (P4     n'ju:z
+?3       _) news (P4     n'u:z
             ng           N
             n (x         N
             nging (_     NI2N
@@ -4049,7 +4049,7 @@
             pneu         nju:
             pota (t      p@teI
          _) ps           s
-            psyche       saIk@
+            psych        saIk
             psycho       saIkoU
             psycho (lo   saIk'0
          _) pt           t
@@ -4445,6 +4445,7 @@
             su (ffic     s@
             sugar        SUg3
         re) su (mA       zju:
+?3      re) su (mA       zu:
         re) sumab        zju:m@b
             su (ppl      s@
             su (pple     sV
@@ -4570,6 +4571,8 @@
             u (ma_       'u:
             u (mo_       'u:
             u (CA        ju:
+?3       n) u (CA        u:
+?3       t) u (CA        u:
             u (CeCo_     ju:
          l) u (CA        u:
         _l) u (a         u:
@@ -4606,6 +4609,8 @@
             ucul         VkjUl
          n) ucle         ju:klI
          n) uclear       ju:kli@
+?3       n) ucle         u:klI
+?3       n) uclear       u:kli@
          @) u (ctive     'V
             u (guC       V
          f) u (gal       'ju:
@@ -4615,6 +4620,7 @@
         mp) ug (n        ju:
             uh (C        u:
             u (i         ju:
+?3       t) u (i         u:
          s) u (i         u:
          r) u (i         u:
          g) u (i         w

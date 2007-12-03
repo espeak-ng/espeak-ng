@@ -40,7 +40,7 @@ endphoneme
 phoneme y
   vowel starttype (u) endtype (u)
   length 120
-  formants vowel/yy_2
+  formants vowel/yy
 endphoneme
 
 phoneme y:
@@ -66,7 +66,7 @@ phoneme E
   vowel starttype (e) endtype (e)
   length 120
   formants vowel/e_mid
-  reduceto  @    1
+  reduceto  @    0
 endphoneme
 
 phoneme E:
