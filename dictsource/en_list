@@ -1344,7 +1344,7 @@ peculiar         pI2kju:lI3
 pedalo           pEd@loU
 pejorative       p@dZ0r@tIv
 penal            pi:n@L
-?4 penchant      p0nS0n
+penchant         p0nS0n
 peninsula        p@n'InsjUl@
 penis            pi:nI2s
 perfectly        p3:fEktlI2
@@ -1388,8 +1388,8 @@ politer          p@l'aIt3
 politic          p0l@tIk
 poll             poUl
 polls            poUlz
-penchant         p0nS0n
 portend          po@t'End
+posse            p0sI
 postage          poUstIdZ
 practise         praktIs
 prayer           pre@
@@ -2631,11 +2631,11 @@ also              $verbf
 already           O:lr,EdI2    $verbf $strend2
 
 not              ,n0t          $verbextend $only $strend
-not              n0t           $capital $abbrev   // don't spell "NOT"; speak it with stress
 (not have)       n0ta2v        $pastf $u1
 (not have)       n0thav        $pastf $atend
 (not have to)    ,n0thavt@5    $pastf $strend
 (not a)          ,n0t@         $nounf
+not              n0t           $allcaps $verbextend    // don't spell "NOT"; speak it with stress
 only             oUnlI2        $verbextend
 
 any              ,EnI2         $nounf $only

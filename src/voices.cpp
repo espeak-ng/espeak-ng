@@ -161,6 +161,25 @@ const char *variant_lists[3] = {variants_either, variants_male, variants_female}
 voice_t voicedata;
 voice_t *voice = &voicedata;
 
+char *fgets_strip(char *buf, int size, FILE *f_in)
+{//===============================================
+// strip trailing spaces, and truncate lines at // comment
+	int len;
+	char *p;
+
+	if(fgets(buf,size,f_in) == NULL)
+		return(NULL);
+
+	len = strlen(buf);
+	while((--len > 0) && isspace(buf[len]))
+		buf[len] = 0;
+
+	if((p = strstr(buf,"//")) != NULL)
+		*p = 0;
+
+	return(buf);
+}
+
 
 void SetToneAdjust(voice_t *voice, int *tone_pts)
 {//==============================================
@@ -257,10 +276,8 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 	vgender[0] = 0;
 	age = 0;
 
-	while(fgets(linebuf,sizeof(linebuf),f_in) != NULL)
+	while(fgets_strip(linebuf,sizeof(linebuf),f_in) != NULL)
 	{
-		linebuf[strlen(linebuf)-1] = 0;
-
 		if(memcmp(linebuf,"name",4)==0)
 		{
 			p = &linebuf[4];
@@ -571,11 +588,8 @@ voice_t *LoadVoice(const char *vname, int control)
 		SelectPhonemeTableName(phonemes_name);  // set up phoneme_tab
 
 
-	while((f_voice != NULL) && (fgets(buf,sizeof(buf),f_voice) != NULL))
+	while((f_voice != NULL) && (fgets_strip(buf,sizeof(buf),f_voice) != NULL))
 	{
-		if((p = strstr(buf,"//")) != NULL)
-			*p = 0;
-
 		// isolate the attribute name
 		for(p=buf; (*p != 0) && !isspace(*p); p++);
 		*p++ = 0;

@@ -32,7 +32,7 @@
 #define N_LETTER_GROUPS   20
 
 
-/* flags from word dictionary */
+/* dictionary flags, word 1 */
 // bits 0-3  stressed syllable,  7=unstressed
 #define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
@@ -47,7 +47,6 @@
 #define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
 #define FLAG_ATEND          0x4000  /* use this pronunciation if at end of clause */
 
-#define FLAG_CAPITAL        0x8000  /* pronunciation if initial letter is upper case */
 #define FLAG_DOT           0x10000  /* ignore '.' after word (abbreviation) */
 #define FLAG_ABBREV        0x20000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
 #define FLAG_STEM          0x40000  // must have a suffix
@@ -56,19 +55,27 @@
 #define FLAG_ALT_TRANS    0x100000  // language specific
 #define FLAG_ALT2_TRANS   0x200000  // language specific
 
-#define FLAG_VERBF        0x400000  /* verb follows */
-#define FLAG_VERBSF       0x800000  /* verb follows, may have -s suffix */
-#define FLAG_NOUNF       0x1000000  /* noun follows */
-#define FLAG_VERB        0x2000000  /* pronunciation for verb */
-#define FLAG_PAST        0x4000000  /* pronunciation for past tense */
-#define FLAG_PASTF       0x8000000  /* past tense follows */
-#define FLAG_VERB_EXT   0x10000000  /* extend the 'verb follows' */
 
+#define FLAG_PAUSE1     0x10000000  // shorter prepause
 #define FLAG_TEXTMODE   0x20000000  // word translates to replacement text, not phonemes
 #define BITNUM_FLAG_TEXTMODE    29
 
-#define FLAG_PAUSE1     0x40000000  // shorter prepause
-#define FLAG_FOUND      0x80000000  /* pronunciation was found in the dictionary list */
+#define FLAG_FOUND_ATTRIBUTES     0x40000000  // word was found in the dictionary list (has attributes)
+#define FLAG_FOUND      0x80000000  // pronunciation was found in the dictionary list
+
+// dictionary flags, word 2
+#define FLAG_VERBF             0x1  /* verb follows */
+#define FLAG_VERBSF            0x2  /* verb follows, may have -s suffix */
+#define FLAG_NOUNF             0x4  /* noun follows */
+#define FLAG_PASTF             0x8  /* past tense follows */
+#define FLAG_VERB             0x10  /* pronunciation for verb */
+#define FLAG_NOUN             0x20  /* pronunciation for noun */
+#define FLAG_PAST             0x40  /* pronunciation for past tense */
+#define FLAG_VERB_EXT        0x100  /* extend the 'verb follows' */
+#define FLAG_CAPITAL         0x200  /* pronunciation if initial letter is upper case */
+#define FLAG_ALLCAPS         0x400  // only if the word is all capitals
+
+
 
 // wordflags, flags in source word
 #define FLAG_ALL_UPPER     0x1    /* no lower case letters in the word */
@@ -77,15 +84,17 @@
 #define FLAG_HAS_PLURAL    0x4    /* upper-case word with s or 's lower-case ending */
 #define FLAG_PHONEMES      0x8    /* word is phonemes */
 #define FLAG_LAST_WORD     0x10   /* last word in clause */
-#define FLAG_STRESSED_WORD 0x20   /* this word has explicit stress */
+//#define FLAG_STRESSED_WORD 0x20   /* this word has explicit stress */
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 #define FLAG_HYPHEN        0x80
 #define FLAG_NOSPACE       0x100  // word is not seperated from previous word by a space
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
 #define FLAG_HYPHEN_AFTER    0x4000
-#define FLAG_NO_PREFIX      0x8000
-#define FLAG_NO_TRACE      0x10000
+#define FLAG_EMPHASIZED    0x8000
+
+#define FLAG_NO_TRACE      0x10000   // passed to TranslateRules() to suppress dictionary lookup printout
+#define FLAG_NO_PREFIX     0x20000
 
 // prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added
@@ -394,7 +403,7 @@ private:
 	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
-	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags);
+	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab);
 	const char *LookupSpecial(const char *string);
 	const char *LookupCharName(int c);
 	int LookupNum2(int value, int control, char *ph_out);
@@ -424,7 +433,7 @@ protected:
 	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 
 	int IsVowel(int letter);
-	int LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags);
+	int LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
 	int Lookup(const char *word, char *ph_out);
 
 	
@@ -448,6 +457,7 @@ protected:
 	int expect_verb;
 	int expect_past;    // expect past tense
 	int expect_verb_s;
+	int expect_noun;
 	int word_flags;     // word is all upper case
 	int prev_last_stress;
 	int prepause_timeout;

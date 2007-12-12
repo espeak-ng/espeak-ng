@@ -37,7 +37,7 @@
 Translator_English::Translator_English() : Translator()
 {//===================================
 //	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 248,270};
-	static const short stress_lengths2[8] = {182,140, 220,220, 0,0, 248,275};
+	static const short stress_lengths2[8] = {182,140, 220,220, 248,248, 275,275};
 
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
 	langopts.stress_rule = 0;

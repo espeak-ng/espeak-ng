@@ -228,7 +228,7 @@ unsigned char *envelope_data[16] = {
 /* all pitches given in Hz above pitch_base */
 
 // pitch change during the main part of the clause
-static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x0e00,0x0e00};
+static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
 static int drops_1[8] = {0x400,0x400,0x600,0x600,0xc00,0xc00,0x0e00,0x0e00};
 static int drops_2[8] = {0x400,0x400,0x600,0x600,-0x800,0xc00,0x0e00,0x0e00};
 
@@ -240,6 +240,9 @@ typedef struct {
    unsigned char pitch_env1;     /*     followed by unstressed */
    unsigned char tonic_max1;
    unsigned char tonic_min1;
+
+	unsigned char emph_level;
+	unsigned char emph_next;
 
    unsigned char pre_start;
    unsigned char pre_end;
@@ -260,16 +263,19 @@ typedef struct {
 
 static TONE_TABLE tone_table[N_TONE_TABLE] = {
    {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
+12, 10,
    20, 25,   34, 22,  drops_0, 3, 3,   12, 8, 0},
 
    {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
+30, 20,
    20, 25,   34, 20,  drops_0, 3, 3,   15, 25, 0},
 
    {PITCHdrop, 38, 1,  PITCHdrop, 42,25,              // exclamation
+30, 20,
    20, 25,   34, 22,  drops_0, 3, 3,   12, 8, 0},
 
 
-
+#ifdef deleted
    {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
    20, 25,   34, 22,  drops_1, 3, 3,   12, 8, 0},
 
@@ -301,23 +307,23 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
 
    {PITCHfall, 36, 6,  PITCHfall, 36, 8,
    30, 20,   18, 34,  drops_0, 3, 3,   12, 8, 0},
-   
+#endif 
 };
   
 
 
 
 /* indexed by stress */
-static int min_drop[] =  {0x300,0x300,0x300,0x300,0x300,0x500,0xc00,0xc00};
+static int min_drop[] =  {0x300,0x300,0x400,0x400,0x900,0x900,0x900,0x900};
 
 
 
 
 #define SECONDARY  3
 #define PRIMARY    4
+#define PRIMARY_STRESSED 5
 #define PRIMARY_MARKED 6
-#define BODY_RESET 7
-#define FIRST_TONE 8    /* first of the tone types */
+#define PRIMARY_LAST 7
 
 
 static int  number_pre;
@@ -335,15 +341,13 @@ static void count_pitch_vowels()
 {
 	int  ix;
 	int  stress;
-	int  stage=0;   /* 0=pre, 1=body, 2=tail */
 	int  max_stress = 0;
 	int  max_stress_posn = 0;
-	int  tone_type_marker = 0;
-	int  marked_stress_count = 0;
 
-	number_pre=0;    /* number of vowels before 1st primary stress */
-	number_body=0;
-	number_tail=0;   /* number between tonic syllable and next primary */
+	number_pre = -1;    /* number of vowels before 1st primary stress */
+	number_body = 0;
+	number_tail = 0;   /* number between tonic syllable and next primary */
+	last_primary = 0;
 	
 	for(ix=vowel_ix; ix<vowel_ix_top; ix++)
 	{
@@ -355,65 +359,31 @@ static void count_pitch_vowels()
 		}
 		if(stress >= PRIMARY)
 		{
-			if(stress > PRIMARY)
-			{
-				marked_stress_count++;
-			}
+			if(number_pre < 0)
+				number_pre = ix;
 
 			last_primary = ix;
 		}
 
-		switch(stage)
-		{
-		case 0:
-			if(stress < PRIMARY)
-				number_pre++;
-			else
-			{
-				stage = 1;
-				ix = ix-1;
-			}
-			break;
-
-		case 1:
-			if(stress >= FIRST_TONE)
-			{
-				tone_type_marker = stress;
-				tone_posn = ix;
-				stage = 2;
-			}
-			break;
-
-		case 2:
-			if(stress < PRIMARY)
-				number_tail++;
-			else
-				stage = 3;
-			break;
-		}
 	}
+
+	if(number_pre < 0)
+		number_pre = 0;
+
+	number_tail = vowel_ix_top - max_stress_posn - 1;
+	tone_posn = max_stress_posn;
+tone_posn = last_primary;
 
 	if(no_tonic)
 	{
 		tone_posn = vowel_ix_top;
 	}
 	else
-	if((tone_type_marker >= FIRST_TONE) && (tone_type_marker < (N_TONE_TABLE + FIRST_TONE)))
+//	if((last_primary - max_stress_posn) > 2)
 	{
-		tone_type = tone_type_marker - FIRST_TONE;
+		if(vowel_tab[last_primary] < PRIMARY_MARKED)
+			vowel_tab[last_primary] = PRIMARY_LAST;
 	}
-	else
-	{
-		/* no tonic syllable found, use highest stress */
-		vowel_tab[max_stress_posn] = FIRST_TONE;
-		number_tail = vowel_ix_top - max_stress_posn - 1;
-		tone_posn = max_stress_posn;
-	}
-
-	if(marked_stress_count > 1)
-		annotation = 1;
-	else
-		annotation = 0;
 }   /* end of count_pitch_vowels */
 
 
@@ -429,9 +399,9 @@ static int count_increments(int ix, int end_ix, int min_stress)
 	while(ix < end_ix)
 	{
 		stress = vowel_tab[ix++] & 0x3f;
-		if(stress >= BODY_RESET)
-			break;
-		else
+//		if(stress >= PRIMARY_MARKED)
+//			break;
+
 		if(stress >= min_stress)
 			count++;
 	}
@@ -494,9 +464,10 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress)
 	int  n_primary=0;
 	int  initial;
 	int  overflow=0;
+	int  marking=0;
 	int *drops;
 
-	static char overflow_tab[5] = {0, 5, 3, 1, 0};
+	static char overflow_tab[5] = {0, 20, 12, 4, 0};
 
 	drops = t->body_drops;
 	
@@ -505,11 +476,13 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress)
 	{
 		stress = vowel_tab[ix] & 0x3f;
 
-		if(stress == BODY_RESET)
-			initial = 1;
+//		if(stress == PRIMARY_MARKED)
+//			initial = 1;    // reset the intonation pattern
 
 		if(initial || (stress >= min_stress))
 		{
+			// a primary stress
+
 			if(initial)
 			{
 				initial = 0;
@@ -535,14 +508,34 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress)
 					pitch += increment;
 				else
 				{
-					pitch = (t->body_end << 8) - (increment * overflow_tab[overflow++])/4;
+					pitch = (t->body_end << 8) - (increment * overflow_tab[overflow++])/16;
 					if(overflow > 4)  overflow = 0;
 				}
 			}
+
+			if(stress == PRIMARY_MARKED)
+			{
+				pitch = (t->emph_level << 8);
+				marking = 2;
+				n_primary = marking+1;   // move into overflow region
+			}
+			else
+			if(marking > 0)
+			{
+				marking--;
+				pitch = (t->emph_next << 8);
+			}
+
+
 			n_primary--;
 		}
 
-		if(((annotation==0) && (stress >= PRIMARY)) || (stress >= PRIMARY_MARKED))
+		if((annotation==0) && (stress >= PRIMARY))
+		{
+			vowel_tab[ix] = PRIMARY_STRESSED;
+			set_pitch(ix,pitch,drops[stress]);
+		}
+		if(stress >= PRIMARY_MARKED)
 		{
 			vowel_tab[ix] = PRIMARY_MARKED;
 			set_pitch(ix,pitch,drops[stress]);

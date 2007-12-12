@@ -460,15 +460,15 @@ static void UngetC(int c)
 
 const char *Translator::LookupSpecial(const char *string)
 {//======================================================
-	unsigned int flags;
+	unsigned int flags[2];
 	char phonemes[55];
 	char phonemes2[55];
 	static char buf[60];
 	char *string1 = (char *)string;
 
-	if(LookupDictList(&string1,phonemes,&flags,0))
+	if(LookupDictList(&string1,phonemes,flags,0,NULL))
 	{
-		SetWordStress(phonemes,flags,-1,0);
+		SetWordStress(phonemes,flags[0],-1,0);
 		DecodePhonemes(phonemes,phonemes2);
 		sprintf(buf,"[[%s]] ",phonemes2);
 		option_phoneme_input = 1;

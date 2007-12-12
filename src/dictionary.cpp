@@ -752,9 +752,9 @@ void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 
 
 
-static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char *vowel_stress, int &vowel_count, int &stressed_syllable)
-{//======================================================================================================================================
-
+static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char *vowel_stress, int &vowel_count, int &stressed_syllable, int control)
+{//====================================================================================================================================================
+// control = 1, set stress to 1 for forced unstressed vowels
 	unsigned char phcode;
 	PHONEME_TAB *ph;
 	unsigned char *ph_out = phonemes;
@@ -825,7 +825,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 				max_stress = stress;
 			}
 
-			if((stress == 0) && (ph->phflags & phUNSTRESSED))
+			if((stress == 0) && (control & 1) && (ph->phflags & phUNSTRESSED))
 				vowel_stress[count] = 1;   /* weak vowel, must be unstressed */
 
 			count++;
@@ -836,7 +836,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 		{
 			// previous consonant phoneme is syllablic
 			vowel_stress[count] = (char)stress;
-			if(stress == 0)
+			if((stress == 0) && (control & 1))
 				vowel_stress[count++] = 1;    // syllabic consonant, usually unstressed
 		}
 
@@ -900,14 +900,14 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	unsigned char vowel_stress[N_WORD_PHONEMES/2];
 
 	strcpy((char *)phonetic,word);
-	max_stress = GetVowelStress(tr, phonetic,vowel_stress,vowel_count,stressed_syllable);
+	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 0);
 
 	if(new_stress >= 4)
 	{
 		// promote to primary stress
 		for(ix=1; ix<vowel_count; ix++)
 		{
-			if(vowel_stress[ix] == max_stress)
+			if(vowel_stress[ix] >= max_stress)
 			{
 				vowel_stress[ix] = new_stress;
 				break;
@@ -919,7 +919,7 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 		// remove primary stress
 		for(ix=1; ix<vowel_count; ix++)
 		{
-			if(vowel_stress[ix] > new_stress)
+			if(vowel_stress[ix] > new_stress)   // >= allows for diminished stress (=1)
 				vowel_stress[ix] = new_stress;
 		}
 	}
@@ -1013,7 +1013,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		unstressed_word = 1;
 	}
 
-	max_stress = GetVowelStress(this,phonetic,vowel_stress,vowel_count,stressed_syllable);
+	max_stress = GetVowelStress(this, phonetic, vowel_stress, vowel_count, stressed_syllable, 1);
 
 	// heavy or light syllables
 	ix = 1;
@@ -2598,18 +2598,18 @@ int TransposeAlphabet(char *text, int offset, int min, int max)
 
 
 
-char *print_dflags(int flags)
-{//==========================
+char *print_dflags(unsigned int *flags)
+{//====================================
 	static char buf[20];
 
-	sprintf(buf,"%s  0x%x",LookupMnem(mnem_flags,(flags & 0xf)+0x40), flags);
+	sprintf(buf,"%s  0x%x/%x",LookupMnem(mnem_flags,(flags[0] & 0xf)+0x40), flags[0], flags[1]);
 	return(buf);
 }
 
 
 
-const char *Translator::LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags)
-//====================================================================================================================
+const char *Translator::LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab)
+//==========================================================================================================================================
 /* Find an entry in the word_dict file for a specified word.
    Returns NULL if no match, else returns 'word_end'
 
@@ -2628,9 +2628,12 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 	int  wlen;
 	unsigned char flag;
 	unsigned int  dictionary_flags;
+	unsigned int  dictionary_flags2;
 	int  condition_failed=0;
 	int  n_chars;
 	int  no_phonemes;
+	int  skipwords;
+	int  ix;
 	const char *word_end;
 	const char *word1;
 	char word_buf[N_WORD_BYTES];
@@ -2675,6 +2678,7 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 		word_end = word2;
 
 		dictionary_flags = 0;
+		dictionary_flags2 = 0;
 		no_phonemes = p[1] & 0x80;
 
 		p += ((p[1] & 0x3f) + 2);
@@ -2713,6 +2717,37 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 				}
 			}
 			else
+			if(flag > 80)
+			{
+				// flags 81 to 90  match more than one word
+				// This comes after the other flags
+				n_chars = next - p;
+				skipwords = flag - 80;
+
+				// don't use the contraction if any of the words are emphasized
+				for(ix=0; ix <= skipwords; ix++)
+				{
+					if((wtab != NULL) && (wtab[ix].flags & FLAG_EMPHASIZED))
+					{
+						condition_failed = 1;
+					}
+				}
+
+				if(memcmp(word2,p,n_chars) != 0)
+					condition_failed = 1;
+
+				if(condition_failed)
+				{
+					p = next;
+					break;
+				}
+
+				dictionary_flags |= FLAG_SKIPWORDS;
+				dictionary_skipwords = skipwords;
+				p = next;
+				word_end = word2 + n_chars;
+			}
+			else
 			if(flag > 64)
 			{
 				// stressed syllable information, put in bits 0-3
@@ -2721,24 +2756,9 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 					dictionary_flags |= FLAG_STRESS_END;
 			}
 			else
-			if(flag > 40)
+			if(flag >= 32)
 			{
-				// flags 41 to 50  match more than one word
-				// This comes after the other flags
-				n_chars = next - p;
-				if(memcmp(word2,p,n_chars)==0)
-				{
-					dictionary_flags |= FLAG_SKIPWORDS;
-					dictionary_skipwords = (flag - 40);
-					p = next;
-					word_end = word2 + n_chars;
-				}
-				else
-				{
-					p = next;
-					condition_failed = 1;
-					break;
-				}
+				dictionary_flags2 |= (1L << (flag-32));
 			}
 			else
 			{
@@ -2775,9 +2795,16 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 			}
 		}
 
-		if(dictionary_flags & FLAG_CAPITAL)
+		if(dictionary_flags2 & FLAG_CAPITAL)
 		{
 			if(!(word_flags & FLAG_FIRST_UPPER))
+			{
+				continue;
+			}
+		}
+		if(dictionary_flags2 & FLAG_ALLCAPS)
+		{
+			if(!(word_flags & FLAG_ALL_UPPER))
 			{
 				continue;
 			}
@@ -2789,7 +2816,7 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 			continue;
 		}
 
-		if(dictionary_flags & FLAG_VERB)
+		if(dictionary_flags2 & FLAG_VERB)
 		{
 			// this is a verb-form pronunciation
 
@@ -2804,7 +2831,7 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 				continue;
 			}
 		}
-		if(dictionary_flags & FLAG_PAST)
+		if(dictionary_flags2 & FLAG_PAST)
 		{
 			if(!expect_past)
 			{
@@ -2813,21 +2840,33 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 				continue;
 			}
 		}
+		if(dictionary_flags2 & FLAG_NOUN)
+		{
+			if(!expect_noun)
+			{
+				/* don't use the 'noun' pronunciation unless we are
+					expecting a noun */
+				continue;
+			}
+		}
 
 		if(flags != NULL)
-			*flags = dictionary_flags;
+		{
+			flags[0] = dictionary_flags | FLAG_FOUND_ATTRIBUTES;
+			flags[1] = dictionary_flags2;
+		}
 
 		if(phoneme_len == 0)
 		{
 			if(option_phonemes == 2)
 			{
-				fprintf(f_trans,"Flags:  %s  %s\n",word1,print_dflags(*flags));
+				fprintf(f_trans,"Flags:  %s  %s\n",word1,print_dflags(flags));
 			}
 			return(0);    // no phoneme translation found here, only flags. So use rules
 		}
 
 		if(flags != NULL)
-			*flags |= FLAG_FOUND;   // this flag indicates word was found in dictionary
+			flags[0] |= FLAG_FOUND;   // this flag indicates word was found in dictionary
 		
 		if(option_phonemes == 2)
 		{
@@ -2837,7 +2876,7 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 
 			DecodePhonemes(phonetic,ph_decoded);
 			if(flags != NULL)
-				flags1 = *flags;
+				flags1 = flags[0];
 
 			if((dictionary_flags & FLAG_TEXTMODE) == 0)
 				textmode = 0;
@@ -2847,7 +2886,7 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 			if(textmode == translator->langopts.textmode)
 			{
 				// only show this line if the word translates to phonemes, not replacement text
-				fprintf(f_trans,"Found: %s [%s]  %s\n",word1,ph_decoded,print_dflags(flags1));
+				fprintf(f_trans,"Found: %s [%s]  %s\n",word1,ph_decoded,print_dflags(flags));
 			}
 		}
 		return(word_end);
@@ -2858,8 +2897,8 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 
 
 
-int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags)
-//==============================================================================================
+int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab)
+//==============================================================================================================
 /* Lookup a specified word in the word dictionary.
    Returns phonetic data in 'phonetic' and bits in 'flags'
 
@@ -2895,7 +2934,7 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 		nbytes = utf8_in(&c2,word2,0);
 		memcpy(&word[length],word2,nbytes);
 		word[length+nbytes] = 0;
-		found =  LookupDict2(word,word2,ph_out,flags,end_flags);
+		found =  LookupDict2(word, word2, ph_out, flags, end_flags, wtab);
 		if(found)
 		{
 			*flags = *flags & ~(7 << 5) | (length << 5);
@@ -2911,7 +2950,7 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 	}
 	word[length] = 0;
 
-	found = LookupDict2(word,word1,ph_out,flags,end_flags);
+	found = LookupDict2(word, word1, ph_out, flags, end_flags, wtab);
 
 	if(found == 0)
 	{
@@ -2923,14 +2962,14 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 		{
 			// try removing an 'e' which has been added by RemoveEnding
 			word[length-1] = 0;
-			found = LookupDict2(word,word1,ph_out,flags,end_flags);
+			found = LookupDict2(word, word1, ph_out, flags, end_flags, wtab);
 		}
 		else
 		if((end_flags & SUFX_D) && (word[length-1] == word[length-2]))
 		{
 			// try removing a double letter
 			word[length-1] = 0;
-			found = LookupDict2(word,word1,ph_out,flags,end_flags);
+			found = LookupDict2(word, word1, ph_out, flags, end_flags, wtab);
 		}
 	}
 
@@ -2977,9 +3016,9 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 
 int Translator::Lookup(const char *word, char *ph_out)
 {//===================================================
-	unsigned int flags;
+	unsigned int flags[2];
 	char *word1 = (char *)word;
-	return(LookupDictList(&word1,ph_out,&flags,0));
+	return(LookupDictList(&word1, ph_out, flags, 0, NULL));
 }
 
 

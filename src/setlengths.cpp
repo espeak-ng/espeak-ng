@@ -499,13 +499,16 @@ void Translator::CalcLengths()
 			if(length_mod < 8)
 				length_mod = 8;     // restrict how much lengths can be reduced
 
-			if(stress >= 7)
+			if(stress >= 6)
 			{
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
 				length_mod += 20;
 			}
 			
-			length_mod = (length_mod * stress_lengths[stress])/128;
+			if((len = stress_lengths[stress]) == 0)
+				len = stress_lengths[6];
+
+			length_mod = (length_mod * len)/128;
 
 			if(end_of_clause == 2)
 			{

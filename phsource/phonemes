@@ -72,7 +72,7 @@ endphoneme
 
 phoneme ''  //  Primary stress (priority)
   stress
-  length 5
+  length 6
 endphoneme
 
 phoneme =   //  Place stress on previous vowel

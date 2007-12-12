@@ -78,7 +78,6 @@ MNEM_TAB mnem_flags[] = {
 	{"$unstressend",13},   /* reduce stress at end of clause */
 	{"$atend",     14},    /* use this pronunciation if at end of clause */
 
-	{"$capital",   15},   /* use this pronunciation if initial letter is upper case */
 	{"$dot",       16},   /* ignore '.' after this word (abbreviation) */
 	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
 	{"$stem",      18},   // must have a suffix
@@ -87,17 +86,23 @@ MNEM_TAB mnem_flags[] = {
 	{"$double",    19},   // IT double the initial consonant of next word
 	{"$alt",       20},   // use alternative pronunciation
 	{"$alt2",      21},
+	
 
-	{"$verbf",     22},    /* verb follows */
-	{"$verbsf",    23},    /* verb follows, allow -s suffix */
-	{"$nounf",     24},    /* noun follows */
-	{"$verb",      25},   /* use this pronunciation when its a verb */
-	{"$past",      26},   /* use this pronunciation when its past tense */
-	{"$pastf",     27},   /* past tense follows */
-	{"$verbextend",28},   /* extend influence of 'verb follows' */
-
+	{"$brk",       28},   // a shorter $pause
 	{"$text",      29},   // word translates to replcement text, not phonemes
-	{"$brk",       30},   // a shorter $pause
+
+// flags in dictionary word 2
+	{"$verbf",   0x20},    /* verb follows */
+	{"$verbsf",  0x21},    /* verb follows, allow -s suffix */
+	{"$nounf",   0x22},    /* noun follows */
+	{"$pastf",   0x23},   /* past tense follows */
+	{"$verb",    0x24},   /* use this pronunciation when its a verb */
+	{"$noun",    0x25},   /* use this pronunciation when its a noun */
+	{"$past",    0x26},   /* use this pronunciation when its past tense */
+	{"$verbextend",0x28},   /* extend influence of 'verb follows' */
+	{"$capital", 0x29},   /* use this pronunciation if initial letter is upper case */
+	{"$allcaps", 0x2a},   /* use this pronunciation if initial letter is upper case */
+
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
 
@@ -455,7 +460,7 @@ static char nullstring[] = {0};
 		}
 		else
 		{
-			dict_line[length++] = 40 + multiple_words;
+			dict_line[length++] = 80 + multiple_words;
 			ix = multiple_string_end - multiple_string;
 			memcpy(&dict_line[length],multiple_string,ix);
 			length += ix;
