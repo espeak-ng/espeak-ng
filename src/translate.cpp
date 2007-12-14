@@ -53,7 +53,6 @@ int option_punctuation = 0;
 int option_sayas = 0;
 int option_sayas2 = 0;  // used in translate_clause()
 int option_emphasis = 0;  // 0=normal, 1=normal, 2=weak, 3=moderate, 4=strong
-int word_emphasis = 0;    // set if emphasis level 3 or 4
 int option_emphasize_allcaps = 0;
 int option_ssml = 0;
 int option_phoneme_input = 1;  // allow [[phonemes]] in input
@@ -71,6 +70,7 @@ int count_words;
 int clause_start_char;
 int clause_start_word;
 int new_sentence;
+int word_emphasis = 0;    // set if emphasis level 3 or 4
 
 int prev_clause_pause=0;
 int max_clause_pause = 0;
@@ -341,11 +341,10 @@ unsigned char *length_mod_tabs[6] = {
 
 /* index by 0=. 1=, 2=?, 3=! 4=none */
 static unsigned char punctuation_to_tone[4][5] = {
-	{0,1,1,2,0},
-	{3,4,4,5,3},
-	{6,7,7,8,6},
-	{9,10,10,11,9} };
-
+	{0,1,2,3,0},
+	{0,1,2,3,0},
+	{0,1,2,3,0},
+	{0,1,2,3,0} };
 
 
 void SetLengthMods(Translator *tr, int value)
@@ -396,7 +395,7 @@ Translator::Translator()
 {//=====================
 	int ix;
 	static const unsigned char stress_amps2[] = {16,16, 20,20, 20,24, 24,21 };
-	static const short stress_lengths2[8] = {182,140, 220,220, 250,260, 280,280};
+	static const short stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
 	static const wchar_t empty_wstring[1] = {0};
 
 	charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
@@ -452,7 +451,7 @@ Translator::Translator()
 	langopts.decimal_sep = '.';
 
 	memcpy(punct_to_tone,punctuation_to_tone,sizeof(punct_to_tone));
-	punct_to_tone[0][3] = 0;   // exclamation, use period until we can improve the exclamation intonation 
+//	punct_to_tone[0][3] = 0;   // exclamation, use period until we can improve the exclamation intonation 
 }
 
 
@@ -1025,10 +1024,9 @@ strcpy(phonemes2,phonemes);
 	if(wflags & FLAG_EMPHASIZED)
 	{
 		// A word is indicated in the source text as stressed
-
-		// we need to improve the intonation module to deal better with a clauses tonic
-		// stress being early in the clause, before enabling this
+		// Give it stress level 6 (for the intonation module)
 		ChangeWordStress(this,word_phonemes,6);
+		dictionary_flags[0] |= FLAG_PAUSE1;   // precede by short pause
 	}
 	else
 	if(wtab[dictionary_skipwords].flags & FLAG_LAST_WORD)
@@ -1350,8 +1348,8 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			}
 		}
 
-		if((option_emphasis >= 3) && (pre_pause < 2))
-			pre_pause = 2;
+		if((option_emphasis >= 3) && (pre_pause < 1))
+			pre_pause = 1;
 	}
 
 	plist2 = &ph_list2[n_ph_list2];

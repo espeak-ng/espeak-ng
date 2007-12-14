@@ -907,10 +907,11 @@ genome           dZi:noUm
 genre            Z0nr@
 genuine          dZEnju:In
 geyser           gi:z3
+gibbon           gIb@n
 gig              gIg
 gigantic         dZaIg'antIk
-gibbon           gIb@n
 gilead           g'IlIad
+gimme            gImI
 giraffe          dZI2raaf
 goin             ,goUIn        $only // for goin'
 goodbye                        $2
@@ -1473,6 +1474,7 @@ ratatouille      rat@t'u:I2
 ?!3 rather       rA:D3
 ratio            reISI2oU
 rationale        raS@n'al
+ravenous         rav@n@s
 ravine           r@vi:n
 rawest           rO:@st
 re               r,i:
@@ -1511,6 +1513,7 @@ region           ri:dZ@n       // & regional
 reign            reIn
 rein             reIn
 reined           reInd
+reining          reInIN
 reindeer         reIndi@
 reinvent         ri:Inv'Ent
 refinery         rI2faIn@rI2
@@ -2349,6 +2352,7 @@ to               t@5          $verbf    // @ change to U before vowel
 (to to)          %tU_t@5        $verbf
 (to and fro)     tu:@ndfr'oU
 to               tu:          $u $atend
+to               tu:          $allcaps
 
 
 at               at           $nounf $only $u
@@ -2487,6 +2491,7 @@ has              %ha2z          $pastf $only
 has              haz            $only $atend
 (has been)       %haz%bIn       $pastf
 (has to)         haztU          $atend
+has              haz            $allcaps
 hath             %haT           $pastf $only
 had              %had           $pastf $strend2 $only
 (had been)       %had%bIn       $pastf

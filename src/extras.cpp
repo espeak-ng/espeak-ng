@@ -1163,6 +1163,8 @@ int x;
 	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL,0);
 	memset(&voicespec,0,sizeof(voicespec));
 	voicespec.languages = "de";
+	voicespec.gender = 2;
+
 	espeak_SetVoiceByProperties(&voicespec);
 	newvoice = espeak_GetCurrentVoice();
 	x = 1;
@@ -1231,6 +1233,7 @@ void TestTest(int control)
 //return;
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
+
 
 return;
 

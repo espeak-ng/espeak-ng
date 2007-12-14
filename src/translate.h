@@ -232,32 +232,42 @@ extern const int param_defaults[N_SPEECH_PARAM];
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
 #define LOPT_IT_LENGTHEN        2
+
  // 1=german
 #define LOPT_PREFIXES        3
+
  // non-zero, change voiced/unoiced to match last consonant in a cluster
  // bit 1=LANG=ru,  don't propagate over [v]
  // bit 2=don't propagate acress word boundaries
  // bit 3=LANG=pl,  propagate over liquids and nasals
 #define LOPT_REGRESSIVE_VOICING  4
+
  // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE  5
+
  // select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
 #define LOPT_LENGTH_MODS    6
+
  // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN    7
+
  // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
  // bit 1=also after a word which ends with a stressed vowel
 #define LOPT_IT_DOUBLING     8
+
  // max. amplitude for vowel at the end of a clause
 #define LOPT_MAXAMP_EOC      9
+
  // bit 0=reduce even if phonemes are specified in the **_list file
  // bit 1=don't reduce the strongest vowel in a word which is marked 'unstressed'
 #define LOPT_REDUCE  10
+
  // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
  // bits 0-3  N syllables
  // bit 4=only if the second word has $alt attribute
  // bit 5=not if the second word is end-of-sentence
 #define LOPT_COMBINE_WORDS 11
+
  // change [t] when followed by unstressed vowel
 #define LOPT_REDUCE_T 12
 
@@ -329,7 +339,7 @@ typedef struct {
 	char spelling_stress;   // 0=default, 1=stress first letter
 	char tone_numbers;
 	char ideographs;      // treat as separate words
-	char textmode;          // the meaning of FLAG_TEXTMODE is reversed 
+	char textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	const unsigned int *replace_chars;      // characters to be substitutes
 } LANGUAGE_OPTIONS;

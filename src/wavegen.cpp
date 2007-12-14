@@ -787,7 +787,7 @@ int GetAmplitude(void)
 	int amp;
 
 	// normal, none, reduced, moderate, strong
-	static const unsigned char amp_emphasis[5] = {16, 16, 8, 16, 26};
+	static const unsigned char amp_emphasis[5] = {16, 16, 10, 16, 22};
 
 	amp = (embedded_value[EMBED_A])*60/100;
 	general_amplitude = amp * amp_emphasis[embedded_value[EMBED_F]] / 16;

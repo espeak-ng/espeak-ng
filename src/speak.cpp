@@ -630,11 +630,6 @@ int main (int argc, char **argv)
 		exit(1);
 	}
 
-{
-espeak_VOICE *v;
-v = espeak_GetCurrentVoice();
-printf("Voice id='%s' name='%s' langs={%x %x %x %x}\n",v->identifier,v->name,v->languages[0],v->languages[1],v->languages[2],v->languages[3]);
-}
 	if(option_waveout || quiet)
 	{
 		if(quiet)

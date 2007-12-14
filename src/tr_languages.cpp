@@ -111,8 +111,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('c','y'):   // Welsh
 		{
-			static const short stress_lengths_cy[8] = {170,230, 190,190, 250, 250, 270,270};
-			static const unsigned char stress_amps_cy[8] = {16,15, 18,18, 20,24, 24,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_cy[8] = {170,230, 190,190, 0, 0, 250,270};
+			static const unsigned char stress_amps_cy[8] = {16,15, 18,18, 0,0, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_cy,stress_amps_cy);
@@ -136,7 +136,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('d','e'):
 		{
-			static const short stress_lengths_de[8] = {150,130, 190,190,  260, 260, 275,275};
+			static const short stress_lengths_de[8] = {150,130, 190,190,  0, 0, 260,275};
 			tr = new Translator();
 			tr->langopts.stress_rule = 0;
 			tr->langopts.word_gap = 0x8;   // don't use linking phonemes
@@ -156,8 +156,8 @@ Translator *SelectTranslator(const char *name)
 	case L('e','l'):   // Greek
 	case L_grc:        // Ancient Greek
 		{
-			static const short stress_lengths_el[8] = {155, 180,  210, 210,  270, 270,  300, 300};
-			static const unsigned char stress_amps_el[8] = {15,12, 20,20, 20,24, 24,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_el[8] = {155, 180,  210, 210,  0, 0,  270, 300};
+			static const unsigned char stress_amps_el[8] = {15,12, 20,20, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			// character codes offset by 0x380
 			static const char el_vowels[] = {0x10,0x2c,0x2d,0x2e,0x2f,0x30,0x31,0x35,0x37,0x39,0x3f,0x45,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0};
@@ -199,8 +199,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('e','o'):
 		{
-			static const short stress_lengths_eo[8] = {145, 180,  200, 190, 300, 300,  320, 320};
-			static const unsigned char stress_amps_eo[] = {16,14, 20,20, 20,24, 24,21 };
+			static const short stress_lengths_eo[8] = {145, 180,  200, 190,    0,   0,  300, 320};
+			static const unsigned char stress_amps_eo[] = {16,14, 20,20, 20,24, 24,22 };
 			static const wchar_t eo_char_apostrophe[2] = {'l',0};
 		
 			tr = new Translator();
@@ -222,8 +222,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('e','s'):   // Spanish
 		{
-			static const short stress_lengths_es[8] = {170, 200,  180, 180,  220, 220,  250, 250};
-			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,22, 22,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_es[8] = {170, 200,  180, 180,  0, 0,  220, 250};
+			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,22, 22,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_es,stress_amps_es);
@@ -245,8 +245,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','i'):   // Finnish
 		{
-			static const short stress_lengths_fi[8] = {150,170, 200,200, 210,210, 250,240};
-			static const unsigned char stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,21 };
+			static const unsigned char stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,22 };
+			static const short stress_lengths_fi[8] = {150,170, 200,200, 0,0, 210,250};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
@@ -267,7 +267,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','r'):  // french
 		{
-			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  235, 235,  235, 235};
+			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 235};
 			static const unsigned char stress_amps_fr[8] = {16,14, 20,20, 20,24, 24,22 };
 
 			tr = new Translator();
@@ -284,8 +284,8 @@ Translator *SelectTranslator(const char *name)
 	case L('h','i'):
 		{
 			static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
-			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  230, 230,  250, 250};
-			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,24, 24,21 };
+			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
+			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,24, 24,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hi,stress_amps_hi);
@@ -312,8 +312,8 @@ Translator *SelectTranslator(const char *name)
 	case L('b','s'):   // Bosnian
 	case L('s','r'):   // Serbian
 		{
-			static const unsigned char stress_amps_hr[8] = {16,16, 20,20, 20,24, 24,21 };
-			static const short stress_lengths_hr[8] = {180,160, 200,200, 220,220, 230,230};
+			static const unsigned char stress_amps_hr[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_hr[8] = {180,160, 200,200, 0,0, 220,230};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hr,stress_amps_hr);
@@ -337,8 +337,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('h','u'):   // Hungarian
 		{
-			static const unsigned char stress_amps_hu[8] = {17,17, 19,19, 20,24, 24,21 };
-			static const short stress_lengths_hu[8] = {185,195, 195,190, 210,210, 220,220};
+			static const unsigned char stress_amps_hu[8] = {17,17, 19,19, 20,24, 24,22 };
+			static const short stress_lengths_hu[8] = {185,195, 195,190, 0,0, 210,220};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hu,stress_amps_hu);
@@ -361,8 +361,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('i','s'):   // Icelandic
 		{
-			static const unsigned char stress_amps_is[] = {16,16, 20,20, 20,24, 24,21 };
-			static const short stress_lengths_is[8] = {180,160, 200,200, 240,240, 250,250};
+			static const unsigned char stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_is[8] = {180,160, 200,200, 0,0, 240,250};
 			static const wchar_t is_lettergroup_B[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
 			tr = new Translator();
@@ -384,8 +384,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('i','t'):   // Italian
 		{
-			static const short stress_lengths_it[8] = {150, 140,  180, 180,  270, 270,  320, 320};
-			static const unsigned char stress_amps_it[8] = {15,14, 19,19, 20,24, 24,21 };
+			static const short stress_lengths_it[8] = {150, 140,  180, 180,  0, 0,  270, 320};
+			static const unsigned char stress_amps_it[8] = {15,14, 19,19, 20,24, 24,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_it,stress_amps_it);
@@ -421,8 +421,8 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static wchar_t vowels_cyrillic[] = {0x440,  // also include 'р' [R]
 				 0x430,0x435,0x438,0x439,0x43e,0x443,0x44b,0x44d,0x44e,0x44f,0x450,0x451,0x456,0x457,0x45d,0x45e,0};
-			static const unsigned char stress_amps_mk[8] = {16,16, 20,20, 20,24, 24,21 };
-			static const short stress_lengths_mk[8] = {180,160, 200,200, 220,220, 230,230};
+			static const unsigned char stress_amps_mk[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_mk[8] = {180,160, 200,200, 0,0, 220,230};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_mk,stress_amps_mk);
@@ -438,7 +438,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('n','l'):  // Dutch
 		{
-			static const short stress_lengths_nl[8] = {160,135, 210,210,  260, 260, 280,280};
+			static const short stress_lengths_nl[8] = {160,135, 210,210,  0, 0, 260,280};
 			tr = new Translator();
 
 			tr->langopts.stress_rule = 0;
@@ -454,8 +454,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('n','o'):  // Norwegian
 		{
-			static const short stress_lengths_no[8] = {160,140, 200,190, 220,220, 240,240};
-			static const unsigned char stress_amps_no[] = {16,16, 20,20, 20,24, 24,21 };
+			static const unsigned char stress_amps_no[] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_no[8] = {160,140, 200,190, 0,0, 220,240};
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_no,stress_amps_no);
 
@@ -467,8 +467,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('p','l'):   // Polish
 		{
-			static const short stress_lengths_pl[8] = {160, 180,  175, 175,  260, 260,  290, 290};
-			static const unsigned char stress_amps_pl[8] = {17,14, 19,19, 20,24, 24,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_pl[8] = {160, 180,  175, 175,  0, 0,  260, 290};
+			static const unsigned char stress_amps_pl[8] = {17,14, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_pl,stress_amps_pl);
@@ -487,8 +487,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('p','t'):  // Portuguese
 		{
-			static const short stress_lengths_pt[8] = {180, 125,  210, 210,  270, 270,  295, 295};
-			static const unsigned char stress_amps_pt[8] = {16,13, 19,19, 20,24, 24,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_pt[8] = {180, 125,  210, 210,  0, 0,  270, 295};
+			static const unsigned char stress_amps_pt[8] = {16,13, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_pt,stress_amps_pt);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
@@ -504,8 +504,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('r','o'):  // Romanian
 		{
-			static const short stress_lengths_ro[8] = {170, 170,  180, 180,  240, 240,  260, 260};
-			static const unsigned char stress_amps_ro[8] = {15,13, 18,18, 20,22, 22,21 };
+			static const short stress_lengths_ro[8] = {170, 170,  180, 180,  0, 0,  240, 260};
+			static const unsigned char stress_amps_ro[8] = {15,13, 18,18, 20,22, 22,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ro,stress_amps_ro);
@@ -526,8 +526,8 @@ SetLengthMods(tr,3);  // all equal
 	case L('s','k'):   // Slovak
 	case L('c','s'):   // Czech
 		{
-			static const short stress_lengths_sk[8] = {190,190, 210,210, 210,210, 210,210};
 			static const unsigned char stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 			static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
 			tr = new Translator();
@@ -560,20 +560,21 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('s','v'):  // Swedish
 		{
-			static const short stress_lengths_sv[8] = {160,135, 220,220, 250,250, 250,280};
 			static const unsigned char stress_amps_sv[] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_sv[8] = {160,135, 220,220, 0,0, 250,280};
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_sv,stress_amps_sv);
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
+//			SetLetterBits(tr,6,"eiyäö");   // soft vowels  NOTE accented letters don't work in SetLetterBits
 			tr->langopts.numbers = 0x1109;
 		}
 		break;
 
 	case L('s','w'):  // Swahili
 		{
-			static const short stress_lengths_sw[8] = {150, 160,  190, 190,  300, 300,  320, 320};
+			static const short stress_lengths_sw[8] = {160, 170,  200, 200,    0,   0,  320, 340};
 			static const unsigned char stress_amps_sw[] = {16,12, 19,19, 20,24, 24,22 };
 		
 			tr = new Translator();
@@ -591,8 +592,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','r'):   // Turkish
 		{
-			static const short stress_lengths_tr[8] = {180,150, 200,180, 230,230, 270,270};
-			static const unsigned char stress_amps_tr[8] = {16,16, 20,20, 20,24, 24,21 };
+			static const unsigned char stress_amps_tr[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_tr[8] = {180,150, 200,180, 0,0, 230,270};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_tr,stress_amps_tr);
@@ -607,7 +608,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('v','i'):  // Vietnamese
 		{
-			static const short stress_lengths_vi[8] = {150, 150,  180, 180,  220, 220,  280, 280};
+			static const short stress_lengths_vi[8] = {150, 150,  180, 180,  210, 220,  220, 280};
 			static const unsigned char stress_amps_vi[] = {16,16, 16,16, 24,24, 24,22 };
 			static wchar_t vowels_vi[] = {
 				0x61, 0xe0, 0xe1, 0x1ea3, 0xe3, 0x1ea1,			// a
@@ -641,7 +642,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('z','h'):
 	case L_zhy:
 		{
-			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,230, 250,250};
+			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 230,250};
 			static const unsigned char stress_amps_zh[] = {22,16, 22,22, 22,22, 22,22 };
 
 			tr = new Translator;
@@ -690,8 +691,8 @@ SetLengthMods(tr,3);  // all equal
 
 Translator_Russian::Translator_Russian() : Translator()
 {//===================================
-	static const short stress_lengths_ru[8] = {150,140, 220,220, 260,260, 280,280};
 	static const unsigned char stress_amps_ru[] = {16,16, 18,18, 20,24, 24,22 };
+	static const short stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,280};
 
 
 	// character codes offset by 0x420
@@ -944,7 +945,7 @@ Translator_Afrikaans::Translator_Afrikaans() : Translator()
 {//=========================================
 // Initialise options for this language
 
-	static const short stress_lengths2[8] = {170,140, 220,220, 250, 250, 270,270};
+	static const short stress_lengths2[8] = {170,140, 220,220,  0, 0, 250,270};
 	langopts.stress_rule = 0;
 	langopts.vowel_pause = 0x30;
 	langopts.param[LOPT_DIERESES] = 1;

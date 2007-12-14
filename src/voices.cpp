@@ -1386,7 +1386,7 @@ char const *SelectVoice(espeak_VOICE *voice_select)
 	{
 		variant_name = ExtractVoiceVariantName(NULL,vp->variant);
 		sprintf(voice_id,"%s+%s",vp->identifier,&variant_name[3]);
-		return(variant_name);
+		return(voice_id);
 	}
 
 	return(vp->identifier);

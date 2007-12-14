@@ -269,13 +269,15 @@ void Translator::CalcLengths()
 	int  end_of_clause;
 	int  embedded_ix = 0;
 	int  min_drop;
+	int emphasized;
 	unsigned char *pitch_env=NULL;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
 	{
 		prev = &phoneme_list[ix-1];
 		p = &phoneme_list[ix];
-		stress = p->tone & 0xf;
+		stress = p->tone & 0x7;
+		emphasized = p->tone & 0x8;
 
 		next = &phoneme_list[ix+1];
 
@@ -444,6 +446,9 @@ void Translator::CalcLengths()
 			else
 				p->amp = stress_amps[stress];
 
+			if(emphasized)
+				p->amp = 25;
+
 			if(ix >= (n_phoneme_list-3))
 			{
 				// last phoneme of a clause, limit its amplitude
@@ -499,9 +504,14 @@ void Translator::CalcLengths()
 			if(length_mod < 8)
 				length_mod = 8;     // restrict how much lengths can be reduced
 
-			if(stress >= 6)
+			if(stress >= 7)
 			{
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
+				length_mod += 20;
+			}
+			else
+			if(emphasized)
+			{
 				length_mod += 20;
 			}
 			
@@ -542,8 +552,8 @@ if(p->type != phVOWEL)
 			if(pre_sonorant || pre_voiced)
 			{
 				// set pitch for pre-vocalic part
-				if(pitch_start - last_pitch > 9)
-					last_pitch = pitch_start - 9;
+				if(pitch_start - last_pitch > 8)   // was 9
+					last_pitch = pitch_start - 8;
 				prev->pitch1 = last_pitch;
 				prev->pitch2 = pitch_start;
 				if(last_pitch < pitch_start)

@@ -1614,6 +1614,7 @@ int Translator::ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_
 	int punct;
 	int any_alnum = 0;
 	int self_closing;
+	int punct_data;
 	const char *p;
 	char buf2[40];
 	wchar_t xml_buf[N_XML_BUF+1];
@@ -1946,9 +1947,14 @@ if(option_ssml) parag=1;
 					}
 				}
 	
+				punct_data = punct_attributes[punct];
 				if(nl_count > 1)
+				{
+					if((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
+						return(punct_data + 35);   // with a longer pause
 					return(CLAUSE_PARAGRAPH);
-				return(punct_attributes[punct]);   // only recognise punctuation if followed by a blank or bracket/quote
+				}
+				return(punct_data);   // only recognise punctuation if followed by a blank or bracket/quote
 			}
 		}
 
