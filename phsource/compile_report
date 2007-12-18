@@ -924,8 +924,6 @@ vdiph/@u        [u:] en_wm
 vdiph/@u_2      [oU] en_rp
 vdiph/@u_3      [@U] ro
 vdiph/@u_en     [oU] en
-                [@U] vi
-                [@:U] vi
 vdiph/ui        [uI] base2
                 [uI] en
                 [uI] eo
@@ -940,6 +938,8 @@ vdiph/Vi        [@:I] vi
 vdiph/Vu        [@U] af
 vdiph/Vu_2      [oU] en_wm
 vdiph/Vu_3      [o:] nl
+vdiph/Vu_4      [@U] vi
+                [@:U] vi
 vdiph/&y        [&y] fi
                 [Wy] nl
 vdiph/yi        [yi] fi
@@ -1501,8 +1501,8 @@ vowel/V_2       [V] en
                 [V#] ru
 vowel/V_3       [V] en_rp
                 [V] hi
-                [@:] vi
 vowel/V_4       [V] en_sc
+                [@:] vi
 vowel/V_6       [V] en_us
 vowel/y         [y:] en
                 [y:] de

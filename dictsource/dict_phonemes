@@ -244,15 +244,11 @@ v    w    x    z
 
 Dictionary vi_dict
 
-@    @:   @:I  @:U  @I   @U   a    a:   
-a:I  a:U  aI   aU   E    e    eU   EU   
-i    i@   iU   O    o    OI   oI   u    
-u@   uI   y    y@   yI   
+@:   a    a:   a:I  aI   aU   E    e    
+i    o    
 
-b    c    d    D    f    g    h    j    
-k    kh   l    m    n    N    n^   p    
-Q    s    t    t[   ts;  tS;  v    w    
-x    z    Z    z;   
+b    d    g    h    k    m    n    p    
+s    t    t[   ts;  v    w    z    
 
 
 Dictionary zhy_dict

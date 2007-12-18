@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -104,20 +104,32 @@ _roman  rum'eIns@
 
 // Place names
 
+alaska      al'aska
 asië        A:si@
+babilon     babilOn
 bangladesh  baNglad'ES
+bastille    bast'il
 bethlehem   bEt_liEm
 boekarest   bukarEst
+bonnievale  _^_EN
 brittanje   $2
 caledon     kalidOn
+carolina    karul'ina
+ceres       se@r@s
 ceylon      s@lOn
 china       S'ina
+franschhoek frA~nsh'uk
+gadara      x2@dA:ra
 galilea     x2al@l'i:a
+gariep      x2ar'ip
+getsémané   x2Ets'e@mani
+goudini     $2
 (graaff reinet) x2rA:f||r@n'Et
 griekeland  x2rik@lant
+hermon      $1
+hirosjima   hiruS'ima
 israel      IsraI:l
 italië      it'A:li;@
-jerusalem   j@r'ysalEm
 kanada      kanad%a
 kanaän      kA:nA:an
 kenia       ki:nia
@@ -139,6 +151,7 @@ tunisië     $2
 turkye      $2
 upington    apiNt@n
 vesuvius    v@su:viWs
+wellington  wEliNt@n
 worcester   v'ust@r
 zimbabwe    zI:mb'ab_wE
 
@@ -147,7 +160,9 @@ zimbabwe    zI:mb'ab_wE
 // People names
 Abiméleg    abin'e@lEx2
 abraham     A:bram
+ackerman    ak@rman
 adrie       A:dri
+aletta      al'Eta
 alida       al'ida
 allah       %alA:
 André       'andreI
@@ -155,18 +170,23 @@ annette     an'Et
 antoinette  antun'Et
 benjamin    bEndZ@m@n
 bester b'Est@r
+beyers      beI@rs
 blomerus    blum'e@rWs
 botha       bo@ta
 bouwer      b@U@r
 breytenbach breIt@nbax2
+brouwer     bruw'&:r
+caesar      siz@r
 carl        kA:r@L
 cecilia     s@si:lia
 charl       SA:l
 charles     _^_EN
 charlie     tSA:li
 chopin      S%OpA~
+conradie    $2
 chris       krIs
 christo     krIstu
+christoffel   kr@stOf@l
 christian   krIstian
 christelle  kr@st&l
 christine   kr@st'i:n
@@ -185,6 +205,7 @@ eksteen     $1
 elisabeth   il'isabEt
 elize       il'i:z
 elsabé      &ls@bi
+emmarentia  Emar'e~nSja
 eségiël    is'e@x2i_@l
 estelle     %ist&l
 etienne     Eti@n
@@ -199,6 +220,7 @@ freud       frOId
 gabriël     x2A:bri@l
 george      _^_EN
 gerhard     x2&rart
+gerhardus   $2
 gloria      glO:ria
 gouws       x2@Us
 grange      x2rA:nsi
@@ -206,6 +228,7 @@ gustav      gustaf
 havenga     hA:f@Nx2a
 haydn       hAId@n
 helena      hil'e@na
+helloïse    hEluw'i:z
 herklaas    $1
 herman      $1
 hilde       hild@
@@ -255,6 +278,7 @@ mozart      mo@tsart
 naomi       na_'o@mi
 natasha n%at'aSa
 naudé       nOd'e@
+neil        _^_EN
 philip      fIl@p
 phillips    fIl@ps
 pierre p'e@r
@@ -268,6 +292,7 @@ ronel       run'&l
 rousseau    r@s@U
 roux r'u
 salomo      sA:l@mo@
+sandra      sandra
 schalk sk'alk
 scheepers   ske@p@rs
 schmidt     Smit
@@ -290,6 +315,7 @@ vincent     _^_EN
 violet      _^_EN $capital
 william     _^_EN
 yolande     jul'and@
+yvonne      iv'On
 zyl         seIl
 marais      mar'E:
 mandela     mand'E:la
@@ -457,16 +483,20 @@ aangaande     $2
 aanstaande    $2
 adagio        ad'A:dZi;%@U
 afkere        afke@r@
+agamemnon     ax2am'EmnOn
 agterstevoor  $4
 agterweë      $3
 algaande      $2
 algehele      alx2@h,e@l@
+allegro       al'Egru
 alles         al@s
+almiskie      $3
 alom          al_'Om
 alreeds       $2
 alternatiewe  $4
 amen          A:mEn
-anatomie      $4
+anale         an'A:l@
+anatomie      $4 $only
 asof          asOf
 asook         %as_o@k
 aspris        $2
@@ -474,6 +504,7 @@ asseblief     as@bl'if
 attraksie     $2
 
 babelaas      bab@lA:s
+barrikade     $3
 beide         beId@
 belangriker   b@laNr@k,Ir
 belangrikst@  b@laNr@kst@
@@ -482,6 +513,7 @@ beswil        bEsv@l
 bêre          b&:r@
 beskryf b@skr'eIf
 bestes        bEst@s
+beta          be@ta
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
@@ -490,6 +522,7 @@ bostaande b'o@stA:nd@
 cabernet      kab@rn'eI
 camembert     kam@mb'&:r
 camouflage    kamufl'A:Z
+charisma      kar'Isma
 chemikalieë   $3
 
 dadelik       dA:d@lIk
@@ -499,20 +532,24 @@ dekade        dEk'A:d@
 deurentyd     dy@r@nteIt
 deurgaans     $1
 deurkruis     $2
+deurstraalde  $2
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
 dusver        dWsf&r
 
 eenkeer       $1
+efesiër       if'e@si@r
 effense       Ef@ns@
 ekself %&ks'&lf
 ekstra Ekstra
 elders        &ld@rs
 elite         il'i:t
 enige         e@nIx2@
+eone          $2
 era           e@ra
 erger         &rg@r
 espeak        i:;spi:k
+(et cetera)   Ets'Et@ra
 euro          Y@ru
 exodus        Eks'o@dWs
 
@@ -520,6 +557,8 @@ figuur        f@x2yr
 filippense    f@l@pEns@
 finalis       $3
 finaliste     $3
+fort          fOrt
+forte         fOrt@
 frontaal      $2
 frontale      $2
 
@@ -539,14 +578,15 @@ graffiti      graf'iti
 gratis        x2r'A:t@s
 
 hallo         h'Il,@U
-hanteer       $2
+hanou         hA:n@U
 hardop        hart?Op
+hasepad       hA:s@pat
 heeltemal     he@lt@mal
-heengaan      he@nx2A:n
 hek           h&k
 hekke         h&k@
 helaas        he@l'A:s
 here          he@r@
+herero        hEr'E:ru
 herrysenis    h&r'eIs@n@s
 hiernamaals   hi:rn'A:mA:ls
 hierso        hi:rsO
@@ -554,13 +594,17 @@ hoera         hur'A:
 hoewel        huv'&l
 hokaai        hOkAI
 hoofsaaklik   $2
+hosanna       hus'ana
 
 ibis          $1
 idee          $2
+idilles     id'Il@s
 ignoreer      ix2no@r'e@r
 inagneming    @nax2ne@m@N
 indien        Indin $verb
+inkatha       iNk'A:ta
 inkluis       $2
+insomnia      @nsOmnija
 intens @nt'Ens
 intensiteit   $4
 
@@ -568,16 +612,21 @@ jawoord       jA:vo@rt
 jupiter       jupit@r
 
 kafee         kaf'e@
+katswink      katsv@nk
 kaviaar       kavi'A:r
+klaasvakie    $2
+knapsekêrel   knaps@k&:r@l
 komaan        kOmA:n
+konkawe       kOnk'A:v@
 kopiereg      kup'ir&x2
+korswel       kOrsv@l
+kotiljons     kOt@lj'o~ns
 kritiek       krIt'ik
 kulture       $2
 kunsmatige    kWnsm'A:t@x2@
 kwansuis      $2
 
 latere l'A:t@r@
-lekker        l&k@r
 lekkerder     l&k@rd@r
 lekkerste     l&k@rst@
 
@@ -611,7 +660,6 @@ negering      n@x2e@r@N
 netjies       nE:icis
 netjiese      nEicis@
 netsowel      nEtso@v&l
-nietemin      n'it@m@n
 nimmermeer    $1
 nobelprys     $2
 normale       nOrm'A:l@
@@ -663,7 +711,7 @@ petite        p@tit
 pinotage      pinut'A:Z
 pirouette     p@ru:'Et
 
-reeds         re@ts
+rebelleer     r@b@le@r
 retireer      r@t@re@:r
 retoriek      r@tur'ik
 rimpeling     rImp@l@N
@@ -693,6 +741,7 @@ sonop         sOn_Op
 sover         so@f&r
 spesmaas      $2
 stabiel       stab'il
+staccato      $2
 
 terdeë       $2
 terug         t@-rWx2
@@ -702,7 +751,7 @@ tevrede       t@fre@d@
 toegee        tux2e@
 totale        tut'A:l@
 totsiens      $2
-
+tragiek       trax2'ik
 
 uitdaging     YydA:x2@N
 uiteraard     Yyt@r_'A:rt
@@ -721,6 +770,7 @@ verdere       f&rd@r@
 vererger      f@r&rg@r
 ver           f'&:r
 verg          f&rx2
+vergeleë      f&:rx2@l,e@@
 vergete       f@rx2e@t@
 vermy         $2
 verre         f&:r@
@@ -733,6 +783,7 @@ verte         f&rt@
 vertes        f&rt@s
 via           via
 volheid       $1
+volte         $1
 voluit        fOl_Yyt
 voorgee       fo@rx2e@
 voorkeer      $1

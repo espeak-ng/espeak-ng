@@ -821,9 +821,11 @@ static void WavegenSetEcho(void)
 
 	if(delay == 0)
 		amp = 0;
+
 	echo_head = (delay * samplerate)/1000;
-	echo_length = echo_head;       // ensure completion of echo at the end of speech
-//	echo_length = echo_head * 2;    // perhaps allow 2 echo periods at the end of speech ?
+	echo_length = echo_head;       // ensure completion of echo at the end of speech. Use 1 delay period?
+	if(amp > 20)
+		echo_length = echo_head * 2;    // perhaps allow 2 echo periods if the echo is loud.
 
 	// echo_amp units are 1/256ths of the amplitude of the original sound. 
 	echo_amp = amp;

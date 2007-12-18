@@ -236,82 +236,68 @@ unsigned char *envelope_data[16] = {
 
 // pitch change during the main part of the clause
 static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
-static int drops_1[8] = {0x400,0x400,0x600,0x600,0xc00,0xc00,0x0e00,0x0e00};
-static int drops_2[8] = {0x400,0x400,0x600,0x600,-0x800,0xc00,0x0e00,0x0e00};
+//static int drops_1[8] = {0x400,0x400,0x600,0x600,0xc00,0xc00,0x0e00,0x0e00};
+//static int drops_2[8] = {0x400,0x400,0x600,0x600,-0x800,0xc00,0x0e00,0x0e00};
+
+static short oflow[] = {0, 20, 12, 4, 0};
+static short oflow_emf[] = {5, 24, 15, 10, 5};
+static short oflow_less[] = {1, 17, 10, 5, 1};
+static short back_emf[] = {36, 32, 0};
 
 typedef struct {
-   unsigned char pitch_env0;     /* pitch envelope, tonic syllable at end */
-   unsigned char tonic_max0;
-   unsigned char tonic_min0;
+	unsigned char pitch_env0;     /* pitch envelope, tonic syllable at end */
+	unsigned char tonic_max0;
+	unsigned char tonic_min0;
 
-   unsigned char pitch_env1;     /*     followed by unstressed */
-   unsigned char tonic_max1;
-   unsigned char tonic_min1;
+	unsigned char pitch_env1;     /*     followed by unstressed */
+	unsigned char tonic_max1;
+	unsigned char tonic_min1;
 
-   unsigned char pre_start;
-   unsigned char pre_end;
+	unsigned char pre_start;
+	unsigned char pre_end;
 
-   unsigned char body_start;
-   unsigned char body_end;
+	unsigned char body_start;
+	unsigned char body_end;
 
-   int  *body_drops;
-   unsigned char body_max_steps;
-   unsigned char body_lower_u;
+	int  *body_drops;
+	unsigned char body_max_steps;
+	unsigned char body_lower_u;
 
-   unsigned char tail_start;
-   unsigned char tail_end;
-   unsigned char tail_shape;
+	char n_overflow;
+	short *overflow;
+	short *backwards;
+
+	unsigned char tail_start;
+	unsigned char tail_end;
+	unsigned char tail_shape;
 } TONE_TABLE;
 
 #define N_TONE_TABLE  15
 
 static TONE_TABLE tone_table[N_TONE_TABLE] = {
    {PITCHfall, 30, 5,  PITCHfall, 30, 8,              // statement
-   20, 25,   34, 22,  drops_0, 3, 3,   12, 7, 0},
+   20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 12, 7, 0},
 
    {PITCHfrise, 37,10, PITCHfrise2, 35,10,              // comma
-   20, 25,   34, 20,  drops_0, 3, 3,   15, 24, 0},
+   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 24, 0},
 
    {PITCHfrise, 39,10, PITCHfrise2, 36,10,              // question
-   20, 25,   34, 20,  drops_0, 3, 3,   15, 29, 0},
+   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 29, 0},
 
-   {PITCHfall, 36, 0,  PITCHfall, 40, 30,              // statement, emphatic
-   20, 25,   34, 22,  drops_0, 3, 3,   20, 4, 0},
+   {PITCHfall, 41, 4,  PITCHfall, 41, 27,              // exclamation
+   20, 25,   34, 24,  drops_0, 3, 4,   5, oflow_emf, back_emf, 18, 5, 0},
 
-
-#ifdef deleted
-   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
-   20, 25,   34, 22,  drops_1, 3, 3,   12, 8, 0},
-
-   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
-   20, 25,   34, 20,  drops_1, 3, 3,   15, 25, 0},
-
-   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // exclamation
-   20, 25,   34, 22,  drops_1, 3, 3,   12, 8, 0},
+   {PITCHfall, 38, 2,  PITCHfall, 42, 30,              // statement, emphatic
+   20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 15, 5, 0},
 
 
+   {PITCHfall, 28, 6,  PITCHfall, 28, 10,              // statement, less intonation
+   20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 12, 6, 0},
 
-   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
-   20, 25,   34, 22,  drops_2, 3, 3,   12, 8, 0},
-
-   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
-   20, 25,   34, 20,  drops_2, 3, 3,   15, 25, 0},
-
-   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // exclamation
-   20, 25,   34, 22,  drops_2, 3, 3,   12, 8, 0},
+   {PITCHfrise2, 34,12, PITCHfall, 28,10,              // comma, less intonation
+   20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 9,14, 0},
 
 
-
-// alternatives
-   {PITCHfall, 36, 6,  PITCHfall, 36, 8,
-   30, 20,   18, 34,  drops_0, 3, 3,   12, 8, 0},
-   
-   {PITCHfrise, 38, 8, PITCHfrise2, 36, 8,
-   30, 20,   18, 34,  drops_0, 3, 3,   20, 32, 0},
-
-   {PITCHfall, 36, 6,  PITCHfall, 36, 8,
-   30, 20,   18, 34,  drops_0, 3, 3,   12, 8, 0},
-#endif 
 };
   
 
@@ -351,7 +337,7 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	number_pre = -1;    /* number of vowels before 1st primary stress */
 	number_body = 0;
 	number_tail = 0;   /* number between tonic syllable and next primary */
-	last_primary = 0;
+	last_primary = -1;
 	last2_primary = 0;
 	
 	for(ix=start; ix<end; ix++)
@@ -382,7 +368,7 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	}
 
 	if(number_pre < 0)
-		number_pre = 0;
+		number_pre = end;
 
 	number_tail = end - max_stress_posn - 1;
 	tone_posn = max_stress_posn;
@@ -393,9 +379,17 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 		tone_posn = tone_posn2 = end-1;
 	}
 	else
-	if(end == clause_end)
+	if(last_primary >= 0)
 	{
-		syllable_tab[last_primary].stress = PRIMARY_LAST;
+		if(end == clause_end)
+		{
+			syllable_tab[last_primary].stress = PRIMARY_LAST;
+		}
+	}
+	else
+	{
+		// no primary stress. Use the highest stress
+		syllable_tab[tone_posn].stress = PRIMARY_LAST;
 	}
 }   /* end of count_pitch_vowels */
 
@@ -412,8 +406,8 @@ static int count_increments(int ix, int end_ix, int min_stress)
 	while(ix < end_ix)
 	{
 		stress = syllable_tab[ix++].stress;
-//		if(stress >= PRIMARY_MARKED)
-//			break;
+		if(stress >= PRIMARY_LAST)
+			break;
 
 		if(stress >= min_stress)
 			count++;
@@ -466,14 +460,15 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress,
 	int  pitch=0;
 	int  increment=0;
 	int  n_primary=0;
+	int  n_steps=0;
 	int  initial;
 	int  overflow=0;
+	int  n_overflow;
 	int *drops;
 	short *overflow_tab;
 	SYLLABLE *syl;
 
-	static short overflow_tab1[5] = {0, 20, 12, 4, 0};
-	static short continue_tab[5] = {-14, 16, 10, 4, 0};
+	static short continue_tab[5] = {-13, 16, 10, 4, 0};
 
 	drops = t->body_drops;
 
@@ -481,13 +476,15 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress,
 	{
 		initial =0;
 		overflow = 0;
+		n_overflow = 5;
 		overflow_tab = continue_tab;
 		increment = (t->body_end - t->body_start) << 8;
 		increment = increment / (t->body_max_steps -1);
 	}
 	else
 	{
-		overflow_tab = overflow_tab1;
+		n_overflow = t->n_overflow;
+		overflow_tab = t->overflow;
 		initial = 1;
 	}
 
@@ -503,19 +500,19 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress,
 		{
 			// a primary stress
 
-			if(initial)
+			if((initial) || (stress == 5))
 			{
 				initial = 0;
 				overflow = 0;
-				n_primary = count_increments(ix,end_ix,min_stress);
+				n_steps = n_primary = count_increments(ix,end_ix,min_stress);
 
-				if(n_primary > t->body_max_steps)
-					n_primary = t->body_max_steps;
+				if(n_steps > t->body_max_steps)
+					n_steps = t->body_max_steps;
 
-				if(n_primary > 1)
+				if(n_steps > 1)
 				{
 					increment = (t->body_end - t->body_start) << 8;
-					increment = increment / (n_primary -1);
+					increment = increment / (n_steps -1);
 				}
 				else
 					increment = 0;
@@ -524,20 +521,26 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress,
 			}
 			else
 			{
-				if(n_primary > 0)
+				if(n_steps > 0)
 					pitch += increment;
 				else
 				{
 					pitch = (t->body_end << 8) - (increment * overflow_tab[overflow++])/16;
-					if(overflow > 4)
+					if(overflow >= n_overflow)
 					{
 						overflow = 0;
-						overflow_tab = overflow_tab1;
+						overflow_tab = t->overflow;
 					}
 				}
 			}
 
+			n_steps--;
+
 			n_primary--;
+			if((t->backwards) && (n_primary < 2))
+			{
+					pitch = t->backwards[n_primary] << 8;	
+			}
 		}
 
 		if(stress >= PRIMARY)
@@ -889,7 +892,7 @@ void Translator::CalcPitches(int clause_type)
 		option = 0;
 
 	group_tone_emph = group_tone = punct_to_tone[option][clause_type]; 
-	group_tone_emph = punct_to_tone[option][3];   // emphatic form of statement
+	group_tone_emph = punct_to_tone[option][4];   // emphatic form of statement
 
 	if(clause_type == 4)
 		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */
@@ -924,11 +927,23 @@ void Translator::CalcPitches(int clause_type)
 		if(syl->stress >= 4)
 			count_primary++;
 
-		if((syl->stress == 6) && (syllable_tab[st_ix+1].stress == 6))
+		if(syl->stress == 6)
 		{
-			syllable_tab[st_ix].flags = 2;
-			syl->stress = 4;
+			// are the next primary syllables also emphasized ?
+			for(ix=st_ix+1; ix<n_st; ix++)
+			{
+				if(syllable_tab[ix].stress == 4)
+					break;
+				if(syllable_tab[ix].stress == 6)
+				{
+					// emphasize this syllable, but don't end the current tone group
+					syllable_tab[st_ix].flags = 2;
+					syl->stress = 5;
+					break;
+				}
+			}
 		}
+
 		if(syl->stress == 6)
 		{
 			// an emphasized syllable, end the tone group after the next primary stress

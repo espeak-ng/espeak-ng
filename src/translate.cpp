@@ -341,8 +341,8 @@ unsigned char *length_mod_tabs[6] = {
 
 /* index by 0=. 1=, 2=?, 3=! 4=none */
 static unsigned char punctuation_to_tone[4][5] = {
-	{0,1,2,3,0},
-	{0,1,2,3,0},
+	{0,1,2,3,4},
+	{5,6,2,0,4},
 	{0,1,2,3,0},
 	{0,1,2,3,0} };
 
@@ -368,6 +368,9 @@ int IsAlpha(unsigned int c)
 
 	if((c >= 0x901) && (c <= 0x957))
 		return(1);    // Devanagari  vowel signs and other signs
+
+	if((c >= 0x300) && (c <= 0x36f))
+		return(1);   // combining accents
 
 	return(0);
 }
