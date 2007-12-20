@@ -169,7 +169,7 @@ i.e	aIi:_!   $pause
 irc	$abbrev
 lbs	paUndz
 ltd	lImItId
-mc	m@k
+mc	m@k  $alt2   // combine with the following word
 oem	$abbrev
 ok	$abbrev
 omg	$abbrev

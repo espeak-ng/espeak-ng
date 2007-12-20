@@ -43,7 +43,7 @@ typedef struct {
 	short pitch2;
 } SYLLABLE;
 
-SYLLABLE syllable_tab[N_PHONEME_LIST];
+SYLLABLE *syllable_tab;
 
 
 static int tone_pitch_env;    /* used to return pitch envelope */
@@ -242,7 +242,7 @@ static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
 static short oflow[] = {0, 20, 12, 4, 0};
 static short oflow_emf[] = {5, 24, 15, 10, 5};
 static short oflow_less[] = {1, 17, 10, 5, 1};
-static short back_emf[] = {36, 32, 0};
+static short back_emf[] = {35, 32, 0};
 
 typedef struct {
 	unsigned char pitch_env0;     /* pitch envelope, tonic syllable at end */
@@ -285,7 +285,7 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
    20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 29, 0},
 
    {PITCHfall, 41, 4,  PITCHfall, 41, 27,              // exclamation
-   20, 25,   34, 24,  drops_0, 3, 4,   5, oflow_emf, back_emf, 18, 5, 0},
+   20, 25,   34, 24,  drops_0, 3, 4,   5, oflow_emf, back_emf, 16, 5, 0},
 
    {PITCHfall, 38, 2,  PITCHfall, 42, 30,              // statement, emphatic
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 15, 5, 0},
@@ -376,7 +376,7 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 
 	if(no_tonic)
 	{
-		tone_posn = tone_posn2 = end-1;
+		tone_posn = tone_posn2 = end;  // next position after the end of the truncated clause
 	}
 	else
 	if(last_primary >= 0)
@@ -880,6 +880,10 @@ void Translator::CalcPitches(int clause_type)
 	int count_primary;
 	int ph_end=n_phoneme_list;
 
+	SYLLABLE syllable_tab2[N_PHONEME_LIST];
+
+	syllable_tab = syllable_tab2;   // don't use permanent storage. it's only needed during the call of CalcPitches()
+
 	if(langopts.intonation == 1)
 	{
 		CalcPitches_Tone(clause_type);
@@ -892,7 +896,7 @@ void Translator::CalcPitches(int clause_type)
 		option = 0;
 
 	group_tone_emph = group_tone = punct_to_tone[option][clause_type]; 
-	group_tone_emph = punct_to_tone[option][4];   // emphatic form of statement
+	group_tone_emph = punct_to_tone[option][5];   // emphatic form of statement
 
 	if(clause_type == 4)
 		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */
@@ -907,6 +911,7 @@ void Translator::CalcPitches(int clause_type)
 		if(p->synthflags & SFLAG_SYLLABLE)
 		{
 			syllable_tab[n_st].flags = 0;
+			syllable_tab[n_st].env = PITCHfall;
 			syllable_tab[n_st++].stress = p->tone;  // stress level
 
 			if(p->tone >= 4)

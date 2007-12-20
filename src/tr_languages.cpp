@@ -45,6 +45,7 @@
 #define OFFSET_GREEK  0x380
 #define OFFSET_CYRILLIC 0x420
 #define OFFSET_DEVANAGARI  0x900
+#define OFFSET_TAMIL  0xb80
 
 
 static const unsigned int replace_cyrillic_latin[] = 
@@ -292,7 +293,7 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[19];   // ISCII
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
-			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable
+			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->langopts.numbers = 0x811;
 			tr->langopts.numbers2 = 0x100;
@@ -314,9 +315,14 @@ Translator *SelectTranslator(const char *name)
 		{
 			static const unsigned char stress_amps_hr[8] = {16,16, 20,20, 20,24, 24,22 };
 			static const short stress_lengths_hr[8] = {180,160, 200,200, 0,0, 220,230};
+			static const short stress_lengths_sr[8] = {160,150, 200,200, 0,0, 250,260};
 
 			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_hr,stress_amps_hr);
+
+			if(name2 == L('s','r'))
+				SetupTranslator(tr,stress_lengths_sr,stress_amps_hr);
+			else
+				SetupTranslator(tr,stress_lengths_hr,stress_amps_hr);
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 
 			tr->langopts.stress_rule = 0;
@@ -587,6 +593,30 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.numbers = 0x8e1;
 			tr->langopts.numbers2 = 0x100;
+		}
+		break;
+
+	case L('t','a'):
+		{
+			static const short stress_lengths_ta[8] = {190, 190,  210, 210,  0, 0,  230, 250};
+			static const unsigned char stress_amps_ta[8] = {17,14, 20,19, 20,24, 24,22 };
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+
+			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
+			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
+			tr->langopts.numbers = 0x811;
+			tr->langopts.numbers2 = 0x100;
+			tr->letter_bits_offset = OFFSET_TAMIL;
+
+			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+			SetLetterBitsRange(tr,LETTERGP_A,0x05,0x14);   // vowel letters
+			SetLetterBitsRange(tr,LETTERGP_A,0x3e,0x4c);   // vowel signs
+			SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
+			SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		}
 		break;
 

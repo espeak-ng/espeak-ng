@@ -88,8 +88,8 @@ static int embedded_ix;
 static int embedded_read;
 unsigned int embedded_list[N_EMBEDDED_LIST];
 
-// the source text of a single clause
-#define N_TR_SOURCE    350
+// the source text of a single clause (UTF8 bytes)
+#define N_TR_SOURCE    700
 static char source[N_TR_SOURCE+40];     // extra space for embedded command & voice change info at end
 
 int n_replace_phonemes;
@@ -339,12 +339,12 @@ unsigned char *length_mod_tabs[6] = {
  };
 
 
-/* index by 0=. 1=, 2=?, 3=! 4=none */
-static unsigned char punctuation_to_tone[4][5] = {
-	{0,1,2,3,4},
-	{5,6,2,0,4},
-	{0,1,2,3,0},
-	{0,1,2,3,0} };
+/* index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized */
+static unsigned char punctuation_to_tone[4][6] = {
+	{0,1,2,3,0,4},
+	{5,6,2,0,0,4},
+	{0,1,2,3,0,0},
+	{0,1,2,3,0,0} };
 
 
 void SetLengthMods(Translator *tr, int value)
@@ -367,6 +367,9 @@ int IsAlpha(unsigned int c)
 		return(1);
 
 	if((c >= 0x901) && (c <= 0x957))
+		return(1);    // Devanagari  vowel signs and other signs
+
+	if((c >= 0xb81) && (c <= 0xbe5))
 		return(1);    // Devanagari  vowel signs and other signs
 
 	if((c >= 0x300) && (c <= 0x36f))

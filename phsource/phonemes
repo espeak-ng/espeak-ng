@@ -1172,6 +1172,9 @@ include ph_french_ca
 phonemetable hi base
 include ph_hindi
 
+phonemetable ta hi
+include ph_tamil
+
 phonemetable hu base
 include ph_hungarian
 

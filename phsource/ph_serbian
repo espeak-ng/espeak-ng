@@ -13,14 +13,39 @@
 // Only phonemes which differ from the inherited phonemes need
 // to be included here.
 
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 120
+  formants vowel/ii_6
+  linkout ;
+endphoneme
+
+
+phoneme &
+  vowel starttype (a) endtype (a)
+  length 140
+  formants vowel/a#
+endphoneme
+
+
+phoneme r*   // this is [R] from Slovak/Czech
+  liquid
+  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  formants r3/r_trill+r3/r_trill.wav%50
+  trill
+  lengthmod 6
+endphoneme
+
+
 
 phoneme t        // dental variant of /t/
   vls dnt stop
   vowelin f1=0  f2=1600 -300 300  f3=-100 80
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_sr%50
-  before _ ustop/t_sr%35
+  wave  ustop/t_dnt%50
+  before _ ustop/t_dnt%50
   switchvoicing d
 endphoneme
 
@@ -97,8 +122,8 @@ phoneme tS
   vls pla afr sibilant
   vowelin f1=0  f2=2300 200 400  f3=-100 80
   lengthmod 2
-  wave ustop/tsh_sr.wav
-  before _ ustop/tsh_sr.wav
+  wave ustop/tsh_sr.wav%50
+  before _ ustop/tsh_sr.wav%50
   switchvoicing dZ
 endphoneme
 
@@ -113,12 +138,14 @@ phoneme tS;
 endphoneme
 
 
+
+
 phoneme Z
   vcd pla frc sibilant
   vowelin  f1=0  f2=2000 0 300  f3=-200 80
   vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
-  formants voc/zh+ufric/sh_sr.wav
-  before _ voc/zh+ufric/sh_sr.wav
+  formants voc/zh+ufric/sh_sr.wav%60
+  before _ voc/zh+ufric/sh_sr.wav%50
   lengthmod 6
   switchvoicing S
 endphoneme
@@ -130,8 +157,8 @@ phoneme S
   vowelout f1=0  f2=2100 100 300  f3=-100 80
   length 100
   lengthmod 3
-  wave ufric/sh_sr.wav
-  before _ ufric/sh_sr.wav
+  wave ufric/sh_sr.wav%70
+  before _ ufric/sh_sr.wav%60
   switchvoicing Z
 endphoneme
 

@@ -33,9 +33,6 @@
 #include "voice.h"
 #include "translate.h"
 
-#define    PITCHfall   0
-#define    PITCHrise   1
-
 
 extern FILE *f_log;
 static void SmoothSpect(void);

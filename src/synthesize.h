@@ -18,7 +18,7 @@
  ***************************************************************************/
 
 
-#define N_PHONEME_LIST  700    // enough for source[] full of text, else it will truncate
+#define N_PHONEME_LIST  1000    // enough for source[N_TR_SOURCE] full of text, else it will truncate
 
 #define MAX_HARMONIC  400           // 400 * 50Hz = 20 kHz, more than enough
 #define N_SEQ_FRAMES   25           // max frames in a spectrum sequence (real max is ablut 8)

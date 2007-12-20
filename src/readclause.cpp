@@ -1967,19 +1967,12 @@ if(option_ssml) parag=1;
 		}
 		ix += utf8_out(c1,&buf[ix]);    //	buf[ix++] = c1;
 
-		if(!iswalnum(c1) && (ix > (n_buf-20)))
+		if(((ix > (n_buf-20)) && !IsAlpha(c1) && !iswdigit(c1))  ||  (ix >= (n_buf-2)))
 		{
 			// clause too long, getting near end of buffer, so break here
+			// try to break at a word boundary (unless we actually reach the end of buffer).
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
-			UngetC(c2);
-			return(CLAUSE_NONE);
-		}
-		if(ix >= (n_buf-2))
-		{
-			// reached end of buffer, must break now
-			buf[n_buf-2] = ' ';
-			buf[n_buf-1] = 0;
 			UngetC(c2);
 			return(CLAUSE_NONE);
 		}

@@ -1,4 +1,4 @@
-41 phoneme tables
+42 phoneme tables
           new total
     base  96   96
    base2  24  115
@@ -16,6 +16,7 @@
       fr  34  118
    fr_ca  11  118
       hi  50  132
+      ta  12  134
       hu  23  112
       nl  26  117
       pl  15  107
@@ -23,7 +24,7 @@
       cs   6  125
       hr  20  130
       mk   3  131
-      sr  11  130
+      sr  14  130
       ru  38  126
       it  17  118
       la  21  114
@@ -427,6 +428,7 @@ r3/r_trill      [R2] base
                 [r] cy
                 [r] nl
                 [R] sk
+                [r*] sr
                 [x] pt
 r3/r_trill2     [R] base
                 [R] hr
@@ -438,6 +440,7 @@ r3/r_trill3.wav  [R3] base
                 [r] nl
 r3/r_trill.wav  [R2] base
                 [R] sk
+                [r*] sr
                 [x] pt
 r3/r_u          [(u)] base
 r3/rx           [*] base
@@ -699,6 +702,7 @@ ustop/t_dnt     [t] base
                 [t] hu
                 [t] pl
                 [t] hr
+                [t] sr
                 [t] ru
                 [t;] ro
                 [t[] vi
@@ -741,7 +745,6 @@ ustop/ts_pzd_   [c] hi
 ustop/ts_pzd2   [c] hi
                 [c] hu
 ustop/t_sr      [d] sr
-                [t] sr
 ustop/ts_rfx    [ts.] zh
 ustop/ts_rfx_unasp  [ts.] zh
 ustop/ts_sr.wav  [tS;] sr
@@ -1106,6 +1109,7 @@ vowel/a         [a] en_n
                 [a] zh
 vowel/a#        [a/] base2
                 [a2] en_sc
+                [&] sr
                 [&] pt
                 [&/] pt
                 [a2] en_wi
@@ -1120,7 +1124,8 @@ vowel/a_2       [a] base2
                 [A:] en_wi
                 [A@] en_wi
                 [aa] en_wi
-vowel/a#_2      [&] hr
+vowel/a#_2      [a] ta
+                [&] hr
                 [a2] sv
                 [&] is
                 [a/] sw
@@ -1150,6 +1155,7 @@ vowel/a_5       [a/] it
                 [a] sw
 vowel/aa        [a] fi
                 [A] fr_ca
+                [a:] ta
                 [A] no
                 [A:] no
                 [aa] zhy
@@ -1185,6 +1191,8 @@ vowel/e         [e] base2
                 [e] eo
                 [e] fr
                 [E:] fr
+                [e] ta
+                [e:] ta
                 [e] hr
                 [e/] it
                 [e:] la
@@ -1267,6 +1275,7 @@ vowel/i         [i] base2
                 [i:] cy
                 [i] eo
                 [I] fr
+                [i:] ta
                 [i:] hu
                 [i] pl
                 [i] it
@@ -1301,6 +1310,7 @@ vowel/i#_5      [y] pt_pt
                 [i/] pt_pt
                 [y] ro
 vowel/i_6       [i:] en_us
+                [i] ta
                 [i] hr
 vowel/i_en      [i:] en
                 [i] vi
@@ -1338,6 +1348,7 @@ vowel/ii_5      [I] en_wi
                 [I2] en_wi
 vowel/ii_6      [I] en_wm
                 [I2] en_wm
+                [I] sr
 vowel/ii_en     [i] en
 vowel/@_low     [3] en_rp
                 [@] en_rp
@@ -1353,6 +1364,8 @@ vowel/o         [o] base2
                 [o:] en
                 [o:] de
                 [o] hi
+                [o] ta
+                [o:] ta
                 [o] it
                 [o/] it
                 [o:] la
@@ -1450,7 +1463,8 @@ vowel/u_2       [u1] fi
                 [u] sk
                 [U] hr
                 [u] ro
-vowel/u#_2      [u-] sv
+vowel/u#_2      [u-] ta
+                [u-] sv
 vowel/u_3       [yU] ro
 vowel/u_4       [u:] en_n
 vowel/u#_4      [U] en_sc
@@ -1465,6 +1479,7 @@ vowel/u_bck     [u] base2
                 [u] fi
                 [u] fr_ca
                 [u:] hi
+                [u:] ta
                 [u:] hu
                 [u] nl
                 [u] pl
@@ -1489,6 +1504,7 @@ vowel/uu_4      [U] fi
 vowel/uu_bck    [U] en_n
                 [U] fr_ca
                 [U] hi
+                [u] ta
                 [u] hu
                 [U] pt
                 [U] no

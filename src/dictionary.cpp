@@ -976,7 +976,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int done;
 
 	unsigned char vowel_stress[N_WORD_PHONEMES/2];
-	char syllable_type[N_WORD_PHONEMES/2];
+	char syllable_weight[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
 
 	static char consonant_types[16] = {0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0};
@@ -1040,7 +1040,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				// followed by two consonants, a long consonant, or consonant and end-of-word
 				weight++;
 			}
-			syllable_type[ix] = weight;
+			syllable_weight[ix] = weight;
 			ix++;
 		}
 	}
@@ -1164,16 +1164,14 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		{
 			int wt;
 			int max_weight = -1;
-			int min_weight = 10;
 			int prev_stressed;
 
-			for(ix = 1; ix < vowel_count; ix++)
+			// find the heaviest syllable, excluding the final syllable
+			for(ix = 1; ix < (vowel_count-1); ix++)
 			{
 				if(vowel_stress[ix] == 0)
 				{
-					if((wt = syllable_type[ix]) < min_weight)
-						min_weight = wt;
-					if(wt >= max_weight)
+					if((wt = syllable_weight[ix]) >= max_weight)
 					{
 						max_weight = wt;
 						prev_stressed = stressed_syllable;
@@ -1181,14 +1179,19 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 					}
 				}
 			}
-			if(max_weight > min_weight)
+
+			if((syllable_weight[vowel_count-1] == 2) &&  (max_weight< 2))
 			{
-				// different weights, don't stress the final syllable
-				if((stressed_syllable == vowel_count-1) && (syllable_type[vowel_count-2] > 0))
-				{
-					stressed_syllable = vowel_count-2;
-				}
+				// the only double=heavy syllable is the final syllable, so stress this
+				stressed_syllable = vowel_count-1;
 			}
+			else
+			if(max_weight <= 0)
+			{
+				// all syllables, exclusing the last, are light. Stress the first syllable
+				stressed_syllable = 1;
+			}
+
 			vowel_stress[stressed_syllable] = 4;
 			max_stress = 4;
 		}
@@ -1253,7 +1256,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				if((stress == 3) && (langopts.stress_flags & 0x20))
 					continue;      // don't use secondary stress
 
-				if((v > 1) && (langopts.stress_flags & 0x40) && (syllable_type[v]==0) && (syllable_type[v+1]>0))
+				if((v > 1) && (langopts.stress_flags & 0x40) && (syllable_weight[v]==0) && (syllable_weight[v+1]>0))
 				{
 					// don't put secondary stress on a light syllable which is followed by a heavy syllable
 					continue;

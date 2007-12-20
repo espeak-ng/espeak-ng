@@ -1,0 +1,173 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Tamil
+
+.replace
+௦	0	// Tamil numbers
+௧	1
+௨	2
+௩	3
+௪	4
+௫	5
+௬	6
+௭	7
+௮	8
+௯	9
+
+
+.group 0xe0ae
+	ஂ		// anusvara
+
+	ஃ		// visarga
+
+	அ	a
+
+	ஆ	a:
+
+	இ	i
+
+	ஈ	i:
+
+	உ	u
+
+	ஊ	u:
+
+	எ	e
+
+	ஏ	e:
+
+	ஐ	E:
+
+	ஒ	o
+
+	ஓ	o:
+
+	ஔ	aU
+
+// consonants
+
+	க	ga   // inter-vocalic, unless there is virama before or after
+	க (B	g
+	க (் 	g
+     ்) க	ga
+     ்) க (B	g
+     _) க	ka
+     _) க (B	k
+	க்க	ka
+	க்க (B	k
+
+	ங	Na
+	ங (B	N
+
+	ச	dZa
+	ச (B	dZ
+     _) ச	sa
+     _) ச (B	s
+	ச்ச	tSa
+	ச்ச (B	tS
+
+	ஜ	dZa
+	ஜ (B	dZ
+
+	ஞ	n^a
+	ஞ (B	n^
+
+	ட	d.a
+	ட (B	d.
+     _) ட	t.a
+     _) ட (B	t.
+	ட்ட	t.a
+	ட்ட (B	t.
+
+	ண	n.a
+	ண (B	n.
+
+	த	da
+	த (B	d
+     _) த	ta
+     _) த (B	t
+	த்த	ta
+	த்த (B	t
+
+	ந	na
+	ந (B	n
+
+	ன	na
+	ன (B	n
+
+	ப	ba
+	ப (B	b
+     _) ப	pa
+     _) ப (B	p
+	ப்ப	pa
+	ப்ப (B	p
+
+	ம	ma
+	ம (B	m
+
+	ய	ja
+	ய (B	j
+
+	ர	ra
+	ர (B	r
+
+	ற	Ra
+	ற (B	R
+	ற் (ற	t	// RR -> tR
+
+	ல	la
+	ல (B	l
+
+	ள	l/2a    // this should be [l.] not [l/2]
+	ள (B	l/2
+
+	ழ	z.a
+	ழ (B	z.
+
+	வ	va
+	வ (B	v
+
+	ஶ	Sa
+	ஶ (B	S
+
+	ஷ	s.a
+	ஷ (B	s.
+
+	ஸ	sa
+	ஸ (B	s
+
+	ஹ	ha
+	ஹ (B	h
+
+
+// combining vowels
+
+	ா	a:
+
+	ி	i
+
+.group 0xe0af
+	ீ	i:
+
+	ு	u
+
+	ூ	u:
+
+	ெ	e
+
+	ே	e:
+
+	ை	E:
+
+	ொ	o
+
+	ோ	o:
+
+	ௌ	aU
+
+	்		// virama
+
+	ௗ	:	// aU length mark
+
+.group
+	$	dola
