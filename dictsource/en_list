@@ -1024,6 +1024,7 @@ innard           In3d
 inner            In3
 inning           InIN
 innovative       In@veItIv
+insect            $1
 insert           Ins3:t        $onlys
 insert           Ins'3:t       $verb
 insightful        $2
@@ -2578,6 +2579,7 @@ thine            ,DaIn
 me               ,mi:          $only
 him              ,hIm          $only
 us               ,Vz           $only
+us                $abbrev      $allcaps
 them             ,DEm          $only
 
 my               %maI          $nounf $strend2

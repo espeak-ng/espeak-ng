@@ -526,6 +526,10 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			{
 				insert_ph = pause_phonemes[x];
 			}
+			if(option_wordgap > 0)
+			{
+				insert_ph = phonPAUSE_LONG;
+			}
 		}
 
 		next2 = phoneme_tab[(plist2+2)->phcode];
@@ -590,6 +594,11 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		}
 
 		phlist[ix].length = ph->std_length;
+		if((ph->code == phonPAUSE_LONG) && (option_wordgap > 0))
+		{
+			phlist[ix].ph = phoneme_tab[phonPAUSE_SHORT];
+			phlist[ix].length = option_wordgap*14;   // 10mS per unit at the default speed
+		}
 
 		if(ph->type==phVOWEL || ph->type==phLIQUID || ph->type==phNASAL || ph->type==phVSTOP || ph->type==phVFRICATIVE)
 		{

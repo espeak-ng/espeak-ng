@@ -43,6 +43,7 @@ typedef struct {
 	short freq[N_PEAKS];    // 100% = 256
 	short height[N_PEAKS];  // 100% = 256
 	short width[N_PEAKS];   // 100% = 256
+	short freqadd[N_PEAKS];  // Hz
 
 	// copies without temporary adjustments from embedded commands
 	short freq2[N_PEAKS];    // 100% = 256

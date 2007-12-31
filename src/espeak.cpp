@@ -39,6 +39,8 @@ static const char *help_text =
 "spoken from stdin, each line separately.\n\n"
 "-a <integer>\n"
 "\t   Amplitude, 0 to 200, default is 100\n"
+"-g <integer>\n"
+"\t   Word gap. Pause between words, units of 10mS at the default speed\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as end-of-clause\n"
@@ -297,6 +299,7 @@ int main (int argc, char **argv)
 	int volume = -1;
 	int speed = -1;
 	int pitch = -1;
+	int wordgap = -1;
 	int option_capitals = -1;
 	int option_punctuation = -1;
 	int option_phonemes = -1;
@@ -319,7 +322,7 @@ int main (int argc, char **argv)
 
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:bf:hk:l:mp:qs:v:w:xXz",
+		c = getopt_long (argc, argv, "a:bf:g:hk:l:mp:qs:v:w:xXz",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -376,6 +379,10 @@ int main (int argc, char **argv)
 
 		case 's':
 			speed = atoi(optarg);
+			break;
+
+		case 'g':
+			wordgap = atoi(optarg);
 			break;
 
 		case 'v':
@@ -474,6 +481,8 @@ int main (int argc, char **argv)
 		espeak_SetParameter(espeakCAPITALS,option_capitals,0);
 	if(option_punctuation >= 0)
 		espeak_SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	if(wordgap >= 0)
+		espeak_SetParameter(espeakWORDGAP,wordgap,0);
 	if(option_linelength > 0)
 		espeak_SetParameter(espeakLINELENGTH,option_linelength,0);
 	if(option_punctuation == 2)

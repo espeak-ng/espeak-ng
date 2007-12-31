@@ -44,6 +44,7 @@ static char translator2_language[20] = {0};
 FILE *f_trans = NULL;     // phoneme output text
 int option_tone1 = 0;
 int option_tone2 = 0;
+int option_tone_flags = 0;   // bit 8=emphasize allcaps, bit 9=emphasize penultimate stress
 int option_phonemes = 0;
 int option_phoneme_events = 0;
 int option_quiet = 0;
@@ -53,10 +54,10 @@ int option_punctuation = 0;
 int option_sayas = 0;
 int option_sayas2 = 0;  // used in translate_clause()
 int option_emphasis = 0;  // 0=normal, 1=normal, 2=weak, 3=moderate, 4=strong
-int option_emphasize_allcaps = 0;
 int option_ssml = 0;
 int option_phoneme_input = 1;  // allow [[phonemes]] in input
 int option_phoneme_variants = 0;  // 0= don't display phoneme variant mnemonics
+int option_wordgap = 0;
 
 int count_sayas_digits;
 int skip_sentences;
@@ -339,14 +340,6 @@ unsigned char *length_mod_tabs[6] = {
  };
 
 
-/* index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized */
-static unsigned char punctuation_to_tone[4][6] = {
-	{0,1,2,3,0,4},
-	{5,6,2,0,0,4},
-	{0,1,2,3,0,0},
-	{0,1,2,3,0,0} };
-
-
 void SetLengthMods(Translator *tr, int value)
 {//==========================================
 	int value2;
@@ -457,7 +450,6 @@ Translator::Translator()
 	langopts.decimal_sep = '.';
 
 	memcpy(punct_to_tone,punctuation_to_tone,sizeof(punct_to_tone));
-//	punct_to_tone[0][3] = 0;   // exclamation, use period until we can improve the exclamation intonation 
 }
 
 
@@ -706,7 +698,7 @@ if((wmark > 0) && (wmark < 8))
 
 		if((wflags & FLAG_ALL_UPPER) && (word_length > 1) && (clause_lower_count > 3) && iswalpha(first_char))
 		{
-			if((option_emphasize_allcaps) && !(dictionary_flags[0] & FLAG_ABBREV))
+			if((option_tone_flags & OPTION_EMPHASIZE_ALLCAPS) && !(dictionary_flags[0] & FLAG_ABBREV))
 			{
 				// emphasize words which are in capitals
 				emphasize_allcaps = FLAG_EMPHASIZED;

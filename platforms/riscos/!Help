@@ -35,7 +35,7 @@ Installation and Use
 3.  Example commands:
 
     *help speak
-      should now show version 3.10
+      should now show version 3.30   (or whatever is the latest version)
 
     *speak -h
       shows the available commands

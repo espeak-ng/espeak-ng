@@ -382,6 +382,7 @@ void VoiceReset(int tone_only)
 		voice->width[pk] = 256;
 		voice->breath[pk] = 0;
 		voice->breathw[pk] = breath_widths[pk];  // default breath formant woidths
+		voice->freqadd[pk] = 0;
 
 		// adjust formant smoothing depending on sample rate
 		formant_rate[pk] = (formant_rate_22050[pk] * 22050)/samplerate;
@@ -416,8 +417,9 @@ static void VoiceFormant(char *p)
 	int freq = 100;
 	int height = 100;
 	int width = 100;
+	int freqadd = 0;
 
-	ix = sscanf(p,"%d %d %d %d",&formant,&freq,&height,&width);
+	ix = sscanf(p,"%d %d %d %d %d",&formant,&freq,&height,&width,&freqadd);
 	if(ix < 2)
 		return;
 
@@ -430,6 +432,7 @@ static void VoiceFormant(char *p)
 		voice->height[formant] = int(height * 2.56001);
 	if(width >= 0)
 		voice->width[formant] = int(width * 2.56001);
+	voice->freqadd[formant] = freqadd;
 }
 
 
@@ -581,6 +584,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			*p = 0;    // remove previous variant name
 		sprintf(buf,"+%s",&vname[3]);    // omit  !v/  from the variant filename
 		strcat(voice_identifier,buf);
+		langopts = &translator->langopts;
 	}
 	VoiceReset(tone_only);
 
@@ -719,7 +723,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_INTONATION:   // intonation
-			sscanf(p,"%d %d",&option_tone1,&option_tone2);
+			sscanf(p,"%d %d",&langopts->intonation_group,&option_tone2);
 			break;
 
 		case V_DICTRULES:   // conditional dictionary rules and list entries

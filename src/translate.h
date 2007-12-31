@@ -332,7 +332,8 @@ typedef struct {
 	int max_roman;
 	int thousands_sep;
 	int decimal_sep;
-	int intonation;          // 1=tone language
+	int tone_language;          // 1=tone language
+	int intonation_group;
 	int long_stop;          // extra mS pause for a lengthened stop
 	int phoneme_change;     // TEST, change phonemes, after translation
 	char max_initial_consonants;
@@ -395,7 +396,9 @@ public:
 	const wchar_t *letter_groups[8];
 
 	/* index1=option, index2 by 0=. 1=, 2=?, 3=! 4=none */
-	unsigned char punct_to_tone[4][5];
+#define INTONATION_TYPES 8
+#define PUNCT_INTONATIONS 6
+	unsigned char punct_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
 
 	char *data_dictrules;     // language_1   translation rules file
 	char *data_dictlist;      // language_2   dictionary lookup file
@@ -486,6 +489,9 @@ protected:
 
 extern int option_tone1;
 extern int option_tone2;
+#define OPTION_EMPHASIZE_ALLCAPS  0x100
+#define OPTION_EMPHASIZE_PENULTIMATE 0x200
+extern int option_tone_flags;
 extern int option_waveout;
 extern int option_quiet;
 extern int option_phonemes;
@@ -500,6 +506,7 @@ extern int option_ssml;
 extern int option_phoneme_input;   // allow [[phonemes]] in input text
 extern int option_phoneme_variants;
 extern int option_sayas;
+extern int option_wordgap;
 
 extern int count_characters;
 extern int count_words;
@@ -519,7 +526,8 @@ extern char *namedata;
 extern char skip_marker[N_MARKER_LENGTH];
 
 #define N_PUNCTLIST  60
-extern wchar_t option_punctlist[N_PUNCTLIST];
+extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters to announce
+extern unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
 
 extern int speech_parameters[];
 

@@ -654,8 +654,8 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 		w = word;
 		while(*p == *w)
 		{
-			*w++;
-			*p++;
+			w++;
+			p++;
 		}
 		if(*p == 0)
 			return(w-word);   // matched a complete string

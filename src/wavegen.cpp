@@ -1713,9 +1713,9 @@ if(option_log_frames)
 	length4 = length2/4;
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix]) << 8;
+		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] + v->freqadd[ix]*256) << 8;
 		peaks[ix].freq = int(peaks[ix].freq1);
-		next = (fr2->ffreq[ix] * v->freq[ix]) << 8;
+		next = (fr2->ffreq[ix] * v->freq[ix] + v->freqadd[ix]*256) << 8;
 		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * (STEPSIZE/4)) / length4;  // lower headroom for fixed point math
 
 		peaks[ix].height1 = (fr1->fheight[ix] * v->height[ix]) << 6;

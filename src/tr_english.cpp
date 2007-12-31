@@ -43,7 +43,7 @@ Translator_English::Translator_English() : Translator()
 	langopts.stress_rule = 0;
 
 	langopts.numbers = 0x41 + NUM_ROMAN;
-	langopts.param[LOPT_COMBINE_WORDS] = 5;       // allow "mc" to cmbine with the following word
+	langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
 }
 
 

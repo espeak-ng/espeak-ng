@@ -112,8 +112,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('c','y'):   // Welsh
 		{
-			static const short stress_lengths_cy[8] = {170,230, 190,190, 0, 0, 250,270};
-			static const unsigned char stress_amps_cy[8] = {16,15, 18,18, 0,0, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_cy[8] = {170,220, 180,180, 0, 0, 250,270};
+			static const unsigned char stress_amps_cy[8] = {17,15, 18,18, 0,0, 22,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_cy,stress_amps_cy);
@@ -121,6 +121,7 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[14];   // ISO-8859-14
 //			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = 2;
+//			tr->langopts.intonation_group = 4;
 
 			// 'diminished' is an unstressed final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10; 
@@ -261,8 +262,7 @@ Translator *SelectTranslator(const char *name)
 			SetLetterVowel(tr,'y');
 			tr->langopts.max_initial_consonants = 2;
 			tr->langopts.spelling_stress = 1;
-			tr->punct_to_tone[0][1] = 0;   // don't raise pitch for comma
-//			tr->punct_to_tone[0][2] = 0;   // don't raise pitch for question
+			tr->langopts.intonation_group = 3;  // less intonation, don't raise pitch at comma
 		}
 		break;
 
@@ -503,7 +503,6 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 3;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x20000; 
 			tr->langopts.numbers = 0xa69 + 0x2000 + NUM_ROMAN;
-			tr->punct_to_tone[0][3] = 2;   // use exclamation intonation
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -607,8 +606,8 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
-			tr->langopts.numbers = 0x811;
-			tr->langopts.numbers2 = 0x100;
+//			tr->langopts.numbers = 0x811;
+//			tr->langopts.numbers2 = 0x100;
 			tr->letter_bits_offset = OFFSET_TAMIL;
 
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
@@ -663,7 +662,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.vowel_pause = 4;
 			tr->letter_groups[0] = vowels_vi;
 //			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
-			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
+			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.unstressed_wd1 = 2;
 
 		}
@@ -681,7 +680,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 3;   // stress on final syllable of a "word"
 			tr->langopts.stress_flags = 1;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.vowel_pause = 0;
-			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
+			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
 			tr->langopts.ideographs = 1;

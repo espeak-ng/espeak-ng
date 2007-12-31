@@ -24,7 +24,7 @@ endphoneme
 phoneme I
   vowel starttype (i) endtype (i)
   length 150
-  formants vowel/ii
+  formants vowel/ii_3
 endphoneme
 
 
@@ -205,13 +205,11 @@ endphoneme
 //===========
 
 phoneme r
-  liquid  starttype #r endtype #r
-  length 60
-  vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
-  vowelout f1=2  f2=1700 -300 -200  f3=-1300 80
-  formants r3/r_trill+r3/r_trill3.wav%100
-  before _ r3/r_trill+r3/r_trill3.wav%100
-  trill  
+  liquid
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  formants r3/r_trill2+r3/r_trill2.wav%65
+  trill
   lengthmod 6
 endphoneme
 

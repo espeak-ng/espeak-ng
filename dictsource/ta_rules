@@ -2,6 +2,9 @@
 // This file is UTF8 encoded 
 // Spelling to phoneme rules for Tamil
 
+// B means a combining vowel sign, or a virama
+
+
 .replace
 ௦	0	// Tamil numbers
 ௧	1
@@ -15,7 +18,8 @@
 ௯	9
 
 
-.group 0xe0ae
+.group 0xe0ae   // characters which start with UTF-8 bytes: [e0 ae]
+
 	ஂ		// anusvara
 
 	ஃ		// visarga
@@ -53,8 +57,8 @@
      ்) க (B	g
      _) க	ka
      _) க (B	k
-	க்க	ka
-	க்க (B	k
+	க்க	k:a
+	க்க (B	k:
 
 	ங	Na
 	ங (B	N
@@ -63,8 +67,8 @@
 	ச (B	dZ
      _) ச	sa
      _) ச (B	s
-	ச்ச	tSa
-	ச்ச (B	tS
+	ச்ச	tS:a
+	ச்ச (B	tS:
 
 	ஜ	dZa
 	ஜ (B	dZ
@@ -86,8 +90,8 @@
 	த (B	d
      _) த	ta
      _) த (B	t
-	த்த	ta
-	த்த (B	t
+	த்த	t:a
+	த்த (B	t:
 
 	ந	na
 	ந (B	n
@@ -99,8 +103,8 @@
 	ப (B	b
      _) ப	pa
      _) ப (B	p
-	ப்ப	pa
-	ப்ப (B	p
+	ப்ப	p:a
+	ப்ப (B	p:
 
 	ம	ma
 	ம (B	m
@@ -146,7 +150,7 @@
 
 	ி	i
 
-.group 0xe0af
+.group 0xe0af   // characters which start with UTF-8 bytes: [e0 af]
 	ீ	i:
 
 	ு	u

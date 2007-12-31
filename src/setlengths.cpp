@@ -209,14 +209,18 @@ void SetParameter(int parameter, int value, int relative)
 		embedded_value[EMBED_R] = new_value;
 		break;
 
-	case espeakPUNCTUATION:
-		break;
-
-	case espeakCAPITALS:
-		break;
-
 	case espeakLINELENGTH:
 		option_linelength = new_value;
+		break;
+
+	case espeakWORDGAP:
+		option_wordgap = new_value;
+		break;
+
+	case espeakINTONATION:
+		if((new_value & 0xff) != 0)
+			translator->langopts.intonation_group = new_value & 0xff;
+		option_tone_flags = new_value;
 		break;
 
 	default:

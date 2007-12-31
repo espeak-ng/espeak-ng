@@ -95,8 +95,11 @@ The rules are organized in groups, each starting with a ".group" line:
 	A group for other characters which don't have their own group.
 <p>
 <dt><strong>.L&lt;nn&gt;</strong><br><dd>
-	Defines a group of letter sequences, any of which can match with <strong>Lnn</strong> in a <strong>post</strong> rule (see below).  <strong>nn</strong> is a 2 digit decimal number in the range 01 to 20.  eg:<br>
+	Defines a group of letter sequences, any of which can match with <strong>Lnn</strong> in a <strong>post</strong> rule (see below).  <strong>nn</strong> is a 2 digit decimal number in the range 01 to 20.  eg:<p>
 	<code>.L01  b bl br pl pr</code>
+<p>
+<dt><strong>.replace</strong><br><dd>
+	See section 4.7 Character Substitution, below.
 </dl>
 </ul>When matching a word, firstly the 2-letter group for the two letters at the current position in the word (if such a group exists) is searched, and then the single-letter group.  The highest scoring rule in either of those two groups is used.
 
@@ -467,7 +470,11 @@ A word (or group of words) may be given one or more flags, either instead of, or
     </tr>
     <tr>
       <td>$capital</td>
-      <td>Use this pronunciation if word has initial capital letter (eg. polish v Polish).</td>
+      <td>Use this pronunciation if the word has initial capital letter (eg. polish v Polish).</td>
+    </tr>
+    <tr>
+      <td>$allcaps</td>
+      <td>Use this pronunciation if the word is all capitals.</td>
     </tr>
     <tr>
       <td>$dot</td>
@@ -475,7 +482,7 @@ A word (or group of words) may be given one or more flags, either instead of, or
     </tr>
     <tr>
       <td>$abbrev</td>
-      <td>This has two meanings.<br> 1. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c").<br>2. If there is a phoneme string: Speak this word as the specified phoneme string, not as individual letters, even if it's all capital letters (eg, Roman numerals III, IV ).</td>
+      <td>This has two meanings.<br> 1. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c").<br>2. If there is a phoneme string: This word is capitalized because it is an abbreviation and capitalization does indicate emphasis (if the "emphasize all-caps" is on).</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -494,6 +501,11 @@ A word (or group of words) may be given one or more flags, either instead of, or
       <td>$verb</td>
       <td>Use this pronunciation if it's a verb.</td>
     </tr>
+    <tr>
+      <td>$noun</td>
+      <td>Use this pronunciation if it's a noun.</td>
+    </tr>
+    <tr>
       <td>$past</td>
       <td>Use this pronunciation if it's past tense.</td>
     </tr>
@@ -529,7 +541,7 @@ The dictionary list is searched from bottom to top.  The first match that satisf
 then if "to" is at the end of the clause, we get [tu:], if not then we get [t@].
 
 <p>
-<h4>4.4.4  Translating a Word with another Word</h4>
+<h4>4.4.4  Translating a Word to another Word</h4>
 Rather than specifying the pronunciation of a word by a phoneme string, you can specify another "sounds like" word.<p>Use the attribute <b>$text</b>  eg.<p>
 <pre>
     cough    coff   $text
@@ -591,7 +603,7 @@ _0 to _9 &nbsp;
 
 <p>&nbsp;<hr>
 <h3>4.7  Character Substitution</h3>
-Chracter substitutions can be specified by using a <b> .replace </b> section at the start of the <b> _rules </b> file.  Each line specified either one or two alphabetic characters to be replaced by another one or two alphabetic characters.  This substitution is done to a word before it is translated using the spelling-to-phoneme rules.  Only the lower-case version of the characters needs to be specified.  eg.<p>
+Character substitutions can be specified by using a <b> .replace </b> section at the start of the <b> _rules </b> file.  Each line specified either one or two alphabetic characters to be replaced by another one or two alphabetic characters.  This substitution is done to a word before it is translated using the spelling-to-phoneme rules.  Only the lower-case version of the characters needs to be specified.  eg.<p>
  &nbsp; .replace<br>
 &nbsp; &nbsp; &#xf4; &nbsp; &#x151; &nbsp; // (Hungarian) allow the use of o-circumflex instead of o-double-accute<br>
 &nbsp; &nbsp; &#xfb; &nbsp; &#x171;<p>

@@ -306,7 +306,7 @@ static void init_path(const char *path)
 	sprintf(path_home,"%s\\espeak-data",buf);
 
 #else
-//	char *env;
+	char *env;
 
 	if(path != NULL)
 	{
@@ -314,12 +314,13 @@ static void init_path(const char *path)
 		return;
 	}
 
-//	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
-//	{
-//		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
-//		if(GetFileLength(path_home) == -2)
-//			return;   // an espeak-data directory exists 
-//	}
+	// check for environment variable
+	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
+	{
+		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists 
+	}
 
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
@@ -335,7 +336,7 @@ static int initialise(void)
 	int result;
 
 #ifndef __WIN32__
-	LoadConfig();  // causes problem on Windows, don't know why
+	LoadConfig();
 #endif
 	WavegenInit(22050,0);   // 22050
 	if((result = LoadPhData()) != 1)
@@ -710,6 +711,7 @@ ENTER("espeak_Initialize");
 	SetParameter(espeakVOLUME,100,0);
 	SetParameter(espeakCAPITALS,option_capitals,0);
 	SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	SetParameter(espeakWORDGAP,0,0);
 	DoVoiceChange(voice);
 	
 #ifdef USE_ASYNC

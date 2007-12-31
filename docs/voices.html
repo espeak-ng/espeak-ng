@@ -42,6 +42,8 @@ indicates that this is voice is for the "en-uk-north" dialect, but it is also a 
 <p>
 <dt>
 <strong>gender &nbsp;&lt;gender&gt; [&lt;age&gt;]</strong><br>
+<dd>
+This attribute is only a label for use in voice selection.  It doesn't change the sound of the voice.
 <ul>&lt;gender&gt may be  male, female, or unknown.<br>
 &lt;age&gt; is optional and gives an age in years.
 </dl>
@@ -57,10 +59,11 @@ indicates that this is voice is for the "en-uk-north" dialect, but it is also a 
    it equal to the base pitch will give a monotone. The default values are 82 118.
 <p>
 <dt>
-<strong>formant &nbsp;&lt;number&gt; &lt;frequency&gt; &lt;strength&gt; &lt;width&gt;</strong><br>
+<strong>formant &nbsp;&lt;number&gt; &lt;frequency&gt; &lt;strength&gt; &lt;width&gt; &lt;freq_add&gt;</strong><br>
 <dd>   Systematically adjusts the frequency, strength, and width of the
    resonance peaks of the voice.  Values are percentages of the
-   default values.  Changing these affects the tone/quality of the voice.
+   default values.  Changing these affects the tone/quality of the voice.<p>
+<strong>freq_add </strong> Adds a constant value (in Hz) to the frequency of the formant peak. The value may be negative.
 <ul>
    <li>Formants 1,2,3 are the standard three formants which define vowels.</li>
    <li>Formant 0 is used to give a low frequency component to the sounds, of
@@ -158,7 +161,7 @@ don't have their own <strong>tone</strong> statement.
 <dt>
 <strong>dictrules &nbsp;&lt;list of rule numbers&gt;</strong><br>
 <dd>
-Gives a list of conditional dictionary rules which are applied for this voice.  Rule numbers are in the range 0 to 31 and are specific to a language.  They can apply to rules in the langauge's <b>_rules</b> dictionary file and also its <b>_list</b> exceptions list.
+Gives a list of conditional dictionary rules which are applied for this voice.  Rule numbers are in the range 0 to 31 and are specific to a language dictionary.  They apply to rules in the langauge's <b>_rules</b> dictionary file and also its <b>_list</b> exceptions list.
 See <a href="dictionary.html">dictionary.html</a>.
 </dd>
 <p>
@@ -206,10 +209,13 @@ See <a href="dictionary.html">dictionary.html</a>.
    The general default values are:  16, 16, 20, 20, 20, 24, 24, 22, although these defaults may be different for particular languages.</dd>
 <p>
 <dt>
-<strong>intonation &nbsp;&lt;param1&gt; &lt;param2&gt;</strong><br>
-<dd>   (for further development)<br>
-
-
+<strong>intonation &nbsp;&lt;param1&gt;</strong><br>
+<dd><ul>
+<li>1 &nbsp; Default.</li>
+<li>2 &nbsp; Less intonation.</li>
+<li>3 &nbsp; Less intonation, and comma does not raise the pitch.</li>
+<li>4 &nbsp; Pitch rises (rather than falls) at the end of sentence.</li>
+</ul>
 </dd>
 <p>
 <dt>
@@ -219,12 +225,6 @@ The ISO 8859 character set number. (not all are implemented).
 </dd>
 <p>
 Additional attributes are available to set various internal options which control how language is processed.  These would normally be set in the program code rather than in a voice file.
-<p>
-<dt>
-<strong>stressrule &nbsp;&lt;param1&gt; &lt;param2&gt; &lt;param3&gt; &lt;param4&gt;</strong><br>
-<dd>
-Controls how different stress levels are applied to the syllables of a word.
-</dd>
 </ul>
 <hr>
 <h3>5.3 Voice Files Provided</h3>

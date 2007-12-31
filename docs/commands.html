@@ -46,7 +46,7 @@ RETURN is pressed.<br>Use <strong>espeak -x</strong> to see the corresponding ph
 <h3>2.2.2 Use with KDE Text-to-Speech (KTTS)</h3>
 To add to KDE-Text-to-Speech Manager (KTTSMgr), use it as a "Command" talker
 with "command for speaking texts" set to:<br>
-   <strong>cat %f | espeak --stdin -w %w</strong>
+   <strong>cat %f | espeak --stdin -v en -w %w</strong>
 <p>
 Note:
 <ul>
@@ -58,7 +58,7 @@ Note:
 <h3>2.2.3 The Command Line Options</h3>
 <dl>
 <dt>
-<strong>espeak [options] ["words"]</strong><br>
+<strong>espeak [options] ["text words"]</strong><br>
 <dd>Text input can be taken either from a file, from a string in the command, or from stdin.
 <p>
 <dt>
@@ -70,7 +70,7 @@ Note:
 <dd>Takes the text input from stdin.
 <p>
 <dt>
-If neither -f nor --stdin is given, then the text input is taken from "words" (a text string within double quotes). <br>If that is not present then text is taken from stdin, but each line is treated as a separate sentence.
+If neither -f nor --stdin is given, then the text input is taken from "text words" (a text string within double quotes). <br>If that is not present then text is taken from stdin, but each line is treated as a separate sentence.
 <p>
 <dt>
 <strong>-a &lt;integer&gt;</strong><br>
@@ -82,20 +82,23 @@ If neither -f nor --stdin is given, then the text input is taken from "words" (a
 <p>
 <dt>
 <strong>-s &lt;integer&gt;</strong><br>
-<dd>Sets the speed in words-per-minute (approximate values for the default voice, others may
-differ slightly). The default value is 170. I generally use a faster speed
-of 190.  Range 80 to 370.
+<dd>Sets the speed in words-per-minute (approximate values for the default English voice, others may differ slightly). The default value is 170. I generally use a faster speed
+of 190.  Range 80 to 390.
 <p>
 <dt>
 <strong>-b</strong><br>
-<dd>Indicates that the input text is in the 8-bit character set which corresponds to the language (eg. Latin-2 for Polish). Without this option, eSpeak assumes text is UTF8, but will automatically switch to the 8-bit character set if it finds an illegal UTF8 sequence.  That may give wrong results if some 8-bit character sequences look like valid UFT8 multibyte characters.
+<dd>Indicates that the input text is not UTF-8, but the 8-bit character set which corresponds to the language (eg. Latin-2 for Polish). Without this option, eSpeak assumes text is UTF8, but will automatically switch to the 8-bit character set if it finds an illegal UTF8 sequence.  That may give wrong results if some 8-bit character sequences look like valid UFT8 multibyte characters.
+<p>
+<dt>
+<strong>-g &lt;integer&gt;</strong><br>
+<dd>Word gap.  This option inserts a pause between words.  The value is the length of the pause, in units of 10 mS (at the default speed of 170 wpm).
 <p>
 <dt>
 <strong>-k &lt;integer&gt;</strong><br>
 <dd>Indicate words which begin with capital letters.<p>
-1 &nbsp; Use a click sound to indicate when a word starts with a capital letter, or double click if word is all capitals.<p>
-2 &nbsp; Speak the word "capital" before a word which begins with a capital letter.<p>
-Other values: &nbsp; Increase the pitch for words which begin with a capital letter. The greater the value, the greater the increase in pitch.  Try -k20.
+1 &nbsp; eSpeak uses a click sound to indicate when a word starts with a capital letter, or double click if word is all capitals.<p>
+2 &nbsp; eSpeak speaks the word "capital" before a word which begins with a capital letter.<p>
+Other values: &nbsp; eSpeak increases the pitch for words which begin with a capital letter. The greater the value, the greater the increase in pitch.  Try -k20.
 <p>
 <dt>
 <strong>-l &lt;integer&gt;</strong><br>
@@ -118,13 +121,14 @@ Quiet. No sound is generated.  This may be useful with the -x option.
 <pre>   espeak -vaf</pre>
 To use the Afrikaans voice.  A modifier after the voice name can be used to vary the tone of the voice, eg:
 <pre>   espeak -vaf+3</pre>
-The variants are <code> +1  +2  +3  +4  +5 </code> for male voices and <code> +11 +12 +13 +14 </code> which simulate female voices by using higher pitches.
+The variants are <code> +m1  +m2  +m3  +m4  +m5  +m6 </code> for male voices and <code> +f1 +f2 +f3 +f4 </code> which simulate female voices by using higher pitches. Other variants are <code>+croak</code> and <code>+whisper</code>.
 <p>
 &lt;voice filename&gt; is a file within the <code>espeak-data/voices</code> directory.<br>
-Voice files can specify a language, different pitches, tonal qualities, and prosody for the voice.
+&lt;variant&gt; is a file within the <code>espeak-data/voices/!v</code> directory.<p>
+Voice files can specify a language, alternative pronunciations or phoneme sets, different pitches, tonal qualities, and prosody for the voice.
 See the <a href="voices.html">voices.html</a> file.<p>
 Voice names which start with <b>mb-</b> are for use with Mbrola diphone voices, see <a href="mbrola.html">mbrola.html</a><p>
-Some languages may need additional dictionary data, see <a href="languages.html">languages.html</a> 
+Some languages may need additional dictionary data, see <a href="languages.html">languages.html</a>
 <p>
 <dt>
 <strong>-w &lt;wave file&gt;</strong><br>
@@ -145,7 +149,7 @@ shown on stdout.
 <p>
 <dt>
 <strong>--stdout</strong><br>
-<dd>Writes the speech output to stdout as it is produced, rather than speaking it.  The data starts with a WAV file header which indicates the sample rate and format of the data.  The length fields are set to zero because the length of the data is unknown when the header is produced.
+<dd>Writes the speech output to stdout as it is produced, rather than speaking it.  The data starts with a WAV file header which indicates the sample rate and format of the data.  The length field is set to zero because the length of the data is unknown when the header is produced.
 <p>
 <dt><strong>--compile[=&lt;voice name&gt;]</strong><br>
 <dd>

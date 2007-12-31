@@ -29,9 +29,9 @@
 
 #include "speech.h"
 #include "speak_lib.h"
-#include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 
 #define os_X  0x20000
@@ -64,10 +64,11 @@ extern int current_source_index;
 
 FILE *f_text;
 int (* uri_callback)(int, const char *, const char *) = NULL;
+int (* phoneme_callback)(const char *) = NULL;
 
 int amp = 8;     // default
 
-char path_home[80] = "";
+char path_home[N_PATH_HOME] = "";
 char wavefile[120];
 char textbuffile[L_tmpnam];
 int  sample_rate_index;  // current value
@@ -80,7 +81,7 @@ static void *module_data;
 static int callback_inhibit = 0;
 static int more_text=0;
 
-#define N_VOICE_NAMES   40
+#define N_VOICE_NAMES   60
 static char *voice_names[40];
 
 #define N_STATIC_BUF 8000
@@ -94,11 +95,13 @@ USHORT voice_pcnt[N_PEAKS+1][3];
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
-"--stdin    Read text input from stdin instead of a file\n\n"
+//"--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, <words> are spoken, or if none then text is\n"
 "spoken from stdin, each line separately.\n\n"
 "-a <integer>\n"
 "\t   Amplitude, 0 to 200, default is 100\n"
+"-g <integer>\n"
+"\t   Word gap. Pause between words, units of 10mS at the default speed\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as end-of-clause\n"
@@ -115,16 +118,19 @@ static const char *help_text =
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
 "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
-"--stdout   Write speech output to stdout\n"
+//"--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
 "\t   directory. =<voice name> is optional and specifies which language\n"
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
-"--voices=<langauge>\n"
-"\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n";
+//"--voices=<langauge>\n"
+//"\t   List the available voices for the specified language.\n"
+//"\t   If <language> is omitted, then list all voices.\n"
+"-k <integer>\n"
+"\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
+"\t   higher values = a pitch increase (try -k20).\n";
 
 
 int GetFileLength(const char *filename)
@@ -583,7 +589,7 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 		break;
 
 	case 9:   /* word_gap */
-		// not implemented
+		SetParameter(espeakWORDGAP,value,0);
 		break;
 
 	case 10:  /* pitch_range */
@@ -608,8 +614,8 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 void PitchAdjust(int pitch_adjustment)
 {//===================================
 	int ix, factor;
-	voice_t *voice = &voice_data;
-	extern unsigned char pitch_adjust_tab[100];
+	
+	extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 
 	voice->pitch_base = (voice->pitch_base * pitch_adjust_tab[pitch_adjustment])/128;
 
@@ -661,6 +667,7 @@ void command_line(char *arg_string, int wait)
 	int value;
 	int speed;
 	int amp;
+	int wordgap;
 	int speaking = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
@@ -700,52 +707,17 @@ void command_line(char *arg_string, int wait)
 			p++;
 			switch(*p++)
 			{
-			case 'h':
-				printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
-				return;
-
 			case 'b':
 				option_multibyte = espeakCHARS_8BIT;
 				break;
 
-			case 'a':
-				amp = param_number(&p);
-				SetParameter(espeakVOLUME,amp,0);
-				break;
-
-			case 'f':
-				strncpy0(filename,param_string(&p),sizeof(filename));
-				break;
+			case 'h':
+				printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
+				return;
 
 			case 'k':
 				option_capitals = param_number(&p);
 				SetParameter(espeakCAPITALS,option_capitals,0);
-				break;
-
-			case 'l':
-				option_linelength = param_number(&p);
-				break;
-
-			case 'p':
-				pitch_adjustment = param_number(&p);
-				break;
-
-			case 'q':
-				option_quiet = 1;
-				break;
-
-			case 's':
-				speed = param_number(&p);
-				SetParameter(espeakRATE,speed,0);
-				break;
-
-			case 'v':
-				strncpy0(voicename,param_string(&p),sizeof(voicename));
-				break;
-
-			case 'w':
-				option_waveout=1;
-				strncpy0(wavefile,param_string(&p),sizeof(wavefile));
 				break;
 
 			case 'x':
@@ -754,6 +726,50 @@ void command_line(char *arg_string, int wait)
 
 			case 'X':
 				option_phonemes = 2;
+				break;
+
+			case 'm':
+				option_ssml = 1;
+				break;
+	
+			case 'p':
+				pitch_adjustment = param_number(&p);
+				break;
+
+			case 'q':
+				option_quiet = 1;
+				break;
+
+			case 'f':
+				strncpy0(filename,param_string(&p),sizeof(filename));
+				break;
+
+			case 'l':
+				option_linelength = param_number(&p);
+				break;
+
+			case 'a':
+				amp = param_number(&p);
+				SetParameter(espeakVOLUME,amp,0);
+				break;
+
+			case 's':
+				speed = param_number(&p);
+				SetParameter(espeakRATE,speed,0);
+				break;
+
+			case 'g':
+				wordgap = param_number(&p);
+				SetParameter(espeakWORDGAP,wordgap,0);
+				break;
+	
+			case 'v':
+				strncpy0(voicename,param_string(&p),sizeof(voicename));
+				break;
+
+			case 'w':
+				option_waveout=1;
+				strncpy0(wavefile,param_string(&p),sizeof(wavefile));
 				break;
 
 			case '-':
@@ -766,7 +782,7 @@ void command_line(char *arg_string, int wait)
 				else
 				if(strcmp(command,"help")==0)
 				{
-					printf("\nspeak text-to-speech: %s\n%s",version,help_text);
+					printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
 					return;
 				}
 				else

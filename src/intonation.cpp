@@ -272,34 +272,57 @@ typedef struct {
 	unsigned char tail_shape;
 } TONE_TABLE;
 
-#define N_TONE_TABLE  15
+#define N_TONE_TABLE  11
 
 static TONE_TABLE tone_table[N_TONE_TABLE] = {
-   {PITCHfall, 30, 5,  PITCHfall, 30, 8,              // statement
+   {PITCHfall, 30, 5,  PITCHfall, 30, 8,              // 0 statement
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 12, 7, 0},
 
-   {PITCHfrise, 37,10, PITCHfrise2, 35,10,              // comma
-   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 24, 0},
+   {PITCHfrise, 35,8, PITCHfrise2, 35,10,              // 1 comma
+   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 23, 0},
 
-   {PITCHfrise, 39,10, PITCHfrise2, 36,10,              // question
-   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 29, 0},
+   {PITCHfrise, 39,10, PITCHfrise2, 36,10,              // 2 question
+   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 28, 0},
 
-   {PITCHfall, 41, 4,  PITCHfall, 41, 27,              // exclamation
-   20, 25,   34, 24,  drops_0, 3, 4,   5, oflow_emf, back_emf, 16, 5, 0},
+   {PITCHfall, 41, 4,  PITCHfall, 41, 27,              // 3 exclamation
+   20, 25,   34, 24,  drops_0, 3, 4,   5, oflow_emf, back_emf, 16, 4, 0},
 
-   {PITCHfall, 38, 2,  PITCHfall, 42, 30,              // statement, emphatic
+   {PITCHfall, 38, 2,  PITCHfall, 42, 30,              // 4 statement, emphatic
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 15, 5, 0},
 
 
-   {PITCHfall, 28, 6,  PITCHfall, 28, 10,              // statement, less intonation
+   {PITCHfall, 28, 6,  PITCHfall, 28, 10,              // 5 statement, less intonation
    20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 12, 6, 0},
 
-   {PITCHfrise2, 34,12, PITCHfall, 28,10,              // comma, less intonation
+   {PITCHfrise2, 33,11, PITCHfall, 28,10,              // 6 comma, less intonation
    20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 9,14, 0},
 
+   {PITCHfrise2, 28, 7,  PITCHfall, 28, 12,              // 7 comma, less intonation, less rise
+   20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 14, 8, 0},
+
+   {PITCHrise, 30, 20,  PITCHfall, 19, 14,              // 8 pitch raises at end of sentence
+   20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 24, 30, 0},
+
+   {PITCHfrise, 35,11, PITCHfrise2, 32,10,              // 9 comma
+   20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 19, 24, 0},
+
+   {PITCHfrise, 39, 15,  PITCHfall, 28, 14,              // 10  question
+   20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 20, 36, 0},
 
 };
   
+
+
+/* index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized */
+unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
+	{0,1,2,3,0,4},
+	{0,1,2,3,0,4},
+	{5,6,2,0,0,4},
+	{5,7,1,0,0,4},
+	{8,9,10,3,0,0},
+	{8,8,10,3,0,0},
+	{0,1,2,3,0,4},
+	{0,1,2,3,0,0} };
 
 
 
@@ -332,13 +355,11 @@ static void count_pitch_vowels(int start, int end, int clause_end)
 	int  max_stress = 0;
 	int  max_stress_posn = 0;  // last syllable ot the highest stress
 	int  max_stress_posn2 = 0;  // penuntimate syllable of the highest stress
-	int  last2_primary;
 
 	number_pre = -1;    /* number of vowels before 1st primary stress */
 	number_body = 0;
 	number_tail = 0;   /* number between tonic syllable and next primary */
 	last_primary = -1;
-	last2_primary = 0;
 	
 	for(ix=start; ix<end; ix++)
 	{
@@ -652,13 +673,10 @@ static int calc_pitches(int start, int end,  int group_tone)
 	/* body of tonic segment */
 	/*************************/
 
-if(option_tone2 & 1)
-{
-static int count=0;
-count++;
-//if(count & 1)
-tone_posn = tone_posn2;  // TEST  put tone on the penultimate stressed word 
-}
+	if(option_tone_flags & OPTION_EMPHASIZE_PENULTIMATE)
+	{
+		tone_posn = tone_posn2;  // put tone on the penultimate stressed word 
+	}
 	ix = calc_pitch_segment(ix,tone_posn, t, PRIMARY, continuing);
 		
 	if(no_tonic)
@@ -884,18 +902,18 @@ void Translator::CalcPitches(int clause_type)
 
 	syllable_tab = syllable_tab2;   // don't use permanent storage. it's only needed during the call of CalcPitches()
 
-	if(langopts.intonation == 1)
+	if(langopts.tone_language == 1)
 	{
 		CalcPitches_Tone(clause_type);
 		return;
 	}
 
 
-	option = option_tone1 & 0xf;
-	if(option > 4)
+	option = langopts.intonation_group;
+	if(option > INTONATION_TYPES)
 		option = 0;
 
-	group_tone_emph = group_tone = punct_to_tone[option][clause_type]; 
+	group_tone = punct_to_tone[option][clause_type]; 
 	group_tone_emph = punct_to_tone[option][5];   // emphatic form of statement
 
 	if(clause_type == 4)

@@ -1,7 +1,7 @@
 
 [Setup]
 AppName=eSpeakEdit
-AppVerName=eSpeakEdit version 1.29
+AppVerName=eSpeakEdit version 1.30
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeakedit
@@ -12,7 +12,7 @@ ShowLanguageDialog=auto
 
 [Files]
 Source: "espeakedit.exe"; DestDir: "{app}"
-Source: "dictsource\*"; DestDir: "{app}\dictsource"; Flags: recursesubdirs
+;Source: "dictsource\*"; DestDir: "{app}\dictsource"; Flags: recursesubdirs
 Source: "espeakedit\*"; DestDir: "{app}\espeakedit"; Flags: recursesubdirs
 Source: "phsource\*"; DestDir: "{app}\phsource"; Flags: recursesubdirs
 Source: "docs\*"; DestDir: "{app}\docs"; Flags: recursesubdirs

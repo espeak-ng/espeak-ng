@@ -1,23 +1,22 @@
 
-/**************************************************************************
-*   Copyright (C) 2005,2006 by Jonathan Duddington                        *
-*   jonsd@users.sourceforge.net                                           *
-*                                                                         *
-*   This program is free software; you can redistribute it and/or modify  *
-*   it under the terms of the GNU General Public License as published by  *
-*   the Free Software Foundation; either version 2 of the License, or     *
-*   (at your option) any later version.                                   *
-*                                                                         *
-*   This program is distributed in the hope that it will be useful,       *
-*   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
-*   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
-*   GNU General Public License for more details.                          *
-*                                                                         *
-*   You should have received a copy of the GNU General Public License     *
-*   along with this program; if not, write to the                         *
-*   Free Software Foundation, Inc.,                                       *
-*   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
-***************************************************************************/
+/***************************************************************************
+ *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   email: jonsd@users.sourceforge.net                                    *
+ *                                                                         *
+ *   This program is free software; you can redistribute it and/or modify  *
+ *   it under the terms of the GNU General Public License as published by  *
+ *   the Free Software Foundation; either version 3 of the License, or     *
+ *   (at your option) any later version.                                   *
+ *                                                                         *
+ *   This program is distributed in the hope that it will be useful,       *
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+ *   GNU General Public License for more details.                          *
+ *                                                                         *
+ *   You should have received a copy of the GNU General Public License     *
+ *   along with this program; if not, write see:                           *
+ *               <http://www.gnu.org/licenses/>.                           *
+ ***************************************************************************/
 
 #define USE_MODULE
 
@@ -30,9 +29,9 @@
 
 #include "speech.h"
 #include "speak_lib.h"
-#include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 
 #define os_X  0x20000
@@ -65,10 +64,11 @@ extern int current_source_index;
 
 FILE *f_text;
 int (* uri_callback)(int, const char *, const char *) = NULL;
+int (* phoneme_callback)(const char *) = NULL;
 
 int amp = 8;     // default
 
-char path_home[80] = "";
+char path_home[N_PATH_HOME] = "";
 char wavefile[120];
 char textbuffile[L_tmpnam];
 int  sample_rate_index;  // current value
@@ -81,7 +81,7 @@ static void *module_data;
 static int callback_inhibit = 0;
 static int more_text=0;
 
-#define N_VOICE_NAMES   40
+#define N_VOICE_NAMES   60
 static char *voice_names[40];
 
 #define N_STATIC_BUF 8000
@@ -91,17 +91,17 @@ static _kernel_oserror errblk;
 
 
 USHORT voice_pcnt[N_PEAKS+1][3];
-voice_t voice_data;
-voice_t *voice;
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
-"--stdin    Read text input from stdin instead of a file\n\n"
+//"--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, <words> are spoken, or if none then text is\n"
 "spoken from stdin, each line separately.\n\n"
 "-a <integer>\n"
 "\t   Amplitude, 0 to 200, default is 100\n"
+"-g <integer>\n"
+"\t   Word gap. Pause between words, units of 10mS at the default speed\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as end-of-clause\n"
@@ -118,132 +118,19 @@ static const char *help_text =
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
 "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
-"--stdout   Write speech output to stdout\n"
+//"--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
 "\t   directory. =<voice name> is optional and specifies which language\n"
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
-"--voices=<langauge>\n"
-"\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n";
-
-
-// additional Latin characters beyond the Latin1 character set
-#define MAX_WALPHA  0x233
-// indexed by character - 0x100
-// 0=not alphabetic, 0xff=lower case, other=value to add to upper case to convert to lower case
-static unsigned char walpha_tab[MAX_WALPHA-0xff] = {
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 100
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 110
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 120
-   0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,  // 130
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,  // 140
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 150
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 160
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,  // 170
-   0xff, 210,   1,0xff,   1,0xff, 206,   1,0xff, 205, 205,   1,0xff,0xff,  79, 202,  // 180
-    203,   1,0xff, 205, 207,0xff, 211, 209,   1,0xff,0xff,0xff, 211, 213,0xff, 214,  // 190
-      1,0xff,   1,0xff,   1,0xff, 218,   1,0xff, 218,0xff,0xff,   1,0xff, 218,   1,  // 1a0
-   0xff, 217, 217,   1,0xff,   1,0xff, 219,   1,0xff,0xff,0xff,   1,0xff,0xff,0xff,  // 1b0
-   0xff,0xff,0xff,0xff,   2,   1,0xff,   2,   1,0xff,   2,   1,0xff,   1,0xff,   1,  // 1c0
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,  // 1d0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1e0
-   0xff,   2,   1,0xff,   1,0xff,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1f0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 200
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 210
-   0xff,   0,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 220
-      1,0xff,   1,0xff };    // 230
-
-// use ctype.h functions for Latin1 (character < 0x100)
-int iswalpha(int c)
-{
-	if(c < 0x100)
-		return(isalpha(c));
-	if(c > MAX_WALPHA)
-		return(0);
-	return(walpha_tab[c-0x100]);
-}
-
-int iswdigit(int c)
-{
-	if(c < 0x100)
-		return(isdigit(c));
-	return(0);
-}
-
-int iswalnum(int c)
-{
-	if(iswdigit(c))
-		return(1);
-	return(iswalpha(c));
-}
-
-int towlower(int c)
-{
-	int x;
-	if(c < 0x100)
-		return(tolower(c));
-	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x100])==0xff))
-		return(c);  // already lower case
-	return(c + x);  // convert to lower case
-}
-
-int iswupper(int c)
-{
-	int x;
-	if(c < 0x100)
-		return(isupper(c));
-	if(((c > MAX_WALPHA) || (x = walpha_tab[c-0x100])==0) || (x == 0xff))
-		return(0);
-	return(1);
-}
-
-int iswlower(int c)
-{
-	if(c < 0x100)
-		return(islower(c));
-	if((c > MAX_WALPHA) || (walpha_tab[c-0x100] != 0xff))
-		return(0);
-	return(1);
-}
-
-int iswspace(int c)
-{
-	if(c < 0x100)
-		return(isspace(c));
-	return(0);
-}
-
-int iswpunct(int c)
-{
-	if(c < 0x100)
-		return(ispunct(c));
-	return(0);
-}
-
-const wchar_t *wcschr(const wchar_t *str, int c)
-{
-   while(*str != 0)
-   {
-      if(*str == c)
-         return(str);
-      str++;
-   }
-   return(NULL);
-}
-
-const int wcslen(const wchar_t *str)
-{
-	int ix=0;
-
-	while(*str != 0)
-	{
-		ix++;
-	}
-	return(ix);
-}
+//"--voices=<langauge>\n"
+//"\t   List the available voices for the specified language.\n"
+//"\t   If <language> is omitted, then list all voices.\n"
+"-k <integer>\n"
+"\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
+"\t   higher values = a pitch increase (try -k20).\n";
 
 
 int GetFileLength(const char *filename)
@@ -285,7 +172,7 @@ void ReadVoiceNames2(char *directory)
 	_kernel_swi_regs regs;
 	_kernel_oserror *error;
 	char buf[80];
-	char directory2[80];
+	char directory2[sizeof(path_home)+100];
 
 	regs.r[0] = 10;
 	regs.r[1] = (int)directory;
@@ -325,7 +212,7 @@ void ReadVoiceNames2(char *directory)
 
 void ReadVoiceNames()
 {//===================
-	char directory[80];
+	char directory[sizeof(path_home)+10];
 
 	for(n_voice_files=0; n_voice_files<N_VOICE_NAMES; n_voice_files++)
 		voice_names[n_voice_files] = NULL;
@@ -353,7 +240,7 @@ _kernel_swi_regs regs;
 
 
 void Free(void *ptr)
-/******************/
+/*******************/
 {  // version of free() for use in RISC_OS module
 _kernel_swi_regs regs;
 
@@ -361,7 +248,7 @@ _kernel_swi_regs regs;
 		return;
 
 	regs.r[0] = 7;
-	regs.r[2] = (int)ptr;
+	regs.r[2] = (int)(ptr);
 	_kernel_swi(0x1e, &regs, &regs);    /* OS_Module 7   free memory */
 }   /* end of Free */
 
@@ -375,9 +262,12 @@ char *Alloc(int size)
 	return(p);
 }
 
-void Free(void *ptr)
+void Free(void **ptr)
 {//=================
-	free(ptr);
+	if(ptr != NULL)
+	{
+		free(ptr);
+	}
 }
 #endif
 
@@ -424,6 +314,7 @@ int initialise(void)
 
 	WavegenInit(22050,0);
 	LoadPhData();
+	SetVoiceStack(NULL);
 	SynthesizeInit();
 	return(0);
 }
@@ -447,7 +338,7 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 
 	if((voice_num >= 0) && (voice_num != current_voice_num) && (voice_num < N_VOICE_NAMES))
 	{
-		LoadVoice(voice_names[voice_num],0);
+		SetVoiceByName(voice_names[voice_num]);
 	   WavegenSetVoice(voice);
 	}
 	current_voice_num = voice_num;
@@ -613,7 +504,7 @@ void jsd_swi_functions(int *r)
 	case 6:   /* update voice data, r1 = voice_number */
 		if(r[1] < N_VOICE_NAMES)
 		{
-			LoadVoice(voice_names[r[1]],0);
+			SetVoiceByName(voice_names[r[1]]);
 			current_voice_num = r[1];
 			WavegenSetVoice(voice);
 		}
@@ -698,7 +589,7 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 		break;
 
 	case 9:   /* word_gap */
-		// not implemented
+		SetParameter(espeakWORDGAP,value,0);
 		break;
 
 	case 10:  /* pitch_range */
@@ -723,8 +614,8 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 void PitchAdjust(int pitch_adjustment)
 {//===================================
 	int ix, factor;
-	voice_t *voice = &voice_data;
-	extern unsigned char pitch_adjust_tab[100];
+	
+	extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 
 	voice->pitch_base = (voice->pitch_base * pitch_adjust_tab[pitch_adjustment])/128;
 
@@ -776,6 +667,7 @@ void command_line(char *arg_string, int wait)
 	int value;
 	int speed;
 	int amp;
+	int wordgap;
 	int speaking = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
@@ -815,49 +707,17 @@ void command_line(char *arg_string, int wait)
 			p++;
 			switch(*p++)
 			{
+			case 'b':
+				option_multibyte = espeakCHARS_8BIT;
+				break;
+
 			case 'h':
-				printf("\n");
-				printf("speak text-to-speech: %s\n%s",version_string,help_text);
+				printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
 				return;
-
-			case 'a':
-				amp = param_number(&p);
-				SetParameter(espeakVOLUME,amp,0);
-				break;
-
-			case 'f':
-				strcpy(filename,param_string(&p));
-				break;
 
 			case 'k':
 				option_capitals = param_number(&p);
 				SetParameter(espeakCAPITALS,option_capitals,0);
-				break;
-
-			case 'l':
-				option_linelength = param_number(&p);
-				break;
-
-			case 'p':
-				pitch_adjustment = param_number(&p);
-				break;
-
-			case 'q':
-				option_quiet = 1;
-				break;
-
-			case 's':
-				speed = param_number(&p);
-				SetParameter(espeakRATE,speed,0);
-				break;
-
-			case 'v':
-				strcpy(voicename,param_string(&p));
-				break;
-
-			case 'w':
-				option_waveout=1;
-				strcpy(wavefile,param_string(&p));
 				break;
 
 			case 'x':
@@ -868,8 +728,52 @@ void command_line(char *arg_string, int wait)
 				option_phonemes = 2;
 				break;
 
+			case 'm':
+				option_ssml = 1;
+				break;
+	
+			case 'p':
+				pitch_adjustment = param_number(&p);
+				break;
+
+			case 'q':
+				option_quiet = 1;
+				break;
+
+			case 'f':
+				strncpy0(filename,param_string(&p),sizeof(filename));
+				break;
+
+			case 'l':
+				option_linelength = param_number(&p);
+				break;
+
+			case 'a':
+				amp = param_number(&p);
+				SetParameter(espeakVOLUME,amp,0);
+				break;
+
+			case 's':
+				speed = param_number(&p);
+				SetParameter(espeakRATE,speed,0);
+				break;
+
+			case 'g':
+				wordgap = param_number(&p);
+				SetParameter(espeakWORDGAP,wordgap,0);
+				break;
+	
+			case 'v':
+				strncpy0(voicename,param_string(&p),sizeof(voicename));
+				break;
+
+			case 'w':
+				option_waveout=1;
+				strncpy0(wavefile,param_string(&p),sizeof(wavefile));
+				break;
+
 			case '-':
-				strcpy(command,param_string(&p));
+				strncpy0(command,param_string(&p),sizeof(command));
 				if(memcmp(command,"compile=",8)==0)
 				{
 					CompileDictionary(NULL,&command[8],NULL,NULL);
@@ -878,7 +782,7 @@ void command_line(char *arg_string, int wait)
 				else
 				if(strcmp(command,"help")==0)
 				{
-					printf("\n%s\n%s",version_string,help_text);
+					printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
 					return;
 				}
 				else
@@ -912,7 +816,7 @@ void command_line(char *arg_string, int wait)
 		}
 	}
 
-	LoadVoice(voicename,0);
+	SetVoiceByName(voicename);
 
 	if((filename[0]==0) && (p[0]=='\r'))
 	{
@@ -1212,7 +1116,7 @@ _kernel_oserror *user_init(char *cmd_fail, int podule_base, void *pw)
 	}
 
 	ReadVoiceNames();
-	LoadVoice("default",0);
+	SetVoiceByName("default");
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];

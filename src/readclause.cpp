@@ -138,12 +138,17 @@ int speech_parameters[N_SPEECH_PARAM];     // current values, from param_stack
 
 const int param_defaults[N_SPEECH_PARAM] = {
    0,     // silence (internal use)
-  165,    // rate wpm
+  170,    // rate wpm
   100,    // volume
    50,    // pitch
    50,    // range
    0,     // punctuation
    0,     // capital letters
+   0,     // wordgap
+   0,     // options
+   0,     // intonation
+   0,
+   0,
    0,     // emphasis
    0,     // line length
    0,     // voice type

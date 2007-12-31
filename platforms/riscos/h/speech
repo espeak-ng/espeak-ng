@@ -20,8 +20,6 @@
 
 // Header file for RISCOS build
 
-#define N_PEAKS   9
-#define N_MARKERS 7
 
 // comment this out when compiling the "speak" process
 //#define SPECT_EDITOR
@@ -43,32 +41,20 @@ typedef struct {
 } MNEM_TAB;
 int LookupMnem(MNEM_TAB *table, char *string);
 
+#ifdef PLATFORM_WINDOWS
+#define N_PATH_HOME  220
+#else
+#define N_PATH_HOME  150
+#endif
 
-typedef struct {
-   short pkfreq;
-   short pkheight;
-   short pkwidth;
-   short pkright;
-}  peak_t;
+extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
-typedef struct {
-	short frflags;
-	unsigned char length;
-	unsigned char rms;
-	short ffreq[9];
-	unsigned char fheight[9];
-	unsigned char fwidth[6];          // width/4
-	unsigned char fright[6];          // width/4
-} frame_t;
 
+extern void strncpy0(char *to,const char *from, int size);
 extern int GetFileLength(const char *filename);
 extern char *Alloc(int size);
 extern void Free(void *ptr);
 
-extern void strncpy0(char *to,const char *from, int size);
-extern char path_home[];
-extern const char *version_string;
-extern const int version_phdata;
 
 const int wcslen(const wchar_t *str);
 

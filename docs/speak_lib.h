@@ -27,10 +27,13 @@
 
 #include <stdio.h>
 
-#define ESPEAK_API_REVISION  2
+#define ESPEAK_API_REVISION  3
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
+
+Revision 3
+   Added espeakWORDGAP to  espeak_PARAMETER
 
 */
          /********************/
@@ -267,7 +270,7 @@ espeak_ERROR espeak_Synth(const void *text,
 
       espeakSSML   Elements within < > are treated as SSML elements, or if not recognised are ignored.
 
-      espeakPHONEMES  Text within [[ ]] is treated as phonemes codes (in espeak's Hirschenbaum encoding).
+      espeakPHONEMES  Text within [[ ]] is treated as phonemes codes (in espeak's Hirshenbaum encoding).
 
       espeakENDPAUSE  If set then a sentence pause is added at the end of the text.  If not set then
          this pause is suppressed.
@@ -332,7 +335,6 @@ espeak_ERROR espeak_Char(wchar_t character);
 	   EE_INTERNAL_ERROR.
 */
 
-/* Note, there is no function to play a sound icon. This would be done by the calling program */
 
 
 
@@ -342,12 +344,18 @@ espeak_ERROR espeak_Char(wchar_t character);
 
 typedef enum {
   espeakSILENCE=0, /* internal use */
-  espeakRATE,
-  espeakVOLUME,
-  espeakPITCH,
-  espeakRANGE,
-  espeakPUNCTUATION,
-  espeakCAPITALS,
+  espeakRATE=1,
+  espeakVOLUME=2,
+  espeakPITCH=3,
+  espeakRANGE=4,
+  espeakPUNCTUATION=5,
+  espeakCAPITALS=6,
+  espeakWORDGAP=7,
+  espeakOPTIONS=8,   // reserved for misc. options.  not yet used
+  espeakINTONATION=9,
+
+  espeakRESERVED1=10,
+  espeakRESERVED2=11,
   espeakEMPHASIS,   /* internal use */
   espeakLINELENGTH, /* internal use */
   espeakVOICETYPE,  // internal, 1=mbrola
@@ -379,7 +387,7 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
 
       espeakPUNCTUATION:  which punctuation characters to announce:
          value in espeak_PUNCT_TYPE (none, all, some), 
-	 see espeak_GetParameter() to specify which characters are announced.
+         see espeak_GetParameter() to specify which characters are announced.
 
       espeakCAPITALS: announce capital letters by:
          0=none,
@@ -387,6 +395,8 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
          2=spelling,
          3 or higher, by raising pitch.  This values gives the amount in Hz by which the pitch
             of a word raised to indicate it has a capital letter.
+
+      espeakWORDGAP:  pause between words, units of 10mS (at the default speed)
 
    Return: EE_OK: operation achieved 
            EE_BUFFER_FULL: the command can not be buffered; 
@@ -447,9 +457,9 @@ void espeak_CompileDictionary(const char *path, FILE *log);
 
 // voice table
 typedef struct {
-	char *name;            // a given name for this voice. UTF8 string.
-	char *languages;       // list of pairs of (byte) priority + (string) language (and dialect qualifier)
-	char *identifier;      // the filename for this voice within espeak-data/voices
+	const char *name;      // a given name for this voice. UTF8 string.
+	const char *languages;       // list of pairs of (byte) priority + (string) language (and dialect qualifier)
+	const char *identifier;      // the filename for this voice within espeak-data/voices
 	unsigned char gender;  // 0=none 1=male, 2=female,
 	unsigned char age;     // 0=not specified, or age in years
 	unsigned char variant; // only used when passed as a parameter to espeak_SetVoiceByProperties

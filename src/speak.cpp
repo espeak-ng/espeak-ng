@@ -65,6 +65,8 @@ static const char *help_text =
 "spoken from stdin, each line separately.\n\n"
 "-a <integer>\n"
 "\t   Amplitude, 0 to 200, default is 100\n"
+"-g <integer>\n"
+"\t   Word gap. Pause between words, units of 10mS at the default speed\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as end-of-clause\n"
@@ -373,6 +375,7 @@ int main (int argc, char **argv)
 	int ix;
 	char *optarg2;
 	int amp = 100;     // default
+	int wordgap = 0;
 	int speaking = 0;
 	int quiet = 0;
 	int flag_stdin = 0;
@@ -390,6 +393,7 @@ int main (int argc, char **argv)
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
+	option_wordgap = 0;
 	option_multibyte = espeakCHARS_AUTO;  // auto
 	f_trans = stdout;
 
@@ -449,7 +453,7 @@ int main (int argc, char **argv)
 #else
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:bf:hk:l:p:qs:v:w:xXm",
+		c = getopt_long (argc, argv, "a:bf:g:hk:l:p:qs:v:w:xXm",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -510,6 +514,10 @@ int main (int argc, char **argv)
 
 		case 's':
 			speed = atoi(optarg2);
+			break;
+
+		case 'g':
+			wordgap = atoi(optarg2);
 			break;
 
 		case 'v':
@@ -597,6 +605,7 @@ int main (int argc, char **argv)
 	SetParameter(espeakVOLUME,amp,0);
 	SetParameter(espeakCAPITALS,option_capitals,0);
 	SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	SetParameter(espeakWORDGAP,wordgap,0);
 
 	if(pitch_adjustment != 50)
 	{

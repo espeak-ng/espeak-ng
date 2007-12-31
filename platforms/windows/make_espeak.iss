@@ -2,7 +2,9 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.29.03
+AppVerName=eSpeak version 1.30
+AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
+WindowVisible=yes
 
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
@@ -22,7 +24,7 @@ Name: "{app}\espeak-data\mbrola"
 Source: "espeak_sapi.dll"; DestDir: "{app}"; Flags: regserver promptifolder replacesameversion
 Source: "TTSApp.exe"; DestDir:"{app}"
 Source: "espeak-data\*"; DestDir: "{app}\espeak-data"; Flags: recursesubdirs
-Source: "dictsource2\*"; DestDir: "{app}\dictsource"
+Source: "dictsource\*"; DestDir: "{app}\dictsource"; Flags: recursesubdirs
 Source: "docs\*"; DestDir: "{app}\docs"; Flags: recursesubdirs
 Source: "command_line\*"; DestDir: "{app}\command_line"
 Source: "Readme.txt"; DestDir: "{app}"; Flags: isreadme
@@ -99,13 +101,15 @@ var
 
 begin
   lang_main := language and $3ff;
-  Result := 'af';
+  Result := 'en';
 
   // translation from microsoft codes to language codes
   case lang_main of
+  $04: Result := 'zh';
   $05: Result := 'cs';
   $07: Result := 'de';
   $08: Result := 'el';
+  $09: Result := 'en';
   $0a: Result := 'es';
   $0b: Result := 'fi';
   $0c: Result := 'fr';
@@ -185,6 +189,7 @@ begin
   'sv': value := $41d;
   'sw': value := $441;
   'vi': value := $42a;
+  'zh': value := $804;
   // mbrola voices
   '-af': value := $436;
   '-br': value := $416;
@@ -356,9 +361,12 @@ begin
   UIVoice := VoiceFromLanguage(UILanguage);
 
   // Set initial values (optional)
-  Page.Values[0] := 'en';
-  Page.Values[1] := UIVoice;
-  Page.Values[2] := 'en-r';
+  Page.Values[0] := UIVoice;
+  Page.Values[1] := UIVoice+'+f2';
+  if UIVoice = 'en' then
+    Page.Values[2] := 'en-r'
+  else
+    Page.values[2] := 'en';
 
 end;
 

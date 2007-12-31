@@ -29,7 +29,7 @@ A number of Voice files are provided in the <code>espeak-data/voices</code> dire
 You can select one of these with the <strong>-v &lt;voice filename&gt;</strong> parameter to the
 speak command, eg:
 <pre>   espeak -vaf</pre>
-to speak using the Afrikaans voice.
+to speak using the Afrikaans voice.<p>Language voices generally start with the 2 letter <a href="http://en.wikipedia.org/wiki/ISO_639-1">ISO 639-1 code</a> for the language.  If the language does not have an ISO 639-1 code, then the 3 letter <a href="http://www.sil.org/iso639-3/codes.asp">ISO 639-3 code</a> can be used.
 <p>
 For details of the voice files see <a href="voices.html">Voices</a>.
 <h4>Default Voice</h4>
@@ -83,6 +83,11 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <dd>This has been worked on by a native speaker and it should be OK.</dd>
 <p>
 <dt>
+<strong>bs &nbsp;Bosnian</strong><br>
+<dd>Usable, but I'm unsure whether wrong stressed syllables are a problem. It accepts both Latin and Cyrillic characters. This voice is similar to <strong>sr Serbian</strong> and <strong>hr Croatian</strong>
+</dd>
+<p>
+<dt>
 <strong>cs &nbsp;Czech</strong><br>
 <dd>Usable.
 </dd>
@@ -120,7 +125,7 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <p>
 <dt>
 <strong>hr &nbsp;Croatian</strong><br>
-<dd>Usable, but I'm unsure whether wrong stressed syllables are a problem.
+<dd>Usable, but I'm unsure whether wrong stressed syllables are a problem.  It accepts both Latin and Cyrillic characters.  This voice is similar to <strong>sr Serbian</strong> and <strong>bs Bosnian</strong>
 </dd>
 <p>
 <dt>
@@ -153,6 +158,11 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 </dd>
 <p>
 <dt>
+<strong>sr &nbsp;Serbian</strong><br>
+<dd>Usable. Wrong stressed syllables may be a problem.   It accepts both Latin and Cyrillic characters.  This voice is similar to <strong>hr Croatian</strong> and <strong>bs &nbsp;Bosnian</strong>
+</dd>
+<p>
+<dt>
 <strong>sv &nbsp;Swedish</strong><br>
 <dd>This has now had some work done on the pronunciation rules, so it should be useable.
 </dd>
@@ -174,18 +184,33 @@ These languages are only initial naive implementations which have had little or 
 </dd>
 <p>
 <dt>
+<strong>grc &nbsp;Ancient Greek</strong><br>
+<dd>Includes a short pause between words to help understanding.
+</dd>
+<p>
+<dt>
 <strong>hi &nbsp;Hindi</strong><br>
 <dd>This is interesting because it uses the Devanagari characters.  I'm not sure about Hindi stress rules, and I expect the sound of aspirated/unaspirated consonant pairs needs improvement.
 </dd>
 <p>
 <dt>
-<strong>nl &nbsp;Dutch</strong><br>
-<dd>Probably needs improvement of the spelling-to-phoneme rules.
+<strong>is &nbsp;Icelandic</strong><br>
+<dd>An initial guess, awaiting feedback.
 </dd>
 <p>
 <dt>
-<strong>is &nbsp;Icelandic</strong><br>
-<dd>An initial guess, awaiting feedback.
+<strong>la &nbsp;Latin</strong><br>
+<dd>Stress rules are implemented, but it needs text where long vowels are marked with macrons.
+</dd>
+<p>
+<dt>
+<strong>mk &nbsp;Macedonian</strong><br>
+<dd>This is similar to <strong>hr Croatian</strong>, so it's probably usable.  It accepts both Latin and Cyrillic characters.
+</dd>
+<p>
+<dt>
+<strong>nl &nbsp;Dutch</strong><br>
+<dd>Probably needs improvement of the spelling-to-phoneme rules.
 </dd>
 <p>
 <dt>
@@ -210,9 +235,18 @@ Russian stress position is unpredictable so a large lookup dictionary is needed 
 </dd>
 <p>
 <dt>
-<strong>zhy &nbsp;Cantonese Chinese</strong><br>
-<dd>Just a naive simple one-to-one translation from single Simplified Chinese characters to phonetic equivalents in Cantonese.  No attempt so far at disambiguation, grouping characters into words, or adjusting tones according to their surrounding syllables.  This voice needs Chinese character to phonetic translation data, which is available as a separate download at:  <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>.<br>The voice can also read Jyutping romanised text.
+<strong>zh &nbsp;Mandarin Chinese</strong><br>
+<dd>
+This speaks Pinyin text and Chinese characters.  There is only a simple one-to-one translation of Chinese characters to a single Pinyin pronunciation.  There is no attempt yet at recognising different pronunciations of Chinese characters in context, or of recognising sequences of characters as "words".  The eSpeak installation includes a basic set of Chinese characters.  More are available in an additional data file for Mandarin Chinese at:
+  <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>.
 </dd>
+<p>
+<dt>
+<strong>zhy &nbsp;Cantonese Chinese</strong><br>
+<dd>Just a naive simple one-to-one translation from single Simplified Chinese characters to phonetic equivalents in Cantonese.  There is limited attempt at disambiguation, grouping characters into words, or adjusting tones according to their surrounding syllables.  This voice needs Chinese character to phonetic translation data, which is available as a separate download for Cantonese at:  <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>.<br>The voice can also read Jyutping romanised text.
+</dd>
+</ul>
+
 <h3>3.6 Mbrola Voices</h3>
 Some additional voices, whose name start with <b>mb-</b> (for example <b>mb-en1</b>) use eSpeak as a front-end to Mbrola diphone voices.  eSpeak does the spelling-to-phoneme translation and intonation.
 See <a href="mbrola.html">mbrola.html</a>. 
