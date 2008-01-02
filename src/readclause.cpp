@@ -87,7 +87,7 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
 
 
 // indexed by (entry num. in punct_chars) + 1
-// bits 0-7 pause x 10mS, bits 8-10 intonation type, bit 11 don't need following space or bracket
+// bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
 static const unsigned short punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
   CLAUSE_SEMICOLON,  // en-dash
@@ -96,16 +96,16 @@ static const unsigned short punct_attributes [] = { 0,
 
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
-  CLAUSE_PERIOD+0x800,     // Devanagari Danda (fullstop)
-  CLAUSE_COMMA+0x800,      // ideograph comma
-  CLAUSE_PERIOD+0x800,     // ideograph period
+  CLAUSE_PERIOD+0x8000,     // Devanagari Danda (fullstop)
+  CLAUSE_COMMA+0x8000,      // ideograph comma
+  CLAUSE_PERIOD+0x8000,     // ideograph period
 
-  CLAUSE_EXCLAMATION+0x800, // fullwidth
-  CLAUSE_COMMA+0x800,
-  CLAUSE_PERIOD+0x800,
-  CLAUSE_COLON+0x800,
-  CLAUSE_SEMICOLON+0x800,
-  CLAUSE_QUESTION+0x800,
+  CLAUSE_EXCLAMATION+0x8000, // fullwidth
+  CLAUSE_COMMA+0x8000,
+  CLAUSE_PERIOD+0x8000,
+  CLAUSE_COLON+0x8000,
+  CLAUSE_SEMICOLON+0x8000,
+  CLAUSE_QUESTION+0x8000,
 
   CLAUSE_SEMICOLON,  // spare
   0 };
@@ -523,36 +523,54 @@ static int LoadSoundFile(const char *fname, int index)
 	char command[sizeof(fname2)+sizeof(fname2)+30];
 
 	if(fname == NULL)
+	{
+		// filename is already in the table
 		fname = soundicon_tab[index].filename;
+	}
 
-	if((fname==NULL) || (GetFileLength(fname) <= 0))
+	if(fname==NULL)
 		return(1);
+
 	if(fname[0] != '/')
 	{
 		// a relative path, look in espeak-data/soundicons
 		sprintf(fname2,"%s%csoundicons%c%s",path_home,PATHSEP,PATHSEP,fname);
 		fname = fname2;
 	}
-	sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-	sprintf(command,"sox \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
-	if(system(command) != 0)
+
+	f = NULL;
+#ifdef PLATFORM_POSIX
+	if((f = fopen(fname,"rb")) != NULL)
 	{
-		// resample has failed, use the original file
-		fprintf(stderr,"Failed to resample: %s\n",command);
+		int header[11];
+		fread(header, 1, 44, f);
+
+		if(header[6] != samplerate)
+		{
+			fclose(f);
+			f = NULL;
+
+			sprintf(fname_temp,"%s.wav",tmpnam(NULL));
+			sprintf(command,"sox \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
+			if(system(command) == 0)
+			{
+				fname = fname_temp;
+			}
+		}
 	}
-	else
+#endif
+
+	if(f == NULL)
 	{
-		fname = fname_temp;
+		f = fopen(fname,"rb");
+		if(f == NULL)
+		{
+			fprintf(stderr,"Can't read temp file: %s\n",fname);
+			return(3);
+		}
 	}
 
 	length = GetFileLength(fname);
-	f = fopen(fname,"rb");
-	if(f == NULL)
-	{
-		fprintf(stderr,"Can't read temp file: %s",fname);
-		return(3);
-	}
-
 	fseek(f,0,SEEK_SET);
 	p = Alloc(length);
 	fread(p,length,1,f);
@@ -564,7 +582,6 @@ static int LoadSoundFile(const char *fname, int index)
 	soundicon_tab[index].data = p+44;  // skip WAV header
 	return(0);
 }  //  end of LoadSoundFile
-
 
 
 static int LookupSoundicon(int c)
@@ -586,6 +603,7 @@ static int LookupSoundicon(int c)
 	}
 	return(-1);
 }
+
 
 
 int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
@@ -679,7 +697,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 #define SSML_CLOSE    0x10   // for a closing tag, OR this with the tag type
 
 // these tags have no effect if they are self-closing, eg. <voice />
-static char ignore_if_self_closing[] = {0,1,1,1,1,0,0,0,0,1,1,0,1,0};
+static char ignore_if_self_closing[] = {0,1,1,1,1,0,0,0,0,1,1,0,1,0,0,0,0};
 
 
 MNEM_TAB ssmltags[] = {
@@ -1440,22 +1458,29 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		break;
 
 	case SSML_AUDIO:
-		if(uri_callback == NULL)
-			break;
 		sp = PushParamStack(tag_type);
 
 		if((attr1 = GetSsmlAttribute(px,"src")) != NULL)
 		{
 			attrcopy_utf8(buf,attr1,sizeof(buf));
-			if((index = AddNameData(buf,0)) >= 0)
+
+			if(uri_callback == NULL)
 			{
-				uri = &namedata[index];
-				if(uri_callback(1,uri,xmlbase) == 0)
+// we could load the audio file as a sound icon (assuming it's a local WAV file)
+// But when to free() the data?
+			}
+			else
+			{
+				if((index = AddNameData(buf,0)) >= 0)
 				{
-					sprintf(buf,"%c%dU",CTRL_EMBEDDED,index);
-					strcpy(&outbuf[outix],buf);
-					outix += strlen(buf);
-					sp->parameter[espeakSILENCE] = 1;
+					uri = &namedata[index];
+					if(uri_callback(1,uri,xmlbase) == 0)
+					{
+						sprintf(buf,"%c%dU",CTRL_EMBEDDED,index);
+						strcpy(&outbuf[outix],buf);
+						outix += strlen(buf);
+						sp->parameter[espeakSILENCE] = 1;
+					}
 				}
 			}
 		}
@@ -1466,13 +1491,11 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		return(CLAUSE_NONE);
 
 	case SSML_AUDIO + SSML_CLOSE:
-		if(uri_callback == NULL)
-			break;
 		PopParamStack(tag_type, outbuf, outix);
 		return(CLAUSE_NONE);
 
 	case SSML_BREAK:
-		value = 50;
+		value = 21;
 		terminator = CLAUSE_NONE;
 
 		if((attr1 = GetSsmlAttribute(px,"strength")) != NULL)
@@ -1486,18 +1509,21 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 				outix += 3;
 				terminator = 0;
 			}
-//			if(value > 3)
-//				terminator = CLAUSE_COMMA & 0xff00;
 			value = break_value[value];
 		}
 		if((attr2 = GetSsmlAttribute(px,"time")) != NULL)
 		{
-			value2 = attrnumber(px,0,1) / 10;
+			value = (attrnumber(attr2,0,1) * 25) / speed_factor1; // compensate for speaking speed to keep constant pause length
+
 			if(terminator == 0)
 				terminator = CLAUSE_NONE;
 		}
 		if(terminator)
+		{
+			if(value > 0xfff)
+				value = 0xfff;
 			return(terminator + value);
+		}
 		break;
 
 	case SSML_SPEAK:
@@ -1624,7 +1650,6 @@ int Translator::ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_
 	char buf2[40];
 	wchar_t xml_buf[N_XML_BUF+1];
 
-
 	if(clear_skipping_text)
 	{
 		skipping_text = 0;
@@ -1732,6 +1757,7 @@ f_input = f_in;  // for GetC etc
 				if(xml_buf[n_xml_buf-1] == '/')
 				{
 					// a self-closing tag
+					xml_buf[n_xml_buf-1] = ' ';
 					self_closing = 1;
 				}
 	
@@ -1911,7 +1937,7 @@ if(option_ssml) parag=1;
 
 		if((phoneme_mode==0) && (sayas_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0))
 		{
-			if((iswspace(c2) || (punct_attributes[punct] & 0x800) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
+			if((iswspace(c2) || (punct_attributes[punct] & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 			{
 				// note: (c2='?') is for when a smart-quote has been replaced by '?'
 				buf[ix] = ' ';

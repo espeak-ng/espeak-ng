@@ -1740,8 +1740,8 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	charix[N_TR_SOURCE] = count_characters;
 
-	clause_pause = (terminator & 0xff) * 10;  // mS
-	tone = (terminator & 0xf00) >> 8;
+	clause_pause = (terminator & 0xfff) * 10;  // mS
+	tone = (terminator >> 12) & 0xf;
 
 	for(p=source; *p != 0; p++)
 	{

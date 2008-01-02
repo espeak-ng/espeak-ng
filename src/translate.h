@@ -153,26 +153,26 @@
 
 
 // Punctuation types  returned by ReadClause()
-// bits 0-7 pause x 10mS, bits 8-10 intonation type,
-// bit 15=sentence, bit 14=clause,  bits 13=voice change
-// bit 12 used to distinguish otherwise identical types
-#define CLAUSE_BIT_SENTENCE  0x8000
-#define CLAUSE_BIT_VOICE     0x2000
+// bits 0-7 pause x 10mS, bits 12-14 intonation type,
+// bit 19=sentence, bit 18=clause,  bits 17=voice change
+// bit 16 used to distinguish otherwise identical types
+#define CLAUSE_BIT_SENTENCE  0x80000
+#define CLAUSE_BIT_VOICE     0x20000
 
-#define CLAUSE_NONE         0 + 0x0400
-#define CLAUSE_PARAGRAPH   70 + 0x8000
-#define CLAUSE_EOF         35 + 0x9000
-#define CLAUSE_VOICE        0 + 0x2400
-#define CLAUSE_PERIOD      35 + 0x8000
-#define CLAUSE_COMMA       20 + 0x4100
-#define CLAUSE_SHORTCOMMA  15 + 0x4100
-#define CLAUSE_QUESTION    35 + 0x8200
-#define CLAUSE_EXCLAMATION 40 + 0x8300
-#define CLAUSE_COLON       30 + 0x4000
+#define CLAUSE_NONE         0 + 0x04000
+#define CLAUSE_PARAGRAPH   70 + 0x80000
+#define CLAUSE_EOF         35 + 0x90000
+#define CLAUSE_VOICE        0 + 0x24000
+#define CLAUSE_PERIOD      35 + 0x80000
+#define CLAUSE_COMMA       20 + 0x41000
+#define CLAUSE_SHORTCOMMA  15 + 0x41000
+#define CLAUSE_QUESTION    35 + 0x82000
+#define CLAUSE_EXCLAMATION 40 + 0x83000
+#define CLAUSE_COLON       30 + 0x40000
 #ifdef PLATFORM_RISCOS
-#define CLAUSE_SEMICOLON   30 + 0x4000
+#define CLAUSE_SEMICOLON   30 + 0x40000
 #else
-#define CLAUSE_SEMICOLON   30 + 0x4100
+#define CLAUSE_SEMICOLON   30 + 0x41000
 #endif
 
 #define SAYAS_CHARS     0x12
