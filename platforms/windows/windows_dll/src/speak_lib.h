@@ -28,10 +28,13 @@
 
 #include <stdio.h>
 
-#define ESPEAK_API_REVISION  2
+#define ESPEAK_API_REVISION  3
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
+
+Revision 3
+   Added espeakWORDGAP to  espeak_PARAMETER
 
 */
          /********************/
@@ -343,12 +346,18 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character);
 
 typedef enum {
   espeakSILENCE=0, /* internal use */
-  espeakRATE,
-  espeakVOLUME,
-  espeakPITCH,
-  espeakRANGE,
-  espeakPUNCTUATION,
-  espeakCAPITALS,
+  espeakRATE=1,
+  espeakVOLUME=2,
+  espeakPITCH=3,
+  espeakRANGE=4,
+  espeakPUNCTUATION=5,
+  espeakCAPITALS=6,
+  espeakWORDGAP=7,
+  espeakOPTIONS=8,   // reserved for misc. options.  not yet used
+  espeakINTONATION=9,
+
+  espeakRESERVED1=10,
+  espeakRESERVED2=11,
   espeakEMPHASIS,   /* internal use */
   espeakLINELENGTH, /* internal use */
   espeakVOICETYPE,  // internal, 1=mbrola
@@ -388,6 +397,8 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
          2=spelling,
          3 or higher, by raising pitch.  This values gives the amount in Hz by which the pitch
             of a word raised to indicate it has a capital letter.
+
+      espeakWORDGAP:  pause between words, units of 10mS (at the default speed)
 
    Return: EE_OK: operation achieved 
            EE_BUFFER_FULL: the command can not be buffered; 

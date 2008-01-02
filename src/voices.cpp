@@ -725,7 +725,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_INTONATION:   // intonation
 			sscanf(p,"%d %d",&option_tone_flags,&option_tone2);
 			if((option_tone_flags & 0xff) != 0)
-				translator->langopts.intonation_group = option_tone_flags & 0xff;
+				langopts->intonation_group = option_tone_flags & 0xff;
 			break;
 
 		case V_DICTRULES:   // conditional dictionary rules and list entries
