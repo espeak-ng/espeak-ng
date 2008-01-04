@@ -396,6 +396,7 @@ Translator::Translator()
 	static const unsigned char stress_amps2[] = {16,16, 20,20, 20,24, 24,21 };
 	static const short stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
 	static const wchar_t empty_wstring[1] = {0};
+	static const wchar_t punct_in_word[2] = {'\'', 0};  // allow hyphen within words
 
 	charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
 	dictionary_name[0] = 0;
@@ -423,6 +424,7 @@ Translator::Translator()
 
 
 	char_plus_apostrophe = empty_wstring;
+	punct_within_word = punct_in_word;
 
 	for(ix=0; ix<8; ix++)
 	{
@@ -656,6 +658,8 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	{
 		spell_word = 0;
 		found = LookupDictList(&word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
+
+		// if textmode, LookupDictList() replaces word1 by the new text and returns found=0
 
 		if(phonemes[0] == phonSWITCH)
 		{
@@ -1709,6 +1713,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int embedded_count = 0;
 	int letter_count = 0;
 	int space_inserted = 0;
+	int syllable_marked = 0;
 	char *word;
 	char *p;
 	int j, k;
@@ -1933,7 +1938,8 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 			if(char_inserted)
 				next_in = char_inserted;
 
-			if(!IsAlpha(c) && !iswspace(c) && (c != '\''))
+			// allow certain punctuation within a word (usually only apostrophe)
+			if(!IsAlpha(c) && !iswspace(c) && (wcschr(punct_within_word,c) == 0))
 			{
 				if(IsAlpha(prev_out))
 				{
@@ -1974,10 +1980,10 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 			{
 				if(!IsAlpha(prev_out) || (langopts.ideographs && ((c >= 0x3000) || (prev_out >= 0x3000))))
 				{
-					if(prev_out != '\'')
+					if(wcschr(punct_within_word,prev_out) == 0)
 						letter_count = 0;    // don't reset count for an apostrophy within a word
 
-					if((prev_out != ' ') && (prev_out != '\''))
+					if((prev_out != ' ') && (wcschr(punct_within_word,prev_out) == 0))
 					{
 						// start of word, insert space if not one there already
 						c = ' ';
@@ -2004,37 +2010,36 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				{
 					c = towlower(c);
 
-					if(iswlower(prev_in))
+					if(langopts.param[LOPT_SYLLABLE_CAPS])
 					{
-						c = ' ';      // lower case followed by upper case, treat as new word
-						space_inserted = 1;
-						prev_in2 = c;
+						if(syllable_marked == 0)
+						{
+							char_inserted = c;
+							c = 0x2c8;   // stress marker
+							syllable_marked = 1;
+						}
 					}
-//#ifdef deleted
-// changed to break after the last uppercase letter, not before.  See below
 					else
-					if((c != ' ') && iswupper(prev_in) && iswlower(next_in) &&
-							(memcmp(&source[source_index],"s ",2) != 0))          // ENGLISH specific plural
 					{
-						c = ' ';      // change from upper to lower case, start new word at the last uppercase
-						space_inserted = 1;
-						prev_in2 = c;
-						next_word_flags |= FLAG_NOSPACE;
+						if(iswlower(prev_in))
+						{
+							c = ' ';      // lower case followed by upper case, treat as new word
+							space_inserted = 1;
+							prev_in2 = c;
+						}
+						else
+						if((c != ' ') && iswupper(prev_in) && iswlower(next_in) &&
+								(memcmp(&source[source_index],"s ",2) != 0))          // ENGLISH specific plural
+						{
+							c = ' ';      // change from upper to lower case, start new word at the last uppercase
+							space_inserted = 1;
+							prev_in2 = c;
+							next_word_flags |= FLAG_NOSPACE;
+						}
 					}
-//#endif
 				}
 				else
 				{
-#ifdef deleted
-					if(iswupper(prev_in) && iswalpha(prev_out2) &&
-						(memcmp(&source[source_index-1],"s ",2) != 0))          // ENGLISH specific plural
-					{
-// change to break after the last uppercase letter, not before.
-						c = ' ';      // more than one upper case followed by lower case, treat as new word
-						space_inserted = 1;
-						prev_in2 = c;
-					}
-#endif
 					if((all_upper_case) && (letter_count > 2))
 					{
 						if((c == 's') && (next_in==' '))
@@ -2211,6 +2216,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				pre_pause = 0;
 				word_mark = 0;
 				all_upper_case = FLAG_ALL_UPPER;
+				syllable_marked = 0;
 			}
 		}
 		else

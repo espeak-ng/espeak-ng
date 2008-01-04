@@ -208,6 +208,7 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 	int prev;
 	int value;
 	int subtract;
+	int repeat = 0;
 	unsigned int flags;
 	char number_chars[N_WORD_BYTES];
 
@@ -224,6 +225,14 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 			return(0);
 
 		value = roman_values[p2 - roman_numbers];
+		if(value == prev)
+		{
+			repeat++;
+			if(repeat >= 3)
+				return(0);
+		}
+		else
+			repeat = 0;
 
 		if((prev==5) || (prev==50) || (prev==500))
 		{

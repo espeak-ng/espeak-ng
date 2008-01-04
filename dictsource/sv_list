@@ -34,7 +34,7 @@ v	ve:
 w	d'8b@lve:
 x	Eks
 y	y:
-z	s'e:t@
+z	s'E:ta2
 
 _.      p'8Nkt
 
@@ -76,9 +76,7 @@ _1M2	mIlj'u:n
 _0M3	bIlj'u:nER
 _1M3	bIlj'u:n
 _dpt    p'8Nkt
-
 (1 : a)  f'Ws.ta
-
 
 // abbreviations
 //**************
@@ -197,19 +195,28 @@ andras	andRas
 ange	anje:
 anger	anje:R
 anges	anje:s
+anne	ann
+anse	anse:
+anser	anse:R
+anses	anse:s
 arkiv    'aRki:v
 av      A:v    $u
 bäste     b'EstE
-betala    b'Et'A:l,a
+bet	be:t
+// betala    b'Et'A:l,a
 betalt    b'Et'A:lt
 bort	bORt
 bott     b'Ut
 botten     b'OtEn
 bra	bRA:
+dags	daks
 dan	dA:n
 dem	dEm
 dig	dEj
 dra	dRA:
+drar	dRA:R
+dras	dRA:s
+duger	du-gER
 därför	d'ERfY:R
 egen	e:gEn
 egna	e:gna
@@ -223,6 +230,7 @@ framme     fR'amE
 framåt	   fRamOt
 gemensam	 jEm'e:nsam
 gemensamt	 jEm'e:nsamt
+grep	gRe:p
 greps	gRe:ps
 gripna	gRi:pna
 ha	hA:
@@ -248,11 +256,15 @@ måsten	m'Ost@n
 nvda	Enve:de:A:
 ont	Unt
 ost	Ust
+par         pA:R
 per	pE:R
 program     pRUgR'am
-redigera      REdIS;'e:Ra
+rad	RA:d
+raden	RA:d%En
+rader	RA:d%ER
 sade	 sA:dE
 sades	 sA:dEs
+sent	se:nt
 sex      s'Eks
 sig	sEj
 skolan	 sk'u:lan
@@ -262,20 +274,30 @@ stad	stA:d
 staden	stA:dEn
 stadens	stA:dEns
 stan	stA:n
+stor	stu:R
+stort	stu:Rt
+susanna	s8s'ana
+susanne	s8s'an
 svar	svA:R
-tar	tA:R
 ta      tA:
+tar	tA:R
+tas      tA:s
 togs	t'u:gs
 tomt	t'Umt
 tom	t'Um
 torsdag	 t'u:SdA:g
+torsdags	 t'u:Sdags
+torsdagen	 t'u:SdA:gEn
+torsdagens	 t'u:SdA:gEns
 tredje	 tR'e:djE
+tyvärr	 t%yv'E:R
 usa	 u-Es'A:
 usas	 u-Es'A:s
 usa:s	 u-Es'A:s
 vad	vA:d $u
 valt	vA:lt
 var	vA:R $u
+vare	vA:RE $u
 vem	vEm
 
 
@@ -285,14 +307,21 @@ browser	_^_EN
 button   _^_EN
 cancel    _^_EN
 checked   _^_EN
+column	_^_EN
+columns	_^_EN
 desktop    _^_EN
 dot    _^_EN
+edit	_^_EN
 email    _^_EN
 Explorer      _^_EN
 firefox	_^_EN
 frame	_^_EN
+frames	_^_EN
 gaim    _^_EN
+google	_^_EN
 graphic	_^_EN
+graphics	_^_EN
+has	_^_EN
 heading    _^_EN
 headings    _^_EN
 image	_^_EN
@@ -301,24 +330,35 @@ jaws	_^_EN
 leaving    _^_EN
 level   _^_EN
 link	_^_EN
+links	_^_EN
 mail    _^_EN
 messenger   _^_EN
 Microsoft         _^_EN
 mozilla	_^_EN
 name   _^_EN
 no    _^_EN
+of     _^_EN
 office     _^_EN
 one    _^_EN
 online    _^_EN
 orca    ORka
 password    _^_EN
+page	_^_EN
 read   _^_EN
+reader   _^_EN
+row	_^_EN
+rows	_^_EN
+screen	_^_EN
 software    _^_EN
 submenu     _^_EN
+table	_^_EN
+tables	_^_EN
+this	_^_EN
 tray    _^_EN
 unchecked   _^_EN
 unselected     _^_EN
 user   _^_EN
 view     _^_EN
 web	_^_EN
+with	_^_EN
 word    _^_EN

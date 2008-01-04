@@ -211,7 +211,7 @@ ikke	$u
 // auxillary verbs  (be, have, can, etc)
 
 være	$u+
-er	E:r $u
+er	,E:r
 var	$u
 vært	$u
 
@@ -254,5 +254,7 @@ i      i:   $atend
 // MAIN WORD DICTIONARY
 //*********************
 
+der         dE:r
+her         hE:r
 kom         kOm
 system      syst'e:m

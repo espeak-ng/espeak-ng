@@ -71,7 +71,7 @@ endphoneme
 
 phoneme E:
   vowel starttype (e) endtype (e)
-  length 250
+  length 260
   formants vowel/ee_1
 endphoneme
 

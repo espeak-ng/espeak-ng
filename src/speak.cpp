@@ -260,13 +260,13 @@ static void init_path(char *argv0)
 #ifdef PLATFORM_DOS
 		strcpy(path_home,PATH_ESPEAK_DATA);
 #else
-//	char *env;
-//	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
-//	{
-//		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
-//		if(GetFileLength(path_home) == -2)
-//			return;   // an espeak-data directory exists 
-//	}
+	char *env;
+	if((env = getenv("ESPEAK_DATA_PATH")) != NULL)
+	{
+		snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
+		if(GetFileLength(path_home) == -2)
+			return;   // an espeak-data directory exists 
+	}
 
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)

@@ -1,0 +1,108 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Lojban (an artificial constructed language).
+
+
+.group a
+	a	a
+	ai	aI
+	au	aU
+
+.group b
+	b	b
+
+.group c
+	c	S
+
+.group d
+	d	d
+	dj	dZ
+
+.group e
+	e	e
+	ei	eI
+
+.group f
+	f	f
+
+.group g
+	g	g
+
+.group h
+	h	h
+
+.group i
+	i	i
+	i (A	j
+
+.group j
+	j	Z
+
+.group k
+	k	k
+
+.group l
+	l	l-
+     A) l       l
+	l (A    l
+
+.group m
+	m	m
+
+.group n
+	n	n
+	n (g	N
+	n (k	N
+
+.group o
+	o	o
+	oi	OI
+
+.group p
+	p	p
+
+.group q
+	q	kw
+
+.group r
+	r	r-
+     A) r	R
+	r (A	R
+
+
+.group s
+	s	s
+
+.group t
+	t	t
+	tc	tS
+
+.group u
+	u	u
+	u (A	w
+
+.group v
+	v	v
+
+.group w
+	w	w
+
+.group x
+	x	x
+
+.group y
+	y 	@
+
+.group z
+	z	z
+
+.group
+	'	h
+     _) ' (_    '@h@
+
+	.	_!
+     _)	. (@P1	_!      // remove . prefix
+	. (_S1  _!	// remove . suffix
+
+
+	ˈ	'       // U+2c8  stress marker

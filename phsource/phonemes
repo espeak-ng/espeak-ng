@@ -98,7 +98,7 @@ phoneme _! //   Short pause, don't replace by linking
   pause
   formants NULL
   starttype _ endtype _
-  length 25
+  length 35
   lengthmod 1
   nolink
 endphoneme
@@ -1159,6 +1159,9 @@ include ph_german
 
 phonemetable eo base
 include ph_esperanto
+
+phonemetable jbo eo
+include ph_lojban
 
 phonemetable fi base
 include ph_finnish

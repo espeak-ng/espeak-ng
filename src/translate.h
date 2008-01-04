@@ -227,7 +227,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      13
+#define N_LOPTS      14
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -270,6 +270,9 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
  // change [t] when followed by unstressed vowel
 #define LOPT_REDUCE_T 12
+
+ // stressed syllable is indicated by capitals
+#define LOPT_SYLLABLE_CAPS  13
 
 
 typedef struct {
@@ -389,6 +392,7 @@ public:
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
 	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
+	const wchar_t *punct_within_word;   // allow these punctuation characters within words
 
 // holds properties of characters: vowel, consonant, etc for pronunciation rules
 	unsigned char letter_bits[256];

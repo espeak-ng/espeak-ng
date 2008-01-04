@@ -498,27 +498,40 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		{
 			int x;
 
-			if(langopts.vowel_pause && (ph->type != phPAUSE) && (next->type == phVOWEL))
+			if(langopts.vowel_pause && (ph->type != phPAUSE))
 			{
-				if(langopts.vowel_pause & 0x04)
+
+				if((ph->type != phVOWEL) && (langopts.vowel_pause & 0x200))
 				{
-					// break before a word which starts with a vowel
-					insert_ph = phonPAUSE_VSHORT;
+					// add a pause after a word which ends in a consonant
+					insert_ph = phonPAUSE_NOLINK;
 				}
 
-				if((ph->type == phVOWEL) && ((x = langopts.vowel_pause & 0x03) != 0))
+				if(next->type == phVOWEL)
 				{
-					// adjacent vowels over a word boundary
-					if(x == 2)
+					if((x = langopts.vowel_pause & 0x0c) != 0)
+					{
+						// break before a word which starts with a vowel
+						if(x == 0xc)
+							insert_ph = phonPAUSE_NOLINK;
+						else
+							insert_ph = phonPAUSE_VSHORT;
+					}
+	
+					if((ph->type == phVOWEL) && ((x = langopts.vowel_pause & 0x03) != 0))
+					{
+						// adjacent vowels over a word boundary
+						if(x == 2)
+							insert_ph = phonPAUSE_SHORT;
+						else
+							insert_ph = phonPAUSE_VSHORT;
+					}
+	
+					if(((plist2+1)->stress >= 4) && (langopts.vowel_pause & 0x100))
+					{
+						// pause before a words which starts with a stressed vowel
 						insert_ph = phonPAUSE_SHORT;
-					else
-						insert_ph = phonPAUSE_VSHORT;
-				}
-
-				if(((plist2+1)->stress >= 4) && (langopts.vowel_pause & 0x08))
-				{
-					// pause before a words which starts with a stressed vowel
-					insert_ph = phonPAUSE_SHORT;
+					}
 				}
 			}
 

@@ -225,10 +225,9 @@ Dictionary sv_dict
 I    i:   O    o:   U    u-   u:   W    
 y    y:   Y:   
 
-:    ;    b    B    d    f    g    h    
-j    k    l    m    n    N    p    R    
-s    S    s.   S;   sx   t    v    w    
-z    
+:    ;    b    d    f    g    h    j    
+k    l    m    n    N    p    R    s    
+S    s.   S;   sx   t    v    w    z    
 
 
 Dictionary sw_dict
@@ -253,9 +252,10 @@ s    t    t[   ts;  v    w    z
 
 Dictionary zhy_dict
 
-a    aa   aai  aan  aau  ai   au   e    
-ei   eo   eoi  eu   i    iu   o    oe   
-oi   ong  ou   u    ui   yu   
+a    aa   aai  aan  aau  ai   ang  au   
+e    ei   eng  eo   eoi  eu   i    ing  
+iu   ng   o    oe   oen  oi   ong  ou   
+u    ui   ung  yu   
 
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
@@ -346,6 +346,16 @@ uai  y
 N    p    ph   R    R2   R3   s    s.   
 S;   t    th   ts   ts.  ts.  tS;  tS;  
 tsh  v    w    x    z    z.   
+
+
+Dictionary jbo_dict
+
+@    a    aI   aU   e    eI   i    l-   
+o    OI   r-   u    
+
+b    d    dZ   f    g    h    j    k    
+l    m    n    N    p    R    s    S    
+t    tS   v    w    x    z    Z    
 
 
 Dictionary hbs_dict

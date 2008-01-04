@@ -1,4 +1,4 @@
-42 phoneme tables
+43 phoneme tables
           new total
     base  96   96
    base2  24  115
@@ -12,6 +12,7 @@
       cy  29  122
       de  33  123
       eo  13  108
+     jbo   4  109
       fi  40  127
       fr  34  118
    fr_ca  11  118
@@ -1243,6 +1244,7 @@ vowel/ee_6      [E] en_n
                 [&] sk
                 [E3] sv
 vowel/e_mid     [E] en_rp
+                [e] jbo
                 [E] fr_ca
                 [E] hi
                 [E] hu
@@ -1443,7 +1445,8 @@ vowelr/aa_r     [A:] en_sc
                 [A@] en_sc
 vowelr/oo_r     [O@] en_sc
 vowelr/o_r      [o@] en_sc
-vowelr/r-voc    [r-] hi
+vowelr/r-voc    [r-] jbo
+                [r-] hi
                 [r-] sk
                 [r:] sk
                 [r-] hr
@@ -1622,7 +1625,8 @@ vwl_fr/@R       [R] fr
                 [x] pt_pt
 vwl_fr/@R2      [R] fr_ca
 vwl_hi/A        [a:] hi
-vwl_hi/l-voc    [l-] hi
+vwl_hi/l-voc    [l-] jbo
+                [l-] hi
                 [l-] sk
                 [l:] sk
 vwl_no/&        [a] no

@@ -39,6 +39,7 @@
 
 #define L_qa   0x716100
 #define L_grc  0x677263   // grc  Ancient Greek
+#define L_jbo  0x6a626f   // jbo  Lojban
 #define L_zhy  0x7a6879   // zhy
 
 
@@ -214,7 +215,6 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
-//			tr->langopts.stress_flags = 0x1;  // don't give full stress to monosyllables
 			tr->langopts.unstressed_wd1 = 1;
 			tr->langopts.unstressed_wd2 = 2;
 
@@ -406,6 +406,20 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.numbers = 0x2709 + 0x800 + NUM_ROMAN;
+		}
+		break;
+
+	case L_jbo:   // Lojban
+		{
+			static const short stress_lengths_jbo[8] = {180,180, 220,220, 0,0, 260,280};
+			static const wchar_t jbo_punct_within_word[] = {'.',',','\'',0x2c8,0};  // allow period and comma within a word, also stress marker
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_jbo,NULL);
+			tr->langopts.stress_rule = 2;
+			tr->langopts.vowel_pause = 0x20c;  // pause before a word which starts with a vowel, or after a word which ends in a consonant
+			tr->punct_within_word = jbo_punct_within_word;
+			tr->langopts.param[LOPT_SYLLABLE_CAPS] = 1;  // capitals indicate stressed syllables
+			SetLetterVowel(tr,'y');
 		}
 		break;
 

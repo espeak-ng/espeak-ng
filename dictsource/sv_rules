@@ -4,22 +4,37 @@
 
 .group a
         a        A:
+    ik) a 	 %a
+        a (CC    a
         a (vs    A:
         a (vb    A:
         a (vd    A:
         a (va    a
         a (rt_   A:
+       _) a (rt   %a
         a (vg    A:
         a (r_    a
         a (s_    a
       p) a (d_    a
-      k) a (d_    a
+      k) a (k    A:
+      kl) a (r    A:
+      ikl) a (r_    a
+      xempl) a (r    A:
+      sv) a (r    A:
+      sv) a (rt    a
+      b) a (k    A:
+      bl) a (d    A:
+      gl) a (d    A:
+      gl) a (d%    a
+      b) a (kte    a
       k) a (s_    a
       k) a (ni    a
      b) a (r_    A:
      lt) a (t    A:
+     _b) a (k    A:
     bb) a (r_    a
-        a (CC    a
+        a (C%    a
+//      r) a (C%    a
         a (_     a
      &) a (_     a2
         a (re   a 
@@ -27,7 +42,7 @@
         a (rna   a
      l) a (rs    A:
      idr) a    A:
-     k) a (ta	,a
+     k) a (ta	%a
      m) a (j	 a
     om) a (t	 A:
     m) a (ter	 a
@@ -48,7 +63,7 @@
     st) a (t_	 a
    tot) a (l	'A:
    _gl) a (s	A:
-   _gl) a (ss	a
+   gl) a (s%	a
      v) a (ld	 A:
      v) a (rd	 A:
     sm) a (rt	 A:
@@ -76,22 +91,65 @@
      ppd) a (t    a
      r) a (ba    a
      ass) a    a
-     l) a (gl    A:
-     _d) a (g    A:
+     l) a (g    A:
+     l) a (gg    a
+     d) a (g    A:
+     d) a (g%    a
      ik) a (ns    'A:
-     et) a (g    'A:
+     t) a (g    A:
+     t) a (g%    a
      f) a (rt    'A:
      f) a (rl    'A:
-     t) a (ti    a
-    tt) a (C    a
+     f) a (ren    A:
+     n) a (ti    %a
+     s) a (ti    %a
+     t) a (ti    %a
+     ks) a (m    a
+     ts) a (m    a
+//    tt) a (C    a
+    n) a (l_    'A:
+    tt) a (ga    A:
+    tt) a (get    A:
+    tt) a (git    A:
+
+    &) a     a
     dd) a (C    a
+
+    dr) a (t    a
+    dr) a (d    a
+    nd) a (r    a
+    str) a     a
+    edr) a (r    A:
+    s) a (kn    A:
+    s) a (ks    A:
+    s) a (ke    A:
+    t) a (ls    A:
+     at) a (    a
+	ep) a (r   %a
         arbet	 aRbe:t
         amerik	 amERIk
 	agera	age:Ra
+	pl) a (nera  %a
 	analy	analy:
 	_) avta	A:vtA:
-	_) avge	A:vje:
+	_) avge	A:vj'e:
+	v) a (lf   A:
+	delt) a   A:
+	ret) a (g  A:
+	edr) a (g  A:
+	sk) a (da  A:
+	sk) a (de  A:
+	sk) a (p  A:
+	t) a (lC  A:
+	t) a (l%  a
+	v) a (ria   a
+	b) a (r   A:
+	t) a (l_   'A:
+	t) a (l_   'A:
+	b) a (r%   a
+	a (bo   a
 	alkohol	alkUho:l
+	allvar	allvA:R
 
 .group b
         b        b
@@ -99,9 +157,11 @@
 	bevakn	bEvA:kn
 	bredband	bRe:dband
 	begrav	bEgRA:v
-	begrip	BEgR'i:p
+	begrip	bEgR'i:p
 	beslag	bEsl'A:g
 	beslagta	bEsl'A:gtA:
+	betal	b%Et'A:l
+
 
 .group c
         c        k
@@ -113,6 +173,7 @@
         c (ä     s
         c (ö     s
         ch       S
+        ch (ef      sx
         ck       k
         ck (A    k:  // ??
         computer   _^_EN
@@ -124,8 +185,8 @@
         dagen	 dA:gEn
         daglig	 dA:glIg
 	diske	 dIskE
-	djup	 j'u-p
-	djur	 j'u-R
+	dju	 j'u-
+	djung	 j'8N
 	dum	 d8m
 	datorer		 dat'u:RER
 	dator		dA:tOR
@@ -141,18 +202,18 @@
         e        e:
      h) e (m	 E
         e (CC    E
+      &)  e     %E
    med) e (l	 E
-     b) e (s	 E
-     b) e (k	 E
+
         e (j	 E
      d) e (lv	 e:
+     d) e (c	 E
      d) e (ls	 e:
      m) e (dde	 e:
      d) e (ln	 e:
      d) e (lt	 e:
      l) e (dn	 e:
      d) e (bat	 E
-     s) e (kund	 E
      ch) e (f	 E:
         e (ta    E
         e (x     E
@@ -169,30 +230,72 @@
      n) e (ds	 e:
     br) e (v	 e:
     sv) e (r	 E
-    _s) e (p	 E
+    s) e (p	 %E
     ka) e (l	 E
      b) e (l_	 E
    nyh) e (t	 e:
      r) e (sul	 E
      r) e (sur	 E
      r) e (dak	 E
-     b) e (f	 E
-     b) e (k	 E
-     b) e (h	 E
-     b) e (s	 E
-     b) e (v	 E
+     b) e (f	 %E
+     b) e (g	 %E
+     b) e (k	 %E
+     b) e (h	 %E
+     b) e (s	 %E
+     b) e (v	 %E
+     b) e (l	 %E
+     b) e (t	 %E
+     b) e (r	 %E
+     r) e (g	 %E
+     s) e (k	 %E
      v) e (ta	 e:
      r) e (ta	 e:
      r) e (dn	 e:
      l) e (ta	 e:
       e (nli	 e:
       e (gent	 E
-    pr) e (n	 E
+    pr) e (n	 %E
+    mp) e (l	 %E
+    pr) e (c	 %E
+    sp) e (c	 %E
+    g) e (n	%E
      _) e (tik	 E
      r) e (ce	 E
      m) e (tod	 E
      p) e (ri	 E
      xtr) e (m	 e:
+     v) e (k	 e:
+     it) e (t_	 e:
+     st) e (mC	 'e:
+     s) e (ra	 e:
+     r) e (ra	 e:
+     n) e (ra	 e:
+     f) e (ra	 e:
+     g) e (ra	 e:
+     m) e (ra	 e:
+     d) e (ra	 e:
+     l) e (ra	 e:
+     t) e (ra	 e:
+     m) e (del	 e:
+     d) e (lse	 %E
+     g) e (nom	 e:
+     liot) e (k	 e:
+     c) e (r	 e:
+     l) e (da	 e:
+     gh) e (t	 e:
+     h) e (ten	 e:
+     st) e (k	 e:
+     yst) e (m	 e:
+     it) e (t	 e:
+     _h) e (ta	 e:
+     ember	 'EmbER
+	 e (rsä  e:
+	 e (rsatt  e:
+	 e (nbar  e:
+	 e (rin  e:
+	p) e (da	E
+	r) e (tur	%E
+     e (xemp	 %E
 elek	'ElEk
 espeak   _^_EN
 ekonom	 'Eku:n,O:m
@@ -205,6 +308,7 @@ enhet	 e:nhe:t
         f (f
 	familj	fam'Ilj
 	formad	fORmad
+	face	_^_EN
 
 .group g
         g        g
@@ -220,9 +324,20 @@ enhet	 e:nhe:t
         g (n     N
         gj       j
 	lä) g (e g
-	gjord	 ju:Rd
+	vä) g    g
+	lo) g (i g
+        y) g (e	 g
+        y) g (a	 g
+        y) g (o	 g
+        a) g (e	 g
+        i) g (i	 g
+        a) g (i	 g
+        sla) g	 g
+	gjor	 ju:R
         gani    gan'I
 	garage	gaR'A:S
+	garant	g%aR'ant
+	gata	gA:ta
 	glöm	glWm
 	guide	g'aId
 	guider	g'aIdER
@@ -232,26 +347,46 @@ enhet	 e:nhe:t
         h        h
         h (h
         hj       j
+   hjälp    jElp
 	hög	 hY:g
         heading   _^_EN
 
 .group i
         i        i:
         i (CC    I
+        i (nf    %I
 	i (g_	 I
+	i (nstr	 %I
+     s) i (t	 I
+     dr) i (v	 i:
+
         item    _^_EN
    _fl) i (k	 i:
      t) i (d	 i:
    skr) i (v	 i:
      v) i (sn	 i:
      l) i (kna	 i:
+     l) i (c	 I
+     d) i (r	 I
+     t) i (s	 I
+     c) i 	 I
+     c) i (s_	 i:
+     Cl) i (kaC	 %I
+     kr) i (ti	 I
+     kr) i (te	 I
+     kr) i (s	 i:
+     kr) i (st	 i:
+     krit) i (k_	 i:
 ikon		 Ik'o:n
-	inne	 InE
+	ibili	IbIlI
+	itut	Itu-t
         imag    _^_EN
 
 .group j
         j        j
+
 	java	 jA:va
+	j (uster	sx
 	jou (r	sxU
 
 .group k
@@ -286,8 +421,7 @@ ikon		 Ik'o:n
         lg  (_   lj
      _) lj	 j
 låg		 l'o:g
-ljud		 j'u-d
-ljug		 j'u-g
+lju		 j'u-
 ligen	lIgEn
 	lager	lA:gER
 
@@ -296,10 +430,12 @@ ligen	lIgEn
         m (m
         menu     _^_EN	
         människ  m'EnIsx,
-        medlem	 m'e:dlEm
+        medl	 m'e:dl
         maga	 maga
         meny	 mEn'y:
         minimera	mIni:m'e:Ra2
+	maria	m%aR'i:a
+	marie	m%aR'i:
         maximera	maksi:m'e:Ra2
         motor	 m'u:tOR
         motorer	 m'Otu:RER
@@ -324,10 +460,19 @@ ligen	lIgEn
         normal   nORmA:l
 	natur    n'at'u-R
 	nali	nalI
+	navig	n%av%Ig
 
 .group o
         o        u:
         o (CC    O
+        o (C%    U
+        o (bb    O
+        o (dd    O
+        o (mm    O
+        o (pp    O
+        o (ss    O
+        o (tt    O
+        o (ff    O
         o (rC    u:
         o (rr    O
         o (ll    O
@@ -337,6 +482,8 @@ ligen	lIgEn
         o (rg    O
         o (ck    O
      f) o (n	'o:
+     pr) o (c	%U
+     s) o (ci	%U
      l) o (g	'o:
      l) o (v	'o:
      l) o (gg	'O
@@ -346,11 +493,16 @@ ligen	lIgEn
      f) o (rm	'O
     pr) oj	 Osx'
         o (ns	 U
+       l) o (k	 %U
+       g) o (r	 U
    nn)  o (ns	 O
    ss)  o (n	 O
      C) o (rs	 O
-     k) o (rta	 O
+     k) o (rt	 O
      b) o (rt	 O
+     n) o (r_	 O
+     t) o (r_	 O
+     s) o (r_	 O
      rs) o (rd	 u:
         o (rde	 o:
      b) o (st	 u:
@@ -363,8 +515,8 @@ ligen	lIgEn
         osparat	 u:spA:Rat
         och	'Ok
      k) o (ns	 O
-    pr) o (cent	 O
-     p) o (lis	 O
+    pr) o (cent	 %O
+     p) o (lis	 %O
      p) o (pu	 O
      g) o (n	 O
      sp) o (rt	 O
@@ -372,14 +524,27 @@ ligen	lIgEn
      upp) o (rt	 o:
      l) o (n	 O
      d) o (n	 O
+     pr) o (b	 %O
+     pr) o (d	 %O
+     k) o (lu	 %O
+     inf) o (rmati	 %O
      k) o (d	 o:
+     lk) o (r	 o:
+     g) o (d	 u:
      _) o (j	 O
         o (ni	 'o:
+       m) o (t	 'u:
+       k) o (k	 'u:
+       bl) o (d	 'u:
+       k) o (rv	 O
+       n) o (vell	 %O
+       st) o (rm	 O
 	operat	OpERat
 
 .group p
         p        p
         p (p
+	pion	 pI;'u:n
 	påstå	po:sto:
         paket	pak'e:t
    parentes 	paR@nt,e:s
@@ -401,6 +566,7 @@ ligen	lIgEn
         rss      s.
         rg (_	 Rj
         radera	 Rad'e:Ra
+rediger      R%EdIsx'e:R
 rafik		 Raf'i:k
 regel		 Re:gEl
 resor		 R'e:sOR
@@ -420,10 +586,11 @@ rubrik		 R8bR'i:k
         sk (ö    sx
 	fi) s (k  s
 	fu) s (k  s
-        skj      sx
+        skj      S;
         stj      sx
         sio (n  sx'u:
         ssio (n  sx'u:
+	skype	sk'ajp
 	spegel	spe:gEl
 	segel	se:gEl
 	spel	spe:l
@@ -431,6 +598,7 @@ rubrik		 R8bR'i:k
         säg	 sEj
 	service	 sY:Rvi:s
         spara	 spA:Ra
+	sjack	sjak
         svara	 svA:Ra
 	slog	 sl'u:g
 	stått	stOt
@@ -450,7 +618,6 @@ rubrik		 R8bR'i:k
         tt (A    t:  // ??
         ti (on   sx'
         tj       S;
-
     &C) te (_S2  tE       // ??
         task    _^_EN
         talsyntes	 t'A:lsynt,e:s
@@ -463,6 +630,7 @@ rubrik		 R8bR'i:k
         u        u-
         u (tb    u-
         u (tf    u-
+        u (tg    u-
         u (ts    u-
         u (tr    u-
         u (tv    u-
@@ -471,20 +639,30 @@ rubrik		 R8bR'i:k
         u (n     8
         u (tl    u-
        sj) u (k    u-
+       j) u (ni    u-
+       j) u (l    u-
      r) u (m_    8:
 	utmärk	 'u-tm@Rk
 	b) u (tik   8
 	v) u (x   8
+	lin) u (x   %8
 	uppge	 8pje:
+	u (tn	 u-
+	u (tr	 u-
+	u (ng	 8
+	u (nkC	 %8
+	u (kti	 %8
 upload	_^_EN
 
 .group v
         v        v
         v (v
+	vali	valI
 	varandra	vaRandRa
 	varn		vA:Rn
 	varan		vA:Ran
 	verk		vERk
+	verktyg		vERkty:g
 
 .group w
         w        v
@@ -499,6 +677,9 @@ upload	_^_EN
 .group y
         y        y:
         y (CC    y
+	t) y (d	'y:
+	s) y (s	%y
+	t) y (g	'y:
 	s) y (nska y:
 
 .group z
@@ -507,8 +688,12 @@ upload	_^_EN
 
 .group å
         å        o:
-        å (CC    O
+        å (CC    o:
+        å (C%    O
+        å (ng    O
     tr) å (d     'o:
+    l) å (s     'o:
+    l) å (ss     'O
      v) å (r     'o:
      r) å (k     o:
      h) å (r     'o:
@@ -522,6 +707,7 @@ upload	_^_EN
         ä        E:
         ä (CC    E
         ä (r     E:
+        ä (rd     E:
     tr) ä (d     E:
      v) ä (lk    E:
      l) ä (sn    E:
@@ -529,9 +715,11 @@ upload	_^_EN
      sk) ä (rg    E:
      l) ä (st    E:
    n)  ä (tt    E
+
    v)  ä (x    E
      n) ä (t    E:
      f) ä (rd    E:
+     b) ä (r    E:
      r) ä (k    E:
         ärl (d    'E:R
 
@@ -540,6 +728,9 @@ upload	_^_EN
         ö        Y:
         ö (CC    'W
      f) ö (rd    'Y:
+     f) ö (rk    %W
+     l) ö (sn    'Y:
+     l) ö (st    'Y:
         ö (vr    'Y:
        r) ö (m    'W
 

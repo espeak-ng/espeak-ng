@@ -1,0 +1,86 @@
+
+// Numbers
+_0	no
+_1	pa
+_2	Re
+_3	Si
+_4	vo
+_5	mu
+_6	xa
+_7	ze
+_8	bi
+_9	so
+_dpt	pi_
+
+
+a	abu
+b	b@
+c	S@
+d	d@
+e	ebu
+f	f@
+g	g@
+i	ibu
+j	Z@
+k	k@
+l	l@
+m	m@
+n	n@
+o	obu
+p	p@
+r	R@
+s	s@
+t	t@
+u	ubu
+v	v@
+x	x@
+y	'@bu
+z	z@
+
+h	@h@bu
+q	k@bu
+w	v@bu
+
+
+
+e'o	$u+	// request
+xu	$u+	// question
+
+pu	$u+	// past
+
+ko	$u+
+ku	$u+
+cu	$u+
+se	$u+
+te	$u+
+
+la	$u+	// article
+le	$u+
+li	$u+
+lo	$u+
+
+pe	$u+	// of
+po	$u+
+po'e	$u+
+
+fa	$u+
+fe	$u+
+fi	$u+
+fo	$u+
+fu	$u+
+
+i	$u+ $pause
+
+// terminators (include a pause after)
+ku	ku_:
+boi	bOI_:
+vau	vaU_:
+kei	keI_:
+
+// pronouns
+mi	$u+
+do	$u+
+ti	$u+
+ta	$u+
+tu	$u+
+zo'e	$u+
