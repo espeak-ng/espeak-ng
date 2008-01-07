@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.30.03  04.Jan.08";
+const char *version_string = "1.30.04  07.Jan.08";
 const int version_phdata  = 0x013000;
 
 int option_device_number = -1;
@@ -621,6 +621,12 @@ void LoadConfig(void)
 	char c1;
 	char *p;
 	char string[200];
+
+	for(ix=0; ix<N_SOUNDICON_SLOTS; ix++)
+	{
+		soundicon_tab[ix].filename = NULL;
+		soundicon_tab[ix].data = NULL;
+	}
 
 	sprintf(buf,"%s%c%s",path_home,PATHSEP,"config");
 	if((f = fopen(buf,"r"))==NULL)

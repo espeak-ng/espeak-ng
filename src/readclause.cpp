@@ -511,6 +511,21 @@ const char *Translator::LookupCharName(int c)
 	return(buf);
 }
 
+int Read4Bytes(FILE *f)
+{//====================
+// Read 4 bytes (least significant first) into a word
+	int ix;
+	unsigned char c;
+	int acc=0;
+
+	for(ix=0; ix<4; ix++)
+	{
+		c = fgetc(f) & 0xff;
+		acc += (c << (ix*8));
+	}
+	return(acc);
+}
+
 
 static int LoadSoundFile(const char *fname, int index)
 {//===================================================
@@ -520,7 +535,7 @@ static int LoadSoundFile(const char *fname, int index)
 	int  length;
 	char fname_temp[100];
 	char fname2[sizeof(path_home)+13+40];
-	char command[sizeof(fname2)+sizeof(fname2)+30];
+	char command[sizeof(fname2)+sizeof(fname2)+40];
 
 	if(fname == NULL)
 	{
@@ -542,16 +557,27 @@ static int LoadSoundFile(const char *fname, int index)
 #ifdef PLATFORM_POSIX
 	if((f = fopen(fname,"rb")) != NULL)
 	{
-		int header[11];
-		fread(header, 1, 44, f);
+		int ix;
+		const char *resample;
+		int header[3];
 
-		if(header[6] != samplerate)
+		fseek(f,20,SEEK_SET);
+		for(ix=0; ix<3; ix++)
+			header[ix] = Read4Bytes(f);
+
+		// if the sound file is not mono, 16 bit signed, at the correct sample rate, then convert it
+		if((header[0] != 0x10001) || (header[1] != samplerate) || (header[2] != samplerate*2))
 		{
 			fclose(f);
 			f = NULL;
 
+			if(header[2] == samplerate)
+				resample = "";
+			else
+				resample = "polyphase";
+
 			sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-			sprintf(command,"sox \"%s\" -r %d -w %s polyphase\n",fname,samplerate,fname_temp);
+			sprintf(command,"sox \"%s\" -r %d -w -s -c1 %s %s\n", fname, samplerate, fname_temp, resample);
 			if(system(command) == 0)
 			{
 				fname = fname_temp;
@@ -572,14 +598,18 @@ static int LoadSoundFile(const char *fname, int index)
 
 	length = GetFileLength(fname);
 	fseek(f,0,SEEK_SET);
-	p = Alloc(length);
+	if((p = (char *)realloc(soundicon_tab[index].data, length)) == NULL)
+	{
+		fclose(f);
+		return(4);
+	}
 	fread(p,length,1,f);
 	fclose(f);
 	remove(fname_temp);
 
 	ip = (int *)(&p[40]);
 	soundicon_tab[index].length = (*ip) / 2;  // length in samples
-	soundicon_tab[index].data = p+44;  // skip WAV header
+	soundicon_tab[index].data = p;
 	return(0);
 }  //  end of LoadSoundFile
 
@@ -589,7 +619,7 @@ static int LookupSoundicon(int c)
 // Find the sound icon number for a punctuation chatacter
 	int ix;
 
-	for(ix=0; ix<n_soundicon_tab; ix++)
+	for(ix=N_SOUNDICON_SLOTS; ix<n_soundicon_tab; ix++)
 	{
 		if(soundicon_tab[ix].name == c)
 		{
@@ -602,6 +632,34 @@ static int LookupSoundicon(int c)
 		}
 	}
 	return(-1);
+}
+
+
+static int LoadSoundFile2(const char *fname)
+{//=========================================
+// Load a sound file into one of the reserved slots in the sound icon table
+// (if it'snot already loaded)
+
+	int ix;
+	static int slot = -1;
+
+	for(ix=0; ix<n_soundicon_tab; ix++)
+	{
+		if(((soundicon_tab[ix].filename != NULL) && strcmp(fname, soundicon_tab[ix].filename) == 0))
+			return(ix);   // already loaded
+	}
+
+	// load the file into the next slot
+	slot++;
+	if(slot >= N_SOUNDICON_SLOTS)
+		slot = 0;
+
+	if(LoadSoundFile(fname, slot) != 0)
+		return(-1);
+
+	soundicon_tab[slot].filename = (char *)realloc(soundicon_tab[ix].filename, strlen(fname)+1);
+	strcpy(soundicon_tab[slot].filename, fname);
+	return(slot);
 }
 
 
@@ -1462,12 +1520,27 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 		if((attr1 = GetSsmlAttribute(px,"src")) != NULL)
 		{
+			char fname[256];
 			attrcopy_utf8(buf,attr1,sizeof(buf));
 
 			if(uri_callback == NULL)
 			{
-// we could load the audio file as a sound icon (assuming it's a local WAV file)
-// But when to free() the data?
+				if((xmlbase != NULL) && (buf[0] != '/'))
+				{
+					sprintf(fname,"%s/%s",xmlbase,buf);
+					index = LoadSoundFile2(fname);
+				}
+				else
+				{
+					index = LoadSoundFile2(buf);
+				}
+				if(index >= 0)
+				{
+					sprintf(buf,"%c%dI",CTRL_EMBEDDED,index);
+					strcpy(&outbuf[outix],buf);
+					outix += strlen(buf);
+					sp->parameter[espeakSILENCE] = 1;
+				}
 			}
 			else
 			{
@@ -1853,6 +1926,25 @@ f_input = f_in;  // for GetC etc
 
 		if(iswalnum(c1))
 			any_alnum = 1;
+		else
+		if(iswspace(c1))
+		{
+			if(translator_name == 0x6a626f)
+			{
+				// language jbo : lojban
+				// treat "i" or ".i" as end-of-sentence
+				if(buf[ix-1] == 'i')
+				{
+					if(iswspace(buf[ix-2]) || ((buf[ix-2] == '.') && iswspace(buf[ix-3])))
+					{
+						UngetC(c2);
+						buf[ix] = ' ';
+						buf[ix+1] = 0;
+						return(CLAUSE_PERIOD);
+					}
+				}
+			}
+		}
 
 		if(iswupper(c1))
 		{

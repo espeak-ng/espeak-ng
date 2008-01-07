@@ -1724,7 +1724,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	WORD_TAB words[N_CLAUSE_WORDS];
 	int word_count=0;      // index into words
 
-	char sbuf[512];
+	char sbuf[N_TR_SOURCE];
 
 	int terminator;
 	int tone;

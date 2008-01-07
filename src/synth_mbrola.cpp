@@ -252,8 +252,9 @@ int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONE
 }
 
 
-static char *WritePitch(int env, int pitch1, int pitch2, int split)
-{//================================================================
+static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
+{//===========================================================================
+// final=1:  only give the final pitch value.
 	int x;
 	int ix;
 	int pitch_base;
@@ -264,11 +265,12 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split)
 	int min = 999;
 	int y_max=0;
 	int y_min=0;
+	int env100 = 80;  // apply the pitch change only over this proportion of the mbrola phoneme(s)
 	int y2;
 	int y[4];
 	int env_split;
-	char buf[40];
-	static char output[40];
+	char buf[50];
+	static char output[50];
 
 	output[0] = 0;
 	pitch_env = envelope_data[env];
@@ -335,18 +337,18 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split)
 
 			if(split > 0)
 			{
-				y2 = (y[ix] * 100)/env_split;
+				y2 = (y[ix] * env100)/env_split;
 			}
 			else
 			if(split < 0)
 			{
-				y2 = ((y[ix]-env_split) * 100)/env_split;
+				y2 = ((y[ix]-env_split) * env100)/env_split;
 			}
 			else
 			{
-				y2 = (y[ix] * 100)/128;
+				y2 = (y[ix] * env100)/128;
 			}
-			if((y2 > 0) && (y2 <= 100))
+			if((y2 > 0) && (y2 <= env100))
 			{
 				sprintf(buf," %d %d",y2,p2/4096);
 				strcat(output,buf);
@@ -354,14 +356,23 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split)
 		}
 	}
 
+	p_end = p_end/4096;
 	if(split <= 0)
 	{
-		sprintf(buf," 100 %d",p_end/4096);
+		sprintf(buf," %d %d",env100,p_end);
+		strcat(output,buf);
+	}
+	if(env100 < 100)
+	{
+		sprintf(buf," %d %d",100,p_end);
 		strcat(output,buf);
 	}
 	strcat(output,"\n");
+
+	if(final)
+		sprintf(output,"\t100 %d\n",p_end);
 	return(output);
-}  // end of SetPitch
+}  // end of WritePitch
 
 
 #ifdef USE_MBROLA_LIB
@@ -506,6 +517,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 	int control;
 	int done;
 	int len_percent;
+	const char *final_pitch;
 	char buf[80];
 	char mbr_buf[120];
 
@@ -562,7 +574,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 				len = 1;
 		}
 		else
-			len = (70 * speed_factor2)/256;
+			len = (80 * speed_factor2)/256;
 
 		sprintf(buf,"%s\t",WordToString(name));
 		strcat(mbr_buf,buf);
@@ -575,6 +587,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		}
 
 		done = 0;
+		final_pitch = "";
 
 		switch(ph->type)
 		{
@@ -589,16 +602,16 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 
 			if(name2 == 0)
 			{
-				sprintf(buf,"%d\t%s", len, WritePitch(p->env,p->pitch1,p->pitch2,0));
+				sprintf(buf,"%d\t%s", len, WritePitch(p->env,p->pitch1,p->pitch2,0,0));
 				strcat(mbr_buf,buf);
 			}
 			else
 			{
 				len1 = (len * len_percent)/100;
-				sprintf(buf,"%d\t%s", len1, WritePitch(p->env,p->pitch1,p->pitch2,len_percent));
+				sprintf(buf,"%d\t%s", len1, WritePitch(p->env,p->pitch1,p->pitch2,len_percent,0));
 				strcat(mbr_buf,buf);
 
-				sprintf(buf,"%s\t%d\t%s", WordToString(name2), len-len1, WritePitch(p->env,p->pitch1,p->pitch2,-len_percent));
+				sprintf(buf,"%s\t%d\t%s", WordToString(name2), len-len1, WritePitch(p->env,p->pitch1,p->pitch2,-len_percent,0));
 				strcat(mbr_buf,buf);
 			}
 			done = 1;
@@ -635,6 +648,17 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 			{
 				len = DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,-1);
 				len = (len * 1000)/samplerate;
+				if(next->type == phPAUSE)
+					len += 50;
+				final_pitch = WritePitch(p->env,p->pitch1,p->pitch2,0,1);
+			}
+			break;
+
+		case phLIQUID:
+			if(next->type == phPAUSE)
+			{
+				len += 50;
+				final_pitch = WritePitch(p->env,p->pitch1,p->pitch2,0,1);
 			}
 			break;
 		}
@@ -648,7 +672,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 				strcat(mbr_buf,buf);
 				len -= len1;
 			}
-			sprintf(buf,"%d\n",len);
+			sprintf(buf,"%d%s\n",len,final_pitch);
 			strcat(mbr_buf,buf);
 		}
 

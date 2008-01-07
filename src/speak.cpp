@@ -305,9 +305,7 @@ static int initialise(void)
 		else
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x)\n",result,version_phdata);
 	}
-#ifndef PLATFORM_WINDOWS
-	LoadConfig();  // causes problem on Windows, don't know why
-#endif
+	LoadConfig();
 	SetVoiceStack(NULL);
 	SynthesizeInit();
 

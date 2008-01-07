@@ -262,7 +262,8 @@ extern int option_log_frames;
 extern const char *version_string;
 extern const int version_phdata;
 
-#define N_SOUNDICON_TAB  100
+#define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
+#define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of autio files
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 

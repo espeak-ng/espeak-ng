@@ -62,7 +62,7 @@ static int  syllable_centre;
 
 static voice_t *new_voice=NULL;
 
-int n_soundicon_tab=0;
+int n_soundicon_tab=N_SOUNDICON_SLOTS;
 SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
@@ -1041,13 +1041,13 @@ static void DoEmbedded(int &embix, int sourceix)
 		case EMBED_I:   // play dynamically loaded wav data (sound icon)
 			if((int)value < n_soundicon_tab)
 			{
-				if((wcmdq[wcmdq_tail][1] = soundicon_tab[value].length) != 0)
+				if(soundicon_tab[value].length != 0)
 				{
 					DoPause(10);   // ensure a break in the speech
 					wcmdq[wcmdq_tail][0] = WCMD_WAVE;
 					wcmdq[wcmdq_tail][1] = soundicon_tab[value].length;
-					wcmdq[wcmdq_tail][2] = (long)soundicon_tab[value].data;
-					wcmdq[wcmdq_tail][3] = 0x1f00;   // 16 bit data, amp=32
+					wcmdq[wcmdq_tail][2] = (long)soundicon_tab[value].data + 44;  // skip WAV header
+					wcmdq[wcmdq_tail][3] = 0x1500;   // 16 bit data, amp=21
 					WcmdqInc();
 				}
 			}

@@ -289,9 +289,11 @@ napoleon    nap'o@liOn
 natasha n%at'aSa
 naudé       nOd'e@
 neil        _^_EN
+ontong      OntON
 philip      fIl@p
 phillips    fIl@ps
 pierre p'e@r
+petronella  pe@trun'&la
 petrus      pe@trWs
 phoebe      fi:bi
 rachmaninoff rax2m'aninOf
@@ -458,7 +460,7 @@ hulleself       hWl@s&lf $verbf
 my		$u $verbf
 jou		$u $verbf
 hom		$u $verbf
-haar		$u $verbf
+haar		$u $only $verbf
 se		s@
 
 dis		$u
@@ -702,6 +704,8 @@ ongewoons     $1
 onkunde       $1
 onmag         $1
 onmin         $1
+oorleg        $2
+oorstroom     $2
 oplaas        $2
 onraad        $1
 onrus         $1
@@ -710,8 +714,8 @@ oorkom        $2
 oorleef       $2
 oorsee        $2
 oorsese       $2
-oorspronklike $2
 oorval        $2 $verb
+oudsher       @Utsh&r
 
 pandemonium   pand@m'o@niWm
 parate        par'A:t@
@@ -724,6 +728,8 @@ persent       p@rsEnt
 petite        p@tit
 pinotage      pinut'A:Z
 pirouette     p@ru:'Et
+primaat       $2
+primate       $2
 
 rebelleer     r@b@le@r
 retireer      r@t@re@:r

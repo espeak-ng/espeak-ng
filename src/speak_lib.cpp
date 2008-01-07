@@ -335,9 +335,7 @@ static int initialise(void)
 	int param;
 	int result;
 
-#ifndef __WIN32__
 	LoadConfig();
-#endif
 	WavegenInit(22050,0);   // 22050
 	if((result = LoadPhData()) != 1)
 	{
