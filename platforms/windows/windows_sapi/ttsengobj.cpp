@@ -767,7 +767,7 @@ int FAR PASCAL CompileDictionary(const char *voice, const char *path_log)
 	sprintf(fname,"%s/",path_install);
 
 	espeak_SetVoiceByName(voice);
-	espeak_CompileDictionary(fname,f_log3);
+	espeak_CompileDictionary(fname,f_log3,0);
 	fclose(f_log3);
 
 	return(0);

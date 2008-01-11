@@ -354,10 +354,11 @@ int main (int argc, char **argv)
 			We distinguish them by their indices. */
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
-		{"stdout",  no_argument,       0, 0x101},
+		{"compile-debug", optional_argument, 0, 0x101},
 		{"compile", optional_argument, 0, 0x102},
 		{"punct",   optional_argument, 0, 0x103},
 		{"voices",  optional_argument, 0, 0x104},
+		{"stdout",  no_argument,       0, 0x105},
 		{0, 0, 0, 0}
 		};
 
@@ -531,15 +532,16 @@ int main (int argc, char **argv)
 			flag_stdin = 1;
 			break;
 
-		case 0x101:		// --stdout
+		case 0x105:		// --stdout
 			option_waveout = 1;
 			strcpy(wavefile,"stdout");
 			break;
 
+		case 0x101:    // --compile-debug
 		case 0x102:		// --compile
 			if(optarg2 != NULL)
 				strncpy0(voicename,optarg2,sizeof(voicename));
-			flag_compile = 1;
+			flag_compile = c;
 			break;
 
 		case 0x103:		// --punct
@@ -574,16 +576,16 @@ int main (int argc, char **argv)
 		strcpy(path_dsource,path_home);
 		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
 		strcat(path_dsource,"dictsource\\");
-		CompileDictionary(path_dsource,dictionary_name,NULL,NULL);
+		CompileDictionary(path_dsource,dictionary_name,NULL,NULL, flag_compile & 0x1);
 #else
 #ifdef PLATFORM_WINDOWS
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource,path_home);
 		path_dsource[strlen(path_home)-11] = 0;  // remove "espeak-data" from the end
 		strcat(path_dsource,"dictsource\\");
-		CompileDictionary(path_dsource,dictionary_name,NULL,NULL);
+		CompileDictionary(path_dsource,dictionary_name,NULL,NULL, flag_compile & 0x1);
 #else
-		CompileDictionary(NULL,dictionary_name,NULL,NULL);
+		CompileDictionary(NULL,dictionary_name,NULL,NULL, flag_compile & 0x1);
 #endif
 #endif
 		exit(0);

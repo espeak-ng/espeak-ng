@@ -1027,10 +1027,10 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
 }   //  end of espeak_SetPhonemes
 
 
-ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log)
-{//==================================================================
+ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags)
+{//=============================================================================
 	ENTER("espeak_CompileDictionary");
-	CompileDictionary(path,dictionary_name,log,NULL);
+	CompileDictionary(path, dictionary_name, log, NULL, flags);
 }   //  end of espeak_CompileDirectory
 
 

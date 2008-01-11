@@ -35,6 +35,9 @@ Revision 2
 Revision 3
    Added espeakWORDGAP to  espeak_PARAMETER
 
+Revision 4
+   Added flags parameter to espeak_CompileDictionary()
+
 */
          /********************/
          /*  Initialization  */
@@ -442,13 +445,16 @@ void espeak_SetPhonemeTrace(int value, FILE *stream);
 #ifdef __cplusplus
 extern "C"
 #endif
-void espeak_CompileDictionary(const char *path, FILE *log);
+void espeak_CompileDictionary(const char *path, FILE *log, int flags);
 /* Compile pronunciation dictionary for a language which corresponds to the currently
    selected voice.  The required voice should be selected before calling this function.
 
    path:  The directory which contains the language's '_rules' and '_list' files.
           'path' should end with a path separator character ('/').
    log:   Stream for error reports and statistics information. If log=NULL then stderr will be used.
+
+   flags:  Bit 0: include source line information for debug purposes (This is displayed with the
+          -X command line option).
 */
          /***********************/
          /*   Voice Selection   */

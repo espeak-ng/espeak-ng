@@ -86,6 +86,7 @@ wxMenuBar *MakeMenu(int type)
 	data_menu = new wxMenu;
 	data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data"));
 	data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
+	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (&debug)"));
 	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list"));
 	
 	// OPTIONS MENU

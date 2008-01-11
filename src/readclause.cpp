@@ -845,7 +845,7 @@ static void ProcessParamStack(char *outbuf, int &outix)
 	int value;
 	char buf[20];
 	int new_parameters[N_SPEECH_PARAM];
-	static char cmd_letter[N_SPEECH_PARAM] = {0, 'S','A','P','R', 0, 0, 'F'};  // embedded command letters
+	static char cmd_letter[N_SPEECH_PARAM] = {0, 'S','A','P','R', 0, 0, 0, 0, 0, 0, 0, 'F'};  // embedded command letters
 
 
 	for(param=0; param<N_SPEECH_PARAM; param++)

@@ -120,6 +120,7 @@ void ProsodyDisplay::SelectPh(int index)
 {//=====================================
 	// A phoneme has been selected
 	PHONEME_LIST *p;
+	const char *emphasized;
 	char buf[120];
 
 	if(index < 0) return;
@@ -127,8 +128,12 @@ void ProsodyDisplay::SelectPh(int index)
 	p = &phlist[index];
 	if((p == NULL) || (p->ph == NULL)) return;
 
-	sprintf(buf,"Stress %d   Amp %2d   LenMod %2d   Pitch %3d %3d [env=%d]   Flags %.2x ",
-		p->tone,p->amp,p->length,p->pitch1,p->pitch2,p->env,p->ph->phflags);
+	emphasized = "";
+	if(p->tone & 8)
+		emphasized = "*";
+
+	sprintf(buf,"Stress %s%d   Amp %2d   LenMod %2d   Pitch %3d %3d [env=%d]   Flags %.2x ",
+		emphasized,p->tone&0x7,p->amp,p->length,p->pitch1,p->pitch2,p->env,p->ph->phflags);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 

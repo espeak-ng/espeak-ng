@@ -77,7 +77,7 @@ extern int Read4Bytes(FILE *f);
 extern void MakeVowelLists(void);
 extern void FindPhonemesUsed(void);
 extern void DrawEnvelopes();
-extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname);
+extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname, int flags);
 
 static int markers_used[8];
 
@@ -1952,10 +1952,16 @@ void Compile::Report(void)
 
 		fprintf(f_report,"  [%s] %s",WordToString(prev_mnemonic = list[ix]->ph_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
 		fputc('\n',f_report);
-
-		free(list[ix]);
 	}
+
+	for(ix=0; ix<n; ix++)
+	{
+		free(list[ix]);
+		list[ix] = NULL;
+	}
+
 	free(list);
+	list = NULL;
 	fclose(f_report);
 }
 
@@ -2144,7 +2150,7 @@ wxString CompileAllDictionaries()
 
 		LoadVoice(voicename,0);
 
-		if((err = CompileDictionary(path_dsource, dictname,log,NULL)) > 0)
+		if((err = CompileDictionary(path_dsource, dictname,log,NULL,0)) > 0)
 		{
 			report = report + dictstr + wxString::Format(_T(" %d, "),err);
 			errors += err;

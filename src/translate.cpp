@@ -700,7 +700,7 @@ if((wmark > 0) && (wmark < 8))
 			}
 		}
 
-		if((wflags & FLAG_ALL_UPPER) && (word_length > 1) && (clause_lower_count > 3) && iswalpha(first_char))
+		if((wflags & FLAG_ALL_UPPER) && (word_length > 1)&& iswalpha(first_char))
 		{
 			if((option_tone_flags & OPTION_EMPHASIZE_ALLCAPS) && !(dictionary_flags[0] & FLAG_ABBREV))
 			{
@@ -708,7 +708,7 @@ if((wmark > 0) && (wmark < 8))
 				emphasize_allcaps = FLAG_EMPHASIZED;
 			}
 			else
-			if(!found && !(dictionary_flags[0] &  FLAG_SKIPWORDS) && (word_length<4) && (clause_upper_count <= clause_lower_count))
+			if(!found && !(dictionary_flags[0] &  FLAG_SKIPWORDS) && (word_length<4) && (clause_lower_count > 3) && (clause_upper_count <= clause_lower_count))
 			{
 				// An upper case word in a lower case clause. This could be an abbreviation.
 				spell_word = 1;
@@ -1023,12 +1023,21 @@ strcpy(phonemes2,phonemes);
 		strcat(word_phonemes,end_phonemes);
 	}
 
+	if(wflags & FLAG_LAST_WORD)
+	{
+		// don't use $brk pause before the last word of a sentence
+		// (but allow it for emphasis, see below
+		dictionary_flags[0] &= ~FLAG_PAUSE1;
+	}
+
 	if(wflags & FLAG_EMPHASIZED)
 	{
 		// A word is indicated in the source text as stressed
 		// Give it stress level 6 (for the intonation module)
 		ChangeWordStress(this,word_phonemes,6);
-		dictionary_flags[0] |= FLAG_PAUSE1;   // precede by short pause
+
+//		if(!(wflags & FLAG_LAST_WORD))     // ?? omit pre-pause if it's the last word in the sentence?
+			dictionary_flags[0] |= FLAG_PAUSE1;   // precede by short pause
 	}
 	else
 	if(wtab[dictionary_skipwords].flags & FLAG_LAST_WORD)
@@ -1335,7 +1344,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			}
 		}
 
-		if(!(word_flags & FLAG_LAST_WORD)  && !(word_flags & FLAG_HYPHEN))
+		if(!(word_flags & FLAG_HYPHEN))
 		{
 			if(flags & FLAG_PAUSE1)
 			{

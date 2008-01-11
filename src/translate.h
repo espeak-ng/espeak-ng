@@ -120,6 +120,7 @@
 #define RULE_CONDITION	5	// followed by condition number (byte)
 #define RULE_GROUP_START 6
 #define RULE_GROUP_END	7
+#define RULE_LINENUM		8  // next 2 bytes give a line number, for debugging purposes
 
 #define RULE_SPACE		32   // ascii space
 #define RULE_SYLLABLE	9
@@ -549,7 +550,7 @@ extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
 Translator *SelectTranslator(const char *name);
-int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name);
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
 void LoadConfig(void);
 int PhonemeCode(unsigned int mnem);
 void ChangeWordStress(Translator *tr, char *word, int new_stress);

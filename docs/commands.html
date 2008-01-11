@@ -3,7 +3,6 @@
 
 <head>
   <title>eSpeak Speech Synthesizer</title>
-  <meta name="GENERATOR" content="Quanta Plus">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 <body>
@@ -151,16 +150,20 @@ shown on stdout.
 <strong>--stdout</strong><br>
 <dd>Writes the speech output to stdout as it is produced, rather than speaking it.  The data starts with a WAV file header which indicates the sample rate and format of the data.  The length field is set to zero because the length of the data is unknown when the header is produced.
 <p>
-<dt><strong>--compile[=&lt;voice name&gt;]</strong><br>
+<dt><strong>--compile [=&lt;voice name&gt;]</strong><br>
 <dd>
 Compile the pronunciation rule and dictionary lookup data from their source files in the current directory.  The Voice determines which language's files are compiled.  For example, if it's an English voice, then <em>en_rules</em>, <em>en_list</em>, and <em>en_extra</em> (if present), are compiled to replace <em>en_dict</em>  in the <em>speak-data</em> directory.  If no Voice is specified then the default Voice is used.
 <p>
-<dt><strong>--punct[="&lt;characters&gt;"]</strong><br>
+<dt><strong>--compile-debug [=&lt;voice name&gt;]</strong><br>
+<dd>
+The same as <strong>--compile</strong>, but source line numbers from the *_rules file are included.  These are included in the rules trace when the <strong>-X</strong> option is used.
+<p>
+<dt><strong>--punct [="&lt;characters&gt;"]</strong><br>
 <dd>
 Speaks the names of punctuation characters when they are encountered in the text.  If &lt;characters&gt; are given, then only those listed punctuation characters are spoken, eg.  <code> --punct=".,;?"</code>
 <p>
 <dt>
-<strong>--voices[=&lt;language code&gt;]</strong><br>
+<strong>--voices [=&lt;language code&gt;]</strong><br>
 <dd>Lists the available voices.<br>
 If =&lt;language code&gt; is present then only those voices which are suitable for that language are listed.<br>
 <code>--voices=variant</code> lists the voice variants (voice modifiers).

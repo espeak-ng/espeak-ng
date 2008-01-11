@@ -1455,6 +1455,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	int  match_type;
 	int  finished=0;
 	int  value;
+	int  linenum=0;
 	int  flags;
 	int  suffix_char;
 	int  condition_num=0;
@@ -1476,7 +1477,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
    {
 		rb = *rule++;
 
-		if(rb <= 5)
+		if(rb <= RULE_LINENUM)
 		{
 			switch(rb)
 			{
@@ -1500,6 +1501,11 @@ char *Translator::DecodeRule(const char *group, char *rule)
 			case RULE_CONDITION:
 				/* conditional rule, next byte gives condition number */
 				condition_num = *rule++;
+				break;
+			case RULE_LINENUM:
+				value = (rule[1] & 0xff) - 1;
+				linenum = (rule[0] & 0xff) - 1 + (value * 255);
+				rule+=2;
 				break;
 			}
 			continue;
@@ -1557,10 +1563,15 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	*p = 0;
 
 	p = output;
+	if(linenum > 0)
+	{
+		sprintf(p,"%5d:\t",linenum);
+		p += 7;
+	}
 	if(condition_num > 0)
 	{
-		sprintf(output,"?%d ",condition_num);
-		p = &output[strlen(output)];
+		sprintf(p,"?%d ",condition_num);
+		p = &p[strlen(p)];
 	}
 	if((ix = strlen(buf_pre)) > 0)
 	{
@@ -1727,7 +1738,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 		{
 			rb = *rule++;
 
-			if(rb <= 5)
+			if(rb <= RULE_LINENUM)
 			{
 				switch(rb)
 				{
@@ -1778,6 +1789,9 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 					if(!failed)
 						match.points++;  // add one point for a matched conditional rule
+					break;
+				case RULE_LINENUM:
+					rule+=2;
 					break;
 				}
 				continue;
@@ -2173,7 +2187,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				if(group_length > 1)
 					pts += 35;    // to account for an extra letter matching
 				DecodePhonemes(match.phonemes,decoded_phonemes);
-				fprintf(f_trans,"%3d   %s [%s]\n",pts,DecodeRule(group,rule_start),decoded_phonemes);
+				fprintf(f_trans,"%3d\t%s [%s]\n",pts,DecodeRule(group,rule_start),decoded_phonemes);
 			}
 #endif
 

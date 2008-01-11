@@ -46,6 +46,7 @@ static int transpose_offset;  // transpose character range for LookupDictList()
 static int transpose_min;
 static int transpose_max;
 static int text_mode = 0;
+static int debug_flag = 0;
 
 int hash_counts[N_HASH_DICT];
 char *hash_chains[N_HASH_DICT];
@@ -943,6 +944,15 @@ char *compile_rule(char *input)
 	}
 	strcpy(&output[len],rule_match);
 	len += strlen(rule_match);
+
+	if(debug_flag)
+	{
+		output[len] = RULE_LINENUM;
+		output[len+1] = (linenum % 255) + 1;
+		output[len+2] = (linenum / 255) + 1;
+		len+=3;
+	}
+
 	if(rule_cond[0] != 0)
 	{
 		ix = -1;
@@ -1437,9 +1447,10 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 
 
 
-int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname_err)
-{//==========================================================================================
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname_err, int flags)
+{//=====================================================================================================
 // fname:  space to write the filename in case of error
+// flags: bit 0:  include source line number information, for debug purposes.
 
 	FILE *f_in;
 	FILE *f_out;
@@ -1451,6 +1462,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	char path[sizeof(path_home)+40];       // path_dsource+20
 
 	error_count = 0;
+	debug_flag = flags & 1;
 
 	if(dsource == NULL)
 		dsource = "";

@@ -388,6 +388,8 @@ void FindPhonemesUsed(void)
 	{
 		if(*p == RULE_CONDITION)
 			p+=2;
+		if(*p == RULE_LINENUM)
+			p+=3;
 		if(*p == RULE_GROUP_END)
 		{
 			p++;

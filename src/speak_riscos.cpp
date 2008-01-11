@@ -776,7 +776,7 @@ void command_line(char *arg_string, int wait)
 				strncpy0(command,param_string(&p),sizeof(command));
 				if(memcmp(command,"compile=",8)==0)
 				{
-					CompileDictionary(NULL,&command[8],NULL,NULL);
+					CompileDictionary(NULL,&command[8],NULL,NULL,0);
 					return;
 				}
 				else

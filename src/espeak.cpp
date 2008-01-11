@@ -274,10 +274,11 @@ int main (int argc, char **argv)
 			We distinguish them by their indices. */
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
-		{"stdout",  no_argument,       0, 0x101},
+		{"compile-debug", optional_argument, 0, 0x101},
 		{"compile", optional_argument, 0, 0x102},
 		{"punct",   optional_argument, 0, 0x103},
 		{"voices",  optional_argument, 0, 0x104},
+		{"stdout",  no_argument,       0, 0x105},
 		{0, 0, 0, 0}
 		};
 
@@ -402,14 +403,15 @@ int main (int argc, char **argv)
 			flag_stdin = 1;
 			break;
 
-		case 0x101:		// --stdout
+		case 0x105:		// --stdout
 			option_waveout = 1;
 			strcpy(wavefile,"stdout");
 			break;
 
+		case 0x101:    // --compile-debug
 		case 0x102:		// --compile
 			strncpy0(voicename,optarg,sizeof(voicename));
-			flag_compile = 1;
+			flag_compile = c;
 			quiet = 1;
 			break;
 
@@ -466,7 +468,7 @@ int main (int argc, char **argv)
 	if(flag_compile)
 	{
 		// This must be done after the voice is set
-		espeak_CompileDictionary("",stderr);
+		espeak_CompileDictionary("", stderr, flag_compile & 0x1);
 		exit(0);
 	}
 

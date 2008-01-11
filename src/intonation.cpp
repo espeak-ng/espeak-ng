@@ -910,7 +910,7 @@ void Translator::CalcPitches(int clause_type)
 
 
 	option = langopts.intonation_group;
-	if(option > INTONATION_TYPES)
+	if(option >= INTONATION_TYPES)
 		option = 0;
 
 	group_tone = punct_to_tone[option][clause_type]; 
@@ -952,6 +952,18 @@ void Translator::CalcPitches(int clause_type)
 
 		if(syl->stress == 6)
 		{
+			// reduce the stress of the previous stressed syllable
+			for(ix=st_ix-1; ix>=st_start && ix>=(st_ix-3); ix--)
+			{
+				if(syllable_tab[ix].stress == 6)
+					break;
+				if(syllable_tab[ix].stress == 4)
+				{
+					syllable_tab[ix].stress = 3;
+					break;
+				}
+			}
+
 			// are the next primary syllables also emphasized ?
 			for(ix=st_ix+1; ix<n_st; ix++)
 			{

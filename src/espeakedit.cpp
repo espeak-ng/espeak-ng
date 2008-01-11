@@ -186,6 +186,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
    EVT_MENU(MENU_PATH4, MyFrame::OnOptions)
    EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
+	EVT_MENU(MENU_COMPILE_DICT_DEBUG, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
 	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
@@ -431,6 +432,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 {//=========================================
 	int err;
 	FILE *log;
+	int debug_flag=0;
 	char fname_log[sizeof(path_dsource)+12];
 	char err_fname[sizeof(path_home)+15];
 
@@ -465,11 +467,13 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		CompileMbrola();
 		break;
 		
+	case MENU_COMPILE_DICT_DEBUG:
+		debug_flag =1;  // and drop through to next case
 	case MENU_COMPILE_DICT:
 		sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 		log = fopen(fname_log,"w");
 
-		if((err = CompileDictionary(path_dsource,dictionary_name,log,err_fname)) < 0)
+		if((err = CompileDictionary(path_dsource,dictionary_name,log,err_fname,debug_flag)) < 0)
 		{
 			wxLogError(_T("Can't access file:\n")+wxString(err_fname,wxConvLocal));
 

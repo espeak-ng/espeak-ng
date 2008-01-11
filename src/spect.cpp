@@ -431,7 +431,7 @@ double SpectFrame::GetRms(int seq_amplitude)
 	{
 		total += ((htab[h] * htab[h]) >> 10);
 	}
-	rms = sqrt(total) / 14.5;
+	rms = sqrt(total) / 7.25;
 //	DrawPeaks(NULL,0,0,amp);
 	return(rms);
 }
