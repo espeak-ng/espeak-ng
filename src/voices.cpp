@@ -387,6 +387,7 @@ void VoiceReset(int tone_only)
 		// adjust formant smoothing depending on sample rate
 		formant_rate[pk] = (formant_rate_22050[pk] * 22050)/samplerate;
 	}
+	voice->height[2] = 240;  // reduce F2 slightly
 
 	// This table provides the opportunity for tone control.
 	// Adjustment of harmonic amplitudes, steps of 8Hz
