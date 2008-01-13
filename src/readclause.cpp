@@ -88,7 +88,7 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
 
 // indexed by (entry num. in punct_chars) + 1
 // bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
-static const unsigned short punct_attributes [] = { 0,
+static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash

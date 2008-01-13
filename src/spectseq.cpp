@@ -36,6 +36,9 @@
 
 int  SpeakNextClause(FILE *f_text, const void *text_in, int control);
 extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2);
+extern int Wavegen();
+extern void CloseWaveFile2();
+extern FILE *f_wave;
 
 static int frame_width;
 
@@ -94,6 +97,25 @@ static void PeaksZero(peak_t *sp, peak_t *zero)
 		zero[pk].pkheight = 0;
 
 }  // end of PeaksZero
+
+
+
+void MakeWaveFile()
+{//================
+	int result=1;
+	unsigned char wav_outbuf[1024];
+
+	while(result != 0)
+	{
+		out_ptr = out_start = wav_outbuf;
+		out_end = &wav_outbuf[sizeof(wav_outbuf)];
+		result = Wavegen();
+		if(f_wave != NULL)
+			fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
+	}
+}  // end of MakeWaveFile
+
+
 
 
 SpectSeq::SpectSeq(int n)
@@ -1004,7 +1026,7 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	SetSynth_mS(30,peaks2,peaks0);
 	MakeWaveFile();
 
-	CloseWaveFile(samplerate);
+	CloseWaveFile2();
 	PlayWavFile(fname_speech);
 
 }  // end of SpectSeq::MakeWave
@@ -1085,7 +1107,7 @@ void SpectFrame::MakeWave(int control, PitchEnvelope &pitche, int amplitude, int
 #endif
 	}
 
-	CloseWaveFile(samplerate);
+	CloseWaveFile2();
 	PlayWavFile(fname_speech);
 
 }  // end of SpectFrame::MakeWaveFrame

@@ -15,6 +15,9 @@
         b (_     p
         b (_G    b
 
+     _) bez (-P4  'bes
+     _) bezo (-P5 'bezo
+
 .group c
         c        ts
         ch       x
@@ -27,7 +30,6 @@
         d (_     t
         d (_G    d
         d (e     d;
-        d (e_    d
         d (i     d;
         d (í     d;
         d (eT    d     // word has $alt attribute
@@ -145,7 +147,8 @@ _štipen) d (i        d
          d (iskre    d
  diskre) d (i        d
     _ka) d (et       d
-      _) d (eci      d
+         d (eci      d
+      _) d (ece      d
          d (isku     d
    _pre) d (íď       d
    _pre) d (íd       d
@@ -210,12 +213,14 @@ _štipen) d (i        d
         n (g     N
         n (k     N
         n (e     n^
-        n (e_    n
         n (i     n^
         n (í     n^
-        n (eT    n    // word has $alt attribute
+        n (eT    n    // word has $alt attribute from sk_list
         n (iT    n
         n (íT    n
+    @C) n (ej_   n
+
+     _) na (-P3  'na   // include $alt2 words as stressed prefixes
 
          n (ent    n
     _be) n (ef     n
@@ -271,7 +276,7 @@ _kultúr) n (e      n
       _) n (eutrál n
   harmo) n (i      n
     _te) n (is     n
-      _) n (ikoti  n
+      _) n (ikot   n
      lí) n (i      n
 _konkrét) n (e     n
  _matki) n (e      n
@@ -309,6 +314,8 @@ _administratív) n (e n
       _) n (erv    n
   natív) n (e      n
       _) n (ext    n
+    zva) n (ej_    n
+     _u) n (i      n
 
 .group ň
         ň        n^
@@ -326,6 +333,10 @@ _administratív) n (e n
 
 .group p
         p        p
+
+     _) po (-P3   'po
+     _) pod (-P4  'pot
+     _) pri (-P4  'pRi
 
 .group q
         q        k
@@ -356,20 +367,21 @@ _administratív) n (e n
 .group s
         s        s
 
+     _) so (-P3  'so
+
 .group š
         š        S
 
 .group t
         t        t
         t (e     t;
-        t (e_    t
         t (i     t;
         t (í     t;
         t (eT    t       // word has $alt attribute
         t (iT    t
         t (íT    t
 
- _teres) t (ri      t
+      _) t (erestri  t
 
          t (ik_   t
          t (ing   t
@@ -475,6 +487,7 @@ _charakteris) t (ík t
 _antipa) t (i       t
     ema) t (i       t
       _) t (imotej  t
+      a) t (iká     t
 
  _sensi) tí         ti:
    _dif) tí (n      ti:
@@ -495,6 +508,7 @@ _alterna) tí (v     ti:
 _konštruk) tí (v    ti:
    _jus) tí         ti:
   viknu) tí         ti:
+   ales) tí (t      ti:
 
 
 
@@ -582,7 +596,7 @@ _charak) te (r      te
    _sys) te (m      te
     _al) te (rn     te
    _syn) te (       te
-
+    _li) te (r      te
 
 
 .group ť
@@ -596,11 +610,9 @@ _charak) te (r      te
 
 .group v
         v        v
-     A) v (K     w
-     A) v (n     v
-     A) v (ň     v
-        v (stať  v
-o) v (_            u
+     o) v (_     u
+
+     _) vy (@P2  'vi
 
 .group w
         w        v
@@ -631,4 +643,3 @@ o) v (_            u
         %        pertsento
         +        plus
 
-// 557

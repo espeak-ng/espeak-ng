@@ -67,6 +67,7 @@
 #define tVOWELOUT 23
 #define tAPPENDPH 24         // always insert another phoneme (linkout) after this one
 #define tIMPORTPH 25
+#define tBEFOREPAUSE 26
 
 #define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
@@ -238,6 +239,7 @@ static keywtab_t keywords[] = {
 	{"vowelout",23},
 	{"appendph",24},
 	{"import_phoneme",25},
+	{"beforepause",26},
 
 	// flags
 	{"wavef",      0x2000000+phWAVE},
@@ -1387,6 +1389,13 @@ int Compile::CPhoneme()
 			if((phcode = NextItem(tPHONEMEMNEM)) == -1)
 				phcode = LookupPhoneme(item_string,1);
 			ph->alternative_ph = phcode;
+			break;
+
+		case tBEFOREPAUSE:
+			ph->phflags |= phBEFOREPAUSE;
+			if((phcode = NextItem(tPHONEMEMNEM)) == -1)
+				phcode = LookupPhoneme(item_string,1);
+			ph->link_out = phcode;
 			break;
 
 		case tAPPENDPH:

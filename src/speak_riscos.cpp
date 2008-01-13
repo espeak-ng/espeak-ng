@@ -57,12 +57,14 @@ extern void RiscosOpenSound();
 extern int WcmdqUsed();
 extern void FreePhData();
 extern void FreeDictionary();
+extern void Write4Bytes(FILE *f, int value);
 
 extern int wcmdq_head;
 extern int wcmdq_tail;
 extern int current_source_index;
 
 FILE *f_text;
+FILE *f_wave = NULL;
 int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
 
@@ -272,10 +274,88 @@ void Free(void **ptr)
 #endif
 
 
+
+
+static int OpenWaveFile(const char *path, int rate)
+//=================================================
+{
+	// Set the length of 0x7fffffff for --stdout
+	// This will be changed to the correct length for -w (write to file)
+	static unsigned char wave_hdr[44] = {
+		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
+		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
+		2,0,0x10,0,'d','a','t','a',  0xff,0xff,0xff,0x7f};
+
+	if(path == NULL)
+		return(2);
+
+	if(strcmp(path,"stdout")==0)
+		f_wave = stdout;
+	else
+		f_wave = fopen(path,"wb");
+
+	if(f_wave != NULL)
+	{
+		fwrite(wave_hdr,1,24,f_wave);
+		Write4Bytes(f_wave,rate);
+		Write4Bytes(f_wave,rate * 2);
+		fwrite(&wave_hdr[32],1,12,f_wave);
+		return(0);
+	}
+	return(1);
+}   //  end of OpenWaveFile
+
+
+
+
+static void CloseWaveFile(int rate)
+//=================================
+{
+   unsigned int pos;
+
+   if((f_wave == NULL) || (f_wave == stdout))
+      return;
+
+   fflush(f_wave);
+   pos = ftell(f_wave);
+
+	fseek(f_wave,4,SEEK_SET);
+	Write4Bytes(f_wave,pos - 8);
+
+	fseek(f_wave,40,SEEK_SET);
+	Write4Bytes(f_wave,pos - 44);
+
+
+   fclose(f_wave);
+   f_wave = NULL;
+
+} // end of CloseWaveFile
+
+
+
+
 void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr)
 {//======================================================================================
 // Do nothing in the command-line version.
 }  // end of MarkerEvent
+
+
+static int WavegenFile(void)
+{//=========================
+	int finished;
+	unsigned char wav_outbuf[1024];
+
+	out_ptr = out_start = wav_outbuf;
+	out_end = wav_outbuf + sizeof(wav_outbuf);
+
+	finished = WavegenFill(0);
+
+	if(f_wave != NULL)
+	{
+		fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
+	}
+	return(finished);
+}  // end of WavegenFile
 
 
 

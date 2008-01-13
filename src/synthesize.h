@@ -204,10 +204,7 @@ int  WavegenOpenSound();
 int  WavegenCloseSound();
 int  WavegenInitSound();
 void WavegenInit(int rate, int wavemult_fact);
-int  OpenWaveFile(const char *path, int rate);
-void CloseWaveFile(int rate);
 float polint(float xa[],float ya[],int n,float x);
-int  WavegenFile(void);
 int WavegenFill(int fill_zeros);
 void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr);
 

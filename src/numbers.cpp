@@ -179,13 +179,13 @@ void Translator::SetSpellingStress(char *phonemes, int control)
 		else
 		if(c == 0xff)
 		{
-			if(control < 2)
+			if((control < 2) || (ix==0))
 				continue;   // don't insert pauses
 
 			if(control == 4)
 				c = phonPAUSE;    // pause after each character
 			if(((count % 3) == 0) || (control == 4))
-				c = phonPAUSE_NOLINK;  // pause following a primary stress
+				c = phonPAUSE_SHORT;  // pause following a primary stress
 			else
 				continue;       // remove marker
 		}
@@ -807,7 +807,13 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	if((ph_out[0] != 0) && (ph_out[0] != phonSWITCH))
 	{
 		int next_char;
-		utf8_in(&next_char,&word[n_digits+1],0);
+		char *p;
+		p = &word[n_digits+1];
+
+		p += utf8_in(&next_char,p,0);
+		if((langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
+			utf8_in(&next_char,p,0);
+
 		if(!iswalpha(next_char))
 			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
 	}

@@ -277,7 +277,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
-			tr->langopts.numbers = 0x1509;
+			tr->langopts.numbers = 0x1509 +  NUM_NOPAUSE | NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -630,6 +630,24 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
 			SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+		}
+		break;
+
+
+	case L('t','h'):  // Thai
+		{
+			static const short stress_lengths_th[8] = {230,150, 230,230, 230,0, 230,250};
+			static const unsigned char stress_amps_th[] = {22,16, 22,22, 22,22, 22,22 };
+
+			tr = new Translator;
+			SetupTranslator(tr,stress_lengths_th,stress_amps_th);
+
+			tr->langopts.stress_rule = 0;   // stress on final syllable of a "word"
+			tr->langopts.stress_flags = 1;          // don't automatically set diminished stress (may be set in the intonation module)
+			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+//			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
+			tr->langopts.word_gap = 0x21;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 		}
 		break;
 

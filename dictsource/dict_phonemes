@@ -118,7 +118,7 @@ y    Y
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    L    m    n    N    
 n^   p    r    R    s    S    t    t2   
-tS   v    w    z    Z    z2   
+tS   v    w    z    Z    z2   z3   
 
 
 Dictionary hi_dict
@@ -159,12 +159,12 @@ v    w    w2   z
 Dictionary nl_dict
 
 8    @    @-   A    a:   E    e:   EI   
-eU   i    I    O    o:   u    VU   Wy   
-y    Y:   yU   
+eU   i    I    O    O:   o:   u    VU   
+Wy   y    Y:   yU   
 
 *    :    ;    b    C    d    f    g    
 h    j    k    l    m    n    N    n^   
-p    Q    r    s    S    s;   t    tS   
+p    Q    r    s    S    S;   t    tS   
 v    v2   w    x    z    
 
 
@@ -216,7 +216,7 @@ u:
 *    b    d    d;   dZ   f    g    h    
 j    k    l    l^   m    n    N    n^   
 p    r    R    R^   R^/  s    S    t    
-t;   tS   ts   v    w    x    z    Z    
+t;   tS   ts   v    x    z    Z    
 
 
 Dictionary sv_dict
@@ -355,6 +355,15 @@ o    OI   r-   u
 b    d    dZ   f    g    h    j    k    
 l    m    n    N    p    R    s    S    
 t    tS   v    w    x    z    Z    
+
+
+Dictionary th_dict
+
+a    a:   e    E:   i    i:   o    O    
+O:   u    y    
+
+c    d    h    k    l    m    n    N    
+p    s    t    
 
 
 Dictionary hbs_dict

@@ -26,7 +26,7 @@
 		a (ill      a
 		a (ils_     a
 		a (il_      a
-		aie (me     E		// paiement		
+		aie (me     E		// paiement
 		ai          E		// aile
 		am (b       A~		// jambon
 		am (p       A~		// camp
@@ -55,29 +55,29 @@
 		c'          s		// s
 		cch         k		// bacchanale
 		cc (Y       ks		// accéder
-		cc          k		// occuper		
+		cc          k		// occuper
 	ar)	ch (ét      k		// archétype architecte
 	or) 	ch (esC     k		// orchestre
 	or) 	ch (iC      k		// orchidée
 	sy) 	ch (o       k		// psycho
 	_) 	ch (or      k		// chorale
 		ch (r       k		// chrétien
-		ch (l       k	
-		ch (n       k	
-		ch (s       k	
-		ch (to      k	
+		ch (l       k
+		ch (n       k
+		ch (s       k
+		ch (to      k
 		ch          S		// chien
 		ck          k		// nickel
 		cqu         k		// grecque
 		cq          k		// pecq
-	s)	c (Y			// 
-	x)	c (Y			 
+	s)	c (Y			//
+	x)	c (Y
 		c (Y        s 		// cède
 	ban)	c (_			// banc
 	blan)	c (_			// blan
 	cler)	c (_			// leclerc
-	tchou)	c (_			 
-	taba)	c (_			 
+	tchou)	c (_
+	taba)	c (_
 	se)	c (ond      g		// seconde secondaire
 		c           k		// recoin donc
 
@@ -91,18 +91,18 @@
 		dd          d		// addition
 	_) 	d' (P2      d
 	_lan)	d (_        d		// land
-	Clan)	d (_        d		 
-	_san)	d (_        d		 
-	Csan)	d (_        d		 
+	Clan)	d (_        d
+	_san)	d (_        d
+	Csan)	d (_        d
 	_tan)	d (_        d		// stand
-	Ctan)	d (_        d		 
+	Ctan)	d (_        d
 
 	Can)	d (_        t2 		// grand ami, grand marchand
-	Cen)	d (_        t2 		 
-	Con)	d (_        t2 		 
-	quan)	d (_        t2		
-	quen)	d (_        t2		 
-	quon)	d (_        t2		 
+	Cen)	d (_        t2
+	Con)	d (_        t2
+	quan)	d (_        t2
+	quen)	d (_        t2
+	quon)	d (_        t2
 
 		dt (_       t       	// Schmidt
 	r)	d (_        		// lourd placard
@@ -120,7 +120,7 @@
 		ee          i		// meeting
 	_cl)	ef (_       e		// clef
 		ein (C      E~		// peindre
-		ein (_      E~		 
+		ein (_      E~
 		e (il       E		// vieille
 		ei          E		// neige
 		ell         El		// selle
@@ -129,16 +129,16 @@
 		em (me      a		// femme patiemment
 		em (b       A~		// décembre
 		em (m       A~		// emmencher
-		em (p       A~		 
+		em (p       A~
 		en (_       A~		// en
 		en (hA      A~n		// enharmonique
 		en (A       A~n		// enivrer
 		en (_A      A~n		// en avion
 
 	C)	en (d_      A~		// comprend dépend
-	C)	en (ds_     A~		 
-	qu)	en (d_      A~		 
-	qu)	en (ds_     A~		 
+	C)	en (ds_     A~
+	qu)	en (d_      A~
+	qu)	en (ds_     A~
 
 	pati)	en          A~		// patient patience
 	_)	en (nu      A~		// ennui
@@ -146,11 +146,11 @@
 	C)	en (A       @n		// menu
 
 		en (nA      E		// penne ennemi
-	Ci)	en (nA      E		// mienne 
+	Ci)	en (nA      E		// mienne
 
 	éC)	en (t_      A~		// récent différent élément
 
-	_C)	en (t_      A~		// cent vent lent dent 
+	_C)	en (t_      A~		// cent vent lent dent
 	cc)	en (t_      A~		// accent
 
 	_jac)	en (t_      A~		// sous-jacent
@@ -164,26 +164,26 @@
 	al)	en (t_      A~		// talent équivalent
 	xcell)	en (t_      A~		// excellent
 
-	mm)	en (t_      A~		 
+	mm)	en (t_      A~
 	em)	en (t_      A~		// vitement
 	mom)	en (t_      A~		// moment
-	Aaim)	en (t_      A~		 
-	Caim)	en (t_      A~		 
-	cum)	en (t_      A~		 
-	gum)	en (t_      A~		 
-	lum)	en (t_      A~		 
+	Aaim)	en (t_      A~
+	Caim)	en (t_      A~
+	cum)	en (t_      A~
+	gum)	en (t_      A~
+	lum)	en (t_      A~
 	rum)	en (t_      A~		// prudemment
 
 	_cli)	en (t_      A~		// client
-	_laur)	en (t_      A~		 
-	_mécont) en (t_     A~	 
-	_cont)	en (t_      A~		 
+	_laur)	en (t_      A~
+	_mécont) en (t_     A~
+	_cont)	en (t_      A~
 	mpét)	en (t_      A~		// compétent
-	prés)	en (t_      A~		 
+	prés)	en (t_      A~
 	_souv)	en (t_      A~		// souvent
 
 	s_couv)	en (t_      		// elles couvent
-	qui_couv) en (t_      	
+	qui_couv) en (t_
 
 	_couv)	en (t_      A~      	// le couvent
 		en (t_            	// étaient mangent
@@ -194,75 +194,75 @@
 
 	_am)	en (_       En      	// amen
 
-	AA)	en (_       E~      	 
+	AA)	en (_       E~
 	AC)	en (_       E~      	// examen
 	CA)	en (_       E~      	// rien
-	CC)	en (_       E~      	 
+	CC)	en (_       E~
 
-		en (s_      A~      	 
-		en (CA      A~      	// pentathlon 
-		en (CC      A~      	// entre 
+		en (s_      A~
+		en (CA      A~      	// pentathlon
+		en (CC      A~      	// entre
 
 	_C)	er (_       ER      	// fer
 	_Ch)	er (_       ER      	// cher
-	_env)	er (_       ER      	 
-	_hi)	er (_       ER      	// hier 
+	_env)	er (_       ER
+	_hi)	er (_       ER      	// hier
 	_hiv)	er (_       ER      	// hiver
-	_trav)	er (_       ER      	 
-	_ti)	er (_       ER      	 
+	_trav)	er (_       ER
+	_ti)	er (_       ER
 
 	th)	er (_       WR      	// brother
-	th)	er (s_      WR      	 
+	th)	er (s_      WR
 	w)	er (_       WR      	// power
-	w)	er (s_      WR      	 
+	w)	er (s_      WR
 
 		er (_       e      	// parler léger
 		er (_A      eR      	// parler léger
-		er (s_      e      	 
+		er (s_      e
 
-	i)	ert (_t2      e		// requiert      	 
+	i)	ert (_t2      e		// requiert
 
 	d)	e (ssous_   @      	// dessous
-	d)	e (ssus_    @      	// dessus 
+	d)	e (ssus_    @      	// dessus
 
-	_d)	es (bA      e      	 
-	_d)	es (jA      e      	// Desjardins 
-	_d)	es (nA      e      	 
+	_d)	es (bA      e
+	_d)	es (jA      e      	// Desjardins
+	_d)	es (nA      e
 	_d)	es (qA      e      	// desquels
 
 	_l)	es (qA      e      	// lesquels
 
 	_m)	es (dA      e      	// mesdames
-	_m)	es (nA      e      	
-	Am)	es (dA      e      	
+	_m)	es (nA      e
+	Am)	es (dA      e
 	Am)	es (nA      e      	// Dumesnil
 
 	d)	esh (A      ez      	// Deshormeaux
 
 	_r)	es (A       @s      	// resaisir resaluer
 
-	_r)	e (ss       @      	// ressembler 
-	_r)	e (stra     @      	
-	_r)	e (stre     @      	
-	_r)	e (stro     @      	
+	_r)	e (ss       @      	// ressembler
+	_r)	e (stra     @
+	_r)	e (stre     @
+	_r)	e (stro     @
 	_r)	e (stru     @      	// restructurer
          -)     est (_      Est         // -est
 
-	@Cr)	es (_C      =@     	 
-	rC)	es (_C      =@     	// fortes dames 
+	@Cr)	es (_C      =@
+	rC)	es (_C      =@     	// fortes dames
 
 	')	eu (_       y		// eu
 		eu (r_      W		// peur
 		eu (rs_     W		// tracteurs
 
-		eu (b       @		// meuble 
-		eu (f       @		// neuf 
-		eu (i       @		 
-		eu (l       @		// fieul 
+		eu (b       @		// meuble
+		eu (f       @		// neuf
+		eu (i       @
+		eu (l       @		// fieul
 		eu (n       @		// jeune
-		eu (p       @		 
-		eu (r       @		 
-		eu (v       @		 
+		eu (p       @
+		eu (r       @
+		eu (v       @
 
 		eu          Y		// meute tueuse jeu gueuze
 	_)	eû          y		// eût
@@ -274,50 +274,50 @@
 		ey          Ej		// asseye
 
 		ez (_       ez2		// nez mangez chez
-	_C) 	e (_        @		// je te 
-	_CC) 	e (_        @		 
+	_C) 	e (_        @		// je te
+	_CC) 	e (_        @
 	_qu) 	e (_        @		// que
 
 	@Cr) 	e (_C       =@		// quatre pattes
-	rC) 	e (_C       =@		 
+	rC) 	e (_C       =@
 
 	 	e (_       		// montre
 
 	g) 	e (A       		// mangeons
 
 	AC) 	e (ment       		// vitement sûrement
-	Aqu) 	e (ment       		 
-	enC) 	e (ment       		 
-	enqu) 	e (ment       		 
+	Aqu) 	e (ment
+	enC) 	e (ment
+	enqu) 	e (ment
 
-	_d) 	e (ch       @  		 
-	_d) 	e (Cl       @  		 
-	_d) 	e (Cr       @  		// degré 
+	_d) 	e (ch       @
+	_d) 	e (Cl       @
+	_d) 	e (Cr       @  		// degré
 	_r) 	e (ch       @  		// recherche
-	_r) 	e (Cl       @  		 
-	_r) 	e (Cr       @  		// retracer 
+	_r) 	e (Cl       @
+	_r) 	e (Cr       @  		// retracer
 
-	_l) 	e (xA       E  		 
-	_l) 	e (CA       @  		 
-	_l) 	e (ChA      @  		 
-	_l) 	e (ClA      @  		// Leclerc 
-	_l) 	e (CrA      @  		// Lebrun 
-	tr) 	e (CA       @  		 
-	tr) 	e (ChA      @  		 
-	tr) 	e (ClA      @  		 
+	_l) 	e (xA       E
+	_l) 	e (CA       @
+	_l) 	e (ChA      @
+	_l) 	e (ClA      @  		// Leclerc
+	_l) 	e (CrA      @  		// Lebrun
+	tr) 	e (CA       @
+	tr) 	e (ChA      @
+	tr) 	e (ClA      @
 	tr) 	e (CrA      @  		// entreprise
 
  		e (CC       E  		// infect pelle mettre
- 		e (C_       E  		 
+ 		e (C_       E
 
 	ll) 	e (m       		// actuellement guillemets
 
-	As) 	e (gA       		 
-	As) 	e (pA       		 
-	Ass) 	e (gA       		 
+	As) 	e (gA
+	As) 	e (pA
+	Ass) 	e (gA
 	Ass) 	e (pA       		// passeport
-	Av) 	e (gA       		// sauvegarde 
-	Av) 	e (pA       		
+	Av) 	e (gA       		// sauvegarde
+	Av) 	e (pA
 
 	 	e           @		// menue
 
@@ -342,31 +342,31 @@
 	ai)	gni         n^		// craignions châtaignier
 		gn          n^		// agneau
 	_quatre_vin) gts (_  z2		// quatre-vingts ans
-	_quatrevin) gts (_  z2			
+	_quatrevin) gts (_  z2
 
 	vin) 	gt (_A      t 		// liaison: vingt ans
 
-	vin) 	gt (_un      		
-	vin) 	gt (_deux   t		
+	vin) 	gt (_un
+	vin) 	gt (_deux   t
 	vin) 	gt (_trois  t 		//liaison: vingt-trois
-	vin) 	gt (_quatr  t 
-	vin) 	gt (_cinq   t 
-	vin) 	gt (_six    t 
-	vin) 	gt (_sept   t 
-	vin) 	gt (_huit   t 
-	vin) 	gt (_neuf   t 
+	vin) 	gt (_quatr  t
+	vin) 	gt (_cinq   t
+	vin) 	gt (_six    t
+	vin) 	gt (_sept   t
+	vin) 	gt (_huit   t
+	vin) 	gt (_neuf   t
 
 		gt (_ 			// vingt doigts
 
 		gt          t		// vingtaine doigté
 	ai)	gu (il      gy		// aiguillage
 	in)     gu (is      gy		// linguiste
-		g (C        g		
+		g (C        g
 		g (a        g		// langage
-		g (u        g		
-		g (â        g	
-		g (o        g	
-		g (û        g	
+		g (u        g
+		g (â        g
+		g (o        g
+		g (û        g
 
 	_ran) 	g (_ 			// rang
 	_san) 	g (_ 			// sang
@@ -394,7 +394,7 @@
 	A)	ill         j		// caillou
 		ill         ij		// famille
 	a)	il (_       j		// bail
-	e)	il (_       j	
+	e)	il (_       j
 	u)	il (_       j		// deuil
 
 		imm         imm		// immaculé
@@ -434,7 +434,7 @@
 .group l
 	_)	l (_        El
 		l           l		// lit
-		ll          l		// aller	
+		ll          l		// aller
 	_)	l' (P2      l
 	au)	lt			// hérault
 	outi)	l (_ 			// outil
@@ -465,7 +465,7 @@
 
 		o (ch       o		// cochon
 		oe (ll      wa		// moelleux
-	_)	oe (C       Y		// oesophage 
+	_)	oe (C       Y		// oesophage
 		o (eu			// soeur oeuf
 		o (eC       o		// coefficient
 	_) 	oi (gnon    O		// oignons
@@ -490,7 +490,7 @@
 	m)	on (_A      O~n		// mon appui
 	s)	on (_A      O~n
 	t)	on (_A      O~n
-		
+
 	z) 	o (ne_      o		// amazone
 	c) 	o (ne_      o
 	h) 	o (ne_      o
@@ -526,7 +526,7 @@
 		o (mo       o		// momo
 		o (no       o		// nono
 	om)	o           o		// monocorde
-	on)	o           o		// 
+	on)	o           o		//
 
 		o           O		// sobre notions émotions
 
@@ -541,7 +541,7 @@
 		ph          f		// phrase
 
 	m) 	ps (_			// temps champs
-	r) 	ps (_			// corps 
+	r) 	ps (_			// corps
 
 	cham) 	p (_			// contrechamp
 
@@ -569,9 +569,10 @@
 	_)	r (_        ER
 		right       _^_EN	// copyright
 	_su)	rr          RR		// surréaliste
-	ou)	rr          RR		// courrai 
-		rr          R		// erreur 
-		r           R		// rien
+	ou)	rr          RR		// courrai
+		rre (_      R  		// barre
+		rr          R		// erreur
+		r           r		// rien
 
 .group s
 	_)	s (_        Es
@@ -628,7 +629,7 @@
 		t           t	// bataille
 		t (_        t2  // silent at end of word unless next word starts with a vowel
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
-	C)	t (_        t	// compost watt soft script malttact abrupt 
+	C)	t (_        t	// compost watt soft script malttact abrupt
 	n)	t (_        t2	// emprunt
 	r)	t (_        t2	// fort
 
@@ -658,14 +659,14 @@
 	s)	t (ion      t 	// gestion
 
 		t (iel      s 	// partiel patiemment
-		t (iem      s 
+		t (iem      s
 
  	mar) 	t (ien      s	// martien vénitienne
  	i) 	t (ien      s
  	pa) 	t (ien      s
  	o) 	t (ien      s
 
-	Cu) 	t (ie_      s	// minutie 
+	Cu) 	t (ie_      s	// minutie
 	Cu) 	t (ies_     s
 
 	cra) 	t (ie_      s	// démocratie
@@ -724,7 +725,7 @@
 
 	au) 	x (_	    z2	// faux beaux
 	eu) 	x (_	    z2	// jeux
-	ou) 	x (_        z2	// choux genoux 
+	ou) 	x (_        z2	// choux genoux
 
 	_au) 	x (quel 	// auxquels
 
@@ -792,3 +793,4 @@
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+

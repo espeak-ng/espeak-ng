@@ -76,8 +76,14 @@ static const char *help_text =
 
 
 int samplerate;
+int quiet = 0;
+unsigned int samples_total = 0;
+unsigned int samples_split = 0;
+unsigned int wavefile_count = 0;
+
 FILE *f_wavfile = NULL;
-char wavefile[160];
+char filetype[5];
+char wavefile[200];
 
 
 int GetFileLength(const char *filename)
@@ -217,8 +223,8 @@ int OpenWavFile(char *path, int rate)
 
 
 
-static void CloseWavFile(int rate)
-//================================
+static void CloseWavFile()
+//========================
 {
 	unsigned int pos;
 
@@ -240,20 +246,42 @@ static void CloseWavFile(int rate)
 } // end of CloseWavFile
 
 
-
 static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {//========================================================================
+	char fname[210];
 
-	if(f_wavfile == NULL) return(0);  // -q quiet mode
+	if(quiet) return(0);  // -q quiet mode
 
 	if(wav == NULL)
 	{
-		CloseWavFile(samplerate);
+		CloseWavFile();
 		return(0);
+	}
+
+	if(samples_split > 0)
+	{
+		// start a new WAV file when this limit is reached, at the next sentence boundary
+		while(events->type != 0)
+		{
+			if((events->type == espeakEVENT_SENTENCE) && (samples_total > samples_split))
+			{
+				CloseWavFile();
+				samples_total = 0;
+			}
+			events++;
+		}
+	}
+
+	if(f_wavfile == NULL)
+	{
+		sprintf(fname,"%s_%.2d%s",wavefile,++wavefile_count,filetype);
+		if(OpenWavFile(fname, samplerate) != 0)
+			return(1);
 	}
 
 	if(numsamples > 0)
 	{
+		samples_total += numsamples;
 		fwrite(wav,numsamples*2,1,f_wavfile);
 	}
 	return(0);
@@ -279,6 +307,7 @@ int main (int argc, char **argv)
 		{"punct",   optional_argument, 0, 0x103},
 		{"voices",  optional_argument, 0, 0x104},
 		{"stdout",  no_argument,       0, 0x105},
+		{"split",   optional_argument, 0, 0x106},
 		{0, 0, 0, 0}
 		};
 
@@ -291,7 +320,6 @@ int main (int argc, char **argv)
 	int option_index = 0;
 	int c;
 	int ix;
-	int quiet = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
 	int filesize = 0;
@@ -431,6 +459,13 @@ int main (int argc, char **argv)
 			DisplayVoices(stdout,optarg);
 			exit(0);
 
+		case 0x106:   // -- split
+			if(optarg == NULL)
+				samples_split = 30;  // default 30 minutes
+			else
+				samples_split = atoi(optarg);
+			break;
+
 		default:
 			exit(0);
 		}
@@ -441,8 +476,20 @@ int main (int argc, char **argv)
 	{
 		// writing to a file (or no output), we can use synchronous mode
 		samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL,0);
+		samples_split = (samplerate * samples_split) * 60;
 
 		espeak_SetSynthCallback(SynthCallback);
+		if(samples_split)
+		{
+			char *extn;
+			extn = strrchr(wavefile,'.');
+			if((extn != NULL) && ((wavefile + strlen(wavefile) - extn) <= 4))
+			{
+				strcpy(filetype,extn);
+				*extn = 0;
+			}
+		}
+		else
 		if(option_waveout)
 		{
 			if(OpenWavFile(wavefile,samplerate) != 0)

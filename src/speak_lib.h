@@ -50,7 +50,7 @@ typedef enum {
   espeakEVENT_SENTENCE,            // Start of sentence
   espeakEVENT_MARK,                // Mark
   espeakEVENT_PLAY,                // Audio element
-  espeakEVENT_END,                 // End of sentence
+  espeakEVENT_END,                 // End of sentence or clause
   espeakEVENT_MSG_TERMINATED,      // End of message
   espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
 } espeak_EVENT_TYPE;

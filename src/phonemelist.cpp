@@ -383,10 +383,10 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			}
 		}
 
+		alternative = 0;
+
 		if(ph->alternative_ph > 0)
 		{
-			alternative = 0;
-
 			switch(ph->phflags & phALTERNATIVE)
 			{
 			// This phoneme changes if vowel follows, or doesn't follow, depending on its phNOTFOLLOWS flag
@@ -405,25 +405,30 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 					alternative = ph->alternative_ph;
 				break;
 			}
+		}
+		if(ph->phflags & phBEFOREPAUSE)
+		{
+			if(next->type == phPAUSE)
+				alternative = ph->link_out;   // replace with the link_out phoneme
+		}
 
-			if(alternative == 1)
-				continue;    // NULL phoneme, discard
+		if(alternative == 1)
+			continue;    // NULL phoneme, discard
 
-			if(alternative > 1)
+		if(alternative > 1)
+		{
+			PHONEME_TAB *ph2;
+			ph2 = ph;
+			ph = phoneme_tab[alternative];
+
+			if(ph->type == phVOWEL)
 			{
-				PHONEME_TAB *ph2;
-				ph2 = ph;
-				ph = phoneme_tab[alternative];
-
-				if(ph->type == phVOWEL)
-				{
-					plist2->synthflags |= SFLAG_SYLLABLE;
-					if(ph2->type != phVOWEL)
-						plist2->stress = 0;   // change from non-vowel to vowel, make sure it's unstressed
-				}
-				else
-					plist2->synthflags &= ~SFLAG_SYLLABLE;
+				plist2->synthflags |= SFLAG_SYLLABLE;
+				if(ph2->type != phVOWEL)
+					plist2->stress = 0;   // change from non-vowel to vowel, make sure it's unstressed
 			}
+			else
+				plist2->synthflags &= ~SFLAG_SYLLABLE;
 		}
 
 		if(langopts.param[LOPT_REDUCE_T])
@@ -547,7 +552,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 
 		next2 = phoneme_tab[(plist2+2)->phcode];
 
-		if((insert_ph == 0) && (ph->link_out != 0) && (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
+		if((insert_ph == 0) && (ph->link_out != 0) && !(ph->phflags && phBEFOREPAUSE) && (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
 		{
 			if(ph->phflags & phAPPENDPH)
 			{

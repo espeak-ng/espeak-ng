@@ -36,6 +36,9 @@ Revision 2
 Revision 3
    Added espeakWORDGAP to  espeak_PARAMETER
 
+Revision 4
+   Added flags parameter to espeak_CompileDictionary()
+
 */
          /********************/
          /*  Initialization  */
@@ -48,7 +51,7 @@ typedef enum {
   espeakEVENT_SENTENCE,            // Start of sentence
   espeakEVENT_MARK,                // Mark
   espeakEVENT_PLAY,                // Audio element
-  espeakEVENT_END,                 // End of sentence
+  espeakEVENT_END,                 // End of sentence or clause
   espeakEVENT_MSG_TERMINATED,      // End of message
   espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
 } espeak_EVENT_TYPE;
@@ -336,8 +339,6 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character);
 	   EE_INTERNAL_ERROR.
 */
 
-/* Note, there is no function to play a sound icon. This would be done by the calling program */
-
 
 
          /***********************/
@@ -444,13 +445,16 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream);
 #ifdef __cplusplus
 extern "C"
 #endif
-ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log);
+ESPEAK_API void espeak_CompileDictionary(const char *path, FILE *log, int flags);
 /* Compile pronunciation dictionary for a language which corresponds to the currently
    selected voice.  The required voice should be selected before calling this function.
 
    path:  The directory which contains the language's '_rules' and '_list' files.
           'path' should end with a path separator character ('/').
    log:   Stream for error reports and statistics information. If log=NULL then stderr will be used.
+
+   flags:  Bit 0: include source line information for debug purposes (This is displayed with the
+          -X command line option).
 */
          /***********************/
          /*   Voice Selection   */

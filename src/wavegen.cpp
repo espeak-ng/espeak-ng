@@ -137,7 +137,6 @@ unsigned char *out_ptr;
 unsigned char *out_start;
 unsigned char *out_end;
 int outbuf_size = 0;
-static unsigned char outbuf[1024];  // used when writing to file
 
 // the queue of operations passed to wavegen from sythesize
 long wcmdq[N_WCMDQ][4];
@@ -151,7 +150,7 @@ static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,360,300,99,99,99, 0,3
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;
 
-FILE *f_wave = NULL;
+extern FILE *f_wave;
 
 #if (USE_PORTAUDIO == 18)
 static PortAudioStream *pa_stream=NULL;
@@ -1114,8 +1113,8 @@ int ApplyBreath(void)
 
 
 
-static int Wavegen()
-{//=================
+int Wavegen()
+{//==========
 	unsigned short waveph;
 	unsigned short theta;
 	int total;
@@ -1761,88 +1760,6 @@ void Write4Bytes(FILE *f, int value)
 
 
 
-int OpenWaveFile(const char *path, int rate)
-/******************************************/
-{
-	// Set the length of 0x7fffffff for --stdout
-	// This will be changed to the correct length for -w (write to file)
-	static unsigned char wave_hdr[44] = {
-		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
-		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
-		2,0,0x10,0,'d','a','t','a',  0xff,0xff,0xff,0x7f};
-
-	if(path == NULL)
-		return(2);
-
-	wavephase = 0x7fffffff;
-
-	if(strcmp(path,"stdout")==0)
-		f_wave = stdout;
-	else
-		f_wave = fopen(path,"wb");
-
-	if(f_wave != NULL)
-	{
-		fwrite(wave_hdr,1,24,f_wave);
-		Write4Bytes(f_wave,rate);
-		Write4Bytes(f_wave,rate * 2);
-		fwrite(&wave_hdr[32],1,12,f_wave);
-		return(0);
-	}
-	return(1);
-}   //  end of OpenWaveFile
-
-
-
-
-void CloseWaveFile(int rate)
-/******************/
-{
-   unsigned int pos;
-
-   if(f_log != NULL)
-	{
-		fclose(f_log);
-		f_log = NULL;
-	}
-
-   if((f_wave == NULL) || (f_wave == stdout))
-      return;
-
-   fflush(f_wave);
-   pos = ftell(f_wave);
-
-	fseek(f_wave,4,SEEK_SET);
-	Write4Bytes(f_wave,pos - 8);
-
-	fseek(f_wave,40,SEEK_SET);
-	Write4Bytes(f_wave,pos - 44);
-
-
-   fclose(f_wave);
-   f_wave = NULL;
-
-} // end of CloseWaveFile
-
-
-
-void MakeWaveFile()
-{//================
-	int result=1;
-
-	while(result != 0)
-	{
-		out_ptr = out_start = outbuf;
-		out_end = &outbuf[sizeof(outbuf)];
-		result = Wavegen();
-		if(f_wave != NULL)
-			fwrite(outbuf,1,out_ptr-outbuf,f_wave);
-	}
-}  // end of MakeWaveFile
-
-
-
-
 
 int WavegenFill(int fill_zeros)
 {//============================
@@ -1964,21 +1881,4 @@ int WavegenFill(int fill_zeros)
 	return(0);
 }  // end of WavegenFill
 
-
-
-int WavegenFile(void)
-{//==================
-	int finished;
-
-	out_ptr = out_start = outbuf;
-	out_end = outbuf + sizeof(outbuf);
-
-	finished = WavegenFill(0);
-
-	if(f_wave != NULL)
-	{
-		fwrite(outbuf,1,out_ptr-outbuf,f_wave);
-	}
-	return(finished);
-}  // end of WavegenFile
 

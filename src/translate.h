@@ -88,6 +88,7 @@
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 #define FLAG_HYPHEN        0x80
 #define FLAG_NOSPACE       0x100  // word is not seperated from previous word by a space
+#define FLAG_FIRST_WORD    0x200  // first word in clause
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
 #define FLAG_HYPHEN_AFTER    0x4000
@@ -308,6 +309,7 @@ typedef struct {
 
 #define NUM_ROMAN    0x20000
 #define NUM_ROMAN_UC 0x40000
+#define NUM_NOPAUSE  0x80000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -325,6 +327,7 @@ typedef struct {
 	// bit16=dot after number indicates ordinal
 	// bit17=recognize roman numbers
 	// bit18=Roman numbers only if upper case
+	// bit19=don't add pause after a number
 	int numbers;
 
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.

@@ -63,6 +63,12 @@ endphoneme
 phoneme O
   vowel starttype (o) endtype (o)
   length 150
+  formants vowel/o_5
+endphoneme
+
+phoneme O:      // for "oor"
+  vowel starttype (o) endtype (o)
+  length 210
   formants vowel/o_6
 endphoneme
 
@@ -199,6 +205,16 @@ phoneme x2        // a stronger version of [x] (for Afrikaans)
   length 100
   lengthmod 3
   wave ufric/x2      // stronger version
+endphoneme
+
+
+phoneme Sx        // Swedish "sj" sound  for TESTING
+  vls vel frc
+  vowelin f1=0  f2=2300 300 400  f3=200 100
+  vowelout f1=0 f2=2300 300 400  f3=200 100  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/sx_sv%60
 endphoneme
 
 

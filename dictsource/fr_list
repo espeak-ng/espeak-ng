@@ -1,4 +1,4 @@
-﻿
+
 // This file in UTF8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
@@ -75,12 +75,12 @@ _2	d'Y
 _3	tRw'a
 _4	k'atR
 _5	s'E~c
-_6	s'is
+_6	s'iz3
 six	siz2
 _7	s'Et
 _8	'w^it
 _9	n'@f
-_10	d'is
+_10	d'iz3
 dix	diz2
 _11	O~z
 _12	d'uz
@@ -97,7 +97,7 @@ _22	v'E~td'Y
 _23	v'E~t:tRw'a
 _24	v'E~tk'atR
 _25	v'E~ts'E~c
-_26	v'E~ts'is
+_26	v'E~ts'iz3
 _27	v'E~ts'Et
 _28	v'E~tw^it
 _29	v'E~tn'@f
@@ -216,7 +216,7 @@ lorsque	   $u $brk
 puisque	   $u $brk
 quand	   $u $brk
 que	   $u $brk
-qui	   $u $brk
+qui	   $u $brk $verbf
 quoique	   $u $brk
 si	   $u $brk
 
@@ -240,10 +240,9 @@ vous	$u+ $verbf
 elles	$u+ $verbf
 ils	$u+ $verbf
 on	$u $verbf
-
-me	$u
-te	$u
-se	$u
+me	$u $verbf
+te	$u $verbf
+se	$u $verbf
 
 ce	$u $nounf
 ces	sEz2 $u $nounf
@@ -258,11 +257,11 @@ tes	tEz2 $u+ $nounf
 sa	$u+ $nounf
 son	$u+ $nounf
 ses	sEz2 $u+ $nounf
-notre	$u+
-votre	$u+
+notre	$u+ $nounf
+votre	$u+ $nounf
 leur	$u+
-nos	$u+
-vos	$u+
+nos	$u+ $nounf
+vos	$u+ $nounf
 leurs	$u+
 
 // prepositions
@@ -293,7 +292,7 @@ contre	$u+ $brk
 durant	$brk
 
 // negative
-ne	$u
+ne	$u $verbf
 
 // questions
 où	$pause
@@ -340,22 +339,27 @@ y       i:gR'Ek      $atend
 
 // pronunciation exceptions
 
+divers           div'Erz2
 scient           si
 bénéficient      benefisi $verb
 président        pRezid'A~
 président        pRezidt2 $verb
 résident         Rezid'A~
 résident         Rezidt2 $verb
-évident          evid'A~
+récipient        Resipj'A~
+►évident          evid'A~
 évident          evidt2 $verb
 couvent          k'uvt2  $verb
 concurrent       kO~kyR'A~
 récurrent        RekyR'A~
 ferment           fErm'A~
 ferment           f'Ermt2  $verb
+parent            paR'A~
+parent            p'art2  $verb
 sergent           sErZ'A~
 serment           sErm'A~
 serpent           sErp'A~
+torrent           tOR'A~
 
 
 // MAIN WORD DICTIONARY
@@ -385,6 +389,7 @@ boeufs        bY
 bus	      bys
 choeur        kWr
 discident     disidA~
+dix           diz3
 echo          Eko
 fils	      fis
 haillon     _|ajO~
@@ -399,6 +404,8 @@ pays	      pEi
 prudent       pRydA~
 secret        sYkRE
 secrets       sYkREz2
+six           siz3
+
 
 
 sens	      sA~s
@@ -593,6 +600,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

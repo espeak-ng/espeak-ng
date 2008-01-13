@@ -1212,8 +1212,11 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 
 	if((option_sayas & 0xf0) == 0x10)
 	{
-		// SAYAS_CHARS, SAYAS_GLYPHS, or SAYAS_SINGLECHARS.  Pause between each word.
-		pre_pause += 4;
+		if(!(word_flags & FLAG_FIRST_WORD))
+		{
+			// SAYAS_CHARS, SAYAS_GLYPHS, or SAYAS_SINGLECHARS.  Pause between each word.
+			pre_pause += 4;
+		}
 	}
 
 	if(word_flags & FLAG_FIRST_UPPER)
@@ -2251,6 +2254,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 	words[word_count].pre_pause = 8;
 	if(word_count > 0)
 		words[word_count-1].flags |= FLAG_LAST_WORD;
+	words[0].flags |= FLAG_FIRST_WORD;
 
 	for(ix=0; ix<word_count; ix++)
 	{

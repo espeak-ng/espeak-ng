@@ -48,6 +48,7 @@
 #define phLONG     0x1000
 #define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 #define phBRKAFTER 0x4000  // [*] add a post-pause
+#define phBEFOREPAUSE 0x8000  // replace with the link_out phoneme if the next phoneme is a pause
 
 #define phALTERNATIVE    0x0c00   // bits 10,11  specifying use of alternative_ph
 #define phBEFOREVOWEL    0x0000

@@ -47,6 +47,7 @@
 TranslDlg *transldlg = NULL;
 extern char *speech_to_phonemes(char *data, char *phout);
 extern ProsodyDisplay *prosodycanvas;
+extern void Write4Bytes(FILE *f, int value);
 
 BEGIN_EVENT_TABLE(TranslDlg, wxPanel)
 	EVT_BUTTON(T_TRANSLATE,TranslDlg::OnCommand)
@@ -54,6 +55,8 @@ BEGIN_EVENT_TABLE(TranslDlg, wxPanel)
 	EVT_BUTTON(T_RULES,TranslDlg::OnCommand)
 END_EVENT_TABLE()
 
+
+FILE *f_wave = NULL;
 
 
 class IPATextCtrl : public wxTextCtrl
@@ -157,16 +160,82 @@ char *WavFileName(void)
 }
 
 
-int OpenWaveFile2(const char *fname)
-{//=================================
-	int result;
 
-	if((result = OpenWaveFile(fname, samplerate)) != 0)
+int OpenWaveFile2(const char *path)
+/*********************************/
+{
+	// Set the length of 0x7fffffff for --stdout
+	// This will be changed to the correct length for -w (write to file)
+	static unsigned char wave_hdr[44] = {
+		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
+		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
+		2,0,0x10,0,'d','a','t','a',  0xff,0xff,0xff,0x7f};
+
+	if(path == NULL)
+		return(2);
+
+	if(strcmp(path,"stdout")==0)
+		f_wave = stdout;
+	else
+		f_wave = fopen(path,"wb");
+
+	if(f_wave != NULL)
 	{
-		wxLogStatus(_T("Can't write to WAV file: '"+wxString(fname,wxConvLocal))+_T("'"));
+		fwrite(wave_hdr,1,24,f_wave);
+		Write4Bytes(f_wave,samplerate);
+		Write4Bytes(f_wave,samplerate * 2);
+		fwrite(&wave_hdr[32],1,12,f_wave);
+		return(0);
 	}
-	return(result);
-}
+	wxLogStatus(_T("Can't write to WAV file: '"+wxString(path,wxConvLocal))+_T("'"));
+	return(1);
+}   //  end of OpenWaveFile
+
+
+
+
+void CloseWaveFile2()
+/******************/
+{
+   unsigned int pos;
+
+   if((f_wave == NULL) || (f_wave == stdout))
+      return;
+
+   fflush(f_wave);
+   pos = ftell(f_wave);
+
+	fseek(f_wave,4,SEEK_SET);
+	Write4Bytes(f_wave,pos - 8);
+
+	fseek(f_wave,40,SEEK_SET);
+	Write4Bytes(f_wave,pos - 44);
+
+
+   fclose(f_wave);
+   f_wave = NULL;
+
+} // end of CloseWaveFile
+
+
+
+
+int WavegenFile2(void)
+{//==================
+	int finished;
+	unsigned char wav_outbuf[1024];
+
+	out_ptr = out_start = wav_outbuf;
+	out_end = wav_outbuf + sizeof(wav_outbuf);
+
+	finished = WavegenFill(0);
+
+	if(f_wave != NULL)
+	{
+		fwrite(wav_outbuf, 1, out_ptr-wav_outbuf, f_wave);
+	}
+	return(finished);
+}  // end of WavegenFile
 
 
 void MakeWave2(PHONEME_LIST *p, int n_phonemes)
@@ -183,13 +252,13 @@ void MakeWave2(PHONEME_LIST *p, int n_phonemes)
 
 	for(;;)
 	{
-		result = WavegenFile();
+		result = WavegenFile2();
 		if(result != 0)
 			break;
 		Generate(p,&n_ph,1);
 	}
 
-	CloseWaveFile(samplerate);
+	CloseWaveFile2();
 	PlayWavFile(fname_speech);
 
 }  // end of MakeWave2

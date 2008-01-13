@@ -1148,6 +1148,10 @@ include ph_english_rp
 phonemetable en_wm en
 include ph_english_wm
 
+phonemetable en_wi en
+include ph_english_wi
+
+
 phonemetable af base
 include ph_afrikaans
 
@@ -1252,12 +1256,6 @@ include ph_zh
 phonemetable sw base
 include ph_swahili
 
-//phonemetable basef base
-//include pf
-//phonemetable f_en basef
-//include pf_english
-
-phonemetable en_wi en
-include ph_english_wi
-
+phonemetable th base
+include ph_thai
 
