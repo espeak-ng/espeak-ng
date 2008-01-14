@@ -430,7 +430,10 @@ int MbrolaSynth(char *p_mbrola)
 		out_ptr = outbuf + len*2;
 
 		if(event_list)
+		{
 			event_list[event_list_ix].type = espeakEVENT_LIST_TERMINATED; // indicates end of event list
+			event_list[event_list_ix].user_data = 0;
+		}
 		count_samples += len;
 		finished = synth_callback((short *)outbuf, len, event_list);
 		event_list_ix=0;
@@ -475,7 +478,10 @@ int MbrolaSynth(char *p_mbrola)
 		out_ptr += (len*2);
 
 		if(event_list)
+		{
 			event_list[event_list_ix].type = espeakEVENT_LIST_TERMINATED; // indicates end of event list
+			event_list[event_list_ix].user_data = 0;
+		}
 		count_samples += len;
 		finished = synth_callback((short *)outbuf, len, event_list);
 		event_list_ix=0;

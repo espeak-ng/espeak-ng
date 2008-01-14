@@ -55,3 +55,14 @@ phoneme s
   switchvoicing z
 endphoneme
 
+
+phoneme v      
+  vcd lbd frc
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  lengthmod 6
+  formants voc/v2+vocw/v  // shorter
+endphoneme
+
+
+

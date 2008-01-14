@@ -552,7 +552,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 
 		next2 = phoneme_tab[(plist2+2)->phcode];
 
-		if((insert_ph == 0) && (ph->link_out != 0) && !(ph->phflags && phBEFOREPAUSE) && (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
+		if((insert_ph == 0) && (ph->link_out != 0) && !(ph->phflags & phBEFOREPAUSE) && (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
 		{
 			if(ph->phflags & phAPPENDPH)
 			{

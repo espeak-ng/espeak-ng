@@ -433,6 +433,8 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		length = (out_ptr - outbuf)/2;
 		count_samples += length;
 		event_list[event_list_ix].type = espeakEVENT_LIST_TERMINATED; // indicates end of event list
+		event_list[event_list_ix].unique_identifier = my_unique_identifier;
+		event_list[event_list_ix].user_data = my_user_data;
 
 		count_buffers++;
 		if (my_mode==AUDIO_OUTPUT_PLAYBACK)
@@ -460,6 +462,8 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 				// This ensures that <audio> tag (which causes end-of-clause) is at a sound buffer boundary
 
 				event_list[0].type = espeakEVENT_LIST_TERMINATED;
+				event_list[0].unique_identifier = my_unique_identifier;
+				event_list[0].user_data = my_user_data;
 
 				if(SpeakNextClause(NULL,NULL,1)==0)
 				{

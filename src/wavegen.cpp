@@ -502,6 +502,8 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	{
 		// synchronous-playback mode, allow the calling process to abort the speech
 		event_list[event_list_ix].type = espeakEVENT_LIST_TERMINATED; // indicates end of event list
+		event_list[event_list_ix].user_data = 0;
+
 		if(synth_callback(NULL,0,event_list) == 1)
 		{
 			SpeakNextClause(NULL,NULL,2);  // stop speaking

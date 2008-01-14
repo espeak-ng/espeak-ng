@@ -30,7 +30,7 @@
       ru  38  126
       it  17  118
       la  21  114
-      es   6  115
+      es   7  115
       pt  27  131
    pt_pt  20  131
       ro  36  139
@@ -1049,6 +1049,7 @@ voc/v_          [B] base
                 [v2] nl
                 [v;] ro
                 [v] is
+voc/v2          [v] es
 vocw/dh         [D] base
                 [D] es
 vocw/Q          [Q] base
@@ -1061,6 +1062,7 @@ vocw/v          [B] base
                 [v] base
                 [v] fr
                 [v] ta
+                [v] es
                 [v;] ro
 vocw/zh         [Z] base
                 [Z;] ro

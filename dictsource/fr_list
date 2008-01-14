@@ -76,12 +76,10 @@ _3	tRw'a
 _4	k'atR
 _5	s'E~c
 _6	s'iz3
-six	siz2
 _7	s'Et
 _8	'w^it
 _9	n'@f
 _10	d'iz3
-dix	diz2
 _11	O~z
 _12	d'uz
 _13	tR'Ez
@@ -89,8 +87,8 @@ _14	kat'ORz
 _15	k'E~z
 _16	s'Ez
 _17	d'is:'Et
-_18	d'is:'w^it
-_19	d'is:n'@f
+_18	d'iz'w^it
+_19	d'izn'@f
 _20	v'E~
 _21	v'E~te:E~
 _22	v'E~td'Y
@@ -117,8 +115,8 @@ _74	swas'A~t:kat'ORz
 _75	swas'A~t:k'E~z
 _76	swas'A~t:s'Ez
 _77	swas'A~t:d'is:'Et
-_78	swas'A~t:d'is:'w^it
-_79	swas'A~t:d'is:n'@f
+_78	swas'A~t:d'iz'w^it
+_79	swas'A~t:d'izn'@f
 _8X	k'atR@v'E~
 _80	k'atR@v'E~z2
 _9X	k'atR@v'E~d'is
@@ -129,8 +127,8 @@ _94	k'atR@v'E~:kat'ORz
 _95	k'atR@v'E~:k'E~z
 _96	k'atR@v'E~:s'Ez
 _97	k'atR@v'E~:d'is:'Et
-_98	k'atR@v'E~:d'is:'w^it
-_99	k'atR@v'E~:d'is:n'@f
+_98	k'atR@v'E~:d'iz'w^it
+_99	k'atR@v'E~:d'izn'@f
 _0C	s'A~
 _1C0	s'A~t2
 _0M1	m'il
@@ -389,7 +387,6 @@ boeufs        bY
 bus	      bys
 choeur        kWr
 discident     disidA~
-dix           diz3
 echo          Eko
 fils	      fis
 haillon     _|ajO~
@@ -404,7 +401,6 @@ pays	      pEi
 prudent       pRydA~
 secret        sYkRE
 secrets       sYkREz2
-six           siz3
 
 
 
@@ -600,6 +596,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 
