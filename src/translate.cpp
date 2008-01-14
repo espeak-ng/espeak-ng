@@ -521,8 +521,25 @@ int utf8_out(unsigned int c, char *buf)
 }  // end of utf8_out
 
 
+int utf8_nbytes(const char *buf)
+{//=============================
+// Returns the number of bytes for the first UTF-8 character in buf
+	unsigned char c = (unsigned char)buf[0];
+	if(c < 0x80)
+		return(1);
+	if(c < 0xe0)
+		return(2);
+	if(c < 0xf0)
+		return(3);
+	return(4);
+}
+
+
 int utf8_in(int *c, const char *buf, int backwards)
 {//================================================
+// Read a unicode characater from a UTF8 string 
+// Returns the number of UTF8 bytes used.
+// backwards: set if we are moving backwards through the UTF8 string
 	int c1;
 	int n_bytes;
 	int ix;
@@ -649,14 +666,20 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 
 	// try an initial lookup in the dictionary list, we may find a pronunciation specified, or
 	// we may just find some flags
-	if((option_sayas & 0xf0) == 0x10)
+	spell_word = 0;
+	if(option_sayas == SAYAS_KEY)
+	{
+		if(word_length == 1)
+			spell_word = 4;
+	}
+
+	if(option_sayas & 0x10)
 	{
 		// SAYAS_CHAR, SAYAS_GYLPH, or SAYAS_SINGLE_CHAR
 		spell_word = option_sayas & 0xf;    // 2,3,4
 	}
 	else
 	{
-		spell_word = 0;
 		found = LookupDictList(&word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
 
 		// if textmode, LookupDictList() replaces word1 by the new text and returns found=0
@@ -1885,6 +1908,15 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			}
 		}
 
+		if(option_sayas2 == SAYAS_KEY)
+		{
+			if(((c == '_') || (c == '-')) && IsAlpha(prev_in))
+			{
+				c = ' ';
+			}
+			c = towlower(c);
+		}
+
 		if(phoneme_mode)
 		{
 			all_upper_case = FLAG_PHONEMES;
@@ -1921,7 +1953,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			}
 		}
 		else
-		if((option_sayas2 & 0xf0) != 0x10)
+		if((option_sayas2 & 0x30) == 0)
 		{
 			// speak as words
 

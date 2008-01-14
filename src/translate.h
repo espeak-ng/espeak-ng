@@ -180,9 +180,9 @@
 #define SAYAS_CHARS     0x12
 #define SAYAS_GLYPHS    0x13
 #define SAYAS_SINGLE_CHARS 0x14
-#define SAYAS_KEY       0x20
-#define SAYAS_DIGITS1   0x21
-#define SAYAS_DIGITS    0x30  // + number of digits
+#define SAYAS_KEY       0x24
+#define SAYAS_DIGITS    0x40  // + number of digits
+#define SAYAS_DIGITS1   0xc1
 
 // Rule:
 // [4] [match] [1 pre] [2 post] [3 phonemes] 0
@@ -560,6 +560,7 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress);
 int TransposeAlphabet(char *text, int offset, int min, int max);
 int utf8_in(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
+int utf8_nbytes(const char *buf);
 int lookupwchar(const unsigned short *list,int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);

@@ -2928,7 +2928,6 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 	const char *word2;
 	unsigned char c;
 	int  nbytes;
-	int  c2;
 	int  len;
 	char word[N_WORD_BYTES];
 	static char word_replacement[N_WORD_BYTES];
@@ -2936,7 +2935,7 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 	length = 0;
 	word2 = word1 = *wordptr;
 
-	while((word2[nbytes = utf8_in(&c2,word2,0)]==' ') && (word2[nbytes+1]=='.'))
+	while((word2[nbytes = utf8_nbytes(word2)]==' ') && (word2[nbytes+1]=='.'))
 	{
 		// look for an abbreviation of the form a.b.c
 		// try removing the spaces between the dots and looking for a match
@@ -2948,13 +2947,15 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 	if(length > 0)
 	{
 		// found an abbreviation containing dots
-		nbytes = utf8_in(&c2,word2,0);
+		nbytes = utf8_nbytes(word2);
 		memcpy(&word[length],word2,nbytes);
 		word[length+nbytes] = 0;
 		found =  LookupDict2(word, word2, ph_out, flags, end_flags, wtab);
 		if(found)
 		{
-			*flags = *flags & ~(7 << 5) | (length << 5);
+			// set the skip words flag
+			flags[0] |= FLAG_SKIPWORDS;
+			dictionary_skipwords = length;
 			return(1);
 		}
 	}

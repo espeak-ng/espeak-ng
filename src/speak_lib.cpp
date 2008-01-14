@@ -181,6 +181,8 @@ int sync_espeak_terminated_msg( uint unique_identifier, void* user_data)
 	event_list[0].unique_identifier = unique_identifier;
 	event_list[0].user_data = user_data;
 	event_list[1].type = espeakEVENT_LIST_TERMINATED;
+	event_list[1].unique_identifier = unique_identifier;
+	event_list[1].user_data = user_data;
 
 	if (my_mode==AUDIO_OUTPUT_PLAYBACK)
 	{
