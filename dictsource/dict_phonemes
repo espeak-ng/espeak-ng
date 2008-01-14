@@ -92,9 +92,9 @@ Dictionary es_dict
 o    oI   u    
 
 *    b    B    d    D    f    g    j    
-k    l    l^   m    n    n^   p    Q    
-r    R    s    t    T    tS   v    w    
-x    
+J    J^   k    l    l^   m    n    n^   
+p    Q    r    R    s    t    T    tS   
+v    w    x    
 
 
 Dictionary fi_dict
@@ -274,8 +274,8 @@ Dictionary pt_dict
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
-e~   i    i/   iU   o    O    oI   OI   
-o~   u    U    uI   u~   y    
+i    i/   iU   o    O    oI   OI   o~   
+u    U    uI   u~   y    
 
 *    :    ;    b    C    d    dZ   f    
 g    h    j    k    l    l^   m    n    
@@ -369,9 +369,9 @@ p    s    t
 Dictionary hbs_dict
 
 &    @    @2   a    A    a:   aI   aU   
-E    e    e:   E~   i    I    i:   l-   
-O    o    o:   oU   r*   r-   u    U    
-u:   y    
+E    e    e:   i    I    i:   l-   O    
+o    o:   oU   r*   r-   u    U    u:   
+y    
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    L    l^   m    n    N    

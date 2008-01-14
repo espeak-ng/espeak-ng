@@ -1,49 +1,49 @@
 44 phoneme tables
           new total
-    base  96   96
-   base2  24  115
-      en  53  144
-    en_n  30  144
-   en_us  37  144
-   en_sc  39  146
-   en_rp  34  144
-   en_wm  30  144
-   en_wi  30  144
-      af  38  128
-      cy  29  122
-      de  33  123
-      eo  13  108
-     jbo   4  109
-      fi  40  127
-      fr  35  119
-   fr_ca  11  119
-      hi  50  132
-      ta  13  134
-      hu  23  112
-      nl  28  119
-      pl  15  107
-      sk  29  125
-      cs   6  125
-      hr  20  130
-      mk   3  131
-      sr  14  130
-      ru  38  126
-      it  17  118
-      la  21  114
-      es   7  115
-      pt  27  131
-   pt_pt  20  131
-      ro  36  139
-      el   8  115
-     grc  12  120
-      sv  25  118
-      no  28  122
-      is  32  121
-      vi  42  134
-     zhy  40  129
-      zh  61  143
-      sw  14  105
-      th  50  139
+    base  97   97
+   base2  24  116
+      en  53  145
+    en_n  30  145
+   en_us  37  145
+   en_sc  39  147
+   en_rp  34  145
+   en_wm  30  145
+   en_wi  30  145
+      af  38  129
+      cy  29  123
+      de  33  124
+      eo  13  109
+     jbo   4  110
+      fi  40  128
+      fr  35  120
+   fr_ca  11  120
+      hi  50  133
+      ta  13  135
+      hu  23  113
+      nl  28  120
+      pl  15  108
+      sk  29  126
+      cs   6  126
+      hr  20  131
+      mk   3  132
+      sr  14  131
+      ru  38  127
+      it  17  119
+      la  21  115
+      es   9  118
+      pt  27  132
+   pt_pt  20  132
+      ro  36  140
+      el   8  116
+     grc  12  121
+      sv  25  119
+      no  28  123
+      is  32  122
+      vi  42  135
+     zhy  40  130
+      zh  61  144
+      sw  14  106
+      th  50  140
 
 Data file      Used by
 b/b             [b] base
@@ -515,7 +515,10 @@ r/xr            [(@)] base
                 [(o)] base
                 [(u)] base
 ufric/ch        [C] base
+                [J^] base
                 [C2] de
+                [J2] es
+                [J3] es
 ufric/ch_sr     [h] sr
                 [x] sr
 ufric/f         [f] base
@@ -1025,6 +1028,9 @@ voc/dh          [D] base
                 [D] es
 voc/dh_         [D] base
                 [D] es
+voc/j           [J^] base
+                [J3] es
+voc/j2          [J2] es
 voc/Q           [Q] base
                 [Q^] base
 voc/Q_          [Q] base

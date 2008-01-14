@@ -313,7 +313,7 @@ static int WavegenFile(void)
 	if(end_of_sentence)
 	{
 		end_of_sentence = 0;
-		if(samples_total > samples_split)
+		if((samples_split > 0 ) && (samples_total > samples_split))
 		{
 			CloseWaveFile();
 			samples_total = 0;

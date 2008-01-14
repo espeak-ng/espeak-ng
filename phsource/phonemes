@@ -848,6 +848,15 @@ phoneme Z;
 endphoneme
 
 
+phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
+  vcd pal frc palatal
+  vowelin f1=2  f2=2700 400 600  f3=200 70
+  vowelout f1=2 f2=2700 400 600  f3=200 70 len=100
+  lengthmod 6
+  formants voc/j+ufric/ch%25
+endphoneme
+
+
 
 
 phoneme Q

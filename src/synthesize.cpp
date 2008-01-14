@@ -579,6 +579,8 @@ static short vcolouring[N_VCOLOUR][5] = {
 			else
 			{
 				fr = DuplicateLastFrame(seq,n_frames++,len);
+				if(len > 36)
+					seq_len_adjust += (len - 36);
 	
 				if(f2 != 0)
 				{

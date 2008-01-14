@@ -87,7 +87,7 @@
 .group l
        _) l (_       Ele
           l          l
-          ll         jj
+          ll         J^
 
 
 .group m
@@ -155,15 +155,15 @@
 
 
 .group v
-       _) v (_       uve
-          v          v
-       _) v          v
-       m) v          v
-       n) v          v
+       _) v (_       uBe
+          v          B
+       _) v          b
+       m) v          b
+       n) v          b
 
 
 .group w
-       _) w (_       ,uve||d'oBle
+       _) w (_       ,uBe||d'oBle
           w          w
 
 
@@ -177,6 +177,10 @@
 .group y
        _) y (_       ,ig@-*'iEQa
           y          i
+       _) y          J
+      _m) y          J
+      _n) y          J
+      _l) y          J
           y (A       j
 
 
