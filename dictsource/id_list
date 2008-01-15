@@ -1,0 +1,65 @@
+
+// This file is UTF8 encoded 
+// Spelling-to-phoneme words for Indonesian
+
+a	a
+b	be
+c	tSe
+d	de
+e	e
+f	Ef
+g	ge
+h	ha
+i	i
+j	dZe
+k	ka
+l	El
+m	Em
+n	En
+o	o
+p	pe
+q	ke
+r	ER
+s	Es
+t	te
+u	u
+v	fe
+w	we
+x	Eks
+y	je
+z	zEt
+
+_0	n'ol
+_1	s'atu
+_2	d'ua
+_3	t'iga
+_4	'Empat
+_5	l'ima
+_6	'Enam
+_7	t'udZuh
+_8	d@l'apan
+_9	s@mb'ilan
+_10	s@p'uluh
+_11	sebelas
+_12	d'uabelas
+_13	t'igabelas
+_14	'Empatbelas
+_15	l'imabelas
+_16	'Enambelas
+_17	t'udZuhbelas
+_18	d@l'apanbelas
+_19	s@mb'ilanbelas
+_2X	d'uapuluh
+_3X	t'igapuluh
+_4X	'Empatpuluh
+_5X	l'imapuluh
+_6X	'Enampuluh
+_7X	t'udZuhpuluh
+_8X	d@l'apanpuluh
+_9X	s@mb'ilanpuluh
+_0C	R'atus
+_1C	s@*'atus
+_0M1	R'ibu_
+_1M1	s@r'ibu_
+_0M2	dZ'uta_
+_1M2	s@dZ'uta_

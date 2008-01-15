@@ -1,0 +1,103 @@
+
+// This file is UTF8 encoded 
+// Spelling-to-phoneme rules for Indonesian
+
+.group a
+        a        a
+        ai       aI
+        au       aU
+
+.group b
+        b        b
+
+.group c
+        c       tS
+
+.group d
+        d        d
+        dj       dZ     / Dutch
+
+.group e
+        e        E
+        e (_     e
+
+.group f
+        f        f
+
+.group g
+        g        g
+
+.group h
+        h        h
+
+.group i
+        i        i
+
+.group j
+        j        dZ
+
+.group k
+        k        k
+        k (_     ?
+        kh       x
+
+.group l
+        l        l
+
+.group m
+        m        m
+
+.group n
+        n        n
+        ng       N
+        ny       n^
+        nj       n^
+
+.group o
+        o        o
+        o (r     O
+        oe       u        // Dutch spelling
+
+.group p
+        p        p
+
+.group q
+        q        k
+        qu       qw
+
+.group r
+        r        R
+
+.group s
+        s        s
+        sy       S   // perhaps [S;] ??
+        sj       S
+
+.group t
+        t        t
+        tj       tS      // Dutch
+
+.group u
+        u        u
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group x
+        x        ks
+     _) x        z
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+.group
+        $        dolaR
+
+
+
