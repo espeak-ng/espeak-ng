@@ -9,10 +9,10 @@ eI   e~   I    i    iu   O    O:   o@
 OI   oI   o~   u    uI   W    y    Y@   
 Yy   
 
--    :    ;    b    c    d    dZ   f    
-g    h    j    k    l    m    n    N    
-p    r    r-   s    S    t    tS   v    
-w    x2   z    Z    
+-    :    ;    ?    b    c    d    dZ   
+f    g    h    j    k    l    m    n    
+N    p    r    r-   s    S    t    tS   
+v    w    x2   z    Z    
 
 
 Dictionary cs_dict
@@ -311,13 +311,12 @@ t    T    tl#  v    x    z
 
 Dictionary la_dict
 
-@-   a    a:   aI   aU   E    e:   EU   
-I    i:   O    o:   OI   U    u:   y    
-y:   
+@-   a    a:   E    e:   I    i:   O    
+o:   U    u:   
 
-*    :    ;    <h>  b    d    f    g    
-h    j    k    l    m    n    N    p    
-r    R    s    t    w    z    
+*    :    ;    b    d    f    g    h    
+k    l    m    n    N    p    r    R    
+s    t    w    z    
 
 
 Dictionary grc_dict
@@ -377,3 +376,14 @@ y
 j    k    l    L    l^   m    n    N    
 n^   p    r    R    s    S    t    tS   
 ts   tS;  v    x    z    Z    
+
+
+Dictionary id_dict
+
+@    a    aI   aU   e    E    i    o    
+O    u    
+
+*    ?    b    d    dZ   f    g    h    
+j    k    l    m    n    N    n^   p    
+q    r    R    s    S    t    tS   v    
+w    x    z    

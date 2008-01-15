@@ -56,12 +56,13 @@ int ignore_text=0;   // set during <sub> ... </sub>  to ignore text which has be
 int clear_skipping_text = 0;  // next clause should clear the skipping_text flag
 int count_characters = 0;
 int sayas_mode;
+int ssml_ignore_l_angle = 0;
 
 static const char *punct_stop = ".:!?";    // pitch fall if followed by space
 static const char *punct_close = ")]}>;'\"";  // always pitch fall unless followed by alnum
 
 // alter tone for announce punctuation or capitals
-static const char *tone_punct_on = "\001+50R\001+15T";  // add reverberation, reduce low frequencies
+static const char *tone_punct_on = "\001+50R\001+10T";  // add reverberation, reduce low frequencies
 static const char *tone_punct_off = "\001R\001T";
 
 // punctuations symbols that can end a clause
@@ -719,6 +720,11 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 		{
 			// end the clause now and pick up the punctuation next time
 			UngetC(c2);
+			if(option_ssml)
+			{
+				if(c1 == '<')
+					ssml_ignore_l_angle = c1;  // this was &lt; which was converted to <, don't pick it up again as <
+			}
 			ungot_char2 = c1;
 			buf[bufix] = ' ';
 			buf[bufix+1] = 0;
@@ -1811,7 +1817,7 @@ f_input = f_in;  // for GetC etc
 				}
 			}
 			else
-			if(c1 == '<')
+			if((c1 == '<') && !ssml_ignore_l_angle)
 			{
 				// SSML Tag
 				n_xml_buf = 0;
@@ -1856,6 +1862,7 @@ f_input = f_in;  // for GetC etc
 				continue;
 			}
 		}
+		ssml_ignore_l_angle=0;
 
 		if(ignore_text)
 			continue;

@@ -14,6 +14,14 @@
 // since this character is incompatible with older unicode versions.
 
 
+.replace
+â	ā
+ê	ē
+î	ī
+ô	ō
+û	ū
+ŷ	yy
+
 
 .L01 ae au eu oe a e i o u yy y ā ē ī ō ū ë ü é æ
 .L02 ng qu pr tr cr chr br dr gr pl cl bl gl ph th ch 

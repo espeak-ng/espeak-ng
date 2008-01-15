@@ -365,6 +365,18 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('i','d'):   // Indonesian
+		{
+			static const short stress_lengths_id[8] = {160, 200,  180, 180,  0, 0,  220, 240};
+			static const unsigned char stress_amps_id[8] = {16,18, 18,18, 20,22, 22,21 };
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_id,stress_amps_id);
+			tr->langopts.stress_rule = 2;
+			tr->langopts.numbers = 0x1809 + NUM_ROMAN;
+			tr->langopts.stress_flags =  0x6 | 0x10; 
+		}
+		break;
+
 	case L('i','s'):   // Icelandic
 		{
 			static const unsigned char stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
@@ -475,7 +487,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('n','o'):  // Norwegian
 		{
 			static const unsigned char stress_amps_no[] = {16,16, 20,20, 20,24, 24,22 };
-			static const short stress_lengths_no[8] = {160,140, 200,190, 0,0, 220,240};
+			static const short stress_lengths_no[8] = {160,140, 200,190, 0,0, 220,210};
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_no,stress_amps_no);
 

@@ -45,8 +45,8 @@ _7        S'u-:
 _8        'Ot:@2
 _9        n'i:
 _10       t'i:
-_11       'Elle:v@2
-_12       t'u:lv
+_11       'Elv@2
+_12       t'Olv
 _13       t@-*'Et:@n
 _14       fj'Urt@n
 _15       f'Emt@n
@@ -62,8 +62,8 @@ _6X       s'Eksti:
 _7X       s'yt:i:
 _8X       'Ot:i:
 _9X       n'It:i:
-_0C       h'u-:nd@-*e:d@2
-_1C       'Et||h'u-:nd@-*e:d@2
+_0C       h'u-nd@-*@2
+_1C       'Et||h'u-nd@-*@2
 _0M1      t'u-:s@n
 _1M1      'Et||t'u-:s@n
 _0M2      m'Illi:;,u:n@r
@@ -257,4 +257,5 @@ i      i:   $atend
 der         dE:r
 her         hE:r
 kom         kOm
+noe         nu:@2  // ??
 system      syst'e:m

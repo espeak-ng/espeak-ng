@@ -142,14 +142,11 @@ phoneme  _X1  //  a language specific action
 endphoneme 
 
 phoneme ?  // glottal stop
-  pause
+  vls glt stop
   vowelin  glstop
   vowelout glstop
-  formants NULL
-  starttype _ endtype _
-  length 45
-  lengthmod 5   // ??
-  beforenotvowel _  // change to pause_short
+  wave ustop/null
+  lengthmod 2   // ??
   nolink
 endphoneme
 
@@ -1267,4 +1264,7 @@ include ph_swahili
 
 phonemetable th base
 include ph_thai
+
+phonemetable id base2
+include ph_indonesian
 

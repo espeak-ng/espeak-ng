@@ -7,8 +7,8 @@
 
 phoneme a
   vowel starttype (a) endtype (a)
-  length 180
-  formants vowel/a_2
+  length 170
+  formants vowel/a_5
 endphoneme
 
 
@@ -22,42 +22,42 @@ endphoneme
 phoneme I
   vowel starttype (i) endtype (i)
   length 150
-  formants vowel/ii_2
+  formants vowel/ii_5
   linkout ;
 endphoneme
 
 
 phoneme O
   vowel starttype (o) endtype (o)
-  length 170
-  formants vowel/oo
+  length 160
+  formants vowel/o
 endphoneme
 
 
 phoneme U
   vowel starttype (u) endtype (u)
   length 160
-  formants vowel/uu_2
+  formants vowel/u
 endphoneme
 
 
 phoneme a:
   vowel starttype (a) endtype (a)
-  length 250
-  formants vowel/a
+  length 270
+  formants vowel/a_3
 endphoneme
 
 
 phoneme e:
   vowel starttype (e) endtype (e)
-  length 240
+  length 260
   formants vowel/e
 endphoneme
 
 
 phoneme i:
   vowel starttype (i) endtype (i)
-  length 220
+  length 240
   formants vowel/i_2
   after w w/wi2
 endphoneme
@@ -65,28 +65,28 @@ endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
-  length 240
-  formants vowel/o
+  length 250
+  formants vowel/o_2
 endphoneme
 
 
 phoneme u:
   vowel starttype (u) endtype (u)
-  length 230
-  formants vowel/u
+  length 250
+  formants vowel/u_bck2
 endphoneme
 
 
 phoneme y
-  vowel starttype (u) endtype (u)
+  vowel starttype (i) endtype (i)
   length 150
-  formants vowel/yy_4
+  formants vowel/y
 endphoneme
 
 phoneme y:
-  vowel starttype (u) endtype (u)
-  length 240
-  formants vowel/yy_4
+  vowel starttype (i) endtype (i)
+  length 250
+  formants vowel/y_2
 endphoneme
 
 
@@ -100,28 +100,28 @@ endphoneme
 
 phoneme aI
   vowel starttype (a) endtype (i)
-  length 250
-  formants vdiph/ai_5
+  length 270
+  formants vdiph/ae
 endphoneme
 
 
 phoneme eI
   vowel starttype (e) endtype (i)
-  length 250
+  length 270
   formants vdiph/ei
 endphoneme
 
 
 phoneme EU
   vowel starttype (e) endtype (u)
-  length 260
+  length 270
   formants vdiph/eeu_2
 endphoneme
 
 
 phoneme OI
   vowel starttype (o) endtype (i)
-  length 230
+  length 250
   formants vdiph/oi
 endphoneme
 

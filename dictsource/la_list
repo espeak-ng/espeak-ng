@@ -265,9 +265,10 @@ ii	II	// word, not numeric
 vi	wI	// word, not numeric
 
 i		'u:nUs $capital 
-ii		d'UO $capital 
-vi		s,Eks $capital 
+ii		d'UO $allcaps
+vi		s,Eks $allcaps 
 
+// eSpeak translates Roman numbers to Arabic numerals
 _0	n'Ulla
 _1	'u:nUs 
 _2	d'UO 
