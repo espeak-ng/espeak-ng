@@ -7,6 +7,9 @@
 	a	a
 	ai	aI
 	au	aU
+     X) a (_	%a	// single-syllable cmavo are unstressed
+     X) ai (_	%aI
+     X) au (_	%aU
 
 .group b
 	b	b
@@ -21,6 +24,8 @@
 .group e
 	e	e
 	ei	eI
+     X) e (_	%e
+     X) ei (_	%eI
 
 .group f
 	f	f
@@ -34,6 +39,8 @@
 .group i
 	i	i
 	i (A	j
+     X) i (_	%i
+     X) i (A_	%j
 
 .group j
 	j	Z
@@ -57,6 +64,8 @@
 .group o
 	o	o
 	oi	OI
+     X) o (_	%o
+     X) oi (_	%OI
 
 .group p
 	p	p
@@ -80,6 +89,8 @@
 .group u
 	u	u
 	u (A	w
+     X) u (_	%u
+     X) u (A_	%w
 
 .group v
 	v	v

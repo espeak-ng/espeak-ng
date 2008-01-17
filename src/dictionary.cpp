@@ -886,7 +886,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 
 
 static char stress_phonemes[] = {phonSTRESS_U, phonSTRESS_D, phonSTRESS_2, phonSTRESS_3,
-		phonSTRESS_P, phonSTRESS_TONIC, phonSTRESS_TONIC};
+		phonSTRESS_P, phonSTRESS_P2, phonSTRESS_TONIC};
 
 
 void ChangeWordStress(Translator *tr, char *word, int new_stress)

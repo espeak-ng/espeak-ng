@@ -25,9 +25,9 @@ _à      a:aksA~gRav
 ñ	Entilde
 ô	o:aksA~siRkO~flEks
 ö       o:tRema
-ù       u:aksA~gRav
-û	u:aksA~siRkO~flEks
-ü	u:tRema
+ù       y:aksA~gRav
+û	y:aksA~siRkO~flEks
+ü	y:tRema
 _y      i:gR'Ek
 
 
@@ -293,7 +293,7 @@ durant	$brk
 ne	$u $verbf
 
 // questions
-où	$pause
+où	$brk
 
 // auxillary verbs  (be, have, can, etc)
 suis	$u+  $verb
@@ -415,7 +415,6 @@ t'y              ti
 (nord est)      nOREst
 écho            Eko
 cci              $abbrev
-espeak          ispik
 nvda             $abbrev
 open            Op'En
 outlook         autluk
@@ -452,6 +451,7 @@ fret		fR'Et
 gadget		gadZEt
 hamlet		amlEt
 internet	E~tERnEt
+(internet explorer) E~tErn'Et||EksplOr'Wr
 jacket		ZakEt
 knesset		knEsEt
 lazaret		lazaREt
@@ -528,6 +528,13 @@ viavoice	viavOjs
 windows		windoz
 word		wORd
 wright		_^_EN
+update		@pd'ejt
+skype 		sk'ajp@-
+bluetooth 		blut'us
+messenger 		mEsE~nZ'Wr
+player    		plEj'Wr
+movy      		muv'i
+maker     		mEjk'Wr
 yacht		jot
 
 
@@ -596,6 +603,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

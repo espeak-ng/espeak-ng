@@ -50,17 +50,17 @@ enum {ONE_BILLION=1000000000};
 
 #ifdef USE_PULSEAUDIO
 
-
 static t_wave_callback* my_callback_is_output_enabled=NULL;
 
 #define SAMPLE_RATE 22050
-#define FRAMES_PER_BUFFER 512
-#define BUFFER_LENGTH (SAMPLE_RATE*2*sizeof(uint16_t))
-#define THRESHOLD (BUFFER_LENGTH/5)
-
 #define ESPEAK_FORMAT PA_SAMPLE_S16LE
 #define ESPEAK_CHANNEL 1
 
+#define MAXLENGTH 132300
+#define TLENGTH 4410
+#define PREBUF 2200
+#define MINREQ 880
+#define FRAGSIZE 0
 
 static pa_context *context = NULL;
 static pa_stream *stream = NULL;
@@ -514,15 +514,11 @@ static int pulse_open()
 
     pa_buffer_attr a_attr;
 
-    // TBD
-    a_attr.maxlength=132300;
-    a_attr.tlength=8820; //88200
-    //    a_attr.tlength=10000; //88200
-    a_attr.prebuf=2200;
-    a_attr.minreq=880;
-    a_attr.fragsize=882;
-
-
+    a_attr.maxlength = MAXLENGTH;
+    a_attr.tlength = TLENGTH;
+    a_attr.prebuf = PREBUF;
+    a_attr.minreq = MINREQ;
+    a_attr.fragsize = 0;
 
     SHOW_TIME("pa_connect_playback");
     if (pa_stream_connect_playback(stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), &volume, NULL) < 0) {
@@ -634,21 +630,6 @@ void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 //>
 //<wave_init
 
-void display_buffer()
-{
-
-  const pa_buffer_attr *a_attr = pa_stream_get_buffer_attr (stream);
-
-  if (a_attr)
-    {
-      SHOW("attr> maxlength=%ld\n",a_attr->maxlength);
-      SHOW("attr> tlength=%ld\n",a_attr->tlength);
-      SHOW("attr> prebuf=%ld\n",a_attr->prebuf);
-      SHOW("attr> minreq=%ld\n",a_attr->minreq);
-      SHOW("attr> fragsize=%ld\n",a_attr->fragsize);
-    }
-}
-
 void wave_init()
 {
   ENTER("wave_init");
@@ -656,15 +637,12 @@ void wave_init()
   stream = NULL;
 
   pulse_open();
-
-  display_buffer();
-
 }
 
 //>
 //<wave_open
 
-void* wave_open(char* the_api)
+void* wave_open(const char* the_api)
 {
   ENTER("wave_open");
   return((void*)1);
@@ -698,9 +676,16 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 	  SHOW("wave_write > aTotalFreeMem(%d) >= bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
 	  break;
 	}
+ 
+      // TBD: check if really helpful
+      if (aTotalFreeMem >= MAXLENGTH*2)
+ 	{
+ 	  aTotalFreeMem = MAXLENGTH*2;
+ 	}
+       
       SHOW("wave_write > wait: aTotalFreeMem(%d) < bytes_to_write(%d)\n", aTotalFreeMem, bytes_to_write);
 
-      // 500: threshold for avoiding to many calls to pulse_write
+      // 500: threshold for avoiding too many calls to pulse_write
       if (aTotalFreeMem>500)
 	{
 	  pulse_write(aBuffer, aTotalFreeMem);
@@ -821,7 +806,7 @@ void *wave_test_get_write_buffer()
 
 
 void wave_init() {}
-void* wave_open(char* the_api) {return (void *)1;}
+void* wave_open(const char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
 int wave_close(void* theHandler) {return 0;}
 int wave_is_busy(void* theHandler) {return 0;}

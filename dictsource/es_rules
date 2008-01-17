@@ -69,7 +69,7 @@
 .group i
        _) i (_       i
           i          i
-          i (A       j
+          i (A       J^
        l) i (A       %i
        r) i (A       %i
 
@@ -109,7 +109,7 @@
 .group o
        _) o (_       o
           o          o
-          oy         oI
+          oy (K      oI
           oy (_      'oI
 
 
@@ -170,8 +170,8 @@
 .group x
        _) x (_       Ekis
           x          ks
-       A) x (A       ks
-          x (_       =ks
+       A) x (A       Qs
+          x (_       =Qs
 
 
 .group y
@@ -181,7 +181,7 @@
       _m) y          J
       _n) y          J
       _l) y          J
-          y (A       j
+          y (A       J^
 
 
 .group z

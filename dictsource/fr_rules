@@ -39,6 +39,8 @@
 		aoû         u		// août
 		au (l_      O		// Paul
 		au          o		// autruche
+		aud (_         o		// chaud
+		au          o		// autruche
 	p)	ay (s       Ei		// pays paysage
 		ay (C       E		// aymé
 		ay          Ej		// paye
@@ -174,7 +176,7 @@
 	lum)	en (t_      A~
 	rum)	en (t_      A~		// prudemment
 
-	_cli)	en (t_      A~		// client
+	_cli)	en (t      A~		// client
 	_laur)	en (t_      A~
 	_mécont) en (t_     A~
 	_cont)	en (t_      A~
@@ -217,7 +219,6 @@
 	w)	er (s_      WR
 
 		er (_       e      	// parler léger
-		er (_A      eR      	// parler léger
 		er (s_      e
 
 	i)	ert (_t2      e		// requiert
@@ -477,6 +478,7 @@
 	_)	ok (_       oke		// OK
 		o (mm       O		// comme
 	dr) 	o (me_      o		// vélodrome
+	ph)	o (ne_	    O	// téléphone
 		om (b       O~		// bombe
 		om (p       O~		// pompe
 	n) 	om (_       O~		// nom
@@ -486,10 +488,10 @@
 		onsh (A     O~z		// bonshommes
 		onh (A      On		// bonhomme
 
-	b)	on (_A      On		// liaison: bon élève
-	m)	on (_A      O~n		// mon appui
-	s)	on (_A      O~n
-	t)	on (_A      O~n
+	_b)	on (_A      On		// liaison: bon élève
+	_m)	on (_A      O~n		// mon appui
+	_s)	on (_A      O~n
+	_t)	on (_A      O~n
 
 	z) 	o (ne_      o		// amazone
 	c) 	o (ne_      o
@@ -561,7 +563,8 @@
 	_)	q (_        ky
 		q           k		// coq
 		qu          k		// quatre
-		que (_      k@		// puisque
+ 	_)	que (_      k@		// que
+		que (_      k@-		// puisque banque...
 	_)	qu' (P3     k		// qu'il
 	n)	q (_        k		// cinq cent
 
@@ -570,7 +573,7 @@
 		right       _^_EN	// copyright
 	_su)	rr          RR		// surréaliste
 	ou)	rr          RR		// courrai
-		rre (_      R  		// barre
+		rre (_      R@-  		// barre
 		rr          R		// erreur
 		r           r		// rien
 
@@ -627,10 +630,12 @@
 .group t
 	_)	t (_        te
 		t           t	// bataille
-		t (_        t2  // silent at end of word unless next word starts with a vowel
+V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
+		t (_            // silent at end of word
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
 	C)	t (_        t	// compost watt soft script malttact abrupt
-	n)	t (_        t2	// emprunt
+	Vn)	t (_        t2	// silent at end of verb unless next word starts with a vowel
+	n)	t (_          	// silent at end of word
 	r)	t (_        t2	// fort
 
 	aul)	t (_        	// Renault
@@ -795,4 +800,5 @@
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 

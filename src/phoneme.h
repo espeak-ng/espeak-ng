@@ -65,7 +65,7 @@
 #define phonSTRESS_2    4
 #define phonSTRESS_3    5
 #define phonSTRESS_P    6
-#define phonSTRESS_TONIC 7
+#define phonSTRESS_P2   7    // priority stress within a word
 #define phonSTRESS_PREV 8
 #define phonPAUSE       9
 #define phonPAUSE_SHORT 10
@@ -84,6 +84,7 @@
 #define phonPAUSE_VSHORT 23
 #define phonPAUSE_LONG  24
 #define phonT_REDUCED   25
+#define phonSTRESS_TONIC 26
 extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
 
 // place of articulation

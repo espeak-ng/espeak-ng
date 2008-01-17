@@ -43,31 +43,10 @@ w	v@bu
 
 
 
+// unstressed words. Note single-syllable cmavo are all unstressed in jbo_rules
 e'o	$u+	// request
-xu	$u+	// question
-
-pu	$u+	// past
-
-ko	$u+
-ku	$u+
-cu	$u+
-se	$u+
-te	$u+
-
-la	$u+	// article
-le	$u+
-li	$u+
-lo	$u+
-
-pe	$u+	// of
-po	$u+
-po'e	$u+
-
-fa	$u+
-fe	$u+
-fi	$u+
-fo	$u+
-fu	$u+
+po'e	$u+	// of
+zo'e	$u+	// pronoun
 
 i	$u+ $pause
 
@@ -77,11 +56,4 @@ ku	ku_:
 boi	bOI_:
 vau	vaU_:
 kei	keI_:
-
-// pronouns
-mi	$u+
-do	$u+
-ti	$u+
-ta	$u+
-tu	$u+
-zo'e	$u+
+toi	tOI_:

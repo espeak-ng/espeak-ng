@@ -110,13 +110,12 @@
         o (CC    O
         oi       OI
 
-        oe       Y:   // ø
-        oe (CC   W
-        oey      Yy
+        oe       O@2
+    @b) oe (_    u:
 
         o (nd    U
         o (rt    U
-        o (rd    u:   // ?? or just for "bord" ?
+     b) o (rd    u:
         o (st    U
 
 .group p
@@ -186,6 +185,7 @@
 
 .group å
         å        o:
+        åe       o:@2
         å (CC    O
 
 .group æ

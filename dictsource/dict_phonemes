@@ -340,8 +340,8 @@ Dictionary zh_dict
 i    i.   i[   iou  o    o-   ou   u    
 uai  y    
 
-:    f    j    k    kh   l    m    n    
-N    p    ph   R    R2   R3   s    s.   
+:    f    h    j    k    kh   l    m    
+n    N    p    ph   r    R    s    s.   
 S;   t    th   ts   ts.  ts.  tS;  tS;  
 tsh  v    w    x    z    z.   
 
@@ -370,7 +370,6 @@ Dictionary hbs_dict
 &    @    @2   a    A    a:   aI   aU   
 E    e    e:   i    I    i:   l-   O    
 o    o:   oU   r*   r-   u    U    u:   
-y    
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    l    L    l^   m    n    N    

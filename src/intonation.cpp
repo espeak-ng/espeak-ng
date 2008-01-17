@@ -39,6 +39,7 @@ typedef struct {
 	char stress;
 	char env;
 	char flags;   //bit 0=pitch rising, bit1=emnphasized
+	char nextph_type;
 	short pitch1;
 	short pitch2;
 } SYLLABLE;
@@ -901,6 +902,28 @@ void Translator::CalcPitches(int clause_type)
 	SYLLABLE syllable_tab2[N_PHONEME_LIST];
 
 	syllable_tab = syllable_tab2;   // don't use permanent storage. it's only needed during the call of CalcPitches()
+	n_st = 0;
+	n_primary = 0;
+	for(ix=0; ix<(n_phoneme_list-1); ix++)
+	{
+		p = &phoneme_list[ix];
+		if(p->synthflags & SFLAG_SYLLABLE)
+		{
+			syllable_tab[n_st].flags = 0;
+			syllable_tab[n_st].env = PITCHfall;
+			syllable_tab[n_st].nextph_type = phoneme_list[ix+1].type;
+			syllable_tab[n_st++].stress = p->tone;  // stress level
+
+			if(p->tone >= 4)
+				n_primary++;
+		}
+	}
+	syllable_tab[n_st].stress = 0;   // extra 0 entry at the end
+
+	if(n_st == 0)
+		return;  // nothing to do
+
+
 
 	if(langopts.tone_language == 1)
 	{
@@ -921,26 +944,6 @@ void Translator::CalcPitches(int clause_type)
 	else
 		no_tonic = 0;
 
-	n_st = 0;
-	n_primary = 0;
-	for(ix=0; ix<n_phoneme_list; ix++)
-	{
-		p = &phoneme_list[ix];
-		if(p->synthflags & SFLAG_SYLLABLE)
-		{
-			syllable_tab[n_st].flags = 0;
-			syllable_tab[n_st].env = PITCHfall;
-			syllable_tab[n_st++].stress = p->tone;  // stress level
-
-			if(p->tone >= 4)
-				n_primary++;
-		}
-	}
-	syllable_tab[n_st].stress = 0;   // extra 0 entry at the end
-
-	if(n_st == 0)
-		return;  // nothing to do
-
 	st_start = 0;
 	count_primary=0;
 	for(st_ix=0; st_ix<n_st; st_ix++)
@@ -952,7 +955,7 @@ void Translator::CalcPitches(int clause_type)
 
 		if(syl->stress == 6)
 		{
-			// reduce the stress of the previous stressed syllable
+			// reduce the stress of the previous stressed syllable (review only the previous few syllables)
 			for(ix=st_ix-1; ix>=st_start && ix>=(st_ix-3); ix--)
 			{
 				if(syllable_tab[ix].stress == 6)

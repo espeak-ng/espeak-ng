@@ -12,7 +12,7 @@ phoneme @     // close schwa
   vowel starttype (@) endtype (@)
   unstressed
   length 120
-  formants vowel/@_hgh
+  formants vowel/@_4
 endphoneme
 
 phoneme @2    // open schwa
@@ -31,7 +31,7 @@ endphoneme
 
 phoneme i:
   vowel starttype (i) endtype (i)
-  length 220
+  length 230
   formants vowel/i
   after w w/wi2
   linkout ;
@@ -45,7 +45,7 @@ endphoneme
 
 phoneme y:
   vowel starttype (u) endtype (u)
-  length 250
+  length 260
   formants vowel/y_4
 endphoneme
 
@@ -57,7 +57,7 @@ endphoneme
 
 phoneme Y:
   vowel starttype (@) endtype (@)
-  length 250
+  length 260
   formants vwl_no/y#
 endphoneme
 
@@ -71,13 +71,13 @@ endphoneme
 
 phoneme E:
   vowel starttype (e) endtype (e)
-  length 260
+  length 270
   formants vowel/ee_1
 endphoneme
 
 phoneme e:
   vowel starttype (e) endtype (e)
-  length 240
+  length 250
   formants vowel/e_2
 endphoneme
 
@@ -114,7 +114,7 @@ endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
-  length 250
+  length 270
   formants vowel/o_2
 endphoneme
 
@@ -126,7 +126,7 @@ endphoneme
 
 phoneme u:
   vowel starttype (u) endtype (u)
-  length 230
+  length 240
   formants vowel/u_bck
 endphoneme
 
@@ -139,7 +139,7 @@ endphoneme
 
 phoneme u-:
   vowel starttype (u) endtype (u)
-  length 250
+  length 260
   formants vwl_no/u#2
 endphoneme
 
