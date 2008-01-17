@@ -44,7 +44,7 @@ static char translator2_language[20] = {0};
 FILE *f_trans = NULL;     // phoneme output text
 int option_tone1 = 0;
 int option_tone2 = 0;
-int option_tone_flags = 0x100;   // bit 8=emphasize allcaps, bit 9=emphasize penultimate stress
+int option_tone_flags = 0;   // bit 8=emphasize allcaps, bit 9=emphasize penultimate stress
 int option_phonemes = 0;
 int option_phoneme_events = 0;
 int option_quiet = 0;
