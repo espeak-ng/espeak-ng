@@ -14,8 +14,6 @@
 
 
 .group a
-
-
 		ae (_       e		// reggae vitae
 		aen         A~		// caen (diff Cicero: aA~)
 		ae          ae		// maestro
@@ -46,14 +44,14 @@
 		ay          Ej		// paye
 		a           a		// bateau
 
+
 .group b
-	_)	b (_        be		// b
 		bb          b		// abbé
 	om)	b (_                    // plomb applomb
 		b           b		// aube
 
+
 .group c
-	_)	c (_        se		// c
 		c'          s		// s
 		cch         k		// bacchanale
 		cc (Y       ks		// accéder
@@ -89,7 +87,6 @@
 
 
 .group d
-	_)	d (_        de
 		dd          d		// addition
 	_) 	d' (P2      d
 	_lan)	d (_        d		// land
@@ -110,9 +107,8 @@
 	r)	d (_        		// lourd placard
 		d           d		// don bled
 
-.group e
 
-	_)	e (_        @		// e
+.group e
 		e (Ce_      E
 		eau         o		// bateau cheveaux
 	j)	e (a        		// Jean Jeanne
@@ -322,12 +318,13 @@
 
 	 	e           @		// menue
 
+
 .group ë
 	u) 	ë			// ambiguë
 	 	ë           E		// citroën noël
 
+
 .group f
-	_)	f (_        Ef
 		f           f
 		f (f
 	_neu)	f (_ans     v		// liaison: neuf ans
@@ -335,7 +332,6 @@
 
 
 .group g
-	_)	g (_        Ze
 		g           g
 
 	su)	gg (Y       gZ       	// suggérer suggestif
@@ -376,12 +372,12 @@
 		g (_        g		// grog gag goulag
 		g           Z		// congé george
 
+
 .group h
-	_)	h (_        aS
 		h			// ahuri
 
+
 .group i
-	_)	i (_        i
 		i           i		// cri
 
 		ie (ment    i		// remerciement balbutiement
@@ -415,25 +411,25 @@
 		î           i		// abîme
 		în (i       in		// vînimes
 
+
 .group ï
 		ïn (C       E~		// coïncider
 		ïn (_       E~
 	a) 	ï           j		// aïeul
 		ï           i		// ambiguïté
 
+
 .group j
-	_)	j (_        Zi
 		j           Z		// adjoint joujoux
 
 
 .group k
-	_)	k (_        ka
 		k           k		// kafka
 		ket (_      kEt		// basket
 		kets (_     kEt		// basket
 
+
 .group l
-	_)	l (_        El
 		l           l		// lit
 		ll          l		// aller
 	_)	l' (P2      l
@@ -443,13 +439,11 @@
 
 
 .group m
-	_)	m (_        Em
 		m           m		// film
 		mm          m		// pomme
 
 
 .group n
-	_)	n (_        En
 		n           n		// une
 		nn          n
 		ng (_       N
@@ -459,9 +453,8 @@
 	A) 	ng (_       N		// parking meeting
 		nn          n		// panne
 
-.group o
-	_)	o (_        o
 
+.group o
 	cr) 	oc (_       o		// escroc
 
 		o (ch       o		// cochon
@@ -532,12 +525,13 @@
 
 		o           O		// sobre notions émotions
 
+
 .group ô
 		ôt (_       o		// rôt
 		ô           o		// cône
 
+
 .group p
-	_)	p (_        pe
 		p           p		// pas
 		p (p			// appliquer
 		ph          f		// phrase
@@ -559,8 +553,8 @@
 	se)	pt (_      t      	// sept
 	se)	pt (iè     t      	// septième
 
+
 .group q
-	_)	q (_        ky
 		q           k		// coq
 		qu          k		// quatre
  	_)	que (_      k@		// que
@@ -568,8 +562,8 @@
 	_)	qu' (P3     k		// qu'il
 	n)	q (_        k		// cinq cent
 
+
 .group r
-	_)	r (_        ER
 		right       _^_EN	// copyright
 	_su)	rr          RR		// surréaliste
 	ou)	rr          RR		// courrai
@@ -577,8 +571,8 @@
 		rr          R		// erreur
 		r           r		// rien
 
+
 .group s
-	_)	s (_        Es
 		s           s		// verser sien
 
 		s (_S1      z2
@@ -627,8 +621,8 @@
 		s (j         z
 		s (v         z
 
+
 .group t
-	_)	t (_        te
 		t           t	// bataille
 V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
 		t (_            // silent at end of word
@@ -684,7 +678,6 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 
 
 .group u
-	_)	u (_        y
 		u           y	// cruel nuage brut
 		ui          w^i
 
@@ -705,18 +698,17 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 	g) 	u (ï	    y	// ambiguïté
 	g) 	u (ë        y	// ambiguë
 
+
 .group v
-	_)	v (_        ve
 		v           v
 
+
 .group w
-	_)	w (_        dubl@v'e
 		w           w
 		ware (_ 	    _^_EN // hardware, software
 
 
 .group x
-	_)	x (_        iks
 		x           ks
                 xs          ks	// lexique lexicaux vox
 	_e) 	x (A        gz	// exagérer exemple
@@ -754,8 +746,8 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 
 		yn          E~	// laryngite
 
+
 .group z
-	_)	z (_        zEd
 		z           z
 		zz          z
 	t) 	z           s	// tzigane

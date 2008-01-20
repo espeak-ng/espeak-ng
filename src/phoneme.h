@@ -85,6 +85,8 @@
 #define phonPAUSE_LONG  24
 #define phonT_REDUCED   25
 #define phonSTRESS_TONIC 26
+#define phonPAUSE_CLAUSE 27
+
 extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
 
 // place of articulation

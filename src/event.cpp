@@ -193,11 +193,11 @@ static espeak_EVENT* event_copy (espeak_EVENT* event)
 static void event_notify(espeak_EVENT* event)
 {
 ENTER("event_notify");
-
 	static unsigned int a_old_uid = 0;
 
 	espeak_EVENT events[2];
 	memcpy(&events[0],event,sizeof(espeak_EVENT));     // the event parameter in the callback function should be an array of eventd
+	memcpy(&events[1],event,sizeof(espeak_EVENT));
 	events[1].type = espeakEVENT_LIST_TERMINATED;           // ... terminated by an event type=0
 
 	if (event && my_callback)
@@ -207,31 +207,33 @@ ENTER("event_notify");
 		switch(event->type)
 		{
 		case espeakEVENT_SENTENCE:
-			my_callback(NULL, 0, event);
+			my_callback(NULL, 0, events);
 			a_old_uid = event->unique_identifier;
 			break;
 
+		case espeakEVENT_MSG_TERMINATED:
+		case espeakEVENT_MARK:
 		case espeakEVENT_WORD:
-		case espeakEVENT_MSG_TERMINATED:	  
+		case espeakEVENT_END:
+		case espeakEVENT_PHONEME:
 		{
+// jonsd - I'm not sure what this is for. gilles says it's for when Gnome Speech reads a file of blank lines
 			if (a_old_uid != event->unique_identifier)
 			{
-				espeak_EVENT_TYPE a_new_type = event->type;
-				event->type = espeakEVENT_SENTENCE;
-				my_callback(NULL, 0, event);
-				event->type = a_new_type;
+				espeak_EVENT_TYPE a_new_type = events[0].type;
+				events[0].type = espeakEVENT_SENTENCE;
+				my_callback(NULL, 0, events);
+				events[0].type = a_new_type;
 				usleep(50000);
 			}
-			my_callback(NULL, 0, event);
+			my_callback(NULL, 0, events);
 			a_old_uid = event->unique_identifier;
 		}
 		break;
 
 		default:
-		case espeakEVENT_LIST_TERMINATED:
-		case espeakEVENT_MARK:
-		case espeakEVENT_PLAY:
-		case espeakEVENT_END:
+			case espeakEVENT_LIST_TERMINATED:
+			case espeakEVENT_PLAY:
 		break;
 		}
 	}

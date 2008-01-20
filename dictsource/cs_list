@@ -140,6 +140,10 @@ si       $u
 
 
 // Prepositions
+// the $alt2 prepositions should also be included in cs_rules
+// as prefixes, so "na-" (for example) is removed from the combined
+// word before the pronuciation of the main word is determined.
+
 skrz     $u $brk $alt2    // though
 skrze    $u $pause        // through
 pro      $u $pause $alt2  // for

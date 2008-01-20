@@ -1,4 +1,9 @@
 
+// This file is UTF8 encoded 
+// Spelling to phoneme words for Lojban (an artificial constructed language).
+
+// Note: initial/final "." has already been removed
+
 // Numbers
 _0	no
 _1	pa
@@ -48,12 +53,30 @@ e'o	$u+	// request
 po'e	$u+	// of
 zo'e	$u+	// pronoun
 
-i	$u+ $pause
 
+i	i_:	$u	// sentence break (recognised by eSpeak program). Try a short pause after ".i"
+
+// end-of-clause [_;_] before these
+noi	_;_nOI	$u
+poi	_;_pOI	$u
+no'u	_;_nohu	$u
+po'u	_;_pohu	$u
+goi	_;_gOI	$u
+
+ija	_;_iZa		// should this series be unstressed?
+ijanai	_;_iZanaI
+ije	_;_iZe
+ije'i	_;_iZehi
+ijenai	_;_iZenaI
+ijo	_;_iZo
+ijonai	_;_iZonaI
+inaja	_;_inaZa
+
+to	_::to	$u	// start parenthesis, pause but don't raise intonation
 
 // terminators (include a pause after)
-ku	ku_:
-boi	bOI_:
-vau	vaU_:
-kei	keI_:
-toi	tOI_:
+ku	ku_::	$u
+boi	bOI_::	$u
+vau	vaU_::	$u
+kei	keI_::	$u
+toi	tOI_::	$u

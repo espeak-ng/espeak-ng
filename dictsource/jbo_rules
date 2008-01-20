@@ -2,6 +2,7 @@
 // This file is UTF8 encoded 
 // Spelling to phoneme rules for Lojban (an artificial constructed language).
 
+// Note: initial/final "." has already been removed
 
 .group a
 	a	a
@@ -32,6 +33,8 @@
 
 .group g
 	g	g
+
+     _) gi ('A_  _;_gi
 
 .group h
 	h	h

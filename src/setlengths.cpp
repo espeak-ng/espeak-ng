@@ -467,7 +467,13 @@ void Translator::CalcLengths()
 			{
 				if((p2->type == phVOWEL) && !(p2->ph->phflags & phNONSYLLABIC))
 					more_syllables++;
+
+				if(p2->ph->code == phonPAUSE_CLAUSE)
+					end_of_clause = 2;
 			}
+			if(p2->ph->code == phonPAUSE_CLAUSE)
+				end_of_clause = 2;
+
 			if((p2->newword & 2) && (more_syllables==0))
 			{
 				end_of_clause = 2;

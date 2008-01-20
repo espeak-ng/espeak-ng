@@ -253,7 +253,7 @@ adamant          ad@m@nt
 add              ad
 addict           adIkt         $onlys
 addon            ad0n
-adher            adh'i@
+adher            adh'i@3
 adieu            a2dju:
 adieus           a2dju:z
 adieux           a2dju:z
@@ -417,7 +417,7 @@ aubergine        oUb3Zi:n
 auger            O:g3
 aurora           $2
 aussie           0zI
-austere          O:st'i@
+austere          O:st'i@3
 authority        a2T0rItI2
 authoritative    O:T'0rIt@tIv
 autograph        O:t@graf
@@ -495,7 +495,7 @@ breathless       brETl@s
 brethren         brEDr@n
 bridesmaid       braIdzmeId
 brigade                        $2
-brigadier        brIga2d'i@
+brigadier        brIga2d'i@3
 brochure         broUS3
 brooch           broUtS
 budgerigar       bVdZ@rIgA@
@@ -533,11 +533,11 @@ canton           kant0n
 caprice          ka2pr'i:s
 caramel          kar@mEl
 caravan          kar@van
-career           k@r'i@
+career           k@r'i@3
 caress           k@rEs
 carpel           kA@p@l
 cascade                        $2
-cashmere         kaSm'i@
+cashmere         kaSm'i@3
 catarrh          k@tA@
 catholic         kaTlIk
 cavalier          $3
@@ -647,7 +647,7 @@ convolute        k0nv@l'u:t
 coop             ku:p
 cooper           ku:p3
 coordinate       koU'O:dIneIt   $verb
-copier           k0pi@
+copier           k0pi@3
 coral            k0r@L
 coronet          k0r@nEt
 corporal         kO@pr@L
@@ -835,7 +835,7 @@ facade           f@sA:d
 façade           f@sA:d
 faeces           fi:si:z
 fallible         fal@b@L
-familiar         f@mIli@
+familiar         f@mIli@3
 famine           famIn
 farewell                       $2
 fasten           faas@n
@@ -951,11 +951,11 @@ helix            hi:lIks
 hello            h@loU
 henceforth       hEnsfo@T
 hercules         h3:kjUli:z
-hereto           hi@'tu:
+hereto           hi@3'tu:
 hermaphrodite                  $2
 hermes           h3:mi:z
 herod            hEr@d
-heroe            hi@oU
+heroe            hi@roU
 heroic           hI2roUIk
 heroin           hEroUIn
 heroism          hEroUIz@m
@@ -1369,13 +1369,13 @@ phoenix          fi:nIks
 photograph       foUt@graf
 piano            pI2anoU
 piecemeal        p'i:sm,i:l
-pier             pi@
+pier             pi@3
 pigeon           pIdZ@n
 pigsty           pIgstaI
 pilot            paIl@t
 pineapple        p'aInap@L
 pint             paInt
-pioneer          paI@n'i@
+pioneer          paI@n'i@3
 pious            paI@s
 pipette          pIp'Et
 piquant          pi:k@nt
@@ -1468,7 +1468,7 @@ radon            reId0n
 ragged           ragId
 rainforest       r'eInf,0rIst
 rajah            rA:dZA:
-rapier           reIpi@
+rapier           reIpi@3
 rapport          rap'o@
 rarest           re@r@st
 rascal           raask@L
@@ -1516,7 +1516,7 @@ reign            reIn
 rein             reIn
 reined           reInd
 reining          reInIN
-reindeer         reIndi@
+reindeer         reIndi@3
 reinvent         ri:Inv'Ent
 refinery         rI2faIn@rI2
 relative         rEl@tIv
@@ -1555,7 +1555,7 @@ retaliatory      rIt'ali:@t@rI2
 retrial          ri:traI@l
 retry            ri:traI
 reuse            ri:'ju:z
-rever            rI2vi@       // revered
+rever            rI2vi@3       // revered
 rhododendron     roUd@d'Endr@n
 rhetoric         rEt@rIk       $onlys
 rhinoceros       raIn'0s@r@s
@@ -1613,7 +1613,7 @@ secretive        si:kr@tI2v
 secretary        sEkr@trI2
 sedate           sI2deIt
 separate         sEp@-r@t
-separate         sEp@reIt      $verb
+separate         sEp3reIt      $verb
 semen            si:m@n
 semicolon        sEmIk'oUl0n
 senator          sEn@t3
@@ -1624,8 +1624,8 @@ series           si:ri:z
 serene           s@ri:n
 sergeant         sA@dZ@nt
 settee                         $2
-severe           sIv'i@        $only
-severely         sIv'i@lI2     $verbf
+severe           sIv'i@3        $only
+severely         sIv'i@3lI2     $verbf
 several          sEvr@L
 shampoo                        $2
 sheriff          S'ErIf
@@ -1643,7 +1643,7 @@ silhouette       sIlUw'Et
 simon            saIm@n
 simultaneous                   $3
 singly           sINglI2       $verbf
-sincerest        sIns'i@@st
+sincerest        sIns'i@r@st
 sinew            sInju:
 sir              s,3:
 ?5 sir           s,VR
@@ -1665,7 +1665,7 @@ sonar            soUnA@
 sonny            sVnI2
 sooth            su:D
 soundbite        saUndbaIt
-souvenir         su:v@n'i@
+souvenir         su:v@n'i@3
 sorbet           sO@beI
 soviet           soUvi@t
 spaghetti        spag'EtI2
@@ -1737,7 +1737,7 @@ tariff           tarIf
 taskforce        t'askf,o@s
 tatar            tA:t3
 tearing          te@r-I2N
-tear             ti@           $onlys
+tear             ti@3          $onlys
 tear             te@           $verb
 teddybear        t'Ed,Ib,e@ 
 ten              tEn           // untenable
@@ -2055,7 +2055,7 @@ Johannesburg	$2
 Kalgoorlie	kalgU@lI2
 Karachi		k@rA@tSI2
 Kiev		ki:Ev
-Khmer		kmi@
+Khmer		kmi@3
 Korea		kOr'i:@
 Korean		kOr'i:@n
 Kuala		kwA:la2
@@ -2145,7 +2145,7 @@ Winnipeg	wInI2pEg
 Wisconsin	wIsk'0nsIn
 Wyoming		waI'oUmI2N
 Xhosa		kO:s@
-zaire		zaI'i@
+zaire		zaI'i@3
 zimbabwe	zI2mbA:bwI2
 
 Aaron		e@r@n
@@ -2309,7 +2309,7 @@ zhivago		ZI2vA:goU
 
 (first place)    f'3:st_pl,eIs
 ?5 (first place)    f'IRst_pl,eIs
-(here and there) h'i@||@nd||D'e@
+(here and there) h'i@3||@nd||D'e@
 (most of)        moUst||@v
 (such as)        sVtS||_a2z        $pause
 
@@ -2411,7 +2411,7 @@ beyond           bI2j,0nd      $strend2
 beside           bI2s,aId      $strend2
 between          bI2tw,i:n     $strend2
 together         t@g,ED3       $strend2
-near             ,ni@          $strend2
+near             ,ni@3         $strend2
 thence           DEns
 
 
@@ -2536,7 +2536,7 @@ begun            bI2gVn
 become           bI,kVm        $strend2
 became           bI,keIm       $strend2
 
-we're            %wi@
+we're            %wi@3
 you're           %jO@
 ?6 you're        %jU@
 they're          %DeI3

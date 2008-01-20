@@ -50,6 +50,7 @@ int ungot_char2 = 0;
 char *p_textinput;
 wchar_t *p_wchar_input;
 int ungot_char;
+char *ungot_word = NULL;
 int end_of_input;
 
 int ignore_text=0;   // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
@@ -1741,6 +1742,13 @@ int Translator::ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_
 
 f_input = f_in;  // for GetC etc
 
+	if(ungot_word != NULL)
+	{
+		strcpy(buf,ungot_word);
+		ix += strlen(ungot_word);
+		ungot_word = NULL;
+	}
+
 	if(ungot_char2 != 0)
 	{
 		c2 = ungot_char2;
@@ -1936,17 +1944,22 @@ f_input = f_in;  // for GetC etc
 		else
 		if(iswspace(c1))
 		{
+			char *p_word;
+
 			if(translator_name == 0x6a626f)
 			{
 				// language jbo : lojban
 				// treat "i" or ".i" as end-of-sentence
-				if(buf[ix-1] == 'i')
+				p_word = &buf[ix-1];
+				if(p_word[0] == 'i')
 				{
-					if(iswspace(buf[ix-2]) || ((buf[ix-2] == '.') && iswspace(buf[ix-3])))
+					if(p_word[-1] == '.')
+						p_word--;
+					if(p_word[-1] == ' ')
 					{
+						ungot_word = "i ";
 						UngetC(c2);
-						buf[ix] = ' ';
-						buf[ix+1] = 0;
+						p_word[0] = 0;
 						return(CLAUSE_PERIOD);
 					}
 				}

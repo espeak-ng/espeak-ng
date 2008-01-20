@@ -137,7 +137,7 @@ phoneme R^/      // Czech r-caron (weaker, for after p,f,t,k)
   vcd pla frc sibilant
   vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  formants voc/zh_2+r3/rz_cs%30
+  formants voc/zh_2+r3/rz_cs%25
   lengthmod 6
 endphoneme
 

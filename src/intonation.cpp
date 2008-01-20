@@ -35,10 +35,15 @@
    provide a more flexible intonation system.
 */
 
+// bits in SYLLABLE.flags
+#define SYL_RISE        1
+#define SYL_EMPHASIS    2
+#define SYL_END_CLAUSE   4
+
 typedef struct {
 	char stress;
 	char env;
-	char flags;   //bit 0=pitch rising, bit1=emnphasized
+	char flags;   //bit 0=pitch rising, bit1=emnphasized, bit2=end of clause
 	char nextph_type;
 	short pitch1;
 	short pitch2;
@@ -286,7 +291,7 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
    20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 15, 28, 0},
 
    {PITCHfall, 41, 4,  PITCHfall, 41, 27,              // 3 exclamation
-   20, 25,   34, 24,  drops_0, 3, 4,   5, oflow_emf, back_emf, 16, 4, 0},
+   20, 25,   36, 22,  drops_0, 3, 4,   5, oflow_emf, back_emf, 16, 4, 0},
 
    {PITCHfall, 38, 2,  PITCHfall, 42, 30,              // 4 statement, emphatic
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 15, 5, 0},
@@ -456,7 +461,7 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 
 	if(drop < 0)
 	{
-		flags = 1;
+		flags = SYL_RISE;
 		drop = -drop;
 	}
 
@@ -892,8 +897,10 @@ void Translator::CalcPitches(int clause_type)
 	int  option;
 	int  group_tone;
 	int  group_tone_emph;
+	int  group_tone_comma;
 	int ph_start=0;
 	int st_start;
+	int st_clause_end;
 	int count;
 	int n_primary;
 	int count_primary;
@@ -917,6 +924,11 @@ void Translator::CalcPitches(int clause_type)
 			if(p->tone >= 4)
 				n_primary++;
 		}
+		else
+		if((p->ph->code == phonPAUSE_CLAUSE) && (n_st > 0))
+		{
+			syllable_tab[n_st-1].flags |= SYL_END_CLAUSE;
+		}
 	}
 	syllable_tab[n_st].stress = 0;   // extra 0 entry at the end
 
@@ -938,6 +950,7 @@ void Translator::CalcPitches(int clause_type)
 
 	group_tone = punct_to_tone[option][clause_type]; 
 	group_tone_emph = punct_to_tone[option][5];   // emphatic form of statement
+	group_tone_comma = punct_to_tone[option][1];   // emphatic form of statement
 
 	if(clause_type == 4)
 		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */
@@ -975,7 +988,7 @@ void Translator::CalcPitches(int clause_type)
 				if(syllable_tab[ix].stress == 6)
 				{
 					// emphasize this syllable, but don't end the current tone group
-					syllable_tab[st_ix].flags = 2;
+					syllable_tab[st_ix].flags = SYL_EMPHASIS;
 					syl->stress = 5;
 					break;
 				}
@@ -985,7 +998,7 @@ void Translator::CalcPitches(int clause_type)
 		if(syl->stress == 6)
 		{
 			// an emphasized syllable, end the tone group after the next primary stress
-			syllable_tab[st_ix].flags = 2;
+			syllable_tab[st_ix].flags = SYL_EMPHASIS;
 
 			count = 0;
 			if((n_primary - count_primary) > 1)
@@ -1010,6 +1023,14 @@ void Translator::CalcPitches(int clause_type)
 				calc_pitches(st_start, ix, group_tone);
 
 			st_start = ix;
+		}
+		if((st_start < st_ix) && (syl->flags & SYL_END_CLAUSE))
+		{
+			// end of clause after this syllable, indicated by a phonPAUSE_CLAUSE phoneme
+			st_clause_end = st_ix+1;
+			count_pitch_vowels(st_start, st_clause_end, st_clause_end);
+			calc_pitches(st_start, st_clause_end, group_tone_comma);
+			st_start = st_clause_end;
 		}
 	}
 
@@ -1040,7 +1061,7 @@ void Translator::CalcPitches(int clause_type)
 			p->pitch2 = x;
 
 			p->env = PITCHfall;
-			if(syl->flags & 1)
+			if(syl->flags & SYL_RISE)
 			{
 				p->env = PITCHrise;
 			}
@@ -1054,7 +1075,7 @@ void Translator::CalcPitches(int clause_type)
 			if(p->tone > 5)
 				p->env = syl->env;
 
-			if(syl->flags & 2)
+			if(syl->flags & SYL_EMPHASIS)
 			{
 				p->tone |= 8;      // emphasized
 			}

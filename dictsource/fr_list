@@ -7,7 +7,7 @@
 //
 
 
-// Letters
+// Letters names
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
@@ -15,19 +15,43 @@
 _à      a:aksA~gRav
 â       a:aksA~siRkO~flEks
 ä       a:tRema
+b	be
+c	se
 ç	sesedij
+d	de
+e	@
 ë	@:tRema
 é	@:aksA~Egy
 è	@:aksA~gRav
 ê	@:aksA~siRkO~flEks
-ï	i:tRema
 ë	@:tRema
+f	Ef
+g	Ze
+h	aS
+i	i
+ï	i:tRema
+j	Zi
+k	ka
+l	El
+m	Em
+n	En
 ñ	Entilde
+o	o
 ô	o:aksA~siRkO~flEks
 ö       o:tRema
+p	pe
+q	ky
+r	ER
+s	Es
+t	te
+u	y
 ù       y:aksA~gRav
 û	y:aksA~siRkO~flEks
 ü	y:tRema
+v	ve
+w	dubl@v'e
+x	iks
+z	zEd
 _y      i:gR'Ek
 
 
@@ -172,10 +196,6 @@ usb		$abbrev
 utf		$abbrev
 xfce		iksEfse@
 xy		$abbrev
-
-ii               d'Y          $abbrev    // roman numerals
-iii              tRw'a        $abbrev
-iv               k'atR        $abbrev
 
 
 dr               dOkt WR       $dot $capital

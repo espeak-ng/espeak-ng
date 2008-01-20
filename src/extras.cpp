@@ -80,6 +80,8 @@ void CloseWaveFile3(FILE *f)
    unsigned int pos;
    static int value;
 
+	if(f == NULL)
+		return;
 
    fflush(f);
    pos = ftell(f);
@@ -118,13 +120,13 @@ int TestUriCallback(int type, const char *uri, const char *base)
 int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {//====================================================================
 	int type;
+	f_events = fopen("/home/jsd1/speechdata/text/events","a");
 
 	fprintf(f_events,"--\n");
-	if(f_wavtest == NULL) return(0);
 
 	while((type = events->type) != 0)
 	{
-		fprintf(f_events,"%5d %4d  (%2d)   %d   ",events->audio_position,events->text_position,events->length,type);
+		fprintf(f_events,"%2d (%4d %4d)   %5d %5d  (%3d)   ",type,events->unique_identifier,(int)events->user_data,events->audio_position,events->text_position,events->length);
 		if((type==3) || (type==4))
 			fprintf(f_events,"'%s'\n",events->id.name);
 		else
@@ -136,15 +138,15 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 		events++;
 	}
 
-	if(wav == NULL)
+	if((wav == NULL) && (f_wavtest != NULL))
 	{
 		fprintf(f_events,"Finished\n");
 		CloseWaveFile3(f_wavtest);
 		f_wavtest = NULL;
-		fclose(f_events);
-		return(0);
 	}
+	fclose(f_events);
 
+	if(f_wavtest == NULL) return(0);
 	fwrite(wav,numsamples*2,1,f_wavtest);
 	return(0);
 }
@@ -1154,71 +1156,11 @@ void Test2()
 	fclose(f_out);
 }
 
-void Test3()
-{
-	espeak_VOICE voicespec;
-	espeak_VOICE *newvoice;
-int x;
-
-	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL,0);
-	memset(&voicespec,0,sizeof(voicespec));
-	voicespec.languages = "de";
-	voicespec.gender = 2;
-
-	espeak_SetVoiceByProperties(&voicespec);
-	newvoice = espeak_GetCurrentVoice();
-	x = 1;
-}
 #endif
 
-#define OUTPUT_MODE AUDIO_OUTPUT_PLAYBACK
-#define TEXT "Hello world."
-#define TEXT_SSML ("<speak>" TEXT "</speak>")
-static void
-speak(const char *text)
-{
-  int result;
-  result = espeak_Synth(text, strlen(text) + 1, 0, POS_CHARACTER, 0, espeakSSML, NULL, NULL);
-  assert(result == EE_OK);
-}
 
 
-int test4() {
-  espeak_ERROR result;
-  int sample_rate;
-  sample_rate = espeak_Initialize(OUTPUT_MODE, 2000, NULL, 0);
-  assert(sample_rate != EE_INTERNAL_ERROR);
-  espeak_SetSynthCallback(synth_callback);
-
-  espeak_VOICE voice;
-  memset(&voice, 0, sizeof(espeak_VOICE));
-//	voice.name = "default";
- //   voice.languages = "en";
-	voice.gender = 2;
-//  voice.age = 4;
-
-  result = espeak_SetVoiceByProperties(&voice);
-  assert(result == EE_OK);
-  speak(TEXT_SSML);
-  speak(TEXT_SSML);
-  espeak_Synchronize();
-
-#ifdef deleted
-  /* Now the same ting without ssml tags. */
-result = espeak_SetVoiceByProperties(&voice);
-  assert(result == EE_OK);
-  speak(TEXT);
-  speak(TEXT);
-  espeak_Synchronize();
-#endif
-  result = espeak_Terminate();
-  assert(result == EE_OK);
-
-  return 0;
-}
-
-
-const char* text1 = "Hello World2. <audio src=\"here\"> Some text</audio>  This is the second sentence";
+const char* text1 = "Hello, World2 <mark name=\"mark2\"/>. This is the second sentence";
 
 void TestTest(int control)
 {//=======================
@@ -1227,10 +1169,9 @@ void TestTest(int control)
 	unsigned int ix=0;
 	char textbuf[2000];
 	espeak_VOICE voice;
-	unsigned int unique_identifier=0;
+	static unsigned int unique_identifier= 123;
+	static int user_data = 456;
 
-//FindPhonemesUsed();
-//return;
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
@@ -1243,7 +1184,7 @@ if(control==2)
 }
 	memset(&voice,0,sizeof(voice));
 
-	f = fopen("/home/jsd1/speechdata/text/test","r");
+	f = fopen("/home/jsd1/speechdata/text/test.txt","r");
 	if(f==NULL)
 		return;
 	
@@ -1259,13 +1200,15 @@ if(control==2)
 
 	f_wavtest = OpenWaveFile3("/home/jsd1/speechdata/text/test.wav");
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
-	fprintf(f_events,"Audio Text Length Type Id\n");
+	fprintf(f_events,"Type Audio  Text  Length Id\n");
+	fclose(f_events);
 
-	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,1000,NULL,1);
+	espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,1000,NULL,0);
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 
-  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, NULL);
+  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
+  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)(user_data+1));
 
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);
   espeak_Synchronize();

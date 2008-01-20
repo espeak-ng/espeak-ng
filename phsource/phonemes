@@ -28,8 +28,9 @@ phonemenumber 21 _^_    //  Change language
 phonemenumber 22 _X1    // a language specific action
 phonemenumber 23 _|     // very short pause
 phonemenumber 24 _::    // long pause
-phonemenumber 25 _;_    // clause pause
-phonemenumber 26 t#     // reduced version of [t]
+phonemenumber 25 t#     // reduced version of [t]
+phonemenumber 26 '!     // stress - emphasized
+phonemenumber 27 _;_    // clause pause
 
 // The base phoneme table contains the utility phonemes, the consonants,
 // and a schwa.  The vowels are defined in the language specific phoneme
@@ -137,7 +138,7 @@ phoneme _;_  //   clause pause
   pause
   formants NULL
   starttype _ endtype _
-  length 150
+  length 200
   lengthmod 1
 endphoneme
 
@@ -674,20 +675,6 @@ phoneme *    //   flap
   lengthmod 3
 endphoneme
 
-phoneme *2    //   TEST flap
-  vcd alv flp
-  vowelout f1=2 f2=1700 -300 200  f3=-300 60 len=15 brk
-  vowelin f1=2  f2=1700 -300 150  f3=-200 80
-  formants d/tap2+x/d_dnt%30
-  after _ NULL
-  after @ d/x_tap
-  vowelin f1=1  f2=1700 -300 150  f3=-200 80
-  before (i) d/tap2+x/d_dnt%30
-  lengthmod 3
-  switchvoicing t
-endphoneme
-
-
 
 
 phoneme dZ
@@ -790,6 +777,7 @@ phoneme v
   vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
   lengthmod 6
   formants voc/v+vocw/v
+  before (r) voc/vj+vocw/v
   before _ voc/v_+vocw/v
   switchvoicing f
 endphoneme

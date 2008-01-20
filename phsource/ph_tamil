@@ -7,14 +7,14 @@
 phoneme a
   vowel  starttype (@)  endtype (@)
   length 130
-  formants vowel/a#_2
+  formants vowel/V_3
 endphoneme
 
 
 phoneme a:
   vowel  starttype (a)  endtype (a)
   length 270
-  formants vowel/aa
+  formants vowel/a_5
 endphoneme
 
 
@@ -64,14 +64,14 @@ endphoneme
 phoneme u
   vowel  starttype (u)  endtype (u)
   length 130
-  formants vowel/uu_bck
+  formants vowel/u
 endphoneme
 
 
 phoneme u:
   vowel  starttype (u)  endtype (u)
   length 270
-  formants vowel/u_bck
+  formants vowel/u
 endphoneme
 
 

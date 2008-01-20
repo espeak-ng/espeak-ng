@@ -423,8 +423,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L_jbo:   // Lojban
 		{
-			static const short stress_lengths_jbo[8] = {180,180, 220,220, 0,0, 260,280};
-			static const wchar_t jbo_punct_within_word[] = {'.',',','\'',0x2c8,0};  // allow period and comma within a word, also stress marker
+			static const short stress_lengths_jbo[8] = {185,170, 200,200, 0,0, 290,300};
+			static const wchar_t jbo_punct_within_word[] = {'.',',','\'',0x2c8,0};  // allow period and comma within a word, also stress marker (from LOPT_SYLLABLE_CAPS)
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_jbo,NULL);
 			tr->langopts.stress_rule = 2;
@@ -572,14 +572,14 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1c01 + 0x4000;
+			tr->langopts.numbers = 0x0c01 + 0x4000 + NUM_ROMAN;
 			tr->langopts.numbers2 = 0x40;
 			tr->langopts.thousands_sep = 0;   //no thousands separator
 			tr->langopts.decimal_sep = ',';
 
 			if(name2 == L('c','s'))
 			{
-				tr->langopts.numbers2 = 0x8;  // variant numbers before milliards
+				tr->langopts.numbers2 = 0x48;  // variant numbers before milliards
 			}
 
 			SetLetterVowel(tr,'y');
@@ -623,7 +623,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','a'):
 		{
-			static const short stress_lengths_ta[8] = {190, 190,  210, 210,  0, 0,  230, 250};
+			static const short stress_lengths_ta[8] = {190, 190,  210, 210,  0, 0,  220, 220};
 			static const unsigned char stress_amps_ta[8] = {17,14, 20,19, 20,24, 24,22 };
 
 			tr = new Translator();

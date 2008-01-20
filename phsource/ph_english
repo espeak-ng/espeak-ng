@@ -305,6 +305,14 @@ phoneme i@
   linkout r-
 endphoneme
 
+phoneme i@3
+  vowel  starttype (i)  endtype (@)
+  length 250
+  formants vdiph2/ii@
+  linkout r-
+endphoneme
+
+
 
 phoneme U@
   vowel  starttype (u)  endtype (@)

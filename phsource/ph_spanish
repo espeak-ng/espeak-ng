@@ -56,29 +56,15 @@ phoneme s
 endphoneme
 
 
-phoneme v  // TEST
-  vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
-  lengthmod 6
-  formants voc/v2+vocw/v  // shorter
+phoneme r    //   TEST flap ??
+  vcd alv flp
+  brkafter
+  vowelout f1=3 f2=1500 -400 300  f3=-100 80 rms=35 len=50
+  vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  formants d/tap4+x/d_%30
+  lengthmod 3
 endphoneme
 
-phoneme J2   // TEST palatal fricative (Kirshenbaum C<vcd>)
-  vcd pal frc palatal
-  vowelin f1=2  f2=2700 400 600  f3=200 70
-  vowelout f1=2 f2=2700 400 600  f3=200 70 len=100
-  lengthmod 6
-  formants voc/j2+ufric/ch%50
-endphoneme
-
-phoneme J3   // TEST palatal fricative (Kirshenbaum C<vcd>)
-  vcd pal frc palatal
-  vowelin f1=2  f2=2700 400 600  f3=200 70
-  vowelout f1=2 f2=2700 400 600  f3=200 70 len=100
-  lengthmod 6
-  formants voc/j+ufric/ch%5
-endphoneme
 
 
 
