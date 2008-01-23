@@ -36,6 +36,51 @@
 
 
 
+void Translator::LookupLetter(int letter, int next_byte, char *ph_buf1)
+{//==================================================================
+	int len;
+	unsigned char *p;
+	static char single_letter[10] = {0,0};
+	char ph_stress[2];
+	char ph_buf3[30];
+
+	len = utf8_out(letter,&single_letter[2]);
+	single_letter[len+2] = ' ';
+
+	if(next_byte != ' ')
+		next_byte = RULE_SPELLING;
+	single_letter[3+len] = next_byte;   // follow by space-space if the end of the word, or space-0x31
+
+	single_letter[1] = '_';
+	if(Lookup(&single_letter[1],ph_buf3) == 0)
+	{
+		single_letter[1] = ' ';
+		if(Lookup(&single_letter[2],ph_buf3) == 0)
+		{
+			TranslateRules(&single_letter[2], ph_buf3, sizeof(ph_buf3), NULL,0,0);
+		}
+	}
+
+	if(ph_buf3[0] == 0)
+	{
+		ph_buf1[0] = 0;
+		return;
+	}
+
+	// at a stress marker at the start of the letter name, unless one is already marked
+	ph_stress[0] = phonSTRESS_P;
+	ph_stress[1] = 0;
+
+	for(p=(unsigned char *)ph_buf3; *p != 0; p++)
+	{
+		if(phoneme_tab[*p]->type == phSTRESS)
+			ph_stress[0] = 0;  // stress is already marked
+	}
+	sprintf(ph_buf1,"%s%s",ph_stress,ph_buf3);
+}
+
+
+
 int Translator::TranslateLetter(char *word, char *phonemes, int control)
 {//=====================================================================
 // get pronunciation for an isolated letter
@@ -44,12 +89,12 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	int n_bytes;
 	int letter;
 	int len;
-	int next;
-	unsigned char *p;
-	char ph_stress[2];
+	char *p2;
+	char *pbuf;
 	char capital[20];
-	char ph_buf[30];
+	char ph_buf[50];
 	char ph_buf2[50];
+	char hexbuf[6];
 	static char single_letter[10] = {0,0};
 
 	ph_buf[0] = 0;
@@ -81,23 +126,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 		return(n_bytes);
 	}
 
-	len = utf8_out(letter,&single_letter[2]);
-	single_letter[len+2] = ' ';
-
-	next = RULE_SPELLING;
-	if(word[n_bytes] == ' ')
-		next = ' ';
-	single_letter[3+len] = next;   // follow by space-space if the end of the word, or space-0x31
-
-	single_letter[1] = '_';
-	if(Lookup(&single_letter[1],ph_buf) == 0)
-	{
-		single_letter[1] = ' ';
-		if(Lookup(&single_letter[2],ph_buf) == 0)
-		{
-			TranslateRules(&single_letter[2], ph_buf, sizeof(ph_buf), NULL,0,0);
-		}
-	}
+	LookupLetter(letter, word[n_bytes], ph_buf);
 
 	if(ph_buf[0] == phonSWITCH)
 	{
@@ -112,20 +141,22 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 
 		if((ph_buf[0]==0) && !iswspace(letter))
 			Lookup("_??",ph_buf);
-	}
 
-	// at a stress marker at the start of the letter name, unless one is already marked
-	ph_stress[0] = phonSTRESS_P;
-	ph_stress[1] = 0;
-
-	for(p=(unsigned char *)ph_buf; *p != 0; p++)
-	{
-		if(phoneme_tab[*p]->type == phSTRESS)
-			ph_stress[0] = 0;  // stress is already marked
+		if((control==4) && (ph_buf[0] != 0))
+		{
+			// speak the hexadecimal number of the character code
+			sprintf(hexbuf,"%x",letter);
+			pbuf = ph_buf;
+			for(p2 = hexbuf; *p2 != 0; p2++)
+			{
+				pbuf += strlen(pbuf);
+				LookupLetter(*p2, 0, pbuf);
+			}
+		}
 	}
 
 	len = strlen(phonemes);
-	sprintf(ph_buf2,"%c%s%s%s",0xff,capital,ph_stress,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
+	sprintf(ph_buf2,"%c%s%s",0xff,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
 	if((len + strlen(ph_buf2)) < N_WORD_PHONEMES)
 	{
 		strcpy(&phonemes[len],ph_buf2);
@@ -169,7 +200,7 @@ void Translator::SetSpellingStress(char *phonemes, int control)
 			}
 			else
 			{
-				if((count != n_stress) && (control < 4))
+				if(count != n_stress)
 				{
 					if(((count % 3) != 0) || (count == n_stress-1))
 						c = phonSTRESS_3;   // reduce to secondary stress
@@ -733,24 +764,19 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 			switch(langopts.numbers & 0x6000)
 			{
 			case 0x4000:
-				if(decimal_count < 4)
+				// French/Polish decimal fraction
+				while(word[n_digits] == '0')
 				{
-					// Polish decimal fraction
-					if ((word[n_digits] != '0'))
-					{
-						LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
-						strcat(ph_out,buf1);
-						n_digits += decimal_count;
-					}
-					else
-					if ((word[n_digits+1] != '0'))
-					{
-						Lookup("_0",buf1);
-						strcat(ph_out,buf1);
-						LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
-						strcat(ph_out,buf1);
-						n_digits += decimal_count;
-					}
+					Lookup("_0",buf1);
+					strcat(ph_out,buf1);
+					decimal_count--;
+					n_digits++;
+				}
+				if(decimal_count < 6)
+				{
+					LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+					strcat(ph_out,buf1);
+					n_digits += decimal_count;
 				}
 				break;
 

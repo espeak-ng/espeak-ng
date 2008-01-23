@@ -3,7 +3,7 @@ INCDIR=/usr/include/espeak
 LIBDIR=/usr/lib
 DATADIR=/usr/share/espeak-data
 
-RELEASE = 1.30
+RELEASE = 1.31
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
 STATIC_LIB_NAME = libespeak.a
@@ -14,70 +14,45 @@ INSTALL = /usr/bin/install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
-#AUDIO = portaudio
-AUDIO = pulseaudio
+#BIN_NAME = speak
 
-BIN_NAME = speak
-
-ifeq ($(AUDIO),pulseaudio)
-WAVE=wave_pulse.cpp
-LIB_AUDIO=pulse
-USE_AUDIO=USE_PULSEAUDIO
-# the speak executable is not yet compliant with PulseAudio, 
-# speak_SOURCES defined for avoiding compilation errors.
-speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
-else
-#portaudio
-WAVE=wave.cpp
-LIB_AUDIO=portaudio
-USE_AUDIO=USE_PORTAUDIO
-speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp
-
-endif
-
-speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp
+# speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
+# 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
+# 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
+# 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp
 
 libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
+	espeak_command.cpp event.cpp fifo.cpp wave_pulse.cpp debug.cpp
 
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ -l$(LIB_AUDIO) -lpthread
+LIBS1=-lstdc++ -lpulse -lpthread
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++ -l$(LIB_AUDIO) -lpthread
+LIBS2=-lstdc++ -lpulse -lpthread
 
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ ./libespeak.so
 
-#CXXFLAGS=-O2 -D$(USE_AUDIO)
-CXXFLAGS=-D$(USE_AUDIO) -ggdb -DDEBUG_ENABLED
+CXXFLAGS=-O2 -DUSE_PULSEAUDIO
+#CXXFLAGS=-DUSE_PULSEAUDIO -ggdb -DDEBUG_ENABLED
 
 
-all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
+#all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
+all: $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions $<
 
-$(BIN_NAME): $(OBJS1)
-	$(CXX) -o $@ $(OBJS1) $(LIBS1)
+# $(BIN_NAME): $(OBJS1)
+# 	$(CXX) -o $@ $(OBJS1) $(LIBS1)
 
 $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 	$(CXX) -o $@ $(OBJS3) $(LIBS3)
@@ -98,7 +73,7 @@ clean:
 	rm -f *.o *.a *~
 
 distclean: clean
-	rm -f $(BIN_NAME)
+#	rm -f $(BIN_NAME)
 	rm -f $(BIN2_NAME)
 	rm -f $(LIB_NAME)*
 

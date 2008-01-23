@@ -2390,7 +2390,7 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 							continue;  // start again at the beginning of the word
 						}
 						else
-						if((letter >= 0x3200) && (letter < 0xa700))
+						if((letter >= 0x3200) && (letter < 0xa700) && (end_phonemes != NULL))
 						{
 							// ideograms
 							// outside the range of the accent table, speak the unknown symbol sound

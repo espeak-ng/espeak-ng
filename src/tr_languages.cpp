@@ -277,7 +277,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
-			tr->langopts.numbers = 0x1509 +  NUM_NOPAUSE | NUM_ROMAN;
+			tr->langopts.numbers = 0x1509 + 0x4000 + NUM_NOPAUSE | NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -623,17 +623,15 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','a'):
 		{
-			static const short stress_lengths_ta[8] = {190, 190,  210, 210,  0, 0,  220, 220};
-			static const unsigned char stress_amps_ta[8] = {17,14, 20,19, 20,24, 24,22 };
+			static const short stress_lengths_ta[8] = {190, 190,  200, 200,  0, 0,  220, 220};
+			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
-			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
+			tr->langopts.stress_rule = 1;
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
-//			tr->langopts.numbers = 0x811;
-//			tr->langopts.numbers2 = 0x100;
 			tr->letter_bits_offset = OFFSET_TAMIL;
 
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
