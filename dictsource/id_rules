@@ -4,6 +4,9 @@
 
 .group a
         a        a
+     a) a        _|a
+    A_) a        _|a
+    au) a        _|a
         ai       aI
         au       aU
 
@@ -19,10 +22,13 @@
 
 .group e
         e        E
+     e) e        _|E
+    A_) e        _|E
         e (_     e
 
 .group f
         f        f
+        ff       f
 
 .group g
         g        g
@@ -32,6 +38,8 @@
 
 .group i
         i        i
+     i) i        _|i
+    A_) i        _|i
 
 .group j
         j        dZ
@@ -43,6 +51,7 @@
 
 .group l
         l        l
+        ll       l
 
 .group m
         m        m
@@ -55,21 +64,25 @@
 
 .group o
         o        o
+     o) o        _|o
+    A_) o        _|o
         o (r     O
         oe       u        // Dutch spelling
 
 .group p
         p        p
+        pp       p
 
 .group q
         q        k
-        qu       qw
+        qu       kw
 
 .group r
         r        R
 
 .group s
         s        s
+        ss       s
         sy       S   // perhaps [S;] ??
         sj       S
 
@@ -79,6 +92,8 @@
 
 .group u
         u        u
+     u) u        _|u
+    A_) u        _|u
 
 .group v
         v        v

@@ -3,6 +3,8 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
+// Updated: 2008-01-21  Michel Such  <michel.such@free.fr>
+//
 //	* The rules are based on Cicero TTS.
 //
 
@@ -57,6 +59,7 @@
 		cc (Y       ks		// accéder
 		cc          k		// occuper
 	ar)	ch (ét      k		// archétype architecte
+	_A)	ch (o_      k		// écho
 	or) 	ch (esC     k		// orchestre
 	or) 	ch (iC      k		// orchidée
 	sy) 	ch (o       k		// psycho
@@ -110,13 +113,19 @@
 
 .group e
 		e (Ce_      E
+	AC)	e (_       @-		// e muet
+	CC)	e (_       @-		// e muet
+	gu)	e (_       @-		// e muet
 		eau         o		// bateau cheveaux
 	j)	e (a        		// Jean Jeanne
+	sp)	ea (k  	i:      		// speak speaker
+	p)	ect (_      E		// suspect
 		ect (_      Ekt		// direct
 	_trépi)	ed          e
 	_pi)	ed          e		// pied
-		ee          i		// meeting
+		ee          i:		// meeting
 	_cl)	ef (_       e		// clef
+	k)	e (r_       @		// maker
 		ein (C      E~		// peindre
 		ein (_      E~
 		e (il       E		// vieille
@@ -135,6 +144,7 @@
 
 	C)	en (d_      A~		// comprend dépend
 	C)	en (ds_     A~
+	cipi)	en (C     A~		// récipient
 	qu)	en (d_      A~
 	qu)	en (ds_     A~
 
@@ -209,10 +219,10 @@
 	_trav)	er (_       ER
 	_ti)	er (_       ER
 
-	th)	er (_       WR      	// brother
-	th)	er (s_      WR
-	w)	er (_       WR      	// power
-	w)	er (s_      WR
+	th)	er (_       @R      	// brother
+	th)	er (s_      @R
+	w)	er (_       @R      	// power
+	w)	er (s_      @R
 
 		er (_       e      	// parler léger
 		er (s_      e
@@ -249,8 +259,8 @@
 	rC)	es (_C      =@     	// fortes dames
 
 	')	eu (_       y		// eu
-		eu (r_      W		// peur
-		eu (rs_     W		// tracteurs
+		eu (r_      @		// peur
+		eu (rs_     @		// tracteurs
 
 		eu (b       @		// meuble
 		eu (f       @		// neuf
@@ -290,6 +300,7 @@
 	_d) 	e (ch       @
 	_d) 	e (Cl       @
 	_d) 	e (Cr       @  		// degré
+	_d) 	e (rr       E  		// derrière
 	_r) 	e (ch       @  		// recherche
 	_r) 	e (Cl       @
 	_r) 	e (Cr       @  		// retracer
@@ -374,6 +385,37 @@
 
 
 .group h
+_)		h	(ac	_!		// hache
+_)		h	(al	_!		// halte
+_)		h	(amp	_!		// hampe
+_)		h	(an	_!		// hanche
+_)		h	(app	_!		// happer
+_)		h	(arc	_!		// harceler
+_)		h	(arna	_!		// harnais
+_)		h	(ard	_!		// hardi
+_)		h	(arp	_!		// harpe
+_)		h	(au	_!		// haut
+_)		h	(av	_!		// havre
+_)		h	(ern	_!		// hernie
+_)		h	(ers	_!		// herse
+_)		h	(ibo	_!		// hibou
+_)		h	(ide	_!		// hideux
+_)		h	(oll	_!		// hollandais
+_)		h	(ong	_!		// hongrois
+_)		h	(ont	_!		// honte
+_)		h	(ord	_!		// horde
+_)		h	(ou	_!		// houpe
+_)		h	(uit_	_!		// huit
+_)		h	(ul	_!		// hululer
+_)		h	(um	_!		// humer
+_)		h	(umain			// humain
+_)		h	(umani			// humanité
+_)		h	(umb			// humble
+_)		h	(umi			// humide
+_)		h	(umo			// humour
+_)		h	(un	_!		// huns
+_)		h	(ure_	_!		// hure
+_)		h	(utte_	_!		// hutte
 		h			// ahuri
 
 
@@ -466,9 +508,9 @@
 		oin (C      wE~
 		oin (_      wE~		// coin
 		oi          wa		// poil
+		oid (_       wa		// froid
 		oê (l       wE		// poêle
 		oî          wa		// boîte
-	_)	ok (_       oke		// OK
 		o (mm       O		// comme
 	dr) 	o (me_      o		// vélodrome
 	ph)	o (ne_	    O	// téléphone
@@ -556,6 +598,12 @@
 
 .group q
 		q           k		// coq
+ 	_a)	qu (a      ku		// aquarium
+ 	_a)	qu (if      ku		// aquifère
+ 	_A)	qu (idist      ky		// équidistant
+ 	_A)	qu (ilat      ky		// équilatéralt
+ 	_C)	qu (a      ku		// squale square
+ 	_A)	qu (a      ku		// équateur
 		qu          k		// quatre
  	_)	que (_      k@		// que
 		que (_      k@-		// puisque banque...
@@ -564,10 +612,12 @@
 
 
 .group r
-		right       _^_EN	// copyright
+		right       rajt	// copyright
 	_su)	rr          RR		// surréaliste
-	ou)	rr          RR		// courrai
+cou)	rr          RR		// courrai
+mou)	rr          RR		// mourrai
 		rre (_      R@-  		// barre
+C)		re (_      R@-  		// litre
 		rr          R		// erreur
 		r           r		// rien
 
@@ -592,6 +642,7 @@
 	ub)	s (is       z		// subsister
 	han)	s (on       s		// chanson
 	A) 	s (A        z		// baiser
+	A) 	s (oft        s		// microsoft
 	y) 	s (A        z		// paysage
 	CCan) 	s (A        z		// transition
 
@@ -631,10 +682,16 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 	Vn)	t (_        t2	// silent at end of verb unless next word starts with a vowel
 	n)	t (_          	// silent at end of word
 	r)	t (_        t2	// fort
+		tte (_      t@-  		// fillette
+C)		te (_      t@-  		// patte
+a)		te (_      t@-  		// tomate
 
 	aul)	t (_        	// Renault
 
 		tt          t	// attitude
+		tte (_      t@-  		// fillette
+A)		te (_      t@-  		// tomate
+C)		te (_      t@-  		// pente
 
 	s) 	th (m 		// asthme
 		th          t	// théorie
@@ -656,6 +713,7 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 
 		t (ion      s 	// programmation
 	s)	t (ion      t 	// gestion
+	t)	t (ion      t 	// combattions
 
 		t (iel      s 	// partiel patiemment
 		t (iem      s
@@ -792,5 +850,6 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
