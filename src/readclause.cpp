@@ -1759,7 +1759,7 @@ f_input = f_in;  // for GetC etc
 		c2 = GetC();
 	}
 
-	while(!Eof())
+	while(!Eof() || (ungot_char != 0))
 	{
 		if(!iswalnum(c1))
 		{
@@ -1791,7 +1791,7 @@ f_input = f_in;  // for GetC etc
 
 		if((option_ssml) && (phoneme_mode==0))
 		{
-			if((c1 == '&') && ((c2=='#') || isalpha(c2)))
+			if((c1 == '&') && ((c2=='#') || ((c2 >= 'a') && (c2 <= 'z'))))
 			{
 				n_xml_buf = 0;
 				c1 = c2;
@@ -1817,6 +1817,10 @@ f_input = f_in;  // for GetC etc
 					if((j = LookupMnem(xml_char_mnemonics,buf2)) != -1)
 					{
 						c1 = j;
+					}
+					else
+					{
+						c1 = '&';
 					}
 				}
 				if((sayas_mode == 0x14) && (c1 <= 0x20))

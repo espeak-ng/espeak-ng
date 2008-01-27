@@ -639,7 +639,7 @@ _charak) te (r      te
 .group
         ě        e
         ů        u:            // czech
-        $        dola:r
-        %        pertsento
-        +        plus
+        $        dola:R
+        %        peRtsento
+    D_) %        peRtsent
 

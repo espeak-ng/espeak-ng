@@ -2567,6 +2567,7 @@ he               %hi:          $verbsf
 she              %Si:          $only $verbsf
 it               %It           $verbsf
 (it has)         I2t||h'az     $atend
+it               $allcaps $abbrev
 we               %wi:          $verbf $only
 you              %ju:          $verbf
 they             %DeI          $verbf

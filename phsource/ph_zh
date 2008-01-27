@@ -5,7 +5,7 @@
 
 phoneme 11   //  tone: low level
   stress
-  tone 15 10 envelope/p_fall NULL
+  tone 12 9 envelope/p_fall NULL
 endphoneme
 
 phoneme 21   //  tone: low fall
@@ -20,12 +20,12 @@ endphoneme
 
 phoneme 22   //  tone: mid-low level
   stress
-  tone 21 19 envelope/p_fall NULL
+  tone 22 20 envelope/p_fall NULL
 endphoneme
 
 phoneme 33   //  tone: mid level
   stress
-  tone 31 29 envelope/p_fall NULL
+  tone 32 30 envelope/p_fall NULL
 endphoneme
 
 phoneme 35   //  tone: mid rise
@@ -35,7 +35,7 @@ endphoneme
 
 phoneme 44   //  tone: mid-high level
   stress
-  tone 41 39 envelope/p_level NULL
+  tone 38 41 envelope/p_rise NULL
 endphoneme
 
 phoneme 51   //  tone: high fall

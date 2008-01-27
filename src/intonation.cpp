@@ -247,7 +247,8 @@ static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
 
 static short oflow[] = {0, 20, 12, 4, 0};
 static short oflow_emf[] = {5, 24, 15, 10, 5};
-static short oflow_less[] = {1, 17, 10, 5, 1};
+static short oflow_less[] = {3, 19, 12, 7, 2};
+static short oflow_test2[] = {20, 0, 20, 0, 20};
 static short back_emf[] = {35, 32, 0};
 
 typedef struct {
@@ -278,7 +279,7 @@ typedef struct {
 	unsigned char tail_shape;
 } TONE_TABLE;
 
-#define N_TONE_TABLE  11
+#define N_TONE_TABLE  13
 
 static TONE_TABLE tone_table[N_TONE_TABLE] = {
    {PITCHfall, 30, 5,  PITCHfall, 30, 8,              // 0 statement
@@ -297,14 +298,14 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 15, 5, 0},
 
 
-   {PITCHfall, 28, 6,  PITCHfall, 28, 10,              // 5 statement, less intonation
-   20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 12, 6, 0},
+   {PITCHfall, 28, 5,  PITCHfall, 28, 9,              // 5 statement, less intonation
+   20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less, NULL, 12, 7, 0},
 
-   {PITCHfrise2, 33,11, PITCHfall, 28,10,              // 6 comma, less intonation
-   20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 9,14, 0},
+   {PITCHfrise2, 32,8, PITCHfrise2, 28,9,              // 6 comma, less intonation
+   20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less, NULL, 10,16, 0},
 
-   {PITCHfrise2, 28, 7,  PITCHfall, 28, 12,              // 7 comma, less intonation, less rise
-   20, 25,   30, 22,  drops_0, 4, 3,   5, oflow_less, NULL, 14, 8, 0},
+   {PITCHfrise2, 28, 7,  PITCHfall, 29, 14,              // 7 comma, less intonation, less rise
+   20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less, NULL, 14, 8, 0},
 
    {PITCHrise, 30, 20,  PITCHfall, 19, 14,              // 8 pitch raises at end of sentence
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 24, 30, 0},
@@ -314,6 +315,12 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
 
    {PITCHfrise, 39, 15,  PITCHfall, 28, 14,              // 10  question
    20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 20, 36, 0},
+
+   {PITCHfall, 28, 6,  PITCHfall, 28, 10,              // 11 test
+   20, 25,   24, 22,  drops_0, 3, 3,   5, oflow_less, NULL, 12, 6, 0},
+
+   {PITCHfall, 35, 9,  PITCHfall, 35, 12,              // 12 test
+   19, 26,   36, 20,  drops_0, 2, 4,   5, oflow_test2, NULL, 16, 10, 0},
 
 };
   
@@ -327,8 +334,9 @@ unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
 	{5,7,1,0,0,4},
 	{8,9,10,3,0,0},
 	{8,8,10,3,0,0},
-	{0,1,2,3,0,4},
-	{0,1,2,3,0,0} };
+	{11,11,11,11,0,0},  // 6 test
+	{12,12,12,12,0,0}
+};
 
 
 
@@ -738,10 +746,10 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	PHONEME_TAB *prev2_tph;  // 2 tones previous
 	PHONEME_LIST *prev_p;
 
-	int  pitch_adjust = 10;     // pitch gradient through the clause - inital value
+	int  pitch_adjust = 0;     // pitch gradient through the clause - inital value
 	int  pitch_decrement = 0;   //   decrease by this for each stressed syllable
-	int  pitch_low = 10;         //   until it drops to this
-	int  pitch_high = 10;       //   then reset to this
+	int  pitch_low = 0;         //   until it drops to this
+	int  pitch_high = 0;       //   then reset to this
 
 	p = &phoneme_list[0];
 

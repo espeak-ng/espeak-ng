@@ -177,7 +177,7 @@ int Translator::LoadDictionary(const char *name, int no_error)
 	length = pw[1];
 	if(size <= (N_HASH_DICT + sizeof(int)*2))
 	{
-		fprintf(stderr,"Empty dictionary: '%s\n",fname);
+		fprintf(stderr,"Empty _dict file: '%s\n",fname);
 		return(2);
 	}
 	if((pw[0] != N_HASH_DICT) || (length <= 0) || (length > 0x8000000))

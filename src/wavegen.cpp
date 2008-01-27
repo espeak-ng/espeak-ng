@@ -748,12 +748,6 @@ void WavegenInit(int rate, int wavemult_fact)
 	for(ix=0; ix<N_EMBEDDED_VALUES; ix++)
 		embedded_value[ix] = embedded_default[ix];
 
-	if(rate <= 11000)
-	{
-		// adjust some parameters for telephony with low sample rates
-		consonant_amp = 50;
-		option_harmonic1 = 6;
-	}
 
 	// set up window to generate a spread of harmonics from a
 	// single peak for HF peaks
@@ -1011,7 +1005,7 @@ static void AdvanceParameters()
 }  //  end of AdvanceParameters
 
 
-
+#ifndef PLATFORM_RISCOS
 static double resonator(RESONATOR *r, double input)
 {//================================================
 	double x;
@@ -1055,11 +1049,12 @@ static void setresonator(RESONATOR *rp, int freq, int bwidth, int init)
 	// a = 1.0 - b - c
 	rp->a = 1.0 - rp->b - rp->c;
 }  // end if setresonator
-
+#endif
 
 
 void InitBreath(void)
 {//==================
+#ifndef PLATFORM_RISCOS
 	int ix;
 
 	minus_pi_t = -PI / samplerate;
@@ -1069,12 +1064,14 @@ void InitBreath(void)
 	{
 		setresonator(&rbreath[ix],2000,200,1);
 	}
+#endif
 }  // end of InitBreath
 
 
 
 void SetBreath()
 {//=============
+#ifndef PLATFORM_RISCOS
 	int pk;
 
 	if(wvoice->breath[0] == 0)
@@ -1089,15 +1086,17 @@ void SetBreath()
 			setresonator(&rbreath[pk], peaks[pk].freq >> 16, wvoice->breathw[pk],0);
 		}
 	}
+#endif
 }  // end of SetBreath
 
 
 int ApplyBreath(void)
 {//==================
+	int value = 0;
+#ifndef PLATFORM_RISCOS
 	int noise;
 	int ix;
 	int amp;
-	int value = 0;
 
 	// use two random numbers, for alternate formants
 	noise = (rand() & 0x3fff) - 0x2000;
@@ -1110,6 +1109,7 @@ int ApplyBreath(void)
 			value += int(resonator(&rbreath[ix],noise) * amp);
 		}
 	}
+#endif
 	return (value);
 }
 
@@ -1320,10 +1320,12 @@ int Wavegen()
 			total = (total >> 6) * voicing;
 		}
 
+#ifndef PLATFORM_RISCOS
 		if(wvoice->breath[0])
 		{
 			total +=  ApplyBreath();
 		}
+#endif
 
 		// mix with sampled wave if required
 		z2 = 0;
@@ -1558,6 +1560,12 @@ void WavegenSetVoice(voice_t *v)
 	else
 		pk_shape = pk_shape2;
 
+	consonant_amp = (v->consonant_amp * 26) /100;
+	if(samplerate <= 11000)
+	{
+		consonant_amp = consonant_amp*2;  // emphasize consonants at low sample rates
+		option_harmonic1 = 6;
+	}
 	WavegenSetEcho();
 }
 
@@ -1571,7 +1579,7 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 		amp_inc = (256 * ENV_LEN * STEPSIZE)/length;
 
 	amplitude = (value * general_amplitude)/16;
-	amplitude_v = amplitude * 15;           // for wave mixed with voiced sounds
+	amplitude_v = (amplitude * wvoice->consonant_ampv * 15)/100;           // for wave mixed with voiced sounds
 
 	amplitude_env = amp_env;
 }

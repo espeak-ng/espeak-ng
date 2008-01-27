@@ -148,7 +148,7 @@ siquiera     $pause
 porque       $pause       // because
 
 // questions
-que          $u+ $pause   // what
+que          $u $pause   // what
 cuál         $pause       // which
 cuáles       $pause
 cómo         $pause       // how

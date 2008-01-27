@@ -27,7 +27,7 @@ endphoneme
 
 phoneme a
   vowel  starttype (a)  endtype (@)
-  length 200
+  length 210
   formants vwl_en_us/a
   reduceto a2  0
 endphoneme
@@ -52,7 +52,7 @@ endphoneme
 
 phoneme E
   vowel  starttype (e)  endtype (e)
-  length 180
+  length 185
 //  formants vowel/ee_2
   formants vwl_en_us/ee
   reduceto I  0
@@ -161,7 +161,7 @@ endphoneme
 
 phoneme o@
   vowel  starttype (o)  endtype (@)
-  length 260
+  length 250
   formants vwl_en_us/or
   appendph r
 endphoneme
@@ -178,8 +178,8 @@ endphoneme
 phoneme u:
   vowel  starttype (u)  endtype (u)
   length 170
-  formants vowel/u#_5
-//  before l/2 vwl_en/u_L-40+l/L2_uL
+  formants vowel/u#_6
+//  formants vowel/u#_5
 endphoneme
 
 
@@ -228,7 +228,7 @@ endphoneme
 
 phoneme i@3
   vowel  starttype (i)  endtype (@)
-  length 260
+  length 250
   formants vwl_en_us/ir
   appendph r
 endphoneme
@@ -271,12 +271,11 @@ endphoneme
 
 
 phoneme t#    // reduced [t] as in "city"
-  vls alv stop
-  vowelin f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0 f2=1700 -300 300  f3=-100 80
-  lengthmod 5
-  wave  x/d%70
+  vcd alv stop
+  vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/tap2+x/d%70
+  after @ d/x_tap
+  lengthmod 2
 endphoneme
-
-
 

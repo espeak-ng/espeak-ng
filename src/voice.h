@@ -38,6 +38,8 @@ typedef struct {
 	int peak_shape;        // alternative shape for formant peaks (0=standard 1=squarer)
 	int voicing;           // 100% = 64, level of formant-synthesized sound
 	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
+	int consonant_amp;     // amplitude of unvoiced consonants
+	int consonant_ampv;    // amplitude of the noise component of voiced consonants
 
 	// parameters used by Wavegen
 	short freq[N_PEAKS];    // 100% = 256

@@ -91,10 +91,10 @@ Dictionary es_dict
 @-   a    aI   e    E    eI   eU   i    
 o    oI   u    
 
-*    b    B    d    D    f    g    j    
-J    J^   k    l    l^   m    n    n^   
-p    Q    r    R    s    t    T    tS   
-v    w    x    
+*    **   b    B    d    D    f    g    
+j    J    J^   k    l    l^   m    n    
+n^   p    Q    r    R    s    t    T    
+tS   v    w    x    
 
 
 Dictionary fi_dict
@@ -115,11 +115,10 @@ Dictionary fr_dict
 E~   i    i:   o    O    O~   u    W    
 w^i  W~   y    Y    
 
-*    -    :    ;    b    c    d    dZ   
-f    g    h    j    k    l    L    m    
-n    N    n^   p    r    R    s    S    
-t    t2   tS   v    w    z    Z    z2   
-z3   
+*    :    ;    b    c    d    dZ   f    
+g    h    j    k    l    L    m    n    
+N    n^   p    r    R    s    S    t    
+t2   tS   v    w    z    Z    z2   z3   
 
 
 Dictionary hi_dict
@@ -214,10 +213,10 @@ Dictionary sk_dict
 l-   l:   o    o:   oU   r-   r:   u    
 u:   
 
-*    b    d    d;   dZ   f    g    h    
-j    k    l    l^   m    n    N    n^   
-p    r    R    R^   R^/  s    S    t    
-t;   tS   ts   v    x    z    Z    
+*    :    b    d    d;   dZ   f    g    
+h    j    k    l    l^   m    n    N    
+n^   p    r    R    R^   R^/  s    S    
+t    t;   tS   ts   v    x    z    Z    
 
 
 Dictionary sv_dict
@@ -387,3 +386,7 @@ O    u
 j    k    l    m    n    N    n^   p    
 r    R    s    S    t    tS   v    w    
 x    z    
+
+
+Dictionary ja_dict
+

@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-01-21  Michel Such  <michel.such@free.fr>
+// Updated: 2008-01-25  Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -107,15 +107,14 @@
 	quon)	d (_        t2
 
 		dt (_       t       	// Schmidt
+	_ni)	d (_        		// nid
+	_noeu)	d (_        		// noeud
 	r)	d (_        		// lourd placard
 		d           d		// don bled
 
 
 .group e
 		e (Ce_      E
-	AC)	e (_       @-		// e muet
-	CC)	e (_       @-		// e muet
-	gu)	e (_       @-		// e muet
 		eau         o		// bateau cheveaux
 	j)	e (a        		// Jean Jeanne
 	sp)	ea (k  	i:      		// speak speaker
@@ -210,6 +209,7 @@
 		en (s_      A~
 		en (CA      A~      	// pentathlon
 		en (CC      A~      	// entre
+		en (ch_      En      	// french
 
 	_C)	er (_       ER      	// fer
 	_Ch)	er (_       ER      	// cher
@@ -249,14 +249,15 @@
 	_r)	es (A       @s      	// resaisir resaluer
 
 	_r)	e (ss       @      	// ressembler
+	_r)	e (ssu       e      	// ressusciter
 	_r)	e (stra     @
 	_r)	e (stre     @
 	_r)	e (stro     @
 	_r)	e (stru     @      	// restructurer
          -)     est (_      Est         // -est
 
-	@Cr)	es (_C      =@
-	rC)	es (_C      =@     	// fortes dames
+	@Cr)	es (_C      @-
+	rC)	es (_C      @-     	// fortes dames
 
 	')	eu (_       y		// eu
 		eu (r_      @		// peur
@@ -282,17 +283,20 @@
 
 		ez (_       ez2		// nez mangez chez
 	_C) 	e (_        @		// je te
-	_CC) 	e (_        @
+	_CC) 	e (_        @-
 	_qu) 	e (_        @		// que
 
-	@Cr) 	e (_C       =@		// quatre pattes
-	rC) 	e (_C       =@
+	@Cr) 	e (_C       @-		// quatre pattes
+	CC) 	e (_C       @-
+	ch) 	e (_C       @-
+	gu) 	e (_C       @-
+	qu) 	e (_C       @-
 
 	 	e (_       		// montre
 
 	g) 	e (A       		// mangeons
 
-	AC) 	e (ment       		// vitement sûrement
+	AC) 	e (ment   @-    		// vitement sûrement
 	Aqu) 	e (ment
 	enC) 	e (ment
 	enqu) 	e (ment
@@ -386,11 +390,13 @@
 
 .group h
 _)		h	(ac	_!		// hache
+_)		h	(ai	_!		// haine haillon
 _)		h	(al	_!		// halte
 _)		h	(amp	_!		// hampe
 _)		h	(an	_!		// hanche
 _)		h	(app	_!		// happer
 _)		h	(arc	_!		// harceler
+_)		h	(ari	_!		// haricot haridelle
 _)		h	(arna	_!		// harnais
 _)		h	(ard	_!		// hardi
 _)		h	(arp	_!		// harpe
@@ -398,6 +404,7 @@ _)		h	(au	_!		// haut
 _)		h	(av	_!		// havre
 _)		h	(ern	_!		// hernie
 _)		h	(ers	_!		// herse
+_)		h	(eurt	_!		// heurter
 _)		h	(ibo	_!		// hibou
 _)		h	(ide	_!		// hideux
 _)		h	(oll	_!		// hollandais
@@ -500,19 +507,22 @@ _)		h	(utte_	_!		// hutte
 	cr) 	oc (_       o		// escroc
 
 		o (ch       o		// cochon
+		o (che_       O		// poche, cloche
 		oe (ll      wa		// moelleux
 	_)	oe (C       Y		// oesophage
-		o (eu			// soeur oeuf
+		oeu       @		// soeur coeur
+		oeufs       @		// oeufs boeufs
 		o (eC       o		// coefficient
 	_) 	oi (gnon    O		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
 		oi          wa		// poil
 		oid (_       wa		// froid
-		oê (l       wE		// poêle
+		oê (l       wa		// poêle
 		oî          wa		// boîte
 		o (mm       O		// comme
-	dr) 	o (me_      o		// vélodrome
+	radi) 	o (C      o		// radiophonique
+	dr) 	o (me_      O		// vélodrome
 	ph)	o (ne_	    O	// téléphone
 		om (b       O~		// bombe
 		om (p       O~		// pompe
@@ -606,7 +616,6 @@ _)		h	(utte_	_!		// hutte
  	_A)	qu (a      ku		// équateur
 		qu          k		// quatre
  	_)	que (_      k@		// que
-		que (_      k@-		// puisque banque...
 	_)	qu' (P3     k		// qu'il
 	n)	q (_        k		// cinq cent
 
@@ -616,8 +625,6 @@ _)		h	(utte_	_!		// hutte
 	_su)	rr          RR		// surréaliste
 cou)	rr          RR		// courrai
 mou)	rr          RR		// mourrai
-		rre (_      R@-  		// barre
-C)		re (_      R@-  		// litre
 		rr          R		// erreur
 		r           r		// rien
 
@@ -682,16 +689,11 @@ V)		t (_        t2  // silent at end of verb unless next word starts with a vowe
 	Vn)	t (_        t2	// silent at end of verb unless next word starts with a vowel
 	n)	t (_          	// silent at end of word
 	r)	t (_        t2	// fort
-		tte (_      t@-  		// fillette
 C)		te (_      t@-  		// patte
-a)		te (_      t@-  		// tomate
 
 	aul)	t (_        	// Renault
 
 		tt          t	// attitude
-		tte (_      t@-  		// fillette
-A)		te (_      t@-  		// tomate
-C)		te (_      t@-  		// pente
 
 	s) 	th (m 		// asthme
 		th          t	// théorie
@@ -712,6 +714,9 @@ C)		te (_      t@-  		// pente
 
 
 		t (ion      s 	// programmation
+	Cisi)	t (ion      t 	// visitions
+	ci)	t (ion      t 	// citions
+	ou)	t (ion      t 	// ajoutions
 	s)	t (ion      t 	// gestion
 	t)	t (ion      t 	// combattions
 
@@ -739,13 +744,14 @@ C)		te (_      t@-  		// pente
 		u           y	// cruel nuage brut
 		ui          w^i
 
+	c)	ueill       Wj  // cueillir
+	c) 	ueil (_     Wj  // recueil
 	g)	ueill       Wj	// orgueilleux
 	g) 	ueil (_     Wj	// orgueil
 
-	c)	ueill       Wj
-	c) 	ueil (_     Wj
 
 		um (_       Om	// album
+	f) 	um (_     W~  // parfum
 		um (b       W~	// humble
 		um (p       W~
 		un (C       W~	// emprunt lundi
@@ -763,7 +769,8 @@ C)		te (_      t@-  		// pente
 
 .group w
 		w           w
-		ware (_ 	    _^_EN // hardware, software
+		wa (Ce_ 	    wE // hardware software wave
+		w (agon 	    v // wagon
 
 
 .group x
@@ -850,6 +857,7 @@ C)		te (_      t@-  		// pente
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
 

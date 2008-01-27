@@ -1,10 +1,11 @@
 
 
+
 // This file in UTF8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-01-21  Michel Such  <michel.such@free.fr>
+// Updated 2008-01-25  Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -173,11 +174,13 @@ _dpt	virg'yl
 abc		$abbrev
 ac		$abbrev
 adsl		$abbrev
+alt $pause
 amd		$abbrev
 api		$abbrev
+avh		$abbrev
 cci              $abbrev
 cio		$abbrev
-ctrl		kO~tRol
+ctrl		kO~tRol $pause
 dept		depaRt@mA~
 etc		etseteRa
 hmm		h@m
@@ -364,23 +367,27 @@ y       i:gR'Ek      $atend
 // pronunciation exceptions
 
 consent          kO~s'A~t2
-divers           div'Erz2
 scient           si
 bénéficient      benefisi $verb
+concurrent       kO~kyR'A~
+couvent          k'uvt2  $verb
+dessus          d@sy
+dessous          d@su
+divers          divErz2
+►évident          evid'A~
+évident          evidt2 $verb
+ferment           fErm'A~
+ferment           f'Ermt2  $verb
+parent            paR'A~
+parent            p'art2  $verb
+pastis     pastis
 président        pRezid'A~
 président        pRezidt2 $verb
 résident         Rezid'A~
 résident         Rezidt2 $verb
 ressent          r@s'A~t2
-►évident          evid'A~
-évident          evidt2 $verb
-couvent          k'uvt2  $verb
-concurrent       kO~kyR'A~
 récurrent        RekyR'A~
-ferment           fErm'A~
-ferment           f'Ermt2  $verb
-parent            paR'A~
-parent            p'art2  $verb
+riz       ri
 sergent           sErZ'A~
 serment           sErm'A~
 serpent           sErp'A~
@@ -405,23 +412,18 @@ accident      aksidA~
 adéquat       adekuat2
 adéquate      adekuat
 ardent        aRdA~
-boeufs        bY
 bus	      bys
-choeur        kWr
+choeur        k@r
 discident     disidA~
 fils	      fis
-haillon     _|ajO~
-haricot     _|aRiko
 imprudent     E~pRydA~
-juin	      ZwE~
+juin	      ZuE~
 mars	      maRs
 occident      OksidA~
-oeufs         Y
 orient        ORjA~
 pays	      pEi
 prudent       pRydA~
 secret        sYkRE
-secrets       sYkREz2
 souris       suri
 
 
@@ -435,9 +437,6 @@ s'y              si $verbf
 qu'y          ki $verbf
 (sud est)       sydEst
 (nord est)      nOREst
-cci              $abbrev
-nvda             $abbrev
-open            Op'@n
 potentiomètre   pOtA~sjOmEtR@-
 
 processus	pROsEsys
@@ -462,11 +461,10 @@ out		aut
 rut		Ryt
 scorbut		skORbyt
 scout		skut
-scouts		skut
 stout		staut
 uppercut	ypERkyt
 ut		yt
-zut		syt
+zut		zyt
 
 
 // et (t is said)
@@ -509,8 +507,6 @@ flirt		fl@Rt
 (sweat shirt)	swEtS@Rt
 (tee shirt)	tiS@Rt
 
-parfum		paRfW~
-forum		fOROm
 
 // words from other languages
 amazon		amaz'On
@@ -551,6 +547,7 @@ new		nj'u
 news		nj'uz
 night		najt
 ok         oke
+open            Op'@n
 outlook         autluk
 player    		plEj'@r
 reader          Ri:d@R
@@ -563,7 +560,7 @@ skype 		sk'ajp@-
 spybot		spajbOt
 sun		s@n
 sunlight	s@nlajt
-(text aloud) tEkst||@lau-d
+(text aloud) tEkst||@lawd
 thunderbird	f@ndERb@Rd
 ubuntu		ubuntu
 update		@pd'E:jt
@@ -578,26 +575,23 @@ yacht		jot
 
 // tions (tjO~ instead of sjO~)
 achetions	aS@tjO~z2
-ajoutions	aZutjO~z2
 apportions	apORtjO~z2
 apprêtions	apREtjO~z2
 arrêtions	aREtjO~z2
 chantions	SA~tjO~z2
-citions		sitjO~z2
 comptions	kO~tjO~z2
 constations	kO~statjO~z2
 contentions	kO~tA~tjO~z2
 dations		datjO~z2
 discutions	diskytjO~z2
-doutions	dutjO~z2
 débutions	debytjO~z2
-désertions	dezERtjO~z2
+désertions	dezERtjO~z2 $verb
 détentions	detA~tjO~z2
 escomptions	EskO~tjO~z2
 exploitions	EksplwatjO~z2
 exportions	EkspORtjO~z2
 habitions	abitjO~z2
-heurtions	@RtjO~z2
+heurtions	_!@RtjO~z2
 jetions		Z@tjO~z2
 limitions	limitjO~z2
 méritions	meRitjO~z2
@@ -605,8 +599,7 @@ partions	paRtjO~z2
 pressentions	pREsA~tjO~z2
 présentions	pRezA~tjO~z2
 prêtions	pREtjO~z2
-rations		RatjO~z2
-redoutions	R@dutjO~z2
+rations		RatjO~z2 $verb
 représentions	R@pRezA~tjO~z2
 respections	REspEktjO~z2
 ressentions	R@sA~tjO~z2
@@ -618,7 +611,6 @@ supportions	sypORtjO~z2
 tentions	tA~tjO~z2
 traitions	tREtjO~z2
 votions		vOtjO~z2 $u
-écoutions	ekutjO~z2
 étions		etjO~z2
 évitions	evitjO~z2
 
@@ -626,6 +618,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

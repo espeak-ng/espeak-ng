@@ -76,6 +76,7 @@ char textbuffile[L_tmpnam];
 int  sample_rate_index;  // current value
 int  current_voice_num=0;
 int n_voice_files = 0;
+int n_voice_variant_files = 0;
 
 // output sound buffer,  2 bytes per sample
 static unsigned short SoundBuf[4096];
@@ -84,7 +85,9 @@ static int callback_inhibit = 0;
 static int more_text=0;
 
 #define N_VOICE_NAMES   60
-static char *voice_names[40];
+#define N_VOICE_VARIANT_NAMES  30
+static char *voice_names[N_VOICE_NAMES];
+static char *voice_variant_names[N_VOICE_VARIANT_NAMES];
 
 #define N_STATIC_BUF 8000
 static char static_buf[N_STATIC_BUF];
@@ -127,9 +130,9 @@ static const char *help_text =
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
-//"--voices=<langauge>\n"
-//"\t   List the available voices for the specified language.\n"
-//"\t   If <language> is omitted, then list all voices.\n"
+"--voices=<langauge>\n"
+"\t   List the available voices for the specified language.\n"
+"\t   If <language> is omitted, then list all voices.\n"
 "-k <integer>\n"
 "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
 "\t   higher values = a pitch increase (try -k20).\n";
@@ -169,6 +172,7 @@ int GetFileLength(const char *filename)
 void ReadVoiceNames2(char *directory)
 {//==================================
 	int len;
+	int path_len;
 	int *type;
 	char *p;
 	_kernel_swi_regs regs;
@@ -183,6 +187,8 @@ void ReadVoiceNames2(char *directory)
 	regs.r[4] = 0;
 	regs.r[5] = sizeof(buf);
 	regs.r[6] = 0;
+
+	path_len = strlen(directory);
 
 	while(regs.r[3] > 0)
 	{
@@ -202,11 +208,25 @@ void ReadVoiceNames2(char *directory)
 		}
 		else
 		{
-			p = Alloc(len+1);
+			p = (char *)malloc(len+1);
 			strcpy(p,&buf[20]);
-			voice_names[n_voice_files++] = p;
-			if(n_voice_files >= (N_VOICE_NAMES-1))
-				break;
+
+			if(strcmp(&directory[path_len-3],".!v")==0)
+			{
+				if(n_voice_variant_files >= (N_VOICE_VARIANT_NAMES-1))
+					continue;
+				voice_variant_names[n_voice_variant_files++] = p;
+			}
+			else
+			{
+				if(n_voice_files >= (N_VOICE_NAMES-1))
+					continue;
+				voice_names[n_voice_files++] = p;
+				if(strcmp(p,"en")==0)
+				{
+					voice_names[n_voice_files++] = "en+f2";
+				}
+			}
 		}
 	}
 }
@@ -216,13 +236,15 @@ void ReadVoiceNames()
 {//===================
 	char directory[sizeof(path_home)+10];
 
-	for(n_voice_files=0; n_voice_files<N_VOICE_NAMES; n_voice_files++)
-		voice_names[n_voice_files] = NULL;
-
 	n_voice_files = 0;
+	n_voice_variant_files = 0;
+
 	sprintf(directory,"%s.voices",path_home);
 
 	ReadVoiceNames2(directory);
+
+	voice_names[n_voice_files] = NULL;
+	voice_variant_names[n_voice_variant_files] = NULL;
 }
 
 
@@ -557,10 +579,13 @@ void set_say_options(int reg2, int reg3)
 void jsd_swi_functions(int *r)
 /****************************/
 {
+	espeak_VOICE voice_select;
+
 	switch(r[0])
 	{
 	case 0:    /* major version */
-		r[0] = 3;
+		r[0] = 4;
+		r[1] = 331;
 		break;
 
 	case 1:    /* register user */
@@ -579,6 +604,7 @@ void jsd_swi_functions(int *r)
 
 	case 5:   /* get table of voice names */
 		r[0] = (int)voice_names;
+		r[1] = (int)voice_variant_names;
 		break;
 
 	case 6:   /* update voice data, r1 = voice_number */
@@ -592,6 +618,15 @@ void jsd_swi_functions(int *r)
 
 	case 7:   /* load voice data */
 //      init_voice((char *)r[1]);
+		break;
+
+	case 8:
+		// list voices, r[1] contains optional language name (or "variant")
+		voice_select.languages = (char *)r[1];
+		voice_select.age = 0;
+		voice_select.gender = 0;
+		voice_select.name = NULL;
+		r[0] = (int)espeak_ListVoices(&voice_select);
 		break;
 
 	default:
@@ -706,6 +741,72 @@ void PitchAdjust(int pitch_adjustment)
 		voice->freq[ix] = (voice->freq2[ix] * factor)/256;
 	}
 }  //  end of PitchAdjustment
+
+
+
+void DisplayVoices(FILE *f_out, char *language)
+{//============================================
+	int ix;
+	const char *p;
+	int len;
+	int count;
+	int scores = 0;
+	const espeak_VOICE *v;
+	const char *lang_name;
+	char age_buf[12];
+	const espeak_VOICE **voices;
+	espeak_VOICE voice_select;
+
+	static char genders[4] = {' ','M','F',' '};
+
+	if(language[0] == '=')
+	{
+		// display only voices for the specified language, in order of priority
+		voice_select.languages = &language[1];
+		voice_select.age = 0;
+		voice_select.gender = 0;
+		voice_select.name = NULL;
+		voices = espeak_ListVoices(&voice_select);
+		scores = 1;
+	}
+	else
+	{
+		voices = espeak_ListVoices(NULL);
+	}
+
+	fprintf(f_out,"Pty Language Age/Gender VoiceName       File        Other Langs\n");
+
+	for(ix=0; (v = voices[ix]) != NULL; ix++)
+	{
+		count = 0;
+		p = v->languages;
+		while(*p != 0)
+		{
+			len = strlen(p+1);
+			lang_name = p+1;
+
+			if(v->age == 0)
+				strcpy(age_buf,"   ");
+			else
+				sprintf(age_buf,"%3d",v->age);
+
+			if(count==0)
+			{
+				fprintf(f_out,"%2d  %-12s%s%c  %-17s %-11s ",
+               p[0],lang_name,age_buf,genders[v->gender],v->name,v->identifier);
+			}
+			else
+			{
+				fprintf(f_out,"(%s %d)",lang_name,p[0]);
+			}
+			count++;
+			p += len+2;
+		}
+//		if(scores)
+//			fprintf(f_out,"%3d  ",v->score);
+		fputc('\n',f_out);
+	}
+}   //  end of DisplayVoices
 
 
 
@@ -857,6 +958,12 @@ void command_line(char *arg_string, int wait)
 				if(memcmp(command,"compile=",8)==0)
 				{
 					CompileDictionary(NULL,&command[8],NULL,NULL,0);
+					return;
+				}
+				else
+				if(memcmp(command,"voices",6)==0)
+				{
+					DisplayVoices(stdout,&command[6]);
 					return;
 				}
 				else

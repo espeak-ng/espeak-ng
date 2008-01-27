@@ -29,7 +29,9 @@
 #ifdef PLATFORM_WINDOWS
 #include "windows.h"
 #else
-#ifndef PLATFORM_RISCOS
+#ifdef PLATFORM_RISCOS
+#include "kernel.h"
+#else
 #include "dirent.h"
 #endif
 #endif
@@ -103,7 +105,7 @@ espeak_VOICE voice_selected;
 
 // these need a phoneme table to have been specified
 #define V_REPLACE    28
-
+#define V_CONSONANTS 29
 
 
 typedef struct {
@@ -141,6 +143,7 @@ static keywtab_t keyword_tab[] = {
 	{"numbers",    V_NUMBERS},
 	{"option",     V_OPTION},
 	{"mbrola",     V_MBROLA},
+	{"consonants", V_CONSONANTS},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -368,6 +371,9 @@ void VoiceReset(int tone_only)
 	voice->n_harmonic_peaks = 5;
 	voice->peak_shape = 1;
 	voice->voicing = 64;
+	voice->consonant_amp = 100;
+	voice->consonant_ampv = 100;
+
 #ifdef PLATFORM_RISCOS
 	voice->roughness = 1;
 #else
@@ -836,6 +842,10 @@ voice_t *LoadVoice(const char *vname, int control)
 				voice->breathw[0] = Read8Numbers(p,&voice->breathw[1]);
 			break;
 
+		case V_CONSONANTS:
+			value = sscanf(p,"%d %d",&voice->consonant_amp, &voice->consonant_ampv);
+			break;
+
 		case V_MBROLA:
 			{
 				int srate = 16000;
@@ -937,8 +947,10 @@ char *ExtractVoiceVariantName(char *vname, int variant_num)
 
 	char *p;
 	static char variant_name[20];
+	char variant_prefix[5];
 
 	variant_name[0] = 0;
+	sprintf(variant_prefix,"!v%c",PATHSEP);
 
 	if(vname != NULL)
 	{
@@ -953,7 +965,7 @@ char *ExtractVoiceVariantName(char *vname, int variant_num)
 			else
 			{
 				// voice variant name, not number
-				strcpy(variant_name,"!v/");
+				strcpy(variant_name,variant_prefix);
 				strncpy0(&variant_name[3],p,sizeof(variant_name)-3);
 			}	
 		}
@@ -962,9 +974,9 @@ char *ExtractVoiceVariantName(char *vname, int variant_num)
 	if(variant_num > 0)
 	{
 		if(variant_num < 10)
-			sprintf(variant_name,"!v/m%d",variant_num);  // male
+			sprintf(variant_name,"%sm%d",variant_prefix, variant_num);  // male
 		else
-			sprintf(variant_name,"!v/f%d",variant_num-10);  // female
+			sprintf(variant_name,"%sf%d",variant_prefix, variant_num-10);  // female
 	}
 
 	return(variant_name);
@@ -1409,6 +1421,54 @@ void GetVoices(const char *path)
 	char fname[sizeof(path_home)+100];
 
 #ifdef PLATFORM_RISCOS
+	int len;
+	int *type;
+	char *p;
+	_kernel_swi_regs regs;
+	_kernel_oserror *error;
+	char buf[80];
+	char directory2[sizeof(path_home)+100];
+
+	regs.r[0] = 10;
+	regs.r[1] = (int)path;
+	regs.r[2] = (int)buf;
+	regs.r[3] = 1;
+	regs.r[4] = 0;
+	regs.r[5] = sizeof(buf);
+	regs.r[6] = 0;
+
+	while(regs.r[3] > 0)
+	{
+		error = _kernel_swi(0x0c+0x20000,&regs,&regs);      /* OS_GBPB 10, read directory entries */
+		if((error != NULL) || (regs.r[3] == 0))
+		{
+			break;
+		}
+		type = (int *)(&buf[16]);
+		len = strlen(&buf[20]);
+		sprintf(fname,"%s.%s",path,&buf[20]);
+
+		if(*type == 2)
+		{
+			// a sub-directory
+			GetVoices(fname);
+		}
+		else
+		{
+			// a regular line, add it to the voices list	
+			if((f_voice = fopen(fname,"r")) == NULL)
+				continue;
+		
+			// pass voice file name within the voices directory
+			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, &buf[20]);
+			fclose(f_voice);
+
+			if(voice_data != NULL)
+			{
+				voices_list[n_voices_list++] = voice_data;
+			}
+		}
+	}
 #else
 #ifdef PLATFORM_WINDOWS
    WIN32_FIND_DATA FindFileData;

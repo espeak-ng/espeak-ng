@@ -269,7 +269,7 @@ Translator *SelectTranslator(const char *name)
 	case L('f','r'):  // french
 		{
 			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 235};
-			static const unsigned char stress_amps_fr[8] = {16,14, 20,20, 20,24, 24,22 };
+			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 22,22 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
@@ -419,6 +419,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.numbers = 0x2709 + 0x800 + NUM_ROMAN;
 		}
+		break;
+
+	case L('j','a'):  // TEST
+			tr = new Translator();
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		break;
 
 	case L_jbo:   // Lojban
