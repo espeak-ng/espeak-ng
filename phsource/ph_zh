@@ -50,7 +50,7 @@ endphoneme
 
 phoneme 55   //  tone: high level
   stress
-  tone 50 50 envelope/p_level NULL
+  tone 55 50 envelope/p_level NULL
 endphoneme
 
 //====================================================
@@ -92,7 +92,7 @@ phoneme t
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_unasp
+  wave  ustop/t_sr%10
 endphoneme
 
 phoneme th
@@ -106,10 +106,9 @@ endphoneme
 phoneme n
   vcd alv nasal
   vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
-  length 30
   lengthmod 2
   formants n/_n
-  before _ n/n_
+  before _ n/n_long_
   before (i) n/ni
 endphoneme
 
@@ -163,7 +162,7 @@ phoneme ts
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave ustop/ts_unasp
+  wave ustop/ts_unasp%50
 endphoneme
 
 phoneme tsh
@@ -171,7 +170,7 @@ phoneme tsh
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave ustop/ts
+  wave ustop/ts%60
 endphoneme
 
 phoneme ts.
@@ -213,7 +212,7 @@ endphoneme
 
 phoneme N //should be more different from n
   vcd vel nasal
-  length 10
+  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
   formants NULL
   before _ nn/nn_
   after _ nn/_nn
@@ -237,7 +236,7 @@ endphoneme
 phoneme ai
   vowel starttype (a) endtype (i)
   length 250
-  formants vdiph/ae
+  formants vdiph/ai_6
 endphoneme
 
 phoneme Au
@@ -248,7 +247,7 @@ endphoneme
 
 phoneme @
   vowel  starttype (@)  endtype (@)
-  length 230
+  length 200
   formants vowel/3_2%120
   before N vowel/@_bck
 endphoneme
@@ -268,7 +267,7 @@ endphoneme
 phoneme ei
   vowel starttype (e) endtype (i)
   length 250
-  formants vdiph/ei
+  formants vdiph2/ei_4
 endphoneme
 
 phoneme i
@@ -276,12 +275,13 @@ phoneme i
   length 250
   formants vowel/i
   before N vowel/ii_2
+  before n vowel/ii_5
 endphoneme
 
 phoneme i[ //after ts tsh s
   vowel  starttype (i)  endtype (i)
   length 250
-  formants vwl_zh/i_dnt
+  formants vowel/i#_7
 endphoneme
 
 phoneme i. //after ts. ts.h s. z.
@@ -305,7 +305,7 @@ endphoneme
 phoneme iE
   vowel  starttype (i)  endtype (e)
   length 250
-  formants vwl_zh/iee
+  formants vdiph2/ie_2
 endphoneme
 
 phoneme io
@@ -323,13 +323,13 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 250
-  formants vowel/o
+  formants vdiph2/o_oo
 endphoneme
 
 phoneme o-
   vowel  starttype (o)  endtype (o)
   length 250
-  formants vowel/o-
+  formants vowel/8
 endphoneme
 
 phoneme ou
@@ -341,8 +341,8 @@ endphoneme
 phoneme u //try more before N
   vowel starttype (u) endtype (u)
   length 250
-  formants vowel/u
-  before N vowel/o
+  formants vowel/u_bck
+  before N vowel/o_7
 endphoneme
 
 phoneme uA
@@ -377,15 +377,20 @@ endphoneme
 
 phoneme uo
   vowel starttype (u) endtype (o)
-  length 250
+  length 280
   formants vwl_zh/uo
 endphoneme
 
-phoneme y  //try more before N
+phoneme y
+  vowel  starttype (i)  endtype (i)
+  length 250
+  formants vowel/y_2
+endphoneme
+
+phoneme yu  //try more before N
   vowel  starttype (i)  endtype (u)
   length 250
-  formants vowel/y
-  before N vdiph2/yu
+  formants vdiph2/yu
 endphoneme
 
 phoneme y&

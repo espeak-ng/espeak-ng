@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-01-25  Michel Such  <michel.such@free.fr>
+// Updated: 2008-01-29 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -134,7 +134,7 @@
 		el (_       El		// caramel
 		em (me      a		// femme patiemment
 		em (b       A~		// décembre
-		em (m       A~		// emmencher
+		em (m       A~		// emmancher
 		em (p       A~
 		en (_       A~		// en
 		en (hA      A~n		// enharmonique
@@ -170,6 +170,7 @@
 
 	al)	en (t_      A~		// talent équivalent
 	xcell)	en (t_      A~		// excellent
+	nn)	en (t_      t2		// prennent, viennent, sonnent
 
 	mm)	en (t_      A~
 	em)	en (t_      A~		// vitement
@@ -286,11 +287,13 @@
 	_CC) 	e (_        @-
 	_qu) 	e (_        @		// que
 
-	@Cr) 	e (_C       @-		// quatre pattes
 	CC) 	e (_C       @-
-	ch) 	e (_C       @-
+	CC) 	es (_C       @-
+	-j) 	e (_       @-
 	gu) 	e (_C       @-
+	gu) 	es (_C       @-
 	qu) 	e (_C       @-
+	qu) 	es (_C       @-
 
 	 	e (_       		// montre
 

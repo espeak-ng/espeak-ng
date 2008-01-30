@@ -7,5 +7,6 @@ phonemes en_n
 
 stressLength 160 150  180 180  220 220  290 290
 
+replace 00 i@3 i@
 replace 03 N n
 

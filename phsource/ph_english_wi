@@ -62,7 +62,7 @@ endphoneme
 
 
 phoneme 0
-  vowel  starttype (o)   endtype (o)
+  vowel  starttype (a)   endtype (a)
   length 140
   formants vowel/aa#
 endphoneme
@@ -115,7 +115,7 @@ endphoneme
 
 
 phoneme 3:
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype (o)  endtype (o)
   length 240
   formants vowel/oo_4
   linkout r-

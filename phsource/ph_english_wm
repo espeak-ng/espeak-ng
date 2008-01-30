@@ -189,7 +189,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype (@)  endtype (i)
-  length 230
+  length 240
   formants vdiph/@i_3
 endphoneme
 
@@ -202,7 +202,7 @@ endphoneme
 
 
 phoneme e@
-  vowel  starttype (e)  endtype (@)
+  vowel  starttype (@)  endtype (@)
   length 240
   formants vowel/3_en
   linkout r-

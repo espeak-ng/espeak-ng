@@ -308,7 +308,7 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
    20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less, NULL, 14, 8, 0},
 
    {PITCHrise, 30, 20,  PITCHfall, 19, 14,              // 8 pitch raises at end of sentence
-   20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 24, 30, 0},
+   20, 25,   34, 22,  drops_0, 3, 3,   5, oflow, NULL, 20, 26, 0},
 
    {PITCHfrise, 35,11, PITCHfrise2, 32,10,              // 9 comma
    20, 25,   34, 20,  drops_0, 3, 3,   5, oflow, NULL, 19, 24, 0},

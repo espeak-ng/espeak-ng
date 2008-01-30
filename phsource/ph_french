@@ -93,10 +93,11 @@ endphoneme
 phoneme w
   liquid
   unstressed
-  length 100
+  length 120
   beforenotvowel w/
   lengthmod 7
   formants w/w
+  before (e) w/we
   after _ w/_w
 endphoneme
 
@@ -134,7 +135,7 @@ endphoneme
 phoneme O~
   vowel  starttype (o)  endtype (o)
   length 180
-  formants vnasal/o_n3
+  formants vnasal/o_n2
 endphoneme
 
 
@@ -281,7 +282,7 @@ endphoneme
 
 
 phoneme r
-  vcd uvl frc
+  vcd uvl frc starttype r endtype r
   vowelin f1=0  f2=800 -100 100  f3=-400 100
   vowelout f1=0  f2=800 -100 100  f3=-400 100 len=0 rms=20
   length 100
@@ -294,7 +295,7 @@ endphoneme
 
 
 phoneme R
-  vcd uvl frc
+  vcd uvl frc starttype r endtype r
   vowelin f1=0  f2=800 -100 100  f3=-400 100
   length 100
   lengthmod 7
@@ -305,11 +306,13 @@ endphoneme
 
 
 phoneme r/   // used for [r] when not preceding a vowel
-  vcd uvl frc
+  vcd uvl frc starttype r endtype r
   length 100
   lengthmod 2   //
-  formants r3/r_+r3/rx%60
+  formants r3/r#_+r3/rx%60
+  after t  r/tr%60
   before n   r3/r_n+r3/rx%60
+  before _ r3/r_%60
 endphoneme
 
 
@@ -404,4 +407,5 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 

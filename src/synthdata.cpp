@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.31.03  26.Jan.08";
+const char *version_string = "1.31.04  30.Jan.08";
 const int version_phdata  = 0x013100;
 
 int option_device_number = -1;
@@ -426,7 +426,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 		{
 			// lookup formant transition for the following phoneme
 
-			if(*match_level == 0)
+			if((*match_level == 0) || (next_ph->type == phNASAL))
 			{
 				LookupSound(next_ph,this_ph,1,NULL,1);
 				seq_len_adjust += FormantTransition2(frames,nf,vowel_transition[2],vowel_transition[3],next_ph,which);

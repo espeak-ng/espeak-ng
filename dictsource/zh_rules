@@ -62,11 +62,11 @@ language).
        a (DngK	A
 
     y) a	iA
-    y) ao	iAu
-    y) a1o	iAu55
-    y) a2o	iAu35
-    y) a3o	iAu214
-    y) a4o	iAu51
+    y) ao	Au
+    y) a1o	Au55
+    y) a2o	Au35
+    y) a3o	Au214
+    y) a4o	Au51
     y) a (DnK	iE
     y) a (DngK	iA
 
@@ -121,7 +121,7 @@ language).
        ia	iA
        ia (DnK	iE
        ia (DngK	iA
-       iao	iAu
+       iao	jAu
        ie	iE
        io (DngK 	y
        iu 	iou 
@@ -175,9 +175,9 @@ language).
 
 .group u
        u        u
-       ua	uA  //ua uan uang, and uan should be more different from uang
+       ua	wA  //ua uan uang, and uan should be more different from uang
        ua (DnK	ua
-       ua (DngK ua
+       ua (DngK wA
        uai	uai
        ua1i	uai55
        ua2i	uai35
@@ -205,19 +205,19 @@ language).
     n) ve	yE //üe
 
 .group w
-       wa	wuA //wa wan wang
-       wai	wuai
-       wa1i	wuai55
-       wa2i	wuai35
-       wa3i	wuai214
-       wa4i	wuai51
-       wei	wuei
-       we1i	wuei55
-       we2i	wuei35
-       we3i	wuei214
-       we4i	wuei51
+       wa	wA  //wa wan wang
+       wai	wai
+       wa1i	wai55
+       wa2i	wai35
+       wa3i	wai214
+       wa4i	wai51
+       wei	wei
+       we1i	wei55
+       we2i	wei35
+       we3i	wei214
+       we4i	wei51
        we	wu@ //wen weng
-       wo	wuo
+       wo	wo
        wu	wu
 
 .group x
@@ -226,7 +226,7 @@ language).
 .group y
        y	j //before a o e i
        y (u	//NULL before u
-       yo (DngK	y
+       yo (DngK	yu
        y (K     i    // foreign words
 
 .group z

@@ -592,16 +592,14 @@ phoneme N
   lengthmod 8            // longer than 'n'
 endphoneme
 
-phoneme **    //   TEST flap after consonant
+phoneme **    //   TEST flap
   liquid alv
   vowelout f1=3 f2=1600 -300 300  f3=-300 80 rms=35 len=15
-  vowelin f1=0  f2=1600 -300 300  f3=-300 80
-  formants r3/@tap+r3/rx
+  vowelin f1=2  f2=1600 -300 300  f3=-300 80
+  formants r3/@tap+r3/rx%50
   vowelin f1=3  f2=1600 -300 300  f3=-300 80
   before (i) r3/@tap_i+r3/rx
   before (e) r3/@tap_i+r3/rx
-  vowelin f1=2  f2=1600 -300 300  f3=-300 80
-  before (a) r3/@tap+r3/rx
 endphoneme
 
 

@@ -10,6 +10,7 @@ stressLength 175 175  175 175  220 220  250 290
 replace 00 D d
 replace 00 T t[
 replace 00 U@ o@
+replace 00 i@3 i@
 replace 03 @ a2
 replace 03 3 a2
 

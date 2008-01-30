@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-01-25  Michel Such  <michel.such@free.fr>
+// Updated 2008-01-29 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -135,7 +135,7 @@ _5X	sE~k'A~t
 _51	sE~k'A~te:E~
 _6X	swas'A~t
 _61	swas'A~te:E~
-_7X	swas'A~t:d'is
+_7X	swas'A~t:d'iz3
 _71	swas'A~te:O~z
 _72	swas'A~t:d'uz
 _73	swas'A~t:tR'Ez
@@ -147,7 +147,7 @@ _78	swas'A~t:d'iz'w^it
 _79	swas'A~t:d'izn'@f
 _8X	k'atR@v'E~
 _80	k'atR@v'E~z2
-_9X	k'atR@v'E~d'is
+_9X	k'atR@v'E~d'iz3
 _91	k'atR@v'E~:O~z
 _92	k'atR@v'E~:d'uz
 _93	k'atR@v'E~:tR'Ez
@@ -231,28 +231,28 @@ une	$u $nounf
 
 
 // conjonctions
-mais	$u $brk
+mais	$u
 ou	u $u $brk
 et	e $u $brk
-donc	$u $brk
+donc	$u
 or	$u $brk
-ni	$u $brk
-car	$u $brk
-soit	$u $brk
-cependant  $u $brk
-néanmoins  $u $brk
-toutefois  $u $brk
+ni	$u
+car	$u
+soit	$u
+cependant  $u
+néanmoins  $u
+toutefois  $u
 
 
-comme	   $u $brk
-dont	   dO~t2 $u $brk
-lorsque	   $u $brk
-puisque	   $u $brk
-quand	   $u $brk
-que	   $u $brk
+comme	   $u
+dont	   dO~t2 $u
+lorsque	   $u
+puisque	   $u
+quand	   $u
+que	   $u
 qui	   $u $verbf
-quoique	   $u $brk
-si	   $u $brk
+quoique	   $u
+si	   $u
 
 // pronouns
 je	$u $verbf
@@ -301,19 +301,19 @@ des	dez2 $u $nounf
 au	$u $brk
 aux	$u $brk
 
-dans	$u+ $brk
-sur	$u+ $brk
-par	$u+ $brk
-pour	$u+
-en	$u+
+dans	$u
+sur	$u
+par	$u
+pour	$u
+en	$u
 (en effet) A~nEf'E $brk
 
-vers	$u+ $brk
-avec	$u+ $brk
-sans	$u+ $brk
-sous	$u+ $brk
-entre	$u+ $brk
-contre	$u+ $brk
+vers	$u
+avec	$u
+sans	$u
+sous	$u
+entre	$u $brk
+contre	$u $brk
 
 durant	$brk
 
@@ -370,6 +370,7 @@ consent          kO~s'A~t2
 scient           si
 bénéficient      benefisi $verb
 concurrent       kO~kyR'A~
+content          kO~t@-t2 $verb
 couvent          k'uvt2  $verb
 dessus          d@sy
 dessous          d@su
@@ -399,7 +400,7 @@ torrent           tOR'A~
 
 monsieur         m@sjY
 montréal         mO~Real
-(n'est ce pas)   nEspa
+(n'est ce pas)   n'Es@-||p'az2
 (qu'est ce que)  kEsk@ $u
 (cent un)        s'A~||W~
 (cent unième)    s'A~||ynj'Em
@@ -417,7 +418,7 @@ choeur        k@r
 discident     disidA~
 fils	      fis
 imprudent     E~pRydA~
-juin	      ZuE~
+juin	      ZyE~
 mars	      maRs
 occident      OksidA~
 orient        ORjA~
@@ -552,6 +553,7 @@ outlook         autluk
 player    		plEj'@r
 reader          Ri:d@R
 redhat		REdat
+release	rili:z
 schubert	SubER
 screamer		skri:m@r
 (search & destroy) s@:rS_||end_||dEsstrOj
@@ -571,6 +573,7 @@ word		wWRd
 wright		_^_EN
 writer		rajt@r
 yacht		jot
+yes		jEs $brk
 
 
 // tions (tjO~ instead of sjO~)
