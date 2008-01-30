@@ -28,7 +28,8 @@
 
 #define PLATFORM_POSIX
 #define PATHSEP  '/'
-#define USE_PORTAUDIO
+// USE_PORTAUDIO or USE_PULSEAUDIO are now defined in the makefile
+//#define USE_PORTAUDIO
 //#define USE_PULSEAUDIO
 #define USE_NANOSLEEP
 #define __cdecl 

@@ -1,9 +1,10 @@
-BINDIR=/usr/bin
-INCDIR=/usr/include/espeak
-LIBDIR=/usr/lib
-DATADIR=/usr/share/espeak-data
+PREFIX=/
+BINDIR=$(PREFIX)/usr/bin
+INCDIR=$(PREFIX)/usr/include/espeak
+LIBDIR=$(PREFIX)/usr/lib
+DATADIR=$(PREFIX)/usr/share/espeak-data
 
-RELEASE = 1.30
+RELEASE = 1.31
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -11,9 +12,29 @@ STATIC_LIB_NAME = libespeak.a
 LIB_VERSION = 1
 LIBTAG = $(LIB_VERSION).$(RELEASE)
 
-INSTALL = /usr/bin/install
+# Use SONAME_OPT=-Wl,h, on Solaris
+SONAME_OPT=-Wl,-soname,
+
+# Use EXTRA_LIBS=-lm on Solaris
+EXTRA_LIBS =
+
+INSTALL = install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
+
+#AUDIO = pulseaudio
+AUDIO = portaudio
+
+
+ifeq ($(AUDIO),pulseaudio)
+WAVE=wave_pulse.cpp
+LIB_AUDIO=pulse
+USE_AUDIO=USE_PULSEAUDIO
+else
+WAVE=wave.cpp
+LIB_AUDIO=portaudio
+USE_AUDIO=USE_PORTAUDIO
+endif
 
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
@@ -24,22 +45,21 @@ libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp 
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp wave.cpp debug.cpp
-
+	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ -lportaudio -lpthread
+LIBS1=-lstdc++ -l$(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++ -lportaudio -lpthread
+LIBS2=-lstdc++ -l$(LIB_AUDIO) -lpthread
 
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
-LIBS3=-lstdc++ ./libespeak.so
+LIBS3=-lstdc++ -L . -lespeak
 
-CXXFLAGS=-O2
+CXXFLAGS=-O2 -D$(USE_AUDIO)
 
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
@@ -57,11 +77,11 @@ $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -Wall -fpic -fvisibility=hidden -pedantic \
+	$(CXX) $(CXXFLAGS) -Wall -fpic -pedantic \
 	-I. -D LIBRARY -c -fno-exceptions $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)
-	$(CXX) -shared -Wl,-soname,$(LIB_NAME).$(LIB_VERSION) -o $@ $(OBJS2) $(LIBS2)
+	$(CXX) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ $(OBJS2) $(LIBS2)
 
 $(STATIC_LIB_NAME): $(OBJS2)
 	$(AR) cqs $(STATIC_LIB_NAME) $(OBJS2)
