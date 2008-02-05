@@ -212,11 +212,11 @@ endphoneme
 
 phoneme N //should be more different from n
   vcd vel nasal
-  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  vowelout f1=2 f2=1900 200 400  f3=400 80  len=50 rms=15 brk
   formants NULL
-  before _ nn/nn_
+  before _ nn/nn2_
   after _ nn/_nn
-  lengthmod 1
+  lengthmod 7
   after (i) nn/inn
 endphoneme
 
@@ -224,6 +224,7 @@ phoneme a
   vowel starttype (a) endtype (a)
   length 250
   formants vowel/a
+  before N vwl_zh/a_n
 endphoneme
 
 phoneme A
@@ -287,7 +288,8 @@ endphoneme
 phoneme i. //after ts. ts.h s. z.
   vowel  starttype (i)  endtype (i)
   length 250
-  formants vwl_zh/i_rfx
+//  formants vwl_zh/i_rfx
+  formants vowel/i#_6
 endphoneme
 
 phoneme iA  //try more before N
@@ -305,7 +307,7 @@ endphoneme
 phoneme iE
   vowel  starttype (i)  endtype (e)
   length 250
-  formants vdiph2/ie_2
+  formants vwl_zh/ie
 endphoneme
 
 phoneme io
@@ -324,6 +326,7 @@ phoneme o
   vowel starttype (o) endtype (o)
   length 250
   formants vdiph2/o_oo
+  before N vowel/o_mid
 endphoneme
 
 phoneme o-
@@ -342,7 +345,6 @@ phoneme u //try more before N
   vowel starttype (u) endtype (u)
   length 250
   formants vowel/u_bck
-  before N vowel/o_7
 endphoneme
 
 phoneme uA

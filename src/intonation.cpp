@@ -759,8 +759,14 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	{
 		if((p->type == phVOWEL) && (p->tone >= 4))
 		{
-			final_stressed = ix;
-			count_stressed++;
+			if(count_stressed == 0)
+				final_stressed = ix;
+
+			if(p->tone >= 4)
+			{
+				final_stressed = ix;
+				count_stressed++;
+			}
 		}
 	}
 
@@ -769,7 +775,6 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	{
 		// LANG=vi
 		p = &phoneme_list[final_stressed];
-		p->tone = 7;
 		if(p->tone_ph == 0)
 			p->tone_ph = LookupPh("7");   // change tone 1 to falling tone at end of clause
 	}
@@ -889,6 +894,9 @@ void Translator::CalcPitches_Tone(int clause_tone)
 			p->pitch2 = pitch_adjust + phoneme_tab[tone_ph]->end_type;
 		}
 	}
+
+	phoneme_list[final_stressed].tone = 7;
+
 }  // end of Translator::CalcPitches_Tone
 
 

@@ -426,9 +426,9 @@ nn/_nn          [N] base
                 [N] zh
 nn/nn_          [N] base
                 [N] en
-                [N] zh
 nn/nn@          [(@)] base
 nn/nn#_         [N#] is
+nn/nn2_         [N] zh
 nn/nna          [(a)] base
 nn/nne          [(e)] base
 nn/nni          [(i)] base
@@ -838,7 +838,6 @@ vdiph2/ie       [i@] en_wi
                 [ie] fi
                 [ia] th
                 [i:a] th
-vdiph2/ie_2     [iE] zh
 vdiph2/ii@      [i@] en
                 [i@3] en
 vdiph2/ii@_3    [i@] vi
@@ -1438,6 +1437,7 @@ vowel/i_6       [i:] en_us
                 [i] hr
                 [i] id
                 [i] tr
+vowel/i#_6      [i.] zh
 vowel/i#_7      [i[] zh
 vowel/i_en      [i:] en
                 [i:] fr
@@ -1521,7 +1521,6 @@ vowel/o_4       [oU] en_n
 vowel/o-_4      [o] ro
 vowel/o_5       [O] nl
 vowel/o_6       [O:] nl
-vowel/o_7       [u] zh
 vowel/oe        [W] en
                 [W] af
                 [W] de
@@ -1530,6 +1529,7 @@ vowel/oe_2      [W] no
 vowel/oe_4      [W] sv
 vowel/o_mid     [O] fr
                 [o] hu
+                [o] zh
                 [o] tr
 vowel/oo        [O:] en_sc
                 [O] en_wi
@@ -1810,13 +1810,14 @@ vwl_ru/u#u      [u"] ru
 vwl_sv/r_sv3    [r] sv
 vwl_zh/aang     [aan] zhy
 vwl_zh/aau      [Au] zh
+vwl_zh/a_n      [a] zh
 vwl_zh/ang      [ang] zhy
 vwl_zh/eng      [eng] zhy
 vwl_zh/iaa      [iA] zh
 vwl_zh/iaau     [iAu] zh
+vwl_zh/ie       [iE] zh
 vwl_zh/ing      [ing] zhy
 vwl_zh/iou      [iou] zh
-vwl_zh/i_rfx    [i.] zh
 vwl_zh/ng       [ng] zhy
 vwl_zh/oeng     [oen] zhy
 vwl_zh/ong      [ong] zhy

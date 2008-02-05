@@ -698,8 +698,9 @@ ENTER("espeak_Initialize");
 	if((out_start = outbuf) == NULL)
 		return(EE_INTERNAL_ERROR);
 	
-	// allocate space for event list.  Allow 200 events per second
-	n_event_list = (buf_length*200)/1000;
+	// allocate space for event list.  Allow 200 events per second.
+	// Add a constant to allow for very small buf_length
+	n_event_list = (buf_length*200)/1000 + 20;
 	if((event_list = (espeak_EVENT *)realloc(event_list,sizeof(espeak_EVENT) * n_event_list)) == NULL)
 		return(EE_INTERNAL_ERROR);
 	

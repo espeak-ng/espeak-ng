@@ -1097,6 +1097,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
 	PHONEME_TAB *prev_ph;
+	static int sourceix=0;
 
 #ifdef TEST_MBROLA
 	if(mbrola_name[0] != 0)
@@ -1140,15 +1141,16 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->newword)
 		{
 			last_frame = NULL;
+			sourceix = (p->sourceix & 0x7ff) + clause_start_char;
 
 			if(p->newword & 4)
-				DoMarker(espeakEVENT_SENTENCE, (p->sourceix & 0x7ff) + clause_start_char, 0, count_sentences);  // start of sentence
+				DoMarker(espeakEVENT_SENTENCE, sourceix, 0, count_sentences);  // start of sentence
 
 //			if(p->newword & 2)
 //				DoMarker(espeakEVENT_END, count_characters, 0, count_sentences);  // end of clause
 
 			if(p->newword & 1)
-				DoMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
+				DoMarker(espeakEVENT_WORD, sourceix, p->sourceix >> 11, clause_start_word + word_count++);
 		}
 
 		EndAmplitude();
@@ -1156,9 +1158,10 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->prepause > 0)
 			DoPause(p->prepause);
 
-		if(option_phoneme_events)
+		if(option_phoneme_events && (p->type != phVOWEL))
 		{
-			DoMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, p->ph->mnemonic);
+			// Note, for vowels, do the phoneme event after the vowel-start
+			DoMarker(espeakEVENT_PHONEME, sourceix, 0, p->ph->mnemonic);
 		}
 
 		switch(p->type)
@@ -1396,6 +1399,11 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				}
 
 				DoSpect(ph,prev->ph,next->ph,1,p,modulation);
+			}
+
+			if(option_phoneme_events)
+			{
+				DoMarker(espeakEVENT_PHONEME, sourceix, 0, p->ph->mnemonic);
 			}
 
 			DoSpect(p->ph,prev->ph,next->ph,2,p,modulation);
