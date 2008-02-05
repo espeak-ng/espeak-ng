@@ -177,7 +177,6 @@ endphoneme
 phoneme Yy
   vowel starttype (@) endtype (u)
   length 270
-  long
   formants vwl_no/y#y
 endphoneme
 

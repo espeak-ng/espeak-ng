@@ -2,8 +2,54 @@
 // This file in UTF8 encoded
 
 // letters
-ch	tSe
-ll	Ejje
+
+_cap	m'aJ^us
+_??	s'imbolo
+_#32	Esp'aTjo
+
+
+// names of symbols
+_.	punto
+_,	koma
+_;	p,untoik'oma
+_:	d,osp'untos
+_!	TE*R'aRaDmi**aTj'on
+_?	TE*R'aRintE*R,oQaTj'on
+_¡	aB@-*'iRaDmi**aTj'on
+_¿	aB@-*'iRintE*R,oQaTj'on
+_=	iQw'al
+_<	mEn'oRke
+_>	maJ^'oRke
+_'	apost@-*'ofo
+_"	kom'iJ^as
+_+	s'iQnodesum'aR
+_$	dolar
+_#	almoaD'il^a
+_*	astE*'isko
+_-	gJ^on
+__	suB@-*aJ^'aDo
+_/	ba*Ra
+_\	b'a*RaimbERt'iDa
+_`	aT'Entog@-*'aBe
+_(	,aB@-*epa**'EntEsis
+_)	Tj,E*Rapa**'EntEsis
+_[	,aB@-*ekoRtS'Ete
+_]	Tj,E*RakoRtS'Ete
+_{	,aB@-*eJ^'aBe
+_}	Tj,E*RaJ^'aBe
+_«	kom'iJ^as||iTkJ^'ERDas
+_»	kom'iJ^as||dE**'EtSas
+
+^	TiRkumfl'Exo
+€	eU*o
+%	porTj'Ento
+&	ampERs'ant
+@	a*R'oBa
+/	ba*Ra
+©	kopi*R'aIt
+£	liB@-*as
+¶	p'a*Rafo
+§	sEkTj'on
 
 
 // numbers
@@ -291,8 +337,16 @@ v	uve
 x	Ekis
 _y	,ig@-*'iEQa
 y	,ig@-*'iEQa  $atend
+ch	tSe
+ll	Ejje
+á	'a||aTEntw'aDa
+é	'e||aTEntw'aDa
+í	'i||aTEntw'aDa
+_ó	'o||aTEntw'aDa
+ó	'o||aTEntw'aDa $atend
+ú	'u||aTEntw'aDa
+ü	,uDjE**'Esis
 
-_.	punto
 
 
 

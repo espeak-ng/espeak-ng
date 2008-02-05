@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-01-29 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-04 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -136,10 +136,9 @@
 		em (b       A~		// décembre
 		em (m       A~		// emmancher
 		em (p       A~
-		en (_       A~		// en
+		en (_       A~n2		// en
 		en (hA      A~n		// enharmonique
 		en (A       A~n		// enivrer
-		en (_A      A~n		// en avion
 
 	C)	en (d_      A~		// comprend dépend
 	C)	en (ds_     A~
@@ -395,6 +394,7 @@
 _)		h	(ac	_!		// hache
 _)		h	(ai	_!		// haine haillon
 _)		h	(al	_!		// halte
+_)		h	(amea	_!		// hameau
 _)		h	(amp	_!		// hampe
 _)		h	(an	_!		// hanche
 _)		h	(app	_!		// happer
@@ -406,6 +406,7 @@ _)		h	(arp	_!		// harpe
 _)		h	(au	_!		// haut
 _)		h	(av	_!		// havre
 _)		h	(ern	_!		// hernie
+_)		h	(éro	_!		// héros, héron
 _)		h	(ers	_!		// herse
 _)		h	(eurt	_!		// heurter
 _)		h	(ibo	_!		// hibou
@@ -655,6 +656,7 @@ mou)	rr          RR		// mourrai
 	A) 	s (oft        s		// microsoft
 	y) 	s (A        z		// paysage
 	CCan) 	s (A        z		// transition
+	xpan) 	s (A        s		// expansion
 
 
 	ibu) 	s (_        s
@@ -758,8 +760,9 @@ C)		te (_      t@-  		// patte
 		um (b       W~	// humble
 		um (p       W~
 		un (C       W~	// emprunt lundi
-		un (_       W~	// brun
-		un (_A      W~n	// un avion
+	C)	un (_       W~	// brun
+	uc)	un (_       W~n2	// aucun
+		un (_      W~n2	// un avion
 
 	g) 	u (A		// fatigue
 	g) 	u (ï	    y	// ambiguïté
@@ -860,6 +863,7 @@ C)		te (_      t@-  		// patte
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
 

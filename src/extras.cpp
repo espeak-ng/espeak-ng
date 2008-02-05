@@ -1160,7 +1160,7 @@ void Test2()
 
 
 
-const char* text1 = "Hello, World2 <mark name=\"mark2\"/>. This is the second sentence";
+const char* text1 = "Hello world. Testing.";
 
 void TestTest(int control)
 {//=======================
@@ -1200,10 +1200,10 @@ if(control==2)
 
 	f_wavtest = OpenWaveFile3("/home/jsd1/speechdata/text/test.wav");
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
-	fprintf(f_events,"Type Audio  Text  Length Id\n");
+	fprintf(f_events,"Type             Audio  Text  Length Id\n");
 	fclose(f_events);
 
-	espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,1000,NULL,0);
+	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,1000,NULL,1);
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 

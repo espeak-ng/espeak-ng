@@ -1197,6 +1197,23 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		}
 		break;
 
+	case 7:  // LANG=tr, the last syllable for any vowel markes explicitly as unstressed
+		if(stressed_syllable == 0)
+		{
+			stressed_syllable = vowel_count - 1;
+			for(ix=2; ix < vowel_count; ix++)
+			{
+				if(vowel_stress[ix] == 1)
+				{
+					stressed_syllable = ix-1;
+					break;
+				}
+			}
+			vowel_stress[stressed_syllable] = 4;
+			max_stress = 4;
+		}
+		break;
+
 	case 9:  // mark all as stressed
 		for(ix=1; ix<vowel_count; ix++)
 		{

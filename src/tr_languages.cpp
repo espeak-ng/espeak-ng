@@ -669,15 +669,15 @@ SetLengthMods(tr,3);  // all equal
 	case L('t','r'):   // Turkish
 		{
 			static const unsigned char stress_amps_tr[8] = {16,16, 20,20, 20,24, 24,22 };
-			static const short stress_lengths_tr[8] = {180,150, 200,180, 0,0, 230,270};
+			static const short stress_lengths_tr[8] = {170,170, 190,170, 0,0, 250,270};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_tr,stress_amps_tr);
 			tr->charset_a0 = charsets[9];   // ISO-8859-9 - Latin5
 
-			tr->langopts.stress_rule = 3;   // stress on the last syllable
+			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 
-			tr->langopts.numbers = 0x1009;
+			tr->langopts.numbers = 0x1d09;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;

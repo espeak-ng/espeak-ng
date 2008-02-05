@@ -92,6 +92,25 @@ _|	vi:b'A@
 _}	A@breIs
 _~	tIld@
 
+£	paUnd
+¥	jEn
+§	sEkS@n
+_¶	par@graf   // in en_rules
+¤	kVr@nsI2saIn
+©	k0pI2raIt
+°	dI2gri:z
+−	maIn@s
+±	plVs@maIn@s
+µ	maIkroU
+¼	a2kwO@t3
+½	a2hA:f
+¾	Tri:kwO@t3
+×	taImz
+÷	dI2vaIdbaI
+€	jU@roUz
+♯	SA@p
+♭	flat
+ə	SwA:
 
 // numeric
 
@@ -2673,8 +2692,8 @@ than             %Dan          $only
 then             DEn           $verbf 
 
 // these should be stressed at the start of a sentence
-which            ,wItS         $pause $strend2 $only $verbsf
-who              ,hu:          $verbsf $pause $strend2 $onlys
+which            ,wItS         $pause $strend2 $only $verbf
+who              ,hu:          $verbf $pause $strend2 $onlys
 whose            ,hu:z         $pause $only
 what             ,w0t          $strend2 $onlys
 how              ,haU          $strend2 $onlys

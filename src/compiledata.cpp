@@ -58,20 +58,25 @@
 #define tOLDNAME  14
 #define tREDUCETO 15
 #define tFIXEDCODE 16
+
 #define tBEFOREVOWEL 17
 #define tBEFOREVOWELPAUSE 18
 #define tBEFORENOTVOWEL 19
-#define tLINKOUT  20
+#define tBEFORENOTVOWEL2 20
 #define tSWITCHVOICING  21
-#define tVOWELIN  22
-#define tVOWELOUT 23
-#define tAPPENDPH 24         // always insert another phoneme (linkout) after this one
-#define tIMPORTPH 25
-#define tBEFOREPAUSE 26
+
+#define tLINKOUT  23
+#define tVOWELIN  24
+#define tVOWELOUT 25
+#define tAPPENDPH 26         // always insert another phoneme (linkout) after this one
+#define tIMPORTPH 27
+#define tBEFOREPAUSE 28
 
 #define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
 #define tINCLUDE  31
+
+static const int flags_alternative[] = {phBEFOREVOWEL,phBEFOREVOWELPAUSE,phBEFORENOTVOWEL,phBEFORENOTVOWEL2,phSWITCHVOICING};
 
 extern void Write4Bytes(FILE *f, int value);
 extern int Read4Bytes(FILE *f);
@@ -230,16 +235,17 @@ static keywtab_t keywords[] = {
 	{"length",   12},
 	{"longlength", 13},
 	{"reduceto", 15},
-	{"beforevowel", 17},
-	{"beforevowelpause", 18},
-	{"beforenotvowel",19},
-	{"linkout",20},
-	{"switchvoicing",21},
-	{"vowelin",22},
-	{"vowelout",23},
-	{"appendph",24},
-	{"import_phoneme",25},
-	{"beforepause",26},
+	{"beforevowel", tBEFOREVOWEL},
+	{"beforevowelpause", tBEFOREVOWELPAUSE},
+	{"beforenotvowel",tBEFORENOTVOWEL},
+	{"beforenotvowel2",tBEFORENOTVOWEL2},
+	{"linkout",tLINKOUT},
+	{"switchvoicing",tSWITCHVOICING},
+	{"vowelin",tVOWELIN},
+	{"vowelout",tVOWELOUT},
+	{"appendph",tAPPENDPH},
+	{"import_phoneme",tIMPORTPH},
+	{"beforepause",tBEFOREPAUSE},
 
 	// flags
 	{"wavef",      0x2000000+phWAVE},
@@ -1374,18 +1380,12 @@ int Compile::CPhoneme()
 			ph->phflags = (ph->phflags & 0xfffffff) + (value << 28);
 			break;
 
-		case tBEFORENOTVOWEL:
-			ph->phflags |= phBEFORENOTVOWEL;  // and drop through to tBEFOREVOWEL
-		case tBEFOREVOWELPAUSE:
-			ph->phflags |= phBEFOREVOWELPAUSE;
 		case tBEFOREVOWEL:
-			if((phcode = NextItem(tPHONEMEMNEM)) == -1)
-				phcode = LookupPhoneme(item_string,1);
-			ph->alternative_ph = phcode;
-			break;
-
+		case tBEFOREVOWELPAUSE:
+		case tBEFORENOTVOWEL:
+		case tBEFORENOTVOWEL2:
 		case tSWITCHVOICING:
-			ph->phflags |= phSWITCHVOICING;
+			ph->phflags |= flags_alternative[item - tBEFOREVOWEL];
 			if((phcode = NextItem(tPHONEMEMNEM)) == -1)
 				phcode = LookupPhoneme(item_string,1);
 			ph->alternative_ph = phcode;

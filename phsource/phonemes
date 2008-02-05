@@ -31,6 +31,7 @@ phonemenumber 24 _::    // long pause
 phonemenumber 25 t#     // reduced version of [t]
 phonemenumber 26 '!     // stress - emphasized
 phonemenumber 27 _;_    // clause pause
+phonemenumber 28 _^^    // Change language + phoneme table number
 
 // The base phoneme table contains the utility phonemes, the consonants,
 // and a schwa.  The vowels are defined in the language specific phoneme
@@ -146,6 +147,13 @@ phoneme  _^_  //  Change dictionary (followed by language-code in ascii
   pause
   starttype _ endtype _
   length 10
+  lengthmod 1
+endphoneme 
+
+phoneme  _^^  //  Change phoneme table (followed by phoneme table number)
+  pause
+  starttype _ endtype _
+  length 1
   lengthmod 1
 endphoneme 
 
@@ -1267,6 +1275,9 @@ include ph_thai
 
 phonemetable id base2
 include ph_indonesian
+
+phonemetable tr base2
+include ph_turkish
 
 phonemetable ja base
 include ph_japanese

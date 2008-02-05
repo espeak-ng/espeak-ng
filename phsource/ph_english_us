@@ -276,6 +276,6 @@ phoneme t#    // reduced [t] as in "city"
   vowelout f1=2 f2=1700 -300 300  f3=-100 80
   formants d/tap2+x/d%70
   after @ d/x_tap
-  lengthmod 2
+  lengthmod 5
 endphoneme
 

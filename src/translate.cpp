@@ -38,7 +38,7 @@
 
 
 Translator *translator = NULL;    // the main translator
-static Translator *translator2 = NULL;   // secondary translator for certain words
+Translator *translator2 = NULL;   // secondary translator for certain words
 static char translator2_language[20] = {0};
 
 FILE *f_trans = NULL;     // phoneme output text
@@ -750,6 +750,7 @@ if((wmark > 0) && (wmark < 8))
 		while(*wordx != ' ')
 		{
 			wordx += TranslateLetter(wordx, phonemes,spell_word);
+			posn++;
 			if(phonemes[0] == phonSWITCH)
 			{
 				// change to another language in order to translate this word
@@ -757,7 +758,7 @@ if((wmark > 0) && (wmark < 8))
 				return(0);
 			}
 		}
-		SetSpellingStress(phonemes,spell_word);
+		SetSpellingStress(phonemes,spell_word,posn);
 	}
 	else
 	if(found == 0)
@@ -776,6 +777,7 @@ if((wmark > 0) && (wmark < 8))
 			// find a remainder that we can pronounce.
 			emphasize_allcaps = 0;
 			wordx += TranslateLetter(wordx,phonemes,0);
+			posn++;
 			if(phonemes[0] == phonSWITCH)
 			{
 				// change to another language in order to translate this word
@@ -798,7 +800,7 @@ if((wmark > 0) && (wmark < 8))
 			if(length > 0)
 				wordx[-1] = ' ';            // prevent this affecting the pronunciation of the pronuncable part
 		}
-		SetSpellingStress(phonemes,0);
+		SetSpellingStress(phonemes,0,posn);
 
 		// anything left ?
 		if(*wordx != ' ')
@@ -1164,6 +1166,39 @@ static int CountSyllables(unsigned char *phonemes)
 	return(count);
 }
 
+
+int SetTranslator2(const char *new_language)
+{//=========================================
+// Set translator2 to a second language
+	int new_phoneme_tab;
+
+	if((new_phoneme_tab = SelectPhonemeTableName(new_language)) >= 0)
+	{
+		if((translator2 != NULL) && (strcmp(new_language,translator2_language) != 0))
+		{
+			// we already have an alternative translator, but not for the required language, delete it
+			delete translator2;
+			translator2 = NULL;
+		}
+
+		if(translator2 == NULL)
+		{
+			translator2 = SelectTranslator(new_language);
+			strcpy(translator2_language,new_language);
+
+			if(translator2->LoadDictionary(new_language,0) != 0)
+			{
+				SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+				new_phoneme_tab = -1;
+				translator2_language[0] = 0;
+			}
+		}
+	}
+	return(new_phoneme_tab);
+}  // end of SetTranslator2
+
+
+
 int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause)
 {//======================================================================================
 	int flags=0;
@@ -1199,27 +1234,31 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	if(word_flags & FLAG_EMBEDDED)
 	{
 		embedded_flag = SFLAG_EMBEDDED;
-		value = embedded_list[embedded_read] >> 8;
 
-		switch(embedded_cmd = embedded_list[embedded_read] & 0x1f)
+		do
 		{
-		case EMBED_Y:
-			option_sayas = value;
-			break;
+			embedded_cmd = embedded_list[embedded_read++];
+			value = embedded_cmd >> 8;
 
-		case EMBED_F:
-			option_emphasis = value;
-			break;
-
-		case EMBED_B:
-			// break command
-			if(value == 0)
-				pre_pause = 0;  // break=none
-			else
-				pre_pause += value;
-			break;
-		}
-		while((embedded_list[embedded_read++] & 0x80) == 0);  // read over the embedded commands for this word
+			switch(embedded_cmd & 0x1f)
+			{
+			case EMBED_Y:
+				option_sayas = value;
+				break;
+	
+			case EMBED_F:
+				option_emphasis = value;
+				break;
+	
+			case EMBED_B:
+				// break command
+				if(value == 0)
+					pre_pause = 0;  // break=none
+				else
+					pre_pause += value;
+				break;
+			}
+		} while((embedded_cmd & 0x80) == 0);
 	}
 
 	if(word[0] == 0)
@@ -1328,28 +1367,9 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			new_language = (char *)(&p[1]);
 			if(new_language[0]==0)
 				new_language = "en";
-			if((switch_phonemes = SelectPhonemeTableName(new_language)) >= 0)
-			{
-				if((translator2 != NULL) && (strcmp(new_language,translator2_language) != 0))
-				{
-					// we already have an alternative translator, but not for the required language, delete it
-					delete translator2;
-					translator2 = NULL;
-				}
 
-				if(translator2 == NULL)
-				{
-					translator2 = SelectTranslator(new_language);
-					strcpy(translator2_language,new_language);
+			switch_phonemes = SetTranslator2(new_language);
 
-					if(translator2->LoadDictionary(new_language,0) != 0)
-					{
-						SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
-						switch_phonemes = -1;
-						translator2_language[0] = 0;
-					}
-				}
-			}
 			if(switch_phonemes >= 0)
 			{
 				// re-translate the word using the new translator
@@ -1486,6 +1506,12 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			// Don't add this phoneme to the list, but make sure the next phoneme has
 			// a newword indication
 			srcix = source_ix+1;
+		}
+		else
+		if(ph_code == phonSWITCH2)
+		{
+			SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
+			ph_list2[n_ph_list2++].tone_number = *p++ - phonTOP;   // phoneme table number (phonTOP is added to avoid confusion with special phoneme numbers)
 		}
 		else
 		if(ph_code == phonX1)

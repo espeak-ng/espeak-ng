@@ -1,0 +1,93 @@
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  beforenotvowel2 I
+  length 150
+  formants vowel/i_6
+endphoneme
+
+phoneme I
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/ii_3
+endphoneme
+
+phoneme y
+  vowel starttype (u) endtype (u)
+  beforenotvowel2 Y
+  length 155
+  formants vowel/y_5
+endphoneme
+
+phoneme Y
+  vowel starttype (u) endtype (u)
+  length 155
+  formants vowel/u#
+endphoneme
+
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  beforenotvowel2 E
+  length 180
+  formants vowel/e_mid2
+endphoneme
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 180
+  formants vowel/e_mid
+endphoneme
+
+phoneme W
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/oe_2
+endphoneme
+
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 190
+  formants vowel/a_5
+endphoneme
+
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  beforenotvowel2 U
+  length 150
+  formants vowel/u_2
+endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vowel/uu_2
+endphoneme
+
+phoneme u#
+  vowel starttype (@) endtype (@)
+  length 150
+  formants vowel/u#_7
+endphoneme
+
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  beforenotvowel2 O
+  length 190
+  formants vowel/o_mid
+endphoneme
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 190
+  formants vowel/oo
+endphoneme
+

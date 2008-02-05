@@ -31,6 +31,7 @@
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
+#include "voice.h"
 #include "translate.h"
 
 
@@ -43,6 +44,15 @@ void Translator::LookupLetter(int letter, int next_byte, char *ph_buf1)
 	static char single_letter[10] = {0,0};
 	char ph_stress[2];
 	char ph_buf3[30];
+
+	if((letter <= 32) || iswspace(letter))
+	{
+		// lookup space as _&32 etc.
+		sprintf(&single_letter[1],"_#%d ",letter);
+		Lookup(&single_letter[1],ph_buf1);
+		return;
+	}
+
 
 	len = utf8_out(letter,&single_letter[2]);
 	single_letter[len+2] = ' ';
@@ -89,11 +99,13 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	int n_bytes;
 	int letter;
 	int len;
+	int phoneme_tab_en;
 	char *p2;
 	char *pbuf;
 	char capital[20];
-	char ph_buf[50];
-	char ph_buf2[50];
+	char ph_buf[60];
+	char ph_buf2[60];
+	char ph_buf_en[60];
 	char hexbuf[6];
 	static char single_letter[10] = {0,0};
 
@@ -117,15 +129,6 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	}
 	letter = towlower(letter);
 
-	if((letter <= 32) || iswspace(letter))
-	{
-		// lookup space as _&32 etc.
-		sprintf(&single_letter[1],"_#%d ",letter);
-		Lookup(&single_letter[1],ph_buf);
-		strcat(phonemes,ph_buf);
-		return(n_bytes);
-	}
-
 	LookupLetter(letter, word[n_bytes], ph_buf);
 
 	if(ph_buf[0] == phonSWITCH)
@@ -133,6 +136,18 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 		strcpy(phonemes,ph_buf);
 		return(0);
 	}
+
+	if(ph_buf[0] == 0)
+	{
+		phoneme_tab_en = SetTranslator2("en");
+		translator2->LookupLetter(letter, word[n_bytes], ph_buf_en);
+		if(ph_buf_en[0] != 0)
+		{
+			sprintf(ph_buf,"%c%c%s%c%c",phonSWITCH2, phoneme_tab_en + phonTOP, ph_buf_en, phonSWITCH2, voice->phoneme_tab_ix + phonTOP);
+		}
+		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+	}
+
 	if(ph_buf[0] == 0)
 	{
 		// character name not found
@@ -166,8 +181,8 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 
 
 
-void Translator::SetSpellingStress(char *phonemes, int control)
-{//============================================================
+void Translator::SetSpellingStress(char *phonemes, int control, int n_chars)
+{//=========================================================================
 // Individual letter names, reduce the stress of some.
 	int ix;
 	unsigned int c;
@@ -188,7 +203,7 @@ void Translator::SetSpellingStress(char *phonemes, int control)
 	count = 0;
 	for(ix=0; (c = buf[ix]) != 0; ix++)
 	{
-		if(c == phonSTRESS_P)
+		if((c == phonSTRESS_P) && (n_chars > 1))
 		{
 			count++;
 

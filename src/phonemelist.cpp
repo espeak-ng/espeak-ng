@@ -395,6 +395,14 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 					alternative = ph->alternative_ph;
 				break;
 
+			case phBEFORENOTVOWEL2:    // LANG=tr
+				if(((plist2+1)->sourceix != 0) ||
+               ((next->type != phVOWEL) && ((phoneme_tab[(plist2+2)->phcode]->type != phVOWEL) || ((plist2+2)->sourceix != 0))))
+				{
+					alternative = ph->alternative_ph;
+				}
+				break;
+
 			case phBEFOREVOWELPAUSE:
 				if((next->type == phVOWEL) || (next->type == phPAUSE))
 					alternative = ph->alternative_ph;

@@ -416,7 +416,7 @@ public:
 private:
 	int TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause);
 	int TranslateLetter(char *letter, char *phonemes, int control);
-	void SetSpellingStress(char *phonemes, int control);
+	void SetSpellingStress(char *phonemes, int control, int n_chars);
 	void WriteMnemonic(int *ix, int mnem);
 	void MakePhonemeList(int post_pause, int new_sentence);
 	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
@@ -541,6 +541,7 @@ extern unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
 extern int speech_parameters[];
 
 extern Translator *translator;
+extern Translator *translator2;
 extern const unsigned short *charsets[N_CHARSETS];
 extern char dictionary_name[40];
 extern char ctrl_embedded;    // to allow an alternative CTRL for embedded commands
@@ -554,6 +555,7 @@ extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
 Translator *SelectTranslator(const char *name);
+int SetTranslator2(const char *name);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
 void LoadConfig(void);
 int PhonemeCode(unsigned int mnem);

@@ -1,0 +1,71 @@
+
+// This file is UTF8 encoded 
+// Spelling-to-phoneme words for Turkish
+
+a	a
+b	be
+c	dZE
+ç	tSE
+d	dE
+e	E
+f	fE
+g	g;E
+ğ	jumuS'ak||g;'E
+h	hE
+ı	u#
+i	i
+j	ZE
+k	ka
+l	lE
+m	mE
+n	nE
+o	O
+ö	W
+p	pE
+q	kvE
+r	RE
+s	sE
+ş	SE
+t	tE
+u	u
+ü	y
+v	vE
+w	dubElv'E
+x	Eks
+y	jE
+z	zE
+
+_??	sEmb'Ol
+
+_0	su#fu#r
+_1	bir
+_2	iki
+_3	YtS
+_4	dWrt
+_5	beS
+_6	altu#
+_7	jedi
+_8	sekiz
+_9	dokuz
+_10	on
+_1X	on
+_2X	jirmi
+_3X	otuz
+_4X	ku#rk
+_5X	elli
+_6X	altmu#S
+_7X	jetmiS
+_8X	seksEn
+_9X	doksan
+_0C	jyz
+_0M1	bIn
+_0M2	miljon
+_0M3	miljar
+_dpt	_virg,Yl
+
+
+
+// exceptions
+
+ankara		$1
+

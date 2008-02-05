@@ -45,18 +45,19 @@
 #define phTRILL    0x80
 #define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
-#define phLONG     0x1000
 #define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 #define phBEFOREPAUSE 0x8000  // replace with the link_out phoneme if the next phoneme is a pause
 
-#define phALTERNATIVE    0x0c00   // bits 10,11  specifying use of alternative_ph
+#define phALTERNATIVE    0x1c00   // bits 10,11,12  specifying use of alternative_ph
 #define phBEFOREVOWEL    0x0000
 #define phBEFOREVOWELPAUSE  0x0400
 #define phBEFORENOTVOWEL 0x0c00
+#define phBEFORENOTVOWEL2 0x1000
 #define phSWITCHVOICING  0x0800
 
 #define phNONSYLLABIC 0x100000   // don't count this vowel as a syllable when finding the stress position 
+#define phLONG        0x200000
 
 // fixed phoneme code numbers, these can be used from the program code
 #define phonCONTROL     1
@@ -86,6 +87,8 @@
 #define phonT_REDUCED   25
 #define phonSTRESS_TONIC 26
 #define phonPAUSE_CLAUSE 27
+#define phonSWITCH2     28
+#define phonTOP         28    // highest pre-defined phoneme number
 
 extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
 

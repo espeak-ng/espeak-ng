@@ -1,0 +1,108 @@
+
+// Turkish translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+        a        a
+
+.group b
+        b        b
+
+.group c
+        c        dZ
+
+.group ç
+        ç        tS
+
+.group d
+        d        d
+
+.group e
+        e        e
+
+.group f
+        f        f
+
+.group g
+        g        g
+
+.group ğ
+        ğ        Q
+     A) ğ        :
+
+.group h
+        h        h
+
+.group i
+        i        i
+
+.group ı
+        ı        u#
+
+.group j
+        j        Z
+
+.group k
+        k        k
+
+.group l
+        l        l
+
+.group m
+        m        m
+
+     @) ma (_S2  m%a
+     @) me (_S2  m%e
+     @) mı (_S2  m%u#
+
+.group n
+        n        n
+
+.group o
+        o        o
+
+.group ö
+        ö        W
+
+.group p
+        p        p
+
+.group q
+        q        k
+
+.group r
+        r        r
+
+.group s
+        s        s
+
+.group ş
+        ş        S
+
+.group t
+        t        t
+
+.group u
+        u        u
+
+.group ü
+        ü        y
+
+.group v
+        v        v
+
+.group w
+        w        v
+
+.group x
+        x        ks
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+.group
+        $        dolar
