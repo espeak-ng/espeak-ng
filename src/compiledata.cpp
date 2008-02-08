@@ -83,6 +83,7 @@ extern int Read4Bytes(FILE *f);
 extern void MakeVowelLists(void);
 extern void FindPhonemesUsed(void);
 extern void DrawEnvelopes();
+extern int LoadEnvelope2(FILE *f, const char *fname);
 extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname, int flags);
 
 static int markers_used[8];
@@ -101,6 +102,7 @@ typedef struct {
 int n_envelopes = 0;
 char envelope_paths[N_ENVELOPES][80];
 unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
+FILE *f_phdata;
 
 
 
@@ -132,7 +134,6 @@ private:
 	int LoadSpect(const char *path, int control);
 	int LoadWavefile(FILE *f, const char *fname);
 	int LoadEnvelope(FILE *f, const char *fname);
-	int LoadEnvelope2(FILE *f, const char *fname);
 	int LoadDataFile(const char *path, int control);
 	int AddSpect(int phcode, int *list, int control);
 	void AddSpectList(int *list, int control);
@@ -142,7 +143,6 @@ private:
 
 
 	FILE *f_in;
-	FILE *f_phdata;
 	FILE *f_phcontents;
 	FILE *f_errors;
 	FILE *f_phindex;
@@ -1707,105 +1707,8 @@ void Compile::CPhonemeFiles()
 }  //  end of CPhonemeFiles
 
 
-//#define MAKE_ENVELOPES
-#ifdef  MAKE_ENVELOPES 
 
-#define ENV_LEN  128
-void MakeEnvelope(unsigned char *env, float *points_x, float *points_y)
-{//====================================================================
-	int ix = -1;
-	int x,y;
-	
-	for(x=0; x<ENV_LEN; x++)
-	{
-		if(x > points_x[ix+4])
-			ix++;
-
-		y = (int)polint(&points_x[ix],&points_y[ix],4,x);
-		if(y < 0) y = 0;
-		if(y > 255) y = 255;
-		env[x] = y;
-	}	
-}
-
-static float env1_x[]={0,0x30,0x40,ENV_LEN};
-static float env1_y[]={0,200,255,255};
-static float env2_x[]={0,0x28,0x48,0x60,ENV_LEN};
-static float env2_y[]={255,0xe0,0xc0,0x60,0};
-static float env3_x[]={0,0x18,0x30,ENV_LEN};
-static float env3_y[]={0,0x28,0x50,255};
-static float env4_x[]={0,0x20,0x40,0x60,ENV_LEN};
-static float env4_y[]={255,0x70,0,0x70,255};
-static float env5_x[]={0,0x20,0x40,0x58,0x70,ENV_LEN};
-static float env5_y[]={0,0x28,0x50,0xa0,0xf0,255};
-static float env6_x[]={0,0x20,0x38,0x60,ENV_LEN};
-static float env6_y[]={255,0xe8,0xd0,0x68,0};
-
-static float env7_x[]={0,0x20,0x40,0x60,ENV_LEN};    // 214
-static float env7_y[]={85,42,0,128,255};
-static float env8_x[]={0,0x20,0x40,0x60,ENV_LEN};    // 211
-static float env8_y[]={255,130,20,10,0};
-static float env9_x[]={0,0x20,0x40,0x60,ENV_LEN};    // 51 fall
-static float env9_y[]={255,210,140,70,0};
-
-static float enva3_x[]={0,44,64,84,ENV_LEN};  // amp env for broken tone
-static float enva3_y[]={255,255,160,255,255};
-static float enva6_x[]={0,44,64,80,ENV_LEN};  // amp env for drop tone
-static float enva6_y[]={255,255,255,250,50};
-
-
-unsigned char env_test[ENV_LEN];
-
-void MakeEnvFile(char *fname, float *x, float *y, int source)
-{//==========================================================
-	static char hdr[12] = {'P','I','T','C','H','E','N','V',80,0,120,0};
-	FILE *f;
-	int ix;
-
-	MakeEnvelope(env_test,x,y);
-	f = fopen(fname,"wb");
-
-	if(source)
-	{
-		for(ix=0; ix<128; ix++)
-		{
-			fprintf(f,"0x%.2x,",env_test[ix]);
-			if((ix & 7) == 7)
-				fprintf(f,"\n");
-		}
-	}
-	else
-	{
-		fwrite(hdr,12,1,f);
-		fwrite(env_test,128,1,f);
-	}
-	fclose(f);
-	
-}
-
-
-void make_envs()
-{//=============
-	MakeEnvFile("p_level",env1_x,env1_y,0);
-	MakeEnvFile("p_rise",env5_x,env5_y,0);
-	MakeEnvFile("p_fall",env9_x,env9_y,0);
-	MakeEnvFile("p_214",env7_x,env7_y,0);
-	MakeEnvFile("p_211",env8_x,env8_y,0);
-
-
-	MakeEnvFile("vi_2",env2_x,env2_y,0);
-	MakeEnvFile("vi_5",env3_x,env3_y,0);
-	MakeEnvFile("p_fallrise",env4_x,env4_y,0);
-	MakeEnvFile("vi_6",env6_x,env6_y,0);
-
-
-	MakeEnvFile("vi_5amp",enva3_x,enva3_y,0);
-	MakeEnvFile("vi_6amp",enva6_x,enva6_y,0);
-
-}
-#endif
-
-int Compile::LoadEnvelope2(FILE *f, const char *fname)
+int LoadEnvelope2(FILE *f, const char *fname)
 {//===================================================
 	int ix;
 	int n;

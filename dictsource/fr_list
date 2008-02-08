@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-01-29 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-06 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -299,7 +299,7 @@ des	dez2 $u $nounf
 ?2 des  dez2 $u+ $nounf
 
 
-à	$u $brk
+à	$u
 au	$u $brk
 aux	$u $brk
 
@@ -309,6 +309,7 @@ par	$u
 pour	$u
 en	$u
 (en effet) A~nEf'E $brk
+(en suspens) A~||sysp'A~
 
 vers	$u
 avec	$u
@@ -371,6 +372,7 @@ y       i:gR'Ek      $atend
 consent          kO~s'A~t2
 scient           si
 bénéficient      benefisi $verb
+charisme      karism
 concurrent       kO~kyR'A~
 content          kO~t@-t2 $verb
 couvent          k'uvt2  $verb
@@ -431,7 +433,9 @@ souris       suri
 
 
 
+mens	      mA~z2
 sens	      sA~s
+sens	      sA~z2 $verb
 c'est         sEt2 $u+
 qu'à          ka
 m'y              mi $verbf
@@ -518,7 +522,6 @@ bluetooth 		blut'us
 boy		bOj
 byte		bajt
 bytes		bajts
-cleaner 		kli:n@r
 (cyber link) 		sibEr||link
 debian		dEbjAn
 driver		drajv@rz2
@@ -527,14 +530,19 @@ emacs		Emaks
 emacspeak	Emakspi:k
 espeak		@spi:k
 ethernet	etERnEt
+exit	egzit
 firefox		faj@RfOks
+(fire wire)		faj@R||wajr
+firewire		faj@Rwajr
 google		gu:g'@l
 girl		g@Rl
 gnome		gnom
 gnu		gnu
+hamburger		_!A~b@rg@r
 insight		insajt
 internet	E~tERnEt
 (internet explorer) E~tErn'Et||EksplOr'@r
+klaxon          klaksOn
 leader          li:d@R
 light 		lajt
 link 		link
@@ -549,6 +557,7 @@ movy      		mu:v'i
 new		nj'u
 news		nj'uz
 night		najt
+not		nOt
 ok         oke
 open            Op'@n
 outlook         autluk
@@ -565,11 +574,13 @@ spybot		spajbOt
 sun		s@n
 sunlight	s@nlajt
 (text aloud) tEkst||@lawd
+then	DEn $u
 thunderbird	f@ndERb@Rd
 ubuntu		ubuntu
 update		@pd'E:jt
 upload	@plod
 viavoice	viavOjs
+while		wajll
 windows		windoz
 word		wWRd
 wright		_^_EN
@@ -623,6 +634,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

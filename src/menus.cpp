@@ -52,7 +52,7 @@ wxMenuBar *MakeMenu(int type)
 		file_menu->Append(SPECTSEQ_SAVE, _("&Save"));
 		file_menu->Append(SPECTSEQ_SAVEAS, _("Save &As"));
 		file_menu->Append(SPECTSEQ_SAVESELECT, _("Save Selection"));
-//		file_menu->Append(SPECTSEQ_SAVEPITCH, _T("Save Pitch &Envelope"));
+		file_menu->Append(SPECTSEQ_SAVEPITCH, _T("Save Pitch &Envelope"));
 		file_menu->Append(SPECTSEQ_CLOSE, _("&Close"));
 //		file_menu->Append(MENU_CLOSE_ALL, _T("Close &All"));
 	}

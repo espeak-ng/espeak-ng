@@ -521,8 +521,9 @@ void DrawEnvelopes()
 	int ix_env;
 	int y_base;
 	int x;
+	FILE *f_txt=NULL;
 	unsigned char *env;
-	char name[80];
+	char name[200];
 
 	wxBitmap bitmap(WD_ENV,HT_ENV*n_envelopes);
 
@@ -533,6 +534,8 @@ void DrawEnvelopes()
 	dc.SetFont(*wxSWISS_FONT);
 	dc.Clear();
 
+	sprintf(name,"%s%s",path_source,"envelopes.txt");
+//	f_txt = fopen(name,"w");
 
 	for(ix_env=0; ix_env<n_envelopes; ix_env++)
 	{
@@ -553,9 +556,22 @@ void DrawEnvelopes()
 		{
 			dc.DrawLine(x*2, y_base-env[x]/2, (x+1)*2, y_base-env[x+1]/2);
 		}
+
+		if(f_txt != NULL)
+		{
+			fprintf(f_txt,"%s\n",name);
+			for(x=0; x<128; x++)
+			{
+				fprintf(f_txt," 0x%.2x,",env[x]);
+				if((x & 0xf) == 0xf)
+					fputc('\n',f_txt);
+			}
+			fputc('\n',f_txt);
+		}
 	}
 
 	bitmap.SaveFile(path_phsource+_T("/envelopes.png"),wxBITMAP_TYPE_PNG);
-
+	if(f_txt != NULL)
+		fclose(f_txt);
 }
 

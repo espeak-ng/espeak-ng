@@ -156,7 +156,7 @@ public:
 	int Save(wxOutputStream& stream, int selection);
 	int Load(wxInputStream& stream);
 	void Draw(wxDC &dc, int start_y, int end_y);
-	void MakePitchenv(PitchEnvelope &pitch);
+	void MakePitchenv(PitchEnvelope &pitch, int start_frame, int end_frame);
 	void MakeWave(int start, int end, PitchEnvelope &pitch);
 
 	void InterpolatePeaks(int on);

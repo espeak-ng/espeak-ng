@@ -1,16 +1,17 @@
-name Mandarin test
+name Mandarin
 language zh
 gender male
 words 1
+pitch 80 118
 
 //for some dialects
 
 //[en]: replace ng with n
-//[zh]: ÎÞºó±ÇÒô£¬ng¶Á³Én
+//[zh]: ï¿½Þºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ngï¿½ï¿½ï¿½n
 //replace 0 N n
 
 //[en]: replace rfx consonants
-//[zh]: ÎÞ¾íÉàÒô£¬r¶Á³Él»òz£¬er¶Á³Ée
+//[zh]: ï¿½Þ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½rï¿½ï¿½ï¿½lï¿½ï¿½zï¿½ï¿½erï¿½ï¿½ï¿½e
 //replace 0 ts.h tsh
 //replace 0 ts. ts
 //replace 0 s. s
@@ -20,10 +21,10 @@ words 1
 //replace 0 @r @
 
 //[en]: replace beginning n or l
-//[zh]: ²»·Önl£¬n¶Á³Él»òl¶Á³Én
+//[zh]: ï¿½ï¿½ï¿½ï¿½nlï¿½ï¿½nï¿½ï¿½ï¿½lï¿½ï¿½lï¿½ï¿½ï¿½n
 //replace 2 n l
 //replace 2 l n
 
 //[en]: replace beginning w with v
-//[zh]: w¶Á³Év
+//[zh]: wï¿½ï¿½ï¿½v
 //replace 0 w  v

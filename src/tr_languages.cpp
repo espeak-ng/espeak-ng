@@ -718,7 +718,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('z','h'):
 	case L_zhy:
 		{
-			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 230,300};
+			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 240,290};
 			static const unsigned char stress_amps_zh[] = {22,16, 22,22, 22,22, 22,22 };
 
 			tr = new Translator;

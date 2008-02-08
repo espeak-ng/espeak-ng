@@ -1272,8 +1272,8 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"x-low",20},
 		{"low",50},
 		{"medium",100},
-		{"high",125},
-		{"x-high",150},
+		{"high",140},
+		{"x-high",180},
 		{NULL, -1}};
 
 	static const MNEM_TAB *mnem_tabs[5] = {

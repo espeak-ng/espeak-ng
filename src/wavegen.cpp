@@ -1630,7 +1630,7 @@ if(option_log_frames)
 	range =  (wvoice->pitch_range * embedded_value[EMBED_R])/50;
 
 	// compensate for change in pitch when the range is narrowed or widened
-	base -= (range - wvoice->pitch_range)*20;
+	base -= (range - wvoice->pitch_range)*18;
 
 	pitch_base = base + (pitch1 * range);
 	pitch_range = base + (pitch2 * range) - pitch_base;

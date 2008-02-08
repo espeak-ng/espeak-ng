@@ -45,6 +45,8 @@
 // (D  will match on a digit and also if no digit is present. (special for tone
 language).
 
+// 儿 兒  erhua
+
 .group a
        a        A
        ai	ai
@@ -189,6 +191,9 @@ language).
        ue	yE //üe
        ui	uei
        u (DnK	u@
+    k) u (DnK   wu@
+   _h) u (DnK	wu@
+    t) u (DnK   wu@
        uo	uo
 
   L01) u	y   /// j,q,x,y + u

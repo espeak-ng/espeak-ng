@@ -79,8 +79,15 @@ void InitProsodyDisplay()
 	menu_envelopes->Append(0x101,_T("Rise"));
 	menu_envelopes->Append(0x102,_T("Fall-rise"));
 	menu_envelopes->Append(0x103,_T("Fall-rise (R)"));
-	menu_envelopes->Append(0x104,_T("Fall-2"));
-	menu_envelopes->Append(0x106,_T("Fall-3"));
+	menu_envelopes->Append(0x104,_T("Fall-rise 2"));
+	menu_envelopes->Append(0x105,_T("Fall-rise 2(R)"));
+	menu_envelopes->Append(0x106,_T("Rise-fall"));
+
+	menu_envelopes->Append(0x108,_T("Fall-rise 3"));
+	menu_envelopes->Append(0x10a,_T("Fall-rise 4"));
+	menu_envelopes->Append(0x10c,_T("Fall 2"));
+	menu_envelopes->Append(0x10e,_T("Rise 2"));
+	menu_envelopes->Append(0x110,_T("Rise-fall-rise"));
 
 	menu_prosody = new wxMenu;
 	menu_prosody->Append(1,_T("Pitch envelope"),menu_envelopes);
@@ -353,7 +360,7 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 	for(ix=0; ix<=width; ix+=4)
 	{
 		x = int((ix * 127.9)/width);
-		pitch = ph->pitch1 + (pitchr * env[x])/256;
+		pitch = p1 + (pitchr * env[x])/256;
 		y = y1-int(pitch * scaley);
 		if(ix > 0)
 			dc.DrawLine(x1+ix-4,y2,x1+ix,y);

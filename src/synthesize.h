@@ -241,7 +241,7 @@ void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
 
 
-extern unsigned char *envelope_data[16];
+extern unsigned char *envelope_data[18];
 extern int formant_rate[];         // max rate of change of each formant
 extern int speed_factor1;
 extern int speed_factor2;

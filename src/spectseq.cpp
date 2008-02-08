@@ -791,8 +791,8 @@ void SpectSeq::CopyDown(int frame, int direction)
 }  //  end of CopyDown
 
 
-void SpectSeq::MakePitchenv(PitchEnvelope &pitchenv)
-{//=================================================
+void SpectSeq::MakePitchenv(PitchEnvelope &pitchenv, int start_frame, int end_frame)
+{//=================================================================================
 	double f;
 	double min=8000;
 	double max=0;
@@ -808,7 +808,7 @@ void SpectSeq::MakePitchenv(PitchEnvelope &pitchenv)
 
 	memset(pitchenv.env,127,128);
 
-	for(ix=0; ix<numframes; ix++)
+	for(ix=start_frame; ix<=end_frame; ix++)
 	{
 		if((f = frames[ix]->pitch) == 0) continue;
 		nx++;
@@ -837,7 +837,7 @@ void SpectSeq::MakePitchenv(PitchEnvelope &pitchenv)
 	ay = new float[nx+1];
 
 	nx = 0;
-	for(ix=0; ix<numframes; ix++)
+	for(ix=start_frame; ix<=end_frame; ix++)
 	{
 		if((f = frames[ix]->pitch) == 0) continue;
 

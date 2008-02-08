@@ -15,8 +15,8 @@
       eo  13  111
      jbo   4  112
       fi  40  130
-      fr  43  124
-   fr_ca  11  124
+      fr  44  125
+   fr_ca  11  125
       hi  50  135
       ta  15  137
       hu  23  115
@@ -41,7 +41,7 @@
       is  32  124
       vi  42  137
      zhy  40  132
-      zh  62  147
+      zh  64  148
       sw  14  108
       th  50  142
       id  14  120
@@ -180,6 +180,7 @@ dzh/xdzh        [dZ] base
                 [dZ;] ru
 dzh/xdz_pzd     [J] base
                 [J2] hi
+envelope/i_risefall  [11] zh
 envelope/p_214  [214] zh
                 [5] th
 envelope/p_451  [3] th
@@ -188,7 +189,6 @@ envelope/p_fall  [2] vi
                 [7] vi
                 [1] zhy
                 [4] zhy
-                [11] zh
                 [21] zh
                 [51] zh
                 [22] zh
@@ -415,7 +415,6 @@ n^/n^i          [(i)] base
 n/ni            [(i)] base
                 [n] zh
 nn/inn          [(i)] base
-                [N] zh
 n/nj            [n] base
                 [n.] base
                 [n^] base
@@ -601,6 +600,8 @@ ufric/sh_pzd    [S;] base
 ufric/sh_pzd_   [S;] base
                 [Z;] base
 ufric/sh_rfx    [s.] base
+                [s.] zh
+ufric/sh_sr     [S#] zh
 ufric/sh_sr.wav  [S] sr
                 [Z] sr
                 [dZ] sr
@@ -693,11 +694,13 @@ ustop/k_unasp_  [k] zh
 ustop/null      [?] base
 ustop/p         [p] base
                 [p] fr
+                [p2] fr
                 [ph] hi
                 [p] zhy
                 [ph] th
 ustop/p_        [p] base
                 [p] fr
+                [p2] fr
                 [ph] hi
                 [ph] zh
 ustop/percus10  [(X1] base
@@ -1242,6 +1245,7 @@ vowel/a_3       [a] en_sc
                 [a:] cs
                 [a:] la
                 [a] is
+                [A] zh
 vowel/a#_3      [a2] en
                 [a2] en_n
                 [a2] en_us
@@ -1267,7 +1271,6 @@ vowel/aa        [a] fi
                 [A] no
                 [A:] no
                 [aa] zhy
-                [A] zh
 vowel/aa#       [0] en_wi
                 [a2] fi
 vowel/aa_2      [A:] en
@@ -1649,6 +1652,7 @@ vowel/uu_2      [U] base2
                 [U] ta
                 [U] tr
 vowel/uu_3      [u] af
+                [y] zh
 vowel/uu_4      [U] fi
                 [U] sv
 vowel/uu_bck    [U] en_n

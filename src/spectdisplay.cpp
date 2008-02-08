@@ -405,31 +405,33 @@ void SpectDisplay::Save(const wxString &path, int selection)
 
 
 void SpectDisplay::SavePitchenv(PitchEnvelope &pitch)
-{//==============================================
+{//==================================================
 	// save the pitch envelope
 
 	int  ix;
+	FILE *f_env;
 	wxString filename;
+	char fname[200];
 
 	filename = wxFileSelector(_T("(Save pitch envelope"),path_pitches,_T(""),_T(""),_T("*"),wxSAVE);
 	if(filename.IsEmpty())
 		return;
 
-	wxFileOutputStream stream(filename);
-	if(stream.Ok() == FALSE)
+	strcpy(fname, filename.mb_str(wxConvLocal));
+	f_env = fopen(fname,"w");
+	if(f_env == NULL)
 	{
-		wxLogError(_T("Failed to write '%s'"),filename.c_str());
+		wxLogError(_T("Failed to write ")+filename);
 		return;
 	}
 
-	wxDataOutputStream s(stream);
-
-	s.Write32(FILEID1_PITCHENV);
-	s.Write32(FILEID2_PITCHENV);
-	s.Write16(pitch.pitch1);   // Hz
-	s.Write16(pitch.pitch2);  // Hz
 	for(ix=0; ix<128; ix++)
-		s.Write8(pitch.env[ix]);
+	{
+		fprintf(f_env," 0x%.2x,",pitch.env[ix]);
+		if((ix & 0xf) == 0xf)
+			fprintf(f_env,"\n");
+	}
+	fclose(f_env);
 }  // end of SpectDisplay::SavePitchenv
 
 
@@ -958,7 +960,7 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	setlocale(LC_NUMERIC,"C");    // read numbers in the form 1.23456
 	spectseq->Load(stream);
 	spectseq->name = leaf;
-	spectseq->MakePitchenv(spectseq->pitchenv);
+	spectseq->MakePitchenv(spectseq->pitchenv,0,spectseq->numframes-1);
 
 	if(event.GetId() == MENU_SPECTRUM)
 		path_spectload = path.GetPath();

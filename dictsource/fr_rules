@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-04 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-06 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -28,6 +28,8 @@
 		a (il_      a
 		aie (me     E		// paiement
 		ai          E		// aile
+		a (lk       O		// talk
+		a (ll_       O		// football handball
 		am (b       A~		// jambon
 		am (p       A~		// camp
 		am (m       a		// programmation
@@ -58,11 +60,14 @@
 		cch         k		// bacchanale
 		cc (Y       ks		// accéder
 		cc          k		// occuper
+	ar)	ch (éo      k		// archéologue
 	ar)	ch (ét      k		// archétype architecte
 	_A)	ch (o_      k		// écho
+	_eu)	ch (ari      k		// eucharistie
 	or) 	ch (esC     k		// orchestre
 	or) 	ch (iC      k		// orchidée
 	sy) 	ch (o       k		// psycho
+	_) 	ch (ao      k		// chaos, chaotique
 	_) 	ch (or      k		// chorale
 		ch (r       k		// chrétien
 		ch (l       k
@@ -98,6 +103,8 @@
 	Csan)	d (_        d
 	_tan)	d (_        d		// stand
 	Ctan)	d (_        d
+	for)	d (_        d
+	lor)	d (_        d
 
 	Can)	d (_        t2 		// grand ami, grand marchand
 	Cen)	d (_        t2
@@ -116,6 +123,8 @@
 .group e
 		e (Ce_      E
 		eau         o		// bateau cheveaux
+	Cr)	ea (m		i:      		// stream
+	Cl)	ea (n		i:      		// clean
 	j)	e (a        		// Jean Jeanne
 	sp)	ea (k  	i:      		// speak speaker
 	p)	ect (_      E		// suspect
@@ -124,7 +133,9 @@
 	_pi)	ed          e		// pied
 		ee          i:		// meeting
 	_cl)	ef (_       e		// clef
-	k)	e (r_       @		// maker
+	Ck)	e (r_       @		// worker, talker
+	eaC)	e (r_       @		// speaker, streamer
+	ooC)	e (r_       @		// scooter
 		ein (C      E~		// peindre
 		ein (_      E~
 		e (il       E		// vieille
@@ -199,17 +210,18 @@
 	Ci)	en (C       E~      	// tien
 	Ci)	en (c       A~      	// science
 
-	_am)	en (_       En      	// amen
 
 	AA)	en (_       E~
-	AC)	en (_       E~      	// examen
+	C)	en (_       En      	// amen, abdomen, golden
+	xam)	en (_       E~      	// examen
 	CA)	en (_       E~      	// rien
-	CC)	en (_       E~
 
 		en (s_      A~
 		en (CA      A~      	// pentathlon
 		en (CC      A~      	// entre
 		en (ch_      En      	// french
+	sp)	ens (_      Ens  // suspens
+	éC)	ens (_      A~z2  // dépens démens
 
 	_C)	er (_       ER      	// fer
 	_Ch)	er (_       ER      	// cher
@@ -395,6 +407,7 @@ _)		h	(ac	_!		// hache
 _)		h	(ai	_!		// haine haillon
 _)		h	(al	_!		// halte
 _)		h	(amea	_!		// hameau
+_)		h	(amb	_!		// hamburger
 _)		h	(amp	_!		// hampe
 _)		h	(an	_!		// hanche
 _)		h	(app	_!		// happer
@@ -412,6 +425,7 @@ _)		h	(eurt	_!		// heurter
 _)		h	(ibo	_!		// hibou
 _)		h	(ide	_!		// hideux
 _)		h	(oll	_!		// hollandais
+_)		h	(oma	_!		// homard
 _)		h	(ong	_!		// hongrois
 _)		h	(ont	_!		// honte
 _)		h	(ord	_!		// horde
@@ -527,7 +541,6 @@ _)		h	(utte_	_!		// hutte
 		o (mm       O		// comme
 	radi) 	o (C      o		// radiophonique
 	dr) 	o (me_      O		// vélodrome
-	ph)	o (ne_	    O	// téléphone
 		om (b       O~		// bombe
 		om (p       O~		// pompe
 	n) 	om (_       O~		// nom
@@ -538,32 +551,34 @@ _)		h	(utte_	_!		// hutte
 		onh (A      On		// bonhomme
 
 	_b)	on (_A      On		// liaison: bon élève
-	_m)	on (_A      O~n		// mon appui
-	_s)	on (_A      O~n
-	_t)	on (_A      O~n
+	_b)	on (_h      O~n2		// liaison: bon hiver
+	_C)	on (_      O~n2		// mon appui, mon histoire, mon havre
+	_c)	on (_      O~		// no comment
 
 	z) 	o (ne_      o		// amazone
 	c) 	o (ne_      o
 	h) 	o (ne_      o
+	ph)	o (ne_	    O	// téléphone
 	r) 	o (ne_      o
-	z) 	o (nes_     o
-	c) 	o (nes_     o
-	h) 	o (nes_     o
-	r) 	o (nes_     o
 
 	alc)	oo (l       O		// alcool
+		oo  (Ce     u		// boomer
+	C)	oot        ut		// bootable football
 	z) 	oo          o		// zoo
+	z)	oo (l       oo		// zoologue
+	z)	oo (m       u		// zoom
 		oo (X       u		// pool
 	_gal)	op (_       o		// galop
 
 	_sir) 	op (_       o		// sirop
 
-	_tr)	op (_       o		// trop
+	_tr)	op (_       op2		// trop
 	v) 	ost (_      o		// Prévost
 		o (sA       o		// poser
 		ot (_       o		// mot dépots
-	c) 	oup (_      u		// beaucoup
-	l) 	oup (_      u		// loups
+	C) 	ou (nd      aw		// sound, found
+	_C) 	oup (_      u		// coup, loup
+	uC) 	oup (_      up2		// beaucoup
 
 
 		ou          u		// hibou brouillard
@@ -612,12 +627,13 @@ _)		h	(utte_	_!		// hutte
 
 .group q
 		q           k		// coq
- 	_a)	qu (a      ku		// aquarium
- 	_a)	qu (if      ku		// aquifère
+ 	_a)	qu (a      kw		// aquarium
+ 	_a)	qu (if      kw		// aquifère
  	_A)	qu (idist      ky		// équidistant
- 	_A)	qu (ilat      ky		// équilatéralt
- 	_C)	qu (a      ku		// squale square
- 	_A)	qu (a      ku		// équateur
+ 	_A)	qu (ilat      ky		// équilatéral
+ 	_C)	qu (a      kw		// squale square
+ 	_A)	qu (a      kw		// équateur
+ 	_)	qu (artz      kw		// quartz
 		qu          k		// quatre
  	_)	que (_      k@		// que
 	_)	qu' (P3     k		// qu'il
@@ -764,6 +780,7 @@ C)		te (_      t@-  		// patte
 	uc)	un (_       W~n2	// aucun
 		un (_      W~n2	// un avion
 
+	fl) 	ux (_		y		// flux, reflux
 	g) 	u (A		// fatigue
 	g) 	u (ï	    y	// ambiguïté
 	g) 	u (ë        y	// ambiguë

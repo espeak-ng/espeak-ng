@@ -5,7 +5,7 @@
 
 phoneme 11   //  tone: low level
   stress
-  tone 12 9 envelope/p_fall NULL
+  tone 12 9 envelope/i_risefall NULL
 endphoneme
 
 phoneme 21   //  tone: low fall
@@ -125,7 +125,7 @@ phoneme k
   vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
   lengthmod 2
-  wave ustop/k_unasp_
+  wave ustop/k_unasp_%75
 endphoneme
 
 phoneme kh
@@ -157,12 +157,30 @@ phoneme S;
   wave ufric/sh_pzd
 endphoneme
 
+phoneme S#
+  vls pla frc sibilant
+  vowelin f1=0  f2=2700 400 600  f3=300 80
+  lengthmod 2
+  wave ufric/sh_sr%20
+endphoneme
+
+phoneme s.
+  vls pla frc sibilant
+  vowelin  f1=0  f2=1800 -100 300  f3=-300 80
+  vowelout f1=0  f2=1800 -100 300  f3=-300 80
+  length 100
+  lengthmod 3
+  wave ufric/sh_rfx%60   // quieter
+  before _ ufric/sh_rfx%50
+endphoneme
+
+
 phoneme ts
   vls alv afr sibilant
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave ustop/ts_unasp%50
+  wave ustop/ts_unasp%70
 endphoneme
 
 phoneme tsh
@@ -212,12 +230,12 @@ endphoneme
 
 phoneme N //should be more different from n
   vcd vel nasal
-  vowelout f1=2 f2=1900 200 400  f3=400 80  len=50 rms=15 brk
+  vowelout f1=2 f2=1900 0 300  f3=400 80  len=50 rms=15 brk
   formants NULL
   before _ nn/nn2_
   after _ nn/_nn
   lengthmod 7
-  after (i) nn/inn
+//  after (i) nn/inn
 endphoneme
 
 phoneme a
@@ -230,7 +248,7 @@ endphoneme
 phoneme A
   vowel starttype (a) endtype (a)
   length 250
-  formants vowel/aa
+  formants vowel/a_3
   before N vowel/aa_2
 endphoneme
 
@@ -367,7 +385,7 @@ endphoneme
 
 phoneme u@
   vowel starttype (u) endtype (@)
-  length 250
+  length 230
   formants vdiph2/o@
 endphoneme
 
@@ -384,9 +402,10 @@ phoneme uo
 endphoneme
 
 phoneme y
-  vowel  starttype (i)  endtype (i)
+  vowel  starttype (i)  endtype (u)
   length 250
   formants vowel/y_2
+  before N vowel/uu_3
 endphoneme
 
 phoneme yu  //try more before N

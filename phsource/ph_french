@@ -121,7 +121,7 @@ endphoneme
 phoneme A~
   vowel  starttype (a) endtype (a)
   length 180
-  formants vnasal/aa_n2
+  formants vnasal/aa_n2 // silent unless followed by vowel
 endphoneme
 
 
@@ -292,6 +292,17 @@ phoneme p
 endphoneme
 
 
+phoneme p2 // silent unless followed by vowel
+  beforenotvowel NULL
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  lengthmod 2
+  wave ustop/p%45
+  before _ ustop/p_%45
+endphoneme
+
+
 phoneme r
   vcd uvl frc starttype r endtype r
   vowelin f1=0  f2=800 -100 100  f3=-400 100
@@ -418,5 +429,6 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 
 

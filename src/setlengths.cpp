@@ -518,6 +518,8 @@ void Translator::CalcLengths()
 			{
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
 				length_mod += 20;
+				if(emphasized)
+					length_mod += 10;
 			}
 			else
 			if(emphasized)
@@ -564,6 +566,7 @@ if(p->type != phVOWEL)
 				// set pitch for pre-vocalic part
 				if(pitch_start - last_pitch > 8)   // was 9
 					last_pitch = pitch_start - 8;
+
 				prev->pitch1 = last_pitch;
 				prev->pitch2 = pitch_start;
 				if(last_pitch < pitch_start)
