@@ -723,7 +723,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 			UngetC(c2);
 			if(option_ssml)
 			{
-				if(c1 == '<')
+				if((c1 == '<') || (c1 == '&'))
 					ssml_ignore_l_angle = c1;  // this was &lt; which was converted to <, don't pick it up again as <
 			}
 			ungot_char2 = c1;
@@ -1791,7 +1791,7 @@ f_input = f_in;  // for GetC etc
 
 		if((option_ssml) && (phoneme_mode==0))
 		{
-			if((c1 == '&') && ((c2=='#') || ((c2 >= 'a') && (c2 <= 'z'))))
+			if((ssml_ignore_l_angle != '&') && (c1 == '&') && ((c2=='#') || ((c2 >= 'a') && (c2 <= 'z'))))
 			{
 				n_xml_buf = 0;
 				c1 = c2;
@@ -1829,7 +1829,7 @@ f_input = f_in;  // for GetC etc
 				}
 			}
 			else
-			if((c1 == '<') && !ssml_ignore_l_angle)
+			if((c1 == '<') && (ssml_ignore_l_angle != '<'))
 			{
 				// SSML Tag
 				n_xml_buf = 0;

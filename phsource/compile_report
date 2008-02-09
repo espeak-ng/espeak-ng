@@ -18,7 +18,7 @@
       fr  44  125
    fr_ca  11  125
       hi  50  135
-      ta  15  137
+      ta  16  138
       hu  23  115
       nl  28  122
       pl  15  110
@@ -359,6 +359,7 @@ l/l_long        [l] base
                 [l;] ro
 l/lo            [(o)] base
                 [l] fr
+l^/l_rfx        [l.] ta
 l/lu            [(u)] base
                 [l] fr
 l/tl            [l] base

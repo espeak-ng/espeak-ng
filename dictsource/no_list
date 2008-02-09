@@ -37,8 +37,8 @@ z      sEt
 _0        n'Ul
 _1        'e:n
 _2        t'u:
-_3        t@-*'e:
-_4        f'i:*E
+_3        tR'e:
+_4        f'i:RE
 _5        f'Em
 _6        s'Eks
 _7        S'u-:
@@ -47,26 +47,26 @@ _9        n'i:
 _10       t'i:
 _11       'Elv@2
 _12       t'Olv
-_13       t@-*'Et:@n
-_14       fj'Urt@n
+_13       tR'Et:@n
+_14       fj'URt@n
 _15       f'Emt@n
 _16       s'Ekst@n
 _17       s'yt:@n
 _18       'At:@n
 _19       n'It:@n
 _2X       s;'u-:@2
-_3X       t@-*'Et:i:
-_4X       f'Y:rti:
+_3X       tR'Et:i:
+_4X       f'Y:Rti:
 _5X       f'Emti:
 _6X       s'Eksti:
 _7X       s'yt:i:
 _8X       'Ot:i:
 _9X       n'It:i:
-_0C       h'u-nd@-*@2
-_1C       'Et||h'u-nd@-*@2
+_0C       h'u-ndR@2
+_1C       'Et||h'u-ndR@2
 _0M1      t'u-:s@n
 _1M1      'Et||t'u-:s@n
-_0M2      m'Illi:;,u:n@r
+_0M2      m'Illi:;,u:n@R
 _1M2      'e:n||m'Illi:;,u:n
 
 _0and     u:g
@@ -75,34 +75,34 @@ _dpt      kOmmA
 // punctuation and symbols
 //========================
 
-_!	u-:t@-*u:pstENn
-_"	AnfY:rS@l
-_#	nu-mm@rtENn
-_$	dOllA:r
- %	p@-*'u:s'Ent
- &	O:g
-_'	ApUst@-*'u:f
-_(	pa*aNt'e:s||b@j'ynn@r
-_)	pa*aNt'e:s||Sl'u-t:
-_*	ss;arn@2
- +	plu-s
+_!	u-:tRu:pstENn
+_"	AnfY:RS@l
+_#	nu-mm@RtENn
+_$	dOllA:R
+%	pR'u:s'Ent
+&	O:g
+_'	ApUstR'u:f
+_(	paRaNt'e:s||b@j'ynn@R
+_)	paRaNt'e:s||Sl'u-t:
+_*	ss;aRn@2
++	plu-s
 _,	kOmmA
-_-	st@-*e:k
+_-	stRe:k
 _.	pu-Nktu-:m
- /	sk@-*Ost@-*@k
+/	skROstR@k
 _:	ku:lOn
 _;	se:mi:ku:lOn
-_<	mInd@-*@2||En
-_=	arli:k
+_<	mIndR@2||En
+_=	aRli:k
 _>	stWR@||En
-_?	spWrSmOlstENn
- @	k@-*WllAlfA
-_[	v'Enst@-*@2||h'A:ke:pa*aNt'e:s
-_\	OmvEndt||sk@-*Ost@-*@k
-_]	h'Yy*@2||h'A:ke:pa*aNt'e:s
- ^	sIrku-mflEks
-__	u-ndarSt@-*@k
-_`	'OmvEndt||ApUst@-*'u:f
+_?	spWRSmOlstENn
+@	kRWllAlfA
+_[	v'EnstR@2||h'A:ke:paRaNt'e:s
+_\	OmvEndt||skROstR@k
+_]	h'YyR@2||h'A:ke:paRaNt'e:s
+^	sIRku-mflEks
+__	u-ndaRStR@k
+_`	'OmvEndt||ApUstR'u:f
 
 
 
@@ -118,7 +118,7 @@ ei	$u
 
 
 // pronouns
-jeg	jaI $u+
+jeg	jE:I $u+
 du	$u+
 han	$u+
 hun	$u+
@@ -211,7 +211,7 @@ ikke	$u
 // auxillary verbs  (be, have, can, etc)
 
 være	$u+
-er	,E:r
+er	,E:R
 var	$u
 vært	$u
 
@@ -254,8 +254,8 @@ i      i:   $atend
 // MAIN WORD DICTIONARY
 //*********************
 
-der         dE:r
-her         hE:r
+der         dE:R
+her         hE:R
 kom         kOm
 loe         lu:		$capital
 system      syst'e:m

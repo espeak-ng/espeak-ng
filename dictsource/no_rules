@@ -128,11 +128,7 @@
         qu       kw
 
 .group r
-        r        r
-        rr       R
-     K) r        @-*
-     A) r (A     *
-     r) r
+        r        R
         rs (_    S
 
 .group s
@@ -210,9 +206,9 @@
         é        'e:
         ü        y:
 
-	$        dOllA:r
-	\\       OmvEndt||sk@-*Ost@-*@k
-        !        _:'u-:t@-*u:pstENn_:
+	$        dOllA:R
+	\\       OmvEndt||skROstR@k
+        !        _:'u-:tRu:pstENn_:
      !) !
 
         .        pu-Nktu-:m
@@ -224,12 +220,12 @@
    C_)  - (_D    _
     --) -
 
-        *        ss;arn@2
+        *        ss;aRn@2
     *)  * (*
         **
    **)  * (_     _::
 
-        =            arli:k
+        =            aRli:k
         = (==        
     =)  = (=         
    ==)  = (_         _::

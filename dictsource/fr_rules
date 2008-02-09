@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-06 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-08 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -38,7 +38,8 @@
 		a  (nnA     a		// manne
 		an (C       A~		// ancien
 		an (_       A~		// élan
-		aoû         u		// août
+	s)	aoul  (_        u		// saoul
+		aoû         ut		// août
 		au (l_      O		// Paul
 		au          o		// autruche
 		aud (_         o		// chaud
@@ -60,8 +61,11 @@
 		cch         k		// bacchanale
 		cc (Y       ks		// accéder
 		cc          k		// occuper
-	ar)	ch (éo      k		// archéologue
-	ar)	ch (ét      k		// archétype architecte
+	_)	ch (arism      k		// charisme, charismatique
+	_ar)	ch (a      k		// archange, archaïque
+	_ar)	ch (é      k		// archéologue
+	_ar)	ch (o      k		// archonte, archosaurien
+	_anar)	ch (o      k		// anarchosyndicalisme
 	_A)	ch (o_      k		// écho
 	_eu)	ch (ari      k		// eucharistie
 	or) 	ch (esC     k		// orchestre
@@ -135,6 +139,7 @@
 	_cl)	ef (_       e		// clef
 	Ck)	e (r_       @		// worker, talker
 	eaC)	e (r_       @		// speaker, streamer
+	ght)	e (r_       @		// writer, fighter
 	ooC)	e (r_       @		// scooter
 		ein (C      E~		// peindre
 		ein (_      E~
@@ -152,6 +157,7 @@
 		en (A       A~n		// enivrer
 
 	C)	en (d_      A~		// comprend dépend
+	od)	en (dr      E~		// rhododendron
 	C)	en (ds_     A~
 	cipi)	en (C     A~		// récipient
 	qu)	en (d_      A~
@@ -299,12 +305,12 @@
 	_qu) 	e (_        @		// que
 
 	CC) 	e (_C       @-
-	CC) 	es (_C       @-
+	CC) 	es (_C       @-z2
 	-j) 	e (_       @-
 	gu) 	e (_C       @-
-	gu) 	es (_C       @-
+	gu) 	es (_C       @-z2
 	qu) 	e (_C       @-
-	qu) 	es (_C       @-
+	qu) 	es (_C       @-z2
 
 	 	e (_       		// montre
 
@@ -335,6 +341,7 @@
 
  		e (CC       E  		// infect pelle mettre
  		e (C_       E
+ 		es (_       z2
 
 	ll) 	e (m       		// actuellement guillemets
 
@@ -411,36 +418,71 @@ _)		h	(amb	_!		// hamburger
 _)		h	(amp	_!		// hampe
 _)		h	(an	_!		// hanche
 _)		h	(app	_!		// happer
+_)		h	(ara	_!		// haranguer
 _)		h	(arc	_!		// harceler
-_)		h	(ari	_!		// haricot haridelle
-_)		h	(arna	_!		// harnais
 _)		h	(ard	_!		// hardi
+_)		h	(are	_!		// hareng, haret
+_)		h	(arf	_!		// harfang
+_)		h	(argn	_!		// hargne
+_)		h	(ari	_!		// haricot haridelle
+_)		h	(arn	_!		// harnais
 _)		h	(arp	_!		// harpe
+_)		h	(as	_!		// hasard, hase
+_)		h	(âs	_!		// hâte
 _)		h	(au	_!		// haut
 _)		h	(av	_!		// havre
+_)		h	(eau	_!		// heaume
+_)		h	(él	_!		// hélas, héler
+_)		h	(èl	_!		// hèlement
+_)		h	(enn	_!		// henné, hennir
+_)		h	(enr	_!		// henri
+_)		h	(ère	_!		// hère
+_)		h	(ériss	_!		// hérisser, hérisson
 _)		h	(ern	_!		// hernie
 _)		h	(éro	_!		// héros, héron
 _)		h	(ers	_!		// herse
+_)		h	(ertz	_!		// hertz
+_)		h	(êtr	_!		// hêtre, hêtraie
+_)		h	(eula	_!		// heulandite
 _)		h	(eurt	_!		// heurter
+_)		h	(iat	_!		// hiatal, hiatus
 _)		h	(ibo	_!		// hibou
+_)		h	(ic	_!		// hic
 _)		h	(ide	_!		// hideux
+_)		h	(iér	_!		// hiéroglyphe
+_)		h	(i-fi	_!		// hi-fi
+_)		h	(igh	_!		// highlandais
+_)		h	(i-han	_!		// hi-han
+_)		h	(iss	_!		// hisser
+_)		h	(it	_!		// hit, hit-parad
+_)		h	(ob	_!		// hobby, hobereau
+_)		h	(och	_!		// hocher
+_)		h	(ock	_!		// hockey
+_)		h	(old	_!		// holding, hold-up
 _)		h	(oll	_!		// hollandais
 _)		h	(oma	_!		// homard
-_)		h	(ong	_!		// hongrois
+_)		h	(ondu	_!		// Honduras
+_)		h	(ong	_!		// Hongrie
+_)		h	(onn	_!		// honnir
 _)		h	(ont	_!		// honte
+_)		h	(oqu	_!		// hoquet
 _)		h	(ord	_!		// horde
 _)		h	(ou	_!		// houpe
-_)		h	(uit_	_!		// huit
-_)		h	(ul	_!		// hululer
-_)		h	(um	_!		// humer
+_)		h	(orio	_!		// horion
+_)		h	(ormi	_!		// hormis
+_)		h	(ors	_!		// hors, horsain
+_)		h	(osan	_!		// hosanna
+_)		h	(ot	_!		// hot-dog, hotte
+_)		h	(ou	_!		// houle, housse
+
+_)		h	(u	_!
+_)		h	(uiss			// huissier
+_)		h	(uî			// huître
 _)		h	(umain			// humain
 _)		h	(umani			// humanité
 _)		h	(umb			// humble
 _)		h	(umi			// humide
 _)		h	(umo			// humour
-_)		h	(un	_!		// huns
-_)		h	(ure_	_!		// hure
-_)		h	(utte_	_!		// hutte
 		h			// ahuri
 
 
@@ -451,6 +493,8 @@ _)		h	(utte_	_!		// hutte
 		i (es_      i		// parties
 		i (e_       i
 		i (A        j		// fermier portier patio renier
+		ig (ht        aj		// right, fight, light
+	wh)	ile         ajll		// while, endwhile
 	_)	ill         ill		// illégal
 	_m)	ill         il		// mille
 	v)	ill         il		// village
@@ -482,6 +526,8 @@ _)		h	(utte_	_!		// hutte
 .group ï
 		ïn (C       E~		// coïncider
 		ïn (_       E~
+		ïs        is  // maïs, archaïsme
+		ï (q       i  // archaïquee
 	a) 	ï           j		// aïeul
 		ï           i		// ambiguïté
 
@@ -534,6 +580,10 @@ _)		h	(utte_	_!		// hutte
 	_) 	oi (gnon    O		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
+C)		oing (_      o'iN		// going
+c)		oing (_      wE~		// coing
+p)		oing (_      wE~		// poing
+		oing (_      wE~		// poing, coing
 		oi          wa		// poil
 		oid (_       wa		// froid
 		oê (l       wa		// poêle
@@ -653,6 +703,7 @@ mou)	rr          RR		// mourrai
 		s           s		// verser sien
 
 		s (_S1      z2
+e)		s (_h      z2
 
 	_)	s' (P2      s		// s'amène
 		sç 	    s		// immisça
@@ -666,6 +717,7 @@ mou)	rr          RR		// mourrai
 		ss          s		// assez
 
 	ai) 	s (em       s		// vraisemblable
+	archo) 	s        s		// anarchosyndicalisme
 	ub)	s (is       z		// subsister
 	han)	s (on       s		// chanson
 	A) 	s (A        z		// baiser
@@ -830,7 +882,8 @@ C)		te (_      t@-  		// patte
 		ym (b       E~	// symbolique
 		ym (p       E~	// tympan
 		y (nn       i
-		y (n_       i
+		y (nA       i
+		yx (_       iks
 
 		yn          E~	// laryngite
 

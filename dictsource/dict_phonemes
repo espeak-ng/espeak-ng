@@ -171,15 +171,14 @@ v    v2   w    x    z
 
 Dictionary no_dict
 
-@    @-   @2   a    A    a:   A:   AI   
-aI   aU   E    E:   e:   I    i:   O    
-o:   OI   U    u-   u-:  u-I  u:   W    
-y    y:   Y:   Yy   
+@    @2   a    A    a:   A:   AI   aI   
+aU   E    E:   e:   I    i:   O    o:   
+OI   U    u-   u-:  u-I  u:   W    y    
+y:   Y:   Yy   
 
-*    :    ;    b    d    f    g    h    
-j    k    l    m    n    N    p    r    
-R    s    S    s;   t    v    w    x    
-z    
+:    ;    b    d    f    g    h    j    
+k    l    m    n    N    p    r    R    
+s    S    s;   t    v    w    x    z    
 
 
 Dictionary pl_dict

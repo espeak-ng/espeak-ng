@@ -1,11 +1,11 @@
-
+/
 
 
 // This file in UTF8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-06 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-08 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -330,6 +330,7 @@ où	$brk
 suis	$u+  $verb
 es	Ez2 $u+  $verb
 est	Et2  $u+
+ès	Es $u
 d'est	d'Est
 sommes  $u+
 êtes	$u+
@@ -372,10 +373,10 @@ y       i:gR'Ek      $atend
 consent          kO~s'A~t2
 scient           si
 bénéficient      benefisi $verb
-charisme      karism
 concurrent       kO~kyR'A~
 content          kO~t@-t2 $verb
 couvent          k'uvt2  $verb
+(couvent couvent)         kuvA~||k'uvt2
 dessus          d@sy
 dessous          d@su
 divers          divErz2
@@ -516,8 +517,11 @@ flirt		fl@Rt
 
 
 // words from other languages
+about		@bawt
 amazon		amaz'On
 (audible manager) od'ibl||manadZ'@r
+be		bi
+by		baj
 bluetooth 		blut'us
 boy		bOj
 byte		bajt
@@ -539,12 +543,17 @@ girl		g@Rl
 gnome		gnom
 gnu		gnu
 hamburger		_!A~b@rg@r
+his		iz $u
+inside		insajd
 insight		insajt
 internet	E~tERnEt
 (internet explorer) E~tErn'Et||EksplOr'@r
+is		iz
+it		it
+its		its
 klaxon          klaksOn
 leader          li:d@R
-light 		lajt
+let 		lEt
 link 		link
 liszt 		list
 lite 		lajt
@@ -554,9 +563,9 @@ maker     		mE:jk@r
 media     		medja
 messenger 		mesEnZ'@r
 movy      		mu:v'i
+my		maj
 new		nj'u
 news		nj'uz
-night		najt
 not		nOt
 ok         oke
 open            Op'@n
@@ -574,16 +583,20 @@ spybot		spajbOt
 sun		s@n
 sunlight	s@nlajt
 (text aloud) tEkst||@lawd
+the	D@ $u
+them	DEm $u
+there	DEr $u
+they	DE $u
 then	DEn $u
 thunderbird	f@ndERb@Rd
+time	tajm
+timer	tajm@r
 ubuntu		ubuntu
 update		@pd'E:jt
 upload	@plod
 viavoice	viavOjs
-while		wajll
 windows		windoz
 word		wWRd
-wright		_^_EN
 writer		rajt@r
 yacht		jot
 yes		jEs $brk

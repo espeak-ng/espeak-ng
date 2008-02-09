@@ -279,7 +279,7 @@ static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
    {PITCHfrise,  35, 8,  PITCHfrise2, 35,10, NULL, 15, 23, 0},     // 1 comma
    {PITCHfrise,  39,10,  PITCHfrise2, 36,10, NULL, 15, 28, 0},     // 2 question
 //   {PITCHfall,   41, 4,  PITCHfall,   41,27, NULL, 16, 4, T_EMPH},  // 3 exclamation
-   {PITCHfall,   43, 3,  PITCHfall,   45,35, NULL, 35, 4, T_EMPH},  // 3 exclamation
+   {PITCHfall,   43, 3,  PITCHfall,   43,35, NULL, 35, 4, T_EMPH},  // 3 exclamation
 //   {PITCHrisefall,47, 8, PITCHrise,   48,30, NULL, 48, 5, T_EMPH},  // 3 exclamation
    {PITCHfall,   38, 2,  PITCHfall,   42,30, NULL, 15, 5, 0},      // 4 statement, emphatic
    {PITCHfall,   28, 5,  PITCHfall,   28, 9, NULL, 12, 7, 0},      // 5 statement, less intonation
