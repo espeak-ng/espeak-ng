@@ -147,21 +147,14 @@ phoneme tS;h
   vls pal afr sibilant palatal
   vowelin f1=0  f2=2700 400 600  f3=300 80
   lengthmod 2
-  wave ustop/tsh_pzd
+  wave ustop/tsh_pzd%80
 endphoneme
 
 phoneme S;
   vls pla frc sibilant
   vowelin f1=0  f2=2700 400 600  f3=300 80
   lengthmod 2
-  wave ufric/sh_pzd
-endphoneme
-
-phoneme S#
-  vls pla frc sibilant
-  vowelin f1=0  f2=2700 400 600  f3=300 80
-  lengthmod 2
-  wave ufric/sh_sr%20
+  wave ufric/sh_pzd2%20
 endphoneme
 
 phoneme s.
@@ -170,7 +163,7 @@ phoneme s.
   vowelout f1=0  f2=1800 -100 300  f3=-300 80
   length 100
   lengthmod 3
-  wave ufric/sh_rfx%60   // quieter
+  wave ufric/sh_rfx%50   // quieter
   before _ ufric/sh_rfx%50
 endphoneme
 
@@ -429,5 +422,5 @@ endphoneme
 phoneme y@
   vowel  starttype (i)  endtype (@)
   length 250
-  formants vdiph2/y#@
+  formants vdiph2/y@
 endphoneme

@@ -310,6 +310,9 @@ void Translator::CalcLengths()
 			else
 				p->prepause = 60;
 
+			if(prev->type == phSTOP)
+				p->prepause = 60;
+
 			if((langopts.word_gap & 0x10) && (p->newword))
 				p->prepause = 60;
 

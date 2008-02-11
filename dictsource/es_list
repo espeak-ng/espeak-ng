@@ -4,70 +4,70 @@
 // letters
 
 _cap	m'aJ^us
-_??	s'imbolo
+_??	s'imbOlo
 _#32	Esp'aTjo
 
 
 // names of symbols
 _.	punto
-_,	koma
-_;	p,untoik'oma
-_:	d,osp'untos
-_!	TE*R'aRaDmi**aTj'on
-_?	TE*R'aRintE*R,oQaTj'on
-_¡	aB@-*'iRaDmi**aTj'on
-_¿	aB@-*'iRintE*R,oQaTj'on
+_,	kOma
+_;	p,untOik'Oma
+_:	d,Osp'untOs
+_!	TE*R'aRaDmi**aTj'On
+_?	TE*R'aRintE*R,OQaTj'On
+_¡	aB@-*'iRaDmi**aTj'On
+_¿	aB@-*'iRintE*R,OQaTj'On
 _=	iQw'al
-_<	mEn'oRke
-_>	maJ^'oRke
-_'	apost@-*'ofo
-_"	kom'iJ^as
-_+	s'iQnodesum'aR
-_$	dolar
-_#	almoaD'il^a
+_<	mEn'ORke
+_>	maJ^'ORke
+_'	apOst@-*'Ofo
+_"	kOm'iJ^as
+_+	s'iQnOdesum'aR
+_$	dOlar
+_#	almOaD'il^a
 _*	astE*'isko
-_-	gJ^on
+_-	gJ^On
 __	suB@-*aJ^'aDo
 _/	ba*Ra
 _\	b'a*RaimbERt'iDa
-_`	aT'Entog@-*'aBe
+_`	aT'EntOg@-*'aBe
 _(	,aB@-*epa**'EntEsis
 _)	Tj,E*Rapa**'EntEsis
-_[	,aB@-*ekoRtS'Ete
-_]	Tj,E*RakoRtS'Ete
+_[	,aB@-*ekORtS'Ete
+_]	Tj,E*RakORtS'Ete
 _{	,aB@-*eJ^'aBe
 _}	Tj,E*RaJ^'aBe
-_«	kom'iJ^as||iTkJ^'ERDas
-_»	kom'iJ^as||dE**'EtSas
+_«	kOm'iJ^as||iTkJ^'ERDas
+_»	kOm'iJ^as||dE**'EtSas
 
 ^	TiRkumfl'Exo
 €	eU*o
-%	porTj'Ento
+%	pOrTj'Ento
 &	ampERs'ant
-@	a*R'oBa
+@	a*R'OBa
 /	ba*Ra
-©	kopi*R'aIt
+©	kOpi*R'aIt
 £	liB@-*as
 ¶	p'a*Rafo
-§	sEkTj'on
+§	sEkTj'On
 
 
 // numbers
 _0	TE*o
 _1	'uno
-_2	d'os
+_2	d'Os
 _3	t@-*'es
 _4	kw'at@-*o
 _5	T'inko
 _6	s'eIs
 _7	sj'Ete
-_8	'otSo
+_8	'OtSo
 _9	nw'Eve
 _1X	dj'ET
-_11	'onTe
-_12	d'oTe
+_11	'OnTe
+_12	d'OTe
 _13	t@-*'ETe
-_14	kat'oRTe
+_14	kat'ORTe
 _15	k'inTe
 _20	v'eInte
 _2X	v'eInt
@@ -76,23 +76,23 @@ _4X	kwa*'Enta
 _5X	Tinkw'Enta
 _6X	sEs'Enta
 _7X	sEt'Enta
-_8X	otS'Enta
-_9X	nov'Enta
-_0C	T'ientos
+_8X	OtS'Enta
+_9X	nOv'Enta
+_0C	T'ientOs
 _1C0	T'ien         // exactly one hundred
 _1C	T'iento
-_5C	kinj'Entos
-_7C	s,EtETj'Entos
-_9C	n,ovETj'Entos
+_5C	kinj'EntOs
+_7C	s,EtETj'EntOs
+_9C	n,OvETj'EntOs
 _0M1	m'il
 _1M1	m'il          // no '1' before thousand
-_0M2	mil^'ones
-_1M2	'unmil^'on
-_0M4	_bil^'ones
-_1M4	'unbil^'on
+_0M2	mil^'Ones
+_1M2	'unmil^'On
+_0M4	_bil^'Ones
+_1M4	'unbil^'On
 _0and	i
-_dpt	koma
-//_roman	Rom'ano
+_dpt	kOma
+//_roman	ROm'ano
 
 vi	vi	// not a Roman number
 

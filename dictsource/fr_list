@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-08 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-10 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -178,6 +178,7 @@ ac		$abbrev
 adsl		$abbrev
 alt $pause
 amd		$abbrev
+anpe             $abbrev
 api		$abbrev
 avh		$abbrev
 cci              $abbrev
@@ -198,6 +199,7 @@ mme		madam
 mr		m@sjY
 nti             $abbrev
 nvda             $abbrev
+ong             $abbrev
 pci             $abbrev
 pda             $abbrev
 p.s		postskRiptOm
@@ -417,21 +419,39 @@ absent        absA~
 accident      aksidA~
 adéquat       adekuat2
 adéquate      adekuat
+airbus	      Erbys
+anus     anys
+any     Eni
 ardent        aRdA~
+bissus    bisys
+bonus     bonys
 bus	      bys
+bus	      by  $verb
+campus   kA~pys
+casus    kazys
 choeur        k@r
+cocus     coky
 discident     disidA~
+eye	      aj
+eyes	      ajz
 fils	      fis
 imprudent     E~pRydA~
 juin	      ZyE~
+malus      malys
+many     mEni
 mars	      maRs
+minus      minys
 occident      OksidA~
 orient        ORjA~
 pays	      pEi
+phallus    falys
 prudent       pRydA~
 secret        sYkRE
 souris       suri
-
+sus       sys
+sus       sy $verb
+to       tu
+vénus       venys
 
 
 mens	      mA~z2
@@ -518,6 +538,7 @@ flirt		fl@Rt
 
 // words from other languages
 about		@bawt
+acer             asEr
 amazon		amaz'On
 (audible manager) od'ibl||manadZ'@r
 be		bi
@@ -554,7 +575,6 @@ its		its
 klaxon          klaksOn
 leader          li:d@R
 let 		lEt
-link 		link
 liszt 		list
 lite 		lajt
 (mac os x)	makoEsiks
@@ -577,7 +597,6 @@ release	rili:z
 schubert	SubER
 screamer		skri:m@r
 (search & destroy) s@:rS_||end_||dEsstrOj
-shrink		Sr'ink
 skype 		sk'ajp@-
 spybot		spajbOt
 sun		s@n

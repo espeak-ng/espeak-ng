@@ -9,7 +9,7 @@ phoneme E
   formants vowel/e_mid
 endphoneme
 
-phoneme o
+phoneme O
   vowel starttype (o) endtype (o)
   length 170
   formants vowel/oo

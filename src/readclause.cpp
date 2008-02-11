@@ -1695,6 +1695,7 @@ MNEM_TAB xml_char_mnemonics[] = {
 	{"amp", '&'},
 	{"quot", '"'},
 	{"nbsp", ' '},
+	{"apos", '\''},
 	{NULL,-1}};
 
 
@@ -1723,12 +1724,17 @@ int Translator::ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_
 	int n_xml_buf;
 	int terminator;
 	int punct;
+	int found;
 	int any_alnum = 0;
 	int self_closing;
 	int punct_data;
 	const char *p;
-	char buf2[40];
 	wchar_t xml_buf[N_XML_BUF+1];
+
+#define N_XML_BUF2   12
+	char buf2[N_XML_BUF2+2];
+	static char ungot_string[N_XML_BUF2+4];
+	static int ungot_string_ix = -1;
 
 	if(clear_skipping_text)
 	{
@@ -1752,14 +1758,13 @@ f_input = f_in;  // for GetC etc
 	if(ungot_char2 != 0)
 	{
 		c2 = ungot_char2;
-		ungot_char2 = 0;
 	}
 	else
 	{
 		c2 = GetC();
 	}
 
-	while(!Eof() || (ungot_char != 0))
+	while(!Eof() || (ungot_char != 0) || (ungot_char2 != 0) || (ungot_string_ix >= 0))
 	{
 		if(!iswalnum(c1))
 		{
@@ -1782,12 +1787,31 @@ f_input = f_in;  // for GetC etc
 
 		cprev = c1;
 		c1 = c2;
-		c2 = GetC();
 
-		if(Eof())
+		if(ungot_string_ix >= 0)
 		{
-			c2 = ' ';
+			if(ungot_string[ungot_string_ix] == 0)
+				ungot_string_ix = -1;
 		}
+
+		if((ungot_string_ix == 0) && (ungot_char2 == 0))
+		{
+			c1 = ungot_string[ungot_string_ix++];
+		}
+		if(ungot_string_ix >= 0)
+		{
+			c2 = ungot_string[ungot_string_ix++];
+		}
+		else
+		{
+			c2 = GetC();
+
+			if(Eof())
+			{
+				c2 = ' ';
+			}
+		}
+		ungot_char2 = 0;
 
 		if((option_ssml) && (phoneme_mode==0))
 		{
@@ -1795,34 +1819,47 @@ f_input = f_in;  // for GetC etc
 			{
 				n_xml_buf = 0;
 				c1 = c2;
-				while(!Eof() && (iswalnum(c1) || (c1=='#')) && (n_xml_buf < 12))
+				while(!Eof() && (iswalnum(c1) || (c1=='#')) && (n_xml_buf < N_XML_BUF2))
 				{
 					buf2[n_xml_buf++] = c1;
 					c1 = GetC();
 				}
 				buf2[n_xml_buf] = 0;
 				c2 = GetC();
+				sprintf(ungot_string,"%s%c%c",&buf2[0],c1,c2);
 
-				if(buf2[0] == '#')
+				if(c1 == ';')
 				{
-					// character code number
-					c1 = '#';  // in case there isn't a number
-					if(buf2[1] == 'x')
-						sscanf(&buf2[2],"%x",(unsigned int *)(&c1));
+					if(buf2[0] == '#')
+					{
+						// character code number
+						if(buf2[1] == 'x')
+							found = sscanf(&buf2[2],"%x",(unsigned int *)(&c1));
+						else
+							found = sscanf(&buf2[1],"%d",&c1);
+					}
 					else
-						sscanf(&buf2[1],"%d",&c1);
+					{
+						if((found = LookupMnem(xml_char_mnemonics,buf2)) != -1)
+						{
+							c1 = found;
+							if(c2 == 0)
+								c2 = ' ';
+						}
+					}
 				}
 				else
 				{
-					if((j = LookupMnem(xml_char_mnemonics,buf2)) != -1)
-					{
-						c1 = j;
-					}
-					else
-					{
-						c1 = '&';
-					}
+					found = -1;
 				}
+
+				if(found <= 0)
+				{
+					ungot_string_ix = 0;
+					c1 = '&';
+					c2 = ' ';
+				}
+
 				if((sayas_mode == 0x14) && (c1 <= 0x20))
 				{
 					c1 += 0xe000;  // move into unicode private usage area

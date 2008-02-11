@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-08 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-10 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -151,6 +151,7 @@
 		em (me      a		// femme patiemment
 		em (b       A~		// décembre
 		em (m       A~		// emmancher
+		em (manu       e		// emmanuel
 		em (p       A~
 		en (_       A~n2		// en
 		en (hA      A~n		// enharmonique
@@ -425,12 +426,14 @@ _)		h	(are	_!		// hareng, haret
 _)		h	(arf	_!		// harfang
 _)		h	(argn	_!		// hargne
 _)		h	(ari	_!		// haricot haridelle
+_)		h	(ark	_!		// harka
 _)		h	(arn	_!		// harnais
 _)		h	(arp	_!		// harpe
 _)		h	(as	_!		// hasard, hase
 _)		h	(âs	_!		// hâte
 _)		h	(au	_!		// haut
 _)		h	(av	_!		// havre
+
 _)		h	(eau	_!		// heaume
 _)		h	(él	_!		// hélas, héler
 _)		h	(èl	_!		// hèlement
@@ -445,6 +448,7 @@ _)		h	(ertz	_!		// hertz
 _)		h	(êtr	_!		// hêtre, hêtraie
 _)		h	(eula	_!		// heulandite
 _)		h	(eurt	_!		// heurter
+
 _)		h	(iat	_!		// hiatal, hiatus
 _)		h	(ibo	_!		// hibou
 _)		h	(ic	_!		// hic
@@ -455,6 +459,7 @@ _)		h	(igh	_!		// highlandais
 _)		h	(i-han	_!		// hi-han
 _)		h	(iss	_!		// hisser
 _)		h	(it	_!		// hit, hit-parad
+
 _)		h	(ob	_!		// hobby, hobereau
 _)		h	(och	_!		// hocher
 _)		h	(ock	_!		// hockey
@@ -476,6 +481,7 @@ _)		h	(ot	_!		// hot-dog, hotte
 _)		h	(ou	_!		// houle, housse
 
 _)		h	(u	_!
+_)		h	(uil			// huile
 _)		h	(uiss			// huissier
 _)		h	(uî			// huître
 _)		h	(umain			// humain
@@ -511,6 +517,7 @@ _)		h	(umo			// humour
 		ing (_      iN		// parking
 		in (h       in		// inhumain
 		inct (_     E~		// distinct
+		ink (_     ink		// link, pink
 		in (n       i		// innombrable
 		in (C       E~		// vingt
 		    //		in (_       E~		// vin
@@ -574,6 +581,7 @@ _)		h	(umo			// humour
 		o (che_       O		// poche, cloche
 		oe (ll      wa		// moelleux
 	_)	oe (C       Y		// oesophage
+	_ph)	oe (t       Y		// phoetus
 		oeu       @		// soeur coeur
 		oeufs       @		// oeufs boeufs
 		o (eC       o		// coefficient
@@ -727,21 +735,35 @@ e)		s (_h      z2
 	xpan) 	s (A        s		// expansion
 
 
-	ibu) 	s (_        s
+	_u) 	s (_        s
+	Cu) 	s (_
+	Abu) 	s (_        s
+	_Abu) 	s (_
 	mbu) 	s (_        s
-
-	cu) 	s (_        s		// focus phallus cumulus minus
-	iu) 	s (_        s
+	Acu) 	s (_        s
+	écu) 	s (_
+	odu) 	s (_        s
+	gu) 	s (_        s
+	igu) 	s (_               // aigus
+	iu) 	s (_        s      // radius
+	ïu) 	s (_        s      // laïus
+	Culu) 	s (_        s   // cumulus
+	plu) 	s (_        z2     // plus, surplus
 	mu) 	s (_        s
-	nu) 	s (_        s
-	pu) 	s (_        s
-	llu) 	s (_        s
-	ulu) 	s (_        s
+	_mu) 	s (_
+	ému) 	s (_
+	opu) 	s (_        s // opus, octopus
+	Aru) 	s (_        s // virus
+	aru) 	s (_         // disparus
+	psu) 	s (_        s // lapsus
 
 	atu) 	s (_        s		// stratus cactus motus
-	ctu) 	s (_        s
+	ctu) 	s (_        s     // cactus
+	etu) 	s (_        s
+	aitu) 	s (_
 	itu) 	s (_        s
-	otu) 	s (_        s
+	ltu) 	s (_        s     // altus
+	otu) 	s (_        s     // motus
 
 	_tou)	s (_C
 	_tou) 	s (_        s
@@ -817,8 +839,10 @@ C)		te (_      t@-  		// patte
 		u           y	// cruel nuage brut
 		ui          w^i
 
+	_b)	usi       iz  // business, businessman
 	c)	ueill       Wj  // cueillir
 	c) 	ueil (_     Wj  // recueil
+	_c) 	ul (_     y
 	g)	ueill       Wj	// orgueilleux
 	g) 	ueil (_     Wj	// orgueil
 
@@ -883,6 +907,7 @@ C)		te (_      t@-  		// patte
 		ym (p       E~	// tympan
 		y (nn       i
 		y (nA       i
+		ys (_       is
 		yx (_       iks
 
 		yn          E~	// laryngite

@@ -41,7 +41,7 @@
       is  32  124
       vi  42  137
      zhy  40  132
-      zh  64  148
+      zh  63  147
       sw  14  108
       th  50  142
       id  14  120
@@ -597,15 +597,14 @@ ufric/sh_       [S] base
                 [s#] pt_pt
 ufric/sh_pzd    [S;] base
                 [S;] ro
-                [S;] zh
 ufric/sh_pzd_   [S;] base
                 [Z;] base
-ufric/sh_rfx    [s.] base
-                [s.] zh
-ufric/sh_sr     [S#] zh
-ufric/sh_sr.wav  [S] sr
+ufric/sh_pzd2   [S] sr
                 [Z] sr
                 [dZ] sr
+                [S;] zh
+ufric/sh_rfx    [s.] base
+                [s.] zh
 ufric/s_pzd     [s;] base
                 [z;] base
                 [s;] ro
@@ -802,7 +801,7 @@ ustop/tsh_pzd   [tS;] zh
                 [ch] th
 ustop/tsh_pzd_unasp  [tS;] zh
                 [c] th
-ustop/tsh_sr.wav  [tS] sr
+ustop/tsh_sr    [tS] sr
 ustop/ts_pzd    [tS;] base
                 [ts;] base
                 [ch] hi
@@ -816,7 +815,7 @@ ustop/t_sr      [d] sr
                 [t] zh
 ustop/ts_rfx    [ts.] zh
 ustop/ts_rfx_unasp  [ts.] zh
-ustop/ts_sr.wav  [tS;] sr
+ustop/ts_sr     [tS;] sr
                 [dZ;] sr
 ustop/ts_unasp  [ts] zh
 ustop/t_unasp   [t] th
@@ -872,8 +871,8 @@ vdiph2/uu@      [U@] en
                 [u@] vi
                 [ua] th
                 [u:a] th
+vdiph2/y@       [y@] zh
 vdiph2/y#@      [Y@] af
-                [y@] zh
 vdiph2/yu       [yU] nl
                 [yu] zh
 vdiph2/y-y#     [yY] fi
@@ -1541,7 +1540,7 @@ vowel/oo        [O:] en_sc
                 [O@] en_wi
                 [O] de
                 [o] eo
-                [o] es
+                [O] es
                 [o] el
                 [O] sv
                 [O] no

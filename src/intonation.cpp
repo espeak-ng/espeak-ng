@@ -275,12 +275,11 @@ static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
 };
 
 static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
-   {PITCHfall,   30, 5,  PITCHfall,   30, 8, NULL, 12, 7, 0},      // 0 statement
+   {PITCHfall,   30, 5,  PITCHfall,   32, 9, NULL, 12, 7, 0},      // 0 statement
    {PITCHfrise,  35, 8,  PITCHfrise2, 35,10, NULL, 15, 23, 0},     // 1 comma
    {PITCHfrise,  39,10,  PITCHfrise2, 36,10, NULL, 15, 28, 0},     // 2 question
 //   {PITCHfall,   41, 4,  PITCHfall,   41,27, NULL, 16, 4, T_EMPH},  // 3 exclamation
-   {PITCHfall,   43, 3,  PITCHfall,   43,35, NULL, 35, 4, T_EMPH},  // 3 exclamation
-//   {PITCHrisefall,47, 8, PITCHrise,   48,30, NULL, 48, 5, T_EMPH},  // 3 exclamation
+   {PITCHfall,   41, 4,  PITCHfall,   41,35, NULL, 35, 4, T_EMPH},  // 3 exclamation
    {PITCHfall,   38, 2,  PITCHfall,   42,30, NULL, 15, 5, 0},      // 4 statement, emphatic
    {PITCHfall,   28, 5,  PITCHfall,   28, 9, NULL, 12, 7, 0},      // 5 statement, less intonation
    {PITCHfrise,  30, 8,  PITCHfrise2, 30,10, NULL, 13, 20, 0},      // 6 comma, less intonation
@@ -772,6 +771,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 		if((p->type == phPAUSE) && (p->ph->std_length > 50))
 		{
 			pause = 1;  // there is a pause since the previous vowel
+			prevw_tph = phoneme_tab[phonPAUSE];  // forget previous tone
 		}
 
 		if(p->newword)
@@ -817,7 +817,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 					}
 				}
 
-				if(prev_tph->mnemonic == 0x343132)  // [214]
+				if(prevw_tph->mnemonic == 0x343132)  // [214]
 				{
 					if(tph->mnemonic == 0x343132)   // [214]
 						prev_p->tone_ph = LookupPh("35");

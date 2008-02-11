@@ -76,7 +76,7 @@
 
 
 .group j
-       _) j (_       x'ota
+       _) j (_       x'Ota
           j          x
 
 
@@ -109,7 +109,8 @@
 
 .group o
        _) o (_       o
-          o          o
+          o          O
+          o (_       o
           oy (K      oI
           oy (_      'oI
 
@@ -117,6 +118,7 @@
 .group p
        _) p (_       pe
           p          p
+          p (t       p:
 
 
 .group q
@@ -164,14 +166,14 @@
 
 
 .group w
-       _) w (_       ,uBe||d'oBle
+       _) w (_       ,uBe||d'OBle
           w          w
 
 
 .group x
        _) x (_       Ekis
           x          ks
-       A) x (A       Qs
+//       A) x (A       Qs  // ??
           x (_       =Qs
 
 
@@ -194,22 +196,22 @@
           á          ''a
           é          ''E
           í          ''i
-          ó          ''o
+          ó          ''O
           ú          ''u
           ü          u
           ñ          n^
         _)ñ (_       En^e
 
-          $          d'olar
+          $          d'Olar
 
           +          m'as
       _)  ++ (_      masm'as
  \+\+\+)  +          // ignore + after the first 3
 
-          #          almoaD'il^a
+          #          almOaD'il^a
       \#) #
 
-     __)  - (_D      m'Enos
+     __)  - (_D      m'EnOs
      A_)  - (_D      _
      C_)  - (_D      _
       --) -
@@ -223,4 +225,4 @@
           . (.       _:
       \.) .
 
-          , (D       koma
+          , (D       kOma

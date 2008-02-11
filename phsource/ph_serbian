@@ -1,13 +1,3 @@
-// ufric/x_sr
-// ufric/ch_sr
-// ufric/sh_sr
-// ustop/t_sr
-// ustop/ts_sr
-// ustop/tsh_sr
-// r3/r_sr
-// m/m_sr
-// n/n_sr
-// n^/nj_sr
 
 // This file inherits phonemes from ph_croatian
 // Only phonemes which differ from the inherited phonemes need
@@ -97,10 +87,10 @@ phoneme dZ
   vcd pla afr sibilant
   vowelin f1=2  f2=2300 200 400  f3=100 80
   vowelout f1=2  f2=2300 250 300  f3=100 80 brk
-  formants dzh/dzh+ufric/sh_sr.wav
-  before _ dzh/dzh+ufric/sh_sr.wav
+  formants dzh/dzh+ufric/sh_pzd2
+  before _ dzh/dzh+ufric/sh_pzd2
   after _ NULL
-  after @ dzh/dzh+ufric/sh_sr.wav
+  after @ dzh/dzh+ufric/sh_pzd2
   lengthmod 5
   switchvoicing tS
 endphoneme
@@ -109,10 +99,10 @@ endphoneme
 phoneme dZ;
   vcd pla afr sibilant palatal
   vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  formants dzh/dzh+ustop/ts_sr.wav
-  before _ dzh/dzh+ustop/ts_sr.wav
+  formants dzh/dzh+ustop/ts_sr
+  before _ dzh/dzh+ustop/ts_sr
   after _ NULL
-  after @ dzh/dzh+ustop/ts_sr.wav
+  after @ dzh/dzh+ustop/ts_sr
   lengthmod 5
   switchvoicing tS;
 endphoneme
@@ -122,8 +112,8 @@ phoneme tS
   vls pla afr sibilant
   vowelin f1=0  f2=2300 200 400  f3=-100 80
   lengthmod 2
-  wave ustop/tsh_sr.wav%50
-  before _ ustop/tsh_sr.wav%50
+  wave ustop/tsh_sr%50
+  before _ ustop/tsh_sr%50
   switchvoicing dZ
 endphoneme
 
@@ -132,8 +122,8 @@ phoneme tS;
   vls pal afr sibilant palatal
   vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   lengthmod 2
-  wave ustop/ts_sr.wav
-  before _ ustop/ts_sr.wav
+  wave ustop/ts_sr
+  before _ ustop/ts_sr
   switchvoicing dZ;
 endphoneme
 
@@ -144,8 +134,8 @@ phoneme Z
   vcd pla frc sibilant
   vowelin  f1=0  f2=2000 0 300  f3=-200 80
   vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
-  formants voc/zh+ufric/sh_sr.wav%60
-  before _ voc/zh+ufric/sh_sr.wav%50
+  formants voc/zh+ufric/sh_pzd2%60
+  before _ voc/zh+ufric/sh_pzd2%50
   lengthmod 6
   switchvoicing S
 endphoneme
@@ -157,8 +147,8 @@ phoneme S
   vowelout f1=0  f2=2100 100 300  f3=-100 80
   length 100
   lengthmod 3
-  wave ufric/sh_sr.wav%70
-  before _ ufric/sh_sr.wav%60
+  wave ufric/sh_pzd2%70
+  before _ ufric/sh_pzd2%60
   switchvoicing Z
 endphoneme
 

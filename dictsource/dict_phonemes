@@ -89,12 +89,12 @@ r    R    s    t    ts   v    z    Z
 Dictionary es_dict
 
 @-   a    aI   e    E    eI   eU   i    
-o    oI   u    
+o    O    oI   u    
 
-*    **   b    B    d    D    f    g    
-j    J    J^   k    l    l^   m    n    
-n^   p    Q    r    R    s    t    T    
-tS   v    w    x    
+*    **   :    b    B    d    D    f    
+g    j    J    J^   k    l    l^   m    
+n    n^   p    Q    r    R    s    t    
+T    tS   v    w    x    
 
 
 Dictionary fi_dict
@@ -341,9 +341,9 @@ i    i.   i[   iou  o    o-   ou   u
 uai  y    
 
 (u)  :    f    h    j    k    kh   l    
-m    n    N    p    ph   r    s    S#   
-s.   S;   t    th   ts   ts.  ts.  tS;  
-tS;  tsh  v    w    x    z    z.   
+m    n    N    p    ph   r    s    s.   
+S;   t    th   ts   ts.  ts.  tS;  tS;  
+tsh  v    w    x    z    z.   
 
 
 Dictionary jbo_dict
