@@ -89,11 +89,12 @@ endphoneme
 
 phoneme t
   vls alv stop
-  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80  rms=40
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_sr%10
+  wave ustop/t_unasp2%40
 endphoneme
+
 
 phoneme th
   vls alv stop
@@ -231,6 +232,13 @@ phoneme N //should be more different from n
 //  after (i) nn/inn
 endphoneme
 
+phoneme N-   // syllabic N
+  vowel starttype N endtype N
+  length 250
+  formants nn/nn2_
+endphoneme
+
+
 phoneme a
   vowel starttype (a) endtype (a)
   length 250
@@ -337,7 +345,7 @@ phoneme o
   vowel starttype (o) endtype (o)
   length 250
   formants vdiph2/o_oo
-  before N vowel/o_mid
+  before N vnasal/oo_n2
 endphoneme
 
 phoneme o-
@@ -356,6 +364,7 @@ phoneme u //try more before N
   vowel starttype (u) endtype (u)
   length 250
   formants vowel/u_bck
+  before N vnasal/u_n
 endphoneme
 
 phoneme uA
@@ -423,4 +432,10 @@ phoneme y@
   vowel  starttype (i)  endtype (@)
   length 250
   formants vdiph2/y@
+endphoneme
+
+phoneme yi
+  vowel  starttype (i)  endtype (i)
+  length 250
+  formants vdiph/yi
 endphoneme

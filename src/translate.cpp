@@ -1491,8 +1491,9 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 		if(ph_code == phonSYLLABIC)
 		{
 			// mark the previous phoneme as a syllabic consonant
-			ph_list2[n_ph_list2-1].synthflags |= SFLAG_SYLLABLE;
-			ph_list2[n_ph_list2-1].stress = next_stress;
+			prev_vowel = n_ph_list2-1;
+			ph_list2[prev_vowel].synthflags |= SFLAG_SYLLABLE;
+			ph_list2[prev_vowel].stress = next_stress;
 		}
 		else
 		if(ph_code == phonLENGTHEN)

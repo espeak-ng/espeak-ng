@@ -160,9 +160,11 @@
 .group v
        _) v (_       uBe
           v          B
-       _) v          b
-       m) v          b
-       n) v          b
+       _) v          v#
+?1     m) v          b
+?1     n) v          b
+?2        v          v#
+?2     _) v          v
 
 
 .group w
@@ -173,8 +175,9 @@
 .group x
        _) x (_       Ekis
           x          ks
-//       A) x (A       Qs  // ??
+?1     A) x (A       Qs
           x (_       =Qs
+       _) x          z      // ?
 
 
 .group y
@@ -182,7 +185,7 @@
           y          i
        _) y          J
       _m) y          J
-      _n) y          J
+       n) y          J
       _l) y          J
           y (A       J^
 

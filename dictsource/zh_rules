@@ -129,7 +129,8 @@ language).
        ia (DngK	iA
        iao	jAu
        ie	iE
-       io (DngK 	y
+       io (DngK	y
+    q) io (DngK	u 
        iu 	iou 
 
 .group j
@@ -147,6 +148,7 @@ language).
 .group n
        n        n
        ng (K	N     // consider (ng+vowel) as (n g+vowel) ??
+    _) ng (K	N-    // syllablic [N]
 
 .group o
        o        o
@@ -170,6 +172,7 @@ language).
 
 .group r
        r        z.
+       r (K     @r11
 
 .group s
        s        s
@@ -180,8 +183,10 @@ language).
 
 .group u
        u        u
-       ua	wA  //ua uan uang, and uan should be more different from uang
+       ua	wA
        ua (DnK	ua
+    g) ua (DnK	wa
+    k) ua (DnK	wa
        ua (DngK wA
        uai	uai
        ua1i	uai55
@@ -190,16 +195,23 @@ language).
        ua4i	uai51
        ue	yE //üe
        ui	uei
+   sh) ui	wei
        u (DnK	u@
     k) u (DnK   wu@
    _h) u (DnK	wu@
     t) u (DnK   wu@
        uo	uo
 
+   sh) ui	wei
+   sh) u (DnK	wo-
+   sh) uo	wo
+
   L01) u	y   /// j,q,x,y + u
   L01) u (DnK	y@
+    q) u (DnK+  yi
   L01) ua (DnK	y&
   L01) ue	yE
+
 
 .group ü
        ü	y
@@ -234,7 +246,8 @@ language).
 .group y
        y	j //before a o e i
        y (u	//NULL before u
-       y (uDn   j
+       y (uK	;
+       y (uDn   ;
        yo (DngK	yu
        y (K     i    // foreign words
 

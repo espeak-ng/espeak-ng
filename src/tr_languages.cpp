@@ -225,7 +225,7 @@ Translator *SelectTranslator(const char *name)
 	case L('e','s'):   // Spanish
 		{
 			static const short stress_lengths_es[8] = {170, 200,  180, 180,  0, 0,  220, 250};
-			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,22, 22,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,20, 20,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_es,stress_amps_es);

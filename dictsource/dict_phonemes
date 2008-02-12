@@ -11,8 +11,8 @@ Yy
 
 -    :    ;    ?    b    c    d    dZ   
 f    g    h    j    k    l    m    n    
-N    p    r    r-   s    S    t    tS   
-v    w    x2   z    Z    
+N    p    r    s    S    t    tS   v    
+w    x2   z    Z    
 
 
 Dictionary cs_dict
@@ -94,7 +94,7 @@ o    O    oI   u
 *    **   :    b    B    d    D    f    
 g    j    J    J^   k    l    l^   m    
 n    n^   p    Q    r    R    s    t    
-T    tS   v    w    x    
+T    tS   v    v#   w    x    z    
 
 
 Dictionary fi_dict
@@ -337,8 +337,8 @@ x    z    Z
 Dictionary zh_dict
 
 @    @r   a    A    ai   Au   E    ei   
-i    i.   i[   iou  o    o-   ou   u    
-uai  y    
+i    i.   i[   iou  N-   o    o-   ou   
+u    uai  y    
 
 (u)  :    f    h    j    k    kh   l    
 m    n    N    p    ph   r    s    s.   
@@ -399,4 +399,5 @@ u#   W    y    Y
 
 :    ;    b    d    dZ   f    g    h    
 j    k    l    m    n    p    Q    r    
-R    s    S    t    tS   v    z    Z    
+R    s    S    t    tS   v    w    z    
+Z    

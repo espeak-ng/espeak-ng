@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-10 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-11 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -432,10 +432,12 @@ casus    kazys
 choeur        k@r
 cocus     coky
 discident     disidA~
+estomac     Estoma
 eye	      aj
 eyes	      ajz
 fils	      fis
 imprudent     E~pRydA~
+iris	      iris
 juin	      ZyE~
 malus      malys
 many     mEni
@@ -542,20 +544,22 @@ acer             asEr
 amazon		amaz'On
 (audible manager) od'ibl||manadZ'@r
 be		bi
+being		biiN
 by		baj
 bluetooth 		blut'us
-boy		bOj
 byte		bajt
 bytes		bajts
 (cyber link) 		sibEr||link
 debian		dEbjAn
 driver		drajv@rz2
 download	dOnlod
+edit		edit
 emacs		Emaks
 emacspeak	Emakspi:k
 espeak		@spi:k
 ethernet	etERnEt
 exit	egzit
+(file zilla)		fajl@-||zija
 firefox		faj@RfOks
 (fire wire)		faj@R||wajr
 firewire		faj@Rwajr
@@ -564,7 +568,8 @@ girl		g@Rl
 gnome		gnom
 gnu		gnu
 hamburger		_!A~b@rg@r
-his		iz $u
+has		_!az $u
+his		_!iz $u
 inside		insajd
 insight		insajt
 internet	E~tERnEt
@@ -584,16 +589,18 @@ media     		medja
 messenger 		mesEnZ'@r
 movy      		mu:v'i
 my		maj
-new		nj'u
-news		nj'uz
+name		nejm
 not		nOt
 ok         oke
 open            Op'@n
 outlook         autluk
+outside		autsajd
+outsider		autsajd@r
 player    		plEj'@r
-reader          Ri:d@R
+quick    		kwik
 redhat		REdat
 release	rili:z
+same		sejm
 schubert	SubER
 screamer		skri:m@r
 (search & destroy) s@:rS_||end_||dEsstrOj
@@ -602,18 +609,22 @@ spybot		spajbOt
 sun		s@n
 sunlight	s@nlajt
 (text aloud) tEkst||@lawd
+than	Dan
 the	D@ $u
 them	DEm $u
+then	DEn $u
 there	DEr $u
 they	DE $u
-then	DEn $u
 thunderbird	f@ndERb@Rd
 time	tajm
 timer	tajm@r
 ubuntu		ubuntu
 update		@pd'E:jt
 upload	@plod
+very	vEri
 viavoice	viavOjs
+was		waz $u
+window		windo
 windows		windoz
 word		wWRd
 writer		rajt@r

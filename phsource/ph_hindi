@@ -508,9 +508,6 @@ phoneme k
   lengthmod 2
   wave ustop/k_unasp%60   // weaker
   before _ ustop/k_unasp%50
-  before r ustop/kr
-  before l ustop/kl
-  before (i) ustop/ki
   switchvoicing g
 endphoneme
 

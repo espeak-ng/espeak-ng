@@ -1,6 +1,6 @@
 
 //====================================================
-//  Spanish  - based on Italian
+//  Spanish  - based on Base2
 //====================================================
 
 phoneme E
@@ -63,6 +63,17 @@ phoneme r    //   TEST flap ??
   vowelin f1=0  f2=1500 -300 300  f3=-100 80
   formants d/tap4+x/d_%30
   lengthmod 3
+endphoneme
+
+
+phoneme v#   // a shorter [v], a little towards [b]
+  vcd lbd frc
+  vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10
+  lengthmod 6
+  formants voc/v2+vocw/v%75
+  before _ voc/v_+vocw/v%75
+  switchvoicing f
 endphoneme
 
 

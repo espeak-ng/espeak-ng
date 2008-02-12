@@ -605,9 +605,9 @@ phoneme **    //   TEST flap
   vowelout f1=3 f2=1600 -300 300  f3=-300 80 rms=35 len=15
   vowelin f1=2  f2=1600 -300 300  f3=-100 80 len=20
   formants r3/@tap
-  vowelin f1=3  f2=1600 -300 300  f3=-300 80
-  before (i) r3/@tap_i+r3/rx
-  before (e) r3/@tap_i+r3/rx
+//  vowelin f1=3  f2=1600 -300 300  f3=-300 80
+//  before (i) r3/@tap_i+r3/rx
+//  before (e) r3/@tap_i+r3/rx
 endphoneme
 
 
@@ -855,8 +855,8 @@ endphoneme
 
 phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
   vcd pal frc palatal
-  vowelin f1=2  f2=2700 400 600  f3=200 70
-  vowelout f1=2 f2=2700 400 600  f3=200 70 len=100
+  vowelin f1=1  f2=2700 400 600  f3=200 70
+  vowelout f1=1 f2=2700 400 600  f3=200 70 len=100
   lengthmod 6
   formants voc/j+ufric/ch%25
 endphoneme
@@ -1232,6 +1232,9 @@ include ph_latin
 
 phonemetable es base2
 include ph_spanish
+
+phonemetable es_la es
+include ph_spanish_la
 
 phonemetable pt base2
 include ph_pt_brazil

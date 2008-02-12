@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-10 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-11 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //
@@ -38,6 +38,7 @@
 		a  (nnA     a		// manne
 		an (C       A~		// ancien
 		an (_       A~		// élan
+	_C)	aon  (_        A~		// faon, paon, taon
 	s)	aoul  (_        u		// saoul
 		aoû         ut		// août
 		au (l_      O		// Paul
@@ -127,8 +128,10 @@
 .group e
 		e (Ce_      E
 		eau         o		// bateau cheveaux
+	C)	ea (d		i:      		// read
 	Cr)	ea (m		i:      		// stream
 	Cl)	ea (n		i:      		// clean
+	C)	ea (Cer		i:      		// reader, cleaner
 	j)	e (a        		// Jean Jeanne
 	sp)	ea (k  	i:      		// speak speaker
 	p)	ect (_      E		// suspect
@@ -138,9 +141,12 @@
 		ee          i:		// meeting
 	_cl)	ef (_       e		// clef
 	Ck)	e (r_       @		// worker, talker
+	_Cett)	e (r_       @		// letter, better
 	eaC)	e (r_       @		// speaker, streamer
-	ght)	e (r_       @		// writer, fighter
+	gh)	e (r_       @		// higher
+	ght)	e (r_       @		// fighter, lighter
 	ooC)	e (r_       @		// scooter
+	_ov)	e (r       @		// over
 		ein (C      E~		// peindre
 		ein (_      E~
 		e (il       E		// vieille
@@ -295,6 +301,12 @@
 	_)	eû          y		// eût
 		eû          Y		// jeûne
 
+		ew (_       ju		// new
+		ews        juz		// news, newsreader
+	r)	ew (_       u		// crew
+	r)	ews        uz
+	i)	ew (_       u		// view
+	i)	ews        uz
 		e (x        E		// exact
 		ey (_       e		// dahomey
 		ey (C       e		// ceylan
@@ -499,8 +511,9 @@ _)		h	(umo			// humour
 		i (es_      i		// parties
 		i (e_       i
 		i (A        j		// fermier portier patio renier
-		ig (ht        aj		// right, fight, light
+		ig (h        aj		// right, fight, light
 	wh)	ile         ajll		// while, endwhile
+	wr)	i (tA      aj		// write
 	_)	ill         ill		// illégal
 	_m)	ill         il		// mille
 	v)	ill         il		// village
@@ -517,7 +530,9 @@ _)		h	(umo			// humour
 		ing (_      iN		// parking
 		in (h       in		// inhumain
 		inct (_     E~		// distinct
-		ink (_     ink		// link, pink
+		ind (_     ajnd		// find, mind
+		ind (ing_     ajnd		// find, mind
+		ink      ink		// link, pink
 		in (n       i		// innombrable
 		in (C       E~		// vingt
 		    //		in (_       E~		// vin
@@ -581,7 +596,7 @@ _)		h	(umo			// humour
 		o (che_       O		// poche, cloche
 		oe (ll      wa		// moelleux
 	_)	oe (C       Y		// oesophage
-	_ph)	oe (t       Y		// phoetus
+	_ph)	oe (C       e		// phoetus
 		oeu       @		// soeur coeur
 		oeufs       @		// oeufs boeufs
 		o (eC       o		// coefficient
@@ -624,6 +639,7 @@ p)		oing (_      wE~		// poing
 	C)	oot        ut		// bootable football
 	z) 	oo          o		// zoo
 	z)	oo (l       oo		// zoologue
+	z)	oo (ph       oo		// zoophile
 	z)	oo (m       u		// zoom
 		oo (X       u		// pool
 	_gal)	op (_       o		// galop
@@ -644,6 +660,8 @@ p)		oing (_      wE~		// poing
 		oû          u		// coûter
 		oyes (_     wa		// troyes
 		oy (A       waj		// noyer voyelles
+		oy (_       Oj		// boy, toy
+		oys (_       Ojz		// boys, toys
 		oy          wa		// roy
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
@@ -752,9 +770,11 @@ e)		s (_h      z2
 	mu) 	s (_        s
 	_mu) 	s (_
 	ému) 	s (_
+	unu) 	s (_        s // prunus
 	opu) 	s (_        s // opus, octopus
 	Aru) 	s (_        s // virus
 	aru) 	s (_         // disparus
+	ouru) 	s (_         // courus
 	psu) 	s (_        s // lapsus
 
 	atu) 	s (_        s		// stratus cactus motus
@@ -764,6 +784,7 @@ e)		s (_h      z2
 	itu) 	s (_        s
 	ltu) 	s (_        s     // altus
 	otu) 	s (_        s     // motus
+	Cutu) 	s (_        s
 
 	_tou)	s (_C
 	_tou) 	s (_        s
@@ -792,6 +813,7 @@ C)		te (_      t@-  		// patte
 
 	s) 	th (m 		// asthme
 		th          t	// théorie
+	sCar)	t (_        t	// smart, start
 	hui)	t (_        t	// huit
 
 	_)	t           t   // tien tiers
@@ -870,6 +892,7 @@ C)		te (_      t@-  		// patte
 		w           w
 		wa (Ce_ 	    wE // hardware software wave
 		w (agon 	    v // wagon
+		w (r 	      // write
 
 
 .group x
@@ -905,6 +928,7 @@ C)		te (_      t@-  		// patte
 
 		ym (b       E~	// symbolique
 		ym (p       E~	// tympan
+		ym (_       E~	// thym
 		y (nn       i
 		y (nA       i
 		ys (_       is

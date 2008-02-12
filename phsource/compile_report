@@ -1,4 +1,4 @@
-47 phoneme tables
+48 phoneme tables
           new total
     base  99   99
    base2  24  118
@@ -30,7 +30,8 @@
       ru  38  129
       it  17  121
       la  21  117
-      es   7  118
+      es   8  119
+   es_la   1  119
       pt  27  134
    pt_pt  20  134
       ro  36  142
@@ -41,7 +42,7 @@
       is  32  124
       vi  42  137
      zhy  40  132
-      zh  63  147
+      zh  65  149
       sw  14  108
       th  50  142
       id  14  120
@@ -429,6 +430,7 @@ nn/nn_          [N] base
 nn/nn@          [(@)] base
 nn/nn#_         [N#] is
 nn/nn2_         [N] zh
+                [N-] zh
 nn/nna          [(a)] base
 nn/nne          [(e)] base
 nn/nni          [(i)] base
@@ -485,7 +487,6 @@ r3/r_trill.wav  [R2] base
                 [x] pt
 r3/r_u          [(u)] base
 r3/rx           [*] base
-                [**] base
                 [r/] base
                 [r/] af
                 [r/] fr
@@ -497,7 +498,6 @@ r3/rx           [*] base
 r3/rz_cs        [R^] sk
                 [R^/] sk
 r3/@tap         [**] base
-r3/@tap_i       [**] base
 r/r             [r] base
                 [r-] base
                 [r] en_sc
@@ -649,7 +649,6 @@ ustop/ki        [c] base
                 [c] af
                 [k] fi
                 [k] fr
-                [k] hi
                 [k] hu
                 [k] sk
                 [k^] mk
@@ -661,7 +660,6 @@ ustop/kl        [k] base
                 [k] en
                 [k] fi
                 [k] fr
-                [k] hi
                 [kh] hi
                 [k] hu
                 [k] sk
@@ -673,7 +671,6 @@ ustop/kr        [k] base
                 [k] en
                 [k] fi
                 [k] fr
-                [k] hi
                 [kh] hi
                 [k] hu
                 [k] sk
@@ -812,13 +809,13 @@ ustop/ts_pzd2   [c] hi
                 [c] hu
 ustop/t_sr      [d] sr
                 [t] sr
-                [t] zh
 ustop/ts_rfx    [ts.] zh
 ustop/ts_rfx_unasp  [ts.] zh
 ustop/ts_sr     [tS;] sr
                 [dZ;] sr
 ustop/ts_unasp  [ts] zh
 ustop/t_unasp   [t] th
+ustop/t_unasp2  [t] zh
 vdiph/0i        [OI] pt
                 [OI] grc
                 [OI] vi
@@ -1041,6 +1038,7 @@ vdiph/&y        [&y] fi
 vdiph/yi        [yi] fi
                 [yI] grc
                 [u-I] no
+                [yi] zh
 vdiph/y#i       [Yi] fi
 vdiph/y#i_2     [Yy] is
 vdiph/yi_fr     [w^i] fr
@@ -1073,8 +1071,10 @@ vnasal/o_n2     [o~] af
 vnasal/oo_n     [O~] en
 vnasal/oo_n2    [O~] hi
                 [O~] pl
+                [o] zh
 vnasal/u_n      [u~] hi
                 [u~] pt
+                [u] zh
 vnasal/W_n      [W~] en
                 [E~] fr
                 [W~] fr
@@ -1107,8 +1107,10 @@ voc/v_          [B] base
                 [v] hi
                 [v] ta
                 [v2] nl
+                [v#] es
                 [v;] ro
                 [v] is
+voc/v2          [v#] es
 voc/vj          [v] base
                 [v] fr
 vocw/dh         [D] base
@@ -1123,6 +1125,7 @@ vocw/v          [B] base
                 [v] base
                 [v] fr
                 [v] ta
+                [v#] es
                 [v;] ro
 vocw/zh         [Z] base
                 [Z;] ro
@@ -1166,8 +1169,7 @@ vowel/&         [a] en_rp
                 [&] fi
                 [&:] hi
                 [&] sv
-vowel/0         [O] base2
-                [0] en
+vowel/0         [0] en
                 [O] hi
                 [O] pt
                 [O] grc
@@ -1532,7 +1534,6 @@ vowel/oe_2      [W] no
 vowel/oe_4      [W] sv
 vowel/o_mid     [O] fr
                 [o] hu
-                [o] zh
                 [o] tr
 vowel/oo        [O:] en_sc
                 [O] en_wi
@@ -1566,7 +1567,8 @@ vowel/oo_2      [0] en_sc
                 [O] cy
                 [o] cs
 vowel/oo_3      [O] af
-vowel/oo_4      [0] en_wm
+vowel/oo_4      [O] base2
+                [0] en_wm
                 [V] en_wi
                 [3:] en_wi
                 [O:] hi

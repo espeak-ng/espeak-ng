@@ -779,7 +779,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 			prev_tph = phoneme_tab[phonPAUSE];  // forget across word boundaries
 		}
 
-		if(p->type == phVOWEL)
+		if(p->synthflags & SFLAG_SYLLABLE)
 		{
 			tone_ph = p->tone_ph;
 			tph = phoneme_tab[tone_ph];
@@ -855,7 +855,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	p = &phoneme_list[0];
 	for(ix=0; ix<n_phoneme_list; ix++, p++)
 	{
-		if(p->type == phVOWEL)
+		if(p->synthflags & SFLAG_SYLLABLE)
 		{
 			tone_ph = p->tone_ph;
 
