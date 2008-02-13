@@ -649,7 +649,7 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 
 	p = letterGroups[group];
 
-	while(*p != 0)
+	while(*p != RULE_GROUP_END)
 	{
 		w = word;
 		while(*p == *w)
