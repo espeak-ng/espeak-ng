@@ -2109,7 +2109,10 @@ if(option_ssml) parag=1;
 						nl_count++;
 					c2 = GetC();   // skip past space(s)
 				}
-				UngetC(c2);
+				if(!Eof())
+				{
+					UngetC(c2);
+				}
 	
 				if((nl_count==0) && (c1 == '.'))
 				{
