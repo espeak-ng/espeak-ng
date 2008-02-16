@@ -440,6 +440,22 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('k','u'):   // Kurdish
+		{
+			static const unsigned char stress_amps_ku[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_ku[8] = {170,170, 190,170, 0,0, 230,240};
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_ku,stress_amps_ku);
+			tr->charset_a0 = charsets[9];   // ISO-8859-9 - Latin5
+
+			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
+
+			tr->langopts.numbers = 0x100c69;
+			tr->langopts.max_initial_consonants = 2;
+		}
+		break;
+
 	case L('l','a'):  //Latin
 		{
 			tr = new Translator();

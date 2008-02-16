@@ -454,6 +454,7 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 	char ph_digits[50];
 	char ph_thousands[50];
 	char ph_hundred_and[12];
+	char ph_thousand_and[12];
 	
 	hundreds = value / 100;
 	buf1[0] = 0;
@@ -461,6 +462,7 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 	if(hundreds > 0)
 	{
 		ph_thousands[0] = 0;
+		ph_thousand_and[0] = 0;
 
 		Lookup("_0C",ph_100);
 
@@ -486,6 +488,11 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 		ph_digits[0] = 0;
 		if(hundreds > 0)
 		{
+			if((langopts.numbers & 0x100000) && (prev_thousands || (ph_thousands[0] != 0)))
+			{
+				Lookup("_0and",ph_thousand_and);
+			}
+
 			suppress_null = 1;
 
 			found = 0;
@@ -513,7 +520,7 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 			}
 		}
 
-		sprintf(buf1,"%s%s%s",ph_thousands,ph_digits,ph_100);
+		sprintf(buf1,"%s%s%s%s",ph_thousands,ph_thousand_and,ph_digits,ph_100);
 	}
 
 	ph_hundred_and[0] = 0;

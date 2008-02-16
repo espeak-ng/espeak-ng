@@ -3,6 +3,12 @@
 //  Spanish  - based on Base2
 //====================================================
 
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e_mid2
+endphoneme
+
 phoneme E
   vowel starttype (e) endtype (e)
   length 180

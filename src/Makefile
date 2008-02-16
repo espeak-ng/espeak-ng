@@ -1,3 +1,5 @@
+# removed -fno-exceptions  because it caused problems with stdio library on some platforms
+
 PREFIX=/
 BINDIR=$(PREFIX)/usr/bin
 INCDIR=$(PREFIX)/usr/include/espeak
@@ -66,7 +68,7 @@ all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions $<
+	$(CXX) $(CXXFLAGS) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c  $<
 
 $(BIN_NAME): $(OBJS1)
 	$(CXX) -o $@ $(OBJS1) $(LIBS1)
@@ -78,7 +80,7 @@ $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 
 x_%.o: %.cpp
 	$(CXX) $(CXXFLAGS) -Wall -fpic -pedantic \
-	-I. -D LIBRARY -c -fno-exceptions $<  -o x_$*.o
+	-I. -D LIBRARY -c  $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)
 	$(CXX) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ $(OBJS2) $(LIBS2)

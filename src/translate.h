@@ -316,7 +316,7 @@ typedef struct {
 	// bit3=  , decimal separator, not .
 	// bit4=use three-and-twenty rather than twenty-three
 	// bit5='and' between tens and units
-	// bit6=add "and" after hundred and thousand
+	// bit6=add "and" after hundred or thousand
 	// bit7=don't have "and" both after hundreds and also between tens and units
    // bit8=only one primary stress in tens+units
 	// bit9=only one vowel betwen tens and units
@@ -328,6 +328,7 @@ typedef struct {
 	// bit17=recognize roman numbers
 	// bit18=Roman numbers only if upper case
 	// bit19=don't add pause after a number
+	// bit20='and' before hundreds
 	int numbers;
 
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.

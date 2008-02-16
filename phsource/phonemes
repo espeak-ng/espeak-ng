@@ -996,8 +996,8 @@ phoneme q
   vowelin f1=1  f2=1700 0 200  f3=-300 80 f4 paus rms=35
   vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
   lengthmod 2
-  wave ustop/k_unasp%60
-  before _ ustop/k_unasp%50
+  wave ustop/q%50
+  before _ ustop/q%40
 endphoneme
 
 
@@ -1281,6 +1281,9 @@ include ph_indonesian
 
 phonemetable tr base2
 include ph_turkish
+
+phonemetable ku base2
+include ph_kurdish
 
 phonemetable ja base
 include ph_japanese

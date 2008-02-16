@@ -72,10 +72,10 @@ aU@  E    e@   eI   I    I2   i:   i@
 i@3  IR   O    O:   o:   O@   o@   OI   
 oU   O~   U    u:   U@   V    VR   
 
-:    ;    b    C    d    D    dZ   f    
-g    h    j    k    l    m    n    N    
-p    Q    r    r-   s    S    t    T    
-t2   tS   v    w    x    z    Z    
+;    b    C    d    D    dZ   f    g    
+h    j    k    l    m    n    N    p    
+Q    r    r-   s    S    t    T    t2   
+tS   v    w    x    z    Z    
 
 
 Dictionary eo_dict
@@ -111,9 +111,9 @@ S    s2   t    v    Z
 
 Dictionary fr_dict
 
-@    @-   a    A    A~   e    E    E:   
-E~   i    i:   o    O    O~   u    W    
-w^i  W~   y    Y    
+@    @-   a    A    A~   e    E    E~   
+i    i:   o    O    O~   u    W    w^i  
+W~   y    Y    
 
 *    :    ;    b    c    d    D    dZ   
 f    g    h    j    k    l    L    m    
@@ -400,4 +400,15 @@ u#   W    y    Y
 :    ;    b    d    dZ   f    g    h    
 j    k    l    m    n    p    Q    r    
 R    s    S    t    tS   v    w    z    
+Z    
+
+
+Dictionary ku_dict
+
+a    e    E    eI   i    I    o    u    
+U    y    
+
+:    b    d    dZ   f    g    h    j    
+k    l    m    n    p    q    r    R    
+s    S    t    tS   v    w    x    z    
 Z    

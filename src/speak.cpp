@@ -91,6 +91,7 @@ static const char *help_text =
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
 "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
+"-z\t   No final sentence pause at the end of the text\n"
 "--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
@@ -500,6 +501,7 @@ int main (int argc, char **argv)
 	option_phonemes = 0;
 	option_waveout = 0;
 	option_wordgap = 0;
+	option_endpause = 1;
 	option_multibyte = espeakCHARS_AUTO;  // auto
 	f_trans = stdout;
 
@@ -559,7 +561,7 @@ int main (int argc, char **argv)
 #else
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:bf:g:hk:l:p:qs:v:w:xXm",
+		c = getopt_long (argc, argv, "a:bf:g:hk:l:p:qs:v:w:xXmz",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -633,6 +635,10 @@ int main (int argc, char **argv)
 		case 'w':
 			option_waveout = 1;
 			strncpy0(wavefile,optarg2,sizeof(wavefile));
+			break;
+
+		case 'z':
+			option_endpause = 0;
 			break;
 
 		case 0x100:		// --stdin

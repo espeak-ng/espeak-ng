@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-11 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-14 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -421,7 +421,6 @@ adéquat       adekuat2
 adéquate      adekuat
 airbus	      Erbys
 anus     anys
-any     Eni
 ardent        aRdA~
 bissus    bisys
 bonus     bonys
@@ -433,20 +432,18 @@ choeur        k@r
 cocus     coky
 discident     disidA~
 estomac     Estoma
-eye	      aj
-eyes	      ajz
 fils	      fis
 imprudent     E~pRydA~
 iris	      iris
 juin	      ZyE~
 malus      malys
-many     mEni
 mars	      maRs
 minus      minys
 occident      OksidA~
 orient        ORjA~
 pays	      pEi
 phallus    falys
+polder    pOldEr
 prudent       pRydA~
 secret        sYkRE
 souris       suri
@@ -475,13 +472,13 @@ processus	pROsEsys
 août		ut
 azimut		azim'yt
 brut		bR'yt
+bouse		buz
 but		by $verb
 but		byt
 club		kl@b
 (le pub)		l@||p'@b
 (un pub)		W~||p'@b
 (du pub)		dy||p'@b
-connecticut	kOnEktikyt
 cut	cWt
 helmut		Elmut
 hub	_|@b
@@ -499,19 +496,15 @@ zut		zyt
 
 // et (t is said)
 
-bridget		bRidZEt
 exocet		EgzOsEt
 fret		fR'Et
-gadget		gadZEt
+budget		bydZE
 hamlet		amlEt
-jacket		ZakEt
 knesset		knEsEt
 lazaret		lazaREt
 margaret	maRgaREt
 net		nEt
 offset		OfsEt
-pickpocket	pikpOkEt
-racket		RakEt
 set		sEt
 soviet		sOvjEt
 
@@ -525,7 +518,6 @@ yogourt		yoguRt
 short		SORt
 
 // art (t said)
-stewart		stiwaRt
 steward		stiwaRt
 stuttgart	StutgaRt
 hart		aRt
@@ -539,95 +531,103 @@ flirt		fl@Rt
 
 
 // words from other languages
-about		@bawt
+about		_^_en
 acer             asEr
+again             _^_en
+against             _^_en
+alone           _^_en
+also            _^_en
+and             _^_en
 amazon		amaz'On
-(audible manager) od'ibl||manadZ'@r
-be		bi
-being		biiN
-by		baj
+any    Eni
+apple		_^_en
+at		_^_en
+(audible manager) odibl||manadZ@r
+be		_^_en
+being		_^_en
 bluetooth 		blut'us
-byte		bajt
-bytes		bajts
+both 		_^_en
+browser 		_^_en
+can		_^_en
+computer		_^_en
 (cyber link) 		sibEr||link
 debian		dEbjAn
-driver		drajv@rz2
-download	dOnlod
+does		_^_en
+doesn't		_^_en
+don't		_^_en
+driver		_^_en
 edit		edit
 emacs		Emaks
 emacspeak	Emakspi:k
+end             _^_en
+enter		'Ent@r
+epson		EpsOn
 espeak		@spi:k
 ethernet	etERnEt
 exit	egzit
-(file zilla)		fajl@-||zija
+eye	      _^_en
+eyes	      _^_en
+(file zilla)		fajl||zija
+fire	      _^_en
 firefox		faj@RfOks
-(fire wire)		faj@R||wajr
-firewire		faj@Rwajr
-google		gu:g'@l
-girl		g@Rl
+get		_^_en
+google		gu:g@l
 gnome		gnom
 gnu		gnu
 hamburger		_!A~b@rg@r
-has		_!az $u
-his		_!iz $u
-inside		insajd
-insight		insajt
+help		_^_en
+in		_^_en
+into		_^_en
+inside		_^_en
+insight		_^_en
 internet	E~tERnEt
 (internet explorer) E~tErn'Et||EksplOr'@r
-is		iz
-it		it
-its		its
+is		_^_en
+it		_^_en
+its		_^_en
 klaxon          klaksOn
-leader          li:d@R
-let 		lEt
+layer    		_^_en
+let 		_^_en
 liszt 		list
-lite 		lajt
+lite 		_^_en
+logon 		_^_en
 (mac os x)	makoEsiks
-mail	mE:jl
-maker     		mE:jk@r
+made	_^_en
+mail	_^_en
 media     		medja
-messenger 		mesEnZ'@r
-movy      		mu:v'i
-my		maj
-name		nejm
-not		nOt
+messenger 		_^_en
+my		_^_en
+name		_^_en
+not		_^_en
+of         _^_en
+often      _^_en
 ok         oke
 open            Op'@n
 outlook         autluk
-outside		autsajd
-outsider		autsajd@r
-player    		plEj'@r
-quick    		kwik
+outside		_^_en
+outsider		_^_en
+player    		_^_en
 redhat		REdat
-release	rili:z
-same		sejm
+same		_^_en
+sametime	_^_en
 schubert	SubER
-screamer		skri:m@r
-(search & destroy) s@:rS_||end_||dEsstrOj
-skype 		sk'ajp@-
-spybot		spajbOt
-sun		s@n
-sunlight	s@nlajt
+since 		_^_en
+sun		_^_en
 (text aloud) tEkst||@lawd
-than	Dan
-the	D@ $u
-them	DEm $u
-then	DEn $u
-there	DEr $u
-they	DE $u
-thunderbird	f@ndERb@Rd
-time	tajm
-timer	tajm@r
+their	_^_en
+there	_^_en
+these	_^_en
+those	_^_en
+they	_^_en
+thus	_^_en
+thunderbird	D'@ndYR||b@Rd
+time	_^_en
+timer	_^_en
 ubuntu		ubuntu
-update		@pd'E:jt
-upload	@plod
-very	vEri
-viavoice	viavOjs
-was		waz $u
-window		windo
-windows		windoz
-word		wWRd
-writer		rajt@r
+up		_^_en
+viking		vikiN
+was		_^_en
+won't		_^_en
 yacht		jot
 yes		jEs $brk
 

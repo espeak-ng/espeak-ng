@@ -35,13 +35,14 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.31.10  12.Feb.08";
+const char *version_string = "1.31.12  16.Feb.08";
 const int version_phdata  = 0x013105;
 
 int option_device_number = -1;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
+int current_phoneme_table;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
@@ -574,6 +575,7 @@ void SelectPhonemeTable(int number)
 	n_phoneme_tab = 0;
 	SetUpPhonemeTable(number,0);  // recursively for included phoneme tables
 	n_phoneme_tab++;
+	current_phoneme_table = number;
 }  //  end of SelectPhonemeTable
 
 

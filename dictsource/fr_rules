@@ -1,12 +1,13 @@
 // French translation rules
+
 // This file is UTF-8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-11 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-14 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
-//
+//         Y
 
 // Letter classes:
 // A  all vowels:  a e i o u y â ä é ê è î ï ô ö ù û
@@ -28,8 +29,6 @@
 		a (il_      a
 		aie (me     E		// paiement
 		ai          E		// aile
-		a (lk       O		// talk
-		a (ll_       O		// football handball
 		am (b       A~		// jambon
 		am (p       A~		// camp
 		am (m       a		// programmation
@@ -50,11 +49,31 @@
 		ay          Ej		// paye
 		a           a		// bateau
 
+// group a: English section
+	_C)	ad  (_        _^_en		// bad, had, sad
+		alk       _^_en		// talk, walk
+		all (_       _^_en		// football handball
+	f)	all (en_       _^_en		// fallen
+	sm)	all       _^_en		// small, smaller
+		ally (_       _^_en		// really, naturally
+		a (wC      _^_en
+
 
 .group b
 		bb          b		// abbé
 	om)	b (_                    // plomb applomb
 		b           b		// aube
+
+// group b: English section
+		bird       _^_en		// bird
+		bly (_      _^_en		// probably
+		board      _^_en              // board, keyboard
+		box (_      _^_en              // box, inbox, outbox
+		bug (_      _^_en              // bug, debug
+		bug (g      _^_en              // debugger
+		buil      _^_en              // build, built
+	_)	buy       _^_en
+	_)	by       _^_en              // by, bye, bypass
 
 
 .group c
@@ -98,6 +117,12 @@
 		cien (t_    i		// ils appr�ient, remercient.
 	i)	cien (t_    sjA~	// coefficient
 
+// group c: English section
+		cast (_      _^_en		// broadcast
+		calt (_      _^_en		// difficult
+		cut (_      _^_en		// cut, shortcut
+		cy (_      _^_en		// currency, frequency
+
 
 .group d
 		dd          d		// addition
@@ -108,8 +133,6 @@
 	Csan)	d (_        d
 	_tan)	d (_        d		// stand
 	Ctan)	d (_        d
-	for)	d (_        d
-	lor)	d (_        d
 
 	Can)	d (_        t2 		// grand ami, grand marchand
 	Cen)	d (_        t2
@@ -124,29 +147,25 @@
 	r)	d (_        		// lourd placard
 		d           d		// don bled
 
+// group d: English section
+	')	d (_      _^_en
+	lor)	d (_        _^_en
+		day (_        _^_en
+		dle (X        _^_en // bundle, handle
+		dly (_        _^_en
+		dy (_        _^_en
+
 
 .group e
 		e (Ce_      E
 		eau         o		// bateau cheveaux
-	C)	ea (d		i:      		// read
-	Cr)	ea (m		i:      		// stream
-	Cl)	ea (n		i:      		// clean
-	C)	ea (Cer		i:      		// reader, cleaner
+	g)	ea (s_ 	a      		// mangeas
 	j)	e (a        		// Jean Jeanne
-	sp)	ea (k  	i:      		// speak speaker
 	p)	ect (_      E		// suspect
 		ect (_      Ekt		// direct
 	_trépi)	ed          e
 	_pi)	ed          e		// pied
-		ee          i:		// meeting
 	_cl)	ef (_       e		// clef
-	Ck)	e (r_       @		// worker, talker
-	_Cett)	e (r_       @		// letter, better
-	eaC)	e (r_       @		// speaker, streamer
-	gh)	e (r_       @		// higher
-	ght)	e (r_       @		// fighter, lighter
-	ooC)	e (r_       @		// scooter
-	_ov)	e (r       @		// over
 		ein (C      E~		// peindre
 		ein (_      E~
 		e (il       E		// vieille
@@ -244,10 +263,6 @@
 	_trav)	er (_       ER
 	_ti)	er (_       ER
 
-	th)	er (_       @R      	// brother
-	th)	er (s_      @R
-	w)	er (_       @R      	// power
-	w)	er (s_      @R
 
 		er (_       e      	// parler léger
 		er (s_      e
@@ -283,6 +298,7 @@
 
 	@Cr)	es (_C      @-
 	rC)	es (_C      @-     	// fortes dames
+	dg)	et (_      Et     	// Bridget, gadget
 
 	')	eu (_       y		// eu
 		eu (r_      @		// peur
@@ -301,12 +317,6 @@
 	_)	eû          y		// eût
 		eû          Y		// jeûne
 
-		ew (_       ju		// new
-		ews        juz		// news, newsreader
-	r)	ew (_       u		// crew
-	r)	ews        uz
-	i)	ew (_       u		// view
-	i)	ews        uz
 		e (x        E		// exact
 		ey (_       e		// dahomey
 		ey (C       e		// ceylan
@@ -367,6 +377,33 @@
 
 	 	e           @		// menue
 
+// group e: English section
+	C)	ead		_^_en      		// read, head
+		eaf       _^_en		// leaf
+		eak           _^_en		// break, speak
+	Cr)	eam		_^_en      		// stream
+	Cl)	ean		_^_en      		// clean
+	l)	ean		_^_en      		// lean
+	m)	ean		_^_en      		// mean
+		ear		_^_en      		// ear, search
+		eas  	_^_en      		// please
+		eat  	_^_en      		// eat, seat
+		ed (_  	_^_en
+		ee          _^_en		// meeting
+		eave       _^_en		// leave
+		eft (_     _^_en		// left
+		eive       _^_en		// receive
+		eith       _^_en		// either neither
+	 	ely (_        _^_en		// lately
+	ooC)	er (_       _^_en		// scooter
+	_ov)	er        _^_en		// over
+	_C)	etter (_      _^_en     	// letter, better
+	ack)	et (_      _^_en     	// racket, packet
+	ock)	et (_      _^_en     	// rocket, pocket
+	 	ery (_        _^_en		// query
+	qu) 	est (_        _^_en		// request
+	qu) 	este (X_        _^_en		// requested, requester
+
 
 .group ë
 	u) 	ë			// ambiguë
@@ -378,6 +415,17 @@
 		f (f
 	_neu)	f (_ans     v		// liaison: neuf ans
 	_neu)	f (_heures  v
+
+// group f: English section
+		fail (_       _^_en  // fail
+		fail (A       _^_en  // failure
+		faith        _^_en  // failure
+		fly        _^_en
+		ford (_        _^_en
+		friend        _^_en		// friend, friendly
+		full (_  _^_en
+		fully (_  _^_en
+		fy (_     _^_en
 
 
 .group g
@@ -420,6 +468,13 @@
 
 		g (_        g		// grog gag goulag
 		g           Z		// congé george
+
+// group g: English section
+		gh          _^_en		// high, higher
+		girl        _^_en		// girl
+		gly (_         _^_en
+		give (X         _^_en
+		gy (_         _^_en
 
 
 .group h
@@ -467,7 +522,6 @@ _)		h	(ic	_!		// hic
 _)		h	(ide	_!		// hideux
 _)		h	(iér	_!		// hiéroglyphe
 _)		h	(i-fi	_!		// hi-fi
-_)		h	(igh	_!		// highlandais
 _)		h	(i-han	_!		// hi-han
 _)		h	(iss	_!		// hisser
 _)		h	(it	_!		// hit, hit-parad
@@ -503,6 +557,11 @@ _)		h	(umi			// humide
 _)		h	(umo			// humour
 		h			// ahuri
 
+// group h: English section
+_)		half  	_^_en
+_)		h (As_	_^_en		// has, his
+		here (_	_^_en		// here
+
 
 .group i
 		i           i		// cri
@@ -511,9 +570,6 @@ _)		h	(umo			// humour
 		i (es_      i		// parties
 		i (e_       i
 		i (A        j		// fermier portier patio renier
-		ig (h        aj		// right, fight, light
-	wh)	ile         ajll		// while, endwhile
-	wr)	i (tA      aj		// write
 	_)	ill         ill		// illégal
 	_m)	ill         il		// mille
 	v)	ill         il		// village
@@ -527,17 +583,25 @@ _)		h	(umo			// humour
 		imm         imm		// immaculé
 		im (_       im		// karim
 		im (C       E~		// timbre
-		ing (_      iN		// parking
 		in (h       in		// inhumain
 		inct (_     E~		// distinct
-		ind (_     ajnd		// find, mind
-		ind (ing_     ajnd		// find, mind
-		ink      ink		// link, pink
 		in (n       i		// innombrable
 		in (C       E~		// vingt
-		    //		in (_       E~		// vin
 		in (_       W~		// vin
                 ique (_	    ik
+
+// group i: English section
+		ike (X        _^_en		// bike, like
+		ill (_        _^_en		// ill, will, fill
+	C)	illy (_        _^_en		// silly
+		ing (_      _^_en		// parking
+		ind (_     _^_en		// find, mind
+		ind (er_     _^_en		// finder, reminder
+		ink      _^_en		// link, pink
+		ious (_       _^_en		// various
+		iously (_       _^_en		// previously
+		ism (_       _^_en		// tourism
+		ize          _^_en		// realize
 
 
 .group î
@@ -560,9 +624,11 @@ _)		h	(umo			// humour
 
 .group k
 		k           k		// kafka
-		ket (_      kEt		// basket
-		kets (_     kEt		// basket
 
+
+// group k: English section
+		ke (X     _^_en		// basket, make, take
+		ky (_     _^_en
 
 .group l
 		l           l		// lit
@@ -572,10 +638,21 @@ _)		h	(umo			// humour
 	outi)	l (_ 			// outil
 	ui)	ll          j		// juillet
 
+// group l: English section
+	')	ld (_      _^_en
+	')	ll (_      _^_en
+		less (_      _^_en  // noiseless
+		lessly (_      _^_en  // endlessly
+
 
 .group m
 		m           m		// film
 		mm          m		// pomme
+
+// group m: English section
+		mail (A       _^_en  // mailer
+		may        _^_en
+		mov (A         _^_en		// move, movy
 
 
 .group n
@@ -587,6 +664,10 @@ _)		h	(umo			// humour
 
 	A) 	ng (_       N		// parking meeting
 		nn          n		// panne
+
+// group n: English section
+		n't (_       _^_en
+		ny (_       _^_en
 
 
 .group o
@@ -635,11 +716,8 @@ p)		oing (_      wE~		// poing
 	r) 	o (ne_      o
 
 	alc)	oo (l       O		// alcool
-		oo  (Ce     u		// boomer
-	C)	oot        ut		// bootable football
 	z) 	oo          o		// zoo
-	z)	oo (l       oo		// zoologue
-	z)	oo (ph       oo		// zoophile
+	z)	oo (C       oo		// zoologue
 	z)	oo (m       u		// zoom
 		oo (X       u		// pool
 	_gal)	op (_       o		// galop
@@ -650,7 +728,6 @@ p)		oing (_      wE~		// poing
 	v) 	ost (_      o		// Prévost
 		o (sA       o		// poser
 		ot (_       o		// mot dépots
-	C) 	ou (nd      aw		// sound, found
 	_C) 	oup (_      u		// coup, loup
 	uC) 	oup (_      up2		// beaucoup
 
@@ -660,8 +737,6 @@ p)		oing (_      wE~		// poing
 		oû          u		// coûter
 		oyes (_     wa		// troyes
 		oy (A       waj		// noyer voyelles
-		oy (_       Oj		// boy, toy
-		oys (_       Ojz		// boys, toys
 		oy          wa		// roy
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
@@ -671,6 +746,20 @@ p)		oing (_      wE~		// poing
 	on)	o           o		//
 
 		o           O		// sobre notions émotions
+
+// group o: English section
+	C) 	oad (_       _^_en		// load, road
+	C) 	oad (eX       _^_en		// loaded
+	C) 	oat        _^_en		// boat
+		old (er_       _^_en		// folder, older
+		oo  (Ce     _^_en		// boomer
+	C)	oot        _^_en		// bootable football
+	C) 	ou (ld_      _^_en		// could, should
+	 	oun (C      _^_en		// bounce, found
+	_C) 	ouse       _^_en		// mouse, house
+	C) 	outh       _^_en		// mouth, south
+		ow          _^_en		// cow, town, down
+		oy (X       _^_en		// boy, toy
 
 
 .group ô
@@ -700,6 +789,16 @@ p)		oing (_      wE~		// poing
 	se)	pt (_      t      	// sept
 	se)	pt (iè     t      	// septième
 
+// group p: English section
+		plug 	_^_en		// plug
+		ply (_        _^_en		// simply
+		print (_        _^_en		// print
+		printer (_        _^_en		// printer
+	_)	prove (X       _^_en		// prove
+	_AC)	prove (X       _^_en		// improve
+	_AC)	provem       _^_en		// improvement
+		py (_        _^_en		// copy
+
 
 .group q
 		q           k		// coq
@@ -715,14 +814,20 @@ p)		oing (_      wE~		// poing
 	_)	qu' (P3     k		// qu'il
 	n)	q (_        k		// cinq cent
 
+// group q: English section
+		quick        _^_en		// quick, quickly
+
 
 .group r
-		right       rajt	// copyright
 	_su)	rr          RR		// surréaliste
 cou)	rr          RR		// courrai
 mou)	rr          RR		// mourrai
 		rr          R		// erreur
 		r           r		// rien
+
+// group r: English section
+	_)	rule (X        _^_en		// rule
+		ry (_        _^_en		// theory
 
 
 .group s
@@ -740,6 +845,7 @@ e)		s (_h      z2
 		sch         S		// schéma
 	dé) 	sh (A       z		// déshabiller
 		sh          S		// shérif
+	CA)	sh (_         _^_en		// punish
 		ss          s		// assez
 
 	ai) 	s (em       s		// vraisemblable
@@ -767,6 +873,7 @@ e)		s (_h      z2
 	ïu) 	s (_        s      // laïus
 	Culu) 	s (_        s   // cumulus
 	plu) 	s (_        z2     // plus, surplus
+	ylu) 	s (_        s     // stylus
 	mu) 	s (_        s
 	_mu) 	s (_
 	ému) 	s (_
@@ -795,11 +902,27 @@ e)		s (_h      z2
 		s (j         z
 		s (v         z
 
+// group s: English section
+	')	s (_         _^_en		// possessive
+		ship          _^_en		// friendship
+		shop          _^_en		// shop
+		sh  (At          _^_en		// shut, shot
+		shout          _^_en
+		sky         _^_en
+	_)	smil        _^_en   // smile, smiley
+		spy         _^_en
+	A)	ss (_       _^_en		// boss, cross
+	C) 	s (ton        _^_en		// winston
+	 	stone (_        _^_en
+		sy (_      _^_en
+
 
 .group t
 		t           t	// bataille
 V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
 		t (_            // silent at end of word
+	_)	th (onX      t      // thon
+	_)	th (ymX      t      // shym
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
 	C)	t (_        t	// compost watt soft script malttact abrupt
 	Vn)	t (_        t2	// silent at end of verb unless next word starts with a vowel
@@ -813,7 +936,6 @@ C)		te (_      t@-  		// patte
 
 	s) 	th (m 		// asthme
 		th          t	// théorie
-	sCar)	t (_        t	// smart, start
 	hui)	t (_        t	// huit
 
 	_)	t           t   // tien tiers
@@ -856,12 +978,20 @@ C)		te (_      t@-  		// patte
 
 	_ce) 	t (_        t
 
+// group t: English section
+	_)	th (AX      _^_en      // that, this, then, than
+	C)	th (_      _^_en      // month
+		try (_     _^_en  // try, country
+	sCar)	t (_        _^_en	// smart, start
+	sCar)	t (er_        _^_en	// starter
+		ty (_     _^_en  // party, buty
+
 
 .group u
 		u           y	// cruel nuage brut
 		ui          w^i
 
-	_b)	usi       iz  // business, businessman
+	_b)	usi       _^_en  // business, businessman
 	c)	ueill       Wj  // cueillir
 	c) 	ueil (_     Wj  // recueil
 	_c) 	ul (_     y
@@ -874,25 +1004,55 @@ C)		te (_      t@-  		// patte
 		um (b       W~	// humble
 		um (p       W~
 		un (C       W~	// emprunt lundi
-	C)	un (_       W~	// brun
+	CC)	un (_       W~	// brun
 	uc)	un (_       W~n2	// aucun
 		un (_      W~n2	// un avion
+	_f)	un       @n	// fun
+	_g)	un       @n	// gun
+	_r)	un       @n	// run
+	_s)	un       @n	// sun, sunday
 
 	fl) 	ux (_		y		// flux, reflux
 	g) 	u (A		// fatigue
 	g) 	u (ï	    y	// ambiguïté
 	g) 	u (ë        y	// ambiguë
 
+// group u: English section
+	C)	u  (ch_        _^_en  // much such
+	C)	ui  (ce        _^_en  // produice, juice
+		up  (C        _^_en  // upper, update
+		under          _^_en  // under, understand, thunder
+	C)	ur  (ch        _^_en  // church
+		urn (X        _^_en  // burn, turn
+		ust (_        _^_en  // just, trust
+	rib)	u  (teX        _^_en  // tribute, attribute
+
 
 .group v
 		v           v
 
+// goup v: English section
+	')	ve (_      _^_en
+		voice  (_       _^_en
+		void  (_       _^_en
+		vy  (_       _^_en
+
 
 .group w
 		w           w
-		wa (Ce_ 	    wE // hardware software wave
 		w (agon 	    v // wagon
-		w (r 	      // write
+
+// group w: English section
+	A)	w           _^_en
+		wa (Ce_ 	    _^_en // hardware software wave
+		wr 	  _^_en    // write
+		w (ACh 	  _^_en    // wash, wish, with
+		way 	  _^_en    // way, away
+		wh 	  _^_en    // what, which, who
+	_)	wi 	  _^_en    // winner, window, wire
+		wise 	  _^_en
+	_)	wom 	  _^_en    // woman
+		wor 	  _^_en    // word, world
 
 
 .group x
