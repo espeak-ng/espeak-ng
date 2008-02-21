@@ -1221,8 +1221,8 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 
 
 
-static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
-{//============================================================================
+espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
+{//=====================================================================
 	int ix;
 	int match_fname = -1;
 	int match_fname2 = -1;
@@ -1230,6 +1230,13 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 	const char *id;
 	int last_part_len;
 	char last_part[41];
+
+	if(voices == NULL)
+	{
+		if(n_voices_list == 0)
+			espeak_ListVoices(NULL);   // create the voices list
+		voices = voices_list;
+	}
 
 	sprintf(last_part,"%c%s",PATHSEP,name);
 	last_part_len = strlen(last_part);

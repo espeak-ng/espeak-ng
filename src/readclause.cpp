@@ -190,6 +190,8 @@ int iswalpha(int c)
 {
 	if(c < 0x100)
 		return(isalpha(c));
+	if((c > 0x3040) && (c <= 0xa700))
+		return(1);  // japanese, chinese characters
 	if(c > MAX_WALPHA)
 		return(0);
 	return(walpha_tab[c-0x100]);
@@ -758,6 +760,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 #define SSML_AUDIO    11
 #define SSML_EMPHASIS 12
 #define SSML_BREAK    13
+#define SSML_METADATA 14
 #define HTML_BREAK    15
 #define SSML_CLOSE    0x10   // for a closing tag, OR this with the tag type
 
@@ -779,6 +782,7 @@ MNEM_TAB ssmltags[] = {
 	{"audio", SSML_AUDIO},
 	{"emphasis", SSML_EMPHASIS},
 	{"break", SSML_BREAK},
+	{"metadata", SSML_METADATA},
 
 	{"br", HTML_BREAK},
 	{"li", HTML_BREAK},
@@ -816,7 +820,7 @@ static const char *VoiceFromStack()
 	{
 		sp = &ssml_stack[ix];
 
-		if(sp->voice_name[0] != 0)
+		if((sp->voice_name[0] != 0) && (SelectVoiceByName(NULL,sp->voice_name) != NULL))
 		{
 			strcpy(voice_name, sp->voice_name);
 			language[0] = 0;
@@ -1495,7 +1499,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		}
 		break;
 
+	case SSML_METADATA:
+		ignore_text = 1;
+		break;
+
 	case SSML_SUB + SSML_CLOSE:
+	case SSML_METADATA + SSML_CLOSE:
 		ignore_text = 0;
 		break;
 

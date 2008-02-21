@@ -71,6 +71,7 @@ extern voice_t *voice;
 extern int tone_points[10];
 
 const char *SelectVoice(espeak_VOICE *voice_select);
+espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name);
 voice_t *LoadVoice(const char *voice_name, int control);
 voice_t *LoadVoiceVariant(const char *voice_name, int variant);
 void DoVoiceChange(voice_t *v);
