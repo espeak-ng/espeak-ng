@@ -3032,6 +3032,7 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 				{
 					len = found - word1;
 					memcpy(word,word1,len);   // include multiple matching words
+					word[len] = 0;
 					fprintf(f_trans,"Replace: %s  %s\n",word,*wordptr);
 				}
 			}
