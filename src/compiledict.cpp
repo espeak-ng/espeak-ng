@@ -1510,8 +1510,8 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 
 	fprintf(f_log,"Using phonemetable: '%s'\n",PhonemeTabName());
 	compile_dictlist_file(path,"roots");
-	compile_dictlist_file(path,"listx");
 	compile_dictlist_file(path,"list");
+	compile_dictlist_file(path,"listx");
 	compile_dictlist_file(path,"extra");
 	
 	compile_dictlist_end(f_out);

@@ -277,7 +277,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
-			tr->langopts.numbers = 0x1509 + 0x4000 + NUM_NOPAUSE | NUM_ROMAN;
+			tr->langopts.numbers = 0x1509 + 0x8000 + NUM_NOPAUSE | NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -642,7 +642,7 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
-	case L('t','a'):
+	case L('t','a'):  // Tamil
 		{
 			static const short stress_lengths_ta[8] = {190, 190,  200, 200,  0, 0,  220, 220};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -693,7 +693,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 
-			tr->langopts.numbers = 0x1d09;
+			tr->langopts.numbers = 0x1d09 + 0x4000;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
@@ -734,7 +734,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('z','h'):
 	case L_zhy:
 		{
-			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 240,290};
+			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 240,250};  // 1=tone5. end-of-sentence, 6=tone 1&4, 7=tone 2&3
 			static const unsigned char stress_amps_zh[] = {22,16, 22,22, 22,22, 22,22 };
 
 			tr = new Translator;

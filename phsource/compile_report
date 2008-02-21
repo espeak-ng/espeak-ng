@@ -17,8 +17,8 @@
       fi  40  130
       fr  44  125
    fr_ca  11  125
-      hi  50  135
-      ta  16  138
+      hi  51  136
+      ta  15  138
       hu  23  115
       nl  28  122
       pl  15  110
@@ -47,7 +47,7 @@
       th  50  142
       id  14  120
       tr  14  123
-      ku  12  120
+      ku  13  120
       ja   7  104
 
 Data file      Used by
@@ -361,7 +361,7 @@ l/l_long        [l] base
                 [l;] ro
 l/lo            [(o)] base
                 [l] fr
-l^/l_rfx        [l.] ta
+l^/l_rfx        [l.] hi
 l/lu            [(u)] base
                 [l] fr
 l/tl            [l] base
@@ -952,6 +952,7 @@ vdiph/eeu_2     [EU] la
                 [EU] pt_pt
 vdiph/eeu_3     [aU] en_n
                 [aU] en_wm
+                [eU] ku
 vdiph/eey       [ey] fi
 vdiph/ei        [eI] base2
                 [e:] nl

@@ -48,6 +48,8 @@ _7	jedi
 _8	sekiz
 _9	dokuz
 _10	on
+_11	'onbir
+_12	'oniki
 _1X	on
 _2X	jirmi
 _3X	otuz
@@ -58,10 +60,14 @@ _7X	jetmiS
 _8X	seksEn
 _9X	doksan
 _0C	jyz
+_2C	'ikijyz
 _0M1	bIn
+_1M1	bIn
 _0M2	miljon
+_1M2	miljon
 _0M3	miljar
-_dpt	_virg,Yl
+_1M3	miljar
+_dpt	_virg,Yl_|
 
 
 

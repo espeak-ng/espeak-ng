@@ -233,7 +233,7 @@ typedef struct {
 
 	int  *body_drops;
 	unsigned char body_max_steps;
-	unsigned char body_lower_u;
+	char body_lower_u;
 
 	char n_overflow;
 	short *overflow;
@@ -270,8 +270,8 @@ static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
    {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 8 pitch raises at end of sentence
    {20, 25,   34, 20,  drops_0, 3, 3,   5, oflow},      // 9 comma
    {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 10  question
-   {20, 25,   24, 22,  drops_0, 3, 3,   5, oflow_less},   // 11 test
-   {19, 26,   36, 20,  drops_0, 2, 4,   5, oflow_test2},  // 12 test
+   {15, 18,   18, 14,  drops_0, 3, 3,   5, oflow_less},   // 11 test
+   {20, 25,   24, 22,  drops_0, 3, 3,   5, oflow_less},   // 12 test
 };
 
 static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
@@ -1069,6 +1069,10 @@ void Translator::CalcPitches(int clause_type)
 			{
 				p->env = PITCHrise;
 			}
+			else
+			if(p->tone > 5)
+				p->env = syl->env;
+
 			if(p->pitch1 > p->pitch2)
 			{
 				// swap so that pitch2 is the higher
@@ -1076,8 +1080,7 @@ void Translator::CalcPitches(int clause_type)
 				p->pitch1 = p->pitch2;
 				p->pitch2 = x;
 			}
-			if(p->tone > 5)
-				p->env = syl->env;
+
 
 			if(syl->flags & SYL_EMPHASIS)
 			{

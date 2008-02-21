@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-14 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-20 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -32,7 +32,7 @@ e	@
 f	Ef
 g	Ze
 h	aS
-i	i
+// i	i
 ï	i:tRema
 j	Zi
 k	ka
@@ -197,6 +197,8 @@ mbrola		Em'bRola
 mlle		mad@mwazEl
 mme		madam
 mr		m@sjY
+nsi             $abbrev
+nsis             $abbrev
 nti             $abbrev
 nvda             $abbrev
 ong             $abbrev
@@ -366,6 +368,7 @@ tout	t'ut2 $u
 // Letters which can be words
 //===========================
 à       a:aksA~gRav  $atend
+i       i      $atend
 y       i:gR'Ek      $atend
 
 
@@ -375,6 +378,7 @@ y       i:gR'Ek      $atend
 consent          kO~s'A~t2
 scient           si
 bénéficient      benefisi $verb
+coing     kwE~
 concurrent       kO~kyR'A~
 content          kO~t@-t2 $verb
 couvent          k'uvt2  $verb
@@ -386,9 +390,11 @@ divers          divErz2
 évident          evidt2 $verb
 ferment           fErm'A~
 ferment           f'Ermt2  $verb
+firent           f'irt2
 parent            paR'A~
 parent            p'art2  $verb
 pastis     pastis
+poing     pwE~
 président        pRezid'A~
 président        pRezidt2 $verb
 résident         Rezid'A~
@@ -400,6 +406,7 @@ sergent           sErZ'A~
 serment           sErm'A~
 serpent           sErp'A~
 torrent           tOR'A~
+tunis           tynis
 
 
 // MAIN WORD DICTIONARY
@@ -436,6 +443,7 @@ fils	      fis
 imprudent     E~pRydA~
 iris	      iris
 juin	      ZyE~
+laser	      lazEr
 malus      malys
 mars	      maRs
 minus      minys
@@ -533,49 +541,44 @@ flirt		fl@Rt
 // words from other languages
 about		_^_en
 acer             asEr
-again             _^_en
-against             _^_en
 alone           _^_en
 also            _^_en
 and             _^_en
 amazon		amaz'On
-any    Eni
 apple		_^_en
+april	_^_en
 at		_^_en
 (audible manager) odibl||manadZ@r
 be		_^_en
-being		_^_en
+bit		_^_en
 bluetooth 		blut'us
 both 		_^_en
-browser 		_^_en
 can		_^_en
 computer		_^_en
-(cyber link) 		sibEr||link
+(cyber link) 		_^_en
 debian		dEbjAn
-does		_^_en
-doesn't		_^_en
 don't		_^_en
 driver		_^_en
-edit		edit
 emacs		Emaks
 emacspeak	Emakspi:k
 end             _^_en
-enter		'Ent@r
 epson		EpsOn
 espeak		@spi:k
 ethernet	etERnEt
+ever	_^_en
 exit	egzit
 eye	      _^_en
 eyes	      _^_en
+false	_^_en
 (file zilla)		fajl||zija
-fire	      _^_en
-firefox		faj@RfOks
+for	      _^_en
 get		_^_en
 google		gu:g@l
 gnome		gnom
 gnu		gnu
 hamburger		_!A~b@rg@r
 help		_^_en
+hot		_^_en
 in		_^_en
 into		_^_en
 inside		_^_en
@@ -585,20 +588,29 @@ internet	E~tERnEt
 is		_^_en
 it		_^_en
 its		_^_en
+june	_^_en
+july	_^_en
 klaxon          klaksOn
+later    		_^_en
+latest    		_^_en
 layer    		_^_en
 let 		_^_en
 liszt 		list
 lite 		_^_en
+login 		_^_en
 logon 		_^_en
 (mac os x)	makoEsiks
 made	_^_en
 mail	_^_en
+march	_^_en
 media     		medja
 messenger 		_^_en
 my		_^_en
 name		_^_en
+never	_^_en
 not		_^_en
+null	_^_en
+october		_^_en
 of         _^_en
 often      _^_en
 ok         oke
@@ -606,13 +618,16 @@ open            Op'@n
 outlook         autluk
 outside		_^_en
 outsider		_^_en
+paint    		_^_en
 player    		_^_en
 redhat		REdat
 same		_^_en
 sametime	_^_en
+she	_^_en
 schubert	SubER
 since 		_^_en
 sun		_^_en
+sure		_^_en
 (text aloud) tEkst||@lawd
 their	_^_en
 there	_^_en
@@ -620,16 +635,14 @@ these	_^_en
 those	_^_en
 they	_^_en
 thus	_^_en
-thunderbird	D'@ndYR||b@Rd
-time	_^_en
-timer	_^_en
+true	_^_en
 ubuntu		ubuntu
 up		_^_en
 viking		vikiN
 was		_^_en
 won't		_^_en
 yacht		jot
-yes		jEs $brk
+yes		_^_en
 
 
 // tions (tjO~ instead of sjO~)

@@ -37,8 +37,8 @@
 
 
 
-void Translator::LookupLetter(int letter, int next_byte, char *ph_buf1)
-{//==================================================================
+void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
+{//=============================================================================
 	int len;
 	unsigned char *p;
 	static char single_letter[10] = {0,0};
@@ -643,6 +643,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	int this_value;
 	static int prev_value;
 	int decimal_count;
+	int max_decimal_count;
 	char string[12];  // for looking up entries in de_list
 	char buf1[100];
 	char ph_append[50];
@@ -783,8 +784,11 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 
 		if(decimal_count > 1)
 		{
-			switch(langopts.numbers & 0x6000)
+			max_decimal_count = 2;
+			switch(langopts.numbers & 0xe000)
 			{
+			case 0x8000:
+				max_decimal_count = 5;
 			case 0x4000:
 				// French/Polish decimal fraction
 				while(word[n_digits] == '0')
@@ -794,7 +798,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 					decimal_count--;
 					n_digits++;
 				}
-				if(decimal_count < 6)
+				if(decimal_count <= max_decimal_count)
 				{
 					LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
 					strcat(ph_out,buf1);

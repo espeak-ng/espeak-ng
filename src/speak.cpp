@@ -59,7 +59,7 @@ int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
 
 FILE *f_wave = NULL;
-	int quiet = 0;
+int quiet = 0;
 unsigned int samples_total = 0;
 unsigned int samples_split = 0;
 unsigned int wavefile_count = 0;
@@ -303,6 +303,9 @@ static int WavegenFile(void)
 	out_end = wav_outbuf + sizeof(wav_outbuf);
 
 	finished = WavegenFill(0);
+
+	if(quiet)
+		return(finished);
 
 	if(f_wave == NULL)
 	{
@@ -794,15 +797,19 @@ int main (int argc, char **argv)
 		InitText(0);
 		SpeakNextClause(f_text,p_text,0);
 
+		ix = 1;
 		for(;;)
 		{
 			if(WavegenFile() != 0)
 			{
-				break;   // finished, wavegen command queue is empty
+				if(ix == 0)
+					break;   // finished, wavegen command queue is empty
 			}
 
 			if(Generate(phoneme_list,&n_phoneme_list,1)==0)
-				SpeakNextClause(NULL,NULL,1);
+			{
+				ix = SpeakNextClause(NULL,NULL,1);
+			}
 		}
 
 		CloseWaveFile();

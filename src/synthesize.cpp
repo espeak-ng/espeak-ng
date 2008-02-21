@@ -100,6 +100,12 @@ void SynthesizeInit()
 //	next_pause.ph = phoneme_tab[phonPAUSE];   // this must be done after voice selection
 	next_pause.type = phPAUSE;
 	next_pause.newword = 0;
+
+	if(!iswalpha(0x010d))
+	{
+		// check that c-caron is recognized as an alphabetic character
+		fprintf(stderr,"iswalpha() Accented letters are not recognized\n");
+	}
 }
 
 

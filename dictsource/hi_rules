@@ -343,16 +343,16 @@
      ्) ल (_     lV
 
 .group ळ
-        ळ        lV  // (temporary) same as [l]
-        ळ (B     l
-?1      ल (_     l
-     ्) ल (_     lV
+        ळ        l.V
+        ळ (B     l.
+?1      ल (_     l.
+     ्) ल (_     l.V
 
 .group ऴ
-        ऴ        lV  // (temporary) same as [l]
-        ऴ (B     l
-?1      ल (_     l
-     ्) ल (_     lV
+        ऴ        l.V  // (temporary) same as [l.]
+        ऴ (B     l.
+?1      ल (_     l.
+     ्) ल (_     l.V
 
 .group व
         व        vV

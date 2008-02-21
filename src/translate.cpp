@@ -363,7 +363,7 @@ int IsAlpha(unsigned int c)
 		return(1);    // Devanagari  vowel signs and other signs
 
 	if((c >= 0xb81) && (c <= 0xbe5))
-		return(1);    // Devanagari  vowel signs and other signs
+		return(1);    // Tamil  vowel signs and other signs
 
 	if((c >= 0x300) && (c <= 0x36f))
 		return(1);   // combining accents
@@ -2049,7 +2049,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 			else
 			if(IsAlpha(c))
 			{
-				if(!IsAlpha(prev_out) || (langopts.ideographs && ((c >= 0x3000) || (prev_out >= 0x3000))))
+				if(!IsAlpha(prev_out) || (langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))))
 				{
 					if(wcschr(punct_within_word,prev_out) == 0)
 						letter_count = 0;    // don't reset count for an apostrophy within a word

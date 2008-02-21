@@ -96,13 +96,6 @@ phoneme u-
 endphoneme
 
 
-phoneme l.
-  liquid rfx
-  lengthmod 7
-  formants l^/l_rfx
-endphoneme
-
-
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
   vcd lbd frc

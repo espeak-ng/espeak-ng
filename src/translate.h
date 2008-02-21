@@ -428,7 +428,7 @@ private:
 	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab);
 	const char *LookupSpecial(const char *string);
 	const char *LookupCharName(int c);
-	void LookupLetter(int letter, int next_byte, char *ph_buf);
+	void LookupLetter(unsigned int letter, int next_byte, char *ph_buf);
 	int LookupNum2(int value, int control, char *ph_out);
 	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
 	int LookupThousands(int value, int thousandplex, char *ph_out);

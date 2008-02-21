@@ -216,6 +216,13 @@ endphoneme
 // CONSONANTS
 //===========
 
+phoneme l.
+  liquid rfx
+  lengthmod 7
+  formants l^/l_rfx
+endphoneme
+
+
 
 phoneme v        // no fricative noise
   vcd lbd frc
