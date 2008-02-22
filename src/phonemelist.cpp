@@ -176,7 +176,6 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 	int  ix=0;
 	int  j;
 	int  insert_ph = 0;
-	int  insert_synthflags = 0;
 	PHONEME_LIST *phlist;
 	PHONEME_TAB *ph;
 	PHONEME_TAB *prev, *next, *next2;
@@ -193,6 +192,7 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 
 	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0};
 	PHONEME_LIST2 *plist2 = &ph_list2_null;
+	PHONEME_LIST2 *plist2_inserted = NULL;
 
 	phlist = phoneme_list;
 	end_sourceix = ph_list2[n_ph_list2-1].sourceix;
@@ -313,13 +313,16 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 		if(insert_ph != 0)
 		{
 			// we have a (linking) phoneme which we need to insert here
-			j--;
 			next = phoneme_tab[plist2->phcode];      // this phoneme, i.e. after the insert
-			plist2 = &ph_list2_null;
+
+			// re-use the previous entry for the inserted phoneme.
+			// That's OK because we don't look backwards from plist2
+			j--;
+			plist2 = plist2_inserted = &ph_list3[j];
+			memset(plist2, 0, sizeof(*plist2));
+			plist2->phcode = insert_ph;
 			ph = phoneme_tab[insert_ph];
-			plist2->synthflags = insert_synthflags;
 			insert_ph = 0;
-			insert_synthflags = 0;
 		}
 		else
 		{
@@ -548,13 +551,16 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 				}
 			}
 
-			if((x = (langopts.word_gap & 0x7)) != 0)
+			if(plist2 != plist2_inserted)
 			{
-				insert_ph = pause_phonemes[x];
-			}
-			if(option_wordgap > 0)
-			{
-				insert_ph = phonPAUSE_LONG;
+				if((x = (langopts.word_gap & 0x7)) != 0)
+				{
+					insert_ph = pause_phonemes[x];
+				}
+				if(option_wordgap > 0)
+				{
+					insert_ph = phonPAUSE_LONG;
+				}
 			}
 		}
 
