@@ -804,6 +804,7 @@ static const char *VoiceFromStack()
 	int ix;
 	SSML_STACK *sp;
 	const char *v_id;
+	int voice_name_specified;
 	espeak_VOICE voice_select;
 	char voice_name[40];
 	char language[40];
@@ -818,9 +819,11 @@ static const char *VoiceFromStack()
 	for(ix=0; ix<n_ssml_stack; ix++)
 	{
 		sp = &ssml_stack[ix];
+		voice_name_specified = 0;
 
 		if((sp->voice_name[0] != 0) && (SelectVoiceByName(NULL,sp->voice_name) != NULL))
 		{
+			voice_name_specified = 1;
 			strcpy(voice_name, sp->voice_name);
 			language[0] = 0;
 			voice_select.gender = 0;
@@ -828,7 +831,11 @@ static const char *VoiceFromStack()
 			voice_select.variant = 0;
 		}
 		if(sp->language[0] != 0)
+		{
 			strcpy(language, sp->language);
+			if(voice_name_specified == 0)
+				voice_name[0] = 0;  // forget a previous voice name if a language is specified
+		}
 		if(sp->voice_gender != 0)
 			voice_select.gender = sp->voice_gender;
 		if(sp->voice_age != 0)

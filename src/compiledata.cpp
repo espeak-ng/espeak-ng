@@ -2251,6 +2251,8 @@ void CompileMbrola()
 	FILE *f_out;
 	int percent;
 	int n;
+	int *pw;
+	int *pw_end;
 	int count = 0;
 	int control;
 	char phoneme[40];
@@ -2318,8 +2320,13 @@ void CompileMbrola()
 	}
 	
 	data[count].name = 0;  // list terminator
-	fwrite(&mbrola_ctrl,4,1,f_out);
-	fwrite(data,sizeof(MBROLA_TAB),count+1,f_out);
+	Write4Bytes(f_out, mbrola_ctrl);
+
+	pw_end = (int *)(&data[count+1]);
+	for(pw = (int *)data; pw < pw_end; pw++)
+	{
+		Write4Bytes(f_out, *pw);
+	}
 	fclose(f_out);
 	wxLogStatus(_T("Mbrola translation file: %d phonemes"),count);
 }  // end of CompileMbrola

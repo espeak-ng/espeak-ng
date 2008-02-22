@@ -1711,7 +1711,7 @@ int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *in
 				new_c = replace_chars[ix+1];
 				break;
 			}
-			if((word >> 16) == (unsigned int)tolower(next_in))
+			if((word >> 16) == (unsigned int)towlower(next_in))
 			{
 				new_c = replace_chars[ix+1];
 				ignore_next = 1;
@@ -2393,6 +2393,10 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 	}
 	n_ph_list2 += 2;
 
+	if(count_words == 0)
+	{
+		clause_pause = 0;
+	}
 	if(Eof() && ((word_count == 0) || (option_endpause==0)))
 	{
 		clause_pause = 10;

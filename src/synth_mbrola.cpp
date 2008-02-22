@@ -33,6 +33,7 @@
 #include "translate.h"
 #include "voice.h"
 
+extern int Read4Bytes(FILE *f);
 
 #ifdef USE_MBROLA_LIB
 
@@ -115,6 +116,8 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 // Load a phoneme name translation table from espeak-data/mbrola
 
 	int size;
+	int ix;
+	int *pw;
 	FILE *f_in;
 	char path[sizeof(path_home)+15];
 
@@ -160,9 +163,16 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 		fclose(f_in);
 		return(EE_INTERNAL_ERROR);
 	}
-	fread(&mbrola_control,4,1,f_in);
+
+	mbrola_control = Read4Bytes(f_in);
+	pw = (int *)mbrola_tab;
+	for(ix=4; ix<size; ix+=4)
+	{
+		*pw++ = Read4Bytes(f_in);
+	}
 	fread(mbrola_tab,size,1,f_in);
 	fclose(f_in);
+
 
 #ifdef USE_MBROLA_LIB
 #ifdef PLATFORM_WINDOWS

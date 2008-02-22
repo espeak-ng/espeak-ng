@@ -1035,8 +1035,8 @@ static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 }
 
 
-static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
-{//======================================================================================================
+static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int spec_n_parts, int spec_lang_len, espeak_VOICE *voice)
+{//=========================================================================================================================
 	int ix;
 	const char *p;
 	int c1, c2;
@@ -1058,7 +1058,7 @@ static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_
 	}
 	else
 	{
-		if((*p == 0) && (strcmp(voice_spec->languages,"variants")==0))
+		if((*p == 0) && (strcmp(spec_language,"variants")==0))
 		{
 			// match on a voice with no languages if the required language is "variants"
 			score = 100;
@@ -1075,7 +1075,7 @@ static int ScoreVoice(espeak_VOICE *voice_spec, int spec_n_parts, int spec_lang_
 
 			for(ix=0; ; ix++)
 			{
-				if((ix >= spec_lang_len) || ((c1 = voice_spec->languages[ix]) == '-'))
+				if((ix >= spec_lang_len) || ((c1 = spec_language[ix]) == '-'))
 					c1 = 0;
 				if((c2 = p[ix]) == '-')
 					c2 = 0;
@@ -1179,17 +1179,17 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	int nv;           // number of candidates
 	int n_parts=0;
 	int lang_len=0;
-	const char *p;
 	espeak_VOICE *vp;
+	char language[80];
 
 	// count number of parts in the specified language
 	if((voice_select->languages != NULL) && (voice_select->languages[0] != 0))
 	{
 		n_parts = 1;
 		lang_len = strlen(voice_select->languages);
-		for(p = voice_select->languages; *p != 0; p++)
+		for(ix=0; (ix<=lang_len) && ((unsigned)ix < sizeof(language)); ix++)
 		{
-			if(*p == '-')
+			if((language[ix] = tolower(voice_select->languages[ix])) == '-')
 				n_parts++;
 		}
 	}
@@ -1201,7 +1201,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 		if(((control & 1) == 0) && (memcmp(vp->identifier,"mb/",3) == 0))
 			continue;
 
-		if((score = ScoreVoice(voice_select, n_parts, lang_len, voices_list[ix])) > 0)
+		if((score = ScoreVoice(voice_select, language, n_parts, lang_len, voices_list[ix])) > 0)
 		{
 			voices[nv++] = vp;
 			vp->score = score;

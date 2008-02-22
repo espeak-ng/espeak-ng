@@ -115,11 +115,11 @@ Dictionary fr_dict
 i    i:   o    O    O~   u    W    w^i  
 W~   y    Y    
 
-*    :    ;    b    c    d    D    dZ   
-f    g    h    j    k    l    L    m    
-n    N    n2   n^   p    p2   r    R    
-s    S    t    t2   tS   v    w    z    
-Z    z2   z3   
+*    :    ;    b    c    d    dZ   f    
+g    h    j    k    l    L    m    n    
+N    n2   n^   p    p2   r    R    s    
+S    t    t2   tS   v    w    z    Z    
+z2   z3   
 
 
 Dictionary hi_dict
@@ -405,8 +405,8 @@ Z
 
 Dictionary ku_dict
 
-a    e    E    eI   i    I    o    u    
-U    y    
+a    e    E    eI   eU   i    I    o    
+u    U    y    
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    p    q    r    R    
