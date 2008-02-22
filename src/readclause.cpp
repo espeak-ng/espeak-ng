@@ -126,7 +126,6 @@ typedef struct {
 
 #define N_SSML_STACK  20
 int n_ssml_stack;
-SSML_STACK *ssml_sp;
 SSML_STACK ssml_stack[N_SSML_STACK];
 
 char current_voice_id[40] = {0};
@@ -765,7 +764,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 #define SSML_CLOSE    0x10   // for a closing tag, OR this with the tag type
 
 // these tags have no effect if they are self-closing, eg. <voice />
-static char ignore_if_self_closing[] = {0,1,1,1,1,0,0,0,0,1,1,0,1,0,0,0,0};
+static char ignore_if_self_closing[] = {0,1,1,1,1,0,0,0,0,1,1,0,1,0,1,0,0};
 
 
 MNEM_TAB ssmltags[] = {
@@ -1176,6 +1175,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	wchar_t *age;
 	wchar_t *variant;
 	const char *new_voice_id;
+	SSML_STACK *ssml_sp;
 
 	static const MNEM_TAB mnem_gender[] = {
 		{"male", 1},
@@ -1190,7 +1190,6 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 		{
 			n_ssml_stack--;
 		}
-		ssml_sp = &ssml_stack[n_ssml_stack];
 	}
 	else
 	{
@@ -1334,6 +1333,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	char tag_name[40];
 	char buf[80];
 	PARAM_STACK *sp;
+	SSML_STACK *ssml_sp;
 
 	static const MNEM_TAB mnem_punct[] = {
 		{"none", 1},
@@ -1403,6 +1403,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 	voice_change_flag = 0;
 	terminator = CLAUSE_NONE;
+	ssml_sp = &ssml_stack[n_ssml_stack-1];
 
 	switch(tag_type)
 	{
@@ -1649,7 +1650,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		return(CLAUSE_COLON);
 
 	case SSML_SENTENCE:
-		if((ssml_sp != NULL) && (ssml_sp->tag_type == SSML_SENTENCE))
+		if(ssml_sp->tag_type == SSML_SENTENCE)
 		{
 			// new sentence implies end-of-sentence
 			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
@@ -1659,18 +1660,15 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 
 	case SSML_PARAGRAPH:
-		if(ssml_sp != NULL)
+		if(ssml_sp->tag_type == SSML_SENTENCE)
 		{
-			if(ssml_sp->tag_type == SSML_SENTENCE)
-			{
-				// new paragraph implies end-of-sentence or end-of-paragraph
-				voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
-			}
-			if(ssml_sp->tag_type == SSML_PARAGRAPH)
-			{
-				// new paragraph implies end-of-sentence or end-of-paragraph
-				voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE);
-			}
+			// new paragraph implies end-of-sentence or end-of-paragraph
+			voice_change_flag = GetVoiceAttributes(px, SSML_SENTENCE+SSML_CLOSE);
+		}
+		if(ssml_sp->tag_type == SSML_PARAGRAPH)
+		{
+			// new paragraph implies end-of-sentence or end-of-paragraph
+			voice_change_flag |= GetVoiceAttributes(px, SSML_PARAGRAPH+SSML_CLOSE);
 		}
 		voice_change_flag |= GetVoiceAttributes(px, tag_type);
 		return(CLAUSE_PARAGRAPH + voice_change_flag);
@@ -2197,6 +2195,7 @@ void InitText2(void)
 
 	n_ssml_stack =1;
 	n_param_stack = 1;
+	ssml_stack[0].tag_type = 0;
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		speech_parameters[param] = param_stack[0].parameter[param];   // set all speech parameters to defaults
