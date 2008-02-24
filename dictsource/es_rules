@@ -5,6 +5,7 @@
 // ?1  Castilian
 // ?2  Latin America
 
+.L01 j w l r d g n m
 
 .group a
        _) a (_       a
@@ -12,6 +13,8 @@
           ai         aI
           ay (K      aI
           ay (_      'aI
+          au         aU
+          au (_      'aU
 
 
 .group b
@@ -20,7 +23,9 @@
        _) b          b
        m) b          b
        n) b          b
-
+          b (L01     b
+          b (iA      b
+          b (uA      b
 
 .group c
        _) c (_       Te
@@ -39,12 +44,13 @@
 
 .group e
        _) e (_       e
-          e          E
-          e (_       e
+          e          e
+          e (CK      E
           ei         eI
           ey (K      eI
           ey (_      'eI
-       _) eu         eU
+          eu         eU
+          eu (_      'eU
 
 
 .group f
@@ -89,6 +95,7 @@
        _) l (_       Ele
           l          l
           ll         J^
+?2     A) ll (A      j:
 
 
 .group m
@@ -109,8 +116,9 @@
 
 .group o
        _) o (_       o
-          o          O
-          o (_       o
+          o          o
+          o (CK      O
+          oi         oI
           oy (K      oI
           oy (_      'oI
 
@@ -151,6 +159,7 @@
        _) u (_       u
           u          u
           u (A       w
+          u (y_      w
        l) u (A       %u
        r) u (A       %u
 
@@ -163,8 +172,15 @@
        _) v          v#
 ?1     m) v          b
 ?1     n) v          b
+?1        v (L01     b
+?1        v (iA      b
+?1        v (uA      b
 ?2        v          v#
 ?2     _) v          v
+?2        v (L01     v
+?2        v (j       v
+?2        v (iA      v
+?2        v (uA      v
 
 
 .group w
@@ -188,6 +204,7 @@
        n) y          J
       _l) y          J
           y (A       J^
+?2     A) y (A       j:
 
 
 .group z
@@ -211,7 +228,7 @@
       _)  ++ (_      masm'as
  \+\+\+)  +          // ignore + after the first 3
 
-          #          almOaD'il^a
+          #          almOaD'iJ^a
       \#) #
 
      __)  - (_D      m'EnOs

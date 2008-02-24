@@ -993,10 +993,10 @@ endphoneme
 
 phoneme q
   vls uvl stop
-  vowelin f1=1  f2=1700 0 200  f3=-300 80 f4 paus rms=35
-  vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
+  vowelin f1=1  f2=1700 0 200  f3=-300 80 paus f4 rms=30
+  vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
   lengthmod 2
-  wave ustop/q%50
+  wave ustop/q%48
   before _ ustop/q%40
 endphoneme
 

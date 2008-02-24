@@ -10,63 +10,63 @@ _#32	Esp'aTjo
 
 // names of symbols
 _.	punto
-_,	kOma
-_;	p,untOik'Oma
+_,	koma
+_;	p,untoik'oma
 _:	d,Osp'untOs
 _!	TE*R'aRaDmi**aTj'On
-_?	TE*R'aRintE*R,OQaTj'On
+_?	TE*R'aRintE*R,oQaTj'On
 _¡	aB@-*'iRaDmi**aTj'On
-_¿	aB@-*'iRintE*R,OQaTj'On
+_¿	aB@-*'iRintE*R,oQaTj'On
 _=	iQw'al
-_<	mEn'ORke
+_<	men'ORke
 _>	maJ^'ORke
-_'	apOst@-*'Ofo
-_"	kOm'iJ^as
+_'	apOst@-*'ofo
+_"	kom'iJ^as
 _+	s'iQnOdesum'aR
-_$	dOlar
-_#	almOaD'il^a
-_*	astE*'isko
+_$	dolar
+_#	almoaD'iJ^a
+_*	aste*'isko
 _-	gJ^On
 __	suB@-*aJ^'aDo
 _/	ba*Ra
 _\	b'a*RaimbERt'iDa
 _`	aT'EntOg@-*'aBe
-_(	,aB@-*epa**'EntEsis
-_)	Tj,E*Rapa**'EntEsis
-_[	,aB@-*ekORtS'Ete
-_]	Tj,E*RakORtS'Ete
+_(	,aB@-*epa**'Entesis
+_)	Tj,E*Rapa**'Entesis
+_[	,aB@-*ekORtS'ete
+_]	Tj,E*RakORtS'ete
 _{	,aB@-*eJ^'aBe
 _}	Tj,E*RaJ^'aBe
-_«	kOm'iJ^as||iTkJ^'ERDas
-_»	kOm'iJ^as||dE**'EtSas
+_«	kom'iJ^as||iTkJ^'ERDas
+_»	kom'iJ^as||dE**'EtSas
 
-^	TiRkumfl'Exo
+^	TiRkumfl'exo
 €	eU*o
 %	pOrTj'Ento
 &	ampERs'ant
-@	a*R'OBa
+@	a*R'oBa
 /	ba*Ra
-©	kOpi*R'aIt
+©	kopi*R'aIt
 £	liB@-*as
 ¶	p'a*Rafo
 §	sEkTj'On
 
 
 // numbers
-_0	TE*o
+_0	Te*o
 _1	'uno
 _2	d'Os
 _3	t@-*'es
 _4	kw'at@-*o
 _5	T'inko
 _6	s'eIs
-_7	sj'Ete
+_7	sj'ete
 _8	'OtSo
-_9	nw'Eve
+_9	nw'eve
 _1X	dj'ET
 _11	'OnTe
-_12	d'OTe
-_13	t@-*'ETe
+_12	d'oTe
+_13	t@-*'eTe
 _14	kat'ORTe
 _15	k'inTe
 _20	v'eInte
@@ -78,21 +78,25 @@ _6X	sEs'Enta
 _7X	sEt'Enta
 _8X	OtS'Enta
 _9X	nOv'Enta
-_0C	T'ientOs
+_0C	Tj'EntOs
 _1C0	T'ien         // exactly one hundred
 _1C	T'iento
 _5C	kinj'EntOs
-_7C	s,EtETj'EntOs
-_9C	n,OvETj'EntOs
+_7C	s,eteTj'EntOs
+_9C	n,OveTj'EntOs
 _0M1	m'il
 _1M1	m'il          // no '1' before thousand
-_0M2	mil^'Ones
-_1M2	'unmil^'On
-_0M4	_bil^'Ones
-_1M4	'unbil^'On
+_0M2	miJ^'ones
+_1M2	'unmiJ^'On
+_0M4	_biJ^'onEs
+_1M4	'unbiJ^'On
+?2 _0M2	mij:'ones
+?2 _1M2	'unmij:'On
+?2 _0M4	_bij:'onEs
+?2 _1M4	'unbij:'On
 _0and	i
-_dpt	kOma
-//_roman	ROm'ano
+_dpt	koma
+//_roman	Rom'ano
 
 vi	vi	// not a Roman number
 

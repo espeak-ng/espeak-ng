@@ -810,6 +810,9 @@ void copy_rule_string(char *string, int &state)
 						case 't':
 							sxflags |= SUFX_T;
 							break;
+						case 'b':
+							sxflags |= SUFX_B;
+							break;
 						default:
 							if(isdigit(c))
 								value = (value*10) + (c - '0');

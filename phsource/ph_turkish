@@ -91,3 +91,36 @@ phoneme O
   formants vowel/oo
 endphoneme
 
+
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 180
+endphoneme
+
+
+phoneme c
+  vls pal stop
+  vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
+  vowelout f1=0  f2=2700 300 500  f3=300 80
+  lengthmod 2
+  wave ustop/ki
+  before _ ustop/ki%80
+endphoneme
+
+
+phoneme J
+  vcd pla stop
+  vowelin f1=2  f2=2700 400 600  f3=300 80
+  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  formants dzh/dz_pzd+ustop/ki%60
+  lengthmod 5
+  switchvoicing c
+endphoneme
+
+
+phoneme l
+import_phoneme l en
+endphoneme
+
+

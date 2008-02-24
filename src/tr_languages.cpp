@@ -147,7 +147,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			memcpy(tr->stress_lengths,stress_lengths_de,sizeof(tr->stress_lengths));
 		
-			tr->langopts.numbers = 0x11c19 + NUM_ROMAN;
+			tr->langopts.numbers = 0x11419 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -189,7 +189,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0xb09;
+			tr->langopts.numbers = 0x309;
 			tr->langopts.numbers2 = 0x2;   // variant form of numbers before thousands
 
 			if(name2 == L_grc)
@@ -218,7 +218,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd1 = 1;
 			tr->langopts.unstressed_wd2 = 2;
 
-			tr->langopts.numbers = 0x1c09 + NUM_ROMAN;
+			tr->langopts.numbers = 0x1409 + NUM_ROMAN;
 		}
 		break;
 
@@ -258,7 +258,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 140;
 
-			tr->langopts.numbers = 0x1009;
+			tr->langopts.numbers = 0x1809;
 			SetLetterVowel(tr,'y');
 			tr->langopts.max_initial_consonants = 2;
 			tr->langopts.spelling_stress = 1;
@@ -295,7 +295,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
-			tr->langopts.numbers = 0x811;
+			tr->langopts.numbers = 0x011;
 			tr->langopts.numbers2 = 0x100;
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
 
@@ -331,7 +331,7 @@ Translator *SelectTranslator(const char *name)
  			tr->langopts.max_initial_consonants = 5;
 			tr->langopts.spelling_stress = 1;
 
-			tr->langopts.numbers = 0x1c0d + 0x4000 + NUM_ROMAN_UC;
+			tr->langopts.numbers = 0x140d + 0x4000 + NUM_ROMAN_UC;
 			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
 			tr->langopts.replace_chars = replace_cyrillic_latin;
 
@@ -358,7 +358,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1809 + NUM_ROMAN;
+			tr->langopts.numbers = 0x1009 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
 SetLengthMods(tr,3);  // all equal
@@ -372,7 +372,7 @@ SetLengthMods(tr,3);  // all equal
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_id,stress_amps_id);
 			tr->langopts.stress_rule = 2;
-			tr->langopts.numbers = 0x1809 + NUM_ROMAN;
+			tr->langopts.numbers = 0x1009 + NUM_ROMAN;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
 		}
 		break;
@@ -395,7 +395,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,3,"jvr");    // Letter group H
 			tr->letter_groups[1] = is_lettergroup_B;
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0xe9;
+			tr->langopts.numbers = 0x8e9;
 			tr->langopts.numbers2 = 0x2;
 		}
 		break;
@@ -417,7 +417,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_IT_DOUBLING] = 2;    // double the first consonant if the previous word ends in a stressed vowel
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
-			tr->langopts.numbers = 0x2709 + 0x800 + NUM_ROMAN;
+			tr->langopts.numbers = 0x2709 + NUM_ROMAN;
 		}
 		break;
 
@@ -451,7 +451,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 
-			tr->langopts.numbers = 0x100c69;
+			tr->langopts.numbers = 0x100469;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
@@ -483,7 +483,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_groups[0] = vowels_cyrillic;
 
 			tr->langopts.stress_rule = 4;   // antipenultimate
-			tr->langopts.numbers = 0x0c29 + 0x4000;
+			tr->langopts.numbers = 0x0429 + 0x4000;
 			tr->langopts.numbers2 = 0x8a;  // variant numbers before thousands,milliards
 		}
 		break;
@@ -500,7 +500,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			SetLetterVowel(tr,'y');
 		
-			tr->langopts.numbers = 0x11419;
+			tr->langopts.numbers = 0x11c19;
 			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));
 		}
 		break;
@@ -514,7 +514,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0x11049;
+			tr->langopts.numbers = 0x11849;
 		}
 		break;
 
@@ -531,7 +531,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x8;
  			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
- 			tr->langopts.numbers=0x1809 + 0x4000;
+ 			tr->langopts.numbers=0x1009 + 0x4000;
 			tr->langopts.numbers2=0x40;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 2 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable words (marked with $alt)
 			SetLetterVowel(tr,'y');
@@ -549,7 +549,7 @@ SetLengthMods(tr,3);  // all equal
 //			tr->langopts.vowel_pause = 1;
 			tr->langopts.stress_rule = 3;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x20000; 
-			tr->langopts.numbers = 0xa69 + 0x2000 + NUM_ROMAN;
+			tr->langopts.numbers = 0x269 + 0x2000 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -566,7 +566,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x100 + 0x6;
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
-			tr->langopts.numbers = 0x1829+0x6000 + NUM_ROMAN;
+			tr->langopts.numbers = 0x1029+0x6000 + NUM_ROMAN;
 			tr->langopts.numbers2 = 0x1e;  // variant numbers before all thousandplex
 		}
 		break;
@@ -593,7 +593,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x0c01 + 0x4000 + NUM_ROMAN;
+			tr->langopts.numbers = 0x0401 + 0x4000 + NUM_ROMAN;
 			tr->langopts.numbers2 = 0x40;
 			tr->langopts.thousands_sep = 0;   //no thousands separator
 			tr->langopts.decimal_sep = ',';
@@ -620,7 +620,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
 //			SetLetterBits(tr,6,"eiyäö");   // soft vowels  NOTE accented letters don't work in SetLetterBits
-			tr->langopts.numbers = 0x1109;
+			tr->langopts.numbers = 0x1909;
 		}
 		break;
 
@@ -637,7 +637,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
 
-			tr->langopts.numbers = 0x8e1;
+			tr->langopts.numbers = 0x4e1;
 			tr->langopts.numbers2 = 0x100;
 		}
 		break;
@@ -684,16 +684,17 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','r'):   // Turkish
 		{
-			static const unsigned char stress_amps_tr[8] = {16,16, 20,20, 20,24, 24,22 };
-			static const short stress_lengths_tr[8] = {170,170, 190,170, 0,0, 250,270};
+			static const unsigned char stress_amps_tr[8] = {18,18, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_tr[8] = {190,190, 190,190, 0,0, 250,270};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_tr,stress_amps_tr);
 			tr->charset_a0 = charsets[9];   // ISO-8859-9 - Latin5
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
+			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
 
-			tr->langopts.numbers = 0x1d09 + 0x4000;
+			tr->langopts.numbers = 0x1509 + 0x4000;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
@@ -1044,7 +1045,7 @@ Translator_Afrikaans::Translator_Afrikaans() : Translator()
 	langopts.param[LOPT_PREFIXES] = 1;
 	SetLetterVowel(this,'y');  // add 'y' to vowels
 
-	langopts.numbers = 0x0d1 + NUM_ROMAN;
+	langopts.numbers = 0x8d1 + NUM_ROMAN;
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
 }
 

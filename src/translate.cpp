@@ -613,6 +613,8 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	int word_length;
 	int ix;
 	int posn;
+	int pfix;
+	int n_chars;
 	unsigned int dictionary_flags[2];
 	unsigned int dictionary_flags2[2];
 	int end_type=0;
@@ -624,6 +626,7 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	char prefix_phonemes[N_WORD_PHONEMES];
 	char end_phonemes[N_WORD_PHONEMES];
 	char word_copy[N_WORD_BYTES];
+	char prefix_chars[N_WORD_BYTES];
 	int found=0;
    int end_flags;
 	char c_temp;   // save a character byte while we temporarily replace it with space
@@ -824,7 +827,7 @@ if((wmark > 0) && (wmark < 8))
 			{
 				// Found a standard prefix, remove it and retranslate
 
-				if(confirm_prefix)
+				if(confirm_prefix && !(end_type & SUFX_B))
 				{
 					int end2;
 					char phonemes2[N_WORD_PHONEMES];
@@ -856,8 +859,6 @@ if((wmark > 0) && (wmark < 8))
 					}
 				}
 
-				strcat(prefix_phonemes,end_phonemes);
-				end_phonemes[0] = 0;
 				prefix_type = end_type;
 
 				if(prefix_type & SUFX_V)
@@ -866,14 +867,43 @@ if((wmark > 0) && (wmark < 8))
 				}
 
 				wordx[-1] = c_temp;
-				for(ix=(prefix_type & 0xf); ix>0; ix--)    // num. of characters to remove
+				pfix = 1;
+				prefix_chars[0] = 0;
+				n_chars = prefix_type & 0x3f;
+
+				for(ix=0; ix < n_chars; ix++)    // num. of characters to remove
 				{
-					wordx++;
-					while((*wordx & 0xc0) == 0x80) wordx++;  // for multibyte characters
+					prefix_chars[pfix++] = *wordx++;
+
+					if((prefix_type & SUFX_B) && (ix == (n_chars-1)))
+					{
+						prefix_chars[pfix-1] = 0;  // discard the last character of the prefix, this is the separator character
+					}
+
+					while((*wordx & 0xc0) == 0x80)
+					{
+						prefix_chars[pfix++] = *wordx++;  // for multibyte characters
+					}
 				}
+				prefix_chars[pfix] = 0;
 				c_temp = wordx[-1];
 				wordx[-1] = ' ';
 				confirm_prefix = 1;
+
+				if(prefix_type & SUFX_B)
+				{
+					// retranslate the prefix part
+					char *wordpf;
+					wordpf = &prefix_chars[1];
+					found = LookupDictList(&wordpf, phonemes, dictionary_flags, SUFX_P, wtab);   // without prefix
+					if(found == 0)
+					{
+						end_type = TranslateRules(wordpf, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags[0]);
+						strcat(prefix_phonemes, phonemes);
+					}
+				}
+				strcat(prefix_phonemes,end_phonemes);
+				end_phonemes[0] = 0;
 
 				end_type = 0;
 				found = LookupDictList(&wordx, phonemes, dictionary_flags2, SUFX_P, wtab);   // without prefix

@@ -42,7 +42,7 @@ Translator_English::Translator_English() : Translator()
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
 	langopts.stress_rule = 0;
 
-	langopts.numbers = 0x41 + NUM_ROMAN;
+	langopts.numbers = 0x841 + NUM_ROMAN;
 	langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
 }
 

@@ -77,8 +77,8 @@ phoneme v#   // a shorter [v], a little towards [b]
   vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
   vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10
   lengthmod 6
-  formants voc/v2+vocw/v%75
-  before _ voc/v_+vocw/v%75
+  formants voc/v2+vocw/v%80
+  before _ voc/v_+vocw/v%80
   switchvoicing f
 endphoneme
 

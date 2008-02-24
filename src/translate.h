@@ -106,6 +106,7 @@
 #define SUFX_F        0x2000   // verb follows
 #define SUFX_Q        0x4000   // don't retranslate
 #define SUFX_T        0x10000   // don't affect the stress position in the stem
+#define SUFX_B        0x20000  // break, this character breaks the word into stem and suffix (used with SUFX_P)
 
 #define FLAG_ALLOW_TEXTMODE  0x02  // allow dictionary to translate to text rather than phonemes
 #define FLAG_SUFX       0x04
@@ -321,7 +322,7 @@ typedef struct {
    // bit8=only one primary stress in tens+units
 	// bit9=only one vowel betwen tens and units
 	// bit10=omit "one" before "hundred"
-	// bit11=don't say 19** as nineteen hundred
+	// bit11=say 19** as nineteen hundred
 	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
 	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
 	// bit16=dot after number indicates ordinal

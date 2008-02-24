@@ -9,8 +9,8 @@ c	dZE
 d	dE
 e	E
 f	fE
-g	g;E
-ğ	jumuS'ak||g;'E
+g	JE
+ğ	jumuS'ak||J'E
 h	hE
 ı	u#
 i	i
@@ -19,7 +19,7 @@ k	ka
 l	lE
 m	mE
 n	nE
-o	O
+_o	O
 ö	W
 p	pE
 q	kvE
@@ -37,41 +37,79 @@ z	zE
 
 _??	sEmb'Ol
 
-_0	su#fu#r
-_1	bir
-_2	iki
+_0	su#fu#R
+_1	biR
+_2	ici
 _3	YtS
-_4	dWrt
+_4	dWRt
 _5	beS
 _6	altu#
 _7	jedi
-_8	sekiz
+_8	seciz
 _9	dokuz
 _10	on
-_11	'onbir
-_12	'oniki
+_11	'onbiR
+_12	'onici
 _1X	on
-_2X	jirmi
+_2X	jiRmi
 _3X	otuz
-_4X	ku#rk
+_4X	ku#Rk
 _5X	elli
 _6X	altmu#S
 _7X	jetmiS
 _8X	seksEn
 _9X	doksan
 _0C	jyz
-_2C	'ikijyz
+_2C	'icijyz
 _0M1	bIn
 _1M1	bIn
 _0M2	miljon
-_1M2	miljon
 _0M3	miljar
-_1M3	miljar
-_dpt	_virg,Yl_|
+_dpt	_viRg,Yl_|
+
+
+// function words
+
+// conjunctions
+ve	$brk	// and
+yoksa	$brk	// or
+veya	$brk	// or
+ama	$brk $1	// but
+ki	$brk	// that
+
+mı	$u	// question
+mi	$u
+mu	$u
+mü	$u
+
+
+// pronouns
+bu	$u+	// this
+şu	$u+	// that
+
+ben	$u+	// I
+sen	$u+	// you
+o	$u+	// it
+siz	$u+	// we
+biz	$u+	// you
 
 
 
-// exceptions
+bir	$u+	// a (or one)
 
+da	$u	// also
+de	$u
+ta	$u
+te	$u
+
+ile	$u
+
+
+// EXCEPTIONS
+
+// Person Names
+
+// Place Names
 ankara		$1
+istanbul	$2
 

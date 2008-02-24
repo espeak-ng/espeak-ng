@@ -2,13 +2,13 @@
           new total
     base  99   99
    base2  24  118
-      en  54  148
-    en_n  30  148
-   en_us  34  148
-   en_sc  39  150
-   en_rp  34  148
-   en_wm  30  148
-   en_wi  30  148
+      en  53  147
+    en_n  30  147
+   en_us  34  147
+   en_sc  39  149
+   en_rp  34  147
+   en_wm  30  147
+   en_wi  30  147
       af  38  131
       cy  29  125
       de  33  126
@@ -18,7 +18,7 @@
       fr  44  125
    fr_ca  11  125
       hi  51  136
-      ta  15  138
+      ta  16  139
       hu  23  115
       nl  28  122
       pl  15  110
@@ -46,7 +46,7 @@
       sw  14  108
       th  50  142
       id  14  120
-      tr  14  123
+      tr  18  123
       ku  13  120
       ja   7  104
 
@@ -172,6 +172,7 @@ dzh/dzh_        [dZ] base
                 [dZ;] ru
 dzh/dz_pzd      [J] base
                 [J2] hi
+                [J] tr
 dzh/dz_pzd_     [J] base
                 [J2] hi
 dzh/xdzh        [dZ] base
@@ -657,6 +658,8 @@ ustop/ki        [c] base
                 [c] is
                 [k] zhy
                 [k] sw
+                [J] tr
+                [c] tr
 ustop/kl        [k] base
                 [k] base2
                 [k] en
@@ -1617,8 +1620,7 @@ vowel/u         [u:] en_wi
                 [u] th
                 [u:] th
                 [u] id
-vowel/u#        [u-] en
-                [u:] en_sc
+vowel/u#        [u:] en_sc
                 [Y] tr
 vowel/u_2       [u1] fi
                 [u] sk
@@ -1628,6 +1630,8 @@ vowel/u_2       [u1] fi
 vowel/u#_2      [u-] ta
                 [u-] sv
 vowel/u_3       [yU] ro
+vowel/u#_3      [U] ta
+                [U:] ta
 vowel/u_4       [u:] en_n
 vowel/u#_4      [U] en_sc
                 [u:] en_sc
@@ -1664,7 +1668,6 @@ vowel/uu        [U] en
 vowel/uu#       [U] ku
 vowel/uu_2      [U] base2
                 [U] de
-                [U] ta
                 [U] tr
 vowel/uu_3      [u] af
                 [y] zh

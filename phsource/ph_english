@@ -433,9 +433,3 @@ phoneme W
 endphoneme
 
 
-phoneme u-
-  vowel starttype (u) endtype (u)
-  length 200
-  formants vowel/u#
-endphoneme
-

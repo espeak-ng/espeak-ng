@@ -2272,6 +2272,8 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	{
 		c = p_start[ix];
 		word_copy[ix++] = c;
+		if(c == 0)
+			break;
 	}
 	word_copy[ix] = 0;
 
@@ -3096,7 +3098,7 @@ int Translator::RemoveEnding(char *word, int end_type, char *word_copy)
 	word_copy[i] = 0;
 
 	// look for multibyte characters to increase the number of bytes to remove
-	for(len_ending = i = (end_type & 0xf); i>0 ;i--)   // num.of characters of the suffix
+	for(len_ending = i = (end_type & 0x3f); i>0 ;i--)   // num.of characters of the suffix
 	{
 		word_end--;
 		while((*word_end & 0xc0) == 0x80)

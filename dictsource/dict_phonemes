@@ -88,13 +88,13 @@ r    R    s    t    ts   v    z    Z
 
 Dictionary es_dict
 
-@-   a    aI   e    E    eI   eU   i    
-o    O    oI   u    
+@-   a    aI   aU   e    E    eI   eU   
+i    o    O    oI   u    
 
 *    **   :    b    B    d    D    f    
-g    j    J    J^   k    l    l^   m    
-n    n^   p    Q    r    R    s    t    
-T    tS   v    v#   w    x    z    
+g    j    J    J^   k    l    m    n    
+n^   p    Q    r    R    s    t    T    
+tS   v    v#   w    x    z    
 
 
 Dictionary fi_dict
@@ -397,10 +397,9 @@ Dictionary tr_dict
 a    e    E    i    I    o    O    u    
 u#   W    y    Y    
 
-:    ;    b    d    dZ   f    g    h    
-j    k    l    m    n    p    Q    r    
-R    s    S    t    tS   v    w    z    
-Z    
+b    c    d    dZ   f    g    h    j    
+J    k    l    m    n    p    r    R    
+s    S    t    tS   v    z    Z    
 
 
 Dictionary ku_dict
