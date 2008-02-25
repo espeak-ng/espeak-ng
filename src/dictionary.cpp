@@ -1201,7 +1201,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		if(stressed_syllable == 0)
 		{
 			stressed_syllable = vowel_count - 1;
-			for(ix=2; ix < vowel_count; ix++)
+			for(ix=1; ix < vowel_count; ix++)
 			{
 				if(vowel_stress[ix] == 1)
 				{
@@ -2303,7 +2303,7 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	while(((c = *p) != ' ') && (c != 0))
 	{
 		if(IsAlpha(wc))
-			any_alpha = wc;
+			any_alpha++;
 		wc_prev = wc;
 		wc_bytes = utf8_in(&wc,p,0);
 
@@ -2419,6 +2419,18 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 							p += (wc_bytes-1);
 						}
 					}
+				}
+
+				if(match1.points == 0)
+				{
+	static const char str_unknown[4] = {phonCAPITAL,phonCAPITAL,phonCAPITAL,0};
+					if(((any_alpha > 0) || (p[wc_bytes-1] > ' ')) && !iswpunct(wc))
+					{
+						// an unrecognised character in a word, indicate with clicks
+						match1.phonemes = str_unknown;
+						match1.points = 1;
+					}
+					p += (wc_bytes-1);
 				}
 			}
 		}

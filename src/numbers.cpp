@@ -99,15 +99,12 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	int n_bytes;
 	int letter;
 	int len;
-	int phoneme_tab_en;
 	char *p2;
 	char *pbuf;
 	char capital[20];
 	char ph_buf[60];
 	char ph_buf2[60];
-	char ph_buf_en[60];
 	char hexbuf[6];
-	static char single_letter[10] = {0,0};
 
 	ph_buf[0] = 0;
 	capital[0] = 0;
@@ -127,7 +124,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 			Lookup("_cap",capital);
 		}
 	}
-	letter = towlower(letter);
+	letter = towlower2(letter);
 
 	LookupLetter(letter, word[n_bytes], ph_buf);
 
@@ -139,13 +136,9 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 
 	if(ph_buf[0] == 0)
 	{
-		phoneme_tab_en = SetTranslator2("en");
-		translator2->LookupLetter(letter, word[n_bytes], ph_buf_en);
-		if(ph_buf_en[0] != 0)
-		{
-			sprintf(ph_buf,"%c%c%s%c%c",phonSWITCH2, phoneme_tab_en + phonTOP, ph_buf_en, phonSWITCH2, voice->phoneme_tab_ix + phonTOP);
-		}
-		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+// ?? speak as English ??
+		sprintf(phonemes,"%c",phonSWITCH);
+		return(0);
 	}
 
 	if(ph_buf[0] == 0)

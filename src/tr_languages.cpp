@@ -575,6 +575,15 @@ SetLengthMods(tr,3);  // all equal
 			tr = new Translator_Russian();
 		break;
 
+	case L('r','w'):   // Kiryarwanda
+		{
+			tr = new Translator();
+			tr->langopts.stress_rule = 2;
+			tr->langopts.stress_flags = 0x16;
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+		}
+		break;
+
 	case L('s','k'):   // Slovak
 	case L('c','s'):   // Czech
 		{

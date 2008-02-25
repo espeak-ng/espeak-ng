@@ -299,6 +299,18 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
 }
 #endif
 
+int towlower2(unsigned int c)
+{
+	// check for non-standard upper to lower case conversions
+	if(c == 'I')
+	{
+		if(translator->translator_name == L('t','r'))
+		{
+			c = 0x131;   // I -> ı
+		}
+	}
+	return(towlower(c));
+}
 
 static void GetC_unget(int c)
 {//==========================
@@ -1456,7 +1468,19 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		{
 			value = attrlookup(attr1,mnem_emphasis);
 		}
-		sp->parameter[espeakEMPHASIS] = value;
+
+		if(translator->langopts.tone_language == 1)
+		{
+			static unsigned char emphasis_to_pitch_range[] = {50,50,40,70,90,90};
+			static unsigned char emphasis_to_volume[] = {100,100,70,110,140,140};
+			// tone language (eg.Chinese) do emphasis by increasing the pitch range.
+			sp->parameter[espeakRANGE] = emphasis_to_pitch_range[value];
+			sp->parameter[espeakVOLUME] = emphasis_to_volume[value];
+		}
+		else
+		{
+			sp->parameter[espeakEMPHASIS] = value;
+		}
 		ProcessParamStack(outbuf, outix);
 		break;
 

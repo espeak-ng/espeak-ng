@@ -71,9 +71,10 @@ int Translator_English::Unpronouncable(char *word)
 	This function is language specific.
 */
 
-	unsigned char  c;
+	int  c;
 	int  vowel_posn=9;
 	int  index;
+	int  count;
 	int  ix;
 	int  apostrophe=0;
 
@@ -92,19 +93,26 @@ int Translator_English::Unpronouncable(char *word)
 	}
 
 	index=0;
-	while(((c = word[index++]) != 0) && !isspace(c))
+	count=0;
+	for(;;)
 	{
+		index += utf8_in(&c,&word[index],0);
+		count++;
+
+		if((c==0) || (c==' '))
+			break;
+
 		if(IsVowel(c) || (c == 'y'))
 		{
-			vowel_posn = index;
+			vowel_posn = count;
 			break;
 		}
 
 		if(c == '\'')
 			apostrophe = 1;
 		else
-		if((c < 'a') || (c > 'z'))
-			return(0);        // letter (not vowel) outside a-z range or apostrophe, abort test
+		if((c < 'a') || (c > 0x241))
+			return(0);        // letter (not vowel) outside Latin character range or apostrophe, abort test
 	}
 	if((vowel_posn > 5) || ((word[0]!='s') && (vowel_posn > 4)))
 		return(1);  // no vowel, or no vowel in first four letters

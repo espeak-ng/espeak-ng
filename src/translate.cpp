@@ -788,7 +788,7 @@ if((wmark > 0) && (wmark < 8))
 				return(0);
 			}
 
-			p = &wordx[word_length-3];
+			p = &wordx[word_length-3];    // this looks wrong.  Doesn't consider multi-byte chars.
 			if(memcmp(p,"'s ",3) == 0)
 			{
 				// remove a 's suffix and pronounce this separately (not as an individual letter)
@@ -817,6 +817,30 @@ if((wmark > 0) && (wmark < 8))
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,phonemes);
 				return(0);
+			}
+
+			if((phonemes[0] == 0) && (end_phonemes[0] == 0))
+			{
+				int wc;
+				// characters not recognised, speak them individually
+
+				utf8_in(&wc, wordx, 0);
+				if(!iswpunct(wc))
+				{
+					posn = 0;
+					while(*wordx != ' ')
+					{
+						wordx += TranslateLetter(wordx, phonemes, 4);
+						posn++;
+						if(phonemes[0] == phonSWITCH)
+						{
+							// change to another language in order to translate this word
+							strcpy(word_phonemes,phonemes);
+							return(0);
+						}
+					}
+					SetSpellingStress(phonemes,spell_word,posn);
+				}
 			}
 
 			c_temp = wordx[-1];
@@ -871,18 +895,13 @@ if((wmark > 0) && (wmark < 8))
 				prefix_chars[0] = 0;
 				n_chars = prefix_type & 0x3f;
 
-				for(ix=0; ix < n_chars; ix++)    // num. of characters to remove
+				for(ix=0; ix < n_chars; ix++)    // num. of bytes to remove
 				{
 					prefix_chars[pfix++] = *wordx++;
 
 					if((prefix_type & SUFX_B) && (ix == (n_chars-1)))
 					{
 						prefix_chars[pfix-1] = 0;  // discard the last character of the prefix, this is the separator character
-					}
-
-					while((*wordx & 0xc0) == 0x80)
-					{
-						prefix_chars[pfix++] = *wordx++;  // for multibyte characters
 					}
 				}
 				prefix_chars[pfix] = 0;
@@ -894,15 +913,22 @@ if((wmark > 0) && (wmark < 8))
 				{
 					// retranslate the prefix part
 					char *wordpf;
+					char prefix_phonemes2[12];
+
+					strncpy0(prefix_phonemes2,end_phonemes,sizeof(prefix_phonemes2));
 					wordpf = &prefix_chars[1];
 					found = LookupDictList(&wordpf, phonemes, dictionary_flags, SUFX_P, wtab);   // without prefix
 					if(found == 0)
 					{
 						end_type = TranslateRules(wordpf, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags[0]);
-						strcat(prefix_phonemes, phonemes);
+						sprintf(prefix_phonemes,"%s%s%s",phonemes,end_phonemes,prefix_phonemes2);
 					}
+					prefix_flags = 1;
 				}
-				strcat(prefix_phonemes,end_phonemes);
+				else
+				{
+					strcat(prefix_phonemes,end_phonemes);
+				}
 				end_phonemes[0] = 0;
 
 				end_type = 0;
@@ -1539,12 +1565,6 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			srcix = source_ix+1;
 		}
 		else
-		if(ph_code == phonSWITCH2)
-		{
-			SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
-			ph_list2[n_ph_list2++].tone_number = *p++ - phonTOP;   // phoneme table number (phonTOP is added to avoid confusion with special phoneme numbers)
-		}
-		else
 		if(ph_code == phonX1)
 		{
 			// a language specific action 
@@ -1971,7 +1991,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 			{
 				c = ' ';
 			}
-			c = towlower(c);
+			c = towlower2(c);
 		}
 
 		if(phoneme_mode)
@@ -2109,7 +2129,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 
 				if(iswupper(c))
 				{
-					c = towlower(c);
+					c = towlower2(c);
 
 					if(langopts.param[LOPT_SYLLABLE_CAPS])
 					{

@@ -78,13 +78,16 @@ language).
 
 .group b
        b        p
+    @) b (K	_^_EN
 
 .group c
        c        tsh
        ch       ts.h
+    @) c (K	_^_EN
 
 .group d
        d        t
+    @) d (K	_^_EN
 
 .group e
        e	o-
@@ -110,12 +113,15 @@ language).
 
 .group f
        f        f
+    @) f (K	_^_EN
 
 .group g
        g        k
+    @) g (K	_^_EN
 
 .group h
        h        x
+    @) h (K	_^_EN
 
 .group i
        i        i //i in ing
@@ -135,15 +141,19 @@ language).
 
 .group j
        j        tS;
+    @) j (K	_^_EN
 
 .group k
        k        kh
+    @) k (K	_^_EN
 
 .group l
        l        l
+    @) l (K	_^_EN
 
 .group m
        m        m
+    @) m (K	_^_EN
 
 .group n
        n        n
@@ -166,9 +176,11 @@ language).
 
 .group p
        p        ph
+    @) p (K	_^_EN
 
 .group q
        q        tS;h
+    @) q (K	_^_EN
 
 .group r
        r        z.
@@ -177,9 +189,11 @@ language).
 .group s
        s        s
        sh       s.
+    @) s (K	_^_EN
 
 .group t
        t        th
+    @) t (K	_^_EN
 
 .group u
        u        u
@@ -225,6 +239,7 @@ language).
     n) ve	yE //üe
 
 .group w
+//    @) w (K	_^_EN
        wa	wA  //wa wan wang
        wai	wai
        wa1i	wai55
@@ -242,6 +257,7 @@ language).
 
 .group x
        x        S;
+    @) x (K	_^_EN
 
 .group y
        y	j //before a o e i
@@ -250,10 +266,12 @@ language).
        y (uDn   ;
        yo (DngK	yu
        y (K     i    // foreign words
+    @) y (K	_^_EN
 
 .group z
        z        ts
        zh       ts.
+    @) z (K	_^_EN
 
 //tone number
 .group

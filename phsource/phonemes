@@ -1287,3 +1287,6 @@ include ph_kurdish
 
 phonemetable ja base
 include ph_japanese
+
+phonemetable rw base2
+include ph_kinyarwanda

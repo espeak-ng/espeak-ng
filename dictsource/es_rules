@@ -46,6 +46,7 @@
        _) e (_       e
           e          e
           e (CK      E
+          e (Ch      e
           ei         eI
           ey (K      eI
           ey (_      'eI
@@ -118,6 +119,7 @@
        _) o (_       o
           o          o
           o (CK      O
+          o (Ch      o
           oi         oI
           oy (K      oI
           oy (_      'oI
@@ -136,7 +138,7 @@
 
 
 .group r
-       _) r (_       E*e
+       _) r (_       E**e
           r          R
        _) r          R
        A) r (A       **

@@ -1,4 +1,4 @@
-49 phoneme tables
+50 phoneme tables
           new total
     base  99   99
    base2  24  118
@@ -49,6 +49,7 @@
       tr  18  123
       ku  13  120
       ja   7  104
+      rw  12  123
 
 Data file      Used by
 b/b             [b] base
@@ -1233,6 +1234,8 @@ vowel/a#        [a/] base2
                 [&] sr
                 [&] pt
                 [&/] pt
+                [a#] rw
+                [a/] rw
 vowel/a_2       [a] base2
                 [a] en_wi
                 [A:] en_wi
@@ -1243,6 +1246,7 @@ vowel/a_2       [a] base2
                 [a] pt_pt
                 [a] ro
                 [a:] vi
+                [a] rw
 vowel/a#_2      [&] hr
                 [a2] sv
                 [&] is
@@ -1329,6 +1333,8 @@ vowel/e         [e] base2
                 [e] th
                 [e:] th
                 [e] id
+                [e] rw
+                [e#] rw
 vowel/e#        [I] en_sc
                 [I2] en_sc
 vowel/e_2       [eI] en_sc
@@ -1425,6 +1431,8 @@ vowel/i         [i] base2
                 [i] th
                 [i:] th
                 [i] ja
+                [i] rw
+                [i#] rw
 vowel/i#        [i] en_us
                 [i] en_rp
                 [y:] cy
@@ -1525,6 +1533,8 @@ vowel/o         [o] base2
                 [o] th
                 [o:] th
                 [o] id
+                [o] rw
+                [o#] rw
 vowel/o_2       [o:] cy
                 [o:] hi
                 [o:] hu
@@ -1661,6 +1671,8 @@ vowel/u_bck     [u] base2
                 [u] is
                 [u] zhy
                 [u] zh
+                [u] rw
+                [u#] rw
 vowel/u_bck2    [u:] la
 vowel/u_fnt     [u:] en_rp
 vowel/uu        [U] en

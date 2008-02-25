@@ -580,6 +580,7 @@ void InitText2(void);
 int IsDigit(unsigned int c);
 int IsAlpha(unsigned int c);
 int isspace2(unsigned int c);
+int towlower2(unsigned int c);
 void SetVoiceStack(espeak_VOICE *v);
 
 extern FILE *f_trans;		// for logging

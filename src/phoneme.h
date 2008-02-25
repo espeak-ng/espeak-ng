@@ -87,8 +87,6 @@
 #define phonT_REDUCED   25
 #define phonSTRESS_TONIC 26
 #define phonPAUSE_CLAUSE 27
-#define phonSWITCH2     28
-#define phonTOP         28    // highest pre-defined phoneme number
 
 extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
 
