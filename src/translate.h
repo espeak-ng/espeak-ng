@@ -417,7 +417,7 @@ public:
 
 private:
 	int TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause);
-	int TranslateLetter(char *letter, char *phonemes, int control);
+	int TranslateLetter(char *letter, char *phonemes, int control, int word_length);
 	void SetSpellingStress(char *phonemes, int control, int n_chars);
 	void WriteMnemonic(int *ix, int mnem);
 	void MakePhonemeList(int post_pause, int new_sentence);
@@ -427,7 +427,7 @@ private:
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
 	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab);
-	const char *LookupSpecial(const char *string);
+	const char *LookupSpecial(const char *string, char *text_out);
 	const char *LookupCharName(int c);
 	void LookupLetter(unsigned int letter, int next_byte, char *ph_buf);
 	int LookupNum2(int value, int control, char *ph_out);
@@ -539,6 +539,7 @@ extern char skip_marker[N_MARKER_LENGTH];
 #define N_PUNCTLIST  60
 extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters to announce
 extern unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
+extern const unsigned short punct_chars[];   // punctuation chars fo end-of-clause
 
 extern int speech_parameters[];
 

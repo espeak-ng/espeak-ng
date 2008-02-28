@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-24 Michel Such  <michel.such@free.fr>
+// Updated: 2008-02-26 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -140,6 +140,10 @@
 	_noeu)	d (_        		// noeud
 	r)	d (_        		// lourd placard
 		d           d		// don bled
+	_expé)	dien (t_    djA~		// expédient
+	V_expé)	dien (t_    di		// expédient
+	_ingré)	dien (t_    djA~		// ingrédient
+		dien (t_    di		// étudient (verbe)
 
 // group d: English section
 		day (_        _^_en
@@ -176,7 +180,6 @@
 	C)	en (d_      A~		// comprend dépend
 	od)	en (dr      E~		// rhododendron
 	C)	en (ds_     A~
-	cipi)	en (C     A~		// récipient
 	qu)	en (d_      A~
 	qu)	en (ds_     A~
 
@@ -194,7 +197,9 @@
 	_C)	en (t_      A~		// cent vent lent dent
 	cc)	en (t_      A~		// accent
 	Asc)	en (t_      A~		// luminescent
-	dol)	en (t_      A~		// dolent
+	_dol)	en (t_      A~		// dolent
+	ol)	en (t_      A~		// somnolent, violent
+	Vol)	en (t_        		// somnolent, violent
 	imCoC)	en (t_      A~		// impotent
 	inCoC)	en (t_      A~		// innocent, indolent
 
@@ -210,13 +215,21 @@
 	oémin)	en (t_      A~		// proéminent
 	jac)	en (t_      A~		// sous-jacent, adjacent
 	_lat)	en (t_      A~		// latent
-	lig)	en (t_      A~		// intelligent
+
+	@@Cig)	en (t_      A~		// intransigent, intelligent
+	_dilig)	en (t_      A~		// diligent
+	XACig)	en (t_      A~		// dirigent, exigent
+	VXACig)	en (t_        		// dirigent, exigent (verbe)
+	flig)	en (t_      A~		// affligent
+	Vflig)	en (t_        		// infligent (verbe)
+	Xig)	en (t_      		// figent, pigent
+	oblig)	en (t_      A~		// obligent, d�sobligent
+	Voblig)	en (t_        		// obligent (verbe)
+
 	man)	en (t_      A~		// permanent
-	ndig)	en (t_      A~		// indigent
+	@@ing)	en (t_      A~		// astreingent, contingentindigent
 	_pat)	en (t_      A~		// patent
 	rmam)	en (t_      A~		// firmament
-	xig)	en (t_      A~		// exigent
-	Vxig)	en (t_      		// exigent
 	éCerg)	en (t_      A~		// détergent
 	V_éCerg)	en (t_      		// émergent
 	verg)	en (t_      A~		// convergent, divergent
@@ -234,21 +247,26 @@
 	Atim)	en (t_      A~		// bâtiment
 	_cim)	en (t_      A~		// ciment
 	_pim)	en (t_      A~		// piment
+
+	ertin)	en (t_      A~		// pertinent, impertinent
+	ontin)	en (t_      A~		// continent, incontinent
 	erm)	en (t_      A~		// ferment, serment
 	Vferm)	en (t_      		// ferment, referment (verbe)
 	Arp)	en (t_      A~		// arpent, serpent
 	CArr)	en (t_      A~		// conncurrent, torrent
+	_appar)	en (t_      A~		// apparent
+	spar)	en (t_      A~		// transparent
+	_par)	en (t_      A~		// parent
+	V_par)	en (t_        		// parent (verbe)
+	_var)	en (t_      A~		// varent
 	mitt)	en (t_      A~		// intermittent
 	énit)	en (t_      A~		// pénitent
 	tourm)	en (t_      A~		// tourment
-
-	ti)	en (t_      E~		// retient
-	ati)	en (t_      A~		// patient
-	oti)	en (t_      A~		// quotient
-
-	vi)	en (t_      E~
+	Cflu)	en (t_      A~		// affluent, confluent
+	VCflu)	en (t_        		// refluent, influent (verbe)
 
 	al)	en (t_      A~		// talent équivalent
+	Vival)	en (t_        		// équivalent (verbe)
 	xcell)	en (t_      A~		// excellent
 	nn)	en (t_      t2		// prennent, viennent, sonnent
 
@@ -281,7 +299,7 @@
 		en (t_            	// étaient mangent
 
 	Ci)	en (_       E~      	// viendra
-	Ci)	en (C       E~      	// tien
+	Ci)	en (C       E~      	// viendra
 	Ci)	en (c       A~      	// science
 
 
@@ -435,11 +453,11 @@
 		ed (_  	_^_en
 	_)	edit   	_^_en
 		ee          _^_en		// meeting
-		eing       _^_en		// being, goeing
+		eing (_      _^_en		// being, boeing
 		eive       _^_en		// receive
 		ej       _^_en
 	 	eld (_        _^_en		// field
-	 	enter (_        _^_en		// enter, center
+	_) 	enter (_        _^_en		// enter
 	_) 	enhan         _^_en
 	ack)	et (_      _^_en     	// racket, packet
 	ock)	et (_      _^_en     	// rocket, pocket
@@ -605,6 +623,15 @@ _)		half  	_^_en
 		i           i		// cri
 
 		ie (ment    i		// remerciement balbutiement
+	C)	ien (t_       i
+	dév)	ien (t_       i
+	t)	ien (t_      jE~		// vient
+	v)	ien (t_      jE~		// tient
+	at)	ien (t_      jA~		// patient
+	cip)	ien (C     jA~		// récipient
+	vén)	ien (C     jA~		// inconvénient
+	ot)	ien (t_      jA~		// quotient
+
 		i (es_      i		// parties
 		i (e_       i
 		i (A        j		// fermier portier patio renier
@@ -688,7 +715,7 @@ _)		half  	_^_en
 		mm          m		// pomme
 
 // group m: English section
-		mail (A       _^_en  // mailer
+	_)	mail (_       _^_en  // mailer
 		mov (A         _^_en		// move, movy
 
 
@@ -971,9 +998,9 @@ C)		te (_      t@-  		// patte
 
 	a)	t (ia       s   // spatial
 	en)	t (ia       s   // confidentialit�
-	u)	t (ia       s   // balbutiait
+	bu)	t (iA       s   // balbutiait
 	r)	t (ia       s   // impartial
-	i)	t (ia       s   // initia
+	ini)	t (i       s   // initier
 	p)	t (ia       s   // nuptial
 	an)	t (iat      s   // transsubstantiation
 
@@ -993,8 +1020,9 @@ C)		te (_      t@-  		// patte
  	pa) 	t (ien      s
  	o) 	t (ien      s
 
-	Cu) 	t (ie_      s	// minutie
-	Cu) 	t (ies_     s
+	Cu) 	t (ieX      s	// minutie
+	ni) 	tien (t_     si
+	bu) 	tien (t_     si
 
 	cra) 	t (ie_      s	// démocratie
 	cra) 	t (ies_     s

@@ -144,7 +144,7 @@ int wcmdq_head=0;
 int wcmdq_tail=0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,50, 0,170,0,0,0,0,0};
+int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,0, 0,170,0,0,0,0,0};
 static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,360,300,99,99,99, 0,360,0,0,0,0,4};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
@@ -811,6 +811,12 @@ static void WavegenSetEcho(void)
 	{
 		// set echo from an embedded command in the text
 		amp = embedded_value[EMBED_H];
+		delay = 130;
+	}
+	if(embedded_value[EMBED_T] > 0)
+	{
+		// announcing punctuation
+		amp = embedded_value[EMBED_T] * 10;
 		delay = 130;
 	}
 
@@ -1517,8 +1523,9 @@ void SetEmbedded(int control, int value)
 
 	switch(command)
 	{
-	case EMBED_P:
 	case EMBED_T:
+		WavegenSetEcho();   // and drop through to case P
+	case EMBED_P:
 		// adjust formants to give better results for a different voice pitch
 		if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
 			pitch_value = MAX_PITCH_VALUE;
@@ -1528,7 +1535,7 @@ void SetEmbedded(int control, int value)
 		{
 			wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
 		}
-		factor = (embedded_value[EMBED_T] - 50)*2;
+		factor = embedded_value[EMBED_T]*3;
 		wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;
 		wvoice->height[1] = (wvoice->height2[1] * (256 - factor))/256;
 		break;
@@ -1623,6 +1630,7 @@ if(option_log_frames)
 
 	if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
 		pitch_value = MAX_PITCH_VALUE;
+	pitch_value -= embedded_value[EMBED_T];   // adjust tone for announcing punctuation
 	if(pitch_value < 0)
 		pitch_value = 0;
 

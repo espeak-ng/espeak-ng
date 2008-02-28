@@ -434,11 +434,18 @@ char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme)
 				while(!isspace(c = *p++) && (c != 0))
 					*outptr++ = tolower(c);
 				*outptr = 0;
-				if(strcmp(p_lang,"en")==0)
+				if(c == 0)
 				{
-					*p_lang = 0;   // don't need "en", it's assumed by default
+					if(strcmp(p_lang,"en")==0)
+					{
+						*p_lang = 0;   // don't need "en", it's assumed by default
+						return(p);
+					}
 				}
-				return(p);
+				else
+				{
+					*outptr++ = '|';  // more phonemes follow, terminate language string with separator
+				}
 			}
 			break;
 		}
@@ -2302,10 +2309,10 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	
 	while(((c = *p) != ' ') && (c != 0))
 	{
-		if(IsAlpha(wc))
-			any_alpha++;
 		wc_prev = wc;
 		wc_bytes = utf8_in(&wc,p,0);
+		if(IsAlpha(wc))
+			any_alpha++;
 
 		n = groups2_count[c];
 		if(IsDigit(wc) && ((langopts.tone_numbers == 0) || !any_alpha))
@@ -2424,11 +2431,23 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 				if(match1.points == 0)
 				{
 	static const char str_unknown[4] = {phonCAPITAL,phonCAPITAL,phonCAPITAL,0};
-					if(((any_alpha > 0) || (p[wc_bytes-1] > ' ')) && !iswpunct(wc))
+					if(iswalpha(wc))
 					{
-						// an unrecognised character in a word, indicate with clicks
-						match1.phonemes = str_unknown;
-						match1.points = 1;
+						if((any_alpha > 1) || (p[wc_bytes-1] > ' '))
+						{
+							// an unrecognised character in a word, indicate with clicks
+							match1.phonemes = str_unknown;
+							match1.points = 1;
+						}
+					}
+					else
+					{
+						LookupLetter(wc, -1, ph_buf);
+						if(ph_buf[0])
+						{
+							match1.phonemes = ph_buf;
+							match1.points = 1;
+						}
 					}
 					p += (wc_bytes-1);
 				}

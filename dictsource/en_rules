@@ -5130,7 +5130,7 @@
 	μ	m'ju:_
 	ν	n'ju:_
 	ξ	ks'aI_
-	ο	oUm'aIkr0n_
+	ο	'oUmIkr0n_
 
 .group 0xcf   // Greek letters
 
@@ -5146,7 +5146,7 @@
 	ψ	ps'aI_
 	ω	'oUmIg@_
 	ώ	'oUmIg@_
-	ό	oUm'aIkr0n_
+	ό	'oUmIkr0n_
 
 
 // default group for "non of the above"
@@ -5171,6 +5171,7 @@
 	ž	Z
 	þ	T
 	ð	D
+	ñ	n^
 
 
             \\           bakstroUk
@@ -5226,5 +5227,4 @@
         %%) % (_         _::
 
 // extra symbols (mostly in en_list)
-            ¶        par@graf
             ¶¶       par@grafs

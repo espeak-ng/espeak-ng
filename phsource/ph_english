@@ -292,7 +292,7 @@ endphoneme
 
 phoneme e@
   vowel  starttype (e)  endtype (@)
-  length 220
+  length 230
   formants vowel/ee_1
   linkout r-
 endphoneme
@@ -361,13 +361,6 @@ formants vdiph/eu
 endphoneme
 
 
-phoneme uI
-  vowel  starttype (u)  endtype (i)
-  length 240
-  formants vdiph/ui
-endphoneme
-
-
 phoneme IR        // used for "ir" when [3:] is split (Scottish)
   vowel  starttype (@)  endtype (@)
   length 190
@@ -402,13 +395,6 @@ phoneme O~
   vowel  starttype (o)  endtype (o)
   length 260
   formants vnasal/oo_n
-endphoneme
-
-
-phoneme W~
-  vowel  starttype (@)  endtype (@)
-  length 260
-  formants vnasal/W_n
 endphoneme
 
 

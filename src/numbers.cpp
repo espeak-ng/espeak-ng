@@ -45,6 +45,31 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 	char ph_stress[2];
 	char ph_buf3[30];
 
+	ph_buf1[0] = 0;
+	len = utf8_out(letter,&single_letter[2]);
+	single_letter[len+2] = ' ';
+
+	if(next_byte == -1)
+	{
+		// speaking normal text, not individual characters
+		if(Lookup(&single_letter[2],ph_buf1) != 0)
+			return;
+
+		single_letter[1] = '_';
+		if(Lookup(&single_letter[1],ph_buf3) != 0)
+			return;   // the character is specified as _* so ignore it when speaking normal text
+
+		// check whether this character is specified for English
+		SetTranslator2("en");
+		if(translator2->Lookup(&single_letter[2], ph_buf3) != 0)
+		{
+			// yes, switch to English and re-translate the word
+			sprintf(ph_buf1,"%c",phonSWITCH);
+		}
+		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+		return;
+	}
+
 	if((letter <= 32) || iswspace(letter))
 	{
 		// lookup space as _&32 etc.
@@ -52,10 +77,6 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 		Lookup(&single_letter[1],ph_buf1);
 		return;
 	}
-
-
-	len = utf8_out(letter,&single_letter[2]);
-	single_letter[len+2] = ' ';
 
 	if(next_byte != ' ')
 		next_byte = RULE_SPELLING;
@@ -91,8 +112,8 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 
 
 
-int Translator::TranslateLetter(char *word, char *phonemes, int control)
-{//=====================================================================
+int Translator::TranslateLetter(char *word, char *phonemes, int control, int word_length)
+{//======================================================================================
 // get pronunciation for an isolated letter
 // return number of bytes used by the letter
 // control 2=say-as glyphs, 3-say-as chars
@@ -134,11 +155,17 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 		return(0);
 	}
 
-	if(ph_buf[0] == 0)
+	if((ph_buf[0] == 0) && (word_length == 1) && (translator_name != L('e','n')))
 	{
-// ?? speak as English ??
-		sprintf(phonemes,"%c",phonSWITCH);
-		return(0);
+		// speak as English, check whether there is a translation for this character
+		SetTranslator2("en");
+		translator2->LookupLetter(letter, word[n_bytes], ph_buf);
+		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+		if(ph_buf[0] != 0)
+		{
+			sprintf(phonemes,"%c",phonSWITCH);
+			return(0);
+		}
 	}
 
 	if(ph_buf[0] == 0)

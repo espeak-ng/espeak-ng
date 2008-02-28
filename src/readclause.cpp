@@ -63,11 +63,11 @@ static const char *punct_stop = ".:!?";    // pitch fall if followed by space
 static const char *punct_close = ")]}>;'\"";  // always pitch fall unless followed by alnum
 
 // alter tone for announce punctuation or capitals
-static const char *tone_punct_on = "\001+50R\001+10T";  // add reverberation, reduce low frequencies
-static const char *tone_punct_off = "\001R\001T";
+static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
+static const char *tone_punct_off = "\001T";
 
 // punctuations symbols that can end a clause
-static const unsigned short punct_chars[] = {',','.','?','!',':',';',
+const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x2013,  // en-dash
   0x2014,  // em-dash
   0x2026,  // elipsis
@@ -477,22 +477,38 @@ static void UngetC(int c)
 }
 
 
+const char *WordToString2(unsigned int word)
+{//========================================
+// Convert a language mnemonic word into a string
+	int  ix;
+	static char buf[5];
+	char *p;
 
-const char *Translator::LookupSpecial(const char *string)
-{//======================================================
+	p = buf;
+	for(ix=3; ix>=0; ix--)
+	{
+		if((*p = word >> (ix*8)) != 0)
+			p++;
+	}
+	*p = 0;
+	return(buf);
+}
+
+
+const char *Translator::LookupSpecial(const char *string, char* text_out)
+{//======================================================================
 	unsigned int flags[2];
 	char phonemes[55];
 	char phonemes2[55];
-	static char buf[60];
 	char *string1 = (char *)string;
 
 	if(LookupDictList(&string1,phonemes,flags,0,NULL))
 	{
 		SetWordStress(phonemes,flags[0],-1,0);
 		DecodePhonemes(phonemes,phonemes2);
-		sprintf(buf,"[[%s]] ",phonemes2);
+		sprintf(text_out,"[[%s]]",phonemes2);
 		option_phoneme_input = 1;
-		return(buf);
+		return(text_out);
 	}
 	return(NULL);
 }
@@ -503,26 +519,78 @@ const char *Translator::LookupCharName(int c)
 // Find the phoneme string (in ascii) to speak the name of character c
 
 	int ix;
-	const char *p;
-	static char buf[24];
+	unsigned int flags[2];
+	char single_letter[24];
+	char phonemes[60];
+	char phonemes2[60];
+	char *lang_name = NULL;
+	char *string;
+	static char buf[60];
 
-	buf[0] = '_';
-	ix = utf8_out(c,&buf[1]);
-	buf[1+ix]=0;
+	buf[0] = 0;
+	flags[0] = 0;
+	flags[1] = 0;
+	single_letter[0] = 0;
+	single_letter[1] = '_';
+	ix = utf8_out(c,&single_letter[2]);
+	single_letter[2+ix]=0;
 
-	if((p = LookupSpecial(buf)) == NULL)
+	string = &single_letter[1];
+	if(LookupDictList(&string, phonemes, flags, 0, NULL) == 0)
 	{
-		p = LookupSpecial(&buf[1]);
+		// try _* then *
+		string = &single_letter[2];
+		if(LookupDictList(&string, phonemes, flags, 0, NULL) == 0)
+		{
+			// now try the rules
+			single_letter[1] = ' ';
+			TranslateRules(&single_letter[2], phonemes, sizeof(phonemes), NULL,0,0);
+		}
 	}
-	if(p != NULL)
-		return(p);
 
-	if((p = LookupSpecial("_??")) == NULL)
+	if((phonemes[0] == 0) && (translator_name != L('e','n')))
 	{
-		p = "symbol";
+		// not found, try English
+		SetTranslator2("en");
+		string = &single_letter[1];
+		single_letter[1] = '_';
+		if(translator2->LookupDictList(&string, phonemes, flags, 0, NULL) == 0)
+		{
+			string = &single_letter[2];
+			translator2->LookupDictList(&string, phonemes, flags, 0, NULL);
+		}
+		if(phonemes[0])
+		{
+			lang_name = "en";
+		}
+		else
+		{
+			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+		}
 	}
-	strcpy(buf,p);
-//	sprintf(buf,"%s%d ",p,c);
+
+	if(phonemes[0])
+	{
+		if(lang_name)
+		{
+			translator2->SetWordStress(phonemes,flags[0],-1,0);
+			DecodePhonemes(phonemes,phonemes2);
+			sprintf(buf,"[[_^_%s %s _^_%s]]","en",phonemes2,WordToString2(translator_name));
+			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+		}
+		else
+		{
+			SetWordStress(phonemes,flags[0],-1,0);
+			DecodePhonemes(phonemes,phonemes2);
+			sprintf(buf,"[[%s]] ",phonemes2);
+		}
+	}
+	else
+	{
+		strcpy(buf,"[[(X1)(X1)(X1)]]");
+	}
+
+	option_phoneme_input = 1;
 	return(buf);
 }
 
@@ -714,7 +782,9 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 
 			p = &buf[bufix];
 			if(punct_count==1)
+			{
 				sprintf(p,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
+			}
 			else
 			if(punct_count < 4)
 			{
@@ -1769,8 +1839,8 @@ int Translator::ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_
 	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
 
-#define N_XML_BUF2   12
-	char buf2[N_XML_BUF2+2];
+#define N_XML_BUF2   20
+	char xml_buf2[N_XML_BUF2+2];           // for &<name> and &<number> sequences
 	static char ungot_string[N_XML_BUF2+4];
 	static int ungot_string_ix = -1;
 
@@ -1859,26 +1929,26 @@ f_input = f_in;  // for GetC etc
 				c1 = c2;
 				while(!Eof() && (iswalnum(c1) || (c1=='#')) && (n_xml_buf < N_XML_BUF2))
 				{
-					buf2[n_xml_buf++] = c1;
+					xml_buf2[n_xml_buf++] = c1;
 					c1 = GetC();
 				}
-				buf2[n_xml_buf] = 0;
+				xml_buf2[n_xml_buf] = 0;
 				c2 = GetC();
-				sprintf(ungot_string,"%s%c%c",&buf2[0],c1,c2);
+				sprintf(ungot_string,"%s%c%c",&xml_buf2[0],c1,c2);
 
 				if(c1 == ';')
 				{
-					if(buf2[0] == '#')
+					if(xml_buf2[0] == '#')
 					{
 						// character code number
-						if(buf2[1] == 'x')
-							found = sscanf(&buf2[2],"%x",(unsigned int *)(&c1));
+						if(xml_buf2[1] == 'x')
+							found = sscanf(&xml_buf2[2],"%x",(unsigned int *)(&c1));
 						else
-							found = sscanf(&buf2[1],"%d",&c1);
+							found = sscanf(&xml_buf2[1],"%d",&c1);
 					}
 					else
 					{
-						if((found = LookupMnem(xml_char_mnemonics,buf2)) != -1)
+						if((found = LookupMnem(xml_char_mnemonics,xml_buf2)) != -1)
 						{
 							c1 = found;
 							if(c2 == 0)
@@ -2050,14 +2120,15 @@ f_input = f_in;  // for GetC etc
 			clause_upper_count++;
 			if((option_capitals == 2) && !iswupper(cprev))
 			{
-				p = LookupSpecial("_cap");
-				if(p != NULL)
+				char text_buf[40];
+				char text_buf2[30];
+				if(LookupSpecial("_cap",text_buf2) != NULL)
 				{
-					sprintf(buf2,"%s%s%s",tone_punct_on,p,tone_punct_off);
-					j = strlen(buf2);
+					sprintf(text_buf,"%s%s%s",tone_punct_on,text_buf2,tone_punct_off);
+					j = strlen(text_buf);
 					if((ix + j) < n_buf)
 					{
-						strcpy(&buf[ix],buf2);
+						strcpy(&buf[ix],text_buf);
 						ix += j;
 					}
 				}
@@ -2186,11 +2257,14 @@ if(option_ssml) parag=1;
 		if(speech_parameters[espeakSILENCE]==1)
 			continue;
 
+		j = ix+1;
+		ix += utf8_out(c1,&buf[ix]);    //	buf[ix++] = c1;
 		if(!iswspace(c1) && !IsBracket(c1))
 		{
 			charix[ix] = count_characters - clause_start_char;
+			while(j < ix)
+				charix[j++] = 0xffff;   // subsequent bytes of a multibyte character
 		}
-		ix += utf8_out(c1,&buf[ix]);    //	buf[ix++] = c1;
 
 		if(((ix > (n_buf-20)) && !IsAlpha(c1) && !iswdigit(c1))  ||  (ix >= (n_buf-2)))
 		{

@@ -6,6 +6,7 @@
 // ?2  Latin America
 
 .L01 j w l r d g n m
+.L02 b d g n m         // change [s] to [z] before these
 
 .group a
        _) a (_       a
@@ -38,6 +39,7 @@
        _) d (_       de
           d          D
        _) d          d
+       l) d          d
        m) d          d
        n) d          d
 
@@ -142,7 +144,7 @@
           r          R
        _) r          R
        A) r (A       **
-       C) r (A       @-*
+       C) r (A       **
           rr         *R
 
 
@@ -150,6 +152,8 @@
        _) s (_       Ese
           s          s
        &) s (_S1     s
+          s (L02     z
+          s (gY      s
 
 
 .group t
@@ -199,7 +203,7 @@
 
 
 .group y
-       _) y (_       ,ig@-*'iEQa
+       _) y (_       ,ig**'iEQa
           y          i
        _) y          J
       _m) y          J

@@ -82,7 +82,7 @@ language).
 
 .group c
        c        tsh
-       ch       ts.h
+       ch (+    ts.h
     @) c (K	_^_EN
 
 .group d
@@ -150,6 +150,7 @@ language).
 .group l
        l        l
     @) l (K	_^_EN
+    @) l (v     l
 
 .group m
        m        m
@@ -188,7 +189,7 @@ language).
 
 .group s
        s        s
-       sh       s.
+       sh (+    s.
     @) s (K	_^_EN
 
 .group t
@@ -239,7 +240,7 @@ language).
     n) ve	yE //üe
 
 .group w
-//    @) w (K	_^_EN
+    @) w (K	_^_EN
        wa	wA  //wa wan wang
        wai	wai
        wa1i	wai55
@@ -270,7 +271,7 @@ language).
 
 .group z
        z        ts
-       zh       ts.
+       zh (+    ts.
     @) z (K	_^_EN
 
 //tone number

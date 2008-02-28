@@ -57,6 +57,7 @@ _??	sImb@L
 _#9	tab
 _#32	speIs
 
+_ 	hA@dspeIs    // U+00A0  no-break-space
 _!	Ekskl@m'eIS@n
 _"	kwoUts
 _#	haS
@@ -65,8 +66,8 @@ _%	p3s'Ent
 ?5 _%	pVRs'Ent
 _&	amp@sand
 _'	praIm
-_(	ElbrakIt
-_)	A@brakIt
+_(	lEftbrakIt
+_)	raItbrakIt
 _*	ast@rIsk
 _+	plVs
 _,	k0m@
@@ -80,24 +81,72 @@ _=	i:kw@Lz
 _>	A@aNg@L
 _?	kwEstS@n
 _@	at|saIn
-_[	Elskwe@
+_[	lEftskwe@
 _\	bakstroUk
-_]	A@skwe@
+_]	raItskwe@
 _^	s3:kVmfl,Eks
 ?5 _^	sIRkVmfl,Eks
 __	'Vnd3sk,o@
 _`	bakpraIm
-_{	ElbreIs
+_{	lEftbreIs
 _|	vi:b'A@
-_}	A@breIs
+_}	raItbreIs
 _~	tIld@
+_¡	I2nv3:tI2dEkskl@m'eIS@n
+_¦	broUk@nb'A@
+_¨	daIa2r'i:sI2s
+_ª	fEmI2nI2n'O@dI2n@L
+_«	lEft'ang@LkwoUts
+_­	makr0n
+_²	su:p@skrIptt'u:
+_³	su:p@skrIptT'ri:
+_´	a2kju:taksEnt
+_·	mId@Ld0t
+_¸	sEd'Il@
+_¹	su:p@skrIptw'0n
+_º	maskjUlI2n'O@dI2n@L
+_»	raIt'ang@LkwoUts
+_¿	I2nv3:tI2dkw'EstS@n
 
+_‐	haIf@n
+_‑	haIf@n
+_‒	daS
+_–	daS
+_—	EmdaS
+_―	h0rIz,0nt@Lb'A@
+_‖	d,Vb@Lb'A@
+_‘	lEftkwoUt
+_’	raItkwoUt
+_‚	loUkwoUt
+_‛	lEftkwoUt
+_“	lEftkwoUts
+_”	raItkwoUts
+_„	loUkwoUts
+_‟	lEftkwoUts
+_†	dag3
+_‡	dVb@Ldag3
+_•	bUlI2t
+_‣	bUlI2t
+_․	d0t
+_‥	tu:d0ts
+_…	I2lIpsI2s
+_‰	p3:m'i:l
+_′	praIm
+_″	dVb@LpraIm
+_‴	trIp@LpraIm
+_‼	Ekskla2m'eIS@nz
+_₠	jU@roU
+
+¢	sEnts
 £	paUnd
 ¥	jEn
+₨	ru:pi:
+₩	w0n
 §	sEkS@n
-_¶	par@graf   // in en_rules
+¶	par@graf   // in en_rules
 ¤	kVr@nsI2saIn
 ©	k0pI2raIt
+®	rEdZIst3d
 °	dI2gri:z
 −	maIn@s
 ±	plVs@maIn@s
@@ -110,7 +159,14 @@ _¶	par@graf   // in en_rules
 €	jU@roUz
 ♯	SA@p
 ♭	flat
+¬	n0t_|saIn
 ə	SwA:
+æ	eI'i:
+ɛ	oUp@n'i:
+ɔ	oUp@n'oU
+ð	ED
+ʃ	ES
+ʒ	EZ
 
 // numeric
 
@@ -1112,6 +1168,7 @@ leant            lEnt
 leapt            lEpt
 lego             lEgoU
 leisure          l'EZ3
+lemme            lElI       // let me
 lemonade                       $3
 leo              li:oU
 leopard          lEp@d
@@ -2625,7 +2682,7 @@ although         OlD'oU        $pause
 and              %and          $pause $only
 as               ,az           $pause $only
 (as is)          ,az,Iz        $pause
-(as it is)       azIt'Iz_
+(as it is)       ,azIt,Iz      $u+
 because          bIk'Vz        $pause
 once                           $pause
 or               %O@           $pause $only
@@ -2717,7 +2774,7 @@ like             laIk          $strend2
 
 
 
-
+// ?6  'one' = [wVn], 'of' = [Vv]
 ?6 noone         noUwVn
 ?6 anyone        EnIwVn
 ?6 everyone      EvrIwVn

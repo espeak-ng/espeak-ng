@@ -136,7 +136,7 @@ endphoneme
 phoneme i:
   vowel  starttype (i)  endtype (i)
   length 170
-  formants vowel/i_6
+  formants vowel/i_en
   linkout ;
 endphoneme
 

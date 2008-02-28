@@ -8,6 +8,7 @@
 //   Replace Latin characters by same-shape Greek characters
 
 .replace
+′	'
 a	α  // Latin->Greek
 o	ο
 v	ν
@@ -25,6 +26,32 @@ P	Ρ
 T	Τ
 Y	Υ
 X	Χ
+
+// replace Latin characters by Greek equivalents
+th	θ
+ph	φ
+kh	χ
+ps	ψ
+b	β
+g	γ
+d	δ
+e	ε
+z	ζ
+q	η // (long e; not standard transliteration but may be easier to type than η)
+i	ι
+k	κ
+l	λ
+m	μ
+n	ν
+x	ξ
+p	π
+r	ρ
+s	σ
+t	τ
+u	υ
+y	υ
+w	ω // (long o; not standard transliteration but may be easier to type
+
 
 // alpha
 ά	ὰ    // tonos
@@ -161,184 +188,175 @@ X	Χ
 
 
 .group α
-        α        a
-        αι       aI
-        αὶ      'aI
-        αυ       aU
-        αὺ      'aU
-        αhι      haI
-        αhὶ     'haI
-        αhυ      haU
-        αhὺ     'haU
+	α        a
+	αι       aI
+	αὶ      'aI
+	αυ       aU
+	αὺ      'aU
+	αhι      haI
+	αhὶ     'haI
+	αhυ      haU
+	αhὺ     'haU
 
 .group β
-        β        b
+	β        b
 
 
 .group γ
-        γ        g
-        γγ       Ng
+	γ        g
+	γγ       Ng
 
 .group δ
-        δ        d
+	δ        d
 
 
 .group ε
-        ε        e
-        ει       e:
-        εὶ      'e:
-        ευ       eU
-        εὺ      'eU
-        εhι      he:
-        εhὶ     'he:
-        εhυ      heU
-        εhὺ     'heU
+	ε        e
+	ει       e:
+	εὶ      'e:
+	ευ       eU
+	εὺ      'eU
+	εhι      he:
+	εhὶ     'he:
+	εhυ      heU
+	εhὺ     'heU
 
 .group ζ
-        ζ        z
+	ζ        z
 
 
 .group η
-        η        E:
-        ηι       EI:
-        ηὶ      'EI:
-        ηυ       EU:
-        ηὺ      'EU:
-        ηhι      hEI:
-        ηhὶ     'hEI:
-        ηhυ      hEU:
-        ηhὺ     'hEU:
+	η        E:
+	ηι       EI:
+	ηὶ      'EI:
+	ηυ       EU:
+	ηὺ      'EU:
+	ηhι      hEI:
+	ηhὶ     'hEI:
+	ηhυ      hEU:
+	ηhὺ     'hEU:
 
 .group θ
-        θ        T
+	θ        T
 
 
 .group ι
-        ι        i
+	ι        i
 
 
 .group ϊ
-        ϊ        i
+	ϊ        i
 
 
 .group κ
-        κ        k
+	κ        k
 
 
 .group λ
-        λ        l
+	λ        l
 
 
 .group μ
-        μ        m
+	μ        m
 
 
 .group ν
-        ν        n
+	ν        n
 
 
 .group ξ
-        ξ        ks
+	ξ        ks
 
 
 .group ο
-        ο        o
-        οι       oI
-        οὶ      'oI
-        ου       u:
-        οὺ      'u:
-        οhι      hoI
-        οhὶ     'hoI
-        οhυ      hu:
-        οhὺ     'hu:
+	ο        o
+	οι       oI
+	οὶ      'oI
+	ου       u:
+	οὺ      'u:
+	οhι      hoI
+	οhὶ     'hoI
+	οhυ      hu:
+	οhὺ     'hu:
 
 .group π
-        π        p
+	π        p
 
 
 .group ρ
-        ρ        R
+	ρ        R
 
 
 .group ς
-        ς        s
+	ς        s
 
 
 .group σ
-        σ        s
+	σ        s
 
 
 .group τ
-        τ        t
+	τ        t
 
 
 .group υ
-        υ        y
-        υι       yI
-        υὶ      'yI
-        υhι      hyI
-        υhὶ     'hyI
+	υ        y
+	υι       yI
+	υὶ      'yI
+	υhι      hyI
+	υhὶ     'hyI
 
 .group ϋ
-        ϋ        y
-        ϋι       yI
-        ϋὶ      'yI
-        ϋhι      hyI
-        ϋhὶ     'hyI
+	ϋ        y
+	ϋι       yI
+	ϋὶ      'yI
+	ϋhι      hyI
+	ϋhὶ     'hyI
 
 .group φ
-        φ        f
+	φ        f
 
 
 .group χ
-        χ        x
+	χ        x
 
 
 .group ψ
-        ψ        ps
+	ψ        ps
 
 
 .group ω
-        ω        O:
-        ωι       OI:
-        ωὶ      'OI:
-        ωυ       OU:
-        ωὺ      'OU:
-        ωhι      hOI:
-        ωhὶ     'hOI:
-        ωhυ      hOU:
-        ωhὺ     'hOU:
+	ω        O:
+	ωι       OI:
+	ωὶ      'OI:
+	ωυ       OU:
+	ωὺ      'OU:
+	ωhι      hOI:
+	ωhὶ     'hOI:
+	ωhυ      hOU:
+	ωhὺ     'hOU:
 
 
 
 .group h   // dasia (rough breathing)
-        h        h
+	h        h
 
 
 .group
-        ὰ       'a
-        ᾳ        aI:
-        ᾲ       'aI:
-        ὲ       'e
-        ὴ       'E:
-        ῃ        EI:
-        ῂ       'EI:
-        ὶ       'i
-        ῒ       'i
-        ὸ       'o
-        ὺ       'y
-        ῢ       'y
-        ὼ       'O:
-        ῳ        OI:
-        ῲ       'OI:
+	ὰ       'a
+	ᾳ        aI:
+	ᾲ       'aI:
+	ὲ       'e
+	ὴ       'E:
+	ῃ        EI:
+	ῂ       'EI:
+	ὶ       'i
+	ῒ       'i
+	ὸ       'o
+	ὺ       'y
+	ῢ       'y
+	ὼ       'O:
+	ῳ        OI:
+	ῲ       'OI:
 
-
-
-
-
-
-
-
-
-
-
+	'	=	// apostrophe used as tonos, stress on previous syllable

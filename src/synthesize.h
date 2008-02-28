@@ -51,7 +51,7 @@
 #define EMBED_A     3   // amplitude/volume
 #define EMBED_R     4   // pitch range/expression
 #define EMBED_H     5   // echo/reverberation
-#define EMBED_T     6   // different tone
+#define EMBED_T     6   // different tone for announcing punctuation
 #define EMBED_I     7   // sound icon
 #define EMBED_S2    8   // speed (used in synthesize)
 #define EMBED_Y     9   // say-as commands
@@ -274,5 +274,6 @@ int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int 
 int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
 		int which, PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause);
+int LookupPhonemeTable(const char *name);
 
 void InitBreath(void);

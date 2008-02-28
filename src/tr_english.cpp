@@ -111,7 +111,7 @@ int Translator_English::Unpronouncable(char *word)
 		if(c == '\'')
 			apostrophe = 1;
 		else
-		if((c < 'a') || (c > 0x241))
+		if(!IsAlpha(c))
 			return(0);        // letter (not vowel) outside Latin character range or apostrophe, abort test
 	}
 	if((vowel_posn > 5) || ((word[0]!='s') && (vowel_posn > 4)))

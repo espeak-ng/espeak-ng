@@ -752,7 +752,7 @@ if((wmark > 0) && (wmark < 8))
 
 		while(*wordx != ' ')
 		{
-			wordx += TranslateLetter(wordx, phonemes,spell_word);
+			wordx += TranslateLetter(wordx, phonemes,spell_word, word_length);
 			posn++;
 			if(phonemes[0] == phonSWITCH)
 			{
@@ -779,7 +779,7 @@ if((wmark > 0) && (wmark < 8))
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
 			emphasize_allcaps = 0;
-			wordx += TranslateLetter(wordx,phonemes,0);
+			wordx += TranslateLetter(wordx,phonemes,0, word_length);
 			posn++;
 			if(phonemes[0] == phonSWITCH)
 			{
@@ -825,12 +825,12 @@ if((wmark > 0) && (wmark < 8))
 				// characters not recognised, speak them individually
 
 				utf8_in(&wc, wordx, 0);
-				if(!iswpunct(wc))
+				if((word_length == 1) && IsAlpha(wc))
 				{
 					posn = 0;
 					while(*wordx != ' ')
 					{
-						wordx += TranslateLetter(wordx, phonemes, 4);
+						wordx += TranslateLetter(wordx, phonemes, 4, word_length);
 						posn++;
 						if(phonemes[0] == phonSWITCH)
 						{
@@ -1278,9 +1278,12 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	int first_phoneme = 1;
 	int source_ix;
 	int len;
+	int ix;
 	int sylimit;        // max. number of syllables in a word to be combined with a preceding preposition
 	const char *new_language;
 	unsigned char bad_phoneme[4];
+	int word_copy_len;
+	char word_copy[N_WORD_BYTES];
 
 	len = wtab->length;
 	if(len > 31) len = 31;
@@ -1355,11 +1358,42 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	if(word_flags & FLAG_PHONEMES)
 	{
 		// The input is in phoneme mnemonics, not language text
-		EncodePhonemes(word,word_phonemes,bad_phoneme);
+		int c1;
+		char lang_name[12];
+
+		if(memcmp(word,"_^_",3)==0)
+		{
+			// switch languages
+			word+=3;
+			for(ix=0;;)
+			{
+				c1 = *word++;
+				if((c1==' ') || (c1==0))
+					break;
+				lang_name[ix++] = tolower(c1);
+			}
+			lang_name[ix] = 0;
+
+			if((ix = LookupPhonemeTable(lang_name)) > 0)
+			{
+				SelectPhonemeTable(ix);
+				word_phonemes[0] = phonSWITCH;
+				word_phonemes[1] = ix;
+				word_phonemes[2] = 0;
+			}
+		}
+		else
+		{
+			EncodePhonemes(word,word_phonemes,bad_phoneme);
+		}
 		flags = FLAG_FOUND;
 	}
 	else
 	{
+		ix = 0;
+		while((word_copy[ix] = word[ix]) != ' ') ix++;
+		word_copy_len = ix;
+
 		flags = translator->TranslateWord(word, next_pause, wtab);
 
 		if((flags & FLAG_ALT2_TRANS) && ((sylimit = langopts.param[LOPT_COMBINE_WORDS]) > 0))
@@ -1420,6 +1454,8 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 		if(p[0] == phonSWITCH)
 		{
 			// this word uses a different language
+			memcpy(word, word_copy, word_copy_len);
+
 			new_language = (char *)(&p[1]);
 			if(new_language[0]==0)
 				new_language = "en";
@@ -1523,6 +1559,15 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 
 		// Add the phonemes to the first stage phoneme list (ph_list2)
 		ph = phoneme_tab[ph_code];
+
+		if(ph_code == phonSWITCH)
+		{
+			ph_list2[n_ph_list2].phcode = ph_code;
+			ph_list2[n_ph_list2].sourceix = 0;
+			ph_list2[n_ph_list2].synthflags = embedded_flag;
+			ph_list2[n_ph_list2++].tone_number = *p++;
+		}
+		else
 		if(ph->type == phSTRESS)
 		{
 			// don't add stress phonemes codes to the list, but give their stress
@@ -1924,8 +1969,14 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	for(j=0; charix[j]==0; j++);
 	words[0].sourceix = charix[j];
-	for(k=j; charix[k]!=0; k++);
-	words[0].length = k-j;
+	k = 0;
+	while(charix[j] != 0)
+	{
+		// count the number of characters (excluding multibyte continuation bytes)
+		if(charix[j++] != 0xffff)
+			k++;
+	}
+	words[0].length = k;
 
 	while(!finished && (ix < (int)sizeof(sbuf))&& (n_ph_list2 < N_PHONEME_LIST-4))
 	{
@@ -2327,10 +2378,16 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				words[word_count].start = ix;
 				words[word_count].flags = 0;
 
-				for(j=source_index; charix[j] == 0; j++);
+				for(j=source_index; charix[j] == 0; j++);   // skip blanks
 				words[word_count].sourceix = charix[j];
-				for(k=j; charix[k]!=0; k++);
-				words[word_count].length = k-j;
+				k = 0;
+				while(charix[j] != 0)
+				{
+					// count the number of characters (excluding multibyte continuation bytes)
+					if(charix[j++] != 0xffff)
+						k++;
+				}
+				words[word_count].length = k;
 
 				word_flags = next_word_flags;
 				next_word_flags = 0;

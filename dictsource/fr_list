@@ -65,7 +65,7 @@ _y      i:gR'Ek
 
 //_cap	k,ap@-t@L
 _?A	lEt@
-_??	sE~b'OL
+_??	sE~b'Oll
 _#9	tabylasjO~
 _#32	Espas
 
@@ -229,9 +229,11 @@ prof                           $dot
 
 // articles
 le	$u $nounf
+le	$u $verb $verbextend
 la	$u $nounf
+la	$u $verb $verbextend
 les	lez2 $u $nounf
-?2 les	lez2 $u $nounf
+les	lez2 $u $verb $verbextend
 un	$u $nounf
 une	$u $nounf
 
@@ -278,7 +280,15 @@ lui	$u $verbf
 
 ce	$u $nounf
 cette	$u $nounf
-ces	sEz2 $u $nounf
+ces	sez2 $u $nounf
+ceci	$verbf
+cela	$verbf
+(celle ci)	sEl||si $verbf
+(celle là)	sEl||la $verbf
+(ceux ci)	sY||si $verbf
+(ceux là)	sY||la $verbf
+(celles ci)	sEl||si $verbf
+(celles là)	sEl||la $verbf
 
 // possessives
 ma	$u+ $nounf
@@ -292,16 +302,21 @@ son	$u+ $nounf
 ses	sez2 $u+ $nounf
 notre	$u+ $nounf
 votre	$u+ $nounf
-leur	$u+
+leur	$u+ $nounf
+leur	$u+ $verb $verbextend
+(la leur)	la||l@r $u+ $verbf
+(le leur)	l@||l@r $u+ $verbf
 nos	$u+ $nounf
 vos	$u+ $nounf
-leurs	$u+
+leurs	$u+ $nounf
+leurs	$u+ $verb $verbextend
+(les leur)	le||l@r $u+ $verbf
+(les leurs)	le||l@r $u+ $verbf
 
 // prepositions
 de $u $nounf
 du	$u+ $nounf
 des	dez2 $u $nounf
-?2 des  dez2 $u+ $nounf
 
 
 à	$u
@@ -321,7 +336,7 @@ avec	$u
 sans	$u
 sous	$u
 entre	$u $brk
-contre	$u $brk
+contre	$u
 
 durant	$brk
 
@@ -385,8 +400,7 @@ couvent          k'uvt2  $verb
 dessus          d@sy
 dessous          d@su
 divers          divErz2
-parent            paR'A~
-parent            p'art2  $verb
+hareng          _!arA~
 pastis     pastis
 poing     pwE~
 ressent          r@s'A~t2
@@ -438,6 +452,7 @@ sus       sy $verb
 vénus       venys
 
 
+gens	      ZA~
 mens	      mA~z2
 sens	      sA~s
 sens	      sA~z2 $verb
@@ -627,7 +642,6 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
-
 
 
 
