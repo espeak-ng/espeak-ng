@@ -51,6 +51,28 @@ _z	zet
 
 _#9	t'ap
 _#32 	m'ezeRa // space
+_??	simbol
+_?A	znak
+_cap	m'ajuskule
+
+// accent names
+_lig	l'igat,uRa
+_acu	tS'a:Rka
+_ac2	dvj'etS'a:Rki
+_brv	'obloUtSek
+_ced	ts'eJila
+_cir	stR^'i:Ska
+_dia	tR'ema
+_dot	t'etSka	
+_grv	c'eSki:;'aktsent
+_hac	h'a:tSek
+_mcn	m'akRon
+_ogo	'ogonek
+_rng	kR'oUZek
+_stk	S'ikma:tS'a:Rka
+_tld	c'ilda
+
+
 
 _$	dola:R
 _'	apostRof
@@ -72,8 +94,6 @@ _}	sl'oZena:||z'avR^i:t
 _<	menSi:
 _>	vjetSi:
 _|	sv'isla:||tS'a:Ra
-_??	simbol
-_?A	znak
 
 
 // Numbers
@@ -258,6 +278,9 @@ z        zet   $atend
 // Abbreviations
 // if a word has no vowels (or "r") then it will
 // automatically be spoken as individual letters
+
+e.g	napR^
+
 arc      $abbrev
 arj      $abbrev
 atd      $abbrev

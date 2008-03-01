@@ -74,6 +74,7 @@
 #define FLAG_VERB_EXT        0x100  /* extend the 'verb follows' */
 #define FLAG_CAPITAL         0x200  /* pronunciation if initial letter is upper case */
 #define FLAG_ALLCAPS         0x400  // only if the word is all capitals
+#define FLAG_ACCENT          0x800  // character name is base-character name + accent name
 
 
 
@@ -230,7 +231,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      14
+#define N_LOPTS      15
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -254,9 +255,8 @@ extern const int param_defaults[N_SPEECH_PARAM];
  // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN    7
 
- // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
- // bit 1=also after a word which ends with a stressed vowel
-#define LOPT_IT_DOUBLING     8
+ // don't break vowels at word boundary
+#define LOPT_WORD_MERGE      8
 
  // max. amplitude for vowel at the end of a clause
 #define LOPT_MAXAMP_EOC      9
@@ -276,6 +276,11 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
  // stressed syllable is indicated by capitals
 #define LOPT_SYLLABLE_CAPS  13
+
+ // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
+ // bit 1=also after a word which ends with a stressed vowel
+#define LOPT_IT_DOUBLING    14
+
 
 
 typedef struct {
@@ -341,6 +346,10 @@ typedef struct {
 	int max_roman;
 	int thousands_sep;
 	int decimal_sep;
+
+	// bit 0, accent name before the letter name
+	int accents;
+
 	int tone_language;          // 1=tone language
 	int intonation_group;
 	int long_stop;          // extra mS pause for a lengthened stop
@@ -430,6 +439,8 @@ private:
 	const char *LookupSpecial(const char *string, char *text_out);
 	const char *LookupCharName(int c);
 	void LookupLetter(unsigned int letter, int next_byte, char *ph_buf);
+	int LookupLetter2(unsigned int letter, char *ph_buf);
+	void LookupAccentedLetter(unsigned int letter, char *ph_buf);
 	int LookupNum2(int value, int control, char *ph_out);
 	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
 	int LookupThousands(int value, int thousandplex, char *ph_out);

@@ -2390,15 +2390,15 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 					// no group for this letter, use default group
 					MatchRule(&p, "", groups1[0], &match1, word_flags, dict_flags);
 
-					if(match1.points == 0)
+					if((match1.points == 0) && ((option_sayas & 0x10) == 0))
 					{
 						// no match, try removing the accent and re-translating the word
 						n = utf8_in(&letter,p-1,0)-1;
-						if((letter >= 0xc0) && (letter <= 0x241))
+						if((letter >= 0xc0) && (letter <= 0x241) && ((ix = remove_accent[letter-0xc0]) != 0))
 						{
 							// within range of the remove_accent table
 							p2 = p-1;
-							p[-1] = remove_accent[letter-0xc0];
+							p[-1] = ix;
 							while((p[0] = p[n]) != ' ')  p++;
 							while(n-- > 0) *p++ = ' ';  // replacement character must be no longer than original
 
@@ -3020,6 +3020,16 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 
 	found = LookupDict2(word, word1, ph_out, flags, end_flags, wtab);
 
+	if((found == 0) && (flags[1] & FLAG_ACCENT))
+	{
+		int letter;
+		word2 = word;
+		if(*word2 == '_') word2++;
+		len = utf8_in(&letter, word2, 0);
+		LookupAccentedLetter(letter, ph_out);
+		found = word2 + len;
+	}
+
 	if(found == 0)
 	{
 		ph_out[0] = 0;
@@ -3086,6 +3096,7 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 int Translator::Lookup(const char *word, char *ph_out)
 {//===================================================
 	unsigned int flags[2];
+	flags[0] = flags[1] = 0;
 	char *word1 = (char *)word;
 	return(LookupDictList(&word1, ph_out, flags, 0, NULL));
 }

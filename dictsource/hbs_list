@@ -41,9 +41,29 @@
    z	z@
    ž	Z@
 
+// accent names
+_lig	l'ig&t,UR&
+_acu	'akUt
+_ac2	dv'ostr**UkI;'akUt	
+//_brv	
+_ced	ts'EdIl&
+_cir	ts'iRkUmflEks
+_dia	'uml&Ut
+_dot	t'otSk&
+//_grv	
+_hac	kv'atSIts&
+_mcn	m'akr**on
+_ogo	'ogonEk
+_rng	r**'iNg
+_stk	kr**'oz
+_tld	t'ild&
+
+
 // symbols
    _??	znak          // unknown symbol
    _?A	slovo         // unknown letter
+   _cap	k'apIt&l      // ?? use English until I find the correct word
+
    ©	'aUtoRsk&||pr*av&
    %	p'osto
    +	plus

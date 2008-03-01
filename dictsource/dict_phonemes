@@ -21,10 +21,10 @@ Dictionary cs_dict
 i    i:   l-   o    o:   oU   r-   u    
 u:   
 
-*    b    c    d    dZ   f    g    h    
-j    J    k    l    l^   m    n    N    
-n^   p    r    R    R^   R^/  s    S    
-t    tS   ts   v    x    z    Z    
+*    ;    b    c    d    dZ   f    g    
+h    j    J    k    l    l^   m    n    
+N    n^   p    r    R    R^   R^/  s    
+S    t    tS   ts   v    x    z    Z    
 
 
 Dictionary cy_dict
@@ -149,12 +149,12 @@ v    z    Z
 Dictionary it_dict
 
 @-   a    a/   aI   aU   e    E    i    
-o    O    oI   u    
+I    o    O    oI   u    
 
-*    :    b    d    dZ   f    g    h    
-j    k    l    l^   m    n    N    n^   
-p    r    R    s    S    t    tS   ts   
-v    w    w2   z    
+*    :    ;    b    d    dZ   f    g    
+h    j    k    l    l^   m    n    N    
+n^   p    r    R    s    S    t    tS   
+ts   v    w    w2   z    
 
 
 Dictionary nl_dict
@@ -213,10 +213,11 @@ Dictionary sk_dict
 l-   l:   o    o:   oU   r-   r:   u    
 u:   
 
-*    :    b    d    d;   dZ   f    g    
-h    j    k    l    l^   m    n    N    
-n^   p    r    R    R^   R^/  s    S    
-t    t;   tS   ts   v    x    z    Z    
+*    :    ;    b    d    d;   dZ   f    
+g    h    j    k    l    l^   m    n    
+N    n^   p    r    R    R^   R^/  s    
+S    t    t;   tS   ts   v    x    z    
+Z    
 
 
 Dictionary sv_dict
@@ -371,10 +372,10 @@ Dictionary hbs_dict
 E    e    e:   i    I    i:   l-   O    
 o    o:   oU   r*   r-   u    U    u:   
 
-*    b    d    dZ   dZ;  f    g    h    
-j    k    l    L    l^   m    n    N    
-n^   p    r    R    s    S    t    tS   
-ts   tS;  v    x    z    Z    
+*    ;    b    d    dZ   dZ;  f    g    
+h    j    k    l    L    l^   m    n    
+N    n^   p    r    R    s    S    t    
+tS   ts   tS;  v    x    z    Z    
 
 
 Dictionary id_dict

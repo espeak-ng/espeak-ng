@@ -43,9 +43,27 @@ _v	ve:
 w	dv'ojite:,ve:
 x	iks
 y	ipsilon
-ý	d,l-he:'i:
+ý	d,l-he:'ipsilon
 _z	zet
 ž	Zet
+
+// accent names
+_lig	l'igat,u:Rov,ane:
+_acu	s_d'l:Zn^om
+//_ac2		
+_brv	bR'eve
+_ced	s_ts'ed;illoU
+_cir	s'ostRi;,eSkoU
+_dia	s_pR'ehla:skoU
+_dot	s_b'otkoU
+_grv	s_'obRa:t;,eni:md'l:Zn^om
+_hac	s_m'ektSen^om
+_mcn	s_m'akRonom
+_ogo	s_'ogon^ek
+_rng	s_kR'u:Skom
+_stk	S'ikmi: d'l:Zen^
+_tld	s_v'l-novkoU
+
 
 // character names
 _cap	vel^ke:

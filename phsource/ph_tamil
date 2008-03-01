@@ -77,7 +77,7 @@ endphoneme
 
 phoneme U
   vowel  starttype (u)  endtype (u)
-  length 150
+  length 130
   formants vowel/u#_3
 endphoneme
 
@@ -89,7 +89,7 @@ endphoneme
 
 phoneme U:
   vowel  starttype (u)  endtype (u)
-  length 270
+  length 240
   formants vowel/u#_3
 endphoneme
 
@@ -111,5 +111,10 @@ phoneme v
   formants voc/v+vocw/v
   before _ voc/v_+vocw/v
   switchvoicing f
+endphoneme
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 50
 endphoneme
 

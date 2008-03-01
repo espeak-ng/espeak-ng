@@ -517,6 +517,7 @@ const char *Translator::LookupSpecial(const char *string, char* text_out)
 const char *Translator::LookupCharName(int c)
 {//==========================================
 // Find the phoneme string (in ascii) to speak the name of character c
+// Used for punctuation characters and symbols
 
 	int ix;
 	unsigned int flags[2];

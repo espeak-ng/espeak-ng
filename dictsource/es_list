@@ -7,6 +7,24 @@ _cap	m'aJ^us
 _??	s'imbOlo
 _#32	Esp'aTjo
 
+// accent names
+_lig	liQaD'u**a
+_acu	aQ'uDo
+_ac2	d'Oble||aQ'uDo	
+_brv	b**'eBe
+_ced	TeD'iJ^a
+_cir	TiRkumfl'exo
+_dia	dj'E**esis
+_dac	d'Oble||aQ'uDo	
+_dot	p'unto  // ??
+_grv	g**'aBe
+_hac	ka**'On
+_mcn	mak**'On
+_ogo	kol'ita
+_rng	an'iJ^o
+_stk	b'a*Ra	 // ??
+_tld	t'ilde
+
 
 // names of symbols
 _.	punto

@@ -36,6 +36,290 @@
 
 
 
+#define M_NAME      0
+#define M_ACUTE     1
+#define M_BREVE     2
+#define M_CARON     3
+#define M_CEDILLA   4
+#define M_CIRCUMFLEX 5
+#define M_DIAERESIS 6
+#define M_DOUBLE_ACUTE 7
+#define M_DOT_ABOVE 8
+#define M_GRAVE     9
+#define M_MACRON   10
+#define M_OGONEK   11
+#define M_RING     12
+#define M_STROKE   13
+#define M_TILDE    14
+
+#define M_MIDDLE_DOT  8  // duplicate of M_DOT_ABOVE
+
+typedef struct {
+char *name;
+int  flags;
+} ACCENTS;
+
+// these are tokens to look up in the *_list file.
+ACCENTS accents_tab[] = {
+{"_lig", 1},
+{"_acu", 0},  // acute
+{"_brv", 0},  // breve
+{"_hac", 0},  // caron/hacek
+{"_ced", 0},  // cedilla
+{"_cir", 0},  // circumflex
+{"_dia", 0},  // diaeresis
+{"_ac2", 0},  // double acute
+{"_dot", 0},  // dot
+{"_grv", 0},  // grave
+{"_mcn", 0},  // macron
+{"_ogo", 0},  // ogonek
+{"_rng", 0},  // ring
+{"_stk", 0},  // stroke
+{"_tld", 0},  // tilde
+};
+
+
+#define CAPITAL  0
+#define LETTER(ch,mod1,mod2) ch+(mod1 << 8)
+#define LIGATURE(ch1,ch2,mod1) ch1+(ch2 << 8)+0x8000
+
+// characters U+00e0 to U+017f
+const short letter_accents_0e0[] = {
+LETTER('a',M_GRAVE,0),   // U+00e0
+LETTER('a',M_ACUTE,0),
+LETTER('a',M_CIRCUMFLEX,0),
+LETTER('a',M_TILDE,0),
+LETTER('a',M_DIAERESIS,0),
+LETTER('a',M_RING,0),
+LIGATURE('a','e',0),
+LETTER('c',M_CEDILLA,0),
+LETTER('e',M_GRAVE,0),
+LETTER('e',M_ACUTE,0),
+LETTER('e',M_CIRCUMFLEX,0),
+LETTER('e',M_DIAERESIS,0),
+LETTER('i',M_GRAVE,0),
+LETTER('i',M_ACUTE,0),
+LETTER('i',M_CIRCUMFLEX,0),
+LETTER('i',M_DIAERESIS,0),
+LETTER('d',M_NAME,0),  // eth  // U+00f0
+LETTER('n',M_TILDE,0),
+LETTER('o',M_GRAVE,0),
+LETTER('o',M_ACUTE,0),
+LETTER('o',M_CIRCUMFLEX,0),
+LETTER('o',M_TILDE,0),
+LETTER('o',M_DIAERESIS,0),
+0,     // division sign
+LETTER('o',M_STROKE,0),
+LETTER('u',M_GRAVE,0),
+LETTER('u',M_ACUTE,0),
+LETTER('u',M_CIRCUMFLEX,0),
+LETTER('u',M_DIAERESIS,0),
+LETTER('y',M_ACUTE,0),
+LETTER('t',M_NAME,0),  // thorn
+LETTER('y',M_DIAERESIS,0),
+CAPITAL,                 // U+0100
+LETTER('a',M_MACRON,0),
+CAPITAL,
+LETTER('a',M_BREVE,0),
+CAPITAL,
+LETTER('a',M_OGONEK,0),
+CAPITAL,
+LETTER('c',M_ACUTE,0),
+CAPITAL,
+LETTER('c',M_CIRCUMFLEX,0),
+CAPITAL,
+LETTER('c',M_DOT_ABOVE,0),
+CAPITAL,
+LETTER('c',M_CARON,0),
+CAPITAL,
+LETTER('d',M_CARON,0),
+CAPITAL,                 // U+0110
+LETTER('d',M_STROKE,0),
+CAPITAL,
+LETTER('e',M_MACRON,0),
+CAPITAL,
+LETTER('e',M_BREVE,0),
+CAPITAL,
+LETTER('e',M_DOT_ABOVE,0),
+CAPITAL,
+LETTER('e',M_OGONEK,0),
+CAPITAL,
+LETTER('e',M_CARON,0),
+CAPITAL,
+LETTER('g',M_CIRCUMFLEX,0),
+CAPITAL,
+LETTER('g',M_BREVE,0),
+CAPITAL,                // U+0120
+LETTER('g',M_DOT_ABOVE,0),
+CAPITAL,
+LETTER('g',M_CEDILLA,0),
+CAPITAL,
+LETTER('h',M_CIRCUMFLEX,0),
+CAPITAL,
+LETTER('h',M_STROKE,0),
+CAPITAL,
+LETTER('i',M_TILDE,0),
+CAPITAL,
+LETTER('i',M_MACRON,0),
+CAPITAL,
+LETTER('i',M_BREVE,0),
+CAPITAL,
+LETTER('i',M_OGONEK,0),
+CAPITAL,               // U+0130
+LETTER('i',M_NAME,0), // dotless i
+CAPITAL,
+LIGATURE('i','j',0),
+CAPITAL,
+LETTER('j',M_CIRCUMFLEX,0),
+CAPITAL,
+LETTER('k',M_CEDILLA,0),
+LETTER('k',M_NAME,0),  // kra
+CAPITAL,
+LETTER('l',M_ACUTE,0),
+CAPITAL,
+LETTER('l',M_CEDILLA,0),
+CAPITAL,
+LETTER('1',M_CARON,0),
+CAPITAL,
+LETTER('1',M_MIDDLE_DOT,0),  // U+0140
+CAPITAL,
+LETTER('1',M_STROKE,0),
+CAPITAL,
+LETTER('n',M_ACUTE,0),
+CAPITAL,
+LETTER('n',M_CEDILLA,0),
+CAPITAL,
+LETTER('n',M_CARON,0),
+LETTER('n',M_NAME,0),  // apostrophe n
+CAPITAL,
+LETTER('n',M_NAME,0),  // eng
+CAPITAL,
+LETTER('o',M_MACRON,0),
+CAPITAL,
+LETTER('o',M_BREVE,0),
+CAPITAL,             // U+0150
+LETTER('o',M_DOUBLE_ACUTE,0),
+CAPITAL,
+LIGATURE('o','e',0),
+CAPITAL,
+LETTER('r',M_ACUTE,0),
+CAPITAL,
+LETTER('r',M_CEDILLA,0),
+CAPITAL,
+LETTER('r',M_CARON,0),
+CAPITAL,
+LETTER('s',M_ACUTE,0),
+CAPITAL,
+LETTER('s',M_CIRCUMFLEX,0),
+CAPITAL,
+LETTER('s',M_CEDILLA,0),
+CAPITAL,              // U+0160
+LETTER('s',M_CARON,0),
+CAPITAL,
+LETTER('t',M_CEDILLA,0),
+CAPITAL,
+LETTER('t',M_CARON,0),
+CAPITAL,
+LETTER('t',M_STROKE,0),
+CAPITAL,
+LETTER('u',M_TILDE,0),
+CAPITAL,
+LETTER('u',M_MACRON,0),
+CAPITAL,
+LETTER('u',M_BREVE,0),
+CAPITAL,
+LETTER('u',M_RING,0),
+CAPITAL,              // U+0170
+LETTER('u',M_DOUBLE_ACUTE,0),
+CAPITAL,
+LETTER('u',M_OGONEK,0),
+CAPITAL,
+LETTER('w',M_CIRCUMFLEX,0),
+CAPITAL,
+LETTER('y',M_CIRCUMFLEX,0),
+CAPITAL,   // Y-DIAERESIS
+CAPITAL,
+LETTER('z',M_ACUTE,0),
+CAPITAL,
+LETTER('z',M_DOT_ABOVE,0),
+CAPITAL,
+LETTER('z',M_CARON,0),
+LETTER('s',M_NAME,0), // long-s  // U+17f
+};
+
+
+
+int Translator::LookupLetter2(unsigned int letter, char *ph_buf)
+{//=============================================================
+	int len;
+	char single_letter[10];
+
+	single_letter[0] = 0;
+	single_letter[1] = '_';
+	len = utf8_out(letter, &single_letter[2]);
+	single_letter[2+len] = 0;
+
+	if(Lookup(&single_letter[1],ph_buf) == 0)
+	{
+		single_letter[1] = ' ';
+		if(Lookup(&single_letter[2],ph_buf) == 0)
+		{
+			TranslateRules(&single_letter[2], ph_buf, 20, NULL,0,0);
+		}
+	}
+	return(ph_buf[0]);
+}
+
+
+void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
+{//=====================================================================
+	// lookup the character in the accents table
+	int accent_data;
+	int accent1;
+	int basic_letter;
+	int letter2=0;
+	char ph_letter1[30];
+	char ph_letter2[30];
+	char ph_accent1[30];
+
+	if((letter >= 0xe0) && (letter < 0x17f))
+	{
+		accent_data = letter_accents_0e0[letter - 0xe0];
+
+		basic_letter = accent_data & 0x7f;
+		if((accent1 = (accent_data >> 8) & 0x7f) != 0)
+		{
+			if(accent_data & 0x8000)
+			{
+				letter2 = accent1;
+				accent1 = 0;
+			}
+
+			if(Lookup(accents_tab[accent1].name, ph_accent1) != 0)
+			{
+
+				if(LookupLetter2(basic_letter, ph_letter1) != 0)
+				{
+					if(accent1 == 0)
+					{
+						//ligature
+						LookupLetter2(letter2, ph_letter2);
+						sprintf(ph_buf,"%s%c%s%s",ph_accent1, phonPAUSE_VSHORT, ph_letter1, ph_letter2);
+					}
+					else
+					{
+						if(langopts.accents & 1)
+							sprintf(ph_buf,"%s%c%s", ph_accent1, phonPAUSE_VSHORT, ph_letter1);
+						else
+							sprintf(ph_buf,"%s%c%s%c", ph_letter1, phonPAUSE_VSHORT, ph_accent1, phonPAUSE_VSHORT);
+					}
+				}
+			}
+		}
+	}
+}  // end of LookupAccentedLetter
+
+
 
 void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 {//=============================================================================
@@ -43,7 +327,9 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 	unsigned char *p;
 	static char single_letter[10] = {0,0};
 	char ph_stress[2];
-	char ph_buf3[30];
+	unsigned int dict_flags[2];
+	char ph_buf3[40];
+	char *ptr;
 
 	ph_buf1[0] = 0;
 	len = utf8_out(letter,&single_letter[2]);
@@ -83,6 +369,11 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 	single_letter[3+len] = next_byte;   // follow by space-space if the end of the word, or space-0x31
 
 	single_letter[1] = '_';
+
+	// if the $accent flag is set for this letter, use the accents table (below)
+	dict_flags[1] = 0;
+	ptr = &single_letter[1];
+	
 	if(Lookup(&single_letter[1],ph_buf3) == 0)
 	{
 		single_letter[1] = ' ';
@@ -90,6 +381,11 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 		{
 			TranslateRules(&single_letter[2], ph_buf3, sizeof(ph_buf3), NULL,0,0);
 		}
+	}
+
+	if(ph_buf3[0] == 0)
+	{
+		LookupAccentedLetter(letter, ph_buf3);
 	}
 
 	if(ph_buf3[0] == 0)
@@ -185,6 +481,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 			for(p2 = hexbuf; *p2 != 0; p2++)
 			{
 				pbuf += strlen(pbuf);
+				*pbuf++ = phonPAUSE_VSHORT;
 				LookupLetter(*p2, 0, pbuf);
 			}
 		}

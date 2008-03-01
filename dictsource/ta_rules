@@ -38,7 +38,7 @@
 
 	எ	e
 
-	ஏ	e:
+	ஏ	e::
 
 	ஐ	E:
 
@@ -50,99 +50,99 @@
 
 // consonants
 
-	க	ga   // inter-vocalic, unless there is virama before or after
+	க	gV   // inter-vocalic, unless there is virama before or after
 	க (B	g
 	க (் 	g
-     ்) க	ga
+     ்) க	gV
      ்) க (B	g
-     _) க	ka
+     _) க	kV
      _) க (B	k
-	க்க	k:a
+	க்க	k:V
 	க்க (B	k:
 
-	ங	Na
+	ங	NV
 	ங (B	N
 
-	ச	dZa
+	ச	dZV
 	ச (B	dZ
      _) ச	sa
      _) ச (B	s
-	ச்ச	tS:a
+	ச்ச	tS:V
 	ச்ச (B	tS:
 
-	ஜ	dZa
+	ஜ	dZV
 	ஜ (B	dZ
 
-	ஞ	n^a
+	ஞ	n^V
 	ஞ (B	n^
 
-	ட	d.a
+	ட	d.V
 	ட (B	d.
-     _) ட	t.a
+     _) ட	t.V
      _) ட (B	t.
-	ட்ட	t.a
+	ட்ட	t.V
 	ட்ட (B	t.
 
-	ண	n.a
+	ண	n.V
 	ண (B	n.
 
-	த	da
+	த	dV
 	த (B	d
-     _) த	ta
+     _) த	tV
      _) த (B	t
-	த்த	t:a
-	த்த (B	t:
+	த்த	ttV
+	த்த (B	tt
 
-	ந	na
+	ந	nV
 	ந (B	n
 
-	ன	na
+	ன	nV
 	ன (B	n
 
-	ப	ba
+	ப	bV
 	ப (B	b
-     _) ப	pa
+     _) ப	pV
      _) ப (B	p
-	ப்ப	p:a
+	ப்ப	p:V
 	ப்ப (B	p:
      ஃ) ப	fa
      ஃ) ப (B	f
 
-	ம	ma
+	ம	mV
 	ம (B	m
 
-	ய	ja
+	ய	jV
 	ய (B	j
 
-	ர	ra
+	ர	rV
 	ர (B	r
 
-	ற	Ra
+	ற	RV
 	ற (B	R
 	ற் (ற	t.	// RR -> t.R
 
-	ல	la
+	ல	lV
 	ல (B	l
 
-	ள	l.a
+	ள	l.V
 	ள (B	l.
 
-	ழ	z.a
+	ழ	z.V
 	ழ (B	z.
 
-	வ	va
+	வ	vV
 	வ (B	v
 
-	ஶ	Sa
+	ஶ	SV
 	ஶ (B	S
 
-	ஷ	s.a
+	ஷ	s.V
 	ஷ (B	s.
 
-	ஸ	sa
+	ஸ	sV
 	ஸ (B	s
 
-	ஹ	ha
+	ஹ	hV
 	ஹ (B	h
 
 
@@ -176,4 +176,4 @@
 	ௗ	:	// aU length mark
 
 .group
-	$	dola
+	$	dolV

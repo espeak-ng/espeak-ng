@@ -1146,7 +1146,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		if(p->newword)
 		{
-			last_frame = NULL;
+			if(translator->langopts.param[LOPT_WORD_MERGE] == 0)
+				last_frame = NULL;
+
 			sourceix = (p->sourceix & 0x7ff) + clause_start_char;
 
 			if(p->newword & 4)

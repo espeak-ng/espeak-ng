@@ -5154,6 +5154,7 @@
 .group
 
 // non-ascii characters with specified pronunciations
+// List the accented characters in en_list with the $accent attribute
 	é	eI
      _) é	I2
 	ê	E:

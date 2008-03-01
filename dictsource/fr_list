@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-24 Michel Such  <michel.such@free.fr>
+// Updated 2008-02-29 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -16,42 +16,42 @@
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
-_à      a:aksA~gRav
-â       a:aksA~siRkO~flEks
-ä       a:tRema
+_à	$accent  // speak as base-letter name + accent name
+â       $accent
+ä       $accent
 b	be
 c	se
-ç	sesedij
+ç	$accent
 d	de
 e	@
-ë	@:tRema
-é	@:aksA~Egy
-è	@:aksA~gRav
-ê	@:aksA~siRkO~flEks
-ë	@:tRema
+ë	$accent
+é	$accent
+è	$accent
+ê	$accent
+ë	$accent
 f	Ef
 g	Ze
 h	aS
 i	i
-ï	i:tRema
+ï	$accent
 j	Zi
 k	ka
 l	El
 m	Em
 n	En
-ñ	Entilde
+ñ	$accent
 o	o
-ô	o:aksA~siRkO~flEks
-ö       o:tRema
+ô	$accent
+ö       $accent
 p	pe
 q	ky
 r	ER
 s	Es
 t	te
 u	y
-ù       y:aksA~gRav
-û	y:aksA~siRkO~flEks
-ü	y:tRema
+ù       $accent
+û	$accent
+ü	$accent
 v	ve
 w	dubl@v'e
 x	iks
@@ -60,14 +60,32 @@ _y      i:gR'Ek
 
 
 
+// accent names
+_lig	ligat'yr
+_acu	aksA~tEg'y
+_ac2	dublaksA~tEg'y
+_brv	br'Ev
+_ced	sed'ij
+_cir	aksA~siRkO~fl'Eks
+_dia	tRem'a
+_dot	pw'E~syskr'i
+_grv	aksA~gR'av
+_hac	kar'O~
+_mcn	makr'O~
+_ogo	OgOn'Ek
+_rng	rO~t2A~S'Ef
+_stk	b'aR
+_tld	t'ild
+
+
 // character names
 
-
-//_cap	k,ap@-t@L
-_?A	lEt@
+_cap	maZysk'yl
+_?A	l'Etr
 _??	sE~b'Oll
 _#9	tabylasjO~
 _#32	Espas
+
 
 _"   gijmE
 _#   djEz
@@ -383,8 +401,8 @@ tout	t'ut2 $u
 
 // Letters which can be words
 //===========================
-à       a:aksA~gRav  $atend
-y       i:gR'Ek      $atend
+à	$atend $accent
+y       $atend $accent
 
 
 
@@ -642,6 +660,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

@@ -4,8 +4,28 @@
 
 
 // character names
-_cap k'apital
-_??  s'imbolo
+_cap	k'apital
+_??	s'imbolo
+_?A	let:'e:Ra
+
+
+// accent names
+_lig	l,egat'u:Ra
+_acu	atS:'ento_|ak'u:to
+_ac2	d'op:i;o_|atS:'ento_|ak'u:to	
+_brv	b@-*'e:ve
+_ced	tSed'il^a
+_cir	tSi;@-*konfl'esso
+_dia	djeR'e:zI
+_dot	p'unto||s,ov@-*ask@-*'it:o
+_grv	atS:'entog@-*'a:ve
+_hac	h'atSek
+_mcn	m'ak@-*on
+_ogo	og'o:nek
+_rng	an'ello
+_stk	b'aR*a
+_tld	t'ilde
+
 
 _!   p'untoesklamat'ivo
 _"   viRgolet:e

@@ -47,7 +47,38 @@ y	waI
 z	zEd
 ?3 z    zi:
 
-é	i:a2k'ju:t
+// sounds are specified for these accented characters
+// use the $accent attribute here to force the use of the
+// accent table when speaking the name of the character.
+_é	$accent
+ê	$accent
+_ä	$accent
+_ë	$accent
+_ï	$accent
+_ö	$accent
+_ü	$accent
+_č	$accent
+_š	$accent
+_ş	$accent
+_ž	$accent
+_ñ	$accent
+
+// accent names
+_lig	l,Iga2tS@
+_acu	a2kj'u:t
+_ac2	dVb@la2kj'u:t
+_brv	br'i:v
+_ced	s@d'Ila2
+_cir	s'3:kVmfl,Eks
+_dia	'UmlaUt
+_dot	wI2Dd'0ta2bVv
+_grv	gr'A:v
+_hac	h'atS,Ek
+_mcn	m'akr,0n
+_ogo	'0g0n,Ek
+_rng	r'INg
+_stk	str'oUk
+_tld	t'Ild@
 
 
 // character names
@@ -73,7 +104,6 @@ _+	plVs
 _,	k0m@
 _-	h,aIf@n
 _.	d0t
-_/	stroUk
 _:	koUl@n
 _;	sEmIk'oUl0n
 _<	ElaNg@L
@@ -82,7 +112,6 @@ _>	A@aNg@L
 _?	kwEstS@n
 _@	at|saIn
 _[	lEftskwe@
-_\	bakstroUk
 _]	raItskwe@
 _^	s3:kVmfl,Eks
 ?5 _^	sIRkVmfl,Eks
@@ -162,11 +191,14 @@ _₠	jU@roU
 ¬	n0t_|saIn
 ə	SwA:
 æ	eI'i:
-ɛ	oUp@n'i:
-ɔ	oUp@n'oU
+þ	TO@n
+ŋ	ENg
 ð	ED
 ʃ	ES
 ʒ	EZ
+ĸ	krA:
+ɛ	oUp@n'i:
+ɔ	oUp@n'oU
 
 // numeric
 

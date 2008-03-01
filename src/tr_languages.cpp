@@ -663,6 +663,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 1;
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->letter_bits_offset = OFFSET_TAMIL;
+			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBitsRange(tr,LETTERGP_A,0x05,0x14);   // vowel letters
@@ -1055,6 +1056,7 @@ Translator_Afrikaans::Translator_Afrikaans() : Translator()
 	SetLetterVowel(this,'y');  // add 'y' to vowels
 
 	langopts.numbers = 0x8d1 + NUM_ROMAN;
+	langopts.accents = 1;
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
 }
 

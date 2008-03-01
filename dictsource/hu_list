@@ -45,6 +45,23 @@ _1M4      billio:
 _2M4      ke:tbillio:
 _dpt      ||_vEss2Y:_
 
+// accent names
+_lig	ligAtu:R2A
+_acu	e:lES
+_ac2	kEt:Y:S
+_brv	fe:lkYR2
+//_ced	       // cedilla
+_cir	tsiR2kumflEks
+_dia	tR2e:mA
+//_dot          // dot above	
+_grv	tompA
+_hac	pipA
+_mcn	mAkR2on    // ?? macron
+_ogo	hoR2gok
+_rng	kYR2
+_stk	a:thu:za:S
+_tld	tildE
+
 
 // Abbreviations
 km	kilo:me:tER2

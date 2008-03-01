@@ -103,6 +103,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$verbextend",0x28},   /* extend influence of 'verb follows' */
 	{"$capital", 0x29},   /* use this pronunciation if initial letter is upper case */
 	{"$allcaps", 0x2a},   /* use this pronunciation if initial letter is upper case */
+	{"$accent",  0x2b},   // character name is base-character name + accent name
 
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
