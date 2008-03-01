@@ -389,7 +389,8 @@ static char nullstring[] = {0};
 
 	if(text_not_phonemes)
 	{
-		strcpy(encoded_ph,phonetic);   // this is replacement text, so don't encode as phonemes
+		// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
+		strncpy0(encoded_ph,phonetic,N_WORD_BYTES-4);
 	}
 	else
 	{
