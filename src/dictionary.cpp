@@ -3066,7 +3066,7 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 				// only use replacement text if this is the original word, not if a prefix or suffix has been removed
 				word_replacement[0] = 0;
 				word_replacement[1] = ' ';
-				strcpy(&word_replacement[2],ph_out);   // replacement word, preceded by zerochar and space
+				sprintf(&word_replacement[2],"%s ",ph_out);   // replacement word, preceded by zerochar and space
 
 				word1 = *wordptr;
 				*wordptr = &word_replacement[2];
