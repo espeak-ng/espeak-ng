@@ -1,5 +1,6 @@
-name tamil-test
+name tamil
 language ta
 gender male
 
-intonation 3
+intonation 2
+consonants 80

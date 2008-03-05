@@ -1,5 +1,6 @@
 name spanish-latin-american
 language es-la
+language es-mx 6
 gender male
 
 phonemes es_la
@@ -8,4 +9,3 @@ intonation 2
 stressLength 170 200  180 180  0 0  250 280
 
 replace 00 T s
-
