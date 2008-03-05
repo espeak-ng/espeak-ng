@@ -2,6 +2,51 @@
 // This file is UTF8 encoded 
 // Spelling to phoneme words and exceptions for Tamil
 
+
+// letters (consonants)
+க	ik
+ங	iN
+ச	itS
+ஜ	idZ
+ஞ	in^
+ட	it.
+ண	in.
+த	it
+ந	in
+ன	in  // ??
+ப	ip
+ம	im
+ய	ij
+ர	ir
+ற	iR
+ல	il
+ள	il.
+ழ	iz
+வ	iv
+U+bb6	iS
+ஷ	is.
+ஸ	is
+ஹ	iC
+U+b82	anUsvVRV
+ஃ	visVRgV
+U+bcd	viRVmV
+
+
+// symbols
+_??	kuRij,i:d.U
+_cap	kapit.Vl    // guess
+_.	pul.l.i
+_,	kVma:
+_;	ka:RbUl.l.,i
+_:	arE:pp,Ul.l.V
+_?	ke:l.vikk,URi
+_!	a:ctS:Vr,ijVkk,URi
+%	sadVv,igid,Vm
+=	samVm
+U+bf9	ru:ba:j
+
+
+// numbers
 _0	pu:dZjam_   // ??
 _1	ondru_
 _2	irandu_

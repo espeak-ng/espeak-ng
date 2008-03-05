@@ -46,6 +46,7 @@
 #define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
 #define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
 #define FLAG_ATEND          0x4000  /* use this pronunciation if at end of clause */
+#define FLAG_SPELLWORD      0x8000  // re-translate the word as individual letters, separated by spaces
 
 #define FLAG_DOT           0x10000  /* ignore '.' after word (abbreviation) */
 #define FLAG_ABBREV        0x20000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
@@ -85,7 +86,7 @@
 #define FLAG_HAS_PLURAL    0x4    /* upper-case word with s or 's lower-case ending */
 #define FLAG_PHONEMES      0x8    /* word is phonemes */
 #define FLAG_LAST_WORD     0x10   /* last word in clause */
-//#define FLAG_STRESSED_WORD 0x20   /* this word has explicit stress */
+//#define FLAG_SPELLING      0x20  // speak the word as individual letters
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 #define FLAG_HYPHEN        0x80
 #define FLAG_NOSPACE       0x100  // word is not seperated from previous word by a space
@@ -360,6 +361,7 @@ typedef struct {
 	char ideographs;      // treat as separate words
 	char textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
+	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
 } LANGUAGE_OPTIONS;
 
@@ -451,7 +453,7 @@ private:
 	void AppendPhonemes(char *string, int size, const char *ph);
 	char *DecodeRule(const char *group, char *rule);
 	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags, int dict_flags);
-	int TranslateRules(char *p, char *phonemes, int size, char *end_phonemes, int end_flags, int dict_flags);
+	int TranslateRules(char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
 	void ApplySpecialAttribute(char *phonemes, int dict_flags);
 
 	int IsLetter(int letter, int group);

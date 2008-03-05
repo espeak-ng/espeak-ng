@@ -5,37 +5,63 @@
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
 
+// Note for "pt-pt" [R] is the same sound as [r]
+//      for "pt" [y] is the same sound as [i]
+
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
+// accent names
+_lig	ligad'u*&
+_acu	&g'udU
+_ac2	&g'udUd'uplU	
+_brv	bR'Evi
+_ced	sedZ'ilj&
+?1 _ced	syd'il^&
+_cir	sirkuNfl'EksU
+_dia	tR'em&
+_dot	p'oNtU
+_grv	gR'avi
+_hac	ka*'oN
+_mcn	makR'oN
+_ogo	ogon'ek
+_rng	&~n'EU
+?1 _rng	&~n'El
+_stk	b'ax&
+_tld	tS'iU
+?1 _tld	til
+
 
 // character names
 
-_á	,a&g'udU
-_à	,agR'avi
-_â	,asirkuNfl'EksU
-_ã	,atS'iU
-_ç	s,esed'elj&
-_é	,e&g'udU
-_ê	,asirkuNfl'EksU
-_í	,i&g'udU
-_ó	,o&g'udU
-_ô	,osirkuNfl'EksU
-_õ	,otS'iU
-_ú	,u&g'udU
-_ü	,utR'em&
+_á	$accent
+_à	$accent
+_à	$accent
+_â	$accent
+_ã	$accent
+_ç	$accent
+_é	$accent
+_ê	$accent
+_í	$accent
+_ó	$accent
+_ô	$accent
+_õ	$accent
+_ú	$accent
+_ü	$accent
 
-i	i        // speak i v x as letters, not Roman numbers
-v	ve
+v	ve       // not Roman numbers
 x	Sis#
 
 
 _cap	maI'uskulU
 _?A	l'etR&_
 _??	s'imbolU_
+_#32	esp'asU
+?1 _#32	Sp'asU
+_#9	tab
 
 _.	p'oNtU
 _!	,eskl&mas'&U~
@@ -46,7 +72,7 @@ _"	'asp&s#
 _$	s,ifR'&U~
 _%	pors'eINtU
 _&	'e
-?1   _'	ap'Ost@-*,ofy
+?1   _'	ap'Ostr,ofy
 ?2   _'	ap'OstR,ofU
 _(	,abRipa*'eINtezi
 _)	f,ES&pa*'eINtezi
@@ -90,8 +116,7 @@ _"	'abRi;'asp&||d'upl&s#
 ?1 _1	'um
 ?2 _1	'uN
    _2	d'oIs#
-?1 _3	tr'es#
-?2 _3	tR'es#
+   _3	tr'es#
 ?1 _4	kw'atru
 ?2 _4	kw'atRu
    _5	s'iNku
@@ -103,16 +128,13 @@ _"	'abRi;'asp&||d'upl&s#
 ?2 _9	n'Ovi
    _10	d'Es#
 
-?1_11	'oNzy
-?2_11	'oNzi
-?1_12	d'ozy
-?2_12	d'ozi
+_11	'oNzy
+_12	d'ozy
 ?1_13	tr'ezy
 ?2_13	tR'ezi
 ?1_14	k&t'orzy
 ?2_14	kat'orzi
-?1_15	k'iNzy
-?2_15	k'iNzi
+_15	k'iNzy
 ?1_16	dyz&s'eis#
 ?2_16	d,ezes'eIs#
 ?1_17	dyz&s'Ety
@@ -123,8 +145,7 @@ _"	'abRi;'asp&||d'upl&s#
 ?2_19	dezen'Ovi
 ?1_2X	v'iNty
 ?2_2X	v'iNtSi
-?1 _3X	tr'iNt&
-?2 _3X	tR'iNt&
+_3X	tr'iNt&
 
 ?1_4X	kw&r'eNt&
 ?2_4X	kwa*'eINt&
@@ -245,15 +266,16 @@ te	$u
 nos	$u 
 //se	$u
 
-este	$u+	'estSi       // this
-estes	$u+	'estSis       // these
-esta	'Est& $brk $u+
-esse	$u+	'esi       // that
+?2	este	$u+	'estSi       // this
+?2	estes	$u+	'estSis       // these
+?2	esta	'Est& $brk $u+
+?2	esse	$u+	'esi       // that
 essa	'Es& $brk  $u+
 aquele	$u+       // that
 aquela	$u+
 
-que	$u $pause
+?1	que	ky	$u 
+?2	que	$u $pause
 
 // possessive adjectives
 meu	$u+
@@ -268,10 +290,10 @@ seu	$u+
 sua	$u+
 seus	$u+
 suas	$u+
-nosso	$u+	n'OsU
-nossa	$u+	n'Os&
-nossos	$u+	n'OsUs
-nossas	$u+	n'Os&s
+?2	nosso	$u+	n'OsU
+?2	nossa	$u+	n'Os&
+?2	nossos	$u+	n'OsUs
+?2	nossas	$u+	n'Os&s
 dele	$u+
 dela	$u+
 deles	$u+
@@ -292,7 +314,7 @@ dumas	$u
 em	$u $brk  // in,on,at
 no	nu $u $brk
 na	$u $brk
-nos	nus# $u $brk
+?2	nos	nus# $u $brk
 nas	$u $brk
 num	$u $brk
 numa	$u $brk
@@ -301,9 +323,9 @@ numas	$u $brk
 
 por	$u $brk	// by,for,through
 pelo	$u $brk
-pela	$u $brk	p'el&
+?2	pela	$u $brk	p'el&
 pelos	$u $brk
-pelas	$u $brk	p'el&s
+?2	pelas	$u $brk	p'el&s
 
 a	$u $brk	// to,at
 ?1 a    & $u $brk
@@ -315,7 +337,6 @@ aos	$u $brk
 para	$u $brk		// for,to
 pro	$u $brk
 pra	$u $brk
-?1 pra  pr& $u $brk
 pros	$u $brk
 pras	$u $brk
 prò	$u $brk
@@ -324,60 +345,61 @@ pròs	$u $brk
 pràs	$u $brk
 
 com	$u $brk		// with
-sem	$pause		// without
-até	$u $pause	// until
-desde	$u $pause	// from,since
-entre	$pause		// between,among
-por	$u $pause	// by,for,through
-sobre	$pause		// on,above,about
-sob	$pause		// under,below
-debaixo	$pause		// under,below
+?2	sem	$pause		// without
+?2	até	$u $pause	// until
+?2	desde	$u $pause	// from,since
+?2	entre	$pause		// between,among
+?2	por	$u $pause	// by,for,through
+?2	sobre	$pause		// on,above,about
+?2	sob	$pause		// under,below
+?2	debaixo	$pause		// under,below
 
-durante	$pause
+?2	durante	$pause
 
 
 // conjunctions
-e	i $u $pause	// and
+?1	e	i $u	// and
+?2	e	i $u $pause	// and
 se	$u $brk		// if
 
 
-mas	$u $pause	// but
-porém	$pause		// however
-todavia	$pause		// yet
-contudo	$pause		// nevertheless
+?2	mas	$u $pause	// but
+?2	porém	$pause		// however
+?2	todavia	$pause		// yet
+?2	contudo	$pause		// nevertheless
 
-ou	$u $pause	// or
-quer	$pause		// whether
+?2	ou	$u $pause	// or
+?2	quer	$pause		// whether
 
-assim	$pause		// thus
-portanto	$pause	// therefore
+?2	assim	$pause		// thus
+?2	portanto	$pause	// therefore
 
-porque	$pause		// because
-pois	$pause		// because
-como	$u $pause	// as
+?2	porque	$pause		// because
+?2	pois	$pause		// because
+?2	como	$u $pause	// as
 
-embora	$pause		// although
-apesar	$pause		// despite
-
-
-caso	$pause			// if
-(desde que)	d'esdZiki/  $pause	// provided that
-(exceto se)	es'Etusi/   $pause	// unless
-(salvo se)	s'alvusi/   $pause	// unless
-
-(para que)	p,a*&ki/    $pause       // so that
+?2	embora	$pause		// although
+?2	apesar	$pause		// despite
 
 
+?2	caso	$pause			// if
+?2	(desde que)	d'esdZiki/  $pause	// provided that
+?2	(exceto se)	es'Etusi/   $pause	// unless
+?2	(salvo se)	s'alvusi/   $pause	// unless
 
-quando	$pause			// when
-onde	$u $pause	// where
-apenas	$pause			// as soon as
-mal	$pause			// as soon as, hardly
-(logo que)	l'Oguki/ $pause		// as soon as
-(antes que)     '&~NtSiski/  $pause	// before
-(depois que)    dep'OIski/  $pause	// after
-(sempre que)    s'eNpriki/  $pause	// whenever
-enquanto  $pause			// while
+?2	(para que)	p,a*&ki/    $pause       // so that
+
+
+
+?2	quando	$pause			// when
+?2	onde	$u $pause	// where
+?2	apenas	$pause			// as soon as
+?2	mal	$pause			// as soon as, hardly
+?2	(logo que)	l'Oguki/ $pause		// as soon as
+?2	(antes que)     '&~NtSiski/  $pause	// before
+?2	(depois que)    dep'OIski/  $pause	// after
+?2	(sempre que)    s'eNpriki/  $pause	// whenever
+?2	enquanto  $pause			// while
 
 
 // negative
@@ -790,6 +812,7 @@ müller      m'iler
 ronchi      r'OnCi:
 vogel       f'o:g@l
 volkmann    f'Olkman
+
 
 
 

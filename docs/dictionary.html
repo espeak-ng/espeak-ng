@@ -3,7 +3,6 @@
 
 <head>
   <title>eSpeak: Pronunciation Dictionaries</title>
-  <meta name="GENERATOR" content="Quanta Plus">
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 </head>
 <body>
@@ -489,10 +488,14 @@ A word (or group of words) may be given one or more flags, either instead of, or
       <td>&nbsp;</td>
     </tr>
     <tr>
+      <td>$accent</td>
+      <td>Used for the pronunciation of a single alphabetic character.  The character name is spoken as the base-letter name plus the accent (diacritic) name.  eg. It can be used to specify that "&#xe2;" is spoken as "a" "circumflex".</td>
+    </tr>
+     <tr>
       <td>$alt &nbsp; $alt2</td>
       <td>These are language specific.  Their use should be described in the language's **_list file</td>
     </tr>
-    <tr>
+   <tr>
     <tr>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
@@ -581,6 +584,9 @@ The operation the TranslateNumber() function is controlled by the language's <co
 <td>
 _0 to _9 &nbsp;
 <td>The numbers 0 to 9
+</tr>
+<tr>
+<td>_13<td>etc. Any pronunciations which are needed for specific numbers in the range _11 to _99 &nbsp;
 </tr>
 <tr>
 <td>_2X &nbsp;_3X<td>Twenty, thirty, etc., used to make numbers 10 to 99 &nbsp;

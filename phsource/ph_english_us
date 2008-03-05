@@ -29,6 +29,9 @@ phoneme a
   vowel  starttype (a)  endtype (@)
   length 210
   formants vwl_en_us/a
+  before n vnasal/ee_n
+  before N vnasal/ee_n
+  before m vnasal/ee_n
   reduceto a2  0
 endphoneme
 
@@ -79,8 +82,8 @@ endphoneme
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype (i)  endtype (i)
   length 190
-//  formants vwl_en_us/i_final3
-  formants vowel/i#
+  formants vwl_en_us/ii_2
+//  formants vowel/i#
   linkout ;
 endphoneme
 

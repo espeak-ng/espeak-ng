@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.30
+AppVerName=eSpeak version 1.32
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -54,12 +54,14 @@ Name: "hr"; MessagesFile: "compiler:Languages\Croatian.isl"
 Name: "hu"; MessagesFile: "compiler:Languages\Hungarian.isl"
 Name: "it"; MessagesFile: "compiler:Languages\Italian.isl"
 Name: "nl"; MessagesFile: "compiler:Languages\Dutch.isl"
+Name: "no"; MessagesFile: "compiler:Languages\Norwegian.isl"
 Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
+Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
 
 [CustomMessages]
 v1=Select which voices to install
@@ -110,7 +112,7 @@ begin
   $07: Result := 'de';
   $08: Result := 'el';
   $09: Result := 'en';
-  $0a: Result := 'es';
+  $0a: Result := 'es-la';
   $0b: Result := 'fi';
   $0c: Result := 'fr';
   $0e: Result := 'hu';
@@ -125,16 +127,21 @@ begin
   $1a: Result := 'hr';
   $1b: Result := 'sk';
   $1d: Result := 'sv';
+  $1f: Result := 'tr';
+  $21: Result := 'id';
   $2a: Result := 'vi';
   $2f: Result := 'mk';
   $36: Result := 'af';
   $39: Result := 'hi';
   $41: Result := 'sw';
+  $49: Result := 'ta';
   $52: Result := 'cy';
   end;
 
   // is there a match on the full language code?
   case language of
+  $40a: Result := 'es';
+  $c0a: Result := 'es';
   $816: Result := 'pt-pt';
   $41a: Result := 'hr';
   $81a: Result := 'sr';
@@ -176,6 +183,7 @@ begin
   'hr': value := $41a;
   'hu': value := $40e;
   'is': value := $40f;
+  'id': value := $421;
   'it': value := $410;
   'mk': value := $42f;
   'nl': value := $413;
@@ -188,6 +196,8 @@ begin
   'sr': value := $81a;
   'sv': value := $41d;
   'sw': value := $441;
+  'ta': value := $449;
+  'tr': value := $41f;
   'vi': value := $42a;
   'zh': value := $804;
   // mbrola voices

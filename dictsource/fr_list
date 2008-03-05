@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-02-29 Michel Such  <michel.such@free.fr>
+// Updated 2008-03-01 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -34,6 +34,7 @@ g	Ze
 h	aS
 i	i
 ï	$accent
+î	$accent
 j	Zi
 k	ka
 l	El
@@ -102,7 +103,7 @@ _;   pw'E~viRg'yl
 _<   E~feRjWR
 _=   egal
 _>   sypeRjWR
-_?   kEstjO~
+_?   pwE~dE~terogasj'O~
 _[   uvR@-_kRoSE
 _\   b'aksl'aS
 _]   f'ERm_kRoS'E
@@ -660,6 +661,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

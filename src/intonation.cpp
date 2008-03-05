@@ -216,8 +216,8 @@ static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
 static short oflow[] = {0, 20, 12, 4, 0};
 static short oflow_emf[] = {5, 24, 15, 10, 5};
 static short oflow_less[] = {3, 19, 12, 7, 2};
-static short oflow_test2[] = {20, 0, 20, 0, 20};
-static short back_emf[] = {35, 32, 0};
+// static short oflow_test2[] = {20, 0, 20, 0, 20};
+// static short back_emf[] = {35, 32, 0};
 
 
 #define N_TONE_HEAD_TABLE  13

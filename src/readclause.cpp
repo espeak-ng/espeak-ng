@@ -545,7 +545,7 @@ const char *Translator::LookupCharName(int c)
 		{
 			// now try the rules
 			single_letter[1] = ' ';
-			TranslateRules(&single_letter[2], phonemes, sizeof(phonemes), NULL,0,0);
+			TranslateRules(&single_letter[2], phonemes, sizeof(phonemes), NULL,0,NULL);
 		}
 	}
 

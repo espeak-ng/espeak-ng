@@ -72,10 +72,11 @@ aU@  E    e@   eI   I    I2   i:   i@
 i@3  IR   O    O:   o:   O@   o@   OI   
 oU   O~   U    u:   U@   V    VR   
 
-;    b    C    d    D    dZ   f    g    
-h    j    k    l    m    n    N    p    
-Q    r    r-   s    S    t    T    t2   
-tS   v    w    x    z    Z    
+:    ;    ?    b    C    d    D    dZ   
+f    g    h    j    k    l    m    n    
+N    n^   p    Q    r    r-   s    S    
+t    T    t2   tS   v    w    x    z    
+Z    
 
 
 Dictionary eo_dict
@@ -93,8 +94,8 @@ o    O    oI   u
 
 *    **   :    b    B    d    D    f    
 g    j    J    J^   k    l    m    n    
-n^   p    Q    r    R    s    t    T    
-tS   v    v#   w    x    z    
+N    n^   p    Q    r    R    s    t    
+T    tS   v    v#   w    x    z    
 
 
 Dictionary fi_dict
@@ -222,9 +223,9 @@ Z
 
 Dictionary sv_dict
 
-8    @    a    a2   A:   E    e:   E:   
-I    i:   O    o:   U    u-   u:   W    
-y    y:   Y:   
+8    @    a    a2   A:   E    E-   e:   
+E:   I    i:   O    o:   U    u-   u:   
+W    y    y:   Y:   
 
 :    ;    b    d    f    g    h    j    
 k    l    m    n    N    p    R    s    
@@ -264,11 +265,13 @@ tS   v    w    z
 
 Dictionary ta_dict
 
-a    a:   e    E:   i    o    o:   u    
-u:   
+a    a:   e    e:   E:   i    i:   o    
+o:   U    u    u:   V    
 
-:    d    dZ   g    j    l    m    n    
-p    r    t    t.   
+:    b    c    C    d    d.   dZ   g    
+j    k    l    l.   m    n    N    n.   
+n^   p    r    R    s    S    s.   t    
+t.   tS   v    z    
 
 
 Dictionary pt_dict
@@ -303,11 +306,11 @@ Dictionary is_dict
 i    I    o    O    oU   oU2  u    W    
 y    y#   Yy   
 
-*    :    ;    b    c    C    d    D    
-f    g    h    j    J    k    l    l#   
-m    m#   n    N    n#   N#   n^   n^#  
-p    Q    r    R    r#   R2   s    S    
-t    T    tl#  v    x    z    
+*    **   :    ;    b    c    C    d    
+D    f    g    h    j    J    k    l    
+l#   m    m#   n    N    n#   N#   n^   
+n^#  p    Q    r    R    r#   R2   s    
+S    t    T    tl#  v    x    z    
 
 
 Dictionary la_dict
@@ -357,13 +360,8 @@ l    m    n    N    p    R    s    S
 t    tS   v    w    x    z    Z    
 
 
-Dictionary th_dict
+Dictionary ja_dict
 
-a    a:   e    E:   i    i:   o    O    
-O:   u    y    
-
-c    d    h    k    l    m    n    N    
-p    s    t    
 
 
 Dictionary hbs_dict
@@ -389,31 +387,6 @@ r    R    s    S    t    tS   v    w
 x    z    
 
 
-Dictionary ja_dict
-
-
-
-Dictionary tr_dict
-
-a    e    E    i    I    o    O    u    
-u#   W    y    Y    
-
-b    c    d    dZ   f    g    h    j    
-J    k    l    m    n    p    r    R    
-s    S    t    tS   v    z    Z    
-
-
-Dictionary ku_dict
-
-a    e    E    eI   eU   i    I    o    
-u    U    y    
-
-:    b    d    dZ   f    g    h    j    
-k    l    m    n    p    q    r    R    
-s    S    t    tS   v    w    x    z    
-Z    
-
-
 Dictionary rw_dict
 
 a    e    i    o    u    
@@ -422,3 +395,24 @@ a    e    i    o    u
 g    h    j    J    k    l    m    n    
 N    n^   p    q    s    S    S;   t    
 tS   v    w    x    z    
+
+
+Dictionary tr_dict
+
+a    e    E    i    I    o    O    u    
+U    u#   W    y    Y    
+
+*    b    c    d    dZ   f    g    h    
+j    J    k    l    m    n    p    r    
+R    s    S    t    tS   v    z    Z    
+
+
+Dictionary ku_dict
+
+a    e    E    E#   eI   eU   i    I    
+o    u    U    y    
+
+:    b    c    d    dZ   f    g    h    
+j    J    k    l    m    n    p    q    
+r    R    s    S    t    tS   v    w    
+x    z    Z    

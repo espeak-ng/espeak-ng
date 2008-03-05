@@ -585,8 +585,7 @@
 ?1     A) r (_A      r
 ?2     A) r (_A      *
           rr         x
-?1     C) r (A       r
-?2     C) r (A       R
+       C) r (A       R        // for "pt-pt" [R] is the same as [r]
        _) r          x
        l) r          x
        n) r          x
@@ -725,7 +724,7 @@
           ß          s
 
           %          pors'eNtu
-          $          sif@-*'&U~
+          $          sifR'&U~
      _r_) $
 	−          m'enus
 	+          maIs
@@ -733,7 +732,7 @@
 	@	ax'ob&
 	¤	'eU*u
 	€	'eU*u
-	§	pa*'ag@-*,afu
+	§	pa*'agR,afu
 
     D_) º       %o      // ordinal
     D_) ª       %a      // ordinal

@@ -342,6 +342,99 @@ w	ω // (long o; not standard transliteration but may be easier to type
 	h        h
 
 
+// Latin letters to equivalent Greek sounds (plus 'q = η' 'w = ω'
+.group a
+	a	a
+	ai	aI
+	au	aU
+
+.group b
+	b	b
+
+.group d
+	d	d
+
+.group e
+	e	e
+	ei	e:
+	eu	eU
+
+.group f
+	f	f
+
+.group g
+	g	g
+	gg	Ng
+
+.group i
+	i	i
+
+.group ï
+	ï	i
+
+.group j
+	j	j
+
+.group k
+	k	k
+	kh	x
+
+.group l
+	l	l
+
+.group m
+	m	m
+
+.group n
+	n	n
+
+.group o
+	o	o
+	oi	oI
+	ou	u:
+
+.group p
+	p	p
+	ph	f
+
+.group q
+	q	E:
+	qi	EI:
+	qu	EU:
+
+.group r
+	r	R
+
+.group s
+	s	s
+
+.group t
+	t	t
+	th	T
+
+.group u
+	u	y
+	ui	yI
+
+.group v
+	v	v
+
+.group w
+	w	O:
+	wi	OI
+	wu	OU
+
+.group x
+	x	x
+
+.group y
+	y	y
+	yi	yI
+
+.group z
+	z	z
+
+
 .group
 	ὰ       'a
 	ᾳ        aI:

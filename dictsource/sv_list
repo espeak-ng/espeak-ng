@@ -36,6 +36,33 @@ x	Eks
 y	y:
 z	s'E:ta2
 
+_é	$accent
+
+
+_cap	st'u:Rt
+_?A	b'u:kstavE-n
+_??	s'ymbu:lE-n
+_#32	bl'aNk
+_#9	tab
+
+// accent names
+_lig	l'i:gat,u-R
+_acu	'A:ku-t
+_ac2	d'8bE-l'A:ku-t	
+_brv	bR'e:vi:s
+_ced	s'e:dIlj
+_cir	s'IRk8mflEks
+_dia	'Omju-d
+_dot	p'8Nkt
+_grv	gR'A:v
+_hac	h'A:kE-
+_mcn	stR'Ek
+_ogo	sv'ans
+_rng	R'IN
+_stk	sn'e:dstRE-k
+_tld	t'IldE-
+
+// punctuation
 _.      p'8Nkt
 
 

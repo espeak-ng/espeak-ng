@@ -61,6 +61,29 @@ _0M4		b;ilj'Onuf
 
 _dpt		_pSEts;'inEk_
 
+// accent names
+_lig	ligat'u*a
+_acu	'Ost@-*y
+_ac2	pOdv'ujny_'Ost@-*y	
+_brv	b@-*'Evis
+_ced	tsEd;'ilE
+_cir	pSEts;'ONgwy
+_dia	'umlawt
+_dot	k@-*Opka
+_grv	ts;'E~Sci
+_hac	h'atSEk
+_mcn	m'ak@-*On
+_ogo	Og'OnEk
+_rng	k'OwO
+_stk	dz;ElOnE
+_tld	t'ylda
+
+
+_cap	v;'Elka
+_?A	lit'E*a
+_??	s'ymbOl
+
+
 _a		a
 ą		O~
 b		bE
@@ -100,7 +123,6 @@ _z		zEt
 // all my keyboard...
 
 _!		vykSykn^ik
-_=		*'uvna||S;E
 _<		mn^EjSE
 _>		w;ENkSE
 _"		tsudzyswuf
@@ -119,16 +141,22 @@ _]		p@-*avy||nav;as||kvad@-*atOvy
 _{		lEvy||nav;as||klam@-*atOvy
 _}		p@-*avy||nav;as||klam@-*atOvy
 _'		apOst@-*Of
-_/		dz;ElOnE
 _*		gv;astka
 _\		bEkslES
-_|		k@-*Eska||p;OnOva
-_#		haS
 _$		dOla*
-_%		p@-*OtsEnt
-_^		pOtENga		// what's be better?
 _&		ampE*sant
 _`		Odv@-*Otny||apOst@-*Of
+
+@		mawpa
++		plus
+/		dz;ElOnE
+=		*'uvna||S;E
+%		p@-*OtsEnt
+€		Ew*O
+^		pOtENga
+#		haS
+|		k@-*Eska||p;OnOva
+
 
 // some exceptions
 arcus		arkus

@@ -396,14 +396,5 @@
 // ... and some common non-alphabetic characters
 .group
 		$		dOla*
-		@		mawpa
-		%		p@-*OtsEnt
-		+		plus
-		#		haS
-		=		*'uvna||S;E
-		/		dz;ElOnE
 		*		gv;astka
-		|		k@-*Eska||p;OnOva
-		^		pOtENga
-		&		End
-		`		Odv@-*Otny||apOst@-*Of
+		&		_End

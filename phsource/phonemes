@@ -598,6 +598,8 @@ phoneme **    //   TEST flap
   vowelin f1=2  f2=1600 -300 300  f3=-100 80 len=20
   formants r3/@tap
   after (e) r3/@tap2
+  after (i) r3/@tap2
+  lengthmod 3
 endphoneme
 
 
@@ -1263,20 +1265,18 @@ include ph_zh
 phonemetable sw base
 include ph_swahili
 
-phonemetable th base
-include ph_thai
-
-phonemetable id base2
-include ph_indonesian
-
 phonemetable tr base2
 include ph_turkish
 
 phonemetable ku base2
 include ph_kurdish
 
+phonemetable id base2
+include ph_indonesian
+
 phonemetable ja base
 include ph_japanese
 
 phonemetable rw base2
 include ph_kinyarwanda
+

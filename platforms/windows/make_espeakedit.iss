@@ -1,7 +1,7 @@
 
 [Setup]
 AppName=eSpeakEdit
-AppVerName=eSpeakEdit version 1.30
+AppVerName=eSpeakEdit version 1.32
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeakedit
@@ -34,12 +34,12 @@ Name: "hr"; MessagesFile: "compiler:Languages\Croatian.isl"
 Name: "hu"; MessagesFile: "compiler:Languages\Hungarian.isl"
 Name: "it"; MessagesFile: "compiler:Languages\Italian.isl"
 Name: "nl"; MessagesFile: "compiler:Languages\Dutch.isl"
+Name: "no"; MessagesFile: "compiler:Languages\Norwegian.isl"
 Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
 Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
-
-
+Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
 

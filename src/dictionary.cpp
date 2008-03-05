@@ -40,6 +40,7 @@ int dictionary_skipwords;
 char dictionary_name[40];
 
 extern MNEM_TAB mnem_flags[];
+extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 
 // accented characters which indicate (in some languages) the start of a separate syllable
 //static const unsigned short diereses_list[7] = {L'ä',L'ë',L'ï',L'ö',L'ü',L'ÿ',0};
@@ -488,6 +489,13 @@ void DecodePhonemes(const char *inptr, char *outptr)
 				*outptr++ = c;
 				mnem = mnem >> 8;
 			}
+			if(phcode == phonSWITCH)
+			{
+				while(isalpha(*inptr))
+				{
+					*outptr++ = *inptr++;
+				}
+			}
 		}
 	}
 	*outptr = 0;    /* string terminator */
@@ -519,6 +527,7 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 	int  ix;
 	int  phon_out_ix=0;
 	int  stress;
+	char *p;
 	PHONEME_LIST *plist;
 	
 	static const char *stress_chars = "==,,''";
@@ -550,6 +559,17 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 				// syllablic consonant
 				WriteMnemonic(&phon_out_ix,phoneme_tab[phonSYLLABIC]->mnemonic);
 			}
+			if(plist->ph->code == phonSWITCH)
+			{
+				// the tone_ph field contains a phoneme table number
+				p = phoneme_tab_list[plist->tone_ph].name;
+				while(*p != 0)
+				{
+					phon_out[phon_out_ix++] = *p++;
+				}
+				phon_out[phon_out_ix++] = ' ';
+			}
+			else
 			if(plist->tone_ph > 0)
 			{
 				WriteMnemonic(&phon_out_ix,phoneme_tab[plist->tone_ph]->mnemonic);
@@ -2244,8 +2264,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 
 
-int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, int dict_flags)
-{//===========================================================================================================================
+int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char *end_phonemes, int word_flags, unsigned int *dict_flags)
+{//=====================================================================================================================================
 /* Translate a word bounded by space characters
    Append the result to 'phonemes' and any standard prefix/suffix in 'end_phonemes' */
 	
@@ -2262,8 +2282,9 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	int  letter;
 	int  any_alpha=0;
 	int  ix;
-	int  digit_count=0;
+	unsigned int  digit_count=0;
 	char *p;
+	int  dict_flags0=0;
 	MatchRecord match1;
 	MatchRecord match2;
 	char ph_buf[40];
@@ -2274,6 +2295,9 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 
 	if(data_dictrules == NULL)
 		return(0);
+
+	if(dict_flags != NULL)
+		dict_flags0 = dict_flags[0];
 
 	for(ix=0; ix<(N_WORD_BYTES-1);)
 	{
@@ -2359,13 +2383,13 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 						group_name[1] = c2;
 						group_name[2] = 0;
 						p2 = p;
-						MatchRule(&p2, group_name, groups2[g], &match2, word_flags, dict_flags);
+						MatchRule(&p2, group_name, groups2[g], &match2, word_flags, dict_flags0);
 						if(match2.points > 0)
 							match2.points += 35;   /* to acount for 2 letters matching */
 
 						/* now see whether single letter chain gives a better match ? */
 						group_name[1] = 0;
-						MatchRule(&p, group_name, groups1[c], &match1, word_flags, dict_flags);
+						MatchRule(&p, group_name, groups1[c], &match1, word_flags, dict_flags0);
 
 						if(match2.points >= match1.points)
 						{
@@ -2384,11 +2408,11 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 				group_name[1] = 0;
 	
 				if(groups1[c] != NULL)
-					MatchRule(&p, group_name, groups1[c], &match1, word_flags, dict_flags);
+					MatchRule(&p, group_name, groups1[c], &match1, word_flags, dict_flags0);
 				else
 				{
 					// no group for this letter, use default group
-					MatchRule(&p, "", groups1[0], &match1, word_flags, dict_flags);
+					MatchRule(&p, "", groups1[0], &match1, word_flags, dict_flags0);
 
 					if((match1.points == 0) && ((option_sayas & 0x10) == 0))
 					{
@@ -2397,23 +2421,27 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 						if((letter >= 0xc0) && (letter <= 0x241) && ((ix = remove_accent[letter-0xc0]) != 0))
 						{
 							// within range of the remove_accent table
-							p2 = p-1;
-							p[-1] = ix;
-							while((p[0] = p[n]) != ' ')  p++;
-							while(n-- > 0) *p++ = ' ';  // replacement character must be no longer than original
-
-							if(langopts.param[LOPT_DIERESES] && (lookupwchar(diereses_list,letter) > 0))
+							if((p[-2] != ' ') || (p[n] != ' '))
 							{
-								// vowel with dieresis, replace and continue from this point
-								p = p2;
-								continue;
+								// not the only letter in the word
+								p2 = p-1;
+								p[-1] = ix;
+								while((p[0] = p[n]) != ' ')  p++;
+								while(n-- > 0) *p++ = ' ';  // replacement character must be no longer than original
+	
+								if(langopts.param[LOPT_DIERESES] && (lookupwchar(diereses_list,letter) > 0))
+								{
+									// vowel with dieresis, replace and continue from this point
+									p = p2;
+									continue;
+								}
+	
+								phonemes[0] = 0;  // delete any phonemes which have been produced so far
+								p = p_start;
+								word_vowel_count = 0;
+								word_stressed_count = 0;
+								continue;  // start again at the beginning of the word
 							}
-
-							phonemes[0] = 0;  // delete any phonemes which have been produced so far
-							p = p_start;
-							word_vowel_count = 0;
-							word_stressed_count = 0;
-							continue;  // start again at the beginning of the word
 						}
 						else
 						if((letter >= 0x3200) && (letter < 0xa700) && (end_phonemes != NULL))
@@ -2430,14 +2458,15 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 
 				if(match1.points == 0)
 				{
-	static const char str_unknown[4] = {phonCAPITAL,phonCAPITAL,phonCAPITAL,0};
-					if(iswalpha(wc))
+					if(IsAlpha(wc))
 					{
 						if((any_alpha > 1) || (p[wc_bytes-1] > ' '))
 						{
-							// an unrecognised character in a word, indicate with clicks
-							match1.phonemes = str_unknown;
-							match1.points = 1;
+							// an unrecognised character in a word, abort and then spell the word
+							phonemes[0] = 0;
+							if(dict_flags != NULL)
+								dict_flags[0] |= FLAG_SPELLWORD;
+							break;
 						}
 					}
 					else
@@ -2492,7 +2521,7 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	}
 
 	// any language specific changes ?
-	ApplySpecialAttribute(phonemes,dict_flags);
+	ApplySpecialAttribute(phonemes,dict_flags0);
 	memcpy(p_start,word_copy,strlen(word_copy));
 	return(0);
 }   /* end of TranslateRules */

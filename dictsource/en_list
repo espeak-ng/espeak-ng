@@ -50,18 +50,20 @@ z	zEd
 // sounds are specified for these accented characters
 // use the $accent attribute here to force the use of the
 // accent table when speaking the name of the character.
-_é	$accent
+à	$accent $atend  // this can be a word
+ç	$accent
+é	$accent
 ê	$accent
-_ä	$accent
-_ë	$accent
-_ï	$accent
-_ö	$accent
-_ü	$accent
-_č	$accent
-_š	$accent
-_ş	$accent
-_ž	$accent
-_ñ	$accent
+ä	$accent
+ë	$accent
+ï	$accent
+ö	$accent
+ü	$accent
+č	$accent
+š	$accent
+ş	$accent
+ž	$accent
+ñ	$accent
 
 // accent names
 _lig	l,Iga2tS@
@@ -80,10 +82,18 @@ _rng	r'INg
 _stk	str'oUk
 _tld	t'Ild@
 
+_smc	sm'O:lk,ap
+_rev	rI2v'3:sd
+_tur	t'3:nd
+_bar	_b'A@
+_rfx	r'Etr@flEks
+_crl	k'3:l
+_hok	h'Uk
+
 
 // character names
 _cap	k,ap@-t@L
-_?A	lEt3
+_?A	l,Et3
 _??	sImb@L
 _#9	tab
 _#32	speIs
@@ -96,7 +106,7 @@ _$	d0l3
 _%	p3s'Ent
 ?5 _%	pVRs'Ent
 _&	amp@sand
-_'	praIm
+_'	kwoUt
 _(	lEftbrakIt
 _)	raItbrakIt
 _*	ast@rIsk
@@ -120,7 +130,7 @@ _`	bakpraIm
 _{	lEftbreIs
 _|	vi:b'A@
 _}	raItbreIs
-_~	tIld@
+~	tIld@
 _¡	I2nv3:tI2dEkskl@m'eIS@n
 _¦	broUk@nb'A@
 _¨	daIa2r'i:sI2s
@@ -189,16 +199,41 @@ _₠	jU@roU
 ♯	SA@p
 ♭	flat
 ¬	n0t_|saIn
+
+ß	S,A@p'Es
 ə	SwA:
-æ	eI'i:
 þ	TO@n
 ŋ	ENg
+ɲ	n^E
 ð	ED
 ʃ	ES
 ʒ	EZ
 ĸ	krA:
-ɛ	oUp@n'i:
-ɔ	oUp@n'oU
+ɛ	oUp@n'E:_
+ɔ	oUp@n'O:_
+ɤ	ramshO@n
+ɾ	_'A@tap
+ʔ	gl'0?@Lst0p
+ʧ	tSES
+ʤ	dZEZ
+
+// phonetic modifiers
+ː	lENT@nd_
+U+2b0	aspI2reItI2d_ // supr-h
+//U+2b2	su:p3skrIptdZ'eI_  // supr-j
+U+2b2	m,0ddZ'eI
+U+2bc	I2dZEktI2v_
+U+2c8	strEs
+U+2cc	s'Ek@ndrI2str,Es
+
+// combining diacritics
+U+300	grA:v_
+U+303	tIld@_
+U+30a	rINg_
+U+31e	a2pr'0ksIm@nt_
+U+325	rINg_
+U+32a	dEnt@L_
+U+32f	n,0nsI2l'abI2k
 
 // numeric
 
@@ -1533,6 +1568,7 @@ proceed                        $verb
 proceed                        $only
 progeny          pr0dZ@nI2
 progress         proUgrEs      $only
+?3 progress      pr0grEs       $only
 progress                       $verb
 project          pr0dZEkt      $onlys
 project                        $verb

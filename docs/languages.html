@@ -79,7 +79,7 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <p>
 <dt>
 <strong>af &nbsp;Afrikaans</strong><br>
-<dd>This has been worked on by a native speaker and it should be OK.</dd>
+<dd>This has been worked on by native speakers and it should be OK.</dd>
 <p>
 <dt>
 <strong>bs &nbsp;Bosnian</strong><br>
@@ -110,7 +110,13 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <p>
 <dt>
 <strong>es &nbsp;Spanish</strong><br>
-<dd>Not much feedback yet, but spelling is regular and stress is explicitly marked when it deviates from the normal rules, so it might be reasonably intelligible.  This would be a good opportunity for a native Spanish speaker to assist.  Perhaps we could have different variants for Castilian Spanish, Mexican Spanish, etc., in a similar way to how I've done different English accents.</dd>
+<dd>Spanish has good spelling rules, so it should be OK.</dd>
+<p>
+<dt>
+<strong>es-la &nbsp;Spanish - Latin America</strong><br>
+<dd>
+This contains a few changes from <strong>es</strong>, notably the pronunciation of "z","ce","ci".
+</dd>
 <p>
 <dt>
 <strong>fi &nbsp;Finnish</strong><br>
@@ -119,7 +125,7 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <p>
 <dt>
 <strong>fr &nbsp;French</strong><br>
-<dd>Needs improvement, both for spelling-to-phoneme rules and the sounds and prosody.
+<dd>This has been improved by a native speaker, and should be OK.
 </dd>
 <p>
 <dt>
@@ -135,6 +141,12 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <dt>
 <strong>it &nbsp;Italian</strong><br>
 <dd>This has had some feedback from a native speaker but more work is needed.  Spelling is fairly regular, but stress marks and vowel accents are often omitted from text, so for some words the dictionary/exceptions list will need to determine the stress position or whether to use open/close [e] or [E] and [o] or [O].</dd>
+<p>
+<dt>
+<strong>ku &nbsp;Kurdish</strong><br>
+<dd>
+Not much work yet, but Kurdish has good spelling rules so it should be OK.
+</dd>
 <p>
 <dt>
 <strong>pt &nbsp;Portuguese (Brazil)</strong><br>
@@ -153,7 +165,7 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <p>
 <dt>
 <strong>sk &nbsp;Slovak</strong><br>
-<dd>A little initial feedback.
+<dd>This has had assistance from a nativ speaker, so it should be OK.
 </dd>
 <p>
 <dt>
@@ -169,6 +181,25 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <dt>
 <strong>sw &nbsp;Swahihi</strong><br>
 <dd>Not much feedback yet, but the spelling and stress rules are fairly regular, so it's probably usable.
+</dd>
+<p>
+<dt>
+<strong>ta &nbsp;Tamil</strong><br>
+<dd>
+Not much work yet, but I'm told it sounds reasonable.
+</dd>
+<p>
+<dt>
+<strong>tr &nbsp;Turkish</strong><br>
+<dd>
+Not much work yet, but I'm told it sounds reasonable.
+</dd>
+<p>
+<dt>
+<strong>zh &nbsp;Mandarin Chinese</strong><br>
+<dd>
+This speaks Pinyin text and Chinese characters.  There is only a simple one-to-one translation of Chinese characters to a single Pinyin pronunciation.  There is no attempt yet at recognising different pronunciations of Chinese characters in context, or of recognising sequences of characters as "words".  The eSpeak installation includes a basic set of Chinese characters.  More are available in an additional data file for Mandarin Chinese at:
+  <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>.
 </dd>
 <p>
 </dl></ul>
@@ -190,6 +221,11 @@ These languages are only initial naive implementations which have had little or 
 <dt>
 <strong>hi &nbsp;Hindi</strong><br>
 <dd>This is interesting because it uses the Devanagari characters.  I'm not sure about Hindi stress rules, and I expect the sound of aspirated/unaspirated consonant pairs needs improvement.
+</dd>
+<p>
+<dt>
+<strong>id &nbsp;Indonesian</strong><br>
+<dd>An initial guess, no feedback yet.
 </dd>
 <p>
 <dt>
@@ -236,13 +272,6 @@ Russian stress position is unpredictable so a large lookup dictionary is needed 
 <dt>
 <strong>vi &nbsp;Vietnamese</strong><br>
 <dd>This is interesting because it's a tone language.  I don't know how it should sound, so it's just a guess and I need feedback.
-</dd>
-<p>
-<dt>
-<strong>zh &nbsp;Mandarin Chinese</strong><br>
-<dd>
-This speaks Pinyin text and Chinese characters.  There is only a simple one-to-one translation of Chinese characters to a single Pinyin pronunciation.  There is no attempt yet at recognising different pronunciations of Chinese characters in context, or of recognising sequences of characters as "words".  The eSpeak installation includes a basic set of Chinese characters.  More are available in an additional data file for Mandarin Chinese at:
-  <a href="http://espeak.sourceforge.net/data/">http://espeak.sourceforge.net/data/</a>.
 </dd>
 <p>
 <dt>

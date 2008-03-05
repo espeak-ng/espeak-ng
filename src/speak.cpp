@@ -99,6 +99,8 @@ static const char *help_text =
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
+"--split=\"<minutes>\"\n"
+"\t   Starts a new WAV file every <minutes>.  Used with -w\n"
 "--voices=<langauge>\n"
 "\t   List the available voices for the specified language.\n"
 "\t   If <language> is omitted, then list all voices.\n"

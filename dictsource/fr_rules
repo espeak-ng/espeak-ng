@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-02-26 Michel Such  <michel.such@free.fr>
+// Updated: 2008-03-04 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -168,6 +168,8 @@
 		ell         El		// selle
 		el (C       El		// celsius
 		el (_       El		// caramel
+	_)	em (me      A~		// emmitouffler
+	X')	em (me      A~		// s'emmitouffler
 		em (me      a		// femme patiemment
 		em (b       A~		// décembre
 		em (m       A~		// emmancher
@@ -184,7 +186,7 @@
 	qu)	en (ds_     A~
 
 	pati)	en          A~		// patient patience
-	_)	en (nu      A~		// ennui
+	X)	en (nu      A~		// ennui
 
 	C)	en (A       @n		// menu
 
@@ -1199,6 +1201,7 @@ C)		te (_      t@-  		// patte
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
 

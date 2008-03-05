@@ -35,7 +35,56 @@ x	Eks
 y	jE
 z	zE
 
+_cap	byj'Yk
 _??	sEmb'Ol
+_?A	haRf
+
+// accent names
+//_lig	
+_acu	vURg'UimI
+_ac2	tS'IftvURg'UimI	
+_brv	ku#s'altmaimI
+_ced	tSEnJ'El
+_cir	Sapk'a
+_dia	Umla'Ut
+_dot	YstnOkt'a
+_grv	'aksanimI
+_hac	t'ERsSapk'a
+_mcn	uz'atmaimI
+_ogo	ogon'Ek
+_rng	halk'a
+//_stk	
+_tld	tIld'E
+
+
+// symbols
+_.	nOkt'a
+_,	vIRJ'Yl
+_;	nOktal'u#vIRJ'Yl
+_:	ik'InOkt'a
+_…	'YtSnOkt'a
+_?	soR'UiSa*et,I
+_!	Ynl'EmiSa*et,I
+_-	k'u#satSIzg'I
+_–	'uzUntSIzg'I
+_/	ej'IktSIzg'I
+_"	tu#Rn'akiSa*et'I
+_'	apOstR'Of
+_^	IndZ'EltmEiSa*et'I
+&	_!v'E
+_&	v'EiSa*et'I
+_*	j'u#ldu#z
+_@	kUjRUkl'U'a
+_\\	t'ERs||ej,IktSIzg'I
+¶	pa*agR'af
+§	tSEnJ'El
+°	de*edZ'E
+_#	dij'Ez
+_~	jaklaS'u#k
+__	,alttSIzg'I
++	aRt'u#
+€	avR'O
+
 
 _0	su#fu#R
 _1	biR

@@ -217,12 +217,12 @@
      ch) e (f	 E:
         e (ta    E
         e (x     E
-     &) e (_     E
-     &) es (_    Es
-     &) en (_    En
-     &) ens (_   Ens
-     &) er (_    ER
-     &) et (_S2  Et         // ??
+     &) e (_     %E
+     &) es (_    %Es
+     &) en (_    %En
+     &) ens (_   %Ens
+     &) er (_    %ER
+     &) et (_S2  %Et         // ??
         e (ve    E
      t) e (lef	 E
      h) et (_	 e:t

@@ -57,8 +57,8 @@
      ்) க (B	g
      _) க	kV
      _) க (B	k
-	க்க	k:V
-	க்க (B	k:
+	க்க	kkV
+	க்க (B	kk
 
 	ங	NV
 	ங (B	N
@@ -67,8 +67,8 @@
 	ச (B	dZ
      _) ச	sa
      _) ச (B	s
-	ச்ச	tS:V
-	ச்ச (B	tS:
+	ச்ச	ctS:V
+	ச்ச (B	ctS:
 
 	ஜ	dZV
 	ஜ (B	dZ
@@ -80,8 +80,8 @@
 	ட (B	d.
      _) ட	t.V
      _) ட (B	t.
-	ட்ட	t.V
-	ட்ட (B	t.
+	ட்ட	t.t.V
+	ட்ட (B	t.t.
 
 	ண	n.V
 	ண (B	n.
@@ -103,8 +103,8 @@
 	ப (B	b
      _) ப	pV
      _) ப (B	p
-	ப்ப	p:V
-	ப்ப (B	p:
+	ப்ப	ppV
+	ப்ப (B	pp
      ஃ) ப	fa
      ஃ) ப (B	f
 
@@ -175,5 +175,11 @@
 
 	ௗ	:	// aU length mark
 
+.group 0xe0a4  // devanagari
+	\340\244  _^_HI  // switch to hindi voice
+.group 0xe0a5  // devanagari
+	\340\245  _^_HI
+
 .group
+	்	  // virama
 	$	dolV

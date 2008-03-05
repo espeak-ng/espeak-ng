@@ -39,7 +39,6 @@
        _) d (_       de
           d          D
        _) d          d
-       l) d          d
        m) d          d
        n) d          d
 
@@ -48,7 +47,9 @@
        _) e (_       e
           e          e
           e (CK      E
+          e (r       E
           e (Ch      e
+      Ar) e          E
           ei         eI
           ey (K      eI
           ey (_      'eI
@@ -113,15 +114,18 @@
           n (v       m
           n (f       m
           n (p       m
-//          n (g       N  // ??
-//          n (k       N  // ??
+          n (g       N  // ??
+          n (k       N  // ??
+          n (j       N
 
 
 .group o
        _) o (_       o
           o          o
           o (CK      O
+          o (r       O
           o (Ch      o
+      Ar) o          O
           oi         oI
           oy (K      oI
           oy (_      'oI
@@ -143,11 +147,14 @@
        _) r (_       E**e
           r          R
        _) r          R
+          r (_       *
+          r (t       **
        A) r (A       **
        C) r (A       **
        l) r (A       R
        m) r (A       R
        n) r (A       R
+       s) r (A       R
           rr         *R
 
 
@@ -155,8 +162,6 @@
        _) s (_       Ese
           s          s
        &) s (_S1     s
-          s (L02     z
-          s (gY      s
 
 
 .group t
@@ -219,6 +224,8 @@
 .group z
        _) z (_       TEta
           z          T
+?2        z (L02     z
+
 
 
 .group

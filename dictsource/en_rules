@@ -2306,6 +2306,7 @@
          _) ev (ict      I2v
             ev (il       i:v
          _) ev (is       I2v
+?3       _) ev (olu      Ev
       abbr) ev           i:v
        all) ev           i:v
 
@@ -4132,6 +4133,7 @@
             probab       pr0b@b
             pro (ced     pr@
             pro (cee     pr@
+?3          pro (cess    pr0
             pro (cessi   pr@
             pro (clai    pr@
             pro (cur     pr@
@@ -5155,6 +5157,7 @@
 
 // non-ascii characters with specified pronunciations
 // List the accented characters in en_list with the $accent attribute
+	à	a
 	é	eI
      _) é	I2
 	ê	E:
@@ -5165,7 +5168,6 @@
 	ü	u:
 	ç	s
 	ß	s
-     _) ß (_	b'i:t@_
 	č	tS
 	š	S
 	ş	S

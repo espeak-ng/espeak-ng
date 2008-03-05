@@ -224,11 +224,12 @@
 
 .group r
      _) r        R2
-     C) r        @-*
+     C) r        @-R
+     l) r        **R
      A) r (A     R
-     B) r        r#
-        r (B     r#
-        r (_     r#
+     B) r        rr#
+        r (B     rr#
+        r (_     rr#
         r        R
         rr       R*
         rl       dl

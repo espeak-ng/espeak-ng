@@ -65,6 +65,8 @@ static const char *help_text =
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
+"--split=\"<minutes>\"\n"
+"\t   Starts a new WAV file every <minutes>.  Used with -w\n"
 "--voices=<langauge>\n"
 "\t   List the available voices for the specified language.\n"
 "\t   If <language> is omitted, then list all voices.\n"
@@ -196,8 +198,8 @@ int OpenWavFile(char *path, int rate)
 {
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
-		0x10,0,0,0,1,0,1,0,  0,0,0,0, 0,0,0,0,
-		2,0,0x10,0,'d','a','t','a',  0,0,0,0 };
+		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
+		2,0,0x10,0,'d','a','t','a',  0xff,0xff,0xff,0x7f};
 
 	if(path == NULL)
 		return(2);
@@ -215,7 +217,7 @@ int OpenWavFile(char *path, int rate)
 		fwrite(wave_hdr,1,24,f_wavfile);
 		Write4Bytes(f_wavfile,rate);
 		Write4Bytes(f_wavfile,rate * 2);
-		fwrite(&wave_hdr[32],1,8,f_wavfile);
+		fwrite(&wave_hdr[32],1,12,f_wavfile);
 		return(0);
 	}
 	return(1);

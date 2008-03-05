@@ -9,6 +9,29 @@
 _s	Es
 _t	te:
 
+_cap	k'a:pita:l
+_?A	l'Et@r
+_??	s'imbo:l
+
+// accent names
+_lig	l'ixa:tyr
+_acu	'a:ix,y
+_ac2	d'8bEl'a:ixy	
+_brv	b@-*'e:v@
+_ced	s'e:dIl@
+_cir	s'IrkOnfle:ks@
+_dia	'8mlVUt
+_dot	p'8nt
+_grv	Q@-*'a:v@
+_hac	h'a:tSEk
+_mcn	m'Ak@-*On
+_ogo	'o:xo:nEk
+_rng	k'o:*o:na:
+_stk	st@-*'e:p
+_tld	t'Ild@
+
+
+// punctuation
 _.	p8nt
 
 // numbers

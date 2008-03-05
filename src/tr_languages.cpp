@@ -330,6 +330,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
  			tr->langopts.max_initial_consonants = 5;
 			tr->langopts.spelling_stress = 1;
+			tr->langopts.accents = 1;
 
 			tr->langopts.numbers = 0x140d + 0x4000 + NUM_ROMAN_UC;
 			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
@@ -442,8 +443,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('k','u'):   // Kurdish
 		{
-			static const unsigned char stress_amps_ku[8] = {16,16, 20,20, 20,24, 24,22 };
-			static const short stress_lengths_ku[8] = {170,170, 190,170, 0,0, 230,240};
+			static const unsigned char stress_amps_ku[8] = {18,18, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_ku[8] = {180,180, 190,180, 0,0, 230,240};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ku,stress_amps_ku);
@@ -451,7 +452,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 
-			tr->langopts.numbers = 0x100469;
+			tr->langopts.numbers = 0x100461;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
@@ -501,6 +502,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterVowel(tr,'y');
 		
 			tr->langopts.numbers = 0x11c19;
+			tr->langopts.accents = 1;
 			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));
 		}
 		break;
@@ -630,6 +632,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterVowel(tr,'y');
 //			SetLetterBits(tr,6,"eiyäö");   // soft vowels  NOTE accented letters don't work in SetLetterBits
 			tr->langopts.numbers = 0x1909;
+			tr->langopts.accents = 1;
 		}
 		break;
 
@@ -762,6 +765,7 @@ SetLengthMods(tr,3);  // all equal
 			if(name2 == L('z','h'))
 			{
 				tr->langopts.textmode = 1;
+				tr->langopts.listx = 1;    // compile zh_listx after zh_list
 			}
 		}
 		break;

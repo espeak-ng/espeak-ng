@@ -140,15 +140,8 @@ phoneme x      // [r] for Portugal
 endphoneme
 
 
-phoneme R
-  liquid starttype r endtype r
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/r
-  after _ r/_r  t r/tr p r/tr k r/tr
-  before _ r/r_
+phoneme R    // for Portugal this is same the as [r]
+  import_phoneme r pt
 endphoneme
 
 

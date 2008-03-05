@@ -758,6 +758,8 @@ if((wmark > 0) && (wmark < 8))
 			{
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,phonemes);
+				if(word_length > 1)
+					return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
 				return(0);
 			}
 		}
@@ -785,7 +787,7 @@ if((wmark > 0) && (wmark < 8))
 			{
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,phonemes);
-				return(0);
+				return(FLAG_SPELLWORD);
 			}
 
 			p = &wordx[word_length-3];    // this looks wrong.  Doesn't consider multi-byte chars.
@@ -810,7 +812,7 @@ if((wmark > 0) && (wmark < 8))
 		{
 			// Translate the stem
 			unpron_length = strlen(phonemes);
-			end_type = TranslateRules(wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags[0]);
+			end_type = TranslateRules(wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags);
 
 			if(phonemes[0] == phonSWITCH)
 			{
@@ -859,11 +861,11 @@ if((wmark > 0) && (wmark < 8))
 
 					// remove any standard suffix and confirm that the prefix is still recognised
 					phonemes2[0] = 0;
-					end2 = TranslateRules(wordx, phonemes2, N_WORD_PHONEMES, end_phonemes2, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags[0]);
+					end2 = TranslateRules(wordx, phonemes2, N_WORD_PHONEMES, end_phonemes2, wflags|FLAG_NO_PREFIX|FLAG_NO_TRACE, dictionary_flags);
 					if(end2)
 					{
 						RemoveEnding(wordx,end2,word_copy);
-						end_type = TranslateRules(wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags|FLAG_NO_TRACE, dictionary_flags[0]);
+						end_type = TranslateRules(wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags|FLAG_NO_TRACE, dictionary_flags);
 						memcpy(wordx,word_copy,strlen(word_copy));
 						if((end_type & SUFX_P) == 0)
 						{
@@ -920,7 +922,7 @@ if((wmark > 0) && (wmark < 8))
 					found = LookupDictList(&wordpf, phonemes, dictionary_flags, SUFX_P, wtab);   // without prefix
 					if(found == 0)
 					{
-						end_type = TranslateRules(wordpf, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags[0]);
+						end_type = TranslateRules(wordpf, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags);
 						sprintf(prefix_phonemes,"%s%s%s",phonemes,end_phonemes,prefix_phonemes2);
 					}
 					prefix_flags = 1;
@@ -942,7 +944,7 @@ if((wmark > 0) && (wmark < 8))
 					prefix_flags = 1;
 				if(found == 0)
 				{
-					end_type = TranslateRules(wordx, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags[0]);
+					end_type = TranslateRules(wordx, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags);
 
 					if(phonemes[0] == phonSWITCH)
 					{
@@ -1011,9 +1013,9 @@ strcpy(phonemes2,phonemes);
 					else
 					{
 						if(end_flags & FLAG_SUFX)
-							TranslateRules(wordx, phonemes, N_WORD_PHONEMES, NULL,wflags | FLAG_SUFFIX_REMOVED, dictionary_flags[0]);
+							TranslateRules(wordx, phonemes, N_WORD_PHONEMES, NULL,wflags | FLAG_SUFFIX_REMOVED, dictionary_flags);
 						else
-							TranslateRules(wordx, phonemes, N_WORD_PHONEMES, NULL,wflags,dictionary_flags[0]);
+							TranslateRules(wordx, phonemes, N_WORD_PHONEMES, NULL,wflags,dictionary_flags);
 
 						if(phonemes[0] == phonSWITCH)
 						{
@@ -1041,12 +1043,12 @@ strcpy(phonemes2,phonemes);
 	{
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if(last_char == 'f')
-			TranslateRules(&word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
+			TranslateRules(&word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
 		else
 		if((last_char==0) || (strchr_w("hsx",last_char)==NULL))
-			TranslateRules(&word_zz[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
+			TranslateRules(&word_zz[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
 		else
-			TranslateRules(&word_iz[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
+			TranslateRules(&word_iz[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
 	}
 
 	wflags |= emphasize_allcaps;
@@ -1395,6 +1397,13 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 		word_copy_len = ix;
 
 		flags = translator->TranslateWord(word, next_pause, wtab);
+
+		if(flags & FLAG_SPELLWORD)
+		{
+			// re-translate the word as individual letters, separated by spaces
+			memcpy(word, word_copy, word_copy_len);
+			return(flags);
+		}
 
 		if((flags & FLAG_ALT2_TRANS) && ((sylimit = langopts.param[LOPT_COMBINE_WORDS]) > 0))
 		{
@@ -2094,8 +2103,8 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 	c = ' ';
 }
 #endif
-			if((c == 0x92) || (c == 0xb4) || (c == 0x2019))
-				c = '\'';    // 'microsoft' quote or sexed closing single quote - possibly used as apostrophe 
+			if((c == 0x92) || (c == 0xb4) || (c == 0x2019) || (c == 0x2032))
+				c = '\'';    // 'microsoft' quote or sexed closing single quote, or prime - possibly used as apostrophe 
 
 			if((c == '?') && IsAlpha(prev_out) && IsAlpha(next_in))
 			{
@@ -2425,6 +2434,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 	for(ix=0; ix<word_count; ix++)
 	{
 		int j;
+		int c_temp;
 		char *pn;
 		char *pw;
 		char number_buf[80];
@@ -2478,8 +2488,24 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 		else
 		{
 			dict_flags = TranslateWord2(word, &words[ix], words[ix].pre_pause, words[ix+1].pre_pause);
+
+			if(dict_flags & FLAG_SPELLWORD)
+			{
+				// redo the word, speaking single letters
+				for(pw = word; *pw != ' ';)
+				{
+					memset(number_buf,' ',9);
+					j = utf8_in(&c_temp, pw, 0);
+					memcpy(&number_buf[2],pw,j);
+					TranslateWord2(&number_buf[2], &words[ix], 0, 0 );
+					pw += j;
+				}
+			}
+
 			if(dict_flags & FLAG_SKIPWORDS)
-				ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
+			{
+					ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
+			}
 
 			if((dict_flags & FLAG_DOT) && (ix == word_count-1) && (terminator == CLAUSE_PERIOD))
 			{

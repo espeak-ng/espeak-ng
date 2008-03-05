@@ -41,6 +41,12 @@
    z	z@
    ž	Z@
 
+_á	$accent
+_é	$accent
+_í	$accent
+_ó	$accent
+_ú	$accent
+
 // accent names
 _lig	l'ig&t,UR&
 _acu	'akUt
@@ -50,7 +56,7 @@ _ced	ts'EdIl&
 _cir	ts'iRkUmflEks
 _dia	'uml&Ut
 _dot	t'otSk&
-//_grv	
+_grv	n'agl&s&k
 _hac	kv'atSIts&
 _mcn	m'akr**on
 _ogo	'ogonEk

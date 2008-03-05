@@ -183,6 +183,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	int len_word;
 	int len_phonetic;
 	int text_not_phonemes;   // this word specifies replacement text, not phonemes
+	unsigned int  wc;
 	
 	char *mnemptr;
 	char *comment;
@@ -415,6 +416,13 @@ static char nullstring[] = {0};
 		}
 	}
 
+	if(sscanf(word,"U+%x",&wc) == 1)
+	{
+		// Character code
+		ix = utf8_out(wc, word);
+		word[ix] = 0;
+	}
+	else
 	if((word[0] & 0x80)==0)  // 7 bit ascii only
 	{
 		// If first letter is uppercase, convert to lower case.  (Only if it's 7bit ascii)
@@ -1515,8 +1523,16 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 
 	fprintf(f_log,"Using phonemetable: '%s'\n",PhonemeTabName());
 	compile_dictlist_file(path,"roots");
-	compile_dictlist_file(path,"list");
-	compile_dictlist_file(path,"listx");
+	if(translator->langopts.listx)
+	{
+		compile_dictlist_file(path,"list");
+		compile_dictlist_file(path,"listx");
+	}
+	else
+	{
+		compile_dictlist_file(path,"listx");
+		compile_dictlist_file(path,"list");
+	}
 	compile_dictlist_file(path,"extra");
 	
 	compile_dictlist_end(f_out);
