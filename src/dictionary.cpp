@@ -103,8 +103,8 @@ void strncpy0(char *to,const char *from, int size)
 
 #else
 
-#  define FIX_ENDIAN_USHORT(val) (val)
-#  define FIX_ENDIAN_UINT(val) (val)
+#define FIX_ENDIAN_USHORT(val) (val)
+#define FIX_ENDIAN_UINT(val) (val)
 #endif
 
 
@@ -180,6 +180,7 @@ int Translator::LoadDictionary(const char *name, int no_error)
 
 	pw = (int *)data_dictlist;
 	length = FIX_ENDIAN_UINT(pw[1]);
+
 	if(size <= (N_HASH_DICT + sizeof(int)*2))
 	{
 		fprintf(stderr,"Empty _dict file: '%s\n",fname);
@@ -189,7 +190,7 @@ int Translator::LoadDictionary(const char *name, int no_error)
 	if((FIX_ENDIAN_UINT(pw[0]) != N_HASH_DICT) ||
 	   (length <= 0) || (length > 0x8000000))
 	{
-		fprintf(stderr,"Bad data: '%s'\n",fname);
+		fprintf(stderr,"Bad data: '%s' (%x %x)\n",fname,FIX_ENDIAN_UINT(pw[0]),length);
 		return(2);
 	}
 	data_dictrules = &data_dictlist[length];

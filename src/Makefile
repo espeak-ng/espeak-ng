@@ -1,4 +1,4 @@
-# remove -fno-exceptions  because it caused problems with stdio library on some platforms (ARM)
+# remove -fno-exceptions  if it causes problems with stdio library on some platforms (ARM)
 
 PREFIX=/
 BINDIR=$(PREFIX)/usr/bin
@@ -6,7 +6,7 @@ INCDIR=$(PREFIX)/usr/include/espeak
 LIBDIR=$(PREFIX)/usr/lib
 DATADIR=$(PREFIX)/usr/share/espeak-data
 
-RELEASE = 1.33
+RELEASE = 1.34
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so

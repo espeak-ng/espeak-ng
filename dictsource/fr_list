@@ -338,7 +338,7 @@ du	$u+ $nounf
 des	dez2 $u $nounf
 
 
-à	$u
+à	$u a
 au	$u $brk
 aux	$u $brk
 
@@ -403,7 +403,7 @@ tout	t'ut2 $u
 // Letters which can be words
 //===========================
 à	$atend $accent
-y       $atend $accent
+y       $atend
 
 
 

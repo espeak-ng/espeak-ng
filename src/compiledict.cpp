@@ -396,6 +396,7 @@ static char nullstring[] = {0};
 	else
 	{
 		EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
+printf("Encode: [%s] = %.2x %.2x %.2x\n",phonetic,encoded_ph[0],encoded_ph[1],encoded_ph[2]);
 		if(strchr(encoded_ph,phonSWITCH) != 0)
 		{
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages
@@ -1544,7 +1545,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	fclose(f_in);
 
 	fseek(f_out,4,SEEK_SET);
-	fwrite(&offset_rules,4,1,f_out);
+	Write4Bytes(f_out,offset_rules);
 	fclose(f_out);
 
 	translator->LoadDictionary(dict_name,0);
