@@ -816,8 +816,8 @@ static void WavegenSetEcho(void)
 	if(embedded_value[EMBED_T] > 0)
 	{
 		// announcing punctuation
-		amp = embedded_value[EMBED_T] * 10;
-		delay = 130;
+		amp = embedded_value[EMBED_T] * 8;
+		delay = 60;
 	}
 
 	if(delay == 0)
@@ -825,6 +825,8 @@ static void WavegenSetEcho(void)
 
 	echo_head = (delay * samplerate)/1000;
 	echo_length = echo_head;       // ensure completion of echo at the end of speech. Use 1 delay period?
+	if(amp == 0)
+		echo_length = 0;
 	if(amp > 20)
 		echo_length = echo_head * 2;    // perhaps allow 2 echo periods if the echo is loud.
 

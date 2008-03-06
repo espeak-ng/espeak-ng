@@ -1516,8 +1516,8 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	}
 
 	value = N_HASH_DICT;
-	fwrite(&value,4,1,f_out);
-	fwrite(&offset_rules,4,1,f_out);
+	Write4Bytes(f_out,value);
+	Write4Bytes(f_out,offset_rules);
 
 	compile_dictlist_start();
 

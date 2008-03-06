@@ -1274,9 +1274,3 @@ include ph_kurdish
 phonemetable id base2
 include ph_indonesian
 
-phonemetable ja base
-include ph_japanese
-
-phonemetable rw base2
-include ph_kinyarwanda
-

@@ -36,6 +36,11 @@
 #include "voice.h"
 #include "spect.h"
 
+#ifdef PLATFORM_POSIX
+#include <unistd.h>
+#endif
+
+
 
 #define tNUMBER   1
 #define tSTRING   2
@@ -742,6 +747,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 	int resample_wav = 0;
 	char fname_temp[100];
 	int scale_factor=0;
+	int fd_temp;
 	char command[sizeof(path_source)+200];
 
 	fseek(f,24,SEEK_SET);
@@ -762,12 +768,16 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 			Error("Not mono: ",fname);
 		}
 #else
-		sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-		sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate,fname_temp);
-		if(system(command) < 0)
+		strcpy(fname_temp,"/tmp/espeakXXXXXX");
+		if((fd_temp = mkstemp(fname_temp)) >= 0)
 		{
-			Error("Failed to resample: ",command);
-			return(0);
+			close(fd_temp);
+			sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate,fname_temp);
+			if(system(command) < 0)
+			{
+				Error("Failed to resample: ",command);
+				return(0);
+			}
 		}
 
 		f = fopen(fname_temp,"rb");

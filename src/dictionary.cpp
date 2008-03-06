@@ -87,20 +87,24 @@ void strncpy0(char *to,const char *from, int size)
 	to[size-1] = 0;
 }
 
-#ifdef ARCH_BIG
-int reverse_word_bytes(int word)
-{//=============================
-	// reverse the order of bytes from little-endian to big-endian
-	int ix;
-	int word2 = 0;
 
-	for(ix=24; ix>=0; ix -= 8)
-	{
-		word2 |= (word >> ix) & 0xff;
-		word2 = word2 << 8;
-	}
-	return(word2);
-}
+// use the following macros for translation from little endian to host's endianness
+
+#ifdef ARCH_BIG
+#define FIX_ENDIAN_USHORT(val)    ((unsigned short) ( \
+     (unsigned short) ((unsigned short) (val) >> 8) |  \
+     (unsigned short) ((unsigned short) (val) << 8)))
+
+#define FIX_ENDIAN_UINT(val)    ((unsigned int) ( \
+     (((unsigned int) (val) & (unsigned int) 0x000000ffU) << 24) | \
+     (((unsigned int) (val) & (unsigned int) 0x0000ff00U) <<  8) | \
+     (((unsigned int) (val) & (unsigned int) 0x00ff0000U) >>  8) | \
+     (((unsigned int) (val) & (unsigned int) 0xff000000U) >> 24)))
+
+#else
+
+#  define FIX_ENDIAN_USHORT(val) (val)
+#  define FIX_ENDIAN_UINT(val) (val)
 #endif
 
 
@@ -157,7 +161,7 @@ int Translator::LoadDictionary(const char *name, int no_error)
 	size = GetFileLength(fname);
 
 	f = fopen(fname,"rb");
-	if((f == NULL) || (size == 0))
+	if((f == NULL) || (size <= 0))
 	{
 		if(no_error == 0)
 		{
@@ -175,13 +179,15 @@ int Translator::LoadDictionary(const char *name, int no_error)
 
 
 	pw = (int *)data_dictlist;
-	length = pw[1];
+	length = FIX_ENDIAN_UINT(pw[1]);
 	if(size <= (N_HASH_DICT + sizeof(int)*2))
 	{
 		fprintf(stderr,"Empty _dict file: '%s\n",fname);
 		return(2);
 	}
-	if((pw[0] != N_HASH_DICT) || (length <= 0) || (length > 0x8000000))
+
+	if((FIX_ENDIAN_UINT(pw[0]) != N_HASH_DICT) ||
+	   (length <= 0) || (length > 0x8000000))
 	{
 		fprintf(stderr,"Bad data: '%s'\n",fname);
 		return(2);
@@ -258,7 +264,9 @@ void Translator::InitGroups(void)
 			pw = (unsigned int *)langopts.replace_chars;
 			while(*pw != 0)
 			{
-				*pw = reverse_word_bytes(*pw);
+				*pw = FIX_ENDIAN_UINT(*pw);
+				pw++;
+				*pw = FIX_ENDIAN_UINT(*pw);
 				pw++;
 			}
 #endif

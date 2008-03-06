@@ -126,7 +126,7 @@ static const short non_ascii_tab[] = {
 
 
 // characters U+00e0 to U+017f
-const short letter_accents_0e0[] = {
+const unsigned short letter_accents_0e0[] = {
 LETTER('a',M_GRAVE,0),   // U+00e0
 LETTER('a',M_ACUTE,0),
 LETTER('a',M_CIRCUMFLEX,0),
@@ -291,7 +291,7 @@ LETTER('s',M_NAME,0), // long-s  // U+17f
 
 
 // characters U+0250 to U+029F
-const short letter_accents_250[] = {
+const unsigned short letter_accents_250[] = {
 LETTER('a',M_TURNED,0),		// U+250
 LETTER(L_ALPHA,0,0),
 LETTER(L_ALPHA,M_TURNED,0),

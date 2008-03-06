@@ -34,6 +34,10 @@
 #include "voice.h"
 #include "translate.h"
 
+#ifdef PLATFORM_POSIX
+#include <unistd.h>
+#endif
+
 #include <locale.h>
 #define N_XML_BUF   256
 
@@ -642,6 +646,7 @@ static int LoadSoundFile(const char *fname, int index)
 	if((f = fopen(fname,"rb")) != NULL)
 	{
 		int ix;
+		int fd_temp;
 		const char *resample;
 		int header[3];
 
@@ -660,11 +665,16 @@ static int LoadSoundFile(const char *fname, int index)
 			else
 				resample = "polyphase";
 
-			sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-			sprintf(command,"sox \"%s\" -r %d -w -s -c1 %s %s\n", fname, samplerate, fname_temp, resample);
-			if(system(command) == 0)
+			strcpy(fname_temp,"/tmp/espeakXXXXXX");
+			if((fd_temp = mkstemp(fname_temp)) >= 0)
 			{
-				fname = fname_temp;
+				close(fd_temp);
+//			sprintf(fname_temp,"%s.wav",tmpnam(NULL));
+				sprintf(command,"sox \"%s\" -r %d -w -s -c1 %s %s\n", fname, samplerate, fname_temp, resample);
+				if(system(command) == 0)
+				{
+					fname = fname_temp;
+				}
 			}
 		}
 	}

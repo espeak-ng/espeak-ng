@@ -31,6 +31,11 @@
 #include "translate.h"
 #include "prosodydisplay.h"
 
+#ifdef PLATFORM_POSIX
+#include <unistd.h>
+#endif
+
+
 #include "wx/font.h"
 #include "wx/textctrl.h"
 #include "wx/button.h"
@@ -372,6 +377,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	int clause_tone;
 	int clause_count;
 	FILE *f;
+	int  fd_temp;
 	char fname_temp[100];
 	static int n_ph_list;
 	static PHONEME_LIST ph_list[N_PH_LIST+1];
@@ -383,11 +389,25 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	case T_RULES:
 	case MENU_SPEAK_RULES:
 		option_phonemes = 2;
+
+#ifdef PLATFORM_POSIX
+		strcpy(fname_temp,"/tmp/espeakXXXXXX");
+		if((fd_temp = mkstemp(fname_temp)) >= 0)
+		{
+			close(fd_temp);
+
+			if((f = fopen(fname_temp,"w+")) != NULL)
+			{
+				f_trans = f;   // write translation rule trace to a temp file
+			}
+		}
+#else
 		strcpy(fname_temp,tmpnam(NULL));
 		if((f = fopen(fname_temp,"w+")) != NULL)
 		{
 			f_trans = f;   // write translation rule trace to a temp file
 		}
+#endif
 	case T_TRANSLATE:
 	case MENU_SPEAK_TRANSLATE:
 		option_multibyte = espeakCHARS_AUTO;

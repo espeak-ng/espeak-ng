@@ -262,3 +262,16 @@ phoneme v        // no fricative noise
 endphoneme
 
 
+phoneme s2       // 2nd part of geminated s
+  vls alv frc sibilant
+  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 3
+  wave ufric/s_continue
+  before _ ufric/s_
+  before p ufric/s!
+  before t ufric/s!
+  before k ufric/s!
+  switchvoicing z
+endphoneme
+

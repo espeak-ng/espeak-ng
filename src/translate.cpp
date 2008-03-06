@@ -893,26 +893,39 @@ if((wmark > 0) && (wmark < 8))
 				}
 
 				wordx[-1] = c_temp;
-				pfix = 1;
-				prefix_chars[0] = 0;
-				n_chars = prefix_type & 0x3f;
 
-				for(ix=0; ix < n_chars; ix++)    // num. of bytes to remove
+				if((prefix_type & SUFX_B) == 0)
 				{
-					prefix_chars[pfix++] = *wordx++;
-
-					if((prefix_type & SUFX_B) && (ix == (n_chars-1)))
+					for(ix=(prefix_type & 0xf); ix>0; ix--)    // num. of characters to remove
 					{
-						prefix_chars[pfix-1] = 0;  // discard the last character of the prefix, this is the separator character
+						wordx++;
+						while((*wordx & 0xc0) == 0x80) wordx++;  // for multibyte characters
 					}
 				}
-				prefix_chars[pfix] = 0;
+				else
+				{
+					pfix = 1;
+					prefix_chars[0] = 0;
+					n_chars = prefix_type & 0x3f;
+
+					for(ix=0; ix < n_chars; ix++)    // num. of bytes to remove
+					{
+						prefix_chars[pfix++] = *wordx++;
+	
+						if((prefix_type & SUFX_B) && (ix == (n_chars-1)))
+						{
+							prefix_chars[pfix-1] = 0;  // discard the last character of the prefix, this is the separator character
+						}
+					}
+					prefix_chars[pfix] = 0;
+				}
 				c_temp = wordx[-1];
 				wordx[-1] = ' ';
 				confirm_prefix = 1;
 
 				if(prefix_type & SUFX_B)
 				{
+// SUFX_B is used for Turkish, tr_rules contains "(Pb£
 					// retranslate the prefix part
 					char *wordpf;
 					char prefix_phonemes2[12];

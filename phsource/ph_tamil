@@ -70,20 +70,20 @@ endphoneme
 
 phoneme u
   vowel  starttype (u)  endtype (u)
-  length 130
+  length 110
   formants vowel/u
   reduceto U 4
 endphoneme
 
 phoneme U
   vowel  starttype (u)  endtype (u)
-  length 130
+  length 110
   formants vowel/u#_3
 endphoneme
 
 phoneme u:
   vowel  starttype (u)  endtype (u)
-  length 270
+  length 250
   formants vowel/u
 endphoneme
 

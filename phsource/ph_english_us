@@ -29,9 +29,9 @@ phoneme a
   vowel  starttype (a)  endtype (@)
   length 210
   formants vwl_en_us/a
-  before n vnasal/ee_n
-  before N vnasal/ee_n
-  before m vnasal/ee_n
+  before n vnasal/ee_n2
+  before N vnasal/ee_n2
+  before m vnasal/ee_n2
   reduceto a2  0
 endphoneme
 

@@ -656,7 +656,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','a'):  // Tamil
 		{
-			static const short stress_lengths_ta[8] = {190, 190,  200, 200,  0, 0,  220, 220};
+			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
 			tr = new Translator();

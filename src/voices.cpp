@@ -1052,6 +1052,14 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 
 	p = voice->languages;  // list of languages+dialects for which this voice is suitable
 
+	if(strcmp(spec_language,"mbrola")==0)
+	{
+		// only list mbrola voices
+		if(memcmp(voice->identifier,"mb/",3) == 0)
+			return(100);
+		return(0);
+	}
+
 	if(spec_n_parts == 0)
 	{
 		score = 100;
@@ -1198,6 +1206,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	for(ix=0; ix<n_voices_list; ix++)
 	{
 		vp = voices_list[ix];
+
 		if(((control & 1) == 0) && (memcmp(vp->identifier,"mb/",3) == 0))
 			continue;
 
