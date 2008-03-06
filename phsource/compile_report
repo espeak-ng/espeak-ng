@@ -697,7 +697,7 @@ ustop/p_        [p] base
                 [p2] fr
                 [ph] hi
                 [ph] zh
-ustop/percus10  [(X1)] base
+ustop/percus10  [(X1] base
 ustop/pl        [p] base
                 [p] base2
                 [p] fi
@@ -790,7 +790,7 @@ ustop/tsh_      [tS] base
 ustop/t_short   [t.] hi
                 [t] sk
                 [t] el
-ustop/tsh_pzd   [tS;h] zh
+ustop/tsh_pzd   [tS;] zh
 ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
 ustop/ts_pzd    [tS;] base
@@ -803,7 +803,7 @@ ustop/ts_pzd2   [c] hi
                 [c] hu
 ustop/t_sr      [d] sr
                 [t] sr
-ustop/ts_rfx    [ts.h] zh
+ustop/ts_rfx    [ts.] zh
 ustop/ts_rfx_unasp  [ts.] zh
 ustop/ts_sr     [tS;] sr
                 [dZ;] sr
@@ -1779,7 +1779,7 @@ vwl_ru/u        [u] ru
 vwl_ru/u#       [u#] ru
 vwl_ru/u#u      [u"] ru
 vwl_sv/r_sv3    [r] sv
-vwl_zh/aang     [aang] zhy
+vwl_zh/aang     [aan] zhy
 vwl_zh/aau      [Au] zh
 vwl_zh/a_n      [a] zh
 vwl_zh/ang      [ang] zhy
@@ -1790,7 +1790,7 @@ vwl_zh/ie       [iE] zh
 vwl_zh/ing      [ing] zhy
 vwl_zh/iou      [iou] zh
 vwl_zh/ng       [ng] zhy
-vwl_zh/oeng     [oeng] zhy
+vwl_zh/oeng     [oen] zhy
 vwl_zh/ong      [ong] zhy
 vwl_zh/uaa      [uA] zh
 vwl_zh/uai      [uai] zh

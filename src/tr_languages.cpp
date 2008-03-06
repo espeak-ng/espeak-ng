@@ -502,7 +502,6 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterVowel(tr,'y');
 		
 			tr->langopts.numbers = 0x11c19;
-			tr->langopts.accents = 1;
 			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));
 		}
 		break;

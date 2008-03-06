@@ -166,8 +166,8 @@ Wy   y    Y:   yU
 
 *    :    ;    b    C    d    f    g    
 h    j    k    l    m    n    N    n^   
-p    Q    r    s    S    S;   t    tS   
-v    v2   w    x    z    
+p    Q    r    s    S    t    tS   v    
+v2   w    x    z    
 
 
 Dictionary no_dict
@@ -214,11 +214,10 @@ Dictionary sk_dict
 l-   l:   o    o:   oU   r-   r:   u    
 u:   
 
-*    ;    b    c    d    d;   dZ   f    
-g    h    j    k    l    l^   m    n    
-N    n^   p    r    R    R^   R^/  s    
-S    t    t;   tS   ts   v    x    z    
-Z    
+*    ;    b    d    d;   dZ   f    g    
+h    j    k    l    l^   m    n    N    
+n^   p    r    R    R^   R^/  s    S    
+t    t;   tS   ts   v    x    z    Z    
 
 
 Dictionary sv_dict
@@ -254,7 +253,7 @@ s    t    t[   ts;  v    w    z
 
 Dictionary zhy_dict
 
-a    aa   aai  aang aau  ai   au   e    
+a    aa   aai  aan  aau  ai   au   e    
 ei   eo   eoi  eu   i    iu   o    oe   
 oi   ong  ou   u    ui   yu   
 
@@ -346,7 +345,7 @@ u    uai  y
 
 :    f    j    k    kh   l    m    n    
 N    p    ph   r    R    s    s.   S;   
-t    th   ts   ts.  ts.h tS;  tS;h tsh  
+t    th   ts   ts.  ts.  tS;  tS;  tsh  
 v    w    x    z    z.   
 
 

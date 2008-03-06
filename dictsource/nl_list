@@ -9,7 +9,7 @@
 _s	Es
 _t	te:
 
-_cap	k'a:pita:l
+_cap	h'o:fdlEt@r
 _?A	l'Et@r
 _??	s'imbo:l
 
@@ -33,6 +33,27 @@ _tld	t'Ild@
 
 // punctuation
 _.	p8nt
+_,	k'Oma:
+_:	d'8b@l@p,8nt
+_;	p'8ntkOm,a:
+/	sl'As
+_\	b'AkkslAs
+_?	v@-*'a:xte:k@n
+_!	'Wyt@-*upt,e:k@n
+_"	'a:nha:lInxste:k@n
+@	'a:p@nst,a:rt;@
+#	h'Ekj@
+%	p@-*o:s'Ent
+_(	h'a:kj@_|'o:pe:n@n
+_)	h'a:kj@sl'Wyt@n
+_{	v'irkAnt@h,a:k
+_}	v'irkAnt@h,a:ksl'Wyt@n
+_-	k'OpElt,e:k@n
++	pl'8s
+*	st'E*rEt;@
+__	l'IgEntst@-*'e:pj@
+€	'Y:*o:t,e:k@n
+
 
 // numbers
 _0	n'8l
@@ -47,8 +68,8 @@ _8	'Axt
 _9	n'e:x@n
 _10	t'in
 _11	'Elf
-_12	tw'Alf
-_13	d'e:rtin
+_12	tw'a:lf
+_13	d'Ertin
 _14	f'e:rtin
 _15	f'EIftin
 _16	z'Estin
@@ -229,4 +250,5 @@ player      _^_EN
 the         _^_EN
 
 // pronunciation exceptions
+eren	I:*@n
 

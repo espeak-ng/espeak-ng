@@ -396,7 +396,6 @@ static char nullstring[] = {0};
 	else
 	{
 		EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
-printf("Encode: [%s] = %.2x %.2x %.2x\n",phonetic,encoded_ph[0],encoded_ph[1],encoded_ph[2]);
 		if(strchr(encoded_ph,phonSWITCH) != 0)
 		{
 			flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY_S;  // don't match on suffixes (except 's') when switching languages

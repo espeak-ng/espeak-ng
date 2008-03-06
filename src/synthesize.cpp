@@ -82,7 +82,7 @@ const char *WordToString(unsigned int word)
 	int  ix;
 	static char buf[5];
 
-	for(ix=0; ix<4; ix++)
+	for(ix=0; ix<3; ix++)
 		buf[ix] = word >> (ix*8);
 	buf[4] = 0;
 	return(buf);

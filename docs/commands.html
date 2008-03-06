@@ -10,7 +10,7 @@
 <hr>
 <h2>2.1 INSTALLATION</h2>
 <hr>
-(This section only applies to Linux and other Posix systems).<br>
+<h3>2.1.1 Linux and other Posix systems</h3>
 There are two versions of the command line program. They both have the same command parameters (see below).
 <ol>
 <li><strong>espeak</strong> uses speech engine in the <strong>libespeak</strong> shared library.  The libespeak library must first be installed.
@@ -29,6 +29,24 @@ Some Linux distrubitions (eg. SuSe 10) have version 19 of PortAudio which has a 
  The speak program may be compiled without using PortAudio, by removing the line<pre>   #define USE_PORTAUDIO
 </pre>in the file speech.h. 
 <p>&nbsp;<hr>
+<h3>2.1.2 Use with KDE Text-to-Speech (KTTS)</h3>
+To add to KDE-Text-to-Speech Manager (KTTSMgr), use it as a "Command" talker
+with "command for speaking texts" set to:<br>
+   <strong>cat %f | espeak --stdin -w %w -v en -s190</strong>
+<p>
+In this example, "en" is the voice name, "190" is the speed.
+<p>
+Note:
+<ul>
+<li>When used by the KTTS system, I noticed a slight background hiss with the speech, which is not present when I use <strong>espeak</strong> directly from the command line. This was because KDE sound default was set to "8 bits" rather than 16 bits.<p>
+<li>KTTSMgr breaks the text into sentences to pass to the speech engine, but it mistakenly assumes sentence breaks when dots follow abbreviations and therefore pauses after the dots in "eg. Mr. John B. Smith etc."  Speaking a text file directly with <strong>espeak</strong> gives better results in this respect.
+
+</ul>
+<p>&nbsp;<hr>
+<h3>2.1.3 Windows</h3>
+The installer: <strong>setup_espeak.exe</strong> installs the SAPI5 version of eSpeak.  It also installs a command line program <strong>espeak</strong> in the espeak directory.
+
+<p>&nbsp;<hr>
 <h2>2.2 COMMAND OPTIONS</h2>
 <hr>
 <h3>2.2.1 Examples</h3>
@@ -42,19 +60,7 @@ Or just type<br>
 followed by text on subsequent lines. Each line is spoken when
 RETURN is pressed.<br>Use <strong>espeak -x</strong> to see the corresponding phoneme codes.
 <p>&nbsp;<hr>
-<h3>2.2.2 Use with KDE Text-to-Speech (KTTS)</h3>
-To add to KDE-Text-to-Speech Manager (KTTSMgr), use it as a "Command" talker
-with "command for speaking texts" set to:<br>
-   <strong>cat %f | espeak --stdin -v en -w %w</strong>
-<p>
-Note:
-<ul>
-<li>When used by the KTTS system, I noticed a slight background hiss with the speech, which is not present when I use <strong>espeak</strong> directly from the command line. This was because KDE sound default was set to "8 bits" rather than 16 bits.
-<li>KTTSMgr breaks the text into sentences to pass to the speech engine, but it mistakenly assumes sentence breaks when dots follow abbreviations and therefore pauses after the dots in "eg. Mr. John B. Smith etc."  Speaking a text file directly with <strong>espeak</strong> gives better results in this respect.
-<li>Speaking text from a web page using KTTS often causes headings and image captions to be run together with the following text as a single sentence.  Speaking the HTML directly  with the <strong>-m</strong> option set (i.e. using <strong>espeak -m -f text.html</strong>), may help if this is a problem. 
-</ul>
-<p>&nbsp;<hr>
-<h3>2.2.3 The Command Line Options</h3>
+<h3>2.2.2 The Command Line Options</h3>
 <dl>
 <dt>
 <strong>espeak [options] ["text words"]</strong><br>
@@ -170,11 +176,12 @@ Used with <strong>-w</strong>, it starts a new WAV file every <code>&lt;minutes&
 <strong>--voices [=&lt;language code&gt;]</strong><br>
 <dd>Lists the available voices.<br>
 If =&lt;language code&gt; is present then only those voices which are suitable for that language are listed.<br>
-<code>--voices=variant</code> lists the voice variants (voice modifiers).
+<code>--voices=mbrola</code> lists the voices which use mbrola diphone voices. These are not included in the <code>--voices</code> list<br>
+<code>--voices=variant</code> lists the voice variants (voice modifiers).<br>
 
 </dl>
 <p>&nbsp;<hr>
-<h3>2.2.4 The Input Text</h3>
+<h3>2.2.3 The Input Text</h3>
 <dl>
 <dt><b>HTML Input</b>
 <dd>
@@ -182,8 +189,9 @@ If the -m option is used to indicate marked-up text, then HTML can be spoken dir
 <p>
 <dt><b>Phoneme Input</b>
 <dd>
-As well as plain text, phoneme mnemonics can be used in the text input to <strong>espeak</strong>.  They are enclosed within double square brackets.  Spaces are used to separate words and all stressed syllables must be marked explicitly.<br>
- &nbsp; eg: &nbsp; <code> [[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]] </code>
+As well as plain text, phoneme mnemonics can be used in the text input to <strong>espeak</strong>.  They are enclosed within double square brackets.  Spaces are used to separate words and all stressed syllables must be marked explicitly.<p>
+ &nbsp; eg: &nbsp; <code> espeak -v en [[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]] </code><p>
+ ("This is some phonetic text input").
 </dl>
 </body>
 </b>

@@ -30,7 +30,7 @@
 // ?8  Use full vowel, not schwa in some word endings
 
 .replace
-   ﬀ   f     // ligature
+   ﬀ   ff     // ligature
    ﬁ   fi
    ﬂ   fl
 
