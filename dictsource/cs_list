@@ -57,7 +57,7 @@ _#9	t'ap
 _#32 	m'ezeRa // space
 _??	simbol
 _?A	znak
-_cap	m'ajuskule
+_cap	velke:
 
 // accent names
 _lig	l'igat,uRa
@@ -98,6 +98,23 @@ _}	sl'oZena:||z'avR^i:t
 _<	menSi:
 _>	vjetSi:
 _|	sv'isla:||tS'a:Ra
+_:	dv'ojtetSka
+%	pRotsento
++	plus
+€	eURo
+@	zavina:tS
+&	ampr-sent
+#	gR^i:Zek
+/	lomeno
+_\	beksleS
+
+°	stupen^
+×	kRa:t
+÷	Jeleno
+§	paRagRaf
+~	tilda
+^	zdR^i:Ska
+©	k'opiRajt
 
 
 // Numbers

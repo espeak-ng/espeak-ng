@@ -156,7 +156,7 @@
         l (_     l#
         l (BX    l#
         ll       dl
-        ll (B8   tl#
+        ll (BX   tl#
         ll (_    tl#  // ??
 
 
@@ -226,12 +226,12 @@
      _) r        R2
      C) r        @-R
      l) r        **R
-     A) r (A     R
-     B) r        rr#
+     A) r (A     *R
+     B) r        r#
         r (B     rr#
         r (_     rr#
-        r        R
-        rr       R*
+        r        _|R2
+        rr       R*R
         rl       dl
         rl (K    rtl#
         rn       rdn#
@@ -239,7 +239,7 @@
 
 .group s
         s        s
-        ss       s
+        ss       ss2
         sj       S
 
 

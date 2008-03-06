@@ -11,13 +11,13 @@
 //********
 _0   n'utl#
 _1   'eIdn
-_2   dv'eI:r#
-_3   Tr#'i:r#
-_4   fj'oU:@-*Ir#
+_2   dv'eI:rr#
+_3   Tr#'i:rr#
+_4   fj'oU:*RIrr#
 _1f  'eIhd
 _2f  tv'W:
 _3f  Tr#j'u:
-_4f  fj'W:Qyr#
+_4f  fj'W:Qyrr#
 _5   f'Im
 _6   s'e:xs
 _7   S'W:
@@ -27,7 +27,7 @@ _10  t'i:;y
 _11  'EdlEv,y
 _12  t'oUl#f
 _13  Tr#'EhdaUn
-_14  fj'oUr#taUn
+_14  fj'oUrr#taUn
 _15  f'ImtaUn
 _16  s'ExsdaUn
 _17  s'Yy:djaUn
@@ -35,28 +35,59 @@ _18  'aU:djaUn
 _19  n'i:djaUn
 _2X  t'yhdyQ,y
 _3X  Tr#j'aU:ti;,y
-_4X  fj'W:@-*yt,i;y
+_4X  fj'W:*Ryt,i;y
 _5X  f'Imti;,y
 _6X  s'Exsdi;,y
 _7X  sj'W:ti;,y
 _8X  'aUhd&t,i;y
 _9X  n'i:;yt,i;y
 _0C  h'ynd@-*yD
-_1C  'eIhd||h'ynd@-*&D
-_2C  tv'W:||h'ynd@-*yD
-_3C  Tr#j'u:||h'ynd@-*yD
-_4C  fj'W:Qyr#||h'ynd@-*yD
+_1C  'eIhd||h'ynd@-R&D
+_2C  tv'W:||h'ynd@-RyD
+_3C  Tr#j'u:||h'ynd@-RyD
+_4C  fj'W:Qyrr#||h'ynd@-RyD
 _0M1  T'u:synd
 _0M2  m'IdljoUn
 _1M2  eI:n||m'IdljoUn
-_2M2  tv'aI:r#||m'IdljoUn
-_3M2  Tr#j'aU:r#||m'IdljoUn
-_4M2  fj'oU:*&r#||m'IdljoUn
-
+_2M2  tv'aI:rr#||m'IdljoUn
+_3M2  Tr#j'aU:rr#||m'IdljoUn
+_4M2  fj'oU:*&rr#||m'IdljoUn
+_dpt	_k,Omm&_
 _0and  o:Q
 
+_cap	sd'oUrr#d
+_??	t'aUghn#
+
+// Characters
+_!	'yhbr#oUpyn&Rm,Err#kI
+_"	JaI:s&lWhb
+#	mIll&
+_$	d'Odl&rr#
+_&	o:QmErr#kI
+/	skaUsdr#Ig
+_(	svI:jI
+_)	sv'I:jIl'o:k&sd
+_{	slYy:vysvIjI
+_}	sl'Yy:vysv,IjIl'o:k&sd
+_[	hOrdn#glOvI
+_]	h'Ordn#glOvIl'o:k&sd
+=	s'a:m&sEmm,Err#kI
+_\	'W:vyxdsk,aUsdr#Ig
+_-	b&ndsdrr#Ig
+__	yndIRsdrr#Ig
+_?	sb'yrdn#iNg,&mErr#kI
++	bl'u:s
+_<	OdglOvI
+_>	'OdglOvIl,o:k&sd
+_.	p'uN#hgdy#rr#
+_,	k'Omm&
+_;	s'e:mik,Omm&
+_:	dv'i:puN#hgdy#rr#
+
 // abbreviations
-//**************
+
+
+// Function words
 hinn	$u+
 hin	$u+
 hið	$u+

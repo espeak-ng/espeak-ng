@@ -17,7 +17,7 @@
 ௮	8
 ௯	9
 
-
+.
 .group 0xe0ae   // characters which start with UTF-8 bytes: [e0 ae]
 
 	ஂ		// anusvara
@@ -67,8 +67,8 @@
 	ச (B	dZ
      _) ச	sa
      _) ச (B	s
-	ச்ச	ctS:V
-	ச்ச (B	ctS:
+	ச்ச	tS:V
+	ச்ச (B	tS:
 
 	ஜ	dZV
 	ஜ (B	dZ
@@ -94,10 +94,10 @@
 	த்த (B	tt
 
 	ந	nV
-	ந (B	n
+	ந (B	n  // dental n
 
 	ன	nV
-	ன (B	n
+	ன (B	n  // alveolar n
 
 	ப	bV
 	ப (B	b
@@ -105,7 +105,7 @@
      _) ப (B	p
 	ப்ப	ppV
 	ப்ப (B	pp
-     ஃ) ப	fa
+     ஃ) ப	fV
      ஃ) ப (B	f
 
 	ம	mV
@@ -183,3 +183,29 @@
 .group
 	்	  // virama
 	$	dolV
+a	_^_EN
+b	_^_EN
+c	_^_EN
+d	_^_EN
+e	_^_EN
+f	_^_EN
+g	_^_EN
+h	_^_EN
+i	_^_EN
+j	_^_EN
+k	_^_EN
+l	_^_EN
+m	_^_EN
+n	_^_EN
+o	_^_EN
+p	_^_EN
+q	_^_EN
+r	_^_EN
+s	_^_EN
+t	_^_EN
+u	_^_EN
+v	_^_EN
+w	_^_EN
+x	_^_EN
+y	_^_EN
+z	_^_EN

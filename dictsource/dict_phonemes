@@ -214,7 +214,7 @@ Dictionary sk_dict
 l-   l:   o    o:   oU   r-   r:   u    
 u:   
 
-*    :    ;    b    d    d;   dZ   f    
+*    ;    b    c    d    d;   dZ   f    
 g    h    j    k    l    l^   m    n    
 N    n^   p    r    R    R^   R^/  s    
 S    t    t;   tS   ts   v    x    z    
@@ -254,7 +254,7 @@ s    t    t[   ts;  v    w    z
 
 Dictionary zhy_dict
 
-a    aa   aai  aan  aau  ai   au   e    
+a    aa   aai  aang aau  ai   au   e    
 ei   eo   eoi  eu   i    iu   o    oe   
 oi   ong  ou   u    ui   yu   
 
@@ -265,13 +265,13 @@ tS   v    w    z
 
 Dictionary ta_dict
 
-a    a:   e    e:   E:   i    i:   o    
-o:   U    u    u:   V    
+a    a:   e    E    e:   E:   i    I    
+i:   o    o:   U    u    u:   V    
 
-:    b    c    C    d    d.   dZ   g    
-j    k    l    l.   m    n    N    n.   
-n^   p    r    R    s    S    s.   t    
-t.   tS   v    z    
+:    b    c    C    d    d.   dZ   f    
+g    h    j    k    l    l.   m    n    
+N    n.   n^   p    r    R    s    S    
+s.   t    t.   tS   v    w    z    
 
 
 Dictionary pt_dict
@@ -310,7 +310,7 @@ y    y#   Yy
 D    f    g    h    j    J    k    l    
 l#   m    m#   n    N    n#   N#   n^   
 n^#  p    Q    r    R    r#   R2   s    
-S    t    T    tl#  v    x    z    
+S    s2   t    T    tl#  v    x    z    
 
 
 Dictionary la_dict
@@ -346,7 +346,7 @@ u    uai  y
 
 :    f    j    k    kh   l    m    n    
 N    p    ph   r    R    s    s.   S;   
-t    th   ts   ts.  ts.  tS;  tS;  tsh  
+t    th   ts   ts.  ts.h tS;  tS;h tsh  
 v    w    x    z    z.   
 
 
@@ -358,10 +358,6 @@ o    OI   r-   u
 b    d    dZ   f    g    h    j    k    
 l    m    n    N    p    R    s    S    
 t    tS   v    w    x    z    Z    
-
-
-Dictionary ja_dict
-
 
 
 Dictionary hbs_dict
@@ -385,16 +381,6 @@ O    u
 j    k    l    m    n    N    n^   p    
 r    R    s    S    t    tS   v    w    
 x    z    
-
-
-Dictionary rw_dict
-
-a    e    i    o    u    
-
-*    :    b    B    c    d    dZ   f    
-g    h    j    J    k    l    m    n    
-N    n^   p    q    s    S    S;   t    
-tS   v    w    x    z    
 
 
 Dictionary tr_dict

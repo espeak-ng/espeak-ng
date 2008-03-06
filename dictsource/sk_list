@@ -38,7 +38,7 @@ t	te:
 ť	t;e:
 u	u:
 ú	dl-he:'u:
-ů	'u:s_kR'oUZkem
+ů	'u:s_kR'u:Zkom
 _v	ve:
 w	dv'ojite:,ve:
 x	iks
@@ -68,7 +68,7 @@ _tld	s_v'l-novkoU
 // character names
 _cap	vel^ke:
 _??	simbol
-_#9	tab
+_#9	t'ab
 _#32	'medzeRa
 _?A	znak
 
@@ -83,7 +83,8 @@ _)	zatvoRit;
 _*	hviezda
 +	plus
 _,	tSiaRka
-_-	pomltSka
+_-	poml-tSka
+__	podtSiaRknutie
 _.	bodka
 _/	lomeno
 _:	dvojbodka
@@ -92,7 +93,7 @@ _<	menSi:
 _=	Rovna:sa
 _>	vetSSi:
 _?	ota:zn^ik
-_@	zavin:atS
+_@	zavina:tS
 _[	hRanata:||za:tvoRka
 _\	opatSne:||lomeno
 _]	hRanata:||zatvoRit;
@@ -101,8 +102,47 @@ _`	aktsent
 _{	zloZena:||za:tvoRka
 _|	zvisla:||tSiaRa
 _}	zloZena:||zatvoRit;
-_~	vlnovka
+_~	vl-novka
+_     tvRda:medzeRa    // U+00A0  no-break-space
+_¡    obra:t;eni:vi:kRitSn^i:k
+_¦    pReRuSena:||tSiaRa
+_ª    hoRni:indeks_a:
+_«    dvojita:lomena:||za:tvoRka
+_­    mekka:poml-tSka
+_²    na_dRuhu:
+_³    na_tRetju
+_´    dl:Zen^
+_·    bodka_vpRostRjedku
+_¸    cedila
+_¹    na_pRvu:
+_»    dvojita:lomena:||zatvoRit;
+_¿    obra:t;eni:ota:zn^ik
+_–    dl:ha:poml-tSka
+_‘    l^ava:u:vodzovka
+_’    prava:u:vodzovka
+_“    horne:u:vodzovki
+_”    dolne:u:vodzovki
+_‡    dvojiti:kri:Z
+_•    odra:Zka
+_‣    trojuholni:kova:odra:Zka
+‰	promile
 €	euRo
+§	paRagRaf
+÷	d;eleno
+×	kRa:t
+°	stupn^ou
+¢	centou
+£	libjer
+¤	znatSkameni
+−	mi:nus
+±	plusmi:nus
+µ	mu:
+¼	Stvrtina
+½	polovica
+¾	tri_Stvrtini
+¬	logicke:not
+æ	a'e:
+þ	poml-tSkanad
 
 
 // Numbers

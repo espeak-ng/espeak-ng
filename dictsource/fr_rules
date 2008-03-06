@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-03-04 Michel Such  <michel.such@free.fr>
+// Updated: 2008-03-05 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -168,12 +168,14 @@
 		ell         El		// selle
 		el (C       El		// celsius
 		el (_       El		// caramel
-	_)	em (me      A~		// emmitouffler
-	X')	em (me      A~		// s'emmitouffler
-		em (me      a		// femme patiemment
+	_f)	em (me      a		// femme
+	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
-		em (m       A~		// emmancher
-		em (manu       e		// emmanuel
+		em (mACC       A~		// emmancher
+		em (mACAC       A~		// emmagasiner
+		em (ma       e		// emmanuel
+		em (mai       A~		// emmailloter
+	l)	em (n       a		// solemnel
 		em (p       A~
 		en (_       A~n2		// en
 		en (hA      A~n		// enharmonique
@@ -282,7 +284,6 @@
 	oCum)	en (t_      A~
 	rum)	en (t_      A~
 
-	_cli)	en (t      A~		// client
 	éCid)	en (t_      A~
 	VéCid)	en (t_
 	Xtrid)	en (t_      A~
@@ -517,6 +518,7 @@
 		g (a        g		// langage
 		g (u        g
 		g (â        g
+		g (ü        g
 		g (o        g
 		g (û        g
 
@@ -530,7 +532,6 @@
 // group g: English section
 	_)	game (X         _^_en
 	@@)	gate (X         _^_en
-		gh          _^_en		// high, higher
 		girl        _^_en		// girl
 		give (X         _^_en
 		gy (_         _^_en
@@ -624,20 +625,25 @@ _)		half  	_^_en
 .group i
 		i           i		// cri
 
+	X)	i (a    i		// fiancer, fiable
 		ie (ment    i		// remerciement balbutiement
 	C)	ien (t_       i
 	dév)	ien (t_       i
-	t)	ien (t_      jE~		// vient
-	v)	ien (t_      jE~		// tient
+	t)	ien (t_      jE~		// tient
+	v)	ien (t_      jE~		// vient
 	at)	ien (t_      jA~		// patient
 	cip)	ien (C     jA~		// récipient
+	cl)	ien (C     iA~		// client
+	mol)	ien (C     iA~		// émolient
 	vén)	ien (C     jA~		// inconvénient
+	or)	ien (t      jA~		// orient, orienter
 	ot)	ien (t_      jA~		// quotient
 
 		i (es_      i		// parties
 		i (e_       i
 		i (A        j		// fermier portier patio renier
 	_)	ill         ill		// illégal
+	anqu)	ill         ill		// tranquille
 	_m)	ill         il		// mille
 	v)	ill         il		// village
 	u)	ill         ij		// cuillière cueillir
@@ -650,6 +656,7 @@ _)		half  	_^_en
 		imm         imm		// immaculé
 		im (_       im		// karim
 		im (C       E~		// timbre
+	w)	in        in		// winrar
 		in (h       in		// inhumain
 		inct (_     E~		// distinct
 		in (n       i		// innombrable
@@ -660,6 +667,7 @@ _)		half  	_^_en
 // group i: English section
 		iev         _^_en
 		ife (_      _^_en
+		igh       _^_en
 		ing (_      _^_en		// parking
 		ind (_     _^_en		// find, mind
 	_C)	ind (er_     _^_en		// finder, reminder
@@ -897,6 +905,7 @@ e)		s (_h      z2
 
 	_)	s' (P2      s		// s'amène
 		sç 	    s		// immisça
+		sch (ie     sk		// schierzo
 		sch (iz     sk		// schizophrène
 		sch (ol     sk
 		sch (oo     sk
@@ -1088,6 +1097,13 @@ C)		te (_      t@-  		// patte
 		ust (_        _^_en  // just, trust
 
 
+.group ü
+		ü 	y
+		üs (_	ys
+		üm (_	Om
+		ül (_	yll
+
+
 .group v
 		v           v
 
@@ -1106,10 +1122,9 @@ C)		te (_      t@-  		// patte
 		wa (Ce_ 	    _^_en // hardware software wave
 	_)	wan  	    _^_en
 		wr 	  _^_en    // write
-		w (ACC 	  _^_en    // wash, wish, with
 		way 	  _^_en    // way, away
-	_)	wi 	  _^_en    // wire
-		win 	  _^_en    // winner, window
+	_)	wir 	  _^_en    // wire
+		winn 	  _^_en    // winner
 		wise 	  _^_en
 		wor 	  _^_en    // word, world
 
@@ -1158,7 +1173,7 @@ C)		te (_      t@-  		// patte
 
 .group z
 		z           z
-		zz          z
+		zz          dz
 	t) 	z           s	// tzigane
 
 

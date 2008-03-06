@@ -4,37 +4,64 @@
 
 
 // letters (consonants)
-க	ik
-ங	iN
-ச	itS
-ஜ	idZ
-ஞ	in^
-ட	it.
-ண	in.
-த	it
-ந	in
-ன	in  // ??
-ப	ip
-ம	im
-ய	ij
-ர	ir
-ற	iR
-ல	il
-ள	il.
-ழ	iz
-வ	iv
-U+bb6	iS
-ஷ	is.
-ஸ	is
-ஹ	iC
+க்	ik
+ங்	iN
+ச்	itS
+ஜ்	idZ
+ஞ்	in^
+ட்	it.
+ண்	in.
+த்	it
+ந்	in  // dental n
+ன்	in  // alveolar n
+ப்	ip
+ம்	im
+ய்	ij
+ர்	ir
+ற்	iR
+ல்	il
+ள்	il.
+ழ்	iz
+வ்	iv
+ஶ்	iS
+ஷ்	is.
+ஸ்	is
+ஹ்	iC
 U+b82	anUsvVRV
-ஃ	visVRgV
+ஃ	ah
 U+bcd	viRVmV
 
+// speak Latin letters as English
+a	e:j
+b	bi:
+c	si:
+d	di:
+e	i:
+f	Ef
+g	dZi:
+h	e:tS
+i	a:I
+j	dZe:j
+k	ke:j
+l	El
+m	Em
+n	En
+o	o:
+p	pi:
+q	kju:
+r	a:R
+s	Es
+t	ti:
+u	ju:
+v	vi:
+w	dVbVlju:
+x	Eks
+y	wa:j
+z	zEd
 
 // symbols
-_??	kuRij,i:d.U
-_cap	kapit.Vl    // guess
+_??	kuRij,i:d.U_
+_cap	kapit.Vl    // English
 _.	pul.l.i
 _,	kVma:
 _;	ka:RbUl.l.,i
