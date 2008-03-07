@@ -562,7 +562,11 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 		ph_buf1[0] = 0;
 		return;
 	}
-
+	if(ph_buf3[0] == phonSWITCH)
+	{
+		strcpy(ph_buf1,ph_buf3);
+		return;
+	}
 	// at a stress marker at the start of the letter name, unless one is already marked
 	ph_stress[0] = phonSTRESS_P;
 	ph_stress[1] = 0;

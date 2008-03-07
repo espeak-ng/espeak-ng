@@ -703,6 +703,8 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 
 int Translator::IsLetter(int letter, int group)
 {//============================================
+	int letter2;
+
 	if(letter_groups[group] != NULL)
 	{
 		if(wcschr(letter_groups[group],letter))
@@ -713,10 +715,12 @@ int Translator::IsLetter(int letter, int group)
 	if(group > 7)
 		return(0);
 
-
 	if(letter_bits_offset > 0)
 	{
-		letter -= letter_bits_offset;
+		if(((letter2 = (letter - letter_bits_offset)) > 0) && (letter2 < 0x80))
+				letter = letter2;
+		else
+			return(0);
 	}
 	else
 	{

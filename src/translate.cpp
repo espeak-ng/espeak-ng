@@ -787,7 +787,7 @@ if((wmark > 0) && (wmark < 8))
 			{
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,phonemes);
-				return(FLAG_SPELLWORD);
+				return(0);
 			}
 
 			p = &wordx[word_length-3];    // this looks wrong.  Doesn't consider multi-byte chars.
