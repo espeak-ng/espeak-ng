@@ -633,7 +633,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 		if(ph_buf[0] != 0)
 		{
-			sprintf(phonemes,"%c",phonSWITCH);
+			sprintf(phonemes,"%cen",phonSWITCH);
 			return(0);
 		}
 	}

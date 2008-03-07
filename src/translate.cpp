@@ -787,6 +787,8 @@ if((wmark > 0) && (wmark < 8))
 			{
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,phonemes);
+				if(strcmp(&phonemes[1],"en")==0)
+					return(FLAG_SPELLWORD);   // _^_en must have been set in TranslateLetter(), not *_rules
 				return(0);
 			}
 
