@@ -100,12 +100,6 @@ void SynthesizeInit()
 //	next_pause.ph = phoneme_tab[phonPAUSE];   // this must be done after voice selection
 	next_pause.type = phPAUSE;
 	next_pause.newword = 0;
-
-	if(!iswalpha(0x010d))
-	{
-		// check that c-caron is recognized as an alphabetic character
-		fprintf(stderr,"iswalpha() Accented letters are not recognized\n");
-	}
 }
 
 
@@ -1568,6 +1562,12 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	if(option_phonemes > 0)
 	{
 		fprintf(f_trans,"%s\n",translator->phon_out);
+
+		if(!iswalpha(0x010d))
+		{
+			// check that c-caron is recognized as an alphabetic character
+			fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\n");
+		}
 	}
 	if(phoneme_callback != NULL)
 	{
