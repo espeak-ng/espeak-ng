@@ -534,7 +534,7 @@ SetLengthMods(tr,3);  // all equal
  			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
  			tr->langopts.numbers=0x1009 + 0x4000;
 			tr->langopts.numbers2=0x40;
-			tr->langopts.param[LOPT_COMBINE_WORDS] = 2 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable words (marked with $alt)
+			tr->langopts.param[LOPT_COMBINE_WORDS] = 4 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable (and 2-syllable) words (marked with $alt)
 			SetLetterVowel(tr,'y');
 		}
 		break;

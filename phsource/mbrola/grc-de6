@@ -1,0 +1,29 @@
+// use mbrola de6 German voice for "grc" (Ancient Greek)
+
+
+0  i   NULL  0  i:
+0  e   NULL  0  e:
+0  E   NULL  0  E:
+0  a   NULL  0  a:
+0  a/  NULL  0  a:
+0  O   NULL  0  O
+0  o   NULL  0  o:
+0  y   NULL  0  Y
+
+0  aI  NULL  60  a: j
+0  EI  NULL  70  E: j
+0  OI  NULL  70  O  j
+0  oI  NULL  60  o: j
+0  yI  NULL  60  Y  j
+0  aU  NULL  0   aU
+0  eU  NULL  60  e: w
+0  EU  NULL  70  E: w
+0  OU  NULL  70  O  w
+
+0  l/  NULL  0  l
+0  f   NULL  0  pf
+
+
+
+
+

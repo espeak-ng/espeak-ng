@@ -33,7 +33,7 @@
 
 
 /* dictionary flags, word 1 */
-// bits 0-3  stressed syllable,  7=unstressed
+// bits 0-3  stressed syllable,  bit 6=unstressed
 #define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
 

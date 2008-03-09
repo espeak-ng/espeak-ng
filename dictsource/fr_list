@@ -39,7 +39,7 @@ j	Zi
 k	ka
 l	El
 m	Em
-n	En
+//n	En   // in fr_rules
 ñ	$accent
 o	o
 ô	$accent
@@ -113,7 +113,7 @@ _`   aks'A~_gR'av
 _{   uvR_akOlad
 _|   baR
 _}   f'ERm_akOl'ad
-
+²    pw^is'A~s||d'Y
 
 
 // numeric

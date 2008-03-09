@@ -318,7 +318,8 @@ extern "C"
 #endif
 espeak_ERROR espeak_Key(const char *key_name);
 /* Speak the name of a keyboard key.
-   Currently this just speaks the "key_name" as given 
+   If key_name is a single character, it speaks the name of the character.
+   Otherwise, it speaks key_name as a text string.
 
    Return: EE_OK: operation achieved 
            EE_BUFFER_FULL: the command can not be buffered; 

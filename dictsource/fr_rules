@@ -227,7 +227,7 @@
 	flig)	en (t_      A~		// affligent
 	Vflig)	en (t_        		// infligent (verbe)
 	Xig)	en (t_      		// figent, pigent
-	oblig)	en (t_      A~		// obligent, d�sobligent
+	oblig)	en (t_      A~		// obligent, d�sobligent
 	Voblig)	en (t_        		// obligent (verbe)
 
 	man)	en (t_      A~		// permanent
@@ -730,6 +730,7 @@ _)		half  	_^_en
 
 
 .group n
+	_)	n (_        En
 		n           n		// une
 		nn          n
 		ng (_       N
@@ -738,7 +739,7 @@ _)		half  	_^_en
 
 	A) 	ng (_       N		// parking meeting
 		nn          n		// panne
-
+	_)	n (_°       nymero
 
 
 .group o
@@ -1208,6 +1209,7 @@ C)		te (_      t@-  		// patte
 	¥	i;En
 	£	livR
 	°	d@gRe
+   _n_) °	   // n°
 	±	pl'yz_'u_mw'E~
 	×	myltip@-lj'e_p'aR
 	÷	diviz'e_p'aR

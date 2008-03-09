@@ -637,6 +637,7 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	int prefix_flags = 0;
 	int confirm_prefix;
 	int spell_word;
+	int stress_bits;
 	int emphasize_allcaps = 0;
 	int wflags = wtab->flags;
 	int wmark = wtab->wmark;
@@ -684,6 +685,37 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	else
 	{
 		found = LookupDictList(&word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
+		if(dictionary_flags[0] & FLAG_TEXTMODE)
+		{
+			stress_bits = dictionary_flags[0] & 0x7f;
+			found = LookupDictList(&word1, phonemes, dictionary_flags2, 0, wtab);   // the text replacement
+			if(dictionary_flags2[0]!=0)
+			{
+				dictionary_flags[0] = dictionary_flags2[0];
+				dictionary_flags[1] = dictionary_flags2[1];
+				if(stress_bits != 0)
+				{
+					// keep any stress information from the original word
+					dictionary_flags[0] = (dictionary_flags[0] & ~0x7f) | stress_bits;
+				}
+			}
+		}
+		else
+		if((found==0) && (dictionary_flags[0] & FLAG_SKIPWORDS))
+		{
+			// grouped words, but no translation.  Join the words with hyphens.
+			wordx = word1;
+			ix = 0;
+			while(ix < dictionary_skipwords)
+			{
+				if(*wordx == ' ')
+				{
+					*wordx = '-';
+					ix++;
+				}
+				wordx++;
+			}
+		}
 
 		// if textmode, LookupDictList() replaces word1 by the new text and returns found=0
 

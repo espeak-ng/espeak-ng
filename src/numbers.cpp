@@ -721,7 +721,7 @@ void Translator::SetSpellingStress(char *phonemes, int control, int n_chars)
 
 			if(control == 4)
 				c = phonPAUSE;    // pause after each character
-			if(((count % 3) == 0) || (control == 4))
+			if(((count % 3) == 0) || (control > 2))
 				c = phonPAUSE_SHORT;  // pause following a primary stress
 			else
 				continue;       // remove marker

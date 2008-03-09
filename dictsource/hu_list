@@ -62,6 +62,10 @@ _rng	kYR2
 _stk	a:thu:za:S
 _tld	tildE
 
+// characters
+_#9	tAb
+_#32 	so:kYz
+
 
 // Abbreviations
 km	kilo:me:tER2

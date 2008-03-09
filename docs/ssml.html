@@ -3,7 +3,6 @@
 
 <head>
   <title>eSpeak</title>
-  <meta name="GENERATOR" content="Quanta Plus">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -36,11 +35,16 @@ The following markup tags and attributes are recognised:<p>
 </ul>
 <p><b>&lt;say-as&gt;</b>
 <ul>
-<li>interpret-as="characters"
-<li>interpret-as="characters" &nbsp;format="glyphs"
-<li>interpret-as="tts:key"
-<li>interpret-as="tts:char"
-<li>interpret-as="tts:digits"
+<li>interpret-as="characters"<p>
+The names of the characters are spoken.
+<li>interpret-as="characters" &nbsp;format="glyphs"<p>
+As "characters", but upper-case letters are prefixed with "Capital".
+<li>interpret-as="tts:key"<p>
+If the text is only one character, the name of the character is spoken, including punctuation characters.  If the text is more than one character, it is spoken as words.
+<li>interpret-as="tts:char"<p>
+The name of the character is spoken, including punctuation characters.
+<li>interpret-as="tts:digits"<p>
+The digits are spoken individually.
 </ul>
 <p><b>&lt;mark&gt;</b> name
 <p><b>&lt;s&gt;</b>

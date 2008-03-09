@@ -612,9 +612,20 @@ espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *
 void sync_espeak_Key(const char *key)
 {//==================================
 	// symbolic name, symbolicname_character  - is there a system resource of symbolic names per language?
+	int letter;
+	int ix;
+
+	ix = utf8_in(&letter,key,0);
+	if(key[ix] == 0)
+	{
+		// a single character
+		sync_espeak_Char(letter);
+		return;
+	}
+
 	my_unique_identifier = 0;
 	my_user_data = NULL;
-	Synthesize(0, key,0);  // for now, just say the key name as passed
+	Synthesize(0, key,0);   // speak key as a text string
 }
 
 

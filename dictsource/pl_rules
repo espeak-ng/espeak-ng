@@ -1,10 +1,41 @@
+.L01	ka ki ce kę ką ko kach kom
+//.L02	a i ę ą o
+
+//.L03	a em ie owi o
+
+//.L04	iego iemu ich imi im i
+
+//.L05	o ę y ów ach ami a
+
+//.L06 o a em ie
+
+//.L07 to ta tem cie tami tom t
+
+//.L08	a u ie em owi
+
+//.L09	ach ami ów a ę y ą owie o
+
+//.L10 a em owi ie u ach ami om
+
+//.L11 a iem u
 
 .group	 a
 		a		a
-		a	(_A	a_
-		ae	(_	E 	// latin plural
+		a	(_	a_
+		ae	(_	E
+	_)	ae	(rA	aE
+	_)	ae		E
+	_h)	al	(l	O
+	h)	allowee	(n_	'alOwy
+	h)	allowee	(n	alOwy
+	C)	ai	(r	E
+	_alt)	ai	(r	ai
+	_k)	ai	(r	ai
+	_)	archie		E*tSi
+	_)	archie	(C	E*tS|;E
+		acku	(p	Eka
+	_)	arcy	(@P4t	a*tsy
 
-// czasowniki forma przypuszczająca - trzecia sylaba od końca
 	@ł)	a	(by_	=a
 	@ł)	a	(bym_	=a
 	@ł)	a	(byś_	=a
@@ -32,28 +63,159 @@
 		ą	(ł	O
 
 .group	 b
+	@@)	borg	(_S4t	bOrg
+	@@)	berg	(_S4t	bErg
+	@@)	börg	(_S4t	bErg
+	@@)	børg	(_S4t	bErg
+
 		b		b
-	ja)	bł	(ko	p
+	ja)	bł	(kA	p
 		b	(_A	p
 		b	(i	b;
 		bi	(A	b;j
 
 .group	 c
+
 		c		ts
 		ch		h
 		ch	(i	C
 		chi	(A	hj
-	psy)	chi	(a	Ci
+	psy)	chi	(a	hi
+	_)	chic	(agA	Sik
 		c	(i	ts;
 		ci	(A	ts;
+	li)	ci	(o_	sj
+	li)	ci	(ą_	sj
+	li)	ci	(ę_	sj
+	li)	ci	(i_	sj
+	li)	ci	(a_	sj
+	ar)	ci	(o_	sij
+	ar)	ci	(ą_	sij
+	ar)	ci	(ę_	sij
+	ar)	ci	(i_	sij
+	ar)	ci	(a_	sij
+	A)	ci	(ano_	sj
+	A)	ci	(anowi_	sj
+	A)	ci	(anie_	sj
+	A)	ci	(anem_	sj
+	A)	ci	(ana_	sj
+
+		cc	(at_	k
+		cc	(atom_	k
+		cc	(atami_	k
+		cc	(acie_	k
+		cc	(atem_	k
+		cc	(ata_	k
+		cc	(ato_	k
+		cc	(atA	k
+		cc	(i_	tS
+		cc	(im_	tS
+		cc	(imi_	tS
+		cc	(ich_	tS
+		cc	(iemu_	tS
+		cc	(iego_	tS
+		cc	(inie_	tS
+		cc	(inem_	tS
+		cc	(ina_	tS
+		cc	(ino_	tS
+		cc	(iie_	tS
+		cc	(iem_	tS
+		cc	(ia_	tS
+		cc	(io_	tS
+	_mo)	cc	(A	k
+
+		c	(at_	k
+		c	(atom_	k
+		c	(atami_	k
+		c	(acie_	k
+		c	(atem_	k
+		c	(ata_	k
+		c	(ato_	k
 		cz		tS
 		c	(osin	k
 		c	(osecans	k
 		c	(otang	k
 	cose)	c	(ans	k
-		ch	(ev	S		// chevrolet
+		ch	(ev	S
 		ch	(err	S
 	_ro)	ck	(A	k
+	_dis)	c	(o	k
+	_lin)	c	(oln	k
+	_ar)	c	(adio_	k
+	_ar)	c	(adią_	k
+	_ar)	c	(adię_	k
+	_ar)	c	(adii_	k
+	_ar)	c	(adia_	k
+	_)	ch	(risto	k
+	_)	c	(abernet	k
+	_)	ca	(m	kE
+	_)	c	(amembert	ka
+	_)	c	(an		k
+	vi)	c	(e		ts
+	vA)	c		k
+	vA)	ck		k
+	_de)	ck		k
+	_de)	c	(or	k
+	vA)	ch		tS
+		casc		kask
+	di)	c	(tA	k
+		c	(alv	k
+		cal	(l	kO
+		cal	(lA	ka
+		c	(s	k
+		caly	(ps	kali
+	_)	c	(alend	k
+	_)	c	(app	k
+	_)	c	(arp	k
+	_)	c	(arl	k
+	_)	c	(art	k
+	_)	c	(arav	k
+	_)	c	(arv	k
+	_)	cic	(eron	tSitS
+	_)	challeng (er	tSElEndZ
+		cha	(mpi	tZE
+		chan	(nel	tSa
+	_)	charle	(s	tSa*ls
+	_)	chie	(f	tSi
+	_)	ch	(ip	tS
+	_)	chippendal (A	tSipEndEjl
+	_)	chopi	(n	SOpE
+	_)	chow	(der	tSaw
+	_)	c	(iner	s
+	_)	c	(ir	ts
+	_)	c	(lA	k
+		c	(lip	k
+	_)	clow	(n	klaw
+	_)	clea	(C	kli
+	_)	cloch	(ard	klOS
+	_)	clois	(o	kluaz
+	_)	coach		kOwtS
+	_)	cock		kOk
+	_)	c	(om	k
+	_)	c	(omber	ts
+	_)	c	(ombrA	ts
+	_)	c	(omies	ts
+	_)	c	(ominu	ts
+	_)	conc	(ert	kOntS
+	_)	c	(onC	k
+	_)	copywri	(t	kOpy*aj
+	_)	c	(orC	k
+	_)	c	(owbo	k
+		crack		k@-*ak
+	_)	croiss		k@-*ruas
+	_)	c	(r	k
+	_)	c	(umul	k
+	_)	curie		ki*i
+	_)	cu	(rli	kE
+		cresc	(end	k@-*EStS
+
+	_)	c	(aps_	k
+	_)	c	(apslo	k
+	lo)	ck	(_	k
+	lo)	ck	(u_	k
+	lo)	ck	(iem_	k
+	lo)	ck	(a_	k
+	_s)	creenrea (d	k@-*in*i
 
 .group	 ć
 		ć		ts;
@@ -65,22 +227,52 @@
 		d	(_A	t
 		d	(i	d;
 		di	(A	dj
+		dies	(lA	d;iz
+		dies	(el	d;iz
 		dz		dz
 		dz	(_A	ts
 		dz	(i	dz;
 		dzi	(A	dz;
+	_na)	dzi	(em	d|Z;
+	_po)	dzi	(em	d|Z;
 		dź		dz;
 		dź	(_A	ts;
 		dż		dZ
 		dż	(_A	tS
+
 	_o)	dż		d|Z
 	_po)	dż		d|Z
+	_na)	dż		d|Z
+	_pona)	dż		d|Z
 
 .group	 e
 		e		E
-	_osi)	e	(mset_	=E
-	_sied)	e	(mset_	=E
+
+	@)	e	(Cłbym_	=E
+	@)	e	(Cłbyś_	=E
+	@)	e	(Cłby_	=E
+
+	_)	ei	(C	aj
+	_kl)	ei	(n	aj
+
 		e	(_A	E_
+		ee	(n	i
+	_C)	ee	(_	i
+	_C)	ea	(_	i
+	sp)	ea	(k	i
+	d)	ea	(ler	i
+	l)	eas	(in	iz
+	_l)	ea	(d	i
+	h)	eavy	(K	Evi
+	_h)	ea	(d	E
+	_h)	ea	(le	i
+	r)	ea	(gan	E
+	r)	eality	(_	i'Elity
+	t)	ea	(tr	Ea
+	t)	ea		i
+		eu	(tsch	Oj
+
+	_)	email		imEjl
 
 .group	 ~
 		~
@@ -94,9 +286,8 @@
 		ę	(t	En
 		ę	(c	En
 		ę	(d	En
-	_dziewi)	ę	(ćset	=En^
 		ęć	(dzie	En^
-		ę	(dzi	En^		// kędzior
+		ę	(dzi	En^
 		ę	(ci	En^
 		ę	(ć	En^
 		ę	(si	En^
@@ -106,7 +297,7 @@
 		ę	(g	EN
 		ę	(l	E
 		ę	(ł	E
-	i)	ę	(tna	E		// piętnaście
+	i)	ę	(tna	E
 
 .group	 f
 		f		f
@@ -119,11 +310,18 @@
 		g	(_A	k
 		gł	(_	g
 		gł	(_A	k
+		gh		g
 		gate	(s	gEjt
+	_)	gentleman		dZEntElmEn
+	_)	georgi	(o_	dZO*dZj
+	_)	georgi	(ą_	dZO*dZj
+	_)	georgi	(ę_	dZO*dZj
+	_)	georgi	(i_	dZO*dZj
+	_)	georgi	(a_	dZO*dZj
 
 .group	 h
-		h		h
-		hi	(A	hj
+		h		x
+		hi	(A	xj
 		h	(i	C
 
 .group	 i
@@ -133,31 +331,111 @@
 	C)	i	(A	;
 
 	_kl)	i	(e	;ij
+	żm)	ii	(_	iji
+	rak)	ii	(_	iji
+	_f)	ire	(fox_	'ajE*
+	_f)	ire	(fo	ajE*
+	_m)	ic	(ro	ajk
 
-	_martyn)	i	(k	i
-	_martyn)	i	(c	i
-	_kon)	i	(c++	i
-	_kon)	i	(k++	i
-	_lajkon)	i	(c	i
-	_lajkon)	i	(k	i
+	C)	ie	(_	;E
+	_t)	ime		ajm
+	_t)	ime	(r	ajmE
+	_dr)	i	(v	aj
 
-// pentatonika etc. - not complete yet
-	@n)	i	(kA_	=i
-	@n)	i	(ce_	=i
-	@n)	i	(kach_	=i
-	@n)	i	(ków_	=i
-	@n)	i	(kom_	=i
-	@tm)	i	(kA_	=i
-	@tm)	i	(ce_	=i
-	@tm)	i	(kach_	=i
-	@tm)	i	(ków_	=i
-	@tm)	i	(kom_	=i
 
-// czasowniki tryb przypuszczający
+	_ep) i (L01 =i
+	_rytm) i (L01_ =i
+	_term) i (L01_ =i
 
-	@)	i	(łby_	=i
-	@)	i	(łbym_	=i
-	@)	i	(łbyś_	=i
+	_domin) i (kom_++ i
+	_domin) i (kach_++ i
+	_domin) i (ko_++ i
+	_domin) i (ką_++ i
+	_domin) i (kę_++ i
+	_domin) i (ce_++ i
+	_domin) i (ki_++ i
+	_domin) i (ka_++ i
+	_weron) i (kom_++ i
+	_weron) i (kach_++ i
+	_weron) i (ko_++ i
+	_weron) i (ką_++ i
+	_weron) i (kę_++ i
+	_weron) i (ce_++ i
+	_weron) i (ki_++ i
+	_weron) i (ka_++ i
+
+	_ton) i (ka_ =i
+	_ton) i (ki_ =i
+	_ton) i (kach_ =i
+	tekton) i (ka_ =i
+	tekton) i (ki_ =i
+	tekton) i (kach_ =i
+	taton) i (ka_ =i
+	taton) i (ki_ =i
+	taton) i (kach_ =i
+	ton) i (ce_ =i
+	ton) i (kę_ =i
+	ton) i (ką_ =i
+	ton) i (ko_ =i
+
+	@alm) i (L01_ =i
+	@aul) i (L01_ =i
+	@bol) i (L01_ =i
+	@cha) i (L01_ =i
+	@chn) i (L01_ =i
+	@cyf) i (L01_ =i
+	@eon) i (L01_ =i
+	@epl) i (L01_ =i
+	@erm) i (L01_ =i
+	@ero) i (L01_ =i
+	@fon) i (L01_ =i
+	@gan) i (L01_ =i
+	@gen) i (L01_ =i
+	@gog) i (L01_ =i
+	@han) i (L01_ =i
+	@hol) i (L01_ =i
+	@ion) i (L01_ =i
+	@ipp) i (L01_ =i
+	@jsm) i (L01_ =i
+	@kom) i (L01_ =i
+	@lab) i (L01_ =i
+	@law) i (L01_ =i
+	@lem) i (L01_ =i
+	@lif) i (L01_ =i
+	@lin) i (L01_ =i
+	log) i (L01_ =i
+	mim) i (L01_ =i
+	@mon) i (L01_ =i
+	@mun) i (L01_ =i
+	@nam) i (L01_ =i
+	@nem) i (L01_ =i
+	@nim) i (L01_ =i
+	@nom) i (L01_ =i
+	@non) i (L01_ =i
+	@orm) i (L01_ =i
+	@oza) i (L01_ =i
+	@pon) i (L01_ =i
+	@raf) i (L01_ =i
+	@rag) i (L01_ =i
+	@ram) i (L01_ =i
+	@rof) i (L01_ =i
+	@rom) i (L01_ =i
+	@ron) i (L01_ =i
+	@rop) i (L01_ =i
+	@sem) i (L01_ =i
+	@tal) i (L01_ =i
+	@tan) i (L01_ =i
+	@uan) i (L01_ =i
+	@ubl) i (L01_ =i
+	@uda) i (L01_ =i
+	@urg) i (L01_ =i
+	@ych) i (L01_ =i
+	@ykl) i (L01_ =i
+	@ytm) i (L01_ =i
+
+		i	(łby_	=i
+		i	(łbym_	=i
+		i	(łbyś_	=i
 	@l)	i	(by_	=i
 	@n)	i	(by_	=i
 	@l)	i	(śmy_	=i
@@ -176,13 +454,30 @@
 	@C)	ia	(łyby_	=;a
 
 .group	 j
+		jazz	dZEz
 		j		j
+
+	_)	james	dZEjms
+	_)	jamesi	(e_	dZEjmS;
+	_)	john	dZOn
+	_)	johni	(e	dZOn^;
+	_)	j	(im	dZ
+	_)	j	(imen	h
+	_)	jack	(_	dZEk
+	_)	jack	(s	dZEk
+	_)	jacky	(_	dZEki
+	_)	jack	(y	dZEk
+		jea	(ns	dZi
+	_)	jeff		dZEf
+	_)	jonath		dZOnat
+	_)	jacques		Zak
 
 .group	 k
 		k		k
 		k	(i	c
 		kł	(_	k
 		ki	(A	kj
+	_)	klow	(n	klaw
 
 .group	 l
 		l		l
@@ -196,24 +491,43 @@
 	mys)	ł	(_	w_
 		ł	(_
 
+	@)	łbym	(_S1	m   // reduce entries in pl_list (jonsd)
+	@)	łbyś	(_S1	S;
+
 .group	 m
 		m		m
 		m	(_	m_
 	A)	mi	(A	mj
 	_zie)	mi	(A	m;
 	_)	mj	(rA	majO
+	_)	mc	(P2t	mEk
 
 .group	 n
+	@A)	nton	(_S4t	ntOn
+	@A)	ngton	(_S5t	NgtOn
 		n		n
 		n	(_	n_
 		n	(i	n^
 		ni	(A	n^;
 		n	(k	N
 		n	(g	N
+	a)	ng	(el	ndZ
 		n	(ć	n^
 		n	(ci	n^
 		n	(dź	n^
 		n	(dzi	n^
+		noff	(_S4t	nOv
+		noff	(om_	nOv
+		noff	(ami_	nOv
+		noff	(ach_	nOv
+		noff	(u_	nOv
+		noff	(ie_	nOv
+		noff	(owi_	nOv
+		noff	(em_	nOv
+		noff	(a_	nOv
+
+		ny	('emu_	n^;
+		ny	('ego_	n^;
 
 .group	 ń
 		ń		n^
@@ -221,20 +535,26 @@
 
 .group	 o
 		o		O
-		o	(_A	O_
+		o	(_A	O:_
+		oeth		Et
+	_)	outsid		awtsajd
+	_p)	oi	(rotA	uwa
+	_d)	ow	(n	aw
+	_rag)	out	(_	'u
 
-// notebook + declination
 	_n)	oteboo	(C	Owtbu
 
 .group	 ó
 		ó		u
+	@)	ó	(Cłbym_	=u
+	@)	ó	(Cłbyś_	=u
+	@)	ó	(Cłby_	=u
 
 .group	 p
 		p		p
-		ph	(A	f
 	_ko)	pi	(A	pj
 	_fotoko)	pi	(A	pj
-// base form also in 'pl_list'
+
 	_)	ppł	(k	pOtpuwkOvni
 	_)	ppł	(c	pOtpuwkOvni
 	_)	pł	(k	puwkOvni
@@ -242,13 +562,35 @@
 
 .group	 q
 		q		k
-		qu	(A	kv 	// quorum
+		qu	(A	kv
 
 .group	 r
 		r		*
+	A_)	r	(A	*
 	K)	r	(A	@-*
 		ri	(A	*j
+	A)	rr	(A	*
 		rz		Z
+		rz	(and	*ts
+	_mu)	rz	(asichl	*z
+	_mu)	rz	(o_+++	*z
+	_mu)	rz	(owie_+++	*z
+	_mu)	rz	(ą_+++	*z
+	_mu)	rz	(y_+++	*z
+	_mu)	rz	(ę_+++	*z
+	_mu)	rz	(a_+++	*z
+	_mu)	rz	(ów_+++	*z
+	_mu)	rz	(ami_+++	*z
+	_mu)	rz	(ach_+++	*z
+	_mi)	rz	(o_+++	*z
+	_mi)	rz	(owie_+++	*z
+	_mi)	rz	(ą_+++	*z
+	_mi)	rz	(y_+++	*z
+	_mi)	rz	(ę_+++	*z
+	_mi)	rz	(a_+++	*z
+	_mi)	rz	(ów_+++	*z
+	_mi)	rz	(ami_+++	*z
+	_mi)	rz	(ach_+++	*z
 	c)	rz	(A	S
 	ć)	rz	(A	S
 	cz)	rz	(A	S
@@ -260,25 +602,178 @@
 	ś)	rz	(A	S
 	sz)	rz	(A	S
 	t)	rz		S
+		rz	(ini_	*ts
+		rz	(inim_	*ts
+		rz	(inimi_	*ts
+		rz	(inich_	*ts
+		rz	(iniemu_	*ts
+		rz	(iniego_	*ts
+		rz	(oni_	*ts
+		rz	(onim_	*ts
+		rz	(onimi_	*ts
+		rz	(onich_	*ts
+		rz	(oniemu_	*ts
+		rz	(oniego_	*ts
 		r	(zi	*
-	A)	r	(zł	*		// obmierzły
-	ma)	r	(zn	r		// marznąć etc.
-	ma)	r	(zlin	*		// zmarzlina
-	_zama)	r	(za	*		// zamarzać
+	A)	r	(zł	*
+	ma)	r	(zn	*
+	ma)	r	(zlin	*
+	_zama)	r	(za	*
 	_zma)	r	(za	*
 	odma)	r	(za	*
+	_bo)	r	(zoj	*
 
+		ry'	(e	*
 .group	 s
+
+	@)	son	(_S3t	sOn
+	@)	sen	(_S3t	sEn
+	_salce)	son	(_++	=sOn
+	_pati)	son	(_++	=sOn
+
+	_)	sea	(n_	SO
+	_)	sea	(nowi_	SO
+	_)	sea	(nem_	SO
+	_)	sea	(nie_	SO
+	_)	sea	(nu_	SO
+	_)	sea	(na_	SO
+	y)	stein		stEin
+		stein	(_S5t	Stajn
+		stein		Stajn
 		s		s
+	_qua)	s	(i	z
 		si	(nus	si
+		si	(ng	si
 		si	(liko	si
-	elik)	si	(r	si
-	plek)	si	(g	si
+		si	(lv	si
+		si	(los	si
+		si	(ll	si
+		si	(r	si
+	du)	si	(gr	S;i
+		si	(g	si
+		si	(h	si
+		si	(cA	S;i
+		si	(cz	S;i
+		si	(ch	S;i
+		si	(c	si
+		si	(dlA	S;i
+		si	(dl_	S;i
+		si	(dł	S;i
+		si	(d	si
+		si	(f	si
+	plek)	si	(_	si
 	_mak)	si	(_	si
-	_mak)	si	(m	si
+	s)	si	(mie_	=i
+	s)	si	(mem_	=i
+	s)	si	(ma_	=i
+	s)	si	(mo_	=i
+		si	(m	si
+		si	(brz	S;i
+		si	(b	si
+		si	(v	si
+		si	(q	si
+		si	(x	si
+	_)	si	(tA	S;i
+	_)	si	(t_	S;i
+	_)	si	(tk	S;i
+		si	(t	si
+
 		s	(i	S;
 		si	(A	S;
 		sz		S
+	_anasta) si	(o_	sj
+	_anasta) si	(ą_	sj
+	_anasta) si	(ę_	sj
+	_anasta) si	(i_	sj
+	_anasta) si	(a_	sj
+
+		skj	(A	S
+
+		scherz		skE*ts
+		sch	(ą	sx
+		sch	(ę	sx
+	pa)	sch	(a	sx
+		sch	(ł	sx
+	_)	sch	(ety	sx
+		sch	(odzą	sx
+		sch	(odzę	sx
+		sch	(odzi	sx
+		sch	(ody_	sx
+		sch	(odow	sx
+		sch	(odó	sx
+		sch	(odami_	sx
+		sch	(odach_	sx
+		sch	(odek_	sx
+		sch	(odka	sx
+		sch	(odkowi_	sx
+		sch	(odkiem_	sx
+		sch	(odku_		sx
+		sch	(odki		sx
+		sch	(odkó		sx
+		sch	(odkow		sx
+		sch	(ną	sx
+		sch	(nę	sx
+		sch	(nię	sx
+		sch	(nie_	sx
+		sch	(wytA	sx
+		sch	(wyci	sx
+		sch	(emat	sx
+		sch	(ó	sx
+		sch	(owa	sx
+		sch	(ron_	sx
+		sch	(ronA	sx
+	_w)	sch	(od	sx
+		sch	(owA	sx
+		sch	(rzA	sx
+		sch	(udn	sx
+		sch	(ył	sx
+		sch	(ylA	sx
+	_)	sch	(yl_	sx
+		sch	(rup_	sx
+		sch	(rupanA	sx
+		sch	(rupali	sx
+		sch	(rupać_	sx
+		sch	(rupał	sx
+		sch	(rupiA	sx
+		sch	(rypł	sx
+		sch	(rypl	sx
+		sch	(rypA	sx
+		sch	(orowa	sx
+		sch	(orze	sx
+		sch	(amiA	sx
+		sch	(abowA	sx
+		sch	(abosz	sx
+		sch	(ab_	sx
+		sch	(abA_	sx
+		sch	(abem_	sx
+		sch	(abie_	sx
+		sch	(abó	sx
+		sch	(abami_	sx
+		sch	(abom	sx
+	e)	sch	(ato	sx
+		sch	(adzk	sx
+		sch	(adzA	sx
+		sch	(am_	sx
+		sch	(ami	sx
+		sch	(arakt	sx
+		sch	(edA	sx
+		sch	(ed_	sx
+		sch	(izmA	sx
+		sch	(izm_	sx
+		sch	(izo	sx
+		sch	(ludnA	sx
+		sch	(lać	sx
+		sch	(lanA	sx
+		sch	(lali	sx
+		sch	(leli	sx
+		sch	(lał	sx
+	_)	sch	(leb_	sx
+	_)	sch	(lebi	sx
+	_)	sch	(etyn	sx
+
+		schwarz		Sva*ts
+		schoe		SE
+		sch		S
 
 .group	 ś
 		ś		S;
@@ -288,24 +783,50 @@
 		t		t
 		t	(i	t;
 		ti	(A	tj
-		t	(rz	t| 	// trzetrzelewska
+		t	(rz	t|
 		t	(s	t|
-
+		town	(_S4t	tawn
+		tthew		sju
 .group	 u
 		u		u
 		u(_A		u_
-	a)	u		w		// autobus
+	a)	u		w
 	e)	u		w
 	na)	u	(k	u
 	na)	u	(cz	u
-	de)	u	(s	u
+	_za)	u	(to	w
+	_za)	u		u
+	para)	u		u
+	meta)	u		u
+	Ce)	u	(s	u
+	_nie)	u		u
+	_prze)	u		u
+	Ce)	u	(m_	u
+	@)	u	(łbym_	=u
+	@)	u	(łbyś_	=u
+	@)	u	(łby_	=u
+	_bl)	uetooth		utuf
+
+	_m)	usic	(al_	j'uzik
+	_m)	usic	(al	juzik
+	_b)	uick		wik
+	_l)	unch		antS
 
 .group	 v
 		v		v
+	f)	v	(A	f
+	h)	v	(A	f
+	k)	v	(A	f
+	p)	v	(A	f
+	s)	v	(A	f
+	t)	v	(A	f
+		v	(olks	f
+		ville	(_S5t	vil
+	_)	vice	(@P4t	witsE
 
 .group	 w
 		w		v
-	ier)	wsz	(A	S		// pierwszy
+	ier)	wsz	(A	S
 		w	(_A	f
 	c)	w	(A	f
 	ć)	w	(A	f
@@ -319,7 +840,12 @@
 	ś)	w	(A	f
 	sz)	w	(A	f
 	t)	w	(A	f
+	_)	wice	(@P4t	vitsE
 	_)	window		wyndOw
+		wee	(k	wi
+	_)	washi		wOSi
+		wrigh		*aj
+	C)	wrigh		@-*aj
 
 .group	 x
 		x		ks
@@ -328,20 +854,82 @@
 		y		y
 		y	(_A	y_
 	_)	y	(A	j
-	czter)	y	(stA	=y
+	A)	y	(A	j
+	A)	y	(_	j
 	_pat)	y	(++	y
-	@t)	y	(kA_	=y
-	@t)	y	(ce_	=y
-	@t)	y	(kach_	=y
-	@t)	y	(ków_	=y
-	@t)	y	(kom_	=y
-	muz)	y	(kA_	=y
-	muz)	y	(ce_	=y
-	muz)	y	(kach_	=y
-	muz)	y	(ków_	=y
-	muz)	y	(kom_	=y
 
-// czasowniki i spójniki
+	r)	y'	(emu_
+	r)	y'	(ego_
+	C)	y'	(emu_	;
+	C)	y'	(ego_	;
+
+	_histor) y (ka++	y
+	_histor) y (kom++	y
+	_tetr)	y	(ka++	y
+	_tetr)	y	(kom++	y
+
+	_et) y (L01_ =y
+	_kryt) y (L01_ =y
+	_prakt) y (L01_ =y
+	_klas) y (L01_ =y
+	_mist) y (L01 =y
+	_stat) y (L01_ =y
+	@aet) y (L01_ =y
+	@akt) y (L01_ =y
+	@ald) y (L01_ =y
+	@alt) y (L01_ =y
+	@ant) y (L01_ =y
+	@ast) y (L01_ =y
+	@aut) y (L01_ =y
+	@bat) y (L01_ =y
+	@bot) y (L01_ =y
+	@cet) y (L01_ =y
+	@det) y (L01_ =y
+	@eks) y (L01_ =y
+	@ekt) y (L01_ =y
+	@ent) y (L01_ =y
+	@ept) y (L01_ =y
+	@est) y (L01_ =y
+	@etr) y (L01_ =y
+	@eut) y (L01_ =y
+	fiz) y (L01_ =y
+	@for) y (L01_ =y
+	@get) y (L01_ =y
+	@gor) y (L01_ =y
+	@het) y (L01_ =y
+	@iat) y (L01_ =y
+	@iot) y (L01_ =y
+	@ipt) y (L01_ =y
+	@ist) y (L01_ =y
+	@ktr) y (L01_ =y
+	@las) y (L01_ =y
+	@let) y (L01_ =y
+	@lit) y (L01_ =y
+	@lod) y (L01_ =y
+	@mat) y (L01_ =y
+	@mer) y (L01_ =y
+	@met) y (L01_ =y
+	@net) y (L01_ =y
+	@nez) y (L01_ =y
+	@not) y (L01_ =y
+	@oet) y (L01_ =y
+	opt) y (L01_ =y
+	@ord) y (L01_ =y
+	@ost) y (L01_ =y
+	@ptr) y (L01_ =y
+	@rat) y (L01_ =y
+	@ret) y (L01_ =y
+	@rkt) y (L01_ =y
+	@rot) y (L01_ =y
+	@ryt) y (L01_ =y
+	@tat) y (L01_ =y
+	@ter) y (L01_ =y
+	@tet) y (L01_ =y
+	@tod) y (L01_ =y
+	@tor) y (L01_ =y
+	@ust) y (L01_ =y
+	@yst) y (L01_ =y
+	@zot) y (L01_ =y
 
 	@ł)	y	(byśmy_	=y
 	@ł)	y	(byście_	=y
@@ -351,13 +939,57 @@
 	eb)	y	(ście_	=y
 	_ab)	y	(ście_	=y
 	_ab)	y	(śmy_	=y
+	@)	y	(łbym_	=y
+	@)	y	(łbyś_	=y
+	@)	y	(łby_	=y
 
 .group	 z
 		z		z
 		z	(_A	s
 		z	(i	Z;
 		zi	(A	Z;
+	_)	zi	(p	Z;i
+		zi	(m	Z;i
+	_)	zi	(C	z_i
+	_nie)	zi	(C	z_i
+		zi	(C	zi
+
+	mo)	zi	(ll	zi
 	_ro)	z	(iC	z
+	_)	zuri	(ch	tsu*y
+		zz	(ini_	ts
+		zz	(inim_	ts
+		zz	(inimi_	ts
+		zz	(inich_	ts
+		zz	(iniemu_	ts
+		zz	(iniego_	ts
+		zz	(oni_	ts
+		zz	(onim_	ts
+		zz	(onimi_	ts
+		zz	(onich_	ts
+		zz	(oniemu_	ts
+		zz	(oniego_	ts
+		zz	(ani_	ts
+		zz	(anim_	ts
+		zz	(animi_	ts
+		zz	(anich_	ts
+		zz	(aniemu_	ts
+		zz	(aniego_	ts
+		z	(ini_	ts
+		z	(inim_	ts
+		z	(inimi_	ts
+		z	(inich_	ts
+		z	(iniemu_	ts
+		z	(iniego_	ts
+		zz	(a_	ts
+		zz	(ami_	ts
+		zz	(ach_	ts
+		zz	(ów_	ts
+		zz	(y_	ts
+		zz	(ę_	ts
+		zz	(o_	ts
+	_pi)	zz		ts
+	_mA)	zz	(A	ts
 
 .group	 ź
 		ź		Z;
@@ -367,15 +999,53 @@
 		ż		Z
 		ż	(_A	S
 
-// "Polished" pronunciation
 .group	 th
-	_e)	th	(anak	t 	// my nick!!!
+	_e)	th	(anak	t
+	_)	the	(_A	zi
+	_)	the	(_	zE
 		th		s
-	_)	th		z
+		th	(ie_	s;
+	_)	th		t
+		thew		sju
 
-// "Polished" simple pronunciation of some foreign letters
+	_)	thunderbi (rd	fEndE*bE
 
-.group		ü
+.group	dg
+	_na)	dg		dg
+	_po)	dg		dg
+	_o)	dg		dg
+	prze)	dg		dg
+	_popo)	dg		dg
+	_pona)	dg		dg
+	_poo)	dg		dg
+	_niena)	dg		dg
+	_nieo)	dg		dg
+	_niepo)	dg		dg
+	_niepona)	dg	dg
+	_niepopo)	dg	dg
+	_niepoo)	dg	dg
+		dge	(_	dZ
+		dg		dZ
+.group sh
+	_ek)	sh	sx
+	_dy)	sh	sx
+	_fi)	sh	(armon	sx
+		sh	S
+		shire	SajE*
+.group ph
+		ph	f
+
+.group tz
+		tz	(ł	tz
+		tz		ts
+
+.group	oe
+	cj)	oe		OE
+	j)	oe	(r	E
+	lj)	oe		E
+	s)	oe	(r	E
+
+.group	 ü
 		ü		i
 
 .group	 ö
@@ -393,8 +1063,48 @@
 .group	 š
 		š		S
 
-// ... and some common non-alphabetic characters
+.group	 ř
+		ř		Z
+
+.group	 å
+		å		O
+
+.group	 æ
+		æ		E
+
+.group	 ø
+		ø		E
+
+.group	 ñ
+		ñ	(A	n^;
+		ñ		n^
+
+.group	í
+		í	(A	ij
+		í		i
+
 .group
+
+		'a	(_S2	a
+		'owi	(_S4	Ovi
+		'em	(_S3	Em
+		'u	(_S2	u
+		'ego	(_S4	EgO
+		'emu	(_S4	Emu
+
 		$		dOla*
+		@		mawpa
+		%		p@-*OtsEnt
+		+		plus
+		#		haS
+		=		*'uvna||S;E
+		/		slES
+		\		bEkslES
 		*		gv;astka
-		&		_End
+		|		k@-*Eska||p;OnOva
+		^		d'aSEk
+		&		and
+		`		aktsEnt
+		.		k@-*Opka
+		,		pSEts;inEk
+

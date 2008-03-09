@@ -1979,7 +1979,7 @@ f_input = f_in;  // for GetC etc
 					c2 = ' ';
 				}
 
-				if((sayas_mode == 0x14) && (c1 <= 0x20))
+				if((c1 <= 0x20) && ((sayas_mode == SAYAS_SINGLE_CHARS) || (sayas_mode == SAYAS_KEY)))
 				{
 					c1 += 0xe000;  // move into unicode private usage area
 				}

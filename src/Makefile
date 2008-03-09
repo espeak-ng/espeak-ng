@@ -6,7 +6,7 @@ INCDIR=$(PREFIX)/usr/include/espeak
 LIBDIR=$(PREFIX)/usr/lib
 DATADIR=$(PREFIX)/usr/share/espeak-data
 
-RELEASE = 1.35
+RELEASE = 1.36
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -30,12 +30,14 @@ AUDIO = portaudio
 
 ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp
-LIB_AUDIO=pulse
-USE_AUDIO=USE_PULSEAUDIO
+LIB_AUDIO=-lpulse
+USE_AUDIO=-DUSE_PULSEAUDIO
+else ifeq ($(AUDIO),portaudio)
+WAVE=wave.cpp
+LIB_AUDIO=-lportaudio
+USE_AUDIO=-DUSE_PORTAUDIO
 else
 WAVE=wave.cpp
-LIB_AUDIO=portaudio
-USE_AUDIO=USE_PORTAUDIO
 endif
 
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
@@ -51,24 +53,24 @@ libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp 
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ -l$(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
+LIBS1=-lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++ -l$(LIB_AUDIO) -lpthread
+LIBS2=-lstdc++ $(LIB_AUDIO) -lpthread
 
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ -L . -lespeak
 
-CXXFLAGS=-O2 -D$(USE_AUDIO)
+CXXFLAGS=-O2
 
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
 
 $(BIN_NAME): $(OBJS1)
 	$(CXX) -o $@ $(OBJS1) $(LIBS1)
@@ -79,7 +81,7 @@ $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -Wall -fpic -pedantic \
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -Wall -fpic -pedantic \
 	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)

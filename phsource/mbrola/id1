@@ -1,0 +1,41 @@
+volume 32
+
+// CR1 doesn't like same phonemes twice
+0  e   E     5  e  _
+0  s   s     5  s  _
+0  ?   k     5  k  _
+0  t   t     5  t  _
+0  m   m     5  m  _
+0  n   n     5  n  _
+0  p   p     5  p  _
+0  l/  l     5  l  _
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/ NULL   0  r
+0  r- NULL   0  r
+0  l- NULL   0  l
+0  w/ NULL   0  w
+0  j/ NULL   0  j
+2  ;   i     0  NULL
+0  ;  NULL   0  NULL
+0  -  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL
+0  *  NULL   0  r
+
+0  a   NULL  0  V
+0  E   NULL  0  e
+0  i   NULL  0  I
+0  o   NULL  0  Q
+0  O   NULL  0  Q
+0  u   NULL  0  U
+
+0  n^  NULL  0  nY
+0  ?   NULL  0  k
+0  S   NULL  60 s  j
+0  v   NULL  0  f
+0  R   NULL  0  r
+0  x   NULL  0  h
+
+

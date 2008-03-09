@@ -111,7 +111,7 @@ _"	'abRi;'asp&||d'upl&s#
 // numeric
 //********
 
-?1 _0	z'Eru
+?1 _0	z'E*u
 ?2 _0	z'E*U
 ?1 _1	'um
 ?2 _1	'uN
@@ -147,7 +147,7 @@ _15	k'iNzy
 ?2_2X	v'iNtSi
 _3X	tr'iNt&
 
-?1_4X	kw&r'eNt&
+?1_4X	kw&*'eNt&
 ?2_4X	kwa*'eINt&
 _5X	siNkw'eINt&
 ?1_6X	sys'eINt&
@@ -186,6 +186,9 @@ _dpt    _v'irgul&
 _0Z2	seNt'Ezim&     // 100ths
 _0Z3	mil'Ezim&      // 1000ths
 
+// not roman numbers
+vi	vi
+
 
 // ABBREVIATIONS
 //**************
@@ -206,7 +209,7 @@ cpuc      $abbrev
 dpoc      $abbrev 
 ecg       $abbrev 
 edp       $abbrev
-?1   etc	,ets'Et:r&
+?1   etc	,ets'Et:*&
 ?2   etc	,ets'Ete*&
 hiv       $abbrev 
 (http ://)       ag,atete'pe_
@@ -598,8 +601,7 @@ jogos        $alt
 // Open [E]
 nela         n'El&
 nessa        n'Es&
-?1 era         'Er&
-?2 era         'E*&
+era          'E*&
 
 abacaxi      abakaSi
 axé          aSE
@@ -628,7 +630,7 @@ roxo         x'oSU
 ?1 download   d'a,wnl'oud
 ?1 end        'end
 ?1 escape     Sk'eIpy
-?1 explorer   ,ekspl'O:r&r-
+?1 explorer   ,ekspl'O:*&r-
 ?2        Explorer        ekspl'O*er
 ?1 eyes       'aiz
 ?1 frame      fr'eImy
