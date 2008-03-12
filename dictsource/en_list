@@ -306,7 +306,7 @@ eur	jU@
 hmm	h@m
 (http ://)   eItSti:ti:'pi:_
 ibm	$abbrev
-ie	aIi:_!   $pause
+ie	aIi:_!   $pause $only
 i.e	aIi:_!   $pause
 irc	$abbrev
 lbs	paUndz
@@ -1103,6 +1103,7 @@ heroic           hI2roUIk
 heroin           hEroUIn
 heroism          hEroUIz@m
 heroine          hEroUIn
+heron            hEr@n
 herpes           h3:pi:z
 hideout          haIdaUt
 hindu            hIndu:

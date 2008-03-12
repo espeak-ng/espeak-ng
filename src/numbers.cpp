@@ -66,7 +66,7 @@
 #define M_IMPLOSIVE   M_HOOK
 
 typedef struct {
-char *name;
+const char *name;
 int  flags;
 } ACCENTS;
 

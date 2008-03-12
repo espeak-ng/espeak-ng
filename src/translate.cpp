@@ -864,7 +864,7 @@ if((wmark > 0) && (wmark < 8))
 				if((word_length == 1) && IsAlpha(wc))
 				{
 					posn = 0;
-					while(*wordx != ' ')
+					while((*wordx != ' ') && (*wordx != 0))
 					{
 						wordx += TranslateLetter(wordx, phonemes, 4, word_length);
 						posn++;
@@ -1439,8 +1439,9 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	}
 	else
 	{
+		int c2;
 		ix = 0;
-		while((word_copy[ix] = word[ix]) != ' ') ix++;
+		while(((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0)) ix++;
 		word_copy_len = ix;
 
 		flags = translator->TranslateWord(word, next_pause, wtab);
@@ -1471,22 +1472,25 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 				ok =0;
 			}
 
-			if(sylimit & 0x100)
+			if(ok != 0)
 			{
-				// only if the second word has $alt attribute
-				strcpy(ph_buf,word_phonemes);
-				flags2 = translator->TranslateWord(p2+1, 0, wtab+1);
-				if((flags2 & FLAG_ALT_TRANS) == 0)
+				if(sylimit & 0x100)
 				{
-					ok = 0;
-					strcpy(word_phonemes,ph_buf);
+					// only if the second word has $alt attribute
+					strcpy(ph_buf,word_phonemes);
+					flags2 = translator->TranslateWord(p2+1, 0, wtab+1);
+					if((flags2 & FLAG_ALT_TRANS) == 0)
+					{
+						ok = 0;
+						strcpy(word_phonemes,ph_buf);
+					}
 				}
-			}
-
-			if((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD))
-			{
-				// not if the next word is end-of-sentence
-				ok = 0;
+	
+				if((sylimit & 0x200) && ((wtab+1)->flags & FLAG_LAST_WORD))
+				{
+					// not if the next word is end-of-sentence
+					ok = 0;
+				}
 			}
 
 			if(ok)
@@ -1995,10 +1999,9 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 		}
 	}
 
+	memset(&ph_list2[0],0,sizeof(ph_list2[0]));
 	ph_list2[0].phcode = phonPAUSE_SHORT;
-   ph_list2[0].stress = 0;
-	ph_list2[0].tone_number = 0;
-	ph_list2[0].sourceix = 0;
+
 	n_ph_list2 = 1;
 	prev_last_stress = 0;
 	prepause_timeout = 0;

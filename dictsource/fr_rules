@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-03-05 Michel Such  <michel.such@free.fr>
+// Updated: 2008-03-10 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -256,7 +256,7 @@
 	ontin)	en (t_      A~		// continent, incontinent
 	erm)	en (t_      A~		// ferment, serment
 	Vferm)	en (t_      		// ferment, referment (verbe)
-	Arp)	en (t_      A~		// arpent, serpent
+	XArp)	en (t_      A~		// arpent, serpent
 	CArr)	en (t_      A~		// conncurrent, torrent
 	_appar)	en (t_      A~		// apparent
 	spar)	en (t_      A~		// transparent
@@ -274,6 +274,7 @@
 	xcell)	en (t_      A~		// excellent
 	nn)	en (t_      t2		// prennent, viennent, sonnent
 
+	iCam)	en (t_      A~
 	mm)	en (t_      A~
 	em)	en (t_      A~		// vitement
 	mom)	en (t_      A~		// moment
@@ -281,6 +282,7 @@
 	Caim)	en (t_      A~
 	dum)	en (t_      A~
 	gum)	en (t_      A~
+	jum)	en (t_      A~
 	oCum)	en (t_      A~
 	rum)	en (t_      A~
 
@@ -693,16 +695,12 @@ _)		half  	_^_en
 .group j
 		j           Z		// adjoint joujoux
 
-// group j: English section
-		ject (_           _^_en
-
 
 .group k
 		k           k		// kafka
 
 
 // group k: English section
-	AC)	k      _^_en		// blank, black, dark
 		ke (X     _^_en		// basket, make, take
 		key     _^_en
 		ky (_     _^_en
@@ -1046,6 +1044,9 @@ C)		te (_      t@-  		// patte
 
 // group t: English section
 	C)	th (_      _^_en      // month
+	_)	th (eX      _^_en      // the, then
+	_)	th (aX      _^_en      // than, that
+	_)	th (As      _^_en      // these those there
 	_)	time      _^_en
 		tle (_     _^_en
 		too      _^_en
@@ -1218,6 +1219,7 @@ C)		te (_      t@-  		// patte
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
 

@@ -189,7 +189,7 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 
 
 #define N_WCMDQ   160
-#define MIN_WCMDQ  20   // need this many free entries before adding new phoneme
+#define MIN_WCMDQ  22   // need this many free entries before adding new phoneme
 
 extern long wcmdq[N_WCMDQ][4];
 extern int wcmdq_head;

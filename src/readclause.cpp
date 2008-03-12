@@ -54,7 +54,7 @@ int ungot_char2 = 0;
 char *p_textinput;
 wchar_t *p_wchar_input;
 int ungot_char;
-char *ungot_word = NULL;
+const char *ungot_word = NULL;
 int end_of_input;
 
 int ignore_text=0;   // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
@@ -528,7 +528,7 @@ const char *Translator::LookupCharName(int c)
 	char single_letter[24];
 	char phonemes[60];
 	char phonemes2[60];
-	char *lang_name = NULL;
+	const char *lang_name = NULL;
 	char *string;
 	static char buf[60];
 

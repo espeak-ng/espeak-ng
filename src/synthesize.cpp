@@ -1093,6 +1093,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	int  stress;
 	int  modulation;
 	int  pre_voiced;
+	int  free_min;
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
@@ -1125,11 +1126,20 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 	while(ix < (*n_ph))
 	{
-		if(WcmdqFree() <= MIN_WCMDQ)
+		p = &phoneme_list[ix];
+
+		if(p->type == phPAUSE)
+			free_min = 5;
+		else
+		if(p->type != phVOWEL)
+			free_min = 10;     // we need less Q space for non-vowels, and we need to generate phonemes after a vowel so that the pitch_length is filled in
+		else
+			free_min = MIN_WCMDQ;  // 22
+
+		if(WcmdqFree() <= free_min)
 			return(1);  // wait
 
 		prev = &phoneme_list[ix-1];
-		p = &phoneme_list[ix];
 		next = &phoneme_list[ix+1];
 		next2 = &phoneme_list[ix+2];
 
