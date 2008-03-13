@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-03-10 Michel Such  <michel.such@free.fr>
+// Updated: 2008-03-12 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -163,6 +163,7 @@
 	_cl)	ef (_       e		// clef
 		ein (C      E~		// peindre
 		ein (_      E~
+		eint (_      E~t2
 		e (il       E		// vieille
 		ei          E		// neige
 		ell         El		// selle
@@ -254,7 +255,8 @@
 
 	ertin)	en (t_      A~		// pertinent, impertinent
 	ontin)	en (t_      A~		// continent, incontinent
-	erm)	en (t_      A~		// ferment, serment
+	_sArm)	en (t_      A~		// sarment, serment
+	erm)	en (t_      A~		// ferment
 	Vferm)	en (t_      		// ferment, referment (verbe)
 	XArp)	en (t_      A~		// arpent, serpent
 	CArr)	en (t_      A~		// conncurrent, torrent
@@ -269,9 +271,11 @@
 	Cflu)	en (t_      A~		// affluent, confluent
 	VCflu)	en (t_        		// refluent, influent (verbe)
 
-	al)	en (t_      A~		// talent équivalent
+	_tal)	en (t_      A~		// talent
+	ival)	en (t_      A~		// équivalent
 	Vival)	en (t_        		// équivalent (verbe)
 	xcell)	en (t_      A~		// excellent
+	Vxcell)	en (t_      		// excellent
 	nn)	en (t_      t2		// prennent, viennent, sonnent
 
 	iCam)	en (t_      A~
@@ -301,7 +305,7 @@
 	qui_couv) en (t_
 
 	_couv)	en (t_      A~      	// le couvent
-		en (t_            	// étaient mangent
+		en (t_        t2    	// étaient mangent
 
 	Ci)	en (_       E~      	// viendra
 	Ci)	en (C       E~      	// viendra
@@ -334,9 +338,8 @@
 		er (_       e      	// parler léger
 		er (s_      e
 
-	i)	ert (_t2      e		// requiert
+	i)	e (rt_      E		// requiert
 
-	d)	e (ssous_   @      	// dessous
 	d)	e (ssus_    @      	// dessus
 
 	_d)	es (bA      e
@@ -358,7 +361,6 @@
 	_r)	e (ss       @      	// ressembler
 	_r)	e (ssu       e      	// ressusciter
 	_r)	e (stra     @
-	_r)	e (stre     @
 	_r)	e (stro     @
 	_r)	e (stru     @      	// restructurer
          -)     est (_      Est         // -est
@@ -368,18 +370,15 @@
 	dg)	et (_      Et     	// Bridget, gadget
 
 	')	eu (_       y		// eu
-		eu (r_      @		// peur
-		eu (rs_     @		// tracteurs
+		eu (rX      @		// peur
+//		eu (rs_     @		// tracteurs
 
-		eu (b       @		// meuble
-		eu (f       @		// neuf
+		eu (C       @
 		eu (i       @
-		eu (l       @		// fieul
-		eu (n       @		// jeune
-		eu (p       @
-		eu (r       @
-		eu (v       @
 
+		eu (s       Y		// meute tueuse jeu gueuse
+		eu (x_       Y
+		eu (t_       Y
 		eu          Y		// meute tueuse jeu gueuze
 	_)	eû          y		// eût
 		eû          Y		// jeûne
@@ -430,7 +429,7 @@
 	tr) 	e (CrA      @  		// entreprise
 
  		e (CC       E  		// infect pelle mettre
- 		e (CC       E  		// infect pelle mettre
+ _)		e (ff       e  		// effet, effectuer
  _s)		e (cr       @  		// secret
  		e (C_       E
  		es (_       z2
@@ -631,8 +630,8 @@ _)		half  	_^_en
 		ie (ment    i		// remerciement balbutiement
 	C)	ien (t_       i
 	dév)	ien (t_       i
-	t)	ien (t_      jE~		// tient
-	v)	ien (t_      jE~		// vient
+	t)	ient (_      jE~t2		// tient
+	v)	ient (_      jE~t2		// vient
 	at)	ien (t_      jA~		// patient
 	cip)	ien (C     jA~		// récipient
 	cl)	ien (C     iA~		// client
@@ -665,6 +664,7 @@ _)		half  	_^_en
 		in (C       E~		// vingt
 		in (_       W~		// vin
                 ique (_	    ik
+	C)	is (_       i
 
 // group i: English section
 		iev         _^_en
@@ -982,8 +982,11 @@ e)		s (_h      z2
 
 .group t
 		t           t	// bataille
+_)		t (_        te
+-)		t (-        t
 V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
 		t (_            // silent at end of word
+		t (-S1        t
 	_)	th (onX      t      // thon
 	_)	th (ymX      t      // shym
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel

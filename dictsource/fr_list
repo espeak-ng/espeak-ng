@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-03-05 Michel Such  <michel.such@free.fr>
+// Updated 2008-03-12 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -42,13 +42,12 @@ m	Em
 //n	En   // in fr_rules
 ñ	$accent
 o	o
-ô	$accent
+_ô	$accent
 ö       $accent
 p	pe
 q	ky
 r	ER
 s	Es
-t	te
 u	y
 ù       $accent
 û	$accent
@@ -56,8 +55,8 @@ u	y
 v	ve
 w	dubl@v'e
 x	iks
-z	zEd
 _y      i:gR'Ek
+z	zEd
 
 
 
@@ -274,6 +273,7 @@ toutefois  $u
 comme	   $u
 dont	   dO~t2 $u
 lorsque	   $u
+parce	      $u
 puisque	   $u
 quand	   $u
 que	   $u
@@ -347,7 +347,6 @@ sur	$u
 par	$u
 pour	$u
 en	$u
-(en effet) A~nEf'E $brk
 (en suspens) A~||sysp'A~
 
 vers	$u
@@ -403,20 +402,20 @@ tout	t'ut2 $u
 // Letters which can be words
 //===========================
 à	$atend $accent
-y       $atend
+y       igr'Ek $atend
+ô	$atend $accent
+
 
 
 
 // pronunciation exceptions
 
-aspic          aspik
 consent          kO~s'A~t2
 scient           si
 coing     kwE~
 convent       kO~vA~
 couvent          k'uvt2  $verb
 (couvent couvent)         kuvA~||k'uvt2
-dessus          d@sy
 dessous          d@su
 divers          divErz2
 hareng          _!arA~
@@ -454,6 +453,7 @@ choeur        k@r
 cocus     coky
 estomac     Estoma
 fils	      fis
+gars	      ga
 iris	      iris
 juin	      ZyE~
 laser	      lazEr
@@ -480,6 +480,8 @@ qu'à          ka
 m'y              mi $verbf
 t'y              ti $verbf
 s'y              si $verbf
+n'y              ni $verbf
+l'y              li $verbf
 qu'y          ki $verbf
 (sud est)       sydEst
 (nord est)      nOREst
@@ -661,6 +663,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

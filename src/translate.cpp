@@ -107,6 +107,8 @@ static const unsigned short brackets[] = {
 // other characters which break a word, but don't produce a pause
 static const unsigned short breaks[] = {'_', 0};
 
+// treat these characters as spaces, in addition to iswspace()
+static const wchar_t chars_space[] = {0x2500,0};  // box drawing horiz
 
 
 // Translate character codes 0xA0 to 0xFF into their unicode values
@@ -387,6 +389,13 @@ int IsDigit(unsigned int c)
 		return(1);
 
 	return(0);
+}
+
+int IsSpace(unsigned int c)
+{//========================
+	if(wcschr(chars_space,c))
+		return(1);
+	return(iswspace(c));
 }
 
 
@@ -1332,7 +1341,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	const char *new_language;
 	unsigned char bad_phoneme[4];
 	int word_copy_len;
-	char word_copy[N_WORD_BYTES];
+	char word_copy[N_WORD_BYTES+1];
 
 	len = wtab->length;
 	if(len > 31) len = 31;
@@ -1441,7 +1450,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	{
 		int c2;
 		ix = 0;
-		while(((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0)) ix++;
+		while(((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0) && (ix < N_WORD_BYTES)) ix++;
 		word_copy_len = ix;
 
 		flags = translator->TranslateWord(word, next_pause, wtab);
@@ -2170,7 +2179,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				next_in = char_inserted;
 
 			// allow certain punctuation within a word (usually only apostrophe)
-			if(!IsAlpha(c) && !iswspace(c) && (wcschr(punct_within_word,c) == 0))
+			if(!IsAlpha(c) && !IsSpace(c) && (wcschr(punct_within_word,c) == 0))
 			{
 				if(IsAlpha(prev_out))
 				{
@@ -2348,7 +2357,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 					}
 					else
 					{
-						if(iswspace(prev_out))
+						if(IsSpace(prev_out))
 							single_quoted = 1;
 						else
 							single_quoted = 0;
@@ -2391,7 +2400,7 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 			}
 		}
 
-		if(iswspace(c))
+		if(IsSpace(c))
 		{
 			if(space_inserted)
 			{
