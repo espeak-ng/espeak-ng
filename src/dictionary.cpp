@@ -805,7 +805,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 	int primary_posn = 0;
 
 	vowel_stress[0] = 0;
-	while((phcode = *phonemes++) != 0)
+	while(((phcode = *phonemes++) != 0) && (count < (N_WORD_PHONEMES/2)-1))
 	{
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
