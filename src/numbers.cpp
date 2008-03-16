@@ -419,6 +419,8 @@ void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
 	char ph_accent1[30];
 	char ph_accent2[30];
 
+	ph_accent2[0] = 0;
+
 	if((letter >= 0xe0) && (letter < 0x17f))
 	{
 		accent_data = letter_accents_0e0[letter - 0xe0];
