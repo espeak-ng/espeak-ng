@@ -154,7 +154,6 @@ static int ConvertRate(int new_rate)
 	rate = new_rate + master_rate;
 	if(rate < -10) rate = -10;
 	if(rate > 10) rate = 10;
-
 	return(rate_table[rate+10]);
 }  // end of ConvertRate
 

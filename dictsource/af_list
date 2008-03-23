@@ -12,6 +12,7 @@
 // abbreviations
 (http ://)       hA:te@te@p'e@_
 e.a             _:En_'and@r
+sabc            Es_A:be@s'e@
 
 // letter names
 // any letter which also appear as words should be prefixed by a _ here
@@ -59,6 +60,7 @@ z         zEd
 ú         ak'yt?y
 û         kapi?y
 ü         de@lte@k@n?y
+
 
 _cap	h'o@flEt@r
 _??	s@mb'o@l
@@ -140,12 +142,15 @@ carolina    karul'ina
 ceres       se@r@s
 ceylon      s@lOn
 china       S'ina
+duitswes    dYytsv'Es
 franschhoek frA~nsh'uk
 gadara      x2@dA:ra
 galilea     x2al@l'i:a
 gariep      x2ar'ip
 getsémané   x2Ets'e@mani
 goudini     $2
+goodwood    _^_EN
+gordonsbaai gO:rd@nsb'AI
 (graaff reinet) x2rA:f||r@n'Et
 griekeland  x2rik@lant
 hermon      $1
@@ -174,6 +179,7 @@ outeniekwa  @Ut@n'ikwa
 portugal    $1
 potchefstroom pOtSIfstr'o@m
 pretoria    prit'o@ria
+robertson   _^_EN
 stellenbosch st%&l@mbOs 
 swellendam  $3
 tunisië     $2
@@ -220,7 +226,9 @@ christo     krIstu
 christoffel   kr@stOf@l
 christian   krIstian
 christelle  kr@st&l
+christina   kr@stina 
 christine   kr@st'i:n
+cindy       sIndi
 coetzee     kuts'e@
 cronjé      krOnj'e@
 debora      d@bo@ra
@@ -328,6 +336,7 @@ retief      r@tif
 ronel       run'&l
 rousseau    r@s@U
 roux r'u
+ruda        ruda
 salomo      sA:l@mo@
 sandra      sandra
 schalk sk'alk
@@ -349,6 +358,7 @@ tania       tanja
 telemann    te@l@man
 terblanche  t@rblA:nS
 theron tr'On
+thys        teIs
 toerien     $2
 trudie      trudi
 versfeld    f&rsf&lt
@@ -373,8 +383,9 @@ xhosa       kO:za
 
 khumalo     kum'A:lu
 
-
-
+// Other proper names
+checkers      tSEk@rs
+wimpy       wImpi
 
 // article
 
@@ -524,6 +535,7 @@ bv          beIf'o@rbe@lt $dot
 aangaande     $2
 aanstaande    $2
 adagio        ad'A:dZi;%@U
+africana      $3
 afkere        afke@r@
 agamemnon     ax2am'EmnOn
 agterstevoor  $4
@@ -566,6 +578,7 @@ camembert     kam@mb'&:r
 camouflage    kamufl'A:Z
 charisma      kar'Isma
 chemikalieë   $3
+crescendo     kr@SEndu
 
 dadelik       dA:d@lIk
 darem         dar@m
@@ -659,6 +672,7 @@ klaasvakie    $2
 knapsekêrel   knaps@k&:r@l
 komaan        kOmA:n
 konkawe       kOnk'A:v@
+konte         $1
 kopiereg      kup'ir&x2
 korswel       kOrsv@l
 kotiljons     kOt@lj'o~ns
@@ -674,6 +688,7 @@ madame        mad'A:m
 malles        mal@s
 maskering     mask'e@r@N $only
 meegee        me@x2e@
+memorabilia   mEmOrab'ilija
 memoriam      mEm'o@riam
 mercedes      $2
 merlot        m&rl'o@
@@ -711,7 +726,6 @@ normale       nOrm'A:l@
 numeri        nWm@ri
 
 oeuvre        W:vr@
-omega         $2
 omrede        $2
 omtrent       Omtr'Ent
 onbegrip      $1
@@ -785,6 +799,8 @@ skares        skA:r@s
 skepsele      skEps@l@
 skuldelas     skWld@las
 s'n           s@n $u
+slaparm       slap_ar@-m
+sopas         $2
 spaghetti     sp%agEt%i
 sobere s'o@b@r@
 sombere s'Omb@r@
@@ -797,6 +813,7 @@ sonore        sun'o@r@
 sover         so@f&r
 stabiel       stab'il
 staccato      $2
+suburbia      sWb'Wrbija
 
 terdeë       $2
 terug         t@-rWx2

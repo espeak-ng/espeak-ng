@@ -12,6 +12,7 @@ phoneme a
   vowel starttype (a) endtype (a)
   length 180
   formants vowel/a
+  reduceto a/ 1
 endphoneme
 
 
@@ -90,3 +91,16 @@ phoneme @U
 endphoneme
 
 
+
+phoneme d   // English [d]
+  vcd alv stop
+  vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/d+x/d
+  before _ d/d_+x/d_
+  before r d/dr+x/d
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme

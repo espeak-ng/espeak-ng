@@ -1,4 +1,4 @@
-47 phoneme tables
+48 phoneme tables
           new total
     base  98   98
    base2  24  117
@@ -27,7 +27,7 @@
       hr  20  132
       mk   3  133
       sr  14  132
-      ru  38  128
+      ru  39  129
       it  17  120
       la  21  116
       es   9  118
@@ -46,7 +46,8 @@
       sw  14  107
       tr  18  122
       ku  17  121
-      id  14  119
+      id  15  119
+      ko  16  112
 
 Data file      Used by
 b/b             [b] base
@@ -97,6 +98,7 @@ d/d             [d] base
                 [d;] ro
                 [d] el
                 [d] sw
+                [d] id
 d/d_            [d] base
                 [d[] base
                 [d] base2
@@ -113,6 +115,7 @@ d/d_            [d] base
                 [d;] ro
                 [d] el
                 [d] sw
+                [d] id
 d/d_dnt         [d] sr
 d/dr            [*] base
                 [d] base
@@ -131,6 +134,7 @@ d/dr            [*] base
                 [d;] ro
                 [d] el
                 [d] sw
+                [d] id
 d/tap           [*;] ro
 d/tap1          [*] base
 d/tap2          [t#] en_us
@@ -151,6 +155,7 @@ d/xd            [d] base
                 [d;] ro
                 [d] el
                 [d] sw
+                [d] id
 d/xd_pzd        [d;] pl
                 [d;] ru
 d/x_tap         [t#] en_us
@@ -461,6 +466,7 @@ r3/r_n          [r/] base
                 [r/] fr
                 [r/] ru
 r3/r_o          [(o)] base
+r3/r_ru         [R4] ru
 r3/r_trill      [R2] base
                 [R3] base
                 [r] af
@@ -471,6 +477,7 @@ r3/r_trill      [R2] base
 r3/r_trill2     [R] base
                 [r] cy
                 [R] hr
+                [R4] ru
 r3/r_trill2.wav  [R] base
                 [r] cy
                 [R] hr
@@ -494,7 +501,9 @@ r3/rx           [*] base
 r3/rz_cs        [R^] sk
                 [R^/] sk
 r3/@tap         [**] base
+                [r] ko
 r3/@tap2        [**] base
+                [r] ko
 r/r             [r] base
                 [r-] base
                 [r] en_sc
@@ -563,6 +572,7 @@ ufric/s         [s] base
                 [s] fr
                 [s] es
                 [s#] pt
+                [s`] ko
 ufric/s_        [s] base
                 [z] base
                 [s2] fi
@@ -685,6 +695,7 @@ ustop/k_unasp   [k] base
                 [k] sk
                 [k] el
                 [k] zhy
+                [k`] ko
 ustop/k_unasp_  [k] zh
 ustop/null      [?] base
 ustop/p         [p] base
@@ -727,6 +738,7 @@ ustop/p_unasp   [p] base
                 [p] la
                 [p;] ro
                 [p] zh
+                [p`] ko
 ustop/p_unasp_  [p] base2
                 [p] fi
                 [p] hi
@@ -763,6 +775,7 @@ ustop/t_dnt     [t] base
                 [t;] ro
                 [t[] vi
                 [t] sw
+                [t`] ko
 ustop/t_dnt2    [t[] vi
 ustop/t_hi      [t] hi
                 [th] hi
@@ -797,6 +810,7 @@ ustop/ts_pzd    [tS;] base
                 [ts;] base
                 [ch] hi
                 [tS;] ru
+                [tS`] ko
 ustop/ts_pzd_   [c] hi
                 [c] hu
 ustop/ts_pzd2   [c] hi
@@ -1191,6 +1205,7 @@ vowel/a         [a] en_n
                 [a] it
                 [a] zh
                 [a] id
+                [a] ko
 vowel/a#        [a/] base2
                 [a2] en_sc
                 [a2] en_wi
@@ -1291,6 +1306,7 @@ vowel/e         [e] base2
                 [e] grc
                 [e] vi
                 [e] id
+                [E] ko
 vowel/e#        [I] en_sc
                 [I2] en_sc
 vowel/e_2       [eI] en_sc
@@ -1345,6 +1361,7 @@ vowel/e_mid     [E] en_rp
                 [E] tr
                 [E] id
                 [E2] id
+                [e] ko
 vowel/e_mid2    [E] af
                 [E] de
                 [E2] de
@@ -1382,6 +1399,7 @@ vowel/i         [i] base2
                 [i] zhy
                 [i] zh
                 [i] sw
+                [i] ko
 vowel/i#        [i] en_rp
                 [y:] cy
 vowel/i_2       [i:] en_rp
@@ -1501,6 +1519,7 @@ vowel/oe_4      [W] sv
 vowel/o_mid     [O] fr
                 [o] hu
                 [o] tr
+                [o] ko
 vowel/oo        [O:] en_sc
                 [O] en_wi
                 [O:] en_wi
@@ -1608,6 +1627,7 @@ vowel/u_bck     [u] base2
                 [u] is
                 [u] zhy
                 [u] zh
+                [u] ko
 vowel/u_bck2    [u:] la
 vowel/u_fnt     [u:] en_rp
 vowel/uu        [U] en
@@ -1628,7 +1648,9 @@ vowel/uu_bck    [U] en_n
                 [U] pt
                 [U] no
                 [u] zhy
+vowel/u_unr     [u-] ko
 vowel/V         [3] en_sc
+                [V] ko
 vowel/V_2       [V] en
                 [a] af
                 [V] ru
@@ -1657,6 +1679,7 @@ vowel/y#        [Y:] en
                 [Y] ro
                 [y] vi
                 [oe] zhy
+                [Y] ko
 vowel/y##       [y#] is
 vowel/y_2       [y] fr
                 [y"] fr
@@ -1812,7 +1835,6 @@ w/w2            [w2] base2
                 [w] pt_pt
 w/wa            [(a)] base
 w/we            [(e)] base
-                [w] fr
 w/wi            [(i)] base
                 [i] vi
                 [i] zhy
@@ -1846,6 +1868,7 @@ x/d             [d] base
                 [d] hr
                 [d] el
                 [d] is
+                [d] id
 x/d_            [d] base
                 [d[] base
                 [d] base2
@@ -1861,6 +1884,7 @@ x/d_            [d] base
                 [d] el
                 [d] is
                 [d] sw
+                [d] id
 x/d_dnt         [d[] base
                 [d] base2
                 [d] fi

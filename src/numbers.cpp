@@ -550,7 +550,7 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 		single_letter[1] = ' ';
 		if(Lookup(&single_letter[2],ph_buf3) == 0)
 		{
-			TranslateRules(&single_letter[2], ph_buf3, sizeof(ph_buf3), NULL,0,NULL);
+			TranslateRules(&single_letter[2], ph_buf3, sizeof(ph_buf3), NULL,FLAG_NO_TRACE,NULL);
 		}
 	}
 
@@ -591,6 +591,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 	int n_bytes;
 	int letter;
 	int len;
+	int save_option_phonemes;
 	char *p2;
 	char *pbuf;
 	char capital[20];
@@ -627,12 +628,15 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 	}
 
 	if((ph_buf[0] == 0) && (translator_name != L('e','n')))
-//	if((ph_buf[0] == 0) && (word_length == 1) && (translator_name != L('e','n')))
 	{
 		// speak as English, check whether there is a translation for this character
 		SetTranslator2("en");
+		save_option_phonemes = option_phonemes;
+		option_phonemes = 0;
 		translator2->LookupLetter(letter, word[n_bytes], ph_buf);
 		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+		option_phonemes = save_option_phonemes;
+
 		if(ph_buf[0] != 0)
 		{
 			sprintf(phonemes,"%cen",phonSWITCH);
@@ -664,7 +668,10 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 	}
 
 	len = strlen(phonemes);
-	sprintf(ph_buf2,"%c%s%s",0xff,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
+	if(langopts.accents & 2)
+		sprintf(ph_buf2,"%c%s%s",0xff,ph_buf,capital);
+	else
+		sprintf(ph_buf2,"%c%s%s",0xff,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
 	if((len + strlen(ph_buf2)) < N_WORD_PHONEMES)
 	{
 		strcpy(&phonemes[len],ph_buf2);

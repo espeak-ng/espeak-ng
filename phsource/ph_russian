@@ -306,3 +306,11 @@ phoneme a#
 endphoneme
 
 
+phoneme R4
+  liquid
+  vowelin  f1=0  f2=1500 -300 300  f3=-300 80
+  vowelout f1=2  f2=1500 -300 300  f3=-300 80 brk
+  formants r3/r_trill2+r3/r_ru%50
+  lengthmod 6
+endphoneme
+

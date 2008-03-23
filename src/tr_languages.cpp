@@ -108,7 +108,20 @@ Translator *SelectTranslator(const char *name)
 	switch(name2)
 	{
 	case L('a','f'):
-		tr = new Translator_Afrikaans();
+		{
+			static const short stress_lengths_af[8] = {170,140, 220,220,  0, 0, 250,270};
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_af,NULL);
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.vowel_pause = 0x30;
+			tr->langopts.param[LOPT_DIERESES] = 1;
+			tr->langopts.param[LOPT_PREFIXES] = 1;
+			SetLetterVowel(tr,'y');  // add 'y' to vowels
+		
+			tr->langopts.numbers = 0x8d1 + NUM_ROMAN;
+			tr->langopts.accents = 1;
+		}
 		break;
 
 	case L('c','y'):   // Welsh
@@ -375,6 +388,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 2;
 			tr->langopts.numbers = 0x1009 + NUM_ROMAN;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
+			tr->langopts.accents = 2;  // "capital" after letter name
 		}
 		break;
 
@@ -439,6 +453,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_SYLLABLE_CAPS] = 1;  // capitals indicate stressed syllables
 			SetLetterVowel(tr,'y');
 		}
+		break;
+
+	case L('k','o'):   // Korean, TEST
+			tr = new Translator();
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		break;
 
 	case L('k','u'):   // Kurdish
@@ -1042,42 +1061,4 @@ if(prev->mnemonic == 'j')
 	return(0);
 }
 #endif
-
-//**********************************************************************************************************
-
-
-
-Translator_Afrikaans::Translator_Afrikaans() : Translator()
-{//=========================================
-// Initialise options for this language
-
-	static const short stress_lengths2[8] = {170,140, 220,220,  0, 0, 250,270};
-	langopts.stress_rule = 0;
-	langopts.vowel_pause = 0x30;
-	langopts.param[LOPT_DIERESES] = 1;
-	langopts.param[LOPT_PREFIXES] = 1;
-	SetLetterVowel(this,'y');  // add 'y' to vowels
-
-	langopts.numbers = 0x8d1 + NUM_ROMAN;
-	langopts.accents = 1;
-	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
-}
-
-
-int Translator_Afrikaans::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert)
-{//===============================================================================================================
-// look for 'n  and replace by a special character (unicode: schwa)
-
-	if(!iswalpha(prev_in))
-	{
-		if((c == '\'') && (next_in == 'n'))
-		{
-			// n preceded by either apostrophe or U2019 "right single quotation mark"
-			ptr[0] = ' ';  // delete the  n
-			return(0x0259); // replace  '  by  unicode schwa character
-		}
-	}
-	return(c);
-}
-
 

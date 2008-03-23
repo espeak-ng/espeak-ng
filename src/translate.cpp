@@ -370,6 +370,9 @@ int IsAlpha(unsigned int c)
 	if((c >= 0x300) && (c <= 0x36f))
 		return(1);   // combining accents
 
+	if((c >= 0x1100) && (c <= 0x11ff))
+		return(1);  //Korean jamo
+
 	return(0);
 }
 
@@ -1908,6 +1911,69 @@ int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, int *in
 int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert)
 {//=====================================================================================================
 	// To allow language specific examination and replacement of characters
+
+	int code;
+	int initial;
+	int medial;
+	int final;
+
+	static const unsigned char hangul_compatibility[0x34] = {
+	 0,  0x00,0x01,0x82,0x02,0x84,0x85,0x03,
+	0x04,0x05,0x88,0x89,0x8a,0x8b,0x8c,0x8d,
+	0x8e,0x06,0x07,0x08,0x91,0x09,0x0a,0x94,
+	0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x40,
+	0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x48,
+	0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,
+	0x51,0x52,0x53,0x54 };
+
+
+	switch(translator_name)
+	{
+	case L('a','f'):
+	// look for 'n  and replace by a special character (unicode: schwa)
+	
+		if(!iswalpha(prev_in))
+		{
+			if((c == '\'') && (next_in == 'n'))
+			{
+				// n preceded by either apostrophe or U2019 "right single quotation mark"
+				ptr[0] = ' ';  // delete the  n
+				return(0x0259); // replace  '  by  unicode schwa character
+			}
+		}
+		break;
+
+	case L('k','o'):
+		if(((code = c - 0xac00) >= 0) && (c <= 0xd7af))
+		{
+			// break a syllable hangul into 2 or 3 individual jamo
+			initial = (code/28)/21;
+			medial = (code/28) % 21;
+			final = code % 28;
+
+			if(initial == 11)
+			{
+				// null initial
+				c = medial + 0x1161;
+				if(final > 0)
+					*insert = final + 0x11a7;
+			}
+			else
+			{
+				// extact the initial and insert the remainder with a null initial
+				c = initial + 0x1100;
+				*insert = (11*28*21) + (medial*28) + final + 0xac00;
+			}
+			return(c);
+		}
+		else
+		if(((code = c - 0x3130) >= 0) && (code < 0x34))
+		{
+			// Hangul compatibility jamo
+			return(hangul_compatibility[code] + 0x1100);
+		}
+		break;
+	}
 	return(SubstituteChar(this,c,next_in,insert));
 }
 

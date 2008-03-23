@@ -437,6 +437,7 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 	regs.r[1] = (int)module_data;
 	_kernel_swi(0x5f, &regs, &regs);
 
+	option_endpause = 1;
 
 	if((voice_num >= 0) && (voice_num != current_voice_num) && (voice_num < N_VOICE_NAMES))
 	{

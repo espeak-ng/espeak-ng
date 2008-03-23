@@ -13,6 +13,9 @@
 .group b
         b        b
 
+     _) be (@@   b@
+
+
 .group c
         c       tS
 
@@ -49,12 +52,18 @@
         k (_     ?
         kh       x
 
+     _) ke (@@   k@
+
+
 .group l
         l        l
         ll       l
 
 .group m
         m        m
+
+     _) me (@@   m@
+     _) mempe (@    m@mp@
 
 .group n
         n        n
@@ -73,12 +82,18 @@
         p        p
         pp       p
 
+     _) pe (@@   p@
+
+
 .group q
         q        k
         qu       kw
 
 .group r
-        r        R
+        r        R2
+        r (K     R
+     e) r (K     *R
+
 
 .group s
         s        s
@@ -86,9 +101,15 @@
         sy       S   // perhaps [S;] ??
         sj       S
 
+     _) se (@@   s@
+
+
 .group t
         t        t
         tj       tS      // Dutch
+
+     _) ter (@@  t@*R
+
 
 .group u
         u        u
@@ -112,7 +133,13 @@
         z        z
 
 .group
-        $        dolaR
+        $        dOlaR
 
 
+    __) - (_D    t,andak'uR2aN
+
+        *        b'intaN
+     *) * (*
+        ** 
+    **) * (_         _::
 

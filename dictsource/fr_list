@@ -5,7 +5,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-03-12 Michel Such  <michel.such@free.fr>
+// Updated 2008-03-19 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -273,10 +273,10 @@ toutefois  $u
 comme	   $u
 dont	   dO~t2 $u
 lorsque	   $u
-parce	      $u
+(parce que)	      parsk@ $u
 puisque	   $u
 quand	   $u
-que	   $u
+que	   $u $verbf
 qui	   $u $verbf
 quoique	   $u
 si	   $u
@@ -285,6 +285,7 @@ si	   $u
 je	$u $verbf
 tu	$u $verbf
 elle	$u $verbf
+y	$u $verbf
 il 	$u $verbf
 nous	$u+ $verbf
 vous	$u+ $verbf
@@ -347,6 +348,7 @@ sur	$u
 par	$u
 pour	$u
 en	$u
+en	$u $verb $verbextend
 (en suspens) A~||sysp'A~
 
 vers	$u
@@ -376,7 +378,7 @@ sont	$u+ $verb
 
 étais	$u+ $verb
 était	$u+ $verb
-étions	$u+ *verb
+étions	$u+ $verb
 étiez	$u+ $verb
 étaient	$u+ $verb
 
@@ -414,8 +416,6 @@ consent          kO~s'A~t2
 scient           si
 coing     kwE~
 convent       kO~vA~
-couvent          k'uvt2  $verb
-(couvent couvent)         kuvA~||k'uvt2
 dessous          d@su
 divers          divErz2
 hareng          _!arA~
@@ -434,6 +434,7 @@ monsieur         m@sjY
 montréal         mO~Real
 (n'est ce pas)   n'Es@-||p'az2
 (qu'est ce que)  kEsk@ $u
+(quelque chose)  kElk@S'oz
 (cent un)        s'A~||W~
 (cent unième)    s'A~||ynj'Em
 (cent une)       s'A~||yn
@@ -452,6 +453,7 @@ casus    kazys
 choeur        k@r
 cocus     coky
 estomac     Estoma
+éloquent     ElokA~t2
 fils	      fis
 gars	      ga
 iris	      iris
@@ -485,7 +487,7 @@ l'y              li $verbf
 qu'y          ki $verbf
 (sud est)       sydEst
 (nord est)      nOREst
-potentiomètre   pOtA~sjOmEtR@-
+tiomètre   pOtA~sjOmEtR@-
 
 processus	pROsEsys
 
@@ -663,6 +665,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

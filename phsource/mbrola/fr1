@@ -10,6 +10,7 @@ volume 15
 0  g- NULL   0  NULL
 0  @- NULL   0  NULL
 0  *  NULL   0  R
+0  :  NULL   0  NULL
 
 0  Y  NULL   0  2
 0  W  NULL   0  9
@@ -27,8 +28,11 @@ volume 15
 0  y" NULL   0  y
 0  E: NULL   0  E
 0  h  NULL   0  NULL
+0  n2 NULL   0  n
+0  p2 NULL   0  p
 0  t2 NULL   0  t
 0  z2 NULL   0  z
+0  z3 NULL   0  z
 
 0  i:  NULL  0  i
 0  u:  NULL  0  u

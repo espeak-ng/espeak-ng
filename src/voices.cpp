@@ -1583,7 +1583,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 
 	memset(&voice_selector,0,sizeof(voice_selector));
 //	voice_selector.name = buf;
-	voice_selector.name = name;  // include variant name in voice stack ??
+	voice_selector.name = (char *)name;  // include variant name in voice stack ??
 
 	// first check for a voice with this filename
 	// This may avoid the need to call espeak_ListVoices().

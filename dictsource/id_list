@@ -18,7 +18,7 @@ m	Em
 n	En
 o	o
 p	pe
-q	ke
+q	ki
 r	ER
 s	Es
 t	te
@@ -33,22 +33,22 @@ _0	n'ol
 _1	s'atu
 _2	d'ua
 _3	t'iga
-_4	'Empat
+_4	'@mpat
 _5	l'ima
-_6	'Enam
+_6	'@nam
 _7	t'udZuh
 _8	d@l'apan
 _9	s@mb'ilan
 _10	s@p'uluh
-_11	s@belas
-_12	d'uabelas
-_13	t'igabelas
-_14	'Empatbelas
-_15	l'imabelas
-_16	'Enambelas
-_17	t'udZuhbelas
-_18	d@l'apanbelas
-_19	s@mb'ilanbelas
+_11	s'@b@las
+_12	d'uab@las
+_13	t'igab@las
+_14	'@mpatb@las
+_15	l'imab@las
+_16	'@namb@las
+_17	t'udZuhb@las
+_18	d@l'apanb@las
+_19	s@mb'ilanb@las
 _2X	d'uapuluh
 _3X	t'igapuluh
 _4X	'Empatpuluh
@@ -63,3 +63,79 @@ _0M1	R'ibu_
 _1M1	s@r'ibu_
 _0M2	dZ'uta_
 _1M2	s@dZ'uta_
+_0M3	m'iljaR
+_1M3	s@m'iljaR
+_dpt	_k,oma_
+
+_cap	b'EsaR    // after the letter
+_??	k,odeh'uR2uf
+
+// accented letters
+_lig	d'aIgRaf
+_acu	akj'ut
+_ac2	dub@lakj'ut
+_brv	bR2'i:v
+_ced	s@d'ila
+_cir	t'opi
+_dia	'umlaUt
+_dot	d'Ot
+_grv	gR2'av
+_hac	h'atSEk
+_mcn	m'akR2On
+_ogo	'OgonEk
+_rng	R2'iNg
+_stk	stR'ok
+_tld	t'ild@
+
+// punctuation
+_!	t,anda||s'ER2u
+_"	t,andak'utip
+£	ponst'E*RliN
+%	p@*Rs'En
+^	t,andat'opi
+&	t,andad'an
+_*	b'intaN
+_(	k,uR2uN||b'uka
+_)	k,uR2uN||t'utup
+__	g,aR2is||b'awah
+_-	t,andah'ubuN
++	t'ambah
+=	s,ama||d'ENan
+_{	k,uR2uN||kuR2'awal
+_}	k,uR2uN||kuR2,awal||t'utup
+_[	k,uR2uN||s'iku
+_]	k,uR2uN||s,iku||t'utup
+_:	t,iti?||d'ua
+_;	t,iti?||k'oma
+@	a||k'EOng
+_'	k,utip||t'uNgal
+~	t'ilde
+#	p'agaR
+_<	k,uR2aN||d'aR2i
+_>	l,Ebih||d'aR2i
+_,	k'oma
+_.	t'iti?
+_?	t,anda||t'an^a
+/	g,aR2is||m'iR2iN
+_\	'bEkslES
+
+
+// unstressed words
+suatu		$u
+dari		$u
+pada		$u
+daripada	$u
+ke		k@ $u
+di		$u
+si		$u
+sang		$u
+hang		$u
+yang		$u
+dan		$u
+atau		$u
+untuk		$u
+ialah		$u
+adalah		$u
+sebagai		$u
+bahwa		$u
+per		p@r $u

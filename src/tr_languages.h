@@ -43,16 +43,3 @@ private:
 
 
 
-
-
-class Translator_Afrikaans: public Translator
-{//==========================================
-
-public:
-	Translator_Afrikaans();
-private:
-	int TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert);
-
-};  // end of class Translator_Afrikaans
-
-

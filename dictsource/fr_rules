@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-03-12 Michel Such  <michel.such@free.fr>
+// Updated: 2008-03-19 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -205,13 +205,15 @@
 	_dol)	en (t_      A~		// dolent
 	ol)	en (t_      A~		// somnolent, violent
 	Vol)	en (t_        		// somnolent, violent
+	Xol)	en (t_        		// volent
 	imCoC)	en (t_      A~		// impotent
 	inCoC)	en (t_      A~		// innocent, indolent
 
 	XACcid)	en (t_      A~		// accident, occident
 
 	_ag)	en (t_      A~		// agent
-	_arC)	en (t_      A~		// argent, ardent, arpent
+	_ard)	en (t_      A~		// argent, ardent
+	_arg)	en (t_      A~		// argent, argent
 	_urg)	en (t_      A~		// urgent
 	V_urg)	en (t_      		// urgent (verbe)
 
@@ -260,6 +262,7 @@
 	Vferm)	en (t_      		// ferment, referment (verbe)
 	XArp)	en (t_      A~		// arpent, serpent
 	CArr)	en (t_      A~		// conncurrent, torrent
+	Cerr)	en (t_      		// ils serrent
 	_appar)	en (t_      A~		// apparent
 	spar)	en (t_      A~		// transparent
 	_par)	en (t_      A~		// parent
@@ -301,11 +304,12 @@
 	_souv)	en (t_      A~		// souvent
 	Cud)	en (t_      A~
 
+	_couv)	en (tS3f      A~		// le couvent
+	V_couv)	en (t_      		// elles couvent
 	s_couv)	en (t_      		// elles couvent
-	qui_couv) en (t_
 
-	_couv)	en (t_      A~      	// le couvent
-		en (t_        t2    	// étaient mangent
+
+		en (t_            	// étaient mangent
 
 	Ci)	en (_       E~      	// viendra
 	Ci)	en (C       E~      	// viendra
@@ -393,13 +397,11 @@
 	_CC) 	e (_        @-
 	_qu) 	e (_        @		// que
 
-	CC) 	e (_C       @-
-	CC) 	es (_C       @-z2
 	-j) 	e (_       @-
 	gu) 	e (_C       @-
-	gu) 	es (_C       @-z2
+	gu) 	es (_C       @-
 	qu) 	e (_C       @-
-	qu) 	es (_C       @-z2
+	qu) 	es (_C       @-
 
 	 	e (_       		// montre
 
@@ -670,10 +672,11 @@ _)		half  	_^_en
 		iev         _^_en
 		ife (_      _^_en
 		igh       _^_en
-		ing (_      _^_en		// parking
 		ind (_     _^_en		// find, mind
 	_C)	ind (er_     _^_en		// finder, reminder
 	_AC)	ind (er_     _^_en		// finder, reminder
+		ing (_      _^_en		// parking
+		ink       _^_en		// link
 		ize          _^_en		// realize
 
 
@@ -900,7 +903,6 @@ mou)	rr          RR		// mourrai
 		s           s		// verser sien
 
 		s (_S1      z2
-e)		s (_h      z2
 
 	_)	s' (P2      s		// s'amène
 		sç 	    s		// immisça
@@ -985,16 +987,14 @@ e)		s (_h      z2
 _)		t (_        te
 -)		t (-        t
 V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
+n)		t (_          // silent at end of verb unless next word starts with a vowel
+n)		t (-        t2  // silent at end of verb unless next word starts with a vowel
 		t (_            // silent at end of word
 		t (-S1        t
-	_)	th (onX      t      // thon
-	_)	th (ymX      t      // shym
+	_)	th       t      // thon
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
 	C)	t (_        t	// compost watt soft script malttact abrupt
-	Vn)	t (_        t2	// silent at end of verb unless next word starts with a vowel
-	n)	t (_          	// silent at end of word
 	r)	t (_        t2	// fort
-C)		te (_      t@-  		// patte
 
 	aul)	t (_        	// Renault
 
@@ -1026,7 +1026,7 @@ C)		te (_      t@-  		// patte
 	t)	t (ion      t 	// combattions
 
 		t (iel      s 	// partiel patiemment
-		t (iem      s
+		t (iAm      s
 
  	mar) 	t (ien      s	// martien vénitienne
  	i) 	t (ien      s
@@ -1146,9 +1146,7 @@ C)		te (_      t@-  		// patte
 
 	_soi) 	x (A        s	// soixante
 
-	au) 	x (_	    z2	// faux beaux
-	eu) 	x (_	    z2	// jeux
-	ou) 	x (_        z2	// choux genoux
+	Au) 	x (_S1	    z2	// faux feux choux
 
 	_au) 	x (quel 	// auxquels
 
@@ -1222,6 +1220,7 @@ C)		te (_      t@-  		// patte
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
 

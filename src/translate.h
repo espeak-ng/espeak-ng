@@ -348,7 +348,7 @@ typedef struct {
 	int thousands_sep;
 	int decimal_sep;
 
-	// bit 0, accent name before the letter name
+	// bit 0, accent name before the letter name, bit 1 "capital" after letter name
 	int accents;
 
 	int tone_language;          // 1=tone language
@@ -448,6 +448,7 @@ private:
 	int LookupThousands(int value, int thousandplex, char *ph_out);
    int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
 	int TranslateRoman(char *word, char *ph_out);
+	int TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert);
 
 	void InitGroups(void);
 	void AppendPhonemes(char *string, int size, const char *ph);
@@ -465,7 +466,6 @@ protected:
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
 	virtual int RemoveEnding(char *word, int end_type, char *word_copy);
-	virtual int TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert);
    virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
 	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 

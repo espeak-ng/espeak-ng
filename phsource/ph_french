@@ -91,13 +91,12 @@ endphoneme
 
 
 phoneme w
-  liquid
+  vowel starttype (o) endtype (o)
   unstressed
-  length 120
+  length 100
   beforenotvowel w/
   lengthmod 7
   formants w/w
-  before (e) w/we
   after _ w/_w
 endphoneme
 
@@ -429,6 +428,7 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 
 
 

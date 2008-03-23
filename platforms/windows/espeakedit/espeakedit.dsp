@@ -472,7 +472,7 @@ LINK32=link.exe
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=.\..\..\samples\sample.rc
+SOURCE=.\sample.rc
 # End Source File
 # End Group
 # Begin Source File

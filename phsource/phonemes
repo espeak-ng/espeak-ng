@@ -1274,3 +1274,6 @@ include ph_kurdish
 phonemetable id base2
 include ph_indonesian
 
+
+phonemetable ko base
+include ph_korean
