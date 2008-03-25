@@ -978,7 +978,11 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 				LookupNum2(hundreds/10, x, ph_digits);
 			}
 
-			sprintf(ph_thousands,"%s%s%c",ph_digits,ph_10T,phonPAUSE_NOLINK);
+			if(langopts.numbers2 & 0x200)
+				sprintf(ph_thousands,"%s%s%c",ph_10T,ph_digits,phonPAUSE_NOLINK);  // say "thousands" before its number, not after
+			else
+				sprintf(ph_thousands,"%s%s%c",ph_digits,ph_10T,phonPAUSE_NOLINK);
+
 			hundreds %= 10;
 			if(hundreds == 0)
 				ph_100[0] = 0;
@@ -1271,7 +1275,10 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	}
 
 	LookupNum3(value, ph_buf, suppress_null, thousandplex, prev_thousands);
-	sprintf(ph_out,"%s%s%s",ph_buf2,ph_buf,ph_append);
+	if((thousandplex > 0) && (langopts.numbers2 & 0x200))
+		sprintf(ph_out,"%s%s%s",ph_append,ph_buf2,ph_buf);  // say "thousands" before its number
+	else
+		sprintf(ph_out,"%s%s%s",ph_buf2,ph_buf,ph_append);
 
 
 	while(decimal_point)

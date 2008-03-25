@@ -342,6 +342,7 @@ typedef struct {
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
 	// bit8=(LANG=sw) special word for 100,000s
+	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
 	int numbers2;
 
 	int max_roman;

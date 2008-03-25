@@ -601,6 +601,9 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x16;
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+
+			tr->langopts.numbers = 0x61 + 0x100000 + 0x4000;
+			tr->langopts.numbers2 = 0x200;  // say "thousands" before its number
 		}
 		break;
 

@@ -1275,5 +1275,8 @@ phonemetable id base2
 include ph_indonesian
 
 
+phonemetable rw base2
+include ph_kinyarwanda
+
 phonemetable ko base
 include ph_korean

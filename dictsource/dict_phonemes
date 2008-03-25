@@ -360,8 +360,9 @@ t    tS   v    w    x    z    Z
 
 Dictionary ko_dict
 
-a    E    e    i    o    u    u-   V    
-Y    
+a    aI@  aU@  E    e    e:   i    i@3  
+IR   ji   o    O~   u    u-   U@   V    
+y:   
 
 b    d    dZ   g    h    j    k    k`   
 l    m    n    N    p    p`   r    s    
@@ -389,6 +390,17 @@ O    u
 h    j    k    l    m    n    N    n^   
 p    r    R    R2   s    S    t    tS   
 v    w    x    z    
+
+
+Dictionary rw_dict
+
+a    a#   e    e#   i    i#   o    u    
+u#   
+
+*    :    b    B    c    d    dZ   f    
+g    h    j    J    k    l    m    n    
+N    n^   p    q    R    s    S    S;   
+t    tS   v    w    x    z    
 
 
 Dictionary tr_dict

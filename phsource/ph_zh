@@ -15,7 +15,7 @@ endphoneme
 
 phoneme 214   //  tone: fall rise
   stress
-  tone 20 40 envelope/p_214 NULL
+  tone 18 42 envelope/p_214 NULL
 endphoneme
 
 phoneme 22   //  tone: mid-low level

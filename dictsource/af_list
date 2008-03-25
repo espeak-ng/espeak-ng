@@ -11,12 +11,29 @@
 
 // abbreviations
 (http ://)       hA:te@te@p'e@_
+bpk         b@p&rk
+bv          beIf'o@rbe@lt $dot
+dr          d'Okt@r $dot
 e.a             _:En_'and@r
-sabc            Es_A:be@s'e@
+edms        eI@ndOms
+ens         Enso@fo@rts $dot
+insp        InspEkt'Y@r $dot
+isbn        $abbrev
+kapt kapt'eIn $dot
+mnr         mIn'e@r $dot
+mej         m@jWfr@U $dot
+mev         m@fr@U $dot
+pres        pr@s@d'Ent $dot
+prof        pruf'Es@r $dot
+sabc            $abbrev
+sanrb       $abbrev
+st          s@nt $dot
+supt        suprEntEnd'Ent $dot
+
 
 // letter names
 // any letter which also appear as words should be prefixed by a _ here
-a         A:
+_a         A:
 b         be@
 c         se@
 d         de@
@@ -42,24 +59,24 @@ w         ve@
 x         Eks
 y         eI
 z         zEd
-à         x2raf'Is?A:
-á         ak'yt?A:
-ä         de@lte@k@n?A:
-è         x2raf'Is?e@:
-é         ak'yt?e@:
-ê         kapi?e@:
-ë         de@lte@k@n?e@:
-ì         x2raf'Is?i
-í         ak'yt?i
-ï         de@lte@k@n?i
-ò         x2raf'Is?o@
-ó         ak'yt?o@
-ô         kapi?o@
-ö         de@lte@k@n?o@
-ù         x2raf'Is?y
-ú         ak'yt?y
-û         kapi?y
-ü         de@lte@k@n?y
+à         $accent $atend
+á         $accent
+ä         $accent
+è         $accent
+é         $accent
+ê         $accent
+ë         $accent
+ì         $accent
+í         $accent
+ï         $accent
+ò         $accent
+ó         $accent
+ô         $accent
+ö         $accent
+ù         $accent
+ú         $accent
+û         $accent
+ü         $accent
 
 
 _cap	h'o@flEt@r
@@ -70,12 +87,12 @@ _?A	l'Et@r
 _lig	d'Wb@llEt@r
 _acu	ak'yt
 _ac2	d'Wb@lakyt	
-_brv	br'i:v
-_ced	s'e@dIla
+_brv	k'Orte@k@n
+_ced	s@dIla
 _cir	k'api
 _dia	d'e@lte@k@n
 _dot	p'Wnt
-_grv	x2r'afIs
+_grv	x2raf'Is
 _hac	k'A:rOn
 _mcn	m'akrOn
 _ogo	o@x2o@n,&k
@@ -180,6 +197,7 @@ portugal    $1
 potchefstroom pOtSIfstr'o@m
 pretoria    prit'o@ria
 robertson   _^_EN
+singapoer   siNgapur
 stellenbosch st%&l@mbOs 
 swellendam  $3
 tunisië     $2
@@ -512,21 +530,7 @@ dis		$u
 // phrase with words spoken together
 
 (nie waar nie)	n,i||v,A:r||n'i
-
-
-// abbreviations
-
-mnr         mIn'e@r $dot
-mej         m@jWfr@U $dot
-mev         m@fr@U $dot
-dr          d'Okt@r $dot
-insp        InspEkt'Y@r $dot
-kapt kapt'eIn $dot
-prof        pruf'Es@r $dot
-st          s@nt $dot
-supt        suprEntEnd'Ent $dot
-pres        pr@s@d'Ent $dot
-bv          beIf'o@rbe@lt $dot
+(à la carte)	a||la||k'art
 
 
 
