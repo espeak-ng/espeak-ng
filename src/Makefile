@@ -32,12 +32,14 @@ ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp
 LIB_AUDIO=-lpulse
 USE_AUDIO=-DUSE_PULSEAUDIO
-else ifeq ($(AUDIO),portaudio)
+else
+ifeq ($(AUDIO),portaudio)
 WAVE=wave.cpp
 LIB_AUDIO=-lportaudio
 USE_AUDIO=-DUSE_PORTAUDIO
 else
 WAVE=wave.cpp
+endif
 endif
 
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
