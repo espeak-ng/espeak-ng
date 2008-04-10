@@ -660,7 +660,7 @@
             ann (eal     a2n
             ann (ih      a2n
             ann (oun     a2n
-            ann (oy      a2n
+         _) ann (oy      a2n
             ann (ui      a2n
             ann (ul      a2n
             ann (un      a2n
@@ -1907,6 +1907,7 @@
          &) ella (_      'El@
         &v) eller (_     @l@
          @) elli (_      'ElI2
+         &) elling       @lI2N
          &) ell (ous     @l
        cib) el (_        El
         xc) el (_        'El
@@ -2368,7 +2369,6 @@
             gg           g
             g (e         dZ
          _) gaol         dZeIl
-         g) ged (_       gId
             g (eek       g
             geous        dZ=@s
             g (E         dZ
@@ -2432,6 +2432,8 @@
          K) hl           L
          &) hold (_$4    hoUld
             holme        hoUm
+         &) hood (_S4    hUd
+         &) hoods (_S5   hUdz
          _) h (our
          _) h (onor
          _) h (onou
@@ -3106,6 +3108,7 @@
         XC) iv (el       Iv
         _g) iv (e        Iv
         _l) iv (e        Iv
+         l) iv (er       Iv
          r) iv (er       Iv
         dr) iv (er       aIv
         sh) iv (er       Iv
@@ -3563,6 +3566,7 @@
          y) ol (k        oU
          p) oll (u       @l
          r) oll          oUl
+        tr) oll (A       0l
        car) oll          @l
         br) oll          0l
          t) oll          oUl
@@ -4248,6 +4252,8 @@
             rea (C%      r,i:@
          _) rea (dC      r,i:@
             rea (gen     rI2eI
+         _) re (ali      ,ri:
+         _) re (all      ,ri:
          _) re (au@P2    ,ri:
             re (ck       rE
             reckon       rEk@n
@@ -4306,7 +4312,7 @@
             rea (l       ri@
 ?3          rea (l       ri:
             rea (lit     rI2a
-            rea (lloc    rI2a
+         _) rea (lloP2   ,ri:
             rea (lm      rE
             rea (lte     rI20
             re (ment     r@
@@ -4492,6 +4498,7 @@
          _) tele         tElI2
          r) tga (g       gI
          &) tia (_       S@
+        &s) tia (_       tS@
          @) t (ia        S
         pi) t (ia        t
         is) t (ian+      t
@@ -4625,7 +4632,6 @@
          @) u (ctive     'V
             u (guC       V
          f) u (gal       'ju:
-        pl) ug           Vg
             ug (er_      u:g
          s) ugge (st     @dZE
         mp) ug (n        ju:
@@ -4896,6 +4902,9 @@
             y            j
             y (C_        I
             y (CC        I
+         _) y (C@        I
+         _) y (n@        V
+         _) y (s@        V
          C) y (abl       I2
             y (y
             y (C         I

@@ -1,10 +1,10 @@
 # remove -fno-exceptions  if it causes problems with stdio library on some platforms (ARM)
 
-PREFIX=/
-BINDIR=$(PREFIX)/usr/bin
-INCDIR=$(PREFIX)/usr/include/espeak
-LIBDIR=$(PREFIX)/usr/lib
-DATADIR=$(PREFIX)/usr/share/espeak-data
+PREFIX=/usr
+BINDIR=$(PREFIX)/bin
+INCDIR=$(PREFIX)/include/espeak
+LIBDIR=$(PREFIX)/lib
+DATADIR=$(PREFIX)/share/espeak-data
 
 RELEASE = 1.36
 BIN_NAME = speak
@@ -24,9 +24,9 @@ INSTALL = install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
-#AUDIO = pulseaudio
 AUDIO = portaudio
-
+#AUDIO = pulseaudio
+#AUDIO = sada
 
 ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp
@@ -38,7 +38,12 @@ WAVE=wave.cpp
 LIB_AUDIO=-lportaudio
 USE_AUDIO=-DUSE_PORTAUDIO
 else
+ifeq ($(AUDIO),sada)
+WAVE=wave_sada.cpp
+USE_AUDIO=-DUSE_SADA
+else
 WAVE=wave.cpp
+endif
 endif
 endif
 

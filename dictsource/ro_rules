@@ -12,13 +12,15 @@
 .group a
         a        a
         ai       aI
-        ai (_    'aI
+        ai (a    aj 
+	ai (_    'aI
         au       aU   // ?? only at end of word ??
+     c) au (t    au	
         au (_    'aU
         a (AAA   a
      &) a (_S1q  a
 
-    gi) a (_S1q  'a
+    gi) a (_S1q  a
     V@) a (N_    'a	
     ăi) a (_     'a
      @) abil (_  'abil
@@ -31,6 +33,7 @@
         ă        @
         ăi (_    @I
         ău       @U  // ?? only at end of word ??
+	c) ău (t @u
         ău (_    '@U
      @) ăte (_S3t @te
      @) ătă (_S3t @t@
@@ -86,6 +89,7 @@
      @) cnea (_  kne'a
 
 
+
 .group d
         d        d
         dd       d
@@ -98,7 +102,9 @@
         ei (_ eI
 //      eu       eU   // only at end of word ??
 //      eu       e[u    // ??
-        eu (_    'eU
+     @) eu (l_   'eu
+     @) eu (_    eu
+     @) eu (_N  'eU
         ea       ea
      &) ea (_S2q ea
      &) eSi      eaj
@@ -112,24 +118,24 @@
      @) eşului (_ =eSuluI
      @) eşilor (_ =eSilor
 
-     @) ec (a_   =ek
-     @) ec (ă_   =ek
-     @) ec (ii_  =ek
-     @) ec (ile_ =ek
-     @) ec (ilor_ =ek
-   @At) ec (i@_  etS
-   @At) ec (A_   ek
-   @At) ec (ii_  eTtS 
+     //@) ec (a_   =ek
+     //@) ec (ă_   =ek
+     //@) ec (ii_  =etS
+     //@) ec (i_ =etS
+     //@) ec (ilor_ =etS
+   //@At) ec (i@_  etS
+   //@At) ec (A_   ek
+   @At) ec (ii_  etS 
 //   &) es (_S1q e
     &C) e (re_   %e
    _ac) ee (a	 eI
 
      r) ei (er_  'eI
-
      @) e (re_   =e
      @) e (ri_   =e
      @) e (rea_  =e
      @) e (rii_  =e
+     @) e (rei_ =e     
      i) e (re_   e
      i) e (ri_   e
      i) e (rii_  e
@@ -155,6 +161,9 @@
         g (i     dZ
         gii      dZiI
         gh       g
+     &) gii (_  dZ'iI
+&) gi (A_  dZi
+
 
 
 .group h
@@ -221,6 +230,7 @@
      &) icile (_ =itSile 
      &) icilor (_ =itSilor
      @) icii (_  =itSiI
+     @) icei (_ =itSeI
 
    scr) i (e 'i
      &) ing (_   %iNg     // foreign words
@@ -263,8 +273,6 @@
      &) le (_S2t  le
      &) lor (_S3t lor
      &) lui (_S3t luI
-     &) logi (A_  lodZ'i
-     &) logii (_  lodZ'iI
 
 
 .group m
@@ -303,7 +311,8 @@
      _) oi       oI
         oi (_    'oI
         ou       oU
-        ou (_    'oU
+        ou (_N   'oU
+        ou (_    ou
         o (AAA   o
 
 
@@ -388,13 +397,15 @@
 
 
 .group u
-        u        u
-        u (A     w
-     _) ui       uI
-        ui (_ uI
-        ui (e    wi
-    V&) ui (_N    u'i
+        u	u
+        u (A	w
+     _) ui	uI
+        ui (_	'uI
+     r) ui (n	ui	
+        ui (e	wi
+    V&) ui (_N	u'i
 
+  dest) ul  ul
      &) ul  (_S2t ul
    @ic) ul (_S2t  ul
    @ic) ule (_S3t ule
@@ -430,24 +441,15 @@
 
 
 .group x
-        x        ks
-     A) x (A     gz
-    ma) x (i     ks
-  cone) x (iu    ks
-     i) x (e     ks
-     o) x (e     ks       // boxele
-     u) x (a     ks
-     a) x (a     ks
-     a) x (ă     ks
-     a) x (e     ks
-     i) x (a     ks
-     o) x (a     ks
-     A) x (â     ks
-     @) x (ibil  ks
-     o) x (i     ks       // oxigen
-     a) x (ia    ks       // axial
-   ale) x        ks
-    ta) x        ks
+        x	ks
+     e) x (a	gz
+     e) x (e	gz
+     e) x (i	gz
+    me) x (ic	ks
+     e) x (iA_	ks
+     e) x (iu	ks
+     e) x (Ag	ks
+    le) x	ks
 
 
 .group y
@@ -466,13 +468,6 @@
     D_) %        la_sut@
         %        p@-*otSent
         $        dolar
-        +        plus
-        &        ampersand
-        ©        k'apiraIt 
-        @        a*'ond
-        /        sleS
-        €        'eU*o
-        °        g@-*ade
 
         , (D     v'irgul@
 
@@ -489,5 +484,6 @@
     *)  * (*
         **
    **)  * (_     _::
+
 
 

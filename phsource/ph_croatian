@@ -1,3 +1,74 @@
+
+
+phoneme S  // this is letter š
+  vls pla frc sibilant
+  vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  vowelout f1=0  f2=2100 100 300  f3=-100 80
+  length 30
+  lengthmod 3
+  wave ufric/sh3%220
+  before _ ufric/sh3%160
+  switchvoicing Z
+endphoneme
+
+phoneme tS  // this is letter č
+  vls pla afr sibilant
+  vowelin f1=0  f2=1900 100 200  f3=-100 80
+  length 90
+  lengthmod 2
+  wave ustop/tsh2
+  before _ ustop/tsh2%70
+  switchvoicing dZ
+endphoneme
+
+phoneme tS;  // this is letter ć
+  vls pal afr sibilant palatal
+  vowelin f1=0  f2=2500 300 500  f3=300 80 rate len=70
+  lengthmod 2
+  wave ustop/ts_pzd3
+  before _ ustop/ts_pzd3%80
+  switchvoicing dZ;
+endphoneme
+
+
+phoneme Z    // letter ž
+  vcd pla frc sibilant
+  vowelin  f1=0  f2=2000 0 300  f3=-200 80
+  vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  formants voc/zh+ufric/sh3%240
+  before _ voc/zh_+ufric/sh3%170
+  lengthmod 6
+  switchvoicing S
+endphoneme
+
+phoneme dZ    //letter dž
+  vcd pla afr sibilant
+  vowelin f1=2  f2=1900 100 300  f3=100 80
+  vowelout f1=2  f2=1900 100 300  f3=100 80 brk
+  formants dzh/dzh2+ustop/tsh2%140
+  before _ dzh/dzh_+ustop/tsh2%100
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing tS
+endphoneme
+
+phoneme dZ;    // letter đ
+  vcd pla afr sibilant palatal
+  vowelin f1=2  f2=2500 300 500  f3=300 80 rate len=70
+  formants dzh/dzh2+ustop/ts_pzd3%140
+  before _ dzh/dzh_+ustop/ts_pzd3%80
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing tS;
+endphoneme
+
+
+
+
+
+
 phoneme @    //  Schwa
   vowel   starttype (@)  endtype (@)
   formants vowel/@_hgh
@@ -154,4 +225,5 @@ phoneme r*
   appendph *
   length 50
 endphoneme
+
 

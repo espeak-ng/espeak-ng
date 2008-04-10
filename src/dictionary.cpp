@@ -1086,6 +1086,24 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	
 	switch(langopts.stress_rule)
 	{
+	case 8:
+		// stress on first syllable, unless it is a light syllable
+		if(syllable_weight[1] > 0)
+			break;
+		// else drop through to case 1
+	case 1:
+		// stress on second syllable
+		if((stressed_syllable == 0) && (vowel_count > 2))
+		{
+			stressed_syllable = 2;
+			if(max_stress == 0)
+			{
+				vowel_stress[stressed_syllable] = 4;
+			}
+			max_stress = 4;
+		}
+		break;
+
 	case 2:
 		// a language with stress on penultimate vowel
 

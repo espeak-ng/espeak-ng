@@ -1278,5 +1278,5 @@ include ph_indonesian
 phonemetable rw base2
 include ph_kinyarwanda
 
-phonemetable ko base
+phonemetable ko hi
 include ph_korean

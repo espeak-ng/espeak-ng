@@ -105,11 +105,11 @@ language).
 
        e (Dn	@ //en eng
 
-       er	@r
-       e1r	@r55
-       e2r	@r35
-       e3r	@r214
-       e4r	@r51
+       er (K	@r
+       e1r (K	@r55
+       e2r (K	@r35
+       e3r (K	@r214
+       e4r (K	@r51
 
 .group f
        f        f

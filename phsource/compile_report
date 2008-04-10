@@ -24,7 +24,7 @@
       pl  15  109
       sk  29  127
       cs   6  127
-      hr  20  132
+      hr  26  132
       mk   3  133
       sr  14  132
       ru  39  129
@@ -47,8 +47,8 @@
       tr  18  122
       ku  17  121
       id  15  119
-      rw  12  122
-      ko  18  114
+      rw  15  124
+      ko  18  145
 
 Data file      Used by
 b/b             [b] base
@@ -172,8 +172,12 @@ dzh/dzh_        [dZ] base
                 [dZ;] base
                 [dz;] base
                 [J] hi
+                [dZ] hr
+                [dZ;] hr
                 [dZ;] mk
                 [dZ;] ru
+dzh/dzh2        [dZ] hr
+                [dZ;] hr
 dzh/dz_pzd      [J] base
                 [J2] hi
                 [J] tr
@@ -184,11 +188,14 @@ dzh/xdzh        [dZ] base
                 [dZ;] base
                 [dz;] base
                 [J] hi
+                [dZ] hr
+                [dZ;] hr
                 [dZ;] mk
                 [dZ;] ru
 dzh/xdz_pzd     [J] base
                 [J2] hi
 envelope/i_risefall  [11] zh
+envelope/i_risefall2  [+2] rw
 envelope/p_214  [214] zh
 envelope/p_512  [8] vi
 envelope/p_fall  [2] vi
@@ -200,6 +207,7 @@ envelope/p_fall  [2] vi
                 [22] zh
                 [33] zh
                 [53] zh
+                [+] rw
 envelope/p_fallrise  [4] vi
 envelope/p_level  [1] vi
                 [3] zhy
@@ -602,8 +610,11 @@ ufric/sh        [S] base
 ufric/sh_       [S] base
                 [S] fr
                 [s#] pt_pt
+ufric/sh3       [S] hr
+                [Z] hr
 ufric/sh_pzd    [S;] base
                 [S;] ro
+                [s`] ko
 ufric/sh_pzd_   [S;] base
                 [Z;] base
 ufric/sh_pzd2   [S] sr
@@ -801,6 +812,8 @@ ustop/tsh       [tS] base
                 [c] zhy
 ustop/tsh_      [tS] base
                 [c] zhy
+ustop/tsh2      [tS] hr
+                [dZ] hr
 ustop/t_short   [t.] hi
                 [t] sk
                 [t] el
@@ -811,11 +824,13 @@ ustop/ts_pzd    [tS;] base
                 [ts;] base
                 [ch] hi
                 [tS;] ru
-                [tS`] ko
 ustop/ts_pzd_   [c] hi
                 [c] hu
 ustop/ts_pzd2   [c] hi
                 [c] hu
+                [c`] ko
+ustop/ts_pzd3   [tS;] hr
+                [dZ;] hr
 ustop/t_sr      [d] sr
                 [t] sr
 ustop/ts_rfx    [ts.] zh
@@ -1135,10 +1150,12 @@ voc/z_          [z] base
 voc/zh          [Z] base
                 [z.] base
                 [R^] sk
+                [Z] hr
                 [Z] sr
                 [Z;] ro
 voc/zh_         [Z] base
                 [z.] base
+                [Z] hr
                 [Z;] ro
 voc/zh_2        [R^/] sk
 voc/z_pzd       [Z;] base

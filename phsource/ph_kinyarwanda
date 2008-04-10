@@ -1,0 +1,115 @@
+
+//******************************
+// Phonemes for Kinyarwanda (rw), inherits "base2"
+//******************************
+ 
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vowel/a_2
+  reduceto a/  4
+  beforepause a#
+  beforevowel NULL
+endphoneme
+
+
+phoneme a/
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/a#
+  beforepause a#
+  beforevowel NULL
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e
+  beforepause e#
+  beforevowel NULL
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/i
+  beforepause i#
+  beforevowel NULL
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o
+  beforepause o#
+  beforevowel NULL
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_bck
+  beforepause u#
+  beforevowel NULL
+endphoneme
+
+
+phoneme a#
+  vowel starttype (@) endtype (@)
+  length 100
+  formants vowel/a#
+  beforevowel NULL
+endphoneme
+
+phoneme e#
+  vowel starttype (e) endtype (e)
+  length 100
+  formants vowel/e
+  beforevowel NULL
+endphoneme
+
+
+phoneme i#
+  vowel starttype (i) endtype (i)
+  length 100
+  formants vowel/i
+  linkout ;
+  beforevowel NULL
+endphoneme
+
+
+phoneme o#
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o
+  beforevowel NULL
+endphoneme
+
+
+phoneme u#
+  vowel starttype (u) endtype (u)
+  length 100
+  formants vowel/u_bck
+  beforevowel NULL
+endphoneme
+
+
+phoneme :   // Lengthen previous vowel by "length"
+  virtual
+  length 120
+endphoneme
+
+phoneme +   // high tone, use after a vowel
+  stress
+  tone 0 30 envelope/p_fall NULL
+endphoneme
+
+phoneme +2  // high tone, use after a vowel
+  stress
+  tone 0 30 envelope/i_risefall2 NULL
+endphoneme
+

@@ -875,6 +875,7 @@ dipole           daIpoUl
 disconsolate     dIsk'0ns@l@t 
 disc             dIsk          // for discs
 disciple         dIs'aIp@L
+discourse         $1
 discounted        $2
 disease          dIz'i:z
 dishes           dISIz
@@ -891,6 +892,7 @@ domino            $1
 donor            doUn3
 dont             doUnt         $only
 dose             doUs
+dosage           doUsIdZ
 dramatic         dr@matIk
 drawer           drO@
 drier            draI3
@@ -1256,7 +1258,6 @@ literature       lItrItS3
 live             laIv          $onlys
 live             lIv           $verb
 livestock        l'aIvst,0k
-liver            lIv3
 lively           laIvlI2
 llama            lA:m@
 loch             l0x
@@ -1529,6 +1530,7 @@ pirate           paIr@t
 piteous          pIti@s
 pituitary                      $2
 plaguing         pleIgIN
+plugin           plVgIn
 plunging         plVndZIN
 plus             plVs
 poky             poUkI2
@@ -1772,6 +1774,7 @@ sergeant         sA@dZ@nt
 settee                         $2
 severe           sIv'i@3        $only
 severely         sIv'i@3lI2     $verbf
+sex              sEks		// sexism
 several          sEvr@L
 shampoo                        $2
 sheriff          S'ErIf
@@ -1936,7 +1939,6 @@ tribunal         traIb'ju:n@L
 trilogy          trIl@dZI2
 trio             tri:oU
 trojan           troUdZ@n
-trolley          tr0lI2
 trophy           troUfI2
 truely           tru:lI2       $verbf
 truest           tru:@st

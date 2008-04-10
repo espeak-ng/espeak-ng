@@ -908,6 +908,7 @@ void Translator::CalcPitches(int clause_type)
 	int count;
 	int n_primary;
 	int count_primary;
+	PHONEME_TAB *ph;
 	int ph_end=n_phoneme_list;
 
 	SYLLABLE syllable_tab2[N_PHONEME_LIST];
@@ -1081,6 +1082,13 @@ void Translator::CalcPitches(int clause_type)
 				p->pitch2 = x;
 			}
 
+if(p->tone_ph)
+{
+	ph = phoneme_tab[p->tone_ph];
+	x = (p->pitch1 + p->pitch2)/2;
+	p->pitch2 = x + ph->end_type;
+	p->pitch1 = x + ph->start_type;
+}
 
 			if(syl->flags & SYL_EMPHASIS)
 			{

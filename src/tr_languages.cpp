@@ -47,6 +47,7 @@
 #define OFFSET_CYRILLIC 0x420
 #define OFFSET_DEVANAGARI  0x900
 #define OFFSET_TAMIL  0xb80
+#define OFFSET_KOREAN 0x1100
 
 
 static const unsigned int replace_cyrillic_latin[] = 
@@ -456,8 +457,21 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('k','o'):   // Korean, TEST
+		{
+			static const char ko_ivowels[] = {0x63,0x64,0x67,0x68,0x6d,0x72,0x74,0x75,0};  // y and i vowels
+			static const char ko_voiced[] = {0x02,0x05,0x06,0xab,0xaf,0xb7,0xbc,0};  // voiced consonants, l,m,n,N
 			tr = new Translator();
+
+			tr->letter_bits_offset = OFFSET_KOREAN;
+			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+			SetLetterBitsRange(tr,LETTERGP_A,0x61,0x75);
+			SetLetterBits(tr,LETTERGP_Y,ko_ivowels);
+			SetLetterBits(tr,LETTERGP_G,ko_voiced);
+
+			tr->langopts.stress_rule = 8;   // ?? 1st syllable if it is heavy, else 2nd syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			tr->langopts.numbers = 0x0401;
+		}
 		break;
 
 	case L('k','u'):   // Kurdish
@@ -684,7 +698,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
-			tr->langopts.stress_rule = 1;
+			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->letter_bits_offset = OFFSET_TAMIL;
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
