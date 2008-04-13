@@ -8,17 +8,54 @@ _cap	k'apital
 _??	s'imbolo
 _?A	let:'e:Ra
 
+_a	a:
+b	bi
+c	tSi
+d	di
+_e	e:
+f	effe
+g	dZi
+h	ak:a
+_i	i:
+j	dZe:j
+k	kap:a
+l	Elle
+m	Emme
+n	Enne
+_o	O:
+p	pi
+q	ku
+r	ER*e
+s	esse
+t	ti
+_u	u:
+v	vu
+w	d'op:jav'u
+x	'iks
+y	'ipsilon
+z	dze:ta
+
+_à	$accent
+_é	$accent
+_è	$accent
+_ì	$accent
+_ó	$accent
+_ò	$accent
+_ù	$accent
+
+
 
 // accent names
 _lig	l,egat'u:Ra
-_acu	atS:'ento_|ak'u:to
-_ac2	d'op:i;o_|atS:'ento_|ak'u:to	
+_acu	ak'u:to
+_ac2	d'op:i;o_|ak'u:to	
 _brv	b@-*'e:ve
 _ced	tSed'il^a
 _cir	tSi;@-*konfl'esso
 _dia	djeR'e:zI
 _dot	p'unto||s,ov@-*ask@-*'it:o
-_grv	atS:'entog@-*'a:ve
+_grv	g@-*'a:ve
+//_grv	atS:'entog@-*'a:ve
 _hac	h'atSek
 _mcn	m'ak@-*on
 _ogo	og'o:nek
@@ -366,15 +403,10 @@ facevano	$u+
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
-_a	a:
+// "letter" name, then include the letter name here
 a	a:  $atend
-_e	e:
 e       e:  $atend
-_i	i:
 i       i:  $atend
-_o	O:
 o       O:  $atend
 
 

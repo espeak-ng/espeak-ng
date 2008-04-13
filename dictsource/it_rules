@@ -3,7 +3,6 @@
 
 
 .group a
-	_)	a(_	a
 		a	a:
 		a (CK	a
 		ai      aI (K
@@ -23,14 +22,12 @@
 		a (tterA_   'a
 
 .group b
-	_)	b(_	bi
 		b       b
 		bb      b:
 
 	li)	be	=be
 		
 .group c
-	_)	c(_	tSi
 		c	k
 		cc	k:
 		c ('    tS
@@ -61,13 +58,11 @@
 	@)	co (lA_ =ko
 		
 .group d
-	_)	d(_	di
 		d	d
 		dd	d:
 	n)	dere    =deRe
 
 .group e
-	_)	e(_	e
 		e	e:
 		e (CK	e
 		ei	ej (K
@@ -88,7 +83,6 @@
 
 		
 .group f
-	_)	f(_	effe
 		f	f
 
 	@A)	f (ico_  =f
@@ -97,7 +91,6 @@
 	@A)	f (ero_  =f
 		
 .group g
-	_)	g(_	dZi
 		g	g
 		gg	g:
 		gh	g
@@ -136,12 +129,10 @@
 
 	
 .group h
-	_)	h(_	ak:a
 		h
 		ha      h'a
 
 .group i
-	_)	i(_	i
 		i	i:
 		i (CK	i
 		i (A	j
@@ -175,28 +166,23 @@
 
 		
 .group j
-	_)	j(_	dZe:j
 		j	j
 
 .group k
-	_)	k(_	kap:a
 		k	k
 		kk	k:
 		
 .group l
-	_)	l(_	Elle
 		l	l
                ll (C    l_
                ll (_    l
 		
 .group m
-	_)	m(_	Emme
 		m	m
 	A)	mi (a   m'i:
 	@)	mi (co_ m'i:
 		
 .group n
-	_)	n(_	Enne
 		n	n
 		n (g	N
 		n (ge   n
@@ -206,7 +192,6 @@
 		n (k	N
 		
 .group o
-	_)	o(_	o
 		o	o:
 		o (CK	o
 		oi	oI (K
@@ -226,7 +211,6 @@
 
 	
 .group p
-	_)	p(_	pi
 		p	p
 		pp	p:
         _)      pn (@@   n
@@ -234,12 +218,10 @@
 	@m)	p (ere_ =p
 
 .group q
-	_)	q(_	ku
 		q	kw2
 		qu	kw2
 
 .group r
-	_)	r(_	ER*e
 	C)	r	@-*
 		r	@-*
 	_)	r	@-*
@@ -247,7 +229,6 @@
 	A)	r (A	R
 		
 .group s
-	_)	s(_	esse
 		s	s
 	_)	s	s
 	A)	s (A	z
@@ -283,12 +264,10 @@
 	@)	sia	s'ia	
 		
 .group t
-	_)	t(_	ti
 		t	t
 		tt	t:
 		
 .group u
-	_)	u(_	u
 		u	u:
 		u (CK	u
 		u (A	w2
@@ -299,25 +278,20 @@
 	@)	u (colo_  'u
 
 .group v
-	_)	v(_	vu
 		v	v
 	
 .group w
-	_)	w(_	d'op:jav'u
 		w	w2
 
 .group x
-	_)	x(_	'iks
 		x	ks
 		
 .group y
-	_)	y(_	'ipsilon
 		y	j
 		y (K	i        // foreign words
 	
 		
 .group z
-	_)	z(_	dze:ta
 		z	ts
 	A)	zz	ts:
 

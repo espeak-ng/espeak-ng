@@ -377,8 +377,8 @@ o    o:   oU   r*   r-   u    U    u:
 
 *    ;    b    d    dZ   dZ;  f    g    
 h    j    k    l    L    l^   m    n    
-N    n^   p    r    R    s    S    t    
-tS   ts   tS;  v    x    z    Z    
+N    n^   p    r    R    R2   s    S    
+t    tS   ts   tS;  v    x    z    Z    
 
 
 Dictionary id_dict
@@ -414,10 +414,10 @@ R    s    S    t    tS   v    z    Z
 
 Dictionary ku_dict
 
-a    e    E    E#   eI   eU   i    I    
-o    u    U    y    
+8    a    e    E    E#   eI   eU   i    
+I    o    u    U    y    
 
-:    b    c    d    dZ   f    g    h    
-j    J    k    l    m    n    p    q    
-r    R    s    S    t    tS   v    w    
-x    z    Z    
+*    :    b    c    d    dZ   f    g    
+h    j    J    k    l    m    n    p    
+q    r    R    s    S    t    tS   v    
+w    x    z    Z    

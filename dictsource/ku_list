@@ -95,6 +95,8 @@ _!	banES'an
 a	$u+
 ê	$u+	
 
+
+
 // pronouns
 ez	$u+
 te	$u+
@@ -115,7 +117,7 @@ yên	$u
 ji	$u
 bi	$u
 re	$u
-di	$u
+di	$u $brk
 de	$u
 kir	$u
 got	$u
@@ -125,3 +127,6 @@ got	$u
 hwd	hEr||wEki||dIn
 
 // pronunciation exceptions
+
+lê	$u+
+nebû	$1

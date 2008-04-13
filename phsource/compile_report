@@ -45,7 +45,7 @@
       zh  65  148
       sw  14  107
       tr  18  122
-      ku  17  121
+      ku  18  122
       id  15  119
       rw  15  124
       ko  18  145
@@ -1177,7 +1177,6 @@ vowel/&         [a] en_rp
                 [&] fi
                 [&:] hi
                 [&] sv
-                [E] ku
 vowel/0         [0] en
                 [O] hi
                 [O] pt
@@ -1207,6 +1206,7 @@ vowel/8         [o-] zh
 vowel/8_2       [U] en_us
                 [8] sv
 vowel/8_3       [eo] zhy
+vowel/8_5       [8] ku
 vowel/a         [a] en_n
                 [aa] en_n
                 [a] en_wm
@@ -1342,13 +1342,13 @@ vowel/e_2       [eI] en_sc
                 [e:] sv
                 [e:] no
 vowel/e_3       [e:] hu
+                [e] ku
 vowel/e_5       [i] en_sc
 vowel/ee        [E] fr
                 [E] pl
                 [E] sv
 vowel/e_e       [E] en_sc
                 [e] is
-vowel/ee#       [E#] ku
 vowel/ee_1      [E] base2
                 [e@] en
                 [e@] en_n
@@ -1362,6 +1362,7 @@ vowel/ee_2      [E] en
                 [E] cy
                 [E2] nl
                 [E] zh
+                [E#] ku
 vowel/ee#_2     [E-] sv
 vowel/ee_3      [&] af
                 [&:] af
@@ -1370,6 +1371,7 @@ vowel/ee_3      [&] af
 vowel/ee_6      [E] en_n
                 [&] sk
                 [E3] sv
+                [E] ku
 vowel/e_mid     [E] en_rp
                 [e] jbo
                 [E] fr_ca
@@ -1470,7 +1472,7 @@ vowel/ii        [I] en_rp
                 [I] nl
                 [I] is
                 [i] zhy
-                [e] ku
+                [I] ku
 vowel/ii#       [Y] cy
                 [y] pl
                 [Y] ru

@@ -1576,7 +1576,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		if(!iswalpha(0x010d))
 		{
 			// check that c-caron is recognized as an alphabetic character
-			fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\n");
+			fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\nSet LC_CTYPE to a UTF-8 locale\n");
 		}
 	}
 	if(phoneme_callback != NULL)

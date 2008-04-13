@@ -2,35 +2,37 @@
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 170
+  length 190
   formants vowel/i_6
 endphoneme
 
 
 phoneme I
-  vowel starttype (i) endtype (i)
-  length 125
+  vowel starttype (@) endtype (@)
+  length 110
   formants vowel/ii#
+  before j  vowel/ii
 endphoneme
+
 
 
 phoneme e
   vowel starttype (e) endtype (e)
   length 220
-  formants vowel/ii
+  formants vowel/e_3
 endphoneme
 
 
 phoneme E
   vowel starttype (a) endtype (a)
-  length 160
-  formants vowel/&
+  length 150
+  formants vowel/ee_6
 endphoneme
 
 phoneme E#
-  vowel starttype (@) endtype (@)
-  length 150
-  formants vowel/ee#
+  vowel starttype (e) endtype (e)
+  length 140
+  formants vowel/ee_2
 endphoneme
 
 
@@ -38,6 +40,13 @@ phoneme a
   vowel starttype (a) endtype (a)
   length 210
   formants vowel/aa#
+endphoneme
+
+
+phoneme 8
+  vowel starttype (@) endtype (@)
+  length 160
+  formants vowel/8_5
 endphoneme
 
 

@@ -78,6 +78,8 @@
 
 .group r
         r        R
+        rr       R
+     A) r (A     *
 
 .group s
         s        s
@@ -99,6 +101,7 @@
 
 .group w
         w        w
+     x) we       8
 
 .group x
         x        x
