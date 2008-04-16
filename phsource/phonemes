@@ -989,6 +989,7 @@ phoneme q
   vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
   lengthmod 2
   wave ustop/q%48
+  before (u) ustop/q_u%80
   before _ ustop/q%40
 endphoneme
 
@@ -1274,9 +1275,3 @@ include ph_kurdish
 phonemetable id base2
 include ph_indonesian
 
-
-phonemetable rw base2
-include ph_kinyarwanda
-
-phonemetable ko hi
-include ph_korean

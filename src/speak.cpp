@@ -232,12 +232,12 @@ static void PitchAdjust(int pitch_adjustment)
 static int OpenWaveFile(const char *path, int rate)
 //=================================================
 {
-	// Set the length of 0x7fffffff for --stdout
+	// Set the length of 0x7ffff000 for --stdout
 	// This will be changed to the correct length for -w (write to file)
 	static unsigned char wave_hdr[44] = {
-		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
+		'R','I','F','F',0x24,0xf0,0xff,0x7f,'W','A','V','E','f','m','t',' ',
 		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
-		2,0,0x10,0,'d','a','t','a',  0xff,0xff,0xff,0x7f};
+		2,0,0x10,0,'d','a','t','a',  0x00,0xf0,0xff,0x7f};
 
 	if(path == NULL)
 		return(2);

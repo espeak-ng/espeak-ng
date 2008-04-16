@@ -360,13 +360,11 @@ t    tS   v    w    x    z    Z
 
 Dictionary ko_dict
 
-a    e    E    i    ji   o    u    u-   
-V    
+a    E    i    V    
 
-b    c    C    c`   ch   d    dZ   g    
-h    j    J    k    k`   kh   l    m    
-n    N    p    p`   ph   r    s    S;   
-s`   t    t`   th   w    
+-    b    c    C    d    dZ   g    h    
+j    J    k    l    m    n    N    p    
+r    s    S;   t    w    
 
 
 Dictionary hbs_dict
@@ -394,7 +392,7 @@ v    w    x    z
 
 Dictionary rw_dict
 
-a    e    i    o    u    
+a    e:   i    i:   o:   u:   
 
 *    :    b    B    c    d    dZ   f    
 g    h    j    J    k    l    m    n    

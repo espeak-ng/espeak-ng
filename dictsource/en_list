@@ -1801,6 +1801,7 @@ ski              ski:
 skies            skaIz
 skied            ski:d
 skua             sku:@
+slavish          sleIvIS
 snooker          snu:k3
 society          s@saI@tI2
 sofa             soUf@
@@ -1829,7 +1830,6 @@ standby          standbaI
 stagnate                       $2
 stampede          $2
 strychnine       str'Ikni:n
-slavish          sleIvIS
 ?3 status        stat@s
 sterile          stEraIl
 stomata          stoUm@t@
@@ -2186,6 +2186,7 @@ Geneva		dZ@ni:v@
 Harare		h@rA:rI
 Hanoi		han'OI
 Hawaii		h@w'aIi:
+Hawai'i		h@w'aIi:
 Hawaiian	h@w'aI@n
 Hebrew		hi:bru:
 Hebrides	hEbr@di:z
@@ -2786,7 +2787,6 @@ never             $verbf
 now               $verbf
 soon              $verbf
 still             $verbf
-also              $verbf
 already           O:lr,EdI2    $verbf $strend2
 
 not              ,n0t          $verbextend $only $strend

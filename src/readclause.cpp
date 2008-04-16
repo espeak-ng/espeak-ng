@@ -2129,7 +2129,7 @@ f_input = f_in;  // for GetC etc
 		if(iswupper(c1))
 		{
 			clause_upper_count++;
-			if((option_capitals == 2) && !iswupper(cprev))
+			if((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev))
 			{
 				char text_buf[40];
 				char text_buf2[30];
