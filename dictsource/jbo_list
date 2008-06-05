@@ -18,25 +18,25 @@ _9	so
 _dpt	pi_
 
 
-a	abu
+_a	abu
 b	b@
 c	S@
 d	d@
-e	ebu
+_e	ebu
 f	f@
 g	g@
-i	ibu
+_i	ibu
 j	Z@
 k	k@
 l	l@
 m	m@
 n	n@
-o	obu
+_o	obu
 p	p@
 r	R@
 s	s@
 t	t@
-u	ubu
+_u	ubu
 v	v@
 x	x@
 y	'@bu
@@ -48,7 +48,7 @@ w	v@bu
 
 
 // stressed cmavo
-cai	k'aI_!
+cai	S'aI_!
 cu'i	S'uhi_!
 pei	p'eI_!
 ru'e	R'uhe_!

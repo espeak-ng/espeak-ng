@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-03-19 Michel Such  <michel.such@free.fr>
+// Updated: 2008-05-27 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -649,9 +649,9 @@ _)		half  	_^_en
 	anqu)	ill         ill		// tranquille
 	_m)	ill         il		// mille
 	v)	ill         il		// village
-	u)	ill         ij		// cuillière cueillir
+	qu)	ill         ij		// cuillière cueillir
 	A)	ill         j		// caillou
-		ill         ij		// famille
+	C)	ill         ij		// famille
 	a)	il (_       j		// bail
 	e)	il (_       j
 	u)	il (_       j		// deuil
@@ -778,11 +778,7 @@ _)		half  	_^_en
 	_C)	on (_      O~n2		// mon appui, mon histoire, mon havre
 	_c)	on (_      O~		// no comment
 
-	z) 	o (ne_      o		// amazone
-	c) 	o (ne_      o
-	h) 	o (ne_      o
-	ph)	o (ne_	    O	// téléphone
-	r) 	o (ne_      o
+	 	o (re_      O
 
 	alc)	oo (l       O		// alcool
 	z) 	oo          o		// zoo
@@ -1220,6 +1216,7 @@ n)		t (-        t2  // silent at end of verb unless next word starts with a vowe
 	¾	tRw'a k'aR
 	©	_^_EN
 	®	R@ZistR'@d_m'aRk
+
 
 
 

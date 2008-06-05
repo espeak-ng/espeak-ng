@@ -71,8 +71,8 @@ endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 160
-  formants vowel/u_bck
+  length 180
+  formants vowel/u_bck2
 endphoneme
 
 
@@ -428,6 +428,7 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 
 
 

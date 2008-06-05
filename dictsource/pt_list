@@ -278,7 +278,7 @@ aquele	$u+       // that
 aquela	$u+
 
 ?1	que	ky	$u 
-?2	que	$u $pause
+?2	que	ke	$u $pause
 
 // possessive adjectives
 meu	$u+

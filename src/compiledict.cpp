@@ -114,8 +114,10 @@ MNEM_TAB mnem_flags[] = {
 };
 
 
+#define LEN_GROUP_NAME  12
+
 typedef struct {
-	char name[6];
+	char name[LEN_GROUP_NAME+1];
 	unsigned int start;
 	unsigned int length;
 } RGROUP;
@@ -632,7 +634,7 @@ char rule_pre[80];
 char rule_post[80];
 char rule_match[80];
 char rule_phonemes[80];
-char group_name[12];
+char group_name[LEN_GROUP_NAME+1];
 
 #define N_RULES 2000		// max rules for each group
 
@@ -1338,7 +1340,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 				p = (unsigned char *)&buf[6];
 				while((p[0]==' ') || (p[0]=='\t')) p++;    // Note: Windows isspace(0xe1) gives TRUE !
 				ix = 0;
-				while((*p > ' ') && (ix<12))
+				while((*p > ' ') && (ix < LEN_GROUP_NAME))
 					group_name[ix++] = *p++;
 				group_name[ix]=0;
 	

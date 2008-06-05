@@ -62,7 +62,7 @@ static espeak_ERROR push(t_espeak_command* the_command);
 static t_espeak_command* pop();
 static void init();
 static int node_counter=0;
-enum {MAX_NODE_COUNTER=200,
+enum {MAX_NODE_COUNTER=400,
       INACTIVITY_TIMEOUT=50, // in ms, check that the stream is inactive
       MAX_INACTIVITY_CHECK=2
 };
