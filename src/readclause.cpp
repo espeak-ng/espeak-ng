@@ -1818,8 +1818,8 @@ MNEM_TAB xml_char_mnemonics[] = {
 	{NULL,-1}};
 
 
-int Translator::ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf)
-{//=================================================================================
+int Translator::ReadClause(FILE *f_in, char *buf, short *charix, int n_buf)
+{//========================================================================
 /* Find the end of the current clause.
 	Write the clause into  buf
 
@@ -2274,7 +2274,7 @@ if(option_ssml) parag=1;
 		{
 			charix[ix] = count_characters - clause_start_char;
 			while(j < ix)
-				charix[j++] = 0xffff;   // subsequent bytes of a multibyte character
+				charix[j++] = -1;   // subsequent bytes of a multibyte character
 		}
 
 		if(((ix > (n_buf-20)) && !IsAlpha(c1) && !iswdigit(c1))  ||  (ix >= (n_buf-2)))

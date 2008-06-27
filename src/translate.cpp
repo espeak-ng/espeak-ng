@@ -2010,7 +2010,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int j, k;
 	int n_digits;
 
-	unsigned short charix[N_TR_SOURCE+1];
+	short charix[N_TR_SOURCE+1];
 
 	WORD_TAB words[N_CLAUSE_WORDS];
 	int word_count=0;      // index into words
@@ -2106,7 +2106,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	while(charix[j] != 0)
 	{
 		// count the number of characters (excluding multibyte continuation bytes)
-		if(charix[j++] != 0xffff)
+		if(charix[j++] != -1)
 			k++;
 	}
 	words[0].length = k;
@@ -2511,13 +2511,13 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				words[word_count].start = ix;
 				words[word_count].flags = 0;
 
-				for(j=source_index; charix[j] == 0; j++);   // skip blanks
+				for(j=source_index; charix[j] <= 0; j++);   // skip blanks
 				words[word_count].sourceix = charix[j];
 				k = 0;
 				while(charix[j] != 0)
 				{
 					// count the number of characters (excluding multibyte continuation bytes)
-					if(charix[j++] != 0xffff)
+					if(charix[j++] != -1)
 						k++;
 				}
 				words[word_count].length = k;

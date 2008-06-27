@@ -435,7 +435,7 @@ private:
 	void MakePhonemeList(int post_pause, int new_sentence);
 	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
 
-	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);
+	int ReadClause(FILE *f_in, char *buf, short *charix, int n_buf);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
 	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab);
