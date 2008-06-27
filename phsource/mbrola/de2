@@ -1,0 +1,66 @@
+0  I  ;      0  i:
+0  3  VWL    60 6  R
+
+0  b  VWL    0  b
+0  b  NULL   0  p
+0  d  VWL    0  d
+0  d  NULL   0  t
+0  g  VWL    0  g
+0  g  NULL   0  k
+0  z  VWL    0  z
+0  z  NULL   0  s
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/ NULL   0  6
+0  r- NULL   0  R
+0  l- NULL   0  l
+0  w/ NULL   0  U
+0  j/ NULL   0  j
+0  ;  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL
+0  *  j      0  6
+0  *  NULL   0  R
+
+0  E2 NULL   0  E
+0  y  NULL   0  Y
+0  W  NULL   0  9
+0  A: NULL   0  a:
+0  A  NULL   0  a:
+0  Y: NULL   0  2:
+0  OI NULL   0  OY
+0  3  NULL   0  6
+0  _| NULL   0  _
+0  pF NULL   0  pf
+0  r  NULL   0  R
+
+0  eI NULL   60  E j
+0  oU NULL   0  o:
+0  W~ NULL   0  E~
+0  A~ NULL   0  a~
+0  O~ NULL   0  o~
+
+// phonemes for English words
+0  @L  NULL  50 @ l
+0  @2  NULL  0  @
+0  @5  NULL  0  @
+0  a2  NULL  0  @
+0  I2  NULL  0  I
+0  aa  NULL  0  a
+0  V   NULL  0  a:
+0  0   NULL  0  O
+0  3:  NULL  0  @
+0  i@  NULL  60 i: @
+0  i@3 NULL  60 i: @
+0  e@  NULL  60 E  @
+0  o@  NULL  70 o: 6
+0  O@  NULL  70 O  6
+0  O:  NULL  0  O
+0  A@  NULL  70 a: 6
+0  U@  NULL  60 U  @
+0  aI@ NULL  70 aI @
+0  aU@ NULL  70 aU @
+
+0  dZ  NULL  0  tS
+0  w   NULL  0  v

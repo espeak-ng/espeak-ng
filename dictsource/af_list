@@ -221,6 +221,7 @@ sunnyside   _^_EN
 swellendam  $3
 tunisië     $2
 turkye      $2
+ulundi      ul'undi
 upington    apiNt@n
 vesuvius    v@su:viWs
 viëtnam     vj'Etnam
@@ -379,6 +380,7 @@ pierre p'e@r
 petronella  pe@trun'&la
 petrus      pe@trWs
 phoebe      fi:bi
+quixote     kix2'OtE
 rachmaninoff rax2m'aninOf
 rebekka     r@bEka
 renée       r@neI
@@ -391,6 +393,7 @@ roux r'u
 ruda        ruda
 rupert      rup@rt
 salomo      sA:l@mo@
+samuel      sA:my@l
 sandra      sandra
 schalk sk'alk
 scheepers   ske@p@rs
@@ -416,6 +419,7 @@ theo        tiu
 theron tr'On
 thys        teIs
 toerien     $2
+totius      to@SiWs
 trudie      trudi
 versfeld    f&rsf&lt
 victoria    _^_EN
@@ -423,6 +427,7 @@ viljoen     $2
 villiers    vIli@rs
 vincent     _^_EN
 violet      _^_EN $capital
+visagie     fis'A:x2i
 william     _^_EN
 yolande     jul'and@
 yvonne      iv'On
@@ -846,6 +851,7 @@ rinkink       $2
 rooipers      roIp&:rs
 roterende rut'e@r@nd@
 rukkerig      rWk@r@x2
+rymelary      reIm@lar'eI
 
 salami        sal'A:mi
 salute        sal'yt@
@@ -873,8 +879,10 @@ sonop         sOn_Op
 sonore        sun'o@r@
 sover         so@f&r
 staccato      $2
+stilswye      $1
 suburbia      sWb'Wrbija
 
+tanga         taNga
 tenminste     $2
 terdeë       $2
 terug         t@-rWx2
@@ -941,3 +949,4 @@ weggewens     v&x2@v'E:ns
 welaf         v&l_af
 weleer        v&l_'e@r
 wysgere       veIsx2e@r@
+

@@ -51,7 +51,7 @@ endphoneme
 
 phoneme u    // short OE
   vowel  starttype (u)  endtype (u)
-  length 140
+  length 110
   formants vowel/uu_3
 endphoneme
 
@@ -84,7 +84,7 @@ endphoneme
 
 phoneme A:   // long A
   vowel  starttype (a)  endtype (a)
-  length 230
+  length 280
   formants vowel/aa_3
 endphoneme
 
@@ -98,7 +98,7 @@ endphoneme
 
 phoneme i     // long I
   vowel  starttype (i)  endtype (i)
-  length 130
+  length 100
   formants vowel/i_3
   linkout ;
 endphoneme

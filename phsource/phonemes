@@ -1281,3 +1281,6 @@ include ph_kinyarwanda
 
 phonemetable ko hi
 include ph_korean
+
+phonemetable da is
+include ph_danish

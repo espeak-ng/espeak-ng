@@ -139,3 +139,13 @@ adalah		$u
 sebagai		$u
 bahwa		$u
 per		p@r $u
+
+
+// exceptions
+// (use phoneme [E2] for an unstressed 'e' which does not reduce to [@] )
+
+bebek		bEbE2?
+becek		bEtSE2?
+bekas		$2
+perang		$2
+

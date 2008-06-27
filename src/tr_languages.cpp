@@ -151,6 +151,20 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
+	case L('d','a'):  // Danish
+		{
+			static const unsigned char stress_amps_da[] = {16,16, 20,20, 20,24, 24,22 };
+			static const short stress_lengths_da[8] = {160,140, 200,200, 0,0, 220,210};
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_da,stress_amps_da);
+
+			tr->langopts.stress_rule = 0;
+			SetLetterVowel(tr,'y');
+//			tr->langopts.numbers = 0x11849;
+		}
+		break;
+
+
 	case L('d','e'):
 		{
 			static const short stress_lengths_de[8] = {150,130, 190,190,  0, 0, 260,275};

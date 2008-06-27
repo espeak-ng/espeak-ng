@@ -4,7 +4,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-05-27 Michel Such  <michel.such@free.fr>
+// Updated: 2008-06-04 Michel Such  <michel.such@free.fr>
 //
 //	* The rules are based on Cicero TTS.
 //         Y
@@ -23,6 +23,8 @@
 		aî          E		// maître
 		aim (K      W~		// faim
 		ain (K      W~		// pain
+		ai (_      e		// dirai ferai...
+		ais (_      Ez2		// dirais ferais...
 	f)	ai (sA      @		// faisons faisan
 		a (ill      a
 		a (ils_     a
@@ -629,6 +631,7 @@ _)		half  	_^_en
 		i           i		// cri
 
 	X)	i (a    i		// fiancer, fiable
+	_r)	i (A    i		// rien
 		ie (ment    i		// remerciement balbutiement
 	C)	ien (t_       i
 	dév)	ien (t_       i

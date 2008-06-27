@@ -209,7 +209,7 @@ int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONE
 	// bit 0  skip the next phoneme
 	// bit 1  match this and Previous phoneme
 	// bit 2  only at the start of a word
-	// bit 4  don't match two phonemes across a word boundary
+	// bit 3  don't match two phonemes across a word boundary
 
 	pr = mbrola_tab;
 	while(pr->name != 0)
