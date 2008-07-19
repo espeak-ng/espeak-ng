@@ -247,7 +247,7 @@ phoneme (a)  virtual
   after  N nn/nna
   after  n^ n^/n^a
   before l/ DFT-40+l/L1_aL
-  before l/2 DFT-40+l/L2_aL
+  before l/2 DFT-50+l/L2_aL
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
@@ -316,7 +316,7 @@ phoneme (o)  virtual
   after  N nn/nno
   after  n^ n^/n^o
   before l/ DFT-40+l/L1_oL
-  before l/2 DFT-40+l/L2_oL
+  before l/2 DFT-50+l/L2_oL
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj

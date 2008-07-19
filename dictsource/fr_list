@@ -1,11 +1,9 @@
-/
-
 
 // This file in UTF8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-03-19 Michel Such  <michel.such@free.fr>
+// Updated 2008-07-16 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -119,14 +117,14 @@ _}   f'ERm_akOl'ad
 
 _0	zeR'o
 _1	W~
-_2	d'Y
-_3	tRw'a
+_2	d'Yz2
+_3	tRw'az2
 _4	k'atR
 _5	s'E~c
 _6	s'iz3
 _7	s'Et
 _8	_|'w^it
-_9	n'@f
+_9	n'Wf
 _10	d'iz3
 _11	O~z
 _12	d'uz
@@ -136,17 +134,17 @@ _15	k'E~z
 _16	s'Ez
 _17	d'is:'Et
 _18	d'iz'w^it
-_19	d'izn'@f
+_19	d'izn'Wf
 _20	v'E~
 _21	v'E~te:E~
-_22	v'E~td'Y
-_23	v'E~t:tRw'a
+_22	v'E~td'Yz2
+_23	v'E~t:tRw'az2
 _24	v'E~tk'atR
 _25	v'E~ts'E~c
 _26	v'E~ts'iz3
 _27	v'E~ts'Et
 _28	v'E~tw^it
-_29	v'E~tn'@f
+_29	v'E~tn'Wf
 _3X	tR'A~t
 _31	tR'A~te:E~
 _4X	kaR'A~t
@@ -164,11 +162,11 @@ _75	swas'A~t:k'E~z
 _76	swas'A~t:s'Ez
 _77	swas'A~t:d'is:'Et
 _78	swas'A~t:d'iz'w^it
-_79	swas'A~t:d'izn'@f
+_79	swas'A~t:d'izn'Wf
 _8X	k'atR@v'E~
 _80	k'atR@v'E~z2
 _9X	k'atR@v'E~d'iz3
-_91	k'atR@v'E~:O~z
+_91	k'atR@v'E~:'O~z
 _92	k'atR@v'E~:d'uz
 _93	k'atR@v'E~:tR'Ez
 _94	k'atR@v'E~:kat'ORz
@@ -176,7 +174,7 @@ _95	k'atR@v'E~:k'E~z
 _96	k'atR@v'E~:s'Ez
 _97	k'atR@v'E~:d'is:'Et
 _98	k'atR@v'E~:d'iz'w^it
-_99	k'atR@v'E~:d'izn'@f
+_99	k'atR@v'E~:d'izn'Wf
 _0C	s'A~
 _1C0	s'A~t2
 _0M1	m'il
@@ -260,21 +258,20 @@ une	$u $nounf
 mais	$u
 ou	u $u $brk
 et	e $u $brk
-donc	$u
 or	$u $brk
-ni	$u
-car	$u
-soit	$u
-cependant  $u
-néanmoins  $u
-toutefois  $u
+ni	$u $brk
+car	$u $brk
+soit	$u $verb
+cependant  $brk
+néanmoins  $brk
+toutefois  $brk
+avant $brk
+après  $brk
 
 
-comme	   $u
 dont	   dO~t2 $u
 lorsque	   $u
-(parce que)	      parsk@ $u
-puisque	   $u
+parce 	   pars@- $u
 quand	   $u
 que	   $u $verbf
 qui	   $u $verbf
@@ -284,13 +281,13 @@ si	   $u
 // pronouns
 je	$u $verbf
 tu	$u $verbf
+il 	$u $verbf
 elle	$u $verbf
 y	$u $verbf
-il 	$u $verbf
-nous	$u+ $verbf
-vous	$u+ $verbf
-elles	$u+ $verbf
-ils	$u+ $verbf
+nous	$u $verbf
+vous	$u $verbf
+elles	$u $verbf
+ils	$u $verbf
 on	O~n2 $u $verbf
 me	$u $verbf
 te	$u $verbf
@@ -311,54 +308,56 @@ cela	$verbf
 (celles là)	sEl||la $verbf
 
 // possessives
-ma	$u+ $nounf
-mon	$u+ $nounf
-mes	mez2 $u+ $nounf
-ta	$u+ $nounf
-ton	$u+ $nounf
-tes	tez2 $u+ $nounf
-sa	$u+ $nounf
-son	$u+ $nounf
-ses	sez2 $u+ $nounf
-notre	$u+ $nounf
-votre	$u+ $nounf
-leur	$u+ $nounf
-leur	$u+ $verb $verbextend
-(la leur)	la||l@r $u+ $verbf
-(le leur)	l@||l@r $u+ $verbf
-nos	$u+ $nounf
-vos	$u+ $nounf
-leurs	$u+ $nounf
-leurs	$u+ $verb $verbextend
-(les leur)	le||l@r $u+ $verbf
-(les leurs)	le||l@r $u+ $verbf
+ma	$u $nounf
+mon	$u $nounf
+mes	mez2 $u $nounf
+ta	$u $nounf
+ton	$u $nounf
+tes	tez2 $u $nounf
+sa	$u $nounf
+son	$u $nounf
+ses	sez2 $u $nounf
+notre	$u $nounf
+votre	$u $nounf
+leur	$u $nounf
+leur	$u $verb $verbextend
+(la leur)	la||lWr $u $verbf
+(le leur)	l@||lWr $u $verbf
+nos	$u $nounf
+vos	$u $nounf
+leurs	$u $nounf
+leurs	$u $verb $verbextend
+(les leur)	le||lWr $u $verbf
+(les leurs)	le||lWr $u $verbf
 
 // prepositions
-de $u $nounf
-du	$u+ $nounf
+de $u
+du	$u $nounf
 des	dez2 $u $nounf
 
 
 à	$u a
-au	$u $brk
-aux	$u $brk
+au	$u
 
 dans	$u
 sur	$u
+autour	otur
 par	$u
 pour	$u
 en	$u
 en	$u $verb $verbextend
 (en suspens) A~||sysp'A~
+(en tous) A~||tuz2 $u
+(Tant mieux)	tA~||mi;'Y
 
 vers	$u
-avec	$u
+avec	$u $brk
 sans	$u
 sous	$u
 entre	$u $brk
 contre	$u
 
-durant	$brk
+durant	$u $brk
 
 // negative
 ne	$u $verbf
@@ -367,38 +366,24 @@ ne	$u $verbf
 où	$brk
 
 // auxillary verbs  (be, have, can, etc)
-suis	$u+  $verb
-es	Ez2 $u+  $verb
-est	Et2  $u+
+es	Ez2  $verb
 ès	Es $u
+est	Et2
+ès	Es
 d'est	d'Est
-sommes  $u+
-êtes	$u+
-sont	$u+ $verb
 
-étais	$u+ $verb
-était	$u+ $verb
-étions	$u+ $verb
-étiez	$u+ $verb
-étaient	$u+ $verb
-
-serai	$u+ $verb
-seras	$u+ $verb
-sera	$u+ $verb
-serons	$u+ $verb
-serez	$u+ $verb
-seront	$u+ $verb
-
-eu	y $u+
-eue	y $u+
-eues	yz2 $u+
-eus	yz2 $u+
-eut	yt2 $u+ $verb
+eu	y $u
+eue	y $u
+eues	yz2 $u
+eus	yz2 $u
+eut	yt2 $u $verb
+eux	Yz2 $u
 
 // some common adjectives and adverbs
 
 quelque	$u
 tout	t'ut2 $u
+rien	      riE~n2
 
 
 // Letters which can be words
@@ -417,7 +402,6 @@ scient           si
 coing     kwE~
 convent       kO~vA~
 dessous          d@su
-divers          divErz2
 hareng          _!arA~
 pastis     pastis
 poing     pwE~
@@ -430,54 +414,58 @@ tunis           tynis
 // MAIN WORD DICTIONARY
 //*********************
 
+(1 er)	pr@mi;'er2
+(1 ers)	pr@mi;'ez2
+(1 ère)	pr@mi;'Er
+(1 ères)	pr@mi;'Erz2
+(1 èrement)	pr@mi;'Er@-mA~
+
+
 monsieur         m@sjY
 montréal         mO~Real
 (n'est ce pas)   n'Es@-||p'az2
 (qu'est ce que)  kEsk@ $u
-(quelque chose)  kElk@S'oz
-(cent un)        s'A~||W~
-(cent unième)    s'A~||ynj'Em
-(cent une)       s'A~||yn
-(cent onzième)   s'A~||O~zj'Em
-(cent onze)      s'A~||O~z
 absent        absA~
+admin        admin
 airbus	      Erbys
-anus     anys
 auvent     ovA~
+bien	      biE~n2
+(bien sûr)	biE~||s'yr
+bis	      bis
 bissus    bisys
-bonus     bonys
 bus	      bys
 bus	      by  $verb
 campus   kA~pys
-casus    kazys
-choeur        k@r
+choeur        kWr
 cocus     coky
+dernier    dErnier2
 estomac     Estoma
 éloquent     ElokA~t2
 fils	      fis
 gars	      ga
+hélas 		elas
 iris	      iris
-juin	      ZyE~
 laser	      lazEr
 malus      malys
 mars	      maRs
-minus      minys
-paravent        paravA~
+parangon	      parA~gO~
 pays	      pEi
 phallus    falys
 polder    pOldEr
+premier    pr@mier2
 souris       suri
 sus       sys
 sus       sy $verb
 tuttiquanti       tutikw'anti
 vénus       venys
+vot       vOt
 
 
 gens	      ZA~
 mens	      mA~z2
 sens	      sA~s
 sens	      sA~z2 $verb
-c'est         sEt2 $u+
+c'est         sEt2
 qu'à          ka
 m'y              mi $verbf
 t'y              ti $verbf
@@ -487,24 +475,19 @@ l'y              li $verbf
 qu'y          ki $verbf
 (sud est)       sydEst
 (nord est)      nOREst
-tiomètre   pOtA~sjOmEtR@-
-
-processus	pROsEsys
 
 // ut (t is said)
 août		ut
 azimut		azim'yt
 brut		bR'yt
-bouse		buz
 but		by $verb
 but		byt
-club		kl@b
-(le pub)		l@||p'@b
-(un pub)		W~||p'@b
-(du pub)		dy||p'@b
+club		klWb
+(le pub)		l@||p'Wb
+(un pub)		W~||p'Wb
+(du pub)		dy||p'Wb
 cut	cWt
-helmut		Elmut
-hub	_|@b
+hub	_|Wb
 mazout		mazut
 michael		mikaEl
 out		aut
@@ -548,9 +531,9 @@ kart		kaRt
 smart		smaRt
 
 // irt
-flirt		fl@Rt
-(sweat shirt)	swEtS@Rt
-(tee shirt)	tiS@Rt
+flirt		flWRt
+(sweat shirt)	swEtSWRt
+(tee shirt)	tiSWRt
 
 
 // words from other languages
@@ -560,7 +543,7 @@ and             _^_en
 amazon		amaz'On
 apple		_^_en
 at		_^_en
-(audible manager) odibl||manadZ@r
+(audible manager) odibl||manadZWr
 bit		_^_en
 bluetooth 		blut'us
 computer		_^_en
@@ -574,24 +557,19 @@ epson		EpsOn
 espeak		@spi:k
 ethernet	etERnEt
 exit	egzit
-eye	      _^_en
-eyes	      _^_en
 (file zilla)		fajl||zija
 get		_^_en
-google		gu:g@l
-gnome		gnom
+google		gu:gWl
+gnome		gnOm
 gnu		gnu
-hamburger		_!A~b@rg@r
+hamburger		_!A~b@rgWr
 help		_^_en
 hot		_^_en
 in		_^_en
 inside		_^_en
-internet	E~tERnEt
-(internet explorer) E~tErn'Et||EksplOr'@r
+(internet explorer) E~tErn'Et||EksplOr'Wr
 klaxon          klaksOn
-layer    		_^_en
 let 		_^_en
-liszt 		list
 lite 		_^_en
 login 		_^_en
 logon 		_^_en
@@ -603,11 +581,10 @@ my		_^_en
 not		_^_en
 null	_^_en
 ok         oke
-open            Op'@n
+open            Op'Wn
 outlook         autluk
 paint    		_^_en
 paper    		_^_en
-player    		_^_en
 redhat		REdat
 same		_^_en
 sametime	_^_en
@@ -621,12 +598,7 @@ yes		_^_en
 
 
 // tions (tjO~ instead of sjO~)
-achetions	aS@tjO~z2
 apportions	apORtjO~z2
-apprêtions	apREtjO~z2
-arrêtions	aREtjO~z2
-chantions	SA~tjO~z2
-comptions	kO~tjO~z2
 constations	kO~statjO~z2
 contentions	kO~tA~tjO~z2
 dations		datjO~z2
@@ -634,30 +606,19 @@ discutions	diskytjO~z2
 débutions	debytjO~z2
 désertions	dezERtjO~z2 $verb
 détentions	detA~tjO~z2
-escomptions	EskO~tjO~z2
 exploitions	EksplwatjO~z2
 exportions	EkspORtjO~z2
-habitions	abitjO~z2
-heurtions	_!@RtjO~z2
-jetions		Z@tjO~z2
+heurtions	_!WRtjO~z2
 limitions	limitjO~z2
 méritions	meRitjO~z2
 partions	paRtjO~z2
-pressentions	pREsA~tjO~z2
-présentions	pRezA~tjO~z2
-prêtions	pREtjO~z2
 rations		RatjO~z2 $verb
-représentions	R@pRezA~tjO~z2
 respections	REspEktjO~z2
-ressentions	R@sA~tjO~z2
 répétions	RepetjO~z2
-sentions	sA~tjO~z2
 sortions	sORtjO~z2
-souhaitions	suEtjO~z2
 supportions	sypORtjO~z2
 tentions	tA~tjO~z2
-traitions	tREtjO~z2
-votions		vOtjO~z2 $u
+votions		votjO~z2 $u
 étions		etjO~z2
 évitions	evitjO~z2
 
@@ -665,6 +626,7 @@ votions		vOtjO~z2 $u
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

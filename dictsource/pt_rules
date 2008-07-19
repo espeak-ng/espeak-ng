@@ -4,9 +4,11 @@
 // Options
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
+// ?4  Brazil mbrola voice
 
 // Letter groups
 // A  a vowel
+// B  a consonant, except h l r w y
 // C  a consonant
 // G  a voiced consonant
 // K  not a vowel
@@ -39,7 +41,8 @@
           a (nA@     &
           am (_      =&~N
           am (C      &~m
-          an (K      &~N
+?4        am (C      &~N
+          an (K+     &~N
           a (nhA     &~
           am (_      =&U~
 ?1        a (z_      'a   //eg: paz, rapaz, capaz, etc...
@@ -97,16 +100,19 @@
        _) b (_       be
           b          b
           b (b
+?2        b (B       bI
 
 
 .group c
        _) c (_       se
           c          k
           c (Y       s         // ce ci
+?2        c (B       kI
           ch         S
+          ck         k
           c (c              //drop “c” in European Portuguese (eg: seleccionar)
-?1     A) ct         t      //drop “c” in European Portuguese (eg: exacto)
-?1     A) cç         s      //drop “c” in European Portuguese (eg: selecção)
+       A) ct         t      //drop “c” in European Portuguese (eg: exacto)
+       A) cç         s      //drop “c” in European Portuguese (eg: selecção)
 ?1 conta) ct (A      kt // eg: contacto, contactar, contactável, incontactável, etc...
 
 
@@ -114,6 +120,8 @@
        _) d (_       de
           d          d
           d (d
+?2        d (B       dZI
+?2        d (_C      d_
 ?2        d (i       dZ
 ?2        d (í       dZ
 ?2        d (e_      dZ
@@ -316,6 +324,7 @@
        _) f (_       'Efe
           f          f
           f (f
+?2        f (B       fI
 
 
 .group g
@@ -324,6 +333,8 @@
        _) g (_       Ze
           g          g
           g (g
+?2        g (B       ZI
+?2        g (_C      g_
           g (Y       Z      // ge gi
           gu (Y      g
 ?1        guen (C    gw'eIN    // aguenta, etc.
@@ -350,6 +361,8 @@
 
           im (_      iN
           im (C      im
+?4        im (C      iN
+          in (C      iN   // ?4  ??
           in (g      iN
           in (k      iN
           inh        in^
@@ -397,12 +410,16 @@
 .group j
        _) j (_       Z'Ot&
           j          Z
+?2        j (B       ZI
+
 
 .group k
 ?1     _) k (_       k'ap&
 ?2     _) k (_       ka
           k          k
           k (k
+?2        k (B       kI
+?2        k (_C      k_
 
 
 .group l
@@ -410,7 +427,7 @@
 ?1     _) l (_       El
        _) l (_       'Ele
           l          l
-          l (l
+       l) l
           lh         l^
        A) lh         lj
 ?1     A) lh         l^  // 
@@ -422,6 +439,7 @@
        _) m (_       'eme
           m          m
           m (m
+?2        m (B       mI
 
 
 .group n
@@ -430,6 +448,7 @@
        _) n (_       'ene
           n          n
           n (n
+?2        n (B       nI
           nh         n^
 ?1     A) nn         n     //drop “n” (eg: connosco).
 
@@ -443,6 +462,7 @@
           oi (s      oI
           o (iCK     o
           oo         u
+          oon        u~N
        c) oo         oo
 ?1     C) oo (_      ow // eg: voo, enjoo, etc...
           oy         OI
@@ -488,6 +508,7 @@
           o (ma_     o
 
           om (C      om
+?4        om (C      oN
           on (K      oN
           o (na_     o
           onh        on^
@@ -547,6 +568,7 @@
        _) p (_       pe
           p          p
           p (p
+?2        p (B       pI
 ?1        ph         f     //Didn’t use in European Portuguese (eg: English)
 ?1        ple (_     _^_EN
 
@@ -554,6 +576,7 @@
 .group q
        _) q (_       ke
           q          k
+?2        q (B       kI
           qu         kw
           qü         kw
           qu (Y      k
@@ -601,15 +624,16 @@
           sc (Y      s
           sç         s
           sh         S
+?4     _) s (C       Is
        A) s (A       z
 ?1     @) s (_       s#
 ?2        s (_       s#
        @) s (_A      z     // next word starts with vowel
-       @) s (_G      z     // next word starts with voiced consonant
+?!4    @) s (_G      z     // next word starts with voiced consonant
 
        A) s (_S1     s
        A) s (_AS1    z     // next word starts with vowel
-       A) s (_GS1    z     // next word starts with voiced consonant
+?!4    A) s (_GS1    z     // next word starts with voiced consonant
 
 ?1     A) s (C       s#
 ?1     A) ss         s
@@ -622,6 +646,8 @@
        _) t (_       te
           t          t
           t (t
+?2        t (B       tSI
+?2        t (_C      t_
 ?2        t (i       tS
 ?2        t (í       tS
 ?2        t (e_      tS
@@ -646,6 +672,7 @@
 
           um (_      u~N
           um (C      u~m
+?4        um (C      u~N
           un (K      u~N
           unh        u~n^
 
@@ -656,12 +683,14 @@
           ú          ''u
           úm (_      ''u~N
           úm (C      ''u~m
+?4        úm (C      ''u~N
           ún (K      ''u~N
           únh        ''u~n^
 
 .group v
           v          v
           v (v
+?2        v (B       vI
 
 
 .group w
@@ -669,11 +698,13 @@
 ?2     _) w (_       d'ablju
           w          w
 ?1        w (_       _^_EN
+?4     _) w          u
 
 
 .group x
           x (A       S
        A) x (A       ks
+?4     A) x (A       z
       _e) x (A       z
        e) x (A       ks
 ?1     e) x (CA      S
@@ -704,6 +735,7 @@
        _) z (_       ze
           z          z
           z (z
+?2        z (B       zI
 ?1     @) z (_       S
 ?2     @) z (_       s
        @) z (_A      z

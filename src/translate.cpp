@@ -373,6 +373,9 @@ int IsAlpha(unsigned int c)
 	if((c >= 0x1100) && (c <= 0x11ff))
 		return(1);  //Korean jamo
 
+	if((c > 0x3040) && (c <= 0xa700))
+		return(1); // Chinese/Japanese.  Should never get here, but Mac OS 10.4's iswalpha seems to be broken, so just make sure
+
 	return(0);
 }
 

@@ -8,6 +8,7 @@
 // This file is UTF-8 encoded
 // all words lower case
 
+mc  _^_EN   $alt2
 
 // abbreviations
 (http ://)       hA:te@te@p'e@_
@@ -148,7 +149,8 @@ _roman  rum'eIns@
 
 // Place names
 
-alaska      al'aska
+#alaska      al'aska
+antwerpen   antv&rp@n
 asië        A:si@
 babilon     babilOn
 bangladesh  baNglad'ES
@@ -163,6 +165,7 @@ brooklyn    _^_EN
 caledon     kalidOn
 carolina    karul'ina
 ceres       se@r@s
+cesaréa     s@s@ri:ja
 ceylon      s@lOn
 china       S'ina
 clanwilliam kl&:nw'ili@m
@@ -170,6 +173,7 @@ colenso     kul'E:ns@U
 colesberg   ko@lsb&rx2
 constantia  $2
 christiana  kr@stij'A:na
+damaskus    d@maskWs
 duitswes    dYytsv'Es
 ermelo      &rm@lo@
 franschhoek frA~nsh'uk
@@ -209,13 +213,14 @@ mosambiek   musamb'ik
 europa      Y@r'o@pa
 nigel       _^_EN
 outeniekwa  @Ut@n'ikwa
+oxford      _^_EN
 pelindaba   p&l@nd'A:ba
 portugal    $1
 potchefstroom pOtSIfstr'o@m
-pretoria    prit'o@ria
 robertson   _^_EN
 senekal     se@n@kal
 singapoer   siNgapur
+soweto	suw'E:tu
 springs     _^_EN $capital
 sunnyside   _^_EN
 swellendam  $3
@@ -228,6 +233,7 @@ viëtnam     vj'Etnam
 wellington  wEliNt@n
 wolseley    wulsli
 worcester   v'ust@r
+uganda      ug'anda
 zimbabwe    zI:mb'ab_wE
 
 
@@ -236,26 +242,28 @@ zimbabwe    zI:mb'ab_wE
 Abiméleg    abin'e@lEx2
 abraham     A:bram
 ackerman    ak@rman
+adam        adam
 adriaan     A:drijan
 adrie       A:dri
 albertus    alb'&rtWs
-aletta      al'Eta
-alida       al'ida
 allah       %alA:
 André       'andreI
 annette     an'Et
 antoinette  antun'Et
 barbara     bA:b@ra
 benjamin    bEndZ@m@n
+bennett     bEn@t
 bester b'Est@r
 beyers      beI@rs
 blomerus    blum'e@rWs
 botha       bo@ta
 bouwer      b@U@r
+brian       _^_EN
 breytenbach breIt@nbax2
 brouwer     bruw'&:r
 caesar      siz@r
 carl        kA:r@L
+cecil       sEs@l
 cecilia     s@si:lia
 charl       SA:l
 charles     _^_EN
@@ -272,12 +280,15 @@ christine   kr@st'i:n
 cindy       sIndi
 coetzee     kuts'e@
 cronjé      krOnj'e@
+cynthia     _^_EN
+darwin      _^_EN
 david       _^_EN
 debora      d@bo@ra
 debussy     d@bus'i:
 der         d@r
 derick      dErik
 deventer d'e@v@nt@r
+diana       dij'A:na
 du		$u
 (du pisanie) du||pis'A:ni
 (du plessis) du||pl@s'i
@@ -286,6 +297,7 @@ du		$u
 eksteen     $1
 elisabeth   il'isabEt
 elize       il'i:z
+elmien      $2
 elsabé      &ls@bi
 emmarentia  Emar'e~nSja
 erasmus     $2
@@ -309,10 +321,12 @@ gerhardus   $2
 gloria      glO:ria
 grange      x2rA:nsi
 gustav      gustaf
+harry       _^_EN
 havenga     hA:f@Nx2a
 haydn       hAId@n
 helena      hil'e@na
 helloïse    hEluw'i:z
+henry       _^_EN
 herklaas    $1
 herman      $1
 hilde       hild@
@@ -326,17 +340,16 @@ Jean        ZA~n $capital
 jimmy       _^_EN
 joan        _^_EN
 joey        dZ@Ui
-john        _^_EN
 jordaan     $2
 josef       jo@s@f
 juanita     juan'ita
+kelvin      _^_EN
 krige       krix2@
 langenhoven laN@nho@f@n
 lasarus     lA:s@r%Ws
 lategan     lA:t@x2an
 le l@
 leandra     li'andra
-leroux      l@ru
 levi        le@fi
 
 louis       luI
@@ -389,7 +402,6 @@ rhodes      _^_EN
 robert      _^_EN
 ronel       run'&l
 rousseau    r@s@U
-roux r'u
 ruda        ruda
 rupert      rup@rt
 salomo      sA:l@mo@
@@ -447,8 +459,10 @@ xhosa       kO:za
 khumalo     kum'A:lu
 
 // Other proper names
-checkers      tSEk@rs
+centaurus   $2
+checkers    tSEk@rs
 chrysler    kraIsl@r
+martini     mart'i:ni
 wimpy       wImpi
 
 // article
@@ -601,7 +615,7 @@ alreeds       $2
 alternatiewe  $4
 amen          A:mEn
 anale         an'A:l@
-anatomie      $4 $only
+//###anatomie      $4 $only
 asof          asOf
 asook         %as_o@k
 aspris        $2
@@ -622,6 +636,7 @@ beta          be@ta
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
+boskaas       $2
 bostaande b'o@stA:nd@
 bourgeois     _^_FR
 bourgeoisie   _^_FR
@@ -702,6 +717,7 @@ hoera         hur'A:
 hoewel        huv'&l
 hokaai        hOkAI
 hoofsaaklik   $2
+hoogedele     ho@x2	_e@d@l@
 hosanna       hus'ana
 huigelary     $4
 
@@ -770,6 +786,7 @@ nadele        nA:de@l@
 nadenke       $1
 nagana        nag'A:na
 namens        nA:m@ns
+nasaréner     nasar'e@n@r
 nassau      nas'@U
 nature        nat'yr@
 nalatigheid   nA:l'A:t@x2eIt
@@ -851,6 +868,7 @@ rinkink       $2
 rooipers      roIp&:rs
 roterende rut'e@r@nd@
 rukkerig      rWk@r@x2
+ruspes        rWsp@s
 rymelary      reIm@lar'eI
 
 salami        sal'A:mi

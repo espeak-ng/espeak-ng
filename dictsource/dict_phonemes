@@ -113,13 +113,13 @@ S    s2   t    v    Z
 Dictionary fr_dict
 
 @    @-   a    A    A~   e    E    E~   
-i    i:   o    O    O~   u    w    W    
-w^i  W~   y    Y    
+i    i:   o    O    O2   O~   u    w    
+W    W2   w^i  W~   y    Y    
 
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    m    n    N    n2   
-n^   p    p2   r    R    s    S    t    
-t2   tS   v    z    Z    z2   z3   
+n^   p    p2   r    R    r2   s    S    
+t    t2   tS   v    z    Z    z2   z3   
 
 
 Dictionary hi_dict
@@ -276,8 +276,8 @@ Dictionary pt_dict
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
-i    i/   iU   o    O    oI   OI   o~   
-u    U    uI   u~   y    
+i    I    i/   iU   o    O    oI   OI   
+o~   u    U    uI   u~   y    
 
 *    :    ;    b    C    d    dZ   f    
 g    h    j    k    l    l^   m    n    

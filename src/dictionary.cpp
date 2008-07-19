@@ -1170,7 +1170,16 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			stressed_syllable = vowel_count - 1;
 			if(max_stress == 0)
 			{
-				vowel_stress[stressed_syllable] = 4;
+				while(stressed_syllable > 0)
+				{
+					if(vowel_stress[stressed_syllable] == 0)
+					{
+						vowel_stress[stressed_syllable] = 4;
+						break;
+					}
+					else
+						stressed_syllable--;
+				}
 			}
 			max_stress = 4;
 		}

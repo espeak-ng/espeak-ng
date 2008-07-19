@@ -599,6 +599,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x20000; 
 			tr->langopts.numbers = 0x269 + 0x2000 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
+			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
 		}
 		break;
 

@@ -1,6 +1,12 @@
  
 
 //****************************************************************
+//redefinition of the : phoneme
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 140
+endphoneme
+
 // VOWELS
 //****************************************************************
 

@@ -1,4 +1,4 @@
-volume 15 
+volume 15
 0  l/2 NULL  0  l
 0  l/ NULL   0  l
 0  r/ NULL   0  R
@@ -30,6 +30,7 @@ volume 15
 0  h  NULL   0  NULL
 0  n2 NULL   0  n
 0  p2 NULL   0  p
+0  r2 NULL   0  r
 0  t2 NULL   0  t
 0  z2 NULL   0  z
 0  z3 NULL   0  z
@@ -58,6 +59,7 @@ volume 15
 0  o@  NULL  70 o  @
 0  O@  NULL  70 O  @
 0  O:  NULL  0  O
+0  O2  NULL  0  O
 0  A:  NULL  0  a
 0  A@  NULL  70 a  @
 0  U@  NULL  60 u  @
@@ -68,6 +70,7 @@ volume 15
 0  tS  NULL  40 t  S
 0  T   NULL  0  t
 0  D   NULL  0  z
+
 
 
 

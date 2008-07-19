@@ -3,6 +3,13 @@
 //  Portuguese  - based on Base2
 //====================================================
 
+phoneme I   // epenthetic i
+  vowel starttype (i) endtype (i)
+  length 90
+  formants vowel/i
+  unstressed
+endphoneme
+
 phoneme e~
   vowel starttype (e) endtype (e)
   length 240

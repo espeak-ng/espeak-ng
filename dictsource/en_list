@@ -2259,6 +2259,7 @@ Philipine	fIlIpi:n        // misspell
 Poland		poUl@nd
 Polish		poUlIS        $capital $only
 Portuguese	po@tju:g'i:z
+Potomac		$2
 Prague		prA:g
 Pyrenees	pIr@n'i:z
 Qatar		katA@
@@ -2338,6 +2339,7 @@ Daphne		dafnI2
 Darryl		dar@L
 Davie		deIvI2
 Davis		deIvIs
+Declan		dEkla2n
 Denise		d@ni:s
 Derek		dErIk
 Dinah		daIn@
@@ -2403,6 +2405,7 @@ Miguel		mi:Q'El
 Mohammad	moUh'amId
 Muhammad	moUh'amId
 Moira		mOIr@
+Natalie		nata2li
 Nathan		neIT@n
 Neville		nEvIl
 Nicholas	nIk@l@s
@@ -2571,6 +2574,7 @@ thence           DEns
 
 be               %bi:          $pastf $only
 been             ,bi:n         $pastf $only
+?3 been          ,bIn          $pastf $only
 being            ,bi:IN        $pastf $only $strend2
 is               I2z            $pastf $only // use contraction for 'is a'
 // am               %am            $nounf $only  // now in en_rules
