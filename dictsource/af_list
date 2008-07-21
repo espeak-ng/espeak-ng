@@ -8,7 +8,6 @@
 // This file is UTF-8 encoded
 // all words lower case
 
-mc  _^_EN   $alt2
 
 // abbreviations
 (http ://)       hA:te@te@p'e@_
@@ -149,7 +148,7 @@ _roman  rum'eIns@
 
 // Place names
 
-#alaska      al'aska
+alaska      al'aska
 antwerpen   antv&rp@n
 asië        A:si@
 babilon     babilOn
@@ -194,6 +193,7 @@ italië      it'A:li;@
 kanada      kanad%a
 kanaän      kA:nA:an
 kaïro       ka_'iru
+kameroen    kam@r'un
 kenia       ki:nia
 kimberley   kimb@rli
 kongo       kONgu
@@ -201,6 +201,7 @@ knysna      neIsna
 lesotho     l@sutu
 limpopo     l@mpo@po@
 macedonië   mas@d'o@ni@
+madagaskar  madax2'askar
 majuba      maj'uba
 malmesbury  mA:msb@ri
 mauritius   mOr'iSjWs
@@ -220,7 +221,7 @@ potchefstroom pOtSIfstr'o@m
 robertson   _^_EN
 senekal     se@n@kal
 singapoer   siNgapur
-soweto	suw'E:tu
+soweto      suw'E:tu
 springs     _^_EN $capital
 sunnyside   _^_EN
 swellendam  $3
@@ -295,6 +296,7 @@ du		$u
 (du preez)  d@||pr'e@
 (du toit)   d@||toI
 eksteen     $1
+eldorado    &ldOr'A:d@U
 elisabeth   il'isabEt
 elize       il'i:z
 elmien      $2
@@ -328,7 +330,7 @@ helena      hil'e@na
 helloïse    hEluw'i:z
 henry       _^_EN
 herklaas    $1
-herman      $1
+herkules    $1
 hilde       hild@
 ilse 'ilz@
 ingrid      iNgr@d
@@ -340,6 +342,7 @@ Jean        ZA~n $capital
 jimmy       _^_EN
 joan        _^_EN
 joey        dZ@Ui
+jones       _^_EN
 jordaan     $2
 josef       jo@s@f
 juanita     juan'ita
@@ -354,6 +357,7 @@ levi        le@fi
 
 louis       luI
 louise      luw'i:z
+mackintosh  _^_EN
 mbeki       mbE:ki
 magdalena   $3
 malan       mal'an
@@ -367,6 +371,7 @@ marlene     marl'e@:n
 marlise     marl'i:s
 martha      marta
 martin m'A:rt@n
+mary        _^_EN
 matthéüs    mat'i:Ws
 mefistofeles mEfist'o@f@l@s
 melanie     m@lA:ni
@@ -375,6 +380,7 @@ messias     m@sijas
 michael     _^_EN
 michelle    miS'&l
 michiel $2
+mike	_^_EN
 miriam      mIri@m
 mohammed    muh'am@t
 mostert     m'Ost@rt
@@ -660,6 +666,7 @@ deurstraalde  $2
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
 doktore       $2
+dubbelken     dWb@lkEn
 dusver        dWsf&r
 
 eenkeer       $1
