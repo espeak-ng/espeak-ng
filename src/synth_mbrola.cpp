@@ -34,6 +34,7 @@
 #include "voice.h"
 
 extern int Read4Bytes(FILE *f);
+extern void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
 
 #ifdef USE_MBROLA_LIB
 
@@ -285,15 +286,9 @@ static char *WritePitch(int env, int pitch1, int pitch2, int split, int final)
 	output[0] = 0;
 	pitch_env = envelope_data[env];
 
-	if(pitch1 > pitch2)
-	{
-		x = pitch1;   // swap values
-		pitch1 = pitch2;
-		pitch2 = x;
-	}
 
-	pitch_base = voice->pitch_base + (pitch1 * voice->pitch_range);
-	pitch_range = voice->pitch_base + (pitch2 * voice->pitch_range) - pitch_base;
+	SetPitch2(voice, pitch1, pitch2, &pitch_base, &pitch_range);
+
 
 	env_split = (split * 128)/100;
 	if(env_split < 0)

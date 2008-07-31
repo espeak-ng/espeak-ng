@@ -1,13 +1,30 @@
-// French translation rules
+// French translation rules for Espeak
+
+// ***************************************************************************
+// *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+// *   email: jonsd@users.sourceforge.net                                    *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+// ***************************************************************************/
 
 // This file is UTF-8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-07-17 Michel Such  <michel.such@free.fr>
+// Updated: 2008-07-26 Michel Such  <michel.such@free.fr>
 //
-//	* The rules are based on Cicero TTS.
-//         Y
 
 // Letter classes:
 // A  all vowels:  a e i o u y â ä é ê è î ï ô ö ù û
@@ -15,6 +32,7 @@
 // Y  front vowels: e i y é ê è î
 // K  not a vowel  (i.e. consonant, space, )
 
+.L01 e é ê ë è i î ï y
 
 .group a
 		ae (_       e		// reggae vitae
@@ -87,7 +105,7 @@
 
 
 .group c
-		c'          s		// s
+	_)	c' (P2v         s		// s
 		cch         k		// bacchanale
 		cc (Y       ks		// accéder
 		cc          k		// occuper
@@ -111,7 +129,7 @@
 		cq          k		// pecq
 	s)	c (Y			//
 	x)	c (Y
-		c (Y        s 		// cède
+		c (L01        s 		// cède
 	_)	cyber (P5       sibEr
 	ban)	c (_			// banc
 	blan)	c (_			// blan
@@ -144,7 +162,6 @@
 	_gran)	d (_        t2 		// grand ami, grand marchand
 	Cen)	d (_        t2
 	Con)	d (_        t2
-	quan)	d (_        t2
 	quen)	d (_        t2
 	r)	d (_
 	_har)	d (_	d
@@ -176,6 +193,9 @@
 	elqu)	e    =@
 	uisqu)	e    =@
 	rsqu)	e    =@
+	_C) 	e (_        @		// je te
+	-c) 	e (_       @-
+	-j) 	e (_       @-
 
 		e (Ce_      E
 		eau         o		// bateau cheveaux
@@ -232,6 +252,8 @@
 	ol)	en (t_      A~		// somnolent, violent
 	Vol)	en (t_        		// somnolent, violent
 	Xol)	en (t_        		// volent
+	ul)	en (t_      A~		// turbulent
+	Vul)	en (t_
 	imCoC)	en (t_      A~		// impotent
 	inCoC)	en (t_      A~		// innocent, indolent
 
@@ -382,8 +404,6 @@
 
 	d)	esh (A      ez      	// Deshormeaux
 
-	_r)	es (A       @s      	// resaisir resaluer
-
 	_r)	e (ss       @      	// ressembler
 	_r)	e (ssu       e      	// ressusciter
 	_r)	e (stra     @
@@ -414,36 +434,25 @@
 		ey          Ej		// asseye
 
 		ez (_       ez2		// nez mangez chez
-	_C) 	e (_        @		// je te
-	_CC) 	e (_        =@-
-
-	-j) 	e (_       @-
-
 
 	g) 	e (A       		// mangeons
 
 	_d) 	e (ch       @
-	_d) 	e (Cl       @
-	_d) 	e (Cr       @  		// degré
-	_d) 	e (rr       E  		// derrière
 	_r) 	e (ch       @  		// recherche
-	_r) 	e (Cl       @
-	_r) 	e (Cr       @  		// retracer
+	 	e (Cl       @
 
 	_l) 	e (xA       E
 	_l) 	e (CA       @
 	_l) 	e (ChA      @
 	_l) 	e (ClA      @  		// Leclerc
-	_l) 	e (CrA      @  		// Lebrun
 	tr) 	e (CA       @
 	tr) 	e (ChA      @
-	tr) 	e (ClA      @
-	tr) 	e (CrA      @  		// entreprise
 
  		e (CC       E  		// infect pelle mettre
+ 		e (Cr       @
  _)		e (ff       e  		// effet, effectuer
- _s)		e (cr       @  		// secret
  		e (C_       E
+ 		e (rC       E
  		es (_       z2
 
 	ll) 	e (m       		// actuellement guillemets
@@ -458,6 +467,9 @@
 	Av) 	e (pA
 
 	 	e           @		// menue
+	_) 	e (CA          e
+	_) 	e (xA          E
+
 
 // group e: English section
 		eac		_^_en
@@ -469,11 +481,9 @@
 		eas  	_^_en      		// please
 		eave       _^_en		// leave
 		ed (_  	_^_en
-	_)	edit   	_^_en
 		ee          _^_en		// meeting
 		eing (_      _^_en		// being, boeing
 		eive       _^_en		// receive
-		ej       _^_en
 	 	eld (_        _^_en		// field
 	_) 	enter (_        _^_en		// enter
 	_) 	enhan         _^_en
@@ -481,7 +491,8 @@
 	ock)	et (_      _^_en     	// rocket, pocket
 	qu) 	est (_        _^_en		// request
 	qu) 	este (X_        _^_en		// requested, requester
-	_) 	ev         _^_en		// even, ever, event
+	_) 	even         _^_en		// forever, however
+	_) 	ever         _^_en		// forever, however
 	oC) 	ever         _^_en		// forever, however
 	_) 	eye         _^_en
 
@@ -511,12 +522,12 @@
 
 .group g
 		g           g
+		g (L01          Z
 
 	su)	gg (Y       gZ       	// suggérer suggestif
 		gg          g		// agglomérer
 	ai)	gni         n^		// craignions châtaignier
 		gn          n^		// agneau
-	_quatre_vin) gts (_  z2		// quatre-vingts ans
 	_quatrevin) gts (_  z2
 
 	vin) 	gt (_A      t 		// liaison: vingt ans
@@ -534,22 +545,18 @@
 		gt (_ 			// vingt doigts
 
 		gt          t		// vingtaine doigté
+		gua       gua		// anguille
+		gui       gi		// anguille
 	ai)	gu (il      gy		// aiguillage
 	in)     gu (is      gy		// linguiste
 		g (C        g
-		g (a        g		// langage
-		g (u        g
-		g (â        g
-		g (ü        g
-		g (o        g
-		g (û        g
 
 	_ran) 	g (_ 			// rang
 	_san) 	g (_ 			// sang
 	_lon) 	g (_ 			// long
+	bour) 	g (_ 			// Strasbourg
 
 		g (_        g		// grog gag goulag
-		g           Z		// congé george
 
 // group g: English section
 	_)	game (X         _^_en
@@ -611,6 +618,11 @@ _)		half  	_^_en
 		i           i		// cri
 
 		i (A    i		// rien
+	_f)	i (a    i:
+	l)	i (a    i:
+	Cr)	i (a    i:
+	Cr)	i (é    i:
+	Cr)	i (er_    i:
 		i (o    j
 		ie (ment    i		// remerciement balbutiement
 	C)	ien (t_       i
@@ -627,7 +639,6 @@ _)		half  	_^_en
 
 		i (es_      i		// parties
 		i (e_       i
-		i (A        j		// fermier portier patio renier
 	_)	ill         ill		// illégal
 	aigu)	ill         ij		// aiguille
 	anqu)	ill         ill		// tranquille
@@ -658,6 +669,7 @@ _)		half  	_^_en
 	C)	is (_       i
 
 // group i: English section
+		ibuter (X         _^_en
 		iev         _^_en
 		ife (_      _^_en
 		igh       _^_en
@@ -686,6 +698,7 @@ _)		half  	_^_en
 
 .group j
 		j           Z		// adjoint joujoux
+	_) 	j' (P2v      Z
 
 
 .group k
@@ -711,7 +724,7 @@ _)		half  	_^_en
 .group m
 		m           m		// film
 		mm          m		// pomme
-	_)	m' (P2      m
+	_)	m' (P2v      m
 
 // group m: English section
 	_)	mail (_       _^_en  // mailer
@@ -724,7 +737,7 @@ _)		half  	_^_en
 		nn          n
 		ng (_       N
 
-	_)	n' (P2      n
+	_)	n' (P2v      n
 
 	A) 	ng (_       N		// parking meeting
 		nn          n		// panne
@@ -742,13 +755,13 @@ _)		half  	_^_en
 	_) 	os (_       Os
 	s_) 	os (_       o
 	x_) 	os (_       o
-	 	o (se_       o
+	 	o (seX       o
 	 	o (CCement_       O2
 	 	o (Cement_       O2
 	 	o (t_       o
 	 	o (tre_       O2
 
-		oe (ll      wa		// moelleux
+		oe (ll      o-a		// moelleux
 	_)	oe (C       Y		// oesophage
 	_ph)	oe (C       e		// phoetus
 		oeu       W		// soeur coeur
@@ -757,10 +770,10 @@ _)		half  	_^_en
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
-		oi          wa		// poil
-		oie (m         wa		// d�ploiement
-		oê (l       wa		// poêle
-		oî          wa		// boîte
+		oi          o-a		// poil
+		oie (m         o-a		// d�ploiement
+		oê (l       o-a		// poêle
+		oî          o-a		// boîte
 		om (C       O~		// bombe
 		om (m       O		// nommer
 	_)	om (n       O2m		// omnibus
@@ -794,9 +807,9 @@ _)		half  	_^_en
 		ou          u		// hibou brouillard
 		où          u		// où
 		oû          u		// coûter
-		oyes (_     wa		// troyes
-		oy (A       waj		// noyer voyelles
-		oy          wa		// roy
+		oyes (_     o-a		// troyes
+		oy (A       o-aj		// noyer voyelles
+		oy          o-a		// roy
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
 		o           O
@@ -900,7 +913,7 @@ mou)	rr          RR		// mourrai
 
 		s (_S1      z2
 
-	_)	s' (P2      s		// s'amène
+	_)	s' (P2v      s		// s'amène
 		sç 	    s		// immisça
 		sch (ie     sk		// schierzo
 		sch (iz     sk		// schizophrène
@@ -985,7 +998,7 @@ mou)	rr          RR		// mourrai
 .group t
 		t           t	// bataille
 _)		t (_        te
-	_)	t' (P2      t
+	_)	t' (P2v      t
 -)		t (-        t
 V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
 u)		t (-        t2  // silent at end of verb unless next word starts with a vowel

@@ -15,8 +15,8 @@
       eo  13  110
      jbo   4  111
       fi  40  129
-      fr  49  127
-   fr_ca  11  127
+      fr  50  128
+   fr_ca  11  128
       hi  51  135
       ta  17  138
       hu  23  114
@@ -1431,9 +1431,6 @@ vowel/i         [i] base2
                 [i:] hu
                 [i] pl
                 [i] it
-                [I] pt
-                [y] pt
-                [i/] pt
                 [i] pt_pt
                 [i/] ro
                 [i] el
@@ -1454,6 +1451,7 @@ vowel/i_2       [i:] en_rp
                 [i:] sv
 vowel/i_3       [i] af
                 [i] fr
+                [i:] fr
                 [i:] sk
 vowel/i_4       [i] fi
                 [i] hu
@@ -1473,7 +1471,6 @@ vowel/i#_6      [i.] zh
 vowel/i#_7      [i[] zh
 vowel/i_en      [i:] en
                 [i:] en_us
-                [i:] fr
                 [i] vi
 vowel/i_fnt     [i:] en_wi
                 [i] hi
@@ -1514,6 +1511,9 @@ vowel/ii_5      [I] en_wi
 vowel/ii_6      [I] en_wm
                 [I2] en_wm
                 [I] sr
+                [I] pt
+                [y] pt
+                [i/] pt
 vowel/ii_en     [i] en
 vowel/@_low     [3] en_rp
                 [@] en_rp
@@ -1553,6 +1553,7 @@ vowel/o-_2      [V] en_n
                 [V] en_wm
 vowel/o_3       [oU] en_sc
                 [o] fr
+                [o-] fr
 vowel/o-_3      [U] en_rp
 vowel/o_4       [oU] en_n
 vowel/o-_4      [o] ro
@@ -1892,7 +1893,6 @@ w/w2            [w2] base2
                 [w] sk
                 [w] pt_pt
 w/wa            [(a)] base
-                [w] fr
 w/we            [(e)] base
 w/wi            [(i)] base
                 [i] vi

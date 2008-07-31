@@ -4,6 +4,7 @@
 // Options
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
+// ?3  Epenthetic [I] between consonants
 // ?4  Brazil mbrola voice
 
 // Letter groups
@@ -43,7 +44,7 @@
           am (C      &~m
 ?4        am (C      &~N
           an (K+     &~N
-          a (nhA     &~
+          a (nhA+    &
           am (_      =&U~
 ?1        a (z_      'a   //eg: paz, rapaz, capaz, etc...
 ?1     C) acç        'a's // eg: selecção, etc...
@@ -100,14 +101,16 @@
        _) b (_       be
           b          b
           b (b
-?2        b (B       bI
+?3        b (B       bI
+?3        b (_C      b_
 
 
 .group c
        _) c (_       se
           c          k
           c (Y       s         // ce ci
-?2        c (B       kI
+?3        c (B       kI
+?3        c (_C      k_
           ch         S
           ck         k
           c (c              //drop “c” in European Portuguese (eg: seleccionar)
@@ -120,8 +123,8 @@
        _) d (_       de
           d          d
           d (d
-?2        d (B       dZI
-?2        d (_C      d_
+?3        d (B       dZI
+?3        d (_C      d_
 ?2        d (i       dZ
 ?2        d (í       dZ
 ?2        d (e_      dZ
@@ -130,13 +133,11 @@
 .group e
        _) e (_       E
           e          e
-          e (_       =i
-          e (s_      =i
+          e (_       =y
+          e (s_      =y
 ?2        e (_AN     =i/      // ?? elide to [j] if next word starts with a vowel
 ?2    &l) e (_AN     =i       //    but not after l or r
 ?2    &r) e (_AN     =i
-?1        e (_       =y
-?1        e (s_      =y
 ?1        e (_iN     =i/      // drop final [i] is next word starts with another i
 
 ?1        e (e       i //eg: candeeiro
@@ -324,7 +325,8 @@
        _) f (_       'Efe
           f          f
           f (f
-?2        f (B       fI
+?3        f (B       fI
+?3        f (_C      f_
 
 
 .group g
@@ -333,8 +335,8 @@
        _) g (_       Ze
           g          g
           g (g
-?2        g (B       ZI
-?2        g (_C      g_
+?3        g (B       ZI
+?3        g (_C      g_
           g (Y       Z      // ge gi
           gu (Y      g
 ?1        guen (C    gw'eIN    // aguenta, etc.
@@ -410,7 +412,8 @@
 .group j
        _) j (_       Z'Ot&
           j          Z
-?2        j (B       ZI
+?3        j (B       ZI
+?3        j (_C      Z_
 
 
 .group k
@@ -418,8 +421,8 @@
 ?2     _) k (_       ka
           k          k
           k (k
-?2        k (B       kI
-?2        k (_C      k_
+?3        k (B       kI
+?3        k (_C      k_
 
 
 .group l
@@ -439,7 +442,8 @@
        _) m (_       'eme
           m          m
           m (m
-?2        m (B       mI
+?3        m (B       mI
+?3        m (_C      m_
 
 
 .group n
@@ -448,7 +452,8 @@
        _) n (_       'ene
           n          n
           n (n
-?2        n (B       nI
+?3        n (B       nI
+?3        n (_C      n_
           nh         n^
 ?1     A) nn         n     //drop “n” (eg: connosco).
 
@@ -568,7 +573,8 @@
        _) p (_       pe
           p          p
           p (p
-?2        p (B       pI
+?3        p (B       pI
+?3        p (_C      p_
 ?1        ph         f     //Didn’t use in European Portuguese (eg: English)
 ?1        ple (_     _^_EN
 
@@ -576,7 +582,7 @@
 .group q
        _) q (_       ke
           q          k
-?2        q (B       kI
+?3        q (B       kI
           qu         kw
           qü         kw
           qu (Y      k
@@ -646,8 +652,8 @@
        _) t (_       te
           t          t
           t (t
-?2        t (B       tSI
-?2        t (_C      t_
+?3        t (B       tSI
+?3        t (_C      t_
 ?2        t (i       tS
 ?2        t (í       tS
 ?2        t (e_      tS
@@ -690,7 +696,8 @@
 .group v
           v          v
           v (v
-?2        v (B       vI
+?3        v (B       vI
+?3        v (_C      v_
 
 
 .group w
@@ -704,7 +711,7 @@
 .group x
           x (A       S
        A) x (A       ks
-?4     A) x (A       z
+?4     A) x (A       S
       _e) x (A       z
        e) x (A       ks
 ?1     e) x (CA      S
@@ -735,7 +742,8 @@
        _) z (_       ze
           z          z
           z (z
-?2        z (B       zI
+?3        z (B       zI
+?3        z (_C      z_
 ?1     @) z (_       S
 ?2     @) z (_       s
        @) z (_A      z

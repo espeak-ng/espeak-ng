@@ -1594,13 +1594,40 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 }
 
 
-void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
-{//==================================================================
-// length in samples
+void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range)
+{//======================================================================================
 	int x;
 	int base;
 	int range;
 	int pitch_value;
+
+	if(pitch1 > pitch2)
+	{
+		x = pitch1;   // swap values
+		pitch1 = pitch2;
+		pitch2 = x;
+	}
+
+	if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
+		pitch_value = MAX_PITCH_VALUE;
+	pitch_value -= embedded_value[EMBED_T];   // adjust tone for announcing punctuation
+	if(pitch_value < 0)
+		pitch_value = 0;
+
+	base = (voice->pitch_base * pitch_adjust_tab[pitch_value])/128;
+	range =  (voice->pitch_range * embedded_value[EMBED_R])/50;
+
+	// compensate for change in pitch when the range is narrowed or widened
+	base -= (range - voice->pitch_range)*18;
+
+	*pitch_base = base + (pitch1 * range);
+	*pitch_range = base + (pitch2 * range) - *pitch_base;
+}
+
+
+void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
+{//==================================================================
+// length in samples
 
 #ifdef LOG_FRAMES
 if(option_log_frames)
@@ -1623,28 +1650,7 @@ if(option_log_frames)
 	else
 		pitch_inc = (256 * ENV_LEN * STEPSIZE)/length;
 
-	if(pitch1 > pitch2)
-	{
-		x = pitch1;   // swap values
-		pitch1 = pitch2;
-		pitch2 = x;
-	}
-
-	if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
-		pitch_value = MAX_PITCH_VALUE;
-	pitch_value -= embedded_value[EMBED_T];   // adjust tone for announcing punctuation
-	if(pitch_value < 0)
-		pitch_value = 0;
-
-	base = (wvoice->pitch_base * pitch_adjust_tab[pitch_value])/128;
-	range =  (wvoice->pitch_range * embedded_value[EMBED_R])/50;
-
-	// compensate for change in pitch when the range is narrowed or widened
-	base -= (range - wvoice->pitch_range)*18;
-
-	pitch_base = base + (pitch1 * range);
-	pitch_range = base + (pitch2 * range) - pitch_base;
-
+	SetPitch2(wvoice, pitch1, pitch2, &pitch_base, &pitch_range);
 	// set initial pitch
 	pitch = ((pitch_env[0]*pitch_range)>>8) + pitch_base;   // Hz << 12
 

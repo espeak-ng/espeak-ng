@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-07-16 Michel Such  <michel.such@free.fr>
+// Updated 2008-07-26 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -66,7 +66,7 @@ _brv	br'Ev
 _ced	sed'ij
 _cir	aksA~siRkO~fl'Eks
 _dia	tRem'a
-_dot	pw'E~syskr'i
+_dot	pwE~syskr'i
 _grv	aksA~gR'av
 _hac	kar'O~
 _mcn	makr'O~
@@ -93,10 +93,10 @@ _)   f'ERm paRA~t'Ez
 _*   astERisk:
 _,   viRgyl
 _-   tiRE
-_.   pwE~
+_.   _pw%E~
 _/   slaS
 _:   d'Ypw'E~
-_;   pw'E~viRg'yl
+_;   pwE~viRg'yl
 _<   E~feRjWR
 _=   egal
 _>   sypeRjWR
@@ -115,75 +115,81 @@ _}   f'ERm_akOl'ad
 
 // numeric
 
-_0	zeR'o
+_0	zeRo
 _1	W~
-_2	d'Yz2
-_3	tRw'az2
-_4	k'atR
-_5	s'E~c
-_6	s'iz3
-_7	s'Et
-_8	_|'w^it
-_9	n'Wf
-_10	d'iz3
+_2	dYz2
+_3	tRo-az2
+_4	katR
+_5	sE~k
+_6	siz3
+_7	sEt
+_8	_|w^it
+_9	nWf
+_10	diz3
 _11	O~z
-_12	d'uz
-_13	tR'Ez
-_14	kat'ORz
-_15	k'E~z
-_16	s'Ez
-_17	d'is:'Et
-_18	d'iz'w^it
-_19	d'izn'Wf
-_20	v'E~
-_21	v'E~te:E~
-_22	v'E~td'Yz2
-_23	v'E~t:tRw'az2
-_24	v'E~tk'atR
-_25	v'E~ts'E~c
-_26	v'E~ts'iz3
-_27	v'E~ts'Et
-_28	v'E~tw^it
-_29	v'E~tn'Wf
-_3X	tR'A~t
-_31	tR'A~te:E~
-_4X	kaR'A~t
-_41	kaR'A~te:E~
-_5X	sE~k'A~t
-_51	sE~k'A~te:E~
-_6X	swas'A~t
-_61	swas'A~te:E~
-_7X	swas'A~t:d'iz3
-_71	swas'A~te:O~z
-_72	swas'A~t:d'uz
-_73	swas'A~t:tR'Ez
-_74	swas'A~t:kat'ORz
-_75	swas'A~t:k'E~z
-_76	swas'A~t:s'Ez
-_77	swas'A~t:d'is:'Et
-_78	swas'A~t:d'iz'w^it
-_79	swas'A~t:d'izn'Wf
-_8X	k'atR@v'E~
-_80	k'atR@v'E~z2
-_9X	k'atR@v'E~d'iz3
-_91	k'atR@v'E~:'O~z
-_92	k'atR@v'E~:d'uz
-_93	k'atR@v'E~:tR'Ez
-_94	k'atR@v'E~:kat'ORz
-_95	k'atR@v'E~:k'E~z
-_96	k'atR@v'E~:s'Ez
-_97	k'atR@v'E~:d'is:'Et
-_98	k'atR@v'E~:d'iz'w^it
-_99	k'atR@v'E~:d'izn'Wf
-_0C	s'A~
-_1C0	s'A~t2
-_0M1	m'il
-_1M1	m'il
-_0M2	milj'O~
-_0M3	milj'aR
+_12	duz
+_13	tREz
+_14	katORz
+_15	kE~z
+_16	sEz
+_17	dis:Et
+_18	dizw^it
+_19	diznWf
+_20	vE~
+_21	vE~te:W~
+_22	vE~tdYz2
+_23	vE~t:tRo-az2
+_24	vE~tkatR
+_25	vE~tsE~k
+_26	vE~tsiz3
+_27	vE~tsEt
+_28	vE~tw^it
+_29	vE~tnWf
+_3X	tRA~t
+_31	tRA~te:W~
+_4X	kaRA~t
+_41	kaRA~te:W~
+_5X	sE~kA~t
+_51	sE~kA~te:W~
+_6X	so-asA~t
+_61	so-asA~te:W~
+_7X	so-asA~t:diz3
+_71	so-asA~te:O~z
+_72	so-asA~t:duz
+_73	so-asA~t:tREz
+_74	so-asA~t:katORz
+_75	so-asA~t:kE~z
+_76	so-asA~t:sEz
+_77	so-asA~t:dis:Et
+_78	so-asA~t:diz'w^it
+_79	so-asA~t:diznWf
+_8X	katR@vE~
+_80	katR@vE~z2
+_9X	katR@vE~diz3
+_91	katR@vE~:O~z
+_92	katR@vE~:duz
+_93	katR@vE~:tREz
+_94	katR@vE~:katORz
+_95	katR@vE~:kE~z
+_96	katR@vE~:sEz
+_97	katR@vE~:dis:Et
+_98	katR@vE~:dizw^it
+_99	katR@vE~:diznWf
+_0C	sA~
+_1C0	sA~t2
+_0M1	mil
+_1M1	mil
+_0M2	miljO~
+_0M3	miljaR
 _0and	e
-_dpt	virg'yl
+_dpt	virgyl
 
+(21 ème)	vE~te:yniEm
+(31 ème)	trA~te:yniEm
+(41 ème)	karA~te:yniEm
+(51 ème)	sE~kA~te:yniEm
+(61 ème)	so-asA~te:yniEm
+(81 ème)	katr@vE~:yniEm
 
 // ABBREVIATIONS
 //**************
@@ -210,7 +216,7 @@ jaws		Z'owz
 kde		$abbrev
 m.		m@sjY
 mbrola		Em'bRola
-mlle		mad@mwazEl
+mlle		mad@mo-azEl
 mme		madam
 mr		m@sjY
 nsi             $abbrev
@@ -225,7 +231,7 @@ ratp		$abbrev
 scsi		$abbrev
 s.t.p		s'il:t'@:pl'E
 s.v.p		s'il:v'u:pl'E
-st		s'E~
+st		s'E~t2
 ste		s'E~t
 stp		s'il:t'@:pl'E
 svp		s'il:v'u:pl'E
@@ -244,62 +250,63 @@ prof                           $dot
 
 
 // articles
-le	$u $nounf
-le	$u $verb $verbextend
-la	$u $nounf
-la	$u $verb $verbextend
-les	lez2 $u $nounf
-les	lez2 $u $verb $verbextend
-un	$u $nounf
-une	$u $nounf
+le	$u+ $nounf
+le	$u+ $verb $verbextend
+la	$u+ $nounf
+la	$u+ $verb $verbextend
+les	lez2 $u+ $nounf
+les	lez2 $u+ $verb $verbextend
+un	$u+ $nounf
+une	$u+ $nounf
 
 
 // conjonctions
-mais	$u
+mais	$u+
 ou	u $u $brk
 et	e $u $brk
 or	$u $brk
 ni	$u $brk
-car	$u $brk
-soit	$u $verb
+car	$u+ $brk
 cependant  $brk
 néanmoins  $brk
 toutefois  $brk
-avant $brk
-après  $brk
+avant $u+ $brk
+après  $u+ $brk
+alors	alOr $u+
 
 
 dont	   dO~t2 $u
 lorsque	   $u
 parce 	   pars@- $u
-quand	   $u
 que	   $u $verbf
-qui	   $u $verbf
+qui	   $u+ $verbf
 quoique	   $u
 si	   $u
+quant	   kA~t2 $u
 
 // pronouns
 je	$u $verbf
-tu	$u $verbf
-il 	$u $verbf
-elle	$u $verbf
+tu	$u+ $verbf
+il 	$u+ $verbf
+elle	$u+ $verbf
 y	$u $verbf
-nous	$u $verbf
-vous	$u $verbf
-elles	$u $verbf
-ils	$u $verbf
-on	O~n2 $u $verbf
+nous	$u+ $verbf
+vous	$u+ $verbf
+elles	$u+ $verbf
+ils	$u+ $verbf
+eux	Yz2 $u+
+on	O~n2 $u+ $verbf
 me	$u $verbf
 te	$u $verbf
 se	$u $verbf
-lui	$u $verbf
-ça	$u $verbf
+lui	$u+ $verbf
+ça	$u+ $verbf
 
-ce	$u $nounf
+ce	$u+ $nounf
 cette	$u $nounf
 ces	sez2 $u $nounf
-ceci	$verbf
-cela	$verbf
+ceci	$u+ $verbf
+cela	$u+ $verbf
 (celle ci)	sEl||si $verbf
 (celle là)	sEl||la $verbf
 (ceux ci)	sY||si $verbf
@@ -315,20 +322,20 @@ ta	$u $nounf
 ton	$u $nounf
 tes	tez2 $u $nounf
 sa	$u $nounf
-son	$u $nounf
+son	$u+ $nounf
 ses	sez2 $u $nounf
 notre	$u $nounf
 votre	$u $nounf
 leur	$u $nounf
 leur	$u $verb $verbextend
-(la leur)	la||lWr $u $verbf
-(le leur)	l@||lWr $u $verbf
+(la leur)	la||lWr $u+ $verbf
+(le leur)	l@||lWr $u+ $verbf
 nos	$u $nounf
 vos	$u $nounf
-leurs	$u $nounf
+leurs	$u+ $nounf
 leurs	$u $verb $verbextend
-(les leur)	le||lWr $u $verbf
-(les leurs)	le||lWr $u $verbf
+(les leur)	le||lWr $u+ $verbf
+(les leurs)	le||lWr $u+ $verbf
 
 // prepositions
 de $u
@@ -336,60 +343,87 @@ du	$u $nounf
 des	dez2 $u $nounf
 
 
-à	$u a
+à	a $u
 au	$u
 
-dans	$u
-sur	$u
 autour	otur
-par	$u
-pour	$u
-en	$u
-en	$u $verb $verbextend
+dans	$u+
+en	$u+
+en	$u+ $verb $verbextend
 (en suspens) A~||sysp'A~
-(en tous) A~||tuz2 $u
-(Tant mieux)	tA~||mi;'Y
+(en tous) A~||tuz2 $u+
+par	$u+
+pour	$u+
+tant	tA~t2 $u+
+entre	$u+
+contre	$u+
 
-vers	$u
-avec	$u $brk
-sans	$u
-sous	$u
-entre	$u $brk
-contre	$u
-
-durant	$u $brk
+durant	$u+
 
 // negative
 ne	$u $verbf
+pas	$u+
+plus	$u+
+guère	$u+
 
 // questions
-où	$brk
+quand	   kA~t2 $u+
+quoi	   $u+
+où	$brk $u+
 
 // auxillary verbs  (be, have, can, etc)
-es	Ez2  $verb
-ès	Es $u
-est	Et2
-ès	Es
-d'est	d'Est
+suis		 $u+ $verb
+es		Ez2  $u+ $verb
+est	Et2 $u+
+sommes	$u+ $verb
+êtes	$u+ $verb
+sont	$u+ $verb
 
-eu	y $u
-eue	y $u
-eues	yz2 $u
-eus	yz2 $u
-eut	yt2 $u $verb
-eux	Yz2 $u
+fus	$u+	$verb
+fut	$u+	$verb
+fûmes	$u+	$verb
+fûtes	$u+	$verb
+furent	$u+
+
+sois	$u+	$verb
+soit	$u+
+
+ai	$u	$verb
+as	as
+as	az2	$u+	$verb
+a	$u+	$verb
+ont	$u+	$verb
+
+eu	y $u+
+eue	y $u+
+eues	yz2 $u+
+eus	yz2 $u+
+
+eut	yt2 $u+ $verb
+eûmes	 $u+ $verb
+eûtes	 $u+ $verb
+eurent	$u+
+
+aie	$u+	$verb
+aies	$u+	$verb
+ait	$u+	$verb
+aient	$u+
+
+d'est	d'Est
+ès	Es $u
 
 // some common adjectives and adverbs
 
-quelque	$u
-tout	t'ut2 $u
-rien	      riE~n2
-
+quelque	$u+
+tout	t'ut2 $u+
+toute	t'ut $u+
+toutes	t'utz2 $u+
+rien	riE~n2	$u+
 
 // Letters which can be words
 //===========================
 à	$atend $accent
-y       igr'Ek $atend
+y       igr'Ek $atend $only
 ô	$atend $accent
 
 
@@ -429,8 +463,7 @@ absent        absA~
 admin        admin
 airbus	      Erbys
 auvent     ovA~
-bien	      biE~n2
-(bien sûr)	biE~||s'yr
+bien	      biE~n2 $u+
 bis	      bis
 bissus    bisys
 bus	      bys
@@ -465,14 +498,7 @@ gens	      ZA~
 mens	      mA~z2
 sens	      sA~s
 sens	      sA~z2 $verb
-c'est         sEt2
 qu'à          ka
-m'y              mi $verbf
-t'y              ti $verbf
-s'y              si $verbf
-n'y              ni $verbf
-l'y              li $verbf
-qu'y          ki $verbf
 (sud est)       sydEst
 (nord est)      nOREst
 
@@ -550,6 +576,7 @@ computer		_^_en
 (cyber link) 		_^_en
 debian		dEbjAn
 driver		_^_en
+edit		_^_en
 emacs		Emaks
 emacspeak	Emakspi:k
 end             _^_en
@@ -585,6 +612,7 @@ open            Op'Wn
 outlook         autluk
 paint    		_^_en
 paper    		_^_en
+people    		_^_en
 redhat		REdat
 same		_^_en
 sametime	_^_en
@@ -606,7 +634,7 @@ discutions	diskytjO~z2
 débutions	debytjO~z2
 désertions	dezERtjO~z2 $verb
 détentions	detA~tjO~z2
-exploitions	EksplwatjO~z2
+exploitions	Eksplo-atjO~z2
 exportions	EkspORtjO~z2
 heurtions	_!WRtjO~z2
 limitions	limitjO~z2
@@ -618,7 +646,7 @@ répétions	RepetjO~z2
 sortions	sORtjO~z2
 supportions	sypORtjO~z2
 tentions	tA~tjO~z2
-votions		votjO~z2 $u
+votions		votjO~z2
 étions		etjO~z2
 évitions	evitjO~z2
 

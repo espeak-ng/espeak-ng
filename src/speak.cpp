@@ -212,23 +212,6 @@ void DisplayVoices(FILE *f_out, char *language)
 
 
 
-static void PitchAdjust(int pitch_adjustment)
-{//==========================================
-	int ix, factor;
-
-	voice->pitch_base = (voice->pitch_base * pitch_adjust_tab[pitch_adjustment])/128;
-
-	// adjust formants to give better results for a different voice pitch
-	factor = 256 + (25 * (pitch_adjustment - 50))/50;
-	for(ix=0; ix<=5; ix++)
-	{
-		voice->freq[ix] = (voice->freq2[ix] * factor)/256;
-	}
-}  //  end of PitchAdjustment
-
-
-
-
 static int OpenWaveFile(const char *path, int rate)
 //=================================================
 {
@@ -734,7 +717,7 @@ int main (int argc, char **argv)
 
 	if(pitch_adjustment != 50)
 	{
-		PitchAdjust(pitch_adjustment);
+		SetParameter(espeakPITCH,pitch_adjustment,0);
 	}
 	DoVoiceChange(voice);
 

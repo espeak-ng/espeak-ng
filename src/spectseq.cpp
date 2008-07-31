@@ -987,7 +987,6 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 //	}
 
 	len_samples = int(((total_length * lfactor + 50) * samplerate) / 1000);
-//	SetPitch(len_samples,pitch.env,pitch.pitch1-pbase,pitch.pitch2-pbase);
 	SetPitch(len_samples,pitch.env,9,44);
 
 	fname_speech = WavFileName();
@@ -1064,7 +1063,6 @@ void SpectFrame::MakeWave(int control, PitchEnvelope &pitche, int amplitude, int
 
 	len_samples = (length * samplerate) / 1000;
 	pbase = voice->pitch_base >> 12;
-//	SetPitch(len_samples + 50,pitche.env,pitche.pitch1-pbase,pitche.pitch2-pbase);
 	SetPitch(len_samples + 50,pitche.env,9,44);
 
 	fname_speech = WavFileName();

@@ -110,7 +110,7 @@ _1	_'e@n
 _1a	_'e@n
 _2	'twe@
 _3	'dri
-_4	'fir
+_4	'fi:r
 _5	'feIf
 _6	'sEs
 _7	'se@v@
@@ -231,6 +231,7 @@ ulundi      ul'undi
 upington    apiNt@n
 vesuvius    v@su:viWs
 viëtnam     vj'Etnam
+wallonië    val'o@ni@
 wellington  wEliNt@n
 wolseley    wulsli
 worcester   v'ust@r
@@ -323,6 +324,7 @@ gerhardus   $2
 gloria      glO:ria
 grange      x2rA:nsi
 gustav      gustaf
+guy         _^_EN
 harry       _^_EN
 havenga     hA:f@Nx2a
 haydn       hAId@n
@@ -347,6 +349,7 @@ jordaan     $2
 josef       jo@s@f
 juanita     juan'ita
 kelvin      _^_EN
+kim         _^_EN $capital
 krige       krix2@
 langenhoven laN@nho@f@n
 lasarus     lA:s@r%Ws
@@ -380,7 +383,7 @@ messias     m@sijas
 michael     _^_EN
 michelle    miS'&l
 michiel $2
-mike	_^_EN
+mike        _^_EN
 miriam      mIri@m
 mohammed    muh'am@t
 mostert     m'Ost@rt
@@ -637,6 +640,7 @@ bene          be@n@
 beswil        bEsv@l	
 bêre          b&:r@
 beskryf b@skr'eIf
+besnedene     b@sne@d@n@	
 bestes        bEst@s
 beta          be@ta
 bewe          be@v@
@@ -764,9 +768,11 @@ kwansuis      $2
 
 libido        l@bidu
 londense      lOnd@ns@
+lord          _^_EN
 
 macaroni      makar'o@ni
 madame        mad'A:m
+madamoiselle  _^_FR
 malles        mal@s
 maskering     mask'e@r@N $only
 massaal       $2
@@ -785,6 +791,7 @@ misbruik      $2 $verb
 misbruikte    $2
 miskien       $2
 misterie      m@ste@ri
+monsieur      _^_FR
 motore        mo@t'o@r@
 motor         mo@t@r
 motortjie     mo@t@rki
@@ -811,6 +818,7 @@ normale       nOrm'A:l@
 numeri        nWm@ri
 
 oeuvre        W:vr@
+omgeef        $2
 omrede        $2
 omtrent       Omtr'Ent
 onbegrip      $1
@@ -887,6 +895,7 @@ sektore       $2
 sinagoge      s@n@x2o@x2@
 senatore      s@nat'o@r@
 singenot      sInx2@nOt
+sir           _^_EN
 skares        skA:r@s
 skepsele      skEps@l@
 skuldelas     skWld@las
@@ -914,6 +923,7 @@ terug         t@-rWx2
 tesaam        t@sA:m
 tevrede       t@fre@d@
 toegee        tux2e@
+toereken      ture@k@n
 totale        tut'A:l@
 totsiens      $2
 tragiek       trax2'ik
@@ -921,6 +931,7 @@ tragiek       trax2'ik
 uitdaging     YydA:x2@N
 uiteraard     Yyt@r_'A:rt
 uitermate     $3
+uniforme      $3
 
 vaarwel       fA:rv'&l
 vakant        f%ak'ant

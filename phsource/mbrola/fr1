@@ -14,6 +14,7 @@ volume 15
 
 0  Y  NULL   0  2
 0  W  NULL   0  9
+0  W2 NULL   0  9
 0  A~ NULL   0  a~
 0  E~ NULL   0  e~
 0  O~ NULL   0  o~
@@ -40,6 +41,7 @@ volume 15
 0  eI  NULL  60 E j
 0  aU  NULL  60 a w
 0  oU  NULL  0  o
+0  o-  NULL  0  o
 0  @L  NULL  40 @ l
 0  @2  NULL  0  @
 0  @5  NULL  0  @

@@ -1,20 +1,6 @@
 Phonemes which are used in the *_rules and *_list files
 
 
-Dictionary af_dict
-
-&    &:   3:   @    @-   @L   @U   a    
-A:   aI   AI   aU   A~   E    e:   e@   
-eI   e~   I    i    iu   O    O:   o@   
-OI   oI   o~   u    uI   W    y    Y@   
-Yy   
-
--    :    ;    ?    b    c    d    dZ   
-f    g    h    j    k    l    m    n    
-N    p    r    s    S    t    tS   v    
-w    x2   z    Z    
-
-
 Dictionary cs_dict
 
 @-   a    a:   aU   e    e:   eI   eU   
@@ -68,9 +54,9 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  E    e@   eI   I    I2   i:   i@   
-i@3  IR   O    O:   o:   O@   o@   OI   
-oU   O~   U    u:   U@   V    VR   
+aU@  E    e@   eI   I    i    I2   i:   
+i@   i@3  IR   O    O:   o:   O@   o@   
+OI   oU   O~   U    u:   U@   V    VR   
 
 :    ;    ?    b    C    d    D    dZ   
 f    g    h    j    k    l    m    n    
@@ -113,8 +99,8 @@ S    s2   t    v    Z
 Dictionary fr_dict
 
 @    @-   a    A    A~   e    E    E~   
-i    i:   o    O    O2   O~   u    w    
-W    W2   w^i  W~   y    Y    
+i    i:   o    O    o-   O2   O~   u    
+w    W    W2   w^i  W~   y    Y    
 
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    m    n    N    n2   
@@ -259,6 +245,20 @@ oi   ong  ou   u    ui   yu
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
 tS   v    w    z    
+
+
+Dictionary af_dict
+
+&    &:   3:   @    @-   @L   @U   a    
+A:   aI   AI   aU   A~   E    e:   e@   
+eI   e~   I    i    iu   O    O:   o@   
+OI   oI   o~   u    uI   W    y    Y@   
+Yy   
+
+-    :    ;    ?    b    c    d    dZ   
+f    g    h    j    k    l    m    n    
+N    p    r    s    S    t    tS   v    
+w    x2   z    Z    
 
 
 Dictionary ta_dict

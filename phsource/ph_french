@@ -49,7 +49,7 @@ endphoneme
 phoneme i: // Slitely longer than i
   vowel  starttype (i)  endtype (i)
   length 212
-  formants vowel/i_en
+  formants vowel/i_3
   linkout ;
 endphoneme
 
@@ -70,6 +70,13 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 170
+  formants vowel/o_3
+endphoneme
+
+
+phoneme o-
+  vowel starttype (o) endtype (o)
+  length 100
   formants vowel/o_3
 endphoneme
 
@@ -112,13 +119,12 @@ endphoneme
 
 
 phoneme w
-  vowel
+  vowel starttype (o) endtype w
   length 120
   beforenotvowel w/
   lengthmod 7
   formants w/w
   after _ w/_w
-  before (a) w/wa
 endphoneme
 
 
@@ -387,6 +393,7 @@ phoneme r/   // variant of [r] when not preceding a vowel
   lengthmod 2
   formants NULL
   before j vwl_fr/@R
+  before l vwl_fr/@R
 endphoneme
 
 

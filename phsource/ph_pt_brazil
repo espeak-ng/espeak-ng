@@ -6,7 +6,7 @@
 phoneme I   // epenthetic i
   vowel starttype (i) endtype (i)
   length 90
-  formants vowel/i
+  formants vowel/ii_6
   unstressed
 endphoneme
 
@@ -95,7 +95,7 @@ endphoneme
 phoneme y          // this is the same as [i] for Brazil
   vowel starttype (i) endtype (i)
   length 150
-  formants vowel/i
+  formants vowel/ii_6
   linkout ;
 endphoneme
 
@@ -104,7 +104,7 @@ phoneme i/            // changes to [j] before a vowel
   vowel starttype (i) endtype (i)
   beforevowel j
   length 150
-  formants vowel/i
+  formants vowel/ii_6
   linkout ;
 endphoneme
 
