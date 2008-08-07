@@ -396,11 +396,26 @@ static void MbrolaEmbedded(int &embix, int sourceix)
 	unsigned int word;  // bit 7=last command for this word, bits 5,6 sign, bits 0-4 command
 	unsigned int value;
 	int command;
+	int sign=0;
 
 	do {
 		word = embedded_list[embix++];
 		value = word >> 8;
-		command = word & 0x7f;
+		command = word & 0x1f;
+
+		if((word & 0x60) == 0x60)
+			sign = -1;
+		else
+		if((word & 0x60) == 0x40)
+			sign = 1;
+
+		if(command < N_EMBEDDED_VALUES)
+		{
+			if(sign == 0)
+				embedded_value[command] = value;
+			else
+				embedded_value[command] += (value * sign);
+		}
 
 		switch(command & 0x1f)
 		{

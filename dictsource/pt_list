@@ -239,8 +239,8 @@ sr	$dot
 ?2 sra	$dot
 
 // articles
-o	$u+
-a	$u+
+o	$u+	$nounf
+a	$u+	$nounf
 os	$u+
 as	$u+
 ?1 a    & $u+
@@ -252,10 +252,10 @@ umas	$u
 
 
 // pronouns
-eu	$u+
+eu	$u+	$verbf
 tu	$u+
-você	$u+
-ele	$u+
+você	vos'e	$u+
+ele	'ely	$u+
 ela	$u+
 nós	$u+
 vós	$u+
@@ -266,15 +266,24 @@ elas	$u+
 me	$u	// reflexive
 te	$u 
 nos	$u 
+la	$u
+lo	$u
+las	$u
+los	$u
 //se	$u
 
 ?2	este	$u+	'estSi       // this
 ?2	estes	$u+	'estSis       // these
 ?2	esta	'Est& $brk $u+
+?2	neste	$u+	n'estSi      //in this
+?2	nestes	$u+	n'estSis      //in these
 ?2	esse	$u+	'esi       // that
 essa	'Es& $brk  $u+
-aquele	$u+       // that
+desse	d'esy	$u+
+nesse	n'esy	$u+
+aquele	&k'ely	$u+       // that
 aquela	$u+
+daquele	d&k'ely	$u+
 
 ?1	que	ky	$u 
 ?2	que	ke	$u $pause
@@ -296,11 +305,11 @@ suas	$u+
 ?2	nossa	$u+	n'Os&
 ?2	nossos	$u+	n'OsUs
 ?2	nossas	$u+	n'Os&s
-dele	$u+
+dele	dely	$u1+
 dela	$u+
 deles	$u+
 delas	$u+
-
+nele	nely	$u1+
 
 // prepositions
 de	$u	// of,from
@@ -352,7 +361,7 @@ com	$u $brk		// with
 ?2	desde	$u $pause	// from,since
 ?2	entre	$pause		// between,among
 ?2	por	$u $pause	// by,for,through
-?2	sobre	$pause		// on,above,about
+?2	sobre	s'obRy	$pause		// on,above,about
 ?2	sob	$pause		// under,below
 ?2	debaixo	$pause		// under,below
 
@@ -419,25 +428,24 @@ somos	$u
 sois	$u
 são	$u
 
-era	$u	// .. imperfect
+era	E*& $u1	// .. imperfect
 éramos	$u
 éreis	$u
-eram	$u
+eram	E*&U~  $u1
 
 fui	$u      // .. preterite
 foste	$u
 foi	$u
 fomos	$u
 fostes	$u
-foram	$u
 
 fora	$u      // .. pluperfect
 fômamos	$u
 fôreis	$u
-foram	$u
+foram	fo*&U~  $u1
 
 serei	$u	// .. future
-será	$u
+?2 será	se*a	$u2
 seremos	$u
 sereis	$u
 serão	$u
@@ -460,7 +468,7 @@ estávamos	$u
 astavam	$u
 
 estive	$u
-esteve	$u
+?2 esteve	estevy	$u2
 estivemos	$u
 estiveram	$u
 estiver	$u	estSiv'Er
@@ -487,7 +495,7 @@ tinham	$u
 
 tive	$u
 tiveste	$u
-teve	$u
+teve	tevy	$u1
 tivemos	$u
 tivestes	$u
 tiveram	$u
@@ -528,8 +536,8 @@ pôde	$u+
 pudemos	$u+
 puderam	$u+
 
-poderei	$u+
-poderá	$u+
+poderei	$u3+
+poderá	$u3+
 poderemos	$u+
 poderão	$u+
 
@@ -558,34 +566,37 @@ alguns		$u	// some
 algumas		$u	// some
 não		n,&U~ $strend	// not
 
+// Words with two possible pronounciations
+jogo	Z'OgU	$verb
+gosto	g'OstU	$verb
+começo	kom'EsU	$verb
+almoço	aUm'OsU	$verb
+retorno	xet'OrnU	$verb
+acordo	&k'OrdU	$verb
+governo	gov'ernU	$noun
+olho	'oljU	$noun
+colher	kolj'Er	$noun
 
 
 // MAIN WORD DICTIONARY
 //*********************
+fosse        f'osy
+fossem       f'oseIN
+hoje         'oZi
+mulher       mulj'Er
 mui          mu~j
 muito        m'u~jtu	// -s is included as a suffix
 muita        m'u~jt&
+?2 rede      x'edZy
+teta         t'et&
 
-// $alt   changes the first [o] phoneme to [O]
-costa        $alt
-forte        $alt
-porta        $alt
+// $alt   changes the first [o] phoneme to open [O]
 novos        $alt
-novas        $alt
-morte        $alt
 mortos       $alt
-porte        $alt
-norte        $alt
 corpos       $alt
 modo         $alt
 modos        $alt
 fogos        $alt
-sorte        $alt
-toque        $alt
-bloco        $alt
-blocos       $alt
-floco        $alt
-flocos       $alt
 lopes        $alt
 jogos        $alt
 
@@ -596,13 +607,7 @@ jogos        $alt
 ?1 sobre       s'obry
 
 
-
-// Open [E]
-nela         n'El&
-nessa        n'Es&
-era          'E*&
-
-abacaxi      abakaSi
+abacaxi      abakaSy
 axé          aSE
 elixir       eliSir
 ?1 fixe       f'iSy
@@ -613,6 +618,8 @@ roxo         x'oSU
 ?1 alt        'alt
 ?2        agosto        &g'ostU
 ?1 back       b'Ek
+?2  backup        bEk'&p
+?2  backups     bEk'&ps
 ?1 blind      bl'aind
 ?1 braille    b:r'aily
 ?2        Braille        bR'aili

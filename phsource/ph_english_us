@@ -105,7 +105,7 @@ endphoneme
 
 phoneme V
   vowel  starttype (a)  endtype (@)
-  length 155
+  length 160
   formants vowel/V_6
   reduceto @  0
 endphoneme
