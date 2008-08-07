@@ -1,6 +1,9 @@
 // translation rules for Slovak
 // This file is UTF-8 encoded
 
+// Letter groups:
+// G   voiced: bdgjlmnrvwzaeiouy
+
 .group a
         a        a
 

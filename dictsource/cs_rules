@@ -1,6 +1,9 @@
 // translation rules for Czech
 // This file is UTF-8 encoded
 
+// Letter groups:
+// G   voiced: bdgjlmnrvwzaeiouy
+
 .group a
         a        a
         au       aU

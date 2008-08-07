@@ -103,6 +103,7 @@
           b          b
           b (b
 ?3        b (B       bI
+?3        b (s       b
 ?3        b (_C      b_
 
 
@@ -111,6 +112,8 @@
           c          k
           c (Y       s         // ce ci
 ?3        c (B       kI
+?3        c (s       k
+?3        c (t       k
 ?3        c (_C      k_
           ch         S
           ck         k
@@ -453,6 +456,8 @@
           k          k
           k (k
 ?3        k (B       kI
+?3        k (s       k
+?3        k (t       k
 ?3        k (_C      k_
 
 
@@ -577,7 +582,7 @@
           o (tA_     O
           o (tAm_    O
 
-?2        ox (_      Oks
+?2        o (x_      O
 ?1        oz (_      Os#
 ?2        oz (_      Oz
           o (zes_    O
@@ -632,6 +637,8 @@
           p          p
           p (p
 ?3        p (B       pI
+?3        p (s       p
+?3        p (t       p
 ?3        p (_C      p_
 ?1        ph         f     //Didn’t use in European Portuguese (eg: English)
 ?1        ple (_     _^_EN
@@ -770,7 +777,6 @@
 .group x
           x (A       S
        A) x (A       ks
-?4     A) x (A       S
       _e) x (A       z
        e) x (A       ks
 ?1     e) x (CA      S

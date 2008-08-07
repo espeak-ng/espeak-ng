@@ -243,7 +243,7 @@ o	$u+	$nounf
 a	$u+	$nounf
 os	$u+
 as	$u+
-?1 a    & $u+
+?1 a    & $u+   $nounf
 
 um	$u
 uma	$u
@@ -338,8 +338,6 @@ pelo	$u $brk
 pelos	$u $brk
 ?2	pelas	$u $brk	p'el&s
 
-a	$u $brk	// to,at
-?1 a    & $u $brk
 ao	$u $brk
 à	,a: $brk
 aos	$u $brk

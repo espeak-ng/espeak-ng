@@ -35,6 +35,13 @@
 0   R   NULL   0   r
 0   j   NULL   0   y
 
+// consonant combinations which are OK for br4 voice, but need epenthetic [i] for  br1 br3
+0   k   s      90  k  i
+0   k   t      90  k  i
+0   p   s      90  p  i
+0   p   t      90  p  i
+0   b   s      90  b  i
+
 0   a/  NULL   0   a
 0   A   NULL   0   a
 0   &   NULL   0   a

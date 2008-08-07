@@ -594,11 +594,11 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_pt,stress_amps_pt);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
-//			tr->langopts.vowel_pause = 1;
 			tr->langopts.stress_rule = 3;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x20000; 
 			tr->langopts.numbers = 0x269 + 0x2000 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
+			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
 		}
 		break;
@@ -666,7 +666,7 @@ SetLengthMods(tr,3);  // all equal
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');
-			ResetLetterBits(tr,0x2);
+			ResetLetterBits(tr,0x20);
 			SetLetterBits(tr,5,sk_voiced);
 		}
 		break;

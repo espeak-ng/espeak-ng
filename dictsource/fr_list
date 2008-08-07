@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-07-26 Michel Such  <michel.such@free.fr>
+// Updated 2008-08-07 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -42,6 +42,7 @@ m	Em
 o	o
 _ô	$accent
 ö       $accent
+œ	o||@||lie
 p	pe
 q	ky
 r	ER
@@ -118,7 +119,7 @@ _}   f'ERm_akOl'ad
 _0	zeRo
 _1	W~
 _2	dYz2
-_3	tRo-az2
+_3	tRwaz2
 _4	katR
 _5	sE~k
 _6	siz3
@@ -138,7 +139,7 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:tRo-az2
+_23	vE~t:tRwaz2
 _24	vE~tkatR
 _25	vE~tsE~k
 _26	vE~tsiz3
@@ -151,18 +152,18 @@ _4X	kaRA~t
 _41	kaRA~te:W~
 _5X	sE~kA~t
 _51	sE~kA~te:W~
-_6X	so-asA~t
-_61	so-asA~te:W~
-_7X	so-asA~t:diz3
-_71	so-asA~te:O~z
-_72	so-asA~t:duz
-_73	so-asA~t:tREz
-_74	so-asA~t:katORz
-_75	so-asA~t:kE~z
-_76	so-asA~t:sEz
-_77	so-asA~t:dis:Et
-_78	so-asA~t:diz'w^it
-_79	so-asA~t:diznWf
+_6X	swasA~t
+_61	swasA~te:W~
+_7X	swasA~t:diz3
+_71	swasA~te:O~z
+_72	swasA~t:duz
+_73	swasA~t:tREz
+_74	swasA~t:katORz
+_75	swasA~t:kE~z
+_76	swasA~t:sEz
+_77	swasA~t:dis:Et
+_78	swasA~t:diz'w^it
+_79	swasA~t:diznWf
 _8X	katR@vE~
 _80	katR@vE~z2
 _9X	katR@vE~diz3
@@ -188,7 +189,7 @@ _dpt	virgyl
 (31 ème)	trA~te:yniEm
 (41 ème)	karA~te:yniEm
 (51 ème)	sE~kA~te:yniEm
-(61 ème)	so-asA~te:yniEm
+(61 ème)	swasA~te:yniEm
 (81 ème)	katr@vE~:yniEm
 
 // ABBREVIATIONS
@@ -208,15 +209,22 @@ cio		$abbrev
 ctrl		kO~tRol $pause
 dept		depaRt@mA~
 etc		etseteRa
+ghz		ZigaErts
 hmm		h@m
+hz		_!Erts
 ibm		$abbrev
 ide		$abbrev
 ip		$abbrev
 jaws		Z'owz
 kde		$abbrev
+kg		kilogram
+khz		kiloErts
+km		kilomEtr
+kw		kilowat
 m.		m@sjY
 mbrola		Em'bRola
-mlle		mad@mo-azEl
+mhz		megaErts
+mlle		mad@mwazEl
 mme		madam
 mr		m@sjY
 nsi             $abbrev
@@ -273,11 +281,16 @@ toutefois  $brk
 avant $u+ $brk
 après  $u+ $brk
 alors	alOr $u+
+depuis $u+
+ainsi $u+
+aussi $u+
 
 
 dont	   dO~t2 $u
 lorsque	   $u
-parce 	   pars@- $u
+puisque	   $u
+presque	   $u+
+(parce que) 	   parsk@ $u+
 que	   $u $verbf
 qui	   $u+ $verbf
 quoique	   $u
@@ -303,6 +316,10 @@ lui	$u+ $verbf
 ça	$u+ $verbf
 
 ce	$u+ $nounf
+ceci	$u+ $verbf
+cela	$u+ $verbf
+voici	$u+
+voilà	$u+
 cette	$u $nounf
 ces	sez2 $u $nounf
 ceci	$u+ $verbf
@@ -313,6 +330,7 @@ cela	$u+ $verbf
 (ceux là)	sY||la $verbf
 (celles ci)	sEl||si $verbf
 (celles là)	sEl||la $verbf
+plupart	$u+
 
 // possessives
 ma	$u $nounf
@@ -345,8 +363,9 @@ des	dez2 $u $nounf
 
 à	a $u
 au	$u
+aux	$u
 
-autour	otur
+autour	otur $u+
 dans	$u+
 en	$u+
 en	$u+ $verb $verbextend
@@ -357,19 +376,25 @@ pour	$u+
 tant	tA~t2 $u+
 entre	$u+
 contre	$u+
-
+plusieurs $u+
 durant	$u+
+avec	$u+
+sans	$u+
 
 // negative
 ne	$u $verbf
 pas	$u+
 plus	$u+
 guère	$u+
+jamais $u+
 
 // questions
 quand	   kA~t2 $u+
 quoi	   $u+
 où	$brk $u+
+comment	$u+
+pourquoi	$u+
+pourtant	$u+
 
 // auxillary verbs  (be, have, can, etc)
 suis		 $u+ $verb
@@ -415,6 +440,7 @@ d'est	d'Est
 // some common adjectives and adverbs
 
 quelque	$u+
+quelques	$u+
 tout	t'ut2 $u+
 toute	t'ut $u+
 toutes	t'utz2 $u+
@@ -442,6 +468,8 @@ poing     pwE~
 ressent          r@s'A~t2
 riz       ri
 sphincter           sfE~ktEr
+sous	$u+
+sur	$u+
 tunis           tynis
 
 
@@ -456,6 +484,7 @@ tunis           tynis
 
 
 monsieur         m@sjY
+messieurs         mesjYz2
 montréal         mO~Real
 (n'est ce pas)   n'Es@-||p'az2
 (qu'est ce que)  kEsk@ $u
@@ -474,7 +503,9 @@ cocus     coky
 dernier    dErnier2
 estomac     Estoma
 éloquent     ElokA~t2
+fier	      fier2 $verb
 fils	      fis
+fuel	      fjul
 gars	      ga
 hélas 		elas
 iris	      iris
@@ -498,7 +529,6 @@ gens	      ZA~
 mens	      mA~z2
 sens	      sA~s
 sens	      sA~z2 $verb
-qu'à          ka
 (sud est)       sydEst
 (nord est)      nOREst
 
@@ -508,12 +538,7 @@ azimut		azim'yt
 brut		bR'yt
 but		by $verb
 but		byt
-club		klWb
-(le pub)		l@||p'Wb
-(un pub)		W~||p'Wb
-(du pub)		dy||p'Wb
 cut	cWt
-hub	_|Wb
 mazout		mazut
 michael		mikaEl
 out		aut
@@ -569,13 +594,12 @@ and             _^_en
 amazon		amaz'On
 apple		_^_en
 at		_^_en
-(audible manager) odibl||manadZWr
+(audible manager) od,ibl||manadZ'Wr
 bit		_^_en
 bluetooth 		blut'us
 computer		_^_en
 (cyber link) 		_^_en
 debian		dEbjAn
-driver		_^_en
 edit		_^_en
 emacs		Emaks
 emacspeak	Emakspi:k
@@ -603,13 +627,13 @@ logon 		_^_en
 (mac os x)	makoEsiks
 made	_^_en
 media     		medja
-messenger 		_^_en
+messenger 		mesEnZWr
 my		_^_en
 not		_^_en
 null	_^_en
 ok         oke
 open            Op'Wn
-outlook         autluk
+outlook         autlu:k
 paint    		_^_en
 paper    		_^_en
 people    		_^_en
@@ -618,7 +642,7 @@ same		_^_en
 sametime	_^_en
 schubert	SubER
 sun		_^_en
-(text aloud) tEkst||@lawd
+(text aloud) tEkst||@la=wd
 ubuntu		ubuntu
 up		_^_en
 yacht		jot
@@ -634,7 +658,7 @@ discutions	diskytjO~z2
 débutions	debytjO~z2
 désertions	dezERtjO~z2 $verb
 détentions	detA~tjO~z2
-exploitions	Eksplo-atjO~z2
+exploitions	EksplwatjO~z2
 exportions	EkspORtjO~z2
 heurtions	_!WRtjO~z2
 limitions	limitjO~z2

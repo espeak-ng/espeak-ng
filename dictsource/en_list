@@ -631,7 +631,7 @@ bow              boU
 bow              baU           $verb 
 breakfast        brEkf@st
 breath           bri:D
-breath           brET          $only
+breath           brET          $onlys
 breath           bri:D         $verb
 breathless       brETl@s
 brethren         brEDr@n
@@ -739,6 +739,7 @@ colonel          k3:n@L
 ?5 colonel       kVRn@L
 combat           k0mbat       // combating
 combo            k0mboU
+comer            kVm3
 comet            k0mIt
 commence         k@mEns
 commend          k@mEnd
