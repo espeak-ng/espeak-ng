@@ -635,6 +635,7 @@
          l) ame (nt      %amE
             amm (end     a2m
             amoeb        a2mi:b
+         f) amil         amIl
          f) am (ous      eIm
          &) am (ent      @m
          &) ame (nta     @m'E
@@ -861,7 +862,7 @@
             are (t       ar@
             ar (iaC_     'e@
             ar (ia_      'e@
-            arily (_     'Er@lI2
+         @) arily (_     'Er@lI2
         ch) ar (it       ar
          m) ar (i        @r
          m) ar (ig       ar
@@ -2436,6 +2437,8 @@
          K) hl           L
          &) hold (_$4    hoUld
             holme        hoUm
+         _) homeo        hoUmi:oU
+         _) homoeo       hoUmi:oU
          &) hood (_S4    hUd
          &) hoods (_S5   hUdz
          _) h (our
@@ -2560,7 +2563,7 @@
         _C) i (lo        aI
         _k) i (lo        I
         _l) i (Cy_       I
-         &) ily (_       I2lI2
+         &) ily (_S2i    lI2
          l) i (m@        I
         cl) i (m         aI
          l) ime          aIm
@@ -2726,6 +2729,7 @@
          d) iene (_      'aIi:n
             ie (ntal     I'E
          g) ie (n        i:
+        sc) ie (nc       aI@
        _sc) ie (n        aI@
 ?8     _sc) ie (n        aIa2
             ie (nCiA     I2'E
@@ -3625,6 +3629,7 @@
          &) om (ise_     =@m
          &) om (ize_     =@m
          @) om (ist_     =@m
+         _) omni (@      0mn'I
          &) omy (_       =@mI2
 
 .group on
@@ -3777,6 +3782,7 @@
          _) or (iC       0r
         @t) ore (_       3
         st) ore (_       o@
+         @) orily (_     '0r@lI2
          h) ori (z       @raI
          h) ori (zont    0rI
         _h) or (o        0r
@@ -4073,6 +4079,7 @@
             pneu         nju:
             pota (t      p@teI
          _) ps           s
+            pseudo       su:doU
             psych        saIk
             psycho       saIkoU
             psycho (lo   saIk'0
@@ -4244,6 +4251,7 @@
          _) run (a       rVn
          _) run (o       rVn
          _) rw           r%U
+      &ant) ry (_S2      rI2
 
 .group re
  //      _) re (@P2     %ri:
@@ -4595,6 +4603,7 @@
             u (_         ju:
          r) u (_         u:
          l) u (_         u:
+         w) u (_         u:
          h) u (_         =u:
             u (ga_       'u:
             u (ki_       'u:

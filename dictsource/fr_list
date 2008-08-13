@@ -3,7 +3,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-08-07 Michel Such  <michel.such@free.fr>
+// Updated 2008-08-12 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -119,7 +119,7 @@ _}   f'ERm_akOl'ad
 _0	zeRo
 _1	W~
 _2	dYz2
-_3	tRwaz2
+_3	tRwa2z2
 _4	katR
 _5	sE~k
 _6	siz3
@@ -127,7 +127,7 @@ _7	sEt
 _8	_|w^it
 _9	nWf
 _10	diz3
-_11	O~z
+_11	_!O~z
 _12	duz
 _13	tREz
 _14	katORz
@@ -139,7 +139,7 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:tRwaz2
+_23	vE~t:tRwa2z2
 _24	vE~tkatR
 _25	vE~tsE~k
 _26	vE~tsiz3
@@ -152,18 +152,18 @@ _4X	kaRA~t
 _41	kaRA~te:W~
 _5X	sE~kA~t
 _51	sE~kA~te:W~
-_6X	swasA~t
-_61	swasA~te:W~
-_7X	swasA~t:diz3
-_71	swasA~te:O~z
-_72	swasA~t:duz
-_73	swasA~t:tREz
-_74	swasA~t:katORz
-_75	swasA~t:kE~z
-_76	swasA~t:sEz
-_77	swasA~t:dis:Et
-_78	swasA~t:diz'w^it
-_79	swasA~t:diznWf
+_6X	swa2sA~t
+_61	swa2sA~te:W~
+_7X	swa2sA~t:diz3
+_71	swa2sA~te:O~z
+_72	swa2sA~t:duz
+_73	swa2sA~t:tREz
+_74	swa2sA~t:katORz
+_75	swa2sA~t:kE~z
+_76	swa2sA~t:sEz
+_77	swa2sA~t:dis:Et
+_78	swa2sA~t:diz'w^it
+_79	swa2sA~t:diznWf
 _8X	katR@vE~
 _80	katR@vE~z2
 _9X	katR@vE~diz3
@@ -189,7 +189,7 @@ _dpt	virgyl
 (31 ème)	trA~te:yniEm
 (41 ème)	karA~te:yniEm
 (51 ème)	sE~kA~te:yniEm
-(61 ème)	swasA~te:yniEm
+(61 ème)	swa2sA~te:yniEm
 (81 ème)	katr@vE~:yniEm
 
 // ABBREVIATIONS
@@ -224,7 +224,7 @@ kw		kilowat
 m.		m@sjY
 mbrola		Em'bRola
 mhz		megaErts
-mlle		mad@mwazEl
+mlle		mad@mwa2zEl
 mme		madam
 mr		m@sjY
 nsi             $abbrev
@@ -271,8 +271,8 @@ une	$u+ $nounf
 // conjonctions
 mais	$u+
 ou	u $u $brk
+eh	 $u $brk
 et	e $u $brk
-or	$u $brk
 ni	$u $brk
 car	$u+ $brk
 cependant  $brk
@@ -366,20 +366,30 @@ au	$u
 aux	$u
 
 autour	otur $u+
+autre	$u+
+autres	$u+
 dans	$u+
 en	$u+
 en	$u+ $verb $verbextend
 (en suspens) A~||sysp'A~
 (en tous) A~||tuz2 $u+
 par	$u+
+parmi	$u+
 pour	$u+
 tant	tA~t2 $u+
+autant	$u+
+tandis	$u+
+dès	$u
 entre	$u+
 contre	$u+
 plusieurs $u+
 durant	$u+
 avec	$u+
 sans	$u+
+trop	$u+
+assez	$u+
+beaucoup	$u+
+très	$u
 
 // negative
 ne	$u $verbf
@@ -448,7 +458,7 @@ rien	riE~n2	$u+
 
 // Letters which can be words
 //===========================
-à	$atend $accent
+à	$atend $accent $only
 y       igr'Ek $atend $only
 ô	$atend $accent
 
@@ -501,19 +511,17 @@ campus   kA~pys
 choeur        kWr
 cocus     coky
 dernier    dErnier2
-estomac     Estoma
 éloquent     ElokA~t2
 fier	      fier2 $verb
 fils	      fis
 fuel	      fjul
 gars	      ga
-hélas 		elas
+hélas 		elas $u+
 iris	      iris
 laser	      lazEr
 malus      malys
 mars	      maRs
 parangon	      parA~gO~
-pays	      pEi
 phallus    falys
 polder    pOldEr
 premier    pr@mier2
@@ -556,7 +564,7 @@ zut		zyt
 exocet		EgzOsEt
 fret		fR'Et
 budget		bydZE
-hamlet		amlEt
+hamlet		hamlEt
 knesset		knEsEt
 lazaret		lazaREt
 margaret	maRgaREt
@@ -568,7 +576,7 @@ soviet		sOvjEt
 // urt (t is said)
 kurt		kuRt
 yaourt		jauRt
-yoghourt	yoguRt
+yoghourt	yogurt
 yogourt		yoguRt
 
 // ort (t said)
@@ -595,7 +603,7 @@ amazon		amaz'On
 apple		_^_en
 at		_^_en
 (audible manager) od,ibl||manadZ'Wr
-bit		_^_en
+bit		bit
 bluetooth 		blut'us
 computer		_^_en
 (cyber link) 		_^_en
@@ -613,7 +621,7 @@ get		_^_en
 google		gu:gWl
 gnome		gnOm
 gnu		gnu
-hamburger		_!A~b@rgWr
+hamburger		hA~b@rgWr
 help		_^_en
 hot		_^_en
 in		_^_en
@@ -645,7 +653,7 @@ sun		_^_en
 (text aloud) tEkst||@la=wd
 ubuntu		ubuntu
 up		_^_en
-yacht		jot
+yacht		jO2t
 yes		_^_en
 
 
@@ -658,9 +666,9 @@ discutions	diskytjO~z2
 débutions	debytjO~z2
 désertions	dezERtjO~z2 $verb
 détentions	detA~tjO~z2
-exploitions	EksplwatjO~z2
+exploitions	Eksplwa2tjO~z2
 exportions	EkspORtjO~z2
-heurtions	_!WRtjO~z2
+heurtions	hWRtjO~z2
 limitions	limitjO~z2
 méritions	meRitjO~z2
 partions	paRtjO~z2
@@ -678,6 +686,7 @@ votions		votjO~z2
 (quelqu'un)	kElkW~
 pourcent	puRsA~
 vincent		vE~sA~
+
 
 
 

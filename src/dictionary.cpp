@@ -440,8 +440,11 @@ char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme)
 			{
 				// Switch Language: this phoneme is followed by a text string
 				char *p_lang = outptr;
-				while(!isspace(c = *p++) && (c != 0))
+				while(!isspace(c = *p) && (c != 0))
+				{
+					p++;
 					*outptr++ = tolower(c);
+				}
 				*outptr = 0;
 				if(c == 0)
 				{

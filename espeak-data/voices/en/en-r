@@ -4,11 +4,13 @@ language en-us
 language en 3
 gender male
 
+formant 1 99 100 100
+
 phonemes en_us
 dictrules 3 6
 option 12 1       // reduce [t]
 
-stressLength 145 125 170 170 0 0 270 290
+stressLength 148 125 170 170 0 0 260 285
 stressAmp  17 16  20 20  20 22  23 20
 
 replace 03 I  i

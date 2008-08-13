@@ -85,7 +85,7 @@ _7X	z'e:f@nt@x
 _8X	t'Axt@x
 _9X	n'e:g@nt@x
 _0C	h'OndErt
-_0M2	d'WyzEnt
+_0M1	d'WyzEnt
 _1M1	d'WyzEnt
 _0M2	m'iljun
 _0M3	m'iljArt
@@ -250,5 +250,10 @@ player      _^_EN
 the         _^_EN
 
 // pronunciation exceptions
-eren	I:*@n
+bourgondier	burx'o:ndi:@r
+circuit		sIrku'i
+contour		ko:nt'ur
+eren		I:*@n
+journaal	Surn'a:l
+kennedy		kEn@dE
 

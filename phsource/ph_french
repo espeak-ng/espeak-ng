@@ -22,6 +22,14 @@ phoneme a
 endphoneme
 
 
+phoneme a2
+  vowel  starttype (a)  endtype (a)
+  length 160
+  unstressed
+  formants vowel/a_5
+endphoneme
+
+
 phoneme e
   vowel starttype (e) endtype (e)
   length 172
@@ -72,6 +80,13 @@ phoneme o
 endphoneme
 
 
+phoneme o2
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o_2
+endphoneme
+
+
 phoneme O
   vowel starttype (o) endtype (o)
   length 170
@@ -85,7 +100,6 @@ phoneme O2	// Like O but no reduceto
   length 170
   formants vowel/o_mid
 endphoneme
-
 
 
 phoneme u
@@ -113,17 +127,6 @@ phoneme Y
   vowel starttype (@) endtype (@)
   length 170
   formants vowel/y#
-endphoneme
-
-
-phoneme w
-  vowel starttype (u) endtype (@)
-  length 80
-  beforenotvowel w/
-  lengthmod 7
-  formants w/w2
-  after _ w/_w
-  after (r) w/w
 endphoneme
 
 
@@ -225,15 +228,8 @@ endphoneme
 phoneme b
   vcd blb stop
   vowelout f1=0  f2=1000 -500 -300  f3=-300 80 brk
-  formants b/b+x/b%50
+  formants b/b+x/b%70
   before _ b/b_+x/b_
-  before (a) b/ba+x/b%50
-  before (@) b/b@+x/b%40
-  before (e) b/be+x/b%50
-  before (i) b/bi+x/b%50
-  before (o) b/bo+x/b%25
-  before (u) b/bu+x/b%40
-  before @-  b/b@2+x/b%50
   after _ NULL
   after @ b/xb%50
   lengthmod 5
@@ -299,6 +295,7 @@ phoneme l/    // used for [l] when not before a vowel
   lengthmod 7
   formants l/l_
   before b l/l_long
+  after b l/l
   before (r) l/_l
   beforevowel l
 endphoneme
@@ -444,7 +441,7 @@ endphoneme
 
 phoneme v
   vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100 amp=15
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100 len=0
   vowelout f1=0  f2=1000 -300 -2300  f3=-300 100  len=10
   lengthmod 6
   formants voc/v+vocw/v%75

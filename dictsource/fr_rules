@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-08-07 Michel Such  <michel.such@free.fr>
+// Updated: 2008-08-12 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -65,8 +65,7 @@
 	_)	anarcho (@P7      anarko		// anarchosyndicalisme
 
 		a  (nnA     a		// manne
-		an (C       A~		// ancien
-		an (_       A~		// élan
+		an (K       A~		// ancien, élan
 	_C)	aon  (_        A~		// faon, paon, taon
 	s)	aoul (_         u		// saoul
 	s)	aou (le          u		// saoule
@@ -78,9 +77,11 @@
 	_)	audio (@P5       odio
 	_)	auto (@P4       oto
 	_)	autom (n       otO
-	p)	ay (s       Ei		// pays paysage
+	_)	au (treX       o2
+	p)	a (ys       E		// pays paysage
 		ay (C       E		// aymé
 		ay          Ej		// paye
+		ay (_         E		// display
 	Xl)	ayer (X         EjWr		// player, layer
 		a           a		// bateau
 
@@ -111,6 +112,7 @@
 		cc          k		// occuper
 	_)	ch (arism      k		// charisme, charismatique
 	a)	ch (_     k		// almanach
+	e)	ch (_     k		// varech
 	_A)	ch (o_      k		// écho
 	_eu)	ch (ari      k		// eucharistie
 	or) 	ch (esC     k		// orchestre
@@ -119,7 +121,7 @@
 	_) 	ch (or      k		// chorale
 	te)	ch (_       k
 		ch (r       k		// chrétien
-	_)	chrono (@P6       krono
+	_)	chrono (@P6       kro2no
 		ch (l       k
 		ch (n       k
 		ch (s       k
@@ -138,11 +140,12 @@
 	cler)	c (_			// leclerc
 	tchou)	c (_
 	taba)	c (_
+	toma)	c (_
 	se)	c (ond      g		// seconde secondaire
 		c           k		// recoin donc
 
 	s)	cien (t	    jA~		// conscient scientifique
-		cien (t_    si		// ils appr�ient, remercient.
+		cient (_    sit2		// ils appr�ient, remercient.
 	effi)	cien (t    sjA~	// coefficient
 	défi)	cien (t    sjA~	// déficient
 
@@ -150,6 +153,12 @@
 		cast (_      _^_en		// broadcast
 	n)	ch (_      _^_en		// french
 		cut (_      _^_en		// cut, shortcut
+
+
+.group ç
+
+	ç           s		// rançon
+_) 	ç' (P2v      s
 
 
 .group d
@@ -198,11 +207,9 @@
 	_C) 	e (_        @		// je te
 	-c) 	e (_       @-
 	-j) 	e (_       @-
+	C) 	e (-       @-
 
 		e (Ce_      E
-	ack)	er (K      Wr
-	ock)	er (K      Er
-	rock)	er (K      Wr
 		eau         o		// bateau cheveaux
 	g)	ea (s_ 	a      		// mangeas
 	j)	e (a        		// Jean Jeanne
@@ -216,10 +223,10 @@
 		e (il       E		// vieille
 		ei          E		// neige
 		ell         El		// selle
-		el (C       El		// celsius
-		el (_       El		// caramel
+		el (K       El		// celsius, caramel
 	_f)	em (me      a		// femme
-	i)	e (ment     		// remerciement, d�ploiement
+	i)	e (mA     		// remerciement, d�ploiement
+	i)	e (rA     		// remerciera
 	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
 		em (mACC       A~		// emmancher
@@ -255,7 +262,7 @@
 	_dol)	en (t_      A~		// dolent
 	ol)	en (t_      A~		// somnolent, violent
 	Vol)	en (t_        		// somnolent, violent
-	Xol)	en (t_        		// volent
+	Xol)	ent (_      t2  		// volent
 	ul)	en (t_      A~		// turbulent
 	Vul)	en (t_
 	imCoC)	en (t_      A~		// impotent
@@ -264,10 +271,10 @@
 	XACcid)	en (t_      A~		// accident, occident
 
 	_ag)	en (t_      A~		// agent
-	_ard)	en (t_      A~		// argent, ardent
-	_arg)	en (t_      A~		// argent, argent
+	_ard)	en (t_      A~		// ardent
+	_arg)	en (t_      A~		// argent
 	_urg)	en (t_      A~		// urgent
-	V_urg)	en (t_   		// urgent (verbe)
+	V_urg)	ent (_   	t2	// urgent (verbe)
 
 	_émin)	en (t_      A~		// éminent
 	immin)	en (t_      A~		// imminent
@@ -278,21 +285,22 @@
 	@@Cig)	en (t_      A~		// intransigent, intelligent
 	_dilig)	en (t_      A~		// diligent
 	XACig)	en (t_      A~		// dirigent, exigent
-	VXACig)	en (t_      	// dirigent, exigent (verbe)
+	VXACig)	ent (_      t2	// dirigent, exigent (verbe)
 	flig)	en (t_      A~		// affligent
-	Vflig)	en (t_     		// infligent (verbe)
-	Xig)	en (t_            // figent, pigent
+	Vflig)	ent (_     t2		// infligent (verbe)
+	Xig)	ent (_     t2       // figent, pigent
 	oblig)	en (t_      A~		// obligent, d�sobligent
-	Voblig)	en (t_        		// obligent (verbe)
+	Voblig)	ent (_      t2  		// obligent (verbe)
+	tang)	en (t_      A~		// tangent
 
 	man)	en (t_      A~		// permanent
 	@@ing)	en (t_      A~		// astreingent, contingentindigent
 	_pat)	en (t_      A~		// patent
 	rmam)	en (t_      A~		// firmament
 	éCerg)	en (t_      A~		// détergent
-	V_éCerg)	en (t_   		// émergent
+	V_éCerg)	ent (_  t2 		// émergent
 	verg)	en (t_      A~		// convergent, divergent
-	Vverg)	en (t_   		// convergent, divergent (verbe)
+	Vverg)	ent (_   	t2	// convergent, divergent (verbe)
 
 	_serg)	en (t_      A~		// sergent
 	CACCim)	en (t_      A~		// condiment, gentiment
@@ -311,30 +319,30 @@
 	ontin)	en (t_      A~		// continent, incontinent
 	_sArm)	en (t_      A~		// sarment, serment
 	erm)	en (t_      A~		// ferment
-	Vferm)	en (t_   		// ferment, referment (verbe)
+	Vferm)	ent (_   	t2	// ferment, referment (verbe)
 	XArp)	en (t_      A~		// arpent, serpent
 	CArr)	en (t_      A~		// conncurrent, torrent
-	Cerr)	en (t_       // ils serrent
+	Cerr)	ent (_  t2     // ils serrent
 	_appar)	en (t_      A~		// apparent
 	spar)	en (t_      A~		// transparent
 	_par)	en (t_      A~		// parent
-	V_par)	en (t_     		// parent (verbe)
+	V_par)	ent (_     t2		// parent (verbe)
 	_var)	en (t_      A~		// varent
 	mitt)	en (t_      A~		// intermittent
 	énit)	en (t_      A~		// pénitent
 	tourm)	en (t_      A~		// tourment
 	Cflu)	en (t_      A~		// affluent, confluent
-	VCflu)	en (t_        		// refluent, influent (verbe)
+	VCflu)	ent (_      t2  		// refluent, influent (verbe)
 
 	_tal)	en (t_      A~		// talent
 	ival)	en (t_      A~		// équivalent
-	Vival)	en (t_     		// équivalent (verbe)
+	Vival)	ent (_     t2		// équivalent (verbe)
 	xcell)	en (t_      A~		// excellent
-	Vxcell)	en (t_        // excellent
+	Vxcell)	ent (_      t2  // excellent
 
 	iCam)	en (t_      A~
 	mm)	en (t_      A~
-	em)	en (t_      A~		// vitement
+	em)	en (t_      A~		// lentement
 	mom)	en (t_      A~		// moment
 	Aaim)	en (t_      A~
 	Caim)	en (t_      A~
@@ -345,13 +353,13 @@
 	rum)	en (t_      A~
 
 	éCid)	en (t_      A~
-	VéCid)	en (t_
+	VéCid)	ent (_	t2
 	Xtrid)	en (t_      A~
 	_flor)	en (t_      A~
 	_laur)	en (t_      A~
 	_mécont) en (t_     A~
 	_cont)	en (t_      A~
-	_Vcont)	en (t_
+	_Vcont)	ent (_	t2
 	éC)	en (t_      A~		// compétent
 	_souv)	en (t_      A~		// souvent
 	Cud)	en (t_      A~
@@ -360,13 +368,11 @@
 	V_couv)	en (t_      		// elles couvent
 	s_couv)	en (t_      		// elles couvent
 
-
-		en (t_            	// étaient mangent
-	A)	en (t_            	// étaient mangent
+		ent (_      t2      	// étaient mangent
+	A)	ent (_      t2      	// étaient mangent
 
 	Ci)	en (K       E~      	// rien, lien
 	Ci)	en (c       A~      	// science
-
 
 	AA)	en (_       E~
 	C)	en (_       En      	// amen, abdomen, golden
@@ -385,7 +391,9 @@
 	_fi)	er (_       ER      	// fier
 	_hiv)	er (X       ER      	// hiver
 	_ti)	er (_       ER
-
+	ack)	er (K      Wr
+	ock)	er (K      Er
+	rock)	er (K      Wr
 
 		er (_       e      	// parler léger
 		er (s_      e
@@ -420,6 +428,7 @@
 		eu        Y		// eu
 
 		eu (C       W
+		eu (h_       Y
 		eu (x_       Y
 		eu (i       W
 		eu (rC       W2
@@ -458,6 +467,7 @@
  		e (Cr       @
  _)		e (ff       e  		// effet, effectuer
  		e (C_       E
+ 		e (t_       Et2
  		e (rC       E
  		es (_       z2
 
@@ -480,6 +490,7 @@
 	_) 	e (xA          E
 	Cr)	eamer		i:mWr
 	Cl)	eaner		i:nWr
+	Ack)	et (_      Et
 
 
 // group e: English section
@@ -496,8 +507,6 @@
 	 	eld (_        _^_en		// field
 	_) 	enter (_        _^_en		// enter
 	_) 	enhan         _^_en
-	ack)	et (_      _^_en     	// racket, packet
-	ock)	et (_      _^_en     	// rocket, pocket
 	qu) 	est (_        _^_en		// request
 	qu) 	este (X_        _^_en		// requested, requester
 	_) 	even         _^_en		// forever, however
@@ -509,7 +518,7 @@
 .group è
 
 	Z)	ème 		iEm
-		è		E
+	è		E
 
 
 .group ë
@@ -575,6 +584,7 @@
 
 .group h
 _)	h		_!
+Ca)	h	(_	h
 _)	h	(abi			// habit, habilleur
 _)	h	(allo			// hallogène
 _)	h	(ame			// hameçon
@@ -709,6 +719,7 @@ _)		half  	_^_en
 .group j
 		j           Z		// adjoint joujoux
 	_) 	j' (P2v      Z
+	_) 	jusqu' (P6      Zysk
 
 
 .group k
@@ -725,6 +736,7 @@ _)		half  	_^_en
 	au)	lt			// hérault
 	uCi)	l (_ 			// outil, fusil
 	ui)	ll          j		// juillet
+	_)	lorsqu' (P7          lO2rsk
 
 // group l: English section
 		less (_      _^_en  // noiseless
@@ -764,16 +776,25 @@ _)		half  	_^_en
 	 	on (n       O
 	 	on (nerA       O2
 	 	o (rC       O2
+	 	o (rX       O2
 	_) 	os (_       Os
 	s_) 	os (_       o
 	x_) 	os (_       o
-	 	o (seX       o
+	X) 	o (se_       o2
+	X) 	o (ses_       o2
 	 	o (CCement_       O2
 	 	o (Cement_       O2
 	 	o (t_       o
 	 	o (tre_       O2
+	_) 	o (bCC       o2
+	_) 	o (bCe       o2
+	X) 	o (Co@       o2
+	 	o (Cau       o2
+	 	o (Ceau       o2
+	 	o (Co_       o2
+	 	o (Cos_       o2
 
-		oe (ll      wa		// moelleux
+		oe (ll      wa2		// moelleux
 	_)	oe (C       Y		// oesophage
 	_ph)	oe (C       e		// phoetus
 		oeu       W		// soeur coeur
@@ -782,9 +803,9 @@ _)		half  	_^_en
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
-		oi          wa		// poil
-		oê (l       wa		// poêle
-		oî          wa		// boîte
+		oi          wa2		// poil
+		oê (l       wa2		// poêle
+		oî          wa2		// boîte
 		om (C       O~		// bombe
 		om (m       O		// nommer
 	_)	om (n       O2m		// omnibus
@@ -816,9 +837,9 @@ _)		half  	_^_en
 		ou          u		// hibou brouillard
 		où          u		// où
 		oû          u		// coûter
-		oyes (_     wa		// troyes
-		oy (A       waj		// noyer voyelles
-		oy          wa		// roy
+		oyes (_     wa2		// troyes
+		oy (A       wa2j		// noyer voyelles
+		oy          wa2		// roy
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
 		o           O
@@ -850,7 +871,7 @@ C)		oing (_      _^_en	// going
 .group p
 		p           p		// pas
 	_)	para (CCP4       para
-	_)	photo (@P5       foto
+	_)	photo (@P5       fo2to
 	_)	poly (@P4       poli
 	_)	pseudo (@P6       psYdo
 		p (p			// appliquer
@@ -875,6 +896,7 @@ C)		oing (_      _^_en	// going
 
 	se)	pt (_      t      	// sept
 	se)	pt (iè     t      	// septième
+	_)	puisqu' (P7     pyisk
 
 // group p: English section
 		pad (_        _^_en
@@ -935,6 +957,7 @@ mou)	rr          RR		// mourrai
 		ss          s		// assez
 
 	ai) 	s (em       s		// vraisemblable
+	aCè)	s (_	s
 	ub)	s (is       z		// subsister
 	tran) 	s (A        z		// transition
 	tran) 	s (e        s		// transe
@@ -1006,13 +1029,12 @@ mou)	rr          RR		// mourrai
 .group t
 		t           t	// bataille
 _)		t (_        te
+-)		t (-        t2
 	_)	t' (P2v      t
--)		t (-        t
-V)		t (_        t2  // silent at end of verb unless next word starts with a vowel
-u)		t (-        t2  // silent at end of verb unless next word starts with a vowel
-n)		t (-        t2  // silent at end of verb unless next word starts with a vowel
-		t (_            // silent at end of word
-		t (-S1        t
+		t (_        t2
+	A)	t (_
+	peti)	t (_        t2
+		t-         t2_
 	_)	th       t      // thon
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
 	C)	t (_        t	// compost watt soft script malttact abrupt
@@ -1204,15 +1226,16 @@ n)		t (-        t2  // silent at end of verb unless next word starts with a vowe
 .group y
 		y           i	// cryogénique myope
 	_)	y (A          _!i	// yak, yacht
-	_)	y (eu          i	// yak, yacht
+	_)	y (eu          i	// yeux
 
-	_)	yahoo (P5       ia'u	// symbolique
+	_)	yahoo (P5       ia'u
 		ym (b       E~	// symbolique
 		ym (p       E~	// tympan
 		ym (_       E~	// thym
 		y (nn       i
 		y (nA       i
-		ys (_       is
+	pa)	ys (_       i
+	X)	ys (_       is
 		yx (_       iks
 
 		yn          E~	// laryngite
@@ -1229,9 +1252,7 @@ n)		t (-        t2  // silent at end of verb unless next word starts with a vowe
 		â           a:
 		ñ           n^
 
-		ç           s		// rançon
 	 	é           e		// été
-	 	è           E		// règle
 	 	ê           E		// fête
 		ñ           Ni		// niño
 		ö           O		// angström
@@ -1244,7 +1265,7 @@ n)		t (-        t2  // silent at end of verb unless next word starts with a vowe
 // symbols that are normally spoken when reading text
 		, (D        pilk:u
 	!	Eksklamasj'O~
-	$	dOlaR
+	$	do2laR
 	@	aRobaz
 	%	puRsA~
 	&	_e
@@ -1257,13 +1278,14 @@ n)		t (-        t2  // silent at end of verb unless next word starts with a vowe
 	°	d@gRe
    _n_) °	   // n°
 	±	pl'yz_'u_mw'E~
-	×	myltip@-lj'e_p'aR
+	×	myltipli:'e_p'aR
 	÷	diviz'e_p'aR
 	¼	W~_k'aR
 	½	W~_d@m'i
-	¾	tRw'a k'aR
+	¾	tRw'a2 k'aR
 	©	_^_EN
-	®	R@ZistR'@d_m'aRk
+	®	m'ark_depos'e
+
 
 
 

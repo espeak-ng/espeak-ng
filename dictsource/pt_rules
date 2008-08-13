@@ -46,6 +46,7 @@
           am (C      &~m
 ?4        am (C      &~N
           an (K+     &~N
+        anh (A     &~n^
           am (_      =&U~
 ?1        a (z_      'a   //eg: paz, rapaz, capaz, etc...
 ?1     C) acç        'a's // eg: selecção, etc...
@@ -197,6 +198,7 @@
           ib) e (rA_     E
           d) e (rA_     E
         ed) e (rAm_     e
+          m) e (rA_     E
         iv) e (rAm_     E
           pod) e (rA_     e
           d) e (rAm_    E
@@ -368,7 +370,7 @@
        _) g (_       Ze
           g          g
           g (g
-?3        g (B       ZI
+?3        g (B       gI
 ?3        g (_C      g_
           g (Y       Z      // ge gi
           gu (Y      g
@@ -598,6 +600,7 @@
           @@) o (rA_     o
 
           o (p_     O
+          o (ps_     O
 ?1     _) o (C       O     // eg: olá, orla, opção, etc...
 ?1    _C) o (CACAC   u     // Documento, documentação, localizar, etc.
 ?1     f) o (rmat    u     // formatar, formato.
@@ -848,7 +851,7 @@
           . (.       _:
       \.) .
 
-          *          aste*r'isku
+          *          ,aste*'iskU
       *)  * (*
           ** 
      **)  * (_       _::

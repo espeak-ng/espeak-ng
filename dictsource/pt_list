@@ -241,14 +241,14 @@ sr	$dot
 // articles
 o	$u+	$nounf
 a	$u+	$nounf
-os	$u+
-as	$u+
+os	$u+	$nounf
+as	$u+	$nounf
 ?1 a    & $u+   $nounf
 
-um	$u
-uma	$u
-uns	$u
-umas	$u
+um	$u	$nounf
+uma	$u	$nounf
+uns	$u	$nounf
+umas	$u	$nounf
 
 
 // pronouns
@@ -272,39 +272,39 @@ las	$u
 los	$u
 //se	$u
 
-?2	este	$u+	'estSi       // this
-?2	estes	$u+	'estSis       // these
-?2	esta	'Est& $brk $u+
-?2	neste	$u+	n'estSi      //in this
+?2	este	$u+	$nounf	'estSi       // this
+?2	estes	$u+	$nounf	'estSis       // these
+?2	esta	'Est& $brk $u+	$nounf
+?2	neste	$u+	$nounf	n'estSi      //in this
 ?2	nestes	$u+	n'estSis      //in these
-?2	esse	$u+	'esi       // that
-essa	'Es& $brk  $u+
-desse	d'esy	$u+
-nesse	n'esy	$u+
-aquele	&k'ely	$u+       // that
-aquela	$u+
-daquele	d&k'ely	$u+
+?2	esse	$u+	$nounf	'esi       // that
+essa	'Es& $brk  $u+	$nounf
+desse	d'esy	$u+	$nounf
+nesse	n'esy	$u+	$nounf
+aquele	&k'ely	$u+	$nounf       // that
+aquela	$u+	$nounf
+daquele	d&k'ely	$u+	$nounf
 
 ?1	que	ky	$u 
 ?2	que	ke	$u $pause
 
 // possessive adjectives
-meu	$u+
-minha	$u+
+meu	$u+	$nounf
+minha	$u+	$nounf
 meus	$u+
 minhas	$u+
-teu	$u+
-tua	$u+
+teu	$u+	$nounf
+tua	$u+	$nounf
 teus	$u+
 tuas	$u+
-seu	$u+
-sua	$u+
+seu	$u+	$nounf
+sua	$u+	$nounf
 seus	$u+
 suas	$u+
-?2	nosso	$u+	n'OsU
-?2	nossa	$u+	n'Os&
-?2	nossos	$u+	n'OsUs
-?2	nossas	$u+	n'Os&s
+?2	nosso	$u+	$nounf
+?2	nossa	$u+	$nounf
+?2	nossos	$u+
+?2	nossas	$u+
 dele	dely	$u1+
 dela	$u+
 deles	$u+
@@ -313,8 +313,8 @@ nele	nely	$u1+
 
 // prepositions
 de	$u	// of,from
-do	$u
-da	$u
+do	$u	$nounf
+da	$u	$nounf
 dos	$u
 das	$u
 dum	$u
@@ -323,8 +323,8 @@ duns	$u
 dumas	$u
 
 em	$u $brk  // in,on,at
-no	nu $u $brk
-na	$u $brk
+no	nu $u $brk	$nounf
+na	$u $brk	$nounf
 ?2	nos	nus# $u $brk
 nas	$u $brk
 num	$u $brk
@@ -344,7 +344,7 @@ aos	$u $brk
 às	,a:s $brk
 
 para	$u $brk		// for,to
-pro	$u $brk
+pro	$u $brk	$nounf
 pra	$u $brk
 pros	$u $brk
 pras	$u $brk
@@ -574,18 +574,25 @@ acordo	&k'OrdU	$verb
 governo	gov'ernU	$noun
 olho	'oljU	$noun
 colher	kolj'Er	$noun
+força	f'ors&	$noun
 
 
 // MAIN WORD DICTIONARY
 //*********************
+borboleta        b,orbol'et&
+catorze        k&t'orzy
+forca        f'ork&
 fosse        f'osy
 fossem       f'oseIN
 hoje         'oZi
+líderes        l'ide*ys
 mulher       mulj'Er
 mui          mu~j
 muito        m'u~jtu	// -s is included as a suffix
 muita        m'u~jt&
+osso        'osU
 ?2 rede      x'edZy
+selvagem        seUv'aZeIN
 teta         t'et&
 
 // $alt   changes the first [o] phoneme to open [O]
@@ -632,6 +639,10 @@ roxo         x'oSU
 ?1 dj         d,i:dZ'eI
 ?1 down       d'a,wn
 ?1 download   d'a,wnl'oud
+?2 download        daUNl'owd
+?2 downloads        daUNl'owds
+?3 download        dau~Nl'owd
+?3 downloads        dau~Nl'owdIs
 ?1 end        'end
 ?1 escape     Sk'eIpy
 ?1 explorer   ,ekspl'O:*&r-
@@ -660,7 +671,9 @@ roxo         x'oSU
 ?2        logo        l'OgU
 ?1 lock       l'Ok
    mail       m'eIl
+?3  mail     m'eI@l
         mails        m'eIls
+?3  mails     m'eI@ls
 ?1 maior      m,&j'Or-
 ?2 maior      maI'Or
 ?2        maiores        maI'O*is
@@ -724,7 +737,6 @@ louis       _^_FR
 ?2    firefox     f'ai@fOks
 ?1 front       fr'ont
 ?1 jaws        dZ'au:z
-?2 jaws        dZ'Os
 ?1 linux       l,in'uks
 ?2 linux       l'inUks
 ?1 live        l'aiv
@@ -759,6 +771,8 @@ louis       _^_FR
    ubuntu      ub'untu
 ?1 unix        ,u:n'iks
 ?2 unix        j'uniks
+     wagner     v'agner
+?3 wagner        v'agIner
 ?1 windows     w'iNd'ou:z
 ?2 windows     w'iNdows
 ?1 window     w'iNd'ou
