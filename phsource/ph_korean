@@ -51,7 +51,7 @@ endphoneme
 phoneme y
   vowel starttype (i) endtype (u)
   length 180
-  formants vowel/u#_6
+  formants vdiph2/uw_6
 endphoneme
 
 phoneme u-

@@ -1,9 +1,30 @@
 
+// ***************************************************************************
+// *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+// *   email: jonsd@users.sourceforge.net                                    *
+// *                                                                         *
+// *   This program is free software; you can redistribute it and/or modify  *
+// *   it under the terms of the GNU General Public License as published by  *
+// *   the Free Software Foundation; either version 3 of the License, or     *
+// *   (at your option) any later version.                                   *
+// *                                                                         *
+// *   This program is distributed in the hope that it will be useful,       *
+// *   but WITHOUT ANY WARRANTY; without even the implied warranty of        *
+// *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         *
+// *   GNU General Public License for more details.                          *
+// *                                                                         *
+// *   You should have received a copy of the GNU General Public License     *
+// *   along with this program; if not, see:                                 *
+// *               <http://www.gnu.org/licenses/>.                           *
+
 // This file in UTF8 encoded
+
+// Conditional rules
+// ?2  Special numbering for Belgium and Switzerland
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-08-12 Michel Such  <michel.such@free.fr>
+// Updated 2008-08-17 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -94,7 +115,7 @@ _)   f'ERm paRA~t'Ez
 _*   astERisk:
 _,   viRgyl
 _-   tiRE
-_.   _pw%E~
+_.   _|pw%E~
 _/   slaS
 _:   d'Ypw'E~
 _;   pwE~viRg'yl
@@ -124,7 +145,7 @@ _4	katR
 _5	sE~k
 _6	siz3
 _7	sEt
-_8	_|w^it
+_8	_|w^it3
 _9	nWf
 _10	diz3
 _11	_!O~z
@@ -134,7 +155,7 @@ _14	katORz
 _15	kE~z
 _16	sEz
 _17	dis:Et
-_18	dizw^it
+_18	dizw^it3
 _19	diznWf
 _20	vE~
 _21	vE~te:W~
@@ -144,7 +165,7 @@ _24	vE~tkatR
 _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
-_28	vE~tw^it
+_28	vE~tw^it3
 _29	vE~tnWf
 _3X	tRA~t
 _31	tRA~te:W~
@@ -162,7 +183,7 @@ _74	swa2sA~t:katORz
 _75	swa2sA~t:kE~z
 _76	swa2sA~t:sEz
 _77	swa2sA~t:dis:Et
-_78	swa2sA~t:diz'w^it
+_78	swa2sA~t:diz'w^it3
 _79	swa2sA~t:diznWf
 _8X	katR@vE~
 _80	katR@vE~z2
@@ -174,7 +195,7 @@ _94	katR@vE~:katORz
 _95	katR@vE~:kE~z
 _96	katR@vE~:sEz
 _97	katR@vE~:dis:Et
-_98	katR@vE~:dizw^it
+_98	katR@vE~:dizw^it3
 _99	katR@vE~:diznWf
 _0C	sA~
 _1C0	sA~t2
@@ -184,6 +205,31 @@ _0M2	miljO~
 _0M3	miljaR
 _0and	e
 _dpt	virgyl
+
+//some numbers have special pronunciation in Belgium and Switzerland
+?2 _7X	sEptA~t
+?2 _71	sEptA~te:W~
+?2 _72	sEptA~t:dYz2
+?2 _73	sEptA~t:trwa2z2
+?2 _74	sEptA~t:katr
+?2 _75	sEptA~t:sE~k
+?2 _76	sEptA~t:siz3
+?2 _77	sEptA~t:sEt
+?2 _78	sEptA~t:w^it3
+?2 _79	sEptA~t:nWf
+?2 _8X	o2ktA~t
+?2 _80	o2ktA~t
+?2 _81	o2ktA~te:W~
+?2 _9X	no2nA~t
+?2 _91	no2nA~te:W~
+?2 _92	no2nA~t:dYz2
+?2 _93	no2nA~t:trwa2z2
+?2 _94	no2nA~t:katr
+?2 _95	no2nA~t:sE~k
+?2 _96	no2nA~t:siz3
+?2 _97	no2nA~t:sEt
+?2 _98	no2nA~t:w^it3
+?2 _99	no2nA~t:nWf
 
 (21 ème)	vE~te:yniEm
 (31 ème)	trA~te:yniEm
@@ -208,6 +254,7 @@ cci              $abbrev
 cio		$abbrev
 ctrl		kO~tRol $pause
 dept		depaRt@mA~
+edf		$abbrev
 etc		etseteRa
 ghz		ZigaErts
 hmm		h@m
@@ -275,6 +322,7 @@ eh	 $u $brk
 et	e $u $brk
 ni	$u $brk
 car	$u+ $brk
+car	$noun
 cependant  $brk
 néanmoins  $brk
 toutefois  $brk
@@ -286,6 +334,7 @@ ainsi $u+
 aussi $u+
 
 
+certes	$u+
 dont	   dO~t2 $u
 lorsque	   $u
 puisque	   $u
@@ -322,8 +371,6 @@ voici	$u+
 voilà	$u+
 cette	$u $nounf
 ces	sez2 $u $nounf
-ceci	$u+ $verbf
-cela	$u+ $verbf
 (celle ci)	sEl||si $verbf
 (celle là)	sEl||la $verbf
 (ceux ci)	sY||si $verbf
@@ -341,6 +388,7 @@ ton	$u $nounf
 tes	tez2 $u $nounf
 sa	$u $nounf
 son	$u+ $nounf
+son	sO~ $noun
 ses	sez2 $u $nounf
 notre	$u $nounf
 votre	$u $nounf
@@ -369,6 +417,8 @@ autour	otur $u+
 autre	$u+
 autres	$u+
 dans	$u+
+vers	vEr $u+
+vers	$noun
 en	$u+
 en	$u+ $verb $verbextend
 (en suspens) A~||sysp'A~
@@ -381,6 +431,7 @@ autant	$u+
 tandis	$u+
 dès	$u
 entre	$u+
+entre	$verb
 contre	$u+
 plusieurs $u+
 durant	$u+
@@ -389,19 +440,26 @@ sans	$u+
 trop	$u+
 assez	$u+
 beaucoup	$u+
+peu	$u+
+peu	$noun
 très	$u
 
 // negative
 ne	$u $verbf
 pas	$u+
+pas	$noun
 plus	$u+
+plus	$noun
 guère	$u+
 jamais $u+
+non	nO~ $u+
+oui	$u+
 
 // questions
 quand	   kA~t2 $u+
 quoi	   $u+
 où	$brk $u+
+comme	kO2m	$u+
 comment	$u+
 pourquoi	$u+
 pourtant	$u+
@@ -461,8 +519,6 @@ rien	riE~n2	$u+
 à	$atend $accent $only
 y       igr'Ek $atend $only
 ô	$atend $accent
-
-
 
 
 // pronunciation exceptions
@@ -525,6 +581,8 @@ parangon	      parA~gO~
 phallus    falys
 polder    pOldEr
 premier    pr@mier2
+scanner	skaner2
+scanner	skanWr $noun
 souris       suri
 sus       sys
 sus       sy $verb

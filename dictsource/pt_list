@@ -4,6 +4,8 @@
 // Options
 // ?1  European Portuguese
 // ?2  Brazilian Portuguese
+// ?3  Epenthetic [I] between consonants
+// ?4  Brazil mbrola voice
 
 // Note for "pt-pt" [R] is the same sound as [r]
 //      for "pt" [y] is the same sound as [i]
@@ -182,8 +184,8 @@ _1M3	'u~mbilj'&U~
 _1M4	'u~ntrilj'&U~
 _0and	_i
 _dpt    _v'irgul&
-_0Z2	seNt'Ezim&     // 100ths
-_0Z3	mil'Ezim&      // 1000ths
+// _0Z2	seNt'Ezim&     // 100ths
+// _0Z3	mil'Ezim&      // 1000ths
 
 // not roman numbers
 vi	vi
@@ -278,11 +280,11 @@ los	$u
 ?2	neste	$u+	$nounf	n'estSi      //in this
 ?2	nestes	$u+	n'estSis      //in these
 ?2	esse	$u+	$nounf	'esi       // that
-essa	'Es& $brk  $u+	$nounf
-desse	d'esy	$u+	$nounf
-nesse	n'esy	$u+	$nounf
+essa	'Es& $brk  $u+
+desse	d'esy	$u+
+nesse	n'esy	$u+
 aquele	&k'ely	$u+	$nounf       // that
-aquela	$u+	$nounf
+aquela	$u+
 daquele	d&k'ely	$u+	$nounf
 
 ?1	que	ky	$u 
@@ -290,21 +292,21 @@ daquele	d&k'ely	$u+	$nounf
 
 // possessive adjectives
 meu	$u+	$nounf
-minha	$u+	$nounf
+minha	$u+
 meus	$u+
 minhas	$u+
 teu	$u+	$nounf
-tua	$u+	$nounf
+tua	$u+
 teus	$u+
 tuas	$u+
 seu	$u+	$nounf
-sua	$u+	$nounf
+sua	$u+
 seus	$u+
 suas	$u+
-?2	nosso	$u+	$nounf
-?2	nossa	$u+	$nounf
-?2	nossos	$u+
-?2	nossas	$u+
+?2	nosso	$u+	n'OsU
+?2	nossa	$u+	n'Os&
+?2	nossos	$u+	n'OsUs
+?2	nossas	$u+	n'Os&s
 dele	dely	$u1+
 dela	$u+
 deles	$u+
@@ -324,7 +326,7 @@ dumas	$u
 
 em	$u $brk  // in,on,at
 no	nu $u $brk	$nounf
-na	$u $brk	$nounf
+na	$u $brk
 ?2	nos	nus# $u $brk
 nas	$u $brk
 num	$u $brk
@@ -574,23 +576,24 @@ acordo	&k'OrdU	$verb
 governo	gov'ernU	$noun
 olho	'oljU	$noun
 colher	kolj'Er	$noun
-força	f'ors&	$noun
 
 
 // MAIN WORD DICTIONARY
 //*********************
 borboleta        b,orbol'et&
 catorze        k&t'orzy
-forca        f'ork&
 fosse        f'osy
 fossem       f'oseIN
 hoje         'oZi
 líderes        l'ide*ys
+mexa     m'eS&
+mexi        meS'i
+mexo     m'eSU
 mulher       mulj'Er
 mui          mu~j
 muito        m'u~jtu	// -s is included as a suffix
 muita        m'u~jt&
-osso        'osU
+praxedes        pR&S'EdZys
 ?2 rede      x'edZy
 selvagem        seUv'aZeIN
 teta         t'et&
@@ -616,9 +619,8 @@ abacaxi      abakaSy
 axé          aSE
 elixir       eliSir
 ?1 fixe       f'iSy
-lixo         l'iSu
 roxo         x'oSU
-
+xiquexique     S,ikeS'iky
 // foreign words
 ?1 alt        'alt
 ?2        agosto        &g'ostU
@@ -640,11 +642,11 @@ roxo         x'oSU
 ?1 down       d'a,wn
 ?1 download   d'a,wnl'oud
 ?2 download        daUNl'owd
-?2 downloads        daUNl'owds
 ?3 download        dau~Nl'owd
-?3 downloads        dau~Nl'owdIs
 ?1 end        'end
 ?1 escape     Sk'eIpy
+?2 esc     'Esk
+?3 esc     'EskI
 ?1 explorer   ,ekspl'O:*&r-
 ?2        Explorer        ekspl'O*er
 ?1 eyes       'aiz
@@ -671,9 +673,7 @@ roxo         x'oSU
 ?2        logo        l'OgU
 ?1 lock       l'Ok
    mail       m'eIl
-?3  mail     m'eI@l
         mails        m'eIls
-?3  mails     m'eI@ls
 ?1 maior      m,&j'Or-
 ?2 maior      maI'Or
 ?2        maiores        maI'O*is

@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-08-12 Michel Such  <michel.such@free.fr>
+// Updated: 2008-08-17 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -71,6 +71,7 @@
 	s)	aou (le          u		// saoule
 		août         ut		// août
 		août (i        aus		// aoûtien
+		aut (_          ot2
 		au          o		// autruche
 		au (l_      O		// Paul
 		au (re      O		// dinosaure
@@ -204,7 +205,7 @@ _) 	ç' (P2v      s
 	elqu)	e    	  =@-
 	uisqu)	e    =@
 	rsqu)	e   	  =@
-	_C) 	e (_        @		// je te
+	_C) 	e (_        @2		// je te
 	-c) 	e (_       @-
 	-j) 	e (_       @-
 	C) 	e (-       @-
@@ -226,7 +227,9 @@ _) 	ç' (P2v      s
 		el (K       El		// celsius, caramel
 	_f)	em (me      a		// femme
 	i)	e (mA     		// remerciement, d�ploiement
-	i)	e (rA     		// remerciera
+	A)	e (rA     		// remerciera
+	gu)	e (rA     	@-
+	qu)	e (rA     	@-
 	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
 		em (mACC       A~		// emmancher
@@ -467,7 +470,7 @@ _) 	ç' (P2v      s
  		e (Cr       @
  _)		e (ff       e  		// effet, effectuer
  		e (C_       E
- 		e (t_       Et2
+ 		e (t_       E
  		e (rC       E
  		es (_       z2
 
@@ -642,7 +645,7 @@ _)		half  	_^_en
 	Cr)	i (é    i:
 	Cr)	i (er_    i:
 	dr)	iver    ajvWr
-		i (eur    j
+		i (euK    j
 		i (o    j
 	C)	ien (t_       i
 	dév)	ien (t_       i
@@ -719,6 +722,8 @@ _)		half  	_^_en
 .group j
 		j           Z		// adjoint joujoux
 	_) 	j' (P2v      Z
+	_) 	j (obK      dZ
+	_) 	j (ohK      dZ
 	_) 	jusqu' (P6      Zysk
 
 
@@ -735,6 +740,7 @@ _)		half  	_^_en
 	_)	l' (P2      l
 	au)	lt			// hérault
 	uCi)	l (_ 			// outil, fusil
+	nti)	l (_ 			// gentil
 	ui)	ll          j		// juillet
 	_)	lorsqu' (P7          lO2rsk
 
@@ -748,6 +754,7 @@ _)		half  	_^_en
 		mm          m		// pomme
 	_)	m' (P2v      m
 	_)	ms (P2      Em_!Es
+		master (_S6      mastWr
 
 // group m: English section
 	_)	mail (_       _^_en  // mailer
@@ -783,6 +790,7 @@ _)		half  	_^_en
 	X) 	o (se_       o2
 	X) 	o (ses_       o2
 	 	o (CCement_       O2
+	 	o (Che@       O2
 	 	o (Cement_       O2
 	 	o (t_       o
 	 	o (tre_       O2
@@ -800,9 +808,14 @@ _)		half  	_^_en
 		oeu       W		// soeur coeur
 		oeufs       @		// oeufs boeufs
 		o (eC       o		// coefficient
+		 _l)	o (gi		o2
+		 _p)	o (ten		o2
+		 _pr)	o (gra		o2
+		 _C)	o (teri		O2
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
+	_)	oi          o2a		// oiseau
 		oi          wa2		// poil
 		oê (l       wa2		// poêle
 		oî          wa2		// boîte
@@ -813,6 +826,7 @@ _)		half  	_^_en
 		om (_       Om          //  www.web.com
 		on (K       O~		// mon
 		on (t_       O~t2		// mont vont sont
+	_m)	ont (CAC       O~		// montpellier
 		onsh (A     O~z		// bonshommes
 		onh (A      On		// bonhomme
 	_)		on	(z	_!O~		// onze, onzi�me
@@ -822,7 +836,7 @@ _)		half  	_^_en
 
 	alc)	oo (l       O		// alcool
 	z) 	oo          o		// zoo
-	z)	oo (C       oo		// zoologue
+	z)	oo (C       o2o		// zoologue
 	z)	oo (m       u		// zoom
 	_gal)	op (_       o		// galop
 
@@ -873,6 +887,8 @@ C)		oing (_      _^_en	// going
 	_)	para (CCP4       para
 	_)	photo (@P5       fo2to
 	_)	poly (@P4       poli
+	_) 	post (KP4       pO2st
+	_) 	post (ACCP4       pO2st
 	_)	pseudo (@P6       psYdo
 		p (p			// appliquer
 		ph          f		// phrase
@@ -964,6 +980,7 @@ mou)	rr          RR		// mourrai
 	tran) 	s (ub       s		// transubstantiation
 	A) 	s (A        z		// baiser
 	A) 	s (oft        s		// microsoft
+	A) 	s (ol_        s		// tournesol
 	_anti) 	s (A        s		// antisocial
 	_)	socio (@P5       sosio
 	_)	super (@P5       sypEr
@@ -1052,10 +1069,11 @@ _)		t (_        te
 
 	s) 	th (m 		// asthme
 		th          t	// théorie
-	hui)	t (_        t	// huit
+	hui)	t (_        t3	// huit
 
 	_)	t           t   // tien tiers
 	an) 	t (ia       t   // Santiago
+	C) 	t (ieu       s   // contentieux
 
 		t (io_      s 	// ratio
 
@@ -1109,7 +1127,6 @@ _)		t (_        te
 	C)	th (_      _^_en      // month
 	_)	th (eX      _^_en      // the, then
 	_)	th (aX      _^_en      // than, that
-	_)	th (As      _^_en      // these those there
 	_)	time      _^_en
 		tle (_     _^_en
 		too      _^_en
@@ -1122,6 +1139,8 @@ _)		t (_        te
 
 .group u
 		u           y	// cruel nuage brut
+		ui          w^i	// nuit, fuite
+		uy (A         w^ij
 
 	_b)	usi       _^_en  // business, businessman
 	c)	ueill       Wj  // cueillir

@@ -15,16 +15,24 @@ phoneme @
 endphoneme
 
 
+phoneme @2
+  vowel starttype (@) endtype (@)
+  length 150
+  formants vowel/@_fr
+endphoneme
+
+
 phoneme a
   vowel  starttype (a)  endtype (a)
   length 170
-  formants vowel/a_3
+  formants vowel/a_5
+  reduceto a2 1
 endphoneme
 
 
 phoneme a2
   vowel  starttype (a)  endtype (a)
-  length 160
+  length 150
   unstressed
   formants vowel/a_5
 endphoneme
@@ -46,7 +54,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 160
+  length 150
   formants vowel/i_3
   linkout ;
 endphoneme
@@ -146,7 +154,7 @@ endphoneme
 
 
 phoneme w^i
-  vowel starttype (i) endtype (i)
+  vowel starttype (u) endtype (i)
   length 220
   formants vdiph/yi_fr
 endphoneme
@@ -317,7 +325,7 @@ phoneme p
   vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   vowelout f1=0  f2=1000 -500 -350  f3=-300 80 brk
   lengthmod 2
-  wave ustop/p%45
+  wave ustop/p%60
   before _ ustop/p_%70
   after _ ustop/p%70
   before (r) ustop/pr%60
@@ -421,14 +429,26 @@ phoneme t
   vowelin f1=0  f2=1700 -100 100  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_short%30
+  wave  ustop/t_short%50
   before _ ustop/t_%40
-  before (r) ustop/t_short%30
+  before (r) ustop/t_short%50
   switchvoicing d
 endphoneme
 
 
 phoneme t2      // silent unless followed by vowel
+  beforenotvowel NULL
+  vls alv stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_short%30
+  before _ ustop/t_%40
+endphoneme
+
+
+phoneme t3      // silent unless followed by vowel or pause
+  beforepause t
   beforenotvowel NULL
   vls alv stop
   vowelin f1=0  f2=1600 -300 300  f3=-100 80

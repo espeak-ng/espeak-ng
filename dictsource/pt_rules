@@ -79,7 +79,7 @@
           à (n       &~
           àm (K      &~m
           àn (K      &~N
-          à (nhA     &~n^
+          ành (A     &~n^
 
 
 .group á
@@ -600,7 +600,6 @@
           @@) o (rA_     o
 
           o (p_     O
-          o (ps_     O
 ?1     _) o (C       O     // eg: olá, orla, opção, etc...
 ?1    _C) o (CACAC   u     // Documento, documentação, localizar, etc.
 ?1     f) o (rmat    u     // formatar, formato.
@@ -684,7 +683,7 @@
        C) r (A       R        // for "pt-pt" [R] is the same as [r]
        _) r          x
        l) r          x
-       n) r          x
+       n) r (+         x
        s) r          x
 ?1     A) r (_       r-       // [r-] is English linking-r
 
@@ -791,8 +790,15 @@
           x (s
           x (_       ks
      ale) x (a       S
+      _fa) x (i     S
+       _li) x (A     S
+       má) x (im     s // máximo, máximas, etc.
+        me) x (A     S
      pro) x (i       s  // aproximado, aproximadamente, aproximar, etc.
      pró) x (i       s  // próximo, etc.
+        pu) x (A     S // verb "puxar" and all its conjugations
+        rela) x (A     S
+      _xi) x (A     S
 ?1     i) x (a_      S
 ?1     i) x (as_     S
 
@@ -851,7 +857,7 @@
           . (.       _:
       \.) .
 
-          *          ,aste*'iskU
+          *          aste*r'isku
       *)  * (*
           ** 
      **)  * (_       _::

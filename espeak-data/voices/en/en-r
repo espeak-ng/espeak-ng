@@ -4,8 +4,6 @@ language en-us
 language en 3
 gender male
 
-formant 1 99 100 100
-
 phonemes en_us
 dictrules 3 6
 option 12 1       // reduce [t]

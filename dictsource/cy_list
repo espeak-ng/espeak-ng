@@ -99,13 +99,13 @@ ymhen     $pause $strend    // within
 
 
 // pronouns
-i         %I
-ti        %ti:
-e         %E
-hi        %hi:
-ni        %ni:
-chi       %xi:
-nhw       %nhu:
+i         I	$u+
+ti        ti:	$u+
+e         E	$u+
+hi        hi:	$u+
+ni        ni:	$u+
+chi       xi:	$u+
+nhw       nhu:	$u+
 
 hon       $u+       // this one (f)
 honna     $u+       // that one (f)

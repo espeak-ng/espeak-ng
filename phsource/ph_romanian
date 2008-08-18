@@ -108,7 +108,7 @@ endphoneme
 phoneme yU
   vowel starttype (@) endtype (u)
   length 230
-  formants vowel/u_3
+  formants vdiph2/uw_3
 endphoneme
 
 phoneme ea
