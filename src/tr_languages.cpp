@@ -296,8 +296,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','r'):  // french
 		{
-			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 235};
-			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 22,22 };
+			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 240};
+			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 22,21 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);

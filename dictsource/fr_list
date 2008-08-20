@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-08-17 Michel Such  <michel.such@free.fr>
+// Updated 2008-08-20 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -140,7 +140,7 @@ _}   f'ERm_akOl'ad
 _0	zeRo
 _1	W~
 _2	dYz2
-_3	tRwa2z2
+_3	tRw^az2
 _4	katR
 _5	sE~k
 _6	siz3
@@ -160,7 +160,7 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:tRwa2z2
+_23	vE~t:tRw^az2
 _24	vE~tkatR
 _25	vE~tsE~k
 _26	vE~tsiz3
@@ -173,18 +173,18 @@ _4X	kaRA~t
 _41	kaRA~te:W~
 _5X	sE~kA~t
 _51	sE~kA~te:W~
-_6X	swa2sA~t
-_61	swa2sA~te:W~
-_7X	swa2sA~t:diz3
-_71	swa2sA~te:O~z
-_72	swa2sA~t:duz
-_73	swa2sA~t:tREz
-_74	swa2sA~t:katORz
-_75	swa2sA~t:kE~z
-_76	swa2sA~t:sEz
-_77	swa2sA~t:dis:Et
-_78	swa2sA~t:diz'w^it3
-_79	swa2sA~t:diznWf
+_6X	sw^asA~t
+_61	sw^asA~te:W~
+_7X	sw^asA~t:diz3
+_71	sw^asA~te:O~z
+_72	sw^asA~t:duz
+_73	sw^asA~t:tREz
+_74	sw^asA~t:katORz
+_75	sw^asA~t:kE~z
+_76	sw^asA~t:sEz
+_77	sw^asA~t:dis:Et
+_78	sw^asA~t:diz'w^it3
+_79	sw^asA~t:diznWf
 _8X	katR@vE~
 _80	katR@vE~z2
 _9X	katR@vE~diz3
@@ -210,20 +210,17 @@ _dpt	virgyl
 ?2 _7X	sEptA~t
 ?2 _71	sEptA~te:W~
 ?2 _72	sEptA~t:dYz2
-?2 _73	sEptA~t:trwa2z2
+?2 _73	sEptA~t:trw^az2
 ?2 _74	sEptA~t:katr
 ?2 _75	sEptA~t:sE~k
 ?2 _76	sEptA~t:siz3
 ?2 _77	sEptA~t:sEt
 ?2 _78	sEptA~t:w^it3
 ?2 _79	sEptA~t:nWf
-?2 _8X	o2ktA~t
-?2 _80	o2ktA~t
-?2 _81	o2ktA~te:W~
 ?2 _9X	no2nA~t
 ?2 _91	no2nA~te:W~
 ?2 _92	no2nA~t:dYz2
-?2 _93	no2nA~t:trwa2z2
+?2 _93	no2nA~t:trw^az2
 ?2 _94	no2nA~t:katr
 ?2 _95	no2nA~t:sE~k
 ?2 _96	no2nA~t:siz3
@@ -235,7 +232,7 @@ _dpt	virgyl
 (31 ème)	trA~te:yniEm
 (41 ème)	karA~te:yniEm
 (51 ème)	sE~kA~te:yniEm
-(61 ème)	swa2sA~te:yniEm
+(61 ème)	sw^asA~te:yniEm
 (81 ème)	katr@vE~:yniEm
 
 // ABBREVIATIONS
@@ -262,7 +259,7 @@ hz		_!Erts
 ibm		$abbrev
 ide		$abbrev
 ip		$abbrev
-jaws		Z'owz
+jaws		Z'o2wz
 kde		$abbrev
 kg		kilogram
 khz		kiloErts
@@ -271,7 +268,7 @@ kw		kilowat
 m.		m@sjY
 mbrola		Em'bRola
 mhz		megaErts
-mlle		mad@mwa2zEl
+mlle		mad@mw^azEl
 mme		madam
 mr		m@sjY
 nsi             $abbrev
@@ -328,6 +325,7 @@ néanmoins  $brk
 toutefois  $brk
 avant $u+ $brk
 après  $u+ $brk
+(temps en temps)	tA~zA~tA~
 alors	alOr $u+
 depuis $u+
 ainsi $u+
@@ -433,6 +431,7 @@ dès	$u
 entre	$u+
 entre	$verb
 contre	$u+
+chaque	$u+
 plusieurs $u+
 durant	$u+
 avec	$u+
@@ -466,7 +465,7 @@ pourtant	$u+
 
 // auxillary verbs  (be, have, can, etc)
 suis		 $u+ $verb
-es		Ez2  $u+ $verb
+es		Ez2  $u+
 est	Et2 $u+
 sommes	$u+ $verb
 êtes	$u+ $verb
@@ -484,6 +483,7 @@ soit	$u+
 ai	$u	$verb
 as	as
 as	az2	$u+	$verb
+(as tu)	aty
 a	$u+	$verb
 ont	$u+	$verb
 
@@ -684,7 +684,7 @@ help		_^_en
 hot		_^_en
 in		_^_en
 inside		_^_en
-(internet explorer) E~tErn'Et||EksplOr'Wr
+(internet explorer) E~tErn'Et||Eksplo2r'Wr
 klaxon          klaksOn
 let 		_^_en
 lite 		_^_en
@@ -697,8 +697,8 @@ messenger 		mesEnZWr
 my		_^_en
 not		_^_en
 null	_^_en
-ok         oke
-open            Op'Wn
+ok         o2ke
+open            o2p'Wn
 outlook         autlu:k
 paint    		_^_en
 paper    		_^_en
@@ -724,7 +724,7 @@ discutions	diskytjO~z2
 débutions	debytjO~z2
 désertions	dezERtjO~z2 $verb
 détentions	detA~tjO~z2
-exploitions	Eksplwa2tjO~z2
+exploitions	Eksplw^atjO~z2
 exportions	EkspORtjO~z2
 heurtions	hWRtjO~z2
 limitions	limitjO~z2

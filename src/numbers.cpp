@@ -1305,7 +1305,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 					decimal_count--;
 					n_digits++;
 				}
-				if(decimal_count <= max_decimal_count)
+				if((decimal_count <= max_decimal_count) && isdigit(word[n_digits]))
 				{
 					LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
 					strcat(ph_out,buf1);

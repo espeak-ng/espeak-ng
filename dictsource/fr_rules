@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-08-17 Michel Such  <michel.such@free.fr>
+// Updated: 2008-08-20 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -149,9 +149,10 @@
 		cient (_    sit2		// ils appr�ient, remercient.
 	effi)	cien (t    sjA~	// coefficient
 	défi)	cien (t    sjA~	// déficient
+		cast (_S4      kast		// podcast
+		casts (_S5      kast		// podcasts
 
 // group c: English section
-		cast (_      _^_en		// broadcast
 	n)	ch (_      _^_en		// french
 		cut (_      _^_en		// cut, shortcut
 
@@ -435,6 +436,7 @@ _) 	ç' (P2v      s
 		eu (x_       Y
 		eu (i       W
 		eu (rC       W2
+	_l)	eu (r_       W2
 		eu (tr       Y
 
 	_)	eut (_       yt2
@@ -446,7 +448,7 @@ _) 	ç' (P2v      s
 
 		e (x        E		// exact
 		ey (_       E		// dahomey
-		ey (C       e		// ceylan
+		ey (C       E		// ceylan
 		ey          Ej		// asseye
 
 		ez (_       ez2		// nez mangez chez
@@ -637,24 +639,25 @@ _)		half  	_^_en
 .group i
 		i           i		// cri
 
-		i (A    i		// rien
+		i (A    i
+		i (o    j
+		i (è    j
+		i (eu    j
 	_f)	i (a    i:
 	l)	i (a    i:
 	Cr)	i (a    i:
 	_Cr)	i (A    i:
 	Cr)	i (é    i:
 	Cr)	i (er_    i:
-	dr)	iver    ajvWr
-		i (euK    j
-		i (o    j
+	dr)	iver    a2jvWr
 	C)	ien (t_       i
 	dév)	ien (t_       i
-	t)	ient (_      jE~t2		// tient
-	v)	ient (_      jE~t2		// vient
+	t)	ien (K_      jE~		// tient
+	v)	ien (K_      jE~		// vient
 	at)	ien (t_      jA~		// patient
 	cip)	ien (C     jA~		// récipient
-	cl)	ien (C     iA~		// client
-	mol)	ien (C     iA~		// émolient
+	cl)	ien (C     i:A~		// client
+	mol)	ien (C     jA~		// émolient
 	vén)	ien (C     jA~		// inconvénient
 	or)	ien (t      jA~		// orient, orienter
 	ot)	ien (t_      jA~		// quotient
@@ -779,7 +782,9 @@ _)		half  	_^_en
 	br) 	oc (_       o		// broc
 	cr) 	oc (_       o		// escroc
 	 	o (ckK       O2
+	 	o (CerA       O2
 	 	o (lC       O2
+	 	om (merA       O2
 	 	on (n       O
 	 	on (nerA       O2
 	 	o (rC       O2
@@ -801,8 +806,9 @@ _)		half  	_^_en
 	 	o (Ceau       o2
 	 	o (Co_       o2
 	 	o (Cos_       o2
+	C) 	o (d_       O2
 
-		oe (ll      wa2		// moelleux
+		oe (ll      w^a		// moelleux
 	_)	oe (C       Y		// oesophage
 	_ph)	oe (C       e		// phoetus
 		oeu       W		// soeur coeur
@@ -815,10 +821,10 @@ _)		half  	_^_en
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
-	_)	oi          o2a		// oiseau
-		oi          wa2		// poil
-		oê (l       wa2		// poêle
-		oî          wa2		// boîte
+	_)	oi          w^a		// oiseau
+		oi          w^a		// poil
+		oê (l       w^a		// poêle
+		oî          w^a		// boîte
 		om (C       O~		// bombe
 		om (m       O		// nommer
 	_)	om (n       O2m		// omnibus
@@ -851,9 +857,9 @@ _)		half  	_^_en
 		ou          u		// hibou brouillard
 		où          u		// où
 		oû          u		// coûter
-		oyes (_     wa2		// troyes
-		oy (A       wa2j		// noyer voyelles
-		oy          wa2		// roy
+		oyes (_     w^a		// troyes
+		oy (A       w^aj		// noyer voyelles
+		oy          w^a		// roy
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
 		o           O
@@ -983,7 +989,7 @@ mou)	rr          RR		// mourrai
 	A) 	s (ol_        s		// tournesol
 	_anti) 	s (A        s		// antisocial
 	_)	socio (@P5       sosio
-	_)	super (@P5       sypEr
+	_)	super (@@P5       sypEr
 	_)	super (_       sypEr
 	_)	supra (@P5       sypra
 
@@ -1140,6 +1146,7 @@ _)		t (_        te
 .group u
 		u           y	// cruel nuage brut
 		ui          w^i	// nuit, fuite
+		uin (K         yE~	// juin
 		uy (A         w^ij
 
 	_b)	usi       _^_en  // business, businessman

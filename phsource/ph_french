@@ -60,9 +60,9 @@ phoneme i
 endphoneme
 
 
-phoneme i: // Slitely longer than i
+phoneme i: // longer than i
   vowel  starttype (i)  endtype (i)
-  length 212
+  length 240
   formants vowel/i_3
   linkout ;
 endphoneme
@@ -113,14 +113,14 @@ endphoneme
 phoneme u
   vowel starttype (u) endtype (u)
   length 180
-  formants vowel/u_bck2
+  formants vowel/u_3
 endphoneme
 
 
 phoneme u: // slitely longer than u
   vowel starttype (u) endtype (u)
   length 220
-  formants vowel/u_bck2
+  formants vowel/u_3
 endphoneme
 
 
@@ -153,6 +153,13 @@ phoneme W2  // same as W but don't reduce
 endphoneme
 
 
+phoneme w^a
+  vowel starttype (o) endtype (a)
+  length 220
+  formants vwl_fr/w_a
+endphoneme
+
+
 phoneme w^i
   vowel starttype (u) endtype (i)
   length 220
@@ -164,7 +171,7 @@ endphoneme
 
 phoneme A~
   vowel  starttype (a) endtype (a)
-  length 200
+  length 210
   formants vnasal/aa_n2
 endphoneme
 
@@ -179,7 +186,7 @@ endphoneme
 
 phoneme O~
   vowel  starttype (o)  endtype (o)
-  length 200
+  length 220
   formants vnasal/o_n3
   before n2 vowel/o_mid
 endphoneme
@@ -353,7 +360,7 @@ phoneme r
   length 100
   lengthmod 3
   beforenotvowel r/
-  formants vwl_fr/@R+r3/rx%25
+  formants vwl_fr/@R3+r3/rx%25
   after t r/tr
   after k r/tr
   after p r/tr
@@ -368,7 +375,7 @@ phoneme r2	// silent unless followed by vowel
   length 100
   lengthmod 3
   beforenotvowel NULL
-  formants vwl_fr/@R+r3/rx%25
+  formants vwl_fr/@R3+r3/rx%25
   before _ r/r
 endphoneme
 
@@ -379,7 +386,7 @@ phoneme R
   length 100
   lengthmod 3
   beforenotvowel r/
-  formants vwl_fr/@R+r3/rx%25
+  formants vwl_fr/@R3+r3/rx%25
 //  after r  r/rr
 endphoneme
 

@@ -89,9 +89,7 @@ endphoneme
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype (i)  endtype (i)
   length 180
-//  formants vowel/ii_3
-  formants vwl_en_us/ii_3
-//  formants vowel/i#
+  formants vowel/ii_final
   linkout ;
 endphoneme
 
@@ -139,7 +137,7 @@ endphoneme
 phoneme 3:
   vowel  starttype (@)  endtype (@)
   length 240
-  formants vwl_en_us/3_us
+  formants vwl_en_us/3_us2
   linkout r-
 endphoneme
 
