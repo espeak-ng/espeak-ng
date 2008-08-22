@@ -574,8 +574,10 @@ almoço	aUm'OsU	$verb
 retorno	xet'OrnU	$verb
 acordo	&k'OrdU	$verb
 governo	gov'ernU	$noun
-olho	'oljU	$noun
-colher	kolj'Er	$noun
+?2 olho	'oljU	$noun
+?4 olho	'ol^U	$noun
+?2 colher	kolj'Er	$noun
+?4 colher	kol^'Er	$noun
 
 
 // MAIN WORD DICTIONARY
@@ -589,7 +591,8 @@ líderes        l'ide*ys
 mexa     m'eS&
 mexi        meS'i
 mexo     m'eSU
-mulher       mulj'Er
+?2 mulher       mulj'Er
+?4 mulher       mul^'Er
 mui          mu~j
 muito        m'u~jtu	// -s is included as a suffix
 muita        m'u~jt&
@@ -682,6 +685,8 @@ xiquexique     S,ikeS'iky
 ?2        menores        men'O*is
 ?2        melhor        melj'Or
 ?2        melhores        melj'O*is
+?4        melhor        mel^'Or
+?4        melhores        mel^'O*is
 ?2        mouse        m'aUzi
 ?1 menu       menu
 ?1 next       n'Ekst

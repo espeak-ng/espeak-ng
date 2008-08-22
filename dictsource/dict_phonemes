@@ -361,17 +361,6 @@ l    m    n    N    p    R    s    S
 t    tS   v    w    x    z    Z    
 
 
-Dictionary ko_dict
-
-a    e    E    i    ji   o    u    u-   
-V    
-
-b    c    C    c`   ch   d    dZ   g    
-h    j    J    k    k`   kh   l    m    
-n    N    p    p`   ph   r    s    S;   
-s`   t    t`   th   w    
-
-
 Dictionary hbs_dict
 
 &    @    @2   a    A    a:   aI   aU   
@@ -395,16 +384,6 @@ p    r    R    R2   s    S    t    tS
 v    w    x    z    
 
 
-Dictionary rw_dict
-
-a    e    i    o    u    
-
-*    :    b    B    c    d    dZ   f    
-g    h    j    J    k    l    m    n    
-N    n^   p    q    R    s    S    S;   
-t    tS   v    w    x    z    
-
-
 Dictionary tr_dict
 
 a    e    E    i    I    o    O    u    
@@ -424,10 +403,3 @@ I    o    u    U    y
 h    j    J    k    l    m    n    p    
 q    r    R    s    S    t    tS   v    
 w    x    z    Z    
-
-
-Dictionary da_dict
-
-@-   O    V    
-
-d    n    p    

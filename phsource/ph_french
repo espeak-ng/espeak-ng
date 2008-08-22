@@ -33,7 +33,6 @@ endphoneme
 phoneme a2
   vowel  starttype (a)  endtype (a)
   length 150
-  unstressed
   formants vowel/a_5
 endphoneme
 
@@ -141,7 +140,7 @@ endphoneme
 phoneme W
   vowel starttype (@) endtype (@)
   length 180
-  formants vowel/@_3
+  formants vowel/@_5
   reduceto Y 1
 endphoneme
 
@@ -155,7 +154,7 @@ endphoneme
 
 phoneme w^a
   vowel starttype (o) endtype (a)
-  length 220
+  length 240
   formants vwl_fr/w_a
 endphoneme
 
@@ -360,7 +359,7 @@ phoneme r
   length 100
   lengthmod 3
   beforenotvowel r/
-  formants vwl_fr/@R3+r3/rx%25
+  formants vwl_fr/@R3+r3/rx%40
   after t r/tr
   after k r/tr
   after p r/tr
@@ -375,7 +374,7 @@ phoneme r2	// silent unless followed by vowel
   length 100
   lengthmod 3
   beforenotvowel NULL
-  formants vwl_fr/@R3+r3/rx%25
+  formants vwl_fr/@R3+r3/rx%40
   before _ r/r
 endphoneme
 
@@ -386,7 +385,7 @@ phoneme R
   length 100
   lengthmod 3
   beforenotvowel r/
-  formants vwl_fr/@R3+r3/rx%25
+  formants vwl_fr/@R3+r3/rx%40
 //  after r  r/rr
 endphoneme
 
@@ -395,7 +394,7 @@ phoneme r/   // variant of [r] when not preceding a vowel
   vowelout f1=0  f2=800 -50 50  f3=-100 100 len=0 brk
   length 100
   lengthmod 2
-  formants r3/r_+r3/rx%25
+  formants r3/r_2+r3/rx%40
   before n   r3/r_n+r3/rx%50
   after _ r/rr
   after t r/trr
@@ -506,6 +505,7 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 
 
 

@@ -17,7 +17,7 @@ endphoneme
 
 phoneme @    //  Schwa
   vowel   starttype (@)  endtype (@)
-  formants vowel/@_5
+  formants vowel/@_6
   unstressed
   length 140
 endphoneme
@@ -104,7 +104,7 @@ endphoneme
 
 phoneme V
   vowel  starttype (a)  endtype (@)
-  length 170
+  length 175
   formants vowel/V_6
   reduceto @  0
 endphoneme
@@ -186,7 +186,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype (u)  endtype (u)
-  length 170
+  length 180
   formants vdiph2/uw
 endphoneme
 

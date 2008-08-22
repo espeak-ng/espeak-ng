@@ -5,8 +5,8 @@
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,0,36,00
- PRODUCTVERSION 1,0,36,00
+ FILEVERSION 1,0,38,00
+ PRODUCTVERSION 1,0,38,00
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -24,14 +24,14 @@ BEGIN
             VALUE "Comments", "\0"
             VALUE "CompanyName", "Jonathan Duddington\0"
             VALUE "FileDescription", "Text to Speech\0"
-            VALUE "FileVersion", "1, 0,36,00\0"
-            VALUE "InternalName", "espeak1.36\0"
+            VALUE "FileVersion", "1, 0,38,00\0"
+            VALUE "InternalName", "espeak1.38\0"
             VALUE "LegalCopyright", "Copyright (c) Jonathan Duddington\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "espeak_sapi.dll\0"
             VALUE "PrivateBuild", "\0"
             VALUE "ProductName", "espeak TTS\0"
-            VALUE "ProductVersion", "1, 0, 36, 00\0"
+            VALUE "ProductVersion", "1, 0, 38, 00\0"
             VALUE "SpecialBuild", "\0"
         END
     END

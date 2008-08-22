@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.36
+AppVerName=eSpeak version 1.38
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -72,6 +72,10 @@ bs.v1=Odaberite jezik kojeg želite instalirati
 bs.v2=ili pritisnite Enter za prihvat zadanih.
 bs.v3=Upišite, npr. bs (za Bosanski) ili s varjantom: bs+f3
 
+fr.v1=Sélectionnez les voix à installer
+fr.v2=ou appuyez sur Entrée pour accepter les valeurs par défaut.
+fr.v3=Entrez le nom des voix, ex : (pour le Français) fr, ou avec une variante ex : fr+f3
+
 hr.v1=Odaberite jezik kojeg želite instalirati
 hr.v2=ili pritisnite Enter za prihvat zadanih.
 hr.v3=Upišite, npr. hr (za Hrvatski) ili s varjantom: hr+f3
@@ -109,6 +113,7 @@ begin
   case lang_main of
   $04: Result := 'zh';
   $05: Result := 'cs';
+  $06: Result := 'da';
   $07: Result := 'de';
   $08: Result := 'el';
   $09: Result := 'en';
@@ -118,6 +123,7 @@ begin
   $0e: Result := 'hu';
   $0f: Result := 'is';
   $10: Result := 'it';
+  $12: Result := 'ko';
   $13: Result := 'nl';
   $14: Result := 'no';
   $15: Result := 'pl';
@@ -136,6 +142,7 @@ begin
   $41: Result := 'sw';
   $49: Result := 'ta';
   $52: Result := 'cy';
+  $87: Result := 'rw';
   end;
 
   // is there a match on the full language code?
@@ -173,6 +180,7 @@ begin
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
   'cs': value := $405;
   'cy': value := $452;
+  'da': value := $406;
   'de': value := $407;
   'el': value := $408;
   'en': value := $409;
@@ -182,9 +190,10 @@ begin
   'hi': value := $439;
   'hr': value := $41a;
   'hu': value := $40e;
-  'is': value := $40f;
   'id': value := $421;
+  'is': value := $40f;
   'it': value := $410;
+  'ko': value := $412;
   'mk': value := $42f;
   'nl': value := $413;
   'no': value := $414;
@@ -192,6 +201,7 @@ begin
   'pt': value := $416;
   'ro': value := $418;
   'ru': value := $419;
+  'rw': value := $487;
   'sk': value := $41b;
   'sr': value := $81a;
   'sv': value := $41d;

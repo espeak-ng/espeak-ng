@@ -113,7 +113,11 @@ void SetSpeed(int control)
 	int wpm;
 	int wpm2;
 
-	wpm2 = wpm = embedded_value[EMBED_S];
+	wpm = embedded_value[EMBED_S];
+	if(control == 2)
+		wpm = embedded_value[EMBED_S2];
+	wpm2 = wpm;
+
 	if(wpm > 369) wpm = 369;
 	if(wpm < 80) wpm = 80;
 

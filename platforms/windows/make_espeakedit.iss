@@ -1,7 +1,7 @@
 
 [Setup]
 AppName=eSpeakEdit
-AppVerName=eSpeakEdit version 1.36
+AppVerName=eSpeakEdit version 1.38
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeakedit

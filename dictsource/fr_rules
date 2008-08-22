@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-08-20 Michel Such  <michel.such@free.fr>
+// Updated: 2008-08-22 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -42,7 +42,8 @@
 		ain (K      E~		// pain
 	CC)	ain (_      E~n2		// prochain arret
 		ai (_      e		// dirai ferai...
-	CC)	ai (_      E		// vrai
+	_ess)	ai (_      E		// essai
+	_vr)	ai (_      E		// vrai
 		ais (_      Ez2		// dirais ferais...
 		ait (_      Et2		// dirait ferait...
 		aient (_      Et2		// diraient feraient...
@@ -221,7 +222,6 @@ _) 	ç' (P2v      s
 	_cl)	ef (_       e		// clef
 		ein (K      E~		// peindre
 	CC)	ein (_      E~n2		// plein emploi
-		eint (_      E~t2
 		e (il       E		// vieille
 		ei          E		// neige
 		ell         El		// selle
@@ -470,7 +470,7 @@ _) 	ç' (P2v      s
 
  		e (CC       E  		// infect pelle mettre
  		e (Cr       @
- _)		e (ff       e  		// effet, effectuer
+ _)		e (C%       e  		// effet, effectuer
  		e (C_       E
  		e (t_       E
  		e (rC       E
@@ -809,6 +809,7 @@ _)		half  	_^_en
 	C) 	o (d_       O2
 
 		oe (ll      w^a		// moelleux
+		oe (i      W2		// oeil
 	_)	oe (C       Y		// oesophage
 	_ph)	oe (C       e		// phoetus
 		oeu       W		// soeur coeur

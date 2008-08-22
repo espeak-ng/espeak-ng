@@ -1747,14 +1747,21 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		return(CLAUSE_VOICE);
 
 	case SSML_SPEAK + SSML_CLOSE:
-		terminator = CLAUSE_PERIOD;
+		// unwind stack until the previous <voice> or <speak> tag
+		while((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_SPEAK))
+		{
+			n_ssml_stack--;
+		}
+		return(CLAUSE_PERIOD + GetVoiceAttributes(px, tag_type));
+
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
-		while((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != (tag_type - SSML_CLOSE)))
+		while((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != SSML_VOICE))
 		{
 			n_ssml_stack--;
 		}
 
+terminator=0;  // ??  Sentence intonation, but no pause ??
 		return(terminator + GetVoiceAttributes(px, tag_type));
 
 	case HTML_BREAK:
