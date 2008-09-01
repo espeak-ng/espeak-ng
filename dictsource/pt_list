@@ -75,7 +75,7 @@ _$	s,ifR'&U~
 _%	pors'eINtU
 _&	'e
 ?1   _'	ap'Ostr,ofy
-?2   _'	ap'OstR,ofU
+?2   _'	&p'OstRofU
 _(	,abRipa*'eINtezy
 _)	f,ES&pa*'eINtezy
 _*	&ste*'iskU
@@ -91,7 +91,7 @@ _<      men'Or
 ?2   _=	igw'aU
 _>	maI'Or
 _?	,iNtex,ogas'&U~
-_@	ax'ob&
+_@	&x'ob&
 _[	,abRikowS'etSi
 _\	b,ax&,iNvertS'id&
 _]	f,ES&kowS'etSi
@@ -108,6 +108,9 @@ _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
 
 _"	'abRi;'asp&||d'upl&s#
+_º	Oz'in^U
+_ª	az'in^U
+°	gR'aU
 
 
 // numeric
@@ -236,6 +239,8 @@ dra	$dot
 mr	$dot
 mrs	$dot
 prof	pr'Of	$dot
+profº	pR,ofes'or
+profª	pR,ofes'o*&
 sr	$dot
 ?1 sra	,Es;'Errj'a	$dot
 ?2 sra	$dot
@@ -708,6 +713,8 @@ python     p'aIT&~N
 ?1 site       s'aIt
 ?2 site       s'aItSi
 ?1   software   s'Oft,w'Er-
+símbolo	s'imbolU
+?4 símbolo	s'iNbolU
 ?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing

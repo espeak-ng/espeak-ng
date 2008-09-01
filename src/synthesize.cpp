@@ -185,20 +185,26 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 
 
 
-int PauseLength(int pause)
-{//=======================
+int PauseLength(int pause, int control)
+{//====================================
 	int len;
-	len = (pause * speed_factor1)/256;
+
+	if(control == 0)
+		len = (pause * speed_factor1)/256;
+	else
+		len = (pause * speed_factor2)/256;
+
 	if(len < 5) len = 5;      // mS, limit the amount to which pauses can be shortened
 	return(len);
 }
 
 
-static void DoPause(int length)
-{//============================
+static void DoPause(int length, int control)
+{//=========================================
+// control = 1, less shortening at fast speeds
 	int len;
 
-	len = PauseLength(length);
+	len = PauseLength(length, control);
 
 	len = (len * samplerate) / 1000;  // convert from mS to number of samples
 
@@ -617,7 +623,7 @@ static short vcolouring[N_VCOLOUR][5] = {
 	}
 
 	if(flags & 0x40)
-		DoPause(12);  // add a short pause after the consonant
+		DoPause(12,0);  // add a short pause after the consonant
 
 	if(flags & 16)
 		return(len);
@@ -1045,7 +1051,7 @@ static void DoEmbedded(int &embix, int sourceix)
 			{
 				if(soundicon_tab[value].length != 0)
 				{
-					DoPause(10);   // ensure a break in the speech
+					DoPause(10,0);   // ensure a break in the speech
 					wcmdq[wcmdq_tail][0] = WCMD_WAVE;
 					wcmdq[wcmdq_tail][1] = soundicon_tab[value].length;
 					wcmdq[wcmdq_tail][2] = (long)soundicon_tab[value].data + 44;  // skip WAV header
@@ -1064,7 +1070,7 @@ static void DoEmbedded(int &embix, int sourceix)
 			break;
 
 		default:
-			DoPause(10);   // ensure a break in the speech
+			DoPause(10,0);   // ensure a break in the speech
 			wcmdq[wcmdq_tail][0] = WCMD_EMBEDDED;
 			wcmdq[wcmdq_tail][1] = command;
 			wcmdq[wcmdq_tail][2] = value;
@@ -1168,7 +1174,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		EndAmplitude();
 
 		if(p->prepause > 0)
-			DoPause(p->prepause);
+			DoPause(p->prepause,1);
 
 		if(option_phoneme_events && (p->type != phVOWEL))
 		{
@@ -1179,7 +1185,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		switch(p->type)
 		{
 		case phPAUSE:
-			DoPause(p->length);
+			DoPause(p->length,0);
 			break;
 
 		case phSTOP:
@@ -1229,7 +1235,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
 				if(p->synthflags & SFLAG_LENGTHEN)
 				{
-					DoPause(20);
+					DoPause(20,0);
 					DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
 				}
 			}
@@ -1237,7 +1243,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			{
 				if(p->synthflags & SFLAG_LENGTHEN)
 				{
-					DoPause(50);
+					DoPause(50,0);
 				}
 			}
 

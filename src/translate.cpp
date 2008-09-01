@@ -399,6 +399,8 @@ int IsDigit(unsigned int c)
 
 int IsSpace(unsigned int c)
 {//========================
+	if(c == 0)
+		return(0);
 	if(wcschr(chars_space,c))
 		return(1);
 	return(iswspace(c));

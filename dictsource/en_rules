@@ -264,6 +264,7 @@
          h) ache (_      eIk
          r) ache (_      eIk
         rt) ache (_      eIk
+         y) ache (_      eIk
          d) aches (_     eIks
          h) aches (_     eIks
          r) aches (_     eIks
@@ -1586,6 +1587,7 @@
          _) di (se       ,dI
             di (sh_      dI
             di (shC      dI
+         _) di (shev+    dI2
          _) dis (hA      dI2s
          _) di (si       ,dI
             di (sint     dI2
@@ -1977,6 +1979,7 @@
             en (dea      %En
             en (dous     En
          _) endo         EndoU
+         @) en (do_      'En
             endow        End'aU
          _) endor        %Endo@
          _) en (du       %En
@@ -3452,6 +3455,8 @@
             oer          oU@
             oe (soph     I2
         sh) oe           u:
+         _) oe (d        i:
+         _) oe (s        i:
          f) oe (tA       i:
          p) oe (m        oUI
          p) oe (t        oUI
@@ -4434,7 +4439,7 @@
             stein        StaIn
         ti) ssue         Su:
          _) s (u         s
-            ssure        S3
+            ssur         S3
          a) ssur         SU@
          a) ssure        S'U@
         ea) s (y        z
@@ -4462,7 +4467,6 @@
        &pe) s (_$1       s
       &th)  s (_$1       s
         &t) s (_$1       s
-       plu) s            s
        _ha) s (_         z
 
 .group su

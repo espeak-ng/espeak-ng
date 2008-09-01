@@ -32,7 +32,7 @@ sanrb       $abbrev
 sauk	    $abbrev
 st          s@nt $dot
 supt        suprEntEnd'Ent $dot
-
+vsa         $abbrev
 
 // letter names
 // any letter which also appear as words should be prefixed by a _ here
@@ -149,6 +149,7 @@ _roman  rum'eIns@
 // Place names
 
 alaska      al'aska
+algerië     alx2'e@re@:@-
 antwerpen   antv&rp@n
 asië        A:si@
 babilon     babilOn
@@ -404,7 +405,10 @@ petrus      pe@trWs
 phoebe      fi:bi
 quixote     kix2'OtE
 rachmaninoff rax2m'aninOf
+rademeyer   rA:d@meI@r
 rebekka     r@bEka
+reinette    r@nEt
+renette     r@nEt
 renée       r@neI
 retief      r@tif
 rhodes      _^_EN
@@ -466,6 +470,7 @@ trichardt   trix2A:rt
 xhosa       kO:za
 
 khumalo     kum'A:lu
+zuma        zu:ma
 
 // Other proper names
 centaurus   $2
@@ -590,7 +595,7 @@ my		$u $verbf
 jou		$u $verbf
 hom		$u $verbf
 haar		$u $only $verbf
-se		s@
+se	 	Es@ $capital
 
 dis		$u
 
@@ -634,12 +639,10 @@ attraksie     $2
 babelaas      bab@lA:s
 barrikade     $3
 beide         beId@
+bekaf         b&kaf
 belangriker   b@laNr@k,Ir
-belangrikst@  b@laNr@kst@
 bene          be@n@
 beswil        bEsv@l	
-bêre          b&:r@
-beskryf b@skr'eIf
 besnedene     b@sne@d@n@	
 bestes        bEst@s
 beta          be@ta
@@ -689,6 +692,7 @@ espeak        i:;spi:k
 euro          Y@ru
 exodus        Eks'o@dWs
 
+fakture       $2
 figuur        f@x2yr
 filippense    f@l@pEns@
 finalis       $3
@@ -864,6 +868,7 @@ pandemonium   pand@m'o@niWm
 parate        par'A:t@
 parke         park@
 parkie        $1
+patos         pA:tOs
 patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
 per           pIr

@@ -363,7 +363,7 @@ void OnOptions2(int event_id)
 	switch(event_id)
 	{
 	case MENU_PARAMS:
-		value = wxGetNumberFromUser(_T(""),_T(""),_T("Speed"),option_speed,80,320);
+		value = wxGetNumberFromUser(_T(""),_T(""),_T("Speed"),option_speed,80,390);
 		if(value > 0)
 		{
 			option_speed = value;

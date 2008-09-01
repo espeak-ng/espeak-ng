@@ -276,7 +276,7 @@ Translator *SelectTranslator(const char *name)
 	case L('f','i'):   // Finnish
 		{
 			static const unsigned char stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,22 };
-			static const short stress_lengths_fi[8] = {150,170, 200,200, 0,0, 210,250};
+			static const short stress_lengths_fi[8] = {150,180, 200,200, 0,0, 210,250};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
@@ -284,7 +284,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x56;  // move secondary stress from light to a following heavy syllable
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
-			tr->langopts.long_stop = 140;
+			tr->langopts.long_stop = 130;
 
 			tr->langopts.numbers = 0x1809;
 			SetLetterVowel(tr,'y');
@@ -568,8 +568,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('p','l'):   // Polish
 		{
-			static const short stress_lengths_pl[8] = {160, 180,  175, 175,  0, 0,  260, 290};
-			static const unsigned char stress_amps_pl[8] = {17,14, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static const short stress_lengths_pl[8] = {160, 190,  175, 175,  0, 0,  200, 210};
+			static const unsigned char stress_amps_pl[8] = {17,13, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_pl,stress_amps_pl);
@@ -670,6 +670,12 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,5,sk_voiced);
 		}
 		break;
+
+	case L('s','q'):  // Albanian
+			tr = new Translator();
+			SetLetterVowel(tr,'y');
+		break;
+
 
 	case L('s','v'):  // Swedish
 		{

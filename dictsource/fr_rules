@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-08-22 Michel Such  <michel.such@free.fr>
+// Updated: 2008-08-30 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -31,6 +31,8 @@
 // C  all consonants
 // Y  front vowels: e i y é ê è î
 // K  not a vowel  (i.e. consonant, space, )
+
+.L01 d e l n r t u
 
 
 .group a
@@ -394,6 +396,7 @@ _) 	ç' (P2v      s
 	_hi)	er (_       ER      	// hier
 	_fi)	er (_       ER      	// fier
 	_hiv)	er (X       ER      	// hiver
+	tain)	er (X       ER      	// container
 	_ti)	er (_       ER
 	ack)	er (K      Wr
 	ock)	er (K      Er
@@ -430,6 +433,7 @@ _) 	ç' (P2v      s
 	dg)	et (_      Et     	// Bridget, gadget
 
 		eu        Y		// eu
+	_)	eu (ss        y		// eu
 
 		eu (C       W
 		eu (h_       Y
@@ -478,12 +482,14 @@ _) 	ç' (P2v      s
 
 	%C) 	e (CA   @-
 	%C) 	e (Ce     		// actuellement guillemets
-	%C) 	e (xA   E  		// actuellement guillemets
+	%C) 	e (xA   E
 	%C) 	e (mA     		// actuellement guillemets
 	ct) 	e (ment   @
 	rC) 	e (ment   @
 	AC) 	e (ment
 	u) 	e (ment   @-
+	ul) 	e (CA
+	ull) 	e (CA
 
 	As) 	e (gA
 	As) 	e (pA
@@ -613,6 +619,7 @@ _)	h	(onn			// honneur
 _)	h	(ôp			// hôpital
 _)	h	(os			// hostile
 _)	h	(ora			// horaire
+_)	h	(orip			// horipeau
 _)	h	(oriz			// horizon
 _)	h	(oro			// horoscope
 _)	h	(orlo			// horloge
@@ -640,6 +647,7 @@ _)		half  	_^_en
 		i           i		// cri
 
 		i (A    i
+	AC)	i (a    j
 		i (o    j
 		i (è    j
 		i (eu    j
@@ -675,6 +683,7 @@ _)		half  	_^_en
 	a)	il (_       j		// bail
 	e)	il (_       j
 	u)	il (_       j		// deuil
+	L01_f)	ils (_       is		// deuil
 
 		imm         imm		// immaculé
 		im (_       im		// karim
@@ -682,10 +691,11 @@ _)		half  	_^_en
 	w)	in        in		// winrar
 		inct (_     E~		// distinct
 		in (h       in		// inhumain
-		in (kX       in		// link
+		in (kX       iN		// link
 		in (n       in		// innombrable
 		in (C       E~		// vingt
 		in (_       W~		// vin
+		ing (_      iN
 	_)	infra (_P5       E~fra
 	_)	inter (@P5       E~tEr
 	_)	inter (_       E~t'Er
@@ -702,7 +712,6 @@ _)		half  	_^_en
 		ind (_     _^_en		// find, mind
 	_C)	ind (er_     _^_en		// finder, reminder
 	_AC)	ind (er_     _^_en		// finder, reminder
-		ing (_      _^_en		// parking
 //		ink       _^_en		// link
 		ize (X         _^_en		// realize
 
@@ -725,6 +734,7 @@ _)		half  	_^_en
 .group j
 		j           Z		// adjoint joujoux
 	_) 	j' (P2v      Z
+	_) 	j (azz      dZ
 	_) 	j (obK      dZ
 	_) 	j (ohK      dZ
 	_) 	jusqu' (P6      Zysk
@@ -756,6 +766,7 @@ _)		half  	_^_en
 		m           m		// film
 		mm          m		// pomme
 	_)	m' (P2v      m
+	_)	mc (P2      mak
 	_)	ms (P2      Em_!Es
 		master (_S6      mastWr
 
@@ -950,6 +961,7 @@ C)		oing (_      _^_en	// going
 .group r
 	_su)	rr          RR		// surréaliste
 cou)	rr          RR		// courrai
+cou)	rr (i         r		// courrier
 mou)	rr          RR		// mourrai
 		rr          R		// erreur
 		r           r		// rien
@@ -993,6 +1005,8 @@ mou)	rr          RR		// mourrai
 	_)	super (@@P5       sypEr
 	_)	super (_       sypEr
 	_)	supra (@P5       sypra
+		batro)	s (_		s
+		océro)	s (_		s
 
 
 	_u) 	s (_        s
@@ -1087,7 +1101,7 @@ _)		t (_        te
 	Ama)	t (ieX       s   // diplomatie
 	a)	t (ia       s   // spatial
 	en)	t (ia       s   // confidentialit�
-	bu)	t (iA       s   // balbutiait
+	lbu)	t (iA       s   // balbutiait
 	r)	t (ia       s   // impartial
 	ini)	t (i       s   // initier
 	p)	t (ia       s   // nuptial
@@ -1098,29 +1112,43 @@ _)		t (_        te
 	V)	t (ion      t 	// verbes
 	ache)	t (ion      t 	// achetions, rachetions
 	ai)	t (ion      t 	// souhaitions, traitions
+	oi)	t (ion      t 	// boitions
+	si)	t (ion      s 	// position
 	chan)	t (ion      t 	// chantions, d�chantions
 	Cisi)	t (ion      t 	// visitions
-	ci)	t (ion      t 	// citions
-	comp)	t (ion      t 	// comptions, escomptions
-	Conc)	t (ion      s 	// fonctionner, ponctionner
-	Ce)	t (ion      t 	// jetions, rejetions
-	habi)	t (ion      t 	// habitions
-	ou)	t (ion      t 	// ajoutions
+	ci)	t (ions      t 	// citions
+	comp)	t (ions      t 	// comptions, escomptions
+	CAnc)	t (ion      s 	// fonctionner, ponctionner
+	Ce)	t (ions      t 	// jetions, rejetions
+	Vec)	t (ion      t 	// respections
+	Vep)	t (ion      t 	// respections
+	éCi)	t (ions      t 	// hésitions, héritions
+	éti)	t (ion      s 	// pétition
+	Vé)	t (ion      t 	// répétions
+	habi)	t (ions      t 	// habitions
+	imi)	t (ions      t 	// imitions, limitions
+	Vu)	t (ion      t 	// ajoutions
+	Apor)	t (ion      t 	// emportions, exportions
+	opor)	t (ion      s 	// proportion
+	Cpor)	t (ion     t 	// emportions, exportions
+	sor)	t (ion     t 	// sortions
 	rê)	t (ion      t 	// arrêtions, apprêtions
 
 	s)	t (ion      t 	// gestion
+	_ta)	t (ion      t 	// tation
 	sen)	t (ion_      t 	// sentions, ressentions
 	t)	t (ion      t 	// combattions
 
-		t (iel      s 	// partiel patiemment
-		t (iAm      s
+		t (iel      s 	// partiel
+		t (ieu      s 	// ambitieux
+		t (iAm      s  // patiemment
 
  	mar) 	t (ien      s	// martien vénitienne
+	a)	t (ien      s
  	i) 	t (ien      s
- 	pa) 	t (ien      s
  	o) 	t (ien      s
 
-	Cu) 	t (ieX      s	// minutie
+	nu) 	t (ieX      s	// minutie
 	ni) 	tien (t_     si
 	bu) 	tien (t_     si
 

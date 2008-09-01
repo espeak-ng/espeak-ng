@@ -260,7 +260,7 @@ extern const char *version_string;
 extern const int version_phdata;
 
 #define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
-#define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of autio files
+#define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of audio files
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
@@ -273,7 +273,7 @@ int MbrolaSynth(char *p_mbrola);
 int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
 int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
 		int which, PHONEME_LIST *plist, int modulation);
-int PauseLength(int pause);
+int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 
 void InitBreath(void);

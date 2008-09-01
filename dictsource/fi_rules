@@ -3,7 +3,6 @@
 
 
 .group a
-       _) a (_       a:
           a          a
           aa         a:
           ai         ai
@@ -15,7 +14,6 @@
 
 
 .group ä
-       _) ä (_       &:
           ä          &
           ää         &:
           äi         &i
@@ -25,13 +23,11 @@
 
 
 .group b
-       _) b (_       be:
           b          b
           bb         b:
 
 
 .group c
-       _) c (_       se:
           c          k
           c (i       s
           c (e       s         // Pronounce c as s. Mostly foreign words such as celcius, center, cervantes, cezanne.
@@ -42,13 +38,11 @@
 
 
 .group d
-       _) d (_       de:
           d          d
           dd         d:
 
 
 .group e
-       _) e (_       e:
           e          e
           ee         e:
           ei         ei
@@ -59,23 +53,19 @@
        &) e(llä_     %e
 
 .group f
-       _) f (_       &f
           f          f
 
 
 .group g
-       _) g (_       ge:
           g          g
           gg         g:
 
 
 .group h
-       _) h (_       ho:
           h          h
 
 
 .group i
-       _) i (_       i:
           i          i
           ii         i:
           iu         iu
@@ -89,32 +79,27 @@
 
 
 .group j
-       _) j (_       ji:
           j          j
 
 
 .group k
-       _) k (_       ko:
           k          k
           kk         k:
 
 
 .group l
-       _) l (_       &l
           l          l
 
        @) lle (_     lle_X1    // double the initial consonant of the next word
 
 
 .group m
-       _) m (_       &m
           m          m
 
    _sydä) m (A       m:        // double the m in sydämelinnen 
 
 
 .group n
-       _) n (_       &n
           n          n
           ng         N:
           ng (_      N
@@ -128,7 +113,6 @@
 
 
 .group o
-       _) o (_       o:
           o          o
           oo         o:
           oi         oi
@@ -139,7 +123,6 @@
 
 
 .group ö
-       _) ö (_       Y:
           ö          Y
           öö         Y:
           öi         Yi
@@ -148,7 +131,6 @@
 
 
 .group p
-       _) p (_       pe:
           p          p
           pp         p:
 
@@ -162,13 +144,11 @@
 
 
 .group q
-       _) q (_       ku:
           q          k
           qq         k:
 
 
 .group r
-       _) r (_       &r
           r          r
        A) r (A       *
        C) r (A       @-*
@@ -176,7 +156,6 @@
 
 
 .group s
-       _) s (_       &s
           s          s
           ss         ss2      // [s2] is a continuation for [s]
        K) sh         S
@@ -185,7 +164,6 @@
 
 
 .group t
-       _) t (_       te:
           t          t
           tt         t:
 
@@ -193,7 +171,6 @@
 
 
 .group u
-       _) u (_       u:
           u          u
           uu         u:
           ui         ui
@@ -201,23 +178,19 @@
 
 
 .group v
-       _) v (_       ve:
           v          v
 
 
 .group w
-       _) w (_       k'aksoisv,e:
           w          v
 
 
 .group x
-       _) x (_       &ks
           x          ks
           xx         k:s
 
 
 .group y
-       _) y (_       y:
           y          y
           yy         y:
           yi         yi
@@ -225,7 +198,6 @@
 
 
 .group z
-       _) z (_       tset
           z          ts
           zz         t:s
        K) zh         Z
@@ -233,15 +205,15 @@
        pi) zza       tsa       // Pronounce pizza as pitsa. Include inflections and compound words.
 
 
-.group 9
-
 .group
           å          o
           å          o:
           š          S
           ž          Z
 
-          € euroa
-          $ dollarin
-          % prosent:i
-          * asteriski
+          $	dollarin
+          *	asteriski
+          =	'yht&k'uin
+      __) - (_D        mi:nus
+      A_) - (_D        _
+      C_) - (_D        _

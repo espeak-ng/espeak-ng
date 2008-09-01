@@ -188,6 +188,25 @@ size_t wave_write(void* theHandler,
     SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
     return 0;
   }
+
+#if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
+  {
+    // BIG-ENDIAN, swap the order of bytes in each sound sample
+    int c;
+    char *out_ptr;
+    char *out_end;
+    out_ptr = (char *)theMono16BitsWaveBuffer;
+    out_end = out_ptr + theSize;
+    while(out_ptr < out_end)
+    {
+      c = out_ptr[0];
+      out_ptr[0] = out_ptr[1];
+      out_ptr[1] = c;
+      out_ptr += 2;
+    }
+  }
+#endif
+
   num = write((int) theHandler, theMono16BitsWaveBuffer, theSize);
 
   // Keep track of the total number of samples sent -- we use this in 

@@ -608,7 +608,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		if(name2 == '_')
 		{
 			// add a pause after this phoneme
-			pause = PauseLength(len_percent);
+			pause = PauseLength(len_percent,0);
 			name2 = 0;
 		}
 
@@ -653,7 +653,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 			else
 				len = DoSample(p->ph,phoneme_tab[phonPAUSE],2,0,-1);
 			len = (len * 1000)/samplerate;  // convert to mS
-			len += PauseLength(p->prepause);
+			len += PauseLength(p->prepause,1);
 			break;
 
 		case phVSTOP:
@@ -704,7 +704,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 
 		if(pause)
 		{
-			sprintf(buf,"_ \t%d\n",PauseLength(pause));
+			sprintf(buf,"_ \t%d\n",PauseLength(pause,0));
 			strcat(mbr_buf,buf);
 			pause = 0;
 		}

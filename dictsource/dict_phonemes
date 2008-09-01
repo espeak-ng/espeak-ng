@@ -87,10 +87,10 @@ T    tS   v    v#   w    x    z
 
 Dictionary fi_dict
 
-&    &i   &y   @-   a    ai   au   e    
-ei   eu   ey   i    ie   iu   iy   o    
-oi   ou   u    ui   uo   Y    y    Yi   
-yi   Yy   yY   
+&    &i   &y   @-   a    a2   ai   au   
+e    ei   eu   ey   i    I    ie   iu   
+iy   o    oi   ou   u    ui   uo   Y    
+y    Yi   yi   Yy   yY   
 
 *    :    b    d    f    g    h    j    
 k    l    m    n    N    p    r    s    
@@ -172,8 +172,8 @@ s    S    s;   t    v    w    x    z
 
 Dictionary pl_dict
 
-@-   a    E    E~   i    O    O~   u    
-y    
+@-   a    E    E#   E~   i    I    O    
+O~   u    y    
 
 *    :    ;    b    c    C    d    d;   
 dZ   dz;  f    g    h    j    k    l    
@@ -259,9 +259,9 @@ OI   oI   o~   u    uI   W    y    Y@
 Yy   
 
 -    :    ;    ?    b    c    d    dZ   
-f    g    h    j    k    l    m    n    
-N    p    r    s    S    t    tS   v    
-w    x2   z    Z    
+f    g    h    j    k    l    L    m    
+n    N    p    r    s    S    t    tS   
+v    w    x2   z    Z    
 
 
 Dictionary ta_dict
@@ -361,6 +361,17 @@ l    m    n    N    p    R    s    S
 t    tS   v    w    x    z    Z    
 
 
+Dictionary sq_dict
+
+@    a    e    E    i    O    u    y    
+yE   
+
+*    **   b    c    d    D    dZ   f    
+g    h    j    J    k    l    ll   m    
+n    n^   p    r    R    s    S    t    
+T    tS   ts   v    w    z    Z    
+
+
 Dictionary hbs_dict
 
 &    @    @2   a    A    a:   aI   aU   
@@ -403,3 +414,31 @@ I    o    u    U    y
 h    j    J    k    l    m    n    p    
 q    r    R    s    S    t    tS   v    
 w    x    z    Z    
+
+
+Dictionary da_dict
+
+@-   O    V    
+
+d    n    p    
+
+
+Dictionary rw_dict
+
+a    e    i    o    u    
+
+*    :    b    B    c    d    dZ   f    
+g    h    j    J    k    l    m    n    
+N    n^   p    q    R    s    S    S;   
+t    tS   v    w    x    z    
+
+
+Dictionary ko_dict
+
+a    e    E    i    ji   o    u    u-   
+V    
+
+b    c    C    c`   ch   d    dZ   g    
+h    j    J    k    k`   kh   l    m    
+n    N    p    p`   ph   r    s    S;   
+s`   t    t`   th   w    

@@ -793,6 +793,7 @@
      ale) x (a       S
      _fa) x (i     S
      _li) x (A     S
+     _lu) x (A    S
       má) x (im     s // máximo, máximas, etc.
       me) x (A     S
      pro) x (i       s  // aproximado, aproximadamente, aproximar, etc.
@@ -837,16 +838,16 @@
           ü          u
           ß          s
 
-          %          pors'eNtu
+          %          pors'eINtU
           $          sifR'&U~
      _r_) $
-	−          m'enus
-	+          maIs
+	−          m'enUs
+	+          maIs#
 	&	'e
-	@	ax'ob&
-	¤	'eU*u
-	€	'eU*u
-	§	pa*'agR,afu
+	@	&x'ob&
+	¤	'eU*U
+	€	'eU*U
+	§	p&*'agRafU
 
     D_) º       %o      // ordinal
     D_) ª       %a      // ordinal
@@ -854,7 +855,7 @@
 
     // don't speak multiple occurances of these symbols
           , (D       v'irgul&
-          .          p'oNtu
+          .          p'oNtU
           . (.       _:
       \.) .
 
@@ -863,7 +864,7 @@
           ** 
      **)  * (_       _::
 
-     __)  - (_D      m'enus
+     __)  - (_D      m'enUs
      A_)  - (_D      _
      C_)  - (_D      _
       --) -

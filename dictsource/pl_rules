@@ -1,3 +1,7 @@
+ 
+// This file is UTF8 encoded 
+// Spelling to phoneme words and exceptions for Polish
+
 .L01	ka ki ce kę ką ko kach kom
 //.L02	a i ę ą o
 
@@ -247,6 +251,7 @@
 
 .group	 e
 		e		E
+        i)      e (_		E#
 
 	@)	e	(Cłbym_	=E
 	@)	e	(Cłbyś_	=E
@@ -337,7 +342,7 @@
 	_f)	ire	(fo	ajE*
 	_m)	ic	(ro	ajk
 
-	C)	ie	(_	;E
+	C)	ie	(_	;E#
 	_t)	ime		ajm
 	_t)	ime	(r	ajmE
 	_dr)	i	(v	aj
@@ -474,7 +479,7 @@
 
 .group	 k
 		k		k
-		k	(i	c
+//		k	(i	c
 		kł	(_	k
 		ki	(A	kj
 	_)	klow	(n	klaw
@@ -531,7 +536,7 @@
 
 .group	 ń
 		ń		n^
-		ń	(_	n^_
+		ń	(_	n_  // ?? jsd
 
 .group	 o
 		o		O
@@ -552,6 +557,8 @@
 
 .group	 p
 		p		p
+		pie (ń		pI   // ???  jsd
+
 	_ko)	pi	(A	pj
 	_fotoko)	pi	(A	pj
 
@@ -949,7 +956,7 @@
 		z	(i	Z;
 		zi	(A	Z;
 	_)	zi	(p	Z;i
-		zi	(m	Z;i
+		zi	(m+	Z;i
 	_)	zi	(C	z_i
 	_nie)	zi	(C	z_i
 		zi	(C	zi

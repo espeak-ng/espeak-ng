@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-08-20 Michel Such  <michel.such@free.fr>
+// Updated 2008-08-29 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -246,10 +246,11 @@ alt $pause
 amd		$abbrev
 anpe             $abbrev
 api		$abbrev
-avh		$abbrev
+avh		aveaS
+bd	boulevard $text
 cci              $abbrev
 cio		$abbrev
-ctrl		kO~tRol $pause
+ctrl		kO~tRo2l $pause
 dept		depaRt@mA~
 edf		$abbrev
 etc		etseteRa
@@ -259,7 +260,7 @@ hz		_!Erts
 ibm		$abbrev
 ide		$abbrev
 ip		$abbrev
-jaws		Z'o2wz
+jaws		dZ'O2wz
 kde		$abbrev
 kg		kilogram
 khz		kiloErts
@@ -338,7 +339,7 @@ lorsque	   $u
 puisque	   $u
 presque	   $u+
 (parce que) 	   parsk@ $u+
-que	   $u $verbf
+que	   $u+
 qui	   $u+ $verbf
 quoique	   $u
 si	   $u
@@ -367,6 +368,7 @@ ceci	$u+ $verbf
 cela	$u+ $verbf
 voici	$u+
 voilà	$u+
+cet	$u $nounf
 cette	$u $nounf
 ces	sez2 $u $nounf
 (celle ci)	sEl||si $verbf
@@ -480,7 +482,8 @@ furent	$u+
 sois	$u+	$verb
 soit	$u+
 
-ai	$u	$verb
+ai	$u+	$verb
+(ai je)	EZ=@-	$u+
 as	as
 as	az2	$u+	$verb
 (as tu)	aty
@@ -495,7 +498,10 @@ eus	yz2 $u+
 eut	yt2 $u+ $verb
 eûmes	 $u+ $verb
 eûtes	 $u+ $verb
-eurent	$u+
+eurent	yrt2 $u+
+eussions	$u+
+eussiez	$u+
+eussent	$u+
 
 aie	$u+	$verb
 aies	$u+	$verb
@@ -509,10 +515,13 @@ d'est	d'Est
 
 quelque	$u+
 quelques	$u+
+tel	$u+
+telle	$u+
+telles	$u+
 tout	t'ut2 $u+
 toute	t'ut $u+
 toutes	t'utz2 $u+
-rien	riE~n2	$u+
+rien	rjE~n2	$u+
 
 // Letters which can be words
 //===========================
@@ -536,6 +545,7 @@ riz       ri
 sphincter           sfE~ktEr
 sous	$u+
 sur	$u+
+tennis	tenis
 tunis           tynis
 
 
@@ -558,7 +568,7 @@ absent        absA~
 admin        admin
 airbus	      Erbys
 auvent     ovA~
-bien	      biE~n2 $u+
+bien	      bjE~n2 $u+
 bis	      bis
 bissus    bisys
 bus	      bys
@@ -569,9 +579,9 @@ cocus     coky
 dernier    dErnier2
 éloquent     ElokA~t2
 fier	      fier2 $verb
-fils	      fis
 fuel	      fjul
 gars	      ga
+gym	Zim
 hélas 		elas $u+
 iris	      iris
 laser	      lazEr
@@ -674,7 +684,8 @@ epson		EpsOn
 espeak		@spi:k
 ethernet	etERnEt
 exit	egzit
-(file zilla)		fajl||zija
+(file zilla)		fa2jl||zija
+from	_^_en $u+
 get		_^_en
 google		gu:gWl
 gnome		gnOm
@@ -716,25 +727,14 @@ yes		_^_en
 
 
 // tions (tjO~ instead of sjO~)
-apportions	apORtjO~z2
 constations	kO~statjO~z2
 contentions	kO~tA~tjO~z2
 dations		datjO~z2
-discutions	diskytjO~z2
-débutions	debytjO~z2
 désertions	dezERtjO~z2 $verb
-détentions	detA~tjO~z2
 exploitions	Eksplw^atjO~z2
-exportions	EkspORtjO~z2
 heurtions	hWRtjO~z2
-limitions	limitjO~z2
-méritions	meRitjO~z2
 partions	paRtjO~z2
 rations		RatjO~z2 $verb
-respections	REspEktjO~z2
-répétions	RepetjO~z2
-sortions	sORtjO~z2
-supportions	sypORtjO~z2
 tentions	tA~tjO~z2
 votions		votjO~z2
 étions		etjO~z2
