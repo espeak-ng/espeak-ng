@@ -838,7 +838,7 @@ phoneme Z;
   vcd pal frc sibilant palatal
   vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
   vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-  formants voc/z_pzd+ufric/sh_pzd_
+  formants voc/z_pzd+ufric/sh_pzd%80
   before _ voc/z_pzd_+ufric/sh_pzd_
   lengthmod 6
   switchvoicing Z;
@@ -980,6 +980,7 @@ phoneme k
   before @- ustop/k_unasp%70
   before l ustop/kl
   before (i) ustop/ki
+  before ; ustop/ki
   switchvoicing g
 endphoneme
 
@@ -1275,15 +1276,3 @@ include ph_kurdish
 phonemetable id base2
 include ph_indonesian
 
-
-phonemetable rw base2
-include ph_kinyarwanda
-
-phonemetable ko hi
-include ph_korean
-
-phonemetable da is
-include ph_danish
-
-phonemetable sq es
-include ph_albanian

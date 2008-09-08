@@ -66,7 +66,7 @@ _ô	$accent
 œ	o||@||lie
 p	pe
 q	ky
-r	ER
+r	Er
 s	Es
 u	y
 ù       $accent
@@ -75,7 +75,7 @@ u	y
 v	ve
 w	dubl@v'e
 x	iks
-_y      i:gR'Ek
+_y      i:gr'Ek
 z	zEd
 
 
@@ -86,15 +86,15 @@ _acu	aksA~tEg'y
 _ac2	dublaksA~tEg'y
 _brv	br'Ev
 _ced	sed'ij
-_cir	aksA~siRkO~fl'Eks
-_dia	tRem'a
+_cir	aksA~sirkO~fl'Eks
+_dia	trem'a
 _dot	pwE~syskr'i
-_grv	aksA~gR'av
+_grv	aksA~gr'av
 _hac	kar'O~
 _mcn	makr'O~
 _ogo	OgOn'Ek
 _rng	rO~t2A~S'Ef
-_stk	b'aR
+_stk	b'ar
 _tld	t'ild
 
 
@@ -109,39 +109,39 @@ _#32	Espas
 
 _"   gijmE
 _#   djEz
-_'   apOstROf
-_(   'uvR@-paRA~t'Ez
-_)   f'ERm paRA~t'Ez
-_*   astERisk:
-_,   viRgyl
-_-   tiRE
+_'   apOstrOf
+_(   'uvr@-parA~t'Ez
+_)   f'Erm parA~t'Ez
+_*   astErisk:
+_,   virgyl
+_-   tirE
 _.   _|pw%E~
 _/   slaS
 _:   d'Ypw'E~
-_;   pwE~viRg'yl
-_<   E~feRjWR
+_;   pwE~virg'yl
+_<   E~ferjWr
 _=   egal
-_>   sypeRjWR
+_>   syperjWr
 _?   pwE~dE~terogasj'O~
-_[   uvR@-_kRoSE
+_[   uvr@-_kroSE
 _\   b'aksl'aS
-_]   f'ERm_kRoS'E
-_^   siRkOnflEks
+_]   f'Erm_kroS'E
+_^   sirkOnflEks
 __   sulin^e
-_`   aks'A~_gR'av
-_{   uvR_akOlad
-_|   baR
-_}   f'ERm_akOl'ad
+_`   aks'A~_gr'av
+_{   uvr_akOlad
+_|   bar
+_}   f'Erm_akOl'ad
 ²    pw^is'A~s||d'Y
 
 
 // numeric
 
-_0	zeRo
+_0	zero
 _1	W~
 _2	dYz2
-_3	tRw^az2
-_4	katR
+_3	trw^az2
+_4	katr
 _5	sE~k
 _6	siz3
 _7	sEt
@@ -150,8 +150,8 @@ _9	nWf
 _10	diz3
 _11	_!O~z
 _12	duz
-_13	tREz
-_14	katORz
+_13	trEz
+_14	katOrz
 _15	kE~z
 _16	sEz
 _17	dis:Et
@@ -160,17 +160,17 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:tRw^az2
-_24	vE~tkatR
+_23	vE~t:trw^az2
+_24	vE~tkatr
 _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
 _28	vE~tw^it3
 _29	vE~tnWf
-_3X	tRA~t
-_31	tRA~te:W~
-_4X	kaRA~t
-_41	kaRA~te:W~
+_3X	trA~t
+_31	trA~te:W~
+_4X	karA~t
+_41	karA~te:W~
 _5X	sE~kA~t
 _51	sE~kA~te:W~
 _6X	sw^asA~t
@@ -178,31 +178,31 @@ _61	sw^asA~te:W~
 _7X	sw^asA~t:diz3
 _71	sw^asA~te:O~z
 _72	sw^asA~t:duz
-_73	sw^asA~t:tREz
-_74	sw^asA~t:katORz
+_73	sw^asA~t:trEz
+_74	sw^asA~t:katOrz
 _75	sw^asA~t:kE~z
 _76	sw^asA~t:sEz
 _77	sw^asA~t:dis:Et
 _78	sw^asA~t:diz'w^it3
 _79	sw^asA~t:diznWf
-_8X	katR@vE~
-_80	katR@vE~z2
-_9X	katR@vE~diz3
-_91	katR@vE~:O~z
-_92	katR@vE~:duz
-_93	katR@vE~:tREz
-_94	katR@vE~:katORz
-_95	katR@vE~:kE~z
-_96	katR@vE~:sEz
-_97	katR@vE~:dis:Et
-_98	katR@vE~:dizw^it3
-_99	katR@vE~:diznWf
+_8X	katr@vE~
+_80	katr@vE~z2
+_9X	katr@vE~diz3
+_91	katr@vE~:O~z
+_92	katr@vE~:duz
+_93	katr@vE~:trEz
+_94	katr@vE~:katOrz
+_95	katr@vE~:kE~z
+_96	katr@vE~:sEz
+_97	katr@vE~:dis:Et
+_98	katr@vE~:dizw^it3
+_99	katr@vE~:diznWf
 _0C	sA~
 _1C0	sA~t2
 _0M1	mil
 _1M1	mil
 _0M2	miljO~
-_0M3	miljaR
+_0M3	miljar
 _0and	e
 _dpt	virgyl
 
@@ -250,10 +250,10 @@ avh		aveaS
 bd	boulevard $text
 cci              $abbrev
 cio		$abbrev
-ctrl		kO~tRo2l $pause
-dept		depaRt@mA~
+ctrl		kO~tro2l $pause
+dept		depart@mA~
 edf		$abbrev
-etc		etseteRa
+etc		etsetera
 ghz		ZigaErts
 hmm		h@m
 hz		_!Erts
@@ -267,7 +267,7 @@ khz		kiloErts
 km		kilomEtr
 kw		kilowat
 m.		m@sjY
-mbrola		Em'bRola
+mbrola		Em'brola
 mhz		megaErts
 mlle		mad@mw^azEl
 mme		madam
@@ -279,7 +279,7 @@ nvda             $abbrev
 ong             $abbrev
 pci             $abbrev
 pda             $abbrev
-p.s		postskRiptOm
+p.s		postskriptOm
 ratp		$abbrev
 scsi		$abbrev
 s.t.p		s'il:t'@:pl'E
@@ -296,7 +296,7 @@ xfce		iksEfse@
 xy		$abbrev
 
 
-dr               dOkt WR       $dot $capital
+dr               dOkt Wr       $dot $capital
 prof                           $dot
 
 
@@ -561,7 +561,7 @@ tunis           tynis
 
 monsieur         m@sjY
 messieurs         mesjYz2
-montréal         mO~Real
+montréal         mO~real
 (n'est ce pas)   n'Es@-||p'az2
 (qu'est ce que)  kEsk@ $u
 absent        absA~
@@ -586,7 +586,7 @@ hélas 		elas $u+
 iris	      iris
 laser	      lazEr
 malus      malys
-mars	      maRs
+mars	      mars
 parangon	      parA~gO~
 phallus    falys
 polder    pOldEr
@@ -606,23 +606,23 @@ mens	      mA~z2
 sens	      sA~s
 sens	      sA~z2 $verb
 (sud est)       sydEst
-(nord est)      nOREst
+(nord est)      nOrEst
 
 // ut (t is said)
 août		ut
 azimut		azim'yt
-brut		bR'yt
+brut		br'yt
 but		by $verb
 but		byt
 cut	cWt
 mazout		mazut
 michael		mikaEl
 out		aut
-rut		Ryt
-scorbut		skORbyt
+rut		ryt
+scorbut		skOrbyt
 scout		skut
 stout		staut
-uppercut	ypERkyt
+uppercut	ypErkyt
 ut		yt
 zut		zyt
 
@@ -630,37 +630,37 @@ zut		zyt
 // et (t is said)
 
 exocet		EgzOsEt
-fret		fR'Et
+fret		fr'Et
 budget		bydZE
 hamlet		hamlEt
 knesset		knEsEt
-lazaret		lazaREt
-margaret	maRgaREt
+lazaret		lazarE
+margaret	margarEt
 net		nEt
 offset		OfsEt
 set		sEt
 soviet		sOvjEt
 
 // urt (t is said)
-kurt		kuRt
-yaourt		jauRt
+kurt		kurt
+yaourt		jaurt
 yoghourt	yogurt
-yogourt		yoguRt
+yogourt		yogurt
 
 // ort (t said)
-short		SORt
+short		SOrt
 
 // art (t said)
-steward		stiwaRt
-stuttgart	StutgaRt
-hart		aRt
-kart		kaRt
-smart		smaRt
+steward		stiwart
+stuttgart	Stutgart
+hart		art
+kart		kart
+smart		smart
 
 // irt
-flirt		flWRt
-(sweat shirt)	swEtSWRt
-(tee shirt)	tiSWRt
+flirt		flWrt
+(sweat shirt)	swEtSWrt
+(tee shirt)	tiSWrt
 
 
 // words from other languages
@@ -682,7 +682,7 @@ emacspeak	Emakspi:k
 end             _^_en
 epson		EpsOn
 espeak		@spi:k
-ethernet	etERnEt
+ethernet	etErnEt
 exit	egzit
 (file zilla)		fa2jl||zija
 from	_^_en $u+
@@ -714,10 +714,10 @@ outlook         autlu:k
 paint    		_^_en
 paper    		_^_en
 people    		_^_en
-redhat		REdat
+redhat		rEdat
 same		_^_en
 sametime	_^_en
-schubert	SubER
+schubert	SubEr
 sun		_^_en
 (text aloud) tEkst||@la=wd
 ubuntu		ubuntu
@@ -730,11 +730,11 @@ yes		_^_en
 constations	kO~statjO~z2
 contentions	kO~tA~tjO~z2
 dations		datjO~z2
-désertions	dezERtjO~z2 $verb
+désertions	dezErtjO~z2 $verb
 exploitions	Eksplw^atjO~z2
-heurtions	hWRtjO~z2
-partions	paRtjO~z2
-rations		RatjO~z2 $verb
+heurtions	hWrtjO~z2
+partions	partjO~z2
+rations		ratjO~z2 $verb
 tentions	tA~tjO~z2
 votions		votjO~z2
 étions		etjO~z2
@@ -742,7 +742,7 @@ votions		votjO~z2
 
 // no liaison
 (quelqu'un)	kElkW~
-pourcent	puRsA~
+pourcent	pursA~
 vincent		vE~sA~
 
 

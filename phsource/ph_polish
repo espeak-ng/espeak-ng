@@ -8,13 +8,21 @@ phoneme a
   vowel starttype (a) endtype (a)
   length 190
   formants vowel/a_en
+  reduceto a# 0
 endphoneme
+
+phoneme a#
+  vowel starttype (a) endtype (a)
+  length 170
+  formants vowel/a#_2
+endphoneme
+
 
 
 phoneme E
   vowel starttype (e) endtype (e)
   length 180
-  formants vowel/ee
+  formants vowel/e_mid
   before _ vowel/ee_1
 endphoneme
 
@@ -30,13 +38,6 @@ phoneme i
   vowel starttype (i) endtype (i)
   length 170
   formants vowel/i_7
-  linkout ;
-endphoneme
-
-phoneme I
-  vowel starttype (i) endtype (i)
-  length 170
-  formants vowel/ii_3
   linkout ;
 endphoneme
 
@@ -58,21 +59,21 @@ endphoneme
 phoneme y      // close central unrounded (i-bar)
   vowel starttype (i) endtype (i)
   length 180
-  formants vowel/ii#
+  formants vowel/ii#_2
 endphoneme
 
 
 phoneme E~
-  vowel starttype (e) endtype (e)
+  vowel starttype (e) endtype (u)
   length 250
-  formants vnasal/ee_n2
+  formants vnasal/ee_u_n
 endphoneme
 
 
 phoneme O~
   vowel starttype (o) endtype (o)
   length 250
-  formants vnasal/oo_n2
+  formants vnasal/oo_n3
 endphoneme
 
 
@@ -153,7 +154,7 @@ phoneme f
   vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 3
   wave ufric/f%140
-  before s ufric/f%200
+  before s ufric/f%160
   before _ ufric/f_
   switchvoicing v
 endphoneme

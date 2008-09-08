@@ -277,7 +277,7 @@ endphoneme
 phoneme i@3
   vowel  starttype (i)  endtype (@)
   length 220
-  formants vwl_en_us/ir
+  formants vowelr/i_r
   appendph r
 endphoneme
 

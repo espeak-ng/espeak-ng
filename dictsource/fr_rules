@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-08-30 Michel Such  <michel.such@free.fr>
+// Updated: 2008-09-02 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -390,14 +390,14 @@ _) 	ç' (P2v      s
 	sp)	ens (_      Ens  // suspens
 	éC)	ens (_      A~z2  // dépens démens
 
-	_C)	er (_       ER      	// fer
-	_Ch)	er (_       ER      	// cher
-	_env)	er (_       ER
-	_hi)	er (_       ER      	// hier
-	_fi)	er (_       ER      	// fier
-	_hiv)	er (X       ER      	// hiver
-	tain)	er (X       ER      	// container
-	_ti)	er (_       ER
+	_C)	er (_       Er      	// fer
+	_Ch)	er (_       Er      	// cher
+	_env)	er (_       Er
+	_hi)	er (_       Er      	// hier
+	_fi)	er (_       Er      	// fier
+	_hiv)	er (X       Er      	// hiver
+	tain)	er (X       Er      	// container
+	_ti)	er (_       Er
 	ack)	er (K      Wr
 	ock)	er (K      Er
 	rock)	er (K      Wr
@@ -657,6 +657,7 @@ _)		half  	_^_en
 	_Cr)	i (A    i:
 	Cr)	i (é    i:
 	Cr)	i (er_    i:
+	rr)	i (er_    j
 	dr)	iver    a2jvWr
 	C)	ien (t_       i
 	dév)	ien (t_       i
@@ -959,11 +960,11 @@ C)		oing (_      _^_en	// going
 
 
 .group r
-	_su)	rr          RR		// surréaliste
-cou)	rr          RR		// courrai
+	_su)	rr          rr		// surréaliste
+cou)	rr          rr		// courrai
 cou)	rr (i         r		// courrier
-mou)	rr          RR		// mourrai
-		rr          R		// erreur
+mou)	rr          rr		// mourrai
+		rr          r		// erreur
 		r           r		// rien
 	_)	radio (@P5       radio
 
@@ -1320,24 +1321,24 @@ _)		t (_        te
 // symbols that are normally spoken when reading text
 		, (D        pilk:u
 	!	Eksklamasj'O~
-	$	do2laR
-	@	aRobaz
-	%	puRsA~
+	$	do2lar
+	@	arobaz
+	%	pursA~
 	&	_e
 	+	plys
 	~	tilde
-	€	@Ro
+	€	@ro
 	¢	sEnt
 	¥	i;En
-	£	livR
-	°	d@gRe
+	£	livr
+	°	d@gre
    _n_) °	   // n°
 	±	pl'yz_'u_mw'E~
-	×	myltipli:'e_p'aR
-	÷	diviz'e_p'aR
-	¼	W~_k'aR
+	×	myltipli:'e_p'ar
+	÷	diviz'e_p'ar
+	¼	W~_k'ar
 	½	W~_d@m'i
-	¾	tRw'a2 k'aR
+	¾	trw'a2 k'ar
 	©	_^_EN
 	®	m'ark_depos'e
 

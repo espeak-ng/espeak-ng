@@ -410,6 +410,7 @@ advertise        adv3taIz
 advertiser       adv3taIz3 
 advertize        adv3taIz
 advertisement    a2dv3:tIsm@nt
+?3 advertisement    $3
 adware           'adw,e@
 adze             adz
 aegis            i:dZIs
@@ -473,7 +474,7 @@ amaryllis        am@r'IlIs
 amass            a2mas
 ambassador       a2mbas@d3
 ambidextrous                   $3
-amen             A:m'En        $onlys
+amen             ,A:m'En        $onlys
 amok             a2m0k
 amoral           eIm'0r@L
 amount           a2maUnt
@@ -491,6 +492,7 @@ anecdotal        anIkd'oUt@L
 anemometer       anIm'0mIt3
 anemone          a2nEn@mI2
 anew             a2nju:
+?3 anew          a2nu:
 anion            aneI@n
 anniversary      anIv'3:s@rI2 
 anon             a2n0n
@@ -584,6 +586,7 @@ baloney          b@loUnI2
 bagel            beIg@L
 banal            beIn@L
 banana           b@nA:n@
+?3 banana        ba2nan@
 banged           baNgd
 banquet          baNkwIt
 barbeque         bA@b@kju:
@@ -716,7 +719,7 @@ circumvent       s3:k@mvEnt
 ?5 circumvent    sIRk@mvEnt
 citizen          sItIz@n
 cleanse          klEnz
-clerk            klA@k
+?!3 clerk        klA@k
 cliche           kli:SeI
 close            kloUs         $only
 close            kloUz         $verb
@@ -731,6 +734,7 @@ coffee           k0fI2
 cochlea          k0kli:@
 coconut          koUk@nVt
 codify           koUdIfaI
+coeur            k3:
 cognac           k0njak
 coincide         koUIns'aId
 college          k0lIdZ
@@ -852,6 +856,7 @@ denouement       deIn'u:mO~
 denier           dI2naI3
 deny             dI2naI
 denial           dI2naI@l
+depot            dEpoU
 derange          dI2reIndZ
 descry           dIskr'eI
 desert           dI2z3:t
@@ -904,7 +909,6 @@ driest           draI|@st
 duet             dju:'Et
 dugout           dVgaUt
 duvet            du:veI
-dynasty          dIn@stI2
 d'ye             dj@
 
 ebook            i:bUk
@@ -1135,7 +1139,7 @@ humane            $2
 hunger           hVng3
 hurrah           hVr'A:
 hurray           hVr'eI
-hurricane        hVrIk@n
+hurricane        hVrIkeIn
 hussar           hVz'A@
 hyperbola        haIp'3:b@l@
 hyperbole        haIp'3:b@lI2
@@ -1226,12 +1230,13 @@ kopje            k0pI
 kosher           koUS3
 
 la               ,la           $only
-laboratory       la2b'0r@trI2 
+laboratory       la2b'0r@trI2
 labor            leIb3
 labored          leIb@d
 lager            lA:g3
 landowner        l'and,oUn3
 las              ,las
+?3 las           ,lA:s
 lasagne          l@zanj@
 laser            leIz3
 lasso            las'u:
@@ -1496,7 +1501,6 @@ pasting          peIstIN
 pastry           peIstrI2
 pate             pateI
 pathos           peIT0s
-patrol           p@troUl
 pear             pe@
 peculiar         pI2kju:lI3
 pedalo           pEd@loU
@@ -1555,6 +1559,7 @@ precedence       prEsId@ns
 precedent        prEsId@nt
 precept          pri:sEpt
 precipice        prEsIpIs
+precis           preIsi:
 precise          prI2saIs      // 's' not 'z' at end
 predefine        pri:dIf'aIn
 predicate        prEdIkeIt
@@ -1567,8 +1572,8 @@ present          prEz@nt       $only
 present                        $verb
 presently        prEz@ntlI2    $verbf
 preset           pri:sEt
-precis           preIsi:
 prestige         prEst'i:Z
+?3 pretense      pri:tEns
 pretext          pri:tEkst
 pretty           prItI2
 privilege        prIvIlIdZ
@@ -1579,6 +1584,7 @@ pros             proUz
 proceed          proUsi:d      $onlys
 proceed                        $verb
 proceed                        $only
+produce          pr0dju:s      $noun
 progeny          pr0dZ@nI2
 progress         proUgrEs      $only
 ?3 progress      pr0grEs       $only
@@ -1654,6 +1660,7 @@ reciprocal       rI2sIpr@k@L
 recommend        r,Ek@mEnd
 recommendation   rEk@mEnd'eIS@n
 record           rEkO@d        $onlys
+?3 record        rEk3d        $onlys
 record                         $verb
 redcross                       $2
 redeye           r'Ed,aI
@@ -1701,6 +1708,7 @@ rescuer          rEskju:3
 reservation      rEz3v'eIS@n
 reservoir        rEz3vwA@
 resin            rEzIn
+restive          rEstIv
 respiration      rEspIr'eIS@n 
 respiratory      rI2spIr@t@rI2
 respite          rEspaIt
@@ -1840,7 +1848,6 @@ standby          standbaI
 stagnate                       $2
 stampede          $2
 strychnine       str'Ikni:n
-?3 status        stat@s
 sterile          stEraIl
 stomata          stoUm@t@
 storytell        stO:rI2tEl
@@ -2011,7 +2018,7 @@ vagina           v@dZaIn@
 (van den)        vandEn
 (van der)        vand3:
 variety          v@raI@tI2
-vase             vA:z
+?!3 vase         vA:z
 veg              vEdZ
 vegetable        vEdZIt@b@L
 vehicle          vi@k@L
@@ -2082,9 +2089,11 @@ yer              j3
 ye               ji:
 yea              jeI
 yoghurt          j0g3t
+?3 yoghurt       joUg3t
 yoyo             joUjoU
 
 zulu             zu:lu:
+
 
 // place names
 
@@ -2212,6 +2221,7 @@ Jerusalem	dZ@ru:s@l@m
 Johannesburg	$2
 Kalgoorlie	kalgU@lI2
 Karachi		k@rA@tSI2
+Kentucky	$2
 Kiev		ki:Ev
 Khmer		kmi@3
 Korea		kOr'i:@
@@ -2249,6 +2259,7 @@ Nairobi		naIr'oUbI
 Nauru		naUru:
 Nebraska	$2
 Nepal		nEp'O:l
+?3 Nevada	nI2vad@
 Noumea		nu:m'eI@
 Oahu		oU'A:hu:
 Ohio		oUh'aIoU
@@ -2300,6 +2311,7 @@ Tripoli		trIp@lI2
 Ukraine		ju:kr'eIn
 Ural		ju:@r@L
 Utah		ju:tA:
+?3 Utah		ju:tO:
 Utrecht		ju:trECt
 Vancouver	$2
 Vegas		veIg@s
@@ -2334,6 +2346,7 @@ Anthony		ant@nI2
 Anton		ant0n
 Ares		e@ri:z
 Astley		astlI2
+Barack		ba2rA:k
 Barbara		bA@b@r@
 Boris		b0rIs
 Brien		braI@n
@@ -2432,6 +2445,7 @@ Pandora		$2
 Penelope	p@nEl@pI2
 Phoebe		fi:bi:
 Rachel		reItS@L
+Raul		raU'u:l
 Rhys		ri:s
 Roderick	r0drIk
 Samantha	s@manT@
@@ -2444,7 +2458,9 @@ Sonia		s0nj@
 Sophie		soUfI2
 Stephen		sti:v@n
 Stewart		stju:3t
+?3 Stewart	stu:3t
 Stuart		stju:3t
+?3 Stuart	stu:3t
 Theresa		t@ri:z@
 Thomas		t0m@s
 Tina		ti:n@
@@ -2548,6 +2564,7 @@ unto             ,VntU
 ?3 unto          ,Vnt2U
 upon             @p,0n
 from             %fr0m
+?3 from          %frVm
 (from where)     %fr0m||w'e@   $pause
 (from which)     %fr0m||w'ItS  $pause
 up               ,Vp           $strend2
@@ -2592,6 +2609,8 @@ is               I2z            $pastf $only // use contraction for 'is a'
 // am               %am            $nounf $only  // now in en_rules
 are              %A@            $pastf $only
 was              %w0z           $pastf $only
+?3 was           %wVz           $pastf $only
+?3 wasn't        wVznt          $pastf $only
 wast             %w0st         $only $pastf $only
 were             %w3:           $pastf $only
 isn't            ,Iz@nt        $pastf $strend2
@@ -2633,6 +2652,7 @@ shan't           ,SA:nt         $verbf $strend2
 
 can              %kan           $verbf $only $strend2
 can't            kA:nt          $verbf $only $strend2
+?3 cannot        $2             $verbf $only $strend2
 (can't have)     kA:nta2v       $pastf
 (can't have to)   ,kA:nt'avt@5       $verbf $atend
 ?3 can't            kant          $verbf $only $strend2
@@ -2794,6 +2814,7 @@ whenever         wEn,Ev3       $pause
 within                         $pause
 whoever          hu:'Ev3
 whatever         w0t'Ev3       $pause
+?3 whatever      wVt'Ev3       $pause
 while                          $pause
 whilst           waIlst        $pause
 (rather than)    r'A:D3||Da2n  $pause
@@ -2845,6 +2866,7 @@ which            ,wItS         $pause $strend2 $only $verbf
 who              ,hu:          $verbf $pause $strend2 $onlys
 whose            ,hu:z         $pause $only
 what             ,w0t          $strend2 $onlys
+?3 what          ,wVt          $strend2 $onlys
 how              ,haU          $strend2 $onlys
 where            ,we@          $pause $strend2 $onlys
 why              ,waI          $strend2 $onlys
@@ -2868,16 +2890,49 @@ like             laIk          $strend2
 
 
 // ?6  'one' = [wVn], 'of' = [Vv]
-?6 noone         noUwVn
-?6 anyone        EnIwVn
-?6 everyone      EvrIwVn
-?6 someone       sVmwVn
-?6 (some one)    sVmw0n
-?6 one           wVn           $nounf $onlys $unstressend
-?6 ones          wVnz          $only $unstressend
+?6 noone	noUwVn
+?6 anyone	EnIwVn
+?6 everyone	EvrIwVn
+?6 someone	sVmwVn
+?6 (some one)	sVmw0n
+?6 one		wVn           $nounf $onlys $unstressend
+?6 ones		wVnz          $only $unstressend
 
 
 // General American
-// ?3 status        statVs
+?3 agile	adZ@L
+?3 docile	doUs@L
+?3 facile	fas@L
+?3 fertile	f3:t@L
+?3 fragile	fradZ@L
+?3 futile	fju:t@L
+?3 hostile	h0st@L
+?3 missile	mIs@L
+?3 projectile	pr@dZEkt@L
+?3 puerile	pjU@r@L
+?3 sterile	stEr@L
+?3 virile	vIr@L
+?3 volatile	v0la2t@L
+
+?3 amen		,eIm'En
+?3 anti		antaI
+?3 comrade	k0mrad
+?3 depot        di:poU
+?3 envelope	A:nv@loUp
+?3 err		e@
+?3 garage	ga2rA:Z
+?3 laboratory	labr@tO:rI2
+?3 launch	lA:ntS
+?3 multi	mVltaI
+?3 pasta	pA:st@
+?3 patent	pat@nt
+?3 privacy      praIv@sI2
+?3 semi		sEmaI
+?3 status	stat@s
+?3 template	tEmpl@t
+?3 tomato	t@meItoU
+?3 vitamin      vaIt@mIn
+?3 zebra	zi:br@
+
 
 

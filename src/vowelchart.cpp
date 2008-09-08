@@ -376,6 +376,7 @@ void FindPhonemesUsed(void)
 {//========================
 	int hash;
 	char *p;
+	unsigned int *pw;
 	char *start;
 	char *next;
 	unsigned char c;
@@ -397,6 +398,18 @@ void FindPhonemesUsed(void)
 		}
 		if(*p == RULE_GROUP_START)
 		{
+			if(p[1] == RULE_REPLACEMENTS)
+			{
+				p++;
+				pw = (unsigned int *)(((long)p+4) & ~3);  // advance to next word boundary
+				while(pw[0] != 0)
+				{
+					pw += 2;   // find the end of the replacement list, each entry is 2 words.
+				}
+				p = (char *)(pw+1);
+				continue;
+			}
+
 			if(p[1] == RULE_LETTERGP2)
 			{
 				while(*p != RULE_GROUP_END) p++;

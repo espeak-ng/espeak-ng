@@ -89,7 +89,49 @@ eg.<br>
 <li><b>&lt;translation&gt;</b> is a translation file to convert between eSpeak phonemes and the equivalent Mbrola phonemes.  These are kept in:
   <code>espeak-data/mbrola_ph</code>
 </ul>
-They are binary files which are compiled, using espeakedit, from source files in <code>phsource/mbrola</code>. Details to be defined.
-
+They are binary files which are compiled, using espeakedit, from source files in <code>phsource/mbrola</code>, see below.
+<h3>Mbrola Phoneme Translation Data</h3>
+Mbrola phoneme translation files specify translations from eSpeak phoneme names to mbrola phoneme names.  They are referenced from voice files.
+<p>
+The source files are in <code>phsource/mbrola</code>.  These are compiled using the <code>espeakedit</code> program (<code>Compile->Compile mbrola phonemes list</code>) to produce data files in <code>espeak-data/mbrola_ph</code> which are used by eSpeak.
+<p>
+Each line in the mbrola phoneme translation file contains:
+<p>
+<code>
+&lt;control&gt; &lt;espeak ph1&gt; &lt;espeak ph2&gt; &lt;percent&gt; &lt;mbrola ph1&gt; [&lt;mbrola ph2&gt;]
+</code>
+<ul>
+<li><b>&lt;control&gt;</b><ul>
+<li>bit 0 &nbsp;  skip the next phoneme
+<li>bit 1 &nbsp;  match this and Previous phoneme
+<li>bit 2 &nbsp;  only at the start of a word
+<li>bit 3 &nbsp;  don't match two phonemes across a word boundary
+</ul><p>
+<li><b>&lt;espeak ph1&gt;</b><br>
+The eSpeak phoneme which is to be translated to an mbrola phoneme.
+<p>
+<li><b>&lt;espeak ph2&gt;</b><br>
+If this field is not <code>NULL</code>, then the match only occurs if this field matches the next phoneme.  If control bit 1 is set, then the <i>previous</i> rather than the <i>next</i> phoneme is matched.  This field may also have the following values:<br>
+<code>VWL</code> &nbsp; matches any Vowel phoneme.
+<p>
+<li><b>&lt;percent&gt;</b><br>
+If this field is zero then only one mbrola phoneme is used.  If this field is non-zero, then two mbrola phonemes are used, and this value gives the percentage length of the first mbrola phoneme.
+<p>
+<li><b>&lt;mbrola ph1&gt;</b><br>
+The mbrola phoneme to which the eSpeak phoneme is translated.  This field may be <code>NULL</code>.
+<p>
+<li><b>&lt;mbrola ph2&gt;</b><br>
+The second mbrola phoneme.  This field is only used if the &lt;percent&gt; field is not zero.
+<p>
+</ul>
+The list is searched from start to finish, until a match is found.  Therefore, a line with more specific match condition should appear before a line which matches the same eSpeak phoneme but with a more general condition.
+<p>
+The file <code>dictsource/dict_phonemes</code> lists the eSpeak phonemes which are used for each language.  Translations for all these should be given in the mbrola phoneme translation file.  In addition, some phonemes which are referenced from phoneme files (eg. <code>phsource/ph_language, phsource/phonemes</code>) in lines such as:<pre>
+   beforenotvowel   l/
+   reduceto  a#  0
+</pre>
+should also be included, even though they don't appear in <code>dictsource/dict_phonemes</code>.
+<p>
+If the language's *_list or *_rules files includes rules to speak words "as English" the mbrola phoneme translation file should include rules which translate English phonemes into near equivalents, so that they can spoken by the mbrola voice.
 </body>
 </html>

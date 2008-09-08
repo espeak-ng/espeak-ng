@@ -481,7 +481,7 @@
 		k		k
 //		k	(i	c
 		kł	(_	k
-		ki	(A	kj
+//		ki	(A	kj
 	_)	klow	(n	klaw
 
 .group	 l
@@ -536,7 +536,6 @@
 
 .group	 ń
 		ń		n^
-		ń	(_	n_  // ?? jsd
 
 .group	 o
 		o		O
@@ -557,7 +556,6 @@
 
 .group	 p
 		p		p
-		pie (ń		pI   // ???  jsd
 
 	_ko)	pi	(A	pj
 	_fotoko)	pi	(A	pj
@@ -833,6 +831,7 @@
 
 .group	 w
 		w		v
+		w (sk		_v
 	ier)	wsz	(A	S
 		w	(_A	f
 	c)	w	(A	f
