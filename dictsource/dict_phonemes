@@ -40,6 +40,17 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
+Dictionary da_dict
+
+&    0    @    @-   a    A    aI   aU   
+e    E    i    o    O    u    V    W    
+y    Y    
+
+:    b    d    D    f    g    h    j    
+k    l    m    n    N    p    r    R    
+s    S;   t    tS;  v    w    
+
+
 Dictionary de_dict
 
 3    @    @-   a    A    A:   aI   aU   
@@ -118,14 +129,14 @@ Dictionary fr_dict
 
 @    @-   @2   a    A    a2   A~   e    
 E    E~   i    i:   o    O    o2   O2   
-O~   u    u:   W    W2   w^a  w^i  W~   
+O~   u    u:   W    W2   w^i  wA   W~   
 y    Y    
 
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    m    n    N    n2   
-n^   p    p2   r    r2   s    S    t    
-t2   t3   tS   v    w    z    Z    z2   
-z3   
+n^   p    p2   r    R    r2   s    S    
+t    t2   t3   tS   v    w    z    Z    
+z2   z3   
 
 
 Dictionary grc_dict
@@ -220,6 +231,17 @@ o    OI   r-   u
 b    d    dZ   f    g    h    j    k    
 l    m    n    N    p    R    s    S    
 t    tS   v    w    x    z    Z    
+
+
+Dictionary ko_dict
+
+a    e    E    i    ji   o    u    u-   
+V    
+
+b    c    C    c`   ch   d    dZ   g    
+h    j    J    k    k`   kh   l    m    
+n    N    p    p`   ph   r    s    S;   
+s`   t    t`   th   w    
 
 
 Dictionary ku_dict
@@ -335,6 +357,16 @@ t;   ts   ts;  tS;  v    x    z    Z
 z;   Z;   
 
 
+Dictionary rw_dict
+
+a    e    i    o    u    
+
+*    :    b    B    c    d    dZ   f    
+g    h    j    J    k    l    m    n    
+N    n^   p    q    R    s    S    S;   
+t    tS   v    w    x    z    
+
+
 Dictionary sk_dict
 
 &    @-   a    a:   e    e:   i    i:   
@@ -345,6 +377,17 @@ u:
 h    j    k    l    l^   m    n    N    
 n^   p    r    R    R^   R^/  s    S    
 t    t;   tS   ts   v    x    z    Z    
+
+
+Dictionary sq_dict
+
+@    a    e    E    i    O    u    y    
+yE   
+
+*    **   b    c    d    D    dZ   f    
+g    h    j    J    k    l    ll   m    
+n    n^   p    r    R    s    S    t    
+T    tS   ts   v    w    z    Z    
 
 
 Dictionary sv_dict

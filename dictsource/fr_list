@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-08-29 Michel Such  <michel.such@free.fr>
+// Updated 2008-09-13 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -84,7 +84,7 @@ z	zEd
 _lig	ligat'yr
 _acu	aksA~tEg'y
 _ac2	dublaksA~tEg'y
-_brv	br'Ev
+_brv	bR'Ev
 _ced	sed'ij
 _cir	aksA~sirkO~fl'Eks
 _dia	trem'a
@@ -140,7 +140,7 @@ _}   f'Erm_akOl'ad
 _0	zero
 _1	W~
 _2	dYz2
-_3	trw^az2
+_3	tRwAz2
 _4	katr
 _5	sE~k
 _6	siz3
@@ -150,7 +150,7 @@ _9	nWf
 _10	diz3
 _11	_!O~z
 _12	duz
-_13	trEz
+_13	tREz
 _14	katOrz
 _15	kE~z
 _16	sEz
@@ -160,43 +160,43 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:trw^az2
+_23	vE~t:trwAz2
 _24	vE~tkatr
 _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
 _28	vE~tw^it3
 _29	vE~tnWf
-_3X	trA~t
-_31	trA~te:W~
+_3X	tRA~t
+_31	tRA~te:W~
 _4X	karA~t
 _41	karA~te:W~
 _5X	sE~kA~t
 _51	sE~kA~te:W~
-_6X	sw^asA~t
-_61	sw^asA~te:W~
-_7X	sw^asA~t:diz3
-_71	sw^asA~te:O~z
-_72	sw^asA~t:duz
-_73	sw^asA~t:trEz
-_74	sw^asA~t:katOrz
-_75	sw^asA~t:kE~z
-_76	sw^asA~t:sEz
-_77	sw^asA~t:dis:Et
-_78	sw^asA~t:diz'w^it3
-_79	sw^asA~t:diznWf
+_6X	swAsA~t
+_61	swAsA~te:W~
+_7X	swAsA~t:diz3
+_71	swAsA~te:O~z
+_72	swAsA~t:duz
+_73	swAsA~t:trEz
+_74	swAsA~t:katOrz
+_75	swAsA~t:kE~z
+_76	swAsA~t:sEz
+_77	swAsA~t:dis:Et
+_78	swAsA~t:diz'w^it3
+_79	swAsA~t:diznWf
 _8X	katr@vE~
-_80	katr@vE~z2
-_9X	katr@vE~diz3
-_91	katr@vE~:O~z
-_92	katr@vE~:duz
-_93	katr@vE~:trEz
-_94	katr@vE~:katOrz
-_95	katr@vE~:kE~z
-_96	katr@vE~:sEz
-_97	katr@vE~:dis:Et
-_98	katr@vE~:dizw^it3
-_99	katr@vE~:diznWf
+_80	katR@vE~z2
+_9X	katR@vE~diz3
+_91	katR@vE~:O~z
+_92	katR@vE~:duz
+_93	katR@vE~:trEz
+_94	katR@vE~:katOrz
+_95	katR@vE~:kE~z
+_96	katR@vE~:sEz
+_97	katR@vE~:dis:Et
+_98	katR@vE~:dizw^it3
+_99	katR@vE~:diznWf
 _0C	sA~
 _1C0	sA~t2
 _0M1	mil
@@ -210,7 +210,7 @@ _dpt	virgyl
 ?2 _7X	sEptA~t
 ?2 _71	sEptA~te:W~
 ?2 _72	sEptA~t:dYz2
-?2 _73	sEptA~t:trw^az2
+?2 _73	sEptA~t:trwAz2
 ?2 _74	sEptA~t:katr
 ?2 _75	sEptA~t:sE~k
 ?2 _76	sEptA~t:siz3
@@ -220,7 +220,7 @@ _dpt	virgyl
 ?2 _9X	no2nA~t
 ?2 _91	no2nA~te:W~
 ?2 _92	no2nA~t:dYz2
-?2 _93	no2nA~t:trw^az2
+?2 _93	no2nA~t:trwAz2
 ?2 _94	no2nA~t:katr
 ?2 _95	no2nA~t:sE~k
 ?2 _96	no2nA~t:siz3
@@ -229,11 +229,11 @@ _dpt	virgyl
 ?2 _99	no2nA~t:nWf
 
 (21 ème)	vE~te:yniEm
-(31 ème)	trA~te:yniEm
+(31 ème)	tRA~te:yniEm
 (41 ème)	karA~te:yniEm
 (51 ème)	sE~kA~te:yniEm
-(61 ème)	sw^asA~te:yniEm
-(81 ème)	katr@vE~:yniEm
+(61 ème)	swAsA~te:yniEm
+(81 ème)	katR@vE~:yniEm
 
 // ABBREVIATIONS
 //**************
@@ -250,7 +250,7 @@ avh		aveaS
 bd	boulevard $text
 cci              $abbrev
 cio		$abbrev
-ctrl		kO~tro2l $pause
+ctrl		kO~tRo2l $pause
 dept		depart@mA~
 edf		$abbrev
 etc		etsetera
@@ -262,14 +262,14 @@ ide		$abbrev
 ip		$abbrev
 jaws		dZ'O2wz
 kde		$abbrev
-kg		kilogram
+kg		kilogRam
 khz		kiloErts
 km		kilomEtr
 kw		kilowat
 m.		m@sjY
-mbrola		Em'brola
+mbrola		EmbRola
 mhz		megaErts
-mlle		mad@mw^azEl
+mlle		mad@mwAzEl
 mme		madam
 mr		m@sjY
 nsi             $abbrev
@@ -279,7 +279,7 @@ nvda             $abbrev
 ong             $abbrev
 pci             $abbrev
 pda             $abbrev
-p.s		postskriptOm
+p.s		postskRiptOm
 ratp		$abbrev
 scsi		$abbrev
 s.t.p		s'il:t'@:pl'E
@@ -552,7 +552,7 @@ tunis           tynis
 // MAIN WORD DICTIONARY
 //*********************
 
-(1 er)	pr@mi;'er2
+(1 er)	pr@mjer2
 (1 ers)	pr@mi;'ez2
 (1 ère)	pr@mi;'Er
 (1 ères)	pr@mi;'Erz2
@@ -574,11 +574,12 @@ bissus    bisys
 bus	      bys
 bus	      by  $verb
 campus   kA~pys
+(chef d'oeuvre)	chédeuvre $text
 choeur        kWr
 cocus     coky
-dernier    dErnier2
+dernier    dErnjer2
 éloquent     ElokA~t2
-fier	      fier2 $verb
+fier	      fier $verb
 fuel	      fjul
 gars	      ga
 gym	Zim
@@ -590,7 +591,7 @@ mars	      mars
 parangon	      parA~gO~
 phallus    falys
 polder    pOldEr
-premier    pr@mier2
+premier    pr@mjer2
 scanner	skaner2
 scanner	skanWr $noun
 souris       suri
@@ -731,7 +732,7 @@ constations	kO~statjO~z2
 contentions	kO~tA~tjO~z2
 dations		datjO~z2
 désertions	dezErtjO~z2 $verb
-exploitions	Eksplw^atjO~z2
+exploitions	EksplwAtjO~z2
 heurtions	hWrtjO~z2
 partions	partjO~z2
 rations		ratjO~z2 $verb
