@@ -151,13 +151,14 @@ _roman  rum'eIns@
 alaska      al'aska
 algerië     alx2'e@re@:@-
 antwerpen   antv&rp@n
-asië        A:si@
 babilon     babilOn
 bangladesh  baNglad'ES
 bastille    bast'il
+bellevue    b&lvju:
 berlyn      $2
 bermuda     $2
 bethlehem   bEt_liEm
+boedapest   budapEst
 boekarest   bukarEst
 bonnievale  _^_EN
 brittanje   $2
@@ -174,6 +175,7 @@ colesberg   ko@lsb&rx2
 constantia  $2
 christiana  kr@stij'A:na
 damaskus    d@maskWs
+doebaai     $2
 duitswes    dYytsv'Es
 ermelo      &rm@lo@
 franschhoek frA~nsh'uk
@@ -199,6 +201,8 @@ kenia       ki:nia
 kimberley   kimb@rli
 kongo       kONgu
 knysna      neIsna
+kuruman     kuruman
+kwa         kwa $u $only // KwaZulu, etc.
 lesotho     l@sutu
 limpopo     l@mpo@po@
 macedonië   mas@d'o@ni@
@@ -209,6 +213,7 @@ mauritius   mOr'iSjWs
 milaan      $2
 mesopotamië mEsuput'A:mi@
 montagu     mOnt@ky
+moreletapark mOr@l,Etap'ark
 moorreesburg mur'e@sbWrx2
 mosambiek   musamb'ik
 (thaba nchu) tab'A:||ntSu
@@ -220,6 +225,8 @@ pelindaba   p&l@nd'A:ba
 portugal    $1
 potchefstroom pOtSIfstr'o@m
 robertson   _^_EN
+sahara      sah'A:ra
+secunda     s@kunda
 senekal     se@n@kal
 singapoer   siNgapur
 soweto      suw'E:tu
@@ -233,12 +240,13 @@ upington    apiNt@n
 vesuvius    v@su:viWs
 viëtnam     vj'Etnam
 wallonië    val'o@ni@
+washington  _^_EN
 wellington  wEliNt@n
 wolseley    wulsli
 worcester   v'ust@r
 uganda      ug'anda
 zimbabwe    zI:mb'ab_wE
-
+zulu        zulu // Kwazulu-Natal
 
 
 // People names
@@ -262,6 +270,7 @@ blomerus    blum'e@rWs
 botha       bo@ta
 bouwer      b@U@r
 brian       _^_EN
+bredenkamp  bre@d@nkamp
 breytenbach breIt@nbax2
 brouwer     bruw'&:r
 caesar      siz@r
@@ -288,6 +297,7 @@ darwin      _^_EN
 david       _^_EN
 debora      d@bo@ra
 debussy     d@bus'i:
+(de la)     d@||la $u // de la Rey/de la Bat, etc.
 der         d@r
 derick      dErik
 deventer d'e@v@nt@r
@@ -387,6 +397,7 @@ michiel $2
 mike        _^_EN
 miriam      mIri@m
 mohammed    muh'am@t
+morné       mOrn'eI
 mostert     m'Ost@rt
 mouton      mut'On
 mozart      mo@tsart
@@ -473,9 +484,12 @@ khumalo     kum'A:lu
 zuma        zu:ma
 
 // Other proper names
+absa        absa
+boeing      _^_EN
 centaurus   $2
 checkers    tSEk@rs
 chrysler    kraIsl@r
+ferrari     f@rA:ri
 martini     mart'i:ni
 wimpy       wImpi
 
@@ -595,7 +609,7 @@ my		$u $verbf
 jou		$u $verbf
 hom		$u $verbf
 haar		$u $only $verbf
-se	 	Es@ $capital
+se		Es@ $capital
 
 dis		$u
 
@@ -620,6 +634,7 @@ aggressie     $2
 agterstevoor  $4
 agterweë      $3
 algaande      $2
+alge          alx2@
 algehele      alx2@h,e@l@
 allegro       al'Egru
 alles         al@s
@@ -657,6 +672,7 @@ bourgeoisie   _^_FR
 cabernet      kab@rn'eI
 camembert     kam@mb'&:r
 camouflage    kamufl'A:Z
+casino        kas'i:n@U
 charisma      kar'Isma
 chemikalieë   $3
 crescendo     kr@SEndu
@@ -795,6 +811,7 @@ misbruik      $2 $verb
 misbruikte    $2
 miskien       $2
 misterie      m@ste@ri
+(modus operandi) m,o@dWs||o@p@r'andi
 monsieur      _^_FR
 motore        mo@t'o@r@
 motor         mo@t@r
@@ -822,7 +839,9 @@ normale       nOrm'A:l@
 numeri        nWm@ri
 
 oeuvre        W:vr@
+oftewel       Oft@v&l
 omgeef        $2
+ommekeer      Om@ke@r
 omrede        $2
 omtrent       Omtr'Ent
 onbegrip      $1
@@ -835,6 +854,7 @@ onderwyser    $3
 ondeug        $1 $only
 ondeugde      $1 $only
 onding        $1
+oneer         On_e@r $only
 ongeag        $1
 ongeduld      $1
 ongeloof      $1
@@ -844,6 +864,7 @@ ongerief      $1
 ongewens      $1
 ongewensde    $3
 ongewoons     $1
+onguns        $1
 onkunde       $1
 onmag         $1
 onmin         $1
@@ -981,7 +1002,6 @@ vrek          fr&k
 
 waarskynlik   $2
 waarskynlike  $2
-wangedrag     vanx2@drax2
 watwo         vatvo@
 watwou        vatv@U
 weergalm      $2

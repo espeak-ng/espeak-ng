@@ -33,7 +33,7 @@ endphoneme
 
 
 phoneme a
-  vowel  starttype (a)  endtype (@)
+  vowel  starttype (e)  endtype (@)
   length 210
   formants vwl_en_us/a
   before n vnasal/ee_n2

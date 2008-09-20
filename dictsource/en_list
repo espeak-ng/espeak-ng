@@ -1483,6 +1483,7 @@ overage          oUv@r-eIdZ
 overly           oUv3lI2
 overt            oUv'3:t
 overtly          oUv'3:tlI2
+overturn          $3
 oxen             0ks@n
 
 padre            pA:dreI
@@ -1995,6 +1996,7 @@ untidy           Vnt'aIdI2
 untie            Vnt'aI
 unty             Vnt'aI        // for  untying
 unwind           Vnw'aInd
+unwise            $2
 unwound          Vnw'aUnd
 update                         $1 $onlys
 update                         $verb
@@ -2315,8 +2317,8 @@ Toulouse	tu:l'u:z
 Tripoli		trIp@lI2
 Ukraine		ju:kr'eIn
 Ural		ju:@r@L
-Utah		ju:tA:
-?3 Utah		ju:tO:
+Utah		ju:t2A:
+?3 Utah		ju:t2O:
 Utrecht		ju:trECt
 Vancouver	$2
 Vegas		veIg@s

@@ -511,7 +511,7 @@ const char *Translator::LookupSpecial(const char *string, char* text_out)
 		SetWordStress(phonemes,flags[0],-1,0);
 		DecodePhonemes(phonemes,phonemes2);
 		sprintf(text_out,"[[%s]]",phonemes2);
-		option_phoneme_input = 1;
+		option_phoneme_input |= 2;
 		return(text_out);
 	}
 	return(NULL);
@@ -589,13 +589,14 @@ const char *Translator::LookupCharName(int c)
 			DecodePhonemes(phonemes,phonemes2);
 			sprintf(buf,"[[%s]] ",phonemes2);
 		}
+		option_phoneme_input |= 2;
 	}
 	else
 	{
 		strcpy(buf,"[[(X1)(X1)(X1)]]");
+		option_phoneme_input |= 2;
 	}
 
-	option_phoneme_input = 1;
 	return(buf);
 }
 
@@ -806,9 +807,9 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 			}
 			else
 			{
-				sprintf(p,"%s %s %d %s %s [[______]]",
+				sprintf(p,"%s %s %d %s %s",
 						tone_punct_on,punctname,punct_count,punctname,tone_punct_off);
-				option_phoneme_input = 1;
+				return(CLAUSE_COMMA);
 			}
 		}
 		else
@@ -836,7 +837,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 	if(iswspace(c2) && strchr_w(punct_stop,c1)!=NULL)
 		return(punct_attributes[lookupwchar(punct_chars,c1)]);
 	
-	return(CLAUSE_COMMA);
+	return(CLAUSE_SHORTCOMMA);
 }  //  end of AnnouncePunctuation
 
 #define SSML_SPEAK     1

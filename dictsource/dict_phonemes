@@ -109,8 +109,8 @@ o    O    oI   u
 
 *    **   :    b    B    d    D    f    
 g    j    J    J^   k    l    m    n    
-N    n^   p    Q    r    R    s    t    
-T    tS   v    v#   w    x    z    
+N    n^   p    Q    r    R    R2   s    
+t    T    tS   v    v#   w    x    z    
 
 
 Dictionary fi_dict
@@ -128,9 +128,9 @@ S    s2   t    v    Z
 Dictionary fr_dict
 
 @    @-   @2   a    A    a2   A~   e    
-E    E~   i    i:   o    O    o2   O2   
-O~   u    u:   W    W2   w^i  wA   W~   
-y    Y    
+E    E2   E~   i    i:   o    O    o2   
+O2   O~   u    u:   W    W2   w^i  wA   
+W~   y    Y    
 
 :    ;    b    c    d    dZ   f    g    
 h    j    k    l    m    n    N    n2   
@@ -469,3 +469,16 @@ oi   ong  ou   u    ui   yu
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
 tS   v    w    z    
+
+
+Dictionary ml_dict
+
+a    a:   aI   aU   e    E    e:   i    
+I    i:   l-   o    o:   r-   u    u:   
+V    y    
+
+:    b    c    ch   d    d.   dZ   f    
+g    h    j    J    k    kh   l    l.   
+m    n    N    n.   n^   p    ph   R    
+R2   s    s.   S;   t    t.   t.h  th   
+tS   v    w    z    z.   

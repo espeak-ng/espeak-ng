@@ -780,7 +780,7 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 		else
 			repeat = 0;
 
-		if((prev==5) || (prev==50) || (prev==500))
+		if((prev > 1) && (prev != 10) && (prev != 100))
 		{
 			if(value >= prev)
 				return(0);
@@ -1353,7 +1353,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		if(Lookup("_dpt2",buf1))
 			strcat(ph_out,buf1);
 
-		if(c == langopts.decimal_sep)
+		if((c == langopts.decimal_sep) && isdigit(word[n_digits+1]))
 		{
 			Lookup("_dpt",buf1);
 			strcat(ph_out,buf1);

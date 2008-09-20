@@ -112,7 +112,7 @@ _#   djEz
 _'   apOstrOf
 _(   'uvr@-parA~t'Ez
 _)   f'Erm parA~t'Ez
-_*   astErisk:
+_*   asterisk:
 _,   virgyl
 _-   tirE
 _.   _|pw%E~
@@ -125,13 +125,13 @@ _>   syperjWr
 _?   pwE~dE~terogasj'O~
 _[   uvr@-_kroSE
 _\   b'aksl'aS
-_]   f'Erm_kroS'E
+_]   f'E2rm_kroS'E
 _^   sirkOnflEks
 __   sulin^e
 _`   aks'A~_gr'av
 _{   uvr_akOlad
 _|   bar
-_}   f'Erm_akOl'ad
+_}   f'E2rm_akOl'ad
 ²    pw^is'A~s||d'Y
 
 
@@ -250,25 +250,25 @@ avh		aveaS
 bd	boulevard $text
 cci              $abbrev
 cio		$abbrev
-ctrl		kO~tRo2l $pause
+ctrl		control $text $pause
 dept		depart@mA~
 edf		$abbrev
 etc		etsetera
-ghz		ZigaErts
+ghz		ZigaE2rts
 hmm		h@m
-hz		_!Erts
+hz		_!E2rts
 ibm		$abbrev
 ide		$abbrev
 ip		$abbrev
 jaws		dZ'O2wz
 kde		$abbrev
 kg		kilogRam
-khz		kiloErts
+khz		kiloE2rts
 km		kilomEtr
 kw		kilowat
 m.		m@sjY
 mbrola		EmbRola
-mhz		megaErts
+mhz		megaE2rts
 mlle		mad@mwAzEl
 mme		madam
 mr		m@sjY
@@ -553,10 +553,10 @@ tunis           tynis
 //*********************
 
 (1 er)	pr@mjer2
-(1 ers)	pr@mi;'ez2
-(1 ère)	pr@mi;'Er
-(1 ères)	pr@mi;'Erz2
-(1 èrement)	pr@mi;'Er@-mA~
+(1 ers)	pr@mjez2
+(1 ère)	pr@mjEr
+(1 ères)	pr@mjErz2
+(1 èrement)	pr@mjEr@-mA~
 
 
 monsieur         m@sjY
@@ -566,7 +566,7 @@ montréal         mO~real
 (qu'est ce que)  kEsk@ $u
 absent        absA~
 admin        admin
-airbus	      Erbys
+airbus	      E2rbys
 auvent     ovA~
 bien	      bjE~n2 $u+
 bis	      bis
@@ -577,7 +577,7 @@ campus   kA~pys
 (chef d'oeuvre)	chédeuvre $text
 choeur        kWr
 cocus     coky
-dernier    dErnjer2
+dernier    dE2rnjer2
 éloquent     ElokA~t2
 fier	      fier $verb
 fuel	      fjul
@@ -623,7 +623,7 @@ rut		ryt
 scorbut		skOrbyt
 scout		skut
 stout		staut
-uppercut	ypErkyt
+uppercut	ypE2rkyt
 ut		yt
 zut		zyt
 
@@ -683,7 +683,7 @@ emacspeak	Emakspi:k
 end             _^_en
 epson		EpsOn
 espeak		@spi:k
-ethernet	etErnEt
+ethernet	etE2rnEt
 exit	egzit
 (file zilla)		fa2jl||zija
 from	_^_en $u+
@@ -731,7 +731,7 @@ yes		_^_en
 constations	kO~statjO~z2
 contentions	kO~tA~tjO~z2
 dations		datjO~z2
-désertions	dezErtjO~z2 $verb
+désertions	dezE2rtjO~z2 $verb
 exploitions	EksplwAtjO~z2
 heurtions	hWrtjO~z2
 partions	partjO~z2

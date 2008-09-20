@@ -42,11 +42,12 @@
 #define L_jbo  0x6a626f   // jbo  Lojban
 #define L_zhy  0x7a6879   // zhy
 
-
+// start of unicode pages for character sets
 #define OFFSET_GREEK  0x380
 #define OFFSET_CYRILLIC 0x420
 #define OFFSET_DEVANAGARI  0x900
 #define OFFSET_TAMIL  0xb80
+#define OFFSET_MALAYALAM 0xd00
 #define OFFSET_KOREAN 0x1100
 
 
@@ -711,6 +712,7 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('t','a'):  // Tamil
+	case L('m','l'):  // Malayalam
 		{
 			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -722,6 +724,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->letter_bits_offset = OFFSET_TAMIL;
+
+			if(name2 == L('m','l'))
+			{
+				tr->letter_bits_offset = OFFSET_MALAYALAM;
+			}
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));

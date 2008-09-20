@@ -1065,6 +1065,7 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 	}
 	SHOW_TIME("espeak_Cancel > LEAVE");
 #endif
+	embedded_value[EMBED_T] = 0;    // reset echo for pronunciation announcements
 	return EE_OK;
 }   //  end of espeak_Cancel
 

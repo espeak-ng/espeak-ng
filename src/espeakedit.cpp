@@ -265,6 +265,7 @@ wxSashLayoutWindow *win;
 
 	f_trans = stdout;
 	option_ssml = 1;
+	option_phoneme_input = 1;
 
 
 //	if(LoadVoice(voice_name,0) == NULL)

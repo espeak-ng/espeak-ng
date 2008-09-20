@@ -1,6 +1,6 @@
 
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2008 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -1004,7 +1004,7 @@
          &) at (eer_     @t
          g) at (eau      at
          p) atrol        a2troUl
-?3       p) at (r        eIt
+?3       p) at (riA      eIt
         fr) at (ern      a2t
          c) atego        atIg@
          c) atego (ric   atIg'0
@@ -1647,7 +1647,7 @@
          @) e (ctive     'E
          _) eco (s       i:koU
             econo (m     Ik'0n@
-            econo (mic   Ek@n'0
+            econo (mic   i:k@n'0
          &) ecy (_       @sI2
             ee           i:
             ee (m        'i:
@@ -1672,7 +1672,7 @@
          l) egion        i:dZ@n
             egy (pt      i:dZI
          n) e (gro       i:
-            eh (_        eI
+            eh (K        eI
             ei           eI
          _) ei           aI
          c) ei           i:
@@ -1699,7 +1699,7 @@
             ep (ox       I2p
             e (qual      i:
          _) e (qua       i:
-            e (quat      I2
+         _) e (quat      I2
         fr) e (q         i:
         _s) e (que       i:
             e (quip      I2
@@ -2094,6 +2094,7 @@
          &) eous (_      =i@s
         th) eo (@        I2@
         th) eo (r        i@
+        th) eo (cracy    I'0
         th) eo (logy     I'0
         th) eo (logis    I'0
             eover        oUv@
@@ -2208,6 +2209,7 @@
          s) er (van      3:
             ery (_       @rI2
             ery          @rI
+            ery (A       3j
         _v) ery          ErI2
        _ev) ery          rI2
         qu) ery          i@rI2
@@ -3434,6 +3436,7 @@
             o (bstin     0
             o (bt        %0
             o (bu        %0
+            o (by_       oU
          f) o (cA        oU
         ff) o (cA        @
         _l) o (cA        oU
@@ -3568,6 +3571,7 @@
             ox (ide      '0ks
             oxy          0ksI
             oy           OI
+            oy (A_       'OI
          d) o (zen       V
          _) o (zo        oU
             o (zy_       oU
@@ -3976,6 +3980,7 @@
         &l) ous (_       @s
          &) ous (_       @s
          &) ousy (_      @sI2
+        &m) ous (_       @s
         &n) ous (_       @s
          _) out (@P3     %aUt   // prefix  out
          c) ou (si       V
@@ -4799,11 +4804,10 @@
          _) un (@P2      %Vn         // prefix
          _) un (AP2      %Vn         // prefix
          _) unn          %Vnn
-         _) un (u        %Vn
          @) un (al       'ju:n
             une (_       ju:n
 ?3       d) une (_       u:n
-         j) une (_       u:n
+         j) un (A        u:n
          l) une (_       u:n
          r) une (_       u:n
 ?3       t) une (_       u:n

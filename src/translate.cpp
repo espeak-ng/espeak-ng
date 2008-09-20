@@ -55,7 +55,7 @@ int option_sayas = 0;
 int option_sayas2 = 0;  // used in translate_clause()
 int option_emphasis = 0;  // 0=normal, 1=normal, 2=weak, 3=moderate, 4=strong
 int option_ssml = 0;
-int option_phoneme_input = 1;  // allow [[phonemes]] in input
+int option_phoneme_input = 0;  // allow [[phonemes]] in input
 int option_phoneme_variants = 0;  // 0= don't display phoneme variant mnemonics
 int option_wordgap = 0;
 
@@ -366,6 +366,9 @@ int IsAlpha(unsigned int c)
 
 	if((c >= 0xb81) && (c <= 0xbe5))
 		return(1);    // Tamil  vowel signs and other signs
+
+	if((c >= 0xd01) && (c <= 0xd57))
+		return(1);    // Malayalam  vowel signs and other signs
 
 	if((c >= 0x300) && (c <= 0x36f))
 		return(1);   // combining accents
@@ -1938,7 +1941,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 	
 		if(!iswalpha(prev_in))
 		{
-			if((c == '\'') && (next_in == 'n'))
+			if((c == '\'') && (next_in == 'n') && isspace(ptr[1]))
 			{
 				// n preceded by either apostrophe or U2019 "right single quotation mark"
 				ptr[0] = ' ';  // delete the  n
@@ -2010,6 +2013,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int letter_count = 0;
 	int space_inserted = 0;
 	int syllable_marked = 0;
+	int decimal_sep_count = 0;
 	char *word;
 	char *p;
 	int j, k;
@@ -2030,6 +2034,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	embedded_ix = 0;
 	embedded_read = 0;
+	option_phoneme_input &= 1;   // clear bit 1 (temporary indication)
 
 	if((clause_start_char = count_characters) < 0)
 		clause_start_char = 0;
@@ -2264,12 +2269,20 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 					}
 				}
 			}
+
 			if(iswdigit(prev_out))
 			{
 				if(!iswdigit(c) && (c != '.') && (c != ','))
 				{
 					c = ' ';   // terminate digit string with a space
 					space_inserted = 1;
+				}
+			}
+			else
+			{
+				if(prev_in != ',')
+				{
+					decimal_sep_count = 0;
 				}
 			}
 
@@ -2455,10 +2468,17 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				{
 				}
 				else
-				if((prev_out != ' ') && !iswdigit(prev_out) && (prev_out != langopts.decimal_sep))   // TEST2
+				if((prev_out != ' ') && !iswdigit(prev_out))
 				{
-					c = ' ';
-					space_inserted = 1;
+					if((prev_out != langopts.decimal_sep) || ((decimal_sep_count > 0) && (langopts.decimal_sep == ',')))
+					{
+						c = ' ';
+						space_inserted = 1;
+					}
+					else
+					{
+						decimal_sep_count = 1;
+					}
 				}
 				else
 				if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))

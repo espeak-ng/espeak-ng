@@ -490,6 +490,7 @@ int main (int argc, char **argv)
 	option_waveout = 0;
 	option_wordgap = 0;
 	option_endpause = 1;
+	option_phoneme_input = 1;
 	option_multibyte = espeakCHARS_AUTO;  // auto
 	f_trans = stdout;
 

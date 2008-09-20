@@ -1,4 +1,4 @@
-51 phoneme tables
+52 phoneme tables
           new total
     base  98   98
    base2  24  117
@@ -19,6 +19,7 @@
    fr_ca  11  134
       hi  51  135
       ta  17  138
+      ml  13  137
       hu  23  114
       nl  28  121
       pl  18  111
@@ -503,12 +504,15 @@ r3/r#_          [r#] is
 r3/r_2          [r/] fr
 r3/r_a          [(a)] base
 r3/r_e          [(e)] base
+                [E] fr
 r3/r_i          [(i)] base
                 [i] fr
 r3/r_n          [r/] base
                 [r/] fr
                 [r/] ru
 r3/r_o          [(o)] base
+                [O] fr
+                [O2] fr
 r3/r_ru         [R4] ru
 r3/r_ru2        [R4] ru
 r3/r_trill      [R2] base
@@ -602,15 +606,11 @@ r/xr            [(@)] base
                 [(i)] base
                 [(o)] base
                 [(u)] base
-                [O] fr
-                [W] fr
                 [Y] fr
-                [a] fr
                 [e] fr
                 [i] fr
                 [u] fr
                 [y] fr
-                [W2] fr
                 [a2] fr
                 [i:] fr
                 [u:] fr
@@ -1247,6 +1247,7 @@ vowel/@         [@] base
                 [@] en_rp
                 [V] cy
                 [@4] hi
+                [@] ml
                 [@] sq
 vowel/@-        [@-] base
                 [r*] hr
@@ -1344,6 +1345,7 @@ vowel/a#_3      [a2] en
                 [3] de
                 [@] de
                 [a] hi
+                [a] ml
                 [a#] ru
                 [&] pt_pt
                 [&/] pt_pt
@@ -1354,6 +1356,7 @@ vowel/a_4       [a/] el
 vowel/a_5       [a] fr
                 [a2] fr
                 [a:] ta
+                [a:] ml
                 [a/] it
                 [a] la
                 [a] sv
@@ -1404,6 +1407,8 @@ vowel/e         [e] base2
                 [E:] fr
                 [e] ta
                 [e:] ta
+                [e] ml
+                [e:] ml
                 [e] hr
                 [e/] it
                 [e:] la
@@ -1505,6 +1510,7 @@ vowel/i         [i] base2
                 [i] eo
                 [I] fr
                 [i:] ta
+                [i:] ml
                 [i:] hu
                 [i] it
                 [i] pt_pt
@@ -1539,6 +1545,7 @@ vowel/i#_5      [y] pt_pt
                 [i/] pt_pt
                 [y] ro
 vowel/i_6       [i] ta
+                [i] ml
                 [i] hr
                 [i] tr
                 [i] ku
@@ -1564,6 +1571,7 @@ vowel/ii        [I] en_rp
                 [i] zhy
                 [I] ku
 vowel/ii#       [Y] cy
+                [y] ml
                 [Y] ru
                 [I] ku
 vowel/ii_2      [i] zh
@@ -1613,6 +1621,8 @@ vowel/o         [o] base2
                 [o] hi
                 [o] ta
                 [o:] ta
+                [o] ml
+                [o:] ml
                 [o] it
                 [o/] it
                 [O] la
@@ -1718,6 +1728,8 @@ vowel/u         [u:] en_wi
                 [U] fr
                 [u] ta
                 [u:] ta
+                [u] ml
+                [u:] ml
                 [u:] cs
                 [U] la
                 [u] id
@@ -1890,6 +1902,8 @@ vwl_en_us/or    [O:] en_us
                 [o@] en_us
                 [O:] en_sc
 vwl_en_us/ur    [U@] en_us
+vwl_fr/r_@      [W] fr
+                [W2] fr
 vwl_fr/@R       [x] pt_pt
 vwl_fr/@R2      [R] fr_ca
 vwl_fr/@R3      [R] fr
@@ -1897,6 +1911,12 @@ vwl_fr/@R3      [R] fr
                 [r2] fr
 vwl_fr/@R4      [r] fr
                 [r2] fr
+vwl_fr/r_a      [a] fr
+                [a2] fr
+vwl_fr/r_e      [E2] fr
+vwl_fr/ri       [i] fr
+vwl_fr/r_u      [u] fr
+vwl_fr/r_y      [y] fr
 vwl_fr/w_a      [wA] fr
 vwl_hi/A        [a:] hi
 vwl_hi/l-voc    [l-] jbo

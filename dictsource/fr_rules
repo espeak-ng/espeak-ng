@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-09-13 Michel Such  <michel.such@free.fr>
+// Updated: 2008-09-16 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -204,8 +204,6 @@ _) 	ç' (P2v      s
 
 // Define use of the final 'e' in french
 		e (_
-	qu)	e (_   =@-
-	qu)	e (s_   =@-
 	elqu)	e    	  =@-
 	uisqu)	e    =@
 	rsqu)	e   	  =@
@@ -486,6 +484,7 @@ _) 	ç' (P2v      s
 	%C) 	e (mA     		// actuellement guillemets
 	ct) 	e (ment   @
 	rC) 	e (ment   @
+	g) 	e (rie
 	AC) 	e (ment
 	u) 	e (ment   @-
 	ul) 	e (CA
@@ -502,6 +501,7 @@ _) 	ç' (P2v      s
 	Cr)	eamer		i:mWr
 	Cl)	eaner		i:nWr
 	Ack)	et (_      Et
+		eïn (_	'Ein
 
 
 // group e: English section

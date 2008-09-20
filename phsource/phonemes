@@ -1190,6 +1190,9 @@ include ph_hindi
 phonemetable ta hi
 include ph_tamil
 
+phonemetable ml hi
+include ph_malayalam
+
 phonemetable hu base
 include ph_hungarian
 
