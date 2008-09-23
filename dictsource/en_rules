@@ -100,8 +100,8 @@
          &) ah (_        @
          m) a (hog       @
          m) a (jes       a
-         m) a (jesti     @
          m) a (jor_      eI
+         m) a (jore      eI
          _) a (k@        a2
          @) a (ki_       'a
          n) aked         eIkId
@@ -1519,6 +1519,7 @@
             de (pt       dE
             de (put      dE
          _) de (rai      dI2
+            de (reg      d%i:
             de (rel      dE
             de (riC      dI2
             de (rog      dI2
@@ -2876,7 +2877,7 @@
             in (dex      In
             in (dia      In
          _) in (dic      In
-         _) indi (ge     ,IndI2
+         _) indi (ge     IndI
          _) in (digo     In
          _) in (dir      In
          _) in (disP2   ,In
@@ -3991,6 +3992,7 @@
          c) ou (th       u:
          s) ou (ther     V
          y) ou (t        u:
+         y) ou (t_       aU
             ou (v        u:
             oux (_       u:
 
@@ -4040,6 +4042,7 @@
 
 .group ow
             ow           oU
+            ow (itz      =oUv
             ow (ay_      @w
         kn) owle (d      0lI
          _) ow (l        aU
@@ -4301,6 +4304,7 @@
             rea (gen     rI2eI
          _) re (alig     ,ri:
          _) re (all      ,ri:
+            rea (m       ri:
          _) re (au@P2    ,ri:
             re (ck       rE
             reckon       rEk@n
@@ -4586,6 +4590,7 @@
          @) tur (y       tS@r
          @) tur (_       tS3
             ture (_      tS3
+            tz           ts
 
 .group th
             th           T
@@ -4956,6 +4961,7 @@
 
 .group y
             y            j
+         _) y' (CP2      j@
             y (C_        I
             y (CC        I
          _) y (C@        I

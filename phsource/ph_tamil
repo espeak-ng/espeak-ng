@@ -5,7 +5,7 @@
 
 
 phoneme a
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype (a)  endtype (a)
   length 130
   formants vowel/a
   reduceto V 4

@@ -512,7 +512,6 @@ endphoneme
 
 
 
-
 phoneme ;     // linking j, (formerly [j-]) used between (i) vowels
               // and a following vowel
               // also to palatalize consonants
@@ -1101,6 +1100,7 @@ phoneme C
   length 100
   lengthmod 3
   wave ufric/ch
+  before _ ufric/ch_
 endphoneme
 
 
@@ -1110,7 +1110,8 @@ phoneme x
   vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
   length 100
   lengthmod 3
-  wave ufric/x
+  wave ufric/x_hr%30
+  before _ ufric/x%120
   switchvoicing Q
 endphoneme
 
@@ -1189,9 +1190,6 @@ include ph_hindi
 
 phonemetable ta hi
 include ph_tamil
-
-phonemetable ml hi
-include ph_malayalam
 
 phonemetable hu base
 include ph_hungarian
@@ -1292,3 +1290,10 @@ include ph_danish
 
 phonemetable sq es
 include ph_albanian
+
+phonemetable ml hi
+include ph_malayalam
+
+phonemetable bn hi
+include ph_bengali
+

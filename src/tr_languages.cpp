@@ -46,6 +46,7 @@
 #define OFFSET_GREEK  0x380
 #define OFFSET_CYRILLIC 0x420
 #define OFFSET_DEVANAGARI  0x900
+#define OFFSET_BENGALI 0x980
 #define OFFSET_TAMIL  0xb80
 #define OFFSET_MALAYALAM 0xd00
 #define OFFSET_KOREAN 0x1100
@@ -87,6 +88,20 @@ static const unsigned int replace_cyrillic_latin[] =
 	0x45c,0x107,
 0};  // ѓ  ѕ  ќ
 
+
+void SetIndicLetters(Translator *tr)
+{
+	// Set letter types for Indic scripts, Devanagari, Tamill, etc
+	static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
+
+	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+	SetLetterBitsRange(tr,LETTERGP_A,0x04,0x14);   // vowel letters
+	SetLetterBitsRange(tr,LETTERGP_A,0x3e,0x4c);   // vowel signs
+	SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
+	SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
+	SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // additional consonants
+	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+}
 
 void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
 {//==================================================================================
@@ -313,7 +328,6 @@ Translator *SelectTranslator(const char *name)
 
 	case L('h','i'):
 		{
-			static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
 			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,24, 24,22 };
 
@@ -327,13 +341,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers = 0x011;
 			tr->langopts.numbers2 = 0x100;
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
-
-			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-			SetLetterBitsRange(tr,LETTERGP_A,0x06,0x14);   // vowel letters
-			SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs + virama
-			SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
-			SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // additional consonants
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			SetIndicLetters(tr);
 		}
 		break;
 
@@ -713,6 +721,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','a'):  // Tamil
 	case L('m','l'):  // Malayalam
+	case L('b','n'):  // Bengali
 		{
 			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -729,14 +738,12 @@ SetLengthMods(tr,3);  // all equal
 			{
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
 			}
+			if(name2 == L('b','n'))
+			{
+				tr->letter_bits_offset = OFFSET_BENGALI;
+			}
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
-
-			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-			SetLetterBitsRange(tr,LETTERGP_A,0x05,0x14);   // vowel letters
-			SetLetterBitsRange(tr,LETTERGP_A,0x3e,0x4c);   // vowel signs
-			SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
-			SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			SetIndicLetters(tr);
 		}
 		break;
 

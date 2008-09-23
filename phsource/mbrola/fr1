@@ -2,6 +2,7 @@ volume 15
 0  l/2 NULL  0  l
 0  l/ NULL   0  l
 0  r/ NULL   0  R
+0  r/2 NULL   0  R
 0  r- NULL   0  R
 0  l- NULL   0  l
 0  w/ NULL   0  w
@@ -35,6 +36,7 @@ volume 15
 0  n2 NULL   0  n
 0  p2 NULL   0  p
 0  r2 NULL   0  R
+0  R2 NULL   0  R
 0  t2 NULL   0  t
 0  t3 NULL   0  t
 0  z2 NULL   0  z

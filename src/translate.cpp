@@ -361,14 +361,13 @@ int IsAlpha(unsigned int c)
 	if(iswalpha(c))
 		return(1);
 
-	if((c >= 0x901) && (c <= 0x957))
-		return(1);    // Devanagari  vowel signs and other signs
-
-	if((c >= 0xb81) && (c <= 0xbe5))
-		return(1);    // Tamil  vowel signs and other signs
-
-	if((c >= 0xd01) && (c <= 0xd57))
-		return(1);    // Malayalam  vowel signs and other signs
+	if((c >= 0x901) && (c <= 0xdf7))
+	{
+		// Indic scripts: Devanagari, Tamil, etc
+		if((c & 0x7f) < 0x64)
+			return(1);
+		return(0);
+	}
 
 	if((c >= 0x300) && (c <= 0x36f))
 		return(1);   // combining accents
@@ -1924,6 +1923,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 	int initial;
 	int medial;
 	int final;
+	int next2;
 
 	static const unsigned char hangul_compatibility[0x34] = {
 	 0,  0x00,0x01,0xaa,0x02,0xac,0xad,0x03,
@@ -1938,10 +1938,12 @@ int Translator::TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned i
 	{
 	case L('a','f'):
 	// look for 'n  and replace by a special character (unicode: schwa)
-	
+
+		utf8_in(&next2, &ptr[1], 0);
+
 		if(!iswalpha(prev_in))
 		{
-			if((c == '\'') && (next_in == 'n') && isspace(ptr[1]))
+			if((c == '\'') && (next_in == 'n') && IsSpace(next2))
 			{
 				// n preceded by either apostrophe or U2019 "right single quotation mark"
 				ptr[0] = ' ';  // delete the  n

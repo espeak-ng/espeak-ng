@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-09-16 Michel Such  <michel.such@free.fr>
+// Updated: 2008-09-19 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -33,6 +33,7 @@
 // K  not a vowel  (i.e. consonant, space, )
 
 .L01 d e l n r t u
+.L02 b c d f g h k p t v
 
 
 .group a
@@ -960,7 +961,10 @@ C)		oing (_      _^_en	// going
 
 
 .group r
-C)	r          R
+L02)	r          R2
+L02)	re (_         R2=@-
+L02)	re (s_         R2=@-
+_)	r          R
 	_su)	rr          rr		// surréaliste
 
 cou)	rr          rr		// courrai
@@ -968,7 +972,7 @@ cou)	rr (i         r		// courrier
 mou)	rr          rr		// mourrai
 		rr          r		// erreur
 		r           r		// rien
-	_)	radio (@P5       radio
+	_)	radio (@P5       Radio
 
 // group r: English section
 	_)	real         _^_en

@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-09-13 Michel Such  <michel.such@free.fr>
+// Updated 2008-09-21 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -87,7 +87,7 @@ _ac2	dublaksA~tEg'y
 _brv	bR'Ev
 _ced	sed'ij
 _cir	aksA~sirkO~fl'Eks
-_dia	trem'a
+_dia	tR@m'a
 _dot	pwE~syskr'i
 _grv	aksA~gr'av
 _hac	kar'O~
@@ -109,7 +109,7 @@ _#32	Espas
 
 _"   gijmE
 _#   djEz
-_'   apOstrOf
+_'   a2postR'Of
 _(   'uvr@-parA~t'Ez
 _)   f'Erm parA~t'Ez
 _*   asterisk:
@@ -140,8 +140,8 @@ _}   f'E2rm_akOl'ad
 _0	zero
 _1	W~
 _2	dYz2
-_3	tRwAz2
-_4	katr
+_3	tR2wAz2
+_4	katR2=@-
 _5	sE~k
 _6	siz3
 _7	sEt
@@ -150,7 +150,7 @@ _9	nWf
 _10	diz3
 _11	_!O~z
 _12	duz
-_13	tREz
+_13	tR2Ez
 _14	katOrz
 _15	kE~z
 _16	sEz
@@ -160,15 +160,15 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:trwAz2
-_24	vE~tkatr
+_23	vE~t:tR2wAz2
+_24	vE~tkatR2=@-
 _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
 _28	vE~tw^it3
 _29	vE~tnWf
-_3X	tRA~t
-_31	tRA~te:W~
+_3X	tR2A~t
+_31	tR2A~te:W~
 _4X	karA~t
 _41	karA~te:W~
 _5X	sE~kA~t
@@ -178,25 +178,25 @@ _61	swAsA~te:W~
 _7X	swAsA~t:diz3
 _71	swAsA~te:O~z
 _72	swAsA~t:duz
-_73	swAsA~t:trEz
+_73	swAsA~t:tR2Ez
 _74	swAsA~t:katOrz
 _75	swAsA~t:kE~z
 _76	swAsA~t:sEz
 _77	swAsA~t:dis:Et
 _78	swAsA~t:diz'w^it3
 _79	swAsA~t:diznWf
-_8X	katr@vE~
-_80	katR@vE~z2
-_9X	katR@vE~diz3
-_91	katR@vE~:O~z
-_92	katR@vE~:duz
-_93	katR@vE~:trEz
-_94	katR@vE~:katOrz
-_95	katR@vE~:kE~z
-_96	katR@vE~:sEz
-_97	katR@vE~:dis:Et
-_98	katR@vE~:dizw^it3
-_99	katR@vE~:diznWf
+_8X	katR2@vE~
+_80	katR2@vE~z2
+_9X	katR2@vE~diz3
+_91	katR2@vE~:O~z
+_92	katR2@vE~:duz
+_93	katR2@vE~:tR2Ez
+_94	katR2@vE~:katOrz
+_95	katR2@vE~:kE~z
+_96	katR2@vE~:sEz
+_97	katR2@vE~:dis:Et
+_98	katR2@vE~:dizw^it3
+_99	katR2@vE~:diznWf
 _0C	sA~
 _1C0	sA~t2
 _0M1	mil
@@ -210,8 +210,8 @@ _dpt	virgyl
 ?2 _7X	sEptA~t
 ?2 _71	sEptA~te:W~
 ?2 _72	sEptA~t:dYz2
-?2 _73	sEptA~t:trwAz2
-?2 _74	sEptA~t:katr
+?2 _73	sEptA~t:tR2wAz2
+?2 _74	sEptA~t:katR2=@-
 ?2 _75	sEptA~t:sE~k
 ?2 _76	sEptA~t:siz3
 ?2 _77	sEptA~t:sEt
@@ -220,8 +220,8 @@ _dpt	virgyl
 ?2 _9X	no2nA~t
 ?2 _91	no2nA~te:W~
 ?2 _92	no2nA~t:dYz2
-?2 _93	no2nA~t:trwAz2
-?2 _94	no2nA~t:katr
+?2 _93	no2nA~t:tR2wAz2
+?2 _94	no2nA~t:katR2=@-
 ?2 _95	no2nA~t:sE~k
 ?2 _96	no2nA~t:siz3
 ?2 _97	no2nA~t:sEt
@@ -229,11 +229,11 @@ _dpt	virgyl
 ?2 _99	no2nA~t:nWf
 
 (21 ème)	vE~te:yniEm
-(31 ème)	tRA~te:yniEm
+(31 ème)	tR2A~te:yniEm
 (41 ème)	karA~te:yniEm
 (51 ème)	sE~kA~te:yniEm
 (61 ème)	swAsA~te:yniEm
-(81 ème)	katR@vE~:yniEm
+(81 ème)	katR2@vE~:yniEm
 
 // ABBREVIATIONS
 //**************
@@ -264,7 +264,7 @@ jaws		dZ'O2wz
 kde		$abbrev
 kg		kilogRam
 khz		kiloE2rts
-km		kilomEtr
+km		kilomètre $text
 kw		kilowat
 m.		m@sjY
 mbrola		EmbRola
@@ -521,7 +521,7 @@ telles	$u+
 tout	t'ut2 $u+
 toute	t'ut $u+
 toutes	t'utz2 $u+
-rien	rjE~n2	$u+
+rien	Ri'E~n2	$u+
 
 // Letters which can be words
 //===========================
@@ -575,8 +575,10 @@ bus	      bys
 bus	      by  $verb
 campus   kA~pys
 (chef d'oeuvre)	chédeuvre $text
+(chef d'oeuvres)	chédeuvres $text
 choeur        kWr
 cocus     coky
+converter	converteur $text
 dernier    dE2rnjer2
 éloquent     ElokA~t2
 fier	      fier $verb
