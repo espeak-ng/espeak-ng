@@ -138,8 +138,9 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 ट      t.@
 ठ      t.h@
 ड      d.@
+ड़      r.@
 ढ      d.h@
-ण      n.@   // should be n.@
+ण      n.@   // retroflex n.@
 त      t@
 थ      th@
 द      d@
@@ -157,7 +158,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 ळ      l.@
 व      v@
 श      S@
-ष      s.@   // should be retroflex [S]
+ष      s.@   //  retroflex [S]
 स      s@
 ह      H@
 क़      q@

@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-09-21 Michel Such  <michel.such@free.fr>
+// Updated 2008-09-24 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -87,7 +87,7 @@ _ac2	dublaksA~tEg'y
 _brv	bR'Ev
 _ced	sed'ij
 _cir	aksA~sirkO~fl'Eks
-_dia	tR@m'a
+_dia	tRem'a
 _dot	pwE~syskr'i
 _grv	aksA~gr'av
 _hac	kar'O~
@@ -577,8 +577,7 @@ campus   kA~pys
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
 choeur        kWr
-cocus     coky
-converter	converteur $text
+cocus     koky
 dernier    dE2rnjer2
 éloquent     ElokA~t2
 fier	      fier $verb
@@ -617,7 +616,7 @@ azimut		azim'yt
 brut		br'yt
 but		by $verb
 but		byt
-cut	cWt
+cut	kWt
 mazout		mazut
 michael		mikaEl
 out		aut

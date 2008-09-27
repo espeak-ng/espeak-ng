@@ -145,7 +145,7 @@ int wcmdq_tail=0;
 
 // pitch,speed,
 int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,0, 0,170,0,0,0,0,0};
-static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,400,300,99,99,99, 0,360,0,0,0,0,4};
+static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,600,300,99,99,99, 0,600,0,0,0,0,4};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;

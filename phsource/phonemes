@@ -225,6 +225,7 @@ phoneme (@)  virtual
   after  n^ n^/n^@
   before l/ DFT-60+l/L1_@L
   before l/2 DFT-60+l/L2_@L
+  before l/3 DFT+l/l_@
   before l DFT-50+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
@@ -248,6 +249,7 @@ phoneme (a)  virtual
   after  n^ n^/n^a
   before l/ DFT-40+l/L1_aL
   before l/2 DFT-50+l/L2_aL
+  before l/3 DFT+l/l_a
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
@@ -271,6 +273,7 @@ phoneme (e)  virtual
   after  n^ n^/n^e
   before l/ DFT-30+l/L1_eL
   before l/2 DFT-40+l/L2_eL
+  before l/3 DFT+l/l_e
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
@@ -294,6 +297,7 @@ phoneme (i)  virtual
   after  n^ n^/n^i
   before l/ DFT-30+l/L1_iL
   before l/2 DFT-30+l/L2_iL
+  before l/3 DFT+l/l_i
   before N DFT-40+nn/inn
   before ; DFT-40+j2/xj2
   before l DFT-40+l/xl
@@ -317,6 +321,7 @@ phoneme (o)  virtual
   after  n^ n^/n^o
   before l/ DFT-40+l/L1_oL
   before l/2 DFT-50+l/L2_oL
+  before l/3 DFT+l/l_o
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
@@ -340,6 +345,7 @@ phoneme (u)  virtual
   after  n^ n^/n^u
   before l/ DFT-40+l/L1_uL
   before l/2 DFT-40+l/L2_uL
+  before l/3 DFT-20+l/l_u
   before l DFT-40+l/xl
   before w DFT-30+w/xw
   before j DFT-30+j/xj
@@ -442,6 +448,15 @@ endphoneme
 
 
 phoneme l/    // used for [l] when not before a vowel
+  liquid
+  length 100
+  lengthmod 7
+  formants l/l_
+  before (r) l/_l
+  beforevowel l
+endphoneme
+
+phoneme l/3    // used for [l] when not before a vowel
   liquid
   length 100
   lengthmod 7
@@ -601,6 +616,14 @@ phoneme **    //   TEST flap
   lengthmod 3
 endphoneme
 
+
+phoneme r.    //   retroflex
+  liquid rfx
+  vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15
+  vowelin f1=2  f2=1400 -400 300  f3=-400 80 len=20
+  formants r3/@tap_rfx
+  lengthmod 3
+endphoneme
 
 
 //*******************************************************************

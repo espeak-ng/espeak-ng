@@ -1482,6 +1482,7 @@
             de (creas    di:
             de (crem     dE
             de (du       dI2
+         _) de (emp      d%i:
          _) de (f@       dI2
             de (fect_    di:
             de (finit    dE
@@ -1645,7 +1646,6 @@
         sp) e (cia       E
         sp) e (cies      i:
          _) e (cl        I2
-         @) e (ctive     'E
          _) eco (s       i:koU
             econo (m     Ik'0n@
             econo (mic   i:k@n'0
@@ -3098,12 +3098,11 @@
         am) it (e        aIt
         un) it (e        aIt
        _sp) it (e        aIt
-        wr) it (e        aIt
+        wr) ite          aIt
         _s) it (e        aIt
          x) ite (_       aIt
             it (erat     It
          l) it (er       It
-        wr) it (er       aIt
             ithe_        aID
          l) ithe         aID
          l) ith (er      ID
@@ -4569,6 +4568,7 @@
 ?8      &s) tion         tSVn
             tion (al     S=@-n
          &) tious        S=@s
+        AC) tive (_      =tIv
        for) tuna (t      tS@n@
          s) t (l
             to (morr     t@
@@ -4687,7 +4687,6 @@
          n) uclear       ju:kli@3
 ?3       n) ucle         u:klI
 ?3       n) uclear       u:kli@3
-         @) u (ctive     'V
          @) u (da_       'ju:
             u (guC       V
          f) u (gal       'ju:
@@ -4995,6 +4994,7 @@
       earb) y (_         aI
          h) y (Cr        aI
          c) y (lin       I
+         c) y (r         I
         th) y (l_        aI
         fl) y            aI
         gl) y (ph        I

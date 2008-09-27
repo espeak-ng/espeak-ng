@@ -113,7 +113,7 @@ static const char *help_text =
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
-"\t   Speed in words per minute 80 to 370, default is 170\n"
+"\t   Speed in words per minute 80 to 390, default is 170\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"

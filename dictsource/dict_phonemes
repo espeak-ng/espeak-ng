@@ -54,9 +54,9 @@ s    S;   t    tS;  v    w
 Dictionary de_dict
 
 3    @    @-   a    A    A:   aI   aU   
-E    E2   E:   e:   EI   I    i2   I:   
-i:   O    o:   OY   U    u:   W    y    
-y:   Y:   
+E    E2   E:   e:   EI   I    i2   i:   
+O    o:   OY   U    u:   W    y    y:   
+Y:   
 
 *    :    ;    b    C    C2   d    D    
 dZ   f    g    h    j    k    l    m    
@@ -79,16 +79,16 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  A~   E    e:   e@   eI   I    i    
-I2   i:   i@   i@3  IR   O    O:   o:   
-O@   o@   OI   oU   O~   U    u:   U@   
-V    VR   
+aU@  A~   E    e@   eI   I    i    I2   
+i:   i@   i@3  IR   O    O:   o:   O@   
+o@   OI   oU   O~   U    u:   U@   V    
+VR   
 
-*    :    ;    ?    b    C    d    D    
-dZ   f    g    g-   h    j    k    l    
-L    m    n    N    n^   p    Q    r    
-r-   s    S    t    T    t2   tS   v    
-w    x    z    Z    
+:    ;    ?    b    C    d    D    dZ   
+f    g    g-   h    j    k    l    L    
+m    n    N    n^   p    Q    r    r-   
+s    S    t    T    t2   tS   v    w    
+x    z    Z    
 
 
 Dictionary eo_dict
@@ -132,11 +132,11 @@ E    E2   E~   i    i:   o    O    o2
 O2   O~   u    u:   W    W2   w^i  wA   
 W~   y    Y    
 
-:    ;    b    c    d    dZ   f    g    
-h    j    k    l    m    n    N    n2   
-n^   p    p2   r    R    R2   r2   s    
-S    t    t2   t3   tS   v    w    z    
-Z    z2   z3   
+:    ;    b    d    dZ   f    g    h    
+j    k    l    m    n    N    n2   n^   
+p    p2   r    R    R2   r2   s    S    
+t    t2   t3   tS   v    w    z    Z    
+z2   z3   
 
 
 Dictionary grc_dict
@@ -153,9 +153,8 @@ T    v    x    z
 Dictionary hbs_dict
 
 &    @    @2   a    A    a:   aI   aU   
-E    e    E#   e:   i    I    i:   l-   
-O    o    o:   oU   r*   r-   u    U    
-u:   
+E    e    e:   i    I    i:   l-   O    
+o    o:   oU   r*   r-   u    U    u:   
 
 *    ;    b    d    dZ   dZ;  f    g    
 h    j    k    l    L    l^   m    n    
@@ -173,8 +172,8 @@ U    u:   u~   V
 -    :    b    c    ch   d    d.   f    
 g    h    H    j    J    k    kh   l    
 l.   m    n    N    n.   n^   p    ph   
-Q    q    r    s    S    s.   t    T    
-t.   t.h  th   v    w    x    z    
+Q    q    r    r.   s    S    s.   t    
+T    t.   t.h  th   v    w    x    z    
 
 
 Dictionary hu_dict
@@ -269,8 +268,8 @@ p    r    R    s    t    w    z
 Dictionary mk_dict
 
 &    @    @-   @2   a    A    a:   E    
-e    E#   e:   i    I    i:   l-   o    
-o:   oU   r-   u    u:   
+e    e:   i    I    i:   l-   o    o:   
+oU   r-   u    u:   
 
 *    b    d    dZ   dZ;  f    g    h    
 j    k    k^   l    l^   m    n    N    
@@ -325,7 +324,7 @@ o~   u    U    uI   u~   y
 g    h    j    k    l    l^   m    n    
 N    n^   p    Q    r    R    r-   s    
 S    s#   s;   t    T    tS   ts   v    
-w    w2   x    z    Z    
+w    x    z    Z    
 
 
 Dictionary ro_dict
@@ -454,10 +453,10 @@ i    i.   i[   iA   iE   io   iou  N-
 o    o-   ou   u    u@   ua   uai  uei  
 uo   y    y&   y@   yE   yi   yu   
 
-:    ;    f    j    k    kh   l    m    
-n    N    p    ph   r    R    s    s.   
-S;   t    th   ts   ts.  ts.  tS;  tS;  
-tsh  v    w    x    z    z.   
+(u)  ;    C    f    h    j    k    kh   
+l    m    n    N    p    ph   r    s    
+s.   S;   t    th   ts   ts.  ts.  tS;  
+tS;  tsh  v    w    x    z.   
 
 
 Dictionary zhy_dict
@@ -486,11 +485,11 @@ tS   v    w    z    z.
 
 Dictionary bn_dict
 
-a    a~   e    e:   e~   i    I    i~   
-l-   o    O    oI   oU   o~   O~   r-   
-u    u~   V    
+a    a~   e    e~   i    i~   l-   o    
+O    oI   oU   o~   O~   r-   u    u~   
+V    
 
 **   b    c    ch   d    d.   e[   g    
 h    j    J    k    kh   l    m    n    
-N    p    ph   r    R    s    S    t    
-t.   t.h  th   z.   
+N    p    ph   r    R    r.   s    S    
+t    t.   t.h  th   

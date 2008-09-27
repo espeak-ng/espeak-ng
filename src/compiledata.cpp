@@ -601,6 +601,8 @@ int Compile::LoadSpect(const char *path, int control)
 	int rms;
 	float total;
 	float pkheight;
+	int marker1_set=0;
+	int frame_vowelbreak;
 	SpectFrame *fr;
 	wxString path_sep = _T("/");
 
@@ -651,6 +653,16 @@ for(ix=0; ix<8; ix++)
 
 		if(spectseq->frames[frame]->keyframe)
 		{
+			if(seq_out.n_frames == 1)
+			{
+				frame_vowelbreak = frame;
+			}
+			if(spectseq->frames[frame]->markers & 0x2)
+			{
+				// marker 1 is set
+				marker1_set = 1;
+			}
+
 			seq_out.n_frames++;
 			if(frame > 0)
 				total += spectseq->frames[frame-1]->length;
@@ -658,10 +670,11 @@ for(ix=0; ix<8; ix++)
 	}
 	seq_out.length = int(total);
 
-	if((control & 1) && (spectseq->numframes > 2))
+	if((control & 1) && (marker1_set == 0))
 	{
+		// This is a vowel, but no Vowel Break marker is set
 		// set a marker flag for the second frame of a vowel
-		spectseq->frames[1]->markers |= FRFLAG_VOWEL_CENTRE;
+		spectseq->frames[frame_vowelbreak]->markers |= FRFLAG_VOWEL_CENTRE;
 	}
 
 	ix = 0;

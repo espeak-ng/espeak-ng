@@ -381,6 +381,8 @@ void FindPhonemesUsed(void)
 	char *next;
 	unsigned char c;
 	int count = 0;
+	int ignore;
+	char phonetic[N_WORD_PHONEMES];
 
 	// look through all the phoneme strings in the **_rules data
 	// and mark these phoneme codes as used.
@@ -419,20 +421,36 @@ void FindPhonemesUsed(void)
 			p += (strlen(p)+1);
 		}
 
-		while((((c = *p) != RULE_PHONEMES)) && (c != 0)) p++;
+		while((c = *p) != 0)
+		{
+			if(c == RULE_CONDITION)
+				p++;   // next byte is the condition number, which may be 3 (= RULE_PHONEMES)
+			if(c == RULE_PHONEMES)
+				break;
+			p++;
+		}
+
+
 		count++;
 		if(c == RULE_PHONEMES)
 		{
+			ignore = 0;
 			start = p;
 			p++;
-			while(*p != 0)
+			while((c = *p) != 0)
 			{
-				phoneme_tab_flags[*p & 0xff] |= 2;
+				if(c == phonSWITCH)
+					ignore = 1;
+
+				if(ignore == 0)
+					phoneme_tab_flags[c] |= 2;
 				p++;
 			}
 		}
 		p++;
 	}
+
+	// NOTE, we should recognise langopts.textmode and ignore the *_list file (lang=zh)
 
 	for(hash=0; hash<N_HASH_DICT; hash++)
 	{
@@ -446,10 +464,32 @@ void FindPhonemesUsed(void)
 			if((p[1] & 0x80) == 0)
 			{
 				p += ((p[1] & 0x3f) + 2);
-				while(*p != 0)
+				strcpy(phonetic,p);
+				p += strlen(phonetic) +1;
+
+				// examine flags
+				ignore = 0;
+				while(p < next)
 				{
-					phoneme_tab_flags[*p & 0xff] |= 2;
+					if(*p == BITNUM_FLAG_TEXTMODE)
+					{
+						ignore = 1;
+						break;
+					}
 					p++;
+				}
+
+				if(ignore == 0)
+				{
+					p = phonetic;
+					while((c = *p) != 0)
+					{
+						if(c == phonSWITCH)
+							break;
+
+						phoneme_tab_flags[c] |= 2;
+						p++;
+					}
 				}
 			}
 			p = next;

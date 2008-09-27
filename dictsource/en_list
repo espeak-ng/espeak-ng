@@ -15,6 +15,7 @@
 // ?5  split [3:] er [3:], ir [IR], ur [VR] 
 // ?6  'one' = [wVn], 'of' = [Vv]
 // ?7  Scottish
+// ?8  Use full vowel, not schwa in some word endings
 
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
@@ -1126,6 +1127,7 @@ hmpf             h'@mpf
 holme            hoUm
 holster          hoUlst3
 holy             hoUlI2
+homeowner        hoUmoUn3
 homepage         hoUmpeIdZ
 hominem          h0mInEm 
 hopi             hoUpi:
@@ -1236,6 +1238,7 @@ la               ,la           $only
 laboratory       la2b'0r@trI2
 labor            leIb3
 labored          leIb@d
+laborer          leIb@r3
 lager            lA:g3
 landowner        l'and,oUn3
 las              ,las
@@ -2365,6 +2368,7 @@ Canberra	kanb@r@
 Cassandra	k@sandr@
 Cassey		keIsI2
 Catherine	kaTrIn
+Cecile		sEsi:l
 Chris		krIs
 Connor		k0n3
 Daphne		dafnI2
@@ -2413,6 +2417,7 @@ Judy		dZu:dI2
 Karen		kar@n
 Karene		ka2ri:n
 Katherine	kaTrIn
+Katie		keItI2
 Kieran		ki@r@n
 Laurence	l0r@ns
 Lawrence	l0r@ns
