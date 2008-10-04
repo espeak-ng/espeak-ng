@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-09-24 Michel Such  <michel.such@free.fr>
+// Updated 2008-09-27 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -141,7 +141,7 @@ _0	zero
 _1	W~
 _2	dYz2
 _3	tR2wAz2
-_4	katR2=@-
+_4	katR2
 _5	sE~k
 _6	siz3
 _7	sEt
@@ -521,6 +521,7 @@ telles	$u+
 tout	t'ut2 $u+
 toute	t'ut $u+
 toutes	t'utz2 $u+
+tous	 $u+
 rien	Ri'E~n2	$u+
 
 // Letters which can be words

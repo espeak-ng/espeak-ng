@@ -776,7 +776,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_NUMBERS:
-			sscanf(p,"%d",&langopts->numbers);
+			sscanf(p,"%d %d",&langopts->numbers,&langopts->numbers2);
 			break;
 
 		case V_OPTION:

@@ -533,7 +533,7 @@
             alz          alt|s
          &) al (_        @L
 ?8       &) al (_        a2l
-         &) ally (_$2    lI2
+         @) ally (_$2    lI2
       @@ic) ally (_$4    lI2
       inst) al (_        O:l
          &) al (d        @L
@@ -552,7 +552,6 @@
          @) algia (_     'aldZ@
          g) al (i_       'A:l
             al (ity      'al
-         s) al (iva      @l
          p) al (et       al
         qu) al (@        0l
          b) al (m        A:
@@ -770,7 +769,7 @@
             app (le      ap
             app (lic     ap
             app (licab   a2p
-            appre (h     ,aprI
+            app (reh     ap
             apres        apreI
          _) apprec (i    a2pri:S
          _) ap (ri       eIp
@@ -852,6 +851,7 @@
          h) ar (dy_      A@
             are          e@
             area         e@ri@
+            arest (_     e@r@st
             ar (en       ar
          p) are (nth     @rE
          c) ar (eer      ar
@@ -871,6 +871,7 @@
          m) ar (iner     ar
          m) ar (io       ar
        htm) ar           e@
+            ar (ic       ar
          &) arise (_     @raIz
        log) ar (i        @r
          m) ar (it       ar
@@ -1136,6 +1137,7 @@
          _) be (cq       bE
          _) be (dC       bE
          _) be (dra      bI2
+         _) be (f        bI2
          _) be (gg       bE
          _) be (lC       bE
          _) be (lli      bI2
@@ -1370,7 +1372,7 @@
             co (mposit   k0
             co (mpost    k0
             co (mpou     k0
-            comprehen    k0mprIh'En
+            co (mprehen  k0
             co (mprom    k0
             co (mpt      k0
             co (mputa    k,0
@@ -2003,6 +2005,7 @@
             eng (lA      INg
             eng (in      EndZ
             eng (_       'EN            // place names
+            enging       EndZIN
             en (ig       En
             en (igma_    %En
          &) enine        @ni:n
@@ -2053,7 +2056,6 @@
         _s) en (i        i:n
             en (ia       'i:n
       mill) en (ia       'En
-            engin        EndZI2n
          l) eni (e       i:nI
          v) eni (e       i:nI
          &) en (t_       @n
@@ -2482,6 +2484,7 @@
        &sk) i (_         =I2
             i (CCi_      'I
         XC) i (Ca_       i:
+         @) i (Cate_     =I
         XC) i (Co_       i:
             i (Be#       aI
             i (Bee       I
@@ -2525,6 +2528,7 @@
          @) i (butor     'I
          &) i (c_        =I
          &) i (ca_       =I
+         &) ico (_       =IkoU
          &) i (cal       =I
             i (cial      'I
             ician        'IS@n
@@ -2615,7 +2619,7 @@
          m) io (n        I20
         sh) io (n        @
          _) io (n        aI0
-        _l) io (n        aI@
+        _l) ion          aI@n
          z) io (n        aI@
          r) ior (_       I3
          &) ior (+       i@3
@@ -2630,7 +2634,6 @@
         _s) i (ph        aI
             i (que_      'i:
             i (qu_       i:
-            iquette      I2kEt
          @) i (scenC     'I
          &) i (zabl      aI
          &) i (sabl      aI
@@ -2808,6 +2811,7 @@
          d) ig (nA       Ig
          _) ig (ni       I2g
             ig (no       I2g
+            ig (nom      Ig
             ig (noran    Ig
             ig (na       Ig
         _m) ig (ra       aIg
@@ -3028,9 +3032,10 @@
             ir (a_       'i@r
             ir (able     'aI@
          m) ir (ac       Ir
-        sp) ir (al       aI@r
+        sp) iral         aI@r@L
          @) ir (ation    Ir
             ir (at       %aIr
+            ir (ate      =i@r
             ire          aI@
 ?8          ire          aIa2
          s) ir (en       aI@
@@ -3349,7 +3354,6 @@
 ?3       _) news (P4     n'u:z
             ng           N
             n (x         N
-            nging (_     NI2N
             nk           Nk
 ?7          nk           nk      // ?? Scottish
             n (kn        n
@@ -3384,6 +3388,10 @@
        you) ng (er       Ng
             ng (est      Ng
         co) nge (st      ndZE
+            nging (_     NI2N
+       cri) nging        ndZIN
+        hi) nging        ndZIN
+         u) nging (_     ndZIN
             ngue         N
 
 .group o
@@ -3704,7 +3712,7 @@
          &) onist (_     =@nIst
          @) on (ica      '0n
          m) on (k        Vn
-        sp) on (ge       Vn
+       _sp) ong          VndZ
         fr) on (t        Vn
          m) on (th       Vn
          &) onous        @n@s
@@ -4066,7 +4074,7 @@
          j) ow           aU
          k) ow           aU
       _all) ow           aU
-      sall) ow           aU
+     isall) ow           aU
         cl) ow           aU
         fl) ow (er       aU
         gl) ow (er       aU
@@ -4251,7 +4259,7 @@
             qu (er_      k
             quest        kwEst
             quet (_      keI
-            quette (_    kEt
+            quett        k'Et
             queu         kju:
             qu (_        k
             quay         ki:
@@ -4304,6 +4312,7 @@
          _) re (alig     ,ri:
          _) re (all      ,ri:
             rea (m       ri:
+         _) re (an       ri:
          _) re (au@P2    ,ri:
             re (ck       rE
             reckon       rEk@n
@@ -4328,6 +4337,7 @@
             re (gion     ri:
             regim        rEdZIm
             re (gist     rE
+            rehen        rIh'En
          _) re (i@P2     r,i:
          _) rei (l       raI
          _) rele (g      rElI2
@@ -4392,6 +4402,7 @@
          _) scar (a      skar
             scarc        ske@s
             sc (i        s
+            sci (_       =skaI
             s (cious
             sc (ept      sk
         mu) sc (l        s
@@ -5020,6 +5031,7 @@
             y (Cify      'I
         _s) y            I
          @) y (ra_       'aI
+         s) yring        I2rIndZ
             yse (+_      aIz
             ysing (_     aIzI2N
             ysed (_      aIzd

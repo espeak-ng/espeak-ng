@@ -129,7 +129,7 @@
 
 .group r
           r          R
-       _) r          R2
+       _) r          RR2
           r (_       *
           r (t       **
        A) r (A       **
@@ -138,7 +138,7 @@
        m) r (A       R
        n) r (A       R
        s) r (A       R
-          rr         *R2
+          rr         RR2
 
 
 .group s

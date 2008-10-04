@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-09-24 Michel Such  <michel.such@free.fr>
+// Updated: 2008-09-27 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -205,6 +205,8 @@ _) 	ç' (P2v      s
 
 // Define use of the final 'e' in french
 		e (_
+	rch)	e (_   	  =@-
+	rch)	e (s_   	  =@-
 	elqu)	e    	  =@-
 	uisqu)	e    =@
 	rsqu)	e   	  =@
@@ -1061,6 +1063,10 @@ mou)	rr          rr		// mourrai
 		s (g         z
 		s (j         z
 		s (v         z
+_tou)	s (_Ces_
+_tou)	s (_des_		s
+_tou)	s (_Cos_
+_tou)	s (_leurs_
 
 // group s: English section
 		sh (_         _^_en

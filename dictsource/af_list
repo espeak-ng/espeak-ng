@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -29,6 +29,7 @@ pres        pr@s@d'Ent $dot
 prof        pruf'Es@r $dot
 sabc            $abbrev
 sanrb       $abbrev
+sms'e         Es_Em_'Es@
 sauk	    $abbrev
 st          s@nt $dot
 supt        suprEntEnd'Ent $dot
@@ -80,7 +81,6 @@ z         zEd
 ú         $accent
 û         $accent
 ü         $accent
-
 
 _cap	h'o@flEt@r
 _??	s@mb'o@l
@@ -163,6 +163,7 @@ boekarest   bukarEst
 bonnievale  _^_EN
 brittanje   $2
 brooklyn    _^_EN
+burundi     bur'undi
 caledon     kalidOn
 carolina    karul'ina
 ceres       se@r@s
@@ -189,6 +190,7 @@ goudini     $2
 gordonsbaai gO:rd@nsb'AI
 (graaff reinet) x2rA:f||r@n'Et
 griekeland  x2rik@lant
+groblersdal x2rObl@rsd'al
 havana      hav'ana
 hermon      $1
 hirosjima   hiruS'ima
@@ -200,6 +202,7 @@ kaïro       ka_'iru
 kameroen    kam@r'un
 kenia       ki:nia
 kimberley   kimb@rli
+kinshasa    kinS'A:sa
 kongo       kONgu
 knysna      neIsna
 kuruman     kuruman
@@ -210,6 +213,7 @@ macedonië   mas@d'o@ni@
 madagaskar  madax2'askar
 majuba      maj'uba
 malmesbury  mA:msb@ri
+maputo      map'u:tu
 mauritius   mOr'iSjWs
 milaan      $2
 mesopotamië mEsuput'A:mi@
@@ -230,6 +234,7 @@ sahara      sah'A:ra
 secunda     s@kunda
 senekal     se@n@kal
 singapoer   siNgapur
+soshanguve  sOSaNg'u:vE
 soweto      suw'E:tu
 springs     _^_EN $capital
 sunnyside   _^_EN
@@ -668,6 +673,7 @@ beta          be@ta
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
+bomaat      bo@mA:t
 boskaas       $2
 bostaande b'o@stA:nd@
 bourgeois     _^_FR
@@ -904,8 +910,10 @@ persent       p@rsEnt
 petite        p@tit
 pinotage      pinut'A:Z
 pirouette     p@ru:'Et
+plasenta      plas'Enta
 primaat       $2
 primate       $2
+(pro forma) pro@||f'Orma
 
 rebelleer     r@b@le@r
 rededele      re@d@de@l@

@@ -90,15 +90,20 @@ static const unsigned int replace_cyrillic_latin[] =
 
 
 void SetIndicLetters(Translator *tr)
-{
+{//=================================
 	// Set letter types for Indic scripts, Devanagari, Tamill, etc
 	static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
 
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 	SetLetterBitsRange(tr,LETTERGP_A,0x04,0x14);   // vowel letters only
 	SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
+
 	SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
-	SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // additional consonants
+	SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // + additional consonants
+
+	SetLetterBitsRange(tr,LETTERGP_Y,0x04,0x14);   // vowel letters
+	SetLetterBitsRange(tr,LETTERGP_Y,0x3e,0x4c);   // + vowel signs
+
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 }
 
@@ -137,6 +142,26 @@ Translator *SelectTranslator(const char *name)
 		
 			tr->langopts.numbers = 0x8d1 + NUM_ROMAN;
 			tr->langopts.accents = 1;
+		}
+		break;
+
+	case L('b','n'):  // Bengali
+		{
+			static const short stress_lengths_bn[8] = {180, 180,  210, 210,  0, 0,  230, 240};
+			static const unsigned char stress_amps_bn[8] = {18,18, 18,18, 20,20, 22,22 };
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_bn,stress_amps_bn);
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
+			tr->letter_bits_offset = OFFSET_BENGALI;
+			SetIndicLetters(tr);   // call this after setting OFFSET_BENGALI
+			SetLetterBitsRange(tr,LETTERGP_F,0x3e,0x4c);   // vowel signs, but not virama
+
+			tr->langopts.numbers = 0x1;
+			tr->langopts.numbers2 = 0x100;
 		}
 		break;
 
@@ -680,8 +705,14 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('s','q'):  // Albanian
+		{
+			static const short stress_lengths_sq[8] = {170, 170,  170, 170,  0, 0,  250, 270};
+			static const unsigned char stress_amps_sq[8] = {17,12, 17,17, 20,20, 24,22 };
 			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_sq,stress_amps_sq);
+			tr->langopts.stress_flags =  0x4; 
 			SetLetterVowel(tr,'y');
+		}
 		break;
 
 
@@ -720,7 +751,6 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','a'):  // Tamil
 	case L('m','l'):  // Malayalam
-	case L('b','n'):  // Bengali
 		{
 			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -737,12 +767,8 @@ SetLengthMods(tr,3);  // all equal
 			{
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
 			}
-			if(name2 == L('b','n'))
-			{
-				tr->letter_bits_offset = OFFSET_BENGALI;
-			}
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
-			SetIndicLetters(tr);
+			SetIndicLetters(tr);   // call this after setting OFFSET_
 		}
 		break;
 

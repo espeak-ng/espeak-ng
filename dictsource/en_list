@@ -630,8 +630,9 @@ bonhomie         b0n@mi:
 boogie           b'u:gI2
 bosom            bUz@m
 bosun            boUs@n
-bourgeois        bu:3Zwa
-bourgeoise       bu:3Zwaz
+bourgeois        bU@ZwA:
+bourgeoise       bU@ZwA:z
+bourgeoisie      bU@ZwA:z'i:
 bouquet          bu:k'eI
 bow              boU
 bow              baU           $verb 
@@ -888,6 +889,7 @@ disc             dIsk          // for discs
 disciple         dIs'aIp@L
 discourse         $1
 discounted        $2
+discus           dIsk@s        $only
 disease          dIz'i:z
 dishes           dISIz
 dismal           dIzm@l
@@ -899,6 +901,7 @@ divan            dI2van
 doable           du:@b@L
 doctrine         d0ktrIn
 doctrinal        d0ktr'aIn@L
+dogged           d0gI2d
 domino            $1
 donor            doUn3
 dont             doUnt         $only
@@ -960,8 +963,10 @@ escapism         Esk'eIpIz@m
 escort           Esk'O@t       $verb
 espionage        EspI@nA:Z
 essential        Is'EnS@L
+estimate         EstImeIt      $verb
 estoppel         Est'0p@L
 estrange          $2
+etiquette         $1
 exit             EgzIt        // exiting
 exonerate        Egz'0n@reIt
 eureka           ju:'ri:ka2
@@ -1083,6 +1088,7 @@ graduate         gradju:eIt      $verb
 graffiti         gra2fi:tI2
 gredient         gri:di@nt	// ingredient
 grenade          gr@neId
+griffon          grIf@n
 grosvenor        groUv@n3
 groupie          gru:pI
 gui              gu:I2
@@ -1155,20 +1161,25 @@ hypotenuse       haIp'0t@nju:s
 
 icon             aIk0n
 iconbar          aIk0nbA@
+ignoramus        Igno@r'eIm@s
 imagine          I2madZI2n
 impedance        I2mpi:d@ns
 imperative       I2mpEr@tIv
 impi              $1
+impinging        I2mpIndZIN
 imprecise        I2mprIs'aIs
 impregnable      I2mprEgn@b@L
+inanimate        I2nanIm@t
 inappropriate    ,Ina2proUpri@t
 incense          Ins'Ens       $verb
 incoming         InkVmI2N
 increase         I2nkri:s      $verb
+indeterminate    IndIt'3:mIn@t
 indicative        $2
 indices          IndIsi:z
 indict           Ind'aIt
 indie            IndI2
+indiscriminate   IndIskr'ImIn@t
 indo             IndoU
 indoor            $1           $only
 industry         IndVstrI
@@ -1208,6 +1219,7 @@ interrupt                      $3 $verb
 interval         Int3v@L
 interven         Int3v'i:n	// for intervening 
 intro             $1
+irate            aIr'eIt
 iris             aIrIs
 irony            aIr@nI2
 isosceles        aIs'0s@li:z
@@ -1263,6 +1275,7 @@ lesion           li:Z@n
 lethal           li:T@L
 libre            li:br@
 lier             laI3         // outlier
+ligate           li:geIt
 lilac            laIl@k
 lily             lIlI2
 limit            lImIt        // limited
@@ -1550,8 +1563,8 @@ pirate           paIr@t
 piteous          pIti@s
 pituitary                      $2
 plaguing         pleIgIN
+plicate           $2
 plugin           plVgIn
-plunging         plVndZIN
 plus             plVs
 poky             poUkI2
 politer          p@l'aIt3
@@ -1641,7 +1654,6 @@ rainforest       r'eInf,0rIst
 rajah            rA:dZA:
 rapier           reIpi@3
 rapport          rap'o@
-rarest           re@r@st
 rascal           raask@L
 ratatouille      rat@t'u:I2
 ?!3 rather       rA:D3
@@ -1787,6 +1799,7 @@ secretive        si:kr@tI2v
 secretary        sEkr@trI2
 sedate           sI2deIt
 seduce           sI2dju:s
+segue            sEgweI
 separate         sEp@-r@t
 separate         sEp3reIt      $verb
 semen            si:m@n
@@ -1895,7 +1908,6 @@ symbol           sImbVl
 sync             sINk
 synthesis        sInT@sIs      $only
 synthesise       sInT@saIz
-syringe           $2
 
 tablet           tabl@t
 taboo             $2
@@ -2065,6 +2077,7 @@ wehrmacht        ve@maxt
 website          wEbsaIt
 weekend          wi:k'End
 wheelbarrow      w'i:l_b,aroU
+whew             fju:
 whichever                      $2
 whitish          waItIS
 whois            hu:'Iz
@@ -2195,10 +2208,11 @@ Calcutta	$2
 Canada		kan@d@
 Carolina	kar@l'aIn@
 Caribbean	kar@b'i@n
+Ceylon		$2
 Chicago		SIk'A:goU
 Chile		tSIlI2
-Ceylon		$2
 Cologne		k@loUn
+Columbus	$2
 Congo		$1
 Connecticut	k@nEtIk@t
 Copenhagen	koUp@nh'eIg@n
@@ -2259,10 +2273,11 @@ Melbourne        mElb3n
 Memphis		mEmfIs
 Mexico		$1
 Miami		maI'amI
+Michigan	mISIg@n
 Milan		$2
 Mindanao	mInd@n'aU
 Minneapolis	mIni:'ap@lI2s
-Missouri	mIs'U@rI
+Missouri	mIz'U@rI
 Montreal	m0ntrI'O:l
 Morocco		m@r0koU
 Munich		mju:nIk
@@ -2481,6 +2496,7 @@ Thomas		t0m@s
 Tina		ti:n@
 Tracy		treIsI2
 Tricia		trIS@
+Vanessa		va2nEs@
 Wally		w0lI2
 Yvonne		$2
 Zoe		zoUI
@@ -2488,6 +2504,7 @@ Zoe		zoUI
 Andromeda	andr'0mId@
 Buchanan	bju:k'an@n
 Campbell	kamb@l
+Chrysler	kraIzl3
 Disney		dIznI2
 Patel		p@t'El
 Prentice	prEntIs
@@ -2769,8 +2786,9 @@ I                aI            $u+ $verbf $only
 he               %hi:          $verbsf
 she              %Si:          $only $verbsf
 it               %It           $verbsf
-(it has)         I2t||h'az     $atend
-(it was)         I2t||w'0z     $atend
+(it has)         I2t||haz      $atend
+(it is)          I2t||Iz       $atend
+(it was)         I2t||w0z      $atend
 it               $allcaps $abbrev
 we               %wi:          $verbf $only
 you              %ju:          $verbf

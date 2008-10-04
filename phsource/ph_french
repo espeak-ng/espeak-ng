@@ -23,7 +23,6 @@ phoneme @2
   formants vowel/@_fr
   before l/ DFT+l/l_@
   before (r) DFT+r/xr
-  before R DFT+r/xr
 endphoneme
 
 
@@ -190,7 +189,7 @@ phoneme W
   formants vowel/@_5
   after l l/l@-20
   before l/ DFT-20+l/l_@
-  before r/2 DFT+vwl_fr/r_@
+  before r/2 DFT+20+vwl_fr/r_@
   reduceto Y 1
 endphoneme
 
@@ -207,7 +206,7 @@ endphoneme
 
 phoneme wA
   vowel starttype (o) endtype (a)
-  length 240
+  length 220
   formants vwl_fr/w_a
   after l l/lo-10
   before l/ DFT-10+l/l_a
@@ -416,23 +415,22 @@ endphoneme
 
 phoneme r
   liquid rfx starttype (r) endtype (r)
-  vowelin f1=0  f2=800 -50 50  f3=-100 100 len=40
-  vowelout f1=0  f2=1500 -400 400  f3=-600 80
+  vowelin f1=0  f2=1000 -200 200  f3=-100 100 len=40
+  vowelout f1=0  f2=1200 -200 200  f3=-100 100 len=20
   length 100
   lengthmod 7
    beforenotvowel r/2
   formants vwl_fr/@R3+r3/rx%30
   after (e) vwl_fr/@R4+r3/rx%15
   after (u) vwl_fr/@R4+r3/rx%15
-  after wA vwl_fr/@R4+r3/rx%20
-  before (i) r/rr
+//  after wA vwl_fr/@R4+r3/rx%20
 endphoneme
 
 
 phoneme r2	// silent unless followed by vowel
   liquid rfx starttype (r) endtype (r)
-  vowelin f1=0  f2=800 -50 50  f3=-100 100 len=40
-  vowelout f1=0  f2=1500 -400 400  f3=-600 80
+  vowelin f1=0  f2=1000 -200 200  f3=-100 100 len=40
+  vowelout f1=0  f2=1200 -200 200  f3=-100 100 len=20
   length 100
   lengthmod 7
   beforenotvowel NULL
@@ -446,8 +444,8 @@ endphoneme
 
 phoneme R // for beginning of words
   vcd rfx flp
-  vowelin f1=0  f2=800 -50 50  f3=-100 80 len=40
-  vowelout f1=0  f2=1500 -400 400  f3=-600 80
+  vowelin f1=0  f2=1000 -200 200  f3=-100 80 len=40
+  vowelout f1=0  f2=1200 -200 200  f3=-100 100 len=20
   length 100
   lengthmod 7
   beforenotvowel r/2
@@ -461,11 +459,11 @@ endphoneme
 
 phoneme R2 // After consonnants
   vcd rfx frc
-  vowelin f1=0  f2=800 -50 50  f3=-100 80 len=40
+  vowelin f1=0  f2=1000 -200 200  f3=-100 100 len=40
   length 100
   lengthmod 7
   beforenotvowel r/2
-  formants vwl_fr/@R3-20+r3/rx%25
+  formants vwl_fr/@R5-20+r3/rx%25
   after k r/tr
   after p r/tr
   after t r/tr
@@ -474,7 +472,7 @@ endphoneme
 
 phoneme r/2   // variant of [r] when not preceding a vowel
   vcd rfx frc
-  vowelout f1=0  f2=800 -50 50  f3=-600 80
+  vowelout f1=0  f2=1800 -100 100  f3=-100 100
   length 100
   lengthmod 2
   formants r3/r_2+r3/rx%40

@@ -380,13 +380,13 @@ t    t;   tS   ts   v    x    z    Z
 
 Dictionary sq_dict
 
-@    a    e    E    i    O    u    y    
-yE   
+@    a    A    e    E    i    O    u    
+V    y    yE   
 
 *    **   b    c    d    D    dZ   f    
 g    h    j    J    k    l    ll   m    
-n    n^   p    r    R    s    S    t    
-T    tS   ts   v    w    z    Z    
+n    n^   p    r    R    R2   s    S    
+t    T    tS   ts   v    w    z    Z    
 
 
 Dictionary sv_dict
@@ -485,11 +485,12 @@ tS   v    w    z    z.
 
 Dictionary bn_dict
 
-a    a~   e    e~   i    i~   l-   o    
-O    oI   oU   o~   O~   r-   u    u~   
-V    
+&    a    a:   a~   e    E    e~   i    
+I    i:   i~   l-   o    O    o~   O~   
+r-   U    u    u:   u~   V    
 
-**   b    c    ch   d    d.   e[   g    
-h    j    J    k    kh   l    m    n    
-N    p    ph   r    R    r.   s    S    
-t    t.   t.h  th   
+*    **   b    B    c    C    ch   d    
+d.   g    h    j    J    k    kh   l    
+m    n    N    n.   p    ph   Q    r    
+R    r.   s    S    s.   t    t.   t.h  
+th   tS   x    z    
