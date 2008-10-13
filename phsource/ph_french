@@ -21,8 +21,7 @@ phoneme @2
   vowel starttype (@) endtype (@)
   length 150
   formants vowel/@_fr
-  before l/ DFT+l/l_@
-  before (r) DFT+r/xr
+  before (r) DFT+r3/r_@
 endphoneme
 
 
@@ -32,6 +31,7 @@ phoneme a
   formants vowel/a_5
   after  l l/la-15
   before l/ DFT+l/l_a
+  before r/2 DFT-40+vwl_fr/r_a
   reduceto a2 1
 endphoneme
 
@@ -42,7 +42,8 @@ phoneme a2
   formants vowel/a_5
   after  l l/la-15
   before l/ DFT+l/l_a
-  before (r) DFT-20+r/xr
+  before (r) DFT+r/xr
+  before r/2 DFT+vwl_fr/r_a
 endphoneme
 
 
@@ -73,6 +74,7 @@ phoneme E2
   formants vowel/e_mid
   after l l/le-15
   before l/ DFT+l/l_e
+  before r/2 DFT-20+vwl_fr/r_e
 endphoneme
 
 
@@ -135,7 +137,7 @@ phoneme O2	// Like O but no reduceto
   formants vowel/o_mid
   after l l/lo-10
   before l/ DFT+l/l_o
-//  before r/2 DFT+r3/r_o
+  before r/2 DFT+r3/r_o
 endphoneme
 
 
@@ -189,7 +191,7 @@ phoneme W
   formants vowel/@_5
   after l l/l@-20
   before l/ DFT-20+l/l_@
-  before r/2 DFT+20+vwl_fr/r_@
+  before r/2 DFT+vwl_fr/r_@
   reduceto Y 1
 endphoneme
 
@@ -210,6 +212,7 @@ phoneme wA
   formants vwl_fr/w_a
   after l l/lo-10
   before l/ DFT-10+l/l_a
+  before r/2 DFT+vwl_fr/r_a
 endphoneme
 
 
@@ -298,11 +301,11 @@ endphoneme
 
 phoneme b
   vcd blb stop
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 80 brk
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 80
   formants b/b+x/b%70
   before _ b/b_+x/b_
   before l/ b/b_+x/b_
-  before R2 b/b_+x/b_
+  before R b/b_+x/b_
   after _ NULL
   after @ b/xb%50
   lengthmod 5
@@ -315,7 +318,7 @@ phoneme d
   vowelout f1=0 f2=1700 -300 300  f3=-100 80
   formants d/d+x/d%40
   before _ d/d_+x/d_%50
-  before R2 d/dr+x/d%50
+  before R d/dr+x/d%50
   before r/2 d/dr+x/d%50
   after _ d/d+x/d%50
   after (@) d/xd
@@ -344,7 +347,7 @@ phoneme k
   lengthmod 2
   wave ustop/k%40     // reduce strength of noise burst
   before _ ustop/k_
-  before R2 ustop/kr%45
+  before R ustop/kr%45
   before r/2 ustop/kr%45
   before l ustop/kl%45
   before l/ ustop/kl%45
@@ -354,7 +357,7 @@ endphoneme
 
 
 phoneme l
-  liquid pal palatal
+  liquid
   length 100
   lengthmod 7
   beforenotvowel l/
@@ -366,7 +369,7 @@ endphoneme
 
 
 phoneme l/    // used for [l] when not before a vowel
-  liquid pal palatal
+  liquid
   length 100
   lengthmod 7
   formants l/l_
@@ -389,12 +392,12 @@ endphoneme
 phoneme p
   vls blb stop
   vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
-  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 brk
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80
   lengthmod 2
   wave ustop/p%50
   after _ ustop/p%70
   before _ ustop/p_%70
-  before R2 ustop/pr%75
+  before R ustop/pr%30
   before @- ustop/p_unasp%60
   before l ustop/pl%30
   before l/ ustop/pl%30
@@ -415,15 +418,14 @@ endphoneme
 
 phoneme r
   liquid rfx starttype (r) endtype (r)
-  vowelin f1=0  f2=1000 -200 200  f3=-100 100 len=40
-  vowelout f1=0  f2=1200 -200 200  f3=-100 100 len=20
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
   length 100
   lengthmod 7
    beforenotvowel r/2
   formants vwl_fr/@R3+r3/rx%30
-  after (e) vwl_fr/@R4+r3/rx%15
-  after (u) vwl_fr/@R4+r3/rx%15
-//  after wA vwl_fr/@R4+r3/rx%20
+  after @2 vwl_fr/@R5+r3/rx%40
+  after (e) vwl_fr/@R4+r3/rx%20
 endphoneme
 
 
@@ -435,51 +437,26 @@ phoneme r2	// silent unless followed by vowel
   lengthmod 7
   beforenotvowel NULL
   formants vwl_fr/@R4+r3/rx%15
-  after k vwl_fr/@R3-60
-  after p vwl_fr/@R3-60
-  after t vwl_fr/@R3-40
-  before _ r/r
 endphoneme
 
 
-phoneme R // for beginning of words
-  vcd rfx flp
-  vowelin f1=0  f2=1000 -200 200  f3=-100 80 len=40
-  vowelout f1=0  f2=1200 -200 200  f3=-100 100 len=20
+phoneme R // After consonnants
+  vcd frc
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   length 100
   lengthmod 7
   beforenotvowel r/2
-  formants vwl_fr/@R3-20+r3/rx%25
-  before (u) vwl_fr/@R4-20+r3/rx%25
-  after k r/tr
-  after p r/tr
-  after t r/tr
-endphoneme
-
-
-phoneme R2 // After consonnants
-  vcd rfx frc
-  vowelin f1=0  f2=1000 -200 200  f3=-100 100 len=40
-  length 100
-  lengthmod 7
-  beforenotvowel r/2
-  formants vwl_fr/@R5-20+r3/rx%25
-  after k r/tr
-  after p r/tr
-  after t r/tr
+  formants vwl_fr/@R3+r3/rx%20
+  after t vwl_fr/@R4
 endphoneme
 
 
 phoneme r/2   // variant of [r] when not preceding a vowel
-  vcd rfx frc
-  vowelout f1=0  f2=1800 -100 100  f3=-100 100
+  liquid
+  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
   length 100
   lengthmod 2
-  formants r3/r_2+r3/rx%40
-  after _ r/rr
-  after t r/trr
-  after p r/trr
-  after k r/trr
+  formants r3/r_2+r3/rx%20
   before n   r3/r_n
   beforevowel r
 endphoneme
@@ -518,7 +495,7 @@ phoneme t
   lengthmod 2
   wave  ustop/t_short%50
   before _ ustop/t_%40
-  before R2 ustop/t_short%50
+  before R ustop/t_short%50
   before r/2 ustop/t_short%50
   switchvoicing d
 endphoneme
@@ -549,11 +526,11 @@ endphoneme
 
 phoneme v
   vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100 len=0
-  vowelout f1=0  f2=1000 -300 -2300  f3=-300 100  len=10
+  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
   lengthmod 6
   formants voc/v+vocw/v%75
-  before (r) voc/vj+vocw/v%75
+  before R voc/vj+vocw/v%75
   before _ voc/v_+vocw/v
   switchvoicing f
 endphoneme

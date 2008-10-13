@@ -134,9 +134,9 @@ W~   y    Y
 
 :    ;    b    d    dZ   f    g    h    
 j    k    l    m    n    N    n2   n^   
-p    p2   r    R    R2   r2   s    S    
-t    t2   t3   tS   v    w    z    Z    
-z2   z3   
+p    p2   r    R    r2   s    S    t    
+t2   t3   tS   v    w    z    Z    z2   
+z3   
 
 
 Dictionary grc_dict
@@ -486,11 +486,11 @@ tS   v    w    z    z.
 Dictionary bn_dict
 
 &    a    a:   a~   e    E    e~   i    
-I    i:   i~   l-   o    O    o~   O~   
-r-   U    u    u:   u~   V    
+I    i:   i:~  i~   l-   o    O    o:   
+o~   O~   r-   U    u    u:   u:~  u~   
 
-*    **   b    B    c    C    ch   d    
-d.   g    h    j    J    k    kh   l    
-m    n    N    n.   p    ph   Q    r    
-R    r.   s    S    s.   t    t.   t.h  
-th   tS   x    z    
+*    b    B    c    C    ch   d    d.   
+g    h    j    J    k    kh   l    m    
+n    N    n.   n^   p    ph   Q    r    
+r.   s    S    s.   t    t.   t.h  th   
+tS   x    z    

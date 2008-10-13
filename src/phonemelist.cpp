@@ -152,6 +152,8 @@ int Translator::SubstitutePhonemes(PHONEME_LIST2 *plist_out)
 	
 					// substitute the replacement phoneme
 					plist2->phcode = replace_phonemes[k].new_ph;
+					if((plist2->stress > 1) && (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
+						plist2->stress = 0;   // the replacement must be unstressed
 					break;
 				}
 			}

@@ -2036,7 +2036,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	embedded_ix = 0;
 	embedded_read = 0;
-	option_phoneme_input &= 1;   // clear bit 1 (temporary indication)
+	option_phoneme_input &= ~2;   // clear bit 1 (temporary indication)
 
 	if((clause_start_char = count_characters) < 0)
 		clause_start_char = 0;

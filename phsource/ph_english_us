@@ -17,6 +17,13 @@ endphoneme
 
 phoneme @    //  Schwa
   vowel   starttype (@)  endtype (@)
+  formants vowel/@_4
+  unstressed
+  length 130
+endphoneme
+
+phoneme @/    //  Schwa, ebd of word
+  vowel   starttype (@)  endtype (@)
   formants vowel/@_6
   unstressed
   length 130
@@ -64,7 +71,7 @@ phoneme E
   vowel  starttype (e)  endtype (e)
   length 195
   formants vwl_en_us/ee
-  reduceto I  0
+  reduceto I2 0
 endphoneme
 
 
@@ -73,6 +80,7 @@ phoneme I
   length 160
   formants vowel/ii_4
   linkout ;
+  reduceto I2 0
 endphoneme
 
 
@@ -80,13 +88,14 @@ phoneme I2
   vowel  starttype (i)  endtype (i)
   unstressed
   length 160
-  formants vowel/ii_4
+  formants vowel/ii#_3
   linkout ;
 endphoneme
 
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype (i)  endtype (i)
+  unstressed
   length 170
   formants vowel/ii_final
   linkout ;
@@ -97,6 +106,7 @@ phoneme 0
   vowel  starttype (a)   endtype (a)
   length 200
   formants vowel/aa_8
+  before r vwl_en_us/oor
   reduceto @  0
 endphoneme
 
@@ -151,16 +161,18 @@ endphoneme
 
 phoneme O:
   vowel  starttype (a)  endtype (a)
-  length 220
+  length 210
   formants vowel/aa_4
-  before r vwl_en_us/or
+//  formants vowel/aa_4
+  before r vwl_en_us/oor
+//  before r vwl_en_us/or
   reduceto @  0
 endphoneme
 
 
 phoneme O@
   vowel  starttype (o)  endtype (@)
-  length 260
+  length 250
   formants vwl_en_us/oor
 //  formants vwl_en_us/or
   appendph r
@@ -178,7 +190,7 @@ endphoneme
 phoneme O
   vowel  starttype (a)  endtype (a)
   length 200
-  formants vowel/aa_4
+  formants vowel/aa#
   reduceto @  0
 endphoneme
 
@@ -206,7 +218,7 @@ endphoneme
 
 phoneme aI
   vowel  starttype (a)  endtype (i)
-  length 235
+  length 250
   formants vdiph/aae
 endphoneme
 

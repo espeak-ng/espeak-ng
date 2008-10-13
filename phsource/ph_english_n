@@ -4,6 +4,15 @@
 // VOWELS
 //*******************************************************************
 
+phoneme 3    //  Schwa, used for rhotic schwa in American
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@_fr
+  unstressed
+  linkout r-
+  beforevowel @
+  length 140
+endphoneme
+
 
 phoneme a
   vowel  starttype (a)  endtype (a)

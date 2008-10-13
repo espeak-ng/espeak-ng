@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-09-27 Michel Such  <michel.such@free.fr>
+// Updated: 2008-10-09 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -141,7 +141,8 @@
 	_)	cyber (P5       sibEr
 	ban)	c (_			// banc
 	blan)	c (_			// blan
-	ron) 	c (_     		// tronc
+	Con) 	c (_     		// tronc, jonc
+	_don) 	c (_     k		// tronc, jonc
 	cler)	c (_			// leclerc
 	tchou)	c (_
 	taba)	c (_
@@ -214,6 +215,8 @@ _) 	ç' (P2v      s
 	-c) 	e (_       @-
 	-j) 	e (_       @-
 	C) 	e (-       @-
+	L02r) 	e (_       =@-
+	L02r) 	e (s_       =@-
 
 		e (Ce_      E
 		eau         o		// bateau cheveaux
@@ -230,10 +233,10 @@ _) 	ç' (P2v      s
 		ell         El		// selle
 		el (K       El		// celsius, caramel
 	_f)	em (me      a		// femme
-	i)	e (mA     		// remerciement, d�ploiement
+	i)	e (mA     		// remerciement, d�ploiement
 	A)	e (rA     		// remerciera
-	gu)	e (rA     	@-
-	qu)	e (rA     	@-
+	gu)	e (rA     	@
+	qu)	e (rA     	@
 	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
 		em (mACC       A~		// emmancher
@@ -449,7 +452,7 @@ _) 	ç' (P2v      s
 	_)	extra (uP5       Ekstra
 	_)	extra (CP5       Ekstra
 	_)	eû          y		// eût
-		eû          Y		// jeûne
+		eû          Y:		// jeûne
 
 		e (x        E		// exact
 		ey (_       E		// dahomey
@@ -486,6 +489,7 @@ _) 	ç' (P2v      s
 	%C) 	e (xA   E
 	%C) 	e (mA     		// actuellement guillemets
 	ct) 	e (ment   @
+	nC) 	e (ment   @-
 	rC) 	e (ment   @
 	g) 	e (rie
 	AC) 	e (ment
@@ -544,6 +548,7 @@ _) 	ç' (P2v      s
 .group f
 		f           f
 		f (f
+	_ner)	f (X
 	_neu)	f (_ans     v		// liaison: neuf ans
 	_neu)	f (_heures  v
 
@@ -585,6 +590,7 @@ _) 	ç' (P2v      s
 
 	_ran) 	g (_ 			// rang
 	_san) 	g (_ 			// sang
+	tan) 	g (_ 			// sang
 	_lon) 	g (_ 			// long
 	bour) 	g (_ 			// Strasbourg
 
@@ -612,6 +618,7 @@ _)	h	(él			// hélice
 _)	h	(erb			// herbe
 _)	h	(éCa			// hématie
 _)	h	(érit			// hériter
+_)	h	(ésit			// hésiter
 _)	h	(eure			// heure
 _)	h	(iber			// hibernation
 _)	h	(ippo			// hippodrome
@@ -651,7 +658,6 @@ _)		half  	_^_en
 		i           i		// cri
 
 		i (A    i
-	AC)	i (a    j
 		i (o    j
 		i (è    j
 		i (eu    j
@@ -770,7 +776,7 @@ _)		half  	_^_en
 .group m
 		m           m		// film
 		mm          m		// pomme
-	_)	m' (P2v      m
+	_)	m'(P2v       m
 	_)	mc (P2      mak
 	_)	ms (P2      Em_!Es
 		master (_S6      mastWr
@@ -795,7 +801,7 @@ _)		half  	_^_en
 
 
 .group o
-	br) 	oc (_       o		// broc
+	br) 	oc (_       o	// broc
 	cr) 	oc (_       o		// escroc
 	 	o (ckK       O2
 	 	o (CerA       O2
@@ -808,9 +814,9 @@ _)		half  	_^_en
 	_) 	os (_       Os
 	s_) 	os (_       o
 	x_) 	os (_       o
-	X) 	o (se_       o2
-	X) 	o (ses_       o2
-	 	o (CCement_       O2
+	C) 	o (se_       o2
+	C) 	o (ses_       o2
+	 	o (C%ement_       O2
 	 	o (Che@       O2
 	 	o (Cement_       O2
 	 	o (t_       o
@@ -833,7 +839,7 @@ _)		half  	_^_en
 		o (eC       o		// coefficient
 		 _l)	o (gi		o2
 		 _p)	o (ten		o2
-		 _pr)	o (gra		o2
+		 _L02r)	o (L02		o2
 		 _C)	o (teri		O2
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
@@ -852,7 +858,7 @@ _)		half  	_^_en
 	_m)	ont (CAC       O~		// montpellier
 		onsh (A     O~z		// bonshommes
 		onh (A      On		// bonhomme
-	_)		on	(z	_!O~		// onze, onzi�me
+	_)		on	(z	_!O~		// onze, onzi�me
 
 	_c)	on (_      O~		// no comment
 	_C)	on (_      O~n2		// mon appui, mon histoire, mon havre
@@ -964,10 +970,7 @@ C)		oing (_      _^_en	// going
 
 
 .group r
-L02)	r          R2
-L02)	re (_         R2=@-
-L02)	re (s_         R2=@-
-_)	r          R
+L02)	r          R
 	_su)	rr          rr		// surréaliste
 
 cou)	rr          rr		// courrai
@@ -975,7 +978,7 @@ cou)	rr (i         r		// courrier
 mou)	rr          rr		// mourrai
 		rr          r		// erreur
 		r           r		// rien
-	_)	radio (@P5       Radio
+	_)	radio (@P5       radio
 
 // group r: English section
 	_)	real         _^_en
@@ -988,7 +991,8 @@ mou)	rr          rr		// mourrai
 
 		s (_S1      z2
 
-	_)	s' (P2v      s		// s'amène
+	_)	s' (P2v    s		// s'amène
+	_)	s' (esXP2v    s		// s'amène
 		sç 	    s		// immisça
 		sch (ie     sk		// schierzo
 		sch (iz    sk		// schizophrène
@@ -1083,17 +1087,15 @@ _tou)	s (_leurs_
 _)		t (_        te
 -)		t (-        t2
 	_)	t' (P2v      t
-		t (_        t2
-	A)	t (_
+Vn)		t (_        t2
+		t (_
 	peti)	t (_        t2
-		t-         t2_
 	_)	th       t      // thon
 		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
 	C)	t (_        t	// compost watt soft script malttact abrupt
  ki)	t (_        t // kit
  n)	t (_
- Vn)	t (_        t2
-	r)	t (_        t2	// fort
+ r)	t (_
 
 	aul)	t (_        	// Renault
 
@@ -1117,7 +1119,7 @@ _)		t (_        te
 	en)	t (ia       s   // confidentialit�
 	lbu)	t (iA       s   // balbutiait
 	r)	t (ia       s   // impartial
-	ini)	t (i       s   // initier
+	ini)	t (iA       s   // initier
 	p)	t (ia       s   // nuptial
 	an)	t (iat      s   // transsubstantiation
 
@@ -1128,7 +1130,7 @@ _)		t (_        te
 	ai)	t (ion      t 	// souhaitions, traitions
 	oi)	t (ion      t 	// boitions
 	si)	t (ion      s 	// position
-	chan)	t (ion      t 	// chantions, d�chantions
+	chan)	t (ion      t 	// chantions, d�chantions
 	Cisi)	t (ion      t 	// visitions
 	ci)	t (ions      t 	// citions
 	comp)	t (ions      t 	// comptions, escomptions
@@ -1162,6 +1164,8 @@ _)		t (_        te
  	i) 	t (ien      s
  	o) 	t (ien      s
 
+	ipé)	t (ieX	s
+	amé)	t (ieX	s
 	nu) 	t (ieX      s	// minutie
 	ni) 	tien (t_     si
 	bu) 	tien (t_     si
@@ -1192,11 +1196,15 @@ _)		t (_        te
 		uin (K         yE~	// juin
 		uy (A         w^ij
 
-	_b)	usi       _^_en  // business, businessman
+	C)	ucci       utSi  // capuccino
 	c)	ueill       Wj  // cueillir
 	c) 	ueil (_     Wj  // recueil
+	_g) 	u (a     u
+	ag) 	u (a_     u
+	tig) 	u (a_     u
 	_c) 	ul (_     y
 	_)	ultra (P5       yltra
+	g)	u (ay       u
 	g)	ueill       Wj	// orgueilleux
 	g) 	ueil (_     Wj	// orgueil
 
@@ -1222,6 +1230,7 @@ _)		t (_        te
 	g) 	u (ë        y	// ambiguë
 
 // group u: English section
+	_b)	usi       _^_en  // business, businessman
 	C)	ui  (ce        _^_en  // produice, juice
 		umber (_       _^_en
 		ump (_       _^_en
@@ -1327,33 +1336,15 @@ _)		t (_        te
 		ö           O		// angström
 		œ           W
 		œu          W:          // sœur
-		û           y	// fûtes
+		û           y:	// fûtes
 		ü           y	// bülcher
 
 
 // symbols that are normally spoken when reading text
 		, (D        pilk:u
-	!	Eksklamasj'O~
 	$	do2lar
-	@	arobaz
-	%	pursA~
-	&	_e
-	+	plys
-	~	tilde
-	€	@ro
-	¢	sEnt
-	¥	i;En
-	£	livr
 	°	d@gre
    _n_) °	   // n°
-	±	pl'yz_'u_mw'E~
-	×	myltipli:'e_p'ar
-	÷	diviz'e_p'ar
-	¼	W~_k'ar
-	½	W~_d@m'i
-	¾	trw'a2 k'ar
-	©	_^_EN
-	®	m'ark_depos'e
 
 
 

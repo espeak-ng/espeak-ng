@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-09-27 Michel Such  <michel.such@free.fr>
+// Updated 2008-10-09 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -84,7 +84,7 @@ z	zEd
 _lig	ligat'yr
 _acu	aksA~tEg'y
 _ac2	dublaksA~tEg'y
-_brv	bR'Ev
+_brv	br'Ev
 _ced	sed'ij
 _cir	aksA~sirkO~fl'Eks
 _dia	tRem'a
@@ -109,8 +109,8 @@ _#32	Espas
 
 _"   gijmE
 _#   djEz
-_'   a2postR'Of
-_(   'uvr@-parA~t'Ez
+_'   a2postr'Of
+_(   'uvR@-parA~t'Ez
 _)   f'Erm parA~t'Ez
 _*   asterisk:
 _,   virgyl
@@ -134,14 +134,34 @@ _|   bar
 _}   f'E2rm_akOl'ad
 ²    pw^is'A~s||d'Y
 
+// symbols that are normally spoken when reading text
+!	Eksklamasj'O~
+@	arobaz
+%	pursA~
+&	_e
++	plys
+~	tilde
+€	@ro
+¢	sEnt
+¥	i;En
+£	livr
+±	pl'yz_'u_mw'E~
+×	myltipli:'e_p'ar
+÷	diviz'e_p'ar
+¼	W~_k'ar
+½	W~_d@m'i
+¾	trwAk'ar
+©	_^_EN
+®	m'ark_depos'e
+
 
 // numeric
 
 _0	zero
 _1	W~
 _2	dYz2
-_3	tR2wAz2
-_4	katR2
+_3	tRwAz2
+_4	katr
 _5	sE~k
 _6	siz3
 _7	sEt
@@ -150,7 +170,7 @@ _9	nWf
 _10	diz3
 _11	_!O~z
 _12	duz
-_13	tR2Ez
+_13	tREz
 _14	katOrz
 _15	kE~z
 _16	sEz
@@ -160,15 +180,15 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:tR2wAz2
-_24	vE~tkatR2=@-
+_23	vE~t:tRwAz2
+_24	vE~tkatr
 _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
 _28	vE~tw^it3
 _29	vE~tnWf
-_3X	tR2A~t
-_31	tR2A~te:W~
+_3X	tRA~t
+_31	tRA~te:W~
 _4X	karA~t
 _41	karA~te:W~
 _5X	sE~kA~t
@@ -178,25 +198,25 @@ _61	swAsA~te:W~
 _7X	swAsA~t:diz3
 _71	swAsA~te:O~z
 _72	swAsA~t:duz
-_73	swAsA~t:tR2Ez
+_73	swAsA~t:tREz
 _74	swAsA~t:katOrz
 _75	swAsA~t:kE~z
 _76	swAsA~t:sEz
 _77	swAsA~t:dis:Et
 _78	swAsA~t:diz'w^it3
 _79	swAsA~t:diznWf
-_8X	katR2@vE~
-_80	katR2@vE~z2
-_9X	katR2@vE~diz3
-_91	katR2@vE~:O~z
-_92	katR2@vE~:duz
-_93	katR2@vE~:tR2Ez
-_94	katR2@vE~:katOrz
-_95	katR2@vE~:kE~z
-_96	katR2@vE~:sEz
-_97	katR2@vE~:dis:Et
-_98	katR2@vE~:dizw^it3
-_99	katR2@vE~:diznWf
+_8X	katR@vE~
+_80	katR@vE~z2
+_9X	katR@vE~diz3
+_91	katR@vE~:O~z
+_92	katR@vE~:duz
+_93	katR@vE~:tREz
+_94	katR@vE~:katOrz
+_95	katR@vE~:kE~z
+_96	katR@vE~:sEz
+_97	katR@vE~:dis:Et
+_98	katR@vE~:dizw^it3
+_99	katR@vE~:diznWf
 _0C	sA~
 _1C0	sA~t2
 _0M1	mil
@@ -210,8 +230,8 @@ _dpt	virgyl
 ?2 _7X	sEptA~t
 ?2 _71	sEptA~te:W~
 ?2 _72	sEptA~t:dYz2
-?2 _73	sEptA~t:tR2wAz2
-?2 _74	sEptA~t:katR2=@-
+?2 _73	sEptA~t:tRwAz2
+?2 _74	sEptA~t:katr
 ?2 _75	sEptA~t:sE~k
 ?2 _76	sEptA~t:siz3
 ?2 _77	sEptA~t:sEt
@@ -220,8 +240,8 @@ _dpt	virgyl
 ?2 _9X	no2nA~t
 ?2 _91	no2nA~te:W~
 ?2 _92	no2nA~t:dYz2
-?2 _93	no2nA~t:tR2wAz2
-?2 _94	no2nA~t:katR2=@-
+?2 _93	no2nA~t:tRwAz2
+?2 _94	no2nA~t:katr
 ?2 _95	no2nA~t:sE~k
 ?2 _96	no2nA~t:siz3
 ?2 _97	no2nA~t:sEt
@@ -229,11 +249,11 @@ _dpt	virgyl
 ?2 _99	no2nA~t:nWf
 
 (21 ème)	vE~te:yniEm
-(31 ème)	tR2A~te:yniEm
+(31 ème)	tRA~te:yniEm
 (41 ème)	karA~te:yniEm
 (51 ème)	sE~kA~te:yniEm
 (61 ème)	swAsA~te:yniEm
-(81 ème)	katR2@vE~:yniEm
+(81 ème)	katR@vE~:yniEm
 
 // ABBREVIATIONS
 //**************
@@ -251,7 +271,7 @@ bd	boulevard $text
 cci              $abbrev
 cio		$abbrev
 ctrl		control $text $pause
-dept		depart@mA~
+dept		depart@-mA~
 edf		$abbrev
 etc		etsetera
 ghz		ZigaE2rts
@@ -262,12 +282,12 @@ ide		$abbrev
 ip		$abbrev
 jaws		dZ'O2wz
 kde		$abbrev
-kg		kilogRam
+kg		kilogram
 khz		kiloE2rts
 km		kilomètre $text
 kw		kilowat
 m.		m@sjY
-mbrola		EmbRola
+mbrola		Embrola
 mhz		megaE2rts
 mlle		mad@mwAzEl
 mme		madam
@@ -279,7 +299,7 @@ nvda             $abbrev
 ong             $abbrev
 pci             $abbrev
 pda             $abbrev
-p.s		postskRiptOm
+p.s		postskriptOm
 ratp		$abbrev
 scsi		$abbrev
 s.t.p		s'il:t'@:pl'E
@@ -360,6 +380,8 @@ on	O~n2 $u+ $verbf
 me	$u $verbf
 te	$u $verbf
 se	$u $verbf
+moi	$u+
+toi	$u+
 lui	$u+ $verbf
 ça	$u+ $verbf
 
@@ -522,7 +544,7 @@ tout	t'ut2 $u+
 toute	t'ut $u+
 toutes	t'utz2 $u+
 tous	 $u+
-rien	Ri'E~n2	$u+
+rien	ri'E~n2	$u+
 
 // Letters which can be words
 //===========================
@@ -575,12 +597,14 @@ bissus    bisys
 bus	      bys
 bus	      by  $verb
 campus   kA~pys
+cancer	kA~sEr
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
 choeur        kWr
 cocus     koky
 dernier    dE2rnjer2
 éloquent     ElokA~t2
+fan	f'an
 fier	      fier $verb
 fuel	      fjul
 gars	      ga
@@ -590,6 +614,7 @@ iris	      iris
 laser	      lazEr
 malus      malys
 mars	      mars
+ours	urs
 parangon	      parA~gO~
 phallus    falys
 polder    pOldEr
@@ -688,7 +713,7 @@ espeak		@spi:k
 ethernet	etE2rnEt
 exit	egzit
 (file zilla)		fa2jl||zija
-from	_^_en $u+
+from	frO2m $u+
 get		_^_en
 google		gu:gWl
 gnome		gnOm
@@ -744,21 +769,37 @@ votions		votjO~z2
 évitions	evitjO~z2
 
 // no liaison
-(quelqu'un)	kElkW~
+(quelqu'un)	kElkW~ $U+
 pourcent	pursA~
 vincent		vE~sA~
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+// Some countries and areas
+bahamas	baamas
+bangladesh	bA~gladES
+bélarus	belarys
+(burkina faso)	burkina||faso
+burundi	burundi
+croatie	kroasi
+groenland	gRoEnlA~d
+guatemala	gwAtemala
+honduras	_!O~dyras
+kenya	kenja
+laos	laO2s
+lesotho	lezoto
+liechtenstein	liStEnStajn
+malawi	malaui
+mayotte	majO2t
+niger	niZEr
+oman	oman
+palaos	palaO2s
+samoa	samoa
+leone	leO2n
+koweït	kowEjt
+taïwan	tajwAn
+venezuela	venezyela
+(viêt nam)	viEtnam
+wallis	wAlis
+futuna	futuna
+zimbabwe	zimbabwe
 
