@@ -2,7 +2,10 @@
 // This file is UTF8 encoded 
 
 // letter groups:
-// B - vowel signes and virama ्
+// A   vowel letters
+// B   vowel signs and virama ्
+// C   consonants
+// Y   vowel letters and vowel signs
 
 // conditional rules
 // ?1   drop schwa at end of word
@@ -349,14 +352,14 @@
 .group ळ
         ळ        l.V
         ळ (B     l.
-?1      ल (_     l.
-     ्) ल (_     l.V
+?1      ळ (_     l.
+     ्) ळ (_     l.V
 
 .group ऴ
         ऴ        l.V  // (temporary) same as [l.]
         ऴ (B     l.
-?1      ल (_     l.
-     ्) ल (_     l.V
+?1      ऴ (_     l.
+     ्) ऴ (_     l.V
 
 .group व
         व        vV
@@ -426,7 +429,8 @@
 .group ः
         ः        H   //  visarga
 
-
+.group ्		// virama
+	्
 
 // Extra consonants
 

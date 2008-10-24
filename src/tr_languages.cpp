@@ -350,7 +350,8 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
-	case L('h','i'):
+	case L('h','i'):    // Hindi
+	case L('n','e'):    // Nepali
 		{
 			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,24, 24,22 };

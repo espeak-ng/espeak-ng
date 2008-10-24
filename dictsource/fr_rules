@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-10-09 Michel Such  <michel.such@free.fr>
+// Updated: 2008-10-16 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -1211,6 +1211,7 @@ Vn)		t (_        t2
 
 	C)	u (bX      W	// hub, club
 	C)	u (gX      W	// bug, mug
+	r)	u (nX      W	// run, autorun
 		um (_       Om	// album
 	f) 	um (_     W~  // parfum
 		um (b       W~	// humble
@@ -1278,7 +1279,8 @@ Vn)		t (_        t2
 .group x
 		x           ks
                 xs          ks	// lexique lexicaux vox
-	_e) 	x (A        gz	// exagérer exemple
+	e) 	x (A        gz	// exagérer exemple
+	le) 	x (i        ks
 	_e) 	x (h        gz	// exhumer
 
 	ai) 	x (_ 		// voix paix prix
@@ -1345,6 +1347,7 @@ Vn)		t (_        t2
 	$	do2lar
 	°	d@gre
    _n_) °	   // n°
+
 
 
 

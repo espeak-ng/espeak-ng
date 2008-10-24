@@ -28,7 +28,7 @@ endphoneme
 phoneme a
   vowel  starttype (a)  endtype (a)
   length 170
-  formants vowel/a_5
+  formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
   before r/2 DFT-40+vwl_fr/r_a
@@ -39,7 +39,7 @@ endphoneme
 phoneme a2
   vowel  starttype (a)  endtype (a)
   length 150
-  formants vowel/a_5
+  formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
   before (r) DFT+r/xr
@@ -247,7 +247,7 @@ phoneme O~
   vowel  starttype (o)  endtype (o)
   length 200
   formants vnasal/o_n3
-  before n2 vowel/o_mid
+//  before n2 vowel/o_mid
 endphoneme
 
 

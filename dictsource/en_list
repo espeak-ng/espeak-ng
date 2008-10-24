@@ -768,7 +768,7 @@ competition      k0mp@t'IS@n
 compromise       k0mpr@maIz
 compound          $2           $verb 
 con              k0n
-conduct          k0ndVkt       $only
+conduct          k0ndVkt
 conduct                        $verb
 concert          k0ns3t        $onlys
 concert                        $verb
@@ -827,6 +827,7 @@ curate           kjU@reIt
 curse            k3:s
 ?5 curse         kVRs
 customer         k'Vst@m3
+cutaway          kVt@weI
 cutoff           kVt0f
 cutout           kVtaUt
 cyan             saI'an
@@ -838,11 +839,14 @@ damaged          d'amI2dZd
 dandelion        dandI2laI@n
 de               d@            $only
 debacle          deIb'A:k@L
+debrief          di:br'i:f
 debris           dEbri:
+debunk            $2
 debut            deIbju:
 decade           dEkeId
 decent           di:s@nt
 declaration      dEkl@'reIS@n
+decor            deIkO@
 decorative       dEkr@tIv
 decoy            di:kOI
 decry            dI2kraI
@@ -859,8 +863,9 @@ demolish         dI2m0lIS
 demon            di:m@n
 demo             dEmoU
 demonstrative     $2
-denouement       deIn'u:mO~
+dengue           dEngI
 denier           dI2naI3
+denouement       deIn'u:mO~
 deny             dI2naI
 denial           dI2naI@l
 depot            dEpoU
@@ -937,6 +942,7 @@ el               ,El
 electricity      I2lEktr'IsI2tI
 electrode        I2lEktroUd
 electron         I2lEktr0n
+elicit           I2lIsI2t
 eligible         ElI2dZ@b@L
 élite            Il'i:t
 email            i:meIl
@@ -1420,6 +1426,7 @@ myrrh            m3:
 
 naif             naI'i:f
 naïve            naI'i:v
+naked            neIkI2d
 nasa             nasa2
 nascent          neIs@nt
 nativity                       $2
@@ -1577,6 +1584,7 @@ pituitary                      $2
 plaguing         pleIgIN
 plicate           $2
 plugin           plVgIn
+plumber          plVm3
 plus             plVs
 poky             poUkI
 politer          p@l'aIt3
@@ -1809,6 +1817,7 @@ secrecy          si:kr@sI
 secret           si:kr@t
 secretive        si:kr@tIv
 secretary        sEkr@trI
+sedan            sI2dan
 sedate           sI2deIt
 seduce           sI2dju:s
 segue            sEgweI
@@ -1819,6 +1828,7 @@ semicolon        sEmIk'oUl@n
 senator          sEn@t3
 sens             sEns               // for sensible
 sentient         sEnti@nt
+sequester         $2
 sequine          si:kwI2n
 series           si:ri:z
 serene           s@ri:n
@@ -2019,7 +2029,6 @@ undo             Vnd'u:
 uni              ju:nI
 uninterest       Vn'Int@r@st
 university       ju:nIv'3:sI2tI
-unite            ju:n'aIt
 unless           Vnl'Es
 unread           Vnr'Ed        $only
 unsure           VnS'U@
@@ -2148,6 +2157,7 @@ Cambridge	keImbrIdZ
 Cheadle		tSi:d@L
 Cheshire	tSES3
 Chiswick	tSIzIk
+Clwyd		klu:Id
 Dolgellau	d0lg'EClaI
 Dover		doUv3
 Dumfries	dVmfr'i:s
@@ -2426,6 +2436,7 @@ Glynn		glIn
 Graeme		greI@m
 Graham		greI@m
 Hadrian		heIdri:@n
+Harriet		hari@t
 Hugh		hju:
 Hughes		hju:z
 Huw		hju:

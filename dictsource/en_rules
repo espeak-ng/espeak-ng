@@ -104,7 +104,6 @@
          m) a (jore      eI
          _) a (k@        a2
          @) a (ki_       'a
-         n) aked         eIkId
          @) ak (ia       ak
             aku (_       'A:ku:
             ao           eI0
@@ -539,7 +538,7 @@
          b) al (d        O:l
          b) al (k        O:l
          f) al (k        0l
-         b) all (_       O:l
+         b) all (K       O:l
         &b) all (er_     O:l
         _c) al (e        al
        _sc) al (A        eIl
@@ -973,7 +972,7 @@
             as (ive      'eIs
             as (ymp      as
          &) asy (_       @s%I
-         w) ast (e       eIst
+         w) aste         eIst
 
 .group at
        pal) ate (_       @t
@@ -1602,7 +1601,7 @@
             di (shC      dI
          _) di (shev+    dI2
          _) dis (hA      dI2s
-         _) di (si       ,dI
+         _) dis (inP3    ,dIs
             di (sint     dI2
             di (sk       dI
             di (sol      dI
@@ -2349,6 +2348,7 @@
          _) exc (e       %Eks
             exc (i       %Eks
             exc (elle    Eks
+            ex (e+       Eks
             exe (cutio   EksI
             ex (erc      Eks
          _) ex (A        %Egz
@@ -2709,7 +2709,8 @@
             iah (_       'aI@
             ia (m        I2@
          &) ia (n        i@
-         &) ia (n@       I'a
+         &) ia (nic      I'a
+         &) ia (na       I'a
             ia (ng_      ja
         _f) ia (nc       I'0
         _f) iance        I'0nseI
@@ -3121,6 +3122,7 @@
             it (i_       'i:t
             itius (_     'IS@s
             itis (_      'aItIs
+         &) it (ive_     =I2t
          &) itous        =It@s
          l) itre         i:t3
          n) it (rA       aIt
@@ -3421,6 +3423,7 @@
         XC) o (Bus_      oU
          @) o (Ci_       'oU
             o (Co_       'oU
+            o (Coist     'oU
          @) o (lo_       0
             o (Cic_      '0
             o (Cical     '0
@@ -3446,7 +3449,7 @@
             o (bligato   %0
             o (blo       0
         _r) o (ber       0
-         r) o (bot       oU
+        _r) o (bo        oU
          _) o (bs        %0
          _) obs (er      %0bz
             obso (l      0bs@
@@ -3536,6 +3539,7 @@
          @) o (ist       oU
             oix (_       wa
             o (ky_       oU
+         t) o (ngu       V
          &) oped (_      @pd
          _) o (per       0
          _) ope (n       oUp@
@@ -4716,6 +4720,7 @@
        man) u            ju:
       _sol) u (C         ju:
             u (a         ju:
+            u (a_        =ju:
          r) u (aC+         u:
         @g) ua (ge       wI
             uary (_      ju:@r%I
@@ -4807,6 +4812,7 @@
        min) u (te        I
        vac) uu           ju:
             uu (m        ju:@
+            u (xA+       V
          l) uxur         VgZu:3
             uy           aI
             uy (A_       'u:j
@@ -4875,13 +4881,14 @@
          _) un (exP2     ,Vn
          _) un (ic       ju:n
          _) un (imP2     ,Vn
-         _) unin         ,VnIn
+         _) unin         ,VnI2n
             un (inj      %Vn
          _) un (il       ,ju:n
          _) un (io       ju:n
          _) un (iq       %ju:n
          _) un (is       ju:n
          _) un (it       ju:n
+            unit (e      ju:n'aIt
          _) un (iv       ju:n
          _) un (ix       ju:n
             un (i        ju:n
@@ -4997,7 +5004,6 @@
 ?5      ss) wor (d       wVR
             wor (th_     w3:
 ?5          wor (th_     wVR
-         l) w (y         u:
          s) w (ick
 
 .group x
@@ -5080,6 +5086,7 @@
             yte (_       aIt
             you'         %ju:
             yu           ju:
+            yu (C%       jV
             yeo (C       joU
             y (er_       aI
          C) yes (_       aIz

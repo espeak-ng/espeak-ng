@@ -1311,7 +1311,7 @@ include ph_korean
 phonemetable da is
 include ph_danish
 
-phonemetable sq es
+phonemetable sq base2
 include ph_albanian
 
 phonemetable ml hi
@@ -1320,3 +1320,5 @@ include ph_malayalam
 phonemetable bn hi
 include ph_bengali
 
+phonemetable ne hi
+include ph_nepali

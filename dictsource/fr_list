@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-10-09 Michel Such  <michel.such@free.fr>
+// Updated 2008-10-13 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -605,6 +605,7 @@ cocus     koky
 dernier    dE2rnjer2
 éloquent     ElokA~t2
 fan	f'an
+faut	fot2 $u+
 fier	      fier $verb
 fuel	      fjul
 gars	      ga
@@ -614,6 +615,7 @@ iris	      iris
 laser	      lazEr
 malus      malys
 mars	      mars
+mieux	mj'Y $u+
 ours	urs
 parangon	      parA~gO~
 phallus    falys
@@ -625,6 +627,8 @@ souris       suri
 sus       sys
 sus       sy $verb
 tuttiquanti       tutikw'anti
+vaut	$u+
+vaux	$u+
 vénus       venys
 vot       vOt
 
@@ -802,4 +806,5 @@ venezuela	venezyela
 wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
+
 

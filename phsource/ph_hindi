@@ -108,7 +108,7 @@ endphoneme
 phoneme a:
   vowel long starttype (a) endtype (a)
   length 230
-  formants vwl_hi/A
+  formants vowel/aa_9
 endphoneme
 
 phoneme a
