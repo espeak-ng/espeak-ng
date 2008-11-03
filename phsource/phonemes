@@ -1322,3 +1322,6 @@ include ph_bengali
 
 phonemetable ne hi
 include ph_nepali
+
+phonemetable lv base
+include ph_latvian

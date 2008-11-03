@@ -429,7 +429,7 @@ static void StopSpeak(int unused)
 		int *flag;
 		int val;
 	};
-	static int optind;
+	int optind;
 	static int optional_argument;
 	static const char *arg_opts = "afklpsvw";  // which options have arguments
 	static char *opt_string="";

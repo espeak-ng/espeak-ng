@@ -148,6 +148,7 @@ _roman  rum'eIns@
 
 // Place names
 
+afganistan  afg'anistan
 alaska      al'aska
 algerië     alx2'e@re@:@-
 antwerpen   antv&rp@n
@@ -160,6 +161,7 @@ bermuda     $2
 bethlehem   bEt_liEm
 boedapest   budapEst
 boekarest   bukarEst
+bolivië     bul'Ivi:@
 bonnievale  _^_EN
 brittanje   $2
 brooklyn    _^_EN
@@ -196,6 +198,7 @@ hermon      $1
 hirosjima   hiruS'ima
 israel      IsraI:l
 italië      it'A:li;@
+kalafong    kalaf'ON
 kanada      kanad%a
 kanaän      kA:nA:an
 kaïro       ka_'iru
@@ -309,6 +312,7 @@ der         d@r
 derick      dErik
 deventer d'e@v@nt@r
 diana       dij'A:na
+donaldson   _^_EN
 du		$u
 (du pisanie) du||pis'A:ni
 (du plessis) du||pl@s'i
@@ -640,6 +644,8 @@ dis		$u
 aangaande     $2
 aanstaande    $2
 adagio        ad'A:dZi;%@U
+afgaanse      afg'A:ns@
+afgane        afg'A:n@
 africana      $3
 afkere        afke@r@
 agamemnon     ax2am'EmnOn
@@ -650,14 +656,12 @@ algaande      $2
 alge          alx2@
 algehele      alx2@h,e@l@
 allegro       al'Egru
-alles         al@s
 almiskie      $3
 alom          al_'Om
 alreeds       $2
 alternatiewe  $4
 amen          A:mEn
 anale         an'A:l@
-//###anatomie      $4 $only
 asof          asOf
 asook         %as_o@k
 aspris        $2
@@ -674,7 +678,7 @@ bene          be@n@
 beswil        bEsv@l	
 besnedene     b@sne@d@n@	
 bestes        bEst@s
-beta          be@ta
+beta          be@ta $only
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
@@ -766,7 +770,6 @@ hokaai        hOkAI
 hoofsaaklik   $2
 hoogedele     ho@x2	_e@d@l@
 hosanna       hus'ana
-//###huigelary     $4
 
 ibis          $1
 idee          $2
@@ -941,7 +944,6 @@ sinagoge      s@n@x2o@x2@
 senatore      s@nat'o@r@
 singenot      sInx2@nOt
 sir           _^_EN
-skares        skA:r@s
 skepsele      skEps@l@
 skuldelas     skWld@las
 s'n           s@n $u
@@ -1003,7 +1005,6 @@ verse         f&:rs@
 vers          f&:rs
 verste        f&rst@
 verte         f&rt@
-vertes        f&rt@s
 verweg        f&:rv&x2
 via           via
 volheid       $1

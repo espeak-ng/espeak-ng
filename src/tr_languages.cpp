@@ -121,6 +121,9 @@ Translator *SelectTranslator(const char *name)
 	int name2 = 0;
 	Translator *tr;
 
+	static const unsigned char stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
+	static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
+
 	// convert name string into a word of up to 4 characters, for the switch()
 	while(*name != 0)
 		name2 = (name2 << 8) + *name++;
@@ -552,6 +555,19 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('l','v'):  // latvian
+		{
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_sk,stress_amps_sk);
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.spelling_stress = 1;
+			tr->charset_a0 = charsets[4];   // ISO-8859-4
+			tr->langopts.numbers = 0x409;
+			tr->langopts.stress_flags = 0x16;
+		}
+		break;
+
 	case L('m','k'):   // Macedonian
 		{
 			static wchar_t vowels_cyrillic[] = {0x440,  // also include 'р' [R]
@@ -673,8 +689,6 @@ SetLengthMods(tr,3);  // all equal
 	case L('s','k'):   // Slovak
 	case L('c','s'):   // Czech
 		{
-			static const unsigned char stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
-			static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 			static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
 			tr = new Translator();

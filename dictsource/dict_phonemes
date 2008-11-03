@@ -15,6 +15,19 @@ n    N    p    r    s    S    t    tS
 v    w    x2   z    Z    
 
 
+Dictionary bn_dict
+
+&    a    a:   a~   e    E    e~   i    
+I    i:   i:~  i~   l-   o    O    o:   
+o~   O~   r-   U    u    u:   u:~  u~   
+
+*    b    B    c    C    ch   d    d.   
+g    h    j    J    k    kh   l    m    
+n    N    n.   n^   p    ph   Q    r    
+r.   s    S    s.   t    t.   t.h  th   
+tS   x    z    
+
+
 Dictionary cs_dict
 
 @-   a    a:   aU   e    e:   eI   eU   
@@ -277,6 +290,34 @@ n^   p    r    R    s    S    t    tS
 ts   tS;  v    x    z    Z    
 
 
+Dictionary ml_dict
+
+a    a:   aI   aU   e    E    e:   i    
+I    i:   o    o:   r-   u    u:   V    
+y    
+
+:    b    c    ch   d    d.   dZ   f    
+g    h    j    J    k    kh   l    l.   
+m    n    N    n.   n^   p    ph   R    
+R2   s    s.   S;   t    t.   t.h  th   
+tS   v    w    z    z.   
+
+
+Dictionary ne_dict
+
+@    @-   @2   @3   a    a:   aI   aU   
+a~   e    E    e:   E:   E~   e~   i    
+I    i:   i~   l-   o    O    o:   O:   
+o~   O~   r-   U    u    u:   u~   V    
+
+-    :    b    c    ch   d    d.   f    
+g    h    H    j    J    k    kh   l    
+l.   m    n    N    n.   n^   p    ph   
+Q    q    r    r.   s    S    s.   t    
+T    t.   t.h  th   v    w    x    z    
+z.   
+
+
 Dictionary nl_dict
 
 8    @    @-   A    a:   E    e:   EI   
@@ -470,42 +511,13 @@ l    m    n    N    p    r    s    t
 tS   v    w    z    
 
 
-Dictionary ml_dict
+Dictionary lv_dict
 
-a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   r-   u    u:   V    
-y    
+a    a:   ai   au   e    e:   ei   i    
+i:   ie   iu   o    o:   oi   u    u:   
+ui   uo   
 
-:    b    c    ch   d    d.   dZ   f    
-g    h    j    J    k    kh   l    l.   
-m    n    N    n.   n^   p    ph   R    
-R2   s    s.   S;   t    t.   t.h  th   
-tS   v    w    z    z.   
-
-
-Dictionary bn_dict
-
-&    a    a:   a~   e    E    e~   i    
-I    i:   i:~  i~   l-   o    O    o:   
-o~   O~   r-   U    u    u:   u:~  u~   
-
-*    b    B    c    C    ch   d    d.   
-g    h    j    J    k    kh   l    m    
-n    N    n.   n^   p    ph   Q    r    
-r.   s    S    s.   t    t.   t.h  th   
-tS   x    z    
-
-
-Dictionary ne_dict
-
-@    @-   @2   @3   a    a:   aI   aU   
-a~   e    E    e:   E:   E~   e~   i    
-I    i:   i~   l-   o    O    o:   O:   
-o~   O~   r-   U    u    u:   u~   V    
-
--    :    b    c    ch   d    d.   f    
-g    h    H    j    J    k    kh   l    
-l.   m    n    N    n.   n^   p    ph   
-Q    q    r    r.   s    S    s.   t    
-T    t.   t.h  th   v    w    x    z    
-z.   
+b    c    d    dZ   f    g    h    j    
+J    k    l    l^   m    n    N    n^   
+p    R    R2   s    S    t    tS   ts   
+v    z    Z    

@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-10-16 Michel Such  <michel.such@free.fr>
+// Updated: 2008-11-01 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -70,6 +70,8 @@
 
 		a  (nnA     a		// manne
 		an (K       A~		// ancien, élan
+	@@m)	an (_       an // tennisman
+	lism)	an (_       A~ // talisman
 	_C)	aon  (_        A~		// faon, paon, taon
 	s)	aoul (_         u		// saoul
 	s)	aou (le          u		// saoule
@@ -83,6 +85,7 @@
 	_)	auto (@P4       oto
 	_)	autom (n       otO
 	_)	au (treX       o2
+	bb)	aye (X       ei		// abbaye
 	p)	a (ys       E		// pays paysage
 		ay (C       E		// aymé
 		ay          Ej		// paye
@@ -116,9 +119,11 @@
 		cc (Y       ks		// accéder
 		cc          k		// occuper
 	_)	ch (arism      k		// charisme, charismatique
+	_)	ch (irop       k		// chiroptère
 	a)	ch (_     k		// almanach
 	e)	ch (_     k		// varech
 	_A)	ch (o_      k		// écho
+	mani)	ch (é      k		// manichéisme
 	_eu)	ch (ari      k		// eucharistie
 	or) 	ch (esC     k		// orchestre
 	or) 	ch (iC      k		// orchidée
@@ -230,6 +235,7 @@ _) 	ç' (P2v      s
 	CC)	ein (_      E~n2		// plein emploi
 		e (il       E		// vieille
 		ei          E		// neige
+		eoi          wA		// asseoir
 		ell         El		// selle
 		el (K       El		// celsius, caramel
 	_f)	em (me      a		// femme
@@ -248,18 +254,18 @@ _) 	ç' (P2v      s
 		em (p       A~
 		en (_       A~n2		// en
 		en (hA      A~n		// enharmonique
-		en (A       A~n		// enivrer
+_)		en (A       A~n		// enivrer
 
 	C)	en (d_      A~		// comprend dépend
 	od)	en (dr      E~		// rhododendron
 	qu)	en (d_      A~
 
 	pati)	en          A~		// patient patience
-	X)	en (nu      A~		// ennui
-
-	C)	en (A       @n		// menu
-
+		en (nu      A~		// ennui
 		en (nA      E		// penne ennemi
+
+	é)	en (_       E~		// européen
+
 	Ci)	en (nA      E		// mienne
 
 	éC)	en (t_      A~		// récent différent élément
@@ -579,6 +585,7 @@ _) 	ç' (P2v      s
 	vin) 	gt (_sept   t
 	vin) 	gt (_huit   t
 	vin) 	gt (_neuf   t
+	vin) 	gt (_neuvi   t
 
 		gt (_ 			// vingt doigts
 
@@ -794,7 +801,6 @@ _)		half  	_^_en
 
 	_)	n' (P2v      n
 
-	A) 	ng (_       N		// parking meeting
 		nn          n		// panne
 	_)	n (_°       nymero
 	_)	neuro (@@P5       nYro
@@ -990,6 +996,7 @@ mou)	rr          rr		// mourrai
 		s           s		// verser sien
 
 		s (_S1      z2
+		stein (_      Stajn
 
 	_)	s' (P2v    s		// s'amène
 	_)	s' (esXP2v    s		// s'amène
@@ -1079,7 +1086,6 @@ _tou)	s (_leurs_
 	_)	sky        _^_en
 	_)	smil        _^_en   // smile, smiley
 		spy         _^_en
-		sy (_      _^_en
 
 
 .group t
@@ -1280,7 +1286,8 @@ Vn)		t (_        t2
 		x           ks
                 xs          ks	// lexique lexicaux vox
 	e) 	x (A        gz	// exagérer exemple
-	le) 	x (i        ks
+	Ce) 	x (i        ks
+	ine) 	x (i        gz
 	_e) 	x (h        gz	// exhumer
 
 	ai) 	x (_ 		// voix paix prix

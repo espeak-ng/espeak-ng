@@ -425,6 +425,7 @@ phoneme r
    beforenotvowel r/2
   formants vwl_fr/@R3+r3/rx%30
   after @2 vwl_fr/@R5+r3/rx%40
+  after (u) vwl_fr/@R5+r3/rx%30
   after (e) vwl_fr/@R4+r3/rx%20
 endphoneme
 

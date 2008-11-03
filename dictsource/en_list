@@ -350,6 +350,9 @@ prof              $dot
 rev               $dot
 st                $dot
 
+// not abbreviations when all-caps
+all	O:l	$allcaps
+no	noU	$allcaps
 
 
 // MAIN WORD DICTIONARY
@@ -451,7 +454,6 @@ alfalfa          alf'alf@
 alias            eIli@s
 alibi            al@baI
 alkali           alk@laI
-all              O:l	$allcaps    // not abbrev.
 allay            a2leI
 allegiance       a2li:dZ@ns
 allele           a2li:l
@@ -597,6 +599,7 @@ barometer        b@r0mI2t3
 barrage          barA:Z
 basis            beIsIs
 bass             beIs
+baste            beIst
 bastion          basti@n
 batman           batman
 bayou            baIu:
@@ -937,6 +940,7 @@ edit             EdIt
 edition          I2dIS@n
 edwardian        Edw'O@di@n
 efile            i:faIl
+egg              Eg	// egging 
 eh               eI
 el               ,El
 electricity      I2lEktr'IsI2tI
@@ -1795,6 +1799,7 @@ saline           seIlaIn
 san              ,san
 sardine           $2
 satan            seIt@n
+satanist         seIt@nIst
 saucepan         sO:sp@n
 saudi            saUdI
 says             sEz
@@ -1852,6 +1857,7 @@ sierra           sI'e@r@
 signage          saInI2dZ
 sikh             si:k
 silhouette       sI2lUw'Et
+silo             saIloU
 simon            saIm@n
 simultaneous                   $3
 singly           sINglI        $verbf
@@ -2421,7 +2427,6 @@ Denise		d@ni:s
 Derek		dErIk
 Dinah		daIn@
 Dominic		d0mI2nIk
-Donald		d0n@Ld
 Doris		d0rIs
 Dougall		du:g@L
 Dylan		dIl@n

@@ -966,7 +966,13 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 
 		Lookup("_0C",ph_100);
 
-		if((hundreds >= 10) && (((langopts.numbers & 0x0800) == 0) || (hundreds != 19)))
+		if(((langopts.numbers & 0x0800) != 0) && (hundreds == 19))
+		{
+			// speak numbers such as 1984 as years: nineteen-eighty-four
+//			ph_100[0] = 0;   // don't say "hundred", we also need to surpess "and"
+		}
+		else
+		if(hundreds >= 10)
 		{
 			ph_digits[0] = 0;
 

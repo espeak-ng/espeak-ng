@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-10-13 Michel Such  <michel.such@free.fr>
+// Updated 2008-10-24 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -268,6 +268,7 @@ anpe             $abbrev
 api		$abbrev
 avh		aveaS
 bd	boulevard $text
+brltty	$abbrev
 cci              $abbrev
 cio		$abbrev
 ctrl		control $text $pause

@@ -68,7 +68,6 @@
              a (riA       'A: // akwarium/barium/estuarium/herbarium/seminaria
              a (ristokr   %a // shorten 1st a: aristokrasie/-kraat/-krate/-kraties
              arm (last    %ar@-m // move default stress: armlastig/-e
-         @C) as (_        as // shorten final a of words ending in -as: rigtingvas/jonkmanskas, etc.
           C) asie        'A:si
        @@@@) asie         A:s%i
         oub) asie         A:si // restore default stress: oubasie/-s
@@ -256,6 +255,7 @@
              ar (seen     %ar
              ar (tikel    %ar // stress: artikel and compounds
              artiku       %art%ik%y // stress and vowel sounds: artikulasie/artikuleer
+         @C) as (_        as // shorten final a of words ending in -as: rigtingvas/jonkmanskas, etc.
           _) a (sië       A: // fix stress and a sound: Asië/-r/-rs
           _) a (strA      %a // astrant/astrale/astraal
              artille (rie %art@l@ // stress and vowel sounds: artillerie and compounds
@@ -854,6 +854,7 @@
         CAC) e (CC        @ // fix e sound: nalatenskap/wapenstilstand
         CAC) e (C%        E // beesfilette/nougesette/onderbesette/voortgesette
       juwel) e (C         @ // fix e sound: juwelekissie and similar compounds
+    fontein) e (C         @_ // fix e sound: Fonteinesirkel/-wisselaar, etc.
      kening) e (@         @ // fix e sound: rekeningeklerk/-navraag and similar
      narkos) e (C         @ // fix e sound: narkosedood/-gas/-masker/-middel/-rekords, etc.
         ooi) e (C         @ // fix e sound: dooiepunt/ooievaar and similar
@@ -1048,7 +1049,7 @@
         AAv) eer          e@r // restore default stress: pouveer/makouveer/horlosieveer/kraaiveer/rooiveer
           w) eer          e@r // stress may vary in words containing weer: lugafweer/donderweer
           u) eer          'e@r // aktueer/konstrueer/salueer, etc.
-             effek        %e@fEk // move default stress and fix e sound: effek/-te/-tief
+             effek (K     %ifEk // move default stress and fix e sound: effek/-te/-tief/rimpeleffek
              eienaardig   %eI@nA:rd@x2 // move default stress: eienaardig/-ste
           @) ein (dig     'eIn // nimmereindige/nimmereindigend
              eind (eks    eInt_ // fix d sound and make short pause: eindeksamen/-s and compounds
@@ -1967,6 +1968,11 @@
              j            j
              j (j
              ja (broer    jA: // fix a sound: jabroer/-s
+          _) jag (A       j''ax2_ // fix stress and a sound: jagavontuur/-ekspedisie/-entoesias/-eskader/-instink...
+             jag (end     jA:x2 // but long a in jagend/-e and compounds
+             jag (er      jA:x2 // long a in jager and compounds
+             jag (ing     jA:x2 // long a in (ver)jaging and similar
+             jaguar       jagwar // fix a, g and u sounds: jaguar and compounds
           _) ja (CobA     j%a // fix stress and a sound: Jacoba/Jacobus/Jakobus
              jakaranda    j%ak%ar'anda //jakaranda and compounds
              jakopewer    j%ak%Ope@v@r_ // fix stress and vowel sounds: jakopewer/-oë
@@ -3374,6 +3380,7 @@
              profesie     prOf@s'i // fix vowel sounds and move stress
              profit (e    pr%Of@t // fix stress and vowel sounds: profiteer/-tering
              pro (gram    pr%u // fix stress and o sound: program/-e/ontwikkelingsprogram
+             programme (ring pr%ux2r%ame@ // fix e sound and stress: (rekenaar)programmering(staal), etc.
              pro (gress   pr%o@ // fix stress and o sound: progressie/-f/-we
              pro (CA      pr%u // probeer/produk/proses/professie/provinsie
              produk (A    pr%udWk_ // fix u sound, pause: produkopsies/-uitstalling, etc.
@@ -3510,6 +3517,7 @@
              regime (_    r@Zi:m // regime/-s and compounds
              regi (ment   r@x2@ // fix stress and e and i sounds: regement/-e and compounds
              regimen (ta@ r%Ex2%im%En // fix stress: regimentaal/-tale
+             regi (sseuC  r@x2@ // fix stress and e sound: (film-/kuns-/mede-/musiek-/oorklankings-)regisseur/-sseuse
              reg (ist     r@x2 // registrasie/-nommer/register/bevolkingsregister
              regle (ment  r@x2l@ // fix stress and e sounds: reglement/-e and compounds
              regverdig    r&x2f'&rd@x2 // regverdig/onregverdige/regverdigheid - verwyder uit af_list
@@ -3576,6 +3584,7 @@
 .group s
              s            s
              s (s
+          @) s (_S1q      s // to correctly handle plurals of propernames in af_list: Jouberts, etc.
         @@@) s (_S1       s // to correctly handle plural s
           i) s (_         s // exceptions to rule: @@@) s (_S1       s
              se (_        s@  //the word se and some ending in se
@@ -3630,7 +3639,7 @@
              seroto (ni   s%Er@t%u // fix stress and vowel sounds: serotonien(vlakke, etc.)
              sitrus       s'itr%Ws_ //i sound and stress in compounds
 
-             saamge (P6   s'A:mx2@ // saamgepers/-de/saamgetel/saamgeêet
+          _) saam (P4   s'A:m // saamgepers/-de/saamgetel/saamgeêet/saampers
              saamgee      sA:mx2e@ // fix ee in saamgee; see rule: saamge (P6 
              sabot (A     s%ab%ut // sabotasie/saboteer
              safari       s%afA:r%i // fix 1st a: safari/safaripak, etc.
@@ -4029,10 +4038,12 @@
       straa) t (j         t // split tj sound: straat(jas/-joggie/-jonge/-joernaal)
          ui) tj           tj // uitjaag/uitjou/uitjubel
          ui) tjie         ci // beskuitjie/fluitjie/ruitjie/uitjie, etc.
+          @) tjoernali    tj%urn%al@ // fix stress, split t/j: front-/koerant-/sport-/vryskutjoernalis, etc.
           _) th (@@       t
           @) th (C        t // drop h: Bothma/Neethling and similar
           _) theu         t''Y@ // Theuns/Theunis
           _) th           _^_EN     // if only one vowel character
+          @) thy (_       _^_EN // words and names ending in -thy are English: Cathy, etc.
           @) th (_N       _^_EN
           @) tion (_      _^_EN     //words ending in tion is English
           @) tions (_     _^_EN     //words ending in tions is English

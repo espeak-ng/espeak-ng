@@ -29,6 +29,8 @@
 // ?7  Scottish
 // ?8  Use full vowel, not schwa in some word endings
 
+.L01  l r
+
 .replace
    ﬀ   ff     // ligature
    ﬁ   fi
@@ -2348,7 +2350,7 @@
          _) exc (e       %Eks
             exc (i       %Eks
             exc (elle    Eks
-            ex (e+       Eks
+         C) ex (e        Eks
             exe (cutio   EksI
             ex (erc      Eks
          _) ex (A        %Egz
@@ -2533,6 +2535,7 @@
          @) i (butive    'I
          @) i (butor     'I
          &) i (c_        =I
+         &) i (ciCe_     =I
          &) i (ca_       =I
          &) ico (_       =I2koU
          &) i (cal       =I
@@ -3714,6 +3717,7 @@
       pers) on           @n
       pers) on (i        '0n
      postp) on           'oUn
+            on (ald      0n
          d) on (at       %oUn
             on (an_      oUn
          _) on (io       Vn
@@ -4322,6 +4326,7 @@
             rhyth        rID
          _) rm           ,A@Em
             rrhoea       r'i@
+         _) ru (bL01     ru:
          _) run (a       rVn
          _) run (o       rVn
          _) rw           r%U
