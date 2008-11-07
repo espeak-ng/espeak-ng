@@ -126,7 +126,8 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 
 	while((type = events->type) != 0)
 	{
-		fprintf(f_events,"%2d (%4d %4d)   %5d %5d  (%3d)   ",type,events->unique_identifier,(int)events->user_data,events->audio_position,events->text_position,events->length);
+		fprintf(f_events,"%2d (%4d %4ld)   %5d %5d  (%3d) ",type,events->unique_identifier,(long)events->user_data,events->audio_position,events->text_position,events->length);
+
 		if((type==3) || (type==4))
 			fprintf(f_events,"'%s'\n",events->id.name);
 		else

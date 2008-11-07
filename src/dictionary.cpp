@@ -2867,7 +2867,7 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 				// don't use the contraction if any of the words are emphasized
 				for(ix=0; ix <= skipwords; ix++)
 				{
-					if((wtab != NULL) && (wtab[ix].flags & FLAG_EMPHASIZED))
+					if((wtab != NULL) && (wtab[ix].flags & FLAG_EMPHASIZED2))
 					{
 						condition_failed = 1;
 					}
@@ -2935,6 +2935,13 @@ const char *Translator::LookupDict2(const char *word, const char *word2, char *p
 			}
 		}
 
+		if(dictionary_flags2 & FLAG_HYPHENATED)
+		{
+			if(!(word_flags & FLAG_HYPHEN_AFTER))
+			{
+				continue;
+			}
+		}
 		if(dictionary_flags2 & FLAG_CAPITAL)
 		{
 			if(!(word_flags & FLAG_FIRST_UPPER))
@@ -3070,7 +3077,11 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 	if(length > 0)
 	{
 		// found an abbreviation containing dots
-		nbytes = utf8_nbytes(word2);
+		nbytes = 0;
+		while(((c = word2[nbytes]) != 0) && (c != ' '))
+		{
+			nbytes++;
+		}
 		memcpy(&word[length],word2,nbytes);
 		word[length+nbytes] = 0;
 		found =  LookupDict2(word, word2, ph_out, flags, end_flags, wtab);

@@ -123,6 +123,8 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	char path[sizeof(path_home)+15];
 
 	mbrola_name[0] = 0;
+	mbrola_delay = 0;
+
 	if(mbrola_voice == NULL)
 	{
 		samplerate = samplerate_native;
@@ -193,6 +195,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	else
 		SetParameter(espeakVOICETYPE,1,0);
 	strcpy(mbrola_name,mbrola_voice);
+	mbrola_delay = 3800;  // improve synchronization of events
 	return(EE_OK);
 }  // end of LoadMbrolaTable
 
@@ -601,6 +604,10 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		}
 		else
 			len = (80 * speed_factor2)/256;
+
+#ifdef USE_MBROLA_LIB
+		MbrolaMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, ph->mnemonic); 
+#endif
 
 		sprintf(buf,"%s\t",WordToString(name));
 		strcat(mbr_buf,buf);

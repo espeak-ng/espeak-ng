@@ -76,7 +76,8 @@
 #define FLAG_CAPITAL         0x200  /* pronunciation if initial letter is upper case */
 #define FLAG_ALLCAPS         0x400  // only if the word is all capitals
 #define FLAG_ACCENT          0x800  // character name is base-character name + accent name
-
+#define FLAG_HYPHENATED     0x1000  // multiple-words, but needs hyphen between parts 1 and 2
+#define BITNUM_FLAG_HYPHENATED  0x2c
 
 
 // wordflags, flags in source word
@@ -86,15 +87,16 @@
 #define FLAG_HAS_PLURAL    0x4    /* upper-case word with s or 's lower-case ending */
 #define FLAG_PHONEMES      0x8    /* word is phonemes */
 #define FLAG_LAST_WORD     0x10   /* last word in clause */
-//#define FLAG_SPELLING      0x20  // speak the word as individual letters
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 #define FLAG_HYPHEN        0x80
 #define FLAG_NOSPACE       0x100  // word is not seperated from previous word by a space
 #define FLAG_FIRST_WORD    0x200  // first word in clause
+#define FLAG_FOCUS         0x400   // the focus word of a clause
+#define FLAG_EMPHASIZED    0x800
+#define FLAG_EMPHASIZED2   0xc00  // FLAG_FOCUS | FLAG_EMPHASIZED
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
 #define FLAG_HYPHEN_AFTER    0x4000
-#define FLAG_EMPHASIZED    0x8000
 
 #define FLAG_NO_TRACE      0x10000   // passed to TranslateRules() to suppress dictionary lookup printout
 #define FLAG_NO_PREFIX     0x20000
@@ -161,8 +163,10 @@
 // bits 0-7 pause x 10mS, bits 12-14 intonation type,
 // bit 19=sentence, bit 18=clause,  bits 17=voice change
 // bit 16 used to distinguish otherwise identical types
+// bit 20= punctuation character can be inside a word (Armenian)
 #define CLAUSE_BIT_SENTENCE  0x80000
 #define CLAUSE_BIT_VOICE     0x20000
+#define PUNCT_IN_WORD        0x100000
 
 #define CLAUSE_NONE         0 + 0x04000
 #define CLAUSE_PARAGRAPH   70 + 0x80000
@@ -186,6 +190,8 @@
 #define SAYAS_KEY       0x24
 #define SAYAS_DIGITS    0x40  // + number of digits
 #define SAYAS_DIGITS1   0xc1
+
+#define CHAR_EMPHASIS   0x0530  // this is an unused character code
 
 // Rule:
 // [4] [match] [1 pre] [2 post] [3 phonemes] 0
@@ -306,6 +312,7 @@ typedef struct {
 // bit15= Give stress to the first unstressed syllable
 // bit16= Don't diminish consecutive syllables within a word.
 // bit17= "priority" stress reduces other primary stress to "unstressed" not "secondary"
+// bit18= don't lengthen short vowels more than long vowels at end-of-clause
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -435,7 +442,7 @@ private:
 	void MakePhonemeList(int post_pause, int new_sentence);
 	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
 
-	int ReadClause(FILE *f_in, char *buf, short *charix, int n_buf);
+	int ReadClause(FILE *f_in, char *buf, short *charix, int n_buf, int *tone_type);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
 	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab);

@@ -305,10 +305,11 @@ tS   v    w    z    z.
 
 Dictionary ne_dict
 
-@    @-   @2   @3   a    a:   aI   aU   
-a~   e    E    e:   E:   E~   e~   i    
-I    i:   i~   l-   o    O    o:   O:   
-o~   O~   r-   U    u    u:   u~   V    
+@    @/   @2   @3   a    aI   aU   a~   
+e    E    eI   eU   E~   e~   i    I    
+i~   l-   o    O    o:   oI   oU   o~   
+O~   r-   u    uI   u~   V    VI   VU   
+V~   
 
 -    :    b    c    ch   d    d.   f    
 g    h    H    j    J    k    kh   l    
@@ -375,12 +376,12 @@ ea   eI   eo   eU   i    i/   I^   iI
 iU   o    O    Oa   oI   oU   u    uI   
 y    Y    yI   yU   
 
-*    *;   b    b;   c    C    d    d;   
-dZ   f    f;   g    h    j    k    l    
-l;   m    m;   n    N    n;   p    p;   
-r    s    S    S;   t    t;   tS   ts   
-ts;  v    v;   w    w2   x    z    Z    
-z;   Z;   
+*    *;   -    b    b;   c    C    d    
+d;   dZ   f    f;   g    h    j    k    
+l    l;   m    m;   n    N    n;   p    
+p;   r    s    S    S;   t    t;   tS   
+ts   ts;  v    v;   w    w2   x    z    
+Z    z;   Z;   
 
 
 Dictionary ru_dict
@@ -497,7 +498,7 @@ uo   y    y&   y@   yE   yi   yu
 (u)  ;    C    f    h    j    k    kh   
 l    m    n    N    p    ph   r    s    
 s.   S;   t    th   ts   ts.  ts.  tS;  
-tS;  tsh  v    w    x    z.   
+tS;  tsh  v    w    x    X    z.   
 
 
 Dictionary zhy_dict
@@ -517,7 +518,17 @@ a    a:   ai   au   e    e:   ei   i
 i:   ie   iu   o    o:   oi   u    u:   
 ui   uo   
 
-b    c    d    dZ   f    g    h    j    
-J    k    l    l^   m    n    N    n^   
-p    R    R2   s    S    t    tS   ts   
-v    z    Z    
+:    b    c    d    dZ   f    g    h    
+j    J    k    l    l^   m    n    n^   
+p    r    R    R2   s    S    t    tS   
+ts   v    x    z    Z    
+
+
+Dictionary hy_dict
+
+@    a    aI   e    eI   i    i@   o    
+u    W    y    
+
+**   b    d    dZ   f    g    h    j    
+k    l    m    n    p    R3   s    S    
+t    tS   ts   v    x    z    Z    

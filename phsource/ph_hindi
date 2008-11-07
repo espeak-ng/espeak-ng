@@ -16,6 +16,12 @@ phoneme @
   reduceto  @- 0
 endphoneme
 
+phoneme @/
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/@_bck
+endphoneme
+
 phoneme V
   vowel  starttype (@)  endtype (@)
   length 130

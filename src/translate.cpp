@@ -1179,13 +1179,13 @@ strcpy(phonemes2,phonemes);
 		dictionary_flags[0] &= ~FLAG_PAUSE1;
 	}
 
-	if(wflags & FLAG_EMPHASIZED)
+	if(wflags & FLAG_EMPHASIZED2)
 	{
 		// A word is indicated in the source text as stressed
 		// Give it stress level 6 (for the intonation module)
 		ChangeWordStress(this,word_phonemes,6);
 
-//		if(!(wflags & FLAG_LAST_WORD))     // ?? omit pre-pause if it's the last word in the sentence?
+		if(wflags & FLAG_EMPHASIZED)
 			dictionary_flags[0] |= FLAG_PAUSE1;   // precede by short pause
 	}
 	else
@@ -2030,6 +2030,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	int terminator;
 	int tone;
+	int tone2;
 
 	p_textinput = (char *)vp_input;
 	p_wchar_input = (wchar_t *)vp_input;
@@ -2044,12 +2045,17 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	for(ix=0; ix<N_TR_SOURCE; ix++)
 		charix[ix] = 0;
-	terminator = translator->ReadClause(f_text,source,charix,N_TR_SOURCE);
+	terminator = translator->ReadClause(f_text, source, charix, N_TR_SOURCE, &tone2);
 
 	charix[N_TR_SOURCE] = count_characters;
 
 	clause_pause = (terminator & 0xfff) * 10;  // mS
 	tone = (terminator >> 12) & 0xf;
+	if(tone2 != 0)
+	{
+		// override the tone type
+		tone = tone2;
+	}
 
 	for(p=source; *p != 0; p++)
 	{
@@ -2246,6 +2252,13 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 			{
 				// ? between two letters may be a smart-quote replaced by ?
 				c = '\'';
+			}
+
+			if(c == CHAR_EMPHASIS)
+			{
+				// this character is a marker that the previous word is the focus of the clause
+				c = ' ';
+				word_flags |= FLAG_FOCUS;
 			}
 
 			c = TranslateChar(&source[source_index], prev_in,c, next_in, &char_inserted);  // optional language specific function

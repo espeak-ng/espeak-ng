@@ -42,6 +42,7 @@ static void SmoothSpect(void);
 int n_phoneme_list=0;
 PHONEME_LIST phoneme_list[N_PHONEME_LIST];
 
+int mbrola_delay;
 char mbrola_name[20];
 
 int speed_factor1;

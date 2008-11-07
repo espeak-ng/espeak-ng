@@ -220,6 +220,7 @@ extern int wavefile_amp2;
 extern int vowel_transition[4];
 extern int vowel_transition0, vowel_transition1;
 
+extern int mbrola_delay;
 extern char mbrola_name[20];
 
 // from synthdata file

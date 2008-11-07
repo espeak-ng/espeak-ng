@@ -517,9 +517,9 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 	ep->text_position = char_position & 0xffff;
 	ep->length = char_position >> 24;
 	
-	time = (double(count_samples + (out_ptr - out_start)/2)*1000.0)/samplerate;
+	time = (double(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;
 	ep->audio_position = int(time);
-	ep->sample = (count_samples + (out_ptr - out_start)/2);
+	ep->sample = (count_samples + mbrola_delay + (out_ptr - out_start)/2);
 	
 	SHOW("MarkerEvent > count_samples=%d, out_ptr=%x, out_start=0x%x\n",count_samples, out_ptr, out_start);
 	SHOW("*** MarkerEvent > type=%s, uid=%d, text_pos=%d, length=%d, audio_position=%d, sample=%d\n",

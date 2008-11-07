@@ -84,7 +84,7 @@
             ae           i:
             ae (val      'i:
             aea          i@
-         @) aed (_$2     d
+         @) aed (_S2     d
          _) ae (on       i:
          _) aer (o       e@
             ae (l        eI
@@ -226,13 +226,13 @@
             ab (ular     'ab
          b) ab (y        eIb
          b) ab (yl       ab
-         &) able (_$4iev  @b@L         // suffix
+         &) able (_S4iev  @b@L         // suffix
         &c) able (_       @b@L
        @ct) able (_      =@b@L
-         &) ability ($7iev    @b'IlI2t%I    // suffix
-         &) abilities ($9iev  @b'IlI2t%Iz    // suffix
-         &) ably (_$4iefv     @bl%I
-        &c) ably (_$4fv       @bl%I
+         &) ability (S7iev    @b'IlI2t%I    // suffix
+         &) abilities (S9iev  @b'IlI2t%Iz    // suffix
+         &) ably (_S4iefv     @bl%I
+        &c) ably (_S4fv       @bl%I
 
 .group ac
          _) ac (@        a2k
@@ -533,8 +533,8 @@
             alz          alt|s
          &) al (_        @L
 ?8       &) al (_        a2l
-         @) ally (_$2    l%I
-      @@ic) ally (_$4    l%I
+         @) ally (_S2    l%I
+      @@ic) ally (_S4    l%I
       inst) al (_        O:l
          &) al (d        @L
          b) al (d        O:l
@@ -675,8 +675,8 @@
          _) anom         a2n0m
          &) an (_        @n
 ?8       &) an (_        a2n
-        @u) an (_$1      n
-        @i) an (_$1      n
+        @u) an (_S1      n
+        @i) an (_S1      n
         Cc) an (_        an
          l) an (_        an
         ll) an (_        @n
@@ -725,7 +725,7 @@
          d) ang (er      eIndZ
          r) ang (e       eIndZ
          r) anging       eIndZIN
-         r) anged ($1    d
+         r) anged (S1    d
       perm) an           @n
             ang (er      aNg
          m) anoeu (v     @nu:
@@ -1121,8 +1121,8 @@
         su) bt (l        t
         de) bt           t
          _) bug (le      bju:g
-         @) bury (_$4i   br%I
-?3       @) bury (_$4i   bEr%I
+         @) bury (_S4i   br%I
+?3       @) bury (_S4i   bEr%I
          _) by           baI
 
 
@@ -1447,7 +1447,7 @@
             d            d
             d (d
          _) d' (AP2      d
-       @@e) d (_$1       d              // suffix
+       @@e) d (_S1       d              // suffix
             ddh          d
             dj           dZ
             dg (_        dZ
@@ -1714,20 +1714,20 @@
             e (quiv      %I
             e'er         e@
          h) e (sion       'i:
-        &f) e's (_$2i    s
-        &k) e's (_$2i    s
-        &p) e's (_$2i    s
-        &t) e's (_$2i    s
-        &c) e's (_$2i    Iz
-        &g) e's (_$2i    Iz
-       &ch) e's (_$2i    Iz
-       &ph) e's (_$2i    Iz
-        &s) e's (_$2i    Iz
-       &sh) e's (_$2i    Iz
-       &th) e's (_$2i    z
-        &r) e's (_$2i    z
-        &x) e's (_$2i    Iz
-        &C) e's (_$2i    z
+        &f) e's (_S2i    s
+        &k) e's (_S2i    s
+        &p) e's (_S2i    s
+        &t) e's (_S2i    s
+        &c) e's (_S2i    Iz
+        &g) e's (_S2i    Iz
+       &ch) e's (_S2i    Iz
+       &ph) e's (_S2i    Iz
+        &s) e's (_S2i    Iz
+       &sh) e's (_S2i    Iz
+       &th) e's (_S2i    z
+        &r) e's (_S2i    z
+        &x) e's (_S2i    Iz
+        &C) e's (_S2i    z
        &Cr) e's (_       @z
         @)  e (tio       i:
      discr) e (tion      E
@@ -1756,7 +1756,7 @@
         _s) ew           u:
         _s) ew (_        oU
             e (work
-            eway (_$3    weI
+            eway (_S3    weI
          @) ez (_        =Ez
 
 .group ea
@@ -1851,28 +1851,28 @@
          C) ea (ven      E
 
 .group ed
-        @@) ed (_$2dvei   d
-        @C) ed (_$2dvei   d
-        @c) ed (_$2vdei   t
-        @d) ed (_$2dvei   I2d
-?8      @d) ed (_$2dvei   Ed
-       &ch) ed (_$2vei    t
-       &sh) ed (_$2vei    t
+        @@) ed (_S2dvei   d
+        @C) ed (_S2dvei   d
+        @c) ed (_S2vdei   t
+        @d) ed (_S2dvei   I2d
+?8      @d) ed (_S2dvei   Ed
+       &ch) ed (_S2vei    t
+       &sh) ed (_S2vei    t
       @Csh) ed (_         Ed
-        @f) ed (_$2vdei   t
-        @g) ed (_$1vi     d
-        @k) ed (_$2vdei   t
-       &en) ed (_$2v      d
-        cl) ed (_$1v      d
-        @p) ed (_$2vdei   t
-      @@er) ed (_$2v      d
-       @ss) ed (_$2dv     t
-        @t) ed (_$2vdei   I2d
-?8      @t) ed (_$2vdei   Ed
-       @fr) ed (_$2v      Id
+        @f) ed (_S2vdei   t
+        @g) ed (_S1vi     d
+        @k) ed (_S2vdei   t
+       &en) ed (_S2v      d
+        cl) ed (_S1v      d
+        @p) ed (_S2vdei   t
+      @@er) ed (_S2v      d
+       @ss) ed (_S2dv     t
+        @t) ed (_S2vdei   I2d
+?8      @t) ed (_S2vdei   Ed
+       @fr) ed (_S2v      Id
         yw) ed (_         Ed
-        @x) ed (_$2vi     t
-         y) ed (_$2v      d
+        @x) ed (_S2vi     t
+         y) ed (_S2v      d
             edly (_      Idl%I
          c) ed (e_       'i:d
          p) ed (e_       i:d
@@ -2113,14 +2113,14 @@
 
 .group er
          &) er           3
-       @@@) er (_$2de    3         // suffix
-        %C) er (_$3      3
-        ll) er (_$2      3
+       @@@) er (_S2de    3         // suffix
+        %C) er (_S3      3
+        ll) er (_S2      3
          &) er (_        3
 ?8       &) er (_        a2  // (temporary because [3] -> [a2] is only for word-final
-        %C) ers (_$4     3z
-?8      %C) ers (_$4     a2z
-        ss) er (_$2      3
+        %C) ers (_S4     3z
+?8      %C) ers (_S4     a2z
+        ss) er (_S2      3
        all) er (_        3
         mb) er (_        3
        lin) er (_S1      3
@@ -2228,30 +2228,30 @@
             err (_       3:
 
 .group es
-         &) es (_$1i     z
+         &) es (_S1i     z
             ese (_       i:z
         @n) ese (_       'i:z
-        &f) es (_$1      s
-        &k) es (_$1      s
-        &p) es (_$1      s
-        &t) es (_$1      s
-        &c) es (_$1      I2z
-        &g) es (_$1      I2z
-       &ch) es (_$1      I2z
-       &ph) es (_$1      I2z
-      neri) es (_$2i     z
-        &s) es (_$1      I2z
-       &us) es (_$2e     I2z
-      &rus) es (_$2      I2z
-      &tus) es (_$2      I2z
-       &ss) es (_$2      I2z
-        sh) es (_$2      I2z
-       &th) es (_$1      z
-        &r) es (_$1      z
-       &qu) es (_$1      s
-        &x) es (_$2      I2z
-        &z) es (_$2      I2z
-        &C) es (_$1i     z
+        &f) es (_S1      s
+        &k) es (_S1      s
+        &p) es (_S1      s
+        &t) es (_S1      s
+        &c) es (_S1      I2z
+        &g) es (_S1      I2z
+       &ch) es (_S1      I2z
+       &ph) es (_S1      I2z
+      neri) es (_S2i     z
+        &s) es (_S1      I2z
+       &us) es (_S2e     I2z
+      &rus) es (_S2      I2z
+      &tus) es (_S2      I2z
+       &ss) es (_S2      I2z
+        sh) es (_S2      I2z
+       &th) es (_S1      z
+        &r) es (_S1      z
+       &qu) es (_S1      s
+        &x) es (_S2      I2z
+        &z) es (_S2      I2z
+        &C) es (_S1i     z
             es (carp     I2s
             es (cape     %Es
             es (capi     %Es
@@ -2290,7 +2290,7 @@
          _) eth (a       ET
             eth (ic      ET
             eth (y       i:T
-        @C) eth (_$3e    @T
+        @C) eth (_S3e    @T
             etta (_      'Et@
             ette (_      'Et
        pal) ett (e       @t
@@ -2459,11 +2459,11 @@
          A) han (_       h'an          // places
             ha  (st      heI
          _) he'          %hi:
-         @) head (_$4    hEd
+         @) head (_S4    hEd
             heir         e@
          _) hetero       hEtroU
          K) hl           L
-         &) hold (_$4    hoUld
+         &) hold (_S4    hoUld
             holme        hoUm
          _) homeo        hoUmi:oU
          _) homo (s      h,oUmoU
@@ -2477,8 +2477,8 @@
          _) horri        h0rI
          _) horse        hO@s
          _) house (@     haUs
-            house (_$5   haUs
-            houses (_$6  haUzI2z
+            house (_S5   haUs
+            houses (_S6  haUzI2z
 
 .group i
             i            I
@@ -2520,8 +2520,8 @@
          _) i (o         aI
          &) ial (_       =I2@l
          @) ibab         aIb@b
-         @) ible (_$4ev   @b@L
-         @) ibly (_$4efv   @bl%I
+         @) ible (_S4ev   @b@L
+         @) ibly (_S4efv   @bl%I
             i (bilit     I
          l) i (bel       aI
          b) i (ble_      aI
@@ -2653,9 +2653,9 @@
             is (o_       aIz
             ise (_       aIz
             iser (_      aIz3
-         @) ism (_$3de   Iz@m
-        an) ism (_$3d    Iz@m
-       @iB) ism (_$3d    Iz@m
+         @) ism (_S3de   Iz@m
+        an) ism (_S3d    Iz@m
+       @iB) ism (_S3d    Iz@m
             is (er+_     aIz
             iz (er_      aIz
       prAm) is           Is
@@ -2739,7 +2739,7 @@
 .group ie
             ie           I
             ie (_        I
-            ied (_$2i    d            // suffix
+            ied (_S2i    d            // suffix
             ie (c        aI
             ie (ce       i:
             ie (_        aI
@@ -2792,7 +2792,7 @@
             ie (v        i:
             iew (_       ju:
             iew          ju:
-            ies (_$2i    z
+            ies (_S2i    z
       spec) ies (_       i:z
        ser) ies (_       i:z
        _ar) ies (_       i:z
@@ -2857,20 +2857,20 @@
 ?3       s) im (ult      aIm
 
 .group in
-         @) ing (_+$3dve  I2N
-         @) ings (_$4dve  I2Nz
-         @) ingly (_$5dve   I2Ng-lI
-         @) ingment (_$7dve  I2Ng-m@nt
-      logu) ing (_$4v     I2N
-         x) ing (_+$3v     I2N
-      @@om) ing (_$3dv    I2N
-        en) ing (_$3v     I2N
-        en) ings (_$4v    I2Nz
-        en) ingly (_$5vf  I2Ng-lI
-        er) ing (_$3v     I2N
-        er) ings (_$4v    I2Nz
-        er) ingly (_$5vf   I2Ng-lI
-        er) ingment (_$7v  I2Ng-m@nt
+         @) ing (_+S3dve  I2N
+         @) ings (_S4dve  I2Nz
+         @) ingly (_S5dve   I2Ng-lI
+         @) ingment (_S7dve  I2Ng-m@nt
+      logu) ing (_S4v     I2N
+         x) ing (_+S3v     I2N
+      @@om) ing (_S3dv    I2N
+        en) ing (_S3v     I2N
+        en) ings (_S4v    I2Nz
+        en) ingly (_S5vf  I2Ng-lI
+        er) ing (_S3v     I2N
+        er) ings (_S4v    I2Nz
+        er) ingly (_S5vf   I2Ng-lI
+        er) ingment (_S7v  I2Ng-m@nt
         Br) ing (_       IN
 
 ?7       &) in (_        @n
@@ -3208,8 +3208,8 @@
          _) llan         L%an
             l (E         l
             lle (_       l
-       @@o) lled (_$3v   d
-        @@) lled (_$3v   d
+       @@o) lled (_S3v   d
+        @@) lled (_S3v   d
          B) l (_         @L
          w) l (_         l
          r) l (_         l
@@ -3224,14 +3224,14 @@
 ?3       _) lo (gK       lO
          @) lo (gous     =l@
             lu (na       lu:
-         @) ly (_$2i     l%I
-        @l) ly (_$2      I2
+         @) ly (_S2i     l%I
+        @l) ly (_S2      I2
          f) ly (_        laI
-       ief) ly (_$2      l%I
-        ff) ly (_$2      l%I
-        of) ly (_$2      l%I
+       ief) ly (_S2      l%I
+        ff) ly (_S2      l%I
+        of) ly (_S2      l%I
     multip) ly           laI
-        &p) ly (_$2      l%I
+        &p) ly (_S2      l%I
          p) ly (_        laI
          _) ly (d        lI
 
@@ -3256,12 +3256,12 @@
         @t) le (B@       @L
         tt) le (@        @-l
         &C) le (ss       l@
-         @) less (_$4i    l@s
-         @) lessly (_$6i    l@sl%I
-         @) lessness (_$8i  l@sn@s
-?8       @) less (_$4i   lEs
-?8       @) lessly (_$6i    lEsl%I
-?8       @) lessness (_$8i  lEsnEs
+         @) less (_S4i    l@s
+         @) lessly (_S6i    l@sl%I
+         @) lessness (_S8i  l@sn@s
+?8       @) less (_S4i   lEs
+?8       @) lessly (_S6i    lEsl%I
+?8       @) lessness (_S8i  lEsnEs
 
 .group m
             m            m
@@ -3294,10 +3294,10 @@
          _) mn           n
         &B) me (_        m%I
          @) men (_       mEn
-         &) ment (_$4    m@nt
-         &) ments (_$5   m@nt|s
-?8       &) ment (_$4    mEnt
-?8       &) ments (_$5   mEnt|s
+         &) ment (_S4    m@nt
+         &) ments (_S5   m@nt|s
+?8       &) ment (_S4    mEnt
+?8       &) ments (_S5   mEnt|s
             mEnt (_      m@nt
        tor) me (nt       m'E
          C) mented       m'EntId
@@ -3313,7 +3313,7 @@
          _) mono         m0noU
             mon (opol    m@n
             mon (ox      m0n
-         @) most(_$4     moUst
+         @) most(_S4     moUst
          &) mouth (_     m@T
          _) multi        mVltI
 
@@ -3349,13 +3349,13 @@
 .group n
             n            n
          n) n
-       &ia) n (_$1       n
-       &ia) ns (_$2      nz
+       &ia) n (_S1       n
+       &ia) ns (_S2      nz
          @) name (_      neIm
          _) nano (P4     n,anoU
             necessit     n@sEsIt
-         &) ness (_$4i   n@s
-?8       &) ness (_$4i   nEs
+         &) ness (_S4i   n@s
+?8       &) ness (_S4i   nEs
          @) n (cC        N
          @) n (ch        n
             n (c_        N
@@ -3723,8 +3723,8 @@
          _) on (io       Vn
         ec) on (d        @n
          m) on (d_       @n
-        &C) oned (_$2v   d
-        &C) oning (_$3v  I2N
+        &C) oned (_S2v   d
+        &C) oning (_S3v  I2N
          _) one          w0n
          _) once (_      w0ns
 ?6       _) one          wVn
@@ -3801,9 +3801,9 @@
          p) or (t        o@
             or (A        o@r
          &) or (ate      3r
-        @@) or (_$2d     3               // suffix
+        @@) or (_S2d     3               // suffix
          &) or (_        3
-?8      @@) or (_$2d     o@               // suffix
+?8      @@) or (_S2d     o@               // suffix
 ?8       &) or (_        o@
         _c) or (@        O@
          c) or (k        O@
@@ -4150,7 +4150,7 @@
             p (hole      p
        sym) pa           p@
          _) pico         pi:koU
-            piece (_$5   pi:s
+            piece (_S5   pi:s
             por (tray    p%o@
 //         _) post (@@P4   p,oUst           // prefix
             pneu         nju:
@@ -4489,10 +4489,10 @@
          @) s (hill_     s
          @) s (hous      s
          _) she'         %Si:
-         &) ship (_$4    SIp
-         &) ships (_$5   SIps
-         &) shire (_$5   S@
-?3       &) shire (_$5   Si@
+         &) ship (_S4    SIp
+         &) ships (_S5   SIps
+         &) shire (_S5   S@
+?3       &) shire (_S5   Si@
             sia (_       =Zi@
 ?3          sia (_       =Z@
             ssia (_      S@
@@ -4530,29 +4530,29 @@
          a) ssure        S'U@
         ea) s (y        z
             s (_         z
-         @) s (_$1       z
+         @) s (_S1       z
        _BA) s (_         s
-       &se) s (_$1       I2z
-      &sse) s (_$2       I2z
+       &se) s (_S1       I2z
+      &sse) s (_S2       I2z
             ss (_        s
             sse (_       s
          c) s (_         s
-       @ce) s (_$1       Iz
+       @ce) s (_S1       Iz
          f) s (_         s
-        ng) s (_$1       z
+        ng) s (_S1       z
          k) s (_         s
-         n) s (_$1       z
+         n) s (_S1       z
          p) s (_         s
         th) s (_         s
-         t) s (_$1       s
-        te) s (_$1       s
-        &c) s (_$1       s
-        &f) s (_$1       s
-        &k) s (_$1       s
-        &p) s (_$1       s
-       &pe) s (_$1       s
-      &th)  s (_$1       s
-        &t) s (_$1       s
+         t) s (_S1       s
+        te) s (_S1       s
+        &c) s (_S1       s
+        &f) s (_S1       s
+        &k) s (_S1       s
+        &p) s (_S1       s
+       &pe) s (_S1       s
+      &th)  s (_S1       s
+        &t) s (_S1       s
        _ha) s (_         z
 
 .group su
@@ -4629,7 +4629,7 @@
          s) t (l
             to (morr     t@
          _) to (nn       tV     
-         @) town (_$4    taUn
+         @) town (_S4    taUn
          _) tri (A       traI
          _) trie         traI
          _) tri (CA      traI
@@ -4999,7 +4999,7 @@
             wh (ol       h
          m) w (ich_
          B) wing (_      wIN
-         @) wise (_$4    waIz
+         @) wise (_S4    waIz
          e) with (_      w'ID
             with (C      w%ID
             with (A      w%ID
@@ -5144,19 +5144,19 @@
             E (BCe_      @
             E (Cia       'i:
             Ea (_        =i@
-        @@) Ed (_$2vei   d
-        &C) Ed (_$2vei   d
-        &c) Ed (_$2vei   t
-        &d) Ed (_$2vei   Id
-       &ch) Ed (_$2vei   t
-        &k) Ed (_$2vei   t
-     &@@om) Ed (_$2v     d
-        &p) Ed (_$2vei   t
-        &t) Ed (_$2vei   Id
-        ur) Ed (_$1vi    d
-        &x) Ed (_$2v     t
+        @@) Ed (_S2vei   d
+        &C) Ed (_S2vei   d
+        &c) Ed (_S2vei   t
+        &d) Ed (_S2vei   Id
+       &ch) Ed (_S2vei   t
+        &k) Ed (_S2vei   t
+     &@@om) Ed (_S2v     d
+        &p) Ed (_S2vei   t
+        &t) Ed (_S2vei   Id
+        ur) Ed (_S1vi    d
+        &x) Ed (_S2v     t
          y) Ed (_        d
-            Edly (_$4e   Idl%I
+            Edly (_S4e   Idl%I
             E (dia_      i:
             E (dic_      i:
        nak) E (d         I
@@ -5200,21 +5200,21 @@
             Er (C        3
             Ery (_       @r%I
             E (x_        E
-         &) Es (_$2e     z
-         c) Es (_$2e     I2z
-         c) E's (_$3e    I2z
-         f) Es (_$2e     s
-         g) Es (_$2e     I2z
-        ch) Es (_$2e     I2z
-        ph) Es (_$2e     I2z
-         k) Es (_$2e     s
-         p) Es (_$2e     s
-         s) Es (_$2e     I2z
-         s) E's (_$2e    I2z
-        sh) Es (_$2e     I2z
-         t) Es (_$2e     s
-         x) Es (_$2      I2z
-        Cr) Es (_$2e     @z
+         &) Es (_S2e     z
+         c) Es (_S2e     I2z
+         c) E's (_S3e    I2z
+         f) Es (_S2e     s
+         g) Es (_S2e     I2z
+        ch) Es (_S2e     I2z
+        ph) Es (_S2e     I2z
+         k) Es (_S2e     s
+         p) Es (_S2e     s
+         s) Es (_S2e     I2z
+         s) E's (_S2e    I2z
+        sh) Es (_S2e     I2z
+         t) Es (_S2e     s
+         x) Es (_S2      I2z
+        Cr) Es (_S2e     @z
             Ese (_       i:z
             E (sia       'i:
             Esque        'Esk
@@ -5229,25 +5229,25 @@
 
 
 .group '
-            's (_$2      z
-         f) 's (_$2      s
-         p) 's (_$2      s
-         t) 's (_$2      s
-         k) 's (_$2      s
-        se) 's (_$2      I2z
-         s) 's (_$2      I2z
-        ce) 's (_$2      I2z
-        ch) 's (_$2      I2z
-       och) 's (_$2      s
-        sh) 's (_$2      I2z
-         x) 's (_$2      I2z
-         z) 's (_$2      I2z
+            's (_S2      z
+         f) 's (_S2      s
+         p) 's (_S2      s
+         t) 's (_S2      s
+         k) 's (_S2      s
+        se) 's (_S2      I2z
+         s) 's (_S2      I2z
+        ce) 's (_S2      I2z
+        ch) 's (_S2      I2z
+       och) 's (_S2      s
+        sh) 's (_S2      I2z
+         x) 's (_S2      I2z
+         z) 's (_S2      I2z
         6_) 's (_        I2z
        16_) 's (_        z
-            're (_$3     @
-            've (_$3     v
-            'd (_$2      d
-            'll (_$3     @L
+            're (_S3     @
+            've (_S3     v
+            'd (_S2      d
+            'll (_S3     @L
 
 
 .group 0xce   // Greek letters

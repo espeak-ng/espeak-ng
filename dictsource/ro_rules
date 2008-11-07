@@ -176,9 +176,9 @@
         i (A     j
 
      @) i (e_    j
-    &C) i (_N$1q i/
-     &) i (_N$1q i
-     &) i (-N$1q i        // don't reduce to [I^] if a hyphen follows
+    &C) i (_NS1q i/
+     &) i (_NS1q i
+     &) i (-NS1q i        // don't reduce to [I^] if a hyphen follows
      ţ) i (-Că   i
      ţ) i (-Ci   i
 

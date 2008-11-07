@@ -312,6 +312,11 @@ static char nullstring[] = {0};
 			break;
 	
 		case 1:
+			if(c == '-')
+			{
+				flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
+				c = ' ';
+			}
 			if(isspace2(c))
 			{
 				p[0] = 0;   /* terminate english word */

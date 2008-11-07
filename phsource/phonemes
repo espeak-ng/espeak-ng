@@ -1138,6 +1138,13 @@ phoneme x
   switchvoicing Q
 endphoneme
 
+phoneme X
+  vls uvl frc
+  lengthmod 3
+  wave ufric/xx3
+  before _ ufric/xx3%70
+endphoneme
+
 
 phoneme h
   vls glt apr
@@ -1325,3 +1332,9 @@ include ph_nepali
 
 phonemetable lv base
 include ph_latvian
+
+phonemetable hy base
+include ph_armenian_west
+
+phonemetable om base
+include ph_oromo

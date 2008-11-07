@@ -82,6 +82,12 @@ const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x3001,  // ideograph comma
   0x3002,  // ideograph period
 
+  0x0589,  // Armenian period
+  0x055d,  // Armenian comma
+  0x055c,  // Armenian exclamation
+  0x055e,  // Armenian question
+  0x055b,  // Armenian emphasis mark
+
   0xff01,  // fullwidth exclamation
   0xff0c,  // fullwidth comma
   0xff0e,  // fullwidth period
@@ -105,6 +111,12 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_PERIOD+0x8000,     // Devanagari Danda (fullstop)
   CLAUSE_COMMA+0x8000,      // ideograph comma
   CLAUSE_PERIOD+0x8000,     // ideograph period
+
+  CLAUSE_PERIOD+0x8000,  // Armenian period
+  CLAUSE_COMMA,     // Armenian comma
+  CLAUSE_EXCLAMATION + PUNCT_IN_WORD,  // Armenian exclamation
+  CLAUSE_QUESTION + PUNCT_IN_WORD,  // Armenian question
+  CLAUSE_PERIOD + PUNCT_IN_WORD,  // Armenian emphasis mark
 
   CLAUSE_EXCLAMATION+0x8000, // fullwidth
   CLAUSE_COMMA+0x8000,
@@ -1826,8 +1838,8 @@ MNEM_TAB xml_char_mnemonics[] = {
 	{NULL,-1}};
 
 
-int Translator::ReadClause(FILE *f_in, char *buf, short *charix, int n_buf)
-{//========================================================================
+int Translator::ReadClause(FILE *f_in, char *buf, short *charix, int n_buf, int *tone_type)
+{//========================================================================================
 /* Find the end of the current clause.
 	Write the clause into  buf
 
@@ -1855,6 +1867,7 @@ int Translator::ReadClause(FILE *f_in, char *buf, short *charix, int n_buf)
 	int any_alnum = 0;
 	int self_closing;
 	int punct_data;
+	int stressed_word = 0;
 	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
 
@@ -1872,6 +1885,7 @@ int Translator::ReadClause(FILE *f_in, char *buf, short *charix, int n_buf)
 	clause_upper_count = 0;
 	clause_lower_count = 0;
 	end_of_input = 0;
+	*tone_type = 0;
 
 f_input = f_in;  // for GetC etc
 
@@ -2110,25 +2124,35 @@ f_input = f_in;  // for GetC etc
 		if(iswalnum(c1))
 			any_alnum = 1;
 		else
-		if(iswspace(c1))
 		{
-			char *p_word;
-
-			if(translator_name == 0x6a626f)
+			if(stressed_word)
 			{
-				// language jbo : lojban
-				// treat "i" or ".i" as end-of-sentence
-				p_word = &buf[ix-1];
-				if(p_word[0] == 'i')
+				stressed_word = 0;
+				c1 = CHAR_EMPHASIS;   // indicate this word is strtessed
+				UngetC(c2);
+				c2 = ' ';
+			}
+
+			if(iswspace(c1))
+			{
+				char *p_word;
+	
+				if(translator_name == 0x6a626f)
 				{
-					if(p_word[-1] == '.')
-						p_word--;
-					if(p_word[-1] == ' ')
+					// language jbo : lojban
+					// treat "i" or ".i" as end-of-sentence
+					p_word = &buf[ix-1];
+					if(p_word[0] == 'i')
 					{
-						ungot_word = "i ";
-						UngetC(c2);
-						p_word[0] = 0;
-						return(CLAUSE_PERIOD);
+						if(p_word[-1] == '.')
+							p_word--;
+						if(p_word[-1] == ' ')
+						{
+							ungot_word = "i ";
+							UngetC(c2);
+							p_word[0] = 0;
+							return(CLAUSE_PERIOD);
+						}
 					}
 				}
 			}
@@ -2218,7 +2242,17 @@ if(option_ssml) parag=1;
 
 		if((phoneme_mode==0) && (sayas_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0))
 		{
-			if((iswspace(c2) || (punct_attributes[punct] & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
+			punct_data = punct_attributes[punct];
+
+			if(punct_data & PUNCT_IN_WORD)
+			{
+				// Armenian punctuation inside a word
+				stressed_word = 1;
+				*tone_type = punct_data >> 12 & 0xf;   // override the end-of-sentence type
+				continue;
+			}
+
+			if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 			{
 				// note: (c2='?') is for when a smart-quote has been replaced by '?'
 				buf[ix] = ' ';
@@ -2294,6 +2328,11 @@ if(option_ssml) parag=1;
 			UngetC(c2);
 			return(CLAUSE_NONE);
 		}
+	}
+
+	if(stressed_word)
+	{
+		ix += utf8_out(CHAR_EMPHASIS, &buf[ix]);
 	}
 	buf[ix] = ' ';
 	buf[ix+1] = 0;

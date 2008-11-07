@@ -542,7 +542,10 @@ void Translator::CalcLengths()
 			if(end_of_clause == 2)
 			{
 				// this is the last syllable in the clause, lengthen it - more for short vowels
-				length_mod = length_mod * (256 + (280 - p->ph->std_length)/3)/256;
+				len = p->ph->std_length;
+				if(langopts.stress_flags & 0x40000)
+					len=200;  // don't lengthen short vowels more than long vowels at end-of-clause
+				length_mod = length_mod * (256 + (280 - len)/3)/256;
 			}
 
 if(p->type != phVOWEL)

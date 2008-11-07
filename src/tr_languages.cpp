@@ -45,6 +45,7 @@
 // start of unicode pages for character sets
 #define OFFSET_GREEK  0x380
 #define OFFSET_CYRILLIC 0x420
+#define OFFSET_ARMENIAN 0x530
 #define OFFSET_DEVANAGARI  0x900
 #define OFFSET_BENGALI 0x980
 #define OFFSET_TAMIL  0xb80
@@ -431,6 +432,22 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('h','y'):   // Armenian
+		{
+			static const char hy_vowels[] = {0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0};
+			static const char hy_consonants[] = {0x32,0x33,0x34,0x36,0x39,0x3a,0x3c,0x3d,0x3e,0x3f,
+				0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
+			tr = new Translator();
+			tr->langopts.stress_rule = 3;  // default stress on final syllable
+
+			tr->letter_bits_offset = OFFSET_ARMENIAN;
+			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+			SetLetterBits(tr,LETTERGP_A,hy_vowels);
+			SetLetterBits(tr,LETTERGP_C,hy_consonants);
+			tr->langopts.max_initial_consonants = 4;
+		}
+		break;
+
 	case L('i','d'):   // Indonesian
 		{
 			static const short stress_lengths_id[8] = {160, 200,  180, 180,  0, 0,  220, 240};
@@ -563,8 +580,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 0;
 			tr->langopts.spelling_stress = 1;
 			tr->charset_a0 = charsets[4];   // ISO-8859-4
-			tr->langopts.numbers = 0x409;
-			tr->langopts.stress_flags = 0x16;
+			tr->langopts.numbers = 0x409 + 0x8000 + 0x10000;
+			tr->langopts.stress_flags = 0x16 + 0x40000;
 		}
 		break;
 
