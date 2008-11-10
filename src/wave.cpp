@@ -652,29 +652,40 @@ void* wave_open(const char* the_api)
 //>
 //<copyBuffer
 
-static size_t copyBuffer(char* dest, char* src, size_t theSizeInBytes)
-{
-  size_t bytes_written=0;
-  if(out_channels==1)
-    {
-      SHOW("copyBuffer > memcpy %x (%d bytes)\n", (int)myWrite, theSizeInBytes);
-      memcpy(dest, src, theSizeInBytes);
-      bytes_written = theSizeInBytes;
-    }
-  else
-    {
-      SHOW("copyBuffer > memcpy %x (%d bytes)\n", (int)myWrite, 2*theSizeInBytes);
-      unsigned int i;
-      uint16_t* a_dest = (uint16_t*)dest;
-      uint16_t* a_src = (uint16_t*)src;
-      for(i=0; i<theSizeInBytes/2; i++)
-	{
-	  a_dest[2*i] = a_src[i];
-	  a_dest[2*i + 1] = a_src[i];
-	}
-      bytes_written = 2*theSizeInBytes;
-    }
-  return bytes_written;
+
+static size_t copyBuffer(char* dest, char* src, const size_t theSizeInBytes) 
+{ 
+	size_t bytes_written = 0;
+	unsigned int i = 0;
+	uint16_t* a_dest = NULL;
+	uint16_t* a_src = NULL;
+ 
+	if ((src != NULL) && dest != NULL)
+	{ 
+		// copy for one channel (mono)?
+		if(out_channels==1)
+		{ 
+			SHOW("copyBuffer > 1 channel > memcpy %x (%d bytes)\n", (int)myWrite, theSizeInBytes);
+			memcpy(dest, src, theSizeInBytes);
+			bytes_written = theSizeInBytes;
+		}
+		else // copy for 2 channels (stereo)
+		{
+			SHOW("copyBuffer > 2 channels > memcpy %x (%d bytes)\n", (int)myWrite, theSizeInBytes);
+			i = 0;
+			a_dest = (uint16_t* )dest;
+			a_src = (uint16_t* )src;
+ 
+			for(i=0; i<theSizeInBytes/2; i++)
+			{
+				a_dest[2*i] = a_src[i];
+				a_dest[2*i+1] = a_src[i];
+			}
+			bytes_written = 2*theSizeInBytes;
+		} // end if(out_channels==1)
+	} // end if ((src != NULL) && dest != NULL)
+ 
+	return bytes_written; 
 }
 
 //>
@@ -682,107 +693,125 @@ static size_t copyBuffer(char* dest, char* src, size_t theSizeInBytes)
 
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize)
 {
-  ENTER("wave_write");
-  size_t bytes_written = 0;
-  size_t bytes_to_write = (out_channels==1) ? theSize : theSize*2;
-  my_stream_could_start = 0;
-
-  if(pa_stream == NULL)
-    {
-      SHOW_TIME("wave_write > wave_open_sound\n");
-      if (0 != wave_open_sound())
+	ENTER("wave_write");
+	size_t bytes_written = 0;
+	// space in ringbuffer for the sample needed: 1x mono channel but 2x for 1 stereo channel
+	size_t bytes_to_write = (out_channels==1) ? theSize : theSize*2;
+	my_stream_could_start = 0;
+ 
+	if(pa_stream == NULL)
 	{
-	  SHOW_TIME("wave_write > wave_open_sound fails!");
-	  return 0;
+		SHOW_TIME("wave_write > wave_open_sound\n");
+		if (0 != wave_open_sound())
+		{
+			SHOW_TIME("wave_write > wave_open_sound fails!");
+			return 0;
+		}
+		my_stream_could_start=1;
 	}
-      my_stream_could_start=1;
-    }
-  else if (!wave_is_busy(NULL))
-    {
-      my_stream_could_start = 1;
-    }
-  assert(BUFFER_LENGTH >= bytes_to_write);
-
-  if (myWrite >= myBuffer + BUFFER_LENGTH)
-    {
-      myWrite = myBuffer;
-    }
-
-  size_t aTotalFreeMem=0;
-  char* aRead = myRead;
-  SHOW("wave_write > aRead=%x, myWrite=%x\n", (int)aRead, (int)myWrite);
-
-  while (1) 
-    {
-      if (my_callback_is_output_enabled 
-	  && (0==my_callback_is_output_enabled()))
+	else if (!wave_is_busy(NULL))
 	{
-	  SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
-	  return 0;
+		my_stream_could_start = 1;
 	}
-
-      aRead = myRead;
-
-      if (myWrite >= aRead)
+	assert(BUFFER_LENGTH >= bytes_to_write);
+ 
+	if (myWrite >= myBuffer + BUFFER_LENGTH)
 	{
-	  aTotalFreeMem = aRead + BUFFER_LENGTH - myWrite;
-	}
-      else
+		myWrite = myBuffer;
+	} // end if (myWrite >= myBuffer + BUFFER_LENGTH)
+ 
+	size_t aTotalFreeMem=0;
+	char* aRead = myRead;
+	SHOW("wave_write > aRead=%x, myWrite=%x\n", (int)aRead, (int)myWrite);
+ 
+	while (1)
 	{
-	  aTotalFreeMem = aRead - myWrite;
-	}
-
-      if (aTotalFreeMem>1)
+		if (my_callback_is_output_enabled && (0==my_callback_is_output_enabled()))
+		{
+			SHOW_TIME("wave_write > my_callback_is_output_enabled: no!");
+			return 0;
+		}
+ 
+		aRead = myRead;
+ 
+		// write pointer is before read pointer?
+		if (myWrite >= aRead)
+		{
+			aTotalFreeMem = aRead + BUFFER_LENGTH - myWrite;
+		}
+		else // read pointer is before write pointer!
+		{
+			aTotalFreeMem = aRead - myWrite;
+		} // end if (myWrite >= aRead)
+ 
+		if (aTotalFreeMem>1)
+		{
+			// -1 because myWrite must be different of aRead
+			// otherwise buffer would be considered as empty
+			aTotalFreeMem -= 1;
+		} // end if (aTotalFreeMem>1)
+ 
+		if (aTotalFreeMem >= bytes_to_write)
+		{
+			break;
+		} // end if (aTotalFreeMem >= bytes_to_write)
+		
+		//SHOW_TIME("wave_write > wait");
+		SHOW("wave_write > wait: aTotalFreeMem=%d\n", aTotalFreeMem);
+		SHOW("wave_write > aRead=%x, myWrite=%x\n", (int)aRead, (int)myWrite);
+		usleep(10000);
+	} // end while (1)
+ 
+	aRead = myRead;
+ 
+	// write pointer is ahead the read pointer?
+	if (myWrite >= aRead)
 	{
-	  // -1 because myWrite must be different of aRead
-	  // otherwise buffer would be considered as empty
-	  aTotalFreeMem -= 1;
-	}
-
-      if (aTotalFreeMem >= bytes_to_write)
+		SHOW_TIME("wave_write > myWrite >= aRead");
+		// determine remaining free memory to the end of the ringbuffer
+		size_t aFreeMem = myBuffer + BUFFER_LENGTH - myWrite;
+		// is enough linear space available (regardless 1 or 2 channels)?
+		if (aFreeMem >= bytes_to_write)
+		{
+			// copy direct - no wrap around at end of ringbuffer needed
+			myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer, theSize);
+		}
+		else // not enough linear space available
+		{
+			// 2 channels (stereo)?
+			if (out_channels == 2)
+			{
+				// copy with wrap around at the end of ringbuffer
+				const size_t bytes_written = copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem/2);
+				myWrite = myBuffer;
+				myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer+aFreeMem/2, theSize - aFreeMem/2);
+			}
+			else // 1 channel (mono)
+			{
+				// copy with wrap around at the end of ringbuffer
+				const size_t bytes_written = copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem);
+				myWrite = myBuffer;
+				myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer+aFreeMem, theSize - aFreeMem);
+			} // end if (out_channels == 2)
+		} // end if (aFreeMem >= bytes_to_write)
+	} // if (myWrite >= aRead)
+	else // read pointer is ahead the write pointer
 	{
-	  break;
-	}
-      //      SHOW_TIME("wave_write > wait");
-      SHOW("wave_write > wait: aTotalFreeMem=%d\n", aTotalFreeMem);
-      SHOW("wave_write > aRead=%x, myWrite=%x\n", (int)aRead, (int)myWrite);
-      usleep(10000);
-    }
-
-  aRead = myRead;
-
-  if (myWrite >= aRead)
-    {
-      SHOW_TIME("wave_write > myWrite > aRead");
-      size_t aFreeMem = myBuffer + BUFFER_LENGTH - myWrite;
-      if (aFreeMem >= bytes_to_write)
+		SHOW_TIME("wave_write > myWrite <= aRead");
+		myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer, theSize);
+	} // end if (myWrite >= aRead)
+ 
+	bytes_written = bytes_to_write;
+	myWritePosition += theSize/sizeof(uint16_t); // add number of samples
+ 
+	if (my_stream_could_start && (get_used_mem() >= out_channels * sizeof(uint16_t) * FRAMES_PER_BUFFER))
 	{
-	  myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer, theSize);
-	}
-      else
-	{
-	  int bytes_written = copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem);
-	  myWrite = myBuffer;
-	  myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer+aFreeMem, bytes_to_write-bytes_written);
-	}
-    }
-  else
-    {
-      SHOW_TIME("wave_write > myWrite <= aRead");
-      myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer, theSize);
-    }
-
-  bytes_written = theSize;
-  myWritePosition += theSize/sizeof(uint16_t); // add number of samples
-
-  if (my_stream_could_start && (get_used_mem() >= out_channels * sizeof(uint16_t) * FRAMES_PER_BUFFER))
-    {
-      start_stream();
-    }
-
-  SHOW_TIME("wave_write > LEAVE");
-
-  return bytes_written;
+		start_stream();
+	} // end if (my_stream_could_start && (get_used_mem() >= out_channels * sizeof(uint16_t) * FRAMES_PER_BUFFER))
+ 
+	SHOW_TIME("wave_write > LEAVE");
+ 
+	return bytes_written;
 }
 
 //>

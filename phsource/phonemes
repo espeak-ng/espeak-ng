@@ -1324,6 +1324,9 @@ include ph_albanian
 phonemetable ml hi
 include ph_malayalam
 
+phonemetable kn hi
+include ph_kannada
+
 phonemetable bn hi
 include ph_bengali
 

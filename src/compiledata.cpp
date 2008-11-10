@@ -602,7 +602,7 @@ int Compile::LoadSpect(const char *path, int control)
 	float total;
 	float pkheight;
 	int marker1_set=0;
-	int frame_vowelbreak;
+	int frame_vowelbreak=NULL;
 	SpectFrame *fr;
 	wxString path_sep = _T("/");
 

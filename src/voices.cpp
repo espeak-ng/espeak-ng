@@ -547,6 +547,12 @@ voice_t *LoadVoice(const char *vname, int control)
 			langname[1] = voicename[1];
 			langname[2] = 0;
 			sprintf(buf,"%s%s%c%s",path_voices,langname,PATHSEP,voicename);
+
+			if(GetFileLength(buf) <= 0)
+			{
+				// look in "test" sub-directory
+				sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
+			}
 		}
 	}
 

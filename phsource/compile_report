@@ -1,4 +1,4 @@
-57 phoneme tables
+58 phoneme tables
           new total
     base 101  101
    base2  24  120
@@ -52,10 +52,11 @@
       da  15  131
       sq  23  129
       ml  13  141
+      kn  15  141
       bn  59  147
       ne  23  151
       lv  28  123
-      hy  16  114
+      hy  17  115
       om  18  118
 
 Data file      Used by
@@ -597,6 +598,8 @@ r3/r_trill.wav  [R2] base
                 [x] pt
                 [R2] lv
 r3/r_u          [(u)] base
+r3/r_ulv        [r"] hy
+r3/r_uvl        [r"] hy
 r3/rx           [*] base
                 [r/] base
                 [r/] af
@@ -1100,6 +1103,7 @@ vdiph/aau_2     [aU] en_wi
                 [aU] la
                 [aau] zhy
 vdiph/aau_3     [aU] hi
+                [aU] kn
                 [aU] bn
                 [aU] ne
 vdiph/aau_4     [aU] vi
@@ -1115,6 +1119,7 @@ vdiph/ai        [aI] base2
                 [aI] pt
                 [a:I] vi
                 [aI] id
+                [aI] kn
                 [aI] hy
 vdiph/ai_2      [aI] cy
                 [aY] cy
@@ -1402,6 +1407,7 @@ vowel/@         [@] base
                 [V] cy
                 [@4] hi
                 [@] ml
+                [@] kn
                 [@4] bn
                 [@] hy
 vowel/@-        [@-] base
@@ -1412,6 +1418,8 @@ vowel/&         [a] en_rp
                 [&] sv
                 [&] bn
                 [&:] bn
+                [&] lv
+                [&:] lv
 vowel/0         [0] en
                 [O] hi
                 [O] pt
@@ -1493,6 +1501,7 @@ vowel/a#_2      [a#] pl
                 [&] is
                 [a/] sw
                 [a/] sq
+                [a] kn
 vowel/a_3       [a] en_sc
                 [a/] en_sc
                 [A:] en_sc
@@ -1527,6 +1536,7 @@ vowel/a_5       [a:] ta
                 [a] tr
                 [a] sq
                 [a:] ml
+                [a:] kn
 vowel/a_6       [a] fr
                 [a2] fr
 vowel/aa        [a] fi
@@ -1570,6 +1580,7 @@ vowel/@_bck     [@] hi
                 [@/] hi
                 [@] zh
                 [@] bn
+                [V] ne
                 [@/] ne
 vowel/e         [e] base2
                 [e:] en
@@ -1598,6 +1609,7 @@ vowel/e         [e] base2
                 [e] da
                 [e] ml
                 [e:] ml
+                [e:] kn
                 [e] ne
 vowel/e#        [I] en_sc
                 [I2] en_sc
@@ -1644,8 +1656,6 @@ vowel/ee_3      [&] af
 vowel/ee_6      [&] sk
                 [E3] sv
                 [E] ku
-                [&] lv
-                [&:] lv
 vowel/e_mid     [E] en_rp
                 [e] jbo
                 [E] fr
@@ -1667,7 +1677,6 @@ vowel/e_mid     [E] en_rp
                 [E2] id
                 [E] da
                 [E] bn
-                [e] lv
                 [e] hy
 vowel/e_mid2    [E] af
                 [E] de
@@ -1682,6 +1691,8 @@ vowel/e_mid2    [E] af
                 [e] sw
                 [e] tr
                 [E] ko
+                [e] kn
+                [e] lv
                 [e:] lv
                 [E] om
 vowel/@_fnt     [@] en_wi
@@ -1713,6 +1724,7 @@ vowel/i         [i] base2
                 [i#] rw
                 [i] ko
                 [i:] ml
+                [i:] kn
                 [i] ne
                 [i] hy
                 [i:] om
@@ -1726,7 +1738,6 @@ vowel/i_3       [i] af
                 [i] fr
                 [i:] fr
                 [i:] sk
-                [i] lv
                 [i:] lv
 vowel/i_4       [i] fi
                 [i] hu
@@ -1743,6 +1754,8 @@ vowel/i_6       [i] ta
                 [i] ku
                 [i] id
                 [i] ml
+                [i] kn
+                [i] lv
 vowel/i#_6      [i.] zh
 vowel/i_7       [i] pl
 vowel/i#_7      [i[] zh
@@ -1774,6 +1787,7 @@ vowel/ii#       [Y] cy
                 [i] sq
                 [e#] sq
                 [y] ml
+                [y] kn
 vowel/ii_2      [i] zh
 vowel/ii#_2     [y] pl
 vowel/ii_3      [I] cy
@@ -1839,6 +1853,8 @@ vowel/o         [o] base2
                 [o#] rw
                 [o] ml
                 [o:] ml
+                [o] kn
+                [o:] kn
                 [o] bn
                 [o] hy
 vowel/o_2       [o:] cy
@@ -1952,6 +1968,8 @@ vowel/u         [u:] en_wi
                 [u] id
                 [u] ml
                 [u:] ml
+                [u] kn
+                [u:] kn
                 [u] bn
                 [u:] om
 vowel/u#        [u:] en_sc
@@ -2026,7 +2044,6 @@ vowel/uu_bck    [U] en_wi
                 [U] om
 vowel/u_unr     [u-] ko
 vowel/V         [3] en_sc
-                [V] ne
 vowel/V_2       [V] en
                 [a] af
                 [V] ru

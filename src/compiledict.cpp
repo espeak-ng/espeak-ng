@@ -186,6 +186,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	int len_phonetic;
 	int text_not_phonemes;   // this word specifies replacement text, not phonemes
 	unsigned int  wc;
+	int all_upper_case;
 	
 	char *mnemptr;
 	char *comment;
@@ -430,11 +431,34 @@ static char nullstring[] = {0};
 		word[ix] = 0;
 	}
 	else
-	if((word[0] & 0x80)==0)  // 7 bit ascii only
+	if(word[0] != '_')
 	{
-		// If first letter is uppercase, convert to lower case.  (Only if it's 7bit ascii)
-		// ??? need to consider utf8 here
-		word[0] = tolower(word[0]);
+		// convert to lower case, and note if the word is all-capitals
+		int c2;
+
+		all_upper_case = 1;
+		p = word;
+		for(p=word;;)
+		{
+			// this assumes that the lower case char is the same length as the upper case char
+			// OK, except for Turkish "I", but use towlower() rather than towlower2()
+			ix = utf8_in(&c2,p,0);
+			if(c2 == 0)
+				break;
+			if(iswupper(c2))
+			{
+				utf8_out(towlower(c2),p);
+			}
+			else
+			{
+				all_upper_case = 0;
+			}
+			p += ix;
+		}
+		if(all_upper_case)
+		{
+			flag_codes[n_flag_codes++] = BITNUM_FLAG_ALLCAPS;
+		}
 	}
 
 	len_word = strlen(word);
@@ -793,9 +817,12 @@ void copy_rule_string(char *string, int &state)
 					}
 					break;
 
+				case '$':   // obsolete, replaced by S
+						fprintf(f_log,"%5d: $ now not allowed, use S for suffix",linenum);
+						error_count++;
+					break;
 				case 'P':
 					sxflags |= SUFX_P;   // Prefix, now drop through to Suffix
-				case '$':   // obsolete, replaced by S
 				case 'S':
 					output[ix++] = RULE_ENDING;
 					value = 0;

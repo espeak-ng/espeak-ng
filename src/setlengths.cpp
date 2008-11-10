@@ -487,6 +487,14 @@ void Translator::CalcLengths()
 			}
 
 			// calc length modifier
+			if(next->ph->code == phonPAUSE_VSHORT)
+			{
+				// ignore very short pause
+				next = next2;
+				next2 = next3;
+				next3 = &phoneme_list[ix+4];
+			}
+
 			if(more_syllables==0)
 			{
 				len = langopts.length_mods0[next2->ph->length_mod *10+ next->ph->length_mod];

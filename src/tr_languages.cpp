@@ -49,6 +49,7 @@
 #define OFFSET_DEVANAGARI  0x900
 #define OFFSET_BENGALI 0x980
 #define OFFSET_TAMIL  0xb80
+#define OFFSET_KANNADA 0xc80
 #define OFFSET_MALAYALAM 0xd00
 #define OFFSET_KOREAN 0x1100
 
@@ -274,7 +275,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('e','o'):
 		{
-			static const short stress_lengths_eo[8] = {145, 180,  200, 190,    0,   0,  300, 320};
+			static const short stress_lengths_eo[8] = {145, 145,  200, 170,    0,   0,  320, 340};
 			static const unsigned char stress_amps_eo[] = {16,14, 20,20, 20,24, 24,22 };
 			static const wchar_t eo_char_apostrophe[2] = {'l',0};
 		
@@ -284,10 +285,10 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[3];  // ISO-8859-3
 			tr->char_plus_apostrophe = eo_char_apostrophe;
 
-			tr->langopts.vowel_pause = 1;
+			tr->langopts.word_gap = 1;
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
-			tr->langopts.unstressed_wd1 = 1;
+			tr->langopts.unstressed_wd1 = 3;
 			tr->langopts.unstressed_wd2 = 2;
 
 			tr->langopts.numbers = 0x1409 + NUM_ROMAN;
@@ -434,17 +435,19 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('h','y'):   // Armenian
 		{
+			static const short stress_lengths_hy[8] = {250, 200,  250, 250,  0, 0,  250, 250};
 			static const char hy_vowels[] = {0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0};
 			static const char hy_consonants[] = {0x32,0x33,0x34,0x36,0x39,0x3a,0x3c,0x3d,0x3e,0x3f,
 				0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
 			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_hy,NULL);
 			tr->langopts.stress_rule = 3;  // default stress on final syllable
 
 			tr->letter_bits_offset = OFFSET_ARMENIAN;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,hy_vowels);
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
-			tr->langopts.max_initial_consonants = 4;
+			tr->langopts.max_initial_consonants = 6;
 		}
 		break;
 
@@ -783,6 +786,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('t','a'):  // Tamil
 	case L('m','l'):  // Malayalam
+	case L('k','n'):  // Kannada
 		{
 			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -798,6 +802,11 @@ SetLengthMods(tr,3);  // all equal
 			if(name2 == L('m','l'))
 			{
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
+			}
+			else
+			if(name2 == L('k','n'))
+			{
+				tr->letter_bits_offset = OFFSET_KANNADA;
 			}
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			SetIndicLetters(tr);   // call this after setting OFFSET_

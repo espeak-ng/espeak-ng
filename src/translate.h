@@ -75,6 +75,7 @@
 #define FLAG_VERB_EXT        0x100  /* extend the 'verb follows' */
 #define FLAG_CAPITAL         0x200  /* pronunciation if initial letter is upper case */
 #define FLAG_ALLCAPS         0x400  // only if the word is all capitals
+#define BITNUM_FLAG_ALLCAPS   0x2a
 #define FLAG_ACCENT          0x800  // character name is base-character name + accent name
 #define FLAG_HYPHENATED     0x1000  // multiple-words, but needs hyphen between parts 1 and 2
 #define BITNUM_FLAG_HYPHENATED  0x2c
