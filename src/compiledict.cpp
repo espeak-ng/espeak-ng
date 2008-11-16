@@ -50,6 +50,7 @@ static int debug_flag = 0;
 
 int hash_counts[N_HASH_DICT];
 char *hash_chains[N_HASH_DICT];
+char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_flags[] = {
 	// these in the first group put a value in bits0-3 of dictionary_flags
@@ -199,6 +200,10 @@ static char nullstring[] = {0};
 	text_not_phonemes = 0;
 	phonetic = word = nullstring;
 
+if(memcmp(linebuf,"_-",2)==0)
+{
+step=1;  // TEST
+}
 	p = linebuf;
 //	while(isspace2(*p)) p++;
 
@@ -313,7 +318,7 @@ static char nullstring[] = {0};
 			break;
 	
 		case 1:
-			if(c == '-')
+			if((c == '-') && (word[0] != '_'))
 			{
 				flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
 				c = ' ';
@@ -798,10 +803,16 @@ void copy_rule_string(char *string, int &state)
 					c = *p++ - '0';
 					value = *p++ - '0';
 					c = c * 10 + value;
-					if((value < 0) || (value > 9) || (c <= 0) || (c >= N_LETTER_GROUPS))
+					if((value < 0) || (value > 9))
 					{
 						c = 0;
-						fprintf(f_log,"%5d: Expected 2 digits after 'L'",linenum);
+						fprintf(f_log,"%5d: Expected 2 digits after 'L'\n",linenum);
+						error_count++;
+					}
+					else
+					if((c <= 0) || (c >= N_LETTER_GROUPS) || (letterGroupsDefined[(int)c] == 0))
+					{
+						fprintf(f_log,"%5d: Letter group L%.2d not defined\n",linenum,c);
 						error_count++;
 					}
 					c += 'A';
@@ -1249,18 +1260,25 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	p = input;
 	if(!isdigit(p[0]) || !isdigit(p[1]))
 	{
+		fprintf(f_log,"%5d: Expected 2 digits after '.L'\n",linenum);
+		error_count++;
 		return(1);
 	}
 
-	group = atoi(&p[1]);
+	group = atoi(&p[0]);
 	if(group >= N_LETTER_GROUPS)
+	{
+		fprintf(f_log,"%5d: lettergroup out of range (01-%.2d)\n",linenum,N_LETTER_GROUPS);
+		error_count++;
 		return(1);
+	}
 
 	while(!isspace2(*p)) p++;
 
 	fputc(RULE_GROUP_START,f_out);
 	fputc(RULE_LETTERGP2,f_out);
 	fputc(group + 'A', f_out);
+	letterGroupsDefined[group] = 1;
 
 	for(;;)
 	{
@@ -1346,11 +1364,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 
 			if(memcmp(buf,".L",2)==0)
 			{
-				if(compile_lettergroup(&buf[2], f_out) != 0)
-				{
-					fprintf(f_log,"%5d: Bad lettergroup\n",linenum);
-					error_count++;
-				}
+				compile_lettergroup(&buf[2], f_out);
 				continue;
 			}
 
@@ -1509,6 +1523,8 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	char path[sizeof(path_home)+40];       // path_dsource+20
 
 	error_count = 0;
+	memset(letterGroupsDefined,0,sizeof(letterGroupsDefined));
+
 	debug_flag = flags & 1;
 
 	if(dsource == NULL)

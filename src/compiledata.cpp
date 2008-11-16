@@ -264,6 +264,7 @@ static keywtab_t keywords[] = {
 	{"long",       0x2000000+phLONG},
 	{"brkafter",   0x2000000+phBRKAFTER},
 	{"nonsyllabic",0x2000000+phNONSYLLABIC},
+	{"lengthenstop",0x2000000+phLENGTHENSTOP},
 
 	// voiced / unvoiced
 	{"vcd",	0x2000000+phVOICED},
@@ -602,7 +603,7 @@ int Compile::LoadSpect(const char *path, int control)
 	float total;
 	float pkheight;
 	int marker1_set=0;
-	int frame_vowelbreak=NULL;
+	int frame_vowelbreak=0;
 	SpectFrame *fr;
 	wxString path_sep = _T("/");
 

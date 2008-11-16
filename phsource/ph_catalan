@@ -1,0 +1,67 @@
+
+//====================================================
+//  Catalan  - based on Spanish and Base2
+//====================================================
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vowel/a_2
+  reduceto a#  2
+endphoneme
+
+phoneme a#
+  vowel starttype (@) endtype (@)
+  length 170
+  formants vowel/a#_3
+  unstressed
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e
+  reduceto @  2
+endphoneme
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 180
+  formants vowel/e_mid
+  reduceto @  2
+endphoneme
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/oo
+  reduceto U  2
+endphoneme
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o
+  reduceto U  2
+endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/uu_2
+  unstressed
+endphoneme
+
+
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/2       // use 'dark' [l] after a vowel
+  formants l/l
+  after _ l/_l  t l/tl
+endphoneme
+
+
+

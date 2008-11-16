@@ -57,15 +57,6 @@ _6C     m,ias'ita
 _7C     m,ias'aba
 _8C     m,ian'ane
 _9C     m,iat'isa
-_1L    l'akim'oJa
-_2L    l'aki_|mb'ili
-_3L    l'akit'atu
-_4L    l'aki'n-ne
-_5L    l'akit'ano
-_6L    l'akis'ita
-_7L    l'akis'aba
-_8L    l'akin'ane
-_9L    l'akit'isa
 _0M1    'elfu
 _1M1    ,elfum'oJa
 _2M1    ,elfu_|mb'ili
@@ -76,7 +67,17 @@ _6M1    ,elfus'ita
 _7M1    ,elfus'aba
 _8M1    ,elfun'ane
 _9M1    ,elfut'isa
-_0M2    _|mili'oni
+_1M2	l'akim'oJa
+_2M2	l'aki_|mb'ili
+_3M2	l'akit'atu
+_4M2	l'aki'n-ne
+_5M2	l'akit'ano
+_6M2	l'akis'ita
+_7M2	l'akis'aba
+_8M2	l'akin'ane
+_9M2	l'akit'isa
+_0M3	_|mili'oni  // 1,000,000
+_0M4	_|bili'oni
 _dpt    _nukta
 _0and   _|na
 

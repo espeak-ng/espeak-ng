@@ -29,7 +29,7 @@
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
-#define N_LETTER_GROUPS   20
+#define N_LETTER_GROUPS   25
 
 
 /* dictionary flags, word 1 */
@@ -322,9 +322,10 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-#define NUM_ROMAN    0x20000
-#define NUM_ROMAN_UC 0x40000
-#define NUM_NOPAUSE  0x80000
+#define NUM_ROMAN        0x20000
+#define NUM_ROMAN_UC     0x40000
+#define NUM_NOPAUSE      0x80000
+#define NUM_ROMAN_AFTER 0x200000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -344,13 +345,17 @@ typedef struct {
 	// bit18=Roman numbers only if upper case
 	// bit19=don't add pause after a number
 	// bit20='and' before hundreds
+	// bit21= say "roman" after the number, not before
 	int numbers;
 
+#define NUM2_100000     0x100   // numbers for 100,000 and 10,000,000
+#define NUM2_100000a    0x500   // numbers for 100,000 and 1,000,000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
-	// bit8=(LANG=sw) special word for 100,000s
+	// bit8=(LANG=hi) special word for 100,000 and 10,000,000
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
+   // bit10=(LANG=sw) special word for 100,000 and 1,000,000
 	int numbers2;
 
 	int max_roman;

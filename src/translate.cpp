@@ -2597,10 +2597,14 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 
 	for(ix=0; ix<word_count; ix++)
 	{
-		int j;
+		int nx;
 		int c_temp;
 		char *pn;
 		char *pw;
+		static unsigned int break_numbers1 = 0x49249248;
+		static unsigned int break_numbers2 = 0x492492a8;  // for languages which have numbers for 100,000 and 100,00,000
+		static unsigned int break_numbers3 = 0x49249268;  // for languages which have numbers for 100,000 and 1,000,000
+		unsigned int break_numbers;
 		char number_buf[80];
 
 		// start speaking at a specified word position in the text?
@@ -2617,24 +2621,76 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 
 		// digits should have been converted to Latin alphabet ('0' to '9')
 		word = pw = &sbuf[words[ix].start];
+
+		if(iswdigit(word[0]) && (langopts.numbers2 & NUM2_100000))
+		{
+			// Languages with 100000 numbers.  Remove thousands separators so that we can insert them again later
+			pn = number_buf;
+			while(pn < &number_buf[sizeof(number_buf)-3])
+			{
+				if(iswdigit(*pw))
+				{
+					*pn++ = *pw++;
+				}
+				else
+				if((*pw == langopts.thousands_sep) && (pw[1] == ' ') && iswdigit(pw[2]))
+				{
+					pw += 2;
+					ix++;  // skip "word"
+				}
+				else
+				{
+					nx = pw - word;
+					memset(word,' ',nx);
+					nx = pn - number_buf;
+					memcpy(word,number_buf,nx);
+					break;
+				}
+			}
+			pw = word;
+		}
+
 		for(n_digits=0; iswdigit(word[n_digits]); n_digits++);  // count consecutive digits
+
 		if((n_digits > 4) && (word[0] != '0'))
 		{
 			// word is entirely digits, insert commas and break into 3 digit "words"
 			number_buf[0] = ' ';
 			pn = &number_buf[1];
-			j = n_digits;
+			nx = n_digits;
+
+			if(langopts.numbers2 & NUM2_100000a)
+				break_numbers = break_numbers3;
+			else
+			if(langopts.numbers2 & NUM2_100000)
+				break_numbers = break_numbers2;
+			else
+				break_numbers = break_numbers1;
+
 			while(pn < &number_buf[sizeof(number_buf)-3])
 			{
 				if(!isdigit(c = *pw++) && (c != langopts.decimal_sep))
 					break;
 
 				*pn++ = c;
-				if((--j > 0) && (j % 3)==0)
+				if((--nx > 0) && (break_numbers & (1 << nx)))
 				{
 					if(langopts.thousands_sep != ' ')
+					{
 						*pn++ = langopts.thousands_sep;
+					}
 					*pn++ = ' ';
+					if(break_numbers & (1 << (nx-1)))
+					{
+						// the next group only has 1 digits (i.e. NUM2_10000), make it three
+						*pn++ = '0';
+						*pn++ = '0';
+					}
+					if(break_numbers & (1 << (nx-2)))
+					{
+						// the next group only has 2 digits (i.e. NUM2_10000), make it three
+						*pn++ = '0';
+					}
 				}
 			}
 			pn[0] = ' ';
@@ -2659,10 +2715,10 @@ if((c == '/') && (langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(prev_ou
 				for(pw = word; *pw != ' ';)
 				{
 					memset(number_buf,' ',9);
-					j = utf8_in(&c_temp, pw, 0);
-					memcpy(&number_buf[2],pw,j);
+					nx = utf8_in(&c_temp, pw, 0);
+					memcpy(&number_buf[2],pw,nx);
 					TranslateWord2(&number_buf[2], &words[ix], 0, 0 );
-					pw += j;
+					pw += nx;
 				}
 			}
 

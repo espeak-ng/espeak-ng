@@ -28,12 +28,12 @@ g	g@
 _i	ibu
 j	Z@
 k	k@
-l	l@
-m	m@
-n	n@
+_l	l@
+_m	m@
+_n	n@
 _o	obu
 p	p@
-r	R@
+_r	R@
 s	s@
 t	t@
 _u	ubu
@@ -67,11 +67,11 @@ zo'e	$u+	// pronoun
 i	i_:	$u	// sentence break (recognised by eSpeak program). Try a short pause after ".i"
 
 // end-of-clause [_;_] before these
-noi	_;_nOI	$u
-poi	_;_pOI	$u
+noi	_;_noI	$u
+poi	_;_poI	$u
 no'u	_;_nohu	$u
 po'u	_;_pohu	$u
-goi	_;_gOI	$u
+goi	_;_goI	$u
 
 ija	_;_iZa		// should this series be unstressed?
 ijanai	_;_iZanaI
@@ -86,7 +86,7 @@ to	_::to	$u	// start parenthesis, pause but don't raise intonation
 
 // terminators (include a pause after)
 ku	ku_::	$u
-boi	bOI_::	$u
+boi	boI_::	$u
 vau	vaU_::	$u
 kei	keI_::	$u
-toi	tOI_::	$u
+toi	toI_::	$u

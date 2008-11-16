@@ -756,6 +756,7 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 	int subtract;
 	int repeat = 0;
 	unsigned int flags;
+	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
 
 	static const char *roman_numbers = "ixcmvld";
@@ -806,11 +807,20 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 	if(acc > langopts.max_roman)
 		return(0);
 
-	Lookup("_roman",ph_out);   // precede by "roman" if _rom is defined in *_list
-	p = &ph_out[strlen(ph_out)];
+	Lookup("_roman",ph_roman);   // precede by "roman" if _rom is defined in *_list
+	p = &ph_out[0];
+
+	if((langopts.numbers & NUM_ROMAN_AFTER) == 0)
+	{
+		strcpy(ph_out,ph_roman);
+		p = &ph_out[strlen(ph_out)];
+	}
 
 	sprintf(number_chars," %d ",acc);
 	TranslateNumber(&number_chars[1],p,&flags,0);
+
+	if(langopts.numbers & NUM_ROMAN_AFTER)
+		strcat(ph_out,ph_roman);
 	return(1);
 }  // end of TranslateRoman
 
@@ -1236,24 +1246,6 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		{
 			if((thousandplex > 0) && (value < 1000))
 			{
-				if(langopts.numbers2 & 0x100)
-				{
-					if((thousandplex == 1) && (value >= 100))
-					{
-						// special word for 100,000's
-						char ph_buf3[20];
-						sprintf(string,"_%dL",value / 100);
-						if(Lookup(string,ph_buf2) == 0)
-						{
-							LookupNum2(value/100,0,ph_buf2);
-							Lookup("_0L",ph_buf3);
-							strcat(ph_buf2,ph_buf3);
-						}
-						value %= 100;
-						if(value == 0)
-							suppress_null = 1;
-					}
-				}
 				if((suppress_null == 0) && (LookupThousands(value,thousandplex,ph_append)))
 				{
 					// found an exact match for N thousand

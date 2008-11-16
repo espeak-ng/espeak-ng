@@ -56,8 +56,9 @@
 #define phBEFORENOTVOWEL2 0x1000
 #define phSWITCHVOICING  0x0800
 
-#define phNONSYLLABIC 0x100000   // don't count this vowel as a syllable when finding the stress position 
-#define phLONG        0x200000
+#define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position 
+#define phLONG         0x200000
+#define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
 
 // fixed phoneme code numbers, these can be used from the program code
 #define phonCONTROL     1

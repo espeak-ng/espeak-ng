@@ -115,7 +115,7 @@ phoneme _|   //  Very short pause
   formants NULL
   starttype _ endtype _
   length 1
-  lengthmod 1
+  lengthmod 5
 endphoneme
 
 phoneme _:   //   Standard pause
@@ -301,6 +301,7 @@ phoneme (i)  virtual
   before N DFT-40+nn/inn
   before ; DFT-40+j2/xj2
   before l DFT-40+l/xl
+  before w DFT-30+w/xw
   before j DFT-30+j/xj
   before r- DFT-60+r/xr
   before r/ DFT+r3/r_i
@@ -498,6 +499,7 @@ phoneme w/    // used for [w] when not before a vowel
   vowelout  len=50
   length 100
   formants w/w_
+  after (i) w/iw_
   lengthmod 7
   beforevowel w
 endphoneme
@@ -1224,6 +1226,9 @@ include ph_tamil
 phonemetable hu base
 include ph_hungarian
 
+phonemetable lv base
+include ph_latvian
+
 phonemetable nl base
 include ph_dutch
 
@@ -1260,6 +1265,9 @@ include ph_spanish
 
 phonemetable es_la es
 include ph_spanish_la
+
+phonemetable ca es
+include ph_catalan
 
 phonemetable pt base2
 include ph_pt_brazil
@@ -1333,11 +1341,9 @@ include ph_bengali
 phonemetable ne hi
 include ph_nepali
 
-phonemetable lv base
-include ph_latvian
-
 phonemetable hy base
 include ph_armenian_west
 
 phonemetable om base
 include ph_oromo
+

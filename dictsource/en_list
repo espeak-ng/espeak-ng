@@ -108,22 +108,23 @@ _%	p3s'Ent
 ?5 _%	pVRs'Ent
 _&	amp@sand
 _'	kwoUt
-_(	lEftbrakI2t
-_)	raItbrakI2t
+_[	lEftbrakI2t
+_]	raItbrakI2t
+_(	lEftpa2rEn
+_)	raItpa2rEn
 _*	ast@rIsk
 _+	plVs
 _,	k0m@
 _-	h,aIf@n
+?3 _-	daS
 _.	d0t
 _:	koUl@n
 _;	sEmIk'oUl@n
-_<	ElaNg@L
+_<	lEsDan
 _=	i:kw@Lz
-_>	A@aNg@L
+_>	greIt@Dan
 _?	kwEstS@n
 _@	at|saIn
-_[	lEftskwe@
-_]	raItskwe@
 _^	s3:kVmfl,Eks
 ?5 _^	sIRkVmfl,Eks
 __	'Vnd3sk,o@
@@ -183,7 +184,8 @@ _₠	jU@roU
 ₨	ru:pi:
 ₩	w0n
 §	sEkS@n
-¶	par@graf   // in en_rules
+¶	par@graf
+¶¶	par@grafs
 ¤	kVr@nsIsaIn
 ©	k0pIraIt
 ®	rEdZIst3d
@@ -280,6 +282,11 @@ _0M3	b'Ili@n
 _dpt	pOInt
 _roman	roUm@n_
 
+(1 st)	f3:st
+(2 nd)	sEk@nd
+(3 rd)	T3:d
+(5 th)	fIT
+
 
 // ABBREVIATIONS
 //**************
@@ -311,6 +318,7 @@ ie	aIi:_!   $pause $only
 i.e	aIi:_!   $pause
 irc	$abbrev
 lbs	paUndz
+LBS	$abbrev
 ltd	lImI2tI2d
 mc	m@k  $alt2   // combine with the following word
 oem	$abbrev
@@ -336,19 +344,19 @@ xxx	$abbrev		// not roman 30
 xy	$abbrev
 
 
-nd                $only
-rd                $only
-th                $only
-st                $only
+nd	$only
+rd	$only
+th	$only
+st	$only
 
 mr	mIst3     $dot
 mrs	mIsI2z    $dot
 //ms               mIz         $dot
-dr      d0kt3     $dot $capital
-lt                $dot
-prof              $dot
-rev               $dot
-st                $dot
+dr	$dot
+lt	$dot
+prof	$dot
+rev	$dot
+st	$dot
 
 // not abbreviations when all-caps
 all	O:l	$allcaps

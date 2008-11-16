@@ -8,9 +8,9 @@
 	a	a
 	ai	aI
 	au	aU
-     X) a (_	%a	// single-syllable cmavo are unstressed
-     X) ai (_	%aI
-     X) au (_	%aU
+     X) a (_	,a	// single-syllable cmavo are unstressed
+     X) ai (_	,aI
+     X) au (_	,aU
 
 .group b
 	b	b
@@ -25,8 +25,8 @@
 .group e
 	e	e
 	ei	eI
-     X) e (_	%e
-     X) ei (_	%eI
+     X) e (_	,e
+     X) ei (_	,eI
 
 .group f
 	f	f
@@ -42,8 +42,8 @@
 .group i
 	i	i
 	i (A	j
-     X) i (_	%i
-     X) i (A_	%j
+     X) i (_	,i
+     X) i (A_	,j
 
 .group j
 	j	Z
@@ -52,7 +52,7 @@
 	k	k
 
 .group l
-	l	l-
+	l	l-  // syllabic
      A) l       l
 	l (A    l
 
@@ -60,15 +60,17 @@
 	m	m
 
 .group n
-	n	n
+	n	n-   // syllabic
+     A) n       n
+        n (A    n
 	n (g	N
 	n (k	N
 
 .group o
 	o	o
-	oi	OI
-     X) o (_	%o
-     X) oi (_	%OI
+	oi	oI
+     X) o (_	,o
+     X) oi (_	,oI
 
 .group p
 	p	p
@@ -77,8 +79,9 @@
 	q	kw
 
 .group r
-	r	r-
+	r	r-  // syllabic
      A) r	R
+     C) r (A    @-*
 	r (A	R
 
 
@@ -92,8 +95,8 @@
 .group u
 	u	u
 	u (A	w
-     X) u (_	%u
-     X) u (A_	%w
+     X) u (_	,u
+     X) u (A_	,w
 
 .group v
 	v	v
@@ -114,9 +117,9 @@
 	'	h
      _) ' (_    '@h@
 
-	.	_!
+	.	_!	// dot
      _)	. (@P1	_!      // remove . prefix
 	. (_S1  _!	// remove . suffix
 
 
-	ˈ	'       // U+2c8  stress marker
+	ˈ	'       // U+2c8  stress marker (from syllable capitalisation)

@@ -320,6 +320,9 @@ void Translator::CalcLengths()
 			if((langopts.word_gap & 0x10) && (p->newword))
 				p->prepause = 60;
 
+			if(p->ph->phflags & phLENGTHENSTOP)
+				p->prepause += 30;
+
 			if(p->synthflags & SFLAG_LENGTHEN)
 				p->prepause += langopts.long_stop;
 			break;
@@ -487,9 +490,9 @@ void Translator::CalcLengths()
 			}
 
 			// calc length modifier
-			if(next->ph->code == phonPAUSE_VSHORT)
+			if((next->ph->code == phonPAUSE_VSHORT) && (next2->type == phPAUSE))
 			{
-				// ignore very short pause
+				// if PAUSE_VSHORT is followed by a pause, then use that
 				next = next2;
 				next2 = next3;
 				next3 = &phoneme_list[ix+4];

@@ -42,42 +42,42 @@ endphoneme
 
 phoneme aU
   vowel starttype (a) endtype (u)
-  length 230
+  length 250
   formants vdiph/au_4
 endphoneme
 
 
 phoneme eU
   vowel starttype (e) endtype (u)
-  length 230
+  length 250
   formants vdiph/eu
 endphoneme
 
 
 phoneme aI
   vowel starttype (a) endtype (i)
-  length 240
+  length 250
   formants vdiph/ai
 endphoneme
 
 
 phoneme eI
   vowel starttype (e) endtype (i)
-  length 230
+  length 250
   formants vdiph/eei_2
 endphoneme
 
 
-phoneme OI
+phoneme oI
   vowel starttype (o) endtype (i)
-  length 240
+  length 250
   formants vdiph/ooi
 endphoneme
 
 
 phoneme uI
   vowel starttype (u) endtype (i)
-  length 230
+  length 250
   formants vdiph/ui
 endphoneme
 
@@ -93,6 +93,7 @@ phoneme ts
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
   wave ustop/ts
+  before _ ustop/ts_
 endphoneme
 
 

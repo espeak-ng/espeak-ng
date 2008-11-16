@@ -113,11 +113,11 @@ _97       s@t:'a:n@we:
 _98       ath:'a:n@we:
 _99       nIn^j'a:n@we:
 
-_0C       s'O:
-_0M1      h@z'a:r
-_0M2      d,Vsla:kh@_    // until we fix numbers > 100,000
-_1M2      d,Vsla:kh@_    // until we fix numbers > 100,000
-_0L       l'a:kh
+_0C	s'O:
+_0M1	h@z'a:r
+_0M2	l'a:kh
+_0M3	cr'ore
+_0M4	b'ilion  // ?? English
 _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 // Single consonants

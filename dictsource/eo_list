@@ -29,7 +29,28 @@ _0M3		mili'ardo
 _0M4		duili'ono
 _dpt		komo_
 
+// accent names
+_acu	dekst@-*akoRno
+_brv	hoko
+_cir	tsiRkumflekso
+_dia	dupunktasupeRsigno
+_grv	maldekst@-*akoRno
+_tld	tildo
+
+
+_??	liteRo
 _.	punkto
+_:	dupunkto
+_;	punktokomo
+_,	komo
+_?	demandosigno
+_-	dividost@-*eko
+~	tildo
+°	gradoI
+%	p@-*otsento
+@	po
+&	kaI
+
 
 v	vo	// not Roman numbers
 x	ikso
@@ -100,7 +121,8 @@ tra             $u $pause
 
 // misc adverbs etc
 eĉ              $brk
-(pli ol)	pliol
+pli	pl,i
+plej	pl,eI
 
 // pronouns
 mi              $u

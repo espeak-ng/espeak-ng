@@ -557,7 +557,11 @@ void Translator::MakePhonemeList(int post_pause, int start_sentence)
 			{
 				if((x = (langopts.word_gap & 0x7)) != 0)
 				{
-					insert_ph = pause_phonemes[x];
+					if((x > 1) || ((insert_ph != phonPAUSE_SHORT) && (insert_ph != phonPAUSE_NOLINK)))
+					{
+						// don't reduce the pause
+						insert_ph = pause_phonemes[x];
+					}
 				}
 				if(option_wordgap > 0)
 				{

@@ -686,6 +686,8 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 	char *w;
 
 	p = letterGroups[group];
+	if(p == NULL)
+		return(0);
 
 	while(*p != RULE_GROUP_END)
 	{
@@ -1012,7 +1014,9 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int  unstressed_word = 0;
 	char *max_output;
 	int final_ph;
+	int final_ph2;
 	int mnem;
+	int mnem2;
 	int post_tonic;
 	int opt_length;
 	int done;
@@ -1043,6 +1047,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	}
 	if(ix == 0) return;
 	final_ph = phonetic[ix-1];
+	final_ph2 =  phonetic[ix-2];
 
 	max_output = output + (N_WORD_PHONEMES-3);   /* check for overrun */
 
@@ -1131,7 +1136,14 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 						else
 						{
 							mnem = phoneme_tab[final_ph]->mnemonic;
-							if((mnem != 'n') && (mnem != 's'))
+							mnem2 = phoneme_tab[final_ph2]->mnemonic;
+
+							if((mnem == 's') && (mnem2 == 'n'))
+							{
+								// -ns  stress remains on penultimate syllable
+							}
+							else
+							if(((mnem != 'n') && (mnem != 's')) || (phoneme_tab[final_ph2]->type != phVOWEL))
 							{
 								stressed_syllable = vowel_count - 1;
 							}

@@ -1,0 +1,217 @@
+
+phoneme @
+  vowel starttype (@) endtype (@)
+  length 120
+  formants vowel/8_7
+endphoneme
+ 
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 110
+  formants vowel/i_6
+  linkout ;
+endphoneme
+
+phoneme i:
+  vowel starttype (i) endtype (i)
+  length 300
+  formants vowel/i_6
+  linkout ;
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 120
+  formants vowel/e_mid2
+endphoneme
+
+phoneme e:
+  vowel starttype (e) endtype (e)
+  length 330
+  formants vowel/e_mid2
+endphoneme
+
+
+phoneme &
+  vowel starttype (a) endtype (a)
+  length 120
+  formants vowel/&
+endphoneme
+
+phoneme &:
+  vowel starttype (a) endtype (a)
+  length 330
+  formants vowel/&
+endphoneme
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 120
+  formants vowel/aa
+endphoneme
+
+phoneme a:
+  vowel starttype (a) endtype (a)
+  length 350
+  formants vowel/aa
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 120
+  formants vowel/oo_1
+endphoneme
+
+phoneme o:
+  vowel starttype (o) endtype (o)
+  length 330
+  formants vowel/oo_1
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 110
+  formants vowel/u_5
+endphoneme
+
+phoneme u:
+  vowel starttype (u) endtype (u)
+  length 330
+  formants vowel/u_5
+endphoneme
+
+
+phoneme ai
+  vowel starttype (a) endtype (i)
+  length 310
+  long
+  formants vdiph/aai
+endphoneme
+
+phoneme ei
+  vowel starttype (e) endtype (i)
+  length 300
+  long
+  formants vdiph/eei_2
+endphoneme
+
+phoneme au
+  vowel starttype (a) endtype (u)
+  length 300
+  long
+  formants vdiph/aau
+endphoneme
+
+phoneme uo
+  vowel starttype (u) endtype (a)
+  length 300
+  long
+//  formants vdiph2/uo
+  formants vdiph2/uaa
+endphoneme
+
+phoneme oi
+  vowel starttype (o) endtype (i)
+  length 290
+  long
+  formants vdiph/ooi
+endphoneme
+
+phoneme ui
+  vowel starttype (u) endtype (i)
+  length 290
+  long
+  formants vdiph/ui
+endphoneme
+
+phoneme ie
+  vowel starttype (i) endtype (e)
+  length 290
+  long
+  formants vdiph2/ie_2
+endphoneme
+
+phoneme iu
+  vowel starttype (i) endtype (u)
+  length 290
+  long
+  formants vdiph2/iu_2
+endphoneme
+
+
+
+
+phoneme R2   // this is [R] from Slovak/Czech
+  liquid
+  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  formants r3/r_trill+r3/r_trill.wav%50
+  trill
+  lengthmod 6
+endphoneme
+
+
+phoneme ts
+  vls alv afr sibilant lengthenstop
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/ts2%90
+  before _ ustop/ts_
+endphoneme
+
+
+phoneme t   // try disable this and try using English [t]
+  vls alv stop lengthenstop
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_short%115
+  before _ ustop/t_
+  switchvoicing d
+endphoneme
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 2
+  wave ustop/p_unasp%120
+  before _ ustop/p_unasp_%80
+  before l ustop/pl
+  switchvoicing b
+endphoneme
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/k_unasp%60   // weaker
+  before _ ustop/k_
+  before r ustop/kr
+  before l ustop/kl
+  before (i) ustop/ki
+  before l^ ustop/ki
+  switchvoicing g
+endphoneme
+
+
+phoneme s2   // second part of long [s:]
+  vls alv frc sibilant
+  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 3
+  wave ufric/s_continue
+  before _ ufric/s_
+  before p ufric/s!
+  before t ufric/s!
+  before k ufric/s!
+  switchvoicing z
+endphoneme
+
