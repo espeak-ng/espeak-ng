@@ -29,7 +29,7 @@
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
-#define N_LETTER_GROUPS   25
+#define N_LETTER_GROUPS   26
 
 
 /* dictionary flags, word 1 */

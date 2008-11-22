@@ -515,6 +515,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.numbers = 0x2709 + NUM_ROMAN;
+			tr->langopts.accents = 2;   // Say "Capital" after the letter.
 		}
 		break;
 
@@ -769,8 +770,9 @@ SetLengthMods(tr,3);  // all equal
 			static const unsigned char stress_amps_sq[8] = {17,12, 17,17, 20,20, 24,22 };
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_sq,stress_amps_sq);
-			tr->langopts.stress_flags =  0x4; 
+			tr->langopts.stress_flags =  0x4 + 0x10; 
 			SetLetterVowel(tr,'y');
+			tr->langopts.numbers = 0x69 + 0x8000;
 		}
 		break;
 

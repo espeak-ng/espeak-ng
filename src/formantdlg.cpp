@@ -43,10 +43,10 @@ ByteGraph *pitchgraph=NULL;
 BEGIN_EVENT_TABLE(FormantDlg, wxPanel)
 	EVT_BUTTON(T_ZOOMOUT,FormantDlg::OnCommand)
 	EVT_BUTTON(T_ZOOMIN,FormantDlg::OnCommand)
-	EVT_SPINCTRL(T_AMPLITUDE,FormantDlg::OnSpin)
-	EVT_SPINCTRL(T_TIMESEQ,FormantDlg::OnSpin)
-	EVT_SPINCTRL(T_AMPFRAME,FormantDlg::OnSpin)
-	EVT_SPINCTRL(T_TIMEFRAME,FormantDlg::OnSpin)
+	EVT_SPINCTRL(-1,FormantDlg::OnSpin)
+//	EVT_SPINCTRL(T_TIMESEQ,FormantDlg::OnSpin)
+//	EVT_SPINCTRL(T_AMPFRAME,FormantDlg::OnSpin)
+//	EVT_SPINCTRL(T_TIMEFRAME,FormantDlg::OnSpin)
 END_EVENT_TABLE()
 
 
@@ -79,21 +79,19 @@ void FormantDlg::OnSpin(wxSpinEvent& event)
 
 	switch(id = event.GetId())
 	{
-	case T_AMPLITUDE:
-	case T_TIMESEQ:
-	case T_TIMEFRAME:
-		currentcanvas->RefreshDialogValues(0);
-		break;
-
 	case T_AMPFRAME:
 		currentcanvas->RefreshDialogValues(1);
+		break;
+
+	default:
+		currentcanvas->RefreshDialogValues(0);
 		break;
 	}
 	currentcanvas->SetFocus();
 }
 
 FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,wxSize(400,1000))
-{//==========================================================================
+{//=============================================================================================
 	int  ix;
 	int  y;
 	int  xplace;
@@ -104,6 +102,7 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 	xplace = 28;
 	id = 201;
 	new wxStaticText(this,-1,_T("Formants"),wxPoint(4,5));
+	t_lab[4] = new wxStaticText(this,-1,_T("  BW      BWp      Ap"),wxPoint(78,5),wxSize(300,20));
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
@@ -115,47 +114,123 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 			wxPoint(xplace,y+24*ix),wxSize(48,20),
 			wxTE_CENTRE+wxTE_READONLY);
 		t_pkheight[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace+52,y+24*ix),wxSize(36,20),
+			wxPoint(xplace+50,y+24*ix),wxSize(36,20),
 			wxTE_CENTRE+wxTE_READONLY);
 		t_pkwidth[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace+92,y+24*ix),wxSize(48,20),
+			wxPoint(xplace+88,y+24*ix),wxSize(48,20),
 			wxTE_CENTRE+wxTE_READONLY);
-#ifdef WIDTH2
 		t_pkright[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace+132,y+24*ix),wxSize(36,20),
+			wxPoint(xplace+138,y+24*ix),wxSize(36,20),
 			wxTE_CENTRE+wxTE_READONLY);
-#endif
 		if(ix>5) t_pkwidth[ix]->Hide();
 	}
 
-	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""),
-		wxPoint(6,244),wxSize(52,24),wxTE_CENTRE,0,500);
-	t_lab[3] = new wxStaticText(this,-1,_T("% amp - Frame"),wxPoint(61,248));
-	t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""),
-		wxPoint(6,272),wxSize(52,24),wxTE_CENTRE,0,500);
-	t_orig_frame = new wxStaticText(this,-1,_T("mS"),wxPoint(61,276));
+	y=240;
+	t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_orig_frame = new wxStaticText(this,-1,_T("mS"),wxPoint(57,y+8));
+	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""), wxPoint(100,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_lab[3] = new wxStaticText(this,-1,_T("% amp - Frame"),wxPoint(151,y+8));
 
-	t_zoomout = new wxButton(this,T_ZOOMOUT,_T("Zoom-"),wxPoint(16,310));
-	t_zoomin = new wxButton(this,T_ZOOMIN,_T("Zoom+"),wxPoint(106,310));
+	s_klatt[KLATT_AV] = new wxSpinCtrl(this,T_AV,_T(""), wxPoint(6,y+32), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_AV] = new wxStaticText(this,-1,_T("AV"),wxPoint(61,y+36));
+	s_klatt[KLATT_AVp] = new wxSpinCtrl(this,T_AVP,_T(""), wxPoint(100,y+32), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_AVp] = new wxStaticText(this,-1,_T("AVp"),wxPoint(155,y+36));
+
+	s_klatt[KLATT_Fric] = new wxSpinCtrl(this,T_FRIC,_T(""), wxPoint(6,y+60), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Fric] = new wxStaticText(this,-1,_T("Fric"),wxPoint(61,y+64));
+	s_klatt[KLATT_FricBP] = new wxSpinCtrl(this,T_FRICBP,_T(""), wxPoint(100,y+60), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_FricBP] = new wxStaticText(this,-1,_T("FricBP"),wxPoint(155,y+64));
+
+	s_klatt[KLATT_Aspr] = new wxSpinCtrl(this,T_ASPR,_T(""), wxPoint(6,y+88), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Aspr] = new wxStaticText(this,-1,_T("Aspr"),wxPoint(61,y+92));
+	s_klatt[KLATT_Turb] = new wxSpinCtrl(this,T_TURB,_T(""), wxPoint(100,y+88), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Turb] = new wxStaticText(this,-1,_T("Turb"),wxPoint(155,y+92));
+
+	s_klatt[KLATT_Skew] = new wxSpinCtrl(this,T_SKEW,_T(""), wxPoint(6,y+116), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Skew] = new wxStaticText(this,-1,_T("Skew"),wxPoint(61,y+120));
+	s_klatt[KLATT_Tilt] = new wxSpinCtrl(this,T_TILT,_T(""), wxPoint(100,y+116), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Tilt] = new wxStaticText(this,-1,_T("Tilt"),wxPoint(155,y+120));
+
+	s_klatt[KLATT_Kopen] = new wxSpinCtrl(this,T_KOPEN,_T(""), wxPoint(6,y+144), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Kopen] = new wxStaticText(this,-1,_T("kopen"),wxPoint(61,y+148));
 
 
-//	usepitchenv = new wxCheckBox(this,T_USEPITCHENV,_T("???"),wxPoint(20,320));
+	t_zoomout = new wxButton(this,T_ZOOMOUT,_T("Zoom-"),wxPoint(16,420));
+	t_zoomin = new wxButton(this,T_ZOOMIN,_T("Zoom+"),wxPoint(106,420));
 
+	y=468;
 	t_amplitude = new wxSpinCtrl(this,T_AMPLITUDE,_T(""),
-		wxPoint(6,370),wxSize(52,24),wxTE_CENTRE,0,500);
-	t_lab[2] = new wxStaticText(this,-1,_T("% amp - Sequence"),wxPoint(61,374));
+		wxPoint(6,y),wxSize(52,24),wxTE_CENTRE,0,y+130);
+	t_lab[2] = new wxStaticText(this,-1,_T("% amp - Sequence"),wxPoint(61,y+4));
 //	t_timeseq = new wxSpinCtrl(this,T_TIMESEQ,_T(""),
 //		wxPoint(6,400),wxSize(52,24),wxTE_CENTRE,0,500);
-	t_orig_seq = new wxStaticText(this,-1,_T("mS"),wxPoint(61,404));
+	t_orig_seq = new wxStaticText(this,-1,_T("mS"),wxPoint(61,y+30));
 
-	t_pitch = new wxStaticText(this,-1,_T(""),wxPoint(4,440),wxSize(192,24));
+	t_pitch = new wxStaticText(this,-1,_T(""),wxPoint(4,520),wxSize(192,24));
 
-	pitchgraph = new ByteGraph(this,wxPoint(0,460),wxSize(200,140));
+	pitchgraph = new ByteGraph(this,wxPoint(0,538),wxSize(200,140));
 	pitchgraph->SetData(128,env_fall);
 	pitchgraph->ShowSpectrum(1);
 	pitchgraph->Show();
 }
 
+
+void FormantDlg::HideFields(int synth_type)
+{//=======================================
+	int ix;
+	static int prev_synth_type = -1;
+
+	if(synth_type == prev_synth_type)
+		return;  // no change
+
+	if(synth_type == 0)
+	{
+		for(ix=0; ix<9; ix++)
+		{
+			s_klatt[ix]->Hide();
+			t_klatt[ix]->Hide();
+		}
+		for(ix=6; ix<9; ix++)
+		{
+			t_pkfreq[ix]->Show();
+			t_pkheight[ix]->Show();
+			t_pkwidth[ix]->Hide();
+			t_pkright[ix]->Hide();
+		}
+		t_ampframe->Show();
+		t_amplitude->Show();
+		t_lab[2]->Show();
+		t_lab[3]->Show();
+		t_labpk[7]->Show();
+		t_labpk[8]->Show();
+		t_lab[4]->Hide();
+	}
+	else
+	{
+		for(ix=0; ix<9; ix++)
+		{
+			s_klatt[ix]->Show();
+			t_klatt[ix]->Show();
+		}
+		for(ix=7; ix<9; ix++)
+		{
+			t_pkfreq[ix]->Hide();
+			t_pkheight[ix]->Hide();
+			t_pkwidth[ix]->Hide();
+			t_pkright[ix]->Hide();
+		}
+		t_pkwidth[6]->Show(1);
+		t_pkright[6]->Show(1);
+		t_ampframe->Hide();
+		t_amplitude->Hide();
+		t_lab[2]->Hide();
+		t_lab[3]->Hide();
+		t_labpk[7]->Hide();
+		t_labpk[8]->Hide();
+		t_lab[4]->Show();
+	}
+	prev_synth_type = synth_type;
+}
 
 
 void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
@@ -168,6 +243,8 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 	if(spectseq->frames == NULL)
 		return;
 	sf = spectseq->frames[frame];
+
+	HideFields(spectseq->synthesizer_type);
 
 	if(field == 0xff)
 	{
@@ -203,10 +280,8 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 		{
 			value.Printf(_T("%3d"),sf->peaks[ix].pkwidth);
 			t_pkwidth[ix]->SetValue(value);
-#ifdef WIDTH2
 			value.Printf(_T("%3d"),sf->peaks[ix].pkright);
 			t_pkright[ix]->SetValue(value);
-#endif
 		}
 	}
 
@@ -216,6 +291,16 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 	t_orig_frame->SetLabel(value);
 	value.Printf(_T("%3d"),sf->amp_adjust);
 	t_ampframe->SetValue(value);
+
+	if(spectseq->synthesizer_type == 1)
+	{
+		for(ix=0; ix<9; ix++)
+		{
+			SetSpinCtrl(s_klatt[ix], sf->klatt_param[ix]);
+		}
+	}
+
+
 }  //  end of FormantDlg::ShowFrame
 
 

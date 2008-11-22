@@ -39,8 +39,20 @@
 #define T_TIMEFRAME 310
 #define T_TIMESEQ   311
 
+#define T_AV      312
+#define T_AVP     313
+#define T_FRIC    314
+#define T_FRICBP  315
+#define T_ASPR    316
+#define T_TURB    317
+#define T_SKEW    318
+#define T_TILT    319
+#define T_KOPEN   320
+
+
 #define FILEID1_SPECTSEQ 0x43455053
-#define FILEID2_SPECTSEQ 0x51455354
+#define FILEID2_SPECTSEQ 0x51455354  // for eSpeak sequence
+#define FILEID2_SPECTSEK 0x4b455354  // for Klatt sequence
 
 #define FILEID1_SPC2     0x32435053  // an old format for spectrum files
 
@@ -110,7 +122,7 @@ public:
 	~SpectFrame();
    int Import(wxInputStream &stream);
    int ImportSPC2(wxInputStream &stream, float &time_acc);
-	int Load(wxInputStream &stream);
+	int Load(wxInputStream &stream, int synthesizer_type);
 	int Save(wxOutputStream &stream);
    void Draw(wxDC &dc, int offy, int frame_width, double scalex, double scaley);
 
@@ -122,6 +134,7 @@ public:
 	void MakeWave(int peaks, PitchEnvelope &pitch, int amplitude, int duration);
 	void MakeHtab(int numh, int *htab, int pitch);
 	double GetRms(int amp);
+	void KlattDefaults();
 
 	int selected;
 	int keyframe;
@@ -136,7 +149,10 @@ public:
    int  nx;
    int  markers;
 	int  max_y;
+	int  synthesizer_type;  // 0=eSpeak, 1=Klatt
    USHORT *spect;    // sqrt of harmonic amplitudes,  1-nx at 'pitch'
+
+	short  klatt_param[N_KLATTP];
 
    formant_t formants[N_PEAKS];   // this is just the estimate given by Praat
    peak_t peaks[N_PEAKS];
@@ -171,7 +187,8 @@ public:
 	float GetKeyedLength();
 	void SetFrameLengths();
 	void ConstructVowel(void);
-      
+	void SetKlattDefaults(void);
+
 	int  numframes;
 	int  amplitude;
 	int  spare;
@@ -186,6 +203,8 @@ public:
 	int  bass_reduction;
 	int max_x;
 	int max_y;
+	int synthesizer_type;
+
 
 private:
 	void Load2(wxInputStream& stream, int import, int n);
@@ -262,8 +281,9 @@ class FormantDlg : public wxPanel
 	public:
 		FormantDlg(wxWindow *parent);
 		void ShowFrame(SpectSeq *spectseq, int frame, int pk, int field);
-      void OnCommand(wxCommandEvent& event);
-      void OnSpin(wxSpinEvent& event);
+		void OnCommand(wxCommandEvent& event);
+		void OnSpin(wxSpinEvent& event);
+		void HideFields(int synth_type);
 
 		wxCheckBox *usepitchenv;
 
@@ -274,6 +294,9 @@ class FormantDlg : public wxPanel
       wxStaticText *t_pitch;
 		wxStaticText *t_orig_frame;
 		wxStaticText *t_orig_seq;
+
+		wxSpinCtrl	*s_klatt[N_KLATTP];
+		wxStaticText *t_klatt[N_KLATTP];
 
 	private:
 		wxStaticText *t_lab[10];
@@ -346,7 +369,7 @@ extern void WavegenInit(int samplerate, int wavemult_fact);
 extern void WavegenInitPkData(int);  // initialise envelope data
 extern void SetPitch(int length, unsigned char *env, int pitch1, int pitch2);
 extern void SetSynthHtab(int length_mS, USHORT *ht1, int nh1, float pitch1, USHORT *ht2, int nh2, float pitch2);
-extern void MakeWaveFile();
+extern void MakeWaveFile(int synthesis_method);
 extern void MakeWaveBuf(int length, UCHAR *buf);
 
 extern int OpenWaveFile(const char *path, int samplerate);

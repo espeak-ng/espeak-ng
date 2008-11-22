@@ -289,7 +289,7 @@ endphoneme
 phoneme A   // same as [a]
   vowel  starttype (a)  endtype (a)
   length 166
-  formants vowel/a_en
+  formants vowel/a
 endphoneme
 
 

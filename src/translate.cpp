@@ -1747,7 +1747,11 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 			first_phoneme = 0;
 		}
 	}
-	plist2->sourceix = source_ix;  // ????
+	// don't set new-word if there is a hyphen before it
+	if((word_flags & FLAG_HYPHEN) == 0)
+	{
+		plist2->sourceix = source_ix;
+	}
 
 	end_stressed_vowel = 0;
 	if((stress >= 4) && (phoneme_tab[ph_list2[n_ph_list2-1].phcode]->type == phVOWEL))

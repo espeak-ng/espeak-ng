@@ -159,12 +159,13 @@
          h) a (z         eI
          h) a (zar       'a
          l) a (z         eI
-         r) a (z         eI
+         r) a (zA        eI
          @) a (zi_       'A:
         br) a (zil       a
         bl) a (zon       eI
          r) a (zor       eI
         sw) a (B         0
+        sw) a (g         a
         sw) a (m_        a
         sw) a (nk        a
         sw) a (th        eI
@@ -263,6 +264,7 @@
          _) ache (+      eIk
          d) ache (_      eIk
          h) ache (_      eIk
+         k) ache (_      eIk
          r) ache (_      eIk
         rt) ache (_      eIk
          y) ache (_      eIk
@@ -291,7 +293,7 @@
             acou (st     a2ku:
             ac (quie     ,a
          _) acre         eIk@
-            ac (rid      ak
+         _) ac (ri       ak
             ac (ro       ak
          m) acro (@      akr@
          _) ac (t        ak
@@ -974,7 +976,7 @@
             as (ive      'eIs
             as (ymp      as
          &) asy (_       @s%I
-         w) aste         eIst
+         w) ast (e#      eIst
 
 .group at
        pal) ate (_       @t
@@ -2288,6 +2290,7 @@
          _) eth (A       i:T
 ?!3         eth (ane     i:T
          _) eth (a       ET
+         _) eth (el      ET
             eth (ic      ET
             eth (y       i:T
         @C) eth (_S3e    @T
@@ -4634,6 +4637,7 @@
          _) trie         traI
          _) tri (CA      traI
          _) tri (Cy      traI
+            tribe        traIb
          _) tri (bu      trI
          _) tri (g       trI
          _) tri (ni      trI

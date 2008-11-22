@@ -34,6 +34,8 @@
 #include "synthesize.h"
 #include "voice.h"
 
+//#undef INCLUDE_KLATT
+
 #ifdef USE_PORTAUDIO
 #include "portaudio.h"
 #undef USE_PORTAUDIO
@@ -51,10 +53,9 @@
 
 #define PI  3.1415927
 #define PI2 6.283185307
-#define STEPSIZE  64                // 2.9mS at 22 kHz sample rate
 #define N_WAV_BUF   10
 
-static voice_t *wvoice;
+voice_t *wvoice;
 
 FILE *f_log = NULL;
 int option_waveout = 0;
@@ -98,24 +99,13 @@ static int hspect[2][MAX_HARMONIC];         // 2 copies, we interpolate between 
 static int max_hval=0;
 
 static int nsamples=0;       // number to do
-static int amplitude = 32;
-static int amplitude_v = 0;
 static int modulation_type = 0;
 static int glottal_flag = 0;
 static int glottal_reduce = 0;
 
-static unsigned char *mix_wavefile = NULL;  // wave file to be added to synthesis
-static int n_mix_wavefile = 0;       // length in bytes
-static int mix_wave_scale = 0;         // 0=2 byte samples
-static int mix_wave_amp = 32;
-static int mix_wavefile_ix = 0;
 
-static int pitch;          // pitch Hz*256
-static int pitch_ix;       // index into pitch envelope (*256)
-static int pitch_inc;      // increment to pitch_ix
-static unsigned char *pitch_env=NULL;
-static int pitch_base;     // Hz*256 low, before modified by envelope
-static int pitch_range;    // Hz*256 range of envelope
+WGEN_DATA wdata;
+
 static int amp_ix;
 static int amp_inc;
 static unsigned char *amplitude_env = NULL;
@@ -385,8 +375,8 @@ static void WcmdqIncHead()
 // data points from which to make the presets for pk_shape1 and pk_shape2
 #define PEAKSHAPEW 256
 static const float pk_shape_x[2][8] = {
-	{0,-0.6, 0.0, 0.6, 1.4, 2.5, 4.5, 5.5},
-	{0,-0.6, 0.0, 0.6, 1.4, 2.0, 4.5, 5.5 }};
+	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.5f, 4.5f, 5.5f},
+	{0,-0.6f, 0.0f, 0.6f, 1.4f, 2.0f, 4.5f, 5.5f }};
 static const float pk_shape_y[2][8] = {
 	{0,  67,  81,  67,  31,  14,   0,  -6} ,
 	{0,  77,  81,  77,  31,   7,   0,  -6 }};
@@ -737,6 +727,7 @@ void WavegenInit(int rate, int wavemult_fact)
 	if(wavemult_fact == 0)
 		wavemult_fact=60;  // default
 
+	wvoice = NULL;
 	samplerate = samplerate_native = rate;
 	PHASE_INC_FACTOR = 0x8000000 / samplerate;   // assumes pitch is Hz*32
 	Flutter_inc = (64 * samplerate)/rate;
@@ -744,6 +735,9 @@ void WavegenInit(int rate, int wavemult_fact)
 	nsamples = 0;
 	wavephase = 0x7fffffff;
 	max_hval = 0;
+
+	wdata.amplitude = 32;
+	wdata.prev_was_synth = 0;
 
 	for(ix=0; ix<N_EMBEDDED_VALUES; ix++)
 		embedded_value[ix] = embedded_default[ix];
@@ -769,7 +763,11 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	WavegenInitPkData(1);
 	WavegenInitPkData(0);
-	pk_shape = pk_shape2;         // ph_shape2
+	pk_shape = pk_shape2;         // pk_shape2
+
+#ifdef INCLUDE_KLATT
+	KlattInit();
+#endif
 
 #ifdef LOG_FRAMES
 remove("log-espeakedit");
@@ -784,7 +782,7 @@ int GetAmplitude(void)
 	// normal, none, reduced, moderate, strong
 	static const unsigned char amp_emphasis[5] = {16, 16, 10, 16, 22};
 
-	amp = (embedded_value[EMBED_A])*60/100;
+	amp = (embedded_value[EMBED_A])*55/100;
 	general_amplitude = amp * amp_emphasis[embedded_value[EMBED_F]] / 16;
 	return(general_amplitude);
 }
@@ -903,6 +901,13 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		}
 	}
 
+// increase bass, up to the F1 peak
+h=1;
+for(f=pitch; f<peaks[1].freq; f+=pitch)
+{
+	htab[h++] += (peaks[1].height * 16);
+}
+
 	// find the nearest harmonic for HF peaks where we don't use shape
 	for(; pk<N_PEAKS; pk++)
 	{
@@ -961,10 +966,10 @@ static void AdvanceParameters()
 	static int Flutter_ix = 0;
 
 	// advance the pitch
-	pitch_ix += pitch_inc;
-	if((ix = pitch_ix>>8) > 127) ix = 127;
-	x = pitch_env[ix] * pitch_range;
-	pitch = (x>>8) + pitch_base;
+	wdata.pitch_ix += wdata.pitch_inc;
+	if((ix = wdata.pitch_ix>>8) > 127) ix = 127;
+	x = wdata.pitch_env[ix] * wdata.pitch_range;
+	wdata.pitch = (x>>8) + wdata.pitch_base;
 
 	amp_ix += amp_inc;
 
@@ -973,9 +978,9 @@ static void AdvanceParameters()
 		Flutter_ix = 0;
 	x = ((int)(Flutter_tab[Flutter_ix >> 6])-0x80) * flutter_amp;
 	Flutter_ix += Flutter_inc;
-	pitch += x;
-	if(pitch < 102400)
-		pitch = 102400;   // min pitch, 25 Hz  (25 << 12)
+	wdata.pitch += x;
+	if(wdata.pitch < 102400)
+		wdata.pitch = 102400;   // min pitch, 25 Hz  (25 << 12)
 
 	if(samplecount == samplecount_start)
 		return;
@@ -1159,26 +1164,26 @@ int Wavegen()
 			{
 				hswitch = 0;
 				harmspect = hspect[0];
-				maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[0],0);
+				maxh2 = PeaksToHarmspect(peaks, wdata.pitch<<4, hspect[0], 0);
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-				amplitude2 = (amplitude * pitch)/(100 << 11);
+				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
 
             // switch sign of harmonics above about 900Hz, to reduce max peak amplitude
-				h_switch_sign = 890 / (pitch >> 12);
+				h_switch_sign = 890 / (wdata.pitch >> 12);
 			}
 			else
 				AdvanceParameters();
 
 			// pitch is Hz<<12
-			phaseinc = (pitch>>7) * PHASE_INC_FACTOR;
-			cycle_samples = samplerate/(pitch >> 12);  // sr/(pitch*2)
-			hf_factor = pitch >> 11;
+			phaseinc = (wdata.pitch>>7) * PHASE_INC_FACTOR;
+			cycle_samples = samplerate/(wdata.pitch >> 12);  // sr/(pitch*2)
+			hf_factor = wdata.pitch >> 11;
 
 			maxh = maxh2;
 			harmspect = hspect[hswitch];
 			hswitch ^= 1;
-			maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[hswitch],1);
+			maxh2 = PeaksToHarmspect(peaks, wdata.pitch<<4, hspect[hswitch], 1);
 
 			SetBreath();
 		}
@@ -1211,11 +1216,11 @@ int Wavegen()
 				for(pk=wvoice->n_harmonic_peaks+1; pk<N_PEAKS; pk++)
 				{
 					// find the nearest harmonic for HF peaks where we don't use shape
-					peak_harmonic[pk] = peaks[pk].freq / (pitch*16);
+					peak_harmonic[pk] = peaks[pk].freq / (wdata.pitch*16);
 				}
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-				amplitude2 = (amplitude * pitch)/(100 << 11);
+				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
 
 				if(glottal_flag > 0)
 				{
@@ -1337,22 +1342,22 @@ int Wavegen()
 
 		// mix with sampled wave if required
 		z2 = 0;
-		if(mix_wavefile_ix < n_mix_wavefile)
+		if(wdata.mix_wavefile_ix < wdata.n_mix_wavefile)
 		{
-			if(mix_wave_scale == 0)
+			if(wdata.mix_wave_scale == 0)
 			{
 				// a 16 bit sample
-				c = mix_wavefile[mix_wavefile_ix+1];
-				sample = mix_wavefile[mix_wavefile_ix] + (c * 256);
-				mix_wavefile_ix += 2;
+				c = wdata.mix_wavefile[wdata.mix_wavefile_ix+1];
+				sample = wdata.mix_wavefile[wdata.mix_wavefile_ix] + (c * 256);
+				wdata.mix_wavefile_ix += 2;
 			}
 			else
 			{
 				// a 8 bit sample, scaled
-				sample = (signed char)mix_wavefile[mix_wavefile_ix++] * mix_wave_scale;
+				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
 			}
-			z2 = (sample * amplitude_v) >> 10;
-			z2 = (z2 * mix_wave_amp)/32;
+			z2 = (sample * wdata.amplitude_v) >> 10;
+			z2 = (z2 * wdata.mix_wave_amp)/32;
 		}
 
 		z1 = z2 + (((total>>8) * amplitude2) >> 13);
@@ -1587,8 +1592,8 @@ static void SetAmplitude(int length, unsigned char *amp_env, int value)
 	else
 		amp_inc = (256 * ENV_LEN * STEPSIZE)/length;
 
-	amplitude = (value * general_amplitude)/16;
-	amplitude_v = (amplitude * wvoice->consonant_ampv * 15)/100;           // for wave mixed with voiced sounds
+	wdata.amplitude = (value * general_amplitude)/16;
+	wdata.amplitude_v = (wdata.amplitude * wvoice->consonant_ampv * 15)/100;           // for wave mixed with voiced sounds
 
 	amplitude_env = amp_env;
 }
@@ -1641,18 +1646,18 @@ if(option_log_frames)
 	}
 }
 #endif
-	if((pitch_env = env)==NULL)
-		pitch_env = env_fall;  // default
+	if((wdata.pitch_env = env)==NULL)
+		wdata.pitch_env = env_fall;  // default
 
-	pitch_ix = 0;
+	wdata.pitch_ix = 0;
 	if(length==0)
-		pitch_inc = 0;
+		wdata.pitch_inc = 0;
 	else
-		pitch_inc = (256 * ENV_LEN * STEPSIZE)/length;
+		wdata.pitch_inc = (256 * ENV_LEN * STEPSIZE)/length;
 
-	SetPitch2(wvoice, pitch1, pitch2, &pitch_base, &pitch_range);
+	SetPitch2(wvoice, pitch1, pitch2, &wdata.pitch_base, &wdata.pitch_range);
 	// set initial pitch
-	pitch = ((pitch_env[0]*pitch_range)>>8) + pitch_base;   // Hz << 12
+	wdata.pitch = ((wdata.pitch_env[0] * wdata.pitch_range) >>8) + wdata.pitch_base;   // Hz << 12
 
 	flutter_amp = wvoice->flutter;
 
@@ -1662,15 +1667,14 @@ if(option_log_frames)
 
 
 
-void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2)
-{//============================================================
+void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v)
+{//========================================================================
 	int ix;
 	DOUBLEX next;
 	int length2;
 	int length4;
 	int qix;
 	int cmd;
-	voice_t *v;
 	static int glottal_reduce_tab1[4] = {0x30, 0x30, 0x40, 0x50};  // vowel before [?], amp * 1/256
 //	static int glottal_reduce_tab1[4] = {0x30, 0x40, 0x50, 0x60};  // vowel before [?], amp * 1/256
 	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
@@ -1724,8 +1728,6 @@ if(option_log_frames)
 			break;   // next is not from spectrum, so continue until end of wave cycle
 	}
 
-	v = wvoice;
-
 	// round the length to a multiple of the stepsize
 	length2 = (length + STEPSIZE/2) & ~0x3f;
 	if(length2 == 0)
@@ -1767,7 +1769,7 @@ if(option_log_frames)
 static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
 {//====================================================================================
 	if(resume==0)
-		SetSynth(length,modulation,fr1,fr2);
+		SetSynth(length, modulation, fr1, fr2, wvoice);
 
 	return(Wavegen());
 }
@@ -1839,34 +1841,45 @@ int WavegenFill(int fill_zeros)
 			{
 				echo_complete -= length;
 			}
-			n_mix_wavefile = 0;
+			wdata.n_mix_wavefile = 0;
+			wdata.prev_was_synth = 0;
 			result = PlaySilence(length,resume);
 			break;
 
 		case WCMD_WAVE:
 			echo_complete = echo_length;
-			n_mix_wavefile = 0;
+			wdata.n_mix_wavefile = 0;
+			wdata.prev_was_synth = 0;
 			result = PlayWave(length,resume,(unsigned char*)q[2], q[3] & 0xff, q[3] >> 8);
 			break;
 
 		case WCMD_WAVE2:
 			// wave file to be played at the same time as synthesis
-			mix_wave_amp = q[3] >> 8;
-			mix_wave_scale = q[3] & 0xff;
-			if(mix_wave_scale == 0)
-				n_mix_wavefile = length*2;
+			wdata.mix_wave_amp = q[3] >> 8;
+			wdata.mix_wave_scale = q[3] & 0xff;
+			if(wdata.mix_wave_scale == 0)
+				wdata.n_mix_wavefile = length*2;
 			else
-				n_mix_wavefile = length;
-			mix_wavefile_ix = 0;
-			mix_wavefile = (unsigned char *)q[2];
+				wdata.n_mix_wavefile = length;
+			wdata.mix_wavefile_ix = 0;
+			wdata.mix_wavefile = (unsigned char *)q[2];
 			break;
 
 		case WCMD_SPECT2:   // as WCMD_SPECT but stop any concurrent wave file
-			n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
+			wdata.n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			echo_complete = echo_length;
 			result = Wavegen2(length & 0xffff,q[1] >> 16,resume,(frame_t *)q[2],(frame_t *)q[3]);
 			break;
+
+#ifdef INCLUDE_KLATT
+		case WCMD_KLATT2:   // as WCMD_SPECT but stop any concurrent wave file
+			wdata.n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
+		case WCMD_KLATT:
+			echo_complete = echo_length;
+			result = Wavegen_Klatt2(length & 0xffff,q[1] >> 16,resume,(frame_t *)q[2],(frame_t *)q[3]);
+			break;
+#endif
 
 		case WCMD_MARKER:
 			MarkerEvent(q[1],q[2],q[3],out_ptr);

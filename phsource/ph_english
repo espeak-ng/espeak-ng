@@ -103,7 +103,8 @@ endphoneme
 phoneme a
   vowel  starttype (a)  endtype (a)
   length 150
-  formants vowel/a_en
+//  formants vowel/a_en
+  formants vowel/a
   reduceto a2  0
 endphoneme
 
@@ -120,7 +121,8 @@ endphoneme
 phoneme aa   //   'bath' etc.
   vowel  starttype (a)  endtype (a)
   length 150
-  formants vowel/a_en
+//  formants vowel/a_en
+  formants vowel/a
   linkout r-
 endphoneme
 
@@ -272,7 +274,8 @@ endphoneme
 phoneme aI
   vowel  starttype (a)  endtype (i)
   length 230
-  formants vdiph/ai_en2
+//  formants vdiph/ai_en2
+  formants vdiph/ai_2
 endphoneme
 
 

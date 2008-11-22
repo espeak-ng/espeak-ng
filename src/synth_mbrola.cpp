@@ -77,7 +77,7 @@ BOOL load_MBR()
 	if(hinstDllMBR != NULL)
 		return TRUE;   // already loaded 
 
-	if (!(hinstDllMBR=LoadLibrary("mbrola.dll")))
+	if (!(hinstDllMBR=LoadLibraryA("mbrola.dll")))
 		return FALSE;
 	init_MBR			=(PROCIC) GetProcAddress(hinstDllMBR,"init_MBR");
 	write_MBR			=(PROCIC) GetProcAddress(hinstDllMBR,"write_MBR");
@@ -179,7 +179,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 
 #ifdef USE_MBROLA_LIB
 #ifdef PLATFORM_WINDOWS
-	setVolumeRatio_MBR((float)(mbrola_control & 0xff) /16.0);
+	setVolumeRatio_MBR((float)(mbrola_control & 0xff) /16.0f);
 #else
 	mbrolib_get_parameter(mb_handle,&m_parameters);
 	m_parameters.ignore_error = 1;

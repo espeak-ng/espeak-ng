@@ -137,7 +137,8 @@ int SpectFrame::Import(wxInputStream& stream1)
 	double x;
 	unsigned short *spect_data;
 
-   wxTextInputStream stream(stream1);
+	synthesizer_type = 0;
+	wxTextInputStream stream(stream1);
 
 	stream >> time;
 	stream >> pitch;
@@ -273,12 +274,13 @@ int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 
 
 
-int SpectFrame::Load(wxInputStream& stream)
-{//========================================
+int SpectFrame::Load(wxInputStream& stream, int synth_type)
+{//========================================================
 	int  ix;
 	int  x;
 	unsigned short *spect_data;
 
+	synthesizer_type = synth_type;
    wxDataInputStream s(stream);
 
 	time = s.ReadDouble();
@@ -298,6 +300,14 @@ int SpectFrame::Load(wxInputStream& stream)
 			keyframe = 1;
 		peaks[ix].pkwidth = s.Read16();
 		peaks[ix].pkright = s.Read16();
+	}
+
+	if(synthesizer_type == 1)
+	{
+		for(ix=0; ix<N_KLATTP; ix++)
+		{
+			klatt_param[ix] = s.Read16();
+		}
 	}
 
 	spect_data = new USHORT[nx];
@@ -324,7 +334,7 @@ int SpectFrame::Save(wxOutputStream& stream)
 {//=========================================
 	int ix;
 
-   wxDataOutputStream s(stream);
+  	wxDataOutputStream s(stream);
 
 	s.WriteDouble(time);
 	s.WriteDouble(pitch);
@@ -343,6 +353,14 @@ int SpectFrame::Save(wxOutputStream& stream)
 		s.Write16(keyframe ? peaks[ix].pkheight : 0);
 		s.Write16(peaks[ix].pkwidth);
 		s.Write16(peaks[ix].pkright);
+	}
+
+	if(synthesizer_type == 1)
+	{
+		for(ix=0; ix<N_KLATTP; ix++)
+		{
+			s.Write16(klatt_param[ix]);
+		}
 	}
 
 	for(ix=0; ix<nx; ix++)
@@ -367,6 +385,7 @@ void SpectFrame::ZeroPeaks()
 void SpectFrame::CopyPeaks(SpectFrame *sf)
 {//=======================================
 	memcpy(peaks,sf->peaks,sizeof(peaks));
+	memcpy(klatt_param, sf->klatt_param, sizeof(klatt_param));
 	keyframe = sf->keyframe;
 }
 
@@ -448,6 +467,9 @@ void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitud
 	int  y1, y2;
 	double yy;
 	int max_ix;
+	int height;
+	int pkright;
+	int pkwidth;
 	int buf[DRAWPEAKWIDTH*2];
 
 	max_ix = int(9000 * scale_x);
@@ -459,9 +481,24 @@ void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitud
 
 		if((pk->pkfreq == 0) || (pk->pkheight==0)) continue;
 
+		if(synthesizer_type==1)
+		{
+			if(peak==0) continue;
+
+			height = pk->pkheight + (64 * 64);
+			height = (500000/height) * 100;
+			pkright = pkwidth = pk->pkheight / 16;
+		}
+		else
+		{
+			height = pk->pkheight;
+			pkright = pk->pkright;
+			pkwidth = pk->pkwidth;
+		}
+
 		x1 = (int)(pk->pkfreq*scale_x);
-		x2 = (int)((pk->pkfreq + pk->pkright)*scale_x);
-		x3 = (int)((pk->pkfreq - pk->pkwidth)*scale_x);
+		x2 = (int)((pk->pkfreq + pkright)*scale_x);
+		x3 = (int)((pk->pkfreq - pkwidth)*scale_x);
 
 		if(x3 >= DRAWPEAKWIDTH)
 			continue;   // whole peak is off the scale
@@ -469,7 +506,7 @@ void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitud
 		if((width = x2-x1) <= 0) continue;
 		for(ix=0; ix<width; ix++)
 		{
-			buf[x1+ix] += pk->pkheight * pk_shape1[(ix*PEAKSHAPEW)/width];
+			buf[x1+ix] += height * pk_shape1[(ix*PEAKSHAPEW)/width];
 		}
 
 		if((width = x1-x3) <= 0) continue;
@@ -477,7 +514,7 @@ void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitud
 		{
 			if(x3+ix >= 0)
 			{
-				buf[x3+ix] += pk->pkheight * pk_shape1[((width-ix)*PEAKSHAPEW)/width];
+				buf[x3+ix] += height * pk_shape1[((width-ix)*PEAKSHAPEW)/width];
 			}
 		}
 	}
@@ -633,3 +670,71 @@ void SpectFrame::Draw(wxDC& dc, int offy, int frame_width, double scalex, double
 
 }  // end of SpectFrame::Draw
 
+
+void SpectFrame::KlattDefaults()
+{//============================
+	// set default values for Klatt parameters
+	int pk;
+	int bw;
+	int bw3;
+
+	synthesizer_type = 1;
+
+	klatt_param[KLATT_AV] = 59;
+	klatt_param[KLATT_AVp] = 0;
+	klatt_param[KLATT_Fric] = 0;
+	klatt_param[KLATT_FricBP] = 0;
+	klatt_param[KLATT_Aspr] = 0;
+	klatt_param[KLATT_Turb] = 0;
+	klatt_param[KLATT_Skew] = 0;
+	klatt_param[KLATT_Tilt] = 0;
+	klatt_param[KLATT_Kopen] = 40;
+	klatt_param[KLATT_spare1] = 0;
+
+	bw = 60;
+	if(peaks[1].pkfreq < 400)
+		bw = 55;
+	if(peaks[1].pkfreq > 600)
+		bw = 70;
+	if(peaks[1].pkfreq > 650)
+		bw = 80;
+	if(peaks[1].pkfreq > 750)
+		bw = 90;
+	peaks[1].pkwidth = bw;
+
+	bw = 90;
+	bw3 = 150;
+	if(peaks[2].pkfreq < 1000)
+	{
+		bw = 80;
+		bw3 = 120;
+	}
+	if(peaks[2].pkfreq > 1600)
+	{
+		bw = 100;
+		bw3 = 200;
+	}
+	if(peaks[2].pkfreq > 2000)
+	{
+		bw = 110;
+		bw3 = 250;
+	}
+	peaks[2].pkwidth = bw;
+	peaks[3].pkwidth = bw3;
+	peaks[4].pkwidth = 200;
+	peaks[5].pkwidth = 200;
+	peaks[6].pkwidth = 500;
+	peaks[0].pkfreq = 280;   // FNP
+	peaks[0].pkwidth = 280; // FNZ
+
+	peaks[7].pkfreq = 7800;
+	peaks[7].pkwidth = 0;
+	peaks[8].pkfreq = 9000;
+	peaks[8].pkwidth = 0;
+
+	for(pk=0; pk<=8; pk++)
+	{
+		peaks[pk].pkheight = peaks[pk].pkwidth << 6;
+		peaks[pk].pkright = 0;
+	}
+}

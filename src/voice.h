@@ -40,6 +40,7 @@ typedef struct {
 	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
 	int consonant_amp;     // amplitude of unvoiced consonants
 	int consonant_ampv;    // amplitude of the noise component of voiced consonants
+	int klatt[8];
 
 	// parameters used by Wavegen
 	short freq[N_PEAKS];    // 100% = 256
@@ -68,7 +69,7 @@ extern USHORT voice_pcnt[N_PEAKS+1][3];
 
 
 extern voice_t *voice;
-extern int tone_points[10];
+extern int tone_points[12];
 
 const char *SelectVoice(espeak_VOICE *voice_select);
 espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name);

@@ -38,6 +38,7 @@ _grv	maldekst@-*akoRno
 _tld	tildo
 
 
+
 _??	liteRo
 _.	punkto
 _:	dupunkto
@@ -48,41 +49,68 @@ _-	dividost@-*eko
 ~	tildo
 °	gradoI
 %	p@-*otsento
-@	po
+@	_tSe_
 &	kaI
+=	,,egala,
+\\	deklivo
+/	oblik'vo
+*	asteRisko
+©       k'opiraIto
 
 
 v	vo	// not Roman numbers
 x	ikso
 
-t.e		t'e,e
 
 
 // Abbreviations
-a.k        ,antaUk@-*'isto
-a.k.       ,antaUk@-*'isto
-akk        alinome
-anst       anstataU
-bea         $abbrev
-ekz        ekzemple
-i.a        'i'a
-k.a        kaIal'iaI
-k.c        kaItset'eRe
-n.b        n'otu||b'one
-nro        numeRo
-pĝ         paZo
-p.k        p,ostk@-*'isto
-p.k.       p,ostk@-*'isto
-uea         $abbrev
-uk          $abbrev
+a.k	,antaUk@-*'isto $dot
+akk	alinome
+anst	anstataU	$dot
+bea	$abbrev
+bv	bon,volu%
+ekz	ekzemple	$dot
+i.a	'i'a
+k.a	kaIal'iaI
+k.c	kaItset'eRe
+Kg	k'ilog@-*'amoI
+Km	k'ilom'et-*oI
+kp	k,omp'aru	$dot
+k.s	kaI,s'im'ile
+n.b	n'otu||b'one
+nro	numeRo
+pĝ	padZo		$dot
+p.k	p,ostk@-*'isto	$dot
+ps	p,ostask@-*'ibo
+p.s	p,ostask@-*'ibo
+str	st@-*'ato
+t.e	tio,estas
+t.n	t'iel,nom'ata
+uea	$abbrev
+uk	$abbrev
+ktp	kaIt'iel,pl,u_
+k.t.p	kaIt'iel,pl,u_
 
 
+
+Jan	i,anu'aRo	// months
+Feb	f,eb@-*u'aRo
+Mar	m'a@-*to
+Apr	ap@-*'ilo
+Maj	m'aIo%
+Jun	iun'io
+Jul	iul'io
+Aŭg	augusto%
+Sept	sep,temb@-*o
+Okt	ok,tob@-*o
+//Nov	nov,emb@-*o (problem: no difference between Nov and nov- [es: nov-jorko] )
+Dec	detsemb@-*o
 
 l'              la
 la              %la
 ne              $u+     // negative
-ĉu              $u      // interogative particle
-ĉi              $u      // interogative particle
+ĉu              $u $brk  // interogative particle and conjunction
+ĉi              $u      // this
 ia              $u      // any
 
 // prepositions
@@ -123,6 +151,10 @@ tra             $u $pause
 eĉ              $brk
 pli	pl,i
 plej	pl,eI
+//ĝojo	dZoIo
+//ĉashundo	tSas,hundo
+//ligno		lig,no
+//signo		sig,no
 
 // pronouns
 mi              $u
@@ -197,7 +229,7 @@ kio             $u+ $pause
 kiu             $u+ $pause
 kiuj            $u+ $pause
 kiun            $pause
-kiunj           $pause
+kiujn           $pause
 kiam            $u+ $pause
 
 tio             $u+
@@ -209,12 +241,13 @@ ke		$u $pause      // that (conj)
 aŭ		$u $pause
 ĉar		$u $pause
 kaj		$u $pause
-sed		$u $pause
+sed		$u $pause	//but
 nek		$u $pause
 se		$u $pause
 ju		$u $brk
 des		$u $pause
 do		$pause	       // therefore, so, then
 ekde		$pause         // since
+tamen		$pause		//however (avversative)
 
 

@@ -1186,7 +1186,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 		pw++;	
 		sign = -1;
 	}
-	value = wcstod(pw,&tail);
+	value = (float)wcstod(pw,&tail);
 	if(tail == pw)
 	{
 		// failed to find a number, return 100%

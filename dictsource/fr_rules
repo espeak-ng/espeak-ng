@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-11-01 Michel Such  <michel.such@free.fr>
+// Updated: 2008-11-19 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -441,6 +441,8 @@ _)		en (A       A~n		// enivrer
          -)     est (_      Est         // -est
 
 	dg)	et (_      Et     	// Bridget, gadget
+	Ack)	et (_      Et
+	m)	et (_      Et2
 
 		eu        Y		// eu
 	_)	eu (ss        y		// eu
@@ -513,7 +515,6 @@ _)		en (A       A~n		// enivrer
 	_) 	e (xA          E
 	Cr)	eamer		i:mWr
 	Cl)	eaner		i:nWr
-	Ack)	et (_      Et
 	vert)	e (rX      W
 		eïn (_	'Ein
 
@@ -694,6 +695,7 @@ _)		half  	_^_en
 	anqu)	ill         il		// tranquille
 	dist)	ill         il		// distiller
 	_m)	ill         il		// mille
+	osc)	ill         il		// osciller
 	v)	ill         il		// village
 	qu)	ill         ij		// cuillière cueillir
 	A)	ill         j		// caillou

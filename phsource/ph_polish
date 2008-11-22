@@ -7,7 +7,7 @@
 phoneme a
   vowel starttype (a) endtype (a)
   length 190
-  formants vowel/a_en
+  formants vowel/a
   reduceto a# 0
 endphoneme
 

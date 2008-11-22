@@ -1,4 +1,4 @@
-﻿//maintainer: Willem van der Walt
+//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -103,6 +103,9 @@ _rng	'A:nb&l
 _stk	str'e@p
 _tld	t'Ild@
 
+// symbols
+⅓	d&:rd@
+⅔	tw,e@d'&:rd@s
 
 // numeric
 _0	'nWl

@@ -1,4 +1,4 @@
-// translation rules
+// translation rules for Esperanto
 // This file is UTF-8 encoded
 
 // includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
@@ -21,7 +21,8 @@
      D_-_)      an (_   %an   //'an' after a number
        D_)      a (_    %a    //'a' after a number
        D_)      an (_   %an   //'an' after a number
-		
+       -)	ano (_	an%o   // 'ano' = member
+
 .group b
 	_)	b(_	bo
 		b       b
@@ -40,6 +41,8 @@
 
 	_)	d (-ro_   dokt'o
 	_)	d (-rino_ d,okto
+
+	-)	do (_	d%o
 
 .group e
 	_)	e(_	e
@@ -78,7 +81,12 @@
 .group k
 	_)	k(_	ko
 		k	k
-		
+
+	_)	k (-do_		kamaR'a
+	_)	k (-dino_	k'amaRa
+	_)	k (-ino_	k'amaRad
+
+	
 .group l
 	_)	l(_	lo
 		l	l
@@ -86,7 +94,7 @@
 
 	-)	lo (_	l%o
 
-		
+
 .group m
 	_)	m(_	mo
 		m	m
@@ -125,7 +133,7 @@
                 rr      RR
 
        -)	ro (_   R%o   // d-ro, n-ro
-		
+
 .group s
 	_)	s(_	so
 	_)	sh(_	So
@@ -135,6 +143,11 @@
 
 	_)	s (-ino_   s,injoR
 	_)	s (-ro_    sinj'o
+
+	_)	s (-ano_   s'am,ide
+	_)	s (-anino_   s'am,ide
+
+	_)	s (-ta_   s'ank
 		
 		
 .group t
@@ -142,6 +155,8 @@
 		t	t
 		th (K	T    // foreign words
 	K)	th	T    // foreign words
+
+	-)	ta (_   t%a   // s-ta = sankta
 		
 .group u
 	_)	u(_	u
@@ -161,6 +176,7 @@
 .group x
 	_)	x(_	ikso
 		x	ks
+	_)	x	z    // foreign words
 		
 .group y
 	_)	y(_	ipsilono
@@ -193,11 +209,8 @@
 		ŭ	w
 
 		
-		=	,,egala,
-		\	malantaIst@-*eko
-		/	st@-*eko
 		'	
-		+	plus
+		+	plus_
 	_)	++ (_	plusplus
 
 		.	punkto
@@ -205,13 +218,16 @@
 	\.)     .
 
 
-		*	asteRisko
 		£	pundo
-		£ (D	_pundoI_:
-	        !	,ekk@-*io,
-		-	_
-		- (_a	
+		£ (_D	_pundoI_:
+		_!	_k@-*isig'no_
+        __)  - (_D	minus_
+        D_)  - (_D	st@-*ek'eto_
+        A_)  - (_D        _
+        C_)  - (_D        _
+         --) -
+		-	minus_
+		- (_a
 		$	dolaRo
-		$ (D	_dolaRoI_:
-			
+		$ (_D	_dolaRoI_:
 

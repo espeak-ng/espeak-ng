@@ -1,3 +1,5 @@
+// Czech phonemes inherit from Slovak
+
 phoneme e
   vowel starttype (e) endtype (e)
   length 120

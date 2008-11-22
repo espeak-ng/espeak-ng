@@ -1347,3 +1347,6 @@ include ph_armenian_west
 phonemetable om base
 include ph_oromo
 
+phonemetable en_klatt en
+include ph_english_klatt
+]

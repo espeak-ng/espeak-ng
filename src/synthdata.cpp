@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.39.26  15.Nov.08";
+const char *version_string = "1.39.28  22.Nov.08";
 const int version_phdata  = 0x013900;
 
 int option_device_number = -1;
@@ -375,9 +375,10 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	int  length1;
 	int  length_std;
 	int  length_factor;
-	SPECT_SEQ *seq;
-	SPECT_SEQ *seq2;
+	SPECT_SEQ *seq, *seq2;
+	SPECT_SEQK *seqk, *seqk2;
 	PHONEME_TAB *next2_ph;
+	frame_t *frame;
 	static frameref_t frames_buf[N_SEQ_FRAMES];
 	
 	PHONEME_TAB *other_ph;
@@ -389,6 +390,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	if((ix = LookupSound(this_ph,other_ph,which,match_level,0)) < 4)
 		return(NULL);
 	seq = (SPECT_SEQ *)(&spects_data[ix]);
+	seqk = (SPECT_SEQK *)seq;
 	nf = seq->n_frames;
 
 
@@ -397,15 +399,20 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 
 	seq_break = 0;
 	length1 = 0;
+
 	for(ix=0; ix<nf; ix++)
 	{
-		frames_buf[ix].frame = &seq->frame[ix];
-		frames_buf[ix].frflags = seq->frame[ix].frflags;
-		frames_buf[ix].length = seq->frame[ix].length;
-		if(seq->frame[ix].frflags & FRFLAG_VOWEL_CENTRE)
+		if(seq->frame[0].frflags & FRFLAG_KLATT)
+			frame = &seqk->frame[ix];
+		else
+			frame = (frame_t *)&seq->frame[ix];
+		frames_buf[ix].frame = frame;
+		frames_buf[ix].frflags = frame->frflags;
+		frames_buf[ix].length = frame->length;
+		if(frame->frflags & FRFLAG_VOWEL_CENTRE)
 			seq_break = ix;
 	}
-	
+
 	frames = &frames_buf[0];
 	if(seq_break > 0)
 	{
@@ -462,14 +469,23 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 		// a secondary reference has been returned, which is not a wavefile
 		// add these spectra to the main sequence
 		seq2 = (SPECT_SEQ *)(&spects_data[wavefile_ix]);
+		seqk2 = (SPECT_SEQK *)seq2;
 	
 		// first frame of the addition just sets the length of the last frame of the main seq
 		nf--;
 		for(ix=0; ix<seq2->n_frames; ix++)
 		{
-			frames[nf].length = seq2->frame[ix].length;
+			if(seq2->frame[0].frflags & FRFLAG_KLATT)
+				frame = &seqk2->frame[ix];
+			else
+				frame = (frame_t *)&seq2->frame[ix];
+
+			frames[nf].length = frame->length;
 			if(ix > 0)
-				frames[nf].frame = &seq2->frame[ix];
+			{
+				frames[nf].frame = frame;
+				frames[nf].frflags = frame->frflags;
+			}
 			nf++;
 		}
 		wavefile_ix = 0;

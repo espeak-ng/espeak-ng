@@ -244,10 +244,19 @@ void SpectDisplay::ReadDialogValues()
 void SpectDisplay::RefreshDialogValues(int type)
 //{=============================================
 {
+	int ix;
+	SpectFrame *sf;
+
+	sf = spectseq->frames[sframe];
+
 	spectseq->amplitude = formantdlg->t_amplitude->GetValue();
-	spectseq->frames[sframe]->amp_adjust = formantdlg->t_ampframe->GetValue();
-	spectseq->frames[sframe]->length_adjust =
-		formantdlg->t_timeframe->GetValue() - spectseq->GetFrameLength(sframe,0,NULL);
+	sf->amp_adjust = formantdlg->t_ampframe->GetValue();
+	sf->length_adjust = formantdlg->t_timeframe->GetValue() - spectseq->GetFrameLength(sframe,0,NULL);
+
+	for(ix=0; ix<9; ix++)
+	{
+		sf->klatt_param[ix] = formantdlg->s_klatt[ix]->GetValue();
+	}
 
 	if(type==0)
 	{
@@ -472,7 +481,7 @@ void SpectDisplay::OnMenu(wxCommandEvent& event)
 	int code;
 	wxKeyEvent keyevent;
 	SpectFrame *sf;
-	static int key[] = {0x1044,0x3044,0x104e,0x1047,0x105a,0x1051,0x3051,WXK_F1,WXK_F2,0x1049,WXK_F10};
+	static int key[] = {0x1044,0x3044,0x104e,0x1047,0x105a,0x1051,0x3051,WXK_F1,WXK_F2,0x1049,WXK_F10,0x104b};
 
 	id = event.GetId();
 
@@ -624,13 +633,19 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		if(event.ControlDown())
 		{
 			// CTRL, rotate, make right slope steeper
-			pk->pkright-= 5;
+			if(spectseq->synthesizer_type==0)
+				pk->pkright-= 5;
 			pk->pkwidth += 5;
 		}
 		else
 		{
-			pk->pkright -= 10;
+			if(spectseq->synthesizer_type==0)
+				pk->pkright -= 10;
 			pk->pkwidth -= 10;
+			if(pk->pkright < 0)
+				pk->pkright = 0;
+			if(pk->pkwidth < 0)
+				pk->pkwidth = 0;
 		}
 		field = 4;
 		display = 1;
@@ -640,12 +655,14 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		if(event.ControlDown())
 		{
 			// CTRL: rotate, make left slope steeper
-			pk->pkright += 5;
+			if(spectseq->synthesizer_type==0)
+				pk->pkright += 5;
 			pk->pkwidth -= 5;
 		}
 		else
 		{
-			pk->pkright += 10;
+			if(spectseq->synthesizer_type==0)
+				pk->pkright += 10;
 			pk->pkwidth += 10;
 		}
 		field = 4;
@@ -653,15 +670,33 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		break;
 
 	case '<':   // width--
-		pk->pkright -= 2;
+		if(spectseq->synthesizer_type==0)
+			pk->pkright -= 2;
 		pk->pkwidth -= 2;
+		if(pk->pkwidth < 0)
+			pk->pkwidth = 0;
 		display = 1;
 		field = 4;
 		break;
 
 	case '>':   // width++
-		pk->pkright += 2;
+		if(spectseq->synthesizer_type==0)
+			pk->pkright += 2;
 		pk->pkwidth += 2;
+		display = 1;
+		field = 4;
+		break;
+
+	case '[':   // width--
+		pk->pkright -= 1;
+		if(pk->pkright < 0)
+			pk->pkright = 0;
+		display = 1;
+		field = 4;
+		break;
+
+	case ']':   // width++
+		pk->pkright += 1;
 		display = 1;
 		field = 4;
 		break;
@@ -706,6 +741,11 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 	case 0x1049:   // CTRL-I  interpolate between two frames
 		spectseq->InterpolateAdjacent();
 		display = 2;
+		break;
+
+	case 0x104b:   // CTRL-K
+		spectseq->SetKlattDefaults();
+		display = 3;
 		break;
 
 	case 0x104d:   // CTRL-M
@@ -825,25 +865,28 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		sf = spectseq->frames[sframe];
 		pk = &sf->peaks[pk_num];
 
-		if(pk->pkwidth < 50) pk->pkwidth = 50; // min. width
-		if(pk->pkright < 50) pk->pkright = 50;
+		if(spectseq->synthesizer_type==0)
+		{
+			if(pk->pkwidth < 50) pk->pkwidth = 50; // min. width
+			if(pk->pkright < 50) pk->pkright = 50;
 
-		// ensure minimum separation between peaks & prevent crossover
-		if(direction > 0)
-		{
-			for(i=pk_num+1; i<N_PEAKS; i++)
+			// ensure minimum separation between peaks & prevent crossover
+			if(direction > 0)
 			{
-				if(sf->peaks[i].pkfreq < sf->peaks[i-1].pkfreq + 100)
-					sf->peaks[i].pkfreq = sf->peaks[i-1].pkfreq + 100;
+				for(i=pk_num+1; i<N_PEAKS; i++)
+				{
+					if(sf->peaks[i].pkfreq < sf->peaks[i-1].pkfreq + 100)
+						sf->peaks[i].pkfreq = sf->peaks[i-1].pkfreq + 100;
+				}
 			}
-		}
-		else
-		if(direction < 0)
-		{
-			for(i=pk_num-1; i>=0; i--)
+			else
+			if(direction < 0)
 			{
-				if(sf->peaks[i].pkfreq > sf->peaks[i+1].pkfreq - 100)
-					sf->peaks[i].pkfreq = sf->peaks[i+1].pkfreq - 100;
+				for(i=pk_num-1; i>=0; i--)
+				{
+					if(sf->peaks[i].pkfreq > sf->peaks[i+1].pkfreq - 100)
+						sf->peaks[i].pkfreq = sf->peaks[i+1].pkfreq - 100;
+				}
 			}
 		}
 
@@ -1008,6 +1051,7 @@ void InitSpectrumDisplay()
 	menu_spectdisplay->Append(202,_T("Copy Peaks Up	SHIFT+CTRL+D"));
 	menu_spectdisplay->Append(204,_T("Grid (toggle)	CTRL+G"));
 	menu_spectdisplay->Append(210,_T("Interpolate (percentage)	CTRL+I"));
+	menu_spectdisplay->Append(212,_T("Convert sequence to Klatt format	CTRL+K"));
 	menu_spectdisplay->Append(203,_T("Marker (toggle)	CTRL+N"));
 	menu_spectdisplay->Append(206,_T("Show Interpolation	CTRL+Q"));
 	menu_spectdisplay->Append(207,_T("Hide Interpolation	CTRL+SHIFT+Q"));

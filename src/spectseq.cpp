@@ -34,8 +34,12 @@
 
 #define MAX_HARMONIC  400           // 400 * 50Hz = 20 kHz, more than enough
 
-int  SpeakNextClause(FILE *f_text, const void *text_in, int control);
-extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2);
+#define KLATT_TEST
+
+extern void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
+extern int Wavegen_Klatt(int resume);
+
+extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 extern int Wavegen();
 extern void CloseWaveFile2();
 extern FILE *f_wave;
@@ -100,18 +104,27 @@ static void PeaksZero(peak_t *sp, peak_t *zero)
 
 
 
-void MakeWaveFile()
-{//================
+void MakeWaveFile(int synthesis_method)
+{//====================================
 	int result=1;
+	int resume=0;
 	unsigned char wav_outbuf[1024];
 
 	while(result != 0)
 	{
 		out_ptr = out_start = wav_outbuf;
 		out_end = &wav_outbuf[sizeof(wav_outbuf)];
-		result = Wavegen();
+
+#ifdef KLATT_TEST
+		if(synthesis_method == 1)
+			result = Wavegen_Klatt(resume);
+		else
+#endif
+			result = Wavegen();
+
 		if(f_wave != NULL)
 			fwrite(wav_outbuf, 1, out_ptr - wav_outbuf, f_wave);
+		resume=1;
 	}
 }  // end of MakeWaveFile
 
@@ -135,6 +148,7 @@ SpectSeq::SpectSeq(int n)
 
 	max_x = 3000;
 	max_y = 1;
+	synthesizer_type = 0;
 }
 
 SpectSeq::~SpectSeq()
@@ -378,7 +392,7 @@ void SpectSeq::Load2(wxInputStream& stream, int import, int n)
 		}
 		else
 		{
-			if(frame->Load(stream) != 0) break;
+			if(frame->Load(stream, synthesizer_type) != 0) break;
 		}
 
 		frames[numframes++] = frame;
@@ -493,8 +507,19 @@ int SpectSeq::Load(wxInputStream & stream)
 		stream.SeekI(4);
 		return(ImportSPC2(stream));
 	}
-	if(id1 != FILEID1_SPECTSEQ || id2 != FILEID2_SPECTSEQ)
+	else
+	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 	{
+			synthesizer_type = 0;   // eSpeak formants
+	}
+	else
+	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
+	{
+			synthesizer_type = 1;   // formants for Klatt synthesizer
+	}
+	else
+	{
+		// Praat analysis data
 		stream.SeekI(0);
 		return(Import(stream));
 	}
@@ -530,7 +555,10 @@ int SpectSeq::Save(wxOutputStream &stream, int selection)
 	wxDataOutputStream s(stream);
 
 	s.Write32(FILEID1_SPECTSEQ);
-	s.Write32(FILEID2_SPECTSEQ);
+	if(synthesizer_type == 1)
+		s.Write32(FILEID2_SPECTSEK);
+	else
+		s.Write32(FILEID2_SPECTSEQ);
 
 	s.WriteString(name);
 	s.Write16(count);
@@ -547,6 +575,23 @@ int SpectSeq::Save(wxOutputStream &stream, int selection)
 	return(0);
 }  // end of SpectSeq::Save
 
+
+
+void SpectSeq::SetKlattDefaults(void)
+{//==================================
+	int ix;
+
+	synthesizer_type = 1;
+
+	for(ix=0; ix<numframes; ix++)
+	{
+		if(frames[ix]->keyframe)
+		{
+			frames[ix]->KlattDefaults();
+		}
+		frames[ix]->synthesizer_type = 1;
+	}
+}
 
 
 
@@ -785,6 +830,7 @@ void SpectSeq::CopyDown(int frame, int direction)
 				frames[frame]->peaks[pk].pkwidth = frames[f1]->peaks[pk].pkwidth;
 				frames[frame]->peaks[pk].pkright = frames[f1]->peaks[pk].pkright;
 			}
+			memcpy(frames[frame]->klatt_param, frames[f1]->klatt_param, sizeof(frames[frame]->klatt_param));
 			break;
 		}
 	}
@@ -878,46 +924,88 @@ void SpectSeq::ApplyAmp_adjust(SpectFrame *sp, peak_t *peaks)
 	int  y;
 
 	memcpy(peaks,sp->peaks,sizeof(*peaks)*N_PEAKS);
-	for(ix=0; ix<N_PEAKS; ix++)
+
+	if(synthesizer_type == 0)
 	{
-		y = peaks[ix].pkheight * sp->amp_adjust * amplitude;
-		peaks[ix].pkheight = y / 10000;
+		for(ix=0; ix<N_PEAKS; ix++)
+		{
+			y = peaks[ix].pkheight * sp->amp_adjust * amplitude;
+			peaks[ix].pkheight = y / 10000;
+		}
 	}
 }  // end of ApplyAmp_adjust
 
 
 
-void PeaksToFrame(peak_t *pks, frame_t *fr)
-{//========================================
+void PeaksToFrame(SpectFrame *sp1, peak_t *pks, frame_t *fr)
+{//=========================================================
 	int  ix;
-	int  x;
+	int  x, x2;
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
 		fr->ffreq[ix] = pks[ix].pkfreq;
-		fr->fheight[ix] = pks[ix].pkheight >> 6;
+
+		if(sp1->synthesizer_type==0)
+		{
+			x = pks[ix].pkheight >> 6;
+		}
+		else
+		{
+			x = pks[ix].pkheight >> 7;
+			fr->fwidth6 = pks[6].pkwidth >> 1;
+			fr->fright6 = pks[6].pkright;
+		}
+
+		if(x > 255)
+			x = 255;
+		fr->fheight[ix] = x;
+
 		if(ix < 6)
 		{
-			if((x = (pks[ix].pkwidth >> 2)) > 255)
+			x = pks[ix].pkwidth/2;
+			x2 = pks[ix].pkright;
+
+			if(sp1->synthesizer_type == 0)
+			{
+				x /= 2;
+				x2 /= 4;
+			}
+			if(x > 255)
 				x = 255;
 			fr->fwidth[ix] = x;
 
-			if((x = (pks[ix].pkright >> 2)) > 255)
-				x = 255;
-			fr->fright[ix] = x;
+			if(x2 > 255)
+				x2 = 255;
+			fr->fright[ix] = x2;
 		}
+	}
+
+	for(ix=0; ix<N_KLATTP; ix++)
+	{
+		fr->klattp[ix] = sp1->klatt_param[ix];
 	}
 }
 
-static void SetSynth_mS(int length_mS, peak_t *sp1, peak_t *sp2)
-{//=============================================================
+static void SetSynth_mS(int length_mS, SpectFrame *sp1, SpectFrame *sp2, peak_t *pks1, peak_t *pks2, int control)
+{//==============================================================================================================
 	static frame_t fr1, fr2;
 
-	PeaksToFrame(sp1,&fr1);
-	PeaksToFrame(sp2,&fr2);
+	PeaksToFrame(sp1,pks1,&fr1);
+	PeaksToFrame(sp2,pks2,&fr2);
 
-	SetSynth((length_mS * samplerate) / 1000, 0, &fr1, &fr2);    // convert mS to samples
-}
+#ifdef KLATT_TEST
+	if(sp1->synthesizer_type == 1)
+	{
+		SetSynth_Klatt((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice, control);    // convert mS to samples
+	}
+	else
+#endif
+	{
+		SetSynth((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice);    // convert mS to samples
+	}
+};
+
 
 
 
@@ -939,6 +1027,7 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	peak_t peaks1[N_PEAKS];
 	peak_t peaks2[N_PEAKS];
 
+KlattInit();
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	if(numframes==0) return;
@@ -1007,23 +1096,39 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 			{
 				ApplyAmp_adjust(sp1,peaks1);
 				ApplyAmp_adjust(sp2,peaks2);
+
 				if(first)
 				{
-					PeaksZero(peaks1,peaks0);  // fade in
-					SetSynth_mS(20,peaks0,peaks1);
-					MakeWaveFile();
+					if(synthesizer_type == 1)
+					{
+						memcpy(peaks0,peaks1,sizeof(peaks0));
+					}
+					else
+					{
+						PeaksZero(peaks1,peaks0);  // fade in
+					}
+					SetSynth_mS(20,sp1,sp1,peaks0,peaks1,0);
+					MakeWaveFile(synthesizer_type);
 					first=0;
 				}
 
 				length = int(sp1->length * lfactor);
-				SetSynth_mS(length,peaks1,peaks2);
-				MakeWaveFile();
+				SetSynth_mS(length,sp1,sp2,peaks1,peaks2,0);
+				MakeWaveFile(synthesizer_type);
 			}
 		}
 	}
-	PeaksZero(peaks2,peaks0);  // fade out
-	SetSynth_mS(30,peaks2,peaks0);
-	MakeWaveFile();
+
+	if(synthesizer_type == 1)
+	{
+		memcpy(peaks0,peaks2,sizeof(peaks0));
+	}
+	else
+	{
+		PeaksZero(peaks2,peaks0);  // fade out
+	}
+	SetSynth_mS(30,sp2,sp2,peaks2,peaks0,2);
+	MakeWaveFile(synthesizer_type);
 
 	CloseWaveFile2();
 	PlayWavFile(fname_speech);
@@ -1054,6 +1159,7 @@ void SpectFrame::MakeWave(int control, PitchEnvelope &pitche, int amplitude, int
 	char *fname_speech;
 //	USHORT htab0[600];
 
+KlattInit();
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	length = duration;
@@ -1069,23 +1175,31 @@ void SpectFrame::MakeWave(int control, PitchEnvelope &pitche, int amplitude, int
 	if(OpenWaveFile2(fname_speech) != 0)
 		return;
 
+
 	if(control==0)
 	{
 		memcpy(peaks1,peaks,sizeof(peaks1));
-		for(ix=0; ix<N_PEAKS; ix++)
-		{
-			y = peaks1[ix].pkheight * amp_adjust * amplitude;
-			peaks1[ix].pkheight = y/10000;
-		}
-			
-		PeaksZero(peaks1,peaks0);
 
-		SetSynth_mS(20,peaks0,peaks1);
-		MakeWaveFile();
-		SetSynth_mS(length,peaks1,peaks1);
-		MakeWaveFile();
-		SetSynth_mS(30,peaks1,peaks0);
-		MakeWaveFile();
+		if(synthesizer_type == 0)
+		{
+			for(ix=0; ix<N_PEAKS; ix++)
+			{
+				y = peaks1[ix].pkheight * amp_adjust * amplitude;
+				peaks1[ix].pkheight = y/10000;
+			}
+			PeaksZero(peaks1,peaks0);
+		}
+		else
+		{
+			memcpy(peaks0,peaks1,sizeof(peaks0));
+		}
+	
+		SetSynth_mS(20,this,this,peaks0,peaks1,0);
+		MakeWaveFile(synthesizer_type);
+		SetSynth_mS(length,this,this,peaks1,peaks1,0);
+		MakeWaveFile(synthesizer_type);
+		SetSynth_mS(30,this,this,peaks1,peaks0,2);
+		MakeWaveFile(synthesizer_type);
 	}
 	else
 	{

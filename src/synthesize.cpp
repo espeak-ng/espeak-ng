@@ -354,6 +354,15 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	849,851,853,856,858,861,863,865,868,870,872,875,877,879,882,884,
 	886,889,891,893,896,898,900,902};
 
+	if(fr->frflags & FRFLAG_KLATT)
+	{
+		if(new_rms == -1)
+		{
+			fr->klattp[KLATT_AV] = 50;
+		}
+		return;
+	}
+ 
 	if(fr->rms == 0) return;    // check for divide by zero
 	x = (new_rms * 64)/fr->rms;
 	if(x >= 200) x = 199;
@@ -375,6 +384,9 @@ static void formants_reduce_hf(frame_t *fr, int level)
 	int  ix;
 	int  x;
 
+	if(fr->frflags & FRFLAG_KLATT)
+		return;
+ 
 	for(ix=2; ix<N_PEAKS; ix++)
 	{
 		x = fr->fheight[ix] * level;
@@ -540,6 +552,10 @@ static short vcolouring[N_VCOLOUR][5] = {
 
 		next_rms = seq[1].frame->rms;
 
+if(fr->frflags & FRFLAG_KLATT)
+{
+	fr->klattp[KLATT_AV] = 53;   // reduce the amplituide of the start of a vowel
+}
 		if(f2 != 0)
 		{
 			if(rms & 0x20)
@@ -661,6 +677,9 @@ static void SmoothSpect(void)
 	q = wcmdq[syllable_centre];
 	frame_centre = (frame_t *)q[2];
 
+//if(frame_centre->frflags & FRFLAG_KLATT)
+//	return;  // TESTING
+
 	// backwards
 	ix = syllable_centre -1;
 	frame = frame2 = frame_centre;
@@ -672,7 +691,7 @@ static void SmoothSpect(void)
 		if(q[0] == WCMD_PAUSE || q[0] == WCMD_WAVE)
 			break;
 
-		if(q[0] == WCMD_SPECT || q[0] == WCMD_SPECT2)
+		if(q[0] <= WCMD_SPECT2)
 		{
 			len = q[1] & 0xffff;
 
@@ -759,7 +778,7 @@ static void SmoothSpect(void)
 		if(q[0] == WCMD_PAUSE || q[0] == WCMD_WAVE)
 			break;
 
-		if(q[0] == WCMD_SPECT || q[0] == WCMD_SPECT2)
+		if(q[0] <= WCMD_SPECT2)
 		{
 
 			len = q[1] & 0xffff;
@@ -834,7 +853,7 @@ static void SmoothSpect(void)
 	}
 
 	syllable_start = syllable_end;
-}
+}  //  end of SmoothSpect
 
 
 static void StartSyllable(void)
@@ -891,22 +910,29 @@ if(which==1)
 	if(frames == NULL)
 		return(0);   // not found
 
+	frame1 = frames[0].frame;
+	frame1_length = frames[0].length;
+	if(frame1->frflags & FRFLAG_KLATT)
+		wcmd_spect = WCMD_KLATT;
+
 	if(wavefile_ix == 0)
 	{
 		if(wave_flag)
 		{
 			// cancel any wavefile that was playing previously
 			wcmd_spect = WCMD_SPECT2;
+			if(frame1->frflags & FRFLAG_KLATT)
+				wcmd_spect = WCMD_KLATT2;
 			wave_flag = 0;
 		}
 		else
 		{
 			wcmd_spect = WCMD_SPECT;
+			if(frame1->frflags & FRFLAG_KLATT)
+				wcmd_spect = WCMD_KLATT;
 		}
 	}
 
-	frame1 = frames[0].frame;
-	frame1_length = frames[0].length;
 	if(last_frame != NULL)
 	{
 		if(((last_frame->length < 2) || (last_frame->frflags & FRFLAG_VOWEL_CENTRE))

@@ -597,17 +597,21 @@ int Compile::LoadSpect(const char *path, int control)
 	int peak;
 	int displ;
 	int frame;
+	int n_frames;
 	int ix;
-	int x;
+	int x, x2;
 	int rms;
 	float total;
 	float pkheight;
 	int marker1_set=0;
 	int frame_vowelbreak=0;
+	int klatt_flag=0;
 	SpectFrame *fr;
+	frame_t *fr_out;
 	wxString path_sep = _T("/");
 
 	SPECT_SEQ seq_out;
+	SPECT_SEQK seqk_out;
 
 	// create SpectSeq and import data
 	spectseq = new SpectSeq;
@@ -627,11 +631,14 @@ int Compile::LoadSpect(const char *path, int control)
 	}
 	spectseq->Load(stream);
 
+	if(spectseq->synthesizer_type == 1)
+		klatt_flag = FRFLAG_KLATT;
+
 	displ = ftell(f_phdata);
 
 	seq_out.n_frames=0;
 	seq_out.flags=0;
-	seq_out.length=0;
+	seq_out.length_total=0;
 
 	total = 0;	
 	for(frame=0; frame < spectseq->numframes; frame++)
@@ -669,7 +676,7 @@ for(ix=0; ix<8; ix++)
 				total += spectseq->frames[frame-1]->length;
 		}	
 	}
-	seq_out.length = int(total);
+	seq_out.length_total = int(total);
 
 	if((control & 1) && (marker1_set == 0))
 	{
@@ -678,68 +685,103 @@ for(ix=0; ix<8; ix++)
 		spectseq->frames[frame_vowelbreak]->markers |= FRFLAG_VOWEL_CENTRE;
 	}
 
-	ix = 0;
+	n_frames = 0;
 	for(frame=0; frame < spectseq->numframes; frame++)
 	{
 		fr = spectseq->frames[frame];
 		
 		if(fr->keyframe)
 		{
+			if(klatt_flag)
+				fr_out = &seqk_out.frame[n_frames];
+			else
+				fr_out = (frame_t *)&seq_out.frame[n_frames];
+
 			x = int(fr->length + 0.5);  // round to nearest mS
 			if(x > 255) x = 255;
-			seq_out.frame[ix].length = x;
+			fr_out->length = x;
 
-			seq_out.frame[ix].frflags = fr->markers;
+			fr_out->frflags = fr->markers | klatt_flag;
+
 			rms = int(fr->GetRms(spectseq->amplitude));
 			if(rms > 255) rms = 255;
-			seq_out.frame[ix].rms = rms;
+			fr_out->rms = rms;
 
-			if(ix == (seq_out.n_frames-1))
-				seq_out.frame[ix].length = 0;    // give last frame zero length
-				
+			if(n_frames == (seq_out.n_frames-1))
+				fr_out->length = 0;    // give last frame zero length
+
 			// write: peak data
 			count_frames++;
 			for(peak=0; peak<N_PEAKS; peak++)
 			{
-				seq_out.frame[ix].ffreq[peak] = fr->peaks[peak].pkfreq;
-				pkheight = spectseq->amplitude * fr->amp_adjust * fr->peaks[peak].pkheight;
-				pkheight = pkheight/640000;
-				if(pkheight > 255) pkheight = 255;
-				seq_out.frame[ix].fheight[peak] = int(pkheight);
+				fr_out->ffreq[peak] = fr->peaks[peak].pkfreq;
+
+				if(klatt_flag)
+				{
+					pkheight = fr->peaks[peak].pkheight / 128;
+				}
+				else
+				{
+					pkheight = spectseq->amplitude * fr->amp_adjust * fr->peaks[peak].pkheight;
+					pkheight = pkheight/640000;
+					if(pkheight > 255) pkheight = 255;
+				}
+				fr_out->fheight[peak] = int(pkheight);
 
 				if(peak < 6)
 				{
-					x =  fr->peaks[peak].pkwidth/4;
+					x =  fr->peaks[peak].pkwidth/2;
+					x2 =  fr->peaks[peak].pkright;
+					if(klatt_flag == 0)
+					{
+						x /= 2;
+						x2 /= 4;
+					}
 					if(x > 255) x = 255;
-					seq_out.frame[ix].fwidth[peak] = x;
+					fr_out->fwidth[peak] = x;
 
-					x =  fr->peaks[peak].pkright/4;
-					if(x > 255) x = 255;
-					seq_out.frame[ix].fright[peak] = x;
+					if(x2 > 255) x2 = 255;
+					fr_out->fright[peak] = x2;
 				}
 			}
 
-#ifdef LOG_DETAIL
-fprintf(f_errors,"Frame %d  %3dmS  rms=%3d  flags=%2d  pk=%4d %4d %4d",ix,seq_out.frame[ix].length,
-	seq_out.frame[ix].rms,seq_out.frame[ix].flags,
-	seq_out.frame[ix].peaks[1].pkfreq,seq_out.frame[ix].peaks[2].pkfreq,seq_out.frame[ix].peaks[3].pkfreq);
+			if(klatt_flag)
+			{
+				if(fr->klatt_param[KLATT_Kopen] == 0)
+				{
+					Error("Klatt_Kopen has value 0");
+				}
 
-	if(fr->markers != 0)
-	{
-		fprintf(f_errors," [%x]",fr->markers);
-	}
-	fputc('\n',f_errors);
-#endif
-	
-			ix++;
+				// additional fields
+				for(ix=0; ix<N_KLATTP; ix++)
+				{
+					fr_out->klattp[ix] = fr->klatt_param[ix];
+				}
+				fr_out->fwidth6 = fr->peaks[6].pkwidth/2;
+				fr_out->fright6 = fr->peaks[6].pkright;
+			}
+
+			n_frames++;
 		}
 	}
 	
-	ix = (char *)(&seq_out.frame[seq_out.n_frames]) - (char *)(&seq_out);
-	ix = (ix+3) & 0xfffc;   // round up to multiple of 4 bytes
+	if(klatt_flag)
+	{
+		seqk_out.n_frames = seq_out.n_frames;
+		seqk_out.flags = seq_out.flags;
+		seqk_out.length_total = seq_out.length_total;
 
-	fwrite(&seq_out,ix,1,f_phdata);
-	
+		ix = (char *)(&seqk_out.frame[seqk_out.n_frames]) - (char *)(&seqk_out);
+		ix = (ix+3) & 0xfffc;   // round up to multiple of 4 bytes
+		fwrite(&seqk_out,ix,1,f_phdata);
+	}
+	else
+	{
+		ix = (char *)(&seq_out.frame[seq_out.n_frames]) - (char *)(&seq_out);
+		ix = (ix+3) & 0xfffc;   // round up to multiple of 4 bytes
+		fwrite(&seq_out,ix,1,f_phdata);
+	}
+
 	delete spectseq;
 	return(displ);
 }  //  end of Compile::LoadSpect

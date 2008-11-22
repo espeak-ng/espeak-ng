@@ -1,4 +1,4 @@
-59 phoneme tables
+60 phoneme tables
           new total
     base 101  101
    base2  24  120
@@ -52,13 +52,14 @@
       rw  15  127
       ko  18  149
       da  15  131
-      sq  23  129
+      sq  24  129
       ml  13  141
       kn  15  141
       bn  59  147
       ne  23  151
       hy  17  115
       om  21  121
+en_klatt  77  147
 
 Data file      Used by
 b/b             [b] base
@@ -345,12 +346,190 @@ j/xj            [(@)] base
                 [(i)] base
                 [(o)] base
                 [(u)] base
+klatt/b/b       [b] en_klatt
+klatt/b/b_      [b] en_klatt
+klatt/b/xb      [b] en_klatt
+klatt/d/d       [d] en_klatt
+klatt/d/d_      [d] en_klatt
+klatt/d/dr      [d] en_klatt
+klatt/d/xd      [d] en_klatt
+klatt/dzh/dzh   [dZ] en_klatt
+klatt/dzh/dzh_  [dZ] en_klatt
+klatt/dzh/xdzh  [dZ] en_klatt
+klatt/g/g       [g] en_klatt
+                [g-] en_klatt
+klatt/g/g_      [g] en_klatt
+                [g-] en_klatt
+klatt/g/xg      [g] en_klatt
+                [g-] en_klatt
+klatt/j2/j2     [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/j2/xj2    [(i)] en_klatt
+klatt/j/j       [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/j/_j      [j] en_klatt
+klatt/j/j_      [j/] en_klatt
+klatt/j/xj      [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/l/l       [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/l/_l      [l] en_klatt
+klatt/l/L2_eL   [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+klatt/l/L2_uL   [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/l/tl      [l] en_klatt
+klatt/l/xl      [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/m/m       [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/m/_m      [m] en_klatt
+klatt/m/m_      [m] en_klatt
+klatt/m/mj      [m] en_klatt
+klatt/n/n       [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/n/_n      [n] en_klatt
+klatt/n/n_      [n] en_klatt
+klatt/n/nj      [n] en_klatt
+klatt/nn/nn     [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/nn/_nn    [N] en_klatt
+klatt/nn/nn_    [N] en_klatt
+klatt/nn/nnj    [N] en_klatt
+klatt/r/r       [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/r/_r      [r] en_klatt
+                [r-] en_klatt
+klatt/r/r2      [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/r/tr      [r] en_klatt
+klatt/r/xr      [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
+klatt/vdiph2/ii@  [i@] en_klatt
+                [i@3] en_klatt
+klatt/vdiph2/uu@  [U@] en_klatt
+klatt/vdiph2/uw_2  [u:] en_klatt
+klatt/vdiph/aai  [aI] en_klatt
+klatt/vdiph/au  [aU] en_klatt
+klatt/vdiph/eei  [eI] en_klatt
+klatt/vdiph/eu  [eU] en_klatt
+klatt/vdiph/ooi  [OI] en_klatt
+klatt/vdiph/@u_en  [oU] en_klatt
+klatt/vnasal/aa_n2  [A~] en_klatt
+klatt/vnasal/ee_n  [E~] en_klatt
+klatt/vnasal/oo_n  [O~] en_klatt
+klatt/voc/dh    [D] en_klatt
+klatt/voc/dh_   [D] en_klatt
+klatt/voc/v     [v] en_klatt
+klatt/voc/v_    [v] en_klatt
+klatt/voc/vj    [v] en_klatt
+klatt/voc/z     [z] en_klatt
+klatt/voc/z_    [z] en_klatt
+klatt/voc/zh    [Z] en_klatt
+klatt/voc/zh_   [Z] en_klatt
+klatt/vowel/@   [3] en_klatt
+                [@] en_klatt
+                [@2] en_klatt
+                [@5] en_klatt
+klatt/vowel/@-  [@-] en_klatt
+klatt/vowel/0_2  [0] en_klatt
+klatt/vowel/3_en  [3:] en_klatt
+klatt/vowel/a#_3  [a2] en_klatt
+klatt/vowel/a_4  [a] en_klatt
+                [aa] en_klatt
+klatt/vowel/aa_2  [A:] en_klatt
+                [A@] en_klatt
+klatt/vowel/e   [e:] en_klatt
+klatt/vowel/ee_1  [e@] en_klatt
+klatt/vowel/ee_2  [E] en_klatt
+klatt/vowel/i_en  [i:] en_klatt
+klatt/vowel/ii_4  [I] en_klatt
+                [I2] en_klatt
+klatt/vowel/ii_en  [i] en_klatt
+klatt/vowel/o   [o:] en_klatt
+klatt/vowel/oe  [W] en_klatt
+klatt/vowel/oo_en  [O] en_klatt
+                [O:] en_klatt
+                [O@] en_klatt
+                [o@] en_klatt
+klatt/vowelr/V3_r  [VR] en_klatt
+klatt/vowelr/V_r  [IR] en_klatt
+klatt/vowel/uu  [U] en_klatt
+klatt/vowel/V_2  [V] en_klatt
+klatt/vowel/y   [y:] en_klatt
+klatt/vowel/y#  [Y:] en_klatt
+klatt/vwl_en/aI@  [aI@] en_klatt
+klatt/vwl_en/aU@  [aU@] en_klatt
+klatt/vwl_en/@L  [@L] en_klatt
+klatt/w/w       [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(o)] en_klatt
+klatt/w/_w      [w] en_klatt
+klatt/w/wi      [(i)] en_klatt
+klatt/w/wu      [(u)] en_klatt
+klatt/w/xw      [(@)] en_klatt
+                [(a)] en_klatt
+                [(e)] en_klatt
+                [(i)] en_klatt
+                [(o)] en_klatt
+                [(u)] en_klatt
 l^/j2@          [(@)] base
+                [(@)] en_klatt
 l^/j2a          [(a)] base
+                [(a)] en_klatt
 l^/j2e          [(e)] base
+                [(e)] en_klatt
 l^/j2i          [(i)] base
+                [(i)] en_klatt
 l^/j2o          [(o)] base
+                [(o)] en_klatt
 l^/j2u          [(u)] base
+                [(u)] en_klatt
 l^/_l^          [l^] base
 l^/l^           [l^] base
 l/l             [l] base
@@ -390,16 +569,24 @@ l/l_@           [(@)] base
                 [W] fr
                 [Y] fr
                 [W2] fr
+                [(@)] en_klatt
 l/l@            [(@)] base
                 [W] fr
                 [Y] fr
                 [W2] fr
+                [(@)] en_klatt
 l/L1_aL         [(a)] base
+                [(a)] en_klatt
 l/L1_eL         [(e)] base
+                [(e)] en_klatt
 l/L1_iL         [(i)] base
+                [(i)] en_klatt
 l/L1_@L         [(@)] base
+                [(@)] en_klatt
 l/L1_oL         [(o)] base
+                [(o)] en_klatt
 l/L1_uL         [(u)] base
+                [(u)] en_klatt
 l/L2_aL         [(a)] base
 l/L2_eL         [(e)] base
 l/L2_iL         [(i)] base
@@ -415,18 +602,22 @@ l/l_4           [ll] sq
 l/la            [(a)] base
                 [a] fr
                 [a2] fr
+                [(a)] en_klatt
 l/l_a           [(a)] base
                 [a] fr
                 [a2] fr
                 [wA] fr
                 [A~] fr
+                [(a)] en_klatt
 l/le            [(e)] base
                 [E] fr
                 [e] fr
                 [E2] fr
+                [(e)] en_klatt
 l/l_e           [(e)] base
                 [E] fr
                 [E2] fr
+                [(e)] en_klatt
 l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [l] sq
@@ -434,11 +625,13 @@ l/li            [(i)] base
                 [i] fr
                 [i:] fr
                 [l] zh
+                [(i)] en_klatt
 l/l_i           [(i)] base
                 [i] fr
                 [i:] fr
                 [w^i] fr
                 [i] sq
+                [(i)] en_klatt
 l/l_long        [l] base
                 [l] fr
                 [l] la
@@ -450,10 +643,12 @@ l/lo            [(o)] base
                 [O2] fr
                 [o2] fr
                 [wA] fr
+                [(o)] en_klatt
 l/l_o           [(o)] base
                 [O] fr
                 [O2] fr
                 [o2] fr
+                [(o)] en_klatt
 l^/l_rfx        [l.] hi
                 [l.] sq
                 [l.] bn
@@ -462,9 +657,11 @@ l/lu            [(u)] base
                 [y] fr
                 [u:] fr
                 [w^i] fr
+                [(u)] en_klatt
 l/l_u           [(u)] base
                 [u] fr
                 [u:] fr
+                [(u)] en_klatt
 l/l_y           [y] fr
 l/tl            [l] base
                 [l] en
@@ -506,6 +703,7 @@ m/mu            [(u)] base
 n^/_n^          [n^] base
 n^/n^_          [n^] base
 n^/n^@          [(@)] base
+                [(@)] en_klatt
 n^/n^#_         [n^#] is
 n/_n            [n] base
                 [n;] ro
@@ -518,10 +716,13 @@ n/n@            [(@)] base
 n/n#_           [n#] is
                 [n] da
 n^/n^a          [(a)] base
+                [(a)] en_klatt
 n/na            [(a)] base
 n^/n^e          [(e)] base
+                [(e)] en_klatt
 n/ne            [(e)] base
 n^/n^i          [(i)] base
+                [(i)] en_klatt
 n/ni            [(i)] base
                 [n] zh
 nn/inn          [(i)] base
@@ -537,6 +738,7 @@ nn/_nn          [N] base
 nn/nn_          [N] base
                 [N] en
 nn/nn@          [(@)] base
+                [(@)] en_klatt
 nn/nn#_         [N#] is
 nn/nn2_         [N] zh
                 [N-] zh
@@ -547,10 +749,12 @@ nn/nnj          [N] base
 nn/nno          [(o)] base
 nn/nnu          [(u)] base
 n^/n^o          [(o)] base
+                [(o)] en_klatt
 n/no            [(o)] base
 n/_nr           [n.] base
 n/nr_           [n.] base
 n^/n^u          [(u)] base
+                [(u)] en_klatt
 n/nu            [(u)] base
 r2/_r2          [r-] base
 r2/r2@          [(@)] base
@@ -562,21 +766,28 @@ r2/r2u          [(u)] base
 r3/r_           [r/] base
                 [r/] af
                 [r/] ru
+                [r/] en_klatt
 r3/r_@          [(@)] base
                 [@2] fr
+                [(@)] en_klatt
 r3/r#_          [r#] is
 r3/r_2          [r/2] fr
 r3/r_a          [(a)] base
+                [(a)] en_klatt
 r3/r_e          [(e)] base
+                [(e)] en_klatt
 r3/r_i          [(i)] base
                 [i] fr
                 [w^i] fr
+                [(i)] en_klatt
 r3/r_n          [r/] base
                 [r/2] fr
                 [r/] ru
+                [r/] en_klatt
 r3/r_o          [(o)] base
                 [O] fr
                 [O2] fr
+                [(o)] en_klatt
 r3/r_ru         [R4] ru
 r3/r_ru2        [R4] ru
 r3/r_sr         [r.] bn
@@ -603,6 +814,7 @@ r3/r_trill.wav  [R2] base
                 [r*] sr
                 [x] pt
 r3/r_u          [(u)] base
+                [(u)] en_klatt
 r3/r_ulv        [r"] hy
 r3/r_uvl        [r"] hy
 r3/rx           [*] base
@@ -618,6 +830,7 @@ r3/rx           [*] base
                 [*;] ro
                 [r#] is
                 [Q2] hy
+                [r/] en_klatt
 r3/rz_cs        [R^] sk
                 [R^/] sk
 r3/@tap         [**] base
@@ -642,6 +855,7 @@ r/r_            [r] base
                 [r] ro
                 [r] sw
                 [r.] bn
+                [r] en_klatt
 r/r@            [(@)] base
 r/ra            [(a)] base
 r/re            [(e)] base
@@ -656,6 +870,7 @@ r/rr            [r/] base
                 [r/] ru
                 [r] ro
                 [r] sw
+                [r/] en_klatt
 r/ru            [(u)] base
 r/tr            [r] base
                 [r] en_sc
@@ -670,6 +885,7 @@ r/trr           [r/] base
                 [r] ro
                 [r] sv
                 [r] sw
+                [r/] en_klatt
 r/xr            [(@)] base
                 [(a)] base
                 [(e)] base
@@ -711,6 +927,7 @@ ufric/s         [s] base
                 [s] es
                 [s#] pt
                 [s`] ko
+                [s] en_klatt
 ufric/s_        [s] base
                 [z] base
                 [s2] fi
@@ -724,6 +941,8 @@ ufric/s_        [s] base
                 [s#] pt
                 [z;] ro
                 [s2] is
+                [s] en_klatt
+                [z] en_klatt
 ufric/s!        [s] base
                 [s2] fi
                 [s] fr
@@ -732,6 +951,7 @@ ufric/s!        [s] base
                 [s] es
                 [s#] pt
                 [s2] is
+                [s] en_klatt
 ufric/s_continue  [s2] fi
                 [s2] hu
                 [s2] lv
@@ -739,9 +959,11 @@ ufric/s_continue  [s2] fi
 ufric/sh        [S] base
                 [S] fr
                 [s#] pt_pt
+                [S] en_klatt
 ufric/sh_       [S] base
                 [S] fr
                 [s#] pt_pt
+                [S] en_klatt
 ufric/sh3       [S] hr
                 [Z] hr
 ufric/sh_pzd    [S;] base
@@ -1108,6 +1330,7 @@ vdiph/8u        [oU] en_us
 vdiph/aae       [aI] en_us
 vdiph/aai       [ai] lv
                 [aai] zhy
+                [aI] sq
                 [aI] ne
 vdiph/aai_2     [AI] af
                 [AY] cy
@@ -1138,7 +1361,8 @@ vdiph/ai        [aI] base2
                 [aI] id
                 [aI] kn
                 [aI] hy
-vdiph/ai_2      [aI] cy
+vdiph/ai_2      [aI] en
+                [aI] cy
                 [aY] cy
 vdiph/ai_3      [aI] no
 vdiph/ai_4      [aI] af
@@ -1148,7 +1372,6 @@ vdiph/ai_6      [aI] en_rp
 vdiph/ai_7      [aI] en_sc
                 [aI2] en_sc
                 [aI] is
-vdiph/ai_en2    [aI] en
 vdiph/aoo       [aU] en_us
 vdiph/au        [aU] en
                 [aU] af
@@ -1374,6 +1597,7 @@ voc/vj          [v] base
                 [v] fr
 vocw/dh         [D] base
                 [D] es
+                [D] en_klatt
 vocw/Q          [Q] base
                 [Q^] base
 vocw/Q_         [Q] base
@@ -1386,8 +1610,10 @@ vocw/v          [B] base
                 [v] ta
                 [v#] es
                 [v;] ro
+                [v] en_klatt
 vocw/zh         [Z] base
                 [Z;] ro
+                [Z] en_klatt
 vocw/zh_rfx     [z.] base
 voc/z           [z] base
                 [z] fr
@@ -1474,15 +1700,19 @@ vowel/8_2       [U] en_us
 vowel/8_3       [eo] zhy
 vowel/8_5       [8] ku
 vowel/8_7       [@] lv
-vowel/a         [a] en_n
+vowel/a         [a] en
+                [aa] en
+                [a] en_n
                 [aa] en_n
                 [a] en_wm
                 [aa] en_wm
                 [a] cy
                 [a] de
+                [A] fr
                 [a] ta
                 [a:] hu
                 [a:] nl
+                [a] pl
                 [a] sk
                 [a:] sk
                 [A] hr
@@ -1592,10 +1822,6 @@ vowel/aa_8      [0] en_us
 vowel/aa_9      [a:] hi
                 [a:] bn
                 [a] ne
-vowel/a_en      [a] en
-                [aa] en
-                [A] fr
-                [a] pl
 vowel/@_bck     [@] hi
                 [@/] hi
                 [@] zh
@@ -1654,7 +1880,6 @@ vowel/ee        [E] en_n
 vowel/e_e       [E] en_sc
                 [e] is
 vowel/ee#       [E#] pl
-                [E] sq
 vowel/ee_1      [E] base2
                 [e@] en
                 [E] pl
@@ -1670,6 +1895,7 @@ vowel/ee_2      [E] en
                 [E#] ku
                 [&] da
 vowel/ee#_2     [E-] sv
+                [E] sq
 vowel/ee_3      [&] af
                 [&:] af
                 [E] pt
@@ -2296,8 +2522,10 @@ x/b             [b] base
                 [b;] ro
                 [b] is
                 [b] bn
+                [b] en_klatt
 x/b_            [b] base
                 [b] fr
+                [b] en_klatt
 x/d             [d] base
                 [t#] en_us
                 [d] fr
@@ -2308,6 +2536,7 @@ x/d             [d] base
                 [d] id
                 [d.] bn
                 [d`] om
+                [d] en_klatt
 x/d_            [d] base
                 [d[] base
                 [d] base2
@@ -2326,6 +2555,7 @@ x/d_            [d] base
                 [d] id
                 [d] bn
                 [d.] bn
+                [d] en_klatt
 x/d_dnt         [d[] base
                 [d] base2
                 [d] fi
@@ -2342,6 +2572,7 @@ x/dzh           [J] base
                 [dZ] base
                 [J2] hi
                 [J2] bn
+                [dZ] en_klatt
 x/dzh_          [dZ] base
                 [dZ;] base
                 [dz;] base
@@ -2349,6 +2580,7 @@ x/dzh_          [dZ] base
                 [dZ;] mk
                 [dZ;] ru
                 [J] bn
+                [dZ] en_klatt
 x/dz_pzd        [dZ;] base
                 [dz;] base
                 [J] hi
@@ -2362,6 +2594,7 @@ x/g_            [g] base
                 [g] fr
                 [g] es
                 [g] is
+                [g] en_klatt
 x/g2            [g] base
                 [g] cy
                 [g] fr
@@ -2369,6 +2602,8 @@ x/g2            [g] base
                 [g] es
                 [g] is
                 [g] bn
+                [g] en_klatt
 x/g2_           [g-] base
                 [g] hi
                 [g] bn
+                [g-] en_klatt

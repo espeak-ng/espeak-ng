@@ -1268,7 +1268,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	group = atoi(&p[0]);
 	if(group >= N_LETTER_GROUPS)
 	{
-		fprintf(f_log,"%5d: lettergroup out of range (01-%.2d)\n",linenum,N_LETTER_GROUPS);
+		fprintf(f_log,"%5d: lettergroup out of range (01-%.2d)\n",linenum,N_LETTER_GROUPS-1);
 		error_count++;
 		return(1);
 	}

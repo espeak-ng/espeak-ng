@@ -510,6 +510,7 @@ void MakeVowelLists(void)
 	PHONEME_TAB *ph;
 	FILE *f;
 	SPECT_SEQ *seq;
+	SPECT_SEQK *seqk;
 	frame_t *frame;
 	int match_level;
 	char dirname[sizeof(path_source)+20];
@@ -547,10 +548,20 @@ void MakeVowelLists(void)
 				continue;
 
 			seq = (SPECT_SEQ *)(&spects_data[ix]);
-			frame = &seq->frame[1];
+			seqk = (SPECT_SEQK *)seq;
+
+			if(seq->frame[0].frflags & FRFLAG_KLATT)
+				frame = &seqk->frame[1];
+			else
+				frame = (frame_t *)&seq->frame[1];
+
 			fprintf(f,"%s\t %3d %4d %4d",WordToString(ph->mnemonic),
 					frame->ffreq[1],frame->ffreq[2],frame->ffreq[3]);
-			frame = &seq->frame[seq->n_frames-1];
+
+			if(seq->frame[0].frflags & FRFLAG_KLATT)
+				frame = &seqk->frame[seqk->n_frames-1];
+			else
+				frame = (frame_t *)&seq->frame[seq->n_frames-1];
 			fprintf(f,"   %3d %4d %4d\n",frame->ffreq[1],frame->ffreq[2],frame->ffreq[3]);
 		}
 		fclose(f);

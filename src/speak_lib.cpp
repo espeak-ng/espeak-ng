@@ -300,10 +300,10 @@ static void init_path(const char *path)
 	}
 
 	buf[0] = 0;
-	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
+	RegOpenKeyExA(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
 	size = sizeof(buf);
 	var_type = REG_SZ;
-	RegQueryValueEx(RegKey, "path", 0, &var_type, buf, &size);
+	RegQueryValueExA(RegKey, "path", 0, &var_type, buf, &size);
 
 	sprintf(path_home,"%s\\espeak-data",buf);
 
