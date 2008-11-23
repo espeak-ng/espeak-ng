@@ -342,9 +342,12 @@ static int initialise(void)
 	if((result = LoadPhData()) != 1)
 	{
 		if(result == -1)
+		{
 			fprintf(stderr,"Failed to load espeak-data\n");
+			exit(1);
+		}
 		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x)\n",result,version_phdata);
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
 	}
 
 	memset(&voice_selected,0,sizeof(voice_selected));
@@ -1040,7 +1043,7 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
 	option_phonemes = value;
 	f_trans = stream;
 	if(stream == NULL)
-		f_trans = stdout;
+		f_trans = stderr;
 	
 }   //  end of espeak_SetPhonemes
 

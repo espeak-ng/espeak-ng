@@ -19,6 +19,7 @@
 
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
+test  h'EloU
 
 _a	eI
 b	bi:
@@ -236,7 +237,12 @@ U+2cc	s'Ek@ndrIstr,Es
 
 // combining diacritics
 U+300	grA:v_
+U+301	a2kju:t_
+U+302	s3:kVmflEks_
 U+303	tIld@_
+U+304	makr0n_
+U+306	brEv_
+U+308	daI@ri:sI2s
 U+30a	rINg_
 U+31e	a2pr'0ksIm@nt_
 U+325	rINg_

@@ -901,12 +901,13 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		}
 	}
 
-// increase bass, up to the F1 peak
-h=1;
-for(f=pitch; f<peaks[1].freq; f+=pitch)
-{
-	htab[h++] += (peaks[1].height * 16);
-}
+	// increase bass, up to the F1 peak
+	h=1;
+	x = peaks[1].height * 24;
+	for(f=pitch; f<peaks[1].freq; f+=pitch)
+	{
+		htab[h++] += x;
+	}
 
 	// find the nearest harmonic for HF peaks where we don't use shape
 	for(; pk<N_PEAKS; pk++)

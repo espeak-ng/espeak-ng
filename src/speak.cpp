@@ -96,6 +96,10 @@ static const char *help_text =
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
 "\t   directory. =<voice name> is optional and specifies which language\n"
+"--path=\"<path>\"\n"
+"\t   Specifies the directory containing the espeak-data directory\n"
+"--phonout=\"<filename>\"\n"
+"\t   Write output from -x -X commands and mbrola phoneme data to this file\n"
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
@@ -319,8 +323,15 @@ static int WavegenFile(void)
 
 
 
-static void init_path(char *argv0)
-{//===============================
+static void init_path(char *argv0, char *path_specified)
+{//=====================================================
+
+	if(path_specified)
+	{
+		sprintf(path_home,"%s/espeak-data",path_specified);
+		return;
+	}
+
 #ifdef PLATFORM_WINDOWS
 	HKEY RegKey;
 	unsigned long size;
@@ -397,9 +408,12 @@ static int initialise(void)
 	if((result = LoadPhData()) != 1)
 	{
 		if(result == -1)
+		{
 			fprintf(stderr,"Failed to load espeak-data\n");
+			exit(1);
+		}
 		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x)\n",result,version_phdata);
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
 	}
 	LoadConfig();
 	SetVoiceStack(NULL);
@@ -434,6 +448,7 @@ static void StopSpeak(int unused)
 	static const char *arg_opts = "afklpsvw";  // which options have arguments
 	static char *opt_string="";
 #define no_argument 0
+#define required_argument 1
 #define optional_argument 2
 #endif
 
@@ -456,6 +471,8 @@ int main (int argc, char **argv)
 		{"voices",  optional_argument, 0, 0x104},
 		{"stdout",  no_argument,       0, 0x105},
 		{"split",   optional_argument, 0, 0x106},
+		{"path",    required_argument, 0, 0x107},
+		{"phonout", required_argument, 0, 0x108}, 
 		{0, 0, 0, 0}
 		};
 
@@ -463,6 +480,7 @@ int main (int argc, char **argv)
 
 	FILE *f_text=NULL;
 	const char *p_text=NULL;
+	char *data_path = NULL;   // use default path for espeak-data
 
 	int option_index = 0;
 	int c;
@@ -492,9 +510,7 @@ int main (int argc, char **argv)
 	option_endpause = 1;
 	option_phoneme_input = 1;
 	option_multibyte = espeakCHARS_AUTO;  // auto
-	f_trans = stdout;
-
-	init_path(argv[0]);
+	f_trans = stderr;
 
 #ifdef NEED_GETOPT
 	optind = 1;
@@ -661,18 +677,31 @@ int main (int argc, char **argv)
 			DisplayVoices(stdout,optarg2);
 			exit(0);
 
-
 		case 0x106:   // -- split
 			if(optarg2 == NULL)
 				samples_split = 30;  // default 30 minutes
 			else
 				samples_split = atoi(optarg2);
 			break;
+
+		case 0x107:  // --path
+			data_path = optarg2;
+			break;
+
+		case 0x108:  // --phonout
+			if((f_trans = fopen(optarg2,"w")) == NULL)
+			{
+				fprintf(stderr,"Can't write to: %s\n",optarg2);
+				f_trans = stderr;
+			}
+			break;
+
 		default:
 			exit(0);
 		}
 	}
 
+	init_path(argv[0],data_path);
 	initialise();
 
 

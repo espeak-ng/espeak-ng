@@ -1514,6 +1514,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	int clause_tone;
 	char *voice_change;
+	FILE *f_mbrola;
 	static FILE *f_text=NULL;
 	static const void *p_text=NULL;
 
@@ -1631,7 +1632,9 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 #ifdef USE_MBROLA_LIB
 		MbrolaTranslate(phoneme_list,n_phoneme_list,NULL);
 #else
-		MbrolaTranslate(phoneme_list,n_phoneme_list,stdout);
+		if((f_mbrola = f_trans) == stderr)
+			f_mbrola = stdout;
+		MbrolaTranslate(phoneme_list,n_phoneme_list,f_mbrola);
 #endif
 	}
 

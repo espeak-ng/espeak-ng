@@ -2520,6 +2520,11 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 
 				if(match1.points == 0)
 				{
+					if((wc >= 0x300) && (wc <= 0x36f))
+					{
+						// combining accent inside a word, ignore
+					}
+					else
 					if(IsAlpha(wc))
 					{
 						if((any_alpha > 1) || (p[wc_bytes-1] > ' '))
