@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-11-06 Michel Such  <michel.such@free.fr>
+// Updated 2008-12-03 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -97,7 +97,6 @@ _rng	rO~t2A~S'Ef
 _stk	b'ar
 _tld	t'ild
 
-
 // character names
 
 _cap	maZysk'yl
@@ -116,13 +115,14 @@ _*   asterisk:
 _,   virgyl
 _-   tirE
 _.   _|pw%E~
-_/   slaS
-_:   d'Ypw'E~
-_;   pwE~virg'yl
+_/   bar||oblik
+_:   d'Y||pw'E~
+_;   pwE~||virg'yl
 _<   E~ferjWr
 _=   egal
 _>   syperjWr
-_?   pwE~dE~terogasj'O~
+_?   pwE~||dE~terogasj'O~
+_!	pwE~||dEksklamasj'O~
 _[   uvr@-_kroSE
 _\   b'aksl'aS
 _]   f'E2rm_kroS'E
@@ -130,27 +130,33 @@ _^   sirkOnflEks
 __   sulin^e
 _`   aks'A~_gr'av
 _{   uvr_akOlad
-_|   bar
+_|   bar_vErtik'al
 _}   f'E2rm_akOl'ad
 ²    pw^is'A~s||d'Y
+_«	uvre||gijm'E
+_»	fErme||gijm'E
+_’	a2postr'Of
+_‘	a2postr'Of
+_µ	mikR'o
+_§	sEksj'O~
 
 // symbols that are normally spoken when reading text
-!	Eksklamasj'O~
 @	arobaz
 %	pursA~
-&	_e
+&	e $u $brk
+_&	_e_komErsj'al
 +	plys
 ~	tilde
 €	@ro
 ¢	sEnt
-¥	i;En
+¥	jEn
 £	livr
 ±	pl'yz_'u_mw'E~
 ×	myltipli:'e_p'ar
 ÷	diviz'e_p'ar
 ¼	W~_k'ar
 ½	W~_d@m'i
-¾	trwAk'ar
+¾	trwA_k'ar
 ©	_^_EN
 ®	m'ark_depos'e
 
@@ -709,7 +715,7 @@ bit		bit
 bluetooth 		blut'us
 computer		_^_en
 (cyber link) 		_^_en
-debian		dEbjAn
+debian		dEbjan
 edit		_^_en
 emacs		Emaks
 emacspeak	Emakspi:k
@@ -803,10 +809,12 @@ samoa	samoa
 leone	leO2n
 koweït	kowEjt
 taïwan	tajwAn
+texas	tEks'as
 venezuela	venezyela
 (viêt nam)	viEtnam
 wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
+
 
 

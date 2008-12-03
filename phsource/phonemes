@@ -435,6 +435,13 @@ phoneme R3  // Afrikaans
 endphoneme
 
 
+phoneme r"     // uvular trill
+  vcd uvl frc
+  formants r3/r_ulv+r3/r_uvl%75
+  before _ r3/r_ulv+r3/r_uvl%50
+  lengthmod 6
+endphoneme
+
 
 phoneme l
   liquid
@@ -740,7 +747,7 @@ phoneme J
   vcd pla afr sibilant
   vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
   vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
-  formants dzh/dz_pzd+x/dzh%40
+  formants dzh/dz_pzd+x/dzh%45
   before _ dzh/dz_pzd_+x/dzh%35
   after _ NULL
   after @ dzh/xdz_pzd
@@ -829,7 +836,7 @@ phoneme Z
   vcd pla frc sibilant
   vowelin  f1=0  f2=2000 0 300  f3=-200 80
   vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
-  formants voc/zh+vocw/zh
+  formants voc/zh+vocw/zh%130
   before _ voc/zh_+vocw/zh
   lengthmod 6
   switchvoicing S
@@ -898,6 +905,13 @@ phoneme Q^
   formants voc/Q+vocw/Q
   before _ voc/Q_+vocw/Q_
   switchvoicing x
+endphoneme
+
+phoneme Q"       // voiced velar fricative
+  vcd uvl frc
+  formants voc/Q_ulv+ufric/xx3%80
+  before _ voc/Q_ulv+ufric/xx3%60
+  lengthmod 6
 endphoneme
 
 
@@ -1326,7 +1340,7 @@ include ph_korean
 phonemetable da is
 include ph_danish
 
-phonemetable sq base2
+phonemetable sq base
 include ph_albanian
 
 phonemetable ml hi
@@ -1349,4 +1363,6 @@ include ph_oromo
 
 phonemetable en_klatt en
 include ph_english_klatt
-]
+
+phonemetable ga base
+include ph_irish

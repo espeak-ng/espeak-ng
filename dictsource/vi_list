@@ -22,18 +22,50 @@ x	i3ts;
 z	zE3t
 
 // numbers
-_0	z'ez,o
-_1	m'o6t[
-_2	h'a:I
-_3	_b'a:
-_4	_b'o3n
-_5	n'am
-_6	s'aU3
-_7	_b'aI4
-_8	t['a:3m
-_9	ts;'i3n
+_0	J'e1z.'o	// dê-rô
+_1	m'o6t[		// một
+_2	h'a:I		// hai
+_3	_b'a:		// ba
+_4	_b'o3n		// bốn
+_5	n'am		// năm
+_6	s.'aU3		// sáu
+_7	_b'aI4		// bảy
+_8	t['a:3m		// tám
+_9	c'i3n		// chín
+_1X	m'y@2j		// mười
+_2X	h'a:I||m'y@2j	// hai mười
+_3X	_b'a:||m'y@2j	// ba mười
+_4X	_b'o3n||m'y@2j	// bốn mười
+_5X	n'am||m'y@2j	// năm mười
+_6X	s.'aU3||m'y@2j	// sáu mười
+_7X	_b'aI4||m'y@2j	// bảy mười
+_8X	t['a:3m||m'y@2j	// tám mười
+_9X	c'i3n||m'y@2j	// chín mười
+
+_21	h'a:I||m'y@2j||m'o3t[
+_31	_b'a:||m'y@2j||m'o3t[
+_41	_b'o3n||m'y@2j||m'o3t[
+_51	n'am||m'y@2j||m'o3t[
+_61	s.'aU3||m'y@2j||m'o3t[
+_71	_b'aI4||m'y@2j||m'o3t[
+_81	t['a:3m||m'y@2j||m'o3t[
+_91	c'i3n||m'y@2j||m'o3t[
+
+_25	h'a:I||m'y@2j||l'a7m
+_35	_b'a:||m'y@2j||l'a7m
+_45	_b'o3n||m'y@2j||l'a7m
+_55	n'am||m'y@2j||l'a7m
+_65	s.'aU3||m'y@2j||l'a7m
+_75	_b'aI4||m'y@2j||l'a7m
+_85	t['a:3m||m'y@2j||l'a7m
+_95	c'i3n||m'y@2j||l'a7m
 
 
+_0C	cr'am		// trăm
+_0M1	N'a:2n		// ngàn
+_0M2	cr'i@6w		// triệu
+_0M3	t['i4		// tỷ
+_0and	l,in^		// linh
 
 // symbols
 

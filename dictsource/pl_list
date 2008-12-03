@@ -7,11 +7,11 @@
 // prefixed by a _ character.
 
 // Numbers
-_0		z'E*O:
+_0		z'ERO:
 _1		j'EdEn
 _2		dv'a
 _3		t|S'y
-_4		tSt'E*y
+_4		tSt'ERy
 _5		p;'En^ts;
 _6		S'ES;ts;
 _7		S;'EdEm
@@ -21,7 +21,7 @@ _10		dz;'ES;En^ts;
 _11		jEdEn'aS;ts;E
 _12		dvan'aS;ts;E
 _13		t|Syn'aS;ts;E
-_14		tStE*n'aS;ts;E
+_14		tStERn'aS;ts;E
 _15		pjEtn'aS;ts;E
 _16		SEsn'aS;ts;E
 _17		S;EdEmn'aS;ts;E
@@ -29,7 +29,7 @@ _18		OS;Emn'aS;ts;E
 _19		dz;Ev;Etn'aS;ts;E
 _2X		dvadz;'ES;ts;a
 _3X		t|Sydz;'ES;c;i
-_4X		tStE*dz;'ES;c;i
+_4X		tStERdz;'ES;c;i
 _5X		p;En^dz;'ES;Ont
 _6X		SEZ;dz;'ES;Ont
 _7X		S;EdEmdz;'ES;Ont
@@ -39,7 +39,7 @@ _9X		dz;Ev;En^dz;'ES;Ont
 _1C		st'O
 _2C		dv;'ES;c;E
 _3C		t|S'ysta
-_4C		tSt'E*ysta
+_4C		tSt'ERysta
 _5C		p;'En^ts;sEt
 _6C		S'ES;sEt
 _7C		S;'EdEmsEt
@@ -52,9 +52,9 @@ _0MA1		tyS;'OntsE		// alternative form
 _0MA2		m;ilj'Ony
 _1M2		m;'iljOn
 _0M2		m;ilj'Onuf
-_0MA3		m;ilj'a@-*dy
-_1M3		m;'ilja@-*d
-_0M3		m;ilj'a@-*duf
+_0MA3		m;ilj'aRdy
+_1M3		m;'iljaRd
+_0M3		m;ilj'aRduf
 _0MA4		b;ilj'Ony
 _1M4		b;'iljOn
 _0M4		b;ilj'Onuf
@@ -62,67 +62,67 @@ _0M4		b;ilj'Onuf
 _dpt		_pSEts;'inEk_
 
 _cap d'uZE_
-_?A  litE*a
+_?A  litERa
 _??  symbOl
 _#9  tab
 _#32 spatsja
 
 // accent names
-_lig	ligat'u*a
-_acu	_'Ost@-*E
-_ac2	x,uNga*'umlawt // pOdv'ujnE_'Ost@-*E	
-_brv	b@-*'Evis
+_lig	ligat'uRa
+_acu	_'OstRE
+_ac2	x,uNgaR'umlawt // pOdv'ujnE_'OstRE	
+_brv	bR'Evis
 _ced	z|tsEd;'ilO~
 _cir	z|d'aSc;Em	//pSEts;'ONgwE
 _dia	_'umlawt
-_dot	z|k@-*OpkO~
+_dot	z|kROpkO~
 _grv	ts;'E~Sc;E
 _hac	h'atSEk
-_mcn	nadk@-*ES;l'OnE //m'ak@-*On
+_mcn	nadkRES;l'OnE //m'akROn
 _ogo	z|Og'Onc;Em
 _rng	z|k'uwc;Em	//k'OwO
-_stk	sk@-*ES;l'OnE // dz;ElOnE
+_stk	skRES;l'OnE // dz;ElOnE
 _tld	z|t'yldO~
 
 
-w		vy  $u $atend
-z		zy  $u $atend
+w	vy  $u $atend
+z	zy  $u $atend
 
-_a		a
-ą		O~
-b		bE
-c		tsE
-ć		ts;i
-d		dE
-e		E
-ę		E~
-f		Ef
-g		gjE
-h		xa
-_i		i
-j		jOt
-k		ka
-l		El
-ł		Ew
-m		Em
-n		En
-ń		n^i
-_o		O
-_ó		,u_k@-*EskOv'anE
-p		pE
-q		ku
-r		E*
-s		Es
-ś		S;i
-t		tE
-_u		u
-v		faw
-_w		vu
-x		iks
-y		'ig*Ek
-_z		zEt
-ż		ZEt|z|k@-*'OpkO~
-ź		Z;i
+_a	a
+ą	O~
+b	bE
+c	tsE
+ć	ts;i
+d	dE
+e	E
+ę	E~
+f	Ef
+g	gjE
+h	xa
+_i	i
+j	jOt
+k	ka
+l	El
+ł	wy
+m	Em
+n	En
+ń	n^i
+_o	O
+_ó	,u_kREskOv'anE
+p	pE
+q	ku
+r	ER
+s	Es
+ś	S;i
+t	tE
+_u	u
+v	faw
+_w	vu
+x	iks
+y	'igREk
+_z	zEt
+ż	ZEt|z|kR'OpkO~
+ź	Z;i
 
 ä	$accent
 ö	$accent
@@ -137,41 +137,6 @@ _z		zEt
 ñ	$accent
 í	$accent
 
-
-// other characters 
-
-˘  b@-*'Evis
-¤  val'uta
-§  pa*'ag@-*af
-¨  'umlawt
-°  st'Op;En^
-˛  Og'OnEk
-´  ,Ost@-*y_'aktsEnt
-ˇ  k'a*On
-¸  tsEd;'illa
-˝  x,uNga*'umlawt
-×  @-*'azy
-÷  dz;El'En^;E
-˙  g'u*na_k@-*'Opka
-¯  nadk@-*ES;l'En^E
-²  kv'ad@-*at
-³  S'ES;tS;an
-¼  jEdnatSf'a*ta
-½  jEdnad@-*'uga
-¾  t||SytSf'a*tE
-¹  jEdEng'u*nE
-™  t@-*'Ejdma*k
-±  plusm'inus
-£  funt
-®  zastSEZ'Ony
-¡  Odv@-*,Otny||vykS'ykn^ik
-¢  tsEnt
-¥  jEn
-«  f@-*ants,usci||tsudz'yswuf
-¬  nEg'atsja
-»  p@-*'avy||f@-*ants,usci||tsudz'yswuf
-¶  ak'apit
-¿  Odv@-*,Otny||pytajn^ik
 
 // redefine foreign letters from pl_rules as CHAR
 
@@ -191,44 +156,80 @@ _z		zEt
 
 // all my keyboard...
 
-_!		vykS'ykn^ik
-_=		*'uvna||S;E
-_<		mn^'EjSE
-_>		w;'ENkSE
-_"		tsudz'yswuf
-_.		k@-*'Opka
-_,		pSEts;'inEk
-_-		m'yS;lnik		// or minus?
-_?		zn,ak||zapyt'an^a
-_~		t'ylda
-__		pOdk*ES;l'En^E
-_:		dvuk@-*'OpEk
-_;		S;@-*'Edn^ik
-_(		nav;as
-_)		pOnav;'aS;E
-_[		n,av;as||kvad@-*at'Ovy
-_]		p@-*avy||n,av;as||kvad@-*at'Ovy
-_{		n,av;as||klam@-*Ovy
-_}		p@-*avy||n,av;as||klam@-*'Ovy
-_'		ap'Ost@-*Of
-_/		slES
-_*		gv;'astka
-_\		b'EkslES
-_|		k@-*,Eska||p;On'Ova
-_#		haS
-_$		d'Ola*
-%		p@-*'OtsEnt
-_^		d'aSEk		// what's be better?
-_&		and
-_`		'aktsEnt
-_@		m'awpa
-+		plus
+_!	vykS'ykn^ik
+_<	mn^'EjSE
+_>	w;'ENkSE
+_"	tsudz'yswuf
+_,	pSEts;'inEk
+_-	m'yS;lnik		// or minus?
+_?	zn,ak||zapyt'an^a
+__	pOdkRES;l'En^E
+_:	dvukR'OpEk
+_;	S;R'Edn^ik
+_(	nav;as
+_)	pOnav;'aS;E
+_[	n,av;as||kvadRat'Ovy
+_]	pRavy||n,av;as||kvadRat'Ovy
+_{	n,av;as||klamROvy
+_}	pRavy||n,av;as||klamR'Ovy
+_'	ap'OstROf
+
+.	kR'Opka
+~	t'ylda
+=	R'uvna||S;E
+/	slES
+*	gv;'astka
+\	b'EkslES
+|	kR,Eska||p;On'Ova
+#	haS
+_$	d'OlaR
+%	pR'OtsEnt
+^	d'aSEk		// what's be better?
+&	and
+`	'aktsEnt
+@	m'awpa
++	plus
+
+// other characters 
+
+˘	bR'Evis
+¤	val'uta
+§	paR'agRaf
+¨	'umlawt
+°	st'Op;En^
+˛	Og'OnEk
+´	,OstRy_'aktsEnt
+ˇ	k'aROn
+¸	tsEd;'illa
+˝	x,uNgaR'umlawt
+×	R'azy
+÷	dz;El'En^;E
+˙	g'uRna_kR'Opka
+¯	nadkRES;l'En^E
+²	kv'adRat
+³	S'ES;tS;an
+¼	jEdnatSf'aRta
+½	jEdnadR'uga
+¾	t||SytSf'aRtE
+¹	jEdEng'uRnE
+™	tR'EjdmaRk
+±	plusm'inus
+£	funt
+®	zastSEZ'Ony
+¡	OdvR,Otny||vykS'ykn^ik
+¢	tsEnt
+¥	jEn
+«	fRants,usci||tsudz'yswuf
+¬	nEg'atsja
+»	pR'avy||fRants,usci||tsudz'yswuf
+¶	ak'apit
+¿	OdvR,Otny||pytajn^ik
 
 
 // screenreadery
 
 nvda EnfawdE'a $abbrev
-orca O*ka
+orca ORka
 jaws dZ'Ews $abbrev
 
 // komputery, komputery
@@ -247,8 +248,8 @@ load		lOwd
 office		Ofis
 play		plEj
 scane		skan
-(screen reader) sk@-*in*'idEr
-(sound juicer)	sawnd||dZ'usE*
+(screen reader) skRinR'idEr
+(sound juicer)	sawnd||dZ'usER
 thunderbird	$1
 view		v;u
 (e mail)	imEjl
@@ -262,12 +263,12 @@ view		v;u
 (e mailowe)	imEjlOvE
 delete		dil'Ejt
 eject		iZ'Ekt
-forward		fO*wE*d
-backward	bEkwE*d
+forward		fORwERd
+backward	bEkwERd
 device		div'ajs
 devices		divajsis
 usb		uEsb'E	$abbrev
-url		uE*'El	$abbrev
+url		uER'El	$abbrev
 drive		drajv
 scsi		sk'azi	$abbrev
 hda		$abbrev
@@ -275,8 +276,8 @@ sda		$abbrev
 dvd		divid'i	$abbrev
 sh		Es'xa	$abbrev
 ascii		'askEj	$abbrev
-ctrl		k'Ont@-*Ol $abbrev
-right		*ajt	$abbrev
+ctrl		k'OntROl $abbrev
+right		Rajt	$abbrev
 
 // nazwy własne akcentowanie - wymowa w regułkach
 // todo: more!
@@ -305,29 +306,29 @@ microsoft $1
 
 andrew	Endrju	// nieodmienne
 chihuahua	tSiwawa
-francisco	f@-*ansiskO
+francisco	fRansiskO
 josé	hOz'E
 jose	hOz'E
 jake	dZEjk
-jersey	dZE*zi
+jersey	dZERzi
 miami	maj'ami
 
 janet	dZanEt	// żeńskie nie kończące się na a
 jane	dZEjn
 alice	Elis
-circe	ki*kE
-maureen	mO*'in
+circe	kiRkE
+maureen	mOR'in
 jackie	dZEki
 jacqueline Zakl'in
 janice	dZEn^is
 jeanette	Zan'Et
 
 george	dZOrdZ	// i męskie zakończone samogłoską odmieniane przez apostrof
-maurice mO*is
+maurice mORis
 anthony	EntOn
 anthony EntOny $1 $only
-jerry	dZE*
-jerry	dZE*y	$only
+jerry	dZER
+jerry	dZERy	$only
 
 
 // some exceptions - dawać więcej!
@@ -508,26 +509,26 @@ proc	pr'OtsEnt	$dot
 
 //dr, mgr and so...
 
-dr		d'OktO*		$dot
-mgr		mag'istE*	$dot
+dr		d'OktOR		$dot
+mgr		mag'istER	$dot
 doc		d'OtsEnt	$dot
-prof		p*Of'EsO*	$dot
+prof		pROf'EsOR	$dot
 hab		habilitOv'any $dot
-inż		inZ'yn^E* $dot
+inż		inZ'yn^ER $dot
 mec		mEtsEnas	$dot
 //ks		kS;Onts	$dot
 //bp		biskup	$dot
 //bpa		biskupa
-//hr		h@-*ab;ja	$dot
+//hr		hRab;ja	$dot
 
-//gen		gEnE*aw	$dot
+//gen		gEnERaw	$dot
 płk		puwk'Ovnik $dot	// declinated forms in pl_rules
 ppłk		pOtpuwk'Ovnik $dot
-mjr		m'ajO*	$dot
+mjr		m'ajOR	$dot
 kpt		kap'itan	$dot
-//por		pO*'utSn^ik $dot
-ppor		pOdpO*'utSn^ik	$dot
-kpr		kap*al	$dot
+//por		pOR'utSn^ik $dot
+ppor		pOdpOR'utSn^ik	$dot
+kpr		kapRal	$dot
 
 // abbr
 
@@ -537,7 +538,7 @@ usg		u_Esg;'E	$abbrev
 tzn		tO||znatSy	$dot
 itd		i||tak||dalEj	$dot
 itp		i||tEmu||pOdObnE	$dot
-etc		Ets'EtE*a	$dot
+etc		Ets'EtERa	$dot
 św		S;v;Enty $dot
 śp		S;v;EntEj||pam;En^ts;i $dot
 
@@ -547,7 +548,7 @@ ok		Ok'Ej $allcaps
 np		napS'ykwad $dot
 tys		tyS;E~tsy $dot
 mln		miljOnuf
-mld		milja*duf
+mld		miljaRduf
 
 //popularne zagraniczniaki nieodmienne (no, prawie)
 (ad hoc) adh'Ok
@@ -555,24 +556,24 @@ adieu	adj'E
 (ad oculos) ad'OkulOs
 angelica	angElika $2
 
-(carte blanche) ka*tbl'anS
+(carte blanche) kaRtbl'anS
 challenge	tSElEndZ
 chanson		SansO~	$2
-(chargé d'affaires) Sa*ZEdafE*	$4
-(charge d'affaires) Sa*ZEdafE*	$4
-charmant	Sa*man	$2
-charme		Sa*m
-charmeur	Sa*mE*	$2
-charmeuse	Sa*mEz	$2
+(chargé d'affaires) SaRZEdafER	$4
+(charge d'affaires) SaRZEdafER	$4
+charmant	SaRman	$2
+charme		SaRm
+charmeur	SaRmER	$2
+charmeuse	SaRmEz	$2
 chippendale	tSipEndEjl
 chippendale	tSipEndEjl $1 $only
 (chow chow)	tSawtSau	$2
 ciao	tSjaw
-(cicer cum caule)	ts,itsE*kumk'awlE
+(cicer cum caule)	ts,itsERkumk'awlE
 (ci devant)	sidEv'aN
 cinquecento	tSinkwEtSEntO
-circa		tsi*ka
-(cis dur)	tsisd'u*
+circa		tsiRka
+(cis dur)	tsisd'uR
 (cis moll)	tsism'Ol
 cito		tsitO
 city		tsity
@@ -585,58 +586,58 @@ collège		kOlEZ	$2	//fr
 comte	kO~t
 comtesse	kO~t'Es
 con	kOn
-concierge	kOnsj'E*Z
+concierge	kOnsj'ERZ
 cool		kul
-copyright	k'Opy*ajt
-(cosa nostra)	k,Ozan'Ost@-*a
+copyright	k'OpyRajt
+(cosa nostra)	k,Ozan'OstRa
 cottage		kOtydZ
 coupé		kup'E
 coupe		kup'E
-country		kant@-*y
+country		kantRy
 cubiculum	kub'ikulum
 culpa		kulpa
-curriculum	ku*'ikulum
+curriculum	kuR'ikulum
 
-d'amour		damu*	$2
+d'amour		damuR	$2
 (de facto)	dEfaktO
-(de iure)	dEju*E
+(de iure)	dEjuRE
 (déjà vu)	dEZav'i
 (déjà vue)	dEZav'i
 (deja vu)	dEZav'i
 (deja vue)	dEZav'i
-dell'arte	dEl'a*
-del'arte	dEl'a*
-(dies irae) d;'ijEs'i*E
+dell'arte	dEl'aR
+del'arte	dEl'aR
+(dies irae) d;'ijEs'iRE
 dinghy	d;iNgi
 
 faciendi	fasjEndi
 foyer	fuaj'E
 
 gentleman $1
-graecas	g@-*Ekas
+graecas	gREkas
 
 
 monsieur mEsj'E
 madame	mad'am
 mademoiselle madmuaz'El
-(maitré d'hotel) mEt*EdOt'El
-(maitre d'hotel) mEt*EdOt'El
+(maitré d'hotel) mEtREdOt'El
+(maitre d'hotel) mEtREdOt'El
 mlle	madmuaz'El
 (mon ami)	mOnami $3
-(mon cher)	mO~SE* $2
+(mon cher)	mO~SER $2
 
 new	n^;u
 
 out	awt
 
-poirot	puwa*'O // odmieniony w regułkach
+poirot	puwaR'O // odmieniony w regułkach
 
-(qui pro quo) kvip*OkvO $3
+(qui pro quo) kvipROkvO $3
 rock		rOk
 
-sir	sE*
-sire	si*
-street		st@-*it
+sir	sER
+sire	siR
+street		stRit
 
 (va banque) vab'aNk
 variétés	varjEtE $3
@@ -652,12 +653,12 @@ von		fOn
 voodoo		vudu
 
 // kuchnia, kuchnia, jeść nam się chce!
-//ragout	*ag'u // przen. do rules
+//ragout	Rag'u // przen. do rules
 fondue	fO~d'i
 beaujolais	bOZOl'E
 boeuf	bEf
-cabernet	kabE*n'E
-camembert	kamEmb'E*
+cabernet	kabERn'E
+camembert	kamEmb'ER
 café		kafE $2
 cafe		kafE $2
 chablis		Sabli $2
@@ -670,12 +671,12 @@ chilli		tSili
 coca		kOka
 cola		kOla
 coleslaw	kOlEslOw
-croissant	k@-*uas'aN
-cumberland	k'ambE*lEnd
-(cura çao)	ki*asaO
-curaçao		ki*asaO
-curacao		ki*asaO
-curry		ka*y
+croissant	kRuas'aN
+cumberland	k'ambERlEnd
+(cura çao)	kiRasaO
+curaçao		kiRasaO
+curacao		kiRasaO
+curry		kaRy
 (de la maison)	dElamEz'O~
 (de volaille)	dEvOl'aj
 (a la)		al'a

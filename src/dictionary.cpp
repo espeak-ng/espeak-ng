@@ -684,6 +684,7 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 	// match the word against a list of utf-8 strings
 	char *p;
 	char *w;
+	int  len;
 
 	p = letterGroups[group];
 	if(p == NULL)
@@ -691,14 +692,26 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 
 	while(*p != RULE_GROUP_END)
 	{
-		w = word;
+		if(pre)
+		{
+			len = strlen(p);
+			w = word - len + 1;
+		}
+		else
+		{
+			w = word;
+		}
 		while(*p == *w)
 		{
 			w++;
 			p++;
 		}
 		if(*p == 0)
+		{
+			if(pre)
+				return(len);
 			return(w-word);   // matched a complete string
+		}
 
 		while(*p++ != 0);  // skip to end of string
 	}
@@ -1023,6 +1036,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 
 	unsigned char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_weight[N_WORD_PHONEMES/2];
+	char vowel_length[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
 
 	static char consonant_types[16] = {0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0};
@@ -1079,6 +1093,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				// long vowel, increase syllable weight
 				weight++;
 			}
+			vowel_length[ix] = weight;
 
 			if(lengthened) p++;  // advance over phonLENGTHEN
 
@@ -1148,6 +1163,14 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 								stressed_syllable = vowel_count - 1;
 							}
 						}
+					}
+				}
+				if(langopts.stress_flags & 0x80000)
+				{
+					// stress on last syllable if it has a long vowel, but previous syllable has a short vowel
+					if(vowel_length[vowel_count - 1] > vowel_length[vowel_count - 2])
+					{
+						stressed_syllable = vowel_count - 1;
 					}
 				}
 
@@ -2547,6 +2570,10 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 					}
 					p += (wc_bytes-1);
 				}
+				else
+				{
+					phonemes_repeat_count = 0;
+				}
 			}
 		}
 
@@ -2590,6 +2617,7 @@ int Translator::TranslateRules(char *p_start, char *phonemes, int ph_size, char 
 	// any language specific changes ?
 	ApplySpecialAttribute(phonemes,dict_flags0);
 	memcpy(p_start,word_copy,strlen(word_copy));
+
 	return(0);
 }   /* end of TranslateRules */
 
@@ -3126,6 +3154,28 @@ int Translator::LookupDictList(char **wordptr, char *ph_out, unsigned int *flags
 	word[length] = 0;
 
 	found = LookupDict2(word, word1, ph_out, flags, end_flags, wtab);
+
+	if(flags[0] & FLAG_MAX3)
+	{
+		if(strcmp(ph_out, phonemes_repeat) == 0)
+		{
+			phonemes_repeat_count++;
+			if(phonemes_repeat_count > 3)
+			{
+				ph_out[0] = 0;
+			}
+		}
+		else
+		{
+			strncpy0(phonemes_repeat, ph_out, sizeof(phonemes_repeat));
+			phonemes_repeat_count = 1;
+		}
+	}
+	else
+	{
+		phonemes_repeat_count = 0;
+	}
+
 
 	if((found == 0) && (flags[1] & FLAG_ACCENT))
 	{

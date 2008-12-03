@@ -1,6 +1,10 @@
 // translation rules
 // This file is UTF-8 encoded
 
+// letter groups
+// A  any vowel
+// Y  front vowels: e i (& accents)
+.L01 a à o ò ó u ù
 
 .group a
 		a	a:
@@ -31,30 +35,12 @@
 		c	k
 		cc	k:
 		c ('    tS
-		c (e	tS
-		c (é	tS
-		c (è	tS
-		c (i	tS
-		c (ì	tS
-		cc (e	tS:
-		cc (é	tS:
-		cc (è	tS:
-		cc (i	tS:
-		cc (ì	tS:
+		c (Y    tS
+		cc (Y   tS:
 		ch	k
 		cch	k:
-		ci (a	tS
-		ci (à	tS
-		ci (o	tS
-		ci (ò	tS
-		ci (u	tS
-		ci (ù	tS
-		cci (a	tS:
-		cci (à	tS:
-		cci (o	tS:
-		cci (ò	tS:
-		cci (u	tS:
-		cci (ù	tS:
+		ci (L01	tS
+		cci (L01  tS:
 	@)	co (lA_ =ko
 		
 .group d
@@ -94,28 +80,10 @@
 		g	g
 		gg	g:
 		gh	g
-		g (e	dZ
-		g (é	dZ
-		g (è	dZ
-		g (i	dZ
-		g (ì	dZ
-		gi (a	dZj
-		gi (à	dZj
-		gi (o	dZj
-		gi (ò	dZj
-		gi (u	dZj
-		gi (ù	dZj
-		gg (e	dZ:
-		gg (é	dZ:
-		gg (è	dZ:
-		gg (i	dZ:
-		gg (ì	dZ:
-		ggi (a	dZ:
-		ggi (à	dZ:
-		ggi (o	dZ:
-		ggi (ò	dZ:
-		ggi (u	dZ:
-		ggi (ù	dZ:
+		g (Y	dZ
+		gi (L01	dZj
+		gg (Y	dZ:
+		ggi (L01  dZ:
 	@)	gger (lo_ =dZ:eR
 		gl (i	l^
 		gl (ì	l^
@@ -155,6 +123,11 @@
         @)      i (dere_  'i
 	@)	i (le_  =i
 	@)	i (li_  =i
+	@)	i (ma_	=i
+	r)	i (ma_	 i
+	laCr)	i (ma_	=i
+	st)	i (ma_   i
+	enz)	i (ma_   i
 	@)	iera (_   i'E:Ra
 	@)	iere (_   i'E:Re
         @)      i (ente_  i
@@ -207,6 +180,8 @@
 	@)	o (metro_  'O
 	@)	o (logo_   'O
 		o (str     'O
+	@)	o (di_     =o
+	@)	o (do_     =o
 	@)	o (lo_     =o
 
 	
@@ -244,21 +219,8 @@
 		ss	ss
 		s (t	s
 		s (x	s
-		sc (e	S
-		sc (é	S
-		sc (è	S
-		sc (i	S
-		sc (ì	S
-//	A)	sc (e	SS
-//	A)	sc (é	SS
-//	A)	sc (è	SS
-//	A)	sc (i	SS
-//	A)	sc (ì	SS
-		sch (e	sk
-		sch (é	sk
-		sch (è	sk
-		sch (i	sk
-		sch (ì	sk
+		sc (Y	S
+		sch (Y	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
 	@)	sia	s'ia	

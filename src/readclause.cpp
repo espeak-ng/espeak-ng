@@ -79,14 +79,23 @@ const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x037e,  // Greek question mark (looks like semicolon)
   0x0387,  // Greek semicolon, ano teleia
   0x0964,  // Devanagari Danda (fullstop)
-  0x3001,  // ideograph comma
-  0x3002,  // ideograph period
 
   0x0589,  // Armenian period
   0x055d,  // Armenian comma
   0x055c,  // Armenian exclamation
   0x055e,  // Armenian question
   0x055b,  // Armenian emphasis mark
+
+  0x1362,  // Ethiopic period
+  0x1363,
+  0x1364,
+  0x1365,
+  0x1366,
+  0x1367,
+  0x1368,
+
+  0x3001,  // ideograph comma
+  0x3002,  // ideograph period
 
   0xff01,  // fullwidth exclamation
   0xff0c,  // fullwidth comma
@@ -109,14 +118,23 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
   CLAUSE_PERIOD+0x8000,     // Devanagari Danda (fullstop)
-  CLAUSE_COMMA+0x8000,      // ideograph comma
-  CLAUSE_PERIOD+0x8000,     // ideograph period
 
   CLAUSE_PERIOD+0x8000,  // Armenian period
   CLAUSE_COMMA,     // Armenian comma
   CLAUSE_EXCLAMATION + PUNCT_IN_WORD,  // Armenian exclamation
   CLAUSE_QUESTION + PUNCT_IN_WORD,  // Armenian question
   CLAUSE_PERIOD + PUNCT_IN_WORD,  // Armenian emphasis mark
+
+  CLAUSE_PERIOD,     // Ethiopic period
+  CLAUSE_COMMA,      // Ethiopic comma
+  CLAUSE_SEMICOLON,  // Ethiopic semicolon
+  CLAUSE_COLON,      // Ethiopic colon
+  CLAUSE_COLON,      // Ethiopic preface colon
+  CLAUSE_QUESTION,   // Ethiopic question mark
+  CLAUSE_PERIOD,     // Ethiopic paragraph
+
+  CLAUSE_COMMA+0x8000,      // ideograph comma
+  CLAUSE_PERIOD+0x8000,     // ideograph period
 
   CLAUSE_EXCLAMATION+0x8000, // fullwidth
   CLAUSE_COMMA+0x8000,
@@ -865,7 +883,7 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 #define SSML_AUDIO    11
 #define SSML_EMPHASIS 12
 #define SSML_BREAK    13
-#define SSML_METADATA 14
+#define SSML_IGNORE_TEXT 14
 #define HTML_BREAK    15
 #define SSML_CLOSE    0x10   // for a closing tag, OR this with the tag type
 
@@ -887,7 +905,7 @@ MNEM_TAB ssmltags[] = {
 	{"audio", SSML_AUDIO},
 	{"emphasis", SSML_EMPHASIS},
 	{"break", SSML_BREAK},
-	{"metadata", SSML_METADATA},
+	{"metadata", SSML_IGNORE_TEXT},
 
 	{"br", HTML_BREAK},
 	{"li", HTML_BREAK},
@@ -898,6 +916,8 @@ MNEM_TAB ssmltags[] = {
 	{"h3", SSML_PARAGRAPH},
 	{"h4", SSML_PARAGRAPH},
 	{"hr", SSML_PARAGRAPH},
+	{"script", SSML_IGNORE_TEXT},
+	{"style", SSML_IGNORE_TEXT},
 	{NULL,0}};
 
 
@@ -911,6 +931,7 @@ static const char *VoiceFromStack()
 	SSML_STACK *sp;
 	const char *v_id;
 	int voice_name_specified;
+	int voice_found;
 	espeak_VOICE voice_select;
 	char voice_name[40];
 	char language[40];
@@ -952,7 +973,7 @@ static const char *VoiceFromStack()
 
 	voice_select.name = voice_name;
 	voice_select.languages = language;
-	v_id = SelectVoice(&voice_select);
+	v_id = SelectVoice(&voice_select, &voice_found);
 	if(v_id == NULL)
 		return("default");
 	return(v_id);
@@ -1625,12 +1646,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		}
 		break;
 
-	case SSML_METADATA:
+	case SSML_IGNORE_TEXT:
 		ignore_text = 1;
 		break;
 
 	case SSML_SUB + SSML_CLOSE:
-	case SSML_METADATA + SSML_CLOSE:
+	case SSML_IGNORE_TEXT + SSML_CLOSE:
 		ignore_text = 0;
 		break;
 

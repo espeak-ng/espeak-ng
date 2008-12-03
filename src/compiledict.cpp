@@ -90,6 +90,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$alt2",      21},
 	
 
+	{"$max3",      27},   // limit to 3 repetitions
 	{"$brk",       28},   // a shorter $pause
 	{"$text",      29},   // word translates to replcement text, not phonemes
 

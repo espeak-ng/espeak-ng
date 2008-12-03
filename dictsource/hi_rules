@@ -38,6 +38,8 @@
 
 .group इ
         इ        I
+//       इँ        i~
+//       इं        i~
 
 .group ई
         ई        i:
@@ -99,6 +101,8 @@
 
 .group ि
         ि        I
+//      िँ       i~
+//      िं       i~
 
 .group ी
         ी        i:
@@ -399,7 +403,7 @@
 	ँ	n	// candrabindu
 
 .group ं 
-        ं        N     // anusvara
+        ं        n     // anusvara
         ं  (प    m
         ं  (फ    m
         ं  (ब    m

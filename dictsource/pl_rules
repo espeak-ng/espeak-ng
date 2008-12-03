@@ -35,10 +35,10 @@
 	C)	ai	(r	E
 	_alt)	ai	(r	ai
 	_k)	ai	(r	ai
-	_)	archie		E*tSi
-	_)	archie	(C	E*tS|;E
+	_)	archie		ERtSi
+	_)	archie	(C	ERtS|;E
 		acku	(p	Eka
-	_)	arcy	(@P4t	a*tsy
+	_)	arcy	(@P4t	aRtsy
 
 	@ł)	a	(by_	=a
 	@ł)	a	(bym_	=a
@@ -74,7 +74,7 @@
 
 		b		b
 	ja)	bł	(kA	p
-		b	(_A	p
+		b	(_	p
 		b	(i	b;
 		bi	(A	b;j
 
@@ -179,7 +179,7 @@
 	_)	challeng (er	tSElEndZ
 		cha	(mpi	tZE
 		chan	(nel	tSa
-	_)	charle	(s	tSa*ls
+	_)	charle	(s	tSaRls
 	_)	chie	(f	tSi
 	_)	ch	(ip	tS
 	_)	chippendal (A	tSipEndEjl
@@ -202,16 +202,16 @@
 	_)	c	(ominu	ts
 	_)	conc	(ert	kOntS
 	_)	c	(onC	k
-	_)	copywri	(t	kOpy*aj
+	_)	copywri	(t	kOpyRaj
 	_)	c	(orC	k
 	_)	c	(owbo	k
-		crack		k@-*ak
-	_)	croiss		k@-*ruas
+		crack		kRak
+	_)	croiss		kRruas
 	_)	c	(r	k
 	_)	c	(umul	k
-	_)	curie		ki*i
+	_)	curie		kiRi
 	_)	cu	(rli	kE
-		cresc	(end	k@-*EStS
+		cresc	(end	kREStS
 
 	_)	c	(aps_	k
 	_)	c	(apslo	k
@@ -219,7 +219,7 @@
 	lo)	ck	(u_	k
 	lo)	ck	(iem_	k
 	lo)	ck	(a_	k
-	_s)	creenrea (d	k@-*in*i
+	_s)	creenrea (d	kRinRi
 
 .group	 ć
 		ć		ts;
@@ -228,21 +228,21 @@
 
 .group	 d
 		d		d
-		d	(_A	t
+		d	(_	t
 		d	(i	d;
 		di	(A	dj
 		dies	(lA	d;iz
 		dies	(el	d;iz
 		dz		dz
-		dz	(_A	ts
+		dz	(_	ts
 		dz	(i	dz;
 		dzi	(A	dz;
 	_na)	dzi	(em	d|Z;
 	_po)	dzi	(em	d|Z;
 		dź		dz;
-		dź	(_A	ts;
+		dź	(_	ts;
 		dż		dZ
-		dż	(_A	tS
+		dż	(_	tS
 
 	_o)	dż		d|Z
 	_po)	dż		d|Z
@@ -312,17 +312,16 @@
 		g		g
 		g	(i	g;
 	hi)	gi	(e	gj
-		g	(_A	k
-		gł	(_	g
-		gł	(_A	k
+		g	(_	k
+		gł	(_	gw
 		gh		g
 		gate	(s	gEjt
 	_)	gentleman		dZEntElmEn
-	_)	georgi	(o_	dZO*dZj
-	_)	georgi	(ą_	dZO*dZj
-	_)	georgi	(ę_	dZO*dZj
-	_)	georgi	(i_	dZO*dZj
-	_)	georgi	(a_	dZO*dZj
+	_)	georgi	(o_	dZORdZj
+	_)	georgi	(ą_	dZORdZj
+	_)	georgi	(ę_	dZORdZj
+	_)	georgi	(i_	dZORdZj
+	_)	georgi	(a_	dZORdZj
 
 .group	 h
 		h		x
@@ -338,8 +337,8 @@
 	_kl)	i	(e	;ij
 	żm)	ii	(_	iji
 	rak)	ii	(_	iji
-	_f)	ire	(fox_	'ajE*
-	_f)	ire	(fo	ajE*
+	_f)	ire	(fox_	'ajER
+	_f)	ire	(fo	ajER
 	_m)	ic	(ro	ajk
 
 	C)	ie	(_	;E#
@@ -460,6 +459,7 @@
 
 .group	 j
 		jazz	dZEz
+		jazz	(_	dZEs
 		j		j
 
 	_)	james	dZEjms
@@ -480,7 +480,7 @@
 .group	 k
 		k		k
 //		k	(i	c
-		kł	(_	k
+		kł	(_	kw
 //		ki	(A	kj
 	_)	klow	(n	klaw
 
@@ -570,32 +570,33 @@
 		qu	(A	kv
 
 .group	 r
-		r		*
-	A_)	r	(A	*
-	K)	r	(A	@-*
-		ri	(A	*j
-	A)	rr	(A	*
+		r		R
+	A_)	r	(A	R
+	K)	r	(A	R
+		ri	(A	Rj
+	A)	rr	(A	R
 		rz		Z
-		rz	(and	*ts
-	_mu)	rz	(asichl	*z
-	_mu)	rz	(o_+++	*z
-	_mu)	rz	(owie_+++	*z
-	_mu)	rz	(ą_+++	*z
-	_mu)	rz	(y_+++	*z
-	_mu)	rz	(ę_+++	*z
-	_mu)	rz	(a_+++	*z
-	_mu)	rz	(ów_+++	*z
-	_mu)	rz	(ami_+++	*z
-	_mu)	rz	(ach_+++	*z
-	_mi)	rz	(o_+++	*z
-	_mi)	rz	(owie_+++	*z
-	_mi)	rz	(ą_+++	*z
-	_mi)	rz	(y_+++	*z
-	_mi)	rz	(ę_+++	*z
-	_mi)	rz	(a_+++	*z
-	_mi)	rz	(ów_+++	*z
-	_mi)	rz	(ami_+++	*z
-	_mi)	rz	(ach_+++	*z
+		rz	(_	S
+		rz	(and	Rts
+	_mu)	rz	(asichl	Rz
+	_mu)	rz	(o_+++	Rz
+	_mu)	rz	(owie_+++	Rz
+	_mu)	rz	(ą_+++	Rz
+	_mu)	rz	(y_+++	Rz
+	_mu)	rz	(ę_+++	Rz
+	_mu)	rz	(a_+++	Rz
+	_mu)	rz	(ów_+++	Rz
+	_mu)	rz	(ami_+++	Rz
+	_mu)	rz	(ach_+++	Rz
+	_mi)	rz	(o_+++	Rz
+	_mi)	rz	(owie_+++	Rz
+	_mi)	rz	(ą_+++	Rz
+	_mi)	rz	(y_+++	Rz
+	_mi)	rz	(ę_+++	Rz
+	_mi)	rz	(a_+++	Rz
+	_mi)	rz	(ów_+++	Rz
+	_mi)	rz	(ami_+++	Rz
+	_mi)	rz	(ach_+++	Rz
 	c)	rz	(A	S
 	ć)	rz	(A	S
 	cz)	rz	(A	S
@@ -607,28 +608,28 @@
 	ś)	rz	(A	S
 	sz)	rz	(A	S
 	t)	rz		S
-		rz	(ini_	*ts
-		rz	(inim_	*ts
-		rz	(inimi_	*ts
-		rz	(inich_	*ts
-		rz	(iniemu_	*ts
-		rz	(iniego_	*ts
-		rz	(oni_	*ts
-		rz	(onim_	*ts
-		rz	(onimi_	*ts
-		rz	(onich_	*ts
-		rz	(oniemu_	*ts
-		rz	(oniego_	*ts
-		r	(zi	*
-	A)	r	(zł	*
-	ma)	r	(zn	*
-	ma)	r	(zlin	*
-	_zama)	r	(za	*
-	_zma)	r	(za	*
-	odma)	r	(za	*
-	_bo)	r	(zoj	*
+		rz	(ini_	Rts
+		rz	(inim_	Rts
+		rz	(inimi_	Rts
+		rz	(inich_	Rts
+		rz	(iniemu_	Rts
+		rz	(iniego_	Rts
+		rz	(oni_	Rts
+		rz	(onim_	Rts
+		rz	(onimi_	Rts
+		rz	(onich_	Rts
+		rz	(oniemu_	Rts
+		rz	(oniego_	Rts
+		r	(zi	R
+	A)	r	(zł	R
+	ma)	r	(zn	R
+	ma)	r	(zlin	R
+	_zama)	r	(za	R
+	_zma)	r	(za	R
+	odma)	r	(za	R
+	_bo)	r	(zoj	R
 
-		ry'	(e	*
+		ry'	(e	R
 .group	 s
 
 	@)	son	(_S3t	sOn
@@ -694,7 +695,7 @@
 
 		skj	(A	S
 
-		scherz		skE*ts
+		scherz		skERts
 		sch	(ą	sx
 		sch	(ę	sx
 	pa)	sch	(a	sx
@@ -776,7 +777,7 @@
 	_)	sch	(lebi	sx
 	_)	sch	(etyn	sx
 
-		schwarz		Sva*ts
+		schwarz		SvaRts
 		schoe		SE
 		sch		S
 
@@ -833,10 +834,20 @@
 		w		v
 		w (sk		_v
 	ier)	wsz	(A	S
-		w	(_A	f
+		w	(_	f
 	c)	w	(A	f
 	ć)	w	(A	f
 	cz)	w	(A	f
+
+	_)	w	(_c	f
+	_)	w	(_f	wE
+	_)	w	(_h	f
+	_)	w	(_k	f
+	_)	w	(_p	f
+	_)	w	(_s	f
+	_)	w	(_t	f
+	_)	w	(_mn	wE // 'w' should be written 'we' before 'mn', but not always
+	_)	w	(_	w
 
 	f)	w	(A	f
 	h)	w	(A	f
@@ -850,8 +861,8 @@
 	_)	window		wyndOw
 		wee	(k	wi
 	_)	washi		wOSi
-		wrigh		*aj
-	C)	wrigh		@-*aj
+		wrigh		Raj
+	C)	wrigh		Raj
 
 .group	 x
 		x		ks
@@ -951,7 +962,7 @@
 
 .group	 z
 		z		z
-		z	(_A	s
+		z	(_	s
 		z	(i	Z;
 		zi	(A	Z;
 	_)	zi	(p	Z;i
@@ -960,9 +971,20 @@
 	_nie)	zi	(C	z_i
 		zi	(C	zi
 
+	_)	z	(_c	s
+	_)	z	(_f	s
+	_)	z	(_h	s
+	_)	z	(_k	s
+	_)	z	(_p	s
+	_)	z	(_s	s
+	_)	z	(_t	s
+	_)	z	(_mn	zE // 'z' should be written 'ze' before 'mn', but not always
+	_)	z	(_	z
+
 	mo)	zi	(ll	zi
 	_ro)	z	(iC	z
-	_)	zuri	(ch	tsu*y
+	_)	zuri	(ch	tsuRy
+	_)	zz	(a_	z_z
 		zz	(ini_	ts
 		zz	(inim_	ts
 		zz	(inimi_	ts
@@ -999,22 +1021,22 @@
 
 .group	 ź
 		ź		Z;
-		ź	(_A	S;
+		ź	(_	S;
 
 .group	 ż
 		ż		Z
-		ż	(_A	S
+		ż	(_	S
 
 .group	 th
 	_e)	th	(anak	t
-	_)	the	(_A	zi
-	_)	the	(_	zE
+	_)	the	(_	dE
 		th		s
 		th	(ie_	s;
 	_)	th		t
-		thew		sju
+	_)	thank		fENk
+		thew		fju
 
-	_)	thunderbi (rd	fEndE*bE
+	_)	thunderbi (rd	fEndERbE
 
 .group	dg
 	_na)	dg		dg
@@ -1037,7 +1059,7 @@
 	_dy)	sh	sx
 	_fi)	sh	(armon	sx
 		sh	S
-		shire	SajE*
+		shire	SajER
 .group ph
 		ph	f
 
@@ -1098,19 +1120,5 @@
 		'ego	(_S4	EgO
 		'emu	(_S4	Emu
 
-		$		dOla*
-		@		mawpa
-		%		p@-*OtsEnt
-		+		plus
-		#		haS
-		=		*'uvna||S;E
-		/		slES
-		\		bEkslES
-		*		gv;astka
-		|		k@-*Eska||p;OnOva
-		^		d'aSEk
-		&		and
-		`		aktsEnt
-		.		k@-*Opka
-		,		pSEts;inEk
+		$		dOlaR
 

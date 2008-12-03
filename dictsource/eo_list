@@ -27,7 +27,7 @@ _0M1		m,il_
 _0M2		mili'ono
 _0M3		mili'ardo
 _0M4		duili'ono
-_dpt		komo_
+_dpt		_komo_
 
 // accent names
 _acu	dekst@-*akoRno
@@ -45,17 +45,30 @@ _:	dupunkto
 _;	punktokomo
 _,	komo
 _?	demandosigno
+_!	_k@-*isigno_
 _-	dividost@-*eko
+__	subst@-*eko
 ~	tildo
 °	gradoI
 %	p@-*otsento
 @	_tSe_
 &	kaI
-=	,,egala,
-\\	deklivo
-/	oblik'vo
+=	egala
+\	deklivo
+/	oblikvo
+|	duktosigno
 *	asteRisko
-©       k'opiraIto
+©       kopiRaIto
+_(	Rondak@-*'ampo
+_)	feRm'itaRondak@-*'ampo
+_[	Rektak@-*'ampo
+_]	f'eRmaRektak@-*'ampo
+_{	k'u@-*bak@-*'ampo
+_}	f'eRmaku@-*bak@-*'ampo
+_<	angulk@-*'ampo
+_>	f'eRmaangulk@-*'ampo
+_«	du'oblaangulk@-*'ampo
+_»	f'eRmadu,oblaangulk@-*'ampo
 
 
 v	vo	// not Roman numbers
@@ -76,7 +89,7 @@ k.c	kaItset'eRe
 Kg	k'ilog@-*'amoI
 Km	k'ilom'et-*oI
 kp	k,omp'aru	$dot
-k.s	kaI,s'im'ile
+k.s	kaI,si'mile
 n.b	n'otu||b'one
 nro	numeRo
 pĝ	padZo		$dot
@@ -151,10 +164,6 @@ tra             $u $pause
 eĉ              $brk
 pli	pl,i
 plej	pl,eI
-//ĝojo	dZoIo
-//ĉashundo	tSas,hundo
-//ligno		lig,no
-//signo		sig,no
 
 // pronouns
 mi              $u

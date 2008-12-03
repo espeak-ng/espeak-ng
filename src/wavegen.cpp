@@ -59,7 +59,7 @@ voice_t *wvoice;
 
 FILE *f_log = NULL;
 int option_waveout = 0;
-int option_harmonic1 = 11;   // 10
+int option_harmonic1 = 10;   // 10
 int option_log_frames = 0;
 static int flutter_amp = 64;
 
@@ -252,7 +252,7 @@ static const unsigned char Flutter_tab[N_FLUTTER] = {
 };
 
 // waveform shape table for HF peaks, formants 6,7,8
-#define N_WAVEMULT 512
+#define N_WAVEMULT 128
 static int wavemult_offset=0;
 static int wavemult_max=0;
 
@@ -266,32 +266,8 @@ static unsigned char wavemult[N_WAVEMULT] = {
    218,213,207,201,194,188,181,174,166,159,152,144,136,128,121,113,
    105, 98, 90, 83, 76, 69, 62, 55, 49, 43, 37, 32, 27, 22, 18, 14,
     11,  8,  5,  3,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
-     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 };
-   
+ 
 
 // set from y = pow(2,x) * 128,  x=-1 to 1
 unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
@@ -662,24 +638,31 @@ int WavegenOpenSound()
 }
 
 
+
 int WavegenCloseSound()
 {//====================
 	PaError active;
 
 	// check whether speaking has finished, and close the stream
-//	if(pa_stream != NULL)
-	if((pa_stream != NULL) && (WcmdqUsed() == 0))  // TEST, also check that queue is empty
+	if(pa_stream != NULL)
 	{
 #if USE_PORTAUDIO == 18
 		active = Pa_StreamActive(pa_stream);
 #else
 		active = Pa_IsStreamActive(pa_stream);
 #endif
-		if(active == 0)
+		if(WcmdqUsed() == 0)   // also check that the queue is empty
 		{
-			Pa_CloseStream(pa_stream);
-			pa_stream = NULL;
-			return(1);
+			if(active == 0)
+			{
+				Pa_CloseStream(pa_stream);
+				pa_stream = NULL;
+				return(1);
+			}
+		}
+		else
+		{
+			WavegenOpenSound();  // still items in the queue, shouldn't be closed
 		}
 	}
 	return(0);
@@ -901,13 +884,20 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		}
 	}
 
-	// increase bass, up to the F1 peak
-	h=1;
-	x = peaks[1].height * 24;
-	for(f=pitch; f<peaks[1].freq; f+=pitch)
+{
+int y;
+int h2;
+	// increase bass
+	y = peaks[1].height * 10;   // addition as a multiple of 1/256s
+	h2 = (1000<<16)/pitch;       // decrease until 1000Hz
+	x = y/h2;
+	h = 1;
+	while(y > 0)
 	{
-		htab[h++] += x;
+		htab[h++] += y;
+		y -= x;
 	}
+}
 
 	// find the nearest harmonic for HF peaks where we don't use shape
 	for(; pk<N_PEAKS; pk++)
@@ -1255,8 +1245,8 @@ int Wavegen()
 					if((ix = amp_ix>>8) > 127) ix = 127;
 					amp = amplitude_env[ix];
 					amplitude2 = (amplitude2 * amp)/255;
-					if(amp < 255)
-						modulation_type = 7;
+//					if(amp < 255)
+//						modulation_type = 7;
 				}
 
 				// introduce roughness into the sound by reducing the amplitude of

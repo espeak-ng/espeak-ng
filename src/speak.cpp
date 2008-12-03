@@ -494,7 +494,8 @@ int main (int argc, char **argv)
 	int flag_stdin = 0;
 	int flag_compile = 0;
 	int pitch_adjustment = 50;
-	char filename[120];
+	espeak_VOICE voice_select;
+	char filename[200];
 	char voicename[40];
 	char dictname[40];
 
@@ -510,10 +511,11 @@ int main (int argc, char **argv)
 	option_endpause = 1;
 	option_phoneme_input = 1;
 	option_multibyte = espeakCHARS_AUTO;  // auto
-	f_trans = stderr;
+	f_trans = stdout;
 
 #ifdef NEED_GETOPT
 	optind = 1;
+	opt_string = "";
 	while(optind < argc)
 	{
 		int len;
@@ -735,8 +737,13 @@ int main (int argc, char **argv)
 
 	if(SetVoiceByName(voicename) != EE_OK)
 	{
-		fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
-		exit(2);
+		memset(&voice_select,0,sizeof(voice_select));
+		voice_select.languages = voicename;
+		if(SetVoiceByProperties(&voice_select) != EE_OK)
+		{
+			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+			exit(2);
+		}
 	}
 
 	SetParameter(espeakRATE,speed,0);

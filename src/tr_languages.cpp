@@ -123,7 +123,7 @@ Translator *SelectTranslator(const char *name)
 	int name2 = 0;
 	Translator *tr;
 
-	static const unsigned char stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
+	static const unsigned char stress_amps_sk[8] = {17,17, 20,20, 20,24, 24,22 };
 	static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 
 	// convert name string into a word of up to 4 characters, for the switch()
@@ -198,10 +198,9 @@ Translator *SelectTranslator(const char *name)
 
 	case L('d','a'):  // Danish
 		{
-			static const unsigned char stress_amps_da[] = {16,16, 20,20, 20,24, 24,22 };
 			static const short stress_lengths_da[8] = {160,140, 200,200, 0,0, 220,210};
 			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_da,stress_amps_da);
+			SetupTranslator(tr,stress_lengths_da,NULL);
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
@@ -365,6 +364,16 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
+#ifdef deleted
+	case L('g','a'):    // Irish Gaelic
+		{
+			tr = new Translator();
+
+			tr->langopts.stress_rule = 1;
+		}
+		break;
+#endif
+
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
 		{
@@ -390,7 +399,7 @@ Translator *SelectTranslator(const char *name)
 	case L('b','s'):   // Bosnian
 	case L('s','r'):   // Serbian
 		{
-			static const unsigned char stress_amps_hr[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const unsigned char stress_amps_hr[8] = {17,17, 20,20, 20,24, 24,22 };
 			static const short stress_lengths_hr[8] = {180,160, 200,200, 0,0, 220,230};
 			static const short stress_lengths_sr[8] = {160,150, 200,200, 0,0, 250,260};
 
@@ -476,12 +485,11 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('i','s'):   // Icelandic
 		{
-			static const unsigned char stress_amps_is[] = {16,16, 20,20, 20,24, 24,22 };
 			static const short stress_lengths_is[8] = {180,160, 200,200, 0,0, 240,250};
 			static const wchar_t is_lettergroup_B[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
 			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_is,stress_amps_is);
+			SetupTranslator(tr,stress_lengths_is,NULL);
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x10;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11;    // remove lengthen indicator from unstressed vowels
@@ -499,8 +507,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('i','t'):   // Italian
 		{
-			static const short stress_lengths_it[8] = {150, 140,  180, 180,  0, 0,  270, 320};
-			static const unsigned char stress_amps_it[8] = {15,14, 19,19, 20,24, 24,22 };
+			static const short stress_lengths_it[8] = {150, 140,  170, 170,  0, 0,  300, 330};
+			static const unsigned char stress_amps_it[8] = {15,14, 19,19, 20,22, 22,20 };
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_it,stress_amps_it);
@@ -606,7 +614,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static wchar_t vowels_cyrillic[] = {0x440,  // also include 'р' [R]
 				 0x430,0x435,0x438,0x439,0x43e,0x443,0x44b,0x44d,0x44e,0x44f,0x450,0x451,0x456,0x457,0x45d,0x45e,0};
-			static const unsigned char stress_amps_mk[8] = {16,16, 20,20, 20,24, 24,22 };
+			static const unsigned char stress_amps_mk[8] = {17,17, 20,20, 20,24, 24,22 };
 			static const short stress_lengths_mk[8] = {180,160, 200,200, 0,0, 220,230};
 
 			tr = new Translator();
@@ -639,10 +647,9 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('n','o'):  // Norwegian
 		{
-			static const unsigned char stress_amps_no[] = {16,16, 20,20, 20,24, 24,22 };
 			static const short stress_lengths_no[8] = {160,140, 200,200, 0,0, 220,210};
 			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_no,stress_amps_no);
+			SetupTranslator(tr,stress_lengths_no,NULL);
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
@@ -652,12 +659,13 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('o','m'):
 		{
-			static const unsigned char stress_amps_om[] = {16,16, 20,20, 20,24, 24,22 };
+			static const unsigned char stress_amps_om[] = {18,15, 20,20, 20,22, 22,22 };
 			static const short stress_lengths_om[8] = {200,200, 200,200, 0,0, 200,200};
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 
-			tr->langopts.stress_rule = 3;
+			tr->langopts.stress_rule = 2;
+			tr->langopts.stress_flags = 0x16 + 0x80000;
 		}
 		break;
 
@@ -766,11 +774,13 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('s','q'):  // Albanian
 		{
-			static const short stress_lengths_sq[8] = {170, 170,  170, 170,  0, 0,  250, 270};
-			static const unsigned char stress_amps_sq[8] = {17,12, 17,17, 20,20, 24,22 };
+			static const short stress_lengths_sq[8] = {150, 150,  180, 180,  0, 0,  300, 300};
+			static const unsigned char stress_amps_sq[8] = {16,12, 16,16, 20,20, 21,19 };
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_sq,stress_amps_sq);
-			tr->langopts.stress_flags =  0x4 + 0x10; 
+
+			tr->langopts.stress_rule = 2;
+			tr->langopts.stress_flags =  0x16 + 0x100; 
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = 0x69 + 0x8000;
 		}
@@ -879,8 +889,8 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('v','i'):  // Vietnamese
 		{
-			static const short stress_lengths_vi[8] = {150, 150,  180, 180,  210, 220,  220, 280};
-			static const unsigned char stress_amps_vi[] = {16,16, 16,16, 24,24, 24,22 };
+			static const short stress_lengths_vi[8] = {150, 150,  180, 180,  210, 230,  230, 240};
+			static const unsigned char stress_amps_vi[] = {16,16, 16,16, 22,22, 22,22 };
 			static wchar_t vowels_vi[] = {
 				0x61, 0xe0, 0xe1, 0x1ea3, 0xe3, 0x1ea1,			// a
 				0x103, 0x1eb1, 0x1eaf, 0x1eb3, 0x1eb5, 0x1eb7,	// ă
@@ -900,12 +910,12 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.word_gap = 0x20;   // length of a final vowel is less dependent on the next consonant
-			tr->langopts.vowel_pause = 4;
+			tr->langopts.word_gap = 0x21;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
+//			tr->langopts.vowel_pause = 4;
 			tr->letter_groups[0] = vowels_vi;
-//			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.unstressed_wd1 = 2;
+			tr->langopts.numbers = 0x0049;
 
 		}
 		break;

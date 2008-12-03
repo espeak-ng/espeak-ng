@@ -324,7 +324,7 @@ int main (int argc, char **argv)
 
 	FILE *f_text=NULL;
 	char *p_text=NULL;
-	FILE *f_phonemes_out = stderr;
+	FILE *f_phonemes_out = stdout;
 	char *data_path = NULL;   // use default path for espeak-data
 
 	int option_index = 0;
@@ -345,7 +345,8 @@ int main (int argc, char **argv)
 	int option_linelength = 0;
 	int option_waveout = 0;
 
-	char filename[120];
+	espeak_VOICE voice_select;
+	char filename[200];
 	char voicename[40];
 	char voice_mbrola[20];
 	char dictname[40];
@@ -529,8 +530,13 @@ int main (int argc, char **argv)
 
 	if(espeak_SetVoiceByName(voicename) != EE_OK)
 	{
-		fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
-		exit(2);
+		memset(&voice_select,0,sizeof(voice_select));
+		voice_select.languages = voicename;
+		if(espeak_SetVoiceByProperties(&voice_select) != EE_OK)
+		{
+			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+			exit(2);
+		}
 	}
 
 	if(flag_compile)

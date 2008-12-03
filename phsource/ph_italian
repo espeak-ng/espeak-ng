@@ -5,7 +5,7 @@
 
 phoneme : //  Lengthen previous vowel by "length"
   virtual
-  length 40
+  length 50
 endphoneme
 
 

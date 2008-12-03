@@ -297,7 +297,8 @@ static keywtab_t keywords[] = {
 	{"f4",   0x300000a},
 	{"paus", 0x300000b},
 	{"colr=",0x300000c},
-	{"amp=", 0x300000d},
+	{"amp=", 0x300000d},  // set rms of 1st frame as fraction of rms of 2nd frame  (1/30ths)
+
 	{"", -1}
 };
 
@@ -1286,6 +1287,7 @@ void Compile::VowelTransition(int which, unsigned int *trans)
 			vcolour = NextItem(tNUMBER);
 			break;
 		case 13:
+			// set rms of 1st frame as fraction of rms of 2nd frame  (1/30ths)
 			rms = (Range(NextItem(tNUMBER), 1, 0, 31) & 0x1f) | 0x20;
 			flags |= 1;
 			break;

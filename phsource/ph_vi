@@ -4,60 +4,55 @@
 //====================================================
 
 
-phoneme 1   //  tone: level
+phoneme 1   //  ngang tone: level
   stress
   length 11
   tone 28 32 envelope/p_level NULL
 endphoneme
 
 
-phoneme 2   //  tone: low falling
+phoneme 2   //  huyền tone: low falling
   stress
   length 12
   tone 20  8 envelope/p_fall NULL
 endphoneme
 
 
-phoneme 3   //  tone rising
+phoneme 3   //  sắc tone rising
   stress
   length 13
-  tone 28 43 envelope/p_rise NULL
+  tone 25 50 envelope/p_rise NULL
 endphoneme
 
 
-phoneme 4   //  tone curve (dipping rising)
+phoneme 4   //  hỏi tone curve (dipping rising)
   stress
   length 14
-  tone 28  5 envelope/p_fallrise NULL
+  tone 30  5 envelope/p_fallrise NULL
 endphoneme
 
 
-phoneme 5   //  tone: broken (creaking rising)
+phoneme 5   //  ngã tone: broken (creaking rising)
   stress
   length 15
-  tone 28 45 envelope/vi_5 envelope/vi_5amp
+  tone 30 55 envelope/p_214 envelope/vi_5amp
 endphoneme
 
 
-phoneme 6   //  tone drop  (constricted)
+phoneme 6   //  nặng tone drop  (constricted)
   stress
   length 16
-  tone 30  5 envelope/vi_6 envelope/vi_6amp
+  tone 40 20 envelope/p_512 envelope/vi_6amp
 endphoneme
 
 
-phoneme 7   //  tone 1 at end of clause
+phoneme 7   //  tone 1 (ngang) at end of clause
   stress
   length 17
-  tone 30  20 envelope/p_fall NULL
+  tone 40  20 envelope/p_fall NULL
 endphoneme
 
 
-phoneme 8  // TEST
-  stress
-  length 18
-  tone 30  6 envelope/p_512 NULL
-endphoneme
 
 // Vowels
 //=======
@@ -72,7 +67,7 @@ endphoneme
 phoneme a:
   vowel starttype (a) endtype (a)
   length 280
-  formants vowel/a_2
+  formants vowel/a_6
 endphoneme
 
 
@@ -92,7 +87,7 @@ endphoneme
 phoneme i
   vowel  starttype (i)  endtype (i)
   length 190
-  formants vowel/i_en
+  formants vowel/i_4
   after w w/wi
   linkout ;
 endphoneme
@@ -107,7 +102,7 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 200
-  formants vowel/oo_1
+  formants vowel/o_2
 endphoneme
 
 
@@ -120,7 +115,7 @@ endphoneme
 phoneme y
   vowel starttype (u) endtype (u)
   length 200
-  formants vowel/y#
+  formants vowel/u#_5
 endphoneme
 
 
@@ -128,14 +123,14 @@ endphoneme
 phoneme @
   vowel  starttype (@)  endtype (a)
   length 130
-  formants vowel/a#_3
+  formants vowel/@_2
 endphoneme
 
 
 phoneme @:
   vowel  starttype (@)  endtype (@)
   length 280
-  formants vowel/V_4
+  formants vowel/@_2
 endphoneme
 
 
@@ -160,14 +155,14 @@ endphoneme
 phoneme @I
   vowel starttype (@) endtype (i)
   length 250
-  formants vdiph/@i_4
+  formants vdiph/@i
 endphoneme
 
 
 phoneme @:I
   vowel starttype (@) endtype (i)
   length 250
-  formants vdiph/Vi
+  formants vdiph/@i
 endphoneme
 
 
@@ -216,14 +211,14 @@ endphoneme
 
 phoneme aU
   vowel starttype (a) endtype (u)
-  length 230
+  length 210
   formants vdiph/aau_4
 endphoneme
 
 
 phoneme a:U
   vowel starttype (a) endtype (u)
-  length 260
+  length 270
   formants vdiph/au
 endphoneme
 
@@ -250,13 +245,13 @@ endphoneme
 phoneme @U
   vowel  starttype (@)  endtype (u)
   length 200
-  formants vdiph/Vu_4
+  formants vdiph/@u
 endphoneme
 
 phoneme @:U
   vowel  starttype (@)  endtype (u)
-  length 260
-  formants vdiph/Vu_4
+  length 270
+  formants vdiph/@u
 endphoneme
 
 
@@ -270,7 +265,7 @@ endphoneme
 phoneme y@
   vowel  starttype (i)  endtype (@)
   length 200
-  formants vdiph2/u-@
+  formants vdiph2/y-y#
 endphoneme
 
 phoneme u@
@@ -300,5 +295,13 @@ phoneme kh
   lengthmod 3
   wave ufric/x%50
   switchvoicing Q
+endphoneme
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/
+  formants l/l_vi
 endphoneme
 

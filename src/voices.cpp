@@ -365,8 +365,11 @@ void VoiceReset(int tone_only)
 	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
 
 	// default is:  pitch 82,118
-	voice->pitch_base =   0x49000;    // default, 73 << 12;
-	voice->pitch_range =  0x0f30;     // default = 0x1000
+//	voice->pitch_base =   0x49000;    // default, 73 << 12;
+//	voice->pitch_range =  0x0f30;     // default = 0x1000
+	voice->pitch_base = 0x47000;
+	voice->pitch_range = 3996;
+
 	voice->formant_factor = 256;
 
 	voice->echo_delay = 0;
@@ -1122,7 +1125,7 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 			matching_parts += matching;  // number of parts which match
 
 			if(matching_parts == 0)
-				break;   // no matching parts for this language
+				continue;   // no matching parts for this language
 
 			x = 5;
 			// reduce the score if not all parts of the required language match
@@ -1301,8 +1304,8 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 
 
 
-char const *SelectVoice(espeak_VOICE *voice_select)
-{//================================================
+char const *SelectVoice(espeak_VOICE *voice_select, int *found)
+{//============================================================
 // Returns a path within espeak-voices, with a possible +variant suffix
 // variant is an output-only parameter
 	int nv;           // number of candidates
@@ -1323,6 +1326,7 @@ char const *SelectVoice(espeak_VOICE *voice_select)
 	static espeak_VOICE voice_variants[N_VOICE_VARIANTS];
 	static char voice_id[50];
 
+	*found = 1;
 	memcpy(&voice_select2,voice_select,sizeof(voice_select2));
 
 	if(n_voices_list == 0)
@@ -1366,6 +1370,7 @@ char const *SelectVoice(espeak_VOICE *voice_select)
 	if(nv == 0)
 	{
 		// no matching voice, choose the default
+		*found = 0;
 		if((voices[0] = SelectVoiceByName(voices_list,"default")) != NULL)
 			nv = 1;
 	}
@@ -1639,8 +1644,12 @@ espeak_ERROR SetVoiceByName(const char *name)
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 {//============================================================
 	const char *voice_id;
+	int voice_found;
 
-	voice_id = SelectVoice(voice_selector);
+	voice_id = SelectVoice(voice_selector, &voice_found);
+
+	if(voice_found == 0)
+		return(EE_NOT_FOUND);
 
 	LoadVoiceVariant(voice_id,0);
 	DoVoiceChange(voice);

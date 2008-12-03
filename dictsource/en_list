@@ -19,7 +19,6 @@
 
 // letter names, as they are spoken as a single character in text
 // precede by _  to distinguish from pronunciation as a language word
-test  h'EloU
 
 _a	eI
 b	bi:
@@ -138,7 +137,7 @@ _¡	Inv,3:tI2dEkskl@m'eIS@n
 _¦	broUk@nb'A@
 _¨	daIa2r'i:sIs
 _ª	fEmI2nIn'O@dI2n@L
-_«	lEft'ang@LkwoUts
+_«	lEft'gIl@mEt
 _­	makr0n
 _²	su:p@skrIptt'u:
 _³	su:p@skrIptT'ri:
@@ -147,7 +146,7 @@ _·	mId@Ld0t
 _¸	sEd'Il@
 _¹	su:p@skrIptw'0n
 _º	maskjUlIn'O@dI2n@L
-_»	raIt'ang@LkwoUts
+_»	raIt'gIl@mEt
 _¿	Inv,3:tI2dkw'EstS@n
 
 _‐	haIf@n
@@ -179,6 +178,14 @@ _‴	trIp@LpraIm
 _‼	Ekskla2m'eIS@nz
 _₠	jU@roU
 
+\	bakstroUk  $max3
+/	stroUk  $max3
+?3 \	bakslaS  $max3
+?3 /	slaS  $max3
+*	ast@rIsk $max3
+%	p3sEnt  $max3
+=	_:i:kw@Lz_:  $max3
+?5 %	pVRs'Ent $max3
 ¢	sEnts
 £	paUnd
 ¥	jEn
@@ -761,6 +768,8 @@ coauthor         koU'O:T3
 cobol            koUb0l
 cocoa            koUkoU
 cochlea          k0kli:@
+cockeye          k0kaI
+cocksure         ,k0kS'U@
 coconut          koUk@nVt
 codify           koUdI2faI
 coeur            k3:
@@ -1014,6 +1023,7 @@ exalt            Egz'0lt
 execute          EksI2kju:t      // not $2
 exile                          $1
 exodus           Eks@d@s
+expedite         Eksp@daIt    // expedited
 expert           Eksp3:t
 expertise        Eksp3t'i:z
 exploit           $1           $onlys
@@ -1024,6 +1034,7 @@ export                         $verb
 extract           $1           $onlys
 extract           $1           $only
 extract           $2           $verb
+extradite        Ekstr@daIt    // extradited
 extrem           Ekstr'i:m     // extremism
 extremist        Ekstr'i:mIst
 eyrie            i@rI
@@ -1257,10 +1268,12 @@ internet         Int3nEt
 interrupt                      $1 $onlys
 interrupt                      $3 $verb
 interval         Int3v@L
-interven         Int3v'i:n	// for intervening 
+interven         Int3v'i:n	// for intervening
+intray           IntreI
 intro             $1
 irate            aIr'eIt
 iris             aIrIs
+iron             aI@n
 irony            aIr@nI
 isosceles        aIs'0s@li:z
 itinerary        aIt'In@r@rI
@@ -1551,6 +1564,7 @@ papa             pa2p'A:
 papal            peIp@L 
 pagan            peIg@n
 pageant          padZ@nt
+paltry           pO:ltrI
 panacea          pana2s'i:@
 panache           $2
 parabola         p@rab@l@
@@ -2033,6 +2047,7 @@ truely           tru:lI2      $verbf
 truest           tru:@st
 tryst            trIst 
 tudor            tju:d3
+turntable        t3:nteIb@L
 tulip            tju:lIp
 turnkey          t3:nki:
 ?5 turnkey       tVRnki:
@@ -2438,6 +2453,7 @@ Cassandra	k@sandr@
 Cassey		keIsI
 Catherine	kaTrI2n
 Cecile		sEsi:l
+Chloe		kloUI
 Chris		krIs
 Connor		k0n3
 Daphne		dafnI
@@ -2564,7 +2580,7 @@ Buchanan	bju:k'an@n
 Campbell	kamb@l
 Chrysler	kraIzl3
 Disney		dIznI
-Patel		p@t'El
+Patel		pa2tEl
 Primavera	pri:m@v'e@r@
 Prentice	prEntIs
 Reuter		rOIt3

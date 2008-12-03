@@ -412,7 +412,7 @@ int IsSpace(unsigned int c)
 Translator::Translator()
 {//=====================
 	int ix;
-	static const unsigned char stress_amps2[] = {16,16, 20,20, 20,24, 24,21 };
+	static const unsigned char stress_amps2[] = {17,17, 20,20, 20,24, 24,21 };
 	static const short stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
 	static const wchar_t empty_wstring[1] = {0};
 	static const wchar_t punct_in_word[2] = {'\'', 0};  // allow hyphen within words
@@ -2111,6 +2111,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	expect_verb_s=0;
 	end_stressed_vowel=0;
 	prev_dict_flags = 0;
+	phonemes_repeat_count = 0;
 
 	sbuf[0] = 0;
 	sbuf[1] = ' ';

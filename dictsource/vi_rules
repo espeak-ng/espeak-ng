@@ -75,6 +75,101 @@ ỹ	ỹ
 ỵ	ỵ
 
 
+//================================
+//  Consonants
+//================================
+
+.group b
+        b        b
+     _) b       _b
+
+.group c
+        c        k
+        c (_     kh
+        ch       c   // try [tS;] [tS] [c]
+
+.group d
+        d        J   // try [z] [J] [dZ] [dZ;] [J^]
+
+.group đ
+       đ         d
+    _) đ        _d
+
+.group f
+        f        f
+
+
+.group g
+        g        Q   // try [g] [Q]
+        gh       Q   // or [g]  [Q]
+        gi       D   // try [D] [z] [j] [J^] [z;] [J] [dZ]
+
+
+.group h
+        h        h
+
+
+.group j
+        j        Z
+
+
+.group k
+        k        k
+        k (_     kh
+        kh       x
+
+.group l
+        l        l
+
+.group m
+        m        m
+
+.group n
+        n        n
+        ng       N
+        ngh      N
+        nh       n^
+
+.group ñ
+        ñ        n^
+
+.group p
+        p        p
+        ph       f
+
+.group q
+        q        k
+        q (_     kh
+        qu       kw
+
+.group r
+        r        z.   // try [z] [z.] [r] [z;]
+
+.group s
+        s        s.   // try [s.] [s] [S]
+
+.group t
+        t        t[
+        th       t
+        tr       cr   // try [cr] [tr] [tS;] [tS] [c] [dZ] [dz;]
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group x
+        x        s
+
+.group z
+        z        z
+
+
+//================================
+//  Vowels
+//================================
+
 .group a
         a      a:
         ai     a:I
@@ -187,24 +282,6 @@ ỵ	ỵ
         ậy       @I6
         ậu       @U6
 
-//================================
-.group b
-        b        b
-     _) b       _b
-
-.group c
-        c        k
-        c (_     kh
-        ch       c   // try [ts;] [tS] [c] [dZ] [dz;]
-
-.group d
-        d        z
-
-.group đ
-       đ         d
-    _) đ        _d
-
-
 //===========================
 .group e
         e        E
@@ -260,20 +337,6 @@ ỵ	ỵ
 .group ệ
         ệ        e6
         ệu       eU6
-
-//============================
-.group f
-        f        f
-
-
-.group g
-        g        Q   // try [g] [Q]
-        gh       Q   // or [g]  [Q]
-        gi       D   // ??? [dZ]
-
-
-.group h
-        h        h
 
 
 //============================
@@ -331,30 +394,6 @@ ỵ	ỵ
         ịu       iU6
 
 
-//=============================
-.group j
-        j        Z
-
-
-.group k
-        k        k
-        k (_     kh
-        kh       x
-
-.group l
-        l        l
-
-.group m
-        m        m
-
-.group n
-        n        n
-        ng       N
-        ngh      N
-        nh       n^
-
-.group ñ
-        ñ        n^
 
 //=========================
 .group o
@@ -452,31 +491,12 @@ ỵ	ỵ
         ợu       @:U6
 
 
-//============================
-.group p
-        p        p
-        ph       f
-
-.group q
-        q        k
-        q (_     kh
-        qu       kw
-
-.group r
-        r        z;
-
-.group s
-        s        s
-
-.group t
-        t        t[
-        th       t
-        tr       c   // try [ts;] [tS] [c] [dZ] [dz;]
 
 //=============================
 .group u
         u        u
         u (A     w
+     A) u        w
         ui       uI
         uì       uI2
         uí       uI3
@@ -588,15 +608,6 @@ ỵ	ỵ
         ựu       yw6
 
 
-//=============================
-.group v
-        v        v
-
-.group w
-        w        w
-
-.group x
-        x        s
 
 .group y
         y        i
@@ -640,9 +651,6 @@ ỵ	ỵ
         ỵ (A     j6
         ỵa       i@6
 
-
-.group z
-        z        z
 
 .group
 	$	d'o||l'a

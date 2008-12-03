@@ -115,15 +115,6 @@ phoneme r:
 endphoneme
 
 
-phoneme R
-  liquid
-  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
-  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  formants r3/r_trill+r3/r_trill.wav%50
-  trill
-  lengthmod 6
-endphoneme
-
 
 phoneme R^       // Czech r-caron
   vcd pla frc sibilant

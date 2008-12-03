@@ -538,8 +538,8 @@
          @) ally (_S2    l%I
       @@ic) ally (_S4    l%I
       inst) al (_        O:l
-         &) al (d        @L
-         b) al (d        O:l
+         &) al (d_        @L
+         b) al (d+       O:l
          b) al (k        O:l
          f) al (k        0l
          b) all (K       O:l
@@ -1061,7 +1061,6 @@
             au           O:
          g) au (s        aU
 ?!3      s) au (s        0
-         l) au (t_       aU
 ?!3         au (str      0
             au (_        aU
          _) auch         %O:x
@@ -1079,7 +1078,7 @@
          s) au (rus_     'O:
          @) au (ri       'O:
          C) aus (_       aUs
-            au (t_       aU
+         @) au (t_       aU
          n) au (t_       O:
             authen       %O:TEn
          _) auto (@P4    ,O:toU      // prefix
@@ -2384,6 +2383,7 @@
             ey (an       eI
          _) eye          aI
             eye          eI
+            eyed (_S2    d
         @m) eyer (_      aI3
             eyor (_      'eI3
 
@@ -2490,6 +2490,7 @@
          b) i (_         aI
          c) i (_         aI
          c) is (_        Is
+         d) i (_         =I
        @@h) i (_         =I
          h) i (_         =aI
        &sk) i (_         =I
@@ -2555,12 +2556,13 @@
          @) i (cip       'I
             i (cus_      =I
          _) id (_        aIdi:
-            idea         aId'i@
+         _) idea         aId'i@
        acc) i (d         I
          c) i (dal       'aI
         fr) i (day       aI
          _) i (dle       aI
         br) i (dl        aI
+        _s) i (dl        aI
          f) i (del       I2
         br) i (dA        aI
         br) i (dg        I
@@ -3145,7 +3147,7 @@
          l) iv (en       aIv
          r) ival         aIv@L
         ct) iv (al       'aIv
-         v) iv (al       'aIv
+        @v) iv (al       'aIv
             ive (ness    Iv
        _al) iv (e        aIv
          n) iv (e_       aIv
@@ -3399,6 +3401,7 @@
        cla) ng (er       Ng
         ta) ngi          ndZI
          i) ng (er       Ng
+        bi) ng (er       ndZ
         gi) ng (er       ndZ
          o) ng (er       Ng
        you) ng (er       Ng
@@ -4506,7 +4509,6 @@
          &) sib          s@b 
         ea) s (ie        z
         ea) s (il        z
-         _) sid (e#      saId
          C) sion         S@n
 ?3      er) sion         Z@n
          A) sion         Z@n
@@ -4669,6 +4671,7 @@
          g) th (en_      T
             thai         taI
             th (ead      th
+            th (eart     th
             theless      D@l'Es
             theque       tEk
             ther (_      D3
@@ -5320,10 +5323,6 @@
 	ñ	n^
 
 
-            \\           bakstroUk
-            /            stroUk
-?3          \\           bakslaS
-?3          /            slaS
             '
             !           _:Ekskl@meIS@n_:
             ! (\!
@@ -5332,8 +5331,6 @@
             :            koUl@n
         D_) : (_DD_             // omit colon in time, eg: 2:30
             $            d0l3
-            %            p3sEnt
-?5          %            pVRs'Ent
             @            at_:
             &            _!%and
             !=           n0ti:kw@Lz
@@ -5358,17 +5355,4 @@
          D) . (D+        ,pOInt
             . (.        _:
         \.) .
-
-            =            __i:kw@Lz_
-            = (==        
-         =) = (=         
-        ==) = (_         _::
-
-            *            ast@rIsk
-         *) * (*         
-            **           
-        **) * (_         _::
-            % (%%     
-         %) % (%       
-        %%) % (_         _::
 

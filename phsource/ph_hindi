@@ -62,7 +62,7 @@ endphoneme
 phoneme i         // as [i:] but not marked as 'long'
   vowel starttype (i) endtype (i)
   length 230
-  formants vowel/i_fnt
+  formants vowel/i_6
   linkout ;
 endphoneme
 
@@ -96,13 +96,6 @@ phoneme E
   length 130
   formants vowel/e_mid
 endphoneme
-
-phoneme E~ 
-  vowel  starttype (e)  endtype (e)
-  length 230
-  formants vnasal/ee_n2
-endphoneme
-
 
 phoneme &:
   vowel long starttype (a) endtype (a)
@@ -142,18 +135,6 @@ phoneme O:
   formants vowel/oo_4
 endphoneme
 
-phoneme o~
-  vowel long starttype (o) endtype (o)
-  length 220
-  formants vnasal/o_n
-endphoneme
-
-phoneme O~
-  vowel long starttype (o) endtype (o)
-  length 230
-  formants vnasal/oo_n2
-endphoneme
-
 
 phoneme O
   vowel starttype (o) endtype (o)
@@ -175,6 +156,51 @@ phoneme u:
   formants vowel/u_bck
 endphoneme
 
+
+// Nasal vowels
+//=============
+
+phoneme i~
+  vowel long starttype (i) endtype (i)
+  length 220
+  formants vnasal/i_n2
+endphoneme
+
+phoneme e~
+  vowel long starttype (e) endtype (e)
+  length 220
+  formants vnasal/e_n
+endphoneme
+
+phoneme E~ 
+  vowel  starttype (e)  endtype (e)
+  length 230
+  formants vnasal/ee_n2
+endphoneme
+
+phoneme a~
+  vowel long starttype (a) endtype (a)
+  length 250
+  formants vnasal/aa_n
+endphoneme
+
+phoneme V~
+  vowel long starttype (@) endtype (@)
+  length 250
+  formants vnasal/V_n
+endphoneme
+
+phoneme O~
+  vowel long starttype (o) endtype (o)
+  length 230
+  formants vnasal/oo_n2
+endphoneme
+
+phoneme o~
+  vowel long starttype (o) endtype (o)
+  length 220
+  formants vnasal/o_n
+endphoneme
 
 phoneme u~
   vowel long starttype (u) endtype (u)
@@ -318,23 +344,16 @@ phoneme  b       // this is [b]
 endphoneme
 
 
-//phoneme  bh     // use [b]+[h]
-//  vcd blb stop
-//  vowelout f1=1  f2=1000 -500 -300  f3=-300 80 brk
-//  formants b/b+x/b
-//  before _ b/b_+x/b_
-//  before (a) b/ba+x/b
-//  before (@) b/b@+x/b
-//  before (e) b/be+x/b
-//  before (i) b/bi+x/b
-//  before (o) b/bo+x/b
-//  before (u) b/bu+x/b
-//  before @-  b/b@2+x/b
-//  after _ NULL
-//  after @ b/xb
-//  lengthmod 5
-//  switchvoicing p
-//endphoneme
+phoneme bh
+  vcd blb stop
+  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  lengthmod 5
+  formants  b/xb+ustop/p_asp%70
+  after @ b/xb
+  switchvoicing ph
+endphoneme
+
 
 
 
@@ -355,7 +374,7 @@ endphoneme
 
 phoneme th        // dental variant of /t/
   vls dnt stop
-  vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
   vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 2
   wave  ustop/t_dnt%50
@@ -380,19 +399,17 @@ phoneme d       // dental variant of /d/
 endphoneme
 
 
+phoneme dh
+  vcd dnt stop
+  vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  lengthmod 5
+  formants  d/xd3+ustop/t_dnt%40
+  before _ ustop/t_dnt%35
+  after @ d/xd
+  switchvoicing th
+endphoneme
 
-//phoneme dh      // use [d]+[h]
-//  vcd dnt stop
-//  vowelin f1=1  f2=1700 -200 200  f3=100 80
-//  vowelout f1=1 f2=1700 -200 200  f3=100 80  rms=20 len=1
-//  formants d/d+x/d_dnt%60
-//  before _ d/d_+x/d_
-//  before r d/dr+x/d_dnt%60
-//  after _ NULL
-//  after @ d/xd
-//  lengthmod 5
-//  switchvoicing t
-//endphoneme
 
 
 
@@ -458,7 +475,7 @@ phoneme c    // this is [ts;]
   vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
   lengthmod 2
-  wave ustop/ts_pzd2%80
+  wave ustop/ts_pzd2%90
   before _ ustop/ts_pzd_
   switchvoicing J
 endphoneme
@@ -526,20 +543,20 @@ phoneme k
   switchvoicing g
 endphoneme
 
-phoneme kh   // this is english [k]
+phoneme kh
   vls vel stop
   vowelin f1=0  f2=2300 200 300  f3=-150 80
   vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
   lengthmod 2
-  wave ustop/k
-  before _ ustop/k_
+  wave ustop/k_asp%90
+  before _ ustop/k_asp%50
   before r ustop/kr
   before l ustop/kl
   switchvoicing g
 endphoneme
 
 
-phoneme g     //
+phoneme g
   vcd vel stop
   vowelin f1=1  f2=2300 200 300  f3=-300 80
   vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
@@ -550,16 +567,16 @@ phoneme g     //
   lengthmod 5
 endphoneme
 
-//phoneme gh     // this is English [g]  // use [g]+[h]
-//  vcd vel stop
-//  vowelin f1=1  f2=2300 200 400  f3=-100 80
-//  vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
-//  formants g/g+x/g
-//  before _ g/g_+x/g_
-//  after _ NULL
-//  after @ g/xg
-//  lengthmod 5
-//  switchvoicing k
-//endphoneme
+
+phoneme gh
+  vcd dnt stop
+  vowelin f1=1  f2=2300 200 300  f3=-150 80  rms=20
+  vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  lengthmod 5
+  formants  g2/xg+ustop/k_asp%70
+  after @ g2/xg
+  switchvoicing kh
+endphoneme
+
 
 

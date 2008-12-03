@@ -411,6 +411,14 @@ i       i:  $atend
 o       O:  $atend
 
 
+// foreign words
+chat		tSat
+cliché		kli:Se
+internet	'internet
+jeans		dZi:nz
+web		wEb
+
+
 // exceptions
 aereo        $2
 difficile    $2
@@ -424,6 +432,6 @@ celsius     tsElsj'us
 conoscerla   $2
 no          nO
 posta       pOsta
+principi	$1
 tesser      tess'ER
 uomini       $1
-internet     'internet

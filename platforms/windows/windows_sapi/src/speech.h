@@ -35,7 +35,7 @@
 //#define __cdecl               // define as null, needed for Borland compiler ?
 //#define USE_PORTAUDIO
 //#define USE_NANOSLEEP
-
+#define INCLUDE_KLATT
 
 // will look for espeak_data directory here, and also in user's home directory
 #define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
@@ -55,7 +55,7 @@ int LookupMnem(MNEM_TAB *table, char *string);
 
 
 
-#define N_PATH_HOME  120
+#define N_PATH_HOME  220
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
 extern void strncpy0(char *to,const char *from, int size);
