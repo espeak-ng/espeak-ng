@@ -41,7 +41,7 @@ phonemenumber 27 _;_    // clause pause
 // UTILITY PHONEMES
 //*******************************************************************
 
-phoneme <   //  Start of control string
+phoneme <   //  Start of control string NOT USED
   pause
   length 0
   lengthmod 1
@@ -49,42 +49,42 @@ endphoneme
 
 phoneme %%  //  Unstressed
   stress
-  length 0
+  stress_type 0
 endphoneme
 
 phoneme %   //  Diminished stress
   stress
-  length 1
+  stress_type 1
 endphoneme
 
 phoneme ,   //  Secondary stress
   stress
-  length 2
+  stress_type 2
 endphoneme
 
 phoneme ,,  //  Secondary stress
   stress
-  length 3
+  stress_type 3
 endphoneme
 
 phoneme '   //  Primary stress
   stress
-  length 4
+  stress_type 4
 endphoneme
 
 phoneme ''  //  Primary stress (priority)
   stress
-  length 5
+  stress_type 5
 endphoneme
 
 phoneme '!  //  Primary stress (emphasized)
   stress
-  length 6
+  stress_type 6
 endphoneme
 
 phoneme =   //  Place stress on previous vowel
   stress
-  length 2
+  stress_type 2
 endphoneme
 
 phoneme ||  //   End Word
@@ -1366,3 +1366,7 @@ include ph_english_klatt
 
 phonemetable ga base
 include ph_irish
+
+phonemetable mr hi
+include ph_mathari
+

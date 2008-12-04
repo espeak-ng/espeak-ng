@@ -7,6 +7,9 @@ _cap	m'aJ^us   // should be "mayúscula" after the letter?
 _??	s'imbOlo
 _#32	Esp'aTjo
 
+// NOTE: Some of these pronunciations may still be in
+// Spanish, and need to be changed.
+
 // accent names
 _lig	liQaD'u**a
 _acu	aQ'uDo
@@ -24,8 +27,6 @@ _ogo	kol'ita
 _rng	an'iJ^o
 _stk	b'a*Ra	 // ??
 _tld	t'ilde
-
-
 
 
 // names of symbols

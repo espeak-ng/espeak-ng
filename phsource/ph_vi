@@ -6,49 +6,43 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  length 11
   tone 28 32 envelope/p_level NULL
 endphoneme
 
 
 phoneme 2   //  huyền tone: low falling
   stress
-  length 12
   tone 20  8 envelope/p_fall NULL
 endphoneme
 
 
 phoneme 3   //  sắc tone rising
   stress
-  length 13
   tone 25 50 envelope/p_rise NULL
 endphoneme
 
 
 phoneme 4   //  hỏi tone curve (dipping rising)
   stress
-  length 14
   tone 30  5 envelope/p_fallrise NULL
 endphoneme
 
 
 phoneme 5   //  ngã tone: broken (creaking rising)
   stress
-  length 15
-  tone 30 55 envelope/p_214 envelope/vi_5amp
+  tone 28 58 envelope/p_214 envelope/vi_5amp
 endphoneme
 
 
 phoneme 6   //  nặng tone drop  (constricted)
   stress
-  length 16
+  length 75  // reduce the length of the vowel
   tone 40 20 envelope/p_512 envelope/vi_6amp
 endphoneme
 
 
 phoneme 7   //  tone 1 (ngang) at end of clause
   stress
-  length 17
   tone 40  20 envelope/p_fall NULL
 endphoneme
 

@@ -823,6 +823,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('t','a'):  // Tamil
 	case L('m','l'):  // Malayalam
 	case L('k','n'):  // Kannada
+	case L('m','r'):  // Marathi
 		{
 			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
@@ -835,6 +836,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->letter_bits_offset = OFFSET_TAMIL;
 
+			if(name2 == L('m','r'))
+			{
+				tr->letter_bits_offset = OFFSET_DEVANAGARI;
+			}
+			else
 			if(name2 == L('m','l'))
 			{
 				tr->letter_bits_offset = OFFSET_MALAYALAM;
@@ -915,7 +921,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_groups[0] = vowels_vi;
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.unstressed_wd1 = 2;
-			tr->langopts.numbers = 0x0049;
+			tr->langopts.numbers = 0x0049 + 0x8000;
 
 		}
 		break;

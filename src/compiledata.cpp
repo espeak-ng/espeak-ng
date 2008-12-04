@@ -80,6 +80,8 @@
 #define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
 #define tINCLUDE  31
+#define tSTRESSTYPE  32
+
 
 static const int flags_alternative[] = {phBEFOREVOWEL,phBEFOREVOWELPAUSE,phBEFORENOTVOWEL,phBEFORENOTVOWEL2,phSWITCHVOICING};
 
@@ -251,6 +253,7 @@ static keywtab_t keywords[] = {
 	{"appendph",tAPPENDPH},
 	{"import_phoneme",tIMPORTPH},
 	{"beforepause",tBEFOREPAUSE},
+	{"stress_type",tSTRESSTYPE},
 
 	// flags
 	{"wavef",      0x2000000+phWAVE},
@@ -880,7 +883,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 
 //fprintf(f_errors," sample len=%d max=%4x shift=%d\n",length,max,scale_factor);
 
-#define MIN_FACTOR   6
+#define MIN_FACTOR   -1  // was 6,  disable use of 16 bit samples
 	if(scale_factor > MIN_FACTOR)
 	{
 		length = length/2 + (scale_factor << 16);
@@ -1397,6 +1400,10 @@ int Compile::CPhoneme()
 			ph->std_length = NextItem(tNUMBER);
 			break;
 
+		case tSTRESSTYPE:
+			ph->std_length = NextItem(tNUMBER);
+			break;
+
 		case tWAVE:
 			ph->phflags |= phWAVE;           // drop through to tSPECT
 		case tSPECT:
@@ -1778,11 +1785,12 @@ void Compile::CPhonemeFiles()
 
 int LoadEnvelope2(FILE *f, const char *fname)
 {//===================================================
-	int ix;
+	int ix, ix2;
 	int n;
 	int x, y;
 	int displ;
 	int n_points;
+	double yy;
 	char line_buf[128];
 	float env_x[20];
 	float env_y[20];
@@ -1808,11 +1816,20 @@ int LoadEnvelope2(FILE *f, const char *fname)
 	env_y[n_points] = env_y[n_points-1];
 
 	ix = -1;
+	ix2 = 0;
 	for(x=0; x<ENV_LEN; x++)
 	{
 		if(x > env_x[ix+4])
 			ix++;
+		if(x >= env_x[ix2+1])
+			ix2++;
 
+		if(env_lin[ix2] > 0)
+		{
+			yy = env_y[ix2] + (env_y[ix2+1] - env_y[ix2]) * (float(x) - env_x[ix2]) / (env_x[ix2+1] - env_x[ix2]);
+			y = int(yy * 2.55);
+		}
+		else
 		if(n_points > 3)
 			y = (int)(polint(&env_x[ix],&env_y[ix],4,x) * 2.55);  // convert to range 0-255
 		else

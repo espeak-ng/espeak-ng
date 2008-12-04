@@ -755,7 +755,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 		// LANG=vi
 		p = &phoneme_list[final_stressed];
 		if(p->tone_ph == 0)
-			p->tone_ph = LookupPh("7");   // change tone 1 to falling tone at end of clause
+			p->tone_ph = LookupPh("7");   // change default tone (tone 1) to falling tone at end of clause
 	}
 
 

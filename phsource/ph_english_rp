@@ -195,7 +195,6 @@ phoneme u:
   vowel  starttype (u)  endtype (u)
   length 190
   formants vowel/u_fnt
-//  before l/2 vwl_en/u_L-40+l/L2_uL
 endphoneme
 
 

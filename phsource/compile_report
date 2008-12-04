@@ -1,4 +1,4 @@
-61 phoneme tables
+62 phoneme tables
           new total
     base 103  103
    base2  24  122
@@ -61,6 +61,7 @@
       om  25  125
 en_klatt  77  149
       ga  18  117
+      mr   1  148
 
 Data file      Used by
 b/b             [b] base
@@ -2321,7 +2322,8 @@ vowel/u_bck     [u] base2
                 [u:] ga
 vowel/u_bck2    [u:] la
                 [u] sq
-vowel/u_fnt     [u:] en_rp
+vowel/u_fnt     [u:] en
+                [u:] en_rp
 vowel/uu        [U] en
                 [U] en_n
                 [U] en_wm
@@ -2431,7 +2433,6 @@ vwl_en_rp/aa    [A:] en_rp
                 [aa] en_rp
 vwl_en_rp/aU@   [aU@] en_rp
 vwl_en_rp/i@    [i@] en_rp
-vwl_en/u_L      [u:] en
 vwl_en_us/3_us  [3] en_us
 vwl_en_us/3_us2  [3:] en_us
 vwl_en_us/a     [a] en_us

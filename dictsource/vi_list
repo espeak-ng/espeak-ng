@@ -60,15 +60,15 @@ _75	_b'aI4||m'y@2j||l'a7m
 _85	t['a:3m||m'y@2j||l'a7m
 _95	c'i3n||m'y@2j||l'a7m
 
-
 _0C	cr'am		// trăm
 _0M1	N'a:2n		// ngàn
 _0M2	cr'i@6w		// triệu
 _0M3	t['i4		// tỷ
 _0and	l,in^		// linh
+_dpt	_f,@I4_
 
 // symbols
-
+_,	f@I4
 
 // ?? found in festival wow_vi_ptn_phrasing.scm
 bị	$u

@@ -278,6 +278,7 @@ void Translator::CalcLengths()
 	int  embedded_ix = 0;
 	int  min_drop;
 	int emphasized;
+	int  tone_mod;
 	unsigned char *pitch_env=NULL;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
@@ -549,6 +550,15 @@ void Translator::CalcLengths()
 				len = stress_lengths[6];
 
 			length_mod = (length_mod * len)/128;
+
+			if(p->tone_ph != 0)
+			{
+				if((tone_mod = phoneme_tab[p->tone_ph]->std_length) > 0)
+				{
+					// a tone phoneme specifies a percentage change to the length
+					length_mod = (length_mod * tone_mod) / 100;
+				}
+			}
 
 			if(end_of_clause == 2)
 			{
