@@ -437,8 +437,8 @@ endphoneme
 
 phoneme r"     // uvular trill
   vcd uvl frc
-  formants r3/r_ulv+r3/r_uvl%75
-  before _ r3/r_ulv+r3/r_uvl%50
+  formants r3/r_uvl+r3/r_uvl%75
+  before _ r3/r_uvl+r3/r_uvl%50
   lengthmod 6
 endphoneme
 
