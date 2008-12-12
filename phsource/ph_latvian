@@ -50,6 +50,7 @@ phoneme a
   vowel starttype (a) endtype (a)
   length 120
   formants vowel/aa
+  reduceto  a#  0
 endphoneme
 
 phoneme a:
@@ -58,6 +59,11 @@ phoneme a:
   formants vowel/aa
 endphoneme
 
+phoneme a#
+  vowel starttype (a) endtype (a)
+  length 120
+  formants vowel/V_6
+endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)

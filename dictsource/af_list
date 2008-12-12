@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -33,6 +33,7 @@ sms'e         Es_Em_'Es@
 sauk	    $abbrev
 st          s@nt $dot
 supt        suprEntEnd'Ent $dot
+tv          te@fe@_
 vsa         $abbrev
 
 // letter names
@@ -156,10 +157,9 @@ alaska      al'aska
 algerië     alx2'e@re@:@-
 antwerpen   antv&rp@n
 babilon     babilOn
-bangladesh  baNglad'ES
+bangladesj  baNglad'ES
 bastille    bast'il
 bellevue    b&lvju:
-berlyn      $2
 bermuda     $2
 bethlehem   bEt_liEm
 boedapest   budapEst
@@ -233,8 +233,9 @@ nigel       _^_EN
 outeniekwa  @Ut@n'ikwa
 oxford      _^_EN
 pelindaba   p&l@nd'A:ba
-portugal    $1
+portugal    pOrtyx2al
 potchefstroom pOtSIfstr'o@m
+richardsbaai ritS@dsb'AI
 robertson   _^_EN
 sahara      sah'A:ra
 secunda     s@kunda
@@ -244,6 +245,7 @@ soshanguve  sOSaNg'u:vE
 soweto      suw'E:tu
 springs     _^_EN $capital
 sunnyside   _^_EN
+suriname    syrin'A:m@
 swellendam  $3
 tokio       to@kiu
 tunisië     $2
@@ -292,6 +294,7 @@ cecilia     s@si:lia
 charl       SA:l
 charles     _^_EN
 charlie     tSA:li
+charmaine   SA:m'eI:n
 chopin      S%OpA~
 conradie    $2
 chris       krIs
@@ -376,9 +379,11 @@ jones       _^_EN
 jordaan     $2
 josef       jo@s@f
 juanita     juan'ita
+julia       _^_EN
 kelvin      _^_EN
 kim         _^_EN $capital
 krige       krix2@
+labuschagne labWsk'ax2ni
 langenhoven laN@nho@f@n
 lasarus     lA:s@r%Ws
 lategan     lA:t@x2an
@@ -497,7 +502,6 @@ schalkwyk   skalkveIk
 schreiner   SraIn@r
 tony        t@Uni
 trichardt   trix2A:rt
-xhosa       kO:za
 
 khumalo     kum'A:lu
 zuma        zu:ma
@@ -510,6 +514,7 @@ checkers    tSEk@rs
 chrysler    kraIsl@r
 ferrari     f@rA:ri
 martini     mart'i:ni
+naspers     nasp&rs
 venda       vEnda
 wimpy       wImpi
 
@@ -626,7 +631,7 @@ julle		$u $verbf
 hulle		$u $verbf
 hulleself       hWl@s&lf $verbf
 my		$u $verbf
-jou		$u $verbf
+jou		$u $only $verbf
 hom		$u $verbf
 haar		$u $only $verbf
 se		Es@ $capital
@@ -690,10 +695,12 @@ boskaas       $2
 bostaande b'o@stA:nd@
 bourgeois     _^_FR
 bourgeoisie   _^_FR
+briewemes     briv@mEs
 
 cabernet      kab@rn'eI
 camembert     kam@mb'&:r
 camouflage    kamufl'A:Z
+capita        kapita
 casino        kas'i:n@U
 charisma      kar'Isma
 chemikalieë   $3
@@ -773,6 +780,7 @@ hokaai        hOkAI
 hoofsaaklik   $2
 hoogedele     ho@x2	_e@d@l@
 hosanna       hus'ana
+hotagter      hOt_ax2t@r
 
 ibis          $1
 idee          $2
@@ -816,7 +824,6 @@ lord          _^_EN
 macaroni      makar'o@ni
 madame        mad'A:m
 madamoiselle  _^_FR
-malles        mal@s
 maskering     mask'e@r@N $only
 massaal       $2
 massale       $2
@@ -915,7 +922,7 @@ parkie        $1
 patos         pA:tOs
 patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
-per           pIr
+per           p@r $only
 persent       p@rsEnt
 petite        p@tit
 pinotage      pinut'A:Z
@@ -926,6 +933,7 @@ primate       $2
 
 rebelleer     r@b@le@r
 rededele      re@d@de@l@
+regie         r@Zi:
 renaissance   rEn@s'A~ns
 retoriek      r@tur'ik
 rimpeling     rImp@l@N

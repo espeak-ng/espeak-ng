@@ -615,7 +615,7 @@
          &) am (o_       @m
         &d) am (_        @m
       @erd) am (_        am
-        &h) am (_        @m
+?!3     &h) am (_N       @m
         &s) am (_        @m
         @r) am (a        'A:m
          _) am (al       a2m
@@ -733,6 +733,8 @@
          m) anoeu (v     @nu:
        _qu) an           0n
         _w) an           0n
+        _w) an (g        an
+        _w) an (k        an
        _tr) an (s        %an
         tr) ansfer       %ansf3:
         tr) an (si       an
@@ -1882,6 +1884,7 @@
          @) ed (ien      'i:d
          m) ed (io       i:d
          m) ed (iu       i:d
+            edg (e#      EdZ
         @m) ediate       i:dI2@t
         cr) edib         EdIb
        @dr) ed (_        Id
@@ -1980,6 +1983,8 @@
             em (uls      I2m
          h) em (o        i:m
          h) emorrh       Em@r
+       sph) em           @m
+       sph) em (e        'i:m
 
 .group en
          _) en (@        %En
@@ -2175,7 +2180,7 @@
             er (ent_     r
        adh) er (e        'i@3
        coh) er (e        'i@3
-         h) er (ed       I2r
+        _h) er (ed       I2r
          c) ere (mon     ErI2
          h) er (en       i@r
         st) ereo         ErI2oU
@@ -2456,8 +2461,6 @@
             h (h
             h (_
         _B) h
-         &) ham (_       @m
-?3       &) ham (_       ham
          @) hammed       h'amId
          A) han (_       h'an          // places
             ha  (st      heI
@@ -2564,9 +2567,7 @@
         br) i (dl        aI
         _s) i (dl        aI
          f) i (del       I2
-        br) i (dA        aI
         br) i (dg        I
-       ybr) i (d         I
         _s) i (der       aI
             i (der_+     aI
          @) i (do_       'i:
@@ -4489,6 +4490,8 @@
             secur        sI2kjU@
             self (_      'sElf
             selves (_    'sElvz
+         _) semi (@@P4   s,EmI2
+         _) semin        sEmIn
             sh           S
        _mi) s (h         s
          @) s (head_     s
@@ -4675,10 +4678,12 @@
             theless      D@l'Es
             theque       tEk
             ther (_      D3
+            ther (er     D3
             th (erC      D
             there (_     D3           // thering 
             th (est      D
-         n) th (er       T
+        ea) th (er       D
+         n) th (er+      T
             therap       TEr@p
             th (erm      T
         ca) th (eri      T

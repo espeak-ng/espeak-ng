@@ -22,7 +22,7 @@ phoneme @    //  Schwa
   length 130
 endphoneme
 
-phoneme @/    //  Schwa, ebd of word
+phoneme @/    //  Schwa, end of word
   vowel   starttype (@)  endtype (@)
   formants vowel/@_6
   unstressed

@@ -7,8 +7,6 @@ _cap	m'aJ^us   // should be "mayúscula" after the letter?
 _??	s'imbOlo
 _#32	Esp'aTjo
 
-// NOTE: Some of these pronunciations may still be in
-// Spanish, and need to be changed.
 
 // accent names
 _lig	liQaD'u**a
@@ -38,15 +36,11 @@ _!	TE*R'aRaDmi**aTj'On
 _?	TE*R'aRintE*R,oQaTj'On
 _¡	aB**'iRaDmi**aTj'On
 _¿	aB**'iRintE*R,oQaTj'On
-_=	iQw'al
 _<	men'ORke
 _>	maJ^'ORke
 _'	apOst**'ofo
 _"	kom'iJ^as
 _+	s'iQnOdesum'aR
-_$	dolar
-_#	almoaD'iJ^a
-_*	aste*'isko
 _-	gJ^On
 __	suB**aJ^'aDo
 _/	ba*Ra
@@ -61,9 +55,15 @@ _}	Tj,E*RaJ^'aBe
 _«	kom'iJ^as||iTkJ^'ERDas
 _»	kom'iJ^as||dE**'EtSas
 
+=	iQw'al $max3
++	m'as  $max3
+#	almOaD'iJ^a  $max3
+*	astE*'isko  $max3
+.	punto  $max3
+
 ^	TiRkumfl'exo
 €	eU**o
-%	pOrTj'Ento
+%	pOrTj'Ento  $max3
 &	ampERs'ant
 @	a*R'oBa
 /	ba*Ra

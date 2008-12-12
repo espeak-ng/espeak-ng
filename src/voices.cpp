@@ -362,6 +362,9 @@ void VoiceReset(int tone_only)
 // Set voice to the default values
 
 	int  pk;
+	static unsigned char default_heights[N_PEAKS] = {255,255,240,240,220,220,255,255,255};
+	static unsigned char default_widths[N_PEAKS] = {128,128,128,160,171,171,128,128,128};
+
 	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
 
 	// default is:  pitch 82,118
@@ -392,8 +395,8 @@ void VoiceReset(int tone_only)
 	for(pk=0; pk<N_PEAKS; pk++)
 	{
 		voice->freq[pk] = 256;
-		voice->height[pk] = 256;
-		voice->width[pk] = 256;
+		voice->height[pk] = default_heights[pk];
+		voice->width[pk] = default_widths[pk]*2;
 		voice->breath[pk] = 0;
 		voice->breathw[pk] = breath_widths[pk];  // default breath formant woidths
 		voice->freqadd[pk] = 0;

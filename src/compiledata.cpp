@@ -1223,6 +1223,12 @@ void Compile::VowelTransition(int which, unsigned int *trans)
 	{
 		len = 50 / 2;  // defaults for transition into vowel
 		rms = 25 / 2;
+
+		if(ph->type == phSTOP)
+		{
+			len = 42 / 2;  // defaults for transition into vowel
+			rms = 30 / 2;
+		}
 	}
 	else
 	if(which==2)

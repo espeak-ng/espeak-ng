@@ -30,13 +30,13 @@ t.   t.h  th   tS   x    z
 
 Dictionary ca_dict
 
-@    a    a#   aI   e    E    i    o    
-O    u    U    
+@    a    a#   aI   e    E    E2   i    
+o    O    u    U    
 
-*    **   :    b    B    d    D    dZ;  
-f    g    j    J    J^   k    l    l^   
-m    n    N    n^   p    Q    r    R    
-R2   s    S;   t    T    tS   ts   tS;  
+*    **   :    ;    b    B    d    D    
+dZ;  f    g    j    J    J^   k    l    
+l^   m    n    N    n^   p    Q    r    
+R    R2   s    S;   t    T    ts   tS;  
 v    v#   w    z    Z    Z;   
 
 
@@ -181,9 +181,9 @@ E    e    e:   i    I    i:   l-   O
 o    o:   oU   r*   r-   u    U    u:   
 
 *    ;    b    d    dZ   dZ;  f    g    
-h    j    k    l    L    l^   m    n    
-N    n^   p    r    R    R2   s    S    
-t    tS   ts   tS;  v    x    z    Z    
+h    j    k    l    l^   m    n    N    
+n^   p    r    R    R2   s    S    t    
+tS   ts   tS;  v    x    z    Z    
 
 
 Dictionary hi_dict
@@ -218,8 +218,8 @@ Dictionary hy_dict
 u    W    y    
 
 **   b    d    dZ   f    g    h    j    
-k    l    m    n    p    R3   s    S    
-t    tS   ts   v    x    z    Z    
+k    l    m    n    p    R    R3   s    
+S    t    tS   ts   v    x    z    Z    
 
 
 Dictionary id_dict
@@ -485,10 +485,10 @@ Dictionary sq_dict
 eI   i    I    I#   O    OI   u    V    
 y    yE   
 
-**   b    c    d    D    dZ   f    g    
-h    j    J    k    l    ll   m    n    
-n^   p    r    R    R2   s    S    t    
-T    tS   ts   v    w    z    Z    
+**   b    c    d    D    dZ   dZ;  f    
+g    h    j    k    l    L    ll   m    
+n    n^   p    r    R    R2   s    S    
+t    T    tS   ts   v    w    z    Z    
 
 
 Dictionary sv_dict
@@ -555,8 +555,8 @@ i    i.   i[   iA   iE   io   iou  N-
 o    o-   ou   u    u@   ua   uai  uei  
 uo   y    y&   y@   yE   yi   yu   
 
-(u)  ;    C    f    h    j    k    kh   
-l    m    n    N    p    ph   q    r    
+;    C    f    h    j    k    kh   l    
+L    m    n    N    p    ph   r    R    
 s    s.   S;   t    th   ts   ts.  ts.  
 tS;  tS;  tsh  v    w    x    X    z.   
 

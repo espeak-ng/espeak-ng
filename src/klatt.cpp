@@ -1120,7 +1120,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	}
 
 {
-FILE *f;
+//FILE *f;
 //f=fopen("klatt_log","a");
 //fprintf(f,"len %4d  (%3d %4d %4d) (%3d %4d %4d)\n",length,fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3],fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3]);
 //fclose(f);

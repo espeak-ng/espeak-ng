@@ -1056,7 +1056,7 @@ KlattInit();
 
 	if((start==end) || (total_length == 0))
 	{
-		sp1->MakeWave(0,voicedlg->pitchenv,amplitude,duration);
+		sp1->MakeWaveF(0,voicedlg->pitchenv,amplitude,duration);
 		return;
 	}
 
@@ -1071,7 +1071,7 @@ KlattInit();
 
 //	if((start==end) || (total_length == 0))
 //	{
-//		sp1->MakeWave(1, pitch, amplitude, duration);
+//		sp1->MakeWaveF(1, pitch, amplitude, duration);
 //		return;
 //	}
 
@@ -1144,7 +1144,7 @@ void SpectFrame::MakeHtab(int numh, int *htab, int pitch)
 }  // end of SpectFrame::MakeHtab
 
 
-void SpectFrame::MakeWave(int control, PitchEnvelope &pitche, int amplitude, int duration)
+void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, int duration)
 {//======================================================================================
    //  amplitude:  percentage adjustment
 
@@ -1157,7 +1157,6 @@ void SpectFrame::MakeWave(int control, PitchEnvelope &pitche, int amplitude, int
 	int ipitch;
 	int pbase;
 	char *fname_speech;
-//	USHORT htab0[600];
 
 KlattInit();
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
@@ -1204,18 +1203,22 @@ KlattInit();
 	else
 	{
 #ifdef SPECT_EDITOR
+		int maxh;
+		USHORT htab0[600];
+
 		maxh = nx;
 		if(maxh >= 600)
 			maxh = 600-1;
 		
 		for(ix=0; ix<=maxh; ix++)
 			htab0[ix] = 0;
-		SetSynthHtab(20,htab0,maxh,dx,spect,maxh,dx);
-		MakeWaveFile();
+//		SetSynthHtab(20,htab0,maxh,dx,spect,maxh,dx);
+		SetSynthHtab(20,spect,maxh,dx,spect,maxh,dx);
+		MakeWaveFile(0);
 		SetSynthHtab(length,spect,maxh,dx,spect,maxh,dx);
-		MakeWaveFile();
+		MakeWaveFile(0);
 		SetSynthHtab(30,spect,maxh,dx,htab0,maxh,dx);
-		MakeWaveFile();
+		MakeWaveFile(0);
 #endif
 	}
 

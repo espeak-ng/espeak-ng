@@ -672,7 +672,7 @@ breakfast        brEkf@st
 breath           brET          $onlys
 breath           bri:D         $verb $onlys
 brethren         brEDr@n
-bridesmaid       braIdzmeId
+bridal           braId@L
 brigade                        $2
 brigadier        brIga2d'i@3
 brochure         broUS3
@@ -1157,7 +1157,6 @@ havoc            hav@k
 hasty            heIstI
 hatred           heItrI2d
 hazardous        haz3d@s
-hedgehog         hEdZh0g
 hehe             hi:h'i:
 heifer           hEf@
 helium           hi:li@m
@@ -1284,6 +1283,7 @@ japan            dZ@pan
 jasmine          dZazmIn
 jesus            dZi:z@s
 joky             dZoUkI
+jukebox          dZu:kb0ks
 july             dZu:l'aI
 
 kaput            ka2pUt
@@ -1352,6 +1352,7 @@ looser           lu:z3
 lorenz           l0r@nts
 los              ,l0s          $only
 losing           lu:zI2N        // misspell
+lukewarm         lu:kwO@m
 lullaby          lVl@baI
 lunatic          lu:n@tIk
 
@@ -1712,6 +1713,7 @@ rainforest       r'eInf,0rI2st
 rajah            rA:dZA:
 rapier           reIpi@3
 rapport          rap'o@
+rarity           re@r@tI
 rascal           raask@L
 ratatouille      rat@t'u:I
 ?!3 rather       rA:D3
@@ -1863,7 +1865,10 @@ segue            sEgweI
 separate         sEp@-r@t
 separate         sEp3reIt      $verb
 semen            si:m@n
+semibreve         $1
+semicircle        $1
 semicolon        sEmIk'oUl@n
+semitone          $1
 senator          sEn@t3
 sens             sEns               // for sensible
 sentient         sEnti@nt
@@ -2018,6 +2023,7 @@ tiny             taInI
 tirade           taIr'eId
 tis              tIz
 titan            taIt@n
+toboggan         t@b0g@n
 today            t@deI
 todo             t@du:
 tombola          t0mb'oUl@
@@ -2043,6 +2049,7 @@ trilogy          trIl@dZI
 trio             tri:oU
 trojan           troUdZ@n
 trophy           troUfI
+troubadour       tru:b@do@
 truely           tru:lI2      $verbf
 truest           tru:@st
 tryst            trIst 
@@ -2558,6 +2565,7 @@ Seamus		SeIm@s
 Sean		SO:n
 Sebastian	$2
 Sheila		Si:l@
+Sinead		SI2neId
 Sonia		s0nj@
 Sophie		soUfI
 Stephen		sti:v@n
@@ -2928,6 +2936,7 @@ whilst           waIlst        $pause
 just              $verbf
 never             $verbf
 now               $verbf
+now               naU          $verbf $allcaps
 soon              $verbf
 still             $verbf
 already           O:lr,EdI     $verbf $strend2

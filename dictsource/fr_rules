@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-11-28 Michel Such  <michel.such@free.fr>
+// Updated: 2008-12-09 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -964,14 +964,15 @@ C)		oing (_      _^_en	// going
 .group q
 		q           k		// coq
 	_)	qu' (AP3          k
- 	_a)	qu (a      kw		// aquarium
- 	_a)	qu (if      kw		// aquifère
- 	_A)	qu (idist      ky		// équidistant
- 	_A)	qu (ilat      ky		// équilatéral
- 	_C)	qu (a      kw		// squale square
- 	_A)	qu (a      kw		// équateur
- 	dé)	qu (a      kw		// adequate
- 	_)	qu (artz      kw		// quartz
+	_)	qua (d          kwA	// quadrature
+ 	_a)	qua      kwA		// aquarium
+ 	_a)	qu (if      ku		// aquifère
+ 	_A)	qui (dist      kw^i		// équidistant
+ 	_A)	qui (lat      kw^i		// équilatéral
+ 	_C)	qua       kwA		// squale square
+ 	_A)	qua       kwA		// équateur
+ 	dé)	qua       kwA		// adequate
+ 	_)	qua (rtz      kwA		// quartz
 		qu          k		// quatre
  	_)	que (_      k@		// que
 	n)	q (_        k		// cinq cent
@@ -1318,6 +1319,7 @@ Vn)		t (_        t2
 .group y
 		y           i	// cryogénique myope
 	_)	y (A          j	// yak, yacht
+	_)	yacht           _^_en	// yacht, yachtman
 	_)	y (eu          i	// yeux
 
 	_)	yahoo (P5       ia'u

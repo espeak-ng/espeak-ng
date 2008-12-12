@@ -30,16 +30,27 @@ _0M4		duili'ono
 _dpt		_komo_
 
 // accent names
-_acu	dekst@-*akoRno
-_brv	hoko
-_cir	tsiRkumflekso
-_dia	dupunktasupeRsigno
-_grv	maldekst@-*akoRno
-_tld	tildo
+_lig	ligat'uRa
+_acu	dekst@-*ak'oRna
+_ac2	duoblak'oRna
+_brv	h'oka
+_ced	tsed'ila
+_cir	tsiRkumfl'eksa
+_dia	dupunkta
+_dot	p'unkta
+_grv	maldekst@-*ak'oRna
+_hac	hatS'eka
+_mcn	st@-*'ia
+_ogo	subh'oka
+_rng	R'inga
+_stk	st@-*eka
+_tld	t'ilda
 
+_cap	maI,uskla
+_??	lit,eRo
+_#9	t'abo
+_#32	sp'atso
 
-
-_??	liteRo
 _.	punkto
 _:	dupunkto
 _;	punktokomo
@@ -59,16 +70,16 @@ __	subst@-*eko
 |	duktosigno
 *	asteRisko
 ©       kopiRaIto
-_(	Rondak@-*'ampo
-_)	feRm'itaRondak@-*'ampo
-_[	Rektak@-*'ampo
+_(	R'ondak@-*'ampo
+_)	f'eRmaRondak@-*'ampo
+_[	R'ektak@-*'ampo
 _]	f'eRmaRektak@-*'ampo
-_{	k'u@-*bak@-*'ampo
-_}	f'eRmaku@-*bak@-*'ampo
+_{	k'uRbak@-*'ampo
+_}	f'eRmakuRbak@-*'ampo
 _<	angulk@-*'ampo
 _>	f'eRmaangulk@-*'ampo
-_«	du'oblaangulk@-*'ampo
-_»	f'eRmadu,oblaangulk@-*'ampo
+_«	du'oblak@-*'ampo
+_»	f'eRmadu,oblak@-*'ampo
 
 
 v	vo	// not Roman numbers
@@ -83,6 +94,7 @@ anst	anstataU	$dot
 bea	$abbrev
 bv	bon,volu%
 ekz	ekzemple	$dot
+(ekz-e)	ekzemple
 i.a	'i'a
 k.a	kaIal'iaI
 k.c	kaItset'eRe
@@ -148,6 +160,8 @@ je		$u $brk
 kun             $u+ $pause
 laŭ		$u+ $brk
 per             $u+ $brk
+(pere de)	pe@-*e%d'e $u+ $brk
+(fare de)	fa@-*e%d'e $u+ $brk
 preter          $u+ $brk
 pri		$u+ $pause
 por             $u+ $pause

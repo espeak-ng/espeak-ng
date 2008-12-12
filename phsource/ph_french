@@ -212,6 +212,7 @@ phoneme wA
   formants vwl_fr/w_a
   after l l/lo-10
   before l/ DFT-10+l/l_a
+  before (r) DFT+r/xr
   before r/2 DFT+vwl_fr/r_a
 endphoneme
 
@@ -289,7 +290,7 @@ endphoneme
 phoneme A   // same as [a]
   vowel  starttype (a)  endtype (a)
   length 166
-  formants vowel/a
+  formants vowel/a_en
 endphoneme
 
 
@@ -418,15 +419,15 @@ endphoneme
 
 phoneme r
   liquid rfx starttype (r) endtype (r)
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
-  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  vowelin  f1=0  f2=1600 -300 300  f3=100 80
+  vowelout f1=1  f2=1600 -300 300  f3=100 80 brk
   length 100
   lengthmod 7
    beforenotvowel r/2
   formants vwl_fr/@R3+r3/rx%30
   after @2 vwl_fr/@R5+r3/rx%40
   after (u) vwl_fr/@R5+r3/rx%30
-  after (e) vwl_fr/@R4+r3/rx%20
+  after (e) vwl_fr/@R5+r3/rx%25
 endphoneme
 
 
@@ -437,13 +438,13 @@ phoneme r2	// silent unless followed by vowel
   length 100
   lengthmod 7
   beforenotvowel NULL
-  formants vwl_fr/@R4+r3/rx%15
+  formants vwl_fr/@R4+r3/rx%20
 endphoneme
 
 
 phoneme R // After consonnants
   vcd frc
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelin  f1=0  f2=1600 -300 300  f3=100 80
   length 100
   lengthmod 7
   beforenotvowel r/2
@@ -454,7 +455,7 @@ endphoneme
 
 phoneme r/2   // variant of [r] when not preceding a vowel
   liquid
-  vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
+  vowelout f1=2  f2=1600 -300 300  f3=100 80 brk
   length 100
   lengthmod 2
   formants r3/r_2+r3/rx%20

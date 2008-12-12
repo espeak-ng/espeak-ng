@@ -483,7 +483,7 @@ void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
 					if((langopts.accents & 1) || (accents_tab[accent1].flags & 1))
 						sprintf(ph_buf,"%s%c%c%s", ph_accent1, phonPAUSE_VSHORT, phonSTRESS_P, ph_letter1);
 					else
-						sprintf(ph_buf,"%s%c%s%c", ph_letter1, phonPAUSE_VSHORT, ph_accent1, phonPAUSE_VSHORT);
+						sprintf(ph_buf,"%c%s%c%s%c", phonSTRESS_2, ph_letter1, phonPAUSE_VSHORT, ph_accent1, phonPAUSE_VSHORT);
 				}
 			}
 		}

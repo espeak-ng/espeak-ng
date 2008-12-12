@@ -67,7 +67,7 @@ int n_soundicon_tab=N_SOUNDICON_SLOTS;
 SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
-#define RMS_START  28  // 14 - 30
+#define RMS_START 28  // 28
 
 #define VOWEL_FRONT_LENGTH  50
 

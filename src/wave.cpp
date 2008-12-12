@@ -782,14 +782,14 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 			if (out_channels == 2)
 			{
 				// copy with wrap around at the end of ringbuffer
-				const size_t bytes_written = copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem/2);
+				copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem/2);
 				myWrite = myBuffer;
 				myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer+aFreeMem/2, theSize - aFreeMem/2);
 			}
 			else // 1 channel (mono)
 			{
 				// copy with wrap around at the end of ringbuffer
-				const size_t bytes_written = copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem);
+				copyBuffer(myWrite, theMono16BitsWaveBuffer, aFreeMem);
 				myWrite = myBuffer;
 				myWrite += copyBuffer(myWrite, theMono16BitsWaveBuffer+aFreeMem, theSize - aFreeMem);
 			} // end if (out_channels == 2)

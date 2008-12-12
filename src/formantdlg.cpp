@@ -278,9 +278,9 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 		}
 		if(field & 4)
 		{
-			value.Printf(_T("%3d"),sf->peaks[ix].pkwidth);
+			value.Printf(_T("%3d"),sf->peaks[ix].pkwidth/2);
 			t_pkwidth[ix]->SetValue(value);
-			value.Printf(_T("%3d"),sf->peaks[ix].pkright);
+			value.Printf(_T("%3d"),sf->peaks[ix].pkright/2);
 			t_pkright[ix]->SetValue(value);
 		}
 	}

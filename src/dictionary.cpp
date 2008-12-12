@@ -684,7 +684,7 @@ int Translator::IsLetterGroup(char *word, int group, int pre)
 	// match the word against a list of utf-8 strings
 	char *p;
 	char *w;
-	int  len;
+	int  len=0;
 
 	p = letterGroups[group];
 	if(p == NULL)

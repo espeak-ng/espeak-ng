@@ -6,7 +6,7 @@
 phoneme a
   vowel starttype (a) endtype (a)
   length 180
-  formants vowel/a_2
+  formants vowel/a_6
   reduceto a#  2
 endphoneme
 
@@ -31,6 +31,12 @@ phoneme E
   reduceto @  2
 endphoneme
 
+phoneme E2    // don't reduce
+  vowel starttype (e) endtype (e)
+  length 180
+  formants vowel/e_mid
+endphoneme
+
 phoneme O
   vowel starttype (o) endtype (o)
   length 170
@@ -50,6 +56,13 @@ phoneme U
   length 160
   formants vowel/uu_2
   unstressed
+endphoneme
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_bck
+  reduceto U 2
 endphoneme
 
 

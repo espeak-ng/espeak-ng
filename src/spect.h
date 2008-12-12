@@ -131,7 +131,7 @@ public:
 	void ToggleMarker(int n);
 	void ApplyVoiceMods();
 	
-	void MakeWave(int peaks, PitchEnvelope &pitch, int amplitude, int duration);
+	void MakeWaveF(int peaks, PitchEnvelope &pitch, int amplitude, int duration);
 	void MakeHtab(int numh, int *htab, int pitch);
 	double GetRms(int amp);
 	void KlattDefaults();

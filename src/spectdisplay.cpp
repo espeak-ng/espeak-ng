@@ -831,12 +831,12 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 	case WXK_F1:
 		// make and play selected
 		ReadDialogValues();
-		sf->MakeWave(0,voicedlg->pitchenv,spectseq->amplitude,spectseq->duration);
+		sf->MakeWaveF(0,voicedlg->pitchenv,spectseq->amplitude,spectseq->duration);
 		break;
 	case WXK_F3:
 		// make and play selected
 		ReadDialogValues();
-		sf->MakeWave(1,voicedlg->pitchenv,spectseq->amplitude,spectseq->duration);
+		sf->MakeWaveF(1,voicedlg->pitchenv,spectseq->amplitude,spectseq->duration);
 		break;
 
 	default:

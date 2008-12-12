@@ -215,7 +215,6 @@ phoneme (@)  virtual
   after  ; j2/j2@
   after  w w/w@
   after  l l/l@
-  after  L l/l@
   after  l^ l^/j2@
   after  #r r/r@-15
   after  r- r2/r2@
@@ -239,7 +238,6 @@ phoneme (a)  virtual
   after  ; j2/j2a
   after  w w/wa
   after  l l/la
-  after  L l/la
   after  l^ l^/j2a
   after  #r r/ra-15
   after  r- r2/r2a
@@ -263,7 +261,6 @@ phoneme (e)  virtual
   after  ; j2/j2e
   after  w w/we
   after  l l/le
-  after  L l/le
   after  l^ l^/j2e
   after  #r r/re-15
   after  r- r2/r2e
@@ -287,7 +284,6 @@ phoneme (i)  virtual
   after  ; j2/j2i
   after  w w/wi
   after  l l/li-10
-  after  L l/li
   after  l^ l^/j2i
   after  #r r/ri-15
   after  r- r2/r2i
@@ -312,7 +308,6 @@ phoneme (o)  virtual
   after  ; j2/j2o
   after  w w/wo
   after  l l/lo
-  after  L l/lo
   after  l^ l^/j2o
   after  #r r/ro-15
   after  r- r2/r2o
@@ -336,7 +331,6 @@ phoneme (u)  virtual
   after  ; j2/j2u
   after  w w/wu
   after  l l/lu
-  after  L l/lu
   after  l^ l^/j2u
   after  #r r/ru-15
   after  r- r2/r2u
@@ -437,8 +431,8 @@ endphoneme
 
 phoneme r"     // uvular trill
   vcd uvl frc
-  formants r3/r_uvl+r3/r_uvl%75
-  before _ r3/r_uvl+r3/r_uvl%50
+  formants r3/r_uvl+r3/r_uvl.wav%75
+  before _ r3/r_uvl+r3/r_uvl.wav%50
   lengthmod 6
 endphoneme
 
@@ -1125,6 +1119,7 @@ endphoneme
 
 phoneme L   // Welsh "ll"
   vls alv frc
+  starttype l endtype l
   length 100
   lengthmod 3
   wave ufric/ll%80
