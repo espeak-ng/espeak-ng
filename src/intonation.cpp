@@ -49,7 +49,7 @@ typedef struct {
 	short pitch2;
 } SYLLABLE;
 
-SYLLABLE *syllable_tab;
+static SYLLABLE *syllable_tab;
 
 
 static int tone_pitch_env;    /* used to return pitch envelope */
@@ -706,8 +706,8 @@ static int calc_pitches(int start, int end,  int head_tone, int nucleus_tone)
 
 
 
-void Translator::CalcPitches_Tone(int clause_tone)
-{//===============================================
+static void CalcPitches_Tone(Translator *tr, int clause_tone)
+{//==========================================================
 //  clause_tone: 0=. 1=, 2=?, 3=! 4=none
 	PHONEME_LIST *p;
 	int  ix;
@@ -750,12 +750,12 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	phoneme_list[final_stressed].tone = 7;
 
 	// language specific, changes to tones
-	if(translator_name == L('v','i'))
+	if(tr->translator_name == L('v','i'))
 	{
 		// LANG=vi
 		p = &phoneme_list[final_stressed];
 		if(p->tone_ph == 0)
-			p->tone_ph = LookupPh("7");   // change default tone (tone 1) to falling tone at end of clause
+			p->tone_ph = PhonemeCode('7');   // change default tone (tone 1) to falling tone at end of clause
 	}
 
 
@@ -785,18 +785,18 @@ void Translator::CalcPitches_Tone(int clause_tone)
 			tph = phoneme_tab[tone_ph];
 
 			// Mandarin
-			if(translator_name == L('z','h'))
+			if(tr->translator_name == L('z','h'))
 			{
 				if(tone_ph == 0)
 				{
 					if(pause || tone_promoted)
 					{
-						tone_ph = LookupPh("55");  // no previous vowel, use tone 1
+						tone_ph = PhonemeCode2('5','5');  // no previous vowel, use tone 1
 						tone_promoted = 1;
 					}
 					else
 					{
-						tone_ph = LookupPh("11");  // default tone 5
+						tone_ph = PhonemeCode2('1','1');  // default tone 5
 					}
 
 					p->tone_ph = tone_ph;
@@ -820,24 +820,24 @@ void Translator::CalcPitches_Tone(int clause_tone)
 				if(prevw_tph->mnemonic == 0x343132)  // [214]
 				{
 					if(tph->mnemonic == 0x343132)   // [214]
-						prev_p->tone_ph = LookupPh("35");
+						prev_p->tone_ph = PhonemeCode2('3','5');
 					else
-						prev_p->tone_ph = LookupPh("21"); 
+						prev_p->tone_ph = PhonemeCode2('2','1'); 
 				}
 				if((prev_tph->mnemonic == 0x3135)  && (tph->mnemonic == 0x3135))  //  [51] + [51]
 				{
-					prev_p->tone_ph = LookupPh("53");
+					prev_p->tone_ph = PhonemeCode2('5','3');
 				}
 
 				if(tph->mnemonic == 0x3131)  // [11] Tone 5
 				{
 					// tone 5, change its level depending on the previous tone (across word boundaries)
 					if(prevw_tph->mnemonic == 0x3535)
-						p->tone_ph = LookupPh("22");
+						p->tone_ph = PhonemeCode2('2','2');
 					if(prevw_tph->mnemonic == 0x3533)
-						p->tone_ph = LookupPh("33");
+						p->tone_ph = PhonemeCode2('3','3');
 					if(prevw_tph->mnemonic == 0x343132)
-						p->tone_ph = LookupPh("44");
+						p->tone_ph = PhonemeCode2('4','4');
 
 					// tone 5 is unstressed (shorter)
 					p->tone = 1;   // diminished stress
@@ -889,8 +889,8 @@ void Translator::CalcPitches_Tone(int clause_tone)
 
 
 
-void Translator::CalcPitches(int clause_type)
-{//==========================================
+void CalcPitches(Translator *tr, int clause_type)
+{//==============================================
 //  clause_type: 0=. 1=, 2=?, 3=! 4=none
 	PHONEME_LIST *p;
 	SYLLABLE *syl;
@@ -942,20 +942,20 @@ void Translator::CalcPitches(int clause_type)
 
 
 
-	if(langopts.tone_language == 1)
+	if(tr->langopts.tone_language == 1)
 	{
-		CalcPitches_Tone(clause_type);
+		CalcPitches_Tone(tr,clause_type);
 		return;
 	}
 
 
-	option = langopts.intonation_group;
+	option = tr->langopts.intonation_group;
 	if(option >= INTONATION_TYPES)
 		option = 0;
 
-	group_tone = punct_to_tone[option][clause_type]; 
-	group_tone_emph = punct_to_tone[option][5];   // emphatic form of statement
-	group_tone_comma = punct_to_tone[option][1];   // emphatic form of statement
+	group_tone = tr->punct_to_tone[option][clause_type]; 
+	group_tone_emph = tr->punct_to_tone[option][5];   // emphatic form of statement
+	group_tone_comma = tr->punct_to_tone[option][1];   // emphatic form of statement
 
 	if(clause_type == 4)
 		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */

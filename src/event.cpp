@@ -109,7 +109,7 @@ void event_init(void)
 }
 //>
 //<event_display
-void event_display(espeak_EVENT* event)
+static void event_display(espeak_EVENT* event)
 {
 ENTER("event_display");
 

@@ -423,11 +423,11 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		InitText(0);
 		while((vp != NULL) && (n_ph_list < N_PH_LIST))
 		{
-			vp = translator->TranslateClause(NULL,vp,&clause_tone,NULL);
-			translator->CalcPitches(clause_tone);
-			translator->CalcLengths();
+			vp = TranslateClause(translator,NULL,vp,&clause_tone,NULL);
+			CalcPitches(translator,clause_tone);
+			CalcLengths(translator);
 
-			translator->GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
+			GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
 			if(clause_count++ > 0)
 				strcat(phon_out," ||");
 			strcat(phon_out,translator->phon_out);

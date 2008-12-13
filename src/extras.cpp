@@ -35,6 +35,7 @@
 #include "translate.h"
 #include "options.h"
 
+extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 
 //******************************************************************************************************
 
@@ -343,7 +344,7 @@ void Lexicon_De()
 		// convert word to lower-case
 		for(ix=0, p=&word2[1];;)
 		{
-			ix += utf8_in(&c,&word[ix],0);
+			ix += utf8_in(&c,&word[ix]);
 			c = towlower(c);
 			p += utf8_out(c,p);
 			if(c == 0)
@@ -419,9 +420,9 @@ void Lexicon_De()
 
 		// translate
 		memset(&winfo,0,sizeof(winfo));
-		translator->TranslateWord(&word2[1],0,&winfo);
+		TranslateWord(translator,&word2[1],0,&winfo);
 
-		DecodePhonemes2(translator->word_phonemes,phonemes);  // also need to change some phoneme names
+		DecodePhonemes2(word_phonemes,phonemes);  // also need to change some phoneme names
 
 		if(strcmp(phonemes,pronounce2) == 0)
 		{
@@ -624,8 +625,8 @@ p_unicode = unicode;
 
 		// translate
 		memset(&winfo,0,sizeof(winfo));
-		translator->TranslateWord(&word2[1],0,&winfo);
-		DecodePhonemes(translator->word_phonemes,phonemes);
+		TranslateWord(translator, &word2[1],0,&winfo);
+		DecodePhonemes(word_phonemes,phonemes);
 
 		// find the stress position in the translation
 		max_stress = 0;
@@ -634,7 +635,7 @@ p_unicode = unicode;
 		check_root = 0;
 
 		ph = phoneme_tab[phonPAUSE];
-		for(p=translator->word_phonemes; *p != 0; p++)
+		for(p=word_phonemes; *p != 0; p++)
 		{
 			ph = phoneme_tab[(unsigned int)*p];
 			if(ph == NULL)
@@ -866,7 +867,7 @@ void CountWordFreq(wxString path, wcount **hashtab)
 		n_chars = 0;
 		for(k=0; k<ix; )
 		{
-			k += utf8_in(&wc,&buf[k],0);
+			k += utf8_in(&wc,&buf[k]);
 			wc = towlower(wc);       // convert to lower case
 			if(iswalpha(wc))
 			{

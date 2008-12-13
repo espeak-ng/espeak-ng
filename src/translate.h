@@ -397,18 +397,9 @@ typedef struct {
 #define NUM_SEP_SPACE  0x1000    // allow space as thousands separator (in addition to langopts.thousands_sep)
 #define NUM_DEC_IT     0x2000    // (LANG=it) speak post-decimal-point digits as a combined number not as single digits
 
-class Translator
+struct Translator
 {//=============
-public:
-	Translator();
-	virtual ~Translator();
-	void *TranslateClause(FILE *f_text, const void *vp_input, int *tone, char **voice_change);
-	int TranslateWord(char *word, int next_pause, WORD_TAB *wtab);
-	int LoadDictionary(const char *name, int no_error);
-	virtual void CalcLengths();
-	virtual void CalcPitches(int clause_tone);
-	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
-	
+
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
 	int transpose_offset;
@@ -416,7 +407,6 @@ public:
 	int transpose_min;
 
 	char phon_out[300];
-	char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 	char phonemes_repeat[20];
 	int phonemes_repeat_count;
 
@@ -441,56 +431,8 @@ public:
 	char *data_dictrules;     // language_1   translation rules file
 	char *data_dictlist;      // language_2   dictionary lookup file
 	char *dict_hashtab[N_HASH_DICT];   // hash table to index dictionary lookup file
+	char *letterGroups[N_LETTER_GROUPS];
 
-
-private:
-	int TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause);
-	int TranslateLetter(char *letter, char *phonemes, int control, int word_length);
-	void SetSpellingStress(char *phonemes, int control, int n_chars);
-	void WriteMnemonic(int *ix, int mnem);
-	void MakePhonemeList(int post_pause, int new_sentence);
-	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
-
-	int ReadClause(FILE *f_in, char *buf, short *charix, int n_buf, int *tone_type);
-	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
-
-	const char *LookupDict2(const char *word, const char *word2, char *phonetic, unsigned int *flags, int end_flags, WORD_TAB *wtab);
-	const char *LookupSpecial(const char *string, char *text_out);
-	const char *LookupCharName(int c);
-	void LookupLetter(unsigned int letter, int next_byte, char *ph_buf);
-	int LookupLetter2(unsigned int letter, char *ph_buf);
-	void LookupAccentedLetter(unsigned int letter, char *ph_buf);
-	int LookupNum2(int value, int control, char *ph_out);
-	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
-	int LookupThousands(int value, int thousandplex, char *ph_out);
-   int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
-	int TranslateRoman(char *word, char *ph_out);
-	int TranslateChar(char *ptr, int prev_in, unsigned int c, unsigned int next_in, int *insert);
-
-	void InitGroups(void);
-	void AppendPhonemes(char *string, int size, const char *ph);
-	char *DecodeRule(const char *group, char *rule);
-	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags, int dict_flags);
-	int TranslateRules(char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
-	void ApplySpecialAttribute(char *phonemes, int dict_flags);
-
-	int IsLetter(int letter, int group);
-	int IsLetterGroup(char *word, int group, int pre);
-
-	void CalcPitches_Tone(int clause_tone);
-
-protected:
-	virtual int Unpronouncable(char *word);
-	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
-	virtual int RemoveEnding(char *word, int end_type, char *word_copy);
-   virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
-	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
-
-	int IsVowel(int letter);
-	int LookupDictList(char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
-	int Lookup(const char *word, char *ph_out);
-
-	
 	// groups1 and groups2 are indexes into data_dictrules, set up by InitGroups()
 	// the two-letter rules for each letter must be consecutive in the language_rules source
 	
@@ -501,22 +443,13 @@ protected:
 	
 	unsigned char groups2_count[256];    // number of 2 letter groups for this initial letter
 	unsigned char groups2_start[256];    // index into groups2
-	char *letterGroups[N_LETTER_GROUPS];
 	
-	int n_ph_list2;
-	PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
-
 	
-
 	int expect_verb;
 	int expect_past;    // expect past tense
 	int expect_verb_s;
 	int expect_noun;
-	int word_flags;     // word is all upper case
 	int prev_last_stress;
-	int prepause_timeout;
-	int end_stressed_vowel;  // word ends with stressed vowel
-	int prev_dict_flags;     // dictionary flags from previous word
 	char *clause_end;
 
 	int word_vowel_count;     // number of vowels so far
@@ -525,10 +458,12 @@ protected:
 	int clause_upper_count;   // number of upper case letters in the clause
 	int clause_lower_count;   // number of lower case letters in the clause
 
+	int prepause_timeout;
+	int end_stressed_vowel;  // word ends with stressed vowel
+	int prev_dict_flags;     // dictionary flags from previous word
 }; //  end of class Translator
 
 
-extern int option_tone1;
 extern int option_tone2;
 #define OPTION_EMPHASIZE_ALLCAPS  0x100
 #define OPTION_EMPHASIZE_PENULTIMATE 0x200
@@ -538,7 +473,6 @@ extern int option_quiet;
 extern int option_phonemes;
 extern int option_phoneme_events;
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
-extern int option_harmonic1;
 extern int option_multibyte;
 extern int option_capitals;
 extern int option_punctuation;
@@ -569,9 +503,6 @@ extern char skip_marker[N_MARKER_LENGTH];
 #define N_PUNCTLIST  60
 extern wchar_t option_punctlist[N_PUNCTLIST];  // which punctuation characters to announce
 extern unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS];
-extern const unsigned short punct_chars[];   // punctuation chars fo end-of-clause
-
-extern int speech_parameters[];
 
 extern Translator *translator;
 extern Translator *translator2;
@@ -580,31 +511,23 @@ extern char dictionary_name[40];
 extern char ctrl_embedded;    // to allow an alternative CTRL for embedded commands
 extern char *p_textinput;
 extern wchar_t *p_wchar_input;
-extern int ungot_char;
 extern int dictionary_skipwords;
 
 extern int (* uri_callback)(int, const char *, const char *);
 extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
-Translator *SelectTranslator(const char *name);
-int SetTranslator2(const char *name);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
 void LoadConfig(void);
-int PhonemeCode(unsigned int mnem);
-void ChangeWordStress(Translator *tr, char *word, int new_stress);
 int TransposeAlphabet(char *text, int offset, int min, int max);
-int utf8_in(int *c, const char *buf, int backwards);
+int utf8_in(int *c, const char *buf);
+int utf8_in2(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 int utf8_nbytes(const char *buf);
 int lookupwchar(const unsigned short *list,int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);
-void ResetLetterBits(Translator *tr, int groups);
-void SetLetterBits(Translator *tr, int group, const char *string);
-void SetLetterBitsRange(Translator *tr, int group, int first, int last);
-void SetLetterVowel(Translator *tr, int c);
 void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);
@@ -612,6 +535,41 @@ int IsDigit(unsigned int c);
 int IsAlpha(unsigned int c);
 int isspace2(unsigned int c);
 int towlower2(unsigned int c);
+void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
+
+Translator *SelectTranslator(const char *name);
+int SetTranslator2(const char *name);
+void DeleteTranslator(Translator *tr);
+int Lookup(Translator *tr, const char *word, char *ph_out);
+
+int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, int wflags);
+int TranslateRoman(Translator *tr, char *word, char *ph_out);
+
+void ChangeWordStress(Translator *tr, char *word, int new_stress);
+void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars);
+int TranslateLetter(Translator *tr, char *letter, char *phonemes, int control, int word_length);
+void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf);
+void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
+
+int LoadDictionary(Translator *tr, const char *name, int no_error);
+int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *flags, int end_flags, WORD_TAB *wtab);
+
+void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
+int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
+void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags);
+void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
+
+void CalcLengths(Translator *tr);
+void CalcPitches(Translator *tr, int clause_tone);
+
+int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
+int Unpronouncable(Translator *tr, char *word);
+void SetWordStress(Translator *tr, char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
+int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
+int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
+void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);
+int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int n_buf, int *tone_type);
+
 void SetVoiceStack(espeak_VOICE *v);
 
 extern FILE *f_trans;		// for logging

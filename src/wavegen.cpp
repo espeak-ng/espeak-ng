@@ -59,7 +59,7 @@ voice_t *wvoice;
 
 FILE *f_log = NULL;
 int option_waveout = 0;
-int option_harmonic1 = 10;   // 10
+static int option_harmonic1 = 10;   // 10
 int option_log_frames = 0;
 static int flutter_amp = 64;
 
@@ -86,7 +86,7 @@ static int echo_amp = 0;
 static short echo_buf[N_ECHO_BUF];
 
 static int voicing;
-RESONATOR rbreath[N_PEAKS];
+static RESONATOR rbreath[N_PEAKS];
 
 static int harm_sqrt_n = 0;
 
@@ -535,7 +535,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 /* This is a fixed version of Pa_OpenDefaultStream() for use if the version in portaudio V19
    is broken */
 
-PaError Pa_OpenDefaultStream2( PaStream** stream,
+static PaError Pa_OpenDefaultStream2( PaStream** stream,
                               int inputChannelCount,
                               int outputChannelCount,
                               PaSampleFormat sampleFormat,
@@ -1073,8 +1073,8 @@ void InitBreath(void)
 
 
 
-void SetBreath()
-{//=============
+static void SetBreath()
+{//====================
 #ifndef PLATFORM_RISCOS
 	int pk;
 
@@ -1094,8 +1094,8 @@ void SetBreath()
 }  // end of SetBreath
 
 
-int ApplyBreath(void)
-{//==================
+static int ApplyBreath(void)
+{//=========================
 	int value = 0;
 #ifndef PLATFORM_RISCOS
 	int noise;

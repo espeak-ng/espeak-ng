@@ -71,7 +71,7 @@ int  flags;
 } ACCENTS;
 
 // these are tokens to look up in the *_list file.
-ACCENTS accents_tab[] = {
+static ACCENTS accents_tab[] = {
 {"_lig", 1},
 {"_smc", 1},  // smallcap
 {"_tur", 1},  // turned
@@ -126,7 +126,7 @@ static const short non_ascii_tab[] = {
 
 
 // characters U+00e0 to U+017f
-const unsigned short letter_accents_0e0[] = {
+static const unsigned short letter_accents_0e0[] = {
 LETTER('a',M_GRAVE,0),   // U+00e0
 LETTER('a',M_ACUTE,0),
 LETTER('a',M_CIRCUMFLEX,0),
@@ -291,7 +291,7 @@ LETTER('s',M_NAME,0), // long-s  // U+17f
 
 
 // characters U+0250 to U+029F
-const unsigned short letter_accents_250[] = {
+static const unsigned short letter_accents_250[] = {
 LETTER('a',M_TURNED,0),		// U+250
 LETTER(L_ALPHA,0,0),
 LETTER(L_ALPHA,M_TURNED,0),
@@ -383,8 +383,8 @@ LIGATURE('t','s',0),
 LIGATURE('t','s',M_CURL),
 };
 
-int Translator::LookupLetter2(unsigned int letter, char *ph_buf)
-{//=============================================================
+static int LookupLetter2(Translator *tr, unsigned int letter, char *ph_buf)
+{//========================================================================
 	int len;
 	char single_letter[10];
 
@@ -394,20 +394,20 @@ int Translator::LookupLetter2(unsigned int letter, char *ph_buf)
 	single_letter[len+2] = ' ';
 	single_letter[len+3] = 0;
 
-	if(Lookup(&single_letter[1],ph_buf) == 0)
+	if(Lookup(tr, &single_letter[1], ph_buf) == 0)
 	{
 		single_letter[1] = ' ';
-		if(Lookup(&single_letter[2],ph_buf) == 0)
+		if(Lookup(tr, &single_letter[2], ph_buf) == 0)
 		{
-			TranslateRules(&single_letter[2], ph_buf, 20, NULL,0,NULL);
+			TranslateRules(tr, &single_letter[2], ph_buf, 20, NULL,0,NULL);
 		}
 	}
 	return(ph_buf[0]);
 }
 
 
-void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
-{//=====================================================================
+void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
+{//=========================================================================
 	// lookup the character in the accents table
 	int accent_data = 0;
 	int accent1 = 0;
@@ -450,14 +450,14 @@ void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
 		}
 
 
-		if(Lookup(accents_tab[accent1].name, ph_accent1) != 0)
+		if(Lookup(tr, accents_tab[accent1].name, ph_accent1) != 0)
 		{
 
-			if(LookupLetter2(basic_letter, ph_letter1) != 0)
+			if(LookupLetter2(tr, basic_letter, ph_letter1) != 0)
 			{
 				if(accent2 != 0)
 				{
-					if(Lookup(accents_tab[accent2].name, ph_accent2) == 0)
+					if(Lookup(tr, accents_tab[accent2].name, ph_accent2) == 0)
 					{
 //						break;
 					}
@@ -472,7 +472,7 @@ void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
 				if(letter2 != 0)
 				{
 					//ligature
-					LookupLetter2(letter2, ph_letter2);
+					LookupLetter2(tr, letter2, ph_letter2);
 					sprintf(ph_buf,"%s%c%s%c%s%s",ph_accent1, phonPAUSE_VSHORT, ph_letter1, phonSTRESS_P, ph_letter2, ph_accent2);
 				}
 				else
@@ -480,7 +480,7 @@ void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
 					if(accent1 == 0)
 						strcpy(ph_buf, ph_letter1);
 					else
-					if((langopts.accents & 1) || (accents_tab[accent1].flags & 1))
+					if((tr->langopts.accents & 1) || (accents_tab[accent1].flags & 1))
 						sprintf(ph_buf,"%s%c%c%s", ph_accent1, phonPAUSE_VSHORT, phonSTRESS_P, ph_letter1);
 					else
 						sprintf(ph_buf,"%c%s%c%s%c", phonSTRESS_2, ph_letter1, phonPAUSE_VSHORT, ph_accent1, phonPAUSE_VSHORT);
@@ -492,8 +492,8 @@ void Translator::LookupAccentedLetter(unsigned int letter, char *ph_buf)
 
 
 
-void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
-{//=============================================================================
+void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf1)
+{//=================================================================================
 	int len;
 	unsigned char *p;
 	static char single_letter[10] = {0,0};
@@ -509,16 +509,16 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 	if(next_byte == -1)
 	{
 		// speaking normal text, not individual characters
-		if(Lookup(&single_letter[2],ph_buf1) != 0)
+		if(Lookup(tr, &single_letter[2], ph_buf1) != 0)
 			return;
 
 		single_letter[1] = '_';
-		if(Lookup(&single_letter[1],ph_buf3) != 0)
+		if(Lookup(tr, &single_letter[1], ph_buf3) != 0)
 			return;   // the character is specified as _* so ignore it when speaking normal text
 
 		// check whether this character is specified for English
 		SetTranslator2("en");
-		if(translator2->Lookup(&single_letter[2], ph_buf3) != 0)
+		if(Lookup(translator2, &single_letter[2], ph_buf3) != 0)
 		{
 			// yes, switch to English and re-translate the word
 			sprintf(ph_buf1,"%c",phonSWITCH);
@@ -531,7 +531,7 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 	{
 		// lookup space as _&32 etc.
 		sprintf(&single_letter[1],"_#%d ",letter);
-		Lookup(&single_letter[1],ph_buf1);
+		Lookup(tr, &single_letter[1], ph_buf1);
 		return;
 	}
 
@@ -545,18 +545,18 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 	dict_flags[1] = 0;
 	ptr = &single_letter[1];
 	
-	if(Lookup(&single_letter[1],ph_buf3) == 0)
+	if(Lookup(tr, &single_letter[1], ph_buf3) == 0)
 	{
 		single_letter[1] = ' ';
-		if(Lookup(&single_letter[2],ph_buf3) == 0)
+		if(Lookup(tr, &single_letter[2], ph_buf3) == 0)
 		{
-			TranslateRules(&single_letter[2], ph_buf3, sizeof(ph_buf3), NULL,FLAG_NO_TRACE,NULL);
+			TranslateRules(tr, &single_letter[2], ph_buf3, sizeof(ph_buf3), NULL,FLAG_NO_TRACE,NULL);
 		}
 	}
 
 	if(ph_buf3[0] == 0)
 	{
-		LookupAccentedLetter(letter, ph_buf3);
+		LookupAccentedLetter(tr, letter, ph_buf3);
 	}
 
 	if(ph_buf3[0] == 0)
@@ -583,7 +583,7 @@ void Translator::LookupLetter(unsigned int letter, int next_byte, char *ph_buf1)
 
 
 
-int Translator::TranslateLetter(char *word, char *phonemes, int control, int word_length)
+int TranslateLetter(Translator *tr, char *word, char *phonemes, int control, int word_length)
 {//======================================================================================
 // get pronunciation for an isolated letter
 // return number of bytes used by the letter
@@ -602,7 +602,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 	ph_buf[0] = 0;
 	capital[0] = 0;
 
-	n_bytes = utf8_in(&letter,word,0);
+	n_bytes = utf8_in(&letter,word);
 
 	if((letter & 0xfff00) == 0x0e000)
 	{
@@ -614,12 +614,12 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 		// include CAPITAL information
 		if(iswupper(letter))
 		{
-			Lookup("_cap",capital);
+			Lookup(tr, "_cap", capital);
 		}
 	}
 	letter = towlower2(letter);
 
-	LookupLetter(letter, word[n_bytes], ph_buf);
+	LookupLetter(tr, letter, word[n_bytes], ph_buf);
 
 	if(ph_buf[0] == phonSWITCH)
 	{
@@ -627,13 +627,13 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 		return(0);
 	}
 
-	if((ph_buf[0] == 0) && (translator_name != L('e','n')))
+	if((ph_buf[0] == 0) && (tr->translator_name != L('e','n')))
 	{
 		// speak as English, check whether there is a translation for this character
 		SetTranslator2("en");
 		save_option_phonemes = option_phonemes;
 		option_phonemes = 0;
-		translator2->LookupLetter(letter, word[n_bytes], ph_buf);
+		LookupLetter(translator2, letter, word[n_bytes], ph_buf);
 		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 		option_phonemes = save_option_phonemes;
 
@@ -648,10 +648,10 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 	{
 		// character name not found
 		if(iswalpha(letter))
-			Lookup("_?A",ph_buf);
+			Lookup(tr, "_?A", ph_buf);
 
 		if((ph_buf[0]==0) && !iswspace(letter))
-			Lookup("_??",ph_buf);
+			Lookup(tr, "_??", ph_buf);
 
 		if(ph_buf[0] != 0)
 		{
@@ -662,13 +662,13 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 			{
 				pbuf += strlen(pbuf);
 				*pbuf++ = phonPAUSE_VSHORT;
-				LookupLetter(*p2, 0, pbuf);
+				LookupLetter(tr, *p2, 0, pbuf);
 			}
 		}
 	}
 
 	len = strlen(phonemes);
-	if(langopts.accents & 2)
+	if(tr->langopts.accents & 2)
 		sprintf(ph_buf2,"%c%s%s",0xff,ph_buf,capital);
 	else
 		sprintf(ph_buf2,"%c%s%s",0xff,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
@@ -681,8 +681,8 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control, int wor
 
 
 
-void Translator::SetSpellingStress(char *phonemes, int control, int n_chars)
-{//=========================================================================
+void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
+{//=============================================================================
 // Individual letter names, reduce the stress of some.
 	int ix;
 	unsigned int c;
@@ -707,7 +707,7 @@ void Translator::SetSpellingStress(char *phonemes, int control, int n_chars)
 		{
 			count++;
 
-			if(langopts.spelling_stress == 1)
+			if(tr->langopts.spelling_stress == 1)
 			{
 				// stress on initial letter when spelling
 				if(count > 1)
@@ -745,7 +745,7 @@ void Translator::SetSpellingStress(char *phonemes, int control, int n_chars)
 
 
 
-int Translator::TranslateRoman(char *word, char *ph_out)
+int TranslateRoman(Translator *tr, char *word, char *ph_out)
 {//=====================================================
 	int c;
 	char *p;
@@ -804,286 +804,25 @@ int Translator::TranslateRoman(char *word, char *ph_out)
 	if(acc < 2)
 		return(0);
 
-	if(acc > langopts.max_roman)
+	if(acc > tr->langopts.max_roman)
 		return(0);
 
-	Lookup("_roman",ph_roman);   // precede by "roman" if _rom is defined in *_list
+	Lookup(tr, "_roman",ph_roman);   // precede by "roman" if _rom is defined in *_list
 	p = &ph_out[0];
 
-	if((langopts.numbers & NUM_ROMAN_AFTER) == 0)
+	if((tr->langopts.numbers & NUM_ROMAN_AFTER) == 0)
 	{
 		strcpy(ph_out,ph_roman);
 		p = &ph_out[strlen(ph_out)];
 	}
 
 	sprintf(number_chars," %d ",acc);
-	TranslateNumber(&number_chars[1],p,&flags,0);
+	TranslateNumber(tr, &number_chars[1], p, &flags, 0);
 
-	if(langopts.numbers & NUM_ROMAN_AFTER)
+	if(tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out,ph_roman);
 	return(1);
 }  // end of TranslateRoman
-
-
-int Translator::LookupNum2(int value, int control, char *ph_out)
-{//=============================================================
-// Lookup a 2 digit number
-// control bit 0: use special form of '1'
-// control bit 2: use feminine form of '2'
-
-	int found;
-	int ix;
-	int units;
-	int used_and=0;
-	int next_phtype;
-	char string[12];  // for looking up entries in de_list
-	char ph_tens[50];
-	char ph_digits[50];
-	char ph_and[12];
-
-	if((value == 1) && (control & 1))
-	{
-		if(Lookup("_1a",ph_out) != 0)
-			return(0);
-	}
-	// is there a special pronunciation for this 2-digit number
-	found = 0;
-	if(control & 4)
-	{
-		sprintf(string,"_%df",value);
-		found = Lookup(string,ph_digits);
-	}
-	if(found == 0)
-	{
-		sprintf(string,"_%d",value);
-		found = Lookup(string,ph_digits);
-	}
-
-	// no, speak as tens+units
-	if((control & 2) && (value < 10))
-	{
-		// speak leading zero
-		Lookup("_0",ph_tens);
-	}
-	else
-	{
-		if(found)
-		{
-			strcpy(ph_out,ph_digits);
-			return(0);
-		}
-
-		if((value % 10) == 0)
-		{
-			sprintf(string,"_%d0",value / 10);
-			found = Lookup(string,ph_tens);
-		}
-		if(!found)
-		{
-			sprintf(string,"_%dX",value / 10);
-			Lookup(string,ph_tens);
-		}
-
-		if((value % 10) == 0)
-		{
-			strcpy(ph_out,ph_tens);
-			return(0);
-		}
-
-		found = 0;
-		units = (value % 10);
-		if(control & 4)
-		{
-			// is there a variant form of this number?
-			sprintf(string,"_%df",units);
-			found = Lookup(string,ph_digits);
-		}
-		if(found == 0)
-		{
-			sprintf(string,"_%d",units);
-			Lookup(string,ph_digits);
-		}
-	}
-
-	if(langopts.numbers & 0x30)
-	{
-		Lookup("_0and",ph_and);
-		if(langopts.numbers & 0x10)
-			sprintf(ph_out,"%s%s%s",ph_digits,ph_and,ph_tens);
-		else
-			sprintf(ph_out,"%s%s%s",ph_tens,ph_and,ph_digits);
-		used_and = 1;
-	}
-	else
-	{
-		if(langopts.numbers & 0x200)
-		{
-			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-			if((ix = strlen(ph_tens)-1) >= 0)
-			{
-				if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
-	
-				if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
-					ph_tens[ix] = 0;
-			}
-		}
-		sprintf(ph_out,"%s%s",ph_tens,ph_digits);
-	}
-
-	if(langopts.numbers & 0x100)
-	{
-		// only one primary stress
-		found = 0;
-		for(ix=strlen(ph_out)-1; ix>=0; ix--)
-		{
-			if(ph_out[ix] == phonSTRESS_P)
-			{
-				if(found)
-					ph_out[ix] = phonSTRESS_3;
-				else
-					found = 1;
-			}
-		}
-	}
-	return(used_and);
-}  // end of LookupNum2
-
-
-int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands)
-{//=========================================================================================================
-// Translate a 3 digit number
-	int found;
-	int hundreds;
-	int x;
-	char string[12];  // for looking up entries in **_list
-	char buf1[100];
-	char buf2[100];
-	char ph_100[20];
-	char ph_10T[20];
-	char ph_digits[50];
-	char ph_thousands[50];
-	char ph_hundred_and[12];
-	char ph_thousand_and[12];
-	
-	hundreds = value / 100;
-	buf1[0] = 0;
-
-	if(hundreds > 0)
-	{
-		ph_thousands[0] = 0;
-		ph_thousand_and[0] = 0;
-
-		Lookup("_0C",ph_100);
-
-		if(((langopts.numbers & 0x0800) != 0) && (hundreds == 19))
-		{
-			// speak numbers such as 1984 as years: nineteen-eighty-four
-//			ph_100[0] = 0;   // don't say "hundred", we also need to surpess "and"
-		}
-		else
-		if(hundreds >= 10)
-		{
-			ph_digits[0] = 0;
-
-			if(LookupThousands(hundreds / 10, thousandplex+1, ph_10T) == 0)
-			{
-				x = 0;
-				if(langopts.numbers2 & (1 << (thousandplex+1)))
-					x = 4;
-				LookupNum2(hundreds/10, x, ph_digits);
-			}
-
-			if(langopts.numbers2 & 0x200)
-				sprintf(ph_thousands,"%s%s%c",ph_10T,ph_digits,phonPAUSE_NOLINK);  // say "thousands" before its number, not after
-			else
-				sprintf(ph_thousands,"%s%s%c",ph_digits,ph_10T,phonPAUSE_NOLINK);
-
-			hundreds %= 10;
-			if(hundreds == 0)
-				ph_100[0] = 0;
-			suppress_null = 1;
-		}
-
-		ph_digits[0] = 0;
-		if(hundreds > 0)
-		{
-			if((langopts.numbers & 0x100000) && (prev_thousands || (ph_thousands[0] != 0)))
-			{
-				Lookup("_0and",ph_thousand_and);
-			}
-
-			suppress_null = 1;
-
-			found = 0;
-			if((value % 1000) == 100)
-			{
-				// is there a special pronunciation for exactly 100 ?
-				found = Lookup("_1C0",ph_digits);
-			}
-			if(!found)
-			{
-				sprintf(string,"_%dC",hundreds);
-				found = Lookup(string,ph_digits);  // is there a specific pronunciation for n-hundred ?
-			}
-
-			if(found)
-			{
-				ph_100[0] = 0;
-			}
-			else
-			{
-				if((hundreds > 1) || ((langopts.numbers & 0x400) == 0))
-				{
-					LookupNum2(hundreds,0,ph_digits);
-				}
-			}
-		}
-
-		sprintf(buf1,"%s%s%s%s",ph_thousands,ph_thousand_and,ph_digits,ph_100);
-	}
-
-	ph_hundred_and[0] = 0;
-	if((langopts.numbers & 0x40) && ((value % 100) != 0))
-	{
-		if((value > 100) || (prev_thousands && (thousandplex==0)))
-		{
-			Lookup("_0and",ph_hundred_and);
-		}
-	}
-
-
-	buf2[0] = 0;
-	value = value % 100;
-
-	if(value == 0)
-	{
-		if(suppress_null == 0)
-			Lookup("_0",buf2);
-	}
-	else
-	{
-		x = 0;
-		if(thousandplex==0)
-			x = 1;   // allow "eins" for 1 rather than "ein"
-		else
-		{
-			if(langopts.numbers2 & (1 << thousandplex))
-				x = 4;   // use variant (feminine) for before thousands and millions
-		}
-
-		if(LookupNum2(value,x,buf2) != 0)
-		{
-			if(langopts.numbers & 0x80)
-				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
-		}
-	}
-
-	sprintf(ph_out,"%s%s%s",buf1,ph_hundred_and,buf2);
-
-	return(0);
-}  // end of LookupNum3
-
 
 
 static const char *M_Variant(int value)
@@ -1111,8 +850,8 @@ static const char *M_Variant(int value)
 }
 
 
-int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
-{//=======================================================================
+static int LookupThousands(Translator *tr, int value, int thousandplex, char *ph_out)
+{//==================================================================================
 	int found;
 	char string[12];
 	char ph_of[12];
@@ -1123,21 +862,21 @@ int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 	// first look fora match with the exact value of thousands
 	sprintf(string,"_%dM%d",value,thousandplex);
 
-	if((found = Lookup(string,ph_thousands)) == 0)
+	if((found = Lookup(tr, string, ph_thousands)) == 0)
 	{
 		if((value % 100) >= 20) 
 		{
-			Lookup("_0of",ph_of);
+			Lookup(tr, "_0of", ph_of);
 		}
 
 		sprintf(string,"_%s%d",M_Variant(value),thousandplex);
 
-		if(Lookup(string,ph_thousands) == 0)
+		if(Lookup(tr, string, ph_thousands) == 0)
 		{
 			// repeat "thousand" if higher order names are not available
 			sprintf(string,"_%dM1",value);
-			if((found = Lookup(string,ph_thousands)) == 0)
-				Lookup("_0M1",ph_thousands);
+			if((found = Lookup(tr, string, ph_thousands)) == 0)
+				Lookup(tr, "_0M1", ph_thousands);
 		}
 	}
 	sprintf(ph_out,"%s%s",ph_of,ph_thousands);
@@ -1145,8 +884,269 @@ int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 }
 
 
-int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags, int wflags)
-{//=========================================================================================
+static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
+{//========================================================================
+// Lookup a 2 digit number
+// control bit 0: use special form of '1'
+// control bit 2: use feminine form of '2'
+
+	int found;
+	int ix;
+	int units;
+	int used_and=0;
+	int next_phtype;
+	char string[12];  // for looking up entries in de_list
+	char ph_tens[50];
+	char ph_digits[50];
+	char ph_and[12];
+
+	if((value == 1) && (control & 1))
+	{
+		if(Lookup(tr, "_1a", ph_out) != 0)
+			return(0);
+	}
+	// is there a special pronunciation for this 2-digit number
+	found = 0;
+	if(control & 4)
+	{
+		sprintf(string,"_%df",value);
+		found = Lookup(tr, string, ph_digits);
+	}
+	if(found == 0)
+	{
+		sprintf(string,"_%d",value);
+		found = Lookup(tr, string, ph_digits);
+	}
+
+	// no, speak as tens+units
+	if((control & 2) && (value < 10))
+	{
+		// speak leading zero
+		Lookup(tr, "_0", ph_tens);
+	}
+	else
+	{
+		if(found)
+		{
+			strcpy(ph_out,ph_digits);
+			return(0);
+		}
+
+		if((value % 10) == 0)
+		{
+			sprintf(string,"_%d0",value / 10);
+			found = Lookup(tr, string, ph_tens);
+		}
+		if(!found)
+		{
+			sprintf(string,"_%dX",value / 10);
+			Lookup(tr, string, ph_tens);
+		}
+
+		if((value % 10) == 0)
+		{
+			strcpy(ph_out,ph_tens);
+			return(0);
+		}
+
+		found = 0;
+		units = (value % 10);
+		if(control & 4)
+		{
+			// is there a variant form of this number?
+			sprintf(string,"_%df",units);
+			found = Lookup(tr, string, ph_digits);
+		}
+		if(found == 0)
+		{
+			sprintf(string,"_%d",units);
+			Lookup(tr, string, ph_digits);
+		}
+	}
+
+	if(tr->langopts.numbers & 0x30)
+	{
+		Lookup(tr, "_0and", ph_and);
+		if(tr->langopts.numbers & 0x10)
+			sprintf(ph_out,"%s%s%s",ph_digits,ph_and,ph_tens);
+		else
+			sprintf(ph_out,"%s%s%s",ph_tens,ph_and,ph_digits);
+		used_and = 1;
+	}
+	else
+	{
+		if(tr->langopts.numbers & 0x200)
+		{
+			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
+			if((ix = strlen(ph_tens)-1) >= 0)
+			{
+				if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
+					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
+	
+				if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
+					ph_tens[ix] = 0;
+			}
+		}
+		sprintf(ph_out,"%s%s",ph_tens,ph_digits);
+	}
+
+	if(tr->langopts.numbers & 0x100)
+	{
+		// only one primary stress
+		found = 0;
+		for(ix=strlen(ph_out)-1; ix>=0; ix--)
+		{
+			if(ph_out[ix] == phonSTRESS_P)
+			{
+				if(found)
+					ph_out[ix] = phonSTRESS_3;
+				else
+					found = 1;
+			}
+		}
+	}
+	return(used_and);
+}  // end of LookupNum2
+
+
+static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands)
+{//====================================================================================================================
+// Translate a 3 digit number
+	int found;
+	int hundreds;
+	int x;
+	char string[12];  // for looking up entries in **_list
+	char buf1[100];
+	char buf2[100];
+	char ph_100[20];
+	char ph_10T[20];
+	char ph_digits[50];
+	char ph_thousands[50];
+	char ph_hundred_and[12];
+	char ph_thousand_and[12];
+	
+	hundreds = value / 100;
+	buf1[0] = 0;
+
+	if(hundreds > 0)
+	{
+		ph_thousands[0] = 0;
+		ph_thousand_and[0] = 0;
+
+		Lookup(tr, "_0C", ph_100);
+
+		if(((tr->langopts.numbers & 0x0800) != 0) && (hundreds == 19))
+		{
+			// speak numbers such as 1984 as years: nineteen-eighty-four
+//			ph_100[0] = 0;   // don't say "hundred", we also need to surpess "and"
+		}
+		else
+		if(hundreds >= 10)
+		{
+			ph_digits[0] = 0;
+
+			if(LookupThousands(tr, hundreds / 10, thousandplex+1, ph_10T) == 0)
+			{
+				x = 0;
+				if(tr->langopts.numbers2 & (1 << (thousandplex+1)))
+					x = 4;
+				LookupNum2(tr, hundreds/10, x, ph_digits);
+			}
+
+			if(tr->langopts.numbers2 & 0x200)
+				sprintf(ph_thousands,"%s%s%c",ph_10T,ph_digits,phonPAUSE_NOLINK);  // say "thousands" before its number, not after
+			else
+				sprintf(ph_thousands,"%s%s%c",ph_digits,ph_10T,phonPAUSE_NOLINK);
+
+			hundreds %= 10;
+			if(hundreds == 0)
+				ph_100[0] = 0;
+			suppress_null = 1;
+		}
+
+		ph_digits[0] = 0;
+		if(hundreds > 0)
+		{
+			if((tr->langopts.numbers & 0x100000) && (prev_thousands || (ph_thousands[0] != 0)))
+			{
+				Lookup(tr, "_0and", ph_thousand_and);
+			}
+
+			suppress_null = 1;
+
+			found = 0;
+			if((value % 1000) == 100)
+			{
+				// is there a special pronunciation for exactly 100 ?
+				found = Lookup(tr, "_1C0", ph_digits);
+			}
+			if(!found)
+			{
+				sprintf(string,"_%dC",hundreds);
+				found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
+			}
+
+			if(found)
+			{
+				ph_100[0] = 0;
+			}
+			else
+			{
+				if((hundreds > 1) || ((tr->langopts.numbers & 0x400) == 0))
+				{
+					LookupNum2(tr, hundreds, 0, ph_digits);
+				}
+			}
+		}
+
+		sprintf(buf1,"%s%s%s%s",ph_thousands,ph_thousand_and,ph_digits,ph_100);
+	}
+
+	ph_hundred_and[0] = 0;
+	if((tr->langopts.numbers & 0x40) && ((value % 100) != 0))
+	{
+		if((value > 100) || (prev_thousands && (thousandplex==0)))
+		{
+			Lookup(tr, "_0and", ph_hundred_and);
+		}
+	}
+
+
+	buf2[0] = 0;
+	value = value % 100;
+
+	if(value == 0)
+	{
+		if(suppress_null == 0)
+			Lookup(tr, "_0", buf2);
+	}
+	else
+	{
+		x = 0;
+		if(thousandplex==0)
+			x = 1;   // allow "eins" for 1 rather than "ein"
+		else
+		{
+			if(tr->langopts.numbers2 & (1 << thousandplex))
+				x = 4;   // use variant (feminine) for before thousands and millions
+		}
+
+		if(LookupNum2(tr, value, x, buf2) != 0)
+		{
+			if(tr->langopts.numbers & 0x80)
+				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
+		}
+	}
+
+	sprintf(ph_out,"%s%s%s",buf1,ph_hundred_and,buf2);
+
+	return(0);
+}  // end of LookupNum3
+
+
+
+static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, int wflags)
+{//====================================================================================================
 //  Number translation with various options
 // the "word" may be up to 4 digits
 // "words" of 3 digits may be preceded by another number "word" for thousands or millions
@@ -1180,12 +1180,12 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	ph_buf2[0] = 0;
 
 	// is there a previous thousands part (as a previous "word") ?
-	if((n_digits == 3) && (word[-2] == langopts.thousands_sep) && isdigit(word[-3]))
+	if((n_digits == 3) && (word[-2] == tr->langopts.thousands_sep) && isdigit(word[-3]))
 	{
 		prev_thousands = 1;
 	}
 	else
-	if((langopts.thousands_sep == ' ') || (langopts.numbers & 0x1000))
+	if((tr->langopts.thousands_sep == ' ') || (tr->langopts.numbers & 0x1000))
 	{
 		// thousands groups can be separated by spaces
 		if((n_digits == 3) && isdigit(word[-2]))
@@ -1194,7 +1194,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		}
 	}
 
-	if((word[0] == '0') && (prev_thousands == 0) && (word[1] != langopts.decimal_sep))
+	if((word[0] == '0') && (prev_thousands == 0) && (word[1] != tr->langopts.decimal_sep))
 	{
 		if((n_digits == 2) && (word[3] == ':') && isdigit(word[5]) && isspace(word[7]))
 		{
@@ -1206,10 +1206,10 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		}
 	}
 
-	if((langopts.numbers & 0x1000) && (word[n_digits] == ' '))
+	if((tr->langopts.numbers & 0x1000) && (word[n_digits] == ' '))
 		thousands_inc = 1;
 	else
-	if(word[n_digits] == langopts.thousands_sep)
+	if(word[n_digits] == tr->langopts.thousands_sep)
 		thousands_inc = 2;
 
 	if(thousands_inc > 0)
@@ -1221,7 +1221,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		while(isdigit(word[ix]) && isdigit(word[ix+1]) && isdigit(word[ix+2]))
 		{
 			thousandplex++;
-			if(word[ix+3] == langopts.thousands_sep)
+			if(word[ix+3] == tr->langopts.thousands_sep)
 				ix += (3 + thousands_inc);
 			else
 				break;
@@ -1233,10 +1233,10 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		suppress_null = 1;
 	}
 
-	if((word[n_digits] == langopts.decimal_sep) && isdigit(word[n_digits+1]))
+	if((word[n_digits] == tr->langopts.decimal_sep) && isdigit(word[n_digits+1]))
 	{
 		// this "word" ends with a decimal point
-		Lookup("_dpt",ph_append);
+		Lookup(tr, "_dpt", ph_append);
 		decimal_point = 1;
 	}
 	else
@@ -1246,7 +1246,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		{
 			if((thousandplex > 0) && (value < 1000))
 			{
-				if((suppress_null == 0) && (LookupThousands(value,thousandplex,ph_append)))
+				if((suppress_null == 0) && (LookupThousands(tr,value,thousandplex,ph_append)))
 				{
 					// found an exact match for N thousand
 					value = 0;
@@ -1259,21 +1259,21 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	if((thousandplex > 1) && prev_thousands && (prev_value > 0))
 	{
 		sprintf(string,"_%s%d",M_Variant(value),thousandplex+1);
-		if(Lookup(string,buf1)==0)
+		if(Lookup(tr, string, buf1)==0)
 		{
 			// speak this thousandplex if there was no word for the previous thousandplex
 			sprintf(string,"_0M%d",thousandplex);
-			Lookup(string,ph_append);
+			Lookup(tr, string, ph_append);
 		}
 	}
 
 	if((ph_append[0] == 0) && (word[n_digits] == '.') && (thousandplex == 0))
 	{
-		Lookup("_.",ph_append);
+		Lookup(tr, "_.", ph_append);
 	}
 
-	LookupNum3(value, ph_buf, suppress_null, thousandplex, prev_thousands);
-	if((thousandplex > 0) && (langopts.numbers2 & 0x200))
+	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands);
+	if((thousandplex > 0) && (tr->langopts.numbers2 & 0x200))
 		sprintf(ph_out,"%s%s%s",ph_append,ph_buf2,ph_buf);  // say "thousands" before its number
 	else
 		sprintf(ph_out,"%s%s%s",ph_buf2,ph_buf,ph_append);
@@ -1290,7 +1290,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		if(decimal_count > 1)
 		{
 			max_decimal_count = 2;
-			switch(langopts.numbers & 0xe000)
+			switch(tr->langopts.numbers & 0xe000)
 			{
 			case 0x8000:
 				max_decimal_count = 5;
@@ -1298,14 +1298,14 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 				// French/Polish decimal fraction
 				while(word[n_digits] == '0')
 				{
-					Lookup("_0",buf1);
+					Lookup(tr, "_0", buf1);
 					strcat(ph_out,buf1);
 					decimal_count--;
 					n_digits++;
 				}
 				if((decimal_count <= max_decimal_count) && isdigit(word[n_digits]))
 				{
-					LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+					LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
 					strcat(ph_out,buf1);
 					n_digits += decimal_count;
 				}
@@ -1315,13 +1315,13 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 				// Italian decimal fractions
 				if((decimal_count < 4) || ((decimal_count==4) && (word[n_digits] != '0')))
 				{
-					LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+					LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
 					strcat(ph_out,buf1);
 					if(word[n_digits]=='0')
 					{
 						// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
 						sprintf(string,"_0Z%d",decimal_count);
-						Lookup(string,buf1);
+						Lookup(tr, string, buf1);
 						strcat(ph_out,buf1);
 					}
 					n_digits += decimal_count;
@@ -1332,7 +1332,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 				// Romanian decimal fractions
 				if((decimal_count <= 4) && (word[n_digits] != '0'))
 				{
-						LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+						LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
 						strcat(ph_out,buf1);
 						n_digits += decimal_count;
 				}
@@ -1343,17 +1343,17 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		while(isdigit(c = word[n_digits]) && (strlen(ph_out) < (N_WORD_PHONEMES - 10)))
 		{
 			value = word[n_digits++] - '0';
-			LookupNum2(value, 1, buf1);
+			LookupNum2(tr, value, 1, buf1);
 			strcat(ph_out,buf1);
 		}
 
 		// something after the decimal part ?
-		if(Lookup("_dpt2",buf1))
+		if(Lookup(tr, "_dpt2", buf1))
 			strcat(ph_out,buf1);
 
-		if((c == langopts.decimal_sep) && isdigit(word[n_digits+1]))
+		if((c == tr->langopts.decimal_sep) && isdigit(word[n_digits+1]))
 		{
-			Lookup("_dpt",buf1);
+			Lookup(tr, "_dpt", buf1);
 			strcat(ph_out,buf1);
 		}
 		else
@@ -1367,9 +1367,9 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		char *p;
 		p = &word[n_digits+1];
 
-		p += utf8_in(&next_char,p,0);
-		if((langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
-			utf8_in(&next_char,p,0);
+		p += utf8_in(&next_char,p);
+		if((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
+			utf8_in(&next_char,p);
 
 		if(!iswalpha(next_char))
 			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
@@ -1382,13 +1382,13 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 
 
 
-int Translator::TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags)
-{//=======================================================================================
+int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, int wflags)
+{//============================================================================================
 	if(option_sayas == SAYAS_DIGITS1)
 		return(0);  // speak digits individually
 
-	if((langopts.numbers & 0x3) == 1)
-		return(TranslateNumber_1(word1,ph_out,flags,wflags));
+	if((tr->langopts.numbers & 0x3) == 1)
+		return(TranslateNumber_1(tr, word1, ph_out, flags, wflags));
 
 	return(0);
 }  // end of TranslateNumber

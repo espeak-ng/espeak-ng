@@ -90,6 +90,7 @@ const char *WordToString(unsigned int word)
 }
 
 
+
 void SynthesizeInit()
 {//==================
 	last_pitch_cmd = 0;
@@ -477,8 +478,8 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 }
 
 
-int VowelCloseness(frame_t *fr)
-{//============================
+static int VowelCloseness(frame_t *fr)
+{//===================================
 // return a value 0-3 depending on the vowel's f1
 	int f1;
 
@@ -1108,10 +1109,6 @@ static void DoEmbedded(int &embix, int sourceix)
 }
 
 
-void SwitchDictionary()
-{//====================
-}
-
 
 int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {//============================================================
@@ -1599,12 +1596,12 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
-	p_text = translator->TranslateClause(f_text,p_text,&clause_tone,&voice_change);
+	p_text = TranslateClause(translator, f_text, p_text, &clause_tone, &voice_change);
 
-	translator->CalcPitches(clause_tone);
-	translator->CalcLengths();
+	CalcPitches(translator, clause_tone);
+	CalcLengths(translator);
 
-	translator->GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
+	GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
 	if(option_phonemes > 0)
 	{
 		fprintf(f_trans,"%s\n",translator->phon_out);

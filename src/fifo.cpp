@@ -269,7 +269,7 @@ int fifo_is_busy ()
 
 //<sleep_until_start_request_or_inactivity
 
-int sleep_until_start_request_or_inactivity()
+static int sleep_until_start_request_or_inactivity()
 {
   SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > ENTER");
   int a_start_is_required=0;

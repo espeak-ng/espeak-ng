@@ -43,7 +43,6 @@ extern wxString path_phsource;
 
 extern char *spects_data;
 extern int n_phoneme_tables;
-extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 
 
 // size of the vowelchart png

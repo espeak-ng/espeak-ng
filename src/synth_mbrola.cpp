@@ -106,8 +106,8 @@ void unload_MBR()
 #endif   // USE_MBROLA_LIB
 
 
-MBROLA_TAB *mbrola_tab = NULL;
-int mbrola_control = 0;
+static MBROLA_TAB *mbrola_tab = NULL;
+static int mbrola_control = 0;
 
 
 
@@ -200,8 +200,8 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 }  // end of LoadMbrolaTable
 
 
-int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)
-{//==============================================================================================================
+static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev, PHONEME_TAB *ph_next, int *name2, int *split, int *control)
+{//==========================================================================================================================================
 // Look up a phoneme in the mbrola phoneme name translation table
 // It may give none, 1, or 2 mbrola phonemes
 	int mnem = ph->mnemonic;
@@ -431,8 +431,8 @@ static void MbrolaEmbedded(int &embix, int sourceix)
 
 
 #ifdef PLATFORM_WINDOWS
-int MbrolaSynth(char *p_mbrola)
-{//============================
+static int MbrolaSynth(char *p_mbrola)
+{//===================================
 // p_mbrola is a string of mbrola pho lines - Windows
 	int len;
 	int finished;
@@ -472,8 +472,8 @@ int MbrolaSynth(char *p_mbrola)
 }  // end of SynthMbrola
 #else
 
-int MbrolaSynth(char *p_mbrola)
-{//============================
+static int MbrolaSynth(char *p_mbrola)
+{//===================================
 // p_mbrola is a string of mbrola pho lines - Linux
 
 // This is wrong
@@ -737,9 +737,9 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 
 #ifdef TEST_MBROLA
 
-PHONEME_LIST mbrola_phlist;
-int mbrola_n_ph;
-int mbrola_phix;
+static PHONEME_LIST mbrola_phlist;
+static int mbrola_n_ph;
+static int mbrola_phix;
 
 
 int MbrolaFill(int fill_zeros)

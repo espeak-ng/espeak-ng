@@ -33,7 +33,6 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-#include "tr_languages.h"
 
 
 
@@ -52,6 +51,123 @@
 #define OFFSET_KANNADA 0xc80
 #define OFFSET_MALAYALAM 0xd00
 #define OFFSET_KOREAN 0x1100
+
+static void Translator_Russian(Translator *tr);
+
+static void SetLetterVowel(Translator *tr, int c)
+{//==============================================
+	tr->letter_bits[c] = (tr->letter_bits[c] & 0x40) | 0x81;  // keep value for group 6 (front vowels e,i,y)
+}
+
+static void ResetLetterBits(Translator *tr, int groups)
+{//====================================================
+// Clear all the specified groups
+	unsigned int ix;
+	unsigned int mask;
+
+	mask = ~groups;
+
+	for(ix=0; ix<sizeof(tr->letter_bits); ix++)
+	{
+		tr->letter_bits[ix] &= mask;
+	}
+}
+
+static void SetLetterBits(Translator *tr, int group, const char *string)
+{//=====================================================================
+	int bits;
+	unsigned char c;
+	
+	bits = (1L << group);
+	while((c = *string++) != 0)
+		tr->letter_bits[c] |= bits;
+}
+
+static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
+{//===========================================================================
+	int bits;
+	int ix;
+
+	bits = (1L << group);
+	for(ix=first; ix<=last; ix++)
+	{
+		tr->letter_bits[ix] |= bits;
+	}
+}
+
+
+static Translator* NewTranslator(void)
+{//===================================
+	Translator *tr;
+	int ix;
+	static const unsigned char stress_amps2[] = {17,17, 20,20, 20,22, 22,20 };
+	static const short stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
+	static const wchar_t empty_wstring[1] = {0};
+	static const wchar_t punct_in_word[2] = {'\'', 0};  // allow hyphen within words
+
+	tr = (Translator *)Alloc(sizeof(Translator));
+	if(tr == NULL)
+		return(NULL);
+
+	tr->charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
+	dictionary_name[0] = 0;
+	tr->dict_condition=0;
+	tr->data_dictrules = NULL;     // language_1   translation rules file
+	tr->data_dictlist = NULL;      // language_2   dictionary lookup file
+
+	tr->transpose_offset = 0;
+
+	// only need lower case
+	tr->letter_bits_offset = 0;
+	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+	memset(tr->letter_groups,0,sizeof(tr->letter_groups));
+
+	// 0-5 sets of characters matched by A B C E F G in pronunciation rules
+	// these may be set differently for different languages
+	SetLetterBits(tr,0,"aeiou");  // A  vowels, except y
+	SetLetterBits(tr,1,"bcdfgjklmnpqstvxz");      // B  hard consonants, excluding h,r,w
+	SetLetterBits(tr,2,"bcdfghjklmnpqrstvwxz");  // C  all consonants
+	SetLetterBits(tr,3,"hlmnr");                 // H  'soft' consonants
+	SetLetterBits(tr,4,"cfhkpqstx");             // F  voiceless consonants
+	SetLetterBits(tr,5,"bdgjlmnrvwyz");   // G voiced
+	SetLetterBits(tr,6,"eiy");   // Letter group Y, front vowels
+	SetLetterBits(tr,7,"aeiouy");  // vowels, including y
+
+
+	tr->char_plus_apostrophe = empty_wstring;
+	tr->punct_within_word = punct_in_word;
+
+	for(ix=0; ix<8; ix++)
+	{
+		tr->stress_amps[ix] = stress_amps2[ix];
+		tr->stress_amps_r[ix] = stress_amps2[ix] - 1;
+		tr->stress_lengths[ix] = stress_lengths2[ix];
+	}
+	memset(&(tr->langopts),0,sizeof(tr->langopts));
+
+	tr->langopts.stress_rule = 2;
+	tr->langopts.unstressed_wd1 = 1;
+	tr->langopts.unstressed_wd2 = 3;
+	tr->langopts.param[LOPT_SONORANT_MIN] = 95;
+	tr->langopts.param[LOPT_MAXAMP_EOC] = 19;
+	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 's';    // don't count this character at start of word
+	tr->langopts.max_initial_consonants = 3;
+	tr->langopts.replace_chars = NULL;
+
+	SetLengthMods(tr,201);
+//	tr->langopts.length_mods = length_mods_en;
+//	tr->langopts.length_mods0 = length_mods_en0;
+
+	tr->langopts.long_stop = 100;
+
+	tr->langopts.max_roman = 49;
+	tr->langopts.thousands_sep = ',';
+	tr->langopts.decimal_sep = '.';
+
+	memcpy(tr->punct_to_tone, punctuation_to_tone, sizeof(tr->punct_to_tone));
+
+	return(tr);
+}
 
 
 static const unsigned int replace_cyrillic_latin[] = 
@@ -130,13 +246,13 @@ Translator *SelectTranslator(const char *name)
 	while(*name != 0)
 		name2 = (name2 << 8) + *name++;
 
+	tr = NewTranslator();
 
 	switch(name2)
 	{
 	case L('a','f'):
 		{
 			static const short stress_lengths_af[8] = {170,140, 220,220,  0, 0, 250,270};
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_af,NULL);
 
 			tr->langopts.stress_rule = 0;
@@ -155,7 +271,6 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_bn[8] = {180, 180,  210, 210,  0, 0,  230, 240};
 			static const unsigned char stress_amps_bn[8] = {18,18, 18,18, 20,20, 22,22 };
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_bn,stress_amps_bn);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
@@ -175,7 +290,6 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_cy[8] = {170,220, 180,180, 0, 0, 250,270};
 			static const unsigned char stress_amps_cy[8] = {17,15, 18,18, 0,0, 22,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_cy,stress_amps_cy);
 
 			tr->charset_a0 = charsets[14];   // ISO-8859-14
@@ -199,7 +313,6 @@ Translator *SelectTranslator(const char *name)
 	case L('d','a'):  // Danish
 		{
 			static const short stress_lengths_da[8] = {160,140, 200,200, 0,0, 220,210};
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_da,NULL);
 
 			tr->langopts.stress_rule = 0;
@@ -212,7 +325,6 @@ Translator *SelectTranslator(const char *name)
 	case L('d','e'):
 		{
 			static const short stress_lengths_de[8] = {150,130, 190,190,  0, 0, 260,275};
-			tr = new Translator();
 			tr->langopts.stress_rule = 0;
 			tr->langopts.word_gap = 0x8;   // don't use linking phonemes
 			tr->langopts.vowel_pause = 0x30;
@@ -225,7 +337,14 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('e','n'):
-		tr = new Translator_English();
+		{
+			static const short stress_lengths_en[8] = {182,140, 220,220, 0,0, 248,275};
+			SetupTranslator(tr,stress_lengths_en,NULL);
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.numbers = 0x841 + NUM_ROMAN;
+			tr->langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
+		}
 		break;
 
 	case L('e','l'):   // Greek
@@ -241,7 +360,6 @@ Translator *SelectTranslator(const char *name)
 			static const char el_consonants[]={0x32,0x33,0x34,0x36,0x38,0x3a,0x3b,0x3c,0x3d,0x3e,0x40,0x41,0x42,0x43,0x44,0x46,0x47,0x48,0};
 			static const wchar_t el_char_apostrophe[] = {0x3c3,0};  // σ
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_el,stress_amps_el);
 
 			tr->charset_a0 = charsets[7];   // ISO-8859-7
@@ -278,7 +396,6 @@ Translator *SelectTranslator(const char *name)
 			static const unsigned char stress_amps_eo[] = {16,14, 20,20, 20,22, 22,21 };
 			static const wchar_t eo_char_apostrophe[2] = {'l',0};
 		
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_eo,stress_amps_eo);
 
 			tr->charset_a0 = charsets[3];  // ISO-8859-3
@@ -303,7 +420,6 @@ Translator *SelectTranslator(const char *name)
 			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,20, 20,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 			static const wchar_t ca_punct_within_word[] = {'\'',0xb7,0};   // ca: allow middle-dot within word
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_es,stress_amps_es);
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
@@ -332,7 +448,6 @@ Translator *SelectTranslator(const char *name)
 			static const unsigned char stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,22 };
 			static const short stress_lengths_fi[8] = {150,180, 200,200, 0,0, 210,250};
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
 
 			tr->langopts.stress_rule = 0;
@@ -353,7 +468,6 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 240};
 			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 22,21 };
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = 3;      // stress on final syllable
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
@@ -367,8 +481,6 @@ Translator *SelectTranslator(const char *name)
 #ifdef deleted
 	case L('g','a'):    // Irish Gaelic
 		{
-			tr = new Translator();
-
 			tr->langopts.stress_rule = 1;
 		}
 		break;
@@ -380,7 +492,6 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,22, 22,21 };
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hi,stress_amps_hi);
 			tr->charset_a0 = charsets[19];   // ISCII
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
@@ -402,8 +513,6 @@ Translator *SelectTranslator(const char *name)
 			static const unsigned char stress_amps_hr[8] = {17,17, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_hr[8] = {180,160, 200,200, 0,0, 220,230};
 			static const short stress_lengths_sr[8] = {160,150, 200,200, 0,0, 250,260};
-
-			tr = new Translator();
 
 			if(name2 == L('s','r'))
 				SetupTranslator(tr,stress_lengths_sr,stress_amps_hr);
@@ -433,7 +542,6 @@ Translator *SelectTranslator(const char *name)
 			static const unsigned char stress_amps_hu[8] = {17,17, 19,19, 20,22, 22,21 };
 			static const short stress_lengths_hu[8] = {185,195, 195,190, 0,0, 210,220};
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hu,stress_amps_hu);
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 
@@ -458,7 +566,7 @@ SetLengthMods(tr,3);  // all equal
 			static const char hy_vowels[] = {0x31, 0x35, 0x37, 0x38, 0x3b, 0x48, 0x55, 0};
 			static const char hy_consonants[] = {0x32,0x33,0x34,0x36,0x39,0x3a,0x3c,0x3d,0x3e,0x3f,
 				0x40,0x41,0x42,0x43,0x44,0x45,0x46,0x47,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_hy,NULL);
 			tr->langopts.stress_rule = 3;  // default stress on final syllable
 
@@ -475,7 +583,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const short stress_lengths_id[8] = {160, 200,  180, 180,  0, 0,  220, 240};
 			static const unsigned char stress_amps_id[8] = {16,18, 18,18, 20,22, 22,21 };
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_id,stress_amps_id);
 			tr->langopts.stress_rule = 2;
 			tr->langopts.numbers = 0x1009 + NUM_ROMAN;
@@ -489,7 +597,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_is[8] = {180,160, 200,200, 0,0, 240,250};
 			static const wchar_t is_lettergroup_B[] = {'c','f','h','k','p','t','x',0xfe,0};  // voiceless conants, including 'þ'  ?? 's'
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_is,NULL);
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x10;
@@ -511,7 +618,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_it[8] = {150, 140,  170, 170,  0, 0,  300, 330};
 			static const unsigned char stress_amps_it[8] = {15,14, 19,19, 20,22, 22,20 };
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_it,stress_amps_it);
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
@@ -528,16 +634,11 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
-	case L('j','a'):  // TEST
-			tr = new Translator();
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
-		break;
-
 	case L_jbo:   // Lojban
 		{
 			static const short stress_lengths_jbo[8] = {145,145, 170,160, 0,0, 330,350};
 			static const wchar_t jbo_punct_within_word[] = {'.',',','\'',0x2c8,0};  // allow period and comma within a word, also stress marker (from LOPT_SYLLABLE_CAPS)
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_jbo,NULL);
 			tr->langopts.stress_rule = 2;
 			tr->langopts.vowel_pause = 0x20c;  // pause before a word which starts with a vowel, or after a word which ends in a consonant
@@ -552,7 +653,6 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const char ko_ivowels[] = {0x63,0x64,0x67,0x68,0x6d,0x72,0x74,0x75,0};  // y and i vowels
 			static const char ko_voiced[] = {0x02,0x05,0x06,0xab,0xaf,0xb7,0xbc,0};  // voiced consonants, l,m,n,N
-			tr = new Translator();
 
 			tr->letter_bits_offset = OFFSET_KOREAN;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
@@ -571,7 +671,6 @@ SetLengthMods(tr,3);  // all equal
 			static const unsigned char stress_amps_ku[8] = {18,18, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_ku[8] = {180,180, 190,180, 0,0, 230,240};
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ku,stress_amps_ku);
 			tr->charset_a0 = charsets[9];   // ISO-8859-9 - Latin5
 
@@ -584,7 +683,6 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('l','a'):  //Latin
 		{
-			tr = new Translator();
 			tr->charset_a0 = charsets[4];   // ISO-8859-4, includes a,e,i,o,u-macron
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x20;
@@ -600,7 +698,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const unsigned char stress_amps_lv[8] = {17,13, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_lv[8] = {180,130, 210,210, 0,0, 210,210};
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_lv,stress_amps_lv);
 
 			tr->langopts.stress_rule = 0;
@@ -618,7 +716,6 @@ SetLengthMods(tr,3);  // all equal
 			static const unsigned char stress_amps_mk[8] = {17,17, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_mk[8] = {180,160, 200,200, 0,0, 220,230};
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_mk,stress_amps_mk);
 			tr->charset_a0 = charsets[5];   // ISO-8859-5
 			tr->letter_groups[0] = vowels_cyrillic;
@@ -633,7 +730,6 @@ SetLengthMods(tr,3);  // all equal
 	case L('n','l'):  // Dutch
 		{
 			static const short stress_lengths_nl[8] = {160,135, 210,210,  0, 0, 260,280};
-			tr = new Translator();
 
 			tr->langopts.stress_rule = 0;
 			tr->langopts.vowel_pause = 1;
@@ -649,9 +745,8 @@ SetLengthMods(tr,3);  // all equal
 	case L('n','o'):  // Norwegian
 		{
 			static const short stress_lengths_no[8] = {160,140, 200,200, 0,0, 220,210};
-			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_no,NULL);
 
+			SetupTranslator(tr,stress_lengths_no,NULL);
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = 0x11849;
@@ -662,9 +757,8 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const unsigned char stress_amps_om[] = {18,15, 20,20, 20,22, 22,22 };
 			static const short stress_lengths_om[8] = {200,200, 200,200, 0,0, 200,200};
-			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 
+			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x16 + 0x80000;
 		}
@@ -675,7 +769,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_pl[8] = {160, 190,  175, 175,  0, 0,  200, 210};
 			static const unsigned char stress_amps_pl[8] = {17,13, 19,19, 20,22, 22,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_pl,stress_amps_pl);
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
@@ -694,7 +787,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const short stress_lengths_pt[8] = {180, 125,  210, 210,  0, 0,  270, 295};
 			static const unsigned char stress_amps_pt[8] = {16,13, 19,19, 20,22, 22,21 };    // 'diminished' is used to mark a quieter, final unstressed syllable
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_pt,stress_amps_pt);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
@@ -712,7 +805,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_ro[8] = {170, 170,  180, 180,  0, 0,  240, 260};
 			static const unsigned char stress_amps_ro[8] = {15,13, 18,18, 20,22, 22,21 };
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ro,stress_amps_ro);
 
 			tr->langopts.stress_rule = 2;
@@ -725,12 +817,11 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('r','u'):  // Russian
-			tr = new Translator_Russian();
+			Translator_Russian(tr);
 		break;
 
 	case L('r','w'):   // Kiryarwanda
 		{
-			tr = new Translator();
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x16;
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
@@ -745,7 +836,6 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_sk,stress_amps_sk);
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 
@@ -777,7 +867,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const short stress_lengths_sq[8] = {150, 150,  180, 180,  0, 0,  300, 300};
 			static const unsigned char stress_amps_sq[8] = {16,12, 16,16, 20,20, 21,19 };
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_sq,stress_amps_sq);
 
 			tr->langopts.stress_rule = 2;
@@ -792,12 +882,10 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const unsigned char stress_amps_sv[] = {16,16, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_sv[8] = {160,135, 220,220, 0,0, 250,280};
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_sv,stress_amps_sv);
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
-//			SetLetterBits(tr,6,"eiyäö");   // soft vowels  NOTE accented letters don't work in SetLetterBits
 			tr->langopts.numbers = 0x1909;
 			tr->langopts.accents = 1;
 		}
@@ -807,8 +895,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			static const short stress_lengths_sw[8] = {160, 170,  200, 200,    0,   0,  320, 340};
 			static const unsigned char stress_amps_sw[] = {16,12, 19,19, 20,22, 22,21 };
-		
-			tr = new Translator();
+
 			SetupTranslator(tr,stress_lengths_sw,stress_amps_sw);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
@@ -829,7 +916,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 			static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
@@ -864,7 +950,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_th[8] = {230,150, 230,230, 230,0, 230,250};
 			static const unsigned char stress_amps_th[] = {22,16, 22,22, 22,22, 22,22 };
 
-			tr = new Translator;
 			SetupTranslator(tr,stress_lengths_th,stress_amps_th);
 
 			tr->langopts.stress_rule = 0;   // stress on final syllable of a "word"
@@ -882,7 +967,6 @@ SetLengthMods(tr,3);  // all equal
 			static const unsigned char stress_amps_tr[8] = {18,18, 20,20, 20,22, 22,21 };
 			static const short stress_lengths_tr[8] = {190,190, 190,190, 0,0, 250,270};
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_tr,stress_amps_tr);
 			tr->charset_a0 = charsets[9];   // ISO-8859-9 - Latin5
 
@@ -912,7 +996,6 @@ SetLengthMods(tr,3);  // all equal
 				0x1b0, 0x1eeb, 0x1ee9, 0x1eed, 0x1eef, 0x1ef1,	// ư
 				0x79, 0x1ef3, 0xfd, 0x1ef7, 0x1ef9, 0x1e, 0 };	// y
 
-			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_vi,stress_amps_vi);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
@@ -933,7 +1016,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_zh[8] = {230,150, 230,230, 230,0, 240,250};  // 1=tone5. end-of-sentence, 6=tone 1&4, 7=tone 2&3
 			static const unsigned char stress_amps_zh[] = {22,16, 22,22, 22,22, 22,22 };
 
-			tr = new Translator;
 			SetupTranslator(tr,stress_lengths_zh,stress_amps_zh);
 
 			tr->langopts.stress_rule = 3;   // stress on final syllable of a "word"
@@ -953,7 +1035,6 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	default:
-		tr = new Translator();
 		break;
 	}
 
@@ -978,8 +1059,8 @@ SetLengthMods(tr,3);  // all equal
 
 
 
-Translator_Russian::Translator_Russian() : Translator()
-{//===================================
+static void Translator_Russian(Translator *tr)
+{//===========================================
 	static const unsigned char stress_amps_ru[] = {16,16, 18,18, 20,24, 24,22 };
 	static const short stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,280};
 
@@ -993,40 +1074,38 @@ Translator_Russian::Translator_Russian() : Translator()
 	static const char ru_voiced[] = {0x11,0x12,0x13,0x14,0x16,0x17,0};    // letter group G  (voiced obstruents)
 	static const char ru_ivowels[] = {0x2c,0x15,0x31,0x18,0x2e,0x2f,0};   // letter group Y  (iotated vowels & soft-sign)
 
-	SetupTranslator(this,stress_lengths_ru,stress_amps_ru);
+	SetupTranslator(tr,stress_lengths_ru,stress_amps_ru);
 
-	charset_a0 = charsets[18];   // KOI8-R
-	transpose_offset = 0x42f;  // convert cyrillic from unicode into range 0x01 to 0x22
-	transpose_min = 0x430;
-	transpose_max = 0x451;
+	tr->charset_a0 = charsets[18];   // KOI8-R
+	tr->transpose_offset = 0x42f;  // convert cyrillic from unicode into range 0x01 to 0x22
+	tr->transpose_min = 0x430;
+	tr->transpose_max = 0x451;
 
-	letter_bits_offset = OFFSET_CYRILLIC;
-	memset(letter_bits,0,sizeof(letter_bits));
-	SetLetterBits(this,0,ru_vowels);
-	SetLetterBits(this,1,ru_soft);
-	SetLetterBits(this,2,ru_consonants);
-	SetLetterBits(this,3,ru_hard);
-	SetLetterBits(this,4,ru_nothard);
-	SetLetterBits(this,5,ru_voiced);
-	SetLetterBits(this,6,ru_ivowels);
-	SetLetterBits(this,7,ru_vowels);
+	tr->letter_bits_offset = OFFSET_CYRILLIC;
+	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+	SetLetterBits(tr,0,ru_vowels);
+	SetLetterBits(tr,1,ru_soft);
+	SetLetterBits(tr,2,ru_consonants);
+	SetLetterBits(tr,3,ru_hard);
+	SetLetterBits(tr,4,ru_nothard);
+	SetLetterBits(tr,5,ru_voiced);
+	SetLetterBits(tr,6,ru_ivowels);
+	SetLetterBits(tr,7,ru_vowels);
 
-	langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
-	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
-	langopts.param[LOPT_REDUCE] = 2;
-	langopts.stress_rule = 5;
-	langopts.stress_flags = 0x0020;  // waas 0x1010
+	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
+	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
+	tr->langopts.param[LOPT_REDUCE] = 2;
+	tr->langopts.stress_rule = 5;
+	tr->langopts.stress_flags = 0x0020;  // waas 0x1010
 
-	langopts.numbers = 0x0409;
-	langopts.numbers2 = 0xc2;  // variant numbers before thousands
-	langopts.phoneme_change = 1;
-	langopts.testing = 2;
+	tr->langopts.numbers = 0x0409;
+	tr->langopts.numbers2 = 0xc2;  // variant numbers before thousands
+	tr->langopts.phoneme_change = 1;
+	tr->langopts.testing = 2;
 
 }  // end of Translator_Russian
 
 
-#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
-#define PY(c1,c2,c3) (c3<<16)+(c2<<8)+c1
 
 /*
 typedef struct {
@@ -1043,8 +1122,8 @@ typedef struct {
 #define RUSSIAN2
 #ifdef RUSSIAN2
 
-int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
-{//==============================================================================================================
+int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
+{//=============================================================================================================
 // Called for each phoneme in the phoneme list, to allow a language to make changes
 // ph     The current phoneme
 
@@ -1136,8 +1215,8 @@ PH('V','#'),PH('I','3'),PH('I','2'),PH('E','3')};
 #else
 
 
-int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
-{//===============================================================================================================
+int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
+{//=============================================================================================================
 // Called for each phoneme in the phoneme list, to allow a language to make changes
 // flags: bit 0=1 last phoneme in a word
 //        bit 1=1 this is the highest stressed vowel in the current word

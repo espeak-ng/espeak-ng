@@ -618,7 +618,7 @@ void sync_espeak_Key(const char *key)
 	int letter;
 	int ix;
 
-	ix = utf8_in(&letter,key,0);
+	ix = utf8_in(&letter,key);
 	if(key[ix] == 0)
 	{
 		// a single character

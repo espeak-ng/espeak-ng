@@ -223,7 +223,7 @@ Converts synthesis parameters to a waveform.
 */
 
 
-int parwave(klatt_frame_ptr frame) 
+static int parwave(klatt_frame_ptr frame) 
 {
 	double temp;
 	double outbypas;
@@ -489,7 +489,7 @@ Initialises all parameters used in parwave, sets resonator internal memory
 to zero.
 */
 
-void reset_resonators()
+static void reset_resonators()
 {
 	int r_ix;
 
@@ -500,7 +500,7 @@ void reset_resonators()
 	}
 }
 
-void parwave_init()
+static void parwave_init()
 {
 	kt_globals.FLPhz = (950 * kt_globals.samrate) / 10000;
 	kt_globals.BLPhz = (630 * kt_globals.samrate) / 10000;

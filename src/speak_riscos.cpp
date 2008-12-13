@@ -568,7 +568,6 @@ void set_say_options(int reg2, int reg3)
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
-	option_harmonic1 = 8;
 	option_multibyte = 0;    // auto
 	option_capitals = 0;
 	option_punctuation = 0;
@@ -868,7 +867,6 @@ void command_line(char *arg_string, int wait)
 	option_phonemes = 0;
 	option_waveout = 0;
 	option_quiet = 0;
-	option_harmonic1 = 8;
 	option_multibyte = 0;   // auto
 	option_capitals = 0;
 	option_punctuation = 0;
@@ -1263,7 +1261,7 @@ void terminate_module(void)
 {
 	RiscosCloseSound();
 	RemoveCallback();
-	delete translator;
+	DeleteTranslator(translator);
 	FreePhData();
 }   /* end of terminate_module */
 

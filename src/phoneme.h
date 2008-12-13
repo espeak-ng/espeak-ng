@@ -151,10 +151,16 @@ extern int n_replace_phonemes;
 extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
 
+#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
+#define PH3(c1,c2,c3) (c3<<16)+(c2<<8)+c1
+#define PhonemeCode2(c1,c2)  PhonemeCode((c2<<8)+c1)
+int LookupPhonemeString(const char *string);
+int PhonemeCode(unsigned int mnem);
 
 char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
-const char *PhonemeTabName(void);
-int LookupPh(const char *string);
+
 extern const char *WordToString(unsigned int word);
 
+extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
+extern int phoneme_tab_number;

@@ -164,11 +164,12 @@ const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,0};
 const char variants_female[N_VOICE_VARIANTS] = {11,12,13,14,0};
 const char *variant_lists[3] = {variants_either, variants_male, variants_female};
 
-voice_t voicedata;
+static voice_t voicedata;
 voice_t *voice = &voicedata;
 
-char *fgets_strip(char *buf, int size, FILE *f_in)
-{//===============================================
+
+static char *fgets_strip(char *buf, int size, FILE *f_in)
+{//======================================================
 // strip trailing spaces, and truncate lines at // comment
 	int len;
 	char *p;
@@ -187,8 +188,8 @@ char *fgets_strip(char *buf, int size, FILE *f_in)
 }
 
 
-void SetToneAdjust(voice_t *voice, int *tone_pts)
-{//==============================================
+static void SetToneAdjust(voice_t *voice, int *tone_pts)
+{//=====================================================
 	int ix;
 	int pt;
 	int y;
@@ -420,7 +421,6 @@ SetToneAdjust(voice,tone_points);
 	if(tone_only == 0)
 	{
 		n_replace_phonemes = 0;
-		option_tone1 = 0;
 		option_quiet = 0;
 		LoadMbrolaTable(NULL,NULL,0);
 	}
@@ -470,11 +470,11 @@ static void PhonemeReplacement(int type, char *p)
 	if((n < 2) || (n_replace_phonemes >= N_REPLACE_PHONEMES))
 		return;
 
-	if((phon = LookupPh(phon_string1)) == 0)
+	if((phon = LookupPhonemeString(phon_string1)) == 0)
 		return;  // not recognised
 
 	replace_phonemes[n_replace_phonemes].old_ph = phon;
-	replace_phonemes[n_replace_phonemes].new_ph = LookupPh(phon_string2);
+	replace_phonemes[n_replace_phonemes].new_ph = LookupPhonemeString(phon_string2);
 	replace_phonemes[n_replace_phonemes++].type = flags;
 }  //  end of PhonemeReplacement
 
@@ -581,7 +581,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	if(!tone_only && (translator != NULL))
 	{
-		delete translator;
+		DeleteTranslator(translator);
 		translator = NULL;
 	}
 
@@ -672,7 +672,7 @@ voice_t *LoadVoice(const char *vname, int control)
 					SelectPhonemeTableName(phonemes_name);
 		
 					if(new_translator != NULL)
-							delete new_translator;
+							DeleteTranslator(new_translator);
 		
 					new_translator = SelectTranslator(translator_name);
 					langopts = &new_translator->langopts;
@@ -704,7 +704,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			sscanf(p,"%s",translator_name);
 
 			if(new_translator != NULL)
-					delete new_translator;
+					DeleteTranslator(new_translator);
 
 			new_translator = SelectTranslator(translator_name);
 			langopts = &new_translator->langopts;
@@ -919,7 +919,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
 		}
 		voice->phoneme_tab_ix = ix;
-		error = new_translator->LoadDictionary(new_dictionary, control & 4);
+		error = LoadDictionary(new_translator, new_dictionary, control & 4);
 		if(dictionary_name[0]==0)
 			return(NULL);   // no dictionary loaded
 
@@ -962,8 +962,8 @@ voice_t *LoadVoice(const char *vname, int control)
 }  //  end of LoadVoice
 
 
-char *ExtractVoiceVariantName(char *vname, int variant_num)
-{//========================================================
+static char *ExtractVoiceVariantName(char *vname, int variant_num)
+{//===============================================================
 // Remove any voice variant suffix (name or number) from a voice name
 // Returns the voice variant name
 
@@ -1453,8 +1453,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 
 
-void GetVoices(const char *path)
-{//=============================
+static void GetVoices(const char *path)
+{//====================================
 	FILE *f_voice;
 	espeak_VOICE *voice_data;
 	int ftype;
