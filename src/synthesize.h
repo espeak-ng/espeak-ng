@@ -297,6 +297,10 @@ void SetEmbedded(int control, int value);
 void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
 
+void Write4Bytes(FILE *f, int value);
+int Read4Bytes(FILE *f);
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
+
 
 extern unsigned char *envelope_data[18];
 extern int formant_rate[];         // max rate of change of each formant

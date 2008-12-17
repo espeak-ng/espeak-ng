@@ -56,7 +56,6 @@ _cir	tSi;@-*konfl'esso
 _dia	djeR'e:zI
 _dot	p'unto||s,ov@-*ask@-*'it:o
 _grv	g@-*'a:ve
-//_grv	atS:'entog@-*'a:ve
 _hac	h'atSek
 _mcn	m'ak@-*on
 _ogo	og'o:nek
@@ -65,38 +64,41 @@ _stk	b'aR*a
 _tld	t'ilde
 
 
-_!   p'untoesklamat'ivo
-_"   viRgolet:e
-_#   kantSellet:o
-_$   dolla:Ro
-_%   peRtS'ento
-_&   _!e:
-_'   ap'OstRofo
-_(   ap'eRtapaR'entezi
-_)   kj,uzapaR'entezi
-_*   asteRisko
-_+   pju
-_,   v'iRgola
-_-   t@-*at:ino
-_.   punto
-_/   slaS
-_:   d,uep'unte
-_;   p'untoev'iRgola
-_<   ap'eRta'angolo
-_=   ugwale
-_>   kj,uza'angolo
-_?   p'untointeRogat'ivo
-_@   ki'otS:ola
-_[   ap'eRtakw2'ad@-*a
-_\   bakslaS
-_]   kj,uzakw2'ad@-*a
-_^   kap:utS:o
-__   'undeRskoRe
-_`   bakp@-*aIm
-_{   ap'eRtag@-*'af:a
-_|   b'aRa
-_}   kj,uzag@-*'af:a
-_~   tilde
+*	asteRisko $max3
+%	pe@-*tS'ento $max3
+.	punto	$max3
+=	ugwale	$max3
++	pju	$max3
+/	slaS	$max3
+\	bakslaS	$max3
+₤       lira
+£       sterl'ina
+&	_e
+@       ki'otS:ola
+©       k'opiraIt
+#	kantSellet:o
+@	ki'otS:ola
+~	tilde
+:	d,uep'unti
+
+_!	p,untoesklamat'ivo
+_"	viRgolet:e
+_'	ap'OstRofo
+_(	ap,eRtapaR'entezi
+_)	kj,uzapaR'entezi
+_,	v'iRgola
+_-	t@-*at:ino
+_;	p,untoev'iRgola
+_<	ap,eRta'angolo
+_>	kj,uza'angolo
+_?	p,untointeRogat'ivo
+_[	ap'eRtakw2'ad@-*a
+_]	kj,uzakw2'ad@-*a
+_^	kap:utS:o
+__	'undeRskoRe
+_`	bakp@-*aIm
+_{	ap,eRtag@-*'af:a
+_}	kj,uzag@-*'af:a
 
 
 
@@ -412,26 +414,66 @@ o       O:  $atend
 
 
 // foreign words
-chat		tSat
+chat		_^_EN
 cliché		kli:Se
-internet	'internet
+internet	_^_EN
 jeans		dZi:nz
 web		wEb
+accelerator	_^_EN
+ace		_^_EN
+aces		_^_EN
 
 
 // exceptions
-aereo        $2
-difficile    $2
-pneumatici   $3
+aereo		$2
+difficile	$2
+pneumatici	$3
 
-nott        nOt: $stem
-tavol       $1   $stem
-vent        vEnt $stem
+nott		nOt: $stem
+tavol		$1   $stem
+vent		vEnt $stem
 
-celsius     tsElsj'us
-conoscerla   $2
-no          nO
-posta       pOsta
+celsius		tsElsj'us
+conoscerla	$2
+no		nO
+posta		pOsta
 principi	$1
-tesser      tess'ER
-uomini       $1
+tesser		tess'ER
+uomini		$1
+
+
+// $alt = use ò or è in the stressed syllable
+// If the final vowel is omitted, then the rule applies to 'a' 'e' 'i' 'o'
+$textmode
+
+abbandonatel	$4
+abbazie		abbazìe
+abbinano	$2
+abbinini	$2
+abbisognino	$3
+abituarcisi	$2
+accalcano	$2
+accalchino	$2
+accantonal	$3
+accatastano	$3
+accatastino	$3
+accavallio	$4
+accenditi	$2
+accertano	$2 $alt
+accertino	$2 $alt
+acclamano	$2
+acclamino	$2
+accolit		$2 $alt
+accomunano	$3
+accomunino	$3
+accorpano	$2 $alt
+accorpino	$2 $alt
+accostarcisi	$3
+accovacciano	$3
+accovaccino	$3
+acefala		$2
+acer		accer	// acer/i/o
+acid		accid	// acida/e
+acidul		$1
+
+

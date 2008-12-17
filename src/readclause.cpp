@@ -654,7 +654,6 @@ static int LoadSoundFile(const char *fname, int index)
 	int  length;
 	char fname_temp[100];
 	char fname2[sizeof(path_home)+13+40];
-	char command[sizeof(fname2)+sizeof(fname2)+40];
 
 	if(fname == NULL)
 	{
@@ -680,6 +679,7 @@ static int LoadSoundFile(const char *fname, int index)
 		int fd_temp;
 		const char *resample;
 		int header[3];
+		char command[sizeof(fname2)+sizeof(fname2)+40];
 
 		fseek(f,20,SEEK_SET);
 		for(ix=0; ix<3; ix++)
@@ -1243,9 +1243,10 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 }  // end of attr_prosody_value
 
 
-static int AddNameData(const char *name, int wide)
-{//===============================================
+int AddNameData(const char *name, int wide)
+{//========================================
 // Add the name to the namedata and return its position
+// (Used by the Windows SAPI wrapper)
 	int ix;
 	int len;
 	void *vp;

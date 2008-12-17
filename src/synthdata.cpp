@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.39.39  11.Dec.08";
+const char *version_string = "1.39.42  17.Dec.08";
 const int version_phdata  = 0x013900;
 
 int option_device_number = -1;
@@ -69,8 +69,8 @@ int FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsig
 
 
 
-static int ReadPhFile(char **ptr, const char *fname)
-{//=================================================
+static char *ReadPhFile(void *ptr, const char *fname)
+{//==================================================
 	FILE *f_in;
 	char *p;
 	unsigned int  length;
@@ -82,25 +82,25 @@ static int ReadPhFile(char **ptr, const char *fname)
 	if((f_in = fopen(buf,"rb")) == NULL)
 	{
 		fprintf(stderr,"Can't read data file: '%s'\n",buf);
-		return(1);
+		return(NULL);
 	}
 
-	if(*ptr != NULL)
-		Free(*ptr);
+	if(ptr != NULL)
+		Free(ptr);
 		
 	if((p = Alloc(length)) == NULL)
 	{
 		fclose(f_in);
-		return(-1);
+		return(NULL);
 	}
 	if(fread(p,1,length,f_in) != length)
 	{
 		fclose(f_in);
-		return(-1);
+		return(NULL);
 	}
-	*ptr = p;
+
 	fclose(f_in);
-	return(0);
+	return(p);
 }  //  end of ReadPhFile
 
 
@@ -112,11 +112,11 @@ int LoadPhData()
 	int result = 1;
 	unsigned char *p;
 
-	if(ReadPhFile((char **)(&phoneme_tab_data),"phontab") != 0)
+	if((phoneme_tab_data = (unsigned char *)ReadPhFile((void *)(phoneme_tab_data),"phontab")) == NULL)
 		return(-1);
-	if(ReadPhFile((char **)(&phoneme_index),"phonindex") != 0)
+	if((phoneme_index = (unsigned int *)ReadPhFile((void *)(phoneme_index),"phonindex")) == NULL)
 		return(-1);
-	if(ReadPhFile((char **)(&spects_data),"phondata") != 0)
+	if((spects_data = ReadPhFile((void *)(spects_data),"phondata")) == NULL)
 		return(-1);
    wavefile_data = (unsigned char *)spects_data;
 

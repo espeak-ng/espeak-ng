@@ -642,58 +642,7 @@
              ё          8
 
 // If we find a Latin letter a-z, then translate as English
-.group a
-           a        _^_EN
-.group b
-           b        _^_EN
-.group c
-           c        _^_EN
-.group d
-           d        _^_EN
-.group e
-           e        _^_EN
-.group f
-           f        _^_EN
-.group g
-           g        _^_EN
-.group h
-           h        _^_EN
-.group i
-           i        _^_EN
-.group j
-           j        _^_EN
-.group k
-           k        _^_EN
-.group l
-           l        _^_EN
-.group m
-           m        _^_EN
-.group n
-           n        _^_EN
-.group o
-           o        _^_EN
-.group p
-           p        _^_EN
-.group q
-           q        _^_EN
-.group r
-           r        _^_EN
-.group s
-           s        _^_EN
-.group t
-           t        _^_EN
-.group u
-           u        _^_EN
-.group v
-           v        _^_EN
-.group w
-           w        _^_EN
-.group x
-           x        _^_EN
-.group y
-           y        _^_EN
-.group z
-           z        _^_EN
+// (This is now done automatically by the eSpeak program)
 
 .group
              $          dolar

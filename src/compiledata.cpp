@@ -85,13 +85,10 @@
 
 static const int flags_alternative[] = {phBEFOREVOWEL,phBEFOREVOWELPAUSE,phBEFORENOTVOWEL,phBEFORENOTVOWEL2,phSWITCHVOICING};
 
-extern void Write4Bytes(FILE *f, int value);
-extern int Read4Bytes(FILE *f);
 extern void MakeVowelLists(void);
 extern void FindPhonemesUsed(void);
 extern void DrawEnvelopes();
 extern int LoadEnvelope2(FILE *f, const char *fname);
-extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname, int flags);
 
 static int markers_used[8];
 
@@ -109,7 +106,7 @@ typedef struct {
 int n_envelopes = 0;
 char envelope_paths[N_ENVELOPES][80];
 unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
-FILE *f_phdata;
+static FILE *f_phdata;
 
 
 
@@ -343,8 +340,8 @@ static FILE *fopen_log(FILE *f_log, const char *fname,const char *access)
 }
 
 
-int Hash8(const char *string)
-//===========================
+static int Hash8(const char *string)
+//==================================
 /* Generate a hash code from the specified string */
 {
    int  c;
@@ -807,8 +804,6 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 	int resample_wav = 0;
 	char fname_temp[100];
 	int scale_factor=0;
-	int fd_temp;
-	char command[sizeof(path_source)+200];
 
 	fseek(f,24,SEEK_SET);
 	sr1 = Read4Bytes(f);
@@ -828,26 +823,30 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 			Error("Not mono: ",fname);
 		}
 #else
-		strcpy(fname_temp,"/tmp/espeakXXXXXX");
-		if((fd_temp = mkstemp(fname_temp)) >= 0)
 		{
-			close(fd_temp);
-			sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate,fname_temp);
-			if(system(command) < 0)
+			int fd_temp;
+			char command[sizeof(path_source)+200];
+			strcpy(fname_temp,"/tmp/espeakXXXXXX");
+			if((fd_temp = mkstemp(fname_temp)) >= 0)
 			{
-				Error("Failed to resample: ",command);
+				close(fd_temp);
+				sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate,fname_temp);
+				if(system(command) < 0)
+				{
+					Error("Failed to resample: ",command);
+					return(0);
+				}
+			}
+	
+			f = fopen(fname_temp,"rb");
+			if(f == NULL)
+			{
+				Error("Can't read temp file: ",fname_temp);
 				return(0);
 			}
+			resample_wav = 1;
+			fseek(f,40,SEEK_SET);  // skip past the WAV header, up to before "data length"
 		}
-
-		f = fopen(fname_temp,"rb");
-		if(f == NULL)
-		{
-			Error("Can't read temp file: ",fname_temp);
-			return(0);
-		}
-		resample_wav = 1;
-		fseek(f,40,SEEK_SET);  // skip past the WAV header, up to before "data length"
 #endif
 	}
 

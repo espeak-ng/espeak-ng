@@ -378,6 +378,7 @@ typedef struct {
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
+	const char *ascii_language;  // switch to this language for Latin characters
 } LANGUAGE_OPTIONS;
 
 
@@ -517,7 +518,6 @@ extern int (* uri_callback)(int, const char *, const char *);
 extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
-int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
 void LoadConfig(void);
 int TransposeAlphabet(char *text, int offset, int min, int max);
 int utf8_in(int *c, const char *buf);

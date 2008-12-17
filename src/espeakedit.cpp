@@ -619,9 +619,9 @@ const long style):
 
 MyChild::~MyChild(void)
 {
-	wxWindow *w;
 	canvas = NULL;
 #ifndef PLATFORM_WINDOWS
+	wxWindow *w;
 	// bug in wxMDIChildFrame, we need to explicitly remove the ChildFrame from the ClientWindow
 	w = myframe->GetClientWindow();
 	w->RemoveChild(this);

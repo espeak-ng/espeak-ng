@@ -339,6 +339,7 @@ lbs	paUndz
 LBS	$abbrev
 ltd	lImI2tI2d
 mc	m@k  $alt2   // combine with the following word
+ny	$abbrev
 oem	$abbrev
 ok	$abbrev
 omg	$abbrev
@@ -357,6 +358,7 @@ url	$abbrev
 usa	$abbrev
 utc     $abbrev
 u.s     ju:'Es
+VI      $abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
 xxx	$abbrev		// not roman 30
 xy	$abbrev
@@ -370,7 +372,7 @@ st	$only
 mr	mIst3     $dot
 mrs	mIsI2z    $dot
 //ms               mIz         $dot
-dr	$dot
+dr	d0kt3	$dot
 lt	$dot
 prof	$dot
 rev	$dot
@@ -789,6 +791,7 @@ commence         k@mEns
 commend          k@mEnd
 comment          k0mEnt
 commentary       k0m@ntrI
+commie           k0mI
 committee        k@mItI
 communique       k@mju:nI2keI
 community        k@mju:nI2tI
@@ -1478,6 +1481,7 @@ neglect          nI2glEkt
 neon             ni:0n
 nepenthe         nI2pEnTI
 nescience        nEsI@ns
+nicety           naIs@tI
 niche            ni:S
 noah             noUV
 nobly            noUblI       $verbf
@@ -1894,6 +1898,7 @@ shrilly          SrIllI       $verbf
 sibelius         sI2beIli@s
 sierra           sI'e@r@
 signage          saInI2dZ
+signer           saIn3
 sikh             si:k
 silhouette       sI2lUw'Et
 silo             saIloU
@@ -1938,6 +1943,7 @@ squirrel         skwIr@L
 standby          standbaI
 stagnate                       $2
 stampede          $2
+stiletto         stI2lEtoU
 strychnine       str'Ikni:n
 sterile          stEraIl
 stomata          stoUm@t@
@@ -2788,10 +2794,9 @@ might            ,maIt          $verbf $strend2 $only
 (might have)     maItha2v       $pastf $u1+
 (might have to)  ,maIth'avt@5   $verbf $atend
 
-have             %hav           $pastf $only
+have             %hav           $pastf $only $strend2
 haves            havz
 (have been)      %hav%bIn       $pastf
-(have to)        havtU          $atend
 has              %ha2z          $pastf $only
 has              haz            $only $atend
 (has been)       %haz%bIn       $pastf
@@ -2968,6 +2973,7 @@ that             %Dat          $nounf $strend2 $verbsf
 these            %Di:z         $nounf $strend2 $only
 those            %DoUz         $nounf $strend2 $only
 there            %De@          $strend2 $only
+(there be)       De@b'i:
 
 than             %Dan          $only
 (than a)         ,Dan@         $nounf
@@ -3036,6 +3042,7 @@ like             laIk          $strend2
 ?3 commentary   k0m@ntErI
 ?3 current	k'3@nt
 ?3 depot        di:poU
+?3 detail       $2
 ?3 dialog	daI@lO:g
 ?3 envelope	A:nv@loUp
 ?3 err		e@

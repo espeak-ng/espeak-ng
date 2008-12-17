@@ -496,7 +496,7 @@ void Lexicon_Ru()
 	char fname[sizeof(path_dsource)+20];
 
 	// KOI8-R codes for Russian vowels
-	static char vowels[] = {0xa3,0xc0,0xc1,0xc5,0xc9,0xcf,0xd1,0xd5,0xd9,0xdc,0};
+	static unsigned char vowels[] = {0xa3,0xc0,0xc1,0xc5,0xc9,0xcf,0xd1,0xd5,0xd9,0xdc,0};
 
 	typedef struct {
 		const char *suffix;
@@ -617,7 +617,7 @@ p_unicode = unicode;
 				ru_stress = vcount;
 				break;
 			}
-			if(strchr(vowels,c) != NULL)
+			if(strchr((char *)vowels,c) != NULL)
 			{
 				vcount++;
 			}
@@ -1163,6 +1163,7 @@ void Test2()
 
 
 const char* text1 = "Hello world. Testing.";
+extern void TestCompile2(void);
 
 void TestTest(int control)
 {//=======================
@@ -1177,7 +1178,7 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
-
+TestCompile2();
 return;
 
 if(control==2)

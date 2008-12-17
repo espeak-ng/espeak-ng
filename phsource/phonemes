@@ -1351,7 +1351,7 @@ phonemetable ne hi
 include ph_nepali
 
 phonemetable hy base
-include ph_armenian_west
+include ph_armenian
 
 phonemetable om base
 include ph_oromo

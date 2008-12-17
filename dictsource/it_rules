@@ -3,6 +3,8 @@
 
 // letter groups
 // A  any vowel
+// C  any consonant
+// K  not a vowel (i.e. consonant or end-of-word)
 // Y  front vowels: e i (& accents)
 .L01 a à o ò ó u ù
 
@@ -51,7 +53,13 @@
 .group e
 		e	e:
 		e (CK	e
+		e (T	E:   // The word has $alt in it_list
+		e (CKT	E    // $alt
 		ei	ej (K
+
+		e (r	E:   // ?? [E] before 'r'
+		e (rK	E
+		e (rsi_N  e
 
 	&)	e (_S1q  e     // lookup it_list without suffix
 //	@)	e (ce_	=e
@@ -167,7 +175,13 @@
 .group o
 		o	o:
 		o (CK	o
+		o (T	O:  // $alt
+		o (CKT	O   // $alt
 		oi	oI (K
+
+		o (r	O:  // ?? [O] before 'r'
+		o (rK	O
+		o (re_  o
 
 	&)	o (_S1q  o     // lookup it_list without suffix 
 
@@ -223,7 +237,8 @@
 		sch (Y	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
-	@)	sia	s'ia	
+	@)	sia	s'ia
+	@)	s (_S1	s	
 		
 .group t
 		t	t
@@ -275,32 +290,14 @@
 		ù	'u:
 		ù (CK	'u
 
-		%       pertS'ento
 		$	dolla:ro
-		₤       lira
-		£       sterl'ina
-		&	_!e
-		@       ki'otS:ola
-		©       k'opiraIt
-		+	pju
-		.       punto
 		, (D    v'irgola
-		:       d,uep'unti
-		;       p'untoev'irgola
 		!       _p'untoesklamat'ivo_
 	!)	!
 		?	_p'untointeRogat'ivo_
 	?)	?
-		\\	kont@-*ob'aR*a
-		/	b'aR*a
 
         __)  - (_D         meno
         A_)  - (_D        _
         C_)  - (_D        _
-         --) -
-		−	meno
 
-		*	asterisko
-	*)	* (*
-		**           
-	**)	* (_	_::

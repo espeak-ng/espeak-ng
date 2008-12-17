@@ -107,6 +107,7 @@ phoneme o
   formants vowel/o_3
   after l l/lo-10
   before (r) DFT+r/xr
+  reduceto o2 1
 endphoneme
 
 
@@ -359,6 +360,7 @@ endphoneme
 
 phoneme l
   liquid
+  vowelout f1=1  f2=1600 -300 300  f3=100 80 brk
   length 100
   lengthmod 7
   beforenotvowel l/
@@ -566,6 +568,7 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 
 
 

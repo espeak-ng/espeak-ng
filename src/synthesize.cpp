@@ -1479,6 +1479,9 @@ int SynthOnTimer()
 	}
 
 	do {
+		if(WcmdqUsed() > 0)
+			WavegenOpenSound();
+
 		if(Generate(phoneme_list,&n_phoneme_list,1)==0)
 		{
 			SpeakNextClause(NULL,NULL,1);
@@ -1511,7 +1514,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	int clause_tone;
 	char *voice_change;
-	FILE *f_mbrola;
 	static FILE *f_text=NULL;
 	static const void *p_text=NULL;
 
@@ -1629,9 +1631,12 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 #ifdef USE_MBROLA_LIB
 		MbrolaTranslate(phoneme_list,n_phoneme_list,NULL);
 #else
-		if((f_mbrola = f_trans) == stderr)
-			f_mbrola = stdout;
-		MbrolaTranslate(phoneme_list,n_phoneme_list,f_mbrola);
+		{
+			FILE *f_mbrola;
+			if((f_mbrola = f_trans) == stderr)
+				f_mbrola = stdout;
+			MbrolaTranslate(phoneme_list,n_phoneme_list,f_mbrola);
+		}
 #endif
 	}
 

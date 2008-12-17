@@ -779,6 +779,13 @@ int Unpronouncable(Translator *tr, char *word)
 		return(Unpronouncable_en(tr,word));
 	}
 
+	utf8_in(&c,word);
+	if((tr->letter_bits_offset > 0) && (c < 0x241))
+	{
+		// Latin characters for a language with a non-latin alphabet
+		return(0);  // so we can re-translate the word as English
+	}
+
 	if(tr->langopts.param[LOPT_UNPRONOUNCABLE] == 1)
 		return(0);
 
@@ -2523,8 +2530,19 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 
 					if((match1.points == 0) && ((option_sayas & 0x10) == 0))
 					{
-						// no match, try removing the accent and re-translating the word
 						n = utf8_in(&letter,p-1)-1;
+
+						if(tr->letter_bits_offset > 0)
+						{
+							// not a Latin alphabet, switch to the default Latin alphabet language
+							if((letter <= 0x241) && iswalpha(letter))
+							{
+								sprintf(phonemes,"%c%s",phonSWITCH,tr->langopts.ascii_language);
+								return(0);
+							}
+						}
+
+						// no match, try removing the accent and re-translating the word
 						if((letter >= 0xc0) && (letter <= 0x241) && ((ix = remove_accent[letter-0xc0]) != 0))
 						{
 							// within range of the remove_accent table

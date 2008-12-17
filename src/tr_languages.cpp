@@ -153,6 +153,7 @@ static Translator* NewTranslator(void)
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 's';    // don't count this character at start of word
 	tr->langopts.max_initial_consonants = 3;
 	tr->langopts.replace_chars = NULL;
+	tr->langopts.ascii_language = "";    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
@@ -576,6 +577,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
 			tr->langopts.max_initial_consonants = 6;
 			tr->langopts.numbers = 0x409;
+//	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		}
 		break;
 
@@ -652,13 +654,13 @@ SetLengthMods(tr,3);  // all equal
 	case L('k','o'):   // Korean, TEST
 		{
 			static const char ko_ivowels[] = {0x63,0x64,0x67,0x68,0x6d,0x72,0x74,0x75,0};  // y and i vowels
-			static const char ko_voiced[] = {0x02,0x05,0x06,0xab,0xaf,0xb7,0xbc,0};  // voiced consonants, l,m,n,N
+			static const unsigned char ko_voiced[] = {0x02,0x05,0x06,0xab,0xaf,0xb7,0xbc,0};  // voiced consonants, l,m,n,N
 
 			tr->letter_bits_offset = OFFSET_KOREAN;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBitsRange(tr,LETTERGP_A,0x61,0x75);
 			SetLetterBits(tr,LETTERGP_Y,ko_ivowels);
-			SetLetterBits(tr,LETTERGP_G,ko_voiced);
+			SetLetterBits(tr,LETTERGP_G,(const char *)ko_voiced);
 
 			tr->langopts.stress_rule = 8;   // ?? 1st syllable if it is heavy, else 2nd syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
