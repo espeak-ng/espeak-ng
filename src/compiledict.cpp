@@ -1271,7 +1271,16 @@ static void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name
 static int compile_lettergroup(char *input, FILE *f_out)
 {//=====================================================
 	char *p;
+	char *p_start;
 	int group;
+	int ix;
+	int n_items;
+	int length;
+	int max_length = 0;
+
+	#define N_LETTERGP_ITEMS 200
+	char *items[N_LETTERGP_ITEMS];
+	char item_length[N_LETTERGP_ITEMS];
 
 	p = input;
 	if(!isdigit(p[0]) || !isdigit(p[1]))
@@ -1296,18 +1305,38 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	fputc(group + 'A', f_out);
 	letterGroupsDefined[group] = 1;
 
-	for(;;)
+	n_items = 0;
+	while(n_items < N_LETTERGP_ITEMS)
 	{
 		while(isspace2(*p)) p++;
 		if(*p == 0)
 			break;
-		
+
+		items[n_items] = p_start = p;
 		while((*p & 0xff) > ' ')
 		{
-			fputc(*p++, f_out);
+			p++;
 		}
-		fputc(0,f_out);
+		*p++ = 0;
+		length = p - p_start;
+		if(length > max_length)
+			max_length = length;
+		item_length[n_items++] = length;
 	}
+
+	// write out the items, longest first
+	while(max_length > 1)
+	{
+		for(ix=0; ix < n_items; ix++)
+		{
+			if(item_length[ix] == max_length)
+			{
+				fwrite(items[ix],1,max_length,f_out);
+			}
+		}
+		max_length--;
+	}
+
 	fputc(RULE_GROUP_END,f_out);
 
 	return(0);

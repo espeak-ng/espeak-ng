@@ -138,7 +138,6 @@ phoneme d;
 endphoneme
 
 
-
 phoneme ts
   vls alv afr sibilant
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
@@ -146,7 +145,22 @@ phoneme ts
   lengthmod 2
   wave ustop/ts
   before _ ustop/ts_
+  switchvoicing dz
 endphoneme
+
+
+phoneme dz
+  vcd alv afr sibilant
+  vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/xd+ustop/ts
+  before _ d/xd+ustop/ts_
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing ts
+endphoneme
+
 
 
 

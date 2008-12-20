@@ -15,9 +15,19 @@
 // spoken when "speak punctuation" option is on.
 
 _.	pUnkt
+*	StE*n	$max3
+%	p@-*o:ts'Ent	$max3
++	plUs	$max3
+=	glaIC	$max3
+#	nUm3	$max3
+€	OY*o:
+£	paUnd
+&	Unt
+@	kl'ame:*,af@
+~	tIld@
+\ 	bEkslES
+
 _,	kOma
-
-
 _|	paIp
 _:	d'Op@lp,UNkt
 _;	St@-*'ICpUNkt
@@ -63,6 +73,13 @@ _ogo	'o:go:n,e:k
 _rng	k@-*'u:Ze:k
 _stk	S@-*'Egst@-*IC
 _tld	t'Ild@
+
+æ	$accent
+é	$accent
+ç	$accent
+č	$accent
+š	$accent
+ž	$accent
 
 // Not Roman numbers
 v	faU

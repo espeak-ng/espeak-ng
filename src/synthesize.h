@@ -213,6 +213,14 @@ typedef struct {
 	int  control;
 } MBROLA_TAB;
 
+typedef struct {
+	int speed_factor1;
+	int speed_factor2;
+	int speed_factor3;
+	int min_sample_len;
+	int fast_settings[8];
+} SPEED_FACTORS;
+
 
 // phoneme table
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
@@ -304,9 +312,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 
 extern unsigned char *envelope_data[18];
 extern int formant_rate[];         // max rate of change of each formant
-extern int speed_factor1;
-extern int speed_factor2;
-extern int speed_min_sample_len;
+extern SPEED_FACTORS speed;
 
 extern long count_samples;
 extern int outbuf_size;

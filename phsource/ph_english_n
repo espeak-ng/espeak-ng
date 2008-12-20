@@ -1,4 +1,16 @@
 
+phoneme N
+  vcd vel nasal
+  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  length 100
+  formants NULL
+  after _ nn/_nn
+  before _ nn/nn_
+  lengthmod 8            // longer than 'n'
+  linkout g-
+endphoneme
+
+
 
 //*******************************************************************
 // VOWELS

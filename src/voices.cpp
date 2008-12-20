@@ -69,44 +69,46 @@ static int len_path_voices;
 espeak_VOICE voice_selected;
 
 
-
-#define V_NAME       1
-#define V_LANGUAGE   2
-#define V_GENDER     3
-#define V_TRANSLATOR  4
-#define V_PHONEMES    5
-#define V_DICTIONARY  6
+enum {
+	V_NAME = 1,
+	V_LANGUAGE,
+	V_GENDER,
+	V_TRANSLATOR,
+	V_PHONEMES,
+	V_DICTIONARY,
 
 // these affect voice quality, are independent of language
-#define V_FORMANT     7
-#define V_PITCH       8
-#define V_ECHO        9
-#define V_FLUTTER    10
-#define V_ROUGHNESS  11
-#define V_CLARITY    12
-#define V_TONE       13
-#define V_VOICING    14
-#define V_BREATH     15
-#define V_BREATHW    16
+	V_FORMANT,
+	V_PITCH,
+	V_ECHO,
+	V_FLUTTER,
+	V_ROUGHNESS,
+	V_CLARITY,
+	V_TONE,
+	V_VOICING,
+	V_BREATH,
+	V_BREATHW,
 
 // these override defaults set by the translator
-#define V_WORDGAP    17
-#define V_INTONATION 18
-#define V_STRESSLENGTH  19
-#define V_STRESSAMP  20
-#define V_STRESSADD  21
-#define V_DICTRULES   22
-#define V_STRESSRULE  23
-#define V_CHARSET     24
-#define V_NUMBERS     25
-#define V_OPTION      26
+	V_WORDGAP,
+	V_INTONATION,
+	V_STRESSLENGTH,
+	V_STRESSAMP,
+	V_STRESSADD,
+	V_DICTRULES,
+	V_STRESSRULE,
+	V_CHARSET,
+	V_NUMBERS,
+	V_OPTION,
 
-#define V_MBROLA      27
-#define V_KLATT       28
+	V_MBROLA,
+	V_KLATT,
+	V_FAST,
 
 // these need a phoneme table to have been specified
-#define V_REPLACE    29
-#define V_CONSONANTS 30
+	V_REPLACE,
+	V_CONSONANTS
+};
 
 
 
@@ -147,6 +149,7 @@ static keywtab_t keyword_tab[] = {
 	{"mbrola",     V_MBROLA},
 	{"consonants", V_CONSONANTS},
 	{"klatt",      V_KLATT},
+	{"fast_test",  V_FAST},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -385,6 +388,7 @@ void VoiceReset(int tone_only)
 	voice->consonant_amp = 100;
 	voice->consonant_ampv = 100;
 	memset(voice->klatt,0,sizeof(voice->klatt));
+	memset(speed.fast_settings,0,sizeof(speed.fast_settings));
 
 #ifdef PLATFORM_RISCOS
 	voice->roughness = 1;
@@ -878,6 +882,11 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_KLATT:
 			Read8Numbers(p,voice->klatt);
 			voice->klatt[KLATT_Kopen] -= 40;
+			break;
+
+		case V_FAST:
+			Read8Numbers(p,speed.fast_settings);
+			SetSpeed(2);
 			break;
 
 		default:

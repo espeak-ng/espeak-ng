@@ -1,4 +1,4 @@
-﻿//maintainer: Willem van der Walt
+//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -313,6 +313,7 @@ david       _^_EN
 (da vinci)  da||v'intSi
 debora      d@bo@ra
 debussy     d@bus'i:
+de		d@
 (de la)     d@||la $u // de la Rey/de la Bat, etc.
 der         d@r
 derick      dErik
@@ -608,7 +609,6 @@ voor		$u $strend2
 
 
 // misc unstressed
-de		d@
 dat		$u $strend
 te		t@ $verbf
 nie $unstressend $verbextend

@@ -829,7 +829,10 @@ static const char *M_Variant(int value)
 {//====================================
 	// returns M, or perhaps MA for some cases
 	
-	if(((value % 100)>20) || ((value % 100)<10))   // but not teens, 10 to 19
+	if((translator->langopts.numbers2 & 0x100) && (value >= 2) && (value <= 4))
+		return("0MA");  // Czech, Slovak
+	else
+	if(((value % 100) < 10) || ((value % 100) > 20))   // but not teens, 10 to 19
 	{
 		if ((translator->langopts.numbers2 & 0x40) &&
 			((value % 10)>=2) &&

@@ -20,6 +20,7 @@ Dictionary bn_dict
 &    a    a:   a~   e    E    e~   i    
 I    i:   i:~  i~   l-   o    O    o:   
 O~   o~   r-   U    u    u:   u:~  u~   
+V    
 
 *    b    B    bh   c    C    ch   d    
 d.   d.h  dh   g    gh   h    j    J    
@@ -46,10 +47,11 @@ Dictionary cs_dict
 i    i:   l-   o    o:   oU   r-   u    
 u:   
 
-*    ;    b    c    d    dZ   f    g    
-h    j    J    k    l    l^   m    n    
-N    n^   p    r    R    R^   R^/  s    
-S    t    tS   ts   v    x    z    Z    
+*    ;    b    c    d    dZ   dz   f    
+g    h    j    J    k    l    l^   m    
+n    N    n^   p    r    R    R^   R^/  
+s    S    t    tS   ts   v    x    z    
+Z    
 
 
 Dictionary cy_dict
@@ -180,10 +182,10 @@ Dictionary hbs_dict
 E    e    e:   i    I    i:   l-   O    
 o    o:   oU   r*   r-   u    U    u:   
 
-*    ;    b    d    dZ   dZ;  f    g    
-h    j    k    l    l^   m    n    N    
-n^   p    r    R    R2   s    S    t    
-tS   ts   tS;  v    x    z    Z    
+*    ;    b    d    dZ   dz   dZ;  f    
+g    h    j    k    l    l^   m    n    
+N    n^   p    r    R    R2   s    S    
+t    tS   ts   tS;  v    x    z    Z    
 
 
 Dictionary hi_dict
@@ -323,9 +325,9 @@ i:   ie   iu   o    o:   u    u:   ui
 uo   
 
 :    b    c    d    dZ   f    g    h    
-j    J    k    l    l^   m    n    n^   
-p    r    R    R2   s    S    t    tS   
-ts   v    x    z    Z    
+j    J    k    l    l^   m    n    N    
+n^   p    r    R    R2   s    S    t    
+tS   ts   v    z    Z    
 
 
 Dictionary mk_dict
@@ -334,10 +336,10 @@ Dictionary mk_dict
 e    e:   i    I    i:   l-   o    o:   
 oU   r-   u    u:   
 
-*    b    d    dZ   dZ;  f    g    h    
-j    k    k^   l    l^   m    n    N    
-n^   p    r    R    s    S    t    tS   
-ts   tS;  v    x    z    Z    
+*    b    d    dZ   dz   dZ;  f    g    
+h    j    k    k^   l    l^   m    n    
+N    n^   p    r    R    s    S    t    
+tS   ts   tS;  v    x    z    Z    
 
 
 Dictionary ml_dict
@@ -411,10 +413,10 @@ a    E    E#   E~   i    O    O~   u
 y    
 
 :    ;    b    c    C    d    d;   dZ   
-dz;  f    g    h    j    k    l    m    
-n    N    n^   p    r    R    s    S    
-s;   S;   t    t;   tS   ts   ts;  tS;  
-v    w    x    z    Z    Z;   
+dz   dz;  f    g    h    j    k    l    
+m    n    N    n^   p    r    R    s    
+S    s;   S;   t    t;   tS   ts   ts;  
+tS;  v    w    x    z    Z    Z;   
 
 
 Dictionary pt_dict
@@ -476,10 +478,11 @@ Dictionary sk_dict
 l-   l:   o    o:   oU   r-   r:   u    
 u:   
 
-*    ;    b    d    d;   dZ   f    g    
-h    j    k    l    l^   m    n    N    
-n^   p    r    R    R^   R^/  s    S    
-t    t;   tS   ts   v    x    z    Z    
+*    ;    b    d    d;   dZ   dz   f    
+g    h    j    k    l    l^   m    n    
+N    n^   p    r    R    R^   R^/  s    
+S    t    t;   tS   ts   v    x    z    
+Z    
 
 
 Dictionary sq_dict

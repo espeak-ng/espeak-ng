@@ -47,6 +47,8 @@ y	ipsilon
 _z	zet
 ž	Zet
 
+ě	$accent
+
 // accent names
 _lig	l'igat,u:Rov,ane:
 _acu	s_d'l:Zn^om
@@ -72,16 +74,19 @@ _#9	t'ab
 _#32	'medzeRa
 _?A	znak
 
+*	hviezda	$max3
++	plus	$max3
+=	Rovna:sa	$max3
+@	zavina:tS
+&	ampeRsand
+#	kRi:Zik	$max3
+
 _!	vi:kRitSn^i:k
 _"	u:vodzovki
-_#	kRi:Zik
 _$	dola:R
-_&	ampeRsand
 _'	apostRof
 _(	za:tvoRka
 _)	zatvoRit;
-_*	hviezda
-+	plus
 _,	tSiaRka
 _-	poml-tSka
 __	podtSiaRknutie
@@ -90,10 +95,8 @@ _/	lomeno
 _:	dvojbodka
 _;	bodkotSiaRka
 _<	menSi:
-_=	Rovna:sa
 _>	vetSSi:
 _?	ota:zn^ik
-_@	zavina:tS
 _[	hRanata:||za:tvoRka
 _\	opatSne:||lomeno
 _]	hRanata:||zatvoRit;
@@ -179,8 +182,15 @@ _2C   dv'est'o
 _0M1  t;'isi:ts
 _1M1  t;'isi:ts
 _2M1  dv'et;'isi:ts
-_0M2  m'ilio:n
-_0M3  m'iljaRda
+_0M2  m'ilio:nou   // others, 5-9
+_0MA2 m'ilio:ni   // for 2,3,4 million
+_1M2  m'ilio:n    // for 1 million
+_0M3  m'iljaRt
+_0MA3 m'iljaRdi
+_1M3  m'iljaRda
+_0M4  b'ilio:nou
+_0MA4 b'ilio:ni
+_1M4  b'ilio:n
 _dpt  _:tSj,arka_
 
 

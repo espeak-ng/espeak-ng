@@ -50,7 +50,7 @@ _lig	ligAtu:R2A
 _acu	e:lES
 _ac2	kEt:Y:S
 _brv	fe:lkYR2
-//_ced	       // cedilla
+_ced	tse:dillE
 _cir	tsiR2kumflEks
 _dia	tR2e:mA
 //_dot          // dot above	
@@ -343,10 +343,49 @@ ty	ce:
 ly	Ellipsilon
 ny	En^
 
-_.	pont
+ä	$accent
+æ	$accent
+ç	$accent
+ñ	$accent
+ø	$accent
+ß	_^_DE
+
+.	pont		$max3
+*	tS'illAg	$max3
+%	sa:zAle:k	$max3
++	plus		$max3
+=	EJEnlY:Se:g	$max3
+@	kukAts
+&	e:SjEl
+€	EuR2o
+¶	bEkEzde:S
+§	pAR2AgR2AfuS
+~	tildE
+^	hia:n^
+°	fokjEl
 Ft	foR2int
 
-
+_,	vEss2Y:
+_;	pontoSvEss2Y:
+_:	kEt:Y:Spont
+_!	fElkia:lto:
+_?	ke:R2dY:
+_-	kYtY:jEl
+__	Ala:hu:za:S
+_'	ApostR2o:f
+_–	nAJkYtY:
+_—	kviR2tmi:nus
+_"	ide:zY:
+_(	za:R2o:
+_)	za:R2o:
+_[	s'YglEtES||z'a:R2o:
+_]	s'YglEtES||z'a:R2o:
+_{	k'AptSoS||z'a:R2o:
+_}	k'AptSoS||z'a:R2o:
+_#	sa:mjEl
+_…	ha:R2_mASpont
+_•	di:spont
+_\	viss2ApER2
 
 // Main Exceptions List
 //=====================

@@ -51,7 +51,7 @@ _ú	$accent
 _lig	l'ig&t,UR&
 _acu	'akUt
 _ac2	dv'ostr**UkI;'akUt	
-//_brv	
+_brv	br**'Ev   // ??
 _ced	ts'EdIl&
 _cir	ts'iRkUmflEks
 _dia	'uml&Ut
@@ -71,8 +71,12 @@ _tld	t'ild&
    _cap	k'apIt&l      // ?? use English until I find the correct word
 
    ©	'aUtoRsk&||pr*av&
-   %	p'osto
-   +	plus
+   *	zvj'ezdits&	$max3
+   = 	_j'edn&ko	$max3
+   %	p'osto	$max3
+   +	plus	$max3
+   .	totSk&	$max3
+?4 .	tatSk&	$max3
    €	'euRo
 ?4 €	'evr*o
    @	_'at
@@ -82,9 +86,9 @@ _tld	t'ild&
 ?2 !	'uzvItSnIk
    :	dv'ototSk&
 ?4 :	dv'ot&tSk&
-   #	br*'oj_
-   /	kr*'oz_
-   \\	b'EkslES
+   #	br*'oj_	$max3
+   /	kr*'oz_	$max3
+   \	b'EkslES	$max3
    ^	ts'iRkumfleks
    ~	t'ild&
    ¤	v'alut&

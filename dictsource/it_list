@@ -441,7 +441,6 @@ principi	$1
 tesser		tess'ER
 uomini		$1
 
-
 // $alt = use ò or è in the stressed syllable
 // If the final vowel is omitted, then the rule applies to 'a' 'e' 'i' 'o'
 $textmode

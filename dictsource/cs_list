@@ -84,8 +84,6 @@ _"	uvozovki
 _,	tSa:Rka
 _-	mi:nus
 _;	zdR^edn^i:k
-_=	Rovno
-_*	hvjezJitSka
 _?	otazn^i:k
 __	pottr-Zen^i:
 _`	'obRa:ts,ena:||tS'a:Rka
@@ -99,14 +97,20 @@ _<	menSi:
 _>	vjetSi:
 _|	sv'isla:||tS'a:Ra
 _:	dv'ojtetSka
-%	pRotsento
-+	plus
+
+.	tetSka	$max3
+*	hvjezJitSka	$max3
+=	Rovno	$max3
+*	hvjezJitSka	$max3
+%	pRotsento	$max3
++	plus	$max3
+!	vigR^itSn^i:k	$max3
 €	eURo
 @	zavina:tS
 &	ampr-sent
 #	gR^i:Zek
 /	lomeno
-_\	beksleS
+\	beksleS
 
 °	stupen^
 ×	kRa:t

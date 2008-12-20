@@ -46,6 +46,7 @@ z	zet
 â	,ydin'a $atend
 ă	'@ $atend
 î	,ydin'i $atend
+ö	$accent
 
 _??	ka*akt'er
 _cap	maZusk'ul@
@@ -69,7 +70,7 @@ _tld	t'ild@
 
 
 // punctuation and symbols
-_.	punkt
+
 _,	v'irgul@
 _:	do'u@p'unkte
 _;	p'unkt||Siv'irgul@
@@ -93,16 +94,17 @@ _|	b'ar@vertik'al@
 _#9	t'ab
 _#32	sp'atsiU
 
-=	eg'al
-#	dj'ez
-+	plus
+.	punkt		$max3
+*	aste*isk	$max3
+=	eg'al		$max3
+#	dj'ez		$max3
++	plus		$max3
 &	ampersand
 ©	k'apiraIt 
 @	a*'ond
 /	sleS
 €	'eU*o
 °	g@-*ade
-
 
 
 // numeric
@@ -180,6 +182,9 @@ _dpt	_v'irgul@
 _0Z2	s'utimi
 _0Z3	m'iImi
 
+// not Roman numbers
+vi	vi
+vii	viI
 
 // Abbreviations
 //**************

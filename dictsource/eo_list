@@ -61,14 +61,14 @@ _-	dividost@-*eko
 __	subst@-*eko
 ~	tildo
 °	gradoI
-%	p@-*otsento
+%	p@-*otsento	$max3
 @	_tSe_
-&	kaI
-=	egala
+&	_kaI
+=	egala	$max3
 \	deklivo
 /	oblikvo
 |	duktosigno
-*	asteRisko
+*	asteRisko	$max3
 ©       kopiRaIto
 _(	R'ondak@-*'ampo
 _)	f'eRmaRondak@-*'ampo

@@ -136,24 +136,37 @@ void SetSpeed(int control)
 	{
 		// these are used in synthesis file
 		s1 = (x * voice->speedf1)/256;
-		speed_factor1 = (256 * s1)/115;      // full speed adjustment, used for pause length
-if(speed_factor1 < 15)
-	speed_factor1 = 15;
+		speed.speed_factor1 = (256 * s1)/115;      // full speed adjustment, used for pause length
+if(speed.speed_factor1 < 15)
+	speed.speed_factor1 = 15;
 		if(wpm >= 170)
 //			speed_factor2 = 100 + (166*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
-			speed_factor2 = 110 + (150*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+			speed.speed_factor2 = 110 + (150*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
 		else
-			speed_factor2 = 128 + (128*s1)/130;  // = 215 at 170 wpm
+			speed.speed_factor2 = 128 + (128*s1)/130;  // = 215 at 170 wpm
 
 		if(wpm2 > 369)
 		{
 			if(wpm2 > 390)
 				wpm2 = 390;
-			speed_factor2 = faster[wpm2 - 370];
+			speed.speed_factor2 = faster[wpm2 - 370];
 		}
 	}
 
-	speed_min_sample_len = 450;
+	speed.min_sample_len = 450;
+	speed.speed_factor3 = 110;   // controls the effect of FRFLAG_LEN_MOD reduce length change
+
+	if(wpm2 >= 370)
+	{
+		// TESTING
+		// use experimental fast settings if they have been specified in the Voice
+		if(speed.fast_settings[0] > 0)
+			speed.speed_factor1 = speed.fast_settings[0];
+		if(speed.fast_settings[1] > 0)
+			speed.speed_factor2 = speed.fast_settings[1];
+		if(speed.fast_settings[2] > 0)
+			speed.speed_factor3 = speed.fast_settings[2];
+	}
 }  //  end of SetSpeed
 
 
@@ -528,8 +541,7 @@ void CalcLengths(Translator *tr)
 				length_mod *= speed3;
 
 			length_mod = length_mod / 128;
-//			if(length_mod < 9)
-//				length_mod = 9;     // restrict how much lengths can be reduced
+
 			if(length_mod < 8)
 				length_mod = 8;     // restrict how much lengths can be reduced
 

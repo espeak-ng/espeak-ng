@@ -1750,7 +1750,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		}
 		if((attr2 = GetSsmlAttribute(px,"time")) != NULL)
 		{
-			value = (attrnumber(attr2,0,1) * 25) / speed_factor1; // compensate for speaking speed to keep constant pause length
+			value = (attrnumber(attr2,0,1) * 25) / speed.speed_factor1; // compensate for speaking speed to keep constant pause length
 
 			if(terminator == 0)
 				terminator = CLAUSE_NONE;

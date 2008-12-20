@@ -53,10 +53,10 @@ _ô	$accent
 _õ	$accent
 _ú	$accent
 _ü	$accent
+ß	_^_DE
 
 v	ve       // not Roman numbers
 x	Sis#
-
 
 _cap	maI'uskulU
 _?A	l'etR&_
@@ -65,21 +65,31 @@ _#32	esp'asU
 ?1 _#32	Sp'asU
 _#9	tab
 
-_.	p'oNtU
+*	&ste*'iskU	$max3
+=	__igw'&l_	$max3
+.	p'oNtU		$max3
++	maIs#		$max3
+%	pors'eINtU	$max3
+&	_'e_
+@	&x'ob&
+¤	'eU*U
+€	'eU*U
+§	p&*'agRafU
+
+
 _!	,eskl&mas'&U~
 _"	'asp&s#
 
 ?1   _#	k,ardin'al
 ?2   _#	k,ardZin'aU
 _$	s,ifR'&U~
-_%	pors'eINtU
 _&	'e
 ?1   _'	ap'Ostr,ofy
 ?2   _'	&p'OstRofU
 _(	,abRipa*'eINtezy
 _)	f,ES&pa*'eINtezy
 _*	&ste*'iskU
-_+	m'aIs#
+_−	m'enUs
 
 _,	v'irgul&
 _-	'ifeIN
@@ -91,7 +101,6 @@ _<      men'Or
 ?2   _=	igw'aU
 _>	maI'Or
 _?	,iNtex,ogas'&U~
-_@	&x'ob&
 _[	,abRikowS'etSi
 _\	b,ax&,iNvertS'id&
 _]	f,ES&kowS'etSi

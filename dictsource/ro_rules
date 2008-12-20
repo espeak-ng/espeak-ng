@@ -7,7 +7,8 @@
 .replace
  ș	ş
  ț	ţ
-
+ Ș	ş	// because Windows doesn't convert upper-case Ș Ț to lower-case
+ Ț	ţ
 
 .group a
         a        a
@@ -471,19 +472,9 @@
 
         , (D     v'irgul@
 
-        .        punkt
-        . (.     _:
-   \.)  .
-
    __)  - (_D    m'inus
    A_)  - (_D    _
    C_)  - (_D    _
-    --) -
-
-        *        aste*isk
-    *)  * (*
-        **
-   **)  * (_     _::
 
 
 

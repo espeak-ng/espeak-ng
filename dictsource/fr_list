@@ -111,7 +111,6 @@ _#   djEz
 _'   a2postr'Of
 _(   'uvR@-parA~t'Ez
 _)   f'Erm parA~t'Ez
-_*   asterisk:
 _,   virgyl
 _-   tirE
 _.   _|pw%E~
@@ -142,10 +141,11 @@ _§	sEksj'O~
 
 // symbols that are normally spoken when reading text
 @	arobaz
-%	pursA~
-&	e $u $brk
+%	pursA~	$max3
+*	asterisk:	$max3
+&	_e
 _&	_e_komErsj'al
-+	plys
++	plys	$max3
 ~	tilde
 €	@ro
 ¢	sEnt

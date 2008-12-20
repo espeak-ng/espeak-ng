@@ -349,14 +349,15 @@ typedef struct {
 	// bit21= say "roman" after the number, not before
 	int numbers;
 
-#define NUM2_100000     0x100   // numbers for 100,000 and 10,000,000
-#define NUM2_100000a    0x500   // numbers for 100,000 and 1,000,000
+#define NUM2_100000     0x800   // numbers for 100,000 and 10,000,000
+#define NUM2_100000a    0xc00   // numbers for 100,000 and 1,000,000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
-	// bit8=(LANG=hi) special word for 100,000 and 10,000,000
+	// bit8=(LANG=cs,sk) two forms of plural, M or MA
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
    // bit10=(LANG=sw) special word for 100,000 and 1,000,000
+	// bit11=(LANG=hi) special word for 100,000 and 10,000,000
 	int numbers2;
 
 	int max_roman;

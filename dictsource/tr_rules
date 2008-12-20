@@ -321,5 +321,5 @@
 
 .group
         $        dolar
-        ' (Pb    % // split a word at ' and translate the first part separately.
+        ' (Pb     // split a word at ' and translate the first part separately.
 

@@ -365,6 +365,7 @@ endphoneme
 
 phoneme r
   liquid starttype #r endtype #r
+  rhotic
   length 100
   lengthmod 7
   beforenotvowel r/
@@ -1324,6 +1325,12 @@ include ph_kurdish
 phonemetable id base2
 include ph_indonesian
 
+phonemetable sq base
+include ph_albanian
+
+phonemetable hy base
+include ph_armenian
+
 
 
 phonemetable rw base2
@@ -1334,9 +1341,6 @@ include ph_korean
 
 phonemetable da is
 include ph_danish
-
-phonemetable sq base
-include ph_albanian
 
 phonemetable ml hi
 include ph_malayalam
@@ -1349,9 +1353,6 @@ include ph_bengali
 
 phonemetable ne hi
 include ph_nepali
-
-phonemetable hy base
-include ph_armenian
 
 phonemetable om base
 include ph_oromo

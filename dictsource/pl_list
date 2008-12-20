@@ -174,21 +174,21 @@ _{	n,av;as||klamROvy
 _}	pRavy||n,av;as||klamR'Ovy
 _'	ap'OstROf
 
-.	kR'Opka
+.	kR'Opka	$max3
 ~	t'ylda
-=	R'uvna||S;E
-/	slES
-*	gv;'astka
-\	b'EkslES
+=	R'uvna||S;E	$max3
+/	slES	$max3
+*	gv;'astka	$max3
+\	b'EkslES	$max3
 |	kR,Eska||p;On'Ova
-#	haS
+#	haS	$max3
 _$	d'OlaR
 %	pR'OtsEnt
 ^	d'aSEk		// what's be better?
 &	and
 `	'aktsEnt
 @	m'awpa
-+	plus
++	plus	$max3
 
 // other characters 
 

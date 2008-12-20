@@ -282,7 +282,7 @@ Translator *SelectTranslator(const char *name)
 			SetLetterBitsRange(tr,LETTERGP_F,0x3e,0x4c);   // vowel signs, but not virama
 
 			tr->langopts.numbers = 0x1;
-			tr->langopts.numbers2 = 0x100;
+			tr->langopts.numbers2 = NUM2_100000;
 		}
 		break;
 
@@ -849,13 +849,13 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
 			tr->langopts.numbers = 0x0401 + 0x4000 + NUM_ROMAN;
-			tr->langopts.numbers2 = 0x40;
+			tr->langopts.numbers2 = 0x100;
 			tr->langopts.thousands_sep = 0;   //no thousands separator
 			tr->langopts.decimal_sep = ',';
 
 			if(name2 == L('c','s'))
 			{
-				tr->langopts.numbers2 = 0x48;  // variant numbers before milliards
+				tr->langopts.numbers2 = 0x108;  // variant numbers before milliards
 			}
 
 			SetLetterVowel(tr,'y');

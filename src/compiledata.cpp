@@ -69,6 +69,7 @@
 #define tBEFORENOTVOWEL 19
 #define tBEFORENOTVOWEL2 20
 #define tSWITCHVOICING  21
+#define tBEFORE_R 22
 
 #define tLINKOUT  23
 #define tVOWELIN  24
@@ -83,7 +84,7 @@
 #define tSTRESSTYPE  32
 
 
-static const int flags_alternative[] = {phBEFOREVOWEL,phBEFOREVOWELPAUSE,phBEFORENOTVOWEL,phBEFORENOTVOWEL2,phSWITCHVOICING};
+static const int flags_alternative[] = {phBEFOREVOWEL,phBEFOREVOWELPAUSE,phBEFORENOTVOWEL,phBEFORENOTVOWEL2,phSWITCHVOICING,phBEFORE_R};
 
 extern void MakeVowelLists(void);
 extern void FindPhonemesUsed(void);
@@ -243,6 +244,7 @@ static keywtab_t keywords[] = {
 	{"beforevowelpause", tBEFOREVOWELPAUSE},
 	{"beforenotvowel",tBEFORENOTVOWEL},
 	{"beforenotvowel2",tBEFORENOTVOWEL2},
+	{"before_r",tBEFORE_R},
 	{"linkout",tLINKOUT},
 	{"switchvoicing",tSWITCHVOICING},
 	{"vowelin",tVOWELIN},
@@ -263,6 +265,7 @@ static keywtab_t keywords[] = {
 	{"palatal",    0x2000000+phPALATAL},
 	{"long",       0x2000000+phLONG},
 	{"brkafter",   0x2000000+phBRKAFTER},
+	{"rhotic",     0x2000000+phRHOTIC},
 	{"nonsyllabic",0x2000000+phNONSYLLABIC},
 	{"lengthenstop",0x2000000+phLENGTHENSTOP},
 
@@ -1465,6 +1468,7 @@ int Compile::CPhoneme()
 		case tBEFORENOTVOWEL:
 		case tBEFORENOTVOWEL2:
 		case tSWITCHVOICING:
+		case tBEFORE_R:
 			ph->phflags |= flags_alternative[item - tBEFOREVOWEL];
 			if((phcode = NextItem(tPHONEMEMNEM)) == -1)
 				phcode = LookupPhoneme(item_string,1);
@@ -1813,7 +1817,7 @@ int LoadEnvelope2(FILE *f, const char *fname)
 		n = sscanf(line_buf,"%f %f %d",&env_x[n_points],&env_y[n_points],&env_lin[n_points]);
 		if(n >= 2)
 		{
-			env_x[n_points] *= 1.28;  // convert range 0-100 to 0-128
+			env_x[n_points] *= (float)1.28;  // convert range 0-100 to 0-128
 			n_points++;
 		}
 	}

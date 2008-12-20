@@ -427,6 +427,13 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				if(next->type == phVOWEL)
 					alternative = ph->alternative_ph;
 				break;
+
+			case phBEFORE_R:
+				if(next->phflags & phRHOTIC)
+				{
+					alternative = ph->alternative_ph;
+				}
+				break;
 			}
 		}
 		if(ph->phflags & phBEFOREPAUSE)

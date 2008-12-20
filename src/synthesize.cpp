@@ -45,9 +45,7 @@ PHONEME_LIST phoneme_list[N_PHONEME_LIST];
 int mbrola_delay;
 char mbrola_name[20];
 
-int speed_factor1;
-int speed_factor2;
-int speed_min_sample_len;
+SPEED_FACTORS speed;
 
 static int  last_pitch_cmd;
 static int  last_amp_cmd;
@@ -192,9 +190,9 @@ int PauseLength(int pause, int control)
 	int len;
 
 	if(control == 0)
-		len = (pause * speed_factor1)/256;
+		len = (pause * speed.speed_factor1)/256;
 	else
-		len = (pause * speed_factor2)/256;
+		len = (pause * speed.speed_factor2)/256;
 
 	if(len < 5) len = 5;      // mS, limit the amount to which pauses can be shortened
 	return(len);
@@ -253,8 +251,8 @@ static int DoSample2(int index, int which, int length_mod, int amp)
 		length = length1;
 
 
-	length = (length * speed_factor2)/256;
-	min_length = speed_min_sample_len;
+	length = (length * speed.speed_factor2)/256;
+	min_length = speed.min_sample_len;
 	if(format==0)
 		min_length *= 2;
 
@@ -982,7 +980,7 @@ if(which==1)
 		length_factor = length_mod;
 		if(frame1->frflags & FRFLAG_LEN_MOD)     // reduce effect of length mod
 		{
-			length_factor = (length_mod*4 + 256*3)/7;
+			length_factor = (length_mod*(256-speed.speed_factor3) + 256*speed.speed_factor3)/256;
 		}
 		len = (frame_length * samplerate)/1000;
 		len = (len * length_factor)/256;
