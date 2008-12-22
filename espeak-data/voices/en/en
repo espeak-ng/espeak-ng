@@ -3,7 +3,8 @@ language en-uk  2
 language en 2
 gender male
 
-pitch 82 117
+//pitch 80 117
+
 replace 03 I i
 replace 03 I2 i
 

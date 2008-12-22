@@ -270,17 +270,6 @@ endphoneme
 
 
 
-phoneme t[        // dental variant of /t/
-  vls dnt stop
-  vowelin f1=1  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
-  lengthmod 2
-  wave  ustop/t_dnt2%60
-  before _ ustop/t_dnt%30 
-  switchvoicing d
-endphoneme
-
-
 phoneme kh
   vls vel frc
   vowelin f1=0  f2=2300 200 400  f3=200 80

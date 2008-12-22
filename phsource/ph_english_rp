@@ -52,7 +52,7 @@ endphoneme
 
 phoneme a
   vowel  starttype (a)  endtype (a)
-  length 170
+  length 175
   formants vowel/&
   reduceto a2  0
 endphoneme

@@ -379,7 +379,6 @@ phoneme th        // dental variant of /t/
   lengthmod 2
   wave  ustop/t_dnt%50
   before _ ustop/t_dnt%35
-//  wave  ustop/t_hi%50+h/h@
   switchvoicing d
 endphoneme
 

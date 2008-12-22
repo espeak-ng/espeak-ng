@@ -1,6 +1,7 @@
 // moving towards US English
 name english-us
-language en-us
+language en-us 2
+language en-r
 language en 3
 gender male
 
@@ -9,8 +10,8 @@ dictrules 3 6
 option 12 1       // reduce [t]
 
 stressLength 145 125 170 170 0 0 265 290
-stressAmp  17 16  20 20  20 22  23 20
+stressAmp  17 16  20 20  20 22  22 20
 
 replace 03 I  i
 replace 03 I2 i
-
+replace 03 @  @/

@@ -117,6 +117,7 @@
        _C)	i (a    i
 		i (o    i
 		i (ò	i
+		i (ó	i
         @)      ia (_   =i%a
         @)      io (_   =i%o
 	a)	i (+	j
@@ -136,11 +137,15 @@
 	laCr)	i (ma_	=i
 	st)	i (ma_   i
 	enz)	i (ma_   i
+        @)	i (mo_  =i
 	@)	iera (_   i'E:Ra
 	@)	iere (_   i'E:Re
         @)      i (ente_  i
 	@)	i (ante_  i
 	@)	i (bile_  'i
+	@)	issima(_S6 'issima
+	@)	issime(_S6 'issime
+	@)	issimi(_S6 'issimi
 	@)	issimo(_S6 'issimo
 	@)	issero(_S6 'issero
 	@)	i (sti   'i
@@ -301,3 +306,4 @@
         A_)  - (_D        _
         C_)  - (_D        _
 
+		§	setsi'o:ne

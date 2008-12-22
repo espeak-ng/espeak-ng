@@ -607,6 +607,9 @@ if(p->type != phVOWEL)
 			if(pre_sonorant || pre_voiced)
 			{
 				// set pitch for pre-vocalic part
+				if(pitch_start == 1024)
+					last_pitch = pitch_start;    // pitch is not set
+
 				if(pitch_start - last_pitch > 8)   // was 9
 					last_pitch = pitch_start - 8;
 

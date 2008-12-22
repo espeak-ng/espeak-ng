@@ -904,8 +904,8 @@ endphoneme
 
 phoneme Q"       // voiced velar fricative
   vcd uvl frc
-  formants voc/Q_ulv+ufric/xx3%80
-  before _ voc/Q_ulv+ufric/xx3%60
+  formants voc/Q_ulv+ufric/xx%80
+  before _ voc/Q_ulv+ufric/xx%60
   lengthmod 6
 endphoneme
 
@@ -948,14 +948,14 @@ endphoneme
 
 phoneme t[        // dental variant of /t/
   vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%35
-  before r ustop/tr
+  wave  ustop/t_hi%60
+  before _ ustop/t_dnt%35 
   switchvoicing d[
 endphoneme
+
 
 
 
@@ -992,12 +992,13 @@ endphoneme
 
 
 phoneme c
-  vls pal stop
-  vowelin f1=0  f2=2700 200 400  f3=300 80 rate len=80
-  vowelout f1=0  f2=2700 300 500  f3=300 80
+  vls pal stop palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   lengthmod 2
   wave ustop/c%130
-  before _ ustop/ki%80
+  before _ ustop/t_pzd%30
+  switchvoicing J
 endphoneme
 
 
@@ -1153,9 +1154,17 @@ endphoneme
 phoneme X
   vls uvl frc
   lengthmod 3
-  wave ufric/xx3
-  before _ ufric/xx3%70
+  wave ufric/xx
+  before _ ufric/xx%70
 endphoneme
+
+
+//phoneme H
+//  vls phr frc
+//  lengthmod 3
+//  wave h/h_phr%90
+//  before _ h/h_phr%60
+//endphoneme
 
 
 phoneme h
@@ -1331,38 +1340,4 @@ include ph_albanian
 phonemetable hy base
 include ph_armenian
 
-
-
-phonemetable rw base2
-include ph_kinyarwanda
-
-phonemetable ko hi
-include ph_korean
-
-phonemetable da is
-include ph_danish
-
-phonemetable ml hi
-include ph_malayalam
-
-phonemetable kn hi
-include ph_kannada
-
-phonemetable bn hi
-include ph_bengali
-
-phonemetable ne hi
-include ph_nepali
-
-phonemetable om base
-include ph_oromo
-
-phonemetable en_klatt en
-include ph_english_klatt
-
-phonemetable ga base
-include ph_irish
-
-phonemetable mr hi
-include ph_mathari
 

@@ -890,12 +890,15 @@ int h2;
 	// increase bass
 	y = peaks[1].height * 10;   // addition as a multiple of 1/256s
 	h2 = (1000<<16)/pitch;       // decrease until 1000Hz
-	x = y/h2;
-	h = 1;
-	while(y > 0)
+	if(h2 > 0)
 	{
-		htab[h++] += y;
-		y -= x;
+		x = y/h2;
+		h = 1;
+		while(y > 0)
+		{
+			htab[h++] += y;
+			y -= x;
+		}
 	}
 }
 

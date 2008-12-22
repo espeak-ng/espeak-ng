@@ -151,16 +151,15 @@ endphoneme
 
 phoneme dz
   vcd alv afr sibilant
-  vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=50
   vowelout f1=2 f2=1700 -300 300  f3=-100 80
-  formants d/xd+ustop/ts
-  before _ d/xd+ustop/ts_
+  formants d/xdz+ustop/ts%140
+  before _ voc/z_+ustop/ts_%70
   after _ NULL
   after @ d/xd
   lengthmod 5
   switchvoicing ts
 endphoneme
-
 
 
 

@@ -132,7 +132,7 @@ _`	bakpraIm
 _{	lEftbreIs
 _|	vi:b'A@
 _}	raItbreIs
-~	tIld@
+~	tIld@  $max3
 _¡	Inv,3:tI2dEkskl@m'eIS@n
 _¦	broUk@nb'A@
 _¨	daIa2r'i:sIs
@@ -199,6 +199,7 @@ _₠	jU@roU
 ¤	kVr@nsIsaIn
 ©	k0pIraIt
 ®	rEdZIst3d
+™	treIdmA@k
 °	dIgr'i:z
 −	maIn@s
 ±	plVsO@m'aIn@s
@@ -924,6 +925,7 @@ diehard          daIhA@d
 dielectric       daI@l'EktrIk
 diesel           di:z@L
 dilemma          daIl'Em@
+dinghy           dINgI
 dingy            dIndZI
 dinosaur         daIn@sO@
 diode            daIoUd
@@ -1202,7 +1204,7 @@ however           $2
 howto            haUtu:
 hubris           hu:brIs
 humane            $2
-hunger           hVng3
+hunger           hVNg3
 hurrah           hVr'A:
 hurray           hVr'eI
 hurricane        hVrI2keIn
@@ -1220,6 +1222,7 @@ ignoramus        Igno@r'eIm@s
 imagine          I2madZI2n
 impedance        Imp'i:d@ns
 imperative       Imp'Er@tIv
+impercept         $3       // imperceptible
 impi              $1
 impinging        Imp'IndZIN
 imprecise        Impr'Is'aIs
@@ -1580,7 +1583,7 @@ parameter        p@ramI2t3
 parasite         par@saIt
 pariah           p@raI@
 parole           pa2r'oUl
-passenger        pasI2NdZ3
+passenger        pasI2ndZ3
 pasted           peIstI2d
 pasting          peIstI2N
 pastry           peIstrI
@@ -2024,6 +2027,7 @@ thousand         TaUz@nd
 throughout                     $2
 tidal            taId@L
 tidy             taIdI
+tikka            ti:k@
 tilde            tIld@
 timetable        taImteIb@L
 timider          tImId3
@@ -2391,6 +2395,7 @@ Portuguese	po@tju:g'i:z
 Potomac		$2
 Prague		prA:g
 Provence	pr0v'A~s
+Punjabi		pVndZ'A:bI
 Pyrenees	pIr@n'i:z
 Qatar		katA@
 Quebec		kwI2bEk
@@ -2628,7 +2633,7 @@ zhivago		ZI2vA:goU
 //*************************************************************************
 
 (no one)         'noU'w0n
-(no longer)      n,oU||l'0N3
+(no longer)      n,oU||l'0Ng3
 (no more)        n'oU,mo@
 
 so               ,soU         $strend2 $verbf

@@ -876,6 +876,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags =  0x16 + 0x100; 
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = 0x69 + 0x8000;
+			tr->langopts.accents = 2;  // "capital" after letter name
 		}
 		break;
 

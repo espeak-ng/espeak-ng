@@ -170,11 +170,12 @@ phoneme t        // dental variant of /t/
   vowelin f1=0  f2=1600 -300 300  f3=-100 80
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%35
+//  wave  ustop/t_dnt%50
+//  before _ ustop/t_dnt%35
+  wave  ustop/t_dnt2%60
+  before _ ustop/t_dnt%30 
   switchvoicing d
 endphoneme
-
 
 
 phoneme d       // dental variant of /d/

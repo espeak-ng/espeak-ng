@@ -2541,7 +2541,15 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 								return(0);
 							}
 						}
-
+#ifdef deleted
+// can't switch to a tone language, because the tone-phoneme numbers are not valid for the original language
+						if((letter >= 0x4e00) && (letter < 0xa000) && (tr->langopts.ideographs != 1))
+						{
+							// Chinese ideogram
+							sprintf(phonemes,"%czh",phonSWITCH);
+							return(0);
+						}
+#endif
 						// no match, try removing the accent and re-translating the word
 						if((letter >= 0xc0) && (letter <= 0x241) && ((ix = remove_accent[letter-0xc0]) != 0))
 						{

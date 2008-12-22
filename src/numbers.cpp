@@ -517,6 +517,9 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 			return;   // the character is specified as _* so ignore it when speaking normal text
 
 		// check whether this character is specified for English
+		if(tr->translator_name == L('e','n'))
+			return;   // we are already using English
+
 		SetTranslator2("en");
 		if(Lookup(translator2, &single_letter[2], ph_buf3) != 0)
 		{

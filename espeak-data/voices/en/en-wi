@@ -13,6 +13,7 @@ replace 00 U@ o@
 replace 00 i@3 i@
 replace 03 @ a2
 replace 03 3 a2
+replace 03 N n
 
 formant 1  98  100 100
 formant 2  98  100 100

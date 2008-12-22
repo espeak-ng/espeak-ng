@@ -3,7 +3,7 @@ name brazil-mbrola-1
 gender male
 pitch 82 117
 
-dictrules 2 4
+dictrules 2 3 4
 
 mbrola br1 ptbr_phtrans
 
