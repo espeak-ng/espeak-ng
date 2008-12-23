@@ -99,6 +99,10 @@ of 190.  Range 80 to 390.
 <dd>Word gap.  This option inserts a pause between words.  The value is the length of the pause, in units of 10 mS (at the default speed of 170 wpm).
 <p>
 <dt>
+<strong>-h </strong> or <strong> --help</strong><br>
+<dd>The first line of output gives the eSpeak version number.
+<p>
+<dt>
 <strong>-k &lt;integer&gt;</strong><br>
 <dd>Indicate words which begin with capital letters.<p>
 1 &nbsp; eSpeak uses a click sound to indicate when a word starts with a capital letter, or double click if word is all capitals.<p>
@@ -164,6 +168,14 @@ Compile the pronunciation rule and dictionary lookup data from their source file
 <dd>
 The same as <strong>--compile</strong>, but source line numbers from the *_rules file are included.  These are included in the rules trace when the <strong>-X</strong> option is used.
 <p>
+<dt><strong>--path [="&lt;directory path&gt;"]</strong><br>
+<dd>
+Specifies the directory which contains the espeak-data directory.
+<p>
+<dt><strong>--phonout [="&lt;filename&gt;"]</strong><br>
+<dd>
+If specified, mbrola phoneme data, and also the output from -x and -X options is written to this file, rather than stdout.
+<p>
 <dt><strong>--punct [="&lt;characters&gt;"]</strong><br>
 <dd>
 Speaks the names of punctuation characters when they are encountered in the text.  If &lt;characters&gt; are given, then only those listed punctuation characters are spoken, eg.  <code> --punct=".,;?"</code>
@@ -190,8 +202,10 @@ If the -m option is used to indicate marked-up text, then HTML can be spoken dir
 <dt><b>Phoneme Input</b>
 <dd>
 As well as plain text, phoneme mnemonics can be used in the text input to <strong>espeak</strong>.  They are enclosed within double square brackets.  Spaces are used to separate words and all stressed syllables must be marked explicitly.<p>
- &nbsp; eg: &nbsp; <code> espeak -v en [[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]] </code><p>
- ("This is some phonetic text input").
+ &nbsp; eg: &nbsp; <code> espeak -v en "[[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]]" </code><p>
+ This command will speak: "This is some phonetic text input".
 </dl>
 </body>
 </b>
+
+

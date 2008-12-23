@@ -357,7 +357,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MD /W4 /GR /O2 /I ".\..\..\lib\vc_lib\mswu" /I ".\..\..\include" /I "." /I ".\..\..\samples" /D "WIN32" /D "__WXMSW__" /D "_UNICODE" /D "_WINDOWS" /D "NOPCH" /Fd"vc_mswu\minimal.pdb" /FD /EHsc /c
-# ADD CPP /nologo /MD /W4 /GR /O2 /I ".\..\..\lib\vc_lib\mswu" /I ".\..\..\include" /I "." /I ".\..\..\samples" /D "WIN32" /D "__WXMSW__" /D "_UNICODE" /D "_WINDOWS" /D "NOPCH" /Fd"vc_mswu\minimal.pdb" /FD /EHsc /c
+# ADD CPP /nologo /MD /W3 /GR /O2 /I ".\..\..\lib\vc_lib\mswu" /I ".\..\..\include" /I "." /I ".\..\..\samples" /D "WIN32" /D "__WXMSW__" /D "_UNICODE" /D "_WINDOWS" /D "NOPCH" /Fd"vc_mswu\minimal.pdb" /FD /EHsc /c
 # ADD BASE MTL /nologo /D "WIN32" /D "__WXMSW__" /D "_UNICODE" /D "_WINDOWS" /D "NOPCH" /mktyplib203 /win32
 # ADD MTL /nologo /D "WIN32" /D "__WXMSW__" /D "_UNICODE" /D "_WINDOWS" /D "NOPCH" /mktyplib203 /win32
 # ADD BASE RSC /l 0x409 /i ".\..\..\lib\vc_lib\mswu" /i ".\..\..\include" /i "." /i ".\..\..\samples" /d "__WXMSW__" /d "_UNICODE" /d "_WINDOWS" /d "NOPCH"
@@ -541,6 +541,14 @@ SOURCE=.\src\intonation.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\klatt.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\klatt.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\main.h
 # End Source File
 # Begin Source File
@@ -653,15 +661,7 @@ SOURCE=.\src\synthesize.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\tr_english.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\src\tr_languages.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\tr_languages.h
 # End Source File
 # Begin Source File
 

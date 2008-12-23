@@ -68,6 +68,47 @@ int frag_count=0;
 FRAG_OFFSET *frag_offsets = NULL;
 
 
+//#define TEST_INPUT    // printf input text received from SAPI to espeak_text_log.txt
+#ifdef TEST_INPUT
+static int utf8_out(unsigned int c, char *buf)
+{//====================================
+// write a unicode character into a buffer as utf8
+// returns the number of bytes written
+	int n_bytes;
+	int j;
+	int shift;
+	static char unsigned code[4] = {0,0xc0,0xe0,0xf0};
+
+	if(c < 0x80)
+	{
+		buf[0] = c;
+		return(1);
+	}
+	if(c >= 0x110000)
+	{
+		buf[0] = ' ';      // out of range character code
+		return(1);
+	}
+	if(c < 0x0800)
+		n_bytes = 1;
+	else
+	if(c < 0x10000)
+		n_bytes = 2;
+	else
+		n_bytes = 3;
+
+	shift = 6*n_bytes;
+	buf[0] = code[n_bytes] | (c >> shift);
+	for(j=0; j<n_bytes; j++)
+	{
+		shift -= 6;
+		buf[j+1] = 0x80 + ((c >> shift) & 0x3f);
+	}
+	return(n_bytes+1);
+}  // end of utf8_out
+#endif
+
+
 int VisemeCode(unsigned int phoneme_name)
 {//======================================
 // Convert eSpeak phoneme name into a SAPI viseme code
@@ -589,8 +630,32 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 				frag_offsets[frag_count].bufix = pW - pW_start;
 				frag_offsets[frag_count].cmdlen = len;
 
+#ifdef TEST_INPUT
+{
+FILE *f;
+unsigned int c;
+int n;
+char buf[10];
+
+f = fopen("C:\\espeak_text_log.txt","a");
+if(f != NULL)
+{
+	fprintf(f,"----------\n");
+	for(ix=0; ix<pTextFragList->ulTextLen; ix++)
+	{
+		c = pTextFragList->pTextStart[ix];
+		n = utf8_out(c,buf);
+		buf[n] = 0;
+		fprintf(f,"%s",buf);
+	}
+	fprintf(f,"\n");
+	fclose(f);
+}
+}
+#endif
 				for(ix=0; ix<pTextFragList->ulTextLen; ix++)
 				{
+					
 					*pW++ = pTextFragList->pTextStart[ix];
 				}
 				if(pTextFragList->ulTextLen > 0)

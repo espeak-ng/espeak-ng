@@ -17,6 +17,7 @@ volume 16
 0  @- NULL   0  NULL
 0  *  NULL   0  r
 0  r* NULL   0  NULL
+0  R2 NULL   0  r
 
 0  I   NULL  0  i
 0  U   NULL  0  u

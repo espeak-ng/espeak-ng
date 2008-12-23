@@ -9,7 +9,6 @@ copy <obey$dir>.^.src.synthdata/cpp <obey$dir>.cpp.synthdata fq~c
 copy <obey$dir>.^.src.synth_mbrola/cpp <obey$dir>.cpp.synth_mbrola fq~c
 copy <obey$dir>.^.src.synthesize/cpp <obey$dir>.cpp.synthesize fq~c
 copy <obey$dir>.^.src.translate/cpp <obey$dir>.cpp.translate fq~c
-copy <obey$dir>.^.src.tr_english/cpp <obey$dir>.cpp.tr_english fq~c
 copy <obey$dir>.^.src.tr_languages/cpp <obey$dir>.cpp.tr_languages fq~c
 copy <obey$dir>.^.src.voices/cpp <obey$dir>.cpp.voices fq~c
 copy <obey$dir>.^.src.wavegen/cpp <obey$dir>.cpp.wavegen fq~c

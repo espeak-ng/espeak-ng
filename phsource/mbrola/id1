@@ -23,6 +23,8 @@ volume 32
 0  g- NULL   0  NULL
 0  @- NULL   0  NULL
 0  *  NULL   0  r
+0  R2 NULL   0  r
+0  R  NULL   0  r
 
 0  a   NULL  0  V
 0  E   NULL  0  e

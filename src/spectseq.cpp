@@ -34,7 +34,6 @@
 
 #define MAX_HARMONIC  400           // 400 * 50Hz = 20 kHz, more than enough
 
-#define KLATT_TEST
 
 extern void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v, int control);
 extern int Wavegen_Klatt(int resume);
@@ -1027,7 +1026,9 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	peak_t peaks1[N_PEAKS];
 	peak_t peaks2[N_PEAKS];
 
+#ifdef KLATT_TEST
 KlattInit();
+#endif
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	if(numframes==0) return;
@@ -1158,7 +1159,9 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	int pbase;
 	char *fname_speech;
 
+#ifdef KLATT_TEST
 KlattInit();
+#endif
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	length = duration;

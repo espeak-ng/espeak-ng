@@ -1178,7 +1178,7 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
-TestCompile2();
+//TestCompile2();
 return;
 
 if(control==2)

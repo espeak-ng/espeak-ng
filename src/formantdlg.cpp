@@ -168,6 +168,8 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 
 	t_pitch = new wxStaticText(this,-1,_T(""),wxPoint(4,520),wxSize(192,24));
 
+	HideFields(0);
+
 	pitchgraph = new ByteGraph(this,wxPoint(0,538),wxSize(200,140));
 	pitchgraph->SetData(128,env_fall);
 	pitchgraph->ShowSpectrum(1);

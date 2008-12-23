@@ -249,7 +249,9 @@ void MakeWave2(PHONEME_LIST *p, int n_phonemes)
 	char *fname_speech;
 	int n_ph;
 
+#ifdef KLATT_TEST
 	KlattInit();
+#endif
 	n_ph = n_phonemes;
 	fname_speech = WavFileName();
 	OpenWaveFile2(fname_speech);

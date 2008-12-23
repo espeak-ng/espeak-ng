@@ -73,7 +73,7 @@ The utility 'phonemes' are:
 
 It is not necessary to specify the stress of every syllable.  Stress markers are only needed in order to change the effect of the language's default stress rule.
 <p>
-The phonemes which are used to represent a language's sounds are based on the Kirshenbaum ascii character representation of the International Phonetic Alphabet <a href="http://www.kirshenbaum.net/IPA/ascii-ipa.pdf">www.kirshenbaum.net/IPA/ascii-ipa.pdf</a>
+The phonemes which are used to represent a language's sounds are based loosely on the Kirshenbaum ascii character representation of the International Phonetic Alphabet <a href="http://www.kirshenbaum.net/IPA/ascii-ipa.pdf">www.kirshenbaum.net/IPA/ascii-ipa.pdf</a>
 
 <p>&nbsp;<hr>
 <h3>4.3  Pronunciation Rules</h3>
@@ -94,7 +94,7 @@ The rules are organized in groups, each starting with a ".group" line:
 	A group for other characters which don't have their own group.
 <p>
 <dt><strong>.L&lt;nn&gt;</strong><br><dd>
-	Defines a group of letter sequences, any of which can match with <strong>Lnn</strong> in a <strong>post</strong> rule (see below).  <strong>nn</strong> is a 2 digit decimal number in the range 01 to 20.  eg:<p>
+	Defines a group of letter sequences, any of which can match with <strong>Lnn</strong> in a <strong>post</strong> rule (see below).  <strong>nn</strong> is a 2 digit decimal number in the range 01 to 25.  eg:<p>
 	<code>.L01  b bl br pl pr</code>
 <p>
 <dt><strong>.replace</strong><br><dd>
@@ -249,7 +249,7 @@ Note, that matching characters in the &lt;pre&gt; part do not affect the syllabl
     </tr>
     <tr>
       <td><strong>T</strong></td>
-      <td>Only use this rule if the word in found in the *_list file with the <b>$alt1</b> attribute.</td>
+      <td>Only use this rule if the word in found in the *_list file with the <b>$alt</b> attribute.</td>
     </tr>
     <tr>
       <td><strong>#</strong></td>
@@ -352,6 +352,7 @@ or to run them together, pronounced as a single word
 or to give them a flag when they occur together
 <pre>    (such as)    sVtS||a2z   $pause	   // precede with a pause
 </pre>
+Hyphenated words in the <strong><em>&lt;language&gt;_list</em></strong>&nbsp;  file must also be enclosed within brackets, because the two parts are considered as separate words.
 <h4>4.4.2 Special characters in &lt;phoneme string&gt;:</h4>
 <ul><table>
   <tbody>
@@ -600,7 +601,7 @@ _0 to _9 &nbsp;
 <tr><TD>_0M1<td>The word for "thousand"</tr>
 <tr><TD>_0M2<td>The word for "million"</tr>
 <tr><TD>_0M3<td>The word for 1000000000</tr>
-<tr><TD>_1M1 &nbsp;_2T1<td>Special pronunciation for one thousand, two thousand, tc, if needed</td>
+<tr><TD>_1M1 &nbsp;_2M1<td>Special pronunciation for one thousand, two thousand, tc, if needed</td>
 <tr><TD>_0and<td>Word for "and" when speaking numbers (eg. "two hundred and twenty").</tr>
 <tr><TD>_dpt<td>Word spoken for the decimnal point/comma</tr>
 <tr><TD>_dpt2<td>Word spoken (if any) at the end of all the digits after a decimal point.</tr>
@@ -617,6 +618,7 @@ Character substitutions can be specified by using a <b> .replace </b> section at
 
 &nbsp; &nbsp; &#xfb01; &nbsp; fi &nbsp; // replace a single character ligature by two characters
 <p>
+
 
 
 </body>

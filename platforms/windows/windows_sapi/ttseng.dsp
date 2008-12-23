@@ -124,6 +124,10 @@ SOURCE=.\src\intonation.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\klatt.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\numbers.cpp
 # End Source File
 # Begin Source File
@@ -159,10 +163,6 @@ SOURCE=.\src\synthdata.cpp
 # Begin Source File
 
 SOURCE=.\src\synthesize.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\tr_english.cpp
 # End Source File
 # Begin Source File
 
@@ -209,6 +209,10 @@ SOURCE=.\src\wavegen.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=.\src\klatt.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\phoneme.h
 # End Source File
 # Begin Source File
@@ -246,10 +250,6 @@ SOURCE=.\StdAfx.h
 # Begin Source File
 
 SOURCE=.\src\synthesize.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\src\tr_languages.h
 # End Source File
 # Begin Source File
 

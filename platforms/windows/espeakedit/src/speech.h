@@ -24,6 +24,7 @@
 
 // comment this out when compiling the "speak" process
 //#define SPECT_EDITOR
+#define INCLUDE_KLATT
 
 #include <windows.h>
 #define PLATFORM_WINDOWS

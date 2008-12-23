@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.38
+AppVerName=eSpeak version 1.40
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -15,6 +15,7 @@ ShowLanguageDialog=auto
 
 [InstallDelete]
 Type: files; Name: "{app}\espeak.dll"
+Type: filesandordirs; Name: "{app}\espeak-data\voices\test"
 
 [Dirs]
 Name: "{app}\espeak-data\soundicons"
@@ -31,12 +32,7 @@ Source: "Readme.txt"; DestDir: "{app}"; Flags: isreadme
 Source: "License.txt"; DestDir: "{app}";
 
 [Registry]
-Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak"; Flags: deletekey uninsdeletekey
-Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_1"; Flags: deletekey uninsdeletekey
-Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_2"; Flags: deletekey uninsdeletekey
-Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_3"; Flags: deletekey uninsdeletekey
-Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_4"; Flags: deletekey uninsdeletekey
-Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_5"; Flags: deletekey uninsdeletekey
+;Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_5"; Flags: deletekey uninsdeletekey
 Root: HKLM; Subkey: "Software\Microsoft\Speech\PhoneConverters\Tokens\eSpeak"; Flags: deletekey uninsdeletekey
 
 
@@ -52,7 +48,9 @@ Name: "fi"; MessagesFile: "compiler:Languages\Finnish.isl"
 Name: "fr"; MessagesFile: "compiler:Languages\French.isl"
 Name: "hr"; MessagesFile: "compiler:Languages\Croatian.isl"
 Name: "hu"; MessagesFile: "compiler:Languages\Hungarian.isl"
+Name: "id"; MessagesFile: "compiler:Languages\Indonesian-5.1.11.isl"
 Name: "it"; MessagesFile: "compiler:Languages\Italian.isl"
+Name: "lv"; MessagesFile: "compiler:Languages\Latvian-1-5.1.11.isl"
 Name: "nl"; MessagesFile: "compiler:Languages\Dutch.isl"
 Name: "no"; MessagesFile: "compiler:Languages\Norwegian.isl"
 Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
@@ -60,8 +58,10 @@ Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
+Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
 Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
+Name: "zh"; MessagesFile: "compiler:Languages\ChineseSimp-12-5.1.11.isl"
 
 [CustomMessages]
 v1=Select which voices to install
@@ -111,6 +111,7 @@ begin
 
   // translation from microsoft codes to language codes
   case lang_main of
+  $03: Result := 'ca';
   $04: Result := 'zh';
   $05: Result := 'cs';
   $06: Result := 'da';
@@ -132,16 +133,21 @@ begin
   $19: Result := 'ru';
   $1a: Result := 'hr';
   $1b: Result := 'sk';
+  $1c: Result := 'sq';
   $1d: Result := 'sv';
   $1f: Result := 'tr';
   $21: Result := 'id';
+  $26: Result := 'lv';
   $2a: Result := 'vi';
+  $2b: Result := 'hy';
   $2f: Result := 'mk';
   $36: Result := 'af';
   $39: Result := 'hi';
   $41: Result := 'sw';
   $49: Result := 'ta';
+  $4b: Result := 'kn';
   $52: Result := 'cy';
+  $61: Result := 'ne';
   $87: Result := 'rw';
   end;
 
@@ -178,6 +184,7 @@ begin
   case lang1 of
   'af': value := $436;
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
+  'ca': value := $403;
   'cs': value := $405;
   'cy': value := $452;
   'da': value := $406;
@@ -190,11 +197,15 @@ begin
   'hi': value := $439;
   'hr': value := $41a;
   'hu': value := $40e;
+  'hy': value := $42b;
   'id': value := $421;
   'is': value := $40f;
   'it': value := $410;
+  'kn': value := $44b;
   'ko': value := $412;
+  'lv': value := $426;
   'mk': value := $42f;
+  'ne': value := $461;
   'nl': value := $413;
   'no': value := $414;
   'pl': value := $415;
@@ -203,6 +214,7 @@ begin
   'ru': value := $419;
   'rw': value := $487;
   'sk': value := $41b;
+  'sq': value := $41c;
   'sr': value := $81a;
   'sv': value := $41d;
   'sw': value := $441;
@@ -311,13 +323,16 @@ begin
 end;
 
 
-procedure SetupVoice(Voice, Lcode: String; Index: Integer);
+procedure SetupVoice(Voice: String; Index: Integer);
 var
   RegVoice2: String;
   RegVoice2a: String;
   VoiceUC: String;
+  Lcode: String;
   
 begin
+  Lcode := LanguageFromVoice(Voice);
+  
   if Index = 0 then
     RegVoice2 := RegVoice1
   else
@@ -339,7 +354,7 @@ begin
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2a,'Gender','Male');
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2a,'Age','Adult');
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2a,'Language',Lcode);
-  RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2a,'Vendor','Jonathan Duddington');
+  RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2a,'Vendor','http://espeak.sf.net');
   
   SetPhoneConvertor(Lcode);
 end;
@@ -348,14 +363,38 @@ end;
 
 procedure CurStepChanged(CurStep: TSetupStep);
 var
+  field: Integer;
+  Index: Integer;
   ix: Integer;
+  ix2: Integer;
+  Line: String;
+  Voice: String;
+  Voice2: String;
+  separator: String;
 begin
   if CurStep = ssPostInstall then
   begin
+    separator := ' ';
+    Index := 0;
+    for field := 0 to 4 do begin
+      Line := Page.Values[field];
+      ix := 1;
+      ix2 := 1;
+      while ix2 > 0 do begin
+        ix2 := Pos(separator,Copy(Line,ix,999));
 
-    for ix := 0 to 5 do begin
-      if Page.Values[ix] <> '' then
-       SetUpVoice(Page.Values[ix],LanguageFromVoice(Page.Values[ix]),ix);
+        if ix2 = 0 then
+          Voice := Copy(Line,ix,999)
+        else
+          Voice := Copy(Line,ix,ix2-1);
+          
+        Voice2 := Trim(Voice);
+        if Voice2 <> '' then begin
+          SetUpVoice(Trim(Voice),Index);
+          Index := Index + 1;
+        end;
+        ix := ix + ix2;
+      end;
     end;
   end;
 end;
@@ -364,6 +403,7 @@ end;
 procedure InitializeWizard;
 var
   lang: String;
+  voice2: String;
 begin
   // Create the language selection page
   lang := ActiveLanguage;
@@ -375,20 +415,55 @@ begin
   Page.Add('', False);
   Page.Add('', False);
   Page.Add('', False);
-  Page.Add('', False);
 
   UILanguage := GetUILanguage;
   UIVoice := VoiceFromLanguage(UILanguage);
 
   // Set initial values (optional)
-  Page.Values[0] := UIVoice;
-  Page.Values[1] := UIVoice+'+f2';
   if UIVoice = 'en' then
-    Page.Values[2] := 'en-r'
+    voice2 := 'en-us'
   else
-    Page.values[2] := 'en';
+    voice2 := 'en';
+  Page.Values[0] := Format('%s  %s  %s',[UIVoice, UIVoice+'+f2', voice2]);
 
 end;
+
+procedure ClearRegistry;
+var
+  Index: Integer;
+  RegVoice2: String;
+  exists: Boolean;
+begin
+// remove all espeak voices from the registry
+  exists := True;
+  Index := 0;
+  while exists do begin
+    if Index = 0 then
+      RegVoice2 := RegVoice1
+    else
+      RegVoice2 := RegVoice1 + Format('_%d',[Index]);
+
+    exists := RegKeyExists(HKEY_LOCAL_MACHINE,RegVoice2);
+    RegDeleteKeyIncludingSubkeys(HKEY_LOCAL_MACHINE,RegVoice2);
+    Index := Index + 1;
+  end;
+end;
+
+function InitializeSetup: Boolean;
+begin
+// remove all espeak voices from the registry
+  ClearRegistry;
+  result := True;
+end;
+
+function InitializeUninstall: Boolean;
+begin
+// remove all espeak voices from the registry
+  ClearRegistry;
+  result := True;
+end;
+
+
 
 
 

@@ -1,7 +1,9 @@
 name cantonese-test
 language zh-yue
 language yue
+language zhy
 
+translator zhy
 phonemes zhy
 dictionary zhy
 gender male
