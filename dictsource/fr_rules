@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2008-12-09 Michel Such  <michel.such@free.fr>
+// Updated: 2009-01-14 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -119,6 +119,7 @@
 		cch         k		// bacchanale
 		cc (Y       ks		// accéder
 		cc          k		// occuper
+	_)	c (d     se
 	_)	ch (arism      k		// charisme, charismatique
 	_)	ch (irop       k		// chiroptère
 	a)	ch (_     k		// almanach
@@ -244,6 +245,7 @@ _) 	ç' (P2v      s
 	A)	e (rA     		// remerciera
 	gu)	e (rA     	@
 	qu)	e (rA     	@
+	v)	e (lop         @-
 	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
 		em (mACC       A~		// emmancher
@@ -679,7 +681,6 @@ _)		half  	_^_en
 	Cr)	i (é    i:
 	Cr)	i (er_    i:
 	rr)	i (er_    j
-	dr)	iver    a2jvWr
 	C)	ien (t_       i
 	dév)	ien (t_       i
 	t)	ien (K_      jE~		// tient
@@ -735,8 +736,8 @@ _)		half  	_^_en
 		ind (_     _^_en		// find, mind
 	_C)	ind (er_     _^_en		// finder, reminder
 	_AC)	ind (er_     _^_en		// finder, reminder
-//		ink       _^_en		// link
 		ize (X         _^_en		// realize
+	dr)	i (ve    _^_en
 
 
 .group î

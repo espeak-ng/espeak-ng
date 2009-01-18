@@ -1394,7 +1394,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		case phVOWEL:
 			ph = p->ph;
-			stress = p->tone & 0xf;
+			stress = p->stresslevel & 0xf;
 
 			// vowel transition from the preceding phoneme
 			vowel_transition0 = vowel_transition[0];

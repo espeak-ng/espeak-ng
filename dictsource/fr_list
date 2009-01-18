@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2008-12-09 Michel Such  <michel.such@free.fr>
+// Updated 2009-01-14 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -111,6 +111,7 @@ _#   djEz
 _'   a2postr'Of
 _(   'uvR@-parA~t'Ez
 _)   f'Erm parA~t'Ez
+_*   asterisk:
 _,   virgyl
 _-   tirE
 _.   _|pw%E~
@@ -143,9 +144,9 @@ _§	sEksj'O~
 @	arobaz
 %	pursA~	$max3
 *	asterisk:	$max3
-&	_e
+&	e $u $brk
 _&	_e_komErsj'al
-+	plys	$max3
++	plys		$max3
 ~	tilde
 €	@ro
 ¢	sEnt
@@ -596,6 +597,7 @@ montréal         mO~real
 (qu'est ce que)  kEsk@ $u
 absent        absA~
 admin        admin
+adsltv	$abbrev
 airbus	      E2rbys
 auvent     ovA~
 bien	      bjE~n2 $u+
@@ -622,6 +624,7 @@ hélas 		elas $u+
 iris	      iris
 laser	      lazEr
 malus      malys
+mapper	_^_en
 mars	      mars
 mieux	mj'Y $u+
 ours	urs
@@ -629,6 +632,7 @@ parangon	      parA~gO~
 phallus    falys
 polder    pOldEr
 premier    pr@mjer2
+(program files)	pr,o2gram||f'ajlz
 scanner	skaner2
 scanner	skanWr $noun
 souris       suri

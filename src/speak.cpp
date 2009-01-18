@@ -676,6 +676,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x104:   // --voices
+			init_path(argv[0],data_path);
 			DisplayVoices(stdout,optarg2);
 			exit(0);
 

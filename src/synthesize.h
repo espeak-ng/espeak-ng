@@ -183,7 +183,7 @@ typedef struct {
 typedef struct {
 	PHONEME_TAB *ph;
 	unsigned char env;    // pitch envelope number
-	unsigned char tone;
+	unsigned char stresslevel;
 	unsigned char type;
 	unsigned char prepause;
 	unsigned char amp;

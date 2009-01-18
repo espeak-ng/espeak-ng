@@ -263,6 +263,7 @@ Translator *SelectTranslator(const char *name)
 			SetLetterVowel(tr,'y');  // add 'y' to vowels
 		
 			tr->langopts.numbers = 0x8d1 + NUM_ROMAN;
+			tr->langopts.ordinals = 2;
 			tr->langopts.accents = 1;
 		}
 		break;
@@ -344,6 +345,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 0;
 			tr->langopts.numbers = 0x841 + NUM_ROMAN;
+			tr->langopts.ordinals = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
 		}
 		break;
@@ -554,7 +556,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1009 + NUM_ROMAN;
+			tr->langopts.numbers = 0x1009 + 0xa000 + NUM_ROMAN + 0x10000;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
 SetLengthMods(tr,3);  // all equal
@@ -1038,6 +1040,7 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	default:
+		tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		break;
 	}
 

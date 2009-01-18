@@ -175,7 +175,8 @@
 #define CLAUSE_VOICE        0 + 0x24000
 #define CLAUSE_PERIOD      35 + 0x80000
 #define CLAUSE_COMMA       20 + 0x41000
-#define CLAUSE_SHORTCOMMA   5 + 0x41000
+#define CLAUSE_SHORTCOMMA   4 + 0x41000
+#define CLAUSE_SHORTFALL    4 + 0x40000
 #define CLAUSE_QUESTION    35 + 0x82000
 #define CLAUSE_EXCLAMATION 40 + 0x83000
 #define CLAUSE_COLON       30 + 0x40000
@@ -363,6 +364,7 @@ typedef struct {
 	int max_roman;
 	int thousands_sep;
 	int decimal_sep;
+	int ordinals;
 
 	// bit 0, accent name before the letter name, bit 1 "capital" after letter name
 	int accents;
@@ -496,6 +498,7 @@ extern int end_character_position;
 extern int clause_start_char;
 extern int clause_start_word;
 extern char *namedata;
+extern int pre_pause;
 
 
 

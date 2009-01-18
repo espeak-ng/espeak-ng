@@ -85,7 +85,20 @@ _0M1	t'u:kstuo:Si
 _1M1	t'u:kstuo:tis
 _0M2	m'iljo:ni
 _1M2	m'iljo:ns
-_dpt	k'uomats_
+_dpt	k'omats_
+
+// ordinal numbers
+_ord	ais	// default ending
+_1o	p'iR2mais
+_2o	'otR2ais
+_3o	tR'eSais
+_4o	tS'etuRtais
+_5o	p'iektais
+_6o	s'estais
+_7o	s'epti:tais
+_8o	'astotais
+_9o	d'evi:tais
+_0Co	s'imtais
 
 
 // accent names  (Mostly English names, please fix)
@@ -95,7 +108,7 @@ _ac2	d'ubultsakju:t
 _brv	'i:suma
 _ced	s'edi:la
 _cir	d'iakR2itiska:
-_dia	'umlaut
+_dia	'umlauts
 _dot	p'unkts
 _grv	gR2'a:v
 _hac	h'atSek
@@ -292,7 +305,6 @@ janv	janva:R2is
 jūl	ju:lijs
 jūn	ju:nijs
 lp	lapa
-lpp	lappuse
 lat	lati:n^u
 latv	latvieSu
 Ls	lati  $capital
@@ -322,12 +334,59 @@ sv	sve:tais
 st	sant
 šķ	SciR2a
 
-// words with [o]
+// words with [o] 
+adadžo          $alt
+aikido	        $alt
+anno	        $alt
+automoto        $alt
+bandžo          $alt
+bendžo          $alt
+bingo           $alt
+bolero          $alt
+bravo           $alt
+bruno           $alt
+bruto	        $alt
+depo            $alt
+dingo       	$alt
+domino	        $alt
+džudo           $alt
+čello	        $alt
+embargo	        $alt
+esperanto	$alt
+facto	        $alt
+fiasko	        $alt
+foto            $alt
+hallo	        $alt
 hugo            $alt
+indigo          $alt
 inkognito       $alt
+intermeco       $alt
+kakao           $alt
+kastro          $alt
+kazino          $alt
 microsoft       $alt
+moto            $alt
+lego            $alt
+lumbago	        $alt
+maestro	        $alt
+metro           $alt
+moto            $alt
 odo             $alt
 oto             $alt
+panno	        $alt
+pianīno	        $alt
+rančo           $alt
+retro           $alt
+rokoko	        $alt
+roks            $alt
+sambo           $alt
+solfedžo        $alt
+sonera          $alt
+triko           $alt
+trimo           $alt
+uno             $alt
+veto            $alt
+žabo            $alt
 
 
 

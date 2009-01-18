@@ -203,6 +203,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	int  flag_offset;
 	int  length;
 	int  multiple_words = 0;
+	int  multiple_numeric_hyphen = 0;
 	char *multiple_string = NULL;
 	char *multiple_string_end = NULL;
 	
@@ -343,7 +344,14 @@ step=1;  // TEST
 		case 1:
 			if((c == '-') && (word[0] != '_'))
 			{
-				flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
+				if(isdigit(word[0]))
+				{
+					multiple_numeric_hyphen = 1;
+				}
+				else
+				{
+					flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
+				}
 				c = ' ';
 			}
 			if(isspace2(c))
@@ -530,8 +538,14 @@ step=1;  // TEST
 		}
 		else
 		{
-			dict_line[length++] = 80 + multiple_words;
+			dict_line[length++] = 80 + multiple_words + multiple_numeric_hyphen;   // if numeric, count a hyphen as an extra word
 			ix = multiple_string_end - multiple_string;
+			if(multiple_numeric_hyphen)
+			{
+				// the first part is numeric, so keep the hyphen to match on
+				dict_line[length++] = '-';
+				dict_line[length++] = ' ';
+			}
 			memcpy(&dict_line[length],multiple_string,ix);
 			length += ix;
 		}
@@ -1303,6 +1317,11 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	fputc(RULE_GROUP_START,f_out);
 	fputc(RULE_LETTERGP2,f_out);
 	fputc(group + 'A', f_out);
+	if(letterGroupsDefined[group] != 0)
+	{
+		fprintf(f_log,"%5d: lettergroup L%.2d is already defined\n",linenum,group);
+		error_count++;
+	}
 	letterGroupsDefined[group] = 1;
 
 	n_items = 0;

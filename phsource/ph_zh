@@ -70,7 +70,7 @@ phoneme ph
   vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 amp=11
   vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
   lengthmod 2
-  wave ustop/p_
+  wave ustop/p_asp
 endphoneme
 
 phoneme m //not clear before some vowel
@@ -134,7 +134,7 @@ phoneme kh
   vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
   vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
   lengthmod 2
-  wave ustop/k_
+  wave ustop/k_asp%80
 endphoneme
 
 phoneme tS;
@@ -274,7 +274,7 @@ endphoneme
 
 phoneme @r  //tmp use V3_r
   vowel  starttype (@)  endtype (@)
-  length 250
+  length 350
   formants vowelr/V3_r
 endphoneme
 
@@ -358,6 +358,12 @@ phoneme ou
   vowel starttype (o) endtype (u)
   length 250
   formants vdiph/8u
+endphoneme
+
+phoneme ong
+  vowel starttype (o) endtype (o) 
+  length 500
+  formants vwl_zh/ong
 endphoneme
 
 phoneme u //try more before N

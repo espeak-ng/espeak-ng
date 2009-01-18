@@ -542,7 +542,7 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 
 			if(plist->synthflags & SFLAG_SYLLABLE)
 			{
-				if((stress = plist->tone) > 1)
+				if((stress = plist->stresslevel) > 1)
 				{
 					if(stress > 5) stress = 5;
 					phon_out[phon_out_ix++] = stress_chars[stress];
@@ -2550,6 +2550,14 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							return(0);
 						}
 #endif
+
+						// is it a bracket ?
+						if(IsBracket(letter))
+						{
+							if(pre_pause < 4)
+								pre_pause = 4;
+						}
+
 						// no match, try removing the accent and re-translating the word
 						if((letter >= 0xc0) && (letter <= 0x241) && ((ix = remove_accent[letter-0xc0]) != 0))
 						{

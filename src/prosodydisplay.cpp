@@ -136,11 +136,11 @@ void ProsodyDisplay::SelectPh(int index)
 	if((p == NULL) || (p->ph == NULL)) return;
 
 	emphasized = "";
-	if(p->tone & 8)
+	if(p->stresslevel & 8)
 		emphasized = "*";
 
 	sprintf(buf,"Stress %s%d   Amp %2d   LenMod %2d   Pitch %3d %3d [env=%d]   Flags %.2x ",
-		emphasized,p->tone&0x7,p->amp,p->length,p->pitch1,p->pitch2,p->env,p->ph->phflags);
+		emphasized,p->stresslevel&0x7,p->amp,p->length,p->pitch1,p->pitch2,p->env,p->ph->phflags);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 

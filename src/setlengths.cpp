@@ -298,8 +298,8 @@ void CalcLengths(Translator *tr)
 	{
 		prev = &phoneme_list[ix-1];
 		p = &phoneme_list[ix];
-		stress = p->tone & 0x7;
-		emphasized = p->tone & 0x8;
+		stress = p->stresslevel & 0x7;
+		emphasized = p->stresslevel & 0x8;
 
 		next = &phoneme_list[ix+1];
 

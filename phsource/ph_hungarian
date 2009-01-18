@@ -101,8 +101,7 @@ phoneme ts
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave ustop/ts
-  before _ ustop/ts_
+  wave ustop/ts   // don't use ustop/ts_ (before non-vowel)
 endphoneme
 
 

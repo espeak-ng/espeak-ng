@@ -30,6 +30,7 @@
 // ?8  Use full vowel, not schwa in some word endings
 
 .L01  l r
+.L02  i y
 
 .replace
    ﬀ   ff     // ligature
@@ -856,10 +857,10 @@
             area         e@ri@
             arest (_     e@r@st
             ar (en       ar
-         p) are (nth     @rE
+         p) are (nthe    @rE
          c) ar (eer      ar
          c) are (C@      e@
-         p) are (nt      e@r@
+         p) ar (ent      e@r
         pp) ar (enC      ar
         sp) ar (enC      ar
             ar' (nt      A@
@@ -1700,6 +1701,7 @@
             e (meou      i:
         _C) e (mur       i:
          &) e (n         @
+        &r) e (n         E
         Ah) e (n         E
         ll) e (nge       I
             e (o         I2
@@ -1900,6 +1902,7 @@
 
 .group ei
          l) eice (st     E
+            eich         aIx
             eigh         eI
          l) eigh         i:
         sl) eigh         eI
@@ -3557,12 +3560,16 @@
          @) o (ist       oU
             oix (_       wa
             o (ky_       oU
+?3       g) o (ng        O
+?3       r) o (ng        O
+?3       s) o (ng        O
          t) o (ngu       V
          &) oped (_      @pd
+         c) oped (_      oUpd
          _) o (per       0
          _) ope (n       oUp@
         un) ope (n       oUp@
-         @) opol (i      '0p@L
+         @) opol (L02    '0p@l
             opolitan     @p'0lIt@n
             oppor (tu    %0p3
             opp (res     @p
@@ -3753,9 +3760,6 @@
          _) one (r       oUn@
          m) on (ey       Vn
        und) one (_       Vn
-?3       g) ong          ON
-?3       r) ong          ON
-?3       s) ong          ON
 ?!3      m) ong (er      VNg
             on (i_       'oUn
          &) onism (_     =@nIz@m
@@ -4395,6 +4399,7 @@
             rehen        rIh'En
          _) re (i@P2     r,i:
          _) rei (l       raI
+         _) rei (c       raI
          _) rele (g      rElI2
             rele (nt     rI2lE
             rele (v      rElI
@@ -4804,7 +4809,7 @@
             u (lul       V
          h) u (man       ju:
             u (me        ju:
-         r) ument        @m@nt
+         r) um (ent      @m
         fl) uor          u:3
             u (o         ju:
          @) uous         =ju:@s

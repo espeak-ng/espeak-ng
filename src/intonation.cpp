@@ -734,12 +734,12 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	p = &phoneme_list[0];
 	for(ix=0; ix<n_phoneme_list; ix++, p++)
 	{
-		if((p->type == phVOWEL) && (p->tone >= 4))
+		if((p->type == phVOWEL) && (p->stresslevel >= 4))
 		{
 			if(count_stressed == 0)
 				final_stressed = ix;
 
-			if(p->tone >= 4)
+			if(p->stresslevel >= 4)
 			{
 				final_stressed = ix;
 				count_stressed++;
@@ -747,7 +747,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 		}
 	}
 
-	phoneme_list[final_stressed].tone = 7;
+	phoneme_list[final_stressed].stresslevel = 7;
 
 	// language specific, changes to tones
 	if(tr->translator_name == L('v','i'))
@@ -813,7 +813,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 					if((tph->mnemonic == 0x3535 ) || (tph->mnemonic == 0x3135))
 					{
 						// change sentence final tone 1 or 4 to stress 6, not 7
-						phoneme_list[final_stressed].tone = 6;
+						phoneme_list[final_stressed].stresslevel = 6;
 					}
 				}
 
@@ -840,7 +840,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 						p->tone_ph = PhonemeCode2('4','4');
 
 					// tone 5 is unstressed (shorter)
-					p->tone = 1;   // diminished stress
+					p->stresslevel = 1;   // diminished stress
 				}
 			}
 
@@ -859,7 +859,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 		{
 			tone_ph = p->tone_ph;
 
-			if(p->tone != 1)  // TEST, consider all syllables as stressed
+			if(p->stresslevel != 1)  // TEST, consider all syllables as stressed
 			{
 				if(ix == final_stressed)
 				{
@@ -924,9 +924,9 @@ void CalcPitches(Translator *tr, int clause_type)
 			syllable_tab[n_st].flags = 0;
 			syllable_tab[n_st].env = PITCHfall;
 			syllable_tab[n_st].nextph_type = phoneme_list[ix+1].type;
-			syllable_tab[n_st++].stress = p->tone;  // stress level
+			syllable_tab[n_st++].stress = p->stresslevel;
 
-			if(p->tone >= 4)
+			if(p->stresslevel >= 4)
 				n_primary++;
 		}
 		else
@@ -1051,7 +1051,7 @@ void CalcPitches(Translator *tr, int clause_type)
 	for(ix=ph_start; ix < ph_end; ix++)
 	{
 		p = &phoneme_list[ix];
-		p->tone = syllable_tab[st_ix].stress;
+		p->stresslevel = syllable_tab[st_ix].stress;
 		
 		if(p->synthflags & SFLAG_SYLLABLE)
 		{
@@ -1071,7 +1071,7 @@ void CalcPitches(Translator *tr, int clause_type)
 				p->env = PITCHrise;
 			}
 			else
-			if(p->tone > 5)
+			if(p->stresslevel > 5)
 				p->env = syl->env;
 
 			if(p->pitch1 > p->pitch2)
@@ -1092,7 +1092,7 @@ if(p->tone_ph)
 
 			if(syl->flags & SYL_EMPHASIS)
 			{
-				p->tone |= 8;      // emphasized
+				p->stresslevel |= 8;      // emphasized
 			}
 	
 			st_ix++;

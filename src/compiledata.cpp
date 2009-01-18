@@ -876,12 +876,8 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 			max = -sample;
 
 	}
-	if(max > 1)
-	{
-		scale_factor = (max / 127) + 1;
-	}
-	else
-		scale_factor = 0;
+
+	scale_factor = (max / 127) + 1;
 
 //fprintf(f_errors," sample len=%d max=%4x shift=%d\n",length,max,scale_factor);
 

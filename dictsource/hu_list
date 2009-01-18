@@ -4,12 +4,11 @@
 // Conditional rules:
 // ?1   speak "i" as Roman number
 
-
 // Numbers
 
 _0        nullA
 _1        EJ
-_2        kEttY:
+_2        kEt:Y:
 _3        ha:R2om
 _4        ne:J
 _5        Yt
@@ -43,7 +42,30 @@ _1M3      ke:tmillia:R2d
 _0M4      billio:
 _1M4      billio:
 _2M4      ke:tbillio:
-_dpt      ||_vEss2Y:_
+_dpt      ||_v,Ess2Y:_
+
+_0Z1	tizAd      // tenths
+_0Z2	sa:zAd     // hundredths
+_0Z3	EzR2Ed
+_0Z4	ti:zEzR2Ed
+
+
+// ordinal numbers
+_ord	Edik
+_1o	ElSY:
+_2o	ma:Sodik
+_3o	hAR2_mAdik
+_4o	nEJEdik
+_5o	YtYdik
+_6o	hAtodik
+_7o	hEtEdik
+_8o	n^oltsAdik
+_9o	kilEntsEdik
+_10o	tizEdik
+_12o	tizENkEt:Edik
+_20o	husAdik
+_0Co	sa:zAdik
+
 
 // accent names
 _lig	ligAtu:R2A
@@ -355,6 +377,7 @@ ny	En^
 %	sa:zAle:k	$max3
 +	plus		$max3
 =	EJEnlY:Se:g	$max3
+#	sa:mjEl		$max3
 @	kukAts
 &	e:SjEl
 €	EuR2o
@@ -364,6 +387,7 @@ ny	En^
 ^	hia:n^
 °	fokjEl
 Ft	foR2int
+\	viss2ApER2	$max3
 
 _,	vEss2Y:
 _;	pontoSvEss2Y:
@@ -382,15 +406,14 @@ _[	s'YglEtES||z'a:R2o:
 _]	s'YglEtES||z'a:R2o:
 _{	k'AptSoS||z'a:R2o:
 _}	k'AptSoS||z'a:R2o:
-_#	sa:mjEl
 _…	ha:R2_mASpont
 _•	di:spont
-_\	viss2ApER2
 
 // Main Exceptions List
 //=====================
 
 nato	na:to:
 
-
+$textmode
+(1-én)  elsején
 

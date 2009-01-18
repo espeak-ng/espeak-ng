@@ -15,6 +15,20 @@ n    N    p    r    s    S    t    T
 tS   v    w    x    x2   z    Z    
 
 
+Dictionary bn_dict
+
+&    a    a:   a~   e    E    e~   i    
+I    i:   i:~  i~   l-   o    O    o:   
+O~   o~   r-   U    u    u:   u:~  u~   
+V    
+
+*    b    B    bh   c    C    ch   d    
+d.   d.h  dh   g    gh   h    j    J    
+Jh   k    kh   l    m    n    N    n.   
+n^   p    ph   Q    r    r.   s    S    
+s.   t    t.   t.h  th   tS   x    z    
+
+
 Dictionary ca_dict
 
 @    a    a#   aI   e    E    E2   i    
@@ -51,6 +65,20 @@ Y    y:   Yu
 h    j    k    l    L    m    n    N    
 p    r    s    S    t    T    v    w    
 x    z    
+
+
+Dictionary kn_dict
+
+a    a:   aI   aU   e    E    e:   i    
+I    i:   o    o:   r-   u    u:   V    
+y    
+
+:    b    bh   c    ch   d    d.   d.h  
+dh   dZ   f    g    gh   h    j    J    
+Jh   k    kh   l    l.   m    n    N    
+n.   n^   p    ph   R    R2   s    S    
+s.   S;   t    t.   t.h  th   tS   v    
+w    z    
 
 
 Dictionary de_dict
@@ -246,6 +274,47 @@ s    S    t    tS   v    w    x    z
 Z    
 
 
+Dictionary ml_dict
+
+a    a:   aI   aU   e    E    e:   i    
+I    i:   o    o:   r-   u    u:   V    
+y    
+
+:    b    bh   c    ch   d    d.   d.h  
+dh   dZ   f    g    gh   h    j    J    
+Jh   k    kh   l    l.   m    n    N    
+n.   n^   p    ph   R    R2   s    s.   
+S;   t    t.   t.h  th   tS   v    w    
+z    z.   
+
+
+Dictionary ne_dict
+
+@    @/   @2   @3   a    aI   aU   a~   
+e    E    eI   eU   e~   E~   i    I    
+i~   l-   o    O    o:   oI   oU   O~   
+o~   r-   u    uI   u~   V    VI   VU   
+V~   
+
+-    :    b    bh   c    ch   d    d.   
+d.h  dh   f    g    gh   h    H    j    
+J    Jh   k    kh   l    l.   m    n    
+N    n.   n^   p    ph   Q    q    r    
+r.   s    S    s.   t    T    t.   t.h  
+th   v    w    x    z    z.   
+
+
+Dictionary om_dict
+
+a    A    a#   a:   E    e    E#   I    
+I#   i:   O    O#   o:   U    U#   u:   
+
+**   :    b    B    c`   d    D    d`   
+dZ   f    g    h    j    k    k`   l    
+m    n    n^   p    p`   R    s    S    
+s2   t    t`   tS   v    w    z    
+
+
 Dictionary ku_dict
 
 8    a    e    E    E#   eI   eU   i    
@@ -290,6 +359,16 @@ oU   r-   u    u:
 h    j    k    k^   l    l^   m    n    
 N    n^   p    r    R    s    S    t    
 tS   ts   tS;  v    x    z    Z    
+
+
+Dictionary rw_dict
+
+a    e    i    o    u    
+
+*    :    b    B    c    d    dZ   f    
+g    h    j    J    k    l    m    n    
+N    n^   p    q    R    s    S    S;   
+t    tS   v    w    x    z    
 
 
 Dictionary nl_dict
@@ -458,8 +537,8 @@ Dictionary zh_dict
 
 @    @r   a    A    ai   Au   E    ei   
 i    i.   i[   iA   iE   io   iou  N-   
-o    o-   ou   u    u@   ua   uai  uei  
-uo   y    y&   y@   yE   yi   yu   
+o    o-   ong  ou   u    u@   ua   uai  
+uei  uo   y    y&   y@   yE   yi   yu   
 
 ;    C    f    h    j    k    kh   l    
 L    m    n    N    p    ph   r    R    

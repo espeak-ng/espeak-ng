@@ -862,8 +862,10 @@ static int AnnouncePunctuation(Translator *tr, int c1, int c2, char *buf, int bu
 
 	if(c1 == '-')
 		return(CLAUSE_NONE);   // no pause
+	if(bufix > 0)
+		return(CLAUSE_SHORTCOMMA);
 	if((strchr_w(punct_close,c1) != NULL) && !iswalnum(c2))
-		return(CLAUSE_COLON);
+		return(CLAUSE_SHORTFALL+4);
 	if(iswspace(c2) && strchr_w(punct_stop,c1)!=NULL)
 		return(punct_attributes[lookupwchar(punct_chars,c1)]);
 	
@@ -2029,7 +2031,7 @@ f_input = f_in;  // for GetC etc
 				}
 			}
 			else
-			if((c1 == '<') && (ssml_ignore_l_angle != '<'))
+			if((c1 == '<') && (ssml_ignore_l_angle != '<') && ((c2 == '/') || iswalpha(c2)))
 			{
 				// SSML Tag
 				n_xml_buf = 0;
@@ -2300,10 +2302,10 @@ if(option_ssml) parag=1;
 	
 				if((nl_count==0) && (c1 == '.'))
 				{
-					if(iswdigit(cprev) && (tr->langopts.numbers & 0x10000))
+					if(iswdigit(cprev) && (tr->langopts.numbers & 0x10000) && islower(c2))
 					{
 						// dot after a number indicates an ordinal number
-						c2 = ' ';
+						c2 = '.';
 						continue;
 					}
 					if(iswlower(c2))

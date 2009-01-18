@@ -74,6 +74,7 @@ static int word_emphasis = 0;    // set if emphasis level 3 or 4
 
 static int prev_clause_pause=0;
 static int max_clause_pause = 0;
+int pre_pause;
 
 
 // these were previously in translator class
@@ -641,6 +642,7 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 		found = LookupDictList(tr, &word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
 		if(dictionary_flags[0] & FLAG_TEXTMODE)
 		{
+			first_char = word1[0];
 			stress_bits = dictionary_flags[0] & 0x7f;
 			found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, 0, wtab);   // the text replacement
 			if(dictionary_flags2[0]!=0)
@@ -1172,7 +1174,7 @@ strcpy(phonemes2,phonemes);
 	if(dictionary_flags[1] & FLAG_NOUNF)
 	{
 		/* not expecting a verb next */
-		tr->expect_noun = 3;
+		tr->expect_noun = 2;
 		tr->expect_verb = 0;
 		tr->expect_verb_s = 0;
 		tr->expect_past = 0;
@@ -1942,7 +1944,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int next_in;
 	int char_inserted=0;
 	int clause_pause;
-	int pre_pause=0;
 	int pre_pause_add=0;
 	int word_mark = 0;
 	int all_upper_case=FLAG_ALL_UPPER;
@@ -1972,13 +1973,13 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int tone;
 	int tone2;
 
-
 	p_textinput = (char *)vp_input;
 	p_wchar_input = (wchar_t *)vp_input;
 
 	embedded_ix = 0;
 	embedded_read = 0;
 	option_phoneme_input &= ~2;   // clear bit 1 (temporary indication)
+	pre_pause = 0;
 
 	if((clause_start_char = count_characters) < 0)
 		clause_start_char = 0;
@@ -2409,12 +2410,15 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				}
 			}
 			else
+#ifdef deleted
+// Brackets are now recognised in TranslateRules()
 			if(IsBracket(c))
 			{
 				pre_pause_add = 4;
 				c = ' ';
 			}
 			else
+#endif
 			if(lookupwchar(breaks,c) != 0)
 			{
 				c = ' ';  // various characters to treat as space
@@ -2636,9 +2640,12 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 				}
 			}
-			pn[0] = ' ';
-			pn[1] = 0;
 			word = pw;
+
+			// include the next few characters, in case there are an ordinal indicator
+			pn[0] = ' ';
+			memcpy(pn+1, pw, 5);
+			pn[5] = 0;
 
 			for(pw = &number_buf[1]; pw < pn;)
 			{
@@ -2650,7 +2657,14 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		}
 		else
 		{
+			pre_pause = 0;
 			dict_flags = TranslateWord2(tr, word, &words[ix], words[ix].pre_pause, words[ix+1].pre_pause);
+
+			if(pre_pause > words[ix+1].pre_pause)
+			{
+				words[ix+1].pre_pause = pre_pause;
+				pre_pause = 0;
+			}
 
 			if(dict_flags & FLAG_SPELLWORD)
 			{

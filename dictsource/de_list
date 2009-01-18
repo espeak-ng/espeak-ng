@@ -124,8 +124,17 @@ _1M2	_'aIn@||mIlI'o:n
 _0M3    ||mIlI'a*d@n
 _1M3    _'aIn@||mIlI'a*d@
 _0M4    bIlI'o:n
-_0and	||Unt
+_0and	||_|Unt
 _dpt	_kOma
+
+// ordinal numbers
+_ord	t@	// default ending
+_ord20	st@	// 20,30,etc
+_1o	_'e:*st@
+_3o	dr'It@
+_7o	z'i:bt@
+_8o	_'axt@
+_0Co	'hUnd3tst@
 
 // Abbreviations
 //==============

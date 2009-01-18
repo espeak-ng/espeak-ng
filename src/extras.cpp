@@ -1163,7 +1163,6 @@ void Test2()
 
 
 const char* text1 = "Hello world. Testing.";
-extern void TestCompile2(void);
 
 void TestTest(int control)
 {//=======================
@@ -1178,7 +1177,6 @@ void TestTest(int control)
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
 
-//TestCompile2();
 return;
 
 if(control==2)

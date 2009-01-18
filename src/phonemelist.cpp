@@ -628,7 +628,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		phlist[ix].type = ph->type;
 		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
 		phlist[ix].synthflags = plist2->synthflags | switched_language;
-		phlist[ix].tone = plist2->stress & 0xf;
+		phlist[ix].stresslevel = plist2->stress & 0xf;
 		phlist[ix].tone_ph = plist2->tone_number;
 		phlist[ix].sourceix = 0;
 

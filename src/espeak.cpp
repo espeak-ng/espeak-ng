@@ -466,7 +466,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x104:   // --voices
-			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL,0);
+			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,data_path,0);
 			DisplayVoices(stdout,optarg);
 			exit(0);
 

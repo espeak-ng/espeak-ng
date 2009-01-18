@@ -1341,3 +1341,23 @@ phonemetable hy base
 include ph_armenian
 
 
+phonemetable rw base2
+include ph_kinyarwanda
+
+phonemetable ml hi
+include ph_malayalam
+
+phonemetable kn hi
+include ph_kannada
+
+phonemetable bn hi
+include ph_bengali
+
+phonemetable ne hi
+include ph_nepali
+
+phonemetable mr hi
+include ph_mathari
+
+phonemetable om base
+include ph_oromo

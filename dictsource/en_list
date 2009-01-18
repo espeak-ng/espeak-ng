@@ -102,7 +102,6 @@ _#32	speIs
 _ 	hA@dspeIs    // U+00A0  no-break-space
 _!	Ekskl@m'eIS@n
 _"	kwoUts
-_#	haS
 _$	d0l3
 _%	p3s'Ent
 ?5 _%	pVRs'Ent
@@ -178,6 +177,7 @@ _‴	trIp@LpraIm
 _‼	Ekskla2m'eIS@nz
 _₠	jU@roU
 
+#	haS   $max3
 @	_at_
 &	_and
 \	bakstroUk  $max3
@@ -186,8 +186,8 @@ _₠	jU@roU
 ?3 /	slaS  $max3
 *	ast@rIsk $max3
 %	p3sEnt  $max3
-=	_:i:kw@Lz_:  $max3
 ?5 %	pVRs'Ent $max3
+=	_:i:kw@Lz_:  $max3
 ¢	sEnts
 £	paUnd
 ¥	jEn
@@ -303,10 +303,13 @@ _0M3	b'Ili@n
 _dpt	pOInt
 _roman	roUm@n_
 
-(1 st)	f3:st
-(2 nd)	sEk@nd
-(3 rd)	T3:d
-(5 th)	fIT
+_ord	T	// default ending
+_ord20	@T	// for 20,30,etc
+_1o	f'3:st
+_2o	s'Ek@nd
+_3o	T'3:d
+_5o	f'IT
+_0Co	h'Vndr@dT
 
 
 // ABBREVIATIONS
@@ -338,6 +341,7 @@ ibm	$abbrev
 ie	aIi:_!   $pause $only
 i.e	aIi:_!   $pause
 irc	$abbrev
+(km ²)	skw,e@kIl'0mIt3z
 lbs	paUndz
 LBS	$abbrev
 ltd	lImI2tI2d
@@ -815,7 +819,7 @@ concise          k0ns'aIs
 cone             koUn
 conflict          $1           $onlys
 conflict                       $verb
-conger           k0ng3
+conger           k0Ng3
 conscience       k0nS@ns
 construct                      $1 $onlys
 construct                      $verb
@@ -1382,6 +1386,7 @@ mammoth          mam@T
 mandate           $2           $verb
 manganese         $1
 manger           meIndZ3
+mangetout        m0nZt'u:
 manhour          manaU@
 mankind                        $2
 maneuver         m@nu:v3
@@ -1665,6 +1670,7 @@ prestige         prEst'i:Z
 ?3 pretense      pri:tEns
 pretext          pri:tEkst
 pretty           prItI
+privation        praIv'eIS@n
 privilege        prIvI2lI2dZ
 privy            prIvI
 prix             pri:
@@ -1847,6 +1853,7 @@ satan            seIt@n
 satanist         seIt@nIst
 saucepan         sO:sp@n
 saudi            saUdI
+saute            sO:teI
 says             sEz
 schema           ski:m@
 shallow          SaloU
@@ -1884,8 +1891,10 @@ sentient         sEnti@nt
 sequester         $2
 sequine          si:kwI2n
 series           si:ri:z
+serenade         sErI2n'eId
 serene           s@ri:n
 sergeant         sA@dZ@nt
+sesame           sEsa2mI
 settee                         $2
 severe           sI2v'i@3        $only
 severely         sI2v'i@3lI2     $verbf
@@ -2550,8 +2559,10 @@ Michael		maIk@L
 Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
-Mohammad	moUh'amId
-Muhammad	moUh'amId
+Minerva		mI2n3:v@
+Mohamed		moUh'amI2d
+Mohammad	moUh'amI2d
+Muhammad	moUh'amI2d
 Moira		mOIr@
 Natalie		nata2li
 Nathan		neIT@n
@@ -2604,6 +2615,7 @@ Disney		dIznI
 Patel		pa2tEl
 Primavera	pri:m@v'e@r@
 Prentice	prEntIs
+Reid		ri:d
 Reuter		rOIt3
 Ubuntu		u:b'u:ntu:
 Yaesu		jeIsu:
@@ -2746,6 +2758,7 @@ aren't           ,A@nt         $pastf $strend2
 weren't          ,w3:nt        $pastf $strend2
 
 will              $u+           $only $verbf $strend2
+will                            $noun
 (will to)        wIlt@5
 would             $u+           $verbf $only $strend2
 (would have)     w%Udh%a2v      $pastf
