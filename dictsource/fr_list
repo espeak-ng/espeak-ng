@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-01-14 Michel Such  <michel.such@free.fr>
+// Updated 2009-02-01 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -111,7 +111,6 @@ _#   djEz
 _'   a2postr'Of
 _(   'uvR@-parA~t'Ez
 _)   f'Erm parA~t'Ez
-_*   asterisk:
 _,   virgyl
 _-   tirE
 _.   _|pw%E~
@@ -141,11 +140,11 @@ _µ	mikR'o
 _§	sEksj'O~
 
 // symbols that are normally spoken when reading text
-@	arobaz
-%	pursA~	$max3
-*	asterisk:	$max3
+@	_!arobaz
+%	pursA~		$max3
 &	e $u $brk
 _&	_e_komErsj'al
+*	asterisk:	$max3
 +	plys		$max3
 ~	tilde
 €	@ro
@@ -200,30 +199,11 @@ _4X	karA~t
 _41	karA~te:W~
 _5X	sE~kA~t
 _51	sE~kA~te:W~
-_6X	swAsA~t
+_6X	swAsA~t:
 _61	swAsA~te:W~
-_7X	swAsA~t:diz3
 _71	swAsA~te:O~z
-_72	swAsA~t:duz
-_73	swAsA~t:tREz
-_74	swAsA~t:katOrz
-_75	swAsA~t:kE~z
-_76	swAsA~t:sEz
-_77	swAsA~t:dis:Et
-_78	swAsA~t:diz'w^it3
-_79	swAsA~t:diznWf
-_8X	katR@vE~
+_8X	katR@vE~:
 _80	katR@vE~z2
-_9X	katR@vE~diz3
-_91	katR@vE~:O~z
-_92	katR@vE~:duz
-_93	katR@vE~:tREz
-_94	katR@vE~:katOrz
-_95	katR@vE~:kE~z
-_96	katR@vE~:sEz
-_97	katR@vE~:dis:Et
-_98	katR@vE~:dizw^it3
-_99	katR@vE~:diznWf
 _0C	sA~
 _1C0	sA~t2
 _0M1	mil
@@ -236,24 +216,8 @@ _dpt	virgyl
 //some numbers have special pronunciation in Belgium and Switzerland
 ?2 _7X	sEptA~t
 ?2 _71	sEptA~te:W~
-?2 _72	sEptA~t:dYz2
-?2 _73	sEptA~t:tRwAz2
-?2 _74	sEptA~t:katr
-?2 _75	sEptA~t:sE~k
-?2 _76	sEptA~t:siz3
-?2 _77	sEptA~t:sEt
-?2 _78	sEptA~t:w^it3
-?2 _79	sEptA~t:nWf
 ?2 _9X	no2nA~t
 ?2 _91	no2nA~te:W~
-?2 _92	no2nA~t:dYz2
-?2 _93	no2nA~t:tRwAz2
-?2 _94	no2nA~t:katr
-?2 _95	no2nA~t:sE~k
-?2 _96	no2nA~t:siz3
-?2 _97	no2nA~t:sEt
-?2 _98	no2nA~t:w^it3
-?2 _99	no2nA~t:nWf
 
 (21 ème)	vE~te:yniEm
 (31 ème)	tRA~te:yniEm
@@ -288,7 +252,7 @@ hz		_!E2rts
 ibm		$abbrev
 ide		$abbrev
 ip		$abbrev
-jaws		dZ'O2wz
+jaws		dZ'awz
 kde		$abbrev
 kg		kilogram
 khz		kiloE2rts
@@ -324,8 +288,9 @@ xfce		iksEfse@
 xy		$abbrev
 
 
-dr               dOkt Wr       $dot $capital
+dr               dOktWr       $dot $capital
 prof                           $dot
+pr		professeur $text *dot $capital
 
 
 
@@ -472,7 +437,6 @@ trop	$u+
 assez	$u+
 beaucoup	$u+
 peu	$u+
-peu	$noun
 très	$u
 
 // negative
@@ -480,7 +444,6 @@ ne	$u $verbf
 pas	$u+
 pas	$noun
 plus	$u+
-plus	$noun
 guère	$u+
 jamais $u+
 non	nO~ $u+
@@ -504,7 +467,8 @@ sommes	$u+ $verb
 sont	$u+ $verb
 
 fus	$u+	$verb
-fut	$u+	$verb
+fut	fyt2 $u+	$verb
+fût	fyt2 $u+	$verb
 fûmes	$u+	$verb
 fûtes	$u+	$verb
 furent	$u+
@@ -526,6 +490,7 @@ eues	yz2 $u+
 eus	yz2 $u+
 
 eut	yt2 $u+ $verb
+eût	yt2 $u+ $verb
 eûmes	 $u+ $verb
 eûtes	 $u+ $verb
 eurent	yrt2 $u+
@@ -627,14 +592,17 @@ malus      malys
 mapper	_^_en
 mars	      mars
 mieux	mj'Y $u+
+mrs	_^_en
 ours	urs
 parangon	      parA~gO~
 phallus    falys
 polder    pOldEr
 premier    pr@mjer2
-(program files)	pr,o2gram||f'ajlz
+program	_^_en
+quit	_^_en
 scanner	skaner2
 scanner	skanWr $noun
+sir           _^_EN
 souris       suri
 sus       sys
 sus       sy $verb
@@ -733,7 +701,7 @@ from	frO2m $u+
 get		_^_en
 google		gu:gWl
 gnome		gnOm
-gnu		gnu
+gnu		$abbrev
 hamburger		hA~b@rgWr
 help		_^_en
 hot		_^_en
@@ -819,5 +787,5 @@ wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
 
-
+pest  $1
 

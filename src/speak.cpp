@@ -86,7 +86,7 @@ static const char *help_text =
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
-"-b\t   Input text is 8-bit encoding\n"
+"-b\t   Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit \n"
 "-m\t   Interpret SSML markup, and ignore other < > tags\n"
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
@@ -568,7 +568,7 @@ int main (int argc, char **argv)
 #else
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:bf:g:hk:l:p:qs:v:w:xXmz",
+		c = getopt_long (argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -580,7 +580,10 @@ int main (int argc, char **argv)
 		switch (c)
 		{
 		case 'b':
+			// input character encoding, 8bit, 16bit, UTF8
 			option_multibyte = espeakCHARS_8BIT;
+			if((sscanf(optarg2,"%d",&value) == 1) && (value <= 4))
+				option_multibyte= value;
 			break;
 
 		case 'h':

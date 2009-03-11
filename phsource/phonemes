@@ -1361,3 +1361,6 @@ include ph_mathari
 
 phonemetable om base
 include ph_oromo
+
+phonemetable eu base2
+include ph_basque

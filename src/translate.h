@@ -301,7 +301,7 @@ typedef struct {
 	int vowel_pause;
 	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
 
-// bit0=don't stress monosyllables,
+// bit0=don't stress monosyllables, except at end of clause
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
 // bit4=don't allow secondary stress on last syllable
@@ -328,6 +328,7 @@ typedef struct {
 #define NUM_ROMAN_UC     0x40000
 #define NUM_NOPAUSE      0x80000
 #define NUM_ROMAN_AFTER 0x200000
+#define NUM_VIGESIMAL   0x400000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -348,6 +349,7 @@ typedef struct {
 	// bit19=don't add pause after a number
 	// bit20='and' before hundreds
 	// bit21= say "roman" after the number, not before
+	// bit22= vigesimal number, if tens are not found
 	int numbers;
 
 #define NUM2_100000     0x800   // numbers for 100,000 and 10,000,000
@@ -364,7 +366,6 @@ typedef struct {
 	int max_roman;
 	int thousands_sep;
 	int decimal_sep;
-	int ordinals;
 
 	// bit 0, accent name before the letter name, bit 1 "capital" after letter name
 	int accents;
@@ -514,7 +515,7 @@ extern Translator *translator2;
 extern const unsigned short *charsets[N_CHARSETS];
 extern char dictionary_name[40];
 extern char ctrl_embedded;    // to allow an alternative CTRL for embedded commands
-extern char *p_textinput;
+extern unsigned char *p_textinput;
 extern wchar_t *p_wchar_input;
 extern int dictionary_skipwords;
 
@@ -568,11 +569,11 @@ void CalcPitches(Translator *tr, int clause_tone);
 
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 int Unpronouncable(Translator *tr, char *word);
-void SetWordStress(Translator *tr, char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
+void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags, int tonic, int prev_stress);
 int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
 int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);
-int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int n_buf, int *tone_type);
+int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type);
 
 void SetVoiceStack(espeak_VOICE *v);
 

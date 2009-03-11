@@ -192,7 +192,7 @@ t_espeak_command* create_espeak_mark(const void *text, size_t size, const char *
 //>
 //< create_espeak_key, create_espeak_char
 
-t_espeak_command* create_espeak_key(const char *key_name)
+t_espeak_command* create_espeak_key(const char *key_name, void *user_data)
 {
   ENTER("create_espeak_key");
   int a_error=1;
@@ -205,7 +205,9 @@ t_espeak_command* create_espeak_key(const char *key_name)
 
   a_command->type = ET_KEY;
   a_command->state = CS_UNDEFINED;
-  a_command->u.my_key = strdup( key_name);
+  a_command->u.my_key.user_data = user_data;
+  a_command->u.my_key.unique_identifier = ++my_current_text_id;
+  a_command->u.my_key.key_name = strdup( key_name);
   a_error=0;
 
  key_error:
@@ -223,7 +225,7 @@ t_espeak_command* create_espeak_key(const char *key_name)
   return a_command;
 }
 
-t_espeak_command* create_espeak_char(wchar_t character)
+t_espeak_command* create_espeak_char(wchar_t character, void* user_data)
 {
   ENTER("create_espeak_char");
   int a_error=1;
@@ -235,7 +237,9 @@ t_espeak_command* create_espeak_char(wchar_t character)
  
   a_command->type = ET_CHAR;
   a_command->state = CS_UNDEFINED;
-  a_command->u.my_char = character;
+  a_command->u.my_char.user_data = user_data;
+  a_command->u.my_char.unique_identifier = ++my_current_text_id;
+  a_command->u.my_char.character = character;
   a_error=0;
 
  char_error:
@@ -463,9 +467,9 @@ int delete_espeak_command( t_espeak_command* the_command)
 	  break;
 
 	case ET_KEY:
-	  if (the_command->u.my_key)
+	  if (the_command->u.my_key.key_name)
 	    {
-	      free((void*)(the_command->u.my_key));
+	      free((void*)(the_command->u.my_key.key_name));
 	    }
 	  break;
 
@@ -562,14 +566,14 @@ void process_espeak_command( t_espeak_command* the_command)
 
     case ET_KEY:
       {
-	const char* data = the_command->u.my_key;
+	const char* data = the_command->u.my_key.key_name;
 	sync_espeak_Key(data);
       }
       break;
 
     case ET_CHAR:
       {
-	const wchar_t data = the_command->u.my_char;
+	const wchar_t data = the_command->u.my_char.character;
 	sync_espeak_Char( data);
       }
       break;

@@ -196,26 +196,29 @@ _dpt    'pWnt
 _roman  rum'eIns@   
 
 // ordinal numbers
-_ord	d@   // default suffix
-_ord20	st@  // for 20,30,etc
-_1o	_'e@rst@
-_2o	tw'e@d@
-_3o	d'&:rd@
-_7o	s'e@v@nd@
-_8o	_'ax2st@
-_9o	ne@x2@nd@
+_0de	d@
+_0ste	st@
+_1o	_'e@r
+_2o	tw'e@
+_3o	d'&:r
+_7o	s'e@v@n
+_8o	_'ax2
+_9o	ne@x2@n
 _0Co	h'On@rtst@
-
 
 
 // Place names
 
+acapulco    akap'ulk@U
 afganistan  afg'anistan
 alaska      al'aska
+albanië     alb'A:ne@:@-
 algerië     alx2'e@re@:@-
+amanzimtoti $4 
 antwerpen   antv&rp@n
 babilon     babilOn
 bangladesj  baNglad'ES
+barkly      _^_EN
 bellevue    b&lvju:
 bermuda     $2
 bethlehem   bEt_liEm
@@ -235,6 +238,7 @@ ceylon      s@lOn
 chicago     _^_EN
 china       S'ina
 clanwilliam kl&:nw'ili@m
+clifton     _^_EN
 colenso     kul'E:ns@U
 colesberg   ko@lsb&rx2
 constantia  $2
@@ -247,12 +251,13 @@ ermelo      &rm@lo@
 franschhoek frA~nsh'uk
 gadara      x2@dA:ra
 galilea     x2al@l'i:a
-gariep      x2ar'ip
 germiston   _^_EN
 getsémané   x2Ets'e@mani
+gonubie     g@nu:bi
 goudini     $2
 gordonsbaai gO:rd@nsb'AI
 (graaff reinet) x2rA:f||r@n'Et
+grahamstad  x2rA:mstat
 griekeland  x2rik@lant
 groblersdal x2rObl@rsd'al
 havana      hav'ana
@@ -260,6 +265,7 @@ hermon      $1
 hirosjima   hiruS'ima
 israel      IsraI:l
 italië      it'A:li;@
+jeffreysbaai dZEfrisb'AI
 kalafong    kalaf'ON
 kanada      kanad%a
 kanaän      kA:nA:an
@@ -272,6 +278,9 @@ kongo       kONgu
 knysna      neIsna
 kuruman     kuruman
 kwa         kwa $u $only // KwaZulu, etc.
+lady        _^_EN // Lady Grey/Lady Smith
+ladybrand   leIdibr'ant
+laingsburg  leInsbWrx2
 lesotho     l@sutu
 limpopo     l@mpo@po@
 (los angeles) lOs_'andZ@li:z	
@@ -283,10 +292,10 @@ maputo      map'u:tu
 mauritius   mOr'iSjWs
 milaan      $2
 mesopotamië mEsuput'A:mi@
+mpumalanga  mpu:mal'aNga
 montagu     mOnt@ky
 moreletapark mOr@l,Etap'ark
 moorreesburg mur'e@sbWrx2
-mosambiek   mo@samb'ik
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
 nigel       _^_EN
@@ -314,6 +323,7 @@ tunisië     $2
 turkye      $2
 ulundi      ul'undi
 upington    apiNt@n
+vanrhynsdorp fanr'eInsdOrp
 vesuvius    v@su:viWs
 viëtnam     vj'Etnam
 wallonië    val'o@ni@
@@ -333,14 +343,20 @@ adam        adam
 adriaan     A:drijan
 adrie       A:dri
 albertus    alb'&rtWs
+alfred      _^_EN
 allah       %alA:
+amelia      am'i:lija
+annalet     anal'Et
 André       'andreI
 annette     an'Et
 antoinette  antun'Et
 barbara     bA:b@ra
+basson      $2
 bea         bi:ja
+benade      b@nA:di
 benjamin    bEndZ@m@n
 bennett     bEn@t
+bertha      b&rta
 bester b'Est@r
 beyers      beI@rs
 blignault   blIx2n@Ut
@@ -350,7 +366,7 @@ bouwer      b@U@r
 brian       _^_EN
 bredenkamp  bre@d@nkamp
 breytenbach breIt@nbax2
-brouwer     bruw'&:r
+bruwer      bruw'&:r
 caesar      siz@r
 carl        kA:r@L
 casanova    kasan'o@va
@@ -375,6 +391,7 @@ cindy       sIndi
 coetzee     kuts'e@
 cronjé      krOnj'e@
 cynthia     _^_EN
+dalene      dal'e@n
 darwin      _^_EN
 david       _^_EN
 (da vinci)  da||v'intSi
@@ -390,16 +407,20 @@ donaldson   _^_EN
 du		$u
 (du pisanie) du||pis'A:ni
 (du plessis) du||pl@s'i
+(du plooy)   d@||ploI
 (du preez)  d@||pr'e@
 (du toit)   d@||toI
+duvenage    dyv@nA:x2@	
 eksteen     $1
 eldorado    &ldOr'A:d@U
 elisabeth   il'isabEt
 elize       il'i:z
 elmien      $2
+elsabe      &ls@bi
 elsabé      &ls@bi
 emmarentia  Emar'e~nSja
 erasmus     $2
+ernest      _^_EN
 eségiël    is'e@x2i_@l
 estelle     %ist&l
 etienne     Eti@n
@@ -418,15 +439,18 @@ george      _^_EN
 georgina    dZO:dZ'ina
 gerhard     x2&rart
 gerhardus   $2
+gertruida   $2
 gloria      glO:ria
 grange      x2rA:nsi
 gustav      gustaf
 guy         _^_EN
+hamlet      _^_EN
 harry       _^_EN
 havenga     hA:f@Nx2a
 haydn       hAId@n
 helen       _^_EN
 helena      hil'e@na
+helene      hi:l'i:n
 helloïse    hEluw'i:z
 henry       _^_EN
 herklaas    $1
@@ -436,10 +460,12 @@ ilse 'ilz@
 ingrid      iNgr@d
 isabel      is@b&l
 iskariot    isk'ariOt
+jaco        jaku
 jacques     ZA:k
 james       _^_EN
 jane        _^_EN
 Jean        ZA~n $capital
+jesebel     je@s@b&l
 jimmy       _^_EN
 joan        _^_EN
 joey        dZ@Ui
@@ -452,14 +478,17 @@ kelvin      _^_EN
 kim         _^_EN $capital
 krige       krix2@
 labuschagne labWsk'ax2ni
+lafras      $2
 langenhoven laN@nho@f@n
 lasarus     lA:s@r%Ws
 lategan     lA:t@x2an
 le l@ $only
 leandra     li'andra
+leipoldt    lAIpOlt
 leonardo    liu:n'ardu
+leonie      li'o@ni
 levi        le@fi
-
+liesbet     lisbEt
 louis       luI
 louise      luw'i:z
 mackintosh  _^_EN
@@ -467,6 +496,8 @@ mbeki       mbE:ki
 magdalena   $3
 malan       mal'an
 malherbe      mal'&rb@
+mantovani   mantOv'A:ni
+mara        mA:ra
 marelie     mar@li
 margaret    _^_EN
 margaretha  marx2ar'e@ta
@@ -478,8 +509,11 @@ marlise     marl'i:s
 martha      marta
 martin m'A:rt@n
 mary        _^_EN
+mathilda    mat'Ilda
 matteus     mat'i:Ws
+matthee     mat'e@
 matthéüs    mat'i:Ws
+maureen     _^_EN
 mefistofeles mEfist'o@f@l@s
 melanie     m@lA:ni
 meraai      m@rAI
@@ -491,6 +525,7 @@ michiel $2
 mike        _^_EN
 miriam      mIri@m
 mohammed    muh'am@t
+morkel        mOrk@l
 morné       mOrn'eI
 mostert     m'Ost@rt
 mouton      mut'On
@@ -516,10 +551,12 @@ rebekka     r@bEka
 reinette    r@nEt
 renette     r@nEt
 renée       r@neI
+retha       re@ta
 retief      r@tif
 rhodes      _^_EN
 robert      _^_EN
 ronel       run'&l
+rossouw     r@s@U
 rousseau    r@s@U
 ruda        ruda
 rupert      rup@rt
@@ -554,6 +591,7 @@ toerien     $2
 totius      to@SiWs
 trudie      trudi
 versfeld    f&rsf&lt
+veronica    _^_EN
 victoria    _^_EN
 viljoen     $2
 villiers    vIli@rs
@@ -574,8 +612,11 @@ schalkwyk   skalkveIk
 schreiner   SraIn@r
 tony        t@Uni
 trichardt   trix2A:rt
+vera        ve@ra
+verwey      f@rveI
 vivaldi     viv'aldi
 viviers     v@v@je@
+wilhelm     v@lh&l@-m
 khumalo     kum'A:lu
 zuma        zu:ma
 
@@ -589,6 +630,11 @@ citroên     s@trun
 ferrari     f@rA:ri
 martini     mart'i:ni
 naspers     nasp&rs
+peugeot     pW:Z@U
+(pick n pay) p,ik||@n||p'eI
+port        pOrt $1
+rover       _^_EN
+sotho       su:tu
 toyota      $2
 venda       vEnda
 volvo       vOlvu
@@ -665,7 +711,7 @@ hoekom		$pause
 hoeveel		$pause
 wat		$pause
 watter		$pause
-
+ás		as '!as
 
 // prepositions
 aan		$u $strend2
@@ -717,9 +763,10 @@ dis		$u
 
 // phrase with words spoken together
 
-(nie waar nie)	n,i||v,A:r||n'i
 (à la carte)	a||la||k'art
-
+(carpe diem)	karpE||di:Em
+(nie waar nie)	n,i||v,A:r||n'i
+(sy aan sy)	s,eI||an||s'eI
 
 
 // main word list
@@ -735,6 +782,7 @@ agamemnon     ax2am'EmnOn
 aggressie     $2
 agterstevoor  $4
 agterweë      $3
+aha           A:h'!A:
 algaande      $2
 alge          alx2@
 algehele      alx2@h,e@l@
@@ -743,8 +791,10 @@ almiskie      $3
 alom          al_'Om
 alreeds       $2
 alternatiewe  $4
+amelee        am@le@
 amen          A:mEn
 anale         an'A:l@
+as't          as@t $u
 asof          asOf
 asook         %as_o@k
 aspris        $2
@@ -762,6 +812,7 @@ beswil        bEsv@l
 besnedene     b@sne@d@n@	
 bestes        bEst@s
 beta          be@ta $only
+betlehemster  bEtli:Emst&r
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
@@ -779,6 +830,9 @@ capita        kapita
 casino        kas'i:n@U
 cedille       s@dIl@
 charisma      kar'Isma
+cliché 	kliS'eI:
+
+clichés 	kliS'eI:s
 crescendo     kr@SEndu
 
 dadelik       dA:d@lIk
@@ -832,6 +886,7 @@ geldelike     x2&ld@l@k@
 genade        $2
 genesis       x2e@n@s@s 
 //gesamentlik   x2@sA:m@ntl@k
+gladiator     x2ladi'A:tOr
 globale       x2lo@b'A:l@
 gooi          x2OI
 gomorra       x2@mOra
@@ -840,6 +895,7 @@ gratis        x2r'A:t@s
 grondys       x2rO:nt_eIs
 
 hallo         h'Il,@U
+handtertjie   hant&:rci
 hanou         hA:n@U
 hardop        hart?Op
 heeltemal     he@lt@mal
@@ -896,7 +952,9 @@ kulture       $2
 kunsmatige    kWnsm'A:t@x2@
 kwansuis      $2
 
+lasagne       las'anj@
 libido        l@bidu
+lokaas        lOk_A:s
 londense      lOnd@ns@
 lord          _^_EN
 
@@ -910,7 +968,9 @@ meegee        me@x2e@
 memorabilia   mEmOrab'ilija
 memoriam      mEm'o@riam
 mercedes      $2
+meregebied    me@r@x2@bit
 merlot        m&rl'o@
+miaau         mi'aU:
 midwinter     mIdv@nt@r
 militêre      mIl@t'&:r@
 minister      m@nIst@r
@@ -997,6 +1057,7 @@ pandemonium   pand@m'o@niWm
 parate        par'A:t@
 parke         park@
 parkie        $1
+parte         $1
 patos         pA:tOs
 patriotisme   patri|ut'Ism@
 penorent      pEno@rEnt
@@ -1056,6 +1117,7 @@ suburbia      sWb'Wrbija
 tanga         taNga
 tango         taNx2u
 tenminste     $2
+tequila       t@ki:la
 terdeë       $2
 terug         t@-rWx2
 tesaam        t@sA:m

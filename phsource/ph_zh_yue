@@ -6,7 +6,7 @@
 
 phoneme 1   //  tone: high level
   stress
-  tone 50 30 envelope/p_fall NULL
+  tone 50 50 envelope/p_level NULL
 endphoneme
 
 
@@ -37,6 +37,12 @@ endphoneme
 phoneme 6   //  tone: low level
   stress
   tone 20 20 envelope/p_level NULL
+endphoneme
+
+
+phoneme 7   //  tone: high fall
+  stress
+  tone 50 30 envelope/p_fall NULL
 endphoneme
 
 

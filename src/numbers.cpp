@@ -747,6 +747,9 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 
 
 
+// Numbers
+
+static char ph_ordinal2[12];
 
 int TranslateRoman(Translator *tr, char *word, char *ph_out)
 {//=====================================================
@@ -905,13 +908,14 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	int found_ordinal = 0;
 	int next_phtype;
 	char string[12];  // for looking up entries in *_list
+	char ph_ordinal[20];
 	char ph_tens[50];
 	char ph_digits[50];
 	char ph_and[12];
-	char ph_ordinal[12];
 
 	// is there a special pronunciation for this 2-digit number
 	found = 0;
+	ph_ordinal[0] = 0;
 
 	if(control & 4)
 	{
@@ -920,6 +924,8 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	}
 	if(control & 2)
 	{
+		strcpy(ph_ordinal, ph_ordinal2);
+
 		sprintf(string,"_%do",value);
 		if((found = Lookup(tr, string, ph_digits)) != 0)
 		{
@@ -969,6 +975,14 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 				Lookup(tr, string, ph_tens);
 			}
 
+			if((ph_tens[0] == 0) && (tr->langopts.numbers & NUM_VIGESIMAL))
+			{
+				// tens not found,  (for example) 73 is 60+13
+				units = (value % 20);
+				sprintf(string,"_%dX",(value / 10) & 0xfe);
+				Lookup(tr, string, ph_tens);
+			}
+
 			ph_digits[0] = 0;
 			if(units > 0)
 			{	
@@ -997,8 +1011,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		}
 	}
 
-	ph_ordinal[0] = 0;
-	if((control & 2) && (found_ordinal == 0))
+	if((control & 2) && (found_ordinal == 0) && (ph_ordinal[0] == 0))
 	{
 		if((value >= 20) && (((value % 10) == 0) || (tr->langopts.numbers & 0x10)))
 			Lookup(tr, "_ord20", ph_ordinal);
@@ -1196,10 +1209,6 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 }  // end of LookupNum3
 
 
-static const char *ordinalstr_en[] = {"th","st","nd","rd",NULL,};
-static const char *ordinalstr_af[] = {"de","ste",NULL,};
-static const char **ordinal_strings[] = {NULL, ordinalstr_en, ordinalstr_af};
-
 static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, int wflags)
 {//====================================================================================================
 //  Number translation with various options
@@ -1208,7 +1217,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	int n_digits;
 	int value;
-	int ix;
+	unsigned int ix;
 	unsigned char c;
 	int suppress_null = 0;
 	int decimal_point = 0;
@@ -1221,41 +1230,57 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int decimal_count;
 	int max_decimal_count;
 	int decimal_mode;
-	int len;
-	const char *p;
-	const char **pp;
-	char string[12];  // for looking up entries in de_list
+	int hyphen;
+	char *p;
+	char string[20];  // for looking up entries in **_list
 	char buf1[100];
 	char ph_append[50];
 	char ph_buf[200];
 	char ph_buf2[50];
+	char suffix[20];
 
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
+
+	*flags = 0;
 
 	for(ix=0; isdigit(word[ix]); ix++) ;
 	n_digits = ix;
 	value = this_value = atoi(word);
 
+	ph_ordinal2[0] = 0;
 	if((tr->langopts.numbers & 0x10000) && (word[ix] == '.'))
 	{
-		// ordinal number
+		// ordinal number is indicated by dot after the number
 		ordinal = 2;
 		word[ix] = ' ';
 	}
 	else
-	if(tr->langopts.ordinals)
 	{
-		// ordinal numbers are recognized by letters after the number
+		// look for an ordinal number suffix after the number
 		ix++;
-		pp = ordinal_strings[tr->langopts.ordinals];
-		while((p = *pp++) != NULL)
+		hyphen = 0;
+		p = suffix;
+		if(word[ix] == '-')
 		{
-			len = strlen(p);
-			if((word[ix+len] == ' ') && (memcmp(&word[ix], p, len) == 0))
+			*p++ = '-';
+			hyphen = 1;
+			ix += 2;
+		}
+		while((word[ix] != 0) && (word[ix] != ' ') && (ix < (sizeof(suffix)-1)))
+		{
+			*p++ = word[ix++];
+		}
+		*p = 0;
+
+		if(suffix[0] != 0)
+		{
+			sprintf(string,"_0%s",suffix);
+			if(Lookup(tr, string, ph_ordinal2))
 			{
+				// this is an ordinal suffix
 				ordinal = 2;
-				memset(&word[ix], ' ', len);
-				break;
+				flags[0] |= FLAG_SKIPWORDS;
+				dictionary_skipwords = 1 + hyphen;
 			}
 		}
 	}
@@ -1462,7 +1487,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
 	}
 
-	*flags = FLAG_FOUND;
+	*flags |= FLAG_FOUND;
 	prev_value = this_value;
 	return(1);
 }  // end of TranslateNumber_1

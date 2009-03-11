@@ -27,7 +27,7 @@
 
 #include <stdio.h>
 
-#define ESPEAK_API_REVISION  3
+#define ESPEAK_API_REVISION  5
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -38,6 +38,8 @@ Revision 3
 Revision 4
    Added flags parameter to espeak_CompileDictionary()
 
+Revision 5
+   Added espeakCHARS_16BIT
 */
          /********************/
          /*  Initialization  */
@@ -227,6 +229,7 @@ int UriCallback(int type, const char *uri, const char *base);
 #define espeakCHARS_UTF8   1
 #define espeakCHARS_8BIT   2
 #define espeakCHARS_WCHAR  3
+#define espeakCHARS_16BIT  4
 
 #define espeakSSML        0x10
 #define espeakPHONEMES    0x100

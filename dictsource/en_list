@@ -178,8 +178,8 @@ _‼	Ekskla2m'eIS@nz
 _₠	jU@roU
 
 #	haS   $max3
-@	_at_
-&	_and
+@	_at_	$u+
+&	_and   $u+
 \	bakstroUk  $max3
 /	stroUk  $max3
 ?3 \	bakslaS  $max3
@@ -303,12 +303,15 @@ _0M3	b'Ili@n
 _dpt	pOInt
 _roman	roUm@n_
 
+_0st	st
+_0nd	@nd
+_0rd	d
+_0th	T
 _ord	T	// default ending
-_ord20	@T	// for 20,30,etc
-_1o	f'3:st
-_2o	s'Ek@nd
-_3o	T'3:d
-_5o	f'IT
+_1o	f'3:
+_2o	s'Ek
+_3o	T'3:
+_5o	f'I
 _0Co	h'Vndr@dT
 
 
@@ -429,6 +432,7 @@ accursed         a2k3:sI2d
 ?5 accursed      a2kVRsI2d
 achille          a2kIli:
 aching           eIkI2N
+achy             eIkI
 adam             ad@m
 adamant          ad@m@nt
 add              ad
@@ -607,6 +611,7 @@ authority        a2T0rI2tI
 authoritative    O:T'0rI2t@tIv
 autograph        O:t@graf
 auto             O:toU
+autocracy        O:t'0kr@sI
 automobile       O:t@m@bi@l
 autonomous       O:t'0n@m@s
 autopsy          O:t0psI
@@ -720,6 +725,7 @@ cannabis         kana2bIs
 canoe            k@nu:
 canoes           k@nu:z
 canton           kant0n
+canvas           kanv@s
 capitol          kapIt@L
 caprice          ka2pr'i:s
 caramel          kar@mEl
@@ -753,6 +759,8 @@ chapel           tSap@L
 charade          Sa2rA:d
 charismatic      karIsm'atIk
 charit           tSarIt        // charitable
+chic             Si:k
+chisel           tSIz@L
 chocolate        tS0kl@t
 cholera          k0l@r@
 cholesterol      k@lEst@r0l
@@ -847,6 +855,7 @@ coordinate       koU'O:dI2neIt   $verb
 copier           k0pi@3
 coral            k0r@L
 coronet          k0r@nEt
+corollary        $2
 corporal         kO@pr@L
 corporate        kO@p@r@t
 corps            kO@           $only
@@ -1203,6 +1212,7 @@ hospitable       h0sp'It@b@L
 hostage          h0stI2dZ
 hostess          hoUstEs
 hotel            hoUt'El
+hotkey           h0tki:
 house            haUz          $verb 
 however           $2
 howto            haUtu:
@@ -1582,6 +1592,7 @@ pageant          padZ@nt
 paltry           pO:ltrI
 panacea          pana2s'i:@
 panache           $2
+pancreas         pankri@s
 parabola         p@rab@l@
 paralysis        p@ral@sIs
 parameter        p@ramI2t3
@@ -1912,6 +1923,7 @@ shrilly          SrIllI       $verbf
 sibelius         sI2beIli@s
 sierra           sI'e@r@
 signage          saInI2dZ
+signal           sIgn@l        // signaled
 signer           saIn3
 sikh             si:k
 silhouette       sI2lUw'Et
@@ -2142,6 +2154,7 @@ vegan            vi:g@n
 vengeance        vEndZ@ns
 venus            vi:n@s
 versus           v3:sI2z
+vertices         v3:tIsi:z
 vestige          vEstI2dZ
 vex              vEks        // for vexed
 vicar            vIk3
@@ -2391,7 +2404,7 @@ Oman		oUm'an
 Oregon		0rI2g@n
 Pacific		pa2sIfIk
 Palestine	pal@staIn 
-Palestinian	pal@st'Ini:@n
+Palestinia	pal@st'Ini:@
 Panama		pan@mA:
 Paris		parIs
 Peking		pi:k'IN
@@ -2420,7 +2433,7 @@ Seychelle	seIS'El
 Sicily		sIsI2lI
 Slovak		sloUvak
 Seoul		soUl
-(sri lanka)	sr,i:||l'anka2
+Sri		sr,i:   // Sri Lanka(n)
 Sudan		su:d'an
 Suez		su:I2z
 Sulawesi	su:la2w'eIsI
@@ -2448,6 +2461,7 @@ Wyoming		waI'oUmI2N
 Xhosa		kO:s@
 zaire		zaI'i@3
 zimbabwe	zI2mbA:bwI
+zimbabwean	zI2mbA:bwI@n
 
 Aaron		e@r@n
 Abe		eIb
@@ -2505,6 +2519,7 @@ Gary		garI
 Geraint		gEraInt
 Gibbs		gIbz
 Giles		gaIlz
+Gladys		gladIs
 Glynn		glIn
 Graeme		greI@m
 Graham		greI@m
@@ -2565,6 +2580,7 @@ Mohammad	moUh'amI2d
 Muhammad	moUh'amI2d
 Moira		mOIr@
 Natalie		nata2li
+Natasha		$2
 Nathan		neIT@n
 Neville		nEvIl
 Nicholas	nIk@l@s
@@ -2887,6 +2903,7 @@ we'd             %wi:d         $pastf
 
 I                aI            $u+ $verbf $only
 (I am)           %aIa2m
+(I am)           %aIam         $atend
 he               %hi:          $verbsf
 she              %Si:          $only $verbsf
 it               %It           $verbsf

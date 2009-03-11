@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-01-14 Michel Such  <michel.such@free.fr>
+// Updated: 2009-02-19 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -738,6 +738,7 @@ _)		half  	_^_en
 	_AC)	ind (er_     _^_en		// finder, reminder
 		ize (X         _^_en		// realize
 	dr)	i (ve    _^_en
+	ram_f)	i (le    _^_en
 
 
 .group î
@@ -902,7 +903,7 @@ _)		half  	_^_en
 
 // group o: English section
 	 	oa (X       _^_en		// approach, load
-	 	oa (CeX       _^_en
+	 	oa (CerX       _^_en
 	 	oach       _^_en
 		old (er_       _^_en		// folder, older
 C)		oing (_      _^_en	// going
@@ -1102,6 +1103,7 @@ _)		t (_        te
 -)		t (-        t2
 	_)	t' (P2v      t
 Vn)		t (_        t2
+A)		t (-        t2
 		t (_
 	peti)	t (_        t2
 	_)	th       t      // thon
@@ -1292,6 +1294,8 @@ Vn)		t (_        t2
 
 .group x
 		x           ks
+	_) 	x (A        gz	// xylophone
+		xml (_S3      _!iksEmEl
 	e) 	x (A        gz	// exagérer exemple
 	L03e) 	x (A        ks	// annexe, vexer
 	_ine) 	x (A        gz

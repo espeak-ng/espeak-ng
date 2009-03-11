@@ -263,7 +263,6 @@ Translator *SelectTranslator(const char *name)
 			SetLetterVowel(tr,'y');  // add 'y' to vowels
 		
 			tr->langopts.numbers = 0x8d1 + NUM_ROMAN;
-			tr->langopts.ordinals = 2;
 			tr->langopts.accents = 1;
 		}
 		break;
@@ -345,7 +344,6 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 0;
 			tr->langopts.numbers = 0x841 + NUM_ROMAN;
-			tr->langopts.ordinals = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
 		}
 		break;
@@ -446,6 +444,17 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 
+	case L('e','u'):  // basque
+		{
+			static const short stress_lengths_eu[8] = {200, 200,  200, 200,  0, 0,  210, 230};  // very weak stress
+			static const unsigned char stress_amps_eu[8] = {16,16, 18,18, 18,18, 18,18 };
+			SetupTranslator(tr,stress_lengths_eu,stress_amps_eu);
+			tr->langopts.stress_rule = 1;  // ?? second syllable ??
+			tr->langopts.numbers = 0x569 + NUM_VIGESIMAL;
+		}
+		break;
+
+
 	case L('f','i'):   // Finnish
 		{
 			static const unsigned char stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,22 };
@@ -466,6 +475,7 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
+
 	case L('f','r'):  // french
 		{
 			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 240};
@@ -473,10 +483,10 @@ Translator *SelectTranslator(const char *name)
 
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = 3;      // stress on final syllable
-			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
+			tr->langopts.stress_flags = 0x0024 + 0x1;  // don't use secondary stress, monosyllables are unstressed
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
-			tr->langopts.numbers = 0x1509 + 0x8000 + NUM_NOPAUSE | NUM_ROMAN;
+			tr->langopts.numbers = 0x1509 + 0x8000 + NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -958,7 +968,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_th,stress_amps_th);
 
 			tr->langopts.stress_rule = 0;   // stress on final syllable of a "word"
-			tr->langopts.stress_flags = 1;          // don't automatically set diminished stress (may be set in the intonation module)
+			tr->langopts.stress_flags = 2;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 //			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
@@ -1024,7 +1034,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_zh,stress_amps_zh);
 
 			tr->langopts.stress_rule = 3;   // stress on final syllable of a "word"
-			tr->langopts.stress_flags = 1;          // don't automatically set diminished stress (may be set in the intonation module)
+			tr->langopts.stress_flags = 2;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.vowel_pause = 0;
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable

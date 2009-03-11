@@ -44,9 +44,25 @@ typedef struct
 
 typedef struct 
 {
+	unsigned int unique_identifier;
+	void* user_data;
+	wchar_t character; 
+} t_espeak_character;
+
+typedef struct 
+{
+	unsigned int unique_identifier;
+	void* user_data;
+	const char* key_name; 
+} t_espeak_key;
+
+
+typedef struct 
+{
   unsigned int unique_identifier;
   void* user_data;
 } t_espeak_terminated_msg;
+
 
 typedef struct 
 {
@@ -71,8 +87,8 @@ typedef struct
   {
     t_espeak_text my_text; 
     t_espeak_mark my_mark; 
-    const char* my_key; 
-    wchar_t my_char; 
+    t_espeak_key  my_key; 
+    t_espeak_character my_char; 
     t_espeak_parameter my_param;
     const wchar_t* my_punctuation_list;
     const char *my_voice_name;
@@ -88,9 +104,9 @@ t_espeak_command* create_espeak_mark(const void *text, size_t size, const char *
 
 t_espeak_command* create_espeak_terminated_msg(unsigned int unique_identifier, void* user_data);
 
-t_espeak_command* create_espeak_key(const char *key_name);
+t_espeak_command* create_espeak_key(const char *key_name, void *user_data);
 
-t_espeak_command* create_espeak_char(wchar_t character);
+t_espeak_command* create_espeak_char(wchar_t character, void *user_data);
 
 t_espeak_command* create_espeak_parameter(espeak_PARAMETER parameter, int value, int relative);
 

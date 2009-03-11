@@ -1,4 +1,4 @@
-58 phoneme tables
+59 phoneme tables
           new total
     base 103  103
    base2  24  122
@@ -43,7 +43,7 @@
       no  28  129
       is  33  129
       vi  41  140
-     zhy  40  136
+     zhy  41  137
       zh  66  154
       sw  14  112
       tr  18  127
@@ -58,6 +58,7 @@
       ne  18  157
       mr   1  149
       om  25  125
+      eu   6  124
 
 Data file      Used by
 b/b             [b] base
@@ -245,8 +246,8 @@ envelope/p_214  [5] vi
 envelope/p_512  [6] vi
 envelope/p_fall  [2] vi
                 [7] vi
-                [1] zhy
                 [4] zhy
+                [7] zhy
                 [21] zh
                 [51] zh
                 [22] zh
@@ -255,6 +256,7 @@ envelope/p_fall  [2] vi
                 [+] rw
 envelope/p_fallrise  [4] vi
 envelope/p_level  [1] vi
+                [1] zhy
                 [3] zhy
                 [6] zhy
                 [55] zh
@@ -723,6 +725,8 @@ ufric/s         [s] base
                 [s] es
                 [s#] pt
                 [z] sq
+                [s] eu
+                [z] eu
 ufric/s_        [s] base
                 [z] base
                 [s2] fi
@@ -738,6 +742,8 @@ ufric/s_        [s] base
                 [s2] is
                 [z] sq
                 [s2] om
+                [s] eu
+                [z] eu
 ufric/s!        [s] base
                 [s2] fi
                 [s] fr
@@ -1012,6 +1018,8 @@ ustop/ts        [ts] base2
                 [dz] sq
                 [dz] hy
                 [ts#] hy
+                [ts] eu
+                [tz] eu
 ustop/ts_       [ts] base2
                 [ts] de
                 [ts] eo
@@ -1024,6 +1032,8 @@ ustop/ts_       [ts] base2
                 [dz] sq
                 [dz] hy
                 [ts#] hy
+                [ts] eu
+                [tz] eu
 ustop/ts2       [ts] lv
                 [ts] hy
 ustop/tsh       [tS] base
@@ -2134,6 +2144,7 @@ vowel/y#        [Y:] en
                 [8] nl
                 [Y] ro
                 [oe] zhy
+                [Y] eu
 vowel/y##       [y#] is
 vowel/y_2       [y] fr
                 [y"] fr

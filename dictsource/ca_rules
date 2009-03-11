@@ -12,7 +12,7 @@
 .L02 h l r s v w y z   // continuants, not f
 .L03 f h r s v w y z   // continuants, not l
 .L04 i í e é è         // front vowels
-.L08 p t k f s         // sords
+.L05 p t k f s         // sords
 .L09 b d g m v l n d z r q // sonors
 .L10 a e o             // vocals fortes
 .L11 i u               // vocals febles
@@ -116,7 +116,7 @@
         m          m
      _) m' (P2     m
         mp (K      m
-        ment (_    m'Ent
+//        ment (_    m'En  // ??
 
 
 .group n
@@ -126,6 +126,7 @@
      e) n (_       n   // except after e, i
      i) n (_       n
         nt (K      n
+        nt (_      =n
         ny         n^
      b) n (@       m
      v) n (@       m
@@ -137,7 +138,7 @@
 
 .group o
         o          o
-        or (_      'or
+        or (_      'o*
         ou         Ow
 
 
@@ -155,7 +156,7 @@
 
 .group r
         r          R
-     _) r          RR2
+     _) r          *R
         r (_       =        // final r is silent, but stress the vowel
         r (t       **
      A) r (A       **
@@ -164,7 +165,7 @@
      m) r (A       R
      n) r (A       R
      s) r (A       R
-        rr         RR2
+        rr         *R
 
 
 .group s
@@ -205,8 +206,8 @@
 
 .group x
         x          ks
-    _e) x          dz
-    _è) x          dz
+    _A) x          gz
+    _A) x (L05     ks
      K) x          S;
     Ai) x          S;
     Au) x          S;
@@ -236,4 +237,4 @@
      g) ü          w
         ñ          n^
 
-        $          dola#r
+        $          dola#*

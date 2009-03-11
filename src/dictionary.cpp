@@ -1030,8 +1030,8 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 
 
 
-void SetWordStress(Translator *tr, char *output, unsigned int dictionary_flags, int tonic, int prev_stress)
-{//========================================================================================================
+void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags, int tonic, int prev_stress)
+{//=========================================================================================================
 /* Guess stress pattern of word.  This is language specific
 
    'dictionary_flags' has bits 0-3   position of stressed vowel (if > 0)
@@ -1108,6 +1108,13 @@ void SetWordStress(Translator *tr, char *output, unsigned int dictionary_flags, 
 	}
 
 	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 1);
+
+	if((max_stress == 0) && (tr->langopts.stress_flags & 1) && (vowel_count == 2))
+	{
+		// option: don't stress monosyllables except at end-of-clause
+		vowel_stress[1] = 1;
+		dictionary_flags |= FLAG_STRESS_END;
+	}
 
 	// heavy or light syllables
 	ix = 1;
@@ -1219,8 +1226,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int dictionary_flags, 
 			else
 			{
 				stressed_syllable = 1;
-				if(stressflags & 0x1)
-					max_stress = 3;   // don't give full stress to monosyllables
 			}
 
 			// only set the stress if it's not already marked explicitly

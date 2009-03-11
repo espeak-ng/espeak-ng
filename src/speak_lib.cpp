@@ -884,7 +884,7 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 	}
 
 #ifdef USE_ASYNC
-	t_espeak_command* c = create_espeak_key( key);
+	t_espeak_command* c = create_espeak_key( key, NULL);
 	a_error = fifo_add_command(c);
 	if (a_error != EE_OK)
 	{
@@ -910,7 +910,7 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 		return(EE_OK);
 	}
 
-	t_espeak_command* c = create_espeak_char( character);
+	t_espeak_command* c = create_espeak_char( character, NULL);
 	a_error = fifo_add_command(c);
 	if (a_error != EE_OK)
 	{

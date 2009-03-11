@@ -29,6 +29,16 @@ _0M3		mili'ardo
 _0M4		duili'ono
 _dpt		_komo_
 
+// ordinal numbers
+_0a		a
+_0aj		aI
+_0an		an
+_0ajn		aIn
+_0-a		a
+_0-aj		aI
+_0-an		an
+_0-ajn		aIn
+
 // accent names
 _lig	ligat'uRa
 _acu	dekst@-*ak'oRna

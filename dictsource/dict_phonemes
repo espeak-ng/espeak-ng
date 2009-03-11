@@ -36,9 +36,9 @@ o    O    u    U
 
 *    **   :    ;    b    B    d    D    
 dZ;  f    g    j    J    J^   k    l    
-l^   m    n    N    n^   p    Q    r    
-R    R2   s    S;   t    T    ts   tS;  
-v    v#   w    z    Z    Z;   
+l^   m    n    N    n^   p    Q    R    
+R2   s    S;   t    T    ts   tS;  v    
+v#   w    z    Z    Z;   
 
 
 Dictionary cs_dict
@@ -139,8 +139,8 @@ o    O    oI   u
 
 *    **   :    b    B    d    D    f    
 g    j    J    J^   k    l    m    n    
-N    n^   p    Q    r    R    R2   s    
-t    T    tS   v    v#   w    x    z    
+N    n^   p    Q    R    R2   s    t    
+T    tS   v    v#   w    x    z    
 
 
 Dictionary fi_dict
@@ -369,6 +369,18 @@ a    e    i    o    u
 g    h    j    J    k    l    m    n    
 N    n^   p    q    R    s    S    S;   
 t    tS   v    w    x    z    
+
+
+Dictionary eu_dict
+
+a    aI   aU   e    eI   eU   i    o    
+oI   u    Y    
+
+*    **   :    ;    b    B    c    d    
+D    f    g    h    j    J    k    l    
+l^   m    n    n^   p    Q    r    R    
+s    S    t    tS   ts   tz   v    w    
+x    z    
 
 
 Dictionary nl_dict

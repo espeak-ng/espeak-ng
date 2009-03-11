@@ -86,7 +86,7 @@ PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
 
 wchar_t option_punctlist[N_PUNCTLIST]={0};
 char ctrl_embedded = '\001';    // to allow an alternative CTRL for embedded commands
-int option_multibyte=espeakCHARS_AUTO;   // 0=auto, 1=utf8, 2=8bit, 3=wchar
+int option_multibyte=espeakCHARS_AUTO;   // 0=auto, 1=utf8, 2=8bit, 3=wchar, 4=16bit
 
 // these are overridden by defaults set in the "speak" file
 int option_linelength = 0;
@@ -1950,7 +1950,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int finished;
 	int single_quoted;
 	int phoneme_mode = 0;
-	int dict_flags;        // returned from dictionary lookup
+	int dict_flags = 0;        // returned from dictionary lookup
 	int word_flags;        // set here
 	int next_word_flags;
 	int embedded_count = 0;
@@ -1962,8 +1962,9 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	char *p;
 	int j, k;
 	int n_digits;
+	int charix_top;
 
-	short charix[N_TR_SOURCE+1];
+	short charix[N_TR_SOURCE+4];
 	WORD_TAB words[N_CLAUSE_WORDS];
 	int word_count=0;      // index into words
 
@@ -1973,7 +1974,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int tone;
 	int tone2;
 
-	p_textinput = (char *)vp_input;
+	p_textinput = (unsigned char *)vp_input;
 	p_wchar_input = (wchar_t *)vp_input;
 
 	embedded_ix = 0;
@@ -1987,9 +1988,11 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 
 	for(ix=0; ix<N_TR_SOURCE; ix++)
 		charix[ix] = 0;
-	terminator = ReadClause(tr, f_text, source, charix, N_TR_SOURCE, &tone2);
+	terminator = ReadClause(tr, f_text, source, charix, &charix_top, N_TR_SOURCE, &tone2);
 
-	charix[N_TR_SOURCE] = count_characters;
+	charix[charix_top+1] = 0;
+	charix[charix_top+2] = 0x7fff;
+	charix[charix_top+3] = 0;
 
 	clause_pause = (terminator & 0xfff) * 10;  // mS
 	tone = (terminator >> 12) & 0xf;
@@ -2454,16 +2457,14 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 		if(IsSpace(c))
 		{
-			if(space_inserted)
-			{
-				source_index = prev_source_index;    // rewind to the previous character
-				char_inserted = 0;
-				space_inserted = 0;
-			}
-
 			if(prev_out == ' ')
 			{
 				continue;   // multiple spaces
+			}
+
+			if(space_inserted)
+			{
+				words[word_count].length = source_index - words[word_count].sourceix;
 			}
 
 			// end of 'word'
@@ -2515,6 +2516,13 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				word_mark = 0;
 				all_upper_case = FLAG_ALL_UPPER;
 				syllable_marked = 0;
+			}
+
+			if(space_inserted)
+			{
+				source_index = prev_source_index;    // rewind to the previous character
+				char_inserted = 0;
+				space_inserted = 0;
 			}
 		}
 		else
@@ -2644,12 +2652,12 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 			// include the next few characters, in case there are an ordinal indicator
 			pn[0] = ' ';
-			memcpy(pn+1, pw, 5);
-			pn[5] = 0;
+			memcpy(pn+1, pw, 8);
+			pn[8] = 0;
 
 			for(pw = &number_buf[1]; pw < pn;)
 			{
-				TranslateWord2(tr, pw, &words[ix], words[ix].pre_pause,0 );
+				dict_flags = TranslateWord2(tr, pw, &words[ix], words[ix].pre_pause,0 );
 				while(*pw++ != ' ');
 				words[ix].pre_pause = 0;
 				words[ix].flags = 0;
@@ -2679,17 +2687,17 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				}
 			}
 
-			if(dict_flags & FLAG_SKIPWORDS)
-			{
-					ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
-			}
-
 			if((dict_flags & FLAG_DOT) && (ix == word_count-1) && (terminator == CLAUSE_PERIOD))
 			{
 				// probably an abbreviation such as Mr. or B. rather than end of sentence
 				clause_pause = 10;
 				tone = 4;
 			}
+		}
+
+		if(dict_flags & FLAG_SKIPWORDS)
+		{
+				ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
 		}
 	}
 

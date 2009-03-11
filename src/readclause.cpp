@@ -51,7 +51,7 @@ char *namedata = NULL;
 
 static FILE *f_input = NULL;
 static int ungot_char2 = 0;
-char *p_textinput;
+unsigned char *p_textinput;
 wchar_t *p_wchar_input;
 static int ungot_char;
 static const char *ungot_word = NULL;
@@ -373,13 +373,21 @@ int Eof(void)
 
 static int GetC_get(void)
 {//======================
-	int c;
+	unsigned int c;
+	unsigned int c2;
 
 	if(f_input != NULL)
 	{
 		c = fgetc(f_input);
 		if(feof(f_input)) c = ' ';
-		return(c & 0xff);
+
+		if(option_multibyte == espeakCHARS_16BIT)
+		{
+			c2 = fgetc(f_input);
+			if(feof(f_input)) c2 = 0;
+			c = c + (c2 << 8);
+		}
+		return(c);
 	}
 
 	if(option_multibyte == espeakCHARS_WCHAR)
@@ -402,7 +410,15 @@ static int GetC_get(void)
 		}
 	
 		if(!end_of_input)
+		{
+			if(option_multibyte == espeakCHARS_16BIT)
+			{
+				c = p_textinput[0] + (p_textinput[1] << 8);
+				p_textinput += 2;
+				return(c);
+			}
 			return(*p_textinput++ & 0xff);
+		}
 	}
 	return(0);
 }
@@ -440,7 +456,7 @@ static int GetC(void)
 		c1 = GetC_get();
 	}
 
-	if(option_multibyte == espeakCHARS_WCHAR)
+	if((option_multibyte == espeakCHARS_WCHAR) || (option_multibyte == espeakCHARS_16BIT))
 	{
 		count_characters++;
 		return(c1);   // wchar_t  text
@@ -1862,8 +1878,8 @@ static MNEM_TAB xml_char_mnemonics[] = {
 	{NULL,-1}};
 
 
-int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int n_buf, int *tone_type)
-{//============================================================================================
+int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type)
+{//=============================================================================================================
 /* Find the end of the current clause.
 	Write the clause into  buf
 
@@ -2031,49 +2047,62 @@ f_input = f_in;  // for GetC etc
 				}
 			}
 			else
-			if((c1 == '<') && (ssml_ignore_l_angle != '<') && ((c2 == '/') || iswalpha(c2)))
+			if((c1 == '<') && (ssml_ignore_l_angle != '<'))
 			{
-				// SSML Tag
-				n_xml_buf = 0;
-				c1 = c2;
-				while(!Eof() && (c1 != '>') && (n_xml_buf < N_XML_BUF))
+				if(c2 == '!')
 				{
-					xml_buf[n_xml_buf++] = c1;
-					c1 = GetC();
-				}
-				xml_buf[n_xml_buf] = 0;
-				c2 = ' ';
-	
-				buf[ix++] = ' ';
-	
-				self_closing = 0;
-				if(xml_buf[n_xml_buf-1] == '/')
-				{
-					// a self-closing tag
-					xml_buf[n_xml_buf-1] = ' ';
-					self_closing = 1;
-				}
-	
-				terminator = ProcessSsmlTag(xml_buf,buf,ix,n_buf,self_closing);
-	
-				if(terminator != 0)
-				{
-					buf[ix] = ' ';
-					buf[ix++] = 0;
-	
-					if(terminator & CLAUSE_BIT_VOICE)
+					// a comment, ignore until closing '<'
+					while(!Eof() && (c1 != '>'))
 					{
-						// a change in voice, write the new voice name to the end of the buf
-						p = current_voice_id;
-						while((*p != 0) && (ix < (n_buf-1)))
-						{
-							buf[ix++] = *p++;
-						}
-						buf[ix++] = 0;
+						c1 = GetC();
 					}
-					return(terminator);
+					c2 = ' ';
 				}
-				continue;
+				else
+				if((c2 == '/') || iswalpha(c2))
+				{
+					// SSML Tag
+					n_xml_buf = 0;
+					c1 = c2;
+					while(!Eof() && (c1 != '>') && (n_xml_buf < N_XML_BUF))
+					{
+						xml_buf[n_xml_buf++] = c1;
+						c1 = GetC();
+					}
+					xml_buf[n_xml_buf] = 0;
+					c2 = ' ';
+		
+					buf[ix++] = ' ';
+		
+					self_closing = 0;
+					if(xml_buf[n_xml_buf-1] == '/')
+					{
+						// a self-closing tag
+						xml_buf[n_xml_buf-1] = ' ';
+						self_closing = 1;
+					}
+		
+					terminator = ProcessSsmlTag(xml_buf,buf,ix,n_buf,self_closing);
+		
+					if(terminator != 0)
+					{
+						buf[ix] = ' ';
+						buf[ix++] = 0;
+		
+						if(terminator & CLAUSE_BIT_VOICE)
+						{
+							// a change in voice, write the new voice name to the end of the buf
+							p = current_voice_id;
+							while((*p != 0) && (ix < (n_buf-1)))
+							{
+								buf[ix++] = *p++;
+							}
+							buf[ix++] = 0;
+						}
+						return(terminator);
+					}
+					continue;
+				}
 			}
 		}
 		ssml_ignore_l_angle=0;
@@ -2087,6 +2116,7 @@ f_input = f_in;  // for GetC etc
 			if((punct = lookupwchar(punct_chars,c1)) == 0)
 			{
 				charix[ix] = count_characters - clause_start_char;
+				*charix_top = ix;
 				ix += utf8_out(c1,&buf[ix]);
 				terminator = CLAUSE_PERIOD;  // line doesn't end in punctuation, assume period
 			}
@@ -2342,6 +2372,7 @@ if(option_ssml) parag=1;
 			while(j < ix)
 				charix[j++] = -1;   // subsequent bytes of a multibyte character
 		}
+		*charix_top = ix;
 
 		if(((ix > (n_buf-20)) && !IsAlpha(c1) && !iswdigit(c1))  ||  (ix >= (n_buf-2)))
 		{
