@@ -2182,7 +2182,7 @@ f_input = f_in;  // for GetC etc
 			if(stressed_word)
 			{
 				stressed_word = 0;
-				c1 = CHAR_EMPHASIS;   // indicate this word is strtessed
+				c1 = CHAR_EMPHASIS;   // indicate this word is stressed
 				UngetC(c2);
 				c2 = ' ';
 			}

@@ -71,6 +71,7 @@ int clause_start_char;
 int clause_start_word;
 int new_sentence;
 static int word_emphasis = 0;    // set if emphasis level 3 or 4
+static int embedded_flag = 0;    // there are embedded commands to be applied to the next phoneme, used in TranslateWord2()
 
 static int prev_clause_pause=0;
 static int max_clause_pause = 0;
@@ -1212,8 +1213,9 @@ static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
 	p->phcode = phcode;
 	p->stress = 0;
 	p->tone_number = 0;
-	p->synthflags = 0;
+	p->synthflags = embedded_flag;
 	p->sourceix = 0;
+	embedded_flag = 0;
 }
 
 static int CountSyllables(unsigned char *phonemes)
@@ -1269,7 +1271,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int next_tone=0;
 	unsigned char *p;
 	int srcix;
-	int embedded_flag=0;
 	int embedded_cmd;
 	int value;
 	int found_dict_flag;
@@ -1669,6 +1670,21 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			}
 			else
 			{
+				if(ph_code == phonPAUSE_CLAUSE)
+				{
+					int j;
+					for(j = n_ph_list2-1; j > 0; j--)
+					{
+						if(ph_list2[j].synthflags & SFLAG_PROMOTE_STRESS)
+						{
+							// lang=fr:  stress monosyllables before conjunctions 'et' 'qui' etc
+							ph_list2[j].stress = 4;
+						}
+						if(ph_list2[j].sourceix != 0)
+							break;
+					}
+				}
+
 				if(first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING])
 				{
 					if(((tr->prev_dict_flags & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) || 
@@ -1962,7 +1978,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	char *p;
 	int j, k;
 	int n_digits;
-	int charix_top;
+	int charix_top=0;
 
 	short charix[N_TR_SOURCE+4];
 	WORD_TAB words[N_CLAUSE_WORDS];
@@ -2708,7 +2724,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		p2 = &ph_list2[n_ph_list2 + ix];
 		p2->phcode = phonPAUSE;
    	p2->stress = 0;
-		p2->sourceix = 0;
+		p2->sourceix = source_index;
 		p2->synthflags = 0;
 	}
 	n_ph_list2 += 2;
@@ -2782,6 +2798,7 @@ void InitText(int control)
 	option_sayas2 = 0;
 	option_emphasis = 0;
 	word_emphasis = 0;
+	embedded_flag = 0;
 
 	InitText2();
 
