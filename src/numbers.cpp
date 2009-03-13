@@ -1033,7 +1033,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		if(tr->langopts.numbers & 0x200)
 		{
 			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-			if((ix = strlen(ph_tens)-1) >= 0)
+			if(((ix = strlen(ph_tens)-1) >= 0) && (ph_digits[0] != 0))
 			{
 				if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
 					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;

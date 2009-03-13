@@ -1111,7 +1111,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 
 	if((max_stress == 0) && (tr->langopts.stress_flags & 1) && (vowel_count == 2))
 	{
-		// option: don't stress monosyllables except at end-of-clause (lang=fr)
+		// option: don't stress monosyllables except at end-of-clause
 		vowel_stress[1] = 1;
 		dictionary_flags |= FLAG_STRESS_END2;
 	}

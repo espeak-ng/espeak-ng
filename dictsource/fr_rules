@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-02-19 Michel Such  <michel.such@free.fr>
+// Updated: 2009-03-12 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -257,6 +257,7 @@ _) 	ç' (P2v      s
 		em (p       A~
 		en (_       A~n2		// en
 		en (hA      A~n		// enharmonique
+_C)		en (j      E~		// benjamin
 _)		en (A       A~n		// enivrer
 
 	C)	en (d_      A~		// comprend dépend
@@ -825,6 +826,7 @@ _)		half  	_^_en
 	 	o (rC       O2
 	 	o (rX       O2
 	_) 	os (_       Os
+	 	o (sC       O2
 	s_) 	os (_       o
 	x_) 	os (_       o
 	C) 	o (se_       o2
@@ -954,7 +956,7 @@ C)		oing (_      _^_en	// going
 
 	se)	pt (_      t      	// sept
 	se)	pt (iè     t      	// septième
-	_)	puisqu' (P7     pyisk
+	_)	puisqu' (P7     pw^isk
 
 // group p: English section
 		pad (_        _^_en
@@ -967,6 +969,7 @@ C)		oing (_      _^_en	// going
 		q           k		// coq
 	_)	qu' (AP3          k
 	_)	qua (d          kwA	// quadrature
+	_)	qua (drill          ka	// quadriller
  	_a)	qua      kwA		// aquarium
  	_a)	qu (if      ku		// aquifère
  	_A)	qui (dist      kw^i		// équidistant

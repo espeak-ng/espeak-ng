@@ -10,7 +10,7 @@ endphoneme
 
 phoneme @
   vowel starttype (@) endtype (@)
-  length 170
+  length 180
   formants vowel/@_hgh
   before l/ DFT+l/l_@
   before (r) DFT+r/xr
@@ -19,7 +19,7 @@ endphoneme
 
 phoneme @2
   vowel starttype (@) endtype (@)
-  length 150
+  length 160
   formants vowel/@_fr
   before (r) DFT+r3/r_@
 endphoneme
@@ -27,7 +27,7 @@ endphoneme
 
 phoneme a
   vowel  starttype (a)  endtype (a)
-  length 170
+  length 180
   formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
@@ -38,7 +38,7 @@ endphoneme
 
 phoneme a2
   vowel  starttype (a)  endtype (a)
-  length 150
+  length 165
   formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
@@ -49,7 +49,7 @@ endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
-  length 172
+  length 175
   formants vowel/e
   after l l/le-15
   before l/ DFT-20+l/xl
@@ -80,7 +80,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 150
+  length 160
   formants vowel/i_3
   linkout ;
   after l l/li-15
@@ -103,7 +103,7 @@ endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 170
+  length 180
   formants vowel/o_3
   after l l/lo-10
   before (r) DFT+r/xr
@@ -113,7 +113,7 @@ endphoneme
 
 phoneme o2
   vowel starttype (o) endtype (o)
-  length 170
+  length 180
   formants vowel/o_2
   after l l/lo-10
   before l/ DFT+l/l_o
@@ -144,7 +144,7 @@ endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 170
+  length 175
   formants vowel/u_3
   after  l l/lu-20
   before l/ DFT-20+l/l_u
@@ -155,7 +155,7 @@ endphoneme
 
 phoneme u: // slitely longer than u
   vowel starttype (u) endtype (u)
-  length 220
+  length 240
   formants vowel/u_3
   after  l l/lu-20
   before l/ DFT-20+l/l_u
@@ -166,7 +166,7 @@ endphoneme
 
 phoneme y
   vowel starttype (u) endtype (u)
-  length 170
+  length 180
   formants vowel/y_2
   after  l l/lu-20
   before l/ DFT-30+l/l_y
@@ -177,7 +177,7 @@ endphoneme
 
 phoneme Y
   vowel starttype (@) endtype (@)
-  length 170
+  length 180
   formants vowel/y#
   after l l/l@-20
   before l/ DFT-20+l/l_@
@@ -303,10 +303,16 @@ endphoneme
 
 phoneme b
   vcd blb stop
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 80
-  formants b/b+x/b%70
+  vowelout f1=0  f2=1000 -500 -300  f3=-300 80 brk
+  formants b/b+x/b%80
   before _ b/b_+x/b_
+  before (a) b/ba+x/b%30
+  before (@) b/b@+x/b%50
+  before (e) b/be+x/b%50
+  before (i) b/bi+x/b%50
   before l/ b/b_+x/b_
+  before (o) b/bo+x/b%50
+  before (u) b/bu+x/b%70
   before R b/b_+x/b_
   after _ NULL
   after @ b/xb%50

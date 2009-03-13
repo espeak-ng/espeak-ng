@@ -380,7 +380,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0x309;
+			tr->langopts.numbers = 0x109;
 			tr->langopts.numbers2 = 0x2;   // variant form of numbers before thousands
 
 			if(name2 == L_grc)
@@ -483,7 +483,7 @@ Translator *SelectTranslator(const char *name)
 
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = 3;      // stress on final syllable
-			tr->langopts.stress_flags = 0x0024 + 0x1;  // don't use secondary stress, monosyllables are unstressed
+			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
 			tr->langopts.numbers = 0x1509 + 0x8000 + NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL;
@@ -807,7 +807,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 3;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x20000; 
-			tr->langopts.numbers = 0x269 + 0x4000 + NUM_ROMAN;
+			tr->langopts.numbers = 0x069 + 0x4000 + NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y

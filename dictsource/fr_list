@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-02-01 Michel Such  <michel.such@free.fr>
+// Updated 2009-03-12 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -296,23 +296,23 @@ pr		professeur $text *dot $capital
 
 
 // articles
-le	$u+ $nounf
-le	$u+ $verb $verbextend
-la	$u+ $nounf
-la	$u+ $verb $verbextend
-les	lez2 $u+ $nounf
-les	lez2 $u+ $verb $verbextend
-un	$u+ $nounf
-une	$u+ $nounf
+le	$nounf $u+
+le  $verbextend $u
+la $nounf $u+
+la	$verbextend $u
+les	lez2 $nounf $u=
+les	lez2 $verbextend $u
+un $nounf $u+
+une	$nounf $u+
 
 
 // conjonctions
 mais	$u+
-ou	u $u $brk
+ou	$u $brk
 eh	 $u $brk
-et	e $u $brk
+et	$u $brk
 ni	$u $brk
-car	$u+ $brk
+car	$u $brk
 car	$noun
 cependant  $brk
 néanmoins  $brk
@@ -328,14 +328,19 @@ aussi $u+
 
 certes	$u+
 dont	   dO~t2 $u
-lorsque	   $u
-puisque	   $u
+lorsque	   lO2rsk@ $u+
+puisque	   pw^isk@ $u+
 presque	   $u+
+que	  $u+
 (parce que) 	   parsk@ $u+
-que	   $u+
-qui	   $u+ $verbf
+(parce qu'il) 	   parskil $u+
+(parce qu'ils) 	   parskilz2 $u+
+(parce qu'elle) 	   parskE2l $u+
+(parce qu'elles) 	   parskE2lz2 $u+
+(parce qu'on) 	   parskO~n2 $u+
+tant	tA~t2 $u+
+qui	   $verbf $u+
 quoique	   $u
-si	   $u
 quant	   kA~t2 $u
 
 // pronouns
@@ -399,7 +404,7 @@ leurs	$u $verb $verbextend
 (les leurs)	le||lWr $u+ $verbf
 
 // prepositions
-de $u
+de $u $nounf
 du	$u $nounf
 des	dez2 $u $nounf
 
@@ -421,7 +426,6 @@ en	$u+ $verb $verbextend
 par	$u+
 parmi	$u+
 pour	$u+
-tant	tA~t2 $u+
 autant	$u+
 tandis	$u+
 dès	$u
@@ -441,8 +445,8 @@ très	$u
 
 // negative
 ne	$u $verbf
-pas	$u+
-pas	$noun
+pas	p'a2z2
+pas	pa $noun
 plus	$u+
 guère	$u+
 jamais $u+
@@ -452,7 +456,7 @@ oui	$u+
 // questions
 quand	   kA~t2 $u+
 quoi	   $u+
-où	$brk $u+
+où	$u+
 comme	kO2m	$u+
 comment	$u+
 pourquoi	$u+
@@ -572,6 +576,7 @@ bus	      bys
 bus	      by  $verb
 campus   kA~pys
 cancer	kA~sEr
+catcher	catcheur $text
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
 choeur        kWr
@@ -591,7 +596,7 @@ laser	      lazEr
 malus      malys
 mapper	_^_en
 mars	      mars
-mieux	mj'Y $u+
+mieux	mjY $u+
 mrs	_^_en
 ours	urs
 parangon	      parA~gO~
@@ -787,5 +792,5 @@ wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
 
-pest  $1
+
 

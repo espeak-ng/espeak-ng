@@ -1670,21 +1670,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			}
 			else
 			{
-				if(ph_code == phonPAUSE_CLAUSE)
-				{
-					int j;
-					for(j = n_ph_list2-1; j > 0; j--)
-					{
-						if(ph_list2[j].synthflags & SFLAG_PROMOTE_STRESS)
-						{
-							// lang=fr:  stress monosyllables before conjunctions 'et' 'qui' etc
-							ph_list2[j].stress = 4;
-						}
-						if(ph_list2[j].sourceix != 0)
-							break;
-					}
-				}
-
 				if(first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING])
 				{
 					if(((tr->prev_dict_flags & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) || 

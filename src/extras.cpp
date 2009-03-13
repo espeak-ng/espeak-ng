@@ -963,7 +963,7 @@ void ConvertToUtf8()
 	int ix;
 	FILE *f_in;
 	FILE *f_out;
-	char buf[80];
+	char buf[200];
 
 	wxString fname = wxFileSelector(_T("Convert file to UTF8"),wxString(path_home,wxConvLocal),
 		_T(""),_T(""),_T("*"),wxOPEN);

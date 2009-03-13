@@ -175,11 +175,11 @@ _1C0	s'eIN
 ?2_0C	s'eINtUs#
 _1C	s'eINtu
 ?1_2C	duz'eINtus#
-?2_2C	duz'eINtUs#
+?2_2C	duz'eINtUz
 ?1_3C	tryz'eNtus#
-?2_3C	tRez'eNtUs#
+?2_3C	tRez'eNtUz
 ?1_5C	kin^'eINtus#
-?2_5C	kin^'eINtUs#
+?2_5C	kin^'eINtUz
 ?1_0M1	m'il_
 ?2_0M1	m'iU_
 ?1_1M1	m'il_
@@ -194,7 +194,7 @@ _1M3	'u~mbilj'&U~
 ?1_0M4	trilj'o~js#
 ?2_0M4	trilj'o~jz
 _1M4	'u~ntrilj'&U~
-_0and	_i
+_0and	i
 _dpt    _v'irgul&
 // _0Z2	seNt'Ezim&     // 100ths
 // _0Z3	mil'Ezim&      // 1000ths
@@ -290,11 +290,11 @@ los	$u
 
 ?2	este	$u+	$nounf	'estSi       // this
 ?2	estes	$u+	$nounf	'estSis       // these
-?2	esta	'Est& $brk $u+	$nounf
+?2	esta	'Est& $u+	$nounf
 ?2	neste	$u+	$nounf	n'estSi      //in this
 ?2	nestes	$u+	n'estSis      //in these
 ?2	esse	$u+	$nounf	'esi       // that
-essa	'Es& $brk  $u+
+essa	'Es&  $u+
 desse	d'esy	$u+
 nesse	n'esy	$u+
 aquele	&k'ely	$u+	$nounf       // that
@@ -302,7 +302,7 @@ aquela	$u+
 daquele	d&k'ely	$u+	$nounf
 
 ?1	que	ky	$u 
-?2	que	ke	$u $pause
+?2	que	ke	$u
 
 // possessive adjectives
 meu	$u+	$nounf
@@ -338,93 +338,93 @@ duma	$u
 duns	$u
 dumas	$u
 
-em	$u $brk  // in,on,at
-no	nu $u $brk	$nounf
-na	$u $brk
-?2	nos	nus# $u $brk
-nas	$u $brk
-num	$u $brk
-numa	$u $brk
-nuns	$u $brk
-numas	$u $brk
+em	$u  // in,on,at
+no	nu $u	$nounf
+na	$u
+?2	nos	nus# $u
+nas	$u
+num	$u
+numa	$u
+nuns	$u
+numas	$u
 
-por	$u $brk	// by,for,through
-pelo	$u $brk
-?2	pela	$u $brk	p'el&
-pelos	$u $brk
-?2	pelas	$u $brk	p'el&s
+por	$u	// by,for,through
+pelo	$u
+?2	pela	$u	p'el&
+pelos	$u
+?2	pelas	$u	p'el&s
 
-ao	$u $brk
-à	,a: $brk
-aos	$u $brk
-às	,a:s $brk
+ao	$u
+à	,a:
+aos	$u
+às	,a:s
 
-para	$u $brk		// for,to
-pro	$u $brk	$nounf
-pra	$u $brk
-pros	$u $brk
-pras	$u $brk
-prò	$u $brk
-prà	$u $brk
-pròs	$u $brk
-pràs	$u $brk
+para	$u		// for,to
+pro	$u	$nounf
+pra	$u
+pros	$u
+pras	$u
+prò	$u
+prà	$u
+pròs	$u
+pràs	$u
 
-com	$u $brk		// with
-?2	sem	$pause		// without
-?2	até	$u $pause	// until
-?2	desde	$u $pause	// from,since
-?2	entre	$pause		// between,among
-?2	por	$u $pause	// by,for,through
-?2	sobre	s'obRy	$pause		// on,above,about
-?2	sob	$pause		// under,below
-?2	debaixo	$pause		// under,below
+com	$u		// with
+?2	sem		// without
+?2	até	$u	// until
+?2	desde	$u	// from,since
+?2	entre		// between,among
+?2	por	$u	// by,for,through
+?2	sobre	s'obRy		// on,above,about
+?2	sob		// under,below
+?2	debaixo		// under,below
 
-?2	durante	$pause
+?2	durante
 
 
 // conjunctions
 ?1	e	i $u	// and
-?2	e	i $u $pause	// and
-se	$u $brk		// if
+?2	e	i $u   // and
+se	$u		// if
 
 
-?2	mas	$u $pause	// but
-?2	porém	$pause		// however
-?2	todavia	$pause		// yet
-?2	contudo	$pause		// nevertheless
+?2	mas	$u	// but
+?2	porém		// however
+?2	todavia		// yet
+?2	contudo		// nevertheless
 
-?2	ou	$u $pause	// or
-?2	quer	$pause		// whether
+?2	ou	$u	// or
+?2	quer		// whether
 
-?2	assim	$pause		// thus
-?2	portanto	$pause	// therefore
+?2	assim		// thus
+?2	portanto	// therefore
 
-?2	porque	$pause		// because
-?2	pois	$pause		// because
-?2	como	$u $pause	// as
+?2	porque		// because
+?2	pois		// because
+?2	como	$u	// as
 
-?2	embora	$pause		// although
-?2	apesar	$pause		// despite
-
-
-?2	caso	$pause			// if
-?2	(desde que)	d'esdZiki/  $pause	// provided that
-?2	(exceto se)	es'Etusi/   $pause	// unless
-?2	(salvo se)	s'alvusi/   $pause	// unless
-
-?2	(para que)	p,a*&ki/    $pause       // so that
+?2	embora		// although
+?2	apesar		// despite
 
 
+?2	caso			// if
+?2	(desde que)	d'esdZiki/ 	// provided that
+?2	(exceto se)	es'Etusi/  	// unless
+?2	(salvo se)	s'alvusi/  	// unless
 
-?2	quando	$pause			// when
-?2	onde	$u $pause	// where
-?2	apenas	$pause			// as soon as
-?2	mal	$pause			// as soon as, hardly
-?2	(logo que)	l'Oguki/ $pause		// as soon as
-?2	(antes que)     '&~NtSiski/  $pause	// before
-?2	(depois que)    dep'OIski/  $pause	// after
-?2	(sempre que)    s'eNpriki/  $pause	// whenever
-?2	enquanto  $pause			// while
+?2	(para que)	p,a*&ki/          // so that
+
+
+
+?2	quando			// when
+?2	onde	$u	// where
+?2	apenas			// as soon as
+?2	mal			// as soon as, hardly
+?2	(logo que)	l'Oguki/		// as soon as
+?2	(antes que)     '&~NtSiski/ 	// before
+?2	(depois que)    dep'OIski/ 	// after
+?2	(sempre que)    s'eNpriki/ 	// whenever
+?2	enquanto 			// while
 
 
 // negative
