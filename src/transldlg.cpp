@@ -454,7 +454,8 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 				t_phonetic->AppendText(wxString(buf,wxConvUTF8));
 			}
 			t_phonetic->AppendText(_T("---\n"));
-			fclose(f_trans);
+			if(f_trans != NULL)
+				fclose(f_trans);
 			remove(fname_temp);
 		}
 		t_phonetic->AppendText(wxString(phon_out,wxConvLocal));

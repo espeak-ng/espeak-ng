@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-03-12 Michel Such  <michel.such@free.fr>
+// Updated: 2009-04-01 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -126,6 +126,7 @@
 	e)	ch (_     k		// varech
 	_A)	ch (o_      k		// écho
 	mani)	ch (é      k		// manichéisme
+	mito)	ch (o      k		// mitochondrie
 	_eu)	ch (ari      k		// eucharistie
 	or) 	ch (esC     k		// orchestre
 	or) 	ch (iC      k		// orchidée
@@ -213,17 +214,17 @@ _) 	ç' (P2v      s
 
 // Define use of the final 'e' in french
 		e (_
-	rch)	e (_   	  =@-
-	rch)	e (s_   	  =@-
-	elqu)	e    	  =@-
+	rch)	e (_   	  =@3
+	rch)	e (s_   	  =@3
+	elqu)	e    	  =@3
 	uisqu)	e    =@
 	rsqu)	e   	  =@
 	_C) 	e (_        @2		// je te
 	-c) 	e (_       @-
 	-j) 	e (_       @-
 	C) 	e (-       @-
-	L02r) 	e (_       =@-
-	L02r) 	e (s_       =@-
+	L02r) 	e (_       =@3
+	L02r) 	e (s_       =@3
 
 		e (Ce_      E
 		eau         o		// bateau cheveaux
@@ -246,6 +247,7 @@ _) 	ç' (P2v      s
 	gu)	e (rA     	@
 	qu)	e (rA     	@
 	v)	e (lop         @-
+	tch)	e (rX         W
 	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
 		em (mACC       A~		// emmancher
@@ -870,7 +872,8 @@ _)		half  	_^_en
 		om (_       Om          //  www.web.com
 		on (K       O~		// mon
 		on (t_       O~t2		// mont vont sont
-	_m)	ont (CAC       O~		// montpellier
+	_m)	ont (pAC       O~		// Montpellier
+	_m)	ont (rAal       O~		// Montreal
 		onsh (A     O~z		// bonshommes
 		onh (A      On		// bonhomme
 	_)		on	(z	_!O~		// onze, onzi�me

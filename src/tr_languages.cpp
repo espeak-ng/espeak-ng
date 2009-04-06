@@ -325,7 +325,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('d','e'):
 		{
-			static const short stress_lengths_de[8] = {150,130, 190,190,  0, 0, 260,275};
+			static const short stress_lengths_de[8] = {150,130, 200,200,  0, 0, 260,275};
 			tr->langopts.stress_rule = 0;
 			tr->langopts.word_gap = 0x8;   // don't use linking phonemes
 			tr->langopts.vowel_pause = 0x30;
@@ -636,6 +636,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = 2;
+			tr->langopts.stress_flags = 0x10 | 0x20000; 
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
@@ -643,22 +644,24 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_IT_DOUBLING] = 2;    // double the first consonant if the previous word ends in a stressed vowel
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
+			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
 			tr->langopts.numbers = 0x2709 + NUM_ROMAN;
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
+			SetLetterVowel(tr,'y');
 		}
 		break;
 
 	case L_jbo:   // Lojban
 		{
 			static const short stress_lengths_jbo[8] = {145,145, 170,160, 0,0, 330,350};
-			static const wchar_t jbo_punct_within_word[] = {'.',',','\'',0x2c8,0};  // allow period and comma within a word, also stress marker (from LOPT_SYLLABLE_CAPS)
+			static const wchar_t jbo_punct_within_word[] = {'.',',','\'',0x2c8,0};  // allow period and comma within a word, also stress marker (from LOPT_CAPS_IN_WORD)
 
 			SetupTranslator(tr,stress_lengths_jbo,NULL);
 			tr->langopts.stress_rule = 2;
 			tr->langopts.vowel_pause = 0x20c;  // pause before a word which starts with a vowel, or after a word which ends in a consonant
 //			tr->langopts.word_gap = 1;
 			tr->punct_within_word = jbo_punct_within_word;
-			tr->langopts.param[LOPT_SYLLABLE_CAPS] = 1;  // capitals indicate stressed syllables
+			tr->langopts.param[LOPT_CAPS_IN_WORD] = 2;  // capitals indicate stressed syllables
 			SetLetterVowel(tr,'y');
 		}
 		break;

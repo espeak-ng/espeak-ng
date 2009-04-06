@@ -111,6 +111,8 @@ wxMenuBar *MakeMenu(int type)
 	lexicon_menu = new wxMenu;
 	lexicon_menu->Append(MENU_LEXICON_RU, _("Russian (lexicon.dict)"));
 	lexicon_menu->Append(MENU_LEXICON_DE, _("German"));
+	lexicon_menu->Append(MENU_LEXICON_IT, _("Italian"));
+	lexicon_menu->Append(MENU_LEXICON_IT2, _("Italian, pass 2"));
 
 	tools_menu = new wxMenu;
 	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart"), vowelchart_menu);

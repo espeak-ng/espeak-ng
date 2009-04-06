@@ -15,8 +15,8 @@
       eo  13  115
      jbo   4  116
       fi  40  134
-      fr  54  140
-   fr_ca  11  140
+      fr  55  141
+   fr_ca  11  141
       hi  60  149
       ta  17  152
       hu  23  119
@@ -71,31 +71,25 @@ b/b_            [b] base
                 [b] hi
                 [b] bn
 b/b@            [b] base
-                [b] fr
                 [b] hi
                 [b] bn
 b/b@2           [b] base
                 [b] hi
                 [b] bn
 b/ba            [b] base
-                [b] fr
                 [b] hi
                 [b] bn
 b/be            [b] base
-                [b] fr
                 [b] hi
                 [b] bn
 b/bi            [b] base
-                [b] fr
                 [b] hi
                 [b;] ro
                 [b] bn
 b/bo            [b] base
-                [b] fr
                 [b] hi
                 [b] bn
 b/bu            [b] base
-                [b] fr
                 [b] hi
                 [b] bn
 b/xb            [b] base
@@ -476,6 +470,7 @@ l/lo            [(o)] base
                 [wA] fr
 l/l_o           [(o)] base
                 [O] fr
+                [o] fr
                 [O2] fr
                 [o2] fr
 l^/l_rfx        [l.] hi
@@ -727,6 +722,7 @@ ufric/ll        [L] base
                 [l#] is
 ufric/s         [s] base
                 [s] fr
+                [z] fr
                 [z2] fr
                 [s] es
                 [s#] pt
@@ -1481,6 +1477,7 @@ vowel/@         [@] base
                 [@] kn
                 [@4] bn
 vowel/@-        [@-] base
+                [@3] fr
                 [r*] hr
 vowel/&         [a] en_rp
                 [&] fi
@@ -2228,8 +2225,7 @@ vwl_fr/@R2      [R] fr_ca
 vwl_fr/@R3      [R] fr
                 [r] fr
                 [Q2] hy
-vwl_fr/@R4      [R] fr
-                [r2] fr
+vwl_fr/@R4      [r2] fr
                 [Q2] hy
 vwl_fr/@R5      [r] fr
                 [Q2] hy

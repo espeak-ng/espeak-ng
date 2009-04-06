@@ -101,7 +101,7 @@ typedef struct {
 	unsigned char klattp[N_KLATTP];
 } frame_t;
 
-typedef struct {
+typedef struct {  // 43 bytes
 	short frflags;
 	unsigned char length;
 	unsigned char rms;
@@ -110,6 +110,19 @@ typedef struct {
 	unsigned char fwidth[6];          // width/4
 	unsigned char fright[6];          // width/4
 } frame_t2;   //  the original, without Klatt additions, used for file "phondata" 
+
+
+typedef struct {  // 44 bytes
+	short frflags;
+	short ffreq[7];
+	unsigned char length;
+	unsigned char rms;
+	unsigned char fheight[8];
+	unsigned char fwidth[6];          // width/4  f0-5
+	unsigned char fright[3];          // width/4  f0-2
+	unsigned char bw[4];        // Klatt bandwidth BNZ, f1,f2,f3
+	unsigned char klattp[5];    // AV, FNZ, Tilt, spare, spare (Aspr, Skew ?)
+} frame_t3;   //  TESTING
 
 
 

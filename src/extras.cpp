@@ -288,6 +288,315 @@ static void DecodePhonemes2(const char *inptr, char *outptr)
 }   //  end of DecodePhonemes2
 
 
+void Lexicon_It(int pass)
+{//======================
+	int count=0;
+	int matched=0;
+	int ix;
+	int c;
+	char *p;
+	int len;
+	int vowel_ix;
+	int stress_posn1;
+	int stress_posn2;
+	int stress_vowel1;
+	int stress_vowel2;
+	int use_phonemes;
+	FILE *f_in;
+	FILE *f_out;
+	FILE *f_listx;
+	FILE *f_list_in;
+	long int displ;
+	const char *alt_string;
+	char buf[200];
+	char word[80];
+	char word1[80];
+	char word2[80];
+	char word_stem[80];
+	char temp[80];
+	char phonemes[80];
+	char phonemes2[80];
+	char buf_out[120];
+	WORD_TAB winfo;
+	static const char *vowels1 = "aeiou";
+	static const char *vowels2 = "aeou";
+
+	static const char ex1[] = {'a',0xc3,0xac,0};  // aì
+	static const char ex2[] = {'e',0xc3,0xac,0};  // eì
+	static const char ex3[] = {0xc3,0xb9,'a',0};  // ùa
+	static const char ex4[] = {0xc3,0xb9,'e',0};  // ùe
+	static const char ex5[] = {0xc3,0xb9,'i',0};  // ùi
+	static const char ex6[] = {0xc3,0xb9,'o',0};  // ùo
+	static const char ex7[] = {'c',0xc3,0xac,'a',0};  // cìa
+	static const char ex8[] = {'c',0xc3,0xac,'o',0};  // cìo
+	static const char ex9[] = {'c',0xc3,0xac,'u',0};  // cìu
+	static const char ex10[] = {'g','l',0xc3,0xac,0};  // glì
+
+
+	static const char *exceptions[] = {ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8, ex9, ex10, NULL};
+
+	wxString fname = wxFileSelector(_T("Italian Lexicon"),path_dir1,_T(""),_T(""),_T("*"),wxOPEN);
+
+	strcpy(buf,fname.mb_str(wxConvLocal));
+	if((f_in = fopen(buf,"r")) == NULL)
+	{
+		wxLogError(_T("Can't read file ")+fname);
+		return;
+	}
+	path_dir1 = wxFileName(fname).GetPath();
+	
+	if((f_out = fopen("compare_it","w")) == NULL)
+	{
+		wxLogError(_T("Can't write file: compare_it "));
+		return;
+	}
+
+	if(pass == 1)
+	{
+		sprintf(buf,"%s/it_listx",path_dsource);
+		remove(buf);
+		CompileDictionary(path_dsource,"it",NULL,NULL,0);
+		f_listx = fopen(buf,"w");
+	}
+	else
+	{
+		sprintf(buf,"%s/it_listx2",path_dsource);
+		f_listx = fopen(buf,"w");
+		sprintf(buf,"%s/it_listx",path_dsource);
+		if((f_list_in = fopen(buf,"r")) == NULL)
+		{
+			wxLogError(_T("Can't read file: it_listx"));
+			return;
+		}
+	}
+	if(f_listx == NULL)
+	{
+		wxLogError(_T("Can't write file: it_listx"));
+		return;
+	}
+
+
+	LoadVoice("it",0);
+
+	while(!feof(f_in))
+	{
+		count++;
+
+		if(fgets(buf,sizeof(buf),f_in) == NULL)
+			break;
+
+		if((p = strstr(buf,"//")) != NULL)
+			*p = 0;
+		
+		if((sscanf(buf,"%s %s",word,temp)) < 2)
+			continue;
+
+		if(strlen(word) < 8)
+			sprintf(buf_out,"%s\t\t%s\t",word,temp);
+		else
+			sprintf(buf_out,"%s\t%s",word,temp);
+
+		sprintf(word1," %s  ",word);
+
+		// should we remove a vowel ending to produce a stem ?
+		strcpy(word_stem, word);
+		len = strlen(word) - 1;
+		utf8_in(&c, temp);
+//		if(iswlower(c))
+		{
+			if((word[len] == 'a') && (strchr(vowels1, word[len-1]) == NULL))
+				word_stem[len] = 0;
+			else
+			if((word[len] == 'o') && (strchr(vowels2, word[len-1]) == NULL))
+				word_stem[len] = 0;
+		}
+
+		// convert word to lower-case
+		word2[0] = ' ';
+		for(ix=0, p=&word2[1];;)
+		{
+			ix += utf8_in(&c,&temp[ix]);
+			c = towlower(c);
+			p += utf8_out(c,p);
+			if(c == 0)
+				break;
+		}
+		strcat(word2,"  ");
+
+		use_phonemes = 0;
+		for(ix=0; ; ix++)
+		{
+			if(exceptions[ix] == NULL)
+				break;
+
+			if(strstr(word2, exceptions[ix]) != NULL)
+			{
+				// the word contains a string for which we must do a complete phoneme translation
+				use_phonemes = 1;
+				strcpy(word_stem, word);
+				break;
+			}
+		}
+		// translate
+		memset(&winfo,0,sizeof(winfo));
+		TranslateWord(translator,&word1[1],0,&winfo);
+		DecodePhonemes(word_phonemes,phonemes);
+
+		stress_posn1 = 0;
+		stress_posn2 = 0;
+		stress_vowel1 = 0;
+		stress_vowel2 = 0;
+
+		vowel_ix = 1;
+		for(ix=0; ;ix++)
+		{
+			if((c = word_phonemes[ix]) == 0)
+				break;
+			if(c == phonSTRESS_P)
+			{
+				stress_posn1 = vowel_ix;
+				stress_vowel1 = word_phonemes[ix+1];
+			}
+
+			if((c != phonSCHWA_SHORT) && (phoneme_tab[c]->type == phVOWEL))
+				vowel_ix++;
+		}
+
+		memset(&winfo,0,sizeof(winfo));
+		TranslateWord(translator,&word2[1],0,&winfo);
+		DecodePhonemes(word_phonemes,phonemes2);
+
+		vowel_ix = 1;
+		for(ix=0; ;ix++)
+		{
+			if((c = word_phonemes[ix]) == 0)
+				break;
+			if(c == phonSTRESS_P)
+			{
+				stress_posn2 = vowel_ix;
+				stress_vowel2 = word_phonemes[ix+1];
+			}
+
+			if((c != phonSCHWA_SHORT) && (phoneme_tab[c]->type == phVOWEL))
+				vowel_ix++;
+		}
+
+		if(stress_posn2 == (vowel_ix-1))
+		{
+			// stress is on the final vowel, don't renove it
+			strcpy(word_stem, word);
+		}
+
+		if(pass == 1)
+		{
+			if(use_phonemes)
+			{
+				fprintf(f_listx,"%s  ", word_stem);
+				for(p = phonemes2; *p != 0; p++)
+				{
+					if(*p != ',')
+						fputc(*p, f_listx);  // omit secondary stress marks
+				}
+				fputc('\n',f_listx);
+			
+			}
+			else
+			if((stress_posn1 != stress_posn2) && (stress_posn1 > 0) && (stress_posn2 > 0))
+			{
+				fprintf(f_listx,"%s $%d\n", word_stem, stress_posn2);
+			}
+		}
+
+		// reduce [E] and [O] to [e] and [o] if not stressed
+		for(ix=0; phonemes[ix] != 0; ix++)
+		{
+			if((phonemes[ix] == 'E') || (phonemes[ix] == 'O'))
+			{
+				if((pass == 2) || (ix==0) || (phonemes[ix-1] != '\''))
+					phonemes[ix] = tolower(phonemes[ix]);
+			}
+		}
+
+		for(ix=0; phonemes2[ix] != 0; ix++)
+		{
+			if((phonemes2[ix] == 'E') || (phonemes2[ix] == 'O'))
+			{
+				if((pass == 2) || (ix==0) || (phonemes2[ix-1] != '\''))
+					phonemes2[ix] = tolower(phonemes2[ix]);
+			}
+		}
+
+		if(strcmp(phonemes,phonemes2) == 0)
+		{
+			alt_string = NULL;
+			if((pass == 2) && (stress_posn1 > 0) && (stress_posn2 > 0))
+			{
+				if(((stress_vowel1 == PhonemeCode('E')) && (stress_vowel2 == PhonemeCode('e'))) ||
+					((stress_vowel1 == PhonemeCode('O')) && (stress_vowel2 == PhonemeCode('o'))))
+				{
+					alt_string = " $alt2";
+				}
+				else
+				if(((stress_vowel1 == PhonemeCode('e')) && (stress_vowel2 == PhonemeCode('E'))) ||
+					((stress_vowel1 == PhonemeCode('o')) && (stress_vowel2 == PhonemeCode('O'))))
+				{
+					alt_string = " $alt";
+				}
+
+				if(alt_string != NULL)
+				{
+					while(!feof(f_list_in))
+					{
+						displ = ftell(f_list_in);
+						if(fgets(buf, sizeof(buf), f_list_in) == NULL)
+							break;
+
+						sscanf(buf, "%s", word1);
+						if(strcmp(word1, word_stem) < 0)
+						{
+							fprintf(f_listx,"%s",buf);  // copy it_listx from pass 1 until we reach the matching word
+						}
+						else
+						if(strcmp(word1, word_stem) == 0)
+						{
+							p = buf;
+							while((*p != '\n') && (*p != 0)) *p++;
+							*p = 0;
+							fprintf(f_listx,"%s %s\n",buf,alt_string);   // add $alt or $alt2 to the entry
+							break;
+						}
+						else
+						{
+							fprintf(f_listx,"%s %s\n", word_stem, alt_string);   // add a new word with $alt or $alt2
+							fseek(f_list_in, displ, SEEK_SET);
+							break;
+						}
+					}
+				}
+			}
+			matched++;
+		}
+		else
+		{
+			fprintf(f_out,"%s\t%s\t%s\n",buf_out,phonemes,phonemes2);
+		}
+	}
+
+	if(pass == 2)
+	{
+		while(fgets(buf, sizeof(buf), f_list_in) != NULL)
+		{
+			fprintf(f_listx, "%s", buf);  // copy the remaining entries from pass 1
+		}
+		fclose(f_list_in);
+	}
+	fclose(f_in);
+	fclose(f_out);
+	fclose(f_listx);
+	wxLogStatus(_T("Completed, equal=%d  different=%d"),matched,count-matched);
+}
+
+
 void Lexicon_De()
 {//==============
 // Compare eSpeak's translation of German words with a pronunciation lexicon
@@ -765,6 +1074,12 @@ void CompareLexicon(int id)
 		break;
 	case MENU_LEXICON_DE:
 		Lexicon_De();
+		break;
+	case MENU_LEXICON_IT:
+		Lexicon_It(1);
+		break;
+	case MENU_LEXICON_IT2:
+		Lexicon_It(2);
 		break;
 	}
 }  // end of CompareLexicon

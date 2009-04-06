@@ -696,7 +696,7 @@ static int Unpronouncable_en(Translator *tr, char *word)
 	0x00, 0x88, 0x22, 0x04, 0x00, 0x02, 0x00, 0x04,  // 32
 	0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 	0x00, 0x28, 0x8a, 0x03, 0x00, 0x00, 0x40, 0x00,  // 48
-	0x02, 0x00, 0x41, 0xca, 0x9b, 0x06, 0x20, 0x80,
+	0x02, 0x00, 0x41, 0xca, 0xbb, 0x06, 0x20, 0x80,
 	0x91, 0x00, 0x00, 0x00, 0x00, 0x20, 0x08, 0x00,  // 64
 	0x08, 0x20, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
 	0x00, 0x00, 0x22, 0x00, 0x01, 0x00, };
@@ -1408,7 +1408,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 				stress = 3;  /* use secondary stress for remaining syllables */
 			}
 			else
-			if((vowel_stress[v-1] <= 1) && (vowel_stress[v+1] <= 1))
+			if((vowel_stress[v-1] <= 1) && ((vowel_stress[v+1] <= 1) || ((stress == 4) && (vowel_stress[v+1] <= 2))))
 			{
 				/* trochaic: give stress to vowel surrounded by unstressed vowels */
 
@@ -1558,7 +1558,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 				max_stress = vowel_stress[v];
 			}
 
-			if((*p == phonLENGTHEN) && ((opt_length = tr->langopts.param[LOPT_IT_LENGTHEN]) != 0))
+			if((*p == phonLENGTHEN) && ((opt_length = tr->langopts.param[LOPT_IT_LENGTHEN]) & 1))
 			{
 				// remove lengthen indicator from non-stressed syllables
 				int shorten=0;
@@ -1576,11 +1576,18 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 					shorten = 1;
 				}
 
-				if(((opt_length & 0xf)==2) && (v != (vowel_count - 2)))
-					shorten = 1;    // LANG=Italian, remove lengthen indicator from non-penultimate syllables
-
 				if(shorten)
 					p++;
+			}
+
+			if((v_stress >= 4) && (tr->langopts.param[LOPT_IT_LENGTHEN] == 2))
+			{
+				// LANG=Italian, lengthen penultimate stressed vowels, unless followed by 2 consonants
+				if((v == (vowel_count - 2)) && (syllable_weight[v] == 0))
+				{
+					*output++ = phcode;
+					phcode = phonLENGTHEN;
+				}
 			}
 
 			v++;
@@ -2193,7 +2200,7 @@ static void MatchRule(Translator *tr, char *word[], const char *group, char *rul
 
 				case RULE_LETTERGP2:   // match against a list of utf-8 strings
 					letter_group = *rule++ - 'A';
-					if((n_bytes = IsLetterGroup(tr, pre_ptr-letter_xbytes,letter_group,1)) >0)
+					if((n_bytes = IsLetterGroup(tr, pre_ptr,letter_group,1)) >0)
 					{
 						add_points = (20-distance_right);
 						pre_ptr -= (n_bytes-1);
@@ -2682,6 +2689,44 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	return(0);
 }   /* end of TranslateRules */
 
+
+void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
+{//========================================================================
+	// apply after the translation is complete
+	int ix;
+	int len;
+	char *p;
+
+	len = strlen(phonemes);
+
+	switch(tr->translator_name)
+	{
+	case L('i','t'):
+		for(ix=0; ix<(len-1); ix++)
+		{
+			if(phonemes[ix] == phonSTRESS_P)
+			{
+				p = &phonemes[ix+1];
+				if((dict_flags & FLAG_ALT2_TRANS) != 0)
+				{
+					if(*p == PhonemeCode('E'))
+						*p = PhonemeCode('e');
+					if(*p == PhonemeCode('O'))
+						*p = PhonemeCode('o');
+				}
+				else
+				{
+					if(*p == PhonemeCode('e'))
+						*p = PhonemeCode('E');
+					if(*p == PhonemeCode('o'))
+						*p = PhonemeCode('O');
+				}
+				break;
+			}
+		}
+		break;
+	}
+}  // end of ApplySpecialAttribute2
 
 
 void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags)

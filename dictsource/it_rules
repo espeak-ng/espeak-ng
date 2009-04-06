@@ -7,14 +7,17 @@
 // K  not a vowel (i.e. consonant or end-of-word)
 // Y  front vowels: e i (& accents)
 .L01 a à o ò ó u ù
+.L02 e é è
+
 
 .group a
-		a	a:
-		a (CK	a
-		ai      aI (K
+		a	a
+		ai (K   aI
                 ao (_   aU
+                au	a%u
 
-	&)	a (_S1q  a     // lookup it_list without suffix
+	@C)	a (_S1q  a     // lookup it_list without suffix
+	@i)	a (_S1q  a     // lookup it_list without suffix
 
 	@)	a (cA_	=a
 	@)	a (che_	=a
@@ -23,16 +26,20 @@
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 
-	_)	ae (ro    aI
+	_)	ae (r    aI
 	@)	avano (_S5  'avano
 		a (tterA_   'a
+
+.group à
+		à	''a
+		ài (K   ''aI
+                ào (_   ''aU
+                àu	''a%u
 
 .group b
 		b       b
 		bb      b:
 
-	li)	be	=be
-		
 .group c
 		c	k
 		cc	k:
@@ -51,38 +58,63 @@
 	n)	dere    =deRe
 
 .group e
-		e	e:
-		e (CK	e
-		e (T	E:   // The word has $alt in it_list
-		e (CKT	E    // $alt
-		ei	ej (K
+		e        e
+		ei       Ej (K
+	@C)	e (_S1q  e     // lookup it_list without suffix
+	@Ar)	e (_     e
 
-		e (r	E:   // ?? [E] before 'r'
-		e (rK	E
-		e (rsi_N  e
+		e (C_    E
+		e (A     E
+		e (C%A_  E    // doubled consonant
+		e (CiCA_ E
+		e (CulA_ E
+		e (llu   E
+		e (st    E
+		e (ttA_	 e
+	c)	e (ttA_  E
+		e (tti@	 E
+		e (zzA_  e
 
-	&)	e (_S1q  e     // lookup it_list without suffix
+		e (r     E
+		e (rsi_N e
+	A)	e (r_	 'E
+
+	_r)	e	 E
+
 //	@)	e (ce_	=e
 	@)	e (ci_	=e
-	C)	e (re_	=e
 
-	@)	e (nte_   E
-	@m)	e (nte_   e
-	@)	e (nza_   E
-	@)	e (volA_  'e
+		e (l     E
+	r)	e (m     E
+		e (monA_ 'e
+		e (nA_   E
+	g)	e (ne    E
+		e (ngA_  e
+		e (nCA_  E
+	@m)	e (ntA_  e
+       %C)	e (rA_   =E
+	C)	e (re_	 =E
+	gg)	e (ro_   E
+	f)	e (rm    e
 	@)	e (rrimo_ 'E
 	@)	e (simo_  'e
+	h)	e (ss    e
+	m)	e (ss    e
+	_sC)	e (ss    e
+		e (ssa_  e
+		e (tr    E
+		e (ti    E
 
-	@)	evano(_S5  'evano
+		e (vi_   E
+		e (vo_   E
+	@)	e (volA_ 'e
+		e (zA    E
 
-		
 .group f
 		f	f
 
-	@A)	f (ico_  =f
-	@A)	f (ichA_ =f
 	@A)	f (ilo_  =f
-	@A)	f (ero_  =f
+	A)	f (ero_  =f
 		
 .group g
 		g	g
@@ -90,6 +122,8 @@
 		gh	g
 		g (Y	dZ
 		gi (L01	dZj
+		gi (a_	dZ'i
+	n)	gi (a_	dZj
 		gg (Y	dZ:
 		ggi (L01  dZ:
 	@)	gger (lo_ =dZ:eR
@@ -100,55 +134,74 @@
 		gn	n^
 		gu (A   gw
 
-	@)	g (ero_  =g
-	@)	gno (lA_ n^'o
-
 	
 .group h
 		h
-		ha      h'a
+	_)	ha      h'a
+	_)	hà      h'a
 
 .group i
-		i	i:
-		i (CK	i
+		i	i
 		i (A	j
 	l)	i (A	%i
 	r)	i (A	%i
        _C)	i (a    i
+       _C)	i (à    i
 		i (o    i
 		i (ò	i
 		i (ó	i
         @)      ia (_   =i%a
-        @)      io (_   =i%o
+	@)	ià (_	i'a
+	X)	ia (_	'ia
+	af)	ia (_	'ia
+	fon)	ia (_	'ia
+	scop)	ia (_	'ia
+	er)	ia (_	'ia
+	gor)	ia (_   'ia
+	metr)	ia (_	'ia
+	t)	ia (_	'ia
+        @)      io (_S1q   =i%o
 	a)	i (+	j
-	e)	i (+	j
+	à)	i (+	j
+	L02)	i (+	j
 	o)	i (+	j
 
-	&)	i (_S1q  i     // lookup it_list without suffix
+	@C)	i (_S1q  i     // lookup it_list without suffix
 
-	@)	i (co_	=i
-	@)	i (ci_	=i
-        @)      i (dA_  =i
-        @)      i (dere_  'i
-	@)	i (le_  =i
-	@)	i (li_  =i
-	@)	i (ma_	=i
-	r)	i (ma_	 i
-	laCr)	i (ma_	=i
-	st)	i (ma_   i
-	enz)	i (ma_   i
-        @)	i (mo_  =i
-	@)	iera (_   i'E:Ra
-	@)	iere (_   i'E:Re
-        @)      i (ente_  i
-	@)	i (ante_  i
+        @)      i (Ante_   i
+		i (acA_   'i
+		i (asi_   'i
 	@)	i (bile_  'i
+	@)	i (cA_	  =i
+	tr)	i (ce_     i
+	@)	i (chA_   =i
+        @)      i (dA_    =i
+        @)      i (dere_  'i
+	@)	ie (rA_    i'E
+	@)	ié (rA_    i'E
+	@)	iè (rA_    i'E
+	@)	i (gA_	  =i
+		i (genA_  'i
+	c)	i (lA_    =i
+	g)	i (lA_    =i
+	ss)	i (lA_    =i
+	b)	i (le_    =i
+	m)	i (le_    =i
+		i (lA_    =i
+	@)	i (ma_	  =i
+	r)	i (ma_	   i
+	laCr)	i (ma_	  =i
+	st)	i (ma_     i
+	enz)	i (ma_     i
+        @)	i (mo_    =i
+		inas (_   'inas
+		i (ne_    =i
 	@)	issima(_S6 'issima
 	@)	issime(_S6 'issime
 	@)	issimi(_S6 'issimi
 	@)	issimo(_S6 'issimo
 	@)	issero(_S6 'issero
-	@)	i (sti   'i
+	p)	i (te_    =i
 
 		
 .group j
@@ -165,43 +218,83 @@
 		
 .group m
 		m	m
-	A)	mi (a   m'i:
-	@)	mi (co_ m'i:
+	A)	mi (a_  m'i
+
 		
 .group n
 		n	n
 		n (g	N
-		n (ge   n
-		n (gé   n
-		n (gè   n
-		n (gi   n
+		n (gY   n
 		n (k	N
 		
 .group o
-		o	o:
-		o (CK	o
-		o (T	O:  // $alt
-		o (CKT	O   // $alt
-		oi	oI (K
+		o	o
+		oi	O%I
+		oi (o_  o%I
+		oi (sCA_ o'i
 
-		o (r	O:  // ?? [O] before 'r'
-		o (rK	O
-		o (re_  o
+		o (C%A_	O    // doubled consonant
+		o (CACA_  O
+		o (Cr     O
+		o (CC_    O
 
-	&)	o (_S1q  o     // lookup it_list without suffix 
 
-	@)	o (ista_   o
-	@)	o (ismo_   o
-	@)	o (gnolo_  'o
-	@)	o (nzolo_  'o
-	@)	o (grafo_  'O
-	@)	o (fono_   'O
-	@)	o (metro_  'O
-	@)	o (logo_   'O
-		o (str     'O
+	@C)	o (_S1q  o     // lookup it_list without suffix 
+	@i)	o (_S1q  o     // lookup it_list without suffix 
+
+	i)	o          O
+	i)	o (ne      o
+	i)	o (so_     o
+
+	m)	o (bile    O
+		o (ca_     O
+		o (co_     O
 	@)	o (di_     =o
 	@)	o (do_     =o
-	@)	o (lo_     =o
+	@)	o (fono_   'O
+		o (genA_   'O
+	l)	o (gico_   'O
+	@)	o (gnolo_  'o
+	@)	o (grafo_  'O
+		o (lX       O
+	nd)	o (lA_     =O
+	ns)	o (lA_     =O
+	CC)	o (lA_     =O
+	u)	o (lA_      O
+	v)	o (lA_     =o
+	@)	o (la_      O
+	gn)	o (la_      O
+		o (li       O
+	@)	o (liA_     O
+	@)	o (lo_     =O
+	i)	o (lA_      O
+       ci)	o (lA_     =O
+	@)	o (logo_   'O
+	c)	o (ltA_     O
+	sc)	o (ltA_     o
+	v)	o (lt       O
+	@)	o (metro_  'O
+	@)	o (ma_      O
+	@)	o (mo_      O
+	dr)	o (mo_     =o
+		o (ni       O
+		o (ni_      o
+                o (no_      O
+	@)	o (nomo_   'O
+	@)	o (nzolo_  'o
+		o (o        O
+		o (polA_   'O
+	sc)	o (p        O
+		o (r	    O
+		o (re_      o
+	f)	o (rmA_     o
+		o (si_      O
+		o (ss       O
+	Ar)	o (ssA_     o
+		o (st       O
+		o (stracA_  'O
+		o (ttol     O
+		o (zA       O
 
 	
 .group p
@@ -239,11 +332,15 @@
 		s (t	s
 		s (x	s
 		sc (Y	S
-		sci (L01  S
+		sci (A  S
+		sci (i	S%i
+		sci (ì	S%i
 		sch (Y	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
-	@)	sia	s'ia
+	@)	sia	z'ia
+	@C)	sia	s'ia
+	@)	sià	zi'a
 	@)	s (_S1	s	
 		
 .group t
@@ -251,14 +348,15 @@
 		tt	t:
 		
 .group u
-		u	u:
-		u (CK	u
+		u	u
 		u (A	w2
 	Kr)	u (A	u
 	Kl)	u (A	u
 
 	@)	u (dine_  'u
 	@)	u (colo_  'u
+		u (ito_ 'u
+	@)	u (lA_	=u
 
 .group v
 		v	v
@@ -279,24 +377,26 @@
 	A)	zz	ts:
 
         _)	z (i	dz
+        _)	z (ì	dz
+		z (L01A	dz
 
 .group
-		à	'a:
-		à (CK	'a
-		é	'e:
-		é (CK	'e
-		è	'E:
-		è (CK	'E
-		ì	'i:
-		ì (CK	'i
-		ó	'o:
-		ó (CK	'o
-		ò	'O:
-		ò (CK	'O
-		ù	'u:
-		ù (CK	'u
+		è	''E
+		èi (K	''Ej
 
-		$	dolla:ro
+		é	''e
+		éi (K	''eI
+
+		ì	''i
+		ó	''o
+		ói	''o|I
+
+		ò	''O
+		òi	''OI
+
+		ù	''u
+
+		$	dollaro
 		, (D    v'irgola
 		!       _p'untoesklamat'ivo_
 	!)	!
@@ -307,4 +407,4 @@
         A_)  - (_D        _
         C_)  - (_D        _
 
-		§	setsi'o:ne
+		§	setsi'one

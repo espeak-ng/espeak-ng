@@ -204,6 +204,8 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_VOWELCHART3, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_RU, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_DE, MyFrame::OnTools)
+	EVT_MENU(MENU_LEXICON_IT, MyFrame::OnTools)
+	EVT_MENU(MENU_LEXICON_IT2, MyFrame::OnTools)
 	EVT_MENU(MENU_TO_UTF8, MyFrame::OnTools)
 	EVT_MENU(MENU_COUNT_WORDS, MyFrame::OnTools)
 	EVT_MENU(MENU_TEST, MyFrame::OnTools)
@@ -457,6 +459,8 @@ void MyFrame::OnTools(wxCommandEvent& event)
 
 	case MENU_LEXICON_RU:
 	case MENU_LEXICON_DE:
+	case MENU_LEXICON_IT:
+	case MENU_LEXICON_IT2:
 		CompareLexicon(event.GetId());  // Compare a lexicon with _rules translation
 		break;
 

@@ -10,7 +10,7 @@ endphoneme
 
 phoneme @
   vowel starttype (@) endtype (@)
-  length 180
+  length 190
   formants vowel/@_hgh
   before l/ DFT+l/l_@
   before (r) DFT+r/xr
@@ -19,15 +19,24 @@ endphoneme
 
 phoneme @2
   vowel starttype (@) endtype (@)
-  length 160
+  length 170
   formants vowel/@_fr
   before (r) DFT+r3/r_@
 endphoneme
 
 
+phoneme @3   //  Mute at end of word
+  vowel nonsyllabic
+  starttype (@)  endtype _
+  formants vowel/@-
+  unstressed
+  length 40
+endphoneme
+
+
 phoneme a
   vowel  starttype (a)  endtype (a)
-  length 180
+  length 200
   formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
@@ -38,7 +47,7 @@ endphoneme
 
 phoneme a2
   vowel  starttype (a)  endtype (a)
-  length 165
+  length 190
   formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
@@ -49,7 +58,7 @@ endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
-  length 175
+  length 190
   formants vowel/e
   after l l/le-15
   before l/ DFT-20+l/xl
@@ -59,7 +68,7 @@ endphoneme
 
 phoneme E
   vowel starttype (e) endtype (e)
-  length 175
+  length 190
   formants vowel/e_mid
   after l l/le-15
   before l/ DFT+l/l_e
@@ -70,7 +79,7 @@ endphoneme
 
 phoneme E2
   vowel starttype (e) endtype (e)
-  length 175
+  length 190
   formants vowel/e_mid
   after l l/le-15
   before l/ DFT+l/l_e
@@ -80,7 +89,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 160
+  length 170
   formants vowel/i_3
   linkout ;
   after l l/li-15
@@ -92,7 +101,7 @@ endphoneme
 
 phoneme i: // longer than i
   vowel  starttype (i)  endtype (i)
-  length 240
+  length 250
   formants vowel/i_3
   linkout ;
   after l l/li-15
@@ -103,9 +112,10 @@ endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 180
+  length 190
   formants vowel/o_3
   after l l/lo-10
+  before l/ DFT+l/l_o
   before (r) DFT+r/xr
   reduceto o2 1
 endphoneme
@@ -113,7 +123,7 @@ endphoneme
 
 phoneme o2
   vowel starttype (o) endtype (o)
-  length 180
+  length 190
   formants vowel/o_2
   after l l/lo-10
   before l/ DFT+l/l_o
@@ -123,7 +133,7 @@ endphoneme
 
 phoneme O
   vowel starttype (o) endtype (o)
-  length 170
+  length 190
   formants vowel/o_mid
   after l l/lo-10
   before l/ DFT+l/l_o
@@ -134,7 +144,7 @@ endphoneme
 
 phoneme O2	// Like O but no reduceto
   vowel starttype (o) endtype (o)
-  length 170
+  length 190
   formants vowel/o_mid
   after l l/lo-10
   before l/ DFT+l/l_o
@@ -144,7 +154,7 @@ endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 175
+  length 190
   formants vowel/u_3
   after  l l/lu-20
   before l/ DFT-20+l/l_u
@@ -166,7 +176,7 @@ endphoneme
 
 phoneme y
   vowel starttype (u) endtype (u)
-  length 180
+  length 190
   formants vowel/y_2
   after  l l/lu-20
   before l/ DFT-30+l/l_y
@@ -177,7 +187,7 @@ endphoneme
 
 phoneme Y
   vowel starttype (@) endtype (@)
-  length 180
+  length 190
   formants vowel/y#
   after l l/l@-20
   before l/ DFT-20+l/l_@
@@ -188,7 +198,7 @@ endphoneme
 
 phoneme W
   vowel starttype (@) endtype (@)
-  length 180
+  length 200
   formants vowel/@_5
   after l l/l@-20
   before l/ DFT-20+l/l_@
@@ -199,7 +209,7 @@ endphoneme
 
 phoneme W2  // same as W but don't reduce
   vowel starttype (@) endtype (@)
-  length 180
+  length 200
   formants vowel/@_3
   after l l/l@-20
   before l/ DFT-20+l/l_@
@@ -209,7 +219,7 @@ endphoneme
 
 phoneme wA
   vowel starttype (o) endtype (a)
-  length 220
+  length 240
   formants vwl_fr/w_a
   after l l/lo-10
   before l/ DFT-10+l/l_a
@@ -220,7 +230,7 @@ endphoneme
 
 phoneme w^i
   vowel starttype (u) endtype (i)
-  length 220
+  length 240
   formants vdiph/yi_fr
   after  l l/lu-20
   before l/ DFT+l/l_i
@@ -230,7 +240,7 @@ endphoneme
 
 phoneme A~
   vowel  starttype (a) endtype (a)
-  length 190
+  length 210
   formants vnasal/aa_n2
   before r/2 DFT+r/xr-40
   before l/ DFT+l/l_a
@@ -239,7 +249,7 @@ endphoneme
 
 phoneme E~    // same as W~ for fr-fr
   vowel  starttype (e)  endtype (e)
-  length 200
+  length 210
   formants vnasal/W_n
   before n2 DFT-100
 endphoneme
@@ -247,7 +257,7 @@ endphoneme
 
 phoneme O~
   vowel  starttype (o)  endtype (o)
-  length 200
+  length 210
   formants vnasal/o_n3
 //  before n2 vowel/o_mid
 endphoneme
@@ -255,7 +265,7 @@ endphoneme
 
 phoneme W~
   vowel  starttype (@)  endtype (@)
-  length 204
+  length 210
   formants vnasal/W_n
 endphoneme
 
@@ -302,17 +312,12 @@ endphoneme
 // uses the consonants in file "phonemes", unless overridden here
 
 phoneme b
-  vcd blb stop
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 80 brk
-  formants b/b+x/b%80
+  vcd blb frc
+  vowelin  f1=2  f2=1000 -300 -200  f3=-100 100
+  vowelout f1=0  f2=1000 -500 -300  f3=-100 60 len=50
+  formants b/b+x/b%70
   before _ b/b_+x/b_
-  before (a) b/ba+x/b%30
-  before (@) b/b@+x/b%50
-  before (e) b/be+x/b%50
-  before (i) b/bi+x/b%50
   before l/ b/b_+x/b_
-  before (o) b/bo+x/b%50
-  before (u) b/bu+x/b%70
   before R b/b_+x/b_
   after _ NULL
   after @ b/xb%50
@@ -427,22 +432,22 @@ endphoneme
 
 phoneme r
   liquid rfx starttype (r) endtype (r)
-  vowelin  f1=0  f2=1600 -300 300  f3=100 80
-  vowelout f1=1  f2=1600 -300 300  f3=100 80 brk
+  vowelin  f1=0  f2=1800 -200 200  f3=-200 80
+  vowelout f1=1  f2=1800 -200 200  f3=-200 80 brk
   length 100
   lengthmod 7
    beforenotvowel r/2
   formants vwl_fr/@R3+r3/rx%30
   after @2 vwl_fr/@R5+r3/rx%40
-  after (u) vwl_fr/@R5+r3/rx%30
   after (e) vwl_fr/@R5+r3/rx%25
+  after (u) vwl_fr/@R5+r3/rx%30
 endphoneme
 
 
 phoneme r2	// silent unless followed by vowel
   liquid rfx starttype (r) endtype (r)
-  vowelin f1=0  f2=1000 -200 200  f3=-100 100 len=40
-  vowelout f1=0  f2=1200 -200 200  f3=-100 100 len=20
+  vowelin f1=0  f2=1000 -200 200  f3=-200 80 len=40
+  vowelout f1=0  f2=1200 -200 200  f3=-200 80 len=20
   length 100
   lengthmod 7
   beforenotvowel NULL
@@ -451,19 +456,21 @@ endphoneme
 
 
 phoneme R // After consonnants
-  vcd frc
-  vowelin  f1=0  f2=1600 -300 300  f3=100 80
+  liquid starttype (r) endtype (r)
+  vowelin f1=0  f2=1800 -200 200  f3=-200 80
   length 100
   lengthmod 7
   beforenotvowel r/2
-  formants vwl_fr/@R3+r3/rx%20
-  after t vwl_fr/@R4
+  formants vwl_fr/@R3+r3/rx%30
+  after b vwl_fr/@R3+r3/rx%60
+  after p vwl_fr/@R3+r3/rx%60
+  after t vwl_fr/@R3+r3/rx%60
 endphoneme
 
 
 phoneme r/2   // variant of [r] when not preceding a vowel
   liquid
-  vowelout f1=2  f2=1600 -300 300  f3=100 80 brk
+  vowelout f1=2  f2=1800 -200 200  f3=-200 80 brk
   length 100
   lengthmod 2
   formants r3/r_2+r3/rx%20
@@ -488,8 +495,8 @@ endphoneme
 
 phoneme S
   vls pla frc sibilant
-  vowelin  f1=0  f2=2100 100 300  f3=-100 80
-  vowelout f1=0  f2=2100 100 300  f3=-100 80
+  vowelin  f1=0  f2=1900 100 300  f3=-100 80
+  vowelout f1=0  f2=1900 100 300  f3=-100 80
   length 100
   lengthmod 3
   wave ufric/sh%45
@@ -500,10 +507,10 @@ endphoneme
 
 phoneme t
   vls alv stop
-  vowelin f1=0  f2=1700 -100 100  f3=-100 80
-  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  brk
   lengthmod 2
-  wave  ustop/t_short%50
+  wave  ustop/t_short%40
   before _ ustop/t_%40
   before R ustop/t_short%50
   before r/2 ustop/t_short%50
@@ -549,7 +556,7 @@ endphoneme
 phoneme z
   vcd alv frc sibilant
   vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
-  formants voc/z+ufric/s_%45
+  formants voc/z+ufric/s%30
   before _ voc/z_+ufric/s_%45
   lengthmod 6
   switchvoicing s
@@ -574,6 +581,7 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   before _ voc/z_+ufric/s_%45
   lengthmod 6
 endphoneme
+
 
 
 

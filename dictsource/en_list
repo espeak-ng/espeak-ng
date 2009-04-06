@@ -132,7 +132,7 @@ _{	lEftbreIs
 _|	vi:b'A@
 _}	raItbreIs
 ~	tIld@  $max3
-_¡	Inv,3:tI2dEkskl@m'eIS@n
+_¡	%Inv,3:tI2dEkskl@m'eIS@n
 _¦	broUk@nb'A@
 _¨	daIa2r'i:sIs
 _ª	fEmI2nIn'O@dI2n@L
@@ -146,7 +146,7 @@ _¸	sEd'Il@
 _¹	su:p@skrIptw'0n
 _º	maskjUlIn'O@dI2n@L
 _»	raIt'gIl@mEt
-_¿	Inv,3:tI2dkw'EstS@n
+_¿	%Inv,3:tI2dkw'EstS@n
 
 _‐	haIf@n
 _‑	haIf@n
@@ -668,7 +668,6 @@ blockade          $2
 blouse           blaUz
 blurry           bl3:rI
 ?5 blurry        blVRrI
-bogey            boUgI
 boing            bOIN
 bombard          $2
 bonbon           b0nb0n
@@ -1057,6 +1056,7 @@ extract           $2           $verb
 extradite        Ekstr@daIt    // extradited
 extrem           Ekstr'i:m     // extremism
 extremist        Ekstr'i:mIst
+extricate         $1
 eyrie            i@rI
 
 facade           f@sA:d
@@ -1092,6 +1092,7 @@ fiord            fi:O@d
 fix              fIks		// for fixer
 fjord            fIO@d
 flagellum        fla2dZEl@m
+flamenco         fla2mENkoU
 flexible         flEksIb@L
 flier            flaI3
 flourish         flVrI2S
@@ -1162,6 +1163,7 @@ grenade          gr@neId
 griffon          grIf@n
 grosvenor        groUv@n3
 groupie          gru:pI
+guacamole        gwA:ka2m'oUli:
 gui              gu:I
 guinea           gInI
 gurus            gu:ru:z
@@ -1228,6 +1230,7 @@ hyperbole        haIp'3:b@lI
 hypothesis       haIp'0T@sIs
 hypotheses       haIp'0T@si:z 
 hypotenuse       haIp'0t@nju:s
+hypoxia          haIp'0ksi@
 
 
 icon             aIk0n
@@ -1776,6 +1779,7 @@ reference        rEfr@ns
 referee          rEf@r'i:
 referral         rI2f3:r@L
 referring        rI2f3:rI2N 
+refinery         rI2faIn@rI
 refit            ri:fIt
 reflex           ri:flEks
 reflux           ri:flVks
@@ -1784,12 +1788,12 @@ regal            ri:g@L
 regime           reIZ'i:m
 region           ri:dZ@n       // & regional
 reign            reIn
+reiki            reIki:
 rein             reIn
 reined           reInd
 reining          reInI2N
 reindeer         reIndi@3
 reinvent         ri:Inv'Ent
-refinery         rI2faIn@rI
 relative         rEl@tIv
 relic            rElIk
 relish           rElI2S
@@ -2672,121 +2676,121 @@ so               ,soU         $strend2 $verbf
 //prepositions
 //  these should be stressed at the end of a sentence
 
-of               0v           $u $only
-?6 of            Vv           $u $only
-(of a)           @v@          $nounf
-(of an)          @v@n         $nounf
-(of which)       0vw'ItS      $pause
-?6 (of the)      %VD@2        $nounf
-?6 (of which)    Vvw'ItS      $pause
+of               0v		$u $only
+?6 of            Vv		$u $only
+(of a)           @v@		$nounf
+(of an)          @v@n		$nounf
+(of which)       0vwItS		$2 $pause
+?6 (of the)      %VD@2		$nounf
+?6 (of which)    VvwItS		$2 $pause
 
-for              fO@ $u
-(for a)          f@@          $nounf
-(for an)         f@@n         $nounf
-(for the)        f3D@2        $nounf
+for              fO@		$u
+(for a)          f@@		$nounf
+(for an)         f@@n		$nounf
+(for the)        f3D@2		$nounf
 (for a while)    f@@||w'aIl
-(for one)        fO@w'0n      $atend
+(for one)        fO@w0n		$2 $atend
 
-to               t@5          $verbf    // @ change to U before vowel
-(to be)          t@b%I        $pastf
-(to be)          t@||'bi:       $atend
-(to to)          %tU_t@5        $verbf
+to               t@5		$verbf    // @ change to U before vowel
+(to be)          t@b%I		$pastf
+(to be)          t@||'bi:	$atend
+(to to)          %tU_t@5	$verbf
 (to and fro)     tu:@ndfr'oU
-to               tu:          $u $atend
-to               tu:          $allcaps
+to               tu:		$u $atend
+to               tu:		$u $allcaps
 
 
-at               at           $nounf $only $u
-(at a)           %at@          $nounf
+at               at		$nounf $only $u
+(at a)           %at@		$nounf
 (at once)        a2t_w0ns
 (at will)        a2t_w'Il
 
-with             wID          $u
+with             wID		$u
 (with the)       w%IDD@2	$nounf
 
-in               %In            $strend $only $nounf
+in               %In		$strend $only $nounf
 (in the)         %InD@2
-(in which)       In||w,ItS     $pause
+(in which)       In||wItS	$u2 $pause
 
-on               ,0n           $strend2
+on               ,0n		$strend2
 (on the)         %0nD@2
 
 (out of)         ,aUt@v
 into             ,IntU
-onto             ,0ntU         $strend2
+onto             ,0ntU		$strend2
 unto             ,VntU
 ?3 into          ,Int2U
-?3 onto          ,0nt2U         $strend2
+?3 onto          ,0nt2U		$strend2
 ?3 unto          ,Vnt2U
-upon             @p,0n
-from             %fr0m
-?3 from          %frVm
-(from where)     %fr0m||w'e@   $pause
-(from which)     %fr0m||w'ItS  $pause
-up               ,Vp           $strend2
-down             ,daUn         $only $strend2
-by               %baI
-across           @kr,0s        $strend2
-per              %p3:
+upon             @p0n		$u2
+from             fr0m		$u
+?3 from          frVm		$u
+(from where)     %fr0m||w'e@	$pause
+(from which)     %fr0m||w'ItS	$pause
+up               ,Vp		$strend2
+down             ,daUn		$only $strend2
+by               baI		$u
+across           @kr0s		$u2 $strend2
+per              p3:		$u
 (per cent)       p3||s'Ent
 (per se)         p,3:||s'eI
-through          %Tru:         $strend2
-toward           %tUwO@d
-over             ,oUv3         $strend2 $only
-under            ,Vnd3         $strend2 $only
-within           %wID,In
-without          %wID,aUt      $strend2
-above            @b,Vv         $strend2
-about            a2b,aUt       $strend2
+through          Tru:		$u $strend2
+toward           tUwO@d		$2
+over             oUv3		$u $strend2 $only
+under            Vnd3		$u $strend2 $only
+within           wIDIn		$u2
+without          wIDaUt		$u2 $strend2
+above            @bVv		$u2 $strend2
+about            a2baUt		$u2 $strend2
 against          a2gEnst
 ahead            a2hEd
-among            a2m,VN        $strend2
-amongst          a2m,VNst      $strend2
+among            a2mVN		$u2 $strend2
+amongst          a2mVNst	$u2 $strend2
 around           a2raUnd
-before           bIf,o@        $strend2
-behind           bIh,aInd      $strend2
-below            bIl,oU        $strend2
-beneath          bI2n,i:T      $strend2
-beyond           bIj,0nd       $strend2
-beside           bIs,aId       $strend2
-between          bItw,i:n      $strend2
-together         t@g,ED3       $strend2
-near             ,ni@3         $strend2
+before           bIfo@		$u2 $strend2
+behind           bIhaInd	$u2 $strend2
+below            bIloU		$u2 $strend2
+beneath          bI2ni:T	$u2 $strend2
+beyond           bIj0nd		$u2 $strend2
+beside           bIsaId		$u2 $strend2
+between          bItwi:n	$u2 $strend2
+together         t@gED3		$u2 $strend2
+near             ,ni@3		$strend2
 thence           DEns
 
 
 //aux. verbs
 
-be               %bi:          $pastf $only
-been             ,bi:n         $pastf $only
-?3 been          ,bIn          $pastf $only
-being            ,bi:IN        $pastf $only $strend2
-is               %Iz           $pastf $only // use contraction for 'is a'
+be               %bi:		$pastf $only
+been             ,bi:n		$pastf $only
+?3 been          ,bIn		$pastf $only
+being            ,bi:IN		$pastf $only $strend2
+is               %Iz		$pastf $only // use contraction for 'is a'
 // am               %am            $nounf $only  // now in en_rules
-are              %A@            $pastf $only
-was              %w0z           $pastf $only
-?3 was           %wVz           $pastf $only
-?3 wasn't        wVznt          $pastf $only
-wast             %w0st         $only $pastf $only
-were             %w3:           $pastf $only
-isn't            ,Iz@nt        $pastf $strend2
-aren't           ,A@nt         $pastf $strend2
-weren't          ,w3:nt        $pastf $strend2
+are              %A@		$pastf $only
+was              %w0z		$pastf $only
+?3 was           %wVz		$pastf $only
+?3 wasn't        wVznt		$pastf $only
+wast             %w0st		$only $pastf $only
+were             %w3:		$pastf $only
+isn't            ,Iz@nt		$pastf $strend2
+aren't           ,A@nt		$pastf $strend2
+weren't          ,w3:nt		$pastf $strend2
 
-will              $u+           $only $verbf $strend2
-will                            $noun
+will              $u+		$only $verbf $strend2
+//will                            $noun  // but not "this/these/that/those will"
 (will to)        wIlt@5
 would             $u+           $verbf $only $strend2
 (would have)     w%Udh%a2v      $pastf
 (would have)     wUdhav         $pastf $atend
-(would have to)  wUd,havt@5     $verbf $strend2
-(wouldn't have)  ,wUdnt@v       $pastf $strend2
+(would have to)  wUdhavt@5	$u2 $verbf $strend2
+(wouldn't have)  wUdnt@v	$u1 $pastf $strend2
 (wouldn't have to)  ,wUdntavt@5       $verbf $strend2
-won't            woUnt      $u+ $verbf $strend2 $only
+won't            woUnt		$u+ $verbf $strend2 $only
 wouldst           $u+
-(won't have)     woUnta2v       $pastf $u1
-(won't have)     woUnthav       $pastf $atend
-(won't have to)  w'oUntavt@5    $verbf $strend2
+(won't have)     woUnta2v	$pastf $u1
+(won't have)     woUnthav	$pastf $atend
+(won't have to)  w'oUntavt@5	$verbf $strend2
 
 must                            $verbf
 (must have)      mVsta2v        $pastf $1
@@ -2800,81 +2804,81 @@ shall            ,Sal           $verbf $only $strend2
 shalt            ,Salt          $verbf $only
 should           ,SUd           $verbf $only $strend2
 (should have)    SUd@v          $pastf $u1+
-(should have to)    SUd,havt@5         $verbf $strend2
-shouldn't        ,SUdnt         $verbf $strend2 $only
-(shouldn't have) SUdnth@v       $pastf $u1+
-(shouldn't have to) 'SUdntavt@5      $verbf $strend2
-shalln't         ,SA:nt         $verbf $strend2
-shan't           ,SA:nt         $verbf $strend2
+(should have to)  SUdhavt@5	$u2 $verbf $strend2
+shouldn't        ,SUdnt		$verbf $strend2 $only
+(shouldn't have) SUdnth@v	$pastf $u1+
+(shouldn't have to) 'SUdntavt@5	$verbf $strend2
+shalln't         ,SA:nt		$verbf $strend2
+shan't           ,SA:nt		$verbf $strend2
 
-can              %kan           $verbf $only $strend2
-can't            kA:nt          $verbf $only $strend2
-?3 cannot        $2             $verbf $only $strend2
-(can't have)     kA:nta2v       $pastf
-(can't have to)   ,kA:nt'avt@5       $verbf $atend
-?3 can't            kant          $verbf $only $strend2
-?3 (can't have)     kanta2v       $pastf
+can              %kan		$verbf $only $strend2
+can't            kA:nt		$verbf $only $strend2
+?3 cannot        $2		$verbf $only $strend2
+(can't have)     kA:nta2v	$pastf
+(can't have to)   ,kA:nt'avt@5	$verbf $atend
+?3 can't         kant		$verbf $only $strend2
+?3 (can't have)  kanta2v	$pastf
 ?3 (can't have to)   ,kant'avt@5       $verbf $atend
-could            %kUd           $verbf $strend2 $only
-(could have)     ,kUda2v        $pastf
-(could have)     kUdhav         $pastf $atend
-(could have to)  kUd,havt@5         $verbf $strend2
+could            %kUd		$verbf $strend2 $only
+(could have)     ,kUda2v	$pastf
+(could have)     kUdhav		$pastf $atend
+(could have to)  kUdhavt@5	$u2 $verbf $strend2
 couldn't         ,kUd@nt        $verbf $strend2
 (couldn't have)  kUd@nt@v       $pastf $u1+
 (couldn't have to)  'kUd@ntavt@5     $verbf $strend2
 
-may              meI            $verbf $strend2
-(may have)       meIha2v        $pastf $u1+
-(may have to)    ,meIh'avt@5    $verbf $atend
-might            ,maIt          $verbf $strend2 $only
-(might have)     maItha2v       $pastf $u1+
-(might have to)  ,maIth'avt@5   $verbf $atend
+may              meI		$verbf $strend2
+(may have)       meIha2v	$pastf $u1+
+(may have to)    ,meIh'avt@5	$verbf $atend
+might            ,maIt		$verbf $strend2 $only
+(might have)     maItha2v	$pastf $u1+
+(might have to)  ,maIth'avt@5	$verbf $atend
 
-have             %hav           $pastf $only $strend2
+have             %hav		$pastf $only $strend2
 haves            havz
-(have been)      %hav%bIn       $pastf
-has              %ha2z          $pastf $only
-has              haz            $only $atend
-(has been)       %haz%bIn       $pastf
-(has to)         haztU          $atend
-has              haz            $allcaps
-hath             %haT           $pastf $only
-had              %had           $pastf $strend2 $only
-(had been)       %had%bIn       $pastf
-having           ,havI2N        $strend2 $pastf $only
-haven't          hav@nt        $pastf
-hadn't           had@nt        $pastf
-hasn't           haz@nt        $pastf
+(have been)      %hav%bIn	$pastf
+has              %ha2z		$pastf $only
+has              haz		$only $atend
+(has been)       %haz%bIn	$pastf
+(has to)         haztU		$atend
+has              haz		$allcaps
+hath             %haT		$pastf $only
+had              %had		$pastf $strend2 $only
+(had been)       %had%bIn	$pastf
+having           ,havI2N	$strend2 $pastf $only
+haven't          hav@nt		$pastf
+hadn't           had@nt		$pastf
+hasn't           haz@nt		$pastf
 
-get              %gEt          $strend2 $pastf $only
-getting          ,gEtI2N       $strend2 $pastf $only
-got              %g0t          $strend2 $pastf $only
+get              %gEt		$strend2 $pastf $only
+getting          ,gEtI2N	$strend2 $pastf $only
+got              %g0t		$strend2 $pastf $only
 
-go               ,goU          $strend2 $only
-goes             %goUz         $strend2 $only
-going            ,goUI2N       $strend2 $only
-gone             %g0n          $strend2 $only
-?3 gone          %gOn          $strend2 $only
-went             %wEnt         $strend2 $only
+go               ,goU		$strend2 $only
+goes             %goUz		$strend2 $only
+going            ,goUI2N	$strend2 $only
+gone             %g0n		$strend2 $only
+?3 gone          %gOn		$strend2 $only
+went             %wEnt		$strend2 $only
 
-do               du:           $verbf
-(do not)         du:n0t        $verbf $u2+
-does             dVz           $verbf
-(does not)       dVzn0t        $verbf $u2+
-don't            doUnt         $verbf
-doesn't          dVz@nt        $verbf
-doesnt           dVz@nt        $verbf
-doing            ,du:I2N       $strend2 $only
-did              dId            $verbf
-(did not)        dIdn0t        $verbf $u2+
-didn't           dIdnt         $verbf
+do               du:		$verbf
+(do not)         du:n0t		$verbf $u2+
+does             dVz		$verbf
+(does not)       dVzn0t		$verbf $u2+
+don't            doUnt		$verbf
+doesn't          dVz@nt		$verbf
+doesnt           dVz@nt		$verbf
+doing            ,du:I2N	$strend2 $only
+did              dId		$verbf
+(did not)        dIdn0t		$verbf $u2+
+didn't           dIdnt		$verbf
 done             dVn
 
 putting           pUtI2N
-put              ,pUt          $onlys $strend2
+put              ,pUt		$onlys $strend2
 
-become           bI,kVm        $strend2
-became           bI,keIm       $strend2
+become           bIkVm		$u2 $strend2
+became           bIkeIm		$u2 $strend2
 
 we're            %wi@3
 you're           %jO@
@@ -2884,58 +2888,58 @@ it'd             %It@d
 that'd           %Dat@d
 there'd          %De@d
 
-I'll             %aIl          $verbf
-you'll           %ju:l         $verbf
-he'll            %hi:l         $verbf
-she'll           %Si:l         $verbf
-we'll            %wi:l         $verbf
-they'll          %DeIl         $verbf
-there'll         %De@l         $verbf
+I'll             aIl		$u $verbf
+you'll           ju:l		$u $verbf
+he'll            hi:l		$u $verbf
+she'll           Si:l		$u $verbf
+we'll            wi:l		$u $verbf
+they'll          DeIl		$u $verbf
+there'll         De@l		$u $verbf
 
-I've             %aIv          $pastf
-you've           %ju:v         $pastf
-he's             %hi:z         $pastf
-she's            %Si:z         $pastf
-we've            %wi:v         $pastf
-they've          %DeIv         $pastf
+I've             aIv		$u $pastf
+you've           ju:v		$u $pastf
+he's             hi:z		$u $pastf
+she's            Si:z		$u $pastf
+we've            wi:v		$u $pastf
+they've          DeIv		$u $pastf
 
-we'd             %wi:d         $pastf
+we'd             wi:d		$u $pastf
 
-I                aI            $u+ $verbf $only
+I                aI		$u+ $verbf $only
 (I am)           %aIa2m
-(I am)           %aIam         $atend
-he               %hi:          $verbsf
-she              %Si:          $only $verbsf
-it               %It           $verbsf
-(it has)         %It||haz      $atend
-(it is)          %It||Iz       $atend
-(it was)         %It||w0z      $atend
-it               $allcaps $abbrev
-we               %wi:          $verbf $only
-you              %ju:          $verbf
-they             %DeI          $verbf
+(I am)           %aIam		$atend
+he               hi:		$u $verbsf
+she              Si:		$u $only $verbsf
+it               It		$u $verbsf
+(it has)         %It||haz	$atend
+(it is)          %It||Iz	$atend
+(it was)         %It||w0z	$atend
+it               		$allcaps $abbrev
+we               wi:		$u $verbf $only
+you              ju:		$u $verbf
+they             DeI		$u $verbf
 
 thee             ,Di: 
 thou             DaU
 thy              ,DaI
 thine            ,DaIn
 
-me               ,mi:          $only
-him              ,hIm          $only
-us               ,Vz           $only
-us                $abbrev      $allcaps
-them             ,DEm          $only
+me               ,mi:		$only
+him              ,hIm		$only
+us               ,Vz		$only
+us               		$abbrev $allcaps
+them             ,DEm		$only
 
-my               %maI          $nounf $strend2
-his              h%Iz          $nounf $only $strend2
-her              %h3:          $nounf $only
-hers             %h3:z         $strend2
-its              %Its          $nounf
-our              %aU@          $nounf $only
-?3  our          %aU3          $nounf $only
-your             %jO@          $nounf $only
-?6 your          %jU@          $nounf $only
-their            %De@          $nounf $only
+my               maI		$u $nounf $strend2
+his              hIz		$u $nounf $only $strend2
+her              h3:		$u $nounf $only
+hers             h3:z		$u $strend2
+its              Its		$u $nounf
+our              aU@		$u $nounf $only
+?3  our          aU3		$u $nounf $only
+your             jO@		$u $nounf $only
+?6 your          jU@		$u $nounf $only
+their            De@		$u $nounf $only
 theirs           De@z
 
 none             n0n
@@ -2946,76 +2950,76 @@ someone          sVmw0n
 
 //conjunctions
 
-although         OlD'oU        $pause
-and              %and          $pause $only
-as               ,az           $pause $only
-(as is)          ,az,Iz        $pause
-(as it is)       ,azIt,Iz      $u+
-because          bIk'Vz        $pause
-once                           $pause
-or               %O@           $pause $only
-nor              nO@           $pause $only
-but              ,bVt          $pause $only
-if               ,If           $pause $only
-despite                        $pause
-instead                        $pause
-otherwise        VD3waIz       $pause
-regardless                     $pause
-since            sIns          $pause
-thus             DVs           $pause
+although         OlD'oU		$pause
+and              and		$u $pause $only
+as               ,az		$pause $only
+(as is)          ,az,Iz		$pause
+(as it is)       ,azIt,Iz	$u+
+because          bIkVz		$2 $pause
+once             		$pause
+or               O@		$u $pause $only
+nor              nO@		$pause $only
+but              ,bVt		$pause $only
+if               ,If		$pause $only
+despite          		$pause
+instead          		$pause
+otherwise        VD3waIz	$pause
+regardless       		$pause
+since            sIns		$pause
+thus             DVs		$pause
 though           ,DoU
-whenever         wEn,Ev3       $pause
-within                         $pause
-whoever          hu:'Ev3
-whatever         w0t'Ev3       $pause
-?3 whatever      wVt'Ev3       $pause
-while                          $pause
-whilst           waIlst        $pause
-(rather than)    r'A:D3||Da2n  $pause
+whenever         wEnEv3		$u2 $pause
+within           		$pause
+whoever          hu:Ev3		$2
+whatever         w0tEv3		$2 $pause
+?3 whatever      wVtEv3		$2 $pause
+while            		$pause
+whilst           waIlst		$pause
+(rather than)    r'A:D3||Da2n	$pause
 
-//some adverbs  (note -ly suffix already implies verb-follows)
 
-just              $verbf
-never             $verbf
-now               $verbf
-now               naU          $verbf $allcaps
-soon              $verbf
-still             $verbf
-already           O:lr,EdI     $verbf $strend2
+//some adverbs
+just             		$verbf
+never            		$verbf
+now              		$verbf
+now              naU		$verbf $allcaps
+soon             		$verbf
+still            		$verbf
+already          O:lrEdI	$u2 $verbf $strend2
 
-not              ,n0t          $verbextend $only $strend
-(not have)       n0ta2v        $pastf $u1
-(not have)       n0thav        $pastf $atend
-(not have to)    ,n0thavt@5    $pastf $strend
-(not a)          ,n0t@         $nounf
-not              n0t           $allcaps $verbextend    // don't spell "NOT"; speak it with stress
-only             oUnlI         $verbextend
+not              ,n0t		$verbextend $only $strend
+(not have)       n0ta2v		$pastf $u1
+(not have)       n0thav		$pastf $atend
+(not have to)    ,n0thavt@5	$pastf $strend
+(not a)          ,n0t@		$nounf
+not              n0t		$allcaps $verbextend    // don't spell "NOT"; speak it with stress
+only             oUnlI		$verbextend
 
-any              ,EnI          $nounf $only
-many             mEnI          $nounf
+any              ,EnI		$nounf $only
+many             mEnI		$nounf
 (many of)        mEnI|@v
-some             ,sVm          $nounf $unstressend $only
+some             ,sVm		$nounf $unstressend $only
 (some one)       sVmw0n
-one              w0n           $nounf $onlys $unstressend
-ones             w0nz          $only $unstressend
+one              w0n		$nounf $onlys $unstressend
+ones             w0nz		$only $unstressend
 
-this             %DIs          $nounf $strend $verbsf
-(this one)       D'Isw,0n      $verbsf
-that             %Dat          $nounf $strend2 $verbsf
-(that a)         ,Dat@         $nounf
-(that an)        ,Dat@n        $nounf
-(that it)        ,Da2tIt       $verbsf
+this             DIs		$u+ $nounf $verbsf
+(this one)       D'Isw,0n	$verbsf
+that             Dat		$u $nounf $strend2 $verbsf
+(that a)         ,Dat@		$nounf
+(that an)        ,Dat@n		$nounf
+(that it)        ,Da2tIt	$verbsf
 (that one)       D'atw,0n
 (that the)       %DatD@2
-these            %Di:z         $nounf $strend2 $only
-those            %DoUz         $nounf $strend2 $only
-there            %De@          $strend2 $only
+these            Di:z		$u $nounf $strend2 $only
+those            DoUz		$u $nounf $strend2 $only
+there            De@		$u $strend2 $only
 (there be)       De@b'i:
 
-than             %Dan          $only
-(than a)         ,Dan@         $nounf
-(than an)        ,Dan@n        $nounf
-then             DEn           $verbf 
+than             Dan		$u $only
+(than a)         ,Dan@		$nounf
+(than an)        ,Dan@n		$nounf
+then             DEn		$verbf 
 
 // these should be stressed at the start of a sentence
 which            ,wItS         $pause $strend2 $only $verbf
@@ -3101,6 +3105,4 @@ like             laIk          $strend2
 ?3 tomato	t@meItoU
 ?3 vitamin      vaIt@mIn
 ?3 zebra	zi:br@
-
-
 

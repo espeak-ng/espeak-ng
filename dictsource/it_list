@@ -1,6 +1,9 @@
 // This file is UTF-8 encoded
 
-// Italian:  any [E] or [O] phonemes in unstressed words must be listed explicitly
+
+//  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
+//  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
+//  Any [E] or [O] phonemes in unstressed words must be listed explicitly
 
 
 // character names
@@ -148,38 +151,38 @@ _0Z3	mill'ezimi      // 1000ths
 (http ://)       'ak:at,i:t,i:p'i:_
 
 // articles
-i	$u
-il	$u
-la	$u
-le	$u
-lo	$u
-un	$u
-una	$u
+i	$u $only
+il	$u $only
+la	$u $only
+le	$u $only
+lo	$u $only
+un	$u $only
+una	$u $only
 
-gli	l^i  $u
+gli	l^i  $only $u
 
 
 // pronouns
-io	$u+
-tu	$u+
-lui	$u+
-lei	$u+
-noi	$u+
-voi	$u+
-loro	$u+
+io	$u+ $only
+tu	$u+ $only
+lui	$u+ $only
+lei	$u+ $only
+noi	$u+ $only
+voi	$u+ $only
+loro	$u+ $only
 
-egli	$u+
-ella	$u+
-essa	$u+
-esse	$u+
-essi	$u+
+egli	el^i $u+
+ella	ella $u+
+essa	essa $u+
+esse	esse $u+
+essi	essi $u+
 
-mi	$u+
-ti	$u+
-si      $u+
-ci	$u+
-vi	vi $u+
-li	li $u+
+mi	$u+ $only
+ti	$u+ $only
+si      $u+ $only
+ci	$u+ $only
+vi	vi $u+ $only
+li	li $u+ $only
 
 
 // words that double the following consonant
@@ -216,7 +219,7 @@ queste  $u      // these
 
 quel	$u	// that
 quella	$u	// that
-quei    $u      // those
+quei    kw2ej      // those
 quegli  $u      // those
 quelle  $u      // those
 
@@ -235,7 +238,7 @@ tuttavia	$pause      // however
 invece		$pause      // instead
 malevolenza	$pause      // despite
 pertanto        $pause      // therefore
-né              $pause      // neither-nor
+né              $pause  $only     // neither-nor
 
 (in cui)        in||kw2,i  $pause   // in which
 che             $u $pause   // which
@@ -243,16 +246,16 @@ che             $u $pause   // which
 
 // prepositions
 a       $u // $double
-al      $u
+al      $u $only
 allo    $u
 alla    $u
 ai      $u
-agli    $u
+agli    $u $only
 alle    $u
 
 ad      $u $brk
 
-da	$u $brk      // by
+da	$u $only $brk      // by
 dal	$u
 dallo   $u
 dalla	$u	// by the
@@ -260,25 +263,25 @@ dai     $u
 dagli   $u
 dalle   $u
 
-di	$u $brk	// of
-del	$u
+di	$u $only $brk	// of
+del	$u $only
 dello   $u
 della	$u	// of the
 dei     $u
 degli   $u
 delle   $u
-de      $u
+de      $u $only
 
-in	$u $brk	// in
-nel	$u $brk
+in	$u $brk	$only // in
+nel	$u $brk $only
 nello   $u $brk
 nella	$u $brk	// in the
 nei     $u $brk
 negli   $u $brk
 nelle   $u $brk
-ne      $u $brk
+ne      $u $brk  $only
 
-su	$u //$double	// on
+su	$u $only //$double	// on
 sul	$u
 sullo   $u
 sulla	$u	// on the
@@ -287,15 +290,15 @@ sugli   $u
 sulle   $u
 
 con	$u $pause $only	// with
-col     $u
-coi     $u
+col     $u $only
+coi     $u $only
 
-attraverso $u+ $brk	// across, through
+attraverso $brk	$3 // across, through
 contro     $u+ $brk     // against
 accanto    $u+ $brk     // beside
 verso      $u+ $brk     // toward
 sopra	   $u+ $brk	// above
-sotto	   $u+ $brk	// below
+sotto	   $u+ $brk $alt2	// below
 per        $u $pause $only   // for
 eccetto    $pause       // except
 senza      $pause       // without
@@ -315,9 +318,9 @@ fu	$u //$double
 fummo	$u
 foste	$u
 furono	$u
-ero	$u
-eri	$u
-era	$u
+ero	$u $only
+eri	$u $only
+era	$u $only
 eravamo	$u
 eravate	$u
 erano	$u
@@ -425,14 +428,7 @@ aces		_^_EN
 
 
 // exceptions
-aereo		$2
-difficile	$2
-pneumatici	$3
-
-nott		nOt: $stem
-tavol		$1   $stem
-vent		vEnt $stem
-
+aereo		a'EReo
 celsius		tsElsj'us
 conoscerla	$2
 no		nO
@@ -441,38 +437,68 @@ principi	$1
 tesser		tess'ER
 uomini		$1
 
-// $alt = use ò or è in the stressed syllable
-// If the final vowel is omitted, then the rule applies to 'a' 'e' 'i' 'o'
-$textmode
+quia		kw'ia
 
-abbandonatel	$4
-abbazie		abbazìe
-abbinano	$2
-abbinini	$2
-abbisognino	$3
-abituarcisi	$2
-accalcano	$2
-accalchino	$2
-accantonal	$3
-accatastano	$3
-accatastino	$3
-accavallio	$4
-accenditi	$2
-accertano	$2 $alt
-accertino	$2 $alt
-acclamano	$2
-acclamino	$2
-accolit		$2 $alt
-accomunano	$3
-accomunino	$3
-accorpano	$2 $alt
-accorpino	$2 $alt
-accostarcisi	$3
-accovacciano	$3
-accovaccino	$3
-acefala		$2
-acer		accer	// acer/i/o
-acid		accid	// acida/e
-acidul		$1
+
+// If the final vowel is omitted, then the rule applies to 'a' 'e' 'i' 'o'
+
+
+// fix errors in it_listx
+accetto		$alt
+agosta		$1
+allora		$alt2
+anomalo		$2 $alt
+antera		$2
+aton		$1
+bagli		$2 $only
+barbera		$2
+bocca		$alt2
+borro		$alt2
+capello		$alt2
+ceca		$alt
+collodi		$2 $alt $only
+corsa		$alt2
+doma		$alt
+ei		eI
+epa		$alt
+esper		$1 $alt
+est		$only
+fieri		f'ieRi
+forca		$alt2
+fori		$alt $only
+gener		$1
+genes		$1
+gorga		$alt2
+gotta		$alt2
+ias		iaz $1
+indolo		$2
+leggi		ledZ'i
+lena		$alt2
+nocciola	$2
+olimpiade	olimp'iade
+orca		$alt2
+ossa		$alt2
+pena		$alt2
+peoni		$1 $only
+pesce		$alt2
+peste		$alt
+ponto		$alt
+protas		$1
+
+rene		$alt
+scopa		$alt2
+sera		$alt2
+teco		$alt2
+vicari		$1 $only
+vicaria		$3
+volto		$alt2
+zone		$alt2
+
+
+
+
+
+
+
 
 

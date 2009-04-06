@@ -1087,9 +1087,9 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 
 	if(wvoice != NULL)
 	{
-		if((wvoice->klatt[0] > 0) && (wvoice->klatt[0] <=3 ))
+		if((wvoice->klattv[0] > 0) && (wvoice->klattv[0] <=3 ))
 		{
-			kt_globals.glsource = wvoice->klatt[0];
+			kt_globals.glsource = wvoice->klattv[0];
 			kt_globals.scale_wav = scale_wav_tab[kt_globals.glsource];
 		}
 		kt_globals.f0_flutter = wvoice->flutter/32;
@@ -1167,7 +1167,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 		klattp_inc[ix] = double((fr2->klattp[ix] - klattp[ix]) * STEPSIZE)/length;
 
 		if((ix>0) && (ix < KLATT_AVp))
-			klattp1[ix] = klattp[ix] = (klattp[ix] + wvoice->klatt[ix]);
+			klattp1[ix] = klattp[ix] = (klattp[ix] + wvoice->klattv[ix]);
 	}
 
 	nsamples = length;

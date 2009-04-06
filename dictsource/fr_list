@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-03-12 Michel Such  <michel.such@free.fr>
+// Updated 2009-04-04 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -233,7 +233,7 @@ _dpt	virgyl
 abc		$abbrev
 ac		$abbrev
 adsl		$abbrev
-alt $pause
+alt	_::alt
 amd		$abbrev
 anpe             $abbrev
 api		$abbrev
@@ -242,7 +242,7 @@ bd	boulevard $text
 brltty	$abbrev
 cci              $abbrev
 cio		$abbrev
-ctrl		control $text $pause
+ctrl		_::kO~tRol
 dept		depart@-mA~
 edf		$abbrev
 etc		etsetera
@@ -253,16 +253,21 @@ ibm		$abbrev
 ide		$abbrev
 ip		$abbrev
 jaws		dZ'awz
+kbit	kilobit
+kbits	kilobit
 kde		$abbrev
 kg		kilogram
 khz		kiloE2rts
 km		kilomètre $text
 kw		kilowat
+kw		kilowat
 m.		m@sjY
+mbit  		mega2bit
+mbits  		mega2bit
 mbrola		Embrola
 mhz		megaE2rts
-mlle		mad@mwAzEl
-mme		madam
+mlle		mademoiselle $text
+mme		madame $text
 mr		m@sjY
 nsi             $abbrev
 nsis             $abbrev
@@ -576,7 +581,6 @@ bus	      bys
 bus	      by  $verb
 campus   kA~pys
 cancer	kA~sEr
-catcher	catcheur $text
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
 choeur        kWr
@@ -594,6 +598,7 @@ hélas 		elas $u+
 iris	      iris
 laser	      lazEr
 malus      malys
+mailto	mEjltu_
 mapper	_^_en
 mars	      mars
 mieux	mjY $u+
@@ -605,6 +610,7 @@ polder    pOldEr
 premier    pr@mjer2
 program	_^_en
 quit	_^_en
+recorder	ricordeur $text
 scanner	skaner2
 scanner	skanWr $noun
 sir           _^_EN
@@ -791,6 +797,7 @@ venezuela	venezyela
 wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
+
 
 
 

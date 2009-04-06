@@ -180,209 +180,209 @@ demselb          $2
 denselb          $2
 
 // conjunctions
-und             Unt       $pause $u+
-aber            ,A:b3     $pause $strend
-oder            ,o:d3     $pause $strend
-sondern                   $pause
-denn            dEn       $pause $u+
-weil                      $pause $strend
-als                       $pause $u+
-bevor           be:f'o:*  $pause
-also                      $pause $strend
-wenn            ,vEn      $pause $strend
-sowie            $2       $pause
-obgleich         $2       $pause
-obwohl           $2       $pause
-deren           ,dE*@n    $brk
+und		Unt	$u+ $pause
+aber		A:b3	$u+ $pause
+oder		o:d3	$u+ $pause
+sondern			$pause
+denn		dEn	$u+ $pause
+weil			$pause
+als			$u+ $pause
+bevor		be:fo:*	$2 $pause
+also			$pause
+wenn		,vEn	$pause $strend
+sowie			$2 $pause
+obgleich		$2 $pause
+obwohl			$2 $pause
+deren		dE*@n	$u+ $brk
 
 // prepositions
-ab              ap        $u+ $brk
-an              an        $u+ $brk
-am              am        $u+ $brk
-auf             aUf       $u+ $pause
-aus             ,aUs      $brk $strend
-bei             baI       $u+ $pause $only
-beim            baIm      $u+ $brk
-bis             bIs       $u+ $pause
-da                        $u+
-durch                     $u+ $pause
-für             fy:*      $u+ $pause $only
-gegen           ge:g@n    $u+ $pause
-gegend          ge:g@nt
-hin             hIn
-in              In        $u+ $brk
+ab		ap	$u+ $brk
+an		an	$u+ $brk
+am		am	$u+ $brk
+auf		aUf	$u+ $pause
+aus		,aUs	$brk $strend
+bei		baI	$u+ $pause $only
+beim		baIm	$u+ $brk
+bis		bIs	$u+ $pause
+da			$u+
+durch			$u+ $pause
+für		fy:*	$u+ $pause $only
+gegen		ge:g@n	$u+ $pause
+gegend		ge:g@nt
+hin		hIn
+in		In        $u+ $brk
 //(in die)        %Ind%i:
 //(in den)        %Ind%e:n
 //(in der)        %Ind%E*
-im              Im        $u+ $brk
-ins             Ins       $u+ $brk
-mit             mIt       $u+ $pause
-nach            nax       $u+ $brk
-ob              ,Ob       $pause $strend $only
-pro             ,p@-*o:     $pause
-von             fOn       $u+ $brk
-//(von dem)       %fOn%de:m $brk
-vom             fOm       $u+ $brk
-vor             ,fO*      $strend
-zu              tsu:      $u+ $brk
-zum             tsUm      $u+ $pause
-zur             tsu:*     $u+ $pause
-über            ,yb3      $pause $strend
-unter           ,Unt3     $pause $strend
-um              Um        $u+ $brk
-//(um die)        %Umd%i:   $brk
-//(um den)        %Umd%e:m  $brk
-während         $pause
+im		Im	$u+ $brk
+ins		Ins	$u+ $brk
+mit		mIt	$u+ $pause
+nach		nax	$u+ $brk
+ob		,Ob	$pause $strend $only
+pro		,p@-*o:	$pause
+von		fOn	$u+ $brk
+//(von dem)	%fOn%de:m	$brk
+vom		fOm	$u+ $brk
+vor		,fO*	$strend
+zu		tsu:	$u+ $brk
+zum		tsUm	$u+ $pause
+zur		tsu:*	$u+ $pause
+über		,yb3	$pause $strend
+unter		,Unt3	$pause $strend
+um		Um	$u+ $brk
+//(um die)	%Umd%i:	$brk
+//(um den)	%Umd%e:m	$brk
+während		$pause
 
 // misc
-so              zo:       $u+
-doch            dOx       $u+
-noch             $pause
-(noch nicht)    n'Ox||n,ICt  $brk
-(nicht mehr)    n'ICt||,me:*
-(nicht mehr)    n,ICt||m'e:*  $atend
-(nicht nur)     n'ICt||n'u:* $pause
-(gar nicht)     g,A:*n'ICt
+so		zo:	$u+
+doch		dOx	$u+
+noch			$pause
+(noch nicht)	n'Ox||n,ICt	$brk
+(nicht mehr)	n'ICt||,me:*
+(nicht mehr)	n,ICt||m'e:*	$atend
+(nicht nur)	n'ICt||n'u:*	$pause
+(gar nicht)	g,A:*n'ICt
 
 // should these be in the Rules because they can be a prefix in a
 // compound verb ?
-daran           dA:*'an
-darauf           $2
-daraus           $2
-dabei            $2
-dadurch         dA:d'U*x
-dafür            $2
-dagegen          $2
-daher           dA:h'Er
-dahin           dA:h'In
-damit           dA:m'It
-danach           $2
-daneben          $2
-darein           $2
-darin           dA:*'In
-darüber          $2
-darum            $2
-darunter         $2
-davon           dA:f'On
-dazu            dA:ts'u:
-umher           Umh'E*
-umhin           Umh'In
-woran           vo:*'an
-worauf           $2
-woraus           $2
-worin           vo:*'In
+daran		dA:*'an
+darauf		$2
+daraus		$2
+dabei		$2
+dadurch		dA:d'U*x
+dafür		$2
+dagegen		$2
+daher		dA:h'Er
+dahin		dA:h'In
+damit		dA:m'It
+danach		$2
+daneben		$2
+darein		$2
+darin		dA:*'In
+darüber		$2
+darum		$2
+darunter	$2
+davon		dA:f'On
+dazu		dA:ts'u:
+umher		Umh'E*
+umhin		Umh'In
+woran		vo:*'an
+worauf		$2
+woraus		$2
+worin		vo:*'In
 
 // pronouns
-ich             %IC    $only
-du              %du:   $only
-er              %Er    $brk $only
-es              %Ez    $only
-sie             %zi:   $only
-wir             %vi:*  $only
-ihr             %i:*
-man             %man   $only
-sich            %zIC   $only
-(es ist)        %Ez%Ist
+ich		IC	$u $only
+du		du:	$u $only
+er		Er	$u $brk $only
+es		Ez	$u $only
+sie		zi:	$u $only
+wir		vi:*	$u $only
+ihr		i:*	$u
+man		man	$u $only
+sich		zIC	$u $only
+(es ist)	%Ez%Ist
 
 
-daß             das      $u+
-dass            das      $u+
+daß		das	$u+
+dass		das	$u+
 
-ein             aIn      $u+
-eine            ,aIn@
-einem           ,aIn@m
-einen           ,aIn@n
-einer           ,aIn3
-eines           ,aIn@s
+ein		aIn	$u+
+eine		aIn@	$u
+einem		aIn@m	$u
+einen		aIn@n	$u
+einer		aIn3	$u
+eines		aIn@s	$u
 
 //kein            $u+
 //keine           $u+
 
-mein            $u+
-meine           $u+
+mein		$u+
+meine		$u+
 
-dein            $u+
-deine           $u+
+dein		$u+
+deine		$u+
 
-sein            $u            // can also be verb "to be"
-seine           $u+
+sein		$u            // can also be verb "to be"
+seine		$u+
 
-unsre           ,Unz*@
-unsere          ,Unz*@
-unser           ,Unz3
-unserm          ,Uns3m
-unserem         ,Uns@*@m
+unsre		Unz*@	$u
+unsere		Unz*@	$u
+unser		Unz3	$u
+unserm		Uns3m	$u
+unserem		Uns@*@m	$u
 
 
-ihre            ,i:*@
-ihrem           ,i:*@m
-ihrer           ,i:*3
+ihre		i:*@	$u
+ihrem		i:*@m	$u
+ihrer		i:*3	$u
 
-dies            ,di:z
-diese           ,di:z@
+dies		di:z	$u
+diese		di:z@	$u
 
 //
-was             vas
-wie             $u $pause
+was		vas
+wie		$u $pause
 
 // abverbs
-auch            ,aUx
-dann            $u
-etwa            $u
-ganz            g,ants  $only
-je              $u
-nur             $brk
+auch		,aUx
+dann			$u
+etwa			$u
+ganz		g,ants	$only
+je			$u
+nur			$brk
 
 // verbs
 
-bin             %bIn
-bist            %bIst
-ist             %Ist
-sind            %zInt
-seit            %zaIt  $only
+bin		bIn	$u
+bist		bIst	$u
+ist		Ist	$u
+sind		zInt	$u
+seit		zaIt	$u $only
 
-habe            %hA:b@  $only
-habst           %habst  $only
-hast            %hast   $only
-hat             %hat    $only
-haben           h,A:b@n $only
-hatte           h,at@   $only
-hatten          h,at@n  $only
-hätte           h,Et@   $only
-hättest         h,EtEst $only
-hättet          h,Et@t  $only
-hätten          h,Et@n  $only
+habe		%hA:b@  $only
+habst		%habst  $only
+hast		%hast   $only
+hat		%hat    $only
+haben		h,A:b@n $only
+hatte		h,at@   $only
+hatten		h,at@n  $only
+hätte		h,Et@   $only
+hättest		h,EtEst $only
+hättet		h,Et@t  $only
+hätten		h,Et@n  $only
 
-war             %vA:*   $only
-warst           %vA:*st $only
-wart            %vA:*t  $only
-waren           'vA:*@n
+war		%vA:*   $only
+warst		%vA:*st $only
+wart		%vA:*t  $only
+waren		'vA:*@n
 
-will            %vIl   $only
-willst          %vIlst $only
-wollen          %vOl@n $only
-wolt            %vOlt
+will		%vIl   $only
+willst		%vIlst $only
+wollen		%vOl@n $only
+wolt		%vOlt
 
-werden          v,E*d@n
-werde           v,E*d@
-werdst          v,E*dst
-werdet          v,E*d@t
-wurden          vU*d@n
-wurde           vU*d@
-wurdst          vU*dst
-wurdet          vU*d@t
+werden		v,E*d@n
+werde		v,E*d@
+werdst		v,E*dst
+werdet		v,E*d@t
+wurden		vU*d@n
+wurde		vU*d@
+wurdst		vU*dst
+wurdet		vU*d@t
 
-können          ,kWn@n  $only
-kann            ,kan    $only
-kannst          ,kanst  $only
-könnt           ,kWnt   $only
-konnt           ,kOnt   $only
+können		,kWn@n  $only
+kann		,kan    $only
+kannst		,kanst  $only
+könnt		,kWnt   $only
+konnt		,kOnt   $only
 
-sollen          ,zOl@n
-soll            ,zOl
-sollst          ,zOlst
-sollte          ,zOlt@
-sollten         ,zOlt@n
+sollen		,zOl@n
+soll		,zOl
+sollst		,zOlst
+sollte		,zOlt@
+sollten		,zOlt@n
 
 
 

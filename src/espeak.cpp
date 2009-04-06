@@ -658,5 +658,8 @@ int main (int argc, char **argv)
 	}
 
 	espeak_Synchronize();
+
+	if(f_phonemes_out != stdout)
+		fclose(f_phonemes_out);  // needed for WinCE
 	return(0);
 }

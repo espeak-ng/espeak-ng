@@ -387,7 +387,7 @@ void VoiceReset(int tone_only)
 	voice->voicing = 64;
 	voice->consonant_amp = 100;
 	voice->consonant_ampv = 100;
-	memset(voice->klatt,0,sizeof(voice->klatt));
+	memset(voice->klattv,0,sizeof(voice->klattv));
 	memset(speed.fast_settings,0,sizeof(speed.fast_settings));
 
 #ifdef PLATFORM_RISCOS
@@ -880,8 +880,8 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_KLATT:
-			Read8Numbers(p,voice->klatt);
-			voice->klatt[KLATT_Kopen] -= 40;
+			Read8Numbers(p,voice->klattv);
+			voice->klattv[KLATT_Kopen] -= 40;
 			break;
 
 		case V_FAST:
@@ -1562,7 +1562,7 @@ static void GetVoices(const char *path)
 	DIR *dir;
 	struct dirent *ent;
 
-	if((dir = opendir(path)) == NULL)
+	if((dir = opendir((char *)path)) == NULL)    // note: (char *) is needed for WINCE
 		return;
 
 	while((ent = readdir(dir)) != NULL)

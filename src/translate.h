@@ -240,7 +240,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      15
+#define N_LOPTS      16
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -283,13 +283,16 @@ extern const int param_defaults[N_SPEECH_PARAM];
  // change [t] when followed by unstressed vowel
 #define LOPT_REDUCE_T 12
 
- // stressed syllable is indicated by capitals
-#define LOPT_SYLLABLE_CAPS  13
+ // 1 = allow capitals inside a word
+ // 2 = stressed syllable is indicated by capitals
+#define LOPT_CAPS_IN_WORD  13
 
  // bit 0=Italian "syntactic doubling" of consoants in the word after a word marked with $double attribute
  // bit 1=also after a word which ends with a stressed vowel
 #define LOPT_IT_DOUBLING    14
 
+  // Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
+#define LOPT_ALT  15
 
 
 typedef struct {
@@ -562,6 +565,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags);
+void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
 void CalcLengths(Translator *tr);

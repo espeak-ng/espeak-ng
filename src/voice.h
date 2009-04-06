@@ -40,7 +40,7 @@ typedef struct {
 	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
 	int consonant_amp;     // amplitude of unvoiced consonants
 	int consonant_ampv;    // amplitude of the noise component of voiced consonants
-	int klatt[8];
+	int klattv[8];
 
 	// parameters used by Wavegen
 	short freq[N_PEAKS];    // 100% = 256

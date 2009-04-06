@@ -1203,6 +1203,11 @@ strcpy(phonemes2,phonemes);
 		dictionary_flags[0] |= FLAG_DOT;
 	}
 
+	if((tr->langopts.param[LOPT_ALT] & 2) && ((dictionary_flags[0] & (FLAG_ALT_TRANS | FLAG_ALT2_TRANS)) != 0))
+	{
+		ApplySpecialAttribute2(tr,word_phonemes,dictionary_flags[0]);
+	}
+
 	return(dictionary_flags[0]);
 }  //  end of TranslateWord
 
@@ -1508,7 +1513,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				if(pre_pause < 1)
 					pre_pause = 1;
 			}
-			if((flags & FLAG_PREPAUSE) && (tr->prepause_timeout == 0))
+			if((flags & FLAG_PREPAUSE) && ((word_flags && FLAG_LAST_WORD) == 0) && (tr->prepause_timeout == 0))
 			{
 				// the word is marked in the dictionary list with $pause
 				if(pre_pause < 4) pre_pause = 4;
@@ -2296,9 +2301,9 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				{
 					c = towlower2(c);
 
-					if(tr->langopts.param[LOPT_SYLLABLE_CAPS])
+					if((j = tr->langopts.param[LOPT_CAPS_IN_WORD]) > 0)
 					{
-						if(syllable_marked == 0)
+						if((j == 2) && (syllable_marked == 0))
 						{
 							char_inserted = c;
 							c = 0x2c8;   // stress marker

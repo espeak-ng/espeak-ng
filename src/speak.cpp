@@ -883,5 +883,8 @@ int main (int argc, char **argv)
 		fprintf(stderr,"-w option must be used because the program was built without a sound interface\n");
 #endif  // USE_PORTAUDIO
 	}
+
+	if((f_trans != stdout) && (f_trans != stderr))
+		fclose(f_trans);  // needed for WinCe
 	return(0);
 }

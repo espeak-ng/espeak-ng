@@ -157,10 +157,10 @@ S    s2   t    v    Z
 
 Dictionary fr_dict
 
-@    @-   @2   a    a2   A~   e    E    
-E2   E~   i    i:   o    O    o2   O2   
-O~   u    u:   W    W2   w^i  wA   W~   
-y    Y    
+@    @-   @2   @3   a    a2   A~   e    
+E    E2   E~   i    i:   o    O    o2   
+O2   O~   u    u:   W    W2   w^i  wA   
+W~   y    Y    
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    N    n2   n^   p    
@@ -254,8 +254,8 @@ S    s2   t    T    tl#  v    x    z
 
 Dictionary it_dict
 
-@-   a    a/   aI   aU   e    E    i    
-I    o    O    oI   u    
+@-   a    a/   aI   aU   e    E    eI   
+i    I    o    O    u    
 
 *    :    ;    b    d    dZ   f    g    
 h    j    k    l    l^   m    n    N    

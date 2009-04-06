@@ -306,6 +306,8 @@ const wchar_t *wcschr(const wchar_t *str, int c)
    return(NULL);
 }
 
+#ifndef WINCE
+// wcslen() is provided by WINCE, but not the other wchar functions
 const int wcslen(const wchar_t *str)
 {
 	int ix=0;
@@ -316,6 +318,7 @@ const int wcslen(const wchar_t *str)
 	}
 	return(ix);
 }
+#endif
 
 float wcstod(const wchar_t *str, wchar_t **tailptr)
 {
