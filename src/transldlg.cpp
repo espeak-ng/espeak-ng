@@ -278,9 +278,9 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 {//=====================================================
 
 	t_source = new wxTextCtrl(this,T_SOURCE,_T(""),wxPoint(0,4),
-		wxSize(204,250),wxTE_MULTILINE);
+		wxSize(298,250),wxTE_MULTILINE);
 	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
-		wxSize(204,350),wxTE_MULTILINE);
+		wxSize(298,350),wxTE_MULTILINE);
 
 	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,620));
 	t_translate = new wxButton(this,T_RULES,_T("Show Rules"),wxPoint(4,652));

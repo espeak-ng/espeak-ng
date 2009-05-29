@@ -81,7 +81,7 @@ z zi51
 ㄩ y55
 
 $textmode
-// Most frequent pronunciations of the 3799 most common characters (from Unihan database ftp://ftp.unicode.org/Public/UNIDATA/Unihan.zip, kHanyuPinlu field)
+// Most frequent pronunciations of the 3799 most common characters (from Unihan database ftp://ftp.unicode.org/Public/UNIDATA/Unihan.zip, kHanyuPinlu field with some corrections)
 涉	she4
 礦	kuang4
 河	he2
@@ -380,7 +380,7 @@ $textmode
 业	ye4
 譬	pi4
 觀	guan1
-勒	lei1
+勒	le4
 牽	qian1
 缎	duan4
 抛	pao1
@@ -1104,7 +1104,7 @@ $textmode
 搭	da1
 簽	qian1
 乱	luan4
-長	zhang3
+長	chang2
 逐	zhu2
 苇	wei3
 鲸	jing1
@@ -1308,7 +1308,7 @@ $textmode
 盤	pan2
 鞏	gong3
 袱	fu5
-甸	dian1
+甸	dian4
 妻	qi1
 晚	wan3
 繪	hui4
@@ -1663,7 +1663,7 @@ $textmode
 各	ge4
 箱	xiang1
 蘸	zhan4
-李	li5
+李	li3
 肌	ji1
 催	cui1
 取	qu3
@@ -3049,7 +3049,7 @@ $textmode
 額	e2
 論	lun4
 照	zhao4
-长	zhang3
+长	chang2
 猪	zhu1
 纷	fen1
 虜	lu3
@@ -3331,7 +3331,7 @@ $textmode
 络	luo4
 怎	zen3
 細	xi4
-干	gan4
+干	gan1
 腸	chang2
 說	shuo1
 丽	li4
@@ -3394,7 +3394,7 @@ $textmode
 台	tai2
 侍	shi4
 領	ling3
-煞	sha1
+煞	sha4
 奮	fen4
 礙	ai4
 盜	dao4

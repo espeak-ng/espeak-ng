@@ -99,14 +99,14 @@ typedef struct
   
 /* Structure for Klatt Parameters */
 
-#define F_NP   0  // nasal zero formant
+#define F_NZ   0  // nasal zero formant
 #define F1     1
 #define F2     2
 #define F3     3
 #define F4     4
 #define F5     5
 #define F6     6
-#define F_NZ   9  // nasal pole formant
+#define F_NP   9  // nasal pole formant
 
 
 typedef struct
@@ -134,5 +134,20 @@ typedef struct
 	int Bhz_next[10];
  } klatt_frame_t, *klatt_frame_ptr;
 
+
+typedef struct {
+	int freq;     // Hz
+	int bw;   // klatt bandwidth
+	int ap;   // parallel amplitude
+	int bp;   // parallel bandwidth
+	DOUBLEX freq1; // floating point versions of the above
+	DOUBLEX bw1;
+	DOUBLEX ap1;
+	DOUBLEX bp1;
+	DOUBLEX freq_inc;    // increment by this every 64 samples
+	DOUBLEX bw_inc;
+	DOUBLEX ap_inc;
+	DOUBLEX bp_inc;
+}  klatt_peaks_t;
 
 

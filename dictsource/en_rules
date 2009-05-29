@@ -870,6 +870,7 @@
             ar (ia_      'e@
          @) arily (_     'Er@l%I
         ch) ar (it       ar
+        ph) ar (i        ar
          m) ar (i        @r
          m) ar (ig       ar
          m) ar (inaC     ar
@@ -1667,7 +1668,6 @@
             ee (m        'i:
             eer          'i@3
          t) ee (n_       'i:
-            ees (_       i:z
         ch) eese         i:z
          d) e (fault     i:
             e (ffec      %I
@@ -2182,7 +2182,7 @@
          h) ere (f       ErI2
          h) ere (di      I2rE
          h) ere (s       Er@
-         h) ere (t       I2rE
+         h) ere (t       Er@
          @) er (ence_    r
             er (ent_     r
        adh) er (e        'i@3
@@ -2341,9 +2341,10 @@
         st) ev (e        i:v
             ever (_      Ev3
             ever (c      ,Ev3
-            ever (g      Ev3
+        _)  ever         Ev3
             ever (l      ,Ev3
             ever (m      ,Ev3
+         _) ever (s      I2v3:
          f) ever (+      i:v3
 ?!3     _l) ever         i:v3
         cl) ever         Ev3
@@ -2480,7 +2481,7 @@
          K) hl           L
          &) hold (_S4    hoUld
             holme        hoUm
-         _) homeo        hoUmi:oU
+         _) home (o      hoUmi:
          _) homo (s      h,oUmoU
          _) homoeo       hoUmi:oU
          &) hood (_S4    hUd
@@ -2495,6 +2496,7 @@
             house (_S5   haUs
             houses (_S6  haUzI2z
          _) hypo (@P4    h,aIpoU
+         _) hypo (cr     hIp0
             hypo (de     h,aIp@
             hypo (thet   h,aIp@
 
@@ -3498,6 +3500,7 @@
         _v) o (cA        oU
        &%C) ock (_       @k
          l) o (com       ,oU
+            ocrates (_   '0kra2ti:z
             o (cre_      'oU
         cr) o (cu        oU
         _h) o (cu        oU
@@ -4922,6 +4925,7 @@
             un (ani      %ju:n
          _) under (@P5   ,Vnd3         // prefix
          _) un (deP2     ,Vn
+         _) un (dula     Vn
          _) un (enP2     ,Vn
          _) un (exP2     ,Vn
          _) un (ic       ju:n
@@ -5130,8 +5134,7 @@
          &) ysis (_      =@sIs
             yte (_       aIt
             you'         %ju:
-            yu           ju:
-            yu (C%       jV
+            yu (@        ju:
             yeo (C       joU
             y (er_       aI
          C) yes (_       aIz
@@ -5202,7 +5205,7 @@
        nak) E (d         I
             Ee (d        i:
             EE (_        i:
-            Ee (_        'i:
+            Ee (_        i:
             Eer (_       'i@3
             Ei (n_       i:
             Ei (_        aI

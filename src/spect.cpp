@@ -61,7 +61,8 @@ static int default_freq[N_PEAKS] =
 	{200,500,1200,3000,3500,4000,6900,7800,9000};
 static int default_width[N_PEAKS] =
 	{750,500,550,550,600,700,700,700,700};
-
+static int default_klt_bw[N_PEAKS] =
+	{89,90,140,260,260,260,500,500,500};
 
 float SpectTilt(int value, int freq)
 {//=================================
@@ -113,7 +114,14 @@ SpectFrame::SpectFrame(SpectFrame *copy)
 		peaks[ix].pkheight = 0;
 		peaks[ix].pkwidth = default_width[ix];
 		peaks[ix].pkright = default_width[ix];
+		peaks[ix].klt_bw = default_klt_bw[ix];
+		peaks[ix].klt_ap = 0;
+		peaks[ix].klt_bp = default_klt_bw[ix];
    }
+
+	memset(klatt_param, 0, sizeof(klatt_param));
+	klatt_param[KLATT_AV] = 59;
+	klatt_param[KLATT_Kopen] = 40;
 
    if(copy != NULL)
    {
@@ -133,11 +141,11 @@ SpectFrame::~SpectFrame()
 
 int SpectFrame::Import(wxInputStream& stream1)
 {//==========================================
+// Import Pratt analysis data
 	int ix;
 	double x;
 	unsigned short *spect_data;
 
-	synthesizer_type = 0;
 	wxTextInputStream stream(stream1);
 
 	stream >> time;
@@ -274,13 +282,13 @@ int SpectFrame::ImportSPC2(wxInputStream& stream, float &time_acc)
 
 
 
-int SpectFrame::Load(wxInputStream& stream, int synth_type)
-{//========================================================
+int SpectFrame::Load(wxInputStream& stream, int file_format_type)
+{//==============================================================
 	int  ix;
 	int  x;
 	unsigned short *spect_data;
 
-	synthesizer_type = synth_type;
+	file_format = file_format_type;
    wxDataInputStream s(stream);
 
 	time = s.ReadDouble();
@@ -291,6 +299,12 @@ int SpectFrame::Load(wxInputStream& stream, int synth_type)
 	markers = s.Read16();
 	amp_adjust = s.Read16();
 
+	if(file_format == 2)
+	{
+		s.Read16();  // spare
+		s.Read16();  // spare
+	}
+
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
 		formants[ix].freq = s.Read16();
@@ -300,11 +314,18 @@ int SpectFrame::Load(wxInputStream& stream, int synth_type)
 			keyframe = 1;
 		peaks[ix].pkwidth = s.Read16();
 		peaks[ix].pkright = s.Read16();
+
+		if(file_format == 2)
+		{
+			peaks[ix].klt_bw = s.Read16();
+			peaks[ix].klt_ap = s.Read16();
+			peaks[ix].klt_bp = s.Read16();
+		}
 	}
 
-	if(synthesizer_type == 1)
+	if(file_format > 0)
 	{
-		for(ix=0; ix<N_KLATTP; ix++)
+		for(ix=0; ix<N_KLATTP2; ix++)
 		{
 			klatt_param[ix] = s.Read16();
 		}
@@ -344,6 +365,12 @@ int SpectFrame::Save(wxOutputStream& stream)
 	s.Write16(markers);
 	s.Write16(amp_adjust);
 
+	if(file_format == 2)
+	{
+		s.Write16(0);  // spare
+		s.Write16(0);  // spare
+	}
+
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
 		s.Write16(formants[ix].freq);
@@ -353,11 +380,18 @@ int SpectFrame::Save(wxOutputStream& stream)
 		s.Write16(keyframe ? peaks[ix].pkheight : 0);
 		s.Write16(peaks[ix].pkwidth);
 		s.Write16(peaks[ix].pkright);
+
+		if(file_format == 2)
+		{
+			s.Write16(peaks[ix].klt_bw);
+			s.Write16(peaks[ix].klt_ap);
+			s.Write16(peaks[ix].klt_bp);
+		}
 	}
 
-	if(synthesizer_type == 1)
+	if(file_format > 0)
 	{
-		for(ix=0; ix<N_KLATTP; ix++)
+		for(ix=0; ix<N_KLATTP2; ix++)
 		{
 			s.Write16(klatt_param[ix]);
 		}
@@ -481,20 +515,9 @@ void SpectFrame::DrawPeaks(wxDC *dc, int offy, int frame_width, int seq_amplitud
 
 		if((pk->pkfreq == 0) || (pk->pkheight==0)) continue;
 
-		if(synthesizer_type==1)
-		{
-			if(peak==0) continue;
-
-			height = pk->pkheight + (64 * 64);
-			height = (500000/height) * 100;
-			pkright = pkwidth = pk->pkheight / 16;
-		}
-		else
-		{
-			height = pk->pkheight;
-			pkright = pk->pkright;
-			pkwidth = pk->pkwidth;
-		}
+		height = pk->pkheight;
+		pkright = pk->pkright;
+		pkwidth = pk->pkwidth;
 
 		x1 = (int)(pk->pkfreq*scale_x);
 		x2 = (int)((pk->pkfreq + pkright)*scale_x);
@@ -678,8 +701,6 @@ void SpectFrame::KlattDefaults()
 	int bw;
 	int bw3;
 
-	synthesizer_type = 1;
-
 	klatt_param[KLATT_AV] = 59;
 	klatt_param[KLATT_AVp] = 0;
 	klatt_param[KLATT_Fric] = 0;
@@ -689,7 +710,7 @@ void SpectFrame::KlattDefaults()
 	klatt_param[KLATT_Skew] = 0;
 	klatt_param[KLATT_Tilt] = 0;
 	klatt_param[KLATT_Kopen] = 40;
-	klatt_param[KLATT_spare1] = 0;
+	klatt_param[KLATT_FNZ] = 280;
 
 	bw = 60;
 	if(peaks[1].pkfreq < 400)

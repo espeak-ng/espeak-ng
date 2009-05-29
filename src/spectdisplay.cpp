@@ -253,7 +253,7 @@ void SpectDisplay::RefreshDialogValues(int type)
 	sf->amp_adjust = formantdlg->t_ampframe->GetValue();
 	sf->length_adjust = formantdlg->t_timeframe->GetValue() - spectseq->GetFrameLength(sframe,0,NULL);
 
-	for(ix=0; ix<9; ix++)
+	for(ix=0; ix < N_KLATTP; ix++)
 	{
 		sf->klatt_param[ix] = formantdlg->s_klatt[ix]->GetValue();
 	}
@@ -550,6 +550,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 	case WXK_NEXT:
 		if(sframe < spectseq->numframes-1)
 		{
+			formantdlg->GetValues(spectseq, sframe);
 			spectseq->SelectAll(0);
 			sframe++;
 			spectseq->frames[sframe]->selected = 1;
@@ -560,6 +561,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 	case WXK_PRIOR:
 		if(sframe > 0)
 		{
+			formantdlg->GetValues(spectseq, sframe);
 			spectseq->SelectAll(0);
 			sframe--;
 			spectseq->frames[sframe]->selected = 1;
@@ -633,14 +635,15 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		if(event.ControlDown())
 		{
 			// CTRL, rotate, make right slope steeper
-			if(spectseq->synthesizer_type==0)
+			if(pk_num < 3)
+			{
 				pk->pkright-= 5;
-			pk->pkwidth += 5;
+				pk->pkwidth += 5;
+			}
 		}
 		else
 		{
-			if(spectseq->synthesizer_type==0)
-				pk->pkright -= 10;
+			pk->pkright -= 10;
 			pk->pkwidth -= 10;
 			if(pk->pkright < 0)
 				pk->pkright = 0;
@@ -655,14 +658,15 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		if(event.ControlDown())
 		{
 			// CTRL: rotate, make left slope steeper
-			if(spectseq->synthesizer_type==0)
+			if(pk_num < 3)
+			{
 				pk->pkright += 5;
-			pk->pkwidth -= 5;
+				pk->pkwidth -= 5;
+			}
 		}
 		else
 		{
-			if(spectseq->synthesizer_type==0)
-				pk->pkright += 10;
+			pk->pkright += 10;
 			pk->pkwidth += 10;
 		}
 		field = 4;
@@ -670,8 +674,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		break;
 
 	case '<':   // width--
-		if(spectseq->synthesizer_type==0)
-			pk->pkright -= 2;
+		pk->pkright -= 2;
 		pk->pkwidth -= 2;
 		if(pk->pkwidth < 0)
 			pk->pkwidth = 0;
@@ -680,8 +683,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		break;
 
 	case '>':   // width++
-		if(spectseq->synthesizer_type==0)
-			pk->pkright += 2;
+		pk->pkright += 2;
 		pk->pkwidth += 2;
 		display = 1;
 		field = 4;
@@ -744,8 +746,8 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		break;
 
 	case 0x104b:   // CTRL-K
-		spectseq->SetKlattDefaults();
-		display = 3;
+//		spectseq->SetKlattDefaults();
+//		display = 3;
 		break;
 
 	case 0x104d:   // CTRL-M
@@ -865,28 +867,25 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		sf = spectseq->frames[sframe];
 		pk = &sf->peaks[pk_num];
 
-		if(spectseq->synthesizer_type==0)
-		{
-			if(pk->pkwidth < 50) pk->pkwidth = 50; // min. width
-			if(pk->pkright < 50) pk->pkright = 50;
+		if(pk->pkwidth < 50) pk->pkwidth = 50; // min. width
+		if(pk->pkright < 50) pk->pkright = 50;
 
-			// ensure minimum separation between peaks & prevent crossover
-			if(direction > 0)
+		// ensure minimum separation between peaks & prevent crossover
+		if(direction > 0)
+		{
+			for(i=pk_num+1; i<N_PEAKS; i++)
 			{
-				for(i=pk_num+1; i<N_PEAKS; i++)
-				{
-					if(sf->peaks[i].pkfreq < sf->peaks[i-1].pkfreq + 100)
-						sf->peaks[i].pkfreq = sf->peaks[i-1].pkfreq + 100;
-				}
+				if(sf->peaks[i].pkfreq < sf->peaks[i-1].pkfreq + 100)
+					sf->peaks[i].pkfreq = sf->peaks[i-1].pkfreq + 100;
 			}
-			else
-			if(direction < 0)
+		}
+		else
+		if(direction < 0)
+		{
+			for(i=pk_num-1; i>=0; i--)
 			{
-				for(i=pk_num-1; i>=0; i--)
-				{
-					if(sf->peaks[i].pkfreq > sf->peaks[i+1].pkfreq - 100)
-						sf->peaks[i].pkfreq = sf->peaks[i+1].pkfreq - 100;
-				}
+				if(sf->peaks[i].pkfreq > sf->peaks[i+1].pkfreq - 100)
+					sf->peaks[i].pkfreq = sf->peaks[i+1].pkfreq - 100;
 			}
 		}
 
@@ -957,6 +956,7 @@ void SpectDisplay::OnMouse(wxMouseEvent& event)
 
 	if(frame < spectseq->numframes)
 	{
+		formantdlg->GetValues(spectseq,sframe);
 		if(sframe != frame)
 			formantdlg->ShowFrame(spectseq,frame,pk_num,0xff);
 

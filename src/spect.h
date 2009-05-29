@@ -48,11 +48,13 @@
 #define T_SKEW    318
 #define T_TILT    319
 #define T_KOPEN   320
+#define T_FNZ     321
 
 
 #define FILEID1_SPECTSEQ 0x43455053
 #define FILEID2_SPECTSEQ 0x51455354  // for eSpeak sequence
 #define FILEID2_SPECTSEK 0x4b455354  // for Klatt sequence
+#define FILEID2_SPECTSQ2 0x32515354  // with Klatt data
 
 #define FILEID1_SPC2     0x32435053  // an old format for spectrum files
 
@@ -72,9 +74,19 @@ typedef struct {
 } PitchEnvelope;
 
 typedef struct {
-   short freq;
-   short bandw;
+	short freq;
+	short bandw;
 }  formant_t;
+
+typedef struct {
+	short pkfreq;
+	short pkheight;
+	short pkwidth;
+	short pkright;
+	short klt_bw;
+	short klt_ap;
+	short klt_bp;
+}  peak_t;
 
 
 //===============================================================================================
@@ -122,7 +134,7 @@ public:
 	~SpectFrame();
    int Import(wxInputStream &stream);
    int ImportSPC2(wxInputStream &stream, float &time_acc);
-	int Load(wxInputStream &stream, int synthesizer_type);
+	int Load(wxInputStream &stream, int file_format_type);
 	int Save(wxOutputStream &stream);
    void Draw(wxDC &dc, int offy, int frame_width, double scalex, double scaley);
 
@@ -149,10 +161,10 @@ public:
    int  nx;
    int  markers;
 	int  max_y;
-	int  synthesizer_type;  // 0=eSpeak, 1=Klatt
+	int  file_format;  // 0=eSpeak, 1=Klatt, 2=eSpeak+Klatt
    USHORT *spect;    // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 
-	short  klatt_param[N_KLATTP];
+	short  klatt_param[N_KLATTP2];
 
    formant_t formants[N_PEAKS];   // this is just the estimate given by Praat
    peak_t peaks[N_PEAKS];
@@ -187,7 +199,6 @@ public:
 	float GetKeyedLength();
 	void SetFrameLengths();
 	void ConstructVowel(void);
-	void SetKlattDefaults(void);
 
 	int  numframes;
 	int  amplitude;
@@ -203,7 +214,7 @@ public:
 	int  bass_reduction;
 	int max_x;
 	int max_y;
-	int synthesizer_type;
+	int file_format;
 
 
 private:
@@ -281,6 +292,7 @@ class FormantDlg : public wxPanel
 	public:
 		FormantDlg(wxWindow *parent);
 		void ShowFrame(SpectSeq *spectseq, int frame, int pk, int field);
+		void GetValues(SpectSeq *spectseq, int frame);
 		void OnCommand(wxCommandEvent& event);
 		void OnSpin(wxSpinEvent& event);
 		void HideFields(int synth_type);
@@ -304,7 +316,9 @@ class FormantDlg : public wxPanel
 		wxTextCtrl *t_pkfreq[N_PEAKS];
 		wxTextCtrl *t_pkheight[N_PEAKS];
 		wxTextCtrl *t_pkwidth[N_PEAKS];
-		wxTextCtrl *t_pkright[N_PEAKS];
+		wxTextCtrl *t_klt_bw[N_PEAKS];
+		wxTextCtrl *t_klt_ap[N_PEAKS];
+		wxTextCtrl *t_klt_bp[N_PEAKS];
 		wxRadioButton *t_select_peak[N_PEAKS];
 
 		wxButton *t_zoomout;

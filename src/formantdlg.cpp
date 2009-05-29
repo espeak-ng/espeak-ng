@@ -102,57 +102,90 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 	xplace = 28;
 	id = 201;
 	new wxStaticText(this,-1,_T("Formants"),wxPoint(4,5));
-	t_lab[4] = new wxStaticText(this,-1,_T("  BW      BWp      Ap"),wxPoint(78,5),wxSize(300,20));
+	new wxStaticText(this,-1,_T("  Ht     Width                (Klatt)"),wxPoint(78,5),wxSize(300,20));
+	new wxStaticText(this,-1,_T("Bw      Ap      Bp"),wxPoint(188,29),wxSize(300,20));
 
-	for(ix=0; ix<N_PEAKS; ix++)
+	for(ix=0; ix < 8; ix++)
 	{
 		string.Printf(_T("%d"),ix);
 		t_labpk[ix] = new wxStaticText(this,id++,string,
 			wxPoint(xplace-22,y+1+24*ix));
 
-		t_pkfreq[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace,y+24*ix),wxSize(48,20),
-			wxTE_CENTRE+wxTE_READONLY);
+		if(ix < 7)
+		{
+			t_pkfreq[ix] = new wxTextCtrl(this,id++,_T(""),
+				wxPoint(xplace,y+24*ix),wxSize(44,20),
+				wxTE_CENTRE);
+		}
+
 		t_pkheight[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace+50,y+24*ix),wxSize(36,20),
-			wxTE_CENTRE+wxTE_READONLY);
-		t_pkwidth[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace+88,y+24*ix),wxSize(48,20),
-			wxTE_CENTRE+wxTE_READONLY);
-		t_pkright[ix] = new wxTextCtrl(this,id++,_T(""),
-			wxPoint(xplace+138,y+24*ix),wxSize(36,20),
-			wxTE_CENTRE+wxTE_READONLY);
-		if(ix>5) t_pkwidth[ix]->Hide();
+			wxPoint(xplace+46,y+24*ix),wxSize(36,20),
+			wxTE_CENTRE);
+
+		if(ix < 6)
+		{
+			t_pkwidth[ix] = new wxTextCtrl(this,id++,_T(""),
+				wxPoint(xplace+84,y+24*ix),wxSize(60,20),
+				wxTE_CENTRE);
+		}
+
+		if((ix == 0) || (ix > 6)) continue;
+
+		if(ix < 4)
+		{
+			t_klt_bw[ix] = new wxTextCtrl(this,id++,_T(""),
+				wxPoint(xplace+150,y+24*ix),wxSize(40,20),
+				wxTE_CENTRE);
+		}
+		t_klt_ap[ix] = new wxTextCtrl(this,id++,_T(""),
+			wxPoint(xplace+192,y+24*ix),wxSize(36,20),
+			wxTE_CENTRE);
+		t_klt_bp[ix] = new wxTextCtrl(this,id++,_T(""),
+			wxPoint(xplace+230,y+24*ix),wxSize(40,20),
+			wxTE_CENTRE);
 	}
 
-	y=240;
+	y=224;
 	t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_orig_frame = new wxStaticText(this,-1,_T("mS"),wxPoint(57,y+8));
-	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""), wxPoint(100,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_lab[3] = new wxStaticText(this,-1,_T("% amp - Frame"),wxPoint(151,y+8));
+	t_orig_frame = new wxStaticText(this,-1,_T("mS"),wxPoint(61,y+8));
+	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""), wxPoint(104,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_lab[3] = new wxStaticText(this,-1,_T("% amp - Frame"),wxPoint(159,y+8));
 
-	s_klatt[KLATT_AV] = new wxSpinCtrl(this,T_AV,_T(""), wxPoint(6,y+32), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_AV] = new wxStaticText(this,-1,_T("AV"),wxPoint(61,y+36));
-	s_klatt[KLATT_AVp] = new wxSpinCtrl(this,T_AVP,_T(""), wxPoint(100,y+32), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_AVp] = new wxStaticText(this,-1,_T("AVp"),wxPoint(155,y+36));
+	y += 40;
+	s_klatt[KLATT_AV] = new wxSpinCtrl(this,T_AV,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_AV] = new wxStaticText(this,-1,_T("AV"),wxPoint(61,y+4));
 
-	s_klatt[KLATT_Fric] = new wxSpinCtrl(this,T_FRIC,_T(""), wxPoint(6,y+60), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_Fric] = new wxStaticText(this,-1,_T("Fric"),wxPoint(61,y+64));
-	s_klatt[KLATT_FricBP] = new wxSpinCtrl(this,T_FRICBP,_T(""), wxPoint(100,y+60), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_FricBP] = new wxStaticText(this,-1,_T("FricBP"),wxPoint(155,y+64));
+	s_klatt[KLATT_FNZ] = new wxSpinCtrl(this,T_FNZ,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_FNZ] = new wxStaticText(this,-1,_T("FNZ"),wxPoint(159,y+4));
 
-	s_klatt[KLATT_Aspr] = new wxSpinCtrl(this,T_ASPR,_T(""), wxPoint(6,y+88), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_Aspr] = new wxStaticText(this,-1,_T("Aspr"),wxPoint(61,y+92));
-	s_klatt[KLATT_Turb] = new wxSpinCtrl(this,T_TURB,_T(""), wxPoint(100,y+88), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_Turb] = new wxStaticText(this,-1,_T("Turb"),wxPoint(155,y+92));
 
-	s_klatt[KLATT_Skew] = new wxSpinCtrl(this,T_SKEW,_T(""), wxPoint(6,y+116), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_Skew] = new wxStaticText(this,-1,_T("Skew"),wxPoint(61,y+120));
-	s_klatt[KLATT_Tilt] = new wxSpinCtrl(this,T_TILT,_T(""), wxPoint(100,y+116), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_Tilt] = new wxStaticText(this,-1,_T("Tilt"),wxPoint(155,y+120));
+	y += 28;
+	s_klatt[KLATT_Tilt] = new wxSpinCtrl(this,T_TILT,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Tilt] = new wxStaticText(this,-1,_T("Tilt"),wxPoint(61,y+4));
 
-	s_klatt[KLATT_Kopen] = new wxSpinCtrl(this,T_KOPEN,_T(""), wxPoint(6,y+144), wxSize(52,24), wxTE_CENTRE,0,500);
-	t_klatt[KLATT_Kopen] = new wxStaticText(this,-1,_T("kopen"),wxPoint(61,y+148));
+	s_klatt[KLATT_Aspr] = new wxSpinCtrl(this,T_ASPR,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Aspr] = new wxStaticText(this,-1,_T("Aspr"),wxPoint(159,y+4));
+
+	s_klatt[KLATT_Skew] = new wxSpinCtrl(this,T_SKEW,_T(""), wxPoint(202,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Skew] = new wxStaticText(this,-1,_T("Skew"),wxPoint(257,y+4));
+
+	y += 28;
+	s_klatt[KLATT_AVp] = new wxSpinCtrl(this,T_AVP,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_AVp] = new wxStaticText(this,-1,_T("AVp"),wxPoint(61,y+4));
+
+	s_klatt[KLATT_Fric] = new wxSpinCtrl(this,T_FRIC,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Fric] = new wxStaticText(this,-1,_T("Fric"),wxPoint(159,y+4));
+
+	s_klatt[KLATT_FricBP] = new wxSpinCtrl(this,T_FRICBP,_T(""), wxPoint(202,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_FricBP] = new wxStaticText(this,-1,_T("FricBP"),wxPoint(257,y+4));
+
+	y += 28;
+	s_klatt[KLATT_Kopen] = new wxSpinCtrl(this,T_KOPEN,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Kopen] = new wxStaticText(this,-1,_T("kopen"),wxPoint(61,y+4));
+
+	s_klatt[KLATT_Turb] = new wxSpinCtrl(this,T_TURB,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_klatt[KLATT_Turb] = new wxStaticText(this,-1,_T("Turb"),wxPoint(159,y+4));
+
 
 
 	t_zoomout = new wxButton(this,T_ZOOMOUT,_T("Zoom-"),wxPoint(16,420));
@@ -168,8 +201,6 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 
 	t_pitch = new wxStaticText(this,-1,_T(""),wxPoint(4,520),wxSize(192,24));
 
-	HideFields(0);
-
 	pitchgraph = new ByteGraph(this,wxPoint(0,538),wxSize(200,140));
 	pitchgraph->SetData(128,env_fall);
 	pitchgraph->ShowSpectrum(1);
@@ -177,62 +208,71 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 }
 
 
-void FormantDlg::HideFields(int synth_type)
-{//=======================================
+
+void FormantDlg::GetValues(SpectSeq *spectseq, int frame)
+{//======================================================
 	int ix;
-	static int prev_synth_type = -1;
+	wxString value;
+	long num;
+	SpectFrame *sf;
 
-	if(synth_type == prev_synth_type)
-		return;  // no change
+	if(spectseq->frames == NULL)
+		return;
+	sf = spectseq->frames[frame];
 
-	if(synth_type == 0)
+	for(ix=0; ix < 8; ix++)
 	{
-		for(ix=0; ix<9; ix++)
+		if(ix < 7)
 		{
-			s_klatt[ix]->Hide();
-			t_klatt[ix]->Hide();
+			num = 0;
+			value = t_pkfreq[ix]->GetValue();
+			value.ToLong(&num);
+			sf->peaks[ix].pkfreq = num;
 		}
-		for(ix=6; ix<9; ix++)
+
+		num = 0;
+		value = t_pkheight[ix]->GetValue();
+		value.ToLong(&num);
+		sf->peaks[ix].pkheight = num << 6;
+
+		if(ix < 6)
 		{
-			t_pkfreq[ix]->Show();
-			t_pkheight[ix]->Show();
-			t_pkwidth[ix]->Hide();
-			t_pkright[ix]->Hide();
+			num = 0;
+			value = t_pkwidth[ix]->GetValue();
+			value.ToLong(&num);
+			sf->peaks[ix].pkwidth = sf->peaks[ix].pkright = num*2;
+
+			if((ix < 3) && ((value = value.AfterFirst('/')) != wxEmptyString))
+			{
+				num = 0;
+				value.ToLong(&num);
+				sf->peaks[ix].pkright = num*2;
+			}
 		}
-		t_ampframe->Show();
-		t_amplitude->Show();
-		t_lab[2]->Show();
-		t_lab[3]->Show();
-		t_labpk[7]->Show();
-		t_labpk[8]->Show();
-		t_lab[4]->Hide();
 	}
-	else
+
+	for(ix=1; ix < 6; ix++)
 	{
-		for(ix=0; ix<9; ix++)
+		if(ix < 3)
 		{
-			s_klatt[ix]->Show();
-			t_klatt[ix]->Show();
+			num = 0;
+			value = t_klt_bw[ix]->GetValue();
+			value.ToLong(&num);
+			sf->peaks[ix].klt_bw = num;
 		}
-		for(ix=7; ix<9; ix++)
-		{
-			t_pkfreq[ix]->Hide();
-			t_pkheight[ix]->Hide();
-			t_pkwidth[ix]->Hide();
-			t_pkright[ix]->Hide();
-		}
-		t_pkwidth[6]->Show(1);
-		t_pkright[6]->Show(1);
-		t_ampframe->Hide();
-		t_amplitude->Hide();
-		t_lab[2]->Hide();
-		t_lab[3]->Hide();
-		t_labpk[7]->Hide();
-		t_labpk[8]->Hide();
-		t_lab[4]->Show();
+
+		num = 0;
+		value = t_klt_ap[ix]->GetValue();
+		value.ToLong(&num);
+		sf->peaks[ix].klt_ap = num;
+
+		num = 0;
+		value = t_klt_bp[ix]->GetValue();
+		value.ToLong(&num);
+		sf->peaks[ix].klt_bp = num;
 	}
-	prev_synth_type = synth_type;
-}
+}  // end of FormantDlg::GetValues
+
 
 
 void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
@@ -241,12 +281,11 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 	SpectFrame *sf;
 	wxString value;
 	int original_mS;
+	peak_t *peak;
 
 	if(spectseq->frames == NULL)
 		return;
 	sf = spectseq->frames[frame];
-
-	HideFields(spectseq->synthesizer_type);
 
 	if(field == 0xff)
 	{
@@ -254,7 +293,7 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 //		t_select_peak[pk]->SetValue(TRUE);
 	}
 
-	for(ix=0; ix<N_PEAKS; ix++)
+	for(ix=0; ix < 8; ix++)
 	{
 		if(field != 0xff && pk!=ix)
 			continue;
@@ -268,7 +307,9 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 			t_labpk[ix]->SetLabel(value);
 		}
 
-		if(field & 1)
+		peak = &(sf->peaks[ix]);
+
+		if((field & 1) && (ix < 7))
 		{
 			value.Printf(_T("%4d"),sf->peaks[ix].pkfreq);
 			t_pkfreq[ix]->SetValue(value);
@@ -278,12 +319,34 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 			value.Printf(_T("%3d"),sf->peaks[ix].pkheight >> 6);
 			t_pkheight[ix]->SetValue(value);
 		}
-		if(field & 4)
+		if((field & 4) && (ix < 6))
 		{
-			value.Printf(_T("%3d"),sf->peaks[ix].pkwidth/2);
+			if(sf->peaks[ix].pkwidth == sf->peaks[ix].pkright)
+				value.Printf(_T("%3d"),sf->peaks[ix].pkwidth/2);
+			else
+				value.Printf(_T("%3d/%3d"),sf->peaks[ix].pkwidth/2, sf->peaks[ix].pkright/2);
 			t_pkwidth[ix]->SetValue(value);
-			value.Printf(_T("%3d"),sf->peaks[ix].pkright/2);
-			t_pkright[ix]->SetValue(value);
+		}
+
+		if((ix > 0) && (ix < 7))
+		{
+			if((field & 8) && (ix < 4))
+			{
+				value.Printf(_T("%3d"),peak->klt_bw);
+				t_klt_bw[ix]->SetValue(value);
+			}
+
+			if(field & 16)
+			{
+				value.Printf(_T("%3d"),peak->klt_ap);
+				t_klt_ap[ix]->SetValue(value);
+			}
+
+			if(field & 32)
+			{
+				value.Printf(_T("%3d"),peak->klt_bp);
+				t_klt_bp[ix]->SetValue(value);
+			} 
 		}
 	}
 
@@ -294,14 +357,10 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 	value.Printf(_T("%3d"),sf->amp_adjust);
 	t_ampframe->SetValue(value);
 
-	if(spectseq->synthesizer_type == 1)
+	for(ix=0; ix<N_KLATTP; ix++)
 	{
-		for(ix=0; ix<9; ix++)
-		{
-			SetSpinCtrl(s_klatt[ix], sf->klatt_param[ix]);
-		}
+		SetSpinCtrl(s_klatt[ix], sf->klatt_param[ix]);
 	}
-
 
 }  //  end of FormantDlg::ShowFrame
 

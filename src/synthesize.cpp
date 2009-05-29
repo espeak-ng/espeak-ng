@@ -353,7 +353,7 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	849,851,853,856,858,861,863,865,868,870,872,875,877,879,882,884,
 	886,889,891,893,896,898,900,902};
 
-	if(fr->frflags & FRFLAG_KLATT)
+	if(voice->klattv[0])
 	{
 		if(new_rms == -1)
 		{
@@ -368,7 +368,7 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 
 	x = sqrt_tab[x];   // sqrt(new_rms/fr->rms)*0x200;
 
-	for(ix=0; ix<N_PEAKS; ix++)
+	for(ix=0; ix < 8; ix++)
 	{
 		h = fr->fheight[ix] * x;
 		fr->fheight[ix] = h/0x200;
@@ -383,10 +383,10 @@ static void formants_reduce_hf(frame_t *fr, int level)
 	int  ix;
 	int  x;
 
-	if(fr->frflags & FRFLAG_KLATT)
+	if(voice->klattv[0])
 		return;
  
-	for(ix=2; ix<N_PEAKS; ix++)
+	for(ix=2; ix < 8; ix++)
 	{
 		x = fr->fheight[ix] * level;
 		fr->fheight[ix] = x/100;
@@ -551,7 +551,7 @@ static short vcolouring[N_VCOLOUR][5] = {
 
 		next_rms = seq[1].frame->rms;
 
-if(fr->frflags & FRFLAG_KLATT)
+if(voice->klattv[0])
 {
 	fr->klattp[KLATT_AV] = 53;   // reduce the amplituide of the start of a vowel
 }
@@ -675,9 +675,6 @@ static void SmoothSpect(void)
 
 	q = wcmdq[syllable_centre];
 	frame_centre = (frame_t *)q[2];
-
-//if(frame_centre->frflags & FRFLAG_KLATT)
-//	return;  // TESTING
 
 	// backwards
 	ix = syllable_centre -1;
@@ -911,7 +908,7 @@ if(which==1)
 
 	frame1 = frames[0].frame;
 	frame1_length = frames[0].length;
-	if(frame1->frflags & FRFLAG_KLATT)
+	if(voice->klattv[0])
 		wcmd_spect = WCMD_KLATT;
 
 	if(wavefile_ix == 0)
@@ -920,14 +917,14 @@ if(which==1)
 		{
 			// cancel any wavefile that was playing previously
 			wcmd_spect = WCMD_SPECT2;
-			if(frame1->frflags & FRFLAG_KLATT)
+			if(voice->klattv[0])
 				wcmd_spect = WCMD_KLATT2;
 			wave_flag = 0;
 		}
 		else
 		{
 			wcmd_spect = WCMD_SPECT;
-			if(frame1->frflags & FRFLAG_KLATT)
+			if(voice->klattv[0])
 				wcmd_spect = WCMD_KLATT;
 		}
 	}
@@ -944,9 +941,10 @@ if(which==1)
 			{
 				// but flag indicates keep HF peaks in last segment
 				fr = CopyFrame(frame1,1);
-				for(ix=3; ix<N_PEAKS; ix++)
+				for(ix=3; ix < 8; ix++)
 				{
-					fr->ffreq[ix] = last_frame->ffreq[ix];
+					if(ix < 7)
+						fr->ffreq[ix] = last_frame->ffreq[ix];
 					fr->fheight[ix] = last_frame->fheight[ix];
 				}
 				wcmdq[last_wcmdq][3] = (long)fr;

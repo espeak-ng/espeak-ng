@@ -1357,10 +1357,14 @@ phonemetable ne hi
 include ph_nepali
 
 phonemetable mr hi
-include ph_mathari
+include ph_marathi
 
 phonemetable om base
 include ph_oromo
 
 phonemetable eu base2
 include ph_basque
+
+phonemetable da base
+include ph_danish
+

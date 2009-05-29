@@ -30,10 +30,10 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include "klatt.h"
 
 #include "speak_lib.h"
 #include "speech.h"
+#include "klatt.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
@@ -967,7 +967,7 @@ static double DBtoLIN(long dB)
 
 
 extern voice_t *wvoice;
-static wavegen_peaks_t peaks[N_PEAKS];
+static klatt_peaks_t peaks[N_PEAKS];
 static int end_wave;
 static int klattp[N_KLATTP];
 static double klattp1[N_KLATTP];
@@ -992,20 +992,20 @@ int Wavegen_Klatt(int resume)
 	{
 		kt_frame.F0hz10 = (wdata.pitch * 10) / 4096;
 
-		kt_frame.Fhz[F_NP] = peaks[0].freq;
-		kt_frame.Fhz[F_NZ] = peaks[0].left;
-
 		// formants F6,F7,F8 are fixed values for cascade resonators, set in KlattInit()
 		// but F6 is used for parallel resonator
-		for(ix=1; ix<=6; ix++)
+		// F0 is used for the nasal zero
+		for(ix=0; ix < 6; ix++)
 		{
-			if(ix < 6)
+			kt_frame.Fhz[ix] = peaks[ix].freq;
+			if(ix < 4)
 			{
-				kt_frame.Fhz[ix] = peaks[ix].freq;
-				kt_frame.Bhz[ix] = peaks[ix].height;
+				kt_frame.Bhz[ix] = peaks[ix].bw;
 			}
-			kt_frame.Bphz[ix] = peaks[ix].left;
-			kt_frame.Ap[ix] = peaks[ix].right;
+		}
+		for(ix=1; ix < 7; ix++)
+		{
+			kt_frame.Ap[ix] = 0;
 		}
 
 		kt_frame.AVdb = klattp[KLATT_AV];
@@ -1023,25 +1023,28 @@ int Wavegen_Klatt(int resume)
 		{
 			peaks[pk].freq1 += peaks[pk].freq_inc;
 			peaks[pk].freq = (int)peaks[pk].freq1;
-			peaks[pk].height1 += peaks[pk].height_inc;
-			peaks[pk].height = (int)peaks[pk].height1;
-			peaks[pk].left1 += peaks[pk].left_inc;
-			peaks[pk].left = (int)peaks[pk].left1;
-			peaks[pk].right1 += peaks[pk].right_inc;
-			peaks[pk].right = (int)peaks[pk].right1;
+			peaks[pk].bw1 += peaks[pk].bw_inc;
+			peaks[pk].bw = (int)peaks[pk].bw1;
+			peaks[pk].bp1 += peaks[pk].bp_inc;
+			peaks[pk].bp = (int)peaks[pk].bp1;
+			peaks[pk].ap1 += peaks[pk].ap_inc;
+			peaks[pk].ap = (int)peaks[pk].ap1;
 		}
 
-		for(ix=1; ix<=6; ix++)
-		{
-			kt_frame.Fhz_next[ix] = peaks[ix].freq;
-			kt_frame.Bhz_next[ix] = peaks[ix].height;
-		}
-		kt_frame.Fhz_next[F_NZ] = peaks[0].left;
-
+		// advance other parameters
 		for(ix=0; ix < N_KLATTP; ix++)
 		{
 			klattp1[ix] += klattp_inc[ix];
 			klattp[ix] = int(klattp1[ix]);
+		}
+
+		for(ix=0; ix<=6; ix++)
+		{
+			kt_frame.Fhz_next[ix] = peaks[ix].freq;
+			if(ix < 4)
+			{
+				kt_frame.Bhz_next[ix] = peaks[ix].bw;
+			}
 		}
 
 		// advance the pitch
@@ -1163,48 +1166,66 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 
 	for(ix=0; ix<N_KLATTP; ix++)
 	{
-		klattp1[ix] = klattp[ix] = fr1->klattp[ix];
-		klattp_inc[ix] = double((fr2->klattp[ix] - klattp[ix]) * STEPSIZE)/length;
+		if((ix >= 5) && ((fr1->frflags & FRFLAG_KLATT) == 0))
+		{
+			klattp1[ix] = klattp[ix] = 0;
+			klattp_inc[ix] = 0;
+		}
+		else
+		{
+			klattp1[ix] = klattp[ix] = fr1->klattp[ix];
+			klattp_inc[ix] = double((fr2->klattp[ix] - klattp[ix]) * STEPSIZE)/length;
+		}
 
-		if((ix>0) && (ix < KLATT_AVp))
-			klattp1[ix] = klattp[ix] = (klattp[ix] + wvoice->klattv[ix]);
+		// get klatt parameter adjustments for the voice
+//		if((ix>0) && (ix < KLATT_AVp))
+//			klattp1[ix] = klattp[ix] = (klattp[ix] + wvoice->klattv[ix]);
 	}
 
 	nsamples = length;
 
-	for(ix=0; ix<N_PEAKS; ix++)
+	for(ix=1; ix < 6; ix++)
 	{
 		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
 		peaks[ix].freq = int(peaks[ix].freq1);
 		next = (fr2->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
-		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * STEPSIZE) / length;  // lower headroom for fixed point math
+		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * STEPSIZE) / length;
 
-		peaks[ix].height1 = fr1->fheight[ix] * 2;
-		peaks[ix].height = int(peaks[ix].height1);
-		next = fr2->fheight[ix] * 2;
-		peaks[ix].height_inc =  ((next - peaks[ix].height1) * STEPSIZE) / length;
-
-		if(ix < 6)
+		if(ix < 4)
 		{
-			peaks[ix].left1 = fr1->fwidth[ix] * 2;
-			peaks[ix].left = int(peaks[ix].left1);
-			next = fr2->fwidth[ix] * 2;
-			peaks[ix].left_inc =  ((next - peaks[ix].left1) * STEPSIZE) / length;
-	
-			peaks[ix].right1 = fr1->fright[ix];
-			peaks[ix].right = int(peaks[ix].right1);
-			next = fr2->fright[ix];
-			peaks[ix].right_inc = ((next - peaks[ix].right1) * STEPSIZE) / length;
+			// klatt bandwidth for f1, f2, f3 (others are fixed)
+			peaks[ix].bw1 = fr1->bw[ix] * 2;
+			peaks[ix].bw = int(peaks[ix].bw1);
+			next = fr2->bw[ix] * 2;
+			peaks[ix].bw_inc =  ((next - peaks[ix].bw1) * STEPSIZE) / length;
 		}
-		peaks[6].left1 = fr1->fwidth6 * 2;
-		peaks[6].left = int(peaks[6].left1);
-		next = fr2->fwidth6 * 2;
-		peaks[6].left_inc =  ((next - peaks[6].left1) * STEPSIZE) / length;
+	}
 
-		peaks[6].right1 = fr1->fright6;
-		peaks[6].right = int(peaks[6].right1);
-		next = fr2->fright6;
-		peaks[6].right_inc = ((next - peaks[6].right1) * STEPSIZE) / length;
+	// nasal zero frequency
+	peaks[0].freq1 = fr1->klattp[KLATT_FNZ] * 2;
+	peaks[0].freq = int(peaks[0].freq1);
+	next = fr2->klattp[KLATT_FNZ] * 2;
+	peaks[0].freq_inc = ((next - peaks[0].freq1) * STEPSIZE) / length;
+
+	peaks[0].bw1 = 89;
+	peaks[0].bw = 89;
+	peaks[0].bw_inc = 0;
+
+	if(fr1->frflags & FRFLAG_KLATT)
+	{
+		// the frame contains additional parameters for parallel resonators
+		for(ix=1; ix < 7; ix++)
+		{
+			peaks[ix].bp1 = fr1->klatt_bp[ix] * 4;  // parallel bandwidth
+			peaks[ix].bp = int(peaks[ix].bp1);
+			next = fr2->klatt_bp[ix] * 2;
+			peaks[ix].bp_inc =  ((next - peaks[ix].bp1) * STEPSIZE) / length;
+
+			peaks[ix].ap1 = fr1->klatt_ap[ix];   // parallal amplitude
+			peaks[ix].ap = int(peaks[ix].ap1);
+			next = fr2->klatt_ap[ix] * 2;
+			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
+		}
 	}
 }  // end of SetSynth_Klatt
 
@@ -1276,7 +1297,7 @@ void KlattInit()
 	kt_frame.Kskew = 0;
 	kt_frame.AB = 0;
 	kt_frame.AVpdb = 0;
-	kt_frame.Gain0 = 62;
+	kt_frame.Gain0 = 60;   // 62
 }  // end of KlattInit
 
 #endif  // INCLUDE_KLATT

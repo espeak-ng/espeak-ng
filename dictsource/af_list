@@ -12,12 +12,14 @@
 // abbreviations
 (http ://)       hA:te@te@p'e@_
 adv         atfuk'A:t
+atkv        $abbrev
 bpk         b@p&rk
 bv          beIf'o@rbe@lt $dot
 dr          d'Okt@r $dot
 e.a             _:En_'and@r
 edms        eI@ndOms
 ens         Enso@fo@rts $dot
+fak         $abbrev
 genl        x2@n@rA:l
 insp        InspEkt'Y@r $dot
 isbn        $abbrev
@@ -358,6 +360,7 @@ benjamin    bEndZ@m@n
 bennett     bEn@t
 bertha      b&rta
 bester b'Est@r
+betsie      bEtsi
 beyers      beI@rs
 blignault   blIx2n@Ut
 blomerus    blum'e@rWs
@@ -365,7 +368,6 @@ botha       bo@ta
 bouwer      b@U@r
 brian       _^_EN
 bredenkamp  bre@d@nkamp
-breytenbach breIt@nbax2
 bruwer      bruw'&:r
 caesar      siz@r
 carl        kA:r@L
@@ -392,6 +394,8 @@ coetzee     kuts'e@
 cronjé      krOnj'e@
 cynthia     _^_EN
 dalene      dal'e@n
+daniël	d'A:ni:@l
+#zzz
 darwin      _^_EN
 david       _^_EN
 (da vinci)  da||v'intSi
@@ -421,13 +425,14 @@ elsabé      &ls@bi
 emmarentia  Emar'e~nSja
 erasmus     $2
 ernest      _^_EN
-eségiël    is'e@x2i_@l
+esegiël 	is'e@x2i:@l
 estelle     %ist&l
 etienne     Eti@n
 eugene      judZ'i:n
 eugène     yZ'En
 farao       fA:ro@
 ferreira    f@r&:r@
+filemon	f'il@mOn
 fischer     fiS@r
 fourie      fur'i
 francina    $2
@@ -442,10 +447,10 @@ gerhardus   $2
 gertruida   $2
 gloria      glO:ria
 grange      x2rA:nsi
+grové       x2ruv'e@
 gustav      gustaf
 guy         _^_EN
 hamlet      _^_EN
-harry       _^_EN
 havenga     hA:f@Nx2a
 haydn       hAId@n
 helen       _^_EN
@@ -491,7 +496,9 @@ levi        le@fi
 liesbet     lisbEt
 louis       luI
 louise      luw'i:z
+lukas	l'ukas
 mackintosh  _^_EN
+madelene	mad@l'e@n
 mbeki       mbE:ki
 magdalena   $3
 malan       mal'an
@@ -586,6 +593,7 @@ telemann    te@l@man
 terblanche  t@rblA:nS
 theo        tiu
 theron tr'On
+timotheus	t@m'o@tiWs
 thys        teIs
 toerien     $2
 totius      to@SiWs
@@ -635,10 +643,25 @@ peugeot     pW:Z@U
 port        pOrt $1
 rover       _^_EN
 sotho       su:tu
+thessalonicense	tEsalo@nis'Ens@
 toyota      $2
 venda       vEnda
 volvo       vOlvu
 wimpy       wImpi
+// some Bible names
+levitikus	$2
+deuteronomium		dY@t@ro@n'o@miWm
+josua	j'o@Sia
+jesaja	$2
+jeremia	j%e@r@m'ia
+hosea 	hus'i:a
+amos	'A:mOs
+obadja	o@b'atja
+miga	m'ix2a
+habakuk	h'abakWk
+sefanja	s@f'anja
+sagaria	sax2ar'ia
+maleagi	$3
 
 // article
 
@@ -830,9 +853,8 @@ capita        kapita
 casino        kas'i:n@U
 cedille       s@dIl@
 charisma      kar'Isma
-cliché 	kliS'eI:
-
 clichés 	kliS'eI:s
+cliché 	kliS'eI:
 crescendo     kr@SEndu
 
 dadelik       dA:d@lIk
@@ -881,7 +903,6 @@ gaandeweg     x2A:nd@v&x2
 garages       g@rA:dZ@s
 gee           x2e@
 geen	      x2e@n
-gegewens      x2@x2e@v@ns
 geldelike     x2&ld@l@k@
 genade        $2
 genesis       x2e@n@s@s 
@@ -970,7 +991,6 @@ memoriam      mEm'o@riam
 mercedes      $2
 meregebied    me@r@x2@bit
 merlot        m&rl'o@
-miaau         mi'aU:
 midwinter     mIdv@nt@r
 militêre      mIl@t'&:r@
 minister      m@nIst@r
@@ -1054,6 +1074,7 @@ oorval        $2 $verb
 oudsher       @Utsh&r
 
 pandemonium   pand@m'o@niWm
+papperel      pap@r'&l
 parate        par'A:t@
 parke         park@
 parkie        $1
@@ -1160,6 +1181,7 @@ verte         f&rt@
 verweg        f&:rv&x2
 via           via
 volheid       $1
+volswanger    $1
 volte         $1
 voluit        fOl_Yyt
 voorgee       fo@rx2e@

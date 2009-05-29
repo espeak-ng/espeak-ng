@@ -988,14 +988,24 @@ static void AdvanceParameters()
 			peaks[ix].height = 0;
 		peaks[ix].left1 += peaks[ix].left_inc;
 		peaks[ix].left = int(peaks[ix].left1);
-		peaks[ix].right1 += peaks[ix].right_inc;
-		peaks[ix].right = int(peaks[ix].right1);
+		if(ix < 3)
+		{
+			peaks[ix].right1 += peaks[ix].right_inc;
+			peaks[ix].right = int(peaks[ix].right1);
+		}
+		else
+		{
+			peaks[ix].right = peaks[ix].left;
+		}
 	}
-	for(;ix < N_PEAKS; ix++)
+	for(;ix < 8; ix++)
 	{
 		// formants 6,7,8 don't have a width parameter
-		peaks[ix].freq1 += peaks[ix].freq_inc;
-		peaks[ix].freq = int(peaks[ix].freq1);
+		if(ix < 7)
+		{
+			peaks[ix].freq1 += peaks[ix].freq_inc;
+			peaks[ix].freq = int(peaks[ix].freq1);
+		}
 		peaks[ix].height1 += peaks[ix].height_inc;
 		if((peaks[ix].height = int(peaks[ix].height1)) < 0)
 			peaks[ix].height = 0;
@@ -1732,12 +1742,19 @@ if(option_log_frames)
 	nsamples += length2;
 
 	length4 = length2/4;
-	for(ix=0; ix<N_PEAKS; ix++)
+
+	peaks[7].freq = (7800  * v->freq[7] + v->freqadd[7]*256) << 8;
+	peaks[8].freq = (9000  * v->freq[8] + v->freqadd[8]*256) << 8;
+
+	for(ix=0; ix < 8; ix++)
 	{
-		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] + v->freqadd[ix]*256) << 8;
-		peaks[ix].freq = int(peaks[ix].freq1);
-		next = (fr2->ffreq[ix] * v->freq[ix] + v->freqadd[ix]*256) << 8;
-		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * (STEPSIZE/4)) / length4;  // lower headroom for fixed point math
+		if(ix < 7)
+		{
+			peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] + v->freqadd[ix]*256) << 8;
+			peaks[ix].freq = int(peaks[ix].freq1);
+			next = (fr2->ffreq[ix] * v->freq[ix] + v->freqadd[ix]*256) << 8;
+			peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * (STEPSIZE/4)) / length4;  // lower headroom for fixed point math
+		}
 
 		peaks[ix].height1 = (fr1->fheight[ix] * v->height[ix]) << 6;
 		peaks[ix].height = int(peaks[ix].height1);
@@ -1751,10 +1768,17 @@ if(option_log_frames)
 			next = (fr2->fwidth[ix] * v->width[ix]) << 10;
 			peaks[ix].left_inc =  ((next - peaks[ix].left1) * STEPSIZE) / length2;
 
-			peaks[ix].right1 = (fr1->fright[ix] * v->width[ix]) << 10;
-			peaks[ix].right = int(peaks[ix].right1);
-			next = (fr2->fright[ix] * v->width[ix]) << 10;
-			peaks[ix].right_inc = ((next - peaks[ix].right1) * STEPSIZE) / length2;
+			if(ix < 3)
+			{
+				peaks[ix].right1 = (fr1->fright[ix] * v->width[ix]) << 10;
+				peaks[ix].right = int(peaks[ix].right1);
+				next = (fr2->fright[ix] * v->width[ix]) << 10;
+				peaks[ix].right_inc = ((next - peaks[ix].right1) * STEPSIZE) / length2;
+			}
+			else
+			{
+				peaks[ix].right = peaks[ix].left;
+			}
 		}
 	}
 }  // end of SetSynth

@@ -32,7 +32,8 @@
           c (i       s
           c (e       s         // Pronounce c as s. Mostly foreign words such as celcius, center, cervantes, cezanne.
           cc         k:        // Utter cc as k. This includes rebecca, accord, puccini etc.
-       
+
+       K) ch (r      k
           city       siti      // Pronounce foreign word city as siti. Include all inflections and compound words.
                                // eg. city, citystä, intercity.
 
@@ -150,15 +151,13 @@
 
 .group r
           r          r
-       A) r (A       *
-       C) r (A       @-*
-          rr         *r
 
 
 .group s
           s          s
           ss         ss2      // [s2] is a continuation for [s]
        K) sh         S
+       K) sch        S        // Schmitt
 
        @) sti (_     sti_X1    // double the initial consonant of the next word
 
@@ -173,7 +172,7 @@
 .group u
           u          u
           uu         u:
-          ui         ui
+          ui         wi
           uo         uo
 
 

@@ -64,16 +64,16 @@ _]	lop:uhaka2
 _{	alkua:lto
 _}	lop:ua:lto
 _<	p'ienempIk'uin
-_>	s'u:*empIk'uin
+_>	s'u:rempIk'uin
 _-	vi:va2
 __	ala2vi:va2
 +	plus	$max3
 *	asteriski	$max3
 =	'yht&k'uin	$max3
-%	p@-*osent:I	$max3
+%	prosent:I	$max3
 /	kaut:a2
 \	keno
-€	eu*o
+€	euro
 £	punta2
 ¤	valu:t:a2
 &	_et
@@ -81,11 +81,11 @@ __	ala2vi:va2
 ~	tilde
 
 _acu	'aku:t:I
-_brv	b@-*'eve
+_brv	br'eve
 _ced	s'edIljI
 _cir	s'irkumfl,eksI
 _dia	'umlaut
-_grv	g@-*'avIs
+_grv	gr'avIs
 _tld	tilde
 
 // numbers
@@ -119,7 +119,7 @@ _8X      k'ahdeksank,ymment&
 _9X      'yhdeks&mk,ymment&
 _0C      s'ata:_
 _1C      s'ata
-_0M1     t'uhata:
+_0M1     t'uhat:a
 _1M1     t'uhat          // no '1' before thousand
 _0M2     m'iljo:na:
 _1M2     m'iljo:na

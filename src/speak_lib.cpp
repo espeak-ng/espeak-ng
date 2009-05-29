@@ -523,7 +523,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 	ep->type = (espeak_EVENT_TYPE)type;
 	ep->unique_identifier = my_unique_identifier;
 	ep->user_data = my_user_data;
-	ep->text_position = char_position & 0xffff;
+	ep->text_position = char_position & 0xffffff;
 	ep->length = char_position >> 24;
 	
 	time = (double(count_samples + mbrola_delay + (out_ptr - out_start)/2)*1000.0)/samplerate;

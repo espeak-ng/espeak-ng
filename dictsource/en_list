@@ -535,6 +535,7 @@ anemometer       anIm'0mI2t3
 anemone          a2nEn@mI
 anew             a2nju:
 ?3 anew          a2nu:
+anime            anImeI
 anion            aneI@n
 anniversary      anIv'3:s@rI 
 anon             a2n0n
@@ -573,6 +574,7 @@ approximate      a2pr0ksIm@t   $only
 approximate      a2pr0ksImeIt  $verb
 arab             ar@b
 arabic                         $1
+arable           ara2b@L
 arcade                         $2
 arch             A@tS
 arches           A@tSI2z
@@ -759,6 +761,7 @@ charade          Sa2rA:d
 charismatic      karIsm'atIk
 charit           tSarIt        // charitable
 chic             Si:k
+chimpanzee       $3
 chisel           tSIz@L
 chocolate        tS0kl@t
 cholera          k0l@r@
@@ -843,6 +846,7 @@ contrary         k0ntr@rI
 contrast         k0ntr'ast     $verb
 contrite         k0ntr'aIt
 conven           k0nv'i:n           // convened
+convent          k0nv@nt
 converse                       $1 $only
 converse                       $verb
 convict                        $1 $onlys
@@ -929,6 +933,7 @@ detente          deIt'0nt
 détente          deIt'0nt
 detritus         dI2traIt@s
 deus             deIUs
+devotee          dEvoUt'i:
 di               d,I
 diabetes         daI@b'i:ti:z 
 diameter         daI'amI2t3
@@ -972,6 +977,7 @@ drier            draI3
 driest           draI|@st
 duet             dju:'Et
 dugout           dVgaUt
+dungaree         dVNga2r'i:
 duvet            du:veI
 d'ye             dj@
 
@@ -1007,6 +1013,7 @@ entente          0nt'0nt
 entourage        0ntu:rA:Z
 entrance          $1       $onlys
 entrance         Entr'aans     $verb
+entree           0ntreI
 envelope         Env@loUp      $only
 envelopes        Env@loUps
 envelope                       $verb
@@ -1037,6 +1044,7 @@ everything       EvrI2TIN
 evildoers        i:v@Ldu:3z
 ewe              ju:
 evening          i:vnI2N
+every            Iv3:t
 evit             EvI2t          // inevitable
 exalt            Egz'0lt
 execute          EksI2kju:t      // not $2
@@ -1113,6 +1121,7 @@ fortunate        fO@tS@n@t
 fortune          fO@tSu:n
 foyer            fOIeI
 freelance        fri:laans
+fricassee         frIka2seI
 frigate          frIg@t
 fringer          frIndZ3	// infringer
 fringing         frIndZIN
@@ -1181,11 +1190,13 @@ hatred           heItrI2d
 hazardous        haz3d@s
 hehe             hi:h'i:
 heifer           hEf@
+heist            haIst
 helium           hi:li@m
 helix            hi:lIks
 hello            h@loU
 henceforth       hEnsfo@T
 hercules         h3:kjUli:z
+heretical        hI2rEtI2k@L
 hereto           hi@3'tu:
 hermaphrodite                  $2
 hermes           h3:mi:z
@@ -1288,6 +1299,7 @@ interrogatory     $3
 inventory        Inv@ntrI
 interface                      $1
 intermin         Int'3:mIn	// interminable
+internee         Int'3:ni:
 internet         Int3nEt
 interrupt                      $1 $onlys
 interrupt                      $3 $verb
@@ -1380,6 +1392,7 @@ losing           lu:zI2N        // misspell
 lukewarm         lu:kwO@m
 lullaby          lVl@baI
 lunatic          lu:n@tIk
+lychee           li:tSi:
 
 macabre          m@kA:br@
 machete          ma2SEtI
@@ -1501,6 +1514,7 @@ necklace         nEkl@s
 necktie          nEktaI
 negate           nI2geIt
 neglect          nI2glEkt
+negligee         nEglIZeI
 neon             ni:0n
 nepenthe         nI2pEnTI
 nescience        nEsI@ns
@@ -1600,6 +1614,7 @@ parabola         p@rab@l@
 paralysis        p@ral@sIs
 parameter        p@ramI2t3
 parasite         par@saIt
+paren            pa2rEn   // "parenthesis"
 pariah           p@raI@
 parole           pa2r'oUl
 passenger        pasI2ndZ3
@@ -1674,6 +1689,7 @@ predicate        prEdI2keIt
 preface          prEf@s
 preferably       prEf@-r@blI   $verbf
 prelude          prElju:d
+premier          prEmI3
 preparation      prEp@r'eIS@n
 prescience       pri:si@ns
 present          prEz@nt       $only
@@ -1948,6 +1964,7 @@ slavish          sleIvIS
 snooker          snu:k3
 society          s@saI@tI
 sofa             soUf@
+soiree           swA:reI
 soldier          soUldZ3
 solemn           s0l@m
 solicit          s@lIsI2t       // solicited,ing
@@ -2071,6 +2088,7 @@ tonight          t@naIt
 tonne            tVn
 tornado          tO@n'eIdoU
 touche           tu:SeI        $only
+toupee           tu:peI
 transcript          $1 $onlys
 transfer                       $1 $onlys
 transfer                       $verb
@@ -2155,6 +2173,7 @@ veg              vEdZ
 vegetable        vEdZI2t@b@L
 vehicle          vi@k@L
 vegan            vi:g@n
+veggy            vEdZI
 vengeance        vEndZ@ns
 venus            vi:n@s
 versus           v3:sI2z
@@ -2630,6 +2649,7 @@ Zoe		zoUI
 Andromeda	andr'0mId@
 Buchanan	bju:k'an@n
 Campbell	kamb@l
+Cthulhu		k@-Tu:Lu:
 Chrysler	kraIzl3
 Disney		dIznI
 Patel		pa2tEl

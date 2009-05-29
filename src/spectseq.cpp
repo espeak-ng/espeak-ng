@@ -147,7 +147,7 @@ SpectSeq::SpectSeq(int n)
 
 	max_x = 3000;
 	max_y = 1;
-	synthesizer_type = 0;
+	file_format = 0;
 }
 
 SpectSeq::~SpectSeq()
@@ -391,7 +391,7 @@ void SpectSeq::Load2(wxInputStream& stream, int import, int n)
 		}
 		else
 		{
-			if(frame->Load(stream, synthesizer_type) != 0) break;
+			if(frame->Load(stream, file_format) != 0) break;
 		}
 
 		frames[numframes++] = frame;
@@ -424,6 +424,7 @@ else
 
 int SpectSeq::Import(wxInputStream& stream)
 {//========================================
+// Import data from Pratt analysis
 	int  n = 0;
 
 
@@ -509,12 +510,17 @@ int SpectSeq::Load(wxInputStream & stream)
 	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEQ))
 	{
-			synthesizer_type = 0;   // eSpeak formants
+			file_format = 0;   // eSpeak formants
 	}
 	else
 	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSEK))
 	{
-			synthesizer_type = 1;   // formants for Klatt synthesizer
+			file_format = 1;   // formants for Klatt synthesizer
+	}
+	else
+	if((id1 == FILEID1_SPECTSEQ) && (id2 == FILEID2_SPECTSQ2))
+	{
+			file_format = 2;   // formants for Klatt synthesizer
 	}
 	else
 	{
@@ -554,7 +560,9 @@ int SpectSeq::Save(wxOutputStream &stream, int selection)
 	wxDataOutputStream s(stream);
 
 	s.Write32(FILEID1_SPECTSEQ);
-	if(synthesizer_type == 1)
+	if(file_format == 2)
+		s.Write32(FILEID2_SPECTSQ2);
+	if(file_format == 1)
 		s.Write32(FILEID2_SPECTSEK);
 	else
 		s.Write32(FILEID2_SPECTSEQ);
@@ -573,24 +581,6 @@ int SpectSeq::Save(wxOutputStream &stream, int selection)
 	}
 	return(0);
 }  // end of SpectSeq::Save
-
-
-
-void SpectSeq::SetKlattDefaults(void)
-{//==================================
-	int ix;
-
-	synthesizer_type = 1;
-
-	for(ix=0; ix<numframes; ix++)
-	{
-		if(frames[ix]->keyframe)
-		{
-			frames[ix]->KlattDefaults();
-		}
-		frames[ix]->synthesizer_type = 1;
-	}
-}
 
 
 
@@ -924,13 +914,10 @@ void SpectSeq::ApplyAmp_adjust(SpectFrame *sp, peak_t *peaks)
 
 	memcpy(peaks,sp->peaks,sizeof(*peaks)*N_PEAKS);
 
-	if(synthesizer_type == 0)
+	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		for(ix=0; ix<N_PEAKS; ix++)
-		{
-			y = peaks[ix].pkheight * sp->amp_adjust * amplitude;
-			peaks[ix].pkheight = y / 10000;
-		}
+		y = peaks[ix].pkheight * sp->amp_adjust * amplitude;
+		peaks[ix].pkheight = y / 10000;
 	}
 }  // end of ApplyAmp_adjust
 
@@ -939,44 +926,26 @@ void SpectSeq::ApplyAmp_adjust(SpectFrame *sp, peak_t *peaks)
 void PeaksToFrame(SpectFrame *sp1, peak_t *pks, frame_t *fr)
 {//=========================================================
 	int  ix;
-	int  x, x2;
+	int  x;
 
-	for(ix=0; ix<N_PEAKS; ix++)
+	for(ix=0; ix < 8; ix++)
 	{
-		fr->ffreq[ix] = pks[ix].pkfreq;
+		if(ix < 7)
+			fr->ffreq[ix] = pks[ix].pkfreq;
 
-		if(sp1->synthesizer_type==0)
-		{
-			x = pks[ix].pkheight >> 6;
-		}
-		else
-		{
-			x = pks[ix].pkheight >> 7;
-			fr->fwidth6 = pks[6].pkwidth >> 1;
-			fr->fright6 = pks[6].pkright;
-		}
-
-		if(x > 255)
-			x = 255;
-		fr->fheight[ix] = x;
-
+		fr->fheight[ix] = pks[ix].pkheight >> 6;
 		if(ix < 6)
 		{
-			x = pks[ix].pkwidth/2;
-			x2 = pks[ix].pkright;
-
-			if(sp1->synthesizer_type == 0)
-			{
-				x /= 2;
-				x2 /= 4;
-			}
-			if(x > 255)
+			if((x = (pks[ix].pkwidth >> 2)) > 255)
 				x = 255;
 			fr->fwidth[ix] = x;
 
-			if(x2 > 255)
-				x2 = 255;
-			fr->fright[ix] = x2;
+			if(ix < 3)
+			{
+				if((x = (pks[ix].pkright >> 2)) > 255)
+					x = 255;
+				fr->fright[ix] = x;
+			}
 		}
 	}
 
@@ -994,11 +963,7 @@ static void SetSynth_mS(int length_mS, SpectFrame *sp1, SpectFrame *sp2, peak_t 
 	PeaksToFrame(sp2,pks2,&fr2);
 
 #ifdef KLATT_TEST
-	if(sp1->synthesizer_type == 1)
-	{
-		SetSynth_Klatt((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice, control);    // convert mS to samples
-	}
-	else
+//		SetSynth_Klatt((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice, control);    // convert mS to samples
 #endif
 	{
 		SetSynth((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice);    // convert mS to samples
@@ -1025,6 +990,7 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	peak_t peaks0[N_PEAKS];
 	peak_t peaks1[N_PEAKS];
 	peak_t peaks2[N_PEAKS];
+	int synthesizer_type = 0;
 
 #ifdef KLATT_TEST
 KlattInit();
@@ -1158,6 +1124,7 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	int ipitch;
 	int pbase;
 	char *fname_speech;
+	int synthesizer_type = 0;
 
 #ifdef KLATT_TEST
 KlattInit();

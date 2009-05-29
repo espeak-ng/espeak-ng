@@ -635,8 +635,15 @@ int Compile::LoadSpect(const char *path, int control)
 	}
 	spectseq->Load(stream);
 
-	if(spectseq->synthesizer_type == 1)
-		klatt_flag = FRFLAG_KLATT;
+	// do we need additional klatt data ?
+	for(frame=0; frame < spectseq->numframes; frame++)
+	{
+		for(ix=5; ix<N_KLATTP2; ix++)
+		{
+			if(spectseq->frames[frame]->klatt_param[ix] != 0)
+				klatt_flag = FRFLAG_KLATT;
+		}
+	}
 
 	displ = ftell(f_phdata);
 
@@ -716,53 +723,69 @@ for(ix=0; ix<8; ix++)
 
 			// write: peak data
 			count_frames++;
-			for(peak=0; peak<N_PEAKS; peak++)
+			for(peak=0; peak < 8; peak++)
 			{
-				fr_out->ffreq[peak] = fr->peaks[peak].pkfreq;
+				if(peak < 7)
+					fr_out->ffreq[peak] = fr->peaks[peak].pkfreq;
 
-				if(klatt_flag)
-				{
-					pkheight = fr->peaks[peak].pkheight / 128;
-				}
-				else
-				{
-					pkheight = spectseq->amplitude * fr->amp_adjust * fr->peaks[peak].pkheight;
-					pkheight = pkheight/640000;
-					if(pkheight > 255) pkheight = 255;
-				}
+				pkheight = spectseq->amplitude * fr->amp_adjust * fr->peaks[peak].pkheight;
+				pkheight = pkheight/640000;
+				if(pkheight > 255) pkheight = 255;
 				fr_out->fheight[peak] = int(pkheight);
 
 				if(peak < 6)
 				{
-					x =  fr->peaks[peak].pkwidth/2;
-					x2 =  fr->peaks[peak].pkright;
-					if(klatt_flag == 0)
-					{
-						x /= 2;
-						x2 /= 4;
-					}
+					x =  fr->peaks[peak].pkwidth/4;
 					if(x > 255) x = 255;
 					fr_out->fwidth[peak] = x;
 
-					if(x2 > 255) x2 = 255;
-					fr_out->fright[peak] = x2;
+					if(peak < 3)
+					{
+						x2 =  fr->peaks[peak].pkright/4;
+						if(x2 > 255) x2 = 255;
+						fr_out->fright[peak] = x2;
+					}
 				}
+
+				if(peak < 4)
+				{
+					x = fr->peaks[peak].klt_bw / 2;
+					if(x > 255) x = 255;
+					fr_out->bw[peak] = x;
+				}
+			}
+
+			for(ix=0; ix<5; ix++)
+			{
+				fr_out->klattp[ix] = fr->klatt_param[ix];
+
+				fr_out->klattp[KLATT_FNZ] = fr->klatt_param[KLATT_FNZ] / 2;
 			}
 
 			if(klatt_flag)
 			{
-				if(fr->klatt_param[KLATT_Kopen] == 0)
+				// additional klatt parameters
+				for(ix=0; ix<5; ix++)
 				{
-					Error("Klatt_Kopen has value 0");
+					fr_out->klattp2[ix] = fr->klatt_param[ix+5];
 				}
 
-				// additional fields
-				for(ix=0; ix<N_KLATTP; ix++)
+				for(peak=0; peak<7; peak++)
 				{
-					fr_out->klattp[ix] = fr->klatt_param[ix];
+					fr_out->klatt_ap[ix] = fr->peaks[peak].klt_ap;
+
+					x = fr->peaks[peak].klt_bp / 2;
+					if(x > 255) x = 255;
+					fr_out->klatt_bp[ix] = x;
 				}
-				fr_out->fwidth6 = fr->peaks[6].pkwidth/2;
-				fr_out->fright6 = fr->peaks[6].pkright;
+			}
+
+			if(fr_out->bw[1] == 0)
+			{
+				fr_out->bw[0] = 89 / 2;
+				fr_out->bw[1] = 90 / 2;
+				fr_out->bw[2] = 140 / 2;
+				fr_out->bw[3] = 260 / 2;
 			}
 
 			n_frames++;

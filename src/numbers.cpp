@@ -1248,7 +1248,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	value = this_value = atoi(word);
 
 	ph_ordinal2[0] = 0;
-	if((tr->langopts.numbers & 0x10000) && (word[ix] == '.'))
+	if((tr->langopts.numbers & 0x10000) && (word[ix] == '.') && !isdigit(word[ix+2]))
 	{
 		// ordinal number is indicated by dot after the number
 		ordinal = 2;

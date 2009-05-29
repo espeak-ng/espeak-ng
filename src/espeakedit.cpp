@@ -232,9 +232,9 @@ wxSashLayoutWindow *win;
 
   // Another window to the left of the client window
   win = new wxSashLayoutWindow(this, ID_WINDOW_LEFT2,
-                               wxDefaultPosition, wxSize(200, 30),
+                               wxDefaultPosition, wxSize(298, 30),
                                wxNO_BORDER | wxSW_3D | wxCLIP_CHILDREN);
-  win->SetDefaultSize(wxSize(212, 1000));
+  win->SetDefaultSize(wxSize(310, 1000));
   win->SetOrientation(wxLAYOUT_VERTICAL);
   win->SetAlignment(wxLAYOUT_LEFT);
 //  win->SetBackgroundColour(wxColour(0, 255, 255));

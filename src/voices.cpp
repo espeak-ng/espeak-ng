@@ -366,7 +366,7 @@ void VoiceReset(int tone_only)
 // Set voice to the default values
 
 	int  pk;
-	static unsigned char default_heights[N_PEAKS] = {255,255,240,240,220,220,255,255,255};
+	static unsigned char default_heights[N_PEAKS] = {128,128,120,120,110,110,128,128,128};
 	static unsigned char default_widths[N_PEAKS] = {128,128,128,160,171,171,128,128,128};
 
 	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
@@ -400,7 +400,7 @@ void VoiceReset(int tone_only)
 	for(pk=0; pk<N_PEAKS; pk++)
 	{
 		voice->freq[pk] = 256;
-		voice->height[pk] = default_heights[pk];
+		voice->height[pk] = default_heights[pk]*2;
 		voice->width[pk] = default_widths[pk]*2;
 		voice->breath[pk] = 0;
 		voice->breathw[pk] = breath_widths[pk];  // default breath formant woidths
@@ -839,7 +839,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_TONE:
 			{
-				int tone_data[10];
+				int tone_data[12];
 				ReadTonePoints(p,tone_data);
 				SetToneAdjust(voice,tone_data);
 			}
@@ -880,6 +880,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_KLATT:
+			voice->klattv[0] = 1;  // default source: IMPULSIVE
 			Read8Numbers(p,voice->klattv);
 			voice->klattv[KLATT_Kopen] -= 40;
 			break;

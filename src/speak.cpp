@@ -445,7 +445,7 @@ static void StopSpeak(int unused)
 	};
 	int optind;
 	static int optional_argument;
-	static const char *arg_opts = "afklpsvw";  // which options have arguments
+	static const char *arg_opts = "abfgklpsvw";  // which options have arguments
 	static char *opt_string="";
 #define no_argument 0
 #define required_argument 1
@@ -568,7 +568,7 @@ int main (int argc, char **argv)
 #else
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",
+		c = getopt_long (argc, argv, "a:b:f:g:hk:l:p:qs:v:w:xXmz",   // NOTE: also change arg_opts to indicate which commands have a numeric value
 					long_options, &option_index);
 
 		/* Detect the end of the options. */

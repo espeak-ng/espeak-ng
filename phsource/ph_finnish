@@ -44,8 +44,8 @@ endphoneme
 phoneme a
   vowel starttype (a) endtype (a)
   length 170
-  formants vowel/aa
-  reduceto a2  1
+  formants vowel/aa_9
+//  reduceto a2  1
 endphoneme
 
 phoneme a2
@@ -90,7 +90,7 @@ endphoneme
 
 phoneme y
   vowel starttype (u) endtype (u)
-  length 155
+  length 150
   formants vowel/y
 endphoneme
 
@@ -139,7 +139,7 @@ phoneme ui
   vowel starttype (u) endtype (i)
   length 270
   long
-  formants vdiph/ui
+  formants vdiph/ui_4
 endphoneme
 
 phoneme yi
@@ -236,17 +236,13 @@ endphoneme
 //===========
 
 
-
-phoneme r
-  liquid  starttype #r endtype #r
-  length 100
-  lengthmod 7
-  beforenotvowel r/
+phoneme r   // this is [R2] but shorter
+  liquid
+  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  formants r3/r_trill_short+r3/r_trill.wav%50
   trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
+  lengthmod 6
 endphoneme
 
 

@@ -145,27 +145,27 @@ T    tS   v    v#   w    x    z
 
 Dictionary fi_dict
 
-&    &i   &y   @-   a    a2   ai   au   
-e    ei   eu   ey   i    I    ie   iu   
-iy   o    oi   ou   u    ui   uo   Y    
-y    Yi   yi   Yy   yY   
+&    &i   &y   a    a2   ai   au   e    
+ei   eu   ey   i    I    ie   iu   iy   
+o    oi   ou   u    ui   uo   Y    y    
+Yi   yi   Yy   yY   
 
-*    :    b    d    f    g    h    j    
-k    l    m    n    N    p    r    s    
-S    s2   t    v    Z    
+:    b    d    f    g    h    j    k    
+l    m    n    N    p    r    s    S    
+s2   t    v    w    Z    
 
 
 Dictionary fr_dict
 
-@    @-   @2   @3   a    a2   A~   e    
-E    E2   E~   i    i:   o    O    o2   
-O2   O~   u    u:   W    W2   w^i  wA   
-W~   y    Y    
+@    @-   @2   a    A~   e    E    E~   
+i    I    i-   i:   o    O    o2   O2   
+O~   u    u:   W    W2   w^i  wA   W~   
+y    Y    
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    N    n2   n^   p    
-p2   r    R    r2   s    S    t    t2   
-t3   tS   v    w    z    Z    z2   z3   
+p2   r    r2   s    S    t    t2   t3   
+tS   v    w    z    Z    z2   z3   
 
 
 Dictionary grc_dict
@@ -462,6 +462,18 @@ t;   ts   ts;  tS;  v    x    z    Z
 z;   Z;   
 
 
+Dictionary da_dict
+
+&    0    3    @    @-   a    A    e    
+E    i    o    O    u    V    W    y    
+Y    
+
+*    :    ;    b    d    D    f    g    
+h    j    k    l    m    n    N    p    
+r    R    R3   s    S;   t    tS;  v    
+w    
+
+
 Dictionary sk_dict
 
 &    @-   a    a:   e    e:   i    i:   
@@ -567,3 +579,14 @@ oi   ong  ou   u    ui   yu
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
 tS   v    w    z    
+
+
+Dictionary pap_dict
+
+a    a/   aI   e    E    eI   i    o    
+O    u    y    Y    
+
+:    ?    b    d    dZ   f    g    h    
+j    k    l    m    n    N    n^   p    
+R    s    S    t    tS   v    w    x    
+z    Z    

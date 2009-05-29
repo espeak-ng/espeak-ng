@@ -39,6 +39,7 @@
 #define L_qa   0x716100
 #define L_grc  0x677263   // grc  Ancient Greek
 #define L_jbo  0x6a626f   // jbo  Lojban
+#define L_pap  0x706170   // pap  Papiamento
 #define L_zhy  0x7a6879   // zhy
 
 // start of unicode pages for character sets
@@ -318,7 +319,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
-//			tr->langopts.numbers = 0x11849;
+			tr->langopts.numbers = 0x10c59;
 		}
 		break;
 
@@ -415,6 +416,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('e','s'):   // Spanish
 	case L('c','a'):   // Catalan
+	case L_pap:        // Papiamento
 		{
 			static const short stress_lengths_es[8] = {180, 210,  190, 190,  0, 0,  230, 260};
 //			static const short stress_lengths_es[8] = {170, 200,  180, 180,  0, 0,  220, 250};
@@ -439,6 +441,11 @@ Translator *SelectTranslator(const char *name)
 			{
 				tr->punct_within_word = ca_punct_within_word;
 				tr->langopts.stress_flags = 0x200 | 0x6 | 0x30;  // stress last syllable unless word ends with a vowel
+			}
+			else
+			if(name2 == L_pap)
+			{
+				tr->langopts.stress_flags = 0x100 | 0x6 | 0x30;  // stress last syllable unless word ends with a vowel
 			}
 		}
 		break;
@@ -467,9 +474,9 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 
-			tr->langopts.numbers = 0x1809;
+			tr->langopts.numbers = 0x1009;
 			SetLetterVowel(tr,'y');
-			tr->langopts.max_initial_consonants = 2;
+//			tr->langopts.max_initial_consonants = 2;  // BUT foreign words may have 3
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.intonation_group = 3;  // less intonation, don't raise pitch at comma
 		}

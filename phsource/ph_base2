@@ -70,6 +70,21 @@ phoneme U
 endphoneme
 
 
+phoneme y
+  vowel starttype (i) endtype (i)
+  length 160
+  formants vowel/y
+endphoneme
+
+
+phoneme Y
+  vowel starttype (@) endtype (@)
+  length 160
+  formants vowel/y#
+endphoneme
+
+
+
 phoneme aU
   vowel starttype (a) endtype (u)
   length 270

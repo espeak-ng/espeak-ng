@@ -105,6 +105,10 @@ SOURCE=.\src\intonation.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\klatt.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\numbers.cpp
 # End Source File
 # Begin Source File
@@ -142,10 +146,6 @@ SOURCE=.\src\synthesize.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\tr_english.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\src\tr_languages.cpp
 # End Source File
 # Begin Source File
@@ -167,6 +167,10 @@ SOURCE=.\src\wavegen.cpp
 # Begin Source File
 
 SOURCE=.\espeak.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\klatt.h
 # End Source File
 # Begin Source File
 

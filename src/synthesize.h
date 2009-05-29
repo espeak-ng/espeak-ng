@@ -70,25 +70,52 @@ extern int embedded_default[N_EMBEDDED_VALUES];
 #define N_PEAKS   9
 #define N_MARKERS 8
 
-typedef struct {
-   short pkfreq;
-   short pkheight;
-   short pkwidth;
-   short pkright;
-}  peak_t;
-
 #define N_KLATTP   10   // this affects the phoneme data file format
+#define N_KLATTP2  14   // used in vowel files, with extra parameters for future extensions
+
 #define KLATT_AV      0
-#define KLATT_Kopen   1
-#define KLATT_Skew    2
-#define KLATT_Tilt    3
-#define KLATT_Turb    4
-#define KLATT_Aspr    5
-#define KLATT_AVp     6  // this is after the parameters which can be change by the Voice
+#define KLATT_FNZ     1    // nasal zero freq
+#define KLATT_Tilt    2
+#define KLATT_Aspr    3
+#define KLATT_Skew    4
+
+#define KLATT_Kopen   5
+#define KLATT_AVp     6
 #define KLATT_Fric    7
 #define KLATT_FricBP  8
-#define KLATT_spare1  9
+#define KLATT_Turb    9
 
+
+
+typedef struct {  // 44 bytes
+	short frflags;
+	short ffreq[7];
+	unsigned char length;
+	unsigned char rms;
+	unsigned char fheight[8];
+	unsigned char fwidth[6];          // width/4  f0-5
+	unsigned char fright[3];          // width/4  f0-2
+	unsigned char bw[4];        // Klatt bandwidth BNZ /2, f1,f2,f3
+	unsigned char klattp[5];    // AV, FNZ, Tilt, Aspr, Skew
+	unsigned char klattp2[5];   // continuation of klattp[],  Avp, Fric, FricBP, Turb
+	unsigned char klatt_ap[7];  // Klatt parallel amplitude
+	unsigned char klatt_bp[7];  // Klatt parallel bandwidth  /2
+} frame_t;   //  with extra Klatt parameters for parallel resonators
+
+typedef struct {  // 44 bytes
+	short frflags;
+	short ffreq[7];
+	unsigned char length;
+	unsigned char rms;
+	unsigned char fheight[8];
+	unsigned char fwidth[6];          // width/4  f0-5
+	unsigned char fright[3];          // width/4  f0-2
+	unsigned char bw[4];        // Klatt bandwidth BNZ /2, f1,f2,f3
+	unsigned char klattp[5];    // AV, FNZ, Tilt, Aspr, Skew
+} frame_t2;   //  TESTING
+
+
+#ifdef deleted
 typedef struct {
 	short frflags;
 	unsigned char length;
@@ -110,19 +137,7 @@ typedef struct {  // 43 bytes
 	unsigned char fwidth[6];          // width/4
 	unsigned char fright[6];          // width/4
 } frame_t2;   //  the original, without Klatt additions, used for file "phondata" 
-
-
-typedef struct {  // 44 bytes
-	short frflags;
-	short ffreq[7];
-	unsigned char length;
-	unsigned char rms;
-	unsigned char fheight[8];
-	unsigned char fwidth[6];          // width/4  f0-5
-	unsigned char fright[3];          // width/4  f0-2
-	unsigned char bw[4];        // Klatt bandwidth BNZ, f1,f2,f3
-	unsigned char klattp[5];    // AV, FNZ, Tilt, spare, spare (Aspr, Skew ?)
-} frame_t3;   //  TESTING
+#endif
 
 
 
