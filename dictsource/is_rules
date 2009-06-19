@@ -5,6 +5,9 @@
 // letter group F  p,t,k,s
 // letter group H  j,r,v,
 
+.replace
+ x       xz
+
 
 .group a
         a        a:
@@ -53,7 +56,7 @@
         e (CC    E
         e (ng    eI
         e (nk    eI
-
+		egi      eI:jI
         ei       eI:
         ey       eI:
         ei (FH   eI:
@@ -116,7 +119,6 @@
         hj       C
         hl       l#
         hn       hn#
-        hr       r#
         hv       kv
 
 
@@ -184,6 +186,7 @@
      ó) nn       dn
      ú) nn       dn
      ý) nn       dn
+     æ) nn       dn
     au) nn       dn
     ei) nn       dn
     ey) nn       dn
@@ -223,13 +226,13 @@
 
 
 .group r
-     _) r        R2
+     _) r        _|R2
      C) r        @-R
      l) r        **R
      A) r (A     *R
      B) r        r#
         r (B     rr#
-        r (_     rr#
+        r (_     _|R
         r        _|R2
         rr       R*R
         rl       dl
@@ -240,7 +243,6 @@
 .group s
         s        s
         ss       ss2
-        sj       S
 
 
 .group t
@@ -259,7 +261,6 @@
         u (CC    y
      K) u (ng    u
      K) u (nk    u
-     &) ur (_    y#r#
 
 
 .group ú
@@ -277,8 +278,8 @@
 
 
 .group x
-        x        xs
-
+        x        ks
+        xz       ks
 
 .group y
         y        I:
@@ -319,6 +320,6 @@
      _) ö (@P1N  ,W:
 
 .group
-        $        dolar
+        $        dOllar
 
 

@@ -684,8 +684,6 @@ r/xr            [(@)] base
                 [(o)] base
                 [(u)] base
                 [Y] fr
-                [a] fr
-                [A~] fr
 ufric/ch        [C] base
                 [J^] base
                 [C2] de
@@ -2248,7 +2246,8 @@ vwl_fr/@R2      [R] fr_ca
 vwl_fr/@R3      [Q2] hy
 vwl_fr/@R4      [Q2] hy
 vwl_fr/@R5      [Q2] hy
-vwl_fr/r_a      [wA] fr
+vwl_fr/r_a      [a] fr
+                [wA] fr
 vwl_fr/r_e      [E] fr
                 [e] fr
 vwl_fr/r_i      [i] fr
@@ -2265,6 +2264,7 @@ vwl_fr/r_y      [y] fr
 vwl_fr/tr       [r] fr
 vwl_fr/w_a      [wA] fr
 vwl_fr/xr       [a] fr
+                [wA] fr
                 [A~] fr
 vwl_hi/l-voc    [l-] jbo
                 [l-] hi

@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-05-14 Michel Such  <michel.such@free.fr>
+// Updated 2009-06-08 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -266,6 +266,8 @@ kde		$abbrev
 kg		kilogram
 khz		kiloErts
 km		kilomètre $text
+(km player)	ka,EmplEj'Wr
+(kmplayer)	ka,EmplEj'Wr
 kw		kilowat
 m.		m@siY
 mbit  		megabit
@@ -334,14 +336,14 @@ mais	$u+
 ou	$u $brk
 eh	 $u $brk
 et	e $u $brk
-ni	$u $brk
-car	$u $brk
+ni	$u
+car	$u
 car	$noun
-cependant  $brk
-néanmoins  $brk
-toutefois  $brk
-avant $u+ $brk
-après  $u+ $brk
+cependant
+néanmoins  $u+
+toutefois  $u+
+avant $u+
+après  $u+
 (temps en temps)	tA~zA~tA~
 alors	alOr $u+
 depuis $u+
@@ -362,6 +364,8 @@ que	  $u+
 (parce qu'elles) 	   parskElz2 $u+
 (parce qu'on) 	   parskO~n2 $u+
 tant	tA~t2 $u+
+(tant mieux)	tA~mjY $u+
+(tant pis)	tA~pi $u+
 qui	   $verbf $u+
 quoique	   $u
 quant	   kA~t2 $u

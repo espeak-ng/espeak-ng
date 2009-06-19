@@ -37,8 +37,8 @@ phoneme a
   formants vowel/a_6
   after  l l/la-15
   before l/ DFT+l/l_a
-  before (r) DFT-10+vwl_fr/xr
-  before r/2 DFT+r/xr
+  before (r) DFT+vwl_fr/xr
+  before r/2 DFT-20+vwl_fr/r_a
 endphoneme
 
 
@@ -71,7 +71,7 @@ phoneme i
   after (l) l/li-15
   before l/ DFT+l/l_i
   before (r) DFT-20+vwl_fr/r_i
-  before r/2 DFT+vwl_fr/r_i
+  before r/2 DFT-20+vwl_fr/r_i
 endphoneme
 
 
@@ -125,7 +125,7 @@ phoneme O
   formants vowel/o_mid
   after (l) l/lo-10
   before l/ DFT+l/l_o
-  before r/2 DFT+vwl_fr/r_o
+  before r/2 DFT-20+vwl_fr/r_o
   reduceto o2 1
 endphoneme
 
@@ -137,7 +137,7 @@ phoneme O2	// Like O but no reduceto
   after (l) l/lo-10
   before l/ DFT+l/l_o
   before (r) DFT+vwl_fr/r_o
-  before r/2 DFT+vwl_fr/r_o
+  before r/2 DFT-20+vwl_fr/r_o
 endphoneme
 
 
@@ -148,7 +148,7 @@ phoneme u
   after  l l/lu-20
   before l/ DFT-20+l/l_u
   before (r) DFT+vwl_fr/r_u
-  before r/2 DFT+vwl_fr/r_u
+  before r/2 DFT-30+vwl_fr/r_u
   before i DFT-50
 endphoneme
 
@@ -171,7 +171,7 @@ phoneme y
   after  l l/lu-20
   before l/ DFT-30+l/l_y
   before (r) DFT+vwl_fr/r_y
-  before r/2 DFT+vwl_fr/r_y
+  before r/2 DFT-30+vwl_fr/r_y
   before E~ DFT-50
 endphoneme
 
@@ -194,7 +194,7 @@ phoneme W
   after (l) l/l@-20
   before l/ DFT-20+l/l_@
   before (r) DFT+vwl_fr/r_@2
-  before r/2 DFT+vwl_fr/r_@2
+  before r/2 DFT-30+vwl_fr/r_@2
   reduceto Y 1
 endphoneme
 
@@ -216,7 +216,7 @@ phoneme wA
   formants vwl_fr/w_a
   after (l) l/lo-10
   before l/ DFT-10+l/l_a
-  before (r) DFT+vwl_fr/r_a
+  before (r) DFT+vwl_fr/xr
   before r/2 DFT+vwl_fr/r_a
 endphoneme
 
@@ -238,7 +238,7 @@ phoneme A~
   formants vnasal/aa_n4
   before l/ DFT+l/l_a
   before (r) DFT+vwl_fr/xr
-  before r/2 DFT+r/xr-40
+  before r/2 DFT+vwl_fr/xr
 endphoneme
 
 
@@ -429,7 +429,7 @@ endphoneme
 
 phoneme r
   liquid starttype (r) endtype (r)
-  vowelin  f1=0  f2=1800 10 10  f3=-200 100
+  vowelin  f1=1  f2=1800 10 10  f3=-200 100
   vowelout f1=1  f2=1800 10 10  f3=-200 100
   length 100
   lengthmod 7
@@ -444,7 +444,7 @@ phoneme r
   after p vwl_fr/tr+r3/rx%35
   after s vwl_fr/tr+r3/rx%30
   after S vwl_fr/tr+r3/rx%45
-  after t vwl_fr/tr+r3/rx%15
+  after t vwl_fr/tr+r3/rx%30
   after v vwl_fr/tr+r3/rx%30
   after z vwl_fr/tr+r3/rx%30
   after Z vwl_fr/tr+r3/rx%30

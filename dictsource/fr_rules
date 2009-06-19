@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-05-14 Michel Such  <michel.such@free.fr>
+// Updated: 2009-05-28 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -605,11 +605,11 @@ iew)	er (X	er2
 	vin) 	gt (_neuvi   t
 
 		gt (_ 			// vingt doigts
-
 		gt          t		// vingtaine doigté
+
 		gui       gi		// anguille
-	ai)	gu (il      gy		// aiguillage
-	in)     gu (is      gy		// linguiste
+	ai)	gui (l      gw^i		// aiguillage
+	in)     gui (s      gw^i		// linguiste
 		g (C        g
 
 	_ran) 	g (_ 			// rang
@@ -1253,9 +1253,9 @@ A)		t (-        t2
 	C)	ucci       utSi  // capuccino
 	c)	ueill       Wj  // cueillir
 	c) 	ueil (_     Wj  // recueil
-	_g) 	u (a     u
-	ag) 	u (a_     u
-	tig) 	u (a_     u
+	_g) 	ua     wA
+	ag) 	ua (_     wA
+	Ctig) 	ua (_     wA
 	_c) 	ul (_     y
 	_)	ultra (P5       yltra
 	g)	u (ay       u

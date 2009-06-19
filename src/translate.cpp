@@ -2563,7 +2563,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		char *pn;
 		char *pw;
 		static unsigned int break_numbers1 = 0x49249248;
-		static unsigned int break_numbers2 = 0x492492a8;  // for languages which have numbers for 100,000 and 100,00,000
+		static unsigned int break_numbers2 = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		static unsigned int break_numbers3 = 0x49249268;  // for languages which have numbers for 100,000 and 1,000,000
 		unsigned int break_numbers;
 		char number_buf[80];
@@ -2620,7 +2620,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			pn = &number_buf[1];
 			nx = n_digits;
 
-			if(tr->langopts.numbers2 & NUM2_100000a)
+			if((tr->langopts.numbers2 & NUM2_100000a) == NUM2_100000a)
 				break_numbers = break_numbers3;
 			else
 			if(tr->langopts.numbers2 & NUM2_100000)
