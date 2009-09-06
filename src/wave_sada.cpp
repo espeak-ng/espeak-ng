@@ -305,16 +305,9 @@ int wave_close(void* theHandler)
 
 int wave_is_busy(void* theHandler)
 {
-  audio_info_t ainfo;
-  int audio_fd = (int) theHandler;
-  if (!audio_fd) {
-    audio_fd = sun_audio_fd;
-  }
-  ENTER("wave_is_busy");
-  ioctl(audio_fd, AUDIO_GETINFO, &ainfo);
-  SHOW("wave_is_busy: active=%d", ainfo.play.active);
-  SHOW_TIME("wave_is_busy > LEAVE");
-  return ainfo.play.active;
+   uint32_t time;
+   wave_get_remaining_time(total_samples_sent - 1, &time);
+   return time != 0;
 }
 
 //>

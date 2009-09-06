@@ -40,8 +40,8 @@ wxMenuBar *MakeMenu(int type)
 
 	// FILE MENU
 	file_menu = new wxMenu;
-	file_menu->Append(MENU_SPECTRUM, _("&Open"));
-	file_menu->Append(MENU_SPECTRUM2, _("O&pen2"));
+	file_menu->Append(MENU_SPECTRUM, _("&Open..."));
+	file_menu->Append(MENU_SPECTRUM2, _("O&pen2..."));
 //	file_menu->Append(MENU_PROSODY, _T("&Prosody window"));
 	if(type==0)
 	{
@@ -50,7 +50,7 @@ wxMenuBar *MakeMenu(int type)
 	if(type==1)
 	{
 		file_menu->Append(SPECTSEQ_SAVE, _("&Save"));
-		file_menu->Append(SPECTSEQ_SAVEAS, _("Save &As"));
+		file_menu->Append(SPECTSEQ_SAVEAS, _("Save &As..."));
 		file_menu->Append(SPECTSEQ_SAVESELECT, _("Save Selection"));
 		file_menu->Append(SPECTSEQ_SAVEPITCH, _T("Save Pitch &Envelope"));
 		file_menu->Append(SPECTSEQ_CLOSE, _("&Close"));
@@ -60,7 +60,7 @@ wxMenuBar *MakeMenu(int type)
 	if(type==2)
 	{
 		file_menu->Append(SPECTSEQ_SAVE, _("&Save"));
-		file_menu->Append(SPECTSEQ_SAVEAS, _("Save &As"));
+		file_menu->Append(SPECTSEQ_SAVEAS, _("Save &As..."));
 //		file_menu->Append(SPECTSEQ_SAVEPITCH, _T("Save Pitch &Envelope"));
 		file_menu->Append(SPECTSEQ_CLOSE, _("&Close"));
 //		file_menu->Append(MENU_CLOSE_ALL, _T("Close &All"));
@@ -73,40 +73,40 @@ wxMenuBar *MakeMenu(int type)
 	speak_menu->Append(MENU_SPEAK_RULES, _("Show &Rules"));
 	speak_menu->Append(MENU_SPEAK_TEXT, _("&Speak"));
 	speak_menu->AppendSeparator();
-	speak_menu->Append(MENU_SPEAK_FILE, _("Speak &file"));
+	speak_menu->Append(MENU_SPEAK_FILE, _("Speak &file..."));
 	speak_menu->Append(MENU_SPEAK_PAUSE, _("&Pause"));
 	speak_menu->Append(MENU_SPEAK_STOP, _("St&op"));
 
 	// VOICE MENU
 	voice_menu = new wxMenu;
-	voice_menu->Append(MENU_SPEAK_VOICE, _("Select &Voice"));
-	voice_menu->Append(MENU_SPEAK_VOICE_VARIANT, _("Select Voice Va&riant"));
+	voice_menu->Append(MENU_SPEAK_VOICE, _("Select &Voice.."));
+	voice_menu->Append(MENU_SPEAK_VOICE_VARIANT, _("Select Voice Va&riant..."));
 
 	// DATA MENU
 	data_menu = new wxMenu;
 	data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data"));
 	data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
 	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (&debug)"));
-	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list"));
+	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
 	
 	// OPTIONS MENU
 	paths_menu = new wxMenu;
-	paths_menu->Append(MENU_PATH0, _("Master phonemes file"));
-	paths_menu->Append(MENU_PATH1, _("Phoneme data source"));
-	paths_menu->Append(MENU_PATH2, _("Dictionary data source"));
-	paths_menu->Append(MENU_PATH3, _("Synthesized sound WAV file"));
+	paths_menu->Append(MENU_PATH0, _("Master phonemes file..."));
+	paths_menu->Append(MENU_PATH1, _("Phoneme data source..."));
+	paths_menu->Append(MENU_PATH2, _("Dictionary data source..."));
+	paths_menu->Append(MENU_PATH3, _("Synthesized sound WAV file..."));
 	paths_menu->AppendSeparator();
-	paths_menu->Append(MENU_PATH4, _("Voice file to modify formant peaks"));
+	paths_menu->Append(MENU_PATH4, _("Voice file to modify formant peaks..."));
 
 	option_menu = new wxMenu;
 	option_menu->Append(MENU_PATHS, _("Set &paths"), paths_menu);
-	option_menu->Append(MENU_PARAMS, _("Speed"));
+	option_menu->Append(MENU_PARAMS, _("Speed..."));
 
 	// TOOLS
 	vowelchart_menu = new wxMenu;
 	vowelchart_menu->Append(MENU_VOWELCHART1, _("From compiled phoneme data"));
-	vowelchart_menu->Append(MENU_VOWELCHART2, _("From list of formants"));
-	vowelchart_menu->Append(MENU_VOWELCHART3, _("From directory of vowel files"));
+	vowelchart_menu->Append(MENU_VOWELCHART2, _("From list of formants..."));
+	vowelchart_menu->Append(MENU_VOWELCHART3, _("From directory of vowel files..."));
 
 	lexicon_menu = new wxMenu;
 	lexicon_menu->Append(MENU_LEXICON_RU, _("Russian (lexicon.dict)"));
@@ -115,11 +115,11 @@ wxMenuBar *MakeMenu(int type)
 	lexicon_menu->Append(MENU_LEXICON_IT2, _("Italian, pass 2"));
 
 	tools_menu = new wxMenu;
-	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart"), vowelchart_menu);
+	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart..."), vowelchart_menu);
 //	tools_menu->Append(MENU_LOAD_WAV,   _T("Analyse WAV file"));
-	tools_menu->Append(MENU_LEXICON, _("Compare &Lexicon"), lexicon_menu);
-	tools_menu->Append(MENU_TO_UTF8, _("Convert file to &UTF8"));
-	tools_menu->Append(MENU_COUNT_WORDS, _("Count word &frequencies"));
+	tools_menu->Append(MENU_LEXICON, _("Compare &Lexicon..."), lexicon_menu);
+	tools_menu->Append(MENU_TO_UTF8, _("Convert file to &UTF8..."));
+	tools_menu->Append(MENU_COUNT_WORDS, _("Count word &frequencies..."));
 	tools_menu->Append(MENU_TEST    ,   _("Test (temporary)"));
 //	tools_menu->Append(MENU_TEST2    ,   _T("Test2"));
 

@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-05-28 Michel Such  <michel.such@free.fr>
+// Updated: 2009-07-31 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -36,6 +36,7 @@
 .L02 b c d f g h k p t v
 .L03 d l m n s t v
 .L04 c d f g l m n v
+.L05 g h k l m v w
 
 
 .group a
@@ -76,7 +77,9 @@
 		a  (nnA     a		// manne
 		an (K       A~		// ancien, élan
 	@@m)	an (_       an // tennisman
+	L02m)	an (_       an
 	lism)	an (_       A~ // talisman
+	ulm)	an (_       A~ // musulman
 	_C)	aon  (_        A~		// faon, paon, taon
 	s)	aoul (_         u		// saoul
 	s)	aou (le          u		// saoule
@@ -130,6 +133,7 @@
 	e)	ch (_     k		// varech
 	_A)	ch (o_      k		// écho
 	mani)	ch (é      k		// manichéisme
+	wi)	ch       tS	// sandwich
 	mito)	ch (o      k		// mitochondrie
 	_eu)	ch (ari      k		// eucharistie
 	or) 	ch (esC     k		// orchestre
@@ -504,14 +508,19 @@ _)		en (A       A~n		// enivrer
  		e (rC       E
  		es (_       z2
 
-	%C) 	e (CA   @-
-	%C) 	e (Ce     		// actuellement guillemets
+	%C) 	e (Ca   @-
+//	%C) 	e (Ce     		// actuellement guillemets
 	%C) 	e (xA   E
 	%C) 	e (mA     		// actuellement guillemets
 	ct) 	e (ment   @
 	nC) 	e (ment   @-
 	rC) 	e (ment   @
-	g) 	e (rie
+	AC) 	e (rie_	@-
+	AC) 	e (ries_	@-
+	AcC) 	e (rie_	@-
+	AcC) 	e (ries_	@-
+	%C) 	e (rie_	@-
+	%C) 	e (ries_	@-
 	AC) 	e (ment
 	u) 	e (ment   @-
 	ul) 	e (CA
@@ -538,11 +547,13 @@ iew)	er (X	er2
 		eac		_^_en
 	C)	ead		_^_en      		// read, head
 		eak           _^_en		// break, speak
+		eal           _^_en		// deal
 		ear		_^_en      		// ear, search
 		eas  	_^_en      		// please
 		eave       _^_en		// leave
 		ed (_  	_^_en
 		ee          _^_en		// meeting
+		efore (_    _^_en		// before
 		eing (_      _^_en		// being, boeing
 		eive       _^_en		// receive
 	 	eld (_        _^_en		// field
@@ -550,7 +561,7 @@ iew)	er (X	er2
 	_) 	enhan         _^_en
 	qu) 	est (_        _^_en		// request
 	qu) 	este (X_        _^_en		// requested, requester
-	_) 	even         _^_en		// forever, however
+	_) 	even (X         _^_en		// forever, however
 	_) 	ever         _^_en		// forever, however
 	oC) 	ever         _^_en		// forever, however
 	_) 	eye         _^_en
@@ -578,6 +589,7 @@ iew)	er (X	er2
 	_)	fire       _^_en
 		fly        _^_en
 	_)	frame            _^_en
+		fter (_          _^_en
 
 
 .group g
@@ -711,17 +723,17 @@ C)		i (es_    i
 	_)	ill         ill		// illégal
 	aigu)	ill         ij		// aiguille
 	anqu)	ill         il		// tranquille
+	c)	ill (i        il
 	dist)	ill         il		// distiller
-	_m)	ill         il		// mille
+	_L05)	ill         il		// Lille, mille, ville, william
 	osc)	ill         il		// osciller
-	v)	ill         il		// village
-	qu)	ill         ij		// cuillière cueillir
+	qu)	ill         ij		// quille
 	A)	ill         j		// caillou
 	C)	ill         ij		// famille
 	a)	il (_       j		// bail
 	e)	il (_       j
 	u)	il (_       j		// deuil
-	L01_f)	ils (_       is		// deuil
+	L01_f)	ils (_       is		// fils (enfant)
 
 		imm         imm		// immaculé
 		im (_       im		// karim
@@ -730,7 +742,7 @@ C)		i (es_    i
 		inct (_     E~		// distinct
 		in (h       in		// inhumain
 		in (kX       iN		// link
-		in (n       in		// innombrable
+		in (n       i		// innombrable
 		in (C       E~		// vingt
 		in (_       W~		// vin
 		ing (_      iN
@@ -741,6 +753,9 @@ C)		i (es_    i
 	_)	intra (neP5       E~tra
 	_)	intra (uP5       E~tra
 	C)	is (_       i
+	bor)	is (_       is
+	dor)	is (_       is
+	tor)	is (_       is
 	fl)	irt         W2rt
 	otl)	i (neX        aj
 	onl)	i (ne_        aj
@@ -788,8 +803,10 @@ C)		i (es_    i
 
 
 // group k: English section
-		ke (rX     _^_en		// basket, make, take
-		ke (nX     _^_en		// basket, make, take
+		ke (_     _^_en		// make, take
+		ke (s_     _^_en		// makes, takes
+		ke (rX     _^_en		// maker
+		ke (nX     _^_en		// taken
 
 .group l
 		l           l		// lit
@@ -822,14 +839,12 @@ C)		i (es_    i
 
 
 .group n
-	_)	n (_        En
 		n           n		// une
 		nn          n
 		ng (_       N
 
 	_)	n' (P2v      n
 
-		nn          n		// panne
 	_)	n (_°       nymero
 	_)	neuro (@@P5       nYro
 
@@ -950,7 +965,8 @@ C)		oing (_      _^_en	// going
 	_)	one       _^_en
 	 	oun (C      _^_en		// bounce, found
 	_)	over        _^_en		// over
-		ow          _^_en		// cow, town, down
+		ow (K          _^_en		// cow, town, down
+		ow (e          _^_en		// flower, power
 		oy (X       _^_en		// boy, toy
 
 
@@ -1031,7 +1047,7 @@ mou)	rr          rr		// mourrai
 
 // group r: English section
 	_)	real         _^_en
-		rese         _^_en
+		resen         _^_en
 		rst (_        _^_en
 	_)	rule         _^_en
 
@@ -1057,6 +1073,7 @@ mou)	rr          rr		// mourrai
 
 	ai) 	s (em       s		// vraisemblable
 	aCè)	s (_	s
+	nè)	s (_	s
 	kansa)	s (_	s        // Kansas, Arkansas
 	ub)	s (is       z		// subsister
 	tran) 	s (A        z		// transition
@@ -1082,6 +1099,7 @@ mou)	rr          rr		// mourrai
 	mbu) 	s (_        s
 	_cACpu) 	s (_        s
 	Acu) 	s (_        s
+	docu) 	s (_
 	écu) 	s (_
 	asu) 	s (_        s
 	odu) 	s (_        s
@@ -1177,7 +1195,6 @@ A)		t (-        t2
 	p)	t (ia       s   // nuptial
 	an)	t (iat      s   // transsubstantiation
 
-
 		t (ion      s 	// programmation
 	V)	t (ion      t 	// verbes
 	ache)	t (ion      t 	// achetions, rachetions
@@ -1229,6 +1246,7 @@ A)		t (-        t2
 	ner) 	t (ie     s	// inertie
 
 	_ce) 	t (_        t
+	_transA) 	t (_        t
 
 // group t: English section
 	C)	th (_      _^_en      // month
@@ -1271,6 +1289,7 @@ A)		t (-        t2
 		um (b       W~	// humble
 		um (p       W~
 		un (C       W~	// emprunt lundi
+		un (n       y	// tunnel
 	CC)	un (_       W~	// brun
 	uc)	un (_       W~n2	// aucun
 		un (_      W~n2	// un avion
@@ -1289,7 +1308,7 @@ A)		t (-        t2
 		unch          _^_en
 		under          _^_en  // under, understand, thunder
 	_C)	un (_      _^_en
-	_C)	un (n      _^_en
+	_C)	un (ny      _^_en
 	_)	up  (C        _^_en  // upper, update
 	up  (_        _^_en  // setup
 		urn (X        _^_en  // burn, turn
@@ -1320,7 +1339,7 @@ A)		t (-        t2
 		w (agon 	    v // wagon
 
 // group w: English section
-	e)	w           _^_en
+	e)	w (K          _^_en
 		wa (Ce_ 	    _^_en // hardware software wave
 	_)	wan  	    _^_en
 		wr 	  _^_en    // write
@@ -1384,6 +1403,7 @@ A)		t (-        t2
 		z           z
 		zz          dz
 	t) 	z           s	// tzigane
+	C) 	zer (_           zEr
 
 
 .group

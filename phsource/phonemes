@@ -623,7 +623,7 @@ endphoneme
 
 phoneme r.    //   retroflex
   liquid rfx
-  vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15
+  vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15 colr=2
   vowelin f1=2  f2=1400 -400 300  f3=-400 80 len=20
   formants r3/@tap_rfx
   lengthmod 3
@@ -1339,31 +1339,6 @@ include ph_albanian
 
 phonemetable hy base
 include ph_armenian
-
-
-phonemetable rw base2
-include ph_kinyarwanda
-
-phonemetable ml hi
-include ph_malayalam
-
-phonemetable kn hi
-include ph_kannada
-
-phonemetable bn hi
-include ph_bengali
-
-phonemetable ne hi
-include ph_nepali
-
-phonemetable mr hi
-include ph_marathi
-
-phonemetable om base
-include ph_oromo
-
-phonemetable eu base2
-include ph_basque
 
 phonemetable da base
 include ph_danish

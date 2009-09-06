@@ -1,4 +1,4 @@
-
+/
 // ***************************************************************************
 // *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-06-08 Michel Such  <michel.such@free.fr>
+// Updated 2009-07-3128 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -38,6 +38,7 @@
 _à	$accent  // speak as base-letter name + accent name
 â       $accent
 ä       $accent
+a	a $u+
 b	be
 c	se
 ç	$accent
@@ -58,7 +59,7 @@ j	Zi
 k	ka
 l	El
 m	Em
-//n	En   // in fr_rules
+n	En
 ñ	$accent
 o	o
 _ô	$accent
@@ -143,7 +144,7 @@ _§	sEksj'O~
 // symbols that are normally spoken when reading text
 @	_!arobaz
 %	pursA~		$max3
-&	e $u $brk
+&	_|e $u
 _&	_e_komErsi'al
 *	asterisk:	$max3
 +	plys		$max3
@@ -159,7 +160,7 @@ _&	_e_komErsi'al
 ½	W~_d@m'i
 ¾	trwA_k'ar
 ©	_^_EN
-®	m'ark_depos'e
+®	mark||depoz'e
 
 
 // numeric
@@ -175,7 +176,7 @@ _7	sEt
 _8	_|w^it3
 _9	nWf
 _10	diz3
-_11	_!O~z
+_11	_|O~z
 _12	duz
 _13	trEz
 _14	katOrz
@@ -236,30 +237,33 @@ adn		adeEn
 adsl		adeEsEl
 alt	_::alt
 amd		aEmde
-anpe             aEnpe@
 aol	aoEl
-api		$abbrev
+api		apei
 avg	$abbrev
 avh		aveaS
+bay	_^_en
 bd	boulevard $text
 brltty	$abbrev
 cci              $abbrev
 cia		$abbrev
 cio		$abbrev
+cm		centimètre $text
 cpu	$abbrev
 ctrl		_::kO~tro2l
 dept		depart@-mA~
 divx	diviks
+ebay	_^_en
+(e bay)	ebay $text
 edf		@deEf
 etc		Etsetera
 ghz		ZigaErts
 hmm		h@m
 (http ://)	aSt,et,ep'e_
-hz		_!Erts
+hz		_|Erts
 ibm		ibeEm
 ide		$abbrev
 ip		ipe
-irc	i:_!Er:se
+irc	i:_|Er:se
 jaws		_^_en
 kbit	kilobit
 kde		$abbrev
@@ -268,15 +272,18 @@ khz		kiloErts
 km		kilomètre $text
 (km player)	ka,EmplEj'Wr
 (kmplayer)	ka,EmplEj'Wr
-kw		kilowat
+kw		kilowatt $text
 m.		m@siY
 mbit  		megabit
 mbrola		Embrola
 mci	$abbrev
 mhz		megaErts
 mlle		mademoiselle $text
+mm	millimètre $text
 mme		madame $text
-(mp 3)	_!Empetrwa
+mn	minyt
+mns	minytz2
+(mp 3)	_|Empetrwa
 mr		m@siY
 nsi             $abbrev
 nsis             $abbrev
@@ -288,7 +295,10 @@ ogm	oZeEm
 ong             oEnZe
 pci             $abbrev
 pda             $abbrev
-p.s		postskriptOm
+philips	filips
+p.s		pOstskriptOm
+qq	quelque $text
+qqs	quelques $text
 ratp		$abbrev
 riscos	rIskoEs
 sap	$abbrev
@@ -308,6 +318,7 @@ utc     $abbrev
 utf		$abbrev
 u.s	y:Es
 vip	v,i||,aj||p'i
+(web visum)	webvisum $text
 wma		$abbrev
 xfce		iksEfse@
 xy		$abbrev
@@ -323,6 +334,7 @@ pr		professeur $text *dot $capital
 // articles
 le	$nounf $u+
 le  $verb $verbextend $u
+el	$u
 la $nounf $u+
 la	$verb $verbextend $u
 les	lez2 $nounf $u+
@@ -333,9 +345,9 @@ une	$nounf $u+
 
 // conjonctions
 mais	$u+
-ou	$u $brk
+ou	_|u $u
 eh	 $u $brk
-et	e $u $brk
+et	_|e $u
 ni	$u
 car	$u
 car	$noun
@@ -390,6 +402,7 @@ toi	$u+
 lui	$u+ $verbf
 ça	$u+ $verbf
 
+ca	sa $u+ $capital $verbf
 ce	$u+ $nounf
 ceci	$u+ $verbf
 cela	$u+ $verbf
@@ -437,8 +450,8 @@ des	dez2 $u $nounf
 
 
 à	a $u
-au	$u
-aux	$u
+au	$u $nounf
+aux	$u $nounf
 
 autour	otur $u+
 autre	$u+
@@ -476,6 +489,8 @@ loin	$u+
 ne	$u $verbf
 pas	p'az2 $u+
 pas	pa $noun
+point	$u+
+point	$noun
 plus	$u+
 guère	$u+
 jamais $u+
@@ -557,6 +572,7 @@ rien	ri-'E~n2	$u+
 
 // Letters which can be words
 //===========================
+a	a $atend $only
 à	$atend $accent $only
 y       igr'Ek $atend $only
 ô	$atend $accent
@@ -601,12 +617,16 @@ adam	adA~
 adams	adams
 admin        admin
 adsltv	adeEs'El||tev'e
-airbus	      Erbys
+airbus	      airbuss $text
 alan	alan
+albinos	albinoss $text
+arte	arte
 auvent     ovA~
+beta	beta
 bien	      bi-E~n2 $u+
 bis	      bis
 bissus    bisys
+buffer	bWfWr
 bus	      bys
 bus	      by  $verb
 cancer	kA~sEr
@@ -621,6 +641,7 @@ dernier    dErnjer2
 enfer	A~fEr
 faut	fot2 $u+
 fier	      fjer $verb
+fred	frEd
 free	fri:
 fuel	      fjul
 gars	      ga
@@ -649,6 +670,7 @@ recorder	ricordeur $text
 scanner	skaner2 $verb
 scanner	skanWr $noun
 scanners	skanWr
+shampoing	SA~pwE~
 sir           _^_EN
 souris       suri
 sus       sys
@@ -679,7 +701,7 @@ mazout		mazut
 michael		mikaEl
 out		aut
 rut		ryt
-scorbut		skOrbyt
+scorbut		scorbutt $text
 scout		skut
 stout		staut
 uppercut	ypErkyt
@@ -700,6 +722,7 @@ net		nEt
 offset		OfsEt
 set		sEt
 soviet		sOviEt
+stewart	sti:wart
 
 // urt (t is said)
 kurt		kurt
@@ -718,8 +741,12 @@ kart		kart
 smart		smart
 
 // irt
-(sweat shirt)	swEtSWrt
-(tee shirt)	tiSWrt
+(sweat shirt)	swEtSW2rt
+(sweat shirts)	swEtSW2rt
+(tee shirt)	t,i:S'W2rt
+(tee shirts)	t,i:S'W2rt
+(t shirt)	t,i:S'W2rt
+(t shirts)	t,i:S'W2rt
 
 
 // words from other languages
@@ -728,13 +755,14 @@ acer             asEr
 and             _^_en
 amazon		amaz'On
 apple		_^_en
-at		_^_en
+at		at $u+
 (audible manager) od,ibl||manadZ'Wr
+bin		bin
 bit		bit
 bluetooth 		blut'us
 computer		_^_en
 (cyber link) 		_^_en
-debian		dEbjan
+debian		debjan
 edit		_^_en
 emacs		Emaks
 emacspeak	Emakspi:k
@@ -743,18 +771,18 @@ epson		EpsOn
 espeak		@spi:k
 ethernet	etErnEt
 exit	egzit
-(file zilla)		fajl||zija
+(file zilla)		f,ajl||zij'a
 from	frO2m $u+
 get		_^_en
-google		gu:gWl
+google		gug=Wl
 gnome		gnOm
 gnu		$abbrev
-hamburger		hA~b@rgWr
+hamburger		_!A~b@rgWr
 help		_^_en
 hot		_^_en
-in		_^_en
+in		in $u+
 inside		_^_en
-(internet explorer) E~tErn'Et||Eksplor'Wr
+(internet explorer) E~tErn'Et||EksplOr'Wr
 klaxon          klaksOn
 let 		_^_en
 lite 		_^_en
@@ -764,11 +792,11 @@ logon 		_^_en
 made	_^_en
 media     		medja
 messenger 		mesEnZWr
-my		maj
+my		maj $u+
 nat		nat
 not		_^_en
 null	_^_en
-ok         oke
+ok         oke $u+
 open            op'Wn
 (open source)	op,Wn||s'urs
 outlook         autlu:k
@@ -783,6 +811,7 @@ sun		_^_en
 (text aloud) tEkst||@la=wd
 ubuntu		ubuntu
 up		_^_en
+win	win $u+
 yes		_^_en
 
 
@@ -806,13 +835,15 @@ pourcent	pursA~
 vincent		vE~sA~
 
 
-// Some countries and areas
+// Some countries, areas and languages
+afrikaans	afrikans
 bahamas	baamas
 bangladesh	bA~gladES
 bélarus	belarys
-(burkina faso)	burkina||faso
+(burkina faso)	byrkina||faso
 burundi	burundi
 croatie	kroasi
+esperanto	EsperA~to
 groenland	groEnlA~d
 guatemala	gwAtemala
 honduras	_!O~dyras

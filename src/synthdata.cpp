@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.40.22  19.Jun.09";
-const int version_phdata  = 0x014015;
+const char *version_string = "1.41.01  25.Aug.09";
+const int version_phdata  = 0x014100;
 
 int option_device_number = -1;
 
@@ -677,5 +677,6 @@ void LoadConfig(void)
 			}
 		}
 	}
+	fclose(f);
 }  //  end of LoadConfig
 

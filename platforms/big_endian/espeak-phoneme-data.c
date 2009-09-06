@@ -53,7 +53,25 @@ typedef struct {
     unsigned char  link_out;
 } PHONEME_TAB;
 
+// This is a new format for eSpeak 1.41
+typedef struct {  // 44 bytes
+	short frflags;
+	short ffreq[7];
+	unsigned char length;
+	unsigned char rms;
+	unsigned char fheight[8];
+	unsigned char fwidth[6];          // width/4  f0-5
+	unsigned char fright[3];          // width/4  f0-2
+	unsigned char bw[4];        // Klatt bandwidth BNZ /2, f1,f2,f3
+	unsigned char klattp[5];    // AV, FNZ, Tilt, Aspr, Skew
+	unsigned char klattp2[5];   // continuation of klattp[],  Avp, Fric, FricBP, Turb
+	unsigned char klatt_ap[7];  // Klatt parallel amplitude
+	unsigned char klatt_bp[7];  // Klatt parallel bandwidth  /2
+} frame_t;   //  with extra Klatt parameters for parallel resonators
 
+
+#ifdef deleted
+// This is the previous format for versions before 1.41
 typedef struct {
     short frflags;
     unsigned char length;
@@ -63,6 +81,7 @@ typedef struct {
     unsigned char fwidth[6];
     unsigned char fright[6];
 } frame_t;
+#endif
 
 #define N_SEQ_FRAMES   25
 
@@ -210,7 +229,8 @@ swap_phondata  (const char *infile, const char *outfile,
                 buf_spect.frame[n].frflags = (short)
                     SWAP_USHORT (buf_spect.frame[n].frflags);
 
-                for (k = 0; k < 9; k++) {
+// Changed for eSpeak 1.41
+                for (k = 0; k < 7; k++) {
                     buf_spect.frame[n].ffreq[k] = (short)
                         SWAP_USHORT (buf_spect.frame[n].ffreq[k]);
                 }

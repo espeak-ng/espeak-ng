@@ -256,13 +256,14 @@ endphoneme
 
 
 
-phoneme v        // no fricative noise
+
+phoneme v       // approximant
   vcd lbd frc
   vowelin  f1=1  f2=900 -300 -300  f3=-100 100
   vowelout f1=1  f2=900 -500 -300  f3=-100 60  len=50
   lengthmod 6
-  formants voc/v
-  before _ voc/v_
+  formants voc/v#
+  before _ voc/v#_
   switchvoicing f
 endphoneme
 

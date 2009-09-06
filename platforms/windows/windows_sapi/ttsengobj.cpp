@@ -36,12 +36,14 @@ extern void InitNamedata(void);
 int master_volume = 100;
 int master_rate = 0;
 
+int initialised = 0;
 int gVolume = 100;
 int gSpeed = -1;
 int gPitch = -1;
 int gRange = -1;
 int gEmphasis = 0;
 int gSayas = 0;
+char g_voice_name[80];
 
 
 char *path_install = NULL;
@@ -359,8 +361,7 @@ void WcharToChar(char *out, const wchar_t *in, int len)
 *****************************************************************************/
 STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 {
-	char voice[80];
-	strcpy(voice,"default");
+	strcpy(voice_name,"default");
 
 
 	SPDBG_FUNC( "CTTSEngObj::SetObjectToken" );
@@ -376,7 +377,7 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 		hr2 = m_cpToken->GetStringValue( L"VoiceName", &voicename);
 		if( SUCCEEDED(hr2) )
 		{
-			WcharToChar(voice,voicename,sizeof(voice));
+			WcharToChar(voice_name,voicename,sizeof(voice_name));
 		}
 
 
@@ -396,9 +397,14 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 	gEmphasis = 0;
 	gSayas = 0;
 
-	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,path_install,1);
-	espeak_SetVoiceByName(voice);
-	espeak_SetSynthCallback(SynthCallback);
+	if(initialised==0)
+	{
+		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,path_install,1);
+		espeak_SetSynthCallback(SynthCallback);
+		initialised = 1;
+	    g_voice_name[0] = 0;
+	}
+
 	
 	return hr;
 } /* CTTSEngObj::SetObjectToken */
@@ -524,6 +530,13 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 	frag_count = 0;
 	frag_ix = 0;
 	pW = pW_start;
+
+	// check that the current voice is correct for this request
+	if(strcmp(voice_name, g_voice_name) != 0)
+	{
+		strcpy(g_voice_name, voice_name);
+		espeak_SetVoiceByName(g_voice_name);
+	}
 
 	while(pTextFragList != NULL)
 	{

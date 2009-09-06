@@ -311,7 +311,15 @@ _ord	T	// default ending
 _1o	f'3:
 _2o	s'Ek
 _3o	T'3:
-_5o	f'I
+_5o	f'If
+_20o	tw'Enti@
+_30o	T'3:ti@
+_40o	f'o@ti@
+_50o	f'Ifti@
+_60o	s'Iksti@
+_70o	s'Ev@nti@
+_80o	'eIti@
+_90o	n'aInti@
 _0Co	h'Vndr@dT
 
 
@@ -366,6 +374,7 @@ ui	$abbrev
 uk	$abbrev
 url	$abbrev
 usa	$abbrev
+usb	$abbrev
 utc     $abbrev
 u.s     ju:'Es
 VI      $abbrev
@@ -575,6 +584,7 @@ approximate      a2pr0ksImeIt  $verb
 arab             ar@b
 arabic                         $1
 arable           ara2b@L
+arc              A@k	// arcing
 arcade                         $2
 arch             A@tS
 arches           A@tSI2z
@@ -588,9 +598,9 @@ arisen           a2rIz@n
 armslength       ,A@mzl'ENT
 arouse           a2raUz
 asbestos         asb'Est@s
-ascertain        as3teIn
 arsenal          A@s@n@L
 arsenic          A@snIk
+ascertain        as3teIn
 asiatic          eISI'atIk
 askance          a2skans
 ass              as
@@ -760,6 +770,7 @@ chapel           tSap@L
 charade          Sa2rA:d
 charismatic      karIsm'atIk
 charit           tSarIt        // charitable
+chemise          SEm'i:z
 chic             Si:k
 chimpanzee       $3
 chisel           tSIz@L
@@ -773,7 +784,7 @@ cigarette        sIg@'rEt
 circumference                  $2
 circumvent       s3:k@mvEnt
 ?5 circumvent    sIRk@mvEnt
-citizen          sItIz@n
+cleanliness      klEnlIn@s
 cleanse          klEnz
 ?!3 clerk        klA@k
 cliche           kli:SeI
@@ -802,6 +813,7 @@ colonel          k3:n@L
 ?5 colonel       kVRn@L
 combat           k0mbat       // combating
 combo            k0mboU
+comely           kVmlI    // comeliness
 comer            kVm3
 comet            k0mI2t
 commence         k@mEns
@@ -872,6 +884,7 @@ crevasse         kr@vas
 crisis           kraIsIs
 crises           kraIsi:z
 christmas        krIsm@s
+croissant        kwA:sA~
 crooked          krUkId
 crusade                        $2
 cuckoo           kUku:
@@ -1017,6 +1030,7 @@ entree           0ntreI
 envelope         Env@loUp      $only
 envelopes        Env@loUps
 envelope                       $verb
+epiphany         I2pIf@nI
 epistle          I2pIs@L
 epitome          I2pIt@mI
 equation         I2kweIZ@n
@@ -1087,6 +1101,7 @@ fete             feIt
 fetus            fi:t@s
 fi               f,aI		// as in "hi-fi"
 fiasco           fi:'askoU
+fiat             fi:@t
 fiery            faI@rI
 finale           fI2nA:lI
 finance          faInans       $only
@@ -1245,6 +1260,7 @@ hypoxia          haIp'0ksi@
 
 icon             aIk0n
 iconbar          aIk0nbA@
+idly             aIdlI
 ignoramus        Igno@r'eIm@s
 imagine          I2madZI2n
 impedance        Imp'i:d@ns
@@ -1252,8 +1268,8 @@ imperative       Imp'Er@tIv
 impercept         $3       // imperceptible
 impi              $1
 impinging        Imp'IndZIN
-imprecise        Impr'Is'aIs
-impregnable      I'mpr'Egn@b@L
+imprecise        ImprIs'aIs
+impregnable      Impr'Egn@b@L
 inanimate        In'anIm@t
 inappropriate    ,Ina2proUpri@t
 incense          Ins'Ens       $verb
@@ -1347,6 +1363,7 @@ las              ,las
 lasagne          l@zanj@
 laser            leIz3
 lasso            las'u:
+latte            lateI
 lawyer           lOI3
 lava             lA:v@
 le               l@            $only
@@ -1369,6 +1386,7 @@ ligate           li:geIt
 lilac            laIl@k
 lily             lIlI
 limit            lImI2t        // limited
+limo             lImoU
 limousine        lIm@zi:n
 lingerie         l0nZ@rI
 linen            lInI2n
@@ -1554,6 +1572,7 @@ offer            0f3
 offers           0f3z
 ogre             oUg3
 okay             oUk'eI
+omeg             oUm'eIg@
 omelet           0ml@t
 omelette         0ml@t
 omnibus           $1
@@ -1617,6 +1636,8 @@ paren            pa2rEn   // "parenthesis"
 pariah           p@raI@
 parole           pa2r'oUl
 passenger        pasI2ndZ3
+passerby         pas3b'aI
+passersby        pas3zb'aI
 pasted           peIstI2d
 pasting          peIstI2N
 pastry           peIstrI
@@ -1769,6 +1790,7 @@ rawest           rO:@st
 re               r,i:
 read             ri:d
 read             rEd           $past $only
+readd            ri:'ad
 readme           ri:dmi:
 reading          ri:dI2N
 readonly         ,ri:d'oUnlI
@@ -1823,6 +1845,7 @@ renegade         rEn@geId
 repel            rI2pEl
 replay           ri:pleI
 reply            rI2plaI       // for replied
+repo             ri:poU
 repost           r,i:p'oUst
 reprisal         rI2praIz@L
 reputable        rEpju:t@b@L
@@ -1893,6 +1916,8 @@ scared           ske@d
 scaring          ske@rI2N
 scenic           si:nIk
 scald            sk0ld
+scepter          sEpt3
+sceptre          sEpt3
 sclera           skli@r
 scourge          sk3:dZ
 scythe           saID
@@ -1944,6 +1969,7 @@ sierra           sI'e@r@
 signage          saInI2dZ
 signal           sIgn@l        // signaled
 signer           saIn3
+signup           saInVp
 sikh             si:k
 silhouette       sI2lUw'Et
 silo             saIloU
@@ -2032,6 +2058,7 @@ sync             sINk
 synthesis        sInT@sIs      $only
 synthesise       sInT@saIz
 
+tableau          tabloU
 tablet           tabl@t
 taboo             $2
 tabu             tabu:
@@ -2235,6 +2262,7 @@ writable         raIt@b@L
 writh            raID
 wrongdoing       r0Ndu:I2N
 wuss             wUs
+wysiwyg          wIzi:wIg
 
 xmas             Eksma2s
 
@@ -2309,6 +2337,7 @@ Algiers		$2
 Amman		a2m'A:n
 Andes		andi:z
 Angeles		andZ@li:z
+Angolan		aNg'oUl@n
 Antarctica	$2
 Antigua		ant'i:g@
 Antilles	ant'Ili:z
@@ -2317,11 +2346,12 @@ Armageddon	A@ma2g'Ed@n
 Arkansas	A@k@nsO:
 Athens		aTI2nz
 Bahrain		$2
-Belgrade	$2
-Barents		bar@nt|s
 Bangledesh	baNgl@d'ES
+Barbados	bA@'beId0s
+Barents		bar@nt|s
 Beijing		$2
 Beirut		beIr'u:t
+Belgrade	$2
 Belize		bEl'i:z
 Bengal		b,Eng'O:l
 Benin		bEnIn
@@ -2342,6 +2372,7 @@ Canberra	kanb@r@
 Carolina	kar@l'aIn@
 Caribbean	kar@b'i@n
 Ceylon		$2
+Cheyenne	SaI'an
 Chile		tSIlI
 Cologne		k@loUn
 Columbus	$2
@@ -2462,7 +2493,6 @@ Suriname	sU@rIn'am
 Taipei		t,aIp'eI
 Taiwan		taI'wan
 (tel aviv)	t,El||a2v'i:v
-Tibet		tI2b'Et
 Toronto		t@r0ntoU
 Timor		ti:mo@
 Tokyo		toUkIoU
@@ -2484,6 +2514,7 @@ zaire		zaI'i@3
 zimbabwe	zI2mbA:bwI
 zimbabwean	zI2mbA:bwI@n
 
+Aaliyah		@li:@
 Aaron		e@r@n
 Abe		eIb
 Abu		abu:
@@ -2491,6 +2522,7 @@ Abraham		eIbr@ham
 Ada		eId@  $onlys
 Adrian		eIdri@n
 Agnes		agn@s
+Aguilera	agi:l'e@r@
 Ahab		eIhab
 Ahmed		axmEd
 Alan		al@n
@@ -2505,20 +2537,30 @@ Amy		eImI
 Andre		0ndreI
 Anthony		ant@nI
 Anton		ant0n
+Aoife		i:f@
+Archibald	A@tSIbO:ld
+Archie		A@tSI
 Ares		e@ri:z
 Astley		astlI
+Baez		baI'Ez
+Bambi		bambi:
 Barack		ba2rA:k
 Barbara		bA@b@r@
 Boris		b0rIs
 Brien		braI@n
+Candace		kandIs
 Carol		kar@l
 Calliope	ka2laI@pI
 Cassandra	k@sandr@
 Cassey		keIsI
 Catherine	kaTrI2n
 Cecile		sEsi:l
+Cher		Se@
+Cheri		Se@r'i:
+Cherie		Se@r'i:
 Chloe		kloUI
 Chris		krIs
+Connie		k0nI
 Connor		k0n3
 Daphne		dafnI
 Darryl		dar@L
@@ -2529,17 +2571,22 @@ Denise		d@ni:s
 Derek		dErIk
 Dinah		daIn@
 Dominic		d0mI2nIk
+Donaghy		d0n'hi:
 Doris		d0rIs
 Dougall		du:g@L
 Dylan		dIl@n
 Edith		i:dIT
 Elizabeth	I2lIz@b@T
 Emma		Em@
+Emmy		EmI
+Etheridge	ET@-rIdZ
+Euler		OIl3
 Evan		Ev@n
 Gary		garI
 Geraint		gEraInt
 Gibbs		gIbz
 Giles		gaIlz
+Gillian		dZIli:@n
 Gladys		gladIs
 Glynn		glIn
 Graeme		greI@m
@@ -2556,11 +2603,13 @@ Imogen		Im@dZ@n
 Irene		aIri:n
 Isaac		aIs@k
 Isabel		Iz@bEl
+Isla		aIl@
 Isiah		aIz'aI@
 Ivan		aIv@n
 Jacob		dZeIk@b
-Jamie		dZeImI
 Jacques		Zak
+Jamie		dZeImI
+Jared		dZarEd
 Jesus		dZi:z@s
 Jonah		dZoUn@
 José		hoUs'eI
@@ -2574,12 +2623,14 @@ Katie		keItI
 Kieran		ki@r@n
 Laurence	l0r@ns
 Lawrence	l0r@ns
+Leanne		li:'an
 Lenore		lEn'o@
 Leroy		li:rOI
 Liam		li:@m
 Louis		lu:I
 Louise		lu:w'i:z
 Madeline	mad@lI2n
+Maeve		meIv
 Mahmoud		maxm'u:d
 Malcolm		malk@m
 Maria		ma2ri:@
@@ -2595,6 +2646,7 @@ Michael		maIk@L
 Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
+Mildred		mIldrI2d
 Minerva		mI2n3:v@
 Mohamed		moUh'amI2d
 Mohammad	moUh'amI2d
@@ -2618,15 +2670,24 @@ Penelope	p@nEl@pI
 Phoebe		fi:bi:
 Rachel		reItS@L
 Raul		raU'u:l
+Reggie		rEdZI
+Reynold		rEn@Ld
 Rhys		ri:s
+Rihanna		rI'A:n@
 Roderick	r0drIk
+Rosario		roUz'A@rIoU
+Sabina		sa2bi:n@
+Sabine		sa2bi:n
 Samantha	s@manT@
+(Santa claus)	s'ant@||kl'O:z
+Saoirse		se@S@
 Sarah		se@r@
 Seamus		SeIm@s
 Sean		SO:n
 Sebastian	$2
 Sheila		Si:l@
 Sinead		SI2neId
+Siobhan		S@vO:n
 Sonia		s0nj@
 Sophie		soUfI
 Stephen		sti:v@n
@@ -2634,6 +2695,7 @@ Stewart		stju:3t
 ?3 Stewart	stu:3t
 Stuart		stju:3t
 ?3 Stuart	stu:3t
+Suzy		su:zI
 Theresa		t@ri:z@
 Thomas		t0m@s
 Tina		ti:n@
@@ -2650,6 +2712,8 @@ Campbell	kamb@l
 Cthulhu		k@-Tu:Lu:
 Chrysler	kraIzl3
 Disney		dIznI
+Dolce		d0ltSeI
+Hades		heIdi:z
 Patel		pa2tEl
 Primavera	pri:m@v'e@r@
 Prentice	prEntIs
@@ -3107,6 +3171,7 @@ like             laIk          $strend2
 ?3 err		e@
 ?3 fortune	fO@tS@n
 ?3 garage	ga2rA:Z
+?3 happy	hapi:
 ?3 herb		3:b
 ?3 hurricane	h3:@keIn
 ?3 investigative Inv,EstI2g'eItIv
