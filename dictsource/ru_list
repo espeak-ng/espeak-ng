@@ -63,6 +63,10 @@ _0M3	m;,IlI;'artof
 _dpt	_:'i_:        // start of decimal fraction
 _dpt2	_d;Is;'atYx   // end of decimal fraction
 
+// characters
+№	 номер	$text
+
+
 // prepositions
 в	v $u         // to,in,at
 от	  $u         // from

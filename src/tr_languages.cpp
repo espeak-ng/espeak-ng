@@ -573,7 +573,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1009 + 0xa000 + NUM_ROMAN + 0x10000;
+			tr->langopts.numbers = 0x1009 + 0xa000 + NUM_ROMAN + NUM_ROMAN_ORDINAL + NUM_ORDINAL_DOT + NUM_OMIT_1_HUNDRED;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
 SetLengthMods(tr,3);  // all equal
@@ -946,8 +946,13 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
-			tr->letter_bits_offset = OFFSET_TAMIL;
+			tr->langopts.numbers2 = NUM2_100000;
 
+			if(name2 == L('t','a'))
+			{
+				tr->letter_bits_offset = OFFSET_TAMIL;
+				tr->langopts.numbers = 0x1;
+			}
 			if(name2 == L('m','r'))
 			{
 				tr->letter_bits_offset = OFFSET_DEVANAGARI;
@@ -962,7 +967,6 @@ SetLengthMods(tr,3);  // all equal
 			{
 				tr->letter_bits_offset = OFFSET_KANNADA;
 				tr->langopts.numbers = 0x1;
-				tr->langopts.numbers2 = NUM2_100000;
 			}
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			SetIndicLetters(tr);   // call this after setting OFFSET_

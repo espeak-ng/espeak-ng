@@ -21,7 +21,7 @@
 ற்	iR
 ல்	il
 ள்	il.
-ழ்	iz
+ழ்	iz.
 வ்	iv
 ஶ்	iS
 ஷ்	is.
@@ -29,7 +29,10 @@
 ஹ்	iC
 U+b82	anUsvVRV
 ஃ	ah
-U+bcd	viRVmV
+U+bcd	ot.RU
+
+ஏ	je:
+
 
 // speak Latin letters as English
 a	e:j
@@ -51,7 +54,7 @@ p	pi:
 q	kju:
 r	a:R
 s	Es
-t	ti:
+t	thi:
 u	ju:
 v	vi:
 w	dVbVlju:
@@ -65,23 +68,91 @@ _cap	kapit.Vl    // English
 _.	pul.l.i
 _,	kVma:
 _;	ka:RbUl.l.,i
-_:	arE:pp,Ul.l.V
+_:	araIpp,Ul.l.V
 _?	ke:l.vikk,URi
 _!	a:ctS:Vr,ijVkk,URi
-%	sadVv,igid,Vm
+%	 விழுக்காடு  $text
 =	samVm
 U+bf9	ru:ba:j
 
+// abbreviations
+ரூ	ru:ba:j   $dot
+Rs	ru:ba:j   $dot
 
 // numbers
-_0	pu:dZjam_   // ??
-_1	ondru_
-_2	irandu_
-_3	mo:ndru_
-_4	na:ngu_
-_5	aintu_
-_6	a:ru_
-_7	E:lu_	// aylu ??
-_8	et.:u_
-_9	onpatu_
-_10	pat:u_
+_0	suz.ijVm    // சுழியம்
+_1	onRU
+_2	irVn.d.U
+_3	mu:nRU
+_4	na:ngU
+_5	aIndU
+_6	a:RU
+_7	;e:lU
+_8	;et.t.U
+_9	onbVd.U
+_10	pattU
+_1X	padin
+_11	patinonRU
+_12	pVnniren.d.U
+_19	pattonbVdU
+
+_20	irUbVdU
+_30	muppVdU	// முப்பது
+_40	na:RpVdU
+_50	aImbVdU
+_60	aRUbVdU
+_70	;ez.UbVdU
+_80	;en.bVdU
+_90	ton.n.u:RU
+
+_2X	irUbVttU
+_3X	muppVttU
+_4X	na:RpVttU
+_5X	aImbVttU
+_6X	aRUbVttU
+_7X	;ez.UbVttU
+_8X	;en.bVttU
+_9X	ton.n.u:t.t.RU
+
+_1C0	nu:RU
+_2C0	irUnu:RU
+_3C0	munnu:RU
+_4C0	na:nu:RU
+_5C0	aInu:RU
+_6C0	aRUnu:RU
+_7C0	;ez.Unu:RU
+_8C0	;en.n.u:RU
+_9C0	tol.l.a:jirVm
+
+_1C	nu:t.t.Ri
+_2C	irUnu:t.t.Ri
+_3C	munnu:t.t.Ri
+_4C	na:nu:t.t.Ri
+_5C	aInu:t.t.Ri
+_6C	aRUnu:t.t.Ri
+_7C	;ez.Unu:t.t.Ri
+_8C	;en.n.u:t.t.Ri
+_9C	tol.l.a:jirVttU
+
+_0M1x	a:jirVm
+_1M1x	a:jirVm
+_0M1	a:jirVttU
+_1M1	a:jirVttU
+
+_0M2x	lVd.tSVm
+_1M2x	orUlVd.tSVm
+_0M2	lVd.tSVttU
+_1M2	orUlVd.tSVttU
+
+_0M3x	ko:d.i
+_1M3x	orUko:d.i
+_0M3	ko:d.ie:
+_1M3	orUko:d.ie:
+
+_0M4	nu:RUko:d.i   // not correct, but should be understandable
+_1M4	nu:RUko:d.i
+_0M5	patta:jiRUmko:d.i
+_1M5	patta:jiRUmko:d.i
+	
+
+_dpt	_pul.l.i

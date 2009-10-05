@@ -130,6 +130,8 @@ fordi	fVdi		$pause	// because
 når	nVr		$pause	// while
 som		$u+ $pause   // who (relative)
 der	dA	$u+ $pause
+hvor	v'Vr	// where
+hvorfor	vVf'Vr	// why
 
 // prepositions
 på		pO	$u+
@@ -141,7 +143,7 @@ med			$u+	// with
 af	a?			$u+	// of
 at		at $u+	// to
 hos			$u+	// at
-
+som	$u	sVm	// which / that 
 
 
 // pronouns
@@ -169,17 +171,17 @@ disse	$u+	// these
 // possessive pronouns
 Min	min	$u
 Mit	mit	$u
-Mine	min@	$u
-din	di?n
-dit	di?t	$u
-dine	$u
+Mine	m'in@	
+din	d'in
+dit	d'it	$u
+dine	d'ine
 deres	$u
 hans	$u
 hendes	$u
 dens	$u
 dets	$u
-sin	si?n
-sit	si?t	$u
+sin	s'in
+sit	s'it	$u
 sine	$u
 vor	$u
 vort	$u
@@ -230,10 +232,11 @@ z	sEt
 egen a:j@n
 eget	a:j@D
 egne	a:in@
-igen	igen
 enter	entV
-også	Vs@
-sig	sAi	// oneself
-sagde	sa@	// said
+igen	igen
 Ny	ny	// new
+også	Vs@	// also
+havde	h'aD@ // had
+sagde	sa@	// said
+sig	sAi	// oneself
 

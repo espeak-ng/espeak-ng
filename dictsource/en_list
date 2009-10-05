@@ -218,6 +218,7 @@ _₠	jU@roU
 √	skw,e@r'u:t
 ∞	Inf'InI2tI2
 ≠	n0t'i:kw@LtU
+№	nju:m@roU
 
 ß	S,A@p'Es
 ə	SwA:
@@ -261,6 +262,7 @@ U+32f	n,0nsI2l'abI2k
 
 // numeric
 
+//_0    zero $text  // TEST
 _0	z'i@roU
 _1	w'0n
 ?6 _1	w'Vn
@@ -575,6 +577,7 @@ anxious          aNS@s
 anymore           $3
 anything         EnI2TIN
 apache           a2patSI
+apostle          a2p0s@L
 apron            eIpr@n
 appal            a2pO:l
 apparatus        ap@r'eIt@s
@@ -684,6 +687,7 @@ boing            bOIN
 bombard          $2
 bonbon           b0nb0n
 bonhomie         b0n@mi:
+bonjour          bO:nZ'U@
 boogie           b'u:gI
 bosom            bUz@m
 bosun            boUs@n
@@ -978,6 +982,7 @@ divan            dI2van
 doable           du:@b@L
 doctrine         d0ktrI2n
 doctrinal        d0ktr'aIn@L
+doer             du:3
 dogged           d0gI2d
 domino            $1
 donor            doUn3
@@ -1348,6 +1353,7 @@ kiosk            ki:0sk
 kiwi             ki:wi:
 knavish          neIvIS
 koala            koU'A:l@
+koan             koUA:n
 kopje            k0pI 
 kosher           koUS3
 
@@ -1391,9 +1397,11 @@ limousine        lIm@zi:n
 lingerie         l0nZ@rI
 linen            lInI2n
 liqueur          lI2kjU@
+liter            li:t3
 literature       lItrI2tS3
 live             laIv          $onlys
 live             lIv           $verb
+livecd           l'aIvsi:d'i:
 livestock        l'aIvst,0k
 lively           laIvlI
 llama            lA:m@
@@ -1572,6 +1580,7 @@ offer            0f3
 offers           0f3z
 ogre             oUg3
 okay             oUk'eI
+oled             oUlEd     // abbrev
 omeg             oUm'eIg@
 omelet           0ml@t
 omelette         0ml@t
@@ -1674,6 +1683,7 @@ pier             pi@3
 pigsty           pIgstaI
 pilot            paIl@t
 pineapple        p'aInap@L
+pinged           pINd
 pint             paInt
 pioneer          paI@n'i@3
 pious            paI@s
@@ -2209,6 +2219,7 @@ vex              vEks        // for vexed
 vicar            vIk3
 vigilante        vIdZI2l'antI2
 villi            vIlaI
+vineyard         vInj3d
 vinyl            vaInI2l
 violin                         $2
 virus            vaI@r@s
@@ -2449,6 +2460,7 @@ Nauru		naUru:
 Nebraska	$2
 Nepal		nEp'O:l
 ?3 Nevada	nI2vad@
+Newfoundland	nju:f@ndla2nd
 Noumea		nu:m'eI@
 Oahu		oU'A:hu:
 Ohio		oUh'aIoU
@@ -2676,6 +2688,7 @@ Rhys		ri:s
 Rihanna		rI'A:n@
 Roderick	r0drIk
 Rosario		roUz'A@rIoU
+Russell		rVs@L
 Sabina		sa2bi:n@
 Sabine		sa2bi:n
 Samantha	s@manT@
@@ -2709,10 +2722,12 @@ Zoe		zoUI
 Andromeda	andr'0mId@
 Buchanan	bju:k'an@n
 Campbell	kamb@l
+Carnegie	kA@nEgI
 Cthulhu		k@-Tu:Lu:
 Chrysler	kraIzl3
 Disney		dIznI
 Dolce		d0ltSeI
+Dvorak		d@-vo@Zak
 Hades		heIdi:z
 Patel		pa2tEl
 Primavera	pri:m@v'e@r@
@@ -3182,6 +3197,7 @@ like             laIk          $strend2
 ?3 pasta	pA:st@
 ?3 patent	pat@nt
 ?3 privacy      praIv@sI
+?3 respite	rEspI2t
 ?3 semi		sEmaI
 ?3 status	stat@s
 ?3 template	tEmpl@t

@@ -40,6 +40,8 @@ int HashDictionary(const char *string);
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
 
+extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
+
 static int linenum;
 static int error_count;
 static int transpose_offset;  // transpose character range for LookupDictList()
@@ -219,6 +221,9 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	char encoded_ph[200];
 	unsigned char bad_phoneme[4];
 static char nullstring[] = {0};
+
+	WORD_TAB winfo;
+	char decoded_phonemes[128];
 
 	comment = NULL;
 	text_not_phonemes = 0;
@@ -434,6 +439,14 @@ step=1;  // TEST
 
 	if(text_not_phonemes)
 	{
+		if(word[0] == '_')
+		{
+			// This is a special word, used by eSpeak.  Translate this into phonemes now
+//			memset(&winfo,0,sizeof(winfo));
+//			TranslateWord(translator,phonetic,0,&winfo);    // but *_dict is not loaded ?
+//			DecodePhonemes(word_phonemes,decoded_phonemes);
+//printf("Translator %x  %s  [%s] [%s]\n",translator->translator_name,word,phonetic,decoded_phonemes);
+		}
 		// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
 		strncpy0(encoded_ph,phonetic,N_WORD_BYTES-4);
 	}

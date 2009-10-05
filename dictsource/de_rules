@@ -324,9 +324,9 @@
           &) eren (_S4    @*@n
           &) erer (_S4    @*3
           &) eres (_S4    @*@s
-          &) er (C_       @*
+          &) er (C_       @:*
              er (d_       e:*
-          &) er (n_       @*
+          &) er (n_       @:*
           &) er (r_       E
           w) er (k_       E*
           &) er (nd_      @*
@@ -569,7 +569,10 @@
           _) inter        Int@*
           &) in (_        i2n
           l) in (_        'i:n
+          m) in (_        'i:n
           s) in (_        'i:n
+          z) in (_        'i:n
+          @) in (o_       'i:n
           @) ion (_       j'o:n
           @) io (n        Io:
              io           Io:
@@ -593,6 +596,7 @@
 
           &) ie (ll_      I'E
           &) ie (r_       'i:
+             ie (rs@       'i:
           u) ie (r_       _|'i:
           &) ie (rlich    'i:
        bank) ie (r        I'e:
@@ -633,6 +637,7 @@
         fol) ie (_        =I@
      formal) ie           =I@
        stud) ie (_        =I@
+         in) ie (_        I@
 
 
 .group j
@@ -1016,7 +1021,9 @@
           _) vi           vi:
 
           _) v            v
-          _) v (ater      f
+             vater        fA:t3
+             väter        fE:t3
+          _) v (ät        f
           _) v (ie        f
           _) v (iet       v
           _) v (iz        f
@@ -1028,6 +1035,7 @@
           _) vehe         ve:he:
           _) ver (@P3     f%E*
           _) ver (bal     v%E*
+          _) ver (sion    vE*
           _) ver (tik     vE*
           @) versich      fE*z,IC
           @) vergess      fE*g,Es

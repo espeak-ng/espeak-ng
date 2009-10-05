@@ -101,6 +101,7 @@
 
 #define FLAG_NO_TRACE      0x10000   // passed to TranslateRules() to suppress dictionary lookup printout
 #define FLAG_NO_PREFIX     0x20000
+#define FLAG_ORDINAL       0x40000   // passed to TranslateNumber() to indicate an ordinal number
 
 // prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added
@@ -327,11 +328,15 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
+#define NUM_OMIT_1_HUNDRED 0x400
+#define NUM_19_HUNDRED   0x800
+#define NUM_ORDINAL_DOT  0x10000
 #define NUM_ROMAN        0x20000
 #define NUM_ROMAN_UC     0x40000
 #define NUM_NOPAUSE      0x80000
-#define NUM_ROMAN_AFTER 0x200000
-#define NUM_VIGESIMAL   0x400000
+#define NUM_ROMAN_AFTER  0x200000
+#define NUM_VIGESIMAL    0x400000
+#define NUM_ROMAN_ORDINAL 0x800000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -353,6 +358,7 @@ typedef struct {
 	// bit20='and' before hundreds
 	// bit21= say "roman" after the number, not before
 	// bit22= vigesimal number, if tens are not found
+	// bit23=Roman numbers are ordinal numbers
 	int numbers;
 
 #define NUM2_100000     0x800   // numbers for 100,000 and 10,000,000

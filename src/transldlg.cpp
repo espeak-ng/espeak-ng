@@ -277,14 +277,38 @@ void MakeWave2(PHONEME_LIST *p, int n_phonemes)
 TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 {//=====================================================
 
+	int height;
+	int width;
+	int x,y;
+	int height_ph = 350;
+
+	wxTextAttr attr;
+	wxFont font = wxFont(12,wxFONTFAMILY_ROMAN,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_LIGHT,false,_T(""),wxFONTENCODING_SYSTEM);
+
+	attr.SetFont(font);
+
+	wxClientDisplayRect(&x,&y,&width, &height);
+#ifdef PLATFORM_WINDOWS
+	if(height <= 768)
+		height_ph = height - 416;
+#else
+	if(height <= 800)
+		height_ph = 280;
+#endif
+
+
 	t_source = new wxTextCtrl(this,T_SOURCE,_T(""),wxPoint(0,4),
 		wxSize(298,250),wxTE_MULTILINE);
-	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
-		wxSize(298,350),wxTE_MULTILINE);
+	t_source->SetDefaultStyle(attr);
 
-	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,620));
-	t_translate = new wxButton(this,T_RULES,_T("Show Rules"),wxPoint(4,652));
-	t_process = new wxButton(this,T_PROCESS,_T("Speak"),wxPoint(100,620));
+
+	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
+		wxSize(298,height_ph),wxTE_MULTILINE | wxTE_READONLY);
+
+	y = height_ph + 270;
+	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,y));
+	t_translate = new wxButton(this,T_RULES,_T("Show Rules"),wxPoint(4,y+32));
+	t_process = new wxButton(this,T_PROCESS,_T("Speak"),wxPoint(100,y));
 
 	t_source->SetFocus();
 }  // end of TransDlg::TransDlg

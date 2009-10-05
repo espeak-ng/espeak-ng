@@ -306,7 +306,11 @@ int wave_close(void* theHandler)
 int wave_is_busy(void* theHandler)
 {
    uint32_t time;
-   wave_get_remaining_time(total_samples_sent - 1, &time);
+   if (total_samples_sent >= 1) {
+       wave_get_remaining_time(total_samples_sent - 1, &time);
+   } else {
+       time = 0;
+   }
    return time != 0;
 }
 

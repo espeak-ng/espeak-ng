@@ -28,6 +28,8 @@
 #include "wx/mdi.h"
 #include "wx/laywin.h"
 #include "wx/sashwin.h"
+#include "wx/utils.h"
+#include "wx/html/htmlwin.h"
 #include <locale.h>
 
 #include "speak_lib.h"
@@ -42,12 +44,17 @@
 #include "prosodydisplay.h"
 
 
+#ifdef deleted
 static const char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2007\n\n"
 "Licensed under GNU General Public License version 3\n"
 "http://espeak.sourceforge.net/";
+#endif
 
+static const char *about_string = "<font size=0><b>espeakedit </b> %s<br>Author: Jonathan Duddington (c) 2007<br>"
+"<a href=\"http://espeak.sourceforge.net/\">http://espeak.sourceforge.net</a><br>"
+"Licensed under <a href=\"http://espeak.sourceforge.net/license.html\">GNU General Public License version 3</a></font>";
 
-const char *path_data = "/home/jsd1/speechdata/phsource";
+const char *path_data;
 
 extern void TestTest(int control);
 extern void CompareLexicon(int);
@@ -85,8 +92,6 @@ wxFont FONT_NORMAL(10,wxSWISS,wxNORMAL,wxNORMAL);
 IMPLEMENT_APP(MyApp)
 
 wxString AppName = _T("espeakedit");
-
-
 
 
 
@@ -164,6 +169,7 @@ extern void VoiceReset(int control);
 
   myframe->CreateStatusBar();
 
+  myframe->Maximize();
   myframe->Show(TRUE);
 
   SetTopWindow(myframe);
@@ -175,6 +181,7 @@ extern void VoiceReset(int control);
 BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_CHAR(MyFrame::OnKey)
    EVT_MENU(MENU_ABOUT, MyFrame::OnAbout)
+	EVT_MENU(MENU_DOCS, MyFrame::OnAbout)
    EVT_MENU(MENU_SPECTRUM, MyFrame::OnNewWindow)
    EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
    EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
@@ -258,9 +265,9 @@ wxSashLayoutWindow *win;
 	if((result = LoadPhData()) != 1)
 	{
 		if(result == -1)
-			wxLogError(_T("Failed to load phoneme data,\nneeds espeak-data/phontab,phondata,phonindex\nPath = ")+wxString(path_home,wxConvLocal));
+			wxLogError(_T("Failed to read espeak-data/phontab,phondata,phonindex\nPath = ")+wxString(path_home,wxConvLocal)+_T("\n\nThe 'eSpeak' package needs to be installed"));
 		else
-			wxLogError(_T("Wrong version of espeak-data: 0x%x (expects 0x%x)"),result,version_phdata);
+			wxLogError(_T("Wrong version of espeak-data at:\n")+ wxString(path_home,wxConvLocal)+_T("\nVersion 0x%x (expects 0x%x)"),result,version_phdata);
 
 		error_flag = 1;
 	}
@@ -349,13 +356,113 @@ void MyFrame::OnQuit(wxCommandEvent& event)
 }
 
 
-void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
-{//===================================================
+#ifdef deleted
+void MyFrame::OnAbout(wxCommandEvent& event)
+{//=========================================
+	int result;
 	char buf[300];
+	wxString url_docs;
 
-	sprintf(buf,about_string,espeak_Info(NULL));
-	(void)wxMessageBox(wxString(buf,wxConvLocal), _T("About eSpeak Editor"));
+	switch(event.GetId())
+	{
+	case MENU_ABOUT:
+		sprintf(buf,about_string,espeak_Info(NULL));
+		(void)wxMessageBox(wxString(buf,wxConvLocal), _T("About eSpeak Editor"));
+		break;
+
+	case MENU_DOCS:
+		sprintf(buf,"%s/docs/docindex.html",path_home);
+		url_docs = wxString(buf,wxConvLocal);
+		result = wxLaunchDefaultBrowser(url_docs);
+		if(result == 0)
+			wxLogStatus(_T("Failed to launch browser"));
+		break;
+	}
 }
+#endif
+
+
+class HtmlWindow: public wxHtmlWindow
+{
+	public:
+
+	HtmlWindow(wxWindow *parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style);
+	void OnLinkClicked(const wxHtmlLinkInfo& link);
+};
+
+HtmlWindow::HtmlWindow(wxWindow *parent, wxWindowID id, const wxPoint& pos, const wxSize& size, long style):
+	wxHtmlWindow(parent, id, pos, size, style)
+{
+}
+
+void HtmlWindow::OnLinkClicked(const wxHtmlLinkInfo& link)
+{
+	if(wxLaunchDefaultBrowser(link.GetHref()) == FALSE)
+		wxLogStatus(_T("Failed to launch default browser: "+link.GetHref()));
+}
+
+
+void MyFrame::OnAbout(wxCommandEvent& event)
+{//=========================================
+	int result;
+	char buf[300];
+	wxString url_docs;
+
+	wxBoxSizer *topsizer;
+	HtmlWindow *html;
+	wxDialog dlg(this, wxID_ANY, wxString(_("About")));
+
+	topsizer = new wxBoxSizer(wxVERTICAL);
+
+	switch(event.GetId())
+	{
+	case MENU_ABOUT:
+		{
+		sprintf(buf,about_string,espeak_Info(NULL));
+		html = new HtmlWindow(&dlg, wxID_ANY, wxDefaultPosition, wxSize(380, 160), wxHW_SCROLLBAR_NEVER);
+		html -> SetBorders(0);
+		html -> SetPage(wxString(buf,wxConvLocal));
+		html -> SetSize(html -> GetInternalRepresentation() -> GetWidth(),
+								html -> GetInternalRepresentation() -> GetHeight());
+
+		topsizer -> Add(html, 1, wxALL, 10);
+
+//#if wxUSE_STATLINE
+//		topsizer -> Add(new wxStaticLine(&dlg, wxID_ANY), 0, wxEXPAND | wxLEFT | wxRIGHT, 10);
+//#endif // wxUSE_STATLINE
+
+		wxButton *bu1 = new wxButton(&dlg, wxID_OK, _("OK"));
+		bu1 -> SetDefault();
+
+		topsizer -> Add(bu1, 0, wxALL | wxALIGN_RIGHT, 15);
+
+		dlg.SetSizer(topsizer);
+		topsizer -> Fit(&dlg);
+
+		dlg.ShowModal();
+		}
+		break;
+
+	case MENU_DOCS:
+		strcpy(buf,"/docs/docindex.html");
+		url_docs = wxGetCwd() +  wxString(buf,wxConvLocal);  // look for "docs" in the current directory
+		if(!wxFileExists(url_docs))
+		{
+			strcpy(buf,"http://espeak.sourceforge.net/docindex.html");
+			url_docs = wxString(buf,wxConvLocal);
+		}
+		else
+		{
+			url_docs = _T("file://") + url_docs;
+		}
+
+		result = wxLaunchDefaultBrowser(url_docs);
+		if(result == 0)
+			wxLogStatus(_T("Failed to launch default browser: "+url_docs));
+		break;
+	}
+}
+
 
 
 void OnOptions2(int event_id)

@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-07-3128 Michel Such  <michel.such@free.fr>
+// Updated 2009-09-28 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -83,8 +83,8 @@ z	zEd
 
 // accent names
 _lig	ligat'yr
-_acu	aksA~tEg'y
-_ac2	dublaksA~tEg'y
+_acu	aksA~tE2g'y
+_ac2	dublaksA~tE2g'y
 _brv	br'Ev
 _ced	sed'ij
 _cir	aksA~sirkO~fl'Eks
@@ -104,29 +104,29 @@ _cap	maZysk'yl
 _?A	l'Etr
 _??	sE~b'Oll
 _#9	tabylasiO~
-_#32	Espas
+_#32	E2spas
 
 
-_"   gijmE
+_"   gijmE2
 _#   djEz
 _'   apostr'Of
 
 _(   'uvr@-parA~t'Ez
 _)   f'Erm parA~t'Ez
 _,   virgyl
-_-   tirE
+_-   tirE2
 _.   _|pw%E~
-_/   bar||oblik
+_/   bar||o2blik
 _:   d'Y||pw'E~
 _;   pwE~||virg'yl
 _<   E~feri-Wr
 _=   egal
 _>   syperi-Wr
-_?   pwE~||dE~terogasj'O~
+_?   pwE~||dE~tE2rogasj'O~
 _!	pwE~||dEksklamasj'O~
-_[   uvr@-_kroSE
+_[   uvr@-_kroSE2
 _\   b'aksl'aS
-_]   f'Erm_kroS'E
+_]   f'Erm_kroS'E2
 _^   sirkOnflEks
 __   sulin^e
 _`   aks'A~_gr'av
@@ -134,8 +134,8 @@ _{   uvr_akOlad
 _|   bar_vErtik'al
 _}   f'Erm_akOl'ad
 ²    pw^is'A~s||d'Y
-_«	uvre||gijm'E
-_»	fErme||gijm'E
+_«	uvre||gijm'E2
+_»	fErme||gijm'E2
 _’	apostr'Of
 _‘	apostr'Of
 _µ	mikr'o
@@ -144,8 +144,8 @@ _§	sEksj'O~
 // symbols that are normally spoken when reading text
 @	_!arobaz
 %	pursA~		$max3
-&	_|e $u
-_&	_e_komErsi'al
+&	e $u $brk
+_&	_e_komErsi-'al
 *	asterisk:	$max3
 +	plys		$max3
 ~	tilde
@@ -233,6 +233,7 @@ _dpt	virgyl
 
 abc		$abbrev
 ac		$abbrev
+acrobat	acrobate $text
 adn		adeEn
 adsl		adeEsEl
 alt	_::alt
@@ -248,30 +249,32 @@ cci              $abbrev
 cia		$abbrev
 cio		$abbrev
 cm		centimètre $text
+collins	kolins
 cpu	$abbrev
 ctrl		_::kO~tro2l
-dept		depart@-mA~
+dept		depart@mA~
 divx	diviks
 ebay	_^_en
 (e bay)	ebay $text
 edf		@deEf
-etc		Etsetera
+etc		E2tsetera
 ghz		ZigaErts
+(g hz)		ZigaErts
 hmm		h@m
 (http ://)	aSt,et,ep'e_
 hz		_|Erts
 ibm		ibeEm
 ide		$abbrev
 ip		ipe
-irc	i:_|Er:se
-jaws		_^_en
+irc	i:_!Er_!se
+jaws		dZo3:z
 kbit	kilobit
 kde		$abbrev
-kg		kilogram
+kg		kilogramme $text
 khz		kiloErts
 km		kilomètre $text
-(km player)	ka,EmplEj'Wr
-(kmplayer)	ka,EmplEj'Wr
+(km player)	ka,EmplE2j'Wr
+(kmplayer)	ka,EmplE2j'Wr
 kw		kilowatt $text
 m.		m@siY
 mbit  		megabit
@@ -283,32 +286,35 @@ mm	millimètre $text
 mme		madame $text
 mn	minyt
 mns	minytz2
-(mp 3)	_|Empetrwa
+(mp 3)	_!EmpetrwA
 mr		m@siY
 nsi             $abbrev
 nsis             $abbrev
 nti             $abbrev
 nvda             $abbrev
 ocr             oseEr
-oem	$abbrev
+oem	_!,o_!,@_!'Em
 ogm	oZeEm
 ong             oEnZe
 pci             $abbrev
+pcmcia	$abbrev
 pda             $abbrev
 philips	filips
 p.s		pOstskriptOm
 qq	quelque $text
 qqs	quelques $text
 ratp		$abbrev
-riscos	rIskoEs
+riaa	$abbrev
+riscos	RiskoEs
 sap	$abbrev
 scsi		$abbrev
-s.t.p		silt@:pl'E
-s.v.p		silvu:pl'E
+sos	$abbrev
+s.t.p		silt@:pl'E2
+s.v.p		silvu:pl'E2
 st		s'E~t2
 ste		s'E~t
-stp		silt@:pl'E
-svp		silvu:pl'E
+stp		silt@:pl'E2
+svp		silvu:pl'E2
 tva	$abbrev
 uk	$abbrev
 ups	ypeEs
@@ -317,8 +323,10 @@ usb		y:Esbe
 utc     $abbrev
 utf		$abbrev
 u.s	y:Es
+virgin	virZin
 vip	v,i||,aj||p'i
 (web visum)	webvisum $text
+windows	windo3z
 wma		$abbrev
 xfce		iksEfse@
 xy		$abbrev
@@ -327,8 +335,6 @@ xy		$abbrev
 dr               dOktWr       $dot $capital
 prof                           $dot
 pr		professeur $text *dot $capital
-
-
 
 
 // articles
@@ -345,15 +351,16 @@ une	$nounf $u+
 
 // conjonctions
 mais	$u+
-ou	_|u $u
+ou	u $u $brk
 eh	 $u $brk
-et	_|e $u
+en	$u
+et	e $u $brk
 ni	$u
 car	$u
 car	$noun
-cependant
 néanmoins  $u+
 toutefois  $u+
+afin	afE~ $u+ $brk
 avant $u+
 après  $u+
 (temps en temps)	tA~zA~tA~
@@ -365,9 +372,9 @@ aussi $u+
 
 certes	$u+
 dont	   dO~t2 $u
-lorsque	   lO2rsk@ $u+
-puisque	   pw^isk@ $u+
-presque	   $u+
+lorsque	   lOrsk=@ $u+
+puisque	   pw^isk=@ $u+
+presque	   prEsk=@ $u+
 que	  $u+
 (parce que) 	   parsk@ $u+
 (parce qu'il) 	   parskil $u+
@@ -387,7 +394,7 @@ je	$u $verbf
 tu	$u+ $verbf
 il 	$u+ $verbf
 elle	$u+ $verbf
-y	$u $verbf
+y	$u+ $verbf
 nous	$u+ $verbf
 vous	$u+ $verbf
 elles	$u+ $verbf
@@ -475,14 +482,14 @@ contre	$u+
 chaque	$u+
 plusieurs $u+
 durant	$u+
-avec	$u+
+avec	$u+ $brk
 sans	$u+
 trop	trop2 $u+
 assez	$u+
 beaucoup	bokup2 $u+
 peu	$u+
-très	$u+
-près	$u+
+très	trEz2 $u+
+près	prEz2 $u+
 loin	$u+
 
 // negative
@@ -508,8 +515,8 @@ pourtant	$u+
 
 // auxillary verbs  (be, have, can, etc)
 suis		 $u+ $verb
-es		Ez2  $u+
-est	Et2 $u+
+es		E2z2  $u+
+est	E2t2 $u+
 sommes	$u+ $verb
 êtes	$u+ $verb
 sont	$u+ $verb
@@ -525,7 +532,7 @@ sois	$u+	$verb
 soit	$u+
 
 ai	$u+	$verb
-(ai je)	EZ=@-	$u+
+(ai je)	E2Z	$u+
 as	as
 as	az2	$u+	$verb
 (as tu)	aty
@@ -559,8 +566,8 @@ d'est	d'Est
 quel	$u+
 quelle	$u+
 quelles	$u+
-quelque	$u+
-quelques	$u+
+quelque	kElk=@ $u+
+quelques	kElk=@z2 $u+
 tel	$u+
 telle	$u+
 telles	$u+
@@ -568,7 +575,7 @@ tout	t'ut2 $u+
 toute	t'ut $u+
 toutes	t'utz2 $u+
 tous	 $u+
-rien	ri-'E~n2	$u+
+rien	Ri-'E~n2	$u+
 
 // Letters which can be words
 //===========================
@@ -588,8 +595,8 @@ dessous          d@su
 hareng          _!arA~
 pastis     pastis
 poing     pwE~
-ressent          r@s'A~t2
-riz       ri
+ressent          R@s'A~t2
+riz       Ri
 sphincter           sfE~ktEr
 sous	$u+
 sur	$u+
@@ -604,13 +611,13 @@ tunis           tynis
 (1 ers)	pr@mjez2
 (1 ère)	pr@mjEr
 (1 ères)	pr@mjErz2
-(1 èrement)	pr@mjEr@-mA~
+(1 èrement)	pr@mjErmA~
 
 
 monsieur         m@sjY
 messieurs         mesjYz2
 montréal         mO~real
-(n'est ce pas)   n'Es@-||p'az2
+(n'est ce pas)   n'Es||p'az2
 (qu'est ce que)  kEsk@ $u
 absent        absA~
 adam	adA~
@@ -620,12 +627,16 @@ adsltv	adeEs'El||tev'e
 airbus	      airbuss $text
 alan	alan
 albinos	albinoss $text
+alleluia alelui'a
+anis	anis
 arte	arte
 auvent     ovA~
 beta	beta
 bien	      bi-E~n2 $u+
 bis	      bis
 bissus    bisys
+blues	_^_en
+broglie	breuil $text
 buffer	bWfWr
 bus	      bys
 bus	      by  $verb
@@ -636,22 +647,29 @@ canyon	kanjO2n
 choeur        kWr
 cocus     koky
 couscous	kuskus
+delete	_^_en
 dernier    dErnjer2
-éloquent     ElokA~t2
+éloquent     elokA~t2
 enfer	A~fEr
 faut	fot2 $u+
 fier	      fjer $verb
+francis	franciss $text
 fred	frEd
 free	fri:
 fuel	      fjul
+gangster	gA~gstEr
 gars	      ga
 gin	dZin
+granit	granitt $text
 gulf	gWlf
+gus	gys
 gym	Zim
 hélas 		elas $u+
-iris	      iris
+karaoke	karaoke
 laser	      lazEr
+listbox	listbO2ks
 malus      malys
+mai	mE2
 mailto	mEjltu_
 mapper	_^_en
 mars	      mars
@@ -660,19 +678,26 @@ mieux	mi-Y $u+
 mrs	_^_en
 ours	urs
 pataquès	patakEs
+peter	pi:tWr
 phallus    falys
 polder    pOldEr
 premier    pr@mjer2
 program	_^_en
 (program files)	program||fajlz
+query	kueri
+queries	kueri
 quit	_^_en
 recorder	ricordeur $text
+requiem	rekw^ijEm
+revolver	RevOlvEr
+scan	skan
 scanner	skaner2 $verb
 scanner	skanWr $noun
 scanners	skanWr
 shampoing	SA~pwE~
 sir           _^_EN
 souris       suri
+stocker	stoker2
 sus       sys
 sus       sy $verb
 to	_^_en
@@ -700,7 +725,7 @@ cut	kWt
 mazout		mazut
 michael		mikaEl
 out		aut
-rut		ryt
+rut		Ryt
 scorbut		scorbutt $text
 scout		skut
 stout		staut
@@ -711,24 +736,24 @@ zut		zyt
 
 // et (t is said)
 
-exocet		EgzOsEt
+exocet		E2gzOsEt
 fret		fr'Et
-budget		bydZE
+budget		bydZE2
 hamlet		hamlEt
-knesset		knEsEt
-lazaret		lazarE
+knesset		knesEt
+lazaret		lazarE2
 margaret	margarEt
 net		nEt
 offset		OfsEt
 set		sEt
-soviet		sOviEt
+soviet		soviEt
 stewart	sti:wart
 
 // urt (t is said)
 kurt		kurt
-yaourt		iaurt
-yoghourt	iogurt
-yogourt		iogurt
+yaourt		_!i-aurt
+yoghourt	_!i-ogurt
+yogourt		_!i-ogurt
 
 // ort (t said)
 short		SOrt
@@ -741,12 +766,12 @@ kart		kart
 smart		smart
 
 // irt
-(sweat shirt)	swEtSW2rt
-(sweat shirts)	swEtSW2rt
-(tee shirt)	t,i:S'W2rt
-(tee shirts)	t,i:S'W2rt
-(t shirt)	t,i:S'W2rt
-(t shirts)	t,i:S'W2rt
+(sweat shirt)	swEtSWrt
+(sweat shirts)	swEtSWrt
+(tee shirt)	t,i:S'Wrt
+(tee shirts)	t,i:S'Wrt
+(t shirt)	t,i:S'Wrt
+(t shirts)	t,i:S'Wrt
 
 
 // words from other languages
@@ -764,10 +789,10 @@ computer		_^_en
 (cyber link) 		_^_en
 debian		debjan
 edit		_^_en
-emacs		Emaks
-emacspeak	Emakspi:k
+emacs		E2maks
+emacspeak	E2makspi:k
 end             _^_en
-epson		EpsOn
+epson		E2psOn
 espeak		@spi:k
 ethernet	etErnEt
 exit	egzit
@@ -782,7 +807,7 @@ help		_^_en
 hot		_^_en
 in		in $u+
 inside		_^_en
-(internet explorer) E~tErn'Et||EksplOr'Wr
+(internet explorer) E~tErn'Et||E2ksplOr'Wr
 klaxon          klaksOn
 let 		_^_en
 lite 		_^_en
@@ -803,7 +828,7 @@ outlook         autlu:k
 paint    		_^_en
 paper    		_^_en
 people    		_^_en
-redhat		rEdat
+redhat		REdat
 same		_^_en
 sametime	_^_en
 schubert	SubEr
@@ -840,10 +865,12 @@ afrikaans	afrikans
 bahamas	baamas
 bangladesh	bA~gladES
 bélarus	belarys
+belize	beliz
+bissau	bisa'o
 (burkina faso)	byrkina||faso
 burundi	burundi
 croatie	kroasi
-esperanto	EsperA~to
+esperanto	E2sperA~to
 groenland	groEnlA~d
 guatemala	gwAtemala
 honduras	_!O~dyras
@@ -853,17 +880,20 @@ lesotho	lezoto
 liechtenstein	liStEnStajn
 malawi	malaui
 mayotte	majO2t
+nevis	nevis
 niger	niZEr
 oman	oman
 palaos	palaO2s
 samoa	samoa
+swaziland	swAzilA~d
 leone	leO2n
 koweït	kowEjt
 taïwan	tajwAn
-texas	tEks'as
+texas	tE2ks'as
+tuvalu	tuvalu
+vanuatu	vanuatu
 venezuela	venezyela
-(viêt nam)	viEtnam
+(viêt nam)	vi-Etnam
 wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
-

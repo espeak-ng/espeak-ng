@@ -247,6 +247,9 @@ void SpectDisplay::RefreshDialogValues(int type)
 	int ix;
 	SpectFrame *sf;
 
+	if(spectseq == NULL)
+		return;
+
 	sf = spectseq->frames[sframe];
 
 	spectseq->amplitude = formantdlg->t_amplitude->GetValue();

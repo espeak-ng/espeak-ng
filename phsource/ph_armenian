@@ -32,7 +32,7 @@ phoneme a
 endphoneme
 
 phoneme o
-  vowel  starttype (e)  endtype (e)
+  vowel  starttype (o)  endtype (o)
   length 180
   formants vowel/o
 endphoneme

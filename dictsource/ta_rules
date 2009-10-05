@@ -37,10 +37,12 @@
 	ஊ	u:
 
 	எ	e
+     _) எ	;e     // add a short [j] sound at start of word ?
 
 	ஏ	e::
+     _) ஏ	;e::     // add a short [j] sound at start of word ?
 
-	ஐ	E:
+	ஐ	aI
 
 	ஒ	o
 
@@ -63,12 +65,16 @@
 	ங	NV
 	ங (B	N
 
-	ச	dZV
-	ச (B	dZ
+	ச	zV
+	ச (B	z
      _) ச	sa
      _) ச (B	s
 	ச்ச	tS:V
 	ச்ச (B	tS:
+     ட்) ச	tSV
+     ட்) ச (B	tS
+     ஞ்) ச	dZV
+     ஞ்) ச (B	dZ
 
 	ஜ	dZV
 	ஜ (B	dZ
@@ -105,6 +111,10 @@
      _) ப (B	p
 	ப்ப	ppV
 	ப்ப (B	pp
+     ட்)	ப	pV
+     ட்)	ப (B	pV
+     ற்) ப	pV
+     ற்) ப (B	p
      ஃ) ப	fV
      ஃ) ப (B	f
 
@@ -145,6 +155,9 @@
 	ஹ	hV
 	ஹ (B	h
 
+	க்ஷ 	ks.V
+	க்ஷ (B	ks.
+
 
 // combining vowels
 
@@ -163,7 +176,7 @@
 
 	ே	e:
 
-	ை	E:
+	ை	aI
 
 	ொ	o
 
@@ -183,3 +196,4 @@
 .group
 	்	  // virama
 	$	dolV
+	D) . (D+  _pul.l.i

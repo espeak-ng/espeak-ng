@@ -1,7 +1,7 @@
 
 [Setup]
 AppName=eSpeakEdit
-AppVerName=eSpeakEdit version 1.40
+AppVerName=eSpeakEdit version 1.41.02
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeakedit
@@ -9,6 +9,11 @@ Compression=lzma
 SolidCompression=yes
 DirExistsWarning=no
 ShowLanguageDialog=auto
+
+[Icons]
+Name: "{group}\espeakedit"; Filename: "{app}\espeakedit.exe"; WorkingDir: "{app}"; Flags: runmaximized
+Name: "{group}\Uninstall espeakedit"; Filename: "{uninstallexe}"
+
 
 [Files]
 Source: "espeakedit.exe"; DestDir: "{app}"

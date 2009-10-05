@@ -115,9 +115,9 @@ wxMenuBar *MakeMenu(int type)
 	lexicon_menu->Append(MENU_LEXICON_IT2, _("Italian, pass 2"));
 
 	tools_menu = new wxMenu;
-	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart..."), vowelchart_menu);
+	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart"), vowelchart_menu);
 //	tools_menu->Append(MENU_LOAD_WAV,   _T("Analyse WAV file"));
-	tools_menu->Append(MENU_LEXICON, _("Compare &Lexicon..."), lexicon_menu);
+	tools_menu->Append(MENU_LEXICON, _("Compare &Lexicon"), lexicon_menu);
 	tools_menu->Append(MENU_TO_UTF8, _("Convert file to &UTF8..."));
 	tools_menu->Append(MENU_COUNT_WORDS, _("Count word &frequencies..."));
 	tools_menu->Append(MENU_TEST    ,   _("Test (temporary)"));
@@ -125,6 +125,7 @@ wxMenuBar *MakeMenu(int type)
 
 	// HELP MENU
 	help_menu = new wxMenu;
+	help_menu->Append(MENU_DOCS, _("eSpeak &Documentation"));
 	help_menu->Append(MENU_ABOUT, _("&About"));
 
 

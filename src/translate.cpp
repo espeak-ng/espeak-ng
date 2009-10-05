@@ -615,7 +615,9 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	ph_limit = &phonemes[N_WORD_PHONEMES];
 
 	// count the length of the word
+	if(*word1 == ' ') word1++;   // possibly a dot was replaced by space:  $dot
 	wordx = word1;
+
 	utf8_in(&first_char,wordx);
 	word_length = 0;
 	while((*wordx != 0) && (*wordx != ' '))
@@ -641,6 +643,12 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	else
 	{
 		found = LookupDictList(tr, &word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
+
+		if((dictionary_flags[0] & FLAG_DOT) && (wordx[1] == '.'))
+		{
+			wordx[1] = ' ';   // remove a Dot after this word
+		}
+
 		if(dictionary_flags[0] & FLAG_TEXTMODE)
 		{
 			first_char = word1[0];
@@ -1532,7 +1540,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	max_stress = -1;
 
 	found_dict_flag = 0;
-	if(flags & FLAG_FOUND)
+	if((flags & FLAG_FOUND) && !(flags & FLAG_TEXTMODE))
 		found_dict_flag = SFLAG_DICTIONARY;
 
 	while((pre_pause > 0) && (n_ph_list2 < N_PHONEME_LIST-4))

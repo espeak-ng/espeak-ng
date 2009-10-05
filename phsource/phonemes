@@ -1343,3 +1343,29 @@ include ph_armenian
 phonemetable da base
 include ph_danish
 
+
+phonemetable rw base2
+include ph_kinyarwanda
+
+phonemetable ml hi
+include ph_malayalam
+
+phonemetable kn hi
+include ph_kannada
+
+phonemetable bn hi
+include ph_bengali
+
+phonemetable ne hi
+include ph_nepali
+
+phonemetable mr hi
+include ph_marathi
+
+
+phonemetable eu base2
+include ph_basque
+
+phonemetable mn base
+include ph_mongolian
+

@@ -1,19 +1,23 @@
+
 // Hungarian translation rules
 // This file is UTF-8 encoded
 
 
 .replace
 //  allow o,u-circumflex for o,u-double-acute
- ô	ő
- û	ű
+ô	ő
+û	ű
 
 
 .group a
         a        A
      _) a (_     %A
+_) alattvaló _!'AlAtvAlo:
 
 .group á
         á        a:
+
+
 
 .group b
         b        b
@@ -21,14 +25,13 @@
 
         biz (A   b'iz,       // bizalmas  etc.
 	biedermeier  bi:dER2ma:jER2
-
 .group c
         c        ts
         cc       ts:
         cs       tS
         ccs      tS:
      !) cz       ts         // in names which start with a capital letter
-
+ar) csz (e ts
   anar) ch (i    C
 hierar) ch (i    C
     me) ch (a    C
@@ -51,6 +54,7 @@ hierar) ch (i    C
   nyol) c (sz    ts
    har) c (sz    ts
    lán) c (sz    ts
+pá) c ts
    per) c (sz    ts
    pol) c (so    ts
    por) c (sé    ts
@@ -67,13 +71,20 @@ hierar) ch (i    C
 
 .group d
         d        d
-//        dd       d:
+dts tS:
+dt t:
+a) dsz ts:
+cselé) d d
+enge) dsz ts:
+engedelmeske) dsz ts:
+mara) dsz  ts:
+kére) dz ts
+//      dd       d:
         dz       dz
      A) dz (A    d:z
         dzs      dZ
      A) dzs      dZ:
-
-     C) ds       tS
+    C) ds       tS
         ds (C    tS
      A) ds (A    tS:
         dsz      ts
@@ -84,14 +95,13 @@ hierar) ch (i    C
      A) dzs (A   dZ:
      C) dj       J
      A) dj (A    J:
-
-   ren) d (szer  d
-
+dj J:
+min) dny n^
 
 .group e
         e        E
   D_-_) es (_    %ES
-
+_) egyezség _!'EJ:ESSe:g
 .group é
         é        e:
         éi (é    e::i:
@@ -102,9 +112,10 @@ hierar) ch (i    C
 .group f
         f        f
 
+
 .group g
         g        g
-//        gg       g:
+// gg       g:
         gy       J
         ggy      J:
 
@@ -126,25 +137,38 @@ _minde) gy (ik   J:
 
      _) goethe   gY:tE
      _) goethé   gY:te:
-
+me) g (gyú g
+me) g (győz g
+me) g (gyil g
+me) g (gyű g
+me) g (gyász g
+me)  g (gyűr g
+le) g (gy g
 
 .group h
         h        h
 
 .group i
         i        i
+_) itthon  ithon
 
 .group í
         í        i:
+íts i:tS:
 
 .group j
         j        j
+_) javíts  jAvi:tS:
+_) javítsd  jAvi:tSd
 
 .group k
         k        k
         kk       k:
         kk (C    kk
      _) köz      kYz
+_) község  kYSSe:g
+_) készség  ke:SSe:g
+_) kétség  ke:tS:e:g
 
 .group l
         l        l
@@ -152,8 +176,13 @@ _minde) gy (ik   J:
         lly      jj
 
      A) lj (A    l^j
-
-     C) ly (_    li
+á) ll (j j
+beszé) lj  jj
+bére) lj jj
+gondo) lj jjj
+ke) lj jj
+sajná) lj jj
+C) ly (_    li
  _kéth) ly       li
 szamue) lly	 lli
 szamue) ly	 lli
@@ -167,23 +196,28 @@ szamue) ly	 lli
     ko) mm (uni  m
 
 
+
 .group n
         n        n
         n (g     N
         n (k     N
+        n (p     m
         ny       n^
         nny      n^n^
         nj       n^n^
-
+nyj n^n^
 
      _) nem (-   n,Em       // has $alt2 attribute in hu_list, combine with the next word
+me) nny (ország n^
+me) nny (d n^
+
 
 
 .group o
         o        o
 
     _r) oose (velt   u:z
-
+_) otthon  othon
 
 .group ó
         ó        o:
@@ -208,7 +242,7 @@ szamue) ly	 lli
         qu       kv
 
 .group r
-        r        R2
+r        R2
         rr       RR
         rm       R2_m
         r (cc    R
@@ -221,8 +255,9 @@ szamue) ly	 lli
         s        S
         sz       s
         ssz      ss2
+szts stS:
 
-        s (színű S
+s (színű S
    hel) s (inki  z
     ki) s (ebb   SS
    _má) s (szó   S
@@ -242,13 +277,20 @@ _nyílá) s        S
 
         sz (öld  Sz
     va) s (zabl  S||
+
    egé) szs (ég  S
+
+liszte) szs (ák  SZ
+pénze) s S
+   rend) sz (er  s:
 
 
 .group t
+
      _) t (_     te:
      -) t (_     t
         t        t
+        tc       ts:
         tt       t:
         tt (C    tt
         ty       c
@@ -256,14 +298,63 @@ _nyílá) s        S
 //     z) ty       c:    // keztyű
         ttj      tc:
         tty      c:
+éle) t t
 
-     C) tj       c
+tsz ts:
+szorí) ts (a tS:
+ürí) ts (e tS:
+mula) ts tS:
+nemze) ts tS:
+min) t t
+tse tSE
+tso tSo
+tsa tSA
+tsá  tSa:
+tsd  tSd
+tsé tSe:
+ttsé tS:e:
+C) tj       c
      A) tj (A    c:
      C) tyj      c
      A) tyj (A   c:
 
    _ka) ty (n    ti
+
 vörösmar) ty     ti
+á) t (jár t
+á) t (sző t
+á) t (szú t
+á) t (szű t
+bizo) tts (ág tS:
+állí) ts tS:
+bará) ts tS:
+dön) ts (ön tS
+elhivato) tts (ág tS:
+folyama) t (jel t
+kiál) ts tS
+köve) ts (ég  tS:
+kür) t t
+neve) ts (ég tS:
+szen)t (szék t
+szöve) ts (ég  tS:
+romlo) tts tS:
+á) t (sor t
+á) t (sé t
+ne) t (se t
+
+lehe) ts (ég  tS:
+tehe) ts (ég  tS:
+lá) tsz ts:
+fize) ts (ég tS:
+segí) ts tS:
+á) ts (ó tS:
+ismere) ts (ég tS:
+lé) t (szám t
+ké) t (száz t
+ö) t (száz t
+ha) t (száz t
+vé) ts (ég tS:
+
 
 
 .group u
@@ -295,19 +386,36 @@ vörösmar) ty     ti
 
 .group z
         z        z
-        zs       Z
+zs       Z
         zzs      Z:
-
-    gá) z (sz    z
+a) z (t s
+a) z (tán s
+befeje) z (te s
+bi) z (tons s    
+bi) z (tos s
+bron) z (sz z
+e) z  (t s
+költö) z (köd s
+kö) z (pont s
+kö) z (társaság s
+lefeje) z (te s
+lefeje) z (ték s
+pén) z (tár s
+ré) z (sz  z
+tartó) z s
+gá) z (sz    z
     gé) z (sz    z
-    ké) z (sz    z
+
+    ké) z (sz    zz
     há) z (so    z
     há) z (sz    z
     lá) z (sz    z
     má) zc (sz   z
     mé) zc (sz   z
-  nehé) z (sé    z
-   pén) z        z
+  nehé) z (sé    S
+iga) zs (ág SS
+ga) zs (ág SS
+pén) z        z
    szá) z (sz    z
     tí) z (sz    z
     tű) z (sz    z
@@ -322,14 +430,16 @@ vörösmar) ty     ti
    _gá) zsz (ámlá  zs:
    _ré) zs (ó      zS
    _vá) zs (or     zS
-_szára) zs (ág     zS
-   _kö) zs (ég     zS
+_szára) zs (ág     SS
+
  _nehé) zs (ely    zS
 
      _) zürich     tsyR2iC
 
 
 .group
+_) :-) v'iJoR2
+
         $       dolla:R2
 	ä	E
 	æ	E

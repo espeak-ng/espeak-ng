@@ -3,7 +3,7 @@
 
 // Conditional rules:
 // ?1   speak "i" as Roman number
-
+?1 elso:
 // Numbers
 
 _0        nullA
@@ -28,7 +28,6 @@ _7X       hEtvEn
 _8X       n^oltsvAn
 _9X       kilEntsvEn
 _0C       sa:z
-_1C       sa:z
 
 _0M1      EzER2
 _1M1      EzER2
@@ -37,23 +36,28 @@ _0M2      millio:
 _1M2      millio:
 _2M2      ke:tmillio:
 _0M3      millia:R2d
-_1M3      millia:R2d
-_1M3      ke:tmillia:R2d
+_1M3      EJmillia:R2d
+_2M3    ke:tmillia:R2d
+
+
 _0M4      billio:
 _1M4      billio:
 _2M4      ke:tbillio:
-_dpt      ||_v,Ess2Y:_
+_dpt      ||_!'Ege:s
 
-_0Z1	tizAd      // tenths
+_0Z1	tizEd      // tenths
 _0Z2	sa:zAd     // hundredths
 _0Z3	EzR2Ed
 _0Z4	ti:zEzR2Ed
 
 
 // ordinal numbers
+
 _ord	Edik
-_1o	ElSY:
-_2o	ma:Sodik
+_1ox	ElSY:     // number = '1' only
+_2ox	ma:Sodik  // number = '2' only
+_1o	EJ:Edik
+_2o	kEt:Edik
 _3o	hAR2_mAdik
 _4o	nEJEdik
 _5o	YtYdik
@@ -62,10 +66,39 @@ _7o	hEtEdik
 _8o	n^oltsAdik
 _9o	kilEntsEdik
 _10o	tizEdik
-_12o	tizENkEt:Edik
 _20o	husAdik
+_30o	hAR2_mintsAdik
+_60o	hAtvAnAdik
+_80o	n^oltsvAnAdik
 _0Co	sa:zAdik
+_2Co	ke:tsa:zAdik
 
+// These words mean that a dot after number, immediately preceding, does not mean an ordinal number
+január		$alt
+február		$alt
+március		$alt
+április		$alt
+május		$alt
+június		$alt
+július		$alt
+augusztus	$alt
+szeptember	$alt
+október		$alt
+november	$alt
+december	$alt
+//The following 12 row contains shorter hungarian month names
+jan	$alt
+feb $alt
+márc	$alt
+ápr	$alt
+máj	$alt
+jún	$alt
+júl	$alt
+aug	$alt
+szept	$alt
+okt	$alt
+now	$alt
+dec	$alt
 
 // accent names
 _lig	ligAtu:R2A
@@ -96,8 +129,10 @@ mm      milime:tER2
 a.m	An^n^i||m'int  $dot
 dr	doktoR2  $dot
 gpu	$abbrev
+mvgyosz $abbrev
+OTP $abbrev
 id	idY:SEb:  $dot
-ill	illEdvE  $dot
+ill	illEtvE  $dot
 ifj	ifjAb:  $dot
 mta	$abbrev
 pl	pe:lda:ul  $dot
@@ -106,7 +141,7 @@ u.n	u:JnEvEzEt:   $dot
 ú.n	u:JnEvEzEt:   $dot
 vö	v'EZd||_'Yss2E
 
-?1 i	EJ	$abbrev     // option for Roman number
+
 
 
 // Articles
@@ -351,12 +386,13 @@ w	duplAve:
 x	iks
 y	ipsilon
 z	ze:
-
 _é	e:
 é	$atend
 
+
 cs	tSe:
 dz	dze:
+
 dzs	dZe:
 sz	Es
 zs	Ze:
@@ -373,28 +409,29 @@ ny	En^
 ß	_^_DE
 
 .	pont		$max3
-*	tS'illAg	$max3
+*	tSillAg		$max3
 %	sa:zAle:k	$max3
 +	plus		$max3
-=	EJEnlY:Se:g	$max3
-#	sa:mjEl		$max3
+/	pER2		$max3
+=	EJEnlY:		$max3
+#	kEt:Y:SkER2Est		$max3
 @	kukAts
-&	e:SjEl
+&	e:S
 €	EuR2o
 ¶	bEkEzde:S
 §	pAR2AgR2AfuS
 ~	tildE
-^	hia:n^
 °	fokjEl
 Ft	foR2int
-\	viss2ApER2	$max3
+\	bEks2lES	$max3
+^	fölfelényíl   $text
 
 _,	vEss2Y:
 _;	pontoSvEss2Y:
 _:	kEt:Y:Spont
 _!	fElkia:lto:
 _?	ke:R2dY:
-_-	kYtY:jEl
+_-	kYtY:jEl	$max3
 __	Ala:hu:za:S
 _'	ApostR2o:f
 _–	nAJkYtY:
@@ -409,11 +446,83 @@ _}	k'AptSoS||z'a:R2o:
 _…	ha:R2_mASpont
 _•	di:spont
 
+
 // Main Exceptions List
 //=====================
 
 nato	na:to:
 
 $textmode
-(1-én)  elsején
+MSZP emeszpé
+SZDSZ eszdéesz
+
+colon	kettőspont
+(://)	kettőspontperper $pause
+egyezség	eggyesség
+
+(1-én)	elsején
+(1-jén)	elsején
+(2-án)	másodikán
+(3-án)	harmadikán
+(4-én)	negyedikén
+(5-én)	ötödikén
+(6-án)	hatodikán
+(7-én)	hetedikén
+(8-án)	nyolcadikán
+(9-én)	kilencedikén
+(10-én)	tizedikén
+(11-én)	tizeneggyedikén
+(12-én)	tizenkettedikén
+(13-án)	tizenharmadikán
+(14-én)	tizennegyedikén
+(15-én)	tizenötödikén
+(16-án)	tizenhatodikán
+(17-én)	tizenhetedikén
+(18-án)	tizennyolcadikán
+(19-én)	tizenkilencedikén
+(20-án)	huszadikán
+(21-én)	huszoneggyedikén
+(22-én)	huszonkettedikén
+(23-án)	huszonharmadikán
+(24-én)	huszonnegyedikén
+(25-én)	huszonötödikén
+(26-án)	huszonhatodikán
+(27-én)	huszonhetedikén
+(28-án)	huszonnyolcadikán
+(29-én)	huszonkilencedikén
+(30-án)	harmincadikán
+(31-én)	harminceggyedikén
+(1-e)	elseje
+(2-a)	másodika
+(3-a)	harmadika
+(4-e)	negyedike
+(5-e)	ötödike
+(6-a)	hatodika
+(7-e)	hetedike
+(8-a)	nyolcadika
+(9-e)	kilencedike
+(10-e)	tizedike
+(11-e)	tizeneggyedike
+(12-e)	tizenkettedike
+(13-a)	tizenharmadika
+(14-e)	tizennegyedike
+(15-e)	tizenötödike
+(16-a)	tizenhatodika
+(17-e)	tizenhetedike
+(18-a)	tizennyolcadika
+(19-e)	tizenkilencedike
+(20-a)	huszadika
+(21-e)	huszoneggyedike
+(22-e)	huszonkettedike
+(23-a)	huszonharmadika
+(24-e)	huszonnegyedike
+(25-e)	huszonötödike
+(26-a)	huszonhatodika
+(27-e)	huszonhetedike
+(28-a)	huszonnyolcadika
+(29-e)	huszonkilencedike
+(30-a)	harmincadika
+(31-e)	harmincegyedike
+(Szvsz) eszvéesz
+(edik szeptember) szeptember
 

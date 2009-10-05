@@ -2,6 +2,11 @@
 // Phonemes for Tamil
 // This inherits from ph_hindi
 
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 50
+endphoneme
+
 
 
 phoneme a
@@ -56,15 +61,15 @@ endphoneme
 
 phoneme o
   vowel  starttype (o)  endtype (o)
-  length 130
+  length 160
   formants vowel/o
 endphoneme
 
 
 phoneme o:
   vowel  starttype (o)  endtype (o)
-  length 270
-  formants vowel/o
+  length 280
+  formants vowel/o_3
 endphoneme
 
 
@@ -84,7 +89,7 @@ endphoneme
 phoneme u:
   vowel  starttype (u)  endtype (u)
   length 260
-  formants vowel/u
+  formants vowel/u_6
 endphoneme
 
 phoneme U:
@@ -102,6 +107,22 @@ phoneme u-
 endphoneme
 
 
+
+phoneme aI
+  vowel  starttype (a)  endtype (i)
+  length 230
+  formants vdiph/ai_8
+endphoneme
+
+phoneme aU
+  vowel long starttype (a) endtype (u)
+  length 200
+  long
+  formants vdiph/aau_3
+endphoneme
+
+
+
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
   vcd lbd frc
@@ -113,8 +134,14 @@ phoneme v
   switchvoicing f
 endphoneme
 
-phoneme : //  Lengthen previous vowel by "length"
-  virtual
-  length 50
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt2%60
+  before _ ustop/t_dnt%30 
+  switchvoicing d
 endphoneme
 

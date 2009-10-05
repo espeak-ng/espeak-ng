@@ -54,6 +54,9 @@ void FormantDlg::OnCommand(wxCommandEvent& event)
 {//=============================================
 	int id;
 
+	if(currentcanvas == NULL)
+		return;
+
 	switch(id = event.GetId())
 	{
 	case T_ZOOMIN:
@@ -77,6 +80,9 @@ void FormantDlg::OnSpin(wxSpinEvent& event)
 {//=============================================
 	int id;
 
+	if(currentcanvas == NULL)
+		return;
+
 	switch(id = event.GetId())
 	{
 	case T_AMPFRAME:
@@ -98,6 +104,26 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 	int  id;
 	wxString string;
 
+	int height;
+	int width;
+	int x;
+	int y2 = 420;
+	int y3 = 520;
+
+	wxClientDisplayRect(&x,&y,&width, &height);
+#ifdef PLATFORM_WINDOWS
+	if(height <= 768)
+	{
+		y2 = 410;
+		y3 = 508;
+	}
+#else
+	if(height <= 800)
+	{
+		y2 = 378;
+		y3 = 456;
+	}
+#endif
 	y = 24;
 	xplace = 28;
 	id = 201;
@@ -188,10 +214,10 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 
 
 
-	t_zoomout = new wxButton(this,T_ZOOMOUT,_T("Zoom-"),wxPoint(16,420));
-	t_zoomin = new wxButton(this,T_ZOOMIN,_T("Zoom+"),wxPoint(106,420));
+	t_zoomout = new wxButton(this,T_ZOOMOUT,_T("Zoom-"),wxPoint(16,y2));
+	t_zoomin = new wxButton(this,T_ZOOMIN,_T("Zoom+"),wxPoint(106,y2));
 
-	y=468;
+	y = y2 + 46;
 	t_amplitude = new wxSpinCtrl(this,T_AMPLITUDE,_T(""),
 		wxPoint(6,y),wxSize(52,24),wxTE_CENTRE,0,y+130);
 	t_lab[2] = new wxStaticText(this,-1,_T("% amp - Sequence"),wxPoint(61,y+4));
@@ -199,9 +225,9 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 //		wxPoint(6,400),wxSize(52,24),wxTE_CENTRE,0,500);
 	t_orig_seq = new wxStaticText(this,-1,_T("mS"),wxPoint(61,y+30));
 
-	t_pitch = new wxStaticText(this,-1,_T(""),wxPoint(4,520),wxSize(192,24));
+	t_pitch = new wxStaticText(this,-1,_T(""),wxPoint(4,y3),wxSize(192,24));
 
-	pitchgraph = new ByteGraph(this,wxPoint(0,538),wxSize(200,140));
+	pitchgraph = new ByteGraph(this,wxPoint(0,y3+18),wxSize(200,140));
 	pitchgraph->SetData(128,env_fall);
 	pitchgraph->ShowSpectrum(1);
 	pitchgraph->Show();

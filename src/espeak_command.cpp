@@ -645,7 +645,7 @@ void display_espeak_command( t_espeak_command* the_command)
 
     case ET_KEY:
       {
-	const char* data = the_command->u.my_key;
+	const char* data = the_command->u.my_key.key_name;
 	SHOW("display_espeak_command > (0x%x) KEY=%c\n", the_command, data);
       }
       break;
@@ -662,7 +662,7 @@ void display_espeak_command( t_espeak_command* the_command)
 
     case ET_CHAR:
       {
-	const wchar_t data = the_command->u.my_char;
+	const wchar_t data = the_command->u.my_char.character;
 	SHOW("display_espeak_command > (0x%x) CHAR=%c\n", the_command, (char)data);
       }
       break;
