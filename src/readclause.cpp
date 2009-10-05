@@ -70,6 +70,12 @@ static const char *punct_close = ")]}>;'\"";  // always pitch fall unless follow
 static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
 static const char *tone_punct_off = "\001T";
 
+// ignore these characters
+static const unsigned short chars_ignore[] = {
+  0x200c,  // zero width non-joiner
+  0x200d,  // zero width joiner
+  0 };
+
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x2013,  // en-dash
@@ -2188,6 +2194,12 @@ f_input = f_in;  // for GetC etc
 				c1 = CHAR_EMPHASIS;   // indicate this word is stressed
 				UngetC(c2);
 				c2 = ' ';
+			}
+
+			if(lookupwchar(chars_ignore,c1))
+			{
+				// ignore this character (eg. zero-width-non-joiner U+200C)
+				continue;
 			}
 
 			if(iswspace(c1))

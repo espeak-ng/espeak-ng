@@ -43,7 +43,7 @@ _2M3    ke:tmillia:R2d
 _0M4      billio:
 _1M4      billio:
 _2M4      ke:tbillio:
-_dpt      ||_!'Ege:s
+_dpt      ||Ege:s //Not need the pause before this word
 
 _0Z1	tizEd      // tenths
 _0Z2	sa:zAd     // hundredths
@@ -415,11 +415,11 @@ ny	En^
 /	pER2		$max3
 =	EJEnlY:		$max3
 #	kEt:Y:SkER2Est		$max3
-@	kukAts
-&	e:S
+@	kukAts	$max3
+&	e:S	$max3
 €	EuR2o
 ¶	bEkEzde:S
-§	pAR2AgR2AfuS
+§	s'AkAs
 ~	tildE
 °	fokjEl
 Ft	foR2int
@@ -429,21 +429,21 @@ Ft	foR2int
 _,	vEss2Y:
 _;	pontoSvEss2Y:
 _:	kEt:Y:Spont
-_!	fElkia:lto:
-_?	ke:R2dY:
-_-	kYtY:jEl	$max3
-__	Ala:hu:za:S
+_!	fElkia:lto:jEl
+_?	ke:R2dY:jEl
+_-	m'inus	$max3
+__	Ala:hu:za:S	$max3
 _'	ApostR2o:f
 _–	nAJkYtY:
 _—	kviR2tmi:nus
-_"	ide:zY:
-_(	za:R2o:
-_)	za:R2o:
-_[	s'YglEtES||z'a:R2o:
-_]	s'YglEtES||z'a:R2o:
-_{	k'AptSoS||z'a:R2o:
-_}	k'AptSoS||z'a:R2o:
-_…	ha:R2_mASpont
+_"	ide:zY:jEl	$max3
+_(	b'Alza:R2o:jEl	$max3
+_)	j'obbza:R2o:jEl	$max3
+_[	n^'ito:sYglEtES	$max3
+_]	z'a:R2o:sYglEtES	$max3
+_{	k'EzdY:kAptSoS	$max3
+_}	v'e:gkAptSoS	$max3
+_…	pontpontpont	$max3
 _•	di:spont
 
 
