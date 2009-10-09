@@ -262,8 +262,8 @@ U+32f	n,0nsI2l'abI2k
 
 // numeric
 
-//_0    zero $text  // TEST
-_0	z'i@roU
+_0    zero $text  // TEST
+//_0	z'i@roU
 _1	w'0n
 ?6 _1	w'Vn
 _2	t'u:
@@ -323,6 +323,7 @@ _70o	s'Ev@nti@
 _80o	'eIti@
 _90o	n'aInti@
 _0Co	h'Vndr@dT
+_0M1o	T'aUz@ndT
 
 
 // ABBREVIATIONS

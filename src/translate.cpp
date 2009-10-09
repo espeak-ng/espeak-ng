@@ -366,6 +366,10 @@ int IsAlpha(unsigned int c)
 {//========================
 // Replacement for iswalph() which also checks for some in-word symbols
 
+	const unsigned short extra_indic_alphas[] = {
+	0xa70,0xa71,	// Gurmukhi: tippi, addak
+	0 };
+
 	if(iswalpha(c))
 		return(1);
 
@@ -373,6 +377,8 @@ int IsAlpha(unsigned int c)
 	{
 		// Indic scripts: Devanagari, Tamil, etc
 		if((c & 0x7f) < 0x64)
+			return(1);
+		if(lookupwchar(extra_indic_alphas, c) != 0)
 			return(1);
 		return(0);
 	}
@@ -2570,10 +2576,6 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		int c_temp;
 		char *pn;
 		char *pw;
-		static unsigned int break_numbers1 = 0x49249248;
-		static unsigned int break_numbers2 = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
-		static unsigned int break_numbers3 = 0x49249268;  // for languages which have numbers for 100,000 and 1,000,000
-		unsigned int break_numbers;
 		char number_buf[80];
 
 		// start speaking at a specified word position in the text?
@@ -2591,7 +2593,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		// digits should have been converted to Latin alphabet ('0' to '9')
 		word = pw = &sbuf[words[ix].start];
 
-		if(iswdigit(word[0]) && (tr->langopts.numbers2 & NUM2_100000))
+		if(iswdigit(word[0]) && (tr->langopts.break_numbers != BREAK_THOUSANDS))
 		{
 			// Languages with 100000 numbers.  Remove thousands separators so that we can insert them again later
 			pn = number_buf;
@@ -2628,34 +2630,26 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			pn = &number_buf[1];
 			nx = n_digits;
 
-			if((tr->langopts.numbers2 & NUM2_100000a) == NUM2_100000a)
-				break_numbers = break_numbers3;
-			else
-			if(tr->langopts.numbers2 & NUM2_100000)
-				break_numbers = break_numbers2;
-			else
-				break_numbers = break_numbers1;
-
 			while(pn < &number_buf[sizeof(number_buf)-3])
 			{
 				if(!isdigit(c = *pw++) && (c != tr->langopts.decimal_sep))
 					break;
 
 				*pn++ = c;
-				if((--nx > 0) && (break_numbers & (1 << nx)))
+				if((--nx > 0) && (tr->langopts.break_numbers & (1 << nx)))
 				{
 					if(tr->langopts.thousands_sep != ' ')
 					{
 						*pn++ = tr->langopts.thousands_sep;
 					}
 					*pn++ = ' ';
-					if(break_numbers & (1 << (nx-1)))
+					if(tr->langopts.break_numbers & (1 << (nx-1)))
 					{
 						// the next group only has 1 digits (i.e. NUM2_10000), make it three
 						*pn++ = '0';
 						*pn++ = '0';
 					}
-					if(break_numbers & (1 << (nx-2)))
+					if(tr->langopts.break_numbers & (1 << (nx-2)))
 					{
 						// the next group only has 2 digits (i.e. NUM2_10000), make it three
 						*pn++ = '0';

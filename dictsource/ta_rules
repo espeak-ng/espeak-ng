@@ -16,8 +16,11 @@
 ௭	7
 ௮	8
 ௯	9
+ொ	ொ
+ோ	ோ
+ௌ	ௌ
 
-.
+
 .group 0xe0ae   // characters which start with UTF-8 bytes: [e0 ae]
 
 	ஂ		// anusvara
@@ -39,7 +42,7 @@
 	எ	e
      _) எ	;e     // add a short [j] sound at start of word ?
 
-	ஏ	e::
+	ஏ	e:
      _) ஏ	;e::     // add a short [j] sound at start of word ?
 
 	ஐ	aI
@@ -65,12 +68,14 @@
 	ங	NV
 	ங (B	N
 
-	ச	zV
-	ச (B	z
+	ச	sV    // ?? [z]
+	ச (B	s
      _) ச	sa
      _) ச (B	s
 	ச்ச	tS:V
 	ச்ச (B	tS:
+	ற்ச	tS:
+	ற்ச (B	tS:
      ட்) ச	tSV
      ட்) ச (B	tS
      ஞ்) ச	dZV
@@ -112,7 +117,7 @@
 	ப்ப	ppV
 	ப்ப (B	pp
      ட்)	ப	pV
-     ட்)	ப (B	pV
+     ட்)	ப (B	p
      ற்) ப	pV
      ற்) ப (B	p
      ஃ) ப	fV
@@ -183,6 +188,7 @@
 	ோ	o:
 
 	ௌ	aU
+
 
 	்		// virama
 

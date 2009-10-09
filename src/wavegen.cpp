@@ -794,12 +794,15 @@ static void WavegenSetEcho(void)
 		amp = embedded_value[EMBED_H];
 		delay = 130;
 	}
+#ifdef deleted
 	if(embedded_value[EMBED_T] > 0)
 	{
-		// announcing punctuation
+		// announcing punctuation, add a small echo
+// This seems unpopular
 		amp = embedded_value[EMBED_T] * 8;
 		delay = 60;
 	}
+#endif
 
 	if(delay == 0)
 		amp = 0;

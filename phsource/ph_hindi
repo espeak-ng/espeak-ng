@@ -166,6 +166,12 @@ phoneme i~
   formants vnasal/i_n2
 endphoneme
 
+phoneme I~
+  vowel starttype (i) endtype (i)
+  length 170
+  formants vnasal/i_n2
+endphoneme
+
 phoneme e~
   vowel long starttype (e) endtype (e)
   length 220
@@ -173,7 +179,7 @@ phoneme e~
 endphoneme
 
 phoneme E~ 
-  vowel  starttype (e)  endtype (e)
+  vowel long starttype (e)  endtype (e)
   length 230
   formants vnasal/ee_n2
 endphoneme
@@ -205,6 +211,12 @@ endphoneme
 phoneme u~
   vowel long starttype (u) endtype (u)
   length 230
+  formants vnasal/u_n
+endphoneme
+
+phoneme U~
+  vowel starttype (u) endtype (u)
+  length 170
   formants vnasal/u_n
 endphoneme
 

@@ -1369,3 +1369,5 @@ include ph_basque
 phonemetable mn base
 include ph_mongolian
 
+phonemetable pa hi
+include ph_punjabi

@@ -21,7 +21,7 @@ _) alattvaló _!'AlAtvAlo:
 
 .group b
         b        b
-//        bb       b:
+bb b:       
 
         biz (A   b'iz,       // bizalmas  etc.
 	biedermeier  bi:dER2ma:jER2
@@ -32,7 +32,8 @@ _) alattvaló _!'AlAtvAlo:
         ccs      tS:
      !) cz       ts         // in names which start with a capital letter
 ar) csz (e ts
-  anar) ch (i    C
+harmin) c ts
+anar) ch (i    C
 hierar) ch (i    C
     me) ch (a    C
     te) ch (n    C
@@ -71,13 +72,16 @@ pá) c ts
 
 .group d
         d        d
+dd d:
 dts tS:
 dt t:
 a) dsz ts:
 cselé) d d
 enge) dsz ts:
 engedelmeske) dsz ts:
+hazu) dsz ts:
 mara) dsz  ts:
+tu) dsz ts:
 kére) dz ts
 //      dd       d:
         dz       dz
@@ -98,6 +102,7 @@ kére) dz ts
 dj J:
 min) dny n^
 
+
 .group e
         e        E
   D_-_) es (_    %ES
@@ -115,7 +120,7 @@ _) egyezség _!'EJ:ESSe:g
 
 .group g
         g        g
-// gg       g:
+gg       g:
         gy       J
         ggy      J:
 
@@ -125,7 +130,7 @@ _) egyezség _!'EJ:ESSe:g
      A) gysz (A  Js:
      C) gyj      J
      A) gyj (A   J:
-
+ha) gyj J:
     _e) gy (es   J:
     _e) gy (et_  J:
     _e) gy (etlen  J:
@@ -175,6 +180,7 @@ _) kétség  ke:tS:e:g
 
 .group l
         l        l
+lj j
         ly       j
         lly      jj
 
@@ -182,9 +188,12 @@ _) kétség  ke:tS:e:g
 á) ll (j j
 beszé) lj  jj
 bére) lj jj
+fáj) l l
+fájla) l (j jj
 gondo) lj jjj
 ke) lj jj
-sajná) lj jj
+sajná) lj jjj
+llj jjj
 C) ly (_    li
  _kéth) ly       li
 szamue) lly	 lli
@@ -259,7 +268,7 @@ r        R2
         sz       s
         ssz      ss2
 szts stS:
-
+föld) s (ánc S
 s (színű S
    hel) s (inki  z
     ki) s (ebb   SS
@@ -296,18 +305,27 @@ pénze) s S
         tc       ts:
         tt       t:
         tt (C    tt
+ttn t:n
         ty       c
 //     s) ty       c:    //
 //     z) ty       c:    // keztyű
         ttj      tc:
         tty      c:
+apá) ts (ág tS:
+becsüle) t t
+cson) t t
+cson) tj c
+ezüs) t t
 éle) t t
 
+felej) ts tS
+já) tsz (ani ts:
 tsz ts:
 szorí) ts (a tS:
 ürí) ts (e tS:
 mula) ts tS:
 nemze) ts tS:
+néme) ts (ég tS:
 min) t t
 tse tSE
 tso tSo
@@ -315,6 +333,7 @@ tsa tSA
 tsá  tSa:
 tsd  tSd
 tsé tSe:
+t (cs t
 ttsé tS:e:
 C) tj       c
      A) tj (A    c:
@@ -324,12 +343,14 @@ C) tj       c
    _ka) ty (n    ti
 
 vörösmar) ty     ti
+á) t (sza t
 á) t (jár t
 á) t (sző t
 á) t (szú t
 á) t (szű t
 bizo) tts (ág tS:
 állí) ts tS:
+állapo) t (sor t
 bará) ts tS:
 dön) ts (ön tS
 elhivato) tts (ág tS:
@@ -337,10 +358,16 @@ folyama) t (jel t
 kiál) ts tS
 köve) ts (ég  tS:
 kür) t t
+kür) tj c
+korlátozo) tts tS:
 neve) ts (ég tS:
+on) ts (u tS
 szen)t (szék t
+szé) t t
 szöve) ts (ég  tS:
+pillan) ts tS
 romlo) tts tS:
+tar) ts tS
 á) t (sor t
 á) t (sé t
 ne) t (c t
@@ -358,6 +385,7 @@ lé) t (szám t
 ké) t (száz t
 ö) t (száz t
 ha) t (száz t
+hé) t (száz t
 vé) ts (ég tS:
 
 
@@ -399,6 +427,7 @@ befeje) z (te s
 bi) z (tons s    
 bi) z (tos s
 bron) z (sz z
+csontvá) z z
 e) z  (t s
 ho) z (ta s
 ho) z (tá s

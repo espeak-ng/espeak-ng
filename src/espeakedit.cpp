@@ -45,12 +45,12 @@
 
 
 #ifdef deleted
-static const char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2007\n\n"
+static const char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2009\n\n"
 "Licensed under GNU General Public License version 3\n"
 "http://espeak.sourceforge.net/";
 #endif
 
-static const char *about_string = "<font size=0><b>espeakedit </b> %s<br>Author: Jonathan Duddington (c) 2007<br>"
+static const char *about_string = "<font size=0><b>espeakedit </b> %s<br>Author: Jonathan Duddington (c) 2009<br>"
 "<a href=\"http://espeak.sourceforge.net/\">http://espeak.sourceforge.net</a><br>"
 "Licensed under <a href=\"http://espeak.sourceforge.net/license.html\">GNU General Public License version 3</a></font>";
 
@@ -585,6 +585,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 		log = fopen(fname_log,"w");
 
+		LoadDictionary(translator, dictionary_name, 0);
 		if((err = CompileDictionary(path_dsource,dictionary_name,log,err_fname,debug_flag)) < 0)
 		{
 			wxLogError(_T("Can't access file:\n")+wxString(err_fname,wxConvLocal));

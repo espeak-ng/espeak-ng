@@ -67,8 +67,10 @@ static const char *punct_stop = ".:!?";    // pitch fall if followed by space
 static const char *punct_close = ")]}>;'\"";  // always pitch fall unless followed by alnum
 
 // alter tone for announce punctuation or capitals
-static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
-static const char *tone_punct_off = "\001T";
+//static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
+//static const char *tone_punct_off = "\001T\001P";
+static const char *tone_punct_on = "";  // add reverberation, lower pitch  TEST apply no effect
+static const char *tone_punct_off = "";
 
 // ignore these characters
 static const unsigned short chars_ignore[] = {
@@ -1903,6 +1905,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int c1=' ';  // current character
 	int c2;  // next character
 	int cprev=' ';  // previous character
+	int cprev2=' ';
 	int parag;
 	int ix = 0;
 	int j;
@@ -1916,6 +1919,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int any_alnum = 0;
 	int self_closing;
 	int punct_data;
+	int is_punctuation;
+	int save_c2;
 	int stressed_word = 0;
 	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
@@ -1975,6 +1980,7 @@ f_input = f_in;  // for GetC etc
 			}
 		}
 
+		cprev2 = cprev;
 		cprev = c1;
 		c1 = c2;
 
@@ -2324,9 +2330,9 @@ if(option_ssml) parag=1;
 			if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 			{
 				// note: (c2='?') is for when a smart-quote has been replaced by '?'
-				buf[ix] = ' ';
-				buf[ix+1] = 0;
-	
+
+				is_punctuation = 1;
+
 				if((c1 == '.') && (cprev == '.'))
 				{
 					c1 = 0x2026;
@@ -2334,45 +2340,59 @@ if(option_ssml) parag=1;
 				}
 	
 				nl_count = 0;
-				while(!Eof() && iswspace(c2))
+				save_c2 = c2;
+
+				if(iswspace(c2))
 				{
-					if(c2 == '\n')
-						nl_count++;
-					c2 = GetC();   // skip past space(s)
+					while(!Eof() && iswspace(c2))
+					{
+						if(c2 == '\n')
+							nl_count++;
+						c2 = GetC();   // skip past space(s)
+					}
+					if(!Eof())
+					{
+						UngetC(c2);
+					}
 				}
-				if(!Eof())
-				{
-					UngetC(c2);
-				}
-	
+
 				if((nl_count==0) && (c1 == '.'))
 				{
-					if(iswdigit(cprev) && (tr->langopts.numbers & 0x10000) && islower(c2))
+//					if(iswdigit(cprev) && (tr->langopts.numbers & NUM_ORDINAL_DOT) && islower(c2))
+					if(iswdigit(cprev) && (tr->langopts.numbers & NUM_ORDINAL_DOT))
 					{
 						// dot after a number indicates an ordinal number
-						c2 = '.';
-						continue;
+						is_punctuation = 0;
 					}
+					else
 					if(iswlower(c2))
 					{
-						c2 = ' ';
-						continue;  // next word has no capital letter, this dot is probably from an abbreviation
+						// next word has no capital letter, this dot is probably from an abbreviation
+						c1 = ' ';
+						is_punctuation = 0;
 					}
 					if(any_alnum==0)
 					{
-						c2 = ' ';   // no letters or digits yet, so probably not a sentence terminator
-						continue;
+						c1 = ' ';   // no letters or digits yet, so probably not a sentence terminator
+						is_punctuation = 0;
 					}
 				}
-	
-				punct_data = punct_attributes[punct];
-				if(nl_count > 1)
+				c2 = save_c2;
+
+				if(is_punctuation)
 				{
-					if((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
-						return(punct_data + 35);   // with a longer pause
-					return(CLAUSE_PARAGRAPH);
+					buf[ix] = ' ';
+					buf[ix+1] = 0;
+		
+					punct_data = punct_attributes[punct];
+					if(nl_count > 1)
+					{
+						if((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
+							return(punct_data + 35);   // with a longer pause
+						return(CLAUSE_PARAGRAPH);
+					}
+					return(punct_data);   // only recognise punctuation if followed by a blank or bracket/quote
 				}
-				return(punct_data);   // only recognise punctuation if followed by a blank or bracket/quote
 			}
 		}
 

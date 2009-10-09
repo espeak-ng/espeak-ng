@@ -241,9 +241,6 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	strcpy(dictionary_name,name);   // currently loaded dictionary name
 
-	if(no_error)   // don't load dictionary, just set the dictionary_name
-		return(1);
-
 	// Load a pronunciation data file into memory
 	// bytes 0-3:  offset to rules data
 	// bytes 4-7:  number of hash table entries

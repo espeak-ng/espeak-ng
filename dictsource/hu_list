@@ -54,8 +54,9 @@ _0Z4	ti:zEzR2Ed
 // ordinal numbers
 
 _ord	Edik
+_0o	n'ullAdik
 _1ox	ElSY:     // number = '1' only
-_2ox	ma:Sodik  // number = '2' only
+_2ox	ma:Sodik // number = '2' only
 _1o	EJ:Edik
 _2o	kEt:Edik
 _3o	hAR2_mAdik
@@ -72,6 +73,9 @@ _60o	hAtvAnAdik
 _80o	n^oltsvAnAdik
 _0Co	sa:zAdik
 _2Co	ke:tsa:zAdik
+_0M1o	EzR2Edik
+_1M1o	EzR2Edik
+_2M1o	ke:tEzR2Edik
 
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
 január		$alt
@@ -99,6 +103,15 @@ szept	$alt
 okt	$alt
 now	$alt
 dec	$alt
+
+//this following 7 lines means the 7 hungarian day name
+hétfő	$alt
+kedd	$alt
+szerda	$alt
+csütörtök	$alt
+péntek	$alt
+szombat	$alt
+vasárnap	$alt
 
 // accent names
 _lig	ligAtu:R2A
@@ -129,7 +142,7 @@ mm      milime:tER2
 a.m	An^n^i||m'int  $dot
 dr	doktoR2  $dot
 gpu	$abbrev
-mvgyosz $abbrev
+mvgyosz Emve:Je:oEs
 OTP $abbrev
 id	idY:SEb:  $dot
 ill	illEtvE  $dot

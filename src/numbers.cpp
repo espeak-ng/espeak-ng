@@ -576,7 +576,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 	ph_stress[0] = phonSTRESS_P;
 	ph_stress[1] = 0;
 
-	for(p=(unsigned char *)ph_buf3; *p != 0; p++)
+	for(p=(unsigned char *)ph_buf3; (*p != 0) && (phoneme_tab[*p] != NULL); p++)
 	{
 		if(phoneme_tab[*p]->type == phSTRESS)
 			ph_stress[0] = 0;  // stress is already marked
@@ -865,6 +865,7 @@ static const char *M_Variant(int value)
 
 static int LookupThousands(Translator *tr, int value, int thousandplex, int thousands_exact, char *ph_out)
 {//=======================================================================================================
+// thousands_exact:  bit 0  no hundreds,tens,or units,  bit 1  ordinal numberr
 	int found;
 	int found_value=0;
 	char string[12];
@@ -874,11 +875,20 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	ph_of[0] = 0;
 
 	// first look for a match with the exact value of thousands
-	if(thousands_exact)
+	if(thousands_exact & 1)
 	{
-		// is there a different pronunciation if there are no hundreds,tens,or units ? (LANG=ta)
-		sprintf(string,"_%dM%dx",value,thousandplex);
-		found_value = Lookup(tr, string, ph_thousands);
+		if(thousands_exact & 2)
+		{
+			// ordinal number
+			sprintf(string,"_%dM%do",value,thousandplex);
+			found_value = Lookup(tr, string, ph_thousands);
+		}
+		if(!found_value)
+		{
+			// is there a different pronunciation if there are no hundreds,tens,or units ? (LANG=ta)
+			sprintf(string,"_%dM%dx",value,thousandplex);
+			found_value = Lookup(tr, string, ph_thousands);
+		}
 	}
 	if(found_value == 0)
 	{
@@ -894,11 +904,20 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 		}
 
 		found = 0;
-		if(thousands_exact)
+		if(thousands_exact & 1)
 		{
-			// is there a different pronunciation if there are no hundreds,tens,or units ?
-			sprintf(string,"_%s%dx",M_Variant(value), thousandplex);
-			found = Lookup(tr, string, ph_thousands);
+			if(thousands_exact & 2)
+			{
+				// ordinal number
+				sprintf(string,"_%s%do",M_Variant(value), thousandplex);
+				found = Lookup(tr, string, ph_thousands);
+			}
+			if(!found)
+			{
+				// is there a different pronunciation if there are no hundreds,tens,or units ?
+				sprintf(string,"_%s%dx",M_Variant(value), thousandplex);
+				found = Lookup(tr, string, ph_thousands);
+			}
 		}
 		if(found == 0)
 		{
@@ -994,7 +1013,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		{
 			units = (value % 10);
 
-			if((control & 1) && ((units == 0) || (tr->langopts.numbers & 0x10)))
+			if((control & 1) && ((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
 			{
 				sprintf(string,"_%dXo",value / 10);
 				if(Lookup(tr, string, ph_tens) != 0)
@@ -1026,7 +1045,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 					sprintf(string,"_%df",units);
 					found = Lookup(tr, string, ph_digits);
 				}
-				if((control & 1) && ((tr->langopts.numbers & 0x10) == 0))
+				if((control & 1) && ((tr->langopts.numbers & NUM_SWAP_TENS) == 0))
 				{
 					// ordinal
 					sprintf(string,"_%do",units);
@@ -1046,16 +1065,16 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 
 	if((control & 1) && (found_ordinal == 0) && (ph_ordinal[0] == 0))
 	{
-		if((value >= 20) && (((value % 10) == 0) || (tr->langopts.numbers & 0x10)))
+		if((value >= 20) && (((value % 10) == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
 			Lookup(tr, "_ord20", ph_ordinal);
 		if(ph_ordinal[0] == 0)
 			Lookup(tr, "_ord", ph_ordinal);
 	}
 
-	if((tr->langopts.numbers & 0x30) && (ph_tens[0] != 0) && (ph_digits[0] != 0))
+	if((tr->langopts.numbers & (NUM_SWAP_TENS | NUM_AND_UNITS)) && (ph_tens[0] != 0) && (ph_digits[0] != 0))
 	{
 		Lookup(tr, "_0and", ph_and);
-		if(tr->langopts.numbers & 0x10)
+		if(tr->langopts.numbers & NUM_SWAP_TENS)
 			sprintf(ph_out,"%s%s%s%s",ph_digits, ph_and, ph_tens, ph_ordinal);
 		else
 			sprintf(ph_out,"%s%s%s%s",ph_tens, ph_and, ph_digits, ph_ordinal);
@@ -1063,7 +1082,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	}
 	else
 	{
-		if(tr->langopts.numbers & 0x200)
+		if(tr->langopts.numbers & NUM_SINGLE_VOWEL)
 		{
 			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
 			if(((ix = strlen(ph_tens)-1) >= 0) && (ph_digits[0] != 0))
@@ -1078,7 +1097,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		sprintf(ph_out,"%s%s%s",ph_tens, ph_digits, ph_ordinal);
 	}
 
-	if(tr->langopts.numbers & 0x100)
+	if(tr->langopts.numbers & NUM_SINGLE_STRESS)
 	{
 		// only one primary stress
 		found = 0;
@@ -1107,6 +1126,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	int tensunits;
 	int x;
 	int exact;
+	int ordinal;
 	char string[12];  // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
@@ -1117,6 +1137,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
 	
+	ordinal = control & 2;
 	hundreds = value / 100;
 	tensunits = value % 100;
 	buf1[0] = 0;
@@ -1127,7 +1148,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		ph_thousand_and[0] = 0;
 
 		found = 0;
-		if((control & 2) && (tensunits == 0))
+		if(ordinal && (tensunits == 0))
 		{
 			// ordinal number, with no tens or units
 			found = Lookup(tr, "_0Co", ph_100);
@@ -1137,7 +1158,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			Lookup(tr, "_0C", ph_100);
 		}
 
-		if(((tr->langopts.numbers & 0x0800) != 0) && (hundreds == 19))
+		if(((tr->langopts.numbers & NUM_1900) != 0) && (hundreds == 19))
 		{
 			// speak numbers such as 1984 as years: nineteen-eighty-four
 //			ph_100[0] = 0;   // don't say "hundred", we also need to surpess "and"
@@ -1151,7 +1172,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			if ((value % 1000) == 0)
 				exact = 1;
 
-			if(LookupThousands(tr, hundreds / 10, thousandplex+1, exact, ph_10T) == 0)
+			if(LookupThousands(tr, hundreds / 10, thousandplex+1, exact | ordinal, ph_10T) == 0)
 			{
 				x = 0;
 				if(tr->langopts.numbers2 & (1 << (thousandplex+1)))
@@ -1173,7 +1194,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		ph_digits[0] = 0;
 		if(hundreds > 0)
 		{
-			if((tr->langopts.numbers & 0x100000) && ((control & 1) || (ph_thousands[0] != 0)))
+			if((tr->langopts.numbers & NUM_AND_HUNDRED) && ((control & 1) || (ph_thousands[0] != 0)))
 			{
 				Lookup(tr, "_0and", ph_thousand_and);
 			}
@@ -1184,8 +1205,18 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			if(tensunits == 0)
 			{
 				// is there a special pronunciation for exactly n00 ?
-				sprintf(string,"_%dC0",hundreds);
-				found = Lookup(tr, string, ph_digits);
+
+				if(ordinal)
+				{
+					// ordinal number
+					sprintf(string, "_%dCo", hundreds);
+					found = Lookup(tr, string, ph_digits);
+				}
+				if(!found)
+				{
+					sprintf(string,"_%dC0",hundreds);
+					found = Lookup(tr, string, ph_digits);
+				}
 			}
 			if(!found)
 			{
@@ -1210,7 +1241,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	}
 
 	ph_hundred_and[0] = 0;
-	if((tr->langopts.numbers & 0x40) && (tensunits != 0))
+	if((tr->langopts.numbers & NUM_HUNDRED_AND) && (tensunits != 0))
 	{
 		if((value > 100) || ((control & 1) && (thousandplex==0)))
 		{
@@ -1227,7 +1258,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		if(thousandplex==0)
 		{
 			x = 2;   // allow "eins" for 1 rather than "ein"
-			if(control & 2)
+			if(ordinal)
 				x = 3;   // ordinal number
 			if((value < 100) && !(control & 1))
 				x |= 4;   // tens and units only, no higher digits
@@ -1240,7 +1271,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 
 		if(LookupNum2(tr, tensunits, x, buf2) != 0)
 		{
-			if(tr->langopts.numbers & 0x80)
+			if(tr->langopts.numbers & NUM_SINGLE_AND)
 				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
 		}
 	}
@@ -1293,7 +1324,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	value = this_value = atoi(word);
 
 	ph_ordinal2[0] = 0;
-	if((tr->langopts.numbers & 0x10000) && (word[ix] == '.') && !isdigit(word[ix+2]))
+	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && (word[ix] == '.') && !isdigit(word[ix+2]))
 	{
 		// ordinal number is indicated by dot after the number
 		ordinal = 2;
@@ -1352,7 +1383,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		prev_thousands = 1;
 	}
 	else
-	if((tr->langopts.thousands_sep == ' ') || (tr->langopts.numbers & 0x1000))
+	if((tr->langopts.thousands_sep == ' ') || (tr->langopts.numbers & NUM_ALLOW_SPACE))
 	{
 		// thousands groups can be separated by spaces
 		if((n_digits == 3) && isdigit(word[-2]))
@@ -1373,7 +1404,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		}
 	}
 
-	if((tr->langopts.numbers & 0x1000) && (word[n_digits] == ' '))
+	if((tr->langopts.numbers & NUM_ALLOW_SPACE) && (word[n_digits] == ' '))
 		thousands_inc = 1;
 	else
 	if(word[n_digits] == tr->langopts.thousands_sep)
@@ -1462,9 +1493,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			max_decimal_count = 2;
 			switch(decimal_mode = (tr->langopts.numbers & 0xe000))
 			{
-			case 0x8000:
+			case NUM_DFRACTION_4:
 				max_decimal_count = 5;
-			case 0x4000:
+			case NUM_DFRACTION_2:
 				// French/Polish decimal fraction
 				while(word[n_digits] == '0')
 				{
@@ -1481,8 +1512,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				}
 				break;
 
-			case 0x2000:   // italian, say "hundredths" is leading zero
-			case 0xa000:   // hungarian, always say "tenths" etc.
+			case NUM_DFRACTION_1:   // italian, say "hundredths" is leading zero
+			case NUM_DFRACTION_5:   // hungarian, always say "tenths" etc.
 				if(decimal_count <= 4)
 				{
 					LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0,0,0);
@@ -1500,7 +1531,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				}
 				break;
 
-			case 0x6000:
+			case NUM_DFRACTION_3:
 				// Romanian decimal fractions
 				if((decimal_count <= 4) && (word[n_digits] != '0'))
 				{
@@ -1560,7 +1591,7 @@ int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *fla
 	if(option_sayas == SAYAS_DIGITS1)
 		return(0);  // speak digits individually
 
-	if((tr->langopts.numbers & 0x3) == 1)
+	if(tr->langopts.numbers != 0)
 		return(TranslateNumber_1(tr, word1, ph_out, flags, wflags));
 
 	return(0);

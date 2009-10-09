@@ -48,6 +48,7 @@
 #define OFFSET_ARMENIAN 0x530
 #define OFFSET_DEVANAGARI  0x900
 #define OFFSET_BENGALI 0x980
+#define OFFSET_GURMUKHI 0xa00
 #define OFFSET_TAMIL  0xb80
 #define OFFSET_KANNADA 0xc80
 #define OFFSET_MALAYALAM 0xd00
@@ -165,6 +166,7 @@ static Translator* NewTranslator(void)
 	tr->langopts.max_roman = 49;
 	tr->langopts.thousands_sep = ',';
 	tr->langopts.decimal_sep = '.';
+	tr->langopts.break_numbers = BREAK_THOUSANDS;   // 1000, 1000,000  1,000,000 etc
 
 	memcpy(tr->punct_to_tone, punctuation_to_tone, sizeof(tr->punct_to_tone));
 
@@ -263,7 +265,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			SetLetterVowel(tr,'y');  // add 'y' to vowels
 		
-			tr->langopts.numbers = 0x8d1 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_ROMAN | NUM_1900;
 			tr->langopts.accents = 1;
 		}
 		break;
@@ -283,7 +285,7 @@ Translator *SelectTranslator(const char *name)
 			SetLetterBitsRange(tr,LETTERGP_F,0x3e,0x4c);   // vowel signs, but not virama
 
 			tr->langopts.numbers = 0x1;
-			tr->langopts.numbers2 = NUM2_100000;
+			tr->langopts.break_numbers = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		}
 		break;
 
@@ -305,7 +307,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0x401;
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
 
 			SetLetterVowel(tr,'w');  // add letter to vowels and remove from consonants
 			SetLetterVowel(tr,'y');
@@ -319,7 +321,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0x10c59;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_ORDINAL_DOT | NUM_1900;
 		}
 		break;
 
@@ -333,7 +335,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			memcpy(tr->stress_lengths,stress_lengths_de,sizeof(tr->stress_lengths));
 		
-			tr->langopts.numbers = 0x11419 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_ALLOW_SPACE | NUM_ORDINAL_DOT | NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -344,7 +346,7 @@ Translator *SelectTranslator(const char *name)
 			SetupTranslator(tr,stress_lengths_en,NULL);
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.numbers = 0x841 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_HUNDRED_AND | NUM_ROMAN | NUM_1900;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
 		}
 		break;
@@ -381,7 +383,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0x109;
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA; 
 			tr->langopts.numbers2 = 0x2;   // variant form of numbers before thousands
 
 			if(name2 == L_grc)
@@ -410,7 +412,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd1 = 3;
 			tr->langopts.unstressed_wd2 = 2;
 
-			tr->langopts.numbers = 0x1409 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_ALLOW_SPACE | NUM_ROMAN;
 		}
 		break;
 
@@ -435,7 +437,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0x529 + NUM_ROMAN + NUM_ROMAN_AFTER;
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_ROMAN | NUM_ROMAN_AFTER;
 
 			if(name2 == L('c','a'))
 			{
@@ -457,7 +459,7 @@ Translator *SelectTranslator(const char *name)
 			static const unsigned char stress_amps_eu[8] = {16,16, 18,18, 18,18, 18,18 };
 			SetupTranslator(tr,stress_lengths_eu,stress_amps_eu);
 			tr->langopts.stress_rule = 1;  // ?? second syllable ??
-			tr->langopts.numbers = 0x569 + NUM_VIGESIMAL;
+			tr->langopts.numbers = NUM_SINGLE_STRESS + NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_VIGESIMAL;
 		}
 		break;
 
@@ -474,7 +476,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 
-			tr->langopts.numbers = 0x1009;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA + NUM_ALLOW_SPACE;
 			SetLetterVowel(tr,'y');
 //			tr->langopts.max_initial_consonants = 2;  // BUT foreign words may have 3
 			tr->langopts.spelling_stress = 1;
@@ -493,7 +495,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 
-			tr->langopts.numbers = 0x1509 + 0x8000 + NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL;
+			tr->langopts.numbers = NUM_SINGLE_STRESS +  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL | NUM_DFRACTION_4;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -508,6 +510,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
+	case L('p','a'):    // Punjabi
 		{
 			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,22, 22,21 };
@@ -518,9 +521,15 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
-			tr->langopts.numbers = 0x011;
-			tr->langopts.numbers2 = NUM2_100000;
+			tr->langopts.numbers = NUM_SWAP_TENS;
+			tr->langopts.break_numbers = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
+
+			if(name2 == L('p','a'))
+			{
+				tr->langopts.numbers = 0;   // no number rules yet
+				tr->letter_bits_offset = OFFSET_GURMUKHI;
+			}
 			SetIndicLetters(tr);
 		}
 		break;
@@ -547,7 +556,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.accents = 1;
 
-			tr->langopts.numbers = 0x140d + 0x4000 + NUM_ROMAN_UC;
+			tr->langopts.numbers = NUM_SINGLE_STRESS + NUM_HUNDRED_AND | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_UC;
 			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
 			tr->langopts.replace_chars = replace_cyrillic_latin;
 
@@ -573,7 +582,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1009 + 0xa000 + NUM_ROMAN + NUM_ROMAN_ORDINAL + NUM_ORDINAL_DOT + NUM_OMIT_1_HUNDRED;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_5 | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
 SetLengthMods(tr,3);  // all equal
@@ -595,7 +604,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,LETTERGP_A,hy_vowels);
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
 			tr->langopts.max_initial_consonants = 6;
-			tr->langopts.numbers = 0x409;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 //	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		}
 		break;
@@ -607,7 +616,7 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_id,stress_amps_id);
 			tr->langopts.stress_rule = 2;
-			tr->langopts.numbers = 0x1009 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_ROMAN;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
 			tr->langopts.accents = 2;  // "capital" after letter name
 		}
@@ -629,7 +638,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,3,"jvr");    // Letter group H
 			tr->letter_groups[1] = is_lettergroup_B;
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0x8e9;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SINGLE_AND | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_1900;
 			tr->langopts.numbers2 = 0x2;
 		}
 		break;
@@ -652,7 +661,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.param[LOPT_REDUCE] = 1;        // reduce vowels even if phonemes are specified in it_list
 			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
-			tr->langopts.numbers = 0x2709 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_SINGLE_VOWEL | NUM_OMIT_1_HUNDRED |NUM_DECIMAL_COMMA | NUM_ROMAN | NUM_DFRACTION_1;
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
 			SetLetterVowel(tr,'y');
 		}
@@ -686,7 +695,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 8;   // ?? 1st syllable if it is heavy, else 2nd syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
-			tr->langopts.numbers = 0x0401;
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
 		}
 		break;
 
@@ -700,7 +709,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 
-			tr->langopts.numbers = 0x100461;
+			tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
@@ -713,7 +722,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_DIERESES] = 1;
-			tr->langopts.numbers = 0x1 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_ROMAN;
 			tr->langopts.max_roman = 5000;
 		}
 		break;
@@ -728,7 +737,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 0;
 			tr->langopts.spelling_stress = 1;
 			tr->charset_a0 = charsets[4];   // ISO-8859-4
-			tr->langopts.numbers = 0x409 + 0x8000 + 0x10000;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
 			tr->langopts.stress_flags = 0x16 + 0x40000;
 		}
 		break;
@@ -745,7 +754,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_groups[0] = vowels_cyrillic;
 
 			tr->langopts.stress_rule = 4;   // antipenultimate
-			tr->langopts.numbers = 0x0429 + 0x4000;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2;
 			tr->langopts.numbers2 = 0x8a;  // variant numbers before thousands,milliards
 		}
 		break;
@@ -761,7 +770,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			SetLetterVowel(tr,'y');
 		
-			tr->langopts.numbers = 0x11c19;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_ALLOW_SPACE | NUM_1900 | NUM_ORDINAL_DOT;
 			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));
 		}
 		break;
@@ -773,7 +782,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_no,NULL);
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0x11849;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_ALLOW_SPACE | NUM_1900 + NUM_ORDINAL_DOT;
 		}
 		break;
 
@@ -784,7 +793,7 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 			tr->langopts.stress_rule = 2;
-			tr->langopts.stress_flags = 0x16 + 0x80000;
+			tr->langopts.stress_flags = 2 + NUM_SWAP_TENS | NUM_THOUS_SPACE | NUM_NOPAUSE;  //??
 		}
 		break;
 
@@ -800,8 +809,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x8;
  			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
- 			tr->langopts.numbers=0x1009 + 0x4000;
-			tr->langopts.numbers2=0x40;
+ 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2;
+			tr->langopts.numbers2 = 0x40;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable (and 2-syllable) words (marked with $alt)
 			SetLetterVowel(tr,'y');
 		}
@@ -817,7 +826,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 3;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x20000; 
-			tr->langopts.numbers = 0x069 + 0x4000 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
@@ -835,7 +844,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x100 + 0x6;
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
-			tr->langopts.numbers = 0x1029+0x6000 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3 | NUM_AND_UNITS | NUM_ROMAN;
 			tr->langopts.numbers2 = 0x1e;  // variant numbers before all thousandplex
 		}
 		break;
@@ -850,7 +859,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x16;
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
-			tr->langopts.numbers = 0x61 + 0x100000 + 0x4000;
+			tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
 			tr->langopts.numbers2 = 0x200;  // say "thousands" before its number
 		}
 		break;
@@ -870,7 +879,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x0401 + 0x4000 + NUM_ROMAN;
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ROMAN;
 			tr->langopts.numbers2 = 0x100;
 			tr->langopts.thousands_sep = 0;   //no thousands separator
 			tr->langopts.decimal_sep = ',';
@@ -897,7 +906,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags =  0x16 + 0x100; 
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0x69 + 0x8000;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_4;
 			tr->langopts.accents = 2;  // "capital" after letter name
 		}
 		break;
@@ -911,7 +920,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 0;
 			SetLetterVowel(tr,'y');
-			tr->langopts.numbers = 0x1909;
+			tr->langopts.numbers = NUM_SINGLE_STRESS + NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_1900;
 			tr->langopts.accents = 1;
 		}
 		break;
@@ -928,8 +937,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags =  0x6 | 0x10; 
 
-			tr->langopts.numbers = 0x4e1;
-			tr->langopts.numbers2 = NUM2_100000a;
+			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_OMIT_1_HUNDRED;
+			tr->langopts.break_numbers = 0x49249268;  // for languages which have numbers for 100,000 and 1,000,000
 		}
 		break;
 
@@ -946,7 +955,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
-			tr->langopts.numbers2 = NUM2_100000;
+			tr->langopts.break_numbers = 0x24a8;  // 1000, 100,000  10,000,000 
 
 			if(name2 == L('t','a'))
 			{
@@ -1002,7 +1011,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
 
-			tr->langopts.numbers = 0x1509 + 0x4000;
+			tr->langopts.numbers = NUM_SINGLE_STRESS + NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
@@ -1034,7 +1043,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_groups[0] = vowels_vi;
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.unstressed_wd1 = 2;
-			tr->langopts.numbers = 0x0049 + 0x8000;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_DFRACTION_4;
 
 		}
 		break;
@@ -1070,13 +1079,13 @@ SetLengthMods(tr,3);  // all equal
 
 	tr->translator_name = name2;
 
-	if(tr->langopts.numbers & 0x8)
+	if(tr->langopts.numbers & NUM_DECIMAL_COMMA)
 	{
 		// use . and ; for thousands and decimal separators
 		tr->langopts.thousands_sep = '.';
 		tr->langopts.decimal_sep = ',';
 	}
-	if(tr->langopts.numbers & 0x4)
+	if(tr->langopts.numbers & NUM_THOUS_SPACE)
 	{
 		tr->langopts.thousands_sep = 0;   // don't allow thousands separator, except space
 	}
@@ -1128,7 +1137,7 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.stress_rule = 5;
 	tr->langopts.stress_flags = 0x0020;  // waas 0x1010
 
-	tr->langopts.numbers = 0x0409;
+	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = 0xc2;  // variant numbers before thousands
 	tr->langopts.phoneme_change = 1;
 	tr->langopts.testing = 2;

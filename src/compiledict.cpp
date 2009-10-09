@@ -49,6 +49,7 @@ static int transpose_min;
 static int transpose_max;
 static int text_mode = 0;
 static int debug_flag = 0;
+static int error_need_dictionary = 0;
 
 static int hash_counts[N_HASH_DICT];
 static char *hash_chains[N_HASH_DICT];
@@ -223,7 +224,6 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 static char nullstring[] = {0};
 
 	WORD_TAB winfo;
-	char decoded_phonemes[128];
 
 	comment = NULL;
 	text_not_phonemes = 0;
@@ -432,23 +432,37 @@ step=1;  // TEST
 	if(text_mode)
 		text_not_phonemes = 1;
 
-	if(text_not_phonemes != translator->langopts.textmode)
-	{
-		flag_codes[n_flag_codes++] = BITNUM_FLAG_TEXTMODE;
-	}
-
 	if(text_not_phonemes)
 	{
 		if(word[0] == '_')
 		{
 			// This is a special word, used by eSpeak.  Translate this into phonemes now
-//			memset(&winfo,0,sizeof(winfo));
-//			TranslateWord(translator,phonetic,0,&winfo);    // but *_dict is not loaded ?
-//			DecodePhonemes(word_phonemes,decoded_phonemes);
+			memset(&winfo,0,sizeof(winfo));
+			strcat(phonetic, " ");     // need a space to indicate word-boundary
+
+	// PROBLEM  vowel reductions are not applied to the translated phonemes
+	// condition rules are not applied
+			TranslateWord(translator,phonetic,0,&winfo);
+			text_not_phonemes = 0;
+			strncpy0(encoded_ph, word_phonemes, N_WORD_BYTES-4);
+
+			if((word_phonemes[0] == 0) && (error_need_dictionary < 3))
+			{
+				// the dictionary was not loaded, we need a second attempt
+				error_need_dictionary++;
+				fprintf(f_log,"%5d: Need to compile dictionary again\n",linenum);
+			}
+{
+//char decoded_phonemes[128];
+//DecodePhonemes(word_phonemes,decoded_phonemes);
 //printf("Translator %x  %s  [%s] [%s]\n",translator->translator_name,word,phonetic,decoded_phonemes);
+}
 		}
-		// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
-		strncpy0(encoded_ph,phonetic,N_WORD_BYTES-4);
+		else
+		{
+			// this is replacement text, so don't encode as phonemes. Restrict the length of the replacement word
+			strncpy0(encoded_ph,phonetic,N_WORD_BYTES-4);
+		}
 	}
 	else
 	{
@@ -472,6 +486,12 @@ step=1;  // TEST
 			}
 		}
 	}
+
+	if(text_not_phonemes != translator->langopts.textmode)
+	{
+		flag_codes[n_flag_codes++] = BITNUM_FLAG_TEXTMODE;
+	}
+
 
 	if(sscanf(word,"U+%x",&wc) == 1)
 	{
@@ -1599,6 +1619,7 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	char path[sizeof(path_home)+40];       // path_dsource+20
 
 	error_count = 0;
+	error_need_dictionary = 0;
 	memset(letterGroupsDefined,0,sizeof(letterGroupsDefined));
 
 	debug_flag = flags & 1;

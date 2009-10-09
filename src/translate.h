@@ -328,12 +328,27 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
+#define NUM_THOUS_SPACE  0x4
+#define NUM_DECIMAL_COMMA 0x8
+#define NUM_SWAP_TENS    0x10
+#define NUM_AND_UNITS    0x20
+#define NUM_HUNDRED_AND  0x40
+#define NUM_SINGLE_AND   0x80
+#define NUM_SINGLE_STRESS 0x100
+#define NUM_SINGLE_VOWEL 0x200
 #define NUM_OMIT_1_HUNDRED 0x400
-#define NUM_19_HUNDRED   0x800
+#define NUM_1900         0x800
+#define NUM_ALLOW_SPACE  0x1000
+#define NUM_DFRACTION_1  0x2000
+#define NUM_DFRACTION_2  0x4000
+#define NUM_DFRACTION_3  0x6000
+#define NUM_DFRACTION_4  0x8000
+#define NUM_DFRACTION_5  0xa000
 #define NUM_ORDINAL_DOT  0x10000
 #define NUM_ROMAN        0x20000
 #define NUM_ROMAN_UC     0x40000
 #define NUM_NOPAUSE      0x80000
+#define NUM_AND_HUNDRED  0x100000
 #define NUM_ROMAN_AFTER  0x200000
 #define NUM_VIGESIMAL    0x400000
 #define NUM_ROMAN_ORDINAL 0x800000
@@ -361,17 +376,15 @@ typedef struct {
 	// bit23=Roman numbers are ordinal numbers
 	int numbers;
 
-#define NUM2_100000     0x800   // numbers for 100,000 and 10,000,000
-#define NUM2_100000a    0xc00   // numbers for 100,000 and 1,000,000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
 	// bit8=(LANG=cs,sk) two forms of plural, M or MA
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
-   // bit10=(LANG=sw) special word for 100,000 and 1,000,000
-	// bit11=(LANG=hi) special word for 100,000 and 10,000,000
 	int numbers2;
 
+#define BREAK_THOUSANDS   0x49249248
+	int break_numbers;  // which digits to break the number into thousands, millions, etc (Hindi has 100,000 not 1,000,000)
 	int max_roman;
 	int thousands_sep;
 	int decimal_sep;

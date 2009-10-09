@@ -1,4 +1,5 @@
- 
+//_xx  விழுக்காடு   $text  // TESTING doesn't reduce vowels
+
 // This file is UTF8 encoded 
 // Spelling to phoneme words and exceptions for Tamil
 
@@ -76,8 +77,8 @@ _!	a:ctS:Vr,ijVkk,URi
 U+bf9	ru:ba:j
 
 // abbreviations
-ரூ	ru:ba:j   $dot
-Rs	ru:ba:j   $dot
+ரூ	ru:ba:j  $dot
+Rs	ru:pi:z  $dot
 
 // numbers
 _0	suz.ijVm    // சுழியம்
@@ -139,20 +140,23 @@ _1M1x	a:jirVm
 _0M1	a:jirVttU
 _1M1	a:jirVttU
 
-_0M2x	lVd.tSVm
+_0M2x	lVd.tSVm	// 100,000
 _1M2x	orUlVd.tSVm
 _0M2	lVd.tSVttU
 _1M2	orUlVd.tSVttU
 
-_0M3x	ko:d.i
+_0M3x	ko:d.i		// 10,000,000
 _1M3x	orUko:d.i
 _0M3	ko:d.ie:
 _1M3	orUko:d.ie:
 
-_0M4	nu:RUko:d.i   // not correct, but should be understandable
-_1M4	nu:RUko:d.i
-_0M5	patta:jiRUmko:d.i
-_1M5	patta:jiRUmko:d.i
+_0M4x	a:jirVmko:d.i	// 10,000,000,000
+_1M4x	a:jirVmko:d.i
+_0M4	a:jirVmko:d.ie:
+_1M4	a:jirVmko:d.ie:
+
+_0M5	a:jirVma:jirVmko:d.i	// 10,000,000,000,000
+_1M5	a:jirVma:jirVmko:d.i
 	
 
 _dpt	_pul.l.i
