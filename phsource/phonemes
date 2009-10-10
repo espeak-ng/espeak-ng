@@ -807,6 +807,17 @@ phoneme v
 endphoneme
 
 
+phoneme v#       // approximant, not fricative
+  vcd lbd frc
+  vowelin  f1=1  f2=900 -300 -300  f3=-100 100
+  vowelout f1=1  f2=900 -500 -300  f3=-100 60  len=50
+  lengthmod 6
+  formants voc/v#
+  before _ voc/v#_
+  switchvoicing f
+endphoneme
+
+
 phoneme D
   vcd dnt frc
   vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50

@@ -527,7 +527,6 @@ Translator *SelectTranslator(const char *name)
 
 			if(name2 == L('p','a'))
 			{
-				tr->langopts.numbers = 0;   // no number rules yet
 				tr->letter_bits_offset = OFFSET_GURMUKHI;
 			}
 			SetIndicLetters(tr);

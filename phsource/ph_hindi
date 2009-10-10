@@ -437,14 +437,14 @@ phoneme t.
   switchvoicing d.
 endphoneme
 
-phoneme t.h
+phoneme th.
   vls rfx stop
   vowelin f1=0  f2=1800 -300 300  f3=-400 80
   vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
   lengthmod 2
   wave  ustop/t
 //  wave  ustop/th_rfx
-  switchvoicing d.h
+  switchvoicing dh.
 endphoneme
 
 phoneme d.
@@ -460,7 +460,7 @@ phoneme d.
   switchvoicing t.
 endphoneme
 
-phoneme d.h
+phoneme dh.
   vcd rfx stop
   vowelin f1=1  f2=1800 -300 300  f3=-400 80
   vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
@@ -468,7 +468,7 @@ phoneme d.h
 //  formants d/xd+x/d+ustop/th_rfx
   after @ d/xd
   lengthmod 5
-  switchvoicing t.h
+  switchvoicing th.
 endphoneme
 
 

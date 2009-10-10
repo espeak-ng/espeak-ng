@@ -78,9 +78,10 @@ o    o-   ong  ou   u    u@   ua   uai
 uei  uo   y    y&   y@   yE   yi   yu   
 
 ;    C    f    h    j    k    kh   l    
-L    m    n    N    p    ph   r    R    
-s    s.   S;   t    th   ts   ts.  ts.  
-tS;  tS;  tsh  v    w    x    X    z.   
+L    m    n    N    p    ph   q    r    
+R    s    s.   S;   t    th   ts   ts.  
+ts.  tS;  tS;  tsh  v    w    x    X    
+z.   
 
 
 Dictionary ca_dict
@@ -472,11 +473,11 @@ l-   o    O    o:   O:   O~   o~   r-
 U    u:   u~   V    
 
 -    :    b    bh   c    ch   d    d.   
-d.h  dh   f    g    gh   h    H    j    
+dh   dh.  f    g    gh   h    H    j    
 J    Jh   k    kh   l    l.   m    n    
 N    n.   n^   p    ph   Q    q    r    
-r.   s    S    s.   t    T    t.   t.h  
-th   v    w    x    z    
+r.   s    S    s.   t    T    t.   th   
+th.  v    w    x    z    
 
 
 Dictionary ta_dict
@@ -499,10 +500,10 @@ O~   o~   r-   U    u    u:   u:~  u~
 V    
 
 *    b    B    bh   c    C    ch   d    
-d.   d.h  dh   g    gh   h    j    J    
+d.   dh   dh.  g    gh   h    j    J    
 Jh   k    kh   l    m    n    N    n.   
 n^   p    ph   Q    r    r.   s    S    
-s.   t    t.   t.h  th   tS   x    z    
+s.   t    t.   th   th.  tS   x    z    
 
 
 Dictionary eu_dict
@@ -523,11 +524,11 @@ a    a:   aI   aU   e    E    e:   i
 I    i:   o    o:   r-   u    u:   V    
 y    
 
-:    b    bh   c    ch   d    d.   d.h  
-dh   dZ   f    g    gh   h    j    J    
+:    b    bh   c    ch   d    d.   dh   
+dh.  dZ   f    g    gh   h    j    J    
 Jh   k    kh   l    l.   m    n    N    
 n.   n^   p    ph   R    R2   s    S    
-s.   S;   t    t.   t.h  th   tS   v    
+s.   S;   t    t.   th   th.  tS   v    
 w    z    
 
 
@@ -537,11 +538,11 @@ a    a:   aI   aU   e    E    e:   i
 I    i:   o    o:   r-   u    u:   V    
 y    
 
-:    b    bh   c    ch   d    d.   d.h  
-dh   dZ   f    g    gh   h    j    J    
+:    b    bh   c    ch   d    d.   dh   
+dh.  dZ   f    g    gh   h    j    J    
 Jh   k    kh   l    l.   m    n    N    
 n.   n^   p    ph   R    R2   s    s.   
-S;   t    t.   t.h  th   tS   v    w    
+S;   t    t.   th   th.  tS   v    w    
 z    z.   
 
 
@@ -563,11 +564,11 @@ o~   r-   u    uI   u~   V    VI   VU
 V~   
 
 -    :    b    bh   c    ch   d    d.   
-d.h  dh   f    g    gh   h    H    j    
-J    Jh   k    kh   l    l.   m    n    
-N    n.   n^   p    ph   Q    q    r    
-r.   s    S    s.   t    T    t.   t.h  
-th   v    w    x    z    z.   
+dh   f    g    gh   h    H    j    J    
+Jh   k    kh   l    l.   m    n    N    
+n.   n^   p    ph   Q    q    r    r.   
+s    S    s.   t    T    t.   th   v    
+w    x    z    z.   
 
 
 Dictionary pap_dict
@@ -593,12 +594,12 @@ t    tS   v    w    x    z
 
 Dictionary pa_dict
 
-a    a~   e    E    e~   E~   i    I    
-i:   i~   I~   o    O    o:   O~   o~   
-r-   U    u    u~   U~   V    V~   
+@    a    a~   e    E    e~   E~   i    
+I    i:   i~   I~   o    O    o:   O~   
+o~   r-   U    u    u~   U~   V    V~   
 
-:    b    bh   c    ch   d    d.   d.h  
-dh   f    g    gh   H    j    J    Jh   
-k    kh   l    l.   m    n    N    n.   
-n^   p    ph   Q    R    s    S    t    
-t.   t.h  th   v    x    z    
+:    ;    b    bh   c    ch   d    d.   
+dh   dh.  f    g    gh   H    j    J    
+Jh   k    kh   l    l.   m    n    N    
+n.   n^   p    ph   Q    R    s    S    
+t    t.   th   th.  v    x    z    

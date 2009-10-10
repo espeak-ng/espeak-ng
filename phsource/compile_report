@@ -1,66 +1,66 @@
 61 phoneme tables
           new total
-    base 103  103
-   base2  26  124
-      en  50  149
-    en_n  32  149
-   en_us  37  150
-   en_sc  39  151
-   en_rp  34  149
-   en_wm  31  149
-   en_wi  30  149
-      af  39  135
-      cy  29  129
-      de  33  130
-      eo  13  115
-     jbo   4  116
-      fi  40  134
-      fr  55  141
-   fr_ca  11  141
-      hi  62  151
-      ta  20  154
-      hu  23  119
-      lv  29  126
-      nl  28  126
-      pl  20  117
-      sk  28  135
-      cs   6  135
-      hr  26  140
-      mk   3  141
-      sr  14  140
-      ru  39  134
-      it  17  127
-      la  21  121
+    base 104  104
+   base2  26  125
+      en  50  150
+    en_n  32  150
+   en_us  37  151
+   en_sc  39  152
+   en_rp  34  150
+   en_wm  31  150
+   en_wi  30  150
+      af  39  136
+      cy  29  130
+      de  33  131
+      eo  13  116
+     jbo   4  117
+      fi  40  135
+      fr  55  142
+   fr_ca  11  142
+      hi  62  152
+      ta  20  155
+      hu  23  120
+      lv  29  127
+      nl  28  127
+      pl  20  118
+      sk  28  136
+      cs   6  136
+      hr  26  141
+      mk   3  142
+      sr  14  141
+      ru  39  135
+      it  17  128
+      la  21  122
       es   9  125
    es_la   1  125
       ca  11  127
-      pt  28  140
-   pt_pt  20  140
-      ro  36  146
-      el   8  124
-     grc  12  128
-      sv  25  125
-      no  28  129
-      is  33  129
-      vi  41  140
-     zhy  41  137
-      zh  66  154
-      sw  14  112
-      tr  18  127
-      ku  18  128
-      id  15  126
-      sq  35  127
-      hy  24  119
-      da  21  118
-      rw  15  131
-      ml  13  153
-      kn  15  153
-      bn  59  157
-      ne  18  159
-      mr  12  151
-      eu   6  125
-      mn  15  114
-      pa  12  152
+      pt  28  141
+   pt_pt  20  141
+      ro  36  147
+      el   8  125
+     grc  12  129
+      sv  25  126
+      no  28  130
+      is  33  130
+      vi  41  141
+     zhy  41  138
+      zh  66  155
+      sw  14  113
+      tr  18  128
+      ku  18  129
+      id  15  127
+      sq  35  128
+      hy  24  120
+      da  21  119
+      rw  15  132
+      ml  13  154
+      kn  15  154
+      bn  59  159
+      ne  18  160
+      mr  12  152
+      eu   6  126
+      mn  15  115
+      pa  13  153
 
 Data file      Used by
 b/b             [b] base
@@ -175,7 +175,7 @@ d/xd            [d] base
                 [d] hi
                 [d.] hi
                 [dh] hi
-                [d.h] hi
+                [dh.] hi
                 [d] hu
                 [d] pl
                 [dz] pl
@@ -938,8 +938,8 @@ ustop/q         [q] base
 ustop/q_u       [q] base
 ustop/t         [t] base
                 [t2] en
-                [d.h] hi
-                [t.h] hi
+                [dh.] hi
+                [th.] hi
                 [t] zhy
                 [t.h] bn
 ustop/t_        [t] base
@@ -1392,6 +1392,7 @@ voc/v           [v] base
                 [v] is
                 [v] da
                 [v] bn
+                [v] pa
 voc/v_          [B] base
                 [v] base
                 [v] fi
@@ -1403,11 +1404,15 @@ voc/v_          [B] base
                 [v] is
                 [v] da
                 [v] bn
-voc/v#          [v] hi
-voc/v#_         [v] hi
+                [v] pa
+voc/v#          [v#] base
+                [v] hi
+voc/v#_         [v#] base
+                [v] hi
 voc/v2          [v#] es
 voc/vj          [v] base
                 [v] fr
+                [v] pa
 vocw/dh         [D] base
                 [D] es
 vocw/Q          [Q] base
@@ -1422,6 +1427,7 @@ vocw/v          [B] base
                 [v] ta
                 [v#] es
                 [v;] ro
+                [v] pa
 vocw/zh         [Z] base
                 [Z;] ro
 vocw/zh_rfx     [z.] base
@@ -2429,7 +2435,7 @@ x/d             [d] base
                 [t#] en_us
                 [d] fr
                 [d.] hi
-                [d.h] hi
+                [dh.] hi
                 [d] hr
                 [d] el
                 [d] is

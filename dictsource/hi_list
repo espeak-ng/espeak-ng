@@ -10,7 +10,7 @@ _4        c'a:r:
 _5        p'a:nc
 _6        ch'@2
 _7        s'a:t
-_8        'a:t.h
+_8        'a:th.
 _9        n'O:
 ?3  _9    n'aU
 
@@ -22,7 +22,7 @@ _14       ch'O:d@2
 _15       p'Vndr@2
 _16       s'o:l@2
 _17       s'Vt:r@2
-_18       Vt.h:'a:r@2
+_18       Vth.:'a:r@2
 _19       Unn'Is
 
 _20       b'i:s
@@ -69,15 +69,15 @@ _57       sVt:'a:w@n
 _58       ath:'a:w@n
 _59       Uns'Vth
 
-_60       s'a:t.h
-_61       'Iks@t.h
-_62       b'a:s@t.h
-_63       t'Irs@t.h
-_64       c'O~s@t.h
-_65       paIns@t.h
-_66       ch'Ija:s@t.h
-_67       s'Vrs@t.h
-_68       ars@t.h
+_60       s'a:th.
+_61       'Iks@th.
+_62       b'a:s@th.
+_63       t'Irs@th.
+_64       c'O~s@th.
+_65       paIns@th.
+_66       ch'Ija:s@th.
+_67       s'Vrs@th.
+_68       ars@th.
 _69       Un@h,at:'Vr:
 
 _70       sat:'Vr:
@@ -137,10 +137,10 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 झ      Jh@
 ञ      n^@
 ट      t.@
-ठ      t.h@
+ठ      th.@
 ड      d.@
 ड़      r.@
-ढ      d.h@
+ढ      dh.@
 ण      n.@   // retroflex n.@
 त      t@
 थ      th@

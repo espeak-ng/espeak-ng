@@ -761,7 +761,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 	int value;
 	int subtract;
 	int repeat = 0;
-	int wflags = 0;
+	WORD_TAB wtab[2];
 	unsigned int flags;
 	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
@@ -772,6 +772,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 	acc = 0;
 	prev = 0;
 	subtract = 0x7fff;
+	memset(wtab, 0, sizeof(wtab));
 
 	while((c = *word++) != ' ')
 	{
@@ -826,8 +827,8 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 	sprintf(number_chars," %d ",acc);
 
 	if(tr->langopts.numbers & NUM_ROMAN_ORDINAL)
-		wflags |= FLAG_ORDINAL;
-	TranslateNumber(tr, &number_chars[1], p, &flags, wflags);
+		wtab[0].flags |= FLAG_ORDINAL;
+	TranslateNumber(tr, &number_chars[1], p, &flags, wtab);
 
 	if(tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out,ph_roman);
@@ -1282,8 +1283,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 }  // end of LookupNum3
 
 
-static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, int wflags)
-{//====================================================================================================
+static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, WORD_TAB *wtab)
+{//========================================================================================================
 //  Number translation with various options
 // the "word" may be up to 4 digits
 // "words" of 3 digits may be preceded by another number "word" for thousands or millions
@@ -1324,9 +1325,10 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	value = this_value = atoi(word);
 
 	ph_ordinal2[0] = 0;
-	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && (word[ix] == '.') && !isdigit(word[ix+2]))
+	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && (word[ix] == '.') && IsAlpha(word[ix+2]) && !(wtab[1].flags & FLAG_FIRST_UPPER))
 	{
 		// ordinal number is indicated by dot after the number
+		// but not if the next word starts with an upper-case letter
 		ordinal = 2;
 		word[ix] = ' ';
 
@@ -1371,7 +1373,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		}
 	}
 
-	if(wflags & FLAG_ORDINAL)
+	if(wtab[0].flags & FLAG_ORDINAL)
 		ordinal = 2;
 
 	ph_append[0] = 0;
@@ -1586,13 +1588,13 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 
 
-int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, int wflags)
-{//============================================================================================
+int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab)
+{//================================================================================================
 	if(option_sayas == SAYAS_DIGITS1)
 		return(0);  // speak digits individually
 
 	if(tr->langopts.numbers != 0)
-		return(TranslateNumber_1(tr, word1, ph_out, flags, wflags));
+		return(TranslateNumber_1(tr, word1, ph_out, flags, wtab));
 
 	return(0);
 }  // end of TranslateNumber

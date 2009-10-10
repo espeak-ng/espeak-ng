@@ -715,7 +715,7 @@ if((wmark > 0) && (wmark < 8))
 			if(word_phonemes[0] == phonSWITCH)
 				return(0);
 
-			found = TranslateNumber(tr,word1,phonemes,dictionary_flags,wflags);
+			found = TranslateNumber(tr,word1,phonemes,dictionary_flags,wtab);
 		}
 
 		if(!found & ((wflags & FLAG_UPPERS) != FLAG_FIRST_UPPER))
@@ -1962,6 +1962,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int prev_out2;
 	int prev_in2=0;
 	int next_in;
+	int next_in_nbytes;
 	int char_inserted=0;
 	int clause_pause;
 	int pre_pause_add=0;
@@ -2130,7 +2131,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			source_index += utf8_in(&cc,&source[source_index]);   // cc = source[source_index++];
 			c = cc;
 		}
-		utf8_in(&next_in,&source[source_index]);
+		next_in_nbytes = utf8_in(&next_in,&source[source_index]);
 
 		if((c == CTRL_EMBEDDED) || (c == ctrl_embedded))
 		{
@@ -2333,13 +2334,18 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 							prev_in2 = c;
 						}
 						else
-						if((c != ' ') && iswupper(prev_in) && iswlower(next_in) &&
-								(memcmp(&source[source_index],"s ",2) != 0))          // ENGLISH specific plural
+						if((c != ' ') && iswupper(prev_in) && iswlower(next_in))
 						{
-							c = ' ';      // change from upper to lower case, start new word at the last uppercase
-							space_inserted = 1;
-							prev_in2 = c;
-							next_word_flags |= FLAG_NOSPACE;
+							int next2_in;
+							utf8_in(&next2_in,&source[source_index + next_in_nbytes]);
+							if(IsAlpha(next2_in))
+							{
+								// changing from upper to lower case, start new word at the last uppercase, if 3 or more letters
+								c = ' ';
+								space_inserted = 1;
+								prev_in2 = c;
+								next_word_flags |= FLAG_NOSPACE;
+							}
 						}
 					}
 				}

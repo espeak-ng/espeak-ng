@@ -569,7 +569,7 @@ int SetTranslator2(const char *name);
 void DeleteTranslator(Translator *tr);
 int Lookup(Translator *tr, const char *word, char *ph_out);
 
-int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, int wflags);
+int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab);
 int TranslateRoman(Translator *tr, char *word, char *ph_out);
 
 void ChangeWordStress(Translator *tr, char *word, int new_stress);

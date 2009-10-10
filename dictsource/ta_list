@@ -77,8 +77,8 @@ _!	a:ctS:Vr,ijVkk,URi
 U+bf9	ru:ba:j
 
 // abbreviations
-ரூ	ru:ba:j  $dot
-Rs	ru:pi:z  $dot
+ரூ	ru:ba:j  $dot $only
+Rs	ru:pi:z  $dot $only
 
 // numbers
 _0	suz.ijVm    // சுழியம்

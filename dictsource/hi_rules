@@ -238,9 +238,9 @@
 ?1      ट (_     t.
 
 .group ठ
-        ठ        t.hV
-        ठ (B     t.h
-?1      ठ (_     t.h
+        ठ        th.V
+        ठ (B     th.
+?1      ठ (_     th.
 
 .group ड
         ड        d.V
@@ -252,9 +252,9 @@
 ?1      ड़ (_     r.
 
 .group ढ
-        ढ        d.hV
-        ढ (B     d.h
-?1      ढ (_     d.h
+        ढ        dh.V
+        ढ (B     dh.
+?1      ढ (_     dh.
         ढ़        r.hV  // nukta  (should retroflex flap)
         ढ़ (B     r.h   // nukta
 ?1      ढ़ (_     r.h   // nukta
