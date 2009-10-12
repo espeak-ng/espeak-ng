@@ -247,6 +247,12 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	sprintf(fname,"%s%c%s_dict",path_home,PATHSEP,name);
 	size = GetFileLength(fname);
 
+	if(tr->data_dictlist != NULL)
+	{
+		Free(tr->data_dictlist);
+		tr->data_dictlist = NULL;
+	}
+
 	f = fopen(fname,"rb");
 	if((f == NULL) || (size <= 0))
 	{
@@ -256,9 +262,6 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 		}
 		return(1);
 	}
-
-	if(tr->data_dictlist != NULL)
-		Free(tr->data_dictlist);
 
 	tr->data_dictlist = Alloc(size);
 	fread(tr->data_dictlist,size,1,f);

@@ -595,11 +595,18 @@ t    tS   v    w    x    z
 Dictionary pa_dict
 
 @    a    a~   e    E    e~   E~   i    
-I    i:   i~   I~   o    O    o:   O~   
-o~   r-   U    u    u~   U~   V    V~   
+I    i~   I~   o    O    O~   o~   r-   
+U    u    u~   U~   V    V~   
 
 :    ;    b    bh   c    ch   d    d.   
 dh   dh.  f    g    gh   H    j    J    
 Jh   k    kh   l    l.   m    n    N    
 n.   n^   p    ph   Q    R    s    S    
 t    t.   th   th.  v    x    z    
+
+
+Dictionary prs_dict
+
+@    A    i    o    
+
+b    d    h    l    t    X    

@@ -16,12 +16,15 @@ _) alattvaló _!'AlAtvAlo:
 
 .group á
         á        a:
-
+     @) ában (_S4   a:bAn
+     @) ának (_S4   a:nAk
 
 
 .group b
         b        b
 bb b:       
+     @) ban (_S3    bAn
+     @) ben (_S3    bEn
 
         biz (A   b'iz,       // bizalmas  etc.
 	biedermeier  bi:dER2ma:jER2
@@ -75,14 +78,20 @@ pá) c (só ts
 dd d:
 dts tS:
 dt t:
+apró) d (sz d
 a) dsz ts:
+beszé) d (szin d
 cselé) d d
 enge) dsz ts:
 engedelmeske) dsz ts:
+fogó) dz (kod ts
 hazu) dsz ts:
+ha) d (járat d
+hor) d (szék d
 mara) dsz  ts:
 tu) dsz ts:
 kére) dz ts
+mentegető) dz z
 //      dd       d:
         dz       dz
      A) dz (A    d:z
@@ -105,11 +114,14 @@ min) dny n^
 
 .group e
         e        E
+
   D_-_) es (_    %ES
 _) egyezség _!'EJ:ESSe:g
 .group é
         é        e:
         éi (é    e::i:
+     @) ében (_S4   e:bEn
+     @) ének (_S4   e:nEk
 
 .group ë
         ë        Y
@@ -131,11 +143,14 @@ gg       g:
      C) gyj      J
      A) gyj (A   J:
 ha) gyj J:
-    _e) gy (es   J:
+e) gy (jelentésű J
+_e) gy (es   J:
     _e) gy (et_  J:
     _e) gy (etlen  J:
     _e) gy (ik   J:
     _e) gy (üt   J:
+e) gyj (elentésű Jj
+gyön) gy (sor J
 _minde) gy (ik   J:
 
     na) gysz (a  Js
@@ -155,16 +170,24 @@ le) g (gy g
 
 .group i
         i        i
+     @) i (_S1   i
+
 _) itthon  ithon
 
 .group í
         í        i:
 íts i:tS:
+fesz) ítsd i:tSd
+bizony) ítsd i:tSd
 
 .group j
         j        j
+     @) jában  (_S5  ja:bAn
+     @) jának  (_S5  ja:nAk
+
 _) javíts  jAvi:tS:
 _) javítsd  jAvi:tSd
+
 
 .group k
         k        k
@@ -271,6 +294,7 @@ szts stS:
 föld) s (ánc S
 s (színű S
    hel) s (inki  z
+
     ki) s (ebb   SS
    _má) s (szó   S
 _munká) s        S
@@ -313,12 +337,18 @@ ttn t:n
         tty      c:
 apá) ts (ág tS:
 becsüle) t t
+csalódo) tts (ág tS:
 cson) t t
 cson) tj c
 ezüs) t t
 éle) t t
 
 felej) ts tS
+
+gyapo) t t
+
+gráni) t t
+
 já) tsz (ani ts:
 tsz ts:
 szorí) ts (a tS:
@@ -350,6 +380,8 @@ vörösmar) ty     ti
 á) t (sző t
 á) t (szú t
 á) t (szű t
+á) t (jut t
+á) t (jö t
 bizo) tts (ág tS:
 állí) ts tS:
 állapo) t (sor t
@@ -361,12 +393,17 @@ kiál) ts tS
 köve) ts (ég  tS:
 kür) t t
 kür) tj c
+küldö) ttj c:
 korlátozo) tts tS:
 neve) ts (ég tS:
 on) ts (u tS
+o) tt t:
 szen)t (szék t
 szé) t t
 szöve) ts (ég  tS:
+söté) ts (ég tS:
+sajá) ts (ág tS:
+
 pillan) ts tS
 romlo) tts tS:
 tar) ts tS
@@ -433,6 +470,7 @@ csontvá) z z
 e) z  (t s
 ho) z (ta s
 ho) z (tá s
+helye) z (ked s
 inté) z (ked s
 költö) z (köd s
 

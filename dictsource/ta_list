@@ -1,4 +1,3 @@
-//_xx  விழுக்காடு   $text  // TESTING doesn't reduce vowels
 
 // This file is UTF8 encoded 
 // Spelling to phoneme words and exceptions for Tamil
@@ -157,6 +156,73 @@ _1M4	a:jirVmko:d.ie:
 
 _0M5	a:jirVma:jirVmko:d.i	// 10,000,000,000,000
 _1M5	a:jirVma:jirVmko:d.i
-	
 
 _dpt	_pul.l.i
+
+
+// exceptions
+பாபு	$alt	// initial ப as [b]
+பாலு	$alt
+பவானி	$alt
+பகவதி	$alt
+பானம்	$alt
+பாறம்	$alt
+பாரதி	$alt
+பாரதம்	$alt
+பரதம்	$alt
+பாப	$alt
+பாகம்	$alt
+பண்தம்	$alt
+பவனி	$alt
+
+தானம்	$alt	// initial த as [d]
+தேகம்	$alt
+திரவியம்	$alt
+தூபம்	$alt
+தீபம் 	$alt
+தீபாவளி		$alt
+தீரம்	$alt
+தைரியம்	$alt
+திடம்	$alt
+திரவம்	$alt
+திடீர்	$alt
+திவசம்	$alt
+தியானம்	$alt
+தானியம்	$alt
+தண்டனை	$alt
+துவம்சம்	$alt
+திருஷ்டி	$alt
+தயாநிதி	$alt
+தயாளு	$alt
+துக்கம்	$alt
+திகில்	$alt
+துந்துவி	$alt
+தயவு	$alt
+தடால்	$alt
+திக்	$alt
+தடக்	$alt
+தீக்ஷை	$alt
+
+
+
+கக	$alt	// initial க as [g]
+கனம்	$alt
+கணம்	$alt
+கணபதி	$alt
+கணீர்	$alt
+கிலி	$alt
+கில்லி	$alt
+கோதுமை	$alt
+கோபுரம் 	$alt
+காந்தம்	$alt
+காந்தி	$alt
+குண்டு 	$alt
+கோலி	$alt
+குகை 	$alt
+கிரி	$alt
+கோமதி	$alt
+
+
+
+
+பப	pVpV

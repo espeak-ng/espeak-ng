@@ -169,7 +169,7 @@ endphoneme
 phoneme I~
   vowel starttype (i) endtype (i)
   length 170
-  formants vnasal/i_n2
+  formants vnasal/ii_n
 endphoneme
 
 phoneme e~

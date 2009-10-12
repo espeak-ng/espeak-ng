@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-09-25 Michel Such  <michel.such@free.fr>
+// Updated: 2009-10-09 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -300,6 +300,7 @@ _)		en (A       A~n		// enivrer
 	ol)	en (t_      A~		// somnolent, violent
 	Vol)	en (t_        		// somnolent, violent
 	Xol)	ent (_      t2  		// volent
+	eul)	ent (_      t2  		// veulent
 	ul)	en (t_      A~		// turbulent
 	Vul)	en (t_
 	imCoC)	en (t_      A~		// impotent
@@ -878,6 +879,7 @@ C)		i (es_    i
 
 	_)	n (_°       nymero
 	_)	neuro (@@P5       nYro
+	_)	nvda (P4	Envedea
 
 
 .group o

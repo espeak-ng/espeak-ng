@@ -464,6 +464,13 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 
+	case L('f','a'):   // Farsi
+		{
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+		}
+		break;
+
+
 	case L('f','i'):   // Finnish
 		{
 			static const unsigned char stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,22 };

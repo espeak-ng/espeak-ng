@@ -317,7 +317,6 @@ void Lexicon_It(int pass)
 	char phonemes[80];
 	char phonemes2[80];
 	char buf_out[120];
-	WORD_TAB winfo;
 	static const char *vowels1 = "aeiou";
 	static const char *vowels2 = "aeou";
 
@@ -438,8 +437,7 @@ void Lexicon_It(int pass)
 			}
 		}
 		// translate
-		memset(&winfo,0,sizeof(winfo));
-		TranslateWord(translator,&word1[1],0,&winfo);
+		TranslateWord(translator,&word1[1],0, NULL);
 		DecodePhonemes(word_phonemes,phonemes);
 
 		stress_posn1 = 0;
@@ -462,8 +460,7 @@ void Lexicon_It(int pass)
 				vowel_ix++;
 		}
 
-		memset(&winfo,0,sizeof(winfo));
-		TranslateWord(translator,&word2[1],0,&winfo);
+		TranslateWord(translator,&word2[1],0, NULL);
 		DecodePhonemes(word_phonemes,phonemes2);
 
 		vowel_ix = 1;
@@ -619,7 +616,6 @@ void Lexicon_De()
 	char pronounce2[80];
 	char phonemes[80];
 	char phonemes2[80];
-	WORD_TAB winfo;
 
 	static const char *vowels = "aeiouyAEIOUY29@";
 
@@ -728,8 +724,7 @@ void Lexicon_De()
 		}
 
 		// translate
-		memset(&winfo,0,sizeof(winfo));
-		TranslateWord(translator,&word2[1],0,&winfo);
+		TranslateWord(translator,&word2[1],0, NULL);
 
 		DecodePhonemes2(word_phonemes,phonemes);  // also need to change some phoneme names
 
@@ -794,7 +789,6 @@ void Lexicon_Ru()
 	int wlen;
 	int len;
 	int check_root;
-	WORD_TAB winfo;
 
 	char word[80];
 	char word2[80];
@@ -933,8 +927,7 @@ p_unicode = unicode;
 		}
 
 		// translate
-		memset(&winfo,0,sizeof(winfo));
-		TranslateWord(translator, &word2[1],0,&winfo);
+		TranslateWord(translator, &word2[1],0, NULL);
 		DecodePhonemes(word_phonemes,phonemes);
 
 		// find the stress position in the translation

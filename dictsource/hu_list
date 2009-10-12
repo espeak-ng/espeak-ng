@@ -49,7 +49,8 @@ _0Z1	tizEd      // tenths
 _0Z2	sa:zAd     // hundredths
 _0Z3	EzR2Ed
 _0Z4	ti:zEzR2Ed
-
+_0Z5	sa:zEzR2Ed
+_0Z6	miliomod
 
 // ordinal numbers
 
@@ -90,6 +91,8 @@ szeptember	$alt
 október		$alt
 november	$alt
 december	$alt
+
+
 //The following 12 row contains shorter hungarian month names
 jan	$alt
 feb $alt

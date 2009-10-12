@@ -535,7 +535,7 @@ static short vcolouring[N_VCOLOUR][5] = {
 //	fprintf(stderr,"FMT%d %3s  %3d-%3d f1=%d  f2=%4d %4d %4d  f3=%4d %3d\n",
 //		which,WordToString(other_ph->mnemonic),len,rms,f1,f2,f2_min,f2_max,f3_adj,f3_amp);
 
-	if(other_ph->mnemonic == '?')
+	if((other_ph != NULL) && (other_ph->mnemonic == '?'))
 		flags |= 8;
 
 	if(which == 1)

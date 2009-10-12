@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2009-09-30 Michel Such  <michel.such@free.fr>
+// Updated 2009-10-07 Michel Such  <michel.such@free.fr>
 
 phoneme (l)  virtual
 // Used for l and l/
@@ -96,7 +96,7 @@ endphoneme
 
 phoneme i- // shorter
   vowel starttype (i) endtype (i)
-  length 130
+  length 110
   formants vowel/i_2
   after (l) l/li-15
   after (r) vwl_fr/ri
@@ -119,7 +119,7 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/o_3
+  formants vowel/o_8
   after (l) l/lo-10
   after (r) vwl_fr/ro
   before l/ DFT+l/l_o
@@ -132,7 +132,7 @@ endphoneme
 phoneme o2
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/o_2
+  formants vowel/o
   after (l) l/lo-10
   after (r) vwl_fr/ro
   before l/ vowel/o_mid2+l/l_o
@@ -237,10 +237,10 @@ endphoneme
 
 phoneme wA
   vowel starttype (o) endtype (a)
-  length 230
+  length 220
   formants vwl_fr/w_a
   after (l) l/lo-10
-  after (r) vwl_fr/ro-15
+  after (r) vwl_fr/ro
   before l/ DFT-10+l/l_a
   before j DFT
   before (r) DFT+vwl_fr/xr
@@ -394,7 +394,7 @@ phoneme k
   lengthmod 2
   wave ustop/k%40     // reduce strength of noise burst
   before _ ustop/k_
-  before (r) ustop/kr%45
+  before (r) ustop/k%50
   before r/2 ustop/k%60
   before (l) ustop/kl%45
   before (i) ustop/ki%45
@@ -465,7 +465,7 @@ endphoneme
 
 phoneme r // between vowels in a word
   liquid uvl starttype (r) endtype (r)
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80 len=20
   vowelout f1=2  f2=1600 -300 300  f3=-300 80
   length 100
   lengthmod 7
@@ -481,12 +481,12 @@ endphoneme
 
 phoneme R // First letter of a word
   liquid uvl starttype (r) endtype (r)
-  vowelin  f1=0  f2=1600 -300 300  f3=-200 80
+  vowelin  f1=0  f2=1600 -300 300  f3=-200 80 len=20
   vowelout f1=2  f2=1600 -300 300  f3=-300 80
   length 100
   lengthmod 0
   beforenotvowel r/2
-  formants vwl_fr/r
+  formants vwl_fr/_r2
   after _ vwl_fr/_r
   after (a) vwl_fr/_r
   after (e) vwl_fr/_r
@@ -513,7 +513,7 @@ endphoneme
 
 phoneme r/2   // variant of [r] when not preceding a vowel
   liquid uvl starttype r/2 endtype r/2
-  vowelout f1=2  f2=1600 -300 300  f3=-300 80
+  vowelout f1=2  f2=1600 -300 300  f3=-300 100
   length 100
   lengthmod 2
   formants vwl_fr/r_+r3/rx%25

@@ -1314,7 +1314,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	char ph_buf2[50];
 	char suffix[20];
 	char *wordptr;
-	unsigned int dictflags[2];
+	unsigned int dictflags;
 
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
 
@@ -1331,14 +1331,12 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		// but not if the next word starts with an upper-case letter
 		ordinal = 2;
 		word[ix] = ' ';
-
 		if(tr->translator_name == L('h','u'))
 		{
 			// lang=hu don't treat dot as ordinal indicator if the next word is a month name ($alt)
-			dictflags[0] = 0;
 			wordptr = &word[ix+2];
-			LookupDictList(tr, &wordptr, ph_buf, dictflags, 0, NULL);
-			if(dictflags[0] & FLAG_ALT_TRANS) // TEST
+			dictflags = TranslateWord(tr, &word[ix+2], 0, NULL);
+			if(dictflags & FLAG_ALT_TRANS)
 				ordinal = 0;
 		}
 	}
@@ -1514,23 +1512,20 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				}
 				break;
 
-			case NUM_DFRACTION_1:   // italian, say "hundredths" is leading zero
+			case NUM_DFRACTION_1:   // italian, say "hundredths" if leading zero
 			case NUM_DFRACTION_5:   // hungarian, always say "tenths" etc.
-				if(decimal_count <= 4)
+				LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0,0,0);
+				if((word[n_digits]=='0') || (decimal_mode == NUM_DFRACTION_5))
 				{
-					LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0,0,0);
-					if((word[n_digits]=='0') || (decimal_mode == 0xa000))
-					{
-						// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
-						sprintf(string,"_0Z%d",decimal_count);
-						if(Lookup(tr, string, buf1) == 0)
-							break;   // revert to speaking single digits
+					// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
+					sprintf(string,"_0Z%d",decimal_count);
+					if(Lookup(tr, string, buf1) == 0)
+						break;   // revert to speaking single digits
 
-						strcat(ph_buf,buf1);
-					}
-					strcat(ph_out,ph_buf);
-					n_digits += decimal_count;
+					strcat(ph_buf,buf1);
 				}
+				strcat(ph_out,ph_buf);
+				n_digits += decimal_count;
 				break;
 
 			case NUM_DFRACTION_3:

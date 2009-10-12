@@ -816,8 +816,8 @@ static int LoadSoundFile2(const char *fname)
 
 
 
-static int AnnouncePunctuation(Translator *tr, int c1, int c2, char *buf, int bufix)
-{//=================================================================================
+static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
+{//==========================================================================================================
 	// announce punctuation names
 	// c1:  the punctuation character
 	// c2:  the following character
@@ -826,12 +826,19 @@ static int AnnouncePunctuation(Translator *tr, int c1, int c2, char *buf, int bu
 	const char *punctname;
 	int found = 0;
 	int soundicon;
-	char *p;
+	int c2;
+	int len;
+	int bufix1;
+	char buf[200];
+	char buf2[80];
+
+	c2 = *c2_ptr;
+	buf[0] = 0;
 
 	if((soundicon = LookupSoundicon(c1)) >= 0)
 	{
 		// add an embedded command to play the soundicon
-		sprintf(&buf[bufix],"\001%dI ",soundicon);
+		sprintf(buf,"\001%dI ",soundicon);
 		UngetC(c2);
 		found = 1;
 	}
@@ -839,7 +846,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int c2, char *buf, int bu
 	if((punctname = LookupCharName(tr, c1)) != NULL)
 	{
 		found = 1;
-		if(bufix==0)
+		if((*bufix==0) || (end_clause==0))
 		{
 			punct_count=1;
 			while(c2 == c1)
@@ -847,26 +854,32 @@ static int AnnouncePunctuation(Translator *tr, int c1, int c2, char *buf, int bu
 				punct_count++;
 				c2 = GetC();
 			}
-			UngetC(c2);
+			*c2_ptr = c2;
+			if(end_clause)
+			{
+				UngetC(c2);
+			}
 
-			p = &buf[bufix];
 			if(punct_count==1)
 			{
-				sprintf(p,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
+				sprintf(buf,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
 			}
 			else
 			if(punct_count < 4)
 			{
-				sprintf(p,"\001+10S%s",tone_punct_on);
+				sprintf(buf,"\001+10S%s",tone_punct_on);
 				while(punct_count-- > 0)
-					sprintf(buf,"%s %s",buf,punctname);
-				sprintf(p,"%s %s\001-10S",buf,tone_punct_off);
+				{
+					sprintf(buf2," %s",punctname);
+					strcat(buf, buf2);
+				}
+				sprintf(buf2," %s\001-10S",tone_punct_off);
+				strcat(buf, buf2);
 			}
 			else
 			{
-				sprintf(p,"%s %s %d %s %s",
+				sprintf(buf,"%s %s %d %s %s",
 						tone_punct_on,punctname,punct_count,punctname,tone_punct_off);
-				return(CLAUSE_COMMA);
 			}
 		}
 		else
@@ -879,17 +892,25 @@ static int AnnouncePunctuation(Translator *tr, int c1, int c2, char *buf, int bu
 					ssml_ignore_l_angle = c1;  // this was &lt; which was converted to <, don't pick it up again as <
 			}
 			ungot_char2 = c1;
-			buf[bufix] = ' ';
-			buf[bufix+1] = 0;
+			buf[0] = ' ';
+			buf[1] = 0;
 		}
 	}
 
 	if(found == 0)
 		return(-1);
 
+	bufix1 = *bufix;
+	len = strlen(buf);
+	strcpy(&output[*bufix],buf);
+	*bufix += len;
+
+	if(end_clause==0)
+		return(-1);
+
 	if(c1 == '-')
 		return(CLAUSE_NONE);   // no pause
-	if(bufix > 0)
+	if(bufix1 > 0)
 		return(CLAUSE_SHORTCOMMA);
 	if((strchr_w(punct_close,c1) != NULL) && !iswalnum(c2))
 		return(CLAUSE_SHORTFALL+4);
@@ -1919,8 +1940,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int any_alnum = 0;
 	int self_closing;
 	int punct_data;
-	int is_punctuation;
-	int save_c2;
+	int is_end_clause;
+	int announced_punctuation;
 	int stressed_word = 0;
 	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
@@ -2304,35 +2325,48 @@ if(option_ssml) parag=1;
 			linelength = 0;
 		}
 
-		if(option_punctuation && (phoneme_mode==0) && (sayas_mode==0) && iswpunct(c1))
+		announced_punctuation = 0;
+
+		if((phoneme_mode==0) && (sayas_mode==0))
 		{
-			// option is set to explicitly speak punctuation characters
-			// if a list of allowed punctuation has been set up, check whether the character is in it
-			if((option_punctuation == 1) || (wcschr(option_punctlist,c1) != NULL))
+			is_end_clause = 0;
+
+			if((punct = lookupwchar(punct_chars,c1)) != 0)
 			{
-				if((terminator = AnnouncePunctuation(tr, c1, c2, buf, ix)) >= 0)
-					return(terminator);
+				punct_data = punct_attributes[punct];
+	
+				if(punct_data & PUNCT_IN_WORD)
+				{
+					// Armenian punctuation inside a word
+					stressed_word = 1;
+					*tone_type = punct_data >> 12 & 0xf;   // override the end-of-sentence type
+					continue;
+				}
+
+				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
+				{
+					// note: (c2='?') is for when a smart-quote has been replaced by '?'
+					is_end_clause = 1;
+				}
 			}
-		}
 
-		if((phoneme_mode==0) && (sayas_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0))
-		{
-			punct_data = punct_attributes[punct];
-
-			if(punct_data & PUNCT_IN_WORD)
+			if(option_punctuation && iswpunct(c1))
 			{
-				// Armenian punctuation inside a word
-				stressed_word = 1;
-				*tone_type = punct_data >> 12 & 0xf;   // override the end-of-sentence type
-				continue;
+				// option is set to explicitly speak punctuation characters
+				// if a list of allowed punctuation has been set up, check whether the character is in it
+				if((option_punctuation == 1) || (wcschr(option_punctlist,c1) != NULL))
+				{
+					if((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, is_end_clause)) >= 0)
+						return(terminator);
+					announced_punctuation = c1;
+				}
 			}
+	
 
-			if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
+			if(is_end_clause)
 			{
-				// note: (c2='?') is for when a smart-quote has been replaced by '?'
-
-				is_punctuation = 1;
-
+				int c_next;
+	
 				if((c1 == '.') && (cprev == '.'))
 				{
 					c1 = 0x2026;
@@ -2340,47 +2374,43 @@ if(option_ssml) parag=1;
 				}
 	
 				nl_count = 0;
-				save_c2 = c2;
+				c_next = c2;
 
-				if(iswspace(c2))
+				if(iswspace(c_next))
 				{
-					while(!Eof() && iswspace(c2))
+					while(!Eof() && iswspace(c_next))
 					{
-						if(c2 == '\n')
+						if(c_next == '\n')
 							nl_count++;
-						c2 = GetC();   // skip past space(s)
-					}
-					if(!Eof())
-					{
-						UngetC(c2);
+						c_next = GetC();   // skip past space(s)
 					}
 				}
 
 				if((nl_count==0) && (c1 == '.'))
 				{
-//					if(iswdigit(cprev) && (tr->langopts.numbers & NUM_ORDINAL_DOT) && islower(c2))
 					if(iswdigit(cprev) && (tr->langopts.numbers & NUM_ORDINAL_DOT))
 					{
 						// dot after a number indicates an ordinal number
-						is_punctuation = 0;
+						if(islower(c_next) || (c_next == '<'))
+							is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
 					}
 					else
-					if(iswlower(c2))
+					if(iswlower(c_next))
 					{
 						// next word has no capital letter, this dot is probably from an abbreviation
 						c1 = ' ';
-						is_punctuation = 0;
+						is_end_clause = 0;
 					}
 					if(any_alnum==0)
 					{
 						c1 = ' ';   // no letters or digits yet, so probably not a sentence terminator
-						is_punctuation = 0;
+						is_end_clause = 0;
 					}
 				}
-				c2 = save_c2;
 
-				if(is_punctuation)
+				if(is_end_clause)
 				{
+					UngetC(c_next);
 					buf[ix] = ' ';
 					buf[ix+1] = 0;
 		
@@ -2393,11 +2423,32 @@ if(option_ssml) parag=1;
 					}
 					return(punct_data);   // only recognise punctuation if followed by a blank or bracket/quote
 				}
+				else
+				{
+					if(!Eof())
+					{
+						if(iswspace(c2))
+							UngetC(c_next);
+					}
+				}
 			}
 		}
 
 		if(speech_parameters[espeakSILENCE]==1)
 			continue;
+
+		if(c1 == announced_punctuation)
+		{
+//			const unsigned short keep_punctuation[] = {
+//			'\'', '-', 0x92, 0xb4, 0x2019, 0x2032, 0 };
+
+			// This character has already been announced, so delete it so that it isn't spoken a second time.
+			// Unless it's a hyphen or apostrophe (which is used by TranslateClause() )
+			if(!IsBracket(c1))
+			{
+				c1 = ' ';
+			}
+		}
 
 		j = ix+1;
 		ix += utf8_out(c1,&buf[ix]);    //	buf[ix++] = c1;

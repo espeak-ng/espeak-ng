@@ -262,8 +262,8 @@ U+32f	n,0nsI2l'abI2k
 
 // numeric
 
-_0    zero $text  // TEST
-//_0	z'i@roU
+//_0    zero $text  // TEST
+_0	z'i@roU
 _1	w'0n
 ?6 _1	w'Vn
 _2	t'u:
@@ -1582,12 +1582,13 @@ offers           0f3z
 ogre             oUg3
 okay             oUk'eI
 oled             oUlEd     // abbrev
-omeg             oUm'eIg@
+omega            oUm'eIg@
 omelet           0ml@t
 omelette         0ml@t
 omnibus           $1
 omniscience      0mn'IsI@ns
 opaque           oUp'eIk
+oped             0p'Ed
 opine            oUp'aIn
 opossum          @p0s@m
 opponent         @poUn@nt

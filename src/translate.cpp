@@ -601,14 +601,23 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	int spell_word;
 	int stress_bits;
 	int emphasize_allcaps = 0;
-	int wflags = wtab->flags;
-	int wmark = wtab->wmark;
+	int wflags;
+	int wmark;
+	WORD_TAB wtab_null[8];
 
 	// translate these to get pronunciations of plural 's' suffix (different forms depending on
 	// the preceding letter
 	static char word_zz[4] = {0,'z','z',0};
 	static char word_iz[4] = {0,'i','z',0};
 	static char word_ss[4] = {0,'s','s',0};
+
+	if(wtab == NULL)
+	{
+		memset(wtab_null, 0, sizeof(wtab_null));
+		wtab = wtab_null;
+	}
+	wflags = wtab->flags;
+	wmark = wtab->wmark;
 
 	dictionary_flags[0] = 0;
 	dictionary_flags[1] = 0;
@@ -619,6 +628,13 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	prefix_phonemes[0] = 0;
 	end_phonemes[0] = 0;
 	ph_limit = &phonemes[N_WORD_PHONEMES];
+
+	if(tr->data_dictlist == NULL)
+	{
+		// dictionary is not loaded
+		word_phonemes[0] = 0;
+		return(0);
+	}
 
 	// count the length of the word
 	if(*word1 == ' ') word1++;   // possibly a dot was replaced by space:  $dot
@@ -1053,6 +1069,7 @@ strcpy(phonemes2,phonemes);
 					AppendPhonemes(tr,phonemes, N_WORD_PHONEMES, end_phonemes);
 					end_phonemes[0] = 0;
 				}
+				memcpy(wordx,word_copy,strlen(word_copy));
 			}
 			wordx[-1] = c_temp;
 		}

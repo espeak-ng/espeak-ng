@@ -223,8 +223,6 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	unsigned char bad_phoneme[4];
 static char nullstring[] = {0};
 
-	WORD_TAB winfo;
-
 	comment = NULL;
 	text_not_phonemes = 0;
 	phonetic = word = nullstring;
@@ -437,12 +435,11 @@ step=1;  // TEST
 		if(word[0] == '_')
 		{
 			// This is a special word, used by eSpeak.  Translate this into phonemes now
-			memset(&winfo,0,sizeof(winfo));
 			strcat(phonetic, " ");     // need a space to indicate word-boundary
 
 	// PROBLEM  vowel reductions are not applied to the translated phonemes
 	// condition rules are not applied
-			TranslateWord(translator,phonetic,0,&winfo);
+			TranslateWord(translator,phonetic,0,NULL);
 			text_not_phonemes = 0;
 			strncpy0(encoded_ph, word_phonemes, N_WORD_BYTES-4);
 

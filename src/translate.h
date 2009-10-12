@@ -98,10 +98,10 @@
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
 #define FLAG_HYPHEN_AFTER    0x4000
+#define FLAG_ORDINAL       0x8000   // passed to TranslateNumber() to indicate an ordinal number
 
 #define FLAG_NO_TRACE      0x10000   // passed to TranslateRules() to suppress dictionary lookup printout
 #define FLAG_NO_PREFIX     0x20000
-#define FLAG_ORDINAL       0x40000   // passed to TranslateNumber() to indicate an ordinal number
 
 // prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added

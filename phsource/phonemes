@@ -1382,3 +1382,6 @@ include ph_mongolian
 
 phonemetable pa hi
 include ph_punjabi
+
+phonemetable prs base
+include ph_dari

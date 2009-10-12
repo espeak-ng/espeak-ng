@@ -43,7 +43,7 @@
      _) எ	;e     // add a short [j] sound at start of word ?
 
 	ஏ	e:
-     _) ஏ	;e::     // add a short [j] sound at start of word ?
+     _) ஏ	;e:     // add a short [j] sound at start of word ?
 
 	ஐ	aI
 
@@ -62,11 +62,21 @@
      ்) க (B	g
      _) க	kV
      _) க (B	k
+     _) க (T	gV	// if word has $alt attribute in ta_list
+     _) க (BT	g	// $alt
 	க்க	kkV
 	க்க (B	kk
+     _) க (ௌ 		g
+	க (ீத		g
+	க (ஜ		gV
+
+     _) க (ம்பீர	gV
+     _) க (ந்தர்வ	gV
+     _) க (ோவிந்த	g
 
 	ங	NV
 	ங (B	N
+
 
 	ச	sV    // ?? [z]
 	ச (B	s
@@ -81,11 +91,14 @@
      ஞ்) ச	dZV
      ஞ்) ச (B	dZ
 
+
 	ஜ	dZV
 	ஜ (B	dZ
 
+
 	ஞ	n^V
 	ஞ (B	n^
+
 
 	ட	d.V
 	ட (B	d.
@@ -94,26 +107,43 @@
 	ட்ட	t.t.V
 	ட்ட (B	t.t.
 
+
 	ண	n.V
 	ண (B	n.
+
 
 	த	dV
 	த (B	d
      _) த	tV
      _) த (B	t
+     _) த (T	dV	// if word has $alt attribute in ta_list
+     _) த (BT	d	// if word has $alt
 	த்த	ttV
 	த்த (B	tt
+
+			// exceptions, த as [d]
+     _) த (ன	dV
+     _) த (ர்ம	dV
+     _) த (ுர்	d
+     _) த (ூர	d
+     _) த (ெய்வ	d
+     _)	த (ுஷ்	d
+     _) த (க்ஷிணா	dV
 
 	ந	nV
 	ந (B	n  // dental n
 
+
 	ன	nV
 	ன (B	n  // alveolar n
+
 
 	ப	bV
 	ப (B	b
      _) ப	pV
      _) ப (B	p
+     _) ப (T	bV	// if word has $alt attribute in ta_list
+     _) ப (BT	b	// if word has $alt
 	ப்ப	ppV
 	ப்ப (B	pp
      ட்)	ப	pV
@@ -123,42 +153,55 @@
      ஃ) ப	fV
      ஃ) ப (B	f
 
+
 	ம	mV
 	ம (B	m
+
 
 	ய	jV
 	ய (B	j
 
+
 	ர	rV
 	ர (B	r
+
 
 	ற	RV
 	ற (B	R
 	ற் (ற	t.	// RR -> t.R
 
+
 	ல	lV
 	ல (B	l
+
 
 	ள	l.V
 	ள (B	l.
 
+
 	ழ	z.V
 	ழ (B	z.
+
 
 	வ	vV
 	வ (B	v
 
+
 	ஶ	SV
 	ஶ (B	S
+
 
 	ஷ	s.V
 	ஷ (B	s.
 
+
 	ஸ	sV
 	ஸ (B	s
 
+
 	ஹ	hV
 	ஹ (B	h
+
 
 	க்ஷ 	ks.V
 	க்ஷ (B	ks.
