@@ -51,6 +51,7 @@ class MyFrame: public wxMDIParentFrame
 
     void OnNewWindow(wxCommandEvent& event);
     void OnProsody(wxCommandEvent& event);
+	void SetVoiceTitle(char *voice_name);
 
 
 protected:
@@ -58,7 +59,6 @@ protected:
     wxSashLayoutWindow* m_leftWindow1;
     wxSashLayoutWindow* m_leftWindow2;
     wxSashLayoutWindow* m_bottomWindow;
-	void SetVoiceTitle(char *voice_name);
     wxTimer m_timer;
 
 DECLARE_EVENT_TABLE()
@@ -135,6 +135,7 @@ enum {
 	MENU_COMPILE_PH,
 	MENU_COMPILE_DICT,
 	MENU_COMPILE_DICT_DEBUG,
+	MENU_FORMAT_DICTIONARY,
 	MENU_COMPILE_MBROLA,
 
 	MENU_SPEAK_TRANSLATE,

@@ -751,8 +751,40 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 
 static char ph_ordinal2[12];
 
-int TranslateRoman(Translator *tr, char *word, char *ph_out)
-{//=====================================================
+
+static int CheckDotOrdinal(Translator *tr, char *word, WORD_TAB *wtab, int lowercase)
+{//==================================================================================
+// nextupper:  Next word must start with lower-case
+
+	int ordinal = 0;
+	int c2;
+
+	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && (word[0] == '.'))
+	{
+		if((lowercase==0) || !(wtab[1].flags & FLAG_FIRST_UPPER))
+		{
+			utf8_in(&c2, &word[2]);
+			if(IsAlpha(c2))
+			{
+				// ordinal number is indicated by dot after the number
+				// but not if the next word starts with an upper-case letter
+				ordinal = 2;
+				word[0] = ' ';
+				if(tr->translator_name == L('h','u'))
+				{
+					// lang=hu don't treat dot as ordinal indicator if the next word is a month name ($alt)
+					if(TranslateWord(tr, &word[2], 0, NULL) & FLAG_ALT_TRANS)
+						ordinal = 0;
+				}
+			}
+		}
+	}
+	return(ordinal);
+}  // end of CheckDotOrdinal
+
+
+int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
+{//=========================================================================
 	int c;
 	char *p;
 	const char *p2;
@@ -761,7 +793,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 	int value;
 	int subtract;
 	int repeat = 0;
-	WORD_TAB wtab[2];
+	int n_digits = 0;
 	unsigned int flags;
 	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
@@ -772,7 +804,9 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 	acc = 0;
 	prev = 0;
 	subtract = 0x7fff;
-	memset(wtab, 0, sizeof(wtab));
+
+	if((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER))
+		return(0);
 
 	while((c = *word++) != ' ')
 	{
@@ -807,9 +841,10 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 		else
 			acc += prev;
 		prev = value;
+		n_digits++;
 	}
 	acc += prev;
-	if(acc < 2)
+	if(acc < tr->langopts.min_roman)
 		return(0);
 
 	if(acc > tr->langopts.max_roman)
@@ -826,12 +861,22 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out)
 
 	sprintf(number_chars," %d ",acc);
 
-	if(tr->langopts.numbers & NUM_ROMAN_ORDINAL)
+	if(CheckDotOrdinal(tr, word, wtab, 0))
 		wtab[0].flags |= FLAG_ORDINAL;
+
+	if(tr->langopts.numbers & NUM_ROMAN_ORDINAL)
+	{
+		if((n_digits <= 1) && !(wtab[0].flags & FLAG_ORDINAL))
+			return(0);
+		wtab[0].flags |= FLAG_ORDINAL;
+	}
+
+
 	TranslateNumber(tr, &number_chars[1], p, &flags, wtab);
 
 	if(tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out,ph_roman);
+
 	return(1);
 }  // end of TranslateRoman
 
@@ -1313,8 +1358,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	char ph_buf[200];
 	char ph_buf2[50];
 	char suffix[20];
-	char *wordptr;
-	unsigned int dictflags;
 
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
 
@@ -1325,22 +1368,10 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	value = this_value = atoi(word);
 
 	ph_ordinal2[0] = 0;
-	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && (word[ix] == '.') && IsAlpha(word[ix+2]) && !(wtab[1].flags & FLAG_FIRST_UPPER))
-	{
-		// ordinal number is indicated by dot after the number
-		// but not if the next word starts with an upper-case letter
-		ordinal = 2;
-		word[ix] = ' ';
-		if(tr->translator_name == L('h','u'))
-		{
-			// lang=hu don't treat dot as ordinal indicator if the next word is a month name ($alt)
-			wordptr = &word[ix+2];
-			dictflags = TranslateWord(tr, &word[ix+2], 0, NULL);
-			if(dictflags & FLAG_ALT_TRANS)
-				ordinal = 0;
-		}
-	}
-	else
+
+	ordinal = CheckDotOrdinal(tr, &word[ix], wtab, 1);
+
+	if(ordinal == 0)
 	{
 		// look for an ordinal number suffix after the number
 		ix++;

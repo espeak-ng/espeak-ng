@@ -24,6 +24,7 @@
 
 
 wxMenu *speak_menu;
+wxMenu *data_menu = NULL;
 
 wxMenuBar *MakeMenu(int type)
 {//==========================
@@ -32,7 +33,6 @@ wxMenuBar *MakeMenu(int type)
 	wxMenu *help_menu;
 	wxMenu *option_menu = NULL;
 	wxMenu *paths_menu;
-	wxMenu *data_menu = NULL;
 	wxMenu *tools_menu;
 	wxMenu *voice_menu;
 	wxMenu *vowelchart_menu;
@@ -86,8 +86,10 @@ wxMenuBar *MakeMenu(int type)
 	data_menu = new wxMenu;
 	data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data"));
 	data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
-	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (&debug)"));
+	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (debu&g)"));
 	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
+	data_menu->AppendSeparator();
+	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Format *_rules file"));
 	
 	// OPTIONS MENU
 	paths_menu = new wxMenu;

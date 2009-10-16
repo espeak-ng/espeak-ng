@@ -65,19 +65,35 @@ z	zEd
 // symbols
 _??	kuRij,i:d.U_
 _cap	kapit.Vl    // English
-_.	pul.l.i
-_,	kVma:
-_;	ka:RbUl.l.,i
-_:	araIpp,Ul.l.V
-_?	ke:l.vikk,URi
-_!	a:ctS:Vr,ijVkk,URi
-%	 விழுக்காடு  $text
-=	samVm
+_.	mut.RU||pul.l.i	// முற்று புள்ளி
+_,	ka:l||pul.l.i	// கால் புள்ளி
+_;	a:raIb||pul.l.i	// ஆரைப் புள்ளி
+_:	mukka:l||pul.l.i	// முக்கால் புள்ளி
+_(	id.V||piRaI	// இட பிறை
+_)	vVlV||piRaI       // வல பிறை
+_[	id.V||sadUrVm	// இட சதுரம்
+_]	vVlV||sadUrVm	// வல சதுரம்
+_{	id.V||gVn.Vm	// இட கணம்
+_}	vVlV||gVn.Vm	// வல கணம்
+_"	me:Rgo:l.	// மேற்கோள்
+_'	ot.RaI||m'e:Rgo:l.	// ொற்றை மேற்கோள்
+__	ad.ig||ko:d.U	// அடிக் கோடு
+_-	in.aIppUg	// இணைப்புக்
+
+\	p'in||s,a:jvU	// பின் சாய்வு
+!	vijVppU		// வியப்பு
+_?	ke:l.vi		// கேள்வி
+#	en.||kuRi	$max3	// எண் குறி
+=	samVnba:d.U	$max3	// சமன்பாடு
++	ku:t.t.Vl	$max3	// கூட்டல்
+*	perUkkVl	$max3	// பெருக்கல்
+/	sa:jvU		// சாய்வு
+÷	vVgUttVl	// வகுத்தல்
+%	viz.Ukka:d.U	$max3	// விழுக்காடு
 U+bf9	ru:ba:j
 
 // abbreviations
 ரூ	ru:ba:j  $dot $only
-Rs	ru:pi:z  $dot $only
 
 // numbers
 _0	suz.ijVm    // சுழியம்
@@ -162,10 +178,10 @@ _dpt	_pul.l.i
 
 // exceptions
 பாபு	$alt	// initial ப as [b]
-பாலு	$alt
 பவானி	$alt
 பகவதி	$alt
 பானம்	$alt
+பாணம்	$alt
 பாறம்	$alt
 பாரதி	$alt
 பாரதம்	$alt
@@ -174,6 +190,33 @@ _dpt	_pul.l.i
 பாகம்	$alt
 பண்தம்	$alt
 பவனி	$alt
+பயில்வான்	$alt
+பாபா	$alt
+போண்டா	$alt
+பஜ்ஜி	$alt
+பாதாம்	$alt
+பலூன்	$alt
+பிராமணன்	$alt
+பிரம்மன்	$alt
+பம்பாய்	$alt
+போகம்	$alt
+போதனை	$alt
+பூகோலம்	$alt
+பூலோகம்	$alt
+பூமி	$alt
+பூகம்பம்	$alt
+பூதம்	$alt
+புதன்	$alt
+பலி	$alt
+பலம்	$alt
+பலவான்	$alt
+பகவான்	$alt
+பாகவதம்	$alt
+பகவத்	$alt
+பங்கம்	$alt
+பீடி	$alt
+பீதி	$alt
+
 
 தானம்	$alt	// initial த as [d]
 தேகம்	$alt
@@ -202,6 +245,7 @@ _dpt	_pul.l.i
 திக்	$alt
 தடக்	$alt
 தீக்ஷை	$alt
+தடியன் 	$alt
 
 
 
@@ -221,8 +265,13 @@ _dpt	_pul.l.i
 குகை 	$alt
 கிரி	$alt
 கோமதி	$alt
-
-
+கயா	$alt
+காயத்ரி	$alt
+கங்கை	$alt
+கங்கா	$alt
+குரு	$alt
+குகன்	$alt
 
 
 பப	pVpV
+டாக்டர்	d.a:ktVr

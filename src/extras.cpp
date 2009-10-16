@@ -1312,6 +1312,263 @@ void ConvertToUtf8()
 
 //******************************************************************************************************
 
+void FormatDictionary(const char *dictname)
+{//========================================
+// Format the *_rules file for the current voice
+
+	FILE *f_in;
+	FILE *f_out;
+	char *p;
+	char *p_start;
+	unsigned short *pw;
+	unsigned short *pw_match;
+	unsigned short *pw_post;
+	unsigned short *pw_phonemes;
+	int c;
+	int ix;
+	int n_pre;
+	int n_match;
+	int n_post;
+	int n_phonemes;
+	int n_spaces;
+	int n_out;
+	int formatting;
+	int comment;
+	char buf[200];
+	unsigned short bufw[200];
+	char conditional[80];
+	char fname_in[200];
+	char fname_out[200];
+
+	const int tab1 = 8;
+	const int tab2 = 18;
+	const int tab3 = 28;
+
+	sprintf(fname_in,"%s/%s_rules",path_dsource,dictname);
+	sprintf(fname_out,"%s_formatted",fname_in);
+
+	if((f_in = fopen(fname_in,"r")) == NULL)
+	{
+		wxLogError(_T("Can't open rules file: ") + wxString(fname_in,wxConvLocal));
+		return;
+	}
+	if((f_out = fopen(fname_out,"w")) == NULL)
+	{
+		wxLogError(_T("Can't write to file: ") + wxString(fname_out,wxConvLocal));
+		fclose(f_in);
+		return;
+	}
+
+	formatting = 0;
+	n_match = 0;
+	while(fgets(buf, sizeof(buf)-1, f_in) != NULL)
+	{
+		buf[sizeof(buf)-1] = 0;  // ensure zero byte terminator
+
+		ix = strlen(buf) - 1;
+		while((buf[ix]=='\n') || (buf[ix]==' ') || (buf[ix]=='\t')) ix--;
+		buf[ix+1] = 0;  // strip tailing spaces
+
+		p_start = buf;
+		while((*p_start==' ') || (*p_start == '\t')) p_start++;  // skip leading spaces
+
+		comment = 0;
+		if((p_start[0]=='/') && (p_start[1]=='/'))
+			comment = 1;
+
+		ix = 0;
+		if(*p_start == '?')
+		{
+			// conditional rule
+			while(!isspace(*p_start) && (*p_start != 0))
+			{
+				conditional[ix++] = *p_start++;
+			}
+			while((*p_start == ' ') || (*p_start == '\t')) p_start++;
+		}
+		conditional[ix] = 0;
+
+		if(buf[0] == '.')
+		{
+			formatting = 0;
+		}
+		if(memcmp(p_start, ".group", 6) == 0)
+		{
+			formatting = 2;
+			if(n_match > 0)
+			{
+				// previous line was not blank, so add a blank line
+				fprintf(f_out,"\n");
+			}
+		}
+
+		n_match = 0;
+
+		if((formatting == 1) && (comment==0))
+		{
+			// convert from UTF-8 to UTF-16
+			p = p_start;
+			pw = bufw;
+			do {
+				p += utf8_in(&c, p);
+				*pw++ = c;
+			} while (c != 0);
+
+			pw = bufw;
+
+			while((*pw != ')') && (*pw != 0) && !iswspace(*pw)) pw++;
+
+			n_pre = 0;
+			n_post = 0;
+			n_phonemes = 0;
+			n_spaces = 0;
+
+			if(*pw != 0)
+				n_spaces = tab1;
+
+			if(*pw == ')')
+			{
+				// there is a pre-condition
+				n_pre = pw - bufw + 1;
+				n_spaces = tab1 - n_pre - 1;
+				pw++;
+				while((*pw==' ') || (*pw=='\t')) pw++;
+			}
+			else
+			{
+				pw = bufw;
+			}
+
+			pw_match = pw;
+			while(((c = *pw)!= ' ') && (c != '\t') && (c != '(') && (c != 0))
+			{
+				pw++;
+			}
+			n_match = pw - pw_match;
+
+			while(((c = *pw)==' ') || (c == '\t')) pw++;
+
+			if(*pw == '(')
+			{
+				pw_post = pw;
+				while(((c = *pw)!=' ') && (c != '\t') && (c != 0)) pw++;
+				n_post = pw - pw_post;
+				while(((c = *pw)==' ') || (c == '\t')) pw++;
+			}
+
+			if((*pw != 0) && ((*pw != '/') || (pw[1] != '/')))
+			{
+				pw_phonemes = pw;
+				while(((c = *pw)!=' ') && (c != '\t') && (c != 0)) pw++;
+				n_phonemes = pw - pw_phonemes;
+				while(((c = *pw)==' ') || (c == '\t')) pw++;
+			}
+
+			// write formatted line
+			p = buf;
+
+			if(conditional[0] != 0)
+			{
+				ix = 0;
+				while(conditional[ix] != 0)
+				{
+					*p++ = conditional[ix++];
+					n_spaces--;
+				}
+				*p++ = ' ';
+				n_spaces--;
+			}
+
+			while(n_spaces-- > 0)
+			{
+				*p++ = ' ';
+			}
+			if(n_pre > 0)
+			{
+				ix = 0;
+				for(ix=0; ix<n_pre; ix++)
+				{
+					p += utf8_out(bufw[ix], p);
+				}
+				*p++ = ' ';
+			}
+
+			// write the match condition
+			if(n_match > 0)
+			{
+				ix = 0;
+				for(ix=0; ix<n_match; ix++)
+				{
+					p += utf8_out(pw_match[ix], p);
+				}
+				*p++ = ' ';
+			}
+
+			// write the post condition
+			if(n_post > 0)
+			{
+				for(ix=0; ix<n_post; ix++)
+				{
+					p += utf8_out(pw_post[ix], p);
+				}
+				*p++ = ' ';
+				n_post++;
+			}
+
+			n_out = tab1 + n_match + n_post;
+			if(n_pre >= tab1)
+				n_out += (n_pre - tab1 + 1);
+
+			if(n_phonemes > 0)
+			{
+				n_spaces = tab2 - n_out;
+
+				while(n_spaces-- > 0)
+				{
+					*p++ = ' ';
+					n_out++;
+				}
+
+			// write the phoneme codes
+				for(ix=0; ix<n_phonemes; ix++)
+				{
+					p += utf8_out(pw_phonemes[ix], p);
+				}
+			}
+
+			if(*pw != 0)
+			{
+				*p++ = ' ';
+				n_phonemes++;
+				n_spaces = tab3 - (n_out + n_phonemes);
+
+				while(n_spaces-- > 0)
+				{
+					*p++ = ' ';
+				}
+			}
+
+			// write the remainer of the line
+			while(*pw != 0)
+			{
+				p+= utf8_out(*pw++, p);
+			}
+			*p = 0;
+		}
+
+			if(formatting > 1)
+				formatting--;
+
+		fprintf(f_out, "%s\n", buf);
+	}
+
+	fclose(f_in);
+	fclose(f_out);
+	wxLogStatus(_("Written to file: ") + wxString(fname_out,wxConvLocal));
+}  // end of FormatDictionary
+
+
+//******************************************************************************************************
 
 
 //#define calcspeedtab

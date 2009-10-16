@@ -1,9 +1,6 @@
 // Translations for Hungarian words
 // This file is UTF-8 encoded.
 
-// Conditional rules:
-// ?1   speak "i" as Roman number
-?1 elso:
 // Numbers
 
 _0        nullA
@@ -51,6 +48,8 @@ _0Z3	EzR2Ed
 _0Z4	ti:zEzR2Ed
 _0Z5	sa:zEzR2Ed
 _0Z6	miliomod
+_0Z7	ti:zmiliomod
+_0Z8	sa:zmiliomod
 
 // ordinal numbers
 
@@ -77,6 +76,37 @@ _2Co	ke:tsa:zAdik
 _0M1o	EzR2Edik
 _1M1o	EzR2Edik
 _2M1o	ke:tEzR2Edik
+
+_0-a	A
+_0-i	Ei
+_0-e	E
+_0-án	a:n
+_0-ára	a:R2A
+_0-ére	e:R2E
+_0-ra	a:R2A
+_0-re	e:R2E
+_0-én	e:n
+_0-ai	Ai
+_0-ei	Ei
+(1-e)	elseje	$text
+(1-én)	elsején $text
+(1-jén)	elsején $text
+(1-i)	elsejei	$text
+(1-ei)	elsejei	$text
+(1-ére)	elsejére	$text
+(1-re)	elsejére	$text
+(2-i)	másodikai	$text
+(3-i)	harmadikai	$text
+(6-i)	hatodikai	$text
+(8-i)	nyolcadikai	$text
+(13-i)	tizenharmadikai	$text
+(16-i)	tizenhatodikai	$text
+(18-i)	tizennyolcadikai	$text
+(20-i)	huszadikai	$text
+(23-i)	huszonharmadikai	$text
+(26-i)	huszonhatodikai	$text
+(28-i)	huszonnyolcadikai	$text
+(30-i)	harmincadikai	$text
 
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
 január		$alt
@@ -135,10 +165,12 @@ _tld	tildE
 
 // characters
 _#9	tAb
+_#13	vAlAmi
 _#32 	so:kYz
 _cap	n'AJ_|
 
 // Abbreviations
+ÁNTSZ a:Ente:Es $allcaps
 km	kilo:me:tER2
 mm      milime:tER2
 
@@ -405,6 +437,8 @@ z	ze:
 _é	e:
 é	$atend
 
+V		// this means that "v  ve:" is only used for lower-case
+X
 
 cs	tSe:
 dz	dze:
@@ -440,7 +474,7 @@ ny	En^
 °	fokjEl
 Ft	foR2int
 \	bEks2lES	$max3
-^	fölfelényíl   $text
+^	fYlfEle:n^i:l
 
 _,	vEss2Y:
 _;	pontoSvEss2Y:
@@ -452,7 +486,7 @@ __	Ala:hu:za:S	$max3
 _'	ApostR2o:f
 _–	nAJkYtY:
 _—	kviR2tmi:nus
-_"	ide:zY:jEl	$max3
+_"	ide:zY:jEl	
 _(	b'Alza:R2o:jEl	$max3
 _)	j'obbza:R2o:jEl	$max3
 _[	n^'ito:sYglEtES	$max3
@@ -461,6 +495,10 @@ _{	k'EzdY:kAptSoS	$max3
 _}	v'e:gkAptSoS	$max3
 _…	pontpontpont	$max3
 _•	di:spont
+_|	fyg:Y:lEgESvonAl
+_>	nAJob
+_<	kiSSEb
+_¤	pe:nznEmjEl
 
 
 // Main Exceptions List
@@ -471,74 +509,11 @@ nato	na:to:
 $textmode
 MSZP emeszpé
 SZDSZ eszdéesz
-
-colon	kettőspont
 (://)	kettőspontperper $pause
 egyezség	eggyesség
 
-(1-én)	elsején
-(1-jén)	elsején
-(2-án)	másodikán
-(3-án)	harmadikán
-(4-én)	negyedikén
-(5-én)	ötödikén
-(6-án)	hatodikán
-(7-én)	hetedikén
-(8-án)	nyolcadikán
-(9-én)	kilencedikén
-(10-én)	tizedikén
-(11-én)	tizeneggyedikén
-(12-én)	tizenkettedikén
-(13-án)	tizenharmadikán
-(14-én)	tizennegyedikén
-(15-én)	tizenötödikén
-(16-án)	tizenhatodikán
-(17-én)	tizenhetedikén
-(18-án)	tizennyolcadikán
-(19-én)	tizenkilencedikén
-(20-án)	huszadikán
-(21-én)	huszoneggyedikén
-(22-én)	huszonkettedikén
-(23-án)	huszonharmadikán
-(24-én)	huszonnegyedikén
-(25-én)	huszonötödikén
-(26-án)	huszonhatodikán
-(27-én)	huszonhetedikén
-(28-án)	huszonnyolcadikán
-(29-én)	huszonkilencedikén
-(30-án)	harmincadikán
-(31-én)	harminceggyedikén
-(1-e)	elseje
-(2-a)	másodika
-(3-a)	harmadika
-(4-e)	negyedike
-(5-e)	ötödike
-(6-a)	hatodika
-(7-e)	hetedike
-(8-a)	nyolcadika
-(9-e)	kilencedike
-(10-e)	tizedike
-(11-e)	tizeneggyedike
-(12-e)	tizenkettedike
-(13-a)	tizenharmadika
-(14-e)	tizennegyedike
-(15-e)	tizenötödike
-(16-a)	tizenhatodika
-(17-e)	tizenhetedike
-(18-a)	tizennyolcadika
-(19-e)	tizenkilencedike
-(20-a)	huszadika
-(21-e)	huszoneggyedike
-(22-e)	huszonkettedike
-(23-a)	huszonharmadika
-(24-e)	huszonnegyedike
-(25-e)	huszonötödike
-(26-a)	huszonhatodika
-(27-e)	huszonhetedike
-(28-a)	huszonnyolcadika
-(29-e)	huszonkilencedike
-(30-a)	harmincadika
-(31-e)	harmincegyedike
+
+
 (Szvsz) eszvéesz
 (edik szeptember) szeptember
 

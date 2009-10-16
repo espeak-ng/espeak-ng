@@ -293,7 +293,7 @@
           &) e (BB_       E2
              e (gt_+      e:
           &) el (_        @l
-          &) eln (_S1     n
+          &) eln (_NS1     n
           &) elnd (_S2    nt
           &) e (lt_       @
           &) em (_NS2     @m
@@ -464,6 +464,7 @@
              graph (_     g@-*'A:f
              green        _^_EN
              guide        _^_EN
+             gue (_       k
 
 
 .group h
@@ -767,6 +768,7 @@
           _) ober (ste    o:b3
           _) ob (jek      %Op
           _) obst (reP4   'o:pst
+             oe (_        o:@
           @) o (g_        'o:
           t) ogen (_      o:g'e:n
           @) o (gin_      'o:
@@ -821,6 +823,7 @@
           _) q (_         ku:
              q            k
              qu           kv
+          @) que (_       =k
 
 .group r
           _) r (_         E*
@@ -872,11 +875,15 @@
           &) schaft (_S6  Saft
 
           ä) schen        sC@n  // but not wäschen
+         wä) schen        S@n
          fe) schen        sC@n
          ie) schen        sC@n
           h) schen        sC@n
           ö) schen        sC@n  // but not löschen
+         lö) schen        S@n
+         rö) schen        S@n
          äu) schen        sC@n  // but not täuschen
+        täu) schen        S@n
 
              schein (lich S'aIn
           _) schul (@P5   S'u:l
@@ -955,7 +962,9 @@
              uh (+        u:
              uell         u:'El
              ue           y:
-          &) ue (_        u:@             // statue
+          r) ue (_        u:@
+          t) ue (_        u:@
+             ue (_        'y:
 
              u (C%        U
              u (CC        U
@@ -1026,6 +1035,7 @@
           _) v (ie        f
           _) v (iet       v
           _) v (iz        f
+             v (og        f
              v (oll       f
              v (olk       f
              v (ölC       f

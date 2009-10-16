@@ -357,6 +357,15 @@ int towlower2(unsigned int c)
 	return(towlower(c));
 }
 
+
+static int IsRomanU(unsigned int c)
+{//================================
+	if((c=='I') || (c=='V') || (c=='X') || (c=='L'))
+		return(1);
+	return(0);
+}
+
+
 static void GetC_unget(int c)
 {//==========================
 // This is only called with UTF8 input, not wchar input
@@ -2388,10 +2397,11 @@ if(option_ssml) parag=1;
 
 				if((nl_count==0) && (c1 == '.'))
 				{
-					if(iswdigit(cprev) && (tr->langopts.numbers & NUM_ORDINAL_DOT))
+					if((tr->langopts.numbers & NUM_ORDINAL_DOT) && 
+						(iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2)))))  // lang=hu
 					{
 						// dot after a number indicates an ordinal number
-						if(islower(c_next) || (c_next == '<'))
+						if(!iswdigit(cprev) || iswlower(c_next) || (c_next == '<'))
 							is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
 					}
 					else

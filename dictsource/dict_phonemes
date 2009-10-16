@@ -485,11 +485,11 @@ Dictionary ta_dict
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   U    u    u:   V    
 
-:    ;    b    c    C    d    d.   dZ   
-f    g    h    j    k    l    l.   m    
-n    N    n.   n^   p    r    R    s    
-S    s.   t    t.   th   tS   v    w    
-z    z.   
+:    ;    b    C    d    d.   dZ   f    
+g    h    j    k    l    l.   m    n    
+N    n.   n^   p    r    R    s    S    
+s.   t    t.   th   tS   v    w    z    
+z.   
 
 
 Dictionary bn_dict

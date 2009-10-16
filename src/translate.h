@@ -352,6 +352,7 @@ typedef struct {
 #define NUM_ROMAN_AFTER  0x200000
 #define NUM_VIGESIMAL    0x400000
 #define NUM_ROMAN_ORDINAL 0x800000
+#define NUM_ROMAN_CAPITALS 0x1000000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -374,6 +375,7 @@ typedef struct {
 	// bit21= say "roman" after the number, not before
 	// bit22= vigesimal number, if tens are not found
 	// bit23=Roman numbers are ordinal numbers
+	// bit24=Roman numbers must be capital letters
 	int numbers;
 
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
@@ -386,6 +388,7 @@ typedef struct {
 #define BREAK_THOUSANDS   0x49249248
 	int break_numbers;  // which digits to break the number into thousands, millions, etc (Hindi has 100,000 not 1,000,000)
 	int max_roman;
+	int min_roman;
 	int thousands_sep;
 	int decimal_sep;
 
@@ -570,7 +573,7 @@ void DeleteTranslator(Translator *tr);
 int Lookup(Translator *tr, const char *word, char *ph_out);
 
 int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab);
-int TranslateRoman(Translator *tr, char *word, char *ph_out);
+int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab);
 
 void ChangeWordStress(Translator *tr, char *word, int new_stress);
 void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars);

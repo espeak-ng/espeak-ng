@@ -740,7 +740,7 @@ if((wmark > 0) && (wmark < 8))
 
 			if((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_UC) && (wflags & FLAG_ALL_UPPER)))
 			{
-				if((found = TranslateRoman(tr, word1, phonemes)) != 0)
+				if((found = TranslateRoman(tr, word1, phonemes, wtab)) != 0)
 					dictionary_flags[0] |= FLAG_ABBREV;   // prevent emphasis if capitals
 			}
 		}

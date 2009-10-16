@@ -59,6 +59,7 @@ const char *path_data;
 extern void TestTest(int control);
 extern void CompareLexicon(int);
 extern void ConvertToUtf8();
+extern void FormatDictionary(const char *dictname);
 
 extern void init_z();
 extern void CompileInit(void);
@@ -72,6 +73,10 @@ extern void MakeVowelLists(void);
 extern void MakeWordFreqList();
 
 extern const char *dict_name;
+
+extern wxMenu *speak_menu;
+extern wxMenu *data_menu;
+
 
 MyFrame *myframe = NULL;
 SpectDisplay *currentcanvas = NULL;
@@ -158,21 +163,21 @@ extern void VoiceReset(int control);
 
 
   // Create the main frame window
-  myframe = new MyFrame(NULL, -1, AppName, wxPoint(0, 0), wxSize(1024, 768),
+	myframe = new MyFrame(NULL, -1, AppName, wxPoint(0, 0), wxSize(1024, 768),
                       wxDEFAULT_FRAME_STYLE |
                       wxNO_FULL_REPAINT_ON_RESIZE |
                       wxHSCROLL | wxVSCROLL);
 
 
-  // Make a menubar
-  myframe->SetMenuBar(MakeMenu(0));
+	// Make a menubar
+	myframe->SetMenuBar(MakeMenu(0));
+	myframe->CreateStatusBar();
+	myframe->SetVoiceTitle(voice_name2);
 
-  myframe->CreateStatusBar();
+	myframe->Maximize();
+	myframe->Show(TRUE);
 
-  myframe->Maximize();
-  myframe->Show(TRUE);
-
-  SetTopWindow(myframe);
+	SetTopWindow(myframe);
 	wxInitAllImageHandlers();
 //	wxImage::AddHandler(wxPNGHandler);
   return TRUE;
@@ -194,6 +199,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
    EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT_DEBUG, MyFrame::OnTools)
+	EVT_MENU(MENU_FORMAT_DICTIONARY, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
 	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
@@ -284,10 +290,6 @@ wxSashLayoutWindow *win;
 			wxLogError(_T("Failed to load voice data"));
 		strcpy(dictionary_name,"en");
 	}
-	else
-	{
-		SetVoiceTitle(voice_name2);
-	}
 	WavegenSetVoice(voice);
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
@@ -312,7 +314,15 @@ wxSashLayoutWindow *win;
 
 void MyFrame::SetVoiceTitle(char *voice_name)
 {//==========================================
+	char buf[100];
 	SetTitle(AppName + _T(" - ") + wxString(voice_name,wxConvLocal) + _T("  voice"));
+	if(data_menu != NULL)
+	{
+		sprintf(buf,"Compile &dictionary '%s'",dictionary_name);
+		data_menu->SetLabel(MENU_COMPILE_DICT, wxString(buf,wxConvLocal));
+		sprintf(buf,"&Format '%s_rules' file",dictionary_name);
+		data_menu->SetLabel(MENU_FORMAT_DICTIONARY, wxString(buf,wxConvLocal));
+	}
 }
 
 
@@ -605,6 +615,10 @@ void MyFrame::OnTools(wxCommandEvent& event)
 			fclose(log);
 		break;
 
+	case MENU_FORMAT_DICTIONARY:
+		FormatDictionary(dictionary_name);
+		break;
+
 	case MENU_VOWELCHART1:
 		MakeVowelLists();
 		break;
@@ -622,8 +636,6 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		break;
 	}
 }
-
-extern wxMenu *speak_menu;
 
 void MyFrame::OnSpeak(wxCommandEvent& event)
 {//=========================================

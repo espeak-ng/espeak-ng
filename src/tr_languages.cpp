@@ -164,6 +164,7 @@ static Translator* NewTranslator(void)
 	tr->langopts.long_stop = 100;
 
 	tr->langopts.max_roman = 49;
+	tr->langopts.min_roman = 2;
 	tr->langopts.thousands_sep = ',';
 	tr->langopts.decimal_sep = '.';
 	tr->langopts.break_numbers = BREAK_THOUSANDS;   // 1000, 1000,000  1,000,000 etc
@@ -588,7 +589,8 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 99;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_5 | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_5 | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;
+			tr->langopts.min_roman = 1;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
 SetLengthMods(tr,3);  // all equal
