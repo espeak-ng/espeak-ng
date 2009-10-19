@@ -1448,13 +1448,15 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			return(flags);
 		}
 
-		if((flags & FLAG_ALT2_TRANS) && ((sylimit = tr->langopts.param[LOPT_COMBINE_WORDS]) > 0))
+		if(flags & FLAG_COMBINE)
 		{
 			char *p2;
 			int ok = 1;
 			int flags2;
 			int c_word2;
 			char ph_buf[N_WORD_PHONEMES];
+
+			sylimit = tr->langopts.param[LOPT_COMBINE_WORDS];
 
 			// LANG=cs,sk
 			// combine a preposition with the following word
@@ -1492,7 +1494,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			{
 				*p2 = '-'; // replace next space by hyphen
 				flags = TranslateWord(translator, word, next_pause, wtab);  // translate the combined word
-				if(CountSyllables(p) > (sylimit & 0xf))
+				if((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f)))
 				{
 					// revert to separate words
 					*p2 = ' ';

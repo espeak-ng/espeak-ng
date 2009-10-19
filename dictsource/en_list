@@ -360,7 +360,7 @@ irc	$abbrev
 lbs	paUndz
 LBS	$abbrev
 ltd	lImI2tI2d
-mc	m@k  $alt2   // combine with the following word
+mc	m@k  $combine   // combine with the following word
 ny	$abbrev
 oem	$abbrev
 ok	$abbrev

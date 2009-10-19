@@ -104,6 +104,7 @@ enum {
 	V_MBROLA,
 	V_KLATT,
 	V_FAST,
+	V_SPEED,
 
 // these need a phoneme table to have been specified
 	V_REPLACE,
@@ -150,6 +151,7 @@ static keywtab_t keyword_tab[] = {
 	{"consonants", V_CONSONANTS},
 	{"klatt",      V_KLATT},
 	{"fast_test",  V_FAST},
+	{"speed",      V_SPEED},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -379,6 +381,7 @@ void VoiceReset(int tone_only)
 
 	voice->formant_factor = 256;
 
+	voice->speed_percent = 100;
 	voice->echo_delay = 0;
 	voice->echo_amp = 0;
 	voice->flutter = 64;
@@ -867,6 +870,10 @@ voice_t *LoadVoice(const char *vname, int control)
 			value = sscanf(p,"%d %d",&voice->consonant_amp, &voice->consonant_ampv);
 			break;
 
+		case V_SPEED:
+			sscanf(p,"%d",&voice->speed_percent);
+			break;
+
 		case V_MBROLA:
 			{
 				int srate = 16000;
@@ -910,6 +917,8 @@ voice_t *LoadVoice(const char *vname, int control)
 		// not set by language attribute
 		new_translator = SelectTranslator(translator_name);
 	}
+
+	SetSpeed(1);   // for speed_percent
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{

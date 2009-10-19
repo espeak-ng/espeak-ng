@@ -116,6 +116,11 @@ void SetSpeed(int control)
 	wpm = embedded_value[EMBED_S];
 	if(control == 2)
 		wpm = embedded_value[EMBED_S2];
+
+	if(voice->speed_percent > 0)
+	{
+		wpm = (wpm * voice->speed_percent)/100;
+	}
 	wpm2 = wpm;
 
 	if(wpm > 369) wpm = 369;
@@ -561,7 +566,7 @@ void CalcLengths(Translator *tr)
 			if((len = tr->stress_lengths[stress]) == 0)
 				len = tr->stress_lengths[6];
 
-			length_mod = (length_mod * len)/128;
+			length_mod = length_mod * len;
 
 			if(p->tone_ph != 0)
 			{
@@ -580,6 +585,14 @@ void CalcLengths(Translator *tr)
 					len=200;  // don't lengthen short vowels more than long vowels at end-of-clause
 				length_mod = length_mod * (256 + (280 - len)/3)/256;
 			}
+
+			if(length_mod > tr->langopts.max_lengthmod*speed1)
+			{
+				//limit the vowel length adjustment for some languages
+				length_mod = (tr->langopts.max_lengthmod*speed1);
+			}
+
+			length_mod = length_mod / 128;
 
 if(p->type != phVOWEL)
 {

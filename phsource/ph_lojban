@@ -4,13 +4,15 @@
 
 phoneme r-     // syllabic r, for lojban
   vowel  starttype (@)  endtype (@)
+  unstressed
   length 220
   formants vowelr/r-voc
 endphoneme
 
-phoneme l-     // syllabuc l, for lojban
+phoneme l-     // syllabic l, for lojban
   vowel  starttype (@)  endtype (@)
-  length 140
+  unstressed
+  length 170
   formants vwl_hi/l-voc
 endphoneme
 

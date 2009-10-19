@@ -74,12 +74,12 @@ po'u	_;_pohu	$u
 goi	_;_goI	$u
 
 ija	_;_iZa		// should this series be unstressed?
-ijanai	_;_iZanaI
+ijanai	_;_iZan'aI
 ije	_;_iZe
 ije'i	_;_iZehi
 ijenai	_;_iZenaI
 ijo	_;_iZo
-ijonai	_;_iZonaI
+ijonai	_;_iZon'aI
 inaja	_;_inaZa
 
 to	_::to	$u	// start parenthesis, pause but don't raise intonation
@@ -90,3 +90,4 @@ boi	boI_::	$u
 vau	vaU_::	$u
 kei	keI_::	$u
 toi	toI_::	$u
+

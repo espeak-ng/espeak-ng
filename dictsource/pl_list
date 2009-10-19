@@ -804,11 +804,11 @@ winegret	$3
 (ze mną) 	 z'EmnO~
 
 	
-// words marked with $alt2 are combined with word marked with $alt
+// words marked with $combine are combined with word marked with $alt
 // (used for 'nie' with single-syllable verbs)
 
-nie		$u $alt2
-ni		$u $alt2
+nie		$u $combine
+ni		$u $combine
 
 
 

@@ -231,7 +231,7 @@ noha      $u $pause  // even thought
 
 
 // Negative
-nem       $alt2 $strend
+nem       $u $combine $strend
 ne        $u+
 
 e         $u          // "-e" question

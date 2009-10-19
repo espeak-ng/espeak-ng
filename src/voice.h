@@ -30,6 +30,7 @@ typedef struct {
 	int speedf2;
 	int speedf3;
 
+	int speed_percent;      // adjust the WPM speed by this percentage
 	int flutter;
 	int roughness;
 	int echo_delay;

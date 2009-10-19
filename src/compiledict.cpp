@@ -91,7 +91,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$double",    19},   // IT double the initial consonant of next word
 	{"$alt",       20},   // use alternative pronunciation
 	{"$alt2",      21},
-	
+	{"$combine",   22},   // Combine with the next word
 
 	{"$max3",      27},   // limit to 3 repetitions
 	{"$brk",       28},   // a shorter $pause

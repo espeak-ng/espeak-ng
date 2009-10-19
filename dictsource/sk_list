@@ -202,18 +202,18 @@ si       $u+            // reflexive
 ho  $u+
 
 // Prepositions
-o        o_ $u $brk $alt2
+o        o_ $u $brk $combine
 k        k  $brk         // at,on,to
 v        v_  $brk        // at,in,into
 z        z_  $brk        // from,of
-na       $u     $alt2    // at,for,into
-po       $pause $alt2    // about,after
-pod      $pause $alt2    // under
+na       $u     $combine    // at,for,into
+po       $pause $combine    // about,after
+pod      $pause $combine    // under
 s        s_ $pause       // with
-so       $pause $alt2    // with
-bezo     $pause $alt2    // without
-bez      $pause $alt2    // without
-pri      $pause $alt2    // about,beside,at
+so       $pause $combine    // with
+bezo     $pause $combine    // without
+bez      $pause $combine    // without
+pri      $pause $combine    // about,beside,at
 
 // Conjunctions
 a        $u $pause      // and

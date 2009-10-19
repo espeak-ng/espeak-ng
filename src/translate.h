@@ -55,6 +55,7 @@
 #define FLAG_DOUBLING      0x80000  // doubles the following consonant
 #define FLAG_ALT_TRANS    0x100000  // language specific
 #define FLAG_ALT2_TRANS   0x200000  // language specific
+#define FLAG_COMBINE      0x400000  // combine with the next word
 
 #define FLAG_MAX3       0x08000000  // limit to 3 repeats
 #define FLAG_PAUSE1     0x10000000  // shorter prepause
@@ -296,6 +297,14 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_ALT  15
 
 
+// stress_rule
+#define STRESSPOSN_1L	0	// 1st syllable
+#define STRESSPOSN_2L	1	// 2nd syllable
+#define STRESSPOSN_2R	2	// penultimate
+#define STRESSPOSN_1R	3	// final syllable
+#define STRESSPOSN_3R	4	// antipenultimate
+
+
 typedef struct {
 // bits0-2  separate words with (1=pause_vshort, 2=pause_short, 3=pause, 4=pause_long 5=[?] phonemme)
 // bit 3=don't use linking phoneme
@@ -408,6 +417,7 @@ typedef struct {
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
 	const char *ascii_language;  // switch to this language for Latin characters
+	int max_lengthmod;
 } LANGUAGE_OPTIONS;
 
 

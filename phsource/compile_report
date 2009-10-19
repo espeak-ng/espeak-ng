@@ -619,11 +619,13 @@ r3/r_u          [(u)] base
 r3/r_uvl        [r"] base
                 [R2] da
 r3/r_uvl.wav    [r"] base
+                [R] fr
+                [r] fr
+                [r/2] fr
                 [R2] da
 r3/rx           [*] base
                 [r/] base
                 [r/] af
-                [r/2] fr
                 [R] fr_ca
                 [r/] ru
                 [x] pt_pt

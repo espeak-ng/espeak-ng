@@ -1167,6 +1167,17 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 		}
 		break;
 
+	case 10:  // penultimate, but final if only 1 or 2 syllables
+		if(stressed_syllable == 0)
+		{
+			if(vowel_count < 4)
+			{
+				vowel_stress[vowel_count - 1] = 4;
+				max_stress = 4;
+				break;
+			}
+		}
+		// drop through to next case
 	case 2:
 		// a language with stress on penultimate vowel
 

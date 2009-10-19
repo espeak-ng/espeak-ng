@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-10-09 Michel Such  <michel.such@free.fr>
+// Updated: 2009-10-15 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -623,7 +623,8 @@ p)	ès (_	Es
 		gg          g		// agglomérer
 	ai)	gni         n^		// craignions châtaignier
 		gn          n^		// agneau
-		gn (ie         n		// comagnie
+		gn (ie         n		// compagnie
+dia)	g (no	g
 	_quatrevin) gts (_  z2
 
 	vin) 	gt (_A      t 		// liaison: vingt ans

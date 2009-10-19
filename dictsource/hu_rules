@@ -16,9 +16,9 @@
 
 .group á
         á          a:
-     @) ában (_S4  a:bAn
-     @) ának (_S4  a:nAk
-     @) ától (_S4  a:to:l
+     @) ában (_S4q a:bAn
+     @) ának (_S4q a:nAk
+     @) ától (_S4q a:to:l
 
 .group b
         b          b
@@ -38,9 +38,10 @@
     ar) csz (e     ts
 harmin) c          ts
   anar) ch (i      C
+ balda) ch (in     C
 hierar) ch (i      C
     me) ch (a      C
-    te) ch (n      C
+    te) ch         C
   pszi) ch         C
   pszy) ch         C
    mün) ch (en     C
@@ -73,29 +74,27 @@ hierar) ch (i      C
 
      _) church     tSYR2tS
 
-
 .group d
         d          d
         dd         d:
         dts        tS:
         dt         t:
+        dtszé      t:se:
   apró) d (sz      d
-     a) dsz        ts:
+        dsz (_S3   ts:
  beszé) d (szin    d
  cselé) d          d
-  enge) dsz        ts:
-engedelmeske) dsz  ts:
   fogó) dz (kod    ts
 fenyegető) dz      z
    föl) d (sánc    d
-  hazu) dsz        ts:
     ha) d (járat   d
     ha) d (sor     d
    hor) d (szék    d
 harapó) dz         z
-  mara) dsz        ts:
+himbáló) dz        z
     pa) d (sor     d
-    tu) dsz        ts:
+   ren) d (sza     d
+    va) d (sző     d
   kére) dz         ts
 mentegető) dz      z
         dz         dz
@@ -107,7 +106,13 @@ mentegető) dz      z
      A) ds (A      tS:
         dsz        ts
         dsz (C     ts
-     A) dsz (A     ts:
+        dsz (a     ds
+     a) dsz (A     ts:
+     e) dsz (A     ts:
+     o) dsz (A     ts:
+     a) dsz (í     ds
+     é) dsz        ds
+     ó) dsz        ts:
         dz         dz
      C) dzs        dZ
      A) dzs (A     dZ:
@@ -115,6 +120,9 @@ mentegető) dz      z
      A) dj (A      J:
         dj         J:
    min) dny        n^
+    ná) d          d
+    ná) dd         d:
+
 
 
 .group e
@@ -126,9 +134,9 @@ mentegető) dz      z
 .group é
         é          e:
         éi (é      e::i:
-     @) ében (_S4  e:bEn
-     @) ének (_S4  e:nEk
-     @) étől (_S4  e:tY:l
+     @) ében (_S4q e:bEn
+     @) ének (_S4q e:nEk
+     @) étől (_S4q e:tY:l
 
 .group ë
         ë          Y
@@ -164,13 +172,9 @@ _minde) gy (ik     J:
 
      _) goethe     gY:tE
      _) goethé     gY:te:
-    me) g (gyú     g
-    me) g (győz    g
-    me) g (gyil    g
-    me) g (gyű     g
-    me) g (gyász   g
-    me) g (gyűr    g
+    me) g (gy      g
     le) g (gy      g
+ orszá) g (gyűlés  g
 
 .group h
         h          h
@@ -185,13 +189,15 @@ _minde) gy (ik     J:
         í          i:
         íts        i:tS:
   fesz) ítsd       i:tSd
+  ford) ítsd       i:tSd
+semmis) ítsd       i:tSd
 bizony) ítsd       i:tSd
 
 .group j
         j          j
-     @) jában (_S5 ja:bAn
-     @) jának (_S5 ja:nAk
-     @) jától (_S5 ja:to:l
+     @) jában (_S5q ja:bAn
+     @) jának (_S5q ja:nAk
+     @) jától (_S5q ja:to:l
      _) javíts     jAvi:tS:
      _) javítsd    jAvi:tSd
 
@@ -199,12 +205,12 @@ bizony) ítsd       i:tSd
 .group k
         k          k
         kk         k:
-        kk (C      kk
+        kk (C      k:
      _) köztársaság k'Ysta:R2SASa:g
         központ    kYspont
-
+        központj   kYsponc
      _) köz        kYz
-     _) község     kYSSe:g
+        község     kYSSe:g
         készség    ke:SSe:g
      _) kétség     ke:tS:e:g
 
@@ -251,10 +257,10 @@ szamue) ly         lli
         nj         n^n^
         nyj        n^n^
 
-     _) nem (-     n,Em      // has $alt2 attribute in hu_list, combine with the next word
+     _) nem (-     n,Em      // has $combine attribute in hu_list, combine with the next word
     me) nny (ország n^
     me) nny (d     n^
-
+   ajá) nlj        j:
 
 
 .group o
@@ -301,6 +307,7 @@ szamue) ly         lli
         ssz        ss2
         szts       stS:
         sztsze     stsE
+
   föld) s (ánc     S
         s (színű   S
    hel) s (inki    z
@@ -329,6 +336,8 @@ _nyílá) s          S
 liszte) szs (ák    SZ
  pénze) s          S
   rend) sz (er     s:
+robbaná) s         S
+robbaná) ss        S:
 
 
 .group t
@@ -338,15 +347,18 @@ liszte) szs (ák    SZ
         t          t
         tc         ts:
         tt         t:
-     @) tól (_S3   to:l
-     @) től (_S3   tY:l
+        ttk        t:k
+     @) tól (_S3q  to:l
+     @) től (_S3q  tY:l
         tt (C      tt
         ttn        t:n
         ttr        t:R2
         ty         c
 //     s) ty       c:    //
 //     z) ty       c:    // keztyű
-        ttj        tc:
+        ts (_S2    tS        //general rule with word end of ts letters
+        tsü        tSy
+        ttj        c:
         tty        c:
    apá) ts (ág     tS:
 becsüle) t         t
@@ -358,13 +370,15 @@ becsüle) tt        t:
   ezüs) tt         t:
    éle) t          t
    éle) tt         t:
- felej) ts         tS
  gyapo) t          t
  gyapo) tt         t:
  gráni) t          t
  gráni) tt         t:
-    já) tsz (ani   ts:
+    já) tsz        ts:
+    já) tssz       ts:
         tsz        ts:
+kegyele) t         t
+kegyele) tt        t:
  szorí) ts (a      tS:
    ürí) ts (e      tS:
   mula) ts         tS:
@@ -387,6 +401,7 @@ becsüle) tt        t:
      C) tj         c
      A) tj (A      c:
      C) tyj        c
+        ttyj       c:
      A) tyj (A     c:
 
    _ka) ty (n      ti
@@ -407,8 +422,8 @@ vörösmar) ty       ti
    dön) ts (ön     tS
 folyama) t (jel    t
     hi) t (sze     t
-kattin) ts         tS
-  kiál) ts         tS
+    hi) t (szó     t
+ korlá) tj (ára    c:
   köve) ts (ég     tS:
         t (jel     t         //need this general rule when any not added word contains the tjel part
    kür) t          t
@@ -416,7 +431,6 @@ kattin) ts         tS
    kür) t (jel     t
  küldö) ttj        c:
   neve) ts (ég     tS:
-    on) ts (u      tS
      o) tt         t:
   szen) t (szék    t
    szé) t          t
@@ -424,13 +438,10 @@ kattin) ts         tS
  szöve) ts (ég     tS:
   söté) ts (ég     tS:
   sajá) ts (ág     tS:
-
-pillan) ts         tS
-
-   tar) ts         tS
      á) t (sor     t
      á) t (sé      t
-    (á) t (sze     t
+     á) t (sze     t
+     á) t (sug     t
      á) t (suh     t
      á) t (sur     t
     ne) t (c       t
@@ -518,6 +529,7 @@ lefeje) z (ték     s
     mé) zc (sz     z
   nehé) z (sé      S
    iga) zs (ág     SS
+   iga) z (szí     z
     ga) zs (ág     SS
    pén) z          z
    szá) z (sz      z

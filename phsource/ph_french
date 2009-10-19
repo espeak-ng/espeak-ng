@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2009-10-07 Michel Such  <michel.such@free.fr>
+// Updated 2009-10-13 Michel Such  <michel.such@free.fr>
 
 phoneme (l)  virtual
 // Used for l and l/
@@ -463,18 +463,18 @@ phoneme p2 // silent unless followed by vowel
 endphoneme
 
 
-phoneme r // between vowels in a word
+phoneme r
   liquid uvl starttype (r) endtype (r)
   vowelin  f1=0  f2=1600 -300 300  f3=-200 80 len=20
   vowelout f1=2  f2=1600 -300 300  f3=-300 80
   length 100
   lengthmod 7
    beforenotvowel r/2
-  formants vwl_fr/r
+  formants vwl_fr/r+r3/r_uvl.wav%25
   after _ vwl_fr/_r
   after k vwl_fr/tr
   after p vwl_fr/tr
-  after t vwl_fr/tr
+  after t vwl_fr/tr+r3/r_uvl.wav%30
   after r/2 vwl_fr/_r
 endphoneme
 
@@ -486,7 +486,7 @@ phoneme R // First letter of a word
   length 100
   lengthmod 0
   beforenotvowel r/2
-  formants vwl_fr/_r2
+  formants vwl_fr/_r2+r3/r_uvl.wav%25
   after _ vwl_fr/_r
   after (a) vwl_fr/_r
   after (e) vwl_fr/_r
@@ -516,7 +516,13 @@ phoneme r/2   // variant of [r] when not preceding a vowel
   vowelout f1=2  f2=1600 -300 300  f3=-300 100
   length 100
   lengthmod 2
-  formants vwl_fr/r_+r3/rx%25
+  formants vwl_fr/r_
+  after (a) vwl_fr/r_+r3/r_uvl.wav%30
+  after (e) vwl_fr/r_+r3/r_uvl.wav%30
+  after (@) vwl_fr/r_+r3/r_uvl.wav%30
+  after (i) vwl_fr/r_+r3/r_uvl.wav%30
+  after (o) vwl_fr/r_+r3/r_uvl.wav%30
+  after (u) vwl_fr/r_+r3/r_uvl.wav%30
   before m   r3/r_n
   before n   r3/r_n
 endphoneme

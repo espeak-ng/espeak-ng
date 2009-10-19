@@ -185,25 +185,25 @@ si       $u
 
 
 // Prepositions
-// the $alt2 prepositions should also be included in cs_rules
+// the $combine prepositions should also be included in cs_rules
 // as prefixes, so "na-" (for example) is removed from the combined
 // word before the pronuciation of the main word is determined.
 
-skrz     $u $brk $alt2    // though
+skrz     $u $brk $combine    // though
 skrze    $u $pause        // through
-pro      $u $pause $alt2  // for
-na       $u $brk $alt2    // to/for/on
-o        $u $pause $alt2  // around/about
-při      $u $pause $alt2  // into,in,around
+pro      $u $pause $combine  // for
+na       $u $brk $combine    // to/for/on
+o        $u $pause $combine  // around/about
+při      $u $pause $combine  // into,in,around
 v        v_ $brk          // in
-po       $u $pause $alt2  // after,around
-za       $u $pause $alt2  // behind
-před     $u $pause $alt2  // in front of
+po       $u $pause $combine  // after,around
+za       $u $pause $combine  // behind
+před     $u $pause $combine  // in front of
 mezi     $pause           // between
-pod      $u $pause $alt2  // below
+pod      $u $pause $combine  // below
 pode     $u $pause        // below
 s        s_ $pause        // with
-nad      $u $pause $alt2  // above
+nad      $u $pause $combine  // above
 nade     $u $pause        // above
 
 k        $brk             // towards
@@ -213,16 +213,16 @@ naproti  $pause           // opposite
 
 během    $pause           // during
 podle    $pause           // according to
-dle      $u $pause $alt2  // along
+dle      $u $pause $combine  // along
 vedle    $pause           // beside
 kolem    $pause           // around
 okolo    $pause           // around
-do       $u $brk $alt2    // to
-od       $u $brk $alt2    // away from
+do       $u $brk $combine    // to
+od       $u $brk $combine    // away from
 ode      $u $brk          // away from
 z        s_ $brk          // out of/from
-ze       $u $brk $alt2    // out of/from
-bez      $pause $alt2     // without
+ze       $u $brk $combine    // out of/from
+bez      $pause $combine     // without
 beze     $pause           // without
 místo    $pause           // instead of
 

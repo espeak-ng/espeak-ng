@@ -1275,11 +1275,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 			else
 			{
-//				if((prev->type != phVOWEL) && ((prev->ph->phflags & phVOICED)==0) && ((next->ph->phflags & phVOICED)==0))
-//					DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE_SHORT],2,p,0);
-//				else
 					DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
-//				DoSpect(p->ph,prev->ph,next->ph,2,p,0);
 			}
 			break;
 
