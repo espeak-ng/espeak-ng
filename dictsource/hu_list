@@ -77,36 +77,135 @@ _0M1o	EzR2Edik
 _1M1o	EzR2Edik
 _2M1o	ke:tEzR2Edik
 
-_0-a	A
-_0-i	Ei
-_0-e	E
-_0-án	a:n
-_0-ára	a:R2A
-_0-ére	e:R2E
-_0-ra	a:R2A
-_0-re	e:R2E
-_0-én	e:n
-_0-ai	Ai
-_0-ei	Ei
-(1-e)	elseje	$text
-(1-én)	elsején $text
-(1-jén)	elsején $text
-(1-i)	elsejei	$text
-(1-ei)	elsejei	$text
-(1-ére)	elsejére	$text
-(1-re)	elsejére	$text
-(2-i)	másodikai	$text
-(3-i)	harmadikai	$text
-(6-i)	hatodikai	$text
-(8-i)	nyolcadikai	$text
-(13-i)	tizenharmadikai	$text
-(16-i)	tizenhatodikai	$text
-(18-i)	tizennyolcadikai	$text
-(20-i)	huszadikai	$text
-(23-i)	huszonharmadikai	$text
-(26-i)	huszonhatodikai	$text
-(28-i)	huszonnyolcadikai	$text
-(30-i)	harmincadikai	$text
+
+// $alt2 means these rules only apply if the previous word
+//  has $alt1 (language specific).  $text implies $only (for this group only)
+
+_0-a	A	$alt2
+_0-i	Ei	$alt2
+_0-e	E	$alt2
+_0-án	a:n	$alt2
+_0-ára	a:R2A	$alt2
+_0-ére	e:R2E	$alt2
+_0-ra	a:R2A	$alt2
+_0-re	e:R2E	$alt2
+_0-én	e:n	$alt2
+_0-ai	Ai	$alt2
+_0-ei	Ei	$alt2
+_0-től	e:tY:l	$alt2
+_0-tól	a:to:l	$alt2
+_0-ig	e:ig	$alt2 //special date ordinal numbers for example elsejéig, negyedikéig etc.
+
+(1-e)	elseje		$text $alt2
+(1-én)	elsején 	$text $alt2
+(1-jén)	elsején 	$text $alt2
+(1-i)	elsejei		$text $alt2
+(1-ei)	elsejei		$text $alt2
+(1-ére)	elsejére	$text $alt2
+(1-re)	elsejére	$text $alt2
+(1-től)	elsejétől	$text $alt2
+(1-ig)	elsejéig	$text $alt2
+
+(2-i)	másodikai	$text $alt2
+(2-ig)	másodikáig	$text $alt2
+(3-i)	hAR2_mAdikAi	$alt2
+(3-ig)	harmadikáig	$text $alt2
+(6-i)	hAtodikAi	$alt2
+(6-ig)	hatodikáig	$text $alt2
+(8-i)	n^'oltsAdikAi	$alt2
+(8-ig)	nyolcadikáig	$text $alt2
+(13-ig)	tizenharmadikáig	$text $alt2
+(16-ig)	tizenhatodikáig	$text $alt2
+(18-ig)	tizennyolcadikáig	$text $alt2
+(20-i)	huszadikai	$text $alt2
+
+(20-ig)	huszadikáig	$text $alt2
+(23-ig)	huszonharmadikáig	$text $alt2
+(26-ig)	huszonhatodikáig	$text $alt2
+(28-ig)	huszonnyolcadikáig	$text $alt2
+(30-ig)	harmincadikáig	$text $alt2
+(30-i)	harmincadikai	$text $alt2
+
+
+
+// these exceptions only for 0, not for other numbers ending in '0'
+(0-ás) nul:a:S
+(0-t) nul:a:t
+(0-val) nul:a:vAl
+
+// entries with a single digit such as (2-i) also apply to 22, 32, etc, unless $only
+
+// with these suffixes, use [J:] not [J]
+(1-es) EJ:ES
+(1-et) EJ:Et
+(1-est) EJ:ESt
+(1-esét) EJ:ESe:t
+(1-esével) EJ:ESe:vEl
+(1-essel) EJ:ES:El
+(1-eseik) EJ:ESEik
+(1-eseikkel) EJ:ESEik:El
+(1-eseiket) EJ:ESEikEt
+(1-esekkel) EJ:ESEk:El
+(1-esek) EJ:ESEk 
+(1-el) EJ:El 
+
+(2-es)	kEt:ES
+(2-est) kEt:ESt
+(2-essel) kEt:ES:El
+(2-őt) kEt:Y:t
+(2-esen) kEt:ESEn
+(2-esével) kEt:ESe:vEl
+(2-n) kEt:Y:n
+(2-esekkel) kEt:ESEk:El
+(2-eseket) kEt:ESEkEt
+(2-eseik) kEt:ESEik
+
+(3-as)	ha:R2mAS
+(3-asának) ha:R2mASa:nAk
+(3-ason) ha:R2mASon
+(3-assal) ha:R2mAS:Al
+(3-asával) ha:R2mASa:vAl
+(3-ast) ha:R2mASt
+(3-at) ha:R2mAt
+(3-al) ha:R2om:Al 
+
+(4-el) ne:J:El //4 number suffixes (now contains one suffix) 
+(5-tel) Yt:El
+(5-el) Yt:El
+(6-al) hAt:Al
+(6-tal) hAt:Al
+
+(7-es)	hEtES
+(7-est) hEtESt
+(7-esek) hEtESEk
+(7-eseket) hEtESEkEt
+(7-esekkel) hEtESEk:El
+(7-esbe) hEtESbE
+(7-esben) hEtESbEn
+(7-esük) hEtESyk
+(7-tel) he:t:El
+(7-el) he:t:El
+
+(10-es) tizES   // use [i] not [i:]
+(10-est) tizESt
+(10-essel) tizES:El
+(10-esével) tizESe:vEl
+
+(20-as) husAS   // use [u] not [u:]
+(20-ast) husASt
+(20-assal) husAS:Al
+(20-asával) husASa:vAl
+
+//special number exceptions
+(10-el) ti:zzEl
+(20-al) hu:s:Al
+(30-al) hAR2mints:Al
+(40-el) nEJvEn:El
+(50-el) YtvEn:El
+(60-al) hAtvAn:Al
+(70-el) hEtvEn:El
+(80-al) n^oltsvAn:Al
+(90-el) kilEntsvEn:El
 
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
 január		$alt
@@ -126,6 +225,7 @@ december	$alt
 //The following 12 row contains shorter hungarian month names
 jan	$alt
 feb $alt
+febr	$alt
 márc	$alt
 ápr	$alt
 máj	$alt
@@ -172,13 +272,30 @@ _cap	n'AJ_|
 // Abbreviations
 ÁNTSZ a:Ente:Es $allcaps
 km	kilo:me:tER2
+GYSEV	JESEv	$allcaps
+GYESEV	JESEv	$allcaps
+HÉV	he:v	$allcaps
+City siti	$capital
+GDP	dZi:di:pi:	$allcaps
+HSDPA	$abbrev $allcaps
+ORTT	$abbrev $allcaps
+ORFK	oEREfka:	$abbrev $allcaps
+MÁV	ma:v	$allcaps
+MTI	$abbrev $allcaps
 mm      milime:tER2
 
+VDSZSZ	ve:de:EsEs	$allcaps
 a.m	An^n^i||m'int  $dot
+ún	u:JnEvEzEt:	$dot
 dr	doktoR2  $dot
+mr	mistER2 $dot //in hungarian we not use, but lot of books contains this word.
+mrs	misis	$dot //In hungarian we not use, but lot of book contains this word.
 gpu	$abbrev
+GB	gigAba:jt	$allcaps
+MB	mEgAba:jt	$allcaps
+OK	ok	$allcaps
 mvgyosz Emve:Je:oEs
-OTP $abbrev
+OTP o:te:pe:	$allcaps
 id	idY:SEb:  $dot
 ill	illEtvE  $dot
 ifj	ifjAb:  $dot
@@ -193,24 +310,25 @@ vö	v'EZd||_'Yss2E
 
 
 // Articles
-a         $u     // the
-az        $u
-aki       $u+   // that
+a         $u $strend2   // the
+az       $u $strend2
+//aki       $u+   // that
 
-ez        $u+   // this
+ez        $unstressend   // this
 
 
 // Pronouns
 
 // If these are only used for emphasis then then don't need $u
-// én        $u
-// te        $u
-// ő         $u
-// mi        $u
-// ti        $u
-// ők        $u
-// maga      $u
-// maguk     $u
+én        $unstressend
+te        $unstressend
+
+ők	$unstressend $pause
+mi        $unstressend
+ti        $unstressend
+ők        $unstressend
+maga     $unstressend
+maguk     $unstressend
 
 
 // Conjunctions
@@ -222,7 +340,6 @@ mert      $u $pause     // because
 miatt     $u           // because
 bár       $u $pause     // although
 habár     $u $pause     // although
-
 ha        $u $pause  // if
 noha      $u $pause  // even thought
 
@@ -231,132 +348,280 @@ noha      $u $pause  // even thought
 
 
 // Negative
-nem       $u $combine $strend
-ne        $u+
+nem       $unstressend $combine $strend
+ne        $unstressend
 
 e         $u          // "-e" question
 e         $atend      // stressed at end of sentence
 
 // Unstressed adverbs prepositions etc.
-néhány    $u+
+néhány    $unstressend
 is        $u         // also
 
-elöl	$u      // in front of
-elől	$u
-elé	$u
-előtt	$u
+elöl	$unstressend      // in front of
+elől	$unstressend
+elé	$unstressend
+előtt	$unstressend
 
-mögül	$u      // behind
-mögött	$u
-mögé	$u
+mögül	$unstressend      // behind
+mögött	$unstressend
+mögé	$unstressend
 
-kívül	$u
-után	$u     // after
+kívül	$unstressend
+után	$unstressend     // after
 
-alól	$u
-alá	$u
-alatt	$u    // below
+alól	$unstressend
+alá	$unstressend
+alatt	$unstressend    // below
 
-felől	$u    // above
-felé	$u
-fölé	$u
-felett	$u    // above
-fölött	$u
+felől	$unstressend    // above
+felé	$unstressend
+fölé	$unstressend
+felett	$unstressend    // above
+fölött	$unstressend
 
-mellől	$u    // besides
-mellé	$u
-mellett	$u
-
-közül	$u
-közé	$u
-között	$u
-
+//mellől	$u    // besides
+//mellé	$u
+//mellett	$u
+lett	$unstressend
+ott	$unstressend
+itt	$unstressend
+neked	$unstressend
+nektek	$unstressend
+nekik	$unstressend
+neki	$unstressend
+nekem	$unstressend
+//közül	$u
+//közé	$u
+//között	$u
 an	$u	// so many persons
 as	$u
-ba	$u	// into
-ban	$u	// in
-be	$u
-ben	$u
-ból	$u	// from inside
-ből	$u
+ba	$unstressend	// into
+ban	$unstressend	// in
+be	$unstressend
+ben	$unstressend
+ból	$unstressend	// from inside
+ből	$unstressend
 e       $u      // in query, his/her
 ei      $u      // his her multiole
 en	$u
 es	$u
-hez	$u
-hoz	$u      // to
-höz	$u
-ig	$u	// up to
-ik	$u      // -th
-nak     $u    // of, him/her
-nek     $u
-nál	$u	// by
-nél	$u
-on	$u	// on
-en	$u	// on
+hez	$unstressend
+hoz	$unstressend      // to
+höz	$unstressend
+ig	$unstressend	// up to
+ik	$unstressend      // -th
+nak     $unstressend    // of, him/her
+nek     $unstressend
+nál	$unstressend	// by
+nél	$unstressend
+on	$unstressend	// on
+en	$unstressend	// on
 os	$u
-ra	$u	// onto
-re	$u
-ról	$u      // from top of, about
-röl	$u
-ről	$u
+ra	$unstressend	// onto
+re	$unstressend
+ról	$unstressend      // from top of, about
+röl	$unstressend
+ről	$unstressend
 szer	$u
 szor	$u	// times
+szó	$unstressend
 szór	$u
 ször	$u
-tól	$u    // from
-töl	$u 
-től	$u
-val     $u    // with
-vel     $u
+tól	$unstressend    // from
+töl	$unstressend
+től	$unstressend
+val     $unstressend    // with
+vel     $unstressend
 án	$u    // on that day
 é	$u    // his, her
 éi	$u    // his, her multiple
-én	$u
+én	$unstressend
 ón	$u
 ós	$u
-ön	$u
+ön	$unstressend
 ös	$u
 
-ellen	$u	// against
-elé	$u	// before
-óta	$u	// since
+ellen	$unstressend	// against
+//elé	$u	// before
+//óta	$u	// since
 
-sok	$u	// many
-kevés	$u	// few
-se	$u       // neither
-sem	$u       // nor
+sok	$unstressend	// many
+kevés	$unstressend	// few
+se	$unstressend       // neither
+sem	$unstressend       // nor
 
 
-be	$u	//into
-ki	$u	// out of
-le	$u	// down
-fel	$u	// up
-föl	$u	// up
-meg	$u	// finish an action
-el	$u	// away
-át	$u	//through
-rá	$u	//onto
-ide	$u	// here
-oda	$u	// there
-szét	$u	//apart
-össze	$u	//connect with
-vissza	$u	//back
-ellen	$u	//against
+be	$unstressend	//into
+ki	$unstressend	// out of
+le	$unstressend	// down
+fel	$unstressend	// up
+föl	$unstressend	// up
+meg	$unstressend	// finish an action
+el	$unstressend	// away
+át	$unstressend	//through
+rá	$unstressend	//onto
 
-volna	$u	// would
-részén	$u	//on ... part of
+ide	$unstressend	// here
+oda	$unstressend	// there
+szét	$unstressend	//apart
+//össze	$u	//connect with
+//vissza	$u	//back
+volna	$unstressend	// would
+//részén	$u	//on ... part of
 
-nélkül	$u	// without
-folytán	$u	// because of
-úgy	$u	// like that
-így	$u	// like this
-egyaránt $u	// alike
-minden	$u	// all
-részben	$u	// partly
+nélkül	$unstressend	// without
+//folytán	$u	// because of
+úgy	$unstressend 	// like that
+így	$unstressend	// like this
+egyaránt $unstressend	// alike
+//minden	$strend	// all
+mindent	$strend
+//részben	$u	// partly
 
-egyik	$u	// one of
-másik	$u	// the other
+egyik	$unstressend	// one of
+//másik	$u	// the other
+lehet	$unstressend
+rossz	$unstressend
+jó	$unstressend
+jót	$unstressend
+kér	$unstressend
+tartják	$unstressend
+erős	$unstressend
+lennie	$unstressend
+közt	$u+
+levegőjére	$unstressend
+ad	$unstressend
+kapják	$unstressend
+kap	$unstressend
+már	$unstressend
+maradt	$unstressend
+jobb	$unstressend
+most	$unstressend
+még	$unstressend
+gép	$unstressend
+részt	$unstressend
+lenne	$unstressend
+őt	$unstressend
+helyes	$u+
+fák	$unstressend
+et	$unstressend
+megvédeni	$unstressend
+sztrájk	$unstressend
+hír	$unstressend
+magukat	$unstressend
+majd	$unstressend
+áll	$unstressend
+állt	$unstressend
+arról	$unstressend
+innen	$unstressend
+érjen	$unstressend
+nap	$unstressend
+név	$unstressend
+lány	$unstressend
+lányt	$unstressend
+vár	$unstressend
+várt	$unstressend
+ért	$unstressend
+ér	$unstressend
+tag	$unstressend
+tesz	$unstressend
+tett	$unstressend
+tette	$unstressend
+baj	$unstressend
+csak	$unstressend
+vált	$unstressend
+jut	$unstressend
+legyen	$unstressend
+azt	$unstressend
+ezt	$unstressend
+út	$unstressend
+tiszt	$unstressend
+vesz	$unstressend
+cég	$unstressend
+járt	$unstressend
+jár	$unstressend
+él	$unstressend
+élsz	$unstressend
+élt	$unstressend
+hát	$unstressend
+fiú	$unstressend
+srác	$unstressend
+ült	$unstressend
+ám	$unstressend
+rám	$unstressend
+tűnik	$unstressend
+nyújt	$unstressend
+nincsen	$unstressend
+mégy	$unstressend
+nő	$unstressend
+nőt	$unstressend
+sas	$unstressend
+sast	$unstressend
+fél	$unstressend
+félt	$unstressend
+félsz	$unstressend
+düh	$unstressend
+más	$unstressend
+mást	$unstressend
+rúd	$unstressend
+mint	$unstressend $brk $combine
+iránt	$unstressend
+légy	$unstressend
+tűnt	$unstressend
+ösét	$unstressend
+új	$unstressend
+nyúlt	$unstressend
+magát	$unstressend
+engem	$unstressend
+téged	$unstressend
+minket	$unstressend
+titeket	$unstressend
+őket	$unstressend
+cikk	$unstressend
+vont	$unstressend
+mond	$unstressend
+jutni	$unstressend
+jött	$unstressend
+szólsz	$unstressend
+lőtt	$unstressend
+sor	$unstressend
+árt	$unstressend
+fest	$unstressend
+fújt	$unstressend
+kért	$unstressend
+tét	$unstressend
+kém	$unstressend
+jön	$unstressend
+bent	$unstressend
+kezd	$unstressend
+ránk	$unstressend
+gondolt	$unstressend
+dönt	$unstressend
+véli	$unstressend
+folyt	$unstressend
+döntött	$unstressend
+fájt	$unstressend
+hozni	$unstressend
+lát	$unstressend
+kép	$unstressend
+nyert	$unstressend
+függ	$unstressend
+hidd	$unstressend
+megy	$unstressend
+hírt	$unstressend
+hely	$unstressend
+jutott	$unstressend
+mit	$unstressend
+forrás	$unstressend
+terv	$unstressend
+mind	$unstressend
+ment	$unstressend
+jól	$unstressend
+napját	$unstressend
+több	$unstressend
+tart	$unstressend
+hág	$unstressend
 
 
 // word pairs
@@ -390,7 +655,7 @@ lesztek   $u
 lesznek   $u
 
 
-kell      $u+  // should
+kell      $unstressend  // should
 
 szabad    $u+  // can (allowed)
 
@@ -458,7 +723,9 @@ ny	En^
 ø	$accent
 ß	_^_DE
 
-.	pont		$max3
+…	_p%ontp%ontp%ont   // 3 or more dots are changed to elipsis
+.	p%ont		$max3
+_.	pont
 *	tSillAg		$max3
 %	sa:zAle:k	$max3
 +	plus		$max3
@@ -493,7 +760,8 @@ _[	n^'ito:sYglEtES	$max3
 _]	z'a:R2o:sYglEtES	$max3
 _{	k'EzdY:kAptSoS	$max3
 _}	v'e:gkAptSoS	$max3
-_…	pontpontpont	$max3
+_…	pontpontpont
+
 _•	di:spont
 _|	fyg:Y:lEgESvonAl
 _>	nAJob
@@ -515,5 +783,12 @@ egyezség	eggyesség
 
 
 (Szvsz) eszvéesz
-(edik szeptember) szeptember
+(CD-k) cédék
+(cd-k) cédék
+(CD-n) cédén
+(cd-n) cédén
+(cd-d) cédéd
+(CD-d) cédéd
+(db-os) darabos
+(db-ot) darabot
 

@@ -366,31 +366,6 @@ void MyFrame::OnQuit(wxCommandEvent& event)
 }
 
 
-#ifdef deleted
-void MyFrame::OnAbout(wxCommandEvent& event)
-{//=========================================
-	int result;
-	char buf[300];
-	wxString url_docs;
-
-	switch(event.GetId())
-	{
-	case MENU_ABOUT:
-		sprintf(buf,about_string,espeak_Info(NULL));
-		(void)wxMessageBox(wxString(buf,wxConvLocal), _T("About eSpeak Editor"));
-		break;
-
-	case MENU_DOCS:
-		sprintf(buf,"%s/docs/docindex.html",path_home);
-		url_docs = wxString(buf,wxConvLocal);
-		result = wxLaunchDefaultBrowser(url_docs);
-		if(result == 0)
-			wxLogStatus(_T("Failed to launch browser"));
-		break;
-	}
-}
-#endif
-
 
 class HtmlWindow: public wxHtmlWindow
 {

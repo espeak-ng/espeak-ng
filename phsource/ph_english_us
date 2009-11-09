@@ -201,7 +201,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype (u)  endtype (u)
-  length 180
+  length 190
   formants vdiph2/uw
 endphoneme
 
@@ -243,7 +243,7 @@ endphoneme
 
 phoneme e@
   vowel  starttype (e)  endtype (@)
-  length 270
+  length 280
   formants vwl_en_us/er
   appendph r
 endphoneme
@@ -251,7 +251,7 @@ endphoneme
 
 phoneme i@3
   vowel  starttype (i)  endtype (@)
-  length 250
+  length 280
   formants vwl_en_us/ir
   appendph r
 endphoneme
@@ -259,7 +259,7 @@ endphoneme
 
 phoneme U@
   vowel  starttype (@)  endtype (@)
-  length 240
+  length 250
   formants vwl_en_us/ur
   linkout r-
 endphoneme
@@ -275,8 +275,8 @@ endphoneme
 
 phoneme aU@
   vowel  starttype (a)   endtype (@)
-  length 270
-  formants vwl_en/aU@
+  length 300
+  formants vwl_en_us/aU@
   linkout r-
 endphoneme
 

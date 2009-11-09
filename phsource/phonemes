@@ -220,6 +220,7 @@ phoneme (@)  virtual
   after  r- r2/r2@
   after  m m/m@
   after  n n/n@
+  after  n. n/nr@
   after  N nn/nn@
   after  n^ n^/n^@
   before l/ DFT-60+l/L1_@L
@@ -243,6 +244,7 @@ phoneme (a)  virtual
   after  r- r2/r2a
   after  m m/ma
   after  n n/na
+  after  n. n/nra
   after  N nn/nna
   after  n^ n^/n^a
   before l/ DFT-40+l/L1_aL
@@ -266,6 +268,7 @@ phoneme (e)  virtual
   after  r- r2/r2e
   after  m m/me
   after  n n/ne
+  after  n. n/nre
   after  N nn/nne
   after  n^ n^/n^e
   before l/ DFT-30+l/L1_eL
@@ -289,6 +292,7 @@ phoneme (i)  virtual
   after  r- r2/r2i
   after  m m/mi
   after  n n/ni
+  after  n. n/nri
   after  N nn/nni
   after  n^ n^/n^i
   before l/ DFT-30+l/L1_iL
@@ -313,6 +317,7 @@ phoneme (o)  virtual
   after  r- r2/r2o
   after  m m/mo
   after  n n/no
+  after  n. n/nro
   after  N nn/nno
   after  n^ n^/n^o
   before l/ DFT-40+l/L1_oL
@@ -336,6 +341,7 @@ phoneme (u)  virtual
   after  r- r2/r2u
   after  m m/mu
   after  n n/nu
+  after  n. n/nru
   after  N nn/nnu
   after  n^ n^/n^u
   before l/ DFT-40+l/L1_uL
@@ -571,7 +577,6 @@ endphoneme
 
 phoneme n.
   vcd rfx nasal
-  starttype n  endtype n
   vowelin f1=2 f2=1200 -300 250  f3=-500 80  rms=20 colr=2
   vowelout f1=2 f2=1200 -300 250  f3=-500 80  rms=20 brk colr=2
   length 100

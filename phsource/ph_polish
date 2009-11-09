@@ -154,7 +154,7 @@ phoneme dz
   vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=50
   vowelout f1=2 f2=1700 -300 300  f3=-100 80
   formants d/xdz+ustop/ts%140
-  before _ voc/z_+ustop/ts_%70
+  before _ voc/z_+ustop/ts_%60
   after _ NULL
   after @ d/xd
   lengthmod 5

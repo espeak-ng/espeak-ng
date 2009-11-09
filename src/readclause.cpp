@@ -63,9 +63,6 @@ int count_characters = 0;
 static int sayas_mode;
 static int ssml_ignore_l_angle = 0;
 
-static const char *punct_stop = ".:!?";    // pitch fall if followed by space
-static const char *punct_close = ")]}>;'\"";  // always pitch fall unless followed by alnum
-
 // alter tone for announce punctuation or capitals
 //static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
 //static const char *tone_punct_off = "\001T\001P";
@@ -121,7 +118,7 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash
-  CLAUSE_SEMICOLON,  // elipsis
+  CLAUSE_SEMICOLON + PUNCT_SAY_NAME,      // elipsis
 
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
@@ -574,7 +571,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char* text_
 
 	if(LookupDictList(tr,&string1,phonemes,flags,0,NULL))
 	{
-		SetWordStress(tr, phonemes, flags[0], -1, 0);
+		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes,phonemes2);
 		sprintf(text_out,"[[%s]]",phonemes2);
 		option_phoneme_input |= 2;
@@ -584,8 +581,8 @@ static const char *LookupSpecial(Translator *tr, const char *string, char* text_
 }
 
 
-static const char *LookupCharName(Translator *tr, int c)
-{//=====================================================
+static const char *LookupCharName(Translator *tr, int c, int only)
+{//===============================================================
 // Find the phoneme string (in ascii) to speak the name of character c
 // Used for punctuation characters and symbols
 
@@ -606,20 +603,28 @@ static const char *LookupCharName(Translator *tr, int c)
 	ix = utf8_out(c,&single_letter[2]);
 	single_letter[2+ix]=0;
 
-	string = &single_letter[1];
-	if(LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0)
+	if(only)
 	{
-		// try _* then *
 		string = &single_letter[2];
+		LookupDictList(tr, &string, phonemes, flags, 0, NULL);
+	}
+	else
+	{
+		string = &single_letter[1];
 		if(LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0)
 		{
-			// now try the rules
-			single_letter[1] = ' ';
-			TranslateRules(tr, &single_letter[2], phonemes, sizeof(phonemes), NULL,0,NULL);
+			// try _* then *
+			string = &single_letter[2];
+			if(LookupDictList(tr, &string, phonemes, flags, 0, NULL) == 0)
+			{
+				// now try the rules
+				single_letter[1] = ' ';
+				TranslateRules(tr, &single_letter[2], phonemes, sizeof(phonemes), NULL,0,NULL);
+			}
 		}
 	}
 
-	if((phonemes[0] == 0) && (tr->translator_name != L('e','n')))
+	if((only==0) && (phonemes[0] == 0) && (tr->translator_name != L('e','n')))
 	{
 		// not found, try English
 		SetTranslator2("en");
@@ -644,20 +649,21 @@ static const char *LookupCharName(Translator *tr, int c)
 	{
 		if(lang_name)
 		{
-			SetWordStress(translator2, phonemes, flags[0], -1, 0);
+			SetWordStress(translator2, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes,phonemes2);
 			sprintf(buf,"[[_^_%s %s _^_%s]]","en",phonemes2,WordToString2(tr->translator_name));
 			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 		}
 		else
 		{
-			SetWordStress(tr, phonemes, flags[0], -1, 0);
+			SetWordStress(tr, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes,phonemes2);
 			sprintf(buf,"[[%s]] ",phonemes2);
 		}
 		option_phoneme_input |= 2;
 	}
 	else
+	if(only == 0)
 	{
 		strcpy(buf,"[[(X1)(X1)(X1)]]");
 		option_phoneme_input |= 2;
@@ -835,6 +841,8 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	const char *punctname;
 	int found = 0;
 	int soundicon;
+	int attributes;
+	int short_pause;
 	int c2;
 	int len;
 	int bufix1;
@@ -852,10 +860,10 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		found = 1;
 	}
 	else
-	if((punctname = LookupCharName(tr, c1)) != NULL)
+	if((punctname = LookupCharName(tr, c1, 0)) != NULL)
 	{
 		found = 1;
-		if((*bufix==0) || (end_clause==0))
+		if((*bufix==0) || (end_clause ==0) || (tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2))
 		{
 			punct_count=1;
 			while(c2 == c1)
@@ -919,14 +927,24 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 	if(c1 == '-')
 		return(CLAUSE_NONE);   // no pause
-	if(bufix1 > 0)
-		return(CLAUSE_SHORTCOMMA);
-	if((strchr_w(punct_close,c1) != NULL) && !iswalnum(c2))
-		return(CLAUSE_SHORTFALL+4);
-	if(iswspace(c2) && strchr_w(punct_stop,c1)!=NULL)
-		return(punct_attributes[lookupwchar(punct_chars,c1)]);
+
+	attributes = punct_attributes[lookupwchar(punct_chars,c1)];
+
+	short_pause = CLAUSE_SHORTFALL;
+	if((attributes & CLAUSE_BITS_INTONATION) == 0x1000)
+		short_pause = CLAUSE_SHORTCOMMA;
+
+	if((bufix1 > 0) && !(tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2))
+	{
+		if((attributes & ~0x8000) == CLAUSE_SEMICOLON)
+			return(CLAUSE_SHORTFALL);
+		return(short_pause);
+	}
+
+	if(attributes & CLAUSE_BIT_SENTENCE)
+		return(attributes);
 	
-	return(CLAUSE_SHORTCOMMA);
+	return(short_pause);
 }  //  end of AnnouncePunctuation
 
 #define SSML_SPEAK     1
@@ -1936,6 +1954,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int c2;  // next character
 	int cprev=' ';  // previous character
 	int cprev2=' ';
+	int c_next;
 	int parag;
 	int ix = 0;
 	int j;
@@ -1948,7 +1967,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int found;
 	int any_alnum = 0;
 	int self_closing;
-	int punct_data;
+	int punct_data = 0;
 	int is_end_clause;
 	int announced_punctuation;
 	int stressed_word = 0;
@@ -2340,6 +2359,18 @@ if(option_ssml) parag=1;
 		{
 			is_end_clause = 0;
 
+			if((c1 == '.') && (c2 == '.'))
+			{
+				while((c_next = GetC()) == '.')
+				{
+					// 3 or more dots, replace by elipsis
+					c1 = 0x2026;
+					c2 = ' ';
+				}
+				UngetC(c_next);
+			}
+	
+			punct_data = 0;
 			if((punct = lookupwchar(punct_chars,c1)) != 0)
 			{
 				punct_data = punct_attributes[punct];
@@ -2371,17 +2402,23 @@ if(option_ssml) parag=1;
 				}
 			}
 	
+			if((punct_data & PUNCT_SAY_NAME) && (announced_punctuation == 0))
+			{
+				// used for elipsis (and 3 dots) if a pronunciation for elipsis is given in *_list
+				char *p2;
+
+				p2 = &buf[ix];
+				sprintf(p2,"%s",LookupCharName(tr, c1, 1));
+				if(p2[0] != 0)
+				{
+					ix += strlen(p2);
+					announced_punctuation = c1;
+					punct_data = punct_data & ~CLAUSE_BITS_INTONATION;  // change intonation type to 0 (full-stop)
+				}
+			}
 
 			if(is_end_clause)
 			{
-				int c_next;
-	
-				if((c1 == '.') && (cprev == '.'))
-				{
-					c1 = 0x2026;
-					punct = 9;   // elipsis
-				}
-	
 				nl_count = 0;
 				c_next = c2;
 
@@ -2395,26 +2432,39 @@ if(option_ssml) parag=1;
 					}
 				}
 
-				if((nl_count==0) && (c1 == '.'))
+				if(nl_count==0)
 				{
-					if((tr->langopts.numbers & NUM_ORDINAL_DOT) && 
-						(iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2)))))  // lang=hu
+					if(c1 == '.')
 					{
-						// dot after a number indicates an ordinal number
-						if(!iswdigit(cprev) || iswlower(c_next) || (c_next == '<'))
-							is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
+						if((tr->langopts.numbers & NUM_ORDINAL_DOT) && 
+							(iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2)))))  // lang=hu
+						{
+							// dot after a number indicates an ordinal number
+							if(!iswdigit(cprev) || iswlower(c_next) || (c_next == '<'))
+								is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
+						}
+						else
+						if(iswlower(c_next))
+						{
+							// next word has no capital letter, this dot is probably from an abbreviation
+							c1 = ' ';
+							is_end_clause = 0;
+						}
+						if(any_alnum==0)
+						{
+							// no letters or digits yet, so probably not a sentence terminator
+							// Here, dot is followed by space or bracket
+							c1 = ' ';
+							is_end_clause = 0;
+						}
 					}
 					else
-					if(iswlower(c_next))
 					{
-						// next word has no capital letter, this dot is probably from an abbreviation
-						c1 = ' ';
-						is_end_clause = 0;
-					}
-					if(any_alnum==0)
-					{
-						c1 = ' ';   // no letters or digits yet, so probably not a sentence terminator
-						is_end_clause = 0;
+						if(any_alnum==0)
+						{
+							// no letters or digits yet, so probably not a sentence terminator
+							is_end_clause = 0;
+						}
 					}
 				}
 
@@ -2424,7 +2474,6 @@ if(option_ssml) parag=1;
 					buf[ix] = ' ';
 					buf[ix+1] = 0;
 		
-					punct_data = punct_attributes[punct];
 					if(nl_count > 1)
 					{
 						if((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
@@ -2449,12 +2498,14 @@ if(option_ssml) parag=1;
 
 		if(c1 == announced_punctuation)
 		{
-//			const unsigned short keep_punctuation[] = {
-//			'\'', '-', 0x92, 0xb4, 0x2019, 0x2032, 0 };
-
 			// This character has already been announced, so delete it so that it isn't spoken a second time.
 			// Unless it's a hyphen or apostrophe (which is used by TranslateClause() )
-			if(!IsBracket(c1))
+			if(IsBracket(c1))
+			{
+				c1 = 0xe000 + '(';   // Unicode private useage area.  So TranslateRules() knows the bracket name has been spoken
+			}
+			else
+			if(c1 != '-')
 			{
 				c1 = ' ';
 			}

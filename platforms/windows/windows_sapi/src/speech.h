@@ -27,6 +27,7 @@
 #define __WIN32__
 #define NEED_WCSTOF
 #define NEED_GETOPT
+#define NO_VARIADIC_MACROS
 #define USE_MBROLA_LIB
 #define ESPEAK_API
 

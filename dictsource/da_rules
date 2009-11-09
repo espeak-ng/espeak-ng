@@ -1,7 +1,5 @@
-﻿
 
-// This file is UTF8 encoded 
-
+// This file is UTF8 encoded
 // Spelling-to-phoneme rules for Danish
 
 
@@ -15,408 +13,496 @@
 
 
 
-
-
 .group a
-        a        a?
-     C)	a	(C	a
-     a	(tion	a
-        a (CK    a
-     a	(g	a_
-        a (nK    a
-        a (r+    A:
-     r) a        A:
-     r) a (CK    A
-        ai (K    aj
+        a          a?
+     C) a (C       a
+        a (tion    a
+        a (CK      a
+        a (g       a_
+        a (nK      a
+        a (r+      A:
+     r) a          A:
+     r) a (CK      A
+        ai (K      aj
 
-        au (K    au
-     ch)        au (f    o
-     nive)        au    o
-        aw (K    aw
-        ay (K    aj
-        aa       O:
-     r) aa       O:
+        au (K      au
+    ch) au (f      o
+  nive) au         o
+        aw (K      aw
+        ay (K      aj
+        aa         O:
+     r) aa         O:
 
 
+.group af
+     k) af (fe     'af
+     l) af (fe     'af
+     t) af (fe     af
 
 
 
 .group b
 
-        b        b
-        bb       b
-     _) be (@P2  be
-     _)	be	(d	bE   
-     b	(il	'b
+        b          b
+        bb         b
+     _) be (@P2    be
+     _) be (d      bE
+        b (il      'b
 
 
 .group c
 
-        c        k
+        c          k
 
-        c (e     s
-        c (i     s
-     c	(k	
-        ch       S
-     mi)        ch	(a	k       S
-        ch	(r       k
-     e)	c	(h       k
-     c	(ha	S
-        cc       ks
-        c	(yk	s
-     fa)	c	(ad	s
-     fa)	c	(on	s
+        c (e       s
+        c (i       s
+        c (k 
+        ch         S
+    mi) ch (a      k         S
+        ch (r      k
+     e) c (h       k
+        c (ha      S
+        cc         ks
+        c (yk      s
+    fa) c (ad      s
+    fa) c (on      s
 
 
 
 
 .group d
-        d        d
-     A)	d	(d	D
-     A) d (_     D
-     A)	d	D
-     A)	d	(A	D
-     A)	dd	D
-     A)	d	(i	d
-     A) d (ig    D
-     A) d (isk   D
-     A) d (es	D
-     A) d (et	D
-     a)	d	(g	D
-     a)	d	(k	D
-     A) de (_	D@
-     d)	d	D
-     i)	d	(e	d
-     u)	d	(er	d
-     bu)	d	(get	
-     ej)	d	(e	d
-     le)	d	(t	
-     li)	d	(e	D
-     li)	d	(s	D
-     me)	d	(b	D
-     me)	d	(l	D 
-     mi)	d	(l	D
-     ne)	d	(C	D
-     o)	d	(a	d
-     o)	d	(i	d
-     re)	d	(a	d
-     re)	d	(i	d
-     ri)	d	(e	D
-     si)	d	(e	D
-     ti)	d	(e	D
-     ti)	d	(s	D
-     vi)	d	(e	D
-     al)	d	(o	d
-     an)	d	(re	d
-     el)	d	(i	d
-     ol)	d	(a	d
-     æl)	d	(e	d
-     æl)	d	(i	d
-     æl)	d	(re	d
-     æn)	d	(e
-     æn)	d	(re	d
-     æn)	d	(ri	d
-     ær)	d	(es	d
-     mo)	d	(C	D
-     mo)	d	(ul	'd
-     mo)	d	(al	'd
-     bla)	d	(r	D
-     kor)	d	d
-     smu)	d	(s
-     pu)	d	(s
-     ro)	d	(s	
-     ry)	d	(ni	D
-     æ)	d	D
-     An)	d	(rA	d
-     An)	d	(re	d
-     dar)	d	d
-    in)	d	(C
-     in)	d	(i	d
-    in)	d	(u	d
-    in)	d	(uC	d
-    in)	d	(ue	d
-     Co)	d	(C	D
-     Co)	d	(A	D
-     go)	d	(s
-     go)	d	(t_
-     or)	d	(ne	d
-     or)	d	(ning	d
-     or)	d	(re	d
-     or)	d	(ret		
-    Aor)	d	(ret		d
-     kre)	d	(s
-     tro)	d	(s
-    u)	d	(A	D
-    u)	d	(C	D
-     ø)	d	(C	D
-     ø)	d	(t	
-     å)	d	(an	d
-           d	(CA	d
-         d (t	=
-    be)	d	(r	D
-    be)	d	(st	:
-     bol)	d	d
-     a) d (s
-     i) d (s
-     r) d (K
-     ar) d (K	d
-     or) d (re	d
-     in)	d
-     ir) d (_	d
-     or) d (en
-     aar)	d	(K	
-     klo)	d	(s	
-     nor) d
-     pro)	d	(u	d
-     pu)	d	(s
-     ur)	d	(e	d
-     ver) d (en	d
-     sli)	d(so	D
-     sli)	d(s
+        d          d
+     a) d (d       D
+     A) d (_       D
+     A) d          D
+     A) d (A       D
+     A) d (C       D
+     A) d (i       d
+     A) d (ig      D
+     A) d (isk     D
+     A) d (es      D
+     A) d (et      D
+     a) d (g       D
+     a) d (k       D
+     a) d (res     d
+     A) de (_      D@
+     d) d          d
+     e) d (t 
+     i) d (e       d
+     i) d (t 
+     o) d (a       d
+     o) d (i       d
+     u) d          D
+     u) d (A       D
+     u) d (er      D
+     u) d (C       D
+    _y) d (re      D
+     ø) d (C       D
+     ø) d (t 
+     å) d (an      d
+     æ) d          D
+    Co) d (C       D
+    Co) d (A       D
+    al) d (er 
+    al) d (et 
+    al) d (o       d
+    an) d (re      d
+    An) d (rA      d
+    An) d (re      d
+    be) d (A       d
+    bu) d (get 
+    bu) d (t 
+    ej) d (e       d
+    el) d (i       d
+    go) d (s 
+    go) d (t_ 
+    he) dd (e      D
+    in) d (C 
+    in) d (eks     d
+    in) d (i       d
+    in) d (u       d
+    in) d (uC      d
+    in) d (ue      d
+    le) d (t 
+    li) d (e       D
+    li) d (s       D
+    lu) d (ere     d
+    ma) d (ras     d
+    me) d (b       D
+    me) d (l       D
+    mi) d (l       D
+    ma) d (d       D
+    me) d (d       D
+    mi) dd (a      d
+    mi) dd (el     D
+    mo) d (C       D
+    mo) d (al      'd
+    mo) d (el      'd
+    mo) d (ul      'd
+    mu) dd (er     D
+    pu) d (e       D
+    ne) d (C       D
+    or) d (el      d
+    or) d (en      d
+    or) d (ne      d
+    or) d (ning    d
+    or) d (re      d
+    or) d (ret 
+    pæ) d (a       d
+    re) d (a       d
+    re) d (i       d
+    ri) d (e       D
+    rø) dd (er     D
+    si) d (e       D
+    si) d (eA      D
+    si) d (eC      D
+    ti) d (e       D
+    ti) d (s       D
+    ud) d          d
+    ur) d (e       d
+    ve) d (h       D
+    vi) d (e       D
+    vi) d (er      D
+    yl) d (er 
+    æl) d (e 
+    æl) d (i       d
+    æl) d (re      d
+    æn) d (ri      d
+    æn) d (re      d
+    æn) d (re      d
+   kla) dd (e      D
+   kry) dd (er     D
+        dd (et     D
+    pu) d (s 
+    ro) d (s 
+    ry) d (ni      D
+    ær) d (es      d
+   bla) d (r       D
+   dar) d          d
+   gui) de         d
+   gui) de (n      de
+   gui) de (r      de
+   gui) de (t      de
+   kor) d          d
+   kru) d (t 
+   kry) d (s 
+   mad) d (A       D
+   plu) d (se 
+   ral) d (e 
+   smu) d (s 
+   snu) d (e       D
+   Aor) d (ret     d
+   kre) d (s 
+   tro) d (s 
+        d (CA      d
+        d (t       =
+    be) d (r       D
+    be) d (st      :
+   bol) d          d
+     a) d (s 
+     i) d (s 
+     r) d (K 
+    ar) d (K       d
+    or) d (re      d
+    in) d 
+    ir) d (_       d
+    or) d (en 
+   aar) d (K 
+   klo) d (s 
+   nor) d (en      d
+   pro) d (u       d
+    pu) d (s 
+   ver) d (en      d
+   sli) d (so      D
+   sli) d (s 
+tilfre) d (s 
 
 
 .group e
-        e        e
-     r)        e (j    a   
-        e (rK    &
-     b)	e	(ds	E
-     d) e (_    @
-     ed)	e	(-	@
-     g)	e	(C	e
-     g)	e	(js	aj
-     em)	e	(nt	a
-     plem)	e	(nter	e
-    elem)	e	(nt	e
-     em)	e	(ntal	e
-     glem)	e	(nt	a
-     glem)	e	(ntal	e
-     ni)	e
-     ni)	e	(n	e
-     niv)	e	(au	
-     ani)	e	(l	e
-     lini)	e		e
-     r) e	(_        V%
-     _r) e		e    V%
-     @st)	e	(n	e:
-     budg)	e	(t	'E
-     carst)	e	(n	@
-     karst)	e	(n	@
-     Kr)	e	(ag	e
-     @h)	e	(n	'e
-     p)	e	(ge	a
-     p)	e	(gnin	a
-     r)	e	(l	e
-     r)	e	(kt	aj
-     r) e (CK    e
-     eg	(et	aj
-     m)	eg	aj
-     n)	e	(K	e
-        ee       e:
-        eg	(e	'e:
-     en	(gage	an^
-     en	(tre	an^
-     p)	en	(sion	an^
-     r)	en	(ce	an^
-     r)        eg	(n	A:j
-     r)	e	(d	e
-     r)	e	(v	e
-     tr)	e	e
-     tr)	e	(A	e
-        ei       A:j
-        ej	(+       ai
-     v)        ej	(r	'e       ai
-     ffic)	e
-     ffic)	e	(r	e
-    &r) e (_	V
-     &) ede (_   @D@
-    &r) ede (_   3D@
-    &r) en (_    3n
+        e          e
+        ee         e:
+     r) e (j       a
+        e (rK      &
+     b) e (ds      E
+     d) e (_       @
+    ed) e (-       @
+     g) e (C       e
+     g) e (js      aj
+    em) e (nt      a
+  plem) e (nter    e
+  elem) e (nt      e
+    em) e (ntal    e
+  glem) e (nt      a
+  glem) e (ntal    e
+    ni) e 
+    ni) e (n       e
+   niv) e (au 
+   ani) e (l       e
+  lini) e          e
+     r) e (_       V%
+    _r) e          e         V%
+   @st) e (n       e:
+  budg) e (t       'E
+ carst) e (n       @
+ karst) e (n       @
+    Kr) e (ag      e
+    @h) e (n       'e
+     p) e (ge      a
+     p) e (gnin    a
+     r) e (l       e
+     r) e (kt      aj
+     r) e (CK      e
+        eg (et     aj
+     p) eg (e      aj
+     m) eg (a      eg
+     m) eg         aj
+     r) ej (s      aj
+     r) eg (er     eg
+     r) eg (n      aj
+     n) e (K       e
+     t) eg (n      aj
+        eg (e      'e:
+        en (gage   aN
+        en (tre    aN
+     c) en (t      en
+     p) en (sion   aN
+     r) en (ce     aN
+     r) eg (n      A:j
+     r) e (d       e
+     r) e (v       e
+    tr) e          e
+    tr) e (A       e
+        ei         A:j
+        ej (+      ai
+     v) ej (r      'e        ai
+  ffic) e 
+  ffic) e (r       e
+    &r) e (_       V
+     &) ede (_     @D@
+    &r) ede (_     3D@
+    &r) en (_      3n
     &r) en (ing    'en
-    for) en (ing    'en
-    &r) en (s_   3n
-    &r) et (_    3D
-     &) er (_    V
-     &) en (_    '@-n
-     &) ene (_   @-n@
-     &)	ende (_  @-nn@
-     &) eren (_  3r3n
-     &) eren (s_ 3r3n
-     &) es (_    @s
-     &) et (_    @D
-    icha)	e	(l
-     ika)	e	(l	
-     ir) e (n    'e
-     yr) e (n    'e
+   for) en (ing    'en
+    &r) en (s_     3n
+    &r) et (_      3D
+     &) er (_      V
+     &) en (_      '@-n
+     &) ene (_     @-n@
+     &) ende (_    @-nn@
+     &) eren (_    3r3n
+     &) eren (s_   3r3n
+     &) es (_      @s
+   ucc) es         'e
+     &) et (_      @D
+  icha) e (l 
+   ika) e (l 
+    ir) e (n       'e
+    yr) e (n       'e
 
 
 
 .group f
-        f        f
-        ff       f
-     _) for (&@P3 f%V
-     _) for (e f%V
-    _) for (um f%or
-    a)	f	(A	u
-     a)	f	(C	u
-     a)	f	(it	f
-     a)	f	(on	f
-     a)	f	(rik	f
-     a)	f	(sted
-     a)	f	(ten	f
-     a)	f	(tes_	f
-     Ca)	f	(t	f
-     ga)	f	(fel	f
-     gra)	f	(	f
-     gra)	f	(A	f
-     gra)	f	(C	f
-     ra)	f	(ik	f
-     ra)	f	(fe	f
-     kra)	f	(t	f
-     sa)	f	(ar	f
-     ska)	f	(f	f
-     sta)	f	(e	f
+        f          f
+        ff         f
+     _) for (&@P3  f%V
+     _) for (e     f%V
+     _) for (um    f%or
+     a) f (A       u
+     a) f (C       u
+     a) f (it      f
+     a) f (on      f
+     a) f (rik     f
+     a) f (sted 
+     a) f (ten     f
+     a) f (tes_    f
+    Ca) f (t       f
+    ga) f (fel     f
+   gra) f (        f
+   gra) f (A       f
+   gra) f (C       f
+    ra) f (ik      f
+    ra) f (fe      f
+   kra) f (t       f
+    sa) f (ar      f
+   ska) f (f       f
+   sta) f (e       f
 
 
 
 .group g
-        g        g
-     gg	g
-     g	(ent	g
-     g	(ment	g
-     a)	g	(A	w
-     a)	g	(C	?w
-     a)	g	(e	
-     a)	g	(en	g
-     g)	g       g
-     e)	g	(e
-     i) g (t     g
-     i) g (t_
-    gti) g     
-     i) g        
-     i) g (A     
-     i) g (ere	g     
-     redi)	g	(er	g
-     i) g (i	g     
-     n)	g	n^
-     n)	gr	n^gr
-     r) g (_	w
-     r) g (e	w
-     Ca)	g	(en	j
-     ra)	g	(_	w
-     ra)	g	(e	w
-    ør) g (s	
-            l)	g	(_	j
-     li)	g		
-     li)	g	(g	g		
-     u) g	g        
-     u) g	(e	
-     u) g (l	?     
-     u) g (t	g
-     y)	g	(e        j
-     y) g (A     g
-     ø)	g	(e
-     ø)	g	(n
-     æ)	g	(e	j
-    &e) g        j
-     an)	g	(å	g
-      ba)	g	(e
-      da)	g	(e
-     ba)	g	(C	u
-     ba)	g	(t	g
-     ba)	g	(ta	u
-     da)	g	(C	u
-     ga)	g	(e	S
-     la)	g	(e	
-     li)	g		(t	
-     pli)	g	(t	g
-     sa)	g	(s	'
-     si)	g	(t	g
-     &ti)	g	
-    bud)	g	(et	S
-     rea)	g	(er	g
-     aga)	g	(e	S
-     aga)	g	(te	g
-     arran)	g	(e	S
-     eta)	g	(e	S
-     gara)	g	(e	S
-     onta)	g	(e	S
-     reta)	g		(e	
-     foreta)	g		(e	
-     ru)	g	(_
-     a) g (A     j
-     l)	g	(_	j
-     l)	g	(e	j
-     l)	g	(s	j
-     Ca)	g	(t	k
-     o) g        u
-     bo)	g	(C	u
-    æda)	g	(og	g'
-     no) g	(e
-     no) g	(le
-     nø)	g	j
-     re)	g	(e	g
-     re)	g	(i	g
-    o) g	(r        g
-     o) g	(n        g
-     o) g	(s        u
-    bo) g	(st	k
-     ø)	g	(_	j
-     ø)	g	(t	g
-     sal)	g	j
-     val)	g	j
-     lå)	g	(e	u
-     navi)	g	(er	g
-     vå)	g	(e	u
-     vå)	g	(n	u
-     vå)	g	(ne	u
-     go) g	=
-     lo) g	=
-     lo) g	(a	g
-     lo) g	(i	=g
-     _lo) g	(i-	S
-     lo) g	(o	=g
-     _lo) g	(_	g
-     _lo) g	(g	g
-     ør) g        w
-     a) g (K     ?
-     _) ge (@P2  ge
+        g          g
+     g) g 
+     g) g (e 
+        g (ent     g
+     &) g (r       g
+        g (ård     g
+     a) g (ent     g
+        g (ment    g
+     a) g (A       w
+     a) g (C       ?w
+     a) g (e 
+     a) g (en      g
+     a) g (i       g
+     a) g (o       g
+     a) g (urk     g
+     g) g 
+     e) g (e 
+     e) g (o       g
+     i) g (t       g
+     i) g (t_ 
+     i) g 
+     i) g (A 
+     i) g (en      g
+     i) g (ere     g
+     i) g (i       g
+     a) g (A       j
+     l) g (_       j
+     l) g (e       j
+     l) g (s       j
+     n) g 
+     n) gr         Ngr
+     n) gæ         gE
+     o) g (r       g
+     o) g (n       g
+     o) g (s       u
+     r) g (_       w
+     r) g (e       w
+     u) g          g
+     u) g (e 
+     u) g (l       ?
+     u) g (t       g
+     y) g (e       j
+     y) g (A       g
+     ø) g (e 
+     ø) g (n 
+     æ) g (e       j
+    Ca) g (en      j
+    in) ge (niør   Se
+    ki) gg (e      g
+    li) g (ere 
+    ra) g (_       w
+    ra) g (e       w
+    ør) g (s 
+    ur) g (A       g
+     l) g (_       j
+    lA) g (a       g
+    li) g 
+    li) g (g       g
+    mA) g (a       g
+    nA) g (a       g
+    &e) g          j
+    an) g (å       g
+    ba) g (e 
+    da) g (e 
+    ba) g (C       u
+    ba) g (age     g
+    ba) g (t       g
+    ba) g (ta      u
+    da) g (C       u
+    da) g (s_      ?
+    fa) g (C       u
+    fi) g (ur      g
+    ga) g (e       S
+    la) g (e 
+    li) g (t 
+    re) g (A       g
+    re) g (i       S
+    re) g (iA      g
+    re) g (ist     g
+    sa) g (a       =g
+    sa) g (s       '
+    si) g (t       g
+   pli) g (t       g
+   &ti) g 
+   bud) g (et      S
+   gti) g 
+   jer) g (A       w
+   jer) g (C       w
+   rea) g (er      g
+   aga) g (e       S
+   aga) g (te      g
+ arran) g (e       S
+   eta) g (e       S
+  gara) g (e       S
+  onta) g (e       S
+  redi) g (er      g
+  reta) g (e 
+foreta) g (e 
+    ru) g (_ 
+    Ca) g (t       k
+     o) g          u
+    bo) g (C       u
+   æda) g (og      g'
+    no) g (e 
+    no) g (le 
+    nø) g          j
+    re) g (e       g
+    re) g (i       g
+    bo) g (st      k
+     ø) g (_       j
+     ø) g (t       g
+   sal) g          j
+   val) g          j
+    lå) g (e       u
+  navi) g (er      g
+    vå) g (e       u
+    vå) g (n       u
+    vå) g (ne      u
+    go) g          =
+    lo) g          =
+    lo) g (a       g
+    lo) gg (e      g
+    lo) g (i       =g
+   _lo) g (i-      S
+    lo) g (o       =g
+   blo) g (s       =g
+   _lo) g (_       g
+   _lo) g (g       g
+    ør) g          w
+     a) g (K       ?
+     _) ge (@P2    ge
 
-	_)	ge	(nere	Se
-	_)	ge	(nert	Se
-	_)	ge	(nerel	ge
-		ge	(nera	ge
-		ge	(nerer	ge
-     ta)	g	(e
+     _) ge (nere   Se
+     _) ge (nert   Se
+     _) ge (nerel  ge
+        ge (nera   ge
+        ge (nerer  ge
+    ta) g (e 
+    te) g (ori     g
+
 
 
 .group h
 
-        h        h
-        h (j
-        hv	v
-     A) h (K
-     t)	h	(en	h
+        h          h
+        h (j 
+        hv         v
+     A) h (K 
+     t) h (en      h
 
 
 
 
 .group i
-        i        i:
-        i (CK    i
-        ig (_    i
-        ige (_   i;i
-        i (nK    i
-        i (nn    e
-        i (mK    e
-     k)	i	(C_	'i
-     k)	i	(CC_	'i
-     l)	i	(e     j
-     n)	i	(e     i
-     r)	i	(g	i
-     t) i (e     j
-     s) i (e     j
-     t) i (on    // i ommitted because of sj
-     s) i (on    j
+        i          i:
+        i (CK      i
+        ig (_      i
+        ige (_     i;@
+        iew        j'u
+        i (nK      i
+        i (nn      e
+        i (mK      e
+     k) i (C_      'i
+     k) i (CC_     'i
+     l) i (e       j
+     n) i (e       i
+     r) i (g       i
+     s) i (e       j
+     t) i (e       j
+     t) i (on                // i ommitted because of sj
+     t) i (øs 
+     s) i (on      j
+ ingen) i (ør 
 
 
 
@@ -424,225 +510,266 @@
 
 .group j
 
-        j       j
-     j	(aw	dZ
-     j	(ack	dZ
-     j	(ob	dZ
-     j	(ohn	dZ
-     o)	j	(e	S
-     a)	j	(o	S
+        j          j
+        j (aw      dZ
+        j (ack     dZ
+        j (ob      dZ
+        j (ohn     dZ
+     o) j (e       S
+     a) j (o       S
 
 
 .group k
 
-        k        k
-
-        kk       k
-
-     s) k        g
-
-     &) k        k   // after stressed vowel
-     &) kk       g
-
+        k          k
+        kk         k
+     s) k          g
+   pun) k (t       N
+   run) k (en      N
+   san) k (t       N
+     &) k          k         // after stressed vowel
+     &) kk         g
 
 
 
 
 .group l
 
-        l        l
-        ll       l
-        ld (K    l
-     &) ld (e_   l
-     &) ld (ekk  l
-     o)	ld	l
-     bo)	ld		ld
-     fo)	ld	l	
-     he)	ld	l
-     he)	ld	(ig	ld
-     no)	ld	l
-     æ)	ld	(r	ld
-
+        l          l
+        ll         l
+        ld (K      l
+     &) ld (e_     l
+     &) ld (ekk    l
+     o) ld         l
+     æ) ld (r      ld
+    bo) ld         ld
+    fo) ld         l
+    he) ld         l
+    he) ld (ig     ld
+    me) ld (el     l
+    me) ld (ing    l
+    no) ld         l
+    so) ld (aC     d
 
 
 
 .group m
-        m        m?
-        mm       m
-     m	(A	m
-
+        m          m?
+        mm         m
+        m (A       m
+  gour) met        m'e
 
 
 .group n
 
-        n        n
-        nn       n
-        nd (e    n
-        nd (K    n
-        nd (ow    nd
-        nd (r    nd
-     u)	nd (    n
-        n (k     N
-     pag)	n	(e	nj
-      gleme)	n	(t	n^
+        n          n
+        nn         n
+        nd (e      n
+        nd (K      n
+        nd (ow     nd
+        nd (r      nd
+     i) nd (eks    nd
+     i) nd (ing    n
+     u) nd (       n
+    pu) n (kt 
+    ru) n (ke 
+    sa) n (kt 
+   eku) nd         nd
+   pag) n (e       nj
+ gleme) n (t       N
 
 
 
 
 .group ng
-     ng	(_	n^
-     a)	ng	(A	ng
-     a)	ng	(C	n^
-	ng	(a	ng
-	ng	(i	ng
-     arra)	ng	n^S
-     fu)	ng	n^'g
+        ng (_      N
+        ng (e      N
+        ng (s      N
 
+     a) ng (A      ng
+     a) ng (C      N
+        ng (a      ng
+        ng (i      ng
+     i) ng (s      N
+     u) ng (e      N
+    ba) ng (e      N
+    fa) ng (e      =N
+    fi) ng (er     =N
+    fi) ng (re     =N
+    fu) ng (er     Ng
+    ga) ng (e      N
+    la) ng (e      N
+    li) ng (e      N
+    læ) ng (e      N
+    ma) ng         N
+    ru) ng (e      N
+    sa) ng (e      N
+    se) ng (e      N
+    ti) ng (e      N
+   træ) ng (e      N
+  arra) ng         NS
 
 .group o
-        o        o:
-     kr)	o	(C	o
-     cr)	o	(C	'o
-     h)	o	(ld	'V
-     h)	o	(ved	o
-        o (CK    o
-     o	(p	'V
-     o	(r	 o
-     o	(rdn	 o
-     m)	o	(rC	 V
-        o (gK    o
-     b)      oo	(k	u
-     l)      oo	(k	u
-        ou       Vw
-     ov	Vv
-     @)	o	(C	'o
-     @@)	o	(C	'o
-     _C)	o	(l	'V
-     _C)	o	(p	'V
-     _CC)	o	(p	'V
-     _CC)	o	(l	'V
-     b)	o	(C	'o
-     sk)	o	(le	'o
-     _f)	o	(r	V
-     _f)	o	(re	'V
-     l)	o	(kk	V
-     p)	o	(li	o
-     st)	o	(K	'o
-     ati)	o	(n	'o
+        o          o:
+    kr) o (C       o
+    cr) o (C       'o
+     g) ou (rm     u
+     h) o (ld      'V
+     h) o (ved     o
+        o (CK      o
+        o (p       'V
+        o (r       o
+        o (rdn     o
+     m) o (rC      V
+        o (gK      o
+     b) oo (k      u
+     l) oo (k      u
+        ou         Vw
+        ov         Vv
+     @) o (C       'o
+    @@) o (C       'o
+    _C) o (l       'V
+    _C) o (p       'V
+   _CC) o (p       'V
+   _CC) o (l       'V
+     b) o (C       'o
+  ress) o (urc 
+    sk) o (le      'o
+    _f) o (r       V
+    _f) o (re      'V
+     l) o (f       V
+     l) o (kk      V
+     l) o (v       'V
+     l) o (ve      O
+     p) o (li      o
+    st) o (K       'o
+   ati) o (n       'o
 
 
 .group p
 
-        p        p
-        pp       p
-     &) p        b
-
-     &) pp       b
+        p          p
+        pp         p
+     &) p          b
+     &) pp         b
+        p (sy 
 
 
 .group q
 
-        q        k
+        q          k
 
-        qu       kv
+        qu         kv
 
 
 
 
 
 .group r
-        r        r
-     b) r        r
-     ø)	r	V:
-     A) r        r
-     Ae) r        V
-     &) rd (e_   r
-     &) rd (eKK  r
-     bu) rd (eK  rd
-     no) rd (eKK  r
-     no) rd (isk  rd
-     o)	rd	(en	rd
-     tu) rd (eK  rd
-     ve) rd (eKK  rd
+        r          r
+     b) r          r
+     ø) r          V:
+     A) r          r
+    Ae) r          V
+     &) rd (e_     r
+     &) rd (eKK    r
+     o) rd (en++   rd
+     o) rd (el++   rd
+     o) rd (rin    d
+    bu) rd (eK     rd
+    jo) rd (en++   r
+    no) rd (eKK    r
+    no) rd (en++   r
+    no) rd (isk    rd
+    tu) rd (eK     rd
+    ve) rd (eKK    rd
 
 
 
 
 .group s
 
-        s        s
-     s	(p	s
-     s	(C	s
-     s	(A	s
-        s (ie    s
-        s (ion   S
-        s	(j       s
-        s	(ch      S
-     kompromi)	s	
+        s          s
+        s (p       s
+        s (C       s
+        s (A       s
+        s (ie      s
+        s (ion     S
+        s (j       s
+        s (ch      S
+     s) s 
+kompromi) s 
+ succe) s          '
 
 
 .group t
 
-        t        t
-     A) t (_     t:
-        th       th
-     &) t        t
+        t          t
+     A) t (_       t:
+        th         th
+     &) t          t
 
-     &) tt       t
-     &) th       d
-        t (ie    t
-        t (ion+   sj'
-     emen)	t
-     elemen)	t	t
-     emen)	t	(al	t
-     glemen)	t
-     glemen)	t	(al	t
-     lemen)	t	(er	t
-     poin)	t
-     poin)	t	(e	t
+     &) tt         t
+     &) th         d
+        t (ie      t
+        t (ion+    sj'
+        t (iøs+    sj'
+   lek) t (i       S
+  emen) t 
+elemen) t          t
+  emen) t (al      t
+glemen) t 
+glemen) t (al      t
+ lemen) t (er      t
+  poin) t 
+  poin) t (e       t
 
 
 
 .group u
-     u	u
-        u (CK    u
-        u (nK    u
-        u (mK    O
-     a)	u	(g	u
-     b)	u	(dget	y
-     l)	u	(k	O?
-     l)	u	(kas	u
-     m)	u	(k	O?
-     comp)	u	(ter	ju
-     r) u        u
-     r) u (m    O
-     r) u (nd    O?
-    fris)	u	(r	y
-     frit)	u	(r	y
-     men)	u	y
-     g)	u	(st	O
-     r) u	(s	u
+        u          u
+        u (CK      u
+        u (nK      u
+        u (mK      O
+     a) u (g       u
+     b) u (dget    y
+     g) ui (de     ai
+     l) u (k       O?
+     l) u (kas     u
+     m) u (k       O?
+     r) u          u
+     r) u (m       O
+     r) u (nd      O?
+  comp) u (ter     ju
+  fris) u (r       y
+  frit) u (r       y
+   men) u          y
+ resso) u (rs      'u
+     g) u (st      O
+     r) u (s       u
+     s) u (cc      y
 
 
 .group v
-        v        v
-        vv       v
-     A) v (K     w
-     a)	v	(n	u
-    &A) v        v
-    &r) v        v
-     al)	v	(A	v	
-     el)	v	(C	
-     el)	v	(A	
-     el)	v	(e	v	
-     il)	v	(A	v	
-     ur)	v	v
-     hal)	v
+        v          v
+        vv         v
+     A) v (K       w
+     a) v (l       u
+     a) v (n       u
+    &A) v          v
+    &r) v          v
+    al) v (A       v
+    el) v (C 
+    el) v (A 
+    el) v (e       v
+    il) v (A       v
+    ur) v          v
+   hal) v 
 
 
 .group w
 
-        w        w
+        w          w
 
 
 
@@ -650,11 +777,11 @@
 
 .group x
 
-        x        gs
+        x          gs
 
-     _) x        s
+     _) x          s
 
-     n) x        s
+     n) x          s
 
 
 
@@ -662,71 +789,73 @@
 
 .group y
 
-        y        y:
+        y          y:
 
-     r) y        Y:
-     r) y (CK    Y
-        y (CK    Y-
-        y (nK    Y
-        y (mK    Y
-     d)     y	(_	i
-     b)	y	(A	y
-     n)	y	(A	y
+     r) y          Y:
+     r) y (CK      Y
+        y (CK      Y-
+        y (nK      Y
+        y (mK      Y
+     d) y (_       i
+     b) y (A       y
+     n) y (A       y
 
 
 
 .group z
 
-        z        s
+        z          s
 
-        zz       s
+        zz         s
 
 .group æ
-        æ        E?
-        æ (CK    E:
-     l)	æ	E:
-     r) æ        E
-     r) æ (kk    aj
-     r)	æ	(v	e
-     r) æ (L01   Aj
-     r) æ (k   Aj
-     t)	æ	(C	E:
-     v)	æ	E:
-     pr)	æ	(ge	E:
-     tr)	æ	E
-     tr)	æ	(k	'aj
-     tr)	æ	(kA	E
+        æ          E
+        æ (CK      E:
+     l) æ          E:
+     r) æ          E
+     r) æ (kk      aj
+     r) æ (v       e
+     r) æ (L01     Aj
+     r) æ (k       Aj
+     t) æ (C       E:
+     v) æ          E:
+    pr) æ (ge      E:
+    tr) æ          E
+    tr) æ (k       'aj
+    tr) æ (kA      E
 
 
 .group ø
-        ø        W?
-        ø (CK    W:
-     b)	ø	(g	W
-     d)	ø	(r	W
-     f)	ø	(r	W:
-     g)	ø	(r	@:
-     h)	ø	(j	V
-     h)	ø	(r	W:
-     k)	ø	(r	W:
-     l)	ø	(s	W:
-     m) ø        W:
-     r) ø        W:
-    s) ø        W:
-     t)	ø	(r	W
-        ø (r     W
-     r) ø (CK    W:
-        øg       W
-     d)	øg	(n	Vj
-        øj       oj
+        ø          W?
+        ø (CK      W:
+     b) ø (g       W
+     d) ø (r       W
+     f) ø (r       W:
+     g) ø (r       @:
+     h) ø (j       V
+     h) ø (r       W:
+     k) ø (r       W:
+     l) øg (n      'Vj
+     l) ø (s       W:
+     m) ø          W:
+     r) ø          W:
+     s) ø          W:
+     t) ø (r       W
+        ø (r       W
+     r) ø (CK      W:
+        øg         W
+     d) øg (n      Vj
+        øj         oj
 
 .group å
-        å        O:?
-        å (CK    V
-        å (r+    0:
-     l)	å	(r	V?
+        å          O:?
+        å (CK      V
+        å (r+      O:
+     l) å (r       V
 
 .group
-	$	dVlar
+        $          dVlar
+
 
 
 

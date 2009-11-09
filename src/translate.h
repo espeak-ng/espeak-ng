@@ -76,9 +76,9 @@
 #define FLAG_VERB_EXT        0x100  /* extend the 'verb follows' */
 #define FLAG_CAPITAL         0x200  /* pronunciation if initial letter is upper case */
 #define FLAG_ALLCAPS         0x400  // only if the word is all capitals
-#define BITNUM_FLAG_ALLCAPS   0x2a
 #define FLAG_ACCENT          0x800  // character name is base-character name + accent name
 #define FLAG_HYPHENATED     0x1000  // multiple-words, but needs hyphen between parts 1 and 2
+#define BITNUM_FLAG_ALLCAPS   0x2a
 #define BITNUM_FLAG_HYPHENATED  0x2c
 
 
@@ -164,29 +164,30 @@
 
 // Punctuation types  returned by ReadClause()
 // bits 0-7 pause x 10mS, bits 12-14 intonation type,
+// bit 15- don't need space after the punctuation
 // bit 19=sentence, bit 18=clause,  bits 17=voice change
 // bit 16 used to distinguish otherwise identical types
 // bit 20= punctuation character can be inside a word (Armenian)
+// bit 21= speak the name of the punctuation character
 #define CLAUSE_BIT_SENTENCE  0x80000
+#define CLAUSE_BIT_CLAUSE    0x40000
 #define CLAUSE_BIT_VOICE     0x20000
+#define CLAUSE_BITS_INTONATION 0x7000
 #define PUNCT_IN_WORD        0x100000
+#define PUNCT_SAY_NAME       0x200000
 
 #define CLAUSE_NONE         0 + 0x04000
 #define CLAUSE_PARAGRAPH   70 + 0x80000
-#define CLAUSE_EOF         35 + 0x90000
+#define CLAUSE_EOF         40 + 0x90000
 #define CLAUSE_VOICE        0 + 0x24000
-#define CLAUSE_PERIOD      35 + 0x80000
+#define CLAUSE_PERIOD      40 + 0x80000
 #define CLAUSE_COMMA       20 + 0x41000
 #define CLAUSE_SHORTCOMMA   4 + 0x41000
 #define CLAUSE_SHORTFALL    4 + 0x40000
-#define CLAUSE_QUESTION    35 + 0x82000
-#define CLAUSE_EXCLAMATION 40 + 0x83000
+#define CLAUSE_QUESTION    40 + 0x82000
+#define CLAUSE_EXCLAMATION 45 + 0x83000
 #define CLAUSE_COLON       30 + 0x40000
-#ifdef PLATFORM_RISCOS
-#define CLAUSE_SEMICOLON   30 + 0x40000
-#else
 #define CLAUSE_SEMICOLON   30 + 0x41000
-#endif
 
 #define SAYAS_CHARS     0x12
 #define SAYAS_GLYPHS    0x13
@@ -225,8 +226,8 @@ typedef struct{
 // a clause translated into phoneme codes (first stage)
 typedef struct {
 	unsigned char phcode;
-	unsigned char stress;
-	unsigned char tone_number; 
+	unsigned char stresslevel;
+	unsigned char tone_ph; 
 	unsigned char synthflags;
 	unsigned short sourceix;
 } PHONEME_LIST2;
@@ -242,7 +243,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      16
+#define N_LOPTS      18
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -296,6 +297,12 @@ extern const int param_defaults[N_SPEECH_PARAM];
   // Call ApplySpecialAttributes() if $alt or $alt2 is set for a word
 #define LOPT_ALT  15
 
+  // pause for bracket (default=4), pause when annoucing bracket names (default=2)
+#define LOPT_BRACKET_PAUSE 16
+
+	// bit 1, don't break clause before annoucning . ? !
+#define LOPT_ANNOUNCE_PUNCT 17
+
 
 // stress_rule
 #define STRESSPOSN_1L	0	// 1st syllable
@@ -314,6 +321,7 @@ typedef struct {
 	int vowel_pause;
 	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
 
+#define STRS_HYPEN_UNSTRESS    0x100000
 // bit0=don't stress monosyllables, except at end of clause
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
@@ -329,11 +337,13 @@ typedef struct {
 // bit17= "priority" stress reduces other primary stress to "unstressed" not "secondary"
 // bit18= don't lengthen short vowels more than long vowels at end-of-clause
 // bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
+// bit20= hyphenated words, 2nd part is unstressed
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
 	int param[N_LOPTS];
+	int param2[N_LOPTS];
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
@@ -605,7 +615,7 @@ void CalcPitches(Translator *tr, int clause_tone);
 
 int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 int Unpronouncable(Translator *tr, char *word);
-void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags, int tonic, int prev_stress);
+void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress);
 int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
 int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);

@@ -65,6 +65,9 @@
 #define M_MIDDLE_DOT  M_DOT_ABOVE  // duplicate of M_DOT_ABOVE
 #define M_IMPLOSIVE   M_HOOK
 
+static int n_digit_lookup;
+static char *digit_lookup;
+
 typedef struct {
 const char *name;
 int  flags;
@@ -783,6 +786,8 @@ static int CheckDotOrdinal(Translator *tr, char *word, WORD_TAB *wtab, int lower
 }  // end of CheckDotOrdinal
 
 
+
+
 int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 {//=========================================================================
 	int c;
@@ -995,6 +1000,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	int found;
 	int ix;
 	int units;
+	int tens;
 	int used_and=0;
 	int found_ordinal = 0;
 	int next_phtype;
@@ -1004,143 +1010,167 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	char ph_digits[50];
 	char ph_and[12];
 
-	// is there a special pronunciation for this 2-digit number
+	units = value % 10;
+	tens = value / 10;
+
 	found = 0;
 	ph_ordinal[0] = 0;
 
-	if(control & 8)
+	if((control & 2) && (n_digit_lookup == 2))
 	{
-		sprintf(string,"_%df",value);
-		found = Lookup(tr, string, ph_digits);
-	}
-	else
-	if(control & 1)
-	{
-		strcpy(ph_ordinal, ph_ordinal2);
-
-		if(control & 4)
-		{
-			sprintf(string,"_%dox",value);  // LANG=hu, special word for 1. 2. when there are no higher digits
-			found = Lookup(tr, string, ph_digits);
-		}
-		if(found == 0)
-		{
-			sprintf(string,"_%do",value);
-			found = Lookup(tr, string, ph_digits);
-		}
-		found_ordinal = found;
-	}
-
-	if(found == 0)
-	{
-		if((value == 1) && (control & 2))
-		{
-			if(Lookup(tr, "_1a", ph_out) != 0)    // LANG=de, "eins"
-				return(0);
-		}
-		sprintf(string,"_%d",value);
-		found = Lookup(tr, string, ph_digits);
-	}
-
-	// no, speak as tens+units
-
-	if((control & 0x10) && (value < 10))
-	{
-		// speak leading zero
-		Lookup(tr, "_0", ph_tens);
+		// pronunciation of the final 2 digits has already been found
+		strcpy(ph_out, digit_lookup);
 	}
 	else
 	{
-		if(found)
+		if(digit_lookup[0] == 0)
 		{
-			ph_tens[0] = 0;
+			// is there a special pronunciation for this 2-digit number
+			if(control & 8)
+			{
+				sprintf(string,"_%df",value);
+				found = Lookup(tr, string, ph_digits);
+			}
+			else
+			if(control & 1)
+			{
+				strcpy(ph_ordinal, ph_ordinal2);
+		
+				if(control & 4)
+				{
+					sprintf(string,"_%dox",value);  // LANG=hu, special word for 1. 2. when there are no higher digits
+					found = Lookup(tr, string, ph_digits);
+				}
+				if(found == 0)
+				{
+					sprintf(string,"_%do",value);
+					found = Lookup(tr, string, ph_digits);
+				}
+				found_ordinal = found;
+			}
+	
+			if(found == 0)
+			{
+				if((value == 1) && (control & 2))
+				{
+					if(Lookup(tr, "_1a", ph_out) != 0)    // LANG=de, "eins"
+						return(0);
+				}
+				sprintf(string,"_%d",value);
+				found = Lookup(tr, string, ph_digits);
+			}
+		}
+	
+		// no, speak as tens+units
+	
+		if((control & 0x10) && (value < 10))
+		{
+			// speak leading zero
+			Lookup(tr, "_0", ph_tens);
 		}
 		else
 		{
-			units = (value % 10);
-
-			if((control & 1) && ((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
+			if(found)
 			{
-				sprintf(string,"_%dXo",value / 10);
-				if(Lookup(tr, string, ph_tens) != 0)
-				{
-					found_ordinal = 1;
-				}
+				ph_tens[0] = 0;
 			}
-			if(found_ordinal == 0)
+			else
 			{
-				sprintf(string,"_%dX",value / 10);
-				Lookup(tr, string, ph_tens);
-			}
-
-			if((ph_tens[0] == 0) && (tr->langopts.numbers & NUM_VIGESIMAL))
-			{
-				// tens not found,  (for example) 73 is 60+13
-				units = (value % 20);
-				sprintf(string,"_%dX",(value / 10) & 0xfe);
-				Lookup(tr, string, ph_tens);
-			}
-
-			ph_digits[0] = 0;
-			if(units > 0)
-			{	
-				found = 0;
-				if(control & 8)
+	
+				if((control & 1) && ((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
 				{
-					// is there a variant form of this number?
-					sprintf(string,"_%df",units);
-					found = Lookup(tr, string, ph_digits);
-				}
-				if((control & 1) && ((tr->langopts.numbers & NUM_SWAP_TENS) == 0))
-				{
-					// ordinal
-					sprintf(string,"_%do",units);
-					if((found = Lookup(tr, string, ph_digits)) != 0)
+					sprintf(string,"_%dXo", tens);
+					if(Lookup(tr, string, ph_tens) != 0)
 					{
 						found_ordinal = 1;
 					}
 				}
-				if(found == 0)
+				if(found_ordinal == 0)
 				{
-					sprintf(string,"_%d",units);
-					Lookup(tr, string, ph_digits);
+					sprintf(string,"_%dX", tens);
+					Lookup(tr, string, ph_tens);
+				}
+	
+				if((ph_tens[0] == 0) && (tr->langopts.numbers & NUM_VIGESIMAL))
+				{
+					// tens not found,  (for example) 73 is 60+13
+					units = (value % 20);
+					sprintf(string,"_%dX", tens & 0xfe);
+					Lookup(tr, string, ph_tens);
+				}
+	
+				ph_digits[0] = 0;
+				if(units > 0)
+				{	
+					found = 0;
+	
+					if((control & 2) && (digit_lookup[0] != 0))
+					{
+						// we have an entry for this digit (possibly together with the next word)
+						strcpy(ph_digits, digit_lookup);
+						found_ordinal = 1;
+						ph_ordinal[0] = 0;
+					}
+					else
+					{
+						if(control & 8)
+						{
+							// is there a variant form of this number?
+							sprintf(string,"_%df",units);
+							found = Lookup(tr, string, ph_digits);
+						}
+						if((control & 1) && ((tr->langopts.numbers & NUM_SWAP_TENS) == 0))
+						{
+							// ordinal
+							sprintf(string,"_%do",units);
+							if((found = Lookup(tr, string, ph_digits)) != 0)
+							{
+								found_ordinal = 1;
+							}
+						}
+						if(found == 0)
+						{
+							sprintf(string,"_%d",units);
+							Lookup(tr, string, ph_digits);
+						}
+					}
 				}
 			}
 		}
-	}
-
-	if((control & 1) && (found_ordinal == 0) && (ph_ordinal[0] == 0))
-	{
-		if((value >= 20) && (((value % 10) == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
-			Lookup(tr, "_ord20", ph_ordinal);
-		if(ph_ordinal[0] == 0)
-			Lookup(tr, "_ord", ph_ordinal);
-	}
-
-	if((tr->langopts.numbers & (NUM_SWAP_TENS | NUM_AND_UNITS)) && (ph_tens[0] != 0) && (ph_digits[0] != 0))
-	{
-		Lookup(tr, "_0and", ph_and);
-		if(tr->langopts.numbers & NUM_SWAP_TENS)
-			sprintf(ph_out,"%s%s%s%s",ph_digits, ph_and, ph_tens, ph_ordinal);
-		else
-			sprintf(ph_out,"%s%s%s%s",ph_tens, ph_and, ph_digits, ph_ordinal);
-		used_and = 1;
-	}
-	else
-	{
-		if(tr->langopts.numbers & NUM_SINGLE_VOWEL)
-		{
-			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-			if(((ix = strlen(ph_tens)-1) >= 0) && (ph_digits[0] != 0))
-			{
-				if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-					next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
 	
-				if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
-					ph_tens[ix] = 0;
-			}
+		if((control & 1) && (found_ordinal == 0) && (ph_ordinal[0] == 0))
+		{
+			if((value >= 20) && (((value % 10) == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
+				Lookup(tr, "_ord20", ph_ordinal);
+			if(ph_ordinal[0] == 0)
+				Lookup(tr, "_ord", ph_ordinal);
 		}
-		sprintf(ph_out,"%s%s%s",ph_tens, ph_digits, ph_ordinal);
+	
+		if((tr->langopts.numbers & (NUM_SWAP_TENS | NUM_AND_UNITS)) && (ph_tens[0] != 0) && (ph_digits[0] != 0))
+		{
+			Lookup(tr, "_0and", ph_and);
+			if(tr->langopts.numbers & NUM_SWAP_TENS)
+				sprintf(ph_out,"%s%s%s%s",ph_digits, ph_and, ph_tens, ph_ordinal);
+			else
+				sprintf(ph_out,"%s%s%s%s",ph_tens, ph_and, ph_digits, ph_ordinal);
+			used_and = 1;
+		}
+		else
+		{
+			if(tr->langopts.numbers & NUM_SINGLE_VOWEL)
+			{
+				// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
+				if(((ix = strlen(ph_tens)-1) >= 0) && (ph_digits[0] != 0))
+				{
+					if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
+						next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
+		
+					if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
+						ph_tens[ix] = 0;
+				}
+			}
+			sprintf(ph_out,"%s%s%s",ph_tens, ph_digits, ph_ordinal);
+		}
 	}
 
 	if(tr->langopts.numbers & NUM_SINGLE_STRESS)
@@ -1357,17 +1387,21 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	char ph_append[50];
 	char ph_buf[200];
 	char ph_buf2[50];
+	char ph_zeros[50];
 	char suffix[20];
+	char buf_digit_lookup[50];
 
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
 
 	*flags = 0;
+	digit_lookup = buf_digit_lookup;
 
 	for(ix=0; isdigit(word[ix]); ix++) ;
 	n_digits = ix;
 	value = this_value = atoi(word);
 
 	ph_ordinal2[0] = 0;
+	ph_zeros[0] = 0;
 
 	ordinal = CheckDotOrdinal(tr, &word[ix], wtab, 1);
 
@@ -1377,11 +1411,11 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		ix++;
 		hyphen = 0;
 		p = suffix;
-		if(word[ix] == '-')
+		if(wtab[0].flags & FLAG_HYPHEN_AFTER)
 		{
 			*p++ = '-';
 			hyphen = 1;
-			ix += 2;
+			ix++;
 		}
 		while((word[ix] != 0) && (word[ix] != ' ') && (ix < (sizeof(suffix)-1)))
 		{
@@ -1397,7 +1431,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				// this is an ordinal suffix
 				ordinal = 2;
 				flags[0] |= FLAG_SKIPWORDS;
-				dictionary_skipwords = 1 + hyphen;
+				dictionary_skipwords = 1;
 			}
 		}
 	}
@@ -1431,7 +1465,17 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		}
 		else
 		{
-			return(0);     // number string with leading zero, speak as individual digits
+			if(n_digits > 3)
+			{
+				flags[0] &= ~FLAG_SKIPWORDS;
+				return(0);     // long number string with leading zero, speak as individual digits
+			}
+
+			// speak leading zeros
+			for(ix=0; (word[ix] == '0') && (ix < (n_digits-1)); ix++)
+			{
+				Lookup(tr, "_0", &ph_zeros[strlen(ph_zeros)]);
+			}
 		}
 	}
 
@@ -1504,11 +1548,33 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		Lookup(tr, "_.", ph_append);
 	}
 
+	n_digit_lookup = 0;
+	buf_digit_lookup[0] = 0;
+	if(thousandplex == 0)
+	{
+		char *p2;
+		// look for combinations of the number with the next word
+		p = word;
+		while(isdigit(p[1])) p++;  // just use the last digit
+		if(isdigit(p[-1]))
+		{
+			p2 = p - 1;
+			if(LookupDictList(tr, &p2, buf_digit_lookup, flags, FLAG_SUFX, wtab))  // lookup 2 digits
+				n_digit_lookup = 2;
+		}
+		if((buf_digit_lookup[0] == 0) && (*p != '0'))
+		{
+			// not found, lookup only the last digit
+			if(LookupDictList(tr, &p, buf_digit_lookup, flags, FLAG_SUFX, wtab))  // don't match '0', or entries with $only
+			n_digit_lookup = 1;
+		}
+	}
+
 	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal);
 	if((thousandplex > 0) && (tr->langopts.numbers2 & 0x200))
-		sprintf(ph_out,"%s%s%s",ph_append,ph_buf2,ph_buf);  // say "thousands" before its number
+		sprintf(ph_out,"%s%s%s%s",ph_zeros,ph_append,ph_buf2,ph_buf);  // say "thousands" before its number
 	else
-		sprintf(ph_out,"%s%s%s",ph_buf2,ph_buf,ph_append);
+		sprintf(ph_out,"%s%s%s%s",ph_zeros,ph_buf2,ph_buf,ph_append);
 
 
 	while(decimal_point)
@@ -1603,7 +1669,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		if((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
 			utf8_in(&next_char,p);
 
-		if(!iswalpha(next_char))
+		if(!iswalpha(next_char) && !(wtab[0].flags & FLAG_HYPHEN_AFTER))
 			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
 	}
 

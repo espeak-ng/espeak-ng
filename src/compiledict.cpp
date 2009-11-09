@@ -568,12 +568,10 @@ step=1;  // TEST
 		}
 		else
 		{
-			dict_line[length++] = 80 + multiple_words + multiple_numeric_hyphen;   // if numeric, count a hyphen as an extra word
+			dict_line[length++] = 80 + multiple_words;
 			ix = multiple_string_end - multiple_string;
 			if(multiple_numeric_hyphen)
 			{
-				// the first part is numeric, so keep the hyphen to match on
-				dict_line[length++] = '-';
 				dict_line[length++] = ' ';
 			}
 			memcpy(&dict_line[length],multiple_string,ix);

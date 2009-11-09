@@ -27,6 +27,12 @@
 #define ARCH_BIG
 #endif
 
+#ifdef __QNX__
+#define NEED_GETOPT
+#define NO_VARIADIC_MACROS
+#endif
+
+
 #define PLATFORM_POSIX
 #define PATHSEP  '/'
 // USE_PORTAUDIO or USE_PULSEAUDIO are now defined in the makefile

@@ -34,6 +34,7 @@
 #define PATHSEP  '\\'
 #define USE_PORTAUDIO
 //#define USE_NANOSLEEP
+#define NO_VARIADIC_MACROS
 #define __cdecl 
 #define ESPEAK_API
 #define PATH_ESPEAK_DATA  "C:\\Program files\\espeak\\espeak-data"

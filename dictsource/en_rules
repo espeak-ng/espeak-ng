@@ -878,8 +878,9 @@
         ch) ar (it       ar
         ph) ar (i        ar
          m) ar (i        @r
-         m) ar (ig       ar
-         m) ar (inaC     ar
+        _m) ar (i        ar
+         m) ar (in       @r
+        _m) ar (inaC     ar
          m) ar (iner     ar
          m) ar (io       ar
        htm) ar           e@
@@ -892,7 +893,7 @@
          &) ar (in_      @r
          v) ar (iA       e@r
          @) ar (ity      ar
-            ar (iu       'e@r
+            ar (iu+      'e@r
             arom (at     a2roUm
             arre (_      A@
             arred (_     A@d
@@ -1286,6 +1287,7 @@
             ch (é+       S
             ch (ef       S
             ch (em       k
+            chement (_   =SmO~
             ch (ev       S
             chez         SeI
         Ca) ch (e        S
@@ -2016,6 +2018,7 @@
             en (core     0n
          &) ency (_      @ns%I
             ency (cli    %EnsI
+            en (dA_      'En
          _) en (d        En
          _) en (da       %En
         eg) en (d        @n
@@ -2786,7 +2789,7 @@
          p) ie (_        aI
         pp) ie (_        I
             ie (f        i:
-            iege         i:dZ
+            ieg (e#      i:dZ
             ie (go       I'eI
             ieh (C       i:
             iei (_       i:aI 
@@ -2820,7 +2823,7 @@
             ie (t        aI@
          @) ie (th       i@
             iesta        i:'Est@
-            iette        I2'Et
+            ie (tt       I2'E
          @) iety         'aI@t%I
          l) ieu          u:
          l) ieu (te      %Ef
@@ -3356,6 +3359,7 @@
          @) most(_S4     moUst
          &) mouth (_     m@T
          _) multi        mVltI
+         _) multi (@@P5    m,VltI
 
 .group mi
             millen       mI2lEn
@@ -3483,7 +3487,7 @@
             oa           oU
             oar (_       o@
             oar          o@
-            o (atia      oU
+        cr) o (at        oU
         br) oa (d        O:
             o (ba        oU
          t) o (bacc      @
@@ -3894,6 +3898,7 @@
          @) or (ic_      '0r
             or (ig       0r
          &) ored (_      @d
+         h) ored (_S1    d
         _f) ore (C       O@
          f) ore (clo     %o@
          f) ore (st      0rI
@@ -4619,6 +4624,7 @@
        _ca) su           Zu:
          _) sus (A       su:z
             su (al       Zu:
+         n) su (al       sju:
          _) su (b        sV
             su (bdue     s%V
             su (bmerg    s@
@@ -4704,6 +4710,7 @@
             tsch         tS
          _) two          tu:
             ttu (r       t@
+         @) tu (al       tSu:
          @) tu (late     =tSU
          @) tur (A       tS@r
          @) tur (al_     tS=@r
@@ -4817,6 +4824,7 @@
          f) u (gal       'ju:
             ug (er_      u:g
          s) ugge (st     @dZE
+         h) ugh          ju:
         mp) ug (n        ju:
             uh (C        u:
             u (i         ju:
@@ -4847,6 +4855,7 @@
         _f) ully         UlI
          f) ull          Ul
          p) ull          Ul
+         _) ultra (@     ,Ultra
             u (ly        u:
          d) u (ly        ju:
             u (lul       V
@@ -4859,8 +4868,8 @@
             uoy          OI
          _) us (_        Vz
          _) us (A        ju:z
+            usu (al      ju:Zu:
          &) us (_        @s
-            usua (l      ju:Zu:
             u (sh        V
          b) u (sh        U
          c) u (sh        U
@@ -5246,6 +5255,7 @@
             En (_        @n
 ?8          En (_        En
             En (atA      @n
+            En (dA_      'En
             E (ndous     E
             Ener (_      _n@
             Ening (_     _nI2N

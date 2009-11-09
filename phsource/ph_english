@@ -223,7 +223,7 @@ endphoneme
 
 phoneme o@
   vowel  starttype (o)  endtype (@)
-  length 240
+  length 250
   formants vowel/oo_en
   linkout r-
 endphoneme
@@ -385,8 +385,8 @@ endphoneme
 
 phoneme O~
   vowel  starttype (o)  endtype (o)
-  length 260
-  formants vnasal/oo_n
+  length 240
+  formants vnasal/oo_n2
 endphoneme
 
 

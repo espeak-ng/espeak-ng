@@ -20,7 +20,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef NEED_GETOPT
 #include <getopt.h>
+#endif
 #include <time.h>
 #include <sys/stat.h>
 
@@ -294,6 +296,21 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 }
 
 
+#ifdef NEED_GETOPT
+	struct option {
+		char *name;
+		int has_arg;
+		int *flag;
+		int val;
+	};
+	int optind;
+	static int optional_argument;
+	static const char *arg_opts = "abfgklpsvw";  // which options have arguments
+	static char *opt_string="";
+#define no_argument 0
+#define required_argument 1
+#define optional_argument 2
+#endif
 
 int main (int argc, char **argv)
 //==============================
@@ -330,6 +347,7 @@ int main (int argc, char **argv)
 	int option_index = 0;
 	int c;
 	int ix;
+	char *optarg2;
 	int value;
 	int flag_stdin = 0;
 	int flag_compile = 0;
@@ -361,6 +379,59 @@ int main (int argc, char **argv)
 	filename[0] = 0;
 	option_punctlist[0] = 0;
 
+#ifdef NEED_GETOPT
+	optind = 1;
+	opt_string = "";
+	while(optind < argc)
+	{
+		int len;
+		char *p;
+
+		if((c = *opt_string) == 0)
+		{
+			opt_string = argv[optind];
+			if(opt_string[0] != '-')
+				break;
+
+			optind++;
+			opt_string++;
+			c = *opt_string;
+		}
+		opt_string++;
+		p = optarg2 = opt_string;
+
+		if(c == '-')
+		{
+			opt_string="";
+			for(ix=0; ;ix++)
+			{
+				if(long_options[ix].name == 0)
+					break;
+				len = strlen(long_options[ix].name);
+				if(memcmp(long_options[ix].name,p,len)==0)
+				{
+					c = long_options[ix].val;
+					optarg2 = NULL;
+
+					if((long_options[ix].has_arg != 0) && (p[len]=='='))
+					{
+						optarg2 = &p[len+1];
+					}
+					break;
+				}
+			}
+		}
+		else
+		if(strchr(arg_opts,c) != NULL)
+		{
+			opt_string="";
+			if(optarg2[0]==0)
+			{
+				// the option's value is in the next argument
+				optarg2 = argv[optind++];
+			}
+		}
+#else
 	while(true)
 	{
 		c = getopt_long (argc, argv, "a:b:f:g:hk:l:mp:qs:v:w:xXz",
@@ -369,12 +440,14 @@ int main (int argc, char **argv)
 		/* Detect the end of the options. */
 		if (c == -1)
 			break;
+		optarg2 = optarg;
+#endif
 
 		switch (c)
 		{
 		case 'b':
 			// input character encoding, 8bit, 16bit, UTF8
-			if((sscanf(optarg,"%d",&value) == 1) && (value <= 4))
+			if((sscanf(optarg2,"%d",&value) == 1) && (value <= 4))
 				synth_flags |= value;
 			else
 				synth_flags |= espeakCHARS_8BIT;
@@ -387,7 +460,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 'k':
-			option_capitals = atoi(optarg);
+			option_capitals = atoi(optarg2);
 			break;
 
 		case 'x':
@@ -403,7 +476,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 'p':
-			pitch = atoi(optarg);
+			pitch = atoi(optarg2);
 			break;
 
 		case 'q':
@@ -411,32 +484,32 @@ int main (int argc, char **argv)
 			break;
 
 		case 'f':
-			strncpy0(filename,optarg,sizeof(filename));
+			strncpy0(filename,optarg2,sizeof(filename));
 			break;
 
 		case 'l':
-			option_linelength = atoi(optarg);
+			option_linelength = atoi(optarg2);
 			break;
 
 		case 'a':
-			volume = atoi(optarg);
+			volume = atoi(optarg2);
 			break;
 
 		case 's':
-			speed = atoi(optarg);
+			speed = atoi(optarg2);
 			break;
 
 		case 'g':
-			wordgap = atoi(optarg);
+			wordgap = atoi(optarg2);
 			break;
 
 		case 'v':
-			strncpy0(voicename,optarg,sizeof(voicename));
+			strncpy0(voicename,optarg2,sizeof(voicename));
 			break;
 
 		case 'w':
 			option_waveout = 1;
-			strncpy0(wavefile,optarg,sizeof(filename));
+			strncpy0(wavefile,optarg2,sizeof(filename));
 			break;
 
 		case 'z':  // remove pause from the end of a sentence
@@ -454,17 +527,17 @@ int main (int argc, char **argv)
 
 		case 0x101:    // --compile-debug
 		case 0x102:		// --compile
-			strncpy0(voicename,optarg,sizeof(voicename));
+			strncpy0(voicename,optarg2,sizeof(voicename));
 			flag_compile = c;
 			quiet = 1;
 			break;
 
 		case 0x103:		// --punct
 			option_punctuation = 1;
-			if(optarg != NULL)
+			if(optarg2 != NULL)
 			{
 				ix = 0;
-				while((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg[ix]) != 0)) ix++;
+				while((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg2[ix]) != 0)) ix++;
 				option_punctlist[N_PUNCTLIST-1] = 0;
 				option_punctuation = 2;
 			}
@@ -472,24 +545,24 @@ int main (int argc, char **argv)
 
 		case 0x104:   // --voices
 			espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,data_path,0);
-			DisplayVoices(stdout,optarg);
+			DisplayVoices(stdout,optarg2);
 			exit(0);
 
 		case 0x106:   // -- split
-			if(optarg == NULL)
+			if(optarg2 == NULL)
 				samples_split = 30;  // default 30 minutes
 			else
-				samples_split = atoi(optarg);
+				samples_split = atoi(optarg2);
 			break;
 
 		case 0x107:  // --path
-			data_path = optarg;
+			data_path = optarg2;
 			break;
 
 		case 0x108:  // --phonout
-			if((f_phonemes_out = fopen(optarg,"w")) == NULL)
+			if((f_phonemes_out = fopen(optarg2,"w")) == NULL)
 			{
-				fprintf(stderr,"Can't write to: %s\n",optarg);
+				fprintf(stderr,"Can't write to: %s\n",optarg2);
 			}
 			break;
 

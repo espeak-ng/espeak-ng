@@ -275,7 +275,7 @@ static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
 };
 
 static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
-   {PITCHfall,   30, 5,  PITCHfall,   32, 9, NULL, 12, 7, 0},      // 0 statement
+   {PITCHfall,   29, 4,  PITCHfall,   32, 9, NULL, 12, 6, 0},      // 0 statement
    {PITCHfrise,  35, 8,  PITCHfrise2, 35,10, NULL, 15, 23, 0},     // 1 comma
    {PITCHfrise,  39,10,  PITCHfrise2, 36,10, NULL, 15, 28, 0},     // 2 question
 //   {PITCHfall,   41, 4,  PITCHfall,   41,27, NULL, 16, 4, T_EMPH},  // 3 exclamation

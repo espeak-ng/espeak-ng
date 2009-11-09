@@ -84,7 +84,7 @@ _-	in.aIppUg	// இணைப்புக்
 !	vijVppU		// வியப்பு
 _?	ke:l.vi		// கேள்வி
 #	en.||kuRi	$max3	// எண் குறி
-=	samVnba:d.U	$max3	// சமன்பாடு
+=	samVnpa:d.U	$max3	// சமன்பாடு
 +	ku:t.t.Vl	$max3	// கூட்டல்
 *	perUkkVl	$max3	// பெருக்கல்
 /	sa:jvU		// சாய்வு
@@ -195,53 +195,24 @@ _dpt	_pul.l.i
 போண்டா	$alt
 பஜ்ஜி	$alt
 பாதாம்	$alt
-பலூன்	$alt
-பிராமணன்	$alt
-பிரம்மன்	$alt
-பம்பாய்	$alt
 போகம்	$alt
 போதனை	$alt
-பூகோலம்	$alt
-பூலோகம்	$alt
-பூமி	$alt
 பூகம்பம்	$alt
-பூதம்	$alt
-புதன்	$alt
-பலி	$alt
-பலம்	$alt
-பலவான்	$alt
-பகவான்	$alt
 பாகவதம்	$alt
 பகவத்	$alt
 பங்கம்	$alt
 பீடி	$alt
 பீதி	$alt
-பம்பரம்	$alt
-பாதுஷா 	$alt
 பேகம்	$alt
 
 
-தானம்	$alt	// initial த as [d]
-தேகம்	$alt
-திரவியம்	$alt
-தூபம்	$alt
-தீபம் 	$alt
+	// initial த as [d]
 தீபாவளி		$alt
-தீரம்	$alt
-தைரியம்	$alt
-திடம்	$alt
-திரவம்	$alt
-திடீர்	$alt
-திவசம்	$alt
-தியானம்	$alt
-தானியம்	$alt
 தண்டனை	$alt
 துவம்சம்	$alt
 திருஷ்டி	$alt
 தயாநிதி	$alt
 தயாளு	$alt
-துக்கம்	$alt
-திகில்	$alt
 துந்துவி	$alt
 தயவு	$alt
 தடால்	$alt
@@ -249,31 +220,25 @@ _dpt	_pul.l.i
 தடக்	$alt
 தீக்ஷை	$alt
 தடியன் 	$alt
-
+தரிசனம்		$alt
+தட்சணை	$alt
 
 
 கக	$alt	// initial க as [g]
 கனம்	$alt
 கணம்	$alt
-கணபதி	$alt
-கணீர்	$alt
 கிலி	$alt
 கில்லி	$alt
-கோதுமை	$alt
-கோபுரம் 	$alt
-காந்தம்	$alt
 காந்தி	$alt
-குண்டு 	$alt
-கோலி	$alt
-குகை 	$alt
 கிரி	$alt
 கோமதி	$alt
 கயா	$alt
 காயத்ரி	$alt
 கங்கை	$alt
 கங்கா	$alt
-குரு	$alt
-குகன்	$alt
+கட	$alt
+கோ	$alt
+கதி	$alt
 
 
 பப	pVpV

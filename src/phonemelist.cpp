@@ -104,16 +104,16 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST2 *plist_out)
 						if(((pl = &ph_list2[k])->sourceix != 0) && (k > ix))
 							break;
 		
-						pl->stress &= 0xf;
+						pl->stresslevel &= 0xf;
 		
 						if(phoneme_tab[pl->phcode]->type == phVOWEL)
 						{
 							n_syllables++;
 
-							if(pl->stress  > max_stress)
+							if(pl->stresslevel  > max_stress)
 							{
 								syllable_stressed = n_syllables;
-								max_stress = pl->stress;
+								max_stress = pl->stresslevel;
 								max_stress_posn = k;
 							}
 						}
@@ -137,7 +137,7 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST2 *plist_out)
 					flags |= 8;
 				ch.flags = flags | word_end;
 
-				ch.stress = plist2->stress;
+				ch.stress = plist2->stresslevel;
 				ch.stress_highest = max_stress;
 				ch.n_vowels = n_syllables;
 				ch.vowel_this = syllable;
@@ -156,13 +156,13 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST2 *plist_out)
 					if((replace_flags & 1) && (word_end == 0))
 						continue;     // this replacement only occurs at the end of a word
 	
-					if((replace_flags & 2) && ((plist2->stress & 0x7) > 3))
+					if((replace_flags & 2) && ((plist2->stresslevel & 0x7) > 3))
 						continue;     // this replacement doesn't occur in stressed syllables
 	
 					// substitute the replacement phoneme
 					plist2->phcode = replace_phonemes[k].new_ph;
-					if((plist2->stress > 1) && (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
-						plist2->stress = 0;   // the replacement must be unstressed
+					if((plist2->stresslevel > 1) && (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
+						plist2->stresslevel = 0;   // the replacement must be unstressed
 					break;
 				}
 			}
@@ -214,8 +214,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	for(j = n_ph_list2-3; j>=0; j--)
 	{
 		// start with the last phoneme (before the terminating pauses) and move forwards
-		if((plist2[j].stress & 0x7f) > max_stress)
-			max_stress = plist2[j].stress & 0x7f;
+		if((plist2[j].stresslevel & 0x7f) > max_stress)
+			max_stress = plist2[j].stresslevel & 0x7f;
 		if(plist2[j].sourceix != 0)
 			break;
 	}
@@ -226,10 +226,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		{
 			if(plist2[j].synthflags & SFLAG_PROMOTE_STRESS)  // dictionary flags indicated that this stress can be promoted
 			{
-				plist2[j].stress = 4;   // promote to stressed
+				plist2[j].stresslevel = 4;   // promote to stressed
 				break;
 			}
-			if(plist2[j].stress >= 4)
+			if(plist2[j].stresslevel >= 4)
 			{
 				// found a stressed syllable, so stop looking
 				break;
@@ -344,7 +344,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			if(plist2->phcode == phonSWITCH)
 			{
 				// change phoneme table
-				SelectPhonemeTable(plist2->tone_number);
+				SelectPhonemeTable(plist2->tone_ph);
 				switched_language ^= SFLAG_SWITCHED_LANG;
 			}
 			next = phoneme_tab[(plist2+1)->phcode];      // the phoneme after this one
@@ -363,8 +363,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				if(ph_list3[k].sourceix)
 					break;   // start of the next word
 
-				if(ph_list3[k].stress > word_stress)
-					word_stress = ph_list3[k].stress;
+				if(ph_list3[k].stresslevel > word_stress)
+					word_stress = ph_list3[k].stresslevel;
 			}
 		}
 
@@ -373,7 +373,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		if(ph->type == phVOWEL)
 		{
 			// check for consecutive unstressed syllables
-			if(plist2->stress == 0)
+			if(plist2->stresslevel == 0)
 			{
 				// an unstressed vowel
 				unstress_count++;
@@ -388,7 +388,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					}
 					else
 					{
-						plist2->stress = 1;    // change stress to 'diminished'
+						plist2->stresslevel = 1;    // change stress to 'diminished'
 					}
 				}
 			}
@@ -455,7 +455,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			{
 				plist2->synthflags |= SFLAG_SYLLABLE;
 				if(ph2->type != phVOWEL)
-					plist2->stress = 0;   // change from non-vowel to vowel, make sure it's unstressed
+					plist2->stresslevel = 0;   // change from non-vowel to vowel, make sure it's unstressed
 			}
 			else
 				plist2->synthflags &= ~SFLAG_SYLLABLE;
@@ -465,7 +465,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		{
 			if((ph->mnemonic == 't') && (plist2->sourceix == 0) && ((prev->type == phVOWEL) || (prev->mnemonic == 'n')))
 			{
-				if(((plist2+1)->sourceix == 0) && ((plist2+1)->stress < 3) && (next->type == phVOWEL))
+				if(((plist2+1)->sourceix == 0) && ((plist2+1)->stresslevel < 3) && (next->type == phVOWEL))
 				{
 					ph = phoneme_tab[phonT_REDUCED];
 				}
@@ -483,13 +483,13 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if(ph->type == phVOWEL)
 			{
-				stress_level = plist2->stress;
+				stress_level = plist2->stresslevel;
 			}
 			else
 			{
 				// consonant, get stress from the following vowel
 				if(next->type == phVOWEL)
-					stress_level = (plist2+1)->stress;
+					stress_level = (plist2+1)->stresslevel;
 				else
 					break;
 			}
@@ -562,7 +562,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 							insert_ph = phonPAUSE_VSHORT;
 					}
 	
-					if(((plist2+1)->stress >= 4) && (tr->langopts.vowel_pause & 0x100))
+					if(((plist2+1)->stresslevel >= 4) && (tr->langopts.vowel_pause & 0x100))
 					{
 						// pause before a words which starts with a stressed vowel
 						insert_ph = phonPAUSE_SHORT;
@@ -628,8 +628,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		phlist[ix].type = ph->type;
 		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
 		phlist[ix].synthflags = plist2->synthflags | switched_language;
-		phlist[ix].stresslevel = plist2->stress & 0xf;
-		phlist[ix].tone_ph = plist2->tone_number;
+		phlist[ix].stresslevel = plist2->stresslevel & 0xf;
+		phlist[ix].tone_ph = plist2->tone_ph;
 		phlist[ix].sourceix = 0;
 
 		if(plist2->sourceix != 0)

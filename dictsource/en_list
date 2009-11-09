@@ -98,6 +98,7 @@ _?A	l,Et3
 _??	sImb@L
 _#9	tab
 _#32	speIs
+…	_::d%0td,0t     // for elipsis or ...  while reading
 
 _ 	hA@dspeIs    // U+00A0  no-break-space
 _!	Ekskl@m'eIS@n
@@ -436,7 +437,7 @@ abstract         a2bstr'akt    $verb
 academe          a2kad@mI
 access           aksEs         $onlys
 access           aksEs         $verb
-accouche          a2ku:S
+accouchement     a2ku:SmO~
 acer             eIs3
 aces             eIsI2z
 acetylene        a2sEt@li:n
@@ -1519,6 +1520,8 @@ motif            moUt'i:f
 moustache        m@st'aaS
 mouths           maUDz         $only
 movies           mu:vI2z
+multitude         $1
+multiplexer       $1
 mundane           $2
 murmur           m3:m3
 ?5 murmur        mVRm3
@@ -1553,7 +1556,7 @@ nobody           'noUb0dI
 nocturnal                      $2
 nomenclature     n@mENkl@tS3
 nonsense         n0ns@ns
-nonetheless      n0nD@l'Es
+nonetheless      nVnD@l'Es
 nosedive         noUzdaIv
 not              noUt          // for noted, notable, etc 
 nott             n0t
@@ -1655,6 +1658,7 @@ pasting          peIstI2N
 pastry           peIstrI
 pate             pateI
 pathos           peIT0s
+paypal           peIpal
 pear             pe@
 peculiar         pI2kju:lI3
 pedalo           pEd@loU
@@ -2609,8 +2613,6 @@ Graeme		greI@m
 Graham		greI@m
 Hadrian		heIdri:@n
 Harriet		hari@t
-Hugh		hju:
-Hughes		hju:z
 Huw		hju:
 Iain		i:@n
 Ian		i:@n
@@ -3045,7 +3047,7 @@ your             jO@		$u $nounf $only
 their            De@		$u $nounf $only
 theirs           De@z
 
-none             n0n
+none             nVn
 noone            noUw0n
 anyone           EnIw0n
 everyone         EvrIw0n
@@ -3192,7 +3194,6 @@ like             laIk          $strend2
 ?3 err		e@
 ?3 fortune	fO@tS@n
 ?3 garage	ga2rA:Z
-?3 happy	hapi:
 ?3 herb		3:b
 ?3 hurricane	h3:@keIn
 ?3 investigative Inv,EstI2g'eItIv

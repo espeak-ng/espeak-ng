@@ -51,7 +51,7 @@
       id  15  127
       sq  35  128
       hy  24  120
-      da  21  119
+      da  22  122
       rw  15  132
       ml  13  154
       kn  15  154
@@ -60,7 +60,7 @@
       mr  12  152
       eu   6  126
       mn  15  115
-      pa  13  153
+      pa  14  154
      prs   8  111
 
 Data file      Used by
@@ -244,6 +244,7 @@ envelope/i_risefall2  [+2] rw
 envelope/p_214  [5] vi
                 [214] zh
 envelope/p_512  [6] vi
+                [+] pa
 envelope/p_fall  [2] vi
                 [7] vi
                 [4] zhy
@@ -567,6 +568,12 @@ n^/n^o          [(o)] base
 n/no            [(o)] base
 n/_nr           [n.] base
 n/nr_           [n.] base
+n/nr@           [(@)] base
+n/nra           [(a)] base
+n/nre           [(e)] base
+n/nri           [(i)] base
+n/nro           [(o)] base
+n/nru           [(u)] base
 n^/n^u          [(u)] base
 n/nu            [(u)] base
 r2/_r2          [r-] base
@@ -617,12 +624,12 @@ r3/r_trill.wav  [R2] base
                 [x] pt
 r3/r_u          [(u)] base
 r3/r_uvl        [r"] base
-                [R2] da
+                [R4] da
 r3/r_uvl.wav    [r"] base
                 [R] fr
                 [r] fr
                 [r/2] fr
-                [R2] da
+                [R4] da
 r3/rx           [*] base
                 [r/] base
                 [r/] af
@@ -638,10 +645,12 @@ r3/@tap         [**] base
 r3/@tap2        [**] base
 r3/@tap_rfx     [r.] base
 r/a_            [r] da
+r/aa            [R6] da
 r/r             [r] base
                 [r-] base
                 [r] en_sc
                 [r] de
+                [R5] da
 r/_r            [r] base
                 [r] en_sc
                 [r.] bn
@@ -779,7 +788,6 @@ ufric/x_sr      [h] sr
                 [x] sr
 ufric/xx        [X] base
                 [Q"] base
-                [R] da
 ustop/c         [c] base
 ustop/k         [k] base
                 [k] en
@@ -1357,8 +1365,8 @@ vnasal/o_n      [o~] hi
                 [o~] bn
 vnasal/o_n2     [o~] af
                 [O~] fr
-vnasal/oo_n     [O~] en
-vnasal/oo_n2    [O~] hi
+vnasal/oo_n2    [O~] en
+                [O~] hi
                 [o] zh
                 [O~] bn
 vnasal/oo_n3    [O~] pl
@@ -1386,7 +1394,6 @@ voc/Q_          [Q] base
 voc/Q_less      [Q] nl
                 [x2] pt
 voc/Q_ulv       [Q"] base
-                [R] da
 voc/v           [v] base
                 [v] fi
                 [v] fr
@@ -2222,7 +2229,6 @@ vwl_en/aI@_2    [aI] en_sc
                 [aI@] en_sc
 vwl_en/aU@      [aU@] en
                 [aU@] en_n
-                [aU@] en_us
                 [aU@] en_sc
                 [aU@] en_wm
 vwl_en/@L       [@L] en
@@ -2250,6 +2256,7 @@ vwl_en_us/a     [a] en_us
 vwl_en_us/ai@   [aI@] en_us
 vwl_en_us/ar    [A:] en_us
                 [A@] en_us
+vwl_en_us/aU@   [aU@] en_us
 vwl_en_us/ee    [E] en_us
 vwl_en_us/er    [e@] en_us
 vwl_en_us/ir    [i@3] en_us

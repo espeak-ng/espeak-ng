@@ -75,6 +75,7 @@ static int embedded_flag = 0;    // there are embedded commands to be applied to
 
 static int prev_clause_pause=0;
 static int max_clause_pause = 0;
+static int any_stressed_words;
 int pre_pause;
 
 
@@ -1100,7 +1101,7 @@ strcpy(phonemes2,phonemes);
 		{
 			char *p;
 			// German, keep a secondary stress on the stem
-			SetWordStress(tr, phonemes, dictionary_flags[0], 3, 0);
+			SetWordStress(tr, phonemes, dictionary_flags, 3, 0);
 
 			// reduce all but the first primary stress
 			ix=0;
@@ -1116,22 +1117,22 @@ strcpy(phonemes2,phonemes);
 			}
 			strcpy(word_phonemes,prefix_phonemes);
 			strcat(word_phonemes,phonemes);
-			SetWordStress(tr, word_phonemes, dictionary_flags[0], -1, 0);
+			SetWordStress(tr, word_phonemes, dictionary_flags, -1, 0);
 		}
 		else
 		{
 			// stress position affects the whole word, including prefix
 			strcpy(word_phonemes,prefix_phonemes);
 			strcat(word_phonemes,phonemes);
-			SetWordStress(tr, word_phonemes, dictionary_flags[0], -1, tr->prev_last_stress);
+			SetWordStress(tr, word_phonemes, dictionary_flags, -1, tr->prev_last_stress);
 		}
 	}
 	else
 	{
 		if(prefix_phonemes[0] == 0)
-			SetWordStress(tr, phonemes, dictionary_flags[0], -1, tr->prev_last_stress);
+			SetWordStress(tr, phonemes, dictionary_flags, -1, tr->prev_last_stress);
 		else
-			SetWordStress(tr, phonemes, dictionary_flags[0], -1, 0);
+			SetWordStress(tr, phonemes, dictionary_flags, -1, 0);
 		strcpy(word_phonemes,prefix_phonemes);
 		strcat(word_phonemes,phonemes);
 	}
@@ -1149,6 +1150,11 @@ strcpy(phonemes2,phonemes);
 		dictionary_flags[0] &= ~FLAG_PAUSE1;
 	}
 
+	if((wflags & FLAG_HYPHEN) && (tr->langopts.stress_flags & STRS_HYPEN_UNSTRESS))
+	{
+		ChangeWordStress(tr,word_phonemes,3);
+	}
+	else
 	if(wflags & FLAG_EMPHASIZED2)
 	{
 		// A word is indicated in the source text as stressed
@@ -1165,7 +1171,7 @@ strcpy(phonemes2,phonemes);
 		if(dictionary_flags[0] & (FLAG_STRESS_END | FLAG_STRESS_END2))
 			ChangeWordStress(tr,word_phonemes,4);
 		else
-		if(dictionary_flags[0] & FLAG_UNSTRESS_END)
+		if((dictionary_flags[0] & FLAG_UNSTRESS_END) && (any_stressed_words))
 			ChangeWordStress(tr,word_phonemes,3);
 	}
 
@@ -1227,7 +1233,7 @@ strcpy(phonemes2,phonemes);
 			tr->expect_past--;
 	}
 
-	if((word_length == 1) && iswalpha(first_char) && (first_char != 'i'))
+	if((word_length == 1) && (tr->translator_name == L('e','n')) && iswalpha(first_char) && (first_char != 'i'))
 	{
 // English Specific !!!!
 		// any single letter before a dot is an abbreviation, except 'I'
@@ -1247,8 +1253,8 @@ strcpy(phonemes2,phonemes);
 static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
 {//==========================================================
 	p->phcode = phcode;
-	p->stress = 0;
-	p->tone_number = 0;
+	p->stresslevel = 0;
+	p->tone_ph = 0;
 	p->synthflags = embedded_flag;
 	p->sourceix = 0;
 	embedded_flag = 0;
@@ -1602,7 +1608,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	{
 		// this word uses a different phoneme table
 		SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
-		ph_list2[n_ph_list2++].tone_number = switch_phonemes;  // temporary phoneme table number
+		ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
 	}
 
 	// remove initial pause from a word if it follows a hyphen
@@ -1622,7 +1628,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			ph_list2[n_ph_list2].phcode = ph_code;
 			ph_list2[n_ph_list2].sourceix = 0;
 			ph_list2[n_ph_list2].synthflags = embedded_flag;
-			ph_list2[n_ph_list2++].tone_number = *p++;
+			ph_list2[n_ph_list2++].tone_ph = *p++;
 		}
 		else
 		if(ph->type == phSTRESS)
@@ -1637,7 +1643,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				// for tone languages, the tone number for a syllable follows the vowel
 				if(prev_vowel >= 0)
 				{
-					ph_list2[prev_vowel].tone_number = ph_code;
+					ph_list2[prev_vowel].tone_ph = ph_code;
 				}
 				else
 				{
@@ -1651,7 +1657,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			// mark the previous phoneme as a syllabic consonant
 			prev_vowel = n_ph_list2-1;
 			ph_list2[prev_vowel].synthflags |= SFLAG_SYLLABLE;
-			ph_list2[prev_vowel].stress = next_stress;
+			ph_list2[prev_vowel].stresslevel = next_stress;
 		}
 		else
 		if(ph_code == phonLENGTHEN)
@@ -1678,7 +1684,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		else
 		{
 			ph_list2[n_ph_list2].phcode = ph_code;
-			ph_list2[n_ph_list2].tone_number = 0;
+			ph_list2[n_ph_list2].tone_ph = 0;
 			ph_list2[n_ph_list2].synthflags = embedded_flag | found_dict_flag;
 			embedded_flag = 0;
 			ph_list2[n_ph_list2].sourceix = srcix;
@@ -1689,8 +1695,13 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				stress = next_stress;
 				next_stress = 0;
 
+				if(stress >= 4)
+				{
+					any_stressed_words = 1;
+				}
+
 				if((prev_vowel >= 0) && (n_ph_list2-1) != prev_vowel)
-					ph_list2[n_ph_list2-1].stress = stress;  // set stress for previous consonant
+					ph_list2[n_ph_list2-1].stresslevel = stress;  // set stress for previous consonant
 
 				ph_list2[n_ph_list2].synthflags |= SFLAG_SYLLABLE;
 				prev_vowel = n_ph_list2;
@@ -1702,7 +1713,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				}
 				if(next_tone != 0)
 				{
-					ph_list2[n_ph_list2].tone_number = next_tone;
+					ph_list2[n_ph_list2].tone_ph = next_tone;
 					next_tone=0;
 				}
 			}
@@ -1720,7 +1731,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				}
 			}
 
-			ph_list2[n_ph_list2].stress = stress;
+			ph_list2[n_ph_list2].stresslevel = stress;
 			n_ph_list2++;
 			first_phoneme = 0;
 		}
@@ -1742,7 +1753,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		// this word uses a different phoneme table, now switch back
 		SelectPhonemeTable(voice->phoneme_tab_ix);
 		SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
-		ph_list2[n_ph_list2++].tone_number = voice->phoneme_tab_ix;  // original phoneme table number
+		ph_list2[n_ph_list2++].tone_ph = voice->phoneme_tab_ix;  // original phoneme table number
 	}
 
 
@@ -2021,6 +2032,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	embedded_read = 0;
 	option_phoneme_input &= ~2;   // clear bit 1 (temporary indication)
 	pre_pause = 0;
+	any_stressed_words = 0;
 
 	if((clause_start_char = count_characters) < 0)
 		clause_start_char = 0;
@@ -2390,7 +2402,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			else
 			if(c=='-')
 			{
-				if(IsAlpha(prev_in) && IsAlpha(next_in))
+				if((IsAlpha(prev_in) || iswdigit(prev_in)) && IsAlpha(next_in))
 				{
 					// '-' between two letters is a hyphen, treat as a space
 					word_flags |= FLAG_HYPHEN;
@@ -2683,17 +2695,17 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			}
 			word = pw;
 
-			// include the next few characters, in case there are an ordinal indicator
+			// include the next few characters, in case there are an ordinal indicator or other suffix
 			pn[0] = ' ';
-			memcpy(pn+1, pw, 8);
-			pn[8] = 0;
+			memcpy(pn+1, pw, 16);
+			pn[16] = 0;
 
 			for(pw = &number_buf[1]; pw < pn;)
 			{
+				// keep wflags for each part, for FLAG_HYPHEN_AFTER
 				dict_flags = TranslateWord2(tr, pw, &words[ix], words[ix].pre_pause,0 );
 				while(*pw++ != ' ');
 				words[ix].pre_pause = 0;
-				words[ix].flags = 0;
 			}
 		}
 		else
@@ -2730,7 +2742,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 		if(dict_flags & FLAG_SKIPWORDS)
 		{
-				ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
+			ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
 		}
 	}
 
@@ -2740,7 +2752,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		PHONEME_LIST2 *p2;
 		p2 = &ph_list2[n_ph_list2 + ix];
 		p2->phcode = phonPAUSE;
-   	p2->stress = 0;
+		p2->stresslevel = 0;
 		p2->sourceix = source_index;
 		p2->synthflags = 0;
 	}

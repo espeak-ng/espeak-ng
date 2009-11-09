@@ -154,6 +154,8 @@ static Translator* NewTranslator(void)
 	tr->langopts.param[LOPT_SONORANT_MIN] = 95;
 	tr->langopts.param[LOPT_MAXAMP_EOC] = 19;
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 's';    // don't count this character at start of word
+	tr->langopts.param[LOPT_BRACKET_PAUSE] = 4;      // pause at bracket
+	tr->langopts.param2[LOPT_BRACKET_PAUSE] = 2;    // pauses when announcing bracket names
 	tr->langopts.max_initial_consonants = 3;
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language = "";    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
@@ -576,10 +578,10 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.vowel_pause = 0x20;
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x8036;
+			tr->langopts.stress_flags = 0x8036 | STRS_HYPEN_UNSTRESS;
 			tr->langopts.unstressed_wd1 = 2;
-//			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x4;  // don't propagate over word boundaries
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
+			tr->langopts.param[LOPT_ANNOUNCE_PUNCT] = 2;  // don't break clause before announcing . ? !
 //			tr->langopts.param[LOPT_COMBINE_WORDS] = 9;  // combine some prepositions with the following word
 
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_5 | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;

@@ -25,7 +25,7 @@ endphoneme
 
 phoneme a:
   vowel  starttype (a)  endtype (a)
-  length 270
+  length 300
   formants vowel/a_5
 endphoneme
 
@@ -53,7 +53,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype (i)  endtype (i)
-  length 270
+  length 300
   formants vowel/i
 endphoneme
 

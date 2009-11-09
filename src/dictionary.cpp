@@ -1030,7 +1030,7 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 
 
 
-void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags, int tonic, int prev_stress)
+void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress)
 {//=========================================================================================================
 /* Guess stress pattern of word.  This is language specific
 
@@ -1099,11 +1099,11 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 	max_output = output + (N_WORD_PHONEMES-3);   /* check for overrun */
 
 	// any stress position marked in the xx_list dictionary ? 
-	stressed_syllable = dictionary_flags & 0x7;
-	if(dictionary_flags & 0x8)
+	stressed_syllable = dictionary_flags[0] & 0x7;
+	if(dictionary_flags[0] & 0x8)
 	{
 		// this indicates a word without a primary stress
-		stressed_syllable = dictionary_flags & 0x3;
+		stressed_syllable = dictionary_flags[0] & 0x3;
 		unstressed_word = 1;
 	}
 
@@ -1113,7 +1113,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 	{
 		// option: don't stress monosyllables except at end-of-clause
 		vowel_stress[1] = 1;
-		dictionary_flags |= FLAG_STRESS_END2;
+		dictionary_flags[0] |= FLAG_STRESS_END2;
 	}
 
 	// heavy or light syllables
@@ -1350,7 +1350,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int &dictionary_flags,
 		}
 		break;
 
-	case 7:  // LANG=tr, the last syllable for any vowel markes explicitly as unstressed
+	case 7:  // LANG=tr, the last syllable for any vowel marked explicitly as unstressed
 		if(stressed_syllable == 0)
 		{
 			stressed_syllable = vowel_count - 1;
@@ -2575,10 +2575,15 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 #endif
 
 						// is it a bracket ?
+						if(letter == 0xe000+'(')
+						{
+							if(pre_pause < tr->langopts.param2[LOPT_BRACKET_PAUSE])
+								pre_pause = tr->langopts.param2[LOPT_BRACKET_PAUSE];  // a bracket, aleady spoken by AnnouncePunctuation()
+						}
 						if(IsBracket(letter))
 						{
-							if(pre_pause < 4)
-								pre_pause = 4;
+							if(pre_pause < tr->langopts.param[LOPT_BRACKET_PAUSE])
+								pre_pause = tr->langopts.param[LOPT_BRACKET_PAUSE];
 						}
 
 						// no match, try removing the accent and re-translating the word
@@ -3162,6 +3167,12 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				continue;
 			}
 		}
+		if(dictionary_flags & FLAG_ALT2_TRANS)
+		{
+			// language specific
+			if((tr->translator_name == L('h','u')) && !(tr->prev_dict_flags & FLAG_ALT_TRANS))
+				continue;
+		}
 
 		if(flags != NULL)
 		{
@@ -3256,7 +3267,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 			// set the skip words flag
 			flags[0] |= FLAG_SKIPWORDS;
 			dictionary_skipwords = length;
-			return(1);
+			return(flags[0]);
 		}
 	}
 
@@ -3356,7 +3367,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 			return(0);
 		}
 
-		return(1);
+		return(flags[0]);
 	}
 
 	ph_out[0] = 0;

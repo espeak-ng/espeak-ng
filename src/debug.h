@@ -13,7 +13,7 @@ extern void debug_time(const char* text);
 
 #else
 
-#ifdef PLATFORM_WINDOWS
+#ifdef NO_VARIADIC_MACROS
 #define SHOW(format)   // VC6 doesn't allow "..."
 #else
 #define SHOW(format,...)

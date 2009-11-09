@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-10-09 Michel Such  <michel.such@free.fr>
+// Updated 2009-10-26 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -364,10 +364,11 @@ afin	afE~ $u+ $brk
 avant $u+
 après  $u+
 (temps en temps)	tA~zA~tA~
-alors	alOr $u+
-depuis $u+
 ainsi $u+
+alors	alOr $u+
 aussi $u+
+encore	$u+
+depuis $u+
 
 
 certes	$u+
@@ -571,11 +572,8 @@ quelques	kElk=@z2 $u+
 tel	$u+
 telle	$u+
 telles	$u+
-tout	t'ut2 $u+
-toute	t'ut $u+
-toutes	t'utz2 $u+
-tous	 $u+
-rien	Ri-'E~n2	$u+
+tout	t'ut2
+rien	Ri-'E~n2
 
 // Letters which can be words
 //===========================
@@ -632,7 +630,7 @@ anis	anis
 arte	arte
 auvent     ovA~
 beta	beta
-bien	      bi-E~n2 $u+
+bien	      bi-E~n2
 bis	      bis
 bissus    bisys
 blues	_^_en
@@ -899,3 +897,4 @@ venezuela	venezyela
 wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
+

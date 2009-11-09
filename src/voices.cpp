@@ -113,12 +113,12 @@ enum {
 
 
 
-typedef struct {
-	const char *mnem;
-	int data;
-} keywtab_t;
+static MNEM_TAB options_tab[] = {
+	{"reduce_t",  LOPT_REDUCE_T},
+	{"bracket", LOPT_BRACKET_PAUSE},
+	{NULL,   -1} };
 
-static keywtab_t keyword_tab[] = {
+static MNEM_TAB keyword_tab[] = {
 	{"name",       V_NAME},
 	{"language",   V_LANGUAGE},
 	{"gender",     V_GENDER},
@@ -373,11 +373,12 @@ void VoiceReset(int tone_only)
 
 	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
 
-	// default is:  pitch 82,118
-//	voice->pitch_base =   0x49000;    // default, 73 << 12;
-//	voice->pitch_range =  0x0f30;     // default = 0x1000
-	voice->pitch_base = 0x47000;
-	voice->pitch_range = 3996;
+	// default is:  pitch 78,120
+	voice->pitch_base = 0x45000;
+	voice->pitch_range = 4536;
+//	default is:  pitch 80,117
+//	voice->pitch_base = 0x47000;
+//	voice->pitch_range = 3996;
 
 	voice->formant_factor = 256;
 
@@ -503,12 +504,12 @@ voice_t *LoadVoice(const char *vname, int control)
 //          bit 4  1 = vname = full path
 
 	FILE *f_voice = NULL;
-	keywtab_t *k;
 	char *p;
 	int  key;
 	int  ix;
 	int  n;
 	int  value;
+	int  value2;
 	int  error = 0;
 	int  langix = 0;
 	int  tone_only = control & 2;
@@ -527,6 +528,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char translator_name[40];
 	char new_dictionary[40];
 	char phonemes_name[40];
+	char option_name[40];
 	const char *language_type;
 	char buf[200];
 	char path_voices[sizeof(path_home)+12];
@@ -631,15 +633,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		if(buf[0] == 0) continue;
 
-		key = 0;
-		for(k=keyword_tab; k->mnem != NULL; k++)
-		{
-			if(strcmp(buf,k->mnem)==0)
-			{
-				key = k->data;
-				break;
-			}
-		}
+		key = LookupMnem(keyword_tab, buf);
 
 		switch(key)
 		{
@@ -804,10 +798,15 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_OPTION:
-			if(sscanf(p,"%d %d",&ix,&value) == 2)
+			value2 = 0;
+			if((sscanf(p,"%s %d %d",option_name,&value,&value2) >= 2) && ((ix = LookupMnem(options_tab, option_name)) >= 0))
 			{
-				if((ix >= 0) && (ix < N_LOPTS))
-					langopts->param[ix] = value;
+				langopts->param[ix] = value;
+				langopts->param2[ix] = value2;
+			}
+			else
+			{
+				fprintf(stderr,"Bad voice option: %s %s\n",buf,p);
 			}
 			break;
 

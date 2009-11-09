@@ -1276,6 +1276,13 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			else
 			{
 					DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
+					if((p->newword == 0) && (next2->newword == 0))
+					{
+						if((next->type == phVFRICATIVE) && (p->ph->mnemonic !='d'))
+							DoPause(20,0);
+						if((next->type == phFRICATIVE) || (next->type == phNASAL))
+							DoPause(12,0);
+					}
 			}
 			break;
 
