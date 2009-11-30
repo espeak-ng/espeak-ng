@@ -266,6 +266,7 @@ wxSashLayoutWindow *win;
 
 
 	ConfigInit();
+	LoadConfig();
 	WavegenInitSound();
 
 	if((result = LoadPhData()) != 1)
@@ -320,7 +321,7 @@ void MyFrame::SetVoiceTitle(char *voice_name)
 	{
 		sprintf(buf,"Compile &dictionary '%s'",dictionary_name);
 		data_menu->SetLabel(MENU_COMPILE_DICT, wxString(buf,wxConvLocal));
-		sprintf(buf,"&Format '%s_rules' file",dictionary_name);
+		sprintf(buf,"&Layout '%s_rules' file",dictionary_name);
 		data_menu->SetLabel(MENU_FORMAT_DICTIONARY, wxString(buf,wxConvLocal));
 	}
 }

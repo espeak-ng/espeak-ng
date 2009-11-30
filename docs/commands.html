@@ -58,7 +58,9 @@ or<br>
 Or just type<br>
  &nbsp; <strong>espeak</strong><br>
 followed by text on subsequent lines. Each line is spoken when
-RETURN is pressed.<br>Use <strong>espeak -x</strong> to see the corresponding phoneme codes.
+RETURN is pressed.
+<p>
+Use <strong>espeak -x</strong> to see the corresponding phoneme codes.
 <p>&nbsp;<hr>
 <h3>2.2.2 The Command Line Options</h3>
 <dl>
@@ -88,11 +90,15 @@ If neither -f nor --stdin is given, then the text input is taken from "text word
 <dt>
 <strong>-s &lt;integer&gt;</strong><br>
 <dd>Sets the speed in words-per-minute (approximate values for the default English voice, others may differ slightly). The default value is 170. I generally use a faster speed
-of 190.  Range 80 to 390.
+of 190.  Range 80 to 390.  Larger value are rounded down to the maximum.
 <p>
 <dt>
-<strong>-b</strong><br>
-<dd>Indicates that the input text is not UTF-8, but the 8-bit character set which corresponds to the language (eg. Latin-2 for Polish). Without this option, eSpeak assumes text is UTF8, but will automatically switch to the 8-bit character set if it finds an illegal UTF8 sequence.  That may give wrong results if some 8-bit character sequences look like valid UFT8 multibyte characters.
+<strong>-b &lt;integer&gt;</strong><br>
+<dd>Input text character format.<p>
+1 &nbsp;  UTF-8.  This is the default.<p>
+2 &nbsp;  The 8-bit character set which corresponds to the language (eg. Latin-2 for Polish).<p>
+4 &nbsp;  16 bit Unicode.<p>
+Without this option, eSpeak assumes text is UTF-8, but will automatically switch to the 8-bit character set if it finds an illegal UTF-8 sequence.
 <p>
 <dt>
 <strong>-g &lt;integer&gt;</strong><br>
@@ -130,7 +136,7 @@ Quiet. No sound is generated.  This may be useful with the -x option.
 <pre>   espeak -vaf</pre>
 To use the Afrikaans voice.  A modifier after the voice name can be used to vary the tone of the voice, eg:
 <pre>   espeak -vaf+3</pre>
-The variants are <code> +m1  +m2  +m3  +m4  +m5  +m6 </code> for male voices and <code> +f1 +f2 +f3 +f4 </code> which simulate female voices by using higher pitches. Other variants are <code>+croak</code> and <code>+whisper</code>.
+The variants are <code> +m1  +m2  +m3  +m4  +m5  +m6  +m7</code> for male voices and <code> +f1 +f2 +f3 +f4 </code> which simulate female voices by using higher pitches. Other variants include <code>+croak</code> and <code>+whisper</code>.
 <p>
 &lt;voice filename&gt; is a file within the <code>espeak-data/voices</code> directory.<br>
 &lt;variant&gt; is a file within the <code>espeak-data/voices/!v</code> directory.<p>
@@ -188,7 +194,7 @@ Used with <strong>-w</strong>, it starts a new WAV file every <code>&lt;minutes&
 <strong>--voices [=&lt;language code&gt;]</strong><br>
 <dd>Lists the available voices.<br>
 If =&lt;language code&gt; is present then only those voices which are suitable for that language are listed.<br>
-<code>--voices=mbrola</code> lists the voices which use mbrola diphone voices. These are not included in the <code>--voices</code> list<br>
+<code>--voices=mbrola</code> lists the voices which use mbrola diphone voices. These are not included in the default <code>--voices</code> list<br>
 <code>--voices=variant</code> lists the voice variants (voice modifiers).<br>
 
 </dl>
@@ -205,7 +211,8 @@ As well as plain text, phoneme mnemonics can be used in the text input to <stron
  &nbsp; eg: &nbsp; <code> espeak -v en "[[D,Is Iz sVm f@n'EtIk t'Ekst 'InpUt]]" </code><p>
  This command will speak: "This is some phonetic text input".
 </dl>
+
+<hr>
+<a href="http://sourceforge.net"><img src="http://sflogo.sourceforge.net/sflogo.php?group_id=159649&amp;type=2" width="125" height="37" border="0" alt="SourceForge.net Logo" /></a>
+
 </body>
-</b>
-
-

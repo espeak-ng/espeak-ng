@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-10-15 Michel Such  <michel.such@free.fr>
+// Updated: 2009-11-20 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -753,6 +753,7 @@ C)		i (es_    i
 	dist)	ill         il		// distiller
 	_L05)	ill         il		// Lille, mille, ville, william
 	osc)	ill         il		// osciller
+	gu)	ill         ij		// guillaume
 	qu)	ill         ij		// quille
 	A)	ill         j		// caillou
 	C)	ill         ij		// famille
@@ -1363,7 +1364,7 @@ VCi)		t (_        t2
 .group v
 		v           v
 		vers (_          vErz2
-Xri)		ver (X          vWr
+dri)		ver (X          vWr
 	_)	view (X          vju
 	_)	view (A          vjuv
 
@@ -1468,7 +1469,6 @@ _r)	w (an	u				// Rwanda
 	$	do2lar
 	°	d@gre
    _n_) °	   // n°
-
 
 
 

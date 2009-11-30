@@ -116,6 +116,7 @@ enum {
 static MNEM_TAB options_tab[] = {
 	{"reduce_t",  LOPT_REDUCE_T},
 	{"bracket", LOPT_BRACKET_PAUSE},
+	{"fastLongVowel", LOPT_MIN_LONG_VOWEL},
 	{NULL,   -1} };
 
 static MNEM_TAB keyword_tab[] = {
@@ -373,9 +374,9 @@ void VoiceReset(int tone_only)
 
 	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
 
-	// default is:  pitch 78,120
-	voice->pitch_base = 0x45000;
-	voice->pitch_range = 4536;
+	// default is:  pitch 80,118
+	voice->pitch_base = 0x47000;
+	voice->pitch_range = 4104;
 //	default is:  pitch 80,117
 //	voice->pitch_base = 0x47000;
 //	voice->pitch_range = 3996;

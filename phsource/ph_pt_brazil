@@ -37,7 +37,7 @@ endphoneme
 
 phoneme &~
   vowel  starttype (@) endtype (@)
-  length 200
+  length 180
   formants vnasal/a#_n
 //  reduceto &  4
 endphoneme
@@ -60,14 +60,14 @@ endphoneme
 phoneme &
   vowel starttype (@) endtype (@)
   length 180
-  formants vowel/a#
+  formants vowel/a#_3
 endphoneme
 
 phoneme &/       // Used for final "a" when next word starts with "a"
   vowel starttype (@) endtype (@)
   beforevowel NULL
   length 180
-  formants vowel/a#
+  formants vowel/a#_3
 endphoneme
 
 
@@ -94,7 +94,7 @@ endphoneme
 
 phoneme y          // this is the same as [i] for Brazil
   vowel starttype (i) endtype (i)
-  length 150
+  length 110
   formants vowel/ii_6
   linkout ;
 endphoneme
@@ -122,9 +122,15 @@ phoneme u
   formants vowel/u_bck
 endphoneme
 
-phoneme U
+phoneme u2  // TEST
   vowel starttype (u) endtype (u)
   length 160
+  formants vowel/u
+endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 140
   formants vowel/uu_bck
 endphoneme
 
@@ -135,6 +141,7 @@ phoneme aI
   vowel starttype (a) endtype (i)
   length 230
   formants vdiph/ai
+  linkout ;
 endphoneme
 
 
@@ -142,6 +149,7 @@ phoneme eI
   vowel starttype (e) endtype (i)
   length 210
   formants vdiph/ei
+  linkout ;
 endphoneme
 
 
@@ -149,6 +157,7 @@ phoneme OI
   vowel starttype (o) endtype (i)
   length 230
   formants vdiph/0i
+  linkout ;
 endphoneme
 
 
@@ -211,5 +220,15 @@ phoneme s#     // This is [s] for Brazi;, [S] for Portugal
   before t ufric/s!
   before k ufric/s!
   switchvoicing z
+endphoneme
+
+
+phoneme *
+  vcd alv stop
+  vowelin f1=1  f2=1700 -300 300  f3=0 80
+  vowelout f1=2 f2=1700 -300 300  f3=0 80
+  formants d/tap2+x/d%40
+  after @ d/x_tap
+  lengthmod 6
 endphoneme
 

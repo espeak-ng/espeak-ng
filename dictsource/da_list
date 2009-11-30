@@ -1,4 +1,4 @@
-﻿ 
+ 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
 
@@ -73,7 +73,7 @@ __	b'Onsdrai
 ÷ divid'eReD meD 
 =	l'imeD
 #	n'OmV
-§	paragr'af
+§	paragR'af
 
 
 
@@ -240,11 +240,16 @@ eget	a:j@D
 egne	a:in@
 enter	entV
 ide	id'e	// idea
+idé	id'e	// idea
 igen	igen
 Ny	ny	// new
 også	Vs@	// also
 havde	h'aD@ // had
+idet	id'e	// in so far as
 sagde	sa@	// said
 sig	sAi	// oneself
+//slags	sl+ags	// sort, type
+tre	tr'e	// the number 3
+
 
 

@@ -214,7 +214,7 @@ static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
 //static int drops_2[8] = {0x400,0x400,0x600,0x600,-0x800,0xc00,0x0e00,0x0e00};
 
 static short oflow[] = {0, 20, 12, 4, 0};
-static short oflow_emf[] = {5, 24, 15, 10, 5};
+static short oflow_emf[] = {5, 26, 16, 10, 5};
 static short oflow_less[] = {3, 19, 12, 7, 2};
 // static short oflow_test2[] = {20, 0, 20, 0, 20};
 // static short back_emf[] = {35, 32, 0};
@@ -262,7 +262,7 @@ static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
    {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 0 statement
    {20, 25,   34, 20,  drops_0, 3, 3,   5, oflow},      // 1 comma
    {20, 25,   34, 20,  drops_0, 3, 3,   5, oflow},      // 2 question
-   {20, 25,   36, 22,  drops_0, 3, 4,   5, oflow_emf},  // 3 exclamation
+   {20, 25,   39, 22,  drops_0, 3, 4,   5, oflow_emf},  // 3 exclamation
    {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 4 statement, emphatic
    {20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less}, // 5 statement, less intonation
    {20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less}, // 6 comma, less intonation
@@ -275,7 +275,7 @@ static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
 };
 
 static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
-   {PITCHfall,   29, 4,  PITCHfall,   32, 9, NULL, 12, 6, 0},      // 0 statement
+   {PITCHfall,   29, 4,  PITCHfall,   31, 8, NULL, 11, 6, 0},      // 0 statement
    {PITCHfrise,  35, 8,  PITCHfrise2, 35,10, NULL, 15, 23, 0},     // 1 comma
    {PITCHfrise,  39,10,  PITCHfrise2, 36,10, NULL, 15, 28, 0},     // 2 question
 //   {PITCHfall,   41, 4,  PITCHfall,   41,27, NULL, 16, 4, T_EMPH},  // 3 exclamation

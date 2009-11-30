@@ -27,6 +27,16 @@ phoneme t2   // [t] which doesn't reduce
 endphoneme
 
 
+phoneme t#    // reduced [t] as in "city"
+  vcd alv stop
+  vowelin f1=1  f2=1700 -300 300  f3=-100 80
+  vowelout f1=2 f2=1700 -300 300  f3=-100 80
+  formants d/tap2+x/d%70
+  after @ d/x_tap
+  lengthmod 5
+endphoneme
+
+
 phoneme l
   liquid
   length 100
@@ -118,7 +128,7 @@ endphoneme
 phoneme E
   vowel  starttype (e)  endtype (e)
   length 140
-  formants vowel/ee_2
+  formants vowel/ee_5
   reduceto I  0
 endphoneme
 
@@ -126,7 +136,7 @@ endphoneme
 phoneme I
   vowel  starttype (i) endtype (i)
   length 130
-  formants vowel/ii_4
+  formants vowel/ii_2
   linkout ;
 endphoneme
 

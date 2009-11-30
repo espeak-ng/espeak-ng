@@ -3,6 +3,7 @@
 // Spelling to phoneme rules for Tamil
 
 // B means a combining vowel sign, or a virama
+// K means a consonant or end-of-word
 
 
 .replace
@@ -16,56 +17,28 @@
 ௭	7
 ௮	8
 ௯	9
+
 ொ	ொ
 ோ	ோ
 ௌ	ௌ
 
 
-.group 0xe0ae   // characters which start with UTF-8 bytes: [e0 ae]
-
-	ஂ		// anusvara
-
-	ஃ		// visarga
-
-	அ	a
-
-	ஆ	a:
-
-	இ	i
-
-	ஈ	i:
-
-	உ	u
-
-	ஊ	u:
-
-	எ	e
-     _) எ	;e     // add a short [j] sound at start of word ?
-
-	ஏ	e:
-     _) ஏ	;e:     // add a short [j] sound at start of word ?
-
-	ஐ	aI
-
-	ஒ	o
-
-	ஓ	o:
-
-	ஔ	aU
-
 // consonants
+
+.group க
+	க்ஷ 	ks.V
+	க்ஷ (B	ks.
 
 	க	gV   // inter-vocalic, unless there is virama before or after
 	க (B	g
-	க (் 	g
-     ்) க	gV
-     ்) க (B	g
      _) க	kV
      _) க (B	k
      _) க (T	gV	// if word has $alt attribute in ta_list
      _) க (BT	g	// $alt
 	க்க	kkV
 	க்க (B	kk
+     ற்) க	_kV
+     ற்) க (B	_k
 
 	க (ீத		g
 	க (ஜ		gV
@@ -92,50 +65,74 @@
      _) க (ுண		g
      _) க (தியில்       gV
      _) க (டிகார       gV
+    வி) க்ட (ோரியா	kt.	// victoria
+	க (ோப		g
+	க (ாரன		k
+	க (ாரர		k
+     _) க (ோபம	k
+     _) கோப (ித்து	ko:b
+     _) க (ோபப்		k
+     _) க (ெட்டி	g
 
 
+.group ங
 	ங	NV
 	ங (B	N
 
 
+.group ச
 	ச	sV    // ?? [z]
 	ச (B	s
-     _) ச	sa
+     _) ச	sV
      _) ச (B	s
 	ச்ச	tS:V
 	ச்ச (B	tS:
-	ற்ச	tS:
-	ற்ச (B	tS:
      ட்) ச	tSV
      ட்) ச (B	tS
+     ற்)	ச	tSV
+     ற்)	ச (B	tS
      ஞ்) ச	dZV
      ஞ்) ச (B	dZ
+        ச் (_	tS
+    ச்_) ச	tSV  // previous word ends in ச்
+    ச்_) ச (B	tS
+
      _) ச (ிட்	tS
      _) ச (ின்	tS
 
+     _) ச (ப்பாத்தி	tSV
 
 
+.group ஜ
 	ஜ	dZV
 	ஜ (B	dZ
 
 
+.group ஞ
 	ஞ	n^V
 	ஞ (B	n^
 
 
+.group ட
 	ட	d.V
 	ட (B	d.
-//     _) ட	t.V
-//     _) ட (B	t.
+     _) ட (ீ	t.
 	ட்ட	t.t.V
 	ட்ட (B	t.t.
     ஷ்) ட	t.V
     ஷ்) ட (B	t.
+     _) டாக்ட (ர	d.a:kt.V
+     _) ட (ோக்கியோ	t.
+   ிங்) ட (ன்	t.V	// -ington
+     _) ட (ாக்க		t.  // talkies
 
+
+.group ண
 	ண	n.V
 	ண (B	n.
 
 
+.group த
 	த	dV
 	த (B	d
      _) த	tV
@@ -149,27 +146,27 @@
     ஸ்) த	tV
     ஸ்) த (B	t
 
-
-
 	// exceptions, த as [d]
-     _) த (ன	dV
-     _) த (ர்ம	dV
-     _) த (ுர்	d
-     _) த (ூர	d
+     _) த (ர்ம		dV
+     _) த (ுர்		d
+     _) த (ூர		d
      _) த (ெய்வ	d
-     _)	த (ுஷ்	d
+     _)	த (ுஷ்		d
      _) த (க்ஷிணா	dV
-     _) த (ண்ட	dV
-     _) த (ருமி	dV
-     _) த (ர்பை	dV
+     _) த (ண்ட		dV
+     _) த (ருமி		dV
+     _) த (ர்பை		dV
      _) த (ாவா		d
      _) த (ாதா		d
      _) த (ரித்திரம	dV
-     _) த (ர்பார	dV
-     _) த (ீர்க	d
+     _) த (ர்பார		dV
+     _) த (ீர்க		d
+     _) த (ீரன		d
+     _) த (ீரர்		d
+     _) த (ீரச்		d
      _) த (ினுச	d
      _) த (ாராவி	d
-     _) த (ர்க	dV
+     _) த (ர்க		dV
      _) த (ான		d
      _) த (ேக		d
      _) த (ேக்கு	t
@@ -177,12 +174,11 @@
      _) த (ேக்கடி	t
      _) த (ிரவிய	d
      _) த (ூப		d
-     _) த (ீப	d
-     _) த (ீர	d
+     _) த (ீப		d
      _) த (ைரிய	d
-     _) த (ிட	d
+     _) த (ிட		d
      _) த (ிரவ		d
-     _) த (ிடீ	d
+     _) த (ிடீ		d
      _) த (ிவச		d
      _) த (ியான	d
      _) த (ானிய	d
@@ -190,7 +186,7 @@
      _) த (ிகில		d
      _) த (ூம		d
      _) த (ாவணி	d
-     _) த (ாம்_தூம		d
+     _) த (ாம்_தூம	d
      _) த (ாடி		d
      _) த (ாச		d
      _) த (சரா		dV
@@ -198,17 +194,52 @@
      _) த (ரணி		dV
      _) த (ாரணி	d
      _) த (ோசை	d
+     _) த (வம		dV
+     _) த (ட்சன	dV
+     _) த (ாட்சாய	d
+     _) த (ாக்கா	d
+     _) த (ில்லி		d
+     _) த (டித்த	dV
+     _) த (டியன	dV
+     _) த (டியர		dV
+     _) த (ிக்கு		d
+     _) த (ிக்கு_வாய	t
+     _) த (ிக்கில	d
+     _) த (னபால	dV
+     _) த (னசேகரன	dV
+     _) த (னலட்சுமி	dV
+     _) த (னகோடி	dV
+     _) த (னன்ஜெயன	dV
+     _) த (ிசை		d
+     _) த (சை		dV
+     _) த (னராஜ	dV
+     _) த (ன்மந்திரி	dV
+     _) த (ினம		d
+     _) த (ினக		d
+     _) த (னலக்ஷ்மி	dV
+     _) த (க்க்ஷிண	dV
+     _) த (ட்சிண	dV
+     _) த (ன்ராஜ	dV
+     _) த (ாராபுர	d
+     _) த (டி_மாட	dV
+
+     பு) த்த (ி		dd
+     பு) த்த (ியி	dd
+     பு) த்த (ர		ddV
+     பு) த்த (ன		ddV
 
 
-
+.group ந
 	ந	nV
 	ந (B	n  // dental n
 
 
+.group ன
 	ன	nV
 	ன (B	n  // alveolar n
 
 
+.group ப
 	ப	bV
 	ப (B	b
      _) ப	pV
@@ -221,20 +252,24 @@
      ட்)	ப (B	p
      ற்) ப	pV
      ற்) ப (B	p
-    று) ப	pV
-    று) ப(B	p
+    று) ப	_pV
+    று) ப(B	_p
     ன்) ப	pV
     ன்) ப (B	p
 
-    ம்) ப	p
-    ம்) ப (ா	p
-    ம்) ப (B	b
-    த்) ப	p
-    த்) ப (ா	p
-    த்) ப (B	b
+    ம) ப	pV
+    ம) ப (ா	p
+    ம) ப (B	b
+    த) ப	pV
+    த) ப (ா	p
+    த) ப (B	b
 
-     ஃ) ப	fV
-     ஃ) ப (B	f
+	பத (ி	pVt
+	ப (ுர	p
+        ப (ால	p
+        ப (ாள	p
+    ம்) ப (ா	b
+
 
      _) ப (ால	b
      _) ப (ால்	p
@@ -273,59 +308,163 @@
      _) ப (லி		bV
      _) ப (கவான	bV
      _) ப (ௌதிக	b
+     _) ப (ரோட		bV
+     _) ப (ெர்லிங	b
+     _) ப (ீஜிங		b
+     _) ப (ுவன		b
+     _) ப (ரதநாட்டிய	bV
+     _) ப (ேதலித்த	b
+     _) ப (ோன்ஸ்லே	b
+     _) ப (ௌத்த	b
+     _) ப (கீர		bV
+     _) ப (கிரங்க	bV
+     _) ப (ோபால	b
+     _) ப (ெங்களூர	b
+     _) ப (ூபாள	b
+     _) ப (ுத்த		b
+     _) ப (னியன	bV
+  கோ) ப (ி		p
 
 
+	// musical notes
+    சா) ப (ா	p
+    ரி) ப (K	pV
+    ரீ) ப (K	pV
+    ரி) ப (ா	p
+    ரீ) ப (ா	p
+    ம) ப (K	pV
+   மா) ப (K	pV
+    ம) ப (ா	p
+   மா) ப( ா	p
+	பப (K	pVpV
+	பாப (K	pa:pV
+	பப (ா	pVp
+	பாப (ா	pa:p
+//  த) ப (K	pV
+   தா) ப (K	pV
+//  த) ப (ா	p
+   தா) ப (ா	p
+
+   னி) ப (K     pV
+   னீ) ப (K	pV
+   னி) ப (ா	p
+   னீ) ப( ா	p
+    க) ப (K	pV
+    க) ப (ா	p
+   கா) ப (K	pV
+   கா) ப (ா	p
+
+	// (exceptions)
+   தா) ப (ம்	bV
+   _த) ப (ால	b
+   _க) ப (ால	b
+  _கா) ப (ந்து	bV
+
+
+
+.group ம
 	ம	mV
 	ம (B	m
 
 
+.group ய
 	ய	jV
 	ய (B	j
 
 
+.group ர
 	ர	rV
 	ர (B	r
 
 
+.group ற
 	ற	RV
 	ற (B	R
 	ற் (ற	t.	// RR -> t.R
+	ற்ச	tS:
+	ற்ச (B	tS:
 
 
+.group ல
 	ல	lV
 	ல (B	l
 
 
+.group ள
 	ள	l.V
 	ள (B	l.
 
 
+.group ழ
 	ழ	z.V
 	ழ (B	z.
 
-
+.group வ
 	வ	vV
 	வ (B	v
 
 
+.group ஶ
 	ஶ	SV
 	ஶ (B	S
 
 
+.group ஷ
 	ஷ	s.V
 	ஷ (B	s.
 
 
+.group ஸ
 	ஸ	sV
 	ஸ (B	s
 
 
+.group ஹ
 	ஹ	HV
 	ஹ (B	H
 
 
-	க்ஷ 	ks.V
-	க்ஷ (B	ks.
+.group ஃ
+	ஃ	h
+	ஃப	fV
+	ஃப (B	f
+	ஃத	QdV
+	ஃத (B	Qd
+	ஃக	gQV
+	ஃக (B	gQ
+
+// vowel letters
+
+.group 0xe0ae   // characters which start with UTF-8 bytes: [e0 ae]
+
+	ஂ		// anusvara
+
+	அ	a
+
+	ஆ	a:
+
+	இ	i
+     _) இ (ரா		// silent before 'raa'
+
+	ஈ	i:
+
+	உ	u
+
+	ஊ	u:
+
+	எ	e
+     _) எ	;e     // add a short [j] sound at start of word ?
+
+	ஏ	e:
+     _) ஏ	;e:     // add a short [j] sound at start of word ?
+
+	ஐ	aI
+
+	ஒ	o
+
+	ஓ	o:
+
+	ஔ	aU
 
 
 // combining vowels

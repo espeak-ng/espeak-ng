@@ -30,6 +30,7 @@
 
 #define PATHSEP '\\'
 // #define USE_PORTAUDIO
+#define NO_VARIADIC_MACROS
 #define ESPEAK_API __declspec(dllexport)
 #define LIBRARY
 

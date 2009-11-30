@@ -95,6 +95,7 @@ extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long,
 
 // place of articulation
 #define phPLACE        0xf0000
+#define phPLACE_blb    0x10000
 #define phPLACE_pla    0x60000
 
 #define N_PHONEME_TABS     100     // number of phoneme tables

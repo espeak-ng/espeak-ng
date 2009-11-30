@@ -18,6 +18,7 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
+.L01 c f h k p q s t    // unvoiced, except s+vowel
 
 // This file is UTF-8 encoded
 
@@ -75,6 +76,7 @@
           _) animal       ,ani:mA:l
           _) anim         ,ani:m
           _) ani (s       %ani:
+             a (Co_       'A:
           _) anti (@P4    ,antI
           _) an (tw       an
           _) auf (@P3     _!'aUf
@@ -104,6 +106,7 @@
              air (_       E:r
              akqu         %akv
          @A) al (_        'A:l
+          b) al (_        'A:l
           g) al (_        'A:l
           k) al (_        'A:l
           n) al (_        'A:l
@@ -129,6 +132,7 @@
           @) atisch (_S6  'A:tIS
           @) atisieren (_S9  A:tIs'i:*@n
              a (tion      a
+          _) ato (m       %ato:
           _) au (Ceinand  aU
           _) aufent       aUf@nt
              austra (l    %aUst@-*A
@@ -142,8 +146,8 @@
              b            b
           b) b
              b (_N        p
-             b (h         p
-             b (s_        p
+             b (L01       p
+             b (sA        b
              bt (_N       pt
 
           _) be (@P2      b@
@@ -212,14 +216,17 @@
           _) cey          tsaI
              chef         SEf
           _) c (ent       ts
+          _) ch (ic       S
+          _) ch (if       S
           _) ch (il       S
-             chip (_      _^_EN
+             chip (_      tSIp  // English
           _) ch (ol       k
           _) ch (or       k
 
         bre) ch (en       x
              chro         k@-*o:
          nä) chs (t       Cs
+         wa) chstu (m     kstu:
              c (ie        s
         pla) c (ie        ts
              coat (_      _^_EN
@@ -227,13 +234,15 @@
           _) cow          _^_EN
              crew         _^_EN
              cup          _^_EN
+          _) cyber        saIb3
 
 .group d
           _) d (_         de:
              d            d
           d) d
              d (_N        t
-             d (h         t
+             d (L01       t
+             d (sA        d
              ds (_        ts
              dt           t
              ddt          t
@@ -310,6 +319,7 @@
           &) end (_       @nd
         ier) end (_NS3    @nt
         ier) end (_       @nd
+          @) enhaft (_    =@nhaft
           @) ent (_       'Ent
           @) entlich      @ntl%IC
          @m) ent (_       'Ent
@@ -331,7 +341,8 @@
           w) er (k_       E*
           &) er (nd_      @*
           &) erin (_      @*In
-          &) erisch (_    @*IS 
+          &) erisch (_    @*IS
+        exp) er (t        E*
           @) es (_S2      @s
           &) et (_S2      @t
           &) est (_S3     @st
@@ -369,16 +380,19 @@
           _) emp (@P3     _|%Emp
           _) emph (@      %Emf
           _) emp (ir      %Emp
+         br) ems          Ems    // brems-t, not brem-st
           _) ene (rg      %e:nE
+          _) energie      e:nE*g'i:
           @) en (i        e:n
           @) e (nsi       E
           _) ent (@P3     _|%Ent
           _) enten        Ent@n
           _) ent (er      Ent
+        pat) ent          'Ent
           t) en (t        En
          qu) en (tA       En
           &) en (tum      @n
-          &) e (nz_       'E
+          &) e (nzK       'E
           _) epi (@       ,e:pi:
           _) epi (sk      e:pI
           _) er (@P2      _|%E*
@@ -387,6 +401,7 @@
           &) er (igst     @*
           _) er (beK      E*
           _) er (HC       E*        //  lC, mC, nC, rC
+             er (o_       'e:*
           _) ergeb (nis   E*g'e:b
           _) er (stC      E*
           _) er (ste      E*
@@ -431,9 +446,9 @@
              g            g
              g (g
              g (_N        k
-             g (h         k
+             g (L01       k
+             g (sA        g
              gd (_N       kt
-             gt (_N       kt
              gtet (_      kt@t
              gtest        kt@st
 
@@ -459,6 +474,7 @@
           _) ge (orP2     g@
              ge (rman     gE
              ge (rät      g@
+             ge (strig    gE
           @) ght (_       _^_EN
              graph        g@-*Af
              graph (_     g@-*'A:f
@@ -564,6 +580,9 @@
           _) illeg        ,Ile:g
           _) i (llu       %I
           _) i (mag       I
+             i (Co_       'i:
+             ik (o_       i:k
+          &) im (o_       =i:m
           r) i (na_       'i:
 //          @) ing (_N      _^_EN
           _) in (k        %In
@@ -603,6 +622,7 @@
        bank) ie (r        I'e:
        barr) ie (r        I'e:
      financ) ie (r        I'e:
+        arr) ie (r        I'e:
       hotel) ie (r        I'e:
        prem) ie (r        I'e:
         hyg) ie (n        I'e:
@@ -679,24 +699,24 @@
           _) leit (@P4    l'aIt
           _) lern (@@P4   l'E*n
           _) lexi (@      lEksi:
-          @) lich (_S4    lIC
-          @) liche (_S5   lIC@
-          @) lichem (_S6  lIC@m
-          @) lichen (_S6  lIC@n
-          @) licher (_S6  lIC3
-          @) liches (_S6  lIC@s
-          @) lichere (_S7   lIC@*@
-          @) licherem (_S8  lIC@*@m
-          @) licheren (_S8  lIC@*@n
-          @) licherer (_S8  lIC@*@3
-          @) licheres (_S8  lIC@*@s
-          @) lichste (_S7   lICst@
-          @) lichstem (_S8  lICst@m
-          @) lichsten (_S8  lICst@n
-          @) lichster (_S8  lICst@r
-          @) lichstes (_S8  lICst@s
-          @) lichkeit (_S8  lICk%aIt
-          @) lichung (_S7   lIC%UN
+          &) lich (_S4    lIC
+          &) liche (_S5   lIC@
+          &) lichem (_S6  lIC@m
+          &) lichen (_S6  lIC@n
+          &) licher (_S6  lIC3
+          &) liches (_S6  lIC@s
+          &) lichere (_S7   lIC@*@
+          &) licherem (_S8  lIC@*@m
+          &) licheren (_S8  lIC@*@n
+          &) licherer (_S8  lIC@*@3
+          &) licheres (_S8  lIC@*@s
+          &) lichste (_S7   lICst@
+          &) lichstem (_S8  lICst@m
+          &) lichsten (_S8  lICst@n
+          &) lichster (_S8  lICst@r
+          &) lichstes (_S8  lICst@s
+          &) lichkeit (_S8  lICk%aIt
+          &) lichung (_S7   lIC%UN
           @) lo (gisch    l'o:
 
 .group m
@@ -760,6 +780,8 @@
              o (sch       O
              o (x         O
         &CC) o (_         =o:
+             o (Co_       'o:
+             o (lo_       o:
 
              ob (t_       o:p
              og (t_       o:k
@@ -793,6 +815,7 @@
              pf           pF
              ph           f
 
+             pake (t      p%ake:
           _) para (@      p,a*a
              passagie     pasaZ'i:
           _) peri         p,e:*i:
@@ -859,6 +882,9 @@
         _be) sp           Sp
         _ge) sp           Sp
        _ver) sp           Sp
+             sp (eich     Sp
+             sp (err      Sp
+             sp (r        Sp
          &C) st (_S2      st
          &C) ste (_S3     st@
          &C) stem (_S4    st@m
@@ -870,6 +896,8 @@
         _be) st           St
         _ge) st           St
        _ver) st           St
+             ste (ll      StE
+          a) ste (ll      stE
 
           _) safe         _^_EN
           &) schaft (_S6  Saft
@@ -892,6 +920,7 @@
              schwer       Sve:*
           _) sechs (P5    z'Eks
           _) selbst (@@P6 z'Elpst
+             service (_S7 z%Ervi:s
              shop         _^_EN
           _) sky          _^_EN
              soldat       z%OldA:t
@@ -899,6 +928,7 @@
 
              sound        _^_EN
              speed        _^_EN
+       stau) ss           s
           @) straße (_S6   st*,A:s@
           _) street       _^_EN
              style        _^_EN
@@ -940,10 +970,12 @@
         ier) tester (_S6  t@st3
         ier) testes (_S6  t@st@s
 
+          _) talent       tal'Ent
              tch          tS
              t (chen_     t
           _) teen         _^_EN
           _) tele (@      t,e:le:
+             tuerei (_    tu:@*'aI
              thrill       _^_EN
         _pa) th           t
              the (era     te:
@@ -1042,12 +1074,18 @@
           _) v (on        f
 
           _) vehe         ve:he:
-          _) ver (@P3     f%E*
-          _) ver (bal     v%E*
-          _) ver (sion    vE*
-          _) ver (tik     vE*
+          _) ver (@P3     f%Er
+          _) ve (rbal     vE
+          _) ve (rbos     v%E
+          _) ve (rsat     vE
+          _) ve (rsie     vE
+          _) ve (rsif     vE
+          _) ve (rsion    vE
+          _) ve (rteb     vE
+          _) ve (rtik     vE
           @) versich      fE*z,IC
           @) vergess      fE*g,Es
+          @) verfahren (_S9 fErf,A:@-*@n
           _) viel (@P4    f'i:l
           _) vier (g@P4   f'i:*
           _) viet         vIEt
@@ -1080,6 +1118,8 @@
           _) weg (C@P3    v'e:k
           _) weit (C@P4   v'aIt
           _) weiter (@P6  v'aIt@*
+          _) weither      vaIthe:*
+          _) wieder (@P6  vi:d3
           _) wo (hin      v%o:
           _) wohl (@P4    v'o:l
              work         _^_EN
@@ -1119,6 +1159,9 @@
           _) zigaretten (@P10 tsi:ga*'Et@n
           _) zigeu        tsi:g'OY
           _) zu (C@P2     ts%u:
+          _) zu (eP2      ts%u:
+          _) zu (g@       tsu:
+          _) zu (gu@P2    ts%u:
           _) zu (nC       tsU
           _) zurück (@P6  tsu:*'yk
           _) zyklo (@P5   ,tsy:klo:
@@ -1136,6 +1179,7 @@
              äb (t_       E:p
              äg (t_       E:k
           t) ät (_        'E:t
+             ä (um_N     'E:
 
 .group ö
              ö            Y:

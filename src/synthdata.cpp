@@ -35,10 +35,12 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.41.32  09.Nov.09";
-const int version_phdata  = 0x014118;
+const char *version_string = "1.42.02  30.Nov.09";
+const int version_phdata  = 0x014200;
 
 int option_device_number = -1;
+FILE *f_logespeak = NULL;
+int logging_type;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
@@ -640,6 +642,8 @@ void LoadConfig(void)
 	char *p;
 	char string[200];
 
+	logging_type = 0;
+
 	for(ix=0; ix<N_SOUNDICON_SLOTS; ix++)
 	{
 		soundicon_tab[ix].filename = NULL;
@@ -654,6 +658,14 @@ void LoadConfig(void)
 
 	while(fgets(buf,sizeof(buf),f)!=NULL)
 	{
+		if(buf[0] == '/')  continue;
+
+		if(memcmp(buf,"log",3)==0)
+		{
+			if(sscanf(&buf[4],"%d %s",&logging_type,string)==2)
+				f_logespeak = fopen(string,"w");
+		}
+		else
 		if(memcmp(buf,"tone",4)==0)
 		{
 			ReadTonePoints(&buf[5],tone_points);

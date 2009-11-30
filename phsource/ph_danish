@@ -134,27 +134,9 @@ phoneme r    // used for 'r' after a vowel (to create a diphthong)
   lengthmod 7
 endphoneme
 
-phoneme R6    // 
+phoneme R    // 
   liquid
   formants r/aa
   lengthmod 7
 endphoneme
-
-phoneme R4     // uvular trill  [r"] without WAV
-  vcd uvl frc
-  formants r3/r_uvl+r3/r_uvl.wav%1
-  before _ r3/r_uvl+r3/r_uvl.wav%1
-  lengthmod 6
-endphoneme
-
-
-phoneme R5   // English r
-  liquid starttype #r endtype #r
-  rhotic
-  length 100
-  lengthmod 7
-  beforenotvowel r/
-  formants r/r
-endphoneme
-
 

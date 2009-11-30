@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.41.01
+AppVerName=eSpeak version 1.42
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -118,7 +118,7 @@ begin
   $07: Result := 'de';
   $08: Result := 'el';
   $09: Result := 'en';
-  $0a: Result := 'es-la';
+  $0a: Result := 'es-la  es-la+m3  es-la+f3';
   $0b: Result := 'fi';
   $0c: Result := 'fr';
   $0e: Result := 'hu';
@@ -147,6 +147,7 @@ begin
   $41: Result := 'sw';
   $49: Result := 'ta';
   $4b: Result := 'kn';
+  $50: Result := 'mn';
   $52: Result := 'cy';
   $61: Result := 'ne';
   $87: Result := 'rw';
@@ -154,9 +155,9 @@ begin
 
   // is there a match on the full language code?
   case language of
-  $40a: Result := 'es';
+  $80a: Result := 'es-la  es-la+f3  es-la+m3';
   $c0a: Result := 'es';
-  $816: Result := 'pt-pt';
+  $816: Result := 'pt-pt  es-la';
   $41a: Result := 'hr';
   $81a: Result := 'sr';
   $c1a: Result := 'sr';
@@ -207,6 +208,7 @@ begin
   'ko': value := $412;
   'lv': value := $426;
   'mk': value := $42f;
+  'mn': value := $450;
   'ne': value := $461;
   'nl': value := $413;
   'no': value := $414;
@@ -406,10 +408,16 @@ procedure InitializeWizard;
 var
   lang: String;
   voice2: String;
+  uilang: String;
 begin
   // Create the language selection page
+
+  UILanguage := GetUILanguage;
+  UIVoice := VoiceFromLanguage(UILanguage);
+  uilang := Format('  (Language code %x)',[UILanguage]);
+
   lang := ActiveLanguage;
-  Page := CreateInputQueryPage(wpSelectDir,CustomMessage('v1'),CustomMessage('v2'),CustomMessage('v3'));
+  Page := CreateInputQueryPage(wpSelectDir,CustomMessage('v1'),CustomMessage('v2')+uilang,CustomMessage('v3'));
 
   // Add items (False means it's not a password edit)
   Page.Add('', False);
@@ -418,15 +426,19 @@ begin
   Page.Add('', False);
   Page.Add('', False);
 
-  UILanguage := GetUILanguage;
-  UIVoice := VoiceFromLanguage(UILanguage);
 
   // Set initial values (optional)
   if UIVoice = 'en' then
     voice2 := 'en-us'
   else
     voice2 := 'en';
-  Page.Values[0] := Format('%s  %s  %s',[UIVoice, UIVoice+'+f2', voice2]);
+    
+  if Pos('+',UIVoice) = 0 then
+    Page.Values[0] := Format('%s  %s',[UIVoice, UIVoice+'+f2'])
+  else
+    Page.Values[0] := Format('%s',[UIVoice]);
+  Page.Values[1] := Format('%s',[voice2]);
+
 
 end;
 

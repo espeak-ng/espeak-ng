@@ -28,7 +28,7 @@
 ஸ்	is
 ஹ்	iC
 U+b82	anUsvVRV
-ஃ	ah
+ஃ	agH
 U+bcd	ot.RU
 
 ஏ	je:
@@ -165,15 +165,11 @@ _1M3x	orUko:d.i
 _0M3	ko:d.ie:
 _1M3	orUko:d.ie:
 
-_0M4x	a:jirVmko:d.i	// 10,000,000,000
-_1M4x	a:jirVmko:d.i
-_0M4	a:jirVmko:d.ie:
-_1M4	a:jirVmko:d.ie:
-
-_0M5	a:jirVma:jirVmko:d.i	// 10,000,000,000,000
-_1M5	a:jirVma:jirVmko:d.i
-
 _dpt	_pul.l.i
+
+
+// English words
+tamil	தமிழ்	$text
 
 
 // exceptions
@@ -204,6 +200,13 @@ _dpt	_pul.l.i
 பீடி	$alt
 பீதி	$alt
 பேகம்	$alt
+பார்லி	$alt
+பிக்கினி	$alt
+பேதம்	$alt
+போனஸ்	$alt
+போகி	$alt
+பாபா 	ba:ba:
+புத்த	buddV
 
 
 	// initial த as [d]
@@ -222,6 +225,10 @@ _dpt	_pul.l.i
 தடியன் 	$alt
 தரிசனம்		$alt
 தட்சணை	$alt
+தைவதம்		$alt
+தாட்சண்யம்	$alt
+தனம்	$alt
+திக்கற்ற	$alt
 
 
 கக	$alt	// initial க as [g]
@@ -242,4 +249,3 @@ _dpt	_pul.l.i
 
 
 பப	pVpV
-டாக்டர்	d.a:ktVr

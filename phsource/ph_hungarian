@@ -49,6 +49,7 @@ endphoneme
 
 phoneme i:
   vowel starttype (i) endtype (i)
+  long
   length 220
   formants vowel/i
 //  linkout ;
@@ -56,36 +57,42 @@ endphoneme
 
 phoneme e:
   vowel starttype (e) endtype (e)
+  long
   length 240
   formants vowel/e_3
 endphoneme
 
 phoneme a:
   vowel starttype (a) endtype (a)
+  long
   length 270
   formants vowel/a
 endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (o)
+  long
   length 260
   formants vowel/o_2
 endphoneme
 
 phoneme u:
   vowel starttype (u) endtype (u)
+  long
   length 240
   formants vowel/u_bck
 endphoneme
 
 phoneme y:
   vowel starttype (u) endtype (u)
+  long
   length 240
   formants vowel/y
 endphoneme
 
 phoneme Y:
   vowel starttype (@) endtype (@)
+  long
   length 260
   formants vowel/y#
 endphoneme

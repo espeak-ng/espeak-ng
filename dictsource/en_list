@@ -98,7 +98,7 @@ _?A	l,Et3
 _??	sImb@L
 _#9	tab
 _#32	speIs
-…	_::d%0td,0t     // for elipsis or ...  while reading
+//…	_::d%0td,0t     // for elipsis or ...  while reading
 
 _ 	hA@dspeIs    // U+00A0  no-break-space
 _!	Ekskl@m'eIS@n
@@ -181,10 +181,8 @@ _₠	jU@roU
 #	haS   $max3
 @	_at_	$u+
 &	_and   $u+
-\	bakstroUk  $max3
-/	stroUk  $max3
-?3 \	bakslaS  $max3
-?3 /	slaS  $max3
+\	bakslaS  $max3
+/	slaS  $max3
 *	ast@rIsk $max3
 %	p3sEnt  $max3
 ?5 %	pVRs'Ent $max3
@@ -346,11 +344,11 @@ ctrl	k0ntr'oUl
 dept	dI2pA@tm@nt
 diy	$abbrev
 edt	$abbrev
-eg	fO@Egz'aamp@L
+eg	fO@Egz'aamp@L	$only
 est	$abbrev
 etc	Et'sEtr@
 eu	$abbrev
-eur	jU@
+eur	jU@	$only
 hmm	h@m
 (http ://)   eItSti:ti:'pi:_
 ibm	$abbrev
@@ -362,6 +360,7 @@ lbs	paUndz
 LBS	$abbrev
 ltd	lImI2tI2d
 mc	m@k  $combine   // combine with the following word
+mya	$abbrev
 ny	$abbrev
 oem	$abbrev
 ok	$abbrev
@@ -506,6 +505,7 @@ albeit           O:lb'i:It
 alfalfa          alf'alf@
 alias            eIli@s
 alibi            al@baI
+alibis           al@baIz
 alkali           alk@laI
 allay            a2leI
 allegiance       a2li:dZ@ns
@@ -598,6 +598,7 @@ archimedes       A@kIm'i:di:z
 archive          A@kaIv
 archway           $1
 arena            a2ri:n@
+argue            A@gju:
 arithmetic       a2rITm@tIk
 arise            a2raIz
 arisen           a2rIz@n
@@ -739,7 +740,6 @@ campus           kamp@s        // campuses
 canal            k@nal
 canary           k@ne@rI
 canine           keInaIn
-cannabis         kana2bIs
 canoe            k@nu:
 canoes           k@nu:z
 canton           kant0n
@@ -781,6 +781,7 @@ chemise          SEm'i:z
 chic             Si:k
 chimpanzee       $3
 chisel           tSIz@L
+chloroplast      $1
 chocolate        tS0kl@t
 cholera          k0l@r@
 cholesterol      k@lEst@r0l
@@ -1048,6 +1049,7 @@ eras             i@r@z
 erase            I2reIz        // erasing erases
 ere              e@            $only
 eros             i@r0s
+err              3:
 errand           Er@nd
 escapism         Esk'eIpI2z@m
 escargot         I2sk'A@goU
@@ -1157,6 +1159,7 @@ furthermore      f3:D3m'o@     $pause
 ?5 furthermore   fVRD3m'o@     $pause
 fuscia           fju:S@
 fuselage         fju:z@lA:Z
+futon            fu:t0n
 
 gala             gA:l@
 galaxy           gala2ksI
@@ -1210,6 +1213,7 @@ havoc            hav@k
 hasty            heIstI
 hatred           heItrI2d
 hazardous        haz3d@s
+heh              hEh
 hehe             hi:h'i:
 heifer           hEf@
 heist            haIst
@@ -1349,6 +1353,7 @@ july             dZu:l'aI
 kaput            ka2pUt
 karate           k@rA:tI
 kebab            k@bab
+kefir            ki:f3
 hiatus           haI'eIt@s
 kilo             ki:loU
 kilter           kIlt3
@@ -1382,7 +1387,7 @@ leant            lEnt
 leapt            lEpt
 lego             lEgoU
 leisure          l'EZ3
-lemme            lElI       // let me
+lemme            lEmI       // let me
 lemonade                       $3
 leo              li:oU
 leopard          lEp@d
@@ -1390,6 +1395,7 @@ lesion           li:Z@n
 lethal           li:T@L
 liaison          li:'eIz0n
 libre            li:br@
+lichen           laIk@n
 lier             laI3         // outlier
 ligate           li:geIt
 lilac            laIl@k
@@ -1503,7 +1509,8 @@ mitre            maIt3
 mixer            mIks3
 modem            moUdEm
 moderate         m0d@reIt      $verb
-momentum                       $2
+momentary        moUm@nt@rI
+momentum          $2
 monday           mVndeI
 monotone         m0n@toUn
 monsieur         m@sj3:
@@ -1603,6 +1610,7 @@ orion            0r'aI@n
 ordeal           O@d'i@l
 orphan           O@f@n          // orphaned
 outage            $1
+outback           $1
 outcome           $1
 outer            aUt3
 outbreak          $1
@@ -1612,13 +1620,16 @@ outcrop           $1
 outcry            $1
 outed            aUtI2d
 outfit            $1
+outhouse          $1
 outing            $1
 outlaw            $1
+outlay            $1
 outlet            $1
 outlier          'aUtl,aI3
 outline           $1
 outlive          aUtl'Iv
 outlook           $1
+outmost           $1
 outpost          aUtpoUst
 output            $1
 outrage           $1
@@ -1786,6 +1797,7 @@ question         kwEstS@n
 quiche           ki:S
 quiver           kwIv3
 
+rabbis           rabaIz
 rabid            reIbI2d
 radar            reIdA@
 radioactive      reIdI2oU'aktIv
@@ -1925,8 +1937,6 @@ saucepan         sO:sp@n
 saudi            saUdI
 saute            sO:teI
 says             sEz
-schema           ski:m@
-shallow          SaloU
 salmon           sam@n
 scalpel          skalp@L
 scared           ske@d
@@ -1972,10 +1982,12 @@ severe           sI2v'i@3        $only
 severely         sI2v'i@3lI2     $verbf
 sex              sEks		// sexism
 several          sEvr@L
+shallow          SaloU
 shampoo                        $2
 sheriff          S'ErI2f
 shew             SoU
 shia             Si:@
+shiitake         Si:t'A:ke:
 shillelagh       S,I2l'eIl@
 shiver           SIv3
 shone            S0n
@@ -2293,7 +2305,7 @@ yoghurt          j0g3t
 ?3 yoghurt       joUg3t
 yoyo             joUjoU
 
-zulu             zu:lu:
+zulus            zu:lu:z
 
 
 // place names
@@ -2580,6 +2592,7 @@ Cheri		Se@r'i:
 Cherie		Se@r'i:
 Chloe		kloUI
 Chris		krIs
+Cleo		kli:oU
 Connie		k0nI
 Connor		k0n3
 Daphne		dafnI
@@ -2786,6 +2799,7 @@ of               0v		$u $only
 (of a)           @v@		$nounf
 (of an)          @v@n		$nounf
 (of which)       0vwItS		$2 $pause
+(of the)         %0vD@2		$nounf
 ?6 (of the)      %VD@2		$nounf
 ?6 (of which)    VvwItS		$2 $pause
 
@@ -2834,7 +2848,7 @@ from             fr0m		$u
 (from which)     %fr0m||w'ItS	$pause
 up               ,Vp		$strend2
 down             ,daUn		$only $strend2
-by               baI		$u
+by               baI		$u+
 across           @kr0s		$u2 $strend2
 per              p3:		$u
 (per cent)       p3||s'Ent
@@ -2866,7 +2880,7 @@ thence           DEns
 
 //aux. verbs
 
-be               %bi:		$pastf $only
+be               bi:		$pastf $only $u+
 been             ,bi:n		$pastf $only
 ?3 been          ,bIn		$pastf $only
 being            ,bi:IN		$pastf $only $strend2
@@ -2939,7 +2953,7 @@ might            ,maIt		$verbf $strend2 $only
 (might have)     maItha2v	$pastf $u1+
 (might have to)  ,maIth'avt@5	$verbf $atend
 
-have             %hav		$pastf $only $strend2
+have             hav		$pastf $only $u $strend2
 haves            havz
 (have been)      %hav%bIn	$pastf
 has              %ha2z		$pastf $only
@@ -2978,6 +2992,9 @@ did              dId		$verbf
 (did not)        dIdn0t		$verbf $u2+
 didn't           dIdnt		$verbf
 done             dVn
+
+make		m,eIk		$strend2 $only
+made		m,eId		$strend2 $only
 
 putting           pUtI2N
 put              ,pUt		$onlys $strend2

@@ -28,6 +28,7 @@
         au (K      au
     ch) au (f      o
   nive) au         o
+        an (cienn  aN
         aw (K      aw
         ay (K      aj
         aa         O:
@@ -106,10 +107,12 @@
     al) d (er 
     al) d (et 
     al) d (o       d
+    al) d (rig     d
     an) d (re      d
     An) d (rA      d
     An) d (re      d
     be) d (A       d
+    be) d (es      D
     bu) d (get 
     bu) d (t 
     ej) d (e       d
@@ -123,6 +126,7 @@
     in) d (u       d
     in) d (uC      d
     in) d (ue      d
+    la) d (t 
     le) d (t 
     li) d (e       D
     li) d (s       D
@@ -148,12 +152,16 @@
     or) d (ning    d
     or) d (re      d
     or) d (ret 
+    pu) d (s 
     pæ) d (a       d
+    ro) d (s 
+    ry) d (ni      D
     re) d (a       d
     re) d (i       d
     ri) d (e       D
     rø) dd (er     D
     si) d (e       D
+    si) dd (e      D
     si) d (eA      D
     si) d (eC      D
     ti) d (e       D
@@ -161,9 +169,11 @@
     ud) d          d
     ur) d (e       d
     ve) d (h       D
+    ve) d (t       D
     vi) d (e       D
     vi) d (er      D
     yl) d (er 
+    ær) d (es      d
     æl) d (e 
     æl) d (i       d
     æl) d (re      d
@@ -173,10 +183,6 @@
    kla) dd (e      D
    kry) dd (er     D
         dd (et     D
-    pu) d (s 
-    ro) d (s 
-    ry) d (ni      D
-    ær) d (es      d
    bla) d (r       D
    dar) d          d
    gui) de         d
@@ -189,6 +195,8 @@
    mad) d (A       D
    plu) d (se 
    ral) d (e 
+   sag) d (e 
+   sku) d (t 
    smu) d (s 
    snu) d (e       D
    Aor) d (ret     d
@@ -215,6 +223,8 @@
    ver) d (en      d
    sli) d (so      D
    sli) d (s 
+  skræ) dd (e      D
+ kandi) d (at      'd
 tilfre) d (s 
 
 
@@ -229,14 +239,16 @@ tilfre) d (s
      g) e (C       e
      g) e (js      aj
     em) e (nt      a
-  plem) e (nter    e
+   cem) e (nt      e
   elem) e (nt      e
+  plem) e (nter    e
     em) e (ntal    e
   glem) e (nt      a
   glem) e (ntal    e
     ni) e 
     ni) e (n       e
-   niv) e (au 
+   bur) eau        'o
+   niv) eau        'o
    ani) e (l       e
   lini) e          e
      r) e (_       V%
@@ -265,6 +277,8 @@ tilfre) d (s
         en (gage   aN
         en (tre    aN
      c) en (t      en
+     c) en (tA     en
+     c) en (tC     en
      p) en (sion   aN
      r) en (ce     aN
      r) eg (n      A:j
@@ -298,7 +312,7 @@ tilfre) d (s
    ika) e (l 
     ir) e (n       'e
     yr) e (n       'e
-
+ ompet) en (ce     aN
 
 
 .group f
@@ -352,6 +366,7 @@ tilfre) d (s
      i) g (t_ 
      i) g 
      i) g (A 
+     i) g (a       g
      i) g (en      g
      i) g (ere     g
      i) g (i       g
@@ -376,12 +391,18 @@ tilfre) d (s
      ø) g (e 
      ø) g (n 
      æ) g (e       j
+        g (iv+     g         // avoid letter "g" pronounced with phoneme S
     Ca) g (en      j
+    ha) g (l       u
     in) ge (niør   Se
     ki) gg (e      g
+    la) g (C       u
+    la) g (t       g
+    la) gde        e
     li) g (ere 
     ra) g (_       w
     ra) g (e       w
+    sa) g (n       u
     ør) g (s 
     ur) g (A       g
      l) g (_       j
@@ -390,6 +411,8 @@ tilfre) d (s
     li) g (g       g
     mA) g (a       g
     nA) g (a       g
+    ta) g (A       u
+    ta) g (C       u
     &e) g          j
     an) g (å       g
     ba) g (e 
@@ -412,10 +435,13 @@ tilfre) d (s
     sa) g (a       =g
     sa) g (s       '
     si) g (t       g
+    va) g (n       u
    pli) g (t       g
    &ti) g 
+   bor) g          u
    bud) g (et      S
    gti) g 
+   hol) g (er      g
    jer) g (A       w
    jer) g (C       w
    rea) g (er      g
@@ -502,6 +528,7 @@ foreta) g (e
      t) i (on                // i ommitted because of sj
      t) i (øs 
      s) i (on      j
+   des) ign        ain
  ingen) i (ør 
 
 
@@ -571,6 +598,7 @@ foreta) g (e
      i) nd (eks    nd
      i) nd (ing    n
      u) nd (       n
+    bå) nd (A      n
     pu) n (kt 
     ru) n (ke 
     sa) n (kt 
@@ -667,9 +695,8 @@ foreta) g (e
 
 .group r
         r          r
-     b) r          r
+        r (A       R
      ø) r          V:
-     A) r          r
     Ae) r          V
      &) rd (e_     r
      &) rd (eKK    r
@@ -711,11 +738,13 @@ kompromi) s
 
      &) tt         t
      &) th         d
+simpel) th (en     th
         t (ie      t
         t (ion+    sj'
         t (iøs+    sj'
    lek) t (i       S
   emen) t 
+ cemen) t          t
 elemen) t          t
   emen) t (al      t
 glemen) t 
@@ -733,21 +762,24 @@ glemen) t (al      t
         u (mK      O
      a) u (g       u
      b) u (dget    y
+     b) u (reau    y
      g) ui (de     ai
+     g) u (st      O
      l) u (k       O?
      l) u (kas     u
      m) u (k       O?
      r) u          u
      r) u (m       O
      r) u (nd      O?
+     r) u (s       u
+     s) u (cc      y
   comp) u (ter     ju
   fris) u (r       y
   frit) u (r       y
    men) u          y
+proced) u (re      y
+proven) u          y
  resso) u (rs      'u
-     g) u (st      O
-     r) u (s       u
-     s) u (cc      y
 
 
 .group v
@@ -855,6 +887,8 @@ glemen) t (al      t
 
 .group
         $          dVlar
+
+
 
 
 

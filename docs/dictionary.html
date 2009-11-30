@@ -88,13 +88,13 @@ The rules are organized in groups, each starting with a ".group" line:
 	A group for each letter or character.
 <p>
 <dt><strong>.group &lt;2 characters&gt;</strong><br><dd>
-	Optional groups for some common 2 letter combinations.  This is only needed, for efficiency, in cases where there are many rules for a particular letter.  They would not be needed for a language which has regular spelling rules.
+	Optional groups for some common 2 letter combinations.  This is only needed, for efficiency, in cases where there are many rules for a particular letter.  They would not be needed for a language which has regular spelling rules.  The first character can only be an ascii character (less than 0x80).
 <p>
 <dt><strong>.group</strong><br><dd>
 	A group for other characters which don't have their own group.
 <p>
 <dt><strong>.L&lt;nn&gt;</strong><br><dd>
-	Defines a group of letter sequences, any of which can match with <strong>Lnn</strong> in a <strong>post</strong> rule (see below).  <strong>nn</strong> is a 2 digit decimal number in the range 01 to 25.  eg:<p>
+	Defines a group of letter sequences, any of which can match with <strong>Lnn</strong> in a <strong>pre</strong> or <strong>post</strong> rule (see below).  <strong>nn</strong> is a 2 digit decimal number in the range 01 to 25.  eg:<p>
 	<code>.L01  b bl br pl pr</code>
 <p>
 <dt><strong>.replace</strong><br><dd>
@@ -159,7 +159,11 @@ indicates that a word which ends in "th" is translated using the English transla
       <td><strong>B&nbsp;H&nbsp;F&nbsp;G&nbsp;Y&nbsp;</strong></td>
       <td>These may indicate other sets of characters (defined for a particular language).</td>
     </tr>
-    <tr>
+     <tr>
+      <td><strong>L&lt;nn&gt;</strong></td>
+      <td>Any of the sequence of characters defined as a letter group (see 4.3.1 above).</td>
+    </tr>
+     <tr>
       <td><strong>D</strong></td>
       <td>Any digit.</td>
     </tr>
@@ -481,6 +485,10 @@ A word (or group of words) may be given one or more flags, either instead of, or
       <td>Ignore a . after this word even when followed by a capital letter (eg. Mr. Dr. ).</td>
     </tr>
     <tr>
+      <td>$hasdot</td>
+      <td>Use this pronunciation if the word is followed by a dot. (This attribute also implies $dot).</td>
+    </tr>
+    <tr>
       <td>$abbrev</td>
       <td>This has two meanings.<br> 1. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c").<br>2. If there is a phoneme string: This word is capitalized because it is an abbreviation and capitalization does indicate emphasis (if the "emphasize all-caps" is on).</td>
     </tr>
@@ -587,13 +595,12 @@ _0 to _9 &nbsp;
 <td>The numbers 0 to 9
 </tr>
 <tr>
-<td>_13<td>etc. Any pronunciations which are needed for specific numbers in the range _11 to _99 &nbsp;
+<td>_13<td>etc. Any pronunciations which are needed for specific numbers in the range _10 to _99 &nbsp;
 </tr>
 <tr>
 <td>_2X &nbsp;_3X<td>Twenty, thirty, etc., used to make numbers 10 to 99 &nbsp;
 </tr>
 <tr>
-<td>_nn<td>Any two digit numbers with a special pronunciation (eg. _15 "fifteen").
 </tr>
 <tr><TD>_0C<td>The word for "hundred"</td>
 <tr><TD>_1C &nbsp;_2C<td>Special pronunciation for one hundred, two hundred, etc., if needed.</tr>
@@ -601,7 +608,7 @@ _0 to _9 &nbsp;
 <tr><TD>_0M1<td>The word for "thousand"</tr>
 <tr><TD>_0M2<td>The word for "million"</tr>
 <tr><TD>_0M3<td>The word for 1000000000</tr>
-<tr><TD>_1M1 &nbsp;_2M1<td>Special pronunciation for one thousand, two thousand, tc, if needed</td>
+<tr><TD>_1M1 &nbsp;_2M1<td>Special pronunciation for one thousand, two thousand, etc, if needed</td>
 <tr><TD>_0and<td>Word for "and" when speaking numbers (eg. "two hundred and twenty").</tr>
 <tr><TD>_dpt<td>Word spoken for the decimnal point/comma</tr>
 <tr><TD>_dpt2<td>Word spoken (if any) at the end of all the digits after a decimal point.</tr>

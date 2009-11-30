@@ -186,7 +186,7 @@ endphoneme
 
 phoneme y
   vowel starttype (u) endtype (u)
-  length 150
+  length 130
   formants vowel/yy_4
   before * DFT+40
 endphoneme

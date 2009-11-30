@@ -83,7 +83,6 @@ MNEM_TAB mnem_flags[] = {
 	{"$unstressend",13},   /* reduce stress at end of clause */
 	{"$atend",     14},    /* use this pronunciation if at end of clause */
 
-	{"$dot",       16},   /* ignore '.' after this word (abbreviation) */
 	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
 	{"$stem",      18},   // must have a suffix
 
@@ -92,6 +91,9 @@ MNEM_TAB mnem_flags[] = {
 	{"$alt",       20},   // use alternative pronunciation
 	{"$alt2",      21},
 	{"$combine",   22},   // Combine with the next word
+
+	{"$dot",       24},   // ignore '.' after this word (abbreviation)
+	{"$hasdot",    25},   // use this pronunciation if there is a dot after the word
 
 	{"$max3",      27},   // limit to 3 repetitions
 	{"$brk",       28},   // a shorter $pause
@@ -125,6 +127,7 @@ typedef struct {
 	char name[LEN_GROUP_NAME+1];
 	unsigned int start;
 	unsigned int length;
+	int group3_ix;
 } RGROUP;
 
 
@@ -345,7 +348,7 @@ step=1;  // TEST
 			break;
 	
 		case 1:
-			if((c == '-') && (word[0] != '_'))
+			if((c == '-') && multiple_words)
 			{
 				if(isdigit(word[0]))
 				{
@@ -734,6 +737,7 @@ static char rule_post[80];
 static char rule_match[80];
 static char rule_phonemes[80];
 static char group_name[LEN_GROUP_NAME+1];
+static int group3_ix;
 
 #define N_RULES 2000		// max rules for each group
 
@@ -1129,7 +1133,10 @@ static int __cdecl string_sorter(char **a, char **b)
 
 static int __cdecl rgroup_sorter(RGROUP *a, RGROUP *b)
 {//===================================================
+// Sort long names before short names
 	int ix;
+	ix = strlen(b->name) - strlen(a->name);
+	if(ix != 0) return(ix);
 	ix = strcmp(a->name,b->name);
 	if(ix != 0) return(ix);
 	return(a->start-b->start);
@@ -1401,6 +1408,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	int n_rules=0;
 	int count=0;
 	int different;
+	int wc;
 	const char *prev_rgroup_name;
 	unsigned int char_code;
 	int compile_mode=0;
@@ -1409,6 +1417,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	char *rules[N_RULES];
 
 	int n_rgroups = 0;
+	int n_groups3 = 0;
 	RGROUP rgroup[N_RULE_GROUP2];
 	
 	linenum = 0;
@@ -1436,6 +1445,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			if(n_rules > 0)
 			{
 				strcpy(rgroup[n_rgroups].name,group_name);
+				rgroup[n_rgroups].group3_ix = group3_ix;
 				rgroup[n_rgroups].start = ftell(f_temp);
 				output_rule_group(f_temp,n_rules,rules,group_name);
 				rgroup[n_rgroups].length = ftell(f_temp) - rgroup[n_rgroups].start;
@@ -1481,7 +1491,8 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 				while((*p > ' ') && (ix < LEN_GROUP_NAME))
 					group_name[ix++] = *p++;
 				group_name[ix]=0;
-	
+				group3_ix = 0;
+
 				if(sscanf(group_name,"0x%x",&char_code)==1)
 				{
 					// group character is given as a character code (max 16 bits)
@@ -1494,8 +1505,19 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 					*p++ = char_code;
 					*p = 0;
 				}
+				else
+				{
+					if(translator->letter_bits_offset > 0)
+					{
+						utf8_in(&wc, group_name);
+						if(((ix = (wc - translator->letter_bits_offset)) >= 0) && (ix < 128))
+						{
+							group3_ix = ix+1;   // not zero
+						}
+					}
+				}
 	
-				if(strlen(group_name) > 2)
+				if((group3_ix == 0) && (strlen(group_name) > 2))
 				{
 					if(utf8_in(&c,group_name) < 2)
 					{
@@ -1573,7 +1595,17 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			if(gp > 0)
 				fputc(RULE_GROUP_END,f_out);
 			fputc(RULE_GROUP_START,f_out);
-			fprintf(f_out, prev_rgroup_name = rgroup[gp].name);
+
+			if(rgroup[gp].group3_ix != 0)
+			{
+				n_groups3++;
+				fputc(1,f_out);
+				fputc(rgroup[gp].group3_ix, f_out);
+			}
+			else
+			{
+				fprintf(f_out, "%s", prev_rgroup_name = rgroup[gp].name);
+			}
 			fputc(0,f_out);
 		}
 
@@ -1593,7 +1625,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	fclose(f_temp);
 	remove(fname_temp);
 
-	fprintf(f_log,"\t%d rules, %d groups\n\n",count,n_rgroups);
+	fprintf(f_log,"\t%d rules, %d groups (%d)\n\n",count,n_rgroups,n_groups3);
 	return(0);
 }  //  end of compile_dictrules
 

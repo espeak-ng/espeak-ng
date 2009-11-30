@@ -326,10 +326,10 @@ void CalcLengths(Translator *tr)
 		case phSTOP:
 			last_pitch = 0;
 			if(prev->type == phFRICATIVE)
-				p->prepause = 20;
+				p->prepause = 25;
 			else
 			if((more_syllables > 0) || (stress < 4))
-				p->prepause = 40;
+				p->prepause = 48;
 			else
 				p->prepause = 60;
 

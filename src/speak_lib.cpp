@@ -47,6 +47,7 @@
 #include "wave.h"
 
 unsigned char *outbuf=NULL;
+extern FILE *f_logespeak;
 extern espeak_VOICE voice_selected;
 
 espeak_EVENT *event_list=NULL;
@@ -713,7 +714,12 @@ ENTER("espeak_Initialize");
 	init_path(path);
 	initialise();
 	select_output(output_type);
-	
+
+	if(f_logespeak)
+	{
+		fprintf(f_logespeak,"INIT mode %d options 0x%x\n",output_type,options);
+	}
+
 	// buflength is in mS, allocate 2 bytes per sample
 	if(buf_length == 0)
 		buf_length = 200;
@@ -762,6 +768,12 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text, size_t size,
 	ENTER("espeak_Synth");
 	SHOW("espeak_Synth > position=%d, position_type=%d, end_position=%d, flags=%d, user_data=0x%x, text=%s\n", position, position_type, end_position, flags, user_data, text);
 #endif
+
+	if(f_logespeak)
+	{
+		fprintf(f_logespeak,"\nSYNTH posn %d %d %d flags 0x%x\n%s\n",position,end_position,position_type,flags, (const char *)text);
+		fflush(f_logespeak);
+	}
 
 	espeak_ERROR a_error=EE_INTERNAL_ERROR;
 	static unsigned int temp_identifier;
@@ -825,6 +837,12 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text, size_t size,
 	espeak_ERROR a_error=EE_OK;
 	static unsigned int temp_identifier;
 
+	if(f_logespeak)
+	{
+		fprintf(f_logespeak,"\nSYNTH MARK %s posn %d flags 0x%x\n%s\n",index_mark,end_position,flags, (const char *)text);
+	}
+
+
 	if (unique_identifier == NULL)
 	{
 		unique_identifier = &temp_identifier;
@@ -875,6 +893,11 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key)
 	ENTER("espeak_Key");
 	// symbolic name, symbolicname_character  - is there a system resource of symbolicnames per language
 
+	if(f_logespeak)
+	{
+		fprintf(f_logespeak,"\nKEY %s\n",key);
+	}
+
 	espeak_ERROR a_error = EE_OK;
 
 	if(synchronous_mode)
@@ -900,6 +923,11 @@ ESPEAK_API espeak_ERROR espeak_Char(wchar_t character)
 {//===========================================
   ENTER("espeak_Char");
   // is there a system resource of character names per language?
+
+	if(f_logespeak)
+	{
+		fprintf(f_logespeak,"\nCHAR U+%x\n",character);
+	}
 
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
@@ -997,6 +1025,10 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 {//=============================================================================================
   ENTER("espeak_SetParameter");
 
+	if(f_logespeak)
+	{
+		fprintf(f_logespeak,"SETPARAM %d %d %d\n",parameter,value,relative);
+	}
 #ifdef USE_ASYNC
 	espeak_ERROR a_error;
 
@@ -1140,6 +1172,12 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	Free(outbuf);
 	outbuf = NULL;
 	FreePhData();
+
+	if(f_logespeak)
+	{
+		fclose(f_logespeak);
+		f_logespeak = NULL;
+	}
 
 	return EE_OK;
 }   //  end of espeak_Terminate

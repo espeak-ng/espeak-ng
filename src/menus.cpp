@@ -89,7 +89,7 @@ wxMenuBar *MakeMenu(int type)
 	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (debu&g)"));
 	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
 	data_menu->AppendSeparator();
-	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Format *_rules file"));
+	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Layout *_rules file"));
 	
 	// OPTIONS MENU
 	paths_menu = new wxMenu;

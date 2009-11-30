@@ -7,6 +7,11 @@
 // ?3  Epenthetic [I] between consonants
 // ?4  Brazil mbrola voice
 
+//  $alt   change [e] or [o] in the stressed syllable to [E] or [O]
+//  $alt2  change [E] or [O] in the stressed syllable to [e] or [o]
+//  Any [E] or [O] phonemes in unstressed words must be listed explicitly
+
+
 // Note for "pt-pt" [R] is the same sound as [r]
 //      for "pt" [y] is the same sound as [i]
 
@@ -44,7 +49,7 @@ _à	$accent
 _à	$accent
 _â	$accent
 _ã	$accent
-_ç	$accent
+ç	$accent
 _é	$accent
 _ê	$accent
 _í	$accent
@@ -205,42 +210,45 @@ vi	vi
 
 // ABBREVIATIONS
 //**************
-aapp      $abbrev 
-abadv     $abbrev
-abc       $abbrev 
-a.c		'as'e
-adsl      $abbrev
-ae        $abbrev 
-aids      $abbrev 
-apedv     $abbrev
-avc       $abbrev 
-bios       b'i,OS
-d.c		d,es'e
-cne       $abbrev 
-cpu       $abbrev
-cpuc      $abbrev
-dpoc      $abbrev 
-ecg       $abbrev 
-edp       $abbrev
+aapp	$abbrev 
+abadv	$abbrev
+abc	$abbrev 
+a.c	'as'e
+adsl	$abbrev
+ae	$abbrev 
+aids	$abbrev 
+apedv	$abbrev
+avc	$abbrev 
+bios	b'i,OS
+d.c	d,es'e
+cne	$abbrev 
+cpu	$abbrev
+cpuc	$abbrev
+dpoc	$abbrev 
+ecg	$abbrev 
+edp	$abbrev
 ?1   etc	,ets'Et:*&
 ?2   etc	,ets'Ete*&
-hiv       $abbrev 
-(http ://)       ag,atete'pe_
-icc       $abbrev 
-ieee      $abbrev // Institute of Electrical and Electronics Engineers 
-iss       $abbrev 
-jpeg       Z,Ot&p'Eg
-mpeg       ,Emp'Eg
-nba       $abbrev 
-nvda      $abbrev
-oms       $abbrev 
-omt       $abbrev 
-osi       $abbrev
+e.u.a	Eua
+eua	$abbrev
+fbi	$abbrev
+hiv	$abbrev 
+(http ://)	ag,atete'pe_
+icc	$abbrev 
+ieee	$abbrev // Institute of Electrical and Electronics Engineers 
+iss	$abbrev 
+jpeg	Z,Ot&p'Eg
+mpeg	,Emp'Eg
+nba	$abbrev 
+nvda	$abbrev
+oms	$abbrev 
+omt	$abbrev 
+osi	$abbrev
 ?1   sa       ,Esj'a
 ?1   sos       ,Esj,O'Es
-ue        $abbrev 
-unts      $abbrev
-usb       $abbrev
+ue	$abbrev 
+unts	$abbrev
+usb	$abbrev
 
 
 dr	$dot
@@ -596,48 +604,65 @@ governo	gov'ernU	$noun
 
 // MAIN WORD DICTIONARY
 //*********************
-borboleta        b,orbol'et&
-catorze        k&t'orzy
-fosse        f'osy
-fossem       f'oseIN
-hoje         'oZi
-líderes        l'ide*ys
-mexa     m'eS&
-mexi        meS'i
-mexo     m'eSU
-?2 mulher       mulj'Er
-?4 mulher       mul^'Er
-mui          mu~j
-muito        m'u~jtu	// -s is included as a suffix
-muita        m'u~jt&
-praxedes        pR&S'EdZys
-?2 rede      x'edZy
-selvagem        seUv'aZeIN
-teta         t'et&
+// $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
+// $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
+boca		$alt2
+borboleta	$alt2
+catorze		$alt2
+copo		$alt
+escova		$alt2
+fosse		$alt2
+fossem		$alt2
+hoje		$alt2
+líderes		$alt2
+mexa		m'eS&
+mexi		meS'i
+mexo		m'eSU
+?2 mulher	mulj'Er
+?4 mulher	mul^'Er
+mui		mwi
+muito		mw'iNtU	// -s is included as a suffix
+muita		mw'iNt&
+paexa		paeSa
+perdem		$alt
+preto		$alt2
+onu		$1
+rede		$alt2
+rixa		xiS&
+selvagem	seUv'aZeIN
+suor		swOr
+tapete		$alt2
+teta		$alt2
 
-// $alt   changes the first [o] phoneme to open [O]
-novos        $alt
-mortos       $alt
-corpos       $alt
-modo         $alt
-modos        $alt
-fogos        $alt
-lopes        $alt
-jogos        $alt
+novos		$alt
+mortos		$alt
+corpos		$alt
+modo		$alt
+modos		$alt
+fogos		$alt
+lopes		$alt
+jogos		$alt
+doce		$alt2
+drogas		$alt
+grosso		$alt2
+torres		$alt2
 
-// Close [O]
-?1 calculadora k,Alkul&d'or&
-?1 professora  pr,ufys'or&
-?1 senhora     syn^'or&
-?1 sobre       s'obry
+// Close [o]
+?1 calculadora	$alt2
+?1 professora	$alt2
+?1 senhora	$alt2
+?1 sobre	$alt2
+
+vanessa		$alt2
+violeta		$alt2
 
 
 abacaxi      abakaSy
 axé          aSE
 elixir       eliSir
 ?1 fixe       f'iSy
-roxo         x'oSU
-xiquexique     S,ikeS'iky
+
+
 // foreign words
 ?1 alt        'alt
 ?2        agosto        &g'ostU
@@ -774,6 +799,7 @@ louis       _^_FR
 ?2        Outlook        ,aUtl'uk
 ?1 paint       p'aint
 ?1 player      pl'eI&r-
+playstation	_^_EN
 ?1 point       p'oint
 ?1 power       p'aU&r-
 ?1 product     p:r'&d&kt
@@ -831,7 +857,7 @@ stephen       st'i:v@n
 steve         st'i:v
 turing        t'u*iNg
 voltaire      vOlt'Er
-von           f'On
+von           f%On
 
 
 // foreign common names/surnames

@@ -107,10 +107,10 @@ Dictionary en_dict
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a2   A:   A@   aa   aI   aI@  aU   
-aU@  A~   E    e@   eI   I    i    I2   
-i:   i@   i@3  IR   O    O:   o:   O@   
-o@   OI   oU   O~   U    u:   U@   V    
-VR   
+aU@  A~   E    e:   e@   eI   I    i    
+I2   i:   i@   i@3  IR   O    O:   o:   
+O@   o@   OI   oU   O~   U    u:   U@   
+V    VR   
 
 :    ;    ?    b    C    d    D    dZ   
 f    g    g-   h    j    k    l    L    
@@ -221,10 +221,10 @@ Dictionary hu_dict
 A    a:   E    e:   i    i:   o    o:   
 u    u:   Y    y    y:   Y:   
 
-:    b    c    C    d    dZ   f    g    
-h    j    J    k    l    l^   m    n    
-N    n^   p    R    R2   s    S    s2   
-t    tS   ts   v    z    Z    
+-    :    b    c    d    dZ   f    g    
+h    j    J    k    l    m    n    n^   
+p    r    R    R2   s    S    s2   t    
+tS   ts   v    z    Z    
 
 
 Dictionary hy_dict
@@ -292,9 +292,9 @@ y
 :    b    bh   c    ch   d    d.   dh   
 dh.  dZ   f    g    gh   h    j    J    
 Jh   k    kh   l    l.   m    n    N    
-n.   n^   p    ph   R    R2   s    S    
-s.   S;   t    t.   th   th.  tS   v    
-w    z    
+n.   n^   p    ph   r    R    R2   s    
+S    s.   S;   t    t.   th   th.  tS   
+v    w    z    
 
 
 Dictionary ku_dict
@@ -445,9 +445,11 @@ tS;  v    w    x    z    Z    Z;
 
 Dictionary prs_dict
 
-@    A    i    o    
+@    A    E    eI   i    o    u    
 
-b    d    h    l    t    X    
+:    b    d    dZ   f    g    h    j    
+k    l    m    n    p    r    R    s    
+S    t    tS   v    w    X    z    Z    
 
 
 Dictionary pt_dict
@@ -471,12 +473,12 @@ ea   eI   eo   eU   i    i/   I^   iI
 iU   o    O    Oa   oI   oU   u    uI   
 y    Y    yI   yU   
 
-*    *;   -    b    b;   c    C    d    
-d;   dZ   f    f;   g    h    j    k    
-l    l;   m    m;   n    N    n;   p    
-p;   r    s    S    S;   t    t;   tS   
-ts   ts;  v    v;   w    w2   x    z    
-Z    z;   Z;   
+*    *;   b    b;   c    C    d    d;   
+dZ   f    f;   g    h    j    k    l    
+l;   m    m;   n    N    n;   p    p;   
+r    s    S    S;   t    t;   tS   ts   
+ts;  v    v;   w    w2   x    z    Z    
+z;   Z;   
 
 
 Dictionary ru_dict
@@ -558,9 +560,9 @@ I    i:   o    o:   U    u    u:   V
 
 :    ;    b    C    d    d.   dZ   f    
 g    h    H    j    k    l    l.   m    
-n    N    n.   n^   p    r    R    s    
-S    s.   t    t.   th   tS   v    w    
-z    z.   
+n    N    n.   n^   p    Q    r    R    
+s    S    s.   t    t.   th   tS   v    
+w    z    z.   
 
 
 Dictionary tr_dict

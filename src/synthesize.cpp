@@ -876,35 +876,64 @@ int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
 	int  ix;
 	long *q;
 	int  len;
+	int  min;
 	int  match_level;
 	int  frame_length;
 	int  frame1_length;
 	int  frame2_length;
 	int  length_factor;
 	int  length_mod;
+	int  length_mod2;   // reduced effect length_mod
 	int  total_len = 0;
+	int  len_adjust_factor = 256;
 	static int wave_flag = 0;
 	int wcmd_spect = WCMD_SPECT;
 
 	length_mod = plist->length;
 	if(length_mod==0) length_mod=256;
 
-if(which==1)
-{
-	// limit the shortening of sonorants before shortened (eg. unstressed vowels)
-	if((this_ph->type==phLIQUID) || (prev_ph->type==phLIQUID) || (prev_ph->type==phNASAL))
+	length_mod2 = (length_mod*(256-speed.speed_factor3) + 256*speed.speed_factor3)/256;
+
+	if(which==1)
 	{
-		if(length_mod < (len = translator->langopts.param[LOPT_SONORANT_MIN]))
+		// limit the shortening of sonorants before shortened (eg. unstressed vowels)
+		if((this_ph->type==phLIQUID) || (prev_ph->type==phLIQUID) || (prev_ph->type==phNASAL))
 		{
-			length_mod = len;
+			if(length_mod < (len = translator->langopts.param[LOPT_SONORANT_MIN]))
+			{
+				length_mod = len;
+			}
 		}
 	}
-}
-
 	modn_flags = 0;
 	frames = LookupSpect(this_ph,prev_ph,next_ph,which,&match_level,&n_frames, plist);
 	if(frames == NULL)
 		return(0);   // not found
+
+//	if((which==2) && (this_ph->phflags & phLONG))
+	if((which==2) && (this_ph->std_length >= 200))
+	{
+		// apply a minimum length for long vowels at fast speeds, to keep the distinction with short vowels
+		total_len = 0;
+		for(frameix=0; frameix<(n_frames-1); frameix++)
+		{
+			length_factor = length_mod;
+			if(frames[frameix].frflags & FRFLAG_LEN_MOD)     // reduce effect of length mod
+			{
+				length_factor = length_mod2;
+			}
+			len = (frames[frameix].length * samplerate)/1000;
+			len = (len * length_factor)/256;
+			total_len += len;
+		}
+
+		min = translator->langopts.param[LOPT_MIN_LONG_VOWEL] * (samplerate)/1000;
+		min = (min * length_mod2)/256;
+		if(total_len < min)
+		{
+			len_adjust_factor = (min*256)/total_len;
+		}
+	}
 
 	frame1 = frames[0].frame;
 	frame1_length = frames[0].length;
@@ -960,6 +989,7 @@ if(which==1)
 		syllable_centre = wcmdq_tail;
 	}
 
+	total_len = 0;
 	frame_length = frame1_length;
 	for(frameix=1; frameix<n_frames; frameix++)
 	{
@@ -978,10 +1008,11 @@ if(which==1)
 		length_factor = length_mod;
 		if(frame1->frflags & FRFLAG_LEN_MOD)     // reduce effect of length mod
 		{
-			length_factor = (length_mod*(256-speed.speed_factor3) + 256*speed.speed_factor3)/256;
+			length_factor = length_mod2;
 		}
 		len = (frame_length * samplerate)/1000;
 		len = (len * length_factor)/256;
+		len = (len * len_adjust_factor)/256;
 
 		if(modulation >= 0)
 		{
@@ -1210,8 +1241,16 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		case phSTOP:
 			released = 0;
-			if(next->type==phVOWEL) released = 1;
-			if(next->type==phLIQUID && !next->newword) released = 1;
+			if(next->type==phVOWEL)
+			{
+				 released = 1;
+			}
+			else
+			if(!next->newword)
+			{
+				if(next->type==phLIQUID) released = 1;
+//				if(((p->ph->phflags & phPLACE) == phPLACE_blb) && (next->ph->phflags & phSIBILANT)) released = 1;
+			}
 
 			if(released)
 				DoSample(p->ph,next->ph,2,0,0);
@@ -1307,7 +1346,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				}
 			}
 
-			if((next->type==phVOWEL) || ((next->type==phLIQUID)) && (next->newword==0))  // ?? test 14.Aug.2007
+			if((next->type==phVOWEL) || ((next->type==phLIQUID) && (next->newword==0)))  // ?? test 14.Aug.2007
 			{
 				StartSyllable();
 				if(p->synthflags & SFLAG_LENGTHEN)

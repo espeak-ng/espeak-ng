@@ -72,24 +72,51 @@ _1M2      'e:n||m'Illi:;,u:n
 _0and     u:g
 _dpt      kOmmA
 
+// ordinal numbers
+_ord	@nd@2
+_1o	f'WRst@2
+_2o	'AndR@2
+_3o	tR'Edj@2
+_4o	fj'a:R@2
+_5o	f'Emt@2
+_6o	S'Et:@2	
+_8o	'Ot:@nd@2
+_11o	'EllEvt@2
+_12o	t'Olvt@2
+_13o	tR'Et:@nd@2
+_14o	fj'URt@md@2
+_15o	f'Emt@nd@2
+_16o	s'Ekst@nd@2
+_17o	s'yt:@nd@2
+_18o	'At:@nd@2
+_19o	n'It:@nd@2
+_2Xo	s;'u-:@nd@2
+_0Co	h'u-ndR@d@2
+_0M1o	t'u-:s@nd@2
+
+
 // punctuation and symbols
 //========================
 
+*	ss;aRn@2	$max3
+=	aRli:k		$max3
++	plu-s		$max3
+%	pR'u:s'Ent	$max3
+&	O:g
+#	nu-mm@RtENn	$max3
+/	skROstR@k	$max3
+\       OmvEndt||skROstR@k	$max3
+
 _!	u-:tRu:pstENn
 _"	AnfY:RS@l
-_#	nu-mm@RtENn
 _$	dOllA:R
-%	pR'u:s'Ent
-&	O:g
 _'	ApUstR'u:f
 _(	paRaNt'e:s||b@j'ynn@R
 _)	paRaNt'e:s||Sl'u-t:
 _*	ss;aRn@2
-+	plu-s
 _,	kOmmA
 _-	stRe:k
 _.	pu-Nktu-:m
-/	skROstR@k
 _:	ku:lOn
 _;	se:mi:ku:lOn
 _<	mIndR@2||En
@@ -104,7 +131,18 @@ _]	h'YyR@2||h'A:ke:paRaNt'e:s
 __	u-ndaRStR@k
 _`	'OmvEndt||ApUstR'u:f
 
+_#09	tA:b
+_#32	mEllOmRu:m
 
+_acu	A:'ku-t:
+_ced	s'e:dIll@2
+_cir	s'IRku-mflEks
+_dia	tR'e:mA
+_grv	gR'A:vi:s
+_tld	t'Ild@2
+
+é	$accent
+ü	$accent
 
 
 // abbreviations
@@ -249,6 +287,15 @@ _å     o:
 _i     i:
 i      i:   $atend
 
+
+// English Words
+firefox	_^_EN
+screen	_^_EN
+reader	_^_EN
+cancel	_^_EN
+continue	_^_EN
+magnifier	_^_EN
+and	@2nd	$only
 
 
 // MAIN WORD DICTIONARY

@@ -61,6 +61,7 @@ static int ignore_text=0;   // set during <sub> ... </sub>  to ignore text which
 static int clear_skipping_text = 0;  // next clause should clear the skipping_text flag
 int count_characters = 0;
 static int sayas_mode;
+static int sayas_start;
 static int ssml_ignore_l_angle = 0;
 
 // alter tone for announce punctuation or capitals
@@ -1521,6 +1522,31 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 }  // end of SetProsodyParemeter
 
 
+static int ReplaceKeyName(char *outbuf, int index, int &outix)
+{//===========================================================
+// Replace some key-names by single characters, so they can be pronounced in different languages
+	MNEM_TAB keynames[] = {
+	{"space ",0xe020},
+	{"tab ", 0xe009},
+	{"underscore ", 0xe05f},
+	{"double-quote ", '"'},
+	{NULL, 0}};
+	
+	int ix;
+	int letter;
+	char *p;
+
+	p = &outbuf[index+1];
+
+	if((letter = LookupMnem(keynames, p)) != 0)
+	{
+		ix = utf8_out(letter, p);
+		outix = index + ix + 1;
+		return(letter);
+	}
+	return(0);
+}
+
 
 static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outbuf, int self_closing)
 {//==================================================================================================
@@ -1706,10 +1732,17 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		strcpy(&outbuf[outix],buf);
 		outix += strlen(buf);
 
+		sayas_start = outix;
 		sayas_mode = value;   // punctuation doesn't end clause during SAY-AS
 		break;
 
 	case SSML_SAYAS + SSML_CLOSE:
+		if(sayas_mode == SAYAS_KEY)
+		{
+			outbuf[outix] = 0;
+			ReplaceKeyName(outbuf, sayas_start, outix);
+		}
+
 		outbuf[outix++] = CTRL_EMBEDDED;
 		outbuf[outix++] = 'Y';
 		sayas_mode = 0;
@@ -1971,6 +2004,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int is_end_clause;
 	int announced_punctuation;
 	int stressed_word = 0;
+	int end_clause_after_tag = 0;
+	int end_clause_index = 0;
 	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
 
@@ -1985,6 +2020,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 		clear_skipping_text = 0;
 	}
 
+	tr->phonemes_repeat_count = 0;
 	tr->clause_upper_count = 0;
 	tr->clause_lower_count = 0;
 	end_of_input = 0;
@@ -2150,6 +2186,9 @@ f_input = f_in;  // for GetC etc
 		
 					if(terminator != 0)
 					{
+						if(end_clause_after_tag)
+							ix = end_clause_index;
+
 						buf[ix] = ' ';
 						buf[ix++] = 0;
 		
@@ -2333,6 +2372,9 @@ f_input = f_in;  // for GetC etc
 				// 2nd newline, assume paragraph
 				UngetC(c2);
 
+				if(end_clause_after_tag)
+					ix = end_clause_index;  // delete clause-end punctiation
+
 				buf[ix] = ' ';
 				buf[ix+1] = 0;
 				if(parag > 3)
@@ -2358,6 +2400,30 @@ if(option_ssml) parag=1;
 		if((phoneme_mode==0) && (sayas_mode==0))
 		{
 			is_end_clause = 0;
+
+			if(end_clause_after_tag)
+			{
+				// Because of an xml tag, we are waiting for the
+				// next non-blank character to decide whether to end the clause
+				// i.e. is dot followed by an upper-case letter?
+				if(c1 == '\n')
+				{
+//					end_clause_after_tag &= ~CLAUSE_DOT;
+				}
+				
+				if(!iswspace(c1))
+				{
+					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower(c1)))
+					{
+						UngetC(c2);
+						ungot_char2 = c1;
+						buf[end_clause_index] = ' ';  // delete the end-clause punctuation
+						buf[end_clause_index+1] = 0;
+						return(end_clause_after_tag);
+					}
+					end_clause_after_tag = 0;
+				}
+			}
 
 			if((c1 == '.') && (c2 == '.'))
 			{
@@ -2396,6 +2462,7 @@ if(option_ssml) parag=1;
 				// if a list of allowed punctuation has been set up, check whether the character is in it
 				if((option_punctuation == 1) || (wcschr(option_punctlist,c1) != NULL))
 				{
+					tr->phonemes_repeat_count = 0;
 					if((terminator = AnnouncePunctuation(tr, c1, &c2, buf, &ix, is_end_clause)) >= 0)
 						return(terminator);
 					announced_punctuation = c1;
@@ -2432,6 +2499,11 @@ if(option_ssml) parag=1;
 					}
 				}
 
+				if((c1 == '.') && (nl_count < 2))
+				{
+					punct_data |= CLAUSE_DOT;
+				}
+
 				if(nl_count==0)
 				{
 					if(c1 == '.')
@@ -2440,14 +2512,21 @@ if(option_ssml) parag=1;
 							(iswdigit(cprev) || (IsRomanU(cprev) && (IsRomanU(cprev2) || iswspace(cprev2)))))  // lang=hu
 						{
 							// dot after a number indicates an ordinal number
-							if(!iswdigit(cprev) || iswlower(c_next) || (c_next == '<'))
-								is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
+							if(!iswdigit(cprev))
+							{
+								is_end_clause = 0;  // Roman number followed by dot
+							}
+							else
+							{
+								if (iswlower(c_next))
+									is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
+							}
 						}
 						else
 						if(iswlower(c_next))
 						{
 							// next word has no capital letter, this dot is probably from an abbreviation
-							c1 = ' ';
+//							c1 = ' ';
 							is_end_clause = 0;
 						}
 						if(any_alnum==0)
@@ -2466,6 +2545,14 @@ if(option_ssml) parag=1;
 							is_end_clause = 0;
 						}
 					}
+
+					if(is_end_clause && (c1 == '.') && (c_next == '<') && option_ssml)
+					{
+						// wait until after the end of the xml tag, then look for upper-case letter
+						is_end_clause = 0;
+						end_clause_index = ix;
+						end_clause_after_tag = punct_data;
+					}
 				}
 
 				if(is_end_clause)
@@ -2473,7 +2560,11 @@ if(option_ssml) parag=1;
 					UngetC(c_next);
 					buf[ix] = ' ';
 					buf[ix+1] = 0;
-		
+
+					if(!IsAlpha(c_next))
+					{
+						punct_data &= ~CLAUSE_DOT;
+					}
 					if(nl_count > 1)
 					{
 						if((punct_data == CLAUSE_QUESTION) || (punct_data == CLAUSE_EXCLAMATION))
@@ -2535,6 +2626,10 @@ if(option_ssml) parag=1;
 	if(stressed_word)
 	{
 		ix += utf8_out(CHAR_EMPHASIS, &buf[ix]);
+	}
+	if(end_clause_after_tag)
+	{
+		ix = end_clause_index;  // delete clause-end punctuation
 	}
 	buf[ix] = ' ';
 	buf[ix+1] = 0;

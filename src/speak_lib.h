@@ -507,7 +507,7 @@ const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec);
    The list is terminated by a NULL pointer
 
    If voice_spec is NULL then all voices are listed.
-   If voice spec is give, then only the voices which are compatible with the voice_spec
+   If voice spec is given, then only the voices which are compatible with the voice_spec
    are listed, and they are listed in preference order.
 */
 
