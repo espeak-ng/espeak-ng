@@ -567,7 +567,7 @@ antigen           $1
 antihero          $1
 antilog           $1
 antimatter        $1
-antinomy         ant'In@mI
+antimony          $2
 antioch           $1
 antipathy        ant'Ip@TI
 antiphonal       ant'If@n@L
@@ -1347,6 +1347,7 @@ japan            dZ@pan
 jasmine          dZazmIn
 jesus            dZi:z@s
 joky             dZoUkI
+jour             ZU@  // french
 jukebox          dZu:kb0ks
 july             dZu:l'aI
 
@@ -2606,10 +2607,12 @@ Dinah		daIn@
 Dominic		d0mI2nIk
 Donaghy		d0n'hi:
 Doris		d0rIs
+Dorothy		dO@r@Ti
 Dougall		du:g@L
 Dylan		dIl@n
 Edith		i:dIT
 Elizabeth	I2lIz@b@T
+Emily		EmI2lI
 Emma		Em@
 Emmy		EmI
 Etheridge	ET@-rIdZ

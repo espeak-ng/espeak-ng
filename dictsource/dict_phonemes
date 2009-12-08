@@ -89,7 +89,7 @@ Y:
 *    :    ;    b    C    C2   d    D    
 dZ   f    g    h    j    k    l    m    
 n    N    p    pF   r    s    S    t    
-tS   ts   v    x    z    Z    
+tS   ts   v    w    x    z    Z    
 
 
 Dictionary el_dict
@@ -612,3 +612,16 @@ oi   ong  ou   u    ui   yu
 b    c    d    f    g    h    j    k    
 l    m    n    N    p    r    s    t    
 tS   v    w    z    
+
+
+Dictionary ur_dict
+
+@    a    a:   aI   aU   E    e:   i    
+I    i:   O    o:   U    u:   
+
+:    b    bh   c    ch   d    D    d.   
+dh   dh.  dZ   f    g    gh   H    j    
+J    Jh   k    kh   l    m    n    N    
+p    ph   Q    q    R    r.   s    S    
+s.   t    T    t.   th   th.  v    x    
+z    Z    z.   

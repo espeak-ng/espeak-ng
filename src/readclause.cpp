@@ -92,6 +92,9 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x055e,  // Armenian question
   0x055b,  // Armenian emphasis mark
 
+  0x0b1b,  // Arabic ;
+  0x061f,  // Arabic ?
+
   0x1362,  // Ethiopic period
   0x1363,
   0x1364,
@@ -130,6 +133,9 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_EXCLAMATION + PUNCT_IN_WORD,  // Armenian exclamation
   CLAUSE_QUESTION + PUNCT_IN_WORD,  // Armenian question
   CLAUSE_PERIOD + PUNCT_IN_WORD,  // Armenian emphasis mark
+
+  CLAUSE_SEMICOLON,  // Arabic ;
+  CLAUSE_QUESTION,   // Arabic question mark
 
   CLAUSE_PERIOD,     // Ethiopic period
   CLAUSE_COMMA,      // Ethiopic comma
@@ -570,6 +576,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char* text_
 	char phonemes2[55];
 	char *string1 = (char *)string;
 
+	flags[0] = flags[1] = 0;
 	if(LookupDictList(tr,&string1,phonemes,flags,0,NULL))
 	{
 		SetWordStress(tr, phonemes, flags, -1, 0);
@@ -2406,14 +2413,11 @@ if(option_ssml) parag=1;
 				// Because of an xml tag, we are waiting for the
 				// next non-blank character to decide whether to end the clause
 				// i.e. is dot followed by an upper-case letter?
-				if(c1 == '\n')
-				{
-//					end_clause_after_tag &= ~CLAUSE_DOT;
-				}
 				
 				if(!iswspace(c1))
 				{
-					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower(c1)))
+					if(!IsAlpha(c1) || !iswlower(c1))
+//					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower(c1)))
 					{
 						UngetC(c2);
 						ungot_char2 = c1;

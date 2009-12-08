@@ -279,7 +279,6 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('a','r'):   // Arabic
-	case L('u','r'):   // Urdu
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		break;
@@ -538,7 +537,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
 			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
 			tr->langopts.numbers = NUM_SWAP_TENS;
-			tr->langopts.break_numbers = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+			tr->langopts.break_numbers = 0x14aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
 
 			if(name2 == L('p','a'))
@@ -1032,6 +1031,13 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2;
 			tr->langopts.max_initial_consonants = 2;
 		}
+		break;
+
+	case L('u','r'):   // Urdu
+			tr->letter_bits_offset = OFFSET_ARABIC;
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			tr->langopts.numbers = NUM_SWAP_TENS;
+			tr->langopts.break_numbers = 0x52a8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		break;
 
 	case L('v','i'):  // Vietnamese

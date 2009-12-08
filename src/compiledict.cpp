@@ -690,9 +690,14 @@ static int compile_dictlist_file(const char *path, const char* filename)
 	
 	text_mode = 0;
 
-	sprintf(fname,"%s%s",path,filename);
+	// try with and without '.txt' extension
+	sprintf(fname,"%s%s.txt",path,filename);
 	if((f_in = fopen(fname,"r")) == NULL)
-		return(-1);
+	{
+		sprintf(fname,"%s%s",path,filename);
+		if((f_in = fopen(fname,"r")) == NULL)
+			return(-1);
+	}
 
 	fprintf(f_log,"Compiling: '%s'\n",fname);
 
@@ -859,6 +864,9 @@ static void copy_rule_string(char *string, int &state)
 					break;
 				case 'X':
 					c = RULE_NOVOWELS;
+					break;
+				case 'J':
+					c = RULE_SKIPCHARS;
 					break;
 				case 'L':
 					// expect two digits
@@ -1659,14 +1667,18 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	if(f_log == NULL)
 		f_log = stderr;
 
+	// try with and without '.txt' extension
 	sprintf(path,"%s%s_",dsource,dict_name);
-	sprintf(fname_in,"%srules",path);
-	f_in = fopen_log(fname_in,"r");
-	if(f_in == NULL)
+	sprintf(fname_in,"%srules.txt",path);
+	if((f_in = fopen(fname_in,"r")) == NULL)
 	{
-		if(fname_err)
-			strcpy(fname_err,fname_in);
-		return(-1);
+		sprintf(fname_in,"%srules",path);
+		if((f_in = fopen_log(fname_in,"r")) == NULL)
+		{
+			if(fname_err)
+				strcpy(fname_err,fname_in);
+			return(-1);
+		}
 	}
 
 	sprintf(fname_out,"%s%c%s_dict",path_home,PATHSEP,dict_name);

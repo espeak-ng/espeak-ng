@@ -31,7 +31,7 @@
 
         biz (A     biz,      // bizalmas  etc.
         biedermeier bi:dER2ma:jER2
-_) batthiány bAc:a:n^i
+     _) batthiány  bAc:a:n^i
 
 .group c
         c          ts
@@ -147,7 +147,8 @@ hierar) ch (i      h
   rövi) d (zárlat  d
  sarja) d (zik     d
  nyála) d (z       d
-ren) dsz (erint d|s
+   ren) dsz (erint d|s
+ szaba) d (szájú   d
 
 .group dz
   fogó) dz (kod    ts
@@ -276,6 +277,7 @@ _minde) gy (ik     J:
      e) gy (sínű   J
      e) gy (sor    J
     né) gy (sor    J
+     e) gy (es-egyedül J     //need one J phoneme with this word, not J: phoneme
 
 .group h
         h          h
@@ -291,8 +293,8 @@ _minde) gy (ik     J:
 .group í
         í          i:
         íts        i:tS:
-ítsd i:tSd
-  
+        ítsd       i:tSd
+
      t) í (zen     i
      t) í (zet     i
      v) í (zen     i
@@ -410,9 +412,11 @@ negyve) n (yard    n
   pero) n (jegy    n
      ö) n (járó    n
 tulajdo) n (jog    n
-ko) nn (ektor n //connector word, we spokening one n letter, not two n letter
-
-
+    ko) nn (ektor  n         //connector word, we spokening one n letter, not two n letter
+    me) nj (_S2    n^
+    be) nn (szülött n
+   éle) n (jár     n
+  magá) n (jelleg  n
 
 .group o
         o          o
@@ -453,7 +457,7 @@ ko) nn (ektor n //connector word, we spokening one n letter, not two n letter
      _) richa (rd  R2iCa:
      _) richá (rd  R2iCa:
         reichsmarschall R2EjsmAR2SAl:
-?!2  _) roose (velt R2u:z@
+?!2  _) roose (velt R2u:z
 
 
 .group s
@@ -635,6 +639,12 @@ köhögé) ssz (erű   Ss
     vi) ssz (hang  s
 felelő) ss (ég     S
 égzengé) ssz (erű  Ss
+világo) ssz (ürke  Ss
+motoro) ssz (emüveg Ss
+  bőgé) ssz (erű   Ss
+kavará) ssz (erű   Ss
+   _sa) ssz (eg    Ss
+
 
 .group sz
         sz         s
@@ -796,20 +806,23 @@ passzá) t (szél    t
  épüle) t (sarok   t
   mene) t (sor     t
    skó) t (sapka   t
-lé) t (jogosultsága t
-bérle) t (jegy t
-csapa) t (játék t
-ese) t (jog t
-fejeze) t (jel t
-ké) t (jegyű t
-krike) tt (játék t:
-mene) t (jegy t
-szüne) t (jel t
-ú) t (jelző t
-ú) t (jog t
-gondola) t (jel t
-helyze) t (jel t
-
+    lé) t (jogosultsága t
+ bérle) t (jegy    t
+ csapa) t (játék   t
+   ese) t (jog     t
+fejeze) t (jel     t
+    ké) t (jegyű   t
+ krike) tt (játék  t:
+  mene) t (jegy    t
+ szüne) t (jel     t
+     ú) t (jelző   t
+     ú) t (jog     t
+gondola) t (jel    t
+helyze) t (jel     t
+folyama) t (sáv    t
+   ada) t (szolgáltat t
+    _ú) t (sáv     t
+négyze) t (centi   t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -819,6 +832,7 @@ helyze) t (jel t
     já) tsz        ts:
     já) tssz       ts:
     já) tsz (m     ts
+    já) tsz (hat   ts
         tsz (_S3   ts:
         tsz (é     ts:
         tsz (o     ts:
@@ -884,6 +898,7 @@ indula) tsz (ó     t|s
 
 .group ú
         ú          u:
+     h) ú (szan    u
 
 .group ü
         ü          y
@@ -893,6 +908,7 @@ indula) tsz (ó     t|s
 
 .group ű
         ű          y:
+     t) ű (zijáték y
 
 .group v
         v          v
@@ -993,16 +1009,18 @@ találko) z (t      s
   nehé) z (súly    z
    raj) z (szeg    z
    raj) z (szög    z
-pén) z (t s
-rende) z (ked s
-kocká) z (tat s
-hibá) z (tat s
-különbö) z (tet s
-válto) z (tat s
-válto) z (tass s
-tájéko) z (tat s
-tájéko) z (tass s 
-
+   pén) z (t       s
+ rende) z (ked     s
+ kocká) z (tat     s
+  hibá) z (tat     s
+különbö) z (tet    s
+ válto) z (tat     s
+ válto) z (tass    s
+tájéko) z (tat     s
+tájéko) z (tass    s
+    mé) z (szín    z
+    bi) z (tat     s
+    rá) z (kód     s
 
 
 .group

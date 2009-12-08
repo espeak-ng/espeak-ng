@@ -1648,7 +1648,7 @@ static char *DecodeRule(const char *group_chars, int group_length, char *rule)
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','#','S','D','Z','A','L',' ',' ',' ',' ',' ','N','K','V',' ','T','X','?','W'};
+			'@','&','%','+','#','S','D','Z','A','L','!',' ','?','?','J','N','K','V','?','T','X','?','W'};
 
 	static char symbols_lg[] = {'A','B','C','H','F','G','Y'};
 
@@ -1998,7 +1998,8 @@ static void MatchRule(Translator *tr, char *word[], int group_length, char *rule
 
 				if((letter == rb) || ((letter==(unsigned char)REPLACED_E) && (rb=='e')))
 				{
-					add_points = 21;
+					if((letter & 0xc0) != 0x80)
+						add_points = 21;    // don't add point for non-initial UTF-8 bytes
 					consumed++;
 				}
 				else
@@ -2148,6 +2149,27 @@ static void MatchRule(Translator *tr, char *word[], int group_length, char *rule
 					}
 					break;
 
+				case RULE_SKIPCHARS:
+					{
+						// Used for lang=Tamil, used to match on the next word after an unknown word ending
+						// only look until the end of the word (including the end-of-word marker)
+						// Jx  means 'skip characters until x', where 'x' may be '_' for 'end of word'
+						char *p = post_ptr + letter_xbytes;
+						char *p2 = p;
+						int rule_w;            // skip characters until this
+						utf8_in(&rule_w,rule);
+						while((letter_w != rule_w) && (letter_w != RULE_SPACE))
+						{
+							p2 = p;
+							p += utf8_in(&letter_w,p);
+						}
+						if(letter_w == rule_w)
+						{
+							post_ptr = p2;
+						}
+					}
+					break;
+
 				case RULE_INC_SCORE:
 					add_points = 20;      // force an increase in points
 					break;
@@ -2180,10 +2202,11 @@ static void MatchRule(Translator *tr, char *word[], int group_length, char *rule
 				default:
 					if(letter == rb)
 					{
-						if(letter == RULE_SPACE)
+						if((letter & 0xc0) != 0x80)
+						{
+							// not for non-initial UTF-8 bytes
 							add_points = (21-distance_right);
-						else
-							add_points = (21-distance_right);
+						}
 					}
 					else
 						failed = 1;
@@ -2348,7 +2371,13 @@ static void MatchRule(Translator *tr, char *word[], int group_length, char *rule
 						if(letter == RULE_SPACE)
 							add_points = 4;
 						else
-							add_points = (21-distance_left);
+						{
+							if((letter & 0xc0) != 0x80)
+							{
+								// not for non-initial UTF-8 bytes
+								add_points = (21-distance_left);
+							}
+						}
 					}
 					else
 						failed = 1;

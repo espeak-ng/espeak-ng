@@ -813,6 +813,8 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	prev = 0;
 	subtract = 0x7fff;
 	ph_out[0] = 0;
+	flags[0] = 0;
+	flags[1] = 0;
 
 	if((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER))
 		return(0);

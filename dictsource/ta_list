@@ -206,7 +206,7 @@ tamil	தமிழ்	$text
 போனஸ்	$alt
 போகி	$alt
 பாபா 	ba:ba:
-புத்த	buddV
+//புத்த	buddV
 
 
 	// initial த as [d]
@@ -246,6 +246,9 @@ tamil	தமிழ்	$text
 கட	$alt
 கோ	$alt
 கதி	$alt
+கோபி 	$alt
+கச்சாமி	$alt
+குரு	$alt
 
 
 பப	pVpV

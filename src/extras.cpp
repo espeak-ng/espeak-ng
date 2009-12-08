@@ -1344,14 +1344,19 @@ void FormatDictionary(const char *dictname)
 	const int tab2 = 18;
 	const int tab3 = 28;
 
-	sprintf(fname_in,"%s/%s_rules",path_dsource,dictname);
-	sprintf(fname_out,"%s_formatted",fname_in);
-
+	// try with and without '.txt' extension
+	sprintf(fname_in,"%s/%s_rules.txt",path_dsource,dictname);
 	if((f_in = fopen(fname_in,"r")) == NULL)
 	{
-		wxLogError(_T("Can't open rules file: ") + wxString(fname_in,wxConvLocal));
-		return;
+		sprintf(fname_in,"%s/%s_rules",path_dsource,dictname);
+		if((f_in = fopen(fname_in,"r")) == NULL)
+		{
+			wxLogError(_T("Can't open rules file: ") + wxString(fname_in,wxConvLocal));
+			return;
+		}
 	}
+
+	sprintf(fname_out,"%s/%s_rules_formatted",path_dsource,dictname);
 	if((f_out = fopen(fname_out,"w")) == NULL)
 	{
 		wxLogError(_T("Can't write to file: ") + wxString(fname_out,wxConvLocal));

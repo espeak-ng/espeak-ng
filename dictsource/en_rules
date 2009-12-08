@@ -4004,7 +4004,6 @@
          r) ouge         u:Z
          _) ough         O:
             ough (t      O:
-            ough (*      OI
             ough         oU
          b) ough         aU
          b) ough (t      O:
@@ -4447,6 +4446,7 @@
          _) re (emP2     r%i:
          _) re (enP2     r%i:
          _) re (eqP2     r%i:
+         _) re (esP2     r%i:
          _) re (exP2     r%i:
             referend     rEf@r'End
             re (fug      rE
@@ -5102,7 +5102,7 @@
 ?5      ss) wor (d       wVR
             wor (th_     w3:
 ?5          wor (th_     wVR
-         s) w (ick
+        As) w (ick
 
 .group x
          _) x (C         Eks
@@ -5123,7 +5123,6 @@
          _) y (n@        V
          _) y (s@        V
          C) y (abl       I2
-            y (y
             y (C         I
          C) y            %I
             y (ar        j

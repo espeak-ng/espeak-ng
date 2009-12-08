@@ -2085,6 +2085,7 @@ wxString CompileAllDictionaries()
 	wxString filename;
 	wxFileName fname;
 	wxString dictstr;
+	wxString filetype;
 	wxString report = _T("");
 	int err;
 	int errors = 0;
@@ -2135,18 +2136,32 @@ wxString CompileAllDictionaries()
 		fprintf(f_phused,"Phonemes which are used in the *_rules and *_list files\n");
 	}
 
-	bool cont = dir.GetFirst(&filename, _T("*_rules"), wxDIR_FILES);
+	bool cont = dir.GetFirst(&filename, _T("*_rules*"), wxDIR_FILES);
 	while ( cont )
 	{
 		fname = wxFileName(filename);
+		filetype = fname.GetName().AfterLast('_');
+		if((filetype != _T("rules")) && (filetype != _T("rules.txt")))
+		{
+			cont = dir.GetNext(&filename);
+			continue;
+		}
+
 		dictstr = fname.GetName().BeforeLast('_');
 		strcpy(dictname,dictstr.mb_str(wxConvLocal));
+
 		dict_count++;
 		strcpy(voicename,dictname);
 
 		// read the *_rules file to see if a phoneme table is specified though a voice name
-		sprintf(path,"%s%s_rules",path_dsource,dictname);
-		if((f_in = fopen(path,"r")) != NULL)
+		sprintf(path,"%s%s_rules.txt",path_dsource,dictname);
+		if((f_in = fopen(path,"r")) == NULL)
+		{
+			sprintf(path,"%s%s_rules",path_dsource,dictname);
+			f_in = fopen(path,"r");
+		}
+
+		if(f_in != NULL)
 		{
 			unsigned int ix;
 			unsigned int c;

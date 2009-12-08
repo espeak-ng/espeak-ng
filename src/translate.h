@@ -135,18 +135,19 @@
 #define RULE_LINENUM		8  // next 2 bytes give a line number, for debugging purposes
 
 #define RULE_SPACE		32   // ascii space
-#define RULE_SYLLABLE	9
-#define RULE_STRESSED	10
-#define RULE_DOUBLE		11
-#define RULE_INC_SCORE	12
-#define RULE_DEL_FWD		13
-#define RULE_ENDING		14
+#define RULE_SYLLABLE	9    // @
+#define RULE_STRESSED	10   // &
+#define RULE_DOUBLE		11   // %
+#define RULE_INC_SCORE	12   // +
+#define RULE_DEL_FWD		13   // #
+#define RULE_ENDING		14   // S
 #define RULE_DIGIT		15   // D digit
 #define RULE_NONALPHA	16   // Z non-alpha
 #define RULE_LETTERGP   17   // A B C H F G Y   letter group number
 #define RULE_LETTERGP2  18   // L + letter group number
-#define RULE_CAPITAL    19   //    word starts with a capital letter
+#define RULE_CAPITAL    19   // !   word starts with a capital letter
 #define RULE_REPLACEMENTS 20  // section for character replacements
+#define RULE_SKIPCHARS  23   // J
 #define RULE_NO_SUFFIX  24   // N
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
