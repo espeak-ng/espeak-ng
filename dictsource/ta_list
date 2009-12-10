@@ -205,8 +205,8 @@ tamil	தமிழ்	$text
 பேதம்	$alt
 போனஸ்	$alt
 போகி	$alt
+பாலா	$alt
 பாபா 	ba:ba:
-//புத்த	buddV
 
 
 	// initial த as [d]
@@ -229,6 +229,7 @@ tamil	தமிழ்	$text
 தாட்சண்யம்	$alt
 தனம்	$alt
 திக்கற்ற	$alt
+தானு	$alt
 
 
 கக	$alt	// initial க as [g]

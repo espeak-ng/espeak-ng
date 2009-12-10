@@ -417,6 +417,9 @@ tulajdo) n (jog    n
     be) nn (szülött n
    éle) n (jár     n
   magá) n (jelleg  n
+  elle) n (játék   n
+  elle) n (javallt n
+    fé) ny (jel    n^
 
 .group o
         o          o
@@ -909,6 +912,7 @@ indula) tsz (ó     t|s
 .group ű
         ű          y:
      t) ű (zijáték y
+    _t) ű (nés     y         //If this word is a single word, need y phoneme, not y: phoneme. For example the tűnés word, but not need this rule with eltűnés word.
 
 .group v
         v          v
@@ -1021,6 +1025,8 @@ tájéko) z (tass    s
     mé) z (szín    z
     bi) z (tat     s
     rá) z (kód     s
+   raj) z (szak    z
+   hiú) z (szem    z
 
 
 .group

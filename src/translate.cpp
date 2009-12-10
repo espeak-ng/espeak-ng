@@ -819,7 +819,7 @@ if((wmark > 0) && (wmark < 8))
 			emphasize_allcaps = 0;
 			wordx += TranslateLetter(tr, wordx, unpron_phonemes, 0);
 			posn++;
-			if(phonemes[0] == phonSWITCH)
+			if(unpron_phonemes[0] == phonSWITCH)
 			{
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,unpron_phonemes);
