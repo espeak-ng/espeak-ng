@@ -288,7 +288,6 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 	int  x;
 	unsigned short *spect_data;
 
-	file_format = file_format_type;
    wxDataInputStream s(stream);
 
 	time = s.ReadDouble();
@@ -299,10 +298,10 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 	markers = s.Read16();
 	amp_adjust = s.Read16();
 
-	if(file_format == 2)
+	if(file_format_type == 2)
 	{
-		s.Read16();  // spare
-		s.Read16();  // spare
+		ix = s.Read16();  // spare
+		ix = s.Read16();  // spare
 	}
 
 	for(ix=0; ix<N_PEAKS; ix++)
@@ -315,7 +314,7 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 		peaks[ix].pkwidth = s.Read16();
 		peaks[ix].pkright = s.Read16();
 
-		if(file_format == 2)
+		if(file_format_type == 2)
 		{
 			peaks[ix].klt_bw = s.Read16();
 			peaks[ix].klt_ap = s.Read16();
@@ -323,7 +322,7 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 		}
 	}
 
-	if(file_format > 0)
+	if(file_format_type > 0)
 	{
 		for(ix=0; ix<N_KLATTP2; ix++)
 		{
@@ -351,8 +350,8 @@ int SpectFrame::Load(wxInputStream& stream, int file_format_type)
 }  //  End of SpectFrame::Load
 
 
-int SpectFrame::Save(wxOutputStream& stream)
-{//=========================================
+int SpectFrame::Save(wxOutputStream& stream, int file_format_type)
+{//===============================================================
 	int ix;
 
   	wxDataOutputStream s(stream);
@@ -365,7 +364,7 @@ int SpectFrame::Save(wxOutputStream& stream)
 	s.Write16(markers);
 	s.Write16(amp_adjust);
 
-	if(file_format == 2)
+	if(file_format_type == 2)
 	{
 		s.Write16(0);  // spare
 		s.Write16(0);  // spare
@@ -381,7 +380,7 @@ int SpectFrame::Save(wxOutputStream& stream)
 		s.Write16(peaks[ix].pkwidth);
 		s.Write16(peaks[ix].pkright);
 
-		if(file_format == 2)
+		if(file_format_type == 2)
 		{
 			s.Write16(peaks[ix].klt_bw);
 			s.Write16(peaks[ix].klt_ap);
@@ -389,7 +388,7 @@ int SpectFrame::Save(wxOutputStream& stream)
 		}
 	}
 
-	if(file_format > 0)
+	if(file_format_type > 0)
 	{
 		for(ix=0; ix<N_KLATTP2; ix++)
 		{

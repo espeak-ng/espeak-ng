@@ -890,7 +890,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 		c2 = c3 << 24;
 		c2 = c2 >> 16;  // sign extend
 
-		sample = (c1 & 0xff) + c2;;
+		sample = (c1 & 0xff) + c2;
 
 		if(sample > max)
 			max = sample;
@@ -2210,7 +2210,7 @@ wxString CompileAllDictionaries()
 	if(f_phused != NULL)
 		fclose(f_phused);
 
-	LoadVoice(save_voice_name,1);
+	LoadVoiceVariant(save_voice_name,0);
 
 	if(errors == 0)
 		return(wxString::Format(_T(" Compiled %d dictionaries"),dict_count));

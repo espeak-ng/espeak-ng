@@ -277,9 +277,9 @@ void FormantDlg::GetValues(SpectSeq *spectseq, int frame)
 		}
 	}
 
-	for(ix=1; ix < 6; ix++)
+	for(ix=1; ix < 7; ix++)
 	{
-		if(ix < 3)
+		if(ix < 4)
 		{
 			num = 0;
 			value = t_klt_bw[ix]->GetValue();

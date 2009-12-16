@@ -754,6 +754,7 @@ void WavegenInit(int rate, int wavemult_fact)
 
 #ifdef LOG_FRAMES
 remove("log-espeakedit");
+remove("log-klatt");
 #endif
 }  // end of WavegenInit
 

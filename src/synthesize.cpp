@@ -553,7 +553,8 @@ static short vcolouring[N_VCOLOUR][5] = {
 
 if(voice->klattv[0])
 {
-	fr->klattp[KLATT_AV] = 53;   // reduce the amplituide of the start of a vowel
+//	fr->klattp[KLATT_AV] = 53;   // reduce the amplituide of the start of a vowel
+   fr->klattp[KLATT_AV] = seq[1].frame->klattp[KLATT_AV] - 6;
 }
 		if(f2 != 0)
 		{

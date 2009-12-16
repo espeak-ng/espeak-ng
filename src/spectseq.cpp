@@ -41,6 +41,7 @@ extern int Wavegen_Klatt(int resume);
 extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 extern int Wavegen();
 extern void CloseWaveFile2();
+extern void KlattReset();
 extern FILE *f_wave;
 
 static int frame_width;
@@ -114,11 +115,9 @@ void MakeWaveFile(int synthesis_method)
 		out_ptr = out_start = wav_outbuf;
 		out_end = &wav_outbuf[sizeof(wav_outbuf)];
 
-#ifdef KLATT_TEST
 		if(synthesis_method == 1)
 			result = Wavegen_Klatt(resume);
 		else
-#endif
 			result = Wavegen();
 
 		if(f_wave != NULL)
@@ -559,9 +558,12 @@ int SpectSeq::Save(wxOutputStream &stream, int selection)
 	
 	wxDataOutputStream s(stream);
 
+file_format = 2;   // inclue Klatt data in new saves
+
 	s.Write32(FILEID1_SPECTSEQ);
 	if(file_format == 2)
 		s.Write32(FILEID2_SPECTSQ2);
+	else
 	if(file_format == 1)
 		s.Write32(FILEID2_SPECTSEK);
 	else
@@ -576,7 +578,7 @@ int SpectSeq::Save(wxOutputStream &stream, int selection)
 	{
 		if((selection==0) || frames[ix]->selected)
 		{
-			if(frames[ix]->Save(stream) != 0) return(1);
+			if(frames[ix]->Save(stream, file_format) != 0) return(1);
 		}
 	}
 	return(0);
@@ -806,19 +808,12 @@ void SpectSeq::CopyDown(int frame, int direction)
 {//==============================================
 // Copy peaks down from next earlier/later keyframe
 	int  f1;
-	int  pk;
 
 	for(f1=frame+direction; f1>=0 && f1<numframes; f1 += direction)
 	{
 		if(frames[f1]->keyframe)
 		{
-			for(pk=0; pk<N_PEAKS; pk++)
-			{
-				frames[frame]->peaks[pk].pkfreq = frames[f1]->peaks[pk].pkfreq;
-				frames[frame]->peaks[pk].pkheight = frames[f1]->peaks[pk].pkheight;
-				frames[frame]->peaks[pk].pkwidth = frames[f1]->peaks[pk].pkwidth;
-				frames[frame]->peaks[pk].pkright = frames[f1]->peaks[pk].pkright;
-			}
+			memcpy(frames[frame]->peaks, frames[f1]->peaks, sizeof(frames[frame]->peaks));
 			memcpy(frames[frame]->klatt_param, frames[f1]->klatt_param, sizeof(frames[frame]->klatt_param));
 			break;
 		}
@@ -928,10 +923,19 @@ void PeaksToFrame(SpectFrame *sp1, peak_t *pks, frame_t *fr)
 	int  ix;
 	int  x;
 
+	fr->frflags = FRFLAG_KLATT;
+
 	for(ix=0; ix < 8; ix++)
 	{
 		if(ix < 7)
+		{
 			fr->ffreq[ix] = pks[ix].pkfreq;
+			fr->klatt_ap[ix] = pks[ix].klt_ap;
+			fr->klatt_bp[ix] = pks[ix].klt_bp/2;
+		}
+
+		if(ix < 4)
+			fr->bw[ix] = pks[ix].klt_bw/2;
 
 		fr->fheight[ix] = pks[ix].pkheight >> 6;
 		if(ix < 6)
@@ -953,6 +957,11 @@ void PeaksToFrame(SpectFrame *sp1, peak_t *pks, frame_t *fr)
 	{
 		fr->klattp[ix] = sp1->klatt_param[ix];
 	}
+	fr->klattp[KLATT_FNZ] = sp1->klatt_param[KLATT_FNZ]/2;
+	if(fr->fheight[1] == 0)
+	{
+		fr->klattp[KLATT_AV] -= 10;   // fade in/out
+	}
 }
 
 static void SetSynth_mS(int length_mS, SpectFrame *sp1, SpectFrame *sp2, peak_t *pks1, peak_t *pks2, int control)
@@ -962,9 +971,11 @@ static void SetSynth_mS(int length_mS, SpectFrame *sp1, SpectFrame *sp2, peak_t 
 	PeaksToFrame(sp1,pks1,&fr1);
 	PeaksToFrame(sp2,pks2,&fr2);
 
-#ifdef KLATT_TEST
-//		SetSynth_Klatt((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice, control);    // convert mS to samples
-#endif
+	if(voice->klattv[0])
+	{
+		SetSynth_Klatt((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice, control);    // convert mS to samples
+	}
+	else
 	{
 		SetSynth((length_mS * samplerate) / 1000, 0, &fr1, &fr2, voice);    // convert mS to samples
 	}
@@ -992,9 +1003,12 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	peak_t peaks2[N_PEAKS];
 	int synthesizer_type = 0;
 
-#ifdef KLATT_TEST
-KlattInit();
-#endif
+	if(voice->klattv[0])
+	{
+		synthesizer_type = 1;
+		KlattReset();
+	}
+
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	if(numframes==0) return;
@@ -1036,12 +1050,6 @@ KlattInit();
 		lfactor = 1;
 	}
 
-//	if((start==end) || (total_length == 0))
-//	{
-//		sp1->MakeWaveF(1, pitch, amplitude, duration);
-//		return;
-//	}
-
 	len_samples = int(((total_length * lfactor + 50) * samplerate) / 1000);
 	SetPitch(len_samples,pitch.env,9,44);
 
@@ -1066,14 +1074,8 @@ KlattInit();
 
 				if(first)
 				{
-					if(synthesizer_type == 1)
-					{
-						memcpy(peaks0,peaks1,sizeof(peaks0));
-					}
-					else
-					{
-						PeaksZero(peaks1,peaks0);  // fade in
-					}
+					PeaksZero(peaks1,peaks0);  // fade in
+
 					SetSynth_mS(20,sp1,sp1,peaks0,peaks1,0);
 					MakeWaveFile(synthesizer_type);
 					first=0;
@@ -1086,14 +1088,8 @@ KlattInit();
 		}
 	}
 
-	if(synthesizer_type == 1)
-	{
-		memcpy(peaks0,peaks2,sizeof(peaks0));
-	}
-	else
-	{
-		PeaksZero(peaks2,peaks0);  // fade out
-	}
+	PeaksZero(peaks2,peaks0);  // fade out
+
 	SetSynth_mS(30,sp2,sp2,peaks2,peaks0,2);
 	MakeWaveFile(synthesizer_type);
 
@@ -1126,9 +1122,12 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	char *fname_speech;
 	int synthesizer_type = 0;
 
-#ifdef KLATT_TEST
-KlattInit();
-#endif
+	if(voice->klattv[0])
+	{
+		synthesizer_type = 1;
+		KlattReset();
+	}
+
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	length = duration;
@@ -1149,19 +1148,12 @@ KlattInit();
 	{
 		memcpy(peaks1,peaks,sizeof(peaks1));
 
-		if(synthesizer_type == 0)
+		for(ix=0; ix<N_PEAKS; ix++)
 		{
-			for(ix=0; ix<N_PEAKS; ix++)
-			{
-				y = peaks1[ix].pkheight * amp_adjust * amplitude;
-				peaks1[ix].pkheight = y/10000;
-			}
-			PeaksZero(peaks1,peaks0);
+			y = peaks1[ix].pkheight * amp_adjust * amplitude;
+			peaks1[ix].pkheight = y/10000;
 		}
-		else
-		{
-			memcpy(peaks0,peaks1,sizeof(peaks0));
-		}
+		PeaksZero(peaks1,peaks0);
 	
 		SetSynth_mS(20,this,this,peaks0,peaks1,0);
 		MakeWaveFile(synthesizer_type);

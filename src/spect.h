@@ -135,7 +135,7 @@ public:
    int Import(wxInputStream &stream);
    int ImportSPC2(wxInputStream &stream, float &time_acc);
 	int Load(wxInputStream &stream, int file_format_type);
-	int Save(wxOutputStream &stream);
+	int Save(wxOutputStream &stream, int file_format_type);
    void Draw(wxDC &dc, int offy, int frame_width, double scalex, double scaley);
 
 	void ZeroPeaks();
@@ -161,7 +161,6 @@ public:
    int  nx;
    int  markers;
 	int  max_y;
-	int  file_format;  // 0=eSpeak, 1=Klatt, 2=eSpeak+Klatt
    USHORT *spect;    // sqrt of harmonic amplitudes,  1-nx at 'pitch'
 
 	short  klatt_param[N_KLATTP2];
