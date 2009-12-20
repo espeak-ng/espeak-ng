@@ -720,7 +720,6 @@ void WavegenInit(int rate, int wavemult_fact)
 	max_hval = 0;
 
 	wdata.amplitude = 32;
-	wdata.prev_was_synth = 0;
 
 	for(ix=0; ix<N_EMBEDDED_VALUES; ix++)
 		embedded_value[ix] = embedded_default[ix];
@@ -1355,17 +1354,20 @@ int Wavegen()
 			if(wdata.mix_wave_scale == 0)
 			{
 				// a 16 bit sample
-				c = wdata.mix_wavefile[wdata.mix_wavefile_ix+1];
-				sample = wdata.mix_wavefile[wdata.mix_wavefile_ix] + (c * 256);
+				c = wdata.mix_wavefile[wdata.mix_wavefile_ix+wdata.mix_wavefile_offset+1];
+				sample = wdata.mix_wavefile[wdata.mix_wavefile_ix+wdata.mix_wavefile_offset] + (c * 256);
 				wdata.mix_wavefile_ix += 2;
 			}
 			else
 			{
 				// a 8 bit sample, scaled
-				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
+				sample = (signed char)wdata.mix_wavefile[wdata.mix_wavefile_offset+wdata.mix_wavefile_ix++] * wdata.mix_wave_scale;
 			}
 			z2 = (sample * wdata.amplitude_v) >> 10;
 			z2 = (z2 * wdata.mix_wave_amp)/32;
+
+			if((wdata.mix_wavefile_ix + wdata.mix_wavefile_offset) >= wdata.mix_wavefile_max)  // reached the end of available WAV data
+				wdata.mix_wavefile_offset -= (wdata.mix_wavefile_max*3)/4;
 		}
 
 		z1 = z2 + (((total>>8) * amplitude2) >> 13);
@@ -1864,14 +1866,14 @@ int WavegenFill(int fill_zeros)
 				echo_complete -= length;
 			}
 			wdata.n_mix_wavefile = 0;
-			wdata.prev_was_synth = 0;
+			KlattReset(1);
 			result = PlaySilence(length,resume);
 			break;
 
 		case WCMD_WAVE:
 			echo_complete = echo_length;
 			wdata.n_mix_wavefile = 0;
-			wdata.prev_was_synth = 0;
+			KlattReset(1);
 			result = PlayWave(length,resume,(unsigned char*)q[2], q[3] & 0xff, q[3] >> 8);
 			break;
 
@@ -1879,11 +1881,15 @@ int WavegenFill(int fill_zeros)
 			// wave file to be played at the same time as synthesis
 			wdata.mix_wave_amp = q[3] >> 8;
 			wdata.mix_wave_scale = q[3] & 0xff;
+			wdata.n_mix_wavefile = (length & 0xffff);
+			wdata.mix_wavefile_max = (length >> 16) & 0xffff;
 			if(wdata.mix_wave_scale == 0)
-				wdata.n_mix_wavefile = length*2;
-			else
-				wdata.n_mix_wavefile = length;
+			{
+				wdata.n_mix_wavefile *= 2;
+				wdata.mix_wavefile_max *= 2;
+			}
 			wdata.mix_wavefile_ix = 0;
+			wdata.mix_wavefile_offset = 0;
 			wdata.mix_wavefile = (unsigned char *)q[2];
 			break;
 

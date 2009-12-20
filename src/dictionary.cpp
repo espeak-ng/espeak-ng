@@ -36,7 +36,6 @@
 #include "translate.h"
 
 
-
 int dictionary_skipwords;
 char dictionary_name[40];
 
@@ -482,7 +481,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 	
-		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->spect == 0))
+		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->program == 0))
 		{
 			if(ph->std_length > 1)
 				*outptr++ = stress_chars[ph->std_length];
@@ -847,26 +846,26 @@ return(0);
 
 
 
-static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char *vowel_stress, int &vowel_count, int &stressed_syllable, int control)
-{//====================================================================================================================================================
+static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *vowel_stress, int &vowel_count, int &stressed_syllable, int control)
+{//=================================================================================================================================================
 // control = 1, set stress to 1 for forced unstressed vowels
 	unsigned char phcode;
 	PHONEME_TAB *ph;
 	unsigned char *ph_out = phonemes;
 	int count = 1;
-	int max_stress = 0;
+	int max_stress = -1;
 	int ix;
 	int j;
-	int stress = 0;
+	int stress = -1;
 	int primary_posn = 0;
 
-	vowel_stress[0] = 0;
+	vowel_stress[0] = 1;
 	while(((phcode = *phonemes++) != 0) && (count < (N_WORD_PHONEMES/2)-1))
 	{
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 
-		if((ph->type == phSTRESS) && (ph->spect == 0))
+		if((ph->type == phSTRESS) && (ph->program == 0))
 		{
 			/* stress marker, use this for the following vowel */
 
@@ -876,7 +875,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 				j = count - 1;
 				while((j > 0) && (stressed_syllable == 0) && (vowel_stress[j] < 4))
 				{
-					if(vowel_stress[j] != 1)
+					if((vowel_stress[j] != 0) && (vowel_stress[j] != 1))
 					{
 						// don't promote a phoneme which must be unstressed
 						vowel_stress[j] = 4;
@@ -920,11 +919,11 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 				max_stress = stress;
 			}
 
-			if((stress == 0) && (control & 1) && (ph->phflags & phUNSTRESSED))
+			if((stress < 0) && (control & 1) && (ph->phflags & phUNSTRESSED))
 				vowel_stress[count] = 1;   /* weak vowel, must be unstressed */
 
 			count++;
-			stress = 0;
+			stress = -1;
 		}
 		else
 		if(phcode == phonSYLLABIC)
@@ -937,7 +936,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 
 		*ph_out++ = phcode;
 	}
-	vowel_stress[count] = 0;
+	vowel_stress[count] = 1;
 	*ph_out = 0;
 
 	/* has the position of the primary stress been specified by $1, $2, etc? */
@@ -959,7 +958,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 			if(vowel_stress[ix] == 4)
 			{
 				if(tr->langopts.stress_flags & 0x20000)
-					vowel_stress[ix] = 0;
+					vowel_stress[ix] = 1;
 				else
 					vowel_stress[ix] = 3;
 			}
@@ -980,7 +979,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, unsigned char
 
 
 
-static char stress_phonemes[] = {phonSTRESS_U, phonSTRESS_D, phonSTRESS_2, phonSTRESS_3,
+static char stress_phonemes[] = {phonSTRESS_D, phonSTRESS_U, phonSTRESS_2, phonSTRESS_3,
 		phonSTRESS_P, phonSTRESS_P2, phonSTRESS_TONIC};
 
 
@@ -992,7 +991,7 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	int  vowel_count;              // num of vowels + 1
 	int  stressed_syllable=0;      // position of stressed syllable
 	unsigned char phonetic[N_WORD_PHONEMES];
-	unsigned char vowel_stress[N_WORD_PHONEMES/2];
+	signed char vowel_stress[N_WORD_PHONEMES/2];
 
 	strcpy((char *)phonetic,word);
 	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 0);
@@ -1026,8 +1025,8 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 	{
 		if((phoneme_tab[*p]->type == phVOWEL) && !(phoneme_tab[*p]->phflags & phNONSYLLABIC))
 		{
-			if(vowel_stress[ix] != 0)
-				*word++ = stress_phonemes[vowel_stress[ix]];
+			if((vowel_stress[ix] == 0) || (vowel_stress[ix] > 1))
+				*word++ = stress_phonemes[(unsigned char)vowel_stress[ix]];
 
 			ix++;
 		}
@@ -1073,7 +1072,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	int done;
 	int stressflags;
 
-	unsigned char vowel_stress[N_WORD_PHONEMES/2];
+	signed char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_weight[N_WORD_PHONEMES/2];
 	char vowel_length[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
@@ -1116,12 +1115,15 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	}
 
 	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 1);
-
-	if((max_stress == 0) && (tr->langopts.stress_flags & 1) && (vowel_count == 2))
+	if(max_stress < 0)
 	{
-		// option: don't stress monosyllables except at end-of-clause
-		vowel_stress[1] = 1;
-		dictionary_flags[0] |= FLAG_STRESS_END2;
+		if((tr->langopts.stress_flags & 1) && (vowel_count == 2))
+		{
+			// lang=fr: don't stress monosyllables except at end-of-clause
+			vowel_stress[1] = 0;
+			dictionary_flags[0] |= FLAG_STRESS_END2;
+		}
+		max_stress = 0;
 	}
 
 	// heavy or light syllables
@@ -1233,7 +1235,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 					}
 				}
 
-				if(vowel_stress[stressed_syllable] == 1)
+				if((vowel_stress[stressed_syllable] == 0) || (vowel_stress[stressed_syllable] == 1))
 				{
 					// but this vowel is explicitly marked as unstressed
 					if(stressed_syllable > 1)
@@ -1248,7 +1250,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			}
 
 			// only set the stress if it's not already marked explicitly
-			if(vowel_stress[stressed_syllable] == 0)
+			if(vowel_stress[stressed_syllable] < 0)
 			{
 				// don't stress if next and prev syllables are stressed
 				if((vowel_stress[stressed_syllable-1] < 4) || (vowel_stress[stressed_syllable+1] < 4))
@@ -1267,7 +1269,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			while(stressed_syllable > 0)
 			{
 				// find the last vowel which is not unstressed
-				if(vowel_stress[stressed_syllable] == 0)
+				if(vowel_stress[stressed_syllable] < 0)
 				{
 					vowel_stress[stressed_syllable] = 4;
 					break;
@@ -1329,7 +1331,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			// find the heaviest syllable, excluding the final syllable
 			for(ix = 1; ix < (vowel_count-1); ix++)
 			{
-				if(vowel_stress[ix] == 0)
+				if(vowel_stress[ix] < 0)
 				{
 					if((wt = syllable_weight[ix]) >= max_weight)
 					{
@@ -1377,7 +1379,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	case 9:  // mark all as stressed
 		for(ix=1; ix<vowel_count; ix++)
 		{
-			if(vowel_stress[ix] == 0)
+			if(vowel_stress[ix] < 0)
 				vowel_stress[ix] = 4;
 		}
 		break;
@@ -1399,7 +1401,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			vowel_stress[1] = 3;
 	}
 
-	if((stressflags & 0x2000) && (vowel_stress[1] == 0))
+	if((stressflags & 0x2000) && (vowel_stress[1] < 0))
 	{
 		// If there is only one syllable before the primary stress, give it a secondary stress
 		if((vowel_count > 2) && (vowel_stress[2] >= 4))
@@ -1411,7 +1413,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	done = 0;
 	for(v=1; v<vowel_count; v++)
 	{
-		if(vowel_stress[v] == 0)
+		if(vowel_stress[v] < 0)
 		{
 			if((stressflags & 0x10) && (stress < 4) && (v == vowel_count-1))
 			{
@@ -1541,33 +1543,33 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 				if((v > 1) && (max_stress >= 4) && (stressflags & 4) && (v == (vowel_count-1)))
 				{
 					// option: mark unstressed final syllable as diminished
-					v_stress = 1;
+					v_stress = 0;
 				}
 				else
 				if((stressflags & 2) || (v == 1) || (v == (vowel_count-1)))
 				{
 					// first or last syllable, or option 'don't set diminished stress'
-					v_stress = 0;
+					v_stress = 1;
 				}
 				else
 				if((v == (vowel_count-2)) && (vowel_stress[vowel_count-1] <= 1))
 				{
 					// penultimate syllable, followed by an unstressed final syllable
-					v_stress = 0;
+					v_stress = 1;
 				}
 				else
 				{
 					// unstressed syllable within a word
-					if((vowel_stress[v-1] != 1) || ((stressflags & 0x10000) == 0))
+					if((vowel_stress[v-1] < 0) || ((stressflags & 0x10000) == 0))
 					{
-						v_stress = 1;      /* change from 0 (unstressed) to 1 (diminished stress) */
+						v_stress = 0;      /* change to 0 (diminished stress) */
 						vowel_stress[v] = v_stress;
 					}
 				}
 			}
 
-			if(v_stress > 0)
-				*output++ = stress_phonemes[v_stress];  // mark stress of all vowels except 0 (unstressed)
+			if((v_stress == 0) || (v_stress > 1))
+				*output++ = stress_phonemes[v_stress];  // mark stress of all vowels except 1 (unstressed)
 
 
 			if(vowel_stress[v] > max_stress)
@@ -2830,39 +2832,39 @@ void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags)
 
 // common letter pairs, encode these as a single byte
 static const short pairs_ru[] = { 
-0x010c, //  ла   21052  0x23
-0x010e, //  на   18400
-0x0113, //  та   14254
-0x0301, //  ав   31083
-0x030f, //  ов   13420
-0x060e, //  не   21798
-0x0611, //  ре   19458
-0x0903, //  ви   16226
-0x0b01, //  ак   14456
-0x0b0f, //  ок   17836
-0x0c01, //  ал   13324
-0x0c09, //  ил   16877
-0x0e01, //  ан   15359
-0x0e06, //  ен   13543  0x30
-0x0e09, //  ин   17168
-0x0e0e, //  нн   15973
-0x0e0f, //  он   22373
-0x0e1c, //  ын   15052
-0x0f03, //  во   24947
-0x0f11, //  ро   13552
-0x0f12, //  со   16368
-0x100f, //  оп   19054
-0x1011, //  рп   17067
-0x1101, //  ар   23967
-0x1106, //  ер   18795
-0x1109, //  ир   13797
-0x110f, //  ор   21737
-0x1213, //  тс   25076
-0x1220, //  яс   14310
+0x010c, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ»ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°   21052  0x23
+0x010e, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°   18400
+0x0113, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°   14254
+0x0301, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²   31083
+0x030f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²   13420
+0x060e, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµ   21798
+0x0611, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµ   19458
+0x0903, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸   16226
+0x0b01, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂº   14456
+0x0b0f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂº   17836
+0x0c01, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ»   13324
+0x0c09, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ»   16877
+0x0e01, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   15359
+0x0e06, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   13543  0x30
+0x0e09, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   17168
+0x0e0e, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   15973
+0x0e0f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   22373
+0x0e1c, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   15052
+0x0f03, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   24947
+0x0f11, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   13552
+0x0f12, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   16368
+0x100f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¿   19054
+0x1011, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¿   17067
+0x1101, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   23967
+0x1106, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   18795
+0x1109, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   13797
+0x110f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   21737
+0x1213, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   25076
+0x1220, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   14310
 0x7fff};
-//0x040f  ог   12976
-//0x1306  ет   12826
-//0x0f0d  мо   12688
+//0x040f  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ³   12976
+//0x1306  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   12826
+//0x0f0d  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   12688
 
 
 int TransposeAlphabet(char *text, int offset, int min, int max)
@@ -2984,7 +2986,6 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	{
 		wlen = strlen(word);
 	}
-
 
 	hash = HashDictionary(word);
 	p = tr->dict_hashtab[hash];

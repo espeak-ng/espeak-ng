@@ -2,99 +2,161 @@
 //******************************
 // Phonemes for Kinyarwanda (rw), inherits "base2"
 //******************************
- 
+
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 180
-  formants vowel/a_2
-  reduceto a/  4
-  beforepause a#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    ChangePhoneme(a#)
+  ENDIF
+
+  ChangeIfNotStressed(a/)
+  FMT(vowel/a_2)
 endphoneme
 
 
 phoneme a/
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/a#
-  beforepause a#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    ChangePhoneme(a#)
+  ENDIF
+
+  FMT(vowel/a#)
 endphoneme
 
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/e
-  beforepause e#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    ChangePhoneme(e#)
+  ENDIF
+
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/i
-  beforepause i#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    ChangePhoneme(i#)
+  ENDIF
+
+  FMT(vowel/i)
 endphoneme
 
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/o
-  beforepause o#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    ChangePhoneme(o#)
+  ENDIF
+
+  FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 160
-  formants vowel/u_bck
-  beforepause u#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF nextPh(isPause) THEN
+    ChangePhoneme(u#)
+  ENDIF
+
+  FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme a#
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 100
-  formants vowel/a#
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  FMT(vowel/a#)
 endphoneme
 
+
 phoneme e#
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 100
-  formants vowel/e
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme i#
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 100
-  formants vowel/i
-  linkout ;
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  FMT(vowel/i)
 endphoneme
 
 
 phoneme o#
-  vowel starttype (o) endtype (o)
-  length 170
-  formants vowel/o
-  beforevowel NULL
+  vowel starttype #o endtype #o
+  length 100
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  FMT(vowel/o)
 endphoneme
 
 
 phoneme u#
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 100
-  formants vowel/u_bck
-  beforevowel NULL
+
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  FMT(vowel/u_bck)
 endphoneme
 
 
@@ -103,13 +165,14 @@ phoneme :   // Lengthen previous vowel by "length"
   length 120
 endphoneme
 
+
 phoneme +   // high tone, use after a vowel
   stress
-  tone 0 30 envelope/p_fall NULL
+  Tone(0, 30, envelope/p_fall, NULL)
 endphoneme
 
 phoneme +2  // high tone, use after a vowel
   stress
-  tone 0 30 envelope/i_risefall2 NULL
+  Tone(0, 30, envelope/i_risefall2, NULL)
 endphoneme
 

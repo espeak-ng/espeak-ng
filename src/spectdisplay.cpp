@@ -171,6 +171,7 @@ void SpectDisplay::OnActivate(int active)
 	}
 	else
 	{
+		formantdlg->GetValues(spectseq, sframe);
 		ReadDialogValues();
 	}
 }

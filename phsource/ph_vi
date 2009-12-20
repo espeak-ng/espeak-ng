@@ -6,44 +6,44 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  tone 28 32 envelope/p_level NULL
+  Tone(28, 32, envelope/p_level, NULL)
 endphoneme
 
 
 phoneme 2   //  huyền tone: low falling
   stress
-  tone 20  8 envelope/p_fall NULL
+  Tone(20,  8, envelope/p_fall, NULL)
 endphoneme
 
 
-phoneme 3   //  sắc tone rising
+phoneme 3   //  sắc Tone(rising
   stress
-  tone 25 50 envelope/p_rise NULL
+  Tone(25, 50, envelope/p_rise, NULL)
 endphoneme
 
 
-phoneme 4   //  hỏi tone curve (dipping rising)
+phoneme 4   //  hỏi Tone(curve (dipping rising)
   stress
-  tone 30  5 envelope/p_fallrise NULL
+  Tone(30,  5, envelope/p_fallrise, NULL)
 endphoneme
 
 
 phoneme 5   //  ngã tone: broken (creaking rising)
   stress
-  tone 28 58 envelope/p_214 envelope/vi_5amp
+  Tone(28, 58, envelope/p_214, envelope/vi_5amp)
 endphoneme
 
 
-phoneme 6   //  nặng tone drop  (constricted)
+phoneme 6   //  nặng Tone(drop  (constricted)
   stress
   length 75  // reduce the length of the vowel
-  tone 40 20 envelope/p_512 envelope/vi_6amp
+  Tone(40, 20, envelope/p_512, envelope/vi_6amp)
 endphoneme
 
 
-phoneme 7   //  tone 1 (ngang) at end of clause
+phoneme 7   //  Tone(1 (ngang) at end of clause
   stress
-  tone 40  20 envelope/p_fall NULL
+  Tone(40,  20, envelope/p_fall, NULL)
 endphoneme
 
 
@@ -53,78 +53,80 @@ endphoneme
 
 
 phoneme a
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 130
-  formants vowel/a_4
+  FMT(vowel/a_4)
 endphoneme
 
 phoneme a:
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 280
-  formants vowel/a_6
+  FMT(vowel/a_6)
 endphoneme
 
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 200
-  formants vowel/ee_3
+  FMT(vowel/ee_3)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 200
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel  starttype (i)  endtype (i)
+  vowel  starttype #i  endtype #i
   length 190
-  formants vowel/i_4
-  after w w/wi
-  linkout ;
+  IfNextVowelAppend(;)
+  IF prevPhW(w) THEN
+    VowelStart(w/wi)
+  ENDIF
+  FMT(vowel/i_4)
 endphoneme
 
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 200
-  formants vowel/aa_4
+  FMT(vowel/aa_4)
 endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 200
-  formants vowel/o_2
+  FMT(vowel/o_2)
 endphoneme
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 200
-  formants vowel/u_7
+  FMT(vowel/u_7)
 endphoneme
 
 phoneme y
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 200
-  formants vowel/u#_5
+  FMT(vowel/u#_5)
 endphoneme
 
 
 
 phoneme @
-  vowel  starttype (@)  endtype (a)
+  vowel  starttype #@  endtype #a
   length 130
-  formants vowel/@_2
+  FMT(vowel/@_2)
 endphoneme
 
 
 phoneme @:
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 280
-  formants vowel/@_2
+  FMT(vowel/@_2)
 endphoneme
 
 
@@ -133,158 +135,162 @@ endphoneme
 //===========
 
 phoneme aI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 250
-  formants vdiph/&i_3
+  FMT(vdiph/&i_3)
 endphoneme
 
 
 phoneme a:I
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 250
-  formants vdiph/ai
+  FMT(vdiph/ai)
 endphoneme
 
 
 phoneme @I
-  vowel starttype (@) endtype (i)
+  vowel starttype #@ endtype #i
   length 250
-  formants vdiph/@i
+  FMT(vdiph/@i)
 endphoneme
 
 
 phoneme @:I
-  vowel starttype (@) endtype (i)
+  vowel starttype #@ endtype #i
   length 250
-  formants vdiph/@i
+  FMT(vdiph/@i)
 endphoneme
 
 
 phoneme eI
-  vowel starttype (e) endtype (i)
+  vowel starttype #e endtype #i
   length 200
-  formants vdiph/ei
+  FMT(vdiph/ei)
 endphoneme
 
 
 phoneme EI
-  vowel starttype (e) endtype (i)
+  vowel starttype #e endtype #i
   length 200
-  formants vdiph/eei
+  FMT(vdiph/eei)
 endphoneme
 
 
 phoneme OI
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 200
-  formants vdiph/0i
+  FMT(vdiph/0i)
 endphoneme
 
 
 phoneme oI
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 200
-  formants vdiph/oi
+  FMT(vdiph/oi)
 endphoneme
 
 
 phoneme uI
-  vowel starttype (u) endtype (i)
+  vowel starttype #u endtype #i
   length 200
-  formants vdiph/ui
+  FMT(vdiph/ui)
 endphoneme
 
 phoneme yI
-  vowel starttype (u) endtype (i)
+  vowel starttype #u endtype #i
   length 200
-  formants vdiph/u-i
+  FMT(vdiph/u-i)
 endphoneme
 
 
 
 
 phoneme aU
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 210
-  formants vdiph/aau_4
+  FMT(vdiph/aau_4)
 endphoneme
 
 
 phoneme a:U
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 270
-  formants vdiph/au
+  FMT(vdiph/au)
 endphoneme
 
 
 phoneme eU
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 200
-  formants vdiph/eu
+  FMT(vdiph/eu)
 endphoneme
 
 
 phoneme EU
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 200
-  formants vdiph/eeu
+  FMT(vdiph/eeu)
 endphoneme
 
 phoneme iU
-  vowel starttype (i) endtype (u)
+  vowel starttype #i endtype #u
   length 200
-  formants vdiph2/iu
+  FMT(vdiph2/iu)
 endphoneme
 
 phoneme @U
-  vowel  starttype (@)  endtype (u)
+  vowel  starttype #@  endtype #u
   length 200
-  formants vdiph/@u
+  FMT(vdiph/@u)
 endphoneme
 
 phoneme @:U
-  vowel  starttype (@)  endtype (u)
+  vowel  starttype #@  endtype #u
   length 270
-  formants vdiph/@u
+  FMT(vdiph/@u)
 endphoneme
 
 
 
 phoneme i@
-  vowel  starttype (i)  endtype (@)
+  vowel  starttype #i  endtype #@
   length 240
-  formants vdiph2/ii@_3
+  FMT(vdiph2/ii@_3)
 endphoneme
 
 phoneme y@
-  vowel  starttype (i)  endtype (@)
+  vowel  starttype #i  endtype #@
   length 200
-  formants vdiph2/y-y#
+  FMT(vdiph2/y-y#)
 endphoneme
 
 phoneme u@
-  vowel  starttype (u)  endtype (@)
+  vowel  starttype #u  endtype #@
   length 200
-  formants vdiph2/uu@
+  FMT(vdiph2/uu@)
 endphoneme
 
 
 
 phoneme kh
   vls vel frc
-  vowelin f1=0  f2=2300 200 400  f3=200 80
-  vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
-  length 100
   lengthmod 3
-  wave ufric/x%50
-  switchvoicing Q
+  Vowelin f1=0  f2=2300 200 400  f3=200 80
+  Vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
+  WAV(ufric/x, 50)
 endphoneme
+
 
 phoneme l
   liquid
-  length 100
   lengthmod 7
-  beforenotvowel l/
-  formants l/l_vi
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/2)
+  ENDIF
+
+  CALL vowelstart_l
+
+  FMT(l/l_vi)
 endphoneme
 

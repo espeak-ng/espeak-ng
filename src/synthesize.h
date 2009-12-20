@@ -47,6 +47,9 @@
 #define SFLAG_SWITCHED_LANG    0x20   // this word uses phonemes from a different language
 #define SFLAG_PROMOTE_STRESS   0x40   // this unstressed word can be promoted to stressed
 
+#define SFLAG_PREV_PAUSE     0x1000   // consider previous phoneme as pause
+#define SFLAG_NEXT_PAUSE     0x2000   // consider next phoneme as pause
+
 // embedded command numbers
 #define EMBED_P     1   // pitch
 #define EMBED_S     2   // speed (used in setlengths)
@@ -170,10 +173,11 @@ int n_mix_wavefile;       // length in bytes
 int mix_wave_scale;         // 0=2 byte samples
 int mix_wave_amp;
 int mix_wavefile_ix;
+int mix_wavefile_max;    // length of available WAV data (in bytes)
+int mix_wavefile_offset;
 
 int amplitude;
 int amplitude_v;
-int prev_was_synth;  // previous sound was synthesized (not a played wave or pause)
 } WGEN_DATA;
 
 
@@ -207,22 +211,145 @@ typedef struct {
 	frame_t *frame;
 } frameref_t;
 
+// a clause translated into phoneme codes (first stage)
+typedef struct {
+	unsigned char phcode;
+	unsigned char stresslevel;
+	unsigned char wordstress;
+	unsigned char tone_ph;    // tone phoneme to use with this vowel
+	unsigned short synthflags;
+	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
+} PHONEME_LIST2;
+
 
 typedef struct {
+// The first section is a copy of PHONEME_LIST2
+	unsigned char phcode;
+	unsigned char stresslevel;
+	unsigned char wordstress;
+	unsigned char tone_ph;    // tone phoneme to use with this vowel
+	unsigned short synthflags;
+	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
+
 	PHONEME_TAB *ph;
 	unsigned char env;    // pitch envelope number
-	unsigned char stresslevel;
 	unsigned char type;
 	unsigned char prepause;
+	unsigned char postpause;
 	unsigned char amp;
-	unsigned char tone_ph;   // tone phoneme to use with this vowel
 	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
-	unsigned char synthflags;
 	short length;  // length_mod
 	short pitch1;  // pitch, 0-4095 within the Voice's pitch range
 	short pitch2;
-	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 } PHONEME_LIST;
+
+
+#define pd_FMT    0
+#define pd_WAV    1
+#define pd_VWLSTART 2
+#define pd_VWLEND 3
+#define pd_ADDWAV 4
+
+#define N_PHONEME_DATA_PARAM 16
+#define pd_APPENDPHONEME   i_APPEND_PHONEME
+#define pd_CHANGEPHONEME    i_CHANGE_PHONEME
+#define pd_LENGTHMOD      i_SET_LENGTH
+
+#define pd_FORNEXTPH     0x2
+#define pd_DONTLENGTHEN  0x4
+#define pd_REDUCELENGTHCHANGE 0x8
+typedef struct {
+	int pd_control;
+	int pd_param[N_PHONEME_DATA_PARAM];  // set from group 0 instructions
+	int sound_addr[5];
+	int sound_param[5];
+	int vowel_transition[4];
+	int pitch_env;
+	int amp_env;
+} PHONEME_DATA;
+
+
+typedef struct {
+	int fmt_control;
+	int use_vowelin;
+	int fmt_addr;
+	int fmt_length;
+	int fmt2_addr;
+	int fmt2_lenadj;
+	int wav_addr;
+	int wav_amp;
+	int transition0;
+	int transition1;
+	int std_length;
+} FMT_PARAMS;
+
+
+// instructions
+
+#define i_RETURN        0x0001
+#define i_CONTINUE      0x0002
+
+// Group 0 instrcutions with 8 bit operand.  These value go into bits 8-15 if the instruction
+#define i_CHANGE_PHONEME 0x01
+#define i_REPLACE_NEXT_PHONEME 0x02
+#define i_INSERT_PHONEME 0x03
+#define i_APPEND_PHONEME 0x04
+#define i_APPEND_IFNEXTVOWEL 0x05
+#define i_VOICING_SWITCH 0x06
+#define i_PAUSE_BEFORE   0x07
+#define i_PAUSE_AFTER    0x08
+#define i_LENGTH_MOD     0x09
+#define i_SET_LENGTH     0x0a
+#define i_LONG_LENGTH    0x0b
+#define i_CHANGE_PHONEME2 0x0c  // not yet used
+#define i_CHANGE_IF      0x10  // 0x10 to 0x14
+
+#define i_ADD_LENGTH     0x0c
+
+
+// conditions and jumps
+#define i_CONDITION  0x2000
+#define i_OR         0x1000  // added to i_CONDITION
+
+#define i_JUMP       0x6000
+#define i_JUMP_FALSE 0x6800
+#define i_SWITCH_NEXTVOWEL 0x6a00
+#define i_SWITCH_PREVVOWEL 0x6c00
+#define MAX_JUMP     255  // max jump distance
+
+// multi-word instructions
+#define i_CALLPH     0x9100
+#define i_PITCHENV   0x9200
+#define i_AMPENV     0x9300
+#define i_VOWELIN    0xa100
+#define i_VOWELOUT   0xa200
+#define i_FMT        0xb000
+#define i_WAV        0xc000
+#define i_VWLSTART   0xd000
+#define i_VWLENDING  0xe000
+#define i_WAVADD     0xf000
+
+// conditions
+#define i_isDiminished 0x80
+#define i_isUnstressed 0x81
+#define i_isNotStressed 0x82
+#define i_isStressed   0x83
+#define i_isMaxStress  0x84
+
+#define i_isBreak      0x85
+#define i_isWordStart  0x86
+#define i_notWordStart 0x87
+#define i_isWordEnd    0x88
+#define i_isAfterStress 0x89
+#define i_isNotVowel   0x8a
+#define i_isFinalVowel 0x8b
+
+
+#define i_isPalatal    0x49    // bit 9 in phflags
+#define i_isRhotic     0x56    // bit 22 in phflags
+
+#define i_StressLevel  0x800
+
 
 
 typedef struct {
@@ -317,7 +444,7 @@ extern char mbrola_name[20];
 
 // from synthdata file
 unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int control);
-frameref_t *LookupSpect(PHONEME_TAB *ph1, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph, int which, int *match_level, int *n_frames, PHONEME_LIST *plist);
+frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
 
 unsigned char *LookupEnvelope(int ix);
 int LoadPhData();
@@ -365,13 +492,15 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 void SetParameter(int parameter, int value, int relative);
 void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola);
 //int MbrolaSynth(char *p_mbrola);
-int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
-int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
-		int which, PHONEME_LIST *plist, int modulation);
+//int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
+int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
+int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 
 void InitBreath(void);
 
 void KlattInit();
+void KlattReset(int control);
 int Wavegen_Klatt2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2);
+

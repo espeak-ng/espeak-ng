@@ -232,7 +232,7 @@ static void DecodePhonemes2(const char *inptr, char *outptr)
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 	
-		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->spect == 0))
+		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->program == 0))
 		{
 			if(ph->std_length > 2)
 				*outptr++ = stress_chars[ph->std_length];
@@ -305,7 +305,7 @@ void Lexicon_It(int pass)
 	FILE *f_in;
 	FILE *f_out;
 	FILE *f_listx;
-	FILE *f_list_in;
+	FILE *f_list_in = NULL;
 	long int displ;
 	const char *alt_string;
 	char buf[200];
@@ -1322,8 +1322,8 @@ void FormatDictionary(const char *dictname)
 	char *p_start;
 	unsigned short *pw;
 	unsigned short *pw_match;
-	unsigned short *pw_post;
-	unsigned short *pw_phonemes;
+	unsigned short *pw_post = NULL;
+	unsigned short *pw_phonemes = NULL;
 	int c;
 	int ix;
 	int n_pre;
@@ -1733,6 +1733,7 @@ void Test2()
 
 
 const char* text1 = "Hello world. Testing.";
+extern void TestCompile2(void);
 
 void TestTest(int control)
 {//=======================
@@ -1746,8 +1747,6 @@ void TestTest(int control)
 
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
-
-return;
 
 if(control==2)
 {
@@ -1778,8 +1777,8 @@ if(control==2)
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 
-  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
-  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)(user_data+1));
+  espeak_Synth(textbuf, strlen(textbuf)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
+//  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)(user_data+1));
 
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);
   espeak_Synchronize();

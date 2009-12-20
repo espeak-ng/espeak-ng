@@ -146,6 +146,7 @@ _0-áig	a:ig	$alt2
 (0-ra) nul:a:R2A
 (0-nál) nul:a:na:l
 (0-hoz) nul:a:hoz
+(0-s) nul:a:S
 
 // entries with a single digit such as (2-i) also apply to 22, 32, etc, unless $only
 
@@ -184,6 +185,8 @@ _0-áig	a:ig	$alt2
 (3-ashoz) ha:R2mAShoz
 (3-at) ha:R2mAt
 (3-al) ha:R2om:Al 
+(3-asok) ha:R2mASok
+(3-asoknak) ha:R2mASoknAk
 
 //4 number suffixes
 (4-el) ne:J:El //Nneed J: phoneme, not J phoneme contains one suffix) 
@@ -209,6 +212,10 @@ _0-áig	a:ig	$alt2
 (7-től) he:t:Y:l
 (7-től)	hEtEdike:tY:l	$alt2
 (7-essel) hEtES:El
+(7-esen) hEtESEN
+(7-eseknek) hEtESEknEk
+(7-et) hEtEt
+(7-em) hEtEm
 (10-es) tizES   // use [i] not [i:]
 (10-est) tizESt
 (10-essel) tizES:El
@@ -310,6 +317,7 @@ GYESEV	JESEv	$allcaps
 HÉV	he:v	$allcaps
 IPTV	$abbrev $allcaps
 GDP	dZi:di:pi:	$allcaps
+?2 GDP $abbrev $allcaps
 HSDPA	$abbrev $allcaps
 ORTT	$abbrev $allcaps
 ORFK	oEREfka:	$abbrev $allcaps

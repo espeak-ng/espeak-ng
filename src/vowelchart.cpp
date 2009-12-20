@@ -511,7 +511,7 @@ void MakeVowelLists(void)
 	SPECT_SEQ *seq;
 	SPECT_SEQK *seqk;
 	frame_t *frame;
-	int match_level;
+	PHONEME_DATA phdata;
 	char dirname[sizeof(path_source)+20];
 	char fname[sizeof(dirname)+40];
 
@@ -540,10 +540,12 @@ void MakeVowelLists(void)
 
 			ph = phoneme_tab[phcode];
 
-			if(ph->type != phVOWEL)
+			if((ph==NULL) || (ph->type != phVOWEL))
 				continue;
 
-			if((ix = LookupSound(ph, phoneme_tab[phonPAUSE], 1, &match_level, 0)) == 0)
+			InterpretPhoneme2(phcode, &phdata);
+
+			if((ix = phdata.sound_addr[pd_FMT]) == 0)
 				continue;
 
 			seq = (SPECT_SEQ *)(&spects_data[ix]);
@@ -572,9 +574,11 @@ void MakeVowelLists(void)
 }
 
 
-extern int n_envelopes;
-extern char envelope_paths[][80];
-extern unsigned char envelope_dat[][128];
+#define N_ENVELOPES  30
+#define ENV_LEN  128
+int n_envelopes = 0;
+char envelope_paths[N_ENVELOPES][80];
+unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
 
 #define HT_ENV 140
 #define WD_ENV 128*2

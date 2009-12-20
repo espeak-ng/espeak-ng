@@ -1,106 +1,99 @@
  
 phoneme @
-  vowel starttype (@) endtype (@)
-  length 140
-  formants vowel/@_low
+  vowel starttype #@ endtype #@
   unstressed
+  length 140
+  FMT(vowel/@_low)
 endphoneme
 
 
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 180
-  formants vowel/a
-  reduceto a/ 1
+  ChangeIfUnstressed(a/)
+  FMT(vowel/a)
 endphoneme
 
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e_mid
-  reduceto @ 1
+  ChangeIfUnstressed(@)
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme E2   // as [E] but don't reduce to [@]
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e_mid
+  FMT(vowel/e_mid)
 endphoneme
 
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 180
-  formants vowel/i_6
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/i_6)
 endphoneme
 
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 180
-  formants vowel/oo
+  FMT(vowel/oo)
 endphoneme
 
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 180
-  formants vowel/o
+  FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 180
-  formants vowel/u
+  FMT(vowel/u)
 endphoneme
 
 
 phoneme aI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 240
-  formants vdiph/ai
+  FMT(vdiph/ai)
 endphoneme
 
 phoneme eI
-  vowel starttype (e) endtype (i)
+  vowel starttype #e endtype #i
   length 240
-  formants vdiph/eei_2
+  FMT(vdiph/eei_2)
 endphoneme
 
 phoneme aU
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 240
-  formants vdiph/au_4
+  FMT(vdiph/au_4)
 endphoneme
 
 phoneme @U
-  vowel starttype (@) endtype (u)
+  vowel starttype #@ endtype #u
   length 240
-  formants vdiph/@u_en
+  FMT(vdiph/@u_en)
 endphoneme
 
 
 
 phoneme d   // English [d]
-  vcd alv stop
-  vowelin f1=1  f2=1700 -300 300  f3=-100 80
-  vowelout f1=2 f2=1700 -300 300  f3=-100 80
-  formants d/d+x/d
-  before _ d/d_+x/d_
-  before r d/dr+x/d
-  after _ NULL
-  after @ d/xd
-  lengthmod 5
-  switchvoicing t
+  import_phoneme base/d
+  voicingswitch t
 endphoneme
+

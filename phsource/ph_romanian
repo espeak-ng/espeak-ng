@@ -7,65 +7,72 @@
 
 
 phoneme I^          // "silent i", palatilizes the preceding consonant
-  vowel starttype (i) endtype (i)
-  length 70
+  vowel starttype #i endtype #i
   unstressed
-  formants vwl_ro/ii-
-  beforevowel ;
-  after  l; vwl_ro/li-10
-  after  m;  vwl_ro/mi
-  after  n; vwl_ro/ni
+  length 70
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(;)
+  ENDIF
+  IF prevPh(l;) THEN
+    FMT(vwl_ro/li, -10)
+  ENDIF
+  IF prevPh(m;) THEN
+    FMT(vwl_ro/mi)
+  ENDIF
+  IF prevPh(n;) THEN
+    FMT(vwl_ro/ni)
+  ENDIF
+  FMT(vwl_ro/ii-)
 endphoneme
 
 phoneme i/              // used for "i" at end of word
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/i
-  linkout ;
-  reduceto I^  4
+  ChangeIfNotStressed(I^)
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e_mid2
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme y
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/i#_5
+  FMT(vowel/i#_5)
 endphoneme
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 180
-  formants vowel/a_2
+  FMT(vowel/a_2)
 endphoneme
 
 phoneme @
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 170
-//  unstressed
-  formants vowel/@_low
+  FMT(vowel/@_low)
 endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/o-_4
+  FMT(vowel/o-_4)
 endphoneme
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 160
-  formants vowel/u_2
+  FMT(vowel/u_2)
 endphoneme
 
 phoneme Y
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/y#
+  FMT(vowel/y#)
 endphoneme
 
 
@@ -74,245 +81,247 @@ endphoneme
 
 
 phoneme @I
-  vowel starttype (@) endtype (i)
+  vowel starttype #@ endtype #i
   length 250
-  formants vdiph/@i_3
+  FMT(vdiph/@i_3)
 endphoneme
 
 phoneme @U
-  vowel starttype (@) endtype (u)
+  vowel starttype #@ endtype #u
   length 260
-  formants vdiph/@u_3
+  FMT(vdiph/@u_3)
 endphoneme
 
 phoneme oU
-  vowel starttype (o) endtype (u)
+  vowel starttype #o endtype #u
   length 260
-  formants vdiph/ou_2
+  FMT(vdiph/ou_2)
 endphoneme
 
 
 
 phoneme iI
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 250
-  formants vdiph/ii
+  FMT(vdiph/ii)
 endphoneme
 
 phoneme yI
-  vowel starttype (@) endtype (i)
+  vowel starttype #@ endtype #i
   length 210
-  formants vdiph/i#i
+  FMT(vdiph/i#i)
 endphoneme
 
 phoneme yU
-  vowel starttype (@) endtype (u)
+  vowel starttype #@ endtype #u
   length 230
-  formants vdiph2/uw_3
+  FMT(vdiph2/uw_3)
 endphoneme
 
 phoneme ea
-  vowel starttype (e) endtype (a)
+  vowel starttype #e endtype #a
   length 250
-  formants vdiph2/ea
+  FMT(vdiph2/ea)
 endphoneme
 
 phoneme eo
-  vowel starttype (e) endtype (o)
+  vowel starttype #e endtype #o
   length 270
-  formants vdiph2/eo
+  FMT(vdiph2/eo)
 endphoneme
 
 phoneme e[u
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 250
-  formants vdiph2/e[u
+  FMT(vdiph2/e[u)
 endphoneme
 
 phoneme Oa
-  vowel starttype (o) endtype (a)
+  vowel starttype #o endtype #a
   length 250
-  formants vdiph2/oa
+  FMT(vdiph2/oa)
 endphoneme
 
 
 // Consonants
 
 phoneme r
-  liquid starttype #r endtype #r
-  length 100
-  lengthmod 7
-  beforenotvowel r/
+  liquid
   trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
+  lengthmod 7
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(r/)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(r/r@, -15)
+    VowelStart(r/ra, -15)
+    VowelStart(r/re, -15)
+    VowelStart(r/ri, -15)
+    VowelStart(r/ro, -15)
+    VowelStart(r/ru, -15)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(r/xr, -50)
+  ENDIF
+
+  IF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
+    FMT(r/trr)
+  ENDIF
+  FMT(r/rr)
 endphoneme
 
 
 phoneme l;
-  liquid starttype l
-  vowelout colr=1
-  length 100
+  liquid
   lengthmod 7
-  beforenotvowel l/
-  formants l/l
-  after _  l/_l
-  after t  l/tl
-  after l/ l/l_long    // double l, make it longer
-endphoneme
+
+  CALL base/l
+  Vowelout colr=1
+ endphoneme
+
 
 phoneme m;
   vcd blb nasal
-  vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
-  starttype m endtype m
-  length 100
   lengthmod 4
-  formants NULL
-  after _ m/_m
-  before _ m/m_
-  before (r) m/mj
+
+  CALL base/m
+  Vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
 endphoneme
 
 
 phoneme n;
   vcd alv nasal
-  vowelout f1=2 f2=1700 -300 250  f3=200 80  rms=20 brk colr=1
-  starttype n endtype n
-  length 100
   lengthmod 4
-  formants NULL
-  after _ n/_n
-  after n n/_n      // lengthen [nn]
-  before _ n/n_
-  before (r) n/nj
+
+  CALL base/n
+  Vowelout f1=2 f2=1700 -300 250  f3=200 80  rms=20 brk colr=1
 endphoneme
 
 
 phoneme p;
   vls blb stop
-  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
-  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30 colr=1
   lengthmod 2
-  wave ustop/p_unasp
-  before _ ustop/p_unasp_%80
-  before r ustop/pr
-  before l ustop/pl
-  switchvoicing b
+  voicingswitch b
+  CALL base2/p
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30 colr=1
 endphoneme
 
 
 phoneme t;        // dental variant of /t/
   vls dnt stop
-  vowelin f1=0  f2=1700 100 300  f3=0 80
-  vowelout f1=0 f2=1700 100 250  f3=0 80  rms=20 colr=1
   lengthmod 2
-  wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%35
-  switchvoicing d
+  voicingswitch d
+  CALL base2/t
+  Vowelout f1=0 f2=1700 100 250  f3=0 80  rms=20 colr=1
 endphoneme
 
 phoneme ts;
   vls alv afr sibilant
-  vowelin f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20 colr=1
   lengthmod 2
-  wave ustop/ts
-  before _ ustop/ts_
+  CALL base2/ts
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20 colr=1
 endphoneme
 
 
 phoneme f;
   vls lbd frc
-  vowelout f1=0  f2=1000 -500 -350  f3=-200 80 colr=1
   lengthmod 3
-  wave ufric/f
-  before _ ufric/f_
-  switchvoicing v
+  voicingswitch v
+  CALL base/f
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80 colr=1
 endphoneme
+
 
 phoneme s;
   vls alv frc sibilant
-  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20 colr=1
+  voicingswitch z;
   lengthmod 3
-  wave ufric/s_pzd%50
-  switchvoicing z;
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20 colr=1
+  WAV(ufric/s_pzd, 50)
 endphoneme
 
 
 phoneme S;
   vls pla frc sibilant
-  vowelin  f1=0  f2=2100 100 300  f3=-100 80
-  vowelout f1=0  f2=2100 100 300  f3=-100 80 colr=1
-  length 100
+  voicingswitch Z;
   lengthmod 3
-  wave ufric/sh_pzd
-  switchvoicing Z;
+  Vowelin  f1=0  f2=2100 100 300  f3=-100 80
+  Vowelout f1=0  f2=2100 100 300  f3=-100 80 colr=1
+  WAV(ufric/sh_pzd)
 endphoneme
 
 
 phoneme  b;
   vcd blb stop
-  vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk colr=1
-  formants b/b+x/b
-  before (i) b/bi+x/b
+  voicingswitch p;
   lengthmod 5
-  switchvoicing p
+  Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk colr=1
+
+  IF nextPh(#i) THEN
+    FMT(b/bi) addWav(x/b)
+  ENDIF
+  FMT(b/b) addWav(x/b)
 endphoneme
 
 
 phoneme d;       // dental variant of /d/
   vcd dnt stop
-  vowelin f1=2  f2=1700 100 300  f3=0 80
-  vowelout f1=2 f2=1700 100 300  f3=0 80 colr=1
-  formants d/d+x/d_dnt%110
-  before _ d/d_+x/d_
-  before r d/dr+x/d_dnt%110
-  after _ NULL
-  after @ d/xd
+  voicingswitch t;
   lengthmod 5
-  switchvoicing t
+  CALL base2/d
+  Vowelin f1=2  f2=1700 100 300  f3=0 80
+  Vowelout f1=2 f2=1700 100 300  f3=0 80 colr=1
 endphoneme
+
 
 phoneme *;    //   flap
   vcd alv flp
-  vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15 colr=1
-  formants d/tap+r3/rx
-  vowelin f1=0  f2=1700 -300 300  f3=-400 80
-  before (i) d/tap_i+r3/rx
   lengthmod 2
+  Vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15 colr=1
+  IF nextPh(#i) THEN
+    Vowelin f1=0  f2=1700 -300 300  f3=-400 80
+    FMT(d/tap_i) addWav(r3/rx)
+  ENDIF
+  FMT(d/tap) addWav(r3/rx)
 endphoneme
 
 
 phoneme v;
   vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50 colr=1
   lengthmod 6
-  formants voc/v+vocw/v
-  before _ voc/v_+vocw/v
-  switchvoicing f
+  voicingswitch f;
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50 colr=1
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v)
+  ENDIF
+  FMT(voc/v) addWav(vocw/v)
 endphoneme
+
 
 phoneme z;
   vcd alv frc sibilant
-  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 colr=1
-  formants voc/z+ufric/s_
-  before _ voc/z_+ufric/s_
   lengthmod 6
-  switchvoicing s
+  voicingswitch s;
+  Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 colr=1
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_) addWav(ufric/s_)
+  ENDIF
+  FMT(voc/z) addWav(ufric/s_)
 endphoneme
 
 
 phoneme Z;
   vcd pla frc sibilant
-  vowelin  f1=0  f2=2000 0 300  f3=-200 80 colr=1
-  vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
-  formants voc/zh+vocw/zh
-  before _ voc/zh_+vocw/zh
   lengthmod 6
-  switchvoicing S
+  voicingswitch S;
+  Vowelin  f1=0  f2=2000 0 300  f3=-200 80 colr=1
+  Vowelout f1=2  f2=2000 0 300  f3=-200 80 brk
+  IF nextPh(isPause2) THEN
+    FMT(voc/zh_) addWav(vocw/zh)
+  ENDIF
+  FMT(voc/zh) addWav(vocw/zh)
 endphoneme
-

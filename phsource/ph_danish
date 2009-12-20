@@ -1,142 +1,126 @@
 
 phoneme @
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   unstressed
   length 130
-  formants vowel/@_3
+  FMT(vowel/@_3)
 endphoneme
 
 // ToDo: change [@] to [a#] if adjacent to [r] or [R]
 phoneme 3
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   unstressed
   length 130
-  formants vowel/a#_3
+  FMT(vowel/a#_3)
 endphoneme
 
 
 
 phoneme i
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/i_4
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/i_4)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 150
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 150
-  formants vowel/e_mid2
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme &
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 150
-  formants vowel/ee_2
+  FMT(vowel/ee_2)
 endphoneme
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 150
-  formants vowel/a_2
+  FMT(vowel/a_2)
 endphoneme
 
 phoneme A
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 150
-  formants vowel/a_3
+  FMT(vowel/a_3)
 endphoneme
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 150
-  formants vowel/u_bck
+  FMT(vowel/u_bck)
 endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 150
-  formants vowel/o_2
+  FMT(vowel/o_2)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 150
-  formants vowel/o_5
+  FMT(vowel/o_5)
 endphoneme
 
 phoneme V
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 150
-  formants vowel/V_4
+  FMT(vowel/V_4)
 endphoneme
 
 phoneme 0
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 150
-  formants vowel/oo_2
+  FMT(vowel/oo_2)
 endphoneme
 
 
 phoneme y
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/y
+  FMT(vowel/y)
 endphoneme
 
 phoneme Y
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/yy
+  FMT(vowel/yy)
 endphoneme
 
 phoneme W
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 150
-  formants vowel/oe
+  FMT(vowel/oe)
 endphoneme
 
 
 
-
-//phoneme n
-//  vcd alv nasal
-//  vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
-//  length 100
-//  lengthmod 4
-//  formants NULL
-//  after _ n/_n
-//  after n n/_n      // lengthen [nn]
-//  before _ n/n#_    // shorter
-//  before (r) n/nj
-//endphoneme
+// CONSONANTS
 
 phoneme v        // approximant, not fricative
-  vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
-  lengthmod 6
-  formants voc/v
-  before _ voc/v_
-  switchvoicing f
+  import_phoneme base/v#
+  voicingswitch f
 endphoneme
 
 
 phoneme r    // used for 'r' after a vowel (to create a diphthong)
   liquid
-  formants r/a_
   lengthmod 7
+  FMT(r/a_)
 endphoneme
 
-phoneme R    // 
-  liquid
-  formants r/aa
+phoneme R
   lengthmod 7
+  liquid
+  FMT(r/aa)
 endphoneme
 

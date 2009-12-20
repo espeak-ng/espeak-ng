@@ -6,43 +6,43 @@
 
 phoneme 1   //  tone: high level
   stress
-  tone 50 50 envelope/p_level NULL
+  Tone(50, 50, envelope/p_level, NULL)
 endphoneme
 
 
 phoneme 2   //  tone: rise
   stress
-  tone 30 50 envelope/p_rise NULL
+  Tone(30, 50, envelope/p_rise, NULL)
 endphoneme
 
 
 phoneme 3   //  tone: mid level
   stress
-  tone 30 30 envelope/p_level NULL
+  Tone(30, 30, envelope/p_level, NULL)
 endphoneme
 
 
 phoneme 4   //  tone: low fall
   stress
-  tone 20 10 envelope/p_fall NULL
+  Tone(20, 10, envelope/p_fall, NULL)
 endphoneme
 
 
 phoneme 5   //  tone: low rise
   stress
-  tone 10 30 envelope/p_rise NULL
+  Tone(10, 30, envelope/p_rise, NULL)
 endphoneme
 
 
 phoneme 6   //  tone: low level
   stress
-  tone 20 20 envelope/p_level NULL
+  Tone(20, 20, envelope/p_level, NULL)
 endphoneme
 
 
 phoneme 7   //  tone: high fall
   stress
-  tone 50 30 envelope/p_fall NULL
+  Tone(50, 30, envelope/p_fall, NULL)
 endphoneme
 
 
@@ -53,248 +53,259 @@ endphoneme
 
 phoneme z  // [ts]
   vls alv afr sibilant
-  vowelin f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave ustop/ts
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/ts)
 endphoneme
 
 
 phoneme c  // [tS]
   vls pla afr sibilant
-  vowelin f1=0  f2=2300 200 400  f3=-100 80
   lengthmod 2
-  wave ustop/tsh
-  before _ ustop/tsh_
-  switchvoicing dZ
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh)
 endphoneme
+
 
 phoneme k
   vls vel stop
-  vowelin f1=0  f2=2300 200 300  f3=-200 80
-  vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
   lengthmod 2
-  wave ustop/k
-  before _ NULL
-  before r ustop/kr
-  before R ustop/kr
-  before @- ustop/k_unasp%70
-  before l ustop/kl
-  before (i) ustop/ki
-  switchvoicing g
+  Vowelin f1=0  f2=2300 200 300  f3=-200 80
+  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(NULL)
+  ENDIF
+  IF nextPh(#i) THEN
+    WAV(ustop/ki)
+  ENDIF
+  IF nextPh(r) OR nextPh(R) THEN
+    WAV(ustop/kr)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/kl)
+  ENDIF
+  IF nextPh(@-) THEN
+    WAV(ustop/k_unasp,70)
+  ENDIF
+
+  WAV(ustop/k)
 endphoneme
+
 
 phoneme p
   vls blb stop
-  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=30
-  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
   lengthmod 2
-  wave ustop/p
-  before _ NULL
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=30
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  IF nextPh(isPause2) THEN
+    WAV(NULL)
+  ENDIF
+  WAV(ustop/p)
 endphoneme
 
 phoneme t
   vls alv stop
-  vowelin f1=0  f2=1700 -300 300  f3=100 80
-  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
-  wave ustop/t
-  before _ NULL
   lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(NULL)
+  ENDIF
+  WAV(ustop/t)
 endphoneme
 
-//phoneme ng   // synonym for [N]
-//  vcd vel nasal
-//  starttype N  endtype N
-//  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
-//  after _ nn/_nn
-//  before _ nn/nn_
-//  before (r) nn/nnj
-//  lengthmod 8            // longer than 'n'
-//endphoneme
 
 //====================================================
 //  Vowels and Diphtnongs
 //====================================================
 
 phoneme aa
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 230
-  formants vowel/aa
+  FMT(vowel/aa)
 endphoneme
 
 phoneme aai
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 270
-  formants vdiph/aai
+  FMT(vdiph/aai)
 endphoneme
 
 phoneme aau
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 260
-  formants vdiph/aau_2
+  FMT(vdiph/aau_2)
 endphoneme
 
 phoneme ang
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 220
-  formants vwl_zh/ang
+  FMT(vwl_zh/ang)
 endphoneme
 
 phoneme aang
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 270
-  formants vwl_zh/aang
+  FMT(vwl_zh/aang)
 endphoneme
 
 phoneme a
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 150
-  formants vowel/a#_3
+  FMT(vowel/a#_3)
 endphoneme
 
 phoneme ai
-  vowel starttype (@) endtype (i)
+  vowel starttype #@ endtype #i
   length 200
-  formants vdiph/@i_3
+  FMT(vdiph/@i_3)
 endphoneme
 
 phoneme au
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 200
-  formants vdiph/au_2
+  FMT(vdiph/au_2)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 220
-  formants vowel/ee_1
+  FMT(vowel/ee_1)
 endphoneme
 
 phoneme ei
-  vowel starttype (e) endtype (i)
+  vowel starttype #e endtype #i
   length 220
-  formants vdiph/ei
+  FMT(vdiph/ei)
 endphoneme
 
 phoneme eng
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 220
-  formants vwl_zh/eng
+  FMT(vwl_zh/eng)
 endphoneme
 
 phoneme eu
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 260
-  formants vdiph/eeu
+  FMT(vdiph/eeu)
 endphoneme
 
 phoneme i
-  vowel  starttype (i)  endtype (i)
+  vowel  starttype #i  endtype #i
   length 190
-  formants vowel/i
-  before k  vowel/ii-40
-  before N  vowel/ii-40
-  after w w/wi
-  linkout ;
+  IfNextVowelAppend(;)
+
+  IF nextPhW(k) OR nextPhW(N) THEN
+    Length 150
+    FMT(vowel/ii)
+  ENDIF
+
+  FMT(vowel/i)
 endphoneme
 
 phoneme ing
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 220
-  formants vwl_zh/ing
+  FMT(vwl_zh/ing)
 endphoneme
 
 phoneme iu
-  vowel starttype (i) endtype (u)
+  vowel starttype #i endtype #u
   length 200
-  formants vdiph2/iu
+  FMT(vdiph2/iu)
 endphoneme
 
 phoneme ng   // synonym for [N]
-  vowel starttype ng  endtype ng
-//  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  vowel //  starttype ng  endtype ng
   length 350
-  formants vwl_zh/ng
-  beforevowel N
-//  before (@) vnasal/
-//  before o vnasal/nn-
-//  lengthmod 8
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(N)
+  ENDIF
+  FMT(vwl_zh/ng)
 endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/oo
+  FMT(vowel/oo)
 endphoneme
 
 phoneme oeng
-  vowel starttype (o) endtype (e)
+  vowel starttype #o endtype #e
   length 280
-  formants vwl_zh/oeng
+  FMT(vwl_zh/oeng)
 endphoneme
 
 phoneme oi
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 200
-  formants vdiph/ooi
+  FMT(vdiph/ooi)
 endphoneme
 
 phoneme ou
-  vowel starttype (o) endtype (u)
+  vowel starttype #o endtype #u
   length 200
-  formants vdiph/ou
+  FMT(vdiph/ou)
 endphoneme
 
 phoneme ong
-  vowel starttype (o) endtype (o) 
+  vowel starttype #o endtype #o 
   length 220
-  formants vwl_zh/ong
+  FMT(vwl_zh/ong)
 endphoneme
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 170
-  formants vowel/u_bck
-  before k vowel/uu_bck
-  before N vowel/uu_bck
+  IF nextPhW(k) OR nextPhW(N) THEN
+    FMT(vowel/uu_bck)
+  ENDIF
+
+  FMT(vowel/u_bck)
 endphoneme
 
 phoneme ung
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 200
-  formants vwl_zh/ung
+  FMT(vwl_zh/ung)
 endphoneme
 
 phoneme ui
-  vowel starttype (u) endtype (i)
+  vowel starttype #u endtype #i
   length 220
-  formants vdiph/ui
+  FMT(vdiph/ui)
 endphoneme
 
 
 phoneme oe
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 230
-  formants vowel/y#
+  FMT(vowel/y#)
 endphoneme
 
 
 phoneme eo
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 170
-  formants vowel/8_3
+  FMT(vowel/8_3)
 endphoneme
 
 phoneme eoi
-  vowel  starttype (@)  endtype (i)
+  vowel  starttype #@  endtype #i
   length 220
-  formants vdiph/y#y_2
+  FMT(vdiph/y#y_2)
 endphoneme
 
 phoneme yu
-  vowel  starttype (u)  endtype (u)
+  vowel  starttype #u  endtype #u
   length 220
-  formants vowel/y
+  FMT(vowel/y)
 endphoneme
 

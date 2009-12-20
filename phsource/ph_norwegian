@@ -9,182 +9,184 @@
 //=======
 
 phoneme @     // close schwa
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   unstressed
   length 120
-  formants vowel/@_4
+  FMT(vowel/@_4)
 endphoneme
 
 phoneme @2    // open schwa
-  vowel  starttype (@)  endtype (a)
+  vowel  starttype #@  endtype #a
   unstressed
   length 120
-  formants vowel/@_low
+  FMT(vowel/@_low)
 endphoneme
 
 phoneme I
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 100
-  formants vowel/ii_3
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
 endphoneme
 
 phoneme i:
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 230
-  formants vowel/i
-  after w w/wi2
-  linkout ;
+  IfNextVowelAppend(;)
+  IF prevPh(w) THEN
+    VowelStart(w/wi2)
+  ENDIF
+  FMT(vowel/i)
 endphoneme
 
 phoneme y
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 120
-  formants vowel/yy
+  FMT(vowel/yy)
 endphoneme
 
 phoneme y:
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 260
-  formants vowel/y_4
+  FMT(vowel/y_4)
 endphoneme
 
 phoneme W
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 120
-  formants vowel/oe_2
+  FMT(vowel/oe_2)
 endphoneme
 
 phoneme Y:
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 260
-  formants vwl_no/y#
+  FMT(vwl_no/y#)
 endphoneme
 
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 120
-  formants vowel/e_mid
-  reduceto  @    0
+  ChangeIfDiminished(@)
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme E:
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 270
-  formants vowel/ee_1
+  FMT(vowel/ee_1)
 endphoneme
 
 phoneme e:
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 250
-  formants vowel/e_2
+  FMT(vowel/e_2)
 endphoneme
 
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 120
-  formants vwl_no/&
+  FMT(vwl_no/&)
 endphoneme
 
 phoneme a:
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 270
-  formants vwl_no/&
+  FMT(vwl_no/&)
 endphoneme
 
 phoneme A
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 130
-  formants vowel/aa
+  FMT(vowel/aa)
 endphoneme
 
 phoneme A:
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 280
-  formants vowel/aa
+  FMT(vowel/aa)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 120
-  formants vowel/oo
+  FMT(vowel/oo)
 endphoneme
 
 phoneme o:
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 270
-  formants vowel/o_2
+  FMT(vowel/o_2)
 endphoneme
 
 phoneme U
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 120
-  formants vowel/uu_bck
+  FMT(vowel/uu_bck)
 endphoneme
 
 phoneme u:
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 240
-  formants vowel/u_bck
+  FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme u-
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 120
-  formants vwl_no/u#
+  FMT(vwl_no/u#)
 endphoneme
 
 phoneme u-:
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 260
-  formants vwl_no/u#2
+  FMT(vwl_no/u#2)
 endphoneme
 
 
 // Diphthongs
 //===========
 phoneme AI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 270
-  formants vdiph/0i_2
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/0i_2)
 endphoneme
 
 phoneme aI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 270
-  formants vdiph/ai_3
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/ai_3)
 endphoneme
 
 phoneme OI
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 270
-  formants vdiph/ooi
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/ooi)
 endphoneme
 
 phoneme u-I
-  vowel starttype (u) endtype (i)
+  vowel starttype #u endtype #i
   length 270
-  formants vdiph/yi
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/yi)
 endphoneme
 
 phoneme Yy
-  vowel starttype (@) endtype (u)
+  vowel starttype #@ endtype #u
   length 270
-  formants vwl_no/y#y
+  FMT(vwl_no/y#y)
 endphoneme
 
 
 phoneme aU
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 270
-  formants vwl_no/au-
+  FMT(vwl_no/au-)
 endphoneme
 
 

@@ -1,0 +1,125 @@
+
+// Extra consonants. Use (for example):
+//    import_phoneme consonants/ts
+
+phoneme ts
+  vls alv afr sibilant
+  voicingswitch dz
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
+endphoneme
+
+
+phoneme dz
+  vcd alv afr sibilant
+  voicingswitch ts
+  lengthmod 5
+  Vowelin f1=1  f2=1700 -300 300  f3=-100 80 len=50
+  Vowelout f1=2 f2=1700 -300 300  f3=-100 80
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/z_) addWav(ustop/ts_, 60)
+  ENDIF
+  FMT(d/xdz) addWav(ustop/ts, 140)
+endphoneme
+
+
+phoneme p-  // unaspirated
+  vls blb stop
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(l) THEN
+    WAV(ustop/pl)
+  ELIF nextPh(r) THEN
+    WAV(ustop/pr)
+  ELIF nextPh(isPause2) THEN
+    WAV(ustop/p_unasp_, 80)
+  ENDIF
+  WAV(ustop/p_unasp)
+endphoneme
+
+
+phoneme ph  // aspirated
+  vls blb stop
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_)
+  ENDIF
+  IF nextPh(r) THEN
+    WAV(ustop/pr)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/pl)
+  ENDIF
+  WAV(ustop/p_asp)
+endphoneme
+
+
+phoneme c2
+  vls pal afr sibilant
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd_)
+  ENDIF
+  WAV(ustop/ts_pzd2, 90)
+endphoneme
+
+
+
+phoneme k-  // unaspirated
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 300  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_unasp, 50)
+  ENDIF
+  WAV(ustop/k_unasp, 60)   // weaker
+endphoneme
+
+
+phoneme kh
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 300  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_asp, 50)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_asp, 90)
+endphoneme
+
+
+phoneme s2  // second part of a long [s:]
+  vls alv frc sibilant
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  lengthmod 3
+  IF nextPh(isPause2) THEN
+    WAV(ufric/s_)
+  ENDIF
+  WAV(ufric/s_continue)
+endphoneme
+
+
+

@@ -1183,8 +1183,9 @@ typedef struct {
 */
 
 
-#define RUSSIAN2
+
 #ifdef RUSSIAN2
+// This is now done in the phoneme data, ph_russian
 
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
 {//=============================================================================================================
@@ -1276,96 +1277,6 @@ PH('V','#'),PH('I','3'),PH('I','2'),PH('E','3')};
 
 	return(0);
 }
-#else
 
-
-int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
-{//=============================================================================================================
-// Called for each phoneme in the phoneme list, to allow a language to make changes
-// flags: bit 0=1 last phoneme in a word
-//        bit 1=1 this is the highest stressed vowel in the current word
-//        bit 2=1 after the highest stressed vowel in the current word
-//        bit 3=1 the phonemes were specified explicitly, or found from an entry in the xx_list dictionary
-// ph     The current phoneme
-
-	int variant;
-	int vowelix;
-	PHONEME_TAB *prev, *next;
-
-	if(ch->flags & 8)
-		return(0);    // full phoneme translation has already been given
-
-	// Russian vowel softening and reduction rules
-	if(ph->type == phVOWEL)
-	{
-		#define N_VOWELS_RU   7
-		static unsigned char vowels_ru[N_VOWELS_RU] = {'a','A','o','E','i','u','y'};
-
-		// each line gives: soft, reduced, soft-reduced, post-tonic
-		static unsigned short vowel_replace[N_VOWELS_RU][4] = {
-			{'&', 'V', 'I', 'V'},  // a
-			{'&', 'V', 'I', 'V'},  // A
-			{'8', 'V', 'I', 'V'},  // o
-			{'e', 'I', 'I', 'I'},  // E
-			{'i', 'I', 'I', 'I'},  // i
-			{'u'+('"'<<8), 'U', 'U', 'U'},  // u
-			{'y', 'Y', 'Y', 'Y'}};  // y
-
-		prev = phoneme_tab[phlist[index-1].phcode];
-		next = phoneme_tab[phlist[index+1].phcode];
-
-if(prev->mnemonic == 'j')
-  return(0);
-
-		// lookup the vowel name to get an index into the vowel_replace[] table
-		for(vowelix=0; vowelix<N_VOWELS_RU; vowelix++)
-		{
-			if(vowels_ru[vowelix] == ph->mnemonic)
-				break;
-		}
-		if(vowelix == N_VOWELS_RU)
-			return(0);
-
-		// do we need a variant of this vowel, depending on the stress and adjacent phonemes ?
-		variant = -1;
-		if(ch->flags & 2)
-		{
-			// a stressed vowel
-			if((prev->phflags & phPALATAL) && ((next->phflags & phPALATAL) || phoneme_tab[phlist[index+2].phcode]->mnemonic == ';'))
-			{
-				// between two palatal consonants, use the soft variant
-				variant = 0;
-			}
-		}
-		else
-		{
-			// an unstressed vowel
-			if(prev->phflags & phPALATAL)
-			{
-				variant = 2;  // unstressed soft
-			}
-			else
-			if((ph->mnemonic == 'o') && ((prev->phflags & phPLACE) == phPLACE_pla))
-			{
-				variant = 2;  // unstressed soft  ([o] vowel following:  ш ж
-			}
-			else
-			if(ch->flags & 4)
-			{
-				variant = 3;  // post tonic
-			}
-			else
-			{
-				variant = 1;  // unstressed
-			}
-		}
-		if(variant >= 0)
-		{
-			phlist[index].phcode = PhonemeCode(vowel_replace[vowelix][variant]);
-		}
-	}
-
-	return(0);
-}
 #endif
 

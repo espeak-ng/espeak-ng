@@ -540,6 +540,8 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 	PHONEME_LIST *p;
 	PHONEME_LIST *next;
 	PHONEME_LIST *prev;
+	PHONEME_DATA phdata;
+	FMT_PARAMS fmtp;
 	int pause = 0;
 	int released;
 	int name2;
@@ -655,10 +657,11 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 			if(next->type==phVOWEL) released = 1;
 			if(next->type==phLIQUID && !next->newword) released = 1;
 
-			if(released)
-				len = DoSample(p->ph,next->ph,2,0,-1);
-			else
-				len = DoSample(p->ph,phoneme_tab[phonPAUSE],2,0,-1);
+			if(released == 0)
+				p->synthflags |= SFLAG_NEXT_PAUSE;
+			InterpretPhoneme(NULL, 0, p, &phdata);
+			len = DoSample3(&phdata, 0, -1);
+
 			len = (len * 1000)/samplerate;  // convert to mS
 			len += PauseLength(p->prepause,1);
 			break;
@@ -669,9 +672,10 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 
 		case phFRICATIVE:
 			len = 0;
+			InterpretPhoneme(NULL, 0, p, &phdata);
 			if(p->synthflags & SFLAG_LENGTHEN)
-				len = DoSample(ph,ph_next,2,p->length,-1);  // play it twice for [s:] etc.
-			len += DoSample(ph,ph_next,2,p->length,-1);
+				len = DoSample3(&phdata, p->length, -1);  // play it twice for [s:] etc.
+			len += DoSample3(&phdata, p->length, -1);
 
 			len = (len * 1000)/samplerate;  // convert to mS
 			break;
@@ -679,7 +683,12 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		case phNASAL:
 			if(next->type != phVOWEL)
 			{
-				len = DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,-1);
+				memset(&fmtp, 0, sizeof(fmtp));
+				InterpretPhoneme(NULL, 0, p, &phdata);
+				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
+				fmtp.fmt_length = phdata.sound_param[pd_FMT];
+				len = DoSpect2(p->ph, 0, &fmtp,  p, -1);
+//				len = DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,-1);
 				len = (len * 1000)/samplerate;
 				if(next->type == phPAUSE)
 					len += 50;

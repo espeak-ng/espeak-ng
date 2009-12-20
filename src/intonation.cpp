@@ -840,7 +840,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 						p->tone_ph = PhonemeCode2('4','4');
 
 					// tone 5 is unstressed (shorter)
-					p->stresslevel = 1;   // diminished stress
+					p->stresslevel = 0;   // diminished stress
 				}
 			}
 
@@ -859,7 +859,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 		{
 			tone_ph = p->tone_ph;
 
-			if(p->stresslevel != 1)  // TEST, consider all syllables as stressed
+			if(p->stresslevel != 0)  // TEST, consider all syllables as stressed
 			{
 				if(ix == final_stressed)
 				{

@@ -62,7 +62,7 @@ extern void ConvertToUtf8();
 extern void FormatDictionary(const char *dictname);
 
 extern void init_z();
-extern void CompileInit(void);
+extern void CompilePhonemeData(void);
 extern void CompileMbrola();
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();
@@ -146,7 +146,7 @@ extern void VoiceReset(int control);
 
 	if(strcmp(param,"--compile")==0)
 	{
-		CompileInit();
+		CompilePhonemeData();
 		exit(0);
 	}
 }
@@ -558,7 +558,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		break;
 
 	case MENU_COMPILE_PH:
-		CompileInit();
+		CompilePhonemeData();
 		break;
 
 	case MENU_COMPILE_MBROLA:

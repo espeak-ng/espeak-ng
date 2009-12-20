@@ -1,94 +1,119 @@
 
 
 phoneme i
-  vowel starttype (i) endtype (i)
-  beforenotvowel2 I
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/i_6
+  IF thisPh(isFinalVowel) THEN
+    ChangePhoneme(I)
+  ENDIF
+  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(I)
+  ENDIF
+  FMT(vowel/i_6)
 endphoneme
 
 phoneme I
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/ii_3
+  FMT(vowel/ii_3)
 endphoneme
 
 phoneme y
-  vowel starttype (u) endtype (u)
-  beforenotvowel2 Y
+  vowel starttype #u endtype #u
   length 155
-  formants vowel/y_5
+  IF thisPh(isFinalVowel) THEN
+    ChangePhoneme(Y)
+  ENDIF
+  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(Y)
+  ENDIF
+  FMT(vowel/y_5)
 endphoneme
 
 phoneme Y
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 155
-  formants vowel/u#
+  FMT(vowel/u#)
 endphoneme
 
 
 
 phoneme e
-  vowel starttype (e) endtype (e)
-  beforenotvowel2 E
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e_mid2
+  IF thisPh(isFinalVowel) THEN
+    ChangePhoneme(E)
+  ENDIF
+  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(E)
+  ENDIF
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e_mid
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme W
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/oe_2
+  FMT(vowel/oe_2)
 endphoneme
 
 
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 190
-  formants vowel/a_5
+  FMT(vowel/a_5)
 endphoneme
 
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
-  beforenotvowel2 U
+  vowel starttype #u endtype #u
   length 150
-  formants vowel/u_2
+  IF thisPh(isFinalVowel) THEN
+    ChangePhoneme(U)
+  ENDIF
+  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(U)
+  ENDIF
+  FMT(vowel/u_2)
 endphoneme
 
 phoneme U
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 150
-  formants vowel/uu_2
+  FMT(vowel/uu_2)
 endphoneme
 
 phoneme u#
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 150
-  formants vowel/u#_7
+  FMT(vowel/u#_7)
 endphoneme
 
 
 
 phoneme o
-  vowel starttype (o) endtype (o)
-  beforenotvowel2 O
+  vowel starttype #o endtype #o
   length 190
-  formants vowel/o_mid
+  IF thisPh(isFinalVowel) THEN
+    ChangePhoneme(O)
+  ENDIF
+  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(O)
+  ENDIF
+  FMT(vowel/o_mid)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 190
-  formants vowel/oo
+  FMT(vowel/oo)
 endphoneme
 
 
@@ -101,26 +126,32 @@ endphoneme
 
 phoneme c
   vls pal stop
-  vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
-  vowelout f1=0  f2=2700 300 500  f3=300 80
   lengthmod 2
-  wave ustop/ki
-  before _ ustop/ki%80
+  Vowelin f1=0  f2=2700 200 500  f3=400 80 len=60
+  Vowelout f1=0  f2=2700 300 500  f3=300 80
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ki, 80)
+  ENDIF
+  WAV(ustop/ki)
 endphoneme
 
 
 phoneme J
   vcd pla stop
-  vowelin f1=2  f2=2700 400 600  f3=300 80
-  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
-  formants dzh/dz_pzd+ustop/ki%60
   lengthmod 5
-  switchvoicing c
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  Vowelin f1=2  f2=2700 400 600  f3=300 80
+  Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
 endphoneme
 
 
 phoneme l
-import_phoneme l en
+import_phoneme en/l
 endphoneme
 
 

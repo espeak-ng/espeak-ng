@@ -41,7 +41,7 @@ extern int Wavegen_Klatt(int resume);
 extern void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v);
 extern int Wavegen();
 extern void CloseWaveFile2();
-extern void KlattReset();
+extern void KlattReset(int control);
 extern FILE *f_wave;
 
 static int frame_width;
@@ -1006,7 +1006,7 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	if(voice->klattv[0])
 	{
 		synthesizer_type = 1;
-		KlattReset();
+		KlattReset(2);
 	}
 
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
@@ -1125,7 +1125,7 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	if(voice->klattv[0])
 	{
 		synthesizer_type = 1;
-		KlattReset();
+		KlattReset(2);
 	}
 
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file

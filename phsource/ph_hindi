@@ -9,151 +9,155 @@ phoneme : //  Lengthen the previous vowel by "length"
 endphoneme
 
 phoneme @
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/@_bck
-  before H vowel/@_low
-  reduceto  @- 0
+  ChangeIfDiminished(@-)
+  IF nextPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+  FMT(vowel/@_bck)
 endphoneme
 
 phoneme @/
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/@_bck
+  FMT(vowel/@_bck)
 endphoneme
 
 phoneme V
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/V_3
-  before H vowel/@_low
-  reduceto  @  4
+  ChangeIfNotStressed(@)
+  IF nextPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+  FMT(vowel/V_3)
 endphoneme
 
 phoneme @2
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/@_low
+  FMT(vowel/@_low)
 endphoneme
 
 phoneme @3
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/@_3
-  reduceto  @- 0
+  ChangeIfDiminished(@-)
+  FMT(vowel/@_3)
 endphoneme
 
 phoneme @4
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/@
+  FMT(vowel/@)
 endphoneme
 
 
 
 
 phoneme i:
-  vowel long starttype (i) endtype (i)
+  vowel long starttype #i endtype #i
   length 230
-  formants vowel/i_fnt
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/i_fnt)
 endphoneme
 
 phoneme i         // as [i:] but not marked as 'long'
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 230
-  formants vowel/i_6
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/i_6)
 endphoneme
 
 phoneme I
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 100
-  formants vowel/ii_3
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
 endphoneme
 
 phoneme e:
-  vowel long starttype (e) endtype (e)
+  vowel long starttype #e endtype #e
   length 220
-  formants vowel/e_2
+  FMT(vowel/e_2)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 130
-  formants vowel/e_2
+  FMT(vowel/e_2)
 endphoneme
 
 phoneme E:
-  vowel long starttype (e) endtype (e)
+  vowel long starttype #e endtype #e
   length 220
-  formants vdiph/ee-e
+  FMT(vdiph/ee-e)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 130
-  formants vowel/e_mid
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme &:
-  vowel long starttype (a) endtype (a)
+  vowel long starttype #a endtype #a
   length 220
-  formants vowel/&
+  FMT(vowel/&)
 endphoneme
 
 
 phoneme a:
-  vowel long starttype (a) endtype (a)
+  vowel long starttype #a endtype #a
   length 230
-  formants vowel/aa_9
+  FMT(vowel/aa_9)
 endphoneme
 
 phoneme a
-  vowel long starttype (a) endtype (a)
+  vowel long starttype #a endtype #a
   length 130
-  formants vowel/a#_3
+  FMT(vowel/a#_3)
 endphoneme
 
 
 phoneme o:
-  vowel long starttype (o) endtype (o)
+  vowel long starttype #o endtype #o
   length 220
-  formants vowel/o_2
+  FMT(vowel/o_2)
 endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 130
-  formants vowel/o
+  FMT(vowel/o)
 endphoneme
 
 phoneme O:
-  vowel long starttype (o) endtype (o)
+  vowel long starttype #o endtype #o
   length 210
-  formants vowel/oo_4
+  FMT(vowel/oo_4)
 endphoneme
 
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 130
-  formants vowel/0
+  FMT(vowel/0)
 endphoneme
 
 
 phoneme U
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 120
-  formants vowel/uu_bck
+  FMT(vowel/uu_bck)
 endphoneme
 
 
 phoneme u:
-  vowel long starttype (u) endtype (u)
+  vowel long starttype #u endtype #u
   length 230
-  formants vowel/u_bck
+  FMT(vowel/u_bck)
 endphoneme
 
 
@@ -161,80 +165,64 @@ endphoneme
 //=============
 
 phoneme i~
-  vowel long starttype (i) endtype (i)
+  vowel long starttype #i endtype #i
   length 220
-  formants vnasal/i_n2
+  FMT(vnasal/i_n2)
 endphoneme
 
 phoneme I~
-  vowel starttype (i) endtype (i)
+  vowel long starttype #i endtype #i
   length 170
-  formants vnasal/ii_n
+  FMT(vnasal/ii_n)
 endphoneme
 
 phoneme e~
-  vowel long starttype (e) endtype (e)
+  vowel long starttype #e endtype #e
   length 220
-  formants vnasal/e_n
+  FMT(vnasal/e_n)
 endphoneme
 
-phoneme E~ 
-  vowel long starttype (e)  endtype (e)
+phoneme E~
+  vowel long starttype #e  endtype #e
   length 230
-  formants vnasal/ee_n2
+  FMT(vnasal/ee_n2)
 endphoneme
 
 phoneme a~
-  vowel long starttype (a) endtype (a)
+  vowel long starttype #a endtype #a
   length 250
-  formants vnasal/aa_n
+  FMT(vnasal/aa_n)
 endphoneme
 
 phoneme V~
-  vowel long starttype (@) endtype (@)
+  vowel long starttype #@ endtype #@
   length 250
-  formants vnasal/V_n
+  FMT(vnasal/V_n)
 endphoneme
 
 phoneme O~
-  vowel long starttype (o) endtype (o)
+  vowel long starttype #o endtype #o
   length 230
-  formants vnasal/oo_n2
+  FMT(vnasal/oo_n2)
 endphoneme
 
 phoneme o~
-  vowel long starttype (o) endtype (o)
+  vowel long starttype #o endtype #o
   length 220
-  formants vnasal/o_n
-endphoneme
-
-phoneme u~
-  vowel long starttype (u) endtype (u)
-  length 230
-  formants vnasal/u_n
+  FMT(vnasal/o_n)
 endphoneme
 
 phoneme U~
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 170
-  formants vnasal/u_n
+  FMT(vnasal/u_n)
 endphoneme
 
-
-phoneme r-
-  vowel  starttype (@)  endtype (@)
-  unstressed
-  length 220
-  formants vowelr/r-voc
+phoneme u~
+  vowel long starttype #u endtype #u
+  length 230
+  FMT(vnasal/u_n)
 endphoneme
-
-phoneme l-
-  vowel  starttype (@)  endtype (@)
-  unstressed
-  length 200
-  formants vwl_hi/l-voc
-endphoneme
-
 
 
 // Diphthongs
@@ -242,17 +230,17 @@ endphoneme
 
 
 phoneme aI
-  vowel long starttype (@) endtype (i)
+  vowel long starttype #@ endtype #i
   length 240
   long
-  formants vdiph/&i
+  FMT(vdiph/&i)
 endphoneme
 
 phoneme aU
-  vowel long starttype (a) endtype (u)
+  vowel long starttype #a endtype #u
   length 240
   long
-  formants vdiph/aau_3
+  FMT(vdiph/aau_3)
 endphoneme
 
 
@@ -260,51 +248,14 @@ endphoneme
 // CONSONANTS
 //===========
 
-phoneme l.
-  liquid rfx
-  lengthmod 7
-  formants l^/l_rfx
+phoneme v        // approximant, not fricative
+  import_phoneme base/v#
+  voicingswitch f
 endphoneme
 
-
-
-
-phoneme v       // approximant
-  vcd lbd frc
-  vowelin  f1=1  f2=900 -300 -300  f3=-100 100
-  vowelout f1=1  f2=900 -500 -300  f3=-100 60  len=50
-  lengthmod 6
-  formants voc/v#
-  before _ voc/v#_
-  switchvoicing f
-endphoneme
-
-
-
-phoneme h        // use with voiced aspirated conants [bh] [dh] etc
-  vls glt apr
-  length 100
-  lengthmod 3
-  wave h/h_%70         // no vowel following
-  before (@) h/h@+35
-  before (a) h/ha+35
-  before (e) h/he+35
-  before (i) h/hi+35
-  before (o) h/ho+35
-  before (u) h/hu+35
-endphoneme
 
 phoneme H       // use for full "h"
-  vls glt apr
-  length 100
-  lengthmod 3
-  wave h/h_%70         // no vowel following
-  before (@) h/h@
-  before (a) h/ha
-  before (e) h/he
-  before (i) h/hi
-  before (o) h/ho
-  before (u) h/hu
+  import_phoneme base/h
 endphoneme
 
 
@@ -313,58 +264,32 @@ endphoneme
 //==================
 
 phoneme p
-  vls blb stop
-  vowelin  f1=1  f2=1000 -50 -100  f3=-200 80
-  vowelout f1=1  f2=1000 -500 -350  f3=-300 80 rms=30
-  lengthmod 2
-  wave ustop/p_unasp
-  before _ ustop/p_unasp_%80
-  before r ustop/pr
-  before l ustop/pl
-  switchvoicing b
+  import_phoneme consonants/p-
 endphoneme
 
 
 phoneme ph
-  vls blb stop
-  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
-  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
-  lengthmod 2
-  wave ustop/p_asp
-  before _ ustop/p_
-  before r ustop/pr
-  before l ustop/pl
-  switchvoicing b
+  import_phoneme consonants/ph
 endphoneme
 
 
 phoneme  b       // this is [b]
-  vcd blb stop
-  vowelout f1=1  f2=1000 -500 -300  f3=-300 80 brk
-  formants b/b+x/b
-  before _ b/b_+x/b
-  before (a) b/ba+x/b
-  before (@) b/b@+x/b
-  before (e) b/be+x/b
-  before (i) b/bi+x/b
-  before (o) b/bo+x/b
-  before (u) b/bu+x/b
-  before @-  b/b@2+x/b
-  after _ NULL
-  after @ b/xb
-  lengthmod 5
-  switchvoicing p
+  import_phoneme base/b
 endphoneme
 
 
 phoneme bh
   vcd blb stop
-  vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
-  vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
   lengthmod 5
-  formants  b/xb+ustop/p_asp%70
-  after @ b/xb
-  switchvoicing ph
+  voicingswitch ph
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+
+  IF PreVoicing THEN
+    FMT(b/xb)
+  ENDIF
+
+  FMT( b/xb) addWav(ustop/p_asp, 70)
 endphoneme
 
 
@@ -374,51 +299,42 @@ endphoneme
 //==================
 
 phoneme t        // dental variant of /t/
-  vls dnt stop
-  vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
-  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
-  lengthmod 2
-  wave  ustop/t_hi%60
-  before _ ustop/t_dnt%35 
-  switchvoicing d
+  import_phoneme base/t[
+  voicingswitch d
 endphoneme
-
 
 
 phoneme th        // dental variant of /t/
   vls dnt stop
-  vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
-  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50
-  before _ ustop/t_dnt%35
-  switchvoicing d
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
 endphoneme
 
 
-
 phoneme d       // dental variant of /d/
-  vcd dnt stop
-  vowelin f1=2  f2=1500 -300 300  f3=-150 80
-  vowelout f1=2 f2=1500 -300 300  f3=-150 80
-  formants d/d+x/d_dnt%110
-  before _ d/d_+x/d_
-  before r d/dr+x/d_dnt%110
-  after _ NULL
-  after @ d/xd
-  lengthmod 5
-  switchvoicing t
+  import_phoneme base/d[
+  voicingswitch t
 endphoneme
 
 
 phoneme dh
   vcd dnt stop
-  vowelin f1=0  f2=1500 -300 300  f3=-100 80
-  vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
   lengthmod 5
-  formants  d/xd3+ustop/t_dnt%40
-  after @ d/xd
-  switchvoicing th
+  voicingswitch th
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  FMT(d/xd3) addWav(ustop/t_dnt, 40)
 endphoneme
 
 
@@ -429,46 +345,55 @@ endphoneme
 
 phoneme t.
   vls rfx stop
-  vowelin f1=0  f2=1800 -300 300  f3=-400 80
-  vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
   lengthmod 2
-  wave  ustop/t_short
-  before _ ustop/t_
-  switchvoicing d.
+  voicingswitch d.
+  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+  WAV(ustop/t_short)
 endphoneme
 
 phoneme th.
   vls rfx stop
-  vowelin f1=0  f2=1800 -300 300  f3=-400 80
-  vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
   lengthmod 2
-  wave  ustop/t
-//  wave  ustop/th_rfx
-  switchvoicing dh.
+  voicingswitch dh.
+  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+//  WAV(ustop/th_rfx)
+  WAV(ustop/t)
 endphoneme
 
 phoneme d.
   vcd rfx stop
-  vowelin f1=1  f2=1800 -300 300  f3=-400 80
-  vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
-  formants d/d+x/d
-  before _ d/d_+x/d_
-  before r d/dr+x/d
-  after _ NULL
-  after @ d/xd
   lengthmod 5
-  switchvoicing t.
+  voicingswitch t.
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_) addWav(x/d_)
+  ENDIF
+
+  FMT(d/dr) addWav(x/d)
 endphoneme
+
 
 phoneme dh.
   vcd rfx stop
-  vowelin f1=1  f2=1800 -300 300  f3=-400 80
-  vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
-  formants d/xd+x/d+ustop/t
-//  formants d/xd+x/d+ustop/th_rfx
-  after @ d/xd
   lengthmod 5
-  switchvoicing th.
+  voicingswitch th.
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  FMT(d/dr) addWav(ustop/t)
+//  FMT(d/dr) addWav(ustop/th_rfx)
 endphoneme
 
 
@@ -479,48 +404,33 @@ endphoneme
 
 // also try [tS] and [dZ]
 
-phoneme c    // this is [ts;]
-  vls pal afr sibilant
-  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
-  lengthmod 2
-  wave ustop/ts_pzd2%90
-  before _ ustop/ts_pzd_
-  switchvoicing J
+phoneme c
+  import_phoneme base/c
 endphoneme
 
 
-phoneme ch    // this is [ts;] 
-  vls pal afr sibilant
-  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
-  lengthmod 2
-  wave ustop/ts_pzd
-  before _ ustop/ts_pzd
-  switchvoicing J
+phoneme ch
+  import_phoneme base/tS;
 endphoneme
 
 
-phoneme J   // this is [dz;]
-  vcd pla afr sibilant
-  vowelin f1=1  f2=2700 400 600  f3=300 80 rate len=70
-  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
-  formants dzh/dzh+x/dz_pzd
-  before _ dzh/dzh_+x/dzh_
-  after _ NULL  @ dzh/xdzh
-  lengthmod 5
-  switchvoicing c
+phoneme J
+  import_phoneme base/J
 endphoneme
 
 
 phoneme Jh
   vcd pal afr sibilant
-  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
   lengthmod 5
-  formants  dzh/xdz_pzd+ustop/ts_pzd
-  after @ dzh/xdz_pzd
-  switchvoicing ch
+  voicingswitch ch
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  Vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
+
+  IF PreVoicing THEN
+    FMT(dzh/xdz_pzd)
+  ENDIF
+
+  FMT(dzh/xdz_pzd) addWav(ustop/ts_pzd)
 endphoneme
 
 
@@ -532,48 +442,34 @@ endphoneme
 
 
 phoneme k
-  vls vel stop
-  vowelin f1=0  f2=2300 200 300  f3=-150 80
-  vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
-  lengthmod 2
-  wave ustop/k_unasp%60   // weaker
-  before _ ustop/k_unasp%50
-  switchvoicing g
+  import_phoneme consonants/k-
+  voicingswitch g
 endphoneme
 
 phoneme kh
-  vls vel stop
-  vowelin f1=0  f2=2300 200 300  f3=-150 80
-  vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
-  lengthmod 2
-  wave ustop/k_asp%90
-  before _ ustop/k_asp%50
-  before r ustop/kr
-  before l ustop/kl
-  switchvoicing g
+  import_phoneme consonants/kh
+  voicingswitch gh
 endphoneme
 
 
 phoneme g
-  vcd vel stop
-  vowelin f1=1  f2=2300 200 300  f3=-300 80
-  vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
-  formants g/g+x/g2
-  before _ g/g_+x/g2_
-  after _ NULL
-  after @ g2/xg
-  lengthmod 5
+  import_phoneme base/g
+  voicingswitch k
 endphoneme
 
 
 phoneme gh
   vcd dnt stop
-  vowelin f1=1  f2=2300 200 300  f3=-150 80  rms=20
-  vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
   lengthmod 5
-  formants  g2/xg+ustop/k_asp%70
-  after @ g2/xg
-  switchvoicing kh
+  voicingswitch kh
+  Vowelin f1=1  f2=2300 200 300  f3=-150 80  rms=20
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+
+  IF PreVoicing THEN
+    FMT(g2/xg)
+  ENDIF
+
+  FMT(g2/xg) addWav(ustop/k_asp, 70)
 endphoneme
 
 

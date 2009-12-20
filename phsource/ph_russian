@@ -1,68 +1,72 @@
 
 
 phoneme l
-  liquid
-  length 100
-  lengthmod 7
-  beforenotvowel l/2       // use 'dark' [l] after a vowel
-  formants l/l
-  after _ l/_l  t l/tl
+  import_phoneme en/l
 endphoneme
 
 
 phoneme r
-  liquid starttype #r endtype #r
-  length 100
-  lengthmod 7
-  beforenotvowel r/
+  liquid
   trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
+  lengthmod 7
+
+  NextVowelStarts
+    VowelStart(r/r@, -15)
+    VowelStart(r/ra, -15)
+    VowelStart(r/re, -15)
+    VowelStart(r/ri, -15)
+    VowelStart(r/ro, -15)
+    VowelStart(r/ru, -15)
+  EndSwitch
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(r/)
+  ENDIF
+  IF prevPhW(t) OR prevPhW(p) OR prevPhW(k) THEN
+    FMT(r/trr)
+  ENDIF
+  FMT(r/rr)
 endphoneme
 
 
 phoneme r/   // used for [r] when not preceding a vowel
   liquid
-  length 100
-  lengthmod 2   //
-  formants r3/r_+r3/rx
-  before n   r3/r_n+r3/rx
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
+  lengthmod 2
+  IF nextPh(n) THEN
+    FMT(r3/r_n) addWav(r3/rx)
+  ENDIF
+  FMT(r3/r_) addWav(r3/rx)
 endphoneme
 
 
 phoneme ts
-  vls alv afr sibilant
-  vowelin f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
-  lengthmod 2
-  wave ustop/ts
-  before _ ustop/ts_
+  import_phoneme consonants/ts
 endphoneme
 
 
 phoneme dZ;
   vcd pal afr sibilant palatal
-  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  formants dzh/dzh+x/dz_pzd
-  before _ dzh/dzh_+x/dzh_
-  after _ NULL
-  after @ dzh/xdzh
+  voicingswitch tS;
   lengthmod 5
-  switchvoicing ts;
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(x/dzh_)
+  ENDIF
 endphoneme
 
 
 phoneme tS;
   vls pal afr sibilant palatal
-  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  voicingswitch dZ;
   lengthmod 2
-  wave ustop/ts_pzd
-  before _ ustop/ts_pzd
-  switchvoicing dz;
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+
+  WAV(ustop/ts_pzd)
 endphoneme
 
 
@@ -70,73 +74,37 @@ endphoneme
 // Palatalized versions of consonants
 
 phoneme t
-  vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
-  lengthmod 2
-  wave  ustop/t_dnt%60
-  before _ ustop/t_dnt%35
-  before r ustop/tr
-  switchvoicing d
+  import_phoneme pl/t
 endphoneme
 
 phoneme t;
-  vls pal stop palatal
-  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  vowelout f1=1  f2=2700 400 600  f3=200 70 len=50
-  lengthmod 2
-  wave ustop/t_pzd%60
-  before _ ustop/t_pzd%30
-  switchvoicing d;
+  import_phoneme pl/t;
 endphoneme
 
-
 phoneme d
-  vcd dnt stop
-  vowelin f1=2  f2=1500 -300 300  f3=-150 80
-  vowelout f1=2 f2=1500 -300 300  f3=-150 80
-  formants d/d+x/d_dnt%110
-  before _ d/d_+x/d_
-  before r d/dr+x/d_dnt%110
-  after _ NULL
-  after @ d/xd
-  lengthmod 5
-  switchvoicing t
+  import_phoneme pl/d
 endphoneme
 
 phoneme d;
-  vcd alv stop palatal
-  vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
-  vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100
-  formants d/d+x/d_pzd%80
-  before _ d/d_+x/d_pzd%40
-  before r d/dr+x/d_pzd%80
-  after _ NULL
-  after @ d/xd_pzd
-  lengthmod 5
-  switchvoicing t;
+  import_phoneme pl/d;
+endphoneme
+
+phoneme m;
+  import_phoneme ro/m;
 endphoneme
 
 
 phoneme I^          // "silent i", palatilizes the preceding consonant
-  vowel starttype (i) endtype (i)
-  length 70
+  vowel starttype #i endtype #i
   unstressed nonsyllabic
-  formants vwl_ru/ii-
-  beforevowel ;
-  after  m;  vwl_ro/mi
-endphoneme
-
-phoneme m;
-  vcd blb nasal
-  vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
-  starttype m endtype m
-  length 100
-  lengthmod 4
-  formants NULL
-  after _ m/_m
-  before _ m/m_
-  before (r) m/mj
+  Length 70
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(;)
+  ENDIF
+  IF prevPh(m;) THEN
+    FMT(vwl_ro/mi)
+  ENDIF
+  FMT(vwl_ru/ii-)
 endphoneme
 
 
@@ -146,172 +114,300 @@ endphoneme
 //*******************************************************************
 
 phoneme i
-  vowel starttype (i) endtype (i)
-  length 100
-  formants vwl_ru/i
+  vowel starttype #i endtype #i
+  Length 100
+  FMT(vwl_ru/i)
 endphoneme
+
 
 phoneme I#
-  vowel starttype (i) endtype (i)
-  length 80
-  formants vwl_ru/ii#
+  vowel starttype #i endtype #i
+  Length 80
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(I)
+  ENDIF
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(i)
+  ENDIF
+  FMT(vwl_ru/ii#)
 endphoneme
+
 
 phoneme y
-  vowel starttype (i) endtype (i)
-  length 100
-  formants vwl_ru/i#
+  vowel starttype #i endtype #i
+  Length 100
+  FMT(vwl_ru/i#)
 endphoneme
+
 
 phoneme I
-  vowel starttype (i) endtype (i)
-  length 80
-  formants vwl_ru/ii
+  vowel starttype #i endtype #i
+  Length 80
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(a)
+    ELSE
+      ChangePhoneme(i)
+    ENDIF
+  ENDIF
+  FMT(vwl_ru/ii)
 endphoneme
+
 
 phoneme I2
-  vowel starttype (i) endtype (i)
-  length 80
-  formants vwl_ru/ii
+  vowel starttype #i endtype #i
+  Length 80
+  IF thisPh(isMaxStress) THEN
+      ChangePhoneme(e)
+  ENDIF
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(I)
+  ENDIF
+  FMT(vwl_ru/ii)
 endphoneme
+
 
 phoneme I3
-  vowel starttype (i) endtype (i)
-  length 80
-  formants vwl_ru/ii
+  vowel starttype #i endtype #i
+  Length 80
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(e)
+    ELSE
+      ChangePhoneme(ja)
+    ENDIF
+  ENDIF
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(I)
+  ENDIF
+  FMT(vwl_ru/ii)
 endphoneme
+
 
 phoneme E
-  vowel  starttype (e)  endtype (e)
-  length 200
-  formants vwl_ru/e
+  vowel  starttype #e  endtype #e
+  Length 200
+  FMT(vwl_ru/e)
 endphoneme
+
 
 phoneme E#
-  vowel  starttype (e)  endtype (e)
-  length 100
-  formants vwl_ru/E#
+  vowel  starttype #e  endtype #e
+  Length 100
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(e)
+    ELSE
+      ChangePhoneme(E)
+    ENDIF
+  ENDIF
+  FMT(vwl_ru/E#)
 endphoneme
+
 
 phoneme E2
-  vowel  starttype (e)  endtype (e)
-  length 80
-  formants vwl_ru/E@
+  vowel  starttype #e  endtype #e
+  Length 80
+  IF nextVowel(isMaxStress) THEN
+    IF prevPh(j) THEN
+      ChangePhoneme(I3)
+    ELSE
+      ChangePhoneme(E#)
+    ENDIF
+  ENDIF
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(e)
+    ELSE
+      ChangePhoneme(E)
+    ENDIF
+  ENDIF
+
+  FMT(vwl_ru/E@)
 endphoneme
+
 
 phoneme E3
-  vowel  starttype (e)  endtype (e)
-  length 80
-  formants vwl_ru/E@
+  vowel  starttype #e  endtype #e
+  Length 80
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(I)
+  ENDIF
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(e)
+  ENDIF
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(E2)
+  ENDIF
+  FMT(vwl_ru/E@)
 endphoneme
 
-phoneme A
-  vowel  starttype (a)  endtype (a)
-  length 100
-  formants vwl_ru/a
-endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
-  length 100
-  formants vwl_ru/o
+  vowel starttype #o endtype #o
+  Length 100
+  FMT(vwl_ru/o)
 endphoneme
+
 
 phoneme O
-  vowel starttype (o) endtype (o)
-  length 80
-  formants vwl_ru/oo
+  vowel starttype #o endtype #o
+  Length 80
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(8)
+  ENDIF
+  IF thisPh(isMaxStress) THEN
+    ChangePhoneme(o)
+  ENDIF
 endphoneme
 
+
 phoneme u
-  vowel starttype (u) endtype (u)
-  length 80
-  formants vwl_ru/u
+  vowel starttype #u endtype #u
+  Length 80
+  FMT(vwl_ru/u)
 endphoneme
 
 phoneme u#
-  vowel starttype (u) endtype (u)
-  length 80
-  formants vwl_ru/u#
+  vowel starttype #u endtype #u
+  Length 80
+  FMT(vwl_ru/u#)
 endphoneme
 
 phoneme u"
-  vowel starttype (u) endtype (u)
-  length 150
-  formants vwl_ru/u#u
+  vowel starttype #u endtype #u
+  Length 150
+  FMT(vwl_ru/u#u)
 endphoneme
 
 phoneme 8
-  vowel starttype (o) endtype (o)
-  length 150
-  formants vwl_ru/8
-  reduceto V  4
+  vowel starttype #o endtype #o
+  Length 150
+  ChangeIfNotStressed(V)
+  FMT(vwl_ru/8)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
-  length 100
-  formants vwl_ru/ee
+  vowel starttype #e endtype #e
+  Length 100
+  FMT(vwl_ru/ee)
 endphoneme
 
 phoneme ju
-  vowel starttype (u) endtype (u)
-  length 190
-  formants vwl_ru/ju
+  vowel starttype #u endtype #u
+  Length 190
+  FMT(vwl_ru/ju)
 endphoneme
 
 phoneme ja
-  vowel  starttype (i) endtype (a)
-  length 200
-  formants vwl_ru/ja
-endphoneme
-
-phoneme V
-  vowel  starttype (a)  endtype (@)
-  length 80
-  formants vowel/V_2
-  unstressed
+  vowel  starttype #i endtype #a
+  Length 200
+  FMT(vwl_ru/ja)
 endphoneme
 
 phoneme V#
-  vowel  starttype (a)  endtype (@)
-  length 80
-  formants vowel/V_2
+  vowel  starttype #a  endtype #@
   unstressed
+  Length 80
+//  IF nextVowel(isMaxStress) THEN
+      // not needed?   because V# is only used at end-of-word
+//    ChangePhoneme(I3)  
+//  ENDIF
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(A)
+    ELSE
+      ChangePhoneme(ja)
+    ENDIF
+  ENDIF
+
+  IF prevPhW(isPalatal) THEN
+    ChangePhoneme(V)
+  ENDIF
+
+  FMT(vowel/V_2)
 endphoneme
 
-//phoneme U
-//  vowel  starttype (u)  endtype (u)
-//  length 140
-//  formants vowel/uu
-//  unstressed
-//endphoneme
 
 phoneme Y // will not be used in future
- vowel  starttype (u)  endtype (u)
-  length 140
-  formants vowel/ii#
+ vowel  starttype #u  endtype #u
   unstressed
+  Length 140
+  FMT(vowel/ii#)
 endphoneme
+
+
+phoneme A
+  vowel  starttype #a  endtype #a
+  Length 100
+  FMT(vwl_ru/a)
+endphoneme
+
 
 phoneme a
-  vowel   starttype (a)  endtype (a)
-  formants vwl_ru/aa
-  length 100
+  vowel   starttype #a  endtype #a
+  Length 100
+
+  IF prevPhW(j) THEN
+  ELSE
+    IF thisPh(isMaxStress) THEN
+      IF prevPhW(isPalatal) THEN
+        ChangePhoneme(ja)
+      ELSE
+        ChangePhoneme(A)
+      ENDIF
+    ELSE
+      IF prevPhW(isPalatal) THEN
+        ChangePhoneme(I)
+      ENDIF
+    ENDIF
+  ENDIF
+
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/a#_3)
+  ENDIF
+  FMT(vwl_ru/aa)
 endphoneme
 
+
+phoneme V
+  vowel  starttype #a  endtype #@
+  Length 80
+  unstressed
+
+  IF nextVowel(isMaxStress) THEN
+    ChangePhoneme(a)
+  ENDIF
+
+  IF thisPh(isMaxStress) THEN
+    IF prevPhW(j) THEN
+      ChangePhoneme(a)
+    ELIF prevPhW(isPalatal) THEN
+      ChangePhoneme(ja)
+    ELSE
+      ChangePhoneme(A)
+    ENDIF
+  ENDIF
+
+  FMT(vowel/V_2)
+endphoneme
+
+
 phoneme a#
-  vowel   starttype (a)  endtype (a)
-  formants vowel/a#_3
-  length 100
+  vowel   starttype #a  endtype #a
+  Length 100
+  FMT(vowel/a#_3)
 endphoneme
 
 
 phoneme R4
   liquid
-  vowelin  f1=0  f2=1500 -300 300  f3=-200 80 rms=60 brk
-  vowelout f1=2  f2=1500 -300 300  f3=-200 80
-  formants r3/r_ru2+r3/r_ru%50
   lengthmod 6
+  Vowelin  f1=0  f2=1500 -300 300  f3=-200 80 rms=60 brk
+  Vowelout f1=2  f2=1500 -300 300  f3=-200 80
+  FMT(r3/r_ru2) addWav(r3/r_ru, 50)
 endphoneme
 

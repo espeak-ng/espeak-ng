@@ -28,6 +28,7 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "prosodydisplay.h"
+#include "translate.h"
 
 extern MyFrame *myframe;
 extern ChildFrProsody *prosodyframe;
@@ -113,7 +114,7 @@ int ProsodyDisplay::GetWidth(PHONEME_LIST *p)
 	if(p->ph == NULL)
 		return(0);
 
-	w = p->ph->std_length;
+	w = (p->ph->std_length * 2);
 	if(w == 0)  w = 60;
 
 	if(p->length != 0)
@@ -334,6 +335,7 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 	int  x,y;
 	int  y2=0;
 	unsigned char *env;
+	PHONEME_DATA phdata_tone;
 
 	if(width <= 0) return;
 	
@@ -354,7 +356,8 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 	if((ph->type == phVOWEL) && (ph->tone_ph != 0))
 	{
 		// the envelope is given by a Tone phoneme acting on this vowel
-		env = LookupEnvelope(phoneme_tab[ph->tone_ph]->spect);
+		InterpretPhoneme2(ph->tone_ph, &phdata_tone);
+		env = LookupEnvelope(phdata_tone.pitch_env);
 	}
 
 	for(ix=0; ix<=width; ix+=4)

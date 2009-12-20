@@ -179,7 +179,6 @@ tamil	தமிழ்	$text
 பானம்	$alt
 பாணம்	$alt
 பாறம்	$alt
-பாரதி	$alt
 பாரதம்	$alt
 பரதம்	$alt
 பாப	$alt
@@ -206,7 +205,11 @@ tamil	தமிழ்	$text
 போனஸ்	$alt
 போகி	$alt
 பாலா	$alt
+பூத	$alt
 பாபா 	ba:ba:
+பாக்கி	$alt
+பலி	$alt
+போதி	$alt
 
 
 	// initial த as [d]
@@ -230,6 +233,12 @@ tamil	தமிழ்	$text
 தனம்	$alt
 திக்கற்ற	$alt
 தானு	$alt
+திட	$alt
+
+
+	// initial ச as [tS]
+சீ	tSi:
+சே	tSe:
 
 
 கக	$alt	// initial க as [g]
@@ -250,6 +259,8 @@ tamil	தமிழ்	$text
 கோபி 	$alt
 கச்சாமி	$alt
 குரு	$alt
+கோர	$alt
 
 
 பப	pVpV
+தீப் 	di:p

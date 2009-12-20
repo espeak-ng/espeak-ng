@@ -10,115 +10,115 @@ endphoneme
 
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 180
-  formants vowel/a
-  reduceto a/  4
+  ChangeIfNotStressed(a/)
+  FMT(vowel/a)
 endphoneme
 
 
 phoneme a/
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/a_5
+  FMT(vowel/a_5)
 endphoneme
 
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/e_2
-  reduceto e/ 4
+  ChangeIfNotStressed(e/)
+  FMT(vowel/e_2)
 endphoneme
 
 phoneme e/
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/e_mid
-  reduceto  e/  3        // [E] only in stressed syllables ?
+  ChangeIfUnstressed(e/)   // [E] only in stressed syllables ?
+  FMT(vowel/e_mid)
 endphoneme
 
 
 phoneme i
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 140
-  formants vowel/i
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
 endphoneme
 
 
 phoneme I
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/i_4
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/i_4)
 endphoneme
 
 
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/o
-  reduceto  o/ 4
+  ChangeIfNotStressed(o/)
+  FMT(vowel/o)
 endphoneme
 
 phoneme o/
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/o
+  FMT(vowel/o)
 endphoneme
 
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/oo_4
-  reduceto  o/  3        // [O] only in stressed syllables ?
+  ChangeIfUnstressed(o/)   // [O] only in stressed syllables ?
+  FMT(vowel/oo_4)
 endphoneme
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 160
-  formants vowel/u_bck
-  reduceto  U  4
+  ChangeIfNotStressed(U)
+  FMT(vowel/u_bck)
 endphoneme
 
 phoneme U
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 160
-  formants vowel/u_bck
+  FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme aU
-  vowel starttype (a) endtype (u)
+  vowel starttype #a endtype #u
   length 270
-  formants vdiph/au_4
+  FMT(vdiph/au_4)
 endphoneme
 
 
 
 phoneme aI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 250
-  formants vdiph/ai
+  FMT(vdiph/ai)
 endphoneme
 
 
 phoneme oI
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 230
-  formants vdiph/oi
+  FMT(vdiph/oi)
 endphoneme
 
 
@@ -126,3 +126,7 @@ endphoneme
 // CONSONANTS
 //===========
 
+phoneme l^
+  import_phoneme base/l^
+  Length 140
+endphoneme

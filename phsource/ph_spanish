@@ -4,82 +4,82 @@
 //====================================================
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/e_mid2
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 180
-  formants vowel/e_mid
+  FMT(vowel/e_mid)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/oo
+  FMT(vowel/oo)
 endphoneme
-
 
 
 
 
 phoneme g
   vcd vel stop
-  vowelin  f1=2  f2=2300 200 300  f3=-300 80
-  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-  formants g/g+x/g2        // weaker [g]
-  before _ g/g_+x/g_
-  after _ NULL
-  after @ g/xg
   lengthmod 5
-  switchvoicing k
+  voicingswitch k
+  Vowelin  f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2)        // weaker [g]
 endphoneme
 
 
 phoneme D
   vcd dnt frc
-  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
-  formants voc/dh+vocw/dh
-  before _ voc/dh_+vocw/dh%40
   lengthmod 6
-  switchvoicing T
+  voicingswitch T
+  CALL base/D
+  IF nextPh(isPause2) THEN
+    FMT(voc/dh_) addWav(vocw/dh, 40)   // weaker 
+  ENDIF
 endphoneme
 
 
 phoneme s
   vls alv frc sibilant
-  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 3
-  wave ufric/s
-  before _ ufric/s_%60    // quieter 's' at end of word
-  before p ufric/s!
-  before t ufric/s!
-  before k ufric/s!
-  switchvoicing z
-endphoneme
+  voicingswitch  z
+  Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
 
-
-phoneme r    //   TEST flap ??
-  vcd alv flp
-  brkafter
-  vowelout f1=3 f2=1500 -400 300  f3=-100 80 rms=35 len=50
-  vowelin f1=0  f2=1500 -300 300  f3=-100 80
-  formants d/tap4+x/d_%30
-  lengthmod 3
+  IF nextPh(isPause) THEN
+    WAV(ufric/s_, 60)    // quieter 's' at end of word
+  ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
+    WAV(ufric/s!)
+  ENDIF
+  WAV(ufric/s)
 endphoneme
 
 
 phoneme v#   // a shorter [v], a little towards [b]
   vcd lbd frc
-  vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10
   lengthmod 6
-  formants voc/v2+vocw/v%80
-  before _ voc/v_+vocw/v%80
-  switchvoicing f
+  voicingswitch f
+  Vowelin  f1=1  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=10
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_) addWav(vocw/v, 80)
+  ENDIF
+  FMT(voc/v2) addWav(vocw/v, 80)
 endphoneme
 
 

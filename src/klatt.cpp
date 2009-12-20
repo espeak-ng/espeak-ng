@@ -241,8 +241,6 @@ static int parwave(klatt_frame_ptr frame)
 	static double sourc;
 	int ix;
 
-	frame_init(frame);  /* get parameters for next frame of speech */
-
 	flutter(frame);  /* add f0 flutter */
 
 #ifdef LOG_FRAMES
@@ -468,7 +466,7 @@ if(option_log_frames)
 		{
 			temp =  32767.0;
 		}
-	
+
 		*out_ptr++ = int(temp);
 		*out_ptr++ = int(temp) >> 8;
 		sample_count++;
@@ -483,50 +481,42 @@ if(option_log_frames)
 
 
 
-/*
-function PARWAVE_INIT
 
-Initialises all parameters used in parwave, sets resonator internal memory
-to zero.
-*/
-
-static void reset_resonators()
+void KlattReset(int control)
 {
 	int r_ix;
-#ifdef LOG_FRAMES
-if(option_log_frames)
-{
-	FILE *f_log;
-	f_log=fopen("log-klatt","a");
-	if(f_log != NULL)
+
+	if(control == 2)
 	{
-		fprintf(f_log,"Reset\n");
-		fclose(f_log);
+		//Full reset
+		kt_globals.FLPhz = (950 * kt_globals.samrate) / 10000;
+		kt_globals.BLPhz = (630 * kt_globals.samrate) / 10000;
+		kt_globals.minus_pi_t = -PI / kt_globals.samrate;
+		kt_globals.two_pi_t = -2.0 * kt_globals.minus_pi_t;
+		setabc(kt_globals.FLPhz,kt_globals.BLPhz,&(kt_globals.rsn[RLP]));
+
 	}
-}
-#endif
+
+	if(control > 0)
+	{
+		kt_globals.nper = 0;
+		kt_globals.T0 = 0;
+		kt_globals.nopen = 0;
+		kt_globals.nmod = 0;
+
+		for(r_ix=RGL; r_ix < N_RSN; r_ix++)
+		{
+			kt_globals.rsn[r_ix].p1 = 0;
+			kt_globals.rsn[r_ix].p2 = 0;
+		}
+
+	}
 
 	for(r_ix=0; r_ix <= R6p; r_ix++)
 	{
 		kt_globals.rsn[r_ix].p1 = 0;
 		kt_globals.rsn[r_ix].p2 = 0;
 	}
-}
-
-
-void KlattReset()
-{
-	kt_globals.FLPhz = (950 * kt_globals.samrate) / 10000;
-	kt_globals.BLPhz = (630 * kt_globals.samrate) / 10000;
-	kt_globals.minus_pi_t = -PI / kt_globals.samrate;
-	kt_globals.two_pi_t = -2.0 * kt_globals.minus_pi_t;
-	setabc(kt_globals.FLPhz,kt_globals.BLPhz,&(kt_globals.rsn[RLP]));
-	kt_globals.nper = 0;
-	kt_globals.T0 = 0;
-	kt_globals.nopen = 0;
-	kt_globals.nmod = 0;
-
-	reset_resonators();
 }
 
 
@@ -996,6 +986,7 @@ int Wavegen_Klatt(int resume)
 	int pk;
 	int x;
 	int ix;
+	int fade;
 
 	if(resume==0)
 	{
@@ -1071,22 +1062,37 @@ int Wavegen_Klatt(int resume)
 		if(kt_globals.nspfr > STEPSIZE)
 			kt_globals.nspfr = STEPSIZE;
 
+		frame_init(&kt_frame);  /* get parameters for next frame of speech */
+
 		if(parwave(&kt_frame) == 1)
 		{
-			return(1);
+			return(1);    // output buffer is full
 		}
 	}
 
-	if(end_wave == 1)
+	if(end_wave > 0)
 	{
+#ifdef deleted
+		if(end_wave == 2)
+		{
+		fade = (kt_globals.T0 - kt_globals.nper)/4;  // samples until end of current cycle
+		if(fade < 64)
+			fade = 64;
+		}
+		else
+#endif
+		{
+			fade = 64;   // not followd by formant synthesis
+		}
+
 		// fade out to avoid a click
-		kt_globals.fadeout = 64;
+		kt_globals.fadeout = fade;
 		end_wave = 0;
-		sample_count -= 64;
-		kt_globals.nspfr = 64;
+		sample_count -= fade;
+		kt_globals.nspfr = fade;
 		if(parwave(&kt_frame) == 1)
 		{
-			return(1);
+			return(1);    // output buffer is full
 		}
 	}
 
@@ -1100,6 +1106,7 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 	DOUBLEX next;
 	int qix;
 	int cmd;
+	frame_t *fr3;
 	static frame_t prev_fr;
 
 	if(wvoice != NULL)
@@ -1129,6 +1136,17 @@ void SetSynth_Klatt(int length, int modn, frame_t *fr1, frame_t *fr2, voice_t *v
 			if(cmd==WCMD_KLATT)
 			{
 				end_wave = 0;  // next wave generation is from another spectrum
+
+				fr3 = (frame_t *)wcmdq[qix][2];
+				for(ix=1; ix<6; ix++)
+				{
+					if(fr3->ffreq[ix] != fr2->ffreq[ix])
+					{
+						// there is a discontinuity in formants
+						end_wave = 2;
+						break;
+					}
+				}
 				break;
 			}
 			if((cmd==WCMD_WAVE) || (cmd==WCMD_PAUSE))
@@ -1162,38 +1180,17 @@ if(option_log_frames)
 
 	if(control & 1)
 	{
-		if(wdata.prev_was_synth == 0)
+		for(ix=1; ix<6; ix++)
 		{
-			// A break, not following on from another synthesized sound.
-			// Reset the synthesizer
-			KlattReset();
-		}
-		else
-		{
-			for(ix=1; ix<6; ix++)
+			if(prev_fr.ffreq[ix] != fr1->ffreq[ix])
 			{
-				if(prev_fr.ffreq[ix] != fr1->ffreq[ix])
-				{
-					// Discontinuity in formants.
-					// fade out to avoid a click, but only up to the end of output buffer
-					ix = (out_end - out_ptr)/2;
-					if(ix > 64)
-						ix = 64; 
-					kt_globals.fadeout = ix;
-					kt_globals.nspfr = ix;
-					parwave(&kt_frame);
-					reset_resonators();
-					break;
-				}
+				// Discontinuity in formants.
+				// end_wave was set in SetSynth_Klatt() to fade out the previous frame
+				KlattReset(0);
+				break;
 			}
 		}
-		wdata.prev_was_synth = 1;
 		memcpy(&prev_fr,fr2,sizeof(prev_fr));
-	}
-	if(fr2->frflags & FRFLAG_BREAK)
-	{
-//		fr2 = fr1;
-//		reset_resonators(&kt_globals);
 	}
 
 	for(ix=0; ix<N_KLATTP; ix++)
@@ -1313,7 +1310,7 @@ void KlattInit()
 	kt_globals.outsl = 0;
 	kt_globals.f0_flutter = 20;
 
-	KlattReset();
+	KlattReset(2);
 
 	// set default values for frame parameters
 	for(ix=0; ix<=9; ix++)

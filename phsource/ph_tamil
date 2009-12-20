@@ -2,146 +2,130 @@
 // Phonemes for Tamil
 // This inherits from ph_hindi
 
-phoneme : //  Lengthen previous vowel by "length"
-  virtual
-  length 50
-endphoneme
-
 
 
 phoneme a
-  vowel  starttype (a)  endtype (a)
+  vowel  starttype #a  endtype #a
   length 130
-  formants vowel/a
-  reduceto V 4
+  ChangeIfNotStressed(V)
+  FMT(vowel/a)
 endphoneme
 
 phoneme V
-  vowel  starttype (@)  endtype (@)
+  vowel  starttype #@  endtype #@
   length 130
-  formants vowel/V_3
+  FMT(vowel/V_3)
 endphoneme
 
 
 phoneme a:
-  vowel  starttype (a)  endtype (a)
+  vowel  starttype #a  endtype #a
   length 300
-  formants vowel/a_5
+  FMT(vowel/a_5)
 endphoneme
 
 
 phoneme e
-  vowel  starttype (e)  endtype (e)
+  vowel  starttype #e  endtype #e
   length 130
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme e:
-  vowel  starttype (e)  endtype (e)
+  vowel  starttype #e  endtype #e
   length 250
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme i
-  vowel  starttype (i)  endtype (i)
+  vowel  starttype #i  endtype #i
   length 130
-  formants vowel/i_6
+  FMT(vowel/i_6)
 endphoneme
 
 
 phoneme i:
-  vowel  starttype (i)  endtype (i)
-  length 300
-  formants vowel/i
+  vowel  starttype #i  endtype #i
+  length 270
+  FMT(vowel/i)
 endphoneme
 
 
 
 phoneme o
-  vowel  starttype (o)  endtype (o)
+  vowel  starttype #o  endtype #o
   length 160
-  formants vowel/o
+  FMT(vowel/o)
 endphoneme
 
 
 phoneme o:
-  vowel  starttype (o)  endtype (o)
+  vowel  starttype #o  endtype #o
   length 280
-  formants vowel/o_3
+  FMT(vowel/o)
 endphoneme
 
 
 phoneme u
-  vowel  starttype (u)  endtype (u)
+  vowel  starttype #u  endtype #u
   length 110
-  formants vowel/u
-  reduceto U 4
+  ChangeIfNotStressed(U)
+  FMT(vowel/u_6)
 endphoneme
 
 phoneme U
-  vowel  starttype (u)  endtype (u)
+  vowel  starttype #u  endtype #u
   length 110
-  formants vowel/u#_3
+  FMT(vowel/u#_3)
 endphoneme
 
 phoneme u:
-  vowel  starttype (u)  endtype (u)
+  vowel  starttype #u  endtype #u
   length 260
-  formants vowel/u_6
+  ChangeIfNotStressed(U:)
+  FMT(vowel/u_6)
 endphoneme
 
 phoneme U:
-  vowel  starttype (u)  endtype (u)
+  vowel  starttype #u  endtype #u
   length 240
-  formants vowel/u#_3
+  FMT(vowel/u#_3)
 endphoneme
-
-
 
 phoneme u-
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 130
-  formants vowel/u#_2
+  FMT(vowel/u#_2)
 endphoneme
-
 
 
 phoneme aI
-  vowel  starttype (a)  endtype (i)
+  vowel  starttype #a  endtype #i
   length 230
-  formants vdiph/ai_8
+  FMT(vdiph/ai_8)
 endphoneme
 
 phoneme aU
-  vowel long starttype (a) endtype (u)
+  vowel  starttype #a  endtype #u
   length 200
-  long
-  formants vdiph/aau_3
+  FMT(vdiph/aau_3)
 endphoneme
 
 
+
+phoneme t
+  import_phoneme base2/t    // dental
+endphoneme
 
 // ?? This is standard [v].  Should be it [v] without the fricative noise?
 phoneme v
-  vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
-  lengthmod 6
-  formants voc/v+vocw/v
-  before _ voc/v_+vocw/v
-  switchvoicing f
+  import_phoneme base/v
 endphoneme
 
-
-phoneme t        // dental variant of /t/
-  vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
-  lengthmod 2
-  wave  ustop/t_dnt2%60
-  before _ ustop/t_dnt%30 
-  switchvoicing d
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 50
 endphoneme
 

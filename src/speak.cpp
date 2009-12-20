@@ -69,8 +69,8 @@ static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
 "--stdin    Read text input from stdin instead of a file\n\n"
-"If neither -f nor --stdin, <words> are spoken, or if none then text is\n"
-"spoken from stdin, each line separately.\n\n"
+"If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
+"is spoken from stdin, each line separately.\n\n"
 "-a <integer>\n"
 "\t   Amplitude, 0 to 200, default is 100\n"
 "-g <integer>\n"
@@ -95,11 +95,11 @@ static const char *help_text =
 "--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
-"\t   directory. =<voice name> is optional and specifies which language\n"
+"\t   directory. <voice name> specifies the language\n"
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
 "--phonout=\"<filename>\"\n"
-"\t   Write output from -x -X commands and mbrola phoneme data to this file\n"
+"\t   Write output from -x -X commands, and mbrola phoneme data, to this file\n"
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
@@ -110,7 +110,7 @@ static const char *help_text =
 "\t   If <language> is omitted, then list all voices.\n"
 "-k <integer>\n"
 "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
-"\t   higher values = a pitch increase (try -k20).\n";
+"\t   higher values indicate a pitch increase (try -k20).\n";
 
 
 void DisplayVoices(FILE *f_out, char *language);

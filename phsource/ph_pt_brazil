@@ -4,231 +4,211 @@
 //====================================================
 
 phoneme I   // epenthetic i
-  vowel starttype (i) endtype (i)
-  length 90
-  formants vowel/ii_6
+  vowel starttype #i endtype #i
   unstressed
+  length 90
+  FMT(vowel/ii_6)
 endphoneme
 
 phoneme e~
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 240
-  formants vnasal/e_n
+  FMT(vnasal/e_n)
 endphoneme
 
 phoneme i~
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 240
-  formants vnasal/i_n
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vnasal/i_n)
 endphoneme
 
 phoneme o~
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 240
-  formants vnasal/o_n
+  FMT(vnasal/o_n)
 endphoneme
 
 phoneme u~
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 180
-  formants vnasal/u_n
+  FMT(vnasal/u_n)
 endphoneme
 
 phoneme &~
-  vowel  starttype (@) endtype (@)
+  vowel  starttype #@ endtype #@
   length 180
-  formants vnasal/a#_n
-//  reduceto &  4
+//  ChangeIfNotStressed(&)
+  FMT(vnasal/a#_n)
 endphoneme
 
 phoneme &U~
-  vowel  starttype (@) endtype (u)
+  vowel  starttype #@ endtype #u
   length 240
-  formants vnasal/a#u_n
+  FMT(vnasal/a#u_n)
 endphoneme
 
 phoneme oI~
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 260
-  formants vnasal/oi_n
+  FMT(vnasal/oi_n)
 endphoneme
 
 
 
 
 phoneme &
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/a#_3
+  FMT(vowel/a#_3)
 endphoneme
 
 phoneme &/       // Used for final "a" when next word starts with "a"
-  vowel starttype (@) endtype (@)
-  beforevowel NULL
+  vowel starttype #@ endtype #@
   length 180
-  formants vowel/a#_3
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+  FMT(vowel/a#_3)
 endphoneme
 
 
 phoneme A            // for "al" in European Portuguese, don't reduce to [&]
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 200
-  formants vowel/a_2
+  FMT(vowel/a_2)
 endphoneme
 
 
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/ee_3
+  FMT(vowel/ee_3)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 160
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 
 phoneme y          // this is the same as [i] for Brazil
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 110
-  formants vowel/ii_6
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_6)
 endphoneme
 
 
 phoneme i/            // changes to [j] before a vowel
-  vowel starttype (i) endtype (i)
-  beforevowel j
+  vowel starttype #i endtype #i
   length 150
-  formants vowel/ii_6
-  linkout ;
+  IF nextPh(isVowel) THEN
+    ChangePhoneme(j)
+  ENDIF
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_6)
 endphoneme
 
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 170
-  formants vowel/0
+  FMT(vowel/0)
 endphoneme
 
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 160
-  formants vowel/u_bck
-endphoneme
-
-phoneme u2  // TEST
-  vowel starttype (u) endtype (u)
-  length 160
-  formants vowel/u
+  FMT(vowel/u_bck)
 endphoneme
 
 phoneme U
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 140
-  formants vowel/uu_bck
+  FMT(vowel/uu_bck)
 endphoneme
 
 
 
 
 phoneme aI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 230
-  formants vdiph/ai
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/ai)
 endphoneme
 
 
 phoneme eI
-  vowel starttype (e) endtype (i)
+  vowel starttype #e endtype #i
   length 210
-  formants vdiph/ei
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/ei)
 endphoneme
 
 
 phoneme OI
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 230
-  formants vdiph/0i
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vdiph/0i)
 endphoneme
 
 
 phoneme eU
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 230
-  formants vdiph/eu
+  FMT(vdiph/eu)
 endphoneme
 
 
 phoneme EU
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 230
-  formants vdiph/eeu
+  FMT(vdiph/eeu)
 endphoneme
 
 
 
 
 phoneme l
-  liquid
-  length 100
-  lengthmod 7
-  beforenotvowel l/2       // use 'dark' [l] after a vowel, should be [w]
-  formants l/l
-  after _ l/_l
-  after t l/tl
+  import_phoneme en/l   // use 'dark' [l] after a vowel, should be [w]
 endphoneme
 
 
 phoneme x   // this is [R] from Slovak/Czech
   liquid
-  vowelin  f1=0  f2=1700 -300 300  f3=-300 80
-  vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  formants r3/r_trill+r3/r_trill.wav%50
   trill
   lengthmod 6
+  Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  FMT(r3/r_trill) addWav(r3/r_trill.wav, 50)
 endphoneme
 
 
-phoneme x2   // for "r"
-  vcd vel frc
-  vowelin f1=0  f2=1500 0 400  f3=-500 100
-  vowelout f1=0 f2=1500 0 400  f3=-500 100  rms=20
-  lengthmod 6
-  formants voc/Q_less+ufric/x2%110
-  before _ voc/Q_+ufric/x2
-  switchvoicing x
+phoneme r-
+  import_phoneme en/r-
 endphoneme
 
 
 phoneme s#     // This is [s] for Brazi;, [S] for Portugal
-  vls alv frc sibilant
-  vowelin  f1=0  f2=1700 -300 300  f3=-100 80
-  vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-  lengthmod 3
-  wave ufric/s
-  before _ ufric/s_
-  before p ufric/s!
-  before t ufric/s!
-  before k ufric/s!
-  switchvoicing z
+  import_phoneme base/s
 endphoneme
 
 
 phoneme *
   vcd alv stop
-  vowelin f1=1  f2=1700 -300 300  f3=0 80
-  vowelout f1=2 f2=1700 -300 300  f3=0 80
-  formants d/tap2+x/d%40
-  after @ d/x_tap
   lengthmod 6
+  Vowelin f1=1  f2=1700 -300 300  f3=0 80
+  Vowelout f1=2 f2=1700 -300 300  f3=0 80
+  IF PreVoicing THEN
+    FMT(d/x_tap)
+  ENDIF
+  FMT(d/tap2) addWav(x/d, 40)
 endphoneme
+
 

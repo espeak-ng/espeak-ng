@@ -10,78 +10,80 @@
 
 
 phoneme @   //  Schwa
-  vowel starttype (@) endtype (@)
-  formants vowel/@_4
+  vowel starttype #@ endtype #@
   unstressed
   length 125
+  FMT(vowel/@_4)
 endphoneme
 
 phoneme i
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 160
-  formants vowel/i_2
-  after w w/wi2
+  IF prevPh(w) THEN
+    VowelStart(w/wi2)
+  ENDIF
+  FMT(vowel/i_2)
 endphoneme
 
 phoneme I
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 130
-  formants vowel/ii
+  FMT(vowel/ii)
 endphoneme
 
 phoneme y
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 180
-  formants vowel/y
+  FMT(vowel/y)
 endphoneme
 
 phoneme 8
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 140
-  formants vowel/y#
+  FMT(vowel/y#)
 endphoneme
 
 phoneme u
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 150
-  formants vowel/u_bck
+  FMT(vowel/u_bck)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 140
-  formants vowel/e_mid2
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 140
-  formants vowel/ee_2
-  reduceto @  0
+  ChangeIfDiminished(@)
+  FMT(vowel/ee_2)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 150
-  formants vowel/o_5
+  FMT(vowel/o_5)
 endphoneme
 
 phoneme O:      // for "oor"
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 210
-  formants vowel/o_6
+  FMT(vowel/o_6)
 endphoneme
 
 phoneme a:
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 210
-  formants vowel/a
+  FMT(vowel/a)
 endphoneme
 
 phoneme A
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 160
-  formants vowel/aa_7
+  FMT(vowel/aa_7)
 endphoneme
 
 
@@ -89,52 +91,52 @@ endphoneme
 //===========
 
 phoneme e:
-  vowel starttype (e) endtype (i)
+  vowel starttype #e endtype #i
   length 190
-  formants vdiph/ei
+  FMT(vdiph/ei)
 endphoneme
 
 phoneme Y:
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 220
-  formants vdiph/y#y_3
+  FMT(vdiph/y#y_3)
 endphoneme
 
 phoneme o:
-  vowel starttype (o) endtype (u)
+  vowel starttype #o endtype #u
   length 200
-  formants vdiph/Vu_3
+  FMT(vdiph/Vu_3)
 endphoneme
 
 
 phoneme EI
-  vowel starttype (a) endtype (i)
+  vowel starttype #a endtype #i
   length 210
-  formants vdiph/eei
+  FMT(vdiph/eei)
 endphoneme
 
 phoneme Wy
-  vowel starttype (@) endtype (u)
+  vowel starttype #@ endtype #u
   length 220
-  formants vdiph/&y
+  FMT(vdiph/&y)
 endphoneme
 
 phoneme VU
-  vowel starttype (a) endtype (o)
+  vowel starttype #a endtype #o
   length 220
-  formants vdiph/aau_2
+  FMT(vdiph/aau_2)
 endphoneme
 
 phoneme eU
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 220
-  formants vdiph/eu
+  FMT(vdiph/eu)
 endphoneme
 
 phoneme yU
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 220
-  formants vdiph2/yu
+  FMT(vdiph2/yu)
 endphoneme
 
 
@@ -145,76 +147,27 @@ endphoneme
 
 
 phoneme r    // from Afrikaans
-  liquid  starttype #r endtype #r
-  length 60
-  vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
-  vowelout f1=2  f2=1700 -300 -200  f3=-1300 80
-  formants r3/r_trill+r3/r_trill3.wav%99
-  before _ r3/r_trill+r3/r_trill3.wav%99
-  trill  
-  lengthmod 6
-endphoneme
-
-
-phoneme r2
-  liquid
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants r/rr
-  after _ r/rr
-  after t r/trr p r/trr k r/trr
-  before _ r/r_
-endphoneme
-
-
-phoneme r/   // variant of [r] when not preceding a vowel
-  liquid vowel2
-  length 100
-  lengthmod 7   //
-  formants NULL
+  import_phoneme af/r
 endphoneme
 
 
 phoneme v2        // approximant, not fricative
-  vcd lbd frc
-  vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
-  vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
-  lengthmod 6
-  formants voc/v
-  before _ voc/v_
-  switchvoicing f
+  import_phoneme base/v#
 endphoneme
+
 
 phoneme Q
   vcd vel frc
-  vowelin f1=2  f2=2300 200 300  f3=-300 80
-  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
   lengthmod 6
-  formants voc/Q_less+vocw/Q2%140
-  before _ voc/Q_+vocw/Q_
-  switchvoicing x
+  voicingswitch x
+  Vowelin f1=2  f2=2300 200 300  f3=-300 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPh(isPause2) THEN
+    FMT(voc/Q_) addWav(vocw/Q_)
+  ENDIF
+  FMT(voc/Q_less) addWav(vocw/Q2, 140)
 endphoneme
 
-
-
-phoneme x2        // a stronger version of [x] (for Afrikaans)
-  vls vel frc
-  vowelin f1=0  f2=2300 200 400  f3=-100 100
-  vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
-  length 100
-  lengthmod 3
-  wave ufric/x2      // stronger version
-endphoneme
-
-
-phoneme Sx        // Swedish "sj" sound  for TESTING
-  vls vel frc
-  vowelin f1=0  f2=2300 300 400  f3=200 100
-  vowelout f1=0 f2=2300 300 400  f3=200 100  rms=20
-  length 100
-  lengthmod 3
-  wave ufric/sx_sv%60
-endphoneme
 
 

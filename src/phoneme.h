@@ -48,6 +48,7 @@
 #define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 #define phBEFOREPAUSE 0x8000  // replace with the link_out phoneme if the next phoneme is a pause
+#define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
 
 #define phALTERNATIVE    0x1c00   // bits 10,11,12  specifying use of alternative_ph
 #define phBEFOREVOWEL    0x0000
@@ -61,6 +62,7 @@
 #define phLONG         0x200000
 #define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
 #define phRHOTIC       0x800000
+#define phLOCAL      0x80000000  // used during compilation
 
 // fixed phoneme code numbers, these can be used from the program code
 #define phonCONTROL     1
@@ -78,7 +80,6 @@
 #define phonSCHWA       13
 #define phonSCHWA_SHORT 14
 #define phonEND_WORD    15
-#define phonSONORANT    16
 #define phonDEFAULTTONE 17
 #define phonCAPITAL     18
 #define phonGLOTTALSTOP 19
@@ -90,6 +91,7 @@
 #define phonT_REDUCED   25
 #define phonSTRESS_TONIC 26
 #define phonPAUSE_CLAUSE 27
+#define phonVOWELTYPES   28  // 28 to 33
 
 extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long, glottalstop
 
@@ -103,27 +105,20 @@ extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long,
 #define N_PHONEME_TAB_NAME  32     // must be multiple of 4
 
 // main table of phonemes, index by phoneme number (1-254)
+
 typedef struct {
-	unsigned int mnemonic;        // 1st char is in the l.s.byte
-	unsigned int phflags;         // bits 28-30 reduce_to level,  bits 16-19 place of articulation
-                                 // bits 10-11 alternative ph control
-
-	unsigned short std_length;    // for vowels, in mS;  for phSTRESS, the stress/tone type
-	unsigned short  spect;
-	unsigned short  before;
-	unsigned short  after;
-
-	unsigned char  code;          // the phoneme number
-	unsigned char  type;          // phVOWEL, phPAUSE, phSTOP etc
+	unsigned int  mnemonic;      // 1st char is in the l.s.byte
+	unsigned int  phflags;       // bits 16-19 place of articulation
+	unsigned short program;
+	unsigned char  code;         // the phoneme number
+	unsigned char  type;         // phVOWEL, phPAUSE, phSTOP etc
 	unsigned char  start_type;
 	unsigned char  end_type;
-	
-	unsigned char  length_mod;     // a length_mod group number, used to access length_mod_tab
-	unsigned char  reduce_to;      // change to this phoneme if unstressed
-	unsigned char  alternative_ph; // change to this phoneme if a vowel follows/doesn't follow
-	unsigned char  link_out;       // insert linking phoneme if a vowel follows
+	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS, the stress/tone type
+	unsigned char  length_mod;   // a length_mod group number, used to access length_mod_tab
 	
 } PHONEME_TAB;
+
 
 
 // Several phoneme tables may be loaded into memory. phoneme_tab points to

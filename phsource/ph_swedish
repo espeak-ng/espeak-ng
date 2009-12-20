@@ -9,139 +9,141 @@
 //=======
 
 phoneme i:
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 180
-  formants vowel/i_2
-  after w w/wi2
-  linkout ;
+  IfNextVowelAppend(;)
+  IF prevPh(w) THEN
+    VowelStart(w/wi2)
+  ENDIF
+  FMT(vowel/i_2)
 endphoneme
 
 phoneme I
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 130
-  formants vowel/ii_3
-  linkout ;
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
 endphoneme
 
 phoneme e:
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 210
-  formants vowel/e_2
+  FMT(vowel/e_2)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 140
-  formants vowel/ee
-  reduceto E- 2
+  ChangeIfUnstressed(E-)
+  FMT(vowel/ee)
 endphoneme
 
 phoneme E:
-  vowel  starttype (e)  endtype (@)
+  vowel  starttype #e  endtype #@
   length 220
-  formants vowel/ee_1
+  FMT(vowel/ee_1)
 endphoneme
 
 phoneme E3
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 140
-  formants vowel/ee_6
-  reduceto @ 0
+  ChangeIfDiminished(@)
+  FMT(vowel/ee_6)
 endphoneme
 
 phoneme E-
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   unstressed
   length 140
-  formants vowel/ee#_2
+  FMT(vowel/ee#_2)
 endphoneme
 
 
 
 phoneme y:
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 220
-  formants vowel/y_5
+  FMT(vowel/y_5)
 endphoneme
 
 phoneme y
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 140
-  formants vowel/yy_3
+  FMT(vowel/yy_3)
 endphoneme
 
 phoneme u-
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 200
-  formants vowel/u#_2
+  FMT(vowel/u#_2)
 endphoneme
 
 phoneme Y:
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 220
-  formants vowel/y#_2
+  FMT(vowel/y#_2)
 endphoneme
 
 phoneme W
-  vowel starttype (@) endtype (@)
+  vowel starttype #@ endtype #@
   length 140
-  formants vowel/oe_4
+  FMT(vowel/oe_4)
 endphoneme
 
 phoneme 8
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 140
-  formants vowel/8_2
+  FMT(vowel/8_2)
 endphoneme
 
 
 
 phoneme a
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 140
-  formants vowel/a_5
+  FMT(vowel/a_5)
 endphoneme
 
 phoneme a2
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 140
-  formants vowel/a#_2
+  FMT(vowel/a#_2)
 endphoneme
 
 phoneme &
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 140
-  formants vowel/&
+  FMT(vowel/&)
 endphoneme
 
 phoneme A:
-  vowel starttype (a) endtype (a)
+  vowel starttype #a endtype #a
   length 250
-  formants vowel/aa_4
+  FMT(vowel/aa_4)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 140
-  formants vowel/oo
+  FMT(vowel/oo)
 endphoneme
 
 phoneme o:
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 210
-  formants vowel/o
+  FMT(vowel/o)
 endphoneme
 
 phoneme U
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 140
-  formants vowel/uu_4
+  FMT(vowel/uu_4)
 endphoneme
 
 phoneme u:
-  vowel starttype (u) endtype (u)
+  vowel starttype #u endtype #u
   length 210
-  formants vowel/u_bck
+  FMT(vowel/u_bck)
 endphoneme
 
 
@@ -151,30 +153,11 @@ endphoneme
 //===========
 
 
-phoneme r
-  liquid  starttype #r endtype #r
-  lengthmod 7
-  beforenotvowel r/
-  trill
-  formants vwl_sv/r_sv3
-  after t r/trr p r/trr k r/trr
-endphoneme
-
-
-phoneme r/   // variant of [r] when not preceding a vowel
-  liquid vowel2
-  length 100
-  lengthmod 7   //
-  formants NULL
-endphoneme
-
-
 phoneme sx        // Swedish "sj" sound
   vls vel frc
-  vowelin f1=0  f2=2300 300 400  f3=200 100
-  vowelout f1=0 f2=2300 300 400  f3=200 100  rms=20
-  length 100
   lengthmod 3
-  wave ufric/sx_sv%60
+  Vowelin f1=0  f2=2300 300 400  f3=200 100
+  Vowelout f1=0 f2=2300 300 400  f3=200 100  rms=20
+  WAV(ufric/sx_sv, 60)
 endphoneme
 

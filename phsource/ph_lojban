@@ -1,25 +1,9 @@
 // Phonemes for Lojban (an artificial constructed language)
 // Inherits phonemes from Esperanto
 
-
-phoneme r-     // syllabic r, for lojban
-  vowel  starttype (@)  endtype (@)
-  unstressed
-  length 220
-  formants vowelr/r-voc
-endphoneme
-
-phoneme l-     // syllabic l, for lojban
-  vowel  starttype (@)  endtype (@)
-  unstressed
-  length 170
-  formants vwl_hi/l-voc
-endphoneme
-
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 170
-  formants vowel/e_mid2
+  FMT(vowel/e_mid2)
 endphoneme
-
 

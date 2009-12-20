@@ -229,15 +229,6 @@ typedef struct{
 	unsigned char length;
 } WORD_TAB;
 
-// a clause translated into phoneme codes (first stage)
-typedef struct {
-	unsigned char phcode;
-	unsigned char stresslevel;
-	unsigned char tone_ph; 
-	unsigned char synthflags;
-	unsigned short sourceix;
-} PHONEME_LIST2;
-
 
 typedef struct {
 	int type;
@@ -642,5 +633,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type);
 
 void SetVoiceStack(espeak_VOICE *v);
+void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata);
+void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 
 extern FILE *f_trans;		// for logging

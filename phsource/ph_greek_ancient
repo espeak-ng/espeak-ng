@@ -10,66 +10,66 @@ endphoneme
 
 
 phoneme y
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 160
-  formants vowel/yy_4
+  FMT(vowel/yy_4)
 endphoneme
 
 phoneme e
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 140
-  formants vowel/e
+  FMT(vowel/e)
 endphoneme
 
 phoneme E
-  vowel starttype (e) endtype (e)
+  vowel starttype #e endtype #e
   length 150
-  formants vowel/ee_1
+  FMT(vowel/ee_1)
 endphoneme
 
 phoneme o
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 140
-  formants vowel/o
+  FMT(vowel/o)
 endphoneme
 
 phoneme O
-  vowel starttype (o) endtype (o)
+  vowel starttype #o endtype #o
   length 150
-  formants vowel/0
+  FMT(vowel/0)
 endphoneme
 
 
 phoneme EU
-  vowel starttype (e) endtype (u)
+  vowel starttype #e endtype #u
   length 230
-  formants vdiph/eeu
+  FMT(vdiph/eeu)
 endphoneme
 
 phoneme OI
-  vowel starttype (o) endtype (i)
+  vowel starttype #o endtype #i
   length 230
-  formants vdiph/0i
+  FMT(vdiph/0i)
 endphoneme
 
 phoneme OU
-  vowel starttype (o) endtype (u)
+  vowel starttype #o endtype #u
   length 230
-  formants vdiph/oou
+  FMT(vdiph/oou)
 endphoneme
 
 
 phoneme yI
-  vowel starttype (i) endtype (i)
+  vowel starttype #i endtype #i
   length 230
-  formants vdiph/yi
+  FMT(vdiph/yi)
 endphoneme
 
 
 phoneme f   // consider this an affrictive
   vls blb afr
-  vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 2
-  wave ufric/f    // could replace this with a [pf] wav file
+  Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  WAV(ufric/f)    // could replace this with a [pf] wav file
 endphoneme
 

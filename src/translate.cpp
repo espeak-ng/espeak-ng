@@ -962,7 +962,7 @@ if((wmark > 0) && (wmark < 8))
 
 				if(prefix_type & SUFX_B)
 				{
-// SUFX_B is used for Turkish, tr_rules contains "(Pb£
+// SUFX_B is used for Turkish, tr_rules contains "(PbÃÂÃÂ£
 					// retranslate the prefix part
 					char *wordpf;
 					char prefix_phonemes2[12];
@@ -1593,7 +1593,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 	plist2 = &ph_list2[n_ph_list2];
 	stress = 0;
-	next_stress = 0;
+	next_stress = 1;
 	srcix = 0;
 	max_stress = -1;
 
@@ -1663,7 +1663,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			// don't add stress phonemes codes to the list, but give their stress
 			// value to the next vowel phoneme
 			// std_length is used to hold stress number or (if >10) a tone number for a tone language
-			if(ph->spect == 0)
+			if(ph->program == 0)
 				next_stress = ph->std_length;
 			else
 			{
@@ -1720,7 +1720,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(ph->type == phVOWEL)
 			{
 				stress = next_stress;
-				next_stress = 0;
+				next_stress = 1;  // default is 'unstressed'
 
 				if(stress >= 4)
 				{
@@ -2272,7 +2272,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			if((c == 0x92) || (c == 0xb4) || (c == 0x2019) || (c == 0x2032))
 				c = '\'';    // 'microsoft' quote or sexed closing single quote, or prime - possibly used as apostrophe 
 
-			if((c == '?') && IsAlpha(prev_out) && IsAlpha(next_in))
+			if(((c == 0x2018) || (c == '?')) && IsAlpha(prev_out) && IsAlpha(next_in))
 			{
 				// ? between two letters may be a smart-quote replaced by ?
 				c = '\'';

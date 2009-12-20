@@ -16,6 +16,7 @@
  000_-) al (_      Al        // ... but not 1000-al
      _) alattvaló  AlAtvAlo:
         ahhoz      Ahoz
+?!2     auschwitz  AuSvits
 
 .group á
         á          a:
@@ -149,6 +150,7 @@ hierar) ch (i      h
  nyála) d (z       d
    ren) dsz (erint d|s
  szaba) d (szájú   d
+menetren) dsz (erű d|s
 
 .group dz
   fogó) dz (kod    ts
@@ -265,10 +267,9 @@ _minde) gy (ik     J:
     na) gysz (a    Js
     na) gy (sokára J
     na) gy (siet   J
-     ú) gy (se     J
+     ú) gys (e     J|S
   seho) gy (se     J
     ho) gy (se     J
-     ú) gy (se     J
     na) gy (ság    J
     he) gy (ség    J
      e) gy (ség    J
@@ -278,6 +279,8 @@ _minde) gy (ik     J:
      e) gy (sor    J
     né) gy (sor    J
      e) gy (es-egyedül J     //need one J phoneme with this word, not J: phoneme
+     ú) gy (sem    J
+    né) gy (sarok  J
 
 .group h
         h          h
@@ -330,7 +333,6 @@ _minde) gy (ik     J:
     fe) l (jegy    l
     fe) l (jelen   l
     fe) l (jár     l
-     e) l (jö      l
 
         lj         l^j
     cé) l (já      jj
@@ -340,7 +342,7 @@ _minde) gy (ik     J:
      A) lj (A      l^j
      e) l (jut     l
      e) l (jus     l
-
+    _e) lj (ö      lj
      á) ll (j      j
  beszé) lj         jj
   bére) lj         jj
@@ -420,6 +422,10 @@ tulajdo) n (jog    n
   elle) n (játék   n
   elle) n (javallt n
     fé) ny (jel    n^
+     i) nj (ekció  n^
+  elle) n (jegy    n
+    fe) nn (tartás n
+    fe) nn (sík    n
 
 .group o
         o          o
@@ -486,6 +492,8 @@ danubiu) s         s         //a radio station name
 juventu) s         s         //a radio station name
     va) s (s       S
   óriá) s          S
+  látá) s (zavar   S
+ hallá) s (zavar   S
 
 
 
@@ -647,7 +655,7 @@ motoro) ssz (emüveg Ss
   bőgé) ssz (erű   Ss
 kavará) ssz (erű   Ss
    _sa) ssz (eg    Ss
-
+    ké) ssz (úrás  Ss
 
 .group sz
         sz         s
@@ -745,7 +753,7 @@ vörösmar) ty       ti
      á) t (cikáz   t
      á) t (caplat  t
      á) t (sza     t
-     á) t (jár     t
+     á) tj (ár     t|j
      á) t (szö     t
      á) t (sző     t
      á) t (szú     t
@@ -772,7 +780,6 @@ folyama) t (jel    t
    szé) t          t
    szé) tt         t:
      á) t (sor     t
-     á) t (sé      t
      á) t (sze     t
      á) t (sug     t
      á) t (suh     t
@@ -817,6 +824,7 @@ fejeze) t (jel     t
     ké) t (jegyű   t
  krike) tt (játék  t:
   mene) t (jegy    t
+  mene) t (jeggy   t
  szüne) t (jel     t
      ú) t (jelző   t
      ú) t (jog     t
@@ -826,6 +834,10 @@ folyama) t (sáv    t
    ada) t (szolgáltat t
     _ú) t (sáv     t
 négyze) t (centi   t
+     á) tj (öt     t|j
+     á) tj (ön     t|j
+     á) t (süvít   t
+  bará) tj (ára    c:
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -895,6 +907,8 @@ indula) tsz (ó     t|s
    dró) tsz (őr    t|s
     lá) tsz (erész t|s
    skó) tsz (okny  t|s
+  söté) tsz (őke   t|s
+     á) ts (é      t|S
 
 .group u
         u          u
@@ -944,7 +958,6 @@ indula) tsz (ó     t|s
 befeje) z (te      s
     bi) z (tons    s
     bi) z (tos     s
-  bron) z (sz      z
 csontvá) z         z
      e) z (t       s
     ho) z (ta      s
@@ -956,37 +969,31 @@ csontvá) z         z
 lefeje) z (te      s
 lefeje) z (ték     s
    pén) z (tár     s
-    ré) z (sz      z
     ré) z (serpenyő z
  tartó) z          s
-    gá) z (sz      z
+
     gá) z (cső     z
-    gé) z (sz      z
+
 
     ké) z (sz      zz
     há) z (so      z
-    há) z (sz      z
-    lá) z (sz      z
+
+
     má) zc (sz     z
     mé) zc (sz     z
   nehé) z (sé      S
   nehé) z (súlyú   z
    iga) zs (ág     SS
-   iga) z (szí     z
+
     ga) zs (ág     SS
    pén) z          z
-   szá) z (sz      z
-    tí) z (sz      z
-    tű) z (sz      z
-    ví) z (sz      z
-   tor) z (szülött z
    tor) z (ság     z
  _vité) z          z
    _ví) z (s       z
 
     ga) zs (ág     zS
-   _gá) zsz (ámla  zs:
-   _gá) zsz (ámlá  zs:
+   _gá) zsz (ámla  zs
+   _gá) zsz (ámlá  zs
    _ré) zs (ó      zS
      ő) zs (uta    zS
    _vá) zs (or     zS
@@ -1004,15 +1011,14 @@ _szára) zs (ág     SS
     ké) z (zsibbadás z
     ké) z (sérül   z
    szű) z (sült    z
- házho) z (szállít z
+
     gő) z (sugár   z
 találko) z (t      s
  eszkö) z (sor     z
     gő) z (síp     z
  matró) z (sapka   z
   nehé) z (súly    z
-   raj) z (szeg    z
-   raj) z (szög    z
+        zsz        z|s       //general exception. Need difference first z and second sz phoneme. For example, rajzszög, rajzszeg, mézszín words.
    pén) z (t       s
  rende) z (ked     s
  kocká) z (tat     s
@@ -1022,11 +1028,8 @@ különbö) z (tet    s
  válto) z (tass    s
 tájéko) z (tat     s
 tájéko) z (tass    s
-    mé) z (szín    z
     bi) z (tat     s
     rá) z (kód     s
-   raj) z (szak    z
-   hiú) z (szem    z
 
 
 .group

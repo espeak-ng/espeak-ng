@@ -298,6 +298,7 @@ void CalcLengths(Translator *tr)
 	int emphasized;
 	int  tone_mod;
 	unsigned char *pitch_env=NULL;
+	PHONEME_DATA phdata_tone;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
 	{
@@ -408,7 +409,7 @@ void CalcLengths(Translator *tr)
 
 		case phLIQUID:
 		case phNASAL:
-			p->amp = tr->stress_amps[1];  // unless changed later
+			p->amp = tr->stress_amps[0];  // unless changed later
 			p->length = 256;  //  TEMPORARY
 			min_drop = 0;
 			
@@ -474,6 +475,10 @@ void CalcLengths(Translator *tr)
 
 			if(stress > 7) stress = 7;
 
+if(stress <= 1)
+{
+  stress = stress ^ 1;  // swap diminished and unstressed (until we swap stress_amps,stress_lengths in tr_languages)
+}
 			if(pre_sonorant)
 				p->amp = tr->stress_amps[stress]-1;
 			else
@@ -562,7 +567,7 @@ void CalcLengths(Translator *tr)
 			{
 				length_mod += 20;
 			}
-			
+
 			if((len = tr->stress_lengths[stress]) == 0)
 				len = tr->stress_lengths[6];
 
@@ -580,7 +585,7 @@ void CalcLengths(Translator *tr)
 			if(end_of_clause == 2)
 			{
 				// this is the last syllable in the clause, lengthen it - more for short vowels
-				len = p->ph->std_length;
+				len = (p->ph->std_length * 2);
 				if(tr->langopts.stress_flags & 0x40000)
 					len=200;  // don't lengthen short vowels more than long vowels at end-of-clause
 				length_mod = length_mod * (256 + (280 - len)/3)/256;
@@ -608,7 +613,8 @@ if(p->type != phVOWEL)
 
 			if(p->tone_ph != 0)
 			{
-				pitch_env = LookupEnvelope(phoneme_tab[p->tone_ph]->spect);
+				InterpretPhoneme2(p->tone_ph, &phdata_tone);
+				pitch_env = LookupEnvelope(phdata_tone.pitch_env);
 			}
 			else
 			{

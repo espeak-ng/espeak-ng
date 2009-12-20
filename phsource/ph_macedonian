@@ -2,19 +2,25 @@
 
 phoneme k^
   vls pal stop
-  vowelin f1=0  f2=2700 400 600  f3=400 80
-  vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
   lengthmod 2
-  wave ustop/ki
+  Vowelin f1=0  f2=2700 400 600  f3=400 80
+  Vowelout f1=0 f2=2700 400 600  f3=400 80  rms=20
+  WAV(ustop/ki)
 endphoneme
+
 
 phoneme dZ;
   vcd pal afr sibilant palatal
-  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
-  formants dzh/dzh+x/dz_pzd
-  before _ dzh/dzh_+x/dzh_
-  after _ NULL
-  after @ dzh/xdzh
   lengthmod 5
-  switchvoicing ts;
+  voicingswitch tS;
+  Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+
+  IF PreVoicing THEN
+    FMT(dzh/xdzh)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(dzh/dzh_) addWav(x/dzh_)
+  ENDIF
+  FMT(dzh/dzh) addWav(x/dz_pzd)
 endphoneme
