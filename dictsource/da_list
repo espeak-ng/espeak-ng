@@ -1,4 +1,4 @@
- 
+﻿ 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
 
@@ -27,7 +27,7 @@ _ac2	dV@lakj'u:t
 _brv	br'i:v
 _ced	s@d'ila
 _cir	s'3:kVmfl,Eks
-_dia	'umlaut
+_dia	'omlyd
 _dot	wiDd'0tabVv
 _grv	aks'aN gr'a:v
 _hac	h'atS,Ek
@@ -58,9 +58,9 @@ _#32	blank
 @	sn,&:bel'&:
 /	sgRVsdrai	$max3
 \	'Vmvendsgr,VsdRai $max3
-_,	koma:
+_,	k'oma:
 _;	se:mi:ko:lVn
-_:	ko:lVn
+_:	k'o:lVn
 _.	puNtum
 _?	spWrgsmVlstajn
 _!	udRVbstejn
@@ -73,9 +73,16 @@ __	b'Onsdrai
 ÷ divid'eReD meD 
 =	l'imeD
 #	n'OmV
-§	paragR'af
-
-
+§	paragr'af
+×	g'aNe
+ª	feminin Wdin'al
+º	m'askulin Wdin'al
+®	registr'eret varemerke
+¼	en kvart
+¢	s'ents
+¥	j'en:
+µ	my
+'	apostr'of
 
 // numbers
 _0	'nOl
@@ -235,6 +242,7 @@ z	sEt
 
 
 // exceptions
+Alene	al'en@	// alone
 egen a:j@n
 eget	a:j@D
 egne	a:in@
@@ -248,8 +256,9 @@ havde	h'aD@ // had
 idet	id'e	// in so far as
 sagde	sa@	// said
 sig	sAi	// oneself
-//slags	sl+ags	// sort, type
+slags	sl'ags	// sort, type
 tre	tr'e	// the number 3
+
 
 
 

@@ -6,6 +6,7 @@
 _0        nullA
 _1        EJ
 _2        kEt:Y:
+_2a       ke:t       // for 200, 2000
 _3        ha:R2om
 _4        ne:J
 _5        Yt
@@ -25,6 +26,7 @@ _7X       hEtvEn
 _8X       n^oltsvAn
 _9X       kilEntsvEn
 _0C       sa:z
+
 _0M1      EzER2
 _1M1      EzER2
 _2M1      ke:tEzER2
@@ -35,12 +37,21 @@ _0M3      millia:R2d
 _1M3      EJmillia:R2d
 _2M3    ke:tmillia:R2d
 
-
 _0M4      billio:
 _1M4      billio:
 _2M4      ke:tbillio:
 _dpt      ||Ege:s //Not need the pause before this word
 
+
+// variants used when followed by hyphen and suffix starting with 'e' or 'a'
+_1e       EJ:
+_2e       kEt:
+_3e       ha:R2m
+_7e       hEt
+_0M1e     EzR2
+_1M1e     EzR2
+_2M1e     ke:tEzR2
+// used after decimal point
 _0Z1	tizEd      // tenths
 _0Z2	sa:zAd     // hundredths
 _0Z3	EzR2Ed
@@ -76,34 +87,61 @@ _0M1o	EzR2Edik
 _1M1o	EzR2Edik
 _2M1o	ke:tEzR2Edik
 
+// ordinal numbers with -a or -e suffix, which is spoken but not written (eg. "december 2. óta")
+// Use this pronunciation when a number (with a dot) is between a $alt word and a $alt3 word.
+// Set $alt3 flag for: óta, és. közt, között
+
+_1qx	ElSEjE
+_2qx	ma:SodikA
+_1q	EJ:EdikE
+_2q	kEt:EdikE
+_3q	hAR2_mAdikA
+_4q	nEJEdikE
+_5q	YtYdikE
+_6q	hAtodikA
+_7q	hEtEdikE
+_8q	n^oltsAdikA
+_9q	kilEntsEdikE
+_10q	tizEdikE
+_20q	husAdikA
+_30q	hAR2_mintsAdikA
+
 
 // $alt2 means these rules only apply if the previous word
 //  has $alt1 (language specific).  $text implies $only (for this group only)
 
-_0-a	A	$alt2
-_0-i	Ei	$alt2
-_0-e	E	$alt2
-_0-án	a:n	$alt2
-_0-ára	a:R2A	$alt2
-_0-ére	e:R2E	$alt2
-_0-ra	a:R2A	$alt2
-_0-re	e:R2E	$alt2
-_0-én	e:n	$alt2
-_0-ai	Ai	$alt2
-_0-ei	Ei	$alt2
-_0-től	e:tY:l	$alt2
-_0-tól	a:to:l	$alt2
-_0-ig	e:ig	$alt2 //special date ordinal numbers for example elsejéig, negyedikéig etc.
-_0-éről	e:R2Y:l	$alt2
-_0-áról	a:R2o:l	$alt2
-_0-ára	a:R2A	$alt2
-_0-ától	a:to:l	$alt2
-_0-ről	e:R2Y:l	$alt2
-_0-ról	a:R2o:l	$alt2
-_0-ével	e:vEl	$alt2
-_0-ával	a:vAl	$alt2
-_0-éig	e:ig	$alt2
-_0-áig	a:ig	$alt2
+_#-a	A	$alt2
+_#-i	Ei	$alt2
+_#-e	E	$alt2
+_#-án	a:n	//Need remove the $alt2 tag with this line, because some 
+//time with the book the sentences beginning with this form, and need
+//spokening ordinal number alwais. For example: In 20th, the rain is raining.
+_#-ára	a:R2A //need remove the $alt2 tag, because with a books lot of
+//string using following form: január 19-ről 20-ára. With this situation,
+//need spokening huszadikára, not húsz-ára string.
+_#-ére	e:R2E //Same as prewious doed fix.
+_#-ra	a:R2A	$alt2 //But this line for example need the $alt2 tag.
+_#-re	e:R2E	$alt2
+_#-én	e:n	//need remove the $alt2 attribute with this line
+_#-ai	Ai	$alt2
+_#-ei	Ei	$alt2
+_#-től	e:tY:l	$alt2
+_#-tól	a:to:l	$alt2
+_#-ig	e:ig	$alt2 //special date ordinal numbers for example elsejéig, negyedikéig etc.
+_#-éről	e:R2Y:l	
+_#-áról	a:R2o:l	$alt2
+
+_#-ától	a:to:l	$alt2
+_#-ről	e:R2Y:l	$alt2
+_#-ról	a:R2o:l	$alt2
+_#-ével	e:vEl	$alt2
+_#-ával	a:vAl	$alt2
+_#-éig	e:ig	$alt2
+_#-áig	a:ig	$alt2
+_#-étől	e:tY:l	$alt2
+_#-ét	e:t	$alt2
+_#-át	a:t	$alt2
+
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
 (1-jén)	elsején 	$text $alt2
@@ -117,6 +155,14 @@ _0-áig	a:ig	$alt2
 (1-ről) elsejéről	$text $alt2
 (1-ével)	elsejével	$text $alt2
 (1-éig) elsejéig	$text $alt2
+(1-étől) elsejétől	$text $alt2
+(1-ét) elsejét	$text $alt2
+(1-je)	elseje	$text $alt2
+(1-jei)	elsejei	$text $alt2
+(1-jével)	elsejével	$text $alt2
+(1-jére)	elsejére	$text $alt2
+(1-jétől)	elsejétől	$text $alt2
+(1-jéig)	elsejéig	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
 (3-i)	hAR2_mAdikAi	$alt2
@@ -137,8 +183,6 @@ _0-áig	a:ig	$alt2
 (30-i)	harmincadikai	$text $alt2
 
 
-
-
 // these exceptions only for 0, not for other numbers ending in '0'
 (0-ás) nul:a:S
 (0-t) nul:a:t
@@ -147,50 +191,23 @@ _0-áig	a:ig	$alt2
 (0-nál) nul:a:na:l
 (0-hoz) nul:a:hoz
 (0-s) nul:a:S
+(0-ára) nul:a:R2A //But if the 0-ára string have the text (only 0 number before the suffix, need spokening this exception.
+(0-án)	nul:a:n	//same as prewious exception.
+(0-ig) nul:a:ig
+(00-ig) nul:Anul:a:ig //special exception
+(0-ban) nul:a:bAn
+(0-ba) nul:a:bA
+(1-gyet) EJ:Et
+(1-gyes) EJ:ES
+(2-őt) kEt:Y:t
 
 // entries with a single digit such as (2-i) also apply to 22, 32, etc, unless $only
-
-// with these suffixes, use [J:] not [J]
-(1-es) EJ:ES
-(1-et) EJ:Et
-(1-est) EJ:ESt
-(1-esét) EJ:ESe:t
-(1-esével) EJ:ESe:vEl
-(1-essel) EJ:ES:El
-(1-eseik) EJ:ESEik
-(1-eseikkel) EJ:ESEik:El
-(1-eseiket) EJ:ESEikEt
-(1-esekkel) EJ:ESEk:El
-(1-esek) EJ:ESEk 
-(1-el) EJ:El 
-
-(2-es)	kEt:ES
-(2-est) kEt:ESt
-(2-essel) kEt:ES:El
-(2-őt) kEt:Y:t
-(2-esen) kEt:ESEn
-(2-esével) kEt:ESe:vEl
-(2-n) kEt:Y:n
-(2-esekkel) kEt:ESEk:El
-(2-eseket) kEt:ESEkEt
-(2-eseik) kEt:ESEik
-(2-esük) kEt:ESyk
-(3-as)	ha:R2mAS
-(3-asának) ha:R2mASa:nAk
-(3-ason) ha:R2mASon
-(3-assal) ha:R2mAS:Al
-(3-asával) ha:R2mASa:vAl
-(3-ast) ha:R2mASt
-(3-astól) ha:R2mASto:l
-(3-ashoz) ha:R2mAShoz
-(3-at) ha:R2mAt
-(3-al) ha:R2om:Al 
-(3-asok) ha:R2mASok
-(3-asoknak) ha:R2mASoknAk
+(30-cal) hAR2mints:Al
 
 //4 number suffixes
 (4-el) ne:J:El //Nneed J: phoneme, not J phoneme contains one suffix) 
 (4-gyel) ne:J:El //Need J: phoneme, not J phoneme
+(4-t) ne:JEt //special number suffix exception
 (5-tel) Yt:El
 (5-el) Yt:El
 (5-től) Yt:Y:l
@@ -199,36 +216,17 @@ _0-áig	a:ig	$alt2
 (6-tal) hAt:Al
 (6-tól) hAt:o:l
 (6-tól) h'Atodika:to:l	$alt2
-(7-es)	hEtES
-(7-est) hEtESt
-(7-esek) hEtESEk
-(7-eseket) hEtESEkEt
-(7-esekkel) hEtESEk:El
-(7-esbe) hEtESbE
-(7-esben) hEtESbEn
-(7-esük) hEtESyk
-(7-tel) he:t:El
-(7-el) he:t:El
+
 (7-től) he:t:Y:l
 (7-től)	hEtEdike:tY:l	$alt2
-(7-essel) hEtES:El
-(7-esen) hEtESEN
-(7-eseknek) hEtESEknEk
-(7-et) hEtEt
-(7-em) hEtEm
-(10-es) tizES   // use [i] not [i:]
-(10-est) tizESt
-(10-essel) tizES:El
-(10-esével) tizESe:vEl
-(10-en) tizEn
-(10-et) tizEt
+(7-tel) he:t:El
+(8-cal) n^olts:Al
+_10e	tiz
+_20e	hus
 (10-szer) ti:s:ER2
 (10-szeres) ti:s:ER2ES
-(20-as) husAS   // use [u] not [u:]
-(20-ast) husASt
-(20-assal) husAS:Al
-(20-asával) husASa:vAl
-(20-at) husAt
+
+
 
 
 //special number exceptions
@@ -241,6 +239,7 @@ _0-áig	a:ig	$alt2
 (70-el) hEtvEn:El
 (80-al) n^oltsvAn:Al
 (90-el) kilEntsvEn:El
+
 
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
 január		$alt
@@ -281,6 +280,20 @@ péntek	$alt
 szombat	$alt
 vasárnap	$alt
 
+//Following four seasons and suffixes not need spokening ordinal number
+tavasz	$alt
+nyár	$alt
+ősz	$alt
+tél	$alt
+tavaszán	$alt
+nyarán	$alt
+őszén	$alt
+telén	$alt
+tavaszi	$alt
+nyári	$alt
+őszi	$alt
+téli	$alt
+
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -300,7 +313,6 @@ _tld	tildE
 
 // characters
 _#9	tAb
-_#13	vAlAmi
 _#32 	so:kYz
 _cap	n'AJ_|
 _??	kAR2AktEr||ko:d      // unknown characters (change this)
@@ -310,8 +322,9 @@ _??	kAR2AktEr||ko:d      // unknown characters (change this)
 ADSL	a:de:ESEl	$allcaps //Internet connection type, we pronouns this with ádéesel
 ÁNTSZ a:Ente:Es $allcaps
 ATM	a:te:Em	$allcaps	//The ATM stands. We pronouns this abbreviation with átéem word. Default, Espeak pronouns this abbreviation with atéem word.
-
+cm	tsEntime:tER2
 km	kilo:me:tER2
+
 GYSEV	JESEv	$allcaps
 GYESEV	JESEv	$allcaps
 HÉV	he:v	$allcaps
@@ -319,6 +332,7 @@ IPTV	$abbrev $allcaps
 GDP	dZi:di:pi:	$allcaps
 ?2 GDP $abbrev $allcaps
 HSDPA	$abbrev $allcaps
+kb	kYR2ylbElyl $hasdot
 ORTT	$abbrev $allcaps
 ORFK	oEREfka:	$abbrev $allcaps
 MÁV	ma:v	$allcaps
@@ -326,7 +340,13 @@ MTI	$abbrev $allcaps
 mm      milime:tER2
 RAM	R2Am	$allcaps //Espeak normaly spokening this abbreviation with erraem, but this is not good
 Psszt ps:t $capital // similar word with quiet word. Espeak default spokening this abbrew quiet word with letter by letter by default.
+Pszt ps:t $capital //same as prewious abbrewiation
 VDSZSZ	ve:de:EsEs	$allcaps
+WC	ve:tse:	$allcaps
+LST	ElESte:	$allcaps
+BAR	bAR2	$allcaps
+SS	EsEs	$allcaps
+
 a.m	An^n^i||m'int  $dot
 ún	u:JnEvEzEt:	$hasdot
 dr	doktoR2  $dot
@@ -354,7 +374,22 @@ vö	v'EZd||_'Yss2E
 
 // Articles
 a         $u $strend2   // the
-az       $u $strend2
+az       $u $strend2 //Need remove the $alt3 attribute this article, because
+//following context result bad spokening output if $alt3 attribute is used:
+//az 5. és 6. hadsereg.
+//This text means in english: the 1th and 2th solders
+//Espeak spokening following phoneme if $alt3 attribute is used:
+//Az YtYdikE és hAtodik hAdSER2Eg
+//This is wrong this context, the right phoneme is:
+//Az YtYdik és hAtodik hAdSER2Eg
+//But for example the following sentence part need the $alt3 attribute with
+//az article word, but now impossible doing this right:
+//Június 6. az a nap
+//If I removed the $alt3 attribute with az word, Espeak sending this phoneme:
+//ju:niuS hAtodik Az A nAp
+//The right phoneme is:
+//ju:niuS hAtodikA Az A nAp
+
 //aki       $u+   // that
 
 ez        $unstressend   // this
@@ -375,12 +410,12 @@ maguk     $unstressend
 
 
 // Conjunctions
-és        $u  $strend2 // and
+és        $u  $strend2 $alt3 // and
 de        $u+ $pause  // but
 vagy      $u+ $pause  // or
 
 mert      $u $pause    // because
-miatt     $u           // because
+miatt     $unstressend           // because
 bár       $u $pause     // although
 habár     $u $pause     // although
 ha        $u $pause  // if
@@ -405,14 +440,15 @@ is        $u         // also
 elöl	$unstressend      // in front of
 elől	$unstressend
 elé	$unstressend
-előtt	$unstressend
-
+előtt	$alt3 $unstressend
+este	$alt3
+estéjén	$alt3
 mögül	$unstressend      // behind
 mögött	$unstressend
 mögé	$unstressend
 
 kívül	$unstressend
-után	$unstressend     // after
+után	$unstressend $alt3    // after
 
 alól	$unstressend
 alá	$unstressend
@@ -437,15 +473,15 @@ neki	$unstressend
 nekem	$unstressend
 közül	$unstressend
 közé	$unstressend
-között	$u
+között	$u $alt3
 an	$u	// so many persons
 as	$u
 ba	$unstressend	// into
-ban	$unstressend	// in
+ban	$u	// in
 be	$unstressend
-ben	$unstressend
-ból	$unstressend	// from inside
-ből	$unstressend
+ben	$u
+ból	$u	// from inside
+ből	$u
 e       $u      // in query, his/her
 ei      $u      // his her multiole
 en	$u
@@ -489,7 +525,14 @@ vel     $unstressend
 
 ellen	$unstressend	// against
 //elé	$u	// before
-//óta	$u	// since
+óta	$alt3	// since
+hétfőig	$alt3
+keddig	$alt3
+szerdáig	$alt3
+csütörtökig	$alt3
+péntekig	$alt3
+szombatig	$alt3
+vasárnapig	$alt3
 
 sok	$unstressend	// many
 kevés	$unstressend	// few
@@ -535,7 +578,6 @@ tartják	$unstressend
 erős	$unstressend
 lenni	$unstressend
 lennie	$unstressend
-közt	$u+
 levegőjére	$unstressend
 ad	$unstressend
 kapják	$unstressend
@@ -833,7 +875,7 @@ velem	$unstressend
 velünk	$unstressend
 veletek	$unstressend
 velük	$unstressend
-közt	$unstressend
+közt	$unstressend $alt3
 hiszik	$unstressend
 hiszitek	$unstressend
 önt	$unstressend
@@ -866,6 +908,17 @@ vélem	$unstressend
 véled	$unstressend
 véli	$unstressend
 vélitek	$unstressend
+szól	$unstressend
+tank	$unstressend
+adta	$unstressend
+kellett	$unstressend
+főt	$unstressend
+nőtt	$unstressend
+vitt	$unstressend
+rést	$unstressend
+brit	$unstressend
+természetes	$u $1
+
 
 // word pairs
 
@@ -885,7 +938,7 @@ vannak    $unstressend
 
 voltam    $u  // to be, past
 voltál    $u
-volt      $u
+volt      $u $alt3
 voltunk   $u
 voltatok  $u
 voltak    $u
@@ -1013,7 +1066,7 @@ _¤	pe:nznEmjEl
 ®	bEjEJzEt:
 ™	ve:djEJ
 _`	tompA
-_ 	SokYz
+_ 	so:kYz
 _«	bElSY:|bAl|ide:zY:jEl
 _»	bElSY:|jobb|ide:zY:jEl
 _­	la:JkYtY:jEl
@@ -1057,9 +1110,11 @@ nato	na:to:
 (end-of line) u:jS,oR2
 
 
+
 $textmode
 MSZP emeszpé
 SZDSZ eszdéesz
+
 
 egyezség	eggyesség
 
@@ -1074,6 +1129,30 @@ egyezség	eggyesség
 (CD-d) cédéd
 (db-os) darabos
 (db-ot) darabot
+(LST-k) elesték
+(LST-n) elestén
+(PC-k) pécék
+(://) (kettőspontperper) $pause //Hungarian Nwda users ask me put this entry
+//again, because Nwda unfortunately does'nt spokening colondashdash
+//characters for example with a http or an ftp url.
+//The parenthese with second part is required, because if I using this form,
+//Orca speech driver does'nt pronouns wrong the url's if I navigating word
+//after word and don't disturb Orca working.
+(PC-n) pécén
+(USB-n) úesbén
+(USA-ból) usából
+(USA-nak) usának
+(DVD-k) dévédék
+(dvd-k) dévédék
+(DVD-n) dévédén
+(dvd-n) dévédén
+(dvd-d) dévédéd
+(DVD-d) dévédéd
+
+
+
+
+
 
 
 

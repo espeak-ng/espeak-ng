@@ -305,10 +305,10 @@ _0M3	b'Ili@n
 _dpt	pOInt
 _roman	roUm@n_
 
-_0st	st
-_0nd	@nd
-_0rd	d
-_0th	T
+_#st	st
+_#nd	@nd
+_#rd	d
+_#th	T
 _ord	T	// default ending
 _1o	f'3:
 _2o	s'Ek
@@ -599,6 +599,7 @@ archive          A@kaIv
 archway           $1
 arena            a2ri:n@
 argue            A@gju:
+aries            e@ri:z
 arithmetic       a2rITm@tIk
 arise            a2raIz
 arisen           a2rIz@n
@@ -1306,7 +1307,6 @@ ingenuity        IndZI2n'ju:I2tI
 inherit          Inh'ErIt	// inherited
 innard           In3d
 inner            In3
-inning           InI2N
 innovative       In@veItIv
 insect            $1
 insert           Ins3:t        $onlys
@@ -1710,6 +1710,7 @@ pipette          pIp'Et
 piquant          pi:k@nt
 piracy           paI@r@sI
 pirate           paIr@t
+pisces           paIsi:z
 piteous          pIti@s
 pituitary                      $2
 plaguing         pleIgIN
@@ -2419,6 +2420,8 @@ Damascus	da2mask@s
 Danish		deInIS
 Delhi		dElI
 Djibouti	dZIb'u:tI
+Donegal		d0nI2g'O:l
+Durham		dVr@m
 Egyptian	IdZ'IpS@n
 Eire		e@r@
 Geneva		dZ@ni:v@
@@ -2580,6 +2583,7 @@ Baez		baI'Ez
 Bambi		bambi:
 Barack		ba2rA:k
 Barbara		bA@b@r@
+Betsy		bEtsI
 Boris		b0rIs
 Brien		braI@n
 Candace		kandIs
@@ -2630,6 +2634,7 @@ Graeme		greI@m
 Graham		greI@m
 Hadrian		heIdri:@n
 Harriet		hari@t
+Heidi		haIdI
 Huw		hju:
 Iain		i:@n
 Ian		i:@n
@@ -3204,6 +3209,7 @@ like             laIk          $strend2
 ?3 amen		,eIm'En
 ?3 anti		antaI
 ?3 banana       ba2nan@
+?3 beta		beIt@
 ?3 caffeine	$2
 ?3 comrade	k0mrad
 ?3 commentary   k0m@ntErI

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -174,7 +174,7 @@ static int create_events(short* outbuf, int length, espeak_EVENT* event, uint32_
 }
 
 
-int sync_espeak_terminated_msg( uint unique_identifier, void* user_data)
+int sync_espeak_terminated_msg( uint32_t unique_identifier, void* user_data)
 {//=====================================================================
 	ENTER("sync_espeak_terminated_msg");
 

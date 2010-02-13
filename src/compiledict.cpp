@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -91,6 +91,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$alt",       20},   // use alternative pronunciation
 	{"$alt2",      21},
 	{"$combine",   22},   // Combine with the next word
+	{"$alt3",      23},
 
 	{"$dot",       24},   // ignore '.' after this word (abbreviation)
 	{"$hasdot",    25},   // use this pronunciation if there is a dot after the word

@@ -1,4 +1,4 @@
-
+﻿
 // This file is UTF8 encoded
 // Spelling-to-phoneme rules for Danish
 
@@ -29,6 +29,8 @@
     ch) au (f      o
   nive) au         o
         an (cienn  aN
+restaur) ant       aN
+  rest) au (r      o
         aw (K      aw
         ay (K      aj
         aa         O:
@@ -90,6 +92,7 @@
      d) d          d
      e) d (t 
      i) d (e       d
+     i) d (ræt     d
      i) d (t 
      o) d (a       d
      o) d (i       d
@@ -180,6 +183,7 @@
     æn) d (ri      d
     æn) d (re      d
     æn) d (re      d
+   bol) d          d
    kla) dd (e      D
    kry) dd (er     D
         dd (et     D
@@ -196,6 +200,7 @@
    plu) d (se 
    ral) d (e 
    sag) d (e 
+   sed) d (el      D
    sku) d (t 
    smu) d (s 
    snu) d (e       D
@@ -570,13 +575,17 @@ foreta) g (e
      o) ld         l
      æ) ld (r      ld
     bo) ld         ld
+    bo) ld (A      ld
     fo) ld         l
     he) ld         l
     he) ld (ig     ld
+    ki) ld (A      l
     me) ld (el     l
     me) ld (ing    l
     no) ld         l
     so) ld (aC     d
+    so) ld (at     ld
+
 
 
 
@@ -585,7 +594,9 @@ foreta) g (e
         mm         m
         m (A       m
   gour) met        m'e
-
+kompli) ment       maN
+kompli) ment (e    ment
+ regle) ment (e    ment
 
 .group n
 
@@ -604,6 +615,10 @@ foreta) g (e
     sa) n (kt 
    eku) nd         nd
    pag) n (e       nj
+ ballo) n          N
+  ræso) n          N
+  sæso) n          N
+  talo) n          N
  gleme) n (t       N
 
 
@@ -634,6 +649,7 @@ foreta) g (e
     sa) ng (e      N
     se) ng (e      N
     ti) ng (e      N
+    ti) ng (ent    Ng
    træ) ng (e      N
   arra) ng         NS
 
@@ -694,8 +710,8 @@ foreta) g (e
 
 
 .group r
-        r          r
-        r (A       R
+        r          R
+        r (K       r         // not followed by a vowel
      ø) r          V:
     Ae) r          V
      &) rd (e_     r
@@ -887,6 +903,7 @@ proven) u          y
 
 .group
         $          dVlar
+
 
 
 

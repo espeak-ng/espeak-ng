@@ -14,7 +14,7 @@ The 'phondata-manifest' file is produced by espeakedit when it compiles
 the phoneme data.  If it is not present here, find it in the espeak-data directory.
 
 NOTE: 
-The format of espeak-data/phondata changed in eSpeak version 1.41.  The utility
+The format of espeak-data/phondata changed in eSpeak version 1.43.  The utility
 has been modified for this.  [jonsd]
 
 ---

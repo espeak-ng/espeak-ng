@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -1458,7 +1458,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				}
 			}
 
-			if((next->type==phVOWEL) || ((next->type==phLIQUID)) && (next->newword==0))  // ?? test 14.Aug.2007
+			if((next->type==phVOWEL) || ((next->type==phLIQUID) && (next->newword==0)))  // ?? test 14.Aug.2007
 			{
 				StartSyllable();
 			}

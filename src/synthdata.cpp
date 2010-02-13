@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.42.21  19.Dec.09";
+const char *version_string = "1.42.42  12.Feb.10";
 const int version_phdata  = 0x014220;
 
 int option_device_number = -1;
@@ -942,13 +942,14 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 
 		case 9:
 			data = ((instn & 0xf) << 16) + prog[1];
+			prog++;
 			switch(instn2)
 			{
 			case 1:
 				// call a procedure or another phoneme
 				if(n_return < N_RETURN)
 				{
-					return_addr[n_return++] = prog+1;
+					return_addr[n_return++] = prog;
 					prog = &phoneme_index[data] - 1;
 				}
 				break;

@@ -30,14 +30,14 @@ _0M4		duili'ono
 _dpt		_komo_
 
 // ordinal numbers
-_0a		a
-_0aj		aI
-_0an		an
-_0ajn		aIn
-_0-a		a
-_0-aj		aI
-_0-an		an
-_0-ajn		aIn
+_#a		a
+_#aj		aI
+_#an		an
+_#ajn		aIn
+_#-a		a
+_#-aj		aI
+_#-an		an
+_#-ajn		aIn
 
 // accent names
 _lig	ligat'uRa

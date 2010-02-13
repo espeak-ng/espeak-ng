@@ -12,8 +12,8 @@
 
 .group b
         b        b
-
      _) be (@@   b@
+        be (n    b@
 
 
 .group c
@@ -27,7 +27,7 @@
         e        E
      e) e        _|E
     A_) e        _|E
-        e (_     e
+        e (_     E
 
 .group f
         f        f
@@ -49,10 +49,10 @@
 
 .group k
         k        k
-        k (_     ?
+        k (_     k
         kh       x
-
      _) ke (@@   k@
+        ke (n    k@
 
 
 .group l
@@ -92,7 +92,7 @@
 .group r
         r        R2
         r (K     R
-     e) r (K     *R
+     e) r (K     R
 
 
 .group s
@@ -107,8 +107,9 @@
 .group t
         t        t
         tj       tS      // Dutch
+     _) tel      t@l
+     _) ter (@@  t@R
 
-     _) ter (@@  t@*R
 
 
 .group u
@@ -142,4 +143,5 @@
      *) * (*
         ** 
     **) * (_         _::
+
 

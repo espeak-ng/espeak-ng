@@ -567,7 +567,7 @@ phoneme m
     VowelStart(m/mu)
   EndSwitch
 
-  IF thisPh(isNotVowel) AND nextPhW(isLiquid) THEN
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(m/mj)
   ELIF prevPh(isPause) THEN
     FMT(m/_m)
@@ -596,7 +596,7 @@ phoneme n
     VowelStart(n/nu)
   EndSwitch
 
-  IF thisPh(isNotVowel) AND nextPhW(isLiquid) THEN
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(n/nj)
   ELIF prevPh(isPause) OR prevPh(n) THEN
     FMT(n/_n)
@@ -626,7 +626,7 @@ phoneme n.
     VowelStart(n/nu)
   EndSwitch
 
-  IF thisPh(isNotVowel) AND nextPhW(isLiquid) THEN
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(n/nj)
   ELIF prevPh(isPause) OR prevPh(n.) THEN
     FMT(n/_nr)
@@ -658,6 +658,11 @@ phoneme n^
   IF prevPh(isPause) THEN
     FMT(n^/_n^)
   ELIF nextPh(isNotVowel) THEN
+    IF nextPhW(n^) THEN
+      Length 75
+    ELIF prevPhW(n^) THEN
+      Length 100
+    ENDIF
     FMT(n^/n^_)
   ENDIF
 endphoneme
@@ -686,7 +691,7 @@ phoneme N
     VowelEnding(nn/inn, -40)
   ENDIF
 
-  IF thisPh(isNotVowel) AND nextPhW(isLiquid) THEN
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
     FMT(nn/nnj)
   ELIF prevPh(isPause) THEN
     FMT(nn/_nn)
@@ -1520,6 +1525,9 @@ include ph_esperanto
 
 phonemetable jbo eo
 include ph_lojban
+
+phonemetable nci base2
+include ph_nahuatl
 
 phonemetable fi base
 include ph_finnish

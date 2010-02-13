@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -1763,6 +1763,12 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			first_phoneme = 0;
 		}
 	}
+
+	if(word_flags & FLAG_COMMA_AFTER)
+	{
+		SetPlist2(&ph_list2[n_ph_list2++],phonPAUSE_CLAUSE);
+	}
+
 	// don't set new-word if there is a hyphen before it
 	if((word_flags & FLAG_HYPHEN) == 0)
 	{
@@ -2018,6 +2024,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int prev_out=' ';
 	int prev_out2;
 	int prev_in2=0;
+	int prev_in_save=0;
 	int next_in;
 	int next_in_nbytes;
 	int char_inserted=0;
@@ -2166,14 +2173,15 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			prev_out = 'a';
 		}
 
-		if(prev_in2 != 0)
+		if(prev_in_save != 0)
 		{
-			prev_in = prev_in2;
-			prev_in2 = 0;
+			prev_in = prev_in_save;
+			prev_in_save = 0;
 		}
 		else
 		if(source_index > 0)
 		{
+			prev_in2 = prev_in;
 			utf8_in2(&prev_in,&source[source_index-1],1);  //  prev_in = source[source_index-1];
 		}
 
@@ -2199,13 +2207,13 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			if(prev_in != ' ')
 			{
 				c = ' ';
-				prev_in2 = c;
+				prev_in_save = c;
 				source_index--;
 			}
 			else
 			{
 				embedded_count += EmbeddedCommand(source_index);
-				prev_in2 = prev_in;
+				prev_in_save = prev_in;
 				// replace the embedded command by spaces
 				memset(&source[srcix],' ',source_index-srcix);
 				source_index = srcix;
@@ -2285,6 +2293,12 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				word_flags |= FLAG_FOCUS;
 			}
 
+			if(c == CHAR_COMMA_BREAK)
+			{
+				c = ' ';
+				word_flags |= FLAG_COMMA_AFTER;
+			}
+
 			c = TranslateChar(tr, &source[source_index], prev_in,c, next_in, &char_inserted);  // optional language specific function
 			if(c == 8)
 				continue;  // ignore this character
@@ -2311,7 +2325,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 			if(iswdigit(prev_out))
 			{
-				if(!iswdigit(c) && (c != '.') && (c != ','))
+				if(!iswdigit(c) && (c != '.') && (c != ',') && (c != ' '))
 				{
 					c = ' ';   // terminate digit string with a space
 					space_inserted = 1;
@@ -2350,7 +2364,11 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						// start of word, insert space if not one there already
 						c = ' ';
 						space_inserted = 1;
-						next_word_flags |= FLAG_NOSPACE;
+
+						if(!IsBracket(prev_out))    // ?? perhaps only set FLAG_NOSPACE for . - /  (hyphenated words, URLs, etc)
+						{
+							next_word_flags |= FLAG_NOSPACE;
+						}
 					}
 					else
 					{
@@ -2388,7 +2406,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						{
 							c = ' ';      // lower case followed by upper case, treat as new word
 							space_inserted = 1;
-							prev_in2 = c;
+							prev_in_save = c;
 						}
 						else
 						if((c != ' ') && iswupper(prev_in) && iswlower(next_in))
@@ -2400,7 +2418,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 								// changing from upper to lower case, start new word at the last uppercase, if 3 or more letters
 								c = ' ';
 								space_inserted = 1;
-								prev_in2 = c;
+								prev_in_save = c;
 								next_word_flags |= FLAG_NOSPACE;
 							}
 						}
@@ -2563,7 +2581,13 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		{
 			if(prev_out == ' ')
 			{
+				word_flags |= FLAG_MULTIPLE_SPACES;
 				continue;   // multiple spaces
+			}
+
+			if((cc == 0x09) || (cc == 0x0a))
+			{
+				next_word_flags |= FLAG_MULTIPLE_SPACES;   // tab or newline, not a simple space
 			}
 
 			if(space_inserted)
@@ -2653,6 +2677,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 	if(word_count > 0)
 	{
 		words[word_count-1].flags |= FLAG_LAST_WORD;
+		// FLAG_NOSPACE check to avoid recognizing  .mr  -mr 
 		if((terminator & CLAUSE_DOT) && !(words[word_count-1].flags & FLAG_NOSPACE))
 			words[word_count-1].flags |= FLAG_HAS_DOT;
 	}
@@ -2665,7 +2690,9 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		int c_temp;
 		char *pn;
 		char *pw;
-		char number_buf[80];
+		int nw;
+		char number_buf[60];
+		WORD_TAB num_wtab[15];  // copy of 'words', when splitting numbers into parts
 
 		// start speaking at a specified word position in the text?
 		count_words++;
@@ -2718,6 +2745,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			number_buf[0] = ' ';
 			pn = &number_buf[1];
 			nx = n_digits;
+			nw = 0;
 
 			while(pn < &number_buf[sizeof(number_buf)-3])
 			{
@@ -2727,6 +2755,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				*pn++ = c;
 				if((--nx > 0) && (tr->langopts.break_numbers & (1 << nx)))
 				{
+					memcpy(&num_wtab[nw++], &words[ix], sizeof(WORD_TAB));   // copy the 'words' entry for each word of numbers
+
 					if(tr->langopts.thousands_sep != ' ')
 					{
 						*pn++ = tr->langopts.thousands_sep;
@@ -2746,15 +2776,17 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				}
 			}
 			pw--;
+			memcpy(&num_wtab[nw], &words[ix], sizeof(WORD_TAB)*2);    // the original number word, and the word after it
 
 			// include the next few characters, in case there are an ordinal indicator or other suffix
 			memcpy(pn, pw, 16);
 			pn[16] = 0;
+			nw = 0;
 
 			for(pw = &number_buf[1]; pw < pn;)
 			{
 				// keep wflags for each part, for FLAG_HYPHEN_AFTER
-				dict_flags = TranslateWord2(tr, pw, &words[ix], words[ix].pre_pause,0 );
+				dict_flags = TranslateWord2(tr, pw, &num_wtab[nw++], words[ix].pre_pause,0 );
 				while(*pw++ != ' ');
 				words[ix].pre_pause = 0;
 			}

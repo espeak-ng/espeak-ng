@@ -196,7 +196,6 @@ tamil	தமிழ்	$text
 பாகவதம்	$alt
 பகவத்	$alt
 பங்கம்	$alt
-பீடி	$alt
 பீதி	$alt
 பேகம்	$alt
 பார்லி	$alt
@@ -210,6 +209,29 @@ tamil	தமிழ்	$text
 பாக்கி	$alt
 பலி	$alt
 போதி	$alt
+பலத்த	$alt
+புத்தி	$alt
+படா	$alt
+பால	$alt
+பாம்ப்	$alt
+பீராமண	$alt
+பிரதர்	$alt
+பால்ய	$alt
+பலு	$alt
+பில்	$alt
+பந்த்	$alt
+பில்லி	$alt
+பம்பளிமாஸ்	$alt
+பட்டர்	$alt
+பட்டரால்	$alt
+பைக்கை	$alt
+பெட்டின்	$alt
+பெட்டில்	$alt
+படவா	$alt
+பாக்கிப்	$alt
+பாக்கித்	$alt
+பாக்கிச்	$alt
+(பி . ஏ)	bije:
 
 
 	// initial த as [d]
@@ -220,8 +242,6 @@ tamil	தமிழ்	$text
 தயாநிதி	$alt
 தயாளு	$alt
 துந்துவி	$alt
-தயவு	$alt
-தடால்	$alt
 திக்	$alt
 தடக்	$alt
 தீக்ஷை	$alt
@@ -234,16 +254,32 @@ tamil	தமிழ்	$text
 திக்கற்ற	$alt
 தானு	$alt
 திட	$alt
+தேவ	$alt
+தோ	$alt
+தினசரி	$alt
+தரும	$alt
+தொப்	$alt
+தொப்பென்று	$alt
+தொப்னு	$alt
+திக்கெட்டும்	$alt
+தேவா		$alt
+
+
+	// initial ட
+டார்ச்	t.a:rtS
 
 
 	// initial ச as [tS]
-சீ	tSi:
-சே	tSe:
+சீ		$alt
+சே		$alt
+சீசீ	tSi:tSi: 
+சீச்சீ 		$alt
+சிட்டாய் 		$alt
+சேச்சே		$alt
 
 
 கக	$alt	// initial க as [g]
 கனம்	$alt
-கணம்	$alt
 கிலி	$alt
 கில்லி	$alt
 காந்தி	$alt
@@ -251,8 +287,6 @@ tamil	தமிழ்	$text
 கோமதி	$alt
 கயா	$alt
 காயத்ரி	$alt
-கங்கை	$alt
-கங்கா	$alt
 கட	$alt
 கோ	$alt
 கதி	$alt
@@ -260,7 +294,38 @@ tamil	தமிழ்	$text
 கச்சாமி	$alt
 குரு	$alt
 கோர	$alt
+கும்	$alt
+கும்மென்று	$alt
+கும்முனு	$alt
+குருவுக்கு	$alt
+குருன்னு	$alt
+குருவே		$alt
+கண்டம்		$alt
+கோலி		$alt
+குப்	$alt
+கம்னு	$alt
+கம்மென்று	$alt
+
+
+// p as [f]
+போன்	fo:n
+போனில்	fo:nil
+பைல்	faIl
+பைலை 	faIlaI
+பாதர்	fa:dVr
+பாதரிடம்	fa:dVrid.Vm
+பாதருடன்	fa:dVrUd.Vn
+பாதரில்லாமல்	fa:dVrilla:mVl
+காபி	ka:fi
+பேனில்	fe:nil
+பேன்ல	fe:nlV
+போன்ல	fo:nlV
 
 
 பப	pVpV
 தீப் 	di:p
+டிரேயின்	t.re:jn
+பைக்	baIk
+பைக்கில் 	baIkkIl
+தாங்ஸ்	Ta:Nks		// thanks
+டிபுடி	d.EpjUt.i	// deputy

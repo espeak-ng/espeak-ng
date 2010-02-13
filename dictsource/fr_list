@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2009-10-26 Michel Such  <michel.such@free.fr>
+// Updated 2010-02-07 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -305,7 +305,7 @@ qq	quelque $text
 qqs	quelques $text
 ratp		$abbrev
 riaa	$abbrev
-riscos	RiskoEs
+riscos	riskoEs
 sap	$abbrev
 scsi		$abbrev
 sos	$abbrev
@@ -362,7 +362,7 @@ néanmoins  $u+
 toutefois  $u+
 afin	afE~ $u+ $brk
 avant $u+
-après  $u+
+après  aprEz2 $u+
 (temps en temps)	tA~zA~tA~
 ainsi $u+
 alors	alOr $u+
@@ -476,7 +476,7 @@ parmi	$u+
 pour	$u+
 autant	$u+
 tandis	$u+
-dès	$u
+dès	dEz2 $u
 entre	$u+
 entre	$verb
 contre	$u+
@@ -573,7 +573,7 @@ tel	$u+
 telle	$u+
 telles	$u+
 tout	t'ut2
-rien	Ri-'E~n2
+rien	ri-'E~n2
 
 // Letters which can be words
 //===========================
@@ -593,8 +593,8 @@ dessous          d@su
 hareng          _!arA~
 pastis     pastis
 poing     pwE~
-ressent          R@s'A~t2
-riz       Ri
+ressent          r@s'A~t2
+riz       ri
 sphincter           sfE~ktEr
 sous	$u+
 sur	$u+
@@ -687,7 +687,7 @@ queries	kueri
 quit	_^_en
 recorder	ricordeur $text
 requiem	rekw^ijEm
-revolver	RevOlvEr
+revolver	revOlvEr
 scan	skan
 scanner	skaner2 $verb
 scanner	skanWr $noun
@@ -723,7 +723,7 @@ cut	kWt
 mazout		mazut
 michael		mikaEl
 out		aut
-rut		Ryt
+rut		ryt
 scorbut		scorbutt $text
 scout		skut
 stout		staut
@@ -826,7 +826,7 @@ outlook         autlu:k
 paint    		_^_en
 paper    		_^_en
 people    		_^_en
-redhat		REdat
+redhat		rEdat
 same		_^_en
 sametime	_^_en
 schubert	SubEr
@@ -897,4 +897,3 @@ venezuela	venezyela
 wallis	wAlis
 futuna	futuna
 zimbabwe	zimbabwe
-

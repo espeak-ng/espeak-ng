@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -3499,38 +3499,46 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	
 	if(end_type & SUFX_E)
 	{
-		// add 'e' to end of stem
-		if(IsLetter(tr, word_end[-1],LETTERGP_VOWEL2) && IsLetter(tr, word_end[0],1))
+		if(tr->translator_name == L('e','n'))
 		{
- 			// vowel(incl.'y') + hard.consonant
-
-			for(i=0; (p = add_e_exceptions[i]) != NULL; i++)
+			// add 'e' to end of stem
+			if(IsLetter(tr, word_end[-1],LETTERGP_VOWEL2) && IsLetter(tr, word_end[0],1))
 			{
-				len = strlen(p);
-				if(memcmp(p,&word_end[1-len],len)==0)
+				// vowel(incl.'y') + hard.consonant
+	
+				for(i=0; (p = add_e_exceptions[i]) != NULL; i++)
 				{
-					break;
+					len = strlen(p);
+					if(memcmp(p,&word_end[1-len],len)==0)
+					{
+						break;
+					}
+				}
+				if(p == NULL)
+					end_flags |= FLAG_SUFX_E_ADDED;  // no exception found
+			}
+			else
+			{
+				for(i=0; (p = add_e_additions[i]) != NULL; i++)
+				{
+					len = strlen(p);
+					if(memcmp(p,&word_end[1-len],len)==0)
+					{
+						end_flags |= FLAG_SUFX_E_ADDED;
+						break;
+					}
 				}
 			}
-			if(p == NULL)
-				end_flags |= FLAG_SUFX_E_ADDED;  // no exception found
 		}
 		else
+		if(tr->langopts.suffix_add_e != 0)
 		{
-			for(i=0; (p = add_e_additions[i]) != NULL; i++)
-			{
-				len = strlen(p);
-				if(memcmp(p,&word_end[1-len],len)==0)
-				{
-					end_flags |= FLAG_SUFX_E_ADDED;
-					break;
-				}
-			}
+			end_flags |= FLAG_SUFX_E_ADDED;
 		}
 
 		if(end_flags & FLAG_SUFX_E_ADDED)
 		{
-			word_end[1] = 'e';
+			utf8_out(tr->langopts.suffix_add_e, &word_end[1]);
 #ifdef LOG_TRANSLATE
 if(option_phonemes == 2)
 {

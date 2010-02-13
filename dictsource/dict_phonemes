@@ -11,8 +11,8 @@ Yy
 
 -    :    ;    ?    b    c    d    dZ   
 f    g    h    j    k    l    L    m    
-n    N    p    r    s    S    t    T    
-tS   v    w    x    x2   z    Z    
+n    N    n^   p    r    s    S    t    
+T    tS   v    w    x    x2   z    Z    
 
 
 Dictionary ne_dict
@@ -143,6 +143,17 @@ N    n^   p    Q    R    R2   s    t
 T    tS   v    v#   w    x    z    
 
 
+Dictionary hu_dict
+
+A    a:   E    e:   i    i:   o    o:   
+u    u:   Y    y    y:   Y:   
+
+-    :    b    c    d    dZ   dz   f    
+g    h    j    J    k    l    m    n    
+n^   p    r    R    R2   s    S    s2   
+t    tS   ts   v    z    Z    
+
+
 Dictionary fi_dict
 
 &    &i   &y   a    a2   ai   au   e    
@@ -164,8 +175,8 @@ W~   y    Y
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    N    n2   n^   p    
-p2   r    R    r2   s    S    t    t2   
-t3   tS   v    w    z    Z    z2   z3   
+p2   r    r2   s    S    t    t2   t3   
+tS   v    w    z    Z    z2   z3   
 
 
 Dictionary grc_dict
@@ -206,15 +217,12 @@ r.   s    S    s.   t    T    t.   th
 th.  v    w    x    z    
 
 
-Dictionary hu_dict
+Dictionary am_dict
 
-A    a:   E    e:   i    i:   o    o:   
-u    u:   Y    y    y:   Y:   
+@    a    e    i    o    u    y    
 
--    :    b    c    d    dZ   f    g    
-h    j    J    k    l    m    n    N    
-n^   p    r    R    R2   s    S    s2   
-t    tS   ts   v    z    Z    
+b    d    h    l    m    q    R    s    
+S    t    tS   
 
 
 Dictionary hy_dict
@@ -233,10 +241,10 @@ Dictionary id_dict
 @    a    aI   aU   e    E    E2   i    
 o    O    u    
 
-*    :    ?    b    d    dZ   f    g    
-h    j    k    l    m    n    N    n^   
-p    r    R    R2   s    S    t    tS   
-v    w    x    z    
+:    ?    b    d    dZ   f    g    h    
+j    k    l    m    n    N    n^   p    
+r    R    R2   s    S    t    tS   v    
+w    x    z    
 
 
 Dictionary is_dict
@@ -271,6 +279,21 @@ o    oI   r-   u
 -    b    d    dZ   f    g    h    j    
 k    l    m    n    N    p    R    s    
 S    t    tS   v    w    x    z    Z    
+
+
+Dictionary ro_dict
+
+@    @-   @I   @U   a    aI   aU   e    
+ea   eI   eo   eU   i    i/   I^   iI   
+iU   o    O    Oa   oI   oU   u    uI   
+y    Y    yI   yU   
+
+*    *;   b    b;   c    C    d    d;   
+dZ   f    f;   g    h    j    k    l    
+l;   m    m;   n    N    n;   p    p;   
+r    s    S    S;   t    t;   tS   ts   
+ts;  v    v;   w    w2   x    z    Z    
+z;   Z;   
 
 
 Dictionary ku_dict
@@ -331,6 +354,15 @@ Jh   k    kh   l    l.   m    n    N
 n.   n^   p    ph   R    R2   s    s.   
 S;   t    t.   th   th.  tS   v    w    
 z    z.   
+
+
+Dictionary nci_dict
+
+a    e    i    o    O    
+
+:    ?    b    c    d    f    g    j    
+k    l    m    n    p    R    s    S    
+t    tS   v    w    x    
 
 
 Dictionary nl_dict
@@ -417,21 +449,6 @@ S    s#   s;   t    T    tS   ts   v
 w    x    z    Z    
 
 
-Dictionary ro_dict
-
-@    @-   @I   @U   a    aI   aU   e    
-ea   eI   eo   eU   i    i/   I^   iI   
-iU   o    O    Oa   oI   oU   u    uI   
-y    Y    yI   yU   
-
-*    *;   b    b;   c    C    d    d;   
-dZ   f    f;   g    h    j    k    l    
-l;   m    m;   n    N    n;   p    p;   
-r    s    S    S;   t    t;   tS   ts   
-ts;  v    v;   w    w2   x    z    Z    
-z;   Z;   
-
-
 Dictionary ru_dict
 
 8    @-   a    A    e    E    E#   E2   
@@ -512,8 +529,8 @@ I    i:   o    o:   U    u    u:   V
 :    ;    b    C    d    d.   dZ   f    
 g    h    H    j    k    l    l.   m    
 n    N    n.   n^   p    Q    r    R    
-s    S    s.   t    t.   th   tS   v    
-w    z    z.   
+s    S    s.   t    T    t.   th   tS   
+v    w    z    z.   
 
 
 Dictionary tr_dict

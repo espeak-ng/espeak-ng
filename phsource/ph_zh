@@ -1,4 +1,4 @@
-//based on "phonemes"
+
 //====================================================
 //  Tone Numbers
 //====================================================
@@ -99,6 +99,45 @@ phoneme N
     FMT(nn/nn2_)
   ENDIF
 endphoneme
+
+
+phoneme l
+  liquid
+  lengthmod 2
+
+  CALL vowelstart_l
+
+  IF nextPhW(#i) THEN
+    VowelStart(l/li)
+  ENDIF
+  FMT(l/_l)
+endphoneme
+
+
+phoneme j
+  liquid palatal
+  lengthmod 1
+
+  IF nextPh(isVowel) THEN
+    NextVowelStarts
+      VowelStart(j/j@)
+      VowelStart(j/ja)
+      VowelStart(j/je)
+      VowelStart(j/ji)
+      VowelStart(j/jo)
+      VowelStart(j/ju)
+    EndSwitch
+
+    VowelEnding(j/xj, -30)
+
+    FMT(j/_j)
+  ELSE
+    // no vowel follows
+    Vowelout len=70
+    FMT(j/j_)
+  ENDIF
+endphoneme
+
 
 
 

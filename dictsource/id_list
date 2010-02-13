@@ -58,7 +58,7 @@ _7X	t'udZuhpuluh
 _8X	d@l'apanpuluh
 _9X	s@mb'ilanpuluh
 _0C	R'atus_|
-_1C	s@*'atus_|
+_1C	s@R2'atus_|
 _0M1	R'ibu_
 _1M1	s@r'ibu_
 _0M2	dZ'uta_
@@ -90,34 +90,34 @@ _tld	t'ild@
 // punctuation
 _!	t,anda||s'ER2u
 _"	t,andak'utip
-£	ponst'E*RliN
-%	p@*Rs'En
+£	ponst'ER2liN
+%	p@R2s'En	$max3
 ^	t,andat'opi
 &	t,andad'an
-_*	b'intaN
+*	b'intaN		$max3
++	t'ambah		$max3
+=	s,ama||d'ENan	$max3
+~	t'ilde
+#	p'agaR		$max3
+@	a||k'EOng
+/	g,aR2is||m'iR2iN	$max3
+\	'bEkslES
 _(	k,uR2uN||b'uka
 _)	k,uR2uN||t'utup
 __	g,aR2is||b'awah
 _-	t,andah'ubuN
-+	t'ambah
-=	s,ama||d'ENan
 _{	k,uR2uN||kuR2'awal
 _}	k,uR2uN||kuR2,awal||t'utup
 _[	k,uR2uN||s'iku
 _]	k,uR2uN||s,iku||t'utup
 _:	t,iti?||d'ua
 _;	t,iti?||k'oma
-@	a||k'EOng
 _'	k,utip||t'uNgal
-~	t'ilde
-#	p'agaR
 _<	k,uR2aN||d'aR2i
 _>	l,Ebih||d'aR2i
 _,	k'oma
 _.	t'iti?
 _?	t,anda||t'an^a
-/	g,aR2is||m'iR2iN
-_\	'bEkslES
 
 
 // unstressed words

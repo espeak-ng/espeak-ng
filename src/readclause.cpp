@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -1543,12 +1543,12 @@ static int ReplaceKeyName(char *outbuf, int index, int &outix)
 	int letter;
 	char *p;
 
-	p = &outbuf[index+1];
+	p = &outbuf[index];
 
 	if((letter = LookupMnem(keynames, p)) != 0)
 	{
 		ix = utf8_out(letter, p);
-		outix = index + ix + 1;
+		outix = index + ix;
 		return(letter);
 	}
 	return(0);
@@ -1636,15 +1636,25 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	
 	if(tag_name[0] == '/')
 	{
-		tag_type = LookupMnem(ssmltags,&tag_name[1]) + SSML_CLOSE;  // closing tag
+		// closing tag
+		if((tag_type = LookupMnem(ssmltags,&tag_name[1])) != 0)
+		{
+			outbuf[outix++] = ' ';
+		}
+		tag_type += SSML_CLOSE;
 	}
 	else
 	{
-		tag_type = LookupMnem(ssmltags,tag_name);
+		if((tag_type = LookupMnem(ssmltags,tag_name)) != 0)
+		{
+			// separate SSML tags from the previous word (but not unknown HMTL tags such as <b> <font> which can occur inside a word)
+			outbuf[outix++] = ' ';
+		}
 
 		if(self_closing && ignore_if_self_closing[tag_type])
 			return(0);
 	}
+
 
 	voice_change_flag = 0;
 	terminator = CLAUSE_NONE;
@@ -2178,9 +2188,7 @@ f_input = f_in;  // for GetC etc
 					}
 					xml_buf[n_xml_buf] = 0;
 					c2 = ' ';
-		
-					buf[ix++] = ' ';
-		
+	
 					self_closing = 0;
 					if(xml_buf[n_xml_buf-1] == '/')
 					{
@@ -2211,6 +2219,7 @@ f_input = f_in;  // for GetC etc
 						}
 						return(terminator);
 					}
+					c2 = GetC();
 					continue;
 				}
 			}
@@ -2510,6 +2519,13 @@ if(option_ssml) parag=1;
 
 				if(nl_count==0)
 				{
+					if((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h','u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower(c_next))))
+					{
+						// lang=hu, fix for ordinal numbers, eg:  "december 2., szerda", ignore ',' after ordinal number
+						c1 = CHAR_COMMA_BREAK;
+						is_end_clause = 0;
+					}
+
 					if(c1 == '.')
 					{
 						if((tr->langopts.numbers & NUM_ORDINAL_DOT) && 
@@ -2522,7 +2538,7 @@ if(option_ssml) parag=1;
 							}
 							else
 							{
-								if (iswlower(c_next))
+								if (iswlower(c_next) || (c_next=='-'))     // hyphen is needed for lang-hu (eg. 2.-kal)
 									is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
 							}
 						}
@@ -2565,7 +2581,7 @@ if(option_ssml) parag=1;
 					buf[ix] = ' ';
 					buf[ix+1] = 0;
 
-					if(!IsAlpha(c_next))
+					if(iswdigit(cprev) && !IsAlpha(c_next))   // ????
 					{
 						punct_data &= ~CLAUSE_DOT;
 					}

@@ -1,7 +1,7 @@
 #ifndef SPEAK_LIB_H
 #define SPEAK_LIB_H
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,6 +26,7 @@
 /*************************************************************/
 
 #include <stdio.h>
+#include <stddef.h>
 
 #define ESPEAK_API_REVISION  5
 /*

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -55,6 +55,7 @@
 #define FLAG_ALT_TRANS    0x100000  // language specific
 #define FLAG_ALT2_TRANS   0x200000  // language specific
 #define FLAG_COMBINE      0x400000  // combine with the next word
+#define FLAG_ALT3_TRANS   0x800000  // language specific
 
 #define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
 #define FLAG_NEEDS_DOT  0x02000000  // only if the word is followed by a dot
@@ -103,6 +104,8 @@
 #define FLAG_HYPHEN_AFTER    0x4000
 #define FLAG_ORDINAL       0x8000   // passed to TranslateNumber() to indicate an ordinal number
 #define FLAG_HAS_DOT       0x10000  // dot after this word
+#define FLAG_COMMA_AFTER   0x20000  // comma after this word
+#define FLAG_MULTIPLE_SPACES 0x40000  // word is preceded by multiple spaces, newline, or tab
 
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
 #define FLAG_NO_PREFIX     0x20000000
@@ -203,6 +206,7 @@
 #define SAYAS_DIGITS1   0xc1
 
 #define CHAR_EMPHASIS   0x0530  // this is an unused character code
+#define CHAR_COMMA_BREAK  0x0557  // unused character code
 
 // Rule:
 // [4] [match] [1 pre] [2 post] [3 phonemes] 0
@@ -437,6 +441,7 @@ typedef struct {
 	const unsigned int *replace_chars;      // characters to be substitutes
 	const char *ascii_language;  // switch to this language for Latin characters
 	int max_lengthmod;
+	int suffix_add_e;     // replace a suffix (which has the SUFX_E flag) with this character
 } LANGUAGE_OPTIONS;
 
 

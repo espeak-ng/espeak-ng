@@ -1,3 +1,12 @@
+
+
+
+
+
+
+// 13.02.10  JSD: Changed for eSpeak version 1.43
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -33,25 +42,20 @@
 
 #define N_PHONEME_TAB_NAME  32
 
+// This is a new format for eSpeak 1.43
 typedef struct {
-    unsigned int mnemonic;
-    unsigned int phflags;
-
-    unsigned short std_length;
-    unsigned short  spect;
-    unsigned short  before;
-    unsigned short  after;
-
-    unsigned char  code;
-    unsigned char  type;
-    unsigned char  start_type;
-    unsigned char  end_type;
-
-    unsigned char  length_mod;
-    unsigned char  reduce_to;
-    unsigned char  alternative_ph;
-    unsigned char  link_out;
+	unsigned int  mnemonic;      // 1st char is in the l.s.byte
+	unsigned int  phflags;       // bits 16-19 place of articulation
+	unsigned short program;
+	unsigned char  code;         // the phoneme number
+	unsigned char  type;         // phVOWEL, phPAUSE, phSTOP etc
+	unsigned char  start_type;
+	unsigned char  end_type;
+	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS, the stress/tone type
+	unsigned char  length_mod;   // a length_mod group number, used to access length_mod_tab
+	
 } PHONEME_TAB;
+
 
 // This is a new format for eSpeak 1.41
 typedef struct {  // 44 bytes
@@ -102,14 +106,12 @@ void usage (const char *program_name);
 
 
 
-int
-main (int argc, char *argv[])
-{
+int main (int argc, char *argv[])
+{//==============================
     const char *indir = "/usr/share/espeak-data";
     const char *outdir = ".";
     const char *manifest = "phondata-manifest";
     char *f1, *f2;
-
 
     if (argc > 4)
         usage (argv[0]);
@@ -175,12 +177,12 @@ main (int argc, char *argv[])
     printf ("Done.\n");
 
     return 0;
-}
+}  // end of main
 
-void
-swap_phondata  (const char *infile, const char *outfile,
+
+void swap_phondata  (const char *infile, const char *outfile,
                 const char *manifest)
-{
+{//==========================================================
     FILE *in, *mfest, *out;
     char line[1024];
     unsigned char buf_4[4];
@@ -282,12 +284,13 @@ swap_phondata  (const char *infile, const char *outfile,
     fclose (in);
     fclose (out);
     fclose (mfest);
-}
+}  // end of swap_phondata
 
-void
-swap_phonindex (const char *infile, const char *outfile)
-{
+
+void swap_phonindex (const char *infile, const char *outfile)
+{//==========================================================
     FILE *in, *out;
+    char buf_4[4];
     unsigned int val;
 
     in = fopen (infile, "rb");
@@ -302,24 +305,27 @@ swap_phonindex (const char *infile, const char *outfile)
         exit (1);
     }
 
+    fread (buf_4, 4, 1, in);  // skip first 4 bytes
+    fwrite(buf_4, 4, 1, out);
+
     while (! feof (in)) {
         size_t n;
 
-        n = fread (&val, 4, 1, in);
+        n = fread (&val, 2, 1, in);
         if (n != 1)
             break;
 
-        val = SWAP_UINT (val);
-        fwrite (&val, 4, 1, out);
+        val = SWAP_USHORT (val);
+        fwrite (&val, 2, 1, out);
     }
 
     fclose (in);
     fclose (out);
-}
+}  // end of swap_phonindex
 
-void
-swap_phontab (const char *infile, const char *outfile)
-{
+
+void swap_phontab (const char *infile, const char *outfile)
+{//========================================================
     FILE *in, *out;
     char buf_4[4];
     int i, n_phoneme_tables;
@@ -359,11 +365,7 @@ swap_phontab (const char *infile, const char *outfile)
 
             table.mnemonic = SWAP_UINT (table.mnemonic);
             table.phflags = SWAP_UINT (table.phflags);
-
-            table.std_length = SWAP_USHORT (table.std_length);
-            table.spect = SWAP_USHORT (table.spect);
-            table.before = SWAP_USHORT (table.before);
-            table.after = SWAP_USHORT (table.after);
+            table.program = SWAP_USHORT (table.program);
 
             fwrite (&table, sizeof (PHONEME_TAB), 1, out);
         }
@@ -371,7 +373,8 @@ swap_phontab (const char *infile, const char *outfile)
 
     fclose (in);
     fclose (out);
-}
+}  // end of swap_phontab
+
 
 void
 usage (const char *program_name)

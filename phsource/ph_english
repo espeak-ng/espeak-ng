@@ -164,6 +164,9 @@ phoneme I
   vowel  starttype #i  endtype #i
   length 130
   IfNextVowelAppend(;)
+  IF nextPhW(isVel) THEN
+    FMT(vowel/ii)
+  ENDIF
   FMT(vowel/ii_2)
 endphoneme
 

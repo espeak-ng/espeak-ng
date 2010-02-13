@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2009-11-20 Michel Such  <michel.such@free.fr>
+// Updated: 2010-02-07 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -590,6 +590,7 @@ _m)	e (ga	e
 
 	Z)	ème 		i-Em
 	è		E
+	ès		E
 Ar)	ès (_	Es
 m)	ès (_	Es
 n)	ès (_	Es
@@ -1072,14 +1073,13 @@ C)		oing (_      _^_en	// going
 
 .group r
 
-_)	r (A	R
 	_su)	rr          rr		// surréaliste
 cou)	rr          rr		// courrai
 mou)	rr          rr		// mourrai
 cou)	rr (i         r		// courrier
 		r           r		// rien
 		rr           r
-	_)	radio (@P5       Radio
+	_)	radio (@P5       radio
 
 // group r: English section
 	_)	real         _^_en

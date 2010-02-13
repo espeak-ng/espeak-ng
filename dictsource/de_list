@@ -90,8 +90,8 @@ x	Iks
 // Numbers
 //========
 _0	'nUl
-_1	_'aIn
-_1a	_'aIns
+_1	_'aIns
+_1a	_'aIn
 _2	'tsvaI
 _3	'd@-*aI
 _4	'fi:*
@@ -672,6 +672,7 @@ schult          Su:lt
 selbst          zElpst
 serie           se:*I;@
 service         sE*vIs
+soeben          zo:_'e:b@n
 sofort           $2
 sogar            $2
 soweit           $2

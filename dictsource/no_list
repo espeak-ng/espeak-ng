@@ -19,7 +19,7 @@ h      ho:
 j      je:
 k      ko:
 l      El
-m      e:m
+m      Em
 n      En
 p      pe:
 q      ku-:
@@ -34,7 +34,7 @@ z      sEt
 
 // numeric
 //********
-_0        n'Ul
+_0        n'u-l
 _1        'e:n
 _2        t'u:
 _3        tR'e:
@@ -147,6 +147,7 @@ _tld	t'Ild@2
 
 // abbreviations
 //**************
+ooxml	$abbrev
 
 
 // articles
@@ -305,4 +306,7 @@ der         dE:R
 her         hE:R
 kom         kOm
 loe         lu:		$capital
+noe         nU:@2
+noen        nU:@n	// no+en
+office      Offi:s
 system      syst'e:m

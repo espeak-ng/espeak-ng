@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2009 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -102,6 +102,10 @@ static keywtab_t k_conditions[] = {
 	{NULL, 0, 0}
 };
 
+
+// place of articulation
+#define i_isVel      0x28
+
 static keywtab_t k_properties[] = {
 	{"isPause",      0,  phPAUSE},
 	{"isVowel",      0,  phVOWEL},
@@ -111,6 +115,8 @@ static keywtab_t k_properties[] = {
 
 	{"isPalatal",    0,  i_isPalatal},
 	{"isRhotic",     0,  i_isRhotic},
+
+	{"isVel",        0,  i_isVel},
 
 	{"isDiminished", 0,  i_isDiminished},
 	{"isUnstressed", 0,  i_isUnstressed},
@@ -269,7 +275,7 @@ static keywtab_t keywords[] = {
 	{"vcd",	  tPHONEME_FLAG, phVOICED},
 	{"vls",	  tPHONEME_FLAG, phFORTIS},
 
-	// place of articulation
+	// place of articulation, set bits 16-19 of phflags
 	{"blb",	  tPLACE, 1},
 	{"lbd",	  tPLACE, 2},
 	{"dnt",	  tPLACE, 3},
@@ -347,7 +353,7 @@ static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
 	int any;
 	const char *name;
 
-	static char *INV = "Invalid";
+	static const char *INV = "Invalid";
 
 	static const char *instn_category_string[16] = {
 		"", "", "IF", "IF OR",

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -235,6 +235,7 @@ void SetIndicLetters(Translator *tr)
 	SetLetterBitsRange(tr,LETTERGP_Y,0x3e,0x4c);   // + vowel signs
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d;   //virama
 }
 
 void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
@@ -361,6 +362,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = STRESSPOSN_1L;
 			tr->langopts.numbers = NUM_HUNDRED_AND | NUM_ROMAN | NUM_1900;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 2;       // allow "mc" to cmbine with the following word
+			tr->langopts.suffix_add_e = 'e';
 		}
 		break;
 
@@ -793,7 +795,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('n','o'):  // Norwegian
 		{
-			static const short stress_lengths_no[8] = {160,140, 200,200, 0,0, 220,210};
+			static const short stress_lengths_no[8] = {160,140, 200,200, 0,0, 220,230};
 
 			SetupTranslator(tr,stress_lengths_no,NULL);
 			tr->langopts.stress_rule = STRESSPOSN_1L;
