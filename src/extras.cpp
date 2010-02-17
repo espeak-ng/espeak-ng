@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2006 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -36,6 +36,7 @@
 #include "options.h"
 
 extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
+extern int __cdecl string_sorter(char **a, char **b);
 
 //******************************************************************************************************
 
@@ -1312,7 +1313,156 @@ void ConvertToUtf8()
 
 //******************************************************************************************************
 
-void FormatDictionary(const char *dictname)
+#define N_SORT_LIST  10000
+
+void DictionarySort(const char *dictname)
+{//======================================
+// Sort rules in *_rules file between lines which begin with //sort and //endsort
+	FILE *f_in;
+	FILE *f_out;
+	int ix;
+	char *p;
+	char *p_end;
+	char *p_pre;
+	int sorting;
+	int sort_ix=0;
+	int sort_count=0;
+	int line_len;
+	int key_len;
+	char buf[200];
+	char key[200];
+	char fname_in[200];
+	char fname_out[200];
+	char *sort_list[N_SORT_LIST];
+
+	wxLogMessage(_T("Sorts the *_rules file, between lines which begin with\n//sort\n     and\n//endsort"));
+
+	// try with and without '.txt' extension
+	sprintf(fname_in,"%s%s_rules.txt",path_dsource,dictname);
+	if((f_in = fopen(fname_in,"r")) == NULL)
+	{
+		sprintf(fname_in,"%s%s_rules",path_dsource,dictname);
+		if((f_in = fopen(fname_in,"r")) == NULL)
+		{
+			wxLogError(_T("Can't open rules file: ") + wxString(fname_in,wxConvLocal));
+			return;
+		}
+	}
+
+	sprintf(fname_out,"%s%s_rules_sorted",path_dsource,dictname);
+	if((f_out = fopen(fname_out,"w")) == NULL)
+	{
+		wxLogError(_T("Can't write to file: ") + wxString(fname_out,wxConvLocal));
+		fclose(f_in);
+		return;
+	}
+
+	sorting = 0;
+	while(fgets(buf, sizeof(buf)-1, f_in) != NULL)
+	{
+		buf[sizeof(buf)-1] = 0;  // ensure zero byte terminator
+
+		line_len = strlen(buf);
+
+		if(memcmp(buf,"//endsort",9)==0)
+		{
+			sort_count++;
+			sorting = 0;
+			qsort((void *)sort_list, sort_ix, sizeof(char *), (int(*)(const void *, const void *))string_sorter);
+
+			// write out the sorted lines
+			for(ix=0; ix<sort_ix; ix++)
+			{
+				key_len = strlen(sort_list[ix]);
+				p = &sort_list[ix][key_len+1];   // the original line is after the key
+				fprintf(f_out,"%s",p);
+				free(sort_list[ix]);
+			}
+		}
+
+		if(sorting == 0)
+		{
+			if(memcmp(buf,"//sort",6)==0)
+			{
+				sorting = 1;
+				sort_ix = 0;
+			}
+
+			fwrite(buf, line_len, 1, f_out);
+			continue;
+		}
+
+		p_end = strstr(buf,"//");
+		if(p_end == NULL)
+			p_end = &buf[line_len];
+
+		// add to the list of lines to be sorted
+		p = buf;
+		while((*p==' ') || (*p == '\t')) p++;  // skip leading spaces
+		if(*p == '?')
+		{
+			// conditional rule, skip the condition
+			while(!isspace(*p) && (*p != 0)) p++;
+		}
+
+		// skip any pre -condition
+		p_pre = p;
+		while(p < p_end)
+		{
+			if(*p == ')')
+			{
+				p_pre = p+1;
+				break;
+			}
+			p++;
+		}
+		p = p_pre;
+		while((*p==' ') || (*p == '\t')) p++;  // skip spaces
+
+		ix = 0;
+		while(!isspace(*p) && (*p != 0))
+		{
+			key[ix++] = *p++;
+		}
+		while((*p==' ') || (*p == '\t')) p++;  // skip spaces
+		if(*p == '(')
+		{
+			// post-condition
+			p++;   // skip '('
+			while(!isspace(*p) && (*p != 0) && (p < p_end))
+			{
+				key[ix++] = *p++;
+			}
+		}
+		key[ix] = 0;
+		key_len = strlen(key);
+
+		p = (char *)malloc(key_len + line_len + 8);
+		sprintf(p,"%s%6d",key,sort_ix);   // include the line number (within the sort section) in case the keys are otherwise equal
+		strcpy(p, key);
+		strcpy(&p[key_len+1], buf);
+		sort_list[sort_ix++] = p;
+
+		if(sort_ix >= N_SORT_LIST)
+		{
+			wxLogError(_T("Too many lines to sort, > %d"), N_SORT_LIST);
+			break;
+		}
+	}
+
+	fclose(f_in);
+	fclose(f_out);
+
+	if(sorting != 0)
+	{
+		wxLogError(_T("Missing //$endsort"));
+	}
+	wxLogStatus(_T("Sorted %d sections. Written to file: ") + wxString(fname_out,wxConvLocal),sort_count);
+
+}  // end of DictionarySort
+
+
+void DictionaryFormat(const char *dictname)
 {//========================================
 // Format the *_rules file for the current voice
 
@@ -1345,10 +1495,10 @@ void FormatDictionary(const char *dictname)
 	const int tab3 = 28;
 
 	// try with and without '.txt' extension
-	sprintf(fname_in,"%s/%s_rules.txt",path_dsource,dictname);
+	sprintf(fname_in,"%s%s_rules.txt",path_dsource,dictname);
 	if((f_in = fopen(fname_in,"r")) == NULL)
 	{
-		sprintf(fname_in,"%s/%s_rules",path_dsource,dictname);
+		sprintf(fname_in,"%s%s_rules",path_dsource,dictname);
 		if((f_in = fopen(fname_in,"r")) == NULL)
 		{
 			wxLogError(_T("Can't open rules file: ") + wxString(fname_in,wxConvLocal));
@@ -1356,7 +1506,7 @@ void FormatDictionary(const char *dictname)
 		}
 	}
 
-	sprintf(fname_out,"%s/%s_rules_formatted",path_dsource,dictname);
+	sprintf(fname_out,"%s%s_rules_formatted",path_dsource,dictname);
 	if((f_out = fopen(fname_out,"w")) == NULL)
 	{
 		wxLogError(_T("Can't write to file: ") + wxString(fname_out,wxConvLocal));
@@ -1569,8 +1719,13 @@ void FormatDictionary(const char *dictname)
 
 	fclose(f_in);
 	fclose(f_out);
-	wxLogStatus(_("Written to file: ") + wxString(fname_out,wxConvLocal));
-}  // end of FormatDictionary
+
+	remove(fname_in);
+	if(rename(fname_out, fname_in) == 0)
+		wxLogStatus(_("Written to file: ") + wxString(fname_in,wxConvLocal));
+	else
+		wxLogStatus(_("Failed to rename: ") + wxString(fname_out,wxConvLocal));
+}  // end of DictionaryFormat
 
 
 //******************************************************************************************************

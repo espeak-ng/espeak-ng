@@ -28,12 +28,12 @@ g	g@
 _i	ibu
 j	Z@
 k	k@
-_l	l@
-_m	m@
-_n	n@
+l	l@
+m	m@	// should "words" l,m,n,r say the syllable consonant?
+n	n@
 _o	obu
 p	p@
-_r	R@
+r	R@
 s	s@
 t	t@
 _u	ubu
@@ -42,9 +42,9 @@ x	x@
 y	'@bu
 z	z@
 
-h	@h@bu
-q	k@bu
-w	v@bu
+h	@h'@bu
+q	k'@bu
+w	v'@bu
 
 
 // stressed cmavo

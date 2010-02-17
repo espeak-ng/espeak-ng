@@ -132,6 +132,7 @@ static keywtab_t k_properties[] = {
 	{"isAfterStress",0,  i_isAfterStress},
 	{"isNotVowel",   0,  i_isNotVowel},
 	{"isFinalVowel", 0,  i_isFinalVowel},
+	{"isVoiced",     0,  i_isVoiced},   // voiced consonant, or vowel
 
 	{NULL, 0, 0}
 };

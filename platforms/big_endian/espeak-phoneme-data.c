@@ -1,10 +1,7 @@
 
 
 
-
-
-
-// 13.02.10  JSD: Changed for eSpeak version 1.43
+// 13.02.10  jonsd: Changed for eSpeak version 1.43
 
 
 #include <stdio.h>

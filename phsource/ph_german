@@ -259,14 +259,17 @@ phoneme pF
 endphoneme
 
 
-phoneme C2     // for "ig" -> [IC] or [Ig]
+phoneme g#    // for "ig" -> [IC] or [Ig]
   vls pal frc palatal
   lengthmod 3
-  IF nextPh(isVowel) THEN
+
+  IF nextPhW(isVoiced) THEN
     ChangePhoneme(g)
+  ELSE
+    ChangePhoneme(C)
   ENDIF
-  CALL C
 endphoneme
+
 
 
 phoneme l/    // used for [l] when not before a vowel
@@ -315,8 +318,6 @@ phoneme j
     FMT(j/j_)
   ENDIF
 endphoneme
-
-
 
 
 // This is actually the ENGLISH "rolling r". For german, we now use * in the dictionary,

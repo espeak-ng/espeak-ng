@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -90,7 +90,8 @@ wxMenuBar *MakeMenu(int type)
 	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
 	data_menu->AppendSeparator();
 	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Layout *_rules file"));
-	
+	data_menu->Append(MENU_SORT_DICTIONARY, _("&Sort *_rules file"));
+
 	// OPTIONS MENU
 	paths_menu = new wxMenu;
 	paths_menu->Append(MENU_PATH0, _("Master phonemes file..."));

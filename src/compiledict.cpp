@@ -1127,8 +1127,8 @@ static char *compile_rule(char *input)
 }  //  end of compile_rule
 
 
-static int __cdecl string_sorter(char **a, char **b)
-{//=================================================
+int __cdecl string_sorter(char **a, char **b)
+{//===========================================
 	char *pa, *pb;
 	int ix;
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -59,7 +59,8 @@ const char *path_data;
 extern void TestTest(int control);
 extern void CompareLexicon(int);
 extern void ConvertToUtf8();
-extern void FormatDictionary(const char *dictname);
+extern void DictionaryFormat(const char *dictname);
+extern void DictionarySort(const char *dictname);
 
 extern void init_z();
 extern void CompilePhonemeData(void);
@@ -200,6 +201,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT_DEBUG, MyFrame::OnTools)
 	EVT_MENU(MENU_FORMAT_DICTIONARY, MyFrame::OnTools)
+	EVT_MENU(MENU_SORT_DICTIONARY, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
 	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
@@ -592,7 +594,11 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		break;
 
 	case MENU_FORMAT_DICTIONARY:
-		FormatDictionary(dictionary_name);
+		DictionaryFormat(dictionary_name);
+		break;
+
+	case MENU_SORT_DICTIONARY:
+		DictionarySort(dictionary_name);
 		break;
 
 	case MENU_VOWELCHART1:

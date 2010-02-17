@@ -321,8 +321,8 @@ l/l_@           [l/3] base
                 [W] fr
                 [Y] fr
                 [l/] fr
-l/l@            [] base
-                [L] base
+l/l@            [L] base
+                [Мил] base
                 [W] fr
                 [Y] fr
                 [l] fr
@@ -348,15 +348,15 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [] base
-                [L] base
+l/la            [L] base
+                [Мил] base
                 [a] fr
                 [l] fr
 l/l_a           [l/3] base
                 [l/] fr
                 [wA] fr
-l/le            [] base
-                [L] base
+l/le            [L] base
+                [Мил] base
                 [l] fr
 l/l_e           [l/3] base
                 [l/] fr
@@ -364,8 +364,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [] base
-                [L] base
+l/li            [L] base
+                [Мил] base
                 [l] fr
                 [l] zh
 l/l_i           [l/3] base
@@ -373,15 +373,15 @@ l/l_i           [l/3] base
                 [i] sq
 l/l_long        [l] base
                 [l] fr
-l/lo            [] base
-                [L] base
+l/lo            [L] base
+                [Мил] base
                 [l] fr
 l/l_o           [l/3] base
                 [l/] fr
                 [o2] fr
 l^/l_rfx        [l.] base
-l/lu            [] base
-                [L] base
+l/lu            [L] base
+                [Мил] base
                 [l] fr
                 [w^i] fr
 l/l_u           [l/3] base
@@ -1503,8 +1503,7 @@ vowel/i_en      [i:] en
 vowel/i_fnt     [i:] en_wi
                 [i:] hi
                 [i] pa
-vowel/ii        [I] en
-                [I] en_n
+vowel/ii        [I] en_n
                 [I2] en_n
                 [I] en_rp
                 [I2] en_rp
@@ -1875,8 +1874,8 @@ vwl_fr/_r2      [r] fr
 vwl_fr/@R2      [R] fr_ca
 vwl_fr/ra       [a] fr
 vwl_fr/r_a      [r/2] fr
-vwl_fr/r_a~     [A~] fr
-vwl_fr/rA~      [A~] fr
+vwl_fr/raa      [A~] fr
+vwl_fr/r_an     [A~] fr
 vwl_fr/re       [r] fr
 vwl_fr/r_e      [r/2] fr
 vwl_fr/ri       [r] fr

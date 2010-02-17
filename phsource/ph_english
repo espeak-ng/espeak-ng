@@ -164,9 +164,6 @@ phoneme I
   vowel  starttype #i  endtype #i
   length 130
   IfNextVowelAppend(;)
-  IF nextPhW(isVel) THEN
-    FMT(vowel/ii)
-  ENDIF
   FMT(vowel/ii_2)
 endphoneme
 
@@ -306,7 +303,7 @@ endphoneme
 
 phoneme aI
   vowel  starttype #a  endtype #i
-  length 230
+  length 240
   FMT(vdiph/ai_2)
 endphoneme
 

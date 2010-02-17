@@ -992,6 +992,7 @@ dogged           d0gI2d
 domino            $1
 donor            doUn3
 dont             doUnt         $only
+donut            doUnVt
 dose             doUs
 dosage           doUsI2dZ
 dramatic         dr@matIk
@@ -1025,7 +1026,6 @@ electron         I2lEktr0n
 elicit           I2lIsI2t
 eligible         ElI2dZ@b@L
 élite            Il'i:t
-email            i:meIl
 embed            Emb'Ed
 ember            Emb3
 empire                         $1
@@ -2634,7 +2634,7 @@ Graeme		greI@m
 Graham		greI@m
 Hadrian		heIdri:@n
 Harriet		hari@t
-Heidi		haIdI
+Heidi		haIdi
 Huw		hju:
 Iain		i:@n
 Ian		i:@n

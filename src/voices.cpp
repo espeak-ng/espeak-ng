@@ -377,6 +377,7 @@ void VoiceReset(int tone_only)
 	// default is:  pitch 80,118
 	voice->pitch_base = 0x47000;
 	voice->pitch_range = 4104;
+
 //	default is:  pitch 80,117
 //	voice->pitch_base = 0x47000;
 //	voice->pitch_range = 3996;
@@ -571,8 +572,14 @@ voice_t *LoadVoice(const char *vname, int control)
 
 			if(GetFileLength(buf) <= 0)
 			{
-				// look in "test" sub-directory
-				sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
+				// look in "extra" sub-directory
+				sprintf(buf,"%sextra%c%s",path_voices,PATHSEP,voicename);
+
+				if(GetFileLength(buf) <= 0)
+				{
+					// look in "test" sub-directory
+					sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
+				}
 			}
 		}
 	}

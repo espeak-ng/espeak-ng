@@ -343,10 +343,12 @@ typedef struct {
 #define i_isAfterStress 0x89
 #define i_isNotVowel   0x8a
 #define i_isFinalVowel 0x8b
+#define i_isVoiced     0x8c
 
 
 #define i_isPalatal    0x49    // bit 9 in phflags
 #define i_isRhotic     0x56    // bit 22 in phflags
+
 
 #define i_StressLevel  0x800
 

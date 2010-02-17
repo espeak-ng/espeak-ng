@@ -970,10 +970,11 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 #define SSML_BREAK    13
 #define SSML_IGNORE_TEXT 14
 #define HTML_BREAK    15
-#define SSML_CLOSE    0x10   // for a closing tag, OR this with the tag type
+#define HTML_NOSPACE  16    // don't insert a space for this element, so it doesn't break a word
+#define SSML_CLOSE    0x20   // for a closing tag, OR this with the tag type
 
 // these tags have no effect if they are self-closing, eg. <voice />
-static char ignore_if_self_closing[] = {0,1,1,1,1,0,0,0,0,1,1,0,1,0,1,0,0};
+static char ignore_if_self_closing[] = {0,1,1,1,1,0,0,0,0,1,1,0,1,0,1,0,0,0,0};
 
 
 static MNEM_TAB ssmltags[] = {
@@ -994,6 +995,7 @@ static MNEM_TAB ssmltags[] = {
 
 	{"br", HTML_BREAK},
 	{"li", HTML_BREAK},
+	{"dd", HTML_BREAK},
 	{"img", HTML_BREAK},
 	{"td", HTML_BREAK},
 	{"h1", SSML_PARAGRAPH},
@@ -1003,6 +1005,12 @@ static MNEM_TAB ssmltags[] = {
 	{"hr", SSML_PARAGRAPH},
 	{"script", SSML_IGNORE_TEXT},
 	{"style", SSML_IGNORE_TEXT},
+	{"font", HTML_NOSPACE},
+	{"b", HTML_NOSPACE},
+	{"i", HTML_NOSPACE},
+	{"strong", HTML_NOSPACE},
+	{"em", HTML_NOSPACE},
+	{"code", HTML_NOSPACE},
 	{NULL,0}};
 
 
@@ -1637,7 +1645,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	if(tag_name[0] == '/')
 	{
 		// closing tag
-		if((tag_type = LookupMnem(ssmltags,&tag_name[1])) != 0)
+		if((tag_type = LookupMnem(ssmltags,&tag_name[1])) != HTML_NOSPACE)
 		{
 			outbuf[outix++] = ' ';
 		}
@@ -1645,9 +1653,9 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	}
 	else
 	{
-		if((tag_type = LookupMnem(ssmltags,tag_name)) != 0)
+		if((tag_type = LookupMnem(ssmltags,tag_name)) != HTML_NOSPACE)
 		{
-			// separate SSML tags from the previous word (but not unknown HMTL tags such as <b> <font> which can occur inside a word)
+			// separate SSML tags from the previous word (but not HMTL tags such as <b> <font> which can occur inside a word)
 			outbuf[outix++] = ' ';
 		}
 

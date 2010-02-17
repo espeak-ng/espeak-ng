@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-02-09 Michel Such  <michel.such@free.fr>
+// Updated 2010-02-13 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -411,10 +411,10 @@ phoneme A~
   vowel  starttype #a  endtype #a
   length 190
   IF nextPh(r/2) THEN
-    VowelEnding(vwl_fr/r_a~)
+    VowelEnding(vwl_fr/r_an)
   ENDIF
   IF prevPh(#r) THEN
-    VowelStart(vwl_fr/rA~)
+    VowelStart(vwl_fr/raa)
   ENDIF
 
   FMT(vnasal/aa_n4)

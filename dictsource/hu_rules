@@ -163,7 +163,8 @@ menetren) dsz (erű d|s
    bri) ddzs (el   dZ:
  rekor) d (sebesség 
    hol) d (sü      d
-árpá) d (sáv d
+  árpá) d (sáv     d
+   ötö) dsz (ör    ts:
 
 .group dz
   fogó) dz (kod    ts
@@ -319,8 +320,8 @@ _minde) gy (ik     J
 tizene) gy (edszer J:
 tizene) gy (es     J:
      ú) gy (sincs  J
-e) gy (ért J:
-a) gy (sérül J
+     e) gy (ért    J:
+     a) gy (sérül  J
 
 
 
@@ -425,7 +426,7 @@ keresztü) l (j     l
         mosquito   moskito:
         mosquitó   moskito:
         messerschmitt mEs:ER2Smit:
-?!2 hi) mm (ler m
+?!2 hi) mm (ler    m
 
 
 .group n
@@ -521,7 +522,7 @@ tulajdo) n (jog    n
      _) richá (rd  R2iCa:
         reichsmarschall R2EjsmAR2SAl:
 ?!2  _) roose (velt R2u:z
-?!2 _) reichs R2Ejs
+?!2  _) reichs     R2Ejs
 
 .group s
         s          S
@@ -568,13 +569,13 @@ juventu) ssz       s:        //a radio station name
 ejtőernyő) ssz     S|s
  farka) ssz (em    Ss
 villamo) ssz (ék   Ss
- titko) ssz (      olgál     Ss
+ titko) ssz (olgál Ss
   karo) ssz (ék    Ss
     hú) ssz (elet  Ss
   vörö) ssz (em    Ss
   dőlé) ssz (ög    Ss
   vonó) ssz (erenád Ss
-  maro) ssz (      Ss
+  maro) ssz        Ss
  szepe) ssz (ombat Ss
     ko) ssz (arv   Ss
   kaka) ssz (ék    Ss
@@ -594,7 +595,7 @@ zuhaná) ssz (erű   Ss
   kéke) ssz (ürke  Ss
    éde) ssz (áj    Ss
    égé) ssz (abály Ss
-egyene) ssz (      Ss
+egyene) ssz        Ss
     má) ssz (or    Ss
    éke) ssz (ól    Ss
    éle) ssz (em    Ss
@@ -628,17 +629,17 @@ hivatá) ssz (erű   Ss
     hú) ssz (ekrény Ss
    írá) ssz (akér  Ss
 jelené) ssz (erű   Ss
- kampó) ssz (      Ss
+ kampó) ssz        Ss
     ka) ssz (ék    Ss
 katalógu) ssz (ám  Ss
-kattogá) ssz (     Ss
+kattogá) ssz       Ss
     ki) ssz (ám    Ss
     ki) ssz (erű   Ss
     ki) ssz (ob    Ss
     ki) ssz (ék    Ss
     ki) ssz (ótár  Ss
 könyve) ssz (ek    Ss
-  köté) ssz (      Ss
+  köté) ssz        Ss
   laká) ssz (en    Ss
   lapo) ssz (ár    Ss
 látomá) ssz (erű   Ss
@@ -647,7 +648,7 @@ látomá) ssz (erű   Ss
   lépé) ssz (ám    Ss
  nyomá) ssz (erű   Ss
   löké) ssz (erű   Ss
-  luxu) ssz (      Ss
+  luxu) ssz        Ss
  mágne) ssz (alag  Ss
 megállapodá) ssz (erű Ss
 meglepeté) ssz (erű Ss
@@ -669,10 +670,10 @@ pikkelye) ssz (árny Ss
 rajtaüté) ssz (er  Ss
   karo) ssz (ériájú Ss
   ruhá) ssz (ekrény Ss
- sárgá) ssz (      Ss
+ sárgá) ssz        Ss
     sa) ssz (em    Ss
- serté) ssz (      Ss
- sonká) ssz (      Ss
+ serté) ssz        Ss
+ sonká) ssz        Ss
    sor) ssz (erű   Ss
   töré) ssz (ög    Ss
    uta) ssz (ál    Ss
@@ -912,8 +913,8 @@ terüle) t (cél     t
   tesz) t (cél     t
    dró) t (sövény  t
    dró) t (sövénny t
-a) th (én t
-
+     a) th (én     t
+ huncu) t (ság     t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -990,7 +991,7 @@ indula) tsz (ó     t|s
     me) tsz (ik    ts:
     me) tsz (e     ts:
     hű) ts         tS:
-
+ huncu) ts (ág     tS:
 
 
 .group u
@@ -1104,6 +1105,7 @@ találko) z (t      s
     gő) z (síp     z
  matró) z (sapka   z
   nehé) z (súly    z
+   tör) zsz (ászló Z|z
         zsz        z|s       //general exception. Need difference first z and second sz phoneme. For example, rajzszög, rajzszeg, mézszín words.
    pén) z (t       s
  rende) z (ked     s
@@ -1124,8 +1126,10 @@ tájéko) z (tass    s
     tű) zsz (eréssz s:
  búcsú) z (ko      s
 nyújtó) z (ko      s
+     ő) z (sörét   z
 
 .group
+
 
         $          dolla:R2
         ä          E
