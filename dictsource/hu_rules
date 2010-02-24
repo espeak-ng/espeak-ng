@@ -70,6 +70,7 @@
   kavi) cs (zátony tS
 ?!2     cherbourg  SER2buR2g
    har) c (cselek  ts
+ külön) c (sé      ts
 
 
 
@@ -165,6 +166,7 @@ menetren) dsz (erű d|s
    hol) d (sü      d
   árpá) d (sáv     d
    ötö) dsz (ör    ts:
+  ezre) d (szin    d
 
 .group dz
   fogó) dz (kod    ts
@@ -263,6 +265,8 @@ ritkasá) g (gyűjt  g
   vilá) g (gyűlöl  g
         gk         k:
      é) gh (ajla   kh
+    se) gg (fe     g
+    se) gg (be     g
 
 .group gy
         gy         J
@@ -322,6 +326,8 @@ tizene) gy (es     J:
      ú) gy (sincs  J
      e) gy (ért    J:
      a) gy (sérül  J
+     á) gy (sor    J
+    né) gy (sáv    J
 
 
 
@@ -417,6 +423,8 @@ keresztü) l (j     l
    ökö) l (jog     l:
     ha) ll (gatom  l
     me) ll (kas    l
+  inte) ll (ige    l
+     e) ll (ipsz   l
 
 
 .group m
@@ -915,6 +923,8 @@ terüle) t (cél     t
    dró) t (sövénny t
      a) th (én     t
  huncu) t (ság     t
+  néme) t (juhá    t
+    pó) t (je      t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters

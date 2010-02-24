@@ -198,6 +198,8 @@ _#-át	a:t	$alt2
 (0-ban) nul:a:bAn
 (0-ba) nul:a:bA
 (00-s) nul:Anul:a:S
+(0-át) nul:a:t
+(0-ától) nul:a:to:l
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
 (2-őt) kEt:Y:t
@@ -213,6 +215,7 @@ _#-át	a:t	$alt2
 (5-el) Yt:El
 (5-től) Yt:Y:l
 (5-től) YtYdike:tY:l	$alt2
+(5-t) YtYt
 (6-al) hAt:Al
 (6-tal) hAt:Al
 (6-tól) hAt:o:l
@@ -221,6 +224,7 @@ _#-át	a:t	$alt2
 (7-től) he:t:Y:l
 (7-től)	hEtEdike:tY:l	$alt2
 (7-tel) he:t:El
+(7-el) he:t:El
 (8-cal) n^olts:Al
 _10e	tiz
 _20e	hus

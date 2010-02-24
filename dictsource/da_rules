@@ -1,4 +1,5 @@
 ﻿
+
 // This file is UTF8 encoded
 // Spelling-to-phoneme rules for Danish
 
@@ -95,6 +96,7 @@ restaur) ant       aN
      i) d (ræt     d
      i) d (t 
      o) d (a       d
+     o) dd (er     D
      o) d (i       d
      u) d          D
      u) d (A       D
@@ -169,7 +171,8 @@ restaur) ant       aN
     si) d (eC      D
     ti) d (e       D
     ti) d (s       D
-    ud) d          d
+    ud) d (A       d         D
+    bu) dd (ing    D
     ur) d (e       d
     ve) d (h       D
     ve) d (t       D
@@ -335,6 +338,7 @@ tilfre) d (s
      a) f (ten     f
      a) f (tes_    f
     Ca) f (t       f
+    Ca) f (A       f
     ga) f (fel     f
    gra) f (        f
    gra) f (A       f
@@ -382,6 +386,7 @@ tilfre) d (s
      n) g 
      n) gr         Ngr
      n) gæ         gE
+     o) g (A       g
      o) g (r       g
      o) g (n       g
      o) g (s       u
@@ -854,7 +859,7 @@ proven) u          y
 
         z          s
 
-        zz         s
+        zz         ts
 
 .group æ
         æ          E

@@ -2778,6 +2778,11 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			pw--;
 			memcpy(&num_wtab[nw], &words[ix], sizeof(WORD_TAB)*2);    // the original number word, and the word after it
 
+			for(j=1; j<=nw; j++)
+			{
+					num_wtab[j].flags &= ~FLAG_MULTIPLE_SPACES;     // don't use this flag for subsequent parts when splitting a number
+			}
+
 			// include the next few characters, in case there are an ordinal indicator or other suffix
 			memcpy(pn, pw, 16);
 			pn[16] = 0;
