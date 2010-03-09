@@ -17,8 +17,8 @@ consonants   9  107
      jbo   2  111
      nci   3  120
       fi  40  130
-      fr  55  138
-   fr_ca  11  138
+      fr  54  137
+   fr_ca  11  137
       hi  58  145
       ta  20  148
       hu  24  116
@@ -103,7 +103,6 @@ d/dr            [*] base
                 [d[] base
                 [d] base2
                 [d] fi
-                [d] fr
                 [d.] hi
                 [dh.] hi
                 [d] hu
@@ -321,8 +320,8 @@ l/l_@           [l/3] base
                 [W] fr
                 [Y] fr
                 [l/] fr
-l/l@            [] base
-                [L] base
+l/l@            [L] base
+                [¼øÞ] base
                 [W] fr
                 [Y] fr
                 [l] fr
@@ -348,15 +347,14 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [] base
-                [L] base
+l/la            [L] base
+                [¼øÞ] base
                 [a] fr
                 [l] fr
 l/l_a           [l/3] base
                 [l/] fr
-                [wA] fr
-l/le            [] base
-                [L] base
+l/le            [L] base
+                [¼øÞ] base
                 [l] fr
 l/l_e           [l/3] base
                 [l/] fr
@@ -364,8 +362,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [] base
-                [L] base
+l/li            [L] base
+                [¼øÞ] base
                 [l] fr
                 [l] zh
 l/l_i           [l/3] base
@@ -373,15 +371,15 @@ l/l_i           [l/3] base
                 [i] sq
 l/l_long        [l] base
                 [l] fr
-l/lo            [] base
-                [L] base
+l/lo            [L] base
+                [¼øÞ] base
                 [l] fr
 l/l_o           [l/3] base
                 [l/] fr
                 [o2] fr
 l^/l_rfx        [l.] base
-l/lu            [] base
-                [L] base
+l/lu            [L] base
+                [¼øÞ] base
                 [l] fr
                 [w^i] fr
 l/l_u           [l/3] base
@@ -486,7 +484,6 @@ r3/r_           [r/] base
                 [r/] ru
 r3/r#_          [r#] is
 r3/r_n          [r/] base
-                [r/2] fr
                 [r/] ru
 r3/r_ru         [R4] ru
 r3/r_ru2        [R4] ru
@@ -674,6 +671,7 @@ ustop/kl        [k] base
                 [k] zhy
 ustop/kr        [k] base
                 [k] base2
+                [k] fr
                 [k] el
                 [k] zhy
 ustop/k_unasp   [k] base
@@ -708,6 +706,7 @@ ustop/pr        [p] base
                 [p-] consonants
                 [ph] consonants
                 [p] base2
+                [p] fr
 ustop/p_unasp   [p] base
                 [p-] consonants
                 [p] base2
@@ -1275,7 +1274,8 @@ vowel/a#_3      [a2] en
                 [a] ml
 vowel/a_4       [a/] el
                 [a] vi
-vowel/a_5       [a:] ta
+vowel/a_5       [a] fr
+                [a:] ta
                 [a/] it
                 [a] la
                 [a] sv
@@ -1868,29 +1868,31 @@ vwl_fr/r        [r] fr
 vwl_fr/_r       [r] fr
 vwl_fr/r_       [r/2] fr
 vwl_fr/r_@      [r/2] fr
-vwl_fr/r@       [r] fr
+vwl_fr/r@       [)g] fr
 vwl_fr/@R       [x] pt_pt
 vwl_fr/_r2      [r] fr
 vwl_fr/@R2      [R] fr_ca
-vwl_fr/ra       [a] fr
+vwl_fr/ra       [)g] fr
 vwl_fr/r_a      [r/2] fr
 vwl_fr/raa      [A~] fr
 vwl_fr/r_an     [A~] fr
-vwl_fr/re       [r] fr
+vwl_fr/re       [)g] fr
 vwl_fr/r_e      [r/2] fr
-vwl_fr/ri       [r] fr
+vwl_fr/ri       [)g] fr
 vwl_fr/r_i      [r/2] fr
-vwl_fr/ro       [r] fr
+vwl_fr/ro       [)g] fr
 vwl_fr/r_o      [o] fr
                 [o2] fr
                 [r/2] fr
-vwl_fr/ru       [r] fr
+vwl_fr/ru       [)g] fr
 vwl_fr/r_u      [r/2] fr
-vwl_fr/ry       [w^i] fr
+vwl_fr/ry       [y] fr
+                [w^i] fr
 vwl_fr/r_y      [y] fr
 vwl_fr/tr       [r] fr
-vwl_fr/w_a      [wA] fr
+vwl_fr/trr      [r/2] fr
 vwl_fr/xr       [r] fr
+                [r2] fr
 vwl_hi/l-voc    [l-] base
                 [l-] sk
                 [l:] sk

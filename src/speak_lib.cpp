@@ -47,7 +47,6 @@
 #include "wave.h"
 
 unsigned char *outbuf=NULL;
-extern FILE *f_logespeak;
 extern espeak_VOICE voice_selected;
 
 espeak_EVENT *event_list=NULL;

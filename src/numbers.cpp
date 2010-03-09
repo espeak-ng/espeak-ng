@@ -758,26 +758,26 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 static char ph_ordinal2[12];
 
 
-static int CheckDotOrdinal(Translator *tr, char *word, WORD_TAB *wtab, int roman)
-{//==============================================================================
+static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int roman)
+{//==============================================================================================
 
 	int ordinal = 0;
 	int c2;
 	int nextflags;
 
-	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && ((word[0] == '.') || (wtab[0].flags & FLAG_HAS_DOT)) && !(wtab[1].flags & FLAG_NOSPACE))
+	if((tr->langopts.numbers & NUM_ORDINAL_DOT) && ((word_end[0] == '.') || (wtab[0].flags & FLAG_HAS_DOT)) && !(wtab[1].flags & FLAG_NOSPACE))
 	{
 		if(roman || !(wtab[1].flags & FLAG_FIRST_UPPER))
 		{
-			utf8_in(&c2, &word[2]);
-			if((word[1] != 0) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || IsAlpha(c2)))
+			utf8_in(&c2, &word_end[2]);
+			if((word_end[1] != 0) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || IsAlpha(c2)))
 			{
 				// ordinal number is indicated by dot after the number
 				// but not if the next word starts with an upper-case letter
             // (c2 == 0) is for cases such as, "2.,"
 				ordinal = 2;
-				if(word[0] == '.')
-					word[0] = ' ';
+				if(word_end[0] == '.')
+					word_end[0] = ' ';
 
 				if((roman==0) && (tr->translator_name == L('h','u')))
 				{
@@ -785,7 +785,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, WORD_TAB *wtab, int roman
 					nextflags = 0;
 					if(IsAlpha(c2))
 					{
-						nextflags = TranslateWord(tr, &word[2], 0, NULL);
+						nextflags = TranslateWord(tr, &word_end[2], 0, NULL);
 					}
 
 if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))
@@ -793,8 +793,15 @@ if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG
 
 					if(nextflags & FLAG_ALT_TRANS)
 						ordinal = 0;
-					if((tr->prev_dict_flags & (FLAG_ALT_TRANS | FLAG_ALT3_TRANS)) && (nextflags & FLAG_ALT3_TRANS))
-						ordinal = 0x22;
+
+					if(nextflags & FLAG_ALT3_TRANS)
+					{
+						if(word[-2] == '-')
+							ordinal = 0;   // eg. december 2-5. között
+
+						if(tr->prev_dict_flags & (FLAG_ALT_TRANS | FLAG_ALT3_TRANS))
+							ordinal = 0x22;
+					}
 				}
 			}
 		}
@@ -816,6 +823,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	int subtract;
 	int repeat = 0;
 	int n_digits = 0;
+	char *word_start;
 	unsigned int flags[2];
 	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
@@ -833,6 +841,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	if((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER))
 		return(0);
 
+	word_start = word;
 	while((c = *word++) != ' ')
 	{
 		if((p2 = strchr(roman_numbers,c)) == NULL)
@@ -886,7 +895,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 
 	sprintf(number_chars,"  %d    ",acc);
 
-	if(CheckDotOrdinal(tr, word, wtab, 1))
+	if(CheckDotOrdinal(tr, word_start, word, wtab, 1))
 		wtab[0].flags |= FLAG_ORDINAL;
 
 	if(tr->langopts.numbers & NUM_ROMAN_ORDINAL)
@@ -947,31 +956,34 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 	ph_of[0] = 0;
 
 	// first look for a match with the exact value of thousands
-	if(thousands_exact & 1)
+	if(value > 0)
 	{
-		if(thousands_exact & 2)
+		if(thousands_exact & 1)
 		{
-			// ordinal number
-			sprintf(string,"_%dM%do",value,thousandplex);
+			if(thousands_exact & 2)
+			{
+				// ordinal number
+				sprintf(string,"_%dM%do",value,thousandplex);
+				found_value = Lookup(tr, string, ph_thousands);
+			}
+			if(!found_value & (number_control & 1))
+			{
+				// look for the 'e' variant
+				sprintf(string,"_%dM%de",value,thousandplex);
+				found_value = Lookup(tr, string, ph_thousands);
+			}
+			if(!found_value)
+			{
+				// is there a different pronunciation if there are no hundreds,tens,or units ? (LANG=ta)
+				sprintf(string,"_%dM%dx",value,thousandplex);
+				found_value = Lookup(tr, string, ph_thousands);
+			}
+		}
+		if(found_value == 0)
+		{
+			sprintf(string,"_%dM%d",value,thousandplex);
 			found_value = Lookup(tr, string, ph_thousands);
 		}
-		if(!found_value & (number_control & 1))
-		{
-			// look for the 'e' variant
-			sprintf(string,"_%dM%de",value,thousandplex);
-			found_value = Lookup(tr, string, ph_thousands);
-		}
-		if(!found_value)
-		{
-			// is there a different pronunciation if there are no hundreds,tens,or units ? (LANG=ta)
-			sprintf(string,"_%dM%dx",value,thousandplex);
-			found_value = Lookup(tr, string, ph_thousands);
-		}
-	}
-	if(found_value == 0)
-	{
-		sprintf(string,"_%dM%d",value,thousandplex);
-		found_value = Lookup(tr, string, ph_thousands);
 	}
 
 	if(found_value == 0)
@@ -1504,7 +1516,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	if((tr->langopts.thousands_sep == ' ') || (tr->langopts.numbers & NUM_ALLOW_SPACE))
 	{
 		// thousands groups can be separated by spaces
-		if((n_digits == 3) && isdigit(word[-2]))
+		if((n_digits == 3) && !(wtab->flags & FLAG_MULTIPLE_SPACES) && isdigit(word[-2]))
 		{
 			prev_thousands = 1;
 		}
@@ -1520,7 +1532,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	if(prev_thousands || (word[0] != '0'))
 	{
 		// don't check for ordinal if the number has a leading zero
-		ordinal = CheckDotOrdinal(tr, &word[ix], wtab, 0);
+		ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, 0);
 	}
 
 	if((word[ix] == '.') && !isdigit(word[ix+1]) && !isdigit(word[ix+2]) && !(wtab[1].flags & FLAG_NOSPACE))
@@ -1627,8 +1639,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	if(tr->translator_name == L('h','u'))
 	{
-		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e'
-		if((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact==1) && ((word[suffix_ix] == 'a') || (word[suffix_ix] == 'e')))
+		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (buit not a, e, az, ez, azt, ezt
+		if((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact==1)
+			&& ((word[suffix_ix] == 'a') || (word[suffix_ix] == 'e')) && ((c = word[suffix_ix+1]) != ' ') && (c != 'z'))
 		{
 			number_control |= 1;  // use _1e variant of number
 		}

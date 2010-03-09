@@ -6,7 +6,7 @@
 // letter group H  j,r,v,
 
 .replace
- x       xz
+ x       xz    // so that it behaves as 2 letters
 
 
 .group a

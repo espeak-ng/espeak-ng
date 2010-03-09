@@ -598,7 +598,9 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_ANNOUNCE_PUNCT] = 2;  // don't break clause before announcing . ? !
 			tr->langopts.param[LOPT_MIN_LONG_VOWEL] = 65;
 
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_5 | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;
+			tr->langopts.numbers = NUM_DFRACTION_5 | NUM_ALLOW_SPACE | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;
+			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
+			tr->langopts.decimal_sep = ',';
 			tr->langopts.min_roman = 1;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;

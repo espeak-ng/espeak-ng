@@ -1007,6 +1007,11 @@ static char *compile_rule(char *input)
 			copy_rule_string(buf,state);
 			state = 3;
 			p = buf;
+			if(input[ix+1] == ' ')
+			{
+				fprintf(f_log,"%5d: Syntax error. Space after (\n",linenum);
+				error_count++;
+			}
 			break;
 			
 		case '\n':		// end of line

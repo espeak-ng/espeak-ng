@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-02-07 Michel Such  <michel.such@free.fr>
+// Updated 2010-03-05 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -158,7 +158,7 @@ _&	_e_komErsi-'al
 ÷	diviz'e_p'ar
 ¼	W~_k'ar
 ½	W~_d@m'i
-¾	trwA_k'ar
+¾	trua_k'ar
 ©	_^_EN
 ®	mark||depoz'e
 
@@ -168,7 +168,7 @@ _&	_e_komErsi-'al
 _0	zero $u+
 _1	W~
 _2	dYz2
-_3	trwAz2
+_3	truaz2
 _4	katr
 _5	sE~k
 _6	siz3
@@ -188,7 +188,7 @@ _19	diznWf
 _20	vE~
 _21	vE~te:W~
 _22	vE~tdYz2
-_23	vE~t:trwAz2
+_23	vE~t:truaz2
 _24	vE~tkatr
 _25	vE~tsE~k
 _26	vE~tsiz3
@@ -257,6 +257,7 @@ divx	diviks
 ebay	_^_en
 (e bay)	ebay $text
 edf		@deEf
+eml	@EmEl
 etc		E2tsetera
 ghz		ZigaErts
 (g hz)		ZigaErts
@@ -286,7 +287,7 @@ mm	millimètre $text
 mme		madame $text
 mn	minyt
 mns	minytz2
-(mp 3)	_!EmpetrwA
+(mp 3)	_!Empetrua
 mr		m@siY
 nsi             $abbrev
 nsis             $abbrev
@@ -622,12 +623,14 @@ adam	adA~
 adams	adams
 admin        admin
 adsltv	adeEs'El||tev'e
+agenda	aZE~da
 airbus	      airbuss $text
 alan	alan
 albinos	albinoss $text
 alleluia alelui'a
+alterego	altErego
 anis	anis
-arte	arte
+any	Eni $u
 auvent     ovA~
 beta	beta
 bien	      bi-E~n2
@@ -635,6 +638,7 @@ bis	      bis
 bissus    bisys
 blues	_^_en
 broglie	breuil $text
+browglie	breuil $text
 buffer	bWfWr
 bus	      bys
 bus	      by  $verb
@@ -795,7 +799,7 @@ espeak		@spi:k
 ethernet	etErnEt
 exit	egzit
 (file zilla)		f,ajl||zij'a
-from	frO2m $u+
+from	frO2m $u
 get		_^_en
 google		gug=Wl
 gnome		gnOm
@@ -805,6 +809,7 @@ help		_^_en
 hot		_^_en
 in		in $u+
 inside		_^_en
+internet E~tErn'Et
 (internet explorer) E~tErn'Et||E2ksplOr'Wr
 klaxon          klaksOn
 let 		_^_en
@@ -814,7 +819,7 @@ logon 		_^_en
 (mac os x)	makoEsiks
 made	_^_en
 media     		medja
-messenger 		mesEnZWr
+messenger 		mE2sEnZWr
 my		maj $u+
 nat		nat
 not		_^_en
@@ -869,6 +874,7 @@ bissau	bisa'o
 (burkina faso)	byrkina||faso
 burundi	burundi
 calvados	calvadoss $text
+christmas	krismas
 croatie	kroasi
 esperanto	E2sperA~to
 groenland	groEnlA~d

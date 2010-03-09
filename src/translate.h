@@ -642,3 +642,5 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 
 extern FILE *f_trans;		// for logging
+extern FILE *f_logespeak;
+extern int logging_type;  // from config file

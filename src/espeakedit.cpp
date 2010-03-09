@@ -590,7 +590,36 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		wxLogStatus(_T("Compiled '")+wxString(dictionary_name,wxConvLocal)+_T("', %d errors"),err);
 
 		if(log != NULL)
+		{
 			fclose(log);
+
+			if(err > 0)
+			{
+				// display the error messages
+				int len;
+				FILE *f;
+				char *msg;
+				wxString msg_string;
+
+				len = GetFileLength(fname_log);
+				if(len > 0)
+				{
+					if(len > 2000)
+						len = 2000;   // restrict length to pppppevent crash in wxLogMessage()
+					msg = (char *)malloc(len+1);
+					if(msg != NULL)
+					{
+						f = fopen(fname_log,"r");
+						fread(msg,len,1,f);
+						fclose(f);
+						msg[len] = 0;
+						msg_string = wxString(msg,wxConvUTF8);
+						wxLogMessage(msg_string);
+						free(msg);
+					}
+				}
+			}
+		}
 		break;
 
 	case MENU_FORMAT_DICTIONARY:

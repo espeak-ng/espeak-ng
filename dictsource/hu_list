@@ -350,7 +350,7 @@ VDSZSZ	ve:de:EsEs	$allcaps
 WC	ve:tse:	$allcaps
 LST	ElESte:	$allcaps
 BAR	bAR2	$allcaps
-SS	EsEs	$allcaps
+//SS	EsEs	$allcaps
 
 a.m	An^n^i||m'int  $dot
 ún	u:JnEvEzEt:	$hasdot
@@ -923,7 +923,7 @@ vitt	$unstressend
 rést	$unstressend
 brit	$unstressend
 természetes	$u $1
-
+front	$unstressend
 
 // word pairs
 
@@ -1153,6 +1153,9 @@ egyezség	eggyesség
 (dvd-n) dévédén
 (dvd-d) dévédéd
 (DVD-d) dévédéd
+(USA-éval) usáéval
+(ubuntu-n) ubuntun
+
 
 
 

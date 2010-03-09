@@ -3156,7 +3156,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 	report.Printf(_T("Compiled phonemes: %d errors."),error_count);
 	if(error_count > 0)
 	{
-		report += _T(" See file: 'error_log'.");
+		report += _T(" See file: 'phsource/error_log'.");
 		wxLogError(report);
 	}
 	wxLogStatus(report + report_dict);

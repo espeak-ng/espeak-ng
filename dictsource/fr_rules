@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2010-02-07 Michel Such  <michel.such@free.fr>
+// Updated: 2010-03-05 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -71,6 +71,7 @@
 		am (n       a		// condamner
 
 	_L04)	an (_      an
+	   	an (n_      a
 	_h)	an (_      an
 	_)	anti (@@P4      A~ti
 	_)	arché (@P5      arke		// archéologue
@@ -244,11 +245,13 @@ _) 	ç' (P2v      s
 		e (Ce_      E
 		eau         o		// bateau cheveaux
 	g)	ea (s_ 	a      		// mangeas
+	cap)	e (la_ 	e
 	gh)	e (tAX 	e      		// spagheti
 	j)	e (a        		// Jean Jeanne
 	p)	ect (_      E2		// suspect
 		ect (_      Ekt		// direct
 	pi)	ed (_         e		// pied
+	_art)	e (++       e		// arte, artefact
 	_cl)	ef (_       e		// clef
 	_cr)	e (at       e
 	_)	ein (K      En		// peindre
@@ -256,7 +259,7 @@ _) 	ç' (P2v      s
 	pl)	ein (_      E~n2		// plein emploi
 		e (il       E		// vieille
 		ei          E		// neige
-		eoi          wA		// asseoir
+		eoi          ua		// asseoir
 		ell         El		// selle
 		el (K       El		// celsius, caramel
 	_f)	em (me      a		// femme
@@ -275,6 +278,7 @@ _) 	ç' (P2v      s
 		en (_       A~n2		// en
 		en (hA      A~n		// enharmonique
 _C)		en (j      E~		// benjamin
+_flam)		en (c      E~		// flamenco
 _)		en (A       A~n		// enivrer
 
 	C)	en (d_      A~		// comprend dépend
@@ -415,6 +419,7 @@ _)		en (A       A~n		// enivrer
 
 	AA)	en (_       E~
 	C)	en (_       En      	// amen, abdomen, golden
+	nc)	ens (_       A~      	// encens
 	xam)	en (_       E~      	// examen
 
 		en (s_      A~
@@ -429,6 +434,9 @@ _)		en (A       A~n		// enivrer
 	_hi)	er (_       Er      	// hier
 	_fi)	er (_       Er      	// fier
 	_hiv)	er (X       Er      	// hiver
+	Cst)	er (X       Er      	// hamster
+	_cart)	er (X       Er      	// carter
+	_cutt)	er (X       Er      	// cutter
 	tain)	er (X       Er      	// container
 	_ti)	er (_       Er
 	ack)	er (K      Wr
@@ -590,7 +598,7 @@ _m)	e (ga	e
 
 	Z)	ème 		i-Em
 	è		E
-	ès		E
+	ès (_		E
 Ar)	ès (_	Es
 m)	ès (_	Es
 n)	ès (_	Es
@@ -775,7 +783,8 @@ C)		i (es_    i
 		in (_       W~		// vin
 		ing (_      iN
 	_)	infra (_P5       E~fra
-	_)	inter (@P5       E~tEr
+	_)	inter (@@P5       E~tEr
+	_)	interr (A       E~tEr
 	_)	inter (_       E~t'Er
 	_)	inter (ne_       E~t'Er
 	_)	intra (neP5       E~tra
@@ -926,7 +935,7 @@ C)		i (es_    i
 	 	o (Cos_       o2
 	C) 	o (d_       O2
 
-		oe (ll      wA		// moelleux
+		oe (ll      ua		// moelleux
 		oe (i      W		// oeil
 	_)	oe (C       Y		// oesophage
 	_ph)	oe (C       e		// phoetus
@@ -941,10 +950,10 @@ C)		i (es_    i
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
-	_)	oi          wA		// oiseau
-		oi          wA		// poil
-		oê (l       wA		// poêle
-		oî          wA		// boîte
+	_)	oi          ua		// oiseau
+		oi          ua		// poil
+		oê (l       ua		// poêle
+		oî          ua		// boîte
 		om (C       O~		// bombe
 		om (m       O		// nommer
 		om (ni       O2m		// omnibus
@@ -978,10 +987,10 @@ C)		i (es_    i
 		ou          u		// hibou brouillard
 		où          u		// où
 		oû          u		// coûter
-		oyes (_     wA		// troyes
-		oy (A       wAj		// noyer voyelles
+		oyes (_     ua		// troyes
+		oy (A       uaj		// noyer voyelles
 	_y)	o (y       o
-		oy          wA		// roy
+		oy          ua		// roy
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
 		o           O
@@ -1250,7 +1259,8 @@ VCi)		t (_        t2
 	Vé)	t (ion      t 	// répétions
 	habi)	t (ions      t 	// habitions
 	imi)	t (ions      t 	// imitions, limitions
-	Vu)	t (ion      t 	// ajoutions
+	VAu)	t (ion      t 	// ajoutions
+	lu)	t (ion      s 	// févolution
 	Apor)	t (ion      t 	// emportions, exportions
 	opor)	t (ion      s 	// proportion
 	Cpor)	t (ion     t 	// emportions, exportions
@@ -1309,9 +1319,9 @@ VCi)		t (_        t2
 	C)	ucci       utSi  // capuccino
 	c)	ueill       Wj  // cueillir
 	c) 	ueil (_     Wj  // recueil
-	_g) 	ua     wA
-	ag) 	ua (_     wA
-	Ctig) 	ua (_     wA
+	_g) 	ua     ua
+	ag) 	ua (_     ua
+	Ctig) 	ua (_     ua
 	_c) 	ul (_     y
 	_)	ultra (P5       yltra
 	g)	u (ay       u
@@ -1394,6 +1404,7 @@ _r)	w (an	u				// Rwanda
 
 .group x
 		x           ks
+		xx          ks
 	_) 	x (A        gz	// xylophone
 	_) 	x (CP1        iks	// xylophone
 		xml (_S3      _!iksEmEl

@@ -1,6 +1,6 @@
 
 // ***************************************************************************
-// *   Copyright (C) 2006 to 2007 by Jonathan Duddington                     *
+// *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -531,7 +531,7 @@
 
 
 .group i
-          _) i (          i:
+          _) i (_         i:
              i            i:
              ih (+        i:
 

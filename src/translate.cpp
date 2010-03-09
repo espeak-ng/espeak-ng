@@ -1361,6 +1361,18 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int word_flags;
 	int word_copy_len;
 	char word_copy[N_WORD_BYTES+1];
+	char old_dictionary_name[40];
+
+	if((f_logespeak != NULL) && (logging_type & 8))
+	{
+		fprintf(f_logespeak,"WORD: flg=%.5x len=%d  '",wtab->flags,wtab->length);
+		for(ix=0; ix<40; ix++)
+		{
+			if(word[ix]==0) break;
+			fputc(word[ix], f_logespeak);
+		}
+		fprintf(f_logespeak,"'\n");
+	}
 
 	len = wtab->length;
 	if(len > 31) len = 31;
@@ -1550,6 +1562,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(new_language[0]==0)
 				new_language = "en";
 
+			strcpy(old_dictionary_name, dictionary_name);
 			switch_phonemes = SetTranslator2(new_language);
 
 			if(switch_phonemes >= 0)
@@ -1784,6 +1797,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if(switch_phonemes >= 0)
 	{
 		// this word uses a different phoneme table, now switch back
+		strcpy(dictionary_name, old_dictionary_name);
 		SelectPhonemeTable(voice->phoneme_tab_ix);
 		SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
 		ph_list2[n_ph_list2++].tone_ph = voice->phoneme_tab_ix;  // original phoneme table number
@@ -2075,6 +2089,14 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	for(ix=0; ix<N_TR_SOURCE; ix++)
 		charix[ix] = 0;
 	terminator = ReadClause(tr, f_text, source, charix, &charix_top, N_TR_SOURCE, &tone2);
+
+	if((f_logespeak != NULL) && (logging_type & 4))
+	{
+		fprintf(f_logespeak,"CLAUSE %x:\n",terminator);
+		for(p=source; *p != 0; p++)
+			fputc(*p, f_logespeak);
+		fprintf(f_logespeak,"ENDCLAUSE\n");
+	}
 
 	charix[charix_top+1] = 0;
 	charix[charix_top+2] = 0x7fff;

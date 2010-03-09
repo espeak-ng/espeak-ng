@@ -60,9 +60,20 @@ E    i    o    O    u    V    W    y
 Y    
 
 *    -    :    ;    ?    b    d    D    
-dZ   f    g    h    j    k    l    L    
+dZ   f    g    h    j    k    l    l/3  
 m    n    N    p    r    R    s    S    
-t    tS   v    w    
+t    tS   v    w    z    
+
+
+Dictionary hu_dict
+
+A    a:   E    e:   i    i:   o    o:   
+u    u:   Y    y    y:   Y:   
+
+-    :    b    c    d    dZ   dz   f    
+g    h    j    J    k    l    m    n    
+n^   p    r    R    R2   s    S    s2   
+t    tS   ts   v    z    Z    
 
 
 Dictionary de_dict
@@ -141,9 +152,9 @@ s2   t    v    w    Z
 
 Dictionary fr_dict
 
-@    @-   @2   a    A~   e    E    E2   
-E:   E~   i    i-   i:   o    O    o2   
-O2   o3   O~   u    u:   W    w^i  wA   
+@    @-   @2   a    A    A~   e    E    
+E2   E:   E~   i    i-   i:   o    O    
+o2   O2   o3   O~   u    u:   W    w^i  
 W~   y    Y    
 
 :    b    d    dZ   f    g    h    j    
@@ -190,15 +201,16 @@ r.   s    S    s.   t    T    t.   th
 th.  v    w    x    z    
 
 
-Dictionary hu_dict
+Dictionary ta_dict
 
-A    a:   E    e:   i    i:   o    o:   
-u    u:   Y    y    y:   Y:   
+a    a:   aI   aU   e    E    e:   i    
+I    i:   o    o:   U    u    u:   V    
 
--    :    b    c    d    dZ   dz   f    
-g    h    j    J    k    l    m    n    
-n^   p    r    R    R2   s    S    s2   
-t    tS   ts   v    z    Z    
+:    ;    b    C    d    d.   dZ   f    
+g    h    H    j    k    l    l.   m    
+n    N    n.   n^   p    Q    r    R    
+s    S    s.   t    T    t.   th   tS   
+v    w    z    z.   
 
 
 Dictionary hy_dict
@@ -448,18 +460,6 @@ o    u
 j    J    k    l    m    n    N    n^   
 p    Q    R    s    S    t    T    tS   
 v    w    x    z    
-
-
-Dictionary ta_dict
-
-a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   U    u    u:   V    
-
-:    ;    b    C    d    d.   dZ   f    
-g    h    H    j    k    l    l.   m    
-n    N    n.   n^   p    Q    r    R    
-s    S    s.   t    T    t.   th   tS   
-v    w    z    z.   
 
 
 Dictionary tr_dict
