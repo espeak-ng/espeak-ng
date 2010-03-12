@@ -19,102 +19,128 @@ oo  u  //PB English words like 'pool'
 .L06 p b // pande, bande - pege, bege - passe, basse
 .L07 t k // time, kime - tone, kone - tage, bage - tanke, banke
 .L08 sp st sk
+.L09 m n // ens før vokal: naller, maller - ikke efter: nam, nan
 
 .group a
-amerik) a (ne      '&:       // PB amerikanere
-    kr) a (ti      'A        // PB bureaukratiske
-        a          &:        // PB changed from a?
-        a (L03     &:        // PB foran halvvokal
-   L03) a (L03     &         // PB after semivowel
-        a (L03L03A a         // PB anderledes
-     C) a (k       a         // PB tak
-     C) a (g+      a         // PB magt, sagt
-     d) a (g+      &         // PB dag
-        a (ge++    &:        // PB tage
-     r) a (ge+     A         // PB andrage, rage
-     r) a (v       A         // PB ravage
-   L06) a (n       &         // PB tand, tante, band, bande, spand, spade
-   L06) a (nC      A         // PB bank
-   L06) a (g+      &:        // PB bag
-   L06) a (nd      &         // PB pande
-     C) a (gde+    &:        // PB sagde
-    av) a (n       'V        // PB avance
-     h) a (v       &:        // PB have
-        a (m++     a         // PB ham, gamle
-     m) a (n+      &         // PB man, mand
-        a (ng+     a         // PB mangle, sang
-        a (ndre    A         // PB andre
-        a (ld      a         // PB aldrig, alder
-     m) a (l       &:        // PB male
-        a (tion    a
-        a (CK      &:        // PB alle, anden
-     h) a (CK      &         // PB han
-     h) a (nk      a         // PB hank
-     s) a (m       a         // PB sammen
-        a (p+      a         // PB slap
-        a (b+      a         // PB lab
-   L06) a (ne      a         // PB bane, banke
-     g) a (n+      a         // PB gang
     //    a (g       a_        // PB change to [a@?] ? - tage
+//     r) a (CK      A
+        a          &:        // PB changed from a?
+     r) a          A         // PB kamera
+// inser) a (t       'A        // PB stressed a in 'inserat'
+//konglomer) a (t    'A        // PB stressed a in 'konglomerat'
+//litter) a (t       'A        // PB stressed a in 'litterat'
+//kammer) a (t       'A        // PB stressed a in 'kammerat'
+//desper) a (t       'A        // PB stressed a in 'desperat'
+// moder) a (t       'A        // PB stressed a in 'moderat'
+// refer) a (t       'A        // PB stressed a in 'referat'
+     r) a (t       'A        // PB direktorat
+  priv) a (t       '&:       // PB privat
+agglomer) a (t     'A        // PB stressed a in 'agglomerat'
+     r) a (l       'A        // PB stressed a before -ral - general, neutral
+        a (nt      '&        // PB stressed a in words with -ant - interessant
+    Ah) a (nd      '&        // PB stressed a in words with -hand - behendling
+    ok) a (l       '&        // PB stressed a in 'vokal, lokal, bifokal'
+    bl) a          a         // PB blad
     fr) a          A         // PB fra, fratage
     gr) a          A         // PB gratis
-     j) a (m+      a         // PB fjams
-     j) a (men     a         // PB exception jamen = ja men
-     j) a (g+      &:        // PB jage
-     k) a (n       '&:       // PB stressed a in 'orkan, pelikan'
-     b) a (lkan    &:        // PB Balkan
-    pl) a (m+      &         // PB plamage CHECK THIS ONE
-        a (r+      A:
-     r) a          A         // PB kamera
-//     r) a (CK      A
- kvadr) a (t       'A        // PB stressed a in 'kvadrat'
-        au         aw        // PB auto, autoritet
-        ai (K      aj
-     k) ai (n      a'i       // PB kokain
-        a (fC      a         // PB af = au and exceptions in the f group
-     C) a (ft      A         // PB haft, saft
-     e) au         'o        // PB bureau, niveau
- _biss) au         'a:w      // PB Guinea-Bissau
-     s) au (ce     O:        // PB sauce, bearnaisesauce
-interf) a (ce      ei        // PB interface
-     p) a (ce      ei        // PB motorpace, pacemaker
- pacem) a (ker     ei        // PB pacemaker
-    Am) a (n_      '&:       // PB stressed - narkoman
-   isl) a (m       'a:       // PB islam, islamisk
-     _) a (e_      &:        // PB ae
-    bl) a          a         // PB blad
-   L08) a (d       &:        // PB stadig
-   rom) a (n       '&:       // PB roman
-  _rom) a (ns      '&:       // PB romans, romansk
-  _rom) a (nerne   '&:       // PB romanerne
-  _rom) a (ner_    '&:       // PB romaner
-  _rom) a (ners    '&:       // PB romaners
-  _rom) a (nens    '&:       // PB romanens
-  _rom) a (nernes  '&:       // PB romanernes
-   mir) a (k       'a        // PB mirakel - stressed a
-     d) a (t       '&:       // PB stressed 'dat' in mandat, soldat, kandidat
-     d) a (me+     &:        // PB dame
-     t) a (t       'a        // PB stressed 'tat' in etat, østat, resultat
-     t) ager (_    Ar        // PB tager
+        a (L03K    &:        // PB alle, anden
+     h) a (CK      &         // PB han
+        a (L03     &:        // PB foran halvvokal
+        a (v+      A         // PB tavs
+   L08) a (v       &         // PB stav
+   L03) a (L03     &         // PB after semivowel
+     b) a (b+      A         // PB babser
+        a (L03L03A a         // PB anderledes
+//        aa         O:
+//     r) aa         O:
+     r) a (n       a         // PB garanteret
      t) a (b       a         // PB tabte
-     t) a (l       &:        // PB tale
-     f) a (n       &         // PB fanden
- hvord) a (n       '&        // PB stressed a in 'hvordan'
-    @g) a (ng      'a        // PB stressed a in words ending with -gang - engang, enegang
-    ch) a (n       a         // PB chance
-        a (bel+    '&        // PB exception - ræssonabel, stabel
+        a (b+      a         // PB lab
+   L08) a (b       &:        // PB skabe
      r) a (bel     'A        // PB vulnerabel, kurabel
    mir) abel       ab'El     // PB mirabel(le)
+        a (bel+    '&        // PB exception - ræssonabel, stabel
+     p) a (ce      ei        // PB motorpace, pacemaker
+interf) a (ce      ei        // PB interface
+   L08) a (d       &:        // PB stadig
+     _) a (e_      &:        // PB ae
+        a (fC      a         // PB af = au and exceptions in the f group
+     C) a (ft      A         // PB haft, saft
+     C) a (g+      a         // PB magt, sagt
+     s) a (g+      &         // PB sag
+     s) a (gt+     a         // PB sagt
+     d) a (g+      &         // PB dag
+     j) a (g+      &:        // PB jage
+   L06) a (g+      &:        // PB bag
      b) a (gC++    A         // PB baghold
-    ch) au (f      o
-  nive) au         o
+     C) a (gde+    &:        // PB sagde
+     r) a (ge+     A         // PB andrage, rage
+        a (ge++    &:        // PB tage
+     t) ager (_    Ar        // PB tager
+        ai (K      aj
+     k) ai (n      a'i       // PB kokain
+     C) a (k       a         // PB tak
+   mir) a (k       'a        // PB mirakel - stressed a
+ pacem) a (ker     ei        // PB pacemaker
+     t) a (l       &:        // PB tale
+   L09) a (l       &:        // PB male
+     _) a (ld      a         // PB aldrig, alder
+     b) a (lkan    &:        // PB Balkan
+  over) a (lt      '&        // PB stressed a in 'overalt'
+     s) a (m       a         // PB sammen
+   isl) a (m       'a:       // PB islam, islamisk
+     j) a (m+      a         // PB fjams
+    pl) a (m+      &         // PB plamage CHECK THIS ONE
+        a (m++     a         // PB ham, gamle
+     d) a (me+     &:        // PB dame
+     j) a (men     a         // PB exception jamen = ja men
+     f) a (n       &         // PB fanden
+     k) a (n       '&:       // PB stressed a in 'orkan, pelikan'
+    av) a (n       'V        // PB avance
+    ch) a (n       a         // PB chance
+   L06) a (n       &         // PB tand, tante, band, bande, spand, spade
+   rom) a (n       '&:       // PB roman
+ hvord) a (n       '&        // PB stressed a in 'hvordan'
+     g) a (n+      a         // PB gang
+   L09) a (n+      &         // PB man, mand
+   L06) a (nC      A         // PB bank
+    Am) a (n_      '&:       // PB stressed - narkoman
         an (cienn  aN
+   L06) a (nd      &         // PB pande
+        a (ndre    A         // PB andre
+   L06) a (ne      a         // PB bane, banke
+amerik) a (ne      '&:       // PB amerikanere
+  _rom) a (nens    '&:       // PB romanens
+  _rom) a (ner_    '&:       // PB romaner
+  _rom) a (nerne   '&:       // PB romanerne
+  _rom) a (nernes  '&:       // PB romanernes
+  _rom) a (ners    '&:       // PB romaners
+    @g) a (ng      'a        // PB stressed a in words ending with -gang - engang, enegang
+     m) a (t       '&:       // PB stressed a in words with - mat - diplomat, format
+        a (ng++    a         // PB mangle, sang
+     h) a (nk      a         // PB hank
+  _rom) a (ns      '&:       // PB romans, romansk
 restaur) ant       aN
+        a (p+      a         // PB slap
+  tilb) a (ge      '&:       // PB stressed a in 'tilbage'
+        a (r+      A:
+     d) a (t       '&:       // PB stressed 'dat' in mandat, soldat, kandidat
+     t) a (t       '&:       // PB stressed 'tat' in etat, østat, resultat
+ kvadr) a (t       'A        // PB stressed a in 'kvadrat'
+    kr) a (ti      'A        // PB bureaukratiske
+        a (tion    a
+        au         aw        // PB auto, autoritet
+     e) au         'o        // PB bureau, niveau
+  nive) au         o
+ _biss) au         'a:w      // PB Guinea-Bissau
+     s) au (ce     O:        // PB sauce, bearnaisesauce
+    ch) au (f      o
   rest) au (r      o
+     h) a (v       &:        // PB have
+     r) a (v       A         // PB ravage
+    @k) ar (l      &         // PB bøssekarl
         aw (K      aw
         ay (K      aj
-        aa         O:
-     r) aa         O:
 
 
 .group af
@@ -128,7 +154,7 @@ restaur) ant       aN
 
         b          b
         bb         b
-     _) be (@P2    be
+//     _) be (@P2    be
      _) be (d      bE
         b (il      'b
 
@@ -190,7 +216,8 @@ restaur) ant       aN
      æ) d          D
      ø) d          D         // PB rød, grød
     in) d 
-    mo) d          D         // PB mod'
+    mo) d          D         // PB mod
+     o) dds        ds        // PB odds
     ve) d          D
    bol) d          d
    bol) d          d
@@ -209,12 +236,13 @@ stikor) d                    // PB exception - no d in 'stikord'
     be) d (A       d
     ud) d (A       d
      A) d (C       D
+     A) dd (AC     D         // PB redder
      u) d (C       D
     Co) d (C       D
     in) d (C 
     mo) d (C       D
     ne) d (C       D
-        d (CA      d
+//        d (CA      d
      r) d (K 
     ar) d (K       d
    aar) d (K 
@@ -237,7 +265,8 @@ stikor) d                    // PB exception - no d in 'stikord'
         dd (et     D
     bu) dd (ing    D
      i) d (e       d
-    an) d (e                 // PB mand, anden - skip the d
+    an) d (e                 // PB manden, anden - skip the d
+  _fan) de (me               // PB fandeme - skip de, only this word
     li) d (e       D
     ri) d (e       D
     si) d (e       D
@@ -250,7 +279,7 @@ stikor) d                    // PB exception - no d in 'stikord'
    ral) d (e 
    sag) d (e 
    snu) d (e       D
-     A) de (_      D@        // PB change to D?
+     A) de (N_     D@        // PB change to D?
     in) d (eks     d
     mo) d (el      'd
     or) d (el      d
@@ -290,8 +319,11 @@ stikor) d                    // PB exception - no d in 'stikord'
     æl) d (re      d
     æn) d (re      d
     æn) d (re      d
+     a) d          D         // PB ad, udenad - dangerously broad
+     i) d          D         // PB tid
     _a) d (res     d         //PB a) => _a) - didn't work for 'smadres' - probably for 'adresse'
-    or) d (ret 
+   hon) d (ura     d         // PB Honduras
+//	or) d (ret
    Aor) d (ret     d
     æn) d (ri      d
      a) d (s 
@@ -331,15 +363,30 @@ tilfre) d (s
 
 .group e
         e          e:
-     l) e          3         // PB forhandlere
+   kas) e (rne     'e        // PB stressed e in 'kaserne'
+    ml) e          3         // PB gamle
+   hot) e (l       'e        // PB hotel
+   afl) e          3         // PB aflevere
+    ov) e (r       3         // PB over
+     l) e (r       3         // PB forhandlere
+        e (lse     @         // PB fornøjelse
     sk) e (t_      e         // PB sket
      r) eau        o         // PB bureaukratiske
         ee         'e:       // PB ideer, cafeer
     am) e (rika_   'e        // PB Amerika
     am) e (rikan   e         // amerikanere
         et (_      3D        // PB forsket, formet
+     s) e (t       e         // PB set
    L03) e (_       3         // PB have
-    @t) e          @         // PB tante, hente
+ L07Ag) e (_+                // no final e after g - kage, tage
+    nt) e          @         // PB tante, hente
+    nt) e (r       V         // PB tanter, henter
+  mont) e (r       e         // PB montere
+        e (r_++    V         // PB changed from [e (rK] - 'vers' mispronounced
+     _) e (r_++    er        // PB er
+     h) e (r++     e         // PB her, herhen
+   _sk) er (_      er        // PB sker
+        e (ri      V         // PB røveri
     sn) e (K       e?        // PB  sne, snebold
     fr) e (L03     a         // PB fremme, frende, frelse
     fr) e (d       e         // PB fred fredag
@@ -347,30 +394,40 @@ tilfre) d (s
     _l) e (r_      e         // PB ler
     hv) e (r       e         // PB hver
     el) e (r       V         // PB hellere
+    mm) e (l       @         // PB gammel
      s) e (_       @         // PB rose, skose
     _s) e (_       e?        // PB se
-     p) er (_      &r        // PB per
+   L06) er (_      &r        // PB per
+L06L06) (er       V         // PB klipper
      _) er (_      &r        // PB er
     _a) e (_       3         // PB ae
     pl) e (men     3         // PB supplement
    L06) e (l       3         // PB bibel, krumsabel
   _tab) e (l       'e        // PM tabel
+    nd) e (r       V         // PB under
      r) e (j       a
-        e (r_      V         // PB changed from [e (rK] - 'vers' mispronounced
+   L09) er (ne_    V         // PB kameraerne
+   L08) e (r_      e         // PB sker
      t) e (rr      e         // PB territorium
-    Ct) e (r       V         // PB alter, helikop*ter*styrt
-     h) e (r       e         // PB her
+    Ct) erN        V         // PB alter, helikop*ter*styrt - NOT words from da_list
     th) e (r_      V         // Luther
      j) e (r       e         // PB jer
-    _s) e (r_      e         // PB ser
+    hj) e (r       E         // PB hjerne
+    _s) e (r_+     e         // PB ser
+     s) e (r       V         // PB vitser
      t) erræn      &r'E:N    // PB terræn
      g) e (rne     V         // PB sangerne
+     g) e (rne_    E         // PB gerne
   kuff) e (rt      V         // PB kuffert
     Am) e (r       V         // PB strømere
+   Amm) e (r       3         // PB kammerater
         e (mball   A         // PB emballere, emballage
    L06) e (rC      E         // PB person CHECK THIS ONE
      f) e (rni     E         // PB fernis
      d) e (re      V         // PB mordere CHECK THIS ONE
+ invad) e (re      'e        // PB invadere
+     d) e (rn      V         // PB gaderne CHECK THIS ONE
+    ød) e          3         // PB øde
      b) e (ds      E
      d) e (_       @
     ed) e (-       @
@@ -421,14 +478,17 @@ softic) e                    // PB softice
   kass) e (rer     'e        // PB kasserer
         e (gn      a         // PB tegne , hegn
     bl) e (m       3         // PB møblement
+ probl) e (m       'e        // PB stressed e
     ni) e (n       e
    ani) e (l       e
   lini) e          @         // PB changed from [e] to [@]
      r) e (_N      3_:       // PB mere
+     r) e (nd      a         // PB rend
+     n) e (r       V         // PM klovner
     _r) e          e
 //     r) e (
      r) e (l       e
-     r) e (kt      aj
+//     r) e (kt      aj
      r) e (t+      a         //PB ret
      r) e (st      &         // PB resten
    @st) e (n       e:        // øjesten
@@ -450,13 +510,14 @@ absorb) e (r       'e        // PB absorber, absorberer, absorbere, absorberet
      @) e (kt      'e:       // PB stressed e in words with -ekt - konfekt
    L06) eg (e      aj        // PB p) changed to L06 to include b
    L08) eg         aj        // PB steg, spegepølse
+   jav) e (l       'e        // PB stressed e in 'javel'
      m) eg (a      eg
         eg (et     a:j
      r) eg (er     eg
      r) eg (n      aj
      p) eg (n      aj        // PB pegning
      t) eg (n      aj
-      //  eg (e      'e:      // spoils 'regent'
+        eg (e_     'e:       // PB added _ - ege
 	 //r) eg (n      A:j	 // PB
      //m) eg         aj      // PB covered by [eg(et] above
      r) ej (s      aj
@@ -469,6 +530,7 @@ absorb) e (r       'e        // PB absorber, absorberer, absorbere, absorberet
      p) en (sion   aN
      r) en (ce     aN
      r) e (d       e
+     r) e (dd      E         // PB redder
      r) e (v       e
     tr) e          e
     tr) e (A       e
@@ -479,21 +541,22 @@ absorb) e (r       'e        // PB absorber, absorberer, absorbere, absorberet
   ffic) e (r       e
      &) ede (_     @D3       // PB changed from [@D@] to [@D3]
      &) edet (_    @D3d      // PB hovedet
-    &r) ede (_     3D@
+    &r) ede (N_    3D@
     &r) en (_      3n
     &r) en (ing    'en
 //   for) en (ing    'en
     &r) en (s_     3n
     &r) et (_      3D
      //&) er (_      V         // PB doesn't work with 'dedikeret' should be @, not V
-     &) en (_      '@-n
+     &) en (_      '@-n      // uden
+    Ad) en (@      '@-n      // udenlandsk, udenad
      &) ene (_     @-n@
      &) ende (_    @-nn@
      &) eren (_    3r3n
-     &) ere (_TN   'er3      // PB stressed - manipulere, protestere - words in list file
-     &) erede (S2_ =D3       // PB stressed - manipulerede, protesterede - words in list file
-     &) eres (S1_  =s        // PB stressed - manipuleres, protesteres - words in list file
-     &) eret (S1_  =3D       // PB stressed - manipuleret, protestet 1.810 words in list file
+     &) ere (_T    'er3      // PB stressed - manipulere, protestere - words in list file
+     &) erede (NS2_ =D3      // PB stressed - manipulerede, protesterede - words in list file
+     &) eres (TNS1_ =s       // PB stressed - manipuleres, protesteres - words in list file
+     &) eret (TNS1_ =3D      // PB stressed - manipuleret, protestet 1.810 words in list file
   _sen) ere        er3       // PB senere
      &) eren (s_   3r3n
      &) es (_      @s
@@ -504,11 +567,13 @@ absorb) e (r       'e        // PB absorber, absorberer, absorbere, absorberet
    ika) e (l 
     ir) e (n       'e
     yr) e (n       'e
-orkest) e (r       'e        // PB stressed e in 'orkester'
+   ork) e (ster    'e        // PB stressed e in 'orkester'
+    st) e (ret               // PB orkesteret
  ompet) en (ce     aN
   ress) en (timent aN        // PB ressentiment
     bl) e (g       aj        // PB bleg
      m) edie       'edj3     // medie, kommedie
+  best) e (mme     'e        // PB stressed e - bestemme
 
 .group f
         f          f
@@ -527,7 +592,7 @@ orkest) e (r       'e        // PB stressed e in 'orkester'
      a) f (atisk   f         // PB afatisk
      a) f (oris    f         // PB aforisme, aforistisk
 
-     a) f (C       u
+     a) f (C       w
 // PB exceptions to the 'a)f (C' rule below
      a) ff (ine    f         // PB raffineret, raffinement
      a) ff (abel   f         // PB affabel
@@ -564,6 +629,7 @@ orkest) e (r       'e        // PB stressed e in 'orkester'
      g) g 
      g) g (e 
         g (ent     g
+        g (entl    j         // PB egentlig
      &) g (r       g
         g (ård     g
         g (ment    g
@@ -602,22 +668,23 @@ orkest) e (r       'e        // PB stressed e in 'orkester'
      n) gæ         gE
      //o) g (A       g
     Co) g          w         // PB sprog, tog, toge
-    //to) g          w         //PB tog, toge
     to) g (a       g         // PB exception toga
     to) g (o       g         // PB exception Togo
     to) g (t       g         // PB exception togt
      o) g (r       g
-     o) g (n       g
+     o) g (n       u         // PB g => u - vogn, sogn
      o) g (s       u
      r) g (_       w
-     r) g (e       w
+//     r) g (e       w
+    or) g                    // PB morgen, sorg
      u) g          g
      u) g (e 
      u) g (l       ?
      u) g (t       g
      y) g (e       j
      y) g (A       g
-     ø) g (e 
+//     ø) g (e
+     ø) ge         @         // PB bøgetræ
      ø) g (n 
      æ) g (e       j
         g (iv+     g         // avoid letter "g" pronounced with phoneme S
@@ -699,6 +766,7 @@ spiona) g (e       =S        // PB spionage
 staffa) g (e       =S        // PB staffage
 takkela) g (e      =S        // PB takkelage
 trikota) g (e      =S        // PB trikotage
+   ami) g (os      g         // PB amigos
     la) g (e 
     li) g (t 
     re) g (A       g
@@ -734,7 +802,7 @@ foreta) g (e
     nø) g          j
     re) g (i       g
     bo) g (st      k
-     ø) g (_       j
+     ø) g          j         // PB deleted (_
      ø) g (t       g
    sal) g          j
    val) g          j
@@ -753,9 +821,9 @@ foreta) g (e
    blo) g (s       =g
    _lo) g (_       g
    _lo) g (g       g
-    ør) g          w
+    ør) g                    // PB changed from w - spørge
      a) g (K                 // PB ? changed to " " after a vowel
-     _) ge (@P2    ge
+//     _) ge (@P2    ge      // PB puts stress after ge
      _) ge (nere   Se
      _) ge (nert   Se
      _) ge (nerel  ge
@@ -763,9 +831,9 @@ foreta) g (e
         ge (nerer  ge
     ni) gger       gV        // PB nigger
    ble) g                    // PB omit g because of e = aj - bleg
+        g (ene_    S         // PB gene
     ta) g (e 
     te) g (ori     g
-
 
 
 .group h
@@ -775,6 +843,7 @@ foreta) g (e
         hv         v
      A) h (K 
      t) h (en      h
+     w) h (isky              // PB whisky
 
 
 
@@ -789,10 +858,12 @@ foreta) g (e
         i (nn      e
         i (mK      e
         i (k       e         // PB ikke, pik
+    pr) i (+       i         // PB privat
         i (kk+     e         // PB skiderikker
         i (r+      i         // PB Irland, irrationel
    L02) i (L03     e         // PB foran halvvokal - til
-     s) i (d+      i:        // PB siden
+     s) i (dA+     i:        // PB siden
+//	 s) i (d_      e         // PB sid
      s) i (dd+     e:        // PB sidde
      s) i (gA+     i         // PB siger
      s) i (n       e         // PB tusind
@@ -811,21 +882,26 @@ i
   soft) i (ce      aj        // PB softice
     fr) i          e         // PB fri
      s) i (kC      e         // PB sikker, sikre
-     p) i (s       e         // PB pis
+     p) is         es        // PB pis
+     p) i (L08+    i         // PB pisk, pistol
    mag) i (_       'i        // PB magi - stressed i
  polit) i          'i        // PB politi, politik - stressed i
+   mus) i (k       'i        // PB stressed i
      k) i (C_      'i
      k) i (CC_     'i
     kr) i (C       %e        // PB kritisere
+  omkr) i (ng      'e-       // PB stressed e in 'omkring'
     kn) i          e?        // PB knippel
     @t) i (k       'i        // PB stressed i in words with -tik - butik, politik
         i (st      'i        // PB folklorist, mejerist, terrorist, minister
+     r) i (st      e         // PB brist, rist
     @r) i (um      =i        // PB put stress on syllable before 'rium' - territ'orium
     @r) i (e       =i        // PB put stress on syllable before 'rie' - territ'orie
     @s) i (um      =i        // PB put stress on syllable before 'sium' - gym'nasium
     @s) i (e       =i        // PB put stress on syllable before 'sie' - gym'nasie
     @r) i          'i        // PB words ending with ri - stressed i - maleri
   amer) i (k       i         // Amerika
+     r) i (sA      e         // PB risikere
    tor) i          i         // PB not stressed i in 'autoritet'
     @r) i (er      'i        // PB stressed i - malerier
    lat) i (n       'i        // PB stressed i in 'latin'
@@ -838,6 +914,7 @@ prosod) i          'i        // PB prosodi, prosodien
 perfid) i          'i        // PB perfidi
 rapsod) i          'i        // PB rapsodi
 ortopæd) i         'i        // PB ortopædi
+     v) i (sk      e         // PB viskelæder
      l) i (e       j
      n) i (e       i
      r) i (g       i
@@ -857,9 +934,11 @@ ortopæd) i         'i        // PB ortopædi
         j (ack     dZ
         j (ob      dZ
         j (ohn     dZ
+  derh) j (emme    'j        // PB stressed j
     en) j (ambe    S         // PB enjambement
      o) j (e       S
      a) j (o       S
+    ma) j (or      j         // PB major
         j (uice    dz        //PB juice
 
 
@@ -901,7 +980,8 @@ ortopæd) i         'i        // PB ortopædi
     no) ld         l
     //so) ld (aC     d
     so) ld (at     ld
-
+        lege       laj3      // PB lege
+        leger      lajV      // PB leger
 
 
 
@@ -951,7 +1031,7 @@ bombarde) ment     m'AN      // PB bombardement
 .group n
 
         n          n
-        nn         n
+//        nn         n
   band) (er       n?        // PB takes away the d in 'bander' = 'gangs' - n => n?
     ka) n_                   // no n - kan
         nd (K      n
@@ -1013,19 +1093,28 @@ bombarde) ment     m'AN      // PB bombardement
 
         o          o:
      h) o          'o        // PB horn
+        or (g+     o:        // PB sorg, morgen
+        or (l      O:        // PB orlov
+ liban) o (n       V         // PB Libanon
+   kan) o (n       'o        // PB kanon
+     h) o (ndu     V         // PN Honduras
+        o (dds     V:        // PB odds
      k) o (n       V         // PB konge
     At) o (de      'o        // PB stressed o - metode, katode
+    tr) o (n+      'o        // PB stressed o - patron
         o (sse     V         // PB tosse, nosse
      j) o (b       V         // PB job
-        o (v+      V3        // PB over
+        o (vA+     Vu        // PB over, oven
+        o (v++     V         // PB sjov, lov, skov
+     h) o (v+      o         // hov, sove
  telef) o (n       'o        // PB telefon
   L08j) o (l       V         // PB skjold
     tr) o          o         // PB tro
  bistr) o          'o        // PB stressed o in 'bistro'
     _m) o (C       o         // PB m + o + 2 consonants: mor, mord,
-   L08) o (L03+    o:        // PB exception from the rule above - skole, spole
+   L08) o (L03     o:        // PB exception from the rule above - skole, spole
         o (L03A    o         // PB - romantisk, hoved
-   L02) o (L03_    V         // PB consonant + o + semivowel + end of word - kom, som
+//   L02) o (L03_    V         // PB consonant + o + semivowel + end of word - kom, som
     _C) o (_       o         // PB jo, ko, lo, so
     er) o (b       'o        // PB erobre - stressed o
      f) o (d+      o         // PB fodre
@@ -1037,14 +1126,20 @@ bombarde) ment     m'AN      // PB bombardement
      l) o (f       V
      r) o (f       o         // PB profil
    spr) o (g       o         // PB sprog
-     k) o (rs      V         // PB kors, korsage
+     k) ors        V:s       // PB kors, korsage
      c) o (rs      V         // PB corsage
         o (gK      o
+     v) o (g       V         // PB vogn, vogte
+     s) o (g       V         // PB sogn
      t) o (i       wa        // PB toilet
-        o (k       V         // PB okker
-     C) o (kN      'V        // PB beginning with 1 consonant followed by o and k: sok, nok, kok
+        o (k       V         // PB okker, lok
+     l) o (kA      o         // PB lokal
+        o (rk      V         // PB orke orkester
+     k) o (kA      o         // PB kokasse, kokain
+     C) o (kNT     'V        // PB beginning with 1 consonant followed by o and k: sok, nok, kok
      C) o (kT+     o         // PB only for words in list file
      s) o (l       o         // PB sol, soldat
+     s) o (lgt     V         // PB solgt
      h) o (ld      'V
    L06) o (ld      V         // PB bold
      f) o (lk      V         // PB folk
@@ -1090,6 +1185,7 @@ transp) o (rt      'V:       // PB transport
         or (dre    V:        // PB ordre
      v) or         'o        // PB alvor
      f) or         V         // PB derfor
+     k) or (t      V         // PB kort
 // PB no stress on 'for' 1.550 words. Some should have stress if 'for' means "front/fore"
     _f) or (@      %Vr
 // exceptions for initial 'for' below
@@ -1344,9 +1440,13 @@ transp) o (rt      'V:       // PB transport
 
 .group r
         r          R
-    ge) r                    // PB sanger
+    ge) rT                   // PB sanger
  suppo) r                    //PB support [s@p'@t]
         r (K       r         // not followed by a vowel
+     e) r (_                 // PB end of word: no r - lager [l&:V]
+   _se) r (_       r         // PB ser
+    he) r (_       r         // PB her
+     e) r (es      3         // PB jeres, deres
     bu) rd (eK     rd
 //     &) rd (eKK    r
     ve) rd (eKK    rd
@@ -1354,22 +1454,22 @@ transp) o (rt      'V:       // PB transport
      o) rd (el++   rd
      o) rd (en++   d         // PB exception - pronounce d in 'orden, ordentlig'
      o) rd (rin    d
-     A) r (e                 // PB bære without r
-     A) r (e_                // PB hellere
+     A) r (eT                // PB bære without r
+     A) r (e_T               // PB hellere
 transpo) r (t                //PB transport
 
 
 .group s
 
         s          s
-     &) s (_S1     s         // PB/JD words ending with -ere in da_list
+     &) s (T_S1    s         // PB/JD words ending with -ere in da_list
         s (p       s
         s (C       s
         s (A       s
         s (ie      s
         s (ion     S
         s (j       s
-        s (ch      S
+        sch        S         // PB changed from [s(ch] - casch
     al) s (ace     's        // PB Alsace (French region)
      s) s 
 kompromi) s 
@@ -1377,9 +1477,13 @@ kompromi) s
 
 .group t
         t          t
+        tt         t
      p) t          t         // PB toptitel
      s) t          d         // PB stor
+     A) t (er      d         // PB Peter, efter, alter
+        teress     tr@s      // PB interessant
    L03) t          t         // PB garanteret
+     r) t          d         // PB kuffert
   emen) t 
   poin) t 
  cemen) t          t
@@ -1397,6 +1501,7 @@ glemen) t (al      t
      &) th         d
 simpel) th (en     th
      i) t (i       t         // PB politi
+     e) t (_       d         // PB udvisket
    lek) t (i       S
         t (ie      t
         t (ion+    sj'
@@ -1413,13 +1518,17 @@ simpel) th (en     th
      d) ue (s      u:        // PB vinduesstørrelse
     _C) u (nK      O         // PB
      k) u (nne     o         //PB kunne
+     d) u (k       o         // PB duk
      l) u (n_      u         // PB lun
      l) u (ne      u         // PB lune
+     l) u (f       O         // PB luft
      s) u (pport   @         // PB support
      j) u (ice     u:        // PB juice
     br) u (gt      O         // PB brugt
     tr) u (L02     O         // PB truffet
     um) u (lig     'u        // PB stressed u in 'umulig'
+    sn) u (L06     O         // PB snup
+  hond) u (ra      'u:       // PB Honduras
      k) u (ffert   O
      a) u (g       u
      b) u (dget    y
@@ -1451,7 +1560,7 @@ proven) u          y
      A) v (K       w
      a) v (l       u
      a) v (n       w:        // PB [u] changed to [w:] navn, navnebroder
-    le) v (A                 // PB blevet, levet
+    le) v (et                // PB blevet, levet
     la) v (A                 // PB no v - laver
     la) v (ement   @         // PB lavement
         ve (lse    @         // PB øvelse
@@ -1490,17 +1599,24 @@ proven) u          y
 
 .group y
 
-        y          y:
+        y          y
 
      r) y          Y:
      r) y (s+      W:        // PB ryste
      r) y (gt      W?        // PB rygte
+     l) y (gt      W?        // PB lygte, flygte
+     l) y (k       W         // PB ulykke
+    sk) y (t       'W        // PB beskytte
      r) y (CK      Y
+     r) y (k+      W?        // PB ryk
         //y (CK      Y-      // PB doesn' work with 'knyt'
      n) y (t       Y         // PB nyt
      n) y (k       W:        // PB nyk
     kn) y (t       W:        // PB tilknytte
         y (nK      W         // PB changed from Y to W - synge, ynde
+     l) y (n       y         // PB lyn
+ whisk) y          i         // PB whisky
+        y (nde     'W        // PB begynde - stressed
         y (mK      Y
      d) y (_       i
      b) y (A       y
@@ -1517,16 +1633,20 @@ proven) u          y
 .group æ
         æ          E
         æ (CK      E
-        æ (bK      ae?       // PB dræbt - FIND A BETTER VOWEL
+        æ (bK      E         // PB dræb, slæb
+        æ (bt      ae?       // PB dræbt - FIND A BETTER VOWEL
      f) æ (re      'E:       // PB affære, atmosfære, sfære
+     v) æ (bne     'E:       // PB bevæbne
+     @) æ (r       'E        // PB gevær, besvær
     gr) æ (n       a         // PB grænse
      l) æ          E:
    skr) æ (dd      a         // PB skrædder
     br) æ (dd      a         // PB brædder
+    tr) æ          ae        // PB træt
      r) æ          E
      r) æ (kk      aj
      r) æ (v       e
-     r) æ (L01     Ae        // PB changed from [Aj]
+     r) æ (L01     Ae?       // PB changed from [Aj]
    afh) æ (ngig    'E:       // PB stgressed e
      r) æ (k       Aj
      t) æ (C       E:
@@ -1538,38 +1658,41 @@ proven) u          y
 
 
 .group ø
-        ø          W:
-     //   ø (CK      W:
-     b) ø (g       W
-     d) ø (r       W
-     f) ø (r       W
-    ff) ø (r       'W:       // PB stressed in 'chauffør'
+// røveren [V] faldt på røven [V3] og skød [W]
+        ø          W
+        ø (d       W:        //PB øde
+    ff) ø (r       'W        // PB stressed in 'chauffør'
      g) ø (r       @:
      h) ø (j       V
-        ø (je      V         // PB øje
+        ø (je      V3        // PB øje
      h) ø (r       W:
      //k) ø (r       W:
      l) øg (n      'Vj
      l) ø (s       W:
-     m) ø          W:
-     r) ø          W
+   L09) ø          W:        // PB m => L09 (m + n)
+     r) ø          V3        // PB [W] => [V3]
+     r) ø (m       W:        // PB strømere
      s) ø_         W:
      t) ø (r       W
         ø (r       W
+    sp) ør (g      W:        // PB spørge
      //r) ø (CK      W:
-//     r) ø (v       W         // PB røv, røver
+     r) ø (v       V3        // PB røv
+     r) ø (ver     V         // PB røver
      k) ø (d       W         // PB skød, kød
      _) øg (_      Wj        // PB 'øg' noun and verb
      d) øg (n      Vj
         øj+        V:j       // PB changet from [Oj]
+  velg) ø (renhed  '@        // PB stressed ø
 
 .group å
         å          O:        // PB changed from O:?
         å (CK      V
         å (d+      O:        // PB råd
-        å (r+      O:
+        å (r+      O
      h) å (r       V         // PB hår, hård
      l) å (r       V
+     s) å          O         // PB så
 
 .group
         $          dVlV      // PB changed from [dVlar]

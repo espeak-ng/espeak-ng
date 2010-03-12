@@ -1940,6 +1940,8 @@ static void MatchRule(Translator *tr, char *word[], int group_length, char *rule
 						{
 							if(rb == RULE_CONDITION)
 								match.phonemes++;  // skip over condition number
+							if(rb == RULE_LINENUM)
+								match.phonemes += 2;  // skip over line number
 						}
 					}
 					else

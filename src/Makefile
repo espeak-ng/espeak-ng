@@ -6,7 +6,7 @@ INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
 DATADIR=$(PREFIX)/share/espeak-data
 
-RELEASE = 1.39
+RELEASE = 1.43
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -49,14 +49,14 @@ endif
 
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp
+	synthdata.cpp synthesize.cpp translate.cpp \
+	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp klatt.cpp
 
 libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
+	synthdata.cpp synthesize.cpp translate.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
+	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp klatt.cpp
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
@@ -88,7 +88,7 @@ $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -Wall -fpic -pedantic \
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -Wall -fpic -fvisibility=hidden -pedantic \
 	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)

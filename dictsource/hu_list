@@ -206,6 +206,7 @@ _#-át	a:t	$alt2
 
 // entries with a single digit such as (2-i) also apply to 22, 32, etc, unless $only
 (30-cal) hAR2mints:Al
+(3-al) ha:R2om:Al
 
 //4 number suffixes
 (4-el) ne:J:El //Nneed J: phoneme, not J phoneme contains one suffix) 
@@ -226,6 +227,8 @@ _#-át	a:t	$alt2
 (7-tel) he:t:El
 (7-el) he:t:El
 (8-cal) n^olts:Al
+(8-al) n^olts:Al
+(9-el) kilEnts:El
 _10e	tiz
 _20e	hus
 (10-szer) ti:s:ER2
@@ -338,6 +341,7 @@ GDP	dZi:di:pi:	$allcaps
 ?2 GDP $abbrev $allcaps
 HSDPA	$abbrev $allcaps
 kb	kYR2ylbElyl $hasdot
+MLSZ EmElEs $allcaps
 ORTT	$abbrev $allcaps
 ORFK	oEREfka:	$abbrev $allcaps
 MÁV	ma:v	$allcaps
@@ -445,7 +449,7 @@ is        $u         // also
 elöl	$unstressend      // in front of
 elől	$unstressend
 elé	$unstressend
-előtt	$alt3 $unstressend
+előtt	$alt $alt3 $unstressend
 este	$alt3
 estéjén	$alt3
 mögül	$unstressend      // behind
@@ -530,7 +534,13 @@ vel     $unstressend
 
 ellen	$unstressend	// against
 //elé	$u	// before
-óta	$alt3	// since
+óta	$alt $alt3	// since. Not a bug both $alt $alt3 attribute,
+//because if only a year is present, need spokening normal number, not
+//ordinal number. For example:
+//2004. óta meaning since 2004 and need spokening normal number.
+//But június 26. óta need spokening $alt3 style date ordinal number. This
+//attribute combine fix this problem.
+
 hétfőig	$alt3
 keddig	$alt3
 szerdáig	$alt3
@@ -924,6 +934,8 @@ rést	$unstressend
 brit	$unstressend
 természetes	$u $1
 front	$unstressend
+szerezni	$unstressend
+
 
 // word pairs
 
@@ -1155,16 +1167,8 @@ egyezség	eggyesség
 (DVD-d) dévédéd
 (USA-éval) usáéval
 (ubuntu-n) ubuntun
-
-
-
-
-
-
-
-
-
-
+(hu-n) hun
+(USA-ban) usában
 
 
 

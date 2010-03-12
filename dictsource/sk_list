@@ -256,6 +256,12 @@ z        zet   $atend
 
 // Exceptions
 
+// syllabic l
+dlh	dl-h
+stĺp	stl:p
+plch	pl-x
+čln	tSl-n
+
 // don't soften (d,n,t) before e,i
 aktívni     $alt
 definitívne $alt

@@ -1046,7 +1046,14 @@ static char *compile_rule(char *input)
 		strcpy(rule_match,group_name);
 
 	if(rule_match[0]==0)
+	{
+		if(rule_post[0] != 0)
+		{
+			fprintf(f_log,"%5d: Syntax error\n",linenum);
+			error_count++;
+		}
 		return(NULL);
+	}
 
 	EncodePhonemes(rule_phonemes,buf,bad_phoneme);
 	for(ix=0;; ix++)

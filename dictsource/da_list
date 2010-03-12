@@ -1,4 +1,4 @@
-// PB = Peter Bjarkov - pbj1234@hotmail.com
+﻿// PB = Peter Bjarkov - pbj1234@hotmail.com
 
 // This file is UTF8 encoded
 // Spelling-to-phoneme words for Danish
@@ -42,7 +42,7 @@ _smc	sm'O:lk,ap
 _rev	riv'3:sd
 _tur	t'3:nd
 _bar	_b'A@
-_rfx	rEtroflEks
+_rfx	rtroflEks
 _crl	k'3:l
 _hok	h'uk
 
@@ -50,7 +50,7 @@ _hok	h'uk
 // character names
 _cap	stoVt||boustaw
 _?A	boustaw
-_??	symbol
+_??	symboL
 _#9	tab
 _#32	blank
 
@@ -62,7 +62,7 @@ _#32	blank
 _,	k'oma:
 _;	se:mi:ko:lVn
 _:	k'o:lVn
-_.	puNtum
+_.	pONtOm                  // PN u => O
 _?	spWrgsmVlstajn
 _!	udRVbstejn
 _-	binnesdrai
@@ -141,7 +141,7 @@ men		$pause	// but
 eller		$u+ $pause $only	// or
 mens		$pause	// while
 for	fV
-fordi	fVd'i		$pause	// because - PB: changed stress
+fordi	fVd'i $pause	// because - PB: changed stress
 når	nVr		$pause	// while
 som		$u+ $pause   // who (relative)
 der	d&r	$u+ $pause   // PB changed from [d]A
@@ -164,11 +164,11 @@ som	sVm	    // which / that - PB: removed [$u+]
 
 // pronouns
 jeg	jai		// I - PB: removed [$u]
-du	$u
+du $u+
 de	di	$u
 han	$u
 hun	$u
-det	de $u
+det	de $u+
 vi	$u
 i	_i: $u+
 mig	maj		// me
@@ -246,9 +246,7 @@ z	sEt
 ø   W
 
 // Englich words
-bailey      _^_EN
 bondage      _^_EN
-bronx       _^_EN
 baseball    _^_EN
 volleyball  _^_EN
 dj          _^_EN
@@ -259,7 +257,6 @@ skinhead    _^_EN
 skinheads   _^_EN
 street      _^_EN
 boy         _^_EN
-fox         _^_EN
 square      _^_EN
 appeal		_^_EN
 apple		_^_EN
@@ -271,13 +268,13 @@ camcorder	_^_EN
 chart		_^_EN
 chat		_^_EN
 coach		_^_EN
+cia         _^_EN
 coke		_^_EN
 computer	_^_EN
 cool		_^_EN
 couch		_^_EN
 cursor		_^_EN
 cowboy		_^_EN
-cyrus       _^_EN
 debugger	_^_EN
 email		_^_EN
 ensemble	_^_FR
@@ -291,7 +288,6 @@ homepage	_^_EN
 hooligan	_^_EN
 interface	_^_EN
 image       _^_EN
-jean		_^_EN
 jet		    _^_EN
 joint		_^_EN
 joke		_^_EN
@@ -305,11 +301,11 @@ lord		_^_EN
 macho		_^_EN
 mail		_^_EN
 management  _^_EN
-mansfield   _^_EN
 message		_^_EN
 (new age)   _^_EN
 nigger		_^_EN
 offline		_^_EN
+okay		_^_EN
 online		_^_EN
 out		    _^_EN
 pair		_^_EN
@@ -319,6 +315,7 @@ pickup		_^_EN
 pidgin		_^_EN
 plot		_^_EN
 producer	_^_EN
+ranger      _^_EN
 receiver	_^_EN
 research	_^_EN
 remake		_^_EN
@@ -327,7 +324,6 @@ roastbeef	_^_EN
 quiz		_^_EN
 run         _^_EN
 scanner		_^_EN
-sally       _^_EN
 science		_^_EN
 server		_^_EN
 settlement  _^_EN
@@ -355,12 +351,32 @@ trip		_^_EN
 tuner		_^_EN
 unix		_^_EN
 venture		_^_EN
-washington  _^_EN
 western     _^_EN
 whipcord	_^_EN
 window		_^_EN
 word		_^_EN
 warrior     _^_EN
+
+// English names
+austin      _^_EN
+bailey      _^_EN
+bronx       _^_EN
+cyrus       _^_EN
+fox         _^_EN
+jean		_^_EN
+jones       _^_EN
+larry       _^_EN
+mansfield   _^_EN
+mahoney     _^_EN
+montreal    _^_EN
+oregon      _^_EN
+paul        _^_EN
+purvis      _^_EN
+sally       _^_EN
+washington  _^_EN
+new         _^_EN
+york        _^_EN
+chicago     _^_EN
 
 // French words
 croissant   _^_FR
@@ -409,7 +425,6 @@ afinstallere   $alt
 afkolonisere   $alt
 afkontrollere   $alt
 afkriminalisere   $alt
-aflevere   $alt
 afmagnetisere   $alt
 afmarchere   $alt
 afmilitarisere   $alt
@@ -662,7 +677,7 @@ demobilisere   $alt
 demokratisere   $alt
 demolere   $alt
 demonstrere   $alt
-demontere   $alt
+//demontere   $alt
 demoralisere   $alt
 demotivere   $alt
 denationalisere   $alt
@@ -2304,9 +2319,10 @@ phil  fil/3 $hasdot                // PB fx cand. phil.
 (mit kvarter) met||kvA'ter      // PB
 (vores kvarter) vV:s||kvA'ter      // PB
 (deres kvarter) de@s||kvA'ter      // PB
+(det kvarter) de||kvA'ter      // PB
 (i kvarter) i||kv'A:dV
 (at have) &||h&:                // PB the verb 'have', not the noun 'have' = garden
-(vil have) vel||h&:             // PB
+(vil have) vel||h'&:             // PB
 (du have) du||h&:               // PB
 (må have)  m'O:||h&:               // PB
 (ikke have) ege||h&             // PB
