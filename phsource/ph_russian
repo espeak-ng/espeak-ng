@@ -261,6 +261,7 @@ phoneme O
   IF thisPh(isMaxStress) THEN
     ChangePhoneme(o)
   ENDIF
+  FMT(vwl_ru/oo)
 endphoneme
 
 

@@ -261,7 +261,8 @@ square      _^_EN
 appeal		_^_EN
 apple		_^_EN
 bbc		    _^_EN
-beat		_^_EN
+beachbuggy  _^_EN
+beachvolley _^_EN
 browser     _^_EN
 byte		_^_EN
 camcorder	_^_EN
@@ -361,6 +362,7 @@ warrior     _^_EN
 austin      _^_EN
 bailey      _^_EN
 bronx       _^_EN
+clarence    _^_EN
 cyrus       _^_EN
 fox         _^_EN
 jean		_^_EN
@@ -2299,6 +2301,7 @@ billie bile                    // PB the name Billie
 (union station) junj3n||steisj@n  // PB
 chevrolet sjEvrol'e
 saigon sajg3-n                   // PB Saigon
+managua m&n'&:gw&
 
 // Abbreviations
 pga   pOgR'O?n'a? $hasdot // PB short for 'på grund af'
@@ -2333,3 +2336,8 @@ phil  fil/3 $hasdot                // PB fx cand. phil.
 (sig til) si||tel                // PB sig til ham, at han skal ...
 (gav sig til) g&||saj||tel       // PB han gav sig til at ...
 sig si $capital                  PB Sig = si with capital S - Sig det med blomster
+// avoid [staj] as in "flæskesteg"
+(han steg) h&n||st'e
+(hun steg) hOn||st'e
+(vi steg) vi||st'e
+(de steg) di||st'e

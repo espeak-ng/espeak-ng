@@ -411,8 +411,16 @@ int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)
 		amp2 = (amp2 * 32)/100;
 	}
 
-seq_len_adjust=0;
-	len = DoSample2(phdata->sound_addr[pd_WAV], 2, phdata->pd_param[pd_LENGTHMOD]*2, phdata->pd_control, length_mod, amp2);
+	seq_len_adjust=0;
+
+	if(phdata->sound_addr[pd_WAV] == 0)
+	{
+		len = 0;
+	}
+	else
+	{
+		len = DoSample2(phdata->sound_addr[pd_WAV], 2, phdata->pd_param[pd_LENGTHMOD]*2, phdata->pd_control, length_mod, amp2);
+	}
 	last_frame = NULL;
 	return(len);
 }  // end of DoSample3

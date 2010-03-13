@@ -840,14 +840,18 @@ if((wmark > 0) && (wmark < 8))
 
 			length=0;
 			while(wordx[length] != ' ') length++;
-			if(length > 0)
-				wordx[-1] = ' ';            // prevent this affecting the pronunciation of the pronuncable part
 		}
 		SetSpellingStress(tr,unpron_phonemes,0,posn);
 
 		// anything left ?
 		if(*wordx != ' ')
 		{
+			if(unpron_phonemes[0] != 0)
+			{
+				// letters which have been spoken individually from affecting the pronunciation of the pronuncable part
+				wordx[-1] = ' ';
+			}
+
 			// Translate the stem
 			end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags);
 
@@ -2802,7 +2806,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 			for(j=1; j<=nw; j++)
 			{
-					num_wtab[j].flags &= ~FLAG_MULTIPLE_SPACES;     // don't use this flag for subsequent parts when splitting a number
+					num_wtab[j].flags &= ~(FLAG_MULTIPLE_SPACES | FLAG_EMBEDDED);     // don't use these flags for subsequent parts when splitting a number
 			}
 
 			// include the next few characters, in case there are an ordinal indicator or other suffix

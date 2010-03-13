@@ -141,6 +141,8 @@ _#-áig	a:ig	$alt2
 _#-étől	e:tY:l	$alt2
 _#-ét	e:t	$alt2
 _#-át	a:t	$alt2
+_#-ének	e:nEk
+_#-ának	a:nAk
 
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
@@ -163,6 +165,7 @@ _#-át	a:t	$alt2
 (1-jére)	elsejére	$text $alt2
 (1-jétől)	elsejétől	$text $alt2
 (1-jéig)	elsejéig	$text $alt2
+(1-ének)	elsejének	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
 (3-i)	hAR2_mAdikAi	$alt2

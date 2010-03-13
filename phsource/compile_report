@@ -320,8 +320,8 @@ l/l_@           [l/3] base
                 [W] fr
                 [Y] fr
                 [l/] fr
-l/l@            [L] base
-                [º»‘] base
+l/l@            [] base
+                [L] base
                 [W] fr
                 [Y] fr
                 [l] fr
@@ -347,14 +347,14 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [L] base
-                [º»‘] base
+l/la            [] base
+                [L] base
                 [a] fr
                 [l] fr
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [L] base
-                [º»‘] base
+l/le            [] base
+                [L] base
                 [l] fr
 l/l_e           [l/3] base
                 [l/] fr
@@ -362,8 +362,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [L] base
-                [º»‘] base
+l/li            [] base
+                [L] base
                 [l] fr
                 [l] zh
 l/l_i           [l/3] base
@@ -371,15 +371,15 @@ l/l_i           [l/3] base
                 [i] sq
 l/l_long        [l] base
                 [l] fr
-l/lo            [L] base
-                [º»‘] base
+l/lo            [] base
+                [L] base
                 [l] fr
 l/l_o           [l/3] base
                 [l/] fr
                 [o2] fr
 l^/l_rfx        [l.] base
-l/lu            [L] base
-                [º»‘] base
+l/lu            [] base
+                [L] base
                 [l] fr
                 [w^i] fr
 l/l_u           [l/3] base
@@ -1868,23 +1868,23 @@ vwl_fr/r        [r] fr
 vwl_fr/_r       [r] fr
 vwl_fr/r_       [r/2] fr
 vwl_fr/r_@      [r/2] fr
-vwl_fr/r@       [âg] fr
+vwl_fr/r@       […g] fr
 vwl_fr/@R       [x] pt_pt
 vwl_fr/_r2      [r] fr
 vwl_fr/@R2      [R] fr_ca
-vwl_fr/ra       [âg] fr
+vwl_fr/ra       […g] fr
 vwl_fr/r_a      [r/2] fr
 vwl_fr/raa      [A~] fr
 vwl_fr/r_an     [A~] fr
-vwl_fr/re       [âg] fr
+vwl_fr/re       […g] fr
 vwl_fr/r_e      [r/2] fr
-vwl_fr/ri       [âg] fr
+vwl_fr/ri       […g] fr
 vwl_fr/r_i      [r/2] fr
-vwl_fr/ro       [âg] fr
+vwl_fr/ro       […g] fr
 vwl_fr/r_o      [o] fr
                 [o2] fr
                 [r/2] fr
-vwl_fr/ru       [âg] fr
+vwl_fr/ru       […g] fr
 vwl_fr/r_u      [r/2] fr
 vwl_fr/ry       [y] fr
                 [w^i] fr
@@ -1926,6 +1926,7 @@ vwl_ru/ii#      [I#] ru
 vwl_ru/ja       [ja] ru
 vwl_ru/ju       [ju] ru
 vwl_ru/o        [o] ru
+vwl_ru/oo       [O] ru
 vwl_ru/u        [u] ru
 vwl_ru/u#       [u#] ru
 vwl_ru/u#u      [u"] ru

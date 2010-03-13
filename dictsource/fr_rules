@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2010-03-05 Michel Such  <michel.such@free.fr>
+// Updated: 2010-03-08 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -61,7 +61,7 @@
 		a (ils_     a
 		a (il_      a
 		aie (me     E2		// paiement
-		ai          E2		// aile
+		ai          E		// aile
 		ai (L06          E		// aile
 		ai (CAX          E		// aile
 		am (b       A~		// jambon
@@ -650,7 +650,7 @@ dia)	g (no	g
 	vin) 	gt (_neuvi   t
 
 		gt (_ 			// vingt doigts
-		gt          t		// vingtaine doigté
+vin)		gt (A          t		// vingtaine doigté
 
 		gu (i       g		// anguille
 	ai)	gui (l      gw^i		// aiguillage
@@ -768,6 +768,7 @@ C)		i (es_    i
 	C)	ill         ij		// famille
 	a)	il (_       j		// bail
 	e)	il (_       j
+	gt)	i (m       aj
 	u)	il (_       j		// deuil
 	L01_f)	ils (_       is		// fils (enfant)
 
@@ -782,7 +783,7 @@ C)		i (es_    i
 		in (C       E~		// vingt
 		in (_       W~		// vin
 		ing (_      iN
-	_)	infra (_P5       E~fra
+	_)	infra (sP5       E~fra
 	_)	inter (@@P5       E~tEr
 	_)	interr (A       E~tEr
 	_)	inter (_       E~t'Er
@@ -989,6 +990,8 @@ C)		i (es_    i
 		oû          u		// coûter
 		oyes (_     ua		// troyes
 		oy (A       uaj		// noyer voyelles
+_b)		oy (co       oi-		// boycott
+_c)		oy (o       oi		// coyote
 	_y)	o (y       o
 		oy          ua		// roy
 		o (_        o		// zorro allégro

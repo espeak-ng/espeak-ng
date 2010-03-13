@@ -2454,9 +2454,12 @@ if(option_ssml) parag=1;
 					c1 = 0x2026;
 					c2 = ' ';
 				}
-				UngetC(c_next);
+				if(c1 == 0x2026)
+					c2 = c_next;
+				else
+					UngetC(c_next);
 			}
-	
+
 			punct_data = 0;
 			if((punct = lookupwchar(punct_chars,c1)) != 0)
 			{

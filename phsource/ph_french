@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-02-25 Michel Such  <michel.such@free.fr>
+// Updated 2010-03-12 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -39,7 +39,7 @@ phoneme r
   ENDIF
 
   IF nextPh(isStressed) THEN
-    length 45
+    length 40
   ENDIF
 
   VowelEnding(vwl_fr/xr)
@@ -48,13 +48,21 @@ phoneme r
   IF prevPh(isPause) OR prevPhW(r/2) THEN
     FMT(vwl_fr/_r)
   ELIF prevPhW(p) OR prevPhW(k) THEN
-    length 50
+    IF nextPh(isNotStressed) THEN
+      length 50
+    ENDIF
     FMT(vwl_fr/tr)
   ELIF prevPhW(t) THEN
-    length 45
+    IF nextPh(isNotStressed) THEN
+      length 60
+    ENDIF
     FMT(vwl_fr/tr) addWav(r3/rx,30)
-  ELIF prevPhW(f) OR prevPhW(g) OR prevPhW(v) THEN
+  ELIF prevPhW(f) OR prevPhW(v) THEN
     length 40
+  ELIF prevPhW(g) OR prevPh(b) THEN
+    IF nextPh(isNotStressed) THEN
+      length 60
+    ENDIF
   ENDIF
 
   IF thisPh(isWordStart) THEN
@@ -101,12 +109,19 @@ phoneme r/2   // variant of [r] when not preceding a vowel
     VowelEnding(vwl_fr/r_u)
   EndSwitch
 
-  IF prevPh(t) OR prevPh(p) OR prevPh(k) OR prevPh(d) THEN
+  IF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
     FMT(vwl_fr/trr)
   ENDIF
 
   IF thisPh(isWordEnd) THEN
-    FMT(vwl_fr/r_) addWav(r3/rx, 20)
+    IF prevPhW(v) THEN
+      length 40
+    ELIF prevPhW(f) THEN
+      length 60
+    ELIF prevPhW(d) THEN
+      length 80
+    ENDIF
+    FMT(vwl_fr/r_) addWav(r3/rx, 15)
   ENDIF
 
   IF prevPh(isVowel) THEN
@@ -531,7 +546,7 @@ phoneme d
   IF nextPh(isPause2) OR nextPh(isPause) THEN
     FMT(d/d_)  addWav(x/d_, 50)
 //  ELIF nextPh(#r) THEN
-//    FMT(d/dr) addWav(x/d, 50)
+//    FMT(d/dr) addWav(x/d, 30)
   ELIF prevPh(isPause) THEN
     FMT(d/d) addWav(x/d, 50)
   ENDIF
@@ -605,8 +620,7 @@ phoneme p
   ELIF nextPh(#l) THEN
     WAV(ustop/pl, 30)
   ELIF nextPh(#r) THEN
-    length 50
-    WAV(ustop/pr, 30)
+    WAV(ustop/pr, 25)
   ENDIF
   WAV(ustop/p_unasp_, 90)
 endphoneme
@@ -705,6 +719,7 @@ phoneme v
   vcd lbd frc
   voicingswitch f
   lengthmod 6
+  length 90
   Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
   Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
 

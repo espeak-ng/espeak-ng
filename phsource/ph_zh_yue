@@ -75,7 +75,7 @@ phoneme k
   vls vel stop
   lengthmod 2
   Vowelin f1=0  f2=2300 200 300  f3=-200 80
-  Vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
+  Vowelout f1=1 f2=2300 300 400  f3=-200 80  rms=20
 
   IF nextPh(isPause2) THEN
     WAV(NULL)
@@ -101,7 +101,7 @@ phoneme p
   vls blb stop
   lengthmod 2
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80 rms=30
-  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
+  Vowelout f1=1  f2=1000 -500 -350  f3=-300 80 rms=22
   IF nextPh(isPause2) THEN
     WAV(NULL)
   ENDIF
@@ -112,7 +112,7 @@ phoneme t
   vls alv stop
   lengthmod 2
   Vowelin f1=0  f2=1700 -300 300  f3=100 80
-  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  Vowelout f1=1 f2=1700 -300 250  f3=-100 80  rms=20
   IF nextPh(isPause2) THEN
     WAV(NULL)
   ENDIF

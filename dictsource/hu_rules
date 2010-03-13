@@ -70,7 +70,7 @@
   kavi) cs (zátony tS
    har) c (cselek  ts
  külön) c (sé      ts
-  mala) c (sül     ts
+mala) c (sül ts
 
 
 .group ch
@@ -165,10 +165,10 @@ menetren) dsz (erű d|s
    ötö) dsz (ör    ts:
   ezre) d (szin    d
     ha) d (szin    d
-   hor) d (szí     d
-  ezre) d (szá     d
-    kó) d (sor     d
-  máso) d (szin    d
+hor) d (szí d
+ezre) d (szá d
+kó) d (sor d
+máso) d (szin d
 
 
 .group dz
@@ -270,7 +270,7 @@ ritkasá) g (gyűjt  g
      é) gh (ajla   kh
     se) gg (fe     g
     se) gg (be     g
-   pro) g (gyak    g
+pro) g (gyak g
 
 .group gy
         gy         J
@@ -336,8 +336,8 @@ tizene) gy (edik   J:
      e) gy (aránt  J:
      e) gy (enrang J:
      e) gy (előre  J:
-     e) gy (enként J:
-félmege) gy (ez    J:
+e) gy (enként J:
+félmege) gy (ez J:
 
 
 .group h
@@ -389,7 +389,7 @@ félmege) gy (ez    J:
         kossutht   koSu:t:
         készségg   ke:SSe:g:
     _a) kk (reditál k
-     _) köztük     kYstyk
+     _) köztük kYstyk
 
 .group l
         l          l
@@ -436,7 +436,7 @@ keresztü) l (j     l
     me) ll (kas    l
   inte) ll (ige    l
      e) ll (ipsz   l
-     _) e)         lj        (ár lj
+_) e) lj (ár lj
 
 
 
@@ -501,6 +501,7 @@ tulajdo) n (jog    n
   egye) n (jogú    n
   beto) n (járda   n
  verse) ny (jog    n^
+irá) ny (jel n^
 
 .group o
         o          o
@@ -740,7 +741,7 @@ gyalogo) ssz       Ss
  rádió) ssz (ob    Ss
  jelzé) ssz (erű   Ss
 kitöré) ssz (erű   Ss
-  hatá) ssz (üne   Ss
+hatá) ssz (üne Ss
 
 .group sz
         sz         s
@@ -941,7 +942,7 @@ terüle) t (cél     t
   néme) t (juhá    t
     pó) t (je      t
   halo) tt (ba     t
-   éle) t (jel     t
+éle) t (jel t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1138,7 +1139,7 @@ találko) z (t      s
         zsz        z|s       //general exception. Need difference first z and second sz phoneme. For example, rajzszög, rajzszeg, mézszín words.
    pén) z (t       s
  rende) z (ked     s
- kocká) z (ta      s
+ kocká) z (ta     s
   hibá) z (tat     s
 különbö) z (tet    s
  válto) z (tat     s
@@ -1156,10 +1157,10 @@ tájéko) z (tass    s
  búcsú) z (ko      s
 nyújtó) z (ko      s
      ő) z (sörét   z
-szedelő) z (kö     s
-alkalma) z (ko     s
-  egye) z (ke      s
-  egye) z (te      s
+szedelő) z (kö s
+alkalma) z (ko s
+egye) z (ke s
+egye) z (te s
 
 
 .group
