@@ -230,7 +230,7 @@ zu		tsu:	$u+ $brk
 zum		tsUm	$u+ $pause
 zur		tsu:*	$u+ $pause
 über		,yb3	$pause $strend
-unter		,Unt3	$pause $strend
+unter		,Unt3	$pause $strend $only
 um		Um	$u+ $brk
 //(um die)	%Umd%i:	$brk
 //(um den)	%Umd%e:n	$brk
@@ -639,11 +639,11 @@ montag          mo:ntA:k
 mors            mO*s
 mumie            $alt
 
+nachdem         naxd'e:m
 nebulos          $3
 negligent       ne:gli:dZ'Ent
 numero           $1
 
-oberen          o:b@*@n
 oboe            o:b'o:@
 orgie            $alt
 ok              o:k'e:
@@ -704,7 +704,7 @@ vielleicht       $2
 vorbei          fo:*b'aI
 vorher          fo:*h'e:*
 vorherig        fo:*h'e:*Ig#
-vorig           fo:*Ig
+vorig           fo:*Ig#
 
 //wahrscheinlich   $2
 warum           vA:*'Um

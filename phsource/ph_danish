@@ -14,8 +14,6 @@ phoneme 3
   FMT(vowel/a#_3)
 endphoneme
 
-
-
 phoneme i
   vowel starttype #i endtype #i
   length 150
@@ -39,6 +37,13 @@ phoneme &
   vowel starttype #e endtype #e
   length 150
   FMT(vowel/ee_2)
+endphoneme
+
+// PB added for the æ in "dræbt"
+phoneme &#
+  vowel starttype  #e endtype #e
+    length 120
+	FMT(vowel/&)
 endphoneme
 
 phoneme a
@@ -102,9 +107,22 @@ phoneme W
   FMT(vowel/oe)
 endphoneme
 
-
+// PB added for the ø in "røv", "røg", "øje" instead of [V3]
+phoneme W#
+  vowel starttype #@ endtype #@
+  length 150
+  FMT(vowel/V)
+endphoneme
 
 // CONSONANTS
+
+// PB added l/3
+phoneme l
+  liquid
+  lengthmod 7
+  ChangePhoneme(l/3)
+  CALL base/l
+endphoneme
 
 phoneme v        // approximant, not fricative
   import_phoneme base/v#
@@ -115,6 +133,9 @@ endphoneme
 phoneme r    // used for 'r' after a vowel (to create a diphthong)
   liquid
   lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(R)
+  ENDIF
   FMT(r/a_)
 endphoneme
 
@@ -123,4 +144,5 @@ phoneme R
   liquid
   FMT(r/aa)
 endphoneme
+
 

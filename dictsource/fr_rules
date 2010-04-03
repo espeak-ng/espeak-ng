@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2010-03-08 Michel Such  <michel.such@free.fr>
+// Updated: 2010-04-01 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -31,6 +31,11 @@
 // C  all consonants
 // Y  front vowels: e i y é ê è î
 // K  not a vowel  (i.e. consonant, space, )
+
+.replace
+œ	oe
+î	i
+
 
 .L01 d e l n r t u
 .L02 b c d f g h k p t v
@@ -44,7 +49,6 @@
 		ae (_       e		// reggae vitae
 		aen         A~		// caen (diff Cicero: aA~)
 		ae          ae		// maestro
-		aî          E		// maître
 		aim (K      W~		// faim
 		ain (K      E~		// pain
 	Ct)	ain (_      E~n2		// certain ami
@@ -95,20 +99,17 @@
 		août (i        aus		// aoûtien
 		aut (_          ot2
 		a (ô         		// saune
-		au          o		// autruche
-		au (l_      O		// Paul
-		au (re      O		// dinosaure
-		au (r_      O
-	_)	audio (@P5       odio
-	_)	auto (@P4       oto
-	_)	autom (n       otO
-	_)	au (treX       o2
+		au          o2		// au, aux
+		au (l_          o		// Paul
+		au (re_          o		// dinosaure
+	_)	audio (@P5       o2dio
+	_)	auto (@P4       o2to
+	_)	autom (n       o2to
 	bb)	aye (X       ei		// abbaye
 		ay (C       E		// aymé
 		ay          Ej		// paye
 		ay (_         E2		// display
-	p)	a (ys       E2		// pays paysage
-	Xl)	ayer (X         E2jWr		// player, layer
+	Xl)	ayer (X         E2jYr		// player, layer
 	w)	an (_	an
 		a           a		// bateau
 
@@ -128,7 +129,7 @@
 		bird       _^_en		// bird
 		board      _^_en              // board, keyboard
 		box (_      _^_en              // box, inbox, outbox
-		bug (g      _^_en              // debugger
+		bugg        _^_en              // debugger
 	_)	by       _^_en              // by, bye, bypass
 
 
@@ -156,7 +157,7 @@
 	_) 	ch (oro      S
 	te)	ch (_       k
 		ch (r       k		// chrétien
-	_)	chrono (@P6       kro2no
+	_)	chrono (@P6       krono
 		ch (l       k
 		ch (n       k
 		ch (s       k
@@ -208,7 +209,7 @@ _) 	ç' (P2v      s
 
 	_gran)	d (_        t2 		// grand ami, grand marchand
 	Cen)	d (_        t2
-	Con)	d (_        t2
+	Con)	d (_
 	quen)	d (_        t2
 	r)	d (_
 	_har)	d (_	d
@@ -219,7 +220,6 @@ _) 	ç' (P2v      s
 
 		dt (_       t       	// Schmidt
 	_ni)	d (_        		// nid
-	_noeu)	d (_        		// noeud
 		d           d		// don bled
 	_expé)	dien (t_    djA~		// expédient
 	V_expé)	dien (t_    di		// expédient
@@ -243,7 +243,7 @@ _) 	ç' (P2v      s
 	C) 	e (-
 
 		e (Ce_      E
-		eau         o		// bateau cheveaux
+		eau         o		// bateau
 	g)	ea (s_ 	a      		// mangeas
 	cap)	e (la_ 	e
 	gh)	e (tAX 	e      		// spagheti
@@ -254,18 +254,18 @@ _) 	ç' (P2v      s
 	_art)	e (++       e		// arte, artefact
 	_cl)	ef (_       e		// clef
 	_cr)	e (at       e
-	_)	ein (K      En		// peindre
+	_)	ein (K      En		// Einstein
 		ein (K      E~		// peindre
 	pl)	ein (_      E~n2		// plein emploi
 		e (il       E		// vieille
 		ei          E		// neige
-		eoi          ua		// asseoir
+		eoi          wa		// asseoir
 		ell         El		// selle
 		el (K       El		// celsius, caramel
 	_f)	em (me      a		// femme
 	i)	e (mA     		// remerciement, d�ploiement
 	A)	e (rA     		// remerciera
-	tch)	e (rX         W
+	tch)	e (rX         Y
 	@)	em (me      a		// patiemment
 		em (b       A~		// décembre
 		em (mACC       A~		// emmancher
@@ -357,6 +357,8 @@ _)		en (A       A~n		// enivrer
 	Atim)	en (t_      A~		// bâtiment
 	_cim)	en (t_      A~		// ciment
 	_pim)	en (t_      A~		// piment
+	gm)	en (t_      A~		// fragment
+	Asim)	en (t_      A~		// quasiment
 
 	ertin)	en (t_      A~		// pertinent, impertinent
 	ontin)	en (t_      A~		// continent, incontinent
@@ -419,6 +421,7 @@ _)		en (A       A~n		// enivrer
 
 	AA)	en (_       E~
 	C)	en (_       En      	// amen, abdomen, golden
+	C)	en (to_       En      	// memento
 	nc)	ens (_       A~      	// encens
 	xam)	en (_       E~      	// examen
 
@@ -439,9 +442,9 @@ _)		en (A       A~n		// enivrer
 	_cutt)	er (X       Er      	// cutter
 	tain)	er (X       Er      	// container
 	_ti)	er (_       Er
-	ack)	er (K      Wr
+	ack)	er (K      Yr
 	ock)	er (K      Er
-	rock)	er (K      Wr
+	rock)	er (K      Yr
 
 		er (_       e      	// parler léger
 		er (s_      e
@@ -479,13 +482,6 @@ _)		en (A       A~n		// enivrer
 		eu        Y		// eu
 	_)	eu (ss        y		// eu
 
-		eu (C       W
-		eu (h_       Y
-		eu (x_       Y
-		eu (i       W
-		eu (rC       W
-	_l)	eu (r_       W
-
 	_)	eut (_       yt2
 		eut (_       Yt2
 	_)	extra (uP5       E2kstra
@@ -500,7 +496,7 @@ _)		en (A       A~n		// enivrer
 		ez (_       ez2		// nez mangez chez
 
 	g) 	e (A       		// mangeons
-	g) 	eu		W      		// vengeur
+	g) 	eu		Y      		// vengeur
 	g) 	eu	(re	y      		// gageure
 
 	_d) 	e (ch       @
@@ -533,6 +529,8 @@ _qu) 	e (CA	@
 @L06gu) 	e (CA	@
 @L06qu) 	e (CA	@
 @C)	e (CA
+@C)	e (li	@
+@ch)	e (li	@
 @C)	er (A	r
 @C)	e (rion++	@
 @C)	e (riez++	@
@@ -561,9 +559,9 @@ L06ch)	e (CA	@
 	_) 	e (CA          e
 	_) 	e (xC++          E2
 	Cr)	eam		i:m
-	Cr)	eamer		i:mWr
-	Cl)	eaner		i:nWr
-	vert)	e (rX      W
+	Cr)	eamer		i:mYr
+	Cl)	eaner		i:nYr
+	vert)	e (rX      Y
 		eïn (_	'Ein
 _y)	en (_	En
 iew)	er (X	er2
@@ -650,7 +648,7 @@ dia)	g (no	g
 	vin) 	gt (_neuvi   t
 
 		gt (_ 			// vingt doigts
-vin)		gt (A          t		// vingtaine doigté
+An)		gt (A          t		// vingtaine doigté
 
 		gu (i       g		// anguille
 	ai)	gui (l      gw^i		// aiguillage
@@ -672,7 +670,7 @@ vin)		gt (A          t		// vingtaine doigté
 
 
 .group h
-_)	h		_!
+_)	h		_|
 Ca)	h	(_	h
 _)	h	(abi			// habit, habilleur
 _)	h	(allo			// hallogène
@@ -707,7 +705,7 @@ _)	h	(orr			// horreur
 _)	h	(ôt			// hôtel
 _)	h	(uil			// huile
 _)	h	(uiss			// huissier
-_)	h	(uî			// huître
+_)	h	(uitr			// huître
 _)	h	(uma			// humain
 _)	h	(umb			// humble
 _)	h	(umi			// humide
@@ -795,7 +793,7 @@ C)		i (es_    i
 	bor)	is (_       is
 	dor)	is (_       is
 	tor)	is (_       is
-	fl)	irt         Wrt
+	fl)	irt         Yrt
 	otl)	i (neX        aj
 	onl)	i (ne_        aj
 	offl)	i (ne_        aj
@@ -814,11 +812,6 @@ C)		i (es_    i
 		ize (X         _^_en		// realize
 	_bAl)	i (ze         i
 	ram_f)	i (le    _^_en
-
-
-.group î
-		î           i		// abîme
-		în (i       in		// vînimes
 
 
 .group ï
@@ -861,7 +854,7 @@ C)		i (es_    i
 	uCi)	l (_ 			// outil, fusil
 	nti)	l (_ 			// gentil
 	ui)	ll          j		// juillet
-	_)	lorsqu' (P7          lO2rsk
+	_)	lorsqu' (P7          lorsk
 
 // group l: English section
 		less (_      _^_en  // noiseless
@@ -876,7 +869,7 @@ C)		i (es_    i
 	_)	m' (P2v       m
 	_)	mc (@P2       mak
 	_)	ms (P2      EmEs
-		master (_S6      mastWr
+		master (_S6      mastYr
 
 // group m: English section
 	_)	mail (_       _^_en  // mailer
@@ -898,84 +891,51 @@ C)		i (es_    i
 .group o
 	br) 	oc (_       o	// broc
 	cr) 	oc (_       o		// escroc
-	 	o (ckK       O2
-	 	o (CerA       O2
-	n) 	od (_       o	// Pernod
-	_) 	o (ff       O2
-	 	o (lC       O2
-	 	o (ll       O
-	 	o (C%       O
-	 	o (C%eCA       O2
-	 	om (merA       O2
-	_) 	on (l       O2n
-	 	on (n       O
-	ls) 	on (_       O2n
-	Cst) 	on (_       O2n
-	 	on (nerA       O2
-	 	o (rC       O2
-	_) 	os (_       Os
+	 	on (n       o
+	ls) 	on (_       on
+	Cst) 	on (_       on
+	_) 	os (_       os
 	_v) 	os (gY       o2
-	 	o (sC       O2
-	 	o (ss       O
-	 	o (sseCA       O2
 	s_) 	os (_       o
 	x_) 	os (_       o
-	C) 	o (se_       o2
-	C) 	o (ses_       o2
-	      o (tC	O2
-	 	o (Che@       O2
-	 	o (Cement_       O2
 	 	o (t_       o
-	 	o (tre_       O2
-	_) 	o (bCC       o2
-	_) 	o (bCe       o2
-	X) 	o (Co@       o2
-	 	o (Cau       o2
-	 	o (Ceau       o2
-	 	o (Co_       o2
-	 	o (Cos_       o2
-	C) 	o (d_       O2
 
-		oe (ll      ua		// moelleux
-		oe (i      W		// oeil
+		oe (ll      wa		// moelleux
+		oe (i      Y		// oeil
 	_)	oe (C       Y		// oesophage
 	_ph)	oe (C       e		// phoetus
-		oeu       W		// soeur coeur
-		oeufs       @		// oeufs boeufs
+	_ph)	oe (n_      Y		// phoen
+		oeu       Y		// voeu
+		oeud        Y		// noeud
+		oeufs (_       Y		// oeufs boeufs
+		oeu (x      Yz2		// voeux coeur
 		o (eC       o		// coefficient
-		 _l)	o (gi		o2
-		 _p)	o (ten		o2
-		 _L02r)	o (L02C		O
-		 _L02r)	o (t_		o
-		 _C)	o (teri		O2
 	_) 	oi (gnon    o		// oignons
 		oin (C      wE~
 		oin (_      wE~		// coin
-	_)	oi          ua		// oiseau
-		oi          ua		// poil
-		oê (l       ua		// poêle
-		oî          ua		// boîte
+		oi          wa		// poil
+		oê (l       wa		// poêle
 		om (C       O~		// bombe
-		om (m       O		// nommer
-		om (ni       O2m		// omnibus
+		om (m       o		// nommer
+		om (ni       om		// omnibus
 	n) 	om (X       O~		// nom
-		om (_       Om          //  www.web.com
-		s)	om (n	O2m
+		om (_       om          //  www.web.com
+		s)	om (n	om
 
 		on (K       O~		// mon
 		on (t_       O~t2		// mont vont sont
 	_m)	ont (pAC       O~		// Montpellier
 	_m)	ont (rAal       O~		// Montreal
 		onsh (A     O~z		// bonshommes
-		onh (A      On		// bonhomme
-	_)		on	(z	_!O~		// onze, onzi�me
+		onh (A      on		// bonhomme
+	_)		on	(z	_|O~		// onze, onzi�me
 
 	_c)	on (_      O~		// no comment
 	_C)	on (_      O~n2		// mon appui, mon histoire, mon havre
 
-	alc)	oo (l       O		// alcool
+	alc)	oo (l       o		// alcool
 	z) 	oo          o		// zoo
-	z)	oo (C       o2o		// zoologue
+	z)	oo (C       oo		// zoologue
 	z)	oo (m       u		// zoom
 	_gal)	op (_       o		// galop
 
@@ -986,18 +946,22 @@ C)		i (es_    i
 
 
 		ou          u		// hibou brouillard
+		ou (A          w
+r)		ou (A          u
+		ou (iA          u
+		ou (il          u
+_)		ou (at          _|u		// ouate
 		où          u		// où
 		oû          u		// coûter
-		oyes (_     ua		// troyes
-		oy (A       uaj		// noyer voyelles
+		oy (A       waj		// noyer voyelles
 _b)		oy (co       oi-		// boycott
 _c)		oy (o       oi		// coyote
 	_y)	o (y       o
-		oy          ua		// roy
+		oy          wa
 		o (_        o		// zorro allégro
 		o (z_       o		// berlioz
-		o           O
-	_sC)	ot       O2t
+		o           o
+	_sC)	ot       ot
 
 
 // group o: English section
@@ -1007,8 +971,8 @@ _c)		oy (o       oi		// coyote
 		old (er_       _^_en		// folder, older
 C)		oing (_      _^_en	// going
 		oo  (Ce     _^_en		// boomer
+		oo (k      _^_en		// book, cook
 		oo (X       _^_en		// pool
-		ook        _^_en		// book, cook
 	C)	oot        _^_en		// bootable football
 	_)	one       _^_en
 	 	oun (C      _^_en		// bounce, found
@@ -1019,19 +983,20 @@ C)		oing (_      _^_en	// going
 
 
 .group ô
-		ôt (_       o		// rôt
-		ô           o		// cône
+		ôt (_       o2		// rôt
+		ô           o2		// cône
 
 
 .group p
 		p           p		// pas
 	_)	para (pCP4       para
-	_)	photo (@P5       fo2to
+	_)	photo (@P5       foto
 	_)	poly (@P4       poli
-	_) 	post (KP4       pO2st
-	_) 	post (ACCP4       pO2st
+	_) 	post (KP4       post
+	_) 	post (ACCP4       post
 	_)	pseudo (@P6       psYdo
 		p (p			// appliquer
+		pays 	pE2iz2			// pays, paysage
 		ph          f		// phrase
 
 	m) 	ps (_			// temps champs
@@ -1066,6 +1031,8 @@ C)		oing (_      _^_en	// going
 		q           k		// coq
 	_)	qu' (AP3          k
 	_)	qua (d          kwA	// quadrature
+	_)	qua (tA          kwA	// quaternaire
+	_)	quan (tA          kwA~	// quantique
 	_)	qua (drill          ka	// quadriller
  	_a)	qua      kwA		// aquarium
  	_a)	qu (if      ku		// aquifère
@@ -1089,6 +1056,7 @@ C)		oing (_      _^_en	// going
 cou)	rr          rr		// courrai
 mou)	rr          rr		// mourrai
 cou)	rr (i         r		// courrier
+cou)	rr (o         r		// courroie
 		r           r		// rien
 		rr           r
 	_)	radio (@P5       radio
@@ -1315,27 +1283,28 @@ VCi)		t (_        t2
 		u           y	// cruel nuage brut
 		ui          w^i	// nuit, fuite
 		uin (K         yE~	// juin
-		_s)	u (rfX	W
-		_s)	u (rfeX	W
+		_s)	u (rfX	Y
+		_bl)	u (ff	Y
+		_s)	u (rfeX	Y
 		uy (A         w^ij
 
 	C)	ucci       utSi  // capuccino
-	c)	ueill       Wj  // cueillir
-	c) 	ueil (_     Wj  // recueil
-	_g) 	ua     ua
-	ag) 	ua (_     ua
-	Ctig) 	ua (_     ua
+	c)	ueill       Yj  // cueillir
+	c) 	ueil (_     Yj  // recueil
+	_g) 	ua     wa
+	ag) 	ua (_     wa
+	Ctig) 	ua (_     wa
 	_c) 	ul (_     y
 	_)	ultra (P5       yltra
 	g)	u (ay       u
-	g)	ueill       Wj	// orgueilleux
-	g) 	ueil (_     Wj	// orgueil
+	g)	ueill       Yj	// orgueilleux
+	g) 	ueil (_     Yj	// orgueil
 
-	C)	u (bX      W	// hub, club
-	C)	u (gX      W	// bug, mug
-	_n)	u (rse      W	// nurse
-	r)	u (nX      W	// run, autorun
-		um (_       Om	// album
+	C)	u (bX      Y	// hub, club
+	C)	u (gX      Y	// bug, mug
+	_n)	u (rse      Y	// nurse
+	r)	u (nX      Y	// run, autorun
+		um (_       om	// album
 	f) 	um (_     W~  // parfum
 		um (b       W~	// humble
 		um (p       W~
@@ -1350,7 +1319,7 @@ VCi)		t (_        t2
 	g) 	u (A		// fatigue
 	g) 	u (ï	    y	// ambiguïté
 	g) 	u (ë        y	// ambiguë
-		uz (z	W
+		uz (z	Y
 
 // group u: English section
 	_b)	usi       _^_en  // business, businessman
@@ -1370,15 +1339,15 @@ VCi)		t (_        t2
 .group ü
 		ü 	y
 		üs (_	ys
-		üm (_	Om
+		üm (_	om
 		ül (_	yll
 
 
 .group v
 		v           v
 		vers (_          vErz2
-dri)		ver (X          vWr
-	_)	view (X          vju
+dri)		ver (X          vYr
+		view (X          vju
 	_)	view (A          vjuv
 
 // group v: English section
@@ -1389,8 +1358,8 @@ dri)		ver (X          vWr
 
 .group w
 		w           w
+_)		w (A           _|w
 		w (agon 	    v // wagon
-_r)	w (an	u				// Rwanda
 		wa (ve_ 	   wE:j // wave
 		wa (re_ 	   wE: // hardware software
 
@@ -1410,7 +1379,7 @@ _r)	w (an	u				// Rwanda
 		xx          ks
 	_) 	x (A        gz	// xylophone
 	_) 	x (CP1        iks	// xylophone
-		xml (_S3      _!iksEmEl
+		xml (_S3      _|iksEmEl
 	e) 	x (A        gz	// exagérer exemple
 	L03e) 	x (A        ks	// annexe, vexer
 	_ine) 	x (A        gz
@@ -1448,7 +1417,6 @@ _r)	w (an	u				// Rwanda
 		ym (_       E~	// thym
 		y (nn       i
 		y (nA       i
-	pa)	ys (_       i
 	X)	ys (_       is
 		yx (_       iks
 
@@ -1457,10 +1425,9 @@ _r)	w (an	u				// Rwanda
 
 .group z
 		z           z
-		zz          dz
 	t) 	z           s	// tzigane
-	C) 	zer (_           zEr
-	C) 	zer (_           zWr
+	t) 	zer (_           zEr
+	C) 	zer (_           zYr
 
 
 .group
@@ -1471,16 +1438,16 @@ _r)	w (an	u				// Rwanda
 	 	é           e		// été
 	 	ê           E		// fête
 		ñ           Ni		// niño
-		ö           O		// angström
-		œ           W
-		œu          W:          // sœur
+		ö           o		// angström
+		œ           Y
+		œu          Y:          // sœur
 		û           y:	// fûtes
 		ü           y	// bülcher
 
 
 // symbols that are normally spoken when reading text
 		, (D        pilk:u
-	$	do2lar
+	$	dolar
 	°	d@gre
    _n_) °	   // n°
 

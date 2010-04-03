@@ -298,12 +298,12 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 
 
 	t_source = new wxTextCtrl(this,T_SOURCE,_T(""),wxPoint(0,4),
-		wxSize(298,250),wxTE_MULTILINE);
+		wxSize(298,250),wxTE_MULTILINE,wxDefaultValidator,_T("Text input window"));
 	t_source->SetDefaultStyle(attr);
 
 
 	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
-		wxSize(298,height_ph),wxTE_MULTILINE | wxTE_READONLY);
+		wxSize(298,height_ph),wxTE_MULTILINE | wxTE_READONLY,wxDefaultValidator,_T("Phoneme translation window"));
 
 	y = height_ph + 270;
 	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,y));

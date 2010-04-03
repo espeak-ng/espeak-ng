@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-03-12 Michel Such  <michel.such@free.fr>
+// Updated 2010-04-01 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -17,15 +17,30 @@ phoneme : //  Lengthen previous vowel by "length"
 endphoneme
 
 
-procedure vowelstart_r
-  NextVowelStarts
-    VowelStart(vwl_fr/r@)
-    VowelStart(vwl_fr/ra, -30)
-    VowelStart(vwl_fr/re)
-    VowelStart(vwl_fr/ri)
-    VowelStart(vwl_fr/ro)
-    VowelStart(vwl_fr/ru)
-  EndSwitch
+procedure pre_post_r
+  IF prevPh(isVowel) THEN
+    VowelEnding(vwl_fr/xr)
+  ENDIF
+
+  IF nextPhW(isFinalVowel) OR next2Ph(isFinalVowel) THEN
+    NextVowelStarts
+      VowelStart(vwl_fr/r@, -10)
+      VowelStart(vwl_fr/ra, -15)
+      VowelStart(vwl_fr/re, -10)
+      VowelStart(vwl_fr/ri, -20)
+      VowelStart(vwl_fr/ro, -10)
+      VowelStart(vwl_fr/ru, -10)
+    EndSwitch
+  ELSE
+    NextVowelStarts
+      VowelStart(vwl_fr/r@)
+      VowelStart(vwl_fr/ra)
+      VowelStart(vwl_fr/re)
+      VowelStart(vwl_fr/ri)
+      VowelStart(vwl_fr/ro)
+      VowelStart(vwl_fr/ru)
+    EndSwitch
+  ENDIF
 endprocedure
 
 
@@ -38,41 +53,22 @@ phoneme r
     ChangePhoneme(r/2)
   ENDIF
 
-  IF nextPh(isStressed) THEN
-    length 40
+  CALL pre_post_r
+
+  IF thisPh(isWordStart) OR prevPhW(r/2) THEN
+    Vowelout len=50
+    FMT(vwl_fr/_r, -30)
+  ELIF prevPhW(g) OR prevPhW(k) OR prevPhW(p) THEN
+    FMT(vwl_fr/tr, -40)
+  ELIF prevPhW(d) OR prevPhW(t) THEN
+    FMT(vwl_fr/tr, -30)
+  ELIF prevPhW(f) OR prevPhW(v) OR prevPhW(S) THEN
+    FMT(vwl_fr/tr, -30)
+  ELIF prevPhW(b) THEN
+    FMT(vwl_fr/tr, -20)
   ENDIF
 
-  VowelEnding(vwl_fr/xr)
-  CALL vowelstart_r
-
-  IF prevPh(isPause) OR prevPhW(r/2) THEN
-    FMT(vwl_fr/_r)
-  ELIF prevPhW(p) OR prevPhW(k) THEN
-    IF nextPh(isNotStressed) THEN
-      length 50
-    ENDIF
-    FMT(vwl_fr/tr)
-  ELIF prevPhW(t) THEN
-    IF nextPh(isNotStressed) THEN
-      length 60
-    ENDIF
-    FMT(vwl_fr/tr) addWav(r3/rx,30)
-  ELIF prevPhW(f) OR prevPhW(v) THEN
-    length 40
-  ELIF prevPhW(g) OR prevPh(b) THEN
-    IF nextPh(isNotStressed) THEN
-      length 60
-    ENDIF
-  ENDIF
-
-  IF thisPh(isWordStart) THEN
-    IF prevPh(isVowel) OR prevPh(isPause) OR prevPh(#l) OR prevPh(r/2) THEN
-      FMT(vwl_fr/_r)
-    ENDIF
-    FMT(vwl_fr/_r2) addWav(r3/rx, 15)
-  ENDIF
-
-  FMT(vwl_fr/r) addWav(r3/rx,25)
+  FMT(vwl_fr/r)
 endphoneme
 
 
@@ -87,17 +83,16 @@ phoneme r2	// silent unless followed by vowel
     ChangePhoneme(NULL)
   ENDIF
 
-  VowelEnding(vwl_fr/xr)
-  CALL vowelstart_r
+  CALL pre_post_r
+
   FMT(vwl_fr/r)
 endphoneme
 
 
-
 phoneme r/2   // variant of [r] when not preceding a vowel
-  liquid rhotic uvl
+  liquid rhotic vel
   starttype #r  endtype #r
-  Vowelout f1=2  f2=1600 -300 300  f3=-300 100 len=50
+  Vowelout f1=2  f2=1600 -300 300  f3=-300 100 len=40
   lengthmod 2
 
   PrevVowelEndings
@@ -109,24 +104,25 @@ phoneme r/2   // variant of [r] when not preceding a vowel
     VowelEnding(vwl_fr/r_u)
   EndSwitch
 
-  IF prevPh(t) OR prevPh(p) OR prevPh(k) THEN
-    FMT(vwl_fr/trr)
+  IF prevPh(isVowel) THEN
+    IF nextPh(isPause) THEN
+      FMT(vwl_fr/r_2) addWav(r3/rx, 20)
+    ELSE
+      FMT(vwl_fr/r_, -30) addWav(r3/rx, 20)
+    ENDIF
   ENDIF
 
   IF thisPh(isWordEnd) THEN
-    IF prevPhW(v) THEN
-      length 40
+    IF prevPhW(t) OR prevPhW(p) OR prevPhW(k) THEN
+      FMT(vwl_fr/trr) addWav(r3/rx, 15)
+    ELIF prevPhW(v) THEN
+      FMT(vwl_fr/r_, -40)
     ELIF prevPhW(f) THEN
-      length 60
+      FMT(vwl_fr/r_, -10) addWav(r3/rx, 15)
     ELIF prevPhW(d) THEN
-      length 80
+      FMT(vwl_fr/r_) addWav(r3/rx, 15)
     ENDIF
     FMT(vwl_fr/r_) addWav(r3/rx, 15)
-  ENDIF
-
-  IF prevPh(isVowel) THEN
-    length 80
-    FMT(vwl_fr/r_) addWav(r3/rx, 20)
   ENDIF
 
   FMT(vwl_fr/r_)
@@ -135,6 +131,7 @@ endphoneme
 
 phoneme l
   liquid
+  starttype #l endtype #l
   lengthmod 7
 
   IF nextPh(isNotVowel) THEN
@@ -178,6 +175,7 @@ endphoneme
 
 phoneme l/    // used for [l] when not before a vowel
   liquid
+  starttype #l endtype #l
   lengthmod 7
 
   IF nextPh(isVowel) THEN
@@ -190,13 +188,14 @@ phoneme l/    // used for [l] when not before a vowel
     VowelEnding(l/l_e)
     VowelEnding(l/l_i)
     VowelEnding(l/l_o)
-    VowelEnding(l/l_u, -20)
+    VowelEnding(l/l_u)
   EndSwitch
 
-  IF prevPh(i) THEN
-    FMT(l/l_)
+  IF prevPh(#r) THEN
+    FMT(l/_l)
   ENDIF
-  FMT(l/_l)
+
+  FMT(l/l_)
 endphoneme
 
 
@@ -224,8 +223,7 @@ phoneme a
     VowelStart(l/la, -15)
   ENDIF
 
-  IF prevPhW(u) THEN
-    length 140
+  IF prevPhW(w) OR prevPhW(w/) THEN
     FMT(vowel/a_5)
   ENDIF
 
@@ -251,6 +249,14 @@ endphoneme
 phoneme E
   vowel starttype #e  endtype #e
   length 170
+
+  IF nextPh(r/2) THEN
+    VowelEnding(vwl_fr/r_e2)
+  ENDIF
+
+  IF nextPhW(j) THEN
+    length 190
+  ENDIF
 
   FMT(vowel/e_mid)
 endphoneme
@@ -296,14 +302,27 @@ phoneme o
   vowel starttype #o  endtype #o
   length 170
 
-  ChangeIfUnstressed(o2)
-
-  IF nextPh(r/2) THEN
-    VowelEnding(vwl_fr/r_o)
-    FMT(vowel/o_mid2)
+  IF thisPh(isFinalVowel) THEN
+    IF thisPh(isWordEnd) THEN
+      FMT(vowel/o_8)
+    ELIF nextPh(p2) OR nextPh(t2) OR nextPh(z2) THEN
+      FMT(vowel/o_8)
+    ELSE
+      ChangePhoneme(O)
+    ENDIF
+  ELSE
+    IF nextPhW(isLiquid) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(O)
+    ELIF nextPhW(isNasal) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(O)
+    ELIF nextPhW(isNotVowel) AND next2Ph(isNasal) THEN
+      ChangePhoneme(O)
+    ELIF nextPhW(t) AND next2Ph(isLiquid) AND nextVowel(isFinalVowel) THEN
+      ChangePhoneme(O)
+    ELSE
+      FMT(vowel/o)
+    ENDIF
   ENDIF
-
-  FMT(vowel/o_8)
 endphoneme
 
 
@@ -311,32 +330,29 @@ phoneme o2
   vowel starttype #o  endtype #o
   length 170
 
-  IF nextPh(r/2) THEN
-    VowelEnding(vwl_fr/r_o)
-    FMT(vowel/o_mid2)
-  ENDIF
   IF nextPh(l/) THEN
     VowelEnding(l/l_o)
-    FMT(vowel/o_mid2)
   ENDIF
 
-  FMT(vowel/o)
+  IF thisPh(isFinalVowel) THEN
+    FMT(vowel/o_8)
+  ELSE
+    FMT(vowel/o)
+  ENDIF
 endphoneme
 
 
 phoneme O
   vowel starttype #o  endtype #o
-  length 170
+  length 180
 
-  ChangeIfUnstressed(o2)
+  IF prevPhW(#r) THEN
+    VowelStart(vwl_fr/ro2)
+  ENDIF
 
-  FMT(vowel/o_mid2)
-endphoneme
-
-
-phoneme O2	// Like O but no reduceto
-  vowel starttype #o  endtype #o
-  length 170
+  IF nextPhW(r/2) THEN
+    VowelEnding(vwl_fr/r_o2)
+  ENDIF
   FMT(vowel/o_mid2)
 endphoneme
 
@@ -350,14 +366,7 @@ endphoneme
 
 phoneme u
   vowel starttype #u  endtype #u
-  length 170
-
-  IF nextPh(i) THEN
-    Length 50
-  ENDIF
-  IF nextPhW(a) THEN
-    length 110
-  ENDIF
+  length 180
 
   FMT(vowel/u_bck2)
 endphoneme
@@ -377,35 +386,24 @@ phoneme y
   IF nextPh(l/) THEN
     VowelEnding(l/l_y, -30)
   ENDIF
+
   IF prevPh(#r) THEN
-    VowelStart(vwl_fr/ry)
+    IF thisPh(isFinalVowel) THEN
+      VowelStart(vwl_fr/ry, -10)
+    ELSE
+      VowelStart(vwl_fr/ry)
+    ENDIF
   ENDIF
+
   IF nextPh(r/2) THEN
     VowelEnding(vwl_fr/r_y)
   ENDIF
-  IF nextPh(E~) THEN
-    Length 120
+
+  IF nextPhW(E~) THEN
+    FMT(vowel/y_2, -30)
   ENDIF
 
   FMT(vowel/y_2)
-endphoneme
-
-
-phoneme Y
-  vowel starttype #@  endtype #@
-  length 170
-
-  ChangeIfUnstressed(W)
-
-  IF prevPh(l) THEN
-    VowelStart(l/l@, -20)
-  ENDIF
-
-  IF nextPh(l/) THEN
-    VowelEnding(l/l_@, -20)
-  ENDIF
-
-  FMT(vowel/y#)
 endphoneme
 
 
@@ -425,14 +423,70 @@ phoneme W
 endphoneme
 
 
+phoneme Y
+  vowel starttype #@  endtype #@
+  length 170
+
+  IF prevPh(l) THEN
+    VowelStart(l/l@, -20)
+  ENDIF
+
+  IF nextPh(l/) THEN
+    VowelEnding(l/l_@, -20)
+  ENDIF
+
+  IF thisPh(isFinalVowel) THEN
+    IF thisPh(isWordEnd) THEN
+      FMT(vowel/y#)
+    ELIF nextPh(z2) OR nextPh(t2) THEN
+      FMT(vowel/y#)
+    ELSE
+      ChangePhoneme(W)
+    ENDIF
+  ELSE
+    IF nextPhW(isNotVowel) AND next2Ph(isLiquid) THEN
+      FMT(vowel/y#)
+    ELIF nextPhW(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(W)
+    ELSE
+      FMT(vowel/y#)
+    ENDIF
+  ENDIF
+endphoneme
+
+
+phoneme w
+  vowel starttype #u  endtype #u
+
+  IF prevPhW(#r) OR prevPhW(#l) THEN
+
+    NextVowelStarts
+      VowelStart(w/w@)
+      VowelStart(w/wa, -10)
+      VowelStart(w/we)
+      VowelStart(w/wi)
+      VowelStart(w/wo)
+      VowelStart(w/wu)
+    EndSwitch
+  ELSE
+    ChangePhoneme(w/)
+  ENDIF
+endphoneme
+
+
+phoneme w/
+  import_phoneme base/w
+endphoneme
+
+
 phoneme w^i
   vowel starttype #u  endtype #i
   length 240
 
-  IF prevPh(l) THEN
+  IF prevPhW(l) THEN
     VowelStart(l/lu, -20)
   ENDIF
-  IF prevPh(#r) THEN
+  IF prevPhW(#r) THEN
     VowelStart(vwl_fr/ry)
   ENDIF
 
@@ -446,8 +500,13 @@ phoneme A~
   IF nextPh(r/2) THEN
     VowelEnding(vwl_fr/r_an)
   ENDIF
-  IF prevPh(#r) THEN
-    VowelStart(vwl_fr/raa, -10)
+
+  IF prevPhW(#r) THEN
+    IF thisPh(isFinalVowel) THEN
+      VowelStart(vwl_fr/raa, -15)
+    ELSE
+      VowelStart(vwl_fr/raa, -10)
+    ENDIF
   ENDIF
 
   FMT(vnasal/aa_n4)
@@ -516,8 +575,11 @@ phoneme b
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
 
   IF KlattSynth THEN
-    CALL base/b
-    RETURN
+    Vowelin f1=1  f2=1000 -500 -300  f3=-300 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/b)  addWav(x/b_)
+    ENDIF
+    FMT(klatt/b) addWav(x/b)
   ENDIF
 
   IF PreVoicing THEN
@@ -545,8 +607,8 @@ phoneme d
 
   IF nextPh(isPause2) OR nextPh(isPause) THEN
     FMT(d/d_)  addWav(x/d_, 50)
-//  ELIF nextPh(#r) THEN
-//    FMT(d/dr) addWav(x/d, 30)
+  ELIF nextPh(#r) THEN
+    FMT(d/dr) addWav(x/d, 30)
   ELIF prevPh(isPause) THEN
     FMT(d/d) addWav(x/d, 50)
   ENDIF
@@ -577,32 +639,31 @@ endphoneme
 phoneme k
   vls vel stop
   voicingswitch g
+  length 50
   lengthmod 2
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
 
   IF nextPh(isPause2) THEN
     WAV(ustop/k_)
-  ELIF nextPh(#r) THEN
-    length 50
-    WAV(ustop/kr, 40)
   ELIF nextPh(#i) OR nextPh(;) THEN
     WAV(ustop/ki, 45)
   ELIF nextPh(#l) THEN
-    WAV(ustop/kl, 45)
+    WAV(ustop/kl, 40)
   ENDIF
 
-  WAV(ustop/k, 40)
+  WAV(ustop/k, 35)
 endphoneme
 
 
 
 phoneme n2
   vcd alv nasal
-  IF nextPh(isNotVowel) THEN
+  IF nextPh(w) OR nextPh(isVowel) THEN
+    ChangePhoneme(n)
+  ELSE
     ChangePhoneme(NULL)
   ENDIF
-  ChangePhoneme(n)
 endphoneme
 
 
@@ -619,8 +680,6 @@ phoneme p
     WAV(ustop/p_unasp, 60)
   ELIF nextPh(#l) THEN
     WAV(ustop/pl, 30)
-  ELIF nextPh(#r) THEN
-    WAV(ustop/pr, 25)
   ENDIF
   WAV(ustop/p_unasp_, 90)
 endphoneme
@@ -663,6 +722,10 @@ phoneme S
   Vowelin  f1=0  f2=1900 100 300  f3=-100 80
   Vowelout f1=0  f2=1900 100 300  f3=-100 80
 
+  IF prevPhW(t) THEN
+    length 60
+  ENDIF
+
   IF nextPh(isPause) THEN
     WAV(ufric/sh_, 45)
   ENDIF
@@ -683,8 +746,8 @@ phoneme t
   ELIF nextPh(r/2) THEN
     WAV(ustop/t_short, 50)
   ENDIF
-  WAV(ustop/t_short, 40)
 
+  WAV(ustop/t_short, 40)
 endphoneme
 
 
@@ -694,11 +757,12 @@ phoneme t2      // silent unless followed by vowel
   Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
 
-  IF nextPh(isNotVowel) THEN
+  IF nextPh(isVowel) OR nextPh(w) THEN
+    WAV(ustop/t_short, 30)
+  ELSE
     ChangePhoneme(NULL)
   ENDIF
 
-  WAV(ustop/t_short, 30)
 endphoneme
 
 
@@ -733,8 +797,10 @@ phoneme v
   ENDIF
   IF thisPh(isWordStart) AND nextPhW(isLiquid) THEN
     Length 70
+  ELIF nextPhW(w) THEN
+    Length 50
   ENDIF
-  FMT(voc/v) addWav(vocw/v, 75)
+  FMT(voc/v) addWav(vocw/v, 60)
 endphoneme
 
 
@@ -744,17 +810,26 @@ phoneme z
   lengthmod 6
   Vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50
 
+  IF nextPhW(z) THEN
+    FMT(d/xd)
+  ENDIF
+
   IF nextPh(isPause2) OR nextPh(isPause) THEN
     FMT(voc/z_) addWav(ufric/s_, 45)
   ENDIF
+
+  IF prevPhW(t) THEN
+    length 60
+  ENDIF
+
   FMT(voc/z) addWav(ufric/s_, 45)
 endphoneme
 
 
 phoneme z2      // silent unless followed by vowel
   vcd alv frc sibilant
-  IF nextPh(isVowel) THEN
-    ChangePhoneme(z)
+  IF nextPh(isVowel) OR nextPh(w/) THEN
+    FMT(voc/z_, -20) addWav(ufric/s_, 40)
   ELSE
     ChangePhoneme(NULL)
   ENDIF
@@ -765,7 +840,7 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   vcd alv frc sibilant
   IF nextPh(isPause) THEN
     ChangePhoneme(s)
-  ELIF nextPh(isVowel) THEN
+  ELIF nextPh(isVowel) OR nextPh(w/) THEN
     ChangePhoneme(z)
   ELSE
     ChangePhoneme(NULL)

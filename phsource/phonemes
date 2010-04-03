@@ -1676,3 +1676,6 @@ include ph_punjabi
 
 phonemetable prs base
 include ph_dari
+
+phonemetable gd base
+include ph_s_gaelic

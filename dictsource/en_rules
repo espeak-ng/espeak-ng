@@ -1,6 +1,6 @@
 
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2008 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -31,6 +31,7 @@
 
 .L01  l r
 .L02  i y
+.L03  a i o u   // vowel, not 'e'
 
 .replace
    ﬀ   ff     // ligature
@@ -709,6 +710,7 @@
        adv) an (c        an
          _) an (cie      eIn
         &l) an (d        @n
+        &l) an (di       an
         yl) an (d        an
        usb) an (d        @n
          @) an (Ca_      'an
@@ -854,8 +856,8 @@
          _) archai       A@k'eII
          _) arche (o     A@kI
          _) arch (er     A@tS
-         _) archi (CA    A@kI
-         -) archiv (+    A@kaIv
+         _) archi        A@kI
+         _) archiv (+    A@kaIv
          @) arch (y      A@k
          @) arch (i      A@k
         an) arch         3k
@@ -1099,7 +1101,7 @@
             authen       %O:TEn
          _) auto (@P4    ,O:toU      // prefix
             auto (ma     O:t@
-            auto (n      %O:t0
+         _) auto (n      %O:t0
 
 .group av
             av (ail      a2v
@@ -1254,6 +1256,7 @@
             cious        S=@s
             cch          k
             c (elt       k
+            c (ellL03_   tS'
             cial (_      S@L
 ?8          cial (_      Sa2l
             cial         S@l
@@ -1342,6 +1345,8 @@
             ch (ure      S
 
 .group co
+         _) co (ag       k%oU
+            coa (les     k%oUa2
          _) co (eCP2     k,oU
          _) coe (l       si:
             co (hab      k%oU 
@@ -1489,7 +1494,7 @@
 .group de
             de (act      d%i:
             de (arc      d%i:
-            debug        di:bVg
+            debu (g      di:b,V
          _) de (ba       dI2
          _) de (c@       dI2
             deca (den    dEk@
@@ -3147,6 +3152,7 @@
         _C) ity (_       ItI
        _ed) it           It
       cred) it           It
+       CAt) it (_        'i:t	//apetite
          v) it (al       aIt
          t) it (l        aIt
          &) ity (_       =I2t%I
@@ -3938,7 +3944,7 @@
 ?5       w) or (se       VR
          w) or (th       3:
 ?5       w) or (th       VR
-        sw) or           o@
+        sw) or (d        o@
          &) or (ous      3r
             orough       Vr@
 ?3          orough       VroU

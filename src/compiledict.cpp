@@ -1061,7 +1061,7 @@ static char *compile_rule(char *input)
 		if((c = buf[ix])==0) break;
 		if(c==255)
 		{
-			fprintf(f_log,"%5d: Bad phoneme [%c] in %s",linenum,bad_phoneme[0],input);
+			fprintf(f_log,"%5d: Bad phoneme [%c] in %s\n",linenum,bad_phoneme[0],input);
 			error_count++;
 			break;
 		}

@@ -270,7 +270,7 @@ tamil	தமிழ்	$text
 
 	// initial ட
 டார்ச்	t.a:rtS
-
+டிவி	t.ivi
 
 	// initial ச as [tS]
 சீ		$alt
@@ -334,3 +334,5 @@ tamil	தமிழ்	$text
 தாங்ஸ்	Ta:Nks		// thanks
 டிபுடி	d.EpjUt.i	// deputy
 டிபன்	t.ifVn
+ஆகா	a:Ha:
+ஓகோ	o:Ho:

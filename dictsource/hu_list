@@ -112,7 +112,7 @@ _30q	hAR2_mintsAdikA
 
 _#-a	A	$alt2
 _#-i	Ei	$alt2
-_#-e	E	$alt2
+_#-e	E
 _#-án	a:n	//Need remove the $alt2 tag with this line, because some 
 //time with the book the sentences beginning with this form, and need
 //spokening ordinal number alwais. For example: In 20th, the rain is raining.
@@ -143,6 +143,8 @@ _#-ét	e:t	$alt2
 _#-át	a:t	$alt2
 _#-ének	e:nEk
 _#-ának	a:nAk
+_#-vel	e:vEl	$alt2
+_#-val	a:vAl	$alt2
 
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
@@ -166,6 +168,7 @@ _#-ának	a:nAk
 (1-jétől)	elsejétől	$text $alt2
 (1-jéig)	elsejéig	$text $alt2
 (1-ének)	elsejének	$text $alt2
+(1-vel) elsejével	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
 (3-i)	hAR2_mAdikAi	$alt2
@@ -203,18 +206,32 @@ _#-ának	a:nAk
 (00-s) nul:Anul:a:S
 (0-át) nul:a:t
 (0-ától) nul:a:to:l
+(0-at) nul:a:t
+(0-an) nul:a:n
+(0-ában) nul:a:bAn
+(0-ába) nul:a:bA
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
 (2-őt) kEt:Y:t
-
+(2-őn) kEt:Y:n
+(2-n) kEt:Y:n
+(2-m) kEt:Y:m
 // entries with a single digit such as (2-i) also apply to 22, 32, etc, unless $only
 (30-cal) hAR2mints:Al
 (3-al) ha:R2om:Al
-
+(3-on)	ha:R2mon
+(3-adik) hAR2mAdik //special exception
+(3-adikat) hAR2mAdikAt	//special exception
+(3-adikon)	hAR2mAdikon	//special exception
+(3-adikkal)	hAR2mAdik:Al	//special exception
 //4 number suffixes
 (4-el) ne:J:El //Nneed J: phoneme, not J phoneme contains one suffix) 
 (4-gyel) ne:J:El //Need J: phoneme, not J phoneme
 (4-t) ne:JEt //special number suffix exception
+(4-edik)	nEJEdik	//special exception
+(4-ediket)	nEJEdikEt	//special exception
+(4-ediken)	nEJEdikEn	//special exception
+(4-edikkel)	nEJEdik:El	//special exception
 (5-tel) Yt:El
 (5-el) Yt:El
 (5-től) Yt:Y:l
@@ -938,6 +955,13 @@ brit	$unstressend
 természetes	$u $1
 front	$unstressend
 szerezni	$unstressend
+képekben	$alt3
+vélte	$unstressend
+vélték	$unstressend
+lép	$unstressend
+pénzt	$unstressend
+pénz	$unstressend
+nép	$unstressend
 
 
 // word pairs
@@ -951,7 +975,9 @@ szerezni	$unstressend
 
 vagyok    $u  // to be, present
 vagy      $u
-van       $unstressend
+van       $unstressend $alt3
+percről	$alt3
+percre	$alt3
 vagyunk   $unstressend
 vagytok   $unstressend
 vannak    $unstressend
@@ -965,7 +991,7 @@ voltak    $u
 
 leszek    $u  // to be, future
 leszel    $u
-lesz      $u
+lesz      $u $alt3
 leszünk   $u
 lesztek   $u
 lesznek   $u
@@ -1122,6 +1148,7 @@ _″	duplA|ApostR2o:f
 ∞	vEgtElEn
 ≠	nEmEJEnlY:
 _ˇ	lEfEle:n^i:l
+_¡	AlSo:indEks
 
 // Main Exceptions List
 //=====================

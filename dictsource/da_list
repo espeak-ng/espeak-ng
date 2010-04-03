@@ -158,27 +158,27 @@ med			$u+	// with
 af      &  	// PB changed from [a?] to [&] - sound too short in a sentence
             // Also removed $u from 'af' and other words. They disappeared.
 ad      &:  // PB added 'ad'
-at		&:  // PB changed from [at] to [&:]
+at		&: $u // PB changed from [at] to [&:]
 hos			// at - PB: removed [$u+]
 som	sVm	    // which / that - PB: removed [$u+]
 
 // pronouns
-jeg	jai		// I - PB: removed [$u]
-du $u+
+jeg	jai	$u+	// I
+du du $u+
 de	di	$u
 han	$u
 hun	$u
-det	de $u+
+det	de $u
 vi	$u
 i	_i: $u+
-mig	maj		// me
-dig	daj
+mig	maj	$u	// me
+dig	daj	$u
 dem	$u
 ham	$u
 hende	$u
 sig	saj
 os	Vs $u
-jer	$u
+jer
 denne	$u+	// this
 dette	$u+
 disse	$u+	// these
@@ -207,10 +207,10 @@ jeres	$u
 
 
 // auxillary verbs
-er		$u+	// is
+er		$u	// is
 var	vAr	$u+	// was
 har	hAr	$u+	// has
-havde		$u+	// had
+havde	h&:D@	$u+	// had
 vil		$u+	// will
 skal		$u+	// shall
 kan		$u+	// can
@@ -245,148 +245,873 @@ y	Y?
 z	sEt
 ø   W
 
-// Englich words
+// PB English words
+bacon        _^_EN
 bondage      _^_EN
-baseball    _^_EN
-volleyball  _^_EN
+baseball    _^_EN $alt
+volleyball  _^_EN $alt
 dj          _^_EN
-deadline    _^_EN
-night       _^_EN
+deadline    _^_EN $alt
+night       _^_EN $alt
 the         _^_EN
 skinhead    _^_EN
 skinheads   _^_EN
-street      _^_EN
-boy         _^_EN
+street      _^_EN $alt
+boy         _^_EN $alt
 square      _^_EN
-appeal		_^_EN
-apple		_^_EN
-bbc		    _^_EN
-beachbuggy  _^_EN
-beachvolley _^_EN
-browser     _^_EN
-byte		_^_EN
-camcorder	_^_EN
+appeal		_^_EN $alt
+apple		_^_EN $alt
+beachbuggy  _^_EN $alt
+beachvolley _^_EN $alt
+browser     _^_EN $alt
+byte		_^_EN $alt
+camcorder	_^_EN $alt
 chart		_^_EN
-chat		_^_EN
+chat		_^_EN $alt
 coach		_^_EN
-cia         _^_EN
-coke		_^_EN
-computer	_^_EN
+coke		_^_EN $alt
+computer	_^_EN $alt
 cool		_^_EN
 couch		_^_EN
-cursor		_^_EN
-cowboy		_^_EN
-debugger	_^_EN
-email		_^_EN
-ensemble	_^_FR
-event		_^_EN
-firewall	_^_EN
-freak		_^_EN
-fbi         _^_EN
-gin		    _^_EN
-groupie		_^_EN
+cursor		_^_EN $alt
+cowboy		_^_EN $alt
+debugger	_^_EN $alt
+email		_^_EN $alt
+ensemble	_^_FR $alt
+event		_^_EN $alt
+firewall	_^_EN $alt
+freak		_^_EN $alt
+friendly    _^_EN $alt
+gin		    _^_EN $alt
+groupie		_^_EN $alt
 homepage	_^_EN
-hooligan	_^_EN
+hooligan	_^_EN $alt
 interface	_^_EN
 image       _^_EN
-jet		    _^_EN
-joint		_^_EN
-joke		_^_EN
-joystick	_^_EN
-junkie		_^_EN
-laptop		_^_EN
-level		_^_EN
-login		_^_EN
-look		_^_EN
-lord		_^_EN
+jet		    _^_EN $alt
+joint		_^_EN $alt
+joke		_^_EN $alt
+joystick	_^_EN $alt
+junkie		_^_EN $alt
+laptop		_^_EN $alt
+level		_^_EN $alt
+login		_^_EN $alt
+look		_^_EN $alt
+lord		_^_EN $alt
 macho		_^_EN
-mail		_^_EN
-management  _^_EN
+mail		_^_EN $alt
+management  _^_EN $alt
 message		_^_EN
 (new age)   _^_EN
-nigger		_^_EN
+nigger		_^_EN $alt
 offline		_^_EN
 okay		_^_EN
 online		_^_EN
 out		    _^_EN
 pair		_^_EN
-password	_^_EN
+password	_^_EN $alt
 penthouse	_^_EN
-pickup		_^_EN
+pickup		_^_EN $alt
 pidgin		_^_EN
-plot		_^_EN
-producer	_^_EN
-ranger      _^_EN
+plot		_^_EN $alt
+producer	_^_EN $alt
+ranger      _^_EN $alt
 receiver	_^_EN
 research	_^_EN
 remake		_^_EN
-roadie		_^_EN
-roastbeef	_^_EN
+roadie		_^_EN $alt
+roastbeef	_^_EN $alt
 quiz		_^_EN
 run         _^_EN
-scanner		_^_EN
+scanner		_^_EN $alt
 science		_^_EN
-server		_^_EN
-settlement  _^_EN
-statement   _^_EN
-understatement _^_EN
+server		_^_EN $alt
+settlement  _^_EN $alt
+statement   _^_EN $alt
+understatement _^_EN $alt
 sexy		_^_EN
-shirt		_^_EN
-show		_^_EN
-single      _^_EN
-skateboard  _^_EN
+shirt		_^_EN $alt
+show		_^_EN $alt
+single      _^_EN $alt
+skateboard  _^_EN $alt
 small		_^_EN
-snob		_^_EN
+snob		_^_EN $alt
 song		_^_EN
 source		_^_EN
-spam		_^_EN
+spam		_^_EN $alt
 spirit      _^_EN
 squaw		_^_EN
-suite		_^_EN
 sweatshirt	_^_EN
 talk		_^_EN
 teaser		_^_EN
 tech		_^_EN
-terminal	_^_EN
+terminal	_^_EN $alt
 trip		_^_EN
-tuner		_^_EN
+tuner		_^_EN $alt
 unix		_^_EN
 venture		_^_EN
-western     _^_EN
+western     _^_EN $alt
 whipcord	_^_EN
-window		_^_EN
-word		_^_EN
-warrior     _^_EN
+window		_^_EN $alt
+word		_^_EN $alt
+warrior     _^_EN $alt
 
-// English names
-austin      _^_EN
-bailey      _^_EN
-bronx       _^_EN
-clarence    _^_EN
+// PB English names
+austin      _^_EN $alt
+bailey      _^_EN $alt
+barry       _^_EN $alt
+bbc		    _^_EN $alt
+boston      _^_EN $alt
+bronx       _^_EN $alt
+clarence    _^_EN $alt
 cyrus       _^_EN
+cia         _^_EN $alt
+fbi         _^_EN $alt
 fox         _^_EN
-jean		_^_EN
+jean		_^_EN $alt
 jones       _^_EN
-larry       _^_EN
-mansfield   _^_EN
-mahoney     _^_EN
-montreal    _^_EN
-oregon      _^_EN
-paul        _^_EN
+larry       _^_EN $alt
+leroy        _^_EN $alt
+luke       _^_EN $alt
+mansfield   _^_EN $alt
+mahoney     _^_EN $alt
+montreal    _^_EN $alt
+oregon      _^_EN $alt
+paul        _^_EN $alt
+reynolds    _^_EN $alt
 purvis      _^_EN
-sally       _^_EN
-washington  _^_EN
+sally       _^_EN $alt
+washington  _^_EN $alt
+white       _^_EN $alt
 new         _^_EN
-york        _^_EN
-chicago     _^_EN
+york        _^_EN $alt
+chicago     _^_EN $alt
 
-// French words
+// PB French words
 croissant   _^_FR
 croquis     _^_FR
 crouton     _^_FR
 jugement    _^_FR
+monsieur    _^_FR
+madame      _^_FR
+mademoiselle _^_FR
 
-// Word with stress on the next to last syllable
+// PB Words ending on -ig have stress on the previous syllable.
+// They keep the stress when a syllable is added after the word
+// e.g. agtv'ærdig - agtv'ærdighed
+// A 'u' can be placed before most of the words, and they'll still keep the stress
+// e.g. uagtv'ærdig - like English friendly, unfriendly.
+// However, if you add any other word in front of them,
+// they'll revert to normal stress e.g 'overagtværdig.
+// Quite a few words have been omittet because they are covered by other rules.
+// A large number of words beginning with u- have been removed.
+// A few words might not belong here - some of them I didn't know.
+adskillelig   $alt
+adskillig   $alt
+adstadig   $alt
+affældig   $alt
+afgrænselig   $alt
+afhængig   $alt
+aflæselig   $alt
+aflåselig   $alt
+afmægtig   $alt
+afsindig   $alt
+afskyelig   $alt
+afsættelig   $alt
+aftagelig   $alt
+aftenlig   $alt
+agterlig   $alt
+agtværdig   $alt
+alfaderlig   $alt
+almindelig   $alt
+almoderlig   $alt
+almægtig   $alt
+alvorlig   $alt
+amatøragtig   $alt
+andægtig   $alt
+anfægtelig   $alt
+angivelig   $alt
+angribelig   $alt
+anseelig   $alt
+anselig   $alt
+anskuelig   $alt
+anstændig   $alt
+anstødelig   $alt
+ansvarlig   $alt
+antagelig   $alt
+antændelig   $alt
+anvendelig   $alt
+appetitlig   $alt
+armodig   $alt
+balstyrig   $alt
+barmhjertig   $alt
+barnagtig   $alt
+bearbejdelig   $alt
+bermudarig   $alt
+biskoppelig   $alt
+bodfærdig   $alt
+bogstavelig   $alt
+brøstfældig   $alt
+definerlig   $alt
+delagtig   $alt
+diskontinuerlig   $alt
+drikfældig   $alt
+drilagtig   $alt
+dumdristig   $alt
+dværgagtig   $alt
+dybsindig   $alt
+efterrettelig   $alt
+eftertrykkelig   $alt
+efterviselig   $alt
+ejendommelig   $alt
+elendig   $alt
+elskværdig   $alt
+endrægtig   $alt
+enfoldig   $alt
+eventyrlig   $alt
+evindelig   $alt
+fantasirig   $alt
+fejlagtig   $alt
+figurlig   $alt
+finurlig   $alt
+foragtelig   $alt
+foranderlig   $alt
+forargelig   $alt
+forbindtlig   $alt
+fordelagtig   $alt
+fordragelig   $alt
+fordægtig   $alt
+fordærvelig   $alt
+fordøjelig   $alt
+fordømmelig   $alt
+forenelig   $alt
+forfængelig   $alt
+forfærdelig   $alt
+forgængelig   $alt
+forhåbentlig   $alt
+forkastelig   $alt
+forklarlig   $alt
+forkrænkelig   $alt
+forligelig   $alt
+formastelig   $alt
+formentlig   $alt
+formodentlig   $alt
+fornemmelig   $alt
+fornuftig   $alt
+fornærmelig   $alt
+fornøjelig   $alt
+forrådnelig   $alt
+forskrækkelig   $alt
+forskydelig   $alt
+forsmædelig   $alt
+forsonlig   $alt
+forstandig   $alt
+forståelig   $alt
+forsvarlig   $alt
+forsynlig   $alt
+forsætlig   $alt
+forsømmelig   $alt
+fortolkelig   $alt
+fortrinlig   $alt
+fortrolig   $alt
+fortrydelig   $alt
+fortrædelig   $alt
+fortræffelig   $alt
+forudseelig   $alt
+forudselig   $alt
+forudsigelig   $alt
+forunderlig   $alt
+forvekslelig   $alt
+forventelig   $alt
+fredsommelig   $alt
+fremkommelig   $alt
+frimodig   $alt
+fripostig   $alt
+frugtsommelig   $alt
+frygtagtig   $alt
+følgagtig   $alt
+gebommerlig   $alt
+gebrækkelig   $alt
+gejstlig   $alt
+geleagtig   $alt
+geléagtig   $alt
+gemenlig   $alt
+gemytlig   $alt
+genanvendelig   $alt
+genbrugelig   $alt
+genkendelig   $alt
+gennemførlig   $alt
+gennemsigtig   $alt
+gennemskinnelig   $alt
+gennemskuelig   $alt
+gennemtrængelig   $alt
+genopladelig   $alt
+genstridig   $alt
+gentagelig   $alt
+gesjæftig   $alt
+geskæftig   $alt
+gevaldig   $alt
+glorværdig   $alt
+goddædig   $alt
+godmodig   $alt
+godvillig   $alt
+grangivelig   $alt
+grinagtig   $alt
+guddommelig   $alt
+gudfrygtig   $alt
+gudsbespottelig   $alt
+gudsjammerlig   $alt
+gudvelbehagelig   $alt
+halsstarrig   $alt
+helbredelig   $alt
+herskabelig   $alt
+hertugelig   $alt
+hovedsagelig   $alt
+hovmodig   $alt
+huldsalig   $alt
+huskværdig   $alt
+husmoderlig   $alt
+højadelig   $alt
+højmodig   $alt
+højtidelig   $alt
+højærværdig   $alt
+håndgribelig   $alt
+håndterlig   $alt
+ihærdig   $alt
+indløselig   $alt
+indskrivelig   $alt
+indstillelig   $alt
+indstændig   $alt
+indvendig   $alt
+jomfruelig   $alt
+kammeratlig   $alt
+kedsommelig   $alt
+kivagtig   $alt
+klejnmodig   $alt
+koldblodig   $alt
+koldsindig   $alt
+kontinuerlig   $alt
+kontraktlig   $alt
+korporlig   $alt
+kortelig   $alt
+kradsbørstig   $alt
+krampagtig   $alt
+krampeagtig   $alt
+krasbørstig   $alt
+kreperlig   $alt
+kulturlig   $alt
+kunstfærdig   $alt
+kurfyrstelig   $alt
+kutterrig   $alt
+kvindagtig   $alt
+landflygtig   $alt
+landskabelig   $alt
+langmodig   $alt
+langsommelig   $alt
+lastværdig   $alt
+lavadelig   $alt
+lebendig   $alt
+lemfældig   $alt
+letantændelig   $alt
+letfærdig   $alt
+letopløselig   $alt
+letpåvirkelig   $alt
+letsindig   $alt
+lidenskabelig   $alt
+livagtig   $alt
+livsalig   $alt
+lovformelig   $alt
+lovmedholdelig   $alt
+lovmedholdig   $alt
+luvgerrig   $alt
+luvgirig   $alt
+lyksalig   $alt
+læseværdig   $alt
+løgnagtig   $alt
+løsagtig   $alt
+mandhaftig   $alt
+manerlig   $alt
+manérlig   $alt
+mangfoldig   $alt
+medgørlig   $alt
+mistrøstig   $alt
+mistænkelig   $alt
+misundelig   $alt
+misundelsesværdig   $alt
+modbydelig   $alt
+modtagelig   $alt
+mærkværdig   $alt
+møjsommelig   $alt
+naragtig   $alt
+naturfaglig   $alt
+navnkundig   $alt
+nedbrydelig   $alt
+nederdrægtig   $alt
+nedfældelig   $alt
+nordvestlig   $alt
+nordøstlig   $alt
+nødtørftig   $alt
+nødvendig   $alt
+nøjagtig   $alt
+obsternasig   $alt
+ombyttelig   $alt
+ombøjelig   $alt
+omgængelig   $alt
+omhyggelig   $alt
+omkringsædig   $alt
+omskiftelig   $alt
+omskrivelig   $alt
+omstillelig   $alt
+omstændelig   $alt
+omstødelig   $alt
+omsættelig   $alt
+omtrentlig   $alt
+omtvistelig   $alt
+omvekslelig   $alt
+opbyggelig   $alt
+opdrivelig   $alt
+opfattelig   $alt
+opladelig   $alt
+oplukkelig   $alt
+opløselig   $alt
+opnåelig   $alt
+oppustelig   $alt
+oprigtig   $alt
+oprindelig   $alt
+opsigelig   $alt
+opsætsig   $alt
+opsættelig   $alt
+optænkelig   $alt
+orkanagtig   $alt
+overdådig   $alt
+overflødig   $alt
+overhørig   $alt
+overkommelig   $alt
+overmægtig   $alt
+overordentlig   $alt
+oversigtlig   $alt
+overskuelig   $alt
+oversædig   $alt
+oversættelig   $alt
+overvindelig   $alt
+perspektivrig   $alt
+pertentlig   $alt
+peteranstændig   $alt
+pinagtig   $alt
+prisværdig   $alt
+proteinrig   $alt
+pudseløjerlig   $alt
+pudserlig   $alt
+pålidelig   $alt
+påpasselig   $alt
+påregnelig   $alt
+påståelig   $alt
+påtagelig   $alt
+påvirkelig   $alt
+påviselig   $alt
+regederlig   $alt
+sagtmodig   $alt
+samdrægtig   $alt
+samhørig   $alt
+sammenfoldelig   $alt
+sammenklappelig   $alt
+sammenlignelig   $alt
+sammentrækkelig   $alt
+sandfærdig   $alt
+sandsynlig   $alt
+selskabelig   $alt
+selvbehagelig   $alt
+selvfølgelig   $alt
+sendrægtig   $alt
+seværdig   $alt
+skabagtig   $alt
+skalkagtig   $alt
+skarpsindig   $alt
+skurkagtig   $alt
+slagfærdig   $alt
+slyngelagtig   $alt
+snakkesalig   $alt
+spagfærdig   $alt
+sparsommelig   $alt
+spidsfindig   $alt
+splidagtig   $alt
+standhaftig   $alt
+stilfærdig   $alt
+storagtig   $alt
+stormægtig   $alt
+strafskyldig   $alt
+strafværdig   $alt
+svigagtig   $alt
+sydvestlig   $alt
+sydøstlig   $alt
+sædvanlig   $alt
+sørgmodig   $alt
+taknemlig   $alt
+taknemmelig   $alt
+takskyldig   $alt
+tilbøjelig   $alt
+tilbørlig   $alt
+tilforladelig   $alt
+tilfældig   $alt
+tilgivelig   $alt
+tilgængelig   $alt
+tilladelig   $alt
+tilregnelig   $alt
+tilrådelig   $alt
+tilstedelig   $alt
+tilstrækkelig   $alt
+treenig   $alt
+trikinholdig   $alt
+troskyldig   $alt
+troværdig   $alt
+trykfærdig   $alt
+tungsindig   $alt
+tvivlagtig   $alt
+tvivlrådig   $alt
+tyvagtig   $alt
+tålmodig   $alt
+vankundig   $alt
+vederheftig   $alt
+vederhæftig   $alt
+vederstyggelig   $alt
+velanstændig   $alt
+velbehagelig   $alt
+velbyrdig   $alt
+veldædig   $alt
+velærværdig   $alt
+vemodig   $alt
+Venedig   $alt
+venskabelig   $alt
+videbegærlig   $alt
+videnskabelig   $alt
+viderværdig   $alt
+vidtløftig   $alt
+vidunderlig   $alt
+vildrådig   $alt
+vilkårlig   $alt
+vindskibelig   $alt
+værsartig   $alt
+ynkværdig   $alt
+ædruelig   $alt
+ægteskabelig   $alt
+ærbødig   $alt
+ærefrygtig   $alt
+ærgerrig   $alt
+ærværdig   $alt
+ømfindtlig   $alt
+ømtålelig   $alt
+ømtålig   $alt
+ønskværdig   $alt
+åbenhjertig   $alt
+
+// words ending with -ri: stress on the last syllable
+aksonometri   $alt
+alfonseri   $alt
+allegori   $alt
+anderi   $alt
+angiveri   $alt
+artilleri   $alt
+artisteri   $alt
+audiometri   $alt
+bageri   $alt
+barbari   $alt
+batteri   $alt
+bedrageri   $alt
+berederi   $alt
+betleri   $alt
+bigotteri   $alt
+bijouteri   $alt
+binderi   $alt
+biometri   $alt
+bizarreri   $alt
+broderi   $alt
+bryderi   $alt
+bryggeri   $alt
+brænderi   $alt
+bulteri   $alt
+buntmageri   $alt
+byggeri   $alt
+causeri   $alt
+charcuteri   $alt
+charlataneri   $alt
+chikaneri   $alt
+densitometri   $alt
+destilleri   $alt
+difteri   $alt
+dilettanteri   $alt
+djævleri   $alt
+draperi   $alt
+drejeri   $alt
+drikkeri   $alt
+drilleri   $alt
+driveri   $alt
+drømmeri   $alt
+dysenteri   $alt
+dødbideri   $alt
+egocentri   $alt
+empiri   $alt
+epigoneri   $alt
+eufori   $alt
+falskneri   $alt
+fantasteri   $alt
+farveri   $alt
+fasaneri   $alt
+fedteri   $alt
+fifleri   $alt
+filisteri   $alt
+fiskeri   $alt
+fjolleri   $alt
+foniatri   $alt
+formynderi   $alt
+forræderi   $alt
+fotometri   $alt
+fribytteri   $alt
+frieri   $alt
+frimureri   $alt
+fritænkeri   $alt
+fusentasteri   $alt
+fuskeri   $alt
+fyrværkeri   $alt
+færgeri   $alt
+føleri   $alt
+galanteri   $alt
+galleri   $alt
+gartneri   $alt
+garveri   $alt
+gendarmeri   $alt
+gendøberi   $alt
+genremaleri   $alt
+geometri   $alt
+geriatri   $alt
+gnaveri   $alt
+gnideri   $alt
+gnieri   $alt
+griseri   $alt
+grubleri   $alt
+gynandri   $alt
+havari   $alt
+hekseri   $alt
+hoveri   $alt
+huri   $alt
+hvori   $alt
+hykleri   $alt
+hypokondri   $alt
+hysteri   $alt
+hæleri   $alt
+hærderi   $alt
+hønseri   $alt
+idolatri   $alt
+industri   $alt
+infanteri   $alt
+infirmeri   $alt
+isometri   $alt
+jageri   $alt
+japperi   $alt
+jaskeri   $alt
+jobberi   $alt
+juleri   $alt
+juristeri   $alt
+kammerateri   $alt
+kantori   $alt
+karosseri   $alt
+karrieremageri   $alt
+karrosseri   $alt
+karteri   $alt
+kategori   $alt
+kavaleri   $alt
+kineseri   $alt
+kissemisseri   $alt
+klammeri   $alt
+klamphuggeri   $alt
+klatteri   $alt
+klimpreri   $alt
+klovneri   $alt
+kniberi   $alt
+knirkeri   $alt
+kobleri   $alt
+kogeri   $alt
+kogleri   $alt
+koketteri   $alt
+kolibri   $alt
+kolorimetri   $alt
+komparseri   $alt
+konditori   $alt
+kondomeri   $alt
+koteri   $alt
+kradseri   $alt
+krakileri   $alt
+kronometri   $alt
+krukkeri   $alt
+krydderi   $alt
+kujoneri   $alt
+kunstleri   $alt
+kurmageri   $alt
+kvaksalveri   $alt
+kvanteteori   $alt
+kværulanteri   $alt
+kæleri   $alt
+kæresteri   $alt
+kætteri   $alt
+kævleri   $alt
+københavneri   $alt
+lakereri   $alt
+lampisteri   $alt
+lapperi   $alt
+lapseri   $alt
+lefleri   $alt
+liberi   $alt
+liebhaveri   $alt
+ligemageri   $alt
+lingeri   $alt
+lodseri   $alt
+lotteri   $alt
+lumskeri   $alt
+luskeri   $alt
+lækkeri   $alt
+løsgængeri   $alt
+maleri   $alt
+malteri   $alt
+maltgøreri   $alt
+markskrigeri   $alt
+maskineri   $alt
+mejeri   $alt
+menageri   $alt
+mosteri   $alt
+myrderi   $alt
+mytteri   $alt
+mælkeri   $alt
+mølleri   $alt
+narreri   $alt
+natteroderi   $alt
+nådleri   $alt
+ombryderi   $alt
+optometri   $alt
+optrækkeri   $alt
+orangeri   $alt
+ordgyderi   $alt
+ordkløveri   $alt
+osteri   $alt
+overløberi   $alt
+pakkeri   $alt
+pamperi   $alt
+pandekageri   $alt
+papisteri   $alt
+parfumeri   $alt
+pedanteri   $alt
+periferi   $alt
+pikanteri   $alt
+pilleri   $alt
+pimperi   $alt
+pinderi   $alt
+pirateri   $alt
+pjækkeri   $alt
+plageri   $alt
+plangeometri   $alt
+plattenslageri   $alt
+polyandri   $alt
+polycentri   $alt
+potpourri   $alt
+praleri   $alt
+privateri   $alt
+psykiatri   $alt
+pædiatri   $alt
+rabulisteri   $alt
+raffinaderi   $alt
+rapseri   $alt
+raseri   $alt
+rederi   $alt
+reguladetri   $alt
+renseri   $alt
+rethaveri   $alt
+risteri   $alt
+roderi   $alt
+rotisseri   $alt
+rufferi   $alt
+rugeri   $alt
+rytteri   $alt
+røgeri   $alt
+røveri   $alt
+salateri   $alt
+salteri   $alt
+sceneri   $alt
+sjaskeri   $alt
+sjuskeri   $alt
+skaberi   $alt
+skidteri   $alt
+skilderi   $alt
+skomageri   $alt
+skribleri   $alt
+skriveri   $alt
+skruebrækkeri   $alt
+skrædderi   $alt
+skulkeri   $alt
+skumleri   $alt
+skyderi   $alt
+skylleri   $alt
+skælmeri   $alt
+skænderi   $alt
+skætteri   $alt
+slagteri   $alt
+slaveri   $alt
+sliberi   $alt
+slikkeri   $alt
+sløseri   $alt
+smelteri   $alt
+smigreri   $alt
+smugleri   $alt
+smøleri   $alt
+smøreri   $alt
+småtteri   $alt
+snedkeri   $alt
+snerperi   $alt
+snobberi   $alt
+snyderi   $alt
+sofisteri   $alt
+solderi   $alt
+spinderi   $alt
+spytslikkeri   $alt
+spøgeri   $alt
+stereometri   $alt
+stikkeri   $alt
+stikleri   $alt
+strikkeri   $alt
+strygeri   $alt
+stutteri   $alt
+støberi   $alt
+støkiometri   $alt
+surmuleri   $alt
+svindleri   $alt
+svineri   $alt
+sværmeri   $alt
+symmetri   $alt
+sætteri   $alt
+sørøveri   $alt
+tapperi   $alt
+telemetri   $alt
+teori   $alt
+tiggeri   $alt
+tilskæreri   $alt
+tosseri   $alt
+trakasseri   $alt
+trigonometri   $alt
+trolderi   $alt
+trykkeri   $alt
+trylleri   $alt
+tyveri   $alt
+tøjeri   $alt
+tørreri   $alt
+valkeri   $alt
+vaskeri   $alt
+vindmageri   $alt
+virtuoseri   $alt
+vrøvleri   $alt
+væveri   $alt
+våseri   $alt
+æreskænderi   $alt
+øjentjeneri   $alt
+økonometri   $alt
+
+// PB verbs ending with -ere with stress on the next to last syllable
 abandonnere   $alt
 abbreviere   $alt
 abdicere   $alt
@@ -402,7 +1127,6 @@ accentuere   $alt
 acceptere   $alt
 adaptere   $alt
 addere   $alt
-adfærdsregulere   $alt
 adhærere   $alt
 adjungere   $alt
 administrere   $alt
@@ -414,40 +1138,9 @@ adsorbere   $alt
 adstringere   $alt
 advisere   $alt
 advokere   $alt
-afbalancere   $alt
-afbureaukratisere   $alt
-afdisputere   $alt
-afdramatisere   $alt
 afficere   $alt
-affotografere   $alt
-afhumanisere   $alt
-afideologisere   $alt
-afindustrialisere   $alt
-afinstallere   $alt
-afkolonisere   $alt
-afkontrollere   $alt
-afkriminalisere   $alt
-afmagnetisere   $alt
 afmarchere   $alt
-afmilitarisere   $alt
-afmontere   $alt
-afmystificere   $alt
-afmytologisere   $alt
-afnationalisere   $alt
-afnazificere   $alt
-afparere   $alt
-afpatruljere   $alt
-afpersonalisere   $alt
-afpolitisere   $alt
-afprivatisere   $alt
-afrapportere   $alt
-afreagere   $alt
-afregulere   $alt
 afrikanisere   $alt
-afspadsere   $alt
-afstabilisere   $alt
-aftabuere   $alt
-aftabuisere   $alt
 agere   $alt
 aggravere   $alt
 aggregere   $alt
@@ -578,15 +1271,6 @@ bogstavere   $alt
 bombardere   $alt
 bonbonniere   $alt
 bonitere   $alt
-bortadoptere   $alt
-bortauktionere   $alt
-bortcensurere   $alt
-borteliminere   $alt
-borteskamotere   $alt
-bortlicitere   $alt
-bortoperere   $alt
-bortrationalisere   $alt
-bortsanere   $alt
 botanisere   $alt
 braisere   $alt
 brikettere   $alt
@@ -595,7 +1279,6 @@ brochere   $alt
 brodere   $alt
 bronkoskopere   $alt
 bronzere   $alt
-brugerfinansiere   $alt
 brunere   $alt
 brutalisere   $alt
 bruyere   $alt
@@ -639,21 +1322,17 @@ debattere   $alt
 debitere   $alt
 debutere   $alt
 decelerere   $alt
-decentralisere   $alt
 dechifrere   $alt
 decidere   $alt
 decimere   $alt
 dedicere   $alt
 dedikere   $alt
 deducere   $alt
-deeskalere   $alt
 defilere   $alt
 definere   $alt
 deflorere   $alt
 deformere   $alt
-degenerere   $alt
 degradere   $alt
-dehumanisere   $alt
 dehydrere   $alt
 dekantere   $alt
 dekatere   $alt
@@ -662,7 +1341,6 @@ deklarere   $alt
 deklassere   $alt
 deklinere   $alt
 dekomponere   $alt
-dekonstruere   $alt
 dekorere   $alt
 dekretere   $alt
 dekupere   $alt
@@ -670,24 +1348,15 @@ delegere   $alt
 delikatere   $alt
 delirere   $alt
 demarkere   $alt
-demaskere   $alt
-dematerialisere   $alt
 dementere   $alt
-demilitarisere   $alt
 demissionere   $alt
-demobilisere   $alt
 demokratisere   $alt
 demolere   $alt
 demonstrere   $alt
-//demontere   $alt
-demoralisere   $alt
-demotivere   $alt
-denationalisere   $alt
 denaturere   $alt
 denotere   $alt
 denuntiere   $alt
 deodorisere   $alt
-depersonalisere   $alt
 depilere   $alt
 deplacere   $alt
 deployere   $alt
@@ -700,23 +1369,14 @@ deputere   $alt
 deregulere   $alt
 derivere   $alt
 desarmere   $alt
-desavouere   $alt
 desertere   $alt
 designere   $alt
-desillusionere   $alt
 desinficere   $alt
 desinformere   $alt
-desintegrere   $alt
-desinteressere   $alt
-desorganisere   $alt
-desorientere   $alt
-destabilisere   $alt
 destillere   $alt
 destinere   $alt
 destruere   $alt
 detachere   $alt
-detailprojektere   $alt
-detaljeprojektere   $alt
 detaljere   $alt
 detektere   $alt
 determinere   $alt
@@ -789,15 +1449,12 @@ duettere   $alt
 dupere   $alt
 duplicere   $alt
 duplikere   $alt
-dyrtidsregulere   $alt
 dæmonisere   $alt
 editere   $alt
 effektivisere   $alt
 effektuere   $alt
 efterdatere   $alt
 efterisolere   $alt
-efterrationalisere   $alt
-eftersynkronisere   $alt
 egalisere   $alt
 ejakulere   $alt
 eksaminere   $alt
@@ -843,7 +1500,6 @@ emittere   $alt
 emulere   $alt
 emulgere   $alt
 endossere   $alt
-endvidere   $alt
 engagere   $alt
 ensilere   $alt
 entrere   $alt
@@ -1958,7 +2614,6 @@ skvadronere   $alt
 smukkesere   $alt
 snarere   $alt
 snedkerere   $alt
-snigpremiere   $alt
 socialisere   $alt
 soignere   $alt
 solidarisere   $alt
@@ -2167,7 +2822,6 @@ versere   $alt
 versificere   $alt
 versionere   $alt
 vibrere   $alt
-//videre   $alt
 vidimere   $alt
 vikariere   $alt
 vindicere   $alt
@@ -2179,7 +2833,6 @@ vitalisere   $alt
 vitaminisere   $alt
 vivisekere   $alt
 vokalisere   $alt
-voliere   $alt
 voltampere   $alt
 voltere   $alt
 voltigere   $alt
@@ -2190,11 +2843,1351 @@ vulkanisere   $alt
 vurdere   $alt
 xerografere   $alt
 xylografere   $alt
-ydermere   $alt
 ækvivalere   $alt
 æstetisere   $alt
 økonomisere   $alt
 
+// PB nouns ending with -ion with stress on the last syllable
+abbreviation   $alt
+abdikation   $alt
+aberration   $alt
+absentation   $alt
+absolution   $alt
+absorption   $alt
+abstraktion   $alt
+acceleration   $alt
+accentuation   $alt
+acceptation   $alt
+accession   $alt
+adaptation   $alt
+adaption   $alt
+addition   $alt
+adhæsion   $alt
+administration   $alt
+admission   $alt
+adnotation   $alt
+adoption   $alt
+adsorption   $alt
+affektation   $alt
+affektion   $alt
+affirmation   $alt
+afreaktion   $alt
+agglutination   $alt
+aggravation   $alt
+aggression   $alt
+agitation   $alt
+akklamation   $alt
+akklimatisation   $alt
+akkommodation   $alt
+akkumulation   $alt
+akkvisition   $alt
+aktion   $alt
+alimentation   $alt
+allitteration   $alt
+allokation   $alt
+allusion   $alt
+alteration   $alt
+alternation   $alt
+amalgamation   $alt
+ambition   $alt
+ammunition   $alt
+amortisation   $alt
+amputation   $alt
+animation   $alt
+anion   $alt
+anneksion   $alt
+annotation   $alt
+anticipation   $alt
+antikonception   $alt
+apparition   $alt
+applikation   $alt
+apposition   $alt
+approbation   $alt
+approksimation   $alt
+argumentation   $alt
+arrestation   $alt
+artikulation   $alt
+aspiration   $alt
+assertion   $alt
+assimilation   $alt
+association   $alt
+attestation   $alt
+attraktion   $alt
+attribution   $alt
+audition   $alt
+augmentation   $alt
+auktion   $alt
+auskultation   $alt
+autentifikation   $alt
+automation   $alt
+autorisation   $alt
+aversion   $alt
+ballotation   $alt
+bastion   $alt
+benediktion   $alt
+billion   $alt
+centralisation   $alt
+cirkulation   $alt
+citation   $alt
+civilisation   $alt
+coverversion   $alt
+decision   $alt
+dedikation   $alt
+deduktion   $alt
+defibrillation   $alt
+definition   $alt
+deflation   $alt
+defloration   $alt
+deformation   $alt
+defækation   $alt
+degression   $alt
+deklamation   $alt
+deklaration   $alt
+deklination   $alt
+dekoration   $alt
+delegation   $alt
+demarkation   $alt
+demission   $alt
+demonstration   $alt
+denotation   $alt
+denuntiation   $alt
+depilation   $alt
+deportation   $alt
+depravation   $alt
+depression   $alt
+deprivation   $alt
+deputation   $alt
+derivation   $alt
+desertation   $alt
+desertion   $alt
+designation   $alt
+desinfektion   $alt
+deskription   $alt
+desperation   $alt
+destillation   $alt
+destination   $alt
+destruktion   $alt
+detention   $alt
+determination   $alt
+detonation   $alt
+deviation   $alt
+devotion   $alt
+differentiation   $alt
+diffraktion   $alt
+diffusion   $alt
+digestion   $alt
+digression   $alt
+diktion   $alt
+dilatation   $alt
+dimension   $alt
+dimission   $alt
+direktion   $alt
+diskretion   $alt
+diskrimination   $alt
+diskussion   $alt
+dispensation   $alt
+dispersion   $alt
+disposition   $alt
+disproportion   $alt
+dissektion   $alt
+dissimilation   $alt
+dissociation   $alt
+distinktion   $alt
+distraktion   $alt
+distribution   $alt
+diversifikation   $alt
+diversion   $alt
+divination   $alt
+division   $alt
+dokumentation   $alt
+donation   $alt
+dotation   $alt
+duplikation   $alt
+dysfunktion   $alt
+edition   $alt
+ejakulation   $alt
+eksaltation   $alt
+eksamination   $alt
+eksekution   $alt
+eksemplifikation   $alt
+eksklusion   $alt
+ekskommunikation   $alt
+ekskursion   $alt
+ekspansion   $alt
+ekspatriation   $alt
+ekspedition   $alt
+eksplikation   $alt
+eksploration   $alt
+eksplosion   $alt
+eksposition   $alt
+ekspropriation   $alt
+eksspiration   $alt
+ekstension   $alt
+ekstinktion   $alt
+ekstraktion   $alt
+ekstrapolation   $alt
+ekstraposition   $alt
+ekstroversion   $alt
+elevation   $alt
+elimination   $alt
+elision   $alt
+emanation   $alt
+emancipation   $alt
+emendation   $alt
+emigration   $alt
+emission   $alt
+emotion   $alt
+emulsion   $alt
+erektion   $alt
+erosion   $alt
+eruption   $alt
+eskalation   $alt
+evaporation   $alt
+evasion   $alt
+evolution   $alt
+excision   $alt
+fabrikation   $alt
+fabulation   $alt
+faktion   $alt
+falsifikation   $alt
+fascination   $alt
+federation   $alt
+fermentation   $alt
+fertilisation   $alt
+fibrillation   $alt
+figuration   $alt
+fiktion   $alt
+fission   $alt
+flagellation   $alt
+fleksion   $alt
+flotation   $alt
+fluktuation   $alt
+formation   $alt
+fortifikation   $alt
+fragmentation   $alt
+fraktion   $alt
+friktion   $alt
+frustration   $alt
+fundation   $alt
+funktion   $alt
+fusion   $alt
+føderation   $alt
+galion   $alt
+gemination   $alt
+generalisation   $alt
+generation   $alt
+gestikulation   $alt
+glaciation   $alt
+glorifikation   $alt
+gradation   $alt
+graduation   $alt
+granulation   $alt
+gratifikation   $alt
+gratulation   $alt
+gravitation   $alt
+habituation   $alt
+hallucination   $alt
+identifikation   $alt
+illumination   $alt
+illusion   $alt
+illustration   $alt
+imitation   $alt
+immatrikulation   $alt
+immigration   $alt
+immission   $alt
+immobilisation   $alt
+implantation   $alt
+implikation   $alt
+implosion   $alt
+improvisation   $alt
+incitation   $alt
+indignation   $alt
+indikation   $alt
+indiskretion   $alt
+indisposition   $alt
+individuation   $alt
+indoperation   $alt
+induktion   $alt
+infektion   $alt
+infiltration   $alt
+inflammation   $alt
+inflation   $alt
+information   $alt
+infusion   $alt
+inhalation   $alt
+inhibition   $alt
+initiation   $alt
+injektion   $alt
+inkamination   $alt
+inkarnation   $alt
+inkassation   $alt
+inklination   $alt
+inklusion   $alt
+inkorporation   $alt
+inkubation   $alt
+inkvisition   $alt
+innovation   $alt
+inokulation   $alt
+insemination   $alt
+insinuation   $alt
+inskription   $alt
+inspektion   $alt
+inspiration   $alt
+installation   $alt
+institution   $alt
+instruktion   $alt
+instrumentation   $alt
+insubordination   $alt
+integration   $alt
+intension   $alt
+intention   $alt
+interaktion   $alt
+interjektion   $alt
+interpellation   $alt
+interpolation   $alt
+interpretation   $alt
+interpunktion   $alt
+interrogation   $alt
+intervention   $alt
+intimidation   $alt
+intonation   $alt
+introduktion   $alt
+introspektion   $alt
+introversion   $alt
+intuition   $alt
+invasion   $alt
+invention   $alt
+inversion   $alt
+invitation   $alt
+ionisation   $alt
+irritation   $alt
+isolation   $alt
+jonisation   $alt
+junktion   $alt
+jurisdiktion   $alt
+justifikation   $alt
+kalkulation   $alt
+kanalisation   $alt
+kanonisation   $alt
+kapitulation   $alt
+karnation   $alt
+kassation   $alt
+kastration   $alt
+katekisation   $alt
+kation   $alt
+kaution   $alt
+kavitation   $alt
+klassifikation   $alt
+koagulation   $alt
+koalition   $alt
+kodifikation   $alt
+kognition   $alt
+kohæsion   $alt
+kollaboration   $alt
+kollation   $alt
+kollektion   $alt
+kollision   $alt
+kollokation   $alt
+kolonisation   $alt
+kombination   $alt
+kommission   $alt
+kommunikation   $alt
+kommunion   $alt
+kommutation   $alt
+komparation   $alt
+kompensation   $alt
+kompilation   $alt
+komplikation   $alt
+komposition   $alt
+kompression   $alt
+koncentration   $alt
+konception   $alt
+koncession   $alt
+kondemnation   $alt
+kondensation   $alt
+kondition   $alt
+kondolation   $alt
+konfederation   $alt
+konfektion   $alt
+konfession   $alt
+konfiguration   $alt
+konfirmation   $alt
+konfiskation   $alt
+konfrontation   $alt
+konfusion   $alt
+konføderation   $alt
+kongestion   $alt
+kongregation   $alt
+konjugation   $alt
+konjunktion   $alt
+konklusion   $alt
+konkretion   $alt
+konneksion   $alt
+konnotation   $alt
+konsekration   $alt
+konsignation   $alt
+konspiration   $alt
+konstellation   $alt
+konsternation   $alt
+konstipation   $alt
+konstitution   $alt
+konstriktion   $alt
+konstruktion   $alt
+konsultation   $alt
+konsumption   $alt
+konsumtion   $alt
+kontamination   $alt
+kontemplation   $alt
+kontinuation   $alt
+kontraktion   $alt
+kontribution   $alt
+kontusion   $alt
+konvektion   $alt
+konvention   $alt
+konversation   $alt
+konversion   $alt
+konvulsion   $alt
+kooperation   $alt
+koordination   $alt
+kopulation   $alt
+korporation   $alt
+korrektion   $alt
+korrelation   $alt
+korrosion   $alt
+korruption   $alt
+kreation   $alt
+kremation   $alt
+krystallisation   $alt
+kulmination   $alt
+kumulation   $alt
+kvadration   $alt
+kvadrillion   $alt
+kvalifikation   $alt
+kvintillion   $alt
+laktation   $alt
+lamentation   $alt
+legalisation   $alt
+legation   $alt
+legion   $alt
+legitimation   $alt
+lektion   $alt
+licitation   $alt
+likvidation   $alt
+luksation   $alt
+læsion   $alt
+manifestation   $alt
+manipulation   $alt
+manuduktion   $alt
+masturbation   $alt
+materialisation   $alt
+meditation   $alt
+menstruation   $alt
+migration   $alt
+million   $alt
+mission   $alt
+moderation   $alt
+modifikation   $alt
+modulation   $alt
+mortifikation   $alt
+motion   $alt
+motivation   $alt
+multiplikation   $alt
+mumifikation   $alt
+mutation   $alt
+mystifikation   $alt
+nation   $alt
+naturalisation   $alt
+navigation   $alt
+negation   $alt
+neutralisation   $alt
+nomination   $alt
+notation   $alt
+notifikation   $alt
+novation   $alt
+obduktion   $alt
+obligation   $alt
+observation   $alt
+obstipation   $alt
+obstruction   $alt
+obstruktion   $alt
+okkupation   $alt
+okulation   $alt
+ondulation   $alt
+operation   $alt
+opinion   $alt
+opposition   $alt
+option   $alt
+ordination   $alt
+organisation   $alt
+oscillation   $alt
+ovation   $alt
+ovulation   $alt
+oxidation   $alt
+participation   $alt
+passion   $alt
+pension   $alt
+perception   $alt
+perfektion   $alt
+perforation   $alt
+perkussion   $alt
+permission   $alt
+permutation   $alt
+perseveration   $alt
+personifikation   $alt
+perturbation   $alt
+perversion   $alt
+petition   $alt
+polarisation   $alt
+pollution   $alt
+polymerisation   $alt
+population   $alt
+portion   $alt
+position   $alt
+pression   $alt
+prion   $alt
+procession   $alt
+produktion   $alt
+profanation   $alt
+profession   $alt
+progression   $alt
+projektion   $alt
+proklamation   $alt
+prolongation   $alt
+promotion   $alt
+proportion   $alt
+proposition   $alt
+proskription   $alt
+prostitution   $alt
+protektion   $alt
+provision   $alt
+provokation   $alt
+præcision   $alt
+prædiktion   $alt
+prænumeration   $alt
+præparation   $alt
+præposition   $alt
+præsentation   $alt
+præstation   $alt
+præsupposition   $alt
+prætention   $alt
+prævention   $alt
+publikation   $alt
+pulsation   $alt
+punktaktion   $alt
+radiation   $alt
+ratifikation   $alt
+ratihabition   $alt
+ration   $alt
+reaktion   $alt
+realisation   $alt
+rebellion   $alt
+recension   $alt
+reception   $alt
+recession   $alt
+recitation   $alt
+redaktion   $alt
+reduktion   $alt
+refleksion   $alt
+reformation   $alt
+refraktion   $alt
+refusion   $alt
+region   $alt
+regression   $alt
+reifikation   $alt
+rejektion   $alt
+rekapitulation   $alt
+reklamation   $alt
+rekommandation   $alt
+rekompensation   $alt
+rekreation   $alt
+rektifikation   $alt
+rektion   $alt
+rekvisition   $alt
+relaksation   $alt
+relation   $alt
+relegation   $alt
+religion   $alt
+remonstration   $alt
+renovation   $alt
+reparation   $alt
+repartition   $alt
+repetition   $alt
+repression   $alt
+reproduktion   $alt
+repræsentation   $alt
+reputation   $alt
+reservation   $alt
+resignation   $alt
+resolution   $alt
+resorption   $alt
+respiration   $alt
+restauration   $alt
+restitution   $alt
+restriktion   $alt
+retardation   $alt
+retention   $alt
+retorsion   $alt
+retrofleksion   $alt
+retrospektion   $alt
+revision   $alt
+revolution   $alt
+rotation   $alt
+sanktion   $alt
+satisfaktion   $alt
+sedimentation   $alt
+segregation   $alt
+sekretion   $alt
+sektion   $alt
+selektion   $alt
+sensation   $alt
+separation   $alt
+session   $alt
+simplifikation   $alt
+simulation   $alt
+situation   $alt
+skansion   $alt
+skorpion   $alt
+socialisation   $alt
+solution   $alt
+specifikation   $alt
+spedition   $alt
+spekulation   $alt
+spion   $alt
+stadion   $alt
+stagflation   $alt
+stagnation   $alt
+station   $alt
+sterilisation   $alt
+stigmatisation   $alt
+stimulation   $alt
+stipulation   $alt
+strangulation   $alt
+stratifikation   $alt
+stæroperation   $alt
+sublimation   $alt
+subordination   $alt
+subskription   $alt
+substitution   $alt
+subsumption   $alt
+subsumtion   $alt
+subtraktion   $alt
+subvention   $alt
+succession   $alt
+suggestion   $alt
+supervision   $alt
+supposition   $alt
+suppression   $alt
+suspension   $alt
+symposion   $alt
+taksation   $alt
+television   $alt
+tension   $alt
+testation   $alt
+torsion   $alt
+tradition   $alt
+transaktion   $alt
+transfiguration   $alt
+transformation   $alt
+transfusion   $alt
+transition   $alt
+translation   $alt
+translitteration   $alt
+translokation   $alt
+transmission   $alt
+transpiration   $alt
+transplantation   $alt
+transposition   $alt
+transskription   $alt
+transsubstantiation   $alt
+trepanation   $alt
+triangulation   $alt
+trillion   $alt
+typifikation   $alt
+udkrystallisation   $alt
+union   $alt
+usurpation   $alt
+vaccination   $alt
+valorisation   $alt
+variation   $alt
+vegetation   $alt
+veneration   $alt
+ventilation   $alt
+verifikation   $alt
+versifikation   $alt
+version   $alt
+vibration   $alt
+vidimation   $alt
+vindikation   $alt
+vision   $alt
+visitation   $alt
+vivisektion   $alt
+vokalisation   $alt
+
+// -fon list (on)
+dodekafon   $alt
+frankofon   $alt
+grammofon   $alt
+homofon   $alt
+hydrofon   $alt
+kolofon   $alt
+megafon   $alt
+metallofon   $alt
+mikrofon   $alt
+polyfon   $alt
+saxofon   $alt
+sousafon   $alt
+telefon   $alt
+tyfon   $alt
+vibrafon   $alt
+videofon   $alt
+xylofon   $alt
+
+// -on list
+ballon b&l'VN $alt
+beton bet'VN $alt
+epsilon 'ebsilVn $alt
+futon fut'VN $alt
+føljeton fWljet'Vn $alt
+facon f&s'Vn $alt
+kupon kup'VN $alt
+postillon  p,Vsdilj'VN $alt
+salon s&l'VN $alt
+sifon sif'VN $alt
+talon t&l'VN $alt
+tampon tAmp'VN $alt
+
+// -tron list (on)
+betatron   $alt
+bevatron   $alt
+citron   $alt
+cyklotron   $alt
+elektron   $alt
+natron n'&:tRVn   $alt
+neutron   $alt
+patron   $alt
+plastron   $alt
+synkrocyklotron   $alt
+synkrotron   $alt
+
+// -kon list (VN/Vn/on)
+akrostikon akrVsdik'Vn   $alt
+balkon  b&lk'Vn   $alt
+diakon   $alt
+distikon  distik'Vn   $alt
+flakon fl&k'VN $alt
+ikon   $alt
+karakteristikon // Vn   $alt
+kokon  kok'VN   $alt
+leksikon // Vn   $alt
+onomatopoietikon // Vn   $alt
+panoptikon  // Vn   $alt
+patronymikon  p&tron'ymikVn   $alt
+perikon   //Vn   $alt
+psykofarmakon  // Vn   $alt
+zirkon   $alt
+
+// -gon list (Vn/VN/on)   $alt
+argon   'argVn   $alt
+dragon   $alt // military horseman
+epigon   $alt
+estragon  estRag'VN   $alt
+glukagon   $alt
+heksagon   $alt
+jargon SjArg'VN   $alt
+oktagon   $alt
+oktogon   $alt
+ortogon   $alt
+pentagon $alt // not "the Pentagon"
+polygon    $alt
+wagon v&g'VN   $alt
+
+// -son list (VN/on
+bison   b'isVn   $alt
+blouson blus'VN   $alt
+chanson  SjAns'VN   $alt
+garnison   $alt
+kortison   $alt
+liaison  li&s'VN   $alt
+meson   $alt
+person   $alt
+ræson   REs'VN   $alt
+sæson    sEs'VN   $alt
+unison   $alt
+
+// PB exceptions from the "be" rule in group "be"
+// and a few foreign words with [_) be (]
+bearbejde   $3
+bearbejdelig   $3
+bearbejdelse   $3
+bearbejder   $3
+bearbejdning   $3
+bechamel  beSam'e:l/3
+bechamelsauce  beSam'e:l/3s'O:s
+bechamelsovs   beSam'e:l/3s'Vws
+beduin   $3
+beduinstamme   $3
+beignet  beNe $2
+beignetdej  beNedaj $2
+bekkasin   $3
+belize  beli:s $2
+belizer  beli:sV $2
+belizisk beli:sisg  $2
+benedicere   $4
+benediktiner   $4
+benediktinerkloster   $4
+benefice   $3
+beneficeforestilling   $3
+beneficeret   $4
+beneficium   $3
+berceuse bErsW:s  $2
+bestialisering   $5
+bestialitet   $5
+bestyrerinde   $4
+
+// PB Nouns ending with -ist - stressed last syllable
+absolutist   $alt
+absurdist   $alt
+adventist   $alt
+aktionist   $alt
+aktivist   $alt
+akvarist   $alt
+alkoholist   $alt
+alkymist   $alt
+alpinist   $alt
+altruist   $alt
+anabaptist   $alt
+anarkist   $alt
+anglist   $alt
+annalist   $alt
+antagonist   $alt
+aorist   $alt
+argelist   $alt
+artillerist   $alt
+artist   $alt
+ateist   $alt
+atomist   $alt
+autist   $alt
+avantgardist   $alt
+baissist   $alt
+bandagist   $alt
+baptist   $alt
+bassist   $alt
+basunist   $alt
+batist   $alt
+behaviorist   $alt
+belletrist   $alt
+bigamist   $alt
+bilist   $alt
+bratschist   $alt
+buddhist   $alt
+buffist   $alt
+calvinist   $alt
+campist   $alt
+cellist   $alt
+cembalist   $alt
+chauvinist   $alt
+civilist   $alt
+columnist   $alt
+cyklist   $alt
+dadaist   $alt
+darwinist   $alt
+defaitist   $alt
+deist   $alt
+delirist   $alt
+dentist   $alt
+detaillist   $alt
+determinist   $alt
+dirigist   $alt
+diætist   $alt
+dokumentalist   $alt
+dokumentarist   $alt
+domorganist   $alt
+dragist   $alt
+drogist   $alt
+dualist   $alt
+egoist   $alt
+ekshibitionist   $alt
+eksistentialist   $alt
+eksorcist   $alt
+ekspressionist   $alt
+ekstremist   $alt
+ekvilibrist   $alt
+elitist   $alt
+empirist   $alt
+encyklopædist   $alt
+eskapist   $alt
+esperantist   $alt
+essayist   $alt
+evangelist   $alt
+evolutionist   $alt
+excerpist   $alt
+fagottist   $alt
+falangist   $alt
+fascist   $alt
+fatalist   $alt
+fauvist   $alt
+federalist   $alt
+feminist   $alt
+fetichist   $alt
+filatelist   $alt
+finalist   $alt
+florist   $alt
+fløjtenist   $alt
+fløjtist   $alt
+folklorist   $alt
+formalist   $alt
+fundamentalist   $alt
+funktionalist   $alt
+futurist   $alt
+færist   $alt
+føderalist   $alt
+gambist   $alt
+gardist   $alt
+gaullist   $alt
+generalist   $alt
+georgist   $alt
+germanist   $alt
+gratist   $alt
+grossist   $alt
+græcist   $alt
+guitarist   $alt
+harpenist   $alt
+harpist   $alt
+haussist   $alt
+havarist   $alt
+hedonist   $alt
+hellebardist   $alt
+hellenist   $alt
+hinduist   $alt
+historist   $alt
+hornist   $alt
+humanist   $alt
+humorist   $alt
+hønserist   $alt
+idealist   $alt
+illusionist   $alt
+imperialist   $alt
+impressionist   $alt
+indeterminist   $alt
+individualist   $alt
+industrialist   $alt
+infanterist   $alt
+instrumentalist   $alt
+intellektualist   $alt
+internationalist   $alt
+iranist   $alt
+islamist   $alt
+isolationist   $alt
+journalist   $alt
+judaist   $alt
+jurist   $alt
+kabbalist   $alt
+kancellist   $alt
+kapitalist   $alt
+kasuist   $alt
+kautionist   $alt
+kavalerist   $alt
+klarinettist   $alt
+klassicist   $alt
+klokkenist   $alt
+kokainist   $alt
+kollektivist   $alt
+kolonialist   $alt
+kolonist   $alt
+kolorist   $alt
+kommanditist   $alt
+kommunist   $alt
+kommunitarist   $alt
+komparatist   $alt
+komponist   $alt
+koncipist   $alt
+konformist   $alt
+konkretist   $alt
+konstruktivist   $alt
+kontorist   $alt
+kopist   $alt
+korist   $alt
+kornettist   $alt
+kreationist   $alt
+kriminalist   $alt
+kubist   $alt
+kulturist   $alt
+kursist   $alt
+lagerist   $alt
+lamaist   $alt
+lampist   $alt
+latinist   $alt
+legitimist   $alt
+leninist   $alt
+liberalist   $alt
+librettist   $alt
+lingvist   $alt
+livrist   $alt
+lobbyist   $alt
+loyalist   $alt
+lutenist   $alt
+manicurist   $alt
+manierist   $alt
+manufakturist   $alt
+maoist   $alt
+marxist   $alt
+maskinist   $alt
+masochist   $alt
+materialist   $alt
+mejerist   $alt
+merkantilist   $alt
+metodist   $alt
+militarist   $alt
+minimalist   $alt
+modernist   $alt
+modist   $alt
+monarkist   $alt
+monetarist   $alt
+monist   $alt
+monopolist   $alt
+monoteist   $alt
+moralist   $alt
+morfinist   $alt
+motionist   $alt
+mytterist   $alt
+naivist   $alt
+narcissist   $alt
+nationalist   $alt
+nationalsocialist   $alt
+naturalist   $alt
+naturist   $alt
+nazist   $alt
+negativist   $alt
+neutralist   $alt
+nihilist   $alt
+nordist   $alt
+novellist   $alt
+nudist   $alt
+oboist   $alt
+obskurantist   $alt
+okkultist   $alt
+onanist   $alt
+operist   $alt
+opportunist   $alt
+optimist   $alt
+optometrist   $alt
+organist   $alt
+orientalist   $alt
+ortopædist   $alt
+pacifist   $alt
+pamfletist   $alt
+panelist   $alt
+panteist   $alt
+papist   $alt
+parcellist   $alt
+parodist   $alt
+partikularist   $alt
+paukist   $alt
+pensionist   $alt
+perfektionist   $alt
+perkussionist   $alt
+pessimist   $alt
+pianist   $alt
+pietist   $alt
+pluralist   $alt
+podagrist   $alt
+pointillist   $alt
+polygamist   $alt
+polyteist   $alt
+populist   $alt
+positivist   $alt
+primitivist   $alt
+privatist   $alt
+professionalist   $alt
+prokurist   $alt
+propagandist   $alt
+prosaist   $alt
+protektionist   $alt
+præliminarist   $alt
+publicist   $alt
+purist   $alt
+rabulist   $alt
+racist   $alt
+radikalist   $alt
+rationalist   $alt
+realist   $alt
+receptionist   $alt
+recidivist   $alt
+reformist   $alt
+regionalist   $alt
+relativist   $alt
+reservist   $alt
+revanchist   $alt
+revisionist   $alt
+rigorist   $alt
+romanist   $alt
+royalist   $alt
+sadist   $alt
+sadomasochist   $alt
+salmist   $alt
+satanist   $alt
+saxofonist   $alt
+sekterist   $alt
+seminarist   $alt
+sensualist   $alt
+separatist   $alt
+serialist   $alt
+sexist   $alt
+sjofelist   $alt
+skandinavist   $alt
+slavist   $alt
+socialist   $alt
+sofist   $alt
+solderist   $alt
+solist   $alt
+somnambulist   $alt
+specialist   $alt
+spiritist   $alt
+spiritualist   $alt
+spontanist   $alt
+stalinist   $alt
+statist   $alt
+stilist   $alt
+strukturalist   $alt
+stylist   $alt
+surrealist   $alt
+symbolist   $alt
+syndikalist   $alt
+tachist   $alt
+talmudist   $alt
+taoist   $alt
+teist   $alt
+telefonist   $alt
+telegrafist   $alt
+tenorist   $alt
+terrorist   $alt
+thomist   $alt
+torbist   $alt
+traditionalist   $alt
+trappist   $alt
+trist   $alt
+trombonist   $alt
+trompetist   $alt
+trotskist   $alt
+tubaist   $alt
+turist   $alt
+unionist   $alt
+universalist   $alt
+utilitarist   $alt
+utopist   $alt
+valdhornist   $alt
+ventrilokvist   $alt
+verist   $alt
+versionist   $alt
+vibrafonist   $alt
+violinist   $alt
+violoncellist   $alt
+vitalist   $alt
+vivisektionist   $alt
+vokalist   $alt
+xylofonist   $alt
+zionist   $alt
+ækvilibrist   $alt
+
+// PB nouns ending with -ine - stressed last syllable
+abonnine   $alt
+aubergine oberS'i:n@  $alt
+barkentine   $alt
+blondine   $alt
+bobine   $alt
+brigantine   $alt
+brillantine   $alt
+dræsine   $alt
+duvetine   $alt
+etamine   $alt
+faskine   $alt
+filippine   $alt
+forfine   $alt
+gabardine   $alt
+gelatine   $alt
+georgine   $alt
+grenadine   $alt
+guillotine  gijut'i:n@ $alt
+kabine   $alt
+kantine   $alt
+kavatine   $alt
+kolerine   $alt
+konkubine   $alt
+krinoline   $alt
+kusine   $alt
+lavine   $alt
+limousine  limOs'i:n@  $alt
+margarine   $alt
+marine   $alt
+maskine   $alt
+minarine   $alt
+pelerine   $alt
+piccoline   $alt
+ravine   $alt
+rutine   $alt
+serpentine   $alt
+sonatine   $alt
+studine   $alt
+terzine   $alt
+tontine   $alt
+turbine   $alt
+ukraine   $alt
+undine   $alt
+vaccine   $alt
+vaseline   $alt
+vitrine   $alt
+vlieseline flis@l'i:n@  $alt
+zibeline   $alt
+
+// PB nouns ending with -ør (French -eur) - stress on the last syllable
+akkompagnatør   $alt
+akkvisitør   $alt
+aktør   $alt
+akupunktør   $alt
+amatør   $alt
+ambassadør   $alt
+annoncør   $alt
+arbitragør   $alt
+arrangør   $alt
+assurandør   $alt
+auditør   $alt
+bankør   $alt
+causør   $alt
+charmør   $alt
+chauffør   $alt
+chefredaktør   $alt
+chikanør   $alt
+ciselør   $alt
+debattør   $alt
+dekatør   $alt
+dekoratør   $alt
+dekupør   $alt
+demonstratør   $alt
+desertør   $alt
+desinfektør   $alt
+destillatør   $alt
+detachør   $alt
+direktør   $alt
+dispachør   $alt
+distributør   $alt
+domptør   $alt
+dressør   $alt
+dusør   $alt
+ekspeditør   $alt
+eksportør   $alt
+eksteriør   $alt
+emaljør   $alt
+entreprenør   $alt
+farcør   $alt
+favør   $alt
+flanør   $alt
+forhør   $alt
+frisør   $alt
+galvanisør   $alt
+gehør   $alt
+gravør   $alt
+guvernør   $alt
+helsingør   $alt
+honnør   $alt
+humør   $alt
+hypnotisør   $alt
+importør   $alt
+inferiør   $alt
+informatør   $alt
+ingeniør   $alt
+innovatør   $alt
+inseminør   $alt
+inspektør   $alt
+installatør   $alt
+instruktør   $alt
+interiør   $alt
+isolatør   $alt
+jonglør   $alt
+klakør   $alt
+kollaboratør   $alt
+kollektør   $alt
+kolportør   $alt
+kommandør   $alt
+kommunikatør   $alt
+konduktør   $alt
+konstruktør   $alt
+kontrollør   $alt
+kooperatør   $alt
+korrektør   $alt
+korsør   $alt
+kreatør   $alt
+kronikør   $alt
+kulør   $alt
+lektør   $alt
+leverandør   $alt
+likør   $alt
+lydhør   $alt
+løgstør   $alt
+magnetisør   $alt
+malør   $alt
+manipulatør   $alt
+manuduktør   $alt
+markør   $alt
+marodør   $alt
+massør   $alt
+medaljør   $alt
+minør   $alt
+modellør   $alt
+montør   $alt
+narkotisør   $alt
+navigatør   $alt
+nivellør   $alt
+nummeratør   $alt
+observatør   $alt
+odør   $alt
+operatør   $alt
+parlør   $alt
+pastichør   $alt
+perforatør   $alt
+plantør   $alt
+portrættør   $alt
+portør   $alt
+posør   $alt
+procedør   $alt
+programmør   $alt
+projektør   $alt
+provokatør   $alt
+rapportør   $alt
+redaktør   $alt
+regissør   $alt
+rekommandør   $alt
+rekvisitør   $alt
+renovatør   $alt
+reparatør   $alt
+repetitør   $alt
+restauratør   $alt
+retouchør   $alt
+ræsonnør   $alt
+sabotør   $alt
+sanitør   $alt
+signalør   $alt
+skulptør   $alt
+skvadronør   $alt
+skælskør   $alt
+sminkør   $alt
+soignør   $alt
+soutenør   $alt
+speditør   $alt
+stereotypør   $alt
+stukkatør   $alt
+sufflør   $alt
+sympatisør   $alt
+tatovør   $alt
+traktør   $alt
+translatør   $alt
+transportør   $alt
+triør   $alt
+valør   $alt
+ventilatør   $alt
+vigør   $alt
+volontør   $alt
+voltigør   $alt
+vulkanisør   $alt
 
 // exceptions
 alene	al'en@	// alone
@@ -2207,10 +4200,12 @@ idé	id'e	// idea
 //igen	igen
 ny	ny	// new
 også	Vs@	// also
-havde	h'aD@ // had
 idet	id'e	// in so far as
-//sagde	sa@	// said
-//sig	sAi	// oneself
+bleg blaj
+blegrød blajrWD
+blege blaj@
+blegemiddel bl&#j@mid@l
+//blegansigt bl&#jansegt
 slags	sl'ags	// sort, type
 tre	tr'e	// the number 3
 queen kw'i:n               // PB English word 'queen'
@@ -2288,7 +4283,8 @@ shampu Sjambo                // PB Danish pronunciation - oo has been replaced b
 (public servicen) pVblek||s@:vis@-n // PB
 (tour de force) tu:@d@||'fV:s  // PB
 (al qaeda) al||k'ajda          // PB
-(force majeure) fVrs||,ma'sjW:r // *PB
+(force majeure) fVrs||,ma'sjW:r // PB
+(quiche lorraine) kiS||lor'E:n:
 wien     v'i:n                  // PB Wien - the town of Vienna
 calais   kal'E                   // PB Calais - town in France
 date dejt                      // PB date - stævnemøde
@@ -2302,6 +4298,7 @@ billie bile                    // PB the name Billie
 chevrolet sjEvrol'e
 saigon sajg3-n                   // PB Saigon
 managua m&n'&:gw&
+(deja-vu) deSja||'vy
 
 // Abbreviations
 pga   pOgR'O?n'a? $hasdot // PB short for 'på grund af'
@@ -2336,8 +4333,9 @@ phil  fil/3 $hasdot                // PB fx cand. phil.
 (sig til) si||tel                // PB sig til ham, at han skal ...
 (gav sig til) g&||saj||tel       // PB han gav sig til at ...
 sig si $capital                  PB Sig = si with capital S - Sig det med blomster
-// avoid [staj] as in "flæskesteg"
+// PB avoid [staj] as in "flæskesteg"
 (han steg) h&n||st'e
 (hun steg) hOn||st'e
 (vi steg) vi||st'e
 (de steg) di||st'e
+(alle steg) &l3||st'e

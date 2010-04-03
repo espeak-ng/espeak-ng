@@ -55,14 +55,14 @@ x    z
 
 Dictionary da_dict
 
-&    0    3    @    @-   a    A    e    
-E    i    o    O    u    V    W    y    
-Y    
+&    &#   0    3    @    @-   a    A    
+e    E    i    o    O    u    V    W    
+W#   y    Y    
 
-*    -    :    ;    ?    b    d    D    
-dZ   f    g    h    j    k    l    L    
+*    -    :    ?    b    d    D    dZ   
+f    g    h    j    k    l    L    l/2  
 l/3  m    n    N    p    r    R    s    
-S    t    tS   v    w    z    
+S    t    T    tS   v    w    z    
 
 
 Dictionary hu_dict
@@ -153,14 +153,14 @@ s2   t    v    w    Z
 Dictionary fr_dict
 
 @    @-   @2   a    A    A~   e    E    
-E2   E:   E~   i    i-   i:   o    O    
-o2   O2   o3   O~   u    u:   W    w^i  
-W~   y    Y    
+E2   E:   E~   i    i-   i:   o    o2   
+o3   O~   u    u:   w    w^i  W~   y    
+Y    
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    N    n2   n^   p    
 p2   r    r2   s    S    t    t2   t3   
-tS   v    w    z    Z    z2   z3   
+tS   v    z    Z    z2   z3   
 
 
 Dictionary grc_dict
@@ -205,6 +205,7 @@ Dictionary ta_dict
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   U    u    u:   V    
+V#   
 
 :    ;    b    C    d    d.   dZ   f    
 g    h    H    j    k    l    l.   m    

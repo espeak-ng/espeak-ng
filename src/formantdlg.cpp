@@ -103,6 +103,7 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 	int  xplace;
 	int  id;
 	wxString string;
+	wxString control_name;
 
 	int height;
 	int width;
@@ -139,77 +140,85 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 
 		if(ix < 7)
 		{
+			control_name.Printf(_T("Formant %d"),ix);
 			t_pkfreq[ix] = new wxTextCtrl(this,id++,_T(""),
 				wxPoint(xplace,y+24*ix),wxSize(44,20),
-				wxTE_CENTRE);
+				wxTE_CENTRE,wxDefaultValidator,control_name);
 		}
 
+		control_name.Printf(_T("Height %d"),ix);
 		t_pkheight[ix] = new wxTextCtrl(this,id++,_T(""),
 			wxPoint(xplace+46,y+24*ix),wxSize(36,20),
-			wxTE_CENTRE);
+			wxTE_CENTRE,wxDefaultValidator,control_name);
 
 		if(ix < 6)
 		{
+			control_name.Printf(_T("Width %d"),ix);
 			t_pkwidth[ix] = new wxTextCtrl(this,id++,_T(""),
 				wxPoint(xplace+84,y+24*ix),wxSize(60,20),
-				wxTE_CENTRE);
+				wxTE_CENTRE,wxDefaultValidator,control_name);
 		}
 
 		if((ix == 0) || (ix > 6)) continue;
 
 		if(ix < 4)
 		{
+			control_name.Printf(_T("Klatt bandwidth %d"),ix);
 			t_klt_bw[ix] = new wxTextCtrl(this,id++,_T(""),
 				wxPoint(xplace+150,y+24*ix),wxSize(40,20),
-				wxTE_CENTRE);
+				wxTE_CENTRE,wxDefaultValidator,control_name);
 		}
+
+		control_name.Printf(_T("Klatt parallal %d"),ix);
 		t_klt_ap[ix] = new wxTextCtrl(this,id++,_T(""),
 			wxPoint(xplace+192,y+24*ix),wxSize(36,20),
-			wxTE_CENTRE);
+			wxTE_CENTRE,wxDefaultValidator,control_name);
+
+		control_name.Printf(_T("Klatt parallel bandwidth %d"),ix);
 		t_klt_bp[ix] = new wxTextCtrl(this,id++,_T(""),
 			wxPoint(xplace+230,y+24*ix),wxSize(40,20),
-			wxTE_CENTRE);
+			wxTE_CENTRE,wxDefaultValidator,control_name);
 	}
 
 	y=224;
-	t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Frame length"));
 	t_orig_frame = new wxStaticText(this,-1,_T("mS"),wxPoint(61,y+8));
-	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""), wxPoint(104,y+0), wxSize(52,24), wxTE_CENTRE,0,500);
+	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""), wxPoint(104,y+0), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Frame amplitude"));
 	t_lab[3] = new wxStaticText(this,-1,_T("% amp - Frame"),wxPoint(159,y+8));
 
 	y += 40;
-	s_klatt[KLATT_AV] = new wxSpinCtrl(this,T_AV,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_AV] = new wxSpinCtrl(this,T_AV,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt AV"));
 	t_klatt[KLATT_AV] = new wxStaticText(this,-1,_T("AV"),wxPoint(61,y+4));
 
-	s_klatt[KLATT_FNZ] = new wxSpinCtrl(this,T_FNZ,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_FNZ] = new wxSpinCtrl(this,T_FNZ,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt FNZ"));
 	t_klatt[KLATT_FNZ] = new wxStaticText(this,-1,_T("FNZ"),wxPoint(159,y+4));
 
 
 	y += 28;
-	s_klatt[KLATT_Tilt] = new wxSpinCtrl(this,T_TILT,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_Tilt] = new wxSpinCtrl(this,T_TILT,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt tilt"));
 	t_klatt[KLATT_Tilt] = new wxStaticText(this,-1,_T("Tilt"),wxPoint(61,y+4));
 
-	s_klatt[KLATT_Aspr] = new wxSpinCtrl(this,T_ASPR,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_Aspr] = new wxSpinCtrl(this,T_ASPR,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt aspiration"));
 	t_klatt[KLATT_Aspr] = new wxStaticText(this,-1,_T("Aspr"),wxPoint(159,y+4));
 
-	s_klatt[KLATT_Skew] = new wxSpinCtrl(this,T_SKEW,_T(""), wxPoint(202,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_Skew] = new wxSpinCtrl(this,T_SKEW,_T(""), wxPoint(202,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt skew"));
 	t_klatt[KLATT_Skew] = new wxStaticText(this,-1,_T("Skew"),wxPoint(257,y+4));
 
 	y += 28;
-	s_klatt[KLATT_AVp] = new wxSpinCtrl(this,T_AVP,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_AVp] = new wxSpinCtrl(this,T_AVP,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt AVp"));
 	t_klatt[KLATT_AVp] = new wxStaticText(this,-1,_T("AVp"),wxPoint(61,y+4));
 
-	s_klatt[KLATT_Fric] = new wxSpinCtrl(this,T_FRIC,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_Fric] = new wxSpinCtrl(this,T_FRIC,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt fric amp"));
 	t_klatt[KLATT_Fric] = new wxStaticText(this,-1,_T("Fric"),wxPoint(159,y+4));
 
-	s_klatt[KLATT_FricBP] = new wxSpinCtrl(this,T_FRICBP,_T(""), wxPoint(202,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_FricBP] = new wxSpinCtrl(this,T_FRICBP,_T(""), wxPoint(202,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt fric bandwidth"));
 	t_klatt[KLATT_FricBP] = new wxStaticText(this,-1,_T("FricBP"),wxPoint(257,y+4));
 
 	y += 28;
-	s_klatt[KLATT_Kopen] = new wxSpinCtrl(this,T_KOPEN,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_Kopen] = new wxSpinCtrl(this,T_KOPEN,_T(""), wxPoint(6,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt KOpen"));
 	t_klatt[KLATT_Kopen] = new wxStaticText(this,-1,_T("kopen"),wxPoint(61,y+4));
 
-	s_klatt[KLATT_Turb] = new wxSpinCtrl(this,T_TURB,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500);
+	s_klatt[KLATT_Turb] = new wxSpinCtrl(this,T_TURB,_T(""), wxPoint(104,y), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Klatt turbulence"));
 	t_klatt[KLATT_Turb] = new wxStaticText(this,-1,_T("Turb"),wxPoint(159,y+4));
 
 
@@ -219,7 +228,7 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 
 	y = y2 + 46;
 	t_amplitude = new wxSpinCtrl(this,T_AMPLITUDE,_T(""),
-		wxPoint(6,y),wxSize(52,24),wxTE_CENTRE,0,y+130);
+		wxPoint(6,y),wxSize(52,24),wxTE_CENTRE,0,y+130,0,_T("Sequence amp"));
 	t_lab[2] = new wxStaticText(this,-1,_T("% amp - Sequence"),wxPoint(61,y+4));
 //	t_timeseq = new wxSpinCtrl(this,T_TIMESEQ,_T(""),
 //		wxPoint(6,400),wxSize(52,24),wxTE_CENTRE,0,500);

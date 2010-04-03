@@ -1501,7 +1501,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		{
 			char *p2;
 			int ok = 1;
-			int flags2;
+			int flags2 = 0;
 			int c_word2;
 			char ph_buf[N_WORD_PHONEMES];
 
@@ -1520,15 +1520,15 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 
 			if(ok != 0)
 			{
+				strcpy(ph_buf,word_phonemes);
+				flags2 = TranslateWord(translator, p2+1, 0, wtab+1);
+
 				if(sylimit & 0x100)
 				{
 					// only if the second word has $alt attribute
-					strcpy(ph_buf,word_phonemes);
-					flags2 = TranslateWord(translator, p2+1, 0, wtab+1);
 					if((flags2 & FLAG_ALT_TRANS) == 0)
 					{
 						ok = 0;
-						strcpy(word_phonemes,ph_buf);
 					}
 				}
 	
@@ -1536,6 +1536,11 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				{
 					// not if the next word is end-of-sentence
 					ok = 0;
+				}
+
+				if(ok == 0)
+				{
+					strcpy(word_phonemes,ph_buf);
 				}
 			}
 
@@ -1551,6 +1556,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				}
 				else
 				{
+					if(flags == 0)
+						flags = flags2;   // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
 					flags |= FLAG_SKIPWORDS;
 					dictionary_skipwords = 1;
 				}

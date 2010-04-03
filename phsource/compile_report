@@ -1,4 +1,4 @@
-59 phoneme tables
+60 phoneme tables
           new total
     base  99   99
 consonants   9  107
@@ -17,10 +17,10 @@ consonants   9  107
      jbo   2  111
      nci   3  120
       fi  40  130
-      fr  54  137
+      fr  55  137
    fr_ca  11  137
       hi  58  145
-      ta  20  148
+      ta  21  149
       hu  24  116
       lv  29  122
       nl  24  119
@@ -53,12 +53,13 @@ consonants   9  107
       id  15  122
       sq  33  121
       hy  23  114
-      da  20  114
+      da  23  116
       rw  15  127
       ml  13  147
       ne  18  153
       pa  14  147
      prs   8  106
+      gd   6   99
 
 Data file      Used by
 b/b             [b] base
@@ -103,6 +104,7 @@ d/dr            [*] base
                 [d[] base
                 [d] base2
                 [d] fi
+                [d] fr
                 [d.] hi
                 [dh.] hi
                 [d] hu
@@ -122,6 +124,7 @@ d/xd            [d] base
                 [d] base2
                 [d] fi
                 [d] fr
+                [z] fr
                 [d.] hi
                 [dh] hi
                 [dh.] hi
@@ -269,6 +272,7 @@ j/xj            [j] base
                 [j] de
                 [j] zh
 klatt/b         [b] base
+                [b] fr
 klatt/bh        [B] base
 klatt/dz_pzd    [J] base
 klatt/dz_pzd_   [J] base
@@ -512,7 +516,6 @@ r3/r_uvl.wav    [r"] base
 r3/rx           [*] base
                 [r/] base
                 [r/] af
-                [r] fr
                 [r/2] fr
                 [R] fr_ca
                 [x] pt_pt
@@ -594,6 +597,7 @@ ufric/s_        [s] base
                 [s2] consonants
                 [s] fr
                 [z] fr
+                [z2] fr
                 [s] es
                 [z;] ro
                 [z] sq
@@ -671,7 +675,6 @@ ustop/kl        [k] base
                 [k] zhy
 ustop/kr        [k] base
                 [k] base2
-                [k] fr
                 [k] el
                 [k] zhy
 ustop/k_unasp   [k] base
@@ -706,7 +709,6 @@ ustop/pr        [p] base
                 [p-] consonants
                 [ph] consonants
                 [p] base2
-                [p] fr
 ustop/p_unasp   [p] base
                 [p-] consonants
                 [p] base2
@@ -1122,6 +1124,7 @@ voc/z           [z] base
 voc/z_          [z] base
                 [dz] consonants
                 [z] fr
+                [z2] fr
                 [z;] ro
                 [z] sq
 voc/zh          [Z] base
@@ -1158,6 +1161,7 @@ vowel/&         [a] en_rp
                 [&] lv
                 [&:] lv
                 [&] sv
+                [&#] da
 vowel/0         [0] en
                 [O] hi
                 [O] pt
@@ -1571,6 +1575,7 @@ vowel/o         [o] base2
                 [oU] en_n
                 [oU] en_wi
                 [o:] de
+                [o] fr
                 [o2] fr
                 [o] hi
                 [o] ta
@@ -1606,6 +1611,7 @@ vowel/o_5       [O] nl
 vowel/o_6       [O:] nl
 vowel/o_7       [o] ku
 vowel/o_8       [o] fr
+                [o2] fr
 vowel/oe        [W] af
                 [W] de
                 [W] hy
@@ -1618,9 +1624,6 @@ vowel/o_mid     [U@] en_rp
                 [o] tr
                 [o] ne
 vowel/o_mid2    [O] fr
-                [o] fr
-                [O2] fr
-                [o2] fr
 vowel/oo        [O:] en_sc
                 [O] en_wi
                 [O:] en_wi
@@ -1769,6 +1772,7 @@ vowel/uu_bck    [U] en_wi
                 [u] zhy
                 [U] pa
 vowel/V         [3] en_sc
+                [W#] da
 vowel/V_2       [V] en
                 [a] af
                 [V] ru
@@ -1868,31 +1872,31 @@ vwl_fr/r        [r] fr
 vwl_fr/_r       [r] fr
 vwl_fr/r_       [r/2] fr
 vwl_fr/r_@      [r/2] fr
-vwl_fr/r@       [Ég] fr
+vwl_fr/r@       [	j] fr
 vwl_fr/@R       [x] pt_pt
-vwl_fr/_r2      [r] fr
+vwl_fr/r_2      [r/2] fr
 vwl_fr/@R2      [R] fr_ca
-vwl_fr/ra       [Ég] fr
+vwl_fr/ra       [	j] fr
 vwl_fr/r_a      [r/2] fr
 vwl_fr/raa      [A~] fr
 vwl_fr/r_an     [A~] fr
-vwl_fr/re       [Ég] fr
+vwl_fr/re       [	j] fr
 vwl_fr/r_e      [r/2] fr
-vwl_fr/ri       [Ég] fr
+vwl_fr/r_e2     [E] fr
+vwl_fr/ri       [	j] fr
 vwl_fr/r_i      [r/2] fr
-vwl_fr/ro       [Ég] fr
-vwl_fr/r_o      [o] fr
-                [o2] fr
-                [r/2] fr
-vwl_fr/ru       [Ég] fr
+vwl_fr/ro       [	j] fr
+vwl_fr/r_o      [r/2] fr
+vwl_fr/ro2      [O] fr
+vwl_fr/r_o2     [O] fr
+vwl_fr/ru       [	j] fr
 vwl_fr/r_u      [r/2] fr
 vwl_fr/ry       [y] fr
                 [w^i] fr
 vwl_fr/r_y      [y] fr
 vwl_fr/tr       [r] fr
 vwl_fr/trr      [r/2] fr
-vwl_fr/xr       [r] fr
-                [r2] fr
+vwl_fr/xr       [	j] fr
 vwl_hi/l-voc    [l-] base
                 [l-] sk
                 [l:] sk
@@ -1955,12 +1959,16 @@ w/iw_           [w] base
 w/_w            [w] base
 w/w_            [w] base
 w/w@            [w] base
+                [w] fr
 w/w2            [w2] base2
                 [w] pl
                 [w] sq
 w/wa            [w] base
+                [w] fr
 w/we            [w] base
+                [w] fr
 w/wi            [w] base
+                [w] fr
                 [i] vi
 w/wi2           [i:] en
                 [i:] en_n
@@ -1972,7 +1980,9 @@ w/wi2           [i:] en
                 [i:] sv
                 [i:] no
 w/wo            [w] base
+                [w] fr
 w/wu            [w] base
+                [w] fr
 w/xw            [w] base
 x/b             [b] base
                 [b] fr

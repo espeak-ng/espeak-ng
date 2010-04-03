@@ -155,10 +155,9 @@
        ungs) be (C@       b@
           _) b (eHC       b
           _) be (C%       bE
-          _) bei (P3      b'aI
-          _) bei (de      baI
-          _) bei (ne      baI
-          _) bei (ß       baI
+          _) bei          b'aI
+          _) beige        be:S
+          _) be (inhP2    b@
           _) beo (b       b,@o:
 
           _) ba (lA       b%a
@@ -186,6 +185,7 @@
              baby         _^_EN
              beten        be:t@n
           _) bike         _^_EN
+          _) bis (hP3     b%Is
           _) blue         _^_EN
              board        _^_EN
           _) boom         _^_EN
@@ -214,8 +214,9 @@
 
           _) c (el        S
           _) cey          tsaI
-             chef         SEf
+             chef (_      SEf
           _) c (ent       ts
+             chara (kt    k%a*a
           _) ch (ic       S
           _) ch (if       S
           _) ch (il       S
@@ -252,6 +253,9 @@
           _) darunter (@P8 da*'Unt@*
           _) daten (@P5   d'at@n
           _) deal         _^_EN
+          _) de (if       de:
+          _) de (ikP2     d%e:
+          _) de (instaP2  d%e:
           _) deme         de:mE
              demo (g      de:mo:
              demo (k      de:mo:
@@ -328,7 +332,8 @@
           @) er (r        E*
           @) er (ti       E*
           @) er (nC       E*
-          @) er (_S2     3
+          @) er (_NS2     3
+          @) er (_        @*   // +suffix
           &) ere (_S3     @*@
           &) erem (_S4    @*@m
           &) eren (_S4    @*@n
@@ -420,6 +425,8 @@
           @) eur (_       'Y:*
              euse (_      'Y:z@
              eusen (_     'Y:z@n
+       schl) eu (s        OY
+          h) eu (se++     OY
 
 
 .group f
@@ -510,6 +517,9 @@
           _) hinauf (P6      hIn'aUf
           _) hinaus (P6      hIn'aUs
           _) hinein (P6      hIn'aIn
+          _) hingegen        hIng'e:g@n
+          _) hinüber (P7     hIn'y:b3
+          _) hinum (P5       hIn'Um
           _) hinunter (P8    hIn'Unt3
           _) hinweg (P6      hInv'e:g
           _) hinzu  (P5      hInts'u:
@@ -773,6 +783,7 @@
              og (t_       o:k
 
           _) ober (@P4    _|,o:b3
+          _) ober (eX     o:b@*
           _) ober (ste    o:b3
           _) ob (jek      %Op
           _) obst (reP4   'o:pst
@@ -847,7 +858,8 @@
           _) rh           @-*
 
              rangier      @-*A:NZ'i:*
-          _) re (d        re:
+          _) re (d        @-*e:
+             ressourc     @-*Es'U*s
 
 .group s
           _) s (_         Es
@@ -874,6 +886,7 @@
        _ver) sp           Sp
              sp (eich     Sp
              sp (err      Sp
+             sph          sf
              sp (r        Sp
          &C) st (_S2      st
          &C) ste (_S3     st@
@@ -1020,6 +1033,7 @@
           _) unum (@P4    _|'Un_|Um
           _) under        _^_EN
           _) unter (@P5   _|,Unt3
+          _) unter (eX    Unt@*
 
 
         rep) u (bl        u:

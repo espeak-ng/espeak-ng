@@ -595,7 +595,6 @@ arcade                         $2
 arch             A@tS
 arches           A@tSI2z
 archimedes       A@kIm'i:di:z
-archive          A@kaIv
 archway           $1
 arena            a2ri:n@
 argue            A@gju:
@@ -633,7 +632,6 @@ autograph        O:t@graf
 auto             O:toU
 autocracy        O:t'0kr@sI
 automobile       O:t@m@bi@l
-autonomous       O:t'0n@m@s
 autopsy          O:t0psI
 avalanche        av@laanS
 average          av@-rI2dZ
@@ -765,7 +763,6 @@ caviare          kavIA@
 cavort           ka2v'O@t
 cedar            si:d3
 celebre          sEl'Ebr@
-cello            tSEloU
 censure          sEnS3
 ceres            si@ri:z
 certificate      s3tIfIk@t
@@ -1239,6 +1236,7 @@ hideout          haIdaUt
 hindu            hIndu:
 hindus           hIndu:z
 hiya             haIa2
+hmmm             h'@m
 hmpf             h'@mpf
 holme            hoUm
 holster          hoUlst3
@@ -2621,6 +2619,7 @@ Emily		EmI2lI
 Emma		Em@
 Emmy		EmI
 Etheridge	ET@-rIdZ
+Etienne		EtI'En
 Euler		OIl3
 Evan		Ev@n
 Gary		garI
@@ -2965,10 +2964,12 @@ might            ,maIt		$verbf $strend2 $only
 have             hav		$pastf $only $u $strend2
 haves            havz
 (have been)      %hav%bIn	$pastf
+(have not)       ha2vn,0t	$pastf
 has              %ha2z		$pastf $only
 has              haz		$only $atend
 (has been)       %haz%bIn	$pastf
 (has to)         haztU		$atend
+(has not)        ha2zn,0t	$pastf
 has              haz		$allcaps
 hath             %haT		$pastf $only
 had              %had		$pastf $strend2 $only

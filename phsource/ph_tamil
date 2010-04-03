@@ -17,6 +17,15 @@ phoneme V
   FMT(vowel/V_3)
 endphoneme
 
+phoneme V#    // omit if the next phoneme is a vowel
+  vowel  starttype #@  endtype #@
+  length 130
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+  ChangePhoneme(V)
+endphoneme
+
 
 phoneme a:
   vowel  starttype #a  endtype #a
