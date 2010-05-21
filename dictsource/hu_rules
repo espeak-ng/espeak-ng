@@ -17,11 +17,14 @@
      _) alattvaló  AlAtvAlo:
         ahhoz      Ahoz
 
+
 .group á
         á          a:
      @) ában (_S4q a:bAn
      @) ának (_S4q a:nAk
      @) ától (_S4q a:to:l
+     @) áig (_S3q  a:ig
+     @) ára (_S3q  a:R2A
 
 .group b
         b          b
@@ -36,8 +39,12 @@
     tö) bb (ség    b
     tö) bb (nyire  b
     tö) bb (nek    b
-  tová) bb (ra     b
+  tová) bbr (a     bR2
     tö) bb (soro   b
+    tö) bb (ny     b
+    tö) bb (féle   b
+    jo) bbr (a     bR2
+    tö) bbr (e     bR2
 
 .group c
         c          ts
@@ -72,7 +79,9 @@
    har) c (cselek  ts
  külön) c (sé      ts
   mala) c (sül     ts
-
+gyümöl) cs (zs     tS
+   fil) c (csiz    ts
+   szo) c (segély  ts
 
 .group ch
   anar) ch (i      h
@@ -97,7 +106,8 @@ hierar) ch (i      h
     ar) ch (ív     h
     ar) ch (ivál   h
     ma) ch (iná    h
-
+oligar) ch         h
+ legpe) ch (es     h:
 
 .group d
         d          d
@@ -174,7 +184,21 @@ menetren) dsz (erű d|s
    föl) d (szerzé  d
   twee) dz (ak     d|z
   twee) dsz (ok    d|s
-
+        dtt        t:        //this letters need spokening longer t phoneme
+     _) kar)       d         (su    d
+   zöl) d (sapk    d
+    hí) d (szer    d
+ szaba) d (szoft   d
+  rövi) d (zár     d
+   ren) d (zavar   d
+ ügyvé) d (jel     d
+   kez) dt         t
+  tiné) dzs (e     dZ
+  mene) dzs (me    dZ
+    ná) d (szék    d
+  rövi) d (soroz   d
+    pa) d (szerű   d
+    ná) d (suhog   d
 
 .group dz
   fogó) dz (kod    ts
@@ -209,7 +233,8 @@ követelő) dz       z
 rángató) dz        z
 titkoló) dz        z
 ringató) dz        z
-
+  mére) dz (k      ts
+pilóta) dzs (ek    dZ
 
 .group e
         e          E
@@ -226,6 +251,8 @@ ringató) dz        z
      @) ében (_S4q e:bEn
      @) ének (_S4q e:nEk
      @) étől (_S4q e:tY:l
+     @) ére (_S3q  e:R2E
+     @) éig (_S3q  e:ig
         éhség      e:Se:g
         éhségg     e:Se:g:
 
@@ -235,6 +262,9 @@ ringató) dz        z
 .group f
         f          f
         //führer     fy:R2ER2
+     e) ff (ajt    f
+     e) ff (él     f
+     a) ff (él     f
 
 
 .group g
@@ -343,6 +373,12 @@ tizene) gy (edik   J:
      e) gy (enként J:
 félmege) gy (ez    J:
     _e) gy (el     J:
+tizene) gy (et     J:
+tizene) gy (en     J:
+     e) gy (esület J:
+     a) gy (sej    J
+     e) gy (úttal  J:
+épülete) gy (ütt   J:
 
 .group h
         h          h
@@ -352,7 +388,7 @@ félmege) gy (ez    J:
 .group i
         i          i
      @) i (_S1     i
-
+     @) ig (_S2    ig
      _) itthon     ithon
 
 .group í
@@ -367,15 +403,26 @@ félmege) gy (ez    J:
      v) í (zére    i
     sz) í (ve      i
      t) í (zes     i
-
+    sz) í (vel     i:
 
 .group j
         j          j
      @) jában (_S5q ja:bAn
      @) jának (_S5q ja:nAk
      @) jától (_S5q ja:to:l
+     @) jáig (_S4q ja:ig
+     @) jára (_S4q ja:R2A
+     @) jával (_S5q ja:vAl
+     @) jének (_S5 je:nEk
+     @) jére (_S4  je:R2E
+     @) jétől (_S5 je:tY:l
+     @) jéig (_S4  je:ig
+     @) jével (_S5 je:vEl
      _) javíts     jAvi:tS:
      _) javítsd    jAvi:tSd
+
+
+
 
 .group k
         k          k
@@ -393,6 +440,9 @@ félmege) gy (ez    J:
         készségg   ke:SSe:g:
     _a) kk (reditál k
      _) közt       kYst
+  bara) kk (b      k
+  bara) kk (f      k
+  bara) kk (j      k
 
 .group l
         l          l
@@ -507,6 +557,8 @@ tulajdo) n (jog    n
    irá) ny (jel    n^
      ö) n (jelöl   n
 teljesítmé) ny (javu n^
+ törvé) ny (java   n^
+   ajá) nl         l:
 
 .group o
         o          o
@@ -526,7 +578,7 @@ teljesítmé) ny (javu n^
 .group p
         p          p
         pp         p:
-        pp (C      pp
+        pp (C      p:
         p (v       p_
 
      _) potsdam    potsda:m
@@ -539,9 +591,12 @@ teljesítmé) ny (javu n^
         qu         kv
 
 .group r
+     @) ra (_S2    R2A
+     @) re (_S2    RE
         r          R2
-        rr         RR
         rm         R2_m
+     r) r          R2
+        r (r       R
         r (cc      R
 
      _) richa (rd  R2iCa:
@@ -549,7 +604,6 @@ teljesítmé) ny (javu n^
         reichsmarschall R2EjsmAR2SAl:
      i) rr (itá    R2
     ko) rr (epetá  R2
-
 
 .group s
         s          S
@@ -578,7 +632,8 @@ juventu) s         s         //a radio station name
  hallá) s (zavar   S
 gyalogo) s (zászló S
     ki) s (zsidó   S
-
+szennye) s (zsá    S
+  alvá) s (zavar   S
 
 .group ss
         ssz        ss2
@@ -747,6 +802,10 @@ gyalogo) ssz       Ss
  jelzé) ssz (erű   Ss
 kitöré) ssz (erű   Ss
   hatá) ssz (üne   Ss
+   fri) ss (zöl    S:
+ nyúva) ssz        s:
+hirdeté) ssz (erve Ss
+páncélo) ssz       Ss
 
 .group sz
         sz         s
@@ -776,8 +835,7 @@ kenyere) szs (ák   SZ
   tava) sz (ára    s
 rongyo) szs (ák    SZ
   para) sztsz (ek  st|s
-  rava) sz (ára    s
-
+  rava) sz (ár     s
 
 .group t
 
@@ -788,9 +846,12 @@ rongyo) szs (ák    SZ
         tt         t:
         ttk        t:k
         tth        t:h
+        ttg        t:g
+        ttgy       t:J
+        ttp        t:p
      @) tól (_S3q  to:l
      @) től (_S3q  tY:l
-        tt (C      tt
+        tt (C      t:
         ttn        t:n
         ttm        t:m
         ttl        t:l
@@ -956,7 +1017,16 @@ hangula) t (jel    t
 vizsgála) t (soroza t
      á) tjátsz     tja:ts:
      á) tjátssz    tja:ts:
-
+ kobal) t (sugár   t
+többle) t (szol    t
+     á) t (söprő   t
+     ú) t (javí    t
+billentyűze) t (jel t
+     á) t (címké   t
+   sej) t (szö     t
+ szöve) t (sapk    t
+  mene) t (szél    t
+  tesz) t (cikk    t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1037,6 +1107,10 @@ indula) tsz (ó     t|s
   segi) ts (é      tS:
    kür) tsz (ó     t|s
     hi) tsz (ó     t|s
+     á) tsz (ok    t|s
+ halla) tsz (a     ts:
+ fejle) ts (ég     tS:
+   sie) tsz        ts:
 
 .group u
         u          u
@@ -1103,7 +1177,7 @@ lefeje) z (te      s
 lefeje) z (ték     s
    pén) z (tár     s
     ré) z (serpenyő z
- tartó) z          s
+ tartó) z (t       s
 
     gá) z (cső     z
 
@@ -1199,6 +1273,16 @@ hiányo) z (t       s
 foglalko) z (t     s
 tanulmányo) z (t   s
 magyará) z (t      s
+  kötö) z (t       s
+vitatko) z (t      s
+ tartó) z (k       s
+ajándéko) z (t     s
+ tarto) z (k       s
+ tarto) z (t       s
+ rejtő) z (kö      s
+ rejtő) z (t       s
+ hango) z (t       s
+
 
 .group
 

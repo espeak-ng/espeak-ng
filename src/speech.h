@@ -69,7 +69,7 @@ typedef struct {
    const char *mnem;
    int  value;
 } MNEM_TAB;
-int LookupMnem(MNEM_TAB *table, char *string);
+int LookupMnem(MNEM_TAB *table, const char *string);
 
 
 #ifdef PLATFORM_WINDOWS

@@ -67,8 +67,6 @@ static int ssml_ignore_l_angle = 0;
 // alter tone for announce punctuation or capitals
 //static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
 //static const char *tone_punct_off = "\001T\001P";
-static const char *tone_punct_on = "";  // add reverberation, lower pitch  TEST apply no effect
-static const char *tone_punct_off = "";
 
 // ignore these characters
 static const unsigned short chars_ignore[] = {
@@ -122,7 +120,7 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash
-  CLAUSE_SEMICOLON + PUNCT_SAY_NAME,      // elipsis
+  CLAUSE_SEMICOLON + PUNCT_SAY_NAME | 0x8000,      // elipsis
 
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
@@ -887,24 +885,25 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 
 			if(punct_count==1)
 			{
-				sprintf(buf,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
+//				sprintf(buf,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
+				sprintf(buf,"%s",punctname);
 			}
 			else
 			if(punct_count < 4)
 			{
-				sprintf(buf,"\001+10S%s",tone_punct_on);
+				sprintf(buf,"\001+10S");
 				while(punct_count-- > 0)
 				{
 					sprintf(buf2," %s",punctname);
 					strcat(buf, buf2);
 				}
-				sprintf(buf2," %s\001-10S",tone_punct_off);
+				sprintf(buf2," \001-10S");
 				strcat(buf, buf2);
 			}
 			else
 			{
-				sprintf(buf,"%s %s %d %s %s",
-						tone_punct_on,punctname,punct_count,punctname,tone_punct_off);
+				sprintf(buf,"%s %d %s",
+						punctname,punct_count,punctname);
 			}
 		}
 		else
@@ -1082,7 +1081,7 @@ static void ProcessParamStack(char *outbuf, int &outix)
 	int value;
 	char buf[20];
 	int new_parameters[N_SPEECH_PARAM];
-	static char cmd_letter[N_SPEECH_PARAM] = {0, 'S','A','P','R', 0, 0, 0, 0, 0, 0, 0, 'F'};  // embedded command letters
+	static char cmd_letter[N_SPEECH_PARAM] = {0, 'S','A','P','R', 0, 'C', 0, 0, 0, 0, 0, 'F'};  // embedded command letters
 
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
@@ -2027,7 +2026,8 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int self_closing;
 	int punct_data = 0;
 	int is_end_clause;
-	int announced_punctuation;
+	int announced_punctuation = 0;
+	int prev_announced_punctuation;
 	int stressed_word = 0;
 	int end_clause_after_tag = 0;
 	int end_clause_index = 0;
@@ -2354,7 +2354,7 @@ f_input = f_in;  // for GetC etc
 				char text_buf2[30];
 				if(LookupSpecial(tr, "_cap", text_buf2) != NULL)
 				{
-					sprintf(text_buf,"%s%s%s",tone_punct_on,text_buf2,tone_punct_off);
+					sprintf(text_buf,"%s",text_buf2);
 					j = strlen(text_buf);
 					if((ix + j) < n_buf)
 					{
@@ -2419,6 +2419,7 @@ if(option_ssml) parag=1;
 			linelength = 0;
 		}
 
+		prev_announced_punctuation = announced_punctuation;
 		announced_punctuation = 0;
 
 		if((phoneme_mode==0) && (sayas_mode==0))
@@ -2473,7 +2474,8 @@ if(option_ssml) parag=1;
 					continue;
 				}
 
-				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
+				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || Eof()))    // don't check for '-' because if prevent recognizing ':-)'
+//				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 				{
 					// note: (c2='?') is for when a smart-quote has been replaced by '?'
 					is_end_clause = 1;

@@ -295,6 +295,7 @@ void CalcLengths(Translator *tr)
 	int  end_of_clause;
 	int  embedded_ix = 0;
 	int  min_drop;
+	int  pitch1;
 	int emphasized;
 	int  tone_mod;
 	unsigned char *pitch_env=NULL;
@@ -418,7 +419,10 @@ void CalcLengths(Translator *tr)
 				if(prev->type==phLIQUID)
 					p->prepause = 25;
 				if(prev->type==phVOWEL)
-					p->prepause = 12;
+				{
+					if(!(p->ph->phflags & phNOPAUSE))
+						p->prepause = 12;
+				}
 			}
 
 			if(next->type==phVOWEL)
@@ -426,43 +430,44 @@ void CalcLengths(Translator *tr)
 				pre_sonorant = 1;
 			}
 			else
-			if((prev->type==phVOWEL) || (prev->type == phLIQUID))
 			{
-				p->length = prev->length;
 				p->pitch2 = last_pitch;
-				if(p->pitch2 < 7)
-					p->pitch2 = 7;
-				p->pitch1 = p->pitch2 - 8;
-				p->env = PITCHfall;
-				pre_voiced = 0;
-				
-				if(p->type == phLIQUID)
-				{
-					p->length = speed1;
-//p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
-				}
 
-				if(next->type == phVSTOP)
+				if((prev->type==phVOWEL) || (prev->type == phLIQUID))
 				{
-					p->length = (p->length * 160)/100;
-				}
-				if(next->type == phVFRICATIVE)
-				{
-					p->length = (p->length * 120)/100;
-				}
-			}
-			else
-			{
-				p->pitch2 = last_pitch;
-				for(ix2=ix; ix2<n_phoneme_list; ix2++)
-				{
-					if(phoneme_list[ix2].type == phVOWEL)
+					p->length = prev->length;
+					
+					if(p->type == phLIQUID)
 					{
-						p->pitch2 = phoneme_list[ix2].pitch2;
-						break;
+						p->length = speed1;
+					}
+	
+					if(next->type == phVSTOP)
+					{
+						p->length = (p->length * 160)/100;
+					}
+					if(next->type == phVFRICATIVE)
+					{
+						p->length = (p->length * 120)/100;
 					}
 				}
-				p->pitch1 = p->pitch2-8;
+				else
+				{
+					for(ix2=ix; ix2<n_phoneme_list; ix2++)
+					{
+						if(phoneme_list[ix2].type == phVOWEL)
+						{
+							p->pitch2 = phoneme_list[ix2].pitch2;
+							break;
+						}
+					}
+				}
+
+				p->pitch1 = p->pitch2-16;
+				if(p->pitch2 < 16)
+				{
+					p->pitch1 = 0;
+				}
 				p->env = PITCHfall;
 				pre_voiced = 0;
 			}
@@ -602,14 +607,13 @@ if(stress <= 1)
 if(p->type != phVOWEL)
 {
 	length_mod = 256;   // syllabic consonant
-	min_drop = 8;
+	min_drop = 16;
 }
 			p->length = length_mod;
 
 			// pre-vocalic part
 			// set last-pitch
-			env2 = p->env;
-			if(env2 > 1) env2++;   // version for use with preceding semi-vowel
+			env2 = p->env + 1;  // version for use with preceding semi-vowel
 
 			if(p->tone_ph != 0)
 			{
@@ -626,11 +630,11 @@ if(p->type != phVOWEL)
 			if(pre_sonorant || pre_voiced)
 			{
 				// set pitch for pre-vocalic part
-				if(pitch_start == 1024)
+				if(pitch_start == 255)
 					last_pitch = pitch_start;    // pitch is not set
 
-				if(pitch_start - last_pitch > 8)   // was 9
-					last_pitch = pitch_start - 8;
+				if(pitch_start - last_pitch > 16)
+					last_pitch = pitch_start - 16;
 
 				prev->pitch1 = last_pitch;
 				prev->pitch2 = pitch_start;
@@ -677,9 +681,10 @@ if(p->type != phVOWEL)
 
 			if((min_drop > 0) && ((p->pitch2 - p->pitch1) < min_drop))
 			{
-				p->pitch1 = p->pitch2 - min_drop;
-				if(p->pitch1 < 0)
-					p->pitch1 = 0;
+				pitch1 = p->pitch2 - min_drop;
+				if(pitch1 < 0)
+					pitch1 = 0;
+				p->pitch1 = pitch1;
 			}
 
 			last_pitch = p->pitch1 + ((p->pitch2-p->pitch1)*envelope_data[p->env][127])/256;

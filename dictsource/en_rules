@@ -21,7 +21,6 @@
 // This file is UTF-8 encoded
 
 // Conditional rules
-// ?2  Use long 'a' in 'bath'
 // ?3  General American
 // ?!3  Not General American
 // ?5  split [3:] er [3:], ir [IR], ur [VR] 
@@ -661,14 +660,14 @@
 
 .group an
          @) ana (_       'A:n@
-?2       C) an (c        aan
+         C) an (c        aan
          c) an (c        an
          f) an (c        an
          n) an (c        an
          p) an (c        an
-?2      @m) an (d        aan
-?2      sl) an (d        aan
-?2       C) an (t        aan
+        @m) an (d        aan
+        sl) an (d        aan
+         C) an (t        aan
             an (ath      a2n
             ann (eal     a2n
             ann (ih      a2n
@@ -704,8 +703,8 @@
          &) an (ce_      @n
 ?8       &) an (ce_      a2n
        fin) an (c        'an
-?2       h) an (ce_      aan
-?2       z) an (ce_      aan
+         h) an (ce_      aan
+         z) an (ce_      aan
          &) an (cy       @n
        adv) an (c        an
          _) an (cie      eIn
@@ -1416,7 +1415,7 @@
          _) confi (den   k0nfI
          _) co (nfis     k0
          _) co (nflu     k0
-         _) co (ngress   k0
+         _) co (ngre     k0
             congru       k0ngru:
          _) co (ni       k0
          _) co (njug     k0
@@ -1944,6 +1943,7 @@
 .group el
          _) el (A        %Il
          _) ele (ctro    %Il,E
+         _) ele (ctrol   %IlE
          _) ele (ctron   ElE
          _) ele (g       ElI
          _) elem         ElIm
@@ -2579,6 +2579,8 @@
        ent) i (ce        aI
          @) i (ce_       I2
          @) i (ced_      I2
+       off) ice          I2s
+      serv) ice          I2s
          @) i (cence     I
          _) ich          Ik
          &) i (ciCe_     =I
@@ -3035,6 +3037,7 @@
 ?7          io (_        =i:oU
          b) io           aIoU
          b) io (logy     aI0
+      card) io           I2oU
          v) io           aI0
             io (li_      I2'oU
          &) ion (_       =i@n
@@ -3894,6 +3897,7 @@
          w) orce (st     U
         &f) or (d_       3
             ore          o@
+            or (esis     O@
             oresc        @r'Es
             ora (cl      0r@
             or (eB_      0r
@@ -4301,6 +4305,7 @@
          _) pre (mi      prE
          _) pre (miu     pri:
          _) pre (mol     pr%i:
+         _) pre (nK      prE
          _) pre (p_      prE
          _) pre (posi    prE
          _) pre (qu      pri:
@@ -4607,6 +4612,7 @@
        pri) s (o         z
          @) some (_S4    sVm
          o) some (_S4    soUm
+       cro) ss (h        s
             ssion        S@n
             ssion (_     =S@n
 ?8          ssion (_     =SVn
@@ -5249,6 +5255,7 @@
             E (BCe_      @
             E (Cia       'i:
             Ea (_        =i@
+            Ea (n_       'i@
         @@) Ed (_S2vei   d
         &C) Ed (_S2vei   d
         &c) Ed (_S2vei   t

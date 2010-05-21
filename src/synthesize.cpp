@@ -162,11 +162,11 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 
 	EndPitch(0);
 
-	if(pitch1 == 1024)
+	if(pitch1 == 255)
 	{
 		// pitch was not set
-		pitch1 = 24;
-		pitch2 = 33;
+		pitch1 = 55;
+		pitch2 = 76;
 		env = envelope_data[PITCHfall];
 	}
 	last_pitch_cmd = wcmdq_tail;
@@ -1308,8 +1308,14 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		if(p->newword)
 		{
-			if(translator->langopts.param[LOPT_WORD_MERGE] == 0)
+			if(((p->type == phVOWEL) && (translator->langopts.param[LOPT_WORD_MERGE] & 1)) ||
+				 (p->ph->phflags & phNOPAUSE))
+			{
+			}
+			else
+			{
 				last_frame = NULL;
+			}
 
 			sourceix = (p->sourceix & 0x7ff) + clause_start_char;
 

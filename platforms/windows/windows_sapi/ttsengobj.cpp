@@ -402,9 +402,11 @@ STDMETHODIMP CTTSEngObj::SetObjectToken(ISpObjectToken * pToken)
 		espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,path_install,1);
 		espeak_SetSynthCallback(SynthCallback);
 		initialised = 1;
-	    g_voice_name[0] = 0;
+//	    g_voice_name[0] = 0;
 	}
 
+	strcpy(g_voice_name, voice_name);
+	espeak_SetVoiceByName(g_voice_name);
 	
 	return hr;
 } /* CTTSEngObj::SetObjectToken */

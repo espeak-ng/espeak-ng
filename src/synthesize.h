@@ -25,7 +25,7 @@
 #define STEPSIZE  64                // 2.9mS at 22 kHz sample rate
 
 #define    PITCHfall   0
-#define    PITCHrise   1
+#define    PITCHrise   2
 
 // flags set for frames within a spectrum sequence
 #define FRFLAG_KLATT           0x01   // this frame includes extra data for Klatt synthesizer
@@ -64,8 +64,9 @@
 #define EMBED_U    11   // audio uri
 #define EMBED_B    12   // break
 #define EMBED_F    13   // emphasis
+#define EMBED_C    14   // capital letter indication
 
-#define N_EMBEDDED_VALUES    14
+#define N_EMBEDDED_VALUES    15
 extern int embedded_value[N_EMBEDDED_VALUES];
 extern int embedded_default[N_EMBEDDED_VALUES];
 
@@ -232,15 +233,15 @@ typedef struct {
 	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 
 	PHONEME_TAB *ph;
+	short length;  // length_mod
 	unsigned char env;    // pitch envelope number
 	unsigned char type;
 	unsigned char prepause;
 	unsigned char postpause;
 	unsigned char amp;
 	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
-	short length;  // length_mod
-	short pitch1;  // pitch, 0-4095 within the Voice's pitch range
-	short pitch2;
+	unsigned char pitch1;
+	unsigned char pitch2;
 } PHONEME_LIST;
 
 
@@ -379,6 +380,49 @@ typedef struct {
 } SPEED_FACTORS;
 
 
+typedef struct {
+	unsigned int name;
+	unsigned char flags[4];
+	signed char headextend[8];
+
+	unsigned char prehead_start;
+	unsigned char prehead_end;
+	unsigned char onset;
+	unsigned char head_start;
+	unsigned char head_end;
+	unsigned char head_last;
+
+	unsigned char stressed_env;
+	unsigned char head_drops;
+	unsigned char head_max_steps;
+	unsigned char n_headextend;
+
+	char unstressed_start;
+	char unstressed_end;
+	char unstressed_shape;
+
+	unsigned char nucleus0_env;     // pitch envelope, tonic syllable is at end, no tail
+	unsigned char nucleus0_max;
+	unsigned char nucleus0_min;
+
+	unsigned char nucleus1_env;     //     when followed by a tail
+	unsigned char nucleus1_max;
+	unsigned char nucleus1_min;
+	unsigned char tail_start;
+	unsigned char tail_end;
+
+	unsigned char split_nucleus_env;
+	unsigned char split_nucleus_max;
+	unsigned char split_nucleus_min;
+	unsigned char split_tail_start;
+	unsigned char split_tail_end;
+	
+	unsigned char spare[10];
+} TUNE;
+
+extern int n_tunes;
+extern TUNE *tunes;
+
 // phoneme table
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
@@ -467,7 +511,7 @@ int Read4Bytes(FILE *f);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
 
 
-extern unsigned char *envelope_data[18];
+extern unsigned char *envelope_data[20];
 extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
 

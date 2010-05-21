@@ -301,6 +301,7 @@ class FormantDlg : public wxPanel
 		wxSpinCtrl *t_amplitude;
 		wxSpinCtrl *t_ampframe;
 		wxSpinCtrl *t_timeframe;
+		wxTextCtrl *tt_timeframe;
 		wxSpinCtrl *t_timeseq;
       wxStaticText *t_pitch;
 		wxStaticText *t_orig_frame;
@@ -394,4 +395,4 @@ extern void SetSpinCtrl(wxSpinCtrl *t, int value);
 extern int GetNumeric(wxTextCtrl *t);
 extern void SetNumeric(wxTextCtrl *t, int value);
 
-
+extern int use_spin_controls;

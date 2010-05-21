@@ -21,6 +21,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <wctype.h>
 
 #include "speak_lib.h"
@@ -45,8 +46,8 @@ typedef struct {
 	char env;
 	char flags;   //bit 0=pitch rising, bit1=emnphasized, bit2=end of clause
 	char nextph_type;
-	short pitch1;
-	short pitch2;
+	unsigned char pitch1;
+	unsigned char pitch2;
 } SYLLABLE;
 
 static SYLLABLE *syllable_tab;
@@ -61,10 +62,10 @@ static int tone_pitch_env;    /* used to return pitch envelope */
 
 
 #define    PITCHfall   0
-#define    PITCHrise   1
-#define    PITCHfrise  2   // and 3 must be for the varient preceded by 'r'
-#define    PITCHfrise2 4   // and 5 must be the 'r' variant
-#define    PITCHrisefall   6
+#define    PITCHrise   2
+#define    PITCHfrise  4   // and 3 must be for the variant preceded by 'r'
+#define    PITCHfrise2 6   // and 5 must be the 'r' variant
+#define    PITCHrisefall   8
 
 /*  0  fall */
 unsigned char env_fall[128] = {
@@ -191,9 +192,9 @@ static unsigned char env_risefallrise[128] = {
 
 
 
-unsigned char *envelope_data[18] = {
-	env_fall,
-	env_rise,
+unsigned char *envelope_data[20] = {
+	env_fall,  env_fall,
+	env_rise,  env_rise,
 	env_frise,  env_r_frise,
 	env_frise2, env_r_frise2,
 	env_risefall, env_risefall,
@@ -206,18 +207,17 @@ unsigned char *envelope_data[18] = {
  };
 
 
-/* all pitches given in Hz above pitch_base */
+
+/* indexed by stress */
+static int min_drop[] =  {6,7,9,9,20,20,20,25};
 
 // pitch change during the main part of the clause
-static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x1800,0x0e00};
-//static int drops_1[8] = {0x400,0x400,0x600,0x600,0xc00,0xc00,0x0e00,0x0e00};
-//static int drops_2[8] = {0x400,0x400,0x600,0x600,-0x800,0xc00,0x0e00,0x0e00};
+static int drops_0[8] = {9,9,16,16,16,23,55,32};
 
-static short oflow[] = {0, 20, 12, 4, 0};
-static short oflow_emf[] = {5, 26, 16, 10, 5};
-static short oflow_less[] = {3, 19, 12, 7, 2};
-// static short oflow_test2[] = {20, 0, 20, 0, 20};
-// static short back_emf[] = {35, 32, 0};
+// overflow table values are 64ths of the body pitch range (between body_start and body_end)
+static signed char oflow[] = {0, 40, 24, 8, 0};
+static signed char oflow_emf[] = {10, 52, 32, 20, 10};
+static signed char oflow_less[] = {6, 38, 24, 14, 4};
 
 
 #define N_TONE_HEAD_TABLE  13
@@ -235,8 +235,8 @@ typedef struct {
 	unsigned char body_max_steps;
 	char body_lower_u;
 
-	char n_overflow;
-	short *overflow;
+	unsigned char n_overflow;
+	signed char *overflow;
 } TONE_HEAD;
 
 
@@ -259,38 +259,38 @@ typedef struct {
 #define T_EMPH  1
 
 static TONE_HEAD tone_head_table[N_TONE_HEAD_TABLE] = {
-   {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 0 statement
-   {20, 25,   34, 20,  drops_0, 3, 3,   5, oflow},      // 1 comma
-   {20, 25,   34, 20,  drops_0, 3, 3,   5, oflow},      // 2 question
-   {20, 25,   39, 22,  drops_0, 3, 4,   5, oflow_emf},  // 3 exclamation
-   {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 4 statement, emphatic
-   {20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less}, // 5 statement, less intonation
-   {20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less}, // 6 comma, less intonation
-   {20, 25,   32, 24,  drops_0, 4, 3,   5, oflow_less}, // 7 comma, less intonation, less rise
-   {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 8 pitch raises at end of sentence
-   {20, 25,   34, 20,  drops_0, 3, 3,   5, oflow},      // 9 comma
-   {20, 25,   34, 22,  drops_0, 3, 3,   5, oflow},      // 10  question
-   {15, 18,   18, 14,  drops_0, 3, 3,   5, oflow_less},   // 11 test
-   {20, 25,   24, 22,  drops_0, 3, 3,   5, oflow_less},   // 12 test
+   {46, 57,   78, 50,  drops_0, 3, 7,   5, oflow},      // 0 statement
+   {46, 57,   78, 46,  drops_0, 3, 7,   5, oflow},      // 1 comma
+   {46, 57,   78, 46,  drops_0, 3, 7,   5, oflow},      // 2 question
+   {46, 57,   90, 50,  drops_0, 3, 9,   5, oflow_emf},  // 3 exclamation
+   {46, 57,   78, 50,  drops_0, 3, 7,   5, oflow},      // 4 statement, emphatic
+   {46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less}, // 5 statement, less intonation
+   {46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less}, // 6 comma, less intonation
+   {46, 57,   74, 55,  drops_0, 4, 7,   5, oflow_less}, // 7 comma, less intonation, less rise
+   {46, 57,   78, 50,  drops_0, 3, 7,   5, oflow},      // 8 pitch raises at end of sentence
+   {46, 57,   78, 46,  drops_0, 3, 7,   5, oflow},      // 9 comma
+   {46, 57,   78, 50,  drops_0, 3, 7,   5, oflow},      // 10  question
+   {34, 41,   41, 32,  drops_0, 3, 7,   5, oflow_less},   // 11 test
+   {46, 57,   55, 50,  drops_0, 3, 7,   5, oflow_less},   // 12 test
 };
 
 static TONE_NUCLEUS tone_nucleus_table[N_TONE_NUCLEUS_TABLE] = {
-   {PITCHfall,   29, 4,  PITCHfall,   31, 8, NULL, 11, 6, 0},      // 0 statement
-   {PITCHfrise,  35, 8,  PITCHfrise2, 35,10, NULL, 15, 23, 0},     // 1 comma
-   {PITCHfrise,  39,10,  PITCHfrise2, 36,10, NULL, 15, 28, 0},     // 2 question
-//   {PITCHfall,   41, 4,  PITCHfall,   41,27, NULL, 16, 4, T_EMPH},  // 3 exclamation
-   {PITCHfall,   41, 4,  PITCHfall,   41,35, NULL, 35, 4, T_EMPH},  // 3 exclamation
-   {PITCHfall,   38, 2,  PITCHfall,   42,30, NULL, 15, 5, 0},      // 4 statement, emphatic
-   {PITCHfall,   28, 5,  PITCHfall,   28, 9, NULL, 12, 7, 0},      // 5 statement, less intonation
-   {PITCHfrise,  30, 8,  PITCHfrise2, 30,10, NULL, 13, 20, 0},      // 6 comma, less intonation
-   {PITCHfrise2, 28, 7,  PITCHfall,   29,14, NULL, 14, 8, 0},      // 7 comma, less intonation, less rise
-   {PITCHrise,   30,20,  PITCHfall,   19,14, NULL, 20, 26, 0},     // 8 pitch raises at end of sentence
-   {PITCHfrise,  35,11,  PITCHfrise2, 32,10, NULL, 19, 24, 0},     // 9 comma
-   {PITCHfrise,  39,15,  PITCHfall,   28,14, NULL, 20, 36, 0},     // 10  question
-   {PITCHfall,   28, 6,  PITCHfall,   28,10, NULL, 12, 6, 0},      // 11 test
-   {PITCHfall,   35, 9,  PITCHfall,   35,12, NULL, 16, 10, 0},     // 12 test
+   {PITCHfall,   64, 8,  PITCHfall,   70,18, NULL, 24, 12, 0},     // 0 statement
+   {PITCHfrise,  80,18,  PITCHfrise2, 78,22, NULL, 34, 52, 0},     // 1 comma
+   {PITCHfrise,  88,22,  PITCHfrise2, 82,22, NULL, 34, 64, 0},     // 2 question
+   {PITCHfall,   92, 8,  PITCHfall,   92,80, NULL, 76,  8, T_EMPH},  // 3 exclamation
+
+   {PITCHfall,   86, 4,  PITCHfall,   94,66, NULL, 34, 10, 0},     // 4 statement, emphatic
+   {PITCHfall,   62,10,  PITCHfall,   62,20, NULL, 28, 16, 0},     // 5 statement, less intonation
+   {PITCHfrise,  68,18,  PITCHfrise2, 68,22, NULL, 30, 44, 0},     // 6 comma, less intonation
+   {PITCHfrise2, 64,16,  PITCHfall,   66,32, NULL, 32, 18, 0},     // 7 comma, less intonation, less rise
+   {PITCHrise,   68,46,  PITCHfall,   42,32, NULL, 46, 58, 0},     // 8 pitch raises at end of sentence
+   {PITCHfrise,  78,24,  PITCHfrise2, 72,22, NULL, 42, 52, 0},     // 9 comma
+   {PITCHfrise,  88,34,  PITCHfall,   64,32, NULL, 46, 82, 0},     // 10  question
+   {PITCHfall,   56,12,  PITCHfall,   56,20, NULL, 24, 12, 0},     // 11 test
+   {PITCHfall,   70,18,  PITCHfall,   70,24, NULL, 32, 20, 0},     // 12 test
 };
-  
+
 
 
 /* index by 0=. 1=, 2=?, 3=! 4=none, 5=emphasized */
@@ -306,11 +306,8 @@ unsigned char punctuation_to_tone[INTONATION_TYPES][PUNCT_INTONATIONS] = {
 };
 
 
-
-/* indexed by stress */
-static int min_drop[] =  {0x300,0x300,0x400,0x400,0x900,0x900,0x900,0xb00};
-
-
+int n_tunes = 0;
+TUNE *tunes = NULL;
 
 
 #define SECONDARY  3
@@ -419,20 +416,17 @@ static int count_increments(int ix, int end_ix, int min_stress)
 
 
 
+
 static void set_pitch(SYLLABLE *syl, int base, int drop)
 /******************************************************/
-// Set the pitch of a vowel in syllable_tab.  Base & drop are Hz * 256
+// Set the pitch of a vowel in syllable_tab
 {
 	int  pitch1, pitch2;
 	int  flags = 0;
 
-	/* adjust experimentally */
-	int  pitch_range2 = 148;
-	int  pitch_base2 = 72;
-
 	if(base < 0)  base = 0;
 
-	pitch2 = ((base * pitch_range2 ) >> 15) + pitch_base2;
+	pitch2 = base;
 
 	if(drop < 0)
 	{
@@ -440,10 +434,12 @@ static void set_pitch(SYLLABLE *syl, int base, int drop)
 		drop = -drop;
 	}
 
-	pitch1 = pitch2 + ((drop * pitch_range2) >> 15);
+	pitch1 = pitch2 + drop;
+	if(pitch1 < 0)
+		pitch1 = 0;
 
-	if(pitch1 > 511) pitch1 = 511;
-	if(pitch2 > 511) pitch2 = 511;
+	if(pitch1 > 254) pitch1 = 254;
+	if(pitch2 > 254) pitch2 = 254;
 
 	syl->pitch1 = pitch1;
 	syl->pitch2 = pitch2;
@@ -466,13 +462,17 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 	int  initial;
 	int  overflow=0;
 	int  n_overflow;
+	int  pitch_range;
+	int  pitch_range_abs;
 	int *drops;
-	short *overflow_tab;
+	signed char *overflow_tab;
 	SYLLABLE *syl;
 
-	static short continue_tab[5] = {-13, 16, 10, 4, 0};
+	static signed char continue_tab[5] = {-26, 32, 20, 8, 0};
 
 	drops = th->body_drops;
+	pitch_range = (th->body_end - th->body_start) << 8;
+	pitch_range_abs = abs(pitch_range);
 
 	if(continuing)
 	{
@@ -480,8 +480,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 		overflow = 0;
 		n_overflow = 5;
 		overflow_tab = continue_tab;
-		increment = (th->body_end - th->body_start) << 8;
-		increment = increment / (th->body_max_steps -1);
+		increment = pitch_range / (th->body_max_steps -1);
 	}
 	else
 	{
@@ -513,8 +512,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 
 				if(n_steps > 1)
 				{
-					increment = (th->body_end - th->body_start) << 8;
-					increment = increment / (n_steps -1);
+					increment = pitch_range / (n_steps -1);
 				}
 				else
 					increment = 0;
@@ -527,7 +525,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 					pitch += increment;
 				else
 				{
-					pitch = (th->body_end << 8) - (increment * overflow_tab[overflow++])/16;
+					pitch = (th->body_end << 8) + (pitch_range_abs * overflow_tab[overflow++])/64;
 					if(overflow >= n_overflow)
 					{
 						overflow = 0;
@@ -548,20 +546,20 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 		if(stress >= PRIMARY)
 		{
 			syl->stress = PRIMARY_STRESSED;
-			set_pitch(syl,pitch,drops[stress]);
+			set_pitch(syl,(pitch >> 8),drops[stress]);
 		}
 		else
 		if(stress >= SECONDARY)
 		{
-			set_pitch(syl,pitch,drops[stress]);
+			set_pitch(syl,(pitch >> 8),drops[stress]);
 		}
 		else
 		{
 			/* unstressed, drop pitch if preceded by PRIMARY */
 			if((syllable_tab[ix-1].stress & 0x3f) >= SECONDARY)
-				set_pitch(syl,pitch - (th->body_lower_u << 8), drops[stress]);
+				set_pitch(syl,(pitch >> 8) - th->body_lower_u, drops[stress]);
 			else
-				set_pitch(syl,pitch,drops[stress]);
+				set_pitch(syl,(pitch >> 8),drops[stress]);
 		}
 
 		ix++;
@@ -571,13 +569,12 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_HEAD *th, TONE_NUCLEUS *t
 
 
 
+static void SetPitchGradient(int start_ix, int end_ix, int start_pitch, int end_pitch)
+{//====================================================================================
+// Set a linear pitch change over a number of syllables.
+// Used for pre-head, unstressed syllables in the body, and the tail
 
-
-static int calc_pitch_segment2(int ix, int end_ix, int start_p, int end_p, int min_stress)
-/****************************************************************************************/
-/* Linear pitch rise/fall, change pitch at min_stress or stronger
-	Used for pre-head and tail */
-{
+	int  ix;
 	int  stress;
 	int  pitch;
 	int  increment;
@@ -585,49 +582,43 @@ static int calc_pitch_segment2(int ix, int end_ix, int start_p, int end_p, int m
 	int  drop;
 	SYLLABLE *syl;
 
-	if(ix >= end_ix)
-		return(ix);
-		
-	n_increments = count_increments(ix,end_ix,min_stress);
-	increment = (end_p - start_p) << 8;
+	increment = (end_pitch - start_pitch) << 8;
+	n_increments = end_ix - start_ix;
+
+	if(n_increments <= 0)
+		return;
 	
 	if(n_increments > 1)
 	{
 		increment = increment / n_increments;
 	}
 
-	
-	pitch = start_p << 8;
-	while(ix < end_ix)
+	pitch = start_pitch << 8;
+
+	for(ix=start_ix; ix < end_ix; ix++)
 	{
 		syl = &syllable_tab[ix];
 		stress = syl->stress;
 
 		if(increment > 0)
 		{
-			set_pitch(syl,pitch,-increment);
+			set_pitch(syl,(pitch >> 8),-(increment >> 8));
 			pitch += increment;
 		}
 		else
 		{
-			drop = -increment;
+			drop = -(increment >> 8);
 			if(drop < min_drop[stress])
 				drop = min_drop[stress];
 
 			pitch += increment;
 
-			if(drop > 0x900)
-				drop = 0x900;
-			set_pitch(syl, pitch, drop);
+			if(drop > 18)
+				drop = 18;
+			set_pitch(syl, (pitch >> 8), drop);
 		}
-			
-		ix++;
 	}
-	return(ix);
-}   /* end of calc_pitch_segment2 */
-
-
-
+}  // end of SetPitchGradient
 
 
 
@@ -651,10 +642,8 @@ static int calc_pitches(int start, int end,  int head_tone, int nucleus_tone)
 	/* vowels before the first primary stress */
 	/******************************************/
 
-	if(number_pre > 0)
-	{
-		ix = calc_pitch_segment2(ix, ix+number_pre, th->pre_start, th->pre_end, 0);
-	}
+	SetPitchGradient(ix, ix+number_pre, th->pre_start, th->pre_end);
+	ix += number_pre;
 
 	/* body of tonic segment */
 	/*************************/
@@ -680,13 +669,13 @@ static int calc_pitches(int start, int end,  int head_tone, int nucleus_tone)
 	{
 		tone_pitch_env = tn->pitch_env0;
 		drop = tn->tonic_max0 - tn->tonic_min0;
-		set_pitch(&syllable_tab[ix++],tn->tonic_min0 << 8,drop << 8);
+		set_pitch(&syllable_tab[ix++],tn->tonic_min0, drop);
 	}
 	else
 	{
 		tone_pitch_env = tn->pitch_env1;
 		drop = tn->tonic_max1 - tn->tonic_min1;
-		set_pitch(&syllable_tab[ix++],tn->tonic_min1 << 8,drop << 8);
+		set_pitch(&syllable_tab[ix++],tn->tonic_min1, drop);
 	}
 
 	syllable_tab[tone_posn].env = tone_pitch_env;
@@ -696,7 +685,7 @@ static int calc_pitches(int start, int end,  int head_tone, int nucleus_tone)
 	/* tail, after the tonic syllable */
 	/**********************************/
 	
-	calc_pitch_segment2(ix, end, tn->tail_start, tn->tail_end, 0);
+	SetPitchGradient(ix, end, tn->tail_start, tn->tail_end);
 
 	return(tone_pitch_env);
 }   /* end of calc_pitches */
@@ -1057,13 +1046,8 @@ void CalcPitches(Translator *tr, int clause_type)
 		{
 			syl = &syllable_tab[st_ix];
 
-			x = syl->pitch1 - 72;
-			if(x < 0) x = 0;
-			p->pitch1 = x;
-
-			x = syl->pitch2 - 72;
-			if(x < 0) x = 0;
-			p->pitch2 = x;
+			p->pitch1 = syl->pitch1;
+			p->pitch2 = syl->pitch2;
 
 			p->env = PITCHfall;
 			if(syl->flags & SYL_RISE)
@@ -1099,6 +1083,6 @@ if(p->tone_ph)
 		}
 	}
 
-}  // end of Translator::CalcPitches
+}  // end of CalcPitches
 
  

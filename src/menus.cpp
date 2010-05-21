@@ -88,6 +88,7 @@ wxMenuBar *MakeMenu(int type)
 	data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
 	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (debu&g)"));
 	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
+//	data_menu->Append(MENU_COMPILE_INTONATION, _("Compile &intonation data"));
 	data_menu->AppendSeparator();
 	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Layout *_rules file"));
 	data_menu->Append(MENU_SORT_DICTIONARY, _("&Sort *_rules file"));
@@ -113,6 +114,7 @@ wxMenuBar *MakeMenu(int type)
 
 	lexicon_menu = new wxMenu;
 	lexicon_menu->Append(MENU_LEXICON_RU, _("Russian (lexicon.dict)"));
+	lexicon_menu->Append(MENU_LEXICON_BG, _("Bulgarian"));
 	lexicon_menu->Append(MENU_LEXICON_DE, _("German"));
 	lexicon_menu->Append(MENU_LEXICON_IT, _("Italian"));
 	lexicon_menu->Append(MENU_LEXICON_IT2, _("Italian, pass 2"));
@@ -120,7 +122,7 @@ wxMenuBar *MakeMenu(int type)
 	tools_menu = new wxMenu;
 	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart"), vowelchart_menu);
 //	tools_menu->Append(MENU_LOAD_WAV,   _T("Analyse WAV file"));
-	tools_menu->Append(MENU_LEXICON, _("Compare &Lexicon"), lexicon_menu);
+	tools_menu->Append(MENU_LEXICON, _("Process &Lexicon"), lexicon_menu);
 	tools_menu->Append(MENU_TO_UTF8, _("Convert file to &UTF8..."));
 	tools_menu->Append(MENU_COUNT_WORDS, _("Count word &frequencies..."));
 	tools_menu->Append(MENU_TEST    ,   _("Test (temporary)"));

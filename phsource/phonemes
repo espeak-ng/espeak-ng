@@ -1677,5 +1677,11 @@ include ph_punjabi
 phonemetable prs base
 include ph_dari
 
+phonemetable sl sk
+include ph_slovenian
+
 phonemetable gd base
 include ph_s_gaelic
+
+phonemetable bg pl
+include ph_bulgarian

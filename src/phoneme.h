@@ -62,6 +62,7 @@
 #define phLONG         0x200000
 #define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
 #define phRHOTIC       0x800000
+#define phNOPAUSE     0x1000000
 #define phLOCAL      0x80000000  // used during compilation
 
 // fixed phoneme code numbers, these can be used from the program code

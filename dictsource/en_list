@@ -9,7 +9,6 @@
 //stress symbols  ' primary  , secondary  % unstressed
 
 // Conditional rules
-// ?2  Use long 'a' in 'bath'
 // ?3  General American
 // ?!3  Not General American
 // ?5  split [3:] er [3:], ir [IR], ur [VR] 
@@ -385,6 +384,7 @@ VI      $abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
 xxx	$abbrev		// not roman 30
 xy	$abbrev
+yd	jA@d
 
 
 nd	$only
@@ -601,7 +601,7 @@ argue            A@gju:
 aries            e@ri:z
 arithmetic       a2rITm@tIk
 arise            a2raIz
-arisen           a2rIz@n
+arisen           @rIz@n
 armslength       ,A@mzl'ENT
 arouse           a2raUz
 asbestos         asb'Est@s
@@ -1020,6 +1020,7 @@ el               ,El
 electricity      I2lEktr'IsI2tI
 electrode        I2lEktroUd
 electron         I2lEktr0n
+electrocute       $2
 elicit           I2lIsI2t
 eligible         ElI2dZ@b@L
 élite            Il'i:t
@@ -2666,6 +2667,7 @@ Leanne		li:'an
 Lenore		lEn'o@
 Leroy		li:rOI
 Liam		li:@m
+Llewellyn	L@w'ElIn
 Lois		loUIs
 Louis		lu:I
 Louise		lu:w'i:z
@@ -2898,6 +2900,8 @@ are              %A@		$pastf $only
 was              %w0z		$pastf $only
 ?3 was           %wVz		$pastf $only
 ?3 wasn't        wVznt		$pastf $only
+(was a)          w%0za2
+(was the)        w%0zD@2
 wast             %w0st		$only $pastf $only
 were             %w3:		$pastf $only
 isn't            ,Iz@nt		$pastf $strend2
@@ -3119,7 +3123,7 @@ soon             		$verbf
 still            		$verbf
 already          O:lrEdI	$u2 $verbf $strend2
 
-not              ,n0t		$verbextend $only $strend
+not              ,n0t		$verbextend $onlys $strend
 (not have)       n0ta2v		$pastf $u1
 (not have)       n0thav		$pastf $atend
 (not have to)    ,n0thavt@5	$pastf $strend

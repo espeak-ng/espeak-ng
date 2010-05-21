@@ -177,6 +177,35 @@ enum {
 };
 
 
+enum {
+	kTUNE = 1,
+	kENDTUNE,
+	kTUNE_PREHEAD,
+	kTUNE_ONSET,
+	kTUNE_HEAD,
+	kTUNE_HEADEXTEND,
+	kTUNE_HEADLAST,
+	kTUNE_UNSTRESSED,
+	kTUNE_NUCLEUS0,
+	kTUNE_NUCLEUS1,
+	kTUNE_SPLIT,
+};
+
+static keywtab_t k_intonation[] = {
+	{"tune",      0,   kTUNE},
+	{"endtune",   0,   kENDTUNE},
+	{"prehead",   0,   kTUNE_PREHEAD},
+	{"onset",     0,   kTUNE_ONSET},
+	{"head",      0,   kTUNE_HEAD},
+	{"headextend", 0,  kTUNE_HEADEXTEND},
+	{"headlast",  0,   kTUNE_HEADLAST},
+	{"unstressed",0,   kTUNE_UNSTRESSED},
+	{"nucleus0",  0,   kTUNE_NUCLEUS0},
+	{"nucleus1",  0,   kTUNE_NUCLEUS1},
+	{"split",     0,   kTUNE_SPLIT},
+	{NULL, 0, -1}
+};
+
 static keywtab_t keywords[] = {
 	{"vowel",     tPHONEME_TYPE, phVOWEL},
 	{"liquid",    tPHONEME_TYPE, phLIQUID},
@@ -271,6 +300,7 @@ static keywtab_t keywords[] = {
 	{"rhotic",     tPHONEME_FLAG, phRHOTIC},
 	{"nonsyllabic",tPHONEME_FLAG, phNONSYLLABIC},
 	{"lengthenstop",tPHONEME_FLAG, phLENGTHENSTOP},
+	{"nopause",    tPHONEME_FLAG, phNOPAUSE},
 
 	// voiced / unvoiced
 	{"vcd",	  tPHONEME_FLAG, phVOICED},
@@ -310,7 +340,7 @@ static keywtab_t keywords[] = {
 
 
 static keywtab_t *keyword_tabs[] = {
-keywords, k_conditions, k_properties };
+keywords, k_conditions, k_properties, k_intonation };
 
 
 static PHONEME_TAB *phoneme_out;
@@ -621,6 +651,7 @@ enum {
 	tKEYWORD,
 	tCONDITION,
 	tPROPERTIES,
+	tINTONATION,
 };
 
 int item_type;
@@ -982,7 +1013,7 @@ static void error(const char *format, const char *string)
 
 static void Error(const char *string)
 {//==================================
-	error(string,NULL);
+	error("%s",string);
 }
 
 static FILE *fopen_log(FILE *f_log, const char *fname,const char *access)
@@ -1149,6 +1180,15 @@ static void unget_char(unsigned int c)
 }
 
 
+int CheckNextChar()
+{//================
+	int c;
+	while(((c = get_char()) == ' ') || (c == '\t'));
+	unget_char(c);
+	return(c);
+}  // end of CheckNextChar
+
+
 static int NextItem(int type)
 {//==========================
 	int  acc;
@@ -1243,7 +1283,12 @@ static int NextItem(int type)
 			p++;
 		}
 		if(!isdigit(*p))
-			error("Expected a number",NULL);
+		{
+			if((type == tNUMBER) && (*p == '-'))
+				error("Expected an unsigned number",NULL);
+			else
+				error("Expected a number",NULL);
+		}
 		while(isdigit(*p))
 		{
 			acc *= 10;
@@ -1254,7 +1299,7 @@ static int NextItem(int type)
 	}
 
 
-	if((type >= tKEYWORD) && (type <= tPROPERTIES))
+	if((type >= tKEYWORD) && (type <= tINTONATION))
 	{
 		pk = keyword_tabs[type-tKEYWORD];
 		while(pk->mnem != NULL)
@@ -3020,6 +3065,7 @@ static void CompilePhonemeFiles()
 }  //  end of CompilePhonemeFiles
 
 
+
 static void CompilePhonemeData2(const char *source)
 {//================================================
 	char fname[sizeof(path_source)+40];
@@ -3110,7 +3156,7 @@ memset(markers_used,0,sizeof(markers_used));
 
 	if(gui_flag)
 	{
-		progress = new wxProgressDialog(_T("Phonemes"),_T(""),progress_max);
+		progress = new wxProgressDialog(_T("Compiling"),_T(""),progress_max);
 	}
 	else
 	{
@@ -3257,6 +3303,235 @@ void CompileMbrola()
 	fclose(f_out);
 	wxLogStatus(_T("Mbrola translation file: %d phonemes"),count);
 }  // end of CompileMbrola
+
+
+
+static const TUNE default_tune = {
+0, {0,0,0,0},
+{0, 40, 24, 8, 0, 0, 0, 0},
+46, 57, 255, 78, 50, 255,
+PITCHfall, 0,
+3, 5,
+7, 7, 0,
+PITCHfall, 64, 8,
+PITCHfall, 70, 18, 24, 12,
+PITCHfall, 70, 18, 24, 12,
+{0,0,0,0,0,0,0,0,0,0}
+};
+
+TUNE new_tune;
+
+#define N_TUNE_NAMES  100
+
+static MNEM_TAB envelope_names[] = {
+	{"fall", 0},
+	{"rise", 1},
+	{"fall_rise", 2},
+	{"fall_rise2", 3},
+	{"rise_fall",  4},
+	{NULL, -1} };
+
+
+//	env_fallrise3, env_fallrise3,
+//	env_fallrise4, env_fallrise4,
+//	env_fall2, env_fall2,
+//	env_rise2, env_rise2,
+//	env_risefallrise, env_risefallrise
+
+int LookupEnvelope(const char *name)
+{//=================================
+	return(LookupMnem(envelope_names, name));
+}
+
+
+void CompileIntonation()
+{//=====================
+	int ix;
+	char *p;
+	char c;
+	int keyword;
+	int compiling_tune = 0;
+	int n_tune_names = 0;
+	int done_split;
+	int n_tunes = 0;
+	FILE *f_out;
+	wxString report;
+
+	char name[5];
+	unsigned int tune_names[N_TUNE_NAMES];
+	char buf[sizeof(path_source)+120];
+
+	error_count = 0;
+
+	sprintf(buf,"%s%s",path_source,"error_intonation");
+	if((f_errors = fopen(buf,"w")) == NULL)
+		f_errors = stderr;
+
+	sprintf(buf,"%sintonation",path_source);
+	f_in = fopen_log(f_errors, buf, "r");
+	if(f_in == NULL)
+	{
+		fclose(f_errors);
+		return;
+	}
+
+	sprintf(buf,"%s/intonations",path_home);
+	f_out = fopen_log(f_errors, buf, "w");
+	if(f_out == NULL)
+	{
+		fclose(f_in);
+		fclose(f_errors);
+		return;
+	}
+
+	// make a list of the tune names
+	while(!feof(f_in))
+	{
+		if(fgets(buf,sizeof(buf),f_in) == NULL)
+			break;
+
+		if((memcmp(buf,"tune",4)==0) && isspace(buf[4]))
+		{
+			p = &buf[5];
+			while(isspace(*p)) p++;
+
+			ix = 0;
+			while((ix < int(sizeof(name) - 1)) && !isspace(*p))
+			{
+				name[ix++] = *p++;
+			}
+			name[ix] = 0;
+			tune_names[n_tune_names++] = StringToWord(name);
+
+			if(n_tune_names >= N_TUNE_NAMES)
+				break;
+		}
+	}
+	rewind(f_in);
+	linenum = 1;
+
+	while(!feof(f_in))
+	{
+		keyword = NextItem(tINTONATION);
+
+		switch(keyword)
+		{
+		case kTUNE:
+			if(compiling_tune)
+			{
+			}
+			compiling_tune = 1;
+			n_tunes++;
+			done_split = 0;
+
+			memcpy(&new_tune, &default_tune, sizeof(TUNE));
+			NextItem(tSTRING);
+			new_tune.name = StringToWord(item_string);
+			fprintf(f_errors,"tune %s\n",WordToString(new_tune.name));
+			break;
+
+		case kENDTUNE:
+			compiling_tune = 0;
+			fwrite(&new_tune, 1, sizeof(new_tune), f_out);
+			break;
+
+		case kTUNE_PREHEAD:
+			new_tune.prehead_start = NextItem(tNUMBER);
+			new_tune.prehead_end = NextItem(tNUMBER);
+			break;
+
+		case kTUNE_HEAD:
+			new_tune.head_max_steps = NextItem(tNUMBER);
+			new_tune.head_start = NextItem(tNUMBER);
+			new_tune.head_end = NextItem(tNUMBER);
+			NextItem(tSTRING);
+			if((ix = LookupEnvelope(item_string)) < 0)
+			{
+				error("Bad envelope name: '%s'",item_string);
+			}
+			break;
+
+		case kTUNE_HEADEXTEND:
+			// up to 8 numbers
+			for(ix=0; ix < int(sizeof(new_tune.headextend)); ix++)
+			{
+				if(!isdigit(c = CheckNextChar()) && (c != '-'))
+					break;
+
+				new_tune.headextend[ix] = (NextItem(tSIGNEDNUMBER) * 64) / 100;  // convert from percentage to 64ths
+			}
+			new_tune.n_headextend = ix;    // number of values
+			break;
+
+		case kTUNE_UNSTRESSED:
+			new_tune.unstressed_start = NextItem(tSIGNEDNUMBER);
+			new_tune.unstressed_end = NextItem(tSIGNEDNUMBER);
+			break;
+
+		case kTUNE_NUCLEUS0:
+			NextItem(tSTRING);
+			if((ix = LookupEnvelope(item_string)) < 0)
+			{
+				error("Bad envelope name: '%s'",item_string);
+				break;
+			}
+			new_tune.nucleus0_env = ix;
+			new_tune.nucleus0_max = NextItem(tNUMBER);
+			new_tune.nucleus0_min = NextItem(tNUMBER);
+			break;
+
+		case kTUNE_NUCLEUS1:
+			NextItem(tSTRING);
+			if((ix = LookupEnvelope(item_string)) < 0)
+			{
+				error("Bad envelope name: '%s'",item_string);
+				break;
+			}
+			new_tune.nucleus1_env = ix;
+			new_tune.nucleus1_max = NextItem(tNUMBER);
+			new_tune.nucleus1_min = NextItem(tNUMBER);
+			new_tune.tail_start = NextItem(tNUMBER);
+			new_tune.tail_end = NextItem(tNUMBER);
+
+			if(!done_split)
+			{
+				new_tune.split_nucleus_env = ix;
+				new_tune.split_nucleus_max = new_tune.nucleus1_max;
+				new_tune.split_nucleus_min = new_tune.nucleus1_min;
+				new_tune.split_tail_start = new_tune.tail_start;
+				new_tune.split_tail_end = new_tune.tail_end;
+			}
+			break;
+
+		case kTUNE_SPLIT:
+			NextItem(tSTRING);
+			if((ix = LookupEnvelope(item_string)) < 0)
+			{
+				error("Bad envelope name: '%s'",item_string);
+				break;
+			}
+			new_tune.split_nucleus_env = ix;
+			new_tune.split_nucleus_max = NextItem(tNUMBER);
+			new_tune.split_nucleus_min = NextItem(tNUMBER);
+			new_tune.split_tail_start = NextItem(tNUMBER);
+			new_tune.split_tail_end = NextItem(tNUMBER);
+			done_split = 1;
+			break;
+
+		default:
+			error("Unexpected: '%s'",item_string);
+			break;
+		}
+	}
+
+	fclose(f_in);
+	fclose(f_out);
+	fclose(f_errors);
+
+	report.Printf(_T("Compiled %d intonation tunes: %d errors."),n_tunes, error_count);
+	wxLogStatus(report);
+
+}   // end of CompileIntonation
 
 
 

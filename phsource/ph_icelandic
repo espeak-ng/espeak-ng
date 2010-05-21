@@ -17,8 +17,17 @@ phoneme i
   vowel starttype #i endtype #i
   length 130
   IfNextVowelAppend(;)
+  FMT(vowel/ii_6)
+endphoneme
+
+phoneme i:
+  vowel starttype #i endtype #i
+  length 230
+  IfNextVowelAppend(;)
+  ChangeIfNotStressed(i)
   FMT(vowel/i_4)
 endphoneme
+
 
 
 phoneme I
@@ -28,13 +37,14 @@ phoneme I
   FMT(vowel/ii)
 endphoneme
 
-
-phoneme e
-  vowel starttype #e endtype #e
-  length 130
-  ChangeIfNotStressed(E)
-  FMT(vowel/e_e)
+phoneme I:
+  vowel starttype #i endtype #i
+  length 230
+  IfNextVowelAppend(;)
+  ChangeIfNotStressed(I)
+  FMT(vowel/ii)
 endphoneme
+
 
 
 phoneme E
@@ -43,28 +53,27 @@ phoneme E
   FMT(vowel/e_mid)
 endphoneme
 
-
-phoneme a
-  vowel starttype #a endtype #a
+phoneme E:
+  vowel starttype #e endtype #e
   length 130
-  ChangeIfNotStressed(&)
-  FMT(vowel/a_3)
+  FMT(vowel/e_e)
 endphoneme
 
 
-phoneme &
+
+phoneme a
   vowel starttype #@ endtype #@
   length 130
   FMT(vowel/a#_2)
 endphoneme
 
-
-phoneme o
-  vowel starttype #o endtype #o
-  length 130
-  ChangeIfNotStressed(O)
-  FMT(vdiph2/o_oo)
+phoneme a:
+  vowel starttype #a endtype #a
+  length 230
+  ChangeIfNotStressed(a)
+  FMT(vowel/aa_8)
 endphoneme
+
 
 
 phoneme O
@@ -73,29 +82,53 @@ phoneme O
   FMT(vowel/oo_5)
 endphoneme
 
+phoneme O:
+  vowel starttype #o endtype #o
+  length 230
+  ChangeIfNotStressed(O)
+  FMT(vdiph2/o_oo)
+endphoneme
+
 
 phoneme u
   vowel starttype #u endtype #u
   length 130
+  FMT(vowel/u_2)
+endphoneme
+
+phoneme u:
+  vowel starttype #u endtype #u
+  length 230
+  ChangeIfNotStressed(u)
   FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme y
-  vowel starttype #i endtype #i
-  length 130
-  FMT(vowel/yy_4)
-endphoneme
-
-phoneme y#
   vowel starttype #@ endtype #@
   length 130
   FMT(vowel/y##)
 endphoneme
 
+
+phoneme y:
+  vowel starttype #i endtype #i
+  length 230
+  ChangeIfNotStressed(y)
+  FMT(vowel/yy_4)
+endphoneme
+
+
 phoneme W
   vowel starttype #@ endtype #@
   length 130
+  FMT(vowel/y#_3)
+endphoneme
+
+phoneme W:
+  vowel starttype #@ endtype #@
+  length 130
+  ChangeIfNotStressed(W)
   FMT(vowel/y#_3)
 endphoneme
 
@@ -106,17 +139,41 @@ phoneme aI
   FMT(vdiph/ai_7)
 endphoneme
 
+phoneme aI:
+  vowel starttype #a endtype #i
+  length 230
+  ChangeIfNotStressed(aI)
+  FMT(vdiph/ai_7)
+endphoneme
+
+
 phoneme eI
   vowel starttype #e endtype #i
   length 170
   FMT(vdiph/ei)
 endphoneme
 
+phoneme eI:
+  vowel starttype #e endtype #i
+  length 230
+  ChangeIfNotStressed(eI)
+  FMT(vdiph/ei)
+endphoneme
+
+
 phoneme aU
   vowel starttype #a endtype #u
   length 170
-  FMT(vdiph/au_4)
+  FMT(vdiph/aau)
 endphoneme
+
+phoneme aU:
+  vowel starttype #a endtype #u
+  length 230
+  ChangeIfNotStressed(aU)
+  FMT(vdiph/aau)
+endphoneme
+
 
 phoneme oU
   vowel starttype #o endtype #u
@@ -124,16 +181,38 @@ phoneme oU
   FMT(vdiph/ou_3)
 endphoneme
 
-phoneme oU2    // long version for  óf
+phoneme oU:    // long version for  óf
   vowel starttype #o endtype #u
   length 230
+  ChangeIfNotStressed(oU)
   FMT(vdiph/ou_3)
 endphoneme
+
 
 phoneme Yy
   vowel starttype #@ endtype #i
   length 150
   FMT(vdiph/y#i_2)
+endphoneme
+
+phoneme Yy:
+  vowel starttype #@ endtype #i
+  length 220
+  ChangeIfNotStressed(Yy)
+  FMT(vdiph/y#i_2)
+endphoneme
+
+
+phoneme OI
+  vowel starttype #o endtype #i
+  length 210
+  FMT(vdiph/oi)
+endphoneme
+
+phoneme yI
+  vowel starttype #i endtype #i
+  length 180
+  FMT(vowel/yy_4)
 endphoneme
 
 

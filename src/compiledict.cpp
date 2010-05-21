@@ -44,9 +44,6 @@ extern char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme
 
 static int linenum;
 static int error_count;
-static int transpose_offset;  // transpose character range for LookupDictList()
-static int transpose_min;
-static int transpose_max;
 static int text_mode = 0;
 static int debug_flag = 0;
 static int error_need_dictionary = 0;
@@ -54,6 +51,15 @@ static int error_need_dictionary = 0;
 static int hash_counts[N_HASH_DICT];
 static char *hash_chains[N_HASH_DICT];
 static char letterGroupsDefined[N_LETTER_GROUPS];
+
+MNEM_TAB mnem_rules[] = {
+	{"w_alt2", 0x12},
+	{"w_alt3", 0x13},
+	{"w_alt", 0x11},   // note: put longer names before their sub-strings
+	{"p_alt2", 0x22},
+	{"p_alt3", 0x23},
+	{"p_alt", 0x21},
+	{NULL, -1} };
 
 MNEM_TAB mnem_flags[] = {
 	// these in the first group put a value in bits0-3 of dictionary_flags
@@ -89,9 +95,10 @@ MNEM_TAB mnem_flags[] = {
 // language specific
 	{"$double",    19},   // IT double the initial consonant of next word
 	{"$alt",       20},   // use alternative pronunciation
+	{"$alt1",      20},   // synonym for $alt
 	{"$alt2",      21},
-	{"$combine",   22},   // Combine with the next word
-	{"$alt3",      23},
+	{"$alt3",      22},
+	{"$combine",   23},   // Combine with the next word
 
 	{"$dot",       24},   // ignore '.' after this word (abbreviation)
 	{"$hasdot",    25},   // use this pronunciation if there is a dot after the word
@@ -112,6 +119,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$capital", 0x29},   /* use this pronunciation if initial letter is upper case */
 	{"$allcaps", 0x2a},   /* use this pronunciation if initial letter is upper case */
 	{"$accent",  0x2b},   // character name is base-character name + accent name
+	{"$sentence",0x2d},   // only if this clause is a sentence (i.e. terminator is {. ? !} not {, ; :}
 
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
@@ -143,27 +151,6 @@ int isspace2(unsigned int c)
 }
 
 
-static const char *LookupMnem2(MNEM_TAB *table, int value)
-{//=======================================================
-	while(table->mnem != NULL)
-	{
-		if(table->value == value)
-			return(table->mnem);
-		table++;
-	}
-	return("");
-}
-
-
-char *print_dictionary_flags(unsigned int *flags)
-{//==============================================
-	static char buf[20];
-
-	sprintf(buf,"%s  0x%x/%x",LookupMnem2(mnem_flags,(flags[0] & 0xf)+0x40), flags[0], flags[1]);
-	return(buf);
-}
-
-
 
 static FILE *fopen_log(const char *fname,const char *access)
 {//==================================================
@@ -179,9 +166,8 @@ static FILE *fopen_log(const char *fname,const char *access)
 }
 
 
-#ifdef OPT_FORMAT
-static const char *lookup_mnem(MNEM_TAB *table, int value)
-//========================================================
+const char *LookupMnemName(MNEM_TAB *table, const int value)
+//==========================================================
 /* Lookup a mnemonic string in a table, return its name */
 {
    while(table->mnem != NULL)
@@ -190,9 +176,181 @@ static const char *lookup_mnem(MNEM_TAB *table, int value)
          return(table->mnem);
       table++;
    }
-   return("??");   /* not found */
-}   /* end of mnem */
-#endif
+   return("");   /* not found */
+}   /* end of LookupMnemValue */
+
+
+char *print_dictionary_flags(unsigned int *flags)
+{//==============================================
+	static char buf[20];
+
+	sprintf(buf,"%s  0x%x/%x",LookupMnemName(mnem_flags,(flags[0] & 0xf)+0x40), flags[0], flags[1]);
+	return(buf);
+}
+
+
+
+
+char *DecodeRule(const char *group_chars, int group_length, char *rule)
+{//====================================================================
+/* Convert compiled match template to ascii */
+
+   unsigned char rb;
+	unsigned char c;
+	char *p;
+   int  ix;
+	int  match_type;
+	int  finished=0;
+	int  value;
+	int  linenum=0;
+	int  flags;
+	int  suffix_char;
+	int  condition_num=0;
+	const char *name;
+   char buf[60];
+   char buf_pre[60];
+	char suffix[20];
+	static char output[60];
+
+	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
+			'@','&','%','+','#','S','D','Z','A','L','!',' ','?','?','J','N','K','V','?','T','X','?','W'};
+
+	static char symbols_lg[] = {'A','B','C','H','F','G','Y'};
+
+	match_type = 0;
+   buf_pre[0] = 0;
+
+	for(ix=0; ix<group_length; ix++)
+	{
+		buf[ix] = group_chars[ix];
+	}
+	buf[ix] = 0;
+
+	p = &buf[strlen(buf)];
+   while(!finished)
+   {
+		rb = *rule++;
+
+		if(rb <= RULE_LINENUM)
+		{
+			switch(rb)
+			{
+			case 0:
+			case RULE_PHONEMES:
+				finished=1;
+				break;
+			case RULE_PRE:
+				match_type = RULE_PRE;
+				*p = 0;
+				p = buf_pre;
+				break;
+			case RULE_POST:
+				match_type = RULE_POST;
+				*p = 0;
+				strcat(buf," (");
+				p = &buf[strlen(buf)];
+				break;
+			case RULE_PH_COMMON:
+				break;
+			case RULE_CONDITION:
+				/* conditional rule, next byte gives condition number */
+				condition_num = *rule++;
+				break;
+			case RULE_LINENUM:
+				value = (rule[1] & 0xff) - 1;
+				linenum = (rule[0] & 0xff) - 1 + (value * 255);
+				rule+=2;
+				break;
+			}
+			continue;
+		}
+		
+		if(rb == RULE_DOLLAR)
+		{
+			p[0] = '$';
+			name = LookupMnemName(mnem_rules, *rule++);
+			strcpy(&p[1],name);
+			p += (strlen(name)+1);
+			c = ' ';
+		}
+		else
+		if(rb == RULE_ENDING)
+		{
+			static const char *flag_chars = "ei vtfq t";
+			flags = ((rule[0] & 0x7f)<< 8) + (rule[1] & 0x7f);
+			suffix_char = 'S';
+			if(flags & (SUFX_P >> 8))
+				suffix_char = 'P';
+			sprintf(suffix,"%c%d",suffix_char,rule[2] & 0x7f);
+			rule += 3;
+			for(ix=0;ix<9;ix++)
+			{
+				if(flags & 1)
+					sprintf(&suffix[strlen(suffix)],"%c",flag_chars[ix]);
+				flags = (flags >> 1);
+			}
+			strcpy(p,suffix);
+			p += strlen(suffix);
+			c = ' ';
+		}
+		else
+		if(rb == RULE_LETTERGP)
+		{
+			c = symbols_lg[*rule++ - 'A'];
+		}
+		else
+		if(rb == RULE_LETTERGP2)
+		{
+			value = *rule++ - 'A';
+			p[0] = 'L';
+			p[1] = (value / 10) + '0';
+			c = (value % 10) + '0';
+
+			if(match_type == RULE_PRE)
+			{
+				p[0] = c;
+				c = 'L';
+			}
+			p+=2;
+		}
+		else
+		if(rb <= RULE_LAST_RULE)
+			c = symbols[rb];
+		else
+		if(rb == RULE_SPACE)
+			c = '_';
+		else
+			c = rb;
+		*p++ = c;
+	}
+	*p = 0;
+
+	p = output;
+	if(linenum > 0)
+	{
+		sprintf(p,"%5d:\t",linenum);
+		p += 7;
+	}
+	if(condition_num > 0)
+	{
+		sprintf(p,"?%d ",condition_num);
+		p = &p[strlen(p)];
+	}
+	if((ix = strlen(buf_pre)) > 0)
+	{
+		while(--ix >= 0)
+			*p++ = buf_pre[ix];
+		*p++ = ')';
+		*p++ = ' ';
+	}
+	*p = 0;
+	strcat(p,buf);
+	ix = strlen(output);
+	while(ix < 8)
+		output[ix++]=' ';
+	output[ix]=0;
+   return(output);
+}   /* end of DecodeRule */
 
 
 
@@ -533,9 +691,9 @@ step=1;  // TEST
 
 	len_word = strlen(word);
 
-	if(transpose_offset > 0)
+	if(translator->transpose_offset > 0)
 	{
-		len_word = TransposeAlphabet(word, transpose_offset, transpose_min, transpose_max);
+		len_word = TransposeAlphabet(word, translator->transpose_offset, translator->transpose_min, translator->transpose_max);
 	}
 
 	*hash = HashDictionary(word);
@@ -762,6 +920,7 @@ static void copy_rule_string(char *string, int &state)
 	int  sxflags;
 	int  value;
 	int  literal;
+	MNEM_TAB *mr;
 
 	if(string[0] == 0) return;
 
@@ -858,7 +1017,8 @@ static void copy_rule_string(char *string, int &state)
 					c = RULE_CAPITAL;
 					break;
 				case 'T':
-					c = RULE_ALT1;
+					output[ix++] = RULE_DOLLAR;
+					c = 0x11;
 					break;
 				case 'W':
 					c = RULE_SPELLING;
@@ -899,10 +1059,28 @@ static void copy_rule_string(char *string, int &state)
 					}
 					break;
 
-				case '$':   // obsolete, replaced by S
-						fprintf(f_log,"%5d: $ now not allowed, use S for suffix",linenum);
+				case '$':
+					output[ix++] = RULE_DOLLAR;
+					c = 0;
+					mr = mnem_rules;
+					while(mr->mnem != NULL)
+					{
+						len = strlen(mr->mnem);
+						if(memcmp(p, mr->mnem, len) == 0)
+						{
+							c = mr->value;
+							p += len;
+							break;
+						}
+						mr++;
+					}
+					if(c == 0)
+					{
+						fprintf(f_log,"%5d: $ command not recognized\n",linenum);
 						error_count++;
+					}
 					break;
+
 				case 'P':
 					sxflags |= SUFX_P;   // Prefix, now drop through to Suffix
 				case 'S':
@@ -1702,17 +1880,6 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 		return(-1);
 	}
 	sprintf(fname_temp,"%s%ctemp",path_home,PATHSEP);
-
-	transpose_offset = 0;
-
-	if(strcmp(dict_name,"ru") == 0)
-	{
-		// transpose cyrillic alphabet from unicode to iso8859-5
-//		transpose_offset = 0x430-0xd0;
-		transpose_offset = 0x42f;   // range 0x01 to 0x22
-		transpose_min = 0x430;
-		transpose_max = 0x451;
-	}
 
 	value = N_HASH_DICT;
 	Write4Bytes(f_out,value);

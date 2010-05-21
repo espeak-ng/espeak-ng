@@ -29,7 +29,11 @@ phoneme l      // use dark [l/2] before not-vowel
   lengthmod 7
 
   IF nextPh(isNotVowel) THEN
-    ChangePhoneme(l/2)
+    IF prevPh(isNotVowel) THEN
+      ChangePhoneme(l/)
+    ELSE
+      ChangePhoneme(l/2)
+    ENDIF
   ENDIF
 
   CALL base/l
@@ -130,7 +134,7 @@ endphoneme
 
 phoneme a
   vowel  starttype #a  endtype #a
-  length 150
+  length 160
   ChangeIfDiminished(a2)
   FMT(vowel/a)
 endphoneme
@@ -146,7 +150,7 @@ endphoneme
 
 phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
-  length 150
+  length 190
   IfNextVowelAppend(r-)
   FMT(vowel/a)
 endphoneme

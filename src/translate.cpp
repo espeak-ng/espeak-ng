@@ -573,6 +573,26 @@ char *strchr_w(const char *s, int c)
 }
 
 
+static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
+{//============================================================================================
+	int posn = 0;
+
+	while((*word != ' ') && (*word != 0))
+	{
+		word += TranslateLetter(tr, word, phonemes, spell_word);
+		posn++;
+		if(phonemes[0] == phonSWITCH)
+		{
+			// change to another language in order to translate this word
+			strcpy(word_phonemes,phonemes);
+			return(NULL);
+		}
+	}
+	SetSpellingStress(tr,phonemes,spell_word,posn);
+	return(word);
+}  // end of SpeakIndividualLetters
+
+
 
 int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 {//===========================================================================
@@ -747,7 +767,7 @@ if((wmark > 0) && (wmark < 8))
 			if(word_phonemes[0] == phonSWITCH)
 				return(0);
 
-			found = TranslateNumber(tr,word1,phonemes,dictionary_flags,wtab);
+			found = TranslateNumber(tr, word1, phonemes, dictionary_flags, wtab, 0);
 		}
 
 		if(!found & ((wflags & FLAG_UPPERS) != FLAG_FIRST_UPPER))
@@ -781,25 +801,15 @@ if((wmark > 0) && (wmark < 8))
 	if(spell_word > 0)
 	{
 		// Speak as individual letters
-		wordx = word1;
-		posn = 0;
 		phonemes[0] = 0;
 		end_type = 0;
 
-		while(*wordx != ' ')
+		if(SpeakIndividualLetters(tr, word1, phonemes, spell_word) == NULL)
 		{
-			wordx += TranslateLetter(tr,wordx, phonemes, spell_word);
-			posn++;
-			if(phonemes[0] == phonSWITCH)
-			{
-				// change to another language in order to translate this word
-				strcpy(word_phonemes,phonemes);
-				if(word_length > 1)
-					return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
-				return(0);
-			}
+			if(word_length > 1)
+				return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
+			return(0);
 		}
-		SetSpellingStress(tr,phonemes,spell_word,posn);
 	}
 	else
 	if(found == 0)
@@ -870,19 +880,10 @@ if((wmark > 0) && (wmark < 8))
 				utf8_in(&wc, wordx);
 				if((word_length == 1) && IsAlpha(wc))
 				{
-					posn = 0;
-					while((*wordx != ' ') && (*wordx != 0))
+					if((wordx = SpeakIndividualLetters(tr, wordx, phonemes, spell_word)) == NULL)
 					{
-						wordx += TranslateLetter(tr,wordx, phonemes, 4);
-						posn++;
-						if(phonemes[0] == phonSWITCH)
-						{
-							// change to another language in order to translate this word
-							strcpy(word_phonemes,phonemes);
-							return(0);
-						}
+						return(0);
 					}
-					SetSpellingStress(tr,phonemes,spell_word,posn);
 				}
 			}
 
@@ -2114,7 +2115,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	charix[charix_top+3] = 0;
 
 	clause_pause = (terminator & 0xfff) * 10;  // mS
-	tone = (terminator >> 12) & 0xf;
+	tone = (terminator >> 12) & 0x7;
 	if(tone2 != 0)
 	{
 		// override the tone type
@@ -2143,6 +2144,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	{
 		max_clause_pause = clause_pause;
 	}
+	tr->clause_terminator = terminator;
 
 	if(new_sentence)
 	{
@@ -2440,6 +2442,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 							c = ' ';      // lower case followed by upper case, treat as new word
 							space_inserted = 1;
 							prev_in_save = c;
+//							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
 						}
 						else
 						if((c != ' ') && iswupper(prev_in) && iswlower(next_in))

@@ -769,7 +769,11 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 	{
 		if(roman || !(wtab[1].flags & FLAG_FIRST_UPPER))
 		{
-			utf8_in(&c2, &word_end[2]);
+			if(word_end[0] == '.')
+				utf8_in(&c2, &word_end[2]);
+			else
+				utf8_in(&c2, &word_end[1]);
+
 			if((word_end[1] != 0) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || IsAlpha(c2)))
 			{
 				// ordinal number is indicated by dot after the number
@@ -810,6 +814,19 @@ if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG
 }  // end of CheckDotOrdinal
 
 
+static int hu_number_e(const char *word)
+{//=====================================
+// lang-hu: variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt, att. ett
+
+	if((word[0] == 'a') || (word[0] == 'e'))
+	{
+		if((word[1] == ' ') || (word[1] == 'z') || ((word[1] == 't') && (word[2] == 't')))
+			return(0);
+		return(1);
+	}
+	return(0);
+}  // end of hu_numnber_e
+
 
 
 int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
@@ -824,6 +841,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	int repeat = 0;
 	int n_digits = 0;
 	char *word_start;
+	int num_control = 0;
 	unsigned int flags[2];
 	char ph_roman[30];
 	char number_chars[N_WORD_BYTES];
@@ -895,18 +913,34 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 
 	sprintf(number_chars,"  %d    ",acc);
 
+	if(word[0] == '.')
+	{
+		// dot has not been removed.  This implies that there was no space after it
+		return(0);
+	}
+
 	if(CheckDotOrdinal(tr, word_start, word, wtab, 1))
 		wtab[0].flags |= FLAG_ORDINAL;
 
 	if(tr->langopts.numbers & NUM_ROMAN_ORDINAL)
 	{
-		if((n_digits <= 1) && !(wtab[0].flags & FLAG_ORDINAL))
-			return(0);
-		wtab[0].flags |= FLAG_ORDINAL;
+		if(tr->translator_name == L('h','u'))
+		{
+			if(!(wtab[0].flags & FLAG_ORDINAL))
+			{
+				if((wtab[0].flags & FLAG_HYPHEN_AFTER) && hu_number_e(word))
+				{
+					// should use the 'e' form of the number
+					num_control |= 1;
+				}
+				else
+					return(0);
+			}
+		}
 	}
 
 	tr->prev_dict_flags = 0;
-	TranslateNumber(tr, &number_chars[2], p, flags, wtab);
+	TranslateNumber(tr, &number_chars[2], p, flags, wtab, num_control);
 
 	if(tr->langopts.numbers & NUM_ROMAN_AFTER)
 		strcat(ph_out,ph_roman);
@@ -1319,11 +1353,11 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	tensunits = value % 100;
 	buf1[0] = 0;
 
+	ph_thousands[0] = 0;
+	ph_thousand_and[0] = 0;
+
 	if(hundreds > 0)
 	{
-		ph_thousands[0] = 0;
-		ph_thousand_and[0] = 0;
-
 		found = 0;
 		if(ordinal && (tensunits == 0))
 		{
@@ -1369,6 +1403,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		}
 
 		ph_digits[0] = 0;
+
 		if(hundreds > 0)
 		{
 			if((tr->langopts.numbers & NUM_AND_HUNDRED) && ((control & 1) || (ph_thousands[0] != 0)))
@@ -1418,9 +1453,13 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	}
 
 	ph_hundred_and[0] = 0;
-	if((tr->langopts.numbers & NUM_HUNDRED_AND) && (tensunits != 0))
+	if(tensunits > 0)
 	{
-		if((value > 100) || ((control & 1) && (thousandplex==0)))
+		if((tr->langopts.numbers & NUM_HUNDRED_AND) && ((value > 100) || ((control & 1) && (thousandplex==0))))
+		{
+			Lookup(tr, "_0and", ph_hundred_and);
+		}
+		if((tr->langopts.numbers & NUM_THOUSAND_AND) && (hundreds == 0) && ((control & 1) || (ph_thousands[0] != 0)))
 		{
 			Lookup(tr, "_0and", ph_hundred_and);
 		}
@@ -1461,8 +1500,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 }  // end of LookupNum3
 
 
-static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, WORD_TAB *wtab)
-{//========================================================================================================
+static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
+{//=====================================================================================================================
 //  Number translation with various options
 // the "word" may be up to 4 digits
 // "words" of 3 digits may be preceded by another number "word" for thousands or millions
@@ -1501,7 +1540,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	n_digit_lookup = 0;
 	buf_digit_lookup[0] = 0;
 	digit_lookup = buf_digit_lookup;
-	number_control = 0;
+	number_control = control;
 
 	for(ix=0; isdigit(word[ix]); ix++) ;
 	n_digits = ix;
@@ -1639,9 +1678,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	if(tr->translator_name == L('h','u'))
 	{
-		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (buit not a, e, az, ez, azt, ezt
-		if((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact==1)
-			&& ((word[suffix_ix] == 'a') || (word[suffix_ix] == 'e')) && ((c = word[suffix_ix+1]) != ' ') && (c != 'z'))
+		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt
+		if((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact==1) && hu_number_e(&word[suffix_ix]))
 		{
 			number_control |= 1;  // use _1e variant of number
 		}
@@ -1821,13 +1859,13 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 
 
-int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab)
-{//================================================================================================
+int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
+{//=============================================================================================================
 	if(option_sayas == SAYAS_DIGITS1)
 		return(0);  // speak digits individually
 
 	if(tr->langopts.numbers != 0)
-		return(TranslateNumber_1(tr, word1, ph_out, flags, wtab));
+		return(TranslateNumber_1(tr, word1, ph_out, flags, wtab, control));
 
 	return(0);
 }  // end of TranslateNumber

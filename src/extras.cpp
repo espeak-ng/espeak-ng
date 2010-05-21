@@ -200,8 +200,6 @@ static const unsigned short KOI8_R[0x60] = {
 
 
 #define N_CHARS  34
-int *p_unicode;
-int unicode[80];
 #define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
 
 
@@ -765,6 +763,202 @@ void Lexicon_De()
 }
 
 
+void Lexicon_Bg()
+{//==============
+// Bulgarian: compare stress markup in a list of words with lookup using bg_rules
+
+	char *p;
+	char *pw;
+	char *pw1;
+	int cc;
+	int vcount;
+	int lex_stress;
+	int input_length;
+	int n_words=0;
+	int n_wrong=0;
+	int n_out=0;
+	int n_stress;
+	int max_stress;
+	int max_stress_posn;
+	int stress_first;
+	int done;
+	PHONEME_TAB *ph;
+
+	FILE *f_in;
+	FILE *f_out;
+	FILE *f_log;
+	
+	char word[80];
+	char word_in[80];
+	char phonemes[N_WORD_PHONEMES];
+	char buf[200];
+	char fname[sizeof(path_dsource)+20];
+
+	static unsigned short bg_vowels[] = {0x430, 0x435, 0x438, 0x43e, 0x443, 0x44a, 0x44d, 0x44e, 0x44f, 0x450, 0x451, 0x45d, 0};
+
+	if(gui_flag == 0)
+		return;
+
+	wxString s_fname = wxFileSelector(_T("List of UTF-8 words with Combining Grave Accent U+300 to indicate stress"),path_dir1,
+		_T(""),_T(""),_T("*"),wxOPEN);
+	if(s_fname.IsEmpty())
+		return;
+	strcpy(buf,s_fname.mb_str(wxConvLocal));
+	path_dir1 = wxFileName(s_fname).GetPath();
+
+	if((f_in = fopen(buf,"r")) == NULL)
+	{
+		wxLogError(_T("Can't read file: ") + wxString(buf,wxConvLocal));
+		return;
+	}
+	input_length = GetFileLength(buf);
+
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_listx_1");
+	if((f_out = fopen(fname,"w")) == NULL)
+	{
+		wxLogError(_T("Can't write to: ")+wxString(fname,wxConvLocal));
+		fclose(f_in);
+		return;
+	}
+
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_log");
+	f_log = fopen(fname,"w");
+
+	LoadVoice("bg",0);
+	progress = new wxProgressDialog(_T("Lexicon"),_T(""),input_length);
+
+	for(;;)
+	{
+		if((n_words & 0x3ff) == 0)
+		{
+			progress->Update(ftell(f_in));
+		}
+
+		if(fgets(buf,sizeof(buf),f_in) == NULL)
+			break;
+
+		if(isspace2(buf[0]))
+			continue;
+
+		// convert from UTF-8 to Unicode
+		word[0] = 0;
+		word[1] = ' ';
+		pw = &word[2];
+		pw1 = word_in;
+		p = buf;
+		while(*p == ' ') p++;
+		vcount = 0;
+		lex_stress = 0;
+		n_stress = 0;
+		stress_first = 0;
+
+		// find the marked stress position
+		for(;;)
+		{
+			p += utf8_in(&cc, p);
+			if(iswspace(cc))
+				break;
+			if(cc == 0xfeff)
+				continue;   // ignore UTF-8 indication
+
+			pw1 += utf8_out(cc, pw1);   // copy UTF-8 to 'word_in'
+
+			if(lookupwchar(bg_vowels, cc) != 0)
+				vcount++;
+
+			if((cc == 0x300) || (cc == 0x450) || (cc == 0x45d))
+			{
+				// combining grave accent, of accented vowel character
+				lex_stress = vcount;
+				n_stress++;
+
+				if(vcount == 1)
+					stress_first = 1;
+
+				if(cc == 0x300)
+					continue;		// discard combining accent
+				if(cc == 0x450)
+					cc = 0x435;		// remove accent from vowel
+				if(cc == 0x45d)
+					cc = 0x438;
+			}
+
+			pw += utf8_out(cc, pw);   // copy UTF-8 to 'word'
+		}
+		*pw++ = ' ';
+		*pw = 0;
+		*pw1 = 0;
+
+		// translate
+		TranslateWord(translator, &word[2],0, NULL);
+		DecodePhonemes(word_phonemes,phonemes);
+
+		// find the stress position in the translation
+		max_stress = 0;
+		max_stress_posn = -1;
+		vcount = 0;
+
+		ph = phoneme_tab[phonPAUSE];
+		for(p=word_phonemes; *p != 0; p++)
+		{
+			ph = phoneme_tab[(unsigned int)*p];
+			if(ph == NULL)
+				continue;
+
+			if(ph->type == phVOWEL)
+				vcount++;
+			if(ph->type == phSTRESS)
+			{
+				if(ph->std_length > max_stress)
+				{
+					max_stress = ph->std_length;
+					max_stress_posn = vcount+1;
+				}
+			}
+		}
+
+		done = 0;
+		if((lex_stress != max_stress_posn) || (n_stress != 1))
+		{
+			if((vcount > 0) && (lex_stress > 0) && (lex_stress <= 7))
+			{
+				if((n_stress == 2) && (stress_first))
+				{
+					done = 1;
+					fprintf(f_out,"%s\t$%d\n",&word[2],lex_stress);
+				}
+				if(n_stress == 1)
+				{
+					done = 1;
+					fprintf(f_out,"%s\t$%d\n",&word[2],lex_stress);
+				}
+			}
+
+			if(done == 0)
+			{
+				n_wrong++;
+				fprintf(f_out,"%s\t$text %s\n", &word[2], word_in);
+			}
+
+			if(done)
+				n_out++;
+		} 
+
+		n_words++;
+	}
+
+	fclose(f_in);
+	fclose(f_out);
+	fclose(f_log);
+
+
+	delete progress;
+	sprintf(buf,"Lexicon: Input %d,  Output %d,  Failed %d",n_words,n_out,n_wrong);
+	wxLogStatus(wxString(buf,wxConvLocal));
+}  // end of Lexicon_Bg
+
+
+
 void Lexicon_Ru()
 {//==============
 	// compare stress markings in Russian RuLex file with lookup in ru_rules
@@ -790,6 +984,9 @@ void Lexicon_Ru()
 	int wlen;
 	int len;
 	int check_root;
+
+	int *p_unicode;
+	int unicode[80];
 
 	char word[80];
 	char word2[80];
@@ -1065,6 +1262,9 @@ void CompareLexicon(int id)
 	{
 	case MENU_LEXICON_RU:
 		Lexicon_Ru();
+		break;
+	case MENU_LEXICON_BG:
+		Lexicon_Bg();
 		break;
 	case MENU_LEXICON_DE:
 		Lexicon_De();

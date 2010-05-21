@@ -145,7 +145,8 @@ _#-ének	e:nEk
 _#-ának	a:nAk
 _#-vel	e:vEl	$alt2
 _#-val	a:vAl	$alt2
-
+_#-ánál	a:na:l	$alt2
+_#-énél	e:ne:l	$alt2
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
 (1-jén)	elsején 	$text $alt2
@@ -169,6 +170,8 @@ _#-val	a:vAl	$alt2
 (1-jéig)	elsejéig	$text $alt2
 (1-ének)	elsejének	$text $alt2
 (1-vel) elsejével	$text $alt2
+(1-jénél) elsejénél	$text $alt2
+(1-énél) elsejénél	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
 (3-i)	hAR2_mAdikAi	$alt2
@@ -210,6 +213,9 @@ _#-val	a:vAl	$alt2
 (0-an) nul:a:n
 (0-ában) nul:a:bAn
 (0-ába) nul:a:bA
+(0-áson) nul:a:Son
+(0-tól)	nul:a:to:l
+(00-tól)	nul:Anul:a:to:l
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
 (2-őt) kEt:Y:t
@@ -224,6 +230,7 @@ _#-val	a:vAl	$alt2
 (3-adikat) hAR2mAdikAt	//special exception
 (3-adikon)	hAR2mAdikon	//special exception
 (3-adikkal)	hAR2mAdik:Al	//special exception
+(3-t) ha:R2mAt
 //4 number suffixes
 (4-el) ne:J:El //Nneed J: phoneme, not J phoneme contains one suffix) 
 (4-gyel) ne:J:El //Need J: phoneme, not J phoneme
@@ -246,14 +253,16 @@ _#-val	a:vAl	$alt2
 (7-től)	hEtEdike:tY:l	$alt2
 (7-tel) he:t:El
 (7-el) he:t:El
+(7-sekre) hEtESEkR2E
+(7-sel) hEtES:El
 (8-cal) n^olts:Al
 (8-al) n^olts:Al
 (9-el) kilEnts:El
+(9-cel) kilEnts:El
 _10e	tiz
 _20e	hus
 (10-szer) ti:s:ER2
 (10-szeres) ti:s:ER2ES
-
 
 
 
@@ -376,7 +385,7 @@ LST	ElESte:	$allcaps
 BAR	bAR2	$allcaps
 //SS	EsEs	$allcaps
 
-a.m	An^n^i||m'int  $dot
+(a . m .)	An^n^i||m'int
 ún	u:JnEvEzEt:	$hasdot
 dr	doktoR2  $dot
 mr	mistER2 $hasdot //in hungarian we not use, but lot of books contains this word.
@@ -397,7 +406,7 @@ stb	SAtYb:i  $hasdot
 u.n	u:JnEvEzEt:   $hasdot
 ú.n	u:JnEvEzEt:   $hasdot
 vö	v'EZd||_'Yss2E
-
+(u . i .)  u:i:
 
 
 
@@ -824,7 +833,7 @@ látszik	$unstressend
 látszott	$unstressend
 látszanak	$unstressend
 látszotok	$unstressend
-körül	$unstressend
+körül	$unstressend $alt3
 dőlt	$unstressend
 vér	$unstressend
 sót	$unstressend
@@ -962,7 +971,12 @@ lép	$unstressend
 pénzt	$unstressend
 pénz	$unstressend
 nép	$unstressend
-
+lennék	$unstressend
+lennél	$unstressend
+lennénk	$unstressend
+lennétek	$unstressend
+hitt	$unstressend
+fő	$unstressend
 
 // word pairs
 
@@ -1150,6 +1164,7 @@ _″	duplA|ApostR2o:f
 _ˇ	lEfEle:n^i:l
 _¡	AlSo:indEks
 
+
 // Main Exceptions List
 //=====================
 
@@ -1174,6 +1189,8 @@ egyezség	eggyesség
 (cd-n) cédén
 (cd-d) cédéd
 (CD-d) cédéd
+CD-m) cédém
+(cd-m) cédém
 (db-os) darabos
 (db-ot) darabot
 (LST-k) elesték
@@ -1187,6 +1204,8 @@ egyezség	eggyesség
 //after word and don't disturb Orca working.
 (PC-n) pécén
 (USB-n) úesbén
+(usb-n) úesbén
+(usb-t) úesbét
 (USA-ból) usából
 (USA-nak) usának
 (DVD-k) dévédék
@@ -1195,10 +1214,11 @@ egyezség	eggyesség
 (dvd-n) dévédén
 (dvd-d) dévédéd
 (DVD-d) dévédéd
+(DVD-m) dévédét
+(dvd-m) dévédém
 (USA-éval) usáéval
 (ubuntu-n) ubuntun
 (hu-n) hun
 (USA-ban) usában
-
-
+(USA-ba) usába
 

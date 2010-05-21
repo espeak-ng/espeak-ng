@@ -134,8 +134,8 @@ int wcmdq_head=0;
 int wcmdq_tail=0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,0, 0,170,0,0,0,0,0};
-static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,600,300,99,99,99, 0,600,0,0,0,0,4};
+int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,0, 0,170,0,0,0,0,0,0};
+static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,600,300,99,99,99, 0,600,0,0,0,0,4,0};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;
@@ -1635,8 +1635,8 @@ void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pit
 	// compensate for change in pitch when the range is narrowed or widened
 	base -= (range - voice->pitch_range)*18;
 
-	*pitch_base = base + (pitch1 * range);
-	*pitch_range = base + (pitch2 * range) - *pitch_base;
+	*pitch_base = base + (pitch1 * range)/2;
+	*pitch_range = base + (pitch2 * range)/2 - *pitch_base;
 }
 
 

@@ -39,7 +39,8 @@
 #define L_qa   0x716100
 #define L_grc  0x677263   // grc  Ancient Greek
 #define L_jbo  0x6a626f   // jbo  Lojban
-#define L_pap  0x706170   // pap  Papiamento
+#define L_pap  0x706170   // pap  Papiamento]
+#define L_shs  0x736873   // shs  Shuswap / Secwepemctsin
 #define L_zhy  0x7a6879   // zhy
 
 // start of unicode pages for character sets
@@ -56,6 +57,10 @@
 #define OFFSET_KOREAN 0x1100
 
 static void Translator_Russian(Translator *tr);
+
+
+
+
 
 static void SetLetterVowel(Translator *tr, int c)
 {//==============================================
@@ -216,6 +221,33 @@ static const unsigned int replace_cyrillic_latin[] =
 	0x45c,0x107,
 0};  // ѓ  ѕ  ќ
 
+static void SetCyrillicLetters(Translator *tr)
+{//===========================================
+	// character codes offset by 0x420
+	static const char ru_vowels[] = {0x10,0x15,0x31,0x18,0x1e,0x23,0x2b,0x2d,0x2e,0x2f,0};
+	static const char ru_consonants[] = {0x11,0x12,0x13,0x14,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2c,0};
+	static const char ru_soft[] = {0x2c,0x19,0x27,0x29,0};   // letter group B  [k ts; s;]
+	static const char ru_hard[] = {0x2a,0x16,0x26,0x28,0};   // letter group H  [S Z ts]
+	static const char ru_nothard[] = {0x11,0x12,0x13,0x14,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x27,0x29,0x2c,0};
+	static const char ru_voiced[] = {0x11,0x12,0x13,0x14,0x16,0x17,0};    // letter group G  (voiced obstruents)
+	static const char ru_ivowels[] = {0x2c,0x2e,0x2f,0x31,0};   // letter group Y  (iotated vowels & soft-sign)
+	tr->charset_a0 = charsets[18];   // KOI8-R
+	tr->transpose_offset = 0x42f;  // convert cyrillic from unicode into range 0x01 to 0x22
+	tr->transpose_min = 0x430;
+	tr->transpose_max = 0x451;
+
+	tr->letter_bits_offset = OFFSET_CYRILLIC;
+	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+	SetLetterBits(tr,0,ru_vowels);
+	SetLetterBits(tr,1,ru_soft);
+	SetLetterBits(tr,2,ru_consonants);
+	SetLetterBits(tr,3,ru_hard);
+	SetLetterBits(tr,4,ru_nothard);
+	SetLetterBits(tr,5,ru_voiced);
+	SetLetterBits(tr,6,ru_ivowels);
+	SetLetterBits(tr,7,ru_vowels);
+}  // end of SetCyrillicLetters
+
 
 void SetIndicLetters(Translator *tr)
 {//=================================
@@ -237,6 +269,7 @@ void SetIndicLetters(Translator *tr)
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d;   //virama
 }
+
 
 void SetupTranslator(Translator *tr, const short *lengths, const unsigned char *amps)
 {//==================================================================================
@@ -282,6 +315,19 @@ Translator *SelectTranslator(const char *name)
 	case L('a','r'):   // Arabic
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+		break;
+
+	case L('b','g'):  //Bulgarian
+		{
+			SetCyrillicLetters(tr);
+			SetLetterVowel(tr,0x2a);
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x10;
+			tr->langopts.param[LOPT_REDUCE] = 2;
+			tr->langopts.stress_rule = STRESSPOSN_2R;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_SINGLE_AND | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS ;
+			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
+		}
 		break;
 
 	case L('b','n'):  // Bengali
@@ -601,6 +647,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.numbers = NUM_DFRACTION_5 | NUM_ALLOW_SPACE | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS | NUM_ORDINAL_DOT | NUM_OMIT_1_HUNDRED;
 			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
 			tr->langopts.decimal_sep = ',';
+			tr->langopts.max_roman = 899;
 			tr->langopts.min_roman = 1;
 			SetLetterVowel(tr,'y');
 			tr->langopts.spelling_stress = 1;
@@ -917,6 +964,16 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('s','l'):  // Slovenian
+			tr->charset_a0 = charsets[2];   // ISO-8859-2
+			tr->langopts.stress_rule = STRESSPOSN_2R;   // Temporary
+			tr->langopts.stress_flags = 0x20;
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x13;
+			tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
+			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
+			SetLetterVowel(tr,'r');
+		break;
+
 	case L('s','q'):  // Albanian
 		{
 			static const short stress_lengths_sq[8] = {150, 150,  180, 180,  0, 0,  300, 300};
@@ -1127,38 +1184,16 @@ SetLengthMods(tr,3);  // all equal
 
 
 
+
 static void Translator_Russian(Translator *tr)
 {//===========================================
 	static const unsigned char stress_amps_ru[] = {16,16, 18,18, 20,24, 24,22 };
 	static const short stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,280};
-
-
-	// character codes offset by 0x420
-	static const char ru_vowels[] = {0x10,0x15,0x31,0x18,0x1e,0x23,0x2b,0x2d,0x2e,0x2f,0};
-	static const char ru_consonants[] = {0x11,0x12,0x13,0x14,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2c,0};
-	static const char ru_soft[] = {0x2c,0x19,0x27,0x29,0};   // letter group B  [k ts; s;]
-	static const char ru_hard[] = {0x2a,0x16,0x26,0x28,0};   // letter group H  [S Z ts]
-	static const char ru_nothard[] = {0x11,0x12,0x13,0x14,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x27,0x29,0x2c,0};
-	static const char ru_voiced[] = {0x11,0x12,0x13,0x14,0x16,0x17,0};    // letter group G  (voiced obstruents)
-	static const char ru_ivowels[] = {0x2c,0x15,0x31,0x18,0x2e,0x2f,0};   // letter group Y  (iotated vowels & soft-sign)
+	static const char ru_ivowels2[] = {0x2c,0x15,0x18,0x2e,0x2f,0};   // add more vowels to letter group Y  (iotated vowels & soft-sign)
 
 	SetupTranslator(tr,stress_lengths_ru,stress_amps_ru);
-
-	tr->charset_a0 = charsets[18];   // KOI8-R
-	tr->transpose_offset = 0x42f;  // convert cyrillic from unicode into range 0x01 to 0x22
-	tr->transpose_min = 0x430;
-	tr->transpose_max = 0x451;
-
-	tr->letter_bits_offset = OFFSET_CYRILLIC;
-	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-	SetLetterBits(tr,0,ru_vowels);
-	SetLetterBits(tr,1,ru_soft);
-	SetLetterBits(tr,2,ru_consonants);
-	SetLetterBits(tr,3,ru_hard);
-	SetLetterBits(tr,4,ru_nothard);
-	SetLetterBits(tr,5,ru_voiced);
-	SetLetterBits(tr,6,ru_ivowels);
-	SetLetterBits(tr,7,ru_vowels);
+	SetCyrillicLetters(tr);
+	SetLetterBits(tr,6,ru_ivowels2);
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
 	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;

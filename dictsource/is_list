@@ -19,9 +19,9 @@ _2f  tv'W:
 _3f  Tr#j'u:
 _4f  fj'W:Qyrr#
 _5   f'Im
-_6   s'e:xs
+_6   s'E:xs
 _7   sj'W:
-_8   'aUhd&
+_8   'aUhda
 _9   n'i:;y
 _10  t'i:;y
 _11  'EdlEv,y
@@ -39,10 +39,10 @@ _4X  fj'W:*Ryt,i;y
 _5X  f'Imti;,y
 _6X  s'Exsdi;,y
 _7X  sj'W:ti;,y
-_8X  'aUhd&t,i;y
+_8X  'aUhdat,i;y
 _9X  n'i:;yt,i;y
 _0C  h'ynd@-*yD
-_1C  'eIhd||h'ynd@-R&D
+_1C  'eIhd||h'ynd@-RaD
 _2C  tv'W:||h'ynd@-RyD
 _3C  Tr#j'u:||h'ynd@-RyD
 _4C  fj'W:Qyrr#||h'ynd@-RyD
@@ -51,38 +51,38 @@ _0M2  m'IdljoUn
 _1M2  eI:n||m'IdljoUn
 _2M2  tv'aI:rr#||m'IdljoUn
 _3M2  Tr#j'aU:rr#||m'IdljoUn
-_4M2  fj'oU:*&rr#||m'IdljoUn
-_dpt	_k,Omm&_
-_0and  o:Q
+_4M2  fj'oU:*arr#||m'IdljoUn
+_dpt	_k,Omma_
+_0and  O:Q
 
 _cap	sd'oUrr#d
 _??	t'aUghn#
 
 // Characters
-_!	'yhbr#oUpyn&Rm,Err#kI
-_"	JaI:s&lWhb
-#	mIll&
-_$	d'Odl&rr#
-_&	o:QmErr#kI
+_!	'yhbr#oUpynaRm,Err#kI
+_"	JaI:salWhb
+#	mIlla
+_$	d'Odlarr#
+_&	O:QmErr#kI
 /	skaUsdr#Ig
 _(	svI:jI
-_)	sv'I:jIl'o:k&sd
+_)	sv'I:jIl'O:kasd
 _{	slYy:vysvIjI
-_}	sl'Yy:vysv,IjIl'o:k&sd
+_}	sl'Yy:vysv,IjIl'O:kasd
 _[	hOrdn#glOvI
-_]	h'Ordn#glOvIl'o:k&sd
-=	s'a:m&sEmm,Err#kI
+_]	h'Ordn#glOvIl'O:kasd
+=	s'a:masEmm,Err#kI
 _\	'W:vyxdsk,aUsdr#Ig
-_-	b&ndsdrr#Ig
+_-	bandsdrr#Ig
 __	yndIRsdrr#Ig
-_?	sb'yrdn#iNg,&mErr#kI
+_?	sb'yrdn#iNg,amErr#kI
 +	bl'u:s
 _<	OdglOvI
-_>	'OdglOvIl,o:k&sd
-_.	p'uN#hgdy#rr#
-_,	k'Omm&
-_;	s'e:mik,Omm&
-_:	dv'i:puN#hgdy#rr#
+_>	'OdglOvIl,O:kasd
+_.	p'uN#hgdyrr#
+_,	k'Omma
+_;	s'E:mik,Omma
+_:	dv'i:puN#hgdyrr#
 
 // abbreviations
 
@@ -379,39 +379,39 @@ fram       $u+      // forward
 //****************
 _á   aU:
 á    aU:  $atend
-b    bje:
-c    sje:
-d    dje:
-ð    e:D
+b    bjE:
+c    sjE:
+d    djE:
+ð    E:D
 f    Ef
-g    gje:
+g    gjE:
 h    haU:
 _í   i:
 í    i:   $atend
-j    j'o:D
+j    j'O:D
 k    k'aU:
 l    Etl#
 m    Em
 n    En
-p    pje:
+p    pjE:
 q    ku:
 r    Err#
 s    Es
-t    tje:
+t    tjE:
 v    vaf
-w    tv'W:v&ldv,af
-x    e:xs
+w    tv'W:valdv,af
+x    E:xs
 _y    'yfsilOn||,I:
 _ý    'yfsilOn||,i:
 y    'yfsilOn||,I:  $atend
 ý    'yfsilOn||,i:  $atend
-z    se:t&
+z    sE:ta
 þ    T'Ordn#
 
 
 // MAIN WORD DICTIONARY
 //*********************
 
-bolla    bOll&
-halló    h&lloU
-mylla    mIll&
+bolla    bOlla
+halló    halloU
+mylla    mIlla

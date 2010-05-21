@@ -246,6 +246,7 @@ void SpectDisplay::RefreshDialogValues(int type)
 //{=============================================
 {
 	int ix;
+	long int value;
 	SpectFrame *sf;
 
 	if(spectseq == NULL)
@@ -255,7 +256,13 @@ void SpectDisplay::RefreshDialogValues(int type)
 
 	spectseq->amplitude = formantdlg->t_amplitude->GetValue();
 	sf->amp_adjust = formantdlg->t_ampframe->GetValue();
-	sf->length_adjust = formantdlg->t_timeframe->GetValue() - spectseq->GetFrameLength(sframe,0,NULL);
+
+	if(use_spin_controls)
+		value = formantdlg->t_timeframe->GetValue();
+	else
+		formantdlg->tt_timeframe->GetValue().ToLong(&value);
+
+	sf->length_adjust = value - spectseq->GetFrameLength(sframe,0,NULL);
 
 	for(ix=0; ix < N_KLATTP; ix++)
 	{
@@ -268,7 +275,7 @@ void SpectDisplay::RefreshDialogValues(int type)
 		Refresh();
 	}
 	else
-		RefreshFrame(sframe);
+		RefreshFrame(sframe);   // frame amplitude
 }
 
 

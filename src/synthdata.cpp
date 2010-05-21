@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.43.14  29.Mar.10";
-const int version_phdata  = 0x014300;
+const char *version_string = "1.43.31  21.May.10";
+const int version_phdata  = 0x014317;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -71,8 +71,8 @@ int FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsig
 
 
 
-static char *ReadPhFile(void *ptr, const char *fname)
-{//==================================================
+static char *ReadPhFile(void *ptr, const char *fname, int *size)
+{//=============================================================
 	FILE *f_in;
 	char *p;
 	unsigned int  length;
@@ -102,6 +102,8 @@ static char *ReadPhFile(void *ptr, const char *fname)
 	}
 
 	fclose(f_in);
+	if(size != NULL)
+		*size = length;
 	return(p);
 }  //  end of ReadPhFile
 
@@ -112,15 +114,19 @@ int LoadPhData()
 	int n_phonemes;
 	int version;
 	int result = 1;
+	int length;
 	unsigned char *p;
 
-	if((phoneme_tab_data = (unsigned char *)ReadPhFile((void *)(phoneme_tab_data),"phontab")) == NULL)
+	if((phoneme_tab_data = (unsigned char *)ReadPhFile((void *)(phoneme_tab_data),"phontab",NULL)) == NULL)
 		return(-1);
-	if((phoneme_index = (USHORT *)ReadPhFile((void *)(phoneme_index),"phonindex")) == NULL)
+	if((phoneme_index = (USHORT *)ReadPhFile((void *)(phoneme_index),"phonindex",NULL)) == NULL)
 		return(-1);
-	if((spects_data = ReadPhFile((void *)(spects_data),"phondata")) == NULL)
+	if((spects_data = ReadPhFile((void *)(spects_data),"phondata",NULL)) == NULL)
+		return(-1);
+	if((tunes = (TUNE *)ReadPhFile((void *)(tunes),"intonations",&length)) == NULL)
 		return(-1);
    wavefile_data = (unsigned char *)spects_data;
+	n_tunes = length / sizeof(TUNE);
 
 	// read the version number from the first 4 bytes of phondata
 	version = 0;
@@ -583,7 +589,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	int instn2;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
-	static int ph_position[7] = {0, 1, 2, 3, 2, 0, 1};
+	static int ph_position[7] = {0, 1, 2, 3, 2, 0, 1};  // prevPh, thisPh, nextPh, next2Ph, nextPhW, prevPhW, nextVowel
 
 	data = instn & 0xff;
 	instn2 = instn >> 8;
@@ -621,6 +627,15 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		}
 		plist_this = plist;
 		plist = &plist[which-1];
+
+		if(which == 0)
+		{
+			if(plist->phcode == 1)
+			{
+				// This is a NULL phoneme, a phoneme has been deleted so look at the previous phoneme
+				plist = &plist[-1];
+			}
+		}
 
 		if(control & 0x100)
 		{

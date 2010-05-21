@@ -5,6 +5,10 @@
 // letter group F  p,t,k,s
 // letter group H  j,r,v,
 
+.L01  e i í y ý æ j    // front vowels
+.L02  c f h k p t x þ s    // voiceless consonants
+.L03  p t k
+
 .replace
  x       xz    // so that it behaves as 2 letters
 
@@ -12,7 +16,7 @@
 .group a
         a        a:
         a (FH    a:
-        a (CC    &
+        a (CC    a
         a (ng    aU
         a (nk    aU
 
@@ -21,7 +25,7 @@
         au (CC   Yy
 
      _) al (@P2N ,a:l
-     _) a (ll+   &
+     _) a (ll+   a
 
 .group á
         á        aU:
@@ -47,12 +51,12 @@
 .group ð
         ð        D
         ð (B     T
-        ð (__    T    // before pause
+        ð (__    T
 
 
 .group e
-        e        e:
-        e (FH    e:
+        e        E:
+        e (FH    E:
         e (CC    E
         e (ng    eI
         e (nk    eI
@@ -93,13 +97,13 @@
      _) g (i     J
      _) g (í     J
      _) g (æ     J
-     _) g (j     J
+     _) gj       J
      A) g (a     Q
      A) g (u     Q
      A) g (ð     Q
      A) g (r     Q
-        g (_     Q
-        gn (_    g
+        g (_     x
+        gn (_    gn#
         gt       xd
         g (s     x
         gj       J
@@ -118,6 +122,7 @@
         h        h
         hj       C
         hl       l#
+        hr       hr#
         hn       hn#
         hv       kv
 
@@ -141,21 +146,20 @@
 
 
 .group k
-        k        k
-     _) k (e     c
-     _) k (i     c
-     _) k (í     c
-     _) k (y     c
-     _) k (ý     c
-     _) k (æ     c
+     _) k        k
+        k        g
+     _) k (L01   c
+        k (L01   J
         kj       c
         k (K     g
         k (k     h        // [hk]
+        k (s     x
+        k (t     t
 
 
 .group l
         l        l
-        l (_     l#
+        l (_     l#   // ??
         l (BX    l#
         ll       dl
         ll (BX   tl#
@@ -166,13 +170,14 @@
         m        m
         mm (K    m
      B) m        hm#
-        m (B     m#
+        m (L03   m#
 
 
 .group n
         n        n
+        nn       n:
      B) n        hn#
-        n (B     n#
+        n (L03   n#
         n (g     N
         ng (_    Ng
         ngt (K   N#d
@@ -195,9 +200,11 @@
 
 
 .group o
-        o        o:
-        o (FH    o:
+        o        O:
+        o (FH    O:
         o (CC    O
+        o (gi    OI
+        o (gj    OI
         o (ng    oU
         o (nk    oU
 
@@ -206,15 +213,11 @@
         ó        oU:
         ó (FH    oU:
         ó (CC    oU
-        óf (A    oU2
 
 
 .group p
+        p        b
      _) p        p
-        p        p
-     B) p        b
-     s) p        b
-        p (K     b
         p (s     f
         p (k     f
         p (t     f
@@ -230,37 +233,41 @@
      C) r        @-R
      l) r        **R
      A) r (A     *R
-     B) r        r#
-        r (B     rr#
+        r (L02   rr#
         r (_     _|R
         r        _|R2
         rr       R*R
         rl       dl
-        rl (K    rtl#
-        rn       rdn#
+        rl (B    Rtl#
+        rn       Rdn#
 
 
 .group s
         s        s
         ss       ss2
+     _) sh       S    // English
+        sh (_    S    // English
 
 
 .group t
      _) t        t
-        t        t
-     B) t        d
-     s) t        d
-        t (K     d
+        t        d
         tt       hd
-        t (l     ht   //??  ætla
+        t (l     hd   //??  ætla
+        t (n     hd
+        th (_    T   // English
+     _) th       T   // English
 
 
 .group u
         u        y:
         u (FH    y:
         u (CC    y
+        u (gi    yI
+        u (gj    yI
      K) u (ng    u
      K) u (nk    u
+     @) u (num_  O
 
 
 .group ú

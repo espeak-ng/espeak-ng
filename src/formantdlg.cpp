@@ -49,6 +49,7 @@ BEGIN_EVENT_TABLE(FormantDlg, wxPanel)
 //	EVT_SPINCTRL(T_TIMEFRAME,FormantDlg::OnSpin)
 END_EVENT_TABLE()
 
+int use_spin_controls=0;
 
 void FormantDlg::OnCommand(wxCommandEvent& event)
 {//=============================================
@@ -181,7 +182,14 @@ FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,w
 	}
 
 	y=224;
-	t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Frame length"));
+	if(use_spin_controls)
+	{
+		t_timeframe = new wxSpinCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Frame length"));
+	}
+	else
+	{
+		tt_timeframe = new wxTextCtrl(this,T_TIMEFRAME,_T(""), wxPoint(6,y+0), wxSize(52,24), wxTE_CENTRE,wxDefaultValidator,_T("Frame length"));
+	}
 	t_orig_frame = new wxStaticText(this,-1,_T("mS"),wxPoint(61,y+8));
 	t_ampframe = new wxSpinCtrl(this,T_AMPFRAME,_T(""), wxPoint(104,y+0), wxSize(52,24), wxTE_CENTRE,0,500,0,_T("Frame amplitude"));
 	t_lab[3] = new wxStaticText(this,-1,_T("% amp - Frame"),wxPoint(159,y+8));
@@ -254,6 +262,12 @@ void FormantDlg::GetValues(SpectSeq *spectseq, int frame)
 	if(spectseq->frames == NULL)
 		return;
 	sf = spectseq->frames[frame];
+
+	if(use_spin_controls == 0)
+	{
+		formantdlg->tt_timeframe->GetValue().ToLong(&num);
+		sf->length_adjust = num - spectseq->GetFrameLength(frame,0,NULL);
+	}
 
 	for(ix=0; ix < 8; ix++)
 	{
@@ -386,7 +400,13 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 	}
 
 	// find the time until the next keyframe
-	SetSpinCtrl(t_timeframe,int(spectseq->GetFrameLength(frame,1,&original_mS)+0.5)); // round to nearest integer
+	value.Printf(_T("%d"),int(spectseq->GetFrameLength(frame,1,&original_mS)+0.5)); // round to nearest integer
+
+	if(use_spin_controls)
+		t_timeframe->SetValue(value);
+	else
+		tt_timeframe->SetValue(value);
+
 	value.Printf(_T("%d mS"),original_mS);
 	t_orig_frame->SetLabel(value);
 	value.Printf(_T("%3d"),sf->amp_adjust);

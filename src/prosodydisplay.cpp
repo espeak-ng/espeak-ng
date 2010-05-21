@@ -56,7 +56,7 @@ ProsodyDisplay::ProsodyDisplay(wxWindow *parent, const wxPoint& pos, const wxSiz
 
 	linewidth = size.GetWidth();
 	scalex = 0.5;
-	scaley = double(LINESEP*6)/80.0;
+	scaley = double(LINESEP*6)/160.0;
 	selected_ph = -1;
 //	SetBackgroundColour(* wxWHITE);
 
@@ -77,18 +77,18 @@ void InitProsodyDisplay()
 	menu_envelopes = new wxMenu;
 	// entries match those in envelope_data[] in intonation.cpp
 	menu_envelopes->Append(0x100,_T("Fall"));
-	menu_envelopes->Append(0x101,_T("Rise"));
-	menu_envelopes->Append(0x102,_T("Fall-rise"));
-	menu_envelopes->Append(0x103,_T("Fall-rise (R)"));
-	menu_envelopes->Append(0x104,_T("Fall-rise 2"));
-	menu_envelopes->Append(0x105,_T("Fall-rise 2(R)"));
-	menu_envelopes->Append(0x106,_T("Rise-fall"));
+	menu_envelopes->Append(0x102,_T("Rise"));
+	menu_envelopes->Append(0x104,_T("Fall-rise"));
+	menu_envelopes->Append(0x105,_T("Fall-rise (R)"));
+	menu_envelopes->Append(0x106,_T("Fall-rise 2"));
+	menu_envelopes->Append(0x107,_T("Fall-rise 2(R)"));
+	menu_envelopes->Append(0x108,_T("Rise-fall"));
 
-	menu_envelopes->Append(0x108,_T("Fall-rise 3"));
-	menu_envelopes->Append(0x10a,_T("Fall-rise 4"));
-	menu_envelopes->Append(0x10c,_T("Fall 2"));
-	menu_envelopes->Append(0x10e,_T("Rise 2"));
-	menu_envelopes->Append(0x110,_T("Rise-fall-rise"));
+	menu_envelopes->Append(0x10a,_T("Fall-rise 3"));
+	menu_envelopes->Append(0x10c,_T("Fall-rise 4"));
+	menu_envelopes->Append(0x10e,_T("Fall 2"));
+	menu_envelopes->Append(0x110,_T("Rise 2"));
+	menu_envelopes->Append(0x112,_T("Rise-fall-rise"));
 
 	menu_prosody = new wxMenu;
 	menu_prosody->Append(1,_T("Pitch envelope"),menu_envelopes);
@@ -129,6 +129,7 @@ void ProsodyDisplay::SelectPh(int index)
 	// A phoneme has been selected
 	PHONEME_LIST *p;
 	const char *emphasized;
+	int y1, y2;
 	char buf[120];
 
 	if(index < 0) return;
@@ -140,8 +141,10 @@ void ProsodyDisplay::SelectPh(int index)
 	if(p->stresslevel & 8)
 		emphasized = "*";
 
+	y1 = p->pitch1;
+	y2 = p->pitch2;
 	sprintf(buf,"Stress %s%d   Amp %2d   LenMod %2d   Pitch %3d %3d [env=%d]   Flags %.2x ",
-		emphasized,p->stresslevel&0x7,p->amp,p->length,p->pitch1,p->pitch2,p->env,p->ph->phflags);
+		emphasized,p->stresslevel&0x7,p->amp,p->length,y1,y2,p->env,p->ph->phflags);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 

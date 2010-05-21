@@ -196,7 +196,6 @@ tamil	தமிழ்	$text
 பாகவதம்	$alt
 பகவத்	$alt
 பங்கம்	$alt
-பீதி	$alt
 பேகம்	$alt
 பார்லி	$alt
 பிக்கினி	$alt
@@ -230,6 +229,9 @@ tamil	தமிழ்	$text
 பாக்கித்	$alt
 பாக்கிச்	$alt
 பர்மிய	$alt
+பலே	$alt
+பூம்	$alt
+பரத	$alt
 (பி . ஏ)	bije:
 
 
@@ -266,11 +268,16 @@ tamil	தமிழ்	$text
 துருவம்	$alt
 தீரமுள்ள	$alt
 தீரமற்ற	$alt
-
+தலாய்	$alt
+தேசிங்கு	$alt
+தேச	$alt
+தேசப்	$alt
+தானம்	$alt
 
 	// initial ட
 டார்ச்	t.a:rtS
 டிவி	t.ivi
+டி 	t.i
 
 	// initial ச as [tS]
 சீ		$alt
@@ -279,6 +286,7 @@ tamil	தமிழ்	$text
 சீச்சீ 		$alt
 சிட்டாய் 		$alt
 சேச்சே		$alt
+சிரம்		sirVm
 
 
 கக	$alt	// initial க as [g]
@@ -296,7 +304,6 @@ tamil	தமிழ்	$text
 கோபி 	$alt
 கச்சாமி	$alt
 குரு	$alt
-கோர	$alt
 கும்	$alt
 கும்மென்று	$alt
 கும்முனு	$alt
@@ -309,6 +316,8 @@ tamil	தமிழ்	$text
 கம்னு	$alt
 கம்மென்று	$alt
 குதி	$alt
+கம்	$alt
+காந்தம்	$alt
 
 
 // p as [f]
@@ -336,3 +345,5 @@ tamil	தமிழ்	$text
 டிபன்	t.ifVn
 ஆகா	a:Ha:
 ஓகோ	o:Ho:
+கப்	kVp
+

@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.42
+AppVerName=eSpeak version 1.43.24
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -94,6 +94,8 @@ var
   UILanguage: Integer;
   UIVoice: String;
   Page: TInputQueryWizardPage;
+  voices_installed: array [0..200] of String;
+  n_voices_installed: Integer;
 
 const
   sEspeak = 'eSpeak-';
@@ -329,6 +331,7 @@ end;
 
 procedure SetupVoice(Voice: String; Index: Integer);
 var
+  ix: Integer;
   RegVoice2: String;
   RegVoice2a: String;
   VoiceUC: String;
@@ -348,6 +351,16 @@ begin
     VoiceUC := 'default'
   else
     VoiceUC := Uppercase(Voice);
+
+  // check for duplicate voice names
+  for ix := 0 to n_voices_installed - 1 do begin
+    if voices_installed[ix] = VoiceUC then
+      Exit;
+  end;
+  if n_voices_installed < 200 then begin
+    voices_installed[n_voices_installed] := VoiceUC;
+    n_voices_installed := n_voices_installed + 1;
+  end;
     
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2,'',sEspeak+VoiceUC);
   RegWriteStringValue(HKEY_LOCAL_MACHINE,RegVoice2,'CLSID','{BE985C8D-BE32-4A22-AA93-55C16A6D1D91}');
@@ -439,7 +452,7 @@ begin
     Page.Values[0] := Format('%s',[UIVoice]);
   Page.Values[1] := Format('%s',[voice2]);
 
-
+  n_voices_installed := 0;
 end;
 
 procedure ClearRegistry;

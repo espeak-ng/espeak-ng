@@ -193,7 +193,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if((type==phSTOP) || type==(phFRICATIVE))
 			{
-				if(voicing==0)
+				if((voicing==0) && (regression & 0xf))
 				{
 					voicing = 1;
 				}
@@ -206,7 +206,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			else
 			if((type==phVSTOP) || type==(phVFRICATIVE))
 			{
-				if(voicing==0)
+				if((voicing==0) && (regression & 0xf))
 				{
 					voicing = 2;
 				}
@@ -229,10 +229,19 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					voicing = 0;
 				}
 			}
-			if((regression & 0x4) && (plist2[j].sourceix))
+			if(plist2[j].sourceix)
 			{
-				// stop propagation at a word boundary
-				voicing = 0;
+				if(regression & 0x04)
+				{
+					// stop propagation at a word boundary
+					voicing = 0;
+				}
+				if(regression & 0x10)
+				{
+					// devoice word-final consonants, unless propagating voiced
+					if(voicing == 0)
+						voicing = 1;
+				}
 			}
 		}
 	}
@@ -312,16 +321,16 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 		InterpretPhoneme(tr, 0x100, plist3, &phdata);
 
-		if((alternative = phdata.pd_param[pd_CHANGEPHONEME]) == 1)
-			continue;    // NULL phoneme, discard
-
-		if(alternative > 1)
+		if((alternative = phdata.pd_param[pd_CHANGEPHONEME]) > 0)
 		{
 			PHONEME_TAB *ph2;
 			ph2 = ph;
 			ph = phoneme_tab[alternative];
 			plist3->phcode = alternative;
 			plist3->ph = ph;
+
+			if(alternative == 1)
+				continue;    // NULL phoneme, discard
 
 			if(ph->type == phVOWEL)
 			{
@@ -553,8 +562,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 		phlist[ix].prepause = 0;
 		phlist[ix].amp = 20;          // default, will be changed later
-		phlist[ix].pitch1 = 0x400;
-		phlist[ix].pitch2 = 0x400;
+		phlist[ix].pitch1 = 255;
+		phlist[ix].pitch2 = 255;
 		ix++;
 	}
 	phlist[ix].newword = 2;     // end of clause

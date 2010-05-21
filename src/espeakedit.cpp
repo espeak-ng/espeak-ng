@@ -65,6 +65,7 @@ extern void DictionarySort(const char *dictname);
 extern void init_z();
 extern void CompilePhonemeData(void);
 extern void CompileMbrola();
+extern void CompileIntonation();
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();
 extern void InitWaveDisplay();
@@ -203,6 +204,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_FORMAT_DICTIONARY, MyFrame::OnTools)
 	EVT_MENU(MENU_SORT_DICTIONARY, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
+	EVT_MENU(MENU_COMPILE_INTONATION, MyFrame::OnTools)
 	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
 	EVT_MENU(MENU_SPEAK_TRANSLATE, MyFrame::OnSpeak)
@@ -218,6 +220,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_VOWELCHART2, MyFrame::OnTools)
 	EVT_MENU(MENU_VOWELCHART3, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_RU, MyFrame::OnTools)
+	EVT_MENU(MENU_LEXICON_BG, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_DE, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_IT, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_IT2, MyFrame::OnTools)
@@ -553,6 +556,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		break;
 
 	case MENU_LEXICON_RU:
+	case MENU_LEXICON_BG:
 	case MENU_LEXICON_DE:
 	case MENU_LEXICON_IT:
 	case MENU_LEXICON_IT2:
@@ -565,6 +569,10 @@ void MyFrame::OnTools(wxCommandEvent& event)
 
 	case MENU_COMPILE_MBROLA:
 		CompileMbrola();
+		break;
+
+	case MENU_COMPILE_INTONATION:
+		CompileIntonation();
 		break;
 		
 	case MENU_COMPILE_DICT_DEBUG:

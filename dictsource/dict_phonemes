@@ -62,7 +62,7 @@ W#   y    Y
 *    -    :    ?    b    d    D    dZ   
 f    g    h    j    k    l    L    l/2  
 l/3  m    n    N    p    r    R    s    
-S    t    T    tS   v    w    z    
+S    t    T    tS   v    w    
 
 
 Dictionary hu_dict
@@ -152,9 +152,9 @@ s2   t    v    w    Z
 
 Dictionary fr_dict
 
-@    @-   @2   a    A    A~   e    E    
-E2   E:   E~   i    i-   i:   o    o2   
-o3   O~   u    u:   w    w^i  W~   y    
+@    @-   a    A~   e    E    E2   E:   
+E~   i    i:   o    O    o2   o3   O~   
+u    u:   w    W    w^a  w^i  W~   y    
 Y    
 
 :    b    d    dZ   f    g    h    j    
@@ -204,8 +204,8 @@ th.  v    w    x    z
 Dictionary ta_dict
 
 a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   U    u    u:   V    
-V#   
+I    i:   o    o:   U    u    u:   U:   
+V    V#   
 
 :    ;    b    C    d    d.   dZ   f    
 g    h    H    j    k    l    l.   m    
@@ -238,15 +238,16 @@ w    x    z
 
 Dictionary is_dict
 
-&    @-   a    aI   aU   e    E    eI   
-i    I    o    O    oU   oU2  u    W    
-y    y#   Yy   
+@-   a    a:   aI   aI:  aU   aU:  E    
+E:   eI   eI:  i    I    i:   I:   O    
+O:   OI   oU   oU:  u    u:   W    W:   
+y    y:   yI   Yy   Yy:  
 
 *    **   :    ;    b    c    C    d    
 D    f    g    h    j    J    k    l    
 l#   m    m#   n    N    n#   N#   n^   
 n^#  p    Q    r    R    r#   R2   s    
-s2   t    T    tl#  v    x    z    
+S    s2   t    T    tl#  v    x    z    
 
 
 Dictionary it_dict
@@ -463,6 +464,17 @@ p    Q    R    s    S    t    T    tS
 v    w    x    z    
 
 
+Dictionary sl_dict
+
+&    @    a    E    e    i    O    o    
+u    y    
+
+:    b    d    dZ   dz   f    g    h    
+j    k    l    l^   m    n    N    n^   
+p    R    R^   s    S    t    tS   ts   
+v    w    x    z    Z    
+
+
 Dictionary tr_dict
 
 a    e    E    i    I    o    O    u    
@@ -483,8 +495,8 @@ u@   uI   y    y@   yI
 
 b    c    d    D    f    g    h    j    
 J    k    kh   l    m    n    N    n^   
-p    Q    r    s    s.   s;   t    t[   
-tS;  v    w    x    z    Z    z.   
+p    Q    r    s    s.   t    t[   tS;  
+v    w    x    z    Z    z.   
 
 
 Dictionary zh_dict
@@ -593,3 +605,13 @@ J    Jh   k    kh   l    m    n    N
 p    ph   Q    q    R    r.   s    S    
 s.   t    T    t.   th   th.  v    x    
 z    Z    z.   
+
+
+Dictionary bg_dict
+
+@    a    e    i    o    u    
+
+;    b    C    d    d;   dZ   dz   f    
+g    j    k    l    L    l^   m    n    
+n^   p    r    s    S    s;   t    t;   
+tS   ts   v    x    z    Z    z;   
