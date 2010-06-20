@@ -59,7 +59,7 @@ endphoneme
 phoneme W
   vowel starttype #@ endtype #@
   length 180
-  FMT(vowel/oe_2)
+  FMT(vowel/y#)
 endphoneme
 
 
@@ -67,7 +67,7 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 190
-  FMT(vowel/a_5)
+  FMT(vowel/a#_4)
 endphoneme
 
 
@@ -90,7 +90,7 @@ phoneme U
   FMT(vowel/uu_2)
 endphoneme
 
-phoneme u#
+phoneme @    // previously u#
   vowel starttype #@ endtype #@
   length 150
   FMT(vowel/u#_7)
@@ -120,7 +120,7 @@ endphoneme
 
 phoneme : //  Lengthen previous vowel by "length"
   virtual
-  length 180
+  length 140
 endphoneme
 
 
@@ -146,6 +146,12 @@ phoneme J
 
   Vowelin f1=2  f2=2700 400 600  f3=300 80
   Vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+
+  IF KlattSynth THEN
+    FMT(klatt/dz_pzd) addWav(ustop/ki, 60)
+  ENDIF
+
+
   FMT(dzh/dz_pzd) addWav(ustop/ki, 60)
 endphoneme
 
@@ -154,4 +160,8 @@ phoneme l
 import_phoneme en/l
 endphoneme
 
+phoneme G
+import_phoneme en/r/
+lengthmod 7
+endphoneme
 

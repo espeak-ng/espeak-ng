@@ -35,7 +35,7 @@
 
 
 // phoneme properties
-//   bits 16-19 give place of articulation (not currently used)
+//   bits 16-19 give place of articulation
 #define phWAVE     0x01
 #define phUNSTRESSED 0x02
 #define phFORTIS   0x08
@@ -45,24 +45,21 @@
 #define phTRILL    0x80
 #define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
+#define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
 #define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 #define phBEFOREPAUSE 0x8000  // replace with the link_out phoneme if the next phoneme is a pause
-#define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
 
-#define phALTERNATIVE    0x1c00   // bits 10,11,12  specifying use of alternative_ph
-#define phBEFOREVOWEL    0x0000
-#define phBEFOREVOWELPAUSE  0x0400
-#define phBEFORENOTVOWEL 0x0c00
-#define phBEFORENOTVOWEL2 0x1000
-#define phSWITCHVOICING  0x0800
-#define phBEFORE_R       0x1400
 
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position 
 #define phLONG         0x200000
 #define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
 #define phRHOTIC       0x800000
 #define phNOPAUSE     0x1000000
+
+#define phFLAG1      0x10000000
+#define phFLAG2      0x20000000
+#define phFLAG3      0x40000000
 #define phLOCAL      0x80000000  // used during compilation
 
 // fixed phoneme code numbers, these can be used from the program code
@@ -148,6 +145,14 @@ typedef struct {
 
 extern int n_replace_phonemes;
 extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
+
+
+// Table of phoneme programs and lengths.  Used by MakeVowelLists
+typedef struct {
+	unsigned int addr;
+	unsigned int length;
+} PHONEME_PROG_LOG;
+
 
 
 #define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 

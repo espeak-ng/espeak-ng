@@ -9,28 +9,43 @@
 phoneme @   //  Schwa
   vowel starttype #@ endtype #@
   unstressed
-  length 125
-  IF nextPh(r/) THEN
-    FMT(vowel/a#_3)    // replace [@r] by [3]
+  length 120
+  IF nextPh(r) THEN
+    IF next2Ph(isVowel) THEN
+    ELSE
+      ChangePhoneme(3)
+    ENDIF
   ENDIF
-  FMT(vowel/@_3)
+  FMT(vowel/@_4)
 endphoneme
 
 
-phoneme 3   //  open Schwa
-  vowel starttype #@ endtype #@
-  unstressed
-  length 125
-  FMT(vowel/a#_3)
+phoneme 3   //  Schwa+r
+  vowel starttype #a endtype #a
+  unstressed flag1
+  length 170
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/V_3)
+  ELSE
+    FMT(vowel/a#_3)
+  ENDIF
+endphoneme
+
+phoneme 3:   //  Schwa+r
+  vowel starttype #a endtype #a
+  unstressed flag1
+  length 220
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/V_3)
+  ELSE
+    FMT(vowel/a#_3)
+  ENDIF
 endphoneme
 
 
 phoneme a
   vowel starttype #a endtype #a
   length 110
-  IF nextPh(*) THEN
-    length 150
-  ENDIF
   FMT(vowel/a)
 endphoneme
 
@@ -38,9 +53,6 @@ endphoneme
 phoneme E
   vowel starttype #e endtype #e
   length 120
-  IF nextPh(*) THEN
-    length 160
-  ENDIF
   FMT(vowel/e_mid2)
 endphoneme
 
@@ -49,9 +61,6 @@ phoneme E2    //  as[E] but reduces to @ if unstressed
   vowel starttype #e endtype #e
   length 120
   ChangeIfDiminished(@)
-  IF nextPh(*) THEN
-    length 160
-  ENDIF
   FMT(vowel/e_mid2)
 endphoneme
 
@@ -59,9 +68,6 @@ endphoneme
 phoneme I
   vowel starttype #i endtype #i
   length 120
-  IF nextPh(*) THEN
-    length 160
-  ENDIF
   IfNextVowelAppend(;)
   FMT(vowel/ii)
 endphoneme
@@ -77,18 +83,18 @@ endphoneme
 phoneme O
   vowel starttype #o endtype #o
   length 120
-  IF nextPh(*) THEN
-    length 160
-  ENDIF
   FMT(vowel/oo)
 endphoneme
 
 
 phoneme U
   vowel starttype #u endtype #u
-  length 140
-  IF nextPh(*) THEN
-    length 180
+  length 120
+  IF nextPh(r) THEN
+    IF next2Ph(isVowel) THEN
+    ELSE
+      ChangePhoneme(UR)
+    ENDIF
   ENDIF
   FMT(vowel/uu_2)
 endphoneme
@@ -103,7 +109,7 @@ endphoneme
 
 phoneme A   // reduces to [a] if not stressed
   vowel starttype #a endtype #a
-  length 240
+  length 250
   ChangeIfNotStressed(a)
   FMT(vowel/aa_6)
 endphoneme
@@ -112,9 +118,6 @@ endphoneme
 phoneme i:
   vowel starttype #i endtype #i
   length 180
-  IF nextPh(*) THEN
-    length 220
-  ENDIF
   IF prevPh(w) THEN
     VowelStart(w/wi2)
   ENDIF
@@ -125,9 +128,6 @@ endphoneme
 phoneme i2
   vowel starttype #i endtype #i
   length 180
-  IF nextPh(*) THEN
-    length 220
-  ENDIF
   ChangeIfNotStressed(I)
   IF prevPh(w) THEN
     VowelStart(w/wi2)
@@ -139,9 +139,6 @@ endphoneme
 phoneme u:
   vowel starttype #u endtype #u
   length 190
-  IF nextPh(*) THEN
-    length 230
-  ENDIF
   FMT(vowel/u)
 endphoneme
 
@@ -149,7 +146,7 @@ endphoneme
 phoneme aU
   vowel starttype #a endtype #u
   length 220
-  FMT(vdiph/aau_2)
+  FMT(vdiph/aau_6)
 endphoneme
 
 
@@ -177,27 +174,21 @@ endphoneme
 
 phoneme E:
   vowel starttype #e endtype #e
-  length 190
+  length 200
   FMT(vowel/e_mid2)
 endphoneme
 
 
 phoneme e:
   vowel starttype #e endtype #e
-  length 190
-  IF nextPh(*) THEN
-    length 230
-  ENDIF
+  length 200
   FMT(vowel/e_2)
 endphoneme
 
 
 phoneme o:
   vowel starttype #o endtype #o
-  length 200
-  IF nextPh(*) THEN
-    length 240
-  ENDIF
+  length 210
   FMT(vowel/o)
 endphoneme
 
@@ -205,19 +196,13 @@ endphoneme
 phoneme y:
   vowel starttype #u endtype #u
   length 200
-  IF nextPh(*) THEN
-    length 240
-  ENDIF
   FMT(vowel/y)
 endphoneme
 
 
 phoneme y
   vowel starttype #u endtype #u
-  length 130
-  IF nextPh(*) THEN
-    length 170
-  ENDIF
+  length 110
   FMT(vowel/yy_4)
 endphoneme
 
@@ -225,19 +210,13 @@ endphoneme
 phoneme Y:
   vowel starttype #@ endtype #@
   length 220
-  IF nextPh(*) THEN
-    length 260
-  ENDIF
   FMT(vowel/y#)
 endphoneme
 
 
 phoneme W
   vowel starttype #@ endtype #@
-  length 160
-  IF nextPh(*) THEN
-    length 200
-  ENDIF
+  length 150
   FMT(vowel/oe)
 endphoneme
 
@@ -320,13 +299,74 @@ phoneme j
 endphoneme
 
 
-// This is actually the ENGLISH "rolling r". For german, we now use * in the dictionary,
-// so this phoneme will only be used in english words in german texts.
-phoneme r
-  liquid  rhotic
-  trill
-  lengthmod 7
-  CALL base/r
+
+// TESTING
+
+phoneme r     // uvular trill
+  vcd uvl frc
+  lengthmod 6
+  length 110
+  IF nextPhW(isVowel) THEN
+    FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 50)
+  ELSE
+    IF prevPh(isFlag1) THEN
+      ChangePhoneme(NULL)   // 'r' is already included in the previous vowel
+    ELSE
+      ChangePhoneme(V#)
+    ENDIF
+  ENDIF
 endphoneme
 
 
+phoneme UR
+  vowel starttype #u endtype #@
+  flag1
+  length 180
+  FMT(vwl_de/uu_@)
+endphoneme
+
+
+
+phoneme V2#    // used for 'r' after a vowel (to create a diphthong)
+  liquid
+  lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(r")
+  ENDIF
+  FMT(r/V_2_)
+endphoneme
+
+
+phoneme V#    // used for 'r' after a vowel (to create a diphthong)
+  liquid
+  lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(r")
+  ENDIF
+
+  IF prevPh(#a) OR prevPh(E) THEN
+    FMT(r/V_2_)
+  ENDIF
+  IF prevPh(#u) THEN
+    FMT(r/@_)
+  ENDIF
+  FMT(r/V_)
+endphoneme
+
+phoneme V3#
+  liquid
+  lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(r")
+  ENDIF
+  FMT(r/@_)
+endphoneme
+
+phoneme V1#
+  liquid
+  lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(r")
+  ENDIF
+  FMT(r/V_)
+endphoneme

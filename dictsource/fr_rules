@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2010-05-18 Michel Such  <michel.such@free.fr>
+// Updated: 2010-06-12 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -35,6 +35,7 @@
 .replace
 œ	oe
 î	i
+à	a
 
 
 .L01 d e l n r t u
@@ -46,1403 +47,1405 @@
 
 
 .group a
-		ae (_       e		// reggae vitae
-		aen         A~		// caen (diff Cicero: aA~)
-		ae          aE		// maestro
-		aim (K      E~		// faim
-		ain (K      E~		// pain
-	Ct)	ain (_      E~n2		// certain ami
-	ch)	ain (_      E~n2		// prochain arret
-		ai (_      e		// dirai ferai...
-	_ess)	ai (_      E2		// essai
-	_vr)	ai (_      E2		// vrai
-	    	ai (b      E		// faible
-		ais (_      E2z2		// dirais ferais...
-		ait (_      E2t2		// dirait ferait...
-		aient (_      E2t2		// diraient feraient...
-	f)	ai (sA      @		// faisons faisan
-		a (ilK      a
-		aie (me     E2		// paiement
-		ai          E		// aile
-		ai (L06          E		// aile
-		ai (CAX          E		// aile
-		am (b       A~		// jambon
-		am (p       A~		// camp
-		am (m       a		// programmation
-	_)	am (n       am		// amnistie
-		am (n       a		// condamner
+        ae (_      e         // reggae vitae
+        aen        A~        // caen (diff Cicero: aA~)
+        ae         aE        // maestro
+        aim (K     E~        // faim
+        ain (K     E~        // pain
+    Ct) ain (_     E~n2      // certain ami
+    ch) ain (_     E~n2      // prochain arret
+        ai (_      e         // dirai ferai...
+  _ess) ai (_      E2        // essai
+   _vr) ai (_      E2        // vrai
+        ai (b      E         // faible
+        ais (_     E2z2      // dirais ferais...
+        ait (_     E2t2      // dirait ferait...
+        aient (_   E2t2      // diraient feraient...
+     f) ai (sA     @         // faisons faisan
+        a (ilK     a
+        aie (me    E2        // paiement
+        ai         E         // aile
+        ai (L06    E         // aile
+        ai (CAX    E         // aile
+        am (b      A~        // jambon
+        am (p      A~        // camp
+        am (m      a         // programmation
+     _) am (n      am        // amnistie
+        am (n      a         // condamner
 
-	_L04)	an (_      an
-	   	an (n_      a
-	_h)	an (_      an
-	_)	anti (@@P4      A~ti
-	_)	arché (@P5      arke		// archéologue
-	_)	archéo (@P6      arkeo		// archéologue
-	_)	arch (aP4      ark		// archange
-	_)	arch (oP4      ark		// archonte
-	_)	anarcho (@P7      anarko		// anarchosyndicalisme
+  _L04) an (_      an
+        an (n_     a
+    _h) an (_      an
+     _) anti (@@P4 A~ti
+     _) arché (@P5 arke      // archéologue
+     _) archéo (@P6 arkeo    // archéologue
+     _) arch (aP4  ark       // archange
+     _) arch (oP4  ark       // archonte
+     _) anarcho (@P7 anarko  // anarchosyndicalisme
 
-		a  (nnA     a		// manne
-		an (K       A~		// ancien, élan
-		an (h       an
-	@@m)	an (_       an // tennisman
-	zm)	an (_       an // jazzman
-	L02m)	an (_       an
-	lism)	an (_       A~ // talisman
-	ulm)	an (_       A~ // musulman
-	_caïm)	an (_       A~ // caïman
-	_C)	aon  (_        A~		// faon, paon, taon
-	s)	aoul (_         u		// saoul
-	s)	aou (le          u		// saoule
-		août         ut		// août
-		août (i        aus		// aoûtien
-		aut (_          ot2
-		a (ô         		// saune
-		au          o2		// au, aux
-		au (l_          o		// Paul
-		au (re_          o		// dinosaure
-	_)	audio (@P5       o2dio
-	_)	auto (@P4       o2to
-	_)	autom (n       otO
-	bb)	aye (X       ei		// abbaye
-		ay (C       E		// aymé
-		ay          Ej		// paye
-		ay (_         E2		// display
-	Xl)	ayer (X         E2jWr		// player, layer
-	w)	an (_	an
-		a           a		// bateau
+        a (nnA     a         // manne
+        an (K      A~        // ancien, élan
+        an (h      an
+   @@m) an (_      an        // tennisman
+    zm) an (_      an        // jazzman
+  L02m) an (_      an
+  lism) an (_      A~        // talisman
+   ulm) an (_      A~        // musulman
+ _caïm) an (_      A~        // caïman
+    _C) aon (_     A~        // faon, paon, taon
+     s) aoul (_    u         // saoul
+     s) aou (le    u         // saoule
+        août       ut        // août
+        août (i    aus       // aoûtien
+        aut (_     ot2
+        a (ô                 // saune
+        au         o2        // au, aux
+        aud (_     o         // chaud
+_C)        aud (_     o2d         // Maud
+        au (l_     o         // Paul
+        au (re_    o         // dinosaure
+     _) audio (@P5 o2dio
+     _) auto (@P4  o2to
+     _) autom (n   otO
+    bb) aye (X     ei        // abbaye
+        ay (C      E         // aymé
+        ay         Ej        // paye
+        ay (_      E2        // display
+    Xl) ayer (X    E2jWr     // player, layer
+     w) an (_      an
+        a          a         // bateau
 
 // group a: English section
-	sm)	all       _^_en		// small, smaller
-		a (wC      _^_en
+    sm) all        _^_en     // small, smaller
+        a (wC      _^_en
 
 
 .group b
-		bb          b		// abbé
-	om)	b (_                    // plomb applomb
-		b           b		// aube
+        bb         b         // abbé
+    om) b (_                 // plomb applomb
+        b          b         // aube
 
 // group b: English section
-		back       _^_en
-		bbl       _^_en
-		bird       _^_en		// bird
-		board      _^_en              // board, keyboard
-		box (_      _^_en              // box, inbox, outbox
-		bugg        _^_en              // debugger
-	_)	by       _^_en              // by, bye, bypass
+        back       _^_en
+        bbl        _^_en
+        bird       _^_en     // bird
+        board      _^_en     // board, keyboard
+        box (_     _^_en     // box, inbox, outbox
+        bugg       _^_en     // debugger
+     _) by         _^_en     // by, bye, bypass
 
 
 .group c
-	_)	c' (P2v         s		// s
-		cch         k		// bacchanale
-		cc (Y       ks		// accéder
-		cc          k		// occuper
-	_)	c (d     se
-	_)	ch (arism      k		// charisme, charismatique
-	_)	ch (irop       k		// chiroptère
-	a)	ch (_     k		// almanach
-	ar)	c (ti     		// arctique
-	e)	ch (_     k		// varech
-	ni)	ch (_     k
-	_A)	ch (o_      k		// écho
-	mani)	ch (é      k		// manichéisme
-	wi)	ch       tS	// sandwich
-	mito)	ch (o      k		// mitochondrie
-	_eu)	ch (ari      k		// eucharistie
-	or) 	ch (esC     k		// orchestre
-	or) 	ch (iC      k		// orchidée
-	_) 	ch (ao      k		// chaos, chaotique
-	_) 	ch (orA      k		// chorale
-	_) 	ch (oriz      S
-	_) 	ch (oro      S
-		ch (r       k		// chrétien
-	_)	chrono (@P6       krono
-		ch (l       k
-		ch (n       k
-		ch (s       k
-		ch (to      k
-		ch          S		// chien
-		ck          k		// nickel
-		cqu         k		// grecque
-		cq          k		// pecq
-	s)	c (Y
-	x)	c (Y
-		c (Y        s 		// cède
-	_)	cyber (P5       sibEr
-	Can)	c (_			// banc
-	Con) 	c (_     		// tronc, jonc
-	_don) 	c (_     k		// donc
-	cler)	c (_			// leclerc
-	tchou)	c (_
-	taba)	c (_
-	toma)	c (_
-	se)	c (ond      g		// seconde secondaire
-		c           k		// recoin donc
+     _) c' (P2v    s         // s
+        cch        k         // bacchanale
+        cc (Y      ks        // accéder
+        cc         k         // occuper
+     _) c (d       se
+     _) ch (arism  k         // charisme, charismatique
+     _) ch (irop   k         // chiroptère
+     a) ch (_      k         // almanach
+    ar) c (ti                // arctique
+     e) ch (_      k         // varech
+    ni) ch (_      k
+    _A) ch (o_     k         // écho
+  mani) ch (é      k         // manichéisme
+    wi) ch         tS        // sandwich
+  mito) ch (o      k         // mitochondrie
+   _eu) ch (ari    k         // eucharistie
+    or) ch (esC    k         // orchestre
+    or) ch (iC     k         // orchidée
+     _) ch (ao     k         // chaos, chaotique
+     _) ch (orA    k         // chorale
+     _) ch (oriz   S
+     _) ch (oro    S
+        ch (r      k         // chrétien
+     _) chrono (@P6 krono
+        ch (l      k
+        ch (n      k
+        ch (s      k
+        ch (to     k
+        ch         S         // chien
+        ck         k         // nickel
+        cqu        k         // grecque
+        cq         k         // pecq
+     s) c (Y
+     x) c (Y
+        c (Y       s         // cède
+     _) cyber (P5  sibEr
+   Can) c (_                 // banc
+   Con) c (_                 // tronc, jonc
+  _don) c (_       k         // donc
+  cler) c (_                 // leclerc
+ tchou) c (_
+  taba) c (_
+  toma) c (_
+    se) c (ond     g         // seconde secondaire
+        c          k         // recoin donc
 
-		cient (_    sit2		// ils appr�ient, remercient.
-	effi)	cient    sjA~	// coefficient
-	défi)	cient    sjA~	// déficient
-		cast (_S4      kast		// podcast
-		casts (_S5      kast		// podcasts
-	_)	clown       klun
+        cient (_   sit2      // ils appr�ient, remercient.
+  effi) cient      sjA~      // coefficient
+  défi) cient      sjA~      // déficient
+        cast (_S4  kast      // podcast
+        casts (_S5 kast      // podcasts
+     _) clown      klun
 
 // group c: English section
-	n)	ch (_      _^_en		// french
-		ch (ment      _^_en		// attachment
-		cut (_      _^_en		// cut, shortcut
+     n) ch (_      _^_en     // french
+        ch (ment   _^_en     // attachment
+        cut (_     _^_en     // cut, shortcut
 
 
 .group ç
 
-	ç           s		// rançon
-_) 	ç' (P2v      s
+        ç          s         // rançon
+     _) ç' (P2v    s
 
 
 .group d
-		dd          d		// addition
-	_) 	d' (P2      d
-	_ban)	d (_        d
-	_lan)	d (_        d		// land
-	_stan)	d (_        d		// stand
-	an)	d (_
-	_san)	d (_        d
+        dd         d         // addition
+     _) d' (P2     d
+  _ban) d (_       d
+  _lan) d (_       d         // land
+ _stan) d (_       d         // stand
+    an) d (_
+  _san) d (_       d
 
-	_gran)	d (_        t2 		// grand ami, grand marchand
-	Cen)	d (_        t2
-	Con)	d (_
-	con)	d (_	t2
-	quen)	d (_        t2
-	r)	d (_
-	_har)	d (_	d
-	lor)	d (_	d
-	au)	d (_
-	oi)	d (_
-	ou)	d (_
+ _gran) d (_       t2        // grand ami, grand marchand
+   Cen) d (_       t2
+   Con) d (_
+   con) d (_       t2
+  quen) d (_       t2
+     r) d (_
+  _har) d (_       d
+   lor) d (_       d
+    oi) d (_
+    ou) d (_
 
-		dt (_       t       	// Schmidt
-	_ni)	d (_        		// nid
-		d           d		// don bled
-	_expé)	dien (t_    djA~		// expédient
-	V_expé)	dien (t_    di		// expédient
-	_ingré)	dien (t_    djA~		// ingrédient
-		dien (t_    di		// étudient (verbe)
-	_)	dendro (@P6    dE~dro
+        dt (_      t         // Schmidt
+   _ni) d (_                 // nid
+        d          d         // don bled
+ _expé) dien (t_   djA~      // expédient
+V_expé) dien (t_   di        // expédient
+_ingré) dien (t_   djA~      // ingrédient
+        dien (t_   di        // étudient (verbe)
+     _) dendro (@P6 dE~dro
 
 // group d: English section
-		day (_        _^_en
-	_)	devic        _^_en
-		dle (X        _^_en // bundle, handle
+        day (_     _^_en
+     _) devic      _^_en
+        dle (X     _^_en     // bundle, handle
 
 
 .group e
 
 // Define use of the final 'e' in french
-		e (_
-	_C) 	e (_        @		// je te
-	-c) 	e (_
-	-j) 	e (_
-	C) 	e (-
+        e (_
+    _C) e (_       @         // je te
+    -c) e (_
+    -j) e (_
+     C) e (-
 
-		e (Ce_      E
-		eau         o		// bateau
-	g)	ea (s_ 	a      		// mangeas
-	cap)	e (la_ 	e
-	gh)	e (tAX 	e      		// spagheti
-	j)	e (a        		// Jean Jeanne
-	p)	ect (_      E2		// suspect
-		ect (_      Ekt		// direct
-	pi)	ed (_         e		// pied
-	_art)	e (++       e		// arte, artefact
-	_cl)	ef (_       e		// clef
-	_cr)	e (at       e
-	_)	ein (K      En		// Einstein
-		ein (K      E~		// peindre
-	pl)	ein (_      E~n2		// plein emploi
-		e (il       E		// vieille
-		ei          E		// neige
-		eoi          w^a		// asseoir
-		ell         El		// selle
-		el (K       El		// celsius, caramel
-	_f)	em (me      a		// femme
-	i)	e (mA     		// remerciement, d�ploiement
-	A)	e (rA     		// remerciera
-	tch)	e (rX         Y
-	@)	em (me      a		// patiemment
-		em (b       A~		// décembre
-		em (mACC       A~		// emmancher
-		em (mACAC       A~		// emmagasiner
-		em (ma       E2		// emmanuel
-		em (mai       A~		// emmailloter
-	l)	em (n       a		// solemnel
-	il)	emn        Em		// dilemne
-		em (p       A~
-		en (_       A~n2		// en
-		en (hA      A~n		// enharmonique
-_C)		en (j      E~		// benjamin
-_flam)		en (c      E~		// flamenco
-_)		en (A       A~n		// enivrer
+        e (Ce_     E
+        eau        o         // bateau
+     g) ea (s_     a         // mangeas
+   cap) e (la_     e
+    gh) e (tAX     e         // spagheti
+     j) e (a                 // Jean Jeanne
+     p) ect (_     E2        // suspect
+        ect (_     Ekt       // direct
+    pi) ed (_      e         // pied
+  _art) e (++      e         // arte, artefact
+   _cl) ef (_      e         // clef
+   _cr) e (at      e
+     _) ein (K     En        // Einstein
+        ein (K     E~        // peindre
+    pl) ein (_     E~n2      // plein emploi
+        e (il      E         // vieille
+        ei         E         // neige
+        eoi        wa       // asseoir
+        ell        El        // selle
+        el (K      El        // celsius, caramel
+    _f) em (me     a         // femme
+     i) e (mA                // remerciement, d�ploiement
+     A) e (rA                // remerciera
+   tch) e (rX      Y
+     @) em (me     a         // patiemment
+        em (b      A~        // décembre
+        em (mACC   A~        // emmancher
+        em (mACAC  A~        // emmagasiner
+        em (ma     E2        // emmanuel
+        em (mai    A~        // emmailloter
+     l) em (n      a         // solemnel
+    il) emn        Em        // dilemne
+        em (p      A~
+        en (_      A~n2      // en
+        en (hA     A~n       // enharmonique
+    _C) en (j      E~        // benjamin
+ _flam) en (c      E~        // flamenco
+     _) en (A      A~n       // enivrer
 
-	C)	en (d_      A~		// comprend dépend
-	od)	en (dr      E~		// rhododendron
-	qu)	en (d_      A~
+     C) en (d_     A~        // comprend dépend
+    od) en (dr     E~        // rhododendron
+    qu) en (d_     A~
 
-	pati)	en          A~		// patient patience
-		en (nu      A~		// ennui
-		en (nA      E		// penne ennemi
+  pati) en         A~        // patient patience
+        en (nu     A~        // ennui
+        en (nA     E         // penne ennemi
 
-	é)	en (_       E~		// européen
+     é) en (_      E~        // européen
 
-	Ci)	en (nA      E		// mienne
+    Ci) en (nA     E         // mienne
 
-	éC)	en (t_      A~		// récent différent élément
-	équ)	en (t_      A~		// fréquent, conséquent
-	étic)	en (t_      A~		// réticent
+    éC) en (t_     A~        // récent différent élément
+   équ) en (t_     A~        // fréquent, conséquent
+  étic) en (t_     A~        // réticent
 
-	_C)	en (t_      A~		// cent vent lent dent
-	cc)	en (t_      A~		// accent
-	Asc)	en (t_      A~		// luminescent
-	_dol)	en (t_      A~		// dolent
-	ol)	en (t_      A~		// somnolent, violent
-	Vol)	en (t_        		// somnolent, violent
-	Xol)	ent (_      t2  		// volent
-	eul)	ent (_      t2  		// veulent
-	ul)	en (t_      A~		// turbulent
-	Vul)	en (t_
-	imCoC)	en (t_      A~		// impotent
-	inCoC)	en (t_      A~		// innocent, indolent
+    _C) en (t_     A~        // cent vent lent dent
+    cc) en (t_     A~        // accent
+   Asc) en (t_     A~        // luminescent
+  _dol) en (t_     A~        // dolent
+    ol) en (t_     A~        // somnolent, violent
+   Vol) en (t_               // somnolent, violent
+   Xol) ent (_     t2        // volent
+   eul) ent (_     t2        // veulent
+    ul) en (t_     A~        // turbulent
+    Ccul) ent (_	t2
+   Vul) ent (_		t2
+ imCoC) en (t_     A~        // impotent
+ inCoC) en (t_     A~        // innocent, indolent
 
-	XACcid)	en (t_      A~		// accident, occident
+XACcid) en (t_     A~        // accident, occident
 
-	_ag)	en (t_      A~		// agent
-	_ard)	en (t_      A~		// ardent
-	_arg)	en (t_      A~		// argent
-	_urg)	en (t_      A~		// urgent
-	V_urg)	ent (_   	t2	// urgent (verbe)
+   _ag) en (t_     A~        // agent
+  _ard) en (t_     A~        // ardent
+  _arg) en (t_     A~        // argent
+  _urg) en (t_     A~        // urgent
+ V_urg) ent (_     t2        // urgent (verbe)
 
-	_émin)	en (t_      A~		// éminent
-	immin)	en (t_      A~		// imminent
-	oémin)	en (t_      A~		// proéminent
-	jac)	en (t_      A~		// sous-jacent, adjacent
-	_lat)	en (t_      A~		// latent
+ _émin) en (t_     A~        // éminent
+ immin) en (t_     A~        // imminent
+ oémin) en (t_     A~        // proéminent
+   jac) en (t_     A~        // sous-jacent, adjacent
+  _lat) en (t_     A~        // latent
 
-	@@Cig)	en (t_      A~		// intransigent, intelligent
-	_dilig)	en (t_      A~		// diligent
-	XACig)	en (t_      A~		// dirigent, exigent
-	VXACig)	ent (_      t2	// dirigent, exigent (verbe)
-	flig)	en (t_      A~		// affligent
-	Vflig)	ent (_     t2		// infligent (verbe)
-	Xig)	ent (_     t2       // figent, pigent
-	oblig)	en (t_      A~		// obligent, d�sobligent
-	Voblig)	ent (_      t2  		// obligent (verbe)
-	orrig)	ent (_      t2  		// corrigent
-	tang)	en (t_      A~		// tangent
+ ig) ent (_     t2
+ ilig) ent (_     A~t2
+ llig) ent (_     A~t2
+ ndig) ent (_     A~t2
+  tang) ent (_     A~t2        // tangent
+ @@ing) en (t_     A~        // astreingent, contingentindigent
 
-	man)	en (t_      A~		// permanent
-	@@ing)	en (t_      A~		// astreingent, contingentindigent
-	_pat)	en (t_      A~		// patent
-	rmam)	en (t_      A~		// firmament
-	éCerg)	en (t_      A~		// détergent
-	V_éCerg)	ent (_  t2 		// émergent
-	verg)	en (t_      A~		// convergent, divergent
-	Vverg)	ent (_   	t2	// convergent, divergent (verbe)
+   man) en (t_     A~        // permanent
+  _pat) en (t_     A~        // patent
+  rmam) en (t_     A~        // firmament
+  verg) en (t_     A~        // convergent, divergent
+ Vverg) ent (_     t2        // convergent, divergent (verbe)
 
-	_serg)	en (t_      A~		// sergent
-	CACCim)	en (t_      A~		// condiment, gentiment
-	dim)	en (t_      A~		// rudiment
-	Agim)	en (t_      A~		// régiment
-	Alim)	en (t_      A~		// poliment
-	inim)	en (t_      A~		// infiniment
-	manim)	en (t_      A~		// maniment
-	onim)	en (t_      A~		// boniment
-	plim)	en (t_      A~		// compliment
-	Atim)	en (t_      A~		// bâtiment
-	_cim)	en (t_      A~		// ciment
-	_pim)	en (t_      A~		// piment
-	gm)	en (t_      A~		// fragment
-	Asim)	en (t_      A~		// quasiment
+ _serg) en (t_     A~        // sergent
+CACCim) en (t_     A~        // condiment, gentiment
+   dim) en (t_     A~        // rudiment
+  Agim) en (t_     A~        // régiment
+  Alim) en (t_     A~        // poliment
+  inim) en (t_     A~        // infiniment
+ manim) en (t_     A~        // maniment
+  onim) en (t_     A~        // boniment
+  plim) en (t_     A~        // compliment
+  Atim) en (t_     A~        // bâtiment
+  _cim) en (t_     A~        // ciment
+  _pim) en (t_     A~        // piment
+    gm) en (t_     A~        // fragment
+  Asim) en (t_     A~        // quasiment
 
-	ertin)	en (t_      A~		// pertinent, impertinent
-	ontin)	en (t_      A~		// continent, incontinent
-	_sArm)	en (t_      A~		// sarment, serment
-	erm)	en (t_      A~		// ferment
-	Vferm)	ent (_   	t2	// ferment, referment (verbe)
-	XArp)	en (t_      A~		// arpent, serpent
-	CArr)	en (t_      A~		// conncurrent, torrent
-	Cerr)	ent (_  t2     // ils serrent
-	_appar)	en (t_      A~		// apparent
-	spar)	en (t_      A~		// transparent
-	_par)	en (t_      A~		// parent
-	V_par)	ent (_     t2		// parent (verbe)
-	_var)	en (t_      A~		// varent
-	mitt)	en (t_      A~		// intermittent
-	énit)	en (t_      A~		// pénitent
-	tourm)	en (t_      A~		// tourment
-	Cflu)	en (t_      A~		// affluent, confluent
-	VCflu)	ent (_      t2  		// refluent, influent (verbe)
+ ertin) en (t_     A~        // pertinent, impertinent
+ ontin) en (t_     A~        // continent, incontinent
+ _sArm) en (t_     A~        // sarment, serment
+   erm) en (t_     A~        // ferment
+ Vferm) ent (_     t2        // ferment, referment (verbe)
+  XArp) en (t_     A~        // arpent, serpent
+  CArr) en (t_     A~        // conncurrent, torrent
+  Cerr) ent (_     t2        // ils serrent
+_appar) en (t_     A~        // apparent
+  spar) en (t_     A~        // transparent
+  _par) en (t_     A~        // parent
+ V_par) ent (_     t2        // parent (verbe)
+  _var) en (t_     A~        // varent
+  mitt) en (t_     A~        // intermittent
+  énit) en (t_     A~        // pénitent
+ tourm) en (t_     A~        // tourment
+  Cflu) en (t_     A~        // affluent, confluent
+ VCflu) ent (_     t2        // refluent, influent (verbe)
 
-	_tal)	en (t_      A~		// talent
-	ival)	en (t_      A~		// équivalent
-	Vival)	ent (_     t2		// équivalent (verbe)
-	xcell)	en (t_      A~		// excellent
-	Vxcell)	ent (_      t2  // excellent
+  _tal) en (t_     A~        // talent
+  ival) en (t_     A~        // équivalent
+ Vival) ent (_     t2        // équivalent (verbe)
+ xcell) en (t_     A~        // excellent
+Vxcell) ent (_     t2        // excellent
 
-	iCam)	en (t_      A~
-	mm)	en (t_      A~
-	em)	en (t_      A~		// lentement
-	mom)	en (t_      A~		// moment
-	Aaim)	en (t_      A~
-	Caim)	en (t_      A~
-	dum)	en (t_      A~
-	gum)	en (t_      A~
-	jum)	en (t_      A~
-	oCum)	en (t_      A~
-	rum)	en (t_      A~
+  iCam) en (t_     A~
+    mm) en (t_     A~
+    em) en (t_     A~        // lentement
+   mom) en (t_     A~        // moment
+  Aaim) en (t_     A~
+  Caim) en (t_     A~
+   dum) en (t_     A~
+   gum) en (t_     A~
+   jum) en (t_     A~
+  oCum) en (t_     A~
+   rum) en (t_     A~
 
-	éCid)	en (t_      A~
-	VéCid)	ent (_	t2
-	Xtrid)	en (t_      A~
-	_flor)	en (t_      A~
-	_laur)	en (t_      A~
-	_mécont) en (t_     A~
-	_cont)	en (t_      A~
-	_Vcont)	ent (_	t2
-	éC)	en (t_      A~		// compétent
-	_souv)	en (t_      A~		// souvent
-	Cud)	en (t_      A~
+  éCid) en (t_     A~
+ VéCid) ent (_     t2
+ Xtrid) en (t_     A~
+ _flor) en (t_     A~
+ _laur) en (t_     A~
+_mécont) en (t_    A~
+ _cont) en (t_     A~
+_Vcont) ent (_     t2
+    éC) en (t_     A~        // compétent
+ _souv) en (t_     A~        // souvent
+   Cud) en (t_     A~
 
-	_couv)	en (tS3f      A~		// le couvent
-	V_couv)	en (t_      		// elles couvent
-	s_couv)	en (t_      		// elles couvent
+ _couv) en (tS3f   A~        // le couvent
+V_couv) en (t_               // elles couvent
+s_couv) en (t_               // elles couvent
 
-		ent (_      t2      	// étaient mangent
-	A)	ent (_      t2      	// étaient mangent
+        ent (_     t2        // étaient mangent
+     A) ent (_     t2        // étaient mangent
 
-	Ci)	en (K       E~      	// rien, lien
-	Ci)	en (c       A~      	// science
+    Ci) en (K      E~        // rien, lien
+    Ci) en (c      A~        // science
 
-	AA)	en (_       E~
-	C)	en (_       En      	// amen, abdomen, golden
-	C)	en (to_       En      	// memento
-	nc)	ens (_       A~      	// encens
-	xam)	en (_       E~      	// examen
+    AA) en (_      E~
+     C) en (_      En        // amen, abdomen, golden
+     C) en (to_    En        // memento
+    nc) ens (_     A~        // encens
+   xam) en (_      E~        // examen
 
-		en (s_      A~
-		en (CA      A~      	// pentathlon
-		en (CC      A~      	// entre
-	sp)	ens (_      Ens  // suspens
-	éC)	ens (_      A~z2  // dépens démens
+        en (s_     A~
+        en (CA     A~        // pentathlon
+        en (CC     A~        // entre
+    sp) ens (_     Ens       // suspens
+    éC) ens (_     A~z2      // dépens démens
 
-	_C)	er (_       Er      	// fer
-	_Ch)	er (_       Er      	// cher
-	_env)	er (_       Er
-	_hi)	er (_       Er      	// hier
-	_fi)	er (_       Er      	// fier
-	_hiv)	er (X       Er      	// hiver
-	Cst)	er (X       Er      	// hamster
-	_cart)	er (X       Er      	// carter
-	_cutt)	er (X       Er      	// cutter
-	tain)	er (X       Er      	// container
-	_ti)	er (_       Er
-	ack)	er (K      Yr
-	ock)	er (K      Er
-	rock)	er (K      Yr
+    _C) er (_      Er        // fer
+   _Ch) er (_      Er        // cher
+  _env) er (_      Er
+   _hi) er (_      Er        // hier
+   _fi) er (_      Er        // fier
+  _hiv) er (X      Er        // hiver
+   Cst) er (X      Er        // hamster
+ _cart) er (X      Er        // carter
+ _cutt) er (X      Er        // cutter
+  tain) er (X      Er        // container
+   _ti) er (_      Er
+   ack) er (K      Yr
+   ock) er (K      Er
+  rock) er (K      Yr
 
-		er (_       e      	// parler léger
-		er (s_      e
+        er (_      e         // parler léger
+        er (s_     e
 
-	i)	e (rt_      E		// requiert
+     i) e (rt_     E         // requiert
 
-	d)	e (ssus_    @      	// dessus
+     d) e (ssus_   @         // dessus
 
-	_d)	es (bA      e
-	_d)	es (jA      e      	// Desjardins
-	_d)	es (nA      e
-	_d)	es (qA      e      	// desquels
+    _d) es (bA     e
+    _d) es (jA     e         // Desjardins
+    _d) es (nA     e
+    _d) es (qA     e         // desquels
 
-	_l)	es (qA      e      	// lesquels
+    _l) es (qA     e         // lesquels
 
-	_m)	es (dA      e      	// mesdames
-	_m)	es (nA      e
-	Am)	es (dA      e
-	Am)	es (nA      e      	// Dumesnil
+    _m) es (dA     e         // mesdames
+    _m) es (nA     e
+    Am) es (dA     e
+    Am) es (nA     e         // Dumesnil
 
-	d)	esh (A      ez      	// Deshormeaux
+     d) esh (A     ez        // Deshormeaux
 
-	_r)	e (ss       @      	// ressembler
-	_r)	e (ssu       e      	// ressusciter
-	_r)	e (stra     @
-	_r)	e (stro     @
-	_r)	e (stru     @      	// restructurer
-         -)     est (_      Est         // -est
+    _r) e (ss      @         // ressembler
+    _r) e (ssu     e         // ressusciter
+    _r) e (stra    @
+    _r) e (stro    @
+    _r) e (stru    @         // restructurer
+     -) est (_     Est       // -est
 
-	dg)	et (_      Et     	// Bridget, gadget
-	k)	et (_      Et
-	tick)	et (_      E2
-	m)	et (_      Et2
+    dg) et (_      Et        // Bridget, gadget
+     k) et (_      Et
+  tick) et (_      E2
+     m) et (_      Et2
 
-		eu        Y		// eu
-	_)	eu (ss        y		// eu
+        eu         Y         // eu
+     _) eu (ss     y         // eu
 
-	_)	eut (_       yt2
-		eut (_       Yt2
-	_)	extra (uP5       E2kstra
-	_)	extra (CP5       E2kstra
-	_)	eû          y		// eût
-		eû          Y:		// jeûne
+     _) eut (_     yt2
+        eut (_     Yt2
+     _) extra (uP5 E2kstra
+     _) extra (CP5 E2kstra
+     _) eû         y         // eût
+        eû         Y:        // jeûne
 
-		ey (_       E2		// dahomey
-		ey (C       E2		// ceylan
-		ey          Ej		// asseye
+        ey (_      E2        // dahomey
+        ey (C      E2        // ceylan
+        ey         Ej        // asseye
 
-		ez (_       ez2		// nez mangez chez
+        ez (_      ez2       // nez mangez chez
 
-	g) 	e (A       		// mangeons
-	g) 	eu		Y      		// vengeur
-	g) 	eu	(re	y      		// gageure
+     g) e (A                 // mangeons
+     g) eu         Y         // vengeur
+     g) eu (re     y         // gageure
 
-	_d) 	e (ch       @
-	_r) 	e (ch       @  		// recherche
-	 	e (Cl       @
+    _d) e (ch      @
+    _r) e (ch      @         // recherche
+        e (Cl      @
 
-	_l) 	e (xA       E2
-	_m) 	e (xA       E2
-	_l) 	e (CA       @
-	_l) 	e (ChA      @
-	_l) 	e (ClA      @  		// Leclerc
-	tr) 	e (CA       @
-	tr) 	e (ChA      @
+    _l) e (xA      E2
+    _m) e (xA      E2
+    _l) e (CA      @
+    _l) e (ChA     @
+    _l) e (ClA     @         // Leclerc
+    tr) e (CA      @
+    tr) e (ChA     @
 
- 		e (CC       E  		// infect pelle mettre
- 		e (Cr       @
- _)		e (C%       e  		// effet, effectuer
- 		e (C_       E
- 		e (t_       E2
- 		e (rC       E
- 		es (_       z2
+        e (CC      E         // infect pelle mettre
+        e (Cr      @
+     _) e (C%      e         // effet, effectuer
+        e (C_      E
+        e (t_      E2
+        e (rC      E
+        es (_      z2
 
-	%C) 	e (xA   E2
+    %C) e (xA      E2
 
-@gu) 	e (CA
-@gu) 	er (A	r
-@qu) 	e (CA
-@qu) 	er (A	r
-_qu) 	e (CA	@
-@L06gu) 	e (CA	@
-@L06qu) 	e (CA	@
-@C)	e (CA
-@C)	e (li	@
-@ch)	e (li	@
-@C)	er (A	r
-@C)	e (rion++	@
-@C)	e (riez++	@
-@ch)	e (CA
-@ch)	er (A	r
-L06ch)	e (CA	@
-@L06C)	e (CA	@
-@CL06)	e (CA	@
-@bC)	e (CA	@
-@ct)	e (CA	@
-%C)	e (CA++
-%C)	er (A++	r
-@C)	e (xA++	E2
-@c)	e (v++	@
-@d)	e (v++	@
+   @gu) e (CA
+   @gu) er (A      r
+   @qu) e (CA
+   @qu) er (A      r
+   _qu) e (CA      @
+@L06gu) e (CA      @
+@L06qu) e (CA      @
+    @C) e (CA
+    @C) e (li      @
+   @ch) e (li      @
+    @C) er (A      r
+    @C) e (rion++  @
+    @C) e (riez++  @
+   @ch) e (CA
+   @ch) er (A      r
+ L06ch) e (CA      @
+ @L06C) e (CA      @
+ @CL06) e (CA      @
+   @bC) e (CA      @
+   @ct) e (CA      @
+    %C) e (CA++
+    %C) er (A++    r
+    @C) e (xA++    E2
+    @c) e (v++     @
+    @d) e (v++     @
 
-@C)	e (CrA
-@ch)	e (CrA
-@L06ch)	e (CrA	@
-@L06C)	e (CrA	@
-@L06C)	e (rrA	E
-@CL06)	e (CrA	@
-%C)	e (CrA++
-	e (rr+++	E
+    @C) e (CrA
+   @ch) e (CrA
+@L06ch) e (CrA     @
+ @L06C) e (CrA     @
+ @L06C) e (rrA     E
+ @CL06) e (CrA     @
+    %C) e (CrA++
+        e (rr+++   E
 
-	 	e           @		// menue
-	_) 	e (CA          e
-	_) 	e (xC++          E2
-	Cr)	eam		i:m
-	Cr)	eamer		i:mWr
-	Cl)	eaner		i:nWr
-	vert)	e (rX      W
-		eïn (_	'Ein
-_y)	en (_	En
-iew)	er (X	er2
-_m)	e (ga	e
+        e          @         // menue
+     _) e (CA      e
+     _) e (xC++    E2
+    Cr) eam        Im
+    Cr) eamer      ImWr
+    Cl) eaner      InWr
+  vert) e (rX      W
+        eï (K      'Ej
+    _y) en (_      En
+   iew) er (X      er2
+    _m) e (ga      e
 
 
 // group e: English section
-		eac		_^_en
-	C)	ead		_^_en      		// read, head
-		eak           _^_en		// break, speak
-		eal           _^_en		// deal
-		ear		_^_en      		// ear, search
-		eas  	_^_en      		// please
-		eave       _^_en		// leave
-		ed (_  	_^_en
-		ee          _^_en		// meeting
-		efore (_    _^_en		// before
-		eing (_      _^_en		// being, boeing
-		eive       _^_en		// receive
-	 	eld (_        _^_en		// field
-	_) 	enter (_        _^_en		// enter
-	_) 	enhan         _^_en
-	qu) 	est (_        _^_en		// request
-	qu) 	este (X_        _^_en		// requested, requester
-	_) 	even (X         _^_en		// forever, however
-	_) 	ever         _^_en		// forever, however
-	oC) 	ever         _^_en		// forever, however
-	_) 	eye         _^_en
+        eac        _^_en
+     C) ead        _^_en     // read, head
+        eak        _^_en     // break, speak
+        eal        _^_en     // deal
+        ear        _^_en     // ear, search
+        eas        _^_en     // please
+        eave       _^_en     // leave
+        ed (_      _^_en
+        ee         _^_en     // meeting
+        efore (_   _^_en     // before
+        eing (_    _^_en     // being, boeing
+        eive       _^_en     // receive
+        eld (_     _^_en     // field
+     _) enter (_   _^_en     // enter
+     _) enhan      _^_en
+    qu) est (_     _^_en     // request
+    qu) este (X_   _^_en     // requested, requester
+     _) even (X    _^_en     // forever, however
+     _) ever       _^_en     // forever, however
+    oC) ever       _^_en     // forever, however
+     _) eye        _^_en
 
 
 .group è
 
-	Z)	ème 		iEm
-	è		E
-	ès (_		E
-Ar)	ès (_	Es
-m)	ès (_	Es
-n)	ès (_	Es
-p)	ès (_	Es
+     Z) ème        iEm
+        è          E
+        ès (_      E
+    Ar) ès (_      Es
+     m) ès (_      Es
+     n) ès (_      Es
+     p) ès (_      Es
 
 
 .group ë
-	u) 	ë			// ambiguë
-	 	ë           E		// citroën noël
+     u) ë                    // ambiguë
+        ë          E         // citroën noël
 
 
 .group f
-		f           f
-		f (f
-	_ner)	f (X
-	_neu)	f (_ans     v		// liaison: neuf ans
-	_neu)	f (_heures  v
+        f          f
+        f (f
+  _ner) f (X
+  _neu) f (_ans    v         // liaison: neuf ans
+  _neu) f (_heures v
 
 // group f: English section
-	_)	fire       _^_en
-		fly        _^_en
-	_)	frame            _^_en
-		fter (_          _^_en
+     _) fire       _^_en
+        fly        _^_en
+     _) frame      _^_en
+        fter (_    _^_en
 
 
 .group g
-		g           g
-		g (Y          Z
+        g          g
+        g (Y       Z
 
-	su)	gg (Y       gZ       	// suggérer suggestif
-		gg          g		// agglomérer
-	ai)	gni         n^		// craignions châtaignier
-		gn          nj		// agneau
-		gni          n^i		// signifier
-		gn (e_         n^
-		gn (_         n^
-		gn (eCA         nj@-
-		gn (ie         n		// compagnie
-dia)	g (no	g
-_a)	g (no	g
-	_quatrevin) gts (_  z2
+    su) gg (Y      gZ        // suggérer suggestif
+        gg         g         // agglomérer
+    ai) gni        n^        // craignions châtaignier
+        gn         nj        // agneau
+_wa)        gner (_         gnEr
+        gni        n^i       // signifier
+        gn (e_     n^
+        gn (_      n^
+        gn (eCA    nj@-
+        gn (ie     n         // compagnie
+   dia) g (no      g
+    _a) g (no      g
+_quatrevin) gts (_ z2
 
-	vin) 	gt (_A      t 		// liaison: vingt ans
+   vin) gt (_A     t         // liaison: vingt ans
 
-	vin) 	gt (_un
-	vin) 	gt (_deux   t
-	vin) 	gt (_trois  t 		//liaison: vingt-trois
-	vin) 	gt (_quatr  t
-	vin) 	gt (_cinq   t
-	vin) 	gt (_six    t
-	vin) 	gt (_sept   t
-	vin) 	gt (_huit   t
-	vin) 	gt (_neuf   t
-	vin) 	gt (_neuvi   t
+   vin) gt (_un
+   vin) gt (_deux  t
+   vin) gt (_trois t         //liaison: vingt-trois
+   vin) gt (_quatr t
+   vin) gt (_cinq  t
+   vin) gt (_six   t
+   vin) gt (_sept  t
+   vin) gt (_huit  t
+   vin) gt (_neuf  t
+   vin) gt (_neuvi t
 
-		gt (_ 			// vingt doigts
-An)		gt (A          t		// vingtaine doigté
+        gt (_                // vingt doigts
+    An) gt (A      t         // vingtaine doigté
 
-		gu (i       g		// anguille
-	ai)	gui (l      gw^i		// aiguillage
-	in)     gui (s      gw^i		// linguiste
-		g (C        g
+        gu (i      g         // anguille
+    ai) gui (l     gyi      // aiguillage
+    in) gui (s     gyi      // linguiste
+        g (C       g
 
-	_ran) 	g (_ 			// rang
-	_san) 	g (_ 			// sang
-	étan) 	g (_ 			// étang
-	_lon) 	g (_ 			// long
-	bour) 	g (_ 			// Strasbourg
+  _ran) g (_                 // rang
+  _san) g (_                 // sang
+  étan) g (_                 // étang
+  _lon) g (_                 // long
+  bour) g (_                 // Strasbourg
 
-		g (_        g		// grog gag goulag
+        g (_       g         // grog gag goulag
 
 // group g: English section
-	_)	game (X         _^_en
-		girl        _^_en		// girl
-		gy (_         _^_en
+     _) game (X    _^_en
+        girl       _^_en     // girl
+        gy (_      _^_en
 
 
 .group h
-_)	h		_|
-_)	h	(abi			// habit, habilleur
-_)	h	(allo			// hallogène
-_)	h	(ame			// hameçon
-_)	h	(andr			// handroïde
-_)	h	(arm			// harmonie
-_)	h	(el			// hellène
-_)	h	(éb			// hébreux
-_)	h	(ect			// hectare
-_)	h	(él			// hélice
-_)	h	(erb			// herbe
-_)	h	(éCa			// hématie
-_)	h	(érit			// hériter
-_)	h	(ésit			// hésiter
-_)	h	(eure			// heure
-_)	h	(iber			// hibernation
-_)	hi	(A		j	// hier
-_)	h	(ippo			// hippodrome
-_)	h	(iro			// hirondelle
-_)	h	(ist			// histoire
-_)	h	(iv			// hiver
-_)	h	(omm			// homme
-_)	h	(onn			// honneur
-_)	h	(ôp			// hôpital
-_)	h	(os			// hostile
-_)	h	(ora			// horaire
-_)	h	(orip			// horipeau
-_)	h	(oriz			// horizon
-_)	h	(oro			// horoscope
-_)	h	(orlo			// horloge
-_)	h	(orr			// horreur
-_)	h	(ôt			// hôtel
-_)	h	(uil			// huile
-_)	h	(uiss			// huissier
-_)	h	(uitr			// huître
-_)	h	(uma			// humain
-_)	h	(umb			// humble
-_)	h	(umi			// humide
-_)	h	(umo			// humour
-_)	hy	(A		j
-	haus	(_		o2s	//blockhaus
-	heim	(_		ajm
-_)	h	(y			// hypermarché
-	_)	hyper (@P5       ipEr
-	_)	hyper (_       ipEr
-	_)	hypra (@P5       ipra
-	h			// ahuri
+     _) h          _|
+     _) h (abi               // habit, habilleur
+     _) h (allo              // hallogène
+     _) h (ame               // hameçon
+     _) h (andr              // handroïde
+     _) h (arm               // harmonie
+     _) h (el                // hellène
+     _) h (ect               // hectare
+     _) h (erb               // herbe
+     _) h (é
+     _) h (éris	_|
+     _) h (éro	_|
+     _) h (eure              // heure
+     _) h (iber              // hibernation
+     _) hi (A      _|j         // hier
+     _) h (ippo              // hippodrome
+     _) h (iro               // hirondelle
+     _) h (ist               // histoire
+     _) h (iv                // hiver
+     _) h (omm               // homme
+     _) h (onn               // honneur
+     _) h (ô                // hôpital
+     _) h (os                // hostile
+     _) h (ora               // horaire
+     _) h (orip              // horipeau
+     _) h (oriz              // horizon
+     _) h (oro               // horoscope
+     _) h (orlo              // horloge
+     _) h (orr               // horreur
+     _) h (uil               // huile
+     _) h (uiss              // huissier
+     _) h (uitr              // huître
+     _) h (umA               // humain
+     _) h (umC               // humble
+     _) hy (A      j
+        haus (_    o2s       //blockhaus
+        heim (_    ajm
+     _) h (y                 // hypermarché
+     _) hyper (@P5 ipEr
+     _) hyper (_   ipEr
+     _) hypra (@P5 ipra
+        h                    // ahuri
 
 // group h: English section
-_)		half  	_^_en
-		here (_	_^_en		// here
+     _) half       _^_en
+        here (_    _^_en     // here
 
 
 .group i
-		i           i		// cri
+        i          i         // cri
 
-	C)	i (erA    i
-	C)	ien (t_       i
-	dév)	ien (t_       i
-	t)	ien (K_      iE~		// tient
-	v)	ien (K_      iE~		// vient
-	at)	ien (t_      jA~		// patient
-	cip)	ien (C     jA~		// récipient
-	cl)	ien (C     i:A~		// client
-	mol)	ien (C     jA~		// émolient
-	vén)	ien (C     jA~		// inconvénient
-	or)	ien (t      jA~		// orient, orienter
-	ot)	ien (t_      jA~		// quotient
+     C) i (erA     i
+     C) ien (t_    i
+   dév) ien (t_    i
+     t) ien (K_    jE~       // tient
+     v) ien (K_    jE~       // vient
+    at) ien (t_    jA~       // patient
+   cip) ien (C     jA~       // récipient
+    cl) ien (C     iA~      // client
+   mol) ien (C     jA~       // émolient
+   vén) ien (C     jA~       // inconvénient
+    or) ien (t     iA~       // orient, orienter
+    ot) ien (t_    jA~       // quotient
 
-		i (e_       i
-	_)	ill         il		// illégal
-		ill (_         il		// Bill
-	_C)	ill (y_         il		// Billy
-	aigu)	ill         ij		// aiguille
-	anqu)	ill         il		// tranquille
-	c)	ill (i        il
-	dist)	ill         il		// distiller
-	_L05)	ill         il		// Lille, mille, ville, william
-	osc)	ill         il		// osciller
-	gu)	ill         ij		// guillaume
-	qu)	ill         ij		// quille
-	A)	ill         j		// caillou
-	C)	ill         ij		// famille
-	a)	il (_       j		// bail
-	e)	il (_       j
-	gt)	i (m       aj
-	u)	il (_       j		// deuil
-	L01_f)	ils (_       is		// fils (enfant)
+        i (e_      i
+     _) i (ce@     aj        // iceberg
+     _) ill        il        // illégal
+        ill (_     il        // Bill
+    _C) ill (y_    il        // Billy
+  aigu) ill        ij        // aiguille
+  anqu) ill        il        // tranquille
+     c) ill (i     il
+  dist) ill        il        // distiller
+  _L05) ill        il        // Lille, mille, ville, william
+   osc) ill        il        // osciller
+    gu) ill        ij        // guillaume
+    qu) ill        ij        // quille
+     A) ill        j         // caillou
+     C) ill        ij        // famille
+     a) il (_      j         // bail
+     e) il (_      j
+    gt) i (m       aj
+     u) il (_      j         // deuil
+ L01_f) ils (_     is        // fils (enfant)
 
-		imm         imm		// immaculé
-		im (_       im		// karim
-		im (C       E~		// timbre
-	w)	in        in		// winrar
-		inct (_     E~		// distinct
-		in (h       in		// inhumain
-		in (kX       iN		// link
-		in (n       i		// innombrable
-		in (C       E~		// vingt
-		in (_       E~		// vin
-		ing (_      iN
-		ing (s      iN
-		ing (to    iN
-	_)	infra (sP5       E~fra
-	_)	inter (@@P5       E~tEr
-	_)	interr (A       E~tEr
-	_)	inter (_       E~t'Er
-	_)	inter (ne_       E~t'Er
-	_)	intra (neP5       E~tra
-	_)	intra (uP5       E~tra
-	C)	is (_       i
-	Kir)	is (_       is
-	bor)	is (_       is
-	dor)	is (_       is
-	tor)	is (_       is
-	fl)	irt         Wrt
-	otl)	i (neX        aj
-	onl)	i (ne_        aj
-	offl)	i (ne_        aj
-	dr)	i (ve	aj
-	pr)	int (_	int
+        imm        imm       // immaculé
+        im (_      im        // karim
+        im (C      E~        // timbre
+     w) in         in        // winrar
+        inct (_    E~        // distinct
+        in (h      in        // inhumain
+        in (kX     iN        // link
+        in (n      i         // innombrable
+        in (C      E~        // vingt
+        in (_      E~        // vin
+        ing (_     iN
+        ing (s     iN
+        ing (to    iN
+     _) infra (sP5 E~fra
+     _) inter (@@P5 E~tEr
+     _) interr (A  E~tEr
+     _) inter (_   E~t'Er
+     _) inter (ne_ E~t'Er
+     _) intra (neP5 E~tra
+     _) intra (uP5 E~tra
+     C) is (_      i
+   Kir) is (_      is
+   bor) is (_      is
+   dor) is (_      is
+   tor) is (_      is
+    fl) irt        Wrt
+   otl) i (neX     aj
+   onl) i (ne_     aj
+  offl) i (ne_     aj
+    dr) i (ve      aj
+    pr) int (_     int
 
 // group i: English section
-		ibuter (X         _^_en
-		iev         _^_en
-		ife (_      _^_en
-		igh       _^_en
-		iven (_       _^_en
-		ind (X     _^_en		// find, mind
-	_C)	ind (erX     _^_en		// finder
-	AC)	ind (erX     _^_en		// reminder
-		ize (X         _^_en		// realize
-	_bAl)	i (ze         i
-	ram_f)	i (le    _^_en
+        ibuter (X  _^_en
+        iev        _^_en
+        ife (_     _^_en
+        igh        _^_en
+        iven (_    _^_en
+        ind (X     _^_en     // find, mind
+    _C) ind (erX   _^_en     // finder
+    AC) ind (erX   _^_en     // reminder
+        ize (X     _^_en     // realize
+  _bAl) i (ze      i
+ ram_f) i (le      _^_en
+
+.group ï
+        ï          i         // naïf
+     A) ï (_       j
+     A) ïe (_      j
+     A) ï (lA      j
+
+
+        ïn (K      E~        // coïncidence
+    ma) ïs (_      is        // maïs
+
 
 
 .group j
-		j           Z		// adjoint joujoux
-	_) 	j' (P2v      Z
-	_) 	jazz      dZaz
-	_) 	j (obK      dZ
-	_) 	j (ohK      dZ
-	_) 	jusqu' (P6      Zysk
+        j          Z         // adjoint joujoux
+     _) j' (P2v    Z
+     _) jazz       dZaz
+     _) j (obK     dZ
+     _) j (ohK     dZ
+     _) jusqu' (P6 Zysk
 
 
 .group k
-		k           k		// kafka
+        k          k         // kafka
 
 
 // group k: English section
-		ke (_     _^_en		// make, take
-		ke (s_     _^_en		// makes, takes
-		ke (rX     _^_en		// maker
-		ke (nX     _^_en		// taken
+        ke (_      _^_en     // make, take
+        ke (s_     _^_en     // makes, takes
+        ke (rX     _^_en     // maker
+        ke (nX     _^_en     // taken
 
 .group l
-		l           l		// lit
-		ll          l		// aller
-	_)	l' (P2      l
-	au)	lt			// hérault
-	uCi)	l (_ 			// outil, fusil
-	nti)	l (_ 			// gentil
-	nti)	lh 	j 			// gentilhomme
-	ui)	ll          j		// juillet
-	_)	lorsqu' (P7          lorsk
+        l          l         // lit
+        ll         l         // aller
+     _) l' (P2     l
+    au) lt                   // hérault
+   uCi) l (_                 // outil, fusil
+   nti) l (_                 // gentil
+   nti) lh         j         // gentilhomme
+    ui) ll         j         // juillet
+     _) lorsqu' (P7 lorsk
 
 // group l: English section
-		less (_      _^_en  // noiseless
-	_)	live       _^_en
-	@)	loud (_      _^_en
-		ll (X       _^_en
+        less (_    _^_en     // noiseless
+     _) live       _^_en
+     @) loud (_    _^_en
+        ll (X      _^_en
 
 
 .group m
-		m           m		// film
-		mm          m		// pomme
-	_)	m' (P2v       m
-	_)	mc (@P2       mak
-	_)	ms (P2      EmEs
-		master (_S6      mastYr
+        m          m         // film
+        mm         m         // pomme
+     _) m' (P2v    m
+     _) mc (@P2    mak
+     _) ms (P2     EmEs
+        master (_S6 mastYr
 
 // group m: English section
-	_)	mail (_       _^_en  // mailer
-		mov (ieX         _^_en		// move, movy
+     _) mail (_    _^_en     // mailer
+        mov (ieX   _^_en     // move, movy
 
 
 .group n
-		n           n		// une
-		nn          n
-		ng (_       N
+        n          n         // une
+        nn         n
+        ng (_      N
 
-	_)	n' (P2v      n
+     _) n' (P2v    n
+     _wAC) ner (_    nEr
 
-	_)	n (_°       nymero
-	_)	neuro (@@P5       nYro
-	_)	nvda (P4	Envedea
+     _) n (_°      nymero
+     _) neuro (@@P5 nYro
+     _) nvda (P4   Envedea
 
 
 .group o
-	br) 	oc (_       o	// broc
-	cr) 	oc (_       o		// escroc
-	 	on (n       o
-	ls) 	on (_       on
-	Cst) 	on (_       on
-	_) 	os (_       os
-	_v) 	os (gY       o2
-	s_) 	os (_       o
-	x_) 	os (_       o
-	 	o (t_       o
+    br) oc (_      o         // broc
+    cr) oc (_      o         // escroc
+        on (n      o
+    ls) on (_      on
+   Cst) on (_      on
+     _) os (_      os
+    _v) os (gY     o2
+    s_) os (_      o
+    x_) os (_      o
+        o (t_      o
 
-		oe (ll      w^a		// moelleux
-		oe (i      Y		// oeil
-	_)	oe (C       Y		// oesophage
-	_ph)	oe (C       e		// phoetus
-	_ph)	oe (n_      Y		// phoen
-		oeu       Y		// voeu
-		oeud        Y		// noeud
-		oeufs (_       Y		// oeufs boeufs
-		oeu (x      Yz2		// voeux coeur
-		o (eC       o		// coefficient
-	_) 	oi (gnon    o		// oignons
-		oin (C      wE~
-		oin (_      wE~		// coin
-		oi          w^a		// poil
-		oê (l       w^a		// poêle
-		om (C       O~		// bombe
-		om (m       o		// nommer
-		om (ni       om		// omnibus
-	n) 	om (X       O~		// nom
-		om (_       om          //  www.web.com
-		s)	om (n	om
+        oe (ll     wa       // moelleux
+        oe (i      Y         // oeil
+     _) oe (C      Y         // oesophage
+   _ph) oe (C      e         // phoetus
+   _ph) oe (n_     Y         // phoen
+        oeu        Y         // voeu
+        oeud       Y         // noeud
+        oeufs (_   Y         // oeufs boeufs
+        oeu (x     Yz2       // voeux coeur
+        o (eC      o         // coefficient
+     _) oi (gnon   o         // oignons
+        oin (C     wE~
+        oin (_     wE~       // coin
+        oi         wa       // poil
+        oê (l      wa       // poêle
+        om (C      O~        // bombe
+        om (m      o         // nommer
+        om (ni     om        // omnibus
+     n) om (X      O~        // nom
+        om (_      om        //  www.web.com
+     s) om (n      om
 
-		on (K       O~		// mon
-		on (t_       O~t2		// mont vont sont
-	_m)	ont (pAC       O~		// Montpellier
-	_m)	ont (rAal       O~		// Montreal
-		onsh (A     O~z		// bonshommes
-		onh (A      on		// bonhomme
-	_)		on	(z	_|O~		// onze, onzi�me
+        on (K      O~        // mon
+        on (t_     O~t2      // mont vont sont
+    _m) ont (pAC   O~        // Montpellier
+    _m) ont (m   O~
+    _m) ont (rAal  O~        // Montreal
+        onsh (A    O~z       // bonshommes
+        onh (A     on        // bonhomme
+     _) on (z      _|O~      // onze, onzi�me
 
-	_c)	on (_      O~		// no comment
-	gt)	on (_      On		// Washington
-	Cst)	on (_      On
-	ps)	on (_      On
-	_C)	on (_      O~n2		// mon appui, mon histoire, mon havre
+    _c) on (_      O~        // no comment
+    gt) on (_      On        // Washington
+   Cst) on (_      On
+    ps) on (_      On
+    _C) on (_      O~n2      // mon appui, mon histoire, mon havre
 
-	alc)	oo (l       o		// alcool
-	z) 	oo          o		// zoo
-	z)	oo (C       oo		// zoologue
-	z)	oo (m       u		// zoom
-	_gal)	op (_       o		// galop
+   alc) oo (l      o         // alcool
+     z) oo         o         // zoo
+     z) oo (C      oo        // zoologue
+     z) oo (m      u         // zoom
+  _gal) op (_      o         // galop
 
-	_sir) 	op (_       o		// sirop
+  _sir) op (_      o         // sirop
 
-	v) 	ost (_      o		// Prévost
-	_C) 	oup (_      u		// coup, loup
+     v) ost (_     o         // Prévost
+    _C) oup (_     u         // coup, loup
 
 
-		ou          u		// hibou brouillard
-		oue (mA         u		// d�vouement
-_)		ou (at          _|u		// ouate
-		où          u		// où
-		oû          u		// coûter
-		oy (A       w^aj		// noyer voyelles
-_b)		oy (co       oj		// boycott
-_c)		oy (o       oi		// coyote
-	_y)	o (y       o
-		oy          w^a
-		o (_        o		// zorro allégro
-		o (z_       o		// berlioz
-		o           o
-	_sC)	ot       ot
+        ou         u         // hibou brouillard
+        ou (in        w         // pingouin
+        oue (mA    u         // dvvouement
+     _) ou (at     _|u       // ouate
+        où         u         // où
+        oû         u         // coûter
+        oy (A      waj      // noyer voyelles
+    _b) oy (co     oj        // boycott
+    _c) oy (o      oi        // coyote
+    _y) o (y       o
+        oy         wa
+        o (_       o         // zorro allégro
+        o (z_      o         // berlioz
+        o          o
+   _sC) ot         ot
 
 
 // group o: English section
-	 	oa (X       _^_en		// approach, load
-	 	oa (_       oa
-	 	oa (s_       oa
-	 	oa (CerX       _^_en
-	 	oach       _^_en
-		old (er_       _^_en		// folder, older
-C)		oing (_      _^_en	// going
-		oo  (Ce     _^_en		// boomer
-		oo (k      _^_en		// book, cook
-		oo (st      _^_en		// booster
-		oo (X       _^_en		// pool
-	C)	oot        _^_en		// bootable football
-	_)	one       _^_en
-	 	oun (C      _^_en		// bounce, found
-	_)	over        _^_en		// over
-		ow (e          _^_en		// flower, power
-		ow (X          _^_en
-		oy (X       _^_en		// boy, toy
+        oa (X      _^_en     // approach, load
+        oa (_      oa
+        oa (s_     oa
+        oa (CerX   _^_en
+        oach       _^_en
+        old (er_   _^_en     // folder, older
+     C) oing (_    _^_en     // going
+        oo (Ce     _^_en     // boomer
+        oo (k      _^_en     // book, cook
+        oo (st     _^_en     // booster
+        oo (X      _^_en     // pool
+     C) oot        _^_en     // bootable football
+     _) one        _^_en
+        oun (C     _^_en     // bounce, found
+     _) over       _^_en     // over
+        ow (e      _^_en     // flower, power
+        ow (X      _^_en
+        oy (X      _^_en     // boy, toy
 
 
 .group ô
-		ôt (_       o2		// rôt
-		ô           o2		// cône
+        ôt (_      o2        // rôt
+        ô          o2        // cône
 
 
 .group p
-		p           p		// pas
-	_)	para (pCP4       para
-	_)	photo (@P5       foto
-	_)	poly (@P4       poli
-	_) 	post (KP4       post
-	_) 	post (ACCP4       post
-	_)	pseudo (@P6       psYdo
-		p (p			// appliquer
-		pays 	pE2iz2			// pays, paysage
-		ph          f		// phrase
+        p          p         // pas
+     _) para (pCP4 para
+     _) photo (@P5 foto
+     _) poly (@P4  poli
+     _) post (KP4  post
+     _) post (ACCP4 post
+     _) pseudo (@P6 psYdo
+        p (p                 // appliquer
+        pays       pE2iz2    // pays, paysage
+        ph         f         // phrase
 
-	m) 	ps (_			// temps champs
-	r) 	ps (_			// corps
+     m) ps (_                // temps champs
+     r) ps (_                // corps
 
-	cham) 	p (_			// champ
+  cham) p (_                 // champ
 
-	cam) 	p (_			// camp
+   cam) p (_                 // camp
 
-	dra)    p (_			// drap
-	_)	psych (@P5       psik
-	_)	psych (iCP5       psiS
-	_)	psych (AA_P5       psiS
+   dra) p (_                 // drap
+     _) psych (@P5 psik
+     _) psych (iCP5 psiS
+     _) psych (AA_P5 psiS
 
-	ba) 	p (t          		// baptiser
-	com) 	p (t          		// compte
+    ba) p (t                 // baptiser
+   com) p (t                 // compte
 
-	C) 	pt (_			// prompt exempt
+     C) pt (_                // prompt exempt
 
-	se)	pt (_      t      	// sept
-	se)	pt (iè     t      	// septième
-	scul)	p (t			// sculpture
-	_)	puisqu' (P7     pw^isk
+    se) pt (_      t         // sept
+    se) pt (iè     t         // septième
+  scul) p (t                 // sculpture
+     _) puisqu' (P7 pyisk
 
 // group p: English section
-		pad (_        _^_en
-		plug 	_^_en		// plug
-		printer (_        _^_en		// printer
+        pad (_     _^_en
+        plug       _^_en     // plug
+        printer (_ _^_en     // printer
 
 
 .group q
-		q           k		// coq
-	_)	qu' (AP3          k
-	_)	qua (d          kwa	// quadrature
-	_)	qua (tA          kwa	// quaternaire
-	_)	quan (tA          kwA~	// quantique
-	_)	qua (drill          ka	// quadriller
- 	_a)	qua      kwa		// aquarium
- 	_a)	qu (if      ku		// aquifère
- 	_A)	qui (dist      kw^i		// équidistant
- 	_A)	qui (lat      kw^i		// équilatéral
- 	_C)	qua       kwa		// squale square
- 	_A)	qua       kwa		// équateur
- 	dé)	qua       kwa		// adequate
- 	_)	qua (rtz      kwa		// quartz
-		qu          k		// quatre
- 	_)	que (_      k@		// que
-	n)	q (_        k		// cinq cent
+        q          k         // coq
+     _) qu' (AP3   k
+     _) qua (d     kwa       // quadrature
+     _) qua (tA    kwa       // quaternaire
+     _) quan (tA   kwA~      // quantique
+     _) qua (drill ka        // quadriller
+    _a) qua        kwa       // aquarium
+    _a) qu (if     ku        // aquifère
+    _A) qui (dist  kyi      // équidistant
+    _A) qui (lat   kyi      // équilatéral
+    _C) qua        kwa       // squale square
+    _A) qua        kwa       // équateur
+    dé) qua        kwa       // adequate
+     _) qua (rtz   kwa       // quartz
+        qu         k         // quatre
+     _) que (_     k@        // que
+     n) q (_       k         // cinq cent
 
 // group q: English section
-		quick        _^_en		// quick, quickly
+        quick      _^_en     // quick, quickly
 
 
 .group r
 
-	_su)	rr          rr		// surréaliste
-cou)	rr          rr		// courrai
-mou)	rr          rr		// mourrai
-cou)	rr (i         r		// courrier
-cou)	rr (o         r		// courroie
-		r           r		// rien
-		rr           r
-	_)	radio (@P5       radio
+   _su) rr         rr        // surréaliste
+   cou) rr         rr        // courrai
+   mou) rr         rr        // mourrai
+   cou) rr (i      r         // courrier
+   cou) rr (o      r         // courroie
+        r          r         // rien
+        rr         r
+     _) radio (@P5 radio
 
 // group r: English section
-	_)	real         _^_en
-		resen         _^_en
-		rst (_        _^_en
-	_)	rule         _^_en
+     _) real       _^_en
+        resen      _^_en
+        rst (_     _^_en
+     _) rule       _^_en
 
 
 .group s
-		s           s		// verser sien
+        s          s         // verser sien
 
-		s (_S1      z2
-		stein (_      Stajn
+        s (_S1     z2
+        stein (_   Stajn
 
-	_)	s' (P2v    s		// s'amène
-	_)	s' (esXP2v    s		// s'amène
-		sç 	    s		// immisça
-		sch (ie     sk		// schierzo
-		sch (iz    sk		// schizophrène
-		sch (ol     sk
-		sch (oo     sk
-		schu     Su
+     _) s' (P2v    s         // s'amène
+     _) s' (esXP2v s         // s'amène
+        sç         s         // immisça
+        sch (ie    sk        // schierzo
+        sch (iz    sk        // schizophrène
+        sch (ol    sk
+        sch (oo    sk
+        schu       Su
 
-		sch         S		// schéma
-	dé) 	sh (A       z		// déshabiller
-		sh          S		// shérif
-		ss          s		// assez
+        sch        S         // schéma
+    dé) sh (A      z         // déshabiller
+        sh         S         // shérif
+        ss         s         // assez
 
-	ai) 	s (em       s		// vraisemblable
-	aCè)	s (_	s
-	nè)	s (_	s
-	kansa)	s (_	s        // Kansas, Arkansas
-	ub)	s (is       z		// subsister
-	tran) 	s (A        z		// transition
-	tran) 	s (e        s		// transe
-	tran) 	s (ub       s		// transubstantiation
-	A) 	s (A        z		// baiser
-	A) 	s (oft        s		// microsoft
-	A) 	s (ol_        s		// tournesol
-	_)	socio (@P5       sosio
-	_)	super (@@P5       sypEr
-	_)	super (_       sypEr
-	_)	supra (@P5       sypra
-		batro)	s (_		s
-		océro)	s (_		s
-		scien (t	    siA~		// conscient scientifique
-		sql (_S3	    EskyEl
+    ai) s (em      s         // vraisemblable
+   aCè) s (_       s
+    nè) s (_       s
+ kansa) s (_       s         // Kansas, Arkansas
+    ub) s (is      z         // subsister
+  tran) s (A       z         // transition
+  tran) s (e       s         // transe
+  tran) s (ub      s         // transubstantiation
+     A) s (A       z         // baiser
+     A) s (oft     s         // microsoft
+     A) s (ol_     s         // tournesol
+     _) socio (@P5 sosio
+     _) super (@@P5 sypEr
+     _) super (_   sypEr
+     _) supra (@P5 sypra
+ batro) s (_       s
+ océro) s (_       s
+        scien (t   siA~      // conscient scientifique
+        sql (_S3   EskyEl
 
-	_u) 	s (_        s
-	Cu) 	s (_
-	Abu) 	s (_        s
-	_Abu) 	s (_
-	mbu) 	s (_        s
-	_cACpu) 	s (_        s
-	Acu) 	s (_        s
-	docu) 	s (_
-	écu) 	s (_
-	asu) 	s (_        s
-	odu) 	s (_        s
-	gu) 	s (_        s
-	igu) 	s (_               // aigus
-	iu) 	s (_        s      // radius
-	ïu) 	s (_        s      // laïus
-	Culu) 	s (_        s   // cumulus
-	plu) 	s (_        z2     // plus, surplus
-	ylu) 	s (_        s     // stylus
-	mu) 	s (_        s
-	_mu) 	s (_
-	ému) 	s (_
-	opu) 	s (_        s // opus, octopus
-	Aru) 	s (_        s // virus
-	aru) 	s (_         // disparus
-	ouru) 	s (_         // courus
-	Anu) 	s (_        s // bonus, tonus
-	enu) 	s (_         // menus, venus
-	psu) 	s (_        s // lapsus
-	cessu) 	s (_        s // processus
+    _u) s (_       s
+    Cu) s (_
+   Abu) s (_       s
+  _Abu) s (_
+   mbu) s (_       s
+_cACpu) s (_       s
+   Acu) s (_       s
+  docu) s (_
+   écu) s (_
+   asu) s (_       s
+   odu) s (_       s
+    gu) s (_       s
+   igu) s (_                 // aigus
+    iu) s (_       s         // radius
+    ïu) s (_       s         // laïus
+  Culu) s (_       s         // cumulus
+   plu) s (_       z2        // plus, surplus
+   ylu) s (_       s         // stylus
+    mu) s (_       s
+   _mu) s (_
+   ému) s (_
+   opu) s (_       s         // opus, octopus
+   Aru) s (_       s         // virus
+   aru) s (_                 // disparus
+  ouru) s (_                 // courus
+   Anu) s (_       s         // bonus, tonus
+   enu) s (_                 // menus, venus
+   psu) s (_       s         // lapsus
+ cessu) s (_       s         // processus
 
-	atu) 	s (_        s		// stratus motus
-	ctu) 	s (_        s     // cactus
-	etu) 	s (_        s
-	aitu) 	s (_
-	itu) 	s (_        s
-	ltu) 	s (_        s     // altus
-	otu) 	s (_        s     // motus
-	Cutu) 	s (_        s
+   atu) s (_       s         // stratus motus
+   ctu) s (_       s         // cactus
+   etu) s (_       s
+  aitu) s (_
+   itu) s (_       s
+   ltu) s (_       s         // altus
+   otu) s (_       s         // motus
+  Cutu) s (_       s
 
-	_tou) 	s (_        s
+  _tou) s (_       s
 
-		s (b         z 	// sbire
-		s (d         z
-		s (g         z
-		s (j         z
-		s (v         z
-_tou)	s (_Ces_
-_tou)	s (_des_		s
-_tou)	s (_Cos_
-_tou)	s (_leurs_
+        s (b       z         // sbire
+        s (d       z
+        s (g       z
+        s (j       z
+        s (v       z
+  _tou) s (_Ces_
+  _tou) s (_des_   s
+  _tou) s (_Cos_
+  _tou) s (_leurs_
 
 // group s: English section
-	CA)	sh (_         _^_en		// punish
-		sh (_         _^_en
-		sh  (Ap          _^_en	   // shop, ship
-		sh  (At          _^_en		// shut, shot
-	_)	sky        _^_en
-	_)	smil        _^_en   // smile, smiley
-		spy         _^_en
+    CA) sh (_      _^_en     // punish
+        sh (_      _^_en
+        sh (Ap     _^_en     // shop, ship
+        sh (At     _^_en     // shut, shot
+     _) sky        _^_en
+     _) smil       _^_en     // smile, smiley
+        spy        _^_en
 
 
 .group t
-		t           t	// bataille
-_)		t (_        te
--)		t (-        t2
-	_)	t' (P2v      t
-Vn)		t (_        t2
-A)		t (-        t2
-VCi)		t (_        t2
-		t (_
-	peti)	t (_        t2
-	_)	th       t      // thon
-		ts (_S1     z2  // silent at end of word unless next word starts with a vowel
-	C)	t (_        t	// compost watt soft script malttact abrupt
- ki)	t (_        t // kit
- n)	t (_
- r)	t (_
+        t          t         // bataille
+     _) t (_       te
+     -) t (-       t2
+     _) t' (P2v    t
+    Vn) t (_       t2
+     A) t (-       t2
+   VCi) t (_       t2
+        t (_
+  peti) t (_       t2
+     _) th         t         // thon
+        ts (_S1    z2        // silent at end of word unless next word starts with a vowel
+     C) t (_       t         // compost watt soft script malttact abrupt
+    ki) t (_       t         // kit
+     n) t (_
+     r) t (_
 
-	aul)	t (_        	// Renault
-	grani)	t (_	t
+   aul) t (_                 // Renault
+ grani) t (_       t
 
-	_)	télé (@P4	tele
-	_)	tele     	tele
-	_)	thermo (@P6	tErmo
+     _) télé (@P4  tele
+     _) tele       tele
+     _) thermo (@P6 tErmo
 
-		tt          t	// attitude
+        tt         t         // attitude
 
-	s) 	th (m 		// asthme
-		th          t	// théorie
-	hui)	t (_        t3	// huit
+     s) th (m                // asthme
+        th         t         // théorie
+   hui) t (_       t3        // huit
 
-	_)	t           t   // tien tiers
-	an) 	t (ia       t   // Santiago
-	C) 	t (ieu       s   // contentieux
+     _) t          t         // tien tiers
+    an) t (ia      t         // Santiago
+     C) t (ieu     s         // contentieux
 
-		t (io_      s 	// ratio
+        t (io_     s         // ratio
 
-	Ama)	t (ieX       s   // diplomatie
-	a)	t (ia       s   // spatial
-	en)	t (ia       s   // confidentialit�
-	lbu)	t (iA       s   // balbutiait
-	r)	t (ia       s   // impartial
-	ini)	t (iA       s   // initier
-	p)	t (ia       s   // nuptial
-	an)	t (iat      s   // transsubstantiation
+   Ama) t (ieX     s         // diplomatie
+     a) t (ia      s         // spatial
+    en) t (ia      s         // confidentialit�
+   lbu) t (iA      s         // balbutiait
+     r) t (ia      s         // impartial
+   ini) t (iA      s         // initier
+     p) t (ia      s         // nuptial
+    an) t (iat     s         // transsubstantiation
 
-		t (ion      s 	// programmation
-	V)	t (ion      t 	// verbes
-	ache)	t (ion      t 	// achetions, rachetions
-	ai)	t (ion      t 	// souhaitions, traitions
-	oi)	t (ion      t 	// boitions
-	si)	t (ion      s 	// position
-	chan)	t (ion      t 	// chantions, d�chantions
-	Cisi)	t (ion      t 	// visitions
-	ci)	t (ions      t 	// citions
-	comp)	t (ions      t 	// comptions, escomptions
-	CAnc)	t (ion      s 	// fonctionner, ponctionner
-	Ce)	t (ions      t 	// jetions, rejetions
-	Vec)	t (ion      t 	// respections
-	Vep)	t (ion      t 	// respections
-	éCi)	t (ions      t 	// hésitions, héritions
-	éti)	t (ion      s 	// pétition
-	Vé)	t (ion      t 	// répétions
-	habi)	t (ions      t 	// habitions
-	imi)	t (ions      t 	// imitions, limitions
-	VAu)	t (ion      t 	// ajoutions
-	lu)	t (ion      s 	// févolution
-	Apor)	t (ion      t 	// emportions, exportions
-	opor)	t (ion      s 	// proportion
-	Cpor)	t (ion     t 	// emportions, exportions
-	sor)	t (ion     t 	// sortions
-	rê)	t (ion      t 	// arrêtions, apprêtions
+        t (ion     s         // programmation
+     V) t (ion     t         // verbes
+  ache) t (ion     t         // achetions, rachetions
+    ai) t (ion     t         // souhaitions, traitions
+    oi) t (ion     t         // boitions
+    si) t (ion     s         // position
+  chan) t (ion     t         // chantions, d�chantions
+  Cisi) t (ion     t         // visitions
+    ci) t (ions    t         // citions
+  comp) t (ions    t         // comptions, escomptions
+  CAnc) t (ion     s         // fonctionner, ponctionner
+    Ce) t (ions    t         // jetions, rejetions
+   Vec) t (ion     t         // respections
+   Vep) t (ion     t         // respections
+   éCi) t (ions    t         // hésitions, héritions
+   éti) t (ion     s         // pétition
+    Vé) t (ion     t         // répétions
+  habi) t (ions    t         // habitions
+   imi) t (ions    t         // imitions, limitions
+   VAu) t (ion     t         // ajoutions
+    lu) t (ion     s         // févolution
+  Apor) t (ion     t         // emportions, exportions
+  opor) t (ion     s         // proportion
+  Cpor) t (ion     t         // emportions, exportions
+   sor) t (ion     t         // sortions
+    rê) t (ion     t         // arrêtions, apprêtions
 
-	s)	t (ion      t 	// gestion
-	_ta)	t (ion      t 	// tation
-	sen)	t (ion_      t 	// sentions, ressentions
-	t)	t (ion      t 	// combattions
+     s) t (ion     t         // gestion
+   _ta) t (ion     t         // tation
+   sen) t (ion_    t         // sentions, ressentions
+     t) t (ion     t         // combattions
 
-		t (iel      s 	// partiel
-		t (ieu      s 	// ambitieux
-		t (iAm      s  // patiemment
+        t (iel     s         // partiel
+        t (ieu     s         // ambitieux
+        t (iAm     s         // patiemment
 
- 	mar) 	t (ien      s	// martien vénitienne
-	a)	t (ien      s
- 	i) 	t (ien      s
- 	o) 	t (ien      s
+   mar) t (ien     s         // martien vénitienne
+     a) t (ien     s
+     i) t (ien     s
+     o) t (ien     s
 
-	ipé)	t (ieX	s
-	amé)	t (ieX	s
-	nu) 	t (ieX      s	// minutie
-	ni) 	tien (t_     si
-	bu) 	tien (t_     si
+   ipé) t (ieX     s
+   amé) t (ieX     s
+    nu) t (ieX     s         // minutie
+    ni) tien (t_   si
+    bu) tien (t_   si
 
-	cra) 	t (ieX      s	// démocratie
+   cra) t (ieX     s         // démocratie
 
-	ner) 	t (ie     s	// inertie
+   ner) t (ie      s         // inertie
 
-	_ce) 	t (_        t
-	_transA) 	t (_        t
+   _ce) t (_       t
+_transA) t (_      t
 
 // group t: English section
-	C)	th (_      _^_en      // month
-	_)	th (eX      _^_en      // the, then
-	_)	th (aX      _^_en      // than, that
-	_)	time      _^_en
-		tle (_     _^_en
-		too      _^_en
-		ttl      _^_en
-		try (_     _^_en  // try, country
-	sCar)	t (_        _^_en	// smart, start
-	sCar)	t (er_        _^_en	// starter
-	_)	tun (AX        _^_en
+     C) th (_      _^_en     // month
+     _) th (eX     _^_en     // the, then
+     _) th (aX     _^_en     // than, that
+     _) time       _^_en
+        tle (_     _^_en
+        too        _^_en
+        ttl        _^_en
+        try (_     _^_en     // try, country
+  sCar) t (_       _^_en     // smart, start
+  sCar) t (er_     _^_en     // starter
+     _) tun (AX    _^_en
 
 
 .group u
-		u           y	// cruel nuage brut
-		ui          w^i	// nuit, fuite
-		uin (K         yE~	// juin
-		_s)	u (rfX	Y
-		_bl)	u (ff	Y
-		_s)	u (rfeX	Y
-		uy (A         w^ij
+        u          y         // cruel nuage brut
+        ui         yi       // nuit, fuite
+        uin (K     yE~       // juin
+    _s) u (rfX     Y
+   _bl) u (ff      Y
+    _s) u (rfeX    Y
+        uy (A      yij
 
-	C)	ucci       utSi  // capuccino
-	c)	ueill       Yj  // cueillir
-	c) 	ueil (_     Yj  // recueil
-	_g) 	ua     wa
-	ag) 	ua (_     wa
-	Ctig) 	ua (_     wa
-	_c) 	ul (_     y
-	_)	ultra (P5       yltra
-	g)	u (ay       u
-	g)	ueill       Yj	// orgueilleux
-	haïk) 	u (X     u
+     C) ucci       utSi      // capuccino
+     c) ueill      Yj        // cueillir
+     c) ueil (_    Yj        // recueil
+    _g) ua         wa
+    ag) ua (X      wa
+  Ctig) ua (_      wa
+    _c) ul (_      y
+     _) ultra (P5  yltra
+     g) u (ay      u
+     g) ueill      Yj        // orgueilleux
+  haïk) u (X       u
 
-	C)	u (bX      Y	// hub, club
-	C)	u (gX      Y	// bug, mug
-	_n)	u (rse      Y	// nurse
-	r)	u (nX      W	// run, autorun
-	pr)	unt (_      W~	// emprunt
-		um (_       Om	// album
-	f) 	um (_     W~  // parfum
-		um (b       W~	// humble
-		um (p       W~
-		un (C       W~	// emprunt lundi
-		un (n       y	// tunnel
-	CC)	un (_       W~	// brun
-	uc)	un (_       W~n2	// aucun
-		un (_      W~n2	// un avion
-	_h)	un (_      W~	// hun
+     C) u (bX      Y         // hub, club
+     C) u (gX      Y         // bug, mug
+    _n) u (rse     Y         // nurse
+     r) u (nX      W         // run, autorun
+    pr) unt (_     W~        // emprunt
+        um (_      Om        // album
+     f) um (_      W~        // parfum
+        um (b      W~        // humble
+        um (p      W~
+        un (C      W~        // emprunt lundi
+        un (n      y         // tunnel
+    CC) un (_      W~        // brun
+    uc) un (_      W~n2      // aucun
+        un (_      W~n2      // un avion
+    _h) un (_      W~        // hun
 
-	fl) 	ux (_		y		// flux, reflux
-	g) 	u (A		// fatigue
-	g) 	u (ï	    y	// ambiguïté
-	g) 	u (ë        y	// ambiguë
-		uz (z	Y
+    fl) ux (_      y         // flux, reflux
+     g) u (A                 // fatigue
+     g) u (ï       y         // ambiguïté
+     g) u (ë       y         // ambiguë
+        uz (z      Y
 
 // group u: English section
-	_b)	usi       _^_en  // business, businessman
-	C)	ui  (ce        _^_en  // produice, juice
-		umber (_       _^_en
-		ump (_       _^_en
-		unch          _^_en
-		under          _^_en  // under, understand, thunder
-	_C)	un (_      _^_en
-	_C)	un (ny      _^_en
-	_)	up  (C        _^_en  // upper, update
-	up  (_        _^_en  // setup
-		urn (X        _^_en  // burn, turn
-		ust (_        _^_en  // just, trust
+    _b) usi        _^_en     // business, businessman
+     C) ui (ce     _^_en     // produice, juice
+        umber (_   _^_en
+        ump (_     _^_en
+        unch       _^_en
+        under      _^_en     // under, understand, thunder
+    _C) un (_      _^_en
+    _C) un (ny     _^_en
+     _) up (C      _^_en     // upper, update
+        up (_      _^_en     // setup
+        urn (X     _^_en     // burn, turn
+        ust (_     _^_en     // just, trust
 
 
 .group ü
-		ü 	y
-		üs (_	ys
-		üm (_	om
-		ül (_	yll
+        ü          y
+        üs (_      ys
+        üm (_      om
+        ül (_      yll
 
 
 .group v
-		v           v
-		vers (_          vErz2
-dri)		ver (X          vYr
-		view (X          vju
-	_)	view (A          vjuv
+        v          v
+        vers (_    vErz2
+   dri) ver (X     vYr
+        view (X    vju
+     _) view (A    vjuv
 
 // group v: English section
-		voice  (X       _^_en
-		void  (_       _^_en
-		vy  (_       _^_en
+        voice (X   _^_en
+        void (_    _^_en
+        vy (_      _^_en
 
 
 .group w
-		w           w
-_)		w (A           _|w
-		w (agon 	    v // wagon
-		wa (ve_ 	   wE:j // wave
-		wa (re_ 	   wE: // hardware software
+        w          w
+     _) w (A       _|w
+        w (ag    v         // wagon
+        wa (ve_    wE:j      // wave
+        wa (re_    wE:       // hardware software
 
 // group w: English section
-	e)	w (K          _^_en
-	_)	wan  	    _^_en
-		wr 	  _^_en    // write
-		way 	  _^_en    // way, away
-	_)	wir 	  _^_en    // wire
-		winn 	  _^_en    // winner
-		wise 	  _^_en
-		with 	  _^_en
-		wor 	  _^_en
+     e) w (K       _^_en
+     _) wan        _^_en
+        wr         _^_en     // write
+        way        _^_en     // way, away
+     _) wir        _^_en     // wire
+        winn       _^_en     // winner
+        wise       _^_en
+        with       _^_en
+        wor        _^_en
 
 
 .group x
-		x           ks
-		xx          ks
-	_) 	x (A        gz	// xylophone
-	_) 	x (CP1        iks	// xylophone
-		xml (_S3      _|iksEmEl
-	e) 	x (A        gz	// exagérer exemple
-	L03e) 	x (A        ks	// annexe, vexer
-	_ine) 	x (A        gz
-	_e) 	x (h        gz	// exhumer
+        x          ks
+        xx         ks
+     _) x (A       gz        // xylophone
+     _) x (CP1     iks       // xylophone
+        xml (_S3   _|iksEmEl
+     e) x (A       gz        // exagérer exemple
+  L03e) x (A       ks        // annexe, vexer
+  _ine) x (A       gz
+    _e) x (h       gz        // exhumer
 
-	ai) 	x (_ 		// voix paix prix
-	oi) 	x (_
-	ri) 	x (_
+    ai) x (_                 // voix paix prix
+    oi) x (_
+    ri) x (_
 
-	_soi) 	x (A        s	// soixante
+  _soi) x (A       s         // soixante
 
-	Au) 	x (_	    z2	// faux feux choux
+    Au) x (_       z2        // faux feux choux
 
-	_au) 	x (quel 	// auxquels
+   _au) x (quel              // auxquels
 
-	_di) 	x (_neuf z	// liaison: dix-neuf
-	_di)	x (_    z3
-	_si) 	x (_neu s	// liaison: six-neuf
-	_si)	x (_	z3
+   _di) x (_neuf   z         // liaison: dix-neuf
+   _di) x (_       z3
+   _si) x (_neu    s         // liaison: six-neuf
+   _si) x (_       z3
 
-	di) 	x (iè   z	// dixième
-	si) 	x (iè   z	// sixième
-	deu) 	x (iè   z	// deuxième
+    di) x (iè      z         // dixième
+    si) x (iè      z         // sixième
+   deu) x (iè      z         // deuxième
 
 
 .group y
-		y           i	// cryogénique myope
-	_)	y (A          _|j	// yak
-	_)	y (eu          j	// yeux
-	_)	yacht           _^_en	// yacht, yachtman
+        y          i         // cryogénique myope
+     _) y (A       _|j       // yak
+     _) y (eu      j         // yeux
+     _) yacht      _^_en     // yacht, yachtman
 
-	_)	yahoo (P5       ja'u
-		ym (K       E~	// tympan
-		y (nn       i
-		y (nA       i
-	X)	ys (_       is
-		yx (_       iks
+     _) yahoo (P5  ja'u
+        ym (K      E~        // tympan
+        y (nn      i
+        y (nA      i
+     X) ys (_      is
+        yx (_      iks
 
-		yn          E~	// laryngite
+        yn         E~        // laryngite
 
 
 .group z
-		z           z
-	t) 	z           s	// tzigane
-	t) 	zer (_           zEr
-	C) 	zer (_           zWr
+        z          z
+     t) z          s         // tzigane
+     t) zer (_     zEr
+     C) zer (_     zWr
 
 
 .group
 // accented characters, these could have their own groups if they need more rules
-		â           a:
-		ñ           n^
+        â          a:
+        ñ          n^
 
-	 	é           e		// été
-	 	ê           E		// fête
-		ï           i		// naïf
-		ïn (K           E~		// coïncidence
-		ïs (_           is		// maïs
+        é          e         // été
+        ê          E         // fête
 
-		ö           o		// angström
-		û           y:	// fûtes
-		ü           y	// bülcher
+        ö          o         // angström
+        û          y:        // fûtes
+        ü          y         // bülcher
 
 
 // symbols that are normally spoken when reading text
-		, (D        pilk:u
-	$	dolar
-	°	d@gre
-   _n_) °	   // n°
+        , (D       pilk:u
+        $          dolar
+        °          d@gre
+   _n_) °                    // n°
 
 
 

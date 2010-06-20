@@ -34,6 +34,8 @@
 0  _| NULL   0  _
 0  pF NULL   0  pf
 0  r  NULL   0  R
+0  V# NULL   0  R
+0  UR NULL   60 U R
 
 0  eI NULL   60  E j
 0  oU NULL   0  o:
@@ -45,7 +47,7 @@
 0  @L  NULL  50 @ l
 0  @2  NULL  0  @
 0  @5  NULL  0  @
-0  a2  NULL  0  @
+0  a#  NULL  0  @
 0  I2  NULL  0  I
 0  aa  NULL  0  a
 0  V   NULL  0  a:

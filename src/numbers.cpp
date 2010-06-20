@@ -546,7 +546,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 
 	if(next_byte != ' ')
 		next_byte = RULE_SPELLING;
-	single_letter[3+len] = next_byte;   // follow by space-space if the end of the word, or space-0x31
+	single_letter[3+len] = next_byte;   // follow by space-space if the end of the word, or space-31
 
 	single_letter[1] = '_';
 
@@ -1524,6 +1524,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int decimal_mode;
 	int hyphen;
 	int suffix_ix;
+	int skipwords = 0;
 	char *p;
 	char string[20];  // for looking up entries in **_list
 	char buf1[100];
@@ -1598,15 +1599,26 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		}
 		*p = 0;
 
-		if((suffix[0] != 0) && (!isdigit(suffix[0])))   // not _#9 (tab)
+		if(suffix[0] != 0)
 		{
-			sprintf(string,"_#%s",suffix);
-			if(Lookup(tr, string, ph_ordinal2))
+			if((tr->langopts.ordinal_indicator != NULL) && (strcmp(suffix, tr->langopts.ordinal_indicator) == 0))
 			{
-				// this is an ordinal suffix
 				ordinal = 2;
+			}
+			else
+			if(!isdigit(suffix[0]))   // not _#9 (tab)
+			{
+				sprintf(string,"_#%s",suffix);
+				if(Lookup(tr, string, ph_ordinal2))
+				{
+					// this is an ordinal suffix
+					ordinal = 2;
+				}
+			}
+			if(ordinal)
+			{
 				flags[0] |= FLAG_SKIPWORDS;
-				dictionary_skipwords = 1;
+				skipwords = 1;
 			}
 		}
 	}
@@ -1854,6 +1866,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	*flags |= FLAG_FOUND;
 	speak_missing_thousands--;
+
+	if(skipwords)
+		dictionary_skipwords = skipwords;
 	return(1);
 }  // end of TranslateNumber_1
 

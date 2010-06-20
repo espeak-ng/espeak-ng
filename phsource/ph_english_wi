@@ -85,7 +85,7 @@ phoneme U
 endphoneme
 
 
-phoneme a2
+phoneme a#
   vowel  starttype #@  endtype #@
   unstressed
   length 140

@@ -24,9 +24,6 @@
 #define N_SEQ_FRAMES   25           // max frames in a spectrum sequence (real max is ablut 8)
 #define STEPSIZE  64                // 2.9mS at 22 kHz sample rate
 
-#define    PITCHfall   0
-#define    PITCHrise   2
-
 // flags set for frames within a spectrum sequence
 #define FRFLAG_KLATT           0x01   // this frame includes extra data for Klatt synthesizer
 #define FRFLAG_VOWEL_CENTRE    0x02   // centre point of vowel
@@ -37,6 +34,7 @@
 #define FRFLAG_FORMANT_RATE    0x20   // Flag5 allow increased rate of change of formant freq
 #define FRFLAG_MODULATE        0x40   // Flag6 modulate amplitude of some cycles to give trill
 #define FRFLAG_DEFER_WAV       0x80   // Flag7 defer mixing WAV until the next frame
+#define FRFLAG_LEN_MOD2      0x4000   // reduce effect of length adjustment, used for the start of a vowel
 #define FRFLAG_COPIED        0x8000   // This frame has been copied into temporary rw memory
 
 #define SFLAG_SEQCONTINUE      0x01   // a liquid or nasal after a vowel, but not followed by a vowel
@@ -227,7 +225,7 @@ typedef struct {
 // The first section is a copy of PHONEME_LIST2
 	unsigned char phcode;
 	unsigned char stresslevel;
-	unsigned char wordstress;
+	unsigned char wordstress;  // the highest level stress in this word
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
 	unsigned short synthflags;
 	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
@@ -252,9 +250,10 @@ typedef struct {
 #define pd_ADDWAV 4
 
 #define N_PHONEME_DATA_PARAM 16
+#define pd_INSERTPHONEME   i_INSERT_PHONEME
 #define pd_APPENDPHONEME   i_APPEND_PHONEME
-#define pd_CHANGEPHONEME    i_CHANGE_PHONEME
-#define pd_LENGTHMOD      i_SET_LENGTH
+#define pd_CHANGEPHONEME   i_CHANGE_PHONEME
+#define pd_LENGTHMOD       i_SET_LENGTH
 
 #define pd_FORNEXTPH     0x2
 #define pd_DONTLENGTHEN  0x4
@@ -346,10 +345,16 @@ typedef struct {
 #define i_isFinalVowel 0x8b
 #define i_isVoiced     0x8c
 
+// place of articulation
+#define i_isVel      0x28
 
+// phflags
+#define i_isSibilant   0x45    // bit 5 in phflags
 #define i_isPalatal    0x49    // bit 9 in phflags
 #define i_isRhotic     0x56    // bit 22 in phflags
-
+#define i_isFlag1      0x5c
+#define i_isFlag2      0x5d
+#define i_isFlag3      0x5e
 
 #define i_StressLevel  0x800
 
@@ -372,34 +377,39 @@ typedef struct {
 } MBROLA_TAB;
 
 typedef struct {
-	int speed_factor1;
-	int speed_factor2;
-	int speed_factor3;
+	int pause_factor;
+	int clause_pause_factor;
+	int wav_factor;
+	int lenmod_factor;
+	int lenmod2_factor;
 	int min_sample_len;
+	int loud_consonants;
 	int fast_settings[8];
 } SPEED_FACTORS;
 
 
 typedef struct {
-	unsigned int name;
+	char name[12];
 	unsigned char flags[4];
-	signed char headextend[8];
+	signed char head_extend[8];
 
 	unsigned char prehead_start;
 	unsigned char prehead_end;
+	unsigned char stressed_env;
+	unsigned char stressed_drop;
+	unsigned char secondary_drop;
+	unsigned char unstressed_shape;
+
 	unsigned char onset;
 	unsigned char head_start;
 	unsigned char head_end;
 	unsigned char head_last;
 
-	unsigned char stressed_env;
-	unsigned char head_drops;
 	unsigned char head_max_steps;
-	unsigned char n_headextend;
+	unsigned char n_head_extend;
 
-	char unstressed_start;
-	char unstressed_end;
-	char unstressed_shape;
+	signed char unstr_start[3];    // for: onset, head, last
+	signed char unstr_end[3];
 
 	unsigned char nucleus0_env;     // pitch envelope, tonic syllable is at end, no tail
 	unsigned char nucleus0_max;
@@ -416,6 +426,7 @@ typedef struct {
 	unsigned char split_nucleus_min;
 	unsigned char split_tail_start;
 	unsigned char split_tail_end;
+	unsigned char split_tune;
 	
 	unsigned char spare[10];
 } TUNE;
@@ -485,6 +496,12 @@ extern int wavefile_amp2;
 extern int vowel_transition[4];
 extern int vowel_transition0, vowel_transition1;
 
+#define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
+extern int echo_head;
+extern int echo_tail;
+extern int echo_amp;
+extern short echo_buf[N_ECHO_BUF];
+
 extern int mbrola_delay;
 extern char mbrola_name[20];
 
@@ -511,7 +528,11 @@ int Read4Bytes(FILE *f);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name,int flags);
 
 
+#define ENV_LEN  128    // length of pitch envelopes
+#define    PITCHfall   0  // standard pitch envelopes
+#define    PITCHrise   2
 extern unsigned char *envelope_data[20];
+
 extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
 

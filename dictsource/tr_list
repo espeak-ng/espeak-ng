@@ -12,7 +12,7 @@ f	fE
 g	JE
 ğ	jumuS'ak||J'E
 h	hE
-ı	u#
+ı	@
 i	i
 j	ZE
 k	ka
@@ -43,7 +43,7 @@ _?A	haRf
 //_lig	
 _acu	vURg'UimI
 _ac2	tS'IftvURg'UimI	
-_brv	ku#s'altmaimI
+_brv	k@s'altmaimI
 _ced	h'aRf
 _cir	Sapk'a
 _dia	Umla'Ut
@@ -60,41 +60,41 @@ _tld	tIld'E
 // symbols
 _.	nOkt'a
 _,	vIRJ'Yl
-_;	nOktal'u#vIRJ'Yl
+_;	nOktal'@vIRJ'Yl
 _:	ik'InOkt'a
 _…	'YtSnOkt'a
 _?	soR'UiSa*et,I
 _!	Ynl'EmiSa*et,I
-_-	k'u#satSIzg'I
+_-	k'@satSIzg'I
 _–	'uzUntSIzg'I
 _/	ej'IktSIzg'I
-_"	tu#Rn'akiSa*et'I
+_"	t@Rn'akiSa*et'I
 _'	apOstR'Of
 _^	IndZ'EltmEiSa*et'I
 &	_!v'E
 _&	v'EiSa*et'I
-_*	j'u#ldu#z
+_*	j'@ld@z
 _@	kUjRUkl'U'a
 _\	t'ERs||ej,IktSIzg'I
 ¶	pa*agR'af
 §	tSEnJ'El
 °	de*edZ'E
 _#	dij'Ez
-_~	jaklaS'u#k
+_~	jaklaS'@k
 __	,alttSIzg'I
 =	ESIt		$max3
 %	jYzdE		$max3
-+	aRtu#		$max3
++	aRt@		$max3
 €	avRO
 
 
-_0	su#fu#R
+_0	s@f@R
 _1	biR
 _2	ici
 _3	YtS
 _4	dWRt
 _5	beS
-_6	altu#
+_6	alt@
 _7	jedi
 _8	seciz
 _9	dokuz
@@ -104,9 +104,9 @@ _12	'onici
 _1X	on
 _2X	jiRmi
 _3X	otuz
-_4X	ku#Rk
+_4X	k@Rk
 _5X	elli
-_6X	altmu#S
+_6X	altm@S
 _7X	jetmiS
 _8X	seksEn
 _9X	doksan
@@ -122,11 +122,11 @@ _dpt	_viRg,Yl_|
 // function words
 
 // conjunctions
-ve	$brk	// and
-yoksa	$brk	// or
-veya	$brk	// or
+ve	$u $brk	// and
+yoksa	$u $brk	// or
+veya	$u $brk	// or
 ama	$brk $1	// but
-ki	$brk	// that
+ki	$u $brk	// that
 
 mı	$u	// question
 mi	$u

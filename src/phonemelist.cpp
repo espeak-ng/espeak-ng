@@ -97,6 +97,8 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 
 		// copy phoneme into the output list
 		memcpy(&plist_out[n_plist_out],plist2,sizeof(PHONEME_LIST2));
+		plist_out[n_plist_out].ph = phoneme_tab[plist2->phcode];
+		plist_out[n_plist_out].type = plist_out[n_plist_out].ph->type;
 		n_plist_out++;
 	}
 	return(n_plist_out);
@@ -248,6 +250,37 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 	n_ph_list3 = SubstitutePhonemes(tr,ph_list3) - 2;
 
+	for(j=0; (j < n_ph_list3) && (ix < N_PHONEME_LIST-3);)
+	{
+		if(ph_list3[j].sourceix)
+		{
+			// start of a word
+			int k;
+			int nextw;
+			word_stress = 0;
+
+			// find the highest stress level in this word
+			for(nextw=j; nextw < n_ph_list3;)
+			{
+				if(ph_list3[nextw].stresslevel > word_stress)
+					word_stress = ph_list3[nextw].stresslevel;
+
+				nextw++;
+				if(ph_list3[nextw].sourceix)
+					break;   // start of the next word
+			}
+			for(k=j; k<nextw; k++)
+			{
+				ph_list3[k].wordstress = word_stress;
+			}
+			j = nextw;
+		}
+		else
+		{
+			j++;
+		}
+	}
+
 	// transfer all the phonemes of the clause into phoneme_list
 	ph = phoneme_tab[phonPAUSE];
 	ph_list3[0].ph = ph;
@@ -295,39 +328,42 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			plist3[1].ph = next;
 		}
 
-		if(plist3->sourceix)
-		{
-			// start of a word
-			int k;
-			word_stress = 0;
-			first_vowel = 1;
-
-			// find the highest stress level in this word
-			for(k=j+1; k < n_ph_list3; k++)
-			{
-				if(ph_list3[k].sourceix)
-					break;   // start of the next word
-
-				if(ph_list3[k].stresslevel > word_stress)
-					word_stress = ph_list3[k].stresslevel;
-			}
-			while(--k >= j)
-			{
-				ph_list3[k].wordstress = word_stress;
-			}
-		}
-
 		if(ph == NULL) continue;
 
 		InterpretPhoneme(tr, 0x100, plist3, &phdata);
+
+		if((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0)
+		{
+			// PROBLEM: if we insert a phoneme before a vowel then we loose the stress.
+			PHONEME_TAB *ph2;
+			ph2 = ph;
+
+			insert_ph = plist3->phcode;
+			ph = phoneme_tab[alternative];
+			plist3->ph = ph;
+			plist3->phcode = alternative;
+
+			if(ph->type == phVOWEL)
+			{
+				plist3->synthflags |= SFLAG_SYLLABLE;
+				if(ph2->type != phVOWEL)
+					plist3->stresslevel = 0;   // change from non-vowel to vowel, make sure it's unstressed
+			}
+			else
+				plist3->synthflags &= ~SFLAG_SYLLABLE;
+
+			// re-interpret the changed phoneme
+			// But it doesn't obey a second ChangePhoneme()
+			InterpretPhoneme(tr, 0x100, plist3, &phdata);
+		}
 
 		if((alternative = phdata.pd_param[pd_CHANGEPHONEME]) > 0)
 		{
 			PHONEME_TAB *ph2;
 			ph2 = ph;
 			ph = phoneme_tab[alternative];
-			plist3->phcode = alternative;
 			plist3->ph = ph;
+			plist3->phcode = alternative;
 
 			if(alternative == 1)
 				continue;    // NULL phoneme, discard
@@ -348,24 +384,48 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 		if(ph->type == phVOWEL)
 		{
+			PHONEME_LIST *p;
+
 			// Check for consecutive unstressed syllables, even across word boundaries.
 			// Do this after changing phonemes according to stress level.
-			if(plist3->stresslevel == 1)
+			if(plist3->stresslevel <= 1)
 			{
 				// an unstressed vowel
 				unstress_count++;
-				if((unstress_count > 1) && ((unstress_count & 1)==0))
+
+				if(tr->langopts.stress_flags & 0x08)
 				{
-					// in a sequence of unstressed syllables, reduce alternate syllables to 'diminished'
-               // stress.  But not for the last phoneme of a stressed word
-					if((tr->langopts.stress_flags & 0x2) || ((word_stress > 3) && ((plist3+1)->sourceix!=0)))
+					// change sequences of consecutive unstressed vowels in unstressed words to diminished stress (TEST)
+					for(p=plist3+1; p->type != phPAUSE; p++)
 					{
-						// An unstressed final vowel of a stressed word
-						unstress_count=1;    // try again for next syllable
+						if(p->type == phVOWEL)
+						{
+							if(p->stresslevel <= 1)
+							{
+								if(plist3->wordstress < 4)
+									plist3->stresslevel = 0;
+								if(p->wordstress < 4)
+									p->stresslevel = 0;
+							}
+							break;
+						}
 					}
-					else
+				}
+				else
+				{
+					if((unstress_count > 1) && ((unstress_count & 1)==0))
 					{
-						plist3->stresslevel = 0;    // change stress to 'diminished'
+						// in a sequence of unstressed syllables, reduce alternate syllables to 'diminished'
+						// stress.  But not for the last phoneme of a stressed word
+						if((tr->langopts.stress_flags & 0x2) || ((word_stress > 3) && ((plist3+1)->sourceix!=0)))
+						{
+							// An unstressed final vowel of a stressed word
+							unstress_count=1;    // try again for next syllable
+						}
+						else
+						{
+							plist3->stresslevel = 0;    // change stress to 'diminished'
+						}
 					}
 				}
 			}
@@ -374,19 +434,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				unstress_count = 0;
 			}
 		}
-
-#ifdef deleted
-		if(tr->langopts.param[LOPT_REDUCE_T])
-		{
-			if((ph->mnemonic == 't') && (plist3->sourceix == 0) && ((prev->type == phVOWEL) || (prev->mnemonic == 'n')))
-			{
-				if(((plist3+1)->sourceix == 0) && ((plist3+1)->stress < 3) && (next->type == phVOWEL))
-				{
-					ph = phoneme_tab[phonT_REDUCED];
-				}
-			}
-		}
-#endif
 
 #ifdef deleted
 		while((ph->reduce_to != 0) && (!(plist3->synthflags & SFLAG_DICTIONARY)  || (tr->langopts.param[LOPT_REDUCE] & 1)))

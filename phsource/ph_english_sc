@@ -54,7 +54,7 @@ endphoneme
 phoneme a
   vowel  starttype #a  endtype #a
   length 200
-  ChangeIfDiminished(a2)
+  ChangeIfDiminished(a#)
   ChangeIfNotStressed(a/)
   FMT(vowel/a_3)
 endphoneme
@@ -63,12 +63,12 @@ endphoneme
 phoneme a/
   vowel  starttype #a  endtype #a
   length 160
-  ChangeIfDiminished(a2)
+  ChangeIfDiminished(a#)
   FMT(vowel/a_3)
 endphoneme
 
 
-phoneme a2
+phoneme a#
   vowel  starttype #@  endtype #@
   unstressed
   length 140

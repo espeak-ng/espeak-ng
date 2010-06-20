@@ -276,7 +276,7 @@ endphoneme
 phoneme l#
   vls alv frc
   lengthmod 3
-  WAV(ufric/ll, 25)
+  WAV(ufric/l#, 25)
 endphoneme
 
 

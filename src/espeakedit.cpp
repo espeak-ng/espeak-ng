@@ -89,6 +89,7 @@ wxNotebook *notebook = NULL;
 wxProgressDialog *progress;
 int progress_max;
 int gui_flag = 0;
+int frame_x, frame_y, frame_w, frame_h;
 
 wxList my_children;
 
@@ -153,6 +154,7 @@ extern void VoiceReset(int control);
 	}
 }
 
+	ConfigInit();
 	gui_flag = 1;
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
@@ -163,9 +165,14 @@ extern void VoiceReset(int control);
 			setlocale(LC_CTYPE,"");
 	}
 
+	if((frame_w == 0) || (frame_h == 0))
+	{
+		frame_w = 1024;
+		frame_h = 768;
+	}
 
   // Create the main frame window
-	myframe = new MyFrame(NULL, -1, AppName, wxPoint(0, 0), wxSize(1024, 768),
+	myframe = new MyFrame(NULL, -1, AppName, wxPoint(frame_x, frame_y), wxSize(frame_w, frame_h),
                       wxDEFAULT_FRAME_STYLE |
                       wxNO_FULL_REPAINT_ON_RESIZE |
                       wxHSCROLL | wxVSCROLL);
@@ -176,7 +183,7 @@ extern void VoiceReset(int control);
 	myframe->CreateStatusBar();
 	myframe->SetVoiceTitle(voice_name2);
 
-	myframe->Maximize();
+//	myframe->Maximize();
 	myframe->Show(TRUE);
 
 	SetTopWindow(myframe);
@@ -235,6 +242,12 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 END_EVENT_TABLE()
 
 
+MyFrame::~MyFrame(void)
+{//====================
+	myframe->GetPosition(&frame_x, &frame_y);
+	myframe->GetSize(&frame_w, &frame_h);
+}
+
 MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size,
     const long style):
   wxMDIParentFrame(parent, id, title, pos, size, style)
@@ -270,7 +283,6 @@ wxSashLayoutWindow *win;
 	notebook->AddPage(transldlg,_T("Text"),TRUE);
 
 
-	ConfigInit();
 	LoadConfig();
 	WavegenInitSound();
 
@@ -464,7 +476,7 @@ void OnOptions2(int event_id)
 	switch(event_id)
 	{
 	case MENU_PARAMS:
-		value = wxGetNumberFromUser(_T(""),_T(""),_T("Speed"),option_speed,80,390);
+		value = wxGetNumberFromUser(_T(""),_T(""),_T("Speed"),option_speed,80,500);
 		if(value > 0)
 		{
 			option_speed = value;
@@ -526,6 +538,32 @@ void MyFrame::OnOptions(wxCommandEvent& event)
 	OnOptions2(event.GetId());
 }
 
+
+void DisplayErrorFile(const char *fname)
+{//=====================================
+	int len;
+	FILE *f;
+	char *msg;
+	wxString msg_string;
+
+	len = GetFileLength(fname);
+	if(len > 0)
+	{
+		if(len > 2000)
+			len = 2000;   // restrict length to pppppevent crash in wxLogMessage()
+		msg = (char *)malloc(len+1);
+		if(msg != NULL)
+		{
+			f = fopen(fname,"r");
+			fread(msg,len,1,f);
+			fclose(f);
+			msg[len] = 0;
+			msg_string = wxString(msg,wxConvUTF8);
+			wxLogMessage(msg_string);
+			free(msg);
+		}
+	}
+}  // end of DisplayErrorFile
 
 
 
@@ -604,28 +642,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 			if(err > 0)
 			{
 				// display the error messages
-				int len;
-				FILE *f;
-				char *msg;
-				wxString msg_string;
-
-				len = GetFileLength(fname_log);
-				if(len > 0)
-				{
-					if(len > 2000)
-						len = 2000;   // restrict length to pppppevent crash in wxLogMessage()
-					msg = (char *)malloc(len+1);
-					if(msg != NULL)
-					{
-						f = fopen(fname_log,"r");
-						fread(msg,len,1,f);
-						fclose(f);
-						msg[len] = 0;
-						msg_string = wxString(msg,wxConvUTF8);
-						wxLogMessage(msg_string);
-						free(msg);
-					}
-				}
+				DisplayErrorFile(fname_log);
 			}
 		}
 		break;

@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.43.31  21.May.10";
-const int version_phdata  = 0x014317;
+const char *version_string = "1.43.46  20.Jun.10";
+const int version_phdata  = 0x014342;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -48,7 +48,7 @@ int current_phoneme_table;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
-static USHORT *phoneme_index=NULL;
+USHORT *phoneme_index=NULL;
 char *spects_data=NULL;
 unsigned char *wavefile_data=NULL;
 static unsigned char *phoneme_tab_data = NULL;
@@ -589,7 +589,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	int instn2;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
-	static int ph_position[7] = {0, 1, 2, 3, 2, 0, 1};  // prevPh, thisPh, nextPh, next2Ph, nextPhW, prevPhW, nextVowel
+	static int ph_position[8] = {0, 1, 2, 3, 2, 0, 1, 3};  // prevPh, thisPh, nextPh, next2Ph, nextPhW, prevPhW, nextVowel, next2PhW
 
 	data = instn & 0xff;
 	instn2 = instn >> 8;
@@ -620,6 +620,12 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				if(phoneme_tab[plist[which-1].phcode]->type == phVOWEL)
 					break;
 			}
+		}
+		if(which==7)
+		{
+			// nextPh2 not word boundary
+			if((plist[1].sourceix) || (plist[2].sourceix))
+				return(false);
 		}
 		else
 		{
@@ -723,7 +729,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 				break;
 
 			case 12:  // isVoiced
-				return((ph->type == phVOWEL) || (ph->phflags & phVOICED));
+				return((ph->type == phVOWEL) || (ph->type == phLIQUID) || (ph->phflags & phVOICED));
 			}
 			break;
 
@@ -740,6 +746,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			return(control & 1);
 		case 2:   // KlattSynth
 			return(voice->klattv[0] != 0);
+		case 3:   // MbrolaSynth
+			return(mbrola_name[0] != 0);
 		}
 	}
 	return(false);

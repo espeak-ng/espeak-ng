@@ -78,6 +78,20 @@ phoneme r-   // linking r, used in English between certain vowels and a followin
 endphoneme
 
 
+phoneme z/2    // used for 's suffix
+  vcd alv frc sibilant
+  lengthmod 6
+  IF prevPh(isSibilant) THEN
+    InsertPhoneme(I2)
+  ENDIF
+
+  IF prevPh(isVoiced) THEN
+  ELSE
+    ChangePhoneme(s)
+  ENDIF
+  ChangePhoneme(z)
+endphoneme
+
 
 //*******************************************************************
 // VOWELS
@@ -88,6 +102,9 @@ phoneme @    //  Schwa
   unstressed
   length 140
   IfNextVowelAppend(r-)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6)
+  ENDIF
   FMT(vowel/@)
 endphoneme
 
@@ -97,6 +114,9 @@ phoneme 3    //  Schwa, used for rhotic schwa in American
   unstressed
   length 140
   IfNextVowelAppend(r-)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6)
+  ENDIF
   FMT(vowel/@)
 endphoneme
 
@@ -135,12 +155,15 @@ endphoneme
 phoneme a
   vowel  starttype #a  endtype #a
   length 160
-  ChangeIfDiminished(a2)
+  ChangeIfDiminished(a#)
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/a_7)
+  ENDIF
   FMT(vowel/a)
 endphoneme
 
 
-phoneme a2
+phoneme a#
   vowel  starttype #@  endtype #@
   unstressed
   length 150
@@ -240,7 +263,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 175
+  length 175 long
   IfNextVowelAppend(;)
   IF prevPh(w) THEN
     VowelStart(w/wi2)

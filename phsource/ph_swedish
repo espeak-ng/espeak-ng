@@ -101,13 +101,10 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 140
+  IF thisPh(isNotStressed) AND thisPh(isWordEnd) THEN
+    FMT(vowel/a#_2)
+  ENDIF
   FMT(vowel/a_5)
-endphoneme
-
-phoneme a2
-  vowel starttype #a endtype #a
-  length 140
-  FMT(vowel/a#_2)
 endphoneme
 
 phoneme &

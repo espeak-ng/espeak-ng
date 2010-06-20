@@ -487,14 +487,11 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 
 	case T_PROCESS:
 	case MENU_SPEAK_TEXT:
-		if(prosodycanvas != NULL)
-		{
-			prosodycanvas->LayoutData(ph_list,n_ph_list);
-		}
-		else
+		if(prosodycanvas == NULL)
 		{
 			myframe->OnProsody(event);
 		}
+		prosodycanvas->LayoutData(ph_list,n_ph_list);
 		option_phoneme_events = 1;
 		option_log_frames = 1;
 		MakeWave2(ph_list,n_ph_list);

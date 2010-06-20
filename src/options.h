@@ -39,6 +39,7 @@ extern wxString path_phsource;
 extern wxString path_dictsource;
 extern wxString path_modifiervoice;
 extern wxString path_dir1;
+extern int frame_x, frame_y, frame_w, frame_h;
 
 extern char path_source[sizeof(path_home)+20];
 extern char path_dsource[sizeof(path_home)+20];

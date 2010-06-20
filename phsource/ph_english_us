@@ -52,7 +52,7 @@ phoneme a
   vowel  starttype #e  endtype #@
   length 210
 
-  ChangeIfDiminished(a2)
+  ChangeIfDiminished(a#)
 
   IF nextPh(isNasal) THEN
     FMT(vnasal/ee_n2)
@@ -62,11 +62,11 @@ endphoneme
 
 
 phoneme aa   //   'bath' etc.
-  import_phoneme en_us/a
+  import_phoneme en-us/a
 endphoneme
 
 
-phoneme a2
+phoneme a#
   vowel  starttype #@  endtype #@
   unstressed
   length 150

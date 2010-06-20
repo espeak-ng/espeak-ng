@@ -81,7 +81,7 @@ static const char *help_text =
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
-"\t   Speed in words per minute 80 to 390, default is 170\n"
+"\t   Speed in words per minute 80 to 450, default is 175\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
@@ -485,7 +485,7 @@ int main (int argc, char **argv)
 	int option_index = 0;
 	int c;
 	int value;
-	int speed=170;
+	int speed=175;
 	int ix;
 	char *optarg2;
 	int amp = 100;     // default

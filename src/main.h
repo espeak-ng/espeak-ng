@@ -37,6 +37,7 @@ class MyFrame: public wxMDIParentFrame
   public:
 
     MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, const long style);
+	~MyFrame(void);
 
     void OnSize(wxSizeEvent& event);
     void OnAbout(wxCommandEvent& event);

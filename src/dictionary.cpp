@@ -762,6 +762,13 @@ static int Unpronouncable_en(Translator *tr, char *word)
 }   /* end of Unpronounceable */
 
 
+static int Unpronouncable_de(Translator *tr, char *word)
+{//=====================================================
+	if(memcmp(word,"tsch",4)==0)
+		return(0);
+	return(2);
+}
+
 
 
 int Unpronouncable(Translator *tr, char *word)
@@ -778,11 +785,18 @@ int Unpronouncable(Translator *tr, char *word)
 	int  index;
 	int  count;
 	int  apostrophe=0;
+	int  result=2;  // unknown
 
 	if(tr->translator_name == L('e','n'))
 	{
 		return(Unpronouncable_en(tr,word));
 	}
+	if(tr->translator_name == L('d','e'))
+	{
+		result = Unpronouncable_de(tr,word);
+	}
+	if(result < 2)
+		return(result);
 
 	utf8_in(&c,word);
 	if((tr->letter_bits_offset > 0) && (c < 0x241))
@@ -1977,6 +1991,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					{
 						/* more than specified number of vowel letters to the right */
 						char *p = post_ptr + letter_xbytes;
+						int vowel_count=0;
 
 						syllable_count = 1;
 						while(*rule == RULE_SYLLABLE)
@@ -1989,14 +2004,14 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						{
 							if((vowel==0) && IsLetter(tr, letter_w,LETTERGP_VOWEL2))
 							{
-								// this is counting vowels which are separated by non-vowels
-								syllable_count--;
+								// this is counting vowels which are separated by non-vowel letters
+								vowel_count++;
 							}
 							vowel = IsLetter(tr, letter_w,LETTERGP_VOWEL2);
 							p += utf8_in(&letter_w,p);
 						}
-						if(syllable_count <= 0)
-							add_points = (19-distance_right);
+						if(syllable_count <= vowel_count)
+							add_points = (18+syllable_count-distance_right);
 						else
 							failed = 1;
 					}
@@ -2169,7 +2184,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 						syllable_count++;   /* number of syllables to match */
 					}
 					if(syllable_count <= tr->word_vowel_count)
-						add_points = (19-distance_left);
+						add_points = (18+syllable_count-distance_left);
 					else
 						failed = 1;
 					break;
@@ -2692,55 +2707,30 @@ void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags)
 //     special properties, such as pronounce as unstressed
 //=============================================================================================
 
-// common letter pairs, encode these as a single byte
-static const short pairs_ru[] = { 
-0x010c, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ»ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°   21052  0x23
-0x010e, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°   18400
-0x0113, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°   14254
-0x0301, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²   31083
-0x030f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²   13420
-0x060e, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµ   21798
-0x0611, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµ   19458
-0x0903, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸   16226
-0x0b01, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂº   14456
-0x0b0f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂº   17836
-0x0c01, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ»   13324
-0x0c09, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ»   16877
-0x0e01, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   15359
-0x0e06, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   13543  0x30
-0x0e09, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   17168
-0x0e0e, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   15973
-0x0e0f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   22373
-0x0e1c, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ½   15052
-0x0f03, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ²ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   24947
-0x0f11, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   13552
-0x0f12, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   16368
-0x100f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¿   19054
-0x1011, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¿   17067
-0x1101, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ°ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   23967
-0x1106, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   18795
-0x1109, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¸ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   13797
-0x110f, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   21737
-0x1213, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   25076
-0x1220, //  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   14310
-0x7fff};
-//0x040f  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ³   12976
-//0x1306  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂµÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ   12826
-//0x0f0d  ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¼ÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂÃÂ¾   12688
 
-
-int TransposeAlphabet(char *text, int offset, int min, int max)
-{//============================================================
+int TransposeAlphabet(Translator *tr, char *text)
+{//==============================================
 // transpose cyrillic alphabet (for example) into ascii (single byte) character codes
 // return: number of bytes, bit 6: 1=used compression
 	int c;
 	int c2;
 	int ix;
+	int offset;
+	int min;
+	int max;
 	char *p = text;
 	char *p2 = text;
 	int all_alpha=1;
 	int bits;
 	int acc;
+	int pairs_start;
+	const short *pairs_list;
+
+	offset = tr->transpose_min - 1;
+	min = tr->transpose_min;
+	max = tr->transpose_max;
+
+	pairs_start = max - min + 2;
 
 	do {
 		p += utf8_in(&c,p);
@@ -2767,15 +2757,18 @@ int TransposeAlphabet(char *text, int offset, int min, int max)
 		p2 = text;
 		while((c = *p++) != 0)
 		{
-			c2 = c + (*p << 8);
-			for(ix=0; c2 >= pairs_ru[ix]; ix++)
+			if((pairs_list = tr->frequent_pairs) != NULL)
 			{
-				if(c2 == pairs_ru[ix])
+				c2 = c + (*p << 8);
+				for(ix=0; c2 >= pairs_list[ix]; ix++)
 				{
-					// found an encoding for a 2-character pair
-					c = ix + 0x23;   // 2-character codes start at 0x23
-					p++;
-					break;
+					if(c2 == pairs_list[ix])
+					{
+						// found an encoding for a 2-character pair
+						c = ix + pairs_start;   // 2-character codes start after the single letter codes
+						p++;
+						break;
+					}
 				}
 			}
 			acc = (acc << 6) + (c & 0x3f);
@@ -2838,10 +2831,10 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	}
 
 	word1 = word;
-	if(tr->transpose_offset > 0)
+	if(tr->transpose_min > 0)
 	{
 		strcpy(word_buf,word);
-		wlen = TransposeAlphabet(word_buf, tr->transpose_offset, tr->transpose_min, tr->transpose_max);
+		wlen = TransposeAlphabet(tr, word_buf);
 		word = word_buf;
 	}
 	else
@@ -3027,6 +3020,12 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			continue;
 		}
 
+		if((dictionary_flags & FLAG_ATSTART) && !(wtab->flags & FLAG_FIRST_WORD))
+		{
+			// only use this pronunciation if it's the first word of a clause
+			continue;
+		}
+
 		if((dictionary_flags2 & FLAG_SENTENCE) && !(tr->clause_terminator & CLAUSE_BIT_SENTENCE))
 		{
 			// only uis this clause is a sentence , i.e. terminator is {. ? !} not {, : :}
@@ -3109,9 +3108,10 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			if(textmode == translator->langopts.textmode)
 			{
 				// only show this line if the word translates to phonemes, not replacement text
-				if(dictionary_skipwords)
+				if((dictionary_skipwords) && (wtab != NULL))
 				{
 					// matched more than one word
+					// (check for wtab prevents showing RULE_SPELLING byte when speaking individual letters)
 					memcpy(word_buf,word2,word_end-word2);
 					word_buf[word_end-word2-1] = 0;
 					fprintf(f_trans,"Found: '%s %s",word1,word_buf);

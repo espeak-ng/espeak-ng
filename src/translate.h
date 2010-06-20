@@ -46,8 +46,8 @@
 #define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
 #define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
 #define FLAG_ATEND          0x4000  /* use this pronunciation if at end of clause */
-#define FLAG_SPELLWORD      0x8000  // re-translate the word as individual letters, separated by spaces
-
+#define FLAG_ATSTART        0x8000  // use this pronunciation if at start of clause
+#define FLAG_SPELLWORD     0x10000  // re-translate the word as individual letters, separated by spaces
 #define FLAG_ABBREV        0x20000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
 #define FLAG_STEM          0x40000  // must have a suffix
 
@@ -308,8 +308,8 @@ extern const int param_defaults[N_SPEECH_PARAM];
 	// bit 1, don't break clause before annoucning . ? !
 #define LOPT_ANNOUNCE_PUNCT 17
 
-	// set minimum length for long vowels at fast speeds, to keep a distinction with short vowels
-#define LOPT_MIN_LONG_VOWEL 18
+	// recognize long vowels (0 = don't recognize)
+#define LOPT_LONG_VOWEL_THRESHOLD 18
 
 
 // stress_rule
@@ -341,6 +341,7 @@ typedef struct {
 // bit0=don't stress monosyllables, except at end of clause
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
+// bit3=set consecutive unstressed syllables in unstressed words to diminished, but not in stressed words
 // bit4=don't allow secondary stress on last syllable
 // bit5-don't use automatic secondary stress
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
@@ -428,12 +429,14 @@ typedef struct {
 	int min_roman;
 	int thousands_sep;
 	int decimal_sep;
+	const char *ordinal_indicator;   // UTF-8 string
 
 	// bit 0, accent name before the letter name, bit 1 "capital" after letter name
 	int accents;
 
 	int tone_language;          // 1=tone language
 	int intonation_group;
+	unsigned char tunes[6];
 	int long_stop;          // extra mS pause for a lengthened stop
 	int phoneme_change;     // TEST, change phonemes, after translation
 	char max_initial_consonants;
@@ -471,7 +474,6 @@ struct Translator
 
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
-	int transpose_offset;
 	int transpose_max;
 	int transpose_min;
 
@@ -513,6 +515,7 @@ struct Translator
 	
 	unsigned char groups2_count[256];    // number of 2 letter groups for this initial letter
 	unsigned char groups2_start[256];    // index into groups2
+	const short *frequent_pairs;   // list of frequent pairs of letters, for use in compressed *_list
 	
 	
 	int expect_verb;
@@ -590,7 +593,7 @@ extern int (* phoneme_callback)(const char *);
 extern void SetLengthMods(Translator *tr, int value);
 
 void LoadConfig(void);
-int TransposeAlphabet(char *text, int offset, int min, int max);
+int TransposeAlphabet(Translator *tr, char *text);
 int utf8_in(int *c, const char *buf);
 int utf8_in2(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);

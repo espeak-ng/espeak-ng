@@ -78,12 +78,11 @@ static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
 static int peak_height[N_PEAKS];
 
-#define N_ECHO_BUF 5500   // max of 250mS at 22050 Hz
-static int echo_head;
-static int echo_tail;
+int echo_head;
+int echo_tail;
+int echo_amp = 0;
+short echo_buf[N_ECHO_BUF];
 static int echo_length = 0;   // period (in sample\) to ensure completion of echo at the end of speech, set in WavegenSetEcho()
-static int echo_amp = 0;
-static short echo_buf[N_ECHO_BUF];
 
 static int voicing;
 static RESONATOR rbreath[N_PEAKS];
@@ -134,7 +133,7 @@ int wcmdq_head=0;
 int wcmdq_tail=0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,0, 0,170,0,0,0,0,0,0};
+int embedded_default[N_EMBEDDED_VALUES]        = {0,50,175,100,50, 0,0, 0,175,0,0,0,0,0,0};
 static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,600,300,99,99,99, 0,600,0,0,0,0,4,0};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
@@ -149,35 +148,7 @@ static PortAudioStream *pa_stream=NULL;
 static PaStream *pa_stream=NULL;
 #endif
 
-/* default pitch envelope, a steady fall */
-#define ENV_LEN  128
 
-
-/*
-unsigned char Pitch_env0[ENV_LEN] = {
-    255,253,251,249,247,245,243,241,239,237,235,233,231,229,227,225,
-    223,221,219,217,215,213,211,209,207,205,203,201,199,197,195,193,
-    191,189,187,185,183,181,179,177,175,173,171,169,167,165,163,161,
-    159,157,155,153,151,149,147,145,143,141,139,137,135,133,131,129,
-    127,125,123,121,119,117,115,113,111,109,107,105,103,101, 99, 97,
-     95, 93, 91, 89, 87, 85, 83, 81, 79, 77, 75, 73, 71, 69, 67, 65,
-     63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33,
-     31, 29, 27, 25, 23, 21, 19, 17, 15, 13, 11,  9,  7,  5,  3,  1
-};
-*/
-
-/*
-unsigned char Pitch_long[ENV_LEN] = {
-	254,249,250,251,252,253,254,254, 255,255,255,255,254,254,253,252,
-	251,250,249,247,244,242,238,234, 230,225,221,217,213,209,206,203,
-	199,195,191,187,183,179,175,172, 168,165,162,159,156,153,150,148,
-	145,143,140,138,136,134,132,130, 128,126,123,120,117,114,111,107,
-	104,100,96,91, 86,82,77,73, 70,66,63,60, 58,55,53,51,
-	49,47,46,45, 43,42,40,38, 36,34,31,28, 26,24,22,20,
-	18,16,14,12, 11,10,9,8, 8,8,8,8, 9,8,8,8,
-	8,8,7,7, 6,6,6,5, 4,4,3,3, 2,1,1,0
-};
-*/
 
 // 1st index=roughness
 // 2nd index=modulation_type
@@ -1412,11 +1383,12 @@ static int PlaySilence(int length, int resume)
 	static int n_samples;
 	int value=0;
 
-	if(length == 0)
-		return(0);
-
 	nsamples = 0;
 	samplecount = 0;
+	wavephase = 0x7fffffff;
+
+	if(length == 0)
+		return(0);
 
 	if(resume==0)
 		n_samples = length;

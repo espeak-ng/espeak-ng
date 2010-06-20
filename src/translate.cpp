@@ -115,6 +115,7 @@ static const unsigned short brackets[] = {
 '(',')','[',']','{','}','<','>','"','\'','`',
 0xab,0xbb,  // double angle brackets
 0x300a,0x300b,  // double angle brackets (ideograph)
+0xe000+'<',  // private usage area
 0};
 
 // other characters which break a word, but don't produce a pause
@@ -594,6 +595,73 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 
 
 
+static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
+{//=====================================================
+	int wc;
+	int count = 0;
+	int nbytes;
+	int ok;
+	int ix;
+	char *word;
+	char *wbuf;
+	char word_buf[80];
+
+	word = word1;
+	wbuf = word_buf;
+	ix = 0;
+
+	for(;;)
+	{
+		ok = 0;
+		nbytes = utf8_in(&wc, word);
+		if((word[nbytes] == ' ') && IsAlpha(wc))
+		{
+		 	if(word[nbytes+1] == '.')
+			{
+				if(word[nbytes+2] == ' ')
+					ok = 1;
+				else
+				if(word[nbytes+2] =='\'')
+				{
+					nbytes += 2;   // delete the final dot (eg. u.s.a.'s)
+					ok = 2;
+				}
+			}
+			else
+			if((count > 0) && (word[nbytes] == ' '))
+				ok = 2;
+		}
+
+		if(ok == 0)
+			break;
+
+		for(ix=0; ix < nbytes; ix++)
+			*wbuf++ = word[ix];
+
+		count++;
+
+		if(ok == 2)
+		{
+			word += nbytes;
+			break;
+		}
+
+		word += (nbytes + 3);
+	}
+
+	if(count > 1)
+	{
+		ix = wbuf - word_buf;
+		memcpy(word1, word_buf, ix);
+		while(&word1[ix] < word)
+			word1[ix++] = ' ';
+		dictionary_skipwords = (count - 1)*2;
+	}
+	return(count);
+}  // end of CheckDottedAbbrev
+
+
+
 int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 {//===========================================================================
 // word1 is terminated by space (0x20) character
@@ -677,6 +745,7 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	}
 
 	spell_word = 0;
+
 	if(option_sayas == SAYAS_KEY)
 	{
 		if(word_length == 1)
@@ -701,6 +770,7 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	{
 		if(!found)
 			found = LookupDictList(tr, &word1, phonemes, dictionary_flags, FLAG_ALLOW_TEXTMODE, wtab);   // the original word
+
 
 		if((dictionary_flags[0] & (FLAG_ALLOW_DOT || FLAG_NEEDS_DOT)) && (wordx[1] == '.'))
 		{
@@ -739,6 +809,20 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 				wordx++;
 			}
 		}
+
+		if((word_length == 1) && (dictionary_skipwords == 0))
+		{
+			// is this a series of single letters separated by dots?
+			if(CheckDottedAbbrev(word1, wtab))
+			{
+				dictionary_flags[0] = 0;
+				dictionary_flags[1] = 0;
+				spell_word = 1;
+				if(dictionary_skipwords)
+					dictionary_flags[0] = FLAG_SKIPWORDS;
+			}
+		}
+
 
 		// if textmode, LookupDictList() replaces word1 by the new text and returns found=0
 
@@ -1604,7 +1688,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				if(pre_pause < 1)
 					pre_pause = 1;
 			}
-			if((flags & FLAG_PREPAUSE) && ((word_flags && FLAG_LAST_WORD) == 0) && (tr->prepause_timeout == 0))
+			if((flags & FLAG_PREPAUSE) && !(word_flags && (FLAG_LAST_WORD | FLAG_FIRST_WORD)) && !(wtab[-1].flags & FLAG_FIRST_WORD) && (tr->prepause_timeout == 0))
 			{
 				// the word is marked in the dictionary list with $pause
 				if(pre_pause < 4) pre_pause = 4;
@@ -1666,6 +1750,13 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	// remove initial pause from a word if it follows a hyphen
 	if((word_flags & FLAG_HYPHEN) && (phoneme_tab[*p]->type == phPAUSE))
 		p++;
+
+	if((p[0] == 0) && (embedded_flag))
+	{
+		// no phonemes.  Insert a very short pause to carry an embedded command
+		p[0] = phonPAUSE_VSHORT;
+		p[1] = 0;
+	}
 
 	while(((ph_code = *p++) != 0) && (n_ph_list2 < N_PHONEME_LIST-4))
 	{
@@ -1989,17 +2080,27 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	switch(tr->translator_name)
 	{
 	case L('a','f'):
+	case L('n','l'):
 	// look for 'n  and replace by a special character (unicode: schwa)
 
-		utf8_in(&next2, &ptr[1]);
 
 		if(!iswalpha(prev_in))
 		{
-			if((c == '\'') && (next_in == 'n') && IsSpace(next2))
+			utf8_in(&next2, &ptr[1]);
+
+			if((c == '\'') && IsSpace(next2))
 			{
-				// n preceded by either apostrophe or U2019 "right single quotation mark"
-				ptr[0] = ' ';  // delete the  n
-				return(0x0259); // replace  '  by  unicode schwa character
+				if((next_in == 'n') && (tr->translator_name == L('a','f')))
+				{
+					// n preceded by either apostrophe or U2019 "right single quotation mark"
+					ptr[0] = ' ';  // delete the  n
+					return(0x0259); // replace  '  by  unicode schwa character
+				}
+				if((next_in == 'n') || (next_in == 't'))
+				{
+					// Dutch, [@n] and [@t]
+					return(0x0259); // replace  '  by  unicode schwa character
+				}
 			}
 		}
 		break;
@@ -2090,7 +2191,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 
 	embedded_ix = 0;
 	embedded_read = 0;
-	option_phoneme_input &= ~2;   // clear bit 1 (temporary indication)
 	pre_pause = 0;
 	any_stressed_words = 0;
 
@@ -2263,6 +2363,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 			c = towlower2(c);
 		}
 
+
 		if(phoneme_mode)
 		{
 			all_upper_case = FLAG_PHONEMES;
@@ -2374,11 +2475,15 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				}
 			}
 
-			if((c == '[') && (next_in == '[') && option_phoneme_input)
+			if(c == '[')
 			{
-				phoneme_mode = FLAG_PHONEMES;
-				source_index++;
-				continue;
+				if((next_in == '\002') || ((next_in == '[') && option_phoneme_input))
+				{
+					//  "[\002" is used internally to start phoneme mode  
+					phoneme_mode = FLAG_PHONEMES;
+					source_index++;
+					continue;
+				}
 			}
 
 			if(c == 0)
@@ -2536,9 +2641,9 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			else
 			if(c == '\'')
 			{
-				if(iswalnum(prev_in) && IsAlpha(next_in))
+				if(((prev_in == '.') || iswalnum(prev_in)) && IsAlpha(next_in))
 				{
-					// between two letters, consider apostrophe as part of the word
+					// between two letters, or in an abbreviation (eg. u.s.a.'s). Consider the apostrophe as part of the word
 					single_quoted = 0;
 				}
 				else
@@ -2720,7 +2825,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 	words[0].flags |= FLAG_FIRST_WORD;
 
 
-	for(ix=0; ix<word_count; ix++)
+	for(ix=0; ix < word_count; ix++)
 	{
 		int nx;
 		int c_temp;

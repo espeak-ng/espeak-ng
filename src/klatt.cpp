@@ -226,6 +226,7 @@ Converts synthesis parameters to a waveform.
 static int parwave(klatt_frame_ptr frame) 
 {
 	double temp;
+	int value;
 	double outbypas;
 	double out;
 	long n4;
@@ -457,18 +458,27 @@ if(option_log_frames)
 			temp = (temp * kt_globals.fadeout) / 64;
 		}
 
-		if (temp < -32768.0)
+		value = int(temp) + ((echo_buf[echo_tail++]*echo_amp) >> 8);
+		if(echo_tail >= N_ECHO_BUF)
+			echo_tail=0;
+
+		if (value < -32768)
 		{
-			temp = -32768.0;
+			value = -32768;
 		}
 	
-		if (temp > 32767.0)
+		if (value > 32767)
 		{
-			temp =  32767.0;
+			value =  32767;
 		}
 
-		*out_ptr++ = int(temp);
-		*out_ptr++ = int(temp) >> 8;
+		*out_ptr++ = value;
+		*out_ptr++ = value >> 8;
+
+		echo_buf[echo_head++] = value;
+		if(echo_head >= N_ECHO_BUF)
+			echo_head = 0;
+
 		sample_count++;
 		if(out_ptr >= out_end)
 		{

@@ -48,6 +48,8 @@ END_EVENT_TABLE()
 static wxPen PEN_PITCHENV(wxColour(0,0,255),1,wxSOLID);
 static wxPen PEN_SAMPLED(wxColour(0,200,200),2,wxSOLID);
 static wxPen PEN_PHSELECTED(wxColour(255,0,0),2,wxSOLID);
+static wxPen PEN_PHSTRESSED(wxColour(80,80,196),3,wxSOLID);
+static wxPen PEN_PHSTRESSED2(wxColour(160,160,255),2,wxSOLID);
 
 ProsodyDisplay::ProsodyDisplay(wxWindow *parent, const wxPoint& pos, const wxSize& size)
         : wxScrolledWindow(parent, -1, pos, size,
@@ -56,11 +58,8 @@ ProsodyDisplay::ProsodyDisplay(wxWindow *parent, const wxPoint& pos, const wxSiz
 
 	linewidth = size.GetWidth();
 	scalex = 0.5;
-	scaley = double(LINESEP*6)/160.0;
+	scaley = double(LINESEP*6)/150.0;
 	selected_ph = -1;
-//	SetBackgroundColour(* wxWHITE);
-
-	LayoutData(phoneme_list,n_phoneme_list);
 }  // end of ProsodyDisplay::ProsodyDisplay
 
 
@@ -69,27 +68,37 @@ ProsodyDisplay::~ProsodyDisplay()
 	prosodycanvas = NULL;
 }
 
+extern MNEM_TAB envelope_names[];
 
 void InitProsodyDisplay()
 {//======================
 	wxMenu *menu_envelopes;
+	int ix;
+	wxString string;
 
 	menu_envelopes = new wxMenu;
 	// entries match those in envelope_data[] in intonation.cpp
-	menu_envelopes->Append(0x100,_T("Fall"));
-	menu_envelopes->Append(0x102,_T("Rise"));
-	menu_envelopes->Append(0x104,_T("Fall-rise"));
-	menu_envelopes->Append(0x105,_T("Fall-rise (R)"));
-	menu_envelopes->Append(0x106,_T("Fall-rise 2"));
-	menu_envelopes->Append(0x107,_T("Fall-rise 2(R)"));
-	menu_envelopes->Append(0x108,_T("Rise-fall"));
 
-	menu_envelopes->Append(0x10a,_T("Fall-rise 3"));
-	menu_envelopes->Append(0x10c,_T("Fall-rise 4"));
-	menu_envelopes->Append(0x10e,_T("Fall 2"));
-	menu_envelopes->Append(0x110,_T("Rise 2"));
-	menu_envelopes->Append(0x112,_T("Rise-fall-rise"));
+	for(ix=0; envelope_names[ix].mnem != NULL; ix++)
+	{
+		string = wxString(envelope_names[ix].mnem, wxConvLocal);
+		menu_envelopes->Append(0x100+envelope_names[ix].value, string);
+	}
+#ifdef deleted
+	menu_envelopes->Append(0x100,_T("fall"));
+	menu_envelopes->Append(0x102,_T("rise"));
+	menu_envelopes->Append(0x104,_T("fall-rise"));
+//	menu_envelopes->Append(0x105,_T("fall-rise (R)"));
+	menu_envelopes->Append(0x106,_T("fall-rise 2"));
+//	menu_envelopes->Append(0x107,_T("fall-rise 2(R)"));
+	menu_envelopes->Append(0x108,_T("rise-fall"));
 
+	menu_envelopes->Append(0x10a,_T("fall-rise 3"));
+	menu_envelopes->Append(0x10c,_T("fall-rise 4"));
+	menu_envelopes->Append(0x10e,_T("fall 2"));
+	menu_envelopes->Append(0x110,_T("rise 2"));
+	menu_envelopes->Append(0x112,_T("rise-fall-rise"));
+#endif
 	menu_prosody = new wxMenu;
 	menu_prosody->Append(1,_T("Pitch envelope"),menu_envelopes);
 	menu_prosody->Append(2,_T("Amplitude"));
@@ -130,6 +139,8 @@ void ProsodyDisplay::SelectPh(int index)
 	PHONEME_LIST *p;
 	const char *emphasized;
 	int y1, y2;
+	int ix;
+	const char *name = "?";
 	char buf[120];
 
 	if(index < 0) return;
@@ -141,10 +152,18 @@ void ProsodyDisplay::SelectPh(int index)
 	if(p->stresslevel & 8)
 		emphasized = "*";
 
+	for(ix=0; envelope_names[ix].mnem != NULL; ix++)
+	{
+		if(envelope_names[ix].value == (p->env & 0xfe))
+		{
+			name = envelope_names[ix].mnem;
+			break;
+		}
+	}
 	y1 = p->pitch1;
 	y2 = p->pitch2;
-	sprintf(buf,"Stress %s%d   Amp %2d   LenMod %2d   Pitch %3d %3d [env=%d]   Flags %.2x ",
-		emphasized,p->stresslevel&0x7,p->amp,p->length,y1,y2,p->env,p->ph->phflags);
+	sprintf(buf,"Stress %s%d   Amp %2d   LenMod %2d   Pitch %3d %3d  %s    PhFlags %.2x ",
+		emphasized,p->stresslevel&0x7,p->amp,p->length,y1,y2,name,p->ph->phflags);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 
@@ -352,6 +371,7 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 		p1 = ph->pitch1;
 	}
 
+	if(p1 == 255) return;
 
 	dc.SetPen(PEN_PITCHENV);
 
@@ -425,6 +445,16 @@ void ProsodyDisplay::DrawPitchline(wxDC& dc, int line, int x1, int x2)
 		{
 			xpos += width;
 			continue;    // before the redraw region
+		}
+
+		// is this a stressed vowel ?
+		if((p->type == phVOWEL) && (p->stresslevel >= 2))
+		{
+			if(p->stresslevel >= 4)
+				dc.SetPen(PEN_PHSTRESSED);
+			else
+				dc.SetPen(PEN_PHSTRESSED2);
+			dc.DrawLine(xpos,offy-LINEBASE-1,xpos+width,offy-LINEBASE-1);
 		}
 
 		// is this phoneme selected ?

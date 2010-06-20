@@ -599,13 +599,13 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 		{
 			// a pause phoneme, which has not been changed by the translation
 			name = '_';
-			len = (p->length * speed.speed_factor1)/256;
+			len = (p->length * speed.pause_factor)/256;
 //			if(len == 0) continue;
 			if(len == 0)
 				len = 1;
 		}
 		else
-			len = (80 * speed.speed_factor2)/256;
+			len = (80 * speed.wav_factor)/256;
 
 #ifdef USE_MBROLA_LIB
 		MbrolaMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, ph->mnemonic); 
@@ -667,7 +667,7 @@ void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola)
 			break;
 
 		case phVSTOP:
-			len = (80 * speed.speed_factor2)/256;
+			len = (80 * speed.wav_factor)/256;
 			break;
 
 		case phFRICATIVE:

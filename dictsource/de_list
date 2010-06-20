@@ -15,30 +15,31 @@
 // spoken when "speak punctuation" option is on.
 
 _.	pUnkt
-*	StE*n	$max3
-%	p@-*o:ts'Ent	$max3
+*	StErn	$max3
+%	pro:ts'Ent	$max3
 +	plUs	$max3
 =	glaIC	$max3
 #	nUm3	$max3
-€	OY*o:
+€	OYro:
 £	paUnd
 &	Unt
 @	kl'am3_,af@
 ~	tIld@
 \ 	bakslaS
-°	g@-*A:t
+°	grA:t
+±	pl'Us||m'i:nUs
 
 _,	kOma
 _|	paIp
 _:	d'Op@lp,UNkt
-_;	St@-*'ICpUNkt
-__	,Unt3St@-*'IC
-_-	b'IndEst@-*,IC
-_!	'aUs_|@-*,u:f@ts,aIC@n
-_?	f@-*'Ag@ts,aIC@n
-_'	,apo:st@-*'Of
+_;	Str'ICpUNkt
+__	,Unt3Str'IC
+_-	b'IndEstr,IC
+_!	'aUs_|r,u:f@ts,aIC@n
+_?	fr'Ag@ts,aIC@n
+_'	,apo:str'Of
 _"	tsi:t'A:t
-_/	S@-*'e:gSt@-*IC
+_/	Sr'e:gStrIC
 _(	kl'am3||_|'aUf
 _)	kl'am3||ts'u:
 _{	g@Sv'aIft@kl'am3||_|'aUf
@@ -46,17 +47,17 @@ _}	g@Sv'aIft@kl'am3||ts'u:
 _[	'EkIg@kl'am3||_|'aUf
 _]	'EkIg@kl'am3||ts'u:
 _<	klaIn3
-_>	g@-*Y:s3
-_`	g@-*A:v
-_^	tsI*kUmflEks
-_—	g@d'aNk@nSt@-*,IC
+_>	grY:s3
+_`	grA:v
+_^	tsIrkUmflEks
+_—	g@d'aNk@nStr,IC
 
 
 _#9	t,abu:l'A:to:3
-_#32	l'e:*ts'aIC@n
+_#32	l'e:rts'aIC@n
 _??	zymb'o:l
 _?A	b'u:xstA:b@
-_cap	g@-*'o:s
+_cap	gr'o:s
 
 
 // accent names
@@ -65,15 +66,15 @@ _acu	ak'u:t
 _ac2	d'Op@lak,u:t
 _brv	b@-*'E:v@
 _ced	se:d'i:j
-_cir	ts'I*kUmflEks
+_cir	ts'IrkUmflEks
 _dia	'UmlaUt
 _dot	p'Unkt
-_grv	g@-*'A:vIs
+_grv	gr'A:vIs
 _hac	h'atSEk
-_mcn	m'A:k@-*On
+_mcn	m'A:krOn
 _ogo	'o:gOn,Ek
-_rng	k@-*'o:wZEk
-_stk	S@-*'e:gst@-*IC
+_rng	kr'o:wZEk
+_stk	Sr'e:gstrIC
 _tld	t'Ild@
 
 æ	$accent
@@ -93,8 +94,8 @@ _0	'nUl
 _1	_'aIns
 _1a	_'aIn
 _2	'tsvaI
-_3	'd@-*aI
-_4	'fi:*
+_3	'draI
+_4	'fi:r
 _5	'fynf
 _6	'zEks
 _7	'zi:b@n
@@ -103,16 +104,16 @@ _9 	'nOYn
 _10	'tse:n
 _11	'_Elf
 _12	'tsvWlf
-_13	'd@-*aItse:n
-_14	'fI*tse:n
+_13	'draItse:n
+_14	'fIrtse:n
 _15	'fynftse:n
 _16	'zECtse:n
 _17	'zi:btse:n
 _18	'_axtse:n
 _19	'nOYntse:n
 _2X	'tsvantsIC
-_3X	'd@-*aIsIC
-_4X	'fI*tsIC
+_3X	'draIsIC
+_4X	'fIrtsIC
 _5X	'fynftsIC
 _6X	'zECtsIC
 _7X	'zi:btsIC
@@ -123,8 +124,8 @@ _0M1	'taUz@nt
 _1M1	'taUz@nt    // no '1' before thousand
 _0M2	||mIlI'o:n@n
 _1M2	_'aIn@||mIlI'o:n
-_0M3    ||mIlI'a*d@n
-_1M3    _'aIn@||mIlI'a*d@
+_0M3    ||mIlI'ard@n
+_1M3    _'aIn@||mIlI'ard@
 _0M4    bIlI'o:n
 _0and	||_|Unt
 _dpt	_kOma
@@ -143,31 +144,31 @@ _0Co	'hUnd3tst@
 (a . a . o .)	 A:||A:||_o:
 allg     'alg@maIn
 abb      'abb,IldUN
-anm      'anm,E*kUN
+anm      'anm,ErkUN
 bd       band
 bde      bEnd@
 bzw      b@tsi:UNsvaIz@
-chr      k@-*IstUs
-dm       d'OYtS@||m'A:*k     $capital $only $abbrev
-dr       dOkt'o:*
+chr      k@rIstUs
+dm       d'OYtS@||m'A:rk     $capital $only $abbrev
+dr       dOkt'o:r
 evtl     e:vEntu:'El
 od       o:d3
-fr       f@-*aU
-frl      f@-*OYlaIn
-hr       hE*
-hrsg     hE*'aUsge:b3
+fr       fraU
+frl      frOYlaIn
+hr       hEr
+hrsg     hEr'aUsge:b3
 inkl     Inklu:z'i:v@
 km       ki:lo:me:t3
 nr       nUm3
 st       'Este:
-usf      %Untzo:f'O*t
+usf      %Untzo:f'Ort
 usw      %Untzo:v'aIt3   $pause
-vgl      fE*gl'aIC@
+vgl      fErgl'aIC@
 (z . b .)     tsUmb'aISpi:l
 
 
 // definite article
-der             %dE*
+der             %dEr
 die             %di:
 das             %das
 den             %de:n
@@ -188,14 +189,14 @@ oder		o:d3	$u+ $pause
 sondern			$pause
 denn		dEn	$u+ $pause
 weil			$pause
-als			$u+ $pause
-bevor		b@fo:*	$2 $pause
+als			$u+ $brk
+bevor		b@fo:r	$2 $pause
 also			$pause
 wenn		,vEn	$pause $strend
 sowie			$2 $pause
 obgleich		$2 $pause
 obwohl			$2 $pause
-deren		de:*@n	$u+ $brk
+deren		de:r@n	$u+ $brk
 
 // prepositions
 ab		ap	$u+ $brk
@@ -203,32 +204,34 @@ an		an	$u+ $brk
 am		am	$u+ $brk
 auf		aUf	$u+ $pause
 aus		,aUs	$brk $strend
-bei		baI	$u+ $pause $only
+bei		baI	$u+ $brk $only
 beim		baIm	$u+ $brk
 bis		bIs	$u+ $pause
 da			$u+
 durch			$u+ $pause
-für		fy:*	$u+ $pause $only
+für		fy:r	$u+ $pause $only
 gegen		ge:g@n	$u+ $pause
 gegend		ge:g@nt
 hin		hIn
 in		In        $u+ $brk
 //(in die)        %Ind%i:
 //(in den)        %Ind%e:n
-//(in der)        %Ind%E*
+//(in der)        %Ind%Er
 im		Im	$u+ $brk
 ins		Ins	$u+ $brk
 mit		mIt	$u+ $pause
 nach		nA:x	$u+ $brk
+neben			$u+ $brk
 ob		,Ob	$pause $strend $only
-pro		,p@-*o:	$pause
+per		pEr	$u+ $brk
+pro		,pro:	$pause
 von		fOn	$u+ $brk
 //(von dem)	%fOn%de:m	$brk
 vom		fOm	$u+ $brk
-vor		,fO*	$strend
+vor		,fOr	$strend
 zu		tsu:	$u+ $brk
 zum		tsUm	$u+ $pause
-zur		tsu:*	$u+ $pause
+zur		tsu:r	$u+ $pause
 über		,yb3	$pause $strend
 unter		,Unt3	$pause $strend $only
 um		Um	$u+ $brk
@@ -241,18 +244,18 @@ so		zo:	$u+
 doch		dOx	$u+
 noch			$pause
 (noch nicht)	n'Ox||n'ICt	$brk
-(nicht mehr)	n'ICt||,me:*
-(nicht mehr)	n,ICt||m'e:*	$atend
-(nicht nur)	n'ICt||n'u:*	$pause
-(gar nicht)	g,A:*n'ICt
+(nicht mehr)	n'ICt||,me:r
+(nicht mehr)	n,ICt||m'e:r	$atend
+(nicht nur)	n'ICt||n'u:r	$pause
+(gar nicht)	g,A:rn'ICt
 
 // should these be in the Rules because they can be a prefix in a
 // compound verb ?
-daran		dA:*'an
+daran		dA:r'an
 darauf		$2
 daraus		$2
 dabei		$2
-dadurch		dA:d'U*x
+dadurch		dA:d'Urx
 dafür		$2
 dagegen		$2
 daher		dA:h'Er
@@ -261,27 +264,36 @@ damit		dA:m'It
 danach		$2
 daneben		$2
 darein		$2
-darin		dA:*'In
+darin		dA:r'In
 darüber		$2
 darum		$2
 darunter	$2
 davon		dA:f'On
 dazu		dA:ts'u:
-umher		Umh'E*
+umher		Umh'Er
 umhin		Umh'In
-woran		vo:*'an
+woran		vo:r'an
 worauf		$2
 woraus		$2
-worin		vo:*'In
+worin		vo:r'In
 
 // pronouns
-ich		IC	$u $only
-du		du:	$u $only
+ich		$u  $only
+mich		$u  $only
+mir		$u+ $only
+du		$u  $only
+dich		$u+ $only
+dir		$u+ $only
 er		Er	$u $brk $only
 es		Es	$u $only
+ihn		$u+ $only
+ihm		$u+ $only
 sie		zi:	$u $only
-wir		vi:*	$u $only
-ihr		i:*	$u
+ihnen		$u+ $only
+wir		vi:r	$u $only
+uns		$u+ $only
+ihr		i:r	$u
+euch		$u+ $only
 man		man	$u $only
 sich		zIC	$u $only
 (es ist)	%Es%Ist
@@ -309,16 +321,16 @@ deine		$u+
 sein		$u            // can also be verb "to be"
 seine		$u+
 
-unsre		Unz*@	$u
-unsere		Unz*@	$u
+unsre		Unzr@	$u
+unsere		Unzr@	$u
 unser		Unz3	$u
 unserm		Uns3m	$u
-unserem		Uns@*@m	$u
+unserem		Uns@r@m	$u
 
 
-ihre		i:*@	$u
-ihrem		i:*@m	$u
-ihrer		i:*3	$u
+ihre		i:r@	$u
+ihrem		i:r@m	$u
+ihrer		i:r3	$u
 
 dies		di:z	$u
 diese		di:z@	$u
@@ -334,6 +346,13 @@ etwa			$u
 ganz		g,ants	$only
 je			$u
 nur			$brk
+jetzt		j,Etst	$strend2
+schon		S,o:n	$strend2
+einst		'aInst	// not 'ein' + st
+zwar		tsv,a:r
+wo		v,o:
+während		$u
+
 
 // verbs
 
@@ -347,7 +366,7 @@ habe		%hA:b@  $only
 habest		hA:bEst  $only $u
 hast		%hast   $only
 hat		%hat    $only
-haben		h,A:b@n $only
+haben		h,A:b@n $only $strend2
 hatte		h,at@   $only
 hatten		h,at@n  $only
 hätte		h,Et@   $only
@@ -355,26 +374,27 @@ hättest		h,EtEst $only
 hättet		h,Et@t  $only
 hätten		h,Et@n  $only
 
-war		%vA:*   $only
-warst		%vA:*st $only
-wart		%vA:*t  $only
-waren		'vA:*@n
+war		%vA:r   $only
+warst		%vA:rst $only
+wart		%vA:rt  $only
+waren		'vA:r@n
 
 will		%vIl   $only
 willst		%vIlst $only
 wollen		%vOl@n $only
 wollt		%vOlt
 
-werden		v,E*d@n
-werde		v,E*d@
-wirst		v,I*st
-werdet		v,E*d@t
-wurden		vU*d@n
-wurde		vU*d@
-wurdest		v,U*dEst
-wurdet		vU*d@t
+werden		v,Erd@n $strend2
+werde		v,Erd@
+wirst		v,Irst
+wird		v,Irt
+werdet		v,Erd@t
+wurden		v,Urd@n
+wurde		v,Urd@
+wurdest		v,UrdEst
+wurdet		v,Urd@t
 
-können		,kWn@n  $only
+können		,kWn@n  $only $strend2
 kann		,kan    $only
 kannst		,kanst  $only
 könnt		,kWnt   $only
@@ -386,6 +406,7 @@ sollst		,zOlst
 sollte		,zOlt@
 sollten		,zOlt@n
 
+kam		,kA:m
 
 
 
@@ -415,7 +436,6 @@ cursor		_^_EN
 debugger	_^_EN
 dj		_^_EN
 email		_^_EN
-ensemble	_^_FR
 enterprise	_^_EN
 event		_^_EN
 firewall	_^_EN
@@ -494,39 +514,40 @@ word		_^_EN
 
 // Main exceptions list
 //=====================
-abort           ab'O*t
-absentier       apzEnt'i:*
+abort           ab'Ort
+absentier       apzEnt'i:r
 abstinent        $3
 achsig          'aksIg#
 akazie           $alt
 allein           $2
-andre           and@-*@        // andere
+andre           andr@        // andere
 anomalie         $2
 antik           ant'i:k
-archaik         a*C'A:Ik
+archaik         arC'A:Ik
 arie             $alt
-arpeggier       a*pEdZ'i:*
-arrangier       a*aNZ'i:@
+arpeggier       arpEdZ'i:r
+arrangier       araNZ'i:@
+Art		A:rt		// capital
 arterie          $alt
 asphalt          $2
 atommüll         $1
 ausgeschamt     aUsg@SA:mt
 außerdem        'aUs3d,e:m
-aventurin       avEntu:*'i:n
+aventurin       avEntu:r'i:n
 ave             A:vE
 
 balkan           $1
 balkon           $2
 bandagier       bandaZ'i:@
 beben           be:b@n
-beere           be:*@
+beere           be:r@
 bestie          bEstI@
 best            bEst
 beten           be:t@n
 bizarr           $2
 bronchie         $alt
 
-changier        SaNZ'i:*
+changier        SaNZ'i:r
 ciao            tSaU
 coup            ku:
 
@@ -536,35 +557,35 @@ deshalb          $2
 dezember         $2
 diadem          di:ad'e:m
 dient           di:nt
-direkt           $2
 dividend        di:vi:d'Ent
-dragier         d@-*aZ'i:*
-dritte          d@-*It@
+dragier         draZ'i:r
+dritte          drIt@
 duett           du:'Et
 
 ebendaher       e:b@ndah'e:r
 ebendahin       e:b@ndah'In
 ebenso          $1
 einander        aIn'and3
-einerlei        aIn@*laI
+einerlei        aIn@rlaI
 einher          aInh'e:r
 einig           aInIC  $only
 einige          aInIg@ $u+
 einiges         aInIg@s $u+
-engagier        aNgaZ'i:*
+engagier        aNgaZ'i:r
 endivie          $alt
 endlich         EntlIC
+ensemble        Ons'Omb@l
 episkopal       e:pIsko:p'A:l
-erde            e:*d@
-erst            e:*st
-ersten          e:*st@n
-erstmal         e:*stma:l
+erde            e:rd@
+erst            e:rst
+ersten          e:rst@n
+erstmal         e:rstma:l
 extravagant      $1
-extrem          Ekst@-*'e:m
+extrem          Ekstr'e:m
 
 feuerrot         $3
-friedvoll       f@-*'i:tf,Ol
-furchen         fU*C@n
+friedvoll       fr'i:tf,Ol
+furchen         fUrC@n
 furie            $alt
 
 geben           ge:b@n
@@ -573,7 +594,7 @@ gegenüber       ge:g@n'y:b3
 geglichen       g@glIC@n
 gemein          g@maIn
 genial          ge:nI'al
-geranie         ge:*'A:nI@
+geranie         ge:r'A:nI@
 gessen          gEs@n
 geste           ge:st@
 gestern         gEst3n
@@ -582,16 +603,16 @@ grazie           $alt
 
 handy           hEndi:
 häuschen        hOYsC@n
-hausier         haUz'i:*
+hausier         haUz'i:r
 heimat           $1
-herberg         hE*bE*g
+herberg         hErbErg
 historie         $alt
 hm              h@m
 horsam          hO3zA:m
 hostie           $alt
 
 illegitim       Ile:gi:t'i:m
-illiberal       Ili:b@*'A:l
+illiberal       Ili:b@r'A:l
 illoyal         IlOajA:l
 immobilie        $alt
 indem           Ind'e:m
@@ -604,10 +625,10 @@ inka            INkA:
 inkaisch        INkA:IS
 inkonstant       $1
 insbesondere     $3
-interess        Int@*'Es
-intern          Int'E*n
+interess        Int@r'Es
+intern          Int'Ern
 
-januar          janu:A:*
+januar          janu:A:r
 
 kamelie          $alt
 kanoe           kan'u:
@@ -620,23 +641,23 @@ kurie            $alt
 
 lappalie         $alt
 lilie            $alt
-logier          lo:Z'i:*
+logier          lo:Z'i:r
 lucent          lu:sEnt
 luetisch        lu:'e:tIS
 
 machen          max@n
 marginalie       $alt
 materie          $alt
-menagier        me:naZ'i:*
+menagier        me:naZ'i:r
 menuette        mEnu:'Et
 minut            $2
-mikrofiche	mi:k@-*o:fi:S
+mikrofiche	mi:kro:fi:S
 miteinander      $1
 modell          mo:d'El
 monoton          $3
 monsun           $2
 montag          mo:ntA:k
-mors            mO*s
+mors            mOrs
 mumie            $alt
 
 nachdem         naxd'e:m
@@ -654,12 +675,12 @@ perplex          $2
 petersilie       $alt
 pinie            $alt
 planet          plan'e:t
-pochier         pOS'i:*
+pochier         pOS'i:r
 pochs           pOxs
 präsident        $3
 prämie           $alt
-privatisier     p@-*i:vati:z'i:*
-problematisier  p@-*o:ble:m'a:tIzi:*
+privatisier     pri:vati:z'i:r
+problematisier  pro:ble:m'a:tIzi:r
 
 reliquie         $alt
 risik           $1
@@ -670,53 +691,56 @@ sagt            zA:gt
 salopp           $2
 schult          Su:lt
 selbst          zElpst
-serie           se:*I;@
-service         sE*vIs
+serie           se:rI;@
+service         sErvIs
 soeben          zo:_'e:b@n
 sofort           $2
 sogar            $2
 soweit           $2
 sowohl           $2
-sparsam         SpA:*zA:m
+sparsam         SpA:rzA:m
 spinozaisch     spi:n'o:tsaIS
 stalagmit       stalagm'It
+subjekt		$1
 system          zIst'e:m
 
 tag             tA:g
 telegen         te:le:g'e:n
 the             D@         // English
 theater         te:'A:t3
-train           t@-*e:n
+train           tre:n
 turin            $2
 
 umweg            $1
 unten           Unt@n
 
-wasserung       vas@*UN    // because -ung isn't marked as a suffix
-weiterung       vaIt@*UN
-weither         vaIth'E*
+wasserung       vas@rUN    // because -ung isn't marked as a suffix
+weiterung       vaIt@rUN
+weither         vaIth'Er
 weitum          vaIt_|'Um
 woher           vo:h'e:r
 
-verein          fE*'aIn
+verein          fEr'aIn
 vielbesprochen   $3
 vielleicht       $2
-vorbei          fo:*b'aI
-vorher          fo:*h'e:*
-vorherig        fo:*h'e:*Ig#
-vorig           fo:*Ig#
+vorbei          fo:rb'aI
+vorher          fo:rh'e:r
+vorherig        fo:rh'e:rIg#
+vorig           fo:rIg#
 
 //wahrscheinlich   $2
-warum           vA:*'Um
+warum           vA:r'Um
 
 zoom            zu:m
-//zuerst          tsu:'E*st
 zugegen         tsu:g'e:g@n
 zudem           tsu:'de:m
+zugegen		tsu:g'e:g@n
 zurück           $2
 zymbal           $1
 
 
 // Names
+Georg		ge:Ork	$only
+George		dZO:rdZ
 Neumexiko       $2
 Neuseeland	$2

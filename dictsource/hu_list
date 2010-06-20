@@ -147,6 +147,9 @@ _#-vel	e:vEl	$alt2
 _#-val	a:vAl	$alt2
 _#-ánál	a:na:l	$alt2
 _#-énél	e:ne:l	$alt2
+_#-ik || //This is not a mistake. This is a special ordinal number suffix, with not need insert replace word suffix. For example:
+//If a string containing the 17-ik string, need spokening tizenhetedik phoneme. If the suffix rule not containing the || rule but containing another
+//replace word, the spokened suffix is mistaked, for example tizenhetedikedik if this rule containing the Edik phoneme, not || phoneme.
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
 (1-jén)	elsején 	$text $alt2
@@ -406,7 +409,7 @@ stb	SAtYb:i  $hasdot
 u.n	u:JnEvEzEt:   $hasdot
 ú.n	u:JnEvEzEt:   $hasdot
 vö	v'EZd||_'Yss2E
-(u . i .)  u:i:
+(u . i .) $abbrew
 
 
 
@@ -977,6 +980,16 @@ lennénk	$unstressend
 lennétek	$unstressend
 hitt	$unstressend
 fő	$unstressend
+dúl	$unstressend
+dúlt	$unstressend
+kapott	$unstressend
+nyakú	$unstressend
+rúgást	$unstressend
+kapni	$unstressend
+kulcs	$unstressend
+nyit	$unstressend
+lő	$unstressend
+támad	$unstressend
 
 // word pairs
 
@@ -1118,7 +1131,7 @@ _{	k'EzdY:kAptSoS	$max3
 _}	v'e:gkAptSoS	$max3
 _…	pontpontpont
 
-_•	fElSoR2ola:SjEl
+_•	liStAjEl
 _|	fyg:Y:lEgESvonAl
 _>	nAJob
 _<	kiSSEb
@@ -1170,7 +1183,6 @@ _¡	AlSo:indEks
 
 nato	na:to:
 (end-of line) u:jS,oR2
-
 
 
 $textmode

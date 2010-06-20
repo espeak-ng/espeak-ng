@@ -6,6 +6,29 @@
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
+b	be:
+c	se:
+d	de:
+f	Ef
+g	Qe:
+h	ha:
+i	i:
+j	je:
+k	ka:
+l	El
+m	Em
+n	En
+p	pe:
+q	ky
+r	Er
+s	Es
+t	te:
+v	fe:
+w	ve:
+x	Iks
+y	EI
+z	zEt
+
 _s	Es
 _t	te:
 
@@ -32,25 +55,25 @@ _tld	t'Ild@
 
 
 // punctuation
-_.	p8nt
+.	p8nt		$max3
 _,	k'Oma:
 _:	d'8b@l@p,8nt
 _;	p'8ntkOm,a:
 /	sl'As
-_\	b'AkkslAs
+\	b'AkkslAs
 _?	v@-*'a:xte:k@n
 _!	'Wyt@-*upt,e:k@n
 _"	'a:nha:lInxste:k@n
 @	'a:p@nst,a:rt;@
-#	h'Ekj@
+#	h'Ekj@		$max3
 %	p@-*o:s'Ent
 _(	h'a:kj@_|'o:pe:n@n
 _)	h'a:kj@sl'Wyt@n
 _{	v'irkAnt@h,a:k
 _}	v'irkAnt@h,a:ksl'Wyt@n
 _-	k'OpElt,e:k@n
-+	pl'8s
-*	st'E*rEt;@
++	pl'8s		$max3
+*	st'E*rEt;@	$max3
 __	l'IgEntst@-*'e:pj@
 €	'Y:*o:t,e:k@n
 
@@ -58,7 +81,7 @@ __	l'IgEntst@-*'e:pj@
 // numbers
 _0	n'8l
 _1	'e:n
-_2	tv2'e:
+_2	tv#'e:
 _3	dr'i
 _4	f'ir
 _5	f'EIf
@@ -76,7 +99,7 @@ _16	z'Estin
 _17	z'e:f@ntin
 _18	'Axtin
 _19	n'e:x@ntin
-_2X	tv2'Int@x
+_2X	tv#'Int@x
 _3X	d'e:rt@x
 _4X	f'e:rt@x
 _5X	f'EIft@x
@@ -93,12 +116,30 @@ _0M4	b'iljun
 _0and	En
 _dpt	_k'Oma:
 
+_ord	d@
+_ord20	st@
+_1o	'I:rst@
+_2o	tv#'e:d@
+_3o	d'Erd@
+_4o	v'ird@
+_5o	v'EIfd@
+_6o	z'Esd@
+_7o	z'e:v@nd@
+_8o	'Axtst@
+_0Co	h'OndErtst@
+
+
+// abbreviations
+nr	n8m@r
+nvda	$abbrev
+
 
 // articles
 de	d@
 het	h@t
 een	@n
-
+ən	@n   // char.replacement for 'n
+ət	@t   // char.replacement for 't
 
 // pronouns
 ik		$u
@@ -144,18 +185,25 @@ waar		$pause
 // prepositions
 in		$u+ $brk	// in
 op		$u+ $brk	// in
-aan		$u+ $pause	// at, on
+aan		$u+ $brk	// at, on
 bij		$u+ $pause	// at, near
 om		$u+ $brk	// at
-met		$u+ $pause	// with, by
+met		$u+ $brk	// with, by
 over		$u+ $pause	// about
 na		$u+ $pause	// after
-door		$u+ $pause	// through, by
+naar		$u+		// to
+door		$u+ $brk	// through, by
+te		$u+ $brk	// to
 tot		$u+ $pause	// until
-uit		$u+ $pause	// from, out of
+uit		$u+ $brk	// from, out of
 voor		$u+ $pause	// for, in front of
-van		$u+ $brk	// from, of
+van		$u+		// from, of
 zonder		$u+ $pause	// without
+
+// adverbs, etc.
+ook		$u+	// any
+zo		$u+
+sommige		$u+	// some
 
 
 // conjunctions
@@ -172,7 +220,7 @@ dat	$u $pause	// that
 hoewel	$pause		// although
 of	$u $pause	// whether
 omdat	$pause		// because
-nadat	$pause		// after
+nadat	$u $pause	// after
 nudat	$pause		// now that
 sinds	$pause		// since
 tenzij	$pause		// unless
@@ -188,8 +236,8 @@ zover	$pause		// as far as
 
 
 // negative
-niet		$u+
-
+niet	n,it	$strend
+(niet meer) _n'it||m,e:r
 
 // questions
 
@@ -245,15 +293,55 @@ werd	$u
 
 
 // Pronounce as English
-game        _^_EN
-player      _^_EN
-the         _^_EN
+delete	_^_EN
+down	_^_EN
+escape	_^_EN
+home	_^_EN
+game	_^_EN
+items	_^_EN
+laptop	_^_EN
+page	_^_EN
+player	_^_EN
+slash	_^_EN
+speak	_^_EN
+the	_^_EN
+up	_^_EN
+
+
+// words where -eren is not a verb ending
+ander		$alt
+kinder		$alt
+ouder		$alt
 
 // pronunciation exceptions
+aangrijpend	$2
 bourgondier	burx'o:ndi:@r
 circuit		sIrku'i
+computer	$2
 contour		ko:nt'ur
 eren		I:*@n
+ingewikkeld	$3
+ingrijpend	$2
+ingeval		$3
+ingevolge	$3
+ingrediënt	$4
+ingenieur	Inzj@nj'Y:r
 journaal	Surn'a:l
-kennedy		kEn@dE
+ongastvrij	OnQAstv@-*'EI
+ongelooflijk	$3
+ongemakkelijk	$3
+ongelukkig	$3
+ongerieflijk	$3
+ongrondwettig	$3
+proces		$2
+renaissance	rEne:s'A~s@
+waarschijnlijk	$2
 
+
+
+// names
+Inge		IN@
+Ingeborg	INe:bOrx
+Ingmar		INmAr
+Ingrid		IN@-*It
+kennedy		kEn@dE

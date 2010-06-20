@@ -88,6 +88,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$strend2",   12},    /* full stress if at end of clause, or only followed by unstressed */
 	{"$unstressend",13},   /* reduce stress at end of clause */
 	{"$atend",     14},    /* use this pronunciation if at end of clause */
+	{"$atstart",   15},   // use this pronunciation at start of clause
 
 	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
 	{"$stem",      18},   // must have a suffix
@@ -691,9 +692,9 @@ step=1;  // TEST
 
 	len_word = strlen(word);
 
-	if(translator->transpose_offset > 0)
+	if(translator->transpose_min > 0)
 	{
-		len_word = TransposeAlphabet(word, translator->transpose_offset, translator->transpose_min, translator->transpose_max);
+		len_word = TransposeAlphabet(translator, word);
 	}
 
 	*hash = HashDictionary(word);

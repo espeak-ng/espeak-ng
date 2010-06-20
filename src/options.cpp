@@ -182,6 +182,10 @@ void ConfigInit()
 	pConfig->Read(_T("/modifiervoice"),&path_modifiervoice,basedir);
 	pConfig->Read(_T("/dir1"),&path_dir1,basedir);
 	option_speed = pConfig->Read(_T("/speed"),160);
+	frame_x = pConfig->Read(_T("/windowx"), 0l);
+	frame_y = pConfig->Read(_T("/windowy"), 0l);
+	frame_h = pConfig->Read(_T("/windowh"), 0l);
+	frame_w = pConfig->Read(_T("/windoww"), 0l);
 	ConfigSetPaths();
 }  // end of ConfigInit
 
@@ -190,6 +194,7 @@ void ConfigInit()
 void ConfigSave(int exit)
 {//======================
 	wxFileConfig *pConfig = (wxFileConfig *)(wxConfigBase::Get());
+
 
 #ifndef PLATFORM_WINDOWS
 //	pConfig->Write(_T("/samplerate"),samplerate);
@@ -207,7 +212,10 @@ void ConfigSave(int exit)
 	pConfig->Write(_T("/speed"),option_speed);
 	pConfig->Write(_T("/modifiervoice"),path_modifiervoice);
 	pConfig->Write(_T("/dir1"),path_dir1);
-
+	pConfig->Write(_T("/windowx"),frame_x);
+	pConfig->Write(_T("/windowy"),frame_y);
+	pConfig->Write(_T("/windoww"),frame_w);
+	pConfig->Write(_T("/windowh"),frame_h);
 	if(exit)
 		delete wxFileConfig::Set((wxFileConfig *)NULL);
 }

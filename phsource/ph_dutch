@@ -77,13 +77,23 @@ endphoneme
 phoneme a:
   vowel starttype #a endtype #a
   length 210
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/a#_4)
+  ENDIF
   FMT(vowel/a)
 endphoneme
 
 phoneme A
   vowel starttype #a endtype #a
   length 160
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/a#_2)
+  ENDIF
   FMT(vowel/aa_7)
+endphoneme
+
+phoneme A~
+  import_phoneme fr/A~
 endphoneme
 
 
@@ -147,13 +157,9 @@ endphoneme
 
 
 phoneme r    // from Afrikaans
-  import_phoneme af/r
+  import_phoneme base/R2
 endphoneme
 
-
-phoneme v2        // approximant, not fricative
-  import_phoneme base/v#
-endphoneme
 
 
 phoneme Q
@@ -162,6 +168,11 @@ phoneme Q
   voicingswitch x
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+
+  IF nextPhW(isVoiced) THEN
+  ELSE
+    ChangePhoneme(x)
+  ENDIF
 
   IF nextPh(isPause2) THEN
     FMT(voc/Q_) addWav(vocw/Q_)

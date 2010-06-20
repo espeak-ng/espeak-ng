@@ -45,24 +45,6 @@ phoneme u
   FMT(vowel/u_5)
 endphoneme
 
-phoneme m-
-  vowel starttype #o endtype #o
-  length 190
-  FMT(vnasal/m-)
-endphoneme
-
-phoneme n-
-  vowel starttype #e endtype #e
-  length 190
-  FMT(vnasal/n-)
-endphoneme
-
-phoneme N-
-  vowel starttype #e endtype #e
-  length 190
-  FMT(vnasal/nn-)
-endphoneme
-
 
 // Consonants
 

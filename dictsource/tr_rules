@@ -5,6 +5,10 @@
 // Stress rule: Right-most vowel, but stop before the vowel which is
 // marked as unstressed [%].
 
+// Conditional rules:
+// ?1  mbrola voices
+
+
 // unvoiced consonants
 .L01 ç f h k p q s ş t 
 
@@ -17,10 +21,10 @@
      @) a (_S1   a
 
 	acak (_S3  adZak
-	acakmış (_S7   adZakm%u#S
-	ayım (_S4  aju#m
-	alım (_S4  alu#m
-	asın (_S4  asu#n
+	acakmış (_S7   adZakm%@S
+	ayım (_S4  aj@m
+	alım (_S4  al@m
+	asın (_S4  as@n
 
 	avru (pa avr'u
 
@@ -48,12 +52,12 @@
 	diniz (_S5 diniz
 	di (_S2    di
 	diler (_S5 dileR
-	dım (_S3   du#m
-	dık (_S3   du#k
-	dın (_S3   du#n
-	dınız (_S5 du#nu#z
-	dı (_S2    du#
-	dılar (_S5 du#laR
+	dım (_S3   d@m
+	dık (_S3   d@k
+	dın (_S3   d@n
+	dınız (_S5 d@n@z
+	dı (_S2    d@
+	dılar (_S5 d@laR
 	dum (_S3   dum
 	duk (_S3   duk
 	dun (_S3   dun
@@ -68,7 +72,7 @@
 	düler (_S5 dyler
 
 	dir (_S3  %diR
-	dır (_S3  %du#R
+	dır (_S3  %d@R
 	dur (_S3  %duR
 	dür (_S3  %dyR
 
@@ -100,6 +104,7 @@
 .group ğ
         ğ        Q
      A) ğ        :||
+?1   A) ğ        G     // mbrola
      i) ğ        j
      e) ğ        j
 
@@ -120,15 +125,15 @@
 
 
 .group ı
-        ı        u#
+        ı        @
 
-     @) ı (_S1   u#
+     @) ı (_S1   @
 
-	ım (_S2  %u#m
-	ınız (_S2  %u#nu#z
-	ız (_S2  %u#z
-	ıyor (_S4  u#j%oR
-	ın (_S2  u#n
+	ım (_S2  %@m
+	ınız (_S2  %@n@z
+	ız (_S2  %@z
+	ıyor (_S4  @j%oR
+	ın (_S2  @n
 
 
 .group j
@@ -154,12 +159,12 @@
 	ler (_S3  leR
 
 	li (_S2  li
-	lı (_S2  lu#
+	lı (_S2  l@
 	lu (_S2  lu
 	lü (_S2  ly
 
 	lik (_S3  lik
-	lık (_S3  lu#k
+	lık (_S3  l@k
 	luk (_S3  luk
 	lük (_S3  lyk
 
@@ -175,7 +180,7 @@
         n        n
 
 	nin (_S3  nin
-	nın (_S3  nu#n
+	nın (_S3  n@n
 	nun (_S3  nun
 	nün (_S3  nyn
 
@@ -204,7 +209,7 @@
 .group s
         s        s
 
-	sınız (_S5  %su#nu#z
+	sınız (_S5  %s@n@z
 	siniz (_S5  %siniz
 	sunuz (_S5  %sunuz
 	sünüz (_S5  %synyz
@@ -212,7 +217,7 @@
 	sam (_S3   %sam   // if
 	sak (_S3   %sak
 	san (_S3   %san
-	sanız (_S5 %sanu#z
+	sanız (_S5 %san@z
 	sa (_S2    %sa
 	sem (_S3   %sem
 	sek (_S3   %sek
@@ -233,7 +238,7 @@
 	ten (_S3  ten
 
    L01) tir (_S3  %tiR
-   L01) tır (_S3  %tu#R
+   L01) tır (_S3  %t@R
    L01) tur (_S3  %tuR
    L01) tür (_S3  %tyR
 
@@ -279,22 +284,22 @@
 	ya (_S2   ja
 	ye (_S2   je
 	yi (_S2   ji
-	yı (_S2   ju#
+	yı (_S2   j@
 	yu (_S2   ju
 	yü (_S2   jy
 
 	yim (_S3  %jim
-	yım (_S3  %ju#m
+	yım (_S3  %j@m
 	yum (_S3  %jum
 	yüm (_S3  %jym
 
 	yiz (_S3  %jiz
-	yız (_S3  %ju#z
+	yız (_S3  %j@z
 	yuz (_S3  %juz
 	yüz (_S3  %jyz
 
 	yiniz (_S5  %jiniz
-	yınız (_S5  %ju#nu#z
+	yınız (_S5  %j@n@z
 	yunuz (_S5  %junuz
 	yünüz (_S5  %jynyz
 
@@ -303,12 +308,12 @@
 
 	yacak (_S5  jadZak
 	yecek (_S5  jedZek
-	yacakmış (_S8   jadZakm%u#S
+	yacakmış (_S8   jadZakm%@S
 	yecekmiş (_S8   jedZekm%iS
 
-	yayım (_S5  jaju#m
-	yalım (_S5  jalu#m
-	yasın (_S5  jasu#n
+	yayım (_S5  jaj@m
+	yalım (_S5  jal@m
+	yasın (_S5  jas@n
 	yeyim (_S5  jejim
 	yelim (_S5  jelim
 	yesin (_S5  jesin

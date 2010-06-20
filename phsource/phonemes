@@ -134,6 +134,8 @@ phoneme - //  Indicates the previous phoneme is a syllabic consonant
 endphoneme
 
 
+// Some default vowel definitions
+
 phoneme @    //  Schwa
   vowel   starttype #@  endtype #@
   unstressed
@@ -148,6 +150,78 @@ phoneme @-   //  very short schwa
   unstressed
   length 50
   FMT(vowel/@-)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 180
+  FMT(vowel/a)
+endphoneme
+
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 170
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 170
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 170
+  FMT(vowel/oo)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 170
+  FMT(vowel/u)
+endphoneme
+
+
+// Syllablic consonants
+//=====================
+
+phoneme m-
+  vowel starttype #@ endtype #@
+  length 170
+
+  IF thisPh(isWordStart) THEN
+    length 190
+  ENDIF
+  IF KlattSynth THEN
+    FMT(klatt/m-syl)
+  ENDIF
+  FMT(m/m-syl)
+endphoneme
+
+phoneme n-
+  vowel starttype #@ endtype #@
+  length 170
+
+  IF thisPh(isWordStart) THEN
+    length 190
+  ENDIF
+  IF KlattSynth THEN
+    FMT(klatt/n-syl)
+  ENDIF
+  FMT(n/n-syl)
+endphoneme
+
+phoneme N-
+  vowel starttype #e endtype #e
+  length 190
+  FMT(nn/nn-syl)
 endphoneme
 
 
@@ -1396,7 +1470,7 @@ phoneme S;
 endphoneme
 
 
-phoneme L   // Welsh "ll"
+phoneme l#   // Lateral fricative (eg. Welsh "ll")
   vls alv frc
   lengthmod 3
 
@@ -1413,7 +1487,7 @@ phoneme L   // Welsh "ll"
     VowelEnding(l/xl, -40)
   ENDIF
 
-  WAV(ufric/ll, 80)
+  WAV(ufric/ll, 60)
 endphoneme
 
 
@@ -1492,22 +1566,22 @@ include ph_base2
 phonemetable en base
 include ph_english
 
-phonemetable en_n en
+phonemetable en-n en
 include ph_english_n
 
-phonemetable en_us en
+phonemetable en-us en
 include ph_english_us
 
-phonemetable en_sc en
+phonemetable en-sc en
 include ph_english_sc
 
-phonemetable en_rp en
+phonemetable en-rp en
 include ph_english_rp
 
-phonemetable en_wm en
+phonemetable en-wm en
 include ph_english_wm
 
-phonemetable en_wi en
+phonemetable en-wi en
 include ph_english_wi
 
 
@@ -1535,7 +1609,7 @@ include ph_finnish
 phonemetable fr base
 include ph_french
 
-phonemetable fr_ca fr
+phonemetable fr-ca fr
 include ph_french_ca
 
 phonemetable hi base
@@ -1581,7 +1655,7 @@ include ph_latin
 phonemetable es base2
 include ph_spanish
 
-phonemetable es_la es
+phonemetable es-la es
 include ph_spanish_la
 
 phonemetable ca es
@@ -1590,7 +1664,7 @@ include ph_catalan
 phonemetable pt base2
 include ph_pt_brazil
 
-phonemetable pt_pt pt
+phonemetable pt-pt pt
 include ph_portugal
 
 phonemetable ro base2
@@ -1685,3 +1759,6 @@ include ph_s_gaelic
 
 phonemetable bg pl
 include ph_bulgarian
+
+phonemetable nso base
+include ph_northern-sotho

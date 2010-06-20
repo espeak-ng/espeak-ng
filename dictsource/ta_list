@@ -174,7 +174,6 @@ tamil	தமிழ்	$text
 
 // exceptions
 பாபு	$alt	// initial ப as [b]
-பவானி	$alt
 பகவதி	$alt
 பானம்	$alt
 பாணம்	$alt
@@ -232,6 +231,9 @@ tamil	தமிழ்	$text
 பலே	$alt
 பூம்	$alt
 பரத	$alt
+பலத்தில்	$alt
+பலத்தின்	$alt
+பைக்ல	$alt
 (பி . ஏ)	bije:
 
 
@@ -273,6 +275,12 @@ tamil	தமிழ்	$text
 தேச	$alt
 தேசப்	$alt
 தானம்	$alt
+தீரமும்	$alt
+தீரத்தோடு	$alt
+தவத்தில்	$alt
+தவத்தின்	$alt
+தவத்தினால்	$alt
+
 
 	// initial ட
 டார்ச்	t.a:rtS
@@ -318,6 +326,8 @@ tamil	தமிழ்	$text
 குதி	$alt
 கம்	$alt
 காந்தம்	$alt
+கான	$alt
+கோத்திர	$alt
 
 
 // p as [f]

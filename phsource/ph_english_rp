@@ -46,7 +46,7 @@ endphoneme
 phoneme a
   vowel  starttype #a  endtype #a
   length 175
-  ChangeIfDiminished(a2)
+  ChangeIfDiminished(a#)
   FMT(vowel/&)
 endphoneme
 
@@ -107,7 +107,7 @@ endphoneme
 
 
 
-phoneme a2
+phoneme a#
   vowel  starttype #@  endtype #@
   unstressed
   length 150
@@ -150,7 +150,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 175
+  length 175 long
   IfNextVowelAppend(;)
   IF prevPh(w) THEN
     VowelStart(w/wi2)
@@ -187,7 +187,7 @@ endphoneme
 phoneme u:
   vowel  starttype #u  endtype #u
   length 190
-  FMT(vowel/u_fnt)
+  FMT(vowel/u_6)
 endphoneme
 
 
@@ -214,7 +214,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype #i  endtype #i
-  length 210
+  length 220
   FMT(vdiph2/ei_2)
 endphoneme
 

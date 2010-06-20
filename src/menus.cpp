@@ -87,8 +87,9 @@ wxMenuBar *MakeMenu(int type)
 	data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data"));
 	data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
 	data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (debu&g)"));
+	data_menu->AppendSeparator();
 	data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
-//	data_menu->Append(MENU_COMPILE_INTONATION, _("Compile &intonation data"));
+	data_menu->Append(MENU_COMPILE_INTONATION, _("Compile &intonation data"));
 	data_menu->AppendSeparator();
 	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Layout *_rules file"));
 	data_menu->Append(MENU_SORT_DICTIONARY, _("&Sort *_rules file"));
@@ -109,7 +110,7 @@ wxMenuBar *MakeMenu(int type)
 	// TOOLS
 	vowelchart_menu = new wxMenu;
 	vowelchart_menu->Append(MENU_VOWELCHART1, _("From compiled phoneme data"));
-	vowelchart_menu->Append(MENU_VOWELCHART2, _("From list of formants..."));
+//	vowelchart_menu->Append(MENU_VOWELCHART2, _("From list of formants..."));
 	vowelchart_menu->Append(MENU_VOWELCHART3, _("From directory of vowel files..."));
 
 	lexicon_menu = new wxMenu;

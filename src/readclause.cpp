@@ -58,6 +58,7 @@ static const char *ungot_word = NULL;
 static int end_of_input;
 
 static int ignore_text=0;   // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
+static int audio_text=0;    // set during <audio> ... </audio> 
 static int clear_skipping_text = 0;  // next clause should clear the skipping_text flag
 int count_characters = 0;
 static int sayas_mode;
@@ -183,7 +184,7 @@ static int speech_parameters[N_SPEECH_PARAM];     // current values, from param_
 
 const int param_defaults[N_SPEECH_PARAM] = {
    0,     // silence (internal use)
-  170,    // rate wpm
+  175,    // rate wpm
   100,    // volume
    50,    // pitch
    50,    // range
@@ -579,8 +580,7 @@ static const char *LookupSpecial(Translator *tr, const char *string, char* text_
 	{
 		SetWordStress(tr, phonemes, flags, -1, 0);
 		DecodePhonemes(phonemes,phonemes2);
-		sprintf(text_out,"[[%s]]",phonemes2);
-		option_phoneme_input |= 2;
+		sprintf(text_out,"[\002%s]]",phonemes2);
 		return(text_out);
 	}
 	return(NULL);
@@ -657,22 +657,20 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		{
 			SetWordStress(translator2, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes,phonemes2);
-			sprintf(buf,"[[_^_%s %s _^_%s]]","en",phonemes2,WordToString2(tr->translator_name));
+			sprintf(buf,"[\002_^_%s %s _^_%s]]","en",phonemes2,WordToString2(tr->translator_name));
 			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 		}
 		else
 		{
 			SetWordStress(tr, phonemes, flags, -1, 0);
 			DecodePhonemes(phonemes,phonemes2);
-			sprintf(buf,"[[%s]] ",phonemes2);
+			sprintf(buf,"[\002%s]] ",phonemes2);
 		}
-		option_phoneme_input |= 2;
 	}
 	else
 	if(only == 0)
 	{
-		strcpy(buf,"[[(X1)(X1)(X1)]]");
-		option_phoneme_input |= 2;
+		strcpy(buf,"[\002(X1)(X1)(X1)]]");
 	}
 
 	return(buf);
@@ -764,7 +762,7 @@ static int LoadSoundFile(const char *fname, int index)
 		f = fopen(fname,"rb");
 		if(f == NULL)
 		{
-			fprintf(stderr,"Can't read temp file: %s\n",fname);
+//			fprintf(stderr,"Can't read temp file: %s\n",fname);
 			return(3);
 		}
 	}
@@ -872,7 +870,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		if((*bufix==0) || (end_clause ==0) || (tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2))
 		{
 			punct_count=1;
-			while(c2 == c1)
+			while((c2 == c1) && (c1 != '<'))  // don't eat extra '<', it can miss XML tags
 			{
 				punct_count++;
 				c2 = GetC();
@@ -891,13 +889,13 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			else
 			if(punct_count < 4)
 			{
-				sprintf(buf,"\001+10S");
+				sprintf(buf,"\001+15S");
 				while(punct_count-- > 0)
 				{
 					sprintf(buf2," %s",punctname);
 					strcat(buf, buf2);
 				}
-				sprintf(buf2," \001-10S");
+				sprintf(buf2," \001-15S");
 				strcat(buf, buf2);
 			}
 			else
@@ -1859,10 +1857,13 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 		if(self_closing)
 			PopParamStack(tag_type, outbuf, outix);
+		else
+			audio_text = 1;
 		return(CLAUSE_NONE);
 
 	case SSML_AUDIO + SSML_CLOSE:
 		PopParamStack(tag_type, outbuf, outix);
+		audio_text = 0;
 		return(CLAUSE_NONE);
 
 	case SSML_BREAK:
@@ -1884,7 +1885,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		}
 		if((attr2 = GetSsmlAttribute(px,"time")) != NULL)
 		{
-			value = (attrnumber(attr2,0,1) * 25) / speed.speed_factor1; // compensate for speaking speed to keep constant pause length
+			value = (attrnumber(attr2,0,1) * 25) / speed.pause_factor; // compensate for speaking speed to keep constant pause length
 
 			if(terminator == 0)
 				terminator = CLAUSE_NONE;
@@ -1986,7 +1987,7 @@ terminator=0;  // ??  Sentence intonation, but no pause ??
 
 static MNEM_TAB xml_char_mnemonics[] = {
 	{"gt",'>'},
-	{"lt",'<'},
+	{"lt", 0xe000 + '<'},   // private usage area, to avoid confusion with XML tag
 	{"amp", '&'},
 	{"quot", '"'},
 	{"nbsp", ' '},
@@ -2482,7 +2483,9 @@ if(option_ssml) parag=1;
 				}
 			}
 
-			if(option_punctuation && iswpunct(c1))
+			// don't announce punctuation for the alternative text inside inside <audio> ... </audio>
+			if(c1 == 0xe000+'<')  c1 = '<';
+			if(option_punctuation && iswpunct(c1) && (audio_text == 0))
 			{
 				// option is set to explicitly speak punctuation characters
 				// if a list of allowed punctuation has been set up, check whether the character is in it
@@ -2556,6 +2559,10 @@ if(option_ssml) parag=1;
 							}
 						}
 						else
+						if(c_next == '\'')
+						{
+							is_end_clause = 0;    // eg. u.s.a.'s 
+						}
 						if(iswlower(c_next))
 						{
 							// next word has no capital letter, this dot is probably from an abbreviation
@@ -2636,6 +2643,9 @@ if(option_ssml) parag=1;
 		}
 
 		j = ix+1;
+
+		if(c1 == 0xe000 + '<') c1 = '<';
+
 		ix += utf8_out(c1,&buf[ix]);    //	buf[ix++] = c1;
 		if(!iswspace(c1) && !IsBracket(c1))
 		{
@@ -2701,6 +2711,7 @@ void InitText2(void)
 	current_voice_id[0] = 0;
 
 	ignore_text = 0;
+	audio_text = 0;
 	clear_skipping_text = 0;
 	count_characters = -1;
 	sayas_mode = 0;

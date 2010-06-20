@@ -42,6 +42,7 @@
 extern wxString path_phsource;
 
 extern char *spects_data;
+extern USHORT *phoneme_index;
 extern int n_phoneme_tables;
 
 
@@ -270,6 +271,7 @@ static int VowelChartList(wxDC *dc, wxBitmap *bitmap, char *fname)
 	FILE *f_in;
 	int ix;
 	int f1,f2,f3,g1,g2;
+	int colour;
 	int count=0;
 	wxFileName filename;
 	char name[40];
@@ -303,9 +305,20 @@ static int VowelChartList(wxDC *dc, wxBitmap *bitmap, char *fname)
 	while(fgets(buf,sizeof(buf),f_in) != NULL)
 	{
 		g2 = 0xffff;
-		ix = sscanf(buf,"%s %d %d %d %d %d",name,&f1,&f2,&f3,&g1,&g2);
-		if(ix >= 3)
+		ix = sscanf(buf,"%s %d %d %d %d %d %d",name,&colour,&f1,&f2,&f3,&g1,&g2);
+		if(ix >= 4)
 		{
+			if(colour == 1)
+			{
+				dc->SetPen(*wxMEDIUM_GREY_PEN);
+				dc->SetTextForeground(wxColour(100,100,128));
+			}
+			else
+			{
+				dc->SetPen(*wxBLACK_PEN);
+				dc->SetTextForeground(*wxBLACK);
+			}
+
 			DrawVowel(dc,wxString(name,wxConvLocal),
 				f1,f2,f3,g1,g2);
 			count++;
@@ -364,6 +377,8 @@ void VowelChart(int control, char *fname)
 		count = VowelChartDir(&dc, &bitmap);
 	else
 		count = VowelChartList(&dc, &bitmap, fname);
+
+	dc.SetTextForeground(*wxBLACK);
 
 	if(control != 1)
 		wxLogStatus(_T("Plotted %d vowels"),count);
@@ -498,6 +513,66 @@ void FindPhonemesUsed(void)
 
 
 
+
+#define N_VOWELFMT_ADDR  20
+int n_vowelfmt_addr;
+int vowelfmt_addr[N_VOWELFMT_ADDR];    // FMT() statements found in a phoneme definition
+
+static void FindVowelFmt(int prog_start, int length)
+{//=================================================
+	USHORT *prog;
+	USHORT instn;
+	int prog_end;
+
+	prog_end = prog_start + length;
+	n_vowelfmt_addr = 0;
+
+	for(prog = &phoneme_index[prog_start]; prog < &phoneme_index[prog_end]; prog++)
+	{
+		instn = *prog;
+		
+		switch(instn >> 12)
+		{
+		case 2:
+		case 3:
+			// conditions
+			while((instn & 0xe000) == 0x2000)
+			{
+				instn = *(++prog);
+			}
+			prog--;
+		break;
+
+		case 10:   //  Vowelin, Vowelout
+			prog += 3;
+			break;
+
+		case 9:
+		case 12:   // WAV
+		case 13:   // VowelStart
+		case 14:   // VowelEnd
+		case 15:   // addWav
+			prog++;
+			break;
+
+		case 11:   // FMT
+			if(n_vowelfmt_addr < N_VOWELFMT_ADDR)
+			{
+				vowelfmt_addr[n_vowelfmt_addr++] = ((instn & 0xf) << 18) + (prog[1] << 2);
+			}
+			prog++;
+
+			break;
+		}
+	}
+}  // end of FindVowelFmt
+
+
+static int prog_log_sorter(PHONEME_PROG_LOG *p1, PHONEME_PROG_LOG *p2)
+{//===================================================================
+	return(p1->addr - p2->addr);
+}
+
 void MakeVowelLists(void)
 {//======================
 // For each phoneme table, make a list of its vowels and their
@@ -508,17 +583,45 @@ void MakeVowelLists(void)
 	int phcode;
 	PHONEME_TAB *ph;
 	FILE *f;
+	FILE *f_prog_log;
 	SPECT_SEQ *seq;
 	SPECT_SEQK *seqk;
 	frame_t *frame;
-	PHONEME_DATA phdata;
+	int n_prog_log;
+	int vowelfmt_ix;
+	int colour;
+	int voice_found;
+	PHONEME_PROG_LOG *prog_log_table;
+	PHONEME_PROG_LOG *prog_log_end;
+	PHONEME_PROG_LOG *found_prog;
+	PHONEME_PROG_LOG this_prog;
 	char dirname[sizeof(path_source)+20];
 	char fname[sizeof(dirname)+40];
+	char save_voice_name[80];
+
+	strcpy(save_voice_name,voice_name2);
+
+	sprintf(fname,"%s%s",path_source,"compile_prog_log");
+	if((f_prog_log = fopen(fname,"rb")) == NULL)
+	{
+		wxLogError(_T("Can't read 'compile_prog_log;"));
+		return;
+	}
+	ix = GetFileLength(fname);
+	prog_log_table = (PHONEME_PROG_LOG *)malloc(ix);
+	if(prog_log_table == NULL)
+		return;
+	fread(prog_log_table, 1, ix, f_prog_log);
+	fclose(f_prog_log);
+	prog_log_end = prog_log_table + ix;
+	n_prog_log = ix / sizeof(PHONEME_PROG_LOG);
 
 	progress = new wxProgressDialog(_T("Vowel charts"),_T(""),n_phoneme_tables);
 
 	sprintf(dirname,"%s%s",path_source,"vowelcharts");
 	mkdir(dirname,S_IRWXU | S_IRGRP | S_IROTH);
+
+	sprintf(fname,"%s/vowel_log",dirname);
 
 	for(table=0; table<n_phoneme_tables; table++)
 	{
@@ -530,52 +633,72 @@ void MakeVowelLists(void)
 		// select the phoneme table by name
 //		if(SetVoiceByName(phoneme_tab_list[table].name) != 0) continue;
 		if(SelectPhonemeTableName(phoneme_tab_list[table].name) < 0) continue;
-		FindPhonemesUsed();
+
+		voice_found = 0;
+		if((LoadVoice(phoneme_tab_list[table].name, 0) != NULL) && (translator->data_dictrules != NULL))
+		{
+			voice_found = 1;
+			FindPhonemesUsed();
+		}
 
 		// phoneme table is terminated by a phoneme with no name (=0)
 		for(phcode=1; phcode < n_phoneme_tab; phcode++)
 		{
-//if((phoneme_tab_flags[phcode] & 3) == 0)
-//	continue;   // inherited, and not used 
-
 			ph = phoneme_tab[phcode];
 
-			if((ph==NULL) || (ph->type != phVOWEL))
+			if((ph==NULL) || (ph->type != phVOWEL) || (ph->program == 0))
 				continue;
 
-			InterpretPhoneme2(phcode, &phdata);
+			if(voice_found && (phoneme_tab_flags[phcode] & 3) == 0)
+			{
+				continue;   // inherited, and not used 
+			}
 
-			if((ix = phdata.sound_addr[pd_FMT]) == 0)
-				continue;
+			// find the size of this program
+			this_prog.addr = ph->program;
+			found_prog = (PHONEME_PROG_LOG *)bsearch((void *)&this_prog, (void *)prog_log_table, n_prog_log, sizeof(PHONEME_PROG_LOG), (int(*)(const void *,const void *))prog_log_sorter);
 
-			seq = (SPECT_SEQ *)(&spects_data[ix]);
-			seqk = (SPECT_SEQK *)seq;
+			FindVowelFmt(ph->program, found_prog->length);
 
-			if(seq->frame[0].frflags & FRFLAG_KLATT)
-				frame = &seqk->frame[1];
-			else
-				frame = (frame_t *)&seq->frame[1];
+			for(vowelfmt_ix=0; vowelfmt_ix < n_vowelfmt_addr; vowelfmt_ix++)
+			{
+				ix = vowelfmt_addr[vowelfmt_ix];
 
-			fprintf(f,"%s\t %3d %4d %4d",WordToString(ph->mnemonic),
-					frame->ffreq[1],frame->ffreq[2],frame->ffreq[3]);
+				seq = (SPECT_SEQ *)(&spects_data[ix]);
+				seqk = (SPECT_SEQK *)seq;
+	
+				if(seq->frame[0].frflags & FRFLAG_KLATT)
+					frame = &seqk->frame[1];
+				else
+					frame = (frame_t *)&seq->frame[1];
 
-			if(seq->frame[0].frflags & FRFLAG_KLATT)
-				frame = &seqk->frame[seqk->n_frames-1];
-			else
-				frame = (frame_t *)&seq->frame[seq->n_frames-1];
-			fprintf(f,"   %3d %4d %4d\n",frame->ffreq[1],frame->ffreq[2],frame->ffreq[3]);
+				if((n_vowelfmt_addr - vowelfmt_ix) == 1)
+					colour = 0;
+				else
+					colour = 1;
+
+				fprintf(f,"%s\t %d %3d %4d %4d",WordToString(ph->mnemonic), colour,
+						frame->ffreq[1],frame->ffreq[2],frame->ffreq[3]);
+	
+				if(seq->frame[0].frflags & FRFLAG_KLATT)
+					frame = &seqk->frame[seqk->n_frames-1];
+				else
+					frame = (frame_t *)&seq->frame[seq->n_frames-1];
+				fprintf(f,"   %3d %4d %4d\n",frame->ffreq[1],frame->ffreq[2],frame->ffreq[3]);
+			}
 		}
 		fclose(f);
 
 		VowelChart(1,fname);  // draw the vowel chart
 	}
+	free(prog_log_table);
 	LoadVoice(voice_name2,0);  // reset the original phoneme table
 	delete progress;
+	LoadVoiceVariant(save_voice_name,0);
 }
 
 
 #define N_ENVELOPES  30
-#define ENV_LEN  128
 int n_envelopes = 0;
 char envelope_paths[N_ENVELOPES][80];
 unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
