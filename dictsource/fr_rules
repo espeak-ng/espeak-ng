@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2010-06-12 Michel Such  <michel.such@free.fr>
+// Updated: 2010-06-18 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -112,6 +112,7 @@ _C)        aud (_     o2d         // Maud
         ay         Ej        // paye
         ay (_      E2        // display
     Xl) ayer (X    E2jWr     // player, layer
+     h) am (_S2      am
      w) an (_      an
         a          a         // bateau
 
@@ -769,6 +770,7 @@ _quatrevin) gts (_ z2
         in (C      E~        // vingt
         in (_      E~        // vin
         ing (_     iN
+        ing (h     ing
         ing (s     iN
         ing (to    iN
      _) infra (sP5 E~fra
@@ -869,6 +871,7 @@ _quatrevin) gts (_ z2
         n          n         // une
         nn         n
         ng (_      N
+        ngh        ng
 
      _) n' (P2v    n
      _wAC) ner (_    nEr

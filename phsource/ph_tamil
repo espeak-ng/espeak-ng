@@ -80,7 +80,10 @@ endphoneme
 phoneme u
   vowel  starttype #u  endtype #u
   length 110
-  ChangeIfNotStressed(U)
+  IF prevPhW(isVel) THEN
+  ELSE
+    ChangeIfNotStressed(U)
+  ENDIF
   FMT(vowel/u_6)
 endphoneme
 

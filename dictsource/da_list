@@ -1,4 +1,4 @@
-﻿// PB = Peter Bjarkov - pbj1234@hotmail.com
+// PB = Peter Bjarkov - pbj1234@hotmail.com
 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
@@ -111,7 +111,7 @@ _19	n'ed@-n
 _2X	t'y:w
 _3X	tR'&#Dv@               //PB [tR'ADv@] changed to [tR'&#Dv@]
 _4X	 f'WRV                 //PB [f'W:*3] changed to [ f'WRV]
-_5X	hal't*es
+_5X	h&l't*es               // PB [a] changed to [&]
 _6X	t*'es
 _7X	halfj'&rs
 _8X	f'irs
@@ -163,6 +163,7 @@ en	e:n	$u
 et	ed	$u
 her $u
 kun $u
+vel $u+
 
 // conjunctions
 og	V	$u+ $pause  // and
@@ -187,6 +188,7 @@ med			$u+	// with
 af      &  	// PB changed from [a?] to [&] - sound too short in a sentence
             // Also removed $u from 'af' and other words. They disappeared.
 ad      &:  // PB added 'ad' 
+ad &D $atend $sentence // PB "Det må ikke skille os ad."
 at		&: $u // PB changed from [at] to [&:]
 hos			// at - PB: removed [$u+]
 som	sVm	    // which / that - PB: removed [$u+]
@@ -202,7 +204,7 @@ dét de
 vi	$u
 i	_i $u+
 mig	maj	$u	// me
-dig	daj	$u
+dig	daj_|	$u
 dem	$u
 ham	$u
 hende	$u
@@ -335,13 +337,11 @@ password	_^_EN
 penthouse	_^_EN
 pickup		_^_EN
 pidgin		_^_EN
-producer	_^_EN
 ranger      _^_EN
 receiver	_^_EN
 research	_^_EN
 remake		_^_EN
 roadie		_^_EN
-roastbeef	_^_EN
 run         _^_EN
 scanner		_^_EN
 science		_^_EN
@@ -356,7 +356,6 @@ small		_^_EN
 snob		_^_EN 
 song		_^_EN
 source		_^_EN
-spam		_^_EN
 spirit      _^_EN
 squaw		_^_EN
 sweatshirt	_^_EN
@@ -2398,7 +2397,6 @@ lupin  $alt
 magasin  $alt
 mandarin  $alt
 mandolin  $alt
-mannequin m&n@k'EN  $alt
 margin  $alt
 marin  $alt
 marocain mAro'kEN  $alt
@@ -5046,6 +5044,7 @@ adstringer   $alt
 adviser   $alt
 advoker   $alt
 afficer   $alt
+aflever $alt
 afmarcher   $alt
 afrikaniser   $alt
 agere   $alt
@@ -5188,7 +5187,7 @@ bronzere   $alt
 brunere   $alt
 brutaliser   $alt
 bruyere   bryj'E:r $alt
-budgetter   $alt
+budgettere   $alt
 bugser   $alt
 bureaukratiser   $alt
 cadmier   $alt
@@ -5274,7 +5273,7 @@ deputer   $alt
 dereguler   $alt
 deriver   $alt
 desarmer   $alt
-deserter   $alt
+desertere   $alt
 designere   $alt
 desinficer   $alt
 destiller   $alt
@@ -5434,7 +5433,7 @@ farser   $alt
 fasciner   $alt
 favoriser   $alt
 feminiser   $alt
-ferier   $alt
+feriere   $alt
 fermenter   $alt
 ferniser   $alt
 fertiliser   $alt
@@ -5890,7 +5889,6 @@ laminer   $alt
 lancer   $alt
 lasere   $alt
 latiniser   $alt
-//lavere   $alt
 lavpasteuriser   $alt
 legaliser   $alt
 leger   $alt
@@ -6119,7 +6117,7 @@ plakater   $alt
 planere   $alt
 plastificer   $alt
 platiner   $alt
-pletter   $alt
+plettere   $alt
 plisser   $alt
 plomber   $alt
 plæder   $alt
@@ -6153,7 +6151,7 @@ privileger   $alt
 prober   $alt
 problematiser   $alt
 proceder   $alt
-producer   $alt
+producere   $alt
 profaner   $alt
 professionaliser   $alt
 profeter   $alt
@@ -6218,7 +6216,7 @@ ramponer   $alt
 ranger   $alt
 rappeller   $alt
 rapportere   $alt
-raser   $alt
+rasere   $alt
 ratificer   $alt
 ratihaber   $alt
 rationaliser   $alt
@@ -6256,7 +6254,7 @@ reimporter   $alt
 reinvester   $alt
 rejicer   $alt
 rekapituler   $alt
-reklamer   $alt
+reklamere   $alt
 rekognoscer   $alt
 rekommander   $alt
 rekompenser   $alt
@@ -6418,7 +6416,7 @@ stabiliser   $alt
 staffer   $alt
 stagner   $alt
 standardiser   $alt
-stationer   $alt
+stationere   $alt
 statuere   $alt
 stenciler   $alt
 stenografer   $alt
@@ -6494,7 +6492,7 @@ teoretiser   $alt
 termografer   $alt
 terrasser   $alt
 terroriser   $alt
-testamenter   $alt
+testamentere   $alt
 testere   $alt
 tiere   $alt
 titrer   $alt
@@ -6565,7 +6563,7 @@ verbaliser   $alt
 verificer   $alt
 verser   $alt
 versificer   $alt
-versioner   $alt
+versionere   $alt
 vibrer   $alt
 vidimer   $alt
 vikarier   $alt
@@ -10439,6 +10437,7 @@ sig si $capital                  //PB Sig = si with capital S - Sig det med blom
 (vi steg) vi||st'e
 (de steg) di||st'e
 (alle steg) &l3||st'e
+steg sdaj $atend $sentence
 steget ste@d 
 // PB problem with noun "hav" = ocean and verb "hav(e)" = to have [hAu]/[h&v]
 (et hav) ed||h'Au              // PB "et hav" = an ocean - not "hav en god dag" - have a nice day

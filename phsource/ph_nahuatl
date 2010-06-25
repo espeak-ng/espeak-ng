@@ -1,0 +1,16 @@
+
+//====================================================
+//  Nahuatl (classical)
+//====================================================
+
+phoneme :   // lengthens the previous vowel by 'length'
+  virtual
+  length 300
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 170
+  FMT(vowel/e_mid2)
+endphoneme
+

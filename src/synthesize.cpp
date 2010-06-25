@@ -253,9 +253,9 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	else
 	{
 		// increase consonant amplitude at high speeds, depending on the peak consonant amplitude
-		x = ((35 - wav_scale) * speed.loud_consonants);
-		if(x < 0) x = 0;
-		wav_scale = (wav_scale * (x+256))/256;
+//		x = ((35 - wav_scale) * speed.loud_consonants);
+//		if(x < 0) x = 0;
+//		wav_scale = (wav_scale * (x+256))/256;
 	}
 
 	if(std_length > 0)
@@ -382,32 +382,6 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	return(length);
 }  // end of DoSample2
 
-
-#ifdef deleted
-int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp)
-{//====================== ==========================================================
-	int index;
-	int match_level;
-	int amp2;
-	int result;
-
-	EndPitch(1);
-	index = LookupSound(ph1,ph2,which & 0xff,&match_level,0);
-	if((index & 0x800000) == 0)
-		return(0);             // not wavefile data
-
-	amp2 = wavefile_amp;
-	if(amp != 0)
-		amp2 = (amp * wavefile_amp)/20;
-
-	if(amp == -1)
-		amp2 = amp;
-
-	result = DoSample2(index,which,length_mod,0,amp2);
-	last_frame = NULL;
-	return(result);
-}  // end of DoSample
-#endif
 
 
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)

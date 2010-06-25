@@ -1720,6 +1720,12 @@ phonemetable da base
 include ph_danish
 
 
+
+
+// The following lines are experimental, for future additions.
+// These langauges are not in a usable state.
+// These lines can be deleted.
+
 phonemetable rw base2
 include ph_kinyarwanda
 
@@ -1737,7 +1743,6 @@ include ph_nepali
 
 //phonemetable mr hi
 //include ph_marathi
-
 
 //phonemetable eu base2
 //include ph_basque

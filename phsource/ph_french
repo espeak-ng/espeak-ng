@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-06-12 Michel Such  <michel.such@free.fr>
+// Updated 2010-06-16 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -80,8 +80,7 @@ phoneme r
     vcd uvl frc nopause
     rhotic
   starttype #r  endtype #r
-  Vowelin f1=1  f2=1600 -500 500  f3=-200 100 len=65
-  Vowelout f1=1  f2=1200 -400 800  f3=200 100 len=60
+  Vowelin f1=0  f2=1500 -400 400  f3=-400 80
   lengthmod 7
 
   IF nextPh(isNotVowel) THEN
@@ -148,7 +147,7 @@ endphoneme
 phoneme r/2
   liquid rhotic uvl nopause
   starttype #r  endtype #r
-  Vowelin f1=1  f2=1600 -500 500  f3=-200 100 len=65 amp=8
+  Vowelin f1=0  f2=1500 -400 400  f3=-400 80
 
   CALL post_r
   IF prevPhW(f) OR prevPhW(k) OR prevPhW(p) OR prevPhW(s) OR prevPhW(t) OR prevPhW(S) THEN
@@ -163,7 +162,7 @@ endphoneme
 
 
 phoneme l
-  liquid nopause
+  liquid
   starttype #l endtype #l
   lengthmod 7
 
@@ -639,7 +638,11 @@ phoneme b
   ENDIF
 
   IF PreVoicing THEN
-   FMT(b/xb)
+    IF nextPhW(#r) THEN
+      FMT(b/xbr)
+    ELSE
+      FMT(b/xb)
+    ENDIF
   ENDIF
 
   IF nextPh(isPause2) OR nextPh(l) THEN
@@ -663,7 +666,11 @@ phoneme d
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80
 
   IF PreVoicing THEN
-    FMT(d/xd)
+    IF nextPhW(#r) THEN
+      FMT(d/xdr)
+    ELSE
+      FMT(d/xd)
+    ENDIF
   ENDIF
 
   IF nextPh(isPause2) THEN
@@ -699,7 +706,11 @@ phoneme g
   Vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
 
   IF PreVoicing THEN
-    FMT(g/xg)
+    IF nextPhW(#r) THEN
+      FMT(g/xgr)
+    ELSE
+      FMT(g/xg)
+    ENDIF
   ENDIF
 
   IF nextPh(isPause2) THEN

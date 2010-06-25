@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-06-11 Michel Such  <michel.such@free.fr>
+// Updated 2010-06-15 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -778,7 +778,7 @@ zut		zyt
 exocet		E2gzosEt
 fret		fr'Et
 budget		bydZE2
-hamlet		hamlEt
+hamlet		_|amlEt
 knesset		knesEt
 lazaret		lazarE2
 margaret	margarEt
@@ -884,7 +884,7 @@ contentions	kO~tA~tjO~z2
 dations		datjO~z2
 désertions	dezErtjO~z2 $verb
 exploitions	EksplwatjO~z2
-heurtions	hYrtjO~z2
+heurtions	_|WrtjO~z2
 partions	partjO~z2
 rations		ratjO~z2 $verb
 tentions	tA~tjO~z2

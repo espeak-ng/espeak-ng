@@ -1,3 +1,5 @@
+# Makefile for 'espeak', 'speak', and 'libespeak'
+
 # remove -fno-exceptions  if it causes problems with stdio library on some platforms (ARM)
 
 PREFIX=/usr

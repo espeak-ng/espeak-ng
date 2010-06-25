@@ -1003,6 +1003,7 @@ dose             doUs
 dosage           doUsI2dZ
 dramatic         dr@matIk
 drawer           drO@
+dreamt           drEmpt
 drier            draI3
 driest           draI|@st
 duet             dju:'Et
@@ -1221,6 +1222,7 @@ havoc            hav@k
 hasty            heIstI
 hatred           heItrI2d
 hazardous        haz3d@s
+headfirst        $2
 heh              hEh
 hehe             hi:h'i:
 heifer           hEf@
@@ -1759,6 +1761,7 @@ preset           pri:sEt
 prestige         prEst'i:Z
 ?3 pretense      pri:tEns
 pretext          pri:tEkst
+pretrial         pri:tr'aI|@L
 pretty           prItI
 privation        praIv'eIS@n
 privilege        prIvI2lI2dZ
@@ -3096,6 +3099,7 @@ thy              ,DaI
 thine            ,DaIn
 
 me               ,mi:		$only
+me               mi:		$atstart $atend
 him              ,hIm		$only
 us               ,Vz		$only
 us               		$abbrev $allcaps

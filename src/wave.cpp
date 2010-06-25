@@ -168,89 +168,89 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 			  PaStreamCallbackFlags flags, void *userData )
 #endif
 {
-  int aResult=0; // paContinue
-  char* aWrite = myWrite;
-  size_t n = out_channels*sizeof(uint16_t)*framesPerBuffer;
+	int aResult=0; // paContinue
+	char* aWrite = myWrite;
+	size_t n = out_channels*sizeof(uint16_t)*framesPerBuffer;
 
-  myReadPosition += framesPerBuffer;
-  SHOW("pa_callback > myReadPosition=%u, framesPerBuffer=%lu (n=0x%x) \n",(int)myReadPosition, framesPerBuffer, n);
+	myReadPosition += framesPerBuffer;
+	SHOW("pa_callback > myReadPosition=%u, framesPerBuffer=%lu (n=0x%x) \n",(int)myReadPosition, framesPerBuffer, n);
 
-  if (aWrite >= myRead)
-    {
-      if((size_t)(aWrite - myRead) >= n)
+	if (aWrite >= myRead)
 	{
-	  memcpy(outputBuffer, myRead, n);
-	  myRead += n;
+		if((size_t)(aWrite - myRead) >= n)
+		{
+			memcpy(outputBuffer, myRead, n);
+			myRead += n;
+		}
+		else
+		{
+			SHOW_TIME("pa_callback > underflow");
+			aResult=1; // paComplete;
+			mInCallbackFinishedState = true;
+			size_t aUsedMem=0;
+			aUsedMem = (size_t)(aWrite - myRead);
+			if (aUsedMem)
+			{
+				memcpy(outputBuffer, myRead, aUsedMem);
+			}
+			char* p = (char*)outputBuffer + aUsedMem;
+			memset(p, 0, n - aUsedMem); 
+			//	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
+			myRead = aWrite;
+		}
 	}
-      else
+	else // myRead > aWrite
 	{
-	  SHOW_TIME("pa_callback > underflow");
-	  aResult=1; // paComplete;
-	  mInCallbackFinishedState = true;
-	  size_t aUsedMem=0;
-	  aUsedMem = (size_t)(aWrite - myRead);
-	  if (aUsedMem)
-	    {
-	      memcpy(outputBuffer, myRead, aUsedMem);
-	    }
-	  char* p = (char*)outputBuffer + aUsedMem;
-	  memset(p, 0, n - aUsedMem); 
-	  //	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
-	  myRead = aWrite;
-	}
-    }
-  else // myRead > aWrite
-    {
-      if ((size_t)(myBuffer + BUFFER_LENGTH - myRead) >= n)
-	{
-	  memcpy(outputBuffer, myRead, n);
-	  myRead += n;
-	}
-      else if ((size_t)(aWrite + BUFFER_LENGTH - myRead) >= n)
-	{
-	  int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
-	  if (aTopMem)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
-	      memcpy(outputBuffer, myRead, aTopMem);
-	    }
-	  int aRest = n - aTopMem;
-	  if (aRest)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
-	      char* p = (char*)outputBuffer + aTopMem;
-	      memcpy(p, myBuffer, aRest);
-	    }
-	  myRead = myBuffer + aRest;
-	}
-      else
-	{ 
-	  SHOW_TIME("pa_callback > underflow");
-	  aResult=1; // paComplete;
+		if ((size_t)(myBuffer + BUFFER_LENGTH - myRead) >= n)
+		{
+			memcpy(outputBuffer, myRead, n);
+			myRead += n;
+		}
+		else if ((size_t)(aWrite + BUFFER_LENGTH - myRead) >= n)
+		{
+			int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
+			if (aTopMem)
+			{
+				SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
+				memcpy(outputBuffer, myRead, aTopMem);
+			}
+			int aRest = n - aTopMem;
+			if (aRest)
+			{
+				SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
+				char* p = (char*)outputBuffer + aTopMem;
+				memcpy(p, myBuffer, aRest);
+			}
+			myRead = myBuffer + aRest;
+		}
+		else
+		{ 
+			SHOW_TIME("pa_callback > underflow");
+			aResult=1; // paComplete;
 
-	  int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
-	  if (aTopMem)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
-	      memcpy(outputBuffer, myRead, aTopMem);
-	    }
-	  int aRest = aWrite - myBuffer;
-	  if (aRest)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
-	      char* p = (char*)outputBuffer + aTopMem;
-	      memcpy(p, myBuffer, aRest);
-	    }
+			int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
+			if (aTopMem)
+			{
+				SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
+				memcpy(outputBuffer, myRead, aTopMem);
+			}
+			int aRest = aWrite - myBuffer;
+			if (aRest)
+			{
+				SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
+				char* p = (char*)outputBuffer + aTopMem;
+				memcpy(p, myBuffer, aRest);
+			}
 
-	  size_t aUsedMem = aTopMem + aRest;
-	  char* p = (char*)outputBuffer + aUsedMem;
-	  memset(p, 0, n - aUsedMem); 
-	  //	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
-	  myRead = aWrite;
+			size_t aUsedMem = aTopMem + aRest;
+			char* p = (char*)outputBuffer + aUsedMem;
+			memset(p, 0, n - aUsedMem); 
+			//	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
+			myRead = aWrite;
+		}
 	}
-    }
 
-  SHOW("pa_callback > myRead=%x\n",(int)myRead);
+	SHOW("pa_callback > myRead=%x\n",(int)myRead);
 
 
   // #if USE_PORTAUDIO == 18
@@ -288,7 +288,7 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 #endif
 
 
-  return(aResult);
+	return(aResult);
   //#endif
 
 }  //  end of WaveCallBack

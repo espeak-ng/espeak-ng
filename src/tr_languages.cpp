@@ -881,7 +881,6 @@ SetLengthMods(tr,3);  // all equal
 			static const short stress_lengths_nl[8] = {160,135, 210,210,  0, 0, 260,280};
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.vowel_pause = 1;
 			tr->langopts.vowel_pause = 0x30;  // ??
 			tr->langopts.param[LOPT_DIERESES] = 1;
 			tr->langopts.param[LOPT_PREFIXES] = 1;

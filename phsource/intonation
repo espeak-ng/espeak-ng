@@ -1,0 +1,124 @@
+tune s1
+prehead   46 57
+headenv   fall 16
+head       4 80 50 -8 -5
+headextend 0 63 38 13 0
+nucleus0 fall 64 8
+nucleus  fall 70 18 24 12
+endtune
+
+tune c1
+prehead   46 57
+headenv   fall 16
+head       4 80 46 -8 -5
+headextend 0 63 38 13 0
+nucleus0 fall-rise  80 18
+nucleus  fall-rise2 78 22 34 52
+endtune
+
+tune q1
+prehead   46 57
+headenv   fall 16
+head       4 75 43 -7 0
+headextend 25 63 38 13 0
+nucleus0 fall-rise  88 22
+nucleus  fall-rise2 82 22 34 66
+endtune
+
+tune e1
+prehead   46 57
+headenv   fall 16
+head       3 90 50 -9 0
+headextend 16 82 50 32 16
+nucleus0 fall  92 8
+nucleus  fall  92 80 76 8
+endtune
+
+
+// PB Tunes for the Danish intonation
+// full-stop "." - punktum
+tune s2
+prehead   46 57
+headenv   fall 16
+head       4 65 60 -8 -5
+headextend 0 53 38 13 0
+nucleus0 fall 44 28
+nucleus  fall 50 42 34 28 // sidste ord før punktu
+
+onset 75 -5 -5
+endtune
+
+// comma "," - komma
+tune c2
+prehead   46 57
+headenv   fall 16
+head       4 65 50 -8 -5
+headextend 0 63 38 13 0
+nucleus0 rise  60 42
+nucleus  rise 55 42 34 52 // sidste tal: slutniveau
+endtune
+
+// question mark "?" - spørgsmålste
+
+tune q2
+prehead   40 75
+headenv   fall 16
+head       4 75 43 -7 0 //head       4 35 43 -7 0
+headextend 25 63 38 13 0
+nucleus0 rise  70 50 // første tal: slutniveaue
+
+nucleus  rise 35 45 60 70 // sidste tal: slutniveau
+endtune
+
+// exclamation mark "!" - udråbsteg
+
+tune e2
+prehead   46 57
+headenv   fall 16
+head       3 90 50 -9 0
+headextend 16 82 50 32 16
+nucleus0 fall  92 8
+nucleus  fall  92 80 76 8
+endtune
+
+
+
+// Tunes for the French intonation
+// full-stop "." - point
+tune s3
+prehead   46 57
+headenv   fall 16
+head       4 80 50 -8 -5
+headextend 0 63 38 13 0
+nucleus0 fall 64 8
+nucleus  fall 70 18 24 12
+endtune
+
+// comma "," - virgule
+tune c3
+prehead   46 57
+headenv   fall 16
+head       4 80 30 -5 -15
+headextend 25 63 38 13 0
+nucleus0 fall-rise  75 40
+endtune
+
+// question mark "?" - point d'interrogation
+tune q3
+prehead   46 57
+headenv   fall 16
+head       4 75 43 -7 0
+headextend 25 63 38 13 0
+nucleus0 fall-rise  88 22
+nucleus  fall-rise2 82 22 34 66
+endtune
+
+// exclamation mark "!" - point d'exclamation
+tune e3
+prehead   46 57
+headenv   fall 16
+head       3 90 50 -9 0
+headextend 16 82 50 32 16
+nucleus0 fall  92 8
+nucleus  fall  92 80 76 8
+endtune
