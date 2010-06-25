@@ -1,6 +1,7 @@
 # intermediate build output:
 
 *.o
+espeak-data-local/
 
 # libraries
 
