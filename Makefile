@@ -4,7 +4,7 @@ PLATFORM=big_endian
 
 ##### standard build actions:
 
-all: espeak espeakedit espeak-data
+all: espeak espeakedit espeak-data-local
 
 clean:
 	cd src && rm -f *.o *~ && cd ..
@@ -25,10 +25,13 @@ espeakedit:
 espeak-phoneme-data:
 	cd platforms/${PLATFORM} && make && cd ../..
 
-espeak-data: espeak-phoneme-data espeakedit
+espeak-data: espeakedit
 	cp -a espeak-data ${HOME}/espeak-data
 	cp -a phsource ${HOME}/espeak-data/phsource
 	cp -a dictsource ${HOME}/espeak-data/dictsource
 	src/espeakedit --compile
-	platforms/big_endian/espeak-phoneme-data ${HOME}/espeak-data ${HOME}/espeak-data ${HOME}/espeak-data/phondata-manifest
+
+espeak-data-local: espeak-phoneme-data espeak-data
+	cp -a ${HOME}/espeak-data espeak-data-local
+	platforms/big_endian/espeak-phoneme-data espeak-data-local espeak-data-local espeak-data-local/phondata-manifest
 
