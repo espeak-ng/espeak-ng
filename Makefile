@@ -1,6 +1,6 @@
 PLATFORM=big_endian
 
-.PHONY: all clean distclean espeak espeakedit espeak-phoneme-data espeak-data
+.PHONY: all clean distclean espeak espeakedit espeak-phoneme-data espeak-data espeak-data-local
 
 ##### standard build actions:
 
@@ -33,5 +33,5 @@ espeak-data: espeakedit
 
 espeak-data-local: espeak-phoneme-data espeak-data
 	cp -a ${HOME}/espeak-data espeak-data-local
-	platforms/big_endian/espeak-phoneme-data espeak-data-local espeak-data-local espeak-data-local/phondata-manifest
+	platforms/${PLATFORM}/espeak-phoneme-data espeak-data-local espeak-data-local espeak-data-local/phondata-manifest
 
