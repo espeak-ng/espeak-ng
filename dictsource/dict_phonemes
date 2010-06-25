@@ -56,8 +56,8 @@ x    z
 Dictionary da_dict
 
 &    &#   0    3    @    @-   a    A    
-aI   e    E    i    o    O    u    V    
-W    W#   y    Y    
+e    E    i    o    O    u    V    W    
+W#   y    Y    
 
 *    -    :    ?    b    B    d    D    
 dZ   f    g    h    j    J    k    l    
@@ -535,7 +535,6 @@ Dictionary ml_dict
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   r-   u    u:   V    
-y    
 
 :    b    bh   c    ch   d    d.   dh   
 dh.  dZ   f    g    gh   h    j    J    
@@ -548,10 +547,9 @@ z    z.
 Dictionary ne_dict
 
 @    @/   @2   @3   a    aI   aU   a~   
-e    E    eI   eU   e~   E~   i    I    
-i~   l-   o    O    o:   oI   oU   O~   
-o~   r-   u    uI   u~   V    VI   VU   
-V~   
+e    E    e~   E~   i    I    i~   l-   
+o    O    o:   O~   o~   r-   u    U    
+u~   V    V~   
 
 -    :    b    bh   c    ch   d    d.   
 dh   f    g    gh   h    H    j    J    
@@ -577,7 +575,7 @@ z
 
 Dictionary prs_dict
 
-@    A    E    eI   i    o    u    
+@    e    i    o    u    
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    p    r    R    s    
@@ -612,9 +610,9 @@ Dictionary bg_dict
 @    a    e    i    o    u    
 
 ;    b    C    d    d;   dZ   dz   f    
-g    j    k    l    L    l^   m    n    
-n^   p    r    s    S    s;   t    t;   
-tS   ts   v    x    z    Z    z;   
+g    j    k    l    l^   m    n    n^   
+p    r    s    S    s;   t    t;   tS   
+ts   v    x    z    Z    z;   
 
 
 Dictionary nso_dict

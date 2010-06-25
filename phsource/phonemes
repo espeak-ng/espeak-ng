@@ -1487,7 +1487,7 @@ phoneme l#   // Lateral fricative (eg. Welsh "ll")
     VowelEnding(l/xl, -40)
   ENDIF
 
-  WAV(ufric/ll, 60)
+  WAV(ufric/l#, 60)
 endphoneme
 
 
