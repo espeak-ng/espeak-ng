@@ -1,0 +1,14 @@
+# intermediate build output:
+
+*.o
+
+# libraries
+
+src/libespeak.a
+src/libespeak.so.*
+
+# programs:
+
+src/espeak
+src/speak
+
