@@ -9,6 +9,7 @@ src/libespeak.so.*
 
 # programs:
 
+platforms/*/espeak-phoneme-data
 src/espeak
 src/espeakedit
 src/speak

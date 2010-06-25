@@ -1,10 +1,15 @@
-all: espeak espeakedit
+PLATFORM=big_endian
+
+all: espeak espeakedit espeak-phoneme-data
 
 espeak:
 	cd src && make && cd ..
 
 espeakedit:
 	cd src && make -f Makefile.espeakedit && cd ..
+
+espeak-phoneme-data:
+	cd platforms/${PLATFORM} && make && cd ../..
 
 clean:
 	cd src && rm -f *.o *~ && cd ..
