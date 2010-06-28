@@ -135,7 +135,7 @@ static void EndPitch(int voice_break)
 		syllable_centre = -1;
 		memset(vowel_transition,0,sizeof(vowel_transition));
 	}
-}  // end of Synthesize::EndPitch
+}  // end of EndPitch
 
 
 
@@ -152,7 +152,7 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 	q[2] = (long)amp_env;
 	q[3] = amp;
 	WcmdqInc();
-}  // end of Synthesize::DoAmplitude
+}  // end of DoAmplitude
 
 
 
@@ -181,7 +181,7 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 	q[2] = (long)env;
 	q[3] = (pitch1 << 16) + pitch2;
 	WcmdqInc();
-}  //  end of Synthesize::DoPitch
+}  //  end of DoPitch
 
 
 
@@ -223,7 +223,7 @@ static void DoPause(int length, int control)
 	wcmdq[wcmdq_tail][1] = len;
 	WcmdqInc();
 	last_frame = NULL;
-}  // end of Synthesize::DoPause
+}  // end of DoPause
 
 
 extern int seq_len_adjust;   // temporary fix to advance the start point for playing the wav sample
@@ -253,9 +253,9 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	else
 	{
 		// increase consonant amplitude at high speeds, depending on the peak consonant amplitude
-		x = ((35 - wav_scale) * speed.loud_consonants);
-		if(x < 0) x = 0;
-		wav_scale = (wav_scale * (x+256))/256;
+//		x = ((35 - wav_scale) * speed.loud_consonants);
+//		if(x < 0) x = 0;
+//		wav_scale = (wav_scale * (x+256))/256;
 	}
 
 	if(std_length > 0)
@@ -382,32 +382,6 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	return(length);
 }  // end of DoSample2
 
-
-#ifdef deleted
-int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp)
-{//====================== ==========================================================
-	int index;
-	int match_level;
-	int amp2;
-	int result;
-
-	EndPitch(1);
-	index = LookupSound(ph1,ph2,which & 0xff,&match_level,0);
-	if((index & 0x800000) == 0)
-		return(0);             // not wavefile data
-
-	amp2 = wavefile_amp;
-	if(amp != 0)
-		amp2 = (amp * wavefile_amp)/20;
-
-	if(amp == -1)
-		amp2 = amp;
-
-	result = DoSample2(index,which,length_mod,0,amp2);
-	last_frame = NULL;
-	return(result);
-}  // end of DoSample
-#endif
 
 
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp)
@@ -1198,8 +1172,8 @@ if(which==1)
 
 
 
-static void DoMarker(int type, int char_posn, int length, int value)
-{//=================================================================
+void DoMarker(int type, int char_posn, int length, int value)
+{//==========================================================
 // This could be used to return an index to the word currently being spoken
 // Type 1=word, 2=sentence, 3=named marker, 4=play audio, 5=end
 	wcmdq[wcmdq_tail][0] = WCMD_MARKER;
@@ -1208,7 +1182,7 @@ static void DoMarker(int type, int char_posn, int length, int value)
 	wcmdq[wcmdq_tail][3] = value;
 	WcmdqInc();
 
-}  // end of Synthesize::DoMarker
+}  // end of DoMarker
 
 
 void DoVoiceChange(voice_t *v)
@@ -1224,8 +1198,8 @@ void DoVoiceChange(voice_t *v)
 }
 
 
-static void DoEmbedded(int &embix, int sourceix)
-{//=============================================
+void DoEmbedded(int &embix, int sourceix)
+{//======================================
 	// There were embedded commands in the text at this point
 	unsigned int word;  // bit 7=last command for this word, bits 5,6 sign, bits 0-4 command
 	unsigned int value;
@@ -1305,13 +1279,11 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	PHONEME_DATA phdata_tone;
 	FMT_PARAMS fmtp;
 
-#ifdef TEST_MBROLA
-	if(mbrola_name[0] != 0)
-		return(MbrolaGenerate(phoneme_list,n_ph,resume));
-#endif
-
 	if(option_quiet)
 		return(0);
+
+	if(mbrola_name[0] != 0)
+		return(MbrolaGenerate(phoneme_list,n_ph,resume));
 
 	if(resume == 0)
 	{
@@ -1897,20 +1869,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	{
 		n_phoneme_list = 0;
 		return(1);
-	}
-
-	if(mbrola_name[0] != 0)
-	{
-#ifdef USE_MBROLA_LIB
-		MbrolaTranslate(phoneme_list,n_phoneme_list,NULL);
-#else
-		{
-			FILE *f_mbrola;
-			if((f_mbrola = f_trans) == stderr)
-				f_mbrola = stdout;
-			MbrolaTranslate(phoneme_list,n_phoneme_list,f_mbrola);
-		}
-#endif
 	}
 
 	Generate(phoneme_list,&n_phoneme_list,0);

@@ -114,6 +114,13 @@ phoneme W#
   FMT(vowel/V)
 endphoneme
 
+phoneme aI
+  vowel starttype #a endtype #i
+  length 250
+  FMT(vdiph/ai)
+endphoneme
+
+
 // CONSONANTS
 
 // PB added l/3

@@ -56,15 +56,16 @@ enum {ONE_BILLION=1000000000};
 static t_wave_callback* my_callback_is_output_enabled=NULL;
 
 #define N_WAV_BUF   10
-#define SAMPLE_RATE 22050
+#define MAX_SAMPLE_RATE 22050
 #define FRAMES_PER_BUFFER 512
-#define BUFFER_LENGTH (SAMPLE_RATE*2*sizeof(uint16_t))
-#define THRESHOLD (BUFFER_LENGTH/5)
+#define BUFFER_LENGTH (MAX_SAMPLE_RATE*2*sizeof(uint16_t))
+//#define THRESHOLD (BUFFER_LENGTH/5)
 static char myBuffer[BUFFER_LENGTH];
 static char* myRead=NULL; 
 static char* myWrite=NULL; 
 static int out_channels=1;
 static int my_stream_could_start=0;
+static int wave_samplerate;
 
 static int mInCallbackFinishedState = false;
 #if (USE_PORTAUDIO == 18)
@@ -168,89 +169,89 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 			  PaStreamCallbackFlags flags, void *userData )
 #endif
 {
-  int aResult=0; // paContinue
-  char* aWrite = myWrite;
-  size_t n = out_channels*sizeof(uint16_t)*framesPerBuffer;
+	int aResult=0; // paContinue
+	char* aWrite = myWrite;
+	size_t n = out_channels*sizeof(uint16_t)*framesPerBuffer;
 
-  myReadPosition += framesPerBuffer;
-  SHOW("pa_callback > myReadPosition=%u, framesPerBuffer=%lu (n=0x%x) \n",(int)myReadPosition, framesPerBuffer, n);
+	myReadPosition += framesPerBuffer;
+	SHOW("pa_callback > myReadPosition=%u, framesPerBuffer=%lu (n=0x%x) \n",(int)myReadPosition, framesPerBuffer, n);
 
-  if (aWrite >= myRead)
-    {
-      if((size_t)(aWrite - myRead) >= n)
+	if (aWrite >= myRead)
 	{
-	  memcpy(outputBuffer, myRead, n);
-	  myRead += n;
+		if((size_t)(aWrite - myRead) >= n)
+		{
+			memcpy(outputBuffer, myRead, n);
+			myRead += n;
+		}
+		else
+		{
+			SHOW_TIME("pa_callback > underflow");
+			aResult=1; // paComplete;
+			mInCallbackFinishedState = true;
+			size_t aUsedMem=0;
+			aUsedMem = (size_t)(aWrite - myRead);
+			if (aUsedMem)
+			{
+				memcpy(outputBuffer, myRead, aUsedMem);
+			}
+			char* p = (char*)outputBuffer + aUsedMem;
+			memset(p, 0, n - aUsedMem); 
+			//	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
+			myRead = aWrite;
+		}
 	}
-      else
+	else // myRead > aWrite
 	{
-	  SHOW_TIME("pa_callback > underflow");
-	  aResult=1; // paComplete;
-	  mInCallbackFinishedState = true;
-	  size_t aUsedMem=0;
-	  aUsedMem = (size_t)(aWrite - myRead);
-	  if (aUsedMem)
-	    {
-	      memcpy(outputBuffer, myRead, aUsedMem);
-	    }
-	  char* p = (char*)outputBuffer + aUsedMem;
-	  memset(p, 0, n - aUsedMem); 
-	  //	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
-	  myRead = aWrite;
-	}
-    }
-  else // myRead > aWrite
-    {
-      if ((size_t)(myBuffer + BUFFER_LENGTH - myRead) >= n)
-	{
-	  memcpy(outputBuffer, myRead, n);
-	  myRead += n;
-	}
-      else if ((size_t)(aWrite + BUFFER_LENGTH - myRead) >= n)
-	{
-	  int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
-	  if (aTopMem)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
-	      memcpy(outputBuffer, myRead, aTopMem);
-	    }
-	  int aRest = n - aTopMem;
-	  if (aRest)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
-	      char* p = (char*)outputBuffer + aTopMem;
-	      memcpy(p, myBuffer, aRest);
-	    }
-	  myRead = myBuffer + aRest;
-	}
-      else
-	{ 
-	  SHOW_TIME("pa_callback > underflow");
-	  aResult=1; // paComplete;
+		if ((size_t)(myBuffer + BUFFER_LENGTH - myRead) >= n)
+		{
+			memcpy(outputBuffer, myRead, n);
+			myRead += n;
+		}
+		else if ((size_t)(aWrite + BUFFER_LENGTH - myRead) >= n)
+		{
+			int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
+			if (aTopMem)
+			{
+				SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
+				memcpy(outputBuffer, myRead, aTopMem);
+			}
+			int aRest = n - aTopMem;
+			if (aRest)
+			{
+				SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
+				char* p = (char*)outputBuffer + aTopMem;
+				memcpy(p, myBuffer, aRest);
+			}
+			myRead = myBuffer + aRest;
+		}
+		else
+		{ 
+			SHOW_TIME("pa_callback > underflow");
+			aResult=1; // paComplete;
 
-	  int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
-	  if (aTopMem)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
-	      memcpy(outputBuffer, myRead, aTopMem);
-	    }
-	  int aRest = aWrite - myBuffer;
-	  if (aRest)
-	    {
-	      SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
-	      char* p = (char*)outputBuffer + aTopMem;
-	      memcpy(p, myBuffer, aRest);
-	    }
+			int aTopMem = myBuffer + BUFFER_LENGTH - myRead;
+			if (aTopMem)
+			{
+				SHOW("pa_callback > myRead=0x%x, aTopMem=0x%x\n",(int)myRead, (int)aTopMem);
+				memcpy(outputBuffer, myRead, aTopMem);
+			}
+			int aRest = aWrite - myBuffer;
+			if (aRest)
+			{
+				SHOW("pa_callback > myRead=0x%x, aRest=0x%x\n",(int)myRead, (int)aRest);
+				char* p = (char*)outputBuffer + aTopMem;
+				memcpy(p, myBuffer, aRest);
+			}
 
-	  size_t aUsedMem = aTopMem + aRest;
-	  char* p = (char*)outputBuffer + aUsedMem;
-	  memset(p, 0, n - aUsedMem); 
-	  //	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
-	  myRead = aWrite;
+			size_t aUsedMem = aTopMem + aRest;
+			char* p = (char*)outputBuffer + aUsedMem;
+			memset(p, 0, n - aUsedMem); 
+			//	  myReadPosition += aUsedMem/(out_channels*sizeof(uint16_t));
+			myRead = aWrite;
+		}
 	}
-    }
 
-  SHOW("pa_callback > myRead=%x\n",(int)myRead);
+	SHOW("pa_callback > myRead=%x\n",(int)myRead);
 
 
   // #if USE_PORTAUDIO == 18
@@ -288,7 +289,7 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 #endif
 
 
-  return(aResult);
+	return(aResult);
   //#endif
 
 }  //  end of WaveCallBack
@@ -335,7 +336,7 @@ static int wave_open_sound()
       out_channels = 1;
 
 #if USE_PORTAUDIO == 18
-      //      err = Pa_OpenDefaultStream(&pa_stream,0,1,paInt16,SAMPLE_RATE,FRAMES_PER_BUFFER,N_WAV_BUF,pa_callback,(void *)userdata);
+      //      err = Pa_OpenDefaultStream(&pa_stream,0,1,paInt16,wave_samplerate,FRAMES_PER_BUFFER,N_WAV_BUF,pa_callback,(void *)userdata);
 
    PaDeviceID playbackDevice = Pa_GetDefaultOutputDeviceID();
 
@@ -351,7 +352,7 @@ static int wave_open_sound()
 				paInt16,
 				NULL,
 				/* general parameters */
-				SAMPLE_RATE, FRAMES_PER_BUFFER, 0,
+				wave_samplerate, FRAMES_PER_BUFFER, 0,
 				//paClipOff | paDitherOff,
 				paNoFlag,
 				pa_callback, (void *)userdata);
@@ -376,12 +377,12 @@ static int wave_open_sound()
 				       paInt16,
 				       NULL,
 				       /* general parameters */
-				       SAMPLE_RATE, FRAMES_PER_BUFFER, 0,
+				       wave_samplerate, FRAMES_PER_BUFFER, 0,
 				       //paClipOff | paDitherOff,
 				       paNoFlag,
 				       pa_callback, (void *)userdata);
 // 	  err = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,
-// 				     SAMPLE_RATE,
+// 				     wave_samplerate,
 // 				     FRAMES_PER_BUFFER,
 // 				     N_WAV_BUF,pa_callback,(void *)userdata);
 	  SHOW("wave_open_sound > Pa_OpenDefaultStream(2): err=%d (%s)\n",err, Pa_GetErrorText(err));
@@ -395,7 +396,7 @@ static int wave_open_sound()
 			  &pa_stream,
 			  NULL, /* no input */
 			  &myOutputParameters,
-			  SAMPLE_RATE,
+			  wave_samplerate,
 			  framesPerBuffer,
 			  paNoFlag,
 			  //			  paClipOff | paDitherOff,
@@ -410,7 +411,7 @@ static int wave_open_sound()
 			      &pa_stream,
 			      NULL, /* no input */
 			      &myOutputParameters,
-			      SAMPLE_RATE,
+			      wave_samplerate,
 			      framesPerBuffer,
 			      paNoFlag,
 			      //			  paClipOff | paDitherOff,
@@ -427,14 +428,14 @@ static int wave_open_sound()
 			       &pa_stream,
 			       NULL, /* no input */
 			       &myOutputParameters,
-			       SAMPLE_RATE,
+			       wave_samplerate,
 			       framesPerBuffer,
 			       paNoFlag,
 			       //			       paClipOff | paDitherOff,
 			       pa_callback,
 			       (void *)userdata);
 
-	  //	  err = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,(double)SAMPLE_RATE,FRAMES_PER_BUFFER,pa_callback,(void *)userdata);
+	  //	  err = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,(double)wave_samplerate,FRAMES_PER_BUFFER,pa_callback,(void *)userdata);
 	}
       mInCallbackFinishedState = false;
 #endif
@@ -526,7 +527,7 @@ static void select_device(const char* the_api)
 					defaultAlsaIndex = hostInfo->defaultOutputDevice;
 					const PaDeviceInfo *deviceInfo = Pa_GetDeviceInfo( defaultAlsaIndex );
 					update_output_parameters(defaultAlsaIndex, deviceInfo);
-					if (Pa_IsFormatSupported(NULL, &myOutputParameters, SAMPLE_RATE) == 0)
+					if (Pa_IsFormatSupported(NULL, &myOutputParameters, wave_samplerate) == 0)
 					{
 						SHOW( "select_device > ALSA (default), name=%s (#%d)\n", deviceInfo->name, defaultAlsaIndex);		  
 						selectedIndex = defaultAlsaIndex;
@@ -541,7 +542,7 @@ static void select_device(const char* the_api)
 	
 				update_output_parameters(i, deviceInfo);
 	
-				if (Pa_IsFormatSupported(NULL, &myOutputParameters, SAMPLE_RATE) == 0)
+				if (Pa_IsFormatSupported(NULL, &myOutputParameters, wave_samplerate) == 0)
 				{
 					SHOW( "select_device > ALSA, name=%s (#%d)\n", deviceInfo->name, i);
 	
@@ -613,12 +614,13 @@ void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 //<wave_init
 
 // TBD: the arg could be "alsa", "oss",...
-void wave_init()
+void wave_init(int srate)
 {
   ENTER("wave_init");
   PaError err;
 
   pa_stream = NULL;
+	wave_samplerate = srate;
   mInCallbackFinishedState = false;
   init_buffer();
 
@@ -1023,7 +1025,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
     {
       // TBD: take in account time suplied by portaudio V18 API
       a_time = sample - myReadPosition;
-      a_time = 0.5 + (a_time * 1000.0) / SAMPLE_RATE;
+      a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
     }
   else
     {
@@ -1050,7 +1052,7 @@ void *wave_test_get_write_buffer()
 // notdef USE_PORTAUDIO
 
 
-void wave_init() {}
+void wave_init(int srate) {}
 void* wave_open(const char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
 int wave_close(void* theHandler) {return 0;}

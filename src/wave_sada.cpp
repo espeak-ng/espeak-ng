@@ -77,11 +77,13 @@ static uint32_t last_play_position=0;
 //
 //<wave_init
 
-void wave_init() {
+void wave_init(int srate) {
   ENTER("wave_init");
 
   audio_info_t ainfo;
   char *audio_device = NULL;
+
+	wave_samplerate = srate;
 
   audio_device = getenv("AUDIODEV");
   if (audio_device != NULL) {
@@ -108,7 +110,7 @@ void wave_init() {
   SHOW("wave_init() play buffer size: %d\n", ainfo.play.buffer_size);
   ainfo.play.encoding = AUDIO_ENCODING_LINEAR;
   ainfo.play.channels = 1;
-  ainfo.play.sample_rate = SAMPLE_RATE;
+  ainfo.play.sample_rate = wave_samplerate;
   ainfo.play.precision = SAMPLE_SIZE;
 
   if (ioctl(sun_audio_fd, AUDIO_SETINFO, &ainfo) == -1) {
@@ -520,7 +522,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
       (actual_index <= ainfo.play.samples)) { 
     *time = 0;
   } else {
-    a_time = ((actual_index - ainfo.play.samples) * 1000) / SAMPLE_RATE;
+    a_time = ((actual_index - ainfo.play.samples) * 1000) / wave_samplerate;
     *time = (uint32_t) a_time;
   }
   SHOW("wave_get_remaining_time for %d: %d\n", sample, *time);

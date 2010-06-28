@@ -50,12 +50,13 @@ Revision 5
 typedef enum {
   espeakEVENT_LIST_TERMINATED = 0, // Retrieval mode: terminates the event list.
   espeakEVENT_WORD = 1,            // Start of word
-  espeakEVENT_SENTENCE,            // Start of sentence
-  espeakEVENT_MARK,                // Mark
-  espeakEVENT_PLAY,                // Audio element
-  espeakEVENT_END,                 // End of sentence or clause
-  espeakEVENT_MSG_TERMINATED,      // End of message
-  espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_SENTENCE = 2,        // Start of sentence
+  espeakEVENT_MARK = 3,            // Mark
+  espeakEVENT_PLAY = 4,            // Audio element
+  espeakEVENT_END = 5,             // End of sentence or clause
+  espeakEVENT_MSG_TERMINATED = 6,  // End of message
+  espeakEVENT_PHONEME = 7,         // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_SAMPLERATE = 8       // internal use, set sample rate
 } espeak_EVENT_TYPE;
 
 

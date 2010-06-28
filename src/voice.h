@@ -41,6 +41,7 @@ typedef struct {
 	int formant_factor;      // adjust nominal formant frequencies by this  because of the voice's pitch (256ths)
 	int consonant_amp;     // amplitude of unvoiced consonants
 	int consonant_ampv;    // amplitude of the noise component of voiced consonants
+	int samplerate;
 	int klattv[8];
 
 	// parameters used by Wavegen
@@ -77,6 +78,8 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name);
 voice_t *LoadVoice(const char *voice_name, int control);
 voice_t *LoadVoiceVariant(const char *voice_name, int variant);
 void DoVoiceChange(voice_t *v);
+void WVoiceChanged(voice_t *wvoice);
 void WavegenSetVoice(voice_t *v);
 void ReadTonePoints(char *string, int *tone_pts);
+void VoiceReset(int control);
 

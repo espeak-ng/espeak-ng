@@ -59,11 +59,21 @@ static unsigned int my_unique_identifier=0;
 static void* my_user_data=NULL;
 static espeak_AUDIO_OUTPUT my_mode=AUDIO_OUTPUT_SYNCHRONOUS;
 static int synchronous_mode = 1;
+static int out_samplerate = 0;
+static int voice_samplerate = 22050;
+
 t_espeak_callback* synth_callback = NULL;
 int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
 
 char path_home[N_PATH_HOME];   // this is the espeak-data directory
+
+
+void WVoiceChanged(voice_t *wvoice)
+{//=================================
+// Voice change in wavegen
+	voice_samplerate = wvoice->samplerate;
+}
 
 
 #ifdef USE_ASYNC
@@ -85,6 +95,34 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 	{
 	case AUDIO_OUTPUT_PLAYBACK:
 	{
+		int event_type=0;
+		int event_data=0;
+		if(event)
+		{
+			event_type = event->type;
+			event_data = event->id.number;
+		}
+
+		if(event_type == espeakEVENT_SAMPLERATE)
+		{
+			voice_samplerate = event->id.number;
+
+			if(out_samplerate != voice_samplerate)
+			{
+				if(out_samplerate != 0)
+				{
+					// sound was previously open with a different sample rate
+					wave_close(my_audio);
+					sleep(1);
+				}
+				out_samplerate = voice_samplerate;
+				wave_init(voice_samplerate);
+				wave_set_callback_is_output_enabled( fifo_is_command_enabled);
+				my_audio = wave_open("alsa");
+				event_init();
+			}
+		}
+
 		if (outbuf && length && a_wave_can_be_played)
 		{
 			wave_write (my_audio, (char*)outbuf, 2*length);
@@ -220,17 +258,13 @@ static void select_output(espeak_AUDIO_OUTPUT output_type)
 	my_audio = NULL;
 	synchronous_mode = 1;
  	option_waveout = 1;   // inhibit portaudio callback from wavegen.cpp
+	out_samplerate = 0;
 
 	switch(my_mode)
 	{
 	case AUDIO_OUTPUT_PLAYBACK:
+		// wave_init() is now called just before the first wave_write()
 		synchronous_mode = 0;
-#ifdef USE_ASYNC
-		wave_init();
-		wave_set_callback_is_output_enabled( fifo_is_command_enabled);
-		my_audio = wave_open("alsa");
-		event_init();
-#endif
 		break;
 
 	case AUDIO_OUTPUT_RETRIEVAL:
@@ -734,19 +768,21 @@ ENTER("espeak_Initialize");
 		return(EE_INTERNAL_ERROR);
 	
 	option_phonemes = 0;
+	option_mbrola_phonemes = 0;
 	option_phoneme_events = (options & 1);
 
-	SetVoiceByName("default");
+	VoiceReset(0);
+//	SetVoiceByName("default");
 	
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 	
-	SetParameter(espeakRATE,170,0);
+	SetParameter(espeakRATE,175,0);
 	SetParameter(espeakVOLUME,100,0);
 	SetParameter(espeakCAPITALS,option_capitals,0);
 	SetParameter(espeakPUNCTUATION,option_punctuation,0);
 	SetParameter(espeakWORDGAP,0,0);
-	DoVoiceChange(voice);
+//	DoVoiceChange(voice);
 	
 #ifdef USE_ASYNC
 	fifo_init();
@@ -1087,8 +1123,10 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
 		value=0  No phoneme output (default)
 		value=1  Output the translated phoneme symbols for the text
 		value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
+		bit 3:   produce mbrola pho data
 	*/
-	option_phonemes = value;
+	option_phonemes = value & 3;
+	option_mbrola_phonemes = value & 8;
 	f_trans = stream;
 	if(stream == NULL)
 		f_trans = stderr;
@@ -1163,6 +1201,7 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	{
 		wave_close(my_audio);
 		wave_terminate();
+		out_samplerate = 0;
 	}
 
 #endif

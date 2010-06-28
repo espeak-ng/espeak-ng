@@ -222,7 +222,7 @@ endphoneme
 
 phoneme aI@
   vowel  starttype #a  endtype #@
-  length 270
+  length 280
   IfNextVowelAppend(r-)
   FMT(vwl_en/ooi@)
 endphoneme
@@ -230,7 +230,7 @@ endphoneme
 
 phoneme aU@
   vowel  starttype #a   endtype #@
-  length 270
+  length 280
   IfNextVowelAppend(r-)
   FMT(vwl_en/aU@)
 endphoneme

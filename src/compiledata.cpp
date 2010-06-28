@@ -1744,12 +1744,12 @@ static int LoadWavefile(FILE *f, const char *fname)
 	sr2 = Read4Bytes(f);
 	fseek(f,40,SEEK_SET);	
 
-	if((sr1 != samplerate) || (sr2 != sr1*2))
+	if((sr1 != samplerate_native) || (sr2 != sr1*2))
 	{
 #ifdef PLATFORM_WINDOWS
-		if(sr1 != samplerate)
+		if(sr1 != samplerate_native)
 		{
-			fprintf(f_errors,"Wrong samplerate %d, wants %d\n",sr1,samplerate);
+			fprintf(f_errors,"Wrong samplerate %d, wants %d\n",sr1,samplerate_native);
 			error("Wrong samplerate: %s",fname);
 		}
 		if(sr2 != sr1*2)
@@ -1764,7 +1764,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 			if((fd_temp = mkstemp(fname_temp)) >= 0)
 			{
 				close(fd_temp);
-				sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate,fname_temp);
+				sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate_native,fname_temp);
 				if(system(command) < 0)
 				{
 					error("Failed to resample: %s",command);
