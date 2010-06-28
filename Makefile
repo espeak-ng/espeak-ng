@@ -35,6 +35,7 @@ espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
 
 espeak-data: espeakedit
+	rm -rf $(HOME)/espeak-data
 	cp -a espeak-data $(HOME)/espeak-data
 	cp -a phsource $(HOME)/espeak-data/phsource
 	cp -a dictsource $(HOME)/espeak-data/dictsource
