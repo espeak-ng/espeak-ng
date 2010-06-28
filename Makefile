@@ -39,10 +39,18 @@ espeak-data: espeakedit
 	cp -a espeak-data $(HOME)/espeak-data
 	cp -a phsource $(HOME)/espeak-data/phsource
 	cp -a dictsource $(HOME)/espeak-data/dictsource
+	mv $(HOME)/espeak-data/phsource/intonation $(HOME)/espeak-data/intonations
 	src/espeakedit --compile
 
 espeak-data-local: espeak-phoneme-data espeak-data
 	rm -rf espeak-data-local
 	cp -a $(HOME)/espeak-data espeak-data-local
 	platforms/$(PLATFORM)/espeak-phoneme-data espeak-data-local espeak-data-local espeak-data-local/phondata-manifest
+	mkdir -p espeak-data-local/mbrola
+	mkdir -p espeak-data-local/mbrola_ph
+	mkdir -p espeak-data-local/soundicons
+	mkdir -p espeak-data-local/voices/test
+	rm -rf espeak-data-local/dictsource
+	rm -rf espeak-data-local/phsource
+	rm -rf espeak-data-local/phondata-manifest
 
