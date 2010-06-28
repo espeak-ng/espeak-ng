@@ -65,7 +65,6 @@ enum {
 
 static t_wave_callback* my_callback_is_output_enabled=NULL;
 
-#define SAMPLE_RATE 22050
 #define ESPEAK_FORMAT PA_SAMPLE_S16LE
 #define ESPEAK_CHANNEL 1
 
@@ -90,6 +89,7 @@ static int time_offset_msec = 0;
 static int just_flushed = 0;
 
 static int connected = 0;
+static int wave_samplerate;
 
 #define CHECK_DEAD_GOTO(label, warn) do { \
 if (!mainloop || \
@@ -475,7 +475,7 @@ static int pulse_open()
     pthread_mutex_init( &pulse_mutex, (const pthread_mutexattr_t *)NULL);
 
     ss.format = ESPEAK_FORMAT;
-    ss.rate = SAMPLE_RATE;
+    ss.rate = wave_samplerate;
     ss.channels = ESPEAK_CHANNEL;
 
     if (!pa_sample_spec_valid(&ss))
@@ -677,11 +677,12 @@ void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 //>
 //<wave_init
 
-void wave_init()
+void wave_init(int srate)
 {
   ENTER("wave_init");
 
   stream = NULL;
+	wave_samplerate = srate;
 
   pulse_open();
 }
@@ -846,7 +847,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
     {
       // TBD: take in account time suplied by portaudio V18 API
       a_time = sample - a_timing_info.read_index;
-      a_time = 0.5 + (a_time * 1000.0) / SAMPLE_RATE;
+      a_time = 0.5 + (a_time * 1000.0) / wave_samplerate;
     }
   else
     {

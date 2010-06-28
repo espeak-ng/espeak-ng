@@ -462,6 +462,7 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 #define WCMD_MARKER	10
 #define WCMD_VOICE   11
 #define WCMD_EMBEDDED 12
+#define WCMD_MBROLA_DATA 13
 
 
 #define N_WCMDQ   160
@@ -557,8 +558,12 @@ espeak_ERROR SetVoiceByName(const char *name);
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
 espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate);
 void SetParameter(int parameter, int value, int relative);
-void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola);
-//int MbrolaSynth(char *p_mbrola);
+int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbrola);
+int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
+int MbrolaFill(int length, int resume);
+void MbrolaReset(void);
+void DoEmbedded(int &embix, int sourceix);
+void DoMarker(int type, int char_posn, int length, int value);
 //int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);

@@ -408,6 +408,7 @@ void VoiceReset(int tone_only)
 	voice->voicing = 64;
 	voice->consonant_amp = 100;
 	voice->consonant_ampv = 100;
+	voice->samplerate = 22050;
 	memset(voice->klattv,0,sizeof(voice->klattv));
 	memset(speed.fast_settings,0,sizeof(speed.fast_settings));
 
@@ -921,6 +922,7 @@ voice_t *LoadVoice(const char *vname, int control)
 				phtrans[0] = 0;
 				sscanf(p,"%s %s %d",name,phtrans,&srate);
 				LoadMbrolaTable(name,phtrans,srate);
+				voice->samplerate = srate;
 			}
 			break;
 

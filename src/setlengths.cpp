@@ -140,7 +140,6 @@ void SetSpeed(int control)
 	int s1;
 	int wpm;
 	int wpm2;
-	int test=0;
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
@@ -171,43 +170,6 @@ void SetSpeed(int control)
 	{
 		speed.loud_consonants = (wpm - 360) / 8;
 	}
-
-#ifdef deleted
-	if(wpm >= 450)
-	{
-		// TEST
-		speed1 = 6;
-		speed2 = speed3 = 5;
-		speed.pause_factor = 12;
-		speed.clause_pause_factor = 15;
-		speed.wav_factor = 70;
-		speed.lenmod_factor = 53;
-		speed.min_sample_len = 400;
-		return;
-	}
-	if(wpm > 390)
-	{
-		// TEST
-		speed1 = 6;
-		speed2 = speed3 = 5;
-		speed.pause_factor = 13;
-		speed.clause_pause_factor = 15;
-
-		if(wpm >= 440)
-		{
-			speed.wav_factor = 72 - (wpm - 440)/4;
-			speed.lenmod_factor = 60 - (wpm - 440)/2;
-			speed.min_sample_len = 420 - (wpm - 440);
-		}
-		else
-		{
-			speed.wav_factor = 74;
-			speed.lenmod_factor = 65 - (wpm - 400)/10;
-			speed.min_sample_len = 450 - (wpm - 400)/2;
-		}
-		return;
-	}
-#endif
 
 	wpm2 = wpm;
 	if(wpm > 359) wpm2 = 359;
@@ -268,9 +230,6 @@ void SetSpeed(int control)
 			if(wpm > 440)
 				speed.min_sample_len = 420 - (wpm - 440);
 		}
-
-		if(test > 0)
-			speed.wav_factor = test;
 
 		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
 		speed.clause_pause_factor = 0;

@@ -2,10 +2,10 @@
 
 SRCS= compiledata.cpp compiledict.cpp debug.cpp dictionary.cpp espeak_command.cpp \
     espeakedit.cpp event.cpp extras.cpp fifo.cpp formantdlg.cpp intonation.cpp \
-    klatt.cpp menus.cpp numbers.cpp options.cpp phonemelist.cpp prosodydisplay.cpp \
-    readclause.cpp setlengths.cpp speak_lib.cpp spect.cpp spectdisplay.cpp \
-    spectseq.cpp synthdata.cpp synthesize.cpp synth_mbrola.cpp translate.cpp \
-    transldlg.cpp tr_languages.cpp voicedlg.cpp voices.cpp vowelchart.cpp \
+    klatt.cpp mbrowrap.cpp menus.cpp numbers.cpp options.cpp phonemelist.cpp \
+    prosodydisplay.cpp readclause.cpp setlengths.cpp speak_lib.cpp spect.cpp \
+    spectdisplay.cpp spectseq.cpp synthdata.cpp synthesize.cpp synth_mbrola.cpp \
+    translate.cpp transldlg.cpp tr_languages.cpp voicedlg.cpp voices.cpp vowelchart.cpp \
     wave.cpp wavegen.cpp
 
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))

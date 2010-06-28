@@ -44,7 +44,6 @@
 
 #ifdef LIBRARY
 #define USE_ASYNC
-//#define USE_MBROLA_LIB
 #endif
 
 #ifdef _ESPEAKEDIT

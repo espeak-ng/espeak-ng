@@ -129,8 +129,6 @@ char param[80];
 
 if(argc > 1)
 {
-extern void VoiceReset(int control);
-
 	p = argv[1];
 	j = 0;
 	while((param[j] = p[j]) != 0) j++;

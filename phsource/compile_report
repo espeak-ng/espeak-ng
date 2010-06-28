@@ -341,7 +341,7 @@ l/l_            [l/] base
 l/l_@           [l/3] base
                 [l/] fr
 l/l@            [l#] base
-                [ߵ] base
+                [߸] base
                 [l] fr
                 [l/2] fr
 l/L1_aL         [l/] base
@@ -367,13 +367,13 @@ l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
 l/la            [l#] base
-                [ߵ] base
+                [߸] base
                 [l] fr
                 [l/2] fr
 l/l_a           [l/3] base
                 [l/] fr
 l/le            [l#] base
-                [ߵ] base
+                [߸] base
                 [l] fr
                 [l/2] fr
 l/l_e           [l/3] base
@@ -383,7 +383,7 @@ l/L_eL_af       [&] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
 l/li            [l#] base
-                [ߵ] base
+                [߸] base
                 [l] fr
                 [l/2] fr
                 [l] zh
@@ -395,14 +395,14 @@ ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
 l/lo            [l#] base
-                [ߵ] base
+                [߸] base
                 [l] fr
                 [l/2] fr
 l/l_o           [l/3] base
                 [l/] fr
 l^/l_rfx        [l.] base
 l/lu            [l#] base
-                [ߵ] base
+                [߸] base
                 [l] fr
                 [l/2] fr
 l/l_u           [l/3] base
@@ -620,8 +620,8 @@ ufric/f         [f] base
 ufric/f_        [f] base
                 [f] fr
                 [f] pl
-ufric/l#        [l#] is
-ufric/ll        [l#] base
+ufric/l#        [l#] base
+                [l#] is
 ufric/s         [s] base
                 [s] fr
                 [z2] fr
@@ -1943,51 +1943,51 @@ vwl_en_us/oor   [0] en-us
 vwl_en_us/or    [o@] en-us
                 [O:] en-sc
 vwl_en_us/ur    [U@] en-us
-vwl_fr/@2r      [ߵ] fr
-vwl_fr/a2r      [ߵ] fr
-vwl_fr/aa2r     [ߵ] fr
+vwl_fr/@2r      [߸] fr
+vwl_fr/a2r      [߸] fr
+vwl_fr/aa2r     [߸] fr
 vwl_fr/br       [r/2] fr
-vwl_fr/e2r      [ߵ] fr
-vwl_fr/e_2r     [ߵ] fr
-vwl_fr/ee2r     [ߵ] fr
-vwl_fr/i2r      [ߵ] fr
+vwl_fr/e2r      [߸] fr
+vwl_fr/e_2r     [߸] fr
+vwl_fr/ee2r     [߸] fr
+vwl_fr/i2r      [߸] fr
 vwl_fr/j        [j/] fr
-vwl_fr/o2r      [ߵ] fr
-vwl_fr/oo2r     [ߵ] fr
+vwl_fr/o2r      [߸] fr
+vwl_fr/oo2r     [߸] fr
 vwl_fr/r        [r] fr
                 [r/2] fr
 vwl_fr/r_       [r/] fr
 vwl_fr/r_@      [r/] fr
-vwl_fr/r@       [ߵ] fr
+vwl_fr/r@       [߸] fr
 vwl_fr/@R       [x] pt-pt
-vwl_fr/r@2      [ߵ] fr
+vwl_fr/r@2      [߸] fr
 vwl_fr/@R2      [R] fr-ca
-vwl_fr/ra       [ߵ] fr
+vwl_fr/ra       [߸] fr
 vwl_fr/r_a      [r/] fr
-vwl_fr/raa      [ߵ] fr
-vwl_fr/re       [ߵ] fr
+vwl_fr/raa      [߸] fr
+vwl_fr/re       [߸] fr
 vwl_fr/r_e      [r/] fr
-vwl_fr/re2      [ߵ] fr
-vwl_fr/ree      [ߵ] fr
-vwl_fr/ri       [ߵ] fr
+vwl_fr/re2      [߸] fr
+vwl_fr/ree      [߸] fr
+vwl_fr/ri       [߸] fr
 vwl_fr/r_i      [r/] fr
-vwl_fr/rj       [ߵ] fr
+vwl_fr/rj       [߸] fr
 vwl_fr/r_n      [r/] fr
-vwl_fr/ro       [ߵ] fr
+vwl_fr/ro       [߸] fr
 vwl_fr/r_o      [r/] fr
-vwl_fr/roo      [ߵ] fr
+vwl_fr/roo      [߸] fr
 vwl_fr/rr       [r/] fr
-vwl_fr/ru       [ߵ] fr
+vwl_fr/ru       [߸] fr
 vwl_fr/r_u      [r/] fr
-vwl_fr/rw       [ߵ] fr
-vwl_fr/ry       [ߵ] fr
+vwl_fr/rw       [߸] fr
+vwl_fr/ry       [߸] fr
 vwl_fr/r_y      [r/] fr
 vwl_fr/tr       [r/2] fr
 vwl_fr/trr      [r/] fr
-vwl_fr/u2r      [ߵ] fr
+vwl_fr/u2r      [߸] fr
 vwl_fr/wa       [w] fr
                 [w/] fr
-vwl_fr/y2r      [ߵ] fr
+vwl_fr/y2r      [߸] fr
 vwl_hi/l-voc    [l-] base
                 [l-] sk
                 [l:] sk

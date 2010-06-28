@@ -288,6 +288,8 @@ void WcmdqStop()
 #ifdef USE_PORTAUDIO
 	Pa_AbortStream(pa_stream);
 #endif
+	if(mbrola_name[0] != 0)
+		MbrolaReset();
 }
 
 
@@ -1563,6 +1565,8 @@ void WavegenSetVoice(voice_t *v)
 		option_harmonic1 = 6;
 	}
 	WavegenSetEcho();
+	MarkerEvent(espeakEVENT_SAMPLERATE,0,wvoice->samplerate,out_ptr);
+//	WVoiceChanged(wvoice);
 }
 
 
@@ -1797,11 +1801,6 @@ int WavegenFill(int fill_zeros)
 	static int resume=0;
 	static int echo_complete=0;
 
-#ifdef TEST_MBROLA
-	if(mbrola_name[0] != 0)
-		return(MbrolaFill(fill_zeros));
-#endif
-
 	while(out_ptr < out_end)
 	{
 		if(WcmdqUsed() <= 0)
@@ -1903,6 +1902,10 @@ int WavegenFill(int fill_zeros)
 
 		case WCMD_EMBEDDED:
 			SetEmbedded(q[1],q[2]);
+			break;
+
+		case WCMD_MBROLA_DATA:
+			result = MbrolaFill(length, resume);
 			break;
 		}
 

@@ -98,8 +98,10 @@ static const char *help_text =
 "\t   directory. <voice name> specifies the language\n"
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
+"--pho\n"
+"\t   Write mbrola phoneme data (.pho) to stdout, or to the file in --phonout\n"
 "--phonout=\"<filename>\"\n"
-"\t   Write output from -x -X commands, and mbrola phoneme data, to this file\n"
+"\t   Write phoneme output from -x -X and --pho to this file\n"
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
@@ -214,7 +216,9 @@ void DisplayVoices(FILE *f_out, char *language)
 }   //  end of DisplayVoices
 
 
-
+void WVoiceChanged(voice_t *wvoice)
+{
+}
 
 static int OpenWaveFile(const char *path, int rate)
 //=================================================
@@ -472,7 +476,8 @@ int main (int argc, char **argv)
 		{"stdout",  no_argument,       0, 0x105},
 		{"split",   optional_argument, 0, 0x106},
 		{"path",    required_argument, 0, 0x107},
-		{"phonout", required_argument, 0, 0x108}, 
+		{"phonout", required_argument, 0, 0x108},
+		{"pho",     no_argument,       0, 0x109},
 		{0, 0, 0, 0}
 		};
 
@@ -700,6 +705,10 @@ int main (int argc, char **argv)
 				fprintf(stderr,"Can't write to: %s\n",optarg2);
 				f_trans = stderr;
 			}
+			break;
+
+		case 0x109:  // --pho
+			option_mbrola_phonemes = 8;
 			break;
 
 		default:
