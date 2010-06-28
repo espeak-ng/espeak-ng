@@ -42,6 +42,7 @@ espeak-data: espeakedit
 	src/espeakedit --compile
 
 espeak-data-local: espeak-phoneme-data espeak-data
+	rm -rf espeak-data-local
 	cp -a $(HOME)/espeak-data espeak-data-local
 	platforms/$(PLATFORM)/espeak-phoneme-data espeak-data-local espeak-data-local espeak-data-local/phondata-manifest
 
