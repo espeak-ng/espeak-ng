@@ -1,7 +1,6 @@
 # intermediate build output:
 
 *.o
-espeak-data-local/
 
 # libraries
 
@@ -14,4 +13,15 @@ platforms/*/espeak-phoneme-data
 src/espeak
 src/espeakedit
 src/speak
+
+# espeak-data
+
+espeak-data/dictsource
+espeak-data/phsource
+espeak-data/*_dict
+espeak-data/intonations
+espeak-data/phondata
+espeak-data/phondata-manifest
+espeak-data/phonindex
+espeak-data/phontab
 
