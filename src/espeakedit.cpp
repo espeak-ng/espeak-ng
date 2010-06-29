@@ -148,6 +148,7 @@ if(argc > 1)
 	if(strcmp(param,"--compile")==0)
 	{
 		CompilePhonemeData();
+		CompileIntonation();
 		exit(0);
 	}
 }
