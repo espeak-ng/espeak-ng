@@ -380,8 +380,11 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 	{
 		// the envelope is given by a Tone phoneme acting on this vowel
 		InterpretPhoneme2(ph->tone_ph, &phdata_tone);
-		env = LookupEnvelope(phdata_tone.pitch_env);
+		env = GetEnvelope(phdata_tone.pitch_env);
 	}
+
+	if(env == NULL)
+		return;
 
 	for(ix=0; ix<=width; ix+=4)
 	{

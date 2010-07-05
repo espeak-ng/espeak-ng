@@ -79,6 +79,7 @@ endphoneme
 
 phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
+  ipa a:
   length 220
   IfNextVowelAppend(r-)
   FMT(vowel/a_3)
@@ -114,6 +115,7 @@ endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #e
+  ipa e
   length 150
   IfNextVowelAppend(;)
   FMT(vowel/e_5)
@@ -138,6 +140,7 @@ endphoneme
 
 phoneme U
   vowel  starttype #u  endtype #u
+  ipa ʉ
   length 140
   FMT(vowel/u#_4)
 endphoneme
@@ -146,6 +149,7 @@ endphoneme
 phoneme A:
   vowel  starttype #a  endtype #a
   length 220
+  ipa a:
   IfNextVowelAppend(r-)
   IF nextPh(r) THEN
     FMT(vowelr/aa_r, 30)
@@ -157,6 +161,7 @@ endphoneme
 phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in American
   vowel  starttype #a  endtype #@
   length 250
+  ipa aː
   AppendPhoneme(r)
   FMT(vowelr/aa_r)
 endphoneme
@@ -166,6 +171,7 @@ phoneme 3:
   vowel  starttype #e  endtype #@
   length 210
   ChangeIfNotStressed(VR)    // also need "replace 02 3: VR" in voice file
+  ipa e
   AppendPhoneme(r)
   FMT(vdiph2/e@)
 endphoneme
@@ -199,6 +205,7 @@ endphoneme
 phoneme O@
   vowel  starttype #o  endtype #@
   length 230
+  ipa ɔ
   AppendPhoneme(r)
   FMT(vowelr/oo_r)
 endphoneme
@@ -206,6 +213,7 @@ endphoneme
 phoneme o@
   vowel  starttype #o  endtype #@
   length 230
+  ipa o
   AppendPhoneme(r)
   FMT(vowelr/o_r)
 endphoneme
@@ -221,6 +229,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype #u  endtype #u
+  ipa ʉː
   length 160
   IF nextPh(isVFricative) THEN
     Length 200
@@ -234,6 +243,7 @@ endphoneme
 
 phoneme aU
   vowel  starttype #a  endtype #u
+  ipa ʌʉ
   length 200
   FMT(vdiph/au#)
 endphoneme
@@ -241,6 +251,7 @@ endphoneme
 
 phoneme oU
   vowel  starttype #o  endtype #u
+  ipa oː
   length 190
   FMT(vowel/o_3)
 endphoneme
@@ -271,6 +282,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype #e  endtype #i
+  ipa eː
   length 190
   FMT(vowel/e_2)
 endphoneme
@@ -286,6 +298,7 @@ endphoneme
 phoneme e@
   vowel  starttype #e  endtype #@
   length 220
+  ipa e
   AppendPhoneme(r)
   FMT(vdiph2/e@)
 endphoneme
@@ -293,6 +306,7 @@ endphoneme
 
 phoneme i@3
   vowel  starttype #i  endtype #@
+  ipa ɪ
   length 220
   AppendPhoneme(r)
   FMT(vowelr/i_r)
@@ -301,6 +315,10 @@ endphoneme
 
 phoneme U@
   vowel  starttype #u  endtype #@
+  ipa ʉɹ
+  IF nextPh(r-) THEN
+    ipa ʉ
+  ENDIF
   length 240
   IfNextVowelAppend(r-)
   FMT(vdiph2/u#@)

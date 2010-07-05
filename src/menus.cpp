@@ -71,6 +71,7 @@ wxMenuBar *MakeMenu(int type)
 	speak_menu = new wxMenu;
 	speak_menu->Append(MENU_SPEAK_TRANSLATE, _("&Translate"));
 	speak_menu->Append(MENU_SPEAK_RULES, _("Show &Rules"));
+	speak_menu->Append(MENU_SPEAK_IPA, _("Show &IPA"));
 	speak_menu->Append(MENU_SPEAK_TEXT, _("&Speak"));
 	speak_menu->AppendSeparator();
 	speak_menu->Append(MENU_SPEAK_FILE, _("Speak &file..."));
@@ -105,7 +106,9 @@ wxMenuBar *MakeMenu(int type)
 
 	option_menu = new wxMenu;
 	option_menu->Append(MENU_PATHS, _("Set &paths"), paths_menu);
-	option_menu->Append(MENU_PARAMS, _("Speed..."));
+	option_menu->Append(MENU_OPT_SPEED, _("Speed..."));
+	option_menu->Append(MENU_OPT_PUNCT, _("Speak punctiation"));
+	option_menu->Append(MENU_OPT_SPELL, _("Speak character names"));
 
 	// TOOLS
 	vowelchart_menu = new wxMenu;

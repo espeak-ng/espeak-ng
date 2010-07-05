@@ -386,7 +386,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 	int done;
 	int len_percent;
 	const char *final_pitch;
-	char buf[80];
+	char *ptr;
 	char mbr_buf[120];
 
 	static int phix;
@@ -404,7 +404,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 		if (WcmdqFree() < MIN_WCMDQ)
 			return 1;
 
-		mbr_buf[0] = 0;
+		ptr = mbr_buf;
 
 		p = &plist[phix];
 		next = &plist[phix+1];
@@ -415,7 +415,7 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 
 		if(p->synthflags & SFLAG_EMBEDDED)
 		{
-			DoEmbedded(embedded_ix, p->sourceix);
+			DoEmbedded(&embedded_ix, p->sourceix);
 		}
 
 		if(p->newword & 4)
@@ -446,13 +446,12 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 
 		DoMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, ph->mnemonic); 
 
-		sprintf(buf,"%s\t",WordToString(name));
-		strcat(mbr_buf,buf);
+		ptr += sprintf(ptr,"%s\t",WordToString(name));
 
 		if(name2 == '_')
 		{
 			// add a pause after this phoneme
-			pause = PauseLength(len_percent,0);
+			pause = len_percent;
 			name2 = 0;
 		}
 
@@ -472,17 +471,19 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 
 			if(name2 == 0)
 			{
-				sprintf(buf,"%d\t%s", len, WritePitch(p->env,p->pitch1,p->pitch2,0,0));
-				strcat(mbr_buf,buf);
+				char *pitch = WritePitch(p->env,p->pitch1,p->pitch2,0,0);
+				ptr += sprintf(ptr,"%d\t%s", len, pitch);
 			}
 			else
 			{
-				len1 = (len * len_percent)/100;
-				sprintf(buf,"%d\t%s", len1, WritePitch(p->env,p->pitch1,p->pitch2,len_percent,0));
-				strcat(mbr_buf,buf);
+				char *pitch;
 
-				sprintf(buf,"%s\t%d\t%s", WordToString(name2), len-len1, WritePitch(p->env,p->pitch1,p->pitch2,-len_percent,0));
-				strcat(mbr_buf,buf);
+				pitch = WritePitch(p->env,p->pitch1,p->pitch2,len_percent,0);
+				len1 = (len * len_percent)/100;
+				ptr += sprintf(ptr,"%d\t%s", len1, pitch);
+
+				pitch = WritePitch(p->env,p->pitch1,p->pitch2,-len_percent,0);
+				ptr += sprintf(ptr,"%s\t%d\t%s", WordToString(name2), len-len1, pitch);
 			}
 			done = 1;
 			break;
@@ -545,25 +546,22 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 			if(name2 != 0)
 			{
 				len1 = (len * len_percent)/100;
-				sprintf(buf,"%d\n%s\t",len1,WordToString(name2));
-				strcat(mbr_buf,buf);
+				ptr += sprintf(ptr,"%d\n%s\t",len1,WordToString(name2));
 				len -= len1;
 			}
-			sprintf(buf,"%d%s\n",len,final_pitch);
-			strcat(mbr_buf,buf);
+			ptr += sprintf(ptr,"%d%s\n",len,final_pitch);
 		}
 
 		if(pause)
 		{
 			len += PauseLength(pause,0); 
-			sprintf(buf,"_ \t%d\n",PauseLength(pause,0));
-			strcat(mbr_buf,buf);
+			ptr += sprintf(ptr,"_ \t%d\n",PauseLength(pause,0));
 			pause = 0;
 		}
 
 		if(f_mbrola)
 		{
-			fwrite(mbr_buf,1,strlen(mbr_buf),f_mbrola);  // write .pho to a file
+			fwrite(mbr_buf,1,(ptr-mbr_buf),f_mbrola);  // write .pho to a file
 		}
 		else
 		{

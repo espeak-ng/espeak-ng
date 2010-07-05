@@ -74,19 +74,19 @@ static void log(const char *msg, ...)
 	va_end(params);
 }
 
-static void err(const char *err, ...)
+static void err(const char *errmsg, ...)
 {
 	va_list params;
 
-	va_start(params, err);
-	vsnprintf(mbr_errorbuf, sizeof(mbr_errorbuf), err, params);
+	va_start(params, errmsg);
+	vsnprintf(mbr_errorbuf, sizeof(mbr_errorbuf), errmsg, params);
 	va_end(params);
-	log("mbrola error: \"%s\"", mbr_errorbuf);
+	log("mbrowrap error: %s", mbr_errorbuf);
 }
 
 static int create_pipes(int p1[2], int p2[2], int p3[2])
 {
-	int error=0;
+	int error;
 
 	if (pipe(p1) != -1) {
 		if (pipe(p2) != -1) {
@@ -100,7 +100,8 @@ static int create_pipes(int p1[2], int p2[2], int p3[2])
 			error = errno;
 		close(p1[0]);
 		close(p1[1]);
-	}
+	} else
+		error = errno;
 
 	err("pipe(): %s", strerror(error));
 	return -1;
@@ -231,67 +232,89 @@ static void free_pending_data(void)
 	mbr_pending_data_tail = NULL;
 }
 
+static int mbrola_died(void)
+{
+	pid_t pid;
+	int status, len;
+	const char *msg;
+	char msgbuf[80];
+
+	pid = waitpid(mbr_pid, &status, WNOHANG);
+	if (!pid) {
+		msg = "mbrola closed stderr and did not exit";
+	} else if (pid != mbr_pid) {
+		msg = "waitpid() is confused";
+	} else {
+		mbr_pid = 0;
+		if (WIFSIGNALED(status)) {
+			int sig = WTERMSIG(status);
+			snprintf(msgbuf, sizeof(msgbuf),
+					"mbrola died by signal %d", sig);
+			msg = msgbuf;
+		} else if (WIFEXITED(status)) {
+			int exst = WEXITSTATUS(status);
+			snprintf(msgbuf, sizeof(msgbuf),
+					"mbrola exited with status %d", exst);
+			msg = msgbuf;
+		} else {
+			msg = "mbrola died and wait status is weird";
+		}
+	}
+
+	log("mbrowrap error: %s", msg);
+
+	len = strlen(mbr_errorbuf);
+	if (!len)
+		snprintf(mbr_errorbuf, sizeof(mbr_errorbuf), "%s", msg);
+	else
+		snprintf(mbr_errorbuf + len, sizeof(mbr_errorbuf) - len,
+						", (%s)", msg);
+	return -1;
+}
+
 static int mbrola_has_errors(void)
 {
-	int result, error;
+	int result;
+	char buffer[256];
+	char *buf_ptr, *lf;
 
-	result = read(mbr_error_fd, mbr_errorbuf, sizeof(mbr_errorbuf)-1);
-
-	if (result == -1) {
-		if (errno == EAGAIN)
-			return 0;
-		err("read(error): %s", strerror(errno));
-		return -1;
-	}
-
-	if (result != 0) {
-		mbr_errorbuf[result] = 0;
-		if (mbr_errorbuf[result - 1] == '\n')
-			mbr_errorbuf[result - 1] = 0;
-		/* inhibit the reset signal message */
-		if (strncmp(mbr_errorbuf, "Got a reset signal", 18) == 0) {
-			mbr_errorbuf[0] = 0;
-			return 0;
+	buf_ptr = buffer;
+	for (;;) {
+		result = read(mbr_error_fd, buf_ptr,
+				sizeof(buffer) - (buf_ptr - buffer) - 1);
+		if (result == -1) {
+			if (errno == EAGAIN)
+				return 0;
+			err("read(error): %s", strerror(errno));
+			return -1;
 		}
-		/* don't consider this fatal at this point */
-		error = 0;
-	} else {
-		/* EOF on stderr, assume mbrola died. */
-		pid_t pid;
-		int status, len;
-		const char *msg;
-		char msgbuf[80];
 
-		pid = waitpid(mbr_pid, &status, WNOHANG);
-		if (!pid) {
-			msg = "mbrola closed stderr and did not exit";
-		} else {
-			mbr_pid = 0;
-			if (WIFSIGNALED(status)) {
-				int sig = WTERMSIG(status);
-				snprintf(msgbuf, sizeof(msgbuf),
-					 "mbrola died by signal %d", sig);
-				msg = msgbuf;
-			} else if (WIFEXITED(status)) {
-				int exst = WEXITSTATUS(status);
-				snprintf(msgbuf, sizeof(msgbuf),
-					 "mbrola exited with status %d", exst);
-				msg = msgbuf;
-			} else {
-				msg = "mbrola died and wait status is weird";
+		if (result == 0) {
+			/* EOF on stderr, assume mbrola died. */
+			return mbrola_died();
+		}
+
+		buf_ptr[result] = 0;
+
+		for (; (lf = strchr(buf_ptr, '\n')); buf_ptr = lf + 1) {
+			/* inhibit the reset signal messages */
+			if (strncmp(buf_ptr, "Got a reset signal", 18) == 0 ||
+			    strncmp(buf_ptr, "Input Flush Signal", 18) == 0)
+				continue;
+			*lf = 0;
+			log("mbrola: %s", buf_ptr);
+			/* is this the last line? */
+			if (lf == &buf_ptr[result - 1]) {
+				snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
+						"%s", buf_ptr);
+				/* don't consider this fatal at this point */
+				return 0;
 			}
 		}
-		len = strlen(mbr_errorbuf);
-		if (!len)
-			snprintf(mbr_errorbuf, sizeof(mbr_errorbuf), "%s", msg);
-		else
-			snprintf(mbr_errorbuf+len, sizeof(mbr_errorbuf)-len,
-					", (%s)", msg);
-		error = -1;
-	}
 
-	log("mbrola error: \"%s\"", mbr_errorbuf);
-	return error;
+		memmove(buffer, buf_ptr, result);
+		buf_ptr = buffer + result;
+	}
 }
 
 static int send_to_mbrola(const char *cmd)
@@ -468,7 +491,8 @@ int init_MBR(const char *voice_path)
 	/* we should actually be getting only 44 bytes */
 	result = receive_from_mbrola(wavhdr, 45);
 	if (result != 44) {
-		err("unable to get .wav header from mbrola");
+		if (result >= 0)
+			err("unable to get .wav header from mbrola");
 		stop_mbrola();
 		return -1;
 	}
@@ -482,7 +506,7 @@ int init_MBR(const char *voice_path)
 	}
 	mbr_samplerate = wavhdr[24] + (wavhdr[25]<<8) +
 			 (wavhdr[26]<<16) + (wavhdr[27]<<24);
-	//log("mbrola: voice samplerate = %d", mbr_samplerate);
+	//log("mbrowrap: voice samplerate = %d", mbr_samplerate);
 
 	/* remember the voice path for setVolumeRatio_MBR() */
 	if (mbr_voice_path != voice_path) {
@@ -568,7 +592,10 @@ void setVolumeRatio_MBR(float value)
 
 int lastErrorStr_MBR(char *buffer, int bufsize)
 {
-	int result = snprintf(buffer, bufsize, "%s", mbr_errorbuf);
+	int result;
+	if (mbr_pid)
+		mbrola_has_errors();
+	result = snprintf(buffer, bufsize, "%s", mbr_errorbuf);
 	return result >= bufsize ? (bufsize - 1) : result;
 }
 

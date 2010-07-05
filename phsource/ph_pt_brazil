@@ -37,6 +37,7 @@ endphoneme
 
 phoneme &~
   vowel  starttype #@ endtype #@
+  ipa ɐU+0303
   length 180
 //  ChangeIfNotStressed(&)
   FMT(vnasal/a#_n)
@@ -44,12 +45,14 @@ endphoneme
 
 phoneme &U~
   vowel  starttype #@ endtype #u
+  ipa ɐU+0303ʊU+0303
   length 240
   FMT(vnasal/a#u_n)
 endphoneme
 
 phoneme oI~
   vowel starttype #o endtype #i
+  ipa oU+0303ɪU+0303
   length 260
   FMT(vnasal/oi_n)
 endphoneme
@@ -183,6 +186,7 @@ endphoneme
 phoneme x   // this is [R] from Slovak/Czech
   liquid
   trill
+  ipa r
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
@@ -196,13 +200,17 @@ endphoneme
 
 
 phoneme s#     // This is [s] for Brazi;, [S] for Portugal
-  import_phoneme base/s
+  vls alv frc sibilant
+  lengthmod 3
+  ipa s
+  CALL base/s
 endphoneme
 
 
 phoneme *
   vcd alv stop
   lengthmod 6
+  ipa ɾ
   Vowelin f1=1  f2=1700 -300 300  f3=0 80
   Vowelout f1=2 f2=1700 -300 300  f3=0 80
   IF PreVoicing THEN

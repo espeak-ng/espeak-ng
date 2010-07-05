@@ -469,8 +469,8 @@ typedef struct {
 #define NUM_SEP_SPACE  0x1000    // allow space as thousands separator (in addition to langopts.thousands_sep)
 #define NUM_DEC_IT     0x2000    // (LANG=it) speak post-decimal-point digits as a combined number not as single digits
 
-struct Translator
-{//=============
+typedef struct
+{//===========
 
 	LANGUAGE_OPTIONS langopts;
 	int translator_name;
@@ -535,7 +535,7 @@ struct Translator
 	int end_stressed_vowel;  // word ends with stressed vowel
 	int prev_dict_flags;     // dictionary flags from previous word
 	int clause_terminator;
-}; //  end of class Translator
+} Translator;
 
 
 extern int option_tone2;
@@ -624,7 +624,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab);
 void ChangeWordStress(Translator *tr, char *word, int new_stress);
 void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars);
 int TranslateLetter(Translator *tr, char *letter, char *phonemes, int control);
-void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf);
+void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf, int control);
 void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf);
 
 int LoadDictionary(Translator *tr, const char *name, int no_error);

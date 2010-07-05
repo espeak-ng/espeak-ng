@@ -8,6 +8,7 @@
 phoneme &
   vowel starttype #@ endtype #@
   length 180
+  ipa ɐ
   FMT(vowel/a#_3)
   unstressed
 endphoneme
@@ -15,6 +16,7 @@ endphoneme
 phoneme &/       // Used for final "a" when next word starts with "a"
   vowel starttype #@ endtype #@
   length 180
+  ipa ɐ
   IF nextPh(isVowel) THEN
     ChangePhoneme(NULL)
   ENDIF
@@ -30,12 +32,14 @@ endphoneme
 
 phoneme &~
   vowel  starttype #e endtype #@
+  ipa ɐU+0303
   length 240
   FMT(vnasal/ee_n2)
 endphoneme
 
 phoneme &U~
   vowel  starttype #@ endtype #u
+  ipa ɐU+0303ʊU+0303
   length 240
   FMT(vnasal/a#u_n)
 endphoneme
@@ -59,6 +63,7 @@ endphoneme
 phoneme y
   vowel starttype #@ endtype #@
   length 110
+  ipa ɨ
   FMT(vowel/i#_5)
 endphoneme
 
@@ -74,6 +79,7 @@ endphoneme
 phoneme i/            // changes to NULL before a vowel
   vowel starttype #i endtype #i
   length 100
+  ipa ɨ
   IF nextPh(isVowel) THEN
     ChangePhoneme(NULL)
   ENDIF
@@ -131,6 +137,7 @@ endphoneme
 phoneme x      // [r] for Portugal
   liquid
   trill
+  ipa ʁ
   lengthmod 7
   Vowelin f1=0  f2=1500 -400 400  f3=-400 80
   IF nextPh(isNotVowel) THEN
@@ -145,8 +152,12 @@ phoneme R    // for Portugal this is same the as [r]
 endphoneme
 
 
-phoneme s#     // This is [s] for Brazi;, [S] for Portugal
-  import_phoneme base/S
+phoneme s#     // This is [s] for Brazil, [S] for Portugal
+  vls pla frc sibilant
+  lengthmod 3
+  ipa ʃ
+  CALL base/S
+//  import_phoneme base/S
 endphoneme
 
 

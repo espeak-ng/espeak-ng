@@ -13,6 +13,7 @@ endphoneme
 
 phoneme &
   vowel starttype #a endtype #a
+  ipa ɐ
   length 140
   FMT(vowel/a#)
 endphoneme
@@ -21,6 +22,7 @@ endphoneme
 phoneme r*   // this is [R] from Slovak/Czech
   liquid
   trill
+  ipa r
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk

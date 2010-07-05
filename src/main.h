@@ -94,11 +94,11 @@ public:
 	void SpeakFile(void);
 	void ReadVoice(int variant);
 	void OnCommand(wxCommandEvent& event);
+	wxTextCtrl* t_source;
 
 private:
 	wxButton *t_translate;
 	wxButton *t_process;
-	wxTextCtrl* t_source;
 	wxTextCtrl* t_phonetic;
 
 
@@ -124,7 +124,9 @@ enum {
 	MENU_DOCS,
 
 	MENU_OPTIONS,
-	MENU_PARAMS,
+	MENU_OPT_SPEED,
+	MENU_OPT_PUNCT,
+	MENU_OPT_SPELL,
 	MENU_PATHS,
 	MENU_PATH0,
 	MENU_PATH1,
@@ -143,6 +145,7 @@ enum {
 
 	MENU_SPEAK_TRANSLATE,
 	MENU_SPEAK_RULES,
+	MENU_SPEAK_IPA,
 	MENU_SPEAK_TEXT,
 	MENU_SPEAK_FILE,
 	MENU_SPEAK_PAUSE,

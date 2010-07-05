@@ -6,6 +6,7 @@ endphoneme
 
 phoneme t#    // reduced [t] as in "city"
   vcd alv stop
+  ipa ɾ
   lengthmod 5
   Vowelin f1=1  f2=1700 -300 300  f3=-100 80
   Vowelout f1=2 f2=1700 -300 300  f3=-100 80
@@ -28,7 +29,8 @@ phoneme l      // use dark [l/2] before not-vowel
   liquid
   lengthmod 7
 
-  IF nextPh(isNotVowel) THEN
+  IF nextPhW(isVowel) THEN
+  ELSE
     IF prevPh(isNotVowel) THEN
       ChangePhoneme(l/)
     ELSE
@@ -59,6 +61,7 @@ endphoneme
 
 phoneme r-   // linking r, used in English between certain vowels and a following vowel
   liquid rhotic
+  ipa ɹ
   lengthmod 0
 
   NextVowelStarts
@@ -113,11 +116,8 @@ phoneme 3    //  Schwa, used for rhotic schwa in American
   vowel   starttype #@  endtype #@
   unstressed
   length 140
-  IfNextVowelAppend(r-)
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/@_6)
-  ENDIF
-  FMT(vowel/@)
+  ipa ə
+  CALL @
 endphoneme
 
 
@@ -165,6 +165,7 @@ endphoneme
 
 phoneme a#
   vowel  starttype #@  endtype #@
+  ipa ɐ
   unstressed
   length 150
   FMT(vowel/a#_3)
@@ -173,7 +174,8 @@ endphoneme
 
 phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
-  length 190
+  ipa a
+  length 185
   IfNextVowelAppend(r-)
   FMT(vowel/a)
 endphoneme
@@ -246,6 +248,7 @@ endphoneme
 
 phoneme A@     // Used for [A:] when followed by 'r'
   vowel  starttype #a  endtype #a
+  ipa ɑː
   length 230
   IfNextVowelAppend(r-)
   FMT(vowel/aa_2)
@@ -263,7 +266,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 175 long
+  length 175
   IfNextVowelAppend(;)
   IF prevPh(w) THEN
     VowelStart(w/wi2)
@@ -290,6 +293,7 @@ endphoneme
 
 phoneme O@
   vowel  starttype #o  endtype #o
+  ipa ɔː
   length 240
   IfNextVowelAppend(r-)
   FMT(vowel/oo_en)
@@ -298,6 +302,7 @@ endphoneme
 
 phoneme o@
   vowel  starttype #o  endtype #o
+  ipa ɔː
   length 250
   IfNextVowelAppend(r-)
   FMT(vowel/oo_en)
@@ -323,6 +328,7 @@ endphoneme
 
 phoneme oU
   vowel  starttype #@  endtype #u
+  ipa əʊ
   length 220
   FMT(vdiph/@u_en)
 endphoneme
@@ -331,6 +337,9 @@ endphoneme
 phoneme aI
   vowel  starttype #a  endtype #i
   length 240
+  IF nextPh(#a) OR nextPh(#o) THEN
+    AppendPhoneme(;)
+  ENDIF
   FMT(vdiph/ai_2)
 endphoneme
 
@@ -402,6 +411,10 @@ endphoneme
 phoneme IR        // used for "ir" when [3:] is split (Scottish)
   vowel  starttype #@  endtype #@
   length 190
+  ipa əɹ
+  IF nextPhW(r-) THEN
+    ipa ə
+  ENDIF
   IfNextVowelAppend(r-)
   FMT(vowelr/V_r)
 endphoneme
@@ -410,6 +423,10 @@ endphoneme
 phoneme VR        // used for "or"/"ur" when [3:] is split (Scottish)
   vowel  starttype #@  endtype #@
   length 210
+  ipa ʌɹ
+  IF nextPhW(r-) THEN
+    ipa ʌ
+  ENDIF
   IfNextVowelAppend(r-)
   FMT(vowelr/V3_r)
 endphoneme

@@ -418,7 +418,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('d','a'):  // Danish
 		{
-			static const short stress_lengths_da[8] = {160,140, 200,200, 0,0, 220,210};
+			static const short stress_lengths_da[8] = {160,140, 200,200, 0,0, 220,230};
 			SetupTranslator(tr,stress_lengths_da,NULL);
 
 			tr->transpose_min = 'a';
@@ -605,16 +605,18 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
-
 	case L('f','r'):  // french
 		{
-			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 240};
-			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 22,21 };
+			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
+			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 18,18 };
 
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+			tr->langopts.accents = 2;   // Say "Capital" after the letter.
+			tr->langopts.vowel_pause = 0;
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL | NUM_DFRACTION_4;
 			SetLetterVowel(tr,'y');
@@ -675,6 +677,15 @@ Translator *SelectTranslator(const char *name)
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');
 		}
+		break;
+
+
+	case L('h','t'):  // Haitian Creole
+//			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 240};
+//			memcpy(tr->stress_lengths,stress_lengths_fr,sizeof(tr->stress_lengths));
+			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
+			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL | NUM_DFRACTION_4;
 		break;
 
 

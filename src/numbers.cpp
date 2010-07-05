@@ -498,12 +498,12 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 
 
 
-void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf1)
-{//=================================================================================
+void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_buf1, int control)
+{//==============================================================================================
+// control, bit 0:  not the first letter of a word
+
 	int len;
-	unsigned char *p;
 	static char single_letter[10] = {0,0};
-	char ph_stress[2];
 	unsigned int dict_flags[2];
 	char ph_buf3[40];
 	char *ptr;
@@ -568,27 +568,17 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 		LookupAccentedLetter(tr, letter, ph_buf3);
 	}
 
-	if(ph_buf3[0] == 0)
+	strcpy(ph_buf1, ph_buf3);
+	if((ph_buf1[0] == 0) || (ph_buf1[0] == phonSWITCH))
 	{
-		ph_buf1[0] = 0;
 		return;
 	}
-	if(ph_buf3[0] == phonSWITCH)
-	{
-		strcpy(ph_buf1,ph_buf3);
-		return;
-	}
-	// at a stress marker at the start of the letter name, unless one is already marked
-	ph_stress[0] = phonSTRESS_P;
-	ph_stress[1] = 0;
 
-	for(p=(unsigned char *)ph_buf3; (*p != 0) && (phoneme_tab[*p] != NULL); p++)
-	{
-		if(phoneme_tab[*p]->type == phSTRESS)
-			ph_stress[0] = 0;  // stress is already marked
-	}
-	sprintf(ph_buf1,"%s%s",ph_stress,ph_buf3);
-}
+	dict_flags[0] = 0;
+	dict_flags[1] = 0;
+	SetWordStress(tr, ph_buf1, dict_flags, -1, control & 1);
+
+}  // end of LookupLetter
 
 
 
@@ -596,7 +586,9 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 {//=========================================================================
 // get pronunciation for an isolated letter
 // return number of bytes used by the letter
-// control 2=say-as glyphs, 3-say-as chars
+// control bit 0:  a non-initial letter in a word
+//         bit 1:  say 'capital'
+
 	int n_bytes;
 	int letter;
 	int len;
@@ -618,7 +610,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		letter &= 0xff;   // uncode private usage area
 	}
 
-	if(control > 2)
+	if(control & 2)
 	{
 		// include CAPITAL information
 		if(iswupper(letter))
@@ -628,7 +620,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	}
 	letter = towlower2(letter);
 
-	LookupLetter(tr, letter, word[n_bytes], ph_buf);
+	LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
 
 	if(ph_buf[0] == phonSWITCH)
 	{
@@ -642,7 +634,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		SetTranslator2("en");
 		save_option_phonemes = option_phonemes;
 		option_phonemes = 0;
-		LookupLetter(translator2, letter, word[n_bytes], ph_buf);
+		LookupLetter(translator2, letter, word[n_bytes], ph_buf, control & 1);
 		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 		option_phonemes = save_option_phonemes;
 
@@ -671,7 +663,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 			{
 				pbuf += strlen(pbuf);
 				*pbuf++ = phonPAUSE_VSHORT;
-				LookupLetter(tr, *p2, 0, pbuf);
+				LookupLetter(tr, *p2, 0, pbuf, 1);
 			}
 		}
 	}
@@ -740,9 +732,11 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 			if(control == 4)
 				c = phonPAUSE;    // pause after each character
 			if(((count % 3) == 0) || (control > 2))
-				c = phonPAUSE_SHORT;  // pause following a primary stress
+				c = phonPAUSE_NOLINK;  // pause following a primary stress
 			else
-				continue;       // remove marker
+				c = phonPAUSE_VSHORT;
+//			else
+//				continue;       // remove marker
 		}
 		*phonemes++ = c;
 	}
@@ -1593,7 +1587,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			hyphen = 1;
 			ix++;
 		}
-		while((word[ix] != 0) && (word[ix] != ' ') && (ix < int(sizeof(suffix)-1)))
+		while((word[ix] != 0) && (word[ix] != ' ') && (ix < (int)(sizeof(suffix)-1)))
 		{
 			*p++ = word[ix++];
 		}

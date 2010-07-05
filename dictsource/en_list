@@ -2307,6 +2307,7 @@ workstation      w'3:kst,eIS@n
 ?5 workstation   w'VRkst,eIS@n
 wound            wu:nd
 wound            waUnd         $past
+(wound down)     w,aUnd||'daUn
 (wound up)       w,aUnd||'Vp
 wounded          wu:ndI2d
 wretched         rEtSI2d
@@ -2554,6 +2555,7 @@ Taipei		t,aIp'eI
 Taiwan		taI'wan
 (tel aviv)	t,El||a#v'i:v
 Tenerife	tEn3r'i:f
+Texas		tEks@s
 Toronto		t@r0ntoU
 Timor		ti:mo@
 Tokyo		toUkIoU
@@ -3153,6 +3155,8 @@ whatever         w0tEv3		$2 $pause
 while            w,aIl		$pause $strend
 whilst           w,aIlst	$pause
 
+
+(do so)		du:||soU	$atend
 
 //some adverbs
 just             		$verbf

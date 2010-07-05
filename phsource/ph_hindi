@@ -346,6 +346,7 @@ endphoneme
 phoneme t.
   vls rfx stop
   lengthmod 2
+  ipa ʈ
   voicingswitch d.
   Vowelin f1=0  f2=1800 -300 300  f3=-400 80
   Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
@@ -355,6 +356,7 @@ endphoneme
 phoneme th.
   vls rfx stop
   lengthmod 2
+  ipa ʈh
   voicingswitch dh.
   Vowelin f1=0  f2=1800 -300 300  f3=-400 80
   Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
@@ -366,6 +368,7 @@ phoneme d.
   vcd rfx stop
   lengthmod 5
   voicingswitch t.
+  ipa ɖ
   Vowelin f1=1  f2=1800 -300 300  f3=-400 80
   Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
 
@@ -384,6 +387,7 @@ endphoneme
 phoneme dh.
   vcd rfx stop
   lengthmod 5
+  ipa ɖh
   voicingswitch th.
   Vowelin f1=1  f2=1800 -300 300  f3=-400 80
   Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2

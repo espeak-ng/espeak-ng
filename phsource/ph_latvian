@@ -61,6 +61,7 @@ endphoneme
 
 phoneme a#
   vowel starttype #a endtype #a
+  ipa ɐ
   length 120
   FMT(vowel/V_6)
 endphoneme

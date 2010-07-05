@@ -577,11 +577,17 @@ char *strchr_w(const char *s, int c)
 static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, int spell_word)
 {//============================================================================================
 	int posn = 0;
+	int capitals = 0;
+	int non_initial = 0;
+
+	if (spell_word > 2)
+		capitals = 2;
 
 	while((*word != ' ') && (*word != 0))
 	{
-		word += TranslateLetter(tr, word, phonemes, spell_word);
+		word += TranslateLetter(tr, word, phonemes, capitals | non_initial);
 		posn++;
+		non_initial = 1;
 		if(phonemes[0] == phonSWITCH)
 		{
 			// change to another language in order to translate this word
@@ -666,10 +672,8 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 {//===========================================================================
 // word1 is terminated by space (0x20) character
 
-	int length;
 	int word_length;
 	int ix;
-	int posn;
 	int pfix;
 	int n_chars;
 	unsigned int dictionary_flags[2];
@@ -898,10 +902,14 @@ if((wmark > 0) && (wmark < 8))
 	else
 	if(found == 0)
 	{
+		int posn;
+		int non_initial;
+		int length;
 		// word's pronunciation is not given in the dictionary list, although
 		// dictionary_flags may have ben set there
 
 		posn = 0;
+		non_initial = 0;
 		length = 999;
 		wordx = word1;
 
@@ -911,7 +919,11 @@ if((wmark > 0) && (wmark < 8))
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
 			emphasize_allcaps = 0;
-			wordx += TranslateLetter(tr, wordx, unpron_phonemes, 0);
+
+			if(posn > 0)
+				non_initial = 1;
+
+			wordx += TranslateLetter(tr, wordx, unpron_phonemes, non_initial);
 			posn++;
 			if(unpron_phonemes[0] == phonSWITCH)
 			{
@@ -1234,13 +1246,13 @@ strcpy(phonemes2,phonemes);
 			snprintf(word_phonemes, sizeof(word_phonemes), "%s%s%s", unpron_phonemes, prefix_phonemes, phonemes);
 #endif
 			word_phonemes[N_WORD_PHONEMES-1] = 0;
-			SetWordStress(tr, word_phonemes, dictionary_flags, -1, tr->prev_last_stress);
+			SetWordStress(tr, word_phonemes, dictionary_flags, -1, 0);
 		}
 	}
 	else
 	{
 		if(prefix_phonemes[0] == 0)
-			SetWordStress(tr, phonemes, dictionary_flags, -1, tr->prev_last_stress);
+			SetWordStress(tr, phonemes, dictionary_flags, -1, 0);
 		else
 			SetWordStress(tr, phonemes, dictionary_flags, -1, 0);
 #ifdef PLATFORM_WINDOWS
@@ -2334,6 +2346,12 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		}
 		next_in_nbytes = utf8_in(&next_in,&source[source_index]);
 
+		if(c == 0)
+		{
+			finished = 1;
+			c = ' ';
+		}
+
 		if((c == CTRL_EMBEDDED) || (c == ctrl_embedded))
 		{
 			// start of embedded command in the text
@@ -2486,12 +2504,6 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				}
 			}
 
-			if(c == 0)
-			{
-				finished = 1;
-				c = ' ';
-			}
-			else
 			if(IsAlpha(c))
 			{
 				if(!IsAlpha(prev_out) || (tr->langopts.ideographs && ((c > 0x3040) || (prev_out > 0x3040))))

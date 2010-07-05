@@ -48,6 +48,7 @@
 #define T_TRANSLATE 503
 #define T_PROCESS    504
 #define T_RULES     505
+#define T_TRANSLATE_IPA 506
 
 TranslDlg *transldlg = NULL;
 extern char *speech_to_phonemes(char *data, char *phout);
@@ -58,11 +59,18 @@ BEGIN_EVENT_TABLE(TranslDlg, wxPanel)
 	EVT_BUTTON(T_TRANSLATE,TranslDlg::OnCommand)
 	EVT_BUTTON(T_PROCESS,TranslDlg::OnCommand)
 	EVT_BUTTON(T_RULES,TranslDlg::OnCommand)
+	EVT_BUTTON(T_TRANSLATE_IPA,TranslDlg::OnCommand)
 END_EVENT_TABLE()
 
 
 FILE *f_wave = NULL;
+wxFont font_phonetic;
+wxTextAttr style_phonetic;
+wxFont font_phonetic_large;
+wxTextAttr style_phonetic_large;
 
+
+#ifdef deleted
 
 class IPATextCtrl : public wxTextCtrl
 {
@@ -76,27 +84,6 @@ public:
 BEGIN_EVENT_TABLE(IPATextCtrl, wxTextCtrl)
 	EVT_CHAR(IPATextCtrl::OnKey)
 END_EVENT_TABLE()
-
-
-// using Kirschenbaum scheme to enter IPA from the keyboard
-wchar_t ipa1[256] = {
-0,0x250,32,32,32,32,32,32,32,32,0xa,0xb,0xc,0x26f,0x272,0x275,
-32,32,0x25a,32,32,32,32,0x28d,32,32,32,32,32,32,32,32,
-0x20,0x21,0x22,0x23,0x24,0x25,0x0e6,0x27,0x28,0x27e,0x2a,0x2b,0x2c,0x2d,0x2e,0x2f,
-0x252,0x31,0x32,0x25c,0x34,0x35,0x36,0x37,0x38,0x39,0x3a,0x3b,0x3c,0x3d,0x3e,0x294,
-0x259,0x251,0x3b2,0xe7,0xf0,0x25b,0x46,0x262,0x127,0x26a,0x25f,0x4b,0x26c,0x271,0x14b,0x254,
-0x3a6,0x263,0x280,0x283,0x3b8,0x28a,0x28c,0x153,0x3c7,0xf8,0x292,0x32a,0x5c,0x5d,0x5e,0x5f,
-0x60,0x61,0x62,0x63,0x64,0x65,0x66,0x67,0x68,0x69,0x6a,0x6b,0x6c,0x6d,0x6e,0x6f,
-0x70,0x71,0x72,0x73,0x74,0x75,0x76,0x77,0x78,0x79,0x7a,0x7b,0x7c,0x7d,0x303,0x7f,
-0x80,0x81,0x82,0x83,0x84,0x85,0x86,0x87,0x88,0x89,0x8a,0x8b,0x8c,0x8d,0x8e,0x8f,
-0x90,0x91,0x92,0x93,0x94,0x95,0x96,0x97,0x98,0x99,0x9a,0x9b,0x9c,0x9d,0x9e,0x9f,
-0xa0,0xa1,0xa2,0xa3,0xa4,0xa5,0xa6,0xa7,0xa8,0xa9,0xaa,0xab,0xac,0xad,0xae,0xaf,
-0xb0,0xb1,0xb2,0xb3,0xb4,0xb5,0xb6,0xb7,0xb8,0xb9,0xba,0xbb,0xbc,0xbd,0xbe,0xbf,
-0xc0,0xc1,0xc2,0xc3,0xc4,0xc5,0xc6,0xc7,0xc8,0xc9,0xca,0xcb,0xcc,0xcd,0xce,0xcf,
-0xd0,0xd1,0xd2,0xd3,0xd4,0xd5,0xd6,0xd7,0xd8,0xd9,0xda,0xdb,0xdc,0xdd,0xde,0xdf,
-0xe0,0xe1,0xe2,0xe3,0xe4,0xe5,0xe6,0xe7,0xe8,0xe9,0xea,0xeb,0xec,0xed,0xee,0xef,
-0xf0,0xf1,0xf2,0xf3,0xf4,0xf5,0xf6,0xf7,0xf8,0xf9,0xfa,0xfb,0xfc,0xfd,0xfe,0xff
-};
 
 
 IPATextCtrl::IPATextCtrl(wxWindow *parent,wxWindowID id,const wxPoint& pos,const wxSize& size) :
@@ -132,7 +119,7 @@ void IPATextCtrl::OnKey(wxKeyEvent& event)
 	else
 		event.Skip();
 }
-
+#endif
 
 
 
@@ -280,7 +267,9 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 	int height;
 	int width;
 	int x,y;
+	int font_size;
 	int height_ph = 350;
+
 
 	wxTextAttr attr;
 	wxFont font = wxFont(12,wxFONTFAMILY_ROMAN,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_LIGHT,false,_T(""),wxFONTENCODING_SYSTEM);
@@ -305,9 +294,18 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
 		wxSize(298,height_ph),wxTE_MULTILINE | wxTE_READONLY,wxDefaultValidator,_T("Phoneme translation window"));
 
+	style_phonetic = t_phonetic->GetDefaultStyle();
+	font_phonetic = style_phonetic.GetFont();
+	font_size = font_phonetic.GetPointSize();
+	font_phonetic_large = font_phonetic;
+	style_phonetic_large = style_phonetic;
+	font_phonetic_large.SetPointSize(font_size+1);
+	style_phonetic_large.SetFont(font_phonetic_large);
+
 	y = height_ph + 270;
 	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,y));
 	t_translate = new wxButton(this,T_RULES,_T("Show Rules"),wxPoint(4,y+32));
+	t_translate = new wxButton(this,T_TRANSLATE_IPA,_T("Show IPA"),wxPoint(100,y+32));
 	t_process = new wxButton(this,T_PROCESS,_T("Speak"),wxPoint(100,y));
 
 	t_source->SetFocus();
@@ -399,6 +397,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	#define N_PH_LIST  N_PHONEME_LIST
 
 	void *vp;
+	int translate_text = 0;
 	char buf[1000];
 	char phon_out[N_PH_LIST*2];
 	int clause_tone;
@@ -415,8 +414,6 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	{
 	case T_RULES:
 	case MENU_SPEAK_RULES:
-		option_phonemes = 2;
-
 #ifdef PLATFORM_POSIX
 		strcpy(fname_temp,"/tmp/espeakXXXXXX");
 		if((fd_temp = mkstemp(fname_temp)) >= 0)
@@ -435,8 +432,41 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			f_trans = f;   // write translation rule trace to a temp file
 		}
 #endif
+		t_phonetic->SetDefaultStyle(style_phonetic);
+		translate_text = 2;
+		break;
+
 	case T_TRANSLATE:
 	case MENU_SPEAK_TRANSLATE:
+		t_phonetic->SetDefaultStyle(style_phonetic);
+		translate_text = 1;
+		break;
+
+	case T_TRANSLATE_IPA:
+	case MENU_SPEAK_IPA:
+		t_phonetic->SetDefaultStyle(style_phonetic_large);
+
+		translate_text = 3;
+		break;
+
+	case T_PROCESS:
+	case MENU_SPEAK_TEXT:
+		if(prosodycanvas == NULL)
+		{
+			myframe->OnProsody(event);
+		}
+		prosodycanvas->LayoutData(ph_list,n_ph_list);
+		option_phoneme_events = 1;
+		option_log_frames = 1;
+		MakeWave2(ph_list,n_ph_list);
+		option_log_frames = 0;
+		break;
+	}
+
+	if(translate_text)
+	{
+		option_phonemes = translate_text;
+
 		option_multibyte = espeakCHARS_AUTO;
 		SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
@@ -457,7 +487,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			if(clause_count++ > 0)
 				strcat(phon_out," ||");
 			strcat(phon_out,translator->phon_out);
-			t_phonetic->SetValue(wxString(translator->phon_out,wxConvLocal));
+			t_phonetic->SetValue(wxString(translator->phon_out,wxConvUTF8));
 
 			if((n_ph_list + n_phoneme_list) >= N_PH_LIST)
 			{
@@ -482,20 +512,6 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 				fclose(f_trans);
 			remove(fname_temp);
 		}
-		t_phonetic->AppendText(wxString(phon_out,wxConvLocal));
-		break;
-
-	case T_PROCESS:
-	case MENU_SPEAK_TEXT:
-		if(prosodycanvas == NULL)
-		{
-			myframe->OnProsody(event);
-		}
-		prosodycanvas->LayoutData(ph_list,n_ph_list);
-		option_phoneme_events = 1;
-		option_log_frames = 1;
-		MakeWave2(ph_list,n_ph_list);
-		option_log_frames = 0;
-		break;
+		t_phonetic->AppendText(wxString(phon_out,wxConvUTF8));
 	}
 }  // end of TranslDlg::OnCommand

@@ -104,12 +104,14 @@ endphoneme
 
 phoneme r-
   vowel  starttype #@  endtype #@
+  ipa rU+0329
   length 220
   FMT(vowelr/r-voc)
 endphoneme
 
 phoneme r:
   vowel  starttype #@  endtype #@
+  ipa rU+0329ː
   length 300
   FMT(vowelr/r-voc)
 endphoneme
@@ -118,6 +120,7 @@ endphoneme
 
 phoneme R^       // Czech r-caron
   vcd pla frc sibilant
+  ipa rU+031d
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
@@ -126,6 +129,7 @@ endphoneme
 
 phoneme R^/      // Czech r-caron (weaker, for after p,f,t,k)
   vcd pla frc sibilant
+  ipa rU+031dU+030a
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
@@ -135,6 +139,7 @@ endphoneme
 
 phoneme l-
   vowel  starttype #@  endtype #@
+  ipa lU+0329
   length 140
   FMT(vwl_hi/l-voc)
 endphoneme
@@ -142,6 +147,7 @@ endphoneme
 
 phoneme l:
   vowel  starttype #@  endtype #@
+  ipa lU+0329ː
   length 250
   FMT(vwl_hi/l-voc)
 endphoneme

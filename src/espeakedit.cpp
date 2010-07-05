@@ -148,6 +148,7 @@ if(argc > 1)
 	if(strcmp(param,"--compile")==0)
 	{
 		CompilePhonemeData();
+		CompileIntonation();
 		exit(0);
 	}
 }
@@ -197,7 +198,9 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
    EVT_MENU(MENU_SPECTRUM, MyFrame::OnNewWindow)
    EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
    EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
-   EVT_MENU(MENU_PARAMS, MyFrame::OnOptions)
+   EVT_MENU(MENU_OPT_SPEED, MyFrame::OnOptions)
+   EVT_MENU(MENU_OPT_PUNCT, MyFrame::OnOptions)
+   EVT_MENU(MENU_OPT_SPELL, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH0, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
@@ -214,6 +217,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
 	EVT_MENU(MENU_SPEAK_TRANSLATE, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_RULES, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_IPA, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_TEXT, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_FILE, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_STOP, MyFrame::OnSpeak)
@@ -473,7 +477,7 @@ void OnOptions2(int event_id)
 
 	switch(event_id)
 	{
-	case MENU_PARAMS:
+	case MENU_OPT_SPEED:
 		value = wxGetNumberFromUser(_T(""),_T(""),_T("Speed"),option_speed,80,500);
 		if(value > 0)
 		{
@@ -481,6 +485,18 @@ void OnOptions2(int event_id)
 			SetParameter(espeakRATE,option_speed,0);
 			SetSpeed(3);
 		}
+		break;
+
+	case MENU_OPT_PUNCT:
+		transldlg->t_source->SetValue(_T("<tts:style field=\"punctuation\" mode=\"all\">\n"));
+		transldlg->t_source->SetInsertionPointEnd();
+		notebook->SetSelection(1);
+		break;
+
+	case MENU_OPT_SPELL:
+		transldlg->t_source->SetValue(_T("<say-as interpret-as=\"tts:char\">\n"));
+		transldlg->t_source->SetInsertionPointEnd();
+		notebook->SetSelection(1);
 		break;
 
 	case MENU_PATH0:
@@ -677,6 +693,7 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 	{
 	case MENU_SPEAK_TRANSLATE:
 	case MENU_SPEAK_RULES:
+	case MENU_SPEAK_IPA:
 	case MENU_SPEAK_TEXT:
 		transldlg->OnCommand(event);
 		break;

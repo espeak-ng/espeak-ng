@@ -1198,7 +1198,7 @@ void DoVoiceChange(voice_t *v)
 }
 
 
-void DoEmbedded(int &embix, int sourceix)
+void DoEmbedded(int *embix, int sourceix)
 {//======================================
 	// There were embedded commands in the text at this point
 	unsigned int word;  // bit 7=last command for this word, bits 5,6 sign, bits 0-4 command
@@ -1206,7 +1206,7 @@ void DoEmbedded(int &embix, int sourceix)
 	int command;
 
 	do {
-		word = embedded_list[embix++];
+		word = embedded_list[(*embix)++];
 		value = word >> 8;
 		command = word & 0x7f;
 
@@ -1323,7 +1323,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		if(p->synthflags & SFLAG_EMBEDDED)
 		{
-			DoEmbedded(embedded_ix, p->sourceix);
+			DoEmbedded(&embedded_ix, p->sourceix);
 		}
 
 		if(p->newword)
@@ -1627,8 +1627,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(p->tone_ph != 0)
 			{
 				InterpretPhoneme2(p->tone_ph, &phdata_tone);
-				pitch_env = LookupEnvelope(phdata_tone.pitch_env);
-				amp_env = LookupEnvelope(phdata_tone.amp_env);
+				pitch_env = GetEnvelope(phdata_tone.pitch_env);
+				amp_env = GetEnvelope(phdata_tone.amp_env);
 			}
 
 			StartSyllable();
@@ -1848,20 +1848,23 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	CalcPitches(translator, clause_tone);
 	CalcLengths(translator);
 
-	GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
-	if(option_phonemes > 0)
+	if((option_phonemes > 0) || (phoneme_callback != NULL))
 	{
-		fprintf(f_trans,"%s\n",translator->phon_out);
-
-		if(!iswalpha(0x010d))
+		GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
+		if(option_phonemes > 0)
 		{
-			// check that c-caron is recognized as an alphabetic character
-			fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\nSet LC_CTYPE to a UTF-8 locale\n");
+			fprintf(f_trans,"%s\n",translator->phon_out);
+	
+			if(!iswalpha(0x010d))
+			{
+				// check that c-caron is recognized as an alphabetic character
+				fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\nSet LC_CTYPE to a UTF-8 locale\n");
+			}
 		}
-	}
-	if(phoneme_callback != NULL)
-	{
-		phoneme_callback(translator->phon_out);
+		if(phoneme_callback != NULL)
+		{
+			phoneme_callback(translator->phon_out);
+		}
 	}
 
 

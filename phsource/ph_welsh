@@ -23,6 +23,7 @@ endphoneme
 
 phoneme I
   vowel starttype #i endtype #i
+  ipa ɨ
   length 150
   FMT(vowel/ii_3)
 endphoneme
@@ -69,6 +70,7 @@ endphoneme
 
 phoneme y:     // symbol used in place of i" (i bar)
   vowel starttype #i endtype #i
+  ipa ɨː
   length 180
   ChangeIfNotStressed(Y)
   FMT(vowel/i#)
@@ -112,6 +114,7 @@ endphoneme
 
 phoneme AY
   vowel starttype #a endtype #i
+  ipa ɑɨ
   length 250
   FMT(vdiph/aai_2)
 endphoneme
@@ -126,6 +129,7 @@ endphoneme
 
 phoneme aY
   vowel starttype #a endtype #i
+  ipa aɨ
   length 210
   FMT(vdiph/ai_2)
 endphoneme
@@ -147,6 +151,7 @@ endphoneme
 
 phoneme @Y
   vowel starttype #@ endtype #i
+  ipa əɨ
   length 210
   FMT(vdiph/@i_2)
 endphoneme
@@ -168,6 +173,7 @@ endphoneme
 
 phoneme Yu
   vowel starttype #i endtype #u
+  ipa ɨu
   length 210
   FMT(vdiph2/iu_4)
 endphoneme
@@ -182,6 +188,7 @@ endphoneme
 
 phoneme OY
   vowel starttype #o endtype #i
+  ipa ɔɨ
   length 210
   FMT(vdiph/ooi)
 endphoneme
@@ -196,6 +203,7 @@ endphoneme
 
 phoneme uY
   vowel starttype #u endtype #i
+  ipa uɨ
   length 210
   FMT(vdiph/ui_3)
 endphoneme

@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.43.48  28.Jun.10";
-const int version_phdata  = 0x014342;
+const char *version_string = "1.43.52  04.Jul.10";
+const int version_phdata  = 0x014351;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -364,11 +364,14 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 
 
 
-unsigned char *LookupEnvelope(int ix)
-{//================================
-	if(ix==0)
-		return(NULL);
-	return((unsigned char *)&spects_data[ix]);
+unsigned char *GetEnvelope(int index)
+{//==================================
+	if(index==0)
+	{
+		fprintf(stderr,"espeak: No envelope\n");
+		return(envelope_data[0]);   // not found, use a default envelope
+	}
+	return((unsigned char *)&spects_data[index]);
 }
 
 
@@ -875,6 +878,18 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			{
 				if(phoneme_tab[plist[1].phcode]->type == phVOWEL)
 					phdata->pd_param[i_APPEND_PHONEME] = data;
+			}
+			else
+			if(instn2 == i_IPA_NAME)
+			{
+				// followed by utf-8 characters, 2 per instn word
+				for(ix=0; (ix < data) && (ix < 16); ix += 2)
+				{
+					prog++;
+					phdata->ipa_string[ix] = prog[0] >> 8;
+					phdata->ipa_string[ix+1] = prog[0] & 0xff;
+				}
+				phdata->ipa_string[ix] = 0;
 			}
 			else
 			if(instn2 < N_PHONEME_DATA_PARAM)

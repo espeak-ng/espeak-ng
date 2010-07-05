@@ -42,6 +42,7 @@
 
 extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
+extern int utf8_out(unsigned int c, char *buf);
 char path_source[sizeof(path_home)+20];
 
 
@@ -290,6 +291,7 @@ static keywtab_t keywords[] = {
 	{"LengthAdd",  tINSTRN1, i_ADD_LENGTH},
 	{"Lengthmod",  tINSTRN1, i_LENGTH_MOD},
 	{"lengthmod",  tINSTRN1, i_LENGTH_MOD},
+	{"ipa",        tINSTRN1, i_IPA_NAME},
 
 	// flags
 	{"wavef",      tPHONEME_FLAG, phWAVE},
@@ -392,6 +394,7 @@ static void DecompilePhoneme(FILE *f_out, PHONEME_TAB *ph, int compile_phoneme)
 	int ix;
 	int any;
 	const char *name;
+	char buf[120];
 
 	static const char *INV = "Invalid";
 
@@ -454,6 +457,18 @@ return;
 				if(data1 > 2)
 					data1 = 0;
 				fprintf(f_out,"%s",instn0_string[data1]);
+			}
+			else
+			if(type2 == i_IPA_NAME)
+			{
+				for(ix = 0; ix < data1; ix += 2)
+				{
+					instn = *pc++;
+					buf[ix] = instn >> 8;
+					buf[ix+1] = instn & 0xff;
+				}
+				buf[ix] = 0;
+				fprintf(f_out,"ipa %s",buf);
 			}
 			else
 			{
@@ -2541,6 +2556,11 @@ int CompilePhoneme(int compile_phoneme)
 	int keyword;
 	int value;
 	int phcode = 0;
+	int ix;
+	unsigned int c;
+	char *p;
+	char number_buf[12];
+	char ipa_buf[N_ITEM_STRING];
 	PHONEME_TAB phoneme_out2;
 	PHONEME_PROG_LOG phoneme_prog_log;
 
@@ -2657,6 +2677,42 @@ int CompilePhoneme(int compile_phoneme)
 				value = NextItem(tNUMBER);
 				phoneme_out->length_mod = value;
 				break;
+
+			case i_IPA_NAME:
+				NextItem(tSTRING);
+
+				if(strcmp(item_string,"NULL")==0)
+					strcpy(item_string," ");
+
+				// copy the string, recognize characters in the form U+9999
+				p = item_string;
+				ix = 0;
+				while((c = *p++) != 0)
+				{
+					if((c=='U') && (p[0]=='+'))
+					{
+						// U+9999
+						memcpy(number_buf,&p[1],4);  // U+ should be followed by 4 hex digits
+						number_buf[4] = 0;
+						c = 0;
+						sscanf(number_buf,"%x",&c);
+						p += 5;
+						ix += utf8_out(c, &ipa_buf[ix]);
+					}
+					else
+					{
+						ipa_buf[ix++] = c;
+					}
+				}
+				ipa_buf[ix] = 0;
+				value = strlen(ipa_buf);   // number of UTF-8 bytes
+
+				*prog_out++ = (i_IPA_NAME << 8) + value;
+				for(ix=0; ix < value; ix += 2)
+				{
+					*prog_out++ = (ipa_buf[ix] << 8) + (ipa_buf[ix+1] & 0xff);
+				}
+				break;
 			}
 			break;
 
@@ -2702,6 +2758,11 @@ int CompilePhoneme(int compile_phoneme)
 			case kSTRESSTYPE:
 				value = NextItem(tNUMBER);
 				phoneme_out->std_length = value;
+				if(prog_out > prog_buf)
+				{
+					error("stress phonemes can't contain program instructions",NULL);
+					prog_out = prog_buf;
+				}
 				break;
 
 			case kIF:

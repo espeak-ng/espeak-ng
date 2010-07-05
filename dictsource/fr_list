@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-06-15 Michel Such  <michel.such@free.fr>
+// Updated 2010-06-22 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -667,6 +667,7 @@ couscous	kuskus
 delete	_^_en
 dernier    dErnjer2
 doppler	doplEr
+dot	dOt
 éloquent     elokA~t2
 enfer	A~fEr
 fahrenheit	far@najt

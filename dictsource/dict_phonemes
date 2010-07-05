@@ -79,9 +79,9 @@ t    tS   ts   v    z    Z
 Dictionary de_dict
 
 3    3:   @    @-   a    A    A:   aI   
-aU   E    E2   E:   e:   EI   I    i2   
-i:   n-   O    o:   OY   U    u:   W    
-y    y:   Y:   
+aU   E    E2   E:   e:   EI   i    I    
+i2   i:   n-   o    O    o:   OY   U    
+u:   W    y    y:   Y:   
 
 *    :    ;    b    C    d    D    dZ   
 f    g    g#   h    j    k    l    m    
@@ -507,9 +507,9 @@ uei  uo   y    y&   y@   yE   yi   yu
 
 ;    C    f    h    j    k    kh   l    
 l#   m    n    N    p    ph   Q    q    
-Q"   Q^   r    R    r"   R2   R3   s    
-s.   S;   t    th   ts   ts.  ts.  tS;  
-tS;  tsh  v    w    x    X    z.   
+Q"   Q^   r    R    R2   R3   s    s.   
+S;   t    th   ts   ts.  ts.  tS;  tS;  
+tsh  v    w    x    X    z.   
 
 
 Dictionary zhy_dict
@@ -626,3 +626,13 @@ u
 h    j    J    k    l    l#   m    n    
 N    n^   p    Q    r    R    R3   s    
 S    t    T    tS   v    w    x    z    
+
+
+Dictionary ht_dict
+
+a    A~   e    E    E~   i    o    O    
+O~   u    w    y    
+
+;    b    d    f    g    j    k    l    
+m    n    N    p    r    s    S    t    
+tS   v    z    Z    

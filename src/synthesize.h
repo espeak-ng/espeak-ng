@@ -266,6 +266,7 @@ typedef struct {
 	int vowel_transition[4];
 	int pitch_env;
 	int amp_env;
+	char ipa_string[18];
 } PHONEME_DATA;
 
 
@@ -289,7 +290,7 @@ typedef struct {
 #define i_RETURN        0x0001
 #define i_CONTINUE      0x0002
 
-// Group 0 instrcutions with 8 bit operand.  These value go into bits 8-15 if the instruction
+// Group 0 instrcutions with 8 bit operand.  These values go into bits 8-15 of the instruction
 #define i_CHANGE_PHONEME 0x01
 #define i_REPLACE_NEXT_PHONEME 0x02
 #define i_INSERT_PHONEME 0x03
@@ -302,6 +303,8 @@ typedef struct {
 #define i_SET_LENGTH     0x0a
 #define i_LONG_LENGTH    0x0b
 #define i_CHANGE_PHONEME2 0x0c  // not yet used
+#define i_IPA_NAME       0x0d
+
 #define i_CHANGE_IF      0x10  // 0x10 to 0x14
 
 #define i_ADD_LENGTH     0x0c
@@ -532,7 +535,8 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 #define ENV_LEN  128    // length of pitch envelopes
 #define    PITCHfall   0  // standard pitch envelopes
 #define    PITCHrise   2
-extern unsigned char *envelope_data[20];
+#define N_ENVELOPE_DATA   20
+extern unsigned char *envelope_data[N_ENVELOPE_DATA];
 
 extern int formant_rate[];         // max rate of change of each formant
 extern SPEED_FACTORS speed;
@@ -562,13 +566,14 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
 int MbrolaFill(int length, int resume);
 void MbrolaReset(void);
-void DoEmbedded(int &embix, int sourceix);
+void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
 //int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
+unsigned char *GetEnvelope(int index);
 
 void InitBreath(void);
 

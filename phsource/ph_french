@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-06-16 Michel Such  <michel.such@free.fr>
+// Updated 2010-06-22 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -82,6 +82,7 @@ phoneme r
   starttype #r  endtype #r
   Vowelin f1=0  f2=1500 -400 400  f3=-400 80
   lengthmod 7
+  ipa U+0281
 
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)
@@ -100,6 +101,7 @@ phoneme r2	// silent unless followed by vowel
   vcd uvl frc
   rhotic
   starttype #r  endtype #r
+  ipa U+0281
 
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(NULL)
@@ -115,6 +117,7 @@ phoneme r/   // variant of [r] when not preceding a vowel
   starttype #r  endtype #r
   Vowelout f1=1  f2=1200 -400 800 f3=200 100 len=30
   lengthmod 7
+  ipa U+0281
 
   IF prevPhW(t) OR prevPhW(p) OR prevPhW(k) THEN
     FMT(vwl_fr/trr) addWav(r3/rx, 15)
@@ -148,6 +151,7 @@ phoneme r/2
   liquid rhotic uvl nopause
   starttype #r  endtype #r
   Vowelin f1=0  f2=1500 -400 400  f3=-400 80
+  ipa U+0281
 
   CALL post_r
   IF prevPhW(f) OR prevPhW(k) OR prevPhW(p) OR prevPhW(s) OR prevPhW(t) OR prevPhW(S) THEN
@@ -349,6 +353,7 @@ phoneme I // longer than i
   vowel  starttype #i  endtype #i
   palatal
   length 240
+  ipa i
 
   IfNextVowelAppend(;)
 
@@ -470,12 +475,13 @@ endphoneme
 
 phoneme y
   vowel starttype #u  endtype #u
-  length 170
 
   IF nextPhW(E~) OR nextPhW(#i) THEN
-    FMT(vowel/y, -40)
+    length 110
+    FMT(vowel/y)
   ENDIF
 
+  length 180
   FMT(vowel/y)
 endphoneme
 

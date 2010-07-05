@@ -149,6 +149,7 @@ endphoneme
 phoneme R
   lengthmod 7
   liquid
+  ipa ʁ
   FMT(r/aa)
 endphoneme
 

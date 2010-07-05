@@ -25,6 +25,7 @@
           _) be (ren      bI:
           _) be (ter      be:
           _) beu          bY:
+          &) baar (_      =ba:r
 
 
 .group c
@@ -88,7 +89,7 @@
 
 
 .group g
-             g            Q    // ph_dutch changes this to [x] before unvoiced
+             g            Q    // ph_dutch changes to [x] before unvoiced, NULL after [x]
              gg           Q
 
           _) ge (@P2      Q@
@@ -114,9 +115,17 @@
              ie           i
              ieuw         iw
 
+          d) ie (_        'i
+          g) ie (_        'i
+          m) ie (_        'i
+          p) ie (_        'i
+
+             ie (r_       'i
              ie (rd_      'i
           @) ig (_        @x
           _) in (gP2      'In
+          @) isch (_      =is
+          @) ische (_     =is@
 
 
 .group j
@@ -133,6 +142,7 @@
              ll           l
           @) lijk (_S4    l@k
           &) laan (_S4    la:n
+          @) loog (_      lo:x
 
 
 .group m
@@ -159,9 +169,14 @@
              oei          uj
              ou           VU
 
+      telef) oo (n        'o:
+
+
+.group on
           _) onaan (@P5   On'a:n
           _) onge (@P4    ,OnQ@
           _) ont (@P3     Ont
+          _) on (te@P2    On	// ontegecht
           _) onder        Ond@r
 
           _) ong (aarn    ,OnQ'
@@ -214,6 +229,34 @@
           c) tie (_       si
              tj           t;
              tsj          tS
+          _) th           t
+             th           t
+             t (haar      t	// th is not [t]
+             t (hav       t
+
+.group te
+          _) tegen (P5    t'e:Q@n
+          _) terug (P5    t@r'8x
+          _) te (gelijk   t@
+          _) te (gemoetP2 t@
+          _) te (goed     t@
+          _) te (hui      t@	// tehuis
+          _) te (keer     t@
+          _) te (kort     t@
+          _) te (leur     t@
+          _) te (loor     t@
+          _) te (meer     t@
+          _) te (midd     t@	// temidden
+          _) te (na       t@
+          _) te (neer     t@
+          _) te (recht    t@
+          _) te (sam      t@	// tesamen
+          _) te (veel     t@
+          _) te (vergreefP2  t@
+          _) te (voorschijn t@
+          _) te (vor      t@	// tevoren
+          _) te (vred     t@	// tevreden
+          _) teweeg (P6   t@v#'e:x
 
 
 .group u

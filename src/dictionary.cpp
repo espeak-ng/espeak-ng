@@ -506,20 +506,84 @@ void DecodePhonemes(const char *inptr, char *outptr)
 }   //  end of DecodePhonemes
 
 
+// using Kirschenbaum to IPA translation, ascii 0x20 to 0x7f
+unsigned short ipa1[96] = {
+0x20,0x21,0x22,0x2b0,0x24,0x25,0x0e6,0x2c8,0x28,0x27e,0x2a,0x2b,0x2cc,0x2d,0x2e,0x2f,
+0x252,0x31,0x32,0x25c,0x34,0x35,0x36,0x37,0x275,0x39,0x2d0,0x2b2,0x3c,0x3d,0x3e,0x294,
+0x259,0x251,0x3b2,0xe7,0xf0,0x25b,0x46,0x262,0x127,0x26a,0x25f,0x4b,0x4c,0x271,0x14b,0x254,
+0x3a6,0x263,0x280,0x283,0x3b8,0x28a,0x28c,0x153,0x3c7,0xf8,0x292,0x32a,0x5c,0x5d,0x5e,0x5f,
+0x60,0x61,0x62,0x63,0x64,0x65,0x66,0x67,0x68,0x69,0x6a,0x6b,0x6c,0x6d,0x6e,0x6f,
+0x70,0x71,0x72,0x73,0x74,0x75,0x76,0x77,0x78,0x79,0x7a,0x7b,0x7c,0x7d,0x303,0x7f
+};
 
-static void WriteMnemonic(char *phon_out, int *ix, int mnem)
-{//=========================================================
-	unsigned char c;
 
-	while((c = mnem & 0xff) != 0)
+static void WritePhMnemonic(char *phon_out, int *ix, PHONEME_TAB *ph, PHONEME_LIST *plist)
+{//=======================================================================================
+	int c;
+	int mnem;
+	int len;
+	int first;
+	unsigned int ipa_control=0;  // first byte of ipa string may control the phoneme name interpretation. 0x20 = ignore this phoneme
+	PHONEME_DATA phdata;
+
+	if(option_phonemes == 3)
+	{
+		// has an ipa name been defined for this phoneme ?
+		phdata.ipa_string[0] = 0;
+
+		if(plist == NULL)
+		{
+			InterpretPhoneme2(ph->code, &phdata);
+		}
+		else
+		{
+			InterpretPhoneme(NULL, 0, plist, &phdata);
+		}
+
+		len = strlen(phdata.ipa_string);
+		if(len > 0)
+		{
+			if((ipa_control = phdata.ipa_string[0]) > 0x20)
+			{
+				strcpy(&phon_out[*ix], phdata.ipa_string);
+				*ix += len;
+			}
+			if(ipa_control >= 0x20)
+				return;  // 0x20 = ignore phoneme
+		}
+	}
+
+	first = 1;
+	for(mnem = ph->mnemonic; (c = mnem & 0xff) != 0; mnem = mnem >> 8)
 	{
 		if((c == '/') && (option_phoneme_variants==0))
 			break;      // discard phoneme variant indicator
-		phon_out[(*ix)++]= c;
-	//	phon_out[phon_out_ix++]= ipa1[c];
-		mnem = mnem >> 8;
+
+		if(option_phonemes == 3)
+		{
+			// convert from ascii to ipa
+			if(first && (c == '_'))
+				break;    // don't show pause phonemes
+
+			if((c == '#') && (ph->type == phVOWEL))
+				break;   // # is subscript-h, but only for consonants
+
+			// ignore digits after the first character
+			if(!first && isdigit(c))
+				continue;
+
+			if((c >= 0x20) && (c < 128))
+				c = ipa1[c-0x20];
+
+			*ix += utf8_out(c, &phon_out[*ix]);
+		}
+		else
+		{
+			phon_out[(*ix)++]= c;
+		}
+		first = 0;
 	}
-}
+}  // end of WritePhMnemonic
 
 
 
@@ -532,6 +596,7 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 	int  ix;
 	int  phon_out_ix=0;
 	int  stress;
+	unsigned int c;
 	char *p;
 	PHONEME_LIST *plist;
 	
@@ -549,35 +614,52 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 			{
 				if((stress = plist->stresslevel) > 1)
 				{
+					c = 0;
 					if(stress > 5) stress = 5;
-					phon_out[phon_out_ix++] = stress_chars[stress];
+
+					if(option_phonemes == 3)
+					{
+						c = 0x2cc;  // ipa, secondary stress
+						if(stress > 3)
+							c = 0x02c8;  // ipa, primary stress
+					}
+					else
+					{
+						c = stress_chars[stress];
+					}
+
+					if(c != 0)
+					{
+						phon_out_ix += utf8_out(c, &phon_out[phon_out_ix]);
+					}
 				}
 			}
-			WriteMnemonic(phon_out, &phon_out_ix, plist->ph->mnemonic);
+			WritePhMnemonic(phon_out, &phon_out_ix, plist->ph, plist);
 
 			if(plist->synthflags & SFLAG_LENGTHEN)
 			{
-				WriteMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonLENGTHEN]->mnemonic);
+				WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonLENGTHEN], NULL);
 			}
 			if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
 			{
 				// syllablic consonant
-				WriteMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonSYLLABIC]->mnemonic);
+				WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonSYLLABIC], NULL);
 			}
 			if(plist->ph->code == phonSWITCH)
 			{
 				// the tone_ph field contains a phoneme table number
 				p = phoneme_tab_list[plist->tone_ph].name;
-				while(*p != 0)
+				while((c = *p++) != 0)
 				{
-					phon_out[phon_out_ix++] = *p++;
+					if(option_phonemes != 3)
+						phon_out[phon_out_ix++] = c;
 				}
 				phon_out[phon_out_ix++] = ' ';
 			}
 			else
 			if(plist->tone_ph > 0)
 			{
-				WriteMnemonic(phon_out, &phon_out_ix, phoneme_tab[plist->tone_ph]->mnemonic);
+				WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[plist->tone_ph], NULL);
 			}
 		}
 	
@@ -1049,9 +1131,11 @@ void ChangeWordStress(Translator *tr, char *word, int new_stress)
 
 
 
-void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress)
-{//=========================================================================================================
+void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int control)
+{//=====================================================================================================
 /* Guess stress pattern of word.  This is language specific
+
+   'output' is used for input and output
 
    'dictionary_flags' has bits 0-3   position of stressed vowel (if > 0)
                                      or unstressed (if == 7) or syllables 1 and 2 (if == 6)
@@ -1059,7 +1143,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
    If 'tonic' is set (>= 0), replace highest stress by this value.
 
-   Parameter used for input and output
+  control:  bit 0   This is an individual symbol, not a word
 */
 
 	unsigned char phcode;
@@ -1495,7 +1579,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	p = phonetic;
 	v = 1;
 
-	if((ph = phoneme_tab[*p]) != NULL)
+	if(!(control & 1) && ((ph = phoneme_tab[*p]) != NULL))
 	{
 
 		if(ph->type == phSTRESS)
@@ -2564,7 +2648,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 					}
 					else
 					{
-						LookupLetter(tr, wc, -1, ph_buf);
+						LookupLetter(tr, wc, -1, ph_buf, 0);
 						if(ph_buf[0])
 						{
 							match1.phonemes = ph_buf;

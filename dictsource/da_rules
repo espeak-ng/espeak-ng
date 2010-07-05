@@ -1,4 +1,4 @@
-﻿
+
 // This file is UTF8 encoded
 // Spelling-to-phoneme rules for Danish
 
@@ -1537,7 +1537,7 @@ L06L06) er         V         // PB klipper
     år) ede (_+    3D@       // PB sårede
    odr) ede (_+    3D@       // PB fodrede
    obr) ede (_     3D@       // PB erobrede
-    tr) ede (_+    3D-@      // PB splintrede
+    tr) ede (_+    3D@      // PB splintrede
  hundr) ed (+      @:D       // PB hundred
     rn) ed (e      eD        // PB dernede
     &k) ede (+     eD@       // PB dødkede

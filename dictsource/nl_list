@@ -100,7 +100,7 @@ _17	z'e:f@ntin
 _18	'Axtin
 _19	n'e:x@ntin
 _2X	tv#'Int@x
-_3X	d'e:rt@x
+_3X	d'Ert@x
 _4X	f'e:rt@x
 _5X	f'EIft@x
 _6X	z'Est@x
@@ -183,27 +183,27 @@ er		$u
 waar		$pause
 
 // prepositions
-in		$u+ $brk	// in
-op		$u+ $brk	// in
-aan		$u+ $brk	// at, on
-bij		$u+ $pause	// at, near
-om		$u+ $brk	// at
-met		$u+ $brk	// with, by
-over		$u+ $pause	// about
-na		$u+ $pause	// after
-naar		$u+		// to
-door		$u+ $brk	// through, by
-te		$u+ $brk	// to
-tot		$u+ $pause	// until
-uit		$u+ $brk	// from, out of
-voor		$u+ $pause	// for, in front of
-van		$u+		// from, of
-zonder		$u+ $pause	// without
+in	$only	$u+ $brk	// in
+op	$only	$u+ $brk	// in
+aan	$only	$u+ $brk	// at, on
+bij	$only	$u+ $pause	// at, near
+om	$only	$u+ $brk	// at
+met	$only	$u+ $brk	// with, by
+over	$only	$u+ $pause	// about
+na	$only	$u+ $pause	// after
+naar	$only	$u+		// to
+door	$only	$u+ $brk	// through, by
+te	$only	$u+ $brk	// to
+tot	$only	$u+ $pause	// until
+uit	$only	$u+ $brk	// from, out of
+voor	$only	$u+ $pause	// for, in front of
+van	$only	$u+		// from, of
+zonder	$only	$u+ $pause	// without
 
 // adverbs, etc.
-ook		$u+	// any
-zo		$u+
-sommige		$u+	// some
+ook	$only	$u+	// any
+zo	$only	$u+
+sommige	$only	$u+	// some
 
 
 // conjunctions
@@ -308,10 +308,11 @@ the	_^_EN
 up	_^_EN
 
 
-// words where -eren is not a verb ending
+// words where -eren is not a stressed verb ending
 ander		$alt
 kinder		$alt
 ouder		$alt
+sputter		$alt
 
 // pronunciation exceptions
 aangrijpend	$2
@@ -327,6 +328,7 @@ ingevolge	$3
 ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
 journaal	Surn'a:l
+natuur          na:t'yr
 ongastvrij	OnQAstv@-*'EI
 ongelooflijk	$3
 ongemakkelijk	$3
@@ -335,6 +337,13 @@ ongerieflijk	$3
 ongrondwettig	$3
 proces		$2
 renaissance	rEne:s'A~s@
+tegenaan	$3
+tegenin		$3
+tegenover	$3
+tegendraads	$3
+tegennatuur	$4
+tegenstrijdig	$3
+tegenwoordig	$3
 waarschijnlijk	$2
 
 

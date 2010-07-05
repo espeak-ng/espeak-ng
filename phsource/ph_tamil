@@ -13,6 +13,7 @@ endphoneme
 
 phoneme V
   vowel  starttype #@  endtype #@
+  ipa ɐ
   length 130
   FMT(vowel/V_3)
 endphoneme
@@ -81,6 +82,7 @@ phoneme u
   vowel  starttype #u  endtype #u
   length 110
   IF prevPhW(isVel) THEN
+    FMT(vowel/u_bck2)
   ELSE
     ChangeIfNotStressed(U)
   ENDIF
@@ -90,6 +92,7 @@ endphoneme
 phoneme U
   vowel  starttype #u  endtype #u
   length 110
+  ipa ʉ
   FMT(vowel/u#_3)
 endphoneme
 
@@ -97,6 +100,7 @@ phoneme u:
   vowel  starttype #u  endtype #u
   length 260
   IF prevPhW(isVel) THEN
+    FMT(vowel/u_bck2)
   ELSE
     ChangeIfNotStressed(U:)
   ENDIF
@@ -105,14 +109,9 @@ endphoneme
 
 phoneme U:
   vowel  starttype #u  endtype #u
+  ipa ʉː
   length 240
   FMT(vowel/u#_3)
-endphoneme
-
-phoneme u-
-  vowel starttype #u endtype #u
-  length 130
-  FMT(vowel/u#_2)
 endphoneme
 
 

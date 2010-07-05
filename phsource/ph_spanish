@@ -71,6 +71,7 @@ endphoneme
 
 phoneme v#   // a shorter [v], a little towards [b]
   vcd lbd frc
+  ipa v
   lengthmod 6
   voicingswitch f
   Vowelin  f1=1  f2=1000 -300 -200  f3=-300 100

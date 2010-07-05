@@ -115,6 +115,7 @@
      r) al (_      'A:l
      t) al (_      'A:l
      m) a (lt_     A:l
+   ker) am (ik     'A:m
      @) an (_      'A:n
    ein) an (der    'an
      @) ant (_     'ant
@@ -444,6 +445,7 @@
      _) farb (C@P4 f'arp
      _) farb (l@P4 f'arb
      _) fein (@P4  f'aIn
+     _) fertig (CP6 f'ErtiC
      _) fest (@P4  f'Est
      _) flug       fl'u:g
         foto       fo:to:
@@ -577,7 +579,7 @@
         i (d_      'i:
         i (dee     %i:
         i (erin    =i:
-        ig (+      Ig#       // [ig] or [iC]
+     &) ig (+      Ig#       // [ig] or [iC]
         igh        aI
 
         i (i       i:_!
@@ -685,6 +687,7 @@ formal) ie         =I@
 //          @) keit (_S4    kaIt
 //          @) keiten (_S6  kaIt@n
 
+        ka (rtoff  k%a
         ko (e@     ko:
         kolleg     k%Ole:g
      _) komme (C@  k%OmE
@@ -818,6 +821,9 @@ formal) ie         =I@
         o (lsam    o:
         o (m_      'o:
     @A) o (n_      'o:
+        one (_     'o:n@
+        onen (_    'o:n@n
+  zitr) on         'on
      @) oo (_      u:
      r) oo (m      u:
      z) oo (m      u:
@@ -858,6 +864,7 @@ formal) ie         =I@
         pool       _^_EN
         power      paU@r
      _) preß (@P4  pr'Es
+     _) primär (P6 pri:m'E:r
      _) prinzipien (@P9 prInts'i:pI@
      _) privat (@P6 pri:v'A:t
         problem    pr%o:ble:m

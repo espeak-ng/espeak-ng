@@ -458,7 +458,7 @@ if(option_log_frames)
 			temp = (temp * kt_globals.fadeout) / 64;
 		}
 
-		value = int(temp) + ((echo_buf[echo_tail++]*echo_amp) >> 8);
+		value = (int)temp + ((echo_buf[echo_tail++]*echo_amp) >> 8);
 		if(echo_tail >= N_ECHO_BUF)
 			echo_tail=0;
 
@@ -973,7 +973,7 @@ static double DBtoLIN(long dB)
 		return(0);
 	}
 	
-	return(double(amptable[dB]) * 0.001);
+	return((double)(amptable[dB]) * 0.001);
 }
 
 
@@ -1050,7 +1050,7 @@ int Wavegen_Klatt(int resume)
 		for(ix=0; ix < N_KLATTP; ix++)
 		{
 			klattp1[ix] += klattp_inc[ix];
-			klattp[ix] = int(klattp1[ix]);
+			klattp[ix] = (int)klattp1[ix];
 		}
 
 		for(ix=0; ix<=6; ix++)
@@ -1213,7 +1213,7 @@ if(option_log_frames)
 		else
 		{
 			klattp1[ix] = klattp[ix] = fr1->klattp[ix];
-			klattp_inc[ix] = double((fr2->klattp[ix] - klattp[ix]) * STEPSIZE)/length;
+			klattp_inc[ix] = (double)((fr2->klattp[ix] - klattp[ix]) * STEPSIZE)/length;
 		}
 
 		// get klatt parameter adjustments for the voice
@@ -1226,7 +1226,7 @@ if(option_log_frames)
 	for(ix=1; ix < 6; ix++)
 	{
 		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
-		peaks[ix].freq = int(peaks[ix].freq1);
+		peaks[ix].freq = (int)peaks[ix].freq1;
 		next = (fr2->ffreq[ix] * v->freq[ix] / 256.0) + v->freqadd[ix];
 		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * STEPSIZE) / length;
 
@@ -1234,7 +1234,7 @@ if(option_log_frames)
 		{
 			// klatt bandwidth for f1, f2, f3 (others are fixed)
 			peaks[ix].bw1 = fr1->bw[ix] * 2;
-			peaks[ix].bw = int(peaks[ix].bw1);
+			peaks[ix].bw = (int)peaks[ix].bw1;
 			next = fr2->bw[ix] * 2;
 			peaks[ix].bw_inc =  ((next - peaks[ix].bw1) * STEPSIZE) / length;
 		}
@@ -1245,7 +1245,7 @@ if(option_log_frames)
 	if(peaks[0].freq1 == 0)
 		peaks[0].freq1 = kt_frame.Fhz[F_NP];   // if no nasal zero, set it to same freq as nasal pole
 
-	peaks[0].freq = int(peaks[0].freq1);
+	peaks[0].freq = (int)peaks[0].freq1;
 	next = fr2->klattp[KLATT_FNZ] * 2;
 	if(next == 0)
 		next = kt_frame.Fhz[F_NP];
@@ -1262,12 +1262,12 @@ if(option_log_frames)
 		for(ix=1; ix < 7; ix++)
 		{
 			peaks[ix].bp1 = fr1->klatt_bp[ix] * 4;  // parallel bandwidth
-			peaks[ix].bp = int(peaks[ix].bp1);
+			peaks[ix].bp = (int)peaks[ix].bp1;
 			next = fr2->klatt_bp[ix] * 2;
 			peaks[ix].bp_inc =  ((next - peaks[ix].bp1) * STEPSIZE) / length;
 
 			peaks[ix].ap1 = fr1->klatt_ap[ix];   // parallal amplitude
-			peaks[ix].ap = int(peaks[ix].ap1);
+			peaks[ix].ap = (int)peaks[ix].ap1;
 			next = fr2->klatt_ap[ix] * 2;
 			peaks[ix].ap_inc =  ((next - peaks[ix].ap1) * STEPSIZE) / length;
 		}

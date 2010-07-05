@@ -135,12 +135,14 @@ endphoneme
 
 phoneme u-
   vowel starttype #u endtype #u
+  ipa ʉ
   length 120
   FMT(vwl_no/u#)
 endphoneme
 
 phoneme u-:
   vowel starttype #u endtype #u
+  ipa ʉː
   length 260
   FMT(vwl_no/u#2)
 endphoneme
@@ -171,6 +173,7 @@ endphoneme
 
 phoneme u-I
   vowel starttype #u endtype #i
+  ipa ʉɪ
   length 270
   IfNextVowelAppend(;)
   FMT(vdiph/yi)

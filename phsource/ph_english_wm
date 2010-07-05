@@ -18,7 +18,7 @@ endphoneme
 
 phoneme a
   vowel  starttype #a  endtype #a
-  length 170
+  length 160
   ChangeIfDiminished(a#)
   FMT(vowel/a)
 endphoneme
@@ -67,6 +67,7 @@ endphoneme
 
 phoneme V
   vowel  starttype #o  endtype #o
+  ipa ʊ
   length 140
   ChangeIfDiminished(@)
   FMT(vowel/o-_2)
@@ -83,6 +84,7 @@ endphoneme
 
 phoneme a#
   vowel  starttype #@  endtype #@
+  ipa ɐ
   unstressed
   length 140
   FMT(vowel/a#_3)
@@ -99,6 +101,7 @@ endphoneme
 
 phoneme A@
   vowel  starttype #a  endtype #a
+  ipa ɑː
   length 240
   IfNextVowelAppend(r-)
   FMT(vowel/aa_5)
@@ -107,7 +110,8 @@ endphoneme
 
 phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
-  length 150
+  ipa a
+  length 160
   FMT(vowel/a)
 endphoneme
 
@@ -123,6 +127,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype #e  endtype #i
+  ipa ei
   length 220
   IfNextVowelAppend(;)
   FMT(vdiph2/ei_3)
@@ -140,6 +145,7 @@ endphoneme
 
 phoneme O@
   vowel  starttype #o  endtype #@
+  ipa ɔː
   length 240
   IfNextVowelAppend(r-)
   FMT(vowel/oo_1)
@@ -156,6 +162,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype #u  endtype #u
+  ipa əu
   length 200
   FMT(vdiph/@u)
 endphoneme
@@ -163,6 +170,7 @@ endphoneme
 
 phoneme aU
   vowel  starttype #a  endtype #u
+  ipa æʊ
   length 230
   FMT(vdiph/eeu_3)
 endphoneme
@@ -170,6 +178,7 @@ endphoneme
 
 phoneme oU
   vowel  starttype #@  endtype #u
+  ipa ʌʊ
   length 220
   FMT(vdiph/Vu_2)
 endphoneme
@@ -177,6 +186,7 @@ endphoneme
 
 phoneme aI
   vowel  starttype #o  endtype #i
+  ipa ɔɪ
   length 240
   FMT(vdiph/ooi_3)
 endphoneme
@@ -184,6 +194,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype #@  endtype #i
+  ipa eː
   length 240
   FMT(vdiph/@i_3)
 endphoneme
@@ -191,6 +202,7 @@ endphoneme
 
 phoneme OI
   vowel  starttype #o  endtype #i
+  ipa oɪ
   length 230
   FMT(vdiph/oi)
 endphoneme
@@ -198,6 +210,7 @@ endphoneme
 
 phoneme e@
   vowel  starttype #@  endtype #@
+  ipa ɜː
   length 240
   IfNextVowelAppend(r-)
   FMT(vowel/3_en)

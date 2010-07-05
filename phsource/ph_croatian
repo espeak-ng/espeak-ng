@@ -243,6 +243,7 @@ endphoneme
 phoneme r*
   vowel nonsyllabic
   unstressed
+  ipa r
   length 50
   starttype #@  endtype #@
   AppendPhoneme(*)

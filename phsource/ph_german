@@ -175,7 +175,7 @@ endphoneme
 phoneme E:
   vowel starttype #e endtype #e
   length 200
-  FMT(vowel/e_mid2)
+  FMT(vowel/e_8)
 endphoneme
 
 
@@ -202,6 +202,7 @@ endphoneme
 
 phoneme y
   vowel starttype #u endtype #u
+  ipa ʏ
   length 110
   FMT(vowel/yy_4)
 endphoneme
@@ -232,6 +233,7 @@ endphoneme
 
 phoneme pF
   vls blb afr
+  ipa pf
   Vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 2
   WAV(ufric/f)    // could replace this with a [pf] wav file
@@ -300,10 +302,9 @@ endphoneme
 
 
 
-// TESTING
-
-phoneme r     // uvular trill
+phoneme r     // uvular trill or fricative
   vcd uvl frc
+  ipa ʀ
   lengthmod 6
   length 110
   IF nextPhW(isVowel) THEN
@@ -318,14 +319,36 @@ phoneme r     // uvular trill
 endphoneme
 
 
-phoneme UR
-  vowel starttype #u endtype #@
-  flag1
-  length 180
-  FMT(vwl_de/uu_@)
+
+
+phoneme V#    // used for 'r' after a vowel (to create a diphthong)
+  liquid
+  lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(r)
+  ENDIF
+
+  ipa ɐ
+  IF prevPh(#a) OR prevPh(E) THEN
+    FMT(r/V_2_)
+  ENDIF
+  IF prevPh(#u) THEN
+    FMT(r/@_)
+  ENDIF
+  FMT(r/V_)
 endphoneme
 
 
+// TESTING
+
+phoneme V1#
+  liquid
+  lengthmod 7
+  IF nextPhW(isVowel) THEN
+    ChangePhoneme(r")
+  ENDIF
+  FMT(r/V_)
+endphoneme
 
 phoneme V2#    // used for 'r' after a vowel (to create a diphthong)
   liquid
@@ -334,23 +357,6 @@ phoneme V2#    // used for 'r' after a vowel (to create a diphthong)
     ChangePhoneme(r")
   ENDIF
   FMT(r/V_2_)
-endphoneme
-
-
-phoneme V#    // used for 'r' after a vowel (to create a diphthong)
-  liquid
-  lengthmod 7
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(r")
-  ENDIF
-
-  IF prevPh(#a) OR prevPh(E) THEN
-    FMT(r/V_2_)
-  ENDIF
-  IF prevPh(#u) THEN
-    FMT(r/@_)
-  ENDIF
-  FMT(r/V_)
 endphoneme
 
 phoneme V3#
@@ -362,11 +368,12 @@ phoneme V3#
   FMT(r/@_)
 endphoneme
 
-phoneme V1#
-  liquid
-  lengthmod 7
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(r")
-  ENDIF
-  FMT(r/V_)
+phoneme UR
+  vowel starttype #u endtype #@
+  ipa ʊɐ
+  flag1
+  length 180
+  FMT(vwl_de/uu_@)
 endphoneme
+
+

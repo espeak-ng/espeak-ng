@@ -207,6 +207,7 @@ menetren) dsz (erű d|s
  honvé) d (sereg   d
     va) d (szeder  d
   twee) d (sapk    d
+    fe) dd (hetetlen d
 
 .group dz
   fogó) dz (kod    ts
@@ -399,6 +400,7 @@ tizene) gy (en     J:
     _e) gy (oldal  J:
     _e) gy (év     J:
     _e) gy (órá    J:
+    _e) gy (se     J
 
 .group h
         h          h
@@ -424,6 +426,7 @@ tizene) gy (en     J:
     sz) í (ve      i
      t) í (zes     i
     sz) í (vel     i:
+    _t) í (zük     i
 
 .group j
         j          j
@@ -582,6 +585,8 @@ tulajdo) n (jog    n
 teljesítmé) ny (javu n^
  törvé) ny (java   n^
    ajá) nl         l:
+_feddhetetle) n (jelle n
+állomá) ny (jel    n^
 
 .group o
         o          o

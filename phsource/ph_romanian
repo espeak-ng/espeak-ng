@@ -9,6 +9,7 @@
 phoneme I^          // "silent i", palatilizes the preceding consonant
   vowel starttype #i endtype #i
   unstressed
+  ipa ʲ
   length 70
   IF nextPh(isVowel) THEN
     ChangePhoneme(;)
@@ -41,6 +42,7 @@ endphoneme
 
 phoneme y
   vowel starttype #@ endtype #@
+  ipa ɨ
   length 180
   FMT(vowel/i#_5)
 endphoneme

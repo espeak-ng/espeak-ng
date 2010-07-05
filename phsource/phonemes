@@ -145,9 +145,13 @@ endphoneme
 
 
 phoneme @-   //  very short schwa
-  vowel nonsyllabic
-  starttype #@  endtype #@
-  unstressed
+  vowel starttype #@  endtype #@
+  unstressed nonsyllabic
+
+  ipa ə
+  IF nextPhW(*) THEN
+    ipa NULL
+  ENDIF
   length 50
   FMT(vowel/@-)
 endphoneme
@@ -267,6 +271,7 @@ endphoneme
 
 phoneme r-   // syllabic r
   vowel  starttype #@  endtype #@
+  ipa rU+0329
   unstressed
   length 220
   FMT(vowelr/r-voc)
@@ -274,6 +279,7 @@ endphoneme
 
 phoneme l-   // syllabic l
   vowel  starttype #@  endtype #@
+  ipa lU+0329
   unstressed
   length 200
   FMT(vwl_hi/l-voc)
@@ -282,6 +288,7 @@ endphoneme
 
 phoneme r
   liquid rhotic
+  ipa ɹ
   lengthmod 7
 
   IF nextPh(isNotVowel) THEN
@@ -337,6 +344,10 @@ phoneme R
   liquid
   trill
   lengthmod 6
+  ipa r
+  IF nextPhW(R2) THEN
+    ipa NULL
+  ENDIF
   Vowelin  f1=0  f2=1600 -300 300  f3=-200 80
   Vowelout f1=2  f2=1600 -300 300  f3=-200 80 brk
   FMT(r3/r_trill2) addWav(r3/r_trill2.wav, 65)
@@ -346,6 +357,7 @@ phoneme R2   // this is [R] from Slovak/Czech
   liquid
   trill
   lengthmod 6
+  ipa r
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
   FMT(r3/r_trill) addWav(r3/r_trill.wav, 50)
@@ -356,6 +368,7 @@ phoneme R3  // Afrikaans
   trill  
   lengthmod 6
   length 60
+  ipa r
   Vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
   Vowelout f1=2  f2=1700 -300 -200  f3=-1300 80
 
@@ -379,6 +392,7 @@ endphoneme
 
 phoneme r"     // uvular trill
   vcd uvl frc
+  ipa ʀ
   lengthmod 6
   IF nextPh(isNotVowel) THEN
     FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 50)
@@ -497,6 +511,7 @@ endphoneme
 
 phoneme l^    // palatal l
   liquid
+  ipa ʎ
   lengthmod 7
   Vowelout len=60 lenadd rate
   length 100
@@ -520,6 +535,7 @@ endphoneme
 
 phoneme l.
   liquid rfx
+  ipa ɭ
   lengthmod 7
   FMT(l^/l_rfx)
 endphoneme
@@ -563,7 +579,7 @@ phoneme j
   liquid palatal
   lengthmod 7
 
-  IF nextPh(isVowel) THEN
+  IF nextPhW(isVowel) THEN
     NextVowelStarts
       VowelStart(j/j@)
       VowelStart(j/ja)
@@ -590,6 +606,10 @@ phoneme ;     // linking j, used between (i) vowels and a following vowel
               // also to palatalize consonants
   liquid palatal
   lengthmod 0
+
+  IF prevPh(#i) THEN
+    ipa NULL   // linking after i vowel, don't show in ipa
+  ENDIF
 
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(NULL)   // this is to ignore this phoneme if not before a vowel
@@ -682,6 +702,7 @@ endphoneme
 
 phoneme n.
   vcd rfx nasal
+  ipa ɳ
   starttype n  endtype n
   Vowelin f1=2 f2=1200 -300 250  f3=-500 80  rms=20 colr=2
   Vowelout f1=2 f2=1200 -300 250  f3=-500 80  rms=20 brk colr=2
@@ -712,6 +733,7 @@ endphoneme
 
 phoneme n^
   vcd pal nasal palatal
+  ipa ɲ
   Vowelout f1=3 f2=2500 300 500  f3=100 80  len=45 brk rate
   lengthmod 4
 
@@ -777,6 +799,7 @@ endphoneme
 
 phoneme **    //   TEST flap
   liquid alv
+  ipa ɾ
   lengthmod 3
   Vowelout f1=3 f2=1600 -300 300  f3=-300 80 rms=35 len=15
   Vowelin f1=2  f2=1600 -300 300  f3=-100 80 len=20
@@ -792,7 +815,12 @@ endphoneme
 phoneme *    //   flap
   vcd alv flp
   brkafter
+  ipa ɾ
   lengthmod 3
+
+  IF prevPhW(@-) THEN
+    ipa r   // @-*  sequence for [r]
+  ENDIF
 
   IF nextPh(#e) OR nextPh(#i) THEN
     Vowelin f1=0  f2=1500 -300 300  f3=-200 80
@@ -1052,6 +1080,7 @@ endphoneme
 
 phoneme v#        // approximant, not fricative
   vcd lbd frc
+  ipa ʋ
   lengthmod 6
   voicingswitch f
   Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
@@ -1121,6 +1150,7 @@ endphoneme
 
 phoneme z.
   vcd pla frc sibilant
+  ipa ʐ
   voicingswitch s.
   lengthmod 6
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
@@ -1142,6 +1172,7 @@ endphoneme
 
 phoneme z;
   vcd pal frc sibilant palatal
+  ipa ʑ
   voicingswitch s;
   lengthmod 6
   Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
@@ -1170,6 +1201,7 @@ endphoneme
 
 phoneme J^   // palatal fricative (Kirshenbaum C<vcd>)
   vcd pal frc palatal
+  ipa ʝ
   voicingswitch C
   lengthmod 6
   Vowelin f1=1  f2=2700 400 600  f3=200 70
@@ -1213,8 +1245,9 @@ phoneme Q^
 endphoneme
 
 
-phoneme Q"       // voiced velar fricative
+phoneme Q"
   vcd uvl frc
+  ipa ʁ
   lengthmod 6
 
   IF nextPh(isPause2) THEN
@@ -1430,6 +1463,7 @@ endphoneme
 
 phoneme s.
   vls pla frc sibilant
+  ipa ʂ
   voicingswitch z.
   lengthmod 3
   Vowelin  f1=0  f2=1800 -100 300  f3=-300 80
@@ -1444,6 +1478,7 @@ endphoneme
 
 phoneme s;
   vls pal frc sibilant palatal
+  ipa ʂ
   voicingswitch z;
   lengthmod 3
   Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
@@ -1472,6 +1507,7 @@ endphoneme
 
 phoneme l#   // Lateral fricative (eg. Welsh "ll")
   vls alv frc
+  ipa ɬ
   lengthmod 3
 
   NextVowelStarts
@@ -1533,6 +1569,7 @@ endphoneme
 phoneme h
   vls glt apr
   lengthmod 3
+  ipa h
 
   IF nextPh(#@) THEN
     WAV(h/h@)
@@ -1767,3 +1804,6 @@ include ph_bulgarian
 
 phonemetable nso base
 include ph_northern-sotho
+
+phonemetable ht fr
+include ph_haitian

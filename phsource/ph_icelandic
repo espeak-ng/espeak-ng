@@ -223,6 +223,7 @@ endphoneme
 phoneme m#
   vcd blb nasal
   lengthmod 6
+  ipa m#
   Vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk
   FMT(m/m#_)
 endphoneme
@@ -231,6 +232,7 @@ endphoneme
 phoneme n#
   vcd alv nasal
   lengthmod 6
+  ipa n#
   Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
 
   NextVowelStarts
@@ -249,6 +251,7 @@ endphoneme
 phoneme n^#
   vcd pal nasal palatal
   lengthmod 6
+  ipa ɲ#
   Vowelout f1=3 f2=2300 300 400  f3=100 80  brk rate
   FMT(n^/n^#_)
 endphoneme
@@ -258,6 +261,7 @@ endphoneme
 phoneme N#
   vcd vel nasal
   lengthmod 6
+  ipa ŋ#
   Vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
 
   NextVowelStarts
@@ -276,6 +280,7 @@ endphoneme
 phoneme l#
   vls alv frc
   lengthmod 3
+   ipa l#
   WAV(ufric/l#, 25)
 endphoneme
 
@@ -283,6 +288,7 @@ endphoneme
 phoneme tl#
   vls alv stop
   lengthmod 2
+  ipa tl#
   Vowelin f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   WAV(ufric/tl#, 50)
@@ -292,6 +298,7 @@ endphoneme
 phoneme r#   // used for [r] when not preceding a vowel
   liquid
   lengthmod 2   //
+  ipa r#
   FMT(r3/r#_) addWav(r3/rx)
 //  before n   r3/r_n+r3/rx
 endphoneme

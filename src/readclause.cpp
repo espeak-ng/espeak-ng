@@ -121,17 +121,17 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash
-  CLAUSE_SEMICOLON + PUNCT_SAY_NAME | 0x8000,      // elipsis
+  CLAUSE_SEMICOLON | PUNCT_SAY_NAME | 0x8000,      // elipsis
 
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
-  CLAUSE_PERIOD+0x8000,     // Devanagari Danda (fullstop)
+  CLAUSE_PERIOD | 0x8000,     // Devanagari Danda (fullstop)
 
-  CLAUSE_PERIOD+0x8000,  // Armenian period
+  CLAUSE_PERIOD | 0x8000,  // Armenian period
   CLAUSE_COMMA,     // Armenian comma
-  CLAUSE_EXCLAMATION + PUNCT_IN_WORD,  // Armenian exclamation
-  CLAUSE_QUESTION + PUNCT_IN_WORD,  // Armenian question
-  CLAUSE_PERIOD + PUNCT_IN_WORD,  // Armenian emphasis mark
+  CLAUSE_EXCLAMATION | PUNCT_IN_WORD,  // Armenian exclamation
+  CLAUSE_QUESTION | PUNCT_IN_WORD,  // Armenian question
+  CLAUSE_PERIOD | PUNCT_IN_WORD,  // Armenian emphasis mark
 
   CLAUSE_SEMICOLON,  // Arabic ;
   CLAUSE_QUESTION,   // Arabic question mark

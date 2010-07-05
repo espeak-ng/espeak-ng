@@ -23,7 +23,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated: 2010-06-18 Michel Such  <michel.such@free.fr>
+// Updated: 2010-06-29 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -77,6 +77,7 @@
         an (n_     a
     _h) an (_      an
      _) anti (@@P4 A~ti
+     _) anti (CAXP4 A~ti
      _) arché (@P5 arke      // archéologue
      _) archéo (@P6 arkeo    // archéologue
      _) arch (aP4  ark       // archange
@@ -1087,6 +1088,7 @@ _quatrevin) gts (_ z2
         ss         s         // assez
 
     ai) s (em      s         // vraisemblable
+   _al) s (ac      z         // Alsace
    aCè) s (_       s
     nè) s (_       s
  kansa) s (_       s         // Kansas, Arkansas
