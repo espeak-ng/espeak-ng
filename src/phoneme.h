@@ -36,6 +36,7 @@
 
 // phoneme properties
 //   bits 16-19 give place of articulation
+#define phARTICULATION 0xf0000
 #define phWAVE     0x01
 #define phUNSTRESSED 0x02
 #define phFORTIS   0x08
@@ -49,7 +50,6 @@
 #define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 #define phBRKAFTER 0x4000  // [*] add a post-pause
 #define phBEFOREPAUSE 0x8000  // replace with the link_out phoneme if the next phoneme is a pause
-
 
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position 
 #define phLONG         0x200000

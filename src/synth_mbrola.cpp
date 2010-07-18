@@ -522,7 +522,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 				memset(&fmtp, 0, sizeof(fmtp));
 				InterpretPhoneme(NULL, 0, p, &phdata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-				fmtp.fmt_length = phdata.sound_param[pd_FMT];
 				len = DoSpect2(p->ph, 0, &fmtp,  p, -1);
 //				len = DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,-1);
 				len = (len * 1000)/samplerate;

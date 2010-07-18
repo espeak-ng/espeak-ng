@@ -22,13 +22,12 @@
 
 #include "main.h"
 
-
 wxMenu *speak_menu;
 wxMenu *data_menu = NULL;
 
-wxMenuBar *MakeMenu(int type)
-{//==========================
-
+wxMenuBar *MakeMenu(int type, const char *dict_name)
+{//=================================================
+	char buf[100];
 	wxMenu *file_menu;
 	wxMenu *help_menu;
 	wxMenu *option_menu = NULL;
@@ -94,6 +93,13 @@ wxMenuBar *MakeMenu(int type)
 	data_menu->AppendSeparator();
 	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Layout *_rules file"));
 	data_menu->Append(MENU_SORT_DICTIONARY, _("&Sort *_rules file"));
+
+	sprintf(buf,"Compile &dictionary '%s'",dict_name);
+	data_menu->SetLabel(MENU_COMPILE_DICT, wxString(buf,wxConvLocal));
+	sprintf(buf,"&Layout '%s_rules' file",dict_name);
+	data_menu->SetLabel(MENU_FORMAT_DICTIONARY, wxString(buf,wxConvLocal));
+	sprintf(buf,"&Sort '%s_rules' file",dict_name);
+	data_menu->SetLabel(MENU_SORT_DICTIONARY, wxString(buf,wxConvLocal));
 
 	// OPTIONS MENU
 	paths_menu = new wxMenu;

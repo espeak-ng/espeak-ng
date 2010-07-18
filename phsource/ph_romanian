@@ -15,7 +15,8 @@ phoneme I^          // "silent i", palatilizes the preceding consonant
     ChangePhoneme(;)
   ENDIF
   IF prevPh(l;) THEN
-    FMT(vwl_ro/li, -10)
+    Length 60
+    FMT(vwl_ro/li)
   ENDIF
   IF prevPh(m;) THEN
     FMT(vwl_ro/mi)

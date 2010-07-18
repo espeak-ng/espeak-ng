@@ -54,6 +54,7 @@ static int  last_wcmdq;
 static int  pitch_length;
 static int  amp_length;
 static int  modn_flags;
+static int  fmt_amplitude=0;
 
 static int  syllable_start;
 static int  syllable_end;
@@ -223,6 +224,13 @@ static void DoPause(int length, int control)
 	wcmdq[wcmdq_tail][1] = len;
 	WcmdqInc();
 	last_frame = NULL;
+
+	if(fmt_amplitude != 0)
+	{
+		wcmdq[wcmdq_tail][0] = WCMD_FMT_AMPLITUDE;
+		wcmdq[wcmdq_tail][1] = fmt_amplitude = 0;
+		WcmdqInc();
+	}
 }  // end of DoPause
 
 
@@ -972,7 +980,7 @@ static void StartSyllable(void)
 
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation)
 {//========================================================================================================
-	// which  0 not a vowel, 1  start of vowel,   2 body and end of vowel
+	// which:  0 not a vowel, 1  start of vowel,   2 body and end of vowel
 	// length_mod: 256 = 100%
 	// modulation: -1 = don't write to wcmdq
 
@@ -1024,6 +1032,15 @@ if(which==1)
 	frames = LookupSpect(this_ph, which, fmt_params, &n_frames, plist);
 	if(frames == NULL)
 		return(0);   // not found
+
+	if(fmt_params->fmt_amp != fmt_amplitude)
+	{
+		// an amplitude adjustment is specified for this sequence
+		q = wcmdq[wcmdq_tail];
+		q[0] = WCMD_FMT_AMPLITUDE;
+		q[1] = fmt_amplitude = fmt_params->fmt_amp;
+		WcmdqInc();
+	}
 
 	frame1 = frames[0].frame;
 	if(voice->klattv[0])
@@ -1166,6 +1183,16 @@ if(which==1)
 			total_len += len;
 		}
 	}
+
+	if((which != 1) && (fmt_amplitude != 0))
+	{
+		q = wcmdq[wcmdq_tail];
+		q[0] = WCMD_FMT_AMPLITUDE;
+		q[1] = fmt_amplitude = 0;
+		WcmdqInc();
+	}
+
+
 	return(total_len);
 }  // end of DoSpect
 
@@ -1429,7 +1456,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				// a period of voicing before the release
 				InterpretPhoneme(NULL, 0x01, p, &phdata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-				fmtp.fmt_length = phdata.sound_param[pd_FMT];
+				fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
 				DoSpect2(ph, 0, &fmtp, p, 0);
 				if(p->synthflags & SFLAG_LENGTHEN)
@@ -1457,7 +1484,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 			InterpretPhoneme(NULL,0, p, &phdata);
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 			DoSpect2(ph, 0, &fmtp, p, 0);
@@ -1504,7 +1531,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			memset(&fmtp, 0, sizeof(fmtp));
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 
@@ -1529,7 +1556,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			InterpretPhoneme(NULL,0, p, &phdata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
 			if(next->type==phVOWEL)
 			{
@@ -1578,7 +1605,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			InterpretPhoneme(NULL, 0, p, &phdata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 			DoSpect2(p->ph, 0, &fmtp, p, modulation);
@@ -1619,8 +1646,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				fmtp.use_vowelin = 1;
 				fmtp.fmt_control = 1;
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-//				fmtp.fmt_length = phdata.sound_param[pd_FMT];
 			}
+
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
 			pitch_env = envelope_data[p->env];
 			amp_env = NULL;
@@ -1670,7 +1698,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.transition0 = 0;
 			fmtp.transition1 = 0;
 

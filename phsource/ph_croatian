@@ -25,6 +25,7 @@ endphoneme
 
 phoneme tS;  // this is letter ć
   vls pal afr sibilant palatal
+  ipa tɕ
   lengthmod 2
   voicingswitch dZ;
   Vowelin f1=0  f2=2500 300 500  f3=300 80 rate len=70
@@ -69,6 +70,7 @@ endphoneme
 phoneme dZ;    // letter đ
   vcd pla afr sibilant palatal
   lengthmod 5
+  ipa dʑ
   voicingswitch tS;
   Vowelin f1=2  f2=2500 300 500  f3=300 80 rate len=70
 

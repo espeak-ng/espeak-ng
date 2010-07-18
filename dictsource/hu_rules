@@ -208,6 +208,12 @@ menetren) dsz (erű d|s
     va) d (szeder  d
   twee) d (sapk    d
     fe) dd (hetetlen d
+ezre) d (segé d
+erő) d (szerű d
+csalá) d (szociol d
+száza) d (szemle d
+zöl) d (szem d
+
 
 .group dz
   fogó) dz (kod    ts
@@ -244,6 +250,9 @@ titkoló) dz        z
 ringató) dz        z
   mére) dz (k      ts
 pilóta) dzs (ek    dZ
+ezre) dz (ene d|z
+száza) dz (ene d|z
+honvé) dz (ászló d|z
 
 .group e
         e          E
@@ -516,6 +525,7 @@ keresztü) l (j     l
      _) e)         lj        (ár lj
     ha) ll (ga     l
    _ta) lj (án     lj
+_fé) l (jobb l
 
 
 
@@ -587,6 +597,7 @@ teljesítmé) ny (javu n^
    ajá) nl         l:
 _feddhetetle) n (jelle n
 állomá) ny (jel    n^
+ingatla) n (jog    n
 
 .group o
         o          o
@@ -662,6 +673,7 @@ gyalogo) s (zászló S
     ki) s (zsidó   S
 szennye) s (zsá    S
   alvá) s (zavar   S
+magatartá) s (zavar S
 
 .group ss
         ssz        ss2
@@ -1072,6 +1084,7 @@ fejeze) t (cím     t
    pán) t (szél    t
    boo) t (sorrend t
     _á) t (jöj     t
+ú) tsz (oros t|s
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters

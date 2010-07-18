@@ -4184,6 +4184,14 @@ uimodst) å (elig   'O        // PB stressed
         åre        V3        // PB tåre
         å (lti     V         // PB måltid
 
+.group '
+        's (_S2    s
+        'er (_S3   %V
+        'erne (_S5  %Vn@
+        'ernes (_S6 %Vn@s
+        'et (_S3   @D
+
+
 .group
         $          dVlV      // PB changed from [dVlar]
         ñ          _^_ES     // PB mañana

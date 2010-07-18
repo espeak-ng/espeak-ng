@@ -421,7 +421,7 @@ if(option_log_frames)
 #endif
 
 		out = resonator(&(kt_globals.rsn[Rout]),out);
-		temp = (out * wdata.amplitude * kt_globals.amp_gain0) ;   /* Convert back to integer */
+		temp = (int)(out * wdata.amplitude * kt_globals.amp_gain0) ;   /* Convert back to integer */
 
 
 		// mix with a recorded WAV if required for this phoneme

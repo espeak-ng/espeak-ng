@@ -35,6 +35,7 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
+#include "translate.h"
 #include "spect.h"
 #include "options.h"
 
@@ -981,6 +982,7 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	SpectSeq *spectseq;
 	wxString leaf;
 	wxString pathload;
+	int width, height;
 
 	if(event.GetId() == MENU_SPECTRUM)
 		pathload = path_spectload;
@@ -1022,9 +1024,10 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 		path_spectload2 = path.GetPath();
 
 	// Make another frame, containing a canvas
+	GetClientSize(&width, &height);
 	MyChild *subframe = new MyChild(myframe, _T("Spectrum"),
-                                      wxPoint(10, 10), wxSize(300, 300),
-                                      wxDEFAULT_FRAME_STYLE | wxMAXIMIZE |
+                                      wxPoint(10, 0), wxSize(500, height),
+                                      wxDEFAULT_FRAME_STYLE |
                                       wxNO_FULL_REPAINT_ON_RESIZE);
 
 	subframe->SetTitle(leaf);
@@ -1032,14 +1035,13 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	// Give it a status line
 	subframe->CreateStatusBar();
 
-	int width, height;
 	subframe->GetClientSize(&width, &height);
 	SpectDisplay *canvas = new SpectDisplay(subframe, wxPoint(0, 0), wxSize(width, height), spectseq);
 	canvas->savepath = filename;
    currentcanvas = canvas;
 
 	// Associate the menu bar with the frame
-	subframe->SetMenuBar(MakeMenu(1));
+	subframe->SetMenuBar(MakeMenu(1,translator->dictionary_name));
 	subframe->canvas = canvas;
 	subframe->Show(TRUE);
 

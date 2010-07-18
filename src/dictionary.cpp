@@ -245,6 +245,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 	char fname[sizeof(path_home)+20];
 
 	strcpy(dictionary_name,name);   // currently loaded dictionary name
+	strcpy(tr->dictionary_name, name);
 
 	// Load a pronunciation data file into memory
 	// bytes 0-3:  offset to rules data
@@ -634,32 +635,32 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 					}
 				}
 			}
-			WritePhMnemonic(phon_out, &phon_out_ix, plist->ph, plist);
 
-			if(plist->synthflags & SFLAG_LENGTHEN)
-			{
-				WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonLENGTHEN], NULL);
-			}
-			if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
-			{
-				// syllablic consonant
-				WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonSYLLABIC], NULL);
-			}
 			if(plist->ph->code == phonSWITCH)
 			{
 				// the tone_ph field contains a phoneme table number
 				p = phoneme_tab_list[plist->tone_ph].name;
-				while((c = *p++) != 0)
-				{
-					if(option_phonemes != 3)
-						phon_out[phon_out_ix++] = c;
-				}
-				phon_out[phon_out_ix++] = ' ';
+
+				sprintf(&phon_out[phon_out_ix], "(%s)", p);
+				phon_out_ix += (strlen(p) + 2);
 			}
 			else
-			if(plist->tone_ph > 0)
 			{
-				WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[plist->tone_ph], NULL);
+				WritePhMnemonic(phon_out, &phon_out_ix, plist->ph, plist);
+	
+				if(plist->synthflags & SFLAG_LENGTHEN)
+				{
+					WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonLENGTHEN], NULL);
+				}
+				if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
+				{
+					// syllablic consonant
+					WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonSYLLABIC], NULL);
+				}
+				if(plist->tone_ph > 0)
+				{
+					WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[plist->tone_ph], NULL);
+				}
 			}
 		}
 	
@@ -810,7 +811,7 @@ static int Unpronouncable_en(Translator *tr, char *word)
 		index += utf8_in(&c,&word[index]);
 		count++;
 
-		if((c==0) || (c==' '))
+		if((c==0) || (c==' ') || (c == '\''))
 			break;
 
 		if(IsVowel(tr, c) || (c == 'y'))
@@ -890,7 +891,7 @@ int Unpronouncable(Translator *tr, char *word)
 	if(tr->langopts.param[LOPT_UNPRONOUNCABLE] == 1)
 		return(0);
 
-	if((*word == ' ') || (*word == 0))
+	if(((c = *word) == ' ') || (c == 0) || (c == '\''))
 		return(0);
 
 	index = 0;
@@ -898,7 +899,7 @@ int Unpronouncable(Translator *tr, char *word)
 	for(;;)
 	{
 		index += utf8_in(&c,&word[index]);
-		if((c==0) || (c==' '))
+		if((c==0) || (c==' ') || (c == '\''))
 			break;
 
 		if(count==0)
@@ -925,7 +926,7 @@ int Unpronouncable(Translator *tr, char *word)
 		vowel_posn--;   // disregard this as the initial letter when counting
 
 	if(vowel_posn > (tr->langopts.max_initial_consonants+1))
-		return(1);  // no vowel, or no vowel in first four letters
+		return(1);  // no vowel, or no vowel in first few letters
 
 return(0);
 
@@ -1167,6 +1168,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	int opt_length;
 	int done;
 	int stressflags;
+	int dflags = 0;
 
 	signed char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_weight[N_WORD_PHONEMES/2];
@@ -1185,6 +1187,9 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 	stressflags = tr->langopts.stress_flags;
 
+	if(dictionary_flags != NULL)
+		dflags = dictionary_flags[0];
+
 	/* copy input string into internal buffer */
 	for(ix=0; ix<N_WORD_PHONEMES; ix++)
 	{
@@ -1202,16 +1207,16 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	max_output = output + (N_WORD_PHONEMES-3);   /* check for overrun */
 
 	// any stress position marked in the xx_list dictionary ? 
-	stressed_syllable = dictionary_flags[0] & 0x7;
-	if(dictionary_flags[0] & 0x8)
+	stressed_syllable = dflags & 0x7;
+	if(dflags & 0x8)
 	{
 		// this indicates a word without a primary stress
-		stressed_syllable = dictionary_flags[0] & 0x3;
+		stressed_syllable = dflags & 0x3;
 		unstressed_word = 1;
 	}
 
 	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 1);
-	if(max_stress < 0)
+	if((max_stress < 0) && dictionary_flags)
 	{
 		if((tr->langopts.stress_flags & 1) && (vowel_count == 2))
 		{
@@ -1994,13 +1999,15 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case RULE_NOTVOWEL:
-					if(!IsLetter(tr, letter_w,0))
+					if(IsLetter(tr, letter_w, 0) || ((letter_w == ' ') && (word_flags & FLAG_SUFFIX_VOWEL)))
+					{
+						failed = 1;
+					}
+					else
 					{
 						add_points = (20-distance_right);
 						post_ptr += letter_xbytes;
 					}
-					else
-						failed = 1;
 					break;
 
 				case RULE_DIGIT:

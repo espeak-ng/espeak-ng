@@ -5,8 +5,11 @@
 // ?1  Castilian
 // ?2  Latin America
 
-.L01 j w l r d g n m
+.L01 j w l r b d g n m p t k c
 .L02 b d g n m         // change [s] to [z] before these
+.L03 f h j s y z       // allow [B] [D] [Q] before these consonants
+.L04 b v f p      // labials, nasals are [m]
+.L05 g k          // velars, nasals are [N]
 
 .group a
           a          a
@@ -18,11 +21,13 @@
 
 
 .group b
-          b          B
-       _) b          b
+          b          b
+       _) b          b  // phoneme definition may change it to [B]
+          b (A       B
+          b (cY      B
+          b (L03     B
        m) b          b
        n) b          b
-          b (L01     b
           b (iA      b
           b (uA      b
 
@@ -33,10 +38,14 @@
 
 
 .group d
-          d          D
-       _) d          d
+          d          d
+       _) d          d  // phoneme definition may change it to [D]
+          d (A       D
+          d (cY      D
+          d (L03     D
        m) d          d
        n) d          d
+       l) d          d
        r) d          d
 
 
@@ -58,12 +67,14 @@
 
 
 .group g
-          g          Q
-       _) g          g
+          g          g
+       _) g          g  // phoneme definition may change it to [Q]
+          g (A       Q
+          g (cY      Q
+          g (L03     Q
        m) g          g
        n) g          g
           g (Y+      x        // ge gi
-          g (r       g
 
 
 .group h
@@ -92,18 +103,23 @@
 ?2     A) ll (A      j:
 
 
+
 .group m
           m          m
+          m (K       n
+          m (L04     m
+          m (_L04    m
+          m (L05     N
+          m (_L05    N
+          m (j       N
 
 
 .group n
           n          n
-          n (b       m
-          n (v       m
-          n (f       m
-          n (p       m
-          n (g       N  // ??
-          n (k       N  // ??
+          n (L04     m
+          n (_L04    m
+          n (L05     N
+          n (_L05    N
           n (j       N
 
 
@@ -121,6 +137,10 @@
 .group p
           p          p
           p (t       p:
+       _) ph         f
+          ph (K      f
+       _) ps (ico    s
+       _) ps (eudo   s
 
 
 .group q
@@ -145,10 +165,15 @@
 .group s
           s          s
        &) s (_S1     s
+       _) s (C       Es
+       _) sh         S
+          sh (K      S
 
 
 .group t
           t          t
+       _) th         T
+          th (K      T
 
 
 .group u
@@ -163,7 +188,7 @@
 
 .group v
           v          B
-       _) v          v#
+       _) v          b
 ?1     m) v          b
 ?1     n) v          b
 ?1        v (L01     b

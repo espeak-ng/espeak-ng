@@ -199,6 +199,7 @@ endphoneme
 
 phoneme tS;
   vls pal afr sibilant palatal
+  ipa tɕ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
   WAV(ustop/tsh_pzd_unasp)
@@ -206,6 +207,7 @@ endphoneme
 
 phoneme tS;h
   vls pal afr sibilant palatal
+  ipa tɕh
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80
   WAV(ustop/tsh_pzd, 80)
@@ -214,6 +216,7 @@ endphoneme
 phoneme S;
   vls pla frc sibilant
   lengthmod 2
+  ipa ɕ
   Vowelin f1=0  f2=2700 400 600  f3=300 80
   WAV(ufric/sh_pzd2, 20)
 endphoneme

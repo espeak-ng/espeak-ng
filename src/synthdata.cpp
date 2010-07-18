@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.43.52  04.Jul.10";
-const int version_phdata  = 0x014351;
+const char *version_string = "1.43.57  18.Jul.10";
+const int version_phdata  = 0x014354;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -1041,15 +1041,15 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 					}
 				}
 				else
-				if(instn2 == 4)
+				if(instn2 ==pd_ADDWAV)
 				{
 					// addWav(), return if previous instruction was FMT() or WAV()
 					end_flag--;
 				}
 
-				if((instn2 != 1) && (instn2 != 4))
+				if((instn2 == pd_VWLSTART) || (instn2 == pd_VWLEND))
 				{
-					// FMT, VowelStart or VowelEnding.
+					// VowelStart or VowelEnding.
 					phdata->sound_param[instn2] = param_sc;   // sign extend
 				}
 			}

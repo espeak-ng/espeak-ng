@@ -153,11 +153,8 @@ endphoneme
 
 
 phoneme s#     // This is [s] for Brazil, [S] for Portugal
-  vls pla frc sibilant
-  lengthmod 3
-  ipa ʃ
   CALL base/S
-//  import_phoneme base/S
+  ipa ʃ
 endphoneme
 
 

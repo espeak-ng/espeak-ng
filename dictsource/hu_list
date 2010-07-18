@@ -82,7 +82,7 @@ _30o	hAR2_mintsAdik
 _60o	hAtvAnAdik
 _80o	n^oltsvAnAdik
 _0Co	sa:zAdik
-_2Co	ke:tsa:zAdik
+_2Co	ke:t|sa:zAdik
 _0M1o	EzR2Edik
 _1M1o	EzR2Edik
 _2M1o	ke:tEzR2Edik
@@ -150,6 +150,13 @@ _#-énél	e:ne:l	$alt2
 _#-ik || //This is not a mistake. This is a special ordinal number suffix, with not need insert replace word suffix. For example:
 //If a string containing the 17-ik string, need spokening tizenhetedik phoneme. If the suffix rule not containing the || rule but containing another
 //replace word, the spokened suffix is mistaked, for example tizenhetedikedik if this rule containing the Edik phoneme, not || phoneme.
+_#-iki	i
+_#-ike	E
+_#-ikei	Ei
+_#-ika	A
+_#-ikai	Ai
+_#-éhez	e:hEz
+_#-ához	a:hoz
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
 (1-jén)	elsején 	$text $alt2
@@ -175,6 +182,10 @@ _#-ik || //This is not a mistake. This is a special ordinal number suffix, with 
 (1-vel) elsejével	$text $alt2
 (1-jénél) elsejénél	$text $alt2
 (1-énél) elsejénél	$text $alt2
+(1-iki)	elsejei	$text $alt2
+(1-ike)	elseje	$text $alt2
+(1-ikei) elsejei	$text $alt2
+(1-éhez)	elsejéhez	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
 (3-i)	hAR2_mAdikAi	$alt2
@@ -219,6 +230,8 @@ _#-ik || //This is not a mistake. This is a special ordinal number suffix, with 
 (0-áson) nul:a:Son
 (0-tól)	nul:a:to:l
 (00-tól)	nul:Anul:a:to:l
+(0-n) nul:a:n
+(00-n) nul:Anul:a:n
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
 (2-őt) kEt:Y:t
@@ -234,6 +247,7 @@ _#-ik || //This is not a mistake. This is a special ordinal number suffix, with 
 (3-adikon)	hAR2mAdikon	//special exception
 (3-adikkal)	hAR2mAdik:Al	//special exception
 (3-t) ha:R2mAt
+(3-mas) ha:R2mAS
 //4 number suffixes
 (4-el) ne:J:El //Nneed J: phoneme, not J phoneme contains one suffix) 
 (4-gyel) ne:J:El //Need J: phoneme, not J phoneme
@@ -279,7 +293,6 @@ _20e	hus
 (70-el) hEtvEn:El
 (80-al) n^oltsvAn:Al
 (90-el) kilEntsvEn:El
-
 
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
 január		$alt

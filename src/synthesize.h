@@ -177,6 +177,7 @@ int mix_wavefile_offset;
 
 int amplitude;
 int amplitude_v;
+int amplitude_fmt;   // percentage amplitude adjustment for formant synthesis
 } WGEN_DATA;
 
 
@@ -275,6 +276,7 @@ typedef struct {
 	int use_vowelin;
 	int fmt_addr;
 	int fmt_length;
+	int fmt_amp;
 	int fmt2_addr;
 	int fmt2_lenadj;
 	int wav_addr;
@@ -466,6 +468,8 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 #define WCMD_VOICE   11
 #define WCMD_EMBEDDED 12
 #define WCMD_MBROLA_DATA 13
+#define WCMD_FMT_AMPLITUDE 14
+
 
 
 #define N_WCMDQ   160

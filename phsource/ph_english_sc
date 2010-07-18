@@ -70,6 +70,7 @@ endphoneme
 
 phoneme a#
   vowel  starttype #@  endtype #@
+  ipa ɐ
   unstressed
   length 140
   IfNextVowelAppend(r-)
@@ -152,7 +153,8 @@ phoneme A:
   ipa a:
   IfNextVowelAppend(r-)
   IF nextPh(r) THEN
-    FMT(vowelr/aa_r, 30)
+    Length 250
+    FMT(vowelr/aa_r)
   ENDIF
   FMT(vowel/a_3)
 endphoneme
@@ -235,7 +237,8 @@ phoneme u:
     Length 200
   ENDIF
   IF nextPh(isPause) THEN
-    FMT(vowel/u#_4, 40)
+    Length 200
+    FMT(vowel/u#_4)
   ENDIF
   FMT(vowel/u#)
 endphoneme

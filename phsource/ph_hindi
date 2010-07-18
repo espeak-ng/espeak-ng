@@ -414,7 +414,8 @@ endphoneme
 
 
 phoneme ch
-  import_phoneme base/tS;
+  CALL base/tS;
+  ipa ch
 endphoneme
 
 

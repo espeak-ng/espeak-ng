@@ -17,11 +17,8 @@ endphoneme
 
 
 phoneme 3    //  Schwa, used for rhotic schwa in American
-  vowel   starttype #@  endtype #@
-  unstressed
-  length 140
-  ipa ə
   CALL @
+  ipa ə
 endphoneme
 
 

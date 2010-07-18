@@ -22,8 +22,12 @@
 // This file is UTF-8 encoded
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
+// Initial rules for French, imported from
+//   Cicero TTS: A Small, Fast and Free Text-To-Speech Engine.
+// http://www.fluxnic.net/cicero
 //
-// Updated: 2010-06-29 Michel Such  <michel.such@free.fr>
+// Rules are now maintained by Michel Such <michel.such@free.fr>
+// Last update: 2010-07-16 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -34,8 +38,6 @@
 
 .replace
 œ	oe
-î	i
-à	a
 
 
 .L01 d e l n r t u
@@ -100,13 +102,13 @@
         août (i    aus       // aoûtien
         aut (_     ot2
         a (ô                 // saune
-        au         o2        // au, aux
+        au         o        // au, aux
         aud (_     o         // chaud
-_C)        aud (_     o2d         // Maud
-        au (l_     o         // Paul
+_C)        aud (_     od         // Maud
+        au (l_     O         // Paul
         au (re_    o         // dinosaure
-     _) audio (@P5 o2dio
-     _) auto (@P4  o2to
+     _) audio (@P5 odio
+     _) auto (@P4  oto
      _) autom (n   otO
     bb) aye (X     ei        // abbaye
         ay (C      E         // aymé
@@ -269,8 +271,9 @@ _ingré) dien (t_   djA~      // ingrédient
         el (K      El        // celsius, caramel
     _f) em (me     a         // femme
      i) e (mA                // remerciement, d�ploiement
+      e (ro_		e            // Cicero
      A) e (rA                // remerciera
-   tch) e (rX      Y
+   tch) e (rX      W
      @) em (me     a         // patiemment
         em (b      A~        // décembre
         em (mACC   A~        // emmancher
@@ -440,9 +443,9 @@ s_couv) en (t_               // elles couvent
  _cutt) er (X      Er        // cutter
   tain) er (X      Er        // container
    _ti) er (_      Er
-   ack) er (K      Yr
+   ack) er (K      Wr
    ock) er (K      Er
-  rock) er (K      Yr
+  rock) er (K      Wr
 
         er (_      e         // parler léger
         er (s_     e
@@ -478,7 +481,16 @@ s_couv) en (t_               // elles couvent
      m) et (_      Et2
 
         eu         Y         // eu
-     _) eu (ss     y         // eu
+        eu (CX    W         // neuf
+        eu (CeX    W         // fleuve
+        eu (Cer_    Y         // pleurer
+        eu (CeX    Y        // meule
+        eu (reX    W        // demeure
+gu)        eu (leX    W        // gueule
+gu)        eu (ler    Y        // gueuler
+        eu (rC    W         // pleurnicher
+        eu (rreX    W         // beurre
+     _) eu (ss     y         // eusse
 
      _) eut (_     yt2
         eut (_     Yt2
@@ -710,7 +722,7 @@ _quatrevin) gts (_ z2
      _) h (umA               // humain
      _) h (umC               // humble
      _) hy (A      j
-        haus (_    o2s       //blockhaus
+        haus (_    os       //blockhaus
         heim (_    ajm
      _) h (y                 // hypermarché
      _) hyper (@P5 ipEr
@@ -748,7 +760,8 @@ _quatrevin) gts (_ z2
   anqu) ill        il        // tranquille
      c) ill (i     il
   dist) ill        il        // distiller
-  _L05) ill        il        // Lille, mille, ville, william
+  _L05) ill        il        // Lille, mille, william
+  v) ill (e_        il        // ville
    osc) ill        il        // osciller
     gu) ill        ij        // guillaume
     qu) ill        ij        // quille
@@ -861,7 +874,7 @@ _quatrevin) gts (_ z2
      _) m' (P2v    m
      _) mc (@P2    mak
      _) ms (P2     EmEs
-        master (_S6 mastYr
+        master (_S6 mastWr
 
 // group m: English section
      _) mail (_    _^_en     // mailer
@@ -885,53 +898,52 @@ _quatrevin) gts (_ z2
 .group o
     br) oc (_      o         // broc
     cr) oc (_      o         // escroc
-        on (n      o
-    ls) on (_      on
-   Cst) on (_      on
-     _) os (_      os
-    _v) os (gY     o2
+    ls) on (_      On
+   Cst) on (_      On
+     _) os (_      Os
+    _v) os (gY     o
     s_) os (_      o
     x_) os (_      o
         o (t_      o
 
         oe (ll     wa       // moelleux
-        oe (i      Y         // oeil
+        oe (i      W         // oeil
      _) oe (C      Y         // oesophage
    _ph) oe (C      e         // phoetus
-   _ph) oe (n_     Y         // phoen
-        oeu        Y         // voeu
+   _ph) oe (n_     W         // phoen
+        oeu        W         // voeu
         oeud       Y         // noeud
         oeufs (_   Y         // oeufs boeufs
-        oeu (x     Yz2       // voeux coeur
+        oeu (x     Yz2       // voeux
         o (eC      o         // coefficient
      _) oi (gnon   o         // oignons
         oin (C     wE~
         oin (_     wE~       // coin
         oi         wa       // poil
         oê (l      wa       // poêle
-        om (C      O~        // bombe
-        om (m      o         // nommer
-        om (ni     om        // omnibus
+        om (b      O~        // bombe
+        om (p      O~        // trompe
      n) om (X      O~        // nom
-        om (_      om        //  www.web.com
-     s) om (n      om
+        om (_      Om        //  www.web.com
 
-        on (K      O~        // mon
+        on (K      O~        // montre, vision
+        on (n      O         // bonne, personne
         on (t_     O~t2      // mont vont sont
     _m) ont (pAC   O~        // Montpellier
     _m) ont (m   O~
     _m) ont (rAal  O~        // Montreal
         onsh (A    O~z       // bonshommes
-        onh (A     on        // bonhomme
-     _) on (z      _|O~      // onze, onzi�me
+        onh (A     On        // bonhomme
+     _) on (z      _|O~      // onze, onzième
 
     _c) on (_      O~        // no comment
+    ps) on (_      On        // Epson
     gt) on (_      On        // Washington
    Cst) on (_      On
     ps) on (_      On
     _C) on (_      O~n2      // mon appui, mon histoire, mon havre
 
-   alc) oo (l      o         // alcool
+   alc) oo (l      O         // alcool
      z) oo         o         // zoo
      z) oo (C      oo        // zoologue
      z) oo (m      u         // zoom
@@ -943,22 +955,23 @@ _quatrevin) gts (_ z2
     _C) oup (_     u         // coup, loup
 
 
-        ou         u         // hibou brouillard
-        ou (in        w         // pingouin
-        oue (mA    u         // dvvouement
+        ou         u         // hibou brouillard groupe encouragé
+        ou (in     w         // pingouin
+        oue (mA    u         // dévouement
      _) ou (at     _|u       // ouate
         où         u         // où
         oû         u         // coûter
         oy (A      waj      // noyer voyelles
-    _b) oy (co     oj        // boycott
-    _c) oy (o      oi        // coyote
-    _y) o (y       o
+    _b) oy (co     Oj        // boycott
+    _c) oy (o      Oi        // coyote
+    _y) o (y       O
         oy         wa
         o (_       o         // zorro allégro
-        o (z_      o         // berlioz
-        o          o
-   _sC) ot         ot
+   gr) oss         os        // grosse, grossir
 
+    C) o (sA       o         // position
+        o (CC      O         // poste, votre
+        o          O
 
 // group o: English section
         oa (X      _^_en     // approach, load
@@ -976,14 +989,15 @@ _quatrevin) gts (_ z2
      _) one        _^_en
         oun (C     _^_en     // bounce, found
      _) over       _^_en     // over
+   _sC) ot         _^_en     // shot, slot, spot
         ow (e      _^_en     // flower, power
         ow (X      _^_en
         oy (X      _^_en     // boy, toy
 
 
 .group ô
-        ôt (_      o2        // rôt
-        ô          o2        // cône
+        ôt (_      o        // rôt
+        ô          o        // cône
 
 
 .group p
@@ -1092,6 +1106,7 @@ _quatrevin) gts (_ z2
    aCè) s (_       s
     nè) s (_       s
  kansa) s (_       s         // Kansas, Arkansas
+ aka) s (_       s
     ub) s (is      z         // subsister
   tran) s (A       z         // transition
   tran) s (e       s         // transe
@@ -1286,26 +1301,26 @@ _transA) t (_      t
         u          y         // cruel nuage brut
         ui         yi       // nuit, fuite
         uin (K     yE~       // juin
-    _s) u (rfX     Y
-   _bl) u (ff      Y
-    _s) u (rfeX    Y
+    _s) u (rfX     W
+   _bl) u (ff      W
+    _s) u (rfeX    W
         uy (A      yij
 
      C) ucci       utSi      // capuccino
-     c) ueill      Yj        // cueillir
-     c) ueil (_    Yj        // recueil
+     c) ueill      Wj        // cueillir
+     c) ueil (_    Wj        // recueil
     _g) ua         wa
     ag) ua (X      wa
   Ctig) ua (_      wa
     _c) ul (_      y
      _) ultra (P5  yltra
      g) u (ay      u
-     g) ueill      Yj        // orgueilleux
+     g) ueill      Wj        // orgueilleux
   haïk) u (X       u
 
-     C) u (bX      Y         // hub, club
-     C) u (gX      Y         // bug, mug
-    _n) u (rse     Y         // nurse
+     C) u (bX      W         // hub, club
+     C) u (gX      W         // bug, mug
+    _n) u (rse     W         // nurse
      r) u (nX      W         // run, autorun
     pr) unt (_     W~        // emprunt
         um (_      Om        // album
@@ -1323,7 +1338,7 @@ _transA) t (_      t
      g) u (A                 // fatigue
      g) u (ï       y         // ambiguïté
      g) u (ë       y         // ambiguë
-        uz (z      Y
+        uz (z      W
 
 // group u: English section
     _b) usi        _^_en     // business, businessman
@@ -1350,7 +1365,7 @@ _transA) t (_      t
 .group v
         v          v
         vers (_    vErz2
-   dri) ver (X     vYr
+   dri) ver (X     vWr
         view (X    vju
      _) view (A    vjuv
 
@@ -1448,7 +1463,7 @@ _transA) t (_      t
 
 // symbols that are normally spoken when reading text
         , (D       pilk:u
-        $          dolar
+        $          dOlar
         °          d@gre
    _n_) °                    // n°
 

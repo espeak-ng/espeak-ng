@@ -858,7 +858,7 @@ endphoneme
 //*******************************************************************
 
 
-phoneme  b
+phoneme b
   vcd blb stop
   voicingswitch p 
   Vowelout f1=2  f2=1000 -500 -300  f3=-300 80 brk
@@ -961,6 +961,7 @@ endphoneme
 phoneme dZ;
   vcd pla afr sibilant palatal
   voicingswitch tS;
+  ipa dʑ
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=2 f2=2700 400 600  f3=300 80
@@ -1188,6 +1189,7 @@ endphoneme
 phoneme Z;
   vcd pal frc sibilant palatal
   voicingswitch S;
+  ipa ʑ
   lengthmod 6
   Vowelin  f1=2  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
@@ -1334,6 +1336,7 @@ endphoneme
 phoneme tS;
   vls pal afr sibilant palatal
   voicingswitch dZ;
+  ipa tɕ
   lengthmod 2
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
 
@@ -1494,6 +1497,7 @@ endphoneme
 phoneme S;
   vls pal frc sibilant palatal
   voicingswitch Z;
+  ipa ɕ
   lengthmod 3
   Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 rate

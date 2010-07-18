@@ -3015,6 +3015,7 @@ has              haz		$allcaps
 hath             %haT		$pastf $only
 had              %ha#d		$pastf $strend2 $only
 had              ,had		$atend
+(had to)         h%adt@5
 (had to)         hadtu:		$atend
 (had been)       %ha#d%bIn	$pastf
 having           ,havI2N	$strend2 $pastf $only
@@ -3047,7 +3048,7 @@ didn't           dIdnt		$verbf
 done             dVn
 
 make		m,eIk		$strend2 $only
-made		m,eId		$strend2 $only
+made		m,eId		$strend2 $only $u+
 
 putting           pUtI2N
 put              ,pUt		$onlys $strend2

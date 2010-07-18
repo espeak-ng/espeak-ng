@@ -108,6 +108,7 @@ endphoneme
 phoneme dZ;
   vcd pla afr sibilant palatal
   lengthmod 5
+  ipa dʑ
   voicingswitch tS;
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
 
@@ -131,6 +132,7 @@ endphoneme
 phoneme tS;
   vls pal afr sibilant palatal
   lengthmod 2
+  ipa tɕ
   voicingswitch dZ;
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   WAV(ustop/ts_sr)

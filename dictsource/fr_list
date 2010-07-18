@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-06-22 Michel Such  <michel.such@free.fr>
+// Updated 2010-07-16 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -111,12 +111,12 @@ _"   gijmE2
 _#   djEz
 _'   apostr'Of
 
-_(   'uvr@-parA~t'Ez
-_)   f'Erm parA~t'Ez
+_(   parA~tEz_goS
+_)   parA~tEz_drwat
 _,   virgyl
 _-   tirE2
 _.   _|pw%E~
-_/   bar||oblik
+_/   barOblik
 _:   d'Y||pw'E~
 _;   pwE~||virg'yl
 _<   E~feriWr
@@ -124,15 +124,15 @@ _=   egal
 _>   syperiWr
 _?   pwE~||dE~tE2rogasj'O~
 _!	pwE~||dEksklamasj'O~
-_[   uvr@-_kroSE2
-_\   b'aksl'aS
-_]   f'Erm_kroS'E2
+_[   krOSE2_goS
+_\   barOblik_E~vErse
+_]   krOSE2_drwa
 _^   sirkO~flEks
 __   sulin^e
 _`   aks'A~_gr'av
-_{   uvr_akolad
+_{   akOlad_goS
 _|   bar_vErtik'al
-_}   f'Erm_akol'ad
+_}   akOlad_drwat
 ²    pyis'A~s||d'Y
 _«	uvre||gijm'E2
 _»	fErme||gijm'E2
@@ -165,9 +165,9 @@ _&	_e_komErsi'al
 
 // numeric
 
-_0	zero2 $u+
+_0	zero $u+
 _1	W~
-_2	d@z2
+_2	dYz2
 _3	trwaz2
 _4	katr
 _5	sE~k
@@ -179,7 +179,7 @@ _10	diz3
 _11	_|O~z
 _12	duz
 _13	trEz
-_14	katorz
+_14	katOrz
 _15	kE~z
 _16	sEz
 _17	disEt
@@ -214,6 +214,7 @@ _0M2	miljO~
 _0M3	miljar
 _0and	e
 _dpt	virgyl
+_roman	rom'E~
 
 //some numbers have special pronunciation in Belgium and Switzerland
 ?2 _7X	sEptA~t
@@ -250,7 +251,7 @@ cci              $abbrev
 cia		$abbrev
 cio		$abbrev
 cm		centimètre $text
-collins	kolins
+collins	kOlins
 cpu	$abbrev
 ctrl		_::kO~trOl
 dept		depart@mA~
@@ -303,7 +304,7 @@ pci             $abbrev
 pcmcia	$abbrev
 pda             $abbrev
 philips	filips
-p.s		postskriptom
+p.s		pOstskriptOm
 qq	quelque $text
 qqs	quelques $text
 ratp		$abbrev
@@ -370,7 +371,7 @@ avant $u+
 après  aprEz2 $u+
 (temps en temps)	tA~zA~tA~
 ainsi $u+
-alors	alor $u+
+alors	alOr $u+
 aussi $u+
 encore	$u+
 enfin	$u+
@@ -380,7 +381,7 @@ lors	$u+
 
 certes	$u+
 dont	   dO~t2 $u
-lorsque	   lorsk=@ $u+
+lorsque	   lOrsk=@ $u+
 puisque	   pyisk=@ $u+
 presque	   prEsk=@ $u+
 que	  $u+
@@ -423,16 +424,16 @@ ce	$u+ $nounf
 ceci	$u+ $verbf
 cela	$u+ $verbf
 voici	$u+
-voila	$u+
+voilà	$u+
 cet	$u $nounf
 cette	$u $nounf
 ces	sez2 $u $nounf
-(celle ci)	sEl||si $verbf
-(celle la)	sEl||la $verbf
-(ceux ci)	sY||si $verbf
-(ceux la)	sY||la $verbf
-(celles ci)	sEl||si $verbf
-(celles la)	sEl||la $verbf
+(celle ci)	sEl||si $verbf $u+
+(celle là)	sEl||la $verbf $u+
+(ceux ci)	sY||si $verbf $u+
+(ceux là)	sY||la $verbf $u+
+(celles ci)	sEl||si $verbf $u+
+(celles là)	sEl||la $verbf $u+
 plupart	$u+
 
 // possessives
@@ -465,7 +466,7 @@ du	$u $nounf
 des	dez2 $u $nounf
 
 
-//à	a $u
+à	a $u+
 au	$u $nounf
 aux	$u $nounf
 
@@ -519,7 +520,7 @@ oui	_|wi $u+
 quand	   kA~t2 $u+
 quoi	   $u+
 où	$u+
-comme	kom	$u+
+comme	kOm	$u+
 comment	$u+
 pourquoi	$u+
 pourtant	$u+
@@ -656,17 +657,17 @@ buffer	bYfYr
 bus	      bys
 bus	      by  $verb
 cancer	kA~sEr
-canyon	kanjon
+canyon	kanjOn
 charles	Sarl
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
-choeur        kYr
+choeur        kWr
 cinema	sinema
-cocus     koky
+cocus     kOky
 couscous	kuskus
 delete	_^_en
 dernier    dErnjer2
-doppler	doplEr
+doppler	dOplEr
 dot	dOt
 éloquent     elokA~t2
 enfer	A~fEr
@@ -676,24 +677,24 @@ fier	      fjer $verb
 for	$u+
 francis	frA~sis
 fred	frEd
-free	frI
+free	frI:
 fuel	      fjul
 gangster	gA~gstEr
 gars	      ga
 genesis	Zenezis
-georges	ZorZ
+georges	ZOrZ
 gilles	Zil
 gin	dZin
-gulf	gYlf
+gulf	gWlf
 gus	gys
 gym	Zim
 hélas 		elas $u+
 jacques	Zak
-karaoke	karaoke
+karaoke	karaOke
 kevin	kevin
 laetitia	letisja
 laser	      lazEr
-listbox	listboks
+listbox	listbOks
 louis	lwi
 malus      malys
 mai	mE2
@@ -714,10 +715,10 @@ pataquès	patakEs
 patchwork	patSwWrk
 peter	pItWr
 phallus    falys
-polder    poldEr
+polder    pOldEr
 premier    pr@mjer2
 program	_^_en
-(program files)	programfajlz
+(program files)	prOgramfajlz
 query	kueri
 queries	kueri
 quid	kwid $u+
@@ -761,7 +762,7 @@ azimut		azim'yt
 brut		br'yt
 but		by $verb
 but		byt
-cut	kYt
+cut	kWt
 mazout		mazut
 michael		mikaEl
 out		aut
@@ -769,14 +770,14 @@ rut		ryt
 scorbut		scorbutt $text
 scout		skut
 stout		staut
-uppercut	ypErkyt
+uppercut	ypErkWt
 ut		yt
 zut		zyt
 
 
 // et (t is said)
 
-exocet		E2gzosEt
+exocet		E2gzOsEt
 fret		fr'Et
 budget		bydZE2
 hamlet		_|amlEt
@@ -784,7 +785,7 @@ knesset		knesEt
 lazaret		lazarE2
 margaret	margarEt
 net		nEt
-offset		ofsEt
+offset		OfsEt
 set		sEt
 soviet		soviEt
 stewart	stIwart
@@ -796,7 +797,7 @@ yoghourt	_|iogurt
 yogourt		_|iogurt
 
 // ort (t said)
-short		Sort
+short		SOrt
 
 // art (t said)
 steward		stiwart
@@ -806,8 +807,8 @@ kart		kart
 smart		smart
 
 // irt
-(sweat shirt)	swEtSYrt
-(sweat shirts)	swEtSYrt
+(sweat shirt)	swEtSWrt
+(sweat shirts)	swEtSWrt
 (tee shirt)	t,IS'Wrt
 (tee shirts)	t,IS'Wrt
 (t shirt)	t,IS'Wrt
@@ -821,7 +822,7 @@ and             _^_en
 amazon		amaz'On
 apple		_^_en
 at		at $u+
-(audible manager) od,ibl||manadZ'Yr
+(audible manager) od,ibl||manadZ'Wr
 bin		bin
 bit		bit
 bluetooth 		blut'us
@@ -830,13 +831,13 @@ computer		_^_en
 debian		debjan
 edit		_^_en
 emacs		E2maks
-emacspeak	E2makspIk
+emacspeak	E2makspI:k
 end             _^_en
-espeak		@spIk
+espeak		@spI:k
 ethernet	etErnEt
 exit	egzit
 (file zilla)		f,ajl||zij'a
-from	frOm $u
+from	frOm $u+
 get		_^_en
 google		gug=Wl
 gnome		gnOm
@@ -847,7 +848,7 @@ hot		_^_en
 in		in $u+
 inside		_^_en
 internet E~tErn'Et
-(internet explorer) E~tErn'Et||E2ksplor'Wr
+(internet explorer) E~tErn'Et||E2ksplOr'Wr
 klaxon          klaksOn
 let 		_^_en
 lite 		_^_en
@@ -889,7 +890,7 @@ heurtions	_|WrtjO~z2
 partions	partjO~z2
 rations		ratjO~z2 $verb
 tentions	tA~tjO~z2
-votions		votjO~z2
+votions		vOotjO~z2
 étions		etjO~z2
 évitions	evitjO~z2
 
@@ -908,6 +909,7 @@ bayeux	bajY
 bélarus	belarys
 belize	beliz
 bissau	bisa'o
+brazzaville	brazavil
 (burkina faso)	burkina||faso
 burundi	burundi
 calvados	calvadoss $text
@@ -919,8 +921,8 @@ guatemala	gwatemala
 hindi	_|indi
 honduras	_|O~dyras
 kenya	kenja
-laos	laos
-lesotho	lezoto
+laos	laOs
+lesotho	lezOto
 liechtenstein	liStWnStajn
 angeles	A~nZelEs
 malawi	malawi
@@ -930,10 +932,10 @@ montserrat	mO~sera
 nevis	nevis
 niger	niZEr
 oman	oman
-palaos	palaos
+palaos	palaOs
 samoa	samoa
 swaziland	swazilA~d
-leone	leon
+leone	leOn
 koweït	kowEjt
 taïwan	tajwan
 texas	tE2ks'as
@@ -944,3 +946,4 @@ venezuela	venezy-E2la
 wallis	walis
 futuna	futuna
 zimbabwe	zimbabwe
+

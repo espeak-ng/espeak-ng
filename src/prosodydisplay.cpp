@@ -591,6 +591,8 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	// Open the Prosody display window
 	// Make another frame, containing a canvas
 
+	int h, w, w2;
+
 	if(prosodyframe != NULL)
 	{
 		// The Prosody window is already open
@@ -598,8 +600,10 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 		return;
 	}
 
+	m_leftWindow->GetSize(&w2, &h);
+	GetClientSize(&w, &h);
 	prosodyframe = new ChildFrProsody(myframe, _T(""),
-                                      wxPoint(10, 200), wxSize(1000, 300),
+                                      wxPoint(0, 100), wxSize(w-w2, 420),
                                       wxDEFAULT_FRAME_STYLE |
                                       wxNO_FULL_REPAINT_ON_RESIZE);
 
@@ -622,7 +626,7 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	prosodycanvas = canvas;
 	
 	// Associate the menu bar with the frame
-	prosodyframe->SetMenuBar(MakeMenu(2));
+	prosodyframe->SetMenuBar(MakeMenu(2,translator->dictionary_name));
 	prosodyframe->prosodycanvas = canvas;
 	prosodyframe->Show(TRUE);
 

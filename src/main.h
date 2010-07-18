@@ -8,7 +8,7 @@ typedef unsigned char  UCHAR;
 
 
 
-extern wxMenuBar *MakeMenu(int type);
+extern wxMenuBar *MakeMenu(int type, const char *dict_name);
 
 extern wxString path_phsource;
 extern wxString path_speaktext;
@@ -56,10 +56,7 @@ class MyFrame: public wxMDIParentFrame
 
 
 protected:
-    wxSashLayoutWindow* m_topWindow;
-    wxSashLayoutWindow* m_leftWindow1;
-    wxSashLayoutWindow* m_leftWindow2;
-    wxSashLayoutWindow* m_bottomWindow;
+    wxSashLayoutWindow* m_leftWindow;
     wxTimer m_timer;
 
 DECLARE_EVENT_TABLE()
@@ -177,10 +174,7 @@ enum {
 	SPECTSEQ_VOICEDLG
 };
 
-#define ID_WINDOW_TOP       100
-#define ID_WINDOW_LEFT1     101
-#define ID_WINDOW_LEFT2     102
-#define ID_WINDOW_BOTTOM    103
+#define ID_WINDOW_LEFT     101
 
 
 

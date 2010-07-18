@@ -292,13 +292,14 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 
 
 	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
-		wxSize(298,height_ph),wxTE_MULTILINE | wxTE_READONLY,wxDefaultValidator,_T("Phoneme translation window"));
+		wxSize(298,height_ph),wxTE_MULTILINE | wxTE_READONLY, wxDefaultValidator,_T("Phoneme translation window"));
 
 	style_phonetic = t_phonetic->GetDefaultStyle();
 	font_phonetic = style_phonetic.GetFont();
 	font_size = font_phonetic.GetPointSize();
 	font_phonetic_large = font_phonetic;
 	style_phonetic_large = style_phonetic;
+//font_phonetic_large.SetFamily(wxFONTFAMILY_SWISS);
 	font_phonetic_large.SetPointSize(font_size+1);
 	style_phonetic_large.SetFont(font_phonetic_large);
 

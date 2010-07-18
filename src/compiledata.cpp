@@ -21,6 +21,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "wx/wx.h"
 #include "wx/wfstream.h"
@@ -359,6 +360,8 @@ static PHONEME_TAB *phoneme_out;
 static int n_phcodes_list[N_PHONEME_TABS];
 static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
 static PHONEME_TAB *phoneme_tab2;
+static int phoneme_flags;
+static int place_articulation;
 
 #define N_PROCS 50
 int n_procs;
@@ -838,16 +841,41 @@ static int ph_sorter(char **a, char **b)
 
 
 
-static void PrintPhonemesUsed(FILE *f, const char *dictname)
-{//=========================================================
+static void PrintPhonemesUsed(FILE *f, const char *dsource, const char *dictname)
+{//==============================================================================
 	int ix;
 	PHONEME_TAB *ph;
 	PHONEME_TAB *ph_tab[N_PHONEME_TAB];
 	int count = 0;
 	int n_ph = 0;
 	int section = 0;
+	time_t mod_time;
+	char fname[sizeof(path_home)+45];
+	struct stat statbuf;
+	char time_string[20];
+	const char *files[] = {"rules","list","listx"};
 
-	fprintf(f,"\n\nDictionary %s_dict\n",dictname);
+	// find the date-stamp of the dictionary source files
+	mod_time = 0;
+	for(ix=0; ix<3; ix++)
+	{
+		sprintf(fname,"%s%s_%s",dsource, dictname, files[ix]);
+		if(stat(fname,&statbuf) == 0)
+		{
+			if(statbuf.st_mtime > mod_time)
+				mod_time = statbuf.st_mtime;
+		}
+	}
+
+	if(mod_time > 0)
+	{
+		strftime(time_string, sizeof(time_string), "%F", localtime(&mod_time));
+		fprintf(f,"\n\nDictionary %s_dict  %s\n",dictname, time_string);
+	}
+	else
+	{
+		fprintf(f,"\n\nDictionary %s_dict\n",dictname);
+	}
 	fflush(f);
 
 	for(ix=0; (ix<N_PHONEME_TAB) && (phoneme_tab[ix] != NULL); ix++)
@@ -1003,7 +1031,7 @@ static wxString CompileAllDictionaries()
 		{
 			memset(phoneme_tab_flags,0,sizeof(phoneme_tab_flags));
 			FindPhonemesUsed();
-			PrintPhonemesUsed(f_phused,dictname);
+			PrintPhonemesUsed(f_phused, path_dsource, dictname);
 		}
 
 		cont = dir.GetNext(&filename);
@@ -2160,7 +2188,29 @@ int CompileSound(int keyword, int isvowel)
 	strcpy(path, item_string);
 	if(item_terminator == ',')
 	{
-		value = NextItemBrackets(tSIGNEDNUMBER,1);
+		if((keyword == kVOWELSTART) || (keyword == kVOWELENDING))
+		{
+			value = NextItemBrackets(tSIGNEDNUMBER,1);
+			if(value > 127)
+			{
+				value = 127;
+				error("Parameter > 127",NULL);
+			}
+			if(value < -128)
+			{
+				value = -128;
+				error("Parameter < -128",NULL);
+			} 
+		}
+		else
+		{
+			value = NextItemBrackets(tNUMBER,1);
+			if(value > 255)
+			{
+				value = 255;
+				error("Parameter > 255",NULL);
+			}
+		}
 	}
 	addr = LoadDataFile(path, isvowel);
 	addr = addr / 4;   // addr is words not bytes
@@ -2525,6 +2575,18 @@ static void CallPhoneme(void)
 		if((ph = FindPhoneme(item_string)) == NULL)
 			return;
 		addr = ph->program;
+
+		if(phoneme_out->type == phINVALID)
+		{
+			// Phoneme type has not been set. Copy it from the called phoneme
+			phoneme_out->type = ph->type;
+			phoneme_flags = ph->phflags & ~phARTICULATION;
+			place_articulation = (ph->phflags & phARTICULATION) >> 16;
+			phoneme_out->start_type = ph->start_type;
+			phoneme_out->end_type = ph->end_type;
+			phoneme_out->std_length = ph->std_length;
+			phoneme_out->length_mod = ph->length_mod;
+		}
 	}
 
 	*prog_out++ = i_CALLPH + (addr >> 16);
@@ -2551,8 +2613,6 @@ static void InstnPlusPhoneme(int instn)
 int CompilePhoneme(int compile_phoneme)
 {//====================================
 	int endphoneme = 0;
-	int phoneme_flags = 0;
-	int place_articulation = 0;
 	int keyword;
 	int value;
 	int phcode = 0;
@@ -2568,6 +2628,8 @@ int CompilePhoneme(int compile_phoneme)
 	if_level = 0;
 	if_stack[0].returned = 0;
 	after_if = 0;
+	phoneme_flags = 0;
+	place_articulation = 0;
 
 	NextItem(tSTRING); 
 	if(compile_phoneme)

@@ -178,7 +178,7 @@ if(argc > 1)
 
 
 	// Make a menubar
-	myframe->SetMenuBar(MakeMenu(0));
+	myframe->SetMenuBar(MakeMenu(0, voice_name2));
 	myframe->CreateStatusBar();
 	myframe->SetVoiceTitle(voice_name2);
 
@@ -240,7 +240,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 
 	EVT_TIMER(1, MyFrame::OnTimer)
 	EVT_SIZE(MyFrame::OnSize)
-	EVT_SASH_DRAGGED_RANGE(ID_WINDOW_TOP, ID_WINDOW_BOTTOM, MyFrame::OnSashDrag)
+	EVT_SASH_DRAGGED(ID_WINDOW_LEFT, MyFrame::OnSashDrag)
 END_EVENT_TABLE()
 
 
@@ -260,22 +260,16 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 	int result;
 	int param;
 
-  // Create some dummy layout windows
-wxSashLayoutWindow *win;
-
   // Another window to the left of the client window
-  win = new wxSashLayoutWindow(this, ID_WINDOW_LEFT2,
+  m_leftWindow = new wxSashLayoutWindow(this, ID_WINDOW_LEFT,
                                wxDefaultPosition, wxSize(298, 30),
                                wxNO_BORDER | wxSW_3D | wxCLIP_CHILDREN);
-  win->SetDefaultSize(wxSize(310, 1000));
-  win->SetOrientation(wxLAYOUT_VERTICAL);
-  win->SetAlignment(wxLAYOUT_LEFT);
-//  win->SetBackgroundColour(wxColour(0, 255, 255));
-  win->SetSashVisible(wxSASH_RIGHT, TRUE);
+  m_leftWindow->SetDefaultSize(wxSize(310, 1000));
+  m_leftWindow->SetOrientation(wxLAYOUT_VERTICAL);
+  m_leftWindow->SetAlignment(wxLAYOUT_LEFT);
+  m_leftWindow->SetSashVisible(wxSASH_RIGHT, TRUE);
 
-  m_leftWindow2 = win;
-
-	notebook = new wxNotebook(m_leftWindow2,-1);
+	notebook = new wxNotebook(m_leftWindow,-1);
 //	notebook->AddPage(voicedlg,_T("Voice"),FALSE);
 	formantdlg = new FormantDlg(notebook);
 	notebook->AddPage(formantdlg,_T(" Spect"),FALSE);
@@ -336,12 +330,14 @@ void MyFrame::SetVoiceTitle(char *voice_name)
 {//==========================================
 	char buf[100];
 	SetTitle(AppName + _T(" - ") + wxString(voice_name,wxConvLocal) + _T("  voice"));
-	if(data_menu != NULL)
+	if((data_menu != NULL) && (translator != NULL))
 	{
-		sprintf(buf,"Compile &dictionary '%s'",dictionary_name);
+		sprintf(buf,"Compile &dictionary '%s'",translator->dictionary_name);
 		data_menu->SetLabel(MENU_COMPILE_DICT, wxString(buf,wxConvLocal));
-		sprintf(buf,"&Layout '%s_rules' file",dictionary_name);
+		sprintf(buf,"&Layout '%s_rules' file",translator->dictionary_name);
 		data_menu->SetLabel(MENU_FORMAT_DICTIONARY, wxString(buf,wxConvLocal));
+		sprintf(buf,"&Sort '%s_rules' file",translator->dictionary_name);
+		data_menu->SetLabel(MENU_SORT_DICTIONARY, wxString(buf,wxConvLocal));
 	}
 }
 
@@ -563,8 +559,8 @@ void DisplayErrorFile(const char *fname)
 	len = GetFileLength(fname);
 	if(len > 0)
 	{
-		if(len > 2000)
-			len = 2000;   // restrict length to pppppevent crash in wxLogMessage()
+		if(len > 1500)
+			len = 1500;   // restrict length to pppppevent crash in wxLogMessage()
 		msg = (char *)malloc(len+1);
 		if(msg != NULL)
 		{
@@ -633,8 +629,8 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		sprintf(fname_log,"%s%s",path_dsource,"dict_log");
 		log = fopen(fname_log,"w");
 
-		LoadDictionary(translator, dictionary_name, 0);
-		if((err = CompileDictionary(path_dsource,dictionary_name,log,err_fname,debug_flag)) < 0)
+		LoadDictionary(translator, translator->dictionary_name, 0);
+		if((err = CompileDictionary(path_dsource,translator->dictionary_name,log,err_fname,debug_flag)) < 0)
 		{
 			wxLogError(_T("Can't access file:\n")+wxString(err_fname,wxConvLocal));
 
@@ -729,37 +725,26 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 
 void MyFrame::OnSashDrag(wxSashEvent& event)
 {
-    if (event.GetDragStatus() == wxSASH_STATUS_OUT_OF_RANGE)
-        return;
+	int w, h;
 
-    switch (event.GetId())
-    {
-        case ID_WINDOW_TOP:
-        {
-            m_topWindow->SetDefaultSize(wxSize(1000, event.GetDragRect().height));
-            break;
-        }
-        case ID_WINDOW_LEFT1:
-        {
-            m_leftWindow1->SetDefaultSize(wxSize(event.GetDragRect().width, 1000));
-            break;
-        }
-        case ID_WINDOW_LEFT2:
-        {
-            m_leftWindow2->SetDefaultSize(wxSize(event.GetDragRect().width, 1000));
-            break;
-        }
-        case ID_WINDOW_BOTTOM:
-        {
-            m_bottomWindow->SetDefaultSize(wxSize(1000, event.GetDragRect().height));
-            break;
-        }
-    }
-    wxLayoutAlgorithm layout;
-    layout.LayoutMDIFrame(this);
+	if (event.GetDragStatus() == wxSASH_STATUS_OUT_OF_RANGE)
+		return;
 
-    // Leaves bits of itself behind sometimes
-    GetClientWindow()->Refresh();
+	GetClientSize(&w, &h);
+
+	switch (event.GetId())
+	{
+		case ID_WINDOW_LEFT:
+		{
+			m_leftWindow->SetDefaultSize(wxSize(event.GetDragRect().width, h));
+			break;
+		}
+	}
+	wxLayoutAlgorithm layout;
+	layout.LayoutMDIFrame(this);
+
+	// Leaves bits of itself behind sometimes
+	GetClientWindow()->Refresh();
 }
 
 

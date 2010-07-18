@@ -60,8 +60,6 @@ static void Translator_Russian(Translator *tr);
 
 
 
-
-
 static void SetLetterVowel(Translator *tr, int c)
 {//==============================================
 	tr->letter_bits[c] = (tr->letter_bits[c] & 0x40) | 0x81;  // keep value for group 6 (front vowels e,i,y)
@@ -618,7 +616,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
 			tr->langopts.vowel_pause = 0;
 
-			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL | NUM_DFRACTION_4;
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_AFTER | NUM_VIGESIMAL | NUM_DFRACTION_4;
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -670,7 +668,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.accents = 1;
 
-			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_UC;
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
 			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
 			tr->langopts.replace_chars = replace_cyrillic_latin;
 

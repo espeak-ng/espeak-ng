@@ -862,7 +862,7 @@ if((wmark > 0) && (wmark < 8))
 		{
 			// either all upper or all lower case
 
-			if((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_UC) && (wflags & FLAG_ALL_UPPER)))
+			if((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && (wflags & FLAG_ALL_UPPER)))
 			{
 				if((found = TranslateRoman(tr, word1, phonemes, wtab)) != 0)
 					dictionary_flags[0] |= FLAG_ABBREV;   // prevent emphasis if capitals
@@ -920,6 +920,9 @@ if((wmark > 0) && (wmark < 8))
 			// find a remainder that we can pronounce.
 			emphasize_allcaps = 0;
 
+			if(wordx[0] == '\'')
+				break;
+
 			if(posn > 0)
 				non_initial = 1;
 
@@ -934,6 +937,7 @@ if((wmark > 0) && (wmark < 8))
 				return(0);
 			}
 
+#ifdef deleted
 			p = &wordx[word_length-3];    // this looks wrong.  Doesn't consider multi-byte chars.
 			if(memcmp(p,"'s ",3) == 0)
 			{
@@ -943,7 +947,7 @@ if((wmark > 0) && (wmark < 8))
 				p[1] = ' ';
 				last_char = p[-1];
 			}
-
+#endif
 			length=0;
 			while(wordx[length] != ' ') length++;
 		}
@@ -952,7 +956,7 @@ if((wmark > 0) && (wmark < 8))
 		// anything left ?
 		if(*wordx != ' ')
 		{
-			if(unpron_phonemes[0] != 0)
+			if((unpron_phonemes[0] != 0) && (wordx[0] != '\''))
 			{
 				// letters which have been spoken individually from affecting the pronunciation of the pronuncable part
 				wordx[-1] = ' ';
@@ -1163,9 +1167,11 @@ strcpy(phonemes2,phonemes);
 					else
 					{
 						if(end_flags & FLAG_SUFX)
-							TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, NULL,wflags | FLAG_SUFFIX_REMOVED, dictionary_flags);
-						else
-							TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, NULL,wflags,dictionary_flags);
+							wflags |= FLAG_SUFFIX_REMOVED;
+						if(end_type & SUFX_A)
+							wflags |= FLAG_SUFFIX_VOWEL;
+
+						TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, NULL, wflags, dictionary_flags);
 
 						if(phonemes[0] == phonSWITCH)
 						{

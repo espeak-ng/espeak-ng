@@ -31,6 +31,13 @@ phoneme g
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
 
+  IF thisPh(isWordStart) AND nextPh(isVowel) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) THEN
+    ELSE
+      ChangePhoneme(Q)
+    ENDIF
+  ENDIF
+
   IF PreVoicing THEN
     FMT(g/xg)
   ENDIF
@@ -39,6 +46,32 @@ phoneme g
     FMT(g/g_) addWav(x/g_)
   ENDIF
   FMT(g/g) addWav(x/g2)        // weaker [g]
+endphoneme
+
+phoneme d
+  vcd dnt stop
+
+  IF thisPh(isWordStart) AND nextPh(isVowel) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) OR prevPh(l) THEN
+    ELSE
+      ChangePhoneme(D)
+    ENDIF
+  ENDIF
+
+  CALL base2/d
+endphoneme
+
+phoneme b
+  vcd blb stop
+
+  IF thisPh(isWordStart) AND nextPh(isVowel) THEN
+    IF prevPh(isPause) OR prevPh(isNasal) THEN
+    ELSE
+      ChangePhoneme(B)
+    ENDIF
+  ENDIF
+
+  CALL base/b
 endphoneme
 
 
@@ -71,7 +104,7 @@ endphoneme
 
 phoneme v#   // a shorter [v], a little towards [b]
   vcd lbd frc
-  ipa v
+  ipa ʋ
   lengthmod 6
   voicingswitch f
   Vowelin  f1=1  f2=1000 -300 -200  f3=-300 100

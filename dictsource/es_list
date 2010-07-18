@@ -83,28 +83,28 @@ _5	T'inko
 _6	s'eIs
 _7	sj'ete
 _8	'OtSo
-_9	nw'eve
+_9	nw'eBe
 _1X	dj'ET
 _11	'OnTe
 _12	d'oTe
 _13	t**'eTe
 _14	kat'ORTe
 _15	k'inTe
-_20	v'eInte
-_2X	v'eInt
+_20	b'eInte
+_2X	b'eInt
 _3X	t**'eInta
 _4X	kwa*'Enta
 _5X	Tinkw'Enta
 _6X	sEs'Enta
 _7X	sEt'Enta
 _8X	OtS'Enta
-_9X	nOv'Enta
+_9X	nOB'Enta
 _0C	Tj'EntOs
 _1C0	T'ien         // exactly one hundred
 _1C	T'iento
 _5C	kinj'EntOs
 _7C	s,eteTj'EntOs
-_9C	n,OveTj'EntOs
+_9C	n,OBeTj'EntOs
 _0M1	m'il
 _1M1	m'il          // no '1' before thousand
 _0M2	miJ^'ones
@@ -119,7 +119,7 @@ _0and	i
 _dpt	koma
 //_roman	Rom'ano
 
-vi	vi	// not a Roman number
+vi	bi	// not a Roman number
 
 
 // articles
@@ -381,8 +381,6 @@ _a	a
 a       a  $atend
 _o	o
 o       o  $atend
-v	uve
-x	Ekis
 _y	,ig**'iEQa
 y	,ig**'iEQa  $atend
 ch	tSe

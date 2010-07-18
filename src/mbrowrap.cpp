@@ -19,7 +19,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-#include <malloc.h>
+#include <stdlib.h>
 #include <signal.h>
 #include <fcntl.h>
 #include <poll.h>
