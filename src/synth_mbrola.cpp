@@ -73,7 +73,7 @@ BOOL load_MBR()
 	if(hinstDllMBR != NULL)
 		return TRUE;   // already loaded 
 
-	if (!(hinstDllMBR=LoadLibraryA("mbrola.dll")))
+	if ((hinstDllMBR=LoadLibraryA("mbrola.dll")) == 0)
 		return FALSE;
 	init_MBR			=(PROCIC) GetProcAddress(hinstDllMBR,"init_MBR");
 	write_MBR			=(PROCIC) GetProcAddress(hinstDllMBR,"write_MBR");

@@ -477,5 +477,12 @@ phoneme gh
   FMT(g2/xg) addWav(ustop/k_asp, 70)
 endphoneme
 
+//================
+
+phoneme #X2  // click, use for indicating combining long vowels
+  vls alv frc sibilant
+  lengthmod 3
+  WAV(ustop/percus02)
+endphoneme
 
 

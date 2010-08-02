@@ -33,6 +33,20 @@ U+bcd	ot.RU
 
 ஏ	je:
 
+// combining vowels, precede by a click so they can be distinguished from stand-alone vowels
+ா	#X2a::
+ி	#X1i
+ீ	#X2i::
+ு	#X1u
+ூ	#X2u::
+ெ	#X1e
+ே	#X2e::
+ை	#X2aI
+ொ	#X1o
+ோ	#X2o::
+ௌ	#X2aU
+
+
 
 // speak Latin letters as English
 a	e:j
@@ -151,9 +165,7 @@ _8C	;en.n.u:t.t.Ri
 _9C	tol.l.a:jirVttU
 
 _0M1x	a:jirVm
-_1M1x	a:jirVm
 _0M1	a:jirVttU
-_1M1	a:jirVttU
 
 _0M2x	lVd.tSVm	// 100,000
 _1M2x	orUlVd.tSVm
@@ -234,6 +246,7 @@ tamil	தமிழ்	$text
 பலத்தில்	$alt
 பலத்தின்	$alt
 பைக்ல	$alt
+பாவ்லா	$alt
 (பி . ஏ)	bije:
 
 

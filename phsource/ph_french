@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-07-16 Michel Such  <michel.such@free.fr>
+// Updated 2010-07-25 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -24,7 +24,7 @@ endphoneme
 procedure pre_r
   IF prevPh(y) THEN
     VowelEnding(vwl_fr/y2r)
-  ELIF prevPh(E) OR prevPh(E2) THEN
+  ELIF prevPh(E) THEN
     VowelEnding(vwl_fr/e_2r)
   ELIF prevPh(A~) THEN
     VowelEnding(vwl_fr/aa2r)
@@ -47,7 +47,7 @@ endprocedure
 
 procedure post_r
 
-  IF nextPh(E) OR nextPh(E2) THEN
+  IF nextPh(E) THEN
     VowelStart(vwl_fr/re2)
   ELIF nextPh(W) THEN
     VowelStart(vwl_fr/r@2)
@@ -285,6 +285,11 @@ phoneme a
 endphoneme
 
 
+phoneme a# // For english words
+  import_phoneme en/a#
+endphoneme
+
+
 phoneme e
   vowel starttype #e  endtype #e
 
@@ -310,14 +315,6 @@ phoneme E
   ENDIF
 
   FMT(vowel/e_mid)
-endphoneme
-
-
-phoneme E2 // Between e and E
-  vowel starttype #e  endtype #e
-  length 170
-
-  FMT(vowel/e_9)
 endphoneme
 
 
@@ -347,15 +344,13 @@ phoneme i
 endphoneme
 
 
-phoneme I // longer than i
-  vowel  starttype #i  endtype #i
-  palatal
-  length 240
-  ipa i
+phoneme I // For english words
+  import_phoneme en/I
+endphoneme
 
-  IfNextVowelAppend(;)
 
-  FMT(vowel/i_3)
+phoneme I2 // For english words
+  import_phoneme en/I2
 endphoneme
 
 
@@ -396,18 +391,22 @@ phoneme O
   vowel starttype #o  endtype #o
   length 170
 
-  IF nextPhW(z) OR nextPhW(z2) OR nextPhW(z3) THEN
-    ChangePhoneme(o)
+  IF thisPh(isFinalVowel) THEN
+    FMT(vowel/o_mid2)
+  ENDIF
+  IF nextPhW(#l) AND next2Ph(isNotVowel) THEN
+    FMT(vowel/o_mid2)
+  ENDIF
+  IF nextPhW(#r) AND next2Ph(isNotVowel) THEN
+    FMT(vowel/o_mid2)
   ENDIF
 
-  FMT(vowel/o_mid2)
+  FMT(vowel/o_mid)
 endphoneme
 
 
-phoneme o3 // almost like english oU
-  vowel  starttype #@  endtype #u
-  length 220
-  FMT(vdiph/@u_3)
+phoneme oU
+  import_phoneme en/oU
 endphoneme
 
 
@@ -446,6 +445,15 @@ endphoneme
 phoneme W
   vowel starttype #@  endtype #@
   length 180
+
+  FMT(vowel/@_6)
+endphoneme
+
+
+phoneme W2 // For english words
+  vowel starttype #@  endtype #@
+  length 100
+  unstressed
 
   FMT(vowel/@_6)
 endphoneme
@@ -714,14 +722,14 @@ phoneme p
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=22
 
   IF nextPh(isPause2) THEN
-    WAV(ustop/p_, 70)
+    WAV(ustop/p_, 80)
   ELIF nextPh(@-) THEN
-    WAV(ustop/p_unasp, 60)
+    WAV(ustop/p_unasp, 70)
   ELIF nextPh(#l) THEN
-    WAV(ustop/pl, 30)
+    WAV(ustop/pl, 40)
   ELIF nextPh(#r) THEN
     length 40
-    WAV(ustop/p_, 60)
+    WAV(ustop/p_, 70)
   ENDIF
   WAV(ustop/p_unasp_, 90)
 endphoneme
@@ -849,6 +857,14 @@ phoneme v
   FMT(voc/v) addWav(vocw/v, 60)
 endphoneme
 
+phoneme V // For english words
+  vowel  starttype #a  endtype #@
+  length 140
+
+  ChangeIfDiminished(@)
+  FMT(vowel/V_2)
+endphoneme
+
 
 phoneme z
   vcd alv frc sibilant
@@ -894,5 +910,83 @@ phoneme z3      // "six" and "dix". [s] before pause, [z] before vowel, else []
   ENDIF
 endphoneme
 
+
+// translate from English to French phonemes
+equivalents en
+remove_stress
+0	O
+3	W r
+3:	W : r
+@	W
+@-	W
+@2      W
+@5      W
+@L      W l
+a       a
+a#      a#
+A:      a :
+A@      a r
+aa      a :
+aI      a j
+aI@     a j W2 r
+aU      a w
+aU@     a w @
+A~	A~
+E       E
+e:      e
+e@      E : r
+eI      E : j/
+i       i
+I       I
+I2      I2
+i:      i :
+i@      i  r
+i@3     i : r
+O       O
+O:      O :
+o:      o
+O@      O r
+o@      O r
+OI      O j
+oU      oU
+O~ 	O~
+U       u
+u:      u:
+U@      u r
+V       V
+IR	i r
+VR	W r
+b	b
+C	C
+d	d
+D       D
+dZ	dZ
+f	f
+g	g
+h	h
+j	j
+k	k
+l	l
+l#	l#
+m	m
+n	n
+N	N
+n^	n^
+p	p
+Q	Q
+r	r
+r-      r
+s	s
+S	S
+t	t
+T       T
+t2      t
+tS	tS
+v	v
+w	w/
+x	x
+z	z
+Z	Z
+endphoneme
 
 

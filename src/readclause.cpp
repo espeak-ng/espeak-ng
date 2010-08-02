@@ -1995,8 +1995,8 @@ static MNEM_TAB xml_char_mnemonics[] = {
 	{NULL,-1}};
 
 
-int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type)
-{//=============================================================================================================
+int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change)
+{//=================================================================================================================================
 /* Find the end of the current clause.
 	Write the clause into  buf
 
@@ -2051,6 +2051,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	tr->clause_lower_count = 0;
 	end_of_input = 0;
 	*tone_type = 0;
+	*voice_change = 0;
 
 f_input = f_in;  // for GetC etc
 
@@ -2218,16 +2219,11 @@ f_input = f_in;  // for GetC etc
 		
 						if(terminator & CLAUSE_BIT_VOICE)
 						{
-							// a change in voice, write the new voice name to the end of the buf
-							p = current_voice_id;
-							while((*p != 0) && (ix < (n_buf-1)))
-							{
-								buf[ix++] = *p++;
-							}
-							buf[ix++] = 0;
+							strcpy(voice_change, current_voice_id);
 						}
 						return(terminator);
 					}
+					c1 = ' ';
 					c2 = GetC();
 					continue;
 				}

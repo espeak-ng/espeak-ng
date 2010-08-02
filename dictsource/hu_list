@@ -28,7 +28,6 @@ _9X       kilEntsvEn
 _0C       sa:z
 
 _0M1      EzER2
-_1M1      EzER2
 _2M1      ke:tEzER2
 _0M2      millio:
 _1M2      EJmillio:
@@ -129,15 +128,15 @@ _#-től	e:tY:l	$alt2
 _#-tól	a:to:l	$alt2
 _#-ig	e:ig	$alt2 //special date ordinal numbers for example elsejéig, negyedikéig etc.
 _#-éről	e:R2Y:l	
-_#-áról	a:R2o:l	$alt2
+_#-áról	a:R2o:l
 
-_#-ától	a:to:l	$alt2
+_#-ától	a:to:l
 _#-ről	e:R2Y:l	$alt2
 _#-ról	a:R2o:l	$alt2
-_#-ével	e:vEl	$alt2
-_#-ával	a:vAl	$alt2
-_#-éig	e:ig	$alt2
-_#-áig	a:ig	$alt2
+_#-ével	e:vEl
+_#-ával	a:vAl
+_#-éig	e:ig
+_#-áig	a:ig
 _#-étől	e:tY:l	$alt2
 _#-ét	e:t	$alt2
 _#-át	a:t	$alt2
@@ -168,8 +167,8 @@ _#-ához	a:hoz
 (1-ig)	elsejéig	$text $alt2
 (1-éről) elsejéről	$text $alt2
 (1-ről) elsejéről	$text $alt2
-(1-ével)	elsejével	$text $alt2
-(1-éig) elsejéig	$text $alt2
+(1-ével)	elsejével	$text
+(1-éig) elsejéig	$text
 (1-étől) elsejétől	$text $alt2
 (1-ét) elsejét	$text $alt2
 (1-je)	elseje	$text $alt2
@@ -188,6 +187,8 @@ _#-ához	a:hoz
 (1-éhez)	elsejéhez	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
+(2-étől)	másodikától	$text $alt2 //this is not mistake, don't change!
+(2-től)	másodikától	$text $alt2 //this is not a mistake, don't change!
 (3-i)	hAR2_mAdikAi	$alt2
 (3-ig)	harmadikáig	$text $alt2
 (6-i)	hAtodikAi	$alt2
@@ -238,6 +239,7 @@ _#-ához	a:hoz
 (2-őn) kEt:Y:n
 (2-n) kEt:Y:n
 (2-m) kEt:Y:m
+(2-el)	kEt:Y:vEl
 // entries with a single digit such as (2-i) also apply to 22, 32, etc, unless $only
 (30-cal) hAR2mints:Al
 (3-al) ha:R2om:Al
@@ -294,6 +296,18 @@ _20e	hus
 (80-al) n^oltsvAn:Al
 (90-el) kilEntsvEn:El
 
+//Special roman number suffixes and exceptions
+(XVI-ig)	tizEnhAtodikig //Special roman number suffix exception
+(II-el) kEt:Y:vEl
+(III-al) ha:R2om:Al
+(IV-el)	ne:J:El
+(5-el)	Yt:El	//this exception not working, Espeak always spokening YtEl phoneme, but Yt:El phoneme is right
+(VI-al)	hAt:Al
+(VII-el)	he:t:El
+(VIII-al)	n^olts:Al
+(IX-el)	kilEnts:El
+(CD-ellenőrzést)	tse:de:El:EnY:R2ze:St //this is not a mistake, default Espeak spokening roman number before the ellenőrzés word
+
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
 január		$alt
 február		$alt
@@ -346,6 +360,8 @@ tavaszi	$alt
 nyári	$alt
 őszi	$alt
 téli	$alt
+végén	$alt
+elején	$alt
 
 // accent names
 _lig	ligAtu:R2A
@@ -403,7 +419,7 @@ BAR	bAR2	$allcaps
 
 (a . m .)	An^n^i||m'int
 ún	u:JnEvEzEt:	$hasdot
-dr	doktoR2  $dot
+dr	doktoR2  $hasdot
 mr	mistER2 $hasdot //in hungarian we not use, but lot of books contains this word.
 mrs	misis	$hasdot //In hungarian we not use, but lot of book contains this word.
 miss	mis: $hasdot
@@ -413,7 +429,7 @@ MB	mEgAba:jt	$allcaps
 OK	ok	$allcaps
 mvgyosz Emve:Je:oEs
 OTP o:te:pe:	$allcaps
-id	idY:SEb:  $hasdot
+id	idY:SEb:  $hasdot $only
 ill	illEtvE  $hasdot
 ifj	ifjAb:  $hasdot
 mta	$abbrev
@@ -1007,6 +1023,36 @@ halt	$unstressend
 ész	$unstressend
 kapta	$unstressend
 kaptak	$unstressend
+kék	$unstressend
+kelt	$unstressend
+kárt	$unstressend
+gróf	$unstressend
+grófot	$unstressend
+lakik	$unstressend
+laknak	$unstressend
+laktak	$unstressend
+kapsz	$unstressend
+tudta	$unstressend
+kapnak	$unstressend
+tért	$unstressend
+törtek	$unstressend
+tört	$unstressend
+vész	$unstressend
+park	$unstressend
+tartja	$unstressend
+válik	$unstressend
+rajta	$unstressend
+merült	$unstressend
+zuhant	$unstressend
+jöttek	$unstressend
+leltem	$unstressend
+múlva	$unstressend
+várta	$unstressend
+ház	$unstressend
+állnak	$unstressend
+idején	$unstressend
+néznek	$unstressend
+érezte	$unstressend
 
 // word pairs
 
@@ -1045,7 +1091,7 @@ kell      $unstressend  // should
 
 szabad    $u+  // can (allowed)
 
-fog       $u+  // going to
+fog       $unstressend  // going to
 fogok     $u+
 fogsz     $u+
 fogunk    $u+

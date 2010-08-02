@@ -130,7 +130,8 @@ typedef struct {
 	char name[N_PHONEME_TAB_NAME];
 	PHONEME_TAB *phoneme_tab_ptr;
 	int n_phonemes;
-	int includes;           // also include the phonemes from this other phoneme table
+	int includes;            // also include the phonemes from this other phoneme table
+	int equivalence_tables;   // lists of equivalent phonemes to match other languages, byte index into phondata
 } PHONEME_TAB_LIST;
 
 

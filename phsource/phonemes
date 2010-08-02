@@ -198,6 +198,7 @@ endphoneme
 
 phoneme m-
   vowel starttype #@ endtype #@
+  ipa mU+0329
   length 170
 
   IF thisPh(isWordStart) THEN
@@ -211,6 +212,7 @@ endphoneme
 
 phoneme n-
   vowel starttype #@ endtype #@
+  ipa nU+0329
   length 170
 
   IF thisPh(isWordStart) THEN
@@ -224,6 +226,7 @@ endphoneme
 
 phoneme N-
   vowel starttype #e endtype #e
+  ipa ŋU+0329
   length 190
   FMT(nn/nn-syl)
 endphoneme
@@ -1811,3 +1814,6 @@ include ph_northern-sotho
 
 phonemetable ht fr
 include ph_haitian
+
+phonemetable az tr
+include ph_azerbaijani

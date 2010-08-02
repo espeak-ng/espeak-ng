@@ -85,8 +85,15 @@ phoneme u
   FMT(vowel/u_6)
 endphoneme
 
+phoneme u2   // as [u] but don't reduce
+  vowel  starttype #u  endtype #u
+  length 110
+  FMT(vowel/u_6)
+endphoneme
+
 phoneme U
   vowel  starttype #u  endtype #u
+  ipa ʉ
   length 110
   FMT(vowel/u#_3)
 endphoneme
@@ -103,6 +110,7 @@ endphoneme
 
 phoneme U:
   vowel  starttype #u  endtype #u
+  ipa ʉ
   length 240
   FMT(vowel/u#_3)
 endphoneme

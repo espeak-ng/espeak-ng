@@ -613,7 +613,7 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	prosodyframe->CreateStatusBar();
 
 	int width, height;
-	wxMDIClientWindow *clientwin = this->GetClientWindow();
+	wxMDIClientWindow *clientwin = (wxMDIClientWindow *)this->GetClientWindow();
 	clientwin->GetClientSize(&width, &height);
 
 #ifdef deleted

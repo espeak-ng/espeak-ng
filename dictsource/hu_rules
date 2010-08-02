@@ -83,6 +83,9 @@ gyümöl) cs (zs     tS
    fil) c (csiz    ts
    szo) c (segély  ts
    _kó) c (csomó   ts
+  árbó) c (csúcs   ts
+  árbo) c (csúcs   ts
+fegyen) c (csoport ts
 
 .group ch
   anar) ch (i      h
@@ -208,12 +211,15 @@ menetren) dsz (erű d|s
     va) d (szeder  d
   twee) d (sapk    d
     fe) dd (hetetlen d
-ezre) d (segé d
-erő) d (szerű d
-csalá) d (szociol d
-száza) d (szemle d
-zöl) d (szem d
-
+  ezre) d (segé    d
+   erő) d (szerű   d
+ csalá) d (szociol d
+ száza) d (szemle  d
+   zöl) d (szem    d
+   utó) d (jelöl   d
+ cselé) ds (ég     tS:
+   föl) d (szegély d
+ stran) d (szezon  d
 
 .group dz
   fogó) dz (kod    ts
@@ -250,9 +256,11 @@ titkoló) dz        z
 ringató) dz        z
   mére) dz (k      ts
 pilóta) dzs (ek    dZ
-ezre) dz (ene d|z
-száza) dz (ene d|z
-honvé) dz (ászló d|z
+  ezre) dz (ene    d|z
+ száza) dz (ene    d|z
+ honvé) dz (ászló  d|z
+smarag) dz (öld    d|z
+kapáló) dz         z
 
 .group e
         e          E
@@ -261,7 +269,7 @@ honvé) dz (ászló d|z
 
      _) ehhez      EhEz
      _) egyezség   EJ:ESSe:g
-
+     _) egyezségg  EJ:ESSe:g:
 
 .group é
         é          e:
@@ -410,6 +418,13 @@ tizene) gy (en     J:
     _e) gy (év     J:
     _e) gy (órá    J:
     _e) gy (se     J
+    je) gy (ezte   J
+    na) gy (sebes  J
+    _í) gys (e     J|S
+    na) gy (siker  J
+huszone) gy (edik  J:
+    je) gy (ért    J
+harmince) gy (edik J:
 
 .group h
         h          h
@@ -461,6 +476,7 @@ tizene) gy (en     J:
         kk         k:
         kk (C      k:
      _) köztársaság k'Ysta:R2SASa:g
+     _) köztársaságg k'Ysta:R2SASa:g:
         központ    kYspont
         központt   kYspont:
         központj   kYsponc
@@ -525,7 +541,7 @@ keresztü) l (j     l
      _) e)         lj        (ár lj
     ha) ll (ga     l
    _ta) lj (án     lj
-_fé) l (jobb l
+   _fé) l (jobb    l
 
 
 
@@ -846,6 +862,7 @@ kitöré) ssz (erű   Ss
  nyúva) ssz        s:
 hirdeté) ssz (erve Ss
 páncélo) ssz       Ss
+ hajtá) ssz (erű   Ss
 
 .group sz
         sz         s
@@ -1030,7 +1047,7 @@ négyze) t (centi   t
      á) tj (öt     t|j
      á) tj (ön     t|j
      á) t (süvít   t
-  bará) tj (ára    c:
+  bará) tj (ár     c:        //barátjára, barátjáról words need spokening c: phoneme
 kísérle) t (sorozat t
      á) t (sült    t
      á) t (süt     t
@@ -1084,7 +1101,19 @@ fejeze) t (cím     t
    pán) t (szél    t
    boo) t (sorrend t
     _á) t (jöj     t
-ú) tsz (oros t|s
+     ú) tsz (oros  t|s
+művele) t (sáv     t
+   _ké) t (szob    t
+    ne) t (sátor   t
+    há) tj (ár     c:
+   ker) t (szomszéd t
+   éle) t (járadék t
+    _á) t (sodor   t
+   par) t (sáv     t
+   tes) t (játék   t
+     ö) t (jegyű   t
+    ha) t (jegyű   t
+    hé) t (jegyű   t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1171,6 +1200,7 @@ indula) tsz (ó     t|s
    sie) tsz        ts:
  szemé) ts (ég     tS:
     ré) ts (ég     tS:
+    já) tsz (ok    ts:
 
 .group u
         u          u
@@ -1242,7 +1272,7 @@ lefeje) z (ték     s
     gá) z (cső     z
 
 
-    ké) z (sz      zz
+    ké) z (sz      z
     há) z (so      z
 
 

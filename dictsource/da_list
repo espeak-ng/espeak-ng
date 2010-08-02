@@ -1,6 +1,6 @@
-tv $abbrev
-
 // PB = Peter Bjarkov - pbj1234@hotmail.com
+
+iv  $abbrev
 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
@@ -130,6 +130,8 @@ _0M4	bilij'o:n3
 
 _0and	3
 _dpt	_k,Vm&:
+_roman	d%En
+
 
 // PB a number followed by dot
 // ordinals are followed by a dot in Danish
@@ -6156,7 +6158,7 @@ proceder   $alt
 producere   $alt
 profaner   $alt
 professionaliser   $alt
-profeter   $alt
+profetere   $alt
 profilere   $alt
 profiter   $alt
 prognosticer   $alt
@@ -8563,6 +8565,7 @@ ovation   $alt
 ovulation   $alt
 oxidation   $alt
 participation   $alt
+pavillon $alt
 passion   $alt
 pension   $alt
 perception   $alt

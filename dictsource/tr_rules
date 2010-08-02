@@ -327,4 +327,5 @@
 .group
         $        dolar
         ' (Pb     // split a word at ' and translate the first part separately.
-
+	ə        E    // used in Aberbaijan
+	ä        E

@@ -667,6 +667,98 @@ static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
 }  // end of CheckDottedAbbrev
 
 
+extern char *phondata_ptr;
+
+int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
+{//====================================================================
+// tr:  the original language
+// lang2:  phoneme table number for the temporary language
+// phonemes: the phonemes to be replaced
+
+	int ix;
+	int len;
+	char  phon;
+	char *p;
+	unsigned char *pb;
+	char *eqlist;
+	char *p_out;
+	char *p_in;
+	int  remove_stress = 0;
+	char phonbuf[N_WORD_PHONEMES];
+
+	// has a phoneme equivalence table been specified for thus language pair?
+	if((ix = phoneme_tab_list[tr->phoneme_tab_ix].equivalence_tables) == 0)
+		return(0);
+
+	pb = (unsigned char *)&phondata_ptr[ix];
+
+	for(;;)
+	{
+		if(pb[0] == 0)
+			return(0);   // table not found
+
+		if(pb[0] == lang2)
+			break;
+
+		len = (pb[2] << 8) + pb[3];   // size of this table in words
+		pb += (len * 4);
+	}
+	remove_stress = pb[1];
+
+	if(option_phonemes == 2)
+	{
+		DecodePhonemes(phonemes, phonbuf);
+		fprintf(f_trans,"(%s) %s  -> (%s) ", phoneme_tab_list[lang2].name, phonbuf, phoneme_tab_list[tr->phoneme_tab_ix].name);
+	}
+
+	p_in = phonemes;
+	eqlist = (char *)&pb[8];
+	p_out = phonbuf;
+
+	while((phon = *p_in++) != 0)
+	{
+		if(remove_stress && ((phon & 0xff) < phonSTRESS_PREV))
+			continue;   // remove stress marks
+
+		// is there a translation for this phoneme code?
+		p = eqlist;
+		while(*p != 0)
+		{
+			len = strlen(&p[1]);
+			if(*p == phon)
+			{
+				strcpy(p_out, &p[1]);
+				p_out += len;
+				break;
+			}
+			p += (len + 2);
+		}
+		if(*p == 0)
+		{
+			// no translation found
+			*p_out++ = phon;
+		}
+	}
+	*p_out = 0;
+
+	if(remove_stress)
+	{
+		SetWordStress(tr, phonbuf, NULL, -1, 0);
+	}
+
+	strcpy(phonemes, phonbuf);
+
+	if(option_phonemes == 2)
+	{
+		SelectPhonemeTable(tr->phoneme_tab_ix);
+		DecodePhonemes(phonemes, phonbuf);
+		fprintf(f_trans,"%s\n\n", phonbuf);
+	}
+	return(1);
+}  // end of ChangeEquivalentPhonemes
+
+
+
 
 int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 {//===========================================================================
@@ -1148,6 +1240,12 @@ strcpy(phonemes2,phonemes);
 						strcpy(word_phonemes,phonemes);
 						return(0);
 					}
+
+if(dictionary_flags2[0] & FLAG_ABBREV)
+{
+	// Removing the suffix leaves a word which should be spoken as individual letters
+	// Not yet implemented
+}
 					if(dictionary_flags[0]==0)
 					{
 						dictionary_flags[0] = dictionary_flags2[0];
@@ -1697,6 +1795,19 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				p[1] = phonSCHWA;
 				p[2] = 0;
 			}
+
+// ?? Option to convert from language2 phonemes to the equivalent language1 phonemes
+// ?? Option to set the word-stress according to language1 rules eg. lang=fr)
+			if(ChangeEquivalentPhonemes(tr, switch_phonemes, (char *)p))
+			{
+				switch_phonemes = -1;
+			}
+
+			if(switch_phonemes == -1)
+			{
+				strcpy(dictionary_name, old_dictionary_name);
+				SelectPhonemeTable(voice->phoneme_tab_ix);
+			}
 		}
 
 		if(!(word_flags & FLAG_HYPHEN))
@@ -2196,6 +2307,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 
 	short charix[N_TR_SOURCE+4];
 	WORD_TAB words[N_CLAUSE_WORDS];
+	static char voice_change_name[40];
 	int word_count=0;      // index into words
 
 	char sbuf[N_TR_SOURCE];
@@ -2218,7 +2330,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 
 	for(ix=0; ix<N_TR_SOURCE; ix++)
 		charix[ix] = 0;
-	terminator = ReadClause(tr, f_text, source, charix, &charix_top, N_TR_SOURCE, &tone2);
+	terminator = ReadClause(tr, f_text, source, charix, &charix_top, N_TR_SOURCE, &tone2, voice_change_name);
 
 	if((f_logespeak != NULL) && (logging_type & 4))
 	{
@@ -3038,7 +3150,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 	{
 		// return new voice name if an embedded voice change command terminated the clause
 		if(terminator & CLAUSE_BIT_VOICE)
-			*voice_change = &source[source_index];
+			*voice_change = voice_change_name;
 		else
 			*voice_change = NULL;
 	}

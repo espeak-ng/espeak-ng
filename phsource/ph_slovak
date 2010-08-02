@@ -102,14 +102,14 @@ endphoneme
 
 
 
-phoneme r-
+phoneme r-     // syllabic r
   vowel  starttype #@  endtype #@
   ipa rU+0329
   length 220
   FMT(vowelr/r-voc)
 endphoneme
 
-phoneme r:
+phoneme r:     // syllabic r
   vowel  starttype #@  endtype #@
   ipa rU+0329ː
   length 300

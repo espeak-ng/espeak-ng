@@ -254,6 +254,9 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	wav_length = (p[1] * 256);
 	wav_length += p[0];    //  length in bytes
 
+	if(wav_length == 0)
+		return(0);
+
 	min_length = speed.min_sample_len;
 
 	if(wav_scale==0)
@@ -1656,7 +1659,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			{
 				InterpretPhoneme2(p->tone_ph, &phdata_tone);
 				pitch_env = GetEnvelope(phdata_tone.pitch_env);
-				amp_env = GetEnvelope(phdata_tone.amp_env);
+				if(phdata_tone.amp_env > 0)
+					amp_env = GetEnvelope(phdata_tone.amp_env);
 			}
 
 			StartSyllable();

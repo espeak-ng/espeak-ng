@@ -53,6 +53,7 @@ endphoneme
 
 phoneme E-
   vowel starttype #@ endtype #@
+  ipa ə
   unstressed
   length 140
   FMT(vowel/ee#_2)
@@ -74,6 +75,7 @@ endphoneme
 
 phoneme u-
   vowel starttype #u endtype #u
+  ipa ʉ
   length 200
   FMT(vowel/u#_2)
 endphoneme

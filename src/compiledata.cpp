@@ -149,6 +149,7 @@ enum {
 	kPROCEDURE,
 	kENDPHONEME,
 	kENDPROCEDURE,
+	kEQUIVALENTS,
 	kPHONEMENUMBER,
 	kPHONEMETABLE,
 	kINCLUDE,
@@ -243,6 +244,7 @@ static keywtab_t keywords[] = {
 	{"procedure",  tSTATEMENT, kPROCEDURE},
 	{"endphoneme", tSTATEMENT, kENDPHONEME},
 	{"endprocedure", tSTATEMENT, kENDPROCEDURE},
+	{"equivalents", tSTATEMENT, kEQUIVALENTS},
 	{"import_phoneme",  tSTATEMENT, kIMPORT_PH},
 	{"stress_type",tSTATEMENT, kSTRESSTYPE},
 	{"starttype",  tSTATEMENT, kSTARTTYPE},
@@ -362,6 +364,10 @@ static PHONEME_TAB_LIST phoneme_tab_list2[N_PHONEME_TABS];
 static PHONEME_TAB *phoneme_tab2;
 static int phoneme_flags;
 static int place_articulation;
+
+static char *p_equivalence;
+static char equivalence_buf[20000];
+
 
 #define N_PROCS 50
 int n_procs;
@@ -2479,6 +2485,23 @@ static int CompileSwitch(int type)
 
 
 
+static PHONEME_TAB_LIST *FindPhonemeTable(const char *string)
+{//==========================================================
+	int ix;
+
+	for(ix=0; ix<n_phoneme_tabs; ix++)
+	{
+		if(strcmp(phoneme_tab_list2[ix].name, string) == 0)
+		{
+			return(&phoneme_tab_list2[ix]);
+		}
+	}
+	error("Unknown phoneme table: '%s'",string);
+	return(NULL);
+}  // end of FindPhonemeTable
+
+
+
 static PHONEME_TAB *FindPhoneme(const char *string)
 {//================================================
 	PHONEME_TAB_LIST *phtab = NULL;
@@ -2487,7 +2510,7 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 	char *phname;
 	char buf[200];
 
-	// is this the name of a phoneme which is ijn scope
+	// is this the name of a phoneme which is in scope
 	if((strlen(string) <= 4) && ((ix = LookupPhoneme(string,0)) != -1))
 	{
 		return(&phoneme_tab2[ix]);
@@ -2500,17 +2523,9 @@ static PHONEME_TAB *FindPhoneme(const char *string)
 		*phname++ = 0;
 	}
 
-	for(ix=0; ix<n_phoneme_tabs; ix++)
-	{
-		if(strcmp(phoneme_tab_list2[ix].name,buf) == 0)
-		{
-			phtab = &phoneme_tab_list2[ix];
-			break;
-		}
-	}
+	phtab = FindPhonemeTable(buf);
 	if(phtab == NULL)
 	{
-		error("Unknown phoneme table: '%s'",buf);
 		return(NULL);  // phoneme table not found
 	}
 
@@ -3025,6 +3040,7 @@ static void WritePhonemeTables()
 		fputc(phoneme_tab_list2[ix].includes,f_phtab);
 		fputc(0,f_phtab);
 		fputc(0,f_phtab);
+		Write4Bytes(f_phtab, phoneme_tab_list2[ix].equivalence_tables);   // byte index into phondata for equivalence tables
 
 		fwrite(phoneme_tab_list2[ix].name,1,N_PHONEME_TAB_NAME,f_phtab);
 
@@ -3047,6 +3063,8 @@ static void WritePhonemeTables()
 static void EndPhonemeTable()
 {//==========================
 	int  ix;
+	int *pw;
+	int length;
 
 	if(n_phoneme_tabs == 0)
 		return;
@@ -3061,10 +3079,24 @@ static void EndPhonemeTable()
 			fprintf(f_errors,"%3d: Phoneme [%s] not declared, referenced at line %d\n",linenum,
 				WordToString(phoneme_tab2[ix].mnemonic),int(phoneme_tab2[ix].program));
 			error_count++;
+			phoneme_tab2[ix].type = 0;   // prevent the error message repeating
 		}
 	}
 
 	n_phcodes_list[n_phoneme_tabs-1] = n_phcodes;
+
+	if((length = p_equivalence - equivalence_buf) > 0)
+	{
+		// terminate the list of phoneme equivalence tables
+		pw = (int *)p_equivalence;
+		pw[0] = 0;
+
+		// write the equivalence data into phondata, and remember it's address
+		ix = ftell(f_phdata);
+		fprintf(f_phcontents,"Q  0x%.5x  %s\n", ix, phoneme_tab_list2[n_phoneme_tabs-1].name);
+		phoneme_tab_list2[n_phoneme_tabs-1].equivalence_tables = ix;
+		fwrite(equivalence_buf, length+4, 1, f_phdata);
+	}
 }
 
 
@@ -3092,11 +3124,12 @@ static void StartPhonemeTable(const char *name)
 	if(gui_flag)
 		progress->Update(n_phoneme_tabs);
 
+	memset(&phoneme_tab_list2[n_phoneme_tabs], 0, sizeof(PHONEME_TAB_LIST));
 	phoneme_tab_list2[n_phoneme_tabs].phoneme_tab_ptr = phoneme_tab2 = p;
-	memset(phoneme_tab_list2[n_phoneme_tabs].name, 0, N_PHONEME_TAB_NAME);
 	strncpy0(phoneme_tab_list2[n_phoneme_tabs].name, name, N_PHONEME_TAB_NAME);
 	n_phcodes = 1;
 	phoneme_tab_list2[n_phoneme_tabs].includes = 0;
+	p_equivalence = equivalence_buf;
 
 	if(n_phoneme_tabs > 0)
 	{
@@ -3131,6 +3164,111 @@ static void StartPhonemeTable(const char *name)
 }  // end of StartPhonemeTable
 
 
+static void CompileEquivalents()
+{//=============================
+	// a list of phonemes in another language and the equivalent phoneme strings in this language
+
+	int ix;
+	int n_names;
+	int n_bytes;
+	int foreign_phoneme;
+	int foreign_error = 0;
+	int remove_stress = 0;
+	char *p_start;
+	char *p;
+	int foreign_table;
+	char foreign_table_name[40];
+	char line_buf[80];
+	char names[6][80];
+	char phcode[7];
+	char save_voice_name[80];
+
+	NextItem(tSTRING);
+	strcpy(foreign_table_name, item_string);
+	strcpy(save_voice_name,voice_name2);
+
+	if((foreign_table = SelectPhonemeTableName(foreign_table_name)) < 0)
+	{
+		error("Unknown phoneme table '%s'", foreign_table_name);
+		foreign_error = 1;
+		foreign_phoneme = 0;
+	}
+
+	p_start = p_equivalence;
+	p_equivalence += 8;
+
+	p_start[0] = foreign_table;
+
+	linenum--;
+	while(!feof(f_in))
+	{
+		linenum++;
+		if(fgets(line_buf, sizeof(line_buf), f_in) == NULL)
+			break;
+
+		if((p = strstr(line_buf,"//")) != NULL)
+			*p = 0;
+
+		for(ix=0; ix<6; ix++)
+			names[ix][0] = 0;
+		n_names = sscanf(line_buf,"%s %s %s %s %s %s",names[0],names[1],names[2],names[3],names[4],names[5]);
+		if(n_names < 1)
+			continue;
+
+		if(strcmp(names[0],"endphoneme") == 0)
+			break;
+
+		if(strcmp(names[0],"remove_stress") == 0)
+		{
+			remove_stress = 1;
+			continue;
+		}
+
+		if(p_equivalence > &equivalence_buf[sizeof(equivalence_buf) - 16])
+		{
+			error("'equivalents' tables are too large",NULL);
+			break;
+		}
+
+		if(foreign_error == 0)
+		{
+			phcode[0] = foreign_phoneme = LookupPhonemeString(names[0]);
+			if(foreign_phoneme == 0)
+			{
+				sprintf(line_buf,"%s/%s", foreign_table_name, names[0]);
+				error("Unknown phoneme '%s'", line_buf);
+			}
+		}
+
+		for(ix=1; ix<n_names; ix++)
+		{
+			phcode[ix] = LookupPhoneme(names[ix], 1);
+		}
+
+		// only write a translation if it has an effect
+		if((n_names > 2) || (phcode[0] != phcode[1]))
+		{
+			// write: foreign phoneme number, then a string of local phoneme numbers
+			memcpy(p_equivalence, phcode, n_names);
+			p_equivalence += n_names;
+			*p_equivalence++ = 0;
+		}
+	}
+	*p_equivalence++ = 0;
+
+	p_equivalence = (char *)((int)(p_equivalence + 3) & ~0x3);  // align to word boundary
+	n_bytes = p_equivalence - p_start;
+	p_start[1] = remove_stress;
+	n_bytes = n_bytes / 4;
+	p_start[2] = n_bytes >> 8;    // index of next table
+	p_start[3] = n_bytes;
+
+	LoadVoice(voice_name2,0);  // reset the original phoneme table
+	LoadVoiceVariant(save_voice_name,0);
+}  // end of CompileEquivalents
+
+
+
 static void CompilePhonemeFiles()
 {//==============================
 	int item;
@@ -3161,8 +3299,9 @@ static void CompilePhonemeFiles()
 
 		item = NextItem(tKEYWORD);
 
-		if(item == kINCLUDE)
+		switch(item)
 		{
+		case kINCLUDE:
 			NextItem(tSTRING);
 			sprintf(buf,"%s%s",path_source,item_string);
 			if((stack_ix < N_STACK) && (f = fopen_log(f_errors,buf,"rb")) != NULL)
@@ -3176,32 +3315,36 @@ static void CompilePhonemeFiles()
 				strncpy0(current_fname,item_string,sizeof(current_fname));
 				linenum = 1;
 			}
-		}
-		else
-		if(item == kPHONEMETABLE)
-		{
+			break;
+
+		case kPHONEMETABLE:
 			EndPhonemeTable();
 			NextItem(tSTRING);	// name of the new phoneme table
 			StartPhonemeTable(item_string);
-		}
-		else
-		if(item == kPHONEMESTART)
-		{
+			break;
+
+		case kPHONEMESTART:
 			if(n_phoneme_tabs == 0)
 			{
 				Error("phonemetable is missing");
 				return;
 			}
 			CompilePhoneme(1);
-		}
-		else
-		if(item == kPROCEDURE)
-		{
+			break;
+
+		case kPROCEDURE:
 			CompilePhoneme(0);
+			break;
+
+		case kEQUIVALENTS:
+			CompileEquivalents();
+			break;
+
+		default:
+			if(!feof(f_in))
+				Error("Keyword 'phoneme' expected");
+			break;
 		}
-		else
-		if(!feof(f_in))
-			Error("Keyword 'phoneme' expected");
 	}
 	phoneme_tab2[n_phcodes+1].mnemonic = 0;  // terminator
 }  //  end of CompilePhonemeFiles
@@ -3275,6 +3418,7 @@ memset(markers_used,0,sizeof(markers_used));
 "#   S - A SPECT_SEQ structure\n"
 "#   W - A wavefile segment\n"
 "#   E - An envelope\n"
+"#   Q - Phoneme equivalence tables\n"
 "#\n"
 "# Address is the displacement within phondata of this item\n"
 "#\n"

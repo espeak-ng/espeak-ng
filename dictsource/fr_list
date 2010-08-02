@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-07-16 Michel Such  <michel.such@free.fr>
+// Updated 2010-07-25 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -83,8 +83,8 @@ z	zEd
 
 // accent names
 _lig	ligat'yr
-_acu	aksA~tE2g'y
-_ac2	dublaksA~tE2g'y
+_acu	aksA~tEg'y
+_ac2	dublaksA~tEg'y
 _brv	br'Ev
 _ced	sed'ij
 _cir	aksA~sirkO~fl'Eks
@@ -104,29 +104,29 @@ _cap	maZysk'yl
 _?A	l'Etr
 _??	sE~b'oll
 _#9	tabylasiO~
-_#32	E2spas
+_#32	Espas
 
 
-_"   gijmE2
+_"   gijmE
 _#   djEz
 _'   apostr'Of
 
 _(   parA~tEz_goS
 _)   parA~tEz_drwat
 _,   virgyl
-_-   tirE2
+_-   tirE
 _.   _|pw%E~
-_/   barOblik
+_/   baroblik
 _:   d'Y||pw'E~
 _;   pwE~||virg'yl
 _<   E~feriWr
 _=   egal
 _>   syperiWr
-_?   pwE~||dE~tE2rogasj'O~
+_?   pwE~||dE~tErogasj'O~
 _!	pwE~||dEksklamasj'O~
-_[   krOSE2_goS
-_\   barOblik_E~vErse
-_]   krOSE2_drwa
+_[   krOSE_goS
+_\   bakslaS
+_]   krOSE_drwa
 _^   sirkO~flEks
 __   sulin^e
 _`   aks'A~_gr'av
@@ -134,8 +134,8 @@ _{   akOlad_goS
 _|   bar_vErtik'al
 _}   akOlad_drwat
 ²    pyis'A~s||d'Y
-_«	uvre||gijm'E2
-_»	fErme||gijm'E2
+_«	uvre||gijm'E
+_»	fErme||gijm'E
 _’	apostr'Of
 _‘	apostr'Of
 _µ	mikr'o
@@ -174,7 +174,7 @@ _5	sE~k
 _6	siz3
 _7	sEt
 _8	_|yit3
-_9	nYf
+_9	nWf
 _10	diz3
 _11	_|O~z
 _12	duz
@@ -184,7 +184,7 @@ _15	kE~z
 _16	sEz
 _17	disEt
 _18	dizyit3
-_19	diznYf
+_19	diznWf
 _20	vE~t2
 _21	vE~te:W~
 _22	vE~tdYz2
@@ -194,7 +194,7 @@ _25	vE~tsE~k
 _26	vE~tsiz3
 _27	vE~tsEt
 _28	vE~tyit3
-_29	vE~tnYf
+_29	vE~tnWf
 _3X	trA~t
 _31	trA~te:W~
 _4X	karA~t
@@ -251,17 +251,18 @@ cci              $abbrev
 cia		$abbrev
 cio		$abbrev
 cm		centimètre $text
-collins	kOlins
+collins	_^_en
 cpu	$abbrev
 ctrl		_::kO~trOl
-dept		depart@mA~
+dept		département $text
 divx	diviks
 ebay	_^_en
 (e bay)	ebay $text
 ebcdic	@besedik
 edf		@d,eEf
 eml	@,EmEl
-etc		E2tsetera
+etc		Etsetera
+fyi	fWr||jWr||InfWrm'EjSWn
 ghz		ZigaErts
 (g hz)		ZigaErts
 hmm		hWm
@@ -271,14 +272,13 @@ ibm		ib,e'Em
 ide		$abbrev
 ip		ipe
 irc	I,Er_|se
-jaws		dZo3:z
 kbit	kilobit
 kde		$abbrev
 kg		kilogramme $text
 khz		kiloErts
 km		kilomètre $text
-(km player)	ka,EmplE2j'Wr
-(kmplayer)	ka,EmplE2j'Wr
+(km player)	ka,EmplEj'Wr
+(kmplayer)	ka,EmplEj'Wr
 kw		kilowatt $text
 m.		m@siY
 mbit  		megabit
@@ -314,12 +314,12 @@ sap	$abbrev
 scsi		$abbrev
 solaris	solaris
 sos	$abbrev
-s.t.p		silt@:pl'E2
-s.v.p		silvu:pl'E2
+s.t.p		silt@:pl'E
+s.v.p		silvu:pl'E
 st		s'E~t2
 ste		s'E~t
-stp		silt@:pl'E2
-svp		silvu:pl'E2
+stp		silt@:pl'E
+svp		silvu:pl'E
 tva	$abbrev
 uk	$abbrev
 ups	ypeEs
@@ -331,7 +331,6 @@ u.s	y:Es
 virgin	virZin
 vip	v,i||,aj||p'i
 (web visum)	webvisum $text
-windows	windo3z
 wma		$abbrev
 xfce		iksEfse@
 xy		$abbrev
@@ -421,10 +420,11 @@ lui	$u+ $verbf
 
 ca	sa $u+ $capital $verbf
 ce	$u+ $nounf
+ceux	$u+
+celle	$u+
+celles	$u+
 ceci	$u+ $verbf
 cela	$u+ $verbf
-voici	$u+
-voilà	$u+
 cet	$u $nounf
 cette	$u $nounf
 ces	sez2 $u $nounf
@@ -435,6 +435,8 @@ ces	sez2 $u $nounf
 (celles ci)	sEl||si $verbf $u+
 (celles là)	sEl||la $verbf $u+
 plupart	$u+
+voici	$u+
+voilà	$u+
 
 // possessives
 ma	$u $nounf
@@ -527,8 +529,8 @@ pourtant	$u+
 
 // auxillary verbs  (be, have, can, etc)
 suis		 $u+ $verb
-es		E2z2  $u+
-est	E2t2 $u+
+es		Ez2  $u+
+est	Et2 $u+
 sommes	$u+ $verb
 êtes	$u+ $verb
 sont	$u+ $verb
@@ -544,7 +546,7 @@ sois	$u+	$verb
 soit	$u+
 
 ai	$u+	$verb
-(ai je)	E2Z	$u+
+(ai je)	EZ	$u+
 as	as
 as	az2	$u+	$verb
 (as tu)	aty
@@ -642,7 +644,6 @@ albinos	albinos
 alleluia alelui'a
 alterego	altErego
 anis	anis
-any	Eni $u
 armageddon	armagedO~
 auvent     ovA~
 beta	beta
@@ -653,7 +654,7 @@ blues	_^_en
 blum	blum
 broglie	breuil $text
 browglie	breuil $text
-buffer	bYfYr
+buffer	bYfWr
 bus	      bys
 bus	      by  $verb
 cancer	kA~sEr
@@ -673,11 +674,12 @@ dot	dOt
 enfer	A~fEr
 fahrenheit	far@najt
 faut	fot2 $u+
+feldspath	fEldspat
 fier	      fjer $verb
 for	$u+
 francis	frA~sis
 fred	frEd
-free	frI:
+free	_^_en
 fuel	      fjul
 gangster	gA~gstEr
 gars	      ga
@@ -685,20 +687,20 @@ genesis	Zenezis
 georges	ZOrZ
 gilles	Zil
 gin	dZin
-gulf	gWlf
+gulf	gOlf
 gus	gys
 gym	Zim
+han	_|A~
 hélas 		elas $u+
 jacques	Zak
-karaoke	karaOke
+karaoke	karaoke
 kevin	kevin
 laetitia	letisja
 laser	      lazEr
 listbox	listbOks
 louis	lwi
 malus      malys
-mai	mE2
-mailto	mEjltu_
+mai	mE
 mapper	_^_en
 mars	      mars
 mas	mas
@@ -712,32 +714,31 @@ mrs	_^_en
 oasis	oazis
 ours	urs
 pataquès	patakEs
-patchwork	patSwWrk
-peter	pItWr
+peter	_^_en
 phallus    falys
 polder    pOldEr
 premier    pr@mjer2
 program	_^_en
-(program files)	prOgramfajlz
-query	kueri
-queries	kueri
+query	_^_en
+queries	_^_en
 quid	kwid $u+
-quit	kwit
-recorder	rikOrdWr
+quit	_^_en
+recorder	_^_en
 requiem	rekyijEm
 revolver	revOlvEr
 sas	sas
-scan	skan
+scan	_^_en
 scanner	skaner2 $verb
 scanner	skanWr $noun
 scanners	skanWr
 shampoing	SA~pwE~
-sir	sWr
+sir	_^_en
 souris       suri
 stocker	stoker2
 sus       sys
 sus       sy $verb
 sushi	suSi
+thierry	tjEri
 to	tu $u+
 tramway	tramwE:
 tuttiquanti       tutikw'anti
@@ -745,7 +746,6 @@ vaut	$u+
 vaux	$u+
 vénus       venys
 vot       vOt
-writer	raitWr
 yves	iv
 
 
@@ -777,18 +777,17 @@ zut		zyt
 
 // et (t is said)
 
-exocet		E2gzOsEt
+exocet		EgzosEt
 fret		fr'Et
-budget		bydZE2
+budget		bydZE
 hamlet		_|amlEt
 knesset		knesEt
-lazaret		lazarE2
+lazaret		lazarE
 margaret	margarEt
 net		nEt
 offset		OfsEt
 set		sEt
 soviet		soviEt
-stewart	stIwart
 
 // urt (t is said)
 kurt		kurt
@@ -800,19 +799,14 @@ yogourt		_|iogurt
 short		SOrt
 
 // art (t said)
-steward		stiwart
 stuttgart	Stutgart
 hart		art
 kart		kart
 smart		smart
 
 // irt
-(sweat shirt)	swEtSWrt
-(sweat shirts)	swEtSWrt
-(tee shirt)	t,IS'Wrt
-(tee shirts)	t,IS'Wrt
-(t shirt)	t,IS'Wrt
-(t shirts)	t,IS'Wrt
+(t shirt)	_^_en
+(t shirts)	_^_en
 
 
 // words from other languages
@@ -821,34 +815,38 @@ acer             asEr
 and             _^_en
 amazon		amaz'On
 apple		_^_en
-at		at $u+
-(audible manager) od,ibl||manadZ'Wr
+at		_^_en
+(audible manager) _^_en
+balabolka	balabOlka
+be	_^_en
+better	_^_en
 bin		bin
 bit		bit
-bluetooth 		blut'us
+bluetooth 		_^_en
 computer		_^_en
 (cyber link) 		_^_en
 debian		debjan
+do	_^_en
 edit		_^_en
-emacs		E2maks
-emacspeak	E2makspI:k
+emacs		_^_en
 end             _^_en
-espeak		@spI:k
 ethernet	etErnEt
 exit	egzit
-(file zilla)		f,ajl||zij'a
-from	frOm $u+
+(file zilla)		_^_en
+from	_^_en
 get		_^_en
-google		gug=Wl
+google		_^_en
 gnome		gnOm
 gnu		$abbrev
 hamburger		_|A~b@rgWr
+he		_^_en
+her		_^_en
 help		_^_en
 hot		_^_en
-in		in $u+
-inside		_^_en
+in		_^_en
 internet E~tErn'Et
-(internet explorer) E~tErn'Et||E2ksplOr'Wr
+(internet explorer) E~tErn'Et||EksplOr'Wr
+it	_^_en
 klaxon          klaksOn
 let 		_^_en
 lite 		_^_en
@@ -856,28 +854,29 @@ login 		_^_en
 logon 		_^_en
 (mac os x)	makoEsiks
 made	_^_en
+mail	_^_en
+mailto	_^_en
 media     		medja
-messenger 		mE2sEnZWr
-my		maj $u+
+messenger 		_^_en
 nat		nat
 not		_^_en
 null	_^_en
 ok         oke $u+
-open            op'Wn
-(open source)	op,Wn||s'urs
-outlook         autlu:k
+open            _^_en
+outlook         _^_en
 paint    		_^_en
 paper    		_^_en
 people    		_^_en
-redhat		rEdat
+redhat		_^_en
 same		_^_en
 sametime	_^_en
+she	_^_en
 sun		_^_en
-(text aloud) tEkst||@la=wd
+(text aloud) _^_en
 ubuntu		ubuntu
 up		_^_en
-win	win $u+
 yes		_^_en
+yet		_^_en
 
 
 // tions (tjO~ instead of sjO~)
@@ -903,6 +902,7 @@ vincent		vE~sA~
 // Some countries, areas and languages
 afrikaans	afrikans
 aix	Eks
+aruba	aruba
 bahamas	baamas
 bangladesh	bA~gladES
 bayeux	bajY
@@ -915,14 +915,17 @@ burundi	burundi
 calvados	calvadoss $text
 christmas	krismas
 croatie	kroasi
-esperanto	E2sperA~to
+esperanto	EsperA~to
 groenland	groEnlA~d
 guatemala	gwatemala
 hindi	_|indi
 honduras	_|O~dyras
 kenya	kenja
+koweït	kowEjt
 laos	laOs
+leone	leOn
 lesotho	lezOto
+libye	libi
 liechtenstein	liStWnStajn
 angeles	A~nZelEs
 malawi	malawi
@@ -935,15 +938,12 @@ oman	oman
 palaos	palaOs
 samoa	samoa
 swaziland	swazilA~d
-leone	leOn
-koweït	kowEjt
 taïwan	tajwan
-texas	tE2ks'as
+texas	tEks'as
 tuvalu	tuvalu
 vanuatu	vanuatu
-venezuela	venezy-E2la
+venezuela	venezyEla
 (viêt nam)	vjEtnam
 wallis	walis
 futuna	futuna
 zimbabwe	zimbabwe
-

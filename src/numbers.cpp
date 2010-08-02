@@ -766,7 +766,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 			if(word_end[0] == '.')
 				utf8_in(&c2, &word_end[2]);
 			else
-				utf8_in(&c2, &word_end[1]);
+				utf8_in(&c2, &word_end[0]);
 
 			if((word_end[1] != 0) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || IsAlpha(c2)))
 			{
@@ -850,8 +850,8 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 	flags[0] = 0;
 	flags[1] = 0;
 
-	if((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER))
-		return(0);
+	if(((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && !(wtab[0].flags & FLAG_ALL_UPPER)) || isdigit(word[-2]))
+		return(0);    // not '2xx'
 
 	word_start = word;
 	while((c = *word++) != ' ')
@@ -889,12 +889,17 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		prev = value;
 		n_digits++;
 	}
+
+	if(isdigit(word[0]))
+		return(0);      // eg. 'xx2'
+ 
 	acc += prev;
 	if(acc < tr->langopts.min_roman)
 		return(0);
 
 	if(acc > tr->langopts.max_roman)
 		return(0);
+
 
 	Lookup(tr, "_roman",ph_roman);   // precede by "roman" if _rom is defined in *_list
 	p = &ph_out[0];
@@ -930,6 +935,10 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 				else
 					return(0);
 			}
+		}
+		else
+		{
+			wtab[0].flags |= FLAG_ORDINAL;
 		}
 	}
 
@@ -1071,6 +1080,10 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 		}
 	}
 	sprintf(ph_out,"%s%s",ph_of,ph_thousands);
+
+	if((value == 1) && (thousandplex == 1) && (tr->langopts.numbers & NUM_OMIT_1_THOUSAND))
+		return(1);
+
 	return(found_value);
 }
 

@@ -172,6 +172,29 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 फ़      f@
 य़      j@
 
+// combining vowel signs
+ा	#X2a:
+ि	#X1I
+ी	#X2i:
+ु	#X1U
+ू	#X2u:
+ृ	#X1rI
+ॄ	#X1rI
+ॅ	#X1E
+ॆ	#X1e
+े	#X2e:
+ै	#X2E:
+?2 ै	#X2aI
+ॉ	#X1O
+ॊ	#X1o
+ो	#X2o:
+ौ	#X2O:
+?3 ौ 	#X2aU
+ॢ 	#X1l-
+ॣ	#X2l-:
+ॐ	#X1o~m
+
+
 // Punctuation
 ।	dVn.d.V
 

@@ -15,7 +15,7 @@ n    N    n^   p    r    s    S    t
 T    tS   v    w    x    x2   z    Z    
 
 
-Dictionary ca_dict  2010-05-12
+Dictionary ca_dict  2010-07-27
 
 @    a    a#   aI   e    E    E2   i    
 o    O    u    U    
@@ -53,7 +53,7 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
-Dictionary da_dict  2010-07-03
+Dictionary da_dict  2010-07-29
 
 &    &#   0    3    @    @-   a    A    
 e    E    i    o    O    u    V    W    
@@ -65,7 +65,7 @@ l/2  l/3  m    n    N    p    r    R
 s    S    t    T    tS   v    w    z    
 
 
-Dictionary hu_dict  2010-07-17
+Dictionary hu_dict  2010-08-02
 
 A    a:   E    e:   i    i:   o    o:   
 u    u:   Y    y    y:   Y:   
@@ -76,7 +76,7 @@ n^   p    r    R    R2   s    S    s2
 t    tS   ts   v    z    Z    
 
 
-Dictionary de_dict  2010-07-03
+Dictionary de_dict  2010-07-27
 
 3    3:   @    @-   a    A    A:   aI   
 aU   E    E2   E:   e:   EI   i    I    
@@ -100,7 +100,7 @@ n^   p    Q    r    R    s    s;   t
 T    ts   v    x    z    z;   
 
 
-Dictionary en_dict  2010-07-13
+Dictionary en_dict  2010-07-30
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI@  aU   
@@ -110,10 +110,10 @@ O@   o@   OI   oU   O~   U    u:   U@
 V    VR   
 
 :    ;    ?    b    C    d    D    dZ   
-f    g    g-   h    j    k    l    l#   
-m    n    N    n^   p    Q    r    r-   
-s    S    t    T    t2   tS   v    w    
-x    z    Z    
+f    g    h    j    k    l    l#   m    
+n    N    n^   p    Q    r    r-   s    
+S    t    T    t2   tS   v    w    x    
+z    Z    
 
 
 Dictionary eo_dict  2010-05-19
@@ -127,7 +127,7 @@ s    S    t    T    tS   ts   v    w
 x    z    Z    
 
 
-Dictionary es_dict  2010-07-13
+Dictionary es_dict  2010-07-28
 
 a    aI   aU   e    E    eI   eU   i    
 o    O    oI   u    
@@ -150,16 +150,16 @@ l    m    n    N    p    r    s    S
 s2   t    v    w    Z    
 
 
-Dictionary fr_dict  2010-07-18
+Dictionary fr_dict  2010-07-30
 
-@    @-   a    A~   e    E    E2   E:   
-E~   i    I    o    O    o3   O~   u    
-u:   w    W    W~   y    Y    
+@    @-   a    A~   e    E    E:   E~   
+i    I    o    O    O~   u    u:   w    
+W    W~   y    Y    
 
--    :    b    d    dZ   f    g    h    
-j    k    l    m    n    N    n2   n^   
-p    p2   r    r2   s    S    t    t2   
-t3   tS   v    z    Z    z2   z3   
+:    b    d    dZ   f    g    h    j    
+k    l    m    n    N    n2   n^   p    
+p2   r    r2   s    S    t    t2   t3   
+tS   v    z    Z    z2   z3   
 
 
 Dictionary grc_dict  2008-03-03
@@ -185,32 +185,32 @@ N    n^   p    r    R    R2   s    S
 t    tS   ts   tS;  v    x    z    Z    
 
 
-Dictionary hi_dict  2009-11-24
+Dictionary hi_dict  2010-07-30
 
 @    @-   @2   @3   a    a:   aI   aU   
 e    E    e:   E:   E~   i    I    i:   
 l-   o    O    o:   O:   O~   o~   r-   
 U    u:   u~   V    
 
--    :    b    bh   c    ch   d    d.   
-dh   dh.  f    g    gh   h    H    j    
-J    Jh   k    kh   l    l.   m    n    
-N    n.   n^   p    ph   Q    q    r    
-r.   s    S    s.   t    T    t.   th   
-th.  v    w    x    z    
+#X1  #X2  -    :    b    bh   c    ch   
+d    d.   dh   dh.  f    g    gh   h    
+H    j    J    Jh   k    kh   l    l.   
+m    n    N    n.   n^   p    ph   Q    
+q    r    r.   s    S    s.   t    T    
+t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2010-07-18
+Dictionary ta_dict  2010-07-30
 
 a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   u    U    u:   U:   
-V    V#   
+I    i:   o    o:   u    U    u2   u:   
+U:   V    V#   
 
-:    ;    b    C    d    d.   dZ   f    
-g    h    H    j    k    l    l.   m    
-n    N    n.   n^   p    Q    r    R    
-s    S    s.   t    T    t.   th   tS   
-v    w    z    z.   
+#X1  #X2  :    ;    b    C    d    d.   
+dZ   f    g    h    H    j    k    l    
+l.   m    n    N    n.   n^   p    Q    
+r    R    s    S    s.   t    T    t.   
+th   tS   v    w    z    z.   
 
 
 Dictionary hy_dict  2008-12-22
@@ -325,7 +325,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary nl_dict  2010-07-18
+Dictionary nl_dict  2010-07-27
 
 8    @    @-   A    a:   A~   E    e:   
 EI   eU   i    I    O    O:   o:   u    
@@ -349,7 +349,7 @@ k    l    m    n    N    p    r    R
 s    S    s;   t    v    w    x    z    
 
 
-Dictionary pap_dict  2009-05-02
+Dictionary pap_dict  2010-07-27
 
 a    a/   aI   e    E    eI   i    o    
 O    u    y    Y    
@@ -474,7 +474,7 @@ p    R    R^   s    S    t    tS   ts
 v    w    x    z    Z    
 
 
-Dictionary tr_dict  2010-06-02
+Dictionary tr_dict  2010-07-27
 
 @    a    e    E    i    I    o    O    
 u    U    W    y    Y    
@@ -636,3 +636,14 @@ O~   u    w    y
 ;    b    d    f    g    j    k    l    
 m    n    N    p    r    s    S    t    
 tS   v    z    Z    
+
+
+Dictionary az_dict  2010-07-27
+
+&    @    a    e    E    i    o    u    
+W    y    
+
+*    b    c    C    d    dZ   f    g    
+h    j    J    k    l    m    n    p    
+Q    R    s    S    t    tS   v    w    
+x    z    Z    

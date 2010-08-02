@@ -112,6 +112,8 @@
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
 #define FLAG_NO_PREFIX     0x20000000
+#define FLAG_UNPRON_TEST   0x80000000   // do unpronounability test on the beginning of the word
+
 
 // prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added
@@ -124,6 +126,8 @@
 #define SUFX_T        0x10000   // don't affect the stress position in the stem
 #define SUFX_B        0x20000  // break, this character breaks the word into stem and suffix (used with SUFX_P)
 #define SUFX_A        0x40000  // remember that the suffix starts with a vowel
+
+#define SUFX_UNPRON     0x8000   // used to return $unpron flag from *_rules
 
 
 #define FLAG_ALLOW_TEXTMODE  0x02  // allow dictionary to translate to text rather than phonemes
@@ -221,9 +225,9 @@
 typedef const char *  constcharptr;
 
 typedef struct {
-	int points;
+	int  points;
 	const char *phonemes;
-	int end_type;
+	int  end_type;
 	char *del_fwd;
 } MatchRecord;
 	
@@ -388,6 +392,7 @@ typedef struct {
 #define NUM_AND_HUNDRED   0x40000
 #define NUM_THOUSAND_AND  0x80000
 #define NUM_VIGESIMAL     0x100000
+#define NUM_OMIT_1_THOUSAND 0x200000
 
 #define NUM_ROMAN         0x1000000
 #define NUM_ROMAN_CAPITALS 0x2000000
@@ -413,6 +418,7 @@ typedef struct {
 	// bit18= 'and' before hundreds
 	// bit19= 'and' after thousands if there are no hundreds
 	// bit20= vigesimal number, if tens are not found
+	// bit21= omit "one" before "thousand"
 
 	// bit24= recognize roman numbers
 	// bit25= Roman numbers only if upper case
@@ -484,7 +490,8 @@ typedef struct
 
 	char phon_out[300];
 	char phonemes_repeat[20];
-	int phonemes_repeat_count;
+	int  phonemes_repeat_count;
+	int  phoneme_tab_ix;
 
 	unsigned char stress_amps[8];
 	unsigned char stress_amps_r[8];
@@ -650,7 +657,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
 int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);
-int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type);
+int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 
 void SetVoiceStack(espeak_VOICE *v);
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata);

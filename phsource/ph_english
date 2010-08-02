@@ -204,6 +204,7 @@ endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
+  ipa ɪ
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/ii_en)
@@ -334,7 +335,7 @@ endphoneme
 phoneme aI
   vowel  starttype #a  endtype #i
   length 240
-  IF nextPh(#a) OR nextPh(#o) THEN
+  IF nextPh(#a) THEN
     AppendPhoneme(;)
   ENDIF
   FMT(vdiph/ai_2)
@@ -383,6 +384,9 @@ phoneme U@
   vowel  starttype #u  endtype #@
   length 200
   IfNextVowelAppend(r-)
+  IF thisPh(isUnstressed) THEN
+    FMT(vdiph2/8@)
+  ENDIF
   FMT(vdiph2/uu@)
 endphoneme
 

@@ -106,7 +106,6 @@ _5C	kinj'EntOs
 _7C	s,eteTj'EntOs
 _9C	n,OBeTj'EntOs
 _0M1	m'il
-_1M1	m'il          // no '1' before thousand
 _0M2	miJ^'ones
 _1M2	'unmiJ^'On
 _0M4	_biJ^'onEs
@@ -358,23 +357,23 @@ alguna   $u
 b	be
 c	Te
 d	de
-f	Efe
+f	_|Efe
 g	xe
 h	atSe
 j	xOta
 k	ka
-l	Ele
-m	Eme
-n	Ene
-ñ	En^e
+l	_|Ele
+m	_|Eme
+n	_|Ene
+ñ	_|En^e
 p	pe
 q	ku
-r	E**e
-s	Ese
+r	_|E**e
+s	_|Ese
 t	te
-v	uBe
+v	_|uBe
 w	,uBe||d'OBle
-x	Ekis
+x	_|Ekis
 z	TEta
 
 _a	a

@@ -121,7 +121,6 @@ _8X	'_axtsIC
 _9X	'nOYntsIC
 _0C	'hUnd3t
 _0M1	'taUz@nt
-_1M1	'taUz@nt    // no '1' before thousand
 _0M2	||mIlI'o:n@n
 _1M2	_'aIn@||mIlI'o:n
 _0M3    ||mIlI'ard@n
@@ -611,33 +610,34 @@ hm              h@m
 horsam          hO3zA:m
 hostie           $alt
 
-illegitim       Ile:gi:t'i:m
-illiberal       Ili:b@r'A:l
-illoyal         IlOajA:l
-immobilie        $alt
-indem           Ind'e:m
-inden           Ind'e:n
-inder           Ind3
-indes           Ind'Es
-indessen        Ind'Es@n
-injurie          $alt
-inka            INkA:
-inkaisch        INkA:IS
-inkonstant       $1
-insbesondere     $3
-interess        Int@r'Es
-intern          Int'Ern
+illegitim	Ile:gi:t'i:m
+illiberal	Ili:b@r'A:l
+illoyal		IlOajA:l
+immobilie	$alt
+indem		Ind'e:m
+inden		Ind'e:n
+inder		Ind3
+indes		Ind'Es
+indessen	Ind'Es@n
+injurie		$alt
+inka		INkA:
+inkaisch	INkA:IS
+inkonstant	$1
+insbesondere	$3
+interess	Int@r'Es
+intern		Int'Ern
 
-januar          janu:A:r
+januar		janu:A:r
 
-kamelie          $alt
-kanoe           kan'u:
-kastanie         $alt
-kid             kId
-komödie          $alt
-konservativ      $1
-konsul           $1
-kurie            $alt
+kamelie		$alt
+kanoe		kan'u:
+kastanie	$alt
+kid		kId
+komödie		$alt
+konservativ	$1
+konsul		$1
+kurie		$alt
+kwaß		kvas
 
 lappalie         $alt
 lilie            $alt
@@ -709,16 +709,11 @@ telegen         te:le:g'e:n
 the             D@         // English
 theater         te:'A:t3
 train           tre:n
+tsunami		tsu:n'a:mi:
 turin            $2
 
 umweg            $1
 unten           Unt@n
-
-wasserung       vas@rUN    // because -ung isn't marked as a suffix
-weiterung       vaIt@rUN
-weither         vaIth'Er
-weitum          vaIt_|'Um
-woher           vo:h'e:r
 
 verein          fEr'aIn
 vielbesprochen   $3
@@ -729,18 +724,31 @@ vorherig        fo:rh'e:rIg#
 vorig           fo:rIg#
 
 //wahrscheinlich   $2
-warum           vA:r'Um
+warum		vA:r'Um
+wasserung	vas@rUN    // because -ung isn't marked as a suffix
+weiterung	vaIt@rUN
+weither		vaIth'Er
+weitum		vaIt_|'Um
+woher		vo:h'e:r
 
-zoom            zu:m
-zugegen         tsu:g'e:g@n
-zudem           tsu:'de:m
+
+zloty		slOti:
+zoom		zu:m
 zugegen		tsu:g'e:g@n
-zurück           $2
-zymbal           $1
+zudem		tsu:'de:m
+zugegen		tsu:g'e:g@n
+zurück		$2
+zymbal		$1
 
 
 // Names
+Djakarta	dZak'artA:
+Djibouti	dZib'u:ti:
 Georg		ge:Ork	$only
 George		dZO:rdZ
+Khmer		kme:r
+Mc		m@-k
 Neumexiko       $2
 Neuseeland	$2
+Rwanda		rU'andA:
+Sri		sr,i:

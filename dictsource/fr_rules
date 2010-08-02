@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2010-07-16 Michel Such  <michel.such@free.fr>
+// Last update: 2010-07-30 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -45,7 +45,32 @@
 .L03 d l m n s t v
 .L04 c d f g l m n v
 .L05 g h k l m v w
-.L06 l r s
+
+// Following groups are used to manage mute e inside words.
+
+// After or before L06, e is not mute
+.L06 bl br cl cr ct dr fl fr ft gl gr kl kr pl pr tr vr
+
+// After L07, e is not mute
+.L07 ec éc ed éd lb lc ld lg lm ln lp lt lv rb rc rd rf rg rl rm rn rp rs rt rv
+
+// All consonants + ch gu qu used as ch g k
+.L08 b c d f g h j k l m n p q r s t v w x z ch qu gu
+
+// E placed after a consonant following L09 is not mute
+.L09 l r s
+
+// When these diphtonges are after a consonant folllowing e, e is not mute
+.L10 ia ie io ua ue ui uo
+.L11 b p
+.L12 é è al ib ie l om on ré
+
+// Words ending "son" pust sound english if preceded by L13
+.L13 d g k l p er hn
+
+// For english words ending "side"
+.L14 be in up ut
+
 
 
 .group a
@@ -56,21 +81,18 @@
         ain (K     E~        // pain
     Ct) ain (_     E~n2      // certain ami
     ch) ain (_     E~n2      // prochain arret
-        ai (_      e         // dirai ferai...
-  _ess) ai (_      E2        // essai
-   _vr) ai (_      E2        // vrai
-        ai (b      E         // faible
-        ais (_     E2z2      // dirais ferais...
-        ait (_     E2t2      // dirait ferait...
-        aient (_   E2t2      // diraient feraient...
+        ai       E
+      ai (_      e
+_bal)      ai (_      E
+_ess)      ai (_      E
+_vr)      ai (_      E
+        aie      E
+        ais (_      Ez2
+        ait (_      Et2
+        aient      Et2
      f) ai (sA     @         // faisons faisan
         a (ilK     a
-        aie (me    E2        // paiement
-        ai         E         // aile
-        ai (L06    E         // aile
-        ai (CAX    E         // aile
-        am (b      A~        // jambon
-        am (p      A~        // camp
+        am (L11      A~        // jambon, tampon
         am (m      a         // programmation
      _) am (n      am        // amnistie
         am (n      a         // condamner
@@ -106,22 +128,22 @@
         aud (_     o         // chaud
 _C)        aud (_     od         // Maud
         au (l_     O         // Paul
-        au (re_    o         // dinosaure
+        au (re_    O         // dinosaure
      _) audio (@P5 odio
      _) auto (@P4  oto
      _) autom (n   otO
     bb) aye (X     ei        // abbaye
         ay (C      E         // aymé
         ay         Ej        // paye
-        ay (_      E2        // display
-    Xl) ayer (X    E2jWr     // player, layer
+        ay (_      E        // display
+    Xl) ayer (X    EjWr     // player, layer
      h) am (_S2      am
      w) an (_      an
         a          a         // bateau
 
 // group a: English section
-    sm) all        _^_en     // small, smaller
-        a (wC      _^_en
+        any        _^_en
+        aw (K      _^_en
 
 
 .group b
@@ -131,12 +153,9 @@ _C)        aud (_     od         // Maud
 
 // group b: English section
         back       _^_en
-        bbl        _^_en
-        bird       _^_en     // bird
         board      _^_en     // board, keyboard
         box (_     _^_en     // box, inbox, outbox
         bugg       _^_en     // debugger
-     _) by         _^_en     // by, bye, bypass
 
 
 .group c
@@ -239,50 +258,64 @@ _ingré) dien (t_   djA~      // ingrédient
      _) devic      _^_en
         dle (X     _^_en     // bundle, handle
 
-
 .group e
 
 // Define use of the final 'e' in french
         e (_
+
+// Manage mute e inside words
+@C)	e (CeCA	@
+@L08)	e (CA
+@L08)	e (CL10C	@
+@L08)	e (L06
+@L08)	e (L06L10C	@
+@L06)	e (CA	@
+@L06)	e (L06	@
+@L07)	e (CA	@
+@L07)	e (L06	@
+@L09gu)	e (CA	@
+@L09gu)	e (L06	@
+@L09qu)	e (CA	@
+@L09qu)	e (L06	@
+     e (ct+++++    E
+     e (x+++++    E
+
     _C) e (_       @         // je te
     -c) e (_
     -j) e (_
      C) e (-
 
-        e (Ce_     E
-        eau        o         // bateau
-     g) ea (s_     a         // mangeas
-   cap) e (la_     e
-    gh) e (tAX     e         // spagheti
-     j) e (a                 // Jean Jeanne
-     p) ect (_     E2        // suspect
+_)      e (CAN     e		// Evident
+_)      e (L06A  e     // Ecran
+_eC)      e (CA++  E     // Evenement
+        eau (++       o         // bateau
+        e (CC       E
+   cap) e (la_     E
+    gh) e (tAX     E         // spagheti
+     p) ect (_     E        // suspect
         ect (_     Ekt       // direct
     pi) ed (_      e         // pied
   _art) e (++      e         // arte, artefact
    _cl) ef (_      e         // clef
-   _cr) e (at      e
      _) ein (K     En        // Einstein
         ein (K     E~        // peindre
     pl) ein (_     E~n2      // plein emploi
         e (il      E         // vieille
         ei         E         // neige
-        eoi        wa       // asseoir
-        ell        El        // selle
-        el (K      El        // celsius, caramel
+        e (oi               // asseoir
+        el (l      E        // belle
     _f) em (me     a         // femme
      i) e (mA                // remerciement, d�ploiement
-      e (ro_		e            // Cicero
      A) e (rA                // remerciera
    tch) e (rX      W
      @) em (me     a         // patiemment
-        em (b      A~        // décembre
+        em (L11      A~        // décembre
         em (mACC   A~        // emmancher
         em (mACAC  A~        // emmagasiner
-        em (ma     E2        // emmanuel
+        em (ma     E        // emmanuel
         em (mai    A~        // emmailloter
      l) em (n      a         // solemnel
     il) emn        Em        // dilemne
-        em (p      A~
         en (_      A~n2      // en
         en (hA     A~n       // enharmonique
     _C) en (j      E~        // benjamin
@@ -440,7 +473,7 @@ s_couv) en (t_               // elles couvent
   _hiv) er (X      Er        // hiver
    Cst) er (X      Er        // hamster
  _cart) er (X      Er        // carter
- _cutt) er (X      Er        // cutter
+ _cutt) er (X      Wr        // cutter
   tain) er (X      Er        // container
    _ti) er (_      Er
    ack) er (K      Wr
@@ -467,6 +500,7 @@ s_couv) en (t_               // elles couvent
     Am) es (nA     e         // Dumesnil
 
      d) esh (A     ez        // Deshormeaux
+     f) eb (vA     E        // Lefebvre
 
     _r) e (ss      @         // ressembler
     _r) e (ssu     e         // ressusciter
@@ -477,13 +511,14 @@ s_couv) en (t_               // elles couvent
 
     dg) et (_      Et        // Bridget, gadget
      k) et (_      Et
-  tick) et (_      E2
+  tick) et (_      E
      m) et (_      Et2
 
         eu         Y         // eu
         eu (CX    W         // neuf
         eu (CeX    W         // fleuve
         eu (Cer_    Y         // pleurer
+        eu (i    W         // feuille
         eu (CeX    Y        // meule
         eu (reX    W        // demeure
 gu)        eu (leX    W        // gueule
@@ -494,82 +529,46 @@ gu)        eu (ler    Y        // gueuler
 
      _) eut (_     yt2
         eut (_     Yt2
-     _) extra (uP5 E2kstra
-     _) extra (CP5 E2kstra
+        eux (_     Yz2
+     _) extra (uP5 Ekstra
+     _) extra (CP5 Ekstra
      _) eû         y         // eût
         eû         Y:        // jeûne
 
-        ey (_      E2        // dahomey
-        ey (C      E2        // ceylan
+        ey (_      E        // dahomey
+        ey (C      E        // ceylan
         ey         Ej        // asseye
 
         ez (_      ez2       // nez mangez chez
 
      g) e (A                 // mangeons
-     g) eu         Y         // vengeur
+     g) eu         W         // vengeur
      g) eu (re     y         // gageure
 
     _d) e (ch      @
     _r) e (ch      @         // recherche
         e (Cl      @
 
-    _l) e (xA      E2
-    _m) e (xA      E2
     _l) e (CA      @
     _l) e (ChA     @
     _l) e (ClA     @         // Leclerc
     tr) e (CA      @
     tr) e (ChA     @
 
-        e (CC      E         // infect pelle mettre
         e (Cr      @
      _) e (C%      e         // effet, effectuer
         e (C_      E
-        e (t_      E2
         e (rC      E
         es (_      z2
 
-    %C) e (xA      E2
-
-   @gu) e (CA
-   @gu) er (A      r
-   @qu) e (CA
-   @qu) er (A      r
-   _qu) e (CA      @
-@L06gu) e (CA      @
-@L06qu) e (CA      @
-    @C) e (CA
-    @C) e (li      @
-   @ch) e (li      @
-    @C) er (A      r
-    @C) e (rion++  @
-    @C) e (riez++  @
-   @ch) e (CA
-   @ch) er (A      r
- L06ch) e (CA      @
- @L06C) e (CA      @
- @CL06) e (CA      @
-   @bC) e (CA      @
-   @ct) e (CA      @
-    %C) e (CA++
-    %C) er (A++    r
-    @C) e (xA++    E2
-    @c) e (v++     @
-    @d) e (v++     @
-
-    @C) e (CrA
-   @ch) e (CrA
-@L06ch) e (CrA     @
- @L06C) e (CrA     @
- @L06C) e (rrA     E
- @CL06) e (CrA     @
-    %C) e (CrA++
+      e (ri_++		e
+      e (ria_++		e
+      e (ro_++		e            // Cicero
         e (rr+++   E
 
         e          @         // menue
      _) e (CA      e
-     _) e (xC++    E2
-    Cr) eam        Im
+    Cr) eam        I:m
     Cr) eamer      ImWr
     Cl) eaner      InWr
   vert) e (rX      W
@@ -580,26 +579,23 @@ gu)        eu (ler    Y        // gueuler
 
 
 // group e: English section
-        eac        _^_en
-     C) ead        _^_en     // read, head
-        eak        _^_en     // break, speak
-        eal        _^_en     // deal
-        ear        _^_en     // ear, search
-        eas        _^_en     // please
-        eave       _^_en     // leave
+        ea         _^_en
+        e (CeX	_^_en
         ed (_      _^_en
         ee         _^_en     // meeting
         efore (_   _^_en     // before
         eing (_    _^_en     // being, boeing
         eive       _^_en     // receive
-        eld (_     _^_en     // field
+        el (CX     _^_en     // field
+        el (sX     El
      _) enter (_   _^_en     // enter
      _) enhan      _^_en
     qu) est (_     _^_en     // request
     qu) este (X_   _^_en     // requested, requester
-     _) even (X    _^_en     // forever, however
-     _) ever       _^_en     // forever, however
+     _) even (K    _^_en
+     _) ever       _^_en
     oC) ever       _^_en     // forever, however
+      ew (++    _^_en
      _) eye        _^_en
 
 
@@ -636,6 +632,8 @@ gu)        eu (ler    Y        // gueuler
 .group g
         g          g
         g (Y       Z
+        ge (a       Z
+        ge (o       Z
 
     su) gg (Y      gZ        // suggérer suggestif
         gg         g         // agglomérer
@@ -683,6 +681,7 @@ _quatrevin) gts (_ z2
 // group g: English section
      _) game (X    _^_en
         girl       _^_en     // girl
+        gh (K		_^_en
         gy (_      _^_en
 
 
@@ -732,7 +731,7 @@ _quatrevin) gts (_ z2
 
 // group h: English section
      _) half       _^_en
-        here (_    _^_en     // here
+     _) ha (C_     _^_en
 
 
 .group i
@@ -751,11 +750,8 @@ _quatrevin) gts (_ z2
     or) ien (t     iA~       // orient, orienter
     ot) ien (t_    jA~       // quotient
 
-        i (e_      i
      _) i (ce@     aj        // iceberg
-     _) ill        il        // illégal
-        ill (_     il        // Bill
-    _C) ill (y_    il        // Billy
+     _) il (l      i        // illégal
   aigu) ill        ij        // aiguille
   anqu) ill        il        // tranquille
      c) ill (i     il
@@ -776,17 +772,14 @@ _quatrevin) gts (_ z2
         imm        imm       // immaculé
         im (_      im        // karim
         im (C      E~        // timbre
-     w) in         in        // winrar
         inct (_    E~        // distinct
         in (h      in        // inhumain
-        in (kX     iN        // link
         in (n      i         // innombrable
         in (C      E~        // vingt
         in (_      E~        // vin
-        ing (_     iN
+//        ing (_     iN
         ing (h     ing
         ing (s     iN
-        ing (to    iN
      _) infra (sP5 E~fra
      _) inter (@@P5 E~tEr
      _) interr (A  E~tEr
@@ -810,13 +803,17 @@ _quatrevin) gts (_ z2
         ibuter (X  _^_en
         iev        _^_en
         ife (_     _^_en
-        igh        _^_en
+        ign (_     _^_en
+        ill (_     _^_en     // Bill
+    C) ill (y_    _^_en     // Billy
+        ing (_	_^_en
+C)        irt (_	_^_en
         iven (_    _^_en
         ind (X     _^_en     // find, mind
     _C) ind (erX   _^_en     // finder
     AC) ind (erX   _^_en     // reminder
-        ize (X     _^_en     // realize
-  _bAl) i (ze      i
+    C) ird (X   _^_en     // bird
+        ize (K     _^_en     // realize
  ram_f) i (le      _^_en
 
 .group ï
@@ -833,6 +830,7 @@ _quatrevin) gts (_ z2
 
 .group j
         j          Z         // adjoint joujoux
+        je (a          Z         // Jean
      _) j' (P2v    Z
      _) jazz       dZaz
      _) j (obK     dZ
@@ -849,10 +847,11 @@ _quatrevin) gts (_ z2
         ke (s_     _^_en     // makes, takes
         ke (rX     _^_en     // maker
         ke (nX     _^_en     // taken
+AC)        k (X     _^_en     // bank
 
 .group l
         l          l         // lit
-        ll         l         // aller
+        ll (A          l         // aller
      _) l' (P2     l
     au) lt                   // hérault
    uCi) l (_                 // outil, fusil
@@ -862,10 +861,15 @@ _quatrevin) gts (_ z2
      _) lorsqu' (P7 lorsk
 
 // group l: English section
+        ld (_    _^_en     // could
         less (_    _^_en     // noiseless
+%C)        l (eX    _^_en
+ff)        l (eX    l
+pp)        l (eX    l
+     _) line (X       _^_en
      _) live       _^_en
      @) loud (_    _^_en
-        ll (X      _^_en
+     AC) l (X    _^_en
 
 
 .group m
@@ -877,8 +881,9 @@ _quatrevin) gts (_ z2
         master (_S6 mastWr
 
 // group m: English section
-     _) mail (_    _^_en     // mailer
-        mov (ieX   _^_en     // move, movy
+        m (n_   _^_en     // column, autumn
+        mov (AX   _^_en     // move, movy
+        mov (ie_   _^_en     // move, movy
 
 
 .group n
@@ -894,19 +899,23 @@ _quatrevin) gts (_ z2
      _) neuro (@@P5 nYro
      _) nvda (P4   Envedea
 
+// group n: English section
+_)	name		_^_en
+_re)	name		_^_en
+        n (eme_   _^_en
+        n (emes_   _^_en
+
 
 .group o
     br) oc (_      o         // broc
     cr) oc (_      o         // escroc
-    ls) on (_      On
-   Cst) on (_      On
-     _) os (_      Os
+     _) os (_++      Os
     _v) os (gY     o
     s_) os (_      o
     x_) os (_      o
         o (t_      o
 
-        oe (ll     wa       // moelleux
+        oe (llA    wa       // moelleux
         oe (i      W         // oeil
      _) oe (C      Y         // oesophage
    _ph) oe (C      e         // phoetus
@@ -921,8 +930,7 @@ _quatrevin) gts (_ z2
         oin (_     wE~       // coin
         oi         wa       // poil
         oê (l      wa       // poêle
-        om (b      O~        // bombe
-        om (p      O~        // trompe
+        om (L11      O~        // bombe, pompe
      n) om (X      O~        // nom
         om (_      Om        //  www.web.com
 
@@ -937,10 +945,6 @@ _quatrevin) gts (_ z2
      _) on (z      _|O~      // onze, onzième
 
     _c) on (_      O~        // no comment
-    ps) on (_      On        // Epson
-    gt) on (_      On        // Washington
-   Cst) on (_      On
-    ps) on (_      On
     _C) on (_      O~n2      // mon appui, mon histoire, mon havre
 
    alc) oo (l      O         // alcool
@@ -969,7 +973,10 @@ _quatrevin) gts (_ z2
         o (_       o         // zorro allégro
    gr) oss         os        // grosse, grossir
 
-    C) o (sA       o         // position
+C)   o (me_      o         // atome, chrome
+_C)   o (me_      O         // Rome tome
+     o (sA       o         // position
+     o (zA       o         // Mozilla
         o (CC      O         // poste, votre
         o          O
 
@@ -979,8 +986,13 @@ _quatrevin) gts (_ z2
         oa (s_     oa
         oa (CerX   _^_en
         oach       _^_en
-        old (er_   _^_en     // folder, older
+        oes        _^_en
+_)        of (X      _^_en
+        o (lder_   _^_en     // folder, older
+_)        o (rder_   _^_en     // order
      C) oing (_    _^_en     // going
+    gt) on (_      _^_en
+   Cst) on (_      _^_en
         oo (Ce     _^_en     // boomer
         oo (k      _^_en     // book, cook
         oo (st     _^_en     // booster
@@ -992,7 +1004,7 @@ _quatrevin) gts (_ z2
    _sC) ot         _^_en     // shot, slot, spot
         ow (e      _^_en     // flower, power
         ow (X      _^_en
-        oy (X      _^_en     // boy, toy
+_C)        oy (X      _^_en     // boy, toy
 
 
 .group ô
@@ -1005,11 +1017,11 @@ _quatrevin) gts (_ z2
      _) para (pCP4 para
      _) photo (@P5 foto
      _) poly (@P4  poli
-     _) post (KP4  post
+     _) post (CP4  post
      _) post (ACCP4 post
      _) pseudo (@P6 psYdo
         p (p                 // appliquer
-        pays       pE2iz2    // pays, paysage
+        pays       pEiz2    // pays, paysage
         ph         f         // phrase
 
      m) ps (_                // temps champs
@@ -1076,7 +1088,6 @@ _quatrevin) gts (_ z2
 
 // group r: English section
      _) real       _^_en
-        resen      _^_en
         rst (_     _^_en
      _) rule       _^_en
 
@@ -1175,13 +1186,19 @@ _cACpu) s (_       s
   _tou) s (_leurs_
 
 // group s: English section
-    CA) sh (_      _^_en     // punish
+        send  (_      _^_en
         sh (_      _^_en
         sh (Ap     _^_en     // shop, ship
         sh (At     _^_en     // shut, shot
+_)	side (X+++	_^_en
+L14)	side (X+++	_^_en
      _) sky        _^_en
      _) smil       _^_en     // smile, smiley
         spy        _^_en
+_A)	s (_		_^_en
+L13)	son (_		_^_en
+L13)	ston (_		_^_en
+    	stone (_	_^_en
 
 
 .group t
@@ -1194,7 +1211,9 @@ _cACpu) s (_       s
    VCi) t (_       t2
         t (_
   peti) t (_       t2
-     _) th         t         // thon
+      th (L12++         t
+or)      th (++         t
+     _) th (erm         t
         ts (_S1    z2        // silent at end of word unless next word starts with a vowel
      C) t (_       t         // compost watt soft script malttact abrupt
     ki) t (_       t         // kit
@@ -1284,13 +1303,13 @@ _cACpu) s (_       s
 _transA) t (_      t
 
 // group t: English section
-     C) th (_      _^_en     // month
-     _) th (eX     _^_en     // the, then
-     _) th (aX     _^_en     // than, that
+      th (A      _^_en     // this
+      th (K      _^_en     // month
      _) time       _^_en
         tle (_     _^_en
         too        _^_en
         ttl        _^_en
+g)        ton (_     _^_en     // try, country
         try (_     _^_en     // try, country
   sCar) t (_       _^_en     // smart, start
   sCar) t (er_     _^_en     // starter
@@ -1299,34 +1318,30 @@ _transA) t (_      t
 
 .group u
         u          y         // cruel nuage brut
+        ue (il       W      // orgueil
         ui         yi       // nuit, fuite
         uin (K     yE~       // juin
-    _s) u (rfX     W
+    _C) u (rfX     W
    _bl) u (ff      W
     _s) u (rfeX    W
         uy (A      yij
 
      C) ucci       utSi      // capuccino
-     c) ueill      Wj        // cueillir
-     c) ueil (_    Wj        // recueil
     _g) ua         wa
     ag) ua (X      wa
   Ctig) ua (_      wa
     _c) ul (_      y
      _) ultra (P5  yltra
      g) u (ay      u
-     g) ueill      Wj        // orgueilleux
   haïk) u (X       u
 
      C) u (bX      W         // hub, club
      C) u (gX      W         // bug, mug
     _n) u (rse     W         // nurse
-     r) u (nX      W         // run, autorun
     pr) unt (_     W~        // emprunt
         um (_      Om        // album
      f) um (_      W~        // parfum
-        um (b      W~        // humble
-        um (p      W~
+        um (L11      W~        // humble
         un (C      W~        // emprunt lundi
         un (n      y         // tunnel
     CC) un (_      W~        // brun
@@ -1341,10 +1356,14 @@ _transA) t (_      t
         uz (z      W
 
 // group u: English section
+        ual (_     _^_en     // usual
+        uch (_     _^_en     // much
     _b) usi        _^_en     // business, businessman
      C) ui (ce     _^_en     // produice, juice
+C)        ult (_   _^_en
         umber (_   _^_en
         ump (_     _^_en
+     r) u (nX      _^_en     // run, autorun
         unch       _^_en
         under      _^_en     // under, understand, thunder
     _C) un (_      _^_en
@@ -1353,6 +1372,7 @@ _transA) t (_      t
         up (_      _^_en     // setup
         urn (X     _^_en     // burn, turn
         ust (_     _^_en     // just, trust
+        uzz      _^_en     // buzz
 
 
 .group ü
@@ -1378,19 +1398,19 @@ _transA) t (_      t
 .group w
         w          w
      _) w (A       _|w
-        w (ag    v         // wagon
-        wa (ve_    wE:j      // wave
-        wa (re_    wE:       // hardware software
+        w (ag++    v         // wagon
 
 // group w: English section
-     e) w (K       _^_en
-     _) wan        _^_en
+     _) w (AC      _^_en
+     _) w (ina     w
+     _) w (Ai      _^_en
+     _) w (ACo     w
+     _) we        _^_en
+        wh      _^_en     // why whisky when
         wr         _^_en     // write
+        war        _^_en     // war
+        wav        _^_en     // wave
         way        _^_en     // way, away
-     _) wir        _^_en     // wire
-        winn       _^_en     // winner
-        wise       _^_en
-        with       _^_en
         wor        _^_en
 
 
@@ -1432,13 +1452,19 @@ _transA) t (_      t
      _) yacht      _^_en     // yacht, yachtman
 
      _) yahoo (P5  ja'u
-        ym (K      E~        // tympan
-        y (nn      i
-        y (nA      i
+        ym (L11      E~        // tympan
      X) ys (_      is
-        yx (_      iks
 
-        yn         E~        // laryngite
+        yn (K         E~        // laryngite
+        y (nn      i
+
+// group y: English section
+_C)	y (_	_^_en
+C)	y (e_	_^_en
+%C)	y (_	_^_en
+//@CAC)	y (_	_^_en
+nC)	y (_	_^_en
+      yze	_^_en
 
 
 .group z
@@ -1466,6 +1492,7 @@ _transA) t (_      t
         $          dOlar
         °          d@gre
    _n_) °                    // n°
+   	' (C	_^_en
 
 
 

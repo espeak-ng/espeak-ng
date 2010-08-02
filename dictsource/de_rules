@@ -18,7 +18,8 @@
 // *               <http://www.gnu.org/licenses/>.                           *
 // ***************************************************************************/
 
-.L01 c f h k p q s t    // unvoiced, except s+vowel
+.L01 l r
+.L02 c f h k p q s t    // unvoiced, except s+vowel
 
 // This file is UTF-8 encoded
 
@@ -145,10 +146,11 @@
 
 .group b
      _) b (_       be:
+     _) b (L01A    b  // allow bl br  at start of word
         b          b
      b) b 
         b (_N      p
-        b (L01     p
+        b (L02     p
         b (sA      b
         bt (_N     pt
 
@@ -197,6 +199,12 @@
 
 .group c
      _) c (_       se:
+     _) c (L01A    k  // allow cl cr  at start of word
+     _) ch (L01A   k
+     _) ch (a      S
+     _) ch (A      C
+     _) ch (o      k
+
         c          k
      c) c 
 
@@ -212,7 +220,6 @@
      e) chen (_    C@n
      ü) chen (_    C@n
 
-     _) chr        kr
         chs        ks        (_
         ck         k
 
@@ -225,8 +232,6 @@
      _) ch (if     S
      _) ch (il     S
         chip (_    tSIp      // English
-     _) ch (ol     k
-     _) ch (or     k
 
    bre) ch (en     x
         chro       kro:
@@ -236,6 +241,7 @@
    pla) c (ie      ts
         coat (_    _^_EN
      _) code       ko:t
+     _) computer(@P   kOmpj'u:t3
      _) cow        _^_EN
         crew       _^_EN
         cup        _^_EN
@@ -243,10 +249,13 @@
 
 .group d
      _) d (_       de:
+     _) d (rA      d  // allow dr at start of word
+     _) d (schA    d
+     _) d (shA     d
         d          d
      d) d 
         d (_N      t
-        d (L01     t
+        d (L02     t
         d (sA      d
         ds (_      ts
         dt         t
@@ -440,6 +449,8 @@
      _) f (_       Ef
         f          f
      f) f 
+     _) f (L01A    f   // allow fl fr  at start of word
+     _) f (jord    f
 
      _) faks (i    f%akz
      _) farb (C@P4 f'arp
@@ -459,12 +470,17 @@
 
 .group g
      _) g (_       ge:
+     _) g (L01A    g  // allow _gl _gr
         g          g
         g (g 
         g (_N      k
-        g (L01     k
+        g (L02     k
         g (sA      g
         gd (_N     kt
+     _) gh (A      g
+     _) g (nA      g@-  // allow _gn
+     B) gn (A      g@-n
+
      i) gt (_      Ct
    zei) gt (_      kt
         gtet (_    kt@t
@@ -472,8 +488,6 @@
 
      _) g (eHC     g         //  hC, lC, mC, nC, rC
 
-     _) gn (A      g@-n
-     B) gn (A      g@-n
 
      @) ght (_     _^_EN
         graph      grAf
@@ -580,7 +594,7 @@
         i (dee     %i:
         i (erin    =i:
      &) ig (+      Ig#       // [ig] or [iC]
-        igh        aI
+        igh (K     _^_EN
 
         i (i       i:_!
 
@@ -679,9 +693,13 @@ formal) ie         =I@
      _) j (_       jOt
         j          j
 
+
 .group k
      _) k (_       kA:
         k          k
+     _) k (L01A    k   // allow _kl _kr
+     _) k (ha      k
+     _) k (nA      k   // allow _kn
      k) k 
 
 //          @) keit (_S4    kaIt
@@ -753,6 +771,7 @@ formal) ie         =I@
      _) mit (P3    m'It
         mitt       mIt
         mitt (eil  mItt
+     _) m (nem     m   // allow _mnem
      _) mo (rb     m%O
      _) mono (@    m,o:no:
      _) motor      m%o:to:r
@@ -829,6 +848,7 @@ formal) ie         =I@
      z) oo (m      u:
     &t) or (_      =o:r
      &) oren (_    'o:r@n
+     _) orts (@P4  'Orts
         oso (_     'o:zo:
     st) o (ss      o:
         oy (K      OY
@@ -838,9 +858,17 @@ formal) ie         =I@
 .group p
      _) p (_       pe:
         p          p
-     p) p 
-        pf         pF
+     p) p
+     _) p (L01A    p     // allow _pl _pr
+     _) pf (A      pF
+     _) pf (L01A   pF    // allow _pfl _pfr
+     _) ph (A      f     // allow _ph
+     _) ph (L01A   f     // allow _phl _phr
+     _) phth (A    ft
         ph         f
+     _) p (neu     p     // allow _pneu
+     _) p (sA      p     // allow _ps
+     _) p (tol     p
 
         pake (t    p%ake:
      _) para (@    p,ara
@@ -857,6 +885,7 @@ formal) ie         =I@
         po (et     p%o:
         poesie     po:e:z'i:
      _) poly (@P4  p,o:ly:
+     _) polygon (@P7 po:ly:g'o:n
         partei     p%artaI
      _) perfe (k   p%ErfE
      _) polik      p'o:li:k
@@ -884,7 +913,7 @@ formal) ie         =I@
         r (r 
      b) r          @-*
      _) r          r
-     _) rh         r
+     _) rh (A      r    // allow _rh
 
         rangier    rA:NZ'i:r
      _) re (d      re:
@@ -901,15 +930,39 @@ formal) ie         =I@
         ss         s
         sst (@     sSt
 
+     _) s (cA      s    // allow _sc
+     _) s (cr      s    // allow _scr
+     _) sch (A     S
+     _) sch (L01A  S
+     _) sch (mA    S
+     _) sch (nA    S
+     _) sch (w     S
+     _) sh (A      S
+     _) sh (rA     S
+     _) s (kA      s    // allow _sk
+     _) s (kL01A   s    // allow _skl _skr
+     _) s (lA      s
+     _) s (mA      s
+     _) s (nA      s
+     _) s (pA      S
+     _) s (phA     s
+     _) s (plA     S
+     _) s (plend   s
+     _) s (prA     S
+     _) s (quA     s
+     _) s (tA      S
+     _) s (trA     S
+     _) s (ve      s
+     _) s (wA      s
+     _) s (zA      s
+
         sch        S
-     _) sh         S
         sh (K      S
         sou (nd    saU
      p) s (a       s
      p) s (i       s
      t) s (i       s
      k) s (i       s
-     _) sp         Sp
    _be) sp         Sp
    _ge) sp         Sp
   _ver) sp         Sp
@@ -925,7 +978,6 @@ formal) ie         =I@
     &C) ster (_S4  st3
     &C) stes (_S4  st@s
 
-     _) st         St
    _be) st         St
    _ge) st         St
   _ver) st         St
@@ -970,9 +1022,15 @@ formal) ie         =I@
 .group t
      _) t (_       te:
         t          t
-     t) t 
+     t) t
+     _) th (A      t   // allow _th
+     _) th (rA     t   // allow _thr
         th (K      t
      K) th         t
+     _) t (rA      t   // allow  _tr
+     _) tsch (A    tS
+     _) t (setse   t
+     _) tw (A      tw
         tz         ts
 
     &t) te (_      @
@@ -1005,7 +1063,6 @@ formal) ie         =I@
 
      _) talent     tal'Ent
         tch        tS
-     _) tsch       tS
         t (chen_   t
      _) teen       _^_EN
      _) tele (@    t,e:le:
@@ -1094,6 +1151,10 @@ formal) ie         =I@
      v) v 
         v (_N      f
 
+     _) v (lad     v
+     _) v (lies    f
+     _) v (ri      f
+
      _) vie        fi:
      _) vi (CC     vI
      _) vi         vi:
@@ -1147,6 +1208,9 @@ formal) ie         =I@
 .group w
      _) w (_       ve:
         w          v
+     _) wh (A      v
+     _) w (lad     v
+     _) w (rA      v
 
      @) wert (_    vErt
      _) wh         _^_EN
@@ -1182,7 +1246,9 @@ formal) ie         =I@
 .group z
      _) z (_       tsEt
         z          ts
-     z) z 
+     z) z
+     _) z (den     z
+     _) z (wA      ts   // allow _zw
 
      _) zentral (@P7 tsEntr'A:l
      _) zentral (i tsEntral

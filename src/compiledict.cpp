@@ -53,6 +53,7 @@ static char *hash_chains[N_HASH_DICT];
 static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
+	{"unpr",   0x01},
 	{"w_alt2", 0x12},
 	{"w_alt3", 0x13},
 	{"w_alt", 0x11},   // note: put longer names before their sub-strings
@@ -192,8 +193,8 @@ char *print_dictionary_flags(unsigned int *flags)
 
 
 
-char *DecodeRule(const char *group_chars, int group_length, char *rule)
-{//====================================================================
+char *DecodeRule(const char *group_chars, int group_length, char *rule, int control)
+{//=================================================================================
 /* Convert compiled match template to ascii */
 
    unsigned char rb;
@@ -268,16 +269,20 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule)
 		
 		if(rb == RULE_DOLLAR)
 		{
-			p[0] = '$';
-			name = LookupMnemName(mnem_rules, *rule++);
-			strcpy(&p[1],name);
-			p += (strlen(name)+1);
+			value = *rule++ & 0xff;
+			if((value != 0x01) || (control & FLAG_UNPRON_TEST))
+			{
+				p[0] = '$';
+				name = LookupMnemName(mnem_rules, value);
+				strcpy(&p[1],name);
+				p += (strlen(name)+1);
+			}
 			c = ' ';
 		}
 		else
 		if(rb == RULE_ENDING)
 		{
-			static const char *flag_chars = "ei vtfq t";
+			static const char *flag_chars = "eipvdfq tba ";
 			flags = ((rule[0] & 0x7f)<< 8) + (rule[1] & 0x7f);
 			suffix_char = 'S';
 			if(flags & (SUFX_P >> 8))

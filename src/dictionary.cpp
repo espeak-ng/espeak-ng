@@ -38,15 +38,16 @@ int dictionary_skipwords;
 char dictionary_name[40];
 
 extern char *print_dictionary_flags(unsigned int *flags);
-extern char *DecodeRule(const char *group_chars, int group_length, char *rule);
+extern char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 // accented characters which indicate (in some languages) the start of a separate syllable
 //static const unsigned short diereses_list[7] = {L'ä',L'ë',L'ï',L'ö',L'ü',L'ÿ',0};
 static const unsigned short diereses_list[7] = {0xe4,0xeb,0xef,0xf6,0xfc,0xff,0};
 
 // convert characters to an approximate 7 bit ascii equivalent
-// used for checking for vowels
-static unsigned char remove_accent[] = {
+// used for checking for vowels (up to 0x259=schwa)
+#define N_REMOVE_ACCENT  0x25e
+static unsigned char remove_accent[N_REMOVE_ACCENT] = {
 'a','a','a','a','a','a','a','c','e','e','e','e','i','i','i','i',  // 0c0
 'd','n','o','o','o','o','o', 0, 'o','u','u','u','u','y','t','s',  // 0d0
 'a','a','a','a','a','a','a','c','e','e','e','e','i','i','i','i',  // 0e0
@@ -73,7 +74,9 @@ static unsigned char remove_accent[] = {
 'r','r','r','r','u','u','u','u','s','s','t','t','y','y','h','h',  // 210
 'n','d','o','o','z','z','a','a','e','e','o','o','o','o','o','o',  // 220
 'o','o','y','y','l','n','t','j','d','q','a','c','c','l','t','s',  // 230
-'z', 0 };
+'z', 0,  0, 'b','u','v','e','e','j','j','q','q','r','r','y','y',  // 240
+'a','a','a','b','o','c','d','d','e','e','e','e','e','e' };
+
 
 
 
@@ -86,8 +89,8 @@ void strncpy0(char *to,const char *from, int size)
 }
 
 
-static int reverse_word_bytes(int word)
-{//=============================
+int Reverse4Bytes(int word)
+{//========================
 	// reverse the order of bytes from little-endian to big-endian
 #ifdef ARCH_BIG
 	int ix;
@@ -170,9 +173,9 @@ static void InitGroups(Translator *tr)
 			pw = (unsigned int *)(tr->langopts.replace_chars);
 			while(*pw != 0)
 			{
-				*pw = reverse_word_bytes(*pw);
+				*pw = Reverse4Bytes(*pw);
 				pw++;
-				*pw = reverse_word_bytes(*pw);
+				*pw = Reverse4Bytes(*pw);
 				pw++;
 			}
 #endif
@@ -275,7 +278,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 
 	pw = (int *)(tr->data_dictlist);
-	length = reverse_word_bytes(pw[1]);
+	length = Reverse4Bytes(pw[1]);
 
 	if(size <= (N_HASH_DICT + sizeof(int)*2))
 	{
@@ -283,10 +286,10 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 		return(2);
 	}
 
-	if((reverse_word_bytes(pw[0]) != N_HASH_DICT) ||
+	if((Reverse4Bytes(pw[0]) != N_HASH_DICT) ||
 	   (length <= 0) || (length > 0x8000000))
 	{
-		fprintf(stderr,"Bad data: '%s' (%x length=%x)\n",fname,reverse_word_bytes(pw[0]),length);
+		fprintf(stderr,"Bad data: '%s' (%x length=%x)\n",fname,Reverse4Bytes(pw[0]),length);
 		return(2);
 	}
 	tr->data_dictrules = &(tr->data_dictlist[length]);
@@ -742,7 +745,7 @@ static int IsLetter(Translator *tr, int letter, int group)
 	}
 	else
 	{
-		if((letter >= 0xc0) && (letter <= 0x241))
+		if((letter >= 0xc0) && (letter < N_REMOVE_ACCENT))
 			return(tr->letter_bits[remove_accent[letter-0xc0]] & (1L << group));
 	}
 
@@ -753,105 +756,29 @@ static int IsLetter(Translator *tr, int letter, int group)
 }
 
 
-static int IsVowel(Translator *tr, int letter)
-{//===========================================
-	return(IsLetter(tr, letter, 0));
+int IsVowel(Translator *tr, int letter)
+{//====================================
+	return(IsLetter(tr, letter, LETTERGP_VOWEL2));
 }
 
 
 
 
-static int Unpronouncable_en(Translator *tr, char *word)
-{//=====================================================
-/* Determines whether a word in 'unpronouncable', i.e. whether it should
-	be spoken as individual letters.
-
-	This function is language specific.
-*/
-
+static int Unpronouncable2(Translator *tr, char *word)
+{//===================================================
 	int  c;
-	int  vowel_posn=9;
-	int  index;
-	int  count;
-	int  ix;
-	int  apostrophe=0;
+	int end_flags;
+	char ph_buf[N_WORD_PHONEMES];
 
-	static unsigned char initials_bitmap[86] = {
-	0x00, 0x00, 0x00, 0x00, 0x22, 0x08, 0x00, 0x88,  //  0
-	0x20, 0x24, 0x20, 0x80, 0x10, 0x00, 0x00, 0x00,
-	0x00, 0x28, 0x08, 0x00, 0x88, 0x22, 0x04, 0x00,  // 16
-	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-	0x00, 0x88, 0x22, 0x04, 0x00, 0x02, 0x00, 0x04,  // 32
-	0x20, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-	0x00, 0x28, 0x8a, 0x03, 0x00, 0x00, 0x40, 0x00,  // 48
-	0x02, 0x00, 0x41, 0xca, 0xbb, 0x06, 0x20, 0x80,
-	0x91, 0x00, 0x00, 0x00, 0x00, 0x20, 0x08, 0x00,  // 64
-	0x08, 0x20, 0x00, 0x00, 0x04, 0x00, 0x00, 0x00,
-	0x00, 0x00, 0x22, 0x00, 0x01, 0x00, };
-
-
-	// words which we pass through to the dictionary, even though they look unpronouncable
-	static const char *exceptions[] = {
-		"'s ", "st ","nd ","rd ","th ",NULL };
-
-	if((*word == ' ') || (*word == 0))
-		return(0);
-
-	for(ix=0; exceptions[ix] != NULL; ix++)
-	{
-		// Seemingly uncpronouncable words, but to be looked in the dictionary rules instead
-		if(memcmp(word,exceptions[ix],3)==0)
-			return(0);
-	}
-
-	index=0;
-	count=0;
-	for(;;)
-	{
-		index += utf8_in(&c,&word[index]);
-		count++;
-
-		if((c==0) || (c==' ') || (c == '\''))
-			break;
-
-		if(IsVowel(tr, c) || (c == 'y'))
-		{
-			vowel_posn = count;
-			break;
-		}
-
-		if(c == '\'')
-			apostrophe = 1;
-		else
-		if(!IsAlpha(c))
-			return(0);        // letter (not vowel) outside Latin character range or apostrophe, abort test
-	}
-	if((vowel_posn > 5) || ((word[0]!='s') && (vowel_posn > 4)))
-		return(1);  // no vowel, or no vowel in first four letters
-
-	/* there is at least one vowel, is the initial letter combination valid ? */
-
-	if(vowel_posn < 3)
-		return(0);   /* vowel in first two letters, OK */
-
-	if(apostrophe)
-		return(0);   // first two letters not a-z, abort test
-
-	index = (word[0]-'a') * 26 + (word[1]-'a');
-	if(initials_bitmap[index >> 3] & (1L << (index & 7)))
-		return(0);
-	else
-		return(1);   /****/
-}   /* end of Unpronounceable */
-
-
-static int Unpronouncable_de(Translator *tr, char *word)
-{//=====================================================
-	if(memcmp(word,"tsch",4)==0)
-		return(0);
-	return(2);
+	ph_buf[0] = 0;
+	c = word[-1];
+	word[-1] = ' ';   // ensure there is a space before the "word"
+	end_flags = TranslateRules(tr, word, ph_buf, sizeof(ph_buf), NULL, FLAG_UNPRON_TEST, NULL);
+	word[-1] = c;
+	if((end_flags == 0) || (end_flags & SUFX_UNPRON))
+		return(1);
+	return(0);
 }
-
 
 
 int Unpronouncable(Translator *tr, char *word)
@@ -868,18 +795,6 @@ int Unpronouncable(Translator *tr, char *word)
 	int  index;
 	int  count;
 	int  apostrophe=0;
-	int  result=2;  // unknown
-
-	if(tr->translator_name == L('e','n'))
-	{
-		return(Unpronouncable_en(tr,word));
-	}
-	if(tr->translator_name == L('d','e'))
-	{
-		result = Unpronouncable_de(tr,word);
-	}
-	if(result < 2)
-		return(result);
 
 	utf8_in(&c,word);
 	if((tr->letter_bits_offset > 0) && (c < 0x241))
@@ -899,8 +814,11 @@ int Unpronouncable(Translator *tr, char *word)
 	for(;;)
 	{
 		index += utf8_in(&c,&word[index]);
-		if((c==0) || (c==' ') || (c == '\''))
+		if((c==0) || (c==' '))
 			break;
+
+		if((c=='\'') && (count > 1))
+			break;   // "tv'" but not "l'"
 
 		if(count==0)
 			c1 = c;
@@ -916,11 +834,14 @@ int Unpronouncable(Translator *tr, char *word)
 			apostrophe = 1;
 		else
 		if(!iswalpha(c))
-			return(0);        // letter (not vowel) outside a-z range or apostrophe, abort test
+			return(0);
 	}
 
-	if((vowel_posn < 9) && (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 2))
-		return(0);   // option means allow any word with a vowel
+	if((vowel_posn > 2) && (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 2))
+	{
+		// Lookup unpronounable rules in *_rules
+		return(Unpronouncable2(tr, word));
+	}
 
 	if(c1 == tr->langopts.param[LOPT_UNPRONOUNCABLE])
 		vowel_posn--;   // disregard this as the initial letter when counting
@@ -1813,6 +1734,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 	int  match_type;      /* left, right, or consume */
 	int  failed;
+	int  unpron_ignore;
 	int  consumed;        /* number of letters consumed from input */
 	int  count;           /* count through rules in the group */
 	int  syllable_count;
@@ -1858,6 +1780,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 	/* search through dictionary rules */
 	while(rule[0] != RULE_GROUP_END)
 	{
+		unpron_ignore = word_flags & FLAG_UNPRON_TEST;
 		match_type=0;
 		consumed = 0;
 		letter = 0;
@@ -1874,6 +1797,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 		/* work through next rule until end, or until no-match proved */
 		rule_start = rule;
+
 		failed = 0;
 		while(!failed)
 		{
@@ -1904,6 +1828,14 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 				case RULE_PRE:
 					match_type = RULE_PRE;
+					if(word_flags & FLAG_UNPRON_TEST)
+					{
+						// checking the start of the word for unpronouncable character sequences, only
+						// consider rules which explicitly match the start of a word
+						if(rule[0] != ' ')
+							failed = 1;
+						unpron_ignore = 0;
+					}
 					break;
 				case RULE_POST:
 					match_type = RULE_POST;
@@ -2046,8 +1978,14 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 
 				case RULE_DOLLAR:
 					command = *rule++;
+					if(command == 0x01)
+					{
+						match.end_type = SUFX_UNPRON;    // $unpron
+					}
+					else
 					if((command & 0xf0) == 0x10)
 					{
+						// $w_alt
 						if(dict_flags & (1 << (BITNUM_FLAG_ALT + (command & 0xf))))
 							add_points = 23;
 						else
@@ -2056,6 +1994,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					else
 					if((command & 0xf0) == 0x20)
 					{
+						// $p_alt
 						// make a copy of the word up to the post-match characters
 						ix = *word - word_start + consumed + group_length + 1;
 						memcpy(word_buf, word_start-1, ix);
@@ -2151,8 +2090,8 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case RULE_DEL_FWD:
-					// find the next 'e' in the word and replace by ''
-					for(p = *word + group_length; *p != ' '; p++)
+					// find the next 'e' in the word and replace by 'E'
+					for(p = *word + group_length; p < post_ptr; p++)
 					{
 						if(*p == 'e')
 						{
@@ -2366,9 +2305,11 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				match.points += add_points;
 		}
 
-		if(failed == 2)
+
+		if((failed == 2) && (unpron_ignore == 0))
 		{
 			/* matched OK, is this better than the last best match ? */
+
 			if(match.points >= best.points)
 			{
 				memcpy(&best,&match,sizeof(match));
@@ -2386,7 +2327,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 				if(group_length > 1)
 					pts += 35;    // to account for an extra letter matching
 				DecodePhonemes(match.phonemes,decoded_phonemes);
-				fprintf(f_trans,"%3d\t%s [%s]\n",pts,DecodeRule(group_chars, group_length, rule_start),decoded_phonemes);
+				fprintf(f_trans,"%3d\t%s [%s]\n",pts,DecodeRule(group_chars, group_length, rule_start, word_flags), decoded_phonemes);
 			}
 
 		}
@@ -2469,7 +2410,10 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			wordbuf[ix] = c;
 		}
 		wordbuf[ix] = 0;
-		fprintf(f_trans,"Translate '%s'\n",wordbuf);
+		if(word_flags & FLAG_UNPRON_TEST)
+			fprintf(f_trans,"Unpronouncable? '%s'\n",wordbuf);
+		else
+			fprintf(f_trans,"Translate '%s'\n",wordbuf);
 	}
 
 	p = p_start;
@@ -2597,7 +2541,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 						}
 
 						// no match, try removing the accent and re-translating the word
-						if((letter >= 0xc0) && (letter <= 0x241) && ((ix = remove_accent[letter-0xc0]) != 0))
+						if((letter >= 0xc0) && (letter < N_REMOVE_ACCENT) && ((ix = remove_accent[letter-0xc0]) != 0))
 						{
 							// within range of the remove_accent table
 							if((p[-2] != ' ') || (p[n] != ' '))
@@ -2682,7 +2626,11 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 				strcpy(phonemes,match1.phonemes);
 				return(0);
 			}
-	
+
+			if(word_flags & FLAG_UNPRON_TEST)
+				return(match1.end_type | 1);
+			match1.end_type &= ~SUFX_UNPRON;
+
 			if((match1.end_type != 0) && (end_phonemes != NULL))
 			{
 				/* a standard ending has been found, re-translate the word without it */
@@ -3524,7 +3472,8 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	if((strcmp(ending,"s")==0) || (strcmp(ending,"es")==0))
 		end_flags |= FLAG_SUFX_S;
 
-	if(strcmp(ending,"'s")==0)
+//	if(strcmp(ending,"'s")==0)
+	if(ending[0] == '\'')
 		end_flags &= ~FLAG_SUFX;  // don't consider 's as an added suffix
 
 	return(end_flags);

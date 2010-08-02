@@ -230,13 +230,6 @@ phoneme x
 endphoneme
 
 
-phoneme r-     // syllabic r
-  vowel  starttype #@  endtype #@
-  length 240
-  FMT(vowelr/r-voc)
-endphoneme
-
-
 phoneme R
   import_phoneme base/R
 endphoneme
@@ -245,7 +238,7 @@ endphoneme
 phoneme r*
   vowel nonsyllabic
   unstressed
-  ipa r
+  ipa  NULL
   length 50
   starttype #@  endtype #@
   AppendPhoneme(*)

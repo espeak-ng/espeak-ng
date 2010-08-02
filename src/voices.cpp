@@ -978,6 +978,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
 		}
 		voice->phoneme_tab_ix = ix;
+		new_translator->phoneme_tab_ix = ix;
 		error = LoadDictionary(new_translator, new_dictionary, control & 4);
 		if(dictionary_name[0]==0)
 			return(NULL);   // no dictionary loaded
