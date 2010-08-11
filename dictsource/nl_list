@@ -5,7 +5,6 @@
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
-
 b	be:
 c	se:
 d	de:
@@ -100,7 +99,7 @@ _17	z'e:f@ntin
 _18	'Axtin
 _19	n'e:x@ntin
 _2X	tv#'Int@x
-_3X	d'e:rt@x
+_3X	d'Ert@x
 _4X	f'e:rt@x
 _5X	f'EIft@x
 _6X	z'Est@x
@@ -109,7 +108,6 @@ _8X	t'Axt@x
 _9X	n'e:g@nt@x
 _0C	h'OndErt
 _0M1	d'WyzEnt
-_1M1	d'WyzEnt
 _0M2	m'iljun
 _0M3	m'iljArt
 _0M4	b'iljun
@@ -183,27 +181,27 @@ er		$u
 waar		$pause
 
 // prepositions
-in		$u+ $brk	// in
-op		$u+ $brk	// in
-aan		$u+ $brk	// at, on
-bij		$u+ $pause	// at, near
-om		$u+ $brk	// at
-met		$u+ $brk	// with, by
-over		$u+ $pause	// about
-na		$u+ $pause	// after
-naar		$u+		// to
-door		$u+ $brk	// through, by
-te		$u+ $brk	// to
-tot		$u+ $pause	// until
-uit		$u+ $brk	// from, out of
-voor		$u+ $pause	// for, in front of
-van		$u+		// from, of
-zonder		$u+ $pause	// without
+in	$only	$u+ $brk	// in
+op	$only	$u+ $brk	// in
+aan	$only	$u+ $brk	// at, on
+bij	$only	$u+ $pause	// at, near
+om	$only	$u+ $brk	// at
+met	$only	$u+ $brk	// with, by
+over	$only	$u+ $pause	// about
+na	$only	$u+ $pause	// after
+naar	$only	$u+		// to
+door	$only	$u+ $brk	// through, by
+te	$only	$u+ $brk	// to
+tot	$only	$u+ $pause	// until
+uit	$only	$u+ $brk	// from, out of
+voor	$only	$u+ $pause	// for, in front of
+van	$only	$u+		// from, of
+zonder	$only	$u+ $pause	// without
 
 // adverbs, etc.
-ook		$u+	// any
-zo		$u+
-sommige		$u+	// some
+ook	$only	$u+	// any
+zo	$only	$u+
+sommige	$only	$u+	// some
 
 
 // conjunctions
@@ -294,24 +292,147 @@ werd	$u
 
 // Pronounce as English
 delete	_^_EN
-down	_^_EN
+//down	_^_EN
 escape	_^_EN
 home	_^_EN
 game	_^_EN
+homepage	_^_EN
 items	_^_EN
 laptop	_^_EN
-page	_^_EN
+(page down)	_^_EN
+(page up)	_^_EN
 player	_^_EN
-slash	_^_EN
 speak	_^_EN
-the	_^_EN
+the	D@
 up	_^_EN
 
 
-// words where -eren is not a verb ending
+// words where -eren is not a stressed verb ending
+
+achter		$alt
+achterkleinkinder	$alt
+ader		$alt
 ander		$alt
+anker		$alt
+badder		$alt
+bagger		$alt
+baker		$alt
+beender		$alt
+belemmer	$alt
+beter		$alt
+bibber		$alt
+bladder		$alt
+blader		$alt
+blaker		$alt
+blikker		$alt
+blubber		$alt
+blunder		$alt
+bolder		$alt
+bolster		$alt
+boter		$alt
+buffer		$alt
+bulder		$alt
+bulldozer	$alt
+bumper		$alt
+bunker		$alt
+cijfer		$alt
+donder		$alt
+dwater		$alt
+eier		$alt
+ender		$alt
+filter		$alt
+geester		$alt
+gemoeder	$alt
+hamer		$alt
+hoender		$alt
+jakker		$alt
+jammer		$alt
+kalver		$alt
+kanker		$alt
+kaver		$alt
 kinder		$alt
+kladder		$alt
+klodder		$alt
+koekeloer	$alt
+kommer		$alt
+kuier		$alt
+lammer		$alt
+laster		$alt
+lazer		$alt
+lebber		$alt
+leder		$alt  // gelederen
+leger		$alt
+ler		$alt
+letter		$alt
+lever		$alt
+lieder		$alt
+lubber		$alt
+luister		$alt
+modder		$alt
+moeder		$alt
+monster		$alt
+nader		$alt
+nummer		$alt
 ouder		$alt
+pantser		$alt
+peiger		$alt
+peuter		$alt
+pleister	$alt
+poeder		$alt
+poeier		$alt
+polder		$alt
+rader		$alt
+raster		$alt
+redder		$alt
+ridder		$alt
+runder		$alt
+schilder	$alt
+slenter		$alt
+slinger		$alt
+snipper		$alt
+sodemieter	$alt
+splinter	$alt
+sputter		$alt
+suiker		$alt
+timmer		$alt
+tover		$alt
+vinger		$alt
+volker		$alt
+vorder		$alt
+wakker		$alt
+water		$alt
+wegwijzer	$alt
+wonder		$alt
+zever		$alt
+zonder		$alt
+zuiver		$alt
+zwanger		$alt
+
+// words where -age  is [a:Q@] not French ['a:Z@]
+drage		$alt
+hedentendage	$alt
+gestage		$alt $2
+grage		$alt
+inzage		$alt
+lage		$alt
+oplage		$alt
+sage		$alt
+lrage		$alt
+vrage		$alt
+
+// -age exceptions
+amperage	Amp@r'a:Z@
+camouflage	ka:mufl'a:Z@
+courtage	kurt'a:Z@
+curettage	kyr@t'a:Z@
+drainage	drEn'a:Z@
+equipage	e:kwip'a:Z@
+jumelage	Zym@l'a:Z@
+metrage		me:tr'a:Z@
+outillage	utij'a:Z@
+vrijage		vre:j'a:Z@
+
+
 
 // pronunciation exceptions
 aangrijpend	$2
@@ -319,7 +440,6 @@ bourgondier	burx'o:ndi:@r
 circuit		sIrku'i
 computer	$2
 contour		ko:nt'ur
-eren		I:*@n
 ingewikkeld	$3
 ingrijpend	$2
 ingeval		$3
@@ -335,6 +455,13 @@ ongerieflijk	$3
 ongrondwettig	$3
 proces		$2
 renaissance	rEne:s'A~s@
+tegenaan	$3
+tegenin		$3
+tegenover	$3
+tegendraads	$3
+tegennatuur	$4
+tegenstrijdig	$3
+tegenwoordig	$3
 waarschijnlijk	$2
 
 

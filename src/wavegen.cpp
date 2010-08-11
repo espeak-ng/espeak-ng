@@ -693,6 +693,7 @@ void WavegenInit(int rate, int wavemult_fact)
 	max_hval = 0;
 
 	wdata.amplitude = 32;
+	wdata.amplitude_fmt = 100;
 
 	for(ix=0; ix<N_EMBEDDED_VALUES; ix++)
 		embedded_value[ix] = embedded_default[ix];
@@ -1147,7 +1148,8 @@ int Wavegen()
 				maxh2 = PeaksToHarmspect(peaks, wdata.pitch<<4, hspect[0], 0);
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
+//				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
+				amplitude2 = (wdata.amplitude * (wdata.pitch >> 8) * wdata.amplitude_fmt)/(10000 << 3);
 
             // switch sign of harmonics above about 900Hz, to reduce max peak amplitude
 				h_switch_sign = 890 / (wdata.pitch >> 12);
@@ -1200,7 +1202,8 @@ int Wavegen()
 				}
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
-				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
+//				amplitude2 = (wdata.amplitude * wdata.pitch)/(100 << 11);
+				amplitude2 = (wdata.amplitude * (wdata.pitch >> 8) * wdata.amplitude_fmt)/(10000 << 3);
 
 				if(glottal_flag > 0)
 				{
@@ -1535,7 +1538,7 @@ void SetEmbedded(int control, int value)
 		general_amplitude = GetAmplitude();
 		break;
 
-	case EMBED_F:   // emphasiis
+	case EMBED_F:   // emphasis
 		general_amplitude = GetAmplitude();
 		break;
 
@@ -1837,6 +1840,7 @@ int WavegenFill(int fill_zeros)
 				echo_complete -= length;
 			}
 			wdata.n_mix_wavefile = 0;
+			wdata.amplitude_fmt = 100;
 			KlattReset(1);
 			result = PlaySilence(length,resume);
 			break;
@@ -1906,6 +1910,11 @@ int WavegenFill(int fill_zeros)
 
 		case WCMD_MBROLA_DATA:
 			result = MbrolaFill(length, resume);
+			break;
+
+		case WCMD_FMT_AMPLITUDE:
+			if((wdata.amplitude_fmt = q[1]) == 0)
+				wdata.amplitude_fmt = 100;  // percentage, but value=0 means 100%
 			break;
 		}
 

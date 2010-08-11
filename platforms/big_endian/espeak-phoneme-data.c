@@ -288,7 +288,7 @@ void swap_phonindex (const char *infile, const char *outfile)
 {//==========================================================
     FILE *in, *out;
     char buf_4[4];
-    unsigned int val;
+    unsigned short val;
 
     in = fopen (infile, "rb");
     if (in == NULL) {
@@ -324,7 +324,7 @@ void swap_phonindex (const char *infile, const char *outfile)
 void swap_phontab (const char *infile, const char *outfile)
 {//========================================================
     FILE *in, *out;
-    char buf_4[4];
+    char buf_8[8];
     int i, n_phoneme_tables;
 
     in = fopen (infile, "rb");
@@ -339,18 +339,18 @@ void swap_phontab (const char *infile, const char *outfile)
         exit (1);
     }
 
-    fread (buf_4, 4, 1, in);
-    fwrite (buf_4, 4, 1, out);
-    n_phoneme_tables = buf_4[0];
+    fread (buf_8, 4, 1, in);
+    fwrite (buf_8, 4, 1, out);
+    n_phoneme_tables = buf_8[0];
 
     for (i = 0; i < n_phoneme_tables; i++) {
         int n_phonemes, j;
         char tab_name[N_PHONEME_TAB_NAME];
 
-        fread (buf_4, 4, 1, in);
-        fwrite (buf_4, 4, 1, out);
+        fread (buf_8, 8, 1, in);
+        fwrite (buf_8, 8, 1, out);
 
-        n_phonemes = buf_4[0];
+        n_phonemes = buf_8[0];
 
         fread (tab_name, N_PHONEME_TAB_NAME, 1, in);
         fwrite (tab_name, N_PHONEME_TAB_NAME, 1, out);

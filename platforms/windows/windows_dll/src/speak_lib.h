@@ -50,12 +50,13 @@ Revision 5
 typedef enum {
   espeakEVENT_LIST_TERMINATED = 0, // Retrieval mode: terminates the event list.
   espeakEVENT_WORD = 1,            // Start of word
-  espeakEVENT_SENTENCE,            // Start of sentence
-  espeakEVENT_MARK,                // Mark
-  espeakEVENT_PLAY,                // Audio element
-  espeakEVENT_END,                 // End of sentence or clause
-  espeakEVENT_MSG_TERMINATED,      // End of message
-  espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_SENTENCE = 2,        // Start of sentence
+  espeakEVENT_MARK = 3,            // Mark
+  espeakEVENT_PLAY = 4,            // Audio element
+  espeakEVENT_END = 5,             // End of sentence or clause
+  espeakEVENT_MSG_TERMINATED = 6,  // End of message
+  espeakEVENT_PHONEME = 7,         // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_SAMPLERATE = 8       // internal use, set sample rate
 } espeak_EVENT_TYPE;
 
 
@@ -73,7 +74,7 @@ typedef struct {
 		const char *name;  // used for MARK and PLAY events.  UTF8 string
 	} id;
 } espeak_EVENT;
-/* 
+/*
    When a message is supplied to espeak_synth, the request is buffered and espeak_synth returns. When the message is really processed, the callback function will be repetedly called.
 
 
@@ -81,16 +82,16 @@ typedef struct {
 
    In PLAYBACK mode, the callback function is called as soon as an event happens.
 
-   For example suppose that the following message is supplied to espeak_Synth: 
+   For example suppose that the following message is supplied to espeak_Synth:
    "hello, hello."
 
 
    * Once processed in RETRIEVAL mode, it could lead to 3 calls of the callback function :
 
    ** Block 1:
-   <audio data> + 
+   <audio data> +
    List of events: SENTENCE + WORD + LIST_TERMINATED
- 
+
    ** Block 2:
    <audio data> +
    List of events: WORD + END + LIST_TERMINATED
@@ -127,11 +128,11 @@ typedef enum {
 
 typedef enum {
 	/* PLAYBACK mode: plays the audio data, supplies events to the calling program*/
-	AUDIO_OUTPUT_PLAYBACK, 
+	AUDIO_OUTPUT_PLAYBACK,
 
 	/* RETRIEVAL mode: supplies audio data and events to the calling program */
 	AUDIO_OUTPUT_RETRIEVAL,
- 
+
 	/* SYNCHRONOUS mode: as RETRIEVAL but doesn't return until synthesis is completed */
 	AUDIO_OUTPUT_SYNCHRONOUS,
 
@@ -174,7 +175,7 @@ extern "C"
 ESPEAK_API void espeak_SetSynthCallback(t_espeak_callback* SynthCallback);
 /* Must be called before any synthesis functions are called.
    This specifies a function in the calling program which is called when a buffer of
-   speech sound data has been produced. 
+   speech sound data has been produced.
 
 
    The callback function is of the form:
@@ -263,7 +264,7 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text,
       start of the text.
 
    position_type:  Determines whether "position" is a number of characters, words, or sentences.
-      Values: 
+      Values:
 
    end_position:  If set, this gives a character position at which speaking will stop.  A value
       of zero indicates no end position.
@@ -282,13 +283,13 @@ ESPEAK_API espeak_ERROR espeak_Synth(const void *text,
       espeakENDPAUSE  If set then a sentence pause is added at the end of the text.  If not set then
          this pause is suppressed.
 
-   unique_identifier: message identifier; helpful for identifying later 
+   unique_identifier: message identifier; helpful for identifying later
      data supplied to the callback.
 
    user_data: pointer which will be passed to the callback function.
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -311,8 +312,8 @@ ESPEAK_API espeak_ERROR espeak_Synth_Mark(const void *text,
 
    For the other parameters, see espeak_Synth()
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -325,8 +326,8 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key_name);
    If key_name is a single character, it speaks the name of the character.
    Otherwise, it speaks key_name as a text string.
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -335,10 +336,10 @@ ESPEAK_API espeak_ERROR espeak_Key(const char *key_name);
 extern "C"
 #endif
 ESPEAK_API espeak_ERROR espeak_Char(wchar_t character);
-/* Speak the name of the given character 
+/* Speak the name of the given character
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -394,7 +395,7 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
       espeakRANGE:   pitch range, range 0-100. 0-monotone, 50=normal
 
       espeakPUNCTUATION:  which punctuation characters to announce:
-         value in espeak_PUNCT_TYPE (none, all, some), 
+         value in espeak_PUNCT_TYPE (none, all, some),
          see espeak_GetParameter() to specify which characters are announced.
 
       espeakCAPITALS: announce capital letters by:
@@ -406,8 +407,8 @@ ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int valu
 
       espeakWORDGAP:  pause between words, units of 10mS (at the default speed)
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -429,8 +430,8 @@ ESPEAK_API espeak_ERROR espeak_SetPunctuationList(const wchar_t *punctlist);
 
    punctlist:  A list of character codes, terminated by a zero character.
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -474,7 +475,7 @@ typedef struct {
 	unsigned char gender;  // 0=none 1=male, 2=female,
 	unsigned char age;     // 0=not specified, or age in years
 	unsigned char variant; // only used when passed as a parameter to espeak_SetVoiceByProperties
-	unsigned char xx1;     // for internal use 
+	unsigned char xx1;     // for internal use
 	int score;       // for internal use
 	void *spare;     // for internal use
 } espeak_VOICE;
@@ -519,8 +520,8 @@ ESPEAK_API espeak_ERROR espeak_SetVoiceByName(const char *name);
 /* Searches for a voice with a matching "name" field.  Language is not considered.
    "name" is a UTF8 string.
 
-   Return: EE_OK: operation achieved 
-           EE_BUFFER_FULL: the command can not be buffered; 
+   Return: EE_OK: operation achieved
+           EE_BUFFER_FULL: the command can not be buffered;
              you may try after a while to call the function again.
 	   EE_INTERNAL_ERROR.
 */
@@ -561,7 +562,7 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void);
    function returns, the audio output is fully stopped and the synthesizer is ready to
    synthesize a new message.
 
-   Return: EE_OK: operation achieved 
+   Return: EE_OK: operation achieved
 	   EE_INTERNAL_ERROR.
 */
 
@@ -578,7 +579,7 @@ extern "C"
 #endif
 ESPEAK_API espeak_ERROR espeak_Synchronize(void);
 /* This function returns when all data have been spoken.
-   Return: EE_OK: operation achieved 
+   Return: EE_OK: operation achieved
 	   EE_INTERNAL_ERROR.
 */
 
@@ -587,7 +588,7 @@ extern "C"
 #endif
 ESPEAK_API espeak_ERROR espeak_Terminate(void);
 /* last function to be called.
-   Return: EE_OK: operation achieved 
+   Return: EE_OK: operation achieved
 	   EE_INTERNAL_ERROR.
 */
 
@@ -600,3 +601,4 @@ ESPEAK_API const char *espeak_Info(void* ptr);
    The parameter is for future use, and should be set to NULL
 */
 #endif
+

@@ -1120,13 +1120,15 @@ ESPEAK_API void espeak_SetPhonemeTrace(int value, FILE *stream)
 {//============================================================
 	ENTER("espeak_SetPhonemes");
 	/* Controls the output of phoneme symbols for the text
-		value=0  No phoneme output (default)
-		value=1  Output the translated phoneme symbols for the text
-		value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
-		bit 3:   produce mbrola pho data
+		bits 0-3:
+		 value=0  No phoneme output (default)
+		 value=1  Output the translated phoneme symbols for the text
+		 value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
+		 value=3  as (1), but produces IPA phoneme names rather than ascii 
+		bit 4:   produce mbrola pho data
 	*/
 	option_phonemes = value & 3;
-	option_mbrola_phonemes = value & 8;
+	option_mbrola_phonemes = value & 16;
 	f_trans = stream;
 	if(stream == NULL)
 		f_trans = stderr;

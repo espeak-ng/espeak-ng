@@ -169,6 +169,9 @@ phoneme Q
   Vowelin f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
 
+  IF prevPhW(x) THEN
+    ChangePhoneme(NULL)
+  ENDIF
   IF nextPhW(isVoiced) THEN
   ELSE
     ChangePhoneme(x)

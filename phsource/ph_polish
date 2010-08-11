@@ -13,6 +13,7 @@ endphoneme
 
 phoneme a#
   vowel starttype #a endtype #a
+  ipa ɐ
   length 170
   FMT(vowel/a#_2)
 endphoneme
@@ -60,6 +61,7 @@ endphoneme
 
 phoneme y      // close central unrounded (i-bar)
   vowel starttype #i endtype #i
+  ipa ɨ
   length 180
   FMT(vowel/ii#_2)
 endphoneme
@@ -85,6 +87,7 @@ endphoneme
 phoneme R
   liquid
   trill
+  ipa r
   lengthmod 6
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk

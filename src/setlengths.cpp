@@ -360,14 +360,14 @@ void SetParameter(int parameter, int value, int relative)
 
 
 
-static void DoEmbedded2(int &embix)
+static void DoEmbedded2(int *embix)
 {//================================
 	// There were embedded commands in the text at this point
 
 	unsigned int word;
 
 	do {
-		word = embedded_list[embix++];
+		word = embedded_list[(*embix)++];
 
 		if((word & 0x1f) == EMBED_S)
 		{
@@ -420,7 +420,7 @@ void CalcLengths(Translator *tr)
 
 		if(p->synthflags & SFLAG_EMBEDDED)
 		{
-			DoEmbedded2(embedded_ix);
+			DoEmbedded2(&embedded_ix);
 		}
 
 		type = p->type;
@@ -734,6 +734,12 @@ if(p->type != phVOWEL)
 }
 			p->length = length_mod;
 
+			if(p->env >= (N_ENVELOPE_DATA-1))
+			{
+				fprintf(stderr,"espeak: Bad intonation data\n");
+				p->env = 0;
+			}
+
 			// pre-vocalic part
 			// set last-pitch
 			env2 = p->env + 1;  // version for use with preceding semi-vowel
@@ -741,7 +747,7 @@ if(p->type != phVOWEL)
 			if(p->tone_ph != 0)
 			{
 				InterpretPhoneme2(p->tone_ph, &phdata_tone);
-				pitch_env = LookupEnvelope(phdata_tone.pitch_env);
+				pitch_env = GetEnvelope(phdata_tone.pitch_env);
 			}
 			else
 			{

@@ -380,8 +380,11 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 	{
 		// the envelope is given by a Tone phoneme acting on this vowel
 		InterpretPhoneme2(ph->tone_ph, &phdata_tone);
-		env = LookupEnvelope(phdata_tone.pitch_env);
+		env = GetEnvelope(phdata_tone.pitch_env);
 	}
+
+	if(env == NULL)
+		return;
 
 	for(ix=0; ix<=width; ix+=4)
 	{
@@ -588,6 +591,8 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	// Open the Prosody display window
 	// Make another frame, containing a canvas
 
+	int h, w, w2;
+
 	if(prosodyframe != NULL)
 	{
 		// The Prosody window is already open
@@ -595,8 +600,10 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 		return;
 	}
 
+	m_leftWindow->GetSize(&w2, &h);
+	GetClientSize(&w, &h);
 	prosodyframe = new ChildFrProsody(myframe, _T(""),
-                                      wxPoint(10, 200), wxSize(1000, 300),
+                                      wxPoint(0, 100), wxSize(w-w2, 420),
                                       wxDEFAULT_FRAME_STYLE |
                                       wxNO_FULL_REPAINT_ON_RESIZE);
 
@@ -606,7 +613,7 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	prosodyframe->CreateStatusBar();
 
 	int width, height;
-	wxMDIClientWindow *clientwin = this->GetClientWindow();
+	wxMDIClientWindow *clientwin = (wxMDIClientWindow *)this->GetClientWindow();
 	clientwin->GetClientSize(&width, &height);
 
 #ifdef deleted
@@ -619,7 +626,7 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	prosodycanvas = canvas;
 	
 	// Associate the menu bar with the frame
-	prosodyframe->SetMenuBar(MakeMenu(2));
+	prosodyframe->SetMenuBar(MakeMenu(2,translator->dictionary_name));
 	prosodyframe->prosodycanvas = canvas;
 	prosodyframe->Show(TRUE);
 

@@ -14,6 +14,7 @@ endphoneme
 
 phoneme 3    //  Schwa, used for rhotic schwa in American
   vowel   starttype #@  endtype #@
+  ipa ə
   unstressed
   length 140
   IfNextVowelAppend(r-)
@@ -72,6 +73,7 @@ endphoneme
 
 phoneme V
   vowel  starttype #o  endtype #o
+  ipa ʊ
   length 140
   ChangeIfDiminished(@)
   FMT(vowel/o-_2)
@@ -88,6 +90,7 @@ endphoneme
 
 phoneme a#
   vowel  starttype #@  endtype #@
+  ipa ɐ
   unstressed
   length 140
   IfNextVowelAppend(r-)
@@ -105,6 +108,7 @@ endphoneme
 
 phoneme A@
   vowel  starttype #a  endtype #@
+  ipa ɑː
   length 250
   IfNextVowelAppend(r-)
   FMT(vowel/aa_5)
@@ -113,6 +117,7 @@ endphoneme
 
 phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
+  ipa a
   length 150
   FMT(vowel/a)
 endphoneme
@@ -149,6 +154,7 @@ endphoneme
 
 phoneme O@
   vowel  starttype #o  endtype #@
+  ipa ɔː
   length 240
   IfNextVowelAppend(r-)
   FMT(vwl_en_n/O@)
@@ -157,6 +163,7 @@ endphoneme
 
 phoneme o@
   vowel  starttype #o  endtype #@
+  ipa ɔː
   length 240
   IfNextVowelAppend(r-)
   FMT(vwl_en_n/O@)
@@ -180,6 +187,7 @@ endphoneme
 
 phoneme aU
   vowel  starttype #e  endtype #u
+  ipa æʊ
   length 230
   FMT(vdiph/eeu_3)
 endphoneme
@@ -187,6 +195,7 @@ endphoneme
 
 phoneme oU
   vowel  starttype #o  endtype #o
+  ipa oː
   length 220
   FMT(vowel/o)
 endphoneme
@@ -201,6 +210,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype #i  endtype #i
+  ipa eː
   length 210
   FMT(vowel/e)
 endphoneme

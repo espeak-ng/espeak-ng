@@ -34,7 +34,7 @@
 
 
 static const char *help_text =
-"\nspeak [options] [\"<words>\"]\n\n"
+"\nespeak [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
 "--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, then <words> are spoken, or if none then text\n"
@@ -43,6 +43,9 @@ static const char *help_text =
 "\t   Amplitude, 0 to 200, default is 100\n"
 "-g <integer>\n"
 "\t   Word gap. Pause between words, units of 10mS at the default speed\n"
+"-k <integer>\n"
+"\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
+"\t   higher values indicate a pitch increase (try -k20).\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as end-of-clause\n"
@@ -53,34 +56,31 @@ static const char *help_text =
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
-"\t   Write output to this WAV file, rather than speaking it directly\n"
+"\t   Write speech to this WAV file, rather than speaking it directly\n"
 "-b\t   Input text encoding, 1=UTF8, 2=8 bit, 4=16 bit \n"
 "-m\t   Interpret SSML markup, and ignore other < > tags\n"
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
 "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
 "-z\t   No final sentence pause at the end of the text\n"
-"--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
-"\t   Compile the pronunciation rules and dictionary in the current\n"
+"\t   Compile pronunciation rules and dictionary from the current\n"
 "\t   directory. <voice name> specifies the language\n"
+"--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
-"--pho\n"
-"\t   Write mbrola phoneme data (.pho) to stdout, or to the file in --phonout\n"
+"--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
 "--phonout=\"<filename>\"\n"
-"\t   Write phoneme output from -x -X and --pho to this file\n"
+"\t   Write phoneme output from -x -X --ipa and --pho to this file\n"
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
 "--split=\"<minutes>\"\n"
 "\t   Starts a new WAV file every <minutes>.  Used with -w\n"
+"--stdout   Write speech output to stdout\n"
 "--voices=<language>\n"
 "\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n"
-"-k <integer>\n"
-"\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
-"\t   higher values indicate a pitch increase (try -k20).\n";
+"\t   If <language> is omitted, then list all voices.\n";
 
 
 
@@ -355,6 +355,7 @@ int main (int argc, char **argv)
 		{"path",    required_argument, 0, 0x107},
 		{"phonout", required_argument, 0, 0x108},
 		{"pho",     no_argument,       0, 0x109},
+		{"ipa",     no_argument,       0, 0x10a},
 		{0, 0, 0, 0}
 		};
 
@@ -573,9 +574,9 @@ int main (int argc, char **argv)
 
 		case 0x106:   // -- split
 			if(optarg2 == NULL)
-				samples_split = 30 * 60;  // default 30 minutes
+				samples_split_seconds = 30 * 60;  // default 30 minutes
 			else
-				samples_split = atoi(optarg2) * 60;
+				samples_split_seconds = atoi(optarg2) * 60;
 			break;
 
 		case 0x107:  // --path
@@ -590,7 +591,11 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x109:  // --pho
-			option_mbrola_phonemes = 8;
+			option_mbrola_phonemes = 16;
+			break;
+
+		case 0x10a:  // --ipa
+			option_phonemes = 3;
 			break;
 
 		default:

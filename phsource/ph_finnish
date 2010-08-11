@@ -241,6 +241,7 @@ phoneme R2   // this is [R2], but shorter
   liquid
   trill
   lengthmod 6
+  ipa r
   Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
   FMT(r3/r_trill_short) addWav(r3/r_trill.wav, 50)

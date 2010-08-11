@@ -22,13 +22,12 @@
 
 #include "main.h"
 
-
 wxMenu *speak_menu;
 wxMenu *data_menu = NULL;
 
-wxMenuBar *MakeMenu(int type)
-{//==========================
-
+wxMenuBar *MakeMenu(int type, const char *dict_name)
+{//=================================================
+	char buf[100];
 	wxMenu *file_menu;
 	wxMenu *help_menu;
 	wxMenu *option_menu = NULL;
@@ -71,6 +70,7 @@ wxMenuBar *MakeMenu(int type)
 	speak_menu = new wxMenu;
 	speak_menu->Append(MENU_SPEAK_TRANSLATE, _("&Translate"));
 	speak_menu->Append(MENU_SPEAK_RULES, _("Show &Rules"));
+	speak_menu->Append(MENU_SPEAK_IPA, _("Show &IPA"));
 	speak_menu->Append(MENU_SPEAK_TEXT, _("&Speak"));
 	speak_menu->AppendSeparator();
 	speak_menu->Append(MENU_SPEAK_FILE, _("Speak &file..."));
@@ -94,6 +94,13 @@ wxMenuBar *MakeMenu(int type)
 	data_menu->Append(MENU_FORMAT_DICTIONARY, _("&Layout *_rules file"));
 	data_menu->Append(MENU_SORT_DICTIONARY, _("&Sort *_rules file"));
 
+	sprintf(buf,"Compile &dictionary '%s'",dict_name);
+	data_menu->SetLabel(MENU_COMPILE_DICT, wxString(buf,wxConvLocal));
+	sprintf(buf,"&Layout '%s_rules' file",dict_name);
+	data_menu->SetLabel(MENU_FORMAT_DICTIONARY, wxString(buf,wxConvLocal));
+	sprintf(buf,"&Sort '%s_rules' file",dict_name);
+	data_menu->SetLabel(MENU_SORT_DICTIONARY, wxString(buf,wxConvLocal));
+
 	// OPTIONS MENU
 	paths_menu = new wxMenu;
 	paths_menu->Append(MENU_PATH0, _("Master phonemes file..."));
@@ -105,7 +112,9 @@ wxMenuBar *MakeMenu(int type)
 
 	option_menu = new wxMenu;
 	option_menu->Append(MENU_PATHS, _("Set &paths"), paths_menu);
-	option_menu->Append(MENU_PARAMS, _("Speed..."));
+	option_menu->Append(MENU_OPT_SPEED, _("Speed..."));
+	option_menu->Append(MENU_OPT_PUNCT, _("Speak punctiation"));
+	option_menu->Append(MENU_OPT_SPELL, _("Speak character names"));
 
 	// TOOLS
 	vowelchart_menu = new wxMenu;
@@ -119,6 +128,7 @@ wxMenuBar *MakeMenu(int type)
 	lexicon_menu->Append(MENU_LEXICON_DE, _("German"));
 	lexicon_menu->Append(MENU_LEXICON_IT, _("Italian"));
 	lexicon_menu->Append(MENU_LEXICON_IT2, _("Italian, pass 2"));
+//	lexicon_menu->Append(MENU_LEXICON_TEST, _("Test"));
 
 	tools_menu = new wxMenu;
 	tools_menu->Append(MENU_VOWELCHART, _("Make &Vowels Chart"), vowelchart_menu);

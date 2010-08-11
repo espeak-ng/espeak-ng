@@ -282,6 +282,7 @@ endphoneme
 phoneme dZ;
   vcd pla afr sibilant palatal
   voicingswitch tS;
+  ipa dʑ
   lengthmod 5
   Vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
 

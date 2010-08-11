@@ -99,7 +99,7 @@ tune c3
 prehead   46 57
 headenv   fall 16
 head       4 80 30 -5 -15
-headextend 25 63 38 13 0
+headextend 0 63 38 13 0
 nucleus0 fall-rise  75 40
 endtune
 
@@ -122,3 +122,4 @@ headextend 16 82 50 32 16
 nucleus0 fall  92 8
 nucleus  fall  92 80 76 8
 endtune
+

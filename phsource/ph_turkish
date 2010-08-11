@@ -84,14 +84,17 @@ phoneme u
   FMT(vowel/u_2)
 endphoneme
 
+
 phoneme U
   vowel starttype #u endtype #u
   length 150
   FMT(vowel/uu_2)
 endphoneme
 
-phoneme @    // previously u#
+
+phoneme @
   vowel starttype #@ endtype #@
+  ipa ɯ
   length 150
   FMT(vowel/u#_7)
 endphoneme

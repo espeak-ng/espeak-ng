@@ -12,6 +12,7 @@ endphoneme
 
 phoneme a#
   vowel starttype #@ endtype #@
+  ipa ɐ
   unstressed
   length 170
   FMT(vowel/a#_3)

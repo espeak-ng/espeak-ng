@@ -141,6 +141,7 @@ phoneme <h>
   vls glt apr
   length 50
   lengthmod 3
+  ipa ʰ
 
   IF nextPh(#@) THEN
     WAV(h/h@)

@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.43.48  28.Jun.10";
-const int version_phdata  = 0x014342;
+const char *version_string = "1.43.63  02.Aug.10";
+const int version_phdata  = 0x014361;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -49,7 +49,7 @@ PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
 USHORT *phoneme_index=NULL;
-char *spects_data=NULL;
+char *phondata_ptr=NULL;
 unsigned char *wavefile_data=NULL;
 static unsigned char *phoneme_tab_data = NULL;
 
@@ -116,16 +116,17 @@ int LoadPhData()
 	int result = 1;
 	int length;
 	unsigned char *p;
+	int *pw;
 
 	if((phoneme_tab_data = (unsigned char *)ReadPhFile((void *)(phoneme_tab_data),"phontab",NULL)) == NULL)
 		return(-1);
 	if((phoneme_index = (USHORT *)ReadPhFile((void *)(phoneme_index),"phonindex",NULL)) == NULL)
 		return(-1);
-	if((spects_data = ReadPhFile((void *)(spects_data),"phondata",NULL)) == NULL)
+	if((phondata_ptr = ReadPhFile((void *)(phondata_ptr),"phondata",NULL)) == NULL)
 		return(-1);
 	if((tunes = (TUNE *)ReadPhFile((void *)(tunes),"intonations",&length)) == NULL)
 		return(-1);
-   wavefile_data = (unsigned char *)spects_data;
+   wavefile_data = (unsigned char *)phondata_ptr;
 	n_tunes = length / sizeof(TUNE);
 
 	// read the version number from the first 4 bytes of phondata
@@ -150,7 +151,9 @@ int LoadPhData()
 		n_phonemes = p[0];
 		phoneme_tab_list[ix].n_phonemes = p[0];
 		phoneme_tab_list[ix].includes = p[1];
-		p += 4;
+		pw = (int *)p;
+		phoneme_tab_list[ix].equivalence_tables = Reverse4Bytes(pw[1]);
+		p += 8;
 		memcpy(phoneme_tab_list[ix].name,p,N_PHONEME_TAB_NAME);
 		p += N_PHONEME_TAB_NAME;
 		phoneme_tab_list[ix].phoneme_tab_ptr = (PHONEME_TAB *)p;
@@ -168,10 +171,10 @@ void FreePhData(void)
 {//==================
 	Free(phoneme_tab_data);
 	Free(phoneme_index);
-	Free(spects_data);
+	Free(phondata_ptr);
 	phoneme_tab_data=NULL;
 	phoneme_index=NULL;
-	spects_data=NULL;
+	phondata_ptr=NULL;
 }
 
 
@@ -226,7 +229,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	frame_t *frame;
 	static frameref_t frames_buf[N_SEQ_FRAMES];
 	
-	seq = (SPECT_SEQ *)(&spects_data[fmt_params->fmt_addr]);
+	seq = (SPECT_SEQ *)(&phondata_ptr[fmt_params->fmt_addr]);
 	seqk = (SPECT_SEQK *)seq;
 	nf = seq->n_frames;
 
@@ -279,7 +282,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	{
 		// a secondary reference has been returned, which is not a wavefile
 		// add these spectra to the main sequence
-		seq2 = (SPECT_SEQ *)(&spects_data[fmt_params->fmt2_addr]);
+		seq2 = (SPECT_SEQ *)(&phondata_ptr[fmt_params->fmt2_addr]);
 		seqk2 = (SPECT_SEQK *)seq2;
 	
 		// first frame of the addition just sets the length of the last frame of the main seq
@@ -364,11 +367,14 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 
 
 
-unsigned char *LookupEnvelope(int ix)
-{//================================
-	if(ix==0)
-		return(NULL);
-	return((unsigned char *)&spects_data[ix]);
+unsigned char *GetEnvelope(int index)
+{//==================================
+	if(index==0)
+	{
+		fprintf(stderr,"espeak: No envelope\n");
+		return(envelope_data[0]);   // not found, use a default envelope
+	}
+	return((unsigned char *)&phondata_ptr[index]);
 }
 
 
@@ -877,6 +883,18 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 					phdata->pd_param[i_APPEND_PHONEME] = data;
 			}
 			else
+			if(instn2 == i_IPA_NAME)
+			{
+				// followed by utf-8 characters, 2 per instn word
+				for(ix=0; (ix < data) && (ix < 16); ix += 2)
+				{
+					prog++;
+					phdata->ipa_string[ix] = prog[0] >> 8;
+					phdata->ipa_string[ix+1] = prog[0] & 0xff;
+				}
+				phdata->ipa_string[ix] = 0;
+			}
+			else
 			if(instn2 < N_PHONEME_DATA_PARAM)
 			{
 				if(instn2 == i_CHANGE_PHONEME2)
@@ -1026,15 +1044,15 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 					}
 				}
 				else
-				if(instn2 == 4)
+				if(instn2 ==pd_ADDWAV)
 				{
 					// addWav(), return if previous instruction was FMT() or WAV()
 					end_flag--;
 				}
 
-				if((instn2 != 1) && (instn2 != 4))
+				if((instn2 == pd_VWLSTART) || (instn2 == pd_VWLEND))
 				{
-					// FMT, VowelStart or VowelEnding.
+					// VowelStart or VowelEnding.
 					phdata->sound_param[instn2] = param_sc;   // sign extend
 				}
 			}

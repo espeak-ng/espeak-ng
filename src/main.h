@@ -8,7 +8,7 @@ typedef unsigned char  UCHAR;
 
 
 
-extern wxMenuBar *MakeMenu(int type);
+extern wxMenuBar *MakeMenu(int type, const char *dict_name);
 
 extern wxString path_phsource;
 extern wxString path_speaktext;
@@ -56,10 +56,7 @@ class MyFrame: public wxMDIParentFrame
 
 
 protected:
-    wxSashLayoutWindow* m_topWindow;
-    wxSashLayoutWindow* m_leftWindow1;
-    wxSashLayoutWindow* m_leftWindow2;
-    wxSashLayoutWindow* m_bottomWindow;
+    wxSashLayoutWindow* m_leftWindow;
     wxTimer m_timer;
 
 DECLARE_EVENT_TABLE()
@@ -94,11 +91,11 @@ public:
 	void SpeakFile(void);
 	void ReadVoice(int variant);
 	void OnCommand(wxCommandEvent& event);
+	wxTextCtrl* t_source;
 
 private:
 	wxButton *t_translate;
 	wxButton *t_process;
-	wxTextCtrl* t_source;
 	wxTextCtrl* t_phonetic;
 
 
@@ -124,7 +121,9 @@ enum {
 	MENU_DOCS,
 
 	MENU_OPTIONS,
-	MENU_PARAMS,
+	MENU_OPT_SPEED,
+	MENU_OPT_PUNCT,
+	MENU_OPT_SPELL,
 	MENU_PATHS,
 	MENU_PATH0,
 	MENU_PATH1,
@@ -143,6 +142,7 @@ enum {
 
 	MENU_SPEAK_TRANSLATE,
 	MENU_SPEAK_RULES,
+	MENU_SPEAK_IPA,
 	MENU_SPEAK_TEXT,
 	MENU_SPEAK_FILE,
 	MENU_SPEAK_PAUSE,
@@ -161,6 +161,7 @@ enum {
 	MENU_LEXICON_DE,
 	MENU_LEXICON_IT,
 	MENU_LEXICON_IT2,
+	MENU_LEXICON_TEST,
 	MENU_TO_UTF8,
 	MENU_COUNT_WORDS,
 	MENU_TEST,
@@ -174,10 +175,7 @@ enum {
 	SPECTSEQ_VOICEDLG
 };
 
-#define ID_WINDOW_TOP       100
-#define ID_WINDOW_LEFT1     101
-#define ID_WINDOW_LEFT2     102
-#define ID_WINDOW_BOTTOM    103
+#define ID_WINDOW_LEFT     101
 
 
 

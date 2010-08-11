@@ -41,7 +41,7 @@
 */
 extern wxString path_phsource;
 
-extern char *spects_data;
+extern char *phondata_ptr;
 extern USHORT *phoneme_index;
 extern int n_phoneme_tables;
 
@@ -664,7 +664,7 @@ void MakeVowelLists(void)
 			{
 				ix = vowelfmt_addr[vowelfmt_ix];
 
-				seq = (SPECT_SEQ *)(&spects_data[ix]);
+				seq = (SPECT_SEQ *)(&phondata_ptr[ix]);
 				seqk = (SPECT_SEQK *)seq;
 	
 				if(seq->frame[0].frflags & FRFLAG_KLATT)

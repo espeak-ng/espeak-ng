@@ -763,6 +763,75 @@ void Lexicon_De()
 }
 
 
+extern int IsVowel(Translator *tr, int letter);
+
+void Lexicon_Test()
+{//================
+	int c1, c2, c3;
+	char *p;
+	int prev_c1=0;
+	int prev_c2=0;
+	int prev_c3 = 0;
+	FILE *f_in;
+	FILE *f_out;
+	char buf[200];
+
+	wxString s_fname = wxFileSelector(_T("List of UTF-8 words with Combining Grave Accent U+300 to indicate stress"),path_dir1,
+		_T(""),_T(""),_T("*"),wxOPEN);
+	if(s_fname.IsEmpty())
+		return;
+	strcpy(buf,s_fname.mb_str(wxConvLocal));
+	path_dir1 = wxFileName(s_fname).GetPath();
+
+	if((f_in = fopen(buf,"r")) == NULL)
+	{
+		wxLogError(_T("Can't read file: ") + wxString(buf,wxConvLocal));
+		return;
+	}
+
+	strcat(buf,"_1");
+	if((f_out = fopen(buf,"w")) == NULL)
+	{
+		wxLogError(_T("Can't write file: ") + wxString(buf,wxConvLocal));
+		fclose(f_in);
+		return;
+	}
+
+	while(!feof(f_in))
+	{
+		if((p = fgets(buf,sizeof(buf),f_in)) == NULL)
+			break;
+
+		if(buf[0] == 0)
+			continue;
+
+		p += utf8_in(&c1, p);
+		p += utf8_in(&c2, p);
+		p += utf8_in(&c3, p);
+
+		c1 = towlower(c1);
+		c2 = towlower(c2);
+		c3 = towlower(c3);
+
+		if(IsVowel(translator, c1))
+			continue;
+		if(IsVowel(translator, c2))
+			continue;
+
+		if((prev_c1 != c1) || (prev_c2 != c2) || ((prev_c3 != c3) && !IsVowel(translator,c3)))
+			fputc('\n',f_out);
+		prev_c1 = c1;
+		prev_c2 = c2;
+		prev_c3 = c3;
+		fprintf(f_out,"%s",buf);
+
+	}
+	fclose(f_in);
+	fclose(f_out);
+}  // end of Lexicon_Test
+
+
+
 void Lexicon_Bg()
 {//==============
 // Bulgarian: compare stress markup in a list of words with lookup using bg_rules
@@ -1274,6 +1343,9 @@ void CompareLexicon(int id)
 		break;
 	case MENU_LEXICON_IT2:
 		Lexicon_It(2);
+		break;
+	case MENU_LEXICON_TEST:
+		Lexicon_Test();
 		break;
 	}
 }  // end of CompareLexicon

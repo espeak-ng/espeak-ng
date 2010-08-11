@@ -16,7 +16,8 @@ phoneme @    //  Schwa, but always unstressed
   unstressed
   length 140
   IF nextPh(r/) THEN
-    FMT(vwl_af/r@, 50)
+    Length 190
+    FMT(vwl_af/r@)
   ENDIF
   FMT(vwl_af/@)
 endphoneme
@@ -24,6 +25,7 @@ endphoneme
 
 phoneme a    // short A
   vowel  starttype #a  endtype #a
+  ipa ɐ
   length 140
   FMT(vowel/V_2)
 endphoneme
@@ -37,9 +39,11 @@ endphoneme
 
 phoneme I     // short I,  Schwa
   vowel   starttype #@  endtype #@
+  ipa ə
   length 140
   IF nextPh(r/) THEN
-     FMT(vwl_af/r@, 50)
+     Length 190
+     FMT(vwl_af/r@)
   ENDIF
   FMT(vwl_af/I)
 endphoneme
@@ -104,6 +108,7 @@ endphoneme
 
 phoneme e@    // long E
   vowel  starttype #i  endtype #@
+  ipa iə
   length 230
   FMT(vdiph/i@_2)
 endphoneme
@@ -119,6 +124,7 @@ endphoneme
 
 phoneme o@    // long O
   vowel  starttype #u  endtype #@
+  ipa ʊə
   length 250
   FMT(vdiph2/o@)
 endphoneme
@@ -163,6 +169,7 @@ endphoneme
 
 phoneme eI
   vowel  starttype #e  endtype #i
+  ipa ɛɪ
   length 170
   IfNextVowelAppend(;)
   FMT(vdiph/@i_2)
@@ -179,6 +186,7 @@ endphoneme
 
 phoneme oI
   vowel  starttype #o  endtype #i
+  ipa ʊɪ
   length 290
   IfNextVowelAppend(;)
   FMT(vdiph/oi_2)
@@ -322,5 +330,4 @@ phoneme c         // used in -tjie
   Vowelout f1=0 f2=2700 400 600  f3= 200 80  rms=20
   WAV(ustop/ki)
 endphoneme
-
 

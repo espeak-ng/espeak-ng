@@ -229,7 +229,7 @@ místo    $pause           // instead of
 i        $u $brk    // ???
 
 // Conjunctions
-a        $u $pause      // and
+a        $u $brk $pause      // and
 nebo     $u $pause      // or
 však     $pause         // but
 krom     $pause         // except

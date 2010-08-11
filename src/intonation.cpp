@@ -192,7 +192,7 @@ static unsigned char env_risefallrise[128] = {
 
 
 
-unsigned char *envelope_data[20] = {
+unsigned char *envelope_data[N_ENVELOPE_DATA] = {
 	env_fall,  env_fall,
 	env_rise,  env_rise,
 	env_frise,  env_r_frise,

@@ -54,6 +54,7 @@ static int  last_wcmdq;
 static int  pitch_length;
 static int  amp_length;
 static int  modn_flags;
+static int  fmt_amplitude=0;
 
 static int  syllable_start;
 static int  syllable_end;
@@ -223,6 +224,13 @@ static void DoPause(int length, int control)
 	wcmdq[wcmdq_tail][1] = len;
 	WcmdqInc();
 	last_frame = NULL;
+
+	if(fmt_amplitude != 0)
+	{
+		wcmdq[wcmdq_tail][0] = WCMD_FMT_AMPLITUDE;
+		wcmdq[wcmdq_tail][1] = fmt_amplitude = 0;
+		WcmdqInc();
+	}
 }  // end of DoPause
 
 
@@ -245,6 +253,9 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	wav_scale = p[2];
 	wav_length = (p[1] * 256);
 	wav_length += p[0];    //  length in bytes
+
+	if(wav_length == 0)
+		return(0);
 
 	min_length = speed.min_sample_len;
 
@@ -972,7 +983,7 @@ static void StartSyllable(void)
 
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation)
 {//========================================================================================================
-	// which  0 not a vowel, 1  start of vowel,   2 body and end of vowel
+	// which:  0 not a vowel, 1  start of vowel,   2 body and end of vowel
 	// length_mod: 256 = 100%
 	// modulation: -1 = don't write to wcmdq
 
@@ -1024,6 +1035,15 @@ if(which==1)
 	frames = LookupSpect(this_ph, which, fmt_params, &n_frames, plist);
 	if(frames == NULL)
 		return(0);   // not found
+
+	if(fmt_params->fmt_amp != fmt_amplitude)
+	{
+		// an amplitude adjustment is specified for this sequence
+		q = wcmdq[wcmdq_tail];
+		q[0] = WCMD_FMT_AMPLITUDE;
+		q[1] = fmt_amplitude = fmt_params->fmt_amp;
+		WcmdqInc();
+	}
 
 	frame1 = frames[0].frame;
 	if(voice->klattv[0])
@@ -1166,6 +1186,16 @@ if(which==1)
 			total_len += len;
 		}
 	}
+
+	if((which != 1) && (fmt_amplitude != 0))
+	{
+		q = wcmdq[wcmdq_tail];
+		q[0] = WCMD_FMT_AMPLITUDE;
+		q[1] = fmt_amplitude = 0;
+		WcmdqInc();
+	}
+
+
 	return(total_len);
 }  // end of DoSpect
 
@@ -1198,7 +1228,7 @@ void DoVoiceChange(voice_t *v)
 }
 
 
-void DoEmbedded(int &embix, int sourceix)
+void DoEmbedded(int *embix, int sourceix)
 {//======================================
 	// There were embedded commands in the text at this point
 	unsigned int word;  // bit 7=last command for this word, bits 5,6 sign, bits 0-4 command
@@ -1206,7 +1236,7 @@ void DoEmbedded(int &embix, int sourceix)
 	int command;
 
 	do {
-		word = embedded_list[embix++];
+		word = embedded_list[(*embix)++];
 		value = word >> 8;
 		command = word & 0x7f;
 
@@ -1323,7 +1353,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		if(p->synthflags & SFLAG_EMBEDDED)
 		{
-			DoEmbedded(embedded_ix, p->sourceix);
+			DoEmbedded(&embedded_ix, p->sourceix);
 		}
 
 		if(p->newword)
@@ -1429,7 +1459,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				// a period of voicing before the release
 				InterpretPhoneme(NULL, 0x01, p, &phdata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-				fmtp.fmt_length = phdata.sound_param[pd_FMT];
+				fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
 				DoSpect2(ph, 0, &fmtp, p, 0);
 				if(p->synthflags & SFLAG_LENGTHEN)
@@ -1457,7 +1487,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 			InterpretPhoneme(NULL,0, p, &phdata);
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 			DoSpect2(ph, 0, &fmtp, p, 0);
@@ -1504,7 +1534,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			memset(&fmtp, 0, sizeof(fmtp));
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 
@@ -1529,7 +1559,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			InterpretPhoneme(NULL,0, p, &phdata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
 			if(next->type==phVOWEL)
 			{
@@ -1578,7 +1608,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			InterpretPhoneme(NULL, 0, p, &phdata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
 			fmtp.wav_amp = phdata.sound_param[pd_ADDWAV];
 			DoSpect2(p->ph, 0, &fmtp, p, modulation);
@@ -1619,16 +1649,18 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				fmtp.use_vowelin = 1;
 				fmtp.fmt_control = 1;
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-//				fmtp.fmt_length = phdata.sound_param[pd_FMT];
 			}
+
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
 			pitch_env = envelope_data[p->env];
 			amp_env = NULL;
 			if(p->tone_ph != 0)
 			{
 				InterpretPhoneme2(p->tone_ph, &phdata_tone);
-				pitch_env = LookupEnvelope(phdata_tone.pitch_env);
-				amp_env = LookupEnvelope(phdata_tone.amp_env);
+				pitch_env = GetEnvelope(phdata_tone.pitch_env);
+				if(phdata_tone.amp_env > 0)
+					amp_env = GetEnvelope(phdata_tone.amp_env);
 			}
 
 			StartSyllable();
@@ -1670,7 +1702,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
-			fmtp.fmt_length = phdata.sound_param[pd_FMT];
+			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.transition0 = 0;
 			fmtp.transition1 = 0;
 
@@ -1848,20 +1880,23 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	CalcPitches(translator, clause_tone);
 	CalcLengths(translator);
 
-	GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
-	if(option_phonemes > 0)
+	if((option_phonemes > 0) || (phoneme_callback != NULL))
 	{
-		fprintf(f_trans,"%s\n",translator->phon_out);
-
-		if(!iswalpha(0x010d))
+		GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
+		if(option_phonemes > 0)
 		{
-			// check that c-caron is recognized as an alphabetic character
-			fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\nSet LC_CTYPE to a UTF-8 locale\n");
+			fprintf(f_trans,"%s\n",translator->phon_out);
+	
+			if(!iswalpha(0x010d))
+			{
+				// check that c-caron is recognized as an alphabetic character
+				fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\nSet LC_CTYPE to a UTF-8 locale\n");
+			}
 		}
-	}
-	if(phoneme_callback != NULL)
-	{
-		phoneme_callback(translator->phon_out);
+		if(phoneme_callback != NULL)
+		{
+			phoneme_callback(translator->phon_out);
+		}
 	}
 
 
