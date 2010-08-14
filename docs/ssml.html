@@ -74,6 +74,7 @@ eSpeak can speak HTML text directly, or text containing both SSML and HTML marku
 Any unrecognised tags are ignored.<p>
 The following tags case a sentence break.<br>
 <b>&lt;br&gt; &nbsp;
+&lt;dd&gt; &nbsp;
 &lt;li&gt; &nbsp;
 &lt;img&gt; &nbsp;
 &lt;td&gt; &nbsp;
@@ -84,6 +85,10 @@ The following tags case a paragraph break.<br>
 &lt;h3&gt; &nbsp;
 &lt;h4&gt; &nbsp;
 &lt;hr&gt; &nbsp;
+</b><p>
+Text between the following tags is ignored.<br>
+<b>&lt;script&gt; &nbsp; ... &nbsp; &lt;/script&gt; &nbsp;<br>
+&lt;style&gt; &nbsp; ... &nbsp; &lt;/style&gt; &nbsp;<br>
 </b><p>
 </body>
 </html>

@@ -108,6 +108,7 @@
 #define FLAG_HAS_DOT       0x10000  // dot after this word
 #define FLAG_COMMA_AFTER   0x20000  // comma after this word
 #define FLAG_MULTIPLE_SPACES 0x40000  // word is preceded by multiple spaces, newline, or tab
+#define FLAG_INDIVIDUAL_DIGITS 0x80000  // speak number as individual digits
 
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
@@ -194,18 +195,18 @@
 #define PUNCT_SAY_NAME       0x200000
 #define CLAUSE_DOT           0x400000
 
-#define CLAUSE_NONE         0 + 0x04000
-#define CLAUSE_PARAGRAPH   70 + 0x80000
-#define CLAUSE_EOF         40 + 0x90000
-#define CLAUSE_VOICE        0 + 0x24000
-#define CLAUSE_PERIOD      40 + 0x80000
-#define CLAUSE_COMMA       20 + 0x41000
-#define CLAUSE_SHORTCOMMA   4 + 0x41000
-#define CLAUSE_SHORTFALL    4 + 0x40000
-#define CLAUSE_QUESTION    40 + 0x82000
-#define CLAUSE_EXCLAMATION 45 + 0x83000
-#define CLAUSE_COLON       30 + 0x40000
-#define CLAUSE_SEMICOLON   30 + 0x41000
+#define CLAUSE_NONE        ( 0 + 0x04000)
+#define CLAUSE_PARAGRAPH   (70 + 0x80000)
+#define CLAUSE_EOF         (40 + 0x90000)
+#define CLAUSE_VOICE       ( 0 + 0x24000)
+#define CLAUSE_PERIOD      (40 + 0x80000)
+#define CLAUSE_COMMA       (20 + 0x41000)
+#define CLAUSE_SHORTCOMMA  ( 4 + 0x41000)
+#define CLAUSE_SHORTFALL   ( 4 + 0x40000)
+#define CLAUSE_QUESTION    (40 + 0x82000)
+#define CLAUSE_EXCLAMATION (45 + 0x83000)
+#define CLAUSE_COLON       (30 + 0x40000)
+#define CLAUSE_SEMICOLON   (30 + 0x41000)
 
 #define SAYAS_CHARS     0x12
 #define SAYAS_GLYPHS    0x13
@@ -439,6 +440,7 @@ typedef struct {
 	int min_roman;
 	int thousands_sep;
 	int decimal_sep;
+	int max_digits;    // max number of digits which can be spoken as an integer number (rather than individual digits)
 	const char *ordinal_indicator;   // UTF-8 string
 
 	// bit 0, accent name before the letter name, bit 1 "capital" after letter name

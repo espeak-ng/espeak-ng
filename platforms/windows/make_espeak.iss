@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.43.24
+AppVerName=eSpeak version 1.44.01
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -32,7 +32,6 @@ Source: "Readme.txt"; DestDir: "{app}"; Flags: isreadme
 Source: "License.txt"; DestDir: "{app}";
 
 [Registry]
-;Root: HKLM; Subkey: "Software\Microsoft\Speech\Voices\Tokens\eSpeak_5"; Flags: deletekey uninsdeletekey
 Root: HKLM; Subkey: "Software\Microsoft\Speech\PhoneConverters\Tokens\eSpeak"; Flags: deletekey uninsdeletekey
 
 
@@ -111,8 +110,10 @@ begin
   lang_main := language and $3ff;
   Result := 'en';
 
-  // translation from microsoft codes to language codes
+  // Translation from microsoft codes to language codes
+  // Used to set default voices for inatallation.
   case lang_main of
+  //$02: Result := 'bg';
   $03: Result := 'ca';
   $04: Result := 'zh';
   $05: Result := 'cs';
@@ -126,7 +127,7 @@ begin
   $0e: Result := 'hu';
   $0f: Result := 'is';
   $10: Result := 'it';
-  $12: Result := 'ko';
+  //$12: Result := 'ko';
   $13: Result := 'nl';
   $14: Result := 'no';
   $15: Result := 'pl';
@@ -142,17 +143,18 @@ begin
   $26: Result := 'lv';
   $2a: Result := 'vi';
   $2b: Result := 'hy';
-  $2d: Result := 'eu';
+  //$2c: Result := 'az';
+  //$2d: Result := 'eu';
   $2f: Result := 'mk';
   $36: Result := 'af';
   $39: Result := 'hi';
   $41: Result := 'sw';
   $49: Result := 'ta';
-  $4b: Result := 'kn';
-  $50: Result := 'mn';
+  //$4b: Result := 'kn';
+  //$50: Result := 'mn';
   $52: Result := 'cy';
-  $61: Result := 'ne';
-  $87: Result := 'rw';
+  //$61: Result := 'ne';
+  //$87: Result := 'rw';
   end;
 
   // is there a match on the full language code?
@@ -185,8 +187,12 @@ begin
       lang1 := Copy(voice,8,6);  // eg. mb-de4-en, return 'en'
   end;
   
+  // Used to set the correct Microsoft language code in the registry
+  // when a SAPI5 voice is installed.
   case lang1 of
   'af': value := $436;
+  'az': value := $42c;
+  'bg': value := $402;
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
   'ca': value := $403;
   'cs': value := $405;

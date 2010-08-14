@@ -1,7 +1,7 @@
 #ifndef SPEAK_LIB_H
 #define SPEAK_LIB_H
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,8 +26,9 @@
 /*************************************************************/
 
 #include <stdio.h>
+#include <stddef.h>
 
-#define ESPEAK_API_REVISION  3
+#define ESPEAK_API_REVISION  5
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -35,6 +36,11 @@ Revision 2
 Revision 3
    Added espeakWORDGAP to  espeak_PARAMETER
 
+Revision 4
+   Added flags parameter to espeak_CompileDictionary()
+
+Revision 5
+   Added espeakCHARS_16BIT
 */
          /********************/
          /*  Initialization  */
@@ -44,12 +50,13 @@ Revision 3
 typedef enum {
   espeakEVENT_LIST_TERMINATED = 0, // Retrieval mode: terminates the event list.
   espeakEVENT_WORD = 1,            // Start of word
-  espeakEVENT_SENTENCE,            // Start of sentence
-  espeakEVENT_MARK,                // Mark
-  espeakEVENT_PLAY,                // Audio element
-  espeakEVENT_END,                 // End of sentence
-  espeakEVENT_MSG_TERMINATED,      // End of message
-  espeakEVENT_PHONEME              // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_SENTENCE = 2,        // Start of sentence
+  espeakEVENT_MARK = 3,            // Mark
+  espeakEVENT_PLAY = 4,            // Audio element
+  espeakEVENT_END = 5,             // End of sentence or clause
+  espeakEVENT_MSG_TERMINATED = 6,  // End of message
+  espeakEVENT_PHONEME = 7,         // Phoneme, if enabled in espeak_Initialize()
+  espeakEVENT_SAMPLERATE = 8       // internal use, set sample rate
 } espeak_EVENT_TYPE;
 
 
@@ -224,6 +231,7 @@ int UriCallback(int type, const char *uri, const char *base);
 #define espeakCHARS_UTF8   1
 #define espeakCHARS_8BIT   2
 #define espeakCHARS_WCHAR  3
+#define espeakCHARS_16BIT  4
 
 #define espeakSSML        0x10
 #define espeakPHONEMES    0x100
@@ -315,7 +323,8 @@ extern "C"
 #endif
 espeak_ERROR espeak_Key(const char *key_name);
 /* Speak the name of a keyboard key.
-   Currently this just speaks the "key_name" as given 
+   If key_name is a single character, it speaks the name of the character.
+   Otherwise, it speaks key_name as a text string.
 
    Return: EE_OK: operation achieved 
            EE_BUFFER_FULL: the command can not be buffered; 
@@ -379,7 +388,8 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
    parameter:
       espeakRATE:    speaking speed in word per minute.
 
-      espeakVOLUME:  volume in range 0-100    0=silence
+      espeakVOLUME:  volume in range 0-200 or more.
+                     0=silence, 100=normal full volume, greater values may produce amplitude compression or distortion
 
       espeakPITCH:   base pitch, range 0-100.  50=normal
 
@@ -435,6 +445,7 @@ void espeak_SetPhonemeTrace(int value, FILE *stream);
    value=0  No phoneme output (default)
    value=1  Output the translated phoneme symbols for the text
    value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
+   value=3  as (1), but produces IPA rather than ascii phoneme names
 
    stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
 */
@@ -442,13 +453,16 @@ void espeak_SetPhonemeTrace(int value, FILE *stream);
 #ifdef __cplusplus
 extern "C"
 #endif
-void espeak_CompileDictionary(const char *path, FILE *log);
+void espeak_CompileDictionary(const char *path, FILE *log, int flags);
 /* Compile pronunciation dictionary for a language which corresponds to the currently
    selected voice.  The required voice should be selected before calling this function.
 
    path:  The directory which contains the language's '_rules' and '_list' files.
           'path' should end with a path separator character ('/').
    log:   Stream for error reports and statistics information. If log=NULL then stderr will be used.
+
+   flags:  Bit 0: include source line information for debug purposes (This is displayed with the
+          -X command line option).
 */
          /***********************/
          /*   Voice Selection   */
@@ -497,7 +511,7 @@ const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec);
    The list is terminated by a NULL pointer
 
    If voice_spec is NULL then all voices are listed.
-   If voice spec is give, then only the voices which are compatible with the voice_spec
+   If voice spec is given, then only the voices which are compatible with the voice_spec
    are listed, and they are listed in preference order.
 */
 

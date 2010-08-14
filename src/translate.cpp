@@ -766,12 +766,14 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 
 	int word_length;
 	int ix;
+	char *p;
 	int pfix;
 	int n_chars;
 	unsigned int dictionary_flags[2];
 	unsigned int dictionary_flags2[2];
 	int end_type=0;
 	int prefix_type=0;
+	int prefix_stress;
 	char *wordx;
 	char phonemes[N_WORD_PHONEMES];
 	char *ph_limit;
@@ -1007,7 +1009,6 @@ if((wmark > 0) && (wmark < 8))
 
 		while(((length < 3) && (length > 0))|| (word_length > 1 && Unpronouncable(tr,wordx)))
 		{
-			char *p;
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
 			emphasize_allcaps = 0;
@@ -1311,9 +1312,15 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 
 	/* determine stress pattern for this word */
 	/******************************************/
-	/* NOTE: this also adds a single PAUSE if the previous word ended
-				in a primary stress, and this one starts with one */
-	if(prefix_flags || (strchr(prefix_phonemes,phonSTRESS_P)!=NULL))
+	prefix_stress = 0;
+	for(p = prefix_phonemes; *p != 0; p++)
+	{
+		if((*p == phonSTRESS_P) || (*p == phonSTRESS_P2))
+		{
+			prefix_stress = *p;
+		}
+	}
+	if(prefix_flags || (prefix_stress != 0))
 	{
 		if((tr->langopts.param[LOPT_PREFIXES]) || (prefix_type & SUFX_T))
 		{
@@ -2303,6 +2310,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	char *p;
 	int j, k;
 	int n_digits;
+	int individual_digits;
 	int charix_top=0;
 
 	short charix[N_TR_SOURCE+4];
@@ -2338,7 +2346,9 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		for(p=source; *p != 0; p++)
 			fputc(*p, f_logespeak);
 		fprintf(f_logespeak,"ENDCLAUSE\n");
+		fflush(f_logespeak);
 	}
+p = source;
 
 	charix[charix_top+1] = 0;
 	charix[charix_top+2] = 0x7fff;
@@ -2947,7 +2957,11 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 	words[word_count].pre_pause = 8;
 	if(word_count > 0)
 	{
-		words[word_count-1].flags |= FLAG_LAST_WORD;
+		ix = word_count-1;
+		while((ix > 0) && (IsBracket(sbuf[words[ix].start])))
+			ix--;  // the last word is a bracket, mark the previous word as last
+		words[ix].flags |= FLAG_LAST_WORD;
+
 		// FLAG_NOSPACE check to avoid recognizing  .mr  -mr 
 		if((terminator & CLAUSE_DOT) && !(words[word_count-1].flags & FLAG_NOSPACE))
 			words[word_count-1].flags |= FLAG_HAS_DOT;
@@ -2962,8 +2976,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		char *pn;
 		char *pw;
 		int nw;
-		char number_buf[60];
-		WORD_TAB num_wtab[15];  // copy of 'words', when splitting numbers into parts
+		char number_buf[150];
+		WORD_TAB num_wtab[50];  // copy of 'words', when splitting numbers into parts
 
 		// start speaking at a specified word position in the text?
 		count_words++;
@@ -2984,7 +2998,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		{
 			// Languages with 100000 numbers.  Remove thousands separators so that we can insert them again later
 			pn = number_buf;
-			while(pn < &number_buf[sizeof(number_buf)-3])
+			while(pn < &number_buf[sizeof(number_buf)-20])
 			{
 				if(iswdigit(*pw))
 				{
@@ -3010,15 +3024,19 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 		for(n_digits=0; iswdigit(word[n_digits]); n_digits++);  // count consecutive digits
 
-		if((n_digits > 4) && (word[0] != '0'))
+		if(n_digits > 4)
 		{
 			// word is entirely digits, insert commas and break into 3 digit "words"
 			number_buf[0] = ' ';
 			pn = &number_buf[1];
 			nx = n_digits;
 			nw = 0;
+			individual_digits = 0;
 
-			while(pn < &number_buf[sizeof(number_buf)-3])
+			if((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
+				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;
+
+			while(pn < &number_buf[sizeof(number_buf)-20])
 			{
 				if(!isdigit(c = *pw++) && (c != tr->langopts.decimal_sep))
 					break;

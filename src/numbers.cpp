@@ -1883,7 +1883,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 int TranslateNumber(Translator *tr, char *word1, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
 {//=============================================================================================================
-	if(option_sayas == SAYAS_DIGITS1)
+	if((option_sayas == SAYAS_DIGITS1) || (wtab[0].flags & FLAG_INDIVIDUAL_DIGITS))
 		return(0);  // speak digits individually
 
 	if(tr->langopts.numbers != 0)

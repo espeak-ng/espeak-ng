@@ -45,6 +45,8 @@
     tö) bb (féle   b
     jo) bbr (a     bR2
     tö) bbr (e     bR2
+  kise) bb (ség    b
+
 
 .group c
         c          ts
@@ -220,6 +222,7 @@ menetren) dsz (erű d|s
  cselé) ds (ég     tS:
    föl) d (szegély d
  stran) d (szezon  d
+  _hol) d (sarló   d
 
 .group dz
   fogó) dz (kod    ts
@@ -332,6 +335,7 @@ ritkasá) g (gyűjt  g
     se) gg (be     g
    pro) g (gyak    g
     se) ggr (e     gR2
+arcüre) g (gyulladás g
 
 .group gy
         gy         J
@@ -425,6 +429,7 @@ tizene) gy (en     J:
 huszone) gy (edik  J:
     je) gy (ért    J
 harmince) gy (edik J:
+  étvá) gy (javít  J
 
 .group h
         h          h
@@ -863,6 +868,7 @@ kitöré) ssz (erű   Ss
 hirdeté) ssz (erve Ss
 páncélo) ssz       Ss
  hajtá) ssz (erű   Ss
+ sorva) ssz (ák    s:
 
 .group sz
         sz         s
@@ -1114,6 +1120,9 @@ művele) t (sáv     t
      ö) t (jegyű   t
     ha) t (jegyű   t
     hé) t (jegyű   t
+   zár) t (sorú    t
+   skó) t (juhász  t
+szerete) t (szolgálat t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters

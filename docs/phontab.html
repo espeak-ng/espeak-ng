@@ -3,6 +3,7 @@
 
 <head>
   <title>eSpeak: Phoneme tables</title>
+  <meta name="GENERATOR" content="Quanta Plus">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
@@ -102,6 +103,7 @@ Within the phoneme definition the following lines may occur:  ( (V) indicates on
 <tr><TD><b>rhotic</b></TD><td>(C) An "r" type consonant.</td></tr>
 <tr><TD><b>unstressed</b></TD><td>(V) This vowel is always unstressed, unless explicitly marked otherwise.</td></tr>
 <tr><TD><b>nolink</b></TD><td>Prevent any linking from the previous phoneme.</td></tr>
+<tr><TD><b>nopause</b></TD><td>Used in a <code>liquid</code> or <code>nasal</code> phoneme to prevent eSpeak inserting a short pause if a word starts with this phoneme and the previous word ends with a vowel.</td></tr>
 <tr><TD><b>trill</b></TD><td>(C) Apply trill to the voicing.</td></tr>
 </table>
 </dl>
@@ -151,14 +153,18 @@ During the first phase of phoneme interpretation, an instruction which causes a 
 <dt><strong>length</strong> &lt;length&gt;
 <dd>The relative length of the phoneme, typically about 140 for a short vowel and from 200 to 300 for a long vowel or diphong.  A length() instruction is needed for vowels.  It is optional for consonants.
 <p>
+<dt><strong>ipa</strong> &lt;ipa string&gt;
+<dd>In many cases, eSpeak makes IPA (International Phonetic Alpbabet) phoneme names automatically from eSpeak phoneme names.  If this is not correct, then the phoneme definition can include an <b>ipa</b> instruction to specify the correct IPA name.  IPA strings may include non-ascii characters.  They may also include characters specified by their character codes in the form U+ followed by 4 hexadecimal digits.  For example a string:  aU+0303  indicates 'a' with a 'combining tilde'.
+<p>
 <dt><strong>WAV</strong>(&lt;wav file&gt;, &lt;amplitude&gt;)
 <dd>&nbsp;&lt;wav file&gt; is a path to a WAV file (22 kHz, 16 bits, mono) within <code>phsource/</code> which will be played to produce the sound.  This method is used for unvoiced consonants. &lt;wavefile&gt; does not include a .WAV filename extension, although the file to which it refers may or may not have one.<br>
 &lt;amplitude&gt; is optional.  It is a percentage change to the amplitude of the WAV file.  So, <code>WAV(ufric/s, 50)</code> means: play file 'ufric/s.wav' at 50% amplitude.
 <p>
-<dt><strong>FMT</strong>(&lt;vowel file&gt;)
-<dd>&lt;vowel file&gt; is a path to a file (within <code>phsource/</code>) which defines how to generate the sound (a vowel or voiced consonant) from a sequence of formant values.  Vowel files are made using the espeakedit program.
+<dt><strong>FMT</strong>(&lt;vowel file&gt;, &lt;amplitude&gt;)
+<dd>&lt;vowel file&gt; is a path to a file (within <code>phsource/</code>) which defines how to generate the sound (a vowel or voiced consonant) from a sequence of formant values.  Vowel files are made using the espeakedit program.<br>
+&lt;amplitude&gt; is optional.  It is a percentage change to the amplitude of the sound which is synthesized from the FMT() instruction.
 <p>
-<dt><strong>FMT</strong>(&lt;vowel file&gt;) <strong>addWav</strong>(&lt;wav file&gt;, &lt;amplitude&gt;)
+<dt><strong>FMT</strong>(&lt;vowel file&gt;, &lt;amplitude&gt;) <strong>addWav</strong>(&lt;wav file&gt;, &lt;amplitude&gt;)
 <dd>For voiced consonants, a FMT() instruction may be followed by an addWav() instruction.  addWav() has the same format as a WAV() instruction, but the WAV file is mixed with the sound which is synthesized from the FMT() instruction.
 <p>
 <dt><strong>VowelStart</strong>(&lt;vowel file&gt;, &lt;length adjust&gt;)

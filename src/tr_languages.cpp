@@ -122,7 +122,8 @@ static Translator* NewTranslator(void)
 	tr->data_dictrules = NULL;     // language_1   translation rules file
 	tr->data_dictlist = NULL;      // language_2   dictionary lookup file
 
-	tr->transpose_min = 0;
+	tr->transpose_min = 'a';
+	tr->transpose_max = 'z';
 	tr->frequent_pairs = NULL;
 
 	// only need lower case
@@ -167,6 +168,7 @@ static Translator* NewTranslator(void)
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language = "";    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 
+
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
 //	tr->langopts.length_mods0 = length_mods_en0;
@@ -178,6 +180,7 @@ static Translator* NewTranslator(void)
 	tr->langopts.thousands_sep = ',';
 	tr->langopts.decimal_sep = '.';
 	tr->langopts.break_numbers = BREAK_THOUSANDS;   // 1000, 1000,000  1,000,000 etc
+	tr->langopts.max_digits = 14;
 
 	memcpy(tr->punct_to_tone, punctuation_to_tone, sizeof(tr->punct_to_tone));
 
@@ -278,14 +281,14 @@ static void SetCyrillicLetters(Translator *tr)
 
 	tr->letter_bits_offset = OFFSET_CYRILLIC;
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-	SetLetterBits(tr,0,ru_vowels);
+	SetLetterBits(tr,LETTERGP_A,ru_vowels);
 	SetLetterBits(tr,1,ru_soft);
 	SetLetterBits(tr,2,ru_consonants);
 	SetLetterBits(tr,3,ru_hard);
 	SetLetterBits(tr,4,ru_nothard);
 	SetLetterBits(tr,5,ru_voiced);
 	SetLetterBits(tr,6,ru_ivowels);
-	SetLetterBits(tr,7,ru_vowels);
+	SetLetterBits(tr,LETTERGP_VOWEL2,ru_vowels);
 }  // end of SetCyrillicLetters
 
 
@@ -419,10 +422,8 @@ Translator *SelectTranslator(const char *name)
 			static const short stress_lengths_da[8] = {160,140, 200,200, 0,0, 220,230};
 			SetupTranslator(tr,stress_lengths_da,NULL);
 
-			tr->transpose_min = 'a';
-			tr->transpose_max = 'z';
-
 			tr->langopts.stress_rule = STRESSPOSN_1L;
+			tr->langopts.param[LOPT_PREFIXES] = 1;
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_ORDINAL_DOT | NUM_1900 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;
 		}
@@ -450,9 +451,6 @@ Translator *SelectTranslator(const char *name)
 		{
 			static const short stress_lengths_en[8] = {182,140, 220,220, 0,0, 248,275};
 			SetupTranslator(tr,stress_lengths_en,NULL);
-
-			tr->transpose_min = 'a';
-			tr->transpose_max = 'z';
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
 			tr->langopts.stress_flags = 0x08;
@@ -485,6 +483,7 @@ Translator *SelectTranslator(const char *name)
 			tr->letter_bits_offset = OFFSET_GREEK;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,el_vowels);
+			SetLetterBits(tr,LETTERGP_VOWEL2,el_vowels);
 			SetLetterBits(tr,LETTERGP_B,el_voiceless);
 			SetLetterBits(tr,LETTERGP_C,el_consonants);
 			SetLetterBits(tr,LETTERGP_Y,el_fvowels);    // front vowels: ε η ι υ
@@ -733,6 +732,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_bits_offset = OFFSET_ARMENIAN;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,hy_vowels);
+			SetLetterBits(tr,LETTERGP_VOWEL2,hy_vowels);
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
 			tr->langopts.max_initial_consonants = 6;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
@@ -902,7 +902,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_PREFIXES] = 1;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x10;  // devoice at end of word
 			SetLetterVowel(tr,'y');
-		
+
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_ALLOW_SPACE | NUM_1900 | NUM_ORDINAL_DOT;
 			tr->langopts.ordinal_indicator = "e";
 			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));

@@ -222,6 +222,7 @@ antwerpen   antv&rp@n
 avignon     _^_FR
 babilon     babilOn
 babilonië   babil'o@ni;@
+bainskloof  beInsklo@f
 bangladesj  baNglad'ES
 barcelona   bars@l'o@na
 barkly      _^_EN
@@ -314,6 +315,7 @@ mpumalanga  mpu:mal'aNga
 montagu     mOnt@ky
 moreletapark mOr@l,Etap'ark
 moorreesburg mur'e@sbWrx2
+mouillepunt mulipWnt
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
 nigel       _^_EN
@@ -363,6 +365,7 @@ wimbledon   _^_EN
 wolseley    wulsli
 uganda      ug'anda
 uruguay     urugwaI
+wakloof     vA:klo@f
 zimbabwe    zI:mb'ab_wE
 zulu        zulu // Kwazulu-Natal
 
@@ -409,6 +412,7 @@ beyers      beI@rs
 blignault   blIx2n@Ut
 blomerus    blum'e@rWs
 blum        blum
+borodin     bOrud'in
 botha       bo@ta
 bouwer      b@U@r
 braham      brA:m
@@ -477,6 +481,7 @@ duncan      daNk@-n
 (du toit)   d@||toI
 dustin      _^_EN
 duvenage    dyv@nA:x2@	
+dvorak      d@-v'O:Zak
 einstein    aInstaI:n
 eksteen     $1
 elana       il'A:na
@@ -519,6 +524,7 @@ gordon      _^_EN
 grange      x2rA:nsi
 gregory     _^_EN
 greta       gre@ta
+grieg       gri:g
 grové       x2ruv'e@
 gulliver      _^_EN
 gustav      gustaf
@@ -548,6 +554,7 @@ james       _^_EN
 jane        _^_EN
 Jean        ZA~n $capital
 jesebel     je@s@b&l
+jessica     _^_EN
 jimmy       _^_EN
 joachim     juw'A:x2@m
 joan        _^_EN
@@ -592,6 +599,7 @@ lukas       lukas
 lulu        lulu
 mabalêl     mabal'&l
 mabel       _^_EN
+macgill     m@gjil
 mackintosh  _^_EN
 madelene	mad@l'e@n
 mbeki       mbE:ki
@@ -639,7 +647,6 @@ mouton      mut'On
 mozart      mo@tsart
 myburgh     meIbWrx2
 naomi       na_'o@mi
-napoleon    nap'o@liOn
 natasha n%at'aSa
 naudé       nOd'e@
 nefertiti   nEf@rt'iti
@@ -675,6 +682,7 @@ renée       r@neI
 retha       re@ta
 retief      r@tif
 rhodes      _^_EN
+richard     _^_EN
 riekert     rik@rt
 robert      _^_EN
 robin       _^_EN
@@ -1131,6 +1139,7 @@ jupiter       jupit@r
 kafee         kaf'e@
 kaliefa       kal'ifa
 kameraderie   kam@rA:d@r'i
+kapittel      kap'It@l
 katswink      katsv@nk
 kaviaar       kavi'A:r
 kennisvaardig $1
@@ -1255,6 +1264,7 @@ onvermoë      $1
 oorkom        $2
 oorle         o@rl@
 oorleef       $2
+oorry         o@reI
 oorsee        $2
 oorsese       $2
 oorval        $2 $verb
@@ -1282,6 +1292,7 @@ pirouette     p@ru:'Et
 plaasjaap     plA:sjA:p
 plasenta      plas'Enta
 poinsettia    pOIns'Etia
+pond          po~nt
 potpourri     pOtpur'i
 primate       $2
 profetes      prOf@t'Es
@@ -1408,6 +1419,7 @@ voluit        fOl_Yyt
 voorgee       fo@rx2e@
 voorkeer      $1
 voorkom       $2 $only
+voorlente     $1
 voormalige    fo@rm'A:l@x2@
 voornemens    fo@rne@m@ns
 //voorsien      $2
@@ -1428,5 +1440,6 @@ weggewens     v&x2@v'E:ns
 welaf         v&l_af
 weleer        v&l_'e@r
 wentaktiek    $1
+willens       vIl@ns
 wysgere       veIsx2e@r@
 

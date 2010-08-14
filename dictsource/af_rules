@@ -430,6 +430,7 @@
              bonde (C     bOnd@ // verbondenheid/bondeldraer/gebondene/saambondelend
              boos (aardig b%o@s_ // move default stress: boosaardig/-e/-heid
           _) bor (dA@     b%Or // geborduur/bordeel/bordele
+             borde (r     bOrd@ // fix stress and e sound: borderak/-ke
              bos (A@      bOs? // bosaap/bosoorlog/bosuil
              bo (v        bo@ // fix o sound: bovlak/-e and similar
              bowen        bo@v@n' // bowenal/bowendien
@@ -587,6 +588,7 @@
              bene (dy     b%e@n@ // fix stress and e sounds: gebenedy/-de
           _) ben (ga      b%EN // fix stress and n/g sounds: Bengaalse/Bengale
              beni (g      be@n@ // fix stress and e sound: (swaar/twee/vier)benig, etc.
+          _) ben (Cien    b%En // fix 1st e sound: bensien/benzien and compounds
              ber (lyn     b%&r // move default stress: Berlyn/-er/-se
              ber (serk    b@r // fix stress and 1st e sound: berserk/-er
           C) be (rsie     b'&: //kombersie etc.
@@ -718,6 +720,7 @@
              d (d
              dd           d // gladde/midde/kudde/opskudding
              ddh          d // Boeddha/boeddhisme
+          @) d (raam      t // fix d sound: draad-/skilpad-/standaardraam and compounds	
              daad (werk   d%A:t // move default stress: daadwerklik/-e
              daaren (te   d%A:r@n // fix stress and e sound: daarenteen/daarenteë
              daarop (v    d%A:r%Op // move default stress: daaropvolgend/-e
@@ -727,6 +730,7 @@
              dani (gh     d'A:n@ // -hoedanigheid/hoedanighede/onderdanigheid
           @) dant         d'ant // dant takes stress: kommandant/pruimedant
           @) dderd (_     d@rt // ontredderd, se rule: dd           d
+          @) d (einde_    t_ // fix d sound: maand-/noord-/suideinde
           @) d (eis       t_ // fix d sound, insert pause: skuldeiser/grondeise and many compounds
              dge (_       _^_EN // words ending in -dge are English: Cambridge/Hambidge...
              dia (C       d%i%a // diabeet/diafragma/diagnose/dialek/dialoog/diamant
@@ -1756,7 +1760,7 @@
              geldi        x2&ld@
              geld (inC    x2&lt_ // fix d sound, pause: geldinkomste/-insamelaar/-insameling, etc.
              geld (ing    x2&ld // but: ver-/ontgelding and similar
-             geldjie      x2'&lci
+             geldjie      x2&lci // spaargeldjies
           _) gelykeni (s  x2@l'eIk@n@ // gelykenis/se
              gemmer       x2'Em@r
              ge (ogra     x2i //geografie etc.
@@ -2947,12 +2951,14 @@
           _) na (latig    n%A: // move default stress: nalatig/-e/-heid
              names        nA:m@s // fix e sound: afnames/opnames
              napole (ont  n%ap%o@l%i // fix stress and vowel sounds: Napoleonties/-e
+             napo (leon   n%apo@ // fix stress and a sound: Napoleon(magte/-troepe...)
           _) na (rC       na // nartjie/nardus/narsing
           _) na (rk       n%a // narkose/narkotiseer/narkoties/narkotika
           _) na (skeer    n''A: // restore default stress: naskeermiddel/-room
           _) na (speur    n%A: // fix stress and a sound: (on)naspeurbaar/-lik/-e
           _) na (speur_N  nA: // but default stress: naspeur
           _) na (tC       na // many compounds beginning with nat
+          _) na (trekK    nA: // fix stress and a sound: natrek/-ke
              na (trium    nA: // lengthen a sound: natrium and compounds
              na (trosK    nA: // lengthen a sound: natros/-se/-sies
              na (tuur     n%a // natuur and compounds and derivatives
@@ -3053,6 +3059,7 @@
              o (terap     u // psigo-/fisioterapeut
           _) ob (s        %Op // obskuur/obskure/obskuriteit/obsessie/obseen
              obser (veer  %Ops%&r // fix stress, b sound: (ge)observeer(d/-e)
+             obsti (na    %Opst@ // fix stress and i sound: obstinaat/-nate/-naatheid
           C) o (dium      o@ // fix stress and o sound: jodium/podium/rodium and their compounds
              oe           u
              oe (r        u: //long oe sound before r in most cases, but see flg. exceptions:
@@ -3603,6 +3610,7 @@
              pa (trA      p%a // patrollie/patroon/patrys
              patri (@     p%atr%i // move default stress: patriarg/patriot/-te and derivatives
              patriar (ga  p%atr%i%ar // move default stress: patriargaal/-gale
+             patro (lle   p%atr%u // fix stress and o sound: patrolleer and compounds
              paté         p%ate@ // fix stress and vowel sounds: (lewer)paté, etc.
              pavil (joe   p%av@l // fix stress and v sound: paviljoen and compounds
              pawil (joe   p%av@l // fix stress: pawiljoen and compounds

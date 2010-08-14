@@ -1,7 +1,7 @@
 Phonemes which are used in the *_rules and *_list files
 
 
-Dictionary af_dict  2010-05-24
+Dictionary af_dict  2010-08-03
 
 &    &:   3:   @    @-   @L   @U   a    
 A:   aI   AI   aU   A~   E    e:   e@   
@@ -53,7 +53,7 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
-Dictionary da_dict  2010-07-29
+Dictionary da_dict  2010-08-11
 
 &    &#   0    3    @    @-   a    A    
 e    E    i    o    O    u    V    W    
@@ -65,7 +65,7 @@ l/2  l/3  m    n    N    p    r    R
 s    S    t    T    tS   v    w    z    
 
 
-Dictionary hu_dict  2010-08-02
+Dictionary hu_dict  2010-08-13
 
 A    a:   E    e:   i    i:   o    o:   
 u    u:   Y    y    y:   Y:   
@@ -100,7 +100,7 @@ n^   p    Q    r    R    s    s;   t
 T    ts   v    x    z    z;   
 
 
-Dictionary en_dict  2010-07-30
+Dictionary en_dict  2010-08-11
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI@  aU   
@@ -150,7 +150,7 @@ l    m    n    N    p    r    s    S
 s2   t    v    w    Z    
 
 
-Dictionary fr_dict  2010-07-30
+Dictionary fr_dict  2010-08-06
 
 @    @-   a    A~   e    E    E:   E~   
 i    I    o    O    O~   u    u:   w    
@@ -200,7 +200,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2010-07-30
+Dictionary ta_dict  2010-08-12
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -325,7 +325,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary nl_dict  2010-07-27
+Dictionary nl_dict  2010-08-13
 
 8    @    @-   A    a:   A~   E    e:   
 EI   eU   i    I    O    O:   o:   u    
@@ -366,10 +366,10 @@ a    E    E#   E~   i    O    O~   u
 y    
 
 :    ;    b    c    C    d    d;   dZ   
-dz   f    g    h    j    k    l    m    
-n    N    n^   p    r    R    s    S    
-s;   S;   t    t;   tS   ts   tS;  v    
-w    x    z    Z    Z;   
+dz   dz;  f    g    h    j    k    l    
+m    n    N    n^   p    r    R    s    
+S    s;   S;   t    t;   tS   ts   tS;  
+ts;  v    w    x    z    Z    Z;   
 
 
 Dictionary pt_dict  2010-07-03
@@ -611,10 +611,11 @@ Dictionary bg_dict  2010-05-19
 
 @    a    e    i    o    u    
 
-;    b    C    d    d;   dZ   dz   f    
-g    j    k    l    L    l^   m    n    
-n^   p    r    s    S    s;   t    t;   
-tS   ts   v    x    z    Z    z;   
+;    b    C    d    d;   dZ   dz   dz;  
+f    g    j    k    l    L    l^   m    
+n    n^   p    r    s    S    s;   t    
+t;   tS   ts   ts;  v    x    z    Z    
+z;   
 
 
 Dictionary nso_dict  2010-05-26
@@ -636,6 +637,16 @@ O~   u    w    y
 ;    b    d    f    g    j    k    l    
 m    n    N    p    r    s    S    t    
 tS   v    z    Z    
+
+
+Dictionary ak_dict  2010-08-11
+
+a    e    E    i    o    O    u    
+
+:    b    C    d    dZ   dZ;  f    g    
+h    j    k    l    m    n    N    n^   
+p    R    s    t    tS;  v    w    z    
+z;   
 
 
 Dictionary az_dict  2010-07-27

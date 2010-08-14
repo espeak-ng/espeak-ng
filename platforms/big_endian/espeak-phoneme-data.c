@@ -2,11 +2,13 @@
 
 
 // 13.02.10  jonsd: Changed for eSpeak version 1.43
+// 13.08.10  jonsd: Added Q lines.  Use Address to set the displacement in phondata file.
 
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <sys/types.h>
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
@@ -101,6 +103,7 @@ void swap_phontab   (const char *infile, const char *outfile);
 
 void usage (const char *program_name);
 
+int xread;  // prevent compiler warning from fread()
 
 
 int main (int argc, char *argv[])
@@ -181,6 +184,7 @@ void swap_phondata  (const char *infile, const char *outfile,
                 const char *manifest)
 {//==========================================================
     FILE *in, *mfest, *out;
+    int displ;
     char line[1024];
     unsigned char buf_4[4];
 
@@ -202,24 +206,30 @@ void swap_phondata  (const char *infile, const char *outfile,
         exit (1);
     }
 
-    fread (buf_4, 4, 1, in);
-    fwrite (buf_4, 4, 1, out);
+    xread = fread(buf_4, 4, 1, in);
+    fwrite(buf_4, 4, 1, out);
 
-    while (fgets (line, 1024, mfest)) {
+    while (fgets (line, sizeof(line), mfest))
+    {
+        if(!isupper(line[0])) continue;
+
+        sscanf(&line[2],"%x",&displ);
+        fseek(in, displ, SEEK_SET);
+
         if (line[0] == 'S') {
             SPECT_SEQ buf_spect;
             size_t ix;
             int n;
 
-            fread (&buf_spect.length, 2, 1, in);
-            fread (&buf_spect.n_frames, 1, 1, in);
+            xread = fread (&buf_spect.length, 2, 1, in);
+            xread = fread (&buf_spect.n_frames, 1, 1, in);
             fseek (in, -3, SEEK_CUR);
 
             ix = (char *)(&buf_spect.frame[buf_spect.n_frames]) -
                 (char *)(&buf_spect);
             ix = (ix+3) & 0xfffc;
 
-            fread (&buf_spect, ix, 1, in);
+            xread = fread (&buf_spect, ix, 1, in);
 
             buf_spect.length = (short) SWAP_USHORT (buf_spect.length);
             for (n = 0; n < buf_spect.n_frames; n++) {
@@ -242,7 +252,7 @@ void swap_phondata  (const char *infile, const char *outfile,
             int length;
             char *wave_data;
 
-            fread (buf_4, 4, 1, in);
+            xread = fread (buf_4, 4, 1, in);
             fwrite (buf_4, 4, 1, out);
 
             length = buf_4[1] * 256 + buf_4[0];
@@ -253,7 +263,7 @@ void swap_phondata  (const char *infile, const char *outfile,
                 exit (1);
             }
 
-            fread (wave_data, 1, length, in);
+            xread = fread (wave_data, 1, length, in);
             fwrite (wave_data, 1, length, out);
 
             pos = ftell (in);
@@ -273,7 +283,7 @@ void swap_phondata  (const char *infile, const char *outfile,
         else if (line[0] == 'E') {
             char env_buf[128];
 
-            fread (env_buf, 1, 128, in);
+            xread = fread (env_buf, 1, 128, in);
             fwrite (env_buf, 1, 128, out);
         }
     }
@@ -302,7 +312,7 @@ void swap_phonindex (const char *infile, const char *outfile)
         exit (1);
     }
 
-    fread (buf_4, 4, 1, in);  // skip first 4 bytes
+    xread = fread (buf_4, 4, 1, in);  // skip first 4 bytes
     fwrite(buf_4, 4, 1, out);
 
     while (! feof (in)) {
@@ -339,7 +349,7 @@ void swap_phontab (const char *infile, const char *outfile)
         exit (1);
     }
 
-    fread (buf_8, 4, 1, in);
+    xread = fread (buf_8, 4, 1, in);
     fwrite (buf_8, 4, 1, out);
     n_phoneme_tables = buf_8[0];
 
@@ -347,18 +357,18 @@ void swap_phontab (const char *infile, const char *outfile)
         int n_phonemes, j;
         char tab_name[N_PHONEME_TAB_NAME];
 
-        fread (buf_8, 8, 1, in);
+        xread = fread (buf_8, 8, 1, in);
         fwrite (buf_8, 8, 1, out);
 
         n_phonemes = buf_8[0];
 
-        fread (tab_name, N_PHONEME_TAB_NAME, 1, in);
+        xread = fread (tab_name, N_PHONEME_TAB_NAME, 1, in);
         fwrite (tab_name, N_PHONEME_TAB_NAME, 1, out);
 
         for (j = 0; j < n_phonemes; j++) {
             PHONEME_TAB table;
 
-            fread (&table, sizeof (PHONEME_TAB), 1, in);
+            xread = fread (&table, sizeof (PHONEME_TAB), 1, in);
 
             table.mnemonic = SWAP_UINT (table.mnemonic);
             table.phflags = SWAP_UINT (table.phflags);

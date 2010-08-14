@@ -566,7 +566,7 @@ void DisplayErrorFile(const char *fname)
 		if(msg != NULL)
 		{
 			f = fopen(fname,"r");
-			fread(msg,len,1,f);
+			len = fread(msg,1, len, f);
 			fclose(f);
 			msg[len] = 0;
 			msg_string = wxString(msg,wxConvUTF8);

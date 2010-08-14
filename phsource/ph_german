@@ -339,35 +339,6 @@ phoneme V#    // used for 'r' after a vowel (to create a diphthong)
 endphoneme
 
 
-// TESTING
-
-phoneme V1#
-  liquid
-  lengthmod 7
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(r")
-  ENDIF
-  FMT(r/V_)
-endphoneme
-
-phoneme V2#    // used for 'r' after a vowel (to create a diphthong)
-  liquid
-  lengthmod 7
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(r")
-  ENDIF
-  FMT(r/V_2_)
-endphoneme
-
-phoneme V3#
-  liquid
-  lengthmod 7
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(r")
-  ENDIF
-  FMT(r/@_)
-endphoneme
-
 phoneme UR
   vowel starttype #u endtype #@
   ipa ʊɐ
@@ -376,6 +347,21 @@ phoneme UR
   FMT(vwl_de/uu_@)
 endphoneme
 
+
+phoneme r2
+  vcd alv flp
+
+  IF prevPhW(isVowel) THEN
+    ChangePhoneme(*)
+  ENDIF
+
+  InsertPhoneme(@-)
+  ChangePhoneme(*)
+endphoneme
+
+
+
+// TESTING
 
 
 

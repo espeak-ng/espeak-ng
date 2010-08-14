@@ -774,7 +774,7 @@ static int LoadSoundFile(const char *fname, int index)
 		fclose(f);
 		return(4);
 	}
-	fread(p,length,1,f);
+	length = fread(p,1,length,f);
 	fclose(f);
 	remove(fname_temp);
 
@@ -2032,7 +2032,6 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int stressed_word = 0;
 	int end_clause_after_tag = 0;
 	int end_clause_index = 0;
-	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
 
 #define N_XML_BUF2   20

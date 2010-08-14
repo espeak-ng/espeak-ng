@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2010-07-30 Michel Such  <michel.such@free.fr>
+// Last update: 2010-08-01 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -70,6 +70,7 @@
 
 // For english words ending "side"
 .L14 be in up ut
+.L15 c f g h l s
 
 
 
@@ -153,6 +154,7 @@ _C)        aud (_     od         // Maud
 
 // group b: English section
         back       _^_en
+_)      be (L15A   _^_en
         board      _^_en     // board, keyboard
         box (_     _^_en     // box, inbox, outbox
         bugg       _^_en     // debugger
@@ -1462,7 +1464,7 @@ C)        ult (_   _^_en
 _C)	y (_	_^_en
 C)	y (e_	_^_en
 %C)	y (_	_^_en
-//@CAC)	y (_	_^_en
+@CeC)	y (_	_^_en
 nC)	y (_	_^_en
       yze	_^_en
 

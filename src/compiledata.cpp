@@ -1925,8 +1925,11 @@ static int LoadEnvelope(FILE *f, const char *fname)
 	displ = ftell(f_phdata);
 
 	fseek(f,12,SEEK_SET);
-	fread(buf,1,128,f);
-	fwrite(buf,1,128,f_phdata);
+	if(fread(buf,128,1,f) == 0)
+	{
+		error("Failed to read envelope: %s",fname);
+	}
+	fwrite(buf,128,1,f_phdata);
 
 	if(n_envelopes < N_ENVELOPES)
 	{
@@ -3576,7 +3579,7 @@ void CompileMbrola()
 	wxFileName filename = wxFileName(filepath);
 	strcpy(mbrola_voice,filename.GetName().mb_str(wxConvLocal));
 	sprintf(buf,"%s/mbrola_ph/%s_phtrans",path_home,mbrola_voice);
-	if((f_out = fopen(buf,"w")) == NULL)
+	if((f_out = fopen(buf,"wb")) == NULL)
 	{
 		wxLogError(_T("Can't write to: ")+wxString(buf,wxConvLocal));
 		return;

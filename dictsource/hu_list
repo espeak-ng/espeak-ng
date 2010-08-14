@@ -156,6 +156,8 @@ _#-ika	A
 _#-ikai	Ai
 _#-éhez	e:hEz
 _#-ához	a:hoz
+_#-ikének	e:nEk
+_#-ikának	a:nAk
 (1-e)	elseje		$text $alt2
 (1-én)	elsején 	$text $alt2
 (1-jén)	elsején 	$text $alt2
@@ -233,6 +235,7 @@ _#-ához	a:hoz
 (00-tól)	nul:Anul:a:to:l
 (0-n) nul:a:n
 (00-n) nul:Anul:a:n
+(0-ról)	nul:a:R2o:l
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
 (2-őt) kEt:Y:t
@@ -263,6 +266,7 @@ _#-ához	a:hoz
 (5-től) Yt:Y:l
 (5-től) YtYdike:tY:l	$alt2
 (5-t) YtYt
+(5-ször)	Yts:YR2
 (6-al) hAt:Al
 (6-tal) hAt:Al
 (6-tól) hAt:o:l
@@ -282,7 +286,7 @@ _10e	tiz
 _20e	hus
 (10-szer) ti:s:ER2
 (10-szeres) ti:s:ER2ES
-
+(10-t) tizEt
 
 
 //special number exceptions
@@ -362,6 +366,9 @@ nyári	$alt
 téli	$alt
 végén	$alt
 elején	$alt
+folyamán	$alt
+úton	$alt
+út	$alt
 
 // accent names
 _lig	ligAtu:R2A
@@ -595,7 +602,7 @@ vel     $unstressend
 
 ellen	$unstressend	// against
 //elé	$u	// before
-óta	$alt $alt3	// since. Not a bug both $alt $alt3 attribute,
+óta	$unstressend $alt $alt3	// since. Not a bug both $alt $alt3 attribute,
 //because if only a year is present, need spokening normal number, not
 //ordinal number. For example:
 //2004. óta meaning since 2004 and need spokening normal number.
@@ -865,7 +872,7 @@ látszik	$unstressend
 látszott	$unstressend
 látszanak	$unstressend
 látszotok	$unstressend
-körül	$unstressend $alt3
+körül	$unstressend $alt $alt3
 dőlt	$unstressend
 vér	$unstressend
 sót	$unstressend
@@ -1052,7 +1059,125 @@ ház	$unstressend
 állnak	$unstressend
 idején	$unstressend
 néznek	$unstressend
-érezte	$unstressend
+sért	$unstressend
+adózású	$unstressend
+kötelezni	$unstressend
+lehetőség	$unstressend
+mondtuk	$unstressend
+kellene	$unstressend
+szerte	$unstressend
+hozta	$unstressend
+kezdte	$unstressend
+lökte	$unstressend
+benne	$unstressend
+fenn	$unstressend
+elő	$unstressend
+javasolták	$unstressend
+kezdjen	$unstressend
+látta	$unstressend
+látták	$unstressend
+nyomát	$unstressend
+került	$unstressend
+várták	$unstressend
+közbe	$unstressend
+látott	$unstressend
+tartanak	$unstressend
+ejt	$unstressend
+önnek	$unstressend
+álljon	$unstressend
+szálljon	$unstressend
+üljön	$unstressend
+jónak	$unstressend
+hisz	$unstressend
+elől	$unstressend
+vágy	$unstressend
+vitték	$unstressend
+küldött	$unstressend
+mentén	$unstressend
+venni	$unstressend
+múlik	$unstressend
+indít	$unstressend
+nála	$unstressend
+vizsgálata	$unstressend
+vizsgálatot	$unstressend
+indítottak	$unstressend
+vizsgált	$unstressend
+javult	$unstressend
+része	$unstressend
+írni	$unstressend
+téren	$unstressend
+terén	$unstressend
+menni	$unstressend
+fogja	$unstressend
+teszik	$unstressend
+tömni	$unstressend
+nyel	$unstressend
+érzi	$unstressend
+annak	$unstressend
+dolog	$unstressend
+számít	$unstressend
+aránya	$unstressend
+helyzetük	$unstressend
+kifogásolták	$unstressend
+kifogásolta	$unstressend
+fogalmaz	$unstressend
+szóló	$unstressend
+gyártott	$unstressend
+írta	$unstressend
+rúgták	$unstressend
+esett	$unstressend
+marad	$unstressend
+tulajdonú	$unstressend
+KFT	$unstressend
+folytatja	$unstressend
+államokban	$unstressend
+című	$unstressend
+senkit	$unstressend
+abban	$unstressend
+tegyük	$unstressend
+szar	$unstressend
+gond	$unstressend
+megy	$unstressend
+ebből	$unstressend
+abból	$unstressend
+ebben	$unstressend
+mondom	$unstressend
+akar	$unstressend
+akarsz	$unstressend
+távra	$unstressend
+jog	$unstressend
+járunk	$unstressend
+szólni	$unstressend
+ró	$unstressend
+kérni	$unstressend
+építést	$unstressend
+adni	$unstressend
+részén	$unstressend
+érni	$unstressend
+lap	$unstressend
+írja	$unstressend
+írtak	$unstressend
+stressz	$unstressend
+nyújtózni	$unstressend
+éve	$unstressend
+tartott	$unstressend
+attól	$unstressend
+utast	$unstressend
+szint	$unstressend
+minőségű	$unstressend
+beszélt	$unstressend
+kerületben	$unstressend
+gáz	$unstressend
+épült	$unstressend
+építésű	$unstressend
+együttes	$unstressend
+távon	$unstressend
+híg	$unstressend
+szőr	$unstressend
+diagnosztizálható 	$unstressend
+működik	$unstressend
+hat	$unstressend
+mutatnak	$unstressend
 
 // word pairs
 
@@ -1074,10 +1199,10 @@ vannak    $unstressend
 
 voltam    $u  // to be, past
 voltál    $u
-volt      $u $alt3
+volt      $unstressend $alt3
 voltunk   $u
 voltatok  $u
-voltak    $u
+voltak    $unstressend
 
 leszek    $u  // to be, future
 leszel    $u
@@ -1296,4 +1421,4 @@ CD-m) cédém
 (hu-n) hun
 (USA-ban) usában
 (USA-ba) usába
-
+(pc-n) pécén

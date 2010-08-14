@@ -1,6 +1,4 @@
-// PB = Peter Bjarkov - pbj1234@hotmail.com
-
-iv  $abbrev
+﻿// PB = Peter Bjarkov - pbj1234@hotmail.com
 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
@@ -92,15 +90,15 @@ __	b'Onsdrai
 // numbers
 _0	'nOl
 _1	'e:n
-_2	t'o:
-_3	tR'&:
+_2	t'o
+_3	tR'e
 _4	f'i:V
 _5	f'Em
 _6	s'Egs
 _7	s'yw
 _8	'O:d@
-_9	n'i:
-_10	t'i:
+_9	n'i
+_10	t'i
 _11	'Elv@
 _12	t'Vl
 _13	tR'&#d@-n // PB & changed to &#
@@ -119,6 +117,7 @@ _7X	h&lfj'&rs               // PV a changed to &
 _8X	f'irs
 _9X	h&lf'Ems // PB a changed to &
 _0C	h'un*@:D
+_1C  ed||h'unR@:D // PB addet 'et hundrede'
 _0M1	t'u:s@-n
 _1M1    ed||t'u:s@-n      // PB added 'et' to tusind
 _1M2	'e:n||milij'o:n
@@ -130,8 +129,6 @@ _0M4	bilij'o:n3
 
 _0and	3
 _dpt	_k,Vm&:
-_roman	d%En
-
 
 // PB a number followed by dot
 // ordinals are followed by a dot in Danish
@@ -178,7 +175,6 @@ mens		$pause	// while
 for	fV
 fordi	fVd'i $pause	// because - PB: changed stress
 når	nVr		$pause	// while
-som		$u+ $pause   // who (relative)
 der	d&r	$u+ $u    // PB changed from [d]A
 hvor	v'Vr	// where
 hvorfor	vVf'V	// why - firan r deleted
@@ -196,7 +192,7 @@ ad      &:  // PB added 'ad'
 ad &D $atend $sentence // PB "Det må ikke skille os ad."
 at		&: $u // PB changed from [at] to [&:]
 hos			// at - PB: removed [$u+]
-som	sVm	    // which / that - PB: removed [$u+]
+som	sVm	 $u   // which / that - PB: removed [$u+]
 
 // pronouns
 jeg	jai	$u+	// I 
@@ -209,13 +205,13 @@ dét de
 vi	$u
 i	_i $u+
 mig	maj	$u	// me
-dig	daj	$u
+dig	daj	$u+
 dem	$u
 ham	$u
 hende	$u
 sig	$u
-os	Vs $u
-jer	
+os	Vs $u+
+jer	$u
 denne	$u+	// this
 dette	$u+
 disse	$u+	// these
@@ -256,12 +252,12 @@ må		$u+	// may
 bør		$u+	// ought
 
 // letter names
-b	be:
-c	se:
-d	de:
+b	be
+c	se
+d	de
 _e e:
 f	Ef
-g	ge:
+g	ge
 h	hO:
 _i	i:
 j	jVD // PB changed from [o]
@@ -270,13 +266,13 @@ l	El
 m	Em
 n	En
 o	o
-p	pe:
-q	ku:
+p	pe
+q	ku
 r	Er
 s	es
 //t	te: mooved to da_rules because of clash with T-shirt
 u	u?
-v	ve:
+v	ve
 w	d'Vbeltve:
 x	Eks
 y	Y?
@@ -286,7 +282,6 @@ z	sEt
 // PB English words
 bacon        _^_EN
 bondage      _^_EN
-baseball    _^_EN
 volleyball  _^_EN
 dj          _^_EN
 deadline    _^_EN
@@ -2761,6 +2756,52 @@ vanadium  $alt
 vivarium  $alt
 vokabularium  $alt
 
+// PB nouns with final -um - stress on previous syllable
+basilikum $alt
+curriculum $alt
+dekorum $alt
+depositum $alt
+desideratum $alt
+epicentrum $alt
+erratum $alt
+faktotum $alt
+filosofikum $alt
+futurum $alt
+gummiarabicum $alt
+interregnum $alt
+jubilæum $alt
+karakteristikum $alt
+karbolineum $alt
+karborundum $alt
+kemoterapeutikum $alt
+kompositum $alt
+konsum $alt
+kuriosum $alt
+linoleum $alt
+mausoleum $alt
+memorandum $alt
+momentum $alt
+museum $alt
+narkotikum $alt
+neolitikum $alt
+opossum $alt
+palæolitikum $alt
+perfektum $alt
+perikum $alt
+periodikum $alt
+petitum $alt
+petroleum $alt
+postscriptum $alt
+præteritum $alt
+psykofarmakum $alt
+pædagogikum $alt
+referendum $alt
+responsum $alt
+supinum $alt
+tedeum $alt
+ultimatum $alt
+vademecum $alt
+
 // PB nouns with final -ie - stress on previous syllable
 // unofficial suffix for the "ium" words above
 adverbie  $alt
@@ -2934,6 +2975,24 @@ prinsesse  $alt
 rimesse  $alt
 stewardesse  $alt
 tristesse  $alt
+
+final -ese - stressed e
+anamnese $alt
+askese $alt
+diatese $alt
+diurese $alt
+eksegese $alt
+fylogenese $alt
+genese $alt
+hypotese $alt
+katakrese $alt
+kinese $alt
+ontogenese $alt
+parese $alt
+partenogenese $alt
+patogenese $alt
+protese $alt
+syntese $alt
 
 PB final -id - stressed i
 adenoid $alt
@@ -5176,7 +5235,7 @@ bivuaker   $alt
 blamer   $alt
 blancher   $alt
 bloker   $alt
-bogstaver   $alt
+bogstavere   $alt
 bombarder   $alt
 bonbonniere  bVNbVNj'E:r $alt
 boniter   $alt
@@ -5836,7 +5895,7 @@ konvojere   $alt
 konvoluter   $alt
 kooperer   $alt
 koordiner   $alt
-kopier   $alt
+kopiere   $alt
 kopuler   $alt
 koreografer   $alt
 korreler   $alt
@@ -5872,7 +5931,7 @@ kurer   $alt
 kursere   $alt
 kursiver   $alt
 kurtiser   $alt
-kuverter   $alt
+kuvertere   $alt
 kvadrer   $alt
 kvaksalverer   $alt
 kvalificer   $alt
@@ -6090,7 +6149,7 @@ patruljere   $alt
 pausere   $alt
 pelleter   $alt
 pendulere   $alt
-pensioner   $alt
+pensionere   $alt
 perciper   $alt
 perfektioner   $alt
 perforer   $alt
@@ -6108,7 +6167,7 @@ perverter   $alt
 petitioner   $alt
 pigmenter   $alt
 piker   $alt
-piloter   $alt
+pilotere   $alt
 pioner   $alt
 pipetter   $alt
 pirater   $alt
@@ -6264,7 +6323,7 @@ rekommander   $alt
 rekompenser   $alt
 rekonvalescer   $alt
 rekreer   $alt
-rekrutter   $alt
+rekruttere   $alt
 rektificer   $alt
 rektoskoper   $alt
 rekurrer   $alt
@@ -6538,7 +6597,7 @@ triumfere   $alt
 trivialiser   $alt
 trompeter   $alt
 trunker   $alt
-trænere   $alt
+//trænere   $alt
 tunneler   $alt
 turner   $alt
 tuscher   $alt
@@ -6550,7 +6609,6 @@ uniformer   $alt
 urbaniser   $alt
 urger   $alt
 uriner   $alt
-urpremier   $alt
 usurper   $alt
 vacciner   $alt
 vagabonder   $alt
@@ -10385,10 +10443,10 @@ chevrolet sjEvrol'e
 saigon sajg3-n                   // PB Saigon
 managua m&n'&:gw&
 (deja-vu) deSja||'vy
-(il duce) il||d'u:tSj@ // PB Italian faschist
+(il duce) il||d'u:tSj@ // PB Italian Fascist
 
 // Abbreviations
-pga   pOgR'O?n'a? $hasdot // PB short for 'på grund af'
+pga   pO||gR'O?n||& $hasdot // PB short for 'på grund af'
 hr   h&r    $hasdot   // PB hr. - short for mister (Mr) in Danish
 mr mestV $hasdot // PB mister
 mrs meses $hasdot // PB Mrs.
@@ -10397,14 +10455,21 @@ fx fVegsemp@l // PB "fx" is short for 'for eksempel'
 (f.eks) fVegsemp@l $hasdot // PB "f.eks" is short for 'for eksempel'
 (dj'en) di:'dje:j3n // *PB dj'en - the dj 
 (dj'er) di:'dje:jV // *PB dj'er 
-(tv'et) te:ve:@d // PB
-(tv'er) te:ve:V  // PB
 (cd'en) se:de:3n // PB
 (cd'er) se:de:V // PB
 emp $abbrev
 usa $abbrev
+who $abbrev $allcaps // PB World Health Organization
+vsop $abbrev 
 eu $abbrev
+co   $abbrev $allcaps // PB for CO2-kvote
+ngo $abbrev
 edb $abbrev
+wc v'ese // w is pronounces as v in Danish
+(wc'et) v'ese@d
+(wc'er) v'eseV
+(wc'erne) v'eseVn@
+(wc'ernes) v'eseVn@s
 it $abbrev
 id $abbrev
 dna $abbrev
@@ -10476,7 +10541,7 @@ legenderne leg'EndVn3s
 (så langt) sV||l'ANt
 (så vil) sV||v'el
 (så højt) sV||h'Vjt
- (så var) sV||v'Ar
+(så var) sV||v'Ar
 (så længe) sV||l'EN3
 (så må) sV||m'O
 (så har) sV||har
@@ -10484,4 +10549,5 @@ så sV $sentence $atstart
 (virkede så)  v'irkeD@||sV
 (kom så) kVm||sV
 (koste med) kosd@||mED
- (en kanoner) en||k&non'er
+(en kanoner) en||k&non'er
+nå nV $atstart // PB Nå, der er du

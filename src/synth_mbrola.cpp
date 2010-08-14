@@ -147,7 +147,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	// read eSpeak's mbrola phoneme translation data, eg. en1_phtrans
 	sprintf(path,"%s/mbrola_ph/%s",path_home,phtrans);
 	size = GetFileLength(path);
-	if((f_in = fopen(path,"r")) == NULL) {
+	if((f_in = fopen(path,"rb")) == NULL) {
 		close_MBR();	
 		return(EE_NOT_FOUND);
 	}
@@ -165,7 +165,7 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	{
 		*pw++ = Read4Bytes(f_in);
 	}
-	fread(mbrola_tab,size,1,f_in);
+	size = fread(mbrola_tab,1,size,f_in);
 	fclose(f_in);
 
 	setVolumeRatio_MBR((float)(mbrola_control & 0xff) /16.0f);

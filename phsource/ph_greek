@@ -69,3 +69,13 @@ phoneme k
   WAV(ustop/k_unasp, 70)
 endphoneme
 
+
+phoneme r   // this is [R] from Slovak/Czech
+  liquid
+  trill
+  lengthmod 6
+  ipa r
+  Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
+  Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
+  FMT(r3/r_trill) addWav(r3/r_trill.wav, 50)
+endphoneme

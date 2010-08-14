@@ -475,6 +475,8 @@ phoneme l/2    // 'dark' [l] after a vowel
     ChangePhoneme(l)
   ENDIF
 
+  CALL vowelstart_l
+
   PrevVowelEndings
     VowelEnding(l/L2_@L, -60)
     VowelEnding(l/L2_aL, -50)
@@ -1817,3 +1819,6 @@ include ph_haitian
 
 phonemetable az tr
 include ph_azerbaijani
+
+phonemetable ak base
+include ph_akan

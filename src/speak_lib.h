@@ -388,7 +388,8 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
    parameter:
       espeakRATE:    speaking speed in word per minute.
 
-      espeakVOLUME:  volume in range 0-100    0=silence
+      espeakVOLUME:  volume in range 0-200 or more.
+                     0=silence, 100=normal full volume, greater values may produce amplitude compression or distortion
 
       espeakPITCH:   base pitch, range 0-100.  50=normal
 
