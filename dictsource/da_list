@@ -1,4 +1,4 @@
-﻿// PB = Peter Bjarkov - pbj1234@hotmail.com
+// PB = Peter Bjarkov - pbj1234@hotmail.com
 
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Danish
@@ -170,7 +170,7 @@ da $u
 // conjunctions
 og	V	$u+ $pause  // and
 men		$pause	// but
-eller		$u+ $pause $only	// or
+eller	// or
 mens		$pause	// while
 for	fV
 fordi	fVd'i $pause	// because - PB: changed stress
@@ -202,10 +202,10 @@ han	$u
 hun	$u
 det	de $u
 dét de
-vi	$u
+vi	vi $u
 i	_i $u+
 mig	maj	$u	// me
-dig	daj	$u+
+dig	daj	$u
 dem	$u
 ham	$u
 hende	$u
@@ -396,13 +396,11 @@ oregon      _^_EN $alt
 paul        _^_EN $alt
 reynolds    _^_EN $alt
 purvis      _^_EN
-sally       _^_EN $alt
 washington  _^_EN $alt
 white       _^_EN $alt
 chicago     _^_EN $alt
 
 // PB French words
-croissant   _^_FR
 croquis     _^_FR
 crouton     _^_FR
 jugement    _^_FR
@@ -965,6 +963,7 @@ inventar      $alt
  jaguar       $alt
 janitshar     $alt
 jubilar       $alt
+kommentar     $alt
  korsar       $alt
 laminar       $alt
 legatar       $alt
@@ -1588,6 +1587,7 @@ opponent  $alt
 opulent  $alt
 orient  $alt
 patent  $alt
+patient  $alt
 piment  $alt
 permanent $alt
 potent  $alt
@@ -2194,6 +2194,357 @@ vestalinde  $alt
 violinistinde  $alt
 værtinde  $alt
 
+// PB nouns with final -isme - stressed i
+absolutisme  $alt
+absurdisme  $alt
+aforisme  $alt
+afværgemekanisme  $alt
+agnosticisme  $alt
+akademisme  $alt
+aktivisme  $alt
+albinisme  $alt
+alkoholisme  $alt
+alpinisme  $alt
+altruisme  $alt
+amatørisme  $alt
+amerikanisme  $alt
+anakronisme  $alt
+analfabetisme  $alt
+anarkisme  $alt
+anarkosyndikalisme  $alt
+anglicisme  $alt
+animisme  $alt
+antagonisme  $alt
+antropomorfisme  $alt
+aristokratisme  $alt
+arkaisme  $alt
+astigmatisme  $alt
+atavisme  $alt
+ateisme  $alt
+atomisme  $alt
+autisme  $alt
+avantgardisme  $alt
+baptisme  $alt
+barbarisme  $alt
+barthianisme  $alt
+behaviorisme  $alt
+bilisme  $alt
+bolsjevisme  $alt
+bonapartisme  $alt
+botulisme  $alt
+brahmanisme  $alt
+brandesianisme  $alt
+brutalisme  $alt
+buddhisme  $alt
+bureaukratisme  $alt
+calvinisme  $alt
+centralisme  $alt
+chauvinisme  $alt
+cyklisme  $alt
+cæsarisme  $alt
+dadaisme  $alt
+danisme  $alt
+darwinisme  $alt
+decentralisme  $alt
+defaitisme  $alt
+deisme  $alt
+dekonstruktivisme  $alt
+demokratisme  $alt
+despotisme  $alt
+determinisme  $alt
+dilettantisme  $alt
+dirigisme  $alt
+dogmatisme  $alt
+doktrinarisme  $alt
+dokumentarisme  $alt
+dramadokumentarisme  $alt
+dualisme  $alt
+egoisme  $alt
+eklekticisme  $alt
+ekshibitionisme  $alt
+eksistentialisme  $alt
+eksorcisme  $alt
+eksotisme  $alt
+ekspansionisme  $alt
+ekspressionisme  $alt
+ekstremisme  $alt
+ekvilibrisme  $alt
+elitisme  $alt
+empirisme  $alt
+epikuræisme  $alt
+erotisme  $alt
+eskapisme  $alt
+etnocentrisme  $alt
+eudaimonisme  $alt
+eufemisme  $alt
+evolutionisme  $alt
+fanatisme  $alt
+farisæisme  $alt
+fascisme  $alt
+fatalisme  $alt
+fauvisme  $alt
+federalisme  $alt
+feminisme  $alt
+fetichisme  $alt
+feudalisme  $alt
+flagellantisme  $alt
+forbrugerisme  $alt
+formalisme  $alt
+freudianisme  $alt
+fundamentalisme  $alt
+funktionalisme  $alt
+futurisme  $alt
+føderalisme  $alt
+gallicisme  $alt
+gaullisme  $alt
+georgisme  $alt
+germanisme  $alt
+gigantisme  $alt
+gnosticisme  $alt
+grundtvigianisme  $alt
+græcisme  $alt
+hedonisme  $alt
+hegemonisme  $alt
+hellenisme  $alt
+hermafroditisme  $alt
+heroisme  $alt
+hinduisme  $alt
+historicisme  $alt
+historisme  $alt
+holisme  $alt
+hooliganisme  $alt
+humanisme  $alt
+hypnotisme  $alt
+idealisme  $alt
+idiotisme  $alt
+imperialisme  $alt
+impressionisme  $alt
+indeterminisme  $alt
+individualisme  $alt
+industrialisme  $alt
+infantilisme  $alt
+intellektualisme  $alt
+internationalisme  $alt
+interventionisme  $alt
+irrationalisme  $alt
+islamisme  $alt
+isolationisme  $alt
+isomorfisme  $alt
+jesuitisme  $alt
+judaisme  $alt
+kannibalisme  $alt
+kapitalisme  $alt
+katolicisme  $alt
+klassicisme  $alt
+klerikalisme  $alt
+kokainisme  $alt
+kollektivisme  $alt
+kolonialisme  $alt
+kolorisme  $alt
+kommercialisme  $alt
+kommunisme  $alt
+kommunitarisme  $alt
+komparatisme  $alt
+konformisme  $alt
+konfucianisme  $alt
+konkretisme  $alt
+konservatisme  $alt
+konsonantisme  $alt
+konstruktivisme  $alt
+korporatisme  $alt
+korporativisme  $alt
+kosmopolitisme  $alt
+kreationisme  $alt
+kretinisme  $alt
+kubisme  $alt
+kulturisme  $alt
+kvietisme  $alt
+kynisme  $alt
+lakonisme  $alt
+lamaisme  $alt
+lamarckisme  $alt
+latinisme  $alt
+leninisme  $alt
+lesbianisme  $alt
+liberalisme  $alt
+lobbyisme  $alt
+lutheranisme  $alt
+lyrisme  $alt
+machiavellisme  $alt
+magnetisme  $alt
+malthusianisme  $alt
+manierisme  $alt
+maoisme  $alt
+markedsmekanisme  $alt
+marxisme  $alt
+maskulinisme  $alt
+masochisme  $alt
+materialisme  $alt
+mccarthyisme  $alt
+mekanisme  $alt
+merkantilisme  $alt
+messianisme  $alt
+metabolisme  $alt
+metodisme  $alt
+militarisme  $alt
+minimalisme  $alt
+modernisme  $alt
+monarkisme  $alt
+monetarisme  $alt
+mongolisme  $alt
+monisme  $alt
+monopolisme  $alt
+monoteisme  $alt
+moralisme  $alt
+morfinisme  $alt
+mormonisme  $alt
+muhamedanisme  $alt
+mutisme $alt
+mysticisme  $alt
+naivisme  $alt
+narcissisme  $alt
+nationalisme  $alt
+naturalisme  $alt
+naturisme  $alt
+nazisme  $alt
+negativisme  $alt
+neologisme  $alt
+nepotisme  $alt
+neutralisme  $alt
+nihilisme  $alt
+nomadisme  $alt
+nordisme  $alt
+norvagisme  $alt
+nudisme  $alt
+objektivisme  $alt
+obskurantisme  $alt
+okkultisme  $alt
+opportunisme  $alt
+optimisme  $alt
+organisme  $alt
+ostrakisme  $alt
+pacifisme  $alt
+panteisme  $alt
+papisme  $alt
+parallelisme  $alt
+parkinsonisme  $alt
+parlamentarisme  $alt
+partikularisme  $alt
+paternalisme  $alt
+patriarkalisme  $alt
+patriotisme  $alt
+pennalisme  $alt
+perfektionisme  $alt
+perspektivisme  $alt
+pessimisme  $alt
+pietisme  $alt
+platonisme  $alt
+pluralisme  $alt
+pointillisme  $alt
+polycentrisme  $alt
+polyteisme  $alt
+populisme  $alt
+positivisme  $alt
+pragmatisme  $alt
+primitivisme  $alt
+privatisme  $alt
+professionalisme  $alt
+protektionisme  $alt
+protestantisme  $alt
+provinsialisme  $alt
+psykologisme  $alt
+purisme  $alt
+puritanisme  $alt
+racisme  $alt
+radikalisme  $alt
+rationalisme  $alt
+realisme  $alt
+reformisme  $alt
+regionalisme  $alt
+relativisme  $alt
+reumatisme  $alt
+revanchisme  $alt
+revisionisme  $alt
+rigorisme  $alt
+romantisme  $alt
+royalisme  $alt
+sadisme  $alt
+sadomasochisme  $alt
+satanisme  $alt
+seksualisme  $alt
+sekterisme  $alt
+sekularisme  $alt
+seminarisme  $alt
+sensationalisme  $alt
+sensualisme  $alt
+sentimentalisme  $alt
+separatisme  $alt
+serialisme  $alt
+sexisme  $alt
+shamanisme  $alt
+shiisme  $alt
+shintoisme  $alt
+skandinavisme  $alt
+skepticisme  $alt
+slavisme  $alt
+snobbisme  $alt
+socialisme  $alt
+sofisme  $alt
+solipsisme  $alt
+somnambulisme  $alt
+spiritisme  $alt
+spiritualisme  $alt
+spontanisme  $alt
+stalinisme  $alt
+stoicisme  $alt
+strukturalisme  $alt
+subjektivisme  $alt
+supranaturalisme  $alt
+surrealisme  $alt
+svecisme  $alt
+syllogisme  $alt
+symbolisme  $alt
+syndikalisme  $alt
+synkretisme  $alt
+synkronisme  $alt
+tachisme  $alt
+taoisme  $alt
+teisme  $alt
+terrorisme  $alt
+thomisme  $alt
+totalitarisme  $alt
+totemisme  $alt
+traditionalisme  $alt
+transvestisme  $alt
+transvestitisme  $alt
+tropisme  $alt
+trotskisme  $alt
+truisme  $alt
+tsarisme  $alt
+turisme  $alt
+uniformisme  $alt
+unionisme  $alt
+unitarisme  $alt
+universalisme  $alt
+urbanisme  $alt
+utilitarisme  $alt
+utopisme  $alt
+vandalisme  $alt
+vegetarianisme  $alt
+vegetarisme  $alt
+verisme  $alt
+victorianisme  $alt
+vitalisme  $alt
+vokalisme  $alt
+voyeurisme  $alt
+vulgarisme  $alt
+vulkanisme  $alt
+zarisme  $alt
+zenbuddhisme  $alt
+zionisme  $alt
+ækvilibrisme  $alt
+æsteticisme  $alt
+
 // PB words with final -ni - stressed i
 agoni  $alt
 androgyni  $alt
@@ -2292,7 +2643,6 @@ metonymi  $alt
 monogami  $alt
 origami oreg'ami  $alt
 pandemi  $alt
-pastrami p&stR'Ami  $alt
 polygami  $alt
 salami sal'&mi  $alt
 socionomi  $alt
@@ -2303,6 +2653,59 @@ trakeotomi  $alt
 uræmi  $alt
 vasektomi  $alt
 økonomi  $alt
+
+// PB stressed second syllable in words with initial ge
+gebet  $alt
+gebis  $alt
+gebommerlig  $alt
+gebrokken  $alt
+gebrækkelig  $alt
+gebyr  $alt
+gebærde   $alt
+gedigen  $alt
+gedulgt  $alt
+gehalt  $alt
+gehejmeråd  $alt
+gehenna  $alt
+gehæng  $alt
+gehør  $alt
+gelassen  $alt
+geled  $alt
+gelejde  $alt
+gelinde  $alt
+gelænder  $alt
+gemak  $alt
+gemal  $alt
+gemen  $alt
+gemyse  $alt
+gemyt  $alt
+gemytlig  $alt
+genom  $alt
+gentil  $alt
+genuin  $alt
+gepard  $alt
+geranie  $alt
+geranium  $alt
+geråde  $alt
+gesandt  $alt
+gesandtskab  $alt
+gesims  $alt
+gesjæft  $alt
+geskæftig  $alt
+gespenst  $alt
+gestagen  $alt
+gestalt  $alt
+gestik  $alt
+gesvejsning  $alt
+gesvindt  $alt
+gevaldig  $alt
+gevalt  $alt
+gevandt  $alt
+gevind  $alt
+gevinst  $alt
+gevir  $alt
+gevækst  $alt
+gevær  $alt
 
 // words with final "in" - stressed i
 aborigin  $alt
@@ -6018,7 +6421,7 @@ meriter   $alt
 merkantiliser   $alt
 metalliser   $alt
 metamorfoser   $alt
-metastaser   $alt
+metastasere   $alt
 migrer   $alt
 mikroskoper   $alt
 militariser   $alt
@@ -6306,6 +6709,7 @@ refuser   $alt
 regaler   $alt
 regenerer   $alt
 reger   $alt
+ureger   $alt // PB uregerlig
 regionaliser   $alt
 registrer   $alt
 regreder   $alt
@@ -10458,13 +10862,16 @@ fx fVegsemp@l // PB "fx" is short for 'for eksempel'
 (cd'en) se:de:3n // PB
 (cd'er) se:de:V // PB
 emp $abbrev
+hbo $abbrev // TV station
 usa $abbrev
 who $abbrev $allcaps // PB World Health Organization
 vsop $abbrev 
 eu $abbrev
+ekg $abbrev
 co   $abbrev $allcaps // PB for CO2-kvote
 ngo $abbrev
 edb $abbrev
+mri $abbrev
 wc v'ese // w is pronounces as v in Danish
 (wc'et) v'ese@d
 (wc'er) v'eseV
@@ -10545,6 +10952,7 @@ legenderne leg'EndVn3s
 (så længe) sV||l'EN3
 (så må) sV||m'O
 (så har) sV||har
+(ville så) vil3||sV
 så sV $sentence $atstart
 (virkede så)  v'irkeD@||sV
 (kom så) kVm||sV

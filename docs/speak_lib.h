@@ -386,7 +386,7 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
    relative=1   Sets a relative value of the parameter.
 
    parameter:
-      espeakRATE:    speaking speed in word per minute.
+      espeakRATE:    speaking speed in word per minute.  Values 80 to 450.
 
       espeakVOLUME:  volume in range 0-200 or more.
                      0=silence, 100=normal full volume, greater values may produce amplitude compression or distortion

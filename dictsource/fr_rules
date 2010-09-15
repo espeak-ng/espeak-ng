@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2010-08-01 Michel Such  <michel.such@free.fr>
+// Last update: 2010-09-04 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -136,6 +136,7 @@ _C)        aud (_     od         // Maud
     bb) aye (X     ei        // abbaye
         ay (C      E         // aymé
         ay         Ej        // paye
+        ay (ak     aj        // kayak
         ay (_      E        // display
     Xl) ayer (X    EjWr     // player, layer
      h) am (_S2      am
@@ -206,6 +207,7 @@ _)      be (L15A   _^_en
   toma) c (_
     se) c (ond     g         // seconde secondaire
         c          k         // recoin donc
+zin)	c (_			g			// zinc
 
         cient (_   sit2      // ils appr�ient, remercient.
   effi) cient      sjA~      // coefficient
@@ -578,6 +580,7 @@ gu)        eu (ler    Y        // gueuler
     _y) en (_      En
    iew) er (X      er2
     _m) e (ga      e
+    app)	en (di		E~			// appendice
 
 
 // group e: English section

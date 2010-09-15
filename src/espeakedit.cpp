@@ -247,6 +247,8 @@ END_EVENT_TABLE()
 
 MyFrame::~MyFrame(void)
 {//====================
+	myframe->Show(false);
+	myframe->Iconize(false);   // os=Windows, get the non-iconsized size
 	myframe->GetPosition(&frame_x, &frame_y);
 	myframe->GetSize(&frame_w, &frame_h);
 }

@@ -361,7 +361,9 @@ endphoneme
 
 
 
-// TESTING
+phoneme oU  // for English words
+  import_phoneme en-us/oU
+endphoneme
 
 
 
@@ -388,7 +390,7 @@ A~	O n
 E       E
 e:      e:
 e@      E: r
-eI      e:
+eI      e j
 i       I
 I       I
 I2      I
@@ -401,7 +403,7 @@ o:      o:
 O@      O : r
 o@      O : r
 OI      OY
-oU      o:
+oU      oU
 O~ 	O n
 U       U
 u:      u:

@@ -2621,6 +2621,9 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	
 		if(match1.points > 0)
 		{
+			if(word_flags & FLAG_UNPRON_TEST)
+				return(match1.end_type | 1);
+
 			if((match1.phonemes[0] == phonSWITCH) && ((word_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
 			{
 				// an instruction to switch language, return immediately so we can re-translate
@@ -2628,8 +2631,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 				return(0);
 			}
 
-			if(word_flags & FLAG_UNPRON_TEST)
-				return(match1.end_type | 1);
 			match1.end_type &= ~SUFX_UNPRON;
 
 			if((match1.end_type != 0) && (end_phonemes != NULL))

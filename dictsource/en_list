@@ -223,6 +223,7 @@ _₠	jU@roU
 ≠	n0t'i:kw@LtU
 №	nju:m@roU
 ।	dVnda#
+●	bl,aks'3:k@L
 
 ß	S,A@p'Es
 ə	SwA:
@@ -326,8 +327,8 @@ _60o	s'Iksti@
 _70o	s'Ev@nti@
 _80o	'eIti@
 _90o	n'aInti@
-_0Co	h'Vndr@dT
-_0M1o	T'aUz@ndT
+//_0Co	h'Vndr@dT
+//_0M1o	T'aUz@ndT
 
 
 // ABBREVIATIONS
@@ -2090,6 +2091,7 @@ supplier         s@plaI3
 suppose                        $2
 suprise           $2                       // misspell
 surest           SU@@st
+surplus          s3:pl@s
 surrogate        sVr@geIt
 ?3 surrogate     s3:@geIt
 survey           s3:veI        $onlys
@@ -2440,6 +2442,7 @@ Dahomey		$2
 Damascus	da#mask@s
 Danish		deInIS
 Delhi		dElI
+Dhabi		dA:bi
 Djibouti	dZIb'u:tI
 Donegal		d0nI2g'O:l
 Durham		dVr@m
@@ -2615,6 +2618,7 @@ Barack		ba#rA:k
 Barbara		bA@b@r@
 Betsy		bEtsI
 Bjorn		bjO@n
+Bjørn		bj3:n
 Boris		b0rIs
 Brien		braI@n
 Candace		kandIs
@@ -2646,7 +2650,7 @@ Dmitri		d@mi:tri
 Dominic		d0mI2nIk
 Donaghy		d0n'hi:
 Doris		d0rIs
-Dorothy		dO@r@Ti
+Dorothy		d0r@Ti
 Dougall		du:g@L
 Duncan		dVnk@n
 Dvina		d@vi:n@
@@ -2911,7 +2915,7 @@ through          Tru:		$u $strend2
 toward           tUwO@d		$2
 over             oUv3		$u $strend2 $only
 under            Vnd3		$u $strend2 $only
-within           wIDIn		$u2
+within           wIDIn		$u2 $strend2 $brk
 without          wIDaUt		$u2 $strend2
 above            @bVv		$u2 $strend2
 about            a#baUt		$u2 $strend2
@@ -3156,7 +3160,6 @@ since            sIns		$pause
 thus             DVs		$pause
 though           ,DoU
 whenever         wEnEv3		$u2 $pause
-within           $u		$pause
 whoever          hu:Ev3		$2
 whatever         w0tEv3		$2 $pause
 ?3 whatever      wVtEv3		$2 $pause

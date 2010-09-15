@@ -96,6 +96,12 @@ phoneme A~
   import_phoneme fr/A~
 endphoneme
 
+phoneme O~
+  vowel starttype #o endtype #o
+  length 190
+  FMT(vnasal/oo_n2)
+endphoneme
+
 
 // Diphthongs
 //===========

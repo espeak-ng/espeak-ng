@@ -154,7 +154,7 @@ void SetSpeed(int control)
 	if(wpm > 1000)
 	{
 		// TESTING
-		test = wpm / 1000;
+//		test = wpm / 1000;
 		wpm = wpm % 1000;
 	}
 #endif

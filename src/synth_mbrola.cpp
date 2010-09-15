@@ -17,6 +17,8 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
+
+
 #include "StdAfx.h"
 
 #include <stdio.h>
@@ -32,6 +34,10 @@
 #include "synthesize.h"
 #include "translate.h"
 #include "voice.h"
+
+int option_mbrola_phonemes;
+
+#ifdef INCLUDE_MBROLA
 
 extern int Read4Bytes(FILE *f);
 extern void SetPitch2(voice_t *voice, int pitch1, int pitch2, int *pitch_base, int *pitch_range);
@@ -103,7 +109,6 @@ void unload_MBR()
 
 static MBROLA_TAB *mbrola_tab = NULL;
 static int mbrola_control = 0;
-int option_mbrola_phonemes;
 
 
 espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate)
@@ -132,6 +137,11 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	{
 		// mbrola voice file not found, look in /usr/share
      sprintf(path,"/usr/share/mbrola/%s",mbrola_voice);
+	}
+	if(GetFileLength(path) <= 0)
+	{
+		// mbrola voice file not found, look in /usr/share
+     sprintf(path,"/usr/share/mbrola/voices/%s",mbrola_voice);
 	}
 #endif
 #ifdef PLATFORM_WINDOWS
@@ -639,3 +649,29 @@ void MbrolaReset(void)
 
 	reset_MBR();
 }
+
+#else   // INCLUDE_MBROLA
+
+// mbrola interface is not compiled, provide dummy functions.
+
+espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int srate)
+{
+	return(EE_INTERNAL_ERROR); 
+}
+
+int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
+{
+	return(0);
+}
+
+int MbrolaFill(int length, int resume)
+{
+	return(0);
+}
+
+void MbrolaReset(void)
+{
+}
+
+
+#endif  // INCLUDE_MBROLA

@@ -883,7 +883,7 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_mk,stress_amps_mk);
 			tr->charset_a0 = charsets[5];   // ISO-8859-5
-			tr->letter_groups[0] = vowels_cyrillic;
+			tr->letter_groups[0] = tr->letter_groups[7] = vowels_cyrillic;
 
 			tr->langopts.stress_rule = STRESSPOSN_3R;   // antipenultimate
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
@@ -1037,6 +1037,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x20;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x13;
 			tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
+			tr->langopts.numbers2 = 0x100;   // plural forms of millions etc
 			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
 			SetLetterVowel(tr,'r');
 		break;
@@ -1192,7 +1193,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = STRESSPOSN_1L;
 			tr->langopts.word_gap = 0x21;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 //			tr->langopts.vowel_pause = 4;
-			tr->letter_groups[0] = vowels_vi;
+			tr->letter_groups[0] = tr->letter_groups[7] = vowels_vi;
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_DFRACTION_4;

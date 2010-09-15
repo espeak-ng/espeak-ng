@@ -89,7 +89,7 @@ extern int embedded_default[N_EMBEDDED_VALUES];
 
 
 
-typedef struct {  // 44 bytes
+typedef struct {  // 64 bytes
 	short frflags;
 	short ffreq[7];
 	unsigned char length;
@@ -102,7 +102,9 @@ typedef struct {  // 44 bytes
 	unsigned char klattp2[5];   // continuation of klattp[],  Avp, Fric, FricBP, Turb
 	unsigned char klatt_ap[7];  // Klatt parallel amplitude
 	unsigned char klatt_bp[7];  // Klatt parallel bandwidth  /2
+	unsigned char spare;        // pad to multiple of 4 bytes
 } frame_t;   //  with extra Klatt parameters for parallel resonators
+
 
 typedef struct {  // 44 bytes
 	short frflags;
@@ -114,32 +116,7 @@ typedef struct {  // 44 bytes
 	unsigned char fright[3];          // width/4  f0-2
 	unsigned char bw[4];        // Klatt bandwidth BNZ /2, f1,f2,f3
 	unsigned char klattp[5];    // AV, FNZ, Tilt, Aspr, Skew
-} frame_t2;   //  TESTING
-
-
-#ifdef deleted
-typedef struct {
-	short frflags;
-	unsigned char length;
-	unsigned char rms;
-	short ffreq[9];
-	unsigned char fheight[9];
-	unsigned char fwidth[6];          // width/4
-	unsigned char fright[6];          // width/4
-	unsigned char fwidth6, fright6;
-	unsigned char klattp[N_KLATTP];
-} frame_t;
-
-typedef struct {  // 43 bytes
-	short frflags;
-	unsigned char length;
-	unsigned char rms;
-	short ffreq[9];
-	unsigned char fheight[9];
-	unsigned char fwidth[6];          // width/4
-	unsigned char fright[6];          // width/4
-} frame_t2;   //  the original, without Klatt additions, used for file "phondata" 
-#endif
+} frame_t2;   //  without the extra Klatt parameters
 
 
 
@@ -193,14 +170,14 @@ typedef struct {
 typedef struct {
    short length_total;  // not used
    unsigned char  n_frames;
-   unsigned char  flags;
+   unsigned char  sqflags;
    frame_t2  frame[N_SEQ_FRAMES];     // max. frames in a spectrum sequence
 } SPECT_SEQ;   // sequence of espeak formant frames
 
 typedef struct {
    short length_total;  // not used
    unsigned char  n_frames;
-   unsigned char  flags;
+   unsigned char  sqflags;
    frame_t  frame[N_SEQ_FRAMES];     // max. frames in a spectrum sequence
 } SPECT_SEQK;   // sequence of klatt formants frames
 
@@ -433,7 +410,8 @@ typedef struct {
 	unsigned char split_tail_end;
 	unsigned char split_tune;
 	
-	unsigned char spare[10];
+	unsigned char spare[8];
+	int spare2;       // the struct length should be a multiple of 4 bytes
 } TUNE;
 
 extern int n_tunes;

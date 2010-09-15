@@ -1127,9 +1127,9 @@ phoneme z
   ENDIF
 
   IF nextPh(isPause2) THEN
-    FMT(voc/z_) addWav(ufric/s_, 85)
+    FMT(voc/z_) addWav(ufric/s_, 70)
   ENDIF
-  FMT(voc/z) addWav(ufric/s_)
+  FMT(voc/z) addWav(ufric/s_, 85)
 endphoneme
 
 

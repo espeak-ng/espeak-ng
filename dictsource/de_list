@@ -34,7 +34,7 @@ _|	paIp
 _:	d'Op@lp,UNkt
 _;	Str'ICpUNkt
 __	,Unt3Str'IC
-_-	b'IndEstr,IC
+_-	b'Ind@str,IC
 _!	'aUs_|r,u:f@ts,aIC@n
 _?	fr'Ag@ts,aIC@n
 _'	,apo:str'Of
@@ -424,6 +424,7 @@ beat		_^_EN
 browser         _^_EN
 byte		_^_EN
 camcorder	_^_EN
+change		_^_EN
 chart		_^_EN
 chat		_^_EN
 coach		_^_EN

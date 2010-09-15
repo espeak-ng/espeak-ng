@@ -4,11 +4,20 @@
 //====================================================
 
 
-phoneme a/
-  vowel starttype #@ endtype #@
+phoneme a
+  vowel starttype #a endtype #a
   length 180
-  FMT(vowel/a_4)
+
+  IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND nextPh(a) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
+  IF thisPh(isDiminished) THEN
+    FMT(vowel/a_4)
+  ENDIF
+  FMT(vowel/a_2)
 endphoneme
+
 
 phoneme e
   vowel starttype #e endtype #e
@@ -40,9 +49,9 @@ phoneme t         // revert to alveolar /t/
   Vowelin f1=1  f2=1600 -300 300  f3=-100 80  amp=11
   Vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   IF nextPh(isPause2) THEN
-    WAV(ustop/t_)
+    WAV(ustop/t_unasp2)
   ENDIF
-  WAV(ustop/t_short, 80)
+  WAV(ustop/t_unasp2)
 endphoneme
 
 
@@ -70,12 +79,7 @@ phoneme k
 endphoneme
 
 
-phoneme r   // this is [R] from Slovak/Czech
-  liquid
-  trill
-  lengthmod 6
-  ipa r
-  Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
-  Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  FMT(r3/r_trill) addWav(r3/r_trill.wav, 50)
+phoneme r
+  import_phoneme base/R2
 endphoneme
+

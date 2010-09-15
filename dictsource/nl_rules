@@ -18,11 +18,15 @@
              ages (_S1    s
              age (_$w_alt a:Q@
              aire (_      'E:r
+          @) ant (_       'Ant
+
+          @) a (de_       'a:
+          @) a (ta_       'a:
 
 
 .group b
              b            b     // auto-devoice at end-of-word
-             bb           b
+          b) b
              bs (_N       ps
 
           &) baar (_      =ba:r
@@ -44,18 +48,35 @@
              c            k
              ch           x
           _) ch           S
-          _) ch (arit     x
+          _) ch (ador     tS
+          _) ch (ao       x
+          _) chang (e     SA~Z
+          _) chaperon     S,Ap@rO~n
+          _) charg (@     SArZ
+          _) ch (ari      x
           _) ch (arter    tS
+          _) chau (ffe    S%o:
+          _) chau (vin    S,o:
           _) ch (emi      x
+          _) cheque       SEk
+          _) cherry       tSEri
+          _) chi (cane    S%i
           _) ch (ip       tS
-          _) ch (olest    x
+          _) ch (lo       x
+          _) ch (ole      x
+          _) cho (que     SO
+          _) ch (or       x
           _) ch (r        x
+          &) che (_       =S
              ck           k
+             cieel        S'e:l
+             ciële        S'e:l@
+             coach        ko:tS
 
 
 .group d
              d            d     // auto-devoice at end-of-word
-             dd           d
+          d) d
              dt           t
              ds (_N       ts
 
@@ -73,8 +94,10 @@
              ee           e:
              eeuw         eU
              eu           Y:
-          @) ee (l_       'e:
-          @) ee (m_       'e:
+
+             eau          o: //words with French origin
+          @) ee (_        'e:
+          @) ee (X_       'e:
           @) ee (r_       'I:
           @) ee (rt_      'I:
           @) ee (rd_      'I:
@@ -83,31 +106,32 @@
          it) eit (_       'EIt
           &) el (_        @l
           &) eld (_       @ld
-          &) ele (_       @l@
+          &) ele (_       'e:l@
           &) em (_        @m
-          &) en (_S2q     @n
+          &) en (_S2qd    @n
           &) ens (_S3q    @ns
           &) end (_       @nd
           &) ende (_      @nd@
+          @) ent (_       'Ent
           &) er (_        @r
           &) ere (_       @r@
           &) er (en_$p_alt @r     // where 'eren' is not a verb ending
              eren (_      'I:r@n
           &) es (_        @s
-
-             eau          o: //words with French origin
+          @) etten (_S3   @n 
+          @) eur (_       'Y:r
 
           _) er (@P2      Er
           @) e (raar_     @
-
-          &) e (nB@       @
+          &) e (nB@       E2
          id) e (nt        E
-          &) e (rC@       @
+          &) e (rC@       E2
+
 
 
 .group f
              f            f
-             ff           f
+          f) f
 
 
 .group g
@@ -128,6 +152,7 @@
           C) h (K
 
           _) her (@P3     hEr
+          _) her (en      hI:r
 
 
 .group i
@@ -143,16 +168,18 @@
           m) ie (_        'i
           p) ie (_        'i
 
-             ie (f_       'i
-             ie (r_       'i
+          &) ica (_       =ika:
+             ie (X        'i
              ie (rd_      'i
           @) ig (_S2d     @x
           @) ige (_       @Q@
+          @) ij (n_       'EI
           _) in (C@P2     'In
 //        _) in (gP2      'In
              io (nage     iO
           @) isch (_      =is
           @) ische (_     =is@
+          @) ist (_       'Ist
 
 
 .group j
@@ -161,7 +188,7 @@
 
 .group k
              k            k
-             kk           k
+          k) k
 
          _) koning        k'o:nIN  // in compounds
          _) koningin      ko:nIQ'In
@@ -169,7 +196,7 @@
 
 .group l
              l            l
-             ll           l
+          l) l
           &) lijk (_S4    l@k
           &) lijke (_S5   l@k@
           &) laan (_S4    la:n
@@ -178,14 +205,15 @@
 
 .group m
              m            m
-             mm           m
+          m) m
 
+            manage (ment  ma:nIdZ
          _) mee (@P3      m'e:
 
 
 .group n
              n            n
-             nn           n
+          n) n
              ng           N
              nj           n^
 
@@ -205,6 +233,7 @@
              ou           VU
              ou (rage     u
 
+             oo (X        'o:
       telef) oo (n        'o:
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
@@ -238,7 +267,7 @@
 
 .group p
              p            p
-             pp           p
+          p) p
           _) ph           f
              ph (K        f
 
@@ -248,6 +277,7 @@
              qu           kv
           @) qu (eer      k
           @) qu (eren_    k
+          @) que (_       k
 
 
 .group r
@@ -266,7 +296,7 @@
 
 .group s
              s            s
-             ss           s
+          s) s
              sch          sx
              sch (_       s
              sch (e_      s
@@ -278,9 +308,13 @@
 
 .group t
              t            t
-             tt           t
-             tie (_       tsi
-          c) tie (_       si
+          t) t
+             tie (_       =tsi
+          c) tie (_       =si
+          k) tie (_       =si
+          p) tie (_       =si
+          s) tie (_       =ti
+        cra) tie (_       ts'i
              tj           t;
              tsj          tS
           _) th           t
@@ -289,6 +323,8 @@
              t (hav       t
           _) toe (@P3     t'u
 
+          _) team         t'i:m
+             team (_      ti:m
 
 .group te
           _) tegen (P5    t'e:Q@n
@@ -350,6 +386,8 @@
 
 .group y
              y            i
+             y (CK        I
+             y (x         I
 
 
 .group z

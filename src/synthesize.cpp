@@ -1469,7 +1469,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoSpect2(ph, 0, &fmtp, p, 0);
 				if(p->synthflags & SFLAG_LENGTHEN)
 				{
-					DoPause(20,0);
+					DoPause(25,1);
 					DoSpect2(ph, 0, &fmtp, p, 0);
 				}
 			}

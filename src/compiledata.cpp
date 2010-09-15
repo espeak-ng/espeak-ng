@@ -1605,7 +1605,7 @@ int LoadSpect(const char *path, int control)
 	displ = ftell(f_phdata);
 
 	seq_out.n_frames=0;
-	seq_out.flags=0;
+	seq_out.sqflags=0;
 	seq_out.length_total=0;
 
 	total = 0;	
@@ -1752,7 +1752,7 @@ for(ix=0; ix<8; ix++)
 	if(klatt_flag)
 	{
 		seqk_out.n_frames = seq_out.n_frames;
-		seqk_out.flags = seq_out.flags;
+		seqk_out.sqflags = seq_out.sqflags;
 		seqk_out.length_total = seq_out.length_total;
 
 		ix = (char *)(&seqk_out.frame[seqk_out.n_frames]) - (char *)(&seqk_out);
@@ -3613,7 +3613,7 @@ static const TUNE default_tune = {
 PITCHfall, 64, 8,
 PITCHfall, 70, 18, 24, 12,
 PITCHfall, 70, 18, 24, 12, 0,
-{0,0,0,0,0,0,0,0,0,0}
+{0,0,0,0,0,0,0,0}, 0
 };
 
 #define N_TUNE_NAMES  100

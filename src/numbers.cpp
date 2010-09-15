@@ -1343,6 +1343,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	int hundreds;
 	int tensunits;
 	int x;
+	int ix;
 	int exact;
 	int ordinal;
 	char string[12];  // for looking up entries in **_list
@@ -1498,6 +1499,16 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		{
 			if(tr->langopts.numbers & NUM_SINGLE_AND)
 				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
+		}
+	}
+	else
+	{
+		if(ph_ordinal2[0] != 0)
+		{
+			ix = strlen(buf1);
+			if((ix > 0) && (buf1[ix-1] == phonPAUSE_SHORT))
+				buf1[ix-1] = 0;   // remove pause before addding ordinal suffix
+			strcpy(buf2, ph_ordinal2);
 		}
 	}
 

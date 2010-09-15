@@ -30,14 +30,14 @@ _0M4		duili'ono
 _dpt		_komo_
 
 // ordinal numbers
-_#a		a
-_#aj		aI
-_#an		an
-_#ajn		aIn
-_#-a		a
-_#-aj		aI
-_#-an		an
-_#-ajn		aIn
+_#a		%a
+_#aj		%aI
+_#an		%an
+_#ajn		%aIn
+_#-a		%a
+_#-aj		%aI
+_#-an		%an
+_#-ajn		%aIn
 
 // accent names
 _lig	ligat'uRa
@@ -69,6 +69,8 @@ _?	demandosigno
 _!	_k@-*isigno_
 _-	dividost@-*eko
 __	subst@-*eko
+_'	apost@-*'ofo
+_"	tsito
 ~	tildo
 °	gradoI
 %	p@-*otsento	$max3
@@ -80,8 +82,8 @@ __	subst@-*eko
 |	duktosigno
 *	asteRisko	$max3
 ©       kopiRaIto
-_(	R'ondak@-*'ampo
-_)	f'eRmaRondak@-*'ampo
+_(	parentezo
+_)	f'eRmaparent'ezo
 _[	R'ektak@-*'ampo
 _]	f'eRmaRektak@-*'ampo
 _{	k'uRbak@-*'ampo

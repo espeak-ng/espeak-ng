@@ -1173,7 +1173,7 @@
          _) be (sC       bI2
          _) be (stia     bE
          _) be (tC       bI2
-         _) be (v        bE
+         _) be (vA       bE
             be (gA       bI2
             be (gr       bI2
             be (lat      bI2
@@ -1489,6 +1489,7 @@
          _) dj (Y        dZ
          _) d (nie       d
          _) d (wY        d  // allow _dw
+         _) d (h@@       d
 
             d (d
          _) d' (AP2      d
@@ -2608,6 +2609,8 @@
          &) i (c_        =I
          &) i (ca_       =I
          &) i (cal       =I
+         &) i (cism_     =I
+         &) i (cist_     =I
         pr) i (ce        aI
        adv) i (ce        aI
        dev) i (ce        aI
@@ -3283,6 +3286,7 @@
          _) k (L01Y      k
          _) k (hY        k
          _) k (wY        k
+         _) kj (e@       kj
          _) kn (Y        n
             kn (if       n
             kn (iv       n
@@ -4197,6 +4201,7 @@
          l) ov (e        Vv
         _l) ove          Vv
         cl) ov (e        oUv
+       _sl) ov (enA      oUv
         pl) ov           oUv
       pull) ov           oUv
          m) ov (A        u:v
@@ -4346,6 +4351,7 @@
          _) pre (C@      pr%I
          _) prea (ch     pri:
          _) pre (am      pri:
+         _) pre (cinc    pri:
             pre (cio     prE
             preda (to    prEd@
             prede (ces   pri:dI
@@ -5465,7 +5471,7 @@
         6_) 's (_        I2z
        16_) 's (_        z
             're (_S3     @
-            've (_S3     v
+            've (_S3     @v
             'd (_S2      d
             'll (_S3     @L
 

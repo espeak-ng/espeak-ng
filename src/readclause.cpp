@@ -889,13 +889,13 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			else
 			if(punct_count < 4)
 			{
-				sprintf(buf,"\001+15S");
+				sprintf(buf,"\001+10S");
 				while(punct_count-- > 0)
 				{
 					sprintf(buf2," %s",punctname);
 					strcat(buf, buf2);
 				}
-				sprintf(buf2," \001-15S");
+				sprintf(buf2," \001-10S");
 				strcat(buf, buf2);
 			}
 			else
@@ -1482,8 +1482,8 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"x-slow",60},
 		{"slow",80},
 		{"medium",100},
-		{"fast",120},
-		{"x-fast",150},
+		{"fast",125},
+		{"x-fast",160},
 		{NULL, -1}};
 
 	static const MNEM_TAB mnem_pitch[] = {

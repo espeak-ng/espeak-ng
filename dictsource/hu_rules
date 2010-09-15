@@ -46,7 +46,8 @@
     jo) bbr (a     bR2
     tö) bbr (e     bR2
   kise) bb (ség    b
-
+    tö) bb (száz   b
+    tö) bb (száz   b
 
 .group c
         c          ts
@@ -223,6 +224,9 @@ menetren) dsz (erű d|s
    föl) d (szegély d
  stran) d (szezon  d
   _hol) d (sarló   d
+    mó) d (sor     d
+ csalá) d (segít   d
+
 
 .group dz
   fogó) dz (kod    ts
@@ -456,6 +460,9 @@ harmince) gy (edik J:
      t) í (zes     i
     sz) í (vel     i:
     _t) í (zük     i
+   _sz) í (vattak  i
+   _sz) í (vattákk i
+   _sz) í (vató    i
 
 .group j
         j          j
@@ -695,6 +702,8 @@ gyalogo) s (zászló S
 szennye) s (zsá    S
   alvá) s (zavar   S
 magatartá) s (zavar S
+erőforrá) s (zabál S
+működé) s (zava    S
 
 .group ss
         ssz        ss2
@@ -1123,6 +1132,10 @@ művele) t (sáv     t
    zár) t (sorú    t
    skó) t (juhász  t
 szerete) t (szolgálat t
+     ú) t (jelzés  t
+vizsgála) t (sor   t
+dagana) t (sej     t
+tábláza) t (sor t
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters

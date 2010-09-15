@@ -1705,7 +1705,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			return(flags);
 		}
 
-		if(flags & FLAG_COMBINE)
+		if((flags & FLAG_COMBINE) && !(wtab[1].flags & FLAG_PHONEMES))
 		{
 			char *p2;
 			int ok = 1;
@@ -1807,6 +1807,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 // ?? Option to set the word-stress according to language1 rules eg. lang=fr)
 			if(ChangeEquivalentPhonemes(tr, switch_phonemes, (char *)p))
 			{
+				// Phonemes have been converted from the foreign language to the native language
 				switch_phonemes = -1;
 			}
 
@@ -1814,6 +1815,10 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			{
 				strcpy(dictionary_name, old_dictionary_name);
 				SelectPhonemeTable(voice->phoneme_tab_ix);
+
+				// leave switch_phonemes set, but use the original phoneme table number.
+				// This will suppress LOPT_REGRESSIVE_VOICING
+				switch_phonemes = voice->phoneme_tab_ix;   // original phoneme table
 			}
 		}
 
