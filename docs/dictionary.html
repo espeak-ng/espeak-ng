@@ -252,12 +252,16 @@ Note, that matching characters in the &lt;pre&gt; part do not affect the syllabl
       <td>Only use this rule if the word is not a retranslation after removing a suffix.</td>
     </tr>
     <tr>
-      <td><strong>T</strong></td>
-      <td>Only use this rule if the word in found in the *_list file with the <b>$alt</b> attribute.</td>
-    </tr>
-    <tr>
       <td><strong>#</strong></td>
       <td>(English specific) change the next "e" into a special character "E"</td>
+    </tr>
+    <tr>
+      <td><strong>$w_alt<br>$w_alt2<br>$w_alt3</strong></td>
+      <td>Only use this rule if the word is found in the *_list file with the <b>$alt</b>, <b>$alt2</b> or <b>$alt3</b> attribute respectively.</td>
+    </tr>
+    <tr>
+      <td><strong>$p_alt<br>$p_alt2<br>$p_alt3</strong></td>
+      <td>Only use this rule if the part-word, up to and including the pre and match parts of this rule, is found in the *_list file with the <b>$alt</b>, <b>$alt2</b> or <b>$alt3</b> attribute respectively.</td>
     </tr>
   </tbody>
 </table>
@@ -275,7 +279,7 @@ eg.
 </pre>
 S and P must be at the end of the &lt;post&gt; string.
 <p>
-S&lt;number&gt; may be followed by additonal letters (eg. S2ei ).  Some of these are probably specific to English, but similar functions could be used for other languages.
+S&lt;number&gt; may be followed by additonal letters (eg. S2ei ).  Some of these are probably specific to English, but similar functions could be made for other languages.
 
 <ul><table>
   <tbody>
@@ -489,8 +493,12 @@ A word (or group of words) may be given one or more flags, either instead of, or
       <td>Use this pronunciation if the word is followed by a dot. (This attribute also implies $dot).</td>
     </tr>
     <tr>
+      <td>$sentence</td>
+      <td>The rule only applies if the clause includes end-of-sentence (i.e. it is not terminated by a comma).  For example, "$atend $sentence" means that the rule only applies at the end of a sentence.</td>
+    </tr>
+    <tr>
       <td>$abbrev</td>
-      <td>This has two meanings.<br> 1. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c").<br>2. If there is a phoneme string: This word is capitalized because it is an abbreviation and capitalization does indicate emphasis (if the "emphasize all-caps" is on).</td>
+      <td>This has two meanings.<br> 1. If there is no phoneme string: Speak the word as individual letters, even if it contains a vowel (eg. "abc" should be spoken as "a" "b" "c").<br>2. If there is a phoneme string: This word is capitalized because it is an abbreviation and capitalization does not indicate emphasis (if the "emphasize all-caps" is on).</td>
     </tr>
     <tr>
       <td>&nbsp;</td>
@@ -500,8 +508,12 @@ A word (or group of words) may be given one or more flags, either instead of, or
       <td>$accent</td>
       <td>Used for the pronunciation of a single alphabetic character.  The character name is spoken as the base-letter name plus the accent (diacritic) name.  eg. It can be used to specify that "&#xe2;" is spoken as "a" "circumflex".</td>
     </tr>
+    <tr>
+      <td>$combine</td>
+      <td>This word is treated as though it is combined with the following word with a hyphen.  This may be subject to fuither conditions for certain languages.</td>
+    </tr>
      <tr>
-      <td>$alt &nbsp; $alt2</td>
+      <td>$alt &nbsp; $alt2 &nbsp; $alt3</td>
       <td>These are language specific.  Their use should be described in the language's **_list file</td>
     </tr>
    <tr>

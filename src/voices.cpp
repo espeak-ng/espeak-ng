@@ -921,7 +921,10 @@ voice_t *LoadVoice(const char *vname, int control)
 
 				phtrans[0] = 0;
 				sscanf(p,"%s %s %d",name,phtrans,&srate);
-				LoadMbrolaTable(name,phtrans,srate);
+				if(LoadMbrolaTable(name,phtrans,srate) != EE_OK)
+				{
+					fprintf(stderr,"mbrola voice not found\n");
+				}
 				voice->samplerate = srate;
 			}
 			break;
@@ -934,7 +937,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_FAST:
 			Read8Numbers(p,speed.fast_settings);
-			SetSpeed(2);
+			SetSpeed(3);
 			break;
 
 		default:
@@ -958,7 +961,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		new_translator = SelectTranslator(translator_name);
 	}
 
-	SetSpeed(1);   // for speed_percent
+	SetSpeed(3);   // for speed_percent
 
 	for(ix=0; ix<N_PEAKS; ix++)
 	{

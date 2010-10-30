@@ -89,8 +89,8 @@ If neither -f nor --stdin is given, then the text input is taken from "text word
 <p>
 <dt>
 <strong>-s &lt;integer&gt;</strong><br>
-<dd>Sets the speed in words-per-minute (approximate values for the default English voice, others may differ slightly). The default value is 170. I generally use a faster speed
-of 190.  Range 80 to 390.  Larger value are rounded down to the maximum.
+<dd>Sets the speed in words-per-minute (approximate values for the default English voice, others may differ slightly). The default value is 175. I generally use a faster speed
+of 200.  Range 80 to 450.  Larger value are rounded down to the maximum.
 <p>
 <dt>
 <strong>-b &lt;integer&gt;</strong><br>
@@ -128,7 +128,7 @@ others.
 <p>
 <dt>
 <strong>-q</strong><br><dd>
-Quiet. No sound is generated.  This may be useful with the -x option.
+Quiet. No sound is generated.  This may be useful with options such as -x and --pho.
 <p>
 <dt>
 <strong>-v &lt;voice filename&gt;[+&lt;variant&gt;]</strong><br>
@@ -152,7 +152,7 @@ Some languages may need additional dictionary data, see <a href="languages.html"
 <dt>
 <strong>-x</strong><br>
 <dd>The phoneme mnemonics, into which the input text is translated, are
-shown on stdout.
+written to stdout.
 <p>
 <dt>
 <strong>-X</strong><br>
@@ -174,19 +174,27 @@ Compile the pronunciation rule and dictionary lookup data from their source file
 <dd>
 The same as <strong>--compile</strong>, but source line numbers from the *_rules file are included.  These are included in the rules trace when the <strong>-X</strong> option is used.
 <p>
+<dt><strong>--ipa</strong><br>
+<dd>
+Writes phonemes to stdout, using the International Phonetic Alphabet (IPA).
+<p>
 <dt><strong>--path [="&lt;directory path&gt;"]</strong><br>
 <dd>
 Specifies the directory which contains the espeak-data directory.
 <p>
+<dt><strong>--pho</strong><br>
+<dd>
+When used with an mbrola voice (eg. -v mb-en1), it writes mbrola phoneme data (.pho file format) to stdout.  This includes the mbrola phoneme names with duration and pitch information, in a form which is suitable as input to this mbrola voice.  The --phonout option can be used to write this data to a file.
+<p>
 <dt><strong>--phonout [="&lt;filename&gt;"]</strong><br>
 <dd>
-If specified, mbrola phoneme data, and also the output from -x and -X options is written to this file, rather than stdout.
+If specified, the output from -x, -X, --ipa, and --pho options is written to this file, rather than to stdout.
 <p>
 <dt><strong>--punct [="&lt;characters&gt;"]</strong><br>
 <dd>
 Speaks the names of punctuation characters when they are encountered in the text.  If &lt;characters&gt; are given, then only those listed punctuation characters are spoken, eg.  <code> --punct=".,;?"</code>
 <p>
-<dt><strong>--split [="&lt;minutes&gt;"]</strong><br>
+<dt><strong>--split [=&lt;minutes&gt;]</strong><br>
 <dd>
 Used with <strong>-w</strong>, it starts a new WAV file every <code>&lt;minutes&gt;</code> minutes, at the next sentence boundary.
 <p>
@@ -195,7 +203,7 @@ Used with <strong>-w</strong>, it starts a new WAV file every <code>&lt;minutes&
 <dd>Lists the available voices.<br>
 If =&lt;language code&gt; is present then only those voices which are suitable for that language are listed.<br>
 <code>--voices=mbrola</code> lists the voices which use mbrola diphone voices. These are not included in the default <code>--voices</code> list<br>
-<code>--voices=variant</code> lists the voice variants (voice modifiers).<br>
+<code>--voices=variant</code> lists the available voice variants (voice modifiers).<br>
 
 </dl>
 <p>&nbsp;<hr>

@@ -118,14 +118,14 @@ endphoneme
 
 phoneme aI
   vowel  starttype #a  endtype #i
-  length 230
+  length 280
   FMT(vdiph/ai_8)
 endphoneme
 
 phoneme aU
   vowel  starttype #a  endtype #u
-  length 200
-  FMT(vdiph/aau_3)
+  length 260
+  FMT(vdiph/au)
 endphoneme
 
 

@@ -247,6 +247,8 @@ END_EVENT_TABLE()
 
 MyFrame::~MyFrame(void)
 {//====================
+	myframe->Show(false);
+	myframe->Iconize(false);   // os=Windows, get the non-iconsized size
 	myframe->GetPosition(&frame_x, &frame_y);
 	myframe->GetSize(&frame_w, &frame_h);
 }
@@ -566,7 +568,7 @@ void DisplayErrorFile(const char *fname)
 		if(msg != NULL)
 		{
 			f = fopen(fname,"r");
-			fread(msg,len,1,f);
+			len = fread(msg,1, len, f);
 			fclose(f);
 			msg[len] = 0;
 			msg_string = wxString(msg,wxConvUTF8);

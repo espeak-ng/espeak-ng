@@ -132,6 +132,9 @@ endphoneme
 phoneme U
   vowel starttype #u endtype #u
   length 140
+  IF thisPh(isWordEnd) AND nextPh(isVowel) THEN
+    ChangePhoneme(w)
+  ENDIF
   FMT(vowel/uu_bck)
 endphoneme
 

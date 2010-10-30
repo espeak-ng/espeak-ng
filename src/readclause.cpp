@@ -774,7 +774,7 @@ static int LoadSoundFile(const char *fname, int index)
 		fclose(f);
 		return(4);
 	}
-	fread(p,length,1,f);
+	length = fread(p,1,length,f);
 	fclose(f);
 	remove(fname_temp);
 
@@ -889,13 +889,13 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			else
 			if(punct_count < 4)
 			{
-				sprintf(buf,"\001+15S");
+				sprintf(buf,"\001+10S");
 				while(punct_count-- > 0)
 				{
 					sprintf(buf2," %s",punctname);
 					strcat(buf, buf2);
 				}
-				sprintf(buf2," \001-15S");
+				sprintf(buf2," \001-10S");
 				strcat(buf, buf2);
 			}
 			else
@@ -1482,8 +1482,8 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 		{"x-slow",60},
 		{"slow",80},
 		{"medium",100},
-		{"fast",120},
-		{"x-fast",150},
+		{"fast",125},
+		{"x-fast",160},
 		{NULL, -1}};
 
 	static const MNEM_TAB mnem_pitch[] = {
@@ -2032,7 +2032,6 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int stressed_word = 0;
 	int end_clause_after_tag = 0;
 	int end_clause_index = 0;
-	const char *p;
 	wchar_t xml_buf[N_XML_BUF+1];
 
 #define N_XML_BUF2   20

@@ -338,8 +338,7 @@
         garant     g%aR'ant
         gata       gA:ta
         glöm       glWm
-        guide      g'aId
-        guider     g'aIdER
+        guid (e    g'ajd
         group      _^_EN
 
 .group h
@@ -463,82 +462,85 @@
 
 .group o
         o          u:
-        o (CC      O
+
+//sort
         o (C%      U
+        o (CC      O
+    pr) o (b       %O
         o (bb      O
-        o (dd      O
-        o (mm      O
-        o (pp      O
-        o (ss      O
-        o (tt      O
-        o (ff      O
-        o (rC      u:
-        o (rr      O
-        o (ll      O
-        o (m_      O
-     d) o (k       O
-        o (rk      O
-        o (rg      O
-        o (ck      O
-     f) o (n       'o:
     pr) o (c       %U
+    pr) o (cent    %O
+        och        'Ok
      s) o (ci      %U
+        o (ck      O
+     g) o (d       u:
+     k) o (d       o:
+    bl) o (d       'u:
+    pr) o (d       %O
+        o (dd      O
+        o (ff      O
      l) o (g       'o:
-     l) o (v       'o:
+    kr) o (g       u:
      l) o (gg      'O
-     b) o (x       'O
-     s) o (r       'O
-     k) o (pi      'O
-     f) o (rm      'O
+     _) o (j       O
     pr) oj         Osx'
-        o (ns      U
+     b) o (k       u:
+     d) o (k       O
+     k) o (k       'u:
      l) o (k       %U
-     g) o (r       U
-    nn) o (ns      O
+    kr) o (k       u:
+     p) o (lis     %O
+        o (ll      O
+     k) o (lu      %O
+        o (m_      O
+        o (mm      O
+     d) o (n       O
+     f) o (n       'o:
+     g) o (n       O
+     l) o (n       O
+    kr) o (n       u:
     ss) o (n       O
-     C) o (rs      O
-     k) o (rt      O
-     b) o (rt      O
+        o (ni      'o:
+        o (ns      U
+     k) o (ns      O
+    nn) o (ns      O
+        operat     OpERat
+     k) o (pi      'O
+        o (pp      O
+     p) o (pu      O
+     g) o (r       U
+     s) o (r       'O
+    lk) o (r       o:
+        o (rC      u:
      n) o (r_      O
-     t) o (r_      O
      s) o (r_      O
+     t) o (r_      O
     rs) o (rd      u:
         o (rde     o:
-     b) o (st      u:
-     b) o (k       u:
-    kr) o (k       u:
-    kr) o (g       u:
-    kr) o (n       u:
-     f) o (tb      u:
-    pr) o (v       u:
-        osparat    u:spA:Rat
-        och        'Ok
-     k) o (ns      O
-    pr) o (cent    %O
-     p) o (lis     %O
-     p) o (pu      O
-     g) o (n       O
-    sp) o (rt      O
-    pp) o (rt      O
-   upp) o (rt      o:
-     l) o (n       O
-     d) o (n       O
-    pr) o (b       %O
-    pr) o (d       %O
-     k) o (lu      %O
-   inf) o (rmati   %O
-     k) o (d       o:
-    lk) o (r       o:
-     g) o (d       u:
-     _) o (j       O
-        o (ni      'o:
-     m) o (t       'u:
-     k) o (k       'u:
-    bl) o (d       'u:
-     k) o (rv      O
-     n) o (vell    %O
+        o (rg      O
+        o (rk      O
+     f) o (rm      'O
     st) o (rm      O
-        operat     OpERat
+   inf) o (rmati   %O
+        o (rr      O
+     C) o (rs      O
+     b) o (rt      O
+     k) o (rt      O
+    pp) o (rt      O
+    sp) o (rt      O
+   upp) o (rt      o:
+     k) o (rv      O
+        osparat    u:spA:Rat
+        o (ss      O
+     b) o (st      u:
+     m) o (t       'u:
+     f) o (tb      u:
+        o (tt      O
+     l) o (v       'o:
+    pr) o (v       u:
+     n) o (vell    %O
+     b) o (x       'O
+//endsort
 
 .group p
         p          p

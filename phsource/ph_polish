@@ -170,8 +170,21 @@ endphoneme
 
 
 phoneme dz
-  import_phoneme consonants/dz
+  CALL consonants/dz
   voicingswitch ts
+  ipa dʑ
+endphoneme
+
+phoneme ts;
+  CALL base/tS;
+  voicingswitch dz;
+  ipa tɕ
+endphoneme
+
+
+phoneme dz;
+  import_phoneme base/dZ;
+  voicingswitch ts;
 endphoneme
 
 

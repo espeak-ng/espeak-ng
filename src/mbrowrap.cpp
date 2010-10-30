@@ -15,6 +15,9 @@
  * GNU General Public License for more details.
  */
 
+#include "speech.h"
+#ifdef INCLUDE_MBROLA
+
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -603,3 +606,5 @@ void resetError_MBR(void)
 {
 	mbr_errorbuf[0] = 0;
 }
+
+#endif  // INCLUDE_MBROLA

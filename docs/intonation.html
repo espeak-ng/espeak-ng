@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>eSpeak: Phoneme tables</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+<A href="docindex.html">Back</A>
+<hr>
+<h2>INTONATION</h2>
+<hr>
+In eSpeak's standard intonation model, a "tune" is applied to each clause depending on its punctuation.  Other intonation models may be used for some languages, such as tone languages.
+<p>
+Named tunes are defined in the text file: <b><code>phsource/intonation</code></b>.  This file must be compiled for use by eSpeak by using the espeakedit program, using the menu option: <b><code>Compile -> Compile intonation data</code></b>.
+<h3>Clauses</h3>
+The tunes which are used for a language can be specified by using a <b><code>tunes</code></b> statement in a voice file in <b><code>espeak-data/voices</code></b>. eg:
+<p>
+<code>tunes &nbsp; s1 &nbsp;c1  &nbsp;q1  &nbsp;e1</code>
+<p>
+It's parameters are four tune names which are used for clauses which end in:
+<ol>
+<li>Full-stop.
+<li>Comma.
+<li>Question mark.
+<li>Exclamation mark.
+</ol>
+<p>
+A clause consists of the following parts:
+<ul>
+<li>Pre-head.<br>These are any unstressed syllables before the first stressed syllable.
+<p>
+<li>Head.<br>This is the part from the first stressed syllable up to the last syllable before the nucleus.
+<p>
+<li>Nucleus.<br>This is stressed syllable which is the focus of the clause.  eSpeak chooses the last stressed syllable of the clause.
+<p>
+<li>Tail.<br>These are the syllables after the nucleus.
+</ul>
+<p>
+<h3>Tune definitions</h3>
+Here is an example tune definition from the file <b><code>phsource/intonation</code></b>.
+<p>
+<pre>
+tune s1
+prehead   46 57
+headenv   fall 16
+head       4 80 55 -8 -5
+headextend 0 63 38 13 0
+nucleus  fall 70 18 24 12
+nucleus0 fall 64 8
+endtune
+</pre>
+<p>
+It contains:
+<dl>
+<dt><strong>tune</strong> &lt;tune name&gt;
+<dd>
+Starts the definition of a tune.  The <b><code>tune name</code></b> can be used in a <b><code>tunes</code></b> statements in voice files.
+<p>
+<dt><strong>endtune</strong> &lt;tune name&gt;
+<dd>
+Ends the definition of a tune.
+<p>
+<dt><strong>prehead</strong> &lt;start pitch&gt; &lt;end pitch&gt;
+<dd>
+Gives the pitch path for any series of unstressed syllables before the first stressed syllable.
+<p>
+<dt><strong>headenv</strong> &lt;envelope&gt; &lt;height&gt;
+<dd>
+Gives the pitch envelope which is used for stressed syllables in the head (before the nucleus), including <b><code>onset</code></b> and <b><code>headlast</code></b> syllables if these are specified.  <b><code>height</code></b> gives a pitch range for the envelope. 
+<p>
+<dt><strong>head</strong> &lt;steps&gt; &lt;start pitch&gt; &lt;end pitch&gt; &lt;unstressed start&gt; &lt;unstressed end&gt;
+<dd>
+<b><code>start pitch</code></b> and <b><code>end pitch</code></b> give a pitch path for the stressed syllables of the head.  <b><code>steps</code></b> is the maximum number of stressed syllables for which this applies.  If there are additional stressed syllables, then the <b><code>headextend</code></b> statement is used for them.<p>
+<b><code>unstressed start</code></b> and <b><code>unstressed end</code></b> give a pitch path for unstressed syllables between two stressed syllables.  Their values are relative to the pitch of the previous stressed syllable.  Values are usually negative, meaning that the unstressed syllables have lower pitch than the previous stressed syllable.
+
+<p>
+<dt><strong>headextend</strong> &lt;percentage list&gt;
+<dd>
+If the head contains more stressed syllables than is specified by <b><code>steps</code></b>, then <b><code>percentage list</code></b> is used.  It contains up to 8 numbers which are used repeatedly for the additional stressed syllables.  A value of 0 corresponds to the lower the <b><code>start pitch</code></b> and <b><code>end pitch</code></b> values of the <b><code>head</code></b> statement.  100 corresponds to the higher value.  Negative values and values greater than 100 are allowed.
+<p>
+<dt><strong>nucleus</strong> &lt;envelope&gt; &lt;top pitch&gt; &lt;bottom pitch&gt; &lt;tail start&gt; &lt;tail end&gt;
+<dd>
+This gives the pitch envelope and pitch range of the last stressed syllable of the clause.  <b><code>tail start</code></b> and <b><code>tail end</code></b> give a pitch path for the unstressed syllables which are after the last stressed syllable.
+<p>
+<dt><strong>nucleus0</strong> &lt;envelope&gt; &lt;top pitch&gt; &lt;bottom pitch&gt;
+<dd>
+This is used instead of <b><code>nucleus</code></b> if there are no unstressed syllables after the last stressed syllable.  In this case, the pitch changes of the nucleus and the tail and both included in the nucleus.
+</dl>
+<p>
+The following attributes may also be included:
+<dl>
+<dt><strong>onset</strong> &lt;pitch&gt; &lt;unstressed start&gt; &lt;unstressed end&gt;
+<dd>
+This specifies the pitch for the first stressed syllable of the head. If the <b><code>onset</code></b> statement is present, then the <b><code>head</code></b> statement used for the stressed syllables after the first.
+<p>
+<dt><strong>headlast</strong> &lt;pitch&gt; &lt;unstressed start&gt; &lt;unstressed end&gt;
+<dd>
+This specifies the pitch for the last stressed syllable of the head (i.e. the stressed syllable before the nucleus).
+<p>
+</dl>

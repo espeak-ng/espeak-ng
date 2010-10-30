@@ -1236,9 +1236,14 @@ void DoEmbedded(int *embix, int sourceix)
 	int command;
 
 	do {
-		word = embedded_list[(*embix)++];
+		word = embedded_list[*embix];
 		value = word >> 8;
 		command = word & 0x7f;
+
+		if(command == 0)
+			return;  // error
+
+		(*embix)++;
 
 		switch(command & 0x1f)
 		{
@@ -1464,7 +1469,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoSpect2(ph, 0, &fmtp, p, 0);
 				if(p->synthflags & SFLAG_LENGTHEN)
 				{
-					DoPause(20,0);
+					DoPause(25,1);
 					DoSpect2(ph, 0, &fmtp, p, 0);
 				}
 			}

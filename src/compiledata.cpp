@@ -1605,7 +1605,7 @@ int LoadSpect(const char *path, int control)
 	displ = ftell(f_phdata);
 
 	seq_out.n_frames=0;
-	seq_out.flags=0;
+	seq_out.sqflags=0;
 	seq_out.length_total=0;
 
 	total = 0;	
@@ -1752,7 +1752,7 @@ for(ix=0; ix<8; ix++)
 	if(klatt_flag)
 	{
 		seqk_out.n_frames = seq_out.n_frames;
-		seqk_out.flags = seq_out.flags;
+		seqk_out.sqflags = seq_out.sqflags;
 		seqk_out.length_total = seq_out.length_total;
 
 		ix = (char *)(&seqk_out.frame[seqk_out.n_frames]) - (char *)(&seqk_out);
@@ -1925,8 +1925,11 @@ static int LoadEnvelope(FILE *f, const char *fname)
 	displ = ftell(f_phdata);
 
 	fseek(f,12,SEEK_SET);
-	fread(buf,1,128,f);
-	fwrite(buf,1,128,f_phdata);
+	if(fread(buf,128,1,f) == 0)
+	{
+		error("Failed to read envelope: %s",fname);
+	}
+	fwrite(buf,128,1,f_phdata);
 
 	if(n_envelopes < N_ENVELOPES)
 	{
@@ -3576,7 +3579,7 @@ void CompileMbrola()
 	wxFileName filename = wxFileName(filepath);
 	strcpy(mbrola_voice,filename.GetName().mb_str(wxConvLocal));
 	sprintf(buf,"%s/mbrola_ph/%s_phtrans",path_home,mbrola_voice);
-	if((f_out = fopen(buf,"w")) == NULL)
+	if((f_out = fopen(buf,"wb")) == NULL)
 	{
 		wxLogError(_T("Can't write to: ")+wxString(buf,wxConvLocal));
 		return;
@@ -3610,7 +3613,7 @@ static const TUNE default_tune = {
 PITCHfall, 64, 8,
 PITCHfall, 70, 18, 24, 12,
 PITCHfall, 70, 18, 24, 12, 0,
-{0,0,0,0,0,0,0,0,0,0}
+{0,0,0,0,0,0,0,0}, 0
 };
 
 #define N_TUNE_NAMES  100

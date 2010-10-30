@@ -309,8 +309,7 @@ aquele	&k'ely	$u+	$nounf       // that
 aquela	$u+
 daquele	d&k'ely	$u+	$nounf
 
-?1	que	ky	$u 
-?2	que	ke	$u
+	que	$u      // pronunciation is in pt_rules
 
 // possessive adjectives
 meu	$u+	$nounf
@@ -325,7 +324,7 @@ seu	$u+	$nounf
 sua	$u+
 seus	$u+
 suas	$u+
-?2	nosso	$u+	n'OsU
+?2	nosso	$u+ //	n'OsU
 ?2	nossa	$u+	n'Os&
 ?2	nossos	$u+	n'OsUs
 ?2	nossas	$u+	n'Os&s
@@ -738,7 +737,9 @@ elixir       eliSir
    page       p'eIdZ
 ?2        pior        pi'Or
 ?2        piores        pi'O*is
+preço	$alt2
 python     p'aIT&~N
+queda	$alt
 ?1 readme     r'i:dmi:
 ?1 sapi       s,ap'i
 ?1 scanner    sk'En&r

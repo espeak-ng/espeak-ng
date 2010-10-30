@@ -1,7 +1,7 @@
 
 [Setup]
 AppName=eSpeakEdit
-AppVerName=eSpeakEdit version 1.43.24
+AppVerName=eSpeakEdit version 1.44.01
 DefaultDirName={pf}\eSpeak
 DefaultGroupName=eSpeak
 OutputBaseFilename=setup_espeakedit
@@ -13,6 +13,9 @@ ShowLanguageDialog=auto
 [Icons]
 Name: "{group}\espeakedit"; Filename: "{app}\espeakedit.exe"; WorkingDir: "{app}"; Flags: runmaximized
 Name: "{group}\Uninstall espeakedit"; Filename: "{uninstallexe}"
+
+[InstallDelete]
+Type: filesandordirs; Name: "{app}\phsource\vowelcharts"
 
 
 [Files]

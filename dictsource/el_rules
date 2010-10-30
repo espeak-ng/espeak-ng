@@ -86,6 +86,8 @@
            ι        i
         C) ι (A     ;
         ρ) ι (A     i
+        δ) ι (α_    i
+           ι (ε     i
 
 .group κ
            κ        k
@@ -157,17 +159,17 @@
        ν_) π        b
 
 .group ρ
-           ρ        R
-           ρρ       R
-        A) ρ (A     *
-        C) ρ        @-*
+           ρ        r
+           ρρ       r
+        A) ρ (A     r
+        C) ρ        r
 
-       αυ) ρ        @-*   // υ  becomes consionant [v]
-       αύ) ρ        @-*
-       ευ) ρ        @-*
-       εύ) ρ        @-*
-       ηυ) ρ        @-*
-       ηύ) ρ        @-*
+       αυ) ρ        r   // υ  becomes consionant [v]
+       αύ) ρ        r
+       ευ) ρ        r
+       εύ) ρ        r
+       ηυ) ρ        r
+       ηύ) ρ        r
 
 
 .group σ
