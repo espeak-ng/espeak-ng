@@ -326,6 +326,7 @@ typedef struct {
 #define i_isNotVowel   0x8a
 #define i_isFinalVowel 0x8b
 #define i_isVoiced     0x8c
+#define i_isFirstVowel 0x8d
 
 // place of articulation
 #define i_isVel      0x28
@@ -535,6 +536,7 @@ extern t_espeak_callback* synth_callback;
 extern int option_log_frames;
 extern const char *version_string;
 extern const int version_phdata;
+extern double sonicSpeed;
 
 #define N_SOUNDICON_TAB  80   // total entries in soundicon_tab
 #define N_SOUNDICON_SLOTS 4    // number of slots reserved for dynamic loading of audio files

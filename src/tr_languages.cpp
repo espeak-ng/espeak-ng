@@ -328,6 +328,9 @@ Translator *SelectTranslator(const char *name)
 	int name2 = 0;
 	Translator *tr;
 
+	static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
+	static const unsigned char stress_amps_fr[8] = {18,16, 18,18, 18,18, 18,18 };
+
 	static const unsigned char stress_amps_sk[8] = {17,17, 20,20, 20,22, 22,21 };
 	static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 
@@ -354,6 +357,17 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.accents = 1;
 		}
 		break;
+
+	case L('a','m'):  // Amharic, Ethiopia
+		{
+			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
+			tr->langopts.stress_rule = STRESSPOSN_1L;
+			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+		}
+		break;
+
 
 	case L('a','r'):   // Arabic
 			tr->letter_bits_offset = OFFSET_ARABIC;
@@ -496,7 +510,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA; 
-			tr->langopts.numbers2 = 0x2;   // variant form of numbers before thousands
+			tr->langopts.numbers2 = 0x2 | NUM2_MULTIPLE_ORDINAL;   // variant form of numbers before thousands
 
 			if(name2 == L_grc)
 			{
@@ -550,6 +564,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
+			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL; 
 
 			if(name2 == L('c','a'))
 			{
@@ -611,16 +626,12 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','r'):  // french
 		{
-			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
-			static const unsigned char stress_amps_fr[8] = {18,16, 20,20, 20,22, 18,18 };
-
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
-			tr->langopts.vowel_pause = 0;
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_AFTER | NUM_VIGESIMAL | NUM_DFRACTION_4;
 			SetLetterVowel(tr,'y');
@@ -685,7 +696,6 @@ Translator *SelectTranslator(const char *name)
 
 
 	case L('h','t'):  // Haitian Creole
-//			static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  235, 240};
 //			memcpy(tr->stress_lengths,stress_lengths_fr,sizeof(tr->stress_lengths));
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress

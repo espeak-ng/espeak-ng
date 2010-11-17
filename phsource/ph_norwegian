@@ -15,7 +15,7 @@ phoneme @     // close schwa
   FMT(vowel/@_4)
 endphoneme
 
-phoneme @2    // open schwa
+phoneme a#    // open schwa
   vowel  starttype #@  endtype #a
   unstressed
   length 120

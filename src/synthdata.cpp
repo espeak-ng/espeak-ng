@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.44.04  14.Sep.10";
+const char *version_string = "1.44.13  17.Nov.10";
 const int version_phdata  = 0x014404;
 
 int option_device_number = -1;
@@ -593,6 +593,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 	int which;
 	unsigned int data;
 	int instn2;
+	int count;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
 	static int ph_position[8] = {0, 1, 2, 3, 2, 0, 1, 3};  // prevPh, thisPh, nextPh, next2Ph, nextPhW, prevPhW, nextVowel, next2PhW
@@ -737,6 +738,18 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			case 12:  // isVoiced
 				return((ph->type == phVOWEL) || (ph->type == phLIQUID) || (ph->phflags & phVOICED));
 			}
+
+			case 13:  // isFirstVowel
+				count = 0;
+				for(;;)
+				{
+					if(plist->ph->type == phVOWEL)
+						count++;
+					if(plist->sourceix != 0)
+						break;
+					plist--;
+				}
+				return(count==1);
 			break;
 
 		}

@@ -564,6 +564,7 @@
             al (ity      'al
          p) al (et       al
         qu) al (@        0l
+         c) all (K       O:l
          b) al (m        A:
          c) al (m        A:
          p) al (m        A:
@@ -1152,7 +1153,7 @@
          _) bug (le      bju:g
          @) bury (_S4i   br%I
 ?3       @) bury (_S4i   bEr%I
-         _) by           baI
+         _) byte         baIt
 
 
 .group be
@@ -1187,6 +1188,8 @@
             be (see      bI2
             be (sie      bI2
          _) be (sto      bI2
+         _) beta         b,i:t@
+?3       _) beta         b,eIt@
          _) be (th       bE
             be (tray     bI2
          _) be (w        bI2
@@ -1553,6 +1556,7 @@
             delu (g      dElju:
             de (lv+      dE
             de (ma       dI2
+            de (magog    dE
             demea        dI2m'i:
             de (men      dI2
             de (mise     dI2
@@ -2256,6 +2260,8 @@
          &) erize (_     @raIz
          &) eris (a      @raIz
          &) eriz (a      @raIz
+         @) er (Cal_     '3:
+         @) er (Cic_     '3:
          p) ermea (b     3:mi@
         _f) erme (nt     %3:mE
             er (nal_     '3:
@@ -2507,6 +2513,7 @@
         bo) g (Ey        g
          &) gia (_       dZ@
          &) gia (C_      dZ@
+        go) g (ic_       g
          &) giu (m       dZ@
          _) g (id        g
          _) g (im        g
@@ -2522,6 +2529,7 @@
             gue (_       g
          _) gue          gE
          _) guer (n      g3:
+         o) g (y_        g
 
 .group h
             h            h
@@ -2529,7 +2537,7 @@
             h (_
         _B) h
          @) hammed       h'amId
-         A) han (_       h'an          // places
+         A) han (_       han          // places
             ha  (st      heI
          _) he'          %hi:
          @) head (_S4    hEd
@@ -2565,6 +2573,7 @@
             i (Bee       I
             i (Bel_      I
             i (Bet_      I
+         _) i (Bo        aI
             i (CCi_      'I
         XC) i (Ca_       i:
          @) i (Cate_     =I
@@ -2932,7 +2941,7 @@
          _) in (disP2   ,In
          _) in (divP2   ,In
          _) in (dol      In
-            in (exP2    ,In
+         _) in (exP2    ,In
          _) inex (or     In'Eks
          _) infa (l      %Infa
          _) in (fam      In
@@ -3044,6 +3053,7 @@
             in (ee       In
          c) in (e        In
        inc) in (e        In
+         g) in (e        In
        bas) in (_        @n
         @c) ine (_       i:n
         &d) ine (_       i:n
@@ -3070,8 +3080,11 @@
             infor (matio Inf3
             ino (_       'i:noU
         _m) in (us       aIn
+        _m) inu (te      aIn'ju:
+        _m) inute (m     InIt
          _) intra        Intr@
          _) intra (CC    %Intra
+
 
 .group io
             io (_        =I2oU
@@ -3176,7 +3189,6 @@
         an) ism (_S3d    Iz@m
        @iB) ism (_S3d    Iz@m
          @) ism (_S3de   Iz@m
-         _) is (o        aIs
             is (o_       aIz
             is (or_      aIz
             issimo (_    'IsImoU
@@ -3537,6 +3549,7 @@
             o (Ba_       'oU
          _) o (Bal       oU
         XC) o (Bal       oU
+         X) o (By        oU
             o (Be#       oU
             o (BeCo_     0
             o (BenC      oU
@@ -3579,8 +3592,7 @@
          _) obs (er      %0bz
             obso (l      0bs@
             o (bstin     0
-            o (bt        %0
-            o (bu        %0
+         _) o (bt        %0
             o (by_       oU
          f) o (cA        oU
         _l) o (cA        oU
@@ -3601,6 +3613,7 @@
             o (cre_      'oU
         _h) o (cu        oU
         cr) o (cu        oU
+        _b) o (dy        0
       cust) o (d         @
          k) o (dA        oU
       meth) o (d_        @
@@ -3643,6 +3656,7 @@
             o (geny      '0
          r) o (ger       0
          l) o (gies      @
+         @) ographer     '0graf@
          r) ogue         oUg
          v) ogue         oUg
         @@) ogue         0g
@@ -3667,6 +3681,7 @@
             oix (_       wa
             o (ky_       oU
          @) o (lo_       0
+         @) ometer       '0mIt@
 ?3       g) o (ng        O
 ?3       r) o (ng        O
 ?3       s) o (ng        O
@@ -3731,7 +3746,6 @@
             oy (A_       'OI
          d) o (zen       V
          _) o (zo        oU
-            o (zy_       oU
 
 
 .group ol
@@ -3875,7 +3889,6 @@
          w) on (k        0n
          w) on (t        0n
          &) ony (_       @n%I
-        XC) ony          oUnI
             onymous      '0nIm@s
 
 .group oo
@@ -4045,7 +4058,7 @@
        exp) ost          0st
        hyp) ost          0st
             osure        'oUZ3
-        _C) os (y        oUz
+         X) os (y        oUz
 
 .group ou
             ou           aU
@@ -4289,8 +4302,7 @@
             photo        foUtoU
             photon       foUt0n
             photocop     foUt@k0p
-            photo (grapher f@t0
-            photo (graphy  f@t0
+            phot (ograph  foUt
             photo (met   foUt'0
          _) phyco        f,aIkoU
             p (hole      p
@@ -4358,6 +4370,7 @@
          _) pre (diP3    pr%i
          _) pre (dic     pr%I
          _) pre (emp     pr%I
+         _) pre (fec     pri:
          _) pre (feren   prE
             pre (fix     pri:
          _) pre (gn      prE
@@ -4870,7 +4883,7 @@
             ther (_      D3
             ther (er     D3
             th (erC      D
-            there (_     D3           // thering 
+            there (_     D3           // thering
             th (est      D
         ea) th (er       D
          n) th (er+      T
@@ -4949,6 +4962,7 @@
             u (ga_       'u:
          f) u (gal       'ju:
             ug (er_      u:g
+        pl) ug           Vg
          s) ugge (st     @dZE
          h) ugh          ju:
         mp) ug (n        ju:
@@ -5017,7 +5031,6 @@
 ?5          usurp        ju:z'VRp
          b) us (y        Iz
          b) u (tch       U
-       min) u (te        I
          r) u (th        u:
          _) u (til       ju:
             u (tion      'ju:
@@ -5030,6 +5043,7 @@
          l) uxur         VgZu:3
             uy           aI
             uy (A_       'u:j
+            u (zzi_      'u:
 
 
 .group ue
@@ -5240,6 +5254,7 @@
          _) y' (CP2      j@
             y (C_        I
             y (CC        I
+       XoB) y (@+        I
          _) y (C@        I
          _) y (n@        V
          _) y (s@        V
@@ -5482,6 +5497,7 @@
 	α	'alf@_
 	ά	'alf@_
 	β	b'i:t@_
+?3	β	b'eIt@_
 	γ	g'am@_
 	δ	d'Elt@_
 	ε	'EpsIl0n_

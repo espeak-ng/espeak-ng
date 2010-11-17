@@ -28,11 +28,13 @@
 #include <math.h>
 
 
+
 #include "speak_lib.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "voice.h"
+#include "sonic.h"
 
 //#undef INCLUDE_KLATT
 
@@ -134,7 +136,7 @@ int wcmdq_tail=0;
 
 // pitch,speed,
 int embedded_default[N_EMBEDDED_VALUES]        = {0,    50,175,100,50, 0, 0, 0,175,0,0,0,0,0,0};
-static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,600,300,99,99,99, 0,600,0,0,0,0,4,0};
+static int embedded_max[N_EMBEDDED_VALUES]     = {0,0x7fff,750,300,99,99,99, 0,750,0,0,0,0,4,0};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;
@@ -148,7 +150,8 @@ static PortAudioStream *pa_stream=NULL;
 static PaStream *pa_stream=NULL;
 #endif
 
-
+static sonicStream sonicSpeedupStream = NULL;
+double sonicSpeed = 1.0;
 
 // 1st index=roughness
 // 2nd index=modulation_type
@@ -255,8 +258,6 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
    194,197,199,202,205,208,211,214,
    217,220,223,226,229,232,236,239,
    242,246,249,252, 254,255 };
-
-int WavegenFill(int fill_zeros);
 
 
 #ifdef LOG_FRAMES
@@ -413,6 +414,10 @@ static int userdata[4];
 static PaError pa_init_err=0;
 static int out_channels=1;
 
+unsigned char *outbuffer = NULL;
+int outbuffer_size = 0;
+
+
 #if USE_PORTAUDIO == 18
 static int WaveCallback(void *inputBuffer, void *outputBuffer,
 		unsigned long framesPerBuffer, PaTimestamp outTime, void *userData )
@@ -425,15 +430,50 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	int ix;
 	int result;
 	unsigned char *p;
+	unsigned char *out_buf;
+	unsigned char *out_end2;
+	int pa_size;
 
-	out_ptr = out_start = (unsigned char *)outputBuffer;
-	out_end = out_ptr + framesPerBuffer*2;
+	pa_size = framesPerBuffer*2;
+
+	// make a buffer 3x size of the portaudio output
+	ix = pa_size*3;
+	if(ix > outbuffer_size)
+	{
+		outbuffer = (unsigned char *)realloc(outbuffer, ix);
+		if(outbuffer == NULL)
+		{
+			fprintf(stderr, "espeak: out of memory\n");
+		}
+		outbuffer_size = ix;
+		out_ptr = out_start = outbuffer;
+		out_end = out_start + outbuffer_size;
+	}
+	out_end2 = &outbuffer[pa_size];  // top of data needed for the portaudio buffer
 
 #ifdef LIBRARY
 	event_list_ix = 0;
 #endif
 
 	result = WavegenFill(1);
+
+	// copy from the outbut buffer into the portaudio buffer
+	if(result && (out_ptr > out_end2))
+	{
+		result = 0;   // don't end yet, there is more data in the buffer than can fit in portaudio
+	}
+
+	while(out_ptr < out_end2)
+		*out_ptr++ = 0;  // fill with zeros up to the size of the portaudio buffer
+
+	memcpy(outputBuffer, outbuffer, pa_size);
+
+	// move the remaining contents of the start of the output buffer
+	for(p = out_end2; p < out_end; p++)
+	{
+		p[-pa_size] = p[0];
+	}
+	out_ptr -= pa_size;
 
 #ifdef LIBRARY
 	count_samples += framesPerBuffer;
@@ -455,14 +495,15 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	{
 		// swap the order of bytes in each sound sample in the portaudio buffer
 		int c;
-		out_ptr = (unsigned char *)outputBuffer;
-		out_end = out_ptr + framesPerBuffer*2;
-		while(out_ptr < out_end)
+		unsigned char *buf_end;
+		out_buf = (unsigned char *)outputBuffer;
+		buf_end = out_buf + framesPerBuffer*2;
+		while(out_buf < buf_end)
 		{
-			c = out_ptr[0];
-			out_ptr[0] = out_ptr[1];
-			out_ptr[1] = c;
-			out_ptr += 2;
+			c = out_buf[0];
+			out_buf[0] = out_buf[1];
+			out_buf[1] = c;
+			out_buf += 2;
 		}
 	}
 #endif
@@ -471,12 +512,12 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	{
 		// sound output can only do stereo, not mono.  Duplicate each sound sample to
 		// produce 2 channels.
-		out_ptr = (unsigned char *)outputBuffer;
+		out_buf = (unsigned char *)outputBuffer;
 		for(ix=framesPerBuffer-1; ix>=0; ix--)
 		{
-			p = &out_ptr[ix*4];
-			p[3] = p[1] = out_ptr[ix*2 + 1];
-			p[2] = p[0] = out_ptr[ix*2];
+			p = &out_buf[ix*4];
+			p[3] = p[1] = out_buf[ix*2 + 1];
+			p[2] = p[0] = out_buf[ix*2];
 		}
 	}
 
@@ -1791,8 +1832,7 @@ void Write4Bytes(FILE *f, int value)
 
 
 
-
-int WavegenFill(int fill_zeros)
+int WavegenFill2(int fill_zeros)
 {//============================
 // Pick up next wavegen commands from the queue
 // return: 0  output buffer has been filled
@@ -1930,6 +1970,46 @@ int WavegenFill(int fill_zeros)
 	}
 
 	return(0);
+}  // end of WavegenFill2
+
+
+/* Speed up the audio samples with libsonic. */
+static int SpeedUp(short *outbuf, int length, int end_of_text)
+{//===========================================================
+	if(sonicSpeedupStream != NULL && sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
+	{
+		sonicDestroyStream(sonicSpeedupStream);
+		sonicSpeedupStream = NULL;
+	}
+	if(sonicSpeedupStream == NULL)
+	{
+		sonicSpeedupStream = sonicCreateStream(sonicSpeed, 22050);
+	}
+
+	sonicWriteShortToStream(sonicSpeedupStream, outbuf, length);
+
+	if(end_of_text)
+	{
+		sonicFlushStream(sonicSpeedupStream);
+	}
+	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length);
+}  // end of SpeedUp
+
+
+/* Call WavegenFill2, and then speed up the output samples. */
+int WavegenFill(int fill_zeros)
+{//============================
+	int finished;
+	unsigned char *p_start;
+
+	p_start = out_ptr;
+
+	// fill_zeros is ignored. It is now done in the portaudio cakkback
+	finished = WavegenFill2(0);
+
+	if(sonicSpeed > 1.0 && out_ptr > p_start)
+	{
+		out_ptr = p_start + 2*SpeedUp((short *)p_start, (out_ptr-p_start)/2, finished);
+	}
+	return finished;
 }  // end of WavegenFill
-
-

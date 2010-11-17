@@ -144,6 +144,10 @@ SOURCE=.\src\setlengths.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\sonic.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\speak_lib.cpp
 # End Source File
 # Begin Source File
@@ -234,6 +238,10 @@ SOURCE=.\Resource.h
 # Begin Source File
 
 SOURCE=.\src\sintab.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\sonic.h
 # End Source File
 # Begin Source File
 

@@ -1111,6 +1111,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	char ph_tens[50];
 	char ph_digits[50];
 	char ph_and[12];
+	char ph_ord_suffix[20];
 
 	units = value % 10;
 	tens = value / 10;
@@ -1202,12 +1203,20 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 			else
 			{
 	
-				if((control & 1) && ((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
+				if((control & 1) && 
+					((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
 				{
 					sprintf(string,"_%dX%c", tens, ord_type);
 					if(Lookup(tr, string, ph_tens) != 0)
 					{
 						found_ordinal = 1;
+
+						if((units != 0) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
+						{
+							// Use the ordinal form of tens as well as units. Add the ordinal ending
+							Lookup(tr, "_ord", ph_ord_suffix);
+							strcat(ph_tens, ph_ord_suffix);
+						}
 					}
 				}
 				if(found_ordinal == 0)
@@ -1290,6 +1299,10 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		if((tr->langopts.numbers & (NUM_SWAP_TENS | NUM_AND_UNITS)) && (ph_tens[0] != 0) && (ph_digits[0] != 0))
 		{
 			Lookup(tr, "_0and", ph_and);
+
+			if(tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)
+				ph_and[0] = 0;
+
 			if(tr->langopts.numbers & NUM_SWAP_TENS)
 				sprintf(ph_out,"%s%s%s%s",ph_digits, ph_and, ph_tens, ph_ordinal);
 			else
@@ -1355,7 +1368,8 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	char ph_thousands[50];
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
-	
+	char ph_ord_suffix[20];
+
 	ordinal = control & 0x22;
 	hundreds = value / 100;
 	tensunits = value % 100;
@@ -1422,22 +1436,29 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			suppress_null = 1;
 
 			found = 0;
-			if(tensunits == 0)
+			if((ordinal)
+				&& ((tensunits == 0) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
 			{
-				// is there a special pronunciation for exactly n00 ?
+				// ordinal number
+				sprintf(string, "_%dCo", hundreds);
+				found = Lookup(tr, string, ph_digits);
 
-				if(ordinal)
+				if((tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL) && (tensunits > 0))
 				{
-					// ordinal number
-					sprintf(string, "_%dCo", hundreds);
-					found = Lookup(tr, string, ph_digits);
-				}
-				if(!found)
-				{
-					sprintf(string,"_%dC0",hundreds);
-					found = Lookup(tr, string, ph_digits);
+					// Use ordinal form of hundreds, as well as for tens and units
+					// Add ordinal suffix to the hundreds
+					Lookup(tr, "_ord", ph_ord_suffix);
+					strcat(ph_digits, ph_ord_suffix);
 				}
 			}
+
+			if((!found) && (tensunits == 0))
+			{
+			// is there a special pronunciation for exactly n00 ?
+				sprintf(string,"_%dC0",hundreds);
+				found = Lookup(tr, string, ph_digits);
+			}
+
 			if(!found)
 			{
 				sprintf(string,"_%dC",hundreds);

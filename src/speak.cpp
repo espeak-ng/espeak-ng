@@ -289,7 +289,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 static int WavegenFile(void)
 {//=========================
 	int finished;
-	unsigned char wav_outbuf[512];
+	unsigned char wav_outbuf[1024];
 	char fname[210];
 
 	out_ptr = out_start = wav_outbuf;

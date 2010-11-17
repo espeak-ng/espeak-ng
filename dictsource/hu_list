@@ -187,6 +187,7 @@ _#-ikának	a:nAk
 (1-ike)	elseje	$text $alt2
 (1-ikei) elsejei	$text $alt2
 (1-éhez)	elsejéhez	$text $alt2
+(1-jét)	elsejét	$text $alt2
 (2-i)	másodikai	$text $alt2
 (2-ig)	másodikáig	$text $alt2
 (2-étől)	másodikától	$text $alt2 //this is not mistake, don't change!
@@ -236,6 +237,7 @@ _#-ikának	a:nAk
 (0-n) nul:a:n
 (00-n) nul:Anul:a:n
 (0-ról)	nul:a:R2o:l
+(0-st) nul:a:St
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
 (2-őt) kEt:Y:t
@@ -282,6 +284,7 @@ _#-ikának	a:nAk
 (8-al) n^olts:Al
 (9-el) kilEnts:El
 (9-cel) kilEnts:El
+(9-cet) kilEntsEt
 _10e	tiz
 _20e	hus
 (10-szer) ti:s:ER2
@@ -302,6 +305,8 @@ _20e	hus
 
 //Special roman number suffixes and exceptions
 (XVI-ig)	tizEnhAtodikig //Special roman number suffix exception
+//following roman number examples need defining, but this examples are not working for example bigger than 20.
+//Very interesting, if I using normal numbers (for example 12-el, Espeak general sending tizEnkEt:Y:vEl phoneme right.
 (II-el) kEt:Y:vEl
 (III-al) ha:R2om:Al
 (IV-el)	ne:J:El
@@ -310,6 +315,19 @@ _20e	hus
 (VII-el)	he:t:El
 (VIII-al)	n^olts:Al
 (IX-el)	kilEnts:El
+(X-el)	ti:zzEl //I don't no why, but this exception is not working.
+(XII-el)	tizEnkEt:Y:vEl
+(XIII-al) tizEnha:R2om:Al
+(XIV-el) tizEnne:J:El //this is the right phoneme, not tizEnE:JEl
+(XV-el) tizEnYt:El //this is the right phoneme, not tizEnYtEl
+(XVI-al)	tizEnhAt:Al //this is the right phoneme, not tizEnhAtAl
+(XVII-el)	tizEnhe:t:El
+(XVIII-al) tizEnn^olts:Al
+(XIX-el) tizEnkilEnts:El
+(XX-al)	hu:s:Al
+XXX-al)	hAR2mints:al
+//etc, need do general rule similar with normal number exceptions, please test for example 22-el, 32-el, 42-el, 52-el, 40-el, 50-el, 60-al, 70-el etc
+//phonemes if this is possible.
 (CD-ellenőrzést)	tse:de:El:EnY:R2ze:St //this is not a mistake, default Espeak spokening roman number before the ellenőrzés word
 
 // These words mean that a dot after number, immediately preceding, does not mean an ordinal number
@@ -368,7 +386,6 @@ végén	$alt
 elején	$alt
 folyamán	$alt
 úton	$alt
-út	$alt
 
 // accent names
 _lig	ligAtu:R2A
@@ -424,7 +441,7 @@ LST	ElESte:	$allcaps
 BAR	bAR2	$allcaps
 //SS	EsEs	$allcaps
 
-(a . m .)	An^n^i||m'int
+(a . m .)	An^n^i||m'int	$hasdot
 ún	u:JnEvEzEt:	$hasdot
 dr	doktoR2  $hasdot
 mr	mistER2 $hasdot //in hungarian we not use, but lot of books contains this word.
@@ -444,9 +461,9 @@ pl	pe:lda:ul	 $hasdot
 stb	SAtYb:i  $hasdot
 u.n	u:JnEvEzEt:   $hasdot
 ú.n	u:JnEvEzEt:   $hasdot
-vö	v'EZd||_'Yss2E
+vö	v'EZd||_'Yss2E	$hasdot
 (u . i .) $abbrew
-
+NVDA Enve:de:A $allcaps
 
 
 // Articles
@@ -551,6 +568,7 @@ nekem	$unstressend
 közül	$unstressend
 közé	$unstressend
 között	$u $alt3
+környékén	$alt3
 an	$u	// so many persons
 as	$u
 ba	$unstressend	// into
@@ -707,7 +725,7 @@ jut	$unstressend
 legyen	$unstressend
 azt	$unstressend
 ezt	$unstressend
-út	$unstressend
+út	$alt $unstressend
 tiszt	$unstressend
 vesz	$unstressend
 cég	$unstressend
@@ -1190,6 +1208,7 @@ szerzett	$unstressend
 járni	$unstressend
 döntöttek	$unstressend
 írt	$unstressend
+méltó	$unstressend
 
 // word pairs
 
@@ -1309,6 +1328,7 @@ _.	pont
 ~	tildE
 °	fokjEl
 Ft	foR2int
+(Ft-tal)	foR2int:Al
 \	bEks2lES	$max3
 ^	fYlfEle:n^i:l
 
@@ -1434,3 +1454,17 @@ CD-m) cédém
 (USA-ban) usában
 (USA-ba) usába
 (pc-n) pécén
+(PC-s) pécés
+//following entries are NVDA screen reader suffixes in hungarian
+//normal NVDA abbreviation is defined $allcaps attribute, but if this abbrewiation is containing a suffix, need pronounce another hungarian word.
+(NVDA-ba) envédéába
+(NVDA-ban) envédéában
+(NVDA-ból) envédéából
+(NVDA-hoz) envédéához
+(NVDA-nak) envédéának
+(NVDA-s) envédéás
+(NVDA-t) envédéát
+(NVDA-tól) envédéától
+(NVDA-val) envédéával
+
+

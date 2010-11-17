@@ -97,7 +97,7 @@ _-	in.aIppUg	// இணைப்புக்
 \	p'in||s,a:jvU	// பின் சாய்வு
 !	vijVppU		// வியப்பு
 _?	ke:l.vi		// கேள்வி
-#	en.||kuRi	$max3	// எண் குறி
+#	;en.		$max3	// எண் குறி
 =	samVnpa:d.U	$max3	// சமன்பாடு
 +	ku:t.t.Vl	$max3	// கூட்டல்
 *	perUkkVl	$max3	// பெருக்கல்
@@ -105,6 +105,9 @@ _?	ke:l.vi		// கேள்வி
 ÷	vVgUttVl	// வகுத்தல்
 %	viz.Ukka:d.U	$max3	// விழுக்காடு
 U+bf9	ru:ba:j
+¼	ka:l
+½	araI
+¾	mukka:l
 
 // abbreviations
 ரூ	ru:ba:j  $dot $only
@@ -195,7 +198,6 @@ tamil	தமிழ்	$text
 பாகம்	$alt
 பண்தம்	$alt
 பவனி	$alt
-பயில்வான்	$alt
 பாபா	$alt
 போண்டா	$alt
 பஜ்ஜி	$alt
@@ -224,7 +226,6 @@ tamil	தமிழ்	$text
 பால	$alt
 பாம்ப்	$alt
 பீராமண	$alt
-பிரதர்	$alt
 பால்ய	$alt
 பலு	$alt
 பில்	$alt
@@ -255,6 +256,29 @@ tamil	தமிழ்	$text
 பலத்தாலான	$alt
 பெஞ்ச்	$alt
 பெஞ்சு	$alt
+பார	$alt
+பாமா	$alt
+பென்ஸ்	$alt
+பாலிய	$alt
+புக்கு	$alt
+படுவா	$alt
+பீரும்	$alt
+பல்ப்	$alt
+பிரேக்	bre:k
+ப்ரேக் 	bre:k
+பெட்ல	$alt
+பான	$alt
+பகத்	$alt
+பலிக்	$alt
+பலிக்கு	$alt
+பலிக்குத்தான்	$alt
+பவ	$alt
+புஸ்	$alt
+போஸின்	$alt
+போனி	$alt
+பிஸி	$alt
+பேஷ்	$alt
+பாவே	$alt
 (பி . ஏ)	bije:
 
 
@@ -280,7 +304,6 @@ tamil	தமிழ்	$text
 திட	$alt
 தேவ	$alt
 தோ	$alt
-தினசரி	$alt
 தரும	$alt
 தொப்	$alt
 தொப்பென்று	$alt
@@ -301,6 +324,14 @@ tamil	தமிழ்	$text
 திம்	$alt
 தேவதா	$alt
 தெனம்	$alt
+தெனமும்	$alt
+திடு	$alt
+தால்	$alt
+தவ	$alt
+திக்திக்	digdig
+தொப்புனு	$alt
+தருமம்	$alt
+தாவே	$alt
 
 
 	// initial ட
@@ -316,6 +347,12 @@ tamil	தமிழ்	$text
 சிட்டாய் 		$alt
 சேச்சே		$alt
 சிரம்		sirVm
+சிலி		$alt
+சிக்		tSik
+சர்ச்		$alt
+டிக்		t.ik
+ரெட்டி		red.d.i
+செல்லம்		$alt
 
 
 கக	$alt	// initial க as [g]
@@ -349,10 +386,16 @@ tamil	தமிழ்	$text
 கான	$alt
 கோத்திர	$alt
 கும்முன்னு	$alt
-கூகுல்	$alt
 கேட்	$alt
 கேட்டில்	$alt
 கின்	$alt
+கம	$alt
+குட்	$alt
+காண்டு	$alt
+கேட்டின்	$alt
+கேட்டுக்கு	$alt
+கம்முனு	$alt
+குஜால்	$alt
 
 
 
@@ -383,3 +426,4 @@ tamil	தமிழ்	$text
 ஓகோ	o:Ho:
 கப்	kVp
 செட்	set.
+திக்	dik

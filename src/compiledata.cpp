@@ -140,6 +140,7 @@ static keywtab_t k_properties[] = {
 	{"isNotVowel",   0,  i_isNotVowel},
 	{"isFinalVowel", 0,  i_isFinalVowel},
 	{"isVoiced",     0,  i_isVoiced},   // voiced consonant, or vowel
+	{"isFirstVowel", 0,  i_isFirstVowel},
 
 	{NULL, 0, 0}
 };
@@ -3259,7 +3260,7 @@ static void CompileEquivalents()
 	}
 	*p_equivalence++ = 0;
 
-	p_equivalence = (char *)((int)(p_equivalence + 3) & ~0x3);  // align to word boundary
+	p_equivalence = (char *)((long int)(p_equivalence + 3) & ~0x3);  // align to word boundary
 	n_bytes = p_equivalence - p_start;
 	p_start[1] = remove_stress;
 	n_bytes = n_bytes / 4;

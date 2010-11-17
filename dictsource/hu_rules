@@ -1,12 +1,12 @@
 // Hungarian translation rules
 // This file is UTF-8 encoded
 
+//  ?1  change pronmunciation of foreign names, some users don't want these rules
 
 .replace
 //  allow o,u-circumflex for o,u-double-acute
 ô	ő
 û	ű
-
 
 
 .group a
@@ -33,21 +33,22 @@
      @) ben (_S3   bEn
 
         biz (A     biz,      // bizalmas  etc.
-        biedermeier bi:dER2ma:jER2
+?1      biedermeier bi:dER2ma:jER2
      _) batthiány  bAc:a:n^i
-    tö) bb (ször   b
-    tö) bb (ség    b
-    tö) bb (nyire  b
-    tö) bb (nek    b
-  tová) bbr (a     bR2
-    tö) bb (soro   b
-    tö) bb (ny     b
-    tö) bb (féle   b
-    jo) bbr (a     bR2
-    tö) bbr (e     bR2
-  kise) bb (ség    b
-    tö) bb (száz   b
-    tö) bb (száz   b
+bb (f b //general rule if have two b and f letter, need spokening one b letter
+bb (g b //if have two b and one g or gy letter, need spokening one b letter
+bb (h b //if have two b and one h letter, need spokening one b letter
+bb (j b //general rule if have two b and j letter, need spokening one b letter
+bb (k b 
+bb (l b //general rule if have two b and l letter, need spokening one b letter
+bb (m b //if have two b and one m letter, need spokening one b letter
+bb (n b //general rule if have two b and n letter, need spokening one b letter
+bbr bR2 //general rule if have two b and r letter, need spokening one b and one r letter
+bb (s b //general rule if have two b and s or sz letter, need spokening one b letter
+bb (t b //if have two b and one t letter, need spokening one b letter
+bb (v b //general rule if have two b and v letter, need spokening one b letter
+bb (w b //general rule if have two b and w letter, need spokening one b letter
+bb (z b  //general rule if have two b and z or zs letter, need spokening one b letter
 
 .group c
         c          ts
@@ -66,12 +67,9 @@
    pol) c (so      ts
    por) c (sé      ts
    por) c (sz      ts
-  _sto) ck (holm   k
+?1 _sto) ck (holm   k
    har) c (csoport ts
    lán) c (cs      ts
-     _) colt       kolt
-     _) coltt      kolt:
-     _) coltj      kolc
  kudar) c (sorozat ts
  gerin) c          ts
    tán) c (cs      ts
@@ -98,7 +96,7 @@ hierar) ch (i      h
     te) ch         h
   pszi) ch         h
   pszy) ch         h
-   mün) ch (en     h
+   mün) ch (en     C
   maso) ch (istA   h
  monar) ch (i      h
    _pe) ch         h:
@@ -122,6 +120,8 @@ oligar) ch         h
         dts        tS:
         dt         t:
         dtszé      t:se:
+dd (h d //if have two d and one h letter, need spokening one d letter
+ddr  dR2 //if have two d and one r letter, need spokening one d and one r letter
   apró) d (sz      d
         dsz (_S3   ts:
  beszé) d (szin    d
@@ -158,7 +158,7 @@ oligar) ch         h
    min) dny        n^
     ná) d          d
     ná) dd         d:
-        diesel     di:zEl
+?1      diesel     di:zEl
     hí) d (szerkezet d
         dühvel     dyvEl
  epizó) d (szerep  d
@@ -213,7 +213,6 @@ menetren) dsz (erű d|s
  honvé) d (sereg   d
     va) d (szeder  d
   twee) d (sapk    d
-    fe) dd (hetetlen d
   ezre) d (segé    d
    erő) d (szerű   d
  csalá) d (szociol d
@@ -226,7 +225,16 @@ menetren) dsz (erű d|s
   _hol) d (sarló   d
     mó) d (sor     d
  csalá) d (segít   d
-
+standar) d (jegy   d
+  csen) d (sértés  d
+ szaba) d (strand  d
+   zöl) d (sáv     d
+ csalá) d (jog     d
+ szaba) d (szállás d
+ szaba) d (szombat d
+   ren) dsz (erintegráció ts
+  máso) d (szülött d
+va) d (szój d
 
 .group dz
   fogó) dz (kod    ts
@@ -268,6 +276,7 @@ pilóta) dzs (ek    dZ
  honvé) dz (ászló  d|z
 smarag) dz (öld    d|z
 kapáló) dz         z
+_ó) dz (ko ts
 
 .group e
         e          E
@@ -304,20 +313,24 @@ kapáló) dz         z
         g          g
         gg         g:
         ggy        J:
-
-     _) goethe     gY:tE
-     _) goethé     gY:te:
+gg (b g //if have two g and one b letter, need spokening one g letter
+gg (f g //if have two g and one f letter, need spokening one g letter
+gg (h g //if have two g and one h letter, need spokening one g letter
+gg (l g //if have two g and one l letter, need spokening one g letter
+ggr gR2 //if have two g and r letter, need spokening one g and one r letter
+gg (v g //if have two g and one v letter, need spokening one g letter
+?1   _) goeth      gY:tE
     me) g (gy      g
     me) ggy (fa    J
     me) ggy (piros J
     me) ggy (vörös J
     me) ggy (es    J:
     me) ggy (et    J:
+me) ggy (el J:
     me) ggy (_S3   J:
     me) ggy (szín  J
     le) g (gy      g
  orszá) g (gyűlés  g
-    fü) gg (vény   g
     fo) g (gyűrű   g
     fo) g (gyö     g
 kuplun) g (gyár    g
@@ -335,11 +348,13 @@ ritkasá) g (gyűjt  g
   vilá) g (gyűlöl  g
         gk         k:
      é) gh (ajla   kh
-    se) gg (fe     g
-    se) gg (be     g
    pro) g (gyak    g
-    se) ggr (e     gR2
 arcüre) g (gyulladás g
+  bete) g (gyógyász g
+me) ggy (nek J:
+szöve) g (gyűjt g
+ta) g (gyűl g
+gu) gg (ol g
 
 .group gy
         gy         J
@@ -434,6 +449,13 @@ huszone) gy (edik  J:
     je) gy (ért    J
 harmince) gy (edik J:
   étvá) gy (javít  J
+     e) gy (ember  J:
+    né) gy (jegy   J
+     a) gy (sebész J
+   tár) gy (sorozat J
+e) gy (jegyű J
+tár) gy (jutal J
+
 
 .group h
         h          h
@@ -444,7 +466,6 @@ harmince) gy (edik J:
         i          i
      @) i (_S1     i
      @) ig (_S2    ig
-     _) itthon     ithon
 
 .group í
         í          i:
@@ -499,11 +520,17 @@ harmince) gy (edik J:
         kossutht   koSu:t:
         kossuthj   koSu:c:
         készségg   ke:SSe:g:
-    _a) kk (reditál k
+kk (b k //if have two k and b letter, need spokening one k letter
+so) kk (b k: //an exception with need spokening longer k phoneme
+kk (d k //if have two k and one d letter, need spokening one k letter
+kk (f k //if have two k and f letter, need spokening one k letter
+kk (h k k //if have two k and h letter, need spokening one k letter
+kk (j k //if have two k and j letter, need spokening one k letter
+kk (m k //if have two k and m letter, need spokening one k letter
+kkr kR2 //if have two k and r letter, need spokening one k letter
+kk (s k //if have two k and s or sz letter, need spokening one k letter
+kk (t k //if have two k and t letter, need spokening one k letter
      _) közt       kYst
-  bara) kk (b      k
-  bara) kk (f      k
-  bara) kk (j      k
 
 .group l
         l          l
@@ -546,24 +573,23 @@ keresztü) l (j     l
     fe) l (javít   l
     fe) l (jogosít l
    ökö) l (jog     l:
-    ha) ll (gatom  l
-    me) ll (kas    l
   inte) ll (ige    l
      e) ll (ipsz   l
      _) e)         lj        (ár lj
-    ha) ll (ga     l
    _ta) lj (án     lj
    _fé) l (jobb    l
-
-
+ll (b l //if have two l and b letter, need spokening one l letter
+ll (d l //if have two l and d letter, need spokening one l letter
+ll (g l //if have two l and a g or gy letter, need spokening one l letter
+ll (h l //if have two l and h letter, need spokening one l letter
+ll (k l //if have two l and k letter, need spokening one l letter
+ll (n l //if have two l and n or ny letter, need spokening one l letter before the n or ny letter
+ll (s l //if have two l letter and s or sz letter, need spokening one l letter
+ll (t l //if have two l and a t letter, need spokening one l letter
 
 .group m
         m          m
     ko) mm (uni    m
-        mauser     mAuzER2
-        mosquito   moskito:
-        mosquitó   moskito:
-        messerschmitt mEs:ER2Smit:
 
 
 .group n
@@ -574,22 +600,32 @@ keresztü) l (j     l
         ny         n^
         nny        n^n^
         nj         n^n^
+nny (cs n^ //if have two ny and cs letter, need spokening one ny letter
+nny (d n^ //if have two nny and one d letter, need spokening one ny letter
+nny (f n^ //if have two ny and one f letter, need spokening one ny letter
+nny (g n^ //if have two ny and one g letter, need spokening one ny letter
+nny (k n^ //if have two nny and one k letter, need spokening one ny letter
+nny (t n^ //if have two nny and one t letter, need spokening one ny letter
+nny (v n^ //if have two nny and one v letter, need spokening one n^ letter
+nn (h n //if have two n and one h letter, need spokening one n letter
+nn (k n //if have two n and one k letter, need spokening one k letter
+nn (m n //if have two n and one m letter, need spokening one n letter
+nn (l n //if have two n and one l letter, need spokening one l letter
+nn (s n //if have two n and one s or sz letter, need spokening one n letter
+nn (t n //if have two n and one t letter, need spokening one n letter
+
+
    szí) n (ját     n
    szí) n (józan   n
         nyj        n^n^
 
      _) nem (-     nEm       // has $combine attribute in hu_list, combine with the next word
     me) nny (ország n^
-    me) nny (d     n^
-    me) nny (k     n^
   pihe) nj (_S2    n^
   főbe) n (jár     n
 
  ingye) n          n
-     _) nylon      nEjlon
-
-
-   sze) nny (víz   n^
+?1   _) nylon      nEjlon
    ajá) nlj        j:
      i) nny (ekció n^
     bű) n (jel     n
@@ -613,8 +649,6 @@ tulajdo) n (jog    n
     fé) ny (jel    n^
      i) nj (ekció  n^
   elle) n (jegy    n
-    fe) nn (tartás n
-    fe) nn (sík    n
   egye) n (jogú    n
   beto) n (járda   n
  verse) ny (jog    n^
@@ -626,12 +660,16 @@ teljesítmé) ny (javu n^
 _feddhetetle) n (jelle n
 állomá) ny (jel    n^
 ingatla) n (jog    n
+nyeremé) ny (játék n^
+ botrá) ny (játék  n^
+  magá) nny (ugdíj nn^       //the nny letter pair this word not mean the double n^ phoneme, need spokening single the first n and n^ phoneme with this
+//word.
+alkotmá) ny (jog   n^
 
 .group o
         o          o
 
         otthon     othon
-        oscar      oska:R2
 
 .group ó
         ó          o:
@@ -648,7 +686,7 @@ ingatla) n (jog    n
         pp (C      p:
         p (v       p_
 
-     _) potsdam    potsda:m
+?1   _) potsdam    potsda:m
 
 
 
@@ -666,33 +704,31 @@ ingatla) n (jog    n
         r (r       R
         r (cc      R
 
-     _) richa (rd  R2iCa:
+?1   _) richa (rd  R2iCa:
      _) richá (rd  R2iCa:
-        reichsmarschall R2EjsmAR2SAl:
      i) rr (itá    R2
     ko) rr (epetá  R2
 
 .group s
         s          S
   föld) s (ánc     S
-   hel) s (inki    z
+?1 hel) s (inki    z
     ki) s (ebb     SS
 _munká) s          S
 _nyílá) s          S
-    _o) slo        slo:
-    _o) sló        slo:
+?1  _o) slo        slo:
+?1  _o) sló        slo:
   tojá) s          S
      _) semmelweiss sEmmElvEjs
      _) semmelweis sEmmElvEjs
      _) semmelweiß sEmmElvEjs
  engel) s          s
-     _) saar       sa:R2
-   _wa) sh (ing    S
+?1   _) saar       sa:R2
+?1 _wa) sh (ing    S
  pénze) s          S
 robbaná) s         S
-        schmeisser SmEjsER2
-danubiu) s         s         //a radio station name
-juventu) s         s         //a radio station name
+?1 danubiu) s         s         //a radio station name
+?1 juventu) s         s         //a radio station name
     va) s (s       S
   óriá) s          S
   látá) s (zavar   S
@@ -704,6 +740,8 @@ szennye) s (zsá    S
 magatartá) s (zavar S
 erőforrá) s (zabál S
 működé) s (zava    S
+viselkedé) s (zava S
+alkalmazá) s (szerver S
 
 .group ss
         ssz        ss2
@@ -878,6 +916,8 @@ hirdeté) ssz (erve Ss
 páncélo) ssz       Ss
  hajtá) ssz (erű   Ss
  sorva) ssz (ák    s:
+rendelteté) ssz (er Ss
+klien) ssz (oft Ss
 
 .group sz
         sz         s
@@ -909,6 +949,7 @@ rongyo) szs (ák    SZ
   para) sztsz (ek  st|s
   rava) sz (ár     s
    _ka) sztsze     st|sE
+szemete) szs (ák   SZ
 
 .group t
 
@@ -917,19 +958,26 @@ rongyo) szs (ák    SZ
         t          t
         tc         ts:
         tt         t:
-        ttk        t:k
-        tth        t:h
+        ttk        tk //if have two t and k letter, need spokening tk letter pair.
+        tth        th //if have two t and h letter, need spokening th letter pair.
         ttg        t:g
         ttgy       t:J
         ttp        t:p
      @) tól (_S3q  to:l
      @) től (_S3q  tY:l
         tt (C      t:
-        ttn        t:n
-        ttm        t:m
-        ttl        t:l
-        ttr        t:R2
-        ttv        t:v
+        ttn        tn //if have two t and n letter, need spokening one t and one n letter
+képze) tt (nek t: //exception
+terveze) tt (n t: //exception
+
+
+        ttm        tm //if have two t letter and m letter, need spokening one t and one m letter
+        ttl        tl //if have two t and l letter, need spokening one t and one l letter
+sűríte) tt (le t: //special exception
+o) tt (lét t: //special exception
+        ttr        tR2 //if have two t and r letter, need spokening one t and one r letter
+helyeze) tt (ről t:
+        ttv        tv //if have two t and v letter, need spokening one t and one v letter
         ty         c
 //     s) ty       c:    //
 //     z) ty       c:    // keztyű
@@ -1025,7 +1073,6 @@ folyama) t (jel    t
   fron) t (jár     t
      á) t (söpör   t
    ala) tt (jár    t:
-   fri) tz         ts:
   halo) tt (sápad  t:
     mi) t (se      t
     há) t (szél    t
@@ -1135,7 +1182,13 @@ szerete) t (szolgálat t
      ú) t (jelzés  t
 vizsgála) t (sor   t
 dagana) t (sej     t
-tábláza) t (sor t
+tábláza) t (sor    t
+   ben) t (szorul  t
+    _á) t (jelentkez t
+  spor) t (szolgál t
+  üzle) t (sor     t
+tábláza) t (cell   t
+
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1223,6 +1276,9 @@ indula) tsz (ó     t|s
  szemé) ts (ég     tS:
     ré) ts (ég     tS:
     já) tsz (ok    ts:
+  álla) ts (ág     tS:
+köteleze) ts (ég   tS:
+  kötö) ts (ég     tS:
 
 .group u
         u          u
@@ -1239,7 +1295,9 @@ szovjet) u (nió    u:
         ü          y
         ütt        yt:
         ütty       yc:
-
+egy) ütt (m yt
+egy) ütt (l yt
+egy) ütt (v yt
 
 .group ű
         ű          y:
@@ -1250,11 +1308,10 @@ szovjet) u (nió    u:
 .group v
         v          v
      _) v (_       ve:
-     _) versailles vER2sa:j
+?1   _) versailles vER2sa:j
 
 .group w
         w          v
-        wehrmacht  vER2mAht
 
 .group x
      _) x (_       iks
@@ -1320,7 +1377,7 @@ _szára) zs (ág     SS
 
  _nehé) zs (ely    zS
 
-     _) zürich     tsyR2iC
+     _) zürich     tsyR2i    C
  vigyá) zz (ba     z
  vigyá) zz (t      z
     tí) zsz (er    s:

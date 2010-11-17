@@ -10,14 +10,19 @@
              au           VU
              ay           a:j
 
+        @@C) a (_         =a:
           _) aan (@P3     'a:n
              aa (rd_      'a:
-             aa (t_       'a:
+             aa (C_       'a:
+          @) abel (_      'a:bE2l
+          @) abele (_     'a:b@l@
           _) af (C@P2     'Af
              age (_       'a:Z@
              ages (_S1    s
              age (_$w_alt a:Q@
              aire (_      'E:r
+             air (_       'Er
+             ale (_        'a:l@
           @) ant (_       'Ant
 
           @) a (de_       'a:
@@ -33,12 +38,18 @@
           _) be (@P2      b@
           _) b (ee+       b
           _) be (ren      bI:
+          _) be (rm       bE
+          _) be (stia     bE
           _) be (ter      be:
           _) be (ven_     be:
           _) bever        be:v@r
           _) be (zem      be:
+          _) bezig        be:z@x
           _) beu          bY:
           _) bij (C@P3    b'EI
+          _) bureau       byr'o:
+          _) buurt (@@P5  b'yrt   // buurtbewoner
+
 
 
 .group c
@@ -68,6 +79,10 @@
           _) ch (or       x
           _) ch (r        x
           &) che (_       =S
+             ci (a        S
+          @) ci (eel      S
+          @) ci (ë        S
+             ci (o        S
              ck           k
              cieel        S'e:l
              ciële        S'e:l@
@@ -104,9 +119,18 @@
           @) ee (rde_     'I:
           @) ee (rden_    'I:
          it) eit (_       'EIt
-          &) el (_        @l
+          &) el (_        E2l
           &) eld (_       @ld
           &) ele (_       'e:l@
+
+          &) el (_$p_alt   =@l
+          &) el (e_$p_alt  =@l
+          &) el (en_$p_alt =@l
+          &) el (t_$p_alt  =@l
+          &) el (de_$p_alt =@l
+          &) el (den_$p_alt =@l
+          &) el (end_$p_alt =@l
+
           &) em (_        @m
           &) en (_S2qd    @n
           &) ens (_S3q    @ns
@@ -121,10 +145,11 @@
           @) etten (_S3   @n 
           @) eur (_       'Y:r
 
-          _) er (@P2      Er
-          @) e (raar_     @
           &) e (nB@       E2
          id) e (nt        E
+          _) er (@P2      Er
+          &) era (_       @ra:
+          @) e (raar_     @
           &) e (rC@       E2
 
 
@@ -142,6 +167,7 @@
           _) gee          Qe:
              gener (aal   Q,e:n@r
              gelijk       Q@lEIk
+          _) ge (rC       QE
           _) geu          QY:
           _) ge (ven      Qe:
           _) ge (ving     Qe:
@@ -168,17 +194,23 @@
           m) ie (_        'i
           p) ie (_        'i
 
+          @) ibel (_      'ib@l
+          @) ibele (_     'ib@l@
           &) ica (_       =ika:
+          &) ico (_       =iko:
              ie (X        'i
              ie (rd_      'i
-          @) ig (_S2d     @x
+          @) ig (_S2dq    @x
           @) ige (_       @Q@
           @) ij (n_       'EI
+          &) ika (_       =ika:
+          &) iko (_       =iko:
           _) in (C@P2     'In
 //        _) in (gP2      'In
              io (nage     iO
           @) isch (_      =is
           @) ische (_     =is@
+          @) isme (_      'Ism@
           @) ist (_       'Ist
 
 
@@ -203,11 +235,12 @@
           @) loog (_      lo:x
 
 
+
 .group m
              m            m
           m) m
 
-            manage (ment  ma:nIdZ
+            management    ma:nIdZm@nt
          _) mee (@P3      m'e:
 
 
@@ -216,8 +249,10 @@
           n) n
              ng           N
              nj           n^
+             n (kel       N
 
           _) na (C@@P2    n'a:
+          _) na (tion     na:
 
 
 .group o
@@ -233,10 +268,15 @@
              ou           VU
              ou (rage     u
 
+        @@C) o (_         =o:
+             oe (X_       'u
+             oir (_       'v#a:r
              oo (X        'o:
       telef) oo (n        'o:
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
+          _) op (era      'o:p
+          _) op (tion     Op
           _) over (@P4    'o:v@r
 
 
@@ -271,6 +311,9 @@
           _) ph           f
              ph (K        f
 
+          _) politie (@   po:l'itsi
+
+
 
 .group q
              q            k
@@ -282,8 +325,8 @@
 
 .group r
              r            r
-          A) r (A       *
-          C) r (A       @-*
+          A) r (A         r
+          C) r (A         r
              rr         *r
 
 .group re
@@ -292,18 +335,27 @@
           _) re (cent     r@
           _) re (cept     r@
           _) re (ceptief  re:
+          _) re (clam     r@
           _) re (serve_   r@
 
 .group s
              s            s
           s) s
+          A) s (A         z
              sch          sx
              sch (_       s
              sch (e_      s
+          _) sch (n       S
           _) sh           S
              sh (K        S
              sj           S
          @@) s (_S1       s
+
+          @) si (o        S
+          A) si (o        Z
+          @) ssi (o       S
+
+          _) standaard (@P9 st'Anda:rt
 
 
 .group t
@@ -315,6 +367,12 @@
           p) tie (_       =si
           s) tie (_       =ti
         cra) tie (_       ts'i
+             tiee (l_     S'e:
+             tië (le_     S'e:
+          @) ti (a        S
+          @) ti (ë        S
+          @) ti (on       S
+          s) t (i++       t
              tj           t;
              tsj          tS
           _) th           t
@@ -325,6 +383,7 @@
 
           _) team         t'i:m
              team (_      ti:m
+          _) train        tre:n
 
 .group te
           _) tegen (P5    t'e:Q@n
@@ -368,7 +427,7 @@
 
           _) ver (@P3     v@r
           _) ver (sie_    vEr
-          _) ver (der_    vEr
+          _) verder       vErd@r
           _) voort (@P5   v'O:rt
 
 

@@ -42,10 +42,10 @@ _4        f'i:RE
 _5        f'Em
 _6        s'Eks
 _7        S'u-:
-_8        'Ot:@2
+_8        'Ot:a#
 _9        n'i:
 _10       t'i:
-_11       'Elv@2
+_11       'Elva#
 _12       t'Olv
 _13       tR'Et:@n
 _14       fj'URt@n
@@ -54,7 +54,7 @@ _16       s'Ekst@n
 _17       s'yt:@n
 _18       'At:@n
 _19       n'It:@n
-_2X       s;'u-:@2
+_2X       s;'u-:a#
 _3X       tR'Et:i:
 _4X       f'Y:Rti:
 _5X       f'Emti:
@@ -62,8 +62,8 @@ _6X       s'Eksti:
 _7X       s'yt:i:
 _8X       'Ot:i:
 _9X       n'It:i:
-_0C       h'u-ndR@2
-_1C       'Et||h'u-ndR@2
+_0C       h'u-ndRa#
+_1C       'Et||h'u-ndRa#
 _0M1      t'u-:s@n
 _1M1      'Et||t'u-:s@n
 _0M2      m'Illi:;,u:n@R
@@ -73,32 +73,32 @@ _0and     u:g
 _dpt      kOmmA
 
 // ordinal numbers
-_ord	@nd@2
-_1o	f'WRst@2
-_2o	'AndR@2
-_3o	tR'Edj@2
-_4o	fj'a:R@2
-_5o	f'Emt@2
-_6o	S'Et:@2	
-_8o	'Ot:@nd@2
-_11o	'EllEvt@2
-_12o	t'Olvt@2
-_13o	tR'Et:@nd@2
-_14o	fj'URt@md@2
-_15o	f'Emt@nd@2
-_16o	s'Ekst@nd@2
-_17o	s'yt:@nd@2
-_18o	'At:@nd@2
-_19o	n'It:@nd@2
-_2Xo	s;'u-:@nd@2
-_0Co	h'u-ndR@d@2
-_0M1o	t'u-:s@nd@2
+_ord	@nda#
+_1o	f'WRsta#
+_2o	'AndRa#
+_3o	tR'Edja#
+_4o	fj'a:Ra#
+_5o	f'Emta#
+_6o	S'Et:a#	
+_8o	'Ot:@nda#
+_11o	'EllEvta#
+_12o	t'Olvta#
+_13o	tR'Et:@nda#
+_14o	fj'URt@mda#
+_15o	f'Emt@nda#
+_16o	s'Ekst@nda#
+_17o	s'yt:@nda#
+_18o	'At:@nda#
+_19o	n'It:@nda#
+_2Xo	s;'u-:@nda#
+_0Co	h'u-ndR@da#
+_0M1o	t'u-:s@nda#
 
 
 // punctuation and symbols
 //========================
 
-*	ss;aRn@2	$max3
+*	ss;aRna#	$max3
 =	aRli:k		$max3
 +	plu-s		$max3
 %	pR'u:s'Ent	$max3
@@ -113,20 +113,20 @@ _$	dOllA:R
 _'	ApUstR'u:f
 _(	paRaNt'e:s||b@j'ynn@R
 _)	paRaNt'e:s||Sl'u-t:
-_*	ss;aRn@2
+_*	ss;aRna#
 _,	kOmmA
 _-	stRe:k
 _.	pu-Nktu-:m
 _:	ku:lOn
 _;	se:mi:ku:lOn
-_<	mIndR@2||En
+_<	mIndRa#||En
 _=	aRli:k
 _>	stWR@||En
 _?	spWRSmOlstENn
 @	kRWllAlfA
-_[	v'EnstR@2||h'A:ke:paRaNt'e:s
+_[	v'EnstRa#||h'A:ke:paRaNt'e:s
 _\	OmvEndt||skROstR@k
-_]	h'YyR@2||h'A:ke:paRaNt'e:s
+_]	h'YyRa#||h'A:ke:paRaNt'e:s
 ^	sIRku-mflEks
 __	u-ndaRStR@k
 _`	'OmvEndt||ApUstR'u:f
@@ -135,11 +135,11 @@ _#09	tA:b
 _#32	mEllOmRu:m
 
 _acu	A:'ku-t:
-_ced	s'e:dIll@2
+_ced	s'e:dIlla#
 _cir	s'IRku-mflEks
 _dia	tR'e:mA
 _grv	gR'A:vi:s
-_tld	t'Ild@2
+_tld	t'Ilda#
 
 é	$accent
 ü	$accent
@@ -296,7 +296,7 @@ reader	_^_EN
 cancel	_^_EN
 continue	_^_EN
 magnifier	_^_EN
-and	@2nd	$only
+and	a#nd	$only
 
 
 // MAIN WORD DICTIONARY
@@ -306,7 +306,7 @@ der         dE:R
 her         hE:R
 kom         kOm
 loe         lu:		$capital
-noe         nU:@2
+noe         nU:a#
 noen        nU:@n	// no+en
 office      Offi:s
 system      syst'e:m

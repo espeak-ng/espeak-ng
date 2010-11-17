@@ -427,11 +427,13 @@ typedef struct {
 	// bit27= Roman numbers are ordinal numbers
 	int numbers;
 
+#define NUM2_MULTIPLE_ORDINAL   0x1000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
 	// bit8=(LANG=cs,sk) two forms of plural, M or MA
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
+	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248

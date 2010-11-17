@@ -152,7 +152,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"mbrola",     V_MBROLA},
 	{"consonants", V_CONSONANTS},
 	{"klatt",      V_KLATT},
-	{"fast_test",  V_FAST},
+	{"fast_test2",  V_FAST},
 	{"speed",      V_SPEED},
 
 	// these just set a value in langopts.param[]
@@ -410,7 +410,10 @@ void VoiceReset(int tone_only)
 	voice->consonant_ampv = 100;
 	voice->samplerate = 22050;
 	memset(voice->klattv,0,sizeof(voice->klattv));
-	memset(speed.fast_settings,0,sizeof(speed.fast_settings));
+
+	speed.fast_settings[0] = 250;
+	speed.fast_settings[1] = 600;
+	speed.fast_settings[2] = 300;
 
 #ifdef PLATFORM_RISCOS
 	voice->roughness = 1;

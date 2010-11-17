@@ -118,6 +118,10 @@ SOURCE=.\src\setlengths.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\sonic.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\speak.cpp
 # End Source File
 # Begin Source File
@@ -168,6 +172,10 @@ SOURCE=.\src\phoneme.h
 # Begin Source File
 
 SOURCE=.\src\sintab.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\sonic.h
 # End Source File
 # Begin Source File
 

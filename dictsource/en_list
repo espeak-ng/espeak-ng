@@ -675,6 +675,7 @@ beryl            bEr@L
 basal            beIs@L
 best             bEst
 beta             bi:t@
+betake           bI2teIk
 beverage         bEv@rI2dZ
 bias             baI@s
 biased           baI@st
@@ -811,6 +812,7 @@ closer           kloUs3
 closely          kloUslI       $verbf // not kloUzlI
 closet           kl0zI2t
 cloth            kloUD         $verb
+c'mon            k@m0n
 coauthor         koU'O:T3
 cobol            koUb0l
 cocoa            koUkoU
@@ -1253,7 +1255,6 @@ hmmm             h'@m
 hmpf             h'@mpf
 holme            hoUm
 holster          hoUlst3
-holy             hoUlI
 homeowner        hoUmoUn3
 homepage         hoUmpeIdZ
 hominem          h0mInEm 
@@ -1351,13 +1352,11 @@ iron             aI@n
 irony            aIr@nI
 isosceles        aIs'0s@li:z
 itinerary        aIt'In@r@rI
-ivory            aIv@rI
 
 jagged           dZagI2d
 japan            dZ@pan
 jasmine          dZazmIn
 jesus            dZi:z@s
-joky             dZoUkI
 jour             ZU@  // french
 jukebox          dZu:kb0ks
 july             dZu:l'aI
@@ -1508,7 +1507,7 @@ militia          m@lIS@
 minibus          mInIbVs
 mining           maInI2N        // not mini
 minuet           mInju:'Et
-minutely         maIn'ju:tlI
+minute           mInIt        $onlys
 mirage           mIrA:Z
 misery           mIz@rI
 misled           mIsl'Ed
@@ -1708,7 +1707,7 @@ pharaoh          fe@roU
 philistine       fIlI2staIn
 philosophy       fI2l0s@fI
 phoenix          fi:nIks
-photograph       foUt@graf
+photographer     f@t'0gr@f@
 piano            pI'anoU
 piecemeal        p'i:sm,i:l
 pier             pi@3
@@ -1728,10 +1727,9 @@ piteous          pIti@s
 pituitary                      $2
 plaguing         pleIgIN
 plicate           $2
-plugin           plVgIn
 plumber          plVm3
 plus             plVs
-poky             poUkI
+poly             p0lI
 politer          p@l'aIt3
 politic          p0l@tIk
 poll             poUl
@@ -1956,10 +1954,11 @@ saucepan         sO:sp@n
 saudi            saUdI
 saute            sO:teI
 says             sEz
+scaly            skeIlI
 salmon           sam@n
 scalpel          skalp@L
 scared           ske@d
-scaring          ske@rI2N
+scaring          ske@rI2
 scenic           si:nIk
 scald            sk0ld
 scepter          sEpt3
@@ -2345,6 +2344,7 @@ Cheadle		tSi:d@L
 Cheshire	tSES3
 Chiswick	tSIzIk
 Clwyd		klu:Id
+Dagenham	dag@n@m
 Devon		dEv@n
 Dolgellau	d0lg'EClaI
 Dover		doUv3
@@ -2605,6 +2605,7 @@ Alison		alI2s@n
 Amanda		$2
 Amy		eImI
 Andre		0ndreI
+Anita		a#ni:t@
 Anthony		ant@nI
 Anton		ant0n
 Aoife		i:f@
@@ -2711,6 +2712,7 @@ Leroy		li:rOI
 Liam		li:@m
 Lindsay		lInzi
 Llewellyn	l#@w'ElIn
+Llywelyn	l#@w'ElIn
 Lois		loUIs
 Louis		lu:I
 Louise		lu:w'i:z
@@ -2806,6 +2808,7 @@ Chrysler	kraIzl3
 Disney		dIznI
 Dolce		d0ltSeI
 Dvorak		d@-vo@Zak
+Gibson		gIbs@n
 Hades		heIdi:z
 Patel		pa#tEl
 Primavera	pri:m@v'e@r@

@@ -140,6 +140,7 @@ void SetSpeed(int control)
 	int s1;
 	int wpm;
 	int wpm2;
+	double wpm_inc;
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
@@ -149,6 +150,21 @@ void SetSpeed(int control)
 	wpm = embedded_value[EMBED_S];
 	if(control == 2)
 		wpm = embedded_value[EMBED_S2];
+
+	// fast_settings[0]  wpm where speedup starts
+	// fast_settings[1]  wpm for maximum espeak speed
+	// fast_settings[2]  maximum espeak speed
+	sonicSpeed = 1.0;
+	if(wpm > speed.fast_settings[0])
+	{
+		wpm2 = wpm;
+		wpm_inc  = (double)(speed.fast_settings[2] - speed.fast_settings[0]) / (double)(speed.fast_settings[1] - speed.fast_settings[0]);
+
+		wpm_inc = (wpm2 - speed.fast_settings[0]) * wpm_inc;
+		wpm = speed.fast_settings[0] + (int)wpm_inc;
+
+		sonicSpeed = ((double)wpm2)/wpm;
+	}
 
 #ifdef TEST_SPEED
 	if(wpm > 1000)
@@ -261,18 +277,6 @@ void SetSpeed(int control)
 			// restrict the reduction of pauses between clauses
 			if((speed.clause_pause_factor = speed.pause_factor) < 16)
 				speed.clause_pause_factor = 16;
-		}
-
-		if(wpm >= 370)
-		{
-			// TESTING
-			// use experimental fast settings if they have been specified in the Voice
-			if(speed.fast_settings[0] > 0)
-				speed.pause_factor = speed.fast_settings[0];
-			if(speed.fast_settings[1] > 0)
-				speed.wav_factor = speed.fast_settings[1];
-			if(speed.fast_settings[2] > 0)
-				speed.lenmod_factor = speed.lenmod2_factor = speed.fast_settings[2];
 		}
 	}
 

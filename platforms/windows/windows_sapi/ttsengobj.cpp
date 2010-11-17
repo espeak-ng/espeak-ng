@@ -261,8 +261,8 @@ static int ConvertRate(int new_rate)
 
 	int rate;
 
-	static int rate_table[21] = {80,110,124,133,142,151,159,168,174,180,187,
-				    196,208,220,240,270,300,335,369,390,450 };
+	static int rate_table[21] = {80,110,124,135,145,155,165,173,180,187,196,
+				     208,220,245,270,300,335,370,410,450,500 };
 
 	rate = new_rate + master_rate;
 	if(rate < -10) rate = -10;
