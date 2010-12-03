@@ -26,6 +26,7 @@ volume 32
 0  N   NULL  0  n
 0  C   NULL  0  x
 0  s2  NULL  0  s
+0  t2  NULL  0  t
 
 
 // map English phonemes to Hungarian

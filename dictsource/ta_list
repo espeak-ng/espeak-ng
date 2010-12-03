@@ -227,7 +227,6 @@ tamil	தமிழ்	$text
 பாம்ப்	$alt
 பீராமண	$alt
 பால்ய	$alt
-பலு	$alt
 பில்	$alt
 பந்த்	$alt
 பில்லி	$alt
@@ -254,8 +253,6 @@ tamil	தமிழ்	$text
 பீர்	$alt
 போயிங்	$alt
 பலத்தாலான	$alt
-பெஞ்ச்	$alt
-பெஞ்சு	$alt
 பார	$alt
 பாமா	$alt
 பென்ஸ்	$alt
@@ -279,6 +276,15 @@ tamil	தமிழ்	$text
 பிஸி	$alt
 பேஷ்	$alt
 பாவே	$alt
+பாலு	$alt
+பீடி	$alt
+பிசி	$alt
+போன்சாய்	$alt
+போன்ஸாய்	$alt
+பீப்	bi:p
+ப்யூனஸ்	$alt
+பவுத்த	$alt
+பவுத்தம்	$alt
 (பி . ஏ)	bije:
 
 
@@ -332,6 +338,8 @@ tamil	தமிழ்	$text
 தொப்புனு	$alt
 தருமம்	$alt
 தாவே	$alt
+தருமமும்	$alt
+தராவி	$alt
 
 
 	// initial ட
@@ -353,6 +361,7 @@ tamil	தமிழ்	$text
 டிக்		t.ik
 ரெட்டி		red.d.i
 செல்லம்		$alt
+சிக்கன்		$alt
 
 
 கக	$alt	// initial க as [g]

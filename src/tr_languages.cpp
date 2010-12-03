@@ -915,6 +915,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_ALLOW_SPACE | NUM_1900 | NUM_ORDINAL_DOT;
 			tr->langopts.ordinal_indicator = "e";
+			tr->langopts.stress_flags = S_FIRST_PRIMARY;
 			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));
 		}
 		break;
@@ -1209,6 +1210,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_DFRACTION_4;
 
 		}
+		break;
+
+	case L('w','o'):
+			tr->langopts.stress_rule = STRESSPOSN_1L;
+			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS;
 		break;
 
 	case L('z','h'):

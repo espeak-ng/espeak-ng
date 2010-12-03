@@ -8,13 +8,14 @@
 ô	ő
 û	ű
 
+// these consonants following a double letter change it to single
+.L01  b c d f g h j k l m n p s t r v w z
 
 .group a
         a          A
      _) a (_       %A
  D00_-) al (_      zAl       // double z for 100-al
  000_-) al (_      Al        // ... but not 1000-al
-     _) alattvaló  AlAtvAlo:
         ahhoz      Ahoz
 
 
@@ -35,20 +36,15 @@
         biz (A     biz,      // bizalmas  etc.
 ?1      biedermeier bi:dER2ma:jER2
      _) batthiány  bAc:a:n^i
-bb (f b //general rule if have two b and f letter, need spokening one b letter
-bb (g b //if have two b and one g or gy letter, need spokening one b letter
-bb (h b //if have two b and one h letter, need spokening one b letter
-bb (j b //general rule if have two b and j letter, need spokening one b letter
-bb (k b 
-bb (l b //general rule if have two b and l letter, need spokening one b letter
-bb (m b //if have two b and one m letter, need spokening one b letter
-bb (n b //general rule if have two b and n letter, need spokening one b letter
-bbr bR2 //general rule if have two b and r letter, need spokening one b and one r letter
-bb (s b //general rule if have two b and s or sz letter, need spokening one b letter
-bb (t b //if have two b and one t letter, need spokening one b letter
-bb (v b //general rule if have two b and v letter, need spokening one b letter
-bb (w b //general rule if have two b and w letter, need spokening one b letter
-bb (z b  //general rule if have two b and z or zs letter, need spokening one b letter
+        b (-b      b:        // use long [b:], not two [b]
+    b-) b                    // silent after 'bb-'
+        bb (-b     b:
+   bb-) b                    //silent after bb- part
+        bb (-L01   b         // only speak one b if followed by a consonant after the - character
+
+        bb (L01    b         // only speak one b if followed by a consonant
+        bbr        bR2       //special exception with always need executing
+
 
 .group c
         c          ts
@@ -87,6 +83,33 @@ gyümöl) cs (zs     tS
   árbó) c (csúcs   ts
   árbo) c (csúcs   ts
 fegyen) c (csoport ts
+        ccs (L01   tS        // only speak one cs if followed by a consonant
+        cc (L01    ts        // only speak one c if followed by a consonant
+        ccsr       tSR2      //special exception with need always execute
+        ccr        tsR2      //special exception
+        c (-cs     tstS      //if have end of first word c and after the - character a cs letter pair, need spokening single ts and TS phoneme
+    c-) cs                   //not need spokening second cs phoneme
+        cs (-ccs   tS:       //this situation need spokening one TS: phoneme
+   cs-) ccs                  //not need spokening second tS: phoneme after - character
+        c (-c      ts:       // use long [ts:], not two [ts]
+    c-) c                    // silent after 'cc-'
+        ccs (-ccs  tS:
+  ccs-) ccs 
+        ccs (-cs   tS:       //need spokening one longer TS: phoneme
+  ccs-) cs                   //not need spokening second tS phoneme
+        cc (-cs    ts        //if this situation happening, need spokening one ts phoneme
+   cc-) cs         tS        //need spokening the TS phoneme after the - character
+        cc (-ccs   ts        //need spokening one ts phoneme before the - character
+   cc-) ccs        tS        //need spokening shorter tS phoneme after the - character
+        cc (-c     ts:       // use long [ts:], not two [ts] if after the - character have only cc letter pair
+   cc-) c                    //second ts phoneme not need spokening after the - character
+        cc (-L01   ts        // only speak one c if followed by a consonant after the - character
+        cs (-cs    tS:       // use long [tS:], not two [tS]
+   cs-) cs                   // second tS phoneme not need spokening after - character
+        ccs (-L01  tS        // only speak one ts if followed by a consonant after the - character
+        cs (-sz    tS|s      //need spokening single ts and single s phoneme
+        ccs (-sz   tS|s      //need spokening single ts and single s phoneme
+
 
 .group ch
   anar) ch (i      h
@@ -120,8 +143,17 @@ oligar) ch         h
         dts        tS:
         dt         t:
         dtszé      t:se:
-dd (h d //if have two d and one h letter, need spokening one d letter
-ddr  dR2 //if have two d and one r letter, need spokening one d and one r letter
+        ddzs (L01  dZ
+        ddz (L01   dz
+        dd (L01    d
+        ddb        db        //general exception with alwais need executing
+        ddr        dR2       //special exception with always need executing
+        d (-d      d:        //if have d after the - character, need spokening longer d: phoneme, not two single d phoneme
+    d-) d                    //but the second d phoneme after the - character not need spokening
+        ddzs (-L01 dZ        //need spokening one dZ phoneme if have after the - character a consonant
+        dd (-d     d:        //if have two d the first word and a d with second word beginning, need spokening a longer d: phoneme, not a longer d: and a single d phoneme
+   dd-) d                    //the second d phoneme not need pronouncing
+        dd (-L01   d         //if have a consonant after the - character, need spokening one d letter, not often happening this but not matter if handled
   apró) d (sz      d
         dsz (_S3   ts:
  beszé) d (szin    d
@@ -192,7 +224,7 @@ menetren) dsz (erű d|s
   twee) dz (ak     d|z
   twee) dsz (ok    d|s
         dtt        t:        //this letters need spokening longer t phoneme
-     _) kar)       d         (su    d
+   kar) d (su      d
    zöl) d (sapk    d
     hí) d (szer    d
  szaba) d (szoft   d
@@ -200,8 +232,6 @@ menetren) dsz (erű d|s
    ren) d (zavar   d
  ügyvé) d (jel     d
    kez) dt         t
-  tiné) dzs (e     dZ
-  mene) dzs (me    dZ
     ná) d (szék    d
   rövi) d (soroz   d
     pa) d (szerű   d
@@ -234,7 +264,10 @@ standar) d (jegy   d
  szaba) d (szombat d
    ren) dsz (erintegráció ts
   máso) d (szülött d
-va) d (szój d
+    va) d (szój    d
+   ebé) d (jeg     d
+ szaba) d (jeg     d         //szabadjegy, szabadjeggyel words need spokening single d phoneme
+  tize) d (száz    d         //for example tizedszázalék word need single d and s phoneme
 
 .group dz
   fogó) dz (kod    ts
@@ -257,10 +290,14 @@ mentegető) dz      z
         dz         dz:
      A) dz (A      dz:
         dzs        dZ
-     A) dzs        dZ:
+        dzs (C     dZ
+     a) dzs (A     dZ
+  mene) dzs (A     dZ:
+mahara) dzs (A     dZ:
+   bri) dzs (A     dZ:
+?1 kambo) dzs (A     dZ:       //a town name with need spokening dZ: phoneme
         dz         dz:
      C) dzs        dZ
-     A) dzs (A     dZ:
  borsó) dz         z
  beszé) dz (avar   d|z
 dobáló) dz         z
@@ -270,19 +307,17 @@ rángató) dz        z
 titkoló) dz        z
 ringató) dz        z
   mére) dz (k      ts
-pilóta) dzs (ek    dZ
   ezre) dz (ene    d|z
  száza) dz (ene    d|z
  honvé) dz (ászló  d|z
 smarag) dz (öld    d|z
 kapáló) dz         z
-_ó) dz (ko ts
+    _ó) dz (ko     ts
 
 .group e
         e          E
  000_-) el (_      REl       // double R for 1000-el
 000000_-) el (_    El        // ... but not 1000000-el
-
      _) ehhez      EhEz
      _) egyezség   EJ:ESSe:g
      _) egyezségg  EJ:ESSe:g:
@@ -303,32 +338,47 @@ _ó) dz (ko ts
 
 .group f
         f          f
-        //führer     fy:R2ER2
+?1      führer     fy:R2ER2
      e) ff (ajt    f
      e) ff (él     f
      a) ff (él     f
-
+        ff (L01    f         // only speak one b if followed by a consonant
+        ffb        fb        //general rule, always need one f before the remaining b beginning word, for example be end of words
+        ffr        fR2       //general rule, always need one f before the remaining b beginning word, for example be end of words
+        ff (-L01   f
 
 .group g
         g          g
         gg         g:
         ggy        J:
-gg (b g //if have two g and one b letter, need spokening one g letter
-gg (f g //if have two g and one f letter, need spokening one g letter
-gg (h g //if have two g and one h letter, need spokening one g letter
-gg (l g //if have two g and one l letter, need spokening one g letter
-ggr gR2 //if have two g and r letter, need spokening one g and one r letter
-gg (v g //if have two g and one v letter, need spokening one g letter
+        gg (L01    g
+        ggb        gb        //special exception with always need executing
+        ggr        gR2       //special exception with always need executing
 ?1   _) goeth      gY:tE
     me) g (gy      g
-    me) ggy (fa    J
-    me) ggy (piros J
-    me) ggy (vörös J
+        ggy (L01   J
+        ggyb       Jb        //special exception with always need executing
+        ggyr       JR2       //special exception with always need executing
+    me) ggy (L01   J         //special exception with not good spokening single g and one gy letter, for example meggyfolt not spokening meg and gy folt with single words
+    me) ggyb       Jb        //special exception with not good spokening single g and one gy letter, for example meggyben not spokening meg and gy folt with single words
+    me) ggyr       JR2       //special exception with not good spokening single g and one gy letter, for example meggyre not spokening meg and gy folt with single words
+        gy (-gy    J:        //need spokening longer J: phoneme with this situation
+   gy-) gy                   //but not need spokening the second J: phoneme
+        ggy (-L01  J         //if have consonant after the - character, need spokening one J phoneme
+    me) ggy (-L01  J         //special exception with not good spokening single g and one gy letter, for example meggyfolt not spokening meg and gy folt with single
+//words
+    me) ggy (-gy   J:        //this is a special exception if have after a - character with gy consonant
+        g (-gy     gJ        //special rule
+    g-) gy                   //not need spokening second J phoneme
+        g (-g      g:        //if the first word end of g and second word beginning with g letter, need spokening one longer g: phoneme
+    g-) g                    //not need spokening second g phoneme
+        gg (-gy    gJ        //special rule
+   gg-) gy                   //not need spokening second J phoneme
+        gg (-L01   g         //if have consonant after the - character, need spokening one g character
     me) ggy (es    J:
     me) ggy (et    J:
-me) ggy (el J:
+    me) ggy (el    J:
     me) ggy (_S3   J:
-    me) ggy (szín  J
     le) g (gy      g
  orszá) g (gyűlés  g
     fo) g (gyűrű   g
@@ -351,10 +401,9 @@ ritkasá) g (gyűjt  g
    pro) g (gyak    g
 arcüre) g (gyulladás g
   bete) g (gyógyász g
-me) ggy (nek J:
-szöve) g (gyűjt g
-ta) g (gyűl g
-gu) gg (ol g
+ szöve) g (gyűjt   g
+    ta) g (gyűl    g
+    gu) gg (ol     g
 
 .group gy
         gy         J
@@ -431,10 +480,10 @@ tizene) gy (en     J:
 épülete) gy (ütt   J:
     na) gy (salló  J
     _e) gy (ágy    J:
- nem-e) gy (ez     J:        //if have a nem word and used the $combine attribute in hu_list file, Espeak spokening one J phoneme, but J: is need spokening.
+ nem-e) gy (ez     J:        // if have a "nem" word (with $combine attribute), need [J:] not [J]
      e) gy (idejű  J:
     _e) gy (idő    J:
- nem-e) gy (ütt    J:        //if have a nem word and used the $combine attribute in hu_list file, Espeak spokening one J phoneme, but J: is need spokening.
+ nem-e) gy (ütt    J:        // if have a "nem" word (with $combine attribute), need [J:] not [J]
     na) gy (sarló  J
      e) gy (azon   J:
     _e) gy (oldal  J:
@@ -453,13 +502,16 @@ harmince) gy (edik J:
     né) gy (jegy   J
      a) gy (sebész J
    tár) gy (sorozat J
-e) gy (jegyű J
-tár) gy (jutal J
-
+     e) gy (jegyű  J
+   tár) gy (jutal  J
+     e) gys (áv    J|S       //egysáv beginning words for example need spokening single J and S phoneme.
+    _e) gy (ablak  J:
 
 .group h
         h          h
         hertz      hER2ts
+        hh (-L01   h
+
 
 
 .group i
@@ -500,6 +552,11 @@ tár) gy (jutal J
      @) jével (_S5 je:vEl
      _) javíts     jAvi:tS:
      _) javítsd    jAvi:tSd
+        jj (L01    j         //if have a consonants after two j letter, need spokening one j letter
+        jjb        jb        //need always executing this exception
+        jjr        jR2       //need always executing this exception
+        jj (-L01   j
+
 
 
 
@@ -508,6 +565,9 @@ tár) gy (jutal J
         k          k
         kk         k:
         kk (C      k:
+        kk (-L01   k         //if next word starts with a consonant (except k, see next rule), need one k letter
+        kk (-k     k:        // but except for k beginning second words, this situation need spokening longer k: phoneme
+   kk-) k                    // silent after 'kk-' spokened phoneme
      _) köztársaság k'Ysta:R2SASa:g
      _) köztársaságg k'Ysta:R2SASa:g:
         központ    kYspont
@@ -520,17 +580,14 @@ tár) gy (jutal J
         kossutht   koSu:t:
         kossuthj   koSu:c:
         készségg   ke:SSe:g:
-kk (b k //if have two k and b letter, need spokening one k letter
-so) kk (b k: //an exception with need spokening longer k phoneme
-kk (d k //if have two k and one d letter, need spokening one k letter
-kk (f k //if have two k and f letter, need spokening one k letter
-kk (h k k //if have two k and h letter, need spokening one k letter
-kk (j k //if have two k and j letter, need spokening one k letter
-kk (m k //if have two k and m letter, need spokening one k letter
-kkr kR2 //if have two k and r letter, need spokening one k letter
-kk (s k //if have two k and s or sz letter, need spokening one k letter
-kk (t k //if have two k and t letter, need spokening one k letter
+        kkb        kb        //need keep this exception because have some words ben or ban suffixes
+        kk (L01    k
+        kkj        kj        //need keep this exception because have some words jének or jának suffixes
+        kkr        kR2       //special exception with always need executing
      _) közt       kYst
+        k (-k      k:        //for example marok-körző word need cut one k letter and need spokening k: phoneme only
+    k-) k                    //silent with second k phoneme
+
 
 .group l
         l          l
@@ -539,7 +596,6 @@ kk (t k //if have two k and t letter, need spokening one k letter
     fe) l (jegy    l
     fe) l (jelen   l
     fe) l (jár     l
-
         lj         l^j
     cé) l (já      jj
 
@@ -562,9 +618,7 @@ kk (t k //if have two k and t letter, need spokening one k letter
  _kéth) ly         li
 szamue) lly        lli
 szamue) ly         lli
-
     mi) ll (i      l
-   szá) ll (t      l
    szé) l (jár     l
    szé) l (jegy    l
 keresztü) l (j     l
@@ -578,19 +632,18 @@ keresztü) l (j     l
      _) e)         lj        (ár lj
    _ta) lj (án     lj
    _fé) l (jobb    l
-ll (b l //if have two l and b letter, need spokening one l letter
-ll (d l //if have two l and d letter, need spokening one l letter
-ll (g l //if have two l and a g or gy letter, need spokening one l letter
-ll (h l //if have two l and h letter, need spokening one l letter
-ll (k l //if have two l and k letter, need spokening one l letter
-ll (n l //if have two l and n or ny letter, need spokening one l letter before the n or ny letter
-ll (s l //if have two l letter and s or sz letter, need spokening one l letter
-ll (t l //if have two l and a t letter, need spokening one l letter
+        ll (L01    l         // only speak one 1 if followed by a consonant
+        llb        lb        //special exception with always need executing
+        llr        lR2       //special exception with always need executing
+        lly (-L01  j         //if have consonants after - character, need spokening one j letter with first part
+        ll (-L01   l
+bagate) ll (iz     l
 
 .group m
         m          m
     ko) mm (uni    m
-
+        mm (-L01   m         //if have a consonant after - character, need spokening one m letter
+        mm (L01    m         //if have a consonant after two m letter, need spokening one m letter
 
 .group n
         n          n
@@ -600,21 +653,13 @@ ll (t l //if have two l and a t letter, need spokening one l letter
         ny         n^
         nny        n^n^
         nj         n^n^
-nny (cs n^ //if have two ny and cs letter, need spokening one ny letter
-nny (d n^ //if have two nny and one d letter, need spokening one ny letter
-nny (f n^ //if have two ny and one f letter, need spokening one ny letter
-nny (g n^ //if have two ny and one g letter, need spokening one ny letter
-nny (k n^ //if have two nny and one k letter, need spokening one ny letter
-nny (t n^ //if have two nny and one t letter, need spokening one ny letter
-nny (v n^ //if have two nny and one v letter, need spokening one n^ letter
-nn (h n //if have two n and one h letter, need spokening one n letter
-nn (k n //if have two n and one k letter, need spokening one k letter
-nn (m n //if have two n and one m letter, need spokening one n letter
-nn (l n //if have two n and one l letter, need spokening one l letter
-nn (s n //if have two n and one s or sz letter, need spokening one n letter
-nn (t n //if have two n and one t letter, need spokening one n letter
-
-
+        nny (cs    n^        //special exception
+        nny (L01   n^        // only speak one ny if followed by a consonant
+        nnyb       n^b       //special exception with always need executing
+        nnyr       n^R2      //special exception with always need executing
+        nn (L01    n         // only speak one n if followed by a consonant
+        nnb        nb        //special exception with always need executing
+        nnr        nR2       //special exception with always need executing
    szí) n (ját     n
    szí) n (józan   n
         nyj        n^n^
@@ -640,8 +685,7 @@ negyve) n (yard    n
   pero) n (jegy    n
      ö) n (járó    n
 tulajdo) n (jog    n
-    ko) nn (ektor  n         //connector word, we spokening one n letter, not two n letter
-    be) nn (szülött n
+    ko) nn (ektor  n         //"connector" word, we one n letter, not two n
    éle) n (jár     n
   magá) n (jelleg  n
   elle) n (játék   n
@@ -662,14 +706,19 @@ _feddhetetle) n (jelle n
 ingatla) n (jog    n
 nyeremé) ny (játék n^
  botrá) ny (játék  n^
-  magá) nny (ugdíj nn^       //the nny letter pair this word not mean the double n^ phoneme, need spokening single the first n and n^ phoneme with this
-//word.
-alkotmá) ny (jog   n^
+  magá) nny (ugdíj nn^       //the nny here is n+ny  not the double n^ phoneme
+alkotmá) ny (j     n^        //for example alkotmányjog, alkotmányjavaslat words need spokening n^ phoneme
+        nny (-L01  n^        //if have a consonant after - character, need spokening one n^ phoneme
+        nn (-L01   n         //if have a consonant after - phoneme, need spokening one n phoneme
+eredmé) ny (j      n^        //for example eredményjelző word need spokening n^ phoneme
+   hiá) ny (j      n^        //for example hiányjel word need spokening n^ phoneme
+  mező) ny (j      n^        //for example mezőnyjátékos word need spokening n^ phoneme
+ esemé) ny (jel    n^
+helybe) n (jár     n
+ polle) n (jelen   n
 
 .group o
         o          o
-
-        otthon     othon
 
 .group ó
         ó          o:
@@ -682,14 +731,17 @@ alkotmá) ny (jog   n^
 
 .group p
         p          p
+        p (-p      p:        //need spokening p: phoneme, not pp phoneme
+    p-) p                    //the second p phoneme don't need spokening after - character
         pp         p:
+   pp-) p                    // silent after 'pp-'
         pp (C      p:
         p (v       p_
-
+        pp (L01    p
+        ppb        pb        //special exception with always need executing
+        ppr        pR2       //special exception with always need executing
 ?1   _) potsdam    potsda:m
-
-
-
+        pp (-L01   p         //if have consonant after - character, need spokening one p letter
 
 .group q
         q          kv
@@ -708,9 +760,17 @@ alkotmá) ny (jog   n^
      _) richá (rd  R2iCa:
      i) rr (itá    R2
     ko) rr (epetá  R2
+     a) rr (ogáns  R2
+        rr (L01    R2
+        rrb        R2b       //special exception with always need executing
+        rrr        R2R2      //not need spokening three R2 phoneme
+    te) rr (ier    R2
+    te) rr (ori    R2
 
 .group s
         s          S
+        s (-sz     s:        //if have the - character the next word part beginning with sz, always need spokening s: phoneme
+    s-) sz                   //but not need spokening second sz phoneme
   föld) s (ánc     S
 ?1 hel) s (inki    z
     ki) s (ebb     SS
@@ -893,7 +953,6 @@ zökkené) ssz (erű  Ss
 köhögé) ssz (erű   Ss
    üté) ssz (erű   Ss
   olva) ssz        s:
-    vi) ssz (hang  s
 felelő) ss (ég     S
 égzengé) ssz (erű  Ss
 világo) ssz (ürke  Ss
@@ -917,7 +976,17 @@ páncélo) ssz       Ss
  hajtá) ssz (erű   Ss
  sorva) ssz (ák    s:
 rendelteté) ssz (er Ss
-klien) ssz (oft Ss
+ klien) ssz (oft   Ss
+        ssz (L01   s
+        sszb       sb        //general rule, always need one sz before the remaining b beginning word, for example be end of words
+        sszr       sR2       //general rule, always need one sz before the remaining r beginning word, for example ra end of words
+        ss (L01    S
+        ssb        Sb        //general rule, always need one s before the remaining b beginning word, for example be end of words
+        ssr        SR2       //general rule, always need one s before the remaining r beginning word part, for example ra end of words
+        ssz (-L01  s         //if have a consonant after the - character, need spokening one sz phoneme
+        ss (-L01   S         //if have a consonant after the - character, need spokening one S letter
+települé) ssz (er  Ss        //for example településszerkezet word need spokening single S and s phoneme.
+
 
 .group sz
         sz         s
@@ -952,253 +1021,134 @@ rongyo) szs (ák    SZ
 szemete) szs (ák   SZ
 
 .group t
-
-     _) t (_       te:
-     -) t (_       t
         t          t
+        t (-ty     c:
+    t-) ty                   //silent with second ty phoneme
+
+
+
+        ty (-ty    c:        //special rule, need pronouncing  one longer c: phoneme
+   ty-) ty                   //not need spokening second c phoneme
+        tty (L01   c
+        tt (-ty    c:        //special cases with uncommon words
+   tt-) ty                   //silent with second ty phoneme
+        tt (L01    t
+        tt (-L01   t         //if have consonant after - character, need spokening one t letter with another not defined grammatical cases
+        tt (-t     t:
+   tt-) t                    //second part not need spokening the t phoneme
+        t (-t      t:        // use long [t:], not two [t]
+    t-) t                    // silent after 'tt-'
+
+
+     -) t (_       t
+     _) t (_       te:
         tc         ts:
-        tt         t:
-        ttk        tk //if have two t and k letter, need spokening tk letter pair.
-        tth        th //if have two t and h letter, need spokening th letter pair.
-        ttg        t:g
-        ttgy       t:J
-        ttp        t:p
+    ne) t (c       t
+     á) t (caplat  t
+tábláza) t (cell   t
+négyze) t (centi   t
+  tesz) t (cikk    t
+     á) t (cikáz   t
+        t (cs      t
+  tesz) t (cél     t
+terüle) t (cél     t
+fejeze) t (cím     t
+     á) t (cím     t
+        természetes tER2me:sEtES
+     a) th (én     t
+        thököly    tYkYli
+        ty         c
+  nosz) ty         ti
+vörösmar) ty       ti
+     ö) t (yard    t
+     C) tyj        c
+     A) tyj (A     c:
+   _ka) ty (n      ti
      @) tól (_S3q  to:l
      @) től (_S3q  tY:l
-        tt (C      t:
-        ttn        tn //if have two t and n letter, need spokening one t and one n letter
-képze) tt (nek t: //exception
-terveze) tt (n t: //exception
+  spor) t (cent    t         //for example sportcentrum word need spokening single t and ts phoneme
+használ) t (cikk   t
+ grafi) t (ceruz   t         //for example grafitceruzával, grafitceruze need spokening single t before c letter
+  pamu) t (cér     t
 
-
-        ttm        tm //if have two t letter and m letter, need spokening one t and one m letter
-        ttl        tl //if have two t and l letter, need spokening one t and one l letter
-sűríte) tt (le t: //special exception
-o) tt (lét t: //special exception
-        ttr        tR2 //if have two t and r letter, need spokening one t and one r letter
-helyeze) tt (ről t:
-        ttv        tv //if have two t and v letter, need spokening one t and one v letter
-        ty         c
-//     s) ty       c:    //
-//     z) ty       c:    // keztyű
-        ttj        c:
-        tty        c:
-becsüle) t         t
-becsüle) tt        t:
- csapa) t (jel     t
-  cson) t          t
-  cson) tt         t:
-  cson) tj         c
-  ezüs) t          t
-  ezüs) tt         t:
-   éle) t          t
-   éle) tt         t:
-  fron) t (szolgál t
- gyapo) t          t
- gyapo) tt         t:
-gondola) t (sor    t
- gráni) t          t
- gráni) tt         t:
-   ada) t          t
-   ada) tt         t:
-    ké) t (sarok   t
-    ké) t (sor     t
-    ké) t (sáv     t
-    ké) t (sarkú   t
-    ké) t (sebességes t
-kegyele) t         t
-kegyele) tt        t:
- korán) t (se      t
-  üzle) tt         t:
-  üzle) tj         c:
- nemze) t (szo     t
-   min) t          t
-        t (cs      t
-        tts (á     tS:
-        tts (é     tS:
+.group tj
      C) tj         c
-     A) tj (A      c:
-     C) tyj        c
-        ttyj       c:
-     A) tyj (A     c:
-
-   _ka) ty (n      ti
-
-vörösmar) ty       ti
-     á) t (cikáz   t
-     á) t (caplat  t
-     á) t (sza     t
-     á) tj (ár     t|j
-     á) t (szö     t
-     á) tsz (ő     t|s
-     á) t (szú     t
-     á) t (szű     t
-     á) t (jut     t
-     á) t (juss    t
-     á) t (jö      t
-állapo) t (sor     t
-felada) t (sor     t
-művele) t (sor     t
- szige) t (sor     t
-folyama) t (jel    t
-    hi) t (sze     t
- korlá) tj (ára    c:
-        t (jel     t         //need this general rule when any not added word contains the tjel part
-   kür) t          t
    kür) tj         c
-   kür) t (jel     t
- küldö) ttj        c:
-     o) tt         t:
-  szen) t (szék    t
-   szé) t          t
-   szé) tt         t:
-     á) t (sor     t
-     á) t (sze     t
-     á) t (sug     t
-     á) t (suh     t
-     á) t (sur     t
-    ne) t (c       t
-    ne) t (se      t
-    ne) t (szo     t
-
-    lá) t (sze     t
-    lé) t (szám    t
-    ké) t (száz    t
-     ö) t (száz    t
-    ha) t (száz    t
-    hé) t (száz    t
-  vona) t (jegy    t
-  tesz) t (sor     t
-   tes) t (sér     t
-  fron) t (jár     t
-     á) t (söpör   t
-   ala) tt (jár    t:
-  halo) tt (sápad  t:
-    mi) t (se      t
-    há) t (szél    t
-        thököly    tYkYli
-  nosz) ty         ti
-    ké) t (szín    t
-passzá) t (szél    t
-  szen) t (jános   t
-     ö) t (yard    t
-    bi) t (sebesség t
-  álla) t (sereg   t
-     á) t (segít   t
- épüle) t (sarok   t
-  mene) t (sor     t
-   skó) t (sapka   t
-    lé) t (jogosultság t
- bérle) t (jegy    t
- csapa) t (játék   t
-   ese) t (jog     t
-fejeze) t (jel     t
-    ké) t (jegyű   t
- krike) tt (játék  t:
-  mene) t (jegy    t
-  mene) t (jeggy   t
- szüne) t (jel     t
-     ú) t (jelző   t
-     ú) t (jog     t
-gondola) t (jel    t
-helyze) t (jel     t
-folyama) t (sáv    t
-   ada) t (szolgáltat t
-    _ú) t (sáv     t
-négyze) t (centi   t
-     á) tj (öt     t|j
-     á) tj (ön     t|j
-     á) t (süvít   t
-  bará) tj (ár     c:        //barátjára, barátjáról words need spokening c: phoneme
-kísérle) t (sorozat t
-     á) t (sült    t
-     á) t (süt     t
- épüle) t (sarok   t
-terüle) ts (áv     t|S
-terüle) t (cél     t
-    hé) t (jegyű   t
-        természetes tER2me:sEtES
-    ha) t (sáv     t
-  szen) t (szobrok t
-  tesz) t (cél     t
-   dró) t (sövény  t
-   dró) t (sövénny t
-     a) th (én     t
- huncu) t (ság     t
-  néme) t (juhá    t
-    pó) t (je      t
-  halo) tt (ba     t
-   éle) t (jel     t
- nemze) t (straté  t
-    gá) tj (ár     c:
-   pár) t (sajtó   t
-hangula) t (jel    t
-állapo) t (jel     t
-vizsgála) t (soroza t
-     á) tjátsz     tja:ts:
-     á) tjátssz    tja:ts:
- kobal) t (sugár   t
-többle) t (szol    t
-     á) t (söprő   t
-     ú) t (javí    t
-billentyűze) t (jel t
-     á) t (címké   t
-   sej) t (szö     t
- szöve) t (sapk    t
-  mene) t (szél    t
-  tesz) t (cikk    t
-     á) t (sejle   t
-mozdula) t (so     t
-  kabá) t (szé     t
-  bozó) t (so      t
+  cson) tj         c
   ezüs) tj         c
-fejeze) t (cím     t
-   lan) t (szó     t
-     á) tj (öhe    t|j
-    kú) t (sug     t
-   _há) ts (ág     tS:
-   hol) t (játék   t
-   hol) t (sápadt  t
-  söré) t (seb     t
-   pán) t (szél    t
-   boo) t (sorrend t
-    _á) t (jöj     t
-     ú) tsz (oros  t|s
-művele) t (sáv     t
-   _ké) t (szob    t
-    ne) t (sátor   t
+  üzle) tj         c:
+     A) tj (A      c:
+     ú) tj (aví    tj
+    pó) tj (e      tj
+  mene) tj (eggy   tj
+  mene) tj (egy    tj
+  vona) tj (egy    tj
+ bérle) tj (egy    tj
+     ö) tj (egyű   tj
+    ha) tj (egyű   tj
+    hé) tj (egyű   tj
+    ké) tj (egyű   tj
+        tj (el     tj        //need this general rule when any not added word contains the tjel part
+   kür) tj (el     tj
+   éle) tj (el     tj
+ csapa) tj (el     tj
+ szüne) tj (el     tj
+billentyűze) tj (el tj
+fejeze) tj (el     tj
+folyama) tj (el    tj
+gondola) tj (el    tj
+hangula) tj (el    tj
+helyze) tj (el     tj
+állapo) tj (el     tj
+    _á) tj (elentkez tj
+     ú) tj (elzés  tj
+     ú) tj (elző   tj
+     ú) tj (og     tj
+   ese) tj (og     tj
+    lé) tj (ogosultság tj
+  néme) tj (uhá    tj
+   skó) tj (uhász  tj
+     á) tj (uss    tj
+     á) tj (ut     tj
+  szen) tj (ános   tj
+     á) tj (ár     t|j
+    gá) tj (ár     c:
     há) tj (ár     c:
-   ker) t (szomszéd t
-   éle) t (járadék t
-    _á) t (sodor   t
-   par) t (sáv     t
-   tes) t (játék   t
-     ö) t (jegyű   t
-    ha) t (jegyű   t
-    hé) t (jegyű   t
-   zár) t (sorú    t
-   skó) t (juhász  t
-szerete) t (szolgálat t
-     ú) t (jelzés  t
-vizsgála) t (sor   t
-dagana) t (sej     t
-tábláza) t (sor    t
-   ben) t (szorul  t
-    _á) t (jelentkez t
-  spor) t (szolgál t
-  üzle) t (sor     t
-tábláza) t (cell   t
+  bará) tj (ár     c:        //barátjára, barátjáról words need spokening c: phoneme
+  fron) tj (ár     tj
+ korlá) tj (ára    c:
+   éle) tj (áradék tj
+     á) tjátssz    tja:ts:
+     á) tjátsz     tja:ts:
+   hol) tj (áték   tj
+   tes) tj (áték   tj
+ csapa) tj (áték   tj
+     á) tj (ö      tj
+     á) tj (öhe    tj
+    _á) tj (öj     tj
+     á) tj (ön     tj
+     á) tj (öt     tj
 
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
+        ts (a      tS
+        ts (á      tS
+        ts (e      tS
+        ts (é      tS
+        ts (o      tS
+        ts (u      tS
         tsü        tSy
    apá) ts (ág     tS:
+becsüle) ts (é     t|S       // "becsületsértés"  need spokening  [t] and [S], not [tS]
   bizo) ts (ág     tS:
-    já) tsz        ts:
+  cson) ts (ér     t|S       // eg. "csontsérülés" word need [t] and [S], not [tS]
+ gyapo) tsz        t|s       // eg. "gyapotszőttes", "gyapotszövet"
+    já) tsz (A     ts:
     já) tssz       ts:
     já) tsz (m     ts
     já) tsz (hat   ts
+    já) tsz (v     ts
         tsz (_S3   ts:
         tsz (é     ts:
         tsz (o     ts:
@@ -1207,7 +1157,9 @@ tábláza) t (cell   t
         tsz (a     t|s
         tsz (e     t|s
         tsz (á     t|s
+kegyele) ts (ér    t|S       //eg "kegyeletsértés" need  single [t] and [S], not [tS]
     me) tsz (et    ts:
+   min) ts (em     t|S       //mintsem word
     ké) tsz (er    ts:
      ö) tsz (ör    ts:
     hé) tsz (er    ts:
@@ -1217,12 +1169,6 @@ tábláza) t (cell   t
   mula) ts         tS:
  nemze) ts         tS:
   néme) ts (ég     tS:
-        ts (a      tS
-        ts (á      tS
-        ts (e      tS
-        ts (é      tS
-        ts (o      tS
-        ts (u      tS
         tsd        tSd
   bará) ts         tS:
    dön) ts (ön     tS
@@ -1237,7 +1183,7 @@ tábláza) t (cell   t
   sajá) ts (ág     tS:
   lehe) ts (ég     tS:
   tehe) ts (ég     tS:
-    lá) tsz        ts:
+    lá) tsz (A     ts:
     lá) tssz (on   ts:
     lá) tssz (anak ts:
     te) tsz        ts:
@@ -1280,6 +1226,129 @@ indula) tsz (ó     t|s
 köteleze) ts (ég   tS:
   kötö) ts (ég     tS:
 
+munkafüze) ts (abl t|S
+   pár) ts (ajtó   t|S
+ szöve) ts (apk    t|S
+   skó) ts (apka   t|S
+    ké) ts (arkú   t|S
+    ké) ts (arok   t|S
+ épüle) ts (arok   t|S
+ épüle) ts (arok   t|S
+    mi) ts (e      t|S
+    ne) ts (e      t|S
+ korán) ts (e      t|S
+  söré) ts (eb     t|S
+    bi) ts (ebesség t|S
+    ké) ts (ebességes t|S
+     á) ts (egít   t|S
+dagana) ts (ej     t|S
+     á) ts (ejle   t|S
+  álla) ts (ereg   t|S
+  bozó) ts (o      t|S
+mozdula) ts (o     t|S
+    _á) ts (odor   t|S
+     á) ts (or     t|S
+    ké) ts (or     t|S
+  mene) ts (or     t|S
+  tesz) ts (or     t|S
+  üzle) ts (or     t|S
+ szige) ts (or     t|S
+felada) ts (or     t|S
+   ada) ts         t|S       //for example adatsor, adatsebesség words
+   ada) tsz        t|s       //for example adatszolgáltatás word
+gondola) ts (or    t|S
+művele) ts (or     t|S
+tábláza) ts (or    t|S
+vizsgála) ts (or   t|S
+állapo) ts (or     t|S
+vizsgála) ts (oroza t|S
+kísérle) ts (orozat t|S
+   boo) ts (orrend t|S
+   zár) ts (orú    t|S
+ nemze) ts (traté  t|S
+     á) ts (ug     t|S
+    kú) ts (ug     t|S
+ kobal) ts (ugár   t|S
+     á) ts (uh     t|S
+     á) ts (ur     t|S
+     á) tsz (a     t|s
+     á) tsz (e     t|s
+    hi) tsz (e     t|s
+    lá) tsz (e     t|s
+    ne) tsz (o     t|s
+ nemze) tsz (o     t|s
+   _ké) tsz (ob    t|s
+  szen) tsz (obrok t|s
+többle) tsz (ol    t|s
+  fron) tsz (olgál t|s
+  spor) tsz (olgál t|s
+szerete) tsz (olgálat t|s
+   ada) tsz (olgáltat t|s
+   ker) tsz (omszéd t|s
+     ú) tsz (oros  t|s
+   ben) tsz (orul  t|s
+    lé) tsz (ám    t|s
+     ö) tsz (áz    t|s
+    ha) tsz (áz    t|s
+    hé) tsz (áz    t|s
+    ké) tsz (áz    t|s
+  kabá) tsz (é     t|s
+  szen) tsz (ék    t|s
+    há) tsz (él    t|s
+   pán) tsz (él    t|s
+  mene) tsz (él    t|s
+passzá) tsz (él    t|s
+    ké) tsz (ín    t|s
+   lan) tsz (ó     t|s
+     á) tsz (ö     t|s
+   sej) tsz (ö     t|s
+     á) tsz (ú     t|s
+     á) tsz (ő     t|s
+     á) tsz (ű     t|s
+   _há) ts (ág     tS:
+ huncu) ts (ág     t|S
+   hol) ts (ápadt  t|S
+    ne) ts (átor   t|S
+    _ú) ts (áv     t|S
+    ha) ts (áv     t|S
+    ké) ts (áv     t|S
+   par) ts (áv     t|S
+folyama) ts (áv    t|S
+művele) ts (áv     t|S
+terüle) ts (áv     t|S
+   tes) ts (ér     t|S
+     á) ts (öprő   t|S
+     á) ts (öpör   t|S
+   dró) ts (övénny t|S
+   dró) ts (övény  t|S
+    gá) ts (üllyed t|S
+     á) ts (ült    t|S
+     á) ts (üt     t|S
+     á) ts (üvít   t|S
+   _pó) tsz (ék    t|s       //pótszék word for example need spokening single t and sz phoneme
+    _ö) tsz (ob    t|s       //for example ötszobás word need spokening single t and sz letter
+   _ha) tsz (ob    t|s       //same as prewious rule
+   _hé) tsz (ob    t|s       //same as prewious rule
+gyakorla) ts (oroz t|S
+
+
+.group tt
+        tt         t:
+        ttgy       t:J
+        ttj        c:
+   ala) tt (jár    t
+ krike) tt (játék  t
+        ttr        tR2       //special exception with always need executing
+helyeze) tt (ről   t:
+        tts (á     tS:
+  halo) tt (sápad  t
+        tts (é     tS:
+        tty        c:
+        ttyj       c:
+keresz) tt (űz     t:
+
+
+
 .group u
         u          u
 szovjet) u (nió    u:
@@ -1295,14 +1364,18 @@ szovjet) u (nió    u:
         ü          y
         ütt        yt:
         ütty       yc:
-egy) ütt (m yt
-egy) ütt (l yt
-egy) ütt (v yt
+        ütty (L01  yc
+        üttyb      ycb       //special exception with always need executing
+        üttyr      ycR2      //special exception with always need executind
+        ütt (L01   yt
+        üttb       ytb       //special exception with always need executing
+        üttr       ytR2      //special exception with always need executing
+
 
 .group ű
         ű          y:
      t) ű (zijáték y
-    _t) ű (nés     y         //If this word is a single word, need y phoneme, not y: phoneme. For example the tűnés word, but not need this rule with eltűnés word.
+    _t) ű (nés     y         //If this word is a single word, need [y] not [y:]. eg. "tűnés" but not "eltűnés"
     _t) ű (njön    y
 
 .group v
@@ -1326,6 +1399,9 @@ egy) ütt (v yt
 
 .group z
         z          z
+        zz (b      z         //if have two z and b letter, need one [z]
+        zz (t      z         //if have two z and t letter, need one [z]
+        zz (v      z
 
         zs         Z
         zzs        Z:
@@ -1341,32 +1417,24 @@ csontvá) z         z
  helye) z (ked     s
   inté) z (ked     s
  költö) z (köd     s
-
 lefeje) z (te      s
 lefeje) z (ték     s
    pén) z (tár     s
     ré) z (serpenyő z
  tartó) z (t       s
-
     gá) z (cső     z
-
-
     ké) z (sz      z
     há) z (so      z
-
-
     má) zc (sz     z
     mé) zc (sz     z
   nehé) z (sé      S
   nehé) z (súlyú   z
    iga) zs (ág     SS
-
     ga) zs (ág     SS
    pén) z          z
    tor) z (ság     z
  _vité) z          z
    _ví) z (s       z
-
     ga) zs (ág     zS
    _gá) zsz (ámla  zs
    _gá) zsz (ámlá  zs
@@ -1374,12 +1442,8 @@ lefeje) z (ték     s
      ő) zs (uta    zS
    _vá) zs (or     zS
 _szára) zs (ág     SS
-
  _nehé) zs (ely    zS
-
      _) zürich     tsyR2i    C
- vigyá) zz (ba     z
- vigyá) zz (t      z
     tí) zsz (er    s:
    szá) zsz (or    s:
     mé) z (sör     z
@@ -1387,7 +1451,6 @@ _szára) zs (ág     SS
     ké) z (zsibbadás z
     ké) z (sérül   z
    szű) z (sült    z
-
     gő) z (sugár   z
 találko) z (t      s
  eszkö) z (sor     z
@@ -1395,7 +1458,7 @@ találko) z (t      s
  matró) z (sapka   z
   nehé) z (súly    z
    tör) zsz (ászló Z|z
-        zsz        z|s       //general exception. Need difference first z and second sz phoneme. For example, rajzszög, rajzszeg, mézszín words.
+        zsz        z|s       //general exception. Need difference first z and second sz phoneme. eg: rajzszög, rajzszeg, mézszín words.
    pén) z (t       s
  rende) z (ked     s
  kocká) z (ta      s
@@ -1453,10 +1516,16 @@ ajándéko) z (t     s
  hango) z (t       s
 szerve) z (ked     s
   kaló) z (ság     z
+szellő) z (tet     s
+ vigyá) zz (áll    z
+        zippzár    tsipza:R2
+        zipzár     tsipza:R2
+   győ) z (köd     s
+   győ) z (t       s
+  kötö) z (kö      s
+  árví) z (súj     z         //for example árvízsújtott word need spokening single z phoneme, not Z phoneme
 
 .group
-
-
         $          dolla:R2
         ä          E
         æ          E

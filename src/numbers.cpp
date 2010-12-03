@@ -808,14 +808,18 @@ if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG
 }  // end of CheckDotOrdinal
 
 
-static int hu_number_e(const char *word)
-{//=====================================
+static int hu_number_e(const char *word, int thousandplex, int value)
+{//==================================================================
 // lang-hu: variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt, att. ett
 
 	if((word[0] == 'a') || (word[0] == 'e'))
 	{
 		if((word[1] == ' ') || (word[1] == 'z') || ((word[1] == 't') && (word[2] == 't')))
 			return(0);
+
+		if(((thousandplex==1) || ((value % 1000) == 0)) && (word[1] == 'l'))
+			return(0);   // 1000-el
+
 		return(1);
 	}
 	return(0);
@@ -927,7 +931,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		{
 			if(!(wtab[0].flags & FLAG_ORDINAL))
 			{
-				if((wtab[0].flags & FLAG_HYPHEN_AFTER) && hu_number_e(word))
+				if((wtab[0].flags & FLAG_HYPHEN_AFTER) && hu_number_e(word, 0, acc))
 				{
 					// should use the 'e' form of the number
 					num_control |= 1;
@@ -1111,7 +1115,6 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	char ph_tens[50];
 	char ph_digits[50];
 	char ph_and[12];
-	char ph_ord_suffix[20];
 
 	units = value % 10;
 	tens = value / 10;
@@ -1214,8 +1217,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 						if((units != 0) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
 						{
 							// Use the ordinal form of tens as well as units. Add the ordinal ending
-							Lookup(tr, "_ord", ph_ord_suffix);
-							strcat(ph_tens, ph_ord_suffix);
+							strcat(ph_tens, ph_ordinal2);
 						}
 					}
 				}
@@ -1368,7 +1370,6 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	char ph_thousands[50];
 	char ph_hundred_and[12];
 	char ph_thousand_and[12];
-	char ph_ord_suffix[20];
 
 	ordinal = control & 0x22;
 	hundreds = value / 100;
@@ -1447,8 +1448,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				{
 					// Use ordinal form of hundreds, as well as for tens and units
 					// Add ordinal suffix to the hundreds
-					Lookup(tr, "_ord", ph_ord_suffix);
-					strcat(ph_digits, ph_ord_suffix);
+					strcat(ph_digits, ph_ordinal2);
 				}
 			}
 
@@ -1557,6 +1557,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int thousands_inc = 0;
 	int prev_thousands = 0;
 	int ordinal = 0;
+	int dot_ordinal;
 	int this_value;
 	int decimal_count;
 	int max_decimal_count;
@@ -1611,7 +1612,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	if(prev_thousands || (word[0] != '0'))
 	{
 		// don't check for ordinal if the number has a leading zero
-		ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, 0);
+		if((ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, 0)) != 0)
+			dot_ordinal = 1;
 	}
 
 	if((word[ix] == '.') && !isdigit(word[ix+1]) && !isdigit(word[ix+2]) && !(wtab[1].flags & FLAG_NOSPACE))
@@ -1730,7 +1732,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	if(tr->translator_name == L('h','u'))
 	{
 		// variant form of numbers when followed by hyphen and a suffix starting with 'a' or 'e' (but not a, e, az, ez, azt, ezt
-		if((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact==1) && hu_number_e(&word[suffix_ix]))
+		if((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact==1) && hu_number_e(&word[suffix_ix], thousandplex, value))
 		{
 			number_control |= 1;  // use _1e variant of number
 		}
@@ -1790,9 +1792,11 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				n_digit_lookup = 2;
 			}
 		}
+
+//		if((buf_digit_lookup[0] == 0) && (*p != '0') && (dot_ordinal==0))
 		if((buf_digit_lookup[0] == 0) && (*p != '0'))
 		{
-			// not found, lookup only the last digit
+			// not found, lookup only the last digit (?? but not if dot-ordinal has been found)
 			if(LookupDictList(tr, &p, buf_digit_lookup, flags, FLAG_SUFX, wtab))  // don't match '0', or entries with $only
 			{
 				n_digit_lookup = 1;

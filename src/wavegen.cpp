@@ -286,6 +286,11 @@ void WcmdqStop()
 {//=============
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
+	if(sonicSpeedupStream != NULL)
+	{
+		sonicDestroyStream(sonicSpeedupStream);
+		sonicSpeedupStream = NULL;
+	}
 #ifdef USE_PORTAUDIO
 	Pa_AbortStream(pa_stream);
 #endif
@@ -446,6 +451,10 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 			fprintf(stderr, "espeak: out of memory\n");
 		}
 		outbuffer_size = ix;
+		out_ptr = NULL;
+	}
+	if(out_ptr == NULL)
+	{
 		out_ptr = out_start = outbuffer;
 		out_end = out_start + outbuffer_size;
 	}
@@ -1974,25 +1983,27 @@ int WavegenFill2(int fill_zeros)
 
 
 /* Speed up the audio samples with libsonic. */
-static int SpeedUp(short *outbuf, int length, int end_of_text)
-{//===========================================================
-	if(sonicSpeedupStream != NULL && sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
+static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text)
+{//==============================================================================
+	if(length_in >0)
 	{
-		sonicDestroyStream(sonicSpeedupStream);
-		sonicSpeedupStream = NULL;
+		if(sonicSpeedupStream == NULL)
+		{
+			sonicSpeedupStream = sonicCreateStream(22050, 1);
+		}
+		if(sonicGetSpeed(sonicSpeedupStream) != sonicSpeed)
+		{
+		        sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
+		}
+	
+		sonicWriteShortToStream(sonicSpeedupStream, outbuf, length_in);
 	}
-	if(sonicSpeedupStream == NULL)
-	{
-		sonicSpeedupStream = sonicCreateStream(sonicSpeed, 22050);
-	}
-
-	sonicWriteShortToStream(sonicSpeedupStream, outbuf, length);
 
 	if(end_of_text)
 	{
 		sonicFlushStream(sonicSpeedupStream);
 	}
-	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length);
+	return sonicReadShortFromStream(sonicSpeedupStream, outbuf, length_out);
 }  // end of SpeedUp
 
 
@@ -2001,15 +2012,23 @@ int WavegenFill(int fill_zeros)
 {//============================
 	int finished;
 	unsigned char *p_start;
+	int length;
+	int max_length;
 
 	p_start = out_ptr;
 
-	// fill_zeros is ignored. It is now done in the portaudio cakkback
+	// fill_zeros is ignored. It is now done in the portaudio callback
 	finished = WavegenFill2(0);
 
-	if(sonicSpeed > 1.0 && out_ptr > p_start)
+	if(sonicSpeed > 1.0)
 	{
-		out_ptr = p_start + 2*SpeedUp((short *)p_start, (out_ptr-p_start)/2, finished);
+		max_length = (out_end - p_start);
+		length =  2*SpeedUp((short *)p_start, (out_ptr-p_start)/2, max_length/2, finished);
+		out_ptr = p_start + length;
+
+		if(length >= max_length)
+			finished = 0;   // there may be more data to flush
 	}
 	return finished;
 }  // end of WavegenFill
+

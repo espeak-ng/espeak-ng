@@ -66,14 +66,14 @@ endphoneme
 
 phoneme o
   vowel  starttype #o  endtype #o
-  length 160
+  length 130
   FMT(vowel/o)
 endphoneme
 
 
 phoneme o:
   vowel  starttype #o  endtype #o
-  length 280
+  length 300
   FMT(vowel/o)
 endphoneme
 

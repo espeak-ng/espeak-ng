@@ -1840,3 +1840,6 @@ include ph_akan
 
 phonemetable am base2
 include ph_amhari
+
+phonemetable wo base
+include ph_wolof

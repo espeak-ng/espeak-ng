@@ -9,9 +9,9 @@ _2        kEt:Y:
 _2a       ke:t       // for 200, 2000
 _3        ha:R2om
 _4        ne:J
-_5        Yt
-_6        hAt
-_7        he:t
+_5        Yt2      // [t2] changes a following [t] to [t:]
+_6        hAt2       // [t2] changes a following [t] to [t:]
+_7        he:t2      // [t2] changes a following [t] to [t:]
 _8        n^olts
 _9        kilEnts
 _10       ti:z
@@ -240,6 +240,7 @@ _#-ikának	a:nAk
 (0-st) nul:a:St
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
+(2-szer) ke:ts:ER2
 (2-őt) kEt:Y:t
 (2-őn) kEt:Y:n
 (2-n) kEt:Y:n
@@ -273,13 +274,14 @@ _#-ikának	a:nAk
 (6-tal) hAt:Al
 (6-tól) hAt:o:l
 (6-tól) h'Atodika:to:l	$alt2
-
+(6-szor) hAts:oR2
 (7-től) he:t:Y:l
 (7-től)	hEtEdike:tY:l	$alt2
 (7-tel) he:t:El
 (7-el) he:t:El
 (7-sekre) hEtESEkR2E
 (7-sel) hEtES:El
+(7-szer) he:ts:ER2
 (8-cal) n^olts:Al
 (8-al) n^olts:Al
 (9-el) kilEnts:El
@@ -290,6 +292,7 @@ _20e	hus
 (10-szer) ti:s:ER2
 (10-szeres) ti:s:ER2ES
 (10-t) tizEt
+
 
 
 //special number exceptions
@@ -413,6 +416,7 @@ _??	kAR2AktEr||ko:d      // unknown characters (change this)
 
 // Abbreviations
 ADSL	a:de:ESEl	$allcaps //Internet connection type, we pronouns this with ádéesel
+ÁFAa:fA	$allcaps
 ÁNTSZ a:Ente:Es $allcaps
 ATM	a:te:Em	$allcaps	//The ATM stands. We pronouns this abbreviation with átéem word. Default, Espeak pronouns this abbreviation with atéem word.
 cm	tsEntime:tER2
@@ -430,6 +434,7 @@ MLSZ EmElEs $allcaps
 ORTT	$abbrev $allcaps
 ORFK	oEREfka:	$abbrev $allcaps
 MÁV	ma:v	$allcaps
+LMP ElEmpe:	$allcaps
 MTI	$abbrev $allcaps
 mm      milime:tER2
 RAM	R2Am	$allcaps //Espeak normaly spokening this abbreviation with erraem, but this is not good
@@ -537,6 +542,7 @@ elé	$unstressend
 előtt	$alt $alt3 $unstressend
 este	$alt3
 estéjén	$alt3
+éjszakára	$alt3
 mögül	$unstressend      // behind
 mögött	$unstressend
 mögé	$unstressend
@@ -568,6 +574,7 @@ nekem	$unstressend
 közül	$unstressend
 közé	$unstressend
 között	$u $alt3
+idén	$alt3
 környékén	$alt3
 an	$u	// so many persons
 as	$u
@@ -634,7 +641,13 @@ csütörtökig	$alt3
 péntekig	$alt3
 szombatig	$alt3
 vasárnapig	$alt3
-
+hétfőn	$alt $alt3
+kedden	$alt3
+szerdán	$alt3
+csütörtökön	$alt3
+pénteken	$alt3
+szombaton	$alt3
+vasárnapon	$alt3
 sok	$unstressend	// many
 kevés	$unstressend	// few
 se	$unstressend       // neither
@@ -1209,6 +1222,12 @@ járni	$unstressend
 döntöttek	$unstressend
 írt	$unstressend
 méltó	$unstressend
+dől	$unstressend
+nyomsz	$unstressend
+elnök	$unstressend
+itthon	$unstressend
+otthon	$unstressend
+köszönhető	$unstressend
 
 // word pairs
 
@@ -1344,7 +1363,7 @@ _–	gondolAtjEl
 _—	kviR2tmi:nus
 _"	ide:zY:jEl	
 _(	b'Alza:R2o:jEl	$max3
-_)	j'obbza:R2o:jEl	$max3
+_)	j'obza:R2o:jEl	$max3
 _[	n^'ito:sYglEtES	$max3
 _]	z'a:R2o:sYglEtES	$max3
 _{	k'EzdY:kAptSoS	$max3
@@ -1407,6 +1426,7 @@ nato	na:to:
 
 $textmode
 MSZP emeszpé
+MSZMP emeszempé
 SZDSZ eszdéesz
 
 
@@ -1466,5 +1486,6 @@ CD-m) cédém
 (NVDA-t) envédéát
 (NVDA-tól) envédéától
 (NVDA-val) envédéával
-
-
+(%-kal) százalékkal
+(ÁFÁ-t) áfát
+(MB-al) megabájttal

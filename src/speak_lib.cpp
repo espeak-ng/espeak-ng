@@ -528,8 +528,8 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 				}
 			}
 		}
-    }
-  return(EE_OK);
+	}
+	return(EE_OK);
 }  //  end of Synthesize
 
 #ifdef DEBUG_ENABLED

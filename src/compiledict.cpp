@@ -208,14 +208,15 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 	int  flags;
 	int  suffix_char;
 	int  condition_num=0;
+	int  at_start = 0;
 	const char *name;
    char buf[60];
    char buf_pre[60];
 	char suffix[20];
 	static char output[60];
 
-	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','#','S','D','Z','A','L','!',' ','?','?','J','N','K','V','?','T','X','?','W'};
+	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',
+		'&','%','+','#','S','D','Z','A','L','!',' ','@','?','J','N','K','V','?','T','X','?','W'};
 
 	static char symbols_lg[] = {'A','B','C','H','F','G','Y'};
 
@@ -241,6 +242,8 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			case RULE_PHONEMES:
 				finished=1;
 				break;
+			case RULE_PRE_ATSTART:
+				at_start = 1;  // drop through to next case
 			case RULE_PRE:
 				match_type = RULE_PRE;
 				*p = 0;
@@ -342,8 +345,10 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 		sprintf(p,"?%d ",condition_num);
 		p = &p[strlen(p)];
 	}
-	if((ix = strlen(buf_pre)) > 0)
+	if(((ix = strlen(buf_pre)) > 0) || at_start)
 	{
+		if(at_start)
+			*p++ = '_';
 		while(--ix >= 0)
 			*p++ = buf_pre[ix];
 		*p++ = ')';
@@ -1158,6 +1163,7 @@ static char *compile_rule(char *input)
 	char *prule;
 	int len;
 	int len_name;
+	int start;
 	int state=2;
 	int finish=0;
 	int pre_bracket=0;
@@ -1308,9 +1314,21 @@ static char *compile_rule(char *input)
 	}
 	if(rule_pre[0] != 0)
 	{
-		output[len++] = RULE_PRE;
+		start = 0;
+		if(rule_pre[0] == RULE_SPACE)
+		{
+			// omit '_' at the beginning of the pre-string and imply it by using RULE_PRE_ATSTART
+			c = RULE_PRE_ATSTART;
+			start = 1;
+		}
+		else
+		{
+			c = RULE_PRE;
+		}
+		output[len++] = c;
+
 		// output PRE string in reverse order
-		for(ix = strlen(rule_pre)-1; ix>=0; ix--)
+		for(ix = strlen(rule_pre)-1; ix>=start; ix--)
 			output[len++] = rule_pre[ix];
 	}
 

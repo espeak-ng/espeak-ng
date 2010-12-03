@@ -127,7 +127,6 @@ wxMenuBar *MakeMenu(int type, const char *dict_name)
 	lexicon_menu->Append(MENU_LEXICON_BG, _("Bulgarian"));
 	lexicon_menu->Append(MENU_LEXICON_DE, _("German"));
 	lexicon_menu->Append(MENU_LEXICON_IT, _("Italian"));
-	lexicon_menu->Append(MENU_LEXICON_IT2, _("Italian, pass 2"));
 //	lexicon_menu->Append(MENU_LEXICON_TEST, _("Test"));
 
 	tools_menu = new wxMenu;

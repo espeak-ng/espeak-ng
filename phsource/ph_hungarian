@@ -123,6 +123,18 @@ phoneme t        // dental variant of /t/
 endphoneme
 
 
+phoneme t2
+// changes to pause when followed by [t], so the [t][ becomes [t:]
+  vls dnt stop
+  lengthmod 2
+  IF nextPh(t) THEN
+    WAV(ustop/null, 0)
+  ELSE
+    ChangePhoneme(t)
+  ENDIF
+endphoneme
+
+
 phoneme d
   vcd dnt stop
   voicingswitch t

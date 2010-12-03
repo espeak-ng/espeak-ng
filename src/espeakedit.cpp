@@ -232,7 +232,6 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_LEXICON_BG, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_DE, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_IT, MyFrame::OnTools)
-	EVT_MENU(MENU_LEXICON_IT2, MyFrame::OnTools)
 	EVT_MENU(MENU_LEXICON_TEST, MyFrame::OnTools)
 	EVT_MENU(MENU_TO_UTF8, MyFrame::OnTools)
 	EVT_MENU(MENU_COUNT_WORDS, MyFrame::OnTools)
@@ -610,7 +609,6 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	case MENU_LEXICON_BG:
 	case MENU_LEXICON_DE:
 	case MENU_LEXICON_IT:
-	case MENU_LEXICON_IT2:
 	case MENU_LEXICON_TEST:
 		CompareLexicon(event.GetId());  // Compare a lexicon with _rules translation
 		break;
@@ -699,6 +697,7 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 		break;
 
 	case MENU_SPEAK_FILE:
+		out_ptr = NULL;
 		transldlg->SpeakFile();
 		break;
 
@@ -707,11 +706,14 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 		break;
 
 	case MENU_SPEAK_PAUSE:
+		out_ptr = NULL;
 		SpeakNextClause(NULL,NULL,3);
 		if(SynthStatus() & 2)
 			speak_menu->SetLabel(MENU_SPEAK_PAUSE,_T("&Resume"));
 		else
+		{
 			speak_menu->SetLabel(MENU_SPEAK_PAUSE,_T("&Pause"));
+		}
 		break;
 
 	case MENU_SPEAK_VOICE:

@@ -2779,8 +2779,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					// dot after a word, with space following, probably an abbreviation
 					words[word_count-1].flags |= FLAG_HAS_DOT;
 
-					if(IsSpace(next_in))
-						c = ' ';   // remove the dot if it's followed by a space, so that it's not pronounced
+					if(IsSpace(next_in) || (next_in == '-'))
+						c = ' ';   // remove the dot if it's followed by a space or hyphen, so that it's not pronounced
 				}
 			}
 			else

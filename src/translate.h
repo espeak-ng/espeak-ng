@@ -145,10 +145,11 @@
 #define RULE_CONDITION	5	// followed by condition number (byte)
 #define RULE_GROUP_START 6
 #define RULE_GROUP_END	7
-#define RULE_LINENUM		8  // next 2 bytes give a line number, for debugging purposes
+#define RULE_PRE_ATSTART 8   // as RULE_PRE but also match with 'start of word'
+#define RULE_LINENUM		9  // next 2 bytes give a line number, for debugging purposes
 
 #define RULE_SPACE		32   // ascii space
-#define RULE_SYLLABLE	9    // @
+#define RULE_SYLLABLE	21    // @
 #define RULE_STRESSED	10   // &
 #define RULE_DOUBLE		11   // %
 #define RULE_INC_SCORE	12   // +
@@ -342,6 +343,7 @@ typedef struct {
 #define S_FINAL_NO_2        0x10
 #define S_NO_AUTO_2         0x20
 #define S_2_TO_HEAVY        0x40
+#define S_FIRST_PRIMARY     0x80
 #define S_2_SYL_2           0x1000
 #define S_INITIAL_2         0x2000
 #define S_NO_AUTO_DIM       0x10000
@@ -353,6 +355,7 @@ typedef struct {
 // bit4=don't allow secondary stress on last syllable
 // bit5-don't use automatic secondary stress
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
+// bit7=if more than one primary stress, make the subsequent primaries to secondary stress
 // bit8=stress last syllable if it doesn't end in a vowel
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
 // bit12= In a 2-syllable word, if one has primary stress then give the other secondary stress

@@ -17,13 +17,17 @@
           @) abel (_      'a:bE2l
           @) abele (_     'a:b@l@
           _) af (C@P2     'Af
-             age (_       'a:Z@
+             age (_N      'a:Z@
              ages (_S1    s
              age (_$w_alt a:Q@
              aire (_      'E:r
              air (_       'Er
+          @) agne (_      'An^@
              ale (_        'a:l@
           @) ant (_       'Ant
+          @) ant (e_      'Ant
+          @) ant (en_     'Ant
+          @) ant (er_     'Ant
 
           @) a (de_       'a:
           @) a (ta_       'a:
@@ -37,6 +41,7 @@
           &) baar (_      =ba:r
           _) be (@P2      b@
           _) b (ee+       b
+          _) bei (de      bEI
           _) be (ren      bI:
           _) be (rm       bE
           _) be (stia     bE
@@ -47,6 +52,7 @@
           _) bezig        be:z@x
           _) beu          bY:
           _) bij (C@P3    b'EI
+          _) brand        br'And
           _) bureau       byr'o:
           _) buurt (@@P5  b'yrt   // buurtbewoner
 
@@ -88,6 +94,8 @@
              ciële        S'e:l@
              coach        ko:tS
 
+          _) congres      kOnQr'Es
+
 
 .group d
              d            d     // auto-devoice at end-of-word
@@ -98,7 +106,7 @@
 
 .group e
              e            e:
-         &C) e (_S1q      @
+         &C) e (_S1qd     @
              e (_         @
              e (CK        E
              e (x         E
@@ -110,6 +118,7 @@
              eeuw         eU
              eu           Y:
 
+             ea (_        'e:a:
              eau          o: //words with French origin
           @) ee (_        'e:
           @) ee (X_       'e:
@@ -131,18 +140,33 @@
           &) el (den_$p_alt =@l
           &) el (end_$p_alt =@l
 
+          &) er (_$p_alt   =@r
+          &) er (e_$p_alt  =@r
+          &) er (en_$p_alt =@r
+          &) er (t_$p_alt  =@r
+          &) er (d_$p_alt  =@r
+          &) er (de_$p_alt =@r
+          &) er (den_$p_alt =@r
+          &) er (end_$p_alt =@r
+
+          &) elijks       @l@ks
           &) em (_        @m
           &) en (_S2qd    @n
           &) ens (_S3q    @ns
           &) end (_       @nd
           &) ende (_      @nd@
           @) ent (_       'Ent
+          @) ent (e_      'Ent
+          @) ent (en_     'Ent
+          @) ent (er_     'Ent
           &) er (_        @r
           &) ere (_       @r@
           &) er (en_$p_alt @r     // where 'eren' is not a verb ending
              eren (_      'I:r@n
           &) es (_        @s
           @) etten (_S3   @n 
+             eum (_$w_alt 'e:8m
+       @mus) eum (_       ,e:8m  // compounds
           @) eur (_       'Y:r
 
           &) e (nB@       E2
@@ -151,6 +175,9 @@
           &) era (_       @ra:
           @) e (raar_     @
           &) e (rC@       E2
+
+          c) e (ntrum     E   // not @
+          _) expositie    Ekspo:z'itsi
 
 
 
@@ -166,11 +193,14 @@
           _) ge (@P2      Q@
           _) gee          Qe:
              gener (aal   Q,e:n@r
-             gelijk       Q@lEIk
+          _) gelijk       Q@lEIk
           _) ge (rC       QE
           _) geu          QY:
           _) ge (ven      Qe:
+          _) ge (ver      Qe:
           _) ge (ving     Qe:
+
+             ge (sprek    Q@  // in compounds
 
 
 .group h
@@ -179,6 +209,7 @@
 
           _) her (@P3     hEr
           _) her (en      hI:r
+          &) heid (_S4    hEIt
 
 
 .group i
@@ -199,9 +230,12 @@
           &) ica (_       =ika:
           &) ico (_       =iko:
              ie (X        'i
+             ie (ren_     'i
              ie (rd_      'i
           @) ig (_S2dq    @x
           @) ige (_       @Q@
+             ij (_        'EI
+             ij (e_       'EI
           @) ij (n_       'EI
           &) ika (_       =ika:
           &) iko (_       =iko:
@@ -240,8 +274,10 @@
              m            m
           m) m
 
+            mail          me:Il
             management    ma:nIdZm@nt
          _) mee (@P3      m'e:
+            menu (_       m@ny
 
 
 .group n
@@ -271,8 +307,9 @@
         @@C) o (_         =o:
              oe (X_       'u
              oir (_       'v#a:r
+         pr) o (gram      o:
              oo (X        'o:
-      telef) oo (n        'o:
+             oon          'o:n  // in compounds, eg. telefoongesprek
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
           _) op (era      'o:p
@@ -327,7 +364,9 @@
              r            r
           A) r (A         r
           C) r (A         r
-             rr         *r
+             rr          *r
+
+             route        rut@  // route(s)
 
 .group re
           _) re (geren    r@
@@ -356,6 +395,7 @@
           @) ssi (o       S
 
           _) standaard (@P9 st'Anda:rt
+       _vre) s (e         s
 
 
 .group t
@@ -388,7 +428,7 @@
 .group te
           _) tegen (P5    t'e:Q@n
           _) terug (P5    t@r'8x
-          _) te (gelijk   t@
+          _) te (gelijkP2   t@
           _) te (gemoetP2 t@
           _) te (goed     t@
           _) te (hui      t@	// tehuis
@@ -437,6 +477,8 @@
              w (CK        w
 
           _) weg (@P3     v#'Ex
+          _) weg (en      v#e:Q
+          _) weg (e_      v#e:Q  // bewegelijk
 
 
 .group x

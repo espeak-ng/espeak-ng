@@ -411,9 +411,9 @@ void VoiceReset(int tone_only)
 	voice->samplerate = 22050;
 	memset(voice->klattv,0,sizeof(voice->klattv));
 
-	speed.fast_settings[0] = 250;
-	speed.fast_settings[1] = 600;
-	speed.fast_settings[2] = 300;
+	speed.fast_settings[0] = 350;
+	speed.fast_settings[1] = 800;
+	speed.fast_settings[2] = 175;
 
 #ifdef PLATFORM_RISCOS
 	voice->roughness = 1;
@@ -512,6 +512,7 @@ static void PhonemeReplacement(int type, char *p)
 static int Read8Numbers(char *data_in,int *data)
 {//=============================================
 // Read 8 integer numbers
+	memset(data, 0, 8+sizeof(int));
 	return(sscanf(data_in,"%d %d %d %d %d %d %d %d",
 		&data[0],&data[1],&data[2],&data[3],&data[4],&data[5],&data[6],&data[7]));
 }

@@ -140,7 +140,6 @@ void SetSpeed(int control)
 	int s1;
 	int wpm;
 	int wpm2;
-	double wpm_inc;
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
@@ -154,17 +153,16 @@ void SetSpeed(int control)
 	// fast_settings[0]  wpm where speedup starts
 	// fast_settings[1]  wpm for maximum espeak speed
 	// fast_settings[2]  maximum espeak speed
+
 	sonicSpeed = 1.0;
 	if(wpm > speed.fast_settings[0])
 	{
 		wpm2 = wpm;
-		wpm_inc  = (double)(speed.fast_settings[2] - speed.fast_settings[0]) / (double)(speed.fast_settings[1] - speed.fast_settings[0]);
-
-		wpm_inc = (wpm2 - speed.fast_settings[0]) * wpm_inc;
-		wpm = speed.fast_settings[0] + (int)wpm_inc;
-
-		sonicSpeed = ((double)wpm2)/wpm;
+		wpm = speed.fast_settings[2];
+		// Maybe we can do better than a 10 wpm fudge factor?
+		sonicSpeed = ((double)wpm2 + 10)/wpm;
 	}
+
 
 #ifdef TEST_SPEED
 	if(wpm > 1000)

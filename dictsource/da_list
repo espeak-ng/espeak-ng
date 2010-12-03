@@ -67,7 +67,7 @@ _?	spWrgsmVlstajn
 _!	udRVbstejn
 _-	binnesdrai
 __	b'Onsdrai
-&	ou
+&	Vw
 £	pun?
 €	euro
 © kopyrajt
@@ -127,7 +127,7 @@ _0M3	milij'A:d3
 _1M4	'e:n||bilij'o:n
 _0M4	bilij'o:n3
 
-_0and	3
+_0and	V
 _dpt	_k,Vm&:
 
 // PB a number followed by dot
@@ -280,7 +280,6 @@ z	sEt
 ø   W
 
 // PB English words
-bacon        _^_EN
 bondage      _^_EN
 volleyball  _^_EN
 dj          _^_EN
@@ -303,7 +302,6 @@ coke		_^_EN
 cool		_^_EN
 couch		_^_EN
 cursor		_^_EN
-//cowboy		_^_EN
 debugger	_^_EN
 ensemble	_^_FR
 event		_^_EN
@@ -316,12 +314,11 @@ hooligan	_^_EN
 interface	_^_EN
 image       _^_EN
 joke		_^_EN
-joystick	_^_EN
 laptop		_^_EN
 level		_^_EN
 login		_^_EN
 look		_^_EN
-lord		_^_EN
+//lord		_^_EN
 macho		_^_EN
 management  _^_EN
 message		_^_EN
@@ -382,7 +379,6 @@ boyle       _^_EN $alt
 clarence    _^_EN $alt
 cyrus       _^_EN
 cia         _^_EN $alt
-fbi         _^_EN $alt
 fox         _^_EN
 jones       _^_EN
 larry       _^_EN $alt
@@ -467,69 +463,70 @@ tonnage  $alt
 trikotage  $alt
 
 // PB final -abel - stressed a
-acceptabel  $alt
-affabel  $alt
-aimabel  $alt
-amortisabel  $alt
-analysabel  $alt
-appellabel  $alt
-applikabel  $alt
-deklinabel  $alt
-demontabel  $alt
-differentiabel  $alt
-diskutabel  $alt
-disputabel  $alt
-durabel  $alt
-fashionabel  $alt
-favorabel  $alt
-formidabel  $alt
-inacceptabel  $alt
-inkommensurabel  $alt
-irritabel  $alt
-kapabel  $alt
-kassabel  $alt
-komfortabel  $alt
-kommensurabel  $alt
-kommutabel  $alt
-komparabel  $alt
-kondemnabel  $alt
-konfiskabel  $alt
-konstabel  $alt
-kontrollabel  $alt
-konvenabel  $alt
-konversabel  $alt
-kritisabel  $alt
-kurabel  $alt
-//mirabel  $alt
-miserabel  $alt
-mutabel  $alt
-navigabel  $alt
-negligeabel  $alt
-negotiabel  $alt
-notabel  $alt
-operabel  $alt
-parabel  $alt
-passabel  $alt
-portabel  $alt
-praktikabel  $alt
-praktisabel  $alt
-profitabel  $alt
-præsentabel  $alt
-realisabel  $alt
-remarkabel  $alt
-rentabel  $alt
-reparabel  $alt
-respektabel  $alt
-risikabel  $alt
-ræsonnabel  $alt
-spendabel  $alt
-tolerabel  $alt
-trafikabel  $alt
-transportabel  $alt
-variabel  $alt
-venerabel  $alt
-veritabel  $alt
-vulnerabel  $alt
+// "el" has been removed in order to make rules for
+// "konstabel" and the plural "konstabler" without "e"
+acceptab $alt
+affab $alt
+aimab $alt
+amortisab $alt
+analysab $alt
+appellab $alt
+applikab $alt
+deklinab $alt
+demontab $alt
+differentiab $alt
+diskutab $alt
+disputab $alt
+durab $alt
+fashionab $alt
+favorab $alt
+formidab $alt
+inacceptab $alt
+inkommensurab $alt
+irritab $alt
+kapab $alt
+kassab $alt
+komfortab $alt
+kommensurab $alt
+kommutab $alt
+komparab $alt
+kondemnab $alt
+konfiskab $alt
+konstab $alt
+kontrollab $alt
+konvenab $alt
+konversab $alt
+kritisab $alt
+kurab $alt
+miserab $alt
+mutab $alt
+navigab $alt
+negligeab $alt
+negotiab $alt
+notab $alt
+operab $alt
+parab $alt
+passab $alt
+portab $alt
+praktikab $alt
+praktisab $alt
+profitab $alt
+præsentab $alt
+realisab $alt
+remarkab $alt
+rentab $alt
+reparab $alt
+respektab $alt
+risikab $alt
+ræsonnab $alt
+spendab $alt
+tolerab $alt
+trafikab $alt
+transportab $alt
+variab $alt
+venerab $alt
+veritab $alt
+vulnerab $alt
 
 // PB adjectives and nouns with final -ant - stressed a
 acceptant  $alt
@@ -796,6 +793,7 @@ fiskal  $alt
 fluvial  $alt
 foderal  $alt
 formal  $alt
+fokal $alt
 fraktal  $alt
 frontal  $alt
 frugal  $alt
@@ -893,7 +891,6 @@ mondial  $alt
 monumental  $alt
 moral  $alt
 museal  $alt
-musical mju:sik3l  $alt
 nasal  $alt
 national  $alt
 neural  $alt
@@ -2038,6 +2035,22 @@ viborgenser  $alt
 vordingborgenser  $alt
 ålborgenser  $alt
 
+// PB final -em: stressed e
+problem       $alt
+ bekvem       $alt
+ diadem       $alt
+  eksem       $alt
+ekstrem       $alt
+ emblem       $alt
+  fonem       $alt
+ grafem       $alt
+ morfem       $alt
+myxødem       $alt
+   poem       $alt
+ system       $alt
+ teorem       $alt
+   ødem       $alt
+   
 // PB country names with final -ien - stress on previous syllable
 abessinien  $alt
 abkhasien  $alt
@@ -2332,6 +2345,7 @@ elskerinde  $alt
 forfatterinde  $alt
 forstanderinde  $alt
 fyrstinde  $alt
+fristerinde $alt
 gelinde gel'end@  $alt
 gemalinde  $alt
 grevinde  $alt
@@ -2765,7 +2779,6 @@ kosmogoni  $alt
 kvadrofoni  $alt
 litani  $alt
 ludomani  $alt
-mahogni m&h'oni  $alt
 makaroni m&k@r'Vni  $alt
 mani  $alt
 misogyni  $alt
@@ -2831,6 +2844,7 @@ polygami  $alt
 salami sal'&mi  $alt
 socionomi  $alt
 sodomi  $alt
+stomi $alt
 synonymi  $alt
 taksonomi  $alt
 trakeotomi  $alt
@@ -2997,7 +3011,6 @@ mezzanin  $alt
 mokkasin  $alt
 morfin  $alt
 muezzin  $alt
-muffin mVf'en  $alt
 musselin  $alt
 naftalin  $alt
 nankin  $alt
@@ -3637,6 +3650,110 @@ tabloid $alt
 timid $alt
 tyfoid $alt
 valid $alt
+
+// PB final -iker: stressed previous syllable
+afatiker $alt
+agnostiker $alt
+akademiker $alt
+akustiker $alt
+alkoholiker $alt
+allergiker $alt
+analytiker $alt
+anorektiker $alt
+apoplektiker $alt
+aritmetiker $alt
+asteniker $alt
+astigmatiker $alt
+astmatiker $alt
+atlantiker $alt
+blasfemiker $alt
+botaniker $alt
+bulimiker $alt
+datamatiker $alt
+diabetiker $alt
+diagnostiker $alt
+dialektiker $alt
+didaktiker $alt
+diætetiker $alt
+dogmatiker $alt
+dramatiker $alt
+dysfatiker $alt
+dyslektiker $alt
+egocentriker $alt
+eklektiker $alt
+elegiker $alt
+elektriker $alt
+elektroniker $alt
+empiriker $alt
+epigrafiker $alt
+epileptiker $alt
+erotiker $alt
+excentriker $alt
+fanatiker $alt
+filharmoniker $alt
+flegmatiker $alt
+fonetiker $alt
+føniker $alt
+genetiker $alt
+gnostiker $alt
+grammatiker $alt
+heraldiker $alt
+hermeneutiker $alt
+historiker $alt
+homiletiker $alt
+hysteriker $alt
+hæretiker $alt
+idylliker $alt
+ironiker $alt
+karismatiker $alt
+keramiker $alt
+kiromantiker $alt
+kiropraktiker $alt
+koleriker $alt
+logistiker $alt
+matematiker $alt
+mekaniker $alt
+melankoliker $alt
+melodiker $alt
+metafysiker $alt
+metodiker $alt
+metriker $alt
+nekromantiker $alt
+neurasteniker $alt
+neurotiker $alt
+nostalgiker $alt
+numismatiker $alt
+obstetriker $alt
+pantomimiker $alt
+paralytiker $alt
+parlamentariker $alt
+peripatetiker $alt
+platoniker $alt
+polemiker $alt
+politiker $alt
+polytekniker $alt
+pragmatiker $alt
+prognostiker $alt
+prosaiker $alt
+retoriker $alt
+reumatiker $alt
+romantiker $alt
+sangviniker $alt
+satiriker $alt
+sekteriker $alt
+semantiker $alt
+semiotiker $alt
+skeptiker $alt
+skismatiker $alt
+skolastiker $alt
+statistiker $alt
+syfilitiker $alt
+symfoniker $alt
+systematiker $alt
+teoretiker $alt
+typotekniker $alt
+æstetiker $alt
+økumeniker $alt
 
 //PB words with final -isk - stress on the previous syllable
 abkhasisk  $alt
@@ -5318,6 +5435,7 @@ tvivlagtig   $alt
 tvivlrådig   $alt
 tyvagtig   $alt
 tålmodig   $alt
+ungdommelig $alt
 vankundig   $alt
 vederheftig   $alt
 vederhæftig   $alt
@@ -5593,6 +5711,7 @@ skribleri   $alt
 skriveri   $alt
 skruebrækkeri   $alt
 skrædderi   $alt
+skyderi $alt
 skulkeri   $alt
 skumleri   $alt
 skyderi   $alt
@@ -5789,7 +5908,7 @@ augmentere   $alt
 auktionere   $alt
 auskulter   $alt
 autentificer   $alt
-autografer   $alt
+autografere   $alt
 autoklaver   $alt
 automatiser   $alt
 autonomiser   $alt
@@ -5797,7 +5916,7 @@ autoriser   $alt
 avancere   $alt
 averter   $alt
 bagatelliser   $alt
-bajader   $alt
+bajadere   $alt
 balancere   $alt
 balkaniser   $alt
 balloter   $alt
@@ -5807,7 +5926,7 @@ bandagere   $alt
 banderolere   $alt
 barbariser   $alt
 barbere   $alt
-barder   $alt
+bardere   $alt
 barrier   $alt
 barrikader   $alt
 basere   $alt
@@ -6120,6 +6239,7 @@ formaliser   $alt
 formatere   $alt
 formere   $alt
 formuler   $alt
+omformuler   $alt
 fortificer   $alt
 fosfatere   $alt
 fosforescer   $alt
@@ -6368,15 +6488,15 @@ karboniser   $alt
 karburer   $alt
 karesser   $alt
 kariker   $alt
-karrier   $alt
+karriere   $alt
 karter   $alt
 kartonner   $alt
-kaserner   $alt
+kasernere   $alt
 kassere   $alt
 kastrer   $alt
 katalogiser   $alt
 katalyser   $alt
-katapulter   $alt
+katapultere   $alt
 kategoriser   $alt
 katekiser   $alt
 katolicer   $alt
@@ -6425,7 +6545,7 @@ kompiler   $alt
 komplementer   $alt
 kompletter   $alt
 komplicer   $alt
-komplimenter   $alt
+komplimentere   $alt
 komponer   $alt
 komposter   $alt
 komprimer   $alt
@@ -6751,7 +6871,7 @@ persifler   $alt
 persister   $alt
 personaliser   $alt
 personificer   $alt
-perspektiver   $alt
+perspektivere   $alt
 perturber   $alt
 perverter   $alt
 petitioner   $alt
@@ -6766,7 +6886,7 @@ pivoter   $alt
 pizziker   $alt
 placer   $alt
 plagier   $alt
-plakater   $alt
+plakatere   $alt
 planere   $alt
 plastificer   $alt
 platiner   $alt
@@ -6879,7 +6999,7 @@ reaktiver   $alt
 realiser   $alt
 reassumer   $alt
 reassurer   $alt
-rebeller   $alt
+rebellere   $alt
 recenser   $alt
 recidiver   $alt
 recirkuler   $alt
@@ -6890,7 +7010,7 @@ redresser   $alt
 reducer   $alt
 referer   $alt
 reflekter   $alt
-reformer   $alt
+reformere   $alt
 refunder   $alt
 refuser   $alt
 regaler   $alt
@@ -7117,7 +7237,7 @@ synkretiser   $alt
 synkroniser   $alt
 syntetiser   $alt
 systematiser   $alt
-tabeller   $alt
+tabellere   $alt
 tabuere   $alt
 tabuiser   $alt
 tabuler   $alt
@@ -7197,12 +7317,13 @@ typiser   $alt
 typografer   $alt
 tyranniser   $alt
 uniformere   $alt
+undervurder $alt
 urbaniser   $alt
 urger   $alt
 uriner   $alt
 usurper   $alt
 vacciner   $alt
-vagabonder   $alt
+vagabondere   $alt
 valider   $alt
 valoriser   $alt
 valuter   $alt
@@ -7222,7 +7343,7 @@ vidimer   $alt
 vikarier   $alt
 vindicer   $alt
 viriliser   $alt
-visere   $alt
+//visere   $alt
 visiter   $alt
 visualiser   $alt
 vitaliser   $alt
@@ -8853,6 +8974,7 @@ automation   $alt
 autorisation   $alt
 aversion   $alt
 ballotation   $alt
+baron $alt
 bastion   $alt
 benediktion   $alt
 billion   $alt
@@ -9599,7 +9721,7 @@ liaison  li&s'VN   $alt
 meson   $alt
 person   $alt
 ræson   REs'VN   $alt
-sæson    sEs'VN   $alt
+//sæson    sEs'VN   $alt
 unison   $alt
 
 // PB exceptions from the "be" rule in group "be"
@@ -10501,6 +10623,7 @@ emulgator  $alt
 eskalator  $alt
 evaluator  $alt
 evaporator  $alt
+faktor $alt
 fundator  $alt
 generator  $alt
 gladiator  $alt
@@ -10553,6 +10676,7 @@ likvidator  $alt
 makulator  $alt
 manipulator  $alt
 multiplikator  $alt
+motor $alt
 nomenklator  $alt
 observator  $alt
 operator  $alt
@@ -10602,6 +10726,40 @@ versifikator  $alt
 vibrator  $alt
 visitator  $alt
 ækvator  $alt
+junior  $alt
+prior  $alt
+senior  $alt
+aggressor  $alt
+assessor  $alt
+censor  $alt
+decisor  $alt
+defensor  $alt
+dimissor  $alt
+divisor  $alt
+kompressor  $alt
+kondensor  $alt
+processor  $alt
+professor  $alt
+provisor  $alt
+revisor  $alt
+sensor  $alt
+sponsor  $alt
+successor  $alt
+kondor  $alt
+korridor  $alt
+labrador  $alt
+matador  $alt
+picador  $alt
+ronkedor  $alt
+toreador  $alt
+//major  $alt
+anafor  $alt
+metafor  $alt
+hydrofor  $alt
+donor  $alt
+sonor  $alt
+tenor  $alt
+tumor  $alt
 
 // PB Final -ut - stressed u
 absolut $alt
@@ -10645,6 +10803,7 @@ arrangør        $alt
 assurandør      $alt
 auditør         $alt
  bankør         $alt
+ billettør      $alt
  causør         $alt
 charmør         $alt
 chauffør        $alt
@@ -10848,6 +11007,7 @@ sententiøs   $alt
 seriøs   $alt
 serøs   $alt
 skabrøs   $alt
+skandaløs $alt
 skarlatinøs   $alt
 skrofuløs   $alt
 spatiøs   $alt
@@ -11010,15 +11170,6 @@ rejicere rejis'eV          // PB should not be pronounced [raje]
 rejicerer rejis'eV         // PB
 rejiceres rejis'eVs        // PB
 rejicering rejis'eRiN      // PB
-gele sjel'e                // PB gele
-gelé sjel'e                // PB gelé
-geleen sjel'e@-n           // PB geleen
-geleer sjel'e3             // PB geleer
-geleens sjel'e@-ns         // PB geleens
-geleerne sjel'eVn@         // PB geleerne
-geleernes sjel'eVn@s       // PB geleernes
-geleagtig sjel'eagte       //PB geleagtig
-geleagtige sjel'eagte@     //PB geleagtige
 nogle  n'o:@-n             // PB English: 'some' - must be pronounced like the Danish word 'nogen'
 nogen  n'o:@-n             // PB
 ligesom lisVm              // PB
@@ -11027,10 +11178,10 @@ konfirmand kVnferm'&nd     // PB
 konfirmander kVnferm'&nd3  // PB
 konfirmanderne kVnferm'&nd3-n@  // PB
 konfirmandernes kVnferm'&nd3-n@s  // PB
-dollar dVlV                // PB
+//dollar dVlV                // PB
 giv g'i                    // PB the v shouldn't be pronounced
 giver gir                  // PB the v shouldn't be pronounced
-jaloux sja'lu              // PB jaloux
+jaloux sj&'lu              // PB jaloux
 aficionado afisjo'na:do    // PB
 breakdance  brEig'da:ns    // PB breakdance
 breakdancen  brEig'da:ns@-n // PB breakdancen
@@ -11064,7 +11215,6 @@ calais   kal'E                   // PB Calais - town in France
 date dejt                      // PB date - stævnemøde
 siger sir                      // PB silent d
 (tids nok) tis||n'Vk             // PB silent d
-cologne ko'lVN3                // PB
 skateboardet  sk'eitbo@d3D      // PB
 billie bile                    // PB the name Billie
 (hole in one) h'oulinw,0n      // PB English golf expression used in Danish
@@ -11103,6 +11253,7 @@ co   $abbrev $allcaps // PB for CO2-kvote
 ngo $abbrev
 edb $abbrev
 mri $abbrev
+kfuk $abbrev $allcaps
 wc v'ese // w is pronounces as v in Danish
 (wc'et) v'ese@d
 (wc'er) v'eseV
@@ -11140,7 +11291,6 @@ hav hAu $atend
 // PB problem with 'sig' [si] = "say" and 'sig' = "himself/herself" [saj]
 (sig mig)  si||maj               // PB sig mig engang
 (sig hvad) si||v&                // PB sig hvad du mener 
-(sig det) si||de                // PB sig det, du mener 
 sig $atend $sentence saj        // end of a sentence - han vaskede sig.
 (gør sig til) g,Wr||saj||t'el    // PB
 (gav sig til) g&||saj||tel       // PB han gav sig til at ... 
@@ -11187,11 +11337,12 @@ legenderne leg'EndVn3s
 (så længe) sV||l'EN3
 (så være) sV||v'EV
 (så må) sV||m'O
+(så må sige) s'O||m'O|s'i@
 (så har) sV||har
 (se så) se||sV
 (så sent) sV||sent
 (ville så) vil3||sV
-så sV $sentence $atstart
+//så sV $sentence $atstart
 (hvad så) v&||sV $atend // "Hvad så?"
 (virkede så)  v'irkeD@||sV
 (kom så) kVm||sV

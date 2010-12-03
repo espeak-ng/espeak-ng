@@ -778,8 +778,33 @@ libel		$2
 mirabel		$3
 tabel		$2
 
+// ending -eum is stressed  ['e:8m]
+atheneum	$alt
+colosseum	$alt
+jubileum	$alt
+lyceum		$alt
+mausoleum	$alt
+museum		$alt
+carbolineum	$alt
+linoleum	$alt $2
+marmoleum	$alt
+petroleum	$alt $2
+
+// ending -ot is stressed
+fagot		$2
+kapot		$2
+patriot		$3
+komplot		$2
+poliglot	$3
+marmot		$2
+schavot		$2
+
 // words ending in el, elt, elde, elden, elend, elende, eld, ele, elen
-// with stress on the previous syllable
+// with stress on the previous syllable,
+// also words ending in er. etc.
+
+beter		$alt
+
 	// adjectives
 edel		$alt
 enkel		$alt
@@ -1211,8 +1236,10 @@ actiepunt	Aksip8nt
 agenda		$2
 amino		$1
 amnestie	$3
+bijziend	$2	// bijziendheid
 boudoir		budv#'a:r
 bourgondier	burx'o:ndi:@r
+braille		brAj@
 circuit		sIrku'i
 chalet		Sa:lE
 champagne	SAmp'An^@
@@ -1225,18 +1252,24 @@ chat		tSEt
 check		tSEk
 chiffon		Sif'On
 contour		ko:nt'ur
+divers		div'Ers
 dynastie	$3
+eensgelijks	e:nsQ@l'EIks
+emaille		,e:m'Aij@
 eucharistie	$4
+inductie	$2
 ingewikkeld	$3
 ingrijpend	$2
 ingeval		$3
 ingevolge	$3
 ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
+informatie	$3
 journaal	Surn'a:l
 maxima		$1
 meteen		mEt'e:n
 minima		$1
+nabij		nab'EI
 ongastvrij	OnQAstv@-*'EI
 ongelooflijk	$3
 ongemakkelijk	$3
@@ -1257,6 +1290,7 @@ tegenstrijdig	$3
 tegenwoordig	$3
 travestie	$3
 verderop	$3
+volledig	$2
 waarschijnlijk	$2
 
 

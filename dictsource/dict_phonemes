@@ -53,11 +53,11 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
-Dictionary da_dict  2010-10-28
+Dictionary da_dict  2010-12-02
 
 &    &#   0    3    @    @-   a    A    
-e    E    i    o    O    u    V    W    
-W#   y    Y    
+aI   e    E    i    o    O    u    V    
+W    W#   y    Y    
 
 *    -    :    ?    b    B    d    D    
 dZ   f    g    h    j    J    k    l    
@@ -66,7 +66,7 @@ s    S    t    T    tS   v    w    x
 z    
 
 
-Dictionary hu_dict  2010-11-17
+Dictionary hu_dict  2010-12-02
 
 a    A    a:   E    e:   i    i:   o    
 o:   u    u:   Y    y    y:   Y:   
@@ -74,7 +74,7 @@ o:   u    u:   Y    y    y:   Y:
 -    :    b    c    C    d    dZ   dz   
 f    g    h    j    J    k    l    m    
 n    n^   p    r    R    R2   s    S    
-s2   t    tS   ts   v    z    Z    
+s2   t    t2   tS   ts   v    z    Z    
 
 
 Dictionary de_dict  2010-08-25
@@ -100,7 +100,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    z;   
 
 
-Dictionary en_dict  2010-11-04
+Dictionary en_dict  2010-11-18
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI@  aU   
@@ -200,7 +200,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2010-11-15
+Dictionary ta_dict  2010-12-01
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -249,7 +249,7 @@ n^#  p    Q    r    R    r#   R2   s
 S    s2   t    T    tl#  v    x    z    
 
 
-Dictionary it_dict  2010-11-10
+Dictionary it_dict  2010-12-03
 
 @-   a    a/   aI   aU   e    E    eI   
 i    I    o    O    u    
@@ -325,7 +325,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary nl_dict  2010-11-10
+Dictionary nl_dict  2010-12-03
 
 8    @    @-   a    A    a:   A~   E    
 E2   e:   EI   eU   i    I    o    O    
@@ -662,3 +662,15 @@ W    y
 h    j    J    k    l    m    n    p    
 Q    R    s    S    t    tS   v    w    
 x    z    Z    
+
+
+Dictionary wo_dict  2010-11-30
+
+@    @:   a    a:   e    E    e:   E:   
+i    i:   m-   n-   N-   o    O    O:   
+o:   u    u:   
+
+:    b    c    d    f    g    h    j    
+J    k    l    m    n    N    n^   p    
+q    R    R2   s    s2   t    v    w    
+x    z    
