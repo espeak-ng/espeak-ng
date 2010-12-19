@@ -289,11 +289,14 @@ static void DecodePhonemes2(const char *inptr, char *outptr)
 
 void Lexicon_It(int pass)
 {//======================
+// Reads a lexicon of pairs of words: normal spelling and spelling with accents
+// Creates file: dictsource/it_listx   which includes corrections for stress position and [E]/[e] and [O]/[o] phonemes
+// Words which are still in error are listed in file:  it_compare  (in the directory of the lexicon file).
 	int count=0;
 	int matched=0;
 	int ix;
 	int c;
-	char *p;
+	char *p, *p2;
 	int len;
 	int vowel_ix;
 	int stress_posn1;
@@ -305,8 +308,11 @@ void Lexicon_It(int pass)
 	FILE *f_out;
 	FILE *f_listx;
 	FILE *f_list_in = NULL;
+	int listx_count;
 	long int displ;
 	const char *alt_string;
+	wxString str;
+	static wxString fname_lex;
 	char buf[200];
 	char word[80];
 	char word1[80];
@@ -315,7 +321,10 @@ void Lexicon_It(int pass)
 	char temp[80];
 	char phonemes[80];
 	char phonemes2[80];
-	char buf_out[120];
+	char phonemes3[80];
+	char buf_out[200];
+	char buf_error[200];
+	char last_listx[200];
 	static const char *vowels1 = "aeiou";
 	static const char *vowels2 = "aeou";
 
@@ -333,21 +342,30 @@ void Lexicon_It(int pass)
 
 	static const char *exceptions[] = {ex1, ex2, ex3, ex4, ex5, ex6, ex7, ex8, ex9, ex10, NULL};
 
-	wxString fname = wxFileSelector(_T("Italian Lexicon"),path_dir1,_T(""),_T(""),_T("*"),wxOPEN);
+	if(pass == 1)
+	{
+		fname_lex = wxFileSelector(_T("Italian Lexicon"),path_dir1,_T(""),_T(""),_T("*"),wxOPEN);
+	}
 
-	strcpy(buf,fname.mb_str(wxConvLocal));
+	strcpy(buf,fname_lex.mb_str(wxConvLocal));
 	if((f_in = fopen(buf,"r")) == NULL)
 	{
-		wxLogError(_T("Can't read file ")+fname);
+		wxLogError(_T("Can't read file ")+fname_lex);
 		return;
 	}
-	path_dir1 = wxFileName(fname).GetPath();
+	path_dir1 = wxFileName(fname_lex).GetPath();
+	strcpy(buf_out, path_dir1.mb_str(wxConvLocal));
+	sprintf(buf, "%s/IT_errors", buf_out);
 	
-	if((f_out = fopen("compare_it","w")) == NULL)
+	if((f_out = fopen(buf,"w")) == NULL)
 	{
-		wxLogError(_T("Can't write file: compare_it "));
+		str = wxString(buf, wxConvLocal);
+		wxLogError(_T("Can't write file: ") + str);
 		return;
 	}
+
+	listx_count = 0;
+	last_listx[0] = 0;
 
 	if(pass == 1)
 	{
@@ -355,9 +373,11 @@ void Lexicon_It(int pass)
 		remove(buf);
 		CompileDictionary(path_dsource,"it",NULL,NULL,0);
 		f_listx = fopen(buf,"w");
+		wxLogStatus(_T("Pass 1"));
 	}
 	else
 	{
+		CompileDictionary(path_dsource,"it",NULL,NULL,0);
 		sprintf(buf,"%s/it_listx2",path_dsource);
 		f_listx = fopen(buf,"w");
 		sprintf(buf,"%s/it_listx",path_dsource);
@@ -390,9 +410,9 @@ void Lexicon_It(int pass)
 			continue;
 
 		if(strlen(word) < 8)
-			sprintf(buf_out,"%s\t\t%s\t",word,temp);
+			sprintf(buf_error,"%s\t\t%s\t",word,temp);
 		else
-			sprintf(buf_out,"%s\t%s",word,temp);
+			sprintf(buf_error,"%s\t%s",word,temp);
 
 		sprintf(word1," %s  ",word);
 
@@ -550,22 +570,37 @@ void Lexicon_It(int pass)
 						sscanf(buf, "%s", word1);
 						if(strcmp(word1, word_stem) < 0)
 						{
-							fprintf(f_listx,"%s",buf);  // copy it_listx from pass 1 until we reach the matching word
-						}
-						else
-						if(strcmp(word1, word_stem) == 0)
-						{
-							p = buf;
-							while((*p != '\n') && (*p != 0)) *p++;
-							*p = 0;
-							fprintf(f_listx,"%s %s\n",buf,alt_string);   // add $alt or $alt2 to the entry
-							break;
+							sprintf(buf_out,"%s",buf);  // copy it_listx from pass 1 until we reach the matching word
 						}
 						else
 						{
-							fprintf(f_listx,"%s %s\n", word_stem, alt_string);   // add a new word with $alt or $alt2
-							fseek(f_list_in, displ, SEEK_SET);
+							if(strcmp(word1, word_stem) == 0)
+							{
+								p = buf;
+								while((*p != '\n') && (*p != 0)) *p++;
+								*p = 0;
+								sprintf(buf_out,"%s %s\n",buf,alt_string);   // add $alt or $alt2 to the entry
+							}
+							else
+							{
+								sprintf(buf_out,"%s %s\n", word_stem, alt_string);   // add a new word with $alt or $alt2
+								fseek(f_list_in, displ, SEEK_SET);
+							}
+
+							if(strcmp(buf_out, last_listx) != 0)
+							{
+								fprintf(f_listx, "%s", buf_out);
+								listx_count++;
+								strcpy(last_listx, buf_out);
+							}
 							break;
+						}
+
+						if(strcmp(buf_out, last_listx) != 0)
+						{
+							fprintf(f_listx, "%s", buf_out);
+							listx_count++;
+							strcpy(last_listx, buf_out);
 						}
 					}
 				}
@@ -574,7 +609,26 @@ void Lexicon_It(int pass)
 		}
 		else
 		{
-			fprintf(f_out,"%s\t%s\t%s\n",buf_out,phonemes,phonemes2);
+			// allow if the only difference is no primary stress
+			p2 = phonemes2;
+			p = phonemes3;
+			while(*p2 != 0)
+			{
+				*p = *p2++;
+				if((*p2 == ':') && (strchr("aeiouEO", *p) != NULL)) p2++;  // change lone vowels to short by removing ':'
+				if(*p == '\'') *p = ',';  // change primary to secondary stress
+				p++;
+			}
+			*p = 0;
+			if(strcmp(phonemes, phonemes3) == 0)
+			{
+				matched++;
+			}
+			else
+			{
+				// still doesn't match, report this word
+				fprintf(f_out,"%s\t%s\t%s\n",buf_error,phonemes,phonemes2);
+			}
 		}
 	}
 
@@ -582,15 +636,32 @@ void Lexicon_It(int pass)
 	{
 		while(fgets(buf, sizeof(buf), f_list_in) != NULL)
 		{
-			fprintf(f_listx, "%s", buf);  // copy the remaining entries from pass 1
+			if(strcmp(buf, last_listx) != 0)  // check for duplicate entries
+			{
+				fprintf(f_listx, "%s", buf);  // copy the remaining entries from pass 1
+				listx_count++;
+				strcpy(last_listx, buf);
+			}
 		}
 		fclose(f_list_in);
 	}
 	fclose(f_in);
 	fclose(f_out);
 	fclose(f_listx);
-	wxLogStatus(_T("Completed, equal=%d  different=%d"),matched,count-matched);
-}
+
+	if(pass == 2)
+	{
+		sprintf(buf,"%s/it_listx",path_dsource);
+		remove(buf);
+		sprintf(buf_out,"%s/it_listx2",path_dsource);
+		rename(buf_out, buf);
+		wxLogStatus(_T("Created file 'it_listx', entries=%d  errors=%d  total words=%d"),listx_count, count-matched, count);
+	}
+	else
+	{
+		wxLogStatus(_T("Pass 1, equal=%d  different=%d"),matched,count-matched);
+	}
+}  // end of Lexicon_It
 
 
 void Lexicon_De()
@@ -760,7 +831,7 @@ void Lexicon_De()
 	fclose(f_in);
 	fclose(f_out);
 	wxLogStatus(_T("Completed, equal=%d  different=%d"),matched,count-matched);
-}
+}  // end of Lexicon_De
 
 
 extern int IsVowel(Translator *tr, int letter);
@@ -1340,8 +1411,6 @@ void CompareLexicon(int id)
 		break;
 	case MENU_LEXICON_IT:
 		Lexicon_It(1);
-		break;
-	case MENU_LEXICON_IT2:
 		Lexicon_It(2);
 		break;
 	case MENU_LEXICON_TEST:

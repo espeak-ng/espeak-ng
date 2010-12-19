@@ -6,7 +6,7 @@ INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
 DATADIR=$(PREFIX)/share/espeak-data
 
-RELEASE = 1.43
+RELEASE = 1.44
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -80,10 +80,10 @@ all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
 
 $(BIN_NAME): $(OBJS1)
-	$(CXX) -o $@ $(OBJS1) $(LIBS1)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJS1) $(LIBS1)
 
 $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
-	$(CXX) -o $@ $(OBJS3) $(LIBS3)
+	$(CXX) $(LDFLAGS) -o $@ $(OBJS3) $(LIBS3)
 
 
 
@@ -92,7 +92,8 @@ x_%.o: %.cpp
 	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)
-	$(CXX) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ $(OBJS2) $(LIBS2)
+	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ \
+	$(OBJS2) $(LIBS2)
 
 $(STATIC_LIB_NAME): $(OBJS2)
 	$(AR) cqs $(STATIC_LIB_NAME) $(OBJS2)

@@ -609,6 +609,14 @@ SOURCE=.\src\sintab.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\sonic.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\sonic.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\speak_lib.cpp
 # End Source File
 # Begin Source File

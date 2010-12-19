@@ -152,7 +152,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"mbrola",     V_MBROLA},
 	{"consonants", V_CONSONANTS},
 	{"klatt",      V_KLATT},
-	{"fast_test",  V_FAST},
+	{"fast_test2",  V_FAST},
 	{"speed",      V_SPEED},
 
 	// these just set a value in langopts.param[]
@@ -410,7 +410,10 @@ void VoiceReset(int tone_only)
 	voice->consonant_ampv = 100;
 	voice->samplerate = 22050;
 	memset(voice->klattv,0,sizeof(voice->klattv));
-	memset(speed.fast_settings,0,sizeof(speed.fast_settings));
+
+	speed.fast_settings[0] = 350;
+	speed.fast_settings[1] = 800;
+	speed.fast_settings[2] = 175;
 
 #ifdef PLATFORM_RISCOS
 	voice->roughness = 1;
@@ -509,6 +512,7 @@ static void PhonemeReplacement(int type, char *p)
 static int Read8Numbers(char *data_in,int *data)
 {//=============================================
 // Read 8 integer numbers
+	memset(data, 0, 8+sizeof(int));
 	return(sscanf(data_in,"%d %d %d %d %d %d %d %d",
 		&data[0],&data[1],&data[2],&data[3],&data[4],&data[5],&data[6],&data[7]));
 }

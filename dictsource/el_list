@@ -48,9 +48,54 @@ _1M2	'ena|ekatom'irio
 _0M2	ekatom'iria
 _1M3	'ena|Disekatom'irio
 _0M3	Disekatom'iria
-_dpt	k'oma
+_dpt	_k'oma
 _.	tel'ia
-_#ος	%os	// ordinal suffix
+
+_#ος	os	// ordinal suffix
+_#η	i
+_#ο	o
+_ord    os     // default ordinal suffix
+
+// ordinal numbers
+_0o	miDenik'
+_1o	pr'ot
+_2o	D'efter
+_3o	tr'it
+_4o	t'etart
+_5o	p'empt
+_6o	'ekt
+_7o	'evDom
+_8o	'oQDo
+_9o	'enat
+_10o	D'ekat
+_11o	enD'ekat
+_12o	DoD'ekat
+_1Xo	D'ekat
+_2Xo	ikost'
+_3Xo	triakost'
+_4Xo	tessarakost'
+_5Xo	pedikost'
+_6Xo	eksikost'
+_7Xo	evDomikost'
+_8Xo	oQDoIkost'
+_9Xo	enenikost'
+_1Co	ekatost'
+_2Co	D;akos;ost'
+_3Co	tr;akos;ost'
+_4Co	tetrakos;ost'
+_5Co	pedakos;ost'
+_6Co	eksakos;ost'
+_7Co	eptakos;ost'
+_8Co	oktakos;ost'
+_9Co	eneakos;ost'
+_0M1o	Cil^ost'
+_1M1o	Cil^ost'
+_2M1o	DisCil^ost'
+_3M1o	trisCil^ost'
+
+
+// symbols
+%	t'is||ekat'o
 
 // articles
 ο	o $u   // definate article

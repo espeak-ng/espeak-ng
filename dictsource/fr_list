@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-07-25 Michel Such  <michel.such@free.fr>
+// Updated 2010-10-15 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -133,9 +133,6 @@ _`   aks'A~_gr'av
 _{   akOlad_goS
 _|   bar_vErtik'al
 _}   akOlad_drwat
-²    pyis'A~s||d'Y
-_«	uvre||gijm'E
-_»	fErme||gijm'E
 _’	apostr'Of
 _‘	apostr'Of
 _µ	mikr'o
@@ -151,16 +148,29 @@ _&	_e_komErsi'al
 ~	tilde
 €	@r'o $u+
 ¢	sEnt
-¥	iEn
+¥	jEn
 £	livr
-±	pl'yz_'u_mw'E~
+±	pl'yzumw'E~
 ×	myltipli'e_p'ar
 ÷	diviz'e_p'ar
 ¼	W~_k'ar
 ½	W~_d@m'i
 ¾	trwa_k'ar
-©	_^_EN
-®	mark||depoz'e
+™	markd@fabrik
+¬	tirE_fakyltatif
+¦	separatWr||vEtikal
+©	_^_en
+_«	uvre||gijm'E
+®	markdepoz'e
+¯	makrO~
+²    pyis'A~s||d'Y
+³    pyisA~s||trwa
+¶	paragraf
+·	pwE~
+¸	sedij
+º	d@gre
+_»	fErme||gijm'E
+¿	pwE~||dE~terogasjO~||E~vErse
 
 
 // numeric
@@ -239,6 +249,7 @@ adn		ad,eEn
 adsl		ad,eEsEl
 alt	_::alt
 amd		a,Emde
+android	A~droid
 aol	a,oEl
 api		ap,ei
 ascii	aski
@@ -645,6 +656,7 @@ alleluia alelui'a
 alterego	altErego
 anis	anis
 armageddon	armagedO~
+aujourd'hui	aujourdui $text
 auvent     ovA~
 beta	beta
 bien	      biE~n2
@@ -662,11 +674,13 @@ canyon	kanjOn
 charles	Sarl
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
+chienlit	SjA~li
 choeur        kWr
 cinema	sinema
 cocus     kOky
 couscous	kuskus
 delete	_^_en
+dengue	dE~g
 dernier    dErnjer2
 doppler	dOplEr
 dot	dOt
@@ -692,6 +706,7 @@ gus	gys
 gym	Zim
 han	_|A~
 hélas 		elas $u+
+jackpot	dZakpOt
 jacques	Zak
 karaoke	karaoke
 kevin	kevin
@@ -947,3 +962,4 @@ venezuela	venezyEla
 wallis	walis
 futuna	futuna
 zimbabwe	zimbabwe
+

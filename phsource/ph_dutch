@@ -78,7 +78,11 @@ phoneme a:
   vowel starttype #a endtype #a
   length 210
   IF thisPh(isUnstressed) THEN
-    FMT(vowel/a#_4)
+    IF thisPh(isWordEnd) THEN
+      FMT(vowel/a#_2)
+    ELSE
+      FMT(vowel/a#_4)
+    ENDIF
   ENDIF
   FMT(vowel/a)
 endphoneme

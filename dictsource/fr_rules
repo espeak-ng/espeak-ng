@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2010-09-04 Michel Such  <michel.such@free.fr>
+// Last update: 2010-10-15 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -37,7 +37,7 @@
 // K  not a vowel  (i.e. consonant, space, )
 
 .replace
-œ	oe
+œ oe
 
 
 .L01 d e l n r t u
@@ -63,7 +63,7 @@
 // When these diphtonges are after a consonant folllowing e, e is not mute
 .L10 ia ie io ua ue ui uo
 .L11 b p
-.L12 é è al ib ie l om on ré
+.L12 é è aï al ib ie l om on ré
 
 // Words ending "son" pust sound english if preceded by L13
 .L13 d g k l p er hn
@@ -138,6 +138,7 @@ _C)        aud (_     od         // Maud
         ay         Ej        // paye
         ay (ak     aj        // kayak
         ay (_      E        // display
+    bb) aye (_    aj     // cobbaye layer
     Xl) ayer (X    EjWr     // player, layer
      h) am (_S2      am
      w) an (_      an
@@ -169,6 +170,7 @@ _)      be (L15A   _^_en
      _) c (d       se
      _) ch (arism  k         // charisme, charismatique
      _) ch (irop   k         // chiroptère
+   _) coe (la     se         // coelacante
      a) ch (_      k         // almanach
     ar) c (ti                // arctique
      e) ch (_      k         // varech
@@ -617,6 +619,7 @@ gu)        eu (ler    Y        // gueuler
 
 .group ë
      u) ë                    // ambiguë
+no)	ë (_	e		// canoë
         ë          E         // citroën noël
 
 
@@ -936,6 +939,7 @@ _re)	name		_^_en
         oi         wa       // poil
         oê (l      wa       // poêle
         om (L11      O~        // bombe, pompe
+        om (t      O~        // comte
      n) om (X      O~        // nom
         om (_      Om        //  www.web.com
 
@@ -1217,6 +1221,7 @@ L13)	ston (_		_^_en
         t (_
   peti) t (_       t2
       th (L12++         t
+      th (ArA++         t
 or)      th (++         t
      _) th (erm         t
         ts (_S1    z2        // silent at end of word unless next word starts with a vowel
@@ -1358,6 +1363,7 @@ g)        ton (_     _^_en     // try, country
      g) u (A                 // fatigue
      g) u (ï       y         // ambiguïté
      g) u (ë       y         // ambiguë
+     p) u (tsch      u         // putsch
         uz (z      W
 
 // group u: English section

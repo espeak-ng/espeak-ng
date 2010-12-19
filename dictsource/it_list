@@ -149,6 +149,8 @@ _0Z3	mill'ezimi      // 1000ths
 
 // abbreviations
 (http ://)       'ak:at,i:t,i:p'i:_
+www	'vu'vu'vu
+avv	avvocato $text $hasdot
 
 // articles
 i	$u $only

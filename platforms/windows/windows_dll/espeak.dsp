@@ -109,6 +109,10 @@ SOURCE=.\src\klatt.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\src\sonic.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\numbers.cpp
 # End Source File
 # Begin Source File
@@ -171,6 +175,10 @@ SOURCE=.\espeak.h
 # Begin Source File
 
 SOURCE=.\src\klatt.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\src\sonic.h
 # End Source File
 # Begin Source File
 
