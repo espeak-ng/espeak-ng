@@ -6,7 +6,7 @@ SRCS= compiledata.cpp compiledict.cpp debug.cpp dictionary.cpp espeak_command.cp
     prosodydisplay.cpp readclause.cpp setlengths.cpp speak_lib.cpp spect.cpp \
     spectdisplay.cpp spectseq.cpp synthdata.cpp synthesize.cpp synth_mbrola.cpp \
     translate.cpp transldlg.cpp tr_languages.cpp voicedlg.cpp voices.cpp vowelchart.cpp \
-    wave.cpp wavegen.cpp
+    wave.cpp wavegen.cpp sonic.cpp
 
 OBJS=$(patsubst %.cpp,%.o,$(SRCS))
 

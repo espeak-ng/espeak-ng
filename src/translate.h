@@ -395,13 +395,14 @@ typedef struct {
 #define NUM_NOPAUSE       0x20000
 #define NUM_AND_HUNDRED   0x40000
 #define NUM_THOUSAND_AND  0x80000
-#define NUM_VIGESIMAL     0x100000
+#define NUM_VIGESIMAL       0x100000
 #define NUM_OMIT_1_THOUSAND 0x200000
-
-#define NUM_ROMAN         0x1000000
+#define NUM_ZERO_HUNDRED    0x400000
+#define NUM_HUNDRED_AND_DIGIT   0x800000
+#define NUM_ROMAN          0x1000000
 #define NUM_ROMAN_CAPITALS 0x2000000
-#define NUM_ROMAN_AFTER   0x4000000
-#define NUM_ROMAN_ORDINAL 0x8000000
+#define NUM_ROMAN_AFTER    0x4000000
+#define NUM_ROMAN_ORDINAL  0x8000000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -423,6 +424,8 @@ typedef struct {
 	// bit19= 'and' after thousands if there are no hundreds
 	// bit20= vigesimal number, if tens are not found
 	// bit21= omit "one" before "thousand"
+	// bit22= say "zero" before hundred
+	// bit23= add "and" after hundreds and thousands, only if there are digits and no tens
 
 	// bit24= recognize roman numbers
 	// bit25= Roman numbers only if upper case

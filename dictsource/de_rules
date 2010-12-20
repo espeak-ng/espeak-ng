@@ -160,7 +160,8 @@
      _) b (eHC     b
      _) be (C%     bE
      _) bei        b'aI
-     _) beige      be:S
+     _) beige (_   be:S
+     _) beige (@   baIg@
      _) be (inhP2  b@
      _) beo (b     b,@o:
 
@@ -261,6 +262,7 @@
         dt         t
         ddt        t
 
+  soun) d          d
      _) darüber (@P7 dar'y:b@r
      _) darum (@P5 dar'Um
      _) darunter (@P8 dar'Unt@r
@@ -324,7 +326,7 @@
     @@) e (kt_     E
      &) el (_      @l
      &) eln (_NS1  n
-     &) elnd (_S2  nt
+     &) elnd (_    @lnd
      &) e (lt_     @
      &) em (_NS2   @m
      &) em (_      'e:m
@@ -488,7 +490,7 @@
 
      _) g (eHC     g         //  hC, lC, mC, nC, rC
 
-
+ massa) g          Z
      @) ght (_     _^_EN
         graph      grAf
         graph (_   gr'A:f
@@ -569,7 +571,7 @@
      _) hoch (@P4  h'o:x
         hoch       ho:x
         homogen    h,o:mo:ge:n
-     _) hyper      _^_EN
+     _) hyper (@P5 h'y:p3
 
 
 .group i
@@ -729,7 +731,7 @@ formal) ie         =I@
      _) leb (C     le:p
      _) leb (C@@P3 'le:p
      _) leben (dig le:b'En
-     _) lehr (CP4  l'e:r
+     _) lehr (C@P4 l'e:r
      _) leit (@P4  l'aIt
      _) lern (@@P4 l'Ern
      _) lexi (@    lEksi:
@@ -1011,7 +1013,6 @@ formal) ie         =I@
         soldat     z%OldA:t
         so (rt_    s_|O
 
-        sound      _^_EN
         speed      _^_EN
   stau) ss         s
      @) straße (_S6 str,A:s@
@@ -1246,7 +1247,7 @@ formal) ie         =I@
 .group z
      _) z (_       tsEt
         z          ts
-     z) z
+        z (z
      _) z (den     z
      _) z (wA      ts   // allow _zw
 

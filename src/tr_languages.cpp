@@ -1207,7 +1207,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_groups[0] = tr->letter_groups[7] = vowels_vi;
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.unstressed_wd1 = 2;
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_DFRACTION_4;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND_DIGIT | NUM_DFRACTION_4 | NUM_ZERO_HUNDRED;
 
 		}
 		break;

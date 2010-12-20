@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-07-25 Michel Such  <michel.such@free.fr>
+// Updated 2010-11-19 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -702,6 +702,35 @@ phoneme k
 endphoneme
 
 
+phoneme n
+  vcd alv nasal
+  Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
+  lengthmod 4
+
+  IF KlattSynth THEN
+    Vowelin f1=0 f2=1500 -200 200 f3=0 80
+    FMT(klatt/n)
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(n/n@)
+    VowelStart(n/na)
+    VowelStart(n/ne)
+    VowelStart(n/ni)
+    VowelStart(n/no)
+    VowelStart(n/nu)
+  EndSwitch
+
+  IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
+    FMT(n/nj)
+  ELIF prevPh(isPause) OR prevPh(n) THEN
+    FMT(n/_n)
+  ELIF nextPh(isNotVowel) THEN
+    length 120
+    FMT(n/n_long_)
+  ENDIF
+endphoneme
+
 
 phoneme n2
   vcd alv nasal
@@ -726,10 +755,10 @@ phoneme p
   ELIF nextPh(@-) THEN
     WAV(ustop/p_unasp, 70)
   ELIF nextPh(#l) THEN
-    WAV(ustop/pl, 40)
+    WAV(ustop/pl, 50)
   ELIF nextPh(#r) THEN
     length 40
-    WAV(ustop/p_, 70)
+    WAV(ustop/p_, 80)
   ENDIF
   WAV(ustop/p_unasp_, 90)
 endphoneme
@@ -761,6 +790,7 @@ phoneme s
   ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
     WAV(ufric/s!, 45)
   ENDIF
+
   WAV(ufric/s, 45)
 endphoneme
 
@@ -797,7 +827,7 @@ phoneme t
     WAV(ustop/t_, 40)
   ELIF nextPh(#r) THEN
     length 40
-    WAV(ustop/t_short_, 40)
+    WAV(ustop/t_short_, 50)
   ENDIF
 
   WAV(ustop/t_short, 40)

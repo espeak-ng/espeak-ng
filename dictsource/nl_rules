@@ -17,6 +17,7 @@
           @) abel (_      'a:bE2l
           @) abele (_     'a:b@l@
           _) af (C@P2     'Af
+          _) affich       Af'iS
              age (_N      'a:Z@
              ages (_S1    s
              age (_$w_alt a:Q@
@@ -63,28 +64,6 @@
              c (i         s
              c (y         s
              c            k
-             ch           x
-          _) ch           S
-          _) ch (ador     tS
-          _) ch (ao       x
-          _) chang (e     SA~Z
-          _) chaperon     S,Ap@rO~n
-          _) charg (@     SArZ
-          _) ch (ari      x
-          _) ch (arter    tS
-          _) chau (ffe    S%o:
-          _) chau (vin    S,o:
-          _) ch (emi      x
-          _) cheque       SEk
-          _) cherry       tSEri
-          _) chi (cane    S%i
-          _) ch (ip       tS
-          _) ch (lo       x
-          _) ch (ole      x
-          _) cho (que     SO
-          _) ch (or       x
-          _) ch (r        x
-          &) che (_       =S
              ci (a        S
           @) ci (eel      S
           @) ci (ë        S
@@ -96,6 +75,39 @@
 
           _) congres      kOnQr'Es
 
+
+.group ch
+             ch           x
+          _) ch           S
+          _) ch (ador     tS
+          _) ch (ao       x
+          _) chang (e     SA~Z
+          _) chaperon     S,Ap@rO~n
+          _) charg (@     SArZ
+          _) ch (ari      x
+          _) ch (arter    tS
+          _) chau (ffe    S%o:
+          _) chau (vin    S,o:
+             ch (é        S
+          &) che (_       =S
+          _) ch (emi      x
+          _) cheque       SEk
+          _) cherry       tSEri
+          _) chi (cane    S%i
+          _) ch (ip       tS
+          _) ch (lo       x
+          _) ch (ole      x
+          _) cho (que     SO
+          _) ch (or       x
+          _) ch (r        x
+       blan) ch           S
+        bro) ch (e        S
+       brun) ch           S
+       deta) ch           S
+         ma) ch (in       S'
+        mar) ch           S
+       para) chut         S'yt
+        _po) ch (e        S
 
 .group d
              d            d     // auto-devoice at end-of-word
@@ -229,6 +241,7 @@
           @) ibele (_     'ib@l@
           &) ica (_       =ika:
           &) ico (_       =iko:
+             i (che_      i
              ie (X        'i
              ie (ren_     'i
              ie (rd_      'i
@@ -314,6 +327,8 @@
           _) open (@P4    'o:p@n
           _) op (era      'o:p
           _) op (tion     Op
+             ou (che_     u
+             ouch (en_    uS
           _) over (@P4    'o:v@r
 
 
@@ -498,7 +513,8 @@
 
 .group
             é             e:
-            éé            e:
+            é (_         'e:
+           éé            e:
             $             d'OlAr
             , (D          k'Oma:
         __) - (_D         m'In

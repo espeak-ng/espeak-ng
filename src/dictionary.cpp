@@ -3338,7 +3338,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 			}
 			else
 			{
-				flags[0] &= ~FLAG_SKIPWORDS;
+//				flags[0] &= ~FLAG_SKIPWORDS;  // check lang=hu  január 21.-ig  (error: suffix repeated ??)
 			}
 
 			ph_out[0] = 0;
