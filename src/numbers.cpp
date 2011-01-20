@@ -1361,6 +1361,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	int ix;
 	int exact;
 	int ordinal;
+	int say_zero_hundred=0;
 	char string[12];  // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
@@ -1379,7 +1380,12 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	ph_thousands[0] = 0;
 	ph_thousand_and[0] = 0;
 
-	if(hundreds > 0)
+	if((tr->langopts.numbers & NUM_ZERO_HUNDRED) && ((control & 1) || (hundreds >= 10)))
+	{
+		say_zero_hundred = 1;  // lang=vi
+	}
+
+	if((hundreds > 0) || say_zero_hundred)
 	{
 		found = 0;
 		if(ordinal && (tensunits == 0))
@@ -1420,14 +1426,14 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				sprintf(ph_thousands,"%s%s",ph_digits,ph_10T);
 
 			hundreds %= 10;
-			if(hundreds == 0)
+			if((hundreds == 0) && (say_zero_hundred == 0))
 				ph_100[0] = 0;
 			suppress_null = 1;
 		}
 
 		ph_digits[0] = 0;
 
-		if(hundreds > 0)
+		if((hundreds > 0) || say_zero_hundred)
 		{
 			if((tr->langopts.numbers & NUM_AND_HUNDRED) && ((control & 1) || (ph_thousands[0] != 0)))
 			{
@@ -1452,28 +1458,35 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				}
 			}
 
-			if((!found) && (tensunits == 0))
+			if((hundreds == 0) && say_zero_hundred)
 			{
-			// is there a special pronunciation for exactly n00 ?
-				sprintf(string,"_%dC0",hundreds);
-				found = Lookup(tr, string, ph_digits);
-			}
-
-			if(!found)
-			{
-				sprintf(string,"_%dC",hundreds);
-				found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
-			}
-
-			if(found)
-			{
-				ph_100[0] = 0;
+				Lookup(tr, "_0", ph_digits);
 			}
 			else
 			{
-				if((hundreds > 1) || ((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) == 0))
+				if((!found) && (tensunits == 0))
 				{
-					LookupNum2(tr, hundreds, 0, ph_digits);
+				// is there a special pronunciation for exactly n00 ?
+					sprintf(string,"_%dC0",hundreds);
+					found = Lookup(tr, string, ph_digits);
+				}
+	
+				if(!found)
+				{
+					sprintf(string,"_%dC",hundreds);
+					found = Lookup(tr, string, ph_digits);  // is there a specific pronunciation for n-hundred ?
+				}
+	
+				if(found)
+				{
+					ph_100[0] = 0;
+				}
+				else
+				{
+					if((hundreds > 1) || ((tr->langopts.numbers & NUM_OMIT_1_HUNDRED) == 0))
+					{
+						LookupNum2(tr, hundreds, 0, ph_digits);
+					}
 				}
 			}
 		}
@@ -1484,9 +1497,12 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	ph_hundred_and[0] = 0;
 	if(tensunits > 0)
 	{
-		if((tr->langopts.numbers & NUM_HUNDRED_AND) && ((value > 100) || ((control & 1) && (thousandplex==0))))
+		if((value > 100) || ((control & 1) && (thousandplex==0)))
 		{
-			Lookup(tr, "_0and", ph_hundred_and);
+			if((tr->langopts.numbers & NUM_HUNDRED_AND) || ((tr->langopts.numbers & NUM_HUNDRED_AND_DIGIT) && (tensunits < 10)))
+			{
+				Lookup(tr, "_0and", ph_hundred_and);
+			}
 		}
 		if((tr->langopts.numbers & NUM_THOUSAND_AND) && (hundreds == 0) && ((control & 1) || (ph_thousands[0] != 0)))
 		{
@@ -1622,8 +1638,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		word[ix] = 0;
 	}
 
-	if(ordinal == 0)
+	if((ordinal == 0) || (tr->translator_name == L('h','u')))
 	{
+// NOTE lang=hu, allow both dot and ordinal suffix, eg. "december 21.-én"
 		// look for an ordinal number suffix after the number
 		ix++;
 		hyphen = 0;

@@ -124,7 +124,7 @@ _#-re	e:R2E	$alt2
 _#-én	e:n	//need remove the $alt2 attribute with this line
 _#-ai	Ai	$alt2
 _#-ei	Ei	$alt2
-_#-től	e:tY:l	$alt2
+_#-től	e:tY:l	//$alt2
 _#-tól	a:to:l	$alt2
 _#-ig	e:ig	$alt2 //special date ordinal numbers for example elsejéig, negyedikéig etc.
 _#-éről	e:R2Y:l	
@@ -240,6 +240,7 @@ _#-ikának	a:nAk
 (0-st) nul:a:St
 (1-gyet) EJ:Et
 (1-gyes) EJ:ES
+(1-gyel) EJ:El
 (2-szer) ke:ts:ER2
 (2-őt) kEt:Y:t
 (2-őn) kEt:Y:n
@@ -1228,6 +1229,55 @@ elnök	$unstressend
 itthon	$unstressend
 otthon	$unstressend
 köszönhető	$unstressend
+tudják	$unstressend
+magunkat	$unstressend
+állítják	$unstressend
+utasítás	$unstressend
+cikknek	$unstressend
+jelenti	$unstressend
+év	$unstressend
+állja	$unstressend
+elő	$unstressend
+szerint	$unstressend
+képest	$unstressend
+számát	$unstressend
+kezdődött	$unstressend
+ígért	$unstressend
+közölte	$unstressend
+közölték	$unstressend
+adása	$unstressend
+nyújtani	$unstressend
+során	$unstressend
+bír	$unstressend
+szolgálja	$unstressend
+jelent	$unstressend
+rémlik	$unstressend
+rendszert	$unstressend
+oldalra	$unstressend
+szóval	$unstressend
+helyezhető	$unstressend
+csere	$unstressend
+információ	$unstressend
+terve	$unstressend
+tudhatják	$unstressend
+mondanunk	$unstressend
+találunk	$unstressend
+teljesítményű	$unstressend
+mobilok	$unstressend
+látjuk	$unstressend
+kerül	$unstressend
+platform	$unstressend
+fok	$unstressend
+szánt	$unstressend
+központ	$unstressend
+udvaros	$unstressend
+rendelkező	$unstressend
+árú	$unstressend
+bajt	$unstressend
+helyiség	$unstressend
+úton	$unstressend
+való	$unstressend
+fakad	$unstressend
 
 // word pairs
 
@@ -1489,3 +1539,5 @@ CD-m) cédém
 (%-kal) százalékkal
 (ÁFÁ-t) áfát
 (MB-al) megabájttal
+(EU-n) eun
+

@@ -17,7 +17,7 @@ consonants   9  115
      jbo   2  114
      nci   3  123
       fi  40  133
-      fr  58  140
+      fr  59  140
    fr-ca  11  140
       hi  59  150
       ta  21  153
@@ -300,6 +300,7 @@ klatt/m         [m] base
 klatt/m_        [m] base
 klatt/m-syl     [m-] base
 klatt/n         [n] base
+                [n] fr
 klatt/n^        [n^] base
 klatt/n^@       [n^] base
 klatt/nn        [N] base
@@ -346,7 +347,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [há] base
+l/l@            [hVt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -379,14 +380,14 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [há] base
+l/la            [hVt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [há] base
+l/le            [hVt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -397,7 +398,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [há] base
+l/li            [hVt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -410,7 +411,7 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [há] base
+l/lo            [hVt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -418,7 +419,7 @@ l/lo            [há] base
 l/l_o           [l/3] base
                 [l/] fr
 l^/l_rfx        [l.] base
-l/lu            [há] base
+l/lu            [hVt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -455,32 +456,39 @@ n^/n^_          [n^] base
 n^/n^@          [n^] base
 n^/n^#_         [n^#] is
 n/_n            [n] base
+                [n] fr
                 [n] zh
 n/n_            [n] base
 n/n@            [n] base
                 [n.] base
+                [n] fr
                 [n#] is
                 [n] zh
 n/n#_           [n#] is
 n^/n^a          [n^] base
 n/na            [n] base
                 [n.] base
+                [n] fr
                 [n#] is
                 [n] zh
 n^/n^e          [n^] base
 n/ne            [n] base
                 [n.] base
+                [n] fr
                 [n#] is
                 [n] zh
 n^/n^i          [n^] base
 n/ni            [n] base
                 [n.] base
+                [n] fr
                 [n#] is
                 [n] zh
 nn/inn          [N] base
 n/nj            [n] base
                 [n.] base
-n/n_long_       [n] zh
+                [n] fr
+n/n_long_       [n] fr
+                [n] zh
 nn/_nn          [N] base
                 [N] zh
 nn/nn_          [N] base
@@ -510,6 +518,7 @@ nn/nnu          [N] base
 n^/n^o          [n^] base
 n/no            [n] base
                 [n.] base
+                [n] fr
                 [n#] is
                 [n] zh
 n/_nr           [n.] base
@@ -518,6 +527,7 @@ n/n-syl         [n-] base
 n^/n^u          [n^] base
 n/nu            [n] base
                 [n.] base
+                [n] fr
                 [n#] is
                 [n] zh
 r/@_            [V#] de

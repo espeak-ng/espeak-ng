@@ -268,6 +268,11 @@ standar) d (jegy   d
    ebé) d (jeg     d
  szaba) d (jeg     d         //szabadjegy, szabadjeggyel words need spokening single d phoneme
   tize) d (száz    d         //for example tizedszázalék word need single d and s phoneme
+   föl) d (szerű   d         //this word need spokening single d before s phoneme
+    va) d (sztrájk d         //this word need spokening single d before s phoneme
+   kar) d (szerű   d         //this word need spokening single d before s phoneme
+    kö) d (szirén  d         //this word need spokening single d before s phoneme
+ rekor) d (szerkez d         //this word need spokening single d before s phoneme
 
 .group dz
   fogó) dz (kod    ts
@@ -296,6 +301,7 @@ mentegető) dz      z
 mahara) dzs (A     dZ:
    bri) dzs (A     dZ:
 ?1 kambo) dzs (A     dZ:       //a town name with need spokening dZ: phoneme
+   _do) dzs (A     dZ:       //for example dodzsemautó need spokening dZ: phoneme
         dz         dz:
      C) dzs        dZ
  borsó) dz         z
@@ -506,6 +512,7 @@ harmince) gy (edik J:
    tár) gy (jutal  J
      e) gys (áv    J|S       //egysáv beginning words for example need spokening single J and S phoneme.
     _e) gy (ablak  J:
+összee) gy (esít   J:
 
 .group h
         h          h
@@ -716,6 +723,7 @@ eredmé) ny (j      n^        //for example eredményjelző word need spokening 
  esemé) ny (jel    n^
 helybe) n (jár     n
  polle) n (jelen   n
+   idé) ny (jel    n^
 
 .group o
         o          o
@@ -766,6 +774,7 @@ helybe) n (jár     n
         rrr        R2R2      //not need spokening three R2 phoneme
     te) rr (ier    R2
     te) rr (ori    R2
+        rr (-L01   R2
 
 .group s
         s          S
@@ -802,6 +811,7 @@ erőforrá) s (zabál S
 működé) s (zava    S
 viselkedé) s (zava S
 alkalmazá) s (szerver S
+    fá) s (szárú   S
 
 .group ss
         ssz        ss2
@@ -986,7 +996,7 @@ rendelteté) ssz (er Ss
         ssz (-L01  s         //if have a consonant after the - character, need spokening one sz phoneme
         ss (-L01   S         //if have a consonant after the - character, need spokening one S letter
 települé) ssz (er  Ss        //for example településszerkezet word need spokening single S and s phoneme.
-
+  gyor) ssz (űr    Ss        //for example gyorsszűrő word need spokening single S and s phoneme
 
 .group sz
         sz         s
@@ -1330,7 +1340,7 @@ terüle) ts (áv     t|S
    _ha) tsz (ob    t|s       //same as prewious rule
    _hé) tsz (ob    t|s       //same as prewious rule
 gyakorla) ts (oroz t|S
-
+támogato) ts (ág   tS:
 
 .group tt
         tt         t:
@@ -1524,6 +1534,7 @@ szellő) z (tet     s
    győ) z (t       s
   kötö) z (kö      s
   árví) z (súj     z         //for example árvízsújtott word need spokening single z phoneme, not Z phoneme
+magyará) z (kod    s
 
 .group
         $          dolla:R2

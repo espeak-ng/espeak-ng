@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2010-10-15 Michel Such  <michel.such@free.fr>
+// Last update: 2010-12-06 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -869,7 +869,8 @@ AC)        k (X     _^_en     // bank
      _) lorsqu' (P7 lorsk
 
 // group l: English section
-        ld (_    _^_en     // could
+o)         ld (_    _^_en     // old
+u)         ld (_    _^_en     // could
         less (_    _^_en     // noiseless
 %C)        l (eX    _^_en
 ff)        l (eX    l
@@ -1222,6 +1223,7 @@ L13)	ston (_		_^_en
   peti) t (_       t2
       th (L12++         t
       th (ArA++         t
+      th (oCA         t
 or)      th (++         t
      _) th (erm         t
         ts (_S1    z2        // silent at end of word unless next word starts with a vowel
