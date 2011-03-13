@@ -88,7 +88,7 @@ phoneme i
   ENDIF
   IF nextPh(l/3) THEN
     VowelEnding(l/l_i, -30)
-    FMT(vowel/ii_en)
+    FMT(vowel/ii_7)
   ENDIF
   FMT(vowel/i_7)
 endphoneme

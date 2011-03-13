@@ -17,6 +17,8 @@
  *               <http://www.gnu.org/licenses/>.                           *
  ***************************************************************************/
 
+#ifndef SPEECH_H
+#define SPEECH_H
 
 #include <sys/types.h>
 
@@ -41,7 +43,7 @@
 //#define USE_PULSEAUDIO
 #define USE_NANOSLEEP
 #define __cdecl 
-#define ESPEAK_API  extern "C"
+//#define ESPEAK_API  extern "C"
 
 #ifdef LIBRARY
 #define USE_ASYNC
@@ -85,3 +87,4 @@ int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
 
+#endif // SPEECH_H

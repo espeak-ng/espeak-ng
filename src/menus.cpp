@@ -123,7 +123,7 @@ wxMenuBar *MakeMenu(int type, const char *dict_name)
 	vowelchart_menu->Append(MENU_VOWELCHART3, _("From directory of vowel files..."));
 
 	lexicon_menu = new wxMenu;
-	lexicon_menu->Append(MENU_LEXICON_RU, _("Russian (lexicon.dict)"));
+	lexicon_menu->Append(MENU_LEXICON_RU, _("Russian"));
 	lexicon_menu->Append(MENU_LEXICON_BG, _("Bulgarian"));
 	lexicon_menu->Append(MENU_LEXICON_DE, _("German"));
 	lexicon_menu->Append(MENU_LEXICON_IT, _("Italian"));

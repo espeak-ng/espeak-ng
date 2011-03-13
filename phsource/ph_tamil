@@ -3,6 +3,11 @@
 // This inherits from ph_hindi
 
 
+phoneme @
+  vowel  starttype #@  endtype #@
+  length 130
+  FMT(vowel/V_2)
+endphoneme
 
 phoneme a
   vowel  starttype #a  endtype #a
@@ -13,8 +18,11 @@ endphoneme
 
 phoneme V
   vowel  starttype #@  endtype #@
-  ipa ɐ
+  ipa ʌ
   length 130
+  IF nextPh(isWordEnd) AND nextPh(m) THEN
+    ChangePhoneme(@)
+  ENDIF
   FMT(vowel/V_3)
 endphoneme
 
@@ -52,6 +60,9 @@ endphoneme
 phoneme i
   vowel  starttype #i  endtype #i
   length 130
+  IF thisPh(isWordEnd) AND thisPh(isNotStressed) THEN
+    FMT(vowel/ii_5)
+  ENDIF
   FMT(vowel/i_6)
 endphoneme
 
@@ -100,7 +111,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype #u  endtype #u
-  length 260
+  length 280
   IF prevPhW(isVel) THEN
   ELSE
     ChangeIfNotStressed(U:)
@@ -111,7 +122,7 @@ endphoneme
 phoneme U:
   vowel  starttype #u  endtype #u
   ipa ʉ
-  length 240
+  length 270
   FMT(vowel/u#_3)
 endphoneme
 
@@ -124,7 +135,7 @@ endphoneme
 
 phoneme aU
   vowel  starttype #a  endtype #u
-  length 260
+  length 270
   FMT(vdiph/au)
 endphoneme
 

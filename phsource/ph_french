@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2010-11-19 Michel Such  <michel.such@free.fr>
+// Updated 2011-03-04 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -180,7 +180,7 @@ phoneme l
     VowelStart(l/la, -10)
     VowelStart(l/le, -15)
     VowelStart(l/li, -15)
-    VowelStart(l/lo, -10)
+    VowelStart(vwl_fr/lo, -10)
     VowelStart(l/lu, -20)
   EndSwitch
 
@@ -193,7 +193,7 @@ phoneme l
   IF prevPh(isPause) OR thisPh(isWordStart) THEN
     FMT(l/_l)
   ENDIF
-  IF prevPh(isRhotic) THEN
+  IF prevPh(isRhotic) OR prevPh(isNasal) THEN
     FMT(l/_l)
   ENDIF
 
@@ -210,7 +210,7 @@ endphoneme
 
 
 phoneme l/    // used for [l] when not before a vowel
-  liquid
+  liquid rfx
   starttype #l endtype #l
   lengthmod 7
 
@@ -275,7 +275,7 @@ endphoneme
 
 phoneme a
   vowel  starttype #a  endtype #a
-  IF nextPh(isVowel)  THEN
+  IF nextPhW(isVowel)  THEN
     length 220
   ELSE
     length 170
@@ -356,7 +356,7 @@ endphoneme
 
 phoneme j/ // Short "i" between "r" and a vowel
   vowel starttype #i endtype #i
-  length 100
+  length 80
 //  unstressed
 
   NextVowelStarts
@@ -434,7 +434,7 @@ phoneme y
 
   IF nextPhW(E~) OR nextPhW(#i) THEN
     length 110
-    FMT(vowel/y)
+    FMT(vowel/y, 80)
   ENDIF
 
   length 180

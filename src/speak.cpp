@@ -542,6 +542,9 @@ int main (int argc, char **argv)
 
 		if(c == '-')
 		{
+			if(p[0] == 0)
+				break;   // -- means don't interpret further - as commands
+
 			opt_string="";
 			for(ix=0; ;ix++)
 			{
@@ -593,7 +596,8 @@ int main (int argc, char **argv)
 			break;
 
 		case 'h':
-			printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
+			init_path(argv[0],data_path);
+			printf("\nspeak text-to-speech: %s   Data at: %s\n%s",version_string,path_home,help_text);
 			exit(0);
 			break;
 

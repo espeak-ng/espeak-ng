@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -395,6 +395,9 @@ int IsAlpha(unsigned int c)
 	if((c >= 0x300) && (c <= 0x36f))
 		return(1);   // combining accents
 
+	if((c >= 0x780) && (c <= 0x7b1))
+		return(1);   // taani/divehi (maldives)
+
 	if((c >= 0x1100) && (c <= 0x11ff))
 		return(1);  //Korean jamo
 
@@ -760,10 +763,11 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 
 
 
-int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
+int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wtab)
 {//===========================================================================
 // word1 is terminated by space (0x20) character
 
+	char *word1;
 	int word_length;
 	int ix;
 	char *p;
@@ -781,7 +785,9 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	char unpron_phonemes[N_WORD_PHONEMES];
 	char end_phonemes[N_WORD_PHONEMES];
 	char word_copy[N_WORD_BYTES];
-	char prefix_chars[41];
+	char word_copy2[N_WORD_BYTES];
+	int word_copy_length;
+	char prefix_chars[0x3f + 2];  
 	int found=0;
    int end_flags;
 	char c_temp;   // save a character byte while we temporarily replace it with space
@@ -795,6 +801,7 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	int emphasize_allcaps = 0;
 	int wflags;
 	int wmark;
+	int was_unpronouncable = 0;
 	WORD_TAB wtab_null[8];
 
 	// translate these to get pronunciations of plural 's' suffix (different forms depending on
@@ -831,6 +838,7 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 	}
 
 	// count the length of the word
+	word1 = word_start;
 	if(*word1 == ' ') word1++;   // possibly a dot was replaced by space:  $dot
 	wordx = word1;
 
@@ -841,6 +849,9 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab)
 		wordx += utf8_in(&last_char,wordx);
 		word_length++;
 	}
+
+	word_copy_length = wordx - word_start;
+	memcpy(word_copy2, word_start, word_copy_length);
 
 	spell_word = 0;
 
@@ -958,8 +969,12 @@ if((wmark > 0) && (wmark < 8))
 
 			if((tr->langopts.numbers & NUM_ROMAN) || ((tr->langopts.numbers & NUM_ROMAN_CAPITALS) && (wflags & FLAG_ALL_UPPER)))
 			{
-				if((found = TranslateRoman(tr, word1, phonemes, wtab)) != 0)
-					dictionary_flags[0] |= FLAG_ABBREV;   // prevent emphasis if capitals
+				if((wflags & FLAG_LAST_WORD) || !(wtab[1].flags & FLAG_NOSPACE))
+				{
+					// don't use Roman number if this word is not separated from the next word (eg. "XLTest")
+					if((found = TranslateRoman(tr, word1, phonemes, wtab)) != 0)
+						dictionary_flags[0] |= FLAG_ABBREV;   // prevent emphasis if capitals
+				}
 			}
 		}
 
@@ -1011,6 +1026,7 @@ if((wmark > 0) && (wmark < 8))
 		{
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
+			was_unpronouncable = FLAG_WAS_UNPRONOUNCABLE;
 			emphasize_allcaps = 0;
 
 			if(wordx[0] == '\'')
@@ -1084,10 +1100,10 @@ if((wmark > 0) && (wmark < 8))
 
 			found = 0;
 			confirm_prefix = 1;
-			while(end_type & SUFX_P)
+			for (int loopcount = 0; (loopcount < 50) && (end_type & SUFX_P); loopcount++)
 			{
 				// Found a standard prefix, remove it and retranslate
-
+				// loopcount guards against an endless loop
 				if(confirm_prefix && !(end_type & SUFX_B))
 				{
 					int end2;
@@ -1484,6 +1500,8 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 		ApplySpecialAttribute2(tr,word_phonemes,dictionary_flags[0]);
 	}
 
+	dictionary_flags[0] |= was_unpronouncable;
+	memcpy(word_start, word_copy2, word_copy_length);
 	return(dictionary_flags[0]);
 }  //  end of TranslateWord
 
@@ -1709,10 +1727,11 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		{
 			char *p2;
 			int ok = 1;
-			int flags2 = 0;
+			unsigned int flags2[2];
 			int c_word2;
 			char ph_buf[N_WORD_PHONEMES];
 
+			flags2[0] = 0;
 			sylimit = tr->langopts.param[LOPT_COMBINE_WORDS];
 
 			// LANG=cs,sk
@@ -1729,12 +1748,15 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(ok != 0)
 			{
 				strcpy(ph_buf,word_phonemes);
-				flags2 = TranslateWord(translator, p2+1, 0, wtab+1);
+
+				flags2[0] = TranslateWord(translator, p2+1, 0, wtab+1);
+				if(flags2[0] & FLAG_WAS_UNPRONOUNCABLE)
+					ok = 0;
 
 				if(sylimit & 0x100)
 				{
 					// only if the second word has $alt attribute
-					if((flags2 & FLAG_ALT_TRANS) == 0)
+					if((flags2[0] & FLAG_ALT_TRANS) == 0)
 					{
 						ok = 0;
 					}
@@ -1765,7 +1787,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				else
 				{
 					if(flags == 0)
-						flags = flags2;   // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
+						flags = flags2[0];   // no flags for the combined word, so use flags from the second word eg. lang-hu "nem december 7-e"
 					flags |= FLAG_SKIPWORDS;
 					dictionary_skipwords = 1;
 				}
@@ -2288,6 +2310,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int cc;
 	unsigned int source_index=0;
 	unsigned int prev_source_index=0;
+	int source_index_word=0;
 	int prev_in;
 	int prev_out=' ';
 	int prev_out2;
@@ -2328,6 +2351,11 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int terminator;
 	int tone;
 	int tone2;
+
+	if(tr==NULL)
+	{
+		return(NULL);
+	}
 
 	p_textinput = (unsigned char *)vp_input;
 	p_wchar_input = (wchar_t *)vp_input;
@@ -2431,7 +2459,7 @@ p = source;
 	words[0].flags = 0;
 	finished = 0;
 
-	for(j=0; charix[j]==0; j++);
+	for(j=0; charix[j]<=0; j++);
 	words[0].sourceix = charix[j];
 	k = 0;
 	while(charix[j] != 0)
@@ -2774,6 +2802,13 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			else
 			if(c == '.')
 			{
+				if(prev_out == '.')
+				{
+					// multiple dots, separate by spaces. Note >3 dots has been replaced by elipsis
+					c = ' ';
+					space_inserted = 1;
+				}
+				else
 				if(!(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in))
 				{
 					// dot after a word, with space following, probably an abbreviation
@@ -2878,8 +2913,19 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 			if(space_inserted)
 			{
-				words[word_count].length = source_index - words[word_count].sourceix;
+				// count the number of characters since the start of the word
+				j = 0;
+				k = source_index - 1;
+				while((k >= source_index_word) && (charix[k] != 0))
+				{
+					if(charix[k] > 0)    // don't count initial bytes of multi-byte character
+						j++;
+					k--;
+				}
+				words[word_count].length = j;
 			}
+
+			source_index_word = source_index;
 
 			// end of 'word'
 			sbuf[ix++] = ' ';

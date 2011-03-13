@@ -432,6 +432,7 @@
           _) bor (dA@     b%Or // geborduur/bordeel/bordele
              borde (r     bOrd@ // fix stress and e sound: borderak/-ke
              bos (A@      bOs? // bosaap/bosoorlog/bosuil
+             bo (skrif    bo@ // fix o sound: boskrif/-te and compounds
              bo (v        bo@ // fix o sound: bovlak/-e and similar
              bowen        bo@v@n' // bowenal/bowendien
              braille      breI:l_ // braille/-boek/-drukker/-masjien...
@@ -939,8 +940,12 @@
         CAC) e (CC        @ // fix e sound: nalatenskap/wapenstilstand
         CAC) e (C%        E // beesfilette/nougesette/onderbesette/voortgesette
       blind) e (C@        @ // fix e sound in compounds like: blindekol/-mol/-wese
+      _eend) e (CA        @ // fix e sound: eendedam/-dans/-kuil/-pastei...
+      _eend) e (lig       e@ // but: eendelig/-e/-heid
       _meid) e (C         @ // fix e sound: meidekamer/-naaier/-praatjies
        pous) e (C         @ // fix e sound: pousebrood/-klok/-tyd, etc.
+      _siel) e (@         @ // fix e sound: sielesmart/-troos/-wroeging...
+      _siel) e (tjie      %i // but: sieletjie/-s
      vreugd) e (C         @ // fix e sound: vreugdefees/-klokkies/-lied/-tyd...
      vriend) e (C         @ // fix e sound: vriendepaar/-woorde
       juwel) e (C         @ // fix e sound: juwelekissie and similar compounds
@@ -995,6 +1000,7 @@
        Cien) e (rC@       @ // fix e sound: opsienersamp/tienerstatus and many similar compounds
           @) erts (_      _&rts // fix e sound of many compounds ending in erts
          @p) e (rtjie     @ // fix e sound: helpertjies/wegkruipertjie
+         @C) e (maal_     @ // fix e sound: enemaal/telkemaal
           C) e (maat      @ // fix e sound: onderdele-/platemaatskappy and similar
          @C) e (male_     @ // fix e sound: enemale/telkemale
           C) e (man       @ // e sound: briewemandjie/derdemannetjie/dowemansdeur/semantiek/semanties/Weideman
@@ -1052,6 +1058,7 @@
           l) e (moen      @ //fix lemoen and compounds
          Cy) e (C+        @ // fix connecting e sound in compounds like byekorf/skilderyemuseum, etc.
              eier         eI@r // eiergeel/eierwit/leierfiguur/leiergroep
+         @C) ei (land     _,eI // insert short pause: skiereiland and many -eiland compounds
           @) ei (sen      _'eI // (on)veeleisend/spoedeisend
        mang) el (A        @l_ // fix e sound, pause: mangelontsteking/-operasie and similar
           r) ei (sen      'eI // rondreisend
@@ -1817,6 +1824,7 @@
              ha (we       hA: // fix stress and a sound: hawearbeider/lewendehaweafdeling
              hia (sint    h%ij%a // fix stress: hiasint/-e and compounds
           _) hi (bis      h%i // move default stress: hibiskus/-se and compounds
+             hierna (maal h%i:rnA: // fix stress and a sound: hiernamaals/-e
              higië (nA    h%ix2%ie@
              himne        himn@ // fix i sound: himne/-s and compounds
              hin (doe     hin // fix i sound: Hindoe and compounds
@@ -2217,6 +2225,7 @@
        flik) kerkers      k@rk&:rs // fix e sounds: flikkerkers/-e
       weder) ker (A       k'e@r // wederkerend/wederkerig
      bottel) kers         k&:rs // fix e sound: bottelkers/-e
+       fees) kers         k&:rs // fix e sound: feeskers/-e and compounds
           @) ker (sie_    k&r // fix e sound: koekkersies and similar compounds
              kete (l      ke@t@ // fix e sounds: stookketel/ketelmaker and many similar compounds
           _) keuse        k''Y@s@ // fix connecting e sound in compounds starting with keuse
@@ -3923,6 +3932,7 @@
           &) rele (_      r'e@l@ 
          &A) reel (_      r'e@l // stress: immoreel/kultureel/struktureel/tekstureel/temporeel
              reti (re     r@t@ // fix stress and vowel sounds: retireer/retirerende
+             retina       rEtina // fix e and a sounds: retina(loslating), etc.
           _) retro (@P5 r%Etr%u // fix stress and vowel sounds: many words beginning with retro-: retrogressie/-f, etc.
              re (ü        r%i_ // fix stress and e sound, insert pause: reü¼nie/-s and compounds/reünifikasie
 
@@ -4346,7 +4356,7 @@
              stie (beu    st%i // move default stress: stiebeuel and compounds
          @V) stiek        st'ik // statistiek/akoestiek/artistiek and many similar
           @) sties        =st%is // statisties/akoesties/artisties and many similar
-             sti (let     st%i // move default stress: stilet/-te/stiletto
+             stile (t     st%ilE // move default stress: stilet/-te/stiletto/stiletskerp
              stil (swy    st@l // move default stress: stilswy(g)end/-e
              sti (pulA    st@ // stipuleer/stipulering/stipulasie
              stof (o      stOf? // fix 1st o sound: stofomslag/-omslae/stofopskoppery
@@ -4893,6 +4903,7 @@
           _) versf        f''&rsf // fix stress and e sound: versfragment/-e
              ver (sie_    f&:r //words ending in versie
              ver (sies_   f&:r //words ending in versies
+             vers (kuns   f&rs // fix stress and e sound: verskuns and compounds
              vers (panor  f&:rs // fix stress and e sound: verspanorama/-s
              ver (spring  f''&:r // fix stress and e sound: verspring/-er/-kompetisie
              vers (v      f&rs // fix e sound: versvorm/versvoete
@@ -4945,6 +4956,7 @@
              volles (_    fOl@s // fix stress and e sound: volles/passievolles, etc.
              vol (hou_    fOl // exception to: vo (lC       f%O
              vol (maan    fOl // exception to: vo (lC       f%O
+             vol (mag     f''Ol // fix stress: volmag and many compounds
              vol (mane    fOl // exception to: vo (lC       f%O
              vol (prop    fOl // exception to: vo (lC       f%O
              vol (r       fOl // volrond/-rooi/-ryp: exception to: vo (lC       f%O

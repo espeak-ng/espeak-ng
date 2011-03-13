@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2010-12-06 Michel Such  <michel.such@free.fr>
+// Last update: 2011-02-18 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -70,7 +70,7 @@
 
 // For english words ending "side"
 .L14 be in up ut
-.L15 c f g h l s
+.L15 c f g h
 
 
 
@@ -527,8 +527,8 @@ s_couv) en (t_               // elles couvent
         eu (i    W         // feuille
         eu (CeX    Y        // meule
         eu (reX    W        // demeure
-gu)        eu (leX    W        // gueule
-gu)        eu (ler    Y        // gueuler
+        eu (leX    W        // gueule
+        eu (ler    Y        // gueuler
         eu (rC    W         // pleurnicher
         eu (rreX    W         // beurre
      _) eu (ss     y         // eusse
@@ -587,7 +587,7 @@ gu)        eu (ler    Y        // gueuler
 
 // group e: English section
         ea         _^_en
-        e (CeX	_^_en
+_)        e (CeX	_^_en
         ed (_      _^_en
         ee         _^_en     // meeting
         efore (_   _^_en     // before
@@ -597,9 +597,10 @@ gu)        eu (ler    Y        // gueuler
         el (sX     El
      _) enter (_   _^_en     // enter
      _) enhan      _^_en
+        ess (_     _^_en     // loudness
     qu) est (_     _^_en     // request
     qu) este (X_   _^_en     // requested, requester
-     _) even (K    _^_en
+        even (_    _^_en
      _) ever       _^_en
     oC) ever       _^_en     // forever, however
       ew (++    _^_en
@@ -740,6 +741,7 @@ _quatrevin) gts (_ z2
 // group h: English section
      _) half       _^_en
      _) ha (C_     _^_en
+        hn        _^_en
 
 
 .group i
@@ -815,6 +817,7 @@ _quatrevin) gts (_ z2
         ill (_     _^_en     // Bill
     C) ill (y_    _^_en     // Billy
         ing (_	_^_en
+        i (pAd	_^_en
 C)        irt (_	_^_en
         iven (_    _^_en
         ind (X     _^_en     // find, mind
@@ -832,7 +835,7 @@ C)        irt (_	_^_en
 
 
         ïn (K      E~        // coïncidence
-    ma) ïs (_      is        // maïs
+    Ca) ïs (_      is        // maïs
 
 
 
@@ -891,6 +894,10 @@ pp)        l (eX    l
 
 // group m: English section
         m (n_   _^_en     // column, autumn
+e)      mail    _^_en
+d)      mail    _^_en
+g)      mail    _^_en
+t)      mail    _^_en
         mov (AX   _^_en     // move, movy
         mov (ie_   _^_en     // move, movy
 
@@ -1009,6 +1016,8 @@ _)        o (rder_   _^_en     // order
         oo (X      _^_en     // pool
      C) oot        _^_en     // bootable football
      _) one        _^_en
+l)        oud (X     _^_en     // cloud, loud
+XC)        oud (X     _^_en
         oun (C     _^_en     // bounce, found
      _) over       _^_en     // over
    _sC) ot         _^_en     // shot, slot, spot
@@ -1099,6 +1108,7 @@ _C)        oy (X      _^_en     // boy, toy
 // group r: English section
      _) real       _^_en
         rst (_     _^_en
+        r (Cy_     _^_en
      _) rule       _^_en
 
 
@@ -1197,6 +1207,7 @@ _cACpu) s (_       s
 
 // group s: English section
         send  (_      _^_en
+        server (X     _^_en
         sh (_      _^_en
         sh (Ap     _^_en     // shop, ship
         sh (At     _^_en     // shut, shot
@@ -1322,6 +1333,7 @@ _transA) t (_      t
         too        _^_en
         ttl        _^_en
 g)        ton (_     _^_en     // try, country
+i)        t (uneX     _^_en
         try (_     _^_en     // try, country
   sCar) t (_       _^_en     // smart, start
   sCar) t (er_     _^_en     // starter
@@ -1417,6 +1429,7 @@ C)        ult (_   _^_en
      _) w (AC      _^_en
      _) w (ina     w
      _) w (Ai      _^_en
+     _) w (Att	 w
      _) w (ACo     w
      _) we        _^_en
         wh      _^_en     // why whisky when
@@ -1424,6 +1437,7 @@ C)        ult (_   _^_en
         war        _^_en     // war
         wav        _^_en     // wave
         way        _^_en     // way, away
+A)        wn        _^_en
         wor        _^_en
 
 
@@ -1473,8 +1487,10 @@ C)        ult (_   _^_en
 
 // group y: English section
 _C)	y (_	_^_en
+AC)	y (_	_^_en
 C)	y (e_	_^_en
 %C)	y (_	_^_en
+ss)	y (_	i
 @CeC)	y (_	_^_en
 nC)	y (_	_^_en
       yze	_^_en

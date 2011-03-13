@@ -110,7 +110,7 @@ _18	'&d@-n  // PB a changed to &
 _19	n'ed@-n
 _2X	t'y:w
 _3X	tR'&#Dv@               //PB [tR'ADv@] changed to [tR'&#Dv@]
-_4X	 f'WRV                 //PB [f'W:*3] changed to [ f'WRV]
+_4X	 f'W:V                 //PB [f'W:*3] changed to [ f'W:V]
 _5X	h&l't*es               // PB [a] changed to [&]
 _6X	t*'es
 _7X	h&lfj'&rs               // PV a changed to &
@@ -281,7 +281,6 @@ z	sEt
 
 // PB English words
 bondage      _^_EN
-volleyball  _^_EN
 dj          _^_EN
 deadline    _^_EN
 night       _^_EN
@@ -334,7 +333,7 @@ pickup		_^_EN
 pidgin		_^_EN
 ranger      _^_EN
 receiver	_^_EN
-research	_^_EN
+//research	_^_EN
 remake		_^_EN
 roadie		_^_EN
 run         _^_EN
@@ -380,8 +379,6 @@ clarence    _^_EN $alt
 cyrus       _^_EN
 cia         _^_EN $alt
 fox         _^_EN
-jones       _^_EN
-larry       _^_EN $alt
 leroy        _^_EN $alt
 luke       _^_EN $alt
 mansfield   _^_EN $alt
@@ -393,7 +390,6 @@ reynolds    _^_EN $alt
 purvis      _^_EN
 washington  _^_EN $alt
 white       _^_EN $alt
-//chicago     _^_EN $alt
 
 // PB French words
 croquis     _^_FR
@@ -410,7 +406,7 @@ arbitrage  $alt
 bagage  $alt
 bandage  $alt
 blamage  $alt
-bondage  b'VndidS $alt
+bondage  b'VndidZ $alt
 brækage  $alt
 camouflage  $alt
 collage  $alt
@@ -528,7 +524,7 @@ venerab $alt
 veritab $alt
 vulnerab $alt
 
-// PB adjectives and nouns with final -ant - stressed a
+// PB adjectives and nouns with final -ant/ans - stressed a
 acceptant  $alt
 adjudant  $alt
 adoptant  $alt
@@ -675,6 +671,36 @@ variant  $alt
 vindikant  $alt
 volant  $alt
 ækvidistant  $alt
+// -ans
+brillans $alt
+diskrepans $alt
+dominans $alt
+finans $alt
+impedans $alt
+induktans $alt
+instans $alt
+konduktans $alt
+konkordans $alt
+konsonans $alt
+konstans $alt
+kurans $alt
+luminans $alt
+monstrans $alt
+observans $alt
+ordonnans $alt
+performans $alt
+pomerans $alt
+protuberans $alt
+prægnans $alt
+redundans $alt
+relevans $alt
+reluktans $alt
+resistans $alt
+signifikans $alt
+stimulans $alt
+substans $alt
+tolerans $alt
+varians $alt
 
 // PB nouns with final -ade - stressed a
 ambassade  $alt
@@ -948,6 +974,7 @@ signal  $alt
 sjakal  $alt
 social  $alt
 special $alt  // beginning of a word - specialarbejder
+spektral $alt
 spinal  $alt
 spiral  $alt
 subliminal  $alt
@@ -1085,113 +1112,113 @@ tvivlagtig $alt
 tyvagtig $alt
 
 // PB words with final -an - stressed a
-aeroplan  $alt
-agraman  $alt
-altan  $alt
-angloman  $alt
-Aserbajdsjan  $alt
-astrakan  $alt
-banan  $alt
-bavian  $alt
-Bhutan  $alt
-biblioman  $alt
-bladan  $alt
-bojan  $alt
-brahman  $alt
-butan  $alt
-cardigan  $alt
-cellofan  $alt
-dekan  $alt
-dragoman  $alt
-dulcian  $alt
-elan elAN  $alt
-ensian  $alt
-erotoman  $alt
-eufoman  $alt
-filigran  $alt
-galan  $alt
-hortulan  $alt
-human  $alt
+aeroplan $alt2
+agraman $alt2
+altan $alt2
+angloman $alt2
+Aserbajdsjan $alt2
+astrakan $alt2
+banan $alt2
+bavian $alt2
+Bhutan $alt2
+biblioman $alt2
+bladan $alt2
+bojan $alt2
+brahman $alt2
+butan $alt2
+cardigan $alt2
+cellofan $alt2
+dekan $alt2
+dragoman $alt2
+dulcian $alt2
+elan elan $alt2
+ensian $alt2
+erotoman $alt2
+eufoman $alt2
+filigran $alt2
+galan $alt2
+hortulan $alt2
+human $alt2
 hvordan vVd'&n  $alt
-inhuman  $alt
-kapellan  $alt
-karljohan  $alt
-Kasakhstan  $alt
-katamaran  $alt
-kleptoman  $alt
-klodrian  $alt
-koran  $alt
-kumpan  $alt
-leguan  $alt
-lian  $alt
-ludoman  $alt
-mangan  $alt
-marcipan  $alt
-median  $alt
-mediterran  $alt
-membran  $alt
-merian  $alt
-meridian  $alt
-mesan  $alt
-metan  $alt
-momentan  $alt
-monoman  $alt
-morian  $alt
-mytoman  $alt
-narkoman  $alt
-norman  $alt
-nymfoman  $alt
-obsidian  $alt
-ocean  $alt
-oktan  $alt
-Oman  $alt
-organ  $alt
-orkan  $alt
-osman  $alt
-ottoman  $alt
-partisan  $alt
-pelikan  $alt
-pemmikan  $alt
-platan  $alt
-polyuretan  $alt
-profan  $alt
-propan  $alt
-pyroman  $alt
-ramadan  $alt
-rejnfan  $alt
-roman  $alt
-safian  $alt
-safran  $alt
-sakristan  $alt
-samaritan  $alt
-sedan  $alt
-shaman  $alt
-simultan  $alt
-sopran  $alt
-spontan  $alt
-subkutan  $alt
-Sudan  $alt
-Tadsjikistan  $alt
-Taiwan  $alt
-talisman  $alt
-tarlatan  $alt
-tartan  $alt
-timian  $alt
-titan  $alt
-tukan  $alt
-tulipan  $alt
-Turkmenistan  $alt
-tyran  $alt
-urban  $alt
-uretan  $alt
-Usbekistan  $alt
-uvan  $alt
-valerian  $alt
-varan  $alt
-velan  $alt
-veteran  $alt
-vulkan  $alt
-ætan  $alt
+inhuman $alt2
+kapellan $alt2
+karljohan $alt2
+Kasakhstan $alt2
+katamaran $alt2
+kleptoman $alt2
+klodrian $alt2
+koran $alt2
+kumpan $alt2
+leguan $alt2
+lian $alt2
+ludoman $alt2
+mangan $alt2
+marcipan $alt2
+median $alt2
+mediterran $alt2
+membran $alt2
+merian $alt2
+meridian $alt2
+mesan $alt2
+metan $alt2
+momentan $alt2
+monoman $alt2
+morian $alt2
+mytoman $alt2
+narkoman $alt2
+//norman $alt2
+nymfoman $alt2
+obsidian $alt2
+ocean $alt2
+oktan $alt2
+Oman $alt2
+organ $alt2
+orkan $alt2
+osman $alt2
+ottoman $alt2
+partisan $alt2
+pelikan $alt2
+pemmikan $alt2
+platan $alt2
+polyuretan $alt2
+profan $alt2
+propan $alt2
+pyroman $alt2
+ramadan $alt2
+rejnfan $alt2
+roman $alt2
+safian $alt2
+safran $alt2
+sakristan $alt2
+samaritan $alt2
+sedan $alt2
+shaman $alt2
+simultan $alt2
+sopran $alt2
+spontan $alt2
+subkutan $alt2
+Sudan $alt2
+Tadsjikistan $alt2
+Taiwan $alt2
+talisman $alt2
+tarlatan $alt2
+tartan $alt2
+//timian $alt2
+titan $alt2
+tukan $alt2
+tulipan $alt2
+Turkmenistan $alt2
+tyran $alt2
+urban $alt2
+uretan $alt2
+Usbekistan $alt2
+uvan $alt2
+valerian $alt2
+varan $alt2
+velan $alt2
+veteran $alt2
+vulkan $alt2
+ætan $alt2
 
 // PB words with final -at - stressed a
 acetat  $alt
@@ -2852,59 +2879,6 @@ uræmi  $alt
 vasektomi  $alt
 økonomi  $alt
 
-// PB stressed second syllable in words with initial ge
-gebet  $alt
-gebis  $alt
-gebommerlig  $alt
-gebrokken  $alt
-gebrækkelig  $alt
-gebyr  $alt
-gebærde   $alt
-gedigen  $alt
-gedulgt  $alt
-gehalt  $alt
-gehejmeråd  $alt
-gehenna  $alt
-gehæng  $alt
-gehør  $alt
-gelassen  $alt
-geled  $alt
-gelejde  $alt
-gelinde  $alt
-gelænder  $alt
-gemak  $alt
-gemal  $alt
-gemen  $alt
-gemyse  $alt
-gemyt  $alt
-gemytlig  $alt
-genom  $alt
-gentil  $alt
-genuin  $alt
-gepard  $alt
-geranie  $alt
-geranium  $alt
-geråde  $alt
-gesandt  $alt
-gesandtskab  $alt
-gesims  $alt
-gesjæft  $alt
-geskæftig  $alt
-gespenst  $alt
-gestagen  $alt
-gestalt  $alt
-gestik  $alt
-gesvejsning  $alt
-gesvindt  $alt
-gevaldig  $alt
-gevalt  $alt
-gevandt  $alt
-gevind  $alt
-gevinst  $alt
-gevir  $alt
-gevækst  $alt
-gevær  $alt
-
 // words with final "in" - stressed i
 aborigin  $alt
 adrenalin  $alt
@@ -2957,7 +2931,6 @@ gardin  $alt
 gasolin  $alt
 genuin  $alt
 glycerin  $alt
-gobelin gob@l'EN  $alt
 gratin grAt'EN  $alt
 grosgrain  $alt
 harlekin  $alt
@@ -2990,8 +2963,6 @@ lapin  $alt
 latin  $alt
 latrin  $alt
 lecitin  $alt
-lignin  $alt
-lin  $alt
 (log-in) lVk'en  $alt
 lupin  $alt
 magasin  $alt
@@ -3090,7 +3061,6 @@ eukaristi  $alt
 faresti  $alt
 fedesti  $alt
 garanti  $alt
-graffiti grAf'iti  $alt
 haiti h&'i:ti  $alt
 homøopati  $alt
 idioti  $alt
@@ -5809,6 +5779,7 @@ adjunger   $alt
 administrer   $alt
 admitter   $alt
 adopter   $alt
+bortadopter   $alt
 adoucer   $alt
 adressere   $alt
 adsorber   $alt
@@ -5930,7 +5901,7 @@ bardere   $alt
 barrier   $alt
 barrikader   $alt
 basere   $alt
-bastarder   $alt
+bastardere   $alt
 bastardiser   $alt
 bastoner   $alt
 basuner   $alt
@@ -5982,7 +5953,7 @@ chasser   $alt
 chiffonnier   $alt
 chifrer   $alt
 chikaner   $alt
-chokere   $alt
+choker   $alt
 cirer   $alt
 cirkuler   $alt
 ciseler   $alt
@@ -6069,11 +6040,11 @@ diffunder   $alt
 diftongere   $alt
 digitaliser   $alt
 dikter   $alt
-dimensioner   $alt
+dimensionere   $alt
 dimitter   $alt
 diner   $alt
 diriger   $alt
-discipliner   $alt
+disciplinere   $alt
 diskriminer   $alt
 diskuter   $alt
 dispenser   $alt
@@ -6086,7 +6057,7 @@ dissider   $alt
 dissimiler   $alt
 dissocier   $alt
 dissoner   $alt
-distancer   $alt
+distancere   $alt
 distingver   $alt
 distraher   $alt
 distribuer   $alt
@@ -6135,7 +6106,7 @@ ekskommuniker   $alt
 ekspander   $alt
 ekspatrier   $alt
 ekspeder   $alt
-eksperimenter   $alt
+eksperimentere   $alt
 eksplicer   $alt
 ekspliciter   $alt
 eksploder   $alt
@@ -6238,6 +6209,7 @@ forcer   $alt
 formaliser   $alt
 formatere   $alt
 formere   $alt
+opformere   $alt
 formuler   $alt
 omformuler   $alt
 fortificer   $alt
@@ -6280,7 +6252,7 @@ geler   $alt
 geminer   $alt
 generaliser   $alt
 genere   $alt
-generer   $alt
+generere   $alt
 gerer   $alt
 germaniser   $alt
 gestikuler   $alt
@@ -6302,8 +6274,8 @@ gratiner   $alt
 gratuler   $alt
 gravere   $alt
 graviter   $alt
-griller   $alt
-grimasser   $alt
+grillere   $alt
+grimassere   $alt
 ggrubliser   $alt
 grundere   $alt
 gruppere   $alt
@@ -6892,11 +6864,11 @@ plastificer   $alt
 platiner   $alt
 plettere   $alt
 plisser   $alt
-plomber   $alt
+plombere   $alt
 plæder   $alt
 pocher   $alt
 poetiser   $alt
-pointer   $alt
+pointere   $alt
 pokuler   $alt
 polariser   $alt
 polemiser   $alt
@@ -6971,7 +6943,7 @@ præstere   $alt
 prætender   $alt
 psykologiser   $alt
 publicer   $alt
-pulser   $alt
+pulsere   $alt
 pulveriser   $alt
 punktere   $alt
 purer   $alt
@@ -7111,7 +7083,7 @@ rouletter   $alt
 rubricer   $alt
 ruinere   $alt
 rumster   $alt
-runder   $alt
+//runder   $alt
 russificer   $alt
 rytmiser   $alt
 ræsonner   $alt
@@ -7172,7 +7144,7 @@ socialiser   $alt
 soigner   $alt
 solidariser   $alt
 sondere   $alt
-sortere   $alt
+sortere   $alt // Problem woth sortere = "blacker" and sorter = "sorts"
 soupere   $alt
 spadser   $alt
 spaliere   $alt
@@ -7185,7 +7157,7 @@ spender   $alt
 spionere   $alt
 spolere   $alt
 sponser   $alt
-sponsorer   $alt
+sponsorere   $alt
 stabiliser   $alt
 staffer   $alt
 stagner   $alt
@@ -7206,8 +7178,10 @@ strabadsere   $alt
 stranguler   $alt
 stratificer   $alt
 strukturer   $alt
-studer   $alt
-subjektiver   $alt
+omstrukturer   $alt
+studere   $alt
+indstudere   $alt
+subjektivere   $alt
 sublimer   $alt
 subordiner   $alt
 subsidier   $alt
@@ -9333,6 +9307,7 @@ manuduktion   $alt
 masturbation   $alt
 materialisation   $alt
 meditation   $alt
+medaljon $alt
 menstruation   $alt
 migration   $alt
 million   $alt
@@ -9641,12 +9616,12 @@ syndrom $alt
 teknonom $alt
 
 // -on list
-ballon b&l'VN $alt
+ballon //b&l'VN $alt
 beton  $alt
 bouillon $alt
+chiffon $alt
 diakron $alt
 interferon $alt
-epsilon 'ebsilVn $alt
 futon  $alt
 føljeton fWljet'Vn $alt
 facon  $alt
@@ -9656,7 +9631,7 @@ melon $alt
 neuron $alt
 kupon  $alt
 postillon  p,Vsdilj'VN $alt
-perron pER'VN
+perron //pER'VN
 pompon $alt
 progesteron $alt
 salon s&l'VN $alt
@@ -10619,6 +10594,7 @@ eksaminator  $alt
 eksekutor  $alt
 eksperimentator  $alt
 elevator  $alt
+eliminator  $alt
 emulgator  $alt
 eskalator  $alt
 evaluator  $alt
@@ -11090,6 +11066,7 @@ temperatur  $alt
 tinktur  $alt
 titulatur  $alt
 tortur  $alt
+trubadur $alt
 
 // PB final -skop - stressed
 biblioskop  $alt
@@ -11152,20 +11129,9 @@ idé	id'e	// idea
 ny	ny	// new
 også	Vs@	// also
 idet	id'e	// in so far as
-bleg blaj
-blegrød blajrWD
-blegrøde blajrWD@
-//blege blaj@
-blegemiddel bl&#j@mid@l
 (rub og stub)  R'Ob||V||sd'Ob
 slags	sl'ags	// sort, type
 tre	tr'e	// the number 3
-//barber bAb'er              // PB barber
-//barbere bab'eV             // PB barbere
-//barberer bab'eV            // PB barberer
-//barberes bab'eVs           // PB barberes
-//barbererne bab'eVn@        // PB barberene
-//barberenes bab'eVn@s       // PB barberenes
 rejicere rejis'eV          // PB should not be pronounced [raje]
 rejicerer rejis'eV         // PB
 rejiceres rejis'eVs        // PB
@@ -11178,7 +11144,6 @@ konfirmand kVnferm'&nd     // PB
 konfirmander kVnferm'&nd3  // PB
 konfirmanderne kVnferm'&nd3-n@  // PB
 konfirmandernes kVnferm'&nd3-n@s  // PB
-//dollar dVlV                // PB
 giv g'i                    // PB the v shouldn't be pronounced
 giver gir                  // PB the v shouldn't be pronounced
 jaloux sj&'lu              // PB jaloux
@@ -11210,13 +11175,13 @@ shampu Sjambo                // PB Danish pronunciation - oo has been replaced b
 (diner transportable) din'e|trANspVt'abl@ // PB
 (quiche lorraine) kiS||lor'E:n:
 (fait accompli) fEtakVmpl'i // PB
+(salt lake city) s'Vlt||lEjk||s'iti
 wien     v'i:n                  // PB Wien - the town of Vienna
 calais   kal'E                   // PB Calais - town in France 
 date dejt                      // PB date - stævnemøde
 siger sir                      // PB silent d
 (tids nok) tis||n'Vk             // PB silent d
 skateboardet  sk'eitbo@d3D      // PB
-billie bile                    // PB the name Billie
 (hole in one) h'oulinw,0n      // PB English golf expression used in Danish
 (en passant) AN||p&s'AN
 (coney island) 'kouni||'ajl3nd    // PB
@@ -11228,6 +11193,7 @@ saigon sajg3-n                   // PB Saigon
 managua m&n'&:gw&
 (deja-vu) deSja||'vy
 (il duce) il||d'u:tSj@ // PB Italian Fascist
+(idiot savant) idi'o||s&v'AN
 
 // Abbreviations
 pga   pO||gR'O?n||& $hasdot // PB short for 'på grund af'
@@ -11294,7 +11260,6 @@ hav hAu $atend
 sig $atend $sentence saj        // end of a sentence - han vaskede sig.
 (gør sig til) g,Wr||saj||t'el    // PB
 (gav sig til) g&||saj||tel       // PB han gav sig til at ... 
-sig si $capital                  //PB Sig = si with capital S - Sig det med blomster
 // PB avoid [staj] as in "flæskesteg"
 (han steg) h&n||st'e
 (hun steg) hOn||st'e
@@ -11306,11 +11271,6 @@ steg sdaj $atend $sentence
 steget ste@d 
 // PB problem with noun "hav" = ocean and verb "hav(e)" = to have [hAu]/[h&v]
 (et hav) ed||h'Au              // PB "et hav" = an ocean - not "hav en god dag" - have a nice day
-// PB problem with lyst - blond = light coloured; and lyst = would like to, feel like
-(lyst hår) lYst||hOr
-(lys farve) lYs||fArw@
-(er lyst) &r||l'Ysd
-(lyst til) lWsd||tel
 // PB legende = legend/myth and = playing
 (en legende) en||leg'End@
 legenden leg'End@n
@@ -11360,3 +11320,4 @@ nå nV $atstart // PB Nå, der er du
 (det der) d'e||der
 (de her) d'i||her
 (de der) d'i||der
+(gå på af) gO||p'O||&

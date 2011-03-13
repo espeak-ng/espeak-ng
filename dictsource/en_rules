@@ -164,7 +164,7 @@
          w) ay           eI
          _) ayle         eI@L
          _) ayr          e@
-         h) a (z         eI
+         h) a (zA        eI
          l) a (z         eI
         sw) a (z         A:
          r) a (zA        eI
@@ -749,7 +749,7 @@
          h) ang (er      aN
          m) anoeu (v     @nu:
        _qu) an           0n
-        _w) an           0n
+        _w) an (C        0n
         _w) an (g        an
         _w) an (k        an
        _tr) an (s        %an
@@ -859,8 +859,9 @@
          c) arbo (h      ,A@boU
          _) arch (@P4    ,A@tS             // prefix
          _) archai       A@k'eII
-         _) arche (o     A@kI
+         _) arch (AA     A@k
          _) arch (er     A@tS
+         _) arch (et     A@k
          _) archi        A@kI
          _) archiv (+    A@kaIv
          @) arch (y      A@k
@@ -1335,7 +1336,7 @@
             ch (irA      k
          a) ch (il       k
        bra) ch           k
-        te) ch           k
+        te) ch (K        k
             ch (isC      k
             ch (ic_      k
      @@Car) ch (_       k
@@ -1366,6 +1367,7 @@
 
 .group co
          _) co (ag       k%oU
+         _) coa (x       koUa
             coa (les     k%oUa#
          _) co (eCP2     k,oU
          _) coe (l       si:
@@ -2267,6 +2269,7 @@
             er (nal_     '3:
          &) er (n_       3
          c) er (n_       3:
+         &) er (oCe_     =@r
             er (se       3:
             er (sal      '3:
          @) er (sial     '3:
@@ -2486,6 +2489,7 @@
          _) gaol         dZeIl
             ge (dd       g'E
             g (eek       g
+         _) g (ert       g
             geous        dZ=@s
             g (E         dZ
             g (i         dZ
@@ -2542,6 +2546,7 @@
          _) he'          %hi:
          @) head (_S4    hEd
             heir         e@
+            hero         hi@roU
          _) hetero       hEtroU
          K) hl           l#
          &) hold (_S4    hoUld
@@ -2590,6 +2595,7 @@
          c) i (_         aI
          d) i (_         =I
          h) i (_         =aI
+        sh) i (_         i
         XC) i (_         aI
        &sk) i (_         =I
        @@h) i (_         =I
@@ -3290,6 +3296,7 @@
          _) jere (C      dZEr@
          _) jes (ui      dZEz
          _) joa (n@      dZoU'a
+         n) j (a_        j
             j (ü         j
 
 .group k
@@ -3517,6 +3524,7 @@
             ng (ie_      ndZ
             ng (iti      ndZ
             ng (e        ndZ
+       _ri) ng (e        Ng
             ng (y        Ng
         mA) ng (y        ndZ
          u) ng (y        ndZ
@@ -3530,7 +3538,7 @@
          i) ng (er       Ng
         ri) ng (er       N
         si) ng (er       N
-       bi) ng (er       ndZ
+        bi) ng (er       ndZ
         gi) ng (er       ndZ
          o) ng (er       Ng
        you) ng (er       Ng
@@ -3708,6 +3716,7 @@
             opolitan     @p'0lIt@n
             oppor (tu    %0p3
             opp (res     @p
+            o (shA_      oU
        piv) o (t         @
         &g) ot (_        @t
         rr) ot (_        @t
@@ -5381,6 +5390,7 @@
             E (Cia       'i:
             Ea (_        =i@
             Ea (n_       'i@
+            Ectomy (_S6  'Ekt@mI
         @@) Ed (_S2vei   d
         &C) Ed (_S2vei   d
         &c) Ed (_S2vei   t

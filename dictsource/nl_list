@@ -64,7 +64,7 @@ _;	p'8ntkOm,a:
 _?	v@-*'a:xte:k@n
 _!	'Wyt@-*upt,e:k@n
 _"	'a:nha:lInxste:k@n
-@	'a:p@nst,a:rt;@
+@	_:'a:p@nst,a:rt;@_:
 #	h'Ekj@		$max3
 %	p@-*o:s'Ent
 _(	h'a:kj@_|'o:pe:n@n
@@ -129,14 +129,19 @@ _0Co	h'OndErtst@
 
 
 // abbreviations
+eu	e:_y: $abbrev
+kmo     $abbrev
+KMI	$abbrev
+KNMI	$abbrev
 nr	n8m@r
 nvda	$abbrev
+VMMa    $abbrev
 
 
 // articles
 de	d@
-het	h@t
-een	@n
+het	h@t	$only
+een	@n	$only
 ən	@n   // char.replacement for 'n
 ət	@t   // char.replacement for 't
 
@@ -151,7 +156,7 @@ u		$u
 hij		$u
 zij		$u
 ze		$u
-het		$u
+het		h@t //otherwise pronounced as het
 wij		$u
 we		$u
 jullie		$u
@@ -178,7 +183,7 @@ die		$u $brk
 dit		$u
 dat		$u
 wat		$u
-er		$u
+er		@r
 waar		$pause
 
 // prepositions
@@ -207,6 +212,7 @@ sommige	$only	$u+	// some
 
 // conjunctions
 en	$u $pause	// and
+én      En $pause       // stressed and
 dus	$u $pause	// so
 maar	$u $pause	// but
 of	$u $pause	// or
@@ -292,23 +298,52 @@ werd	$u
 
 
 // Pronounce as English
+
+android  _^_EN
+airlines _^_EN
+base    _^_EN
 delete	_^_EN
-//down	_^_EN
+crash _^_EN
 escape	_^_EN
+(e-mail) i:me:l
+enterprise _^_EN
+entertainment _^_EN
+exploit _^_EN
+fact    _^_EN
 home	_^_EN
 game	_^_EN
+hardware        _^_EN
 homepage	_^_EN
 items	_^_EN
 laptop	_^_EN
+malware _^_EN
+medical _^_EN
+milkshake _^_EN
+multitouch _^_EN
+netbook nEtbuk
 (page down)	_^_EN
 (page up)	_^_EN
+offline _^_EN
+online _^_EN
 player	_^_EN
-speak	_^_EN
+patch _^_EN
+race _^_EN
+research _^_EN
+site _^_EN
+sites _^_EN
+software _^_EN
+speak 	_^_EN
 the	D@
+time _^_EN
+tweaker tv#ik@r
+ultimate _^_EN
 up	_^_EN
+website _^_EN
+websites _^_EN
+weekend _^_EN
 
 
-// words where -eren is not a stressed verb ending
+// words where -er is not a stressed verb ending
 
 achter		$alt
 achterkleinkinder	$alt
@@ -1214,29 +1249,24 @@ zwijmel		$alt
 // -s is not plural
 chaos		xa:Os
 
-
-beiaard		b'EIa:rt
-boomgaard	$1
-dronkaard	$1
-gierigaard	$1
-grijsaard	$1
-gulzigaard	$1
-lafaard		$1
-slechtaard	$1
-snoodaard	$1
-standaard	$1
-valsaard	$1
-woestaard	$1
+// all words on _aard are treated as suffix in the rules.
 
 
 // pronunciation exceptions
-aangrijpend	$2
-accessoires     aksEsw'ar@s
+accessoire      aksEsv#'ar@
+accessoires     aksEsv#'ar@s
 actiepunt	Aksip8nt
 agenda		$2
 amino		$1
 amnestie	$3
+april		a:pr'Il
+armand		_^_FR
+artikel		art,ik@l
+augustus	VUQ'8st8s
+be		$abbrev   // used as domain abbrev for Belgium and in a lot of other names
+beha            be:_h'a:
 bijziend	$2	// bijziendheid
+blitzkrieg	blItskri:g
 boudoir		budv#'a:r
 bourgondier	burx'o:ndi:@r
 braille		brAj@
@@ -1251,15 +1281,29 @@ chassis		SAs'i
 chat		tSEt
 check		tSEk
 chiffon		Sif'On
+crèches		krES@s
 contour		ko:nt'ur
+coureur		ku:r'Y:r
+damascering     damA;s'e:rIN
+december	$2
+dieet		$2
 divers		div'Ers
+diftongering    dIft,ON'e:rIN
+doordat		$2
 dynastie	$3
 eensgelijks	e:nsQ@l'EIks
+elfstedentocht	,Elf'ste:d@ntoQt
 emaille		,e:m'Aij@
+enorm		$2
 eucharistie	$4
+februari	fe:bry'a:ri
 fiche		fiS@
+franchise	frA'Si:z@
 gamasche	Qa:m'AS
+gazet		$2
 gouache		Qu'AS
+gefrituurd	$3
+impregnering    Impr,EQn'e:IN
 inductie	$2
 ingewikkeld	$3
 ingrijpend	$2
@@ -1268,44 +1312,76 @@ ingevolge	$3
 ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
 informatie	$3
+januari		$3
 journaal	Surn'a:l
 maxima		$1
 meteen		mEt'e:n
+metro		me:tro:
 minima		$1
 nabij		nab'EI
+november	$2
+oktober		$2
+onderhandelingsnota	,ond@r'hAnd@lINs,no:ta:
 ongastvrij	OnQAstv@-*'EI
 ongelooflijk	$3
 ongemakkelijk	$3
 ongelukkig	$3
 ongerieflijk	$3
 ongrondwettig	$3
+partijvoorzitters $2
 pistache	pist'AS
 proces		$2
+projectielen    $3
 renaissance	rEne:s'A~s@
 reservoir	re:zErvv#'a:r
+revanche	r@vA~nS
+regime		$2
 sacristie	$3
+saint		_^_FR
 salomo		$1
-tegenaan	$3
-tegenin		$3
-tegenover	$3
-tegendraads	$3
+september	$2
+sms'jes		EsEm'Es_j@s
+spektakel	$2
 tegennatuur	$4
-tegenstrijdig	$3
-tegenwoordig	$3
 travestie	$3
 verderop	$3
 volledig	$2
 waarschijnlijk	$2
+ziekenhuisbevalling   zi:k@nhWysb@vAlIN
+zover           zo:v'Er
 
 
 
 // names
+(al-qaeda)      Al_:k'AjdA
+Beckham         bEk@m
+Betty           bE:ti
 charlotte	$2
+Dewever		d@'v#e:v@r
+Henin		_^_FR
 Inge		IN@
 Ingeborg	INe:bOrx
 Ingmar		INmAr
 Ingrid		IN@-*It
+Justine		_^_FR
 kennedy		kEn@dE
+Laurent		lo:r'An^
+Nys		nEIsd'WyzEnt
+
+//Trademarks
+Belga		bElQa:
+Facebook        fEisbuk
+Ubuntu		u:'bu:ntu:
+Wikipedia	$3
+google          gu:g@l
 
 // places
+alexandrië	$3
 canada		$1
+Kinshasa	kInS'a:sa:
+new york        _^_EN
+Rochefort	roS'for
+Vlaanderen      vla:nd@r@n
+Zelzate		zelzat@
+
+(vond dat de) vOn_tA_t@

@@ -63,6 +63,7 @@ static uint32_t total_samples_skipped;
 //
 static uint32_t last_play_position=0;
 
+static uint32_t wave_samplerate;
 //>
 // wave_init 
 //

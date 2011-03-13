@@ -31,10 +31,10 @@ phoneme l      // use dark [l/2] before not-vowel
 
   IF nextPhW(isVowel) THEN
   ELSE
-    IF prevPh(isNotVowel) THEN
-      ChangePhoneme(l/)
-    ELSE
+    IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) THEN
       ChangePhoneme(l/2)
+    ELSE
+      ChangePhoneme(l/)
     ENDIF
   ENDIF
 
@@ -207,7 +207,7 @@ phoneme i   //  optional variant of [I] for end of words
   ipa ɪ
   length 140
   IfNextVowelAppend(;)
-  FMT(vowel/ii_en)
+  FMT(vowel/ii_7)
 endphoneme
 
 

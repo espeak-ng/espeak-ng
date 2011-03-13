@@ -207,7 +207,7 @@ _3o	d'&:r
 _7o	s'e@v@n
 _8o	_'ax2
 _9o	ne@x2@n
-//_0Co	h'On@rtst@
+_0Co	h'On@rtst@
 
 
 // Place names
@@ -234,6 +234,7 @@ boekarest   bukarEst
 bogotá      bOgOt'A:
 bolivië     bul'Ivi:@
 bonnievale  _^_EN
+boplaas     bo@plA:s
 bordeaux    bOrd'@U
 boston      _^_EN
 brittanje   $2
@@ -991,6 +992,7 @@ bewend        be@v@nt
 bewering      b@ve@rIN
 bomaat      bo@mA:t
 bordegoed     bO:rd@x2ut
+borgene       bOrx2@n@
 boskaas       $2
 bostaande b'o@stA:nd@
 bourgeois     _^_FR
@@ -1020,6 +1022,8 @@ dagorde       dax2_Ord@
 dagster       dax2st&r
 daisy         deIzi
 darem         dar@m
+dawidster     dA:v@tst&r
+déjà          _^_FR
 dekade        dEk'A:d@
 dekreling     dEkre@l@N
 deurentyd     dy@r@nteIt
@@ -1105,8 +1109,8 @@ helaas        he@l'A:s
 here          he@r@
 herero        hEr'E:ru
 herrysenis    h&r'eIs@n@s
-hiernamaals   hi:rn'A:mA:ls
 hierso        hi:rsO
+hippie        _^_EN
 hoera         hur'A:
 hoewel        huv'&l
 hokaai        hOkAI
@@ -1163,6 +1167,8 @@ kwansuis      $2
 
 lasagne       las'anj@
 libido        l@bidu
+liefdespel    lifd@sp&l
+lipstiek      lIpstik
 lokaas        lOk_A:s
 londense      lOnd@ns@
 lord          _^_EN
@@ -1200,7 +1206,7 @@ nadele        nA:de@l@
 nadenke       $1
 nagana        nag'A:na
 namens        nA:m@ns
-nasaréner     nasar'e@n@r
+nasarener     nasar'e@n@r
 nassau      nas'@U
 nature        nat'yr@
 nalatigheid   nA:l'A:t@x2eIt
@@ -1429,6 +1435,7 @@ vorige        fo@r@x2@
 voëlent       fo@@l_Ent
 vraprys       frA:preIs
 vrek          fr&k
+vu            _^_FR
 
 waarskynlik   $2
 waarskynlike  $2
@@ -1443,3 +1450,4 @@ wentaktiek    $1
 willens       vIl@ns
 wysgere       veIsx2e@r@
 
+êrenster      &:r@nst@r

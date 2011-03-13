@@ -41,7 +41,7 @@ phoneme p-  // unaspirated
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
   IF nextPh(l) THEN
     WAV(ustop/pl)
-  ELIF nextPh(r) THEN
+  ELIF nextPh(isRhotic) THEN
     WAV(ustop/pr)
   ELIF nextPh(isPause2) THEN
     WAV(ustop/p_unasp_, 80)
@@ -59,13 +59,23 @@ phoneme ph  // aspirated
   IF nextPh(isPause2) THEN
     WAV(ustop/p_)
   ENDIF
-  IF nextPh(r) THEN
-    WAV(ustop/pr)
-  ENDIF
   IF nextPh(l) THEN
     WAV(ustop/pl)
   ENDIF
   WAV(ustop/p_asp)
+endphoneme
+
+
+phoneme t-
+  vls alv stop
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_)
+  ENDIF
+  WAV(ustop/t_short)
 endphoneme
 
 

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -31,6 +31,7 @@
 #include "translate.h"
 
 extern int GetAmplitude(void);
+extern void DoSonicSpeed(int value);
 
 
 // convert from words-per-minute to internal speed factor
@@ -140,27 +141,54 @@ void SetSpeed(int control)
 	int s1;
 	int wpm;
 	int wpm2;
+	double sonic;
 
 	speed.loud_consonants = 0;
 	speed.min_sample_len = 450;
 	speed.lenmod_factor = 110;   // controls the effect of FRFLAG_LEN_MOD reduce length change
 	speed.lenmod2_factor = 100;
+	speed.min_pause = 5;
 
 	wpm = embedded_value[EMBED_S];
 	if(control == 2)
 		wpm = embedded_value[EMBED_S2];
 
-	// fast_settings[0]  wpm where speedup starts
-	// fast_settings[1]  wpm for maximum espeak speed
-	// fast_settings[2]  maximum espeak speed
+	if(voice->speed_percent > 0)
+	{
+		wpm = (wpm * voice->speed_percent)/100;
+	}
 
-	sonicSpeed = 1.0;
-	if(wpm > speed.fast_settings[0])
+	if(control & 2)
+	{
+		DoSonicSpeed(1 * 1024);
+	}
+	if((wpm > 450) || ((wpm > speed.fast_settings[0]) && (wpm > 350)))
 	{
 		wpm2 = wpm;
-		wpm = speed.fast_settings[2];
-		// Maybe we can do better than a 10 wpm fudge factor?
-		sonicSpeed = ((double)wpm2 + 10)/wpm;
+		wpm = 175;
+
+		// set special eSpeak speed parameters for Sonic use
+		// The eSpeak output will be speeded up by at least x2
+		x = 73;
+		if(control & 1)
+		{
+			speed1 = (x * voice->speedf1)/256;
+			speed2 = (x * voice->speedf2)/256;
+			speed3 = (x * voice->speedf3)/256;
+		}
+		if(control & 2)
+		{
+			sonic = ((double)wpm2)/wpm;
+			DoSonicSpeed((int)(sonic * 1024));
+			speed.pause_factor = 85;
+			speed.clause_pause_factor = 80;
+			speed.min_pause = 22;
+			speed.min_sample_len = 450*2;
+			speed.wav_factor = 211;
+			speed.lenmod_factor = 210;
+			speed.lenmod2_factor = 170;
+		}
+		return;
 	}
 
 
@@ -173,10 +201,6 @@ void SetSpeed(int control)
 	}
 #endif
 
-	if(voice->speed_percent > 0)
-	{
-		wpm = (wpm * voice->speed_percent)/100;
-	}
 	if(wpm > 450)
 		wpm = 450;
 

@@ -130,10 +130,15 @@ void PlayWavFile(const char *fname)
 #ifdef PLATFORM_WINDOWS
 	wxSound(wxString(fname,wxConvLocal)).Play(wxSOUND_SYNC);
 #else
-	sprintf(command,"play %s",fname);
+//	wxSound(wxString(fname,wxConvLocal)).Play(wxSOUND_SYNC);  // This gives a click at the start of each play
+	sprintf(command,"aplay %s",fname);
 	if(system(command) == -1)
 	{
-		wxLogError(_T("Failed to run system command:\n\n"+wxString(command,wxConvLocal)));
+		sprintf(command,"play %s",fname);
+		if(system(command) == -1)
+		{
+			wxLogError(_T("Failed to run system command:\n\n"+wxString(command,wxConvLocal)));
+		}
 	}
 #endif
 }
@@ -408,6 +413,12 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	char fname_temp[100];
 	static int n_ph_list;
 	static PHONEME_LIST ph_list[N_PH_LIST+1];
+
+	if(translator==NULL)
+	{
+		wxLogError(_T("Voice not set"));
+		return;
+	}
 
 	option_phonemes = 0;
 

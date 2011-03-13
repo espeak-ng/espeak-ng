@@ -27,8 +27,8 @@
 ஷ்	is.
 ஸ்	is
 ஹ்	iC
-U+b82	anUsvVRV
-ஃ	agH
+U+b82	VnUsvVRV
+ஃ	VgH
 U+bcd	ot.RU
 
 ஏ	je:
@@ -57,7 +57,7 @@ e	i:
 f	Ef
 g	dZi:
 h	e:tS
-i	a:I
+i	a:j
 j	dZe:j
 k	ke:j
 l	El
@@ -183,6 +183,8 @@ _1M3	orUko:d.ie:
 _dpt	_pul.l.i
 
 
+
+
 // English words
 tamil	தமிழ்	$text
 
@@ -248,7 +250,6 @@ tamil	தமிழ்	$text
 பாவ்லா	$alt
 பீச்சில்	$alt
 பீல்	fi:l
-பலத்தால்	$alt
 புக்	$alt
 பீர்	$alt
 போயிங்	$alt
@@ -286,6 +287,10 @@ tamil	தமிழ்	$text
 பவுத்த	$alt
 பவுத்தம்	$alt
 பிட்	$alt
+பீடிக்	$alt
+பீச்	$alt
+பைக்குல	$alt
+ப்ராண்ட்	$alt
 (பி . ஏ)	bije:
 
 
@@ -341,9 +346,10 @@ tamil	தமிழ்	$text
 தாவே	$alt
 தருமமும்	$alt
 தராவி	$alt
-தேவநேய	$alt
-தங்கர்	$alt
 தவக்	$alt
+களில்	$alt
+தடிக்க	$alt
+தின	$alt
 
 
 	// initial ட
@@ -366,7 +372,8 @@ tamil	தமிழ்	$text
 ரெட்டி		red.d.i
 செல்லம்		$alt
 சிக்கன்		$alt
-
+சாரு		$alt
+பிரசார்		prVsa:r
 
 கக	$alt	// initial க as [g]
 கனம்	$alt
@@ -408,6 +415,12 @@ tamil	தமிழ்	$text
 கேட்டின்	$alt
 கேட்டுக்கு	$alt
 கம்முனு	$alt
+களுக்கு	$alt
+குண	$alt
+குண்டான	$alt
+கன	$alt
+களிலும்	$alt
+கடம்	$alt
 
 
 

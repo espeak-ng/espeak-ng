@@ -127,12 +127,14 @@ _17     ditSas:'Et:e
 _18     ditS'Ot:o
 _19     ditSann'ove
 _2X     v'entj
+_21     v'ent'uno
+_28     v'ent'Ot:o
 _3X     t@-*'enta
 _4X     kw2aR'anta
 _5X     tSinkw2'anta
 _6X     sess'anta
 _7X     set:'anta
-_8X     ot'anta
+_8X     ot:'anta
 _9X     nov'anta
 _0C     tS'ento
 _0M1    m'ila
@@ -349,11 +351,11 @@ sarebbero	$u
 
 // aux verb, to have
 ho	$u //$double
-hai	$u //$double
-ha	$u //$double
+hai	aj $u //$double
+ha	a  $u //$double
 abbiamo	$u
 avete	$u
-hanno	$u
+hanno	anno $u
 
 ebbi	$u
 avesti	$u

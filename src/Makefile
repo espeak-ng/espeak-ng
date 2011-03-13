@@ -1,10 +1,11 @@
 # remove -fno-exceptions  if it causes problems with stdio library on some platforms (ARM)
 
+DATADIR=/usr/share/espeak-data
+
 PREFIX=/usr
 BINDIR=$(PREFIX)/bin
 INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
-DATADIR=$(PREFIX)/share/espeak-data
 
 RELEASE = 1.44
 BIN_NAME = speak
@@ -88,7 +89,7 @@ $(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -Wall -fpic -fvisibility=hidden -pedantic \
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -fpic -fvisibility=hidden -pedantic \
 	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
 
 $(LIB_NAME): $(OBJS2)

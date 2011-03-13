@@ -709,6 +709,7 @@ bourgeoisie      bU@ZwA:z'i:
 bouquet          bu:k'eI
 bow              boU
 bow              baU           $verb 
+bowtie           b,oUt'aI
 breakfast        brEkf@st
 breath           brET          $onlys
 breath           bri:D         $verb $onlys
@@ -1569,6 +1570,7 @@ nepenthe         nI2pEnTI
 nescience        nEsI@ns
 nicety           naIs@tI
 niche            ni:S
+ninja            nIndZ@
 noah             noUV
 nobly            noUblI       $verbf
 nobody           'noUb0dI
@@ -1816,7 +1818,7 @@ rabbis           rabaIz
 rabid            reIbI2d
 radar            reIdA@
 radioactive      reIdI2oU'aktIv
-radon            reId0n
+radish           radIS
 ragged           ragI2d
 rainforest       r'eInf,0rI2st
 rajah            rA:dZA:
@@ -1866,6 +1868,7 @@ refinery         rI2faIn@rI
 refit            ri:fIt
 reflex           ri:flEks
 reflux           ri:flVks
+refund           ri:fVnd $noun
 reg              rEdZ
 regal            ri:g@L
 regime           reIZ'i:m
@@ -1909,6 +1912,7 @@ restaurant       rEstr0nt
 restful          rEstf@L
 restoration      rEst@r'eIS@n
 retaliatory      rI2tali:@t@rI
+retina           rEtIn@
 retrial          ri:traI@l
 retry            ri:traI
 reuse            ri:'ju:z
@@ -1965,6 +1969,7 @@ scepter          sEpt3
 sceptre          sEpt3
 sclera           skli@r
 scourge          sk3:dZ
+scrotum          skroUt@m
 scythe           saID
 seabed           si:bEd
 sealion          si:laI@n
@@ -2122,6 +2127,7 @@ tatar            tA:t3
 tearing          te@r-I2N
 tear             ti@3          $onlys
 tear             te@           $verb
+teargas          ti@3gas
 teddybear        t'EdIb,e@
 telephony        tEl'Ef@nI
 ten              tEn           // untenable
@@ -2271,7 +2277,6 @@ voila            vwal'a
 volcano          v0lk'eInoU
 
 (wall st)        w'O:lstr,i:t
-wane             weIn
 wannabe          w0na#bi:
 warring          wO@rIN
 wastage          weIstI2dZ
@@ -2448,6 +2453,7 @@ Donegal		d0nI2g'O:l
 Durham		dVr@m
 Egyptian	IdZ'IpS@n
 Eire		e@r@
+Erie		i@ri
 Geneva		dZ@ni:v@
 Gdansk		g@-dansk
 Gomera		goUm'e@r@
@@ -2574,6 +2580,7 @@ Utah		ju:t2A:
 Utrecht		ju:trECt
 Vancouver	$2
 Vegas		veIg@s
+Vermont		$2
 Vienna		vI'En@
 Winnipeg	wInI2pEg
 Wisconsin	wI2sk'0nsIn
@@ -2598,6 +2605,7 @@ Ahmed		axmEd
 Alan		al@n
 Alec		alIk
 Alex		alIks
+Alfie		alfi
 Alfred		alfrI2d
 Alice		alIs
 Allen		al@n
@@ -2795,6 +2803,7 @@ Tracy		treIsi
 Tricia		trIS@
 Vanessa		va#nEs@
 Wally		w0lI
+Yves		i:v
 Yvonne		$2
 Zoe		zoUI
 

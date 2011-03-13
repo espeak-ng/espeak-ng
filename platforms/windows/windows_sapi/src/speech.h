@@ -20,6 +20,10 @@
 
 // speech.h file for the Windows SAPI5 version of eSpeak
 
+#ifndef SPEECH_H
+#define SPEECH_H
+
+
 
 // conditional compilation options
 
@@ -29,7 +33,6 @@
 #define NEED_GETOPT
 #define NO_VARIADIC_MACROS
 #define USE_MBROLA_LIB
-#define ESPEAK_API
 
 #define PATHSEP '\\'
 //#define PLATFORM_POSIX
@@ -65,3 +68,4 @@ int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
 
+#endif // SPEECH_H

@@ -13,7 +13,7 @@
 .group a
 		a	a
 		ai (K   aI
-                ao (_   aU
+                ao (_N   aU
                 au	a%u
 
 	@C)	a (_S1q  a     // lookup it_list without suffix
@@ -34,7 +34,7 @@
 .group à
 		à	''a
 		ài (K   ''aI
-                ào (_   ''aU
+                ào (_N   ''aU
                 àu	''a%u
 
 .group b
@@ -49,8 +49,8 @@
 		cc (Y   tS:
 		ch	k
 		cch	k:
-		ci (L01	tS
-		cci (L01  tS:
+		ci (A	tS    // or L01 ?
+		cci (A  tS:   // or L01 ?
 	@)	co (lA_ =ko
 		
 .group d
@@ -122,11 +122,12 @@
 		gg	g:
 		gh	g
 		g (Y	dZ
-		gi (L01	dZj
-		gi (a_	dZ'i
-	n)	gi (a_	dZj
+		gi (A	dZ   // any vowel, or L01 ?
+		gi (a_	dZ'i#  // [i] only if stressed
+		gì (a_	dZ'i#  // [i] only if stressed
+	n)	gi (a_	dZ
 		gg (Y	dZ:
-		ggi (L01  dZ:
+		ggi (A  dZ:  // or L01 ?
 	@)	gger (lo_ =dZ:eR
 		gl (i	l^
 		gl (ì	l^

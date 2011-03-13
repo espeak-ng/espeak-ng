@@ -14,7 +14,7 @@ endphoneme
 phoneme e
   vowel starttype #e endtype #e
   length 170
-  FMT(vowel/e)
+  FMT(vowel/e_mid2)
 endphoneme
 
 
@@ -29,7 +29,10 @@ endphoneme
 phoneme o
   vowel starttype #o endtype #o
   length 170
-  FMT(vowel/oo)
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/o)
+  ENDIF
+  FMT(vowel/oo_1)
 endphoneme
 
 
@@ -71,7 +74,7 @@ endphoneme
 phoneme oI
   vowel starttype #o endtype #i
   length 250
-  FMT(vdiph/ooi)
+  FMT(vdiph/ooi_2)
 endphoneme
 
 

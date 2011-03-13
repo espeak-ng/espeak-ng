@@ -289,7 +289,7 @@ phoneme bh
     FMT(b/xb)
   ENDIF
 
-  FMT( b/xb) addWav(ustop/p_asp, 70)
+  FMT( b/b@2) addWav(ustop/p_asp, 70)
 endphoneme
 
 
@@ -474,7 +474,10 @@ phoneme gh
     FMT(g2/xg)
   ENDIF
 
-  FMT(g2/xg) addWav(ustop/k_asp, 70)
+  IF nextPh(isPause2) THEN
+    FMT(g2/xg) addWav(ustop/k_asp, 35)
+  ENDIF
+  FMT(g2/xg) addWav(ustop/k_asp, 50)
 endphoneme
 
 //================
@@ -482,7 +485,7 @@ endphoneme
 phoneme #X2  // click, use for indicating combining long vowels
   vls alv frc sibilant
   lengthmod 3
-  WAV(ustop/percus02)
+  WAV(ustop/percus02, 60)
 endphoneme
 
 
