@@ -136,7 +136,7 @@ endphoneme
 phoneme e[u
   vowel starttype #e endtype #u
   length 250
-  FMT(vdiph2/e[u)
+  FMT(vdiph2/e_u)
 endphoneme
 
 phoneme Oa

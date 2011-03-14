@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2006 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2006 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -325,6 +325,7 @@ void Lexicon_It(int pass)
 	char buf_out[200];
 	char buf_error[200];
 	char last_listx[200];
+int test;
 	static const char *vowels1 = "aeiou";
 	static const char *vowels2 = "aeou";
 
@@ -455,6 +456,7 @@ void Lexicon_It(int pass)
 				break;
 			}
 		}
+
 		// translate
 		TranslateWord(translator,&word1[1],0, NULL);
 		DecodePhonemes(word_phonemes,phonemes);
@@ -953,7 +955,10 @@ void Lexicon_Bg()
 	}
 	input_length = GetFileLength(buf);
 
-	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_listx_1");
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_listx");
+	remove(fname);
+	CompileDictionary(path_dsource,"bg",NULL,NULL,0);
+
 	if((f_out = fopen(fname,"w")) == NULL)
 	{
 		wxLogError(_T("Can't write to: ")+wxString(fname,wxConvLocal));
@@ -961,8 +966,8 @@ void Lexicon_Bg()
 		return;
 	}
 
-	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_log");
-	f_log = fopen(fname,"w");
+//	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_log");
+//	f_log = fopen(fname,"w");
 
 	LoadVoice("bg",0);
 	progress = new wxProgressDialog(_T("Lexicon"),_T(""),input_length);
@@ -1089,11 +1094,13 @@ void Lexicon_Bg()
 
 	fclose(f_in);
 	fclose(f_out);
-	fclose(f_log);
+//	fclose(f_log);
+
+	CompileDictionary(path_dsource,"bg",NULL,NULL,0);
 
 
 	delete progress;
-	sprintf(buf,"Lexicon: Input %d,  Output %d,  Failed %d",n_words,n_out,n_wrong);
+	sprintf(buf,"Lexicon: Input %d,  Output %d,  $text %d",n_words,n_out,n_wrong);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }  // end of Lexicon_Bg
 
@@ -1101,7 +1108,17 @@ void Lexicon_Bg()
 
 void Lexicon_Ru()
 {//==============
-	// compare stress markings in Russian RuLex file with lookup in ru_rules
+// compare stress markings in Russian RuLex file with lookup in ru_rules
+
+// Input file contains a list of Russian words (UTF-8), one per line
+// Stress position can be indicated either by:
+// A $ sign and syllable number after the word, eg:
+//   абажура  $3
+// or by a + sign after the stressed vowel, eg:
+//   абажу+ра
+
+// espeakedit produces a file:  dictsource/ru_listx  and a log file dictsource/ru_log
+
 	int ix;
 	char *p;
 	int  c;
@@ -1110,12 +1127,14 @@ void Lexicon_Ru()
 	FILE *f_log;
 	FILE *f_roots;
 	PHONEME_TAB *ph;
+	int ph_code;
 	int vcount;
 	int ru_stress;
 	int max_stress;
 	int max_stress_posn;
 	int n_words=0;
 	int n_wrong=0;
+	int n_errors=0;
 	int wlength;
 	int input_length;
 
@@ -1125,9 +1144,6 @@ void Lexicon_Ru()
 	int len;
 	int check_root;
 
-	int *p_unicode;
-	int unicode[80];
-
 	char word[80];
 	char word2[80];
 	int counts[20][20][10];
@@ -1136,8 +1152,8 @@ void Lexicon_Ru()
 	char buf[200];
 	char fname[sizeof(path_dsource)+20];
 
-	// KOI8-R codes for Russian vowels
-	static unsigned char vowels[] = {0xa3,0xc0,0xc1,0xc5,0xc9,0xcf,0xd1,0xd5,0xd9,0xdc,0};
+	// character codes for Russian vowels
+	static unsigned short ru_vowels[] = {0x430,0x435,0x438,0x439,0x43e,0x443,0x44d,0x44e,0x44f,0x450,0x451,0};
 
 	typedef struct {
 		const char *suffix;
@@ -1190,7 +1206,12 @@ void Lexicon_Ru()
 	}
 	input_length = GetFileLength(buf);
 
-	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_listx_1");
+	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_listx");
+	remove(fname);
+
+	// compile ru_dict without ru_listx
+	CompileDictionary(path_dsource,"ru",NULL,NULL,0);
+
 	if((f_out = fopen(fname,"w")) == NULL)
 	{
 		wxLogError(_T("Can't write to: ")+wxString(fname,wxConvLocal));
@@ -1201,7 +1222,7 @@ void Lexicon_Ru()
 	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_log");
 	f_log = fopen(fname,"w");
 	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"ru_roots_1");
-	f_roots = fopen(fname,"w");
+//	f_roots = fopen(fname,"w");
 
 	LoadVoice("ru",0);
 
@@ -1221,46 +1242,46 @@ void Lexicon_Ru()
 		if(fgets(buf,sizeof(buf),f_in) == NULL)
 			break;
 
-		if(isspace2(buf[0]))
-			continue;
+		if((p = strstr(buf,"//")) != NULL)
+			*p = '\n';   // truncate at comment
 
-		// convert word from KOI8-R to UTF8
 		p = buf;
+		while((*p == ' ') || (*p == '\t')) p++;
+		if(*p == '\n')
+			continue;  // blank line
+
 		ix = 0;
 		wlength = 0;
-p_unicode = unicode;
-		while(!isspace2(c = (*p++ & 0xff)))
+		vcount = 0;
+		ru_stress = -1;
+
+		for(;;)
 		{
-			if(c >= 0xa0)
-			{
-				c = KOI8_R[c-0xa0];
-*p_unicode++ = c;
-			}
+			p += utf8_in(&c, p);
+			if(isspace(c))
+				break;
 
-
-			wlength++;
-			ix += utf8_out(c,&word[ix]);
+			if(lookupwchar(ru_vowels, c))
+				vcount++;
+			if(c == '+')
+				ru_stress = vcount;
+			else
+				ix += utf8_out(c, &word[ix]);
 		}
 		word[ix] = 0;
-*p_unicode=0;
 
-		sprintf(word2," %s ",word);
+		sprintf(word2," %s ",word);   // surround word by spaces before calling TranslateWord()
 
-		// find the marked stress position
-		vcount = 0;
-		ru_stress = 0;
-		while(*p == ' ') p++;
-
-		while((c = (*p++ & 0xff)) != '\n')
+		// find the marked stress position, if it has not been marked by a + after the stressed vowel
+		if(ru_stress == -1)
 		{
-			if(c == '+')
+			while((*p == ' ') || (*p == '\t')) p++;
+			sscanf(p,"$%d",&ru_stress);
+			if(ru_stress == -1)
 			{
-				ru_stress = vcount;
-				break;
-			}
-			if(strchr((char *)vowels,c) != NULL)
-			{
-				vcount++;
+				n_errors++;
+				fprintf(f_log,"%s",buf);
+				continue;   // stress position not found
 			}
 		}
 
@@ -1275,13 +1296,13 @@ p_unicode = unicode;
 		check_root = 0;
 
 		ph = phoneme_tab[phonPAUSE];
-		for(p=word_phonemes; *p != 0; p++)
+		for(p=word_phonemes; (ph_code = *p & 0xff) != 0; p++)
 		{
-			ph = phoneme_tab[(unsigned int)*p];
+			ph = phoneme_tab[ph_code];
 			if(ph == NULL)
 				continue;
 
-			if(ph->type == phVOWEL)
+			if((ph->type == phVOWEL) && (ph_code != phonSCHWA_SHORT))
 				vcount++;
 			if(ph->type == phSTRESS)
 			{
@@ -1300,6 +1321,7 @@ p_unicode = unicode;
 			{
 				fprintf(f_log,"%s\t $%d\t // %s\n",word,ru_stress,phonemes);
 			}
+			n_errors++;
 		}
 		else
 		{
@@ -1309,7 +1331,14 @@ p_unicode = unicode;
 			{
 				n_wrong++;
 				if((ru_stress==0) || (ru_stress > 7))
+				{
 					fprintf(f_out,"// ");   // we only have $1 to $7 to indicate stress position
+					if(f_log != NULL)
+					{
+						fprintf(f_log,"%s\t $%d\t // %s\n",word,ru_stress,phonemes);
+					}
+					n_errors++;
+				}
 				else
 					check_root = 1;
 
@@ -1329,6 +1358,8 @@ p_unicode = unicode;
 			}
 		}
 
+
+#ifdef deleted
 		if(check_root)
 		{
 			// does this word match any suffixes ?
@@ -1351,13 +1382,14 @@ p_unicode = unicode;
 				}
 			}
 		}
+#endif
 	}
 
 	fclose(f_in);
 	fclose(f_out);
-	fclose(f_roots);
+//	fclose(f_roots);
 
-	sprintf(buf,"Lexicon: Total %d  OK %d  wrong %d",n_words,n_words-n_wrong,n_wrong);
+	sprintf(buf,"Lexicon: Total %d  OK %d  fixed %d  errors %d (see ru_log)",n_words,n_words-n_wrong,n_wrong,n_errors);
 	if(gui_flag)
 	{
 		delete progress;
@@ -1374,13 +1406,13 @@ p_unicode = unicode;
 #ifdef deleted
 		// list tables of frequency of stress position for words of different syllable lengths
 		int j,k;
-		for(ix=0; ix<12; ix++)
+		for(ix=2; ix<12; ix++)
 		{
-			fprintf(f_log,"%2d syl: ",ix);
+			fprintf(f_log,"%2d syllables\n",ix);
 			for(k=0; k<10; k++)
 			{
 				fprintf(f_log,"  %2d :",k);
-				for(j=0; j<10; j++)
+				for(j=1; j<=ix; j++)
 				{
 					fprintf(f_log,"%6d ",counts[ix][j][k]);
 				}
@@ -2273,7 +2305,8 @@ if(control==2)
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 
-  espeak_Synth(textbuf, strlen(textbuf)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
+	espeak_SetVoiceByName("en");
+	espeak_Synth(textbuf, strlen(textbuf)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
 //  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)(user_data+1));
 
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);

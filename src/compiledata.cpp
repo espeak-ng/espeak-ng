@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -312,6 +312,7 @@ static keywtab_t keywords[] = {
 	{"nonsyllabic",tPHONEME_FLAG, phNONSYLLABIC},
 	{"lengthenstop",tPHONEME_FLAG, phLENGTHENSTOP},
 	{"nopause",    tPHONEME_FLAG, phNOPAUSE},
+	{"prevoice",   tPHONEME_FLAG, phPREVOICE},
 
 	{"flag1",      tPHONEME_FLAG, phFLAG1},
 	{"flag2",      tPHONEME_FLAG, phFLAG2},
@@ -375,8 +376,10 @@ int n_procs;
 int  proc_addr[N_PROCS];
 char proc_names[40][N_PROCS];
 
+#define MAX_PROG_BUF 2000
 USHORT *prog_out;
-USHORT prog_buf[2000];
+USHORT *prog_out_max;
+USHORT prog_buf[MAX_PROG_BUF+20];
 
 
 static const char *KeyToMnem(keywtab_t *ktab, int type, int value)
@@ -1064,6 +1067,8 @@ static wxString CompileAllDictionaries()
 
 static void error(const char *format, const char *string)
 {//======================================================
+	if(string==NULL)
+		string = "";
 	fprintf(f_errors,"%4d:  ",linenum-1);
 	fprintf(f_errors,format,string);
 	fprintf(f_errors,"\n");
@@ -2259,6 +2264,12 @@ int CompileIf(int elif)
 
 	while(!finish)
 	{
+		if(prog_out >= prog_out_max)
+		{
+			error("Phoneme program too large", NULL);
+			return(0);
+		}
+
 		if((key = NextItem(tCONDITION)) < 0)
 			error("Expected a condition, not '%s'",item_string);
 	
@@ -2644,6 +2655,7 @@ int CompilePhoneme(int compile_phoneme)
 	PHONEME_PROG_LOG phoneme_prog_log;
 
 	prog_out = prog_buf;
+	prog_out_max = &prog_buf[MAX_PROG_BUF-1];
 	if_level = 0;
 	if_stack[0].returned = 0;
 	after_if = 0;

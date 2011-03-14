@@ -2740,6 +2740,8 @@ void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags)
 
 	switch(tr->translator_name)
 	{
+#ifdef deleted
+// this is now done in de_rules
 	case L('d','e'):
 		if(p_end[0] == PhonemeCode2('i',':'))
 		{
@@ -2750,6 +2752,7 @@ void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags)
 			p_end[2] = 0;
 		}
 		break;
+#endif
 
 	case L('r','o'):
 		if(p_end[0] == PhonemeCode('j'))
@@ -3249,6 +3252,10 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	{
 		if(((c = *word1++)==0) || (c == ' '))
 			break;
+
+		if((c=='.') && (length > 0) && (isdigit(word[length-1])))
+			break;  // needed for lang=hu, eg. "december 2.-ig"
+
 		word[length] = c;
 	}
 	word[length] = 0;

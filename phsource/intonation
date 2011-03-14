@@ -98,9 +98,9 @@ endtune
 tune c3
 prehead   46 57
 headenv   fall 16
-head       4 80 30 -5 -15
-headextend 0 63 38 13 0
-nucleus0 fall-rise  75 40
+head       4 70 30 -8 -5
+// headextend 0 63 38 13 0
+nucleus0 fall-rise  75 50
 endtune
 
 // question mark "?" - point d'interrogation

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -768,7 +768,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 			else
 				utf8_in(&c2, &word_end[0]);
 
-			if((word_end[1] != 0) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || IsAlpha(c2)))
+			if((word_end[0] != 0) && (word_end[1] != 0) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || IsAlpha(c2)))
 			{
 				// ordinal number is indicated by dot after the number
 				// but not if the next word starts with an upper-case letter
@@ -1089,7 +1089,7 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 		return(1);
 
 	return(found_value);
-}
+}  // end f LookupThousands
 
 
 static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
@@ -1395,7 +1395,15 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		}
 		if(found == 0)
 		{
-			Lookup(tr, "_0C", ph_100);
+			if(tensunits==0)
+			{
+				// special form for exact hundreds?
+				found = Lookup(tr, "_0C0", ph_100);
+			}
+			if(!found)
+			{
+				Lookup(tr, "_0C", ph_100);
+			}
 		}
 
 		if(((tr->langopts.numbers & NUM_1900) != 0) && (hundreds == 19))
@@ -1671,12 +1679,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				{
 					// this is an ordinal suffix
 					ordinal = 2;
+					flags[0] |= FLAG_SKIPWORDS;
+					skipwords = 1; 
 				}
-			}
-			if(ordinal)
-			{
-				flags[0] |= FLAG_SKIPWORDS;
-				skipwords = 1;
 			}
 		}
 	}

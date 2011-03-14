@@ -1,7 +1,7 @@
-68 phoneme tables
+73 phoneme tables
           new total
     base 107  107
-consonants   9  115
+consonants  10  116
    base2  26  123
       en  48  148
     en-n  32  148
@@ -12,7 +12,7 @@ consonants   9  115
    en-wi  30  148
       af  39  136
       cy  29  132
-      de  37  138
+      de  38  139
       eo  13  114
      jbo   2  114
      nci   3  123
@@ -20,17 +20,18 @@ consonants   9  115
       fr  59  140
    fr-ca  11  140
       hi  59  150
-      ta  21  153
+      ta  22  153
+      kn  16  150
       hu  25  122
       lv  29  125
-      nl  25  126
+      nl  33  127
       pl  22  120
       sk  28  135
       cs   6  135
       hr  25  140
       mk   3  141
       sr  14  140
-      it  18  126
+      it  19  127
       la  21  124
       es  10  123
    es-la   1  123
@@ -43,7 +44,7 @@ consonants   9  115
       sv  22  127
       no  28  132
       is  42  139
-      ru  39  133
+      ru  49  137
       vi  41  139
      zhy  41  136
       zh  64  153
@@ -55,19 +56,23 @@ consonants   9  115
       hy  23  117
       da  27  120
       rw  15  130
-      ml  13  151
+      ml  18  151
       ne  18  157
       pa  14  151
      prs   8  111
       sl  10  135
       gd   6  107
-      bg  10  121
+      bg  11  121
      nso  12  111
       ht  11  140
       az  10  127
       ak   8  109
       am   8  123
       wo  18  118
+      dv  14  150
+      te  16  150
+      tn  27  119
+      ka  19  112
 
 Data file      Used by
 b/b             [b] base
@@ -77,6 +82,7 @@ b/b_            [b] base
                 [b] fr
 b/b@            [b] base
 b/b@2           [b] base
+                [bh] hi
 b/ba            [b] base
 b/be            [b] base
 b/bi            [b] base
@@ -216,17 +222,20 @@ g/g             [g] base
                 [g] cy
                 [g] fr
                 [g] es
+                [g] ru
 g/g_            [g] base
                 [g-] en
                 [g] cy
                 [g] fr
                 [g] es
+                [g] ru
 g/gr            [g] fr
 g/xg            [g] base
                 [g-] en
                 [g] cy
                 [g] fr
                 [g] es
+                [g] ru
 g/xgr           [g] fr
 h/h_            [h] base
                 [h] fi
@@ -297,12 +306,16 @@ klatt/dz_pzd    [J] base
                 [J] tr
 klatt/dz_pzd_   [J] base
 klatt/m         [m] base
+                [m;] ru
 klatt/m_        [m] base
+                [m;] ru
 klatt/m-syl     [m-] base
 klatt/n         [n] base
                 [n] fr
 klatt/n^        [n^] base
+                [n#] ru
 klatt/n^@       [n^] base
+                [n#] ru
 klatt/nn        [N] base
 klatt/nr        [n.] base
 klatt/n-syl     [n-] base
@@ -347,11 +360,12 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [hVt] base
+l/l@            [h턯] base
                 [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
+                [K] tn
 l/L1_aL         [l] base
                 [l/] base
                 [l/] de
@@ -380,30 +394,33 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [hVt] base
+l/la            [h턯] base
                 [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
+                [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [hVt] base
+l/le            [h턯] base
                 [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
+                [K] tn
 l/l_e           [l/3] base
                 [l/] fr
 l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [hVt] base
+l/li            [h턯] base
                 [l#] base
                 [l] fr
                 [l/2] fr
                 [l] zh
                 [K] nso
+                [K] tn
 l/l_i           [l/3] base
                 [l/] fr
                 [i] sq
@@ -411,19 +428,22 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [hVt] base
+l/lo            [h턯] base
                 [l#] base
-                [l] fr
                 [l/2] fr
                 [K] nso
+                [K] tn
 l/l_o           [l/3] base
                 [l/] fr
 l^/l_rfx        [l.] base
-l/lu            [hVt] base
+                [l] ru
+                [l^] ru
+l/lu            [h턯] base
                 [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
+                [K] tn
 l/l_u           [l/3] base
                 [l/] fr
 l/l_vi          [l] vi
@@ -440,6 +460,7 @@ l/xl            [l] base
                 [l] hu
                 [ll] sq
                 [K] nso
+                [K] tn
 m/_m            [m] base
 m/m_            [m] base
 m/m@            [m] base
@@ -447,13 +468,18 @@ m/m#_           [m#] is
 m/ma            [m] base
 m/me            [m] base
 m/mi            [m] base
+                [m;] ru
 m/mj            [m] base
+                [m;] ru
 m/mo            [m] base
 m/m-syl         [m-] base
 m/mu            [m] base
 n^/_n^          [n^] base
+                [n#] ru
 n^/n^_          [n^] base
+                [n#] ru
 n^/n^@          [n^] base
+                [n#] ru
 n^/n^#_         [n^#] is
 n/_n            [n] base
                 [n] fr
@@ -466,18 +492,21 @@ n/n@            [n] base
                 [n] zh
 n/n#_           [n#] is
 n^/n^a          [n^] base
+                [n#] ru
 n/na            [n] base
                 [n.] base
                 [n] fr
                 [n#] is
                 [n] zh
 n^/n^e          [n^] base
+                [n#] ru
 n/ne            [n] base
                 [n.] base
                 [n] fr
                 [n#] is
                 [n] zh
 n^/n^i          [n^] base
+                [n#] ru
 n/ni            [n] base
                 [n.] base
                 [n] fr
@@ -516,6 +545,7 @@ nn/nnu          [N] base
                 [N#] is
                 [N] zh
 n^/n^o          [n^] base
+                [n#] ru
 n/no            [n] base
                 [n.] base
                 [n] fr
@@ -525,6 +555,7 @@ n/_nr           [n.] base
 n/nr_           [n.] base
 n/n-syl         [n-] base
 n^/n^u          [n^] base
+                [n#] ru
 n/nu            [n] base
                 [n.] base
                 [n] fr
@@ -532,17 +563,22 @@ n/nu            [n] base
                 [n] zh
 r/@_            [V#] de
 r2/r2@          [r-] en
+                [r-] tn
 r2/r2a          [r-] en
+                [r-] tn
 r2/r2e          [r-] en
+                [r-] tn
 r2/r2i          [r-] en
+                [r-] tn
 r2/r2o          [r-] en
+                [r-] tn
 r2/r2u          [r-] en
+                [r-] tn
 r3/r_           [r/] base
                 [r/] af
-                [r/] ru
+                [r/] tn
 r3/r#_          [r#] is
 r3/r_n          [r/] base
-                [r/] ru
 r3/r_ru         [R4] ru
 r3/r_ru2        [R4] ru
 r3/r_trill      [R2] base
@@ -552,12 +588,15 @@ r3/r_trill      [R2] base
                 [R] pl
                 [r*] sr
                 [x] pt
+                [r] ru
+                [r] tn
 r3/r_trill2     [R] base
                 [r] cy
 r3/r_trill2.wav  [R] base
                 [r] cy
 r3/r_trill3.wav  [R3] base
                 [r] af
+                [r] tn
 r3/r_trill_short  [R2] fi
 r3/r_trill.wav  [R2] base
                 [R2] fi
@@ -565,10 +604,11 @@ r3/r_trill.wav  [R2] base
                 [R] pl
                 [r*] sr
                 [x] pt
+                [r] ru
 r3/r_uvl        [r"] base
-                [r] de
+                [r2] de
 r3/r_uvl.wav    [r"] base
-                [r] de
+                [r2] de
 r3/rx           [*] base
                 [r/] base
                 [r/] af
@@ -577,7 +617,7 @@ r3/rx           [*] base
                 [x] pt-pt
                 [*;] ro
                 [r#] is
-                [r/] ru
+                [r/] tn
 r3/rz_cs        [R^] sk
                 [R^/] sk
 r3/@tap         [**] base
@@ -587,44 +627,43 @@ r/a_            [r] da
 r/aa            [R] da
 r/r             [r] base
                 [r-] en
+                [r-] tn
 r/_r            [r] base
 r/r@            [r] base
                 [R3] base
                 [r] af
                 [r] ro
-                [r] ru
+                [r] tn
 r/ra            [r] base
                 [R3] base
                 [r] af
                 [r] ro
-                [r] ru
+                [r] tn
 r/re            [r] base
                 [R3] base
                 [r] af
                 [r] ro
-                [r] ru
+                [r] tn
 r/ri            [r] base
                 [R3] base
                 [r] af
                 [r] ro
-                [r] ru
+                [r] tn
 r/ro            [r] base
                 [R3] base
                 [r] af
                 [r] ro
-                [r] ru
+                [r] tn
 r/rr            [r/] base
                 [r] ro
-                [r] ru
 r/ru            [r] base
                 [R3] base
                 [r] af
                 [r] ro
-                [r] ru
+                [r] tn
 r/tr            [r] base
 r/trr           [r/] base
                 [r] ro
-                [r] ru
 r/V_            [V#] de
 r/V_2_          [V#] de
 r/xr            [r] base
@@ -632,6 +671,8 @@ r/xr            [r] base
                 [r-] en
                 [r] af
                 [r] ro
+                [r] tn
+                [r-] tn
 ufric/ch        [C] base
                 [J^] base
 ufric/ch_       [C] base
@@ -652,6 +693,7 @@ ufric/s         [s] base
                 [s] fr
                 [z2] fr
                 [s] es
+                [s] ru
                 [z] sq
                 [s] da
 ufric/s_        [s] base
@@ -695,12 +737,14 @@ ufric/th        [T] base
 ufric/th_       [T] base
 ufric/tl#       [tl#] is
 ufric/tlh       [K] nso
+                [K] tn
 ufric/x         [x] base
                 [kh] vi
 ufric/x2        [x2] af
                 [x] ku
 ufric/x_hr      [x] base
                 [x] hr
+                [x] ru
 ufric/x_sr      [h] sr
                 [x] sr
 ufric/xx        [X] base
@@ -718,6 +762,7 @@ ustop/k_        [k] base
 ustop/k_asp     [kh] consonants
                 [gh] hi
                 [kh] zh
+                [kh] tn
 ustop/ki        [k] base
                 [k] base2
                 [c] af
@@ -736,6 +781,7 @@ ustop/kl        [k] base
                 [k] lv
                 [k] el
                 [k] zhy
+                [kh] tn
 ustop/kr        [k] base
                 [k] base2
                 [k] el
@@ -747,6 +793,7 @@ ustop/k_unasp   [k] base
                 [k] el
                 [k] zhy
                 [k] sq
+                [k-] tn
 ustop/k_unasp_  [k] zh
 ustop/null      [?] base
                 [t2] hu
@@ -757,10 +804,11 @@ ustop/p         [p] base
 ustop/p_        [p] base
                 [ph] consonants
                 [p] fr
+                [ph] tn
 ustop/p_asp     [ph] consonants
                 [bh] hi
                 [ph] zh
-                [p#] hy
+                [ph] tn
 ustop/percus02  [#X2] hi
 ustop/percus10  [#X1] base
 ustop/pl        [p] base
@@ -772,11 +820,12 @@ ustop/pl        [p] base
                 [p] sk
                 [p] sq
                 [p] da
+                [ph] tn
 ustop/pr        [p] base
                 [p-] consonants
-                [ph] consonants
                 [p] base2
                 [p] da
+                [ph] tn
 ustop/p_unasp   [p] base
                 [p-] consonants
                 [p] base2
@@ -800,6 +849,7 @@ ustop/t         [t] base
                 [t] zhy
                 [t] da
 ustop/t_        [t] base
+                [t-] consonants
                 [t] en-us
                 [t] fr
                 [t] lv
@@ -826,18 +876,24 @@ ustop/ts        [ts] consonants
                 [ts] hu
                 [z] zhy
                 [tsh] zh
+                [ts] tn
 ustop/ts_       [ts] consonants
                 [dz] consonants
                 [ts] lv
+                [ts] tn
 ustop/ts2       [ts] lv
                 [ts] hy
+                [ts] ka
 ustop/tsh       [tS] base
                 [c] zhy
+                [tS] tn
 ustop/tsh_      [tS] base
                 [c] zhy
+                [tS] tn
 ustop/tsh2      [tS] hr
                 [dZ] hr
-ustop/t_short   [t] fr
+ustop/t_short   [t-] consonants
+                [t] fr
                 [t2] fr
                 [t.] hi
                 [t] lv
@@ -850,6 +906,7 @@ ustop/ts_pzd    [tS;] base
                 [Jh] hi
                 [tS;] ru
                 [dZ;] sq
+                [tS;] tn
 ustop/ts_pzd_   [c2] consonants
 ustop/ts_pzd2   [c2] consonants
 ustop/ts_pzd3   [tS;] hr
@@ -882,7 +939,7 @@ vdiph2/ei_4     [eI] en-us
                 [ei] zh
                 [eI] sq
 vdiph2/eo       [eo] ro
-vdiph2/e[u      [e[u] ro
+vdiph2/e_u      [e[u] ro
 vdiph2/i@       [i@] en-n
                 [i@] hy
 vdiph2/i@_2     [i@] en-wm
@@ -891,6 +948,7 @@ vdiph2/ie       [i@] en-wi
 vdiph2/ie_2     [ie] lv
 vdiph2/ii@      [i@] en
                 [i@3] en
+                [ja] ru
 vdiph2/ii@_3    [i@] vi
 vdiph2/iioo     [io] zh
 vdiph2/iu       [iU] base2
@@ -946,7 +1004,10 @@ vdiph/aau_2     [aU] en-wi
                 [aU] la
                 [aau] zhy
 vdiph/aau_3     [aU] hi
+                [aU] kn
+                [aU] ml
                 [aU] ne
+                [aU] te
 vdiph/aau_4     [aU] vi
 vdiph/aau_6     [aU] de
 vdiph/ae        [E:] fr-ca
@@ -955,6 +1016,7 @@ vdiph/ae_2      [aI] en-n
 vdiph/ai        [aI] base2
                 [aI] en-wi
                 [aI] eo
+                [aI] kn
                 [aI] sk
                 [aI] hr
                 [aI] it
@@ -963,6 +1025,8 @@ vdiph/ai        [aI] base2
                 [aI] id
                 [aI] hy
                 [aI] da
+                [aI] ml
+                [aI] te
 vdiph/ai_2      [aI] en
                 [aI] cy
                 [aY] cy
@@ -976,7 +1040,9 @@ vdiph/ai_7      [aI] en-sc
                 [aI] is
                 [aI:] is
 vdiph/ai_8      [aI] ta
+                [aI] dv
 vdiph/aoo       [aU] en-us
+                [aU] it
 vdiph/au        [aU] en
                 [aU] af
                 [aU] ta
@@ -989,7 +1055,6 @@ vdiph/au_4      [aU] base2
                 [aU] cy
                 [aU] eo
                 [aU] sk
-                [aU] it
                 [aU] id
 vdiph/ee-e      [E:] hi
 vdiph/eei       [EI] base2
@@ -1041,6 +1106,7 @@ vdiph/@i_2      [eI] af
                 [@I] cy
                 [@Y] cy
 vdiph/i@_2      [e@] af
+                [e@] tn
 vdiph/@i_3      [eI] en-wm
                 [@I] ro
                 [ai] zhy
@@ -1060,12 +1126,12 @@ vdiph/ooi       [OI] en
                 [OI] en-n
                 [OI] cy
                 [OY] cy
-                [oI] eo
                 [oi] fi
                 [oi] lv
                 [OI] no
                 [oi] zhy
 vdiph/ooi_2     [OI] af
+                [oI] eo
 vdiph/ooi_3     [OI] en-rp
                 [aI] en-wm
 vdiph/ooi_4     [OI] en-us
@@ -1079,6 +1145,7 @@ vdiph/ou_2      [oU] sk
                 [oU] ro
 vdiph/ou_3      [oU] is
                 [oU:] is
+vdiph/ou_4      [o:] nl
 vdiph/@u        [u:] en-wm
                 [@U] vi
                 [@:U] vi
@@ -1101,7 +1168,6 @@ vdiph/Vi        [VI] ne
 vdiph/Vu        [@U] af
                 [VU] ne
 vdiph/Vu_2      [oU] en-wm
-vdiph/Vu_3      [o:] nl
 vdiph/&y        [&y] fi
                 [Wy] nl
 vdiph/yi        [yi] fi
@@ -1118,7 +1184,8 @@ vdiph/y#y_3     [Y:] nl
 vnasal/aa_n     [a~] hi
 vnasal/aa_n2    [A~] en
 vnasal/aa_n3    [A~] af
-vnasal/aa_n4    [A~] fr
+vnasal/aa_n4    [A~] de
+                [A~] fr
                 [A~] ht
 vnasal/a#_n     [&~] pt
 vnasal/a#u_n    [&U~] pt
@@ -1226,11 +1293,13 @@ vowel/@         [@] base
                 [@] en-rp
                 [V] cy
                 [@4] hi
+                [@] kn
                 [@] hy
-                [@] ml
                 [@] sl
                 [@] wo
                 [@:] wo
+                [@] te
+                [@] ka
 vowel/@-        [@-] base
                 [r*] hr
 vowel/&         [a] en-rp
@@ -1239,6 +1308,7 @@ vowel/&         [a] en-rp
                 [&] lv
                 [&:] lv
                 [&] sv
+                [ja#] ru
                 [&#] da
                 [&] az
 vowel/0         [0] en
@@ -1249,6 +1319,7 @@ vowel/0_2       [0] en-n
                 [O] pt-pt
                 [o] sw
                 [o] nso
+                [o] tn
 vowel/0_3       [O:] en-us
                 [O] en-sc
                 [0] en-rp
@@ -1284,6 +1355,7 @@ vowel/8_2       [U] en-us
 vowel/8_3       [eo] zhy
 vowel/8_5       [8] ku
 vowel/8_6       [V] sq
+                [y] ml
 vowel/8_7       [@] lv
 vowel/a         [a] base
                 [a] en
@@ -1316,6 +1388,8 @@ vowel/a#        [a] base2
                 [a#] rw
                 [a/] rw
                 [a] wo
+                [a] dv
+                [a:] dv
 vowel/a_2       [a] base2
                 [a] en-wi
                 [A:] en-wi
@@ -1328,18 +1402,23 @@ vowel/a_2       [a] base2
                 [a] el
                 [a] da
                 [a] rw
-vowel/a#_2      [A] nl
+vowel/a#_2      [a] kn
+                [A] nl
                 [a:] nl
                 [a#] pl
                 [&] hr
                 [a] sv
                 [a] is
                 [a/] sw
+                [a] ml
                 [a] nso
+                [a] te
+                [a] ka
 vowel/a_3       [a] en-sc
                 [a/] en-sc
                 [A:] en-sc
                 [aa] en-sc
+                [a:] kn
                 [a] lv
                 [a:] lv
                 [a:] cs
@@ -1378,6 +1457,8 @@ vowel/a_5       [a:] ta
                 [a] sv
                 [a] sw
                 [a:] ml
+                [a:] te
+                [a] tn
 vowel/a_6       [a] ca
                 [a:] vi
                 [a:] wo
@@ -1398,6 +1479,7 @@ vowel/aa_2      [A:] en
                 [A@] en
                 [A:] cy
                 [A] zh
+                [A@] tn
 vowel/aa_3      [A:] af
                 [A] sq
                 [A] prs
@@ -1434,9 +1516,10 @@ vowel/e         [e] base
                 [eI] en-wi
                 [e:] af
                 [e:] cy
-                [e] eo
                 [e] ta
                 [e:] ta
+                [e] kn
+                [e:] kn
                 [e] hr
                 [e/] it
                 [e:] la
@@ -1456,6 +1539,9 @@ vowel/e         [e] base
                 [e] sl
                 [e] wo
                 [e:] wo
+                [e] dv
+                [e:] dv
+                [e:] te
 vowel/e#        [I] en-sc
 vowel/e_2       [eI] en-sc
                 [e:] de
@@ -1475,6 +1561,7 @@ vowel/e_8       [E:] de
                 [e] fr
 vowel/ee        [E] en-n
                 [E] sv
+                [e] ka
 vowel/e_e       [E] en-sc
                 [E:] is
 vowel/ee#       [E#] pl
@@ -1495,6 +1582,7 @@ vowel/ee_2      [E] cy
                 [E] pa
 vowel/ee#_2     [E-] sv
                 [E#] sq
+                [e] tn
 vowel/ee_3      [&] af
                 [&:] af
                 [E] pt
@@ -1504,6 +1592,7 @@ vowel/ee_5      [E] en
                 [E] ak
                 [E] wo
                 [E:] wo
+                [E] tn
 vowel/ee_6      [&] sk
                 [E3] sv
                 [E] ku
@@ -1533,14 +1622,17 @@ vowel/e_mid     [E] en-rp
                 [E] prs
                 [e] bg
                 [E] ht
+                [e] ka
 vowel/e_mid2    [E] af
                 [E] de
                 [E2] de
+                [e] eo
                 [e] jbo
                 [e] nci
                 [e] fi
                 [E] nl
                 [e] sk
+                [e/] it
                 [e] es
                 [e] ro
                 [e] el
@@ -1552,6 +1644,7 @@ vowel/e_mid2    [E] af
                 [e] nso
                 [e] az
                 [e] am
+                [e] te
 vowel/@_fnt     [@] en-wi
                 [@2] en-wi
                 [@2] hr
@@ -1567,6 +1660,7 @@ vowel/i         [i] base
                 [i:] cy
                 [i] eo
                 [i:] ta
+                [i:] kn
                 [i:] hu
                 [i] it
                 [i] pt-pt
@@ -1586,6 +1680,9 @@ vowel/i         [i] base
                 [i] ak
                 [i] am
                 [i:] wo
+                [i:] dv
+                [i:] te
+                [i] ka
 vowel/i#        [y:] cy
 vowel/i_2       [i2] de
                 [i:] de
@@ -1607,6 +1704,7 @@ vowel/i#_5      [y] pt-pt
                 [y] ro
 vowel/i_6       [i] hi
                 [i] ta
+                [i] kn
                 [i] lv
                 [i:] lv
                 [i] hr
@@ -1615,6 +1713,8 @@ vowel/i_6       [i] hi
                 [i] id
                 [i] ml
                 [i] bg
+                [i] dv
+                [i] te
 vowel/i#_6      [i.] zh
 vowel/i_7       [i] pl
                 [i] sq
@@ -1640,11 +1740,12 @@ vowel/ii        [I] en-n
                 [i] zhy
                 [I] ku
                 [I#] sq
+                [I] ml
+                [i] tn
 vowel/ii#       [Y] cy
                 [Y] ru
                 [I] ku
                 [i] sq
-                [y] ml
 vowel/ii_2      [I] en
                 [i] zh
 vowel/ii#_2     [y] pl
@@ -1661,7 +1762,9 @@ vowel/ii_3      [I] cy
 vowel/ii#_3     [I2] en-us
 vowel/ii_4      [I2] en
                 [I] en-us
-vowel/ii_5      [I] la
+                [I2] tn
+vowel/ii_5      [i] ta
+                [I] la
                 [i] zh
                 [i] bg
                 [i] az
@@ -1675,7 +1778,7 @@ vowel/ii_6      [I] en-wm
                 [i] is
                 [I] sq
                 [i] wo
-vowel/ii_en     [i] en
+vowel/ii_7      [i] en
                 [i] sq
 vowel/ii_final  [i] en-us
                 [i] en-rp
@@ -1689,6 +1792,7 @@ vowel/@_low     [@] en-rp
                 [@] ro
                 [a#] no
                 [@] id
+                [@] ml
                 [V] ne
                 [@/] ne
                 [@] pa
@@ -1701,10 +1805,13 @@ vowel/o         [o] base2
                 [oU] en-n
                 [oU] en-wi
                 [o:] de
+                [o] eo
                 [o] fr
                 [o] hi
                 [o] ta
                 [o:] ta
+                [o] kn
+                [o:] kn
                 [o] it
                 [o/] it
                 [O] la
@@ -1723,6 +1830,8 @@ vowel/o         [o] base2
                 [o] ak
                 [o] wo
                 [o:] wo
+                [o] te
+                [o:] te
 vowel/o_2       [o:] cy
                 [o:] hi
                 [o:] hu
@@ -1736,9 +1845,9 @@ vowel/o_3       [oU] en-sc
 vowel/o-_3      [U] en-rp
 vowel/o-_4      [o] ro
                 [o] am
-vowel/o_5       [O] nl
-                [O] da
-vowel/o_6       [O:] nl
+vowel/o_5       [O] da
+vowel/o_6       [O] nl
+                [O:] nl
 vowel/o_7       [o] ku
 vowel/o_8       [o] fr
                 [o] ht
@@ -1755,6 +1864,8 @@ vowel/o_mid     [U@] en-rp
                 [o] ne
                 [o] bg
                 [o] az
+                [o] dv
+                [o:] dv
 vowel/o_mid2    [O] fr
                 [O] ht
 vowel/oo        [o] base
@@ -1763,7 +1874,6 @@ vowel/oo        [o] base
                 [O:] en-wi
                 [O@] en-wi
                 [O] de
-                [o] eo
                 [O] es
                 [O] ca
                 [o] el
@@ -1783,13 +1893,17 @@ vowel/oo_1      [O:] en-n
                 [O:] en-wm
                 [O@] en-wm
                 [O:] af
+                [o] eo
                 [o] fi
                 [o] lv
                 [o:] lv
                 [o] sk
                 [o:] sk
                 [o] hr
+                [o/] it
                 [O] sq
+                [O] tn
+                [o] ka
 vowel/oo_2      [0] en-sc
                 [O] cy
                 [o] cs
@@ -1860,6 +1974,7 @@ vowel/u#_4      [U] en-sc
 vowel/u_5       [u] sw
                 [u] nso
                 [u] az
+                [u] tn
 vowel/u#_5      [y] vi
 vowel/u_6       [u:] en-rp
                 [u] ta
@@ -1868,6 +1983,10 @@ vowel/u_6       [u:] en-rp
                 [U] pt-pt
                 [u] pt-pt
                 [u] ku
+                [u] dv
+                [u:] dv
+                [u] te
+                [u:] te
 vowel/u_7       [u] vi
 vowel/u#_7      [@] tr
                 [@] az
@@ -1898,6 +2017,7 @@ vowel/u_bck     [u] base2
                 [u] ne
                 [u] pa
                 [u] bg
+                [u] ka
 vowel/u_bck2    [u] fr
                 [u:] fr
                 [u:] la
@@ -1905,6 +2025,7 @@ vowel/u_bck2    [u] fr
 vowel/uu        [U] en
                 [U] en-n
                 [U] en-wm
+                [U] tn
 vowel/uu#       [U] ku
 vowel/uu_2      [U] base2
                 [U] de
@@ -1917,6 +2038,8 @@ vowel/uu_4      [U] fi
 vowel/uu_bck    [U] en-wi
                 [U] fr-ca
                 [U] hi
+                [u] kn
+                [u:] kn
                 [u] hu
                 [U] pt
                 [U] no
@@ -1928,12 +2051,11 @@ vowel/V         [3] en-sc
 vowel/V_2       [V] en
                 [a] af
                 [V] fr
+                [@] ta
                 [V] ru
                 [V#] ru
                 [V] ku
 vowel/V_3       [V] en-rp
-                [3] de
-                [3:] de
                 [V] hi
                 [V] ta
                 [V] pa
@@ -2037,6 +2159,7 @@ vwl_fr/e_2r     [] fr
 vwl_fr/ee2r     [] fr
 vwl_fr/i2r      [] fr
 vwl_fr/j        [j/] fr
+vwl_fr/lo       [l] fr
 vwl_fr/o2r      [] fr
 vwl_fr/oo2r     [] fr
 vwl_fr/r        [r] fr
@@ -2096,9 +2219,9 @@ vwl_ru/E@       [E2] ru
                 [E3] ru
 vwl_ru/E#       [E#] ru
 vwl_ru/ee       [e] ru
-vwl_ru/i        [i] ru
 vwl_ru/i#       [y] ru
 vwl_ru/ii       [I] ru
+                [i] ru
                 [I2] ru
                 [I3] ru
 vwl_ru/ii-      [I^] ru
@@ -2110,6 +2233,9 @@ vwl_ru/oo       [O] ru
 vwl_ru/u        [u] ru
 vwl_ru/u#       [u#] ru
 vwl_ru/u#u      [u"] ru
+vwl_tn/@        [@] tn
+vwl_tn/I        [I] tn
+vwl_tn/r@       [@] tn
 vwl_zh/aang     [aan] zhy
 vwl_zh/aau      [Au] zh
 vwl_zh/a_n      [a] zh
@@ -2212,8 +2338,10 @@ x/g_            [g] base
                 [g] fr
                 [g] es
                 [g] is
+                [g] ru
 x/g2            [g] base
                 [g] cy
                 [g] es
                 [g] is
 x/g2_           [g-] en
+x/g3            [g] ru

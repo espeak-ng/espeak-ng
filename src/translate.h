@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -60,7 +60,7 @@
 
 #define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
 #define FLAG_NEEDS_DOT  0x02000000  // only if the word is followed by a dot
-
+#define FLAG_WAS_UNPRONOUNCABLE  0x04000000  // the unpronounceable routine was used
 #define FLAG_MAX3       0x08000000  // limit to 3 repeats
 #define FLAG_PAUSE1     0x10000000  // shorter prepause
 #define FLAG_TEXTMODE   0x20000000  // word translates to replacement text, not phonemes
@@ -484,10 +484,6 @@ typedef struct {
 } CHANGEPH;
 
 
-
-#define NUM_SEP_DOT    0x0008    // . , for thousands and decimal separator
-#define NUM_SEP_SPACE  0x1000    // allow space as thousands separator (in addition to langopts.thousands_sep)
-#define NUM_DEC_IT     0x2000    // (LANG=it) speak post-decimal-point digits as a combined number not as single digits
 
 typedef struct
 {//===========

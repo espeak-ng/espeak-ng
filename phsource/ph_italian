@@ -34,7 +34,11 @@ endphoneme
 phoneme e/
   vowel starttype #e endtype #e
   length 170
-  FMT(vowel/e)
+  IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
+    FMT(vowel/e_mid2)
+  ELSE
+    FMT(vowel/e)
+  ENDIF
 endphoneme
 
 
@@ -52,6 +56,14 @@ phoneme i
   length 140
   IfNextVowelAppend(;)
   FMT(vowel/i)
+endphoneme
+
+
+phoneme i#    // Used for 'gia_' where [i] is only spoken if stressed
+  vowel starttype #i endtype #i
+  length 140
+  ChangeIfNotStressed(NULL)
+  ChangePhoneme(i)
 endphoneme
 
 
@@ -74,7 +86,11 @@ endphoneme
 phoneme o/
   vowel starttype #o endtype #o
   length 170
-  FMT(vowel/o)
+  IF nextPhW(isNasal) OR nextPhW(isLiquid) THEN
+    FMT(vowel/oo_1)
+  ELSE
+    FMT(vowel/o)
+  ENDIF
 endphoneme
 
 
@@ -101,9 +117,9 @@ endphoneme
 
 
 phoneme aU
-  vowel starttype #a endtype #u
+  vowel starttype #a endtype #o
   length 270
-  FMT(vdiph/au_4)
+  FMT(vdiph/aoo)
 endphoneme
 
 

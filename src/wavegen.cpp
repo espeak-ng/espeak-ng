@@ -1965,6 +1965,10 @@ int WavegenFill2(int fill_zeros)
 			if((wdata.amplitude_fmt = q[1]) == 0)
 				wdata.amplitude_fmt = 100;  // percentage, but value=0 means 100%
 			break;
+
+		case WCMD_SONIC_SPEED:
+			sonicSpeed = (double)q[1] / 1024;
+			break;
 		}
 
 		if(result==0)
@@ -1998,6 +2002,9 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 	
 		sonicWriteShortToStream(sonicSpeedupStream, outbuf, length_in);
 	}
+
+	if(sonicSpeedupStream == NULL)
+		return(0);
 
 	if(end_of_text)
 	{

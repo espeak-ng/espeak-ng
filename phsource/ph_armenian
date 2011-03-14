@@ -79,11 +79,7 @@ endphoneme
 
 
 phoneme p#   // more aspiration
-  vls blb stop
-  lengthmod 2
-  voicingswitch b
-  CALL base/p
-  WAV(ustop/p_asp)
+  import_phoneme consonants/ph
 endphoneme
 
 
@@ -98,8 +94,7 @@ endphoneme
 
 
 phoneme k#
-  import_phoneme base/k
-  length 80
+  import_phoneme consonants/kh
 endphoneme
 
 

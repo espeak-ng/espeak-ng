@@ -20,13 +20,13 @@
 
      @) a (_S1   a
 
-	acak (_S3  adZak
-	acakmış (_S7   adZakm%@S
-	ayım (_S4  aj@m
-	alım (_S4  al@m
-	asın (_S4  as@n
+     @) acak (_S3  adZak
+     @) acakmış (_S7   adZakm%@S
+     @) ayım (_S4  aj@m
+     @) alım (_S4  al@m
+     @) asın (_S4  as@n
 
-	avru (pa avr'u
+     @) avru (pa avr'u
 
 .group b
         b        b
@@ -84,11 +84,11 @@
 
      @) e (_S1   e
 
-	ecek (_S4  edZek
-	ecekmiş (_S7   edZekm%iS
-	eyim (_S4  ejim
-	elim (_S4  elim
-	esin (_S4  esin
+     @) ecek (_S4  edZek
+     @) ecekmiş (_S7   edZekm%iS
+     @) eyim (_S4  ejim
+     @) elim (_S4  elim
+     @) esin (_S4  esin
 
 
 .group f
@@ -117,11 +117,11 @@
 
      @) i (_S1	i
 
-	im (_S2  %im
-	iniz (_S4  %iniz
-	iz (_S2  %iz
-	iyor (_S4  ij%oR
-	in (_S2  in
+     @) im (_S2  %im
+     @) iniz (_S4  %iniz
+     @) iz (_S2  %iz
+     @) iyor (_S4  ij%oR
+     @) in (_S2  in
 
 
 .group ı
@@ -129,11 +129,11 @@
 
      @) ı (_S1   @
 
-	ım (_S2  %@m
-	ınız (_S2  %@n@z
-	ız (_S2  %@z
-	ıyor (_S4  @j%oR
-	ın (_S2  @n
+     @) ım (_S2  %@m
+     @) ınız (_S2  %@n@z
+     @) ız (_S2  %@z
+     @) ıyor (_S4  @j%oR
+     @) ın (_S2  @n
 
 
 .group j
@@ -248,11 +248,11 @@
 
      @) u (_S1   u
 
-	um (_S2  %um
-	unuz (_S4  %unuz
-	uz (_S2  %uz
-	uyor (_S4  uj%oR
-	un (_S2  un
+     @) um (_S2  %um
+     @) unuz (_S4  %unuz
+     @) uz (_S2  %uz
+     @) uyor (_S4  uj%oR
+     @) un (_S2  un
 
 
 .group ü
@@ -260,11 +260,11 @@
 
      @) ü (_S1   y
 
-	üm (_S2  %ym
-	ünüz (_S4  %ynyz
-	üz (_S2  %yz
-	üyor (_S4  yj%oR
-	ün (_S2  yn
+     @) üm (_S2  %ym
+     @) ünüz (_S4  %ynyz
+     @) üz (_S2  %yz
+     @) üyor (_S4  yj%oR
+     @) ün (_S2  yn
 
 
 .group v

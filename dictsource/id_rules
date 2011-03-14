@@ -17,7 +17,8 @@
 
 
 .group c
-        c       tS
+        c        tS
+        ch       X
 
 .group d
         d        d
@@ -41,6 +42,7 @@
 
 .group i
         i        i
+        ie       i
      i) i        _|i
     A_) i        _|i
 
@@ -69,7 +71,6 @@
         n        n
         ng       N
         ny       n^
-//        nj       n^
 
 .group o
         o        o
@@ -81,6 +82,7 @@
 .group p
         p        p
         pp       p
+        ph       f
 
      _) pe (@@   p@
 
@@ -98,8 +100,8 @@
 .group s
         s        s
         ss       s
-        sy       S   // perhaps [S;] ??
-        sj       S
+        sy       C   // perhaps [S;] ??
+        sj       C
 
      _) se (@@   s@
 

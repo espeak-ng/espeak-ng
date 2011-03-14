@@ -149,8 +149,8 @@ phoneme @-   //  very short schwa
   unstressed nonsyllabic
 
   ipa ə
-  IF nextPhW(*) THEN
-    ipa NULL
+  IF nextPhW(*) OR nextPhW(r) THEN
+    ipa NULL   // @-* is used to make 'r'
   ENDIF
   length 50
   FMT(vowel/@-)
@@ -239,7 +239,7 @@ endphoneme
 phoneme #X1  // click, use for indicating capital letters
   vls alv frc sibilant
   lengthmod 3
-  WAV(ustop/percus10)
+  WAV(ustop/percus10, 60)
 endphoneme
 
 
@@ -479,6 +479,14 @@ phoneme l/    // used for [l] when not before a vowel
     VowelEnding(l/L1_uL, -40)
   EndSwitch
 
+  // we need to replace these with new FMT sequeces for jl and wl
+  IF prevPhW(j) THEN
+    FMT(l/L1_eL)
+  ENDIF
+  IF prevPhW(w) THEN
+    FMT(l/L1_eL)
+  ENDIF
+
   FMT(l/l_)
 endphoneme
 
@@ -491,6 +499,13 @@ phoneme l/2    // 'dark' [l] after a vowel
   ENDIF
 
   CALL vowelstart_l
+
+  IF prevPhW(j) THEN
+    FMT(l/L2_eL)
+  ENDIF
+  IF prevPhW(w) THEN
+    FMT(l/L2_uL)
+  ENDIF
 
   PrevVowelEndings
     VowelEnding(l/L2_@L, -60)
@@ -833,7 +848,7 @@ endphoneme
 
 
 phoneme *    //   flap
-  vcd alv flp
+  vcd alv flp rhotic
   brkafter
   ipa ɾ
   lengthmod 3
@@ -1377,7 +1392,7 @@ phoneme c
   IF nextPh(isPause2) THEN
     WAV(ustop/t_pzd, 30)
   ENDIF
-  WAV(ustop/c, 130)
+  WAV(ustop/c, 150)
 endphoneme
 
 
@@ -1574,7 +1589,7 @@ phoneme x
   IF nextPh(isPause) THEN
     WAV(ufric/x, 120)
   ENDIF
-  WAV(ufric/x_hr, 30)
+  WAV(ufric/x_hr, 25)
 endphoneme
 
 
@@ -1673,11 +1688,16 @@ include ph_french
 phonemetable fr-ca fr
 include ph_french_ca
 
+
 phonemetable hi base
 include ph_hindi
 
 phonemetable ta hi
 include ph_tamil
+
+phonemetable kn hi
+include ph_kannada
+
 
 phonemetable hu base
 include ph_hungarian
@@ -1793,9 +1813,6 @@ include ph_kinyarwanda
 phonemetable ml hi
 include ph_malayalam
 
-//phonemetable kn hi
-//include ph_kannada
-
 //phonemetable bn hi
 //include ph_bengali
 
@@ -1843,3 +1860,15 @@ include ph_amhari
 
 phonemetable wo base
 include ph_wolof
+
+phonemetable dv hi
+include ph_divehi
+
+phonemetable te hi
+include ph_telugu
+
+phonemetable tn base
+include ph_setswana
+
+phonemetable ka base
+include ph_georgian

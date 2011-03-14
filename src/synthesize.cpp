@@ -200,7 +200,10 @@ int PauseLength(int pause, int control)
 	else
 		len = (pause * speed.wav_factor)/256;
 
-	if(len < 5) len = 5;      // mS, limit the amount to which pauses can be shortened
+	if(len < speed.min_pause)
+	{
+		len = speed.min_pause;      // mS, limit the amount to which pauses can be shortened
+	}
 	return(len);
 }
 
@@ -1215,6 +1218,15 @@ void DoMarker(int type, int char_posn, int length, int value)
 }  // end of DoMarker
 
 
+void DoSonicSpeed(int value)
+{//=========================
+// value, multiplier * 1024
+	wcmdq[wcmdq_tail][0] = WCMD_SONIC_SPEED;
+	wcmdq[wcmdq_tail][1] = value;
+	WcmdqInc();
+}  // end of DoSonicSpeed
+
+
 void DoVoiceChange(voice_t *v)
 {//===========================
 // allocate memory for a copy of the voice data, and free it in wavegenfill()
@@ -1459,7 +1471,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				}
 			}
 
-			if((prev->type==phVOWEL) || (prev->ph->phflags & phVOWEL2))
+			if((prev->type==phVOWEL) || (prev->ph->phflags & phVOWEL2) || (ph->phflags & phPREVOICE))
 			{
 				// a period of voicing before the release
 				InterpretPhoneme(NULL, 0x01, p, &phdata);

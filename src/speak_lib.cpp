@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -370,8 +370,8 @@ static void init_path(const char *path)
 #endif
 }
 
-static int initialise(void)
-{//========================
+static int initialise(int control)
+{//===============================
 	int param;
 	int result;
 
@@ -382,7 +382,10 @@ static int initialise(void)
 		if(result == -1)
 		{
 			fprintf(stderr,"Failed to load espeak-data\n");
-			exit(1);
+			if((control & espeakINITIALIZE_DONT_EXIT) == 0)
+			{
+				exit(1);
+			}
 		}
 		else
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
@@ -745,7 +748,7 @@ ENTER("espeak_Initialize");
 #endif
 	
 	init_path(path);
-	initialise();
+	initialise(options);
 	select_output(output_type);
 
 	if(f_logespeak)
@@ -1222,8 +1225,12 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	return EE_OK;
 }   //  end of espeak_Terminate
 
-ESPEAK_API const char *espeak_Info(void *)
-{//=======================================
+ESPEAK_API const char *espeak_Info(const char **ptr)
+{//=================================================
+	if(ptr != NULL)
+	{
+		*ptr = path_home;
+	}
 	return(version_string);
 }
 

@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2010-10-15 Michel Such  <michel.such@free.fr>
+// Updated 2011-02-18 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -43,40 +43,52 @@ b	be
 c	se
 ç	$accent
 d	de
-e	@
+_e	@
+e	_!@
 ë	$accent
 é	$accent
 è	$accent
 ê	$accent
 ë	$accent
-f	Ef
+_f	Ef
+f	_!Ef
 g	Ze
-h	aS
-i	i
+_h	aS
+h	_!aS
+_i	i
+i	_!i
 ï	$accent
 î	$accent
 j	Zi
 k	ka
-l	El
-m	Em
-n	En
+_l	El
+l	_!El
+_m	Em
+m	_!Em
+_n	En
+n	_!En
 ñ	$accent
-o	o
+_o	o
+o	_!o
 _ô	$accent
 ö       $accent
 œ	o||@||lie
 p	pe
 q	ky
-r	Er
-s	Es
-u	y
+_r	Er
+r	_!Er
+_s	Es
+s	_!Es
+_u	y
+u	_!y
 ù       $accent
 û	$accent
 ü	$accent
 v	ve
 w	dubl@v'e
-x	iks
-_y      i:gr'Ek
+_x	iks
+x	_!iks
+_y      _!i:gr'Ek
 z	zEd
 
 
@@ -267,6 +279,7 @@ cpu	$abbrev
 ctrl		_::kO~trOl
 dept		département $text
 divx	diviks
+dj	_^_en
 ebay	_^_en
 (e bay)	ebay $text
 ebcdic	@besedik
@@ -295,6 +308,7 @@ m.		m@siY
 mbit  		megabit
 mbrola		Embrola
 mci	$abbrev
+mercedes	mErsedEs
 mhz		megaErts
 mlle		mademoiselle $text
 mm	millimètre $text
@@ -321,6 +335,7 @@ qqs	quelques $text
 ratp		$abbrev
 riaa	$abbrev
 riscos	riskoEs
+samsung	samsuN
 sap	$abbrev
 scsi		$abbrev
 solaris	solaris
@@ -671,6 +686,7 @@ bus	      bys
 bus	      by  $verb
 cancer	kA~sEr
 canyon	kanjOn
+center	_^_en
 charles	Sarl
 (chef d'oeuvre)	chédeuvre $text
 (chef d'oeuvres)	chédeuvres $text
@@ -679,6 +695,7 @@ choeur        kWr
 cinema	sinema
 cocus     kOky
 couscous	kuskus
+cynthia	sintia
 delete	_^_en
 dengue	dE~g
 dernier    dErnjer2
@@ -697,7 +714,9 @@ free	_^_en
 fuel	      fjul
 gangster	gA~gstEr
 gars	      ga
+geek	_^_en
 genesis	Zenezis
+german	_^_en
 georges	ZOrZ
 gilles	Zil
 gin	dZin
@@ -706,14 +725,19 @@ gus	gys
 gym	Zim
 han	_|A~
 hélas 		elas $u+
+hermes _|ErmEs
+input	_^_en
+island	_^_en
 jackpot	dZakpOt
 jacques	Zak
+james	_^_en
 karaoke	karaoke
 kevin	kevin
 laetitia	letisja
 laser	      lazEr
 listbox	listbOks
 louis	lwi
+luigi	lwidZi
 malus      malys
 mai	mE
 mapper	_^_en
@@ -728,9 +752,11 @@ monsieur         m@sjY
 mrs	_^_en
 oasis	oazis
 ours	urs
+output	_^_en
 pataquès	patakEs
 peter	_^_en
 phallus    falys
+pokémon	pokemOn
 polder    pOldEr
 premier    pr@mjer2
 program	_^_en
@@ -741,6 +767,8 @@ quit	_^_en
 recorder	_^_en
 requiem	rekyijEm
 revolver	revOlvEr
+(saint cloud)	sE~klu
+(st cloud)	sE~klu
 sas	sas
 scan	_^_en
 scanner	skaner2 $verb
@@ -761,6 +789,8 @@ vaut	$u+
 vaux	$u+
 vénus       venys
 vot       vOt
+waluigi	waluidZi
+wario	warjo
 yves	iv
 
 
@@ -874,6 +904,7 @@ mailto	_^_en
 media     		medja
 messenger 		_^_en
 nat		nat
+nintendo	_^_en
 not		_^_en
 null	_^_en
 ok         oke $u+
@@ -890,6 +921,7 @@ sun		_^_en
 (text aloud) _^_en
 ubuntu		ubuntu
 up		_^_en
+wii		wi:
 yes		_^_en
 yet		_^_en
 
@@ -961,4 +993,5 @@ venezuela	venezyEla
 (viêt nam)	vjEtnam
 wallis	walis
 futuna	futuna
+yoshi	_^_en
 zimbabwe	zimbabwe

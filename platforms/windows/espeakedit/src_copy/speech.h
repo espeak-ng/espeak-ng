@@ -18,6 +18,8 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#ifndef SPEECH_H
+#define SPEECH_H
 
 #define LOG_FRAMES      // write keyframe info to src/log
 
@@ -37,7 +39,6 @@
 //#define USE_NANOSLEEP
 #define NO_VARIADIC_MACROS
 #define __cdecl 
-#define ESPEAK_API
 #define PATH_ESPEAK_DATA  "C:\\Program files\\espeak\\espeak-data"
 
 typedef unsigned short USHORT;
@@ -63,3 +64,4 @@ int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
 
+#endif SPEECH_H

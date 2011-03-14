@@ -334,7 +334,7 @@ typedef struct {
 // phflags
 #define i_isSibilant   0x45    // bit 5 in phflags
 #define i_isPalatal    0x49    // bit 9 in phflags
-#define i_isRhotic     0x56    // bit 22 in phflags
+#define i_isRhotic     0x57    // bit 23 in phflags
 #define i_isFlag1      0x5c
 #define i_isFlag2      0x5d
 #define i_isFlag3      0x5e
@@ -362,6 +362,7 @@ typedef struct {
 typedef struct {
 	int pause_factor;
 	int clause_pause_factor;
+	int min_pause;
 	int wav_factor;
 	int lenmod_factor;
 	int lenmod2_factor;
@@ -448,6 +449,7 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 #define WCMD_EMBEDDED 12
 #define WCMD_MBROLA_DATA 13
 #define WCMD_FMT_AMPLITUDE 14
+#define WCMD_SONIC_SPEED 15
 
 
 

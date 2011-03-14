@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -101,6 +101,7 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x1366,
   0x1367,
   0x1368,
+  0x10fb,  // Georgian paragraph
 
   0x3001,  // ideograph comma
   0x3002,  // ideograph period
@@ -142,7 +143,8 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COLON,      // Ethiopic colon
   CLAUSE_COLON,      // Ethiopic preface colon
   CLAUSE_QUESTION,   // Ethiopic question mark
-  CLAUSE_PERIOD,     // Ethiopic paragraph
+  CLAUSE_PARAGRAPH,     // Ethiopic paragraph
+  CLAUSE_PARAGRAPH,     // Georgian paragraph
 
   CLAUSE_COMMA+0x8000,      // ideograph comma
   CLAUSE_PERIOD+0x8000,     // ideograph period
@@ -884,7 +886,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			if(punct_count==1)
 			{
 //				sprintf(buf,"%s %s %s",tone_punct_on,punctname,tone_punct_off);
-				sprintf(buf,"%s",punctname);
+				sprintf(buf," %s",punctname);   // we need the space before punctname, to ensure it doesn't merge with the previous word  (eg.  "2.-a")
 			}
 			else
 			if(punct_count < 4)
@@ -900,7 +902,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			}
 			else
 			{
-				sprintf(buf,"%s %d %s",
+				sprintf(buf," %s %d %s",
 						punctname,punct_count,punctname);
 			}
 		}
@@ -1193,7 +1195,7 @@ static wchar_t *GetSsmlAttribute(wchar_t *pw, const char *name)
 				while(iswspace(*pw)) pw++;
 				if(*pw == '=') pw++;
 				while(iswspace(*pw)) pw++;
-				if(*pw == '"')
+				if((*pw == '"') || (*pw == '\''))  // allow single-quotes ?
 					return(pw+1);
 				else
 					return(empty);
@@ -1215,7 +1217,7 @@ static int attrcmp(const wchar_t *string1, const char *string2)
 	for(ix=0; (string1[ix] == string2[ix]) && (string1[ix] != 0); ix++)
 	{
 	}
-	if((string1[ix]=='"') && (string2[ix]==0))
+	if(((string1[ix]=='"') || (string1[ix]=='\'')) && (string2[ix]==0))
 		return(0);
 	return(1);
 }
@@ -1284,7 +1286,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 {//=============================================================================
 	int sign = 0;
 	wchar_t *tail;
-	float value;
+	double value;
 
 	while(iswspace(*pw)) pw++;
 	if(*pw == '+')
@@ -1297,7 +1299,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 		pw++;	
 		sign = -1;
 	}
-	value = (float)wcstod(pw,&tail);
+	value = (double)wcstod(pw,&tail);
 	if(tail == pw)
 	{
 		// failed to find a number, return 100%
@@ -1324,7 +1326,10 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 
 	if(param_type == espeakRATE)
 	{
-		*value_out = (int)(value * 100);
+		if(sign == 0)
+			*value_out = (int)(value * 100);
+		else
+			*value_out = 100 + (int)(sign * value * 100);
 		return(2);   // percentage
 	}
 

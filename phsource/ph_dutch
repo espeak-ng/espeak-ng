@@ -64,8 +64,8 @@ endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
-  length 150
-  FMT(vowel/o_5)
+  length 140
+  FMT(vowel/o_6)
 endphoneme
 
 phoneme O:      // for "oor"
@@ -125,7 +125,7 @@ endphoneme
 phoneme o:
   vowel starttype #o endtype #u
   length 200
-  FMT(vdiph/Vu_3)
+  FMT(vdiph/ou_4)
 endphoneme
 
 
@@ -166,7 +166,7 @@ endphoneme
 //===========
 
 
-phoneme r    // from Afrikaans
+phoneme r
   import_phoneme base/R2
 endphoneme
 
@@ -194,4 +194,83 @@ phoneme Q
 endphoneme
 
 
+phoneme !  //  Short pause, replaces assimilated t,d,p,b at end of word
+  pause
+  ipa NULL
+  starttype _ endtype _
+  lengthmod 1
+  length 25
+endphoneme
+
+
+phoneme k
+  import_phoneme consonants/k-  // unaspirated
+endphoneme
+
+
+phoneme t
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(t) OR nextPh(d) THEN
+      ChangePhoneme(!)
+    ENDIF
+  ENDIF
+  CALL consonants/t-
+endphoneme
+
+phoneme d
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(t) OR nextPh(d) THEN
+      ChangePhoneme(!)
+    ENDIF
+  ENDIF
+
+  IF prevPh(!) THEN  // previous was [t] or [d], now assimilated
+    ChangePhoneme(t)
+  ENDIF
+  CALL base/d
+endphoneme
+
+phoneme p
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(p) OR nextPh(b) THEN
+      ChangePhoneme(!)
+    ENDIF
+  ENDIF
+  CALL consonants/p-  // unaspirated
+endphoneme
+
+phoneme b
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(p) OR nextPh(b) THEN
+      ChangePhoneme(!)
+    ENDIF
+  ENDIF
+
+  IF prevPh(!) THEN  // previous was [p] or [b], now assimilated
+    ChangePhoneme(p)
+  ENDIF
+  CALL base/b
+endphoneme
+
+phoneme s
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(s) OR nextPh(z) THEN
+      ChangePhoneme(!)
+    ENDIF
+  ENDIF
+  CALL base/s  // unaspirated
+endphoneme
+
+phoneme z
+  IF thisPh(isWordEnd) THEN
+    IF nextPh(s) OR nextPh(z) THEN
+      ChangePhoneme(!)
+    ENDIF
+  ENDIF
+
+  IF prevPh(!) THEN  // previous was [s] or [z], now assimilated
+    ChangePhoneme(s)
+  ENDIF
+  CALL base/s
+endphoneme
 

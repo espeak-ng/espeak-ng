@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.44.19  20.Dec.10";
+const char *version_string = "1.44.42  12.Mar.11";
 const int version_phdata  = 0x014415;
 
 int option_device_number = -1;
@@ -496,7 +496,7 @@ void LoadConfig(void)
 		else
 		if(memcmp(buf,"pa_device",9)==0)
 		{
-			sscanf(&buf[7],"%d",&option_device_number);
+			sscanf(&buf[10],"%d",&option_device_number);
 		}
 		else
 		if(memcmp(buf,"soundicon",9)==0)
@@ -617,6 +617,13 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			if(plist[0].sourceix)
 				return(false);
 		}
+		if(which==7)
+		{
+			// nextPh2 not word boundary
+			if((plist[1].sourceix) || (plist[2].sourceix))
+				return(false);
+		}
+
 		if(which==6)
 		{
 			// nextVowel, not word boundary
@@ -628,16 +635,11 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 					break;
 			}
 		}
-		if(which==7)
-		{
-			// nextPh2 not word boundary
-			if((plist[1].sourceix) || (plist[2].sourceix))
-				return(false);
-		}
 		else
 		{
 			which = ph_position[which];
 		}
+
 		plist_this = plist;
 		plist = &plist[which-1];
 

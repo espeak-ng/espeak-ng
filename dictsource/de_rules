@@ -71,7 +71,7 @@
      _) a (natioP1 'A:
      _) anath      anat
      _) an (der    an
-     _) angli (@   aNgli:
+     _) angli (C   aNgli:
      _) anglo (@   ,aNglo:
      _) anheim (C@P6 anh'aIm
      _) animal     ,ani:mA:l
@@ -88,7 +88,7 @@
         a (C_      A:
      @) a (bl_     'A:
      @) a (bel_    'A:
-     s) a (g       A:
+     s) a (g       A:Spionage
     @l) a (g       A:
   schl) ag (ge     A:k
    scl) a (g       A:
@@ -100,6 +100,8 @@
      _) achs (@P4  'aks
      _) achs (el   'aks
      j) ag (d      A:k
+        age (_$w_alt  'A:Z@
+        age (n_$p_alt  'A:Z@
      _) air        _^_EN
      m) air (_     aI3
         ai (sch    A:I
@@ -115,9 +117,12 @@
  &sign) al (_      ,A:l
      r) al (_      'A:l
      t) al (_      'A:l
+     _) aller (@P5 'al@r
      m) a (lt_     A:l
    ker) am (ik     'A:m
      @) an (_      'A:n
+     @) ance (_    'A~s
+    fr) ance (_    'A~s@
    ein) an (der    'an
      @) ant (_     'ant
      _) anthropo   ,antro:p%o:
@@ -228,6 +233,7 @@
      _) cey        tsaI
         chef (_    SEf
      _) c (ent     ts
+        chance     SA~s@
         chara (kt  k%ara
      _) ch (ic     S
      _) ch (if     S
@@ -380,11 +386,13 @@
      m) e (nt      E
 
      @) ei (_      'aI
+    rl) ei (_      aI
    &fr) ei (_      ,aI
     @@) erisch     @rIS
      &) erung (_   =@rUN
 
         echo       ECo:
+     h) ee (_      'e:
      _) e (ff      %E
      l) e (g_      'e:
         eih (_     aI
@@ -428,7 +436,7 @@
         er (o_     'e:r
      _) ergeb (nis Erg'e:b
      _) erst (CP4  'Erst
-     _) er (str+   _|%Er
+     _) ers (tr+   _|%ErS
      @) er (v      Er
    mod) er (n      Er
 
@@ -504,12 +512,13 @@
      _) ge (beX    ge:
         geben      ge:b@n
         ge(birg    g@
-        gegen (@P5 ge:g@n
-        gegen (_   ge:g@n
+        gegen (_@P5 ge:g@n
+        gegen      ge:g@n
         gegn       ge:gn
         gehen      ge:@n
      _) geh (eX    ge:
         gei (+     gaI
+     _) ge (imp    g@
         ge (mach   g@
         ge (mal    g@
         ge (tr     g@
@@ -595,7 +604,7 @@
         i (d_      'i:
         i (dee     %i:
         i (erin    =i:
-     &) ig (+      Ig#       // [ig] or [iC]
+        ig (+      Ig#       // [ig] or [iC]
         igh (K     _^_EN
 
         i (i       i:_!
@@ -624,6 +633,7 @@
      z) in (_      'i:n
      @) in (o_     'i:n
      @) ion (_     j'o:n
+     g) ion (_     i'o:n
      @) io (n      Io:
         io         Io:
      @) is (_      Is
@@ -643,6 +653,7 @@
         ie         i:
         ieh        i:
      @) ie (_      'i:
+     @) ie (_$w_alt  =I@
 
      &) ie (ll_    I'E
      &) ie (r_     'i:
@@ -761,8 +772,10 @@ formal) ie         =I@
         m          m
      m) m 
 
+     _) manch      manC    // for 'manchen'
         marine     mA:r'i:n@
      _) meß (@P3   m'Es
+     _) menag      m%e:nA:Z
      _) met (all   m%e:t
      _) meth       m%e:t
         meter      m'e:t3
@@ -776,7 +789,7 @@ formal) ie         =I@
      _) m (nem     m   // allow _mnem
      _) mo (rb     m%O
      _) mono (@    m,o:no:
-     _) motor      m%o:to:r
+     _) motor      m'o:to:r
      _) ms         _^_EN
         musik      m%u:zi:k
 
@@ -804,7 +817,7 @@ formal) ie         =I@
      _) ne (g      ne:
         neglig     ne:gli:Z
         neglige    ne:gli:Z
-     &) ness       _^_EN
+     &) ness (_N   _^_EN
         news       _^_EN
         nieder     ni:d3
 
@@ -852,6 +865,7 @@ formal) ie         =I@
      &) oren (_    'o:r@n
      _) orts (@P4  'Orts
         oso (_     'o:zo:
+     _) oster      'o:st@r
     st) o (ss      o:
         oy (K      OY
 
@@ -913,7 +927,7 @@ formal) ie         =I@
      _) r (_       Er
         r          r
         r (r 
-     b) r          @-*
+     b) r          r    // uses phonemes @-*
      _) r          r
      _) rh (A      r    // allow _rh
 
@@ -968,6 +982,7 @@ formal) ie         =I@
    _be) sp         Sp
    _ge) sp         Sp
   _ver) sp         Sp
+        sp (an     Sp
         sp (eich   Sp
         sp (err    Sp
         sph        sf
@@ -1015,10 +1030,12 @@ formal) ie         =I@
 
         speed      _^_EN
   stau) ss         s
+     _) st (ilA    st
      @) straße (_S6 str,A:s@
      _) street     _^_EN
         style      _^_EN
         synthesi   _^_EN
+        system     z%Iste:m
 
 .group t
      _) t (_       te:
@@ -1163,6 +1180,7 @@ formal) ie         =I@
 
         vater      fA:t3
         väter      fE:t3
+     _) v (ati_    f
      _) v (ät      f
      _) v (ie      f
      _) v (iet     v
@@ -1201,10 +1219,10 @@ formal) ie         =I@
      _) vor (n     fOr
 
      _) vor (@P3   'fo:r
-     _) voraus (@P6 fo:r'aUs
-     _) vorbei (@P6 fo:r'baI
-     _) vorher (@P6 fo:rh'e:r
-     _) vorüber (@P7 fo:r'yb3
+     _) voraus (P6 fo:r'aUs
+     _) vorbei (P6 fo:r'baI
+     _) vorher (P6 fo:rh'e:r
+     _) vorüber (P7 fo:r'yb3
 
 .group w
      _) w (_       ve:
@@ -1257,7 +1275,7 @@ formal) ie         =I@
      _) zere (b    tse:re:
      _) zere (m    tse:re:
         ziell      tsj'El
-     _) zie (ge@P3 ts'aI
+     _) zie (ge@P3 ts'i:
      _) zeit (@P4  ts'aIt
      _) ziel (@P4  ts'i:l
      _) zier (@P4  ts'i:r

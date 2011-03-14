@@ -411,7 +411,7 @@ void VoiceReset(int tone_only)
 	voice->samplerate = 22050;
 	memset(voice->klattv,0,sizeof(voice->klattv));
 
-	speed.fast_settings[0] = 350;
+	speed.fast_settings[0] = 400;
 	speed.fast_settings[1] = 800;
 	speed.fast_settings[2] = 175;
 
@@ -1506,6 +1506,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	}
 
 	// index the sorted list by the required variant number
+	if(ix2 == 0)
+		return(NULL);
 	vp = voices2[voice_select2.variant % ix2];
 
 	if(vp->variant != 0)

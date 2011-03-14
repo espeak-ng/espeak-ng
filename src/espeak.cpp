@@ -426,6 +426,9 @@ int main (int argc, char **argv)
 
 		if(c == '-')
 		{
+			if(p[0] == 0)
+				break;   // -- means don't interpret further - as commands
+
 			opt_string="";
 			for(ix=0; ;ix++)
 			{
@@ -478,9 +481,15 @@ int main (int argc, char **argv)
 			break;
 
 		case 'h':
-			printf("\n");
-			printf("eSpeak text-to-speech: %s\n%s",espeak_Info(NULL),help_text);
-			exit(0);
+			{
+				const char *version;
+				const char *path_data;
+				espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, data_path, espeakINITIALIZE_DONT_EXIT);
+				version = espeak_Info(&path_data);
+				printf("\n");
+				printf("eSpeak text-to-speech: %s  Data at: %s\n%s", version, path_data, help_text);
+				exit(0);
+			}
 			break;
 
 		case 'k':

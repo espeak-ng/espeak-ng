@@ -20,6 +20,10 @@
 
 // Windows command-line version of eSpeak
 
+#ifndef SPEECH_H
+#define SPEECH_H
+
+
 
 // conditional compilation options
 
@@ -62,3 +66,4 @@ int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
 
+#endif // SPEECH_H

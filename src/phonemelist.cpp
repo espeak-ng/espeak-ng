@@ -131,7 +131,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_LIST *plist3_inserted = NULL;
 	PHONEME_LIST ph_list3[N_PHONEME_LIST];
 
-	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0};
+	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0,0};
 	PHONEME_LIST2 *plist2 = &ph_list2_null;
 
 	plist2 = ph_list2;

@@ -90,8 +90,8 @@ alcool $1
 alcor $2
 alcov  $alt
 aldebaran $4
-ale $2
 alea $1
+ale $2
 alen  $alt2
 alenia  $alt
 aleria $2  $alt2
@@ -387,8 +387,8 @@ augure $1
 aulos $3
 aureol $3
 ausoni  $alt
-austral $3
 australasia $4
+austral $3
 austrasia $3
 autari $1
 autentic  $alt
@@ -405,8 +405,8 @@ autopilot  $alt
 autostop $4  $alt
 autoveicolo  autovE'ikolo
 avampost  $alt2
-avari $1
 avaria $3
+avari $1
 aven  $alt2
 avere $2  $alt2
 avvi $2
@@ -436,8 +436,8 @@ baka $2
 balaam $1
 balen  $alt2
 balenotter  $alt
-bali $2
 balia $2
+bali $2
 balneoterapia $6
 balsami $1
 balsam $1
@@ -620,8 +620,8 @@ bufal $1
 buffal $1
 buia  b'uia
 buio  b'uio
-bulgari $1
 bulgaria $3
+bulgari $1
 bulgar $1
 bultei $2
 buonarroti  $alt
@@ -832,12 +832,11 @@ ceram $1
 ceranesi $2
 cerber $1
 cerc  $alt2
-cerchi  $alt2
 cerchia  $alt2
 cerchi  $alt2
 cercine  $alt2
-cerc  $alt2
 cercoceb  $alt
+cerc  $alt2
 cercol  $alt2
 cercopitec  $alt
 cernobbi  $alt
@@ -1364,9 +1363,9 @@ elemosin $3
 elett  $alt
 elettr  $alt
 elettric  $alt
-elettr  $alt
 elettrod  $alt
 elettrodott  $alt2
+elettr  $alt
 elettroforesi  $alt
 elettrolisi $3
 elettromagnete  $alt
@@ -1455,8 +1454,8 @@ epos  $alt
 epsilon $1  $alt
 eptarchia $3
 equanime $2
-equi  $alt
 equidi  $alt
+equi  $alt
 equilater $3
 equipe $1
 equivoc $2
@@ -1663,8 +1662,8 @@ folgaria $3
 folgore $1
 follia $2
 fomori $1
-fon  $alt
 fonem  $alt
+fon  $alt
 fontanafredd  $alt2
 fontanelice  $alt2
 fontanigord  $alt2
@@ -1689,8 +1688,8 @@ fosdinov  $alt
 fosfor $1  $alt
 fossacesia $3  $alt
 fossanov  $alt
-fot  $alt
 fotoelettric  $alt
+fot  $alt
 fotogenia $4
 fotolisi $2
 fotoritocc  $alt2
@@ -1739,9 +1738,9 @@ garofan $2
 garzon $2
 gasdott  $alt2
 gaudenzi  $alt
-ge  $alt
 gebel  $alt
 gec  $alt
+ge  $alt
 gematria $3
 gemin $1
 gemit $1
@@ -1770,6 +1769,7 @@ gettit $1
 gez  $alt2
 ghedi  $alt
 ghiott  $alt2
+giacom $1
 giarabub $3
 giaven  $alt2
 gijon $2
@@ -1894,7 +1894,6 @@ imenotteri  $alt
 imol $1
 impari $1
 imperfett  $alt
-impero $3  $alt
 impet $1
 impieg  $alt
 implicit $2
@@ -2172,8 +2171,9 @@ malag $1
 malapen  $alt2
 malavoglia  $alt
 malcesine  $alt2
-male $2  $alt
+male $2
 malebolge  $alt
+male  $alt
 malesia $2  $alt
 malessere  $alt
 malevol  $alt
@@ -2202,9 +2202,9 @@ manodoper $3
 mansuet  $alt
 manticor $2
 manul $2
-mara $2
 maracalagonis  $alt
 maramao $3
+mara $2
 marathon $3
 maratonet  $alt
 marciapiede  $alt
@@ -2218,8 +2218,9 @@ marmirol $3
 marmor $1
 marmore $1
 marmoreo $2
-maro $2  $alt
+maro $2
 maroboduo  $alt
+maro  $alt
 marron $2
 marsia $1
 marsicovetere  $alt
@@ -2243,7 +2244,6 @@ mazzaccher $2
 mazze $2  $alt
 mazzin $2
 mazzol $2
-medi  $alt
 media  $alt
 medi  $alt
 mediceo $2
@@ -2282,8 +2282,8 @@ mercanzia $3
 merce $2
 meri $2
 meristem  $alt
-merit $1
 meritocrazia $5
+merit $1
 merope $1
 mes  $alt
 mescal $2
@@ -2316,10 +2316,10 @@ metr  $alt2
 mettere  $alt
 mexic  $alt2
 mezenzi  $alt
-mezz  $alt
 mezzadria $3
 mezzaneg $2
 mezzogiorn  $alt2
+mezz  $alt
 miastenia $4
 michiel $2
 microcefalia $5
@@ -2356,8 +2356,8 @@ miser $1
 misia $1
 misoginia $4
 mista $2
-mistra $2
 mistral $2
+mistra $2
 mitocondri  $alt
 mixtechi  $alt
 moa  $alt
@@ -2366,9 +2366,9 @@ mochi  $alt
 moconesi $2
 mod  $alt
 modem  $alt
-mod  $alt
 modestia $2
 modoc  $alt
+mod  $alt
 mogan $1
 moggi  $alt
 moglia  $alt
@@ -2379,12 +2379,12 @@ moire $3
 mok  $alt
 moken  $alt
 mol  $alt
-mole  $alt
 molecol  $alt
-mol  $alt
+mole  $alt
 mollic $2
-moloch  $alt
 molochi  $alt
+moloch  $alt
+mol  $alt
 molotr $1  $alt
 molten  $alt2
 molv  $alt
@@ -2518,9 +2518,10 @@ niscemi  $alt
 niteroi  $alt2
 nocciol  $alt
 nod  $alt
-noe $2  $alt
+noe $2
 noem  $alt
 noemi  $alt
+noe  $alt
 noicattar $3
 nol  $alt
 nomade $1
@@ -2540,8 +2541,8 @@ nottetemp  $alt
 noumea  $alt2
 noumen $2
 nous $2
-nove  $alt
 novembre  $alt
+nove  $alt
 nover $1
 novi  $alt
 nov  $alt
@@ -2567,9 +2568,9 @@ occhi  $alt
 ocean $2
 ode  $alt
 odi  $alt
-od  $alt
 odontoiatria $6
 odontotecnic  $alt
+od  $alt
 ofant $1  $alt
 offid  $alt
 oggebbi  $alt
@@ -2577,13 +2578,13 @@ oggett  $alt
 oggigiorn  $alt2
 ogli  $alt
 ognitemp  $alt
-oh  $alt
 ohi  $alt
 ohmic  $alt
+oh  $alt
 oidi $2
 ola $2
-ole $2
 oleacee $3
+ole $2
 oleodott  $alt2
 olg  $alt
 oligarchia $4
@@ -2632,8 +2633,8 @@ orefice  $alt2
 orfan $1
 orfanotrofi  $alt
 orfei $2
-organ $1
 organon $1  $alt2
+organ $1
 orgia $1
 origan $2
 oritterop $3
@@ -2646,6 +2647,7 @@ oroscop $2  $alt
 orosei $3
 ors  $alt2
 orsol  $alt2
+ors  $alt2
 ortensia $2  $alt
 ortensi  $alt
 ortic $2
@@ -2737,16 +2739,17 @@ parapett  $alt
 paratoia  $alt2
 paraurti $3
 paravia $3
-pare $2
 parenchim  $alt
 parentesi $2  $alt
+pare $2
 parere $2  $alt2
 parestesie $4
 parghelia $3
 paria $2
 parnassos $3
-parodi $2  $alt
+parodi  $alt
 parodia $3
+parodi $2
 parop  $alt
 parricid $3
 parroc $1
@@ -2777,7 +2780,6 @@ pediatria $3
 pedofilia $4
 pedogenesi $3
 peggi  $alt
-pel  $alt2
 pelag $1
 pelaverg  $alt2
 pell  $alt2
@@ -2787,6 +2789,7 @@ pelope $1
 peloponnes  $alt
 pelosi  $alt2
 pelot  $alt
+pel  $alt2
 pemfig  $alt
 pend  $alt2
 pendi $2
@@ -2823,8 +2826,8 @@ pericle $1
 perieget  $alt
 perier $1  $alt2
 perifrasi $2
-perim $2
 perimetr $2
+perim $2
 period $2
 peripl $1
 peristasi $2
@@ -2833,17 +2836,17 @@ perlomen  $alt2
 permafrost $1
 permut $1
 pernice $2
-pero $2  $alt
 peronospor $3  $alt
+pero $2  $alt
 perpetua  $alt
 perpetuo  $alt
 perregaux $2
 perrer $2
 persefone $2  $alt
-persia $1
 persian $3
-peru $2
+persia $1
 perun $2
+peru $2
 pesc  $alt
 pescasseroli $3
 pesche  $alt
@@ -2868,11 +2871,11 @@ picche $2  $alt
 piccolomini $3
 picnic $2
 pidocchi  $alt
-pie  $alt
 piece  $alt
 piede  $alt
 piedr  $alt
 pieg  $alt
+pie  $alt
 piet  $alt
 pietraperzia $4
 pietraroj  $alt
@@ -2915,8 +2918,8 @@ planimetr $2
 plantagenet  $alt
 plasmodesm  $alt
 plasmodi  $alt
-platani $1
 platania $3
+platani $1
 platan $1
 platin $1
 plebe  $alt
@@ -2932,8 +2935,8 @@ pocol $2
 podere $2  $alt2
 podesta $3
 podi  $alt
-poe  $alt
 poem  $alt
+poe  $alt
 poet  $alt
 poggi  $alt
 poh  $alt
@@ -2977,10 +2980,10 @@ pontassieve  $alt
 pontefice  $alt2
 pontelandolf  $alt
 pontremoli $2
-pop  $alt
 pope  $alt
 popp  $alt2
 poppi  $alt2
+pop  $alt
 porcile $2
 porfiria $3
 poriferi $2
@@ -3148,8 +3151,8 @@ rape $2  $alt
 rapsod  $alt
 rapsodia $3
 rapsod $2
-rate $2
 rateo $1
+rate $2
 razzia $2
 realta $3
 rebbi  $alt2
@@ -3270,8 +3273,8 @@ ropaloceri $3
 rore  $alt
 ros  $alt
 rosalia $3
-rose $2
 roseo $1  $alt
+rose $2
 rosolia $3
 rospigliosi  $alt2
 rosp  $alt
@@ -3314,8 +3317,8 @@ salemi  $alt
 saliscendi  $alt2
 salmi $2
 salmodia $3
-salo $2  $alt
 salome $3  $alt
+salo $2  $alt
 saludeci  $alt
 salvacondott  $alt2
 salvadoregn  $alt
@@ -3334,8 +3337,8 @@ sandia $2
 sanfront $2
 sanscrit $1
 santabarbar $3
-sante $2
 santen $1
+sante $2
 sapere $2  $alt2
 sarag $1
 sarcofag $2
@@ -3399,15 +3402,15 @@ scrof  $alt
 scrofol $1
 scrot  $alt
 scuolabus $3
-seb  $alt
 seborg  $alt2
+seb  $alt
 secc  $alt2
 secol  $alt
 secondogenit $4
 sedan $1  $alt
-sede  $alt
 sedecia  sedetS'i:a
 sedere $2  $alt2
+sede  $alt
 sedia  $alt
 sedicesim  $alt
 sedici  $alt2
@@ -3439,15 +3442,16 @@ semol $1
 sempre  $alt
 sempreverde  $alt2
 seneghe $1  $alt
-seni  $alt
 senile $2
-senior $1  $alt
+senior $1
 seniore  $alt
+senior  $alt
+seni  $alt
 sennacherib $4
-senno $2  $alt
 sennori $1  $alt
-sen  $alt2
+senno $2  $alt
 senoni $1  $alt
+sen  $alt2
 sepri  $alt
 sepsi  $alt
 sequals $2
@@ -3459,14 +3463,14 @@ servile $2
 servofren  $alt2
 sesam $1  $alt
 sesia $1  $alt
-sess  $alt
 sessantesim  $alt
+sess  $alt
 sesser  $alt
 sessile  $alt
 sessuofobia $4
 sett  $alt
-sette  $alt
 settembre  $alt
+sette  $alt
 sett  $alt
 settime $1
 seul $2
@@ -3519,8 +3523,8 @@ sintesi $1
 sintom $1
 sintonia $3
 sinuess  $alt
-sio $2
 sion $2
+sio $2
 sipont  $alt
 sirtori $1
 sisar $1
@@ -3546,8 +3550,8 @@ sofocle $1  $alt
 soggiorn  $alt2
 soggol $2  $alt2
 soglia  $alt
-sogli  $alt
 sogliol $1  $alt
+sogli  $alt
 solarol $3
 sold  $alt
 soleo $1  $alt
@@ -3644,8 +3648,8 @@ stilopoidei $5
 stipendi  $alt
 stobi  $alt
 stom  $alt
-stop  $alt
 stopp  $alt2
+stop  $alt
 storm  $alt2
 storn  $alt2
 stranguria $3
@@ -3705,11 +3709,10 @@ tartari $1
 tartar $1
 tassametr $2
 tassi $2
-tata $2
 tatari $1
 tatar $1
+tata $2
 taurianov  $alt
-te  $alt
 tec  $alt
 technicolor  $alt
 teck  $alt
@@ -3724,8 +3727,8 @@ teista  tE'ista
 tel  $alt2
 telecamer $3
 telefilm $3
-telef $1
 telefon $2  $alt
+telef $1
 telegon $2  $alt
 telegraf $2  $alt
 telelavor  $alt2
@@ -3738,13 +3741,14 @@ temen $1  $alt
 temi  $alt
 temistocle $2
 temnospondili  $alt
-tempe  $alt
 temper $1  $alt
+tempe  $alt
 tempi  $alt
 templ  $alt
+tempor  $alt
 temp  $alt
-tempor $1  $alt
 temporaneo $3
+tempor $1
 tempr  $alt
 temu $2
 tenace $2
@@ -3766,8 +3770,8 @@ teoria $3
 teosofia $4
 tepanechi  $alt
 terapeut $3
-terapeuti $3
 terapeutic $3
+terapeuti $3
 terapia $3
 terebr $1
 teres  $alt
@@ -3790,6 +3794,7 @@ tessere  $alt
 tessile  $alt
 testimone  $alt
 tetan $1  $alt
+te  $alt
 tetraedr  $alt
 tetrametr $2
 tetrapode $2
@@ -3832,12 +3837,12 @@ toltechi  $alt
 tolve  $alt
 tome $2
 tomi  $alt
-ton  $alt
 toni  $alt
 tonn  $alt2
+ton  $alt
 top  $alt
-tora $2
 torace $2
+tora $2
 torb  $alt2
 torbid  $alt2
 torbole  $alt2
@@ -3846,17 +3851,18 @@ tord  $alt2
 tornabuoni  $alt
 tornarecci  $alt
 torni  $alt2
-torn  $alt2
 tornol  $alt2
+torn  $alt2
 torped  $alt
 tors  $alt2
 tortor $1  $alt2
 tosse  $alt2
-tot  $alt
 totan $1
 totem  $alt
-toto $2  $alt
+toto  $alt
+tot  $alt
 totogol $3
+toto $2
 tournee  $alt2
 trabea $1
 trabia $2
@@ -3891,6 +3897,7 @@ treppiede  $alt
 tres  $alt
 tresette  $alt
 tressette  $alt
+tres  $alt
 treveri $1  $alt
 treves  $alt
 treviri $1
@@ -3909,8 +3916,8 @@ trigemin $2
 triglif $1
 trimer $1
 trimetr $1
-trinita $3
 trinitapoli $3
+trinita $3
 triod $1
 trionf  $alt2
 trior  $alt2
@@ -4014,9 +4021,9 @@ veneti $1  $alt
 venet $1  $alt
 ventenni  $alt
 ventesim  $alt
-venti  $alt2
 ventiquattresim  $alt
 ventisette  $alt
+venti  $alt2
 ventol  $alt
 ventre  $alt
 ventriloqui  $alt
@@ -4028,10 +4035,10 @@ verace $2
 verde  $alt2
 verg  $alt2
 vergine  $alt2
-ver  $alt2
 verne $2
 vernice $2
 verolanuov  $alt
+ver  $alt2
 veroli $1
 vertebr $1
 vertebre $1
@@ -4051,8 +4058,8 @@ vetr  $alt2
 vezzen $1
 viadott  $alt2
 vibrafon $2
-video $1
 videoclip $4
+video $1
 videotec  $alt
 vidigraf $2
 vigano $3  $alt
@@ -4081,7 +4088,6 @@ vitoria  $alt2
 vitreo $1
 vivace $2
 viveri $1
-vo  $alt
 vobbia  $alt
 vodk  $alt
 voglia  $alt
@@ -4099,6 +4105,7 @@ vomit $1
 vosgi  $alt
 voti  $alt
 vot  $alt
+vo  $alt
 vudu $2
 vulture $1
 vuot  $alt

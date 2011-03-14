@@ -20,32 +20,27 @@ phoneme @   //  Schwa
 endphoneme
 
 
-phoneme 3   //  Schwa+r
-  vowel starttype #a endtype #a
+phoneme 3   //  open Schwa+r
+  vowel starttype #@ endtype #@
   unstressed flag1
-  length 170
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/V_3)
-  ELSE
-    FMT(vowel/a#_3)
-  ENDIF
+  length 160
+  FMT(vowel/a#_3)   // in eSpeak 1.44, this used vowel/V_3 at end-of-word
 endphoneme
 
-phoneme 3:   //  Schwa+r
-  vowel starttype #a endtype #a
+phoneme 3:  //  open Schwa+r
+  vowel starttype #@ endtype #@
   unstressed flag1
-  length 220
-  IF thisPh(isWordEnd) THEN
-    FMT(vowel/V_3)
-  ELSE
-    FMT(vowel/a#_3)
-  ENDIF
+  length 210
+  FMT(vowel/a#_3)
 endphoneme
 
 
 phoneme a
   vowel starttype #a endtype #a
   length 110
+  IF nextPh(isRhotic) THEN
+    length 125
+  ENDIF
   FMT(vowel/a)
 endphoneme
 
@@ -53,6 +48,9 @@ endphoneme
 phoneme E
   vowel starttype #e endtype #e
   length 120
+  IF nextPh(*) THEN
+    length 135
+  ENDIF
   FMT(vowel/e_mid2)
 endphoneme
 
@@ -61,6 +59,9 @@ phoneme E2    //  as[E] but reduces to @ if unstressed
   vowel starttype #e endtype #e
   length 120
   ChangeIfDiminished(@)
+  IF nextPh(*) THEN
+    length 135
+  ENDIF
   FMT(vowel/e_mid2)
 endphoneme
 
@@ -68,6 +69,9 @@ endphoneme
 phoneme I
   vowel starttype #i endtype #i
   length 120
+  IF nextPh(*) THEN
+    length 135
+  ENDIF
   IfNextVowelAppend(;)
   FMT(vowel/ii)
 endphoneme
@@ -83,6 +87,9 @@ endphoneme
 phoneme O
   vowel starttype #o endtype #o
   length 120
+  IF nextPh(*) THEN
+    length 135
+  ENDIF
   FMT(vowel/oo)
 endphoneme
 
@@ -90,6 +97,10 @@ endphoneme
 phoneme U
   vowel starttype #u endtype #u
   length 120
+  IF nextPh(*) THEN
+    length 135
+  ENDIF
+
   IF nextPh(r) THEN
     IF next2Ph(isVowel) THEN
     ELSE
@@ -204,6 +215,9 @@ phoneme y
   vowel starttype #u endtype #u
   ipa ʏ
   length 110
+  IF nextPh(*) THEN
+    length 115
+  ENDIF
   FMT(vowel/yy_4)
 endphoneme
 
@@ -218,6 +232,9 @@ endphoneme
 phoneme W
   vowel starttype #@ endtype #@
   length 150
+  IF nextPh(*) THEN
+    length 160
+  ENDIF
   FMT(vowel/oe)
 endphoneme
 
@@ -301,8 +318,34 @@ phoneme j
 endphoneme
 
 
+phoneme r
+  vcd alv flp rhotic
+  lengthmod 6
 
-phoneme r     // uvular trill or fricative
+  IF prevPhW(@-) THEN
+  ELSE
+    IF nextPhW(isVowel) THEN
+      IF prevPhW(isVowel) THEN
+        ChangePhoneme(R)
+      ELSE
+//        IF thisPh(isWordStart) THEN
+//        ELSE
+          InsertPhoneme(@-)
+//        ENDIF
+      ENDIF
+   ENDIF
+  ENDIF
+
+  IF prevPh(isFlag1) THEN
+      ChangePhoneme(NULL)   // 'r' is already included in the previous vowel
+  ENDIF
+
+  CALL base/*
+endphoneme
+
+
+// This version of [r] was used in eSpeak 1.44, but received complaints
+phoneme r2     // uvular trill or fricative
   vcd uvl frc
   ipa ʀ
   lengthmod 6
@@ -348,21 +391,16 @@ phoneme UR
 endphoneme
 
 
-phoneme r2
-  vcd alv flp
-
-  IF prevPhW(isVowel) THEN
-    ChangePhoneme(*)
-  ENDIF
-
-  InsertPhoneme(@-)
-  ChangePhoneme(*)
-endphoneme
-
 
 
 phoneme oU  // for English words
   import_phoneme en-us/oU
+endphoneme
+
+phoneme A~
+  vowel  starttype #a endtype #a
+  length 260
+  FMT(vnasal/aa_n4)
 endphoneme
 
 
@@ -386,7 +424,7 @@ aI      aI
 aI@     aI 3
 aU      aU
 aU@     aU 3
-A~	O n
+A~	A~
 E       E
 e:      e:
 e@      E: r

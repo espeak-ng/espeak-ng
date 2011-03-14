@@ -133,14 +133,18 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 
 	sprintf(path,"%s/mbrola/%s",path_home,mbrola_voice);
 #ifdef PLATFORM_POSIX
+	// if not found, then also look in
+	//   usr/share/mbrola/xx, /usr/share/mbrola/xx/xx, /usr/share/mbrola/voices/xx
 	if(GetFileLength(path) <= 0)
 	{
-		// mbrola voice file not found, look in /usr/share
      sprintf(path,"/usr/share/mbrola/%s",mbrola_voice);
 	}
 	if(GetFileLength(path) <= 0)
 	{
-		// mbrola voice file not found, look in /usr/share
+     sprintf(path,"/usr/share/mbrola/%s/%s",mbrola_voice,mbrola_voice);
+	}
+	if(GetFileLength(path) <= 0)
+	{
      sprintf(path,"/usr/share/mbrola/voices/%s",mbrola_voice);
 	}
 #endif

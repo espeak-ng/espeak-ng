@@ -54,8 +54,9 @@
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position 
 #define phLONG         0x200000
 #define phLENGTHENSTOP 0x400000  // make the pre-pause slightly longer
-#define phRHOTIC       0x800000
+#define phRHOTIC       0x800000  // bit 23
 #define phNOPAUSE     0x1000000
+#define phPREVOICE    0x2000000  // for voiced stops
 
 #define phFLAG1      0x10000000
 #define phFLAG2      0x20000000
