@@ -16,7 +16,7 @@
 0  d; NULL   0  dj
 0  J  NULL   0  dj
 0  n^ NULL   0  nj
-0  v2 NULL   0  v
+0  v# NULL   0  w
 0  s; NULL   0  S
 0  C  NULL   0  x
 0  Q  NULL   0  G
@@ -33,6 +33,8 @@
 0  Wy NULL   0  9y
 0  VU NULL   0  Au
 0  eU NULL   70 e W
+0  yU NULL   70 y W
+0  E2 NULL   0  E
 
 
 // phonemes for English words
@@ -48,7 +50,7 @@
 0  a#  NULL  0  @
 0  I2  NULL  0  I
 0  aa  NULL  0  a
-0  V   NULL  0  @
+0  V   NULL  0  2
 0  U   NULL  0  u
 0  0   NULL  0  O
 0  3:  NULL  0  2
@@ -67,7 +69,8 @@
 0  aI@ NULL  70 a  @
 0  aU@ NULL  70 Au @
 
-0  dZ  NULL  0  dj
+0  dZ  VWL   0  dj
+0  dZ  NULL  0  tj
 0  tS  NULL  0  tj
 0  T   NULL  0  t
 0  D   NULL  0  z

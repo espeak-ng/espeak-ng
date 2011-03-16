@@ -98,7 +98,7 @@ phoneme s
   ELIF nextPh(p) OR nextPh(t) OR nextPh(k) THEN
     WAV(ufric/s!)
   ENDIF
-  WAV(ufric/s)
+  WAV(ufric/s, 80)
 endphoneme
 
 

@@ -202,18 +202,18 @@ const int param_defaults[N_SPEECH_PARAM] = {
    0,     // voice type
 };
 
-
 #ifdef NEED_WCHAR_FUNCTIONS
 
 // additional Latin characters beyond the Latin1 character set
 #define MAX_WALPHA  0x233
 // indexed by character - 0x100
-// 0=not alphabetic, 0xff=lower case, other=value to add to upper case to convert to lower case
+// 0=not alphabetic, 0xff=lower case, 0xfe=special case
+//   other=value to add to upper case to convert to lower case
 static unsigned char walpha_tab[MAX_WALPHA-0xff] = {
       1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 100
       1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 110
       1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 120
-   0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,  // 130
+   0xfe,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,  // 130
    0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,  // 140
       1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 150
       1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 160
@@ -264,6 +264,12 @@ int towlower(int c)
 		return(tolower(c));
 	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x100])==0xff))
 		return(c);  // already lower case
+	if(x == 0xfe)
+	{
+		// special cases
+		if(c == 0x130)   // uppercase i-dot
+			return('i');
+	}
 	return(c + x);  // convert to lower case
 }
 
@@ -359,6 +365,10 @@ int towlower2(unsigned int c)
 			c = 0x131;   // I -> ı
 		}
 	}
+#ifdef __WIN32__
+	if(c == 0x130)   // uppercase i-dot
+		return('i');
+#endif
 	return(towlower(c));
 }
 

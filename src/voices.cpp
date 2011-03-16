@@ -411,7 +411,7 @@ void VoiceReset(int tone_only)
 	voice->samplerate = 22050;
 	memset(voice->klattv,0,sizeof(voice->klattv));
 
-	speed.fast_settings[0] = 400;
+	speed.fast_settings[0] = 450;
 	speed.fast_settings[1] = 800;
 	speed.fast_settings[2] = 175;
 
