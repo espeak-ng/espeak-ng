@@ -41,7 +41,6 @@
 0  Y: NULL   0  2:
 0  OI NULL   0  OY
 0  3  NULL   0  6
-0  _| NULL   0  ?
 0  pF NULL   0  pf
 0  r  NULL   0  R
 
@@ -50,6 +49,9 @@
 0  W~ NULL   0  E~
 0  A~ NULL   0  a~
 0  O~ NULL   0  o~
+
+16  _| VWL    0  ?
+16  _! VWL    0  ?
 
 // phonemes for English words
 0  @L  NULL  0  L

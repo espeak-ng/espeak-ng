@@ -19,7 +19,7 @@
 // ***************************************************************************/
 
 .L01 l r
-.L02 c f h k p q s t    // unvoiced, except s+vowel
+.L02 c f h k p q s t z    // unvoiced, except s+vowel
 
 // This file is UTF-8 encoded
 
@@ -521,6 +521,8 @@
      _) ge (imp    g@
         ge (mach   g@
         ge (mal    g@
+     _) ge (mK     gE
+     _) ge (nK     gE
         ge (tr     g@
         general    ge:nEr'al
         general (is ge:n@ral

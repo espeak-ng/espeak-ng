@@ -51,7 +51,7 @@ For details of the voice files see <a href="voices.html">Voices</a>.
 <p>
 <dt>
 <strong>en-sc</strong><br>
-<dd>   Scottish English.
+<dd>   English with a Scottish accent.
 <p>
 <dt>
 <strong>en-n<br>
@@ -68,7 +68,7 @@ To make alternative voices for a language, you can make additional voice files i
 <p>
 Alternatively there are some preset voice variants which can be applied to any of the language voices, by appending <code>+</code> and a variant name. Their effects are defined by files in <code>espeak-data/voices/!v</code>.
 <p>
-The variants are <code> +m1  +m2  +m3  +m4  +m5 </code> for male voices, <code> +f1 +f2 +f3 +f4 </code> for female voices, and <code> +croak  +wisper</code> for other effects. For example:
+The variants are <code> +m1  +m2  +m3  +m4  +m5 +m6 +m7</code> for male voices, <code> +f1 +f2 +f3 +f4 +f5 </code> for female voices, and <code> +croak  +whisper</code> for other effects. For example:
 <pre>   espeak -ven+m3</pre>
 The available voice variants can be listed with:<br>
 <pre>   espeak --voices=variant</pre>
@@ -92,6 +92,11 @@ The eSpeak speech synthesizer does text to speech for the following additional l
 <p>
 <dt>
 <strong>cs &nbsp;Czech</strong><br>
+<dd>Usable.
+</dd>
+<p>
+<dt>
+<strong>da &nbsp;Danish</strong><br>
 <dd>Usable.
 </dd>
 <p>
@@ -143,6 +148,11 @@ This contains a few changes from <strong>es</strong>, notably the pronunciation 
 <dd>This has had some feedback from a native speaker but more work is needed.  Spelling is fairly regular, but stress marks and vowel accents are often omitted from text, so for some words the dictionary/exceptions list will need to determine the stress position or whether to use open/close [e] or [E] and [o] or [O].</dd>
 <p>
 <dt>
+<strong>kn &nbsp;Kannada</strong><br>
+<dd>Not much feedback yet, but I'm told that it sounds reasonable.
+</dd>
+<p>
+<dt>
 <strong>ku &nbsp;Kurdish</strong><br>
 <dd>
 Not much work yet, but Kurdish has good spelling rules so it should be OK.
@@ -151,6 +161,11 @@ Not much work yet, but Kurdish has good spelling rules so it should be OK.
 <dt>
 <strong>lv &nbsp;Latvian</strong><br>
 <dd>This has had assistance from a native speaker and it should be OK. 
+</dd>
+<p>
+<dt>
+<strong>nl &nbsp;Dutch</strong><br>
+<dd>Needs improvement of the spelling-to-phoneme rules.
 </dd>
 <p>
 <dt>
@@ -176,7 +191,7 @@ Usable.
 <p>
 <dt>
 <strong>sk &nbsp;Slovak</strong><br>
-<dd>This has had assistance from a nativ speaker, so it should be OK.
+<dd>This has had assistance from a native speaker, so it should be OK.
 </dd>
 <p>
 <dt>
@@ -196,8 +211,7 @@ Usable.
 <p>
 <dt>
 <strong>ta &nbsp;Tamil</strong><br>
-<dd>
-Not much work yet, but I'm told it sounds reasonable.
+<dd>This has had assistance from a native speaker, so it should be OK.
 </dd>
 <p>
 <dt>
@@ -255,6 +269,11 @@ These languages are only initial naive implementations which have had little or 
 </dd>
 <p>
 <dt>
+<strong>ka &nbsp;Georgian</strong><br>
+<dd>An initial guess, awaiting feedback.
+</dd>
+<p>
+<dt>
 <strong>la &nbsp;Latin</strong><br>
 <dd>Stress rules are implemented, but it needs text where long vowels are marked with macrons.
 </dd>
@@ -262,11 +281,6 @@ These languages are only initial naive implementations which have had little or 
 <dt>
 <strong>mk &nbsp;Macedonian</strong><br>
 <dd>This is similar to <strong>hr Croatian</strong>, so it's probably usable.  It accepts both Latin and Cyrillic characters.
-</dd>
-<p>
-<dt>
-<strong>nl &nbsp;Dutch</strong><br>
-<dd>Needs improvement of the spelling-to-phoneme rules.
 </dd>
 <p>
 <dt>

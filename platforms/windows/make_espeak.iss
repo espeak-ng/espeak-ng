@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.44.01
+AppVerName=eSpeak version 1.45.01
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -13,9 +13,13 @@ Compression=lzma
 SolidCompression=yes
 ShowLanguageDialog=auto
 
+[Icons]
+Name: "{group}\TTSApp"; Filename: "{app}\TTSApp.exe"; WorkingDir: "{app}"
+
 [InstallDelete]
 Type: files; Name: "{app}\espeak.dll"
 Type: filesandordirs; Name: "{app}\espeak-data\voices\test"
+Type: filesandordirs; Name: "{app}\docs"
 
 [Dirs]
 Name: "{app}\espeak-data\soundicons"
@@ -30,6 +34,7 @@ Source: "docs\*"; DestDir: "{app}\docs"; Flags: recursesubdirs
 Source: "command_line\*"; DestDir: "{app}\command_line"
 Source: "Readme.txt"; DestDir: "{app}"; Flags: isreadme
 Source: "License.txt"; DestDir: "{app}";
+Source: "ChangeLog.txt"; DestDir: "{app}";
 
 [Registry]
 Root: HKLM; Subkey: "Software\Microsoft\Speech\PhoneConverters\Tokens\eSpeak"; Flags: deletekey uninsdeletekey
@@ -57,7 +62,7 @@ Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
-Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
+;Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
 Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
 Name: "zh"; MessagesFile: "compiler:Languages\ChineseSimp-12-5.1.11.isl"
@@ -150,11 +155,13 @@ begin
   $39: Result := 'hi';
   $41: Result := 'sw';
   $49: Result := 'ta';
-  //$4b: Result := 'kn';
+  $4b: Result := 'kn';
   //$50: Result := 'mn';
   $52: Result := 'cy';
+  //$5e: Result := 'am';
   //$61: Result := 'ne';
   //$87: Result := 'rw';
+  //$88: Result := 'wo';
   end;
 
   // is there a match on the full language code?
@@ -191,6 +198,7 @@ begin
   // when a SAPI5 voice is installed.
   case lang1 of
   'af': value := $436;
+  'am': value := $45e;
   'az': value := $42c;
   'bg': value := $402;
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
@@ -199,12 +207,15 @@ begin
   'cy': value := $452;
   'da': value := $406;
   'de': value := $407;
+  'dv': value := $465;
   'el': value := $408;
   'en': value := $409;
   'es': value := $40a;
+  'et': value := $425;
   'eu': value := $42d;
   'fi': value := $40b;
   'fr': value := $40c;
+  'gu': value := $447;
   'hi': value := $439;
   'hr': value := $41a;
   'hu': value := $40e;
@@ -212,10 +223,12 @@ begin
   'id': value := $421;
   'is': value := $40f;
   'it': value := $410;
+  'ka': value := $437;
   'kn': value := $44b;
   'ko': value := $412;
   'lv': value := $426;
   'mk': value := $42f;
+  'ml': value := $44c;
   'mn': value := $450;
   'ne': value := $461;
   'nl': value := $413;
@@ -231,8 +244,11 @@ begin
   'sv': value := $41d;
   'sw': value := $441;
   'ta': value := $449;
+  'te': value := $44a;
+  'tn': value := $432;
   'tr': value := $41f;
   'vi': value := $42a;
+  'wo': value := $488;
   'zh': value := $804;
   // mbrola voices
   '-af': value := $436;
