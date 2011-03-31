@@ -1639,7 +1639,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	unsigned int char_code;
 	int compile_mode=0;
 	char *buf;
-	char buf1[200];
+	char buf1[500];
 	char *rules[N_RULES];
 
 	int n_rgroups = 0;

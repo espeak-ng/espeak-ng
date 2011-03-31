@@ -328,10 +328,11 @@ phoneme r
       IF prevPhW(isVowel) THEN
         ChangePhoneme(R)
       ELSE
-//        IF thisPh(isWordStart) THEN
-//        ELSE
+        IF prevPhW(isUStop) THEN
+          ChangePhoneme(R)
+        ELSE
           InsertPhoneme(@-)
-//        ENDIF
+        ENDIF
       ENDIF
    ENDIF
   ENDIF
@@ -403,10 +404,8 @@ phoneme A~
   FMT(vnasal/aa_n4)
 endphoneme
 
-
-
 // translate from English to German phonemes
-equivalents en
+equivalents NULL   // disable this table
 0	O
 3	3
 3:	W :

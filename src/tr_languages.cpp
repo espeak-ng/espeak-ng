@@ -308,14 +308,17 @@ void SetIndicLetters(Translator *tr)
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 	SetLetterBitsRange(tr,LETTERGP_A,0x04,0x14);   // vowel letters
 	SetLetterBitsRange(tr,LETTERGP_A,0x3e,0x4d);   // + vowel signs, and virama
+	SetLetterBitsRange(tr,LETTERGP_A,0x55,0x57);   // + vowel signs
 
 	SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
+	SetLetterBitsRange(tr,LETTERGP_B,0x55,0x57);   // + vowel signs
 
 	SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
 	SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // + additional consonants
 
 	SetLetterBitsRange(tr,LETTERGP_Y,0x04,0x14);   // vowel letters
 	SetLetterBitsRange(tr,LETTERGP_Y,0x3e,0x4c);   // + vowel signs
+	SetLetterBitsRange(tr,LETTERGP_Y,0x55,0x57);   // + vowel signs
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d;   //virama
@@ -1090,6 +1093,30 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('s','i'):  // Sinhala
+		{
+			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+
+			tr->langopts.stress_rule = STRESSPOSN_1L;
+			tr->langopts.stress_flags =  S_FINAL_DIM | S_NO_AUTO_DIM | S_FINAL_NO_2;
+			tr->langopts.spelling_stress = 1;
+
+			tr->letter_bits_offset = OFFSET_SINHALA;
+			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+			SetLetterBitsRange(tr,LETTERGP_A,0x05,0x16);   // vowel letters
+			SetLetterBitsRange(tr,LETTERGP_A,0x4a,0x73);   // + vowel signs, and virama
+		
+			SetLetterBitsRange(tr,LETTERGP_B,0x4a,0x73);   // vowel signs, and virama
+		
+			SetLetterBitsRange(tr,LETTERGP_C,0x1a,0x46);   // the main consonant range
+		
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4a;   //virama
+			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND ;
+		}
+		break;
+
 	case L('s','l'):  // Slovenian
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.stress_rule = STRESSPOSN_2R;   // Temporary
@@ -1223,7 +1250,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
 
-			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;

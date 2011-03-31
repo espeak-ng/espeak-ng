@@ -781,8 +781,8 @@ static int Unpronouncable2(Translator *tr, char *word)
 }
 
 
-int Unpronouncable(Translator *tr, char *word)
-{//===========================================
+int Unpronouncable(Translator *tr, char *word, int posn)
+{//=====================================================
 /* Determines whether a word in 'unpronouncable', i.e. whether it should
 	be spoken as individual letters.
 
@@ -817,7 +817,7 @@ int Unpronouncable(Translator *tr, char *word)
 		if((c==0) || (c==' '))
 			break;
 
-		if((c=='\'') && (count > 1))
+		if((c=='\'') && ((count > 1) || (posn > 0)))
 			break;   // "tv'" but not "l'"
 
 		if(count==0)

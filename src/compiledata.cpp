@@ -114,6 +114,7 @@ static keywtab_t k_properties[] = {
 	{"isVowel",      0,  phVOWEL},
 	{"isNasal",      0,  phNASAL},
 	{"isLiquid",     0,  phLIQUID},
+	{"isUStop",      0,  phSTOP},
 	{"isVFricative", 0,  phVFRICATIVE},
 
 	{"isPalatal",    0,  i_isPalatal},
@@ -3205,7 +3206,10 @@ static void CompileEquivalents()
 
 	if((foreign_table = SelectPhonemeTableName(foreign_table_name)) < 0)
 	{
-		error("Unknown phoneme table '%s'", foreign_table_name);
+		if(strcmp(foreign_table_name, "NULL") != 0)
+		{
+			error("Unknown phoneme table '%s'", foreign_table_name);
+		}
 		foreign_error = 1;
 		foreign_phoneme = 0;
 	}
@@ -3233,6 +3237,9 @@ static void CompileEquivalents()
 
 		if(strcmp(names[0],"endphoneme") == 0)
 			break;
+
+		if(foreign_error)
+			continue;
 
 		if(strcmp(names[0],"remove_stress") == 0)
 		{

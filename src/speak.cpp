@@ -27,6 +27,8 @@
 
 #ifndef PLATFORM_DOS
 #ifdef PLATFORM_WINDOWS
+#include <fcntl.h>
+#include <io.h>
 #include <windows.h>
 #include <winreg.h>
 #else
@@ -234,7 +236,13 @@ static int OpenWaveFile(const char *path, int rate)
 		return(2);
 
 	if(strcmp(path,"stdout")==0)
+	{
+#ifdef PLATFORM_WINDOWS
+// prevent Windows adding 0x0d before 0x0a bytes
+		_setmode(_fileno(stdout), _O_BINARY);
+#endif
 		f_wave = stdout;
+	}
 	else
 		f_wave = fopen(path,"wb");
 

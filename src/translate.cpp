@@ -386,6 +386,9 @@ int IsAlpha(unsigned int c)
 			return(1);
 		if(lookupwchar(extra_indic_alphas, c) != 0)
 			return(1);
+		if((c >= 0xd7a) && (c <= 0xd7f))
+			return(1);   // malaytalam chillu characters
+
 		return(0);
 	}
 
@@ -574,6 +577,19 @@ char *strchr_w(const char *s, int c)
 	if(c >= 0x80)
 		return(NULL);
 	return(strchr((char *)s,c));    // (char *) is needed for Borland compiler
+}
+
+
+int IsAllUpper(const char *word)
+{//=============================
+	int c;
+	while((*word != 0) && !isspace2(*word))
+	{
+		word += utf8_in(&c, word);
+		if(!iswupper(c))
+			return(0);
+	}
+	return(1);
 }
 
 
@@ -1022,7 +1038,7 @@ if((wmark > 0) && (wmark < 8))
 		length = 999;
 		wordx = word1;
 
-		while(((length < 3) && (length > 0))|| (word_length > 1 && Unpronouncable(tr,wordx)))
+		while(((length < 3) && (length > 0))|| (word_length > 1 && Unpronouncable(tr, wordx, posn)))
 		{
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
@@ -1176,20 +1192,26 @@ if((wmark > 0) && (wmark < 8))
 
 				if(prefix_type & SUFX_B)
 				{
-// SUFX_B is used for Turkish, tr_rules contains "(PbÃÂÃÂ£
-					// retranslate the prefix part
+// SUFX_B is used for Turkish, tr_rules contains " ' (Pb"
+					// examine the prefix part
 					char *wordpf;
 					char prefix_phonemes2[12];
 
 					strncpy0(prefix_phonemes2,end_phonemes,sizeof(prefix_phonemes2));
 					wordpf = &prefix_chars[1];
-					found = LookupDictList(tr, &wordpf, phonemes, dictionary_flags, SUFX_P, wtab);   // without prefix
-					if(found == 0)
+					strcpy(prefix_phonemes, phonemes);
+
+					// look for stress marker or $abbrev
+					found = LookupDictList(tr, &wordpf, phonemes, dictionary_flags, 0, wtab);
+					if(found)
 					{
-						end_type = TranslateRules(tr, wordpf, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags);
-						sprintf(prefix_phonemes,"%s%s%s",phonemes,end_phonemes,prefix_phonemes2);
+						strcpy(prefix_phonemes, phonemes);
 					}
-					prefix_flags = 1;
+					if(dictionary_flags[0] & FLAG_ABBREV)
+					{
+						prefix_phonemes[0] = 0;
+						SpeakIndividualLetters(tr, wordpf, prefix_phonemes, 1);
+					}
 				}
 				else
 				{
@@ -2772,7 +2794,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					{
 						// '-' between two letters is a hyphen, treat as a space
 						word_flags |= FLAG_HYPHEN;
-						words[word_count-1].flags |= FLAG_HYPHEN_AFTER;
+						if(word_count > 0)
+							words[word_count-1].flags |= FLAG_HYPHEN_AFTER;
 						c = ' ';
 					}
 				}
@@ -2809,7 +2832,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					space_inserted = 1;
 				}
 				else
-				if(!(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in))
+				if((word_count > 0) && !(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in))
 				{
 					// dot after a word, with space following, probably an abbreviation
 					words[word_count-1].flags |= FLAG_HAS_DOT;
@@ -2930,7 +2953,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			// end of 'word'
 			sbuf[ix++] = ' ';
 
-			if((ix > words[word_count].start) && (word_count < N_CLAUSE_WORDS-1))
+			if((word_count < N_CLAUSE_WORDS-1) && (ix > words[word_count].start))
 			{
 				if(embedded_count > 0)
 				{
@@ -3056,7 +3079,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					*pn++ = *pw++;
 				}
 				else
-				if((*pw == tr->langopts.thousands_sep) && (pw[1] == ' ') && iswdigit(pw[2]))
+				if((*pw == tr->langopts.thousands_sep) && (pw[1] == ' ')
+					&& iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' '))  // don't allow only 1 or 2 digits in the final part
 				{
 					pw += 2;
 					ix++;  // skip "word"

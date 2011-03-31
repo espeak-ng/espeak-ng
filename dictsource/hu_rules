@@ -138,6 +138,8 @@ hierar) ch (i      h
     ma) ch (iná    h
 oligar) ch         h
  legpe) ch (es     h:
+mazo) ch (izm h
+mazo) ch (is h
 
 .group d
         d          d
@@ -279,6 +281,8 @@ standar) d (jegy   d
     mó) d (javaslat d
  rekor) d (szint   d
  kambo) dzs        dZ:
+   föl) d (szerke  d         //földszerkezet word for example need spokening single d before sz letter
+ harma) d (szint   d
 
 .group dz
   fogó) dz (kod    ts
@@ -1046,6 +1050,7 @@ rongyo) szs (ák    SZ
   rava) sz (ár     s
    _ka) sztsze     st|sE
 szemete) szs (ák   SZ
+   dro) sztsze (rző st|sE    //drosztszerződés word need spokening st and single sE phoneme
 
 .group t
         t          t
@@ -1099,6 +1104,7 @@ használ) t (cikk   t
   pamu) t (cér     t
     ha) t (cell    t         //for example hatcellás, hatcella word need spokening t before c letter.
    pár) t (székház t
+
 
 .group tj
      C) tj         c
@@ -1288,7 +1294,7 @@ felada) ts (or     t|S
    ada) ts         t|S       //for example adatsor, adatsebesség words
    ada) tsz        t|s       //for example adatszolgáltatás word
 gondola) ts (or    t|S
-művele) ts (or     t|S
+művele) ts (o     t|S
 tábláza) ts (or    t|S
 vizsgála) ts (or   t|S
 állapo) ts (or     t|S
@@ -1362,6 +1368,7 @@ terüle) ts (áv     t|S
    _hé) tsz (ob    t|s       //same as prewious rule
 gyakorla) ts (oroz t|S
 támogato) ts (ág   tS:
+
 
 .group tt
         tt         t:

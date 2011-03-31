@@ -113,6 +113,7 @@ endphoneme
 phoneme e:
   vowel starttype #e endtype #i
   length 190
+  ChangeIfUnstressed(@)
   FMT(vdiph/ei)
 endphoneme
 
