@@ -328,8 +328,7 @@ phoneme r
       IF prevPhW(isVowel) THEN
         ChangePhoneme(R)
       ELSE
-        IF prevPhW(isUStop) THEN
-          ChangePhoneme(R)
+        IF prevPhW(t) THEN
         ELSE
           InsertPhoneme(@-)
         ENDIF
@@ -343,6 +342,7 @@ phoneme r
 
   CALL base/*
 endphoneme
+
 
 
 // This version of [r] was used in eSpeak 1.44, but received complaints

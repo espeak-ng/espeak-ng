@@ -19,7 +19,7 @@
 // ***************************************************************************/
 
 .L01 l r
-.L02 c f h k p q s t z    // unvoiced, except s+vowel
+.L02 c f h k p q s t z // unvoiced, except s+vowel
 
 // This file is UTF-8 encoded
 
@@ -55,7 +55,7 @@
      _) abb (a     %ab
      _) abb (rev   ab
      _) abd (+     apd
-     _) abend      A:b@nt
+     _) aben (d    A:b@n
      _) aberr      ab_|Er
      _) ab (er@P2  'ap
      _) ab (i      ap
@@ -156,6 +156,7 @@
      b) b 
         b (_N      p
         b (L02     p
+        blich      plIC
         b (sA      b
         bt (_N     pt
 
@@ -230,6 +231,7 @@
         ck         k
 
      _) c (el      S
+    fa) c (et      ts
      _) cey        tsaI
         chef (_    SEf
      _) c (ent     ts
@@ -241,6 +243,9 @@
         chip (_    tSIp      // English
 
    bre) ch (en     x
+        ch (ord    k
+        ch (or_    k
+        ch (ör     k
         chro       kro:
     nä) chs (t     Cs
     wa) chstu (m   kstu:
@@ -263,6 +268,7 @@
      d) d 
         d (_N      t
         d (L02     t
+        dlich      tlIC
         d (sA      d
         ds (_      ts
         dt         t
@@ -485,6 +491,7 @@
         g (g 
         g (_N      k
         g (L02     k
+        glich      klIC
         g (sA      g
         gd (_N     kt
      _) gh (A      g
@@ -674,11 +681,11 @@ financ) ie (r      I'e:
      r) ien (@     IEn
      &) ien (_     =I@n
     &b) ien (_     =i:@n
-     g) ien (_     'i:@n
-     m) ien (_     'i:@n
+    @g) ien (_     'i:@n
+    @m) ien (_     'i:@n
     ph) ien (_     'i:@n
     &n) ien (_     I@n
-     p) ien (_     'i:@n
+    @p) ien (_     'i:@n
     &r) ien (_     =i:@n
    ser) ien (_     'i:@n
   tter) ien (_     'i:@n
@@ -686,8 +693,8 @@ financ) ie (r      I'e:
    gor) ien (_     'i:@n
    etr) ien (_     'i:@n
  dustr) ien (_     'i:@n
-     s) ien (_     'i:@n
-     t) ien (_     'i:@n
+    @s) ien (_     'i:@n
+    @t) ien (_     'i:@n
      &) iens (_    =I;@ns
         ient (_    I'Ent
      &) ienz (_    I'Ents
@@ -774,6 +781,7 @@ formal) ie         =I@
         m          m
      m) m 
 
+        manager    manEdZ3r
      _) manch      manC    // for 'manchen'
         marine     mA:r'i:n@
      _) meß (@P3   m'Es
@@ -864,6 +872,7 @@ formal) ie         =I@
      r) oo (m      u:
      z) oo (m      u:
     &t) or (_      =o:r
+        orches     OrkEs
      &) oren (_    'o:r@n
      _) orts (@P4  'Orts
         oso (_     'o:zo:
@@ -898,6 +907,7 @@ formal) ie         =I@
         philie     f'i:li:
      _) photo      f,o:to:
      _) pro (@     %pro:
+     _) probe      pro:b@
 
         po (em     p%o:
         po (et     p%o:

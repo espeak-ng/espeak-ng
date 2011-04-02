@@ -643,17 +643,11 @@ step=1;  // TEST
 		}
 
 		// check for errors in the phonemes codes
-		for(ix=0; ix<sizeof(encoded_ph); ix++)
+		if(bad_phoneme[0] != 0)
 		{
-			c = encoded_ph[ix];
-			if(c == 0)   break;
-		
-			if(c == 255)
-			{
-				/* unrecognised phoneme, report error */
-				fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
-				error_count++;
-			}
+			// unrecognised phoneme, report error
+			fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
+			error_count++;
 		}
 	}
 
@@ -1249,15 +1243,10 @@ static char *compile_rule(char *input)
 	}
 
 	EncodePhonemes(rule_phonemes,buf,bad_phoneme);
-	for(ix=0;; ix++)
+	if(bad_phoneme[0] != 0)
 	{
-		if((c = buf[ix])==0) break;
-		if(c==255)
-		{
-			fprintf(f_log,"%5d: Bad phoneme [%c] in %s\n",linenum,bad_phoneme[0],input);
-			error_count++;
-			break;
-		}
+		fprintf(f_log,"%5d: Bad phoneme [%c] in %s\n",linenum,bad_phoneme[0],input);
+		error_count++;
 	}
 	strcpy(output,buf);
 	len = strlen(buf)+1;

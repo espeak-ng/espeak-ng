@@ -1114,7 +1114,7 @@ static unsigned int StringToWord(const char *string)
 
 
 static MNEM_TAB reserved_phonemes[] = {
-	{"<",  phonCONTROL},      // NOT USED
+	{"_\001",  phonCONTROL},      // NOT USED
 	{"%",  phonSTRESS_U},
 	{"%%", phonSTRESS_D},
 	{",",  phonSTRESS_2},

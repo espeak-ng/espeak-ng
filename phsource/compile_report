@@ -57,7 +57,7 @@ consonants  10  116
       da  27  120
       ka  19  112
       rw  15  130
-      ml  18  151
+      ml  19  152
       ne  18  157
       pa  14  151
      prs   8  111
@@ -361,7 +361,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [hF|] base
+l/l@            [h–u] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -395,7 +395,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [hF|] base
+l/la            [h–u] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -403,7 +403,7 @@ l/la            [hF|] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [hF|] base
+l/le            [h–u] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -415,7 +415,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [hF|] base
+l/li            [h–u] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -429,7 +429,7 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [hF|] base
+l/lo            [h–u] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -439,7 +439,7 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [hF|] base
+l/lu            [h–u] base
                 [l#] base
                 [l] fr
                 [l/2] fr

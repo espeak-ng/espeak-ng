@@ -352,7 +352,7 @@ char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme)
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
-   outptr contains encoded phonemes, unrecognised phonemes are encoded as 255
+   outptr contains encoded phonemes, unrecognized phoneme stops the encoding
    bad_phoneme must point to char array of length 2 of more
 */
 {
@@ -423,9 +423,11 @@ char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme)
 
 			if(max_ph == 0)
 			{
-				max_ph = 255;   /* not recognised */
+				// not recognised, report and ignore
 				bad_phoneme[0] = *p;
 				bad_phoneme[1] = 0;
+				*outptr++ = 0;
+				return(p+1);
 			}
 
 			if(max <= 0)

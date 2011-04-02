@@ -1258,6 +1258,13 @@ strcpy(phonemes2,phonemes);
 					wordx[-1] = c_temp;
 					found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, end_flags, wtab);  // include prefix, but not suffix
 					wordx[-1] = ' ';
+					if(phonemes[0] == phonSWITCH)
+					{
+						// change to another language in order to translate this word
+						memcpy(wordx,word_copy,strlen(word_copy));
+						strcpy(word_phonemes,phonemes);
+						return(0);
+					}
 					if(dictionary_flags[0]==0)
 					{
 						dictionary_flags[0] = dictionary_flags2[0];
