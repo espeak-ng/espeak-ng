@@ -118,6 +118,53 @@ _0M3	miljar
 _dpt	_viRg,Yl_|
 
 
+// Abbreviations
+ab	$abbrev $only
+abd	$abbrev $only
+abgs	$abbrev
+afp	$abbrev
+aihm	$abbrev
+akm	$abbrev
+akp	$abbrev
+aöf	$abbrev
+ap	$abbrev $only
+atm	$abbrev
+atv	$abbrev
+avm	$abbrev
+ekg	$abbrev
+epdk	$abbrev
+ftaa	$abbrev
+gsyih	$abbrev
+ihd	$abbrev
+ımkb	$abbrev
+imkb	$abbrev
+imf	$abbrev
+imkb	$abbrev
+oecd	$abbrev
+ogs	$abbrev
+osb	$abbrev
+ödp	$abbrev
+öfk	$abbrev
+öıb	$abbrev
+öib	$abbrev
+öiv	$abbrev
+öss	$abbrev
+ösym	$abbrev
+ötv	$abbrev
+öyk	$abbrev
+şti	$abbrev
+tihv	$abbrev
+tmmob	$abbrev
+tmo	$abbrev
+tpao	$abbrev
+tsi	$abbrev
+tsyd	$abbrev
+tse	$abbrev
+ubp	$abbrev
+usd	$abbrev
+ykm 	$abbrev
+
+
 // function words
 
 // conjunctions
@@ -127,39 +174,120 @@ veya	$u $brk	// or
 ama	$brk $1	// but
 ki	$u $brk	// that
 
-mı	$u	// question
-mi	$u
-mu	$u
-mü	$u
+mı	$u $only	// question
+mi	$u $only
+mu	$u $only
+mü	$u $only
 
 
 // pronouns
-bu	$u+	// this
-şu	$u+	// that
+bu	$u+ $only	// this
+şu	$u+ $only	// that
 
-ben	$u+	// I
-sen	$u+	// you
-o	$u+	// it
-siz	$u+	// we
-biz	$u+	// you
+ben	$u+ $only	// I
+sen	$u+ $only	// you
+o	$u+ $only	// it
+siz	$u+ $only	// we
+biz	$u+ $only	// you
 
 
 
-bir	$u+	// a (or one)
+bir	$u+ $only	// a (or one)
 
-da	$u	// also
-de	$u
-ta	$u
-te	$u
+da	$u $only	// also
+de	$u $only
+ta	$u $only
+te	$u $only
 
-ile	$u
+ile	$u $only
 
 
 // EXCEPTIONS
+merhaba		$1
 
-// Person Names
+// If the word has a prefix for strengthening the meaning of the word, stress
+// is at the prefix:
+banka $1
+bembeyaz $1
+dosdoğru $1
+dümdüz $1
+kıpkırmızı $1
+kıskıvrak $1
+masmavi $1
+mosmor $1
+pespembe $1
+posta $1
+radyo $1
+sapsarı $1
+sımsıcak $1
+simsiyah $1
+
+// Names
+Hitler $1
 
 // Place Names
-ankara		$1
-istanbul	$2
-
+// For place names with two syllables stress is at first syllable:
+// For Place names that has three or more syllables, generally stress is at
+// the syllable which has more letters or at the syllable which ends with a consonant:
+Afyon $1
+Ağrı $1
+Almanya $2
+Amasya $2
+Ankara $1
+Antalya $2
+Artvin $1
+Avrupa $1
+Aydın $1
+Bartın $1
+Batman $1
+Bayburt $1
+Bingöl $1
+Bitlis $1
+Bodrum $1
+Bolu $1
+Burdur $1
+Bursa $1
+Çanakkale $2
+Çankırı $1
+Çorum $1
+Denizli $2
+Düzce $1
+Edirne $2
+Hakkari $1
+Hatay $1
+Iğdır $1
+İngiltere $3
+İskenderun $2 
+Isparta $2
+İstanbul $2
+İsveç $1
+İzmir $1
+Kastamonu $1
+Kayseri $1
+Kilis $1
+Kırklareli $1
+Konya $1
+Kurtuluş $1
+Kütahya $2
+Malatya $2
+Mardin $1
+Mersin $1
+Mudanya $2
+Muğla $1
+Niğde $1
+Ordu $1
+Pütürge $2
+Rize $1
+Sakarya $2
+Samsun $1
+Siirt $1
+Sinop $1
+Şırnak $1
+Sivas $1
+Tekirdağ $2
+Tokat $1
+Tunceli $1
+Ukrayna $2
+Urfa $1
+Uşak $1
+Yozgat $1

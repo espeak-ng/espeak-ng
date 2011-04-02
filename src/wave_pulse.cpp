@@ -80,9 +80,6 @@ static pa_context *context = NULL;
 static pa_stream *stream = NULL;
 static pa_threaded_mainloop *mainloop = NULL;
 
-static pa_cvolume volume;
-static int volume_valid = 0;
-
 static int do_trigger = 0;
 static uint64_t written = 0;
 static int time_offset_msec = 0;
@@ -131,20 +128,7 @@ do { \
 //   SHOW("ti> read_index=0x%lx\n",the_time->read_index);
 // }
 
-
-static void info_cb(struct pa_context *c, const struct pa_sink_input_info *i, int is_last, void *userdata) {
-  ENTER(__FUNCTION__);
-    assert(c);
-
-    if (!i)
-        return;
-
-    volume = i->volume;
-    volume_valid = 1;
-}
-
 static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t, uint32_t index, void *userdata) {
-    pa_operation *o;
   ENTER(__FUNCTION__);
     
     assert(c);
@@ -154,13 +138,6 @@ static void subscribe_cb(struct pa_context *c, enum pa_subscription_event_type t
         (t != (PA_SUBSCRIPTION_EVENT_SINK_INPUT|PA_SUBSCRIPTION_EVENT_CHANGE) &&
          t != (PA_SUBSCRIPTION_EVENT_SINK_INPUT|PA_SUBSCRIPTION_EVENT_NEW)))
         return;
-
-    if (!(o = pa_context_get_sink_input_info(c, index, info_cb, NULL))) {
-        SHOW("pa_context_get_sink_input_info() failed: %s\n", pa_strerror(pa_context_errno(c)));
-        return;
-    }
-    
-    pa_operation_unref(o);
 }
 
 static void context_state_cb(pa_context *c, void *userdata) {
@@ -367,7 +344,7 @@ static void pulse_write(void* ptr, int length) {
 
   SHOW("pulse_write > length=%d\n", length);
 
-    CHECK_CONNECTED();
+    CHECK_CONNECTED_NO_RETVAL();
 
     pa_threaded_mainloop_lock(mainloop);
     CHECK_DEAD_GOTO(fail, 1);
@@ -481,12 +458,6 @@ static int pulse_open()
     if (!pa_sample_spec_valid(&ss))
       return false;
 
-/*     if (!volume_valid) { */
-    pa_cvolume_reset(&volume, ss.channels);
-    volume_valid = 1;
-/*     } else if (volume.channels != ss.channels) */
-/*         pa_cvolume_set(&volume, ss.channels, pa_cvolume_avg(&volume)); */
-
     SHOW_TIME("pa_threaded_mainloop_new (call)");
     if (!(mainloop = pa_threaded_mainloop_new())) {
       SHOW("Failed to allocate main loop\n","");
@@ -539,8 +510,6 @@ static int pulse_open()
     pa_stream_set_write_callback(stream, stream_request_cb, NULL);
     pa_stream_set_latency_update_callback(stream, stream_latency_update_cb, NULL);
 
-
-
     pa_buffer_attr a_attr;
 
     a_attr.maxlength = MAXLENGTH;
@@ -550,7 +519,7 @@ static int pulse_open()
     a_attr.fragsize = 0;
 
     SHOW_TIME("pa_connect_playback");
-    if (pa_stream_connect_playback(stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), &volume, NULL) < 0) {
+    if (pa_stream_connect_playback(stream, NULL, &a_attr, (pa_stream_flags_t)(PA_STREAM_INTERPOLATE_TIMING|PA_STREAM_AUTO_TIMING_UPDATE), NULL, NULL) < 0) {
         SHOW("Failed to connect stream: %s", pa_strerror(pa_context_errno(context)));
         goto unlock_and_fail;
     }
@@ -578,43 +547,23 @@ static int pulse_open()
         pa_threaded_mainloop_wait(mainloop);
     }
 
+    pa_operation_unref(o);
+
     if (!success) {
         SHOW("pa_context_subscribe() failed: %s", pa_strerror(pa_context_errno(context)));
         goto unlock_and_fail;
     }
-
-    pa_operation_unref(o);
-
-    /* Now request the initial stream info */
-    if (!(o = pa_context_get_sink_input_info(context, pa_stream_get_index(stream), info_cb, NULL))) {
-        SHOW("pa_context_get_sink_input_info() failed: %s", pa_strerror(pa_context_errno(context)));
-        goto unlock_and_fail;
-    }
-    
-    SHOW_TIME("pa_threaded_mainloop_wait 2");
-    while (pa_operation_get_state(o) != PA_OPERATION_DONE) {
-        CHECK_DEAD_GOTO(fail, 1);
-        pa_threaded_mainloop_wait(mainloop);
-    }
-
-/*     if (!volume_valid) { */
-/*         SHOW("pa_context_get_sink_input_info() failed: %s", pa_strerror(pa_context_errno(context))); */
-/*         goto unlock_and_fail; */
-/*     } */
 
     do_trigger = 0;
     written = 0;
     time_offset_msec = 0;
     just_flushed = 0;
     connected = 1;
-    //    volume_time_event = NULL;
     
     pa_threaded_mainloop_unlock(mainloop);
     SHOW_TIME("pulse_open (ret true)");
    
-    //    return true;
     return PULSE_OK;
-
 
 unlock_and_fail:
 

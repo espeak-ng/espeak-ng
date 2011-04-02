@@ -352,7 +352,7 @@ char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme)
 /* Translate a phoneme string from ascii mnemonics to internal phoneme numbers,
    from 'p' up to next blank .
    Returns advanced 'p'
-   outptr contains encoded phonemes, unrecognised phonemes are encoded as 255
+   outptr contains encoded phonemes, unrecognized phoneme stops the encoding
    bad_phoneme must point to char array of length 2 of more
 */
 {
@@ -423,9 +423,11 @@ char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme)
 
 			if(max_ph == 0)
 			{
-				max_ph = 255;   /* not recognised */
+				// not recognised, report and ignore
 				bad_phoneme[0] = *p;
 				bad_phoneme[1] = 0;
+				*outptr++ = 0;
+				return(p+1);
 			}
 
 			if(max <= 0)
@@ -781,8 +783,8 @@ static int Unpronouncable2(Translator *tr, char *word)
 }
 
 
-int Unpronouncable(Translator *tr, char *word)
-{//===========================================
+int Unpronouncable(Translator *tr, char *word, int posn)
+{//=====================================================
 /* Determines whether a word in 'unpronouncable', i.e. whether it should
 	be spoken as individual letters.
 
@@ -817,7 +819,7 @@ int Unpronouncable(Translator *tr, char *word)
 		if((c==0) || (c==' '))
 			break;
 
-		if((c=='\'') && (count > 1))
+		if((c=='\'') && ((count > 1) || (posn > 0)))
 			break;   // "tv'" but not "l'"
 
 		if(count==0)

@@ -1800,6 +1800,8 @@ include ph_armenian
 phonemetable da base
 include ph_danish
 
+phonemetable ka base
+include ph_georgian
 
 
 
@@ -1867,8 +1869,8 @@ include ph_divehi
 phonemetable te hi
 include ph_telugu
 
+phonemetable si hi
+include ph_sinhala
+
 phonemetable tn base
 include ph_setswana
-
-phonemetable ka base
-include ph_georgian

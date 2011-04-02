@@ -75,7 +75,6 @@ CXXFLAGS=-O2
 
 
 all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
-	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
@@ -95,6 +94,9 @@ x_%.o: %.cpp
 $(LIB_NAME): $(OBJS2)
 	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ \
 	$(OBJS2) $(LIBS2)
+	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
+	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(LIB_NAME).$(LIB_VERSION)
+	$(LN_SF) $(LIB_NAME).$(LIB_VERSION) $(LIB_NAME)
 
 $(STATIC_LIB_NAME): $(OBJS2)
 	$(AR) cqs $(STATIC_LIB_NAME) $(OBJS2)

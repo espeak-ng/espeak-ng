@@ -913,6 +913,7 @@ void Lexicon_Bg()
 	char *pw;
 	char *pw1;
 	int cc;
+	int ix;
 	int vcount;
 	int lex_stress;
 	int input_length;
@@ -1006,22 +1007,27 @@ void Lexicon_Bg()
 			if(cc == 0xfeff)
 				continue;   // ignore UTF-8 indication
 
-			pw1 += utf8_out(cc, pw1);   // copy UTF-8 to 'word_in'
+			if(cc == '`')
+				cc = '\'';
+			pw1 += utf8_out(towlower(cc), pw1);   // copy UTF-8 to 'word_in'
 
 			if(lookupwchar(bg_vowels, cc) != 0)
 				vcount++;
 
-			if((cc == 0x300) || (cc == 0x450) || (cc == 0x45d))
+			if((cc == '\'') || (cc == 0x300) || (cc == 0x450) || (cc == 0x45d))
 			{
-				// combining grave accent, of accented vowel character
-				lex_stress = vcount;
+				// backprime (before the vowel), combining grave accent, or accented vowel character
+				if(cc == '\'')
+					lex_stress = vcount+1;
+				else
+					lex_stress = vcount;
 				n_stress++;
 
 				if(vcount == 1)
 					stress_first = 1;
 
-				if(cc == 0x300)
-					continue;		// discard combining accent
+				if((cc == '\'') || (cc == 0x300))
+					continue;		// discard backprime or combining accent
 				if(cc == 0x450)
 					cc = 0x435;		// remove accent from vowel
 				if(cc == 0x45d)
@@ -1062,7 +1068,14 @@ void Lexicon_Bg()
 			}
 		}
 
+if(n_stress > 1) n_stress = 1;
 		done = 0;
+
+		if(vcount < 2)
+		{
+			// don't list words with only one vowel
+		}
+		else
 		if((lex_stress != max_stress_posn) || (n_stress != 1))
 		{
 			if((vcount > 0) && (lex_stress > 0) && (lex_stress <= 7))
@@ -1082,7 +1095,7 @@ void Lexicon_Bg()
 			if(done == 0)
 			{
 				n_wrong++;
-				fprintf(f_out,"%s\t$text %s\n", &word[2], word_in);
+				fprintf(f_out,"// %s\t$text %s\n", &word[2], word_in);
 			}
 
 			if(done)

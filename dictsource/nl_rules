@@ -17,6 +17,7 @@
           @) aard (_@S4   a:rt
              aa (rd_      'a:
              aa (C_       'a:
+          z) aa (m_       a:
           @) abel (_      'a:bE2l
           @) abele (_     'a:b@l@
           m) ach (in      %a:S
@@ -125,6 +126,7 @@
              dt           t
              ds (_N       ts
 //          _) de (CC@P2      d@  // Used a lot in family names
+          _) de (zelf     d@
 
 
 .group e
@@ -166,6 +168,8 @@
           &) el (de_$p_alt =@l
           &) el (den_$p_alt =@l
           &) el (end_$p_alt =@l
+          &) el (ing_$p_alt =@l
+          &) el (ingen_$p_alt =@l
           &) er (_$p_alt   =@r
           &) er (e_$p_alt  =@r
           &) er (en_$p_alt =@r
@@ -181,25 +185,31 @@
           &) elijks       @l@ks
           &) em (_        @m
           &) e (ment      @
+          &) e (nissen_   @
           &) en (_S2qd    @n
           &) ens (_S3q    @ns
           &) end (_       @nd
           &) ende (_      @nd@
           &) enden (_     @nd@n
              eden         e:d@n
+          &) ent (_$w_alt =@nt
           @) ent (_       'Ent
           @) ent (e_      'Ent
           @) ent (en_     'Ent
           @) ent (er_     'Ent
+          @) ent (ere_    'Ent
+          @) ent (st_     'Ent
+          @) ent (ste_    'Ent
          ag) ent          'Ent
           &) er (_        @r
           &) ere (_       @r@
           &) er (en_$p_alt @r     // where 'eren' is not a verb ending
              eren (_      'I:r@n
+         @j) es (_        @s
           @) es (_S2qd   'Es
           @) essen (_S5qd'Es@n
           @) eres (_S4qd  @r'Es
-        @) eressen (_S7sq @r'Es@n
+          @) eressen (_S7sq @r'Es@n
           @) etten (_S3   @n 
           @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
              euille       @'y
@@ -210,6 +220,7 @@
           &) e (nB@       E2
          id) e (nt        E
           _) er (@P2      Er
+          _) erger        ErQ@r  // ergeren
           &) era (_       @ra:
           @) e (raar_     @
           &) e (rC@       E2
@@ -235,6 +246,7 @@
              gg           Q
 
           _) ge (@P2      Q@
+             ge (bied     Q@
           _) gee          Qe:
              gener (aal   Q,e:n@r
           _) gelijk       Q@lEIk
@@ -258,6 +270,8 @@
 
           _) her (@P3     hEr
           _) her (en      hI:r
+          _) herinn       h%ErIn   // herinneren
+          _) hersen       h'Ers@n
           &) heid (_S4    hEIt
 
 
@@ -290,7 +304,11 @@
              ie (rd_      'i
           @) ig (_S2dq    @x
           @) ige (_       @Q@
-          @) igen (_       @Q@n
+          @) igen (_      @Q@n
+          @) iger (_      @Q@r
+          @) igere (_     @Q@r@
+          @) igst (_      @Qst
+          @) igste (_     @Qst@
              ij (_        'EI
              ij (e_       'EI
           @) ij (n_       'EI
@@ -325,6 +343,10 @@
           &) lijk (_S4    l@k
           &) lijke (_S5   l@k@
           &) lijken (_S6  l@k@n
+          &) lijker (_S6  l@k@r
+          &) lijkere (_S7  l@k@r@
+          &) lijkst (_S6  l@kst
+          &) lijkste (_S7  l@kst@
           &) laan (_S4    la:n
           _) lange (@P5   laN@
           @) loog (_      lo:x
@@ -354,9 +376,11 @@
           _) na (C@@P2    n'a:
           _) na (tion     na:
           _) na (der      na:
+          _) natuur       na:t'yr
           _) noord (@P5   no:rd
           _) nieuws (@P6  n'iws
          @@) nis (_@S3    nIs
+         @@) nisen (_@S5  nIs@n
 
 
 .group o
@@ -548,6 +572,7 @@
          _) uit (@P3      'Wyt
              u (re_       'y
           @) ute (_       'yt
+             uu (r_       'y
 
 
 .group v
@@ -559,6 +584,7 @@
           _) ver (@P3     v@r
           _) ver (sie_    vEr
           _) verder       vErd@r
+          _) verge (le    v@rQ'e:
           _) voort (@P5   v'O:rt
 
 
@@ -597,5 +623,6 @@
             $             d'OlAr
             , (D          k'Oma:
         __) - (_D         m'In
+         @) 's (_S2       s
 
 

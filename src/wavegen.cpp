@@ -1796,7 +1796,7 @@ if(option_log_frames)
 		next = (fr2->fheight[ix] * v->height[ix]) << 6;
 		peaks[ix].height_inc =  ((next - peaks[ix].height1) * STEPSIZE) / length2;
 
-		if(ix <= wvoice->n_harmonic_peaks)
+		if((ix <= 5) && (ix <= wvoice->n_harmonic_peaks))
 		{
 			peaks[ix].left1 = (fr1->fwidth[ix] * v->width[ix]) << 10;
 			peaks[ix].left = int(peaks[ix].left1);

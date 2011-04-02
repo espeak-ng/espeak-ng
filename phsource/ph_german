@@ -328,10 +328,10 @@ phoneme r
       IF prevPhW(isVowel) THEN
         ChangePhoneme(R)
       ELSE
-//        IF thisPh(isWordStart) THEN
-//        ELSE
+        IF prevPhW(t) THEN
+        ELSE
           InsertPhoneme(@-)
-//        ENDIF
+        ENDIF
       ENDIF
    ENDIF
   ENDIF
@@ -342,6 +342,7 @@ phoneme r
 
   CALL base/*
 endphoneme
+
 
 
 // This version of [r] was used in eSpeak 1.44, but received complaints
@@ -403,10 +404,8 @@ phoneme A~
   FMT(vnasal/aa_n4)
 endphoneme
 
-
-
 // translate from English to German phonemes
-equivalents en
+equivalents NULL   // disable this table
 0	O
 3	3
 3:	W :

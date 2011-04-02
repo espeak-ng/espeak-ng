@@ -343,6 +343,23 @@ websites _^_EN
 weekend _^_EN
 
 
+// verbs where -ent is not a stressed ending
+bakent		$alt
+effent		$alt
+jegent		$alt
+kerstent	$alt
+ketent		$alt
+loochent	$alt
+oefent		$alt
+opent		$alt
+regent		$alt
+rekent		$alt
+stevent		$alt
+tekent		$alt
+wapent		$alt
+zegent		$alt
+
+
 // words where -er is not a stressed verb ending
 
 achter		$alt
@@ -863,12 +880,13 @@ vermetel	$alt
 amandel		$alt
 appel		$alt
 artikel		$alt
-beginsel	$alt
+ginsel		$alt   // beginsel
 discipel	dIs'ip@l $alt
 engel		$alt
 fabel		$alt
 gruwel		$alt
 heuvel		$alt
+hommel		$alt
 letsel		$alt
 mazel		$alt
 meubel		$alt
@@ -1257,11 +1275,11 @@ accessoire      aksEsv#'ar@
 accessoires     aksEsv#'ar@s
 actiepunt	Aksip8nt
 agenda		$2
+alles		Al@s
 amino		$1
 amnestie	$3
 april		a:pr'Il
 armand		_^_FR
-artikel		art,ik@l
 augustus	VUQ'8st8s
 be		$abbrev   // used as domain abbrev for Belgium and in a lot of other names
 beha            be:_h'a:
@@ -1336,6 +1354,7 @@ renaissance	rEne:s'A~s@
 reservoir	re:zErvv#'a:r
 revanche	r@vA~nS
 regime		$2
+roman		$2
 sacristie	$3
 saint		_^_FR
 salomo		$1

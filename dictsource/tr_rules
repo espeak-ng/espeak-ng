@@ -20,7 +20,7 @@
 
      @) a (_S1   a
 
-     @) acak (_S3  adZak
+     @) acak (_S4  adZak
      @) acakmış (_S7   adZakm%@S
      @) ayım (_S4  aj@m
      @) alım (_S4  al@m
@@ -130,7 +130,7 @@
      @) ı (_S1   @
 
      @) ım (_S2  %@m
-     @) ınız (_S2  %@n@z
+     @) ınız (_S4  %@n@z
      @) ız (_S2  %@z
      @) ıyor (_S4  @j%oR
      @) ın (_S2  @n
@@ -178,6 +178,11 @@
 
 .group n
         n        n
+
+     _) nda (_    nda   // 'nda
+     _) nde (_    nde   // 'nde
+     _) ndan (_   ndan  // 'ndan
+     _) nden (_   nden  // 'nden
 
 	nin (_S3  nin
 	nın (_S3  n@n
