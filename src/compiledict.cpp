@@ -524,7 +524,7 @@ step=1;  // TEST
 				{
 					multiple_numeric_hyphen = 1;
 				}
-				else
+//				else  // ???
 				{
 					flag_codes[n_flag_codes++] = BITNUM_FLAG_HYPHENATED;
 				}
@@ -739,7 +739,7 @@ step=1;  // TEST
 			ix = multiple_string_end - multiple_string;
 			if(multiple_numeric_hyphen)
 			{
-				dict_line[length++] = ' ';
+				dict_line[length++] = ' ';   // ???
 			}
 			memcpy(&dict_line[length],multiple_string,ix);
 			length += ix;

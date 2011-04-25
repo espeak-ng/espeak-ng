@@ -901,14 +901,21 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			else
 			if(punct_count < 4)
 			{
-				sprintf(buf,"\001+10S");
+				buf[0] = 0;
+				if(embedded_value[EMBED_S] < 300)
+					sprintf(buf,"\001+10S");  // Speak punctuation name faster, unless we are already speaking fast.  It would upset Sonic SpeedUp
+
 				while(punct_count-- > 0)
 				{
 					sprintf(buf2," %s",punctname);
 					strcat(buf, buf2);
 				}
-				sprintf(buf2," \001-10S");
-				strcat(buf, buf2);
+
+				if(embedded_value[EMBED_S] < 300)
+				{
+					sprintf(buf2," \001-10S");
+					strcat(buf, buf2);
+				}
 			}
 			else
 			{
@@ -2000,6 +2007,15 @@ terminator=0;  // ??  Sentence intonation, but no pause ??
 }  // end of ProcessSsmlTag
 
 
+static void RemoveChar(char *p)
+{//=======================
+// Replace a UTF-8 character by spaces
+	int c;
+
+	memset(p, ' ', utf8_in(&c, p));
+}  // end of RemoveChar
+
+
 static MNEM_TAB xml_char_mnemonics[] = {
 	{"gt",'>'},
 	{"lt", 0xe000 + '<'},   // private usage area, to avoid confusion with XML tag
@@ -2354,6 +2370,15 @@ f_input = f_in;  // for GetC etc
 					}
 				}
 			}
+
+			if(c1 == 0xd4d)
+			{
+				// Malayalam virama, check if next character is Zero-width-joiner
+				if(c2 == 0x200d)
+				{
+					c1 = 0xd4e;   // use this unofficial code for chillu-virama
+				}
+			}
 		}
 
 		if(iswupper(c1))
@@ -2408,8 +2433,9 @@ f_input = f_in;  // for GetC etc
 				UngetC(c2);
 
 				if(end_clause_after_tag)
-					ix = end_clause_index;  // delete clause-end punctiation
-
+				{
+					RemoveChar(&buf[end_clause_index]);  // delete clause-end punctiation
+				}
 				buf[ix] = ' ';
 				buf[ix+1] = 0;
 				if(parag > 3)
@@ -2485,7 +2511,7 @@ if(option_ssml) parag=1;
 					continue;
 				}
 
-				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || Eof()))    // don't check for '-' because if prevent recognizing ':-)'
+				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || Eof() || (c2 == ctrl_embedded)))    // don't check for '-' because it prevents recognizing ':-)'
 //				if((iswspace(c2) || (punct_data & 0x8000) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 				{
 					// note: (c2='?') is for when a smart-quote has been replaced by '?'
@@ -2682,7 +2708,7 @@ if(option_ssml) parag=1;
 	}
 	if(end_clause_after_tag)
 	{
-		ix = end_clause_index;  // delete clause-end punctuation
+		RemoveChar(&buf[end_clause_index]);  // delete clause-end punctiation
 	}
 	buf[ix] = ' ';
 	buf[ix+1] = 0;
@@ -2707,6 +2733,7 @@ void InitText2(void)
 	int param;
 
 	ungot_char = 0;
+	ungot_char2 = 0;
 
 	n_ssml_stack =1;
 	n_param_stack = 1;

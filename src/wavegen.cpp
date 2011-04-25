@@ -1540,14 +1540,32 @@ static int SetWithRange0(int value, int max)
 }
 
 
+static void SetPitchFormants()
+{//===========================
+	int ix;
+	int factor;
+	int pitch_value;
+
+	// adjust formants to give better results for a different voice pitch
+	if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
+		pitch_value = MAX_PITCH_VALUE;
+
+	factor = 256 + (25 * (pitch_value - 50))/50;
+	for(ix=0; ix<=5; ix++)
+	{
+		wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
+	}
+	factor = embedded_value[EMBED_T]*3;
+	wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;
+	wvoice->height[1] = (wvoice->height2[1] * (256 - factor))/256;
+}
+
+
 void SetEmbedded(int control, int value)
 {//=====================================
 	// there was an embedded command in the text at this point
 	int sign=0;
 	int command;
-	int ix;
-	int factor;
-	int pitch_value;
 
 	command = control & 0x1f;
 	if((control & 0x60) == 0x60)
@@ -1570,18 +1588,7 @@ void SetEmbedded(int control, int value)
 	case EMBED_T:
 		WavegenSetEcho();   // and drop through to case P
 	case EMBED_P:
-		// adjust formants to give better results for a different voice pitch
-		if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
-			pitch_value = MAX_PITCH_VALUE;
-
-		factor = 256 + (25 * (pitch_value - 50))/50;
-		for(ix=0; ix<=5; ix++)
-		{
-			wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
-		}
-		factor = embedded_value[EMBED_T]*3;
-		wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;
-		wvoice->height[1] = (wvoice->height2[1] * (256 - factor))/256;
+		SetPitchFormants();
 		break;
 
 	case EMBED_A:  // amplitude
@@ -1618,6 +1625,7 @@ void WavegenSetVoice(voice_t *v)
 		option_harmonic1 = 6;
 	}
 	WavegenSetEcho();
+	SetPitchFormants();
 	MarkerEvent(espeakEVENT_SAMPLERATE,0,wvoice->samplerate,out_ptr);
 //	WVoiceChanged(wvoice);
 }

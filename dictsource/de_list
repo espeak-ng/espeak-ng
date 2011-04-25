@@ -133,7 +133,7 @@ _dpt	_kOma
 // ordinal numbers
 _ord	t@	// default ending
 _ord20	st@	// 20,30,etc
-_1o	_'e:3st@
+_1o	_'e:rst@
 _3o	dr'It@
 _7o	z'i:bt@
 _8o	_'axt@
@@ -149,7 +149,6 @@ bd       band
 bde      bEnd@
 bzw      b@tsi:UNsvaIz@
 chr      k@rIstUs
-dm       d'OYtS@||m'A:rk     $capital $only $abbrev
 dr       dOkt'o:r
 evtl     e:vEntu:'El
 od       o:d3  $only
@@ -613,6 +612,7 @@ historie         $alt
 hm              h@m
 horsam          hO3zA:m
 hostie           $alt
+hrhr            harhar
 
 illegitim	Ile:gi:t'i:m
 illiberal	Ili:b@r'A:l
@@ -715,6 +715,7 @@ tag             tA:g
 telegen         te:le:g'e:n
 the             D@         // English
 theater         te:'A:t3
+tja		tjA:
 tonnage		$alt
 tragödie	$alt
 train           tre:n
@@ -758,3 +759,6 @@ Neumexiko       $2
 Neuseeland	$2
 Rwanda		rU'andA:
 Sri		sr,i:
+Tom		tOm
+Tim		tIm
+

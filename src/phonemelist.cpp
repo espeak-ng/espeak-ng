@@ -171,6 +171,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		// set consonant clusters to all voiced or all unvoiced
 		// Regressive
 		int type;
+		int word_end_devoice = 0;
 		voicing = 0;
 
 		for(j=n_ph_list2-1; j>=0; j--)
@@ -190,7 +191,12 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			{
 				// LANG=Russian, [v] amd [v;] don't cause regression, or [R^]
 				if((ph->mnemonic == 'v') || (ph->mnemonic == ((';'<<8)+'v')) || ((ph->mnemonic & 0xff)== 'R'))
-					type = phLIQUID;
+				{
+					if(word_end_devoice == 1)
+						voicing = 0;
+					else
+						type = phLIQUID;
+				}
 			}
 
 			if((type==phSTOP) || type==(phFRICATIVE))
@@ -231,6 +237,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					voicing = 0;
 				}
 			}
+
+			word_end_devoice = 0;
 			if(plist2[j].sourceix)
 			{
 				if(regression & 0x04)
@@ -242,7 +250,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				{
 					// devoice word-final consonants, unless propagating voiced
 					if(voicing == 0)
+					{
 						voicing = 1;
+						word_end_devoice = 1;
+					}
 				}
 			}
 		}

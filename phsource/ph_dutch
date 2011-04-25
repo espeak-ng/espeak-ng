@@ -113,8 +113,14 @@ endphoneme
 phoneme e:
   vowel starttype #e endtype #i
   length 190
-  ChangeIfUnstressed(@)
   FMT(vdiph/ei)
+endphoneme
+
+phoneme e#    // as [e:] but change to [@] in unstressed syllables
+  vowel starttype #e endtype #i
+  length 190
+  ChangeIfUnstressed(@)
+  ChangePhoneme(e:)
 endphoneme
 
 phoneme Y:

@@ -30,6 +30,7 @@
         ah (+      A:
         ael        A:El
         ae         E:
+        ae (CC     E
 
         a (C%      a
         a (CC      a
@@ -46,7 +47,8 @@
         ag (t_     A:k
 
      _) ab (C@P2   _!'ap
-     _) ab (arP2   _!'ap
+     _) ab (äP2    _!'ap
+     _) ab (C@P2   _!'ap
      _) ab (nor    %ap
      _) ab (or     ap_|
      _) ab (sor    %ap
@@ -472,7 +474,7 @@
      _) farb (C@P4 f'arp
      _) farb (l@P4 f'arb
      _) fein (@P4  f'aIn
-     _) fertig (CP6 f'ErtiC
+     _) fertig (C@P6 f'ErtiC
      _) fest (@P4  f'Est
      _) flug       fl'u:g
         foto       fo:to:
@@ -519,7 +521,7 @@
      _) ge (beX    ge:
         geben      ge:b@n
         ge(birg    g@
-        gegen (_@P5 ge:g@n
+     _) gegen (@P5 ge:g@n
         gegen      ge:g@n
         gegn       ge:gn
         gehen      ge:@n
@@ -613,7 +615,7 @@
         i (d_      'i:
         i (dee     %i:
         i (erin    =i:
-        ig (+      Ig#       // [ig] or [iC]
+     @) ig (+      Ig#       // [ig] or [iC]
         igh (K     _^_EN
 
         i (i       i:_!
@@ -837,6 +839,7 @@ formal) ie         =I@
         oh (+      o:
         oo         o:
         oe         Y:
+        oe (CC     W
         ou         u:
 
         o (C%      O
@@ -940,7 +943,6 @@ formal) ie         =I@
         r          r
         r (r 
      b) r          r    // uses phonemes @-*
-     _) r          r
      _) rh (A      r    // allow _rh
 
         rangier    rA:NZ'i:r

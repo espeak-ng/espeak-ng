@@ -151,7 +151,10 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 #endif
 #ifdef PLATFORM_WINDOWS
 	if(load_MBR() == FALSE)     // load mbrola.dll
-		return(EE_INTERNAL_ERROR); 
+	{
+		fprintf(stderr, "Can't load mbrola.dll\n");
+		return(EE_INTERNAL_ERROR);
+	} 
 #endif
 
 	if(init_MBR(path) != 0)      // initialise the required mbrola voice

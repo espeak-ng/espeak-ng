@@ -2805,6 +2805,7 @@
          &) ier (y       I2@r
             ier          i@3
          &) ier (_NS2i   3
+         &) ier's (_NS4i   3z
         _h) ie (r        aI@
         pl) ier (_       aI@
        _Cr) ier          aI@
@@ -2867,7 +2868,7 @@
 .group im
         cl) im           aIm
          _) im (@        %Im
-         l) im (@        Im
+         l) im           Im
        _pr) im (a        aIm
         sh) im (a_       'i:m
             im (age      Im
@@ -5086,7 +5087,8 @@
         fl) ui (d        u:I
         dr) ui (d        u:I
          c) uisine       wIzi:n
-      circ) ui (t        I
+        rc) ui (t        I
+        rc) ui (tous     ''ju:I
          g) ui (ta       I2
          j) ui (c        u:
             uir (_       jU@
@@ -5285,11 +5287,12 @@
        %Af) y (_         %I
         _C) y            aI
         _C) y (ph        aI
-        _C) y (st        I
+            y (st        I
         XC) y            aI
         CC) y (n_        I
 //      Cr) y            %I
        _sC) y            aI
+        _b) y (+         aI
          c) y (cl        aI
          c) y (clic_     aI
        bic) y (cl        I

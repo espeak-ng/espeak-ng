@@ -122,7 +122,7 @@ static const unsigned short brackets[] = {
 static const unsigned short breaks[] = {'_', 0};
 
 // treat these characters as spaces, in addition to iswspace()
-static const wchar_t chars_space[] = {0x2500,0};  // box drawing horiz
+// static const wchar_t chars_space[] = {0x2500,0x2501,0};  // box drawing horiz
 
 
 // Translate character codes 0xA0 to 0xFF into their unicode values
@@ -432,8 +432,10 @@ int IsSpace(unsigned int c)
 {//========================
 	if(c == 0)
 		return(0);
-	if(wcschr(chars_space,c))
-		return(1);
+	if((c >= 0x2500) && (c < 0x25a0))
+		return(1);  // box drawing characters
+//	if(wcschr(chars_space,c))
+//		return(1);
 	return(iswspace(c));
 }
 
@@ -867,6 +869,8 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	}
 
 	word_copy_length = wordx - word_start;
+	if(word_copy_length >= N_WORD_BYTES)
+		word_copy_length = N_WORD_BYTES-1;
 	memcpy(word_copy2, word_start, word_copy_length);
 
 	spell_word = 0;
@@ -3017,7 +3021,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		}
 		else
 		{
-			ix += utf8_out(c,&sbuf[ix]);   // sbuf[ix++] = c;
+			if((ix < (N_TR_SOURCE - 4)))
+				ix += utf8_out(c,&sbuf[ix]);   // sbuf[ix++] = c;
 		}
 		if(pre_pause_add > pre_pause)
 			pre_pause = pre_pause_add;
