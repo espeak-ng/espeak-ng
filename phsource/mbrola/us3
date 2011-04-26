@@ -20,6 +20,8 @@
 
 
 0  *   NULL   0  4
+2  t#  n      0  t
+0  t#  NULL   0  4
 0  3:  NULL   0  r=
 0  IR  NULL   0  r=
 0  VR  NULL   0  r=

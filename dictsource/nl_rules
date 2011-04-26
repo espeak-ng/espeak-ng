@@ -13,8 +13,8 @@
 
         @@C) a (_         =a:
           _) aan (@P3     'a:n
-          @) aar (_@S3    a:r
-          @) aard (_@S4   a:rt
+          @) aar (_S3    a:r
+          @) aard (_S4   a:rt
              aa (rd_      'a:
              aa (C_       'a:
           z) aa (m_       a:
@@ -130,7 +130,7 @@
 
 
 .group e
-             e            e:
+             e            e#  // [e:] but change to [@] in unstressed syllables
          &C) e (_S1qd     @
              e (_         @
              e (CK        E
@@ -379,8 +379,8 @@
           _) natuur       na:t'yr
           _) noord (@P5   no:rd
           _) nieuws (@P6  n'iws
-         @@) nis (_@S3    nIs
-         @@) nisen (_@S5  nIs@n
+         @@) nis (_S3    nIs
+         @@) nisen (_S5  nIs@n
 
 
 .group o
@@ -499,7 +499,7 @@
           @) ssi (o       S
 
           _) standaard (@P9 st'Anda:rt
-          @) straat (_@S6 stra:t
+          @) straat (_S6 stra:t
        _vre) s (e         s
 
 
@@ -612,7 +612,7 @@
 
 .group z
              z            z
-             zele (_@S4   ze:l@ // common suffix for cities.
+             zele (_S4   ze:l@ // common suffix for cities.
          _)  zuid (@P4    zWyt
 
 

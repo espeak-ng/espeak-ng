@@ -291,6 +291,10 @@ tamil	தமிழ்	$text
 பீச்	$alt
 பைக்குல	$alt
 ப்ராண்ட்	$alt
+பீச்சு	$alt
+பிகு	$alt
+பூத்துக்கு	$alt
+பீரின்	$alt
 (பி . ஏ)	bije:
 
 
@@ -350,6 +354,7 @@ tamil	தமிழ்	$text
 களில்	$alt
 தடிக்க	$alt
 தின	$alt
+தில்	$alt
 
 
 	// initial ட
@@ -421,6 +426,7 @@ tamil	தமிழ்	$text
 கன	$alt
 களிலும்	$alt
 கடம்	$alt
+காட்	$alt
 
 
 

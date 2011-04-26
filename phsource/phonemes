@@ -968,10 +968,10 @@ phoneme d[
   IF nextPh(isPause2) THEN
     FMT(d/d_)  addWav(x/d_)
   ELIF nextPh(r) THEN
-    FMT(d/dr) addWav(x/d_dnt, 110)
+    FMT(d/dr) addWav(x/d_dnt, 100)
   ENDIF
 
-  FMT(d/d) addWav(x/d_dnt, 110)
+  FMT(d/d) addWav(x/d_dnt, 100)
 endphoneme
 
 

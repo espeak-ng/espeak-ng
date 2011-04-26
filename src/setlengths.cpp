@@ -141,6 +141,7 @@ void SetSpeed(int control)
 	int s1;
 	int wpm;
 	int wpm2;
+	int wpm_value;
 	double sonic;
 
 	speed.loud_consonants = 0;
@@ -153,6 +154,8 @@ void SetSpeed(int control)
 	if(control == 2)
 		wpm = embedded_value[EMBED_S2];
 
+	wpm_value = wpm;
+
 	if(voice->speed_percent > 0)
 	{
 		wpm = (wpm * voice->speed_percent)/100;
@@ -162,7 +165,7 @@ void SetSpeed(int control)
 	{
 		DoSonicSpeed(1 * 1024);
 	}
-	if((wpm > 450) || ((wpm > speed.fast_settings[0]) && (wpm > 350)))
+	if((wpm_value > 450) || ((wpm_value > speed.fast_settings[0]) && (wpm > 350)))
 	{
 		wpm2 = wpm;
 		wpm = 175;

@@ -369,6 +369,7 @@ mc	m@k  $combine   // combine with the following word
 mya	$abbrev
 nato	neItoU
 ny	$abbrev
+nyt	$abbrev
 oem	$abbrev
 ok	$abbrev
 omg	$abbrev
@@ -384,6 +385,7 @@ ucla	$abbrev
 ufo	$abbrev
 ui	$abbrev
 uk	$abbrev
+un	$abbrev $allcaps
 url	$abbrev
 usa	$abbrev
 usb	$abbrev
@@ -392,7 +394,7 @@ VI      $abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
 xxx	$abbrev		// not roman 30
 xy	$abbrev
-yd	jA@d
+yd	$abbrev
 
 
 nd	$only
@@ -2303,6 +2305,7 @@ wilderness       wIld3nEs
 winding          waIndI2N      // verb
 wind             waInd         $verb
 (wind up)        w'aInd||'Vp
+(winds down)     w'aIndz||d'aUn
 winded           wIndI2d
 winged           wINd
 wither           wID3          // not with+er
@@ -2455,6 +2458,7 @@ Donegal		d0nI2g'O:l
 Durham		dVr@m
 Egyptian	IdZ'IpS@n
 Eire		e@r@
+Elysee		eIl'i:zeI
 Erie		i@ri
 Geneva		dZ@ni:v@
 Gdansk		g@-dansk
@@ -2479,6 +2483,7 @@ Jakarta		$2
 Jerusalem	dZ@ru:s@l@m
 Johannesburg	$2
 Kalgoorlie	kalgU@lI
+Kannada		kA:n@d@
 Karachi		ka#rA@tSI
 Kentucky	$2
 Kiev		ki:Ev
@@ -2517,6 +2522,7 @@ Montreal	m0ntrI'O:l
 Morocco		m@r0koU
 Munich		mju:nIk
 Nairobi		naIr'oUbI
+Naples		neIp@Lz
 Nauru		naUru:
 Nebraska	$2
 Nepal		nEp'O:l
@@ -2613,6 +2619,7 @@ Alice		alIs
 Allen		al@n
 Alison		alI2s@n
 Amanda		$2
+Amos		eIm0s
 Amy		eImI
 Andre		0ndreI
 Anita		a#ni:t@
@@ -2675,6 +2682,7 @@ Emmy		EmI
 Etheridge	ET@-rIdZ
 Etienne		EtI'En
 Euler		OIl3
+Eva		i:v@
 Evan		Ev@n
 Gary		garI
 Geraint		gEraInt

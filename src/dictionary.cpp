@@ -1185,8 +1185,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	switch(tr->langopts.stress_rule)
 	{
 	case 8:
-		// stress on first syllable, unless it is a light syllable
-		if(syllable_weight[1] > 0)
+		// stress on first syllable, unless it is a light syllable followed by a heavy syllable
+		if((syllable_weight[1] > 0) || (syllable_weight[2] == 0))
 			break;
 		// else drop through to case 1
 	case 1:
@@ -3250,7 +3250,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		}
 	}
 
-	for(length=0; length<N_WORD_BYTES; length++)
+	for(length=0; length<(N_WORD_BYTES-1); length++)
 	{
 		if(((c = *word1++)==0) || (c == ' '))
 			break;

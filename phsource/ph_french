@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2011-03-04 Michel Such  <michel.such@free.fr>
+// Updated 2011-04-15 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -336,7 +336,7 @@ phoneme i
   ELIF nextPhW(isVowel) THEN
     ChangePhoneme(j)
   ELSE
-    length 160
+    length 150
     IfNextVowelAppend(;)
   ENDIF
 

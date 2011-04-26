@@ -58,8 +58,10 @@ _80a	'ot#xots
 _8X	'ot#xots
 _0C0	asi
 _0C	as
-_0M1	'at#asi
-_0M2	m'ilioni
+_0M1	'at#as
+_0M1x	'at#asi
+_0M2	m'ilion
+_0M2x	m'ilioni
 
 _0and	d%a
 _dpt	mt#eli_

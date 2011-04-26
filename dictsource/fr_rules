@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2011-02-18 Michel Such  <michel.such@free.fr>
+// Last update: 2011-04-15 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -1517,7 +1517,7 @@ nC)	y (_	_^_en
 
 
 // symbols that are normally spoken when reading text
-        , (D       pilk:u
+//        , (D       pilk:u
         $          dOlar
         °          d@gre
    _n_) °                    // n°

@@ -385,6 +385,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('a','r'):   // Arabic
 			tr->letter_bits_offset = OFFSET_ARABIC;
+			tr->langopts.numbers = NUM_SWAP_TENS | NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_AND_HUNDRED | NUM_THOUSAND_AND | NUM_OMIT_1_THOUSAND;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		break;
 
@@ -393,7 +394,7 @@ Translator *SelectTranslator(const char *name)
 			SetCyrillicLetters(tr);
 			SetLetterVowel(tr,0x2a);
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
-			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x10;  // devoice at end of word
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x17;  // devoice at end of word, and change voicing to match a following consonant (except v)
 			tr->langopts.param[LOPT_REDUCE] = 2;
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_SINGLE_AND | NUM_ROMAN | NUM_ROMAN_ORDINAL | NUM_ROMAN_CAPITALS ;
@@ -470,7 +471,8 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x10;  // devoice at end of word
 			tr->langopts.param[LOPT_LONG_VOWEL_THRESHOLD] = 175/2;
 		
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ALLOW_SPACE | NUM_ORDINAL_DOT | NUM_ROMAN;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_ALLOW_SPACE | NUM_ORDINAL_DOT | NUM_ROMAN;
+//			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ALLOW_SPACE | NUM_ORDINAL_DOT | NUM_ROMAN;
 			SetLetterVowel(tr,'y');
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 2;   // use de_rules for unpronouncable rules
 		}
@@ -1218,6 +1220,7 @@ SetLengthMods(tr,3);  // all equal
 			}
 			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			SetIndicLetters(tr);   // call this after setting OFFSET_
+				SetLetterBitsRange(tr,LETTERGP_B,0x4e,0x4e);   // chillu-virama (unofficial)
 		}
 		break;
 

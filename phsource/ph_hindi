@@ -373,7 +373,7 @@ phoneme d.
   Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
 
   IF PreVoicing THEN
-    FMT(d/xd)
+    FMT(d/xdr)
   ENDIF
 
   IF nextPh(isPause2) THEN
@@ -393,7 +393,7 @@ phoneme dh.
   Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
 
   IF PreVoicing THEN
-    FMT(d/xd)
+    FMT(d/xdr)
   ENDIF
 
   FMT(d/dr) addWav(ustop/t)

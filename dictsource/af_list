@@ -261,6 +261,7 @@ doebaai     $2
 duitswes    dYytsv'Es
 efese       e@f@s@
 ermelo      &rm@lo@
+florida     flOrida
 franschhoek frA~nsh'uk
 fraserburg  freIz@rbWrx2
 gadara      x2@dA:ra
@@ -312,7 +313,9 @@ maputo      map'u:tu
 mauritius   mOr'iSjWs
 milaan      $2
 mesopotamië mEsuput'A:mi@
+miami       _^_EN
 mpumalanga  mpu:mal'aNga
+monaco      mOn'A:ku
 montagu     mOnt@ky
 moreletapark mOr@l,Etap'ark
 moorreesburg mur'e@sbWrx2
@@ -328,6 +331,7 @@ oxford      _^_EN
 palermo     pal'&rmu
 pelindaba   p&l@nd'A:ba
 perú        p@ru
+philadelphia  f@l@d'&lfi;a
 piketberg   p@kEtb&rx2
 portugal    pOrtyx2al
 potchefstroom pOtSIfstr'o@m
@@ -413,6 +417,7 @@ beyers      beI@rs
 blignault   blIx2n@Ut
 blomerus    blum'e@rWs
 blum        blum
+boris       bOr@s	
 borodin     bOrud'in
 botha       bo@ta
 bouwer      b@U@r
@@ -426,6 +431,7 @@ caesar      siz@r
 carl        kA:r@L
 carlyle     _^_EN
 carol       _^_EN
+carmen      karmEn
 casanova    kasan'o@va
 cecil       sEs@l
 cecile      s@si:l
@@ -492,6 +498,7 @@ elize       il'i:z
 elmien      $2
 elsabe      &ls@bi
 elsabé      &ls@bi
+elvis       _^_EN
 emmarentia  Emar'e~nSja
 engelbrecht EN@lbr&x2t
 erasmus     $2
@@ -513,6 +520,7 @@ francois    franSwa
 françois    frA~nsw'A:
 gabriël     x2A:bri@l
 gandhi      gandi
+gatsby      _^_EN
 george      _^_EN
 georgina    dZO:dZ'ina
 gerhard     x2&rart
@@ -553,6 +561,7 @@ jaco        jaku
 jakomina    jakum'ina
 james       _^_EN
 jane        _^_EN
+	janine      dZ@ni:n	
 Jean        ZA~n $capital
 jesebel     je@s@b&l
 jessica     _^_EN
@@ -629,6 +638,7 @@ matteus     mat'i:Ws
 matthee     mat'e@
 mattheüs    mat'i:Ws
 matthéüs    mat'i:Ws
+maud        mO:d
 maureen     _^_EN
 mefistofeles mEfist'o@f@l@s
 melanie     m@lA:ni
@@ -649,6 +659,7 @@ mozart      mo@tsart
 myburgh     meIbWrx2
 naomi       na_'o@mi
 natasha n%at'aSa
+natasja     n%at'aSa
 naudé       nOd'e@
 nefertiti   nEf@rt'iti
 neil        _^_EN
@@ -687,6 +698,7 @@ richard     _^_EN
 riekert     rik@rt
 robert      _^_EN
 robin       _^_EN
+roger       _^_EN
 ronel       run'&l
 rossouw     r@s@U
 rousseau    r@s@U
@@ -707,10 +719,12 @@ schutte     skWt@
 sebastian   s@bastian
 servaas     s@rfA:s
 shakespeare _^_EN
+sharon      S&r@-n
 sheila      Si:la
 sigmund     sigmunt
 sophia      suf'i:ja
 sophie      _^_EN
+springsteen _^_EN
 stephan     ste@fan
 stephanus   st@fA:nWs
 stephen     _^_EN
@@ -774,6 +788,7 @@ alibama     $3
 antares     $2
 boeing      _^_EN
 checkers    tSEk@rs
+chevrolet   _^_FR
 chrysler    kraIsl@r
 citroên     s@trun
 ferrari     f@rA:ri
@@ -974,6 +989,7 @@ aspris        $2
 asseblief     as@bl'if
 assessore     $3
 attraksie     $2
+(au pair)     @U||p'&:r
 aversie       av'&rsi
 
 babelaas      bab@lA:s
@@ -990,6 +1006,7 @@ betlehemster  bEtli:Emst&r
 bewe          be@v@
 bewend        be@v@nt
 bewering      b@ve@rIN
+biopsie       bi'Opsi
 bomaat      bo@mA:t
 bordegoed     bO:rd@x2ut
 borgene       bOrx2@n@
@@ -1006,6 +1023,7 @@ camembert     kam@mb'&:r
 camouflage    kamufl'A:Z
 cannelloni    $3
 capita        kapita
+cappuccino    kaputS'i:nu
 casino        kas'i:n@U
 cedille       s@dIl@
 charisma      kar'Isma
@@ -1016,6 +1034,8 @@ cognac        kOn^ak
 confetti      $2
 crescendo     kr@SEndu
 crimpelene    kr@mp@li:n
+croissant     _^_FR
+crèche        krES
 
 dadelik       dA:d@lIk
 dagorde       dax2_Ord@
@@ -1032,6 +1052,7 @@ deurkruis     $2
 deurry        dY@rreI
 deurstaan     $2
 deurstraalde  $2
+diffuus       d@fy:s	
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
 disleksie     $2
@@ -1083,6 +1104,8 @@ geen	      x2e@n
 geldelike     x2&ld@l@k@
 gelerendheid  x2@le@r@ntheIt
 genade        $2
+	gener         x2e@n@r
+	generlei      x2e@n@rleI
 genesis       x2e@n@s@s 
 //gesamentlik   x2@sA:m@ntl@k
 gentleman     _^_EN
@@ -1166,6 +1189,8 @@ kunsmatige    kWnsm'A:t@x2@
 kwansuis      $2
 
 lasagne       las'anj@
+legaat        l@x2A:t
+legate        l@x2A:t@
 libido        l@bidu
 liefdespel    lifd@sp&l
 lipstiek      lIpstik
@@ -1200,6 +1225,7 @@ misterie      m@ste@ri
 monsieur      _^_FR
 motore        mo@t'o@r@
 motor         mo@t@r
+motorry       mo@t@rreI
 motortjie     mo@t@rki
 
 nadele        nA:de@l@
@@ -1275,6 +1301,8 @@ oorsee        $2
 oorsese       $2
 oorval        $2 $verb
 opend         Op_Ent
+oraal         o@r'A:l
+orale         o@r'A:l@
 oranjepers    o@r'anj@p&:rs
 oudsher       @Utsh&r
 
@@ -1289,7 +1317,6 @@ patriotisme   patri|ut'Ism@
 pedaledemping p@dA:l@dEmp@N
 penorent      pEno@rEnt
 per           p@r $only
-persent       p@rsEnt
 petite        p@tit
 pikanienie    pikan'ini
 pinot         pinu
@@ -1328,6 +1355,7 @@ salute        sal'yt@
 samelewing    sA:m@l,e@v@N
 sanhedrin     sanh'e@dr@n
 sangemeenskap sanx2@me@nskap
+sedeer        s@de@r
 sedertdien    $3
 sektore       $2
 sinagoge      s@n@x2o@x2@
@@ -1360,6 +1388,7 @@ subiet        sWb'it
 suburbia      sWb'Wrbija
 swangerswaar  swaN@rswA:r
 swetterjoel   $3
+séance        s%e@A~ns
 
 tanga         taNga
 tangas        taNgas
