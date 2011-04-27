@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -523,14 +523,18 @@ unsigned short ipa1[96] = {
 };
 
 
-static void WritePhMnemonic(char *phon_out, int *ix, PHONEME_TAB *ph, PHONEME_LIST *plist)
+static void WritePhMnemonic(char **buf, PHONEME_TAB *ph, PHONEME_LIST *plist)
 {//=======================================================================================
 	int c;
 	int mnem;
 	int len;
 	int first;
+	int ix = 0;
+	char *phon_out;
 	unsigned int ipa_control=0;  // first byte of ipa string may control the phoneme name interpretation. 0x20 = ignore this phoneme
 	PHONEME_DATA phdata;
+
+	phon_out = *buf;
 
 	if(option_phonemes == 3)
 	{
@@ -551,11 +555,14 @@ static void WritePhMnemonic(char *phon_out, int *ix, PHONEME_TAB *ph, PHONEME_LI
 		{
 			if((ipa_control = phdata.ipa_string[0]) > 0x20)
 			{
-				strcpy(&phon_out[*ix], phdata.ipa_string);
-				*ix += len;
+				strcpy(&phon_out[ix], phdata.ipa_string);
+				ix += len;
 			}
 			if(ipa_control >= 0x20)
+			{
+				*buf += ix;
 				return;  // 0x20 = ignore phoneme
+			}
 		}
 	}
 
@@ -581,14 +588,16 @@ static void WritePhMnemonic(char *phon_out, int *ix, PHONEME_TAB *ph, PHONEME_LI
 			if((c >= 0x20) && (c < 128))
 				c = ipa1[c-0x20];
 
-			*ix += utf8_out(c, &phon_out[*ix]);
+			ix += utf8_out(c, &phon_out[ix]);
 		}
 		else
 		{
-			phon_out[(*ix)++]= c;
+			phon_out[ix++]= c;
 		}
 		first = 0;
 	}
+
+	*buf += ix;
 }  // end of WritePhMnemonic
 
 
@@ -600,21 +609,27 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 */
 
 	int  ix;
+	int  len;
+	int  max_len;
 	int  phon_out_ix=0;
 	int  stress;
 	unsigned int c;
 	char *p;
+	char *buf;
+	char phon_buf[30];
 	PHONEME_LIST *plist;
 	
 	static const char *stress_chars = "==,,''";
 
 	if(phon_out != NULL)
 	{
-		for(ix=1; ix<(n_phoneme_list-2) && (phon_out_ix < (n_phon_out - 6)); ix++)
+		for(ix=1; ix<(n_phoneme_list-2); ix++)
 		{
+			buf = phon_buf;
+
 			plist = &phoneme_list[ix];
 			if(plist->newword)
-				phon_out[phon_out_ix++] = ' ';
+				*buf++ = ' ';
 
 			if(plist->synthflags & SFLAG_SYLLABLE)
 			{
@@ -636,7 +651,7 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 
 					if(c != 0)
 					{
-						phon_out_ix += utf8_out(c, &phon_out[phon_out_ix]);
+						buf += utf8_out(c, buf);
 					}
 				}
 			}
@@ -646,31 +661,44 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 				// the tone_ph field contains a phoneme table number
 				p = phoneme_tab_list[plist->tone_ph].name;
 
-				sprintf(&phon_out[phon_out_ix], "(%s)", p);
-				phon_out_ix += (strlen(p) + 2);
+				sprintf(buf, "(%s)", p);
+				buf += (strlen(p) + 2);
 			}
 			else
 			{
-				WritePhMnemonic(phon_out, &phon_out_ix, plist->ph, plist);
+				WritePhMnemonic(&buf, plist->ph, plist);
 	
 				if(plist->synthflags & SFLAG_LENGTHEN)
 				{
-					WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonLENGTHEN], NULL);
+					WritePhMnemonic(&buf, phoneme_tab[phonLENGTHEN], NULL);
 				}
 				if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
 				{
 					// syllablic consonant
-					WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[phonSYLLABIC], NULL);
+					WritePhMnemonic(&buf, phoneme_tab[phonSYLLABIC], NULL);
 				}
 				if(plist->tone_ph > 0)
 				{
-					WritePhMnemonic(phon_out, &phon_out_ix, phoneme_tab[plist->tone_ph], NULL);
+					WritePhMnemonic(&buf, phoneme_tab[plist->tone_ph], NULL);
 				}
 			}
-		}
 	
-		if(phon_out_ix >= n_phon_out)
-			phon_out_ix = n_phon_out - 1;
+			len = buf - phon_buf;
+			max_len = (n_phon_out - phon_out_ix - 5);   // allow for " ..." and zero byte terminator
+			if(len > max_len)
+			{
+				strcpy(&phon_buf[max_len], " ...");
+				len = max_len + 4;
+			}
+			phon_buf[len] = 0;
+			strcpy(&phon_out[phon_out_ix], phon_buf);
+			phon_out_ix += len;
+
+			if(len > max_len)
+			{
+				break;
+			}
+		}
 		phon_out[phon_out_ix] = 0;
 	}
 }  // end of GetTranslatedPhonemeString
