@@ -103,7 +103,7 @@ static int embedded_read;
 unsigned int embedded_list[N_EMBEDDED_LIST];
 
 // the source text of a single clause (UTF8 bytes)
-#define N_TR_SOURCE    700
+#define N_TR_SOURCE    800
 static char source[N_TR_SOURCE+40];     // extra space for embedded command & voice change info at end
 
 int n_replace_phonemes;
@@ -1783,7 +1783,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 				strcpy(ph_buf,word_phonemes);
 
 				flags2[0] = TranslateWord(translator, p2+1, 0, wtab+1);
-				if(flags2[0] & FLAG_WAS_UNPRONOUNCABLE)
+				if((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
 					ok = 0;
 
 				if(sylimit & 0x100)

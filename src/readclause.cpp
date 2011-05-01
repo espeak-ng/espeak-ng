@@ -2691,10 +2691,11 @@ if(option_ssml) parag=1;
 		}
 		*charix_top = ix;
 
-		if(((ix > (n_buf-20)) && !IsAlpha(c1) && !iswdigit(c1))  ||  (ix >= (n_buf-2)))
+		if(((ix > (n_buf-75)) && !IsAlpha(c1) && !iswdigit(c1))  ||  (ix >= (n_buf-4)))
 		{
 			// clause too long, getting near end of buffer, so break here
 			// try to break at a word boundary (unless we actually reach the end of buffer).
+			// (n_buf-4) is to allow for 3 bytes of multibyte character plus terminator.
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
 			UngetC(c2);

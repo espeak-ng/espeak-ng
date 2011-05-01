@@ -265,7 +265,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_PREFIXES        3
 
  // non-zero, change voiced/unoiced to match last consonant in a cluster
- // bit 1=LANG=ru,  don't propagate over [v]
+ // bit 1=LANG=cz,bg  don't propagate over [v]
  // bit 2=don't propagate acress word boundaries
  // bit 3=LANG=pl,  propagate over liquids and nasals
  // bit 4=devoice word-final consonants
@@ -494,7 +494,7 @@ typedef struct
 	int transpose_min;
 	char dictionary_name[40];
 
-	char phon_out[300];
+	char phon_out[400];
 	char phonemes_repeat[20];
 	int  phonemes_repeat_count;
 	int  phoneme_tab_ix;

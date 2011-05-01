@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -171,7 +171,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		// set consonant clusters to all voiced or all unvoiced
 		// Regressive
 		int type;
-		int word_end_devoice = 0;
+		int stop_propagation = 0;
 		voicing = 0;
 
 		for(j=n_ph_list2-1; j>=0; j--)
@@ -189,13 +189,10 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if(regression & 0x2)
 			{
-				// LANG=Russian, [v] amd [v;] don't cause regression, or [R^]
+				// [v] amd [v;] don't cause regression, or [R^]
 				if((ph->mnemonic == 'v') || (ph->mnemonic == ((';'<<8)+'v')) || ((ph->mnemonic & 0xff)== 'R'))
 				{
-					if(word_end_devoice == 1)
-						voicing = 0;
-					else
-						type = phLIQUID;
+					stop_propagation = 1;
 				}
 			}
 
@@ -237,8 +234,12 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					voicing = 0;
 				}
 			}
+			if(stop_propagation)
+			{
+				voicing = 0;
+				stop_propagation = 0;
+			}
 
-			word_end_devoice = 0;
 			if(plist2[j].sourceix)
 			{
 				if(regression & 0x04)
@@ -252,7 +253,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					if(voicing == 0)
 					{
 						voicing = 1;
-						word_end_devoice = 1;
 					}
 				}
 			}
