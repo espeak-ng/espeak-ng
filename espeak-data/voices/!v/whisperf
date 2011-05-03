@@ -1,12 +1,12 @@
 language variant
-name female2
+name female whisper
 gender female
 
-pitch 142 220
+pitch 160 220
 roughness 3
 
-formant 0 105  80 150
-formant 1 110  80 160
+formant 0 105   0 150
+formant 1 110  40 160
 formant 2 110  70 150
 formant 3 110  70 150
 formant 4 115  80 150
@@ -16,6 +16,9 @@ formant 7 110  70 150
 formant 8 110  70 150
 
 stressAdd 0 0 -10 -10 0 0 10 40
-breath 0 2 3 3 3 3 3 2
-echo 140 10
-consonants 125 125
+
+// whisper
+voicing 20
+breath 75 75 50 40 15 10
+breathw 150 150 200 200 400 400
+ 

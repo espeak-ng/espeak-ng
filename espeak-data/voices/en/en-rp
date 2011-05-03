@@ -3,10 +3,10 @@ language en-uk-rp
 language en-uk  4
 gender male
 
-phonemes en_rp
+phonemes en-rp
 replace 00  o@  O@
 replace 00 i@3 i@
 replace 03 I i
 replace 03 I2 i
-replace 03 @ a2
-replace 03 3 a2
+replace 03 @ a#
+replace 03 3 a#
