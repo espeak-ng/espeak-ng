@@ -1714,9 +1714,6 @@ include ph_dutch
 phonemetable pl base
 include ph_polish
 
-phonemetable bg pl
-include ph_bulgarian
-
 phonemetable sk pl
 include ph_slovak
 
@@ -1731,6 +1728,12 @@ include ph_macedonian
 
 phonemetable sr hr
 include ph_serbian
+
+phonemetable ru base
+include ph_russian
+
+phonemetable bg pl
+include ph_bulgarian
 
 
 phonemetable it base2
@@ -1771,9 +1774,6 @@ include ph_norwegian
 
 phonemetable is base
 include ph_icelandic
-
-phonemetable ru base
-include ph_russian
 
 phonemetable vi base
 include ph_vi
