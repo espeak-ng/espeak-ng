@@ -2,7 +2,7 @@ name english_wmids
 language en-uk-wmids
 gender male
 
-phonemes en_wm
+phonemes en-wm
 
 replace 00 h NULL
 replace 00 o@ O@

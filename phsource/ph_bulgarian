@@ -1,0 +1,124 @@
+// Bulgarian
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 130
+  IfNextVowelAppend(;)
+  IF thisPh(isNotStressed) THEN
+    FMT(vowel/ii_5)
+  ENDIF
+  FMT(vowel/i_6)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 140
+  IF thisPh(isNotStressed) THEN
+    FMT(vowel/e_mid2)
+  ENDIF
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme @
+  vowel starttype #@ endtype #@
+  length 140
+  IF thisPh(isNotStressed) THEN
+    FMT(vowel/V)
+  ENDIF
+  FMT(vowel/@_bck)
+endphoneme
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 150
+  IF thisPh(isNotStressed) THEN
+    IF nextVowel(isStressed) THEN
+       FMT(vowel/a#_4)
+    ELSE
+       ipa ɐ
+       FMT(vowel/V_3)
+    ENDIF
+  ENDIF
+  FMT(vowel/a)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 140
+  IF thisPh(isNotStressed) THEN
+    FMT(vowel/o_mid)
+  ENDIF
+  FMT(vowel/oo)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 140
+  IF thisPh(isNotStressed) THEN
+    FMT(vowel/u_2)
+  ENDIF
+  FMT(vowel/u_bck)
+endphoneme
+
+
+// Consonants
+
+phoneme ts;
+  delete_phoneme
+endphoneme
+
+phoneme l
+  import_phoneme en/l
+endphoneme
+
+phoneme L   // velar L
+  liquid
+  lengthmod 7
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(l/2)     // use 'dark' [l] after a vowel
+  ENDIF
+
+  VowelEnding(ll/xll, -40)
+
+  IF prevPh(isPause) THEN
+     FMT(ll/_ll)
+  ENDIF
+
+  FMT(ll/ll)
+endphoneme
+
+
+phoneme r
+  import_phoneme base/R2
+endphoneme
+
+phoneme x
+  voicingswitch x   // [x] doesn't switch to [Q]
+  import_phoneme base/x
+endphoneme
+
+
+
+phoneme g#
+  import_phoneme ru/g
+endphoneme
+
+
+phoneme g;
+  vcd vel stop
+  palatal
+  voicingswitch k
+  lengthmod 5
+  Vowelin f1=1  f2=2300 300 300  f3=300 80
+  Vowelout f1=1  f2=2300 300 300  f3=300 80 brk colr=1
+
+  IF PreVoicing THEN
+    FMT(g/xg)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(g/g_) addWav(x/g_)
+  ENDIF
+  FMT(g/g) addWav(x/g2, 150)
+endphoneme

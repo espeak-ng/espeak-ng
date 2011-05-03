@@ -3,9 +3,9 @@ language en-uk  2
 language en 2
 gender male
 
-//pitch 80 117
-
 replace 03 I i
 replace 03 I2 i
 
-formant 0 100 100 105
+//pitch 80 118
+
+tunes s1 c1 q1 e1

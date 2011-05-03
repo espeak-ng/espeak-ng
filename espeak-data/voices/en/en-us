@@ -5,12 +5,12 @@ language en-r
 language en 3
 gender male
 
-phonemes en_us
+phonemes en-us
 dictrules 3 6
-option 12 1       // reduce [t]
+option reduce_t 1
 
-stressLength 145 125 170 170 0 0 265 290
-stressAmp  17 16  20 20  20 22  22 20
+stressLength 145 125 190 170 0 0 260 290
+stressAmp  17 16  19 19  19 19  21 19
 
 replace 03 I  i
 replace 03 I2 i

@@ -780,6 +780,7 @@ ceres            si@ri:z
 certificate      s3tIfIk@t
 chalet           SaleI
 chameleon        k@mi:li@n
+chamomile        kam@maIl
 champagne        Samp'eIn
 chang            tSeIndZ
 chang            tSaN          $onlys
@@ -817,6 +818,7 @@ closet           kl0zI2t
 cloth            kloUD         $verb
 c'mon            k@m0n
 coauthor         koU'O:T3
+coaxial          koU'aksI@l
 cobol            koUb0l
 cocoa            koUkoU
 cochlea          k0kli:@
@@ -1060,8 +1062,6 @@ epistle          I2pIs@L
 epitome          I2pIt@mI
 equation         I2kweIZ@n
 equivocal        I2kwIv@k@L
-era              i@r@          $only // should by $onlys, but gets 'erased' wrong
-eras             i@r@z
 erase            I2reIz        // erasing erases
 ere              e@            $only
 eros             i@r0s
@@ -1524,6 +1524,7 @@ mitre            maIt3
 mixer            mIks3
 modem            moUdEm
 moderate         m0d@reIt      $verb
+molybdenum        $2
 momentary        moUm@nt@rI
 momentum          $2
 monday           mVndeI
@@ -1660,6 +1661,7 @@ overt            oUv'3:t
 overtly          oUv'3:tlI
 overturn          $3
 oxen             0ks@n
+oxymoron          $3
 
 padre            pA:dreI
 paella           paI'El@
@@ -1718,6 +1720,7 @@ piecemeal        p'i:sm,i:l
 pier             pi@3
 pigsty           pIgstaI
 pilot            paIl@t
+pileup           paIlVp
 pineapple        p'aInap@L
 pinged           pINd
 pint             paInt
@@ -1739,6 +1742,7 @@ politer          p@l'aIt3
 politic          p0l@tIk
 poll             poUl
 polls            poUlz
+polyamide        p0lI'eImaId
 polythene        $1
 portend          po@t'End
 posse            p0sI
@@ -2269,6 +2273,7 @@ vestige          vEstI2dZ
 vex              vEks        // for vexed
 vicar            vIk3
 vigilante        vIdZI2l'antI2
+vignette         vInj'Et
 villi            vIlaI
 vineyard         vInj3d
 vinyl            vaInI2l
@@ -2605,7 +2610,7 @@ Abu		abu:
 Abraham		eIbr@ham
 Ada		eId@  $onlys
 Adrian		eIdri@n
-Aggie		agI
+Aggie		agi
 Agnes		agn@s
 Aguilera	agi:l'e@r@
 Ahab		eIhab
@@ -2620,30 +2625,30 @@ Allen		al@n
 Alison		alI2s@n
 Amanda		$2
 Amos		eIm0s
-Amy		eImI
+Amy		eImi
 Andre		0ndreI
 Anita		a#ni:t@
-Anthony		ant@nI
+Anthony		ant@ni
 Anton		ant0n
 Aoife		i:f@
 Archibald	A@tSIbO:ld
-Archie		A@tSI
+Archie		A@tSi
 Ares		e@ri:z
-Astley		astlI
+Astley		astli
 Baez		baI'Ez
 Bambi		bambi:
 Barack		ba#rA:k
 Barbara		bA@b@r@
-Betsy		bEtsI
+Betsy		bEtsi
 Bjorn		bjO@n
 Bjørn		bj3:n
 Boris		b0rIs
 Brien		braI@n
 Candace		kandIs
 Carol		kar@l
-Calliope	ka#laI@pI
+Calliope	ka#laI@pi
 Cassandra	k@sandr@
-Cassey		keIsI
+Cassey		keIsi
 Catherine	kaTrI2n
 Cecile		sEsi:l
 Charlotte	SA@l@t
@@ -2651,14 +2656,15 @@ Cher		Se@
 Cheri		Se@r'i:
 Cherie		Se@r'i:
 Cheryl		SErI2l
-Chloe		kloUI
+Chloe		kloUi
 Chris		krIs
 Cleo		kli:oU
-Connie		k0nI
+Cloe		kloUi
+Connie		k0ni
 Connor		k0n3
-Daphne		dafnI
+Daphne		dafni
 Darryl		dar@L
-Davie		deIvI
+Davie		deIvi
 Davis		deIvIs
 Declan		dEkla#n
 Denise		d@ni:s
@@ -2676,15 +2682,15 @@ Dylan		dIl@n
 Edith		i:dIT
 Elise		I2li:z
 Elizabeth	I2lIz@b@T
-Emily		EmI2lI
+Emily		EmI2li
 Emma		Em@
-Emmy		EmI
+Emmy		Emi
 Etheridge	ET@-rIdZ
 Etienne		EtI'En
 Euler		OIl3
 Eva		i:v@
 Evan		Ev@n
-Gary		garI
+Gary		gari
 Geraint		gEraInt
 Gibbs		gIbz
 Giles		gaIlz
@@ -2709,18 +2715,17 @@ Isiah		aIz'aI@
 Ivan		aIv@n
 Jacob		dZeIk@b
 Jacques		Zak
-Jamie		dZeImI
+Jamie		dZeImi
 Jared		dZarEd
 Jesus		dZi:z@s
 Jonah		dZoUn@
 José		hoUs'eI
 Jose		hoUs'eI
-Juan		hwA:n
-Judy		dZu:dI
+Judy		dZu:di
 Karen		kar@n
 Karene		ka#ri:n
 Katherine	kaTrI2n
-Katie		keItI
+Katie		keIti
 Kieran		ki@r@n
 Laurence	l0r@ns
 Lawrence	l0r@ns
@@ -2752,6 +2757,7 @@ Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
 Mildred		mIldrI2d
+Mindy		mIndi
 Minerva		mI2n3:v@
 Mohamed		moUh'amI2d
 Mohammad	moUh'amI2d
@@ -2771,14 +2777,14 @@ Oscar		0sk3
 Ottawa		0ta#w@
 Pamela		pam@l@
 Pandora		$2
-Penelope	p@nEl@pI
+Penelope	p@nEl@pi
 Phoebe		fi:bi:
 Rachael		reItS@L
 Rachel		reItS@L
 Raul		raU'u:l
 Rees		ri:s
 Reese		ri:s
-Reggie		rEdZI
+Reggie		rEdZi
 Reynold		rEn@Ld
 Rhys		ri:s
 Rihanna		rI'A:n@
@@ -2798,26 +2804,28 @@ Sheila		Si:l@
 Sinead		SI2neId
 Siobhan		S@vO:n
 Sonia		s0nj@
-Sophie		soUfI
+Sophie		soUfi
 Stephen		sti:v@n
 Stewart		stju:3t
 ?3 Stewart	stu:3t
 Stuart		stju:3t
 ?3 Stuart	stu:3t
-Suzy		su:zI
+Suzy		su:zi
 Theresa		t@ri:z@
 Therese		t@ri:z
 Thomas		t0m@s
 Tina		ti:n@
 Tracy		treIsi
+Trina		tri:n@
 Tricia		trIS@
 Vanessa		va#nEs@
-Wally		w0lI
+Wally		w0li
 Yves		i:v
 Yvonne		$2
-Zoe		zoUI
+Zoe		zoUi
 
 Andromeda	andr'0mId@
+Beethoven	beItoUv@n
 Buchanan	bju:k'an@n
 Campbell	kamb@l
 Carnegie	kA@nEgI
@@ -2829,6 +2837,7 @@ Dolce		d0ltSeI
 Dvorak		d@-vo@Zak
 Gibson		gIbs@n
 Hades		heIdi:z
+Niro		ni@roU
 Patel		pa#tEl
 Primavera	pri:m@v'e@r@
 Prentice	prEntIs
