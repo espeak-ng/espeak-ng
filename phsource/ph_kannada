@@ -1,0 +1,131 @@
+
+// Phonemes for Kannada
+// This inherits from ph_hindi
+
+// (these are only guesses)
+
+phoneme @
+  vowel  starttype #a  endtype #a
+  length 130
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme a
+  vowel long starttype #@ endtype #a
+  ipa ɐ
+  length 130
+  FMT(vowel/a#_2)
+endphoneme
+
+
+phoneme a:
+  vowel  starttype #a  endtype #a
+  length 300
+  FMT(vowel/a_3)
+endphoneme
+
+
+phoneme e
+  vowel  starttype #e  endtype #e
+  length 130
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 270
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i
+  vowel  starttype #i  endtype #i
+  length 130
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 270
+  FMT(vowel/i)
+endphoneme
+
+
+
+phoneme o
+  vowel  starttype #o  endtype #o
+  length 130
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 300
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme u
+  vowel  starttype #u  endtype #u
+  length 110
+  FMT(vowel/uu_bck)
+endphoneme
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 280
+  FMT(vowel/uu_bck)
+endphoneme
+
+
+
+phoneme aI
+  vowel long starttype #a endtype #i
+  length 280
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme aU
+  vowel long starttype #a endtype #u
+  length 270
+  FMT(vdiph/aau_3)
+endphoneme
+
+
+
+// ?? This is standard [v].  Should be it [v] without the fricative noise?
+phoneme v
+  import_phoneme base/v
+endphoneme
+
+
+phoneme r
+  import_phoneme base/r
+endphoneme
+
+
+phoneme d
+  vcd dnt stop
+  voicingswitch t[
+  lengthmod 5
+  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ELIF nextPh(r) THEN
+    FMT(d/dr) addWav(x/d_dnt, 100)
+  ENDIF
+
+  FMT(d/d, 50) addWav(ustop/t_dnt2, 60)
+endphoneme
+
+
