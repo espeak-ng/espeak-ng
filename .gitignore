@@ -5,7 +5,7 @@
 # libraries
 
 src/libespeak.a
-src/libespeak.so.*
+src/libespeak.so*
 
 # programs:
 
