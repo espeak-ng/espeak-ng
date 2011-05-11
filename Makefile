@@ -44,3 +44,13 @@ espeak-data: espeakedit espeak-data-dir
 	ln -sv $(PWD)/espeak-data $(HOME)/espeak-data
 	src/espeakedit --compile
 
+##### dictionaries:
+
+en: all dictsource/en_rules dictsource/en_list
+	rm -f dictsource/en_extra
+	make espeak-data
+	../cainteoir-engine/tests/dictionary.py --exception-dictionary > dictsource/en_extra
+	make espeak-data
+	../cainteoir-engine/tests/dictionary.py | grep -F fail
+	wc -l dictsource/en_extra
+
