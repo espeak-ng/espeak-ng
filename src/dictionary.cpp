@@ -2920,7 +2920,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	const char *word_end;
 	const char *word1;
 	int wflags = 0;
-	char word_buf[N_WORD_BYTES];
+	char word_buf[N_WORD_BYTES+1];
 
 	if(wtab != NULL)
 	{
@@ -2930,7 +2930,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	word1 = word;
 	if(tr->transpose_min > 0)
 	{
-		strcpy(word_buf,word);
+		strncpy0(word_buf,word, N_WORD_BYTES);
 		wlen = TransposeAlphabet(tr, word_buf);
 		word = word_buf;
 	}

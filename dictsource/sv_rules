@@ -29,6 +29,7 @@
      b) a (kte     a
      k) a (s_      a
      k) a (ni      a
+     _k) a (@   a
      b) a (r_      A:
     lt) a (t       A:
     _b) a (k       A:
@@ -149,6 +150,11 @@
         a (bo      a
         alkohol    alkUho:l
         allvar     allvA:R
+    ch) au (CC o:
+     _) au (C	    O
+     @) ans (_      'ans
+      b) a          a
+    
 
 .group b
         b          b
@@ -298,7 +304,8 @@
         elek       'ElEk
         espeak     _^_EN
         ekonom     'Eku:n,O:m
-        erens      ER'ans
+    er) ens        'ans
+  över) ens        'Ens
         esent      Es'Ent
         enhet      e:nhe:t
 
@@ -348,15 +355,20 @@
         hjälp      jElp
         hög        hY:g
         heading    _^_EN
+   _) hon (P3      ho:N
 
 .group i
         i          i:
         i (CC      I
         i (nf      %I
         i (g_      I
+    k) i (g	    I	
         i (nstr    %I
      s) i (t       I
     dr) i (v       i:
+         i (n_	    'i:
+	 i (ner  'i:
+	 i (nen 'i:
 
         item       _^_EN
    _fl) i (k       i:
@@ -377,7 +389,8 @@
   krit) i (k_      i:
         ikon       Ik'o:n
         ibili      IbIlI
-        itut       Itu-t
+// AEGIS
+        itut(_       Itu-t
         imag       _^_EN
 
 .group j
@@ -499,6 +512,9 @@
      g) o (n       O
      l) o (n       O
     kr) o (n       u:
+    rtr) o (n	     O
+    ng) o (n	     O
+    ll)   o (n	     O
     ss) o (n       O
         o (ni      'o:
         o (ns      U
@@ -521,6 +537,7 @@
         o (rk      O
      f) o (rm      'O
     st) o (rm      O
+    n) o (rm       'O
    inf) o (rmati   %O
         o (rr      O
      C) o (rs      O
@@ -559,8 +576,10 @@
 
 .group r
         r          R
-     r) r 
+	r) r 
         rs         s.
+        r (t	    //Silent
+
         rsi (o     Rsx'
         rsk        s.k
         rsk (i     Rsx
@@ -582,7 +601,8 @@
         sj         sx
         sk (e      sx
         sk (i      sx
-        sk (y      sx
+	s (kig    s
+	sk (y      sx
         sk (ä      sx
         sk (ö      sx
     fi) s (k       s
@@ -611,6 +631,8 @@
         snegla     sne:gla
         spegla     spe:gla
         semest     sEm'Est
+     _) sionist    si:o:n'Ist
+     _) sh         sx
         sweden     _^_EN
 
 .group t
@@ -703,11 +725,14 @@
     sk) å (l       o:
      h) å (l       o:
      h) å (ll      O
+     
 
 .group ä
         ä          E:
         ä (CC      E
         ä (r       E:
+  ion) ä (r       'E:
+     t) ä (r       'E:  
         ä (rd      E:
     tr) ä (d       E:
      v) ä (lk      E:
@@ -723,6 +748,7 @@
      b) ä (r       E:
      r) ä (k       E:
         ärl (d     'E:R
+    ff) ä	'E:
 
 
 .group ö
@@ -734,6 +760,7 @@
      l) ö (st      'Y:
         ö (vr      'Y:
      r) ö (m       'W
+     ff) ö          'Y:
 
 
 .group

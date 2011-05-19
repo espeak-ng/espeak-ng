@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.45.23  03.May.11";
+const char *version_string = "1.45.27  19.May.11";
 const int version_phdata  = 0x014500;
 
 int option_device_number = -1;
@@ -588,6 +588,22 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 }  // end of StressCondition
 
 
+static int CountVowelPosition(PHONEME_LIST *plist)
+{//===============================================
+	int count = 0;
+
+	for(;;)
+	{
+		if(plist->ph->type == phVOWEL)
+			count++;
+		if(plist->sourceix != 0)
+			break;
+		plist--;
+	}
+	return(count);
+}  // end of CoundVowelPosition
+
+
 static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, int instn)
 {//========================================================================================
 	int which;
@@ -739,19 +755,34 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 
 			case 12:  // isVoiced
 				return((ph->type == phVOWEL) || (ph->type == phLIQUID) || (ph->phflags & phVOICED));
-			}
 
 			case 13:  // isFirstVowel
+				return(CountVowelPosition(plist)==1);
+
+			case 14:  // isSecondVowel
+				return(CountVowelPosition(plist)==2);
+
+			case 15:  // isSeqFlag1
+				// is this preceded  by a sequence if 1 or more vowels which have 'flag1' ?  (lang=hi)
+				if(plist->sourceix != 0)
+					return(false);   // this is the first phoneme in the word, so no.
+
 				count = 0;
 				for(;;)
 				{
+					plist--;
 					if(plist->ph->type == phVOWEL)
-						count++;
+					{
+						if(plist->ph->phflags & phFLAG1)
+							count++;
+						else
+							break;  // stop when we find a vowel without flag1
+					}
 					if(plist->sourceix != 0)
 						break;
-					plist--;
 				}
-				return(count==1);
+				return(count > 0);
+			}
 			break;
 
 		}

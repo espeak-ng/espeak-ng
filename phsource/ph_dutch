@@ -18,10 +18,7 @@ endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
-  length 160
-  IF prevPh(w) THEN
-    VowelStart(w/wi2)
-  ENDIF
+  length 130
   FMT(vowel/i_2)
 endphoneme
 
@@ -87,13 +84,21 @@ phoneme a:
   FMT(vowel/a)
 endphoneme
 
+
+phoneme a   // ?? suggested by aegis, but seems too short
+  vowel starttype #a endtype #a
+  length 140
+  FMT(vowel/a_2)
+endphoneme
+
+
 phoneme A
   vowel starttype #a endtype #a
-  length 160
+  length 140
   IF thisPh(isUnstressed) THEN
     FMT(vowel/a#_2)
   ENDIF
-  FMT(vowel/aa_7)
+  FMT(vowel/aa_8)
 endphoneme
 
 phoneme A~
@@ -131,7 +136,7 @@ endphoneme
 
 phoneme o:
   vowel starttype #o endtype #u
-  length 200
+  length 150
   FMT(vdiph/ou_4)
 endphoneme
 
@@ -265,7 +270,7 @@ phoneme s
       ChangePhoneme(!)
     ENDIF
   ENDIF
-  CALL base/s  // unaspirated
+  CALL base/s
 endphoneme
 
 phoneme z
@@ -278,6 +283,6 @@ phoneme z
   IF prevPh(!) THEN  // previous was [s] or [z], now assimilated
     ChangePhoneme(s)
   ENDIF
-  CALL base/s
+  CALL base/z
 endphoneme
 

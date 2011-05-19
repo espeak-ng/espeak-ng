@@ -104,9 +104,23 @@ _0M3	bIlj'u:nER
 _1M3	bIlj'u:n
 _dpt    p'8Nkt
 (1 : a)  f'Ws.ta
+(1 : e)  f'Ws.tE-
+(2 : a)  andRa
+(3 : e)  tRe:djE-
+(4 : e)  fjE:RdE-
+(5 : e)  fEmtE-
+(6 : e)  sxEt:E-
+(7 : e)  sx8ndE-
+(8 : e)  Ot:OndE-
+(9 : e)  ni:OndE-
+(10 : e) ti:OndE-
+(11 : e) ElftE-
+(12 : e) tOlftE-
 
 // abbreviations
 //**************
+ca	 s'IRka
+
 
 
 // articles
@@ -228,6 +242,7 @@ anser	anse:R
 anses	anse:s
 arkiv    'aRki:v
 av      A:v    $u
+barock  baR'Ok
 bäste     b'EstE
 bet	be:t
 // betala    b'Et'A:l,a
@@ -280,6 +295,7 @@ men	mEn
 mig	mEj
 måste	m'Ost@
 måsten	m'Ost@n
+monetär  m,OnEt'E:R
 nvda	Enve:de:A:
 ont	Unt
 ost	Ust
@@ -316,7 +332,7 @@ torsdag	 t'u:SdA:g
 torsdags	 t'u:Sdags
 torsdagen	 t'u:SdA:gEn
 torsdagens	 t'u:SdA:gEns
-tredje	 tR'e:djE
+tredje	 tR'e:djE-
 tyvärr	 t%yv'E:R
 usa	 u-Es'A:
 usas	 u-Es'A:s

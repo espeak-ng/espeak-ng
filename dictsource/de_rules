@@ -20,6 +20,8 @@
 
 .L01 l r
 .L02 c f h k p q s t z // unvoiced, except s+vowel
+.L03 a ä
+
 
 // This file is UTF-8 encoded
 
@@ -68,7 +70,7 @@
      _) abzu (@P4  'aptsu:
      _) ac (et     ats
      _) ad (ju     at
-     _) an (@P2    _!'an
+     _) an (@P2    'an
      _) an (a      %an
      _) a (natioP1 'A:
      _) anath      anat
@@ -80,6 +82,9 @@
      _) anim       ,ani:m
      _) ani (s     %ani:
         a (Co_     'A:
+     _) ann        an
+     _) an (nadP2  'an
+     _) an (nL03hP2 'an
      _) anti (@P4  ,antI
      _) an (tw     an
      _) auf (@P3   _!'aUf
@@ -152,6 +157,7 @@
      m) ayr (_     aI3
      p) ay         EI
 
+
 .group b
      _) b (_       be:
      _) b (L01A    b  // allow bl br  at start of word
@@ -207,17 +213,35 @@
         bo (sh     bo:
      _) bundes     b'Und@s
 
+
 .group c
      _) c (_       se:
      _) c (L01A    k  // allow cl cr  at start of word
+        c          k
+     c) c 
+        ck         k
+
+     _) c (el      S
+    fa) c (et      ts
+     _) cey        tsaI
+        chef (_    SEf
+     _) c (ent     ts
+        c (ie      s
+   pla) c (ie      ts
+        coat (_    _^_EN
+     _) code       ko:t
+     _) computer(@P   kOmpj'u:t3
+     _) cow        _^_EN
+        crew       _^_EN
+        cup        _^_EN
+     _) cyber      saIb3
+
+
+.group ch
      _) ch (L01A   k
      _) ch (a      S
      _) ch (A      C
      _) ch (o      k
-
-        c          k
-     c) c 
-
         ch         C
      a) ch         x
      o) ch         x
@@ -231,13 +255,6 @@
      ü) chen (_    C@n
 
         chs        ks        (_
-        ck         k
-
-     _) c (el      S
-    fa) c (et      ts
-     _) cey        tsaI
-        chef (_    SEf
-     _) c (ent     ts
         chance     SA~s@
         chara (kt  k%ara
      _) ch (ic     S
@@ -252,15 +269,7 @@
         chro       kro:
     nä) chs (t     Cs
     wa) chstu (m   kstu:
-        c (ie      s
-   pla) c (ie      ts
-        coat (_    _^_EN
-     _) code       ko:t
-     _) computer(@P   kOmpj'u:t3
-     _) cow        _^_EN
-        crew       _^_EN
-        cup        _^_EN
-     _) cyber      saIb3
+
 
 .group d
      _) d (_       de:
@@ -276,11 +285,26 @@
         ds (_      ts
         dt         t
         ddt        t
-
   soun) d          d
-     _) darüber (@P7 dar'y:b@r
-     _) darum (@P5 dar'Um
-     _) darunter (@P8 dar'Unt@r
+
+     _) dabei (P5  dA:'baI
+     _) dafür (P5  dA:f'yr
+     _) daher (P5  dA:h'Er
+     _) dahin (P5  dA:h'In
+     _) dahinter (P8 dA:h'Int3
+     _) daneben (P7 dA:n'e:b@n
+     _) daran (P5  dA:r'an
+     _) darauf (P6 dA:r'aUf
+     _) daraus (P6 dA:r'aUs
+     _) darein (P6  dA:r'aIn
+     _) darin (P5  dA:r'In
+     _) darüber (P7 dA:r'y:b@r
+     _) darum (P5  dA:r'Um
+     _) darunter (P8 dA:r'Unt@r
+     _) davon (P5  dA:f'On
+     _) davor (P5  dA:f'o:r
+     _) dazu (P4   dA:ts'u:
+
      _) daten (@P5 d'at@n
      _) deal       _^_EN
      _) de (if     de:
@@ -373,7 +397,6 @@
      &) eren (_S4  @r@n
      &) erer (_S4  @r3
      &) eres (_S4  @r@s
-     &) er (X_     3:
         er (d_     e:r
      &) er (r_     E
      w) er (k_     Er
@@ -487,6 +510,7 @@
      _) frohlock   fro:l'Ok
      _) fung (A    fUNg
 
+
 .group g
      _) g (_       ge:
      _) g (L01A    g  // allow _gl _gr
@@ -515,6 +539,8 @@
         green      _^_EN
         guide      _^_EN
         gue (_     k
+     _) güte (@P4  g'y:t@
+
 
 .group ge
      _) ge (@P2    g@
@@ -544,6 +570,7 @@
         ge (rät    g@
         ge (strig  gE
 
+
 .group h
      _) h (_       hA:
         h          h
@@ -559,7 +586,7 @@
      _) herüber (P7 hEr'y:b3
      _) herum (P5  hEr'Um
      _) herunter (P8 hEr'Unt3
-     _) hervor (P6 hErf'Or
+     _) hervor (P6 hErf'o:r
      _) hier (@    h%i:r
      _) hilf (@P4  h'Ilf
      _) hilfs (@P5 h'Ilfs
@@ -633,9 +660,10 @@
      _) i (mag     I
         i (Co_     'i:
         ik (o_     i:k
+        i (l_      'i:
+     k) i (l_      I
      &) im (o_     =i:m
      r) i (na_     'i:
-//          @) ing (_N      _^_EN
      _) in (k      %In
      _) inter      Int@r
      &) in (_      i2n
@@ -811,8 +839,6 @@ formal) ie         =I@
         n          n
      n) n 
         ng         N
-//             ng (A        Ng
-//             ng (l        Ng
      o) ng (e      ng
      o) ng (A      Ng
      u) ng (i      Ng
@@ -934,11 +960,13 @@ formal) ie         =I@
      _) psycho (ti psy:C'o:
      _) pu (e      p%u:
 
+
 .group q
      _) q (_       ku:
         q          k
         qu         kv
      @) que (_     =k
+
 
 .group r
      _) r (_       Er
@@ -950,6 +978,8 @@ formal) ie         =I@
         rangier    rA:NZ'i:r
      _) re (d      re:
         ressourc   rEs'Urs
+        revers     r%e:vErs
+
 
 .group s
      _) s (_       Es
@@ -1054,6 +1084,7 @@ formal) ie         =I@
         synthesi   _^_EN
         system     z%Iste:m
 
+
 .group t
      _) t (_       te:
         t          t
@@ -1115,6 +1146,7 @@ formal) ie         =I@
         traver     tr%avEr
      _) tw         _^_EN
 
+
 .group u
      _) u (_       u:
         u          u:
@@ -1134,6 +1166,7 @@ formal) ie         =I@
         ub (t_     u:p
         ug (t_     u:k
 
+     _) ueber (@P5 _|,y:b3
      _) um (@P2    Um
      _) umbe (@P4  'Umb@
      _) umge (@P4  'Umg@
@@ -1153,6 +1186,8 @@ formal) ie         =I@
      _) unge (@P4  _|'Ung@
      _) unver (@P5 _|'UnfEr
      _) un (i      u:n
+        univer (s   ,u:ni:vEr
+     _) universitäts (P12 u:ni:vErzi:t'E:ts
      _) un (in@P2  _|'Un
      _) unum (@P4  _|'Un_|Um
      _) under      _^_EN
@@ -1177,7 +1212,6 @@ formal) ie         =I@
      _) user       _^_EN
     Al) u (t_      u:
 
-     _) ueber (@P5 _|,y:b3
 
 
 .group v
@@ -1209,7 +1243,20 @@ formal) ie         =I@
      _) v (on      f
 
      _) vehe       ve:he:
+        velv (er   vElv
      _) ver (@P3   f%Er
+        v (er      f
+    _A) v (er      v
+     a) v (er      v
+    ad) ve (r      vE
+    re) v (er      v
+     i) v (er      v
+     o) v (er      v
+     u) v (er      v
+   kon) ve (r      vE
+   per) ve (r      vE
+   sub) ve (r      vE
+ trans) ve (r      vE
      _) ve (rbal   vE
      _) ve (rbos   v%E
      _) ve (rsat   vE
@@ -1217,9 +1264,13 @@ formal) ie         =I@
      _) ve (rsif   vE
      _) ve (rsion  vE
      _) ve (rteb   vE
-     _) ve (rtik   vE
+        ve (rti    vE
+        ver (tief  f%Er
      @) versich    fErz,IC
      @) vergess    fErg,Es
+        ver (bind  f%Er
+        ver (dien  f%Er
+        ver (sicht f%Er
      @) verfahren (_S9 fErf,A:r@n
      _) viel (@P4  f'i:l
      _) vier (g@P4 f'i:r
@@ -1230,16 +1281,18 @@ formal) ie         =I@
      _) voll (ko   f%Ol
      _) voll (stre f%Ol
      _) voll (z    f%Ol
-     _) vorder     fOrd@r
+        vorder     fOrd3
      -) vorha (nd  fo:rh'a
      _) vor (ne    'fo:r
      _) vor (n     fOr
 
      _) vor (@P3   'fo:r
+     C) vor        fo:r
      _) voraus (P6 fo:r'aUs
      _) vorbei (P6 fo:r'baI
      _) vorher (P6 fo:rh'e:r
      _) vorüber (P7 fo:r'yb3
+
 
 .group w
      _) w (_       ve:
@@ -1259,6 +1312,7 @@ formal) ie         =I@
      _) weither    vaIthe:r
      _) wieder (@P6 vi:d3
      _) wo (hin    v%o:
+     _) wovor      vo:f'o:r
      _) wohl (@P4  v'o:l
         work       _^_EN
 
@@ -1308,9 +1362,10 @@ formal) ie         =I@
      _) zyklo (@P5 ,tsy:klo:
         zylin      ts%i:lIn
 
+
 .group ä
         ä          E:
-        äh (+      e:
+        äh (+      E:
         äu         OY
 
         ä (C%      E
@@ -1322,6 +1377,7 @@ formal) ie         =I@
      t) ät (_      'E:t
         ä (um_N    'E:
 
+
 .group ö
         ö          Y:
         öh (+      Y:
@@ -1330,6 +1386,7 @@ formal) ie         =I@
         ö (C%      W
         ö (CC      W
         ö (sch     W
+
 
 .group ü
         ü          y:
@@ -1346,6 +1403,7 @@ formal) ie         =I@
      _) über (@P4  _|,y:b3
      _) über (be@P4 _!'y:b3
      _) über (gangs y:b3
+
 
 .group ß
      _) ß (_       EstsEt

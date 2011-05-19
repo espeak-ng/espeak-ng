@@ -181,7 +181,7 @@
 .group s
           s          s
        &) s (_S1     s
-       _) s (C       %Es
+       _) s (C@      %Es
        _) sh (A      S
        _) sh (L01A   S
           sh (K      S
@@ -249,14 +249,13 @@
 
 
 .group
-          á          ''a
-          é          ''E
-          í          ''i
-          ó          ''O
-          ú          ''u
-          ü          u
-          ñ          n^
-
+          á        ''a
+          é        ''E
+          í        ''i
+          ó        ''O
+          ú        ''u
+          ü        u
+          ñ        n^
           $          d'Ola*
 
       _)  - (_D      m'EnOs

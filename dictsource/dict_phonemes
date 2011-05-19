@@ -1,7 +1,7 @@
 Phonemes which are used in the *_rules and *_list files
 
 
-Dictionary af_dict  2011-04-06
+Dictionary af_dict  2011-05-04
 
 &    &:   3:   @    @-   @L   @U   a    
 A:   aI   AI   aU   A~   E    e:   e@   
@@ -27,7 +27,7 @@ R2   s    S;   t    T    ts   tS;  v
 v#   w    z    Z    Z;   
 
 
-Dictionary cs_dict  2010-07-03
+Dictionary cs_dict  2011-05-18
 
 @-   a    a:   aU   e    e:   eI   eU   
 i    i:   l-   o    o:   oU   r-   u    
@@ -53,7 +53,7 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
-Dictionary da_dict  2011-02-13
+Dictionary da_dict  2011-05-05
 
 &    &#   0    3    @    @-   a    A    
 aI   e    E    i    o    O    u    V    
@@ -66,7 +66,7 @@ s    S    t    T    tS   v    w    x
 z    Z    
 
 
-Dictionary hu_dict  2011-04-23
+Dictionary hu_dict  2011-05-13
 
 a    A    a:   E    e:   i    i:   o    
 o:   u    u:   Y    y    y:   Y:   
@@ -77,12 +77,12 @@ n    n^   p    r    R    R2   s    S
 s2   t    t2   tS   ts   v    z    Z    
 
 
-Dictionary de_dict  2011-04-27
+Dictionary de_dict  2011-05-14
 
-3    3:   @    @-   a    A    A:   aI   
-aU   A~   E    E2   E:   e:   EI   i    
-I    i2   i:   n-   o    O    o:   OY   
-U    u:   W    y    y:   Y:   
+3    @    @-   a    A    A:   aI   aU   
+A~   E    E2   E:   e:   EI   i    I    
+i2   i:   n-   o    O    o:   OY   U    
+u:   W    y    y:   Y:   
 
 *    :    ;    b    C    d    D    dZ   
 f    g    g#   h    j    k    l    m    
@@ -90,17 +90,17 @@ n    N    p    pF   r    s    S    t
 tS   ts   v    w    x    z    Z    
 
 
-Dictionary el_dict  2010-11-16
+Dictionary el_dict  2011-05-19
 
 a    aI   e    i    o    oI   u    
 
 ;    b    c    C    d    D    f    g    
 j    k    l    l^   m    n    N    n^   
 p    Q    r    R    s    s;   t    T    
-ts   v    x    z    z;   
+ts   v    x    z    
 
 
-Dictionary en_dict  2011-05-03
+Dictionary en_dict  2011-05-18
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI@  aU   
@@ -109,11 +109,11 @@ I2   i:   i@   i@3  IR   O    O:   o:
 O@   o@   OI   oU   O~   U    u:   U@   
 V    VR   
 
-:    ;    ?    b    C    d    D    dZ   
-f    g    h    j    k    l    l#   m    
-n    N    n^   p    Q    r    r-   s    
-S    t    T    t2   tS   v    w    x    
-z    Z    
+:    ;    ?    b    C    d    D    d#   
+dZ   f    g    h    j    k    l    l#   
+m    n    N    n^   p    Q    r    r-   
+s    S    t    T    t2   tS   v    w    
+x    z    Z    z#   
 
 
 Dictionary eo_dict  2011-04-02
@@ -127,7 +127,7 @@ s    S    t    T    tS   ts   v    w
 x    z    Z    
 
 
-Dictionary es_dict  2010-11-16
+Dictionary es_dict  2011-05-15
 
 a    aI   aU   e    E    eI   eU   i    
 o    O    oI   u    
@@ -185,12 +185,12 @@ N    n^   p    r    R    R2   s    S
 t    tS   ts   tS;  v    x    z    Z    
 
 
-Dictionary hi_dict  2010-07-30
+Dictionary hi_dict  2011-05-09
 
-@    @-   @2   @3   a    a:   aI   aU   
-e    E    e:   E:   E~   i    I    i:   
-l-   o    O    o:   O:   O~   o~   r-   
-U    u:   u~   V    
+@    @2   a    a:   aI   aU   e    E    
+e:   E:   E~   i    I    i:   l-   o    
+O    o:   O:   O~   o~   r-   U    u:   
+u~   V    
 
 #X1  #X2  -    :    b    bh   c    ch   
 d    d.   dh   dh.  f    g    gh   h    
@@ -200,7 +200,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2011-04-29
+Dictionary ta_dict  2011-05-08
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -325,7 +325,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary nl_dict  2011-04-15
+Dictionary nl_dict  2011-05-18
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -441,7 +441,7 @@ R2   s    S    t    T    tS   ts   v
 w    z    Z    
 
 
-Dictionary sv_dict  2010-09-08
+Dictionary sv_dict  2011-05-19
 
 8    @    a    A:   E    E-   e:   E:   
 I    i:   O    o:   U    u-   u:   W    

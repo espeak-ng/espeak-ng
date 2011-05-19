@@ -30,5 +30,12 @@ phoneme oU
   FMT(vdiph/oou)
 endphoneme
 
+phoneme r-     // syllabic r
+  vowel  starttype #@  endtype #@
+  ipa rU+0329
+  length 120
+  FMT(vowelr/r-voc)
+endphoneme
+
 
 

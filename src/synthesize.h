@@ -327,6 +327,8 @@ typedef struct {
 #define i_isFinalVowel 0x8b
 #define i_isVoiced     0x8c
 #define i_isFirstVowel 0x8d
+#define i_isSecondVowel 0x8e
+#define i_isSeqFlag1   0x8f
 
 // place of articulation
 #define i_isVel      0x28

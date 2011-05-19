@@ -95,7 +95,13 @@ _3M1o	trisCil^ost'
 
 
 // symbols
-%	t'is||ekat'o
+%	tisekat'o $max3
+€       evr'o
++       sin $u $max3
+*	epi $u $max3
+-	m'ion
+=       ison $max3
+$	Dol'aria
 
 // articles
 ο	o $u   // definate article
@@ -178,7 +184,7 @@ _3M1o	trisCil^ost'
 θαέχετε	$u
 θαέχουν	$u
 
-ναέχω	$u
+να $u
 ναέχεις	$u
 ναέχει	$u
 ναέχουμε	$u
@@ -194,16 +200,17 @@ _3M1o	trisCil^ost'
 στων	$u
 στους	$u
 στης	$u
+στη	$u
 στην	$u
 στις	$u
 στο	$u
 στα	$u
 
 εκ	$u	// of
-να	$u $brk	// to
+να	$u 	// to
 από	$u	// from, by, of
 με	$u $brk	// with
-μασί	$u $brk	// with,together
+μαζί	$u $brk	// with,together
 παρά	$u $brk	// by, of, than
 μέσα	$u $brk	// in, inside, within
 εις	$u $brk	// on, to
@@ -213,12 +220,13 @@ _3M1o	trisCil^ost'
 μέχρι	$brk	// until
 κοντά	$brk	// beside
 επί	$u
+//πιο     $u phi'o
 
 
 // conjunctions
 
 αλλά	$u $pause	// but
-και	ke   $u $pause	// and (don't change to [ge] after n)
+και	ke   $u	// and (don't change to [ge] after n)
 ή	$u $pause	// or
 ότι	$u $pause	// that
 αν	$u $pause	// if, whether
@@ -233,11 +241,6 @@ _3M1o	trisCil^ost'
 ότι	$pause
 
 
-// Pronunciation exceptions
-
-
-
-(για να)	jan'a
 
 // Letters
 // If a letter has a "word" pronunciation which is different from its
@@ -288,9 +291,18 @@ _ή	,ita|t'onos
 _.      tel'ia
 _,      k'oma
 
+// Jer
+μου	$u 
+σου	$u
+του	$u
+μας	$u
+σας	$u
+τους	$u
 
 
-// miscellaneous exceptions
+// Pronunciation exceptions
+(για να)	$u jan'a
+
 μιερός     mier'os
 ρια        rQ;a
 
