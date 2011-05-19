@@ -528,7 +528,7 @@ noha      $u $pause  // even thought
 
 
 // Negative
-nem       $strend2 $combine
+nem       $strend2 $combine $alt3
 ?2 nem	$strend2
 ne        $unstressend
 
@@ -1866,7 +1866,7 @@ ny	En^
 ø	$accent
 ß	_^_DE
 
-…	_p%ontp%ontp%ont   // 3 or more dots are changed to elipsis
+//…	_p%ontp%ontp%ont   // 3 or more dots are changed to elipsis
 .	p%ont		$max3
 _.	pont
 *	tSillAg		$max3
@@ -2028,4 +2028,4 @@ CD-m) cédém
 (EU-n) eun
 (MHZ-en) megahercen
 (Mhz-en) megahercen
-(ORTT-től) oerrtététől //special exception
+(ORTT-től) oerrtététől //special exceptio

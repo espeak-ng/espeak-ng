@@ -142,6 +142,8 @@ static keywtab_t k_properties[] = {
 	{"isFinalVowel", 0,  i_isFinalVowel},
 	{"isVoiced",     0,  i_isVoiced},   // voiced consonant, or vowel
 	{"isFirstVowel", 0,  i_isFirstVowel},
+	{"isSecondVowel", 0, i_isSecondVowel},
+	{"isSeqFlag1",   0,  i_isSeqFlag1},
 
 	{NULL, 0, 0}
 };

@@ -1,7 +1,7 @@
 
 phoneme i
   vowel starttype #i endtype #i
-  length 110
+  length 100
   IfNextVowelAppend(;)
   FMT(vowel/ii_3)
 endphoneme
@@ -105,7 +105,7 @@ endphoneme
 phoneme r-     // syllabic r
   vowel  starttype #@  endtype #@
   ipa rU+0329
-  length 220
+  length 200
   FMT(vowelr/r-voc)
 endphoneme
 

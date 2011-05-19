@@ -117,11 +117,11 @@ _7X	h&lfj'&rs               // PV a changed to &
 _8X	f'irs
 _9X	h&lf'Ems // PB a changed to &
 _0C	h'un*@:D
-_1C  ed||h'unR@:D // PB addet 'et hundrede'
+_1C  ed||h'unR@:D // PB added 'et hundrede'
 _0M1	t'u:s@-n
 _1M1    ed||t'u:s@-n      // PB added 'et' to tusind
 _1M2	'e:n||milij'o:n
-_0M2	milij'o:n3
+_0M2	milij'o:nV // PB [3] changed to [V]
 _1M3	'e:n||milij'A:d
 _0M3	milij'A:d3
 _1M4	'e:n||bilij'o:n
@@ -140,7 +140,7 @@ _2o &n@n // 2. anden
 _3o trEdj3 // 3. tredje
 _4o fjeV // 4. fjerde
 _5o fEmt3 // 5. femte
-_6o sj&d3 // 6. sjette
+_6o sjEd3 // 6. sjette
 _7o syvn3 // 7. syvende
 _8o Vtn3 // 8. ottende
 _9o ni@n3 // 9. niende
@@ -160,7 +160,7 @@ _9Xo   half'Emsenstyv@n@ // 95.
 // function words
 
 den	dEn	$u
-en	e:n	$u
+en		$u
 et	et	$u
 her $u
 kun $u
@@ -172,7 +172,7 @@ og	V	$u+ $pause  // and
 men		$pause	// but
 eller	// or
 mens		$pause	// while
-for	fV
+for	
 fordi	fVd'i $pause	// because - PB: changed stress
 når	nVr		$pause	// while
 der	dEr	$u+ $u    // PB changed from [dA]
@@ -197,7 +197,7 @@ som	sVm	 $u   // which / that - PB: removed [$u+]
 // pronouns
 jeg	jai	$u+	// I 
 du du $u
-de	di	$u
+de	$u
 han	$u
 hun	$u
 det	de $u
@@ -312,7 +312,6 @@ homepage	_^_EN
 hooligan	_^_EN
 interface	_^_EN
 image       _^_EN
-joke		_^_EN
 laptop		_^_EN
 level		_^_EN
 login		_^_EN
@@ -329,7 +328,6 @@ out		    _^_EN
 pair		_^_EN
 password	_^_EN
 penthouse	_^_EN
-pickup		_^_EN
 pidgin		_^_EN
 ranger      _^_EN
 receiver	_^_EN
@@ -345,7 +343,6 @@ statement   _^_EN
 understatement _^_EN
 sexy		_^_EN
 single      _^_EN
-skateboard  _^_EN
 small		_^_EN
 snob		_^_EN 
 song		_^_EN
@@ -367,10 +364,9 @@ word		_^_EN
 warrior     _^_EN
 
 // PB names
-august awgOsd $capital
+august OgOsd $capital
 austin      _^_EN $alt
 bailey      _^_EN $alt
-barry       _^_EN $alt
 bbc		    _^_EN $alt
 boston      _^_EN $alt
 bronx       _^_EN $alt
@@ -388,7 +384,6 @@ oregon      _^_EN $alt
 piccadilly  _^_EN
 reynolds    _^_EN $alt
 purvis      _^_EN
-washington  _^_EN $alt
 white       _^_EN $alt
 
 // PB French words
@@ -590,7 +585,7 @@ hydrant  $alt
 ignorant  $alt
 immigrant  $alt
 imposant  $alt
-infant  $alt
+//infant  $alt
 informant  $alt
 injuriant  $alt
 insinuant  $alt
@@ -1988,7 +1983,6 @@ randrusian  $alt
 regensian  $alt
 republikan  $alt
 retsmedicin  $alt
-roman  $alt
 rotarian  $alt
 rumæn  $alt
 salvadoran  $alt
@@ -2794,6 +2788,7 @@ geni  $alt
 gigantomani  $alt
 guarani  $alt
 harmoni  $alt
+filharmoni  $alt
 hegemoni  $alt
 homofoni  $alt
 ironi  $alt
@@ -3609,6 +3604,7 @@ perfid $alt
 pesticid $alt
 polyamid $alt
 rapid $alt
+rheumatoid $alt
 rigid $alt
 sakkarid $alt
 skizoid $alt
@@ -5877,6 +5873,7 @@ attribuer   $alt
 auditer   $alt
 augmentere   $alt
 auktionere   $alt
+bortauktionere   $alt
 auskulter   $alt
 autentificer   $alt
 autografere   $alt
@@ -6229,7 +6226,7 @@ frisere   $alt
 friter   $alt
 frotter   $alt
 frustrer   $alt
-fundamenter   $alt
+fundamentere   $alt
 funder   $alt
 funger   $alt
 funktionaliser   $alt
@@ -6475,7 +6472,7 @@ katolicer   $alt
 kautioner   $alt
 kaver   $alt
 kilometrer   $alt
-klarere   $alt
+//klarere   $alt
 klarificer   $alt
 klassificer   $alt
 klausulere   $alt
@@ -6585,7 +6582,7 @@ korriger   $alt
 korroder   $alt
 korruger   $alt
 korrumper   $alt
-kostumer   $alt
+kostumere   $alt
 kostumier   $alt
 krakeler   $alt
 krediter   $alt
@@ -6599,7 +6596,7 @@ kroker   $alt
 kronologiser   $alt
 kropsvisiter   $alt
 krydsrevider   $alt
-krypter   $alt
+kryptere   $alt
 kryptografer   $alt
 krystalliser   $alt
 kubere   $alt
@@ -6619,7 +6616,7 @@ kvalificer   $alt
 kvantificer   $alt
 kvinkeler   $alt
 kvitter   $alt
-kvoter   $alt
+kvotere   $alt
 kværuler   $alt
 kæresterer   $alt
 kønsdiskriminer   $alt
@@ -6654,7 +6651,7 @@ lombarder   $alt
 longer   $alt
 lorgnetter   $alt
 lukrer   $alt
-lædere   $alt
+lædere   $alt // problem with the noun 'læder' = "leather"
 magasinere   $alt
 opmagasiner   $alt
 magnetiser   $alt
@@ -6798,13 +6795,13 @@ paginer   $alt
 palataliser   $alt
 palletere   $alt
 palper   $alt
-paneler   $alt
+panelere   $alt
 paner   $alt
 panorer   $alt
-parader   $alt
+paradere   $alt
 parafer   $alt
 paraffiner   $alt
-parafraser   $alt
+parafrasere   $alt
 paragrafer   $alt
 paralleliser   $alt
 paralyser   $alt
@@ -6880,11 +6877,11 @@ populariser   $alt
 portier   $alt
 portrættere   $alt
 posere   $alt
-positioner   $alt
+positionere   $alt
 postdater   $alt
 postere   $alt
 postuler   $alt
-potenser   $alt
+potensere   $alt
 pousser   $alt
 praktiser   $alt
 premier   $alt
@@ -6925,6 +6922,7 @@ protestere   $alt
 protokollere   $alt
 provianter   $alt
 provoker   $alt
+fremprovoker   $alt
 præciser   $alt
 prædestiner   $alt
 prædisponer   $alt
@@ -7066,8 +7064,8 @@ revancher   $alt
 reverser   $alt
 revider   $alt
 revitaliser   $alt
-revolter   $alt
-revolutioner   $alt
+revoltere   $alt
+revolutionere   $alt
 revurder   $alt
 rikochetter   $alt
 riposter   $alt
@@ -7079,7 +7077,7 @@ romaniser   $alt
 romantiser   $alt
 roter   $alt
 rouler   $alt
-rouletter   $alt
+roulettere   $alt
 rubricer   $alt
 ruinere   $alt
 rumster   $alt
@@ -7136,7 +7134,7 @@ skolemesterer   $alt
 skraver   $alt
 skrædderer   $alt
 skulpter   $alt
-skulpturer   $alt
+skulpturere   $alt
 skvadroner   $alt
 smukkeser   $alt
 snedkerer   $alt
@@ -7186,7 +7184,7 @@ sublimer   $alt
 subordiner   $alt
 subsidier   $alt
 subskriber   $alt
-substantiver   $alt
+substantivere   $alt
 substituer   $alt
 subsumer   $alt
 subtraher   $alt
@@ -7242,7 +7240,7 @@ terrassere   $alt
 terroriser   $alt
 testamentere   $alt
 testere   $alt
-tiere   $alt
+//tiere   $alt
 titrer   $alt
 tituler   $alt
 tivoliser   $alt
@@ -7280,7 +7278,7 @@ trepaner   $alt
 trianguler   $alt
 triumfere   $alt
 trivialiser   $alt
-trompeter   $alt
+trompetere   $alt
 trunker   $alt
 //trænere   $alt
 tunnelere   $alt
@@ -9641,7 +9639,7 @@ talon  $alt
 tampon  $alt
 testosteron $alt
 
-// -tron list (on)
+// -t()ron list (on)
 betatron   $alt
 bevatron   $alt
 citron   $alt
@@ -9652,6 +9650,7 @@ natron n'&:tRVn   $alt
 neutron   $alt
 patron   $alt
 plastron   $alt
+skabelon $alt
 synkrocyklotron   $alt
 synkrotron   $alt
  
@@ -9662,7 +9661,6 @@ distikon  distik'Vn   $alt
 flakon fl&k'VN $alt
 ikon   $alt
 karakteristikon // Vn   $alt
-kokon  kok'VN   $alt
 leksikon // Vn   $alt
 onomatopoietikon // Vn   $alt
 panoptikon  // Vn   $alt
@@ -10084,7 +10082,7 @@ complet  $alt
 duatlet  $alt
 dublet  $alt
 epaulet  $alt
-filet  $alt
+//filet  $alt
 flageolet  $alt
 ifolet  $alt
 kavalet  $alt
@@ -10580,6 +10578,7 @@ animator  $alt
 applikator  $alt
 auditor  $alt
 defibrillator  $alt
+deflektor $alt
 deklamator  $alt
 demodulator  $alt
 demonstrator  $alt

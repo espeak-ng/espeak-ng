@@ -322,6 +322,7 @@ moorreesburg mur'e@sbWrx2
 mouillepunt mulipWnt
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
+nebraska    n@braska
 nigel       _^_EN
 nineve      nIn@fi
 oberammergau o@b@r'am@rgaU
@@ -353,12 +354,14 @@ sunnyside   _^_EN
 suriname    syrin'A:m@
 swellendam  $3
 tankwa      taNkwa
+(tel aviv)  t&l||av'iv
 tokio       to@kiu
 trafalgar   traf'algar
 tunisië     $2
 turkye      $2
 ulundi      ul'undi
 upington    apiNt@n
+utrecht     ytr&x2t
 vanrhynsdorp fanr'eInsdOrp
 vesuvius    v@su:viWs
 viëtnam     vj'Etnam
@@ -391,6 +394,7 @@ amelia      am'i:lija
 annalet     anal'Et
 André       'andreI
 annette     an'Et
+anthonius   ant'o@ni;Ws
 anthonie    ant'o@ni
 antoinette  antun'Et
 antonius    ant'o@nijWs
@@ -417,6 +421,7 @@ beyers      beI@rs
 blignault   blIx2n@Ut
 blomerus    blum'e@rWs
 blum        blum
+boccaccio   _^_IT
 boris       bOr@s	
 borodin     bOrud'in
 botha       bo@ta
@@ -500,6 +505,7 @@ elsabe      &ls@bi
 elsabé      &ls@bi
 elvis       _^_EN
 emmarentia  Emar'e~nSja
+emile       Em'i:l
 engelbrecht EN@lbr&x2t
 erasmus     $2
 ernest      _^_EN
@@ -605,6 +611,7 @@ loubser     l@UpS@r
 louis       luI
 louise      luw'i:z
 lucretia    lukr'i:Sja
+lucas       lukas
 lukas       lukas
 lulu        lulu
 mabalêl     mabal'&l
@@ -642,6 +649,7 @@ maud        mO:d
 maureen     _^_EN
 mefistofeles mEfist'o@f@l@s
 melanie     m@lA:ni
+melissa     m@lIsa
 meraai      m@rAI
 messias     m@sijas
 metusalem   m@t'ysalEm
@@ -651,6 +659,7 @@ michiel $2
 mike        _^_EN
 miriam      mIri@m
 mohammed    muh'am@t
+monica      mOnika
 morkel        mOrk@l
 morné       mOrn'eI
 mostert     m'Ost@rt
@@ -691,6 +700,7 @@ rebekka     r@bEka
 reinette    r@nEt
 renette     r@nEt
 renée       r@neI
+rené        r@neI
 retha       re@ta
 retief      r@tif
 rhodes      _^_EN
@@ -722,6 +732,7 @@ shakespeare _^_EN
 sharon      S&r@-n
 sheila      Si:la
 sigmund     sigmunt
+sinatra     _^_EN
 sophia      suf'i:ja
 sophie      _^_EN
 springsteen _^_EN
@@ -958,6 +969,7 @@ dis		$u
 
 aangaande     $2
 aanstaande    $2
+(a cappella)  a||kap'&la
 adagio        ad'A:dZi;%@U
 afgaanse      afg'A:ns@
 afgane        afg'A:n@
@@ -982,6 +994,8 @@ amen          A:mEn
 anale         an'A:l@
 anima         $1
 animus        animus
+apoteose      apOti;'o@s@
+arrogansie    arux2'ansi
 as't          as@t $u
 asof          asOf
 asook         %as_o@k
@@ -1071,6 +1085,7 @@ effata        Ef'A:ta
 effense       Ef@ns@
 eks           Eks
 ekself %&ks'&lf
+eksman        $1
 elders        &ld@rs
 elementale    El@mEnt'A:l@
 elite         il'i:t
@@ -1081,11 +1096,13 @@ era           e@ra
 erger         &rg@r
 ergering      &rg@r@N
 espeak        i:;spi:k
+espresso      _^_IT
 (et cetera)   Ets'Et@ra
 euro          Y@ru
 ewentwil      e@v@ntv@l
 exodus        Eks'o@dWs
 
+factotum      $2
 fakture       $2
 fetakaas      fEtakA:s
 figuur        f@x2yr
@@ -1113,6 +1130,7 @@ germolene     dZI:m@l'i:n
 gewellys      x2e@v@lleIs
 gladiator     x2ladi'A:tOr
 globale       x2lo@b'A:l@
+godalmagtig   x2Ot_alm'ax2t@x2
 gooi          x2OI
 gomorra       x2@mOra
 graffiti      graf'iti
@@ -1154,6 +1172,7 @@ infame        @nfA:m@
 ingevolge     $3
 inkatha       iNk'A:ta
 inkluis       $2
+innestel      InnEst@l
 insomnia      @nsOmnija
 intens @nt'Ens
 intensiteit   $4
@@ -1167,6 +1186,7 @@ kafee         kaf'e@
 kaliefa       kal'ifa
 kameraderie   kam@rA:d@r'i
 kapittel      kap'It@l
+kateter       kat'e@t@r
 katswink      katsv@nk
 kaviaar       kavi'A:r
 kennisvaardig $1
@@ -1176,6 +1196,7 @@ klimeid       klImeIt
 knapsekêrel   knaps@k&:r@l
 kolossense    kOl@s'e~ns@
 komaan        kOmA:n
+kompulsie     kOmp'Wlsi
 konfyttertjie kOnf'eIt&:rci
 konkawe       kOnk'A:v@
 konte         $1
@@ -1194,6 +1215,7 @@ legate        l@x2A:t@
 libido        l@bidu
 liefdespel    lifd@sp&l
 lipstiek      lIpstik
+lisensiaat    l@se~nsi;'A:t
 lokaas        lOk_A:s
 londense      lOnd@ns@
 lord          _^_EN
@@ -1306,6 +1328,7 @@ orale         o@r'A:l@
 oranjepers    o@r'anj@p&:rs
 oudsher       @Utsh&r
 
+palawa        p@lA:va
 pandemonium   pand@m'o@niWm
 papperel      pap@r'&l
 parate        par'A:t@
@@ -1368,6 +1391,7 @@ skollienes    skOlin,Es
 skuldelas     skWld@las
 s'n           s@n $u
 slaparm       slap_ar@-m
+sneeubaleffek sniubal_if,Ek
 sopas         $2
 spaghetti     sp%agEt%i
 sobere s'o@b@r@
@@ -1379,11 +1403,13 @@ sondenes      sOnd@nEs
 sononder      sOn_On@r
 sonop         sOn_Op
 sonore        sun'o@r@
+sonure        sOn_yr@
 sover         so@f&r
 staccato      $2
 sterwens      st&rv@ns
 stilswye      $1
 strydros      streIt_rOs
+stukrag       stykrax2
 subiet        sWb'it	
 suburbia      sWb'Wrbija
 swangerswaar  swaN@rswA:r
@@ -1440,6 +1466,7 @@ verregaande f&r@x2'A:nd@
 verreweg      f&r@v&x2
 verse         f&:rs@
 vers          f&:rs
+versindaba    f&:rs_@ndA:ba
 verste        f&rst@
 verte         f&rt@
 verweg        f&:rv&x2
@@ -1472,6 +1499,7 @@ watwo         vatvo@
 watwou        vatv@U
 weergalm      $2
 weerklink     $2
+weervoorspelling $1
 weggewens     v&x2@v'E:ns
 welaf         v&l_af
 weleer        v&l_'e@r

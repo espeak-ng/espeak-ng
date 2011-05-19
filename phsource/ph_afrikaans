@@ -92,6 +92,7 @@ endphoneme
 
 phoneme @L   // syllabic L
   vowel  starttype #@  endtype l
+  ipa əl
   unstressed
   length 160
   FMT(vwl_en/@L)

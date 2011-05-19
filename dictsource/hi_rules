@@ -8,7 +8,6 @@
 // Y   vowel letters and vowel signs
 
 // conditional rules
-// ?1   drop schwa at end of word
 // ?2   use diphthong for "ai"
 // ?3   use diphthong for "au"
 
@@ -169,128 +168,102 @@
         क        kV
         क (B     k
         क (्य    k:
-?1      क (_     k
         क़        qV
         क़ (B     q
-?1      क़ (_     q
 
 .group ख
         ख        khV
         ख (B     kh
-?1      ख (_     kh
         ख़        xV
         ख़ (B     x
-?1      ख़ (_     x
 
 .group ग
         ग        gV
         ग (B     g
-?1      ग (_     g
         ग़        QV
         ग़ (B     Q
-?1      ग़ (_     Q
 
 .group घ
         घ        ghV
         घ (B     gh
-?1      घ (_     gh
 
 .group ङ
         ङ        NV
         ङ (B     N
-?1      ङ (_     N
-     ्) ङ (_     NV
+     ्) ङ (_     N@
 
 .group च
-        च        c@3
+        च        cV
         च (B     c
         च (्य    c:
-?1      च (_     c
 
 .group छ
-        छ        ch@3
+        छ        chV
         छ (B     ch
-?1      छ (_     ch
 
 .group ज
-        ज        J@3
+        ज        JV
         ज (B     J
-?1      ज (_     J
         ज़        zV
         ज़ (B     z
-?1      ज़ (_     z
 
 .group झ
-        झ        Jh@3
+        झ        JhV
         झ (B     Jh
-?1      झ (_     Jh
 
 .group ञ
-        ञ        n^@3
+        ञ        n^V
         ञ (B     n^
-?1      ञ (_     n^
      ्) ञ (_     n^
 
 .group ट
         ट        t.V
         ट (B     t.
         ट (्य    t.:
-?1      ट (_     t.
 
 .group ठ
         ठ        th.V
         ठ (B     th.
-?1      ठ (_     th.
 
 .group ड
         ड        d.V
         ड (B     d.
-?1      ड (_     d.
 
         ड़        r.V
         ड़ (B     r.
-?1      ड़ (_     r.
 
 .group ढ
         ढ        dh.V
         ढ (B     dh.
-?1      ढ (_     dh.
         ढ़        r.hV  // nukta  (should retroflex flap)
         ढ़ (B     r.h   // nukta
-?1      ढ़ (_     r.h   // nukta
 
 .group ण
         ण        n.V   // (temporary) same as dental [n]
         ण (B     n.
-?1      ण (_     n.
-     ्) ण (_     n.V
+     ्) ण (_     n.@
 
 .group त
         त        tV
         त (B     t
         त (्य    t:
-?1      त (_     t
 
 .group थ
         थ        thV
         थ (B     th
-?1      थ (_     th
 
 .group द
         द        dV
         द (B     d
-?1      द (_     d
 
 .group ध
         ध        dhV
         ध (B     dh
-?1      ध (_     dh
 
 .group न
         न        nV
         न (B     n
-?1      न (_     n
-     ्) न (_     nV
+     ्) न (_     n@
      र्) न (_     n          // r +virama
 
 
@@ -301,69 +274,57 @@
         प        pV
         प (B     p
         प (्य    p:
-?1      प (_     p
 
 .group फ
         फ        phV
         फ (B     ph
-?1      फ (_     ph
         फ़        fV
         फ़ (B     f
-?1      फ़ (_     f
 
 .group ब
         ब        bV
         ब (B     b
-?1      ब (_     b
 
 .group भ
         भ        bhV
         भ (B     bh
-?1      भ (_     bh
 
 .group म
         म        mV
         म (B     m
-?1      म (_     m
-     ्) म (_     mV
+     ्) म (_     m@
      र्) म (_     m          // r +virama
      न्) म (_     m          // n +virama
 
 .group य
-        य        j@3
+        य        jV
         य (B     j
-?1      य (_     j
-     ्) य (_     j@3
+     ्) य (_     j@
 
 .group र
-        र        r@2
+        र        rV
         र (B     r
-?1      र (_     r
-     ्) र (_     r@-
+     ्) र (_     r@
 
 .group ऱ             // rra
         ऱ        rV   // (temporary) same as [r]
         ऱ (B     r
-?1      ऱ (_     r
-     ्) ऱ (_     rV
+     ्) ऱ (_     r@
 
 .group ल
         ल        lV
         ल (B     l
-?1      ल (_     l
-     ्) ल (_     lV
+     ्) ल (_     l@
 
 .group ळ
         ळ        l.V
         ळ (B     l.
-?1      ळ (_     l.
-     ्) ळ (_     l.V
+     ्) ळ (_     l.@
 
 .group ऴ
         ऴ        l.V  // (temporary) same as [l.]
         ऴ (B     l.
-?1      ऴ (_     l.
-     ्) ऴ (_     l.V
+     ्) ऴ (_     l.@
 
 .group व
         व        vV
@@ -371,27 +332,22 @@
      _) व        wV
      _) व (B     w
      _) व (्     v   // +virma
-?1      व (_     v
 
 .group श
         श        SV
         श (B     S
-?1      श (_     S
 
 .group ष
         ष        s.V   //?? or retroflex [S]
         ष (B     s.    //??
-?1      ष (_     s.    //??
 
 .group स
         स        sV
         स (B     s
-?1      स (_     s
 
 .group ह
         ह        HV
         ह (B     H
-?1      ह (_     H
 
 
                         // nukta,  modifies a consonant
@@ -441,42 +397,34 @@
 .group क़   // qa
         क़        qV
         क़ (B     q
-?1      क़ (_     q
 
 .group ख़   // khha
         ख़        xV
         ख़ (B     x
-?1      ख़ (_     x
 
 .group ग़    // ghha
         ग़        QV
         ग़ (B     Q
-?1      ग़ (_     Q
 
 .group ज़    // za
         ज़        zV
         ज़ (B     z
-?1      ज़ (_     z
 
 .group ड़    // dddha   (should retroflex flap)
         ड़        r.V
         ड़ (B     r.
-?1      ड़ (_     r.
 
 .group ढ़    // rha  (aspirated version of dddha)
         ढ़        r.hV
         ढ़ (B     r.h
-?1      ढ़ (_     r.h
 
 .group फ़    // fa
         फ़        fV
         फ़ (B     f
-?1      फ़ (_     f
 
 .group य़    // yya
         य़        jV
         य़ (B     j
-?1      य़ (_     j
 
 .group ॠ    // rr
         ॠ        V-rr

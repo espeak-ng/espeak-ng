@@ -53,7 +53,7 @@
            ε        e
            ει       i
            εί       'i
-        C) ει (A    ;
+        C) ει (A    C
            ευ       ev
            ευ (B    ef      // +voiceless consonant
            ευ (β    e
@@ -66,15 +66,15 @@
 .group ζ
            ζ        z
            ζ (ζ
-           ζη (A    z;
-           ζι (A    z;
-           ζυ (A    z;
-           ζει (A   z;
-           ζοι (A   z;
+           ζη (A    zj
+           ζι (A    zj
+           ζυ (A    zj
+           ζει (A   zj
+           ζοι (A   zj
 
 .group η
            η        i
-        C) η (A     ;
+//        C) η (A     ;
            ηυ       iv
            ηυ (B    if      // +voiceless consonant
 
@@ -84,9 +84,12 @@
 
 .group ι
            ι        i
-        C) ι (A     ;
-        ρ) ι (A     i
-        δ) ι (α_    i
+	τ) ι (Α     C
+        π) ι (A     C
+	τ) ι (Α     C
+        κ) ι (Α     C
+	ρ) ι (A     i
+        δ) ι (α_    j
            ι (ε     i
 
 .group κ
@@ -118,8 +121,11 @@
 
 .group μ
            μ        m
-           μ (μ
-        _) μπ       b
+        A) μ (μ
+           μ (π     
+
+.group μπ
+	  μπ	b
 
 .group ν
            ν        n
@@ -147,7 +153,7 @@
            ο        o
            οι       i
            οί       'i
-        C) οι (A    ;
+ //       C) οι (A    ;
            ου       u
            ού       'u
            οη       oI
@@ -157,6 +163,7 @@
            π        p
            π (π
        ν_) π        b
+        μ) π	    b
 
 .group ρ
            ρ        r
@@ -175,11 +182,11 @@
 .group σ
            σ        s
 // ??          σ (σ
-           ση (A    s;
-           σι (A    s;
-           συ (A    s;
-           σει (A   s;
-           σοι (A   s;
+           ση (A    sj
+           σι (A    sj
+           συ (A    sj
+           σει (A   sj
+           σοι (A   sj
 
 .group ς
            ς        s
@@ -196,7 +203,7 @@
 
 .group υ
            υ        i
-        C) υ (A     ;
+//        C) υ (A     ;
            υι       i
            υί       'i
 

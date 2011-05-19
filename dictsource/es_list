@@ -28,6 +28,8 @@ _tld	t'ilde
 
 
 // names of symbols
+ª	a
+º	o 
 _.	punto
 _,	koma
 _;	p,untoik'oma
@@ -431,6 +433,32 @@ _ó	'o||aTEntw'aDa
 ü	,uDjE**'Esis
 
 
+
+// Abbreviations
+dña	doña		$text
+DNI			$abbrev
+dpto	departamento	$text
+dr	doctor		$text $capital $dot
+dra	doctora		$text $capital $dot
+(ee . uu)  Est'aDos||un'iDos
+Excmo	excelentsimo	$text $dot
+Excma	excelentsima	$text $dot
+Ilmo	ilustrisimo	$text $dot
+Ilma	ilustrisima	$text $dot
+izq	izquierda	$text $dot
+izqda	izquierda 	$text $dot
+izqdo	izquierdo	$text $dot
+kg	kilogramo	$text $dot
+Mª	maría		$text $capital $dot
+Pte	presidente	$text $capital $dot
+Sr	señor		$text $capital $dot
+Sra	señora		$text $capital $dot
+Sras	señoras		$text $capital $dot
+Sres	señores		$text $capital $dot
+Srta	señorita	$text $capital $dot
+Ud	usted		$text $capital $dot
+Uds	ustedes		$text $capital $dot
+//	(/ h)   pO*||'O**a
 
 
 // pronunciation exceptions

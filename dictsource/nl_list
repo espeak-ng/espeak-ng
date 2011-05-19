@@ -1,6 +1,8 @@
 
 // This file in UTF8 encoded
 
+// Use $alt3  where 'ng' and 'nk' is 'n+g' not [N]
+
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
@@ -83,28 +85,28 @@ _0	n'8l
 _1	'e:n
 _2	tv#'e:
 _3	dr'i
-_4	f'ir
-_5	f'EIf
+_4	v'ir
+_5	v'EIf
 _6	z'Es
-_7	z'e:f@n
+_7	z'e:v@n
 _8	'Axt
-_9	n'e:x@n
+_9	n'e:Q@n
 _10	t'in
 _11	'Elf
 _12	tw'a:lf
 _13	d'Ertin
-_14	f'e:rtin
-_15	f'EIftin
+_14	v'e:rtin
+_15	v'EIftin
 _16	z'Estin
-_17	z'e:f@ntin
+_17	z'e:v@ntin
 _18	'Axtin
-_19	n'e:x@ntin
+_19	n'e:Q@ntin
 _2X	tv#'Int@x
 _3X	d'Ert@x
-_4X	f'e:rt@x
-_5X	f'EIft@x
+_4X	v'e:rt@x
+_5X	v'EIft@x
 _6X	z'Est@x
-_7X	z'e:f@nt@x
+_7X	z'e:v@nt@x
 _8X	t'Axt@x
 _9X	n'e:g@nt@x
 _0C	h'OndErt
@@ -121,7 +123,7 @@ _1o	'I:rst@
 _2o	tv#'e:d@
 _3o	d'Erd@
 _4o	v'ird@
-_5o	v'EIfd@
+_5o	v'EIvd@
 _6o	z'Esd@
 _7o	z'e:v@nd@
 _8o	'Axtst@
@@ -129,6 +131,9 @@ _0Co	h'OndErtst@
 
 
 // abbreviations
+be	$abbrev   // used as domain abbrev for Belgium and in a lot of other names
+enz	Enzo:vo:rt
+bvb	bEIv'o:rbe:lt
 eu	e:_y: $abbrev
 kmo     $abbrev
 KMI	$abbrev
@@ -142,8 +147,8 @@ VMMa    $abbrev
 de	d@
 het	h@t	$only
 een	@n	$only
-ən	@n   // char.replacement for 'n
-ət	@t   // char.replacement for 't
+ən	@-n   // char.replacement for 'n
+ət	t   // char.replacement for 't
 
 // pronouns
 ik		$u
@@ -156,7 +161,6 @@ u		$u
 hij		$u
 zij		$u
 ze		$u
-het		h@t //otherwise pronounced as het
 wij		$u
 we		$u
 jullie		$u
@@ -234,10 +238,25 @@ totdat	$pause		// until
 toen	$pause		// when (in past)
 voordat	$pause		// before
 wanneer	$pause		// when
-zoals	$pause		// just
-zolang	$pause		// as long as
-zover	$pause		// as far as
 
+zoal	$2 $only
+zoals	$2 $pause	// just
+zodanig	$2
+zodat	$2
+zodoende	$2
+zodra	$2
+zogoed	$2
+zoiets	$2
+zojuist	$2
+zolang	$2 $pause	// as long as
+zopas	zo:p'As
+zoveel	$2
+zover	$pause		// as far as
+zowaar	zo:v#'a:r
+zowat	$2
+zowel	$2
+zozeer	$2
+zozo	$2
 
 
 // negative
@@ -675,6 +694,8 @@ zuiver		$alt
 zwabber		$alt
 zwakker		$alt
 zwanger		$alt
+Vlaander	$alt
+
 
 
 // words where -age  is [a:Q@] not French ['a:Z@]
@@ -695,7 +716,7 @@ camouflage	ka:mufl'a:Z@
 courtage	kurt'a:Z@
 curettage	kyr@t'a:Z@
 drainage	drEn'a:Z@
-equipage	e:kwip'a:Z@
+equipage	e:kip'a:Z@
 jumelage	Zym@l'a:Z@
 metrage		me:tr'a:Z@
 outillage	utij'a:Z@
@@ -713,7 +734,7 @@ cadet		$2
 kadet		$2
 biljet		$2
 sajet		$2
-sujet		syZ'Et
+sujet		syZ'E
 banket		$2
 boeket		$2
 briket		$2
@@ -730,18 +751,18 @@ raket		$2
 winket		$2
 amulet		$3
 ballet		$2
-cabriolet	ka:briol'Et
+cabriolet	ka:briol'E
 corselet	$3
 couplet		kupl'Et
 doublet		dubl'Et
 epaulet		e:po:l'Et
 filet		fil'e:
-gilet		Zil'Et
+gilet		Zil'E
 kotelet		$3
 omelet		$3
 palet		$2
 pamflet		$2
-pistolet	pisto:l'Et
+pistolet	pisto:l'E
 poulet		pul'Et
 reglet		re:Ql'Et
 skelet		sk@l'Et
@@ -765,7 +786,7 @@ pipet		$2
 toupet		tup'Et
 trompet		$2
 baret		$2
-cabaret		ka:ba:r'Et
+cabaret		ka:ba:r'E
 floret		$2
 lazaret		$3
 minaret		$3
@@ -824,12 +845,6 @@ vedette		v@d'Et@
 violette	$3
 wasserette	$3
 
-// ending -el is stressed
-isabel		$3
-libel		$2
-mirabel		$3
-tabel		$2
-
 // ending -eum is stressed  ['e:8m]
 atheneum	$alt
 colosseum	$alt
@@ -851,11 +866,19 @@ poliglot	$3
 marmot		$2
 schavot		$2
 
+// ending -el is stressed (default ?)
+bretel		br@tEl
+jarretel	Zar@t'El
+carrousel	ka:rus'El
+decibel		de:sibEl
+isabel		$3
+libel		$2
+mirabel		$3
+tabel		$2
+
 // words ending in el, elt, elde, elden, elend, elende, eld, ele, elen
 // with stress on the previous syllable,
 // also words ending in er. etc.
-
-beter		$alt
 
 	// adjectives
 edel		$alt
@@ -870,37 +893,105 @@ luttel		$alt
 nobel		$alt
 nozel		$alt
 schamel		$alt
-sensibel	$alt
 simpel		$alt
 sjofel		$alt
 soepel		$alt
 troebel		$alt
-vermetel	$alt
+metel		$alt  // vermetel
+
 	// nouns
 amandel		$alt
+apostel		$alt 
 appel		$alt
 artikel		$alt
-ginsel		$alt   // beginsel
+belhamel	b'Elha:m@l
+boedel		$alt
+buidel		$alt
+cenakel		s@na:k@l
 discipel	dIs'ip@l $alt
+distel		$alt
+dongel		$alt
+dorpel		$alt
+drempel 	$alt
+drommel		$alt
+duffel		$alt
 engel		$alt
+epistel		$alt
 fabel		$alt
+fistel		$alt
+gepeupel	$alt
+gevel		Qe:v@l
+gondel		$alt
+gordel		$alt
+gravel		QrEv@l
+grondel		$alt
 gruwel		$alt
+hendel		$alt
 heuvel		$alt
 hommel		$alt
-letsel		$alt
+horzel		$alt
+hostel		$alt
+hummel		$alt
+kazuifel	$alt
+kennel		$alt
+keppel		$alt
+kervel		$alt
+kiezel		$alt
+knekel		$alt
+knokkel		$alt
+kokkel		$alt
+krekel		$alt
+kummel		$alt
+lavendel	$alt
+luifel		$alt
+mantel		$alt
 mazel		$alt
 meubel		$alt
 middel		$alt
 mirakel		$alt
-mossel		$alt
+mokkel		$alt
+mormel		$alt
+mortel		$alt
+morzel		$alt
+obstakel	$alt
 parabel		$alt
-perikel		pe:r'ik@l $alt
-raadsel		$alt
-roersel		$alt
-schepsel	$alt
-schijnsel	$alt
+partikel	$alt
+peppel		$alt
+perikel		$alt
+pukkel		$alt
+pummel		$alt
+reuzel		$alt
+roebel		$alt
+roedel		$alt
+schedel		$alt
+sintel		$alt
+snavel		$alt
+sokkel		$alt
+spatel		$alt
+spektakel	$alt
+stekel		$alt
+stengel		$alt
+stoffel		$alt
 stoppel		$alt
+teckel		$alt
+tekkel		$alt
+tengel		$alt
+tentakel	$alt
+testikel	$alt
+triangel	$alt
+tripel		$alt
+truffel		$alt
+vaandel		$alt
+vehikel		$alt
+venkel		$alt
+warempel	$alt
+wokkel		$alt
+wrevel		$alt
+wrongel		$alt
 zemel		$alt
+zuivel		$alt
+zwatel		$alt
+
 	// verbs
 aarzel		$alt
 adel		$alt
@@ -908,7 +999,7 @@ angel		$alt
 babbel		$alt
 barrel		$alt
 bazel		$alt
-bedel		be:d@l $alt
+bedel		$alt
 beitel		$alt
 bengel		$alt
 beugel		$alt
@@ -966,7 +1057,7 @@ frummel		$alt
 frutsel		$alt
 futsel		$alt
 gaffel		$alt
-gesel	Qe:s@l $alt
+gesel		Qe:s@l $alt
 giebel		$alt
 giechel		$alt
 gijzel		$alt
@@ -1063,7 +1154,7 @@ kwartel		$alt
 kwebbel		$alt
 kwezel		$alt
 kwispel		$alt
-label	le:b@l $alt
+label		le:b@l $alt
 lepel		$alt
 lispel		$alt
 lummel		$alt
@@ -1089,7 +1180,7 @@ neuzel		$alt
 nevel		$alt
 nikkel		$alt
 orakel		$alt
-paddel	pEd@l $alt
+paddel		pEd@l $alt
 pantoffel	$alt
 parel		$alt
 pegel		$alt
@@ -1116,6 +1207,7 @@ rammel		$alt
 ransel		$alt
 ratel		$alt
 rebbel		$alt
+redekavel	$alt $1
 regel		$alt
 reutel		$alt
 reuzel		$alt
@@ -1263,6 +1355,13 @@ zwengel		$alt
 zwiebel		$alt
 zwijmel		$alt
 
+// names with unstressed -el
+amstel		$alt
+brussel		$alt
+ijssel		$alt
+meppel		$alt
+moesel		muz@l
+vondel		$alt
 
 // -s is not plural
 chaos		xa:Os
@@ -1271,8 +1370,8 @@ chaos		xa:Os
 
 
 // pronunciation exceptions
-accessoire      aksEsv#'ar@
-accessoires     aksEsv#'ar@s
+accessoire      aksEsw'ar@
+accessoires     aksEsw'ar@s
 actiepunt	Aksip8nt
 agenda		$2
 alles		Al@s
@@ -1281,13 +1380,15 @@ amnestie	$3
 april		a:pr'Il
 armand		_^_FR
 augustus	VUQ'8st8s
-be		$abbrev   // used as domain abbrev for Belgium and in a lot of other names
+banengids	$alt3
 beha            be:_h'a:
+beste		bEst@
 bijziend	$2	// bijziendheid
 blitzkrieg	blItskri:g
-boudoir		budv#'a:r
+boudoir		budw'a:r
 bourgondier	burx'o:ndi:@r
 braille		brAj@
+cafe		ka:f'e:
 circuit		sIrku'i
 chalet		Sa:lE
 champagne	SAmp'An^@
@@ -1301,10 +1402,12 @@ check		tSEk
 chiffon		Sif'On
 crèches		krES@s
 contour		ko:nt'ur
+controle	$2
 coureur		ku:r'Y:r
 damascering     damA;s'e:rIN
 december	$2
 dieet		$2
+diesel		diz@l
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
 doordat		$2
@@ -1332,15 +1435,20 @@ ingenieur	Inzj@nj'Y:r
 informatie	$3
 januari		$3
 journaal	Surn'a:l
+kadaster	$2
+mangat		$alt3
 maxima		$1
 meteen		mEt'e:n
 metro		me:tro:
 minima		$1
 nabij		nab'EI
+new		nyU
 november	$2
 oktober		$2
+oliesel		o:lis@l
+omver		o:mv'Er
 onderhandelingsnota	,ond@r'hAnd@lINs,no:ta:
-ongastvrij	OnQAstv@-*'EI
+ongastvrij	OnQAstvr'EI
 ongelooflijk	$3
 ongemakkelijk	$3
 ongelukkig	$3
@@ -1351,10 +1459,11 @@ pistache	pist'AS
 proces		$2
 projectielen    $3
 renaissance	rEne:s'A~s@
-reservoir	re:zErvv#'a:r
+reservoir	re:zErvw'a:r
 revanche	r@vA~nS
 regime		$2
 roman		$2
+rubriek		rybr'ik
 sacristie	$3
 saint		_^_FR
 salomo		$1
@@ -1365,15 +1474,14 @@ tegennatuur	$4
 travestie	$3
 verderop	$3
 volledig	$2
+vrouwengek	$alt3
 waarschijnlijk	$2
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
-zover           zo:v'Er
 
 
 
 // names
 (al-qaeda)      Al_:k'AjdA
-Beckham         bEk@m
 Betty           bE:ti
 charlotte	$2
 Dewever		d@'v#e:v@r
@@ -1382,7 +1490,7 @@ Inge		IN@
 Ingeborg	INe:bOrx
 Ingmar		INmAr
 Ingrid		IN@-*It
-Justine		_^_FR
+Justine		Zyst'in
 kennedy		kEn@dE
 Laurent		lo:r'An^
 Nys		nEIsd'WyzEnt
@@ -1396,11 +1504,9 @@ google          gu:g@l
 
 // places
 alexandrië	$3
-canada		$1
+canada		kAna:da:
 Kinshasa	kInS'a:sa:
-new york        _^_EN
 Rochefort	roS'for
-Vlaanderen      vla:nd@r@n
 Zelzate		zelzat@
 
-(vond dat de) vOn_tA_t@
+(vond dat de)	vOn_tA_t@

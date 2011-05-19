@@ -3,6 +3,16 @@
 //  Spanish  - based on Base2
 //====================================================
 
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 160
+  IF thisPh(isDiminished) THEN
+    FMT(vowel/a#)
+  ENDIF
+  FMT(vowel/a_2)
+endphoneme
+
 phoneme e
   vowel starttype #e endtype #e
   length 170

@@ -25,6 +25,27 @@ phoneme t#    // reduced [t] as in "city"
 endphoneme
 
 
+phoneme d#    // change to [d] or [t] depending on whether previous phoneme is voiced
+  vls alv stop
+  IF prevPh(isVoiced) THEN
+    ChangePhoneme(d)
+  ELSE
+    ChangePhoneme(t)
+  ENDIF
+endphoneme
+
+
+phoneme z#    // change to [z] or [s] depending on whether previous phoneme is voiced
+  vls alv frc sibilant
+  IF prevPh(isVoiced) THEN
+    ChangePhoneme(z)
+  ELSE
+    ChangePhoneme(s)
+  ENDIF
+endphoneme
+
+
+
 phoneme l      // use dark [l/2] before not-vowel
   liquid
   lengthmod 7
@@ -142,6 +163,7 @@ endphoneme
 
 phoneme @L
   vowel  starttype #@  endtype l
+  ipa əl
   unstressed
   length 160
   CALL vowelstart_l

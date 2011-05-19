@@ -6,7 +6,7 @@
 
 phoneme a
   vowel starttype #a endtype #a
-  length 180
+  length 140
 
   IF thisPh(isWordEnd) AND thisPh(isNotStressed) AND nextPh(a) THEN
     ChangePhoneme(NULL)
@@ -21,7 +21,7 @@ endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 180
+  length 140
   FMT(vowel/e_mid2)
 endphoneme
 
@@ -34,10 +34,15 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 180
+  length 150
   FMT(vowel/oo)
 endphoneme
 
+phoneme u
+  vowel starttype #u endtype #u
+  length 160
+  FMT(vowel/u_bck)
+endphoneme
 
 
 // CONSONANTS
@@ -80,6 +85,6 @@ endphoneme
 
 
 phoneme r
-  import_phoneme base/R2
+  import_phoneme base/R3
 endphoneme
 
