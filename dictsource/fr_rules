@@ -1,7 +1,7 @@
 // French translation rules for Espeak
 
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2011-04-15 Michel Such  <michel.such@free.fr>
+// Last update: 2011-05-20 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -71,6 +71,12 @@
 // For english words ending "side"
 .L14 be in up ut
 .L15 c f g h
+
+// Hours
+.L16 0 1 2 3 4 5 6 7 8 9 00 01 02 03 04 05 06 07 08 09 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+
+// Minutes
+.L17 0 1 2 3 4 5
 
 
 
@@ -1518,6 +1524,7 @@ nC)	y (_	_^_en
 
 // symbols that are normally spoken when reading text
 //        , (D       pilk:u
+_L16_)	: (_L17D_	Wr	// Say time
         $          dOlar
         °          d@gre
    _n_) °                    // n°

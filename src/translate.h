@@ -109,6 +109,7 @@
 #define FLAG_COMMA_AFTER   0x20000  // comma after this word
 #define FLAG_MULTIPLE_SPACES 0x40000  // word is preceded by multiple spaces, newline, or tab
 #define FLAG_INDIVIDUAL_DIGITS 0x80000  // speak number as individual digits
+#define FLAG_DELETE_WORD     0x100000   // don't speak this word, it has been spoken as part of the previous word
 
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout

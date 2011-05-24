@@ -1966,7 +1966,7 @@ int WavegenFill2(int fill_zeros)
 			break;
 
 		case WCMD_MBROLA_DATA:
-			result = MbrolaFill(length, resume);
+			result = MbrolaFill(length, resume, (general_amplitude * wvoice->voicing)/64);
 			break;
 
 		case WCMD_FMT_AMPLITUDE:

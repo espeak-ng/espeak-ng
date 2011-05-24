@@ -1393,7 +1393,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 //				DoMarker(espeakEVENT_END, count_characters, 0, count_sentences);  // end of clause
 
 			if(p->newword & 1)
-				DoMarker(espeakEVENT_WORD, sourceix, p->sourceix >> 11, clause_start_word + word_count++);
+				DoMarker(espeakEVENT_WORD, sourceix, p->sourceix >> 11, clause_start_word + word_count++);  // NOTE, this count doesn't include multiple-word pronunciations in *_list. eg (of a)
 		}
 
 		EndAmplitude();
@@ -1401,7 +1401,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->prepause > 0)
 			DoPause(p->prepause,1);
 
-		if(option_phoneme_events && (p->type != phVOWEL))
+		if(option_phoneme_events && (p->type != phVOWEL) && (p->ph->code != phonEND_WORD))
 		{
 			// Note, for vowels, do the phoneme event after the vowel-start
 			DoMarker(espeakEVENT_PHONEME, sourceix, 0, p->ph->mnemonic);

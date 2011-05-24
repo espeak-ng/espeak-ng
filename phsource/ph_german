@@ -400,6 +400,37 @@ phoneme A~
   FMT(vnasal/aa_n4)
 endphoneme
 
+
+phoneme l2  // as [l] but devoice previous phoneme
+  liquid lengthmod 7
+  ChangePhoneme (l)
+endphoneme
+
+phoneme b
+  vcd alv frc sibilant
+  IF nextPh(l2) THEN
+    ChangePhoneme(p)
+  ENDIF
+  CALL base/b
+endphoneme
+
+phoneme d
+  vcd alv stop
+  IF nextPh(l2) THEN
+    ChangePhoneme(t)
+  ENDIF
+  CALL base/d
+endphoneme
+
+phoneme g
+  vcd vel stop
+  IF nextPh(l2) THEN
+    ChangePhoneme(k)
+  ENDIF
+  CALL base/g
+endphoneme
+
+
 // translate from English to German phonemes
 equivalents NULL   // disable this table
 0	O

@@ -47,9 +47,7 @@
 #define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
 #define phSINGLE_INSTN  0x1000    // this phoneme has a single instruction program, with an implicit Return
-#define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 #define phBRKAFTER 0x4000  // [*] add a post-pause
-#define phBEFOREPAUSE 0x8000  // replace with the link_out phoneme if the next phoneme is a pause
 
 #define phNONSYLLABIC  0x100000   // don't count this vowel as a syllable when finding the stress position 
 #define phLONG         0x200000
@@ -106,14 +104,14 @@ extern const unsigned char pause_phonemes[8];  // 0, vshort, short, pause, long,
 // main table of phonemes, index by phoneme number (1-254)
 
 typedef struct {
-	unsigned int  mnemonic;      // 1st char is in the l.s.byte
+	unsigned int  mnemonic;      // Up to 4 characters.  The first char is in the l.s.byte
 	unsigned int  phflags;       // bits 16-19 place of articulation
-	unsigned short program;
+	unsigned short program;      // index into phondata file
 	unsigned char  code;         // the phoneme number
 	unsigned char  type;         // phVOWEL, phPAUSE, phSTOP etc
 	unsigned char  start_type;
 	unsigned char  end_type;
-	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS, the stress/tone type
+	unsigned char  std_length;   // for vowels, in mS/2;  for phSTRESS phonemes, this is the stress/tone type
 	unsigned char  length_mod;   // a length_mod group number, used to access length_mod_tab
 	
 } PHONEME_TAB;

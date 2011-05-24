@@ -536,6 +536,13 @@ static void WritePhMnemonic(char **buf, PHONEME_TAB *ph, PHONEME_LIST *plist)
 
 	phon_out = *buf;
 
+	if(ph->code == phonEND_WORD)
+	{
+		// ignore
+		phon_out[0] = 0;
+		return;
+	}
+
 	if(option_phonemes == 3)
 	{
 		// has an ipa name been defined for this phoneme ?
@@ -2920,6 +2927,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	const char *word_end;
 	const char *word1;
 	int wflags = 0;
+	int wflags2;
 	char word_buf[N_WORD_BYTES+1];
 
 	if(wtab != NULL)
@@ -3014,11 +3022,16 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				skipwords = flag - 80;
 
 				// don't use the contraction if any of the words are emphasized
-				for(ix=0; ix <= skipwords; ix++)
+				//  or has an embedded command, such as MARK
+				if(wtab != NULL)
 				{
-					if(wflags & FLAG_EMPHASIZED2)
+					for(ix=0; ix <= skipwords; ix++)
 					{
-						condition_failed = 1;
+						if(wtab[ix].flags & FLAG_EMPHASIZED2)
+//						if(((wflags2 = wtab[ix].flags) & FLAG_EMPHASIZED2) || ((ix > 0) && (wflags2 & FLAG_EMBEDDED)))
+						{
+							condition_failed = 1;
+						}
 					}
 				}
 
