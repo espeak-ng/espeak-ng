@@ -12,7 +12,7 @@ consonants  10  116
    en-wi  30  150
       af  39  136
       cy  29  132
-      de  37  138
+      de  41  139
       eo  13  114
      jbo   2  114
      nci   3  123
@@ -368,8 +368,8 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [h†s] base
-                [l#] base
+l/l@            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -402,16 +402,16 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [h†s] base
-                [l#] base
+l/la            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [h†s] base
-                [l#] base
+l/le            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -422,8 +422,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [h†s] base
-                [l#] base
+l/li            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [l] zh
@@ -436,8 +436,8 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [h†s] base
-                [l#] base
+l/lo            [l#] base
+                [”¦] base
                 [l/2] fr
                 [K] nso
                 [K] tn
@@ -446,8 +446,8 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [h†s] base
-                [l#] base
+l/lu            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso

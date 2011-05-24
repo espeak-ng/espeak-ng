@@ -1,7 +1,9 @@
 language pt 7
 name brazil-mbrola-1
 gender male
+
 pitch 82 117
+voicing 80
 
 dictrules 2 3 4
 

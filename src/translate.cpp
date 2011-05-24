@@ -1672,9 +1672,20 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		} while((embedded_cmd & 0x80) == 0);
 	}
 
-	if(word[0] == 0)
+	if((word[0] == 0) || (word_flags & FLAG_DELETE_WORD))
 	{
-		// nothing to translate
+		// nothing to translate.  Add a dummy phoneme to carry any embedded commands
+		if(embedded_flag)
+		{
+			ph_list2[n_ph_list2].phcode = phonEND_WORD;
+			ph_list2[n_ph_list2].stresslevel = 0;
+			ph_list2[n_ph_list2].wordstress = 0;
+			ph_list2[n_ph_list2].tone_ph = 0;
+			ph_list2[n_ph_list2].synthflags = embedded_flag;
+			ph_list2[n_ph_list2].sourceix = 0;
+			n_ph_list2++;
+			embedded_flag = 0;
+		}
 		word_phonemes[0] = 0;
 		return(0);
 	}
@@ -3175,6 +3186,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		else
 		{
 			pre_pause = 0;
+
 			dict_flags = TranslateWord2(tr, word, &words[ix], words[ix].pre_pause, words[ix+1].pre_pause);
 
 			if(pre_pause > words[ix+1].pre_pause)
@@ -3206,7 +3218,12 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 		if(dict_flags & FLAG_SKIPWORDS)
 		{
-			ix += dictionary_skipwords;  // dictionary indicates skip next word(s)
+			// dictionary indicates skip next word(s)
+			while(dictionary_skipwords > 0)
+			{
+				words[ix+dictionary_skipwords].flags |= FLAG_DELETE_WORD;
+				dictionary_skipwords--;
+			}
 		}
 	}
 

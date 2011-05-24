@@ -49,6 +49,8 @@ _[	'EkIg@kl'am3||_|'aUf
 _]	'EkIg@kl'am3||ts'u:
 _<	klaIn3
 _>	grY:s3
+_«	'anfy:RUNsts,aIC@n
+_»	'anfy:RUNsts,aIC@n||ts'u:
 _`	grA:v
 _^	tsIrkUmflEks
 _—	g@d'aNk@nStr,IC
@@ -188,7 +190,7 @@ oder		o:d3	$u+ $pause
 sondern			$pause
 denn		dEn	$u+ $pause
 weil			$pause
-als			$u+ $brk
+als		als	$u+ $brk
 bevor		b@fo:r	$2 $pause
 also			$pause
 wenn		,vEn	$pause $strend
@@ -362,7 +364,7 @@ hätten		h,Et@n  $only
 war		%vA:r   $only
 warst		%vA:rst $only
 wart		%vA:rt  $only
-waren		'vA:r@n
+waren		%vA:r@n
 
 will		%vIl   $only
 willst		%vIlst $only
@@ -536,6 +538,7 @@ bronchie         $alt
 
 changier        SaNZ'i:r
 ciao            tSaU
+clique          kli:k@
 coup            ku:
 
 dahlie           $alt
@@ -568,6 +571,7 @@ erde            e:rd@
 erst            e:rst
 ersten          e:rst@n
 erstmal         e:rstma:l
+erzgebirg       e:rtsg@bIrg
 extravagant      $1
 extrem          Ekstr'e:m
 

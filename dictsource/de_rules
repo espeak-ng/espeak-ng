@@ -21,6 +21,7 @@
 .L01 l r
 .L02 c f h k p q s t z // unvoiced, except s+vowel
 .L03 a ä
+.L04 o ö
 
 
 // This file is UTF-8 encoded
@@ -38,6 +39,7 @@
         a (CC      a
         a (sch     a
         a (x       a
+        a (ph      A:
    &CC) a (_       =A:
 
         ai         aI
@@ -161,11 +163,11 @@
 .group b
      _) b (_       be:
      _) b (L01A    b  // allow bl br  at start of word
+     _) b (jA      b  // allow bj
         b          b
      b) b 
         b (_N      p
         b (L02     p
-        blich      plIC
         b (sA      b
         bt (_N     pt
 
@@ -221,7 +223,7 @@
      c) c 
         ck         k
 
-     _) c (el      S
+     _) c (el      ts
     fa) c (et      ts
      _) cey        tsaI
         chef (_    SEf
@@ -280,7 +282,6 @@
      d) d 
         d (_N      t
         d (L02     t
-        dlich      tlIC
         d (sA      d
         ds (_      ts
         dt         t
@@ -345,6 +346,7 @@
         e (CC      E
         e (sch     E
         e (x       E
+        e (ph      e:
 
         ei         aI
         eu         OY
@@ -427,6 +429,7 @@
      h) ee (_      'e:
      _) e (ff      %E
      l) e (g_      'e:
+    kr) e (ier     e:
         eih (_     aI
      _) eil (aP3   'aIl
      _) eil (fP3   'aIl
@@ -518,7 +521,6 @@
         g (g 
         g (_N      k
         g (L02     k
-        glich      klIC
         g (sA      g
         gd (_N     kt
      _) gh (A      g
@@ -547,7 +549,7 @@
   ungs) ge (C@     g@
      _) ge (beX    ge:
         geben      ge:b@n
-        ge(birg    g@
+        gebirge (_S7  g@bIrg@
      _) gegen (@P5 ge:g@n
         gegen      ge:g@n
         gegn       ge:gn
@@ -631,6 +633,7 @@
         i (CC      I
         i (sch     I
         i (x       I
+        i (ph      i:
 
      @) i (ng      I
    &CC) i (_       =i:
@@ -786,24 +789,24 @@ formal) ie         =I@
      _) leit (@P4  l'aIt
      _) lern (@@P4 l'Ern
      _) lexi (@    lEksi:
-     &) lich (_S4  lIC
-     &) liche (_S5 lIC@
-     &) lichem (_S6 lIC@m
-     &) lichen (_S6 lIC@n
-     &) licher (_S6 lIC3
-     &) liches (_S6 lIC@s
-     &) lichere (_S7 lIC@r@
-     &) licherem (_S8 lIC@r@m
-     &) licheren (_S8 lIC@r@n
-     &) licherer (_S8 lIC@r@3
-     &) licheres (_S8 lIC@r@s
-     &) lichste (_S7 lICst@
-     &) lichstem (_S8 lICst@m
-     &) lichsten (_S8 lICst@n
-     &) lichster (_S8 lICst@r
-     &) lichstes (_S8 lICst@s
-     &) lichkeit (_S8 lICkaIt
-     &) lichung (_S7 lIC%UN
+     &) lich (_S4  l2IC   // [l2] means devoice previous consonant
+     &) liche (_S5 l2IC@
+     &) lichem (_S6 l2IC@m
+     &) lichen (_S6 l2IC@n
+     &) licher (_S6 l2IC3
+     &) liches (_S6 l2IC@s
+     &) lichere (_S7 l2IC@r@
+     &) licherem (_S8 l2IC@r@m
+     &) licheren (_S8 l2IC@r@n
+     &) licherer (_S8 l2IC@r@3
+     &) licheres (_S8 l2IC@r@s
+     &) lichste (_S7 l2ICst@
+     &) lichstem (_S8 l2ICst@m
+     &) lichsten (_S8 l2ICst@n
+     &) lichster (_S8 l2ICst@r
+     &) lichstes (_S8 l2ICst@s
+     &) lichkeit (_S8 l2ICkaIt
+     &) lichung (_S7 l2IC%UN
      @) lo (gisch  l'o:
      _) luft (CP4  l'Uft
 
@@ -860,6 +863,8 @@ formal) ie         =I@
      &) ness (_N   _^_EN
         news       _^_EN
         nieder     ni:d3
+        nord (L04st n%Ort
+        nord (west n%Ort
 
 .group o
      _) o (_       o:
@@ -874,6 +879,7 @@ formal) ie         =I@
         o (CC      O
         o (sch     O
         o (x       O
+        o (ph      o:
    &CC) o (_       =o:
         o (Co_     'o:
         o (lo_     o:
@@ -934,7 +940,8 @@ formal) ie         =I@
      _) peri       p,e:ri:
      _) perio      p,e:rIo:
      _) periphe    p,e:ri:fe:
-     _) personen (@P8 pErs'o:n@n
+     _) personen (@P8 pErz'o:n@n
+        person     p%Erzo:n
         philie     f'i:li:
      _) photo      f,o:to:
      _) pro (@     %pro:
@@ -966,6 +973,7 @@ formal) ie         =I@
         q          k
         qu         kv
      @) que (_     =k
+     @) quen (_    =k@n
 
 
 .group r
@@ -1040,6 +1048,7 @@ formal) ie         =I@
     &C) sten (_S4  st@n
     &C) ster (_S4  st3
     &C) stes (_S4  st@s
+    &n) st (_      st       // needs more work
 
    _be) st         St
    _ge) st         St
@@ -1081,8 +1090,11 @@ formal) ie         =I@
      @) straße (_S6 str,A:s@
      _) street     _^_EN
         style      _^_EN
+        süd (L04st z%y:t
+        süd (west  z%y:t
         synthesi   _^_EN
-        system     z%Iste:m
+        system     z%yste:m
+        s (system  s
 
 
 .group t
@@ -1425,6 +1437,6 @@ formal) ie         =I@
         $          dOl'A:
 
     __) - (_D      mi:nUs
-    D_) - (_D      daS
+    D_) - (_D      StrIC
      _) - (_D      _
 

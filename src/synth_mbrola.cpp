@@ -139,15 +139,18 @@ espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans, int 
 	if(GetFileLength(path) <= 0)
 	{
      sprintf(path,"/usr/share/mbrola/%s",mbrola_voice);
+
+		if(GetFileLength(path) <= 0)
+		{
+			sprintf(path,"/usr/share/mbrola/%s/%s",mbrola_voice,mbrola_voice);
+
+			if(GetFileLength(path) <= 0)
+			{
+				sprintf(path,"/usr/share/mbrola/voices/%s",mbrola_voice);
+			}
+		}
 	}
-	if(GetFileLength(path) <= 0)
-	{
-     sprintf(path,"/usr/share/mbrola/%s/%s",mbrola_voice,mbrola_voice);
-	}
-	if(GetFileLength(path) <= 0)
-	{
-     sprintf(path,"/usr/share/mbrola/voices/%s",mbrola_voice);
-	}
+	close_MBR();	
 #endif
 #ifdef PLATFORM_WINDOWS
 	if(load_MBR() == FALSE)     // load mbrola.dll
@@ -478,7 +481,8 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 		else
 			len = (80 * speed.wav_factor)/256;
 
-		DoMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, ph->mnemonic); 
+		if(ph->code != phonEND_WORD)
+			DoMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, ph->mnemonic); 
 
 		ptr += sprintf(ptr,"%s\t",WordToString(name));
 
@@ -645,12 +649,15 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 }
 
 
-int MbrolaFill(int length, int resume)
-{//===================================
-// Read audio data from Mbrola (length is in milisecs)
+int MbrolaFill(int length, int resume, int amplitude)
+{//==================================================
+// Read audio data from Mbrola (length is in millisecs)
 
 	static int n_samples;
 	int req_samples, result;
+	int ix;
+	short value16;
+	int value;
 
 	if (!resume)
 		n_samples = samplerate * length / 1000;
@@ -661,7 +668,20 @@ int MbrolaFill(int length, int resume)
 	result = read_MBR((short *)out_ptr, req_samples);
 	if (result <= 0)
 		return 0;
-	out_ptr += result*2;
+
+	for(ix=0; ix < result; ix++)
+	{
+		value16 = out_ptr[0] + (out_ptr[1] << 8);
+		value = value16 * amplitude;
+		value = value / 40;   // adjust this constant to give a suitable amplitude for mbrola voices
+		if(value > 0x7fff)
+			value = 0x7fff;
+		if(value < -0x8000)
+			value = 0x8000;
+		out_ptr[0] = value;
+		out_ptr[1] = value >> 8;
+		out_ptr += 2;
+	}
 	n_samples -= result;
 	return n_samples ? 1 : 0;
 }
@@ -688,7 +708,7 @@ int MbrolaGenerate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	return(0);
 }
 
-int MbrolaFill(int length, int resume)
+int MbrolaFill(int length, int resume, int amplitude)
 {
 	return(0);
 }

@@ -54,7 +54,7 @@ endphoneme
 
 phoneme ||  //   End Word
   pause
-  lengthmod 1
+  lengthmod 9  // no effect
 endphoneme
 
 phoneme _  //  Short pause

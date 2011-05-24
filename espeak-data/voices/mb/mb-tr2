@@ -3,6 +3,8 @@ language tr 7
 gender female
 
 pitch 140 220
+voicing 170
+
 mbrola tr2 tr1_phtrans
 dictrules 1
 
