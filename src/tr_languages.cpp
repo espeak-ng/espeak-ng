@@ -1243,6 +1243,7 @@ SetLengthMods(tr,3);  // all equal
 #endif
 
 	case L('t','r'):   // Turkish
+	case L('a','z'):   // Azerbaijan
 		{
 			static const unsigned char stress_amps_tr[8] = {18,16, 20,21, 20,21, 21,20 };
 			static const short stress_lengths_tr[8] = {190,180, 200,230, 0,0, 240,250};
@@ -1253,7 +1254,14 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
 
-			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
+			if(name2 == L('a','z'))
+			{
+				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA  | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
+			}
+			else
+			{
+				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
+			}
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;

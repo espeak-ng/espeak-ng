@@ -79,6 +79,9 @@ U+c83	ah
 U+cbc	nukta
 U+cbd	avagraha
 U+ccd	vattu
+ಫ಼್	if
+ಜ಼್	iz
+
 
 // combining vowels, precede by a click so they can be distinguished from stand-alone vowels
 ಾ	#X2a::
@@ -245,6 +248,7 @@ _dpt	_d'as.a:ms.a
 // abbreviations
 
 (http ://)   e:tSti:ti:'pi:_
+pvt	praIvat
 
 
 // English words

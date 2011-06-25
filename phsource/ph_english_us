@@ -279,6 +279,13 @@ phoneme e@
 endphoneme
 
 
+phoneme i@
+  vowel  starttype #i  endtype #@
+  length 250
+  FMT(vdiph2/ii@)  // don't append [r] before a vowel
+endphoneme
+
+
 phoneme i@3
   vowel  starttype #i  endtype #@
   length 280
