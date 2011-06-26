@@ -1376,11 +1376,12 @@ int AddNameData(const char *name, int wide)
 	if(namedata_ix+len >= n_namedata)
 	{
 		// allocate more space for marker names
-		if((vp = realloc(namedata, namedata_ix+len + 300)) == NULL)
+		if((vp = realloc(namedata, namedata_ix+len + 1000)) == NULL)
 			return(-1);  // failed to allocate, original data is unchanged but ignore this new name
+// !!! Bug?? If the allocated data shifts position, then pointers given to user application will be invalid
 
 		namedata = (char *)vp;
-		n_namedata = namedata_ix+len + 300;
+		n_namedata = namedata_ix+len + 1000;
 	}
 	memcpy(&namedata[ix = namedata_ix],name,len);
 	namedata_ix += len;
@@ -2218,6 +2219,17 @@ f_input = f_in;  // for GetC etc
 				else
 				if((c2 == '/') || iswalpha(c2))
 				{
+					// check for space in the output buffer for embedded commands produced by the SSML tag
+					if(ix > (n_buf - 20))
+					{
+						// Perhaps not enough room, end the clause before the SSML tag
+						UngetC(c2);
+						ungot_char2 = c1;
+						buf[ix] = ' ';
+						buf[ix+1] = 0;
+						return(CLAUSE_NONE);
+					}
+
 					// SSML Tag
 					n_xml_buf = 0;
 					c1 = c2;

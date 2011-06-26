@@ -224,6 +224,14 @@ phoneme I2
   FMT(vowel/ii_4)
 endphoneme
 
+phoneme I#   // used for [I] which may be [@] in some accents
+  vowel  starttype #i  endtype #i
+  unstressed
+  length 130
+  IfNextVowelAppend(;)
+  ChangePhoneme(I2)
+endphoneme
+
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   ipa ɪ
@@ -482,4 +490,11 @@ phoneme e:
   FMT(vowel/e)
 endphoneme
 
+
+phoneme @#   // TEST: [@] which is slightly more 'front'
+  vowel  starttype #i  endtype #i
+  unstressed
+  length 130
+  FMT(vowel/@_3)
+endphoneme
 

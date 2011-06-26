@@ -56,7 +56,6 @@
 
         csz        ts|s
   papu) cs         tS
-
     ar) c (cson    ts
   mala) c (sá      ts
     pá) c (só      ts
@@ -530,6 +529,7 @@ harmince) gy (edik J:
  nem-e) gy (ik     J:
      e) gy (összeg J:
      e) gys (ík    J|S       //for example egysíkú word need spokening single J and S phoneme
+    _e) gy (öntet  J:
 
 .group h
         h          h
@@ -1172,6 +1172,9 @@ helyze) tj (el     tj
   spor) tj (áték   tj
 rokkan) tj (áradék tj
 interne) tj (egy   tj
+  álla) tj (ólét   tj
+dolgoza) tj (avít  tj
+természe) tj (ár   tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1570,6 +1573,8 @@ szellő) z (tet     s
 magyará) z (kod    s
  kalau) z (ság     z
   pofo) z (kod     s
+  ezkö) z (sáv     z
+ eszkö) z (sáv     z
 
 .group
         $          dolla:R2

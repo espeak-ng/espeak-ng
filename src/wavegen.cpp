@@ -1550,10 +1550,14 @@ static void SetPitchFormants()
 	if((pitch_value = embedded_value[EMBED_P]) > MAX_PITCH_VALUE)
 		pitch_value = MAX_PITCH_VALUE;
 
-	factor = 256 + (25 * (pitch_value - 50))/50;
-	for(ix=0; ix<=5; ix++)
+	if(pitch_value > 50)
 	{
-		wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
+		// only adjust if the pitch is higher than normal
+		factor = 256 + (25 * (pitch_value - 50))/50;
+		for(ix=0; ix<=5; ix++)
+		{
+			wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
+		}
 	}
 	factor = embedded_value[EMBED_T]*3;
 	wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;

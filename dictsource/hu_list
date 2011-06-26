@@ -37,7 +37,7 @@ _1M3      EJmillia:R2d
 _2M3    ke:tmillia:R2d
 
 _0M4      billio:
-_1M4      billio:
+_1M4      EJbillio:
 _2M4      ke:tbillio:
 _dpt      ||Ege:s //Not need the pause before this word
 
@@ -1764,7 +1764,15 @@ hangoztatta	$unstressend
 jogok	$unstressend
 felelt	$unstressend
 állította	$unstressend
-
+járó	$unstressend
+jelenség	$unstressend
+nyertesei	$unstressend
+tartására	$unstressend
+eset	$unstressend
+fajták	$unstressend
+körülményei	$unstressend
+bízva	$unstressend
+száma	$unstressend
 // word pairs
 
 (hogy a)   h,oJ,A

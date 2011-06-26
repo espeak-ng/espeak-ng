@@ -1,4 +1,8 @@
+// translation rules for Dutch
 // This file is UTF-8 encoded
+
+.L01  g k
+
 
 .group a
              a            a:
@@ -332,7 +336,7 @@
              ie (ren_     'i
              ie (rd_      'i
           @) ig (_S2dq    @x
-          @) ige (_       @Q@
+          @) ige (_S3dq   @Q@
           @) igen (_      @Q@n
           @) iger (_      @Q@r
           @) igere (_     @Q@r@
@@ -520,6 +524,8 @@ _) inn (@P2 'I    // ?? inneren
              s            s
              s (s
           A) s (A         z
+             s (b         z
+             s (g         z
              sc           s
              sch          sx
              sch (_       s
@@ -634,6 +640,9 @@ _) inn (@P2 'I    // ?? inneren
              w (CK        w
 
           _) wan (@P3     v#'An
+          _) wan (L01@P3  v#'AN
+          _) wan (del     v#An
+          _) wan (kel     v#AN
           _) weg (@P3     v#'EQ
           _) weg (en      v#e:Q
           _) weg (e_      v#e:Q  // bewegelijk

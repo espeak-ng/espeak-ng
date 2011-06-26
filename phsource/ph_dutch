@@ -87,14 +87,14 @@ endphoneme
 
 phoneme a   // ?? suggested by aegis, but seems too short
   vowel starttype #a endtype #a
-  length 140
+  length 150
   FMT(vowel/a_2)
 endphoneme
 
 
 phoneme A
   vowel starttype #a endtype #a
-  length 140
+  length 150
   IF thisPh(isUnstressed) THEN
     FMT(vowel/a#_2)
   ENDIF

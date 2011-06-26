@@ -1209,12 +1209,14 @@ void DoMarker(int type, int char_posn, int length, int value)
 {//==========================================================
 // This could be used to return an index to the word currently being spoken
 // Type 1=word, 2=sentence, 3=named marker, 4=play audio, 5=end
-	wcmdq[wcmdq_tail][0] = WCMD_MARKER;
-	wcmdq[wcmdq_tail][1] = type;
-	wcmdq[wcmdq_tail][2] = (char_posn & 0xffffff) | (length << 24);
-	wcmdq[wcmdq_tail][3] = value;
-	WcmdqInc();
-
+	if(WcmdqFree() > 5)
+	{
+		wcmdq[wcmdq_tail][0] = WCMD_MARKER;
+		wcmdq[wcmdq_tail][1] = type;
+		wcmdq[wcmdq_tail][2] = (char_posn & 0xffffff) | (length << 24);
+		wcmdq[wcmdq_tail][3] = value;
+		WcmdqInc();
+	}
 }  // end of DoMarker
 
 
@@ -1354,12 +1356,12 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		p = &phoneme_list[ix];
 
 		if(p->type == phPAUSE)
-			free_min = 5;
+			free_min = 10;
 		else
 		if(p->type != phVOWEL)
-			free_min = 10;     // we need less Q space for non-vowels, and we need to generate phonemes after a vowel so that the pitch_length is filled in
+			free_min = 15;     // we need less Q space for non-vowels, and we need to generate phonemes after a vowel so that the pitch_length is filled in
 		else
-			free_min = MIN_WCMDQ;  // 22
+			free_min = MIN_WCMDQ;  // 25
 
 		if(WcmdqFree() <= free_min)
 			return(1);  // wait

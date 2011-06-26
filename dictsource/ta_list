@@ -182,7 +182,8 @@ _1M3	orUko:d.ie:
 
 _dpt	_pul.l.i
 
-
+_#ம்	a:m  // ordinal suffix
+_#-ம்	a:m  // ordinal suffix
 
 
 // English words
@@ -301,6 +302,9 @@ tamil	தமிழ்	$text
 பூட்	$alt
 படுக	$alt
 படுகா	$alt
+பந்தா	$alt
+பிரா	bra:
+ப்ரா	$alt
 (பி . ஏ)	bije:
 
 
@@ -361,6 +365,7 @@ tamil	தமிழ்	$text
 தடிக்க	$alt
 தின	$alt
 தில்	$alt
+தன	$alt
 
 
 	// initial ட

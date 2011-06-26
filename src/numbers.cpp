@@ -1302,7 +1302,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		{
 			Lookup(tr, "_0and", ph_and);
 
-			if(tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)
+			if((control & 1) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
 				ph_and[0] = 0;
 
 			if(tr->langopts.numbers & NUM_SWAP_TENS)
