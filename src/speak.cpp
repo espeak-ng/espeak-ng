@@ -428,7 +428,7 @@ static int initialise(void)
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
 	}
 	LoadConfig();
-	SetVoiceStack(NULL);
+	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 
 	for(param=0; param<N_SPEECH_PARAM; param++)

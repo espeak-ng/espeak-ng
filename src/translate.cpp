@@ -1563,6 +1563,39 @@ static int CountSyllables(unsigned char *phonemes)
 }
 
 
+void Word_EmbeddedCmd()
+{//====================
+// Process embedded commands for emphasis, sayas, and break
+	int embedded_cmd;
+	int value;
+
+	do
+	{
+		embedded_cmd = embedded_list[embedded_read++];
+		value = embedded_cmd >> 8;
+
+		switch(embedded_cmd & 0x1f)
+		{
+		case EMBED_Y:
+			option_sayas = value;
+			break;
+
+		case EMBED_F:
+			option_emphasis = value;
+			break;
+
+		case EMBED_B:
+			// break command
+			if(value == 0)
+				pre_pause = 0;  // break=none
+			else
+				pre_pause += value;
+			break;
+		}
+	} while(((embedded_cmd & 0x80) == 0) && (embedded_read < embedded_ix));
+}  // end of Word_EmbeddedCmd
+
+
 int SetTranslator2(const char *new_language)
 {//=========================================
 // Set translator2 to a second language
@@ -1603,8 +1636,6 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int next_tone=0;
 	unsigned char *p;
 	int srcix;
-	int embedded_cmd;
-	int value;
 	int found_dict_flag;
 	unsigned char ph_code;
 	PHONEME_LIST2 *plist2;
@@ -1646,30 +1677,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	{
 		embedded_flag = SFLAG_EMBEDDED;
 
-		do
-		{
-			embedded_cmd = embedded_list[embedded_read++];
-			value = embedded_cmd >> 8;
-
-			switch(embedded_cmd & 0x1f)
-			{
-			case EMBED_Y:
-				option_sayas = value;
-				break;
-	
-			case EMBED_F:
-				option_emphasis = value;
-				break;
-	
-			case EMBED_B:
-				// break command
-				if(value == 0)
-					pre_pause = 0;  // break=none
-				else
-					pre_pause += value;
-				break;
-			}
-		} while((embedded_cmd & 0x80) == 0);
+		Word_EmbeddedCmd();
 	}
 
 	if((word[0] == 0) || (word_flags & FLAG_DELETE_WORD))
@@ -3208,7 +3216,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				}
 			}
 
-			if((dict_flags & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (ix == word_count-1) && (terminator & CLAUSE_DOT))
+			if((dict_flags & (FLAG_ALLOW_DOT | FLAG_NEEDS_DOT)) && (ix == word_count - 1 - dictionary_skipwords) && (terminator & CLAUSE_DOT))
 			{
 				// probably an abbreviation such as Mr. or B. rather than end of sentence
 				clause_pause = 10;
@@ -3225,6 +3233,12 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				dictionary_skipwords--;
 			}
 		}
+	}
+
+	if(embedded_read < embedded_ix)
+	{
+		// any embedded commands not yet processed?
+		Word_EmbeddedCmd();
 	}
 
 	for(ix=0; ix<2; ix++)

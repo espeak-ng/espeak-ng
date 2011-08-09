@@ -31,9 +31,14 @@ phoneme e:
   FMT(vowel/e_mid)
 endphoneme
 
+
 phoneme a
   vowel starttype #a endtype #a
   length 120
+
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
+    FMT(vowel/a_7)
+  ENDIF
   FMT(vowel/a)
 endphoneme
 

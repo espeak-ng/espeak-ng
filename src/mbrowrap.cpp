@@ -123,6 +123,7 @@ static void close_pipes(int p1[2], int p2[2], int p3[2])
 static int start_mbrola(const char *voice_path)
 {
 	int error, p_stdin[2], p_stdout[2], p_stderr[2];
+	ssize_t written;
 	char charbuf[20];
 
 	if (mbr_state != MBR_INACTIVE) {
@@ -151,7 +152,7 @@ static int start_mbrola(const char *voice_path)
 		    dup2(p_stderr[1], 2) == -1) {
 			snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
 					"dup2(): %s\n", strerror(errno));
-			write(p_stderr[1], mbr_errorbuf, strlen(mbr_errorbuf));
+			written = write(p_stderr[1], mbr_errorbuf, strlen(mbr_errorbuf));
 			_exit(1);
 		}
 
@@ -168,7 +169,7 @@ static int start_mbrola(const char *voice_path)
 		/* if execution reaches this point then the exec() failed */
 		snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
 				"mbrola: %s\n", strerror(errno));
-		write(2, mbr_errorbuf, strlen(mbr_errorbuf));
+		written = write(2, mbr_errorbuf, strlen(mbr_errorbuf));
 		_exit(1);
 	}
 

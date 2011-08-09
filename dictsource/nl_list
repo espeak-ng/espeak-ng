@@ -150,22 +150,23 @@ een	@n	$only
 ən	@-n   // char.replacement for 'n
 ət	t   // char.replacement for 't
 
-// pronouns
-ik		$u
-me		$u
-jij		$u
-je		$u
-gij		$u
-ge		$u
-u		$u
-hij		$u
-zij		$u
-ze		$u
-wij		$u
-we		$u
+// pronouns  (may have -zelf suffix)
+ik		%Ik
+me		m@
+jij		j%EI
+je		j@
+gij		Q%EI
+ge		g@
+u		%y
+hij		h%EI
+zij		z%EI
+ze		z@
+wij		v#%EI
+we		v#@
 jullie		$u
-hen		$u
-zich		$u
+hen		h%En
+zich		z%Ix
+onszelf		Ons'Elf
 
 // possessives
 mijn		$u
@@ -229,7 +230,7 @@ dat	$u $pause	// that
 hoewel	$pause		// although
 of	$u $pause	// whether
 omdat	$pause		// because
-nadat	$u $pause	// after
+nadat	$u2 $pause	// after
 nudat	$pause		// now that
 sinds	$pause		// since
 tenzij	$pause		// unless
@@ -953,6 +954,7 @@ mokkel		$alt
 mormel		$alt
 mortel		$alt
 morzel		$alt
+navel		$alt
 obstakel	$alt
 parabel		$alt
 partikel	$alt
@@ -1451,9 +1453,9 @@ onderhandelingsnota	,ond@r'hAnd@lINs,no:ta:
 ongastvrij	OnQAstvr'EI
 ongelooflijk	$3
 ongemakkelijk	$3
-ongelukkig	$3
+//ongelukkig	$3
 ongerieflijk	$3
-ongrondwettig	$3
+//ongrondwettig	$3
 partijvoorzitters $2
 pistache	pist'AS
 proces		$2
@@ -1478,6 +1480,9 @@ vrouwengek	$alt3
 waarschijnlijk	$2
 wanen		v#a:n@n
 wangen		v#AN@n
+wanluidend	$2
+wanschapen	$2
+wantrouwend	$2
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 
 
@@ -1495,6 +1500,7 @@ Ingrid		IN@-*It
 Justine		Zyst'in
 kennedy		kEn@dE
 Laurent		lo:r'An^
+Naomi		$2
 Nys		nEIsd'WyzEnt
 
 //Trademarks
@@ -1508,7 +1514,24 @@ google          gu:g@l
 alexandrië	$3
 canada		kAna:da:
 Kinshasa	kInS'a:sa:
+Nairobi		nAjr'o:bi
+Napel		$alt
 Rochefort	roS'for
 Zelzate		zelzat@
 
 (vond dat de)	vOn_tA_t@
+
+
+nadelig		$2		// nadelig(e)
+nadelige	$2
+naderhand	$3
+nadien		$2 $only
+nadrukke	$2		// nadrukkelijk
+nafta		nAfta:
+nalatig		$2		// nalatig(e)
+nalatige	$2
+nasaal		$2
+nasi		nAsi
+navoel		$2		// navoelbaar(/bare)
+navulbaar	$2
+

@@ -111,6 +111,8 @@ U+bf9	ru:ba:j
 
 // abbreviations
 ரூ	ru:ba:j  $dot $only
+(பி . ஏ)	bije: $dot
+(கி . மீ)	kilo:mi:t.t.Vr $dot
 
 // numbers
 _0	suz.ijVm    // சுழியம்
@@ -182,9 +184,50 @@ _1M3	orUko:d.ie:
 
 _dpt	_pul.l.i
 
-_#ம்	a:m  // ordinal suffix
-_#-ம்	a:m  // ordinal suffix
+// drop final [U] when followed by an ordinal suffix
+_1o	onR
+_2o	irVn.d.
+_3o	mu:nR
+_4o	na:ng
+_5o	aInd
+_6o	a:R
+_7o	;e:l
+_8o	;et.t.
+_9o	onbVd.
+_10o	patt
+_11o	patinonR
+_12o	pVnnirVn.d.
+_19o	pattonbVd
 
+_20o	irUbVd
+_30o	muppVd	// முப்பது
+_40o	na:RpVd
+_50o	aImbVd
+_60o	aRUbVd
+_70o	;ez.UbVd
+_80o	;en.bVd
+_90o	ton.n.u:R
+
+_1Co	nu:R
+_2Co	irUnu:R
+_3Co	munnu:R
+_4Co	na:nu:R
+_5Co	aInu:R
+_6Co	aRUnu:R
+_7Co	;ez.Unu:R
+_8Co	;en.n.u:R
+
+_#ம்	a:m  // ordinal suffix
+_#ல்	il
+_#வது	a:vVdU
+_#வதும்	a:vVdUm
+_#வதுமாக a:vVdUma:gV
+
+_#-ம்	a:m  // ordinal suffix with hyphen
+_#-ல்	il
+_#-வது	a:vVdU
+_#-வதும்	a:vVdUm
+_#-வதுமாக a:vVdUma:gV
 
 // English words
 tamil	தமிழ்	$text
@@ -305,7 +348,9 @@ tamil	தமிழ்	$text
 பந்தா	$alt
 பிரா	bra:
 ப்ரா	$alt
-(பி . ஏ)	bije:
+பலம்	$alt
+பலமாக	$alt
+பலமா	$alt
 
 
 	// initial த as [d]
@@ -366,6 +411,7 @@ tamil	தமிழ்	$text
 தின	$alt
 தில்	$alt
 தன	$alt
+தடியா	$alt
 
 
 	// initial ட
@@ -440,6 +486,7 @@ tamil	தமிழ்	$text
 களிலும்	$alt
 கடம்	$alt
 காட்	$alt
+கிடு	$alt
 
 
 
@@ -465,7 +512,6 @@ tamil	தமிழ்	$text
 பைக்கில் 	baIkkIl
 தாங்ஸ்	Ta:Nks		// thanks
 டிபுடி	d.EpjUt.i	// deputy
-டிபன்	t.ifVn
 ஆகா	a:Ha:
 ஓகோ	o:Ho:
 கப்	kVp

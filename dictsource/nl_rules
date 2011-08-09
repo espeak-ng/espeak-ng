@@ -1,6 +1,8 @@
 // translation rules for Dutch
 // This file is UTF-8 encoded
 
+// Suffix rule: SUFX_E  eg. S2e  means double the vowel before the final consonant
+
 .L01  g k
 
 
@@ -34,7 +36,6 @@
              aire (_      'E:r@
              air (_       'Er
           @) agne (_      'An^@
-             ale (_        'a:l@
           @) ant (_       'Ant
           @) ant (e_      'Ant
           @) ant (en_     'Ant
@@ -51,7 +52,8 @@
              bs (_N       ps
 
              baan         ba:n
-          &) baar (_      =ba:r
+          &) baar (_S4    =ba:r
+          &) bare (_S4    =ba:r@
           _) bij (C@P3    b'EI
           _) binnen (P6   b'In@n
           _) boven (P5    b'o:v@n
@@ -145,7 +147,7 @@
 .group e
              e            e#  // [e:] but change to [@] in unstressed syllables
           X) e            e:  // first syllable in a word
-         &C) e (_S1qd     @
+
              e (_         @
              e (CK        E
              e (x         E
@@ -156,6 +158,12 @@
              ee           e:
              eeuw         eU
              eu           Y:
+
+         &C) e (_S1qd     @
+        KAC) e (_S1e      @   // remove 'e' and double the vowel
+         el) e (_+S1qd    @
+         er) e (_+S1qd    @
+         ig) e (_+S1qd    @
 
              ea (_        'e:a:
              eau          o: //words with French origin
@@ -188,12 +196,17 @@
           &) em (_        @m
           &) e (ment      @
           &) e (nissen_   @
-          &) en (_S2qd    @n
+
+          &) en (_S2qd    @n   // double the previous vowel
+        KAC) en (_S2e     @n
+         el) en (_+S2qd   @n
+         er) en (_+S2qd   @n
+
           &) ens (_S3q    @ns
          ll) en (_S3      @n
           &) end (_       @nd
-          &) ende (_      @nd@
-          &) enden (_     @nd@n
+          &) ende (_S1    @
+          &) enden (_S2   @n
              eden         e:d@n
           &) ent (_$w_alt =@nt
           @) ent (_       'Ent
@@ -205,7 +218,8 @@
           @) ent (ste_    'Ent
          ag) ent          'Ent
          @j) es (_        @s
-          @) es (_S2qd    'Es
+          @) es (_S2qd    'Es   // double the previous vowel
+        KAC) es (_S2e     @s
           @) essen (_S5qd 'Es@n
           @) eres (_S4qd  @r'Es
           @) eressen (_S7sq @r'Es@n
@@ -268,6 +282,7 @@
 .group g
              g            Q    // ph_dutch changes to [x] before unvoiced, NULL after [x]
              gg           Q
+          s) g            x
 
           _) ge (@P2      Q@
              ge (bied     Q@
@@ -335,13 +350,13 @@
              ie (CtjeX_   'i
              ie (ren_     'i
              ie (rd_      'i
-          @) ig (_S2dq    @x
-          @) ige (_S3dq   @Q@
-          @) igen (_      @Q@n
-          @) iger (_      @Q@r
-          @) igere (_     @Q@r@
-          @) igst (_      @Qst
-          @) igste (_     @Qst@
+          @) ig (_S2dq    =@x
+          @) ige (_S3dq   =@Q@
+          @) igen (_      =@Q@n
+          @) iger (_      =@Q@r
+          @) igere (_     =@Q@r@
+          @) igst (_      =@Qst
+          @) igste (_     =@Qst@
              ij (_        'EI
              ij (e_       'EI
           @) ij (n_       'EI
@@ -410,10 +425,21 @@ _) inn (@P2 'I    // ?? inneren
              n (k$w_alt3  n
 
           _) na (C@@P2    n'a:
-          _) na (tion     na:
+          _) na (C@       n'a:
+          _) na (C%       nA
+          _) na (cht      nA
+          _) narci (s     n%ArsI
+          _) na (rc       n%A
           _) na (der      na:
+          _) na (tion     na:
+          _) nano (@P4    n'a:no:
+          _) na (polA     n%a:
+             napoleon     n%a:po:l@jOn
           _) natuur       na:t'yr
-             naturel      na:tyr'El
+             na (tur      n%a:
+             na (vig      n%a:
+          _) na (vr       na:
+          _) na (volg@    n%a:
           _) noord (@P5   no:rd
           _) nieuws (@P6  n'iws
          @@) nis (_S3    nIs
@@ -442,11 +468,13 @@ _) inn (@P2 'I    // ?? inneren
           _) on (@P2      %On
              oo (X        'o:
              oon          'o:n  // in compounds, eg. telefoongesprek
+             oo (C_       'o:
           _) oost (@P4    o:st
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
           _) op (era      'o:p
           _) op (tion     Op
+        @at) or (_        'o:r
              ou (che_     u
              ouch (en_    uS
           _) over (@P4    ,o:v@r
@@ -525,7 +553,7 @@ _) inn (@P2 'I    // ?? inneren
              s (s
           A) s (A         z
              s (b         z
-             s (g         z
+             s (d         z
              sc           s
              sch          sx
              sch (_       s
@@ -536,6 +564,8 @@ _) inn (@P2 'I    // ?? inneren
              sj           S
          @@) s (_S1       s
 
+             sc (oop      sk
+             sc (opi      sk
           &) sel (_       =s@l
           &) selen (_     =s@l@n
           @) si (o        S
@@ -623,6 +653,7 @@ _) inn (@P2 'I    // ?? inneren
 
 .group v
              v            v
+          s) v            f
 
           _) van (@P3     v%An
           _) vanzelf (@P7 vAnz,Elf
@@ -642,7 +673,14 @@ _) inn (@P2 'I    // ?? inneren
           _) wan (@P3     v#'An
           _) wan (L01@P3  v#'AN
           _) wan (del     v#An
+          _) wanhopig     v#Anh'o:p@Q
           _) wan (kel     v#AN
+          _) wann (eer    v#An
+          _) wanordelijk  v#An_|'Ord@l@k
+          _) wansmakelijk v#Ansm'a:k@l@k
+          _) wanstaltig   v#Anst'Alt@Q
+          _) wantrouwig   v#Antr'VU@Q
+          _) wanvoeglijk  v#Anv'uxl@k
           _) weg (@P3     v#'EQ
           _) weg (en      v#e:Q
           _) weg (e_      v#e:Q  // bewegelijk
@@ -664,7 +702,10 @@ _) inn (@P2 'I    // ?? inneren
 .group z
              z            z
              z (z
+          s) z
+
              zele (_S4   ze:l@ // common suffix for cities.
+          @) zelf (_S4   s'Elf
           _) zoge (@P4    z,og@
           _) zuid (@P4    zWyt
 

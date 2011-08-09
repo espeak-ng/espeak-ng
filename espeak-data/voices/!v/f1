@@ -1,9 +1,9 @@
 language variant
 name female1
-gender female
+gender female 70
 
-pitch 145 200
-flutter 7
+pitch 140 200
+flutter 8
 roughness 4
 formant 0 115  80 150
 formant 1 120  80 180
@@ -15,4 +15,4 @@ formant 6 105  80 150
 formant 7 110  70 150
 formant 8 110  70 150
 
-stressAdd -10 -10 -20 -20 0 0 40 70
+stressAdd -10 -10 -20 -20 0 0 40 60

@@ -190,9 +190,11 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			if(regression & 0x2)
 			{
 				// [v] amd [v;] don't cause regression, or [R^]
-				if((ph->mnemonic == 'v') || (ph->mnemonic == ((';'<<8)+'v')) || ((ph->mnemonic & 0xff)== 'R'))
+				if(((ph->mnemonic & 0xff) == 'v') || ((ph->mnemonic & 0xff)== 'R'))
 				{
 					stop_propagation = 1;
+					if(regression & 0x10)
+						voicing = 0;
 				}
 			}
 
@@ -247,7 +249,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					// stop propagation at a word boundary
 					voicing = 0;
 				}
-				if(regression & 0x10)
+				if(regression & 0x100)
 				{
 					// devoice word-final consonants, unless propagating voiced
 					if(voicing == 0)

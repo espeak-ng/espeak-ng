@@ -1682,6 +1682,9 @@ include ph_nahuatl
 phonemetable fi base
 include ph_finnish
 
+phonemetable et base
+include ph_estonian
+
 phonemetable fr base
 include ph_french
 
@@ -1874,3 +1877,7 @@ include ph_sinhala
 
 phonemetable tn base
 include ph_setswana
+
+
+phonemetable mt base
+include ph_maltese

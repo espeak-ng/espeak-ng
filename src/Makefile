@@ -26,6 +26,8 @@ LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
 AUDIO = portaudio
+#AUDIO = portaudio0
+#AUDIO = portaudio2
 #AUDIO = pulseaudio
 #AUDIO = sada
 
@@ -39,11 +41,23 @@ WAVE=wave.cpp
 LIB_AUDIO=-lportaudio
 USE_AUDIO=-DUSE_PORTAUDIO
 else
+ifeq ($(AUDIO),portaudio0)
+WAVE=wave.cpp
+LIB_AUDIO=/usr/lib/libportaudio.so.0
+USE_AUDIO=-DUSE_PORTAUDIO
+else
+ifeq ($(AUDIO),portaudio2)
+WAVE=wave.cpp
+LIB_AUDIO=/usr/lib/libportaudio.so.2
+USE_AUDIO=-DUSE_PORTAUDIO
+else
 ifeq ($(AUDIO),sada)
 WAVE=wave_sada.cpp
 USE_AUDIO=-DUSE_SADA
 else
 WAVE=wave.cpp
+endif
+endif
 endif
 endif
 endif

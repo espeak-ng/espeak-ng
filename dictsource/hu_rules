@@ -44,7 +44,7 @@
 
         bb (L01    b         // only speak one b if followed by a consonant
         bbr        bR2       //special exception with always need executing
-
+        bbj        bj        //special exception with always need executing
 
 .group c
         c          ts
@@ -285,6 +285,8 @@ standar) d (jegy   d
  harma) d (szint   d
     kó) d (jel     d
  harma) d (sor     d
+ beszé) d (javít   d
+ rekor) d (sugár   d
 
 .group dz
   fogó) dz (kod    ts
@@ -332,6 +334,7 @@ smarag) dz (öld    d|z
 kapáló) dz         z
     _ó) dz (ko     ts
  gyűrű) dz (ik     z
+burkoló) dz        z
 
 .group e
         e          E
@@ -530,6 +533,7 @@ harmince) gy (edik J:
      e) gy (összeg J:
      e) gys (ík    J|S       //for example egysíkú word need spokening single J and S phoneme
     _e) gy (öntet  J:
+   tár) gy (sor    J
 
 .group h
         h          h
@@ -745,6 +749,7 @@ helybe) n (jár     n
    idé) ny (jel    n^
  vagyo) n (nyilatkozat n     //for example vagyonnyilatkozat word need spokening single n phoneme before n^ phoneme, not two n^n^ phoneme.
    szí) n (jelzés  n
+ kormá) ny (jelentés n^
 
 .group o
         o          o
@@ -835,6 +840,9 @@ működé) s (zava    S
 viselkedé) s (zava S
 alkalmazá) s (szerver S
     fá) s (szárú   S
+ ritmu) s (zavar   S
+pedagógu) s (sztrájk S
+
 
 .group ss
         ssz        ss2
@@ -1022,6 +1030,7 @@ települé) ssz (er  Ss        //for example településszerkezet word need spok
   gyor) ssz (űr    Ss        //for example gyorsszűrő word need spokening single S and s phoneme
     _a) ssz (iszt  s         //for example the asszisztens word need spokening one s phoneme
   eltu) ss (ol     S
+ellátá) ssz (er    Ss
 
 .group sz
         sz         s
@@ -1175,6 +1184,7 @@ interne) tj (egy   tj
   álla) tj (ólét   tj
 dolgoza) tj (avít  tj
 természe) tj (ár   tj
+terüle) tj (elöl   tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1377,7 +1387,7 @@ terüle) ts (áv     t|S
    _hé) tsz (ob    t|s       //same as prewious rule
 gyakorla) ts (oroz t|S
 támogato) ts (ág   tS:
-
+    já) tsz (hass  ts
 
 .group tt
         tt         t:

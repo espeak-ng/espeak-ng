@@ -52,6 +52,7 @@
         sw) a (B         0
             a (Be#       eI
          w) a (Be#       eI
+            a (Cee+      a
             a (BeCo_     a
             a (BerA      a
             a (BerC      a
@@ -164,6 +165,7 @@
          @) awi (_       'A:wI
          _) aw (k        O:
          _) aw (ok       a#w
+            awr (_       aU@
          C) a (x+        a
          _) a (x+        a
             ay           eI
@@ -777,6 +779,7 @@
         tr) an (si       an
         tr) ansis        anz'Is
         tr) an (som      an
+            answ (er     aans
             ante (nn     ant'E
          _) anti (@P4    ,antI       // prefix
             ant (iq      ant
@@ -868,6 +871,7 @@
         &h) ar (d_       3
        &ch) ar (d        3
         &k) ar (d_       3
+        &p) ar (d_       3
        &st) ar (d_       3
         &w) ar (d_       3
         aw) ar (d        O@
@@ -1456,7 +1460,7 @@
             co (mpou     k0
             co (mprehen  k0
             co (mprom    k0
-            co (mpt      k0
+         _) comp (tr     k%0m
             co (mputa    k,0
          _) co (mr       k0
          _) con (@       k%0n
@@ -2206,7 +2210,6 @@
          &) en (ce_      @n
 ?8       &) en (ce_      En
          f) en (ce_      En
-         g) ener (al     En@r
          _) en (ough     I2n
 
 .group eo
@@ -2255,6 +2258,7 @@
          _) er (A        I2r
          _) er           3:
          _) err (A       Er
+         @) eral (ity    @r'al
          &) eram (ent    r@m
          X) era (_       i@r@
         XC) err          Er
@@ -3096,7 +3100,7 @@
             inte (llec   Int@
          _) inter (@P5   ,Int3           // prefix
          _) inter (AP5   ,Int@r
-            inter (est   Int@r
+            inter (est   Intr
             interfer     Int@f'i@3
          _) int (erio+   %Int
          _) inter (n_    %Int3:
@@ -3183,7 +3187,6 @@
             inism (_     InIz@m
             infor (matio Inf3
             ino (_       'i:noU
-        _m) in (us       aIn
         _m) inu (te      aIn'ju:
         _m) inute (m     InIt
          _) intra        Intr@
@@ -3679,6 +3682,7 @@
          X) o (By_       oU
          _) o (Cy+       0
             o (Be#       oU
+            oi (ce#      OI
             o (BeCo_     0
             o (BenC      oU
             o (Beon      'oU
@@ -4792,7 +4796,7 @@
          _) scar (A      ske@
          _) scar (a      skar
             scarc        ske@s
-            sc (i        s
+            sc (L02      s
             sci (b       s@
             sci (_       =skaI
             scis (_      =skIs
@@ -5381,6 +5385,7 @@
          _) wr (Y        r
 
          C) w (_         w@
+         C) w (X         U   // Welsh names
             wh           w
             wr           r
          C) we (_        =wI
@@ -5424,6 +5429,8 @@
             xure (_      kS%U@
 
 .group y
+         _) y (_         waI
+         -) y (-         @   // Welsh names
             y            j
          _) y' (CP2      j@
             y (C_        I

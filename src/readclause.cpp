@@ -164,7 +164,7 @@ static const unsigned int punct_attributes [] = { 0,
 // frame 0 is for the defaults, before any ssml tags.
 typedef struct {
 	int tag_type;
-	int voice_variant;
+	int voice_variant_number;
 	int voice_gender;
 	int voice_age;
 	char voice_name[40];
@@ -175,6 +175,8 @@ typedef struct {
 static int n_ssml_stack;
 static SSML_STACK ssml_stack[N_SSML_STACK];
 
+static espeak_VOICE base_voice;
+static char base_voice_variant_name[40] = {0};
 static char current_voice_id[40] = {0};
 
 
@@ -1037,19 +1039,21 @@ static const char *VoiceFromStack()
 // Use the voice properties from the SSML stack to choose a voice, and switch
 // to that voice if it's not the current voice
 	int ix;
+	const char *p;
 	SSML_STACK *sp;
 	const char *v_id;
 	int voice_name_specified;
 	int voice_found;
 	espeak_VOICE voice_select;
-	char voice_name[40];
+	static char voice_name[40];
 	char language[40];
+	char buf[80];
 
 	strcpy(voice_name,ssml_stack[0].voice_name);
 	strcpy(language,ssml_stack[0].language);
 	voice_select.age = ssml_stack[0].voice_age;
 	voice_select.gender = ssml_stack[0].voice_gender;
-	voice_select.variant = ssml_stack[0].voice_variant;
+	voice_select.variant = ssml_stack[0].voice_variant_number;
 	voice_select.identifier = NULL;
 
 	for(ix=0; ix<n_ssml_stack; ix++)
@@ -1069,15 +1073,32 @@ static const char *VoiceFromStack()
 		if(sp->language[0] != 0)
 		{
 			strcpy(language, sp->language);
+
+			// is this language provided by the base voice?
+			p = base_voice.languages;
+			while(*p++ != 0)
+			{
+				if(strcmp(p, language) == 0)
+				{
+					// yes, change the language to the main language of the base voice
+					strcpy(language, &base_voice.languages[1]);
+					break;
+				}
+				p += (strlen(p) + 1);
+			}
+			
 			if(voice_name_specified == 0)
 				voice_name[0] = 0;  // forget a previous voice name if a language is specified
 		}
 		if(sp->voice_gender != 0)
+		{
 			voice_select.gender = sp->voice_gender;
+		}
+
 		if(sp->voice_age != 0)
 			voice_select.age = sp->voice_age;
-		if(sp->voice_variant != 0)
-			voice_select.variant = sp->voice_variant;
+		if(sp->voice_variant_number != 0)
+			voice_select.variant = sp->voice_variant_number;
 	}
 
 	voice_select.name = voice_name;
@@ -1085,6 +1106,14 @@ static const char *VoiceFromStack()
 	v_id = SelectVoice(&voice_select, &voice_found);
 	if(v_id == NULL)
 		return("default");
+
+	if((strchr(v_id, '+') == NULL) && ((voice_select.gender == 0) || (voice_select.gender == base_voice.gender)) && (base_voice_variant_name[0] != 0))
+	{
+		// a voice variant has not been selected, use the original voice variant
+		sprintf(buf, "%s+%s", v_id, base_voice_variant_name);
+		strncpy0(voice_name, buf, sizeof(voice_name));
+		return(voice_name);
+	}
 	return(v_id);
 }  // end of VoiceFromStack
 
@@ -1389,8 +1418,8 @@ int AddNameData(const char *name, int wide)
 }  //  end of AddNameData
 
 
-void SetVoiceStack(espeak_VOICE *v)
-{//================================
+void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
+{//==========================================================
 	SSML_STACK *sp;
 	sp = &ssml_stack[0];
 
@@ -1402,10 +1431,12 @@ void SetVoiceStack(espeak_VOICE *v)
 	if(v->languages != NULL)
 		strcpy(sp->language,v->languages);
 	if(v->name != NULL)
-		strcpy(sp->voice_name,v->name);
-	sp->voice_variant = v->variant;
+		strncpy0(sp->voice_name, v->name, sizeof(sp->voice_name));
+	sp->voice_variant_number = v->variant;
 	sp->voice_age = v->age;
 	sp->voice_gender = v->gender;
+	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
+	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
 }
 
 
@@ -1467,7 +1498,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 
 		attrcopy_utf8(ssml_sp->language,lang,sizeof(ssml_sp->language));
 		attrcopy_utf8(ssml_sp->voice_name,name,sizeof(ssml_sp->voice_name));
-		ssml_sp->voice_variant = attrnumber(variant,1,0)-1;
+		ssml_sp->voice_variant_number = attrnumber(variant,1,0)-1;
 		ssml_sp->voice_age = attrnumber(age,0,0);
 		ssml_sp->voice_gender = attrlookup(gender,mnem_gender);
 		ssml_sp->tag_type = tag_type;
@@ -1647,6 +1678,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		{"reduced",2},
 		{"moderate",3},
 		{"strong",4},
+		{"x-strong",5},
 		{NULL,-1}};
 
 	static const char *prosody_attr[5] = {
@@ -1735,14 +1767,16 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 		if(translator->langopts.tone_language == 1)
 		{
-			static unsigned char emphasis_to_pitch_range[] = {50,50,40,70,90,90};
-			static unsigned char emphasis_to_volume[] = {100,100,70,110,140,140};
+			static unsigned char emphasis_to_pitch_range[] = {50,50,40,70,90,100};
+			static unsigned char emphasis_to_volume[] = {100,100,70,110,135,150};
 			// tone language (eg.Chinese) do emphasis by increasing the pitch range.
 			sp->parameter[espeakRANGE] = emphasis_to_pitch_range[value];
 			sp->parameter[espeakVOLUME] = emphasis_to_volume[value];
 		}
 		else
 		{
+			static unsigned char emphasis_to_volume2[] = {100,100,75,100,120,150};
+			sp->parameter[espeakVOLUME] = emphasis_to_volume2[value];
 			sp->parameter[espeakEMPHASIS] = value;
 		}
 		ProcessParamStack(outbuf, outix);
