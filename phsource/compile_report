@@ -394,7 +394,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [hfx] base
+l/l@            [h질] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -428,7 +428,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [hfx] base
+l/la            [h질] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -436,7 +436,7 @@ l/la            [hfx] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [hfx] base
+l/le            [h질] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -448,7 +448,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [hfx] base
+l/li            [h질] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -462,7 +462,7 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [hfx] base
+l/lo            [h질] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -472,7 +472,7 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [hfx] base
+l/lu            [h질] base
                 [l#] base
                 [l] fr
                 [l/2] fr

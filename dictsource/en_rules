@@ -642,7 +642,7 @@
       @erd) am (_        am
 ?!3     &h) am (_N       @m
         &s) am (_        @m
-        @r) am (a        'A:m
+        @r) am (a_       'A:m
          _) am (al       a#m
             amateur      am@t3
             amaz         a#meIz
@@ -2249,6 +2249,7 @@
         %C) ers (_S4     3z
 ?8      %C) ers (_S4     a#z
         ss) er (_S2      3
+        ss) ers (_S3     3z
        all) er (_        3
         mb) er (_        3
        lin) er (_S1      3
@@ -2261,6 +2262,7 @@
          @) eral (ity    @r'al
          &) eram (ent    r@m
          X) era (_       i@r@
+       cam) era          @-r@
         XC) err          Er
             erre         'e@
             erred (_     '3:d
@@ -2721,6 +2723,7 @@
          &) ico (_       =I2koU
             i (cus_      =I
          _) i (d         aI
+        up) i (de        I
         ir) i (d         I
        acc) i (d         I
          c) i (dal       'aI
@@ -3206,7 +3209,7 @@
          n) ion          =i@n
          v) io (l        aI@
             ione (_      'aI@ni
-         g) io (n        @
+         g) io (n+       @
          m) io (n        I20
         sh) io (n        @
          _) io (n        aI0
@@ -3310,7 +3313,6 @@
 
 
 .group it
-         _) it'          %It
         _m) it (o        aIt
             it (a_N      'i:t
             it (o_       'i:t
@@ -3366,7 +3368,7 @@
          @) iv (e        Iv
             iv (e#       aIv
          h) iv (e_       aIv
-         l) ive (l       aIv
+        _l) ive (B       aIv
          l) iv (en       aIv
          r) ival         aIv@L
         ct) iv (al       'aIv
@@ -4177,7 +4179,7 @@
             os (al_      'oUz
         _l) os (e        u:z
             ose (_       oUz
-      purp) ose (_       @s
+      purp) ose          @s
         _r) os (e#       oUz
          c) os (ec       oUs
          c) os (ine_     oUs
@@ -4443,6 +4445,7 @@
          _) pt (Y        t
 
             ph           f
+            ph (am_      p
             phenome (n   fI2n0mI
             phenyl       f,i:naIl
             p (haza      p
@@ -5158,14 +5161,15 @@
          @) u (late      =jU
             u (le_       ju:
          s) u (le_       ju:
-       f) ul (fil      %Vl
+         f) ul (fil      %Ul
          j) u (li        u:
          @) uli (_       =jUlaI
          b) ull          Ul
          f) ull          Ul
          p) ull          Ul
          b) ully         UlI
-        _f) ully         UlI
+        _f) u (lC        U
+         f) u (lcr       V
         &f) ully (_      @l%I
 ?8      &f) ully (_      Vl%I
          &) u (lous_     =jU
