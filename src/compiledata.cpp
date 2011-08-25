@@ -350,7 +350,7 @@ static keywtab_t keywords[] = {
 	{"glstop", tTRANSITION, 8},
 	{"lenadd", tTRANSITION, 9},
 	{"f4",     tTRANSITION, 10},
-	{"paus",   tTRANSITION, 11},
+	{"gpaus",  tTRANSITION, 11},
 	{"colr=",  tTRANSITION, 12},
 	{"amp=",   tTRANSITION, 13},  // set rms of 1st frame as fraction of rms of 2nd frame  (1/30ths)
 

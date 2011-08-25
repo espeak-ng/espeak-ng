@@ -109,7 +109,17 @@ fegyen) c (csoport ts
         cs (-sz    tS|s      //need spokening single ts and single s phoneme
         ccs (-sz   tS|s      //need spokening single ts and single s phoneme
  licen) c (sértés  ts
-
+_fil) c (csík ts
+_pia) c (csarnok ts
+_pol) c (csat ts
+_mala) c (sivít ts
+_kilen) c (csöv ts
+_kilen) c (csomó ts
+szanité) c (cs ts
+pokró) c (cs ts
+kul) cs (zörg tS
+kartá) cs (zápo tS
+ínyen) c (ség ts
 
 .group ch
   anar) ch (i      h
@@ -287,6 +297,8 @@ standar) d (jegy   d
  harma) d (sor     d
  beszé) d (javít   d
  rekor) d (sugár   d
+máso) d (szaká d	//For example másodszakács, másodszakáccsá words need spokening single d phoneme before s phoneme
+_ná) d (söv d	//for example nádsövénnyé word
 
 .group dz
   fogó) dz (kod    ts
@@ -377,7 +389,9 @@ burkoló) dz        z
         ggb        gb        //special exception with always need executing
         ggr        gR2       //special exception with always need executing
 ?1   _) goeth      gY:tE
+_me) ggy (en_ J:	//Single meggyen word need spokening longer J: phoneme
     me) g (gy      g
+
         ggy (L01   J
         ggyb       Jb        //special exception with always need executing
         ggyr       JR2       //special exception with always need executing
@@ -426,6 +440,17 @@ arcüre) g (gyulladás g
  szöve) g (gyűjt   g
     ta) g (gyűl    g
     gu) gg (ol     g
+orszá) g (gyarapod g
+anya) g (gyár g
+anya) g (gyűjt g
+végi) g (gya g
+me) ggy (mag J
+me) ggy (íz J:
+bádo) g (gy g
+szö) g (gyár g
+han) g (gyakor g
+ele) ggy (é J:
+_jé) g (gyár g
 
 .group gy
         gy         J
@@ -535,6 +560,7 @@ harmince) gy (edik J:
     _e) gy (öntet  J:
    tár) gy (sor    J
 
+
 .group h
         h          h
         hertz      hER2ts
@@ -566,6 +592,7 @@ harmince) gy (edik J:
    _sz) í (vattak  i
    _sz) í (vattákk i
    _sz) í (vató    i
+_v) í (zi i //for example vízipipa, vízimentők beginning words need spokening i, not i: phoneme
 
 .group j
         j          j
@@ -617,6 +644,7 @@ harmince) gy (edik J:
      _) közt       kYst
         k (-k      k:        //for example marok-körző word need cut one k letter and need spokening k: phoneme only
     k-) k                    //silent with second k phoneme
+ _játé) kk (liens  k:        //exceptiof for kk (L01 rule
 
 
 .group l
@@ -706,7 +734,6 @@ bagate) ll (iz     l
     bű) n (jel     n
 negyve) n (yard    n
   ötve) n (yard    n
- benzi) n (jegy    n
   elle) n (javaslat n
   késő) n (jövő    n
  közbe) n (jár     n
@@ -750,6 +777,9 @@ helybe) n (jár     n
  vagyo) n (nyilatkozat n     //for example vagyonnyilatkozat word need spokening single n phoneme before n^ phoneme, not two n^n^ phoneme.
    szí) n (jelzés  n
  kormá) ny (jelentés n^
+ benzi) nj nj
+mikrofo) n (nyílás n
+szí) n (nyom n
 
 .group o
         o          o
@@ -851,6 +881,7 @@ pedagógu) s (sztrájk S
    _má) ssz (ó     Ss
 mennydörgé) ssz (erű Ss
 robbaná) ss        S:
+hamva) ssz s:
 robbaná) ssz (er   Ss
 danubiu) ss        s:        //a radio station name
 danubiu) ssz       s:        //a radio station name
@@ -1032,7 +1063,9 @@ települé) ssz (er  Ss        //for example településszerkezet word need spok
   eltu) ss (ol     S
 ellátá) ssz (er    Ss
    égé) ssz (ag    Ss
-
+csapá) ssz (erű Ss
+menekülé) ssz (erű Ss
+_ökrö) ssz (ekere Ss
 
 .group sz
         sz         s
@@ -1067,6 +1100,12 @@ rongyo) szs (ák    SZ
    _ka) sztsze     st|sE
 szemete) szs (ák   SZ
    dro) sztsze (rző st|sE    //drosztszerződés word need spokening st and single sE phoneme
+_búzá) szs (ák SZ
+_szene) szs (ák SZ
+_szalmá) szs (ák SZ
+va) szs (anér SZ
+gaboná) szs (ák SZ
+va) sz (ápor Sz
 
 .group t
         t          t
@@ -1513,7 +1552,7 @@ _szára) zs (ág     SS
 találko) z (t      s
  eszkö) z (sor     z
     gő) z (síp     z
- matró) z (sapka   z
+ matró) z (sapk   z
   nehé) z (súly    z
    tör) zsz (ászló Z|z
         zsz        z|s       //general exception. Need difference first z and second sz phoneme. eg: rajzszög, rajzszeg, mézszín words.
@@ -1587,6 +1626,14 @@ magyará) z (kod    s
   pofo) z (kod     s
   ezkö) z (sáv     z
  eszkö) z (sáv     z
+_mé) z (sárg z
+tű) z (sáv z
+_tí) z (sor z
+_szá) z (sor z
+ré) z (sisak z
+matró) z (zsák z
+ré) z (sodrony z
+há) z (sarkot z
 
 .group
         $          dolla:R2

@@ -1425,7 +1425,7 @@ endphoneme
 phoneme q
   vls uvl stop
   lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 paus f4 rms=30
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
   Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
 
   IF nextPh(isPause2) THEN
@@ -1860,7 +1860,7 @@ include ph_azerbaijani
 phonemetable ak base
 include ph_akan
 
-phonemetable am base2
+phonemetable am base
 include ph_amhari
 
 phonemetable wo base

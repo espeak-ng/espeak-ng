@@ -379,6 +379,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
 		}
 		break;
 

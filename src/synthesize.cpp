@@ -762,7 +762,7 @@ if(voice->klattv[0])
 	}
 
 	if(flags & 0x40)
-		DoPause(12,0);  // add a short pause after the consonant
+		DoPause(20,0);  // add a short pause after the consonant
 
 	if(flags & 16)
 		return(len);

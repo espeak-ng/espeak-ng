@@ -21,7 +21,7 @@ consonants  10  116
       fr  59  140
    fr-ca  11  140
       hi  57  148
-      ta  22  151
+      ta  23  152
       kn  17  148
       ml  21  151
       hu  25  122
@@ -69,7 +69,7 @@ consonants  10  116
       ht  11  140
       az  10  127
       ak   8  109
-      am   8  123
+      am  14  112
       wo  18  118
       dv  14  148
       te  16  148
@@ -394,7 +394,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [hБъ] base
+l/l@            [h1ф] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -428,7 +428,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [hБъ] base
+l/la            [h1ф] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -436,7 +436,7 @@ l/la            [hБъ] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [hБъ] base
+l/le            [h1ф] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -448,7 +448,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [hБъ] base
+l/li            [h1ф] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -462,7 +462,7 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [hБъ] base
+l/lo            [h1ф] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -472,7 +472,7 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [hБъ] base
+l/lu            [h1ф] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -804,6 +804,7 @@ ustop/k_asp     [kh] consonants
                 [kh] zh
                 [kh] tn
 ustop/k_asp2    [k#] ka
+ustop/k_ejc     [k`] am
 ustop/ki        [k] base
                 [k] base2
                 [c] af
@@ -881,6 +882,7 @@ ustop/p_unasp   [p] base
                 [p] zh
                 [p] sq
                 [p] da
+                [p`] am
 ustop/p_unasp_  [p-] consonants
                 [p] base2
                 [p] fr
@@ -901,6 +903,7 @@ ustop/t_        [t] base
                 [t] lv
                 [t] sk
                 [th] zh
+                [t`] am
 ustop/t_dnt     [t] base
                 [t[] base
                 [t] base2
@@ -915,6 +918,7 @@ ustop/t_dnt2    [t] base2
                 [d] kn
 ustop/t_hi      [t[] base
                 [t] et
+                [t`] am
 ustop/t_pzd     [c] base
                 [t^] et
                 [t;] pl
@@ -952,6 +956,7 @@ ustop/t_short_  [t] fr
 ustop/tsh_pzd   [tS;] zh
 ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
+ustop/tsh_unasp  [tS`] am
 ustop/ts_pzd    [tS;] base
                 [Jh] hi
                 [tS;] ru
@@ -1460,7 +1465,6 @@ vowel/a         [a] base
                 [a] zh
                 [a] id
                 [a] sl
-                [a] am
 vowel/a#        [a] base2
                 [a/] base2
                 [a#] en-sc
@@ -1546,6 +1550,7 @@ vowel/a_5       [a:] ta
                 [a] tn
 vowel/a_6       [a] ca
                 [a:] vi
+                [a] am
                 [a:] wo
 vowel/a_7       [a] en
                 [a] fr
@@ -1674,6 +1679,7 @@ vowel/ee_2      [E] cy
                 [E] pa
 vowel/ee#_2     [E-] sv
                 [E#] sq
+                [@] am
                 [e] tn
 vowel/ee_3      [&] af
                 [&:] af
@@ -1778,7 +1784,6 @@ vowel/i         [i] base
                 [i] prs
                 [i] nso
                 [i] ak
-                [i] am
                 [i:] wo
                 [i:] dv
                 [i:] te
@@ -1817,6 +1822,7 @@ vowel/i_6       [i] hi
                 [i] tr
                 [i] ku
                 [i] id
+                [i] am
                 [i] dv
                 [i] te
                 [i] si
@@ -1905,7 +1911,6 @@ vowel/@_low     [@] en-rp
                 [@/] ne
                 [@] pa
                 [V] pa
-                [@] am
                 [@] si
 vowel/@_low2    [@/] en-us
                 [@2] en-us

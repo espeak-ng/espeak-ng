@@ -448,7 +448,7 @@ LST	ElESte:	$allcaps
 BAR	bAR2	$allcaps
 //SS	EsEs	$allcaps
 ALT	Alt	$allcaps
-
+TAB	tAb	$allcaps
 (a . m .)	An^n^i||m'int	$hasdot
 ún	u:JnEvEzEt:	$hasdot
 dr	doktoR2  $hasdot

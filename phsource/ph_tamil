@@ -29,12 +29,11 @@ endphoneme
 phoneme V#    // omit if the next phoneme is a vowel
   vowel  starttype #@  endtype #@
   length 130
-  IF nextPhW(isVowel) THEN
+  IF nextPhW(isVowel) OR nextPhW(#) THEN
     ChangePhoneme(NULL)
   ENDIF
   ChangePhoneme(V)
 endphoneme
-
 
 phoneme a:
   vowel  starttype #a  endtype #a
@@ -153,5 +152,10 @@ endphoneme
 phoneme : //  Lengthen previous vowel by "length"
   virtual
   length 50
+endphoneme
+
+phoneme #    // a NULL phoneme for 'virama'
+  virtual
+  ChangePhoneme(NULL)
 endphoneme
 

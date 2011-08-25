@@ -350,9 +350,12 @@ phoneme t
   voicingswitch d
   lengthmod 2
 
-  IF prevPh(isVowel) OR prevPh(n) THEN
-    IF nextPh(isVowel) AND nextPh(isUnstressed) AND thisPh(notWordStart) AND nextPh(notWordStart) THEN
-      ChangePhoneme(t#)
+  IF prevPhW(isVowel) OR prevPhW(n) THEN
+    IF nextPhW(isVowel) AND nextPh(isUnstressed) THEN
+      IF next2Ph(n) AND next2Ph(notWordStart) THEN
+      ELSE
+        ChangePhoneme(t#)
+      ENDIF
     ENDIF
   ENDIF
 
