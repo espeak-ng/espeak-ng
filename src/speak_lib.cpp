@@ -47,7 +47,6 @@
 #include "wave.h"
 
 unsigned char *outbuf=NULL;
-extern espeak_VOICE voice_selected;
 
 espeak_EVENT *event_list=NULL;
 int event_list_ix=0;
@@ -391,8 +390,8 @@ static int initialise(int control)
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
 	}
 
-	memset(&voice_selected,0,sizeof(voice_selected));
-	SetVoiceStack(NULL);
+	memset(&current_voice_selected,0,sizeof(current_voice_selected));
+	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 	InitNamedata();
 

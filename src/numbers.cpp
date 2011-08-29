@@ -1590,13 +1590,13 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int suffix_ix;
 	int skipwords = 0;
 	char *p;
-	char string[20];  // for looking up entries in **_list
+	char string[32];  // for looking up entries in **_list
 	char buf1[100];
 	char ph_append[50];
 	char ph_buf[200];
 	char ph_buf2[50];
 	char ph_zeros[50];
-	char suffix[20];
+	char suffix[30];  // string[] must be long enough for sizeof(suffix)+2
 	char buf_digit_lookup[50];
 
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};

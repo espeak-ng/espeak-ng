@@ -63,7 +63,8 @@ endphoneme
 
 
 // This is for letter "h" at the beginning of a word
-phoneme x
+// Use [x] from lang=hr, request by Gašić Dajan 27.06.2011
+phoneme x#
   vls vel frc
   lengthmod 3
   IF nextPh(#i) OR nextPh(#e) THEN
@@ -76,7 +77,8 @@ endphoneme
 
 
 // This is for letter "h" not at the beginning of  word
-phoneme h
+// Use standard [h], request by Gašić Dajan 27.06.2011
+phoneme h#
   vls vel frc
   lengthmod 3
   IF nextPh(#@) THEN

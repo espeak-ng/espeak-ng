@@ -1,5 +1,6 @@
-language fr-be
 name french (Belgium)
+language fr-be
+language fr 8
 gender male
 
 dictrules 2

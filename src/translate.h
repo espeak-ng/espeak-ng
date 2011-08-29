@@ -266,10 +266,12 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_PREFIXES        3
 
  // non-zero, change voiced/unoiced to match last consonant in a cluster
+ // bit 0=use regressive voicing
  // bit 1=LANG=cz,bg  don't propagate over [v]
  // bit 2=don't propagate acress word boundaries
  // bit 3=LANG=pl,  propagate over liquids and nasals
- // bit 4=devoice word-final consonants
+ // bit 4=LANG=cz,sk  don't progagate to [v]
+ // bit 8=devoice word-final consonants
 #define LOPT_REGRESSIVE_VOICING  4
 
  // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
@@ -666,7 +668,7 @@ int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 
-void SetVoiceStack(espeak_VOICE *v);
+void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata);
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 

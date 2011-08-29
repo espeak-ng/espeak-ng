@@ -66,7 +66,7 @@ static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 static int len_path_voices;
 
-espeak_VOICE voice_selected;
+espeak_VOICE current_voice_selected;
 
 
 enum {
@@ -564,9 +564,9 @@ voice_t *LoadVoice(const char *vname, int control)
 	int pitch1;
 	int pitch2;
 
-	static char voice_identifier[40];  // file name for  voice_selected
-	static char voice_name[40];        // voice name for voice_selected
-	static char voice_languages[100];  // list of languages and priorities for voice_selected
+	static char voice_identifier[40];  // file name for  current_voice_selected
+	static char voice_name[40];        // voice name for current_voice_selected
+	static char voice_languages[100];  // list of languages and priorities for current_voice_selected
 
 	strcpy(voicename,vname);
 	if(voicename[0]==0)
@@ -635,9 +635,9 @@ voice_t *LoadVoice(const char *vname, int control)
 		voice_name[0] = 0;
 		voice_languages[0] = 0;
 
-		voice_selected.identifier = voice_identifier;
-		voice_selected.name = voice_name;
-		voice_selected.languages = voice_languages;
+		current_voice_selected.identifier = voice_identifier;
+		current_voice_selected.name = voice_name;
+		current_voice_selected.languages = voice_languages;
 	}
 	else
 	{
@@ -720,11 +720,11 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_GENDER:
 			{
-				int age;
+				int age = 0;
 				char vgender[80];
 				sscanf(p,"%s %d",vgender,&age);
-				voice_selected.gender = LookupMnem(genders,vgender);
-				voice_selected.age = age;
+				current_voice_selected.gender = LookupMnem(genders,vgender);
+				current_voice_selected.age = age;
 			}
 			break;
 
@@ -1029,23 +1029,26 @@ voice_t *LoadVoice(const char *vname, int control)
 }  //  end of LoadVoice
 
 
-static char *ExtractVoiceVariantName(char *vname, int variant_num)
-{//===============================================================
+static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
+{//===========================================================================
 // Remove any voice variant suffix (name or number) from a voice name
 // Returns the voice variant name
 
 	char *p;
-	static char variant_name[20];
+	static char variant_name[40];
 	char variant_prefix[5];
 
 	variant_name[0] = 0;
 	sprintf(variant_prefix,"!v%c",PATHSEP);
+	if(add_dir == 0)
+		variant_prefix[0] = 0;
 
 	if(vname != NULL)
 	{
 		if((p = strchr(vname,'+')) != NULL)
 		{
 			// The voice name has a +variant suffix
+			variant_num = 0;
 			*p++ = 0;   // delete the suffix from the voice name
 			if(isdigit(*p))
 			{
@@ -1054,8 +1057,7 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num)
 			else
 			{
 				// voice variant name, not number
-				strcpy(variant_name,variant_prefix);
-				strncpy0(&variant_name[3],p,sizeof(variant_name)-3);
+				sprintf(variant_name, "%s%s", variant_prefix, p);
 			}	
 		}
 	}
@@ -1083,7 +1085,7 @@ voice_t *LoadVoiceVariant(const char *vname, int variant_num)
 	char buf[60];
 
 	strncpy0(buf,vname,sizeof(buf));
-	variant_name = ExtractVoiceVariantName(buf,variant_num);
+	variant_name = ExtractVoiceVariantName(buf,variant_num, 1);
 
 	if((v = LoadVoice(buf,0)) == NULL)
 		return(NULL);
@@ -1319,21 +1321,30 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 
 
 
-espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
-{//=====================================================================
+espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
+{//======================================================================
 	int ix;
 	int match_fname = -1;
 	int match_fname2 = -1;
 	int match_name = -1;
-	const char *id;
+	const char *id;   // this is the filename within espeak-data/voices
+	char *variant_name;
 	int last_part_len;
 	char last_part[41];
+	char name[40];
 
 	if(voices == NULL)
 	{
 		if(n_voices_list == 0)
 			espeak_ListVoices(NULL);   // create the voices list
 		voices = voices_list;
+	}
+
+	strncpy0(name, name2, sizeof(name));
+	if((variant_name = strchr(name, '+')) != NULL)
+	{
+		*variant_name = 0;
+		variant_name++;
 	}
 
 	sprintf(last_part,"%c%s",PATHSEP,name);
@@ -1347,14 +1358,17 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 			break;
 		}
 		else
-		if(strcmp(name,id = voices[ix]->identifier)==0)
 		{
-			match_fname = ix;  // matching identifier, use this if no matching name
-		}
-		else
-		if(strcmp(last_part,&id[strlen(id)-last_part_len])==0)
-		{
-			match_fname2 = ix;
+			id = voices[ix]->identifier;
+			if(strcmp(name, id)==0)
+			{
+				match_fname = ix;  // matching identifier, use this if no matching name
+			}
+			else
+			if(strcmp(last_part,&id[strlen(id)-last_part_len])==0)
+			{
+				match_fname2 = ix;
+			}
 		}
 	}
 
@@ -1414,7 +1428,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 		}
 	
 		strncpy0(buf,voice_select2.name,sizeof(buf));
-		variant_name = ExtractVoiceVariantName(buf,0);
+		variant_name = ExtractVoiceVariantName(buf,0,0);
 
 		vp = SelectVoiceByName(voices_list,buf);
 		if(vp != NULL)
@@ -1425,7 +1439,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 			{
 				if(variant_name[0] != 0)
 				{
-					sprintf(voice_id,"%s+%s",vp->identifier,&variant_name[3]);  // omit the  !v/  from variant_name
+					sprintf(voice_id,"%s+%s", vp->identifier, variant_name);
 					return(voice_id);
 				}
 
@@ -1512,8 +1526,8 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 
 	if(vp->variant != 0)
 	{
-		variant_name = ExtractVoiceVariantName(NULL,vp->variant);
-		sprintf(voice_id,"%s+%s",vp->identifier,&variant_name[3]);
+		variant_name = ExtractVoiceVariantName(NULL, vp->variant, 0);
+		sprintf(voice_id,"%s+%s", vp->identifier, variant_name);
 		return(voice_id);
 	}
 
@@ -1671,7 +1685,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 	static char buf[60];
 
 	strncpy0(buf,name,sizeof(buf));
-	variant_name = ExtractVoiceVariantName(buf,0);
+	variant_name = ExtractVoiceVariantName(buf, 0, 1);
 
 	memset(&voice_selector,0,sizeof(voice_selector));
 //	voice_selector.name = buf;
@@ -1688,7 +1702,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 		}
 
 		DoVoiceChange(voice);
-		SetVoiceStack(&voice_selector);
+		SetVoiceStack(&voice_selector, variant_name);
 		return(EE_OK);
 	}
 
@@ -1704,7 +1718,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 				LoadVoice(variant_name,2);
 			}
 			DoVoiceChange(voice);
-			SetVoiceStack(&voice_selector);
+			SetVoiceStack(&voice_selector, variant_name);
 			return(EE_OK);
 		}
 	}
@@ -1725,7 +1739,7 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 
 	LoadVoiceVariant(voice_id,0);
 	DoVoiceChange(voice);
-	SetVoiceStack(voice_selector);
+	SetVoiceStack(voice_selector, "");
 
 	return(EE_OK);
 }  //  end of SetVoiceByProperties
@@ -1795,7 +1809,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 
 ESPEAK_API espeak_VOICE *espeak_GetCurrentVoice(void)
 {//==================================================
-	return(&voice_selected);
+	return(&current_voice_selected);
 }
 
 #pragma GCC visibility pop

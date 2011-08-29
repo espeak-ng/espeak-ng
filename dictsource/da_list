@@ -290,11 +290,9 @@ skinheads   _^_EN
 street      _^_EN
 boy         _^_EN
 square      _^_EN
-appeal		_^_EN
 apple		_^_EN
 beachbuggy  _^_EN
 beachvolley _^_EN
-browser     _^_EN
 chart		_^_EN
 coach		_^_EN
 coke		_^_EN
@@ -307,7 +305,6 @@ event		_^_EN
 firewall	_^_EN
 freak		_^_EN 
 friendly    _^_EN
-groupie		_^_EN
 homepage	_^_EN
 hooligan	_^_EN
 interface	_^_EN
@@ -371,7 +368,6 @@ bbc		    _^_EN $alt
 boston      _^_EN $alt
 bronx       _^_EN $alt
 boyle       _^_EN $alt
-clarence    _^_EN $alt
 cyrus       _^_EN
 cia         _^_EN $alt
 fox         _^_EN
@@ -383,7 +379,7 @@ montreal    _^_EN $alt
 oregon      _^_EN $alt
 piccadilly  _^_EN
 reynolds    _^_EN $alt
-purvis      _^_EN
+//purvis      _^_EN
 white       _^_EN $alt
 
 // PB French words
@@ -1496,6 +1492,7 @@ rentrice  $alt
 renæssance  $alt
 ressource  $alt
 restance  $alt
+revanche $alt
 romance  $alt
 seance  $alt
 service  $alt
@@ -2001,6 +1998,7 @@ spartan  $alt
 srilankan  $alt
 sudan  $alt
 taiwan  $alt
+texan $alt
 tibetan  $alt
 tongan  $alt
 trojan  $alt
@@ -2161,7 +2159,7 @@ etik  $alt
 eugenik  $alt
 excentrik  $alt
 fabrik  $alt
-falkeblik  $alt
+//falkeblik  $alt
 folkloristik  $alt
 fonetik  $alt
 fysik  $alt
@@ -2183,6 +2181,7 @@ heuristik  $alt
 homiletik  $alt
 hydraulik  $alt
 informatik  $alt
+journalistik $alt
 kamik  $alt
 karakteristik  $alt
 kasuistik  $alt
@@ -2794,6 +2793,7 @@ homofoni  $alt
 ironi  $alt
 kakofoni  $alt
 kapellani  $alt
+katatoni $alt
 kleptomani  $alt
 koloni  $alt
 kompagni  $alt
@@ -2801,7 +2801,6 @@ kosmogoni  $alt
 kvadrofoni  $alt
 litani  $alt
 ludomani  $alt
-makaroni m&k@r'Vni  $alt
 mani  $alt
 misogyni  $alt
 monomani  $alt
@@ -6561,16 +6560,16 @@ kontingenter   $alt
 kontinuer   $alt
 kontraher   $alt
 kontrasigner   $alt
-kontraster   $alt
+kontrastere   $alt
 kontribuer   $alt
-kontroller   $alt
+kontrollere   $alt
 konturere   $alt
 konvener   $alt
 konverger   $alt
 konverser   $alt
 konverter   $alt
 konvojere   $alt
-konvoluter   $alt
+konvolutere   $alt
 kooperer   $alt
 koordiner   $alt
 kopiere   $alt
@@ -6628,7 +6627,7 @@ lakser   $alt
 lamenter   $alt
 laminer   $alt
 lancer   $alt
-lasere   $alt
+//lasere   $alt
 latiniser   $alt
 lavpasteuriser   $alt
 legaliser   $alt
@@ -6825,6 +6824,7 @@ patentere   $alt
 patiner   $alt
 patroniser   $alt
 patruljere   $alt
+afpatruljer   $alt
 pausere   $alt
 pelleter   $alt
 pendulere   $alt
@@ -7175,7 +7175,7 @@ stoltser   $alt
 strabadsere   $alt
 stranguler   $alt
 stratificer   $alt
-strukturer   $alt
+strukturere   $alt
 omstrukturer   $alt
 studere   $alt
 indstudere   $alt
@@ -7218,7 +7218,7 @@ taktere   $alt
 taktreguler   $alt
 taljere   $alt
 tamburer   $alt
-tamponer   $alt
+tamponere   $alt
 tangere   $alt
 tapetser   $alt
 tarer   $alt
@@ -9623,6 +9623,7 @@ interferon $alt
 futon  $alt
 føljeton fWljet'Vn $alt
 facon  $alt
+kamæleon $alt
 lazaron $alt
 makron $alt
 melon $alt
@@ -10232,6 +10233,7 @@ palæontolog  $alt
 patolog  $alt
 politolog  $alt
 prolog  $alt
+proktolog $alt
 psykolog  $alt
 radiolog  $alt
 runolog  $alt
@@ -10399,6 +10401,7 @@ zoologi  $alt
 økologi  $alt
 
 // final -ose - stressed o
+acidose $alt
 antibiose $alt
 apoteose $alt
 asbestose $alt
@@ -10717,6 +10720,7 @@ processor  $alt
 professor  $alt
 provisor  $alt
 revisor  $alt
+sektor $alt
 sensor  $alt
 sponsor  $alt
 successor  $alt
@@ -11209,6 +11213,7 @@ fx fVegsemp@l // PB "fx" is short for 'for eksempel'
 emp $abbrev
 hbo $abbrev // TV station
 usa $abbrev
+kfum $abbrev
 who $abbrev $allcaps // PB World Health Organization
 ussr $abbrev $allcaps // Sovjet Union
 vsop $abbrev 
@@ -11234,6 +11239,8 @@ bh $abbrev
 (bh'er)  b,e:h'O:V
 (l'chaim) l&kr'ajm
 scsi skVsi // PB
+ike ajk  // PB name
+ikes ajks // PB
 
 // Try to catch errors
 

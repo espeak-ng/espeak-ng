@@ -617,8 +617,8 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 */
 
 	int  ix;
-	int  len;
-	int  max_len;
+	unsigned int  len;
+	unsigned int  max_len;
 	int  phon_out_ix=0;
 	int  stress;
 	unsigned int c;
@@ -2928,7 +2928,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	const char *word_end;
 	const char *word1;
 	int wflags = 0;
-	int wflags2;
+//	int wflags2;
 	char word_buf[N_WORD_BYTES+1];
 
 	if(wtab != NULL)
@@ -3497,6 +3497,17 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 	
 	if(end_type & SUFX_E)
 	{
+		if(tr->translator_name == L('n','l'))
+		{
+			if(((word_end[0] & 0x80) == 0) && ((word_end[-1] & 0x80) == 0) && IsVowel(tr, word_end[-1]) && IsLetter(tr, word_end[0], LETTERGP_C) && !IsVowel(tr, word_end[-2]))
+			{
+				//double the vowel before the (ascii) final consonant
+				word_end[1] = word_end[0];
+				word_end[0] = word_end[-1];
+				word_end[2] = ' ';
+			}
+		}
+		else
 		if(tr->translator_name == L('e','n'))
 		{
 			// add 'e' to end of stem

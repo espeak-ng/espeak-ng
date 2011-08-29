@@ -1,7 +1,7 @@
 // French translation rules for Espeak
 
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2011-05-20 Michel Such  <michel.such@free.fr>
+// Last update: 2011-08-13 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -63,7 +63,7 @@
 // When these diphtonges are after a consonant folllowing e, e is not mute
 .L10 ia ie io ua ue ui uo
 .L11 b p
-.L12 é è aï al ib ie l om on ré
+.L12 é è aï al ib ie iq l om on ym ré
 
 // Words ending "son" pust sound english if preceded by L13
 .L13 d g k l p er hn
@@ -1486,6 +1486,7 @@ A)        wn        _^_en
 
      _) yahoo (P5  ja'u
         ym (L11      E~        // tympan
+        ym (_      E~        // thym
      X) ys (_      is
 
         yn (K         E~        // laryngite

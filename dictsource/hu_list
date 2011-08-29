@@ -447,7 +447,8 @@ WC	ve:tse:	$allcaps
 LST	ElESte:	$allcaps
 BAR	bAR2	$allcaps
 //SS	EsEs	$allcaps
-
+ALT	Alt	$allcaps
+TAB	tAb	$allcaps
 (a . m .)	An^n^i||m'int	$hasdot
 ún	u:JnEvEzEt:	$hasdot
 dr	doktoR2  $hasdot
@@ -1773,6 +1774,84 @@ fajták	$unstressend
 körülményei	$unstressend
 bízva	$unstressend
 száma	$unstressend
+képes	$unstressend
+számoltak	$unstressend
+fakadó	$unstressend
+firtatta	$unstressend
+ítélték	$unstressend
+itélték	$unstressend
+fogják	$unstressend
+bennem	$unstressend
+állhat	$unstressend
+lényege	$unstressend
+derített	$unstressend
+gyártotta	$unstressend
+beszélni	$unstressend
+számítógéppel	$unstressend
+változást	$unstressend
+lettek	$unstressend
+tapasztalattal	$unstressend
+súlyát	$unstressend
+hatnak	$unstressend
+rugalmas	$unstressend
+anyagok	$unstressend
+tárgyak	$unstressend
+váltak	$unstressend
+szűrő	$unstressend
+szűrők	$unstressend
+vitát	$unstressend
+tevő	$unstressend
+lévő	$unstressend
+ajánlat	$unstressend
+jelentkezhetnek	$unstressend
+léphessen	$unstressend
+építeni	$unstressend
+darabra	$unstressend
+figyelmesek	$unstressend
+láttuk	$unstressend
+hullott	$unstressend
+szóltak	$unstressend
+hallatszott	$unstressend
+keresték	$unstressend
+gépeket	$unstressend
+követte	$unstressend
+keresik	$unstressend
+éreztem	$unstressend
+vitatta	$unstressend
+vitatja	$unstressend
+útját	$unstressend
+nehézségeket	$unstressend
+város	$unstressend
+polgármester	$unstressend
+elkezdődött	$unstressend
+vezető	$unstressend
+feladatokat	$unstressend
+jelzem	$unstressend
+valósul	$unstressend
+készül	$unstressend
+megbízatást	$unstressend
+polgármestert	$unstressend
+nyertek	$unstressend
+került	$unstressend
+jelezte	$unstressend
+végezni	$unstressend
+tartunk	$unstressend
+személy	$unstressend
+fizetni	$unstressend
+Éva	$unstressend
+bánik	$unstressend
+kiszolgáló	$unstressend
+alapul	$unstressend
+jelezni	$unstressend
+fogadta	$unstressend
+kapcsolat	$unstressend
+tervet	$unstressend
+szolgáltatását	$unstressend
+segíti	$unstressend
+felkerültek	$unstressend
+mutatni	$unstressend
+korlátozott	$unstressend
+
 // word pairs
 
 (hogy a)   h,oJ,A
