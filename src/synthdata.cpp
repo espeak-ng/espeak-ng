@@ -172,6 +172,7 @@ void FreePhData(void)
 	Free(phoneme_tab_data);
 	Free(phoneme_index);
 	Free(phondata_ptr);
+	Free(tunes);
 	phoneme_tab_data=NULL;
 	phoneme_index=NULL;
 	phondata_ptr=NULL;
