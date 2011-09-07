@@ -1,0 +1,205 @@
+// Maltese translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+          a          a
+          aa         a:
+          au         au
+		  ax		 aS
+      
+
+
+.group b
+          b          b
+          bb         b:
+		  be		 b'@
+		  br		 br'@
+		  bi		 bi:
+		  bie		 bi'@
+		  
+.group c
+		  
+		  c			 c
+		  
+		  
+.group ċ
+          ċ         tS@
+          ċa       	tS@a
+          ċe      	tS@e         
+          ċi		tS@i              
+		  ċw		tS@u'@
+
+.group d
+          d          de
+          dd         d:
+		  
+
+
+.group e
+          e          e
+          eu         eu:
+		  ew		 eu
+          
+
+.group f
+          f          f	
+		  ff		 f:
+		  fo		 fo
+
+.group g
+          g          g
+          gg         g:
+		  ge		 gie
+		  gi		 gi:
+		  għ		 :	
+		  
+.group ġ
+		  ġ			dZ
+		  ġo		dZo
+		  
+.group h	  
+		  
+		  h			:
+		 
+		 
+.group ħ
+
+		  ħ			h
+		  ħu		h:u:
+		  ħt		ht
+.group i
+          i          I
+          iu         Iu
+          ie         i:
+         
+
+
+.group j
+          j          iu
+		  jj		 i:
+		  jo		 io
+		  je		 ie
+		  ja		 ia
+		  
+
+.group k
+          k          ke
+          ka         ka
+		  ke		 ke
+		  ki		 ki:
+		  kie		 ki:e
+		  ku		 ku:
+		  ko		 co
+
+.group l
+          l          l
+
+       
+.group m
+          m   		m
+		  m (n		im
+		  m (p		im
+		  m (r		im
+		  
+.group n
+          n          n
+         nu			 nu:
+
+
+
+.group o
+          o          o
+          
+
+.group p
+          p          p
+          pp         p:
+
+    _ole) p (a       p:      
+    _ota) p (a       p:      
+
+     kam) p (anj     p:      
+
+     sam) p (oo      p:      
+    sham) p (o       p:      
+
+
+.group q
+          q          '@
+		  qa		  a
+		  qe		  e
+		  qo		  o
+		  qu		  
+
+
+.group r
+          r          r
+		  rie		 ri:e
+		  ro		 ro:
+		  ra		 ra:
+		  
+
+.group s
+          s          s
+          sie		 si:e
+		  saqq		 sa
+		  saq		 sa
+
+
+.group t
+          t          t
+          tt         t:
+
+       
+
+
+.group u
+          u			u
+		  ux		uS
+
+
+.group v
+          v          v
+
+
+.group w
+          w          u
+
+
+.group x
+          x          Se
+		  xie		 Sei:	
+          
+
+
+.group y
+          y          y
+          yy         y:
+          yi         yi
+          yö         yY
+
+
+.group z
+          z          tse
+       K) zh         Z
+
+    
+
+
+.group ż
+          ż				z'@
+		  ża			za
+		  że			ze
+		  żie			zi:e
+		  żgħ			za
+
+// default group for "non of the above"
+
+.group
+          ż				z'@
+		  ċ             tS@
+// non-ascii characters with specified pronunciations
+
+
+

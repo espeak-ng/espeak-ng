@@ -1,0 +1,288 @@
+
+//====================================================
+// Maltese
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 160
+endphoneme
+
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 140
+  IfNextVowelAppend(;)
+  ChangeIfUnstressed(I)
+  FMT(vowel/i_4)
+endphoneme
+
+phoneme I
+  vowel  starttype #i  endtype #i
+  length 130
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_2)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 150
+  FMT(vowel/e_mid2)
+endphoneme
+
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 170
+//  ChangeIfUnstressed(a2)
+  FMT(vowel/aa_9)
+endphoneme
+
+
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 155
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme Y
+  vowel starttype #@ endtype #@
+  length 155
+  FMT(vowel/y#)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/u_bck)
+endphoneme
+
+
+
+phoneme U    // TEST
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/uu_4)
+endphoneme
+
+
+
+phoneme y
+  vowel starttype #u endtype #u
+  length 150
+  FMT(vowel/y)
+endphoneme
+
+
+
+// Diphthongs
+//===========
+
+phoneme ai
+  vowel starttype #a endtype #i
+  length 310
+  long
+  FMT(vdiph/aai_3)
+endphoneme
+
+phoneme i
+  vowel starttype #a endtype #i
+  length 290
+  long
+  FMT(vdiph/&i)
+endphoneme
+
+phoneme oi
+  vowel starttype #o endtype #i
+  length 280
+  long
+  FMT(vdiph/ooi)
+endphoneme
+
+phoneme ei
+  vowel starttype #e endtype #i
+  length 280
+  long
+  FMT(vdiph/eei_2)
+endphoneme
+
+phoneme Yi
+  vowel starttype #@ endtype #i
+  length 270
+  long
+  FMT(vdiph/y#i)
+endphoneme
+
+phoneme ui
+  vowel starttype #u endtype #i
+  length 270
+  long
+  FMT(vdiph/ui_4)
+endphoneme
+
+phoneme yi
+  vowel starttype #u endtype #i
+  length 270
+  long
+  FMT(vdiph/yi)
+endphoneme
+
+
+phoneme au
+  vowel starttype #a endtype #u
+  length 300
+  long
+  FMT(vdiph/aau)
+endphoneme
+
+phoneme ou
+  vowel starttype #o endtype #u
+  length 280
+  long
+  FMT(vdiph/ou)
+endphoneme
+
+phoneme eu
+  vowel starttype #e endtype #u
+  length 280
+  long
+  FMT(vdiph/eu_2)
+endphoneme
+
+phoneme iu
+  vowel starttype #i endtype #u
+  length 280
+  long
+  FMT(vdiph2/iu_2)
+endphoneme
+
+
+
+phoneme ey
+  vowel starttype #e endtype #u
+  length 280
+  long
+  FMT(vdiph/eey)
+endphoneme
+
+phoneme Yy
+  vowel starttype #@ endtype #u
+  length 270
+  long
+  FMT(vdiph/y#y)
+endphoneme
+
+phoneme iy
+  vowel starttype #i endtype #u
+  length 260
+  long
+  FMT(vdiph2/iy)
+endphoneme
+
+
+phoneme uo
+  vowel starttype #u endtype #o
+  length 280
+  long
+  FMT(vdiph2/uo)
+endphoneme
+
+phoneme ie
+  vowel starttype #i endtype #e
+  length 280
+  long
+  FMT(vdiph2/ie)
+endphoneme
+
+phoneme yY
+  vowel starttype #u endtype #@
+  length 280
+  long
+  FMT(vdiph2/y-y#)
+endphoneme
+
+
+
+
+// CONSONANTS
+//===========
+
+
+phoneme v        // approximant, not fricative
+  vcd lbd frc
+  lengthmod 6
+  voicingswitch f
+  Vowelin  f1=0  f2=1000 -300 -200  f3=-300 100
+  Vowelout f1=0  f2=1000 -500 -300  f3=-300 60  len=50
+  IF nextPh(isPause2) THEN
+    FMT(voc/v_)
+  ENDIF
+  FMT(voc/v)
+endphoneme
+
+
+
+
+phoneme d
+  vcd dnt stop
+  voicingswitch t
+  lengthmod 5
+  Vowelin f1=2  f2=1700 -100 200  f3=0 80
+  Vowelout f1=2 f2=1700 -100 200  f3=0 80 rms=20
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ELIF nextPh(r) THEN
+    FMT(d/dr) addWav(x/d_dnt, 60)
+  ENDIF
+
+  FMT(d/d) addWav(x/d_dnt, 60)
+endphoneme
+
+
+
+phoneme p
+  import_phoneme base2/p
+  voicingswitch b
+endphoneme
+
+
+
+phoneme k
+  import_phoneme base2/k
+  voicingswitch g
+endphoneme
+
+
+
+
+phoneme h
+  vls glt apr
+  lengthmod 3
+
+  IF nextPh(#@) THEN
+    WAV(h/h@)
+  ELIF nextPh(#a) THEN
+    WAV(h/ha)
+  ELIF nextPh(#e) THEN
+    WAV(h/he)
+  ELIF nextPh(#i) THEN
+    WAV(h/hi)
+  ELIF nextPh(#o) THEN
+    WAV(h/hu_fi, 70)
+  ELIF nextPh(#u) THEN
+    WAV(h/hu_fi, 80)
+  ENDIF
+  WAV(h/h_, 70)  // no vowel following
+endphoneme
+
+

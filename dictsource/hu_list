@@ -449,6 +449,9 @@ BAR	bAR2	$allcaps
 //SS	EsEs	$allcaps
 ALT	Alt	$allcaps
 TAB	tAb	$allcaps
+UP up $allcaps
+DOWN down $allcaps
+KFKI	ka:Efka:i	$abbrev $allcaps
 (a . m .)	An^n^i||m'int	$hasdot
 ún	u:JnEvEzEt:	$hasdot
 dr	doktoR2  $hasdot
@@ -653,6 +656,7 @@ csütörtökön	$alt3
 pénteken	$alt3
 szombaton	$alt3
 vasárnapon	$alt3
+éjfél	$alt3
 sok	$unstressend	// many
 kevés	$unstressend	// few
 se	$unstressend       // neither
@@ -1851,6 +1855,111 @@ segíti	$unstressend
 felkerültek	$unstressend
 mutatni	$unstressend
 korlátozott	$unstressend
+vásárolni	$unstressend
+jártas	$unstressend
+működnek	$unstressend
+elmentik	$unstressend
+leállt	$unstressend
+megszüntetésére	$unstressend
+ezeket	$unstressend
+megmondani	$unstressend
+okozhatta	$unstressend
+okozza	$unstressend
+okozta	$unstressend
+költségét	$unstressend
+kritikussá	$unstressend
+akkor	$unstressend
+jelzett	$unstressend
+működését	$unstressend
+elhelyezett	$unstressend
+válláról	$unstressend
+beszerzése	$unstressend
+igényel	$unstressend
+ellátni	$unstressend
+indokoltnak	$unstressend
+felülvizsgált	$unstressend
+készülékkel	$unstressend
+országban	$unstressend
+állítását	$unstressend
+közötti	$unstressend
+keres	$unstressend
+megye	$unstressend
+alattiak	$unstressend
+világába	$unstressend
+sáv	$unstressend
+vágható	$unstressend
+színes	$unstressend
+rejt	$unstressend
+kitalált	$unstressend
+sorozata	$unstressend
+útját	$unstressend
+tervezett	$unstressend
+korában	$unstressend
+varázslat	$unstressend
+készíteni	$unstressend
+tiszta	$unstressend
+viselkedik	$unstressend
+készít	$unstressend
+képernyőre	$unstressend
+gombot	$unstressend
+gombra	$unstressend
+bevitelt	$unstressend
+szavak	$unstressend
+futtatja	$unstressend
+kiadásával	$unstressend
+aktuális	$unstressend
+működő	$unstressend
+rájönni	$unstressend
+mobilt	$unstressend
+gyakori	$unstressend
+telefon	$unstressend
+elég	$unstressend
+ajánljuk	$unstressend
+készüléket	$unstressend
+szerszám	$unstressend
+praktikusabb	$unstressend
+méretűek	$unstressend
+készülékeinek	$unstressend
+láttán	$unstressend
+képviselő	$unstressend
+képviselők	$unstressend
+akarja	$unstressend
+foglalkozni	$unstressend
+fogott	$unstressend
+sávba	$unstressend
+estén	$unstressend
+emlékszik	$unstressend
+rábeszélni	$unstressend
+okozó	$unstressend
+bűntettében	$unstressend
+szakértőnek	$unstressend
+vizsgálja	$unstressend
+áldozata	$unstressend
+téma	$unstressend
+ügyvédje	$unstressend
+eljött	$unstressend
+bíróságra	$unstressend
+felejtett	$unstressend
+érte	$unstressend
+férfi	$unstressend
+hozzátartozói	$unstressend
+őröket	$unstressend
+visel	$unstressend
+viselt	$unstressend
+véleményét	$unstressend
+vélemény	$unstressend
+véleményt	$unstressend
+kérnek	$unstressend
+ellátogatott	$unstressend
+tetteinek	$unstressend
+györgy	$unstressend
+álláspontja	$unstressend
+beszél	$unstressend
+másról	$unstressend
+idéz	$unstressend
+taglalják	$unstressend
+jogán	$unstressend
+hibázott	$unstressend
 
 // word pairs
 
@@ -2116,3 +2225,4 @@ CD-m) cédém
 (MHZ-en) megahercen
 (Mhz-en) megahercen
 (ORTT-től) oerrtététől //special exceptio
+

@@ -24,6 +24,7 @@
              aa (rd_      'a:
              aa (C_       'a:
           z) aa (m_       a:
+          t) a (bleau     a:
           @) abel (_      'a:b@l
           @) abele (_     'a:b@l@
           m) ach (in      %a:S
@@ -32,14 +33,19 @@
              age (_N      'a:Z@
              ages (_S1    s
              age (_$w_alt a:Q@
+             aille (_     'Aj@
+             ailles (_    'Aj@s
+           m) ail         e:Il
           _) ai (mabel    E
              aire (_      'E:r@
              air (_       'Er
+          d) ai (sy       e:
           @) agne (_      'An^@
           @) ant (_       'Ant
           @) ant (e_      'Ant
           @) ant (en_     'Ant
           @) ant (er_     'Ant
+             aris (_      'a:ris
 
           @) a (de_       'a:
           @) a (ta_       'a:
@@ -55,11 +61,11 @@
           &) baar (_S4    =ba:r
           &) bare (_S4    =ba:r@
           _) bij (C@P3    b'EI
+             bij (zond    b%i
           _) binnen (P6   b'In@n
           _) boven (P5    b'o:v@n
           _) brand        br'And
           _) buiten (P6   b'Wyt@n
-          _) bureau       byr'o:
           _) buurt (@@P5  b'yrt   // buurtbewoner
 
          _o) b (stak      p
@@ -100,6 +106,7 @@
              coach        ko:tS
 
           _) congres      kOnQr'Es
+             co (ncert    k%O
 
 
 .group ch
@@ -128,6 +135,7 @@
           _) ch (r        x
        blan) ch           S
         bro) ch (e        S
+        bro) ch (u        S
        brun) ch           S
        deta) ch           S
         mar) ch           S
@@ -140,6 +148,7 @@
           d) d
              dt           t
              ds (_N       ts
+             d (st        t
 //          _) de (CC@P2      d@  // Used a lot in family names
           _) de (zelf     d@
 
@@ -225,6 +234,8 @@
           @) eressen (_S7sq @r'Es@n
           @) etten (_S3   @n 
           @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
+
+             eau (_       'o:
              euille       @'y
              eum (_$w_alt 'e:8m
        @mus) eum (_       ,e:8m  // compounds
@@ -242,6 +253,9 @@
           i) eust (_      'Y:st
           i) euste (_     'Y:st@
 
+       proc) e (du        e:
+          s) e (cuur      @   // secure
+          s) e (cond      @
           c) e (ntrum     E   // not @
           _) expositie    Ekspo:z'itsi
              e (rtsD      E
@@ -370,10 +384,12 @@
           @) ische (_     =is@
           @) isme (_      'Ism@
           @) ist (_       'Ist
+          @) isten (_     'Ist@n
 _) inn (@P2 'I    // ?? inneren
 
 .group j
              j            j
+             jou (rna     Zu
 
 
 .group k
@@ -409,10 +425,10 @@ _) inn (@P2 'I    // ?? inneren
              m            m
           m) m
 
-            mail          me:Il
             management    ma:nIdZm@nt
          _) mee (@P3      m'e:
             menu (_       m@ny
+         _) mi (s@        m%I
 
 
 .group n
@@ -461,9 +477,11 @@ _) inn (@P2 'I    // ?? inneren
              ou (rage     u
 
         @@C) o (_         =o:
+             obsc (u      opsk
              oe (X_       'u
              oir (_       'v#a:r
          pl) oi (t        v#A
+          c) oi (ffu      v#A
          pr) o (gram      o:
           _) on (@P2      %On
              oo (X        'o:
@@ -472,11 +490,16 @@ _) inn (@P2 'I    // ?? inneren
           _) oost (@P4    o:st
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
+          _) openings (P8 'o:p@nINs
           _) op (era      'o:p
           _) op (tion     Op
         @at) or (_        'o:r
              ou (che_     u
              ouch (en_    uS
+          d) ou (blu      u
+          c) ou (pu       u
+         tr) ou (vail     u
+             ouve (rtu    uvE
           _) over (@P4    ,o:v@r
            t) ou  (r          u:
 
@@ -546,7 +569,8 @@ _) inn (@P2 'I    // ?? inneren
           _) re (clam     r@
           _) re (serve_   r@
           _) re (cord     re'
-        
+             repre (saill re:pre:
+
 
 .group s
              s            s
@@ -645,7 +669,6 @@ _) inn (@P2 'I    // ?? inneren
              uw (_        yU
 
           _) uit (@P3      'Wyt
-             u (re_       'y
              u (sie_      'y
           @) ute (_       'yt
              uu (r_       'y
@@ -714,6 +737,7 @@ _) inn (@P2 'I    // ?? inneren
             é             e:
             é (_         'e:
            éé            e:
+            ère (_        'Er@
             $             d'OlAr
             , (D          k'Oma:
         __) - (_D         m'In

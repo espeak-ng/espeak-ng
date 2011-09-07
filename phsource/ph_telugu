@@ -1,0 +1,106 @@
+
+// Phonemes for Telugu
+// This inherits from ph_hindi
+
+// (these are only guesses)
+
+phoneme @
+  vowel  starttype #a  endtype #a
+  length 130
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme a
+  vowel long starttype #a endtype #a
+  length 130
+  FMT(vowel/a#_2)
+endphoneme
+
+
+phoneme a:
+  vowel  starttype #a  endtype #a
+  length 300
+  FMT(vowel/a_5)
+endphoneme
+
+
+phoneme e
+  vowel  starttype #e  endtype #e
+  length 130
+  FMT(vowel/e_mid2)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 270
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i
+  vowel  starttype #i  endtype #i
+  length 130
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 270
+  FMT(vowel/i)
+endphoneme
+
+
+
+phoneme o
+  vowel  starttype #o  endtype #o
+  length 130
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 300
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme u
+  vowel  starttype #u  endtype #u
+  length 110
+  FMT(vowel/u_6)
+endphoneme
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 280
+  FMT(vowel/u_6)
+endphoneme
+
+
+
+phoneme aI
+  vowel long starttype #a endtype #i
+  length 280
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme aU
+  vowel long starttype #a endtype #u
+  length 270
+  FMT(vdiph/aau_3)
+endphoneme
+
+
+// ?? This is standard [v].  Should be it [v] without the fricative noise?
+phoneme v
+  import_phoneme base/v
+endphoneme
+
+
+phoneme r
+  import_phoneme base/R2
+endphoneme

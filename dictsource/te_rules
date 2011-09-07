@@ -1,0 +1,277 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Telugu
+
+// A means vowel letters (not vowel signs)
+// B means a combining vowel sign or a virama
+
+
+.replace
+౦	0	// Convert Telugu numbers
+౧	1
+౨	2
+౩	3
+౪	4
+౫	5
+౬	6
+౭	7
+౮	8
+౯	9
+
+
+.group క
+	క	ka
+	క (B	k
+
+.group ఖ
+	ఖ	kha
+	ఖ (B	kh
+
+.group గ
+	గ	ga
+	గ (B	g
+
+.group ఘ
+	ఘ	gha
+	ఘ (B	gh
+
+.group ఙ
+	ఙ	Na
+	ఙ (B	N
+
+.group చ
+	చ	ca
+	చ (B	c
+
+.group ఛ
+	ఛ	cha
+	ఛ (B	ch
+
+.group జ
+	జ	Ja
+	జ (B	J
+
+.group ఝ
+	ఝ	Jha
+	ఝ (B	Jh
+
+.group ఞ
+	ఞ	n^a
+	ఞ (B	n^
+
+.group ట
+	ట	t.a
+	ట (B	t.
+
+.group ఠ
+	ఠ	th.a
+	ఠ (B	th.
+
+.group డ
+	డ	d.a
+	డ (B	d.
+
+.group ఢ
+	ఢ	dh.a
+	ఢ (B	dh.
+
+.group ణ
+	ణ	n.a
+	ణ (B	n.
+
+.group త
+	త	ta
+	త (B	t
+
+.group థ
+	థ	tha
+	థ (B	th
+
+.group ద
+	ద	da
+	ద (B	d
+
+.group ధ
+	ధ	dha
+	ధ (B	dh
+
+.group న
+	న	na
+	న (B	n
+
+.group ప
+	ప	pa
+	ప (B	p
+
+.group ఫ
+	ఫ	pha
+	ఫ (B	ph
+
+.group బ
+	బ	ba
+	బ (B	b
+
+.group భ
+	భ	bha
+	భ (B	bh
+
+.group మ
+	మ	ma
+	మ (B	m
+
+.group య
+	య	ja
+	య (B	j
+
+.group ర
+	ర	ra
+	ర (B	r
+
+.group ఱ
+	ఱ	ra
+	ఱ (B	r
+
+.group ల
+	ల	la
+	ల (B	l
+
+.group ళ
+	ళ	l.a
+	ళ (B	l.
+
+.group వ
+	వ	va
+	వ (B	v
+
+.group శ
+	శ	S;a
+	శ (B	S;
+
+.group ష
+	ష	s.a
+	ష (B	s.
+
+.group స
+	స	sa
+	స (B	s
+
+.group హ
+	హ	ha
+	హ (B	h
+
+.group ౘ
+	ౘ	tsa
+	ౘ (B	ts
+
+.group ౙ
+	ౙ	dza
+	ౙ (B	dz
+
+.group ౠ
+	ౠ	ru
+
+.group ౡ
+	ౡ        l-
+
+
+// Stand-alone vowels
+.group అ
+	అ	a
+
+.group ఆ
+	ఆ	a:
+
+.group ఇ
+	ఇ	i
+
+.group ఈ
+	ఈ	i:
+
+.group ఉ
+	ఉ	u
+
+.group ఊ
+	ఊ	u:
+
+.group ఋ
+	ఋ	ru
+
+.group ఌ
+	ఌ        l-
+
+.group ఎ
+	ఎ	e
+     _) ఎ	;e
+
+.group ఏ
+	ఏ	e:
+
+.group ఐ
+	ఐ	aI
+
+.group ఒ
+	ఒ	o
+
+.group ఓ
+	ఓ	o:
+
+.group ఔ
+	ఔ	aU
+
+
+
+.group 0xe0b0   // characters which start with UTF-8 bytes: [e0 b0]
+
+.	ఁ 	n       // candrabindu
+
+	ం	m	// anusvara (this should nasalize the vowel)
+
+	ః	h	// visarga
+
+// combining vowel signs
+
+	ా	a:
+
+	ి	i
+
+
+.group 0xe0b1   // characters which start with UTF-8 bytes: [e0 b1]
+
+	ీ	i:
+
+	ు	u
+
+	ూ	u:
+
+	ృ	ru
+
+	ౄ	r-:
+
+	ె	e
+
+	ే	e:
+
+	ై	aI
+
+	ొ	o
+
+	ో	o:
+
+	ౌ	aU
+
+	్	// virama
+
+	ౕ	:   // length mark ??
+	ౖ	:   // ai length mark ??
+
+
+.group 0xe0a4  // devanagari
+	\340\244  _^_HI  // switch to hindi voice for devanagari characters
+.group 0xe0a5  // devanagari
+	\340\245  _^_HI
+
+
+.group
+	$	d.a:lar
+
+

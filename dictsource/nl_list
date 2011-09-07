@@ -1376,6 +1376,7 @@ accessoire      aksEsw'ar@
 accessoires     aksEsw'ar@s
 actiepunt	Aksip8nt
 agenda		$2
+aldus		Ald'8s
 alles		Al@s
 amino		$1
 amnestie	$3
@@ -1389,7 +1390,6 @@ bijziend	$2	// bijziendheid
 blitzkrieg	blItskri:g
 boudoir		budw'a:r
 bourgondier	burx'o:ndi:@r
-braille		brAj@
 cafe		ka:f'e:
 circuit		sIrku'i
 chalet		Sa:lE
@@ -1402,10 +1402,10 @@ chassis		SAs'i
 chat		tSEt
 check		tSEk
 chiffon		Sif'On
-crèches		krES@s
 contour		ko:nt'ur
 controle	$2
 coureur		ku:r'Y:r
+crèches		krES@s
 damascering     damA;s'e:rIN
 december	$2
 dieet		$2
@@ -1416,7 +1416,7 @@ doordat		$2
 dynastie	$3
 eensgelijks	e:nsQ@l'EIks
 elfstedentocht	,Elf'ste:d@ntoQt
-emaille		,e:m'Aij@
+embouchuur	A~buS'yr   // embouchure
 enorm		$2
 eucharistie	$4
 februari	fe:bry'a:ri
@@ -1436,13 +1436,15 @@ ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
 informatie	$3
 januari		$3
-journaal	Surn'a:l
 kadaster	$2
 mangat		$alt3
 maxima		$1
 meteen		mEt'e:n
 metro		me:tro:
 minima		$1
+(mise-en)	mizA~
+missie		$1
+mississipi	$3
 nabij		nab'EI
 new		nyU
 november	$2
@@ -1483,6 +1485,7 @@ wangen		v#AN@n
 wanluidend	$2
 wanschapen	$2
 wantrouwend	$2
+weliswaar	v#ElIsw'a:r
 ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 
 

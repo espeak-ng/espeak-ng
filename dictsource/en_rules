@@ -944,7 +944,7 @@
         qu) ar (r        0
          p) ar (ticu     3
         qu) ar (t        O@
-            ar (til      %A@
+         _) ar (til      %A@
          &) ary (_       @r%i
 ?3     ion) ary (_       Er%i
         XC) ary (_       e@r%i
@@ -1162,7 +1162,7 @@
          l) av (en       av
         al) av (er       'A:v
         sc) av (en       av
-            aver (s      av'3:
+         _) aver (s      av'3:
          _) avi (A       eIvI
          l) av (i        av
         sl) av (i        A:v
@@ -1305,6 +1305,7 @@
             caco (ph     ka#k'0
          _) cement       sI2mEnt
             chara (ct    karI2
+            cia (ry      S=@
             cien         S@n
 ?8          cien         SEn
             cion         S@n
@@ -2518,6 +2519,7 @@
             extra (or    %Ekstr
             extra (ct    Ekstra
             extrava (g   %Ekstrav@
+         _) extro        Ekstr@	
 
 .group ey
          &) ey (_        %I
@@ -2976,6 +2978,7 @@
          l) ime          aIm
          d) ime (ns      aImE
             im (ent+     Im
+            ime (nto     Im'E
          l) im (er       Im
             ime (ter_    Imi:
          @) im (etr      Im
@@ -4352,7 +4355,6 @@
             over (dri    oUv3
             over (sig    oUv3
             over (ton    oUv3
-            over (tur    oUv3
             over (vie    oUv3
          &) over (_      oUv3
          c) over (_      Vv3
@@ -4377,7 +4379,7 @@
       pull) ov           oUv
          m) ov (A        u:v
          n) ov (el       0v
-         p) ov (er@      0v
+         p) over (@      0v@
         pr) ov (e#       u:v
         gr) ov (el       0v
         tr) ov (er       0v
@@ -4549,6 +4551,7 @@
          _) pres (ent    pr%Iz
             presi (den   prEzI
          _) pre (sc      pri:
+         _) pre (sco     prE
          _) pre (scr     pr%I
          _) pre (ss      prE
          _) pre (st      prE
@@ -4977,9 +4980,6 @@
 .group t
             t            t
          t) t
-         _) th (Y        T
-         _) th (rY       T
-         _) th (wY       T
          _) t (rY        t
          _) t (sY        t
          _) t (wY        t
@@ -5042,6 +5042,9 @@
        D0_) th (_        @T
        10_) th (_        T
        00_) th (_        T
+         _) th (Y        T
+         _) th (rY       T
+         _) th (wY       T
             th (and      th
             th (ood      th
             th (ouse     th
@@ -5052,6 +5055,7 @@
             th (en_      D
          g) th (en_      T
             thai         taI
+         _) thames       tEmz
             th (ead      th
             th (eart     th
             theless      D@l'Es

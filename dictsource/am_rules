@@ -1,0 +1,412 @@
+// Spelling-to-phoneme rules for Amharic
+// This file is UTF-8 encoded
+// all words lower case
+
+.group 0xe188		// characters U+1200 to U+123f
+	ሀ	ha
+	ሁ	hu
+	ሂ	hi
+	ሃ	ha
+	ሄ	he
+	ህ	hy
+     @) ህ (_	x
+	ሆ	ho
+	
+	ለ	l@
+	ሉ	lu
+	ሊ	li
+	ላ	la
+	ሌ	le
+	ል	ly
+     @) ል (_	l
+	ሎ	lo
+	ሏ	lua
+
+	ሐ	ha
+	ሑ	hu
+	ሒ	hi
+	ሓ	ha
+	ሔ	he
+	ሕ	hy
+     @) ሕ (_	x
+	ሖ	ho
+	ሗ	hwa
+
+	መ	m@
+	ሙ	mu
+	ሚ	mi
+	ማ	ma
+	ሜ	me
+	ም	my
+     @) ም (_	m
+	ሞ	mo
+	ሟ	mwa
+
+	ሠ	s@
+	ሡ	su
+	ሢ	si
+	ሣ	sa
+	ሤ	se
+	ሥ	sy
+     @) ሥ (_	s
+	ሦ	so
+	ሧ	swa
+
+	ረ	r@
+	ሩ	ru
+	ሪ	ri
+	ራ	ra
+	ሬ	re
+	ር	ry
+     @) ር (_	r
+	ሮ	ro
+	ሯ	rwa
+
+	ሰ	s@
+	ሱ	su
+	ሲ	si
+	ሳ	sa
+	ሴ	se
+	ስ	sy
+     @) ስ (_	s
+	ሶ	so
+	ሷ	swa
+
+	ሸ	S@
+	ሹ	Su
+	ሺ	Si
+	ሻ	Sa
+	ሼ	Se
+	ሽ	Sy
+     @) ሽ (_	S
+	ሾ	So
+	ሿ	Swa
+
+
+
+
+.group 0xe189		// U+1240 to U+127F
+	ቀ	k`@	// U+1240
+	ቁ	k`u
+	ቂ	k`i
+	ቃ	k`a
+	ቄ	k`e
+	ቅ	k`y
+     @) ቅ (_	k`
+	ቆ	k`o
+
+	ቈ	k`w@
+	ቊ	k`wi
+	ቋ	k`wa
+	ቌ	k`we
+	ቍ	k`wy
+     @) ቍ (_	k`w
+
+
+
+
+	በ	b@
+	ቡ	bu
+	ቢ	bi
+	ባ	ba
+	ቤ	be
+	ብ	by
+     @) ብ (_	b
+	ቦ	bo
+	ቧ	bwa
+
+	ቨ	v@
+	ቩ	vu
+	ቪ	vi
+	ቫ	va
+	ቬ	ve
+	ቭ	vy
+     @) ቭ (_	v
+	ቮ	vo
+	ቯ	vwa
+
+	ተ	t@
+	ቱ	tu
+	ቲ	ti
+	ታ	ta
+	ቴ	te
+	ት	ty
+     @) ት (_	t
+	ቶ	to
+	ቷ	twa
+
+	ቸ	tS@
+	ቹ	tSu
+	ቺ	tSi
+	ቻ	tSa
+	ቼ	tSe
+	ች	tSy
+     @) ች (_	tS
+	ቾ	tSo
+	ቿ	tSwa
+
+
+
+.group 0xe18a		// U+1280 to U+12B7
+	ኀ	ha
+	ኁ	hu
+	ኂ	hi
+	ኃ	ha
+	ኄ	he
+	ኅ	hy
+     @) ኅ (_	x
+	ኆ	ho
+
+	ኈ	hw@
+	ኊ	hwi
+	ኋ	hwa
+	ኌ	hwe
+	ኍ	hwy
+     @) ኍ (_	hw
+
+	ነ	n@
+	ኑ	nu
+	ኒ	ni
+	ና	na
+	ኔ	ne
+	ን	ny
+     @) ን (_	n
+	ኖ	no
+	ኗ	nwa
+
+	ኘ	n^@
+	ኙ	n^u
+	ኚ	n^i
+	ኛ	n^a
+	ኜ	n^e
+	ኝ	n^y
+     @) ኝ (_	n^
+	ኞ	n^o
+	ኟ	n^wa
+
+	አ	?a   // U+12A0
+	ኡ	?u
+	ኢ	?i
+	ኣ	?a
+	ኤ	?e
+	እ	?y
+	ኦ	?o
+	ኧ	?@
+
+	ከ	k@	// U+12A8
+	ኩ	ku
+	ኪ	ki
+	ካ	ka
+	ኬ	ke
+	ክ	ky
+     @) ክ (_	k
+	ኮ	ko
+	
+	ኰ	kw@
+	ኲ	kwi
+	ኳ	kwa
+	ኴ	kwe
+	ኵ	kwy
+     @) ኵ (_	kw
+	
+	ኸ	h@
+	ኹ	hu
+	ኺ	hi
+	ኻ	ha
+	ኼ	he
+	ኽ	hy
+     @) ኽ (_	x
+	ኾ	ho
+
+
+.group 0xe18b		// U+12C0 to U+12FF
+
+	ዀ	hw@
+	ዂ	hwi
+	ዃ	hwa
+	ዄ	hwe
+	ዅ	hwy
+     @) ዅ (_	hw
+
+	ወ	w@
+	ዉ	wu
+	ዊ	wi
+	ዋ	wa
+	ዌ	we
+	ው	wy
+     @) ው (_	w
+	ዎ	wo
+
+	ዐ	?a
+	ዑ	?u
+	ዒ	?i
+	ዓ	?a
+	ዔ	?e
+	ዕ	?y
+	ዖ	?o
+
+	ዘ	z@
+	ዙ	zu
+	ዚ	zi
+	ዛ	za
+	ዜ	ze
+	ዝ	zy
+     @) ዝ (_	z
+	ዞ	zo
+	ዟ	zwa
+
+	ዠ	Z@
+	ዡ	Zu
+	ዢ	Zi
+	ዣ	Za
+	ዤ	Ze
+	ዥ	Zy
+     @) ዥ (_	Z
+	ዦ	Zo
+	ዧ	Zwa
+
+	የ	j@
+	ዩ	ju
+	ዪ	ji
+	ያ	ja
+	ዬ	je
+	ይ	jy
+     @) ይ (_	j
+	ዮ	jo
+
+	ደ	d@
+	ዱ	du
+	ዲ	di
+	ዳ	da
+	ዴ	de
+	ድ	dy
+     @) ድ (_	d
+	ዶ	do
+	ዷ	dwa
+
+	ዸ	dd@  // ??
+	ዹ	ddu
+	ዺ	ddi
+	ዻ	dda
+	ዼ	dde
+	ዽ	ddy
+     @) ዽ (_	dd
+	ዾ	ddo
+	ዿ	ddwa
+
+
+.group 0xe18c		// U+1300 to U+133F
+	ጀ	dZ@
+	ጁ	dZu
+	ጂ	dZi
+	ጃ	dZa
+	ጄ	dZe
+	ጅ	dZy
+     @) ጅ (_	dZ
+	ጆ	dZo
+	ጇ	dZwa
+
+	ገ	g@
+	ጉ	gu
+	ጊ	gi
+	ጋ	ga
+	ጌ	ge
+	ግ	gy
+     @) ግ (_	g
+	ጎ	go
+
+	ጐ	gw@
+	ጒ	gwi
+	ጓ	gwa
+	ጔ	gwe
+	ጕ	gwy
+     @) ጕ (_	gw
+
+	ጘ	N@
+	ጙ	Nu
+	ጚ	Ni
+	ጛ	Na
+	ጜ	Ne
+	ጝ	Ny
+     @) ጝ (_	N
+	ጞ	No
+
+	ጠ	t`@
+	ጡ	t`u
+	ጢ	t`i
+	ጣ	t`a
+	ጤ	t`e
+	ጥ	t`y
+     @) ጥ (_	t`
+	ጦ	t`o
+	ጧ	t`wa
+
+	ጨ	tS`@
+	ጩ	tS`u
+	ጪ	tS`i
+	ጫ	tS`a
+	ጬ	tS`e
+	ጭ	tS`y
+     @) ጭ (_	tS`
+	ጮ	tS`o
+	ጯ	tS`wa
+
+	ጰ	p`@
+	ጱ	p`u
+	ጲ	p`i
+	ጳ	p`a
+	ጴ	p`e
+	ጵ	p`y
+     @) ጵ (_	p`
+	ጶ	p`o
+	ጷ	p`wa
+
+	ጸ	ts@
+	ጹ	tsu
+	ጺ	tsi
+	ጻ	tsa
+	ጼ	tse
+	ጽ	tsy
+     @) ጽ (_	ts
+	ጾ	tso
+	ጿ	tswa
+
+
+.group 0xe18d		// U+1340 to U+137F
+	ፀ	ts@
+	ፁ	tsu
+	ፂ	tsi
+	ፃ	tsa
+	ፄ	tse
+	ፅ	tsy
+     @) ፅ (_	ts
+	ፆ	tso
+
+	ፈ	f@
+	ፉ	fu
+	ፊ	fi
+	ፋ	fa
+	ፌ	fe
+	ፍ	fy
+     @) ፍ (_	f
+	ፎ	fo
+	ፏ	fwa
+
+	ፐ	p@	// U+1350
+	ፑ	pu
+	ፒ	pi
+	ፓ	pa
+	ፔ	pe
+	ፕ	py
+     @) ፕ (_	p
+	ፖ	po
+	ፗ	pwa
+
+	ፘ	rj@
+	ፙ	mj@
+	ፚ	fj@
+
+
+.group
+	$	dolar
+

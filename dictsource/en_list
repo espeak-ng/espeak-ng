@@ -227,6 +227,7 @@ _₠	jU@roU
 №	nju:m@roU
 ।	dVnda#
 ●	bl,aks'3:k@L
+■	bl'akskw'e@
 
 ß	S,A@p'Es
 ə	SwA:
@@ -354,6 +355,7 @@ diy	$abbrev
 dow	daU
 edt	$abbrev
 eg	fO@Egz'aamp@L	$only
+(e . g .) fO@Egz'aamp@L
 est	$abbrev
 etc	Et'sEtr@
 eu	$abbrev
@@ -1075,6 +1077,7 @@ edwardian        Edw'O@di@n
 efile            i:faIl
 egg              Eg	// egging 
 eh               eI
+eid              i:d
 el               ,El
 electricity      I2lEktr'IsI2ti
 electrode        I2lEktroUd
@@ -1240,6 +1243,7 @@ genome           dZi:noUm
 genre            Z0nr@
 ?!3 genuine      dZEnju:In
 geode            dZi:oUd
+geologist        $2
 geyser           gi:z3
 gibbon           gIb@n
 gig              gIg
@@ -1724,13 +1728,14 @@ overlord          $1
 overly           oUv3lI  $only
 overt            oUv'3:t
 overtly          oUv'3:tlI
-overturn          $3
+overtime          $1
+overture          $1
 oxen             0ks@n
 oxymoron          $3
 
 padre            pA:dreI
 paella           paI'El@
-pall             pal		// palling
+palling          palIN
 papa             pa#p'A:
 papal            peIp@L 
 pagan            peIg@n
@@ -2224,6 +2229,7 @@ taxy             taksi
 tearing          te@r-IN
 tear             ti@3          $onlys
 tear             te@           $verb
+(tear off)       t,e@||'0f
 teargas          ti@3gas
 teddybear        t'EdIb,e@
 telephony        tEl'Ef@ni
@@ -2236,7 +2242,6 @@ tobacco                        $2
 telephon         tElI2foUn     // for telephoning
 temperature      tEmprI2tS3
 temporary        tEmpr@rI
-thames           tEmz
 thereof          ,De@'0v
 thereon          ,De@'0n
 thereto          ,De@'tu:
@@ -3021,7 +3026,6 @@ Mackenzie	m@kEnzi
 Montague	m0nt@gju:
 Niro		ni@roU
 Patel		pa#tEl
-Prescot		prEsk0t
 Primavera	pri:m@v'e@r@
 Prentice	prEntIs
 Rameses		ram@si:z
