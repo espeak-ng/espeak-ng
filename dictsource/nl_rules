@@ -45,7 +45,8 @@
           @) ant (e_      'Ant
           @) ant (en_     'Ant
           @) ant (er_     'Ant
-             aris (_      'a:ris
+             aris (_      'a:rIs
+             arissen (_   'a:rIs@n
 
           @) a (de_       'a:
           @) a (ta_       'a:
@@ -208,6 +209,7 @@
 
           &) en (_S2qd    @n   // double the previous vowel
         KAC) en (_S2e     @n
+        and) en (_S2      @n
          el) en (_+S2qd   @n
          er) en (_+S2qd   @n
 
@@ -410,6 +412,7 @@ _) inn (@P2 'I    // ?? inneren
           &) lijken (_S6  l@k@n
           &) lijker (_S6  l@k@r
           &) lijkere (_S7  l@k@r@
+          &) lijkheid (_S8 l@khEIt
           &) lijkst (_S6  l@kst
           &) lijkste (_S7  l@kst@
           &) laan (_S4    la:n
@@ -429,7 +432,19 @@ _) inn (@P2 'I    // ?? inneren
          _) mee (@P3      m'e:
             menu (_       m@ny
          _) mi (s@        m%I
-
+         _) mis (anC      miz
+         _) mis (commP3   m'Is
+         _) mis (daP3     m'Is
+         _) mis (è        miz
+         _) mis (g@P3     m'Is
+         _) mis (ge@P3    m'Is
+         _) mis (gun      m%Is
+         _) mis (in@P3    m'Is
+         _) mis (kleuP3   m'Is
+         _) mis (liepP3   m'Is
+         _) mis (loP3     m'Is
+         _) mis (tA       m'Is
+         _) misver (@     m'Isf@r
 
 .group n
              n            n

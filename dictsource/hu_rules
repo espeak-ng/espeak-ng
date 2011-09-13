@@ -458,6 +458,11 @@ arcüre) g (gyulladás g
    ele) ggy (é     J:
    _jé) g (gyár    g
 _felesé) g (gyilkos g
+imádsá) g (gyűjt   g
+ hólya) g (gyul    g
+  végi) g (gyö     g
+    ro) ggyj (ék   J:
+    rá) g (gyűjt   g         //for example virággyűjtés, virággyűjteményt words
 
 .group gy
         gy         J
@@ -570,7 +575,6 @@ harmince) gy (edik J:
     _í) gy (jár    J
  száze) gy (es     J:
 huszone) gy (es    J:
-
 
 .group h
         h          h
@@ -1268,6 +1272,7 @@ házasi) ts (a      tS:
   sajá) t (szerű   t
 _pázsi) t (sz      t
 fejeze) t (sor     t
+    _o) ttj (ár    tj
 
 .group tj
      C) tj         c
@@ -1334,6 +1339,7 @@ dolgoza) tj (avít  tj
 természe) tj (ár   tj
 terüle) tj (elöl   tj
     _á) tj (u      tj
+_tábláza) tj (egy  tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1752,6 +1758,7 @@ magyará) z (kod    s
     há) z (sarok   z
     ro) zszs (em   Z:
    _gő) z (süvölt  z
+  ezkö) z (sor     z
 
 .group
         $          dolla:R2
