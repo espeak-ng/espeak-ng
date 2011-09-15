@@ -66,7 +66,7 @@ R3   s    S    t    T    tS   v    w
 x    z    Z    
 
 
-Dictionary hu_dict  2011-08-19
+Dictionary hu_dict  2011-09-07
 
 a    A    a:   E    e:   i    i:   o    
 o:   u    u:   Y    y    y:   Y:   
@@ -74,7 +74,8 @@ o:   u    u:   Y    y    y:   Y:
 -    :    b    c    C    d    dZ   dz   
 f    g    h    j    J    k    l    m    
 n    n^   p    r    R    R2   s    S    
-s2   t    t2   tS   ts   v    z    Z    
+s2   t    t2   tS   ts   v    w    z    
+Z    
 
 
 Dictionary de_dict  2011-06-14
@@ -101,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2011-08-17
+Dictionary en_dict  2011-09-07
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI@  aU   
@@ -201,7 +202,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2011-08-21
+Dictionary ta_dict  2011-09-07
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -326,7 +327,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary nl_dict  2011-07-23
+Dictionary nl_dict  2011-08-26
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -524,14 +525,14 @@ l    m    n    N    p    r    s    t
 tS   v    w    z    
 
 
-Dictionary am_dict  2011-08-23
+Dictionary am_dict  2011-08-26
 
 @    a    e    i    o    u    y    
 
 :    ?    b    d    dZ   f    g    h    
 j    k    k`   l    m    n    N    n^   
-p    p`   r    R    s    S    t    t`   
-tS   tS`  v    w    x    z    Z    
+p    p`   r    s    S    t    t`   tS   
+tS`  v    w    x    z    Z    
 
 
 Dictionary ml_dict  2011-04-25

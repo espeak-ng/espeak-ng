@@ -1,0 +1,283 @@
+// This file is UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+_cap	su:r
+_??		m'&rk
+_#9		tabula:tor
+_#32	t'yhik
+
+a	aa:
+ä	&&:
+b	bee:
+c	tsee:
+d	dee:
+e	ee:
+f	eff:
+g	gee:
+h	haa:
+i	ii:
+j	jot:
+k	kaa:
+l	ell:
+m	em:
+n	enn:
+o	oo:
+ö	YY:
+õ	88:
+ü      yy:
+p	pee:
+q	kuu:
+r	eR:R
+s	ess:
+t	tee:
+u	u:
+v	vee:
+w	k'aksisvee:
+x	ik:s
+y	igrek
+z	tset:
+š	Saa:
+ž	Zee:
+
+
+
+_.	punk:t
+_,      komA1
+_!	hyi:jum,&rk:
+_?	kys^I1m,&rk:
+_"	jutU1m,&rk:
+_#	trel^l^id
+_$	dol:lar
+_%	prots'ent:
+_&	jaa:,m&rk:
+_'	ylA1koma
+_:	ko:lon
+€	euro
+%	protsent:     $2   
+_(	alU1stav||sul:g
+_)	l8petav||sul:g
+_[	alU1stav||kandiline||sul:g
+_]	l8petav||kandiline||sul:g
+_{	alU1stav||lo:geline||sul:g
+_}	l8petav||loogeline||sul:g
+_<	v&ik:sem
+_>	su:rem
+_-	kri:ps
+__	al:lkri:ps
+
++	plus:s	$max3
+*	t&R:n	$max3
+=	v8R:dusm&rk:	$max3
+%	prots'ent:	$max3
+/	kal:dkri:ps
+\	l&Ngkri:ps
+€	euro
+£	nae:l
+¤	val'u:ta
+&	_et
+@	_&t
+~	tilde
+
+_acu	ak'u:t
+_brv	ka:r
+_ced	sedi:
+_cir	katus
+_dia	t&pid
+_grv	gra:vIs
+_tld	tilde
+
+// numbers
+_0       nul:l
+_1       yk:s
+_2       kak:s
+_3       kol:m
+_4       nelI1
+_5       vi:s
+_6       ku:s
+_7       seitse
+_8       kaheksa
+_9       yheksa
+_10      kymme
+_11      yksteist
+_12      kaksteist
+_13      kolmteist
+_14      neliteist
+_15      vi:steist
+_16      ku:steist
+_17      seitseteist
+_18      kaheksateist
+_19      yheksateist
+
+_2X      kakskymmend
+_3X      kolmkymmend
+_4X      nelI1kymmend
+_5X      vi:skymmend
+_6X      ku:skymmend
+_7X      seitsekymmend
+_8X      kaheksakymmend
+_9X      yheksakymmend
+
+_0C      sadA1_
+_1C      sadA1
+_0M1     tuhA1t
+_1M1     tuhA1t          // no '1' before thousand
+_0M2     mil^jon
+_1M2     mil^jon
+_0M3     mil^jard
+_1M3     mil^jard
+_0M4     bil^jon
+_1M4     bil^jon
+_dpt     komA1        // comma
+
+
+// articles
+
+
+// pronouns
+mina $u
+sina $u
+tema $u
+meie $u
+teie $u
+nad  $u
+ma   $u
+sa   $u
+ta   $u
+me   $u
+
+ise  $u $double      // reflexive pronoun
+
+see   $u+ // this
+selle $u+
+seda  $u+
+
+need  $u+ // these
+nende $u+
+neid  $u+
+neile $u+
+neil  $u+
+
+kes   $u+
+keda  $u+
+kelle $u+
+
+mis    $u+
+mille  $u+
+mida   $u+
+millel $u+
+milles $u+
+
+
+// possessives
+
+// prepositions
+
+// conjunctions
+ja     $u $pause // and
+või    $u $pause // or
+aga    $u $pause // but
+ning   $u $pause // and
+ega    $u $pause // nor
+ehk    $u $pause // nor
+
+// negative
+
+ei		$u		// not
+
+// questions
+
+// auxillary verbs
+olla    $u // to be
+olen    $u
+oled    $u
+on      $u
+oleme  $u
+olete  $u
+
+ole     $u $double
+olnud	$u
+olin    $u
+olid    $u
+oli     $u
+olime   $u
+olite   $u
+oleksin $u
+
+
+// some common adjectives and adverbs
+veidi     $u // some
+
+// words that cause doubling
+
+// Pronunciation exceptions
+
+// ok     _^_EN                  // Translates to english o'kay.
+ok        ok'ei:
+okay      ok'ei:
+
+// Jogurtti (also: jugurtti or jukurtti)
+yoghurt    jogurt
+yogurt     jogurt
+
+
+// Abbreviations
+
+abc		$abbrev
+ad		$abbrev		$dot	// anno Domini
+(à la)	'ala		$dot	// moodi
+ca		ts'irka		$dot	// circa 
+em		$abbrev		$dot    
+ekr		$abbrev		$dot	// enne Kristust
+etc		et_setera	$dot	// et cetera, jne.
+eg		n'&it:eks		$dot	// exempli gratia
+kt		$abbrev		$dot	// kohusetäitja
+os		$abbrev		$dot
+oü		$abbrev				// osaühing
+
+// expanded to something more meaningful
+
+a		'a:sta		$dot	// circa 
+(à la)	'ala		$dot	// moodi
+ca		ts'irka		$dot	// circa 
+cm		s'entim,e:trit
+etc		et_setera	$dot	// et cetera, jne.
+eg		n'&it:eks	$dot	// exempli gratia
+jm		j'a||m'u:d	$dot
+jms		j'a||m'u:||sel:ine	$dot
+jne		j'a:ni:edasi	$dot
+jt		j'a||teised	$dot
+lp		l'ugupe:tud	$dot
+nn		n'i:nimetatud	$dot
+nr		n'umber		$dot
+sh		s'ealh,ulgas	$dot
+st		s'e:||t&hendab	$dot
+u		'umbes		$dot
+va		v'&lja_arvatud	$dot
+vt		v'a:ta		$dot
+wc		v'e:||ts'e:
+
+// Erandid
+
+// exceptions to ll_ palatalization
+all		'al:l
+kell		k'el:l
+lill		l'il:l
+vill		v'il:l	// ==hair, ==bristle is palatalized
+hull		h'ul:l
+põll		p'8l:l
+
+// exceptions to nn_ palatalization
+konn		k'on:n
+nunn		n'un:n
+
+// exceptions to tt_ palatalization
+sitt		s'it:
+
+// exceptions to ss_ palatalization
+äss		'&s:s
+mäss		m'&s:s
+

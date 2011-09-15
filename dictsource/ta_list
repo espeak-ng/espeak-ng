@@ -106,6 +106,8 @@ _?	ke:l.vi		// கேள்வி
 /	sa:jvU		// சாய்வு
 ÷	vVgUttVl	// வகுத்தல்
 %	viz.Ukka:d.U	$max3	// விழுக்காடு
+&	mVt.RUm
+|	seNgUttU	$max3
 U+bf9	ru:ba:j
 ¼	ka:l
 ½	araI
@@ -353,6 +355,13 @@ tamil	தமிழ்	$text
 பலம்	$alt
 பலமாக	$alt
 பலமா	$alt
+பாதிப்பு	$alt
+பீடா	$alt
+பைக்க	$alt
+பாதிக்கும்	$alt
+பாதிக்குமா	$alt
+
+
 
 
 	// initial த as [d]
@@ -490,6 +499,7 @@ tamil	தமிழ்	$text
 கடம்	$alt
 காட்	$alt
 கிடு	$alt
+களிலேயே	$alt
 
 
 

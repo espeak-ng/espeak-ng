@@ -3268,6 +3268,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 	{
 		phoneme_list[n_phoneme_list-2].synthflags = SFLAG_EMBEDDED;
 		embedded_list[embedded_ix-1] |= 0x80;
+		embedded_list[embedded_ix] = 0x80;
 	}
 
 
