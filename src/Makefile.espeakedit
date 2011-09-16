@@ -20,7 +20,7 @@ CPPFLAGS =  -Wall -g -fexceptions -I/usr/lib/wx/include/gtk2-unicode-release-2.6
 	-DGTK_NO_CHECK_CASTS -D__WXGTK__ -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES
 	-D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 
-CXXFLAGS = -O2 -g0 -Wall -g -fexceptions -I/usr/lib/wx/include/gtk2-unicode-release-2.6 -I/usr/include/wx-2.6 \
+CXXFLAGS = -O2  -Wall -fexceptions -I/usr/lib/wx/include/gtk2-unicode-release-2.6 -I/usr/include/wx-2.6 \
    -DGTK_NO_CHECK_CASTS -D__WXGTK__ -D_FILE_OFFSET_BITS=64 -D_LARGE_FILES -D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 
 all: espeakedit

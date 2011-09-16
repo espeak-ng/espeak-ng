@@ -95,8 +95,8 @@ static keywtab_t k_conditions[] = {
 	{"nextPh",   tWHICH_PHONEME,  0x200},
 	{"next2Ph",  tWHICH_PHONEME,  0x300},
 	{"nextPhW",  tWHICH_PHONEME,  0x400},
-	{"next2PhW", tWHICH_PHONEME,  0x700},
 	{"nextVowel",tWHICH_PHONEME,  0x600},
+//	{"next2PhW", tWHICH_PHONEME,  0x700},
 
 //	{"numVowels",    tTEST,  0x000},
 //	{"afterStress",  tTEST,  0x000},
@@ -144,6 +144,7 @@ static keywtab_t k_properties[] = {
 	{"isFirstVowel", 0,  i_isFirstVowel},
 	{"isSecondVowel", 0, i_isSecondVowel},
 	{"isSeqFlag1",   0,  i_isSeqFlag1},
+	{"isTranslationGiven", 0, i_IsTranslationGiven},   // phoneme translation given in **_list or as [[...]]
 
 	{NULL, 0, 0}
 };

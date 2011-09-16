@@ -25,12 +25,19 @@ INSTALL = install
 LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
+# 'runtime' uses pulseaudio if it is running, else uses portaudio
+#AUDIO = runtime
 AUDIO = portaudio
 #AUDIO = portaudio0
 #AUDIO = portaudio2
 #AUDIO = pulseaudio
 #AUDIO = sada
 
+ifeq ($(AUDIO),runtime)
+WAVE=wave.cpp wave_pulse.cpp
+LIB_AUDIO=-lpulse -lpulse-simple -lportaudio
+USE_AUDIO=-DUSE_PULSEAUDIO -DUSE_PORTAUDIO
+else
 ifeq ($(AUDIO),pulseaudio)
 WAVE=wave_pulse.cpp
 LIB_AUDIO=-lpulse
@@ -56,6 +63,7 @@ WAVE=wave_sada.cpp
 USE_AUDIO=-DUSE_SADA
 else
 WAVE=wave.cpp
+endif
 endif
 endif
 endif

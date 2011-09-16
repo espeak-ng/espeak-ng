@@ -53,6 +53,148 @@ enum {ONE_BILLION=1000000000};
 #endif
 
 
+ 
+ 
+#ifdef USE_PULSEAUDIO
+// create some wrappers for runtime detection
+
+// checked on wave_init
+static int pulse_running;
+
+// wave.cpp (this file)
+void wave_port_init(int);
+void* wave_port_open(const char* the_api);
+size_t wave_port_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize);
+int wave_port_close(void* theHandler);
+int wave_port_is_busy(void* theHandler);
+void wave_port_terminate();
+uint32_t wave_port_get_read_position(void* theHandler);
+uint32_t wave_port_get_write_position(void* theHandler);
+void wave_port_flush(void* theHandler);
+void wave_port_set_callback_is_output_enabled(t_wave_callback* cb);
+void* wave_port_test_get_write_buffer();
+int wave_port_get_remaining_time(uint32_t sample, uint32_t* time);
+
+// wave_pulse.cpp
+int is_pulse_running();
+void wave_pulse_init(int);
+void* wave_pulse_open(const char* the_api);
+size_t wave_pulse_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize);
+int wave_pulse_close(void* theHandler);
+int wave_pulse_is_busy(void* theHandler);
+void wave_pulse_terminate();
+uint32_t wave_pulse_get_read_position(void* theHandler);
+uint32_t wave_pulse_get_write_position(void* theHandler);
+void wave_pulse_flush(void* theHandler);
+void wave_pulse_set_callback_is_output_enabled(t_wave_callback* cb);
+void* wave_pulse_test_get_write_buffer();
+int wave_pulse_get_remaining_time(uint32_t sample, uint32_t* time);
+
+// wrappers
+void wave_init(int srate) {
+  pulse_running = is_pulse_running();
+
+  if (pulse_running)
+    wave_pulse_init(srate);
+  else
+    wave_port_init(srate);
+}
+
+void* wave_open(const char* the_api) {
+  if (pulse_running)
+    return wave_pulse_open(the_api);
+  else
+    return wave_port_open(the_api);
+}
+
+size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {
+  if (pulse_running)
+    return wave_pulse_write(theHandler, theMono16BitsWaveBuffer, theSize);
+  else
+    return wave_port_write(theHandler, theMono16BitsWaveBuffer, theSize);
+}
+
+int wave_close(void* theHandler) {
+  if (pulse_running)
+    return wave_pulse_close(theHandler);
+  else
+    return wave_port_close(theHandler);
+}
+
+int wave_is_busy(void* theHandler) {
+  if (pulse_running)
+    return wave_pulse_is_busy(theHandler);
+  else
+    return wave_port_is_busy(theHandler);
+}
+
+void wave_terminate() {
+  if (pulse_running)
+    wave_pulse_terminate();
+  else
+    wave_port_terminate();
+}
+
+uint32_t wave_get_read_position(void* theHandler) {
+  if (pulse_running)
+    return wave_pulse_get_read_position(theHandler);
+  else
+    return wave_port_get_read_position(theHandler);
+}
+
+uint32_t wave_get_write_position(void* theHandler) {
+  if (pulse_running)
+    return wave_pulse_get_write_position(theHandler);
+  else
+    return wave_port_get_write_position(theHandler);
+}
+
+void wave_flush(void* theHandler) {
+  if (pulse_running)
+    wave_pulse_flush(theHandler);
+  else
+    wave_port_flush(theHandler);
+}
+
+void wave_set_callback_is_output_enabled(t_wave_callback* cb) {
+  if (pulse_running)
+    wave_pulse_set_callback_is_output_enabled(cb);
+  else
+    wave_port_set_callback_is_output_enabled(cb);
+}
+
+void* wave_test_get_write_buffer() {
+  if (pulse_running)
+    return wave_pulse_test_get_write_buffer();
+  else
+    return wave_port_test_get_write_buffer();
+}
+
+int wave_get_remaining_time(uint32_t sample, uint32_t* time)
+{
+  if (pulse_running)
+    return wave_pulse_get_remaining_time(sample, time);
+  else
+    return wave_port_get_remaining_time(sample, time);
+}
+
+// rename functions to be wrapped
+#define wave_init wave_port_init
+#define wave_open wave_port_open
+#define wave_write wave_port_write
+#define wave_close wave_port_close
+#define wave_is_busy wave_port_is_busy
+#define wave_terminate wave_port_terminate
+#define wave_get_read_position wave_port_get_read_position
+#define wave_get_write_position wave_port_get_write_position
+#define wave_flush wave_port_flush
+#define wave_set_callback_is_output_enabled wave_port_set_callback_is_output_enabled
+#define wave_test_get_write_buffer wave_port_test_get_write_buffer
+#define wave_get_remaining_time wave_port_get_remaining_time
+
+#endif  // USE_PULSEAUDIO
+
+
 static t_wave_callback* my_callback_is_output_enabled=NULL;
 
 #define N_WAV_BUF   10
