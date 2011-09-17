@@ -1,0 +1,56 @@
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 160
+  FMT(vowel/ii_5)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 160
+  FMT(vowel/e_mid2)
+endphoneme
+
+phoneme &
+  vowel starttype #e endtype #e
+  length 160
+  FMT(vowel/&)
+endphoneme
+
+phoneme y
+  vowel starttype #u endtype #u
+  length 200
+  FMT(vowel/y)
+endphoneme
+
+phoneme W
+  vowel starttype #@ endtype #@
+  length 180
+  FMT(vowel/y#_2)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 160
+  FMT(vowel/u_5)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 160
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/aa)
+endphoneme
+
+phoneme @
+  vowel starttype #@ endtype #@
+  ipa ɯ
+  length 160
+  FMT(vowel/u#_7)
+endphoneme
+

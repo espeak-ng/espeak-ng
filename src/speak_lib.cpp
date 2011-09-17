@@ -1192,6 +1192,7 @@ ESPEAK_API espeak_ERROR espeak_Synchronize(void)
 
 
 extern void FreePhData(void);
+extern void FreeVoiceList(void);
 
 ESPEAK_API espeak_ERROR espeak_Terminate(void)
 {//===========================================
@@ -1214,6 +1215,7 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 	Free(outbuf);
 	outbuf = NULL;
 	FreePhData();
+	FreeVoiceList();
 
 	if(f_logespeak)
 	{

@@ -394,8 +394,8 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [l#] base
-                [î¶] base
+l/l@            [h÷q] base
+                [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -428,16 +428,16 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [l#] base
-                [î¶] base
+l/la            [h÷q] base
+                [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [l#] base
-                [î¶] base
+l/le            [h÷q] base
+                [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -448,8 +448,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [l#] base
-                [î¶] base
+l/li            [h÷q] base
+                [l#] base
                 [l] fr
                 [l/2] fr
                 [l] zh
@@ -462,8 +462,8 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [l#] base
-                [î¶] base
+l/lo            [h÷q] base
+                [l#] base
                 [l/2] fr
                 [K] nso
                 [K] tn
@@ -472,8 +472,8 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [l#] base
-                [î¶] base
+l/lu            [h÷q] base
+                [l#] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -1870,7 +1870,6 @@ vowel/ii_3      [I] cy
                 [I] hr
                 [I] sv
                 [I] no
-                [I] tr
                 [I] pa
                 [i] sl
 vowel/ii#_3     [I2] en-us
@@ -1882,6 +1881,7 @@ vowel/ii_5      [i1] et
                 [i] bg
                 [I] la
                 [i] zh
+                [I] tr
                 [i] az
                 [i] am
 vowel/ii_6      [I] en-wm

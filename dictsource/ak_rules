@@ -1,0 +1,113 @@
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Akan (Ghana)
+
+
+.group a
+        a        a
+
+.group b
+        b        b
+
+.group c
+        c        k
+        c (e     s
+        c (i     s
+
+.group d
+        d        d
+        dw       dZ
+        dw (i    dZ;
+
+.group e
+        e        e
+
+.group f
+        f        f
+
+.group g
+        g        g
+        gy       dz;
+
+.group h
+        h        h
+        h (i     C
+        hw (i    Cw
+        hy       C
+
+.group i
+        i        i
+
+.group j
+        j        dZ
+
+.group k
+        k        k
+        ky       tS;
+
+.group l
+        l        l
+
+.group m
+        m        m
+
+.group n
+        n        n
+        n (k     N
+        ng       N:
+        ng (i    n^
+        nj       n^
+        nw       N:w
+        nw (i    n^
+        ny (i    n^:
+        nny (i   n^:
+
+.group o
+        o        o
+
+.group p
+        p        p
+
+.group ɛ
+        ɛ        E
+
+.group q
+        q        k
+        qu        kw
+
+.group r
+        r        R
+
+.group s
+        s        s
+
+.group t
+        t        t
+        t (i     tC
+
+.group u
+        u        u
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group ɔ
+        ɔ        O
+
+.group x
+        x        ks
+     _) x        z
+
+.group y
+        y        j
+     K) y (K     i
+
+.group z
+        z        z
+
+.group
+        $        dOlaR
+
+

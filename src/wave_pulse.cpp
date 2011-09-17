@@ -65,6 +65,7 @@ enum {
 
 static t_wave_callback* my_callback_is_output_enabled=NULL;
 
+#define SAMPLE_RATE 22050
 #define ESPEAK_FORMAT PA_SAMPLE_S16LE
 #define ESPEAK_CHANNEL 1
 
@@ -73,6 +74,39 @@ static t_wave_callback* my_callback_is_output_enabled=NULL;
 #define PREBUF 2200
 #define MINREQ 880
 #define FRAGSIZE 0
+
+#ifdef USE_PORTAUDIO
+// rename functions to be wrapped
+#define wave_init wave_pulse_init
+#define wave_open wave_pulse_open
+#define wave_write wave_pulse_write
+#define wave_close wave_pulse_close
+#define wave_is_busy wave_pulse_is_busy
+#define wave_terminate wave_pulse_terminate
+#define wave_get_read_position wave_pulse_get_read_position
+#define wave_get_write_position wave_pulse_get_write_position
+#define wave_flush wave_pulse_flush
+#define wave_set_callback_is_output_enabled wave_pulse_set_callback_is_output_enabled
+#define wave_test_get_write_buffer wave_pulse_test_get_write_buffer
+#define wave_get_remaining_time wave_pulse_get_remaining_time
+
+// check whether we can connect to PulseAudio
+#include <pulse/simple.h>
+int is_pulse_running()
+{
+  pa_sample_spec ss;
+  ss.format = ESPEAK_FORMAT;
+  ss.rate = SAMPLE_RATE;
+  ss.channels = ESPEAK_CHANNEL;
+
+  pa_simple *s = pa_simple_new(NULL, "eSpeak", PA_STREAM_PLAYBACK, NULL, "is_pulse_running", &ss, NULL, NULL, NULL);
+  if (s) {
+    pa_simple_free(s);
+    return 1;
+  } else
+    return 0;
+}
+#endif // USE_PORTAUDIO
 
 static pthread_mutex_t pulse_mutex;
 
@@ -843,8 +877,9 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 	return 0;
 }
 
-#endif  // of USE_PORTAUDIO
+#endif  // of USE_PULSEAUDIO
 
+#ifndef USE_PORTAUDIO
 //>
 //<clock_gettime2, add_time_in_ms
 
@@ -878,6 +913,7 @@ void add_time_in_ms(struct timespec *ts, int time_in_ms)
     }
   ts->tv_nsec = (long int)t_ns;
 }
+#endif  // ifndef USE_PORTAUDIO
 
 
 #endif   // USE_ASYNC

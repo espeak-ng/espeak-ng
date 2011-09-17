@@ -1,0 +1,455 @@
+______________________________
+Phoneme Table: 'base'
+
+______________________________
+Phoneme Table: 'consonants'
+include ph_consonants
+
+
+
+______________________________
+Phoneme Table: 'base2'
+include ph_base2
+
+
+
+______________________________
+Phoneme Table: 'en'
+include ph_english
+
+
+
+______________________________
+Phoneme Table: 'en-n'
+include ph_english_n
+
+
+
+______________________________
+Phoneme Table: 'en-us'
+include ph_english_us
+
+
+
+______________________________
+Phoneme Table: 'en-sc'
+include ph_english_sc
+
+
+
+______________________________
+Phoneme Table: 'en-rp'
+include ph_english_rp
+
+
+
+______________________________
+Phoneme Table: 'en-wm'
+include ph_english_wm
+
+
+
+______________________________
+Phoneme Table: 'en-wi'
+include ph_english_wi
+
+
+
+______________________________
+Phoneme Table: 'af'
+include ph_afrikaans
+
+
+
+______________________________
+Phoneme Table: 'cy'
+include ph_welsh
+
+
+
+______________________________
+Phoneme Table: 'de'
+include ph_german
+
+
+
+______________________________
+Phoneme Table: 'eo'
+include ph_esperanto
+
+
+
+______________________________
+Phoneme Table: 'jbo'
+include ph_lojban
+
+
+
+______________________________
+Phoneme Table: 'nci'
+include ph_nahuatl
+
+
+
+______________________________
+Phoneme Table: 'fi'
+include ph_finnish
+
+
+
+______________________________
+Phoneme Table: 'et'
+include ph_estonian
+
+
+
+______________________________
+Phoneme Table: 'fr'
+include ph_french
+
+
+
+______________________________
+Phoneme Table: 'fr-ca'
+include ph_french_ca
+
+
+
+______________________________
+Phoneme Table: 'hi'
+include ph_hindi
+
+
+
+______________________________
+Phoneme Table: 'ta'
+include ph_tamil
+
+
+
+______________________________
+Phoneme Table: 'kn'
+include ph_kannada
+
+
+
+______________________________
+Phoneme Table: 'ml'
+include ph_malayalam
+
+
+
+______________________________
+Phoneme Table: 'hu'
+include ph_hungarian
+
+
+
+______________________________
+Phoneme Table: 'lv'
+include ph_latvian
+
+
+
+______________________________
+Phoneme Table: 'nl'
+include ph_dutch
+
+
+
+______________________________
+Phoneme Table: 'pl'
+include ph_polish
+
+
+
+______________________________
+Phoneme Table: 'sk'
+include ph_slovak
+
+
+
+______________________________
+Phoneme Table: 'cs'
+include ph_czech
+
+
+
+______________________________
+Phoneme Table: 'hr'
+include ph_croatian
+
+
+
+______________________________
+Phoneme Table: 'mk'
+include ph_macedonian
+
+
+
+______________________________
+Phoneme Table: 'sr'
+include ph_serbian
+
+
+
+______________________________
+Phoneme Table: 'ru'
+include ph_russian
+
+
+
+______________________________
+Phoneme Table: 'bg'
+include ph_bulgarian
+
+
+
+______________________________
+Phoneme Table: 'it'
+include ph_italian
+
+
+
+______________________________
+Phoneme Table: 'la'
+include ph_latin
+
+
+
+______________________________
+Phoneme Table: 'es'
+include ph_spanish
+
+
+
+______________________________
+Phoneme Table: 'es-la'
+include ph_spanish_la
+
+
+
+______________________________
+Phoneme Table: 'ca'
+include ph_catalan
+
+
+
+______________________________
+Phoneme Table: 'pt'
+include ph_pt_brazil
+
+
+
+______________________________
+Phoneme Table: 'pt-pt'
+include ph_portugal
+
+
+
+______________________________
+Phoneme Table: 'ro'
+include ph_romanian
+
+
+
+______________________________
+Phoneme Table: 'el'
+include ph_greek
+
+
+
+______________________________
+Phoneme Table: 'grc'
+include ph_greek_ancient
+
+
+
+______________________________
+Phoneme Table: 'sv'
+include ph_swedish
+
+
+
+______________________________
+Phoneme Table: 'no'
+include ph_norwegian
+
+
+
+______________________________
+Phoneme Table: 'is'
+include ph_icelandic
+
+
+
+______________________________
+Phoneme Table: 'vi'
+include ph_vi
+
+
+
+______________________________
+Phoneme Table: 'zhy'
+include ph_zh_yue
+
+
+
+______________________________
+Phoneme Table: 'zh'
+include ph_zh
+
+
+
+______________________________
+Phoneme Table: 'sw'
+include ph_swahili
+
+
+
+______________________________
+Phoneme Table: 'tr'
+include ph_turkish
+
+
+
+______________________________
+Phoneme Table: 'ku'
+include ph_kurdish
+
+
+
+______________________________
+Phoneme Table: 'id'
+include ph_indonesian
+
+
+
+______________________________
+Phoneme Table: 'sq'
+include ph_albanian
+
+
+
+______________________________
+Phoneme Table: 'hy'
+include ph_armenian
+
+
+
+______________________________
+Phoneme Table: 'da'
+include ph_danish
+
+
+
+______________________________
+Phoneme Table: 'ka'
+include ph_georgian
+
+
+
+______________________________
+Phoneme Table: 'rw'
+include ph_kinyarwanda
+
+
+
+______________________________
+Phoneme Table: 'ne'
+include ph_nepali
+
+
+
+______________________________
+Phoneme Table: 'pa'
+include ph_punjabi
+
+
+
+______________________________
+Phoneme Table: 'prs'
+include ph_dari
+
+
+
+______________________________
+Phoneme Table: 'sl'
+include ph_slovenian
+
+
+
+______________________________
+Phoneme Table: 'gd'
+include ph_s_gaelic
+
+
+
+______________________________
+Phoneme Table: 'nso'
+include ph_northern-sotho
+
+
+
+______________________________
+Phoneme Table: 'ht'
+include ph_haitian
+
+
+
+______________________________
+Phoneme Table: 'az'
+include ph_azerbaijani
+
+
+
+______________________________
+Phoneme Table: 'ak'
+include ph_akan
+
+
+
+______________________________
+Phoneme Table: 'am'
+include ph_amhari
+
+
+
+______________________________
+Phoneme Table: 'wo'
+include ph_wolof
+
+
+
+______________________________
+Phoneme Table: 'dv'
+include ph_divehi
+
+
+
+______________________________
+Phoneme Table: 'te'
+include ph_telugu
+
+
+
+______________________________
+Phoneme Table: 'si'
+include ph_sinhala
+
+
+
+______________________________
+Phoneme Table: 'tn'
+include ph_setswana
+
+
+
+______________________________
+Phoneme Table: 'mt'
+include ph_maltese
+
+
+
+
+Refs 2560,  Reused 1776

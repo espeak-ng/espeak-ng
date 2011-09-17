@@ -3,11 +3,15 @@
 phoneme i
   vowel starttype #i endtype #i
   length 150
-  IF thisPh(isFinalVowel) THEN
-    ChangePhoneme(I)
-  ENDIF
-  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(I)
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(I)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(I)
+    ENDIF
   ENDIF
   FMT(vowel/i_6)
 endphoneme
@@ -15,17 +19,22 @@ endphoneme
 phoneme I
   vowel starttype #i endtype #i
   length 150
-  FMT(vowel/ii_3)
+  FMT(vowel/ii_5)
 endphoneme
+
 
 phoneme y
   vowel starttype #u endtype #u
   length 155
-  IF thisPh(isFinalVowel) THEN
-    ChangePhoneme(Y)
-  ENDIF
-  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(Y)
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(Y)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(Y)
+    ENDIF
   ENDIF
   FMT(vowel/y_5)
 endphoneme
@@ -41,11 +50,15 @@ endphoneme
 phoneme e
   vowel starttype #e endtype #e
   length 180
-  IF thisPh(isFinalVowel) THEN
-    ChangePhoneme(E)
-  ENDIF
-  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(E)
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(E)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(E)
+    ENDIF
   ENDIF
   FMT(vowel/e_mid2)
 endphoneme
@@ -56,12 +69,12 @@ phoneme E
   FMT(vowel/e_mid)
 endphoneme
 
+
 phoneme W
   vowel starttype #@ endtype #@
   length 180
   FMT(vowel/y#)
 endphoneme
-
 
 
 phoneme a
@@ -75,15 +88,18 @@ endphoneme
 phoneme u
   vowel starttype #u endtype #u
   length 150
-  IF thisPh(isFinalVowel) THEN
-    ChangePhoneme(U)
-  ENDIF
-  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(U)
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(U)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(U)
+    ENDIF
   ENDIF
   FMT(vowel/u_2)
 endphoneme
-
 
 phoneme U
   vowel starttype #u endtype #u
@@ -104,11 +120,15 @@ endphoneme
 phoneme o
   vowel starttype #o endtype #o
   length 190
-  IF thisPh(isFinalVowel) THEN
-    ChangePhoneme(O)
-  ENDIF
-  IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(O)
+  IF thisPh(isTranslationGiven) THEN
+    // don't reduce the vowel if phonemes are explicitly given
+  ELSE
+    IF thisPh(isFinalVowel) THEN
+      ChangePhoneme(O)
+    ENDIF
+    IF nextPh(isNotVowel) AND next2Ph(isNotVowel) THEN
+      ChangePhoneme(O)
+    ENDIF
   ENDIF
   FMT(vowel/o_mid)
 endphoneme

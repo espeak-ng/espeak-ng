@@ -1745,6 +1745,18 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 }  //  end of SetVoiceByProperties
 
 
+void FreeVoiceList()
+{//=================
+	for(int ix=0; ix<n_voices_list; ix++)
+	{
+		if(voices_list[ix] != NULL)
+		{
+			free(voices_list[ix]);
+			voices_list[ix] = NULL;
+		}
+	}
+	n_voices_list = 0;
+}
 
 
 //=======================================================================
@@ -1763,13 +1775,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	char path_voices[sizeof(path_home)+12];
 
 	// free previous voice list data
-
-	for(ix=0; ix<n_voices_list; ix++)
-	{
-		if(voices_list[ix] != NULL)
-			free(voices_list[ix]);
-	}
-	n_voices_list = 0;
+	FreeVoiceList();
 
 	sprintf(path_voices,"%s%cvoices",path_home,PATHSEP);
 	len_path_voices = strlen(path_voices)+1;

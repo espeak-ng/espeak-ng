@@ -28,7 +28,7 @@
 #include <stdio.h>
 #include <stddef.h>
 
-#define ESPEAK_API_REVISION  5
+#define ESPEAK_API_REVISION  6
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -41,10 +41,18 @@ Revision 4
 
 Revision 5
    Added espeakCHARS_16BIT
+
+Revision 6
+  Added macros: espeakRATE_MINIMUM, espeakRATE_MAXIMUM, espeakRATE_NORMAL
 */
          /********************/
          /*  Initialization  */
          /********************/
+
+// values for 'value' in espeak_SetParameter(espeakRATE, value, 0), nominally in words-per-minute
+#define espeakRATE_MINIMUM  80
+#define espeakRATE_MAXIMUM  450
+#define espeakRATE_NORMAL   175
 
 
 typedef enum {

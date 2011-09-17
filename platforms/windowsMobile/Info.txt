@@ -1,0 +1,54 @@
+From: http://sourceforge.net/forum/message.php?msg_id=6511989
+//===========================================================
+
+RE: ESpeak for Windows Mobile 6?
+By: Silas S. Brown (ssb22) - 2009-02-24 10:35 
+   On Ubuntu 8 there is a package called pocketpc-g++. 
+ 
+# apt-get install pocketpc-g++ 
+ 
+Then download eSpeak sources, do "cd src", and make the following changes: 
+[jonsd NOTE: These changes are now included in eSpeak 1.40.13 and later]
+
+1. In readclause.cpp, put #ifndef WINCE and #endif around const int wcslen(const wchar_t *str). This is because we will need the wchar functions but we will NOT need that particular one which is already provided by the WinCE library (I don't know why that one is and the others aren't). 
+ 
+2. In voices.cpp, where it says "dir = opendir(path))", put (char*) before "path" (in WinCE the parameter is not declared as const char* even though it should be, and the cast is needed to get it to compile.) 
+
+
+Now type this command: 
+ 
+make speak CXX=arm-wince-pe-g++ USE_AUDIO="-DNEED_GETOPT -DNEED_WCHAR_FUNCTIONS -DWINCE" LIB_AUDIO= 
+ 
+(there is nothing after the LIB_AUDIO= parameter) 
+ 
+This will give you a binary called "speak" which you can copy to the Windows Mobile device. You will also need to set up an espeak-data directory, and compile the dictsource on the device. 
+[jonsd NOTE: It's OK to use the espeak-data from the standard eSpeak, you don't need to compile it on the Windows Mobile device.]
+
+Of course the result will not be able to produce any sound, only write it to a file. But that should be good enough for use in other programs, as long as the file does not get too big. 
+  
+
+
+From: http://sourceforge.net/forum/message.php?msg_id=6512189
+//===========================================================
+
+By the way, Ubuntu also has a package called pocketpc-cab which can be used to make CAB files that will extract on the PocketPC. 
+ 
+# apt-get install pocketpc-cab 
+ 
+For example, to put src/speak onto /bin, and dictsource/ and espeak-data/ directories onto the root directory of the PocketPC, do: 
+ 
+echo src/speak /bin > espeak-files 
+find dictsource espeak-data -type f | grep -v /mb | sed -e 's,\(.*\)/[^/]*$,& /\1,' >> espeak-files 
+pocketpc-cab -p JonD -a eSpeak espeak-files espeak.cab 
+ 
+Then bluetooth espeak.cab across and you're done (except for running it with the right arguments including data path, compiling dictsource, etc). This is more convenient than trying to copy across the individual files if you don't have ActiveSync or whatever. It should also make for a more convenient distribution.  
+ 
+
+From and email from Silas Brown
+//=============================
+
+By default, GNU C++ for PocketPC compiles code to generate a debug trace file; if you want to turn this off, try running this command on the "speak" binary after compiling:
+
+python -c 'd=open("speak","rb").read().replace("/temp/wcetrace.log","/notexist/tracelog") ; open("speak","wb").write(d)'
+
+
