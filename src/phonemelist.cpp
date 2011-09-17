@@ -448,50 +448,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			}
 		}
 
-#ifdef deleted
-		while((ph->reduce_to != 0) && (!(plist3->synthflags & SFLAG_DICTIONARY)  || (tr->langopts.param[LOPT_REDUCE] & 1)))
-		{
-			int reduce_level;
-			int stress_level;
-			int reduce = 0;
-
-			reduce_level = (ph->phflags >> 28) & 7;
-
-			if(ph->type == phVOWEL)
-			{
-				stress_level = plist3->stress;
-			}
-			else
-			{
-				// consonant, get stress from the following vowel
-				if(next->type == phVOWEL)
-					stress_level = (plist3+1)->stress;
-				else
-					break;
-			}
-
-			if((stress_level == 1) && (first_vowel))
-				stress_level = 0;   // ignore 'dimished' stress on first syllable
-
-			if(stress_level == 1)
-				reduce = 1;    // stress = 'reduced'
-
-			if(stress_level < reduce_level)
-				reduce =1;
-
-			if((word_stress < 4) && (tr->langopts.param[LOPT_REDUCE] & 0x2) && (stress_level >= word_stress))
-			{
-				// don't reduce the most stressed syllable in an unstressed word
-				reduce = 0;
-			}
-
-			if(reduce)
-				ph = phoneme_tab[ph->reduce_to];
-			else
-				break;
-		}
-#endif
-
 		if(ph->type == phVOWEL)
 			first_vowel = 0;
 

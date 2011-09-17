@@ -16,7 +16,3 @@ the phoneme data.  If it is not present here, find it in the espeak-data directo
 NOTE: 
 The format of espeak-data/phondata changed in eSpeak version 1.43.  The utility
 has been modified for this.  [jonsd]
-
----
-To contact the author of these utilities, please send an e-mail to
-<leonardop@gentoo.org>

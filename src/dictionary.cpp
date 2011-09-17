@@ -2161,9 +2161,19 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case RULE_ENDING:
-					// next 3 bytes are a (non-zero) ending type. 2 bytes of flags + suffix length
-					match.end_type = (rule[0] << 16) + ((rule[1] & 0x7f) << 8) + (rule[2] & 0x7f);
-					rule += 3;
+					{
+						int end_type;
+						// next 3 bytes are a (non-zero) ending type. 2 bytes of flags + suffix length
+						end_type = (rule[0] << 16) + ((rule[1] & 0x7f) << 8) + (rule[2] & 0x7f);
+
+						if((tr->word_vowel_count == 0) && !(end_type & SUFX_P))
+							failed = 1;	// don't match a suffix rule if there are no previous syllables (needed for lang=tr).
+						else
+						{
+							match.end_type = end_type;
+							rule += 3;
+						}
+					}
 					break;
 
 				case RULE_NO_SUFFIX:

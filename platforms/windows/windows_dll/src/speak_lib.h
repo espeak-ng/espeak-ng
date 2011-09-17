@@ -165,7 +165,7 @@ typedef enum {
 #ifdef __cplusplus
 extern "C"
 #endif
-int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path, int options);
+ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, const char *path, int options);
 /* Must be called before any synthesis functions are called.
    output: the audio data can either be played by eSpeak or passed back by the SynthCallback function.
 

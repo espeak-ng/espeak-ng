@@ -1,0 +1,149 @@
+// maintainer: Sternly K Simon
+// email:sternly_simon@yahoo.com
+// setswana translation list
+// This file is UTF-8 encoded.
+
+// letters (just guesses)
+a	a
+b	bi:i:
+c	si:i:
+d	di:i:
+e	i:i:
+f	e:fo
+g	gi:i
+h	eitSi
+j	dZ'ei
+k	kei
+l	e:li
+m	'emu
+n	'eni
+o 	o:o:
+p	p'i:i:
+q	kju
+r	aR3e
+s	'e:si
+t	t'i:i:
+u	u:u:
+v	v'i:i:
+x	ek'ese
+w	dabolju
+y	w'ai
+z	z'e:ti
+
+
+// numbers
+_0      lef'e:la
+_1      n'ngwe:
+_2      p'edi
+_3      t'a:R3o
+_4      'n-ne
+_5      l#'a:no
+_6      th'ataro
+_7      s'u:pa
+_8      roba'bobedi
+_9      roba'n'ngwe
+_1X     les'o:me
+_2X     mas'o:mepedi
+_3X     mas'o:me'ama:R3o
+_4X     mas'o:me'ama:ne
+_5X     mas'o:me'amal#'a:no
+_6X     mas'o:me'ath'ataro
+_7X     mas'o:me'a'S'u:pa
+_8X     mas'o:me'abo'roba'bedi:
+_9X     mas'o:me'a'roba'bo'ngwe
+
+//number plurals 
+
+//numbers money wise
+_0C     lekX'olo
+_1C0    lekX'olo
+_2C     _|makX'olopedi
+_3C     _|makX'olot'a:R3o
+_4C     _|makX'olo'n-ne
+_5C     _|makX'olol#'a:no
+_6C     _|makX'olo'th'ataro
+_7C     makX'oloS'u:pa
+_8C     makX'olo'a'ma'roba'bobedi:
+_9C     makX'olo'a'ma'roba'bo'n'ngwe
+_0M1    's-'ikete
+_1M1     _|'s-'ikete
+_2M1    dik'etep'edi
+_3M1    dik'etet'a:R3o
+_4M1    dik'eten-ne
+_5M1    dik'etel#'a:no
+_6M1    dik'etets'e'th'ataro
+_7M1    dik'eteSu:pa
+_8M1    dik'ete'tse'bo'roba'bobedi
+_9M1    dik'ete'tse'bo'roba'bo'ngwe
+_1M2	dik'etetSelekX'o:lo
+_2M2 dik'etetSemakX'o:lop'edi
+_3M2 dik'etetSemakX'o:lot'a:R3o
+_4M2 dik'etetSemakX'o:lon-ne
+_5M2 dik'etetSemakX'o:lol#'ano
+_6M2 dik'etetSemakX'o:lo'th'a'taro
+_7M2 dik'etetSemakX'o:loSu:pa
+_8M2 dik'etetSemakX'o:lo'bo'roba'bobedi:
+_9M2	dik'etetSemakX'o:lo'bo'roba'bo'ngwe
+_0M3	_|mili'oni  // 1,000,000
+_0M4	_|bili'oni
+_dpt    fe:Xelu'a:na
+_0and   _|na
+
+bona    $u $brk  // they,them
+yona    $u+ $brk  // it
+wena    $u+ $brk //you
+
+nna	   $u+ $brk   // i
+yona    $u+ $brk // him, her, it
+ene     $u+ $brk // him, her
+lona    $u+  //ploral to wena
+rona    $u+  // we,us
+
+//number of chances/probabilities
+ 
+
+//Days
+
+
+//accents
+
+_cir    k'efa
+
+lenna   $u+  // and me 
+waka    $u+  // mine or lying
+gaka    $u+  // mine
+tshaka  $u+  // plural of mine
+dilo    $u+  // things
+mole    $u+  // that
+naya    $u+  // give
+
+//nouns
+ 
+// prepositions
+wa      $u $brk   // of
+ya      $u $brk   // of,by  they,them
+la      $u $brk   // of
+fa      $u $brk   // of
+kwa     $u $brk   // at
+
+mo      $u $brk       // in
+fa      $u $brk       // in,on
+
+kgolo   $u $pause     // dig
+konte   $u $pause     // without
+
+kwala   $pause        // by means of which
+kwa     $u $brk       // with
+
+
+// conjunctions
+le	    $u $pause   // and
+kana      $u $pause   // or
+ao        $u $pause   // or
+mme       $u $pause   // but
+ntswa     $u $pause   // although
+kuwa      $u $pause   // shout
+
+
+
+

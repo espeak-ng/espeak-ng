@@ -1,0 +1,266 @@
+// translation rules for Bulgarian
+// This file is UTF-8 encoded
+
+
+// words of one letter
+в	$combine
+а	$u $combine
+е	$u
+й i $u
+и	$u $pause
+у  $u $combine
+с $combine
+г god'ina $hasdot
+
+// letter names
+б	b@
+_в	v@
+в	v@	$atend
+_г	g@
+д	d@
+ж	Z@
+з	z@
+_й	'ikr,atko
+к	k@
+л	l@
+м	m@
+н	n@
+п	p@
+р	r@
+_с	s@
+с	s@	$atend
+т	t@
+ф	f@
+х	x@
+ц	ts@
+ч	tS@
+ш	S@
+щ	St@
+ь	'erm,aL@k
+ъ	'erg,olam
+
+_а	a
+_е	e
+_и	i
+_у	u
+
+// latin letter names
+v	_^_EN	// not Roman number
+x	_^_EN   // not Roman number
+
+// symbols
+%	prots'ent	$max3
++	plus	$max3
+=	e||r'avno||n,a
+#	d'i;es;	$max3
+/	nakL'onena||tSert,a
+\	obr'atna||nakL'onena||tSert,a
+*	zvezd'itSka	$max3
+@	kl'omba		// кльомба
+& _^_EN
+_&	ampers'ant
+
+_,	zapet'aja
+
+_! udiv'itelen
+_" kav'itSki
+_' apostr'of
+_( l;'ava||sk'oba
+_) d;,asna||sk'oba
+- $pause
+_- tir,e
+_: dvuet'otSie
+_; t,otSka||i||zapet'aja
+_< po||m'alko
+_> po||gol;'amo
+_? v@pros'itelen
+_[ l;,ava||kvadr,atna||sk'oba
+_] d;,asna||kvadr,atna||sk'oba
+^ kol'ibka
+__ d,olna||tSert'a
+_` graf
+_{ l;,ava||v@lno,obrazna||sk'oba
+_| vertik,alna||tSert'a
+_} d;,asna||v@lno,obrazna||sk'oba
+_~ v@ln'itSka
+_. t'otSka
+_Ў obr,aten||udiv'itelen
+_ї obr,aten||v@pros'itelen
+_« l;,ava||dv,oina||tri,@galna||sk'oba
+… $pause
+_… mnogot'otSie
+_ѓ florin
+_† _^_EN
+_‡ _^_EN
+_– k,@so||tir'e
+_— d,@lgo||tir'e
+_¦ prek,@snata||tSert'a
+_» d;,asna||dv,oina||tri,@galna||sk'oba
+
+№ n'omer
+// abbreviations
+(http ://)   ejtSti:ti:'pi:_
+
+ап  apartam'ent $dot
+бл blok $dot
+бул bulev,art $dot
+вх vhot $dot
+гр grat $dot
+год god'ina $dot
+ет et'aS $dot
+лв l,eva $dot
+пл ploSt'at $dot
+стр str'anitsa $dot
+ст stot'inki $dot
+ул ulitsa $dot
+чл tSlen $dot
+
+// numbers
+_0	n'uLa
+_1	edn'o
+_2	dv'e
+_3	tr'i
+_4	tS'etiri
+_5	p'et
+_6	S'est
+_7	s'edem
+_8	'osem
+_9	d'evet
+_10	d'eset
+_11	ed,in'adeset
+_12	dvan'adeset
+_13	trin'adeset
+_14	tS,etirin'adeset
+_15	petn'adeset
+_16	Sestn'adeset
+_17	s,edemn'adeset
+_18	,osemn'adeset
+_19	d,evetn'adeset
+_2X	dv'adeset
+_3X	tr'ideset
+_4X	tSetir'ideset
+_5X	petdes'et
+_6X	Sestdes'et
+_7X	sedemdes'et
+_8X	osemdes'et
+_9X	devetdes'et
+
+_0C	st'otin
+_1C	st'o
+_2C	dv'esta
+_3C	tr'ista
+
+_0M1	C'iladi
+_1M1	Cil'ada
+
+_0M2	mili'ona
+_1M2	ed'in||mili'on
+_2M2	dv'a||mili'ona
+
+_0M3	mili'arda
+_1M3	ed'in||mili'ard
+_2M3	dv'a||mili'arda
+
+_0and	_%i
+_dpt	_ts;'aLo_i||
+
+
+// function words
+
+//prepositions
+без $u $combine
+вместо   $u $combine
+връз   $u $combine
+всред   $u $combine
+въз   $u $combine
+въпреки   $u $combine
+върху  $u $combine
+до   $u $combine
+додето $u $combine 
+за  $u $combine
+зад   $u $combine
+заради  $u $combine
+из  $u $combine
+извън  $u $combine 
+измежду  $u $combine
+изпод  $u $combine
+като   $u $combine
+край   $u $combine
+към  $u $combine
+между  $u $combine 
+на   $u $combine
+над   $u $combine
+накрай   $u $combine
+наместо   $u $combine
+насред   $u $combine
+низ  $u $combine
+окажа   $u $combine
+около   $u $combine
+освен   $u $combine
+откъм  $u $combine
+по   $u $combine
+под   $u $combine
+покрай  $u $combine
+помежду   $u $combine
+поради   $u $combine
+посред   $u $combine
+пред   $u $combine
+преди   $u $combine
+през   $u $combine
+при   $u $combine
+против  $u $combine
+свръх   $u $combine
+след   $u $combine
+според   $u $combine
+спроти   $u $combine
+спрямо   $u $combine
+сред   $u $combine
+срещу  $u $combine
+ със  $u $combine
+ чрез  $u $combine
+
+//conjunctions
+ако   $u $combine
+ала  $u $combine
+ама  $u $combine
+или  $u $combine
+но  $u $combine
+пък  $u $combine
+хем  $u $combine
+че  $u $combine
+
+
+//particles
+се $u
+ма  $u
+бре  $u
+мари  $u
+май  $u
+уж  $u
+дано  $2
+ли  $u
+не $u $strend
+да $u $strend
+ето $1
+ще $u
+най $1
+нека $1
+еди $1
+току $2
+годе $1
+
+//short pronoun forms 
+ми $u
+ти $u
+му $u
+ни $u
+ви $u
+им $u
+
+//forms of "to be" for Present tense
+съм $u
+си $u
+сме $u
+сте $u
+са $u
+

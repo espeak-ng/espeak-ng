@@ -1,6 +1,6 @@
 CC = gcc
 
-CFLAGS += -g -Wall
+CFLAGS += -g3 -Wall -O0
 
 all: espeak-phoneme-data
 

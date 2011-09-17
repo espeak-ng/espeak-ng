@@ -1,0 +1,95 @@
+
+// Phonemes for Divehi
+// This inherits from ph_hindi
+
+
+
+phoneme a
+  vowel  starttype #a  endtype #a
+  length 130
+  ChangeIfDiminished(V)    // ?? final syllable of word
+  FMT(vowel/a#)
+endphoneme
+
+
+phoneme a:
+  vowel  starttype #a  endtype #a
+  length 300
+  FMT(vowel/a#)
+endphoneme
+
+
+phoneme e
+  vowel  starttype #e  endtype #e
+  length 130
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 250
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i
+  vowel  starttype #i  endtype #i
+  length 130
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 270
+  FMT(vowel/i)
+endphoneme
+
+
+
+phoneme o
+  vowel  starttype #o  endtype #o
+  length 130
+  FMT(vowel/o_mid)
+endphoneme
+
+
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 300
+  FMT(vowel/o_mid)
+endphoneme
+
+
+phoneme u
+  vowel  starttype #u  endtype #u
+  length 110
+  FMT(vowel/u_6)
+endphoneme
+
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 290
+  FMT(vowel/u_6)
+endphoneme
+
+
+phoneme aI
+  vowel  starttype #a  endtype #i
+  length 280
+  FMT(vdiph/ai_8)
+endphoneme
+
+
+
+phoneme t
+  import_phoneme base2/t    // dental
+endphoneme
+
+// ?? This is standard [v].  Should be it [v] without the fricative noise?
+phoneme v
+  import_phoneme base/v
+endphoneme
+

@@ -122,7 +122,7 @@
 #define SUFX_I        0x0200   // y may have been changed to i
 #define SUFX_P        0x0400   // prefix
 #define SUFX_V        0x0800   // suffix means use the verb form pronunciation
-#define SUFX_D        0x1000   // previous letter may have been doubles
+#define SUFX_D        0x1000   // previous letter may have been doubled
 #define SUFX_F        0x2000   // verb follows
 #define SUFX_Q        0x4000   // don't retranslate
 #define SUFX_T        0x10000   // don't affect the stress position in the stem

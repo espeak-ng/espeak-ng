@@ -1,0 +1,27 @@
+// Phoneme table for Scottish Gaelic (lang=gd)
+
+
+
+// Consonants
+
+phoneme b
+  import_phoneme is/b
+endphoneme
+
+phoneme t
+  import_phoneme hi/th
+endphoneme
+
+phoneme d
+  import_phoneme hi/t
+endphoneme
+
+phoneme k
+  import_phoneme base/k
+endphoneme
+
+phoneme g
+  import_phoneme hi/k
+endphoneme
+
+
