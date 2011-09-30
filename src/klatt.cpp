@@ -884,11 +884,6 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 	
 	f = -f;
 	
-	if(f>=0)
-	{
-		f = -1;
-	}
-	
 	/* First compute ordinary resonator coefficients */
 	/* Let r  =  exp(-pi bw t) */
 	arg = kt_globals.minus_pi_t * bw;
@@ -904,10 +899,17 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 	/* Let a = 1.0 - b - c */
 	rp->a = 1.0 - rp->b - rp->c;
 	
-	/* Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a) */
-	rp->a = 1.0 / rp->a;
-	rp->c *= -rp->a;
-	rp->b *= -rp->a;
+	/* If f == 0 then rp->a gets set to 0 which makes a'=1/a set a', b' and c' to
+	 * INF, causing an audible sound spike when triggered (e.g. apiration with the
+	 * nasal register set to f=0, bw=0).
+	 */
+	if (rp->a != 0)
+	{
+		/* Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a) */
+		rp->a = 1.0 / rp->a;
+		rp->c *= -rp->a;
+		rp->b *= -rp->a;
+	}
 }
 
 
