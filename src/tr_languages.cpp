@@ -1262,6 +1262,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
+			tr->langopts.param[LOPT_SUFFIX] = 1;
 
 			if(name2 == L('a','z'))
 			{

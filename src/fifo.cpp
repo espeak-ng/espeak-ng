@@ -281,48 +281,52 @@ static int sleep_until_start_request_or_inactivity()
   // for filtering underflow.
   //
   int i=0;
-  while((i<= MAX_INACTIVITY_CHECK) && !a_start_is_required)
-    {
-      if (wave_is_busy( NULL) )
+	while((i<= MAX_INACTIVITY_CHECK) && !a_start_is_required)
 	{
-	  i = 0;
-	}
+		if (wave_is_busy( NULL) )
+		{
+			i = 0;
+		}
       else
-	{
-	  i++;
-	}
+		{
+			i++;
+		}
 
-      int err=0;
-      struct timespec ts, to;
-      struct timeval tv;
-      
-      clock_gettime2( &ts);
-      to.tv_sec = ts.tv_sec;
-      to.tv_nsec = ts.tv_nsec;
-      
-      add_time_in_ms( &ts, INACTIVITY_TIMEOUT);
-      
-      SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n", 
-	   to.tv_sec, to.tv_nsec,
-	   ts.tv_sec, ts.tv_nsec);
-      
-      while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1 
-	     && errno == EINTR)
-	{
-	      continue;
+		int err=0;
+		struct timespec ts;
+		struct timeval tv;
+
+		clock_gettime2( &ts);
+
+#ifdef DEBUG_ENABLED
+		struct timespec to;
+		to.tv_sec = ts.tv_sec;
+		to.tv_nsec = ts.tv_nsec;
+#endif
+
+		add_time_in_ms( &ts, INACTIVITY_TIMEOUT);
+
+		SHOW("fifo > sleep_until_start_request_or_inactivity > start sem_timedwait (start_is_required) from %d.%09lu to %d.%09lu \n", 
+			to.tv_sec, to.tv_nsec,
+			ts.tv_sec, ts.tv_nsec);
+
+		while ((err = sem_timedwait(&my_sem_start_is_required, &ts)) == -1 
+			&& errno == EINTR)
+		{
+			continue;
+		}
+
+		assert (gettimeofday(&tv, NULL) != -1);
+		SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err, 
+			tv.tv_sec, tv.tv_usec*1000);
+
+		if (err==0)
+		{
+			a_start_is_required = 1;
+		}
 	}
-      
-      assert (gettimeofday(&tv, NULL) != -1);
-      SHOW("fifo > sleep_until_start_request_or_inactivity > stop sem_timedwait (start_is_required, err=%d) %d.%09lu \n", err, 
-	   tv.tv_sec, tv.tv_usec*1000);
-      
-      if (err==0)
-	{
-	  a_start_is_required = 1;
-	}
-    }
-  SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > LEAVE");
-  return a_start_is_required;
+	SHOW_TIME("fifo > sleep_until_start_request_or_inactivity > LEAVE");
+	return a_start_is_required;
 }
 
 //>

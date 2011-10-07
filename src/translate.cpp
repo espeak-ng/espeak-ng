@@ -798,7 +798,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	int prefix_stress;
 	char *wordx;
 	char phonemes[N_WORD_PHONEMES];
-	char *ph_limit;
 	char prefix_phonemes[N_WORD_PHONEMES];
 	char unpron_phonemes[N_WORD_PHONEMES];
 	char end_phonemes[N_WORD_PHONEMES];
@@ -846,7 +845,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	unpron_phonemes[0] = 0;
 	prefix_phonemes[0] = 0;
 	end_phonemes[0] = 0;
-	ph_limit = &phonemes[N_WORD_PHONEMES];
 
 	if(tr->data_dictlist == NULL)
 	{
@@ -2366,7 +2364,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	int prev_in;
 	int prev_out=' ';
 	int prev_out2;
-	int prev_in2=0;
 	int prev_in_save=0;
 	int next_in;
 	int next_in_nbytes;
@@ -2390,7 +2387,6 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 	char *p;
 	int j, k;
 	int n_digits;
-	int individual_digits;
 	int charix_top=0;
 
 	short charix[N_TR_SOURCE+4];
@@ -2541,7 +2537,6 @@ p = source;
 		else
 		if(source_index > 0)
 		{
-			prev_in2 = prev_in;
 			utf8_in2(&prev_in,&source[source_index-1],1);  //  prev_in = source[source_index-1];
 		}
 
@@ -3137,7 +3132,6 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			pn = &number_buf[1];
 			nx = n_digits;
 			nw = 0;
-			individual_digits = 0;
 
 			if((n_digits > tr->langopts.max_digits) || (word[0] == '0'))
 				words[ix].flags |= FLAG_INDIVIDUAL_DIGITS;

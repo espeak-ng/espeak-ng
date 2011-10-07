@@ -1319,7 +1319,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
-	PHONEME_TAB *prev_ph;
 	static int sourceix=0;
 
 	PHONEME_DATA phdata;
@@ -1604,10 +1603,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			modulation = 0;
 			if(p->ph->phflags & phTRILL)
 				modulation = 5;
-
-			prev_ph = prev->ph;
-//			if(p->newword)
-//				prev_ph = phoneme_tab[phonPAUSE];    // pronounce fully at the start of a word
 
 			if(!(p->synthflags & SFLAG_SEQCONTINUE))
 			{

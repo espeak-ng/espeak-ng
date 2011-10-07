@@ -33,6 +33,7 @@
 .L01  l r
 .L02  i y
 .L03  a i o u   // vowel, not 'e'
+.L05  c g k
 
 .L10  grap log met scop  // scientific endings
 
@@ -3544,13 +3545,12 @@
          o) mb (e        m
        _bo) mb (K        m
        _du) mb           m
-         _) mc           m@k
-         _) mc (_k       m@
-         _) mc (k        m@
-         _) mc (_g       m@
-         _) mc (g        m@
+         _) mc (C        m@k
+         _) mc (_C       m@k
+         _) mc (_L05     m@   // c,g,k
+         _) mc (L05      m@
          _) mc (A        mak
-         _) mc (-A       mak
+         _) mc (_A       mak
             mn (_        m
         &B) me (_        m%I
          _) mega         mEg@

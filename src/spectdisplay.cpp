@@ -533,7 +533,6 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 	int keyfr;
 	int control;
 	int number;
-	double value;
 	SpectFrame *sf;
 	peak_t *pk;
 //	static short pk_inc1[N_PEAKS] = {2,2,2,5,5,5,5,5,5};
@@ -783,10 +782,6 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		else
 			spectseq->InterpolatePeaks(1);  // show interpolation
 		display = 3;
-		break;
-
-	case 0x1052:   // CTRL-R
-		value = sf->GetRms(spectseq->amplitude);
 		break;
 
 	case 0x1053:   // CTRL-S
