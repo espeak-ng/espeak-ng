@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.45.43  16.Sep.11";
+const char *version_string = "1.45.45  07.Oct.11";
 const int version_phdata  = 0x014500;
 
 int option_device_number = -1;
@@ -644,13 +644,6 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 			if(plist[0].sourceix)
 				return(false);
 		}
-//		if(which==7)
-//		{
-//			// nextPh2 not word boundary
-//			if((plist[1].sourceix) || (plist[2].sourceix))
-//				return(false);
-//		}
-
 		if(which==6)
 		{
 			// nextVowel, not word boundary
@@ -686,7 +679,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 		}
 		ph = plist->ph;
 
-		if(instn2 < 8)
+		if(instn2 < 7)
 		{
 			// 'data' is a phoneme number
 			if((phoneme_tab[data]->mnemonic == ph->mnemonic) == true)

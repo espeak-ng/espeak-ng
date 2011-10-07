@@ -95,11 +95,9 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 	case AUDIO_OUTPUT_PLAYBACK:
 	{
 		int event_type=0;
-		int event_data=0;
 		if(event)
 		{
 			event_type = event->type;
-			event_data = event->id.number;
 		}
 
 		if(event_type == espeakEVENT_SAMPLERATE)

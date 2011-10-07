@@ -1264,7 +1264,6 @@ static int NextItem(int type)
 	unsigned char c2;
 	int  ix;
 	int  sign;
-	int  keyword;
 	char *p;
 	keywtab_t *pk;
 	
@@ -1331,8 +1330,6 @@ static int NextItem(int type)
 
 	if(!feof(f_in))
 		unget_char(c);
-
-	keyword = -1;
 
 	if(type == tSTRING)
 	{

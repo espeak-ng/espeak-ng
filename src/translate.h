@@ -256,7 +256,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      19
+#define N_LOPTS      20
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -322,6 +322,9 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 	// recognize long vowels (0 = don't recognize)
 #define LOPT_LONG_VOWEL_THRESHOLD 18
+
+	// bit 0:  Don't allow suffices if there is no previous syllable
+#define LOPT_SUFFIX  19
 
 
 // stress_rule

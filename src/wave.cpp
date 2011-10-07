@@ -606,7 +606,7 @@ static void update_output_parameters(int selectedDevice, const PaDeviceInfo *dev
   if (deviceInfo)
     {
       double aLatency = deviceInfo->defaultLowOutputLatency;
-      double aCoeff = round(0.100 / aLatency);
+//      double aCoeff = round(0.100 / aLatency);
 //      myOutputParameters.suggestedLatency = aCoeff * aLatency;  // to avoid glitches ?
       myOutputParameters.suggestedLatency =  aLatency;          // for faster response ?
       SHOW("Device=%d, myOutputParameters.suggestedLatency=%f, aCoeff=%f\n",

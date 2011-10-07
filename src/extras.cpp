@@ -325,7 +325,7 @@ void Lexicon_It(int pass)
 	char buf_out[200];
 	char buf_error[200];
 	char last_listx[200];
-int test;
+
 	static const char *vowels1 = "aeiou";
 	static const char *vowels2 = "aeou";
 
@@ -913,7 +913,6 @@ void Lexicon_Bg()
 	char *pw;
 	char *pw1;
 	int cc;
-	int ix;
 	int vcount;
 	int lex_stress;
 	int input_length;
@@ -929,7 +928,6 @@ void Lexicon_Bg()
 
 	FILE *f_in;
 	FILE *f_out;
-	FILE *f_log;
 	
 	char word[80];
 	char word_in[80];
@@ -966,9 +964,6 @@ void Lexicon_Bg()
 		fclose(f_in);
 		return;
 	}
-
-//	sprintf(fname,"%s%c%s",path_dsource,PATHSEP,"bg_log");
-//	f_log = fopen(fname,"w");
 
 	LoadVoice("bg",0);
 	progress = new wxProgressDialog(_T("Lexicon"),_T(""),input_length);
@@ -1107,7 +1102,6 @@ if(n_stress > 1) n_stress = 1;
 
 	fclose(f_in);
 	fclose(f_out);
-//	fclose(f_log);
 
 	CompileDictionary(path_dsource,"bg",NULL,NULL,0);
 
@@ -1138,7 +1132,6 @@ void Lexicon_Ru()
 	FILE *f_in;
 	FILE *f_out;
 	FILE *f_log;
-	FILE *f_roots;
 	PHONEME_TAB *ph;
 	int ph_code;
 	int vcount;
@@ -1151,10 +1144,6 @@ void Lexicon_Ru()
 	int wlength;
 	int input_length;
 
-	int sfx;
-	const char *suffix;
-	int wlen;
-	int len;
 	int check_root;
 
 	char word[80];
@@ -1173,6 +1162,12 @@ void Lexicon_Ru()
 		int  syllables;
 	} SUFFIX;
 
+#ifdef deleted
+	FILE *f_roots;
+	int sfx;
+	const char *suffix;
+	int wlen;
+	int len;
 	static SUFFIX suffixes[] = {
 {NULL,0},
 	{"ичу",2},
@@ -1192,7 +1187,7 @@ void Lexicon_Ru()
 	{"и",1},
 
 	{NULL,0}};
-
+#endif
 
 	memset(counts,0,sizeof(counts));
 

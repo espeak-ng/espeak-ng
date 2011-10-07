@@ -787,10 +787,6 @@ static int calc_pitches2(int start, int end,  int tune_number)
 	int  ix;
 	TUNE *tune;
 	int  drop;
-	int continuing = 0;
-
-	if(start > 0)
-		continuing = 1;
 
 	tune = &tunes[tune_number];
 	ix = start;
@@ -941,15 +937,13 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 	PHONEME_TAB *tph;
 	PHONEME_TAB *prev_tph;   // forget across word boundary
 	PHONEME_TAB *prevw_tph;  // remember across word boundary
-	PHONEME_TAB *prev2_tph;  // 2 tones previous
+//	PHONEME_TAB *prev2_tph;  // 2 tones previous
 	PHONEME_LIST *prev_p;
 
 	int  pitch_adjust = 0;     // pitch gradient through the clause - inital value
 	int  pitch_decrement = 0;   //   decrease by this for each stressed syllable
 	int  pitch_low = 0;         //   until it drops to this
 	int  pitch_high = 0;       //   then reset to this
-
-	p = &phoneme_list[0];
 
 	// count number of stressed syllables
 	p = &phoneme_list[0];
@@ -1066,7 +1060,7 @@ static void CalcPitches_Tone(Translator *tr, int clause_tone)
 			}
 
 			prev_p = p;
-			prev2_tph = prevw_tph;
+//			prev2_tph = prevw_tph;
 			prevw_tph = prev_tph = tph;
 			pause = 0;
 		}
