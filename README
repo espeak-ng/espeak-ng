@@ -1,3 +1,17 @@
-Development snapshots of eSpeak.
+Changes to eSpeak to support building on a POSIX system by running make.
 
-Taken from http://espeak.sourceforge.net/test/latest.html.
+This does the following things:
+   1/  compile the libespeak library;
+   2/  compile the speak and espeak command-line applications;
+   3/  compile the espeakedit application;
+   4/  compile the voice data, creating an espeak-data directory.
+
+This allows you to run:
+
+	make && sudo make install
+
+and end up with a working espeak application.
+
+
+This branch also contains some bug fixes and improvements that get
+sent back upstream.
