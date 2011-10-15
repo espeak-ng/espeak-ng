@@ -413,7 +413,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 	PHONEME_TAB *ph_prev;
 	PHONEME_LIST *p;
 	PHONEME_LIST *next;
-	PHONEME_LIST *prev;
 	PHONEME_DATA phdata;
 	FMT_PARAMS fmtp;
 	int pause = 0;
@@ -445,7 +444,6 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 
 		p = &plist[phix];
 		next = &plist[phix+1];
-		prev = &plist[phix-1];
 		ph = p->ph;
 		ph_prev = plist[phix-1].ph;
 		ph_next = plist[phix+1].ph;

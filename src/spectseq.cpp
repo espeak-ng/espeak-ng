@@ -462,14 +462,13 @@ int SpectSeq::ImportSPC2(wxInputStream & stream)
 	int n_cycles = 0;
 	int x;
 	CYCLE cy;
-	int pos;
 	
 	/* count number of cycles */
 	while(!stream.Eof())
 	{
-pos = stream.TellI();
+		stream.TellI();
 		stream.Read(&cy,44);
-pos = stream.TellI();
+		stream.TellI();
 		if(stream.Eof()) break;
 		
 		n_cycles++;
@@ -993,7 +992,6 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	float  sum_length=0;
 	float  prev_length=0;
 	int  first;
-	int  pbase;
 	char *fname_speech;
 	SpectFrame *sp1 = NULL;
 	SpectFrame *sp2;
@@ -1033,7 +1031,6 @@ void SpectSeq::MakeWave(int start, int end, PitchEnvelope &pitch)
 	}
 
 	total_length = int(sum_length);
-	pbase = voice->pitch_base >> 12;
 
 	if((start==end) || (total_length == 0))
 	{
@@ -1117,8 +1114,6 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	int  y;
 	peak_t peaks0[N_PEAKS];
 	peak_t peaks1[N_PEAKS];
-	int ipitch;
-	int pbase;
 	char *fname_speech;
 	int synthesizer_type = 0;
 
@@ -1131,12 +1126,10 @@ void SpectFrame::MakeWaveF(int control, PitchEnvelope &pitche, int amplitude, in
 	SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 	length = duration;
-	ipitch = int(pitch) << 16;
 	if(length==0)
 		length = 200;   // default length, mS
 
 	len_samples = (length * samplerate) / 1000;
-	pbase = voice->pitch_base >> 12;
 	SetPitch(len_samples + 50,pitche.env,9,44);
 
 	fname_speech = WavFileName();

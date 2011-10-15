@@ -159,7 +159,6 @@ void DisplayVoices(FILE *f_out, char *language)
 	const char *p;
 	int len;
 	int count;
-	int scores = 0;
 	const espeak_VOICE *v;
 	const char *lang_name;
 	char age_buf[12];
@@ -176,7 +175,6 @@ void DisplayVoices(FILE *f_out, char *language)
 		voice_select.gender = 0;
 		voice_select.name = NULL;
 		voices = espeak_ListVoices(&voice_select);
-		scores = 1;
 	}
 	else
 	{
@@ -211,8 +209,6 @@ void DisplayVoices(FILE *f_out, char *language)
 			count++;
 			p += len+2;
 		}
-//		if(scores)
-//			fprintf(f_out,"%3d  ",v->score);
 		fputc('\n',f_out);
 	}
 }   //  end of DisplayVoices
@@ -511,11 +507,9 @@ int main (int argc, char **argv)
 	espeak_VOICE voice_select;
 	char filename[200];
 	char voicename[40];
-	char dictname[40];
 
 	voicename[0] = 0;
 	mbrola_name[0] = 0;
-	dictname[0] = 0;
 	wavefile[0] = 0;
 	filename[0] = 0;
 	option_linelength = 0;

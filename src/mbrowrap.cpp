@@ -153,6 +153,7 @@ static int start_mbrola(const char *voice_path)
 			snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
 					"dup2(): %s\n", strerror(errno));
 			written = write(p_stderr[1], mbr_errorbuf, strlen(mbr_errorbuf));
+			(void)written;   // suppress 'variable not used' warning
 			_exit(1);
 		}
 
@@ -170,6 +171,7 @@ static int start_mbrola(const char *voice_path)
 		snprintf(mbr_errorbuf, sizeof(mbr_errorbuf),
 				"mbrola: %s\n", strerror(errno));
 		written = write(2, mbr_errorbuf, strlen(mbr_errorbuf));
+		(void)written;   // suppress 'variable not used' warning
 		_exit(1);
 	}
 

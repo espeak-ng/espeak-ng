@@ -576,6 +576,8 @@ harmince) gy (edik J:
     _í) gy (jár    J
  száze) gy (es     J:
 huszone) gy (es    J:
+    _e) gy (é_     J:
+_mint-e) gy (é_    J:
 
 .group h
         h          h
@@ -609,6 +611,7 @@ huszone) gy (es    J:
    _sz) í (vattákk i
    _sz) í (vató    i
     _v) í (zi      i         //for example vízipipa, vízimentők beginning words need spokening i, not i: phoneme
+    _v) í (zió     i:        //But this word an exception for prewious rule
 
 .group j
         j          j
@@ -891,8 +894,7 @@ pedagógu) s (sztrájk S
  _fúvó) s (zene    S
 identitá) s (zavar S
 fáklyá) s (zen     S
-
-
+   _ki) s (zombor  S
 
 .group ss
         ssz        ss2
@@ -1129,6 +1131,7 @@ _farka) ssz (ig    Ss
   alvá) ssz (eg    Ss
   lako) ssz (ám    Ss
 _szencsége) ssz (űz Ss
+    ki) ssz (ekrény Ss
 
 
 .group sz
@@ -1559,6 +1562,8 @@ támogato) ts (ág   tS:
     _á) tsz (orong t|s
     _á) tsz (orít  t|s
     _á) tsz (olgál t|s
+felira) ts (áv     t|S
+    pö) tsz (en    ts:
 
 .group tt
         tt         t:

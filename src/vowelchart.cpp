@@ -391,7 +391,6 @@ void FindPhonemesUsed(void)
 	int hash;
 	char *p;
 	unsigned int *pw;
-	char *start;
 	char *next;
 	unsigned char c;
 	int count = 0;
@@ -449,7 +448,6 @@ void FindPhonemesUsed(void)
 		if(c == RULE_PHONEMES)
 		{
 			ignore = 0;
-			start = p;
 			p++;
 			while((c = *p) != 0)
 			{
@@ -592,7 +590,6 @@ void MakeVowelLists(void)
 	int colour;
 	int voice_found;
 	PHONEME_PROG_LOG *prog_log_table;
-	PHONEME_PROG_LOG *prog_log_end;
 	PHONEME_PROG_LOG *found_prog;
 	PHONEME_PROG_LOG this_prog;
 	char dirname[sizeof(path_source)+20];
@@ -613,7 +610,6 @@ void MakeVowelLists(void)
 		return;
 	ix = fread(prog_log_table, 1, ix, f_prog_log);
 	fclose(f_prog_log);
-	prog_log_end = prog_log_table + ix;
 	n_prog_log = ix / sizeof(PHONEME_PROG_LOG);
 
 	progress = new wxProgressDialog(_T("Vowel charts"),_T(""),n_phoneme_tables);

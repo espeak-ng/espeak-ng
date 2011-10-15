@@ -506,7 +506,6 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 	static char single_letter[10] = {0,0};
 	unsigned int dict_flags[2];
 	char ph_buf3[40];
-	char *ptr;
 
 	ph_buf1[0] = 0;
 	len = utf8_out(letter,&single_letter[2]);
@@ -552,7 +551,6 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 
 	// if the $accent flag is set for this letter, use the accents table (below)
 	dict_flags[1] = 0;
-	ptr = &single_letter[1];
 	
 	if(Lookup(tr, &single_letter[1], ph_buf3) == 0)
 	{
@@ -1586,7 +1584,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int decimal_count;
 	int max_decimal_count;
 	int decimal_mode;
-	int hyphen;
 	int suffix_ix;
 	int skipwords = 0;
 	char *p;
@@ -1651,12 +1648,10 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 // NOTE lang=hu, allow both dot and ordinal suffix, eg. "december 21.-én"
 		// look for an ordinal number suffix after the number
 		ix++;
-		hyphen = 0;
 		p = suffix;
 		if(wtab[0].flags & FLAG_HYPHEN_AFTER)
 		{
 			*p++ = '-';
-			hyphen = 1;
 			ix++;
 		}
 		while((word[ix] != 0) && (word[ix] != ' ') && (ix < (int)(sizeof(suffix)-1)))

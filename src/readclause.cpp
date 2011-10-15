@@ -472,10 +472,8 @@ static int GetC(void)
 	int cbuf[4];
 	int ix;
 	int n_bytes;
-	unsigned char m;
 	static int ungot2 = 0;
 	static const unsigned char mask[4] = {0xff,0x1f,0x0f,0x07};
-	static const unsigned char mask2[4] = {0,0x80,0x20,0x30};
 
 	if((c1 = ungot_char) != 0)
 	{
@@ -516,7 +514,6 @@ static int GetC(void)
 		if((ix = n_bytes) > 0)
 		{
 			c = c1 & mask[ix];
-			m = mask2[ix];
 			while(ix > 0)
 			{
 				if((c2 = cbuf[ix] = GetC_get()) == 0)
@@ -535,7 +532,6 @@ static int GetC(void)
 					GetC_unget(c2);
 					break;
 				}
-				m = 0x80;
 				c = (c << 6) + (c2 & 0x3f);
 				ix--;
 			}
@@ -1435,6 +1431,9 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 	sp->voice_variant_number = v->variant;
 	sp->voice_age = v->age;
 	sp->voice_gender = v->gender;
+
+	if(memcmp(variant_name, "!v/", 3) == 0)
+		variant_name += 3;// strip variant directory name
 	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
 	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
 }
@@ -2094,7 +2093,6 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 	int punct_data = 0;
 	int is_end_clause;
 	int announced_punctuation = 0;
-	int prev_announced_punctuation;
 	int stressed_word = 0;
 	int end_clause_after_tag = 0;
 	int end_clause_index = 0;
@@ -2502,7 +2500,6 @@ if(option_ssml) parag=1;
 			linelength = 0;
 		}
 
-		prev_announced_punctuation = announced_punctuation;
 		announced_punctuation = 0;
 
 		if((phoneme_mode==0) && (sayas_mode==0))

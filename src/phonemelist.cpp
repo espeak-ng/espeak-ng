@@ -114,7 +114,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int  insert_ph = 0;
 	PHONEME_LIST *phlist;
 	PHONEME_TAB *ph;
-	PHONEME_TAB *prev, *next, *next2;
+	PHONEME_TAB *next, *next2;
 	int unstress_count = 0;
 	int word_stress = 0;
 	int switched_language = 0;
@@ -123,7 +123,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int regression;
 	int end_sourceix;
 	int alternative;
-	int first_vowel=0;   // first vowel in a word
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -131,8 +130,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_LIST *plist3_inserted = NULL;
 	PHONEME_LIST ph_list3[N_PHONEME_LIST];
 
-	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0,0};
-	PHONEME_LIST2 *plist2 = &ph_list2_null;
+	PHONEME_LIST2 *plist2;
 
 	plist2 = ph_list2;
 	phlist = phoneme_list;
@@ -302,8 +300,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 	for(j=0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++)
 	{
-		prev = ph;
-
 		plist3 = &ph_list3[j];
 
 		if(insert_ph != 0)
@@ -447,9 +443,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				unstress_count = 0;
 			}
 		}
-
-		if(ph->type == phVOWEL)
-			first_vowel = 0;
 
 		if((plist3+1)->synthflags & SFLAG_LENGTHEN)
 		{

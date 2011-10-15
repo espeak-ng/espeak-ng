@@ -386,13 +386,17 @@ static int sleep_until_timeout_or_stop_request(uint32_t time_in_ms)
 ENTER("sleep_until_timeout_or_stop_request");
 
 	int a_stop_is_required=0;
-	struct timespec ts, to;
+	struct timespec ts;
 	struct timeval tv;
 	int err=0;
 
 	clock_gettime2( &ts);
+
+#ifdef DEBUG_ENABLED
+	struct timespec to;
 	to.tv_sec = ts.tv_sec;
 	to.tv_nsec = ts.tv_nsec;
+#endif
 
 	add_time_in_ms( &ts, time_in_ms);
 
