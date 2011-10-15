@@ -2,11 +2,16 @@
 // This file is UTF-8 encoded
 
 
+// NOTE: aii, auu, eii etc. are pronounced [a|i:], [a|u:] and [e|i],
+// but aaii, aauu and eeii must be pronounced [a:i:], [a:u:] and [e:i:].
+
 .group a
           a          a
           aa         a:
           ai         ai
+          aii        a|i:        // naiivi
           au         au
+          auu        a|u:
 
        &) a (lla_    %a
 
@@ -17,7 +22,9 @@
           ä          &
           ää         &:
           äi         &i
+          äii        &|i:
           äy         &y
+          äyy        &|y:
 
        &) ä (lla_    %&
 
@@ -31,6 +38,7 @@
           c          k
           c (i       s
           c (e       s         // Pronounce c as s. Mostly foreign words such as celcius, center, cervantes, cezanne.
+          c (y       s
           cc         k:        // Utter cc as k. This includes rebecca, accord, puccini etc.
 
        K) ch (r      k
@@ -47,11 +55,15 @@
           e          e
           ee         e:
           ei         ei
+          eii        e|i:    // fenoliftaleiini
           eu         eu
+          euu        e|u:
           ey         ey
+          eyy        e|y:
 
        &) e(lla_     %e
        &) e(llä_     %e
+
 
 .group f
           f          f
@@ -70,8 +82,11 @@
           i          i
           ii         i:
           iu         iu
+          iuu        i|u:
           ie         ie
+          iee        i|e:       // dieetti
           iy         iy
+          iyy        i|y:
 
           // iä         ii&      // Improve the i in iä words. Eg. ryhmiä (ryhmä), äitiä.
           // ia         iia      // Improve the i in ia words. Eg. mattia, lattia.
@@ -103,7 +118,7 @@
 .group n
           n          n
           ng         N:
-          ng (_      N
+          ng (K      N    // ng is [N] also when followed by a consonant
           n (p       m
           n (_p      m
           n (k       N
@@ -117,9 +132,12 @@
           o          o
           oo         o:
           oi         oi
+          oii        o|i:   // heroiini
           ou         ou
+          ouu        o|u:
 
-     symb) o (l      oo         // double the o in symboli. Include inflections and compound words.
+     symb) o (l      o:         // double the o in symboli. Include inflections and compound words.
+     symb) o (loi    o   // symboloida with short o
 
 
 
@@ -127,7 +145,9 @@
           ö          Y
           öö         Y:
           öi         Yi
+          öii        Y|i:
           öy         Yy
+          öyy        Y|y:
 
 
 
@@ -140,7 +160,7 @@
 
      kam) p (anj     p:      // double the p in kampanja. Include inflections and compound words.
 
-     sam) p (oo      p:      // double the p in sampoo. Include inflections and compound words.
+//     sam) p (oo      p:      // double the p in sampoo. Include inflections and compound words. ”Sampoon” is an inflected form of the word ”sampo” and has a short p. It is not wrong to pronounce sampoo as [s'ampo:] either. Don’t double the p.
     sham) p (o       p:      // double the p in shampo. Include inflections and compound words.
 
 
@@ -157,14 +177,19 @@
           s          s
           ss         ss2      // [s2] is a continuation for [s]
        K) sh         S
+       @) sh (an_     sh    
+       @) sh (än_     sh    // preesens+hän and similar ones with sh as separate sounds
+
+
        K) sch        S        // Schmitt
 
-       @) sti (_     sti_X1    // double the initial consonant of the next word
+       A) sti (_     sti_X1    // double the initial consonant of the next word only when the –sti ending is preceded by a vowel (e.g. ”teksti” does not double)
 
 
 .group t
           t          t
           tt         t:
+          tz         ts      // German names. Instead of former [tts]
 
        @) tse (_     tse_X1    // double the initial consonant of the next word
 
@@ -173,7 +198,11 @@
           u          u
           uu         u:
           ui         wi
+       _) ui         ui   
+      _j) ui         ui   // [ui] sounds better than [wi] when stressed. Especially <jui> at the beginning of the word sounds bad if pronounced [jwi]
+          uii        u|i:
           uo         uo
+          uoo        u|o:
 
 
 .group v
@@ -193,24 +222,32 @@
           y          y
           yy         y:
           yi         yi
+          yii        y|i:
           yö         yY
+          yöö        y|Y:
+
 
 
 .group z
           z          ts
-          zz         t:s
+          zz         ts      // pizza
        K) zh         Z
 
-       pi) zza       tsa       // Pronounce pizza as pitsa. Include inflections and compound words.
 
 
 .group
           å          o
           åå         o:
+          ü          y
+          üü         y:
           š          S
           ž          Z
 
-          $	dollarin
+          $	     dollarin
       __) - (_D        mi:nus
       A_) - (_D        _
       C_) - (_D        _
+
+
+
+ 

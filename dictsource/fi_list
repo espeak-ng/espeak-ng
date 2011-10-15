@@ -59,23 +59,23 @@ _:	kaksoispiste
 %	prosent:i
 _(	alkusulku
 _)	lop:usulku
-_[	alkuhaka2
-_]	lop:uhaka2
+_[	alkuhaka
+_]	lop:uhaka
 _{	alkua:lto
 _}	lop:ua:lto
 _<	p'ienempIk'uin
 _>	s'u:rempIk'uin
-_-	vi:va2
-__	ala2vi:va2
+_-	vi:va
+__	alavi:va
 +	plus	$max3
 *	asteriski	$max3
 =	'yht&k'uin	$max3
 %	prosent:I	$max3
-/	kaut:a2
+/	kaut:a
 \	keno
 €	euro
-£	punta2
-¤	valu:t:a2
+£	punta
+¤	valu:t:a
 &	_et
 @	_&t
 ~	tilde
@@ -98,7 +98,7 @@ _5       v'i:si
 _6       k'u:si
 _7       s'eitsem&n
 _8       k'ahdeksan
-_9       'yhdeks&m
+_9       'yhdeks&n
 _10      k'ymmenen
 _11      'yksitoista
 _12      k'aksitoista
@@ -114,16 +114,16 @@ _3X      k'olmekymment&
 _4X      n'elj&kymment&
 _5X      v'i:sikymment&
 _6X      k'u:sikymment&
-_7X      s'eitsem&nk,ymment&
-_8X      k'ahdeksank,ymment&
-_9X      'yhdeks&mk,ymment&
+_7X      s'eitsem&Nk,ymment&
+_8X      k'ahdeksaNk,ymment&
+_9X      'yhdeks&Nk,ymment&
 _0C      s'ata:_
 _1C      s'ata
 _0M1     t'uhat:a
 _1M1     t'uhat          // no '1' before thousand
 _0M2     m'iljo:na:
 _1M2     m'iljo:na
-_0M3     m'iljardi
+_0M3     m'iljardia
 _1M3     m'iljardi
 _0M4     b'iljo:na:
 _1M4     b'iljo:na
@@ -143,7 +143,7 @@ te   $u
 he   $u
 ne   $u
 
-itse  $u $double      // reflexive pronoun
+itse  $u+ $double      // reflexive pronoun
 
 tämä  $u+ // this
 tämän  $u+
@@ -222,7 +222,7 @@ ja     $u $pause // and
 entä   $u $pause // and
 tai    $u $pause // or
 vai    $u $pause
-mutta  $u $pause // but
+mutta  $u+ $pause // but
 
 // negative
 
@@ -237,7 +237,7 @@ eivät $u
 
 
 // auxillary verbs
-olla    $u // to be
+olla    $u $double  // to be
 olen    $u
 olet    $u
 on      $u
@@ -267,12 +267,12 @@ lienee    $u
 lienemme  $u
 lienette  $u
 lienevät  $u
-liene     $u
+liene     $u $double
 lienneet  $u
 
 
 // some common adjectives and adverbs
-vähän   $u // some
+vähän   $u+ // some
 
 // words that cause doubling
 kiinni  $double
@@ -284,6 +284,7 @@ tuore   $double
 aihe    $double
 aste    $double
 kone    $double
+ihme    $double    // miracle. Common in spoken Finnish of Helsinki.
 laite   $double
 lause   $double
 luode   $double
@@ -294,6 +295,7 @@ purje   $double
 tunne   $double
 vene    $double
 virhe   $double
+virke   $double    // sentence (full one, unlike lause)
 
 aja     $double
 auta    $double
@@ -304,33 +306,85 @@ pure    $double
 syö     $double
 tule    $double
 
+// Verb base forms and passive present connegatives
+ajeta     $double   // passive connegative
+auteta    $double   // connegative
+mennä     $double   // base form and connegative
+oteta     $double   // connegative
+pueta     $double   // connegative
+pukea     $double   // base form
+purra     $double   // both
+syödä     $double   // both
+tulla     $double   // both
+
+// No doubling, ends in -sti
+kasti    kastI   // Adverbs that end in –sti cause doubling of the following consonant. These are some other words that end in –sti and therefore they don’t double the following consonant. 
+kesti    kestI
+kosti    kostI
+kyösti   kyYstI
+pelasti  pelastI
+pianisti pianistI
+posti    postI
+puristi  puRIstI
+pysti    pystI
+päästi   p&:stI
+rasti    RastI
+risti    RistI
+ryösti   RyYstI
+varasti  vaRastI
+viulisti viulIstI
+
+// No doubling, ends in –lle
+galle    galle
+hille    hille
+nalle    nalle
+kalle    kalle
+pelle    pelle
+polle    polle
+promille pRomIlle
+sirkuspelle  siRkuspelle
+ville    ville
+wille    ville
+
+// No doubling, ends in –nne
+Anne     anne $capital
+hanne    hanne
+janne    janne
+manne    manne
+marianne maRIanne
+susanne  susanne
+
+// No doubling, ends in –tse
+konfutse     konfutse
+kungfutse    kuNfutse
+
+
+
 // Pronunciation exceptions
 
-ok        oo_,ko:
-// ok     _^_EN                  // Translates to english o'kay.
-okay      okei
-
-// Jogurtti (also: jugurtti or jukurtti)
-yoghurt    jogurtti
-yogurt     jogurtti
+ok         'o:_,ko:
+okay       okei
+yoghurt    jogurt:i
+yogurt     jogurt:i
 
 
 // Abbreviations
 
-abc        'a:,be:,se:
-os         o:&s:   $dot
-ad         a:de:   $dot            // anno Domini, Herran vuonna
-ca         'se:a:    $dot            // circa 
-em         e:,&m  $dot    
-ekr        'e:,ko:,&r   $dot         // ennen Kristuksen syntymää
-etc        et_setera  $dot          // et cetera, ym., jne.
-ym         ynn&_mu:ta  $dot        // ynnä muuta (etc)
-eg         esimerkiksi  $dot       // exempli gratia, esimerkiksi
-jne        'ji,&n,e:  $dot  // ja niin edelleen
-(à la)     'ala    $dot            // jonka mukaan
-ky         ko:y:   $dot            // kommandiittiyhtiö
-oy         o:y:                    // osakeyhtiö 
-nro        numero  $dot
+abc        $abbrev
+adhd       $abbrev
+os         $abbrev    $dot
+ad         $abbrev    $dot    // anno Domini, Herran vuonna
+ca         $abbrev    $dot    // circa 
+em         $abbrev    $dot 
+ekr        $abbrev    $dot    // ennen Kristuksen syntymää
+etc        et_setera  $dot    // et cetera, ym., jne.
+ym         ynn&_mu:ta  $dot   // ynnä muuta (etc)
+eg         esimerkiksi $dot   // exempli gratia, esimerkiksi
+jne        $abbrev    $dot    // ja niin edelleen
+(à la)     'ala       $dot    // jonka mukaan
+ky         $abbrev    $dot    // kommandiittiyhtiö
+oy         $abbrev            // osakeyhtiö 
+nro        numero     $dot
 
 
 

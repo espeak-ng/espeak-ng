@@ -363,21 +363,24 @@ websites _^_EN
 weekend _^_EN
 
 
-// verbs where -ent is not a stressed ending
-bakent		$alt
-effent		$alt
-jegent		$alt
-kerstent	$alt
-ketent		$alt
-loochent	$alt
-oefent		$alt
-opent		$alt
-regent		$alt
-rekent		$alt
-stevent		$alt
-tekent		$alt
-wapent		$alt
-zegent		$alt
+// verbs where -ent, -ene, -enen is not a stressed ending
+baken		$alt
+effen		$alt
+jegen		$alt
+kersten		$alt
+keten		$alt
+loochen		$alt
+oefen		$alt
+open		$alt
+regen		$alt
+reken		$alt
+schepen		$alt
+steven		$alt
+teken		$alt
+wapen		$alt
+zegen		$alt
+trokken		$alt
+zeten		$alt
 
 
 // words where -er is not a stressed verb ending

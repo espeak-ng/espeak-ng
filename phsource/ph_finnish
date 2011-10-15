@@ -237,6 +237,11 @@ endphoneme
 
 
 
+phoneme r
+  import_phoneme base/R
+endphoneme
+
+
 phoneme R2   // this is [R2], but shorter
   liquid
   trill

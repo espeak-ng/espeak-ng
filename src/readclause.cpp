@@ -1432,8 +1432,8 @@ void SetVoiceStack(espeak_VOICE *v, const char *variant_name)
 	sp->voice_age = v->age;
 	sp->voice_gender = v->gender;
 
-	if(memcmp(variant_name, "!v/", 3) == 0)
-		variant_name += 3;// strip variant directory name
+	if(memcmp(variant_name, "!v", 2) == 0)
+		variant_name += 3;// strip variant directory name, !v plus PATHSEP
 	strncpy0(base_voice_variant_name, variant_name, sizeof(base_voice_variant_name));
 	memcpy(&base_voice, &current_voice_selected, sizeof(base_voice));
 }
