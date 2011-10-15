@@ -151,6 +151,7 @@
              ds (_N       ts
              d (st        t
 //          _) de (CC@P2      d@  // Used a lot in family names
+          _) de (geen     d@    // degene, degenen
           _) de (zelf     d@
 
 
@@ -213,13 +214,16 @@
          el) en (_+S2qd   @n
          er) en (_+S2qd   @n
 
+          &) en (e_$p_altS3  =@n@
+          &) en (en_$p_altS4 =@n@n
+          &) en (t_$p_altS3  =@nt
+
           &) ens (_S3q    @ns
          ll) en (_S3      @n
           &) end (_       @nd
           &) ende (_S1    @
           &) enden (_S2   @n
              eden         e:d@n
-          &) ent (_$w_alt =@nt
           @) ent (_       'Ent
           @) ent (e_      'Ent
           @) ent (en_     'Ent
