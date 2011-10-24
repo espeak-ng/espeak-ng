@@ -151,11 +151,11 @@ _12o tVlfd3 // 12. tolvte
 _2Xo   t'yv@n@ // 25.
 _3Xo   tr'&#ft@ //36.
 _4Xo   fWV'tyv@n@ // 42.
-_5Xo   halt*'Esenstyv@n@ // 52.
+_5Xo   h&lt*'Esenstyv@n@ // 52.
 _6Xo   tr'Esenstyv@n@ // 62.
 _7Xo    h&lfj'&rsenstyv@n@ // 72.
 _8Xo    firsenstyv@n@ // 82.
-_9Xo   half'Emsenstyv@n@ // 95.
+_9Xo   h&lf'Emsenstyv@n@ // 95.
 
 // function words
 
@@ -362,25 +362,24 @@ warrior     _^_EN
 
 // PB names
 august OgOsd $capital
-austin      _^_EN $alt
-bailey      _^_EN $alt
-bbc		    _^_EN $alt
-boston      _^_EN $alt
-bronx       _^_EN $alt
-boyle       _^_EN $alt
+austin      _^_EN
+bailey      _^_EN
+bbc		    _^_EN
+boston      _^_EN
+bronx       _^_EN
+boyle       _^_EN
 cyrus       _^_EN
-cia         _^_EN $alt
+cia         _^_EN
 fox         _^_EN
-leroy        _^_EN $alt
-luke       _^_EN $alt
-mansfield   _^_EN $alt
-mahoney     _^_EN $alt
-montreal    _^_EN $alt
-oregon      _^_EN $alt
+leroy        _^_EN
+luke       _^_EN
+mansfield   _^_EN
+mahoney     _^_EN
+montreal    _^_EN
+oregon      _^_EN
 piccadilly  _^_EN
-reynolds    _^_EN $alt
-//purvis      _^_EN
-white       _^_EN $alt
+reynolds    _^_EN
+white       _^_EN
 
 // PB French words
 croquis     _^_FR
@@ -581,7 +580,6 @@ hydrant  $alt
 ignorant  $alt
 immigrant  $alt
 imposant  $alt
-//infant  $alt
 informant  $alt
 injuriant  $alt
 insinuant  $alt
@@ -1157,12 +1155,11 @@ monoman $alt2
 morian $alt2
 mytoman $alt2
 narkoman $alt2
-//norman $alt2
 nymfoman $alt2
 obsidian $alt2
 ocean $alt2
 oktan $alt2
-Oman $alt2
+oman $alt2
 organ $alt2
 orkan $alt2
 osman $alt2
@@ -1194,7 +1191,6 @@ Taiwan $alt2
 talisman $alt2
 tarlatan $alt2
 tartan $alt2
-//timian $alt2
 titan $alt2
 tukan $alt2
 tulipan $alt2
@@ -1521,6 +1517,7 @@ evidens $alt
 excellens $alt
 filipens $alt
 fluorescens $alt
+flatulens $alt
 fosforescens $alt
 frekvens $alt
 imens $alt
@@ -2159,7 +2156,6 @@ etik  $alt
 eugenik  $alt
 excentrik  $alt
 fabrik  $alt
-//falkeblik  $alt
 folkloristik  $alt
 fonetik  $alt
 fysik  $alt
@@ -2862,7 +2858,7 @@ monogami  $alt
 origami oreg'ami  $alt
 pandemi  $alt
 polygami  $alt
-salami sal'&mi  $alt
+salami s&l'&mi  $alt
 socionomi  $alt
 sodomi  $alt
 stomi $alt
@@ -2911,7 +2907,6 @@ dessin des'EN  $alt
 dioxin  $alt
 disciplin  $alt
 doktrin  $alt
-//(drive-in) drajv'in  $alt
 dusin  $alt
 endokrin  $alt
 endorfin  $alt
@@ -5429,6 +5424,7 @@ ynkværdig   $alt
 ærefrygtig   $alt
 ærgerrig   $alt
 ærværdig   $alt 
+øjeblikkelig $alt
 ømfindtlig   $alt
 ømtålelig   $alt
 ømtålig   $alt
@@ -5824,6 +5820,7 @@ amper   $alt
 amputer   $alt
 analogiser   $alt
 analysere   $alt
+psykoanalysere  $alt
 angliser   $alt
 animer   $alt
 annekter   $alt
@@ -6412,6 +6409,7 @@ invalidere   $alt
 inventer   $alt
 inverter   $alt
 invester   $alt
+geninvester   $alt
 inviter   $alt
 involver   $alt
 ioniser   $alt
@@ -6965,6 +6963,7 @@ ratihaber   $alt
 rationaliser   $alt
 rationere   $alt
 reager   $alt
+afreager   $alt
 reaktiver   $alt
 realiser   $alt
 reassumer   $alt
@@ -8951,6 +8950,7 @@ bastion   $alt
 benediktion   $alt
 billion   $alt
 centralisation   $alt
+centurion $alt
 cirkulation   $alt
 citation   $alt
 civilisation   $alt
@@ -10673,6 +10673,7 @@ prosektor  $alt
 protektor  $alt
 radiator  $alt
 reaktor  $alt
+rektor $alt
 receptor  $alt
 recitator  $alt
 reflektor  $alt
@@ -11128,12 +11129,11 @@ egne	a:in@
 enter	entV
 ide	id'e	// idea
 idé	id'e	// idea
-//igen	igen
+tune tun3 $capital // PB Tune lufthavn - not "tune a car" [tjune]
 ny	ny	// new
 også	Vs@	// also
 idet	id'e	// in so far as
 (rub og stub)  R'Ob||V||sd'Ob
-slags	sl'ags	// sort, type
 tre	tr'e	// the number 3
 rejicere rejis'eV          // PB should not be pronounced [raje]
 rejicerer rejis'eV         // PB

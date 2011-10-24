@@ -255,6 +255,13 @@ phoneme aI@
 endphoneme
 
 
+phoneme aI3
+  vowel  starttype #a  endtype #@
+  length 280
+  ChangePhoneme(aI@)
+endphoneme
+
+
 phoneme aU@
   vowel  starttype #a   endtype #@
   length 280

@@ -183,6 +183,7 @@
 
 // Punctuation types  returned by ReadClause()
 // bits 0-7 pause x 10mS, bits 12-14 intonation type,
+// bits12-14 intonation type
 // bit 15- don't need space after the punctuation
 // bit 19=sentence, bit 18=clause,  bits 17=voice change
 // bit 16 used to distinguish otherwise identical types

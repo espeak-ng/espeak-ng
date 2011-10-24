@@ -408,6 +408,7 @@ endphoneme
 
 phoneme b
   vcd alv frc sibilant
+  voicingswitch p
   IF nextPh(l2) THEN
     ChangePhoneme(p)
   ENDIF
@@ -416,6 +417,7 @@ endphoneme
 
 phoneme d
   vcd alv stop
+  voicingswitch t
   IF nextPh(l2) THEN
     ChangePhoneme(t)
   ENDIF
@@ -424,6 +426,7 @@ endphoneme
 
 phoneme g
   vcd vel stop
+  voicingswitch k
   IF nextPh(l2) THEN
     ChangePhoneme(k)
   ENDIF

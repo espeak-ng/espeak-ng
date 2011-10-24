@@ -262,7 +262,7 @@ U+302	s3:kVmflEks_
 U+303	tIld@_
 U+304	makr0n_
 U+306	brEv_
-U+308	daI@ri:sI2s
+U+308	daI3ri:sI2s
 U+30a	rINg_
 U+31e	a#pr'0ksIm@nt_
 U+325	rINg_
@@ -1176,7 +1176,7 @@ fetus            fi:t@s
 fi               f,aI		// as in "hi-fi"
 fiasco           fi:'askoU
 fiat             fi:@t
-fiery            faI@rI
+fiery            faI3rI
 finale           fI2nA:li
 finance          faInans       $only
 finance                        $verb
@@ -1384,7 +1384,7 @@ insect            $1
 insert           Ins3:t        $onlys
 insert           Ins'3:t       $verb
 insightful        $2
-inspire          Insp'aI@
+inspire          Insp'aI3
 instal           Inst'O:l	// instalment
 installation     Inst@l'eIS@n
 instinctive       $2
@@ -1408,7 +1408,7 @@ intray           IntreI
 intro             $1
 irate            aIr'eIt
 iris             aIrIs
-iron             aI@n
+iron             aI3n
 irony            aIr@nI
 isosceles        aIs'0s@li:z
 itinerary        aIt'In@r@rI
@@ -1803,7 +1803,7 @@ pioneer          paI@n'i@3
 pious            paI@s
 pipette          pIp'Et
 piquant          pi:k@nt
-piracy           paI@r@si
+piracy           paI3r@si
 piranha          p@rA:n@
 pirate           paIr@t
 pisces           paIsi:z
@@ -2305,7 +2305,7 @@ twas             tw0z
 twilight         twaIlaIt
 twos             tu:z
 typo             taIpoU
-tyr              taI@
+tyr              taI3
 
 ukulele          ju:k@l'eIli
 ultraviolet                    $3
@@ -2378,8 +2378,8 @@ vineyard         vInj3d
 vinyl            vaInI2l
 viola            vaI'oUl@
 violin                         $2
-virus            vaI@r@s
-viral            vaI@r@L
+virus            vaI3r@s
+viral            vaI3r@L
 visa             vi:z@
 visit            vIzI2t
 voila            vwal'a
@@ -3502,13 +3502,14 @@ like             laIk          $strend2
 ?3 current	k'3@nt
 ?3 depot        di:poU
 ?3 detail       $2
-?3 dialog	daI@lO:g
+?3 dialog	daI|@lO:g
 ?3 envelope	A:nv@loUp
 ?3 err		e@
 ?3 fortune	fO@tS@n
 ?3 garage	ga#rA:Z
 ?3 herb		3:b
 ?3 hurricane	h3:@keIn
+?3 inquiry      Inkw@ri
 ?3 investigative Inv,EstI2g'eItIv
 ?3 laboratory	labr@tO:ri
 ?3 launch	lA:ntS

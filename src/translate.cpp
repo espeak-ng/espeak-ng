@@ -1436,6 +1436,18 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 		dictionary_flags[0] &= ~FLAG_PAUSE1;
 	}
 
+	if(tr->translator_name == L('h','u'))
+	{
+		// lang=Hungarian, If the last two words of a clause have capital letters (eg. a person name), unstress the last word.
+		if((wflags & (FLAG_LAST_WORD | FLAG_FIRST_UPPER | FLAG_ALL_UPPER | FLAG_FIRST_WORD)) == (FLAG_LAST_WORD | FLAG_FIRST_UPPER))
+		{
+			if(((wtab[-1].flags & (FLAG_FIRST_UPPER | FLAG_ALL_UPPER)) == FLAG_FIRST_UPPER) && ((tr->clause_terminator != 0x90028) || (wflags & FLAG_HAS_DOT)))
+			{
+				ChangeWordStress(tr,word_phonemes,3);
+			}
+		}
+	}
+
 	if((wflags & FLAG_HYPHEN) && (tr->langopts.stress_flags & S_HYPEN_UNSTRESS))
 	{
 		ChangeWordStress(tr,word_phonemes,3);
@@ -1460,6 +1472,7 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 		if((dictionary_flags[0] & FLAG_UNSTRESS_END) && (any_stressed_words))
 			ChangeWordStress(tr,word_phonemes,3);
 	}
+
 
 	// dictionary flags for this word give a clue about which alternative pronunciations of
 	// following words to use.

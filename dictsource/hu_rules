@@ -148,7 +148,7 @@ hierar) ch (i      h
   stri) ch (el     h:
     ar) ch (ív     h
     ar) ch (ivál   h
-    ar) ch (itektúr h
+    ar) ch (itektú h
     ma) ch (iná    h
 oligar) ch         h
  legpe) ch (es     h:
@@ -306,6 +306,8 @@ standar) d (jegy   d
   máso) d (szaká   d         //For example másodszakács, másodszakáccsá words need spokening single d phoneme before s phoneme
    _ná) d (söv     d         //for example nádsövénnyé word
         dt (sz     t:
+miliár) d (szor    d
+   tér) d (sérül   d
 
 .group dz
   fogó) dz (kod    ts
@@ -1285,6 +1287,9 @@ házasi) ts (a      tS:
 _pázsi) t (sz      t
 fejeze) t (sor     t
     _o) ttj (ár    tj
+ _spor) t (cél     t
+    pó) t (selejt  t
+  diva) t (cikk    t
 
 .group tj
      C) tj         c
@@ -1773,6 +1778,7 @@ magyará) z (kod    s
     ro) zszs (em   Z:
    _gő) z (süvölt  z
   ezkö) z (sor     z
+   wal) z (er      ts
 
 .group
         $          dolla:R2

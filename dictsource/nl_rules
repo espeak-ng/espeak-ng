@@ -151,6 +151,7 @@
              ds (_N       ts
              d (st        t
 //          _) de (CC@P2      d@  // Used a lot in family names
+          _) de (geen     d@    // degene, degenen
           _) de (zelf     d@
 
 
@@ -207,11 +208,15 @@
           &) e (ment      @
           &) e (nissen_   @
 
-          &) en (_S2qd    @n   // double the previous vowel
-        KAC) en (_S2e     @n
+          &) en (_S2qd    @n
+        KAC) en (_S2e     @n   // flag 'e' means double the previous vowel
         and) en (_S2      @n
          el) en (_+S2qd   @n
          er) en (_+S2qd   @n
+
+          &) en (e_$p_altS3e  =@n@   // flag 'e' means double the previous vowel
+          &) en (en_$p_altS4e =@n@n
+          &) en (t_$p_altS3e  =@nt
 
           &) ens (_S3q    @ns
          ll) en (_S3      @n
@@ -219,7 +224,6 @@
           &) ende (_S1    @
           &) enden (_S2   @n
              eden         e:d@n
-          &) ent (_$w_alt =@nt
           @) ent (_       'Ent
           @) ent (e_      'Ent
           @) ent (en_     'Ent
