@@ -1441,7 +1441,7 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 		// lang=Hungarian, If the last two words of a clause have capital letters (eg. a person name), unstress the last word.
 		if((wflags & (FLAG_LAST_WORD | FLAG_FIRST_UPPER | FLAG_ALL_UPPER | FLAG_FIRST_WORD)) == (FLAG_LAST_WORD | FLAG_FIRST_UPPER))
 		{
-			if((wtab[-1].flags & (FLAG_FIRST_UPPER | FLAG_ALL_UPPER)) == FLAG_FIRST_UPPER)
+			if(((wtab[-1].flags & (FLAG_FIRST_UPPER | FLAG_ALL_UPPER)) == FLAG_FIRST_UPPER) && ((tr->clause_terminator != 0x90028) || (wflags & FLAG_HAS_DOT)))
 			{
 				ChangeWordStress(tr,word_phonemes,3);
 			}

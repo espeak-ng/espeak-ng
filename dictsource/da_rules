@@ -42,9 +42,12 @@
 // PB consonant + a + consonant => a:
      C) a (Ce      &:        // PB plade, base, mase
      C) a (rL04    A         // PB karismatisk
+     t) abernak    abVn'ak   // PB tabernakel, tabernakler
    mil) a (no      '&:       // PB stressed
      C) a (rL11    a         // PB bare
      r) a (C+      A         // PB drab
+  _der) af (_      ,&        // PB
+        a (nstreng+ &        // PB overanstreng
         a (ntal+   &         // PB meterantal
         a (ttach+  &         // PB militærattache
   hvor) af         =,&       // PB
@@ -52,6 +55,7 @@
   oreg) a (no      '&:       // PB stressed
   laud) a (num     '&        // PB stressed
      w) a (ter     O         // PB
+        arapahoe   &r'&p&hOw // PB
 
 // PB consonant + a + double consonant => &
      C) a (C%      &         // PB pladder, basser, masser
@@ -60,6 +64,7 @@
      v) a (cc      a         // PB vaccinere
      s) a (bbat    &         // PB
   grim) a (sse     '&        // PB stressed
+    _c) annes      &:n:      // PB French city
 
 // PB amm => [a]
         a (mm+     a         // PB kammerat, amme
@@ -85,6 +90,7 @@
     br) a (C       A         // PB Abraham
    _br) ando       &ndOw     // PB M<arlon Brando
      r) a (n       A         // PB ran, ransage
+     r) anda (l    and-0     // PB Randall - name
     tr) a (C       A         // PB straf, traf, trav
    str) a          A         // PB ekstra
      r) a (L06     A         // PB trappe
@@ -133,6 +139,7 @@
 // PB General rule a between L02: [A]
    L02) a (L02     A         // PB mappe - too broad?
    L02) a (L02e    &         // PB hvabehar - too broad?
+    _b) abe (_     Ejp       // PB Babe Ruth
      f) a (L02rL04 &         // PB fabrik
    L02) a (L02le   &         // PB vable
      v) a (f++     a         // PB vafler
@@ -157,6 +164,7 @@
      C) a (mL04+   &         // PB Samuel, familie
      C) a (mæ+     &         // PB kamæleon TEST
      g) ama (ch    &m'&      // PB gamacher
+   pan) a (ma      &         // PB
   _dyn) a (mo      '&        // PB stressed
    inf) a (m       '&        // PB stressed
      h) a (mburger &         // PB junkfood
@@ -219,7 +227,7 @@
 
 // PB general rule: [a] after k	 before m
      k) a (m       a         // PB kam, kamp
-     c) a (mp      &         // PB camping
+     c) a (mp+     &         // PB camping
 
 // PB general rule: [&] after d
      d) a (mL11+   &         // PB dame, damask
@@ -264,6 +272,7 @@ gammeld) a (gs     &         // PB
 
 // PB general rule: [Au] after m/n before g (au)
    L09) ag (+      Au        // PB nagle
+     n) agasaki    ag&s'aki  // PB
      m) agne (t    Aun'e     // PB magnet
      m) ag (i+     &g        // PB magi
    arm) agna (c    &N'A      // PB
@@ -349,12 +358,18 @@ _longob) a (rd     'A        // PB stressed
    _al) a (rm      'A        // PB stressed
   _mon) a (rk      'A        // PB stressed
   _mon) a (rki     A'        // PB stressed
+ _bulg) a (r       'A        // PB bulgarer - stressed
 
 // PB general rule: [a] before velars
         a (L01++   a         // planke, slanke, anke, flanke, gang
         a (L01L04++ &        // PB bajonet, lagune
+     s) a (ng+     a         // PB sangundervisning
+        ag (gregat &         // PB
+        ang (ul++  ang       // PB rektangulær
+     m) ang (o     ang       // PB
      j) a (L10o+   A         // PB Jakob, Jacob
      C) a (nL10L04++ a       // PB blankocheck
+     h) a (nkøn++  &         // PB
      h) a (j++     a         // PB hajøjne
     sp) a (nkuler  a         // PB
         akryl      &kr'yl    // PB
@@ -382,6 +397,7 @@ boomer) a (ng      'A        // PB stressed
         a (ggres++ &         // PB aggression
    spr) ag (let    Aw        // PB
         a (L01e++  a         // bange
+  tilf) a (nge     'a        // PB tilfangetagelse
 michel) angelo     'andZ3lo  // PB name
   firm) a (+       &         // OB firmajet
     re) a (g+      &         // PB reagere, reagensglas
@@ -393,9 +409,11 @@ michel) angelo     'andZ3lo  // PB name
      b) a (gage++  &         // PB bagage
      s) a (g+      &         // PB ankesag, sag, sago, heksagon
      s) ag (C+     Au        // PB sagfører
+     s) ag (s_+    &j        // PB for den sags skyld
      s) a (gsma++  &         // PB sagsmappe
      s) a (gsan++  &         // PB sagsanlæg
      s) a (gsom++  &         // PB sagsomkostninger
+     s) a (gsbehandl++ &     // PB sagsbehandler
 snakkes) ag (lig   '&        // PB
      s) ag (sø     Au        // PB sagsøge
     sl) a (ng+     &         // PB
@@ -412,6 +430,7 @@ snakkes) ag (lig   '&        // PB
         a (gt      A         // agt
      l) a (gt+     A         // PB lagt - avoid [au]
   forl) a (gt_     ''A       // PB stressed
+  _bat) a (lje     '&        // PB stressed
 
 // PB general rule: [A] before vn
         a (vn+     A         // favn, savn, avner
@@ -443,6 +462,7 @@ snakkes) ag (lig   '&        // PB
      l) a (kr      %&        // PB lakrids
      e) a          &         // PB Korea, azalea
      b) ay         aj        // PB bayersk
+    _b) ay (_      Ej        // PB Thunder Bay
         ayatollah  aj&t'Vl&  // PB
      b) ayreuth    ajR'Vjt   // PB German town
      m) anhattan   &nh'&t@n  // PB
@@ -525,6 +545,7 @@ himmel_og_h) av    Au        // PB "sea/ocean" not "have" = "garden"
     @l) a (g       &j        // PB nederlag
     _v) ag (_      &j        // PB
     _v) ag (e_     &j        // PB
+lidt_v) ag (t      &j        // PB
     gr) ape        Eb        // PB grapefrugt
         astaire    &sd'E:r   // PB name
         albuquerque &l/2b3kWki // PB US city
@@ -532,6 +553,7 @@ himmel_og_h) av    Au        // PB "sea/ocean" not "have" = "garden"
         a (merikan a         // PB amerikansk
         aids       Eids      // PB
         air        Er        // PB airbag
+     n) ai (robi   aj'       // PB
     _k) airo       ajro      // PB Kairo
      c) ai (ro     aj        // PB
    det) ai (l      'aj       // PB detailhandel
@@ -558,9 +580,10 @@ ginger_) ale       Ejl       // PB
      l) a (seren   Ej        // PB
      l) a (sernes  Ej        // PB
      m) ay (a      aj        // PB
+ _indi) a (na      '&        // PB stressed - U.S. state
 
 // PB stressed a in final -al in $alt words in da_list
-     &) al ($p_alt+ '&l      // fatal, monumental, krystalklar
+     &) al ($p_alt+ ''&l     // fatal, monumental, krystalklar, regional
      &) al (e_$p_alt+ ''&l   // PB anale
     &r) al (e_$p_alt+ 'Al    // PB liberale
      r) al ($p_alt++ 'Al     // [A] after "r" - general, neutral, koral
@@ -573,6 +596,9 @@ ginger_) ale       Ejl       // PB
 
 // PB words in da_list with final -ance - stressed a
      &) ance ($p_alt 'ANs@   // balance, romance
+     &) ance (r$p_alt 'ANsV  // nuancer
+   voy) ance ($p_alt ''ANs   // clairvoyance
+
      &) anche ($p_alt 'ANs@  // revanche
      &) ance (+    ANs@      // PB unstressed after a syllable - ferieromance
      &) ance (re+  ANse      // PB afbalancere
@@ -724,6 +750,8 @@ kanonl) avet       &vet      // PB exception - French origin
      b) a (jer     a         // PB
      b) aby (+     eibi      // PB baby
      _) a (nder    a         // PB anderledes
+     _) anderson   &ndVsVn   // PB name
+     _) angie      &ndZi     // PB name
      _) a (ndet    &         // PB andet
      _) a (nden    &         // PB anden
      t) a (bt      a         // PB tabte
@@ -745,10 +773,11 @@ interf) a (ce      ei        // PB interface
         a (fC+     a         // PB af = au and exceptions in the f group
         a (ffære+  &         // PB
     st) a (ffage   &         // PB
+        a (ffutage &         // PB
         aftershave aftVSEjv  // PB
    gir) a (f       'A        // PB
    sof) a          &         // PB sofafjeder
-        a (ffek+   &         // PB affekt
+     _) a (ffekt+  &         // PB affekt
         a (fsted+  &         // PB afstedkomme
    col) a          &         // PB colaflaske
      C) a (ft      A         // PB haft, saft
@@ -772,6 +801,7 @@ cornfl) akes       Ejgs      // PB
      t) a (p       a         // PB tap
    kat) a (pult    &'        // PB
      t) a (pL11    &         // PB tapet, tapas
+   _et) a (pe      'a        // PB
      t) a (pi      &         // PB tapir
      _) aha (_     ah'a      // PB
      p) a (pi      &         // PB papir - replace with: p) a (CL04 ??
@@ -826,13 +856,15 @@ kontrab) ande      '&nd3     // PB
      h) a (j       a         // PB haj
 restaur) ant       'AN       // PB added stress
      l) a (p+      a         // PB slap, lap
+     h) a (p       a         // PB haps
+     h) a (ppA     &         // PB happy end, happening
      j) a (pp      a         // PB jappe
      j) a (ps      a         // PB japser
      t) a (nk      A         // PB tankstation
-//     t) a (x       a         // PB taxa
     mj) a (v       A         // PB
   kålr) a (bi      'A        // PB kålrabi - stressed a
         au (++     aw        // PB auto, autoritet
+ vagin) a          &         // PB vaginaudvider
      l) aurie      Ori       // PB name
 astron) au (t      'aw       // PB stressed
     _f) aux        o         // PB faux pas
@@ -843,7 +875,7 @@ astron) au (t      'aw       // PB stressed
      m) aureen     OR'i:n    // PB name
 _dinos) aur        'auV      // PB stressed
 _dinos) aurer      'aurV     // PB stressed
-   sch) au (vin    o         // PB schauvinist
+    ch) au (vin    o         // PB chauvinist
     _p) au (l      O         // PB name
  _biss) au         'a:w      // PB Guinea-Bissau
      s) au (ce     O:        // PB sauce, bearnaisesauce
@@ -851,14 +883,15 @@ _dinos) aurer      'aurV     // PB stressed
   rest) au (r      o
      s) au (terne  o         // PB wine
     @h) av_        Au        // PB ildhav -[Au] = [&v] followed by syllable: ['ilh&:v@D]
-    @k) ar (l      &         // PB bøssekarl
+    @k) ar (l      &         // PB bøssekarl, forkarl
+     k) ar (lene   &         // PB
  afrik) aa (n      A:        // PB afrikaaner
         action     &kSj@n    // PB actionfilm
         aircondition E:rkVndi:S@n
         akkordeon  &k'V:deVn
         attention  at'EnS@n
         athen      &t'en     // PB Athen
-        andrews    &ndRu:z   // PB
+        andrews    &ndRu:s   // PB
         angeles    &ndZ3lEs  // PB
         arrow      &Rou      // PB
         abilene    &bili:n   // PB
@@ -884,6 +917,7 @@ _domin) a (n       '&        // PB stressed - dominans
     sm) a (ck      &         // PB
         aw (K      aw
         ay (K      Ej        // PB a changed to E
+     p) ayne       Ejn       // PB name
  bookm) a (ker     Ej        // PB
     _v) agas       Ejg@s     // PB Las Vegas
      b) acon       EjkVn     // PB
@@ -893,6 +927,7 @@ _domin) a (n       '&        // PB stressed - dominans
 volleyb) all       O:l       // PB
 dovenl) ar (s      &         // PB
     st) ation (car EjS3n     // PB
+        avantgarde &vANg'ard3 // PB
 
 .group af
 
@@ -915,6 +950,7 @@ dovenl) ar (s      &         // PB
      &) age (re$p_alt+ &S'e@ // not for the "age" words - gagere
 hjertemass) age    &:S@      // hjertemassage
     et) age        &S3       // PB stueetage
+     t) age (lse   &j@       // PB tilfangetagelse
  foret) age        &j@       // PB
    bet) age        &j@       // PB betaget
  varet) age        &j@       // PB
@@ -965,7 +1001,7 @@ hjemmeb) ag (_     &j        // PB
      b) ag (udgang Au        // PB bagudgang
      p) age (++    &:S@      // PB page, pagehår
   band) age        &:S@      // PB gipsbandage
-    sC) ag         &j        // PB slag, slaget, Skagen, smag
+    sC) ag (+      &j        // PB slag, slaget, Skagen, smag, forslagskasse
     st) agn        AuN       // PB stagnere
     sk) ag (ler    Aw        // PB
   kast) agn (et    &nj'      // PB kastagnetter
@@ -979,6 +1015,8 @@ hjemmeb) ag (_     &j        // PB
      f) ag (@      au        // PB fagsnak, ufaglært, fagarbejde
      f) ag (ter    ag        // PB
      l) ag (C      au        // PB flagstang, lagkage
+   _sl) ag (s_     ag        // PB slags
+   _sl) ag (sen    ag        // PB slagsen
 gennemsl) ag (+    &j        // PB gennemslagskraft
     sl) ag (sværd  au        // PB
     pl) ag         &j        // PB plagsom
@@ -1006,6 +1044,8 @@ hospitalsv) ag (t  ag        // PB
      r) ag (e+     Au        // PB drage, rage
      C) age (+     &:j@      // PB tage, bage, kage
    mut) age (n     &g'e      // PB stressed
+ affut) age        &:S@      // PB missilaffutage
+   bag) age        &:S3      // PB håndbagage
     _b) ag (el+    Ejg       // PB
         age (rn    &jV       // PB "acorn"
      _) age (_     &j3       // PB "age med heste"
@@ -1027,6 +1067,7 @@ hospitalsv) ag (t  ag        // PB
      r) age (++    Aw@       // PB rage, fremragende
      _) age (nt++  &g'E      // PB  agent, agenten - stressed
         age (nt++  &gE       // PB  superagenten, dobbeltagent, forsikringsagent
+rædselssl) age (n  &j@       // PB  rædselsslagent
  suffr) age (tte   AS'E      // PB suffragette - stressed
      r) ager (++   AwV       // PB rager
     tr) agedie     Ag'eDj@   // PB
@@ -1137,7 +1178,7 @@ _trienn) al (e     '&:l
         bei (rut   baj       // PB
   fris) bee        bi        // PB
         burgess    bWdZes    // PB name
-        borough    bV*V      // PB Peterborough
+        borough    bVrV      // PB Peterborough
         buffalo    bVf3lOw   // PB
         barbie     bArbi     // PB name
         billie     bil/2i    // PB name
@@ -1152,6 +1193,7 @@ _trienn) al (e     '&:l
         beijing    bEjdZ'eN  // PB
         bui (lding be        // PB
         browser    bRAwsV    // PB
+     _) butte (_   bju:t     // PB city in Montana
 
 .group be
 // PB words beginning with "be" with stress on the second syllable (850)
@@ -1210,6 +1252,7 @@ _trienn) al (e     '&:l
      _) beech      bitS
      _) beau       %bo       // PB Beaulieu, Beaumont
         beethoven  betov3n   // PB name
+        berkeley   bWkl/2i   // PB
 
 .group c
 
@@ -1248,10 +1291,12 @@ frederi) c (ia     =ks       // PB
         c (k 
         c (ølibat  s         // PB
         ch (+      S         // PB check, chokolade
+        ch (i      tS        // PB chili
    _ma) ch (_      k         // PB sound barrier
         chaplin    tS&plin   // PB name
         challenge  tS&lendZ  // PB
-        chelsea    tSElsi    // PN
+        chelsea    tSElsi    // PB
+        cheyenne   Saj'En    // PB
   maso) ch (is     k         // PB sadomasochisme, masochist
     wi) ch         tS        // PB sandwich
         chicago    Sik'AgOw  // PB
@@ -1317,7 +1362,7 @@ frederi) c (ia     =ks       // PB
 piccadilly_) circus sWk@s    // PB
         coleridge  kOwlridZ  // PB
         colada     kol'AD&   // PB
-     _) creek (_   kri:k     // PB
+        creek      kri:k     // PB
         camembert  kamANb'Er // PB
         crazy      kREjsi    // PB Crazy Horse
         cincinnati sensin'&ti // PB
@@ -1340,6 +1385,7 @@ north_) carolina   k&rol'ajn& // PB
         cézanne    ses'&n    // PB Cézanne
         cézannen   ses'&n3n  // PB Cézannen
         cockney    kVkni     // PB
+		clerk klA:k // PB Clerkenwell
 
 .group d
 
@@ -1357,6 +1403,7 @@ north_) carolina   k&rol'ajn& // PB
         d (øm      d         // PB idømme
      i) d (ol      d         // PB
      u) d (i       D         // PB
+   hou) di (ni     d'i       // PB name
   _pro) du (kt     d'O       // PB produkt
   _pro) du (ktiv   du        // PB produktiv
     bo) d (ega     d         // PB
@@ -1398,6 +1445,7 @@ formal) d (e       d         // PB formaldehyd
         d (åse     d         // PB øldåse
         d (rys     d         // PB kaneldrys
    sol) d (æk      d         // PB
+   bil) d (æk      d         // PB
         d (emens   d         // PB senilodemens
 turtel) d (ue      d         // PB
      l) d (ug      d         // PB meldug
@@ -1447,6 +1495,7 @@ stikor) d                    // PB exception - silent d in 'stikord'
    ski) dt         t         // PB
     tu) ds (e      s         // PB silent d
     bi) d (sk                // PB silent d
+   _ma) d (sen               // PB silent d
   spre) dt         t         // PB spredtes
    sta) ds         s         // PB
   stru) ds         s         // PB
@@ -1499,11 +1548,13 @@ stikor) d                    // PB exception - silent d in 'stikord'
      A) dd         D         // PB skuddene
     _i) d (e       d         d // PB
     _i) d (é       d         // PB
+	evi) d (en d // PB evident
     bi) d (e       D         // PB bider
     ri) d (e       D         // PB
-    vi) d (e       D         // PB videre
+    vi) d (er       D         // PB videre
     ti) d (e       D         // PB tider
  salva) dor        d'O:      // PB El Salvador
+ via) du (kt d'O // PB
  bermu) d (a       d
      a) d (am      d         // PB name
         d (oll     d         // PB babydoll
@@ -1591,13 +1642,14 @@ stikor) d                    // PB exception - silent d in 'stikord'
         debbie     dEbi      // PB name
         download   dawnlowd  // PB
         detroit    detr'Vjt  // PB US city
-        daryl      d&r3l     // PB name
+        daryl      d&r3l/2   // PB name
         drisco     _^_en     // PB name Driscoll
         dutch      dVtS      // PB name
-        darlene    dAli:n    // PB name
+        darlene    dAl'in    // PB name
         doubtfire  dawdfajV  // PB name (movie)
         dickie     deki      // PB name
         dicky      deki      // PB name
+        dewey      djui      // PB name
 
 .group é                     // added by PB
         é          'e        // idé, entré
@@ -1654,6 +1706,7 @@ _still) e (ben     ='e       // PB
   kass) e (tte     'E        // PB stresed
      h) e (dd      e         // PB hedde
      C) e (dA      e         // PB medalje, rede TEST
+   tol) ed (o      'ed       // PB toledostål
    val) e (ncia    'E        // PB
    mal) er         V         // PB maler
    mål) er         V         // PB måleraflæser
@@ -1754,6 +1807,7 @@ banglad) esh       'ES       // PB stressed
 
 //PB general rule: [&#] after r before t
      r) e (t       &#        //PB  ret
+   ber) e (t++     &#        // PB beret, indberet
 karryr) e (t+      &#        // PB
   forr) e (t++     &#        // PB
    opr) e (t++     &#        // PB
@@ -1797,6 +1851,7 @@ stikir) e (nddreng '&#       // PB
    L09) e (de      e         // nede, nederlag
  arkim) e (des     'e        // PB name
    mus) e (um      'E        // PB stressed
+   mus) e (et      'E        // PB stressed
    L09) e (t       e         // metal
 heavy_m) etal      Et3l      // PB
    L09) e (l       E         // mellem
@@ -1839,13 +1894,17 @@ heavy_m) etal      Et3l      // PB
         ee (r      'e:       // PB ideer, cafeer
      k) eefe       'i:f      // PB name
     sh) ee (la     i:        // PB name
+    _r) eed (K     i:d       // PB name
   toup) e          'e        // PB stressed
     fr) ee         i:        // PB Freeman
      w) ee (k      i:        // PB Newsweek
      k) ee (per    i:        // PB
         ee (jer    @a        // PB hundeejer
     gr) ee (n      i:        // PB evergreen
+ kathl) ee (n      'i:       // PB name
     gr) ea (t      Ej        // PB English word
+    sw) ea (ter    E         // PB
+    sw) ea (tre    E         // PB
         easy       isi       // PB
      h) ead        Ed        // PB overhead
     ch) eese       i:s       // PB cheeseburger
@@ -1859,8 +1918,15 @@ heavy_m) etal      Et3l      // PB
     br) e (L09     &#        // PB bremse
     br) enda       End&      // PB name
     sn) e (K+      e         // PB  sne, snebold, nysne
+  lAsn) e (+       3         // PB lysne, løsne
+  lAsn) er (+      V         // PB lysner, løsner
+  visn) e (+       3         // PB visne
+  visn) er (+      V         // PB visner
+  gisn) e (+       3         // PB gisne
+  gisn) er (+      V         // PB gisner
+  _isn) e (+       3         // PB isne
+  _isn) er (+      V         // PB isner
  voksn) e          3         // PB
-  visn) er         V         // PB
     sn) eg (l      aj        // PB
    _sn) e (r_      e         // PB det sner
    _sn) ee (de_    e@        // PB det sneede
@@ -1904,10 +1970,12 @@ provenc) e                   // PB Provence - skip the e
         e (gfi     a         // PB blegfis
     bl) egem (id   aj@m      // PB blegemiddel, blegemidler
         eg (rød    aj        // PB blegrød
+    _b) eg (_      aj        // PB
    æbl) e (grød    3         // PB æblegrød
   bobl) e          3         // PB boblegummi - nothing to do with "bleg"
      _) egen (@    ej@n      // PB egenrådig, egennyttig
      r) e (ste     &#        // PB resten
+   nyr) e (+       V         // PB nyresten
      r) e (staurant E
         e (gansigt &#        // PB blegansigt
 _kongr) e (s       '&#       // PB kongres - stressed but not after a syllable
@@ -1927,7 +1995,8 @@ _aller) e (de_     E         // PB allerede - otherwise the E is changed by anot
         eagle      i:g@l     // PB
      p) ea (co     i:        // PB Peacock
     _p) ea (k_     i:        // PB
-     _) eton       i:t@n     // PB
+    _p) each       i:tS      // PB
+     _) eton       i:t@n     // PB university
 
 // PB final -em - stressed e
      &) em (_$p_alt+ 'em     // PB problem
@@ -1970,7 +2039,8 @@ meterst) e (n      e         // PB  kilometersten
      t) ech        Ek        // PB hightech
 stoneh) enge       EndZ      // PB
    pal) e (rmo     'E        // PB
-    tw) ee (d      i:        // PB
+     w) ee         i:        // PB Sweeney, weekend, tweed
+    tw) eed        i:d       // PB
     _h) ei (di     aj        // PB name
   trap) ez         'Ets      // PB stressed
 
@@ -1980,13 +2050,11 @@ groupi) e                    // PB silent e
  _jani) e                    // PB name - silent e
  _arti) e                    // PB name - silent e
     ud) e          3         // PB studehandel
-   jul) e          3         // PB juleaften
+    ul) e          3         // PB juleaften, gulerod
    afs) e (_       e         // PB afse
    afs) e (t_+     e         // PB afset
   tils) e          e         // PB tilset
 foruds) e          e         // PB
-kamillet) e        e         // PB
-middagst) e        e         // PB eftermiddagste
  godes) e          e         // PB tilgodese
 efters) e          e         // PB
      _) e (_speak  i         // PB eSpeak - capital s makes the e one word
@@ -2005,7 +2073,10 @@ efters) e          e         // PB
      t) e (_       @
   _ist) e          e         // PB iste (cold tea)
  urtet) e          e         // PB herbal tea
+kamillet) e        e         // PB
+middagst) e        e         // PB eftermiddagste
  komit) e          'e        // PB
+ komit) ee (n      'e@       // PB
 variet) e          'e        // PB
 
 // PB Words ending with -se or -ce
@@ -2055,7 +2126,7 @@ _intell) e (kt     'E
  _koll) e (kt_     'E
  _koll) e (kte     'E        kollekten
  _konf) e (kt      'E
- _korr) e (kt      '&
+ _korr) e (kt      '&#
   _obj) e (kt      'E
    obj) e (ktiv    E
  _perf) e (kt      'E
@@ -2152,6 +2223,7 @@ underl) eg         ej        // PB underlegen
    L06) eg (e      aj        // PB p) changed to L06 to include b
      l) ege (me    Ej-@      // PB fornedrelseslegeme
      l) eg (e+     aj        // PM julelege, blege
+  coll) ege        idZ       // PB
      l) eg (ere    eg        // PB legere, priviligeret
      l) egende (_børn aj@n@  // PB
      l) egende (_let aj@n@   // PB
@@ -2178,6 +2250,7 @@ selskabsl) eg      aj        // PB
         e (job+    3         // PB ønskejob
     dr) ej (+      aj        // PB fordrejet
    ykk) e (C       3         // PB lykkejæger
+ skørt) e (C       3         // PB skørtejæger
   hygi) ej (ne     'aj       // PB stressed
         ej (aku    ej        // PB ejakulere
    gal) ej         'aj       // PB stressed
@@ -2205,7 +2278,7 @@ _offic) e (_                 // office (officepakke)
     Ad) en (@      @-n       // udenlandsk, udenad
     Ad) en (t      en        // PB identificere
    sir) ene (+     'En@      // PB
-    gr) ene        En@       // PB grene
+    gr) ene (+     En@       // PB grene
     rr) ed         @D        // PB lærred, ørred
     rr) ed (A      @d        // PB herredømme
  fingr) ene        Vn@       // PB
@@ -2227,6 +2300,7 @@ _parent) e (s      'e        // PB stressed
   _kat) e (der     'e        // PB stressed
   ekst) e (rn      'e        // PB stressed
    bod) e (ga      'e        // PB stressed
+halvfj) e (rds     '&        // PB stressed
  _konc) e (rn      'E        // PB
   merc) e (des     'e        // PB car
 vietnam) e (ser    'e        // PB stressed
@@ -2240,6 +2314,7 @@ vietnam) e (ser    'e        // PB stressed
    all) e (gro     'e        // PB stressed
    _id) e          'e        // PB ide, ideen
     id) ee (l      e'E       // PB ideelle, ideelt
+havann) e (ser     'e        // PB stressed
 
 // PB a few words with final -es - stressed e
    abc) e (s       'E
@@ -2286,8 +2361,10 @@ stript) ease       i:s       // PB
     _t) e (_       e         // PB te
    kin) e (s       'e        // PB kineser
      d) e (s_      @         // PB mødes
-   var) e          @         // PB vareprøve TEST
+    _d) e (s_      e         // PB des = desto, jo
+   var) e         3          // PB vareprøve, varevogn TEST
      _) eddie      Edi       // PB name
+     C) ey (_      i         // PB names with final ey - TEST
   harv) ey         i         // PB name
   disn) ey         i         // PB name
  _barn) ey         i         // PN name
@@ -2312,10 +2389,10 @@ venstr) e          V         // PB venstreorienterede
 // PB plural suffix -ene
      @) ene (_     @n@       // benene
      @) enes (_    @n@s      // benenes
-    @r) ene (_S3   Vn@       // brødrene
+    @r) ene (_     Vn@       // brødrene
     @r) enes (_S4  Vn@s      // brødrenes
    @gg) ene (_S4   @n@       // væggene
-    tj) ene        En@       // PB betjene
+    tj) ene (++    En@       // PB betjene
     tj) ener       EnV       // PB
   forl) ene        'en@      // PB stressed
     ur) ene (_tanker 'en@    // PB
@@ -2401,10 +2478,9 @@ marksk) el         el
      d) eler (+    elV       // PB deler
 bestandd) el       el        // PB
  halvd) el         el        // PB
+  medd) el         el        // PB meddelsom, meddele
 nederd) el         el        // PB
      d) el (ing    el        // PB
-   edd) el         3l        // PB seddel
-  medd) el         del       // PB meddel
 _offici) el (+     'el       // PB officiel
  verbi) el         'el       // adverbiel
    mod) el         el        // PB fotomodel
@@ -2422,7 +2498,7 @@ gennemsku) el (ig  =el
      h) el (t+     el        // PB tøffelhelt
      h) el (st     El        // PB allerhelst
      r) el (at     el        // PB relateret
-     t) el (ef     el        // telefgon
+     t) el (ef     el        // telefon
     ed) el (+      el        // femtedel - words where "del" means 'part of'
    led) el (se     @l        // PB ledelse
    ked) el (+      @l        // grukedel - doesn't mean 'part of'
@@ -2502,6 +2578,7 @@ verdensd) el       el
    jul) eleg       @laj      // PB juleleg
     dr) el (+      Vl        // PB ældre, forældreløs
  alleh) elg (ens   'Elj      // PB stressed - allehelgensdag
+        elliot     EljVt     // PB name
 
 .group en
 // PB noun suffix -en (perlen - the pearl), -ens (perlens - the pearl's)
@@ -2534,7 +2611,8 @@ _persi) enn        'En       // PB
    dep) en         En        // PB fyldepen
 kuglep) en         En        // PB
  filtp) en         En        // PB
-sportsgr) en       en        // PB sportsgren
+sportsgr) en       En        // PB sportsgren
+oliegr) en         En
    app) en (diks   'En       // PB stressed
   susp) en (sion   en        // PB suspension
 retskaff) en       @n
@@ -2563,6 +2641,7 @@ bautast) en        en        // PB
  brost) en         en        // PB
 byggest) en        en        // PB
 drypst) en         en        // PB
+ dækst) en         en        // PB
 fedtst) en         en        // PB
 flintest) en       en        // PB
 flintst) en        en        // PB
@@ -2579,6 +2658,7 @@ kedelst) en        en        // PB
 kværnst) en        en        // PB
 kvaderst) en       en        // PB
  limst) en         en        // PB
+marmorst) en       en        // PB
 meteorst) en       en        // PB
 mindest) en        en        // PB
 molerst) en        en        // PB
@@ -2677,11 +2757,12 @@ excell) ence ($p_alt 'Ens@   // PB exception
  relat) ere        er3       // PB arbejdsrelaeret
 
 // PB -ri words in da_list preceeded by e: stressed i
-     @) eri ($p_alt Vr'i     // røveri, bedrageri
+     @) eri ($p_alt++ Vr'i   // røveri, bedrageri
      @) eri (sk$p_alt =Vri   // røverisk, bedragerisk
 infant) eri ($p_alt 3r''i    // infanteri
   vask) eri ($p_alt 3r''i    // vaskeriet
     st) eri (sk$p_alt 'eri   // hysterisk
+  @røv) eri        Vri       // PB bankrøveri
 
 // PB noun suffix -er (perler - pearls), -ers (perlers - pearls') -erne (perlerne - the pearls), -ernes (perlernes - the pearls')
 // Also verb suffix (hun elsker - she loves) - not to mention Peter
@@ -2694,7 +2775,7 @@ infant) eri ($p_alt 3r''i    // infanteri
      @) ers (_     Vs        // elskers
      @) erne (_+   Vn@       // elskerne
      @) ernes (_   Vn@s      // elskernes
-     @) erste (_   Vst@      //midterste
+     @) erste (_   Vst@      // midterste
      @) ert (_     Vt        // lummert, slubbert
      @) ert (s_    Vt        // PB Alberts
  slamb) ert        Vt        // slamberter
@@ -2704,12 +2785,15 @@ infant) eri ($p_alt 3r''i    // infanteri
 
 // exceptions to the "er" rule
 sortep) er         er        // PB
+vigtigp) er        er        // PB
    beh) er (sk     Er        // PB beherske
     _t) er (_      er        // PB "de ter sig underligt"
      g) er (_++    V         // våger, læger [l'EjV]
     _g) er (ta+    er        // PB Gerta
   xavi) er         'e        // PB name
     ys) er         V         // PB gyserafdeling
+  dans) er         V         // PB danserinde
+   rom) er         V         // PB romertal
 genfotograf) er (e er        // PB røntgenfotografere
   fing) erne (m    Vne       // PB fingernem
     @d) erne (++   Vn@       // let the nd rule kick in - inderne
@@ -2718,18 +2802,22 @@ genfotograf) er (e er        // PB røntgenfotografere
  _reag) ere (_     'er3      // reagere
   vurd) ere (_     er3       // overvurdere
     tr) ere (+     er3       // indregistrere
+@dramatis) ere     er3       // PB overdramatisere
 opsumm) ere        er3       // PB
 _overs) er         er        // PB
     fj) er (_      er        // PB falkefjer
     ov) ere (ns+   V'e       // PB uoverensstemmelse, overens - stressed
      g) er (+      V         // unger, borgerkrig
      g) er (rig    Er        // PB gerrig
-     g) er (e      er        // PB overreagerede
+     g) er (da     Er        // PB name
+     g) er (e+     er        // PB overreagerede, omarrangere
+  læng) er (e      V         // PB
+  borg) er (e      V         // PB
      g) er (ani    er        // PB geranium
      g) er (mans   er        // PB germansk
     mm) er (et     V         // PB nummeret
   nysg) er (ri     er        // PB nysgerrig
-revolv) er         V         // PB
+revolv) er (+      V         // PB
    int) er (@      V         // PB interaktiv
  smugl) er         V         // PB smuglergods
    int) er (n_++   'Er       // PB intern
@@ -2745,6 +2833,7 @@ revolv) er         V         // PB
      s) er (vicestation W    // PB
      s) ervicemindet Wvismajnd@D
      s) er (vicemed W        // PB servicemedarbejder
+kundes) ervice     Wvis      // PB
      s) er (vicen  W         // PB
      v) ernon (++  Wn3n      // PB name
      t) er (a+     er        // PB synsterapeut
@@ -2763,7 +2852,7 @@ revolv) er         V         // PB
    all) er (g      er        // PB allergisk
      j) er (n++++  Er        // jern, stjerne
   talj) er (K++    V         // PB detaljer
-  linj) er (++     V         // PB
+  linj) er (+++    V         // PB telefonlinjer
    lej) er         V         // PB sygeplejerske
   bunk) er         V         // PB not a -er suffix
 alexand) er        =dV       // PB Alexander
@@ -2790,7 +2879,7 @@ _perif) er         'er       // PB stressed
   pass) er (sed    'er       // PB passersedlen
   park) er (_bil   'er       // PB "parker bilen" verb, not noun = "parks"
   pass) er (_gaden 'er       // PB
-     n) er (_      V         // PB italiener
+     n) er (_+     V         // PB italiener
     up) er (C      V         // PB superfølsom
     @d) er (C      V         // PB hæderlig - TOO BROAD?
    Amm) er (C      V         // PB sommerhilsen, tømmerflåde
@@ -2906,6 +2995,7 @@ _kontrov) er (s    'Er       // PB kontrovers
      t) er (ror    er        // PB antiterrorgruppe
    Cav) er (_+     V         // PB laver, saver
  @grav) er (e      er        // PB indgravere
+guldgrav) er (e    V         // PB
    lev) er (C++    V         // levertran, leverplet
    led) er (@      V         // lederkursus
   pans) er         V         // PB panserdivision
@@ -3069,6 +3159,7 @@ sang_du) et (_     'Et       // PB
    @du) et (_      'Et       // PB
  konkr) et         'Et       // PB stressed
  harri) et         3t        // PB name
+margar) et         &#t
   sorb) et         'E        // PB hindbærsorbet
   dekr) et (+      'et       // PB stressed
 en_blank) et       'Et       // PB en blanket, den blanket - noun - problem with verb "blanke/blanket"
@@ -3177,6 +3268,8 @@ t_mig_ur) et (++   &#t       //PB gjort mig uret
 t_dig_ur) et (++   &#t       //PB gjort dig uret
 t_dem_ur) et (++   &#t       //PB gjort dem uret
 t_jer_ur) et (++   &#t       //PB gjort jer uret
+ en_ur) et (++     &#t       // PB begå en uret
+   _ur) et (_mod_++ &#t      // PB begå uret mod
 dig_ur) et (++     &#t       // PB har alle andre end dig uret
   ændr) et (+      VD        // PB
      r) ett (++    &#t       // henrette, rettroende - only one t
@@ -3264,6 +3357,7 @@ _niL10ol) ette     'Et@      // PB Nicolette
      a) f (asi     f         // PB afasi
      a) f (atisk   f         // PB afatisk
      a) f (or      f         // PB aforisme, aforistisk
+        f (olk     f         // PB mafiafolk
 
 // PB one sylable plus "færdig" - stressed æ
      @) færdig     f'Erdi    // bluf'ærdig
@@ -3301,17 +3395,15 @@ _niL10ol) ette     'Et@      // PB Nicolette
      a) f (tes_    f
     Ca) f (t       f
     Ca) f (A       f
-//    ga) f (fel     f
     va) f (l       f         // PB vafler
     ga) f (l       f         // PB gafler
     da) f (n       f         // PB dafnie
    ska) f          f         // PB retskafne
-//   gra) f          f
    gra) f (A       f
-//   gra) f       f
     ra) f (ik      f
   stra) f          f         // PB strafpoint
-        fire       fi:V      // PB fire
+        fire       fi:V      // PB fire (4)
+        fireog     fi:V      // PB fireogtyve (24)
     sa) f (ar      f
    sta) f (e       f
         fettuccine fetuTS'i:n@ // PB pasta
@@ -3334,6 +3426,7 @@ _niL10ol) ette     'Et@      // PB Nicolette
         g          g
         gg (e      g         // lægge
      i) gg         g         // PB lediggang
+     o) gg         g         // PB jogging
         gh (ana    g         // PB Ghana
         gh (etto   g         // PB ghetto
     af) gh (a      g         // PB afghansk
@@ -3367,6 +3460,7 @@ _niL10ol) ette     'Et@      // PB Nicolette
         guinea     gin'e&    // PB
         gui (nnes  ge        // PB
         guard      gA:d      // PB
+		gerry dZEri // PB name
    ødi) g (t_                // nødigt
    smi) g          j         // PB smigre
      i) g (i       g
@@ -3378,6 +3472,7 @@ _niL10ol) ette     'Et@      // PB Nicolette
     pa) gn (i      n'        // PB kompagniskab
     mu) g (n       g         // PB mugne
     hu) g (ning    g         // PB halshugning
+    ty) g (ning    g         // PB
     si) gn (er     N         // PB signere
  velsi) gn         jn        // PB velsigner
      a) g (nos     g         // PB diagnose
@@ -3419,6 +3514,8 @@ _niL10ol) ette     'Et@      // PB Nicolette
         g (ran     g         // PB ædelgran
         g (ross    g         // PB ølgrossist
      ø) g          j         // PB deleted (_
+    rø) g (ter     g         // PB røgterdreng
+    sø) g (ang     g         // PB
         g (le      j         // PB mægler, besegle
    gur) g (le                // PB silent g
         g (lem     g         // PB glemt
@@ -3442,6 +3539,7 @@ _niL10ol) ette     'Et@      // PB Nicolette
  nitro) gen        g'en      // PB
    ero) gen        g'en      // PB
   mono) ga (m      g'&       // PB
+        g (yro     g         // PB autogyro
     vo) g (t       g         // PB bevogtning
     vo) g (te      g         // PB bevogte
  surro) g (at      g         // PB
@@ -3452,8 +3550,10 @@ _niL10ol) ette     'Et@      // PB Nicolette
     ro) g (es      g         // PB progesteron
      o) g (raf     g         // autograf
     bo) g (ota     g         // PB
+   _bo) g (art     g         // PB name
+   _bo) g (ey      g         // PB nickname
 
-     r) g (_       w         // kirurg, herberg
+     r) g (_       w         // PB kirurg, herberg
   _pra) g          w         // PB Prag (city), pragmatisk
    pra) g (t       g         // PB pragtfuld
      r) g (et_     w         // herberget
@@ -3473,6 +3573,16 @@ _niL10ol) ette     'Et@      // PB Nicolette
      u) g (enn     g         // PB ugennemskuelig
      u) g (enL01   g         // PB ugengældt, ugenkendelig
      u) g (l                 // silent g - uglegylp, smugler
+ en_du) g                    // PB table cloth, not dew [dug]
+teltdu) g                    // PB silent g
+damaskdu) g                  // PB silent g
+flagdu) g                    // PB silent g
+kammerdu) g                  // PB silent g
+lysedu) g                    // PB silent g
+olmerdu) g                   // PB silent g
+sejldu) g                    // PB silent g
+voksdu) g                    // PB silent g
+svededu) g                   // PB silent g
  hertu) g                    // PB silent g
      ø) ge (+++    :j@       // PB bøgetræ, øge, døgenigt
     mø) ge (len    :je       // PB møgelendig
@@ -3558,6 +3668,8 @@ _niL10ol) ette     'Et@      // PB Nicolette
     re) gi ($p_alt+ S'i      // PB regibemærkning
     re) gi (men$p_alt+ gi    // PB regimentet
     re) gi (stre$p_alt+ gi   // PB registrere
+    re) gi (ster   g'i       // PB
+    re) gi (on+    gi        // PB regional
 
     lo) g (a       g
     lo) gg (e      g
@@ -3628,8 +3740,10 @@ indran) ge (re     S'e
    ran) ge (re     S'e
  udran) ge (re     S'e
     ur) ge (re     S'e
-_korte) ge         =Se
- korte) ge         Se
+_korte) ge         =S3       // PB
+ korte) ge         S3        // PB
+ _mane) ge         =S3       // PB stress on previous syllable
+  mane) ge         S3        // PB for compounds - cirkusmanege
    _lo) ge (_      S3        // loge
    _lo) ger (_     SV        // loger
     lo) ge (n      S3        // PB logen
@@ -3652,6 +3766,7 @@ proktolo) ge (n    3         // PB
     _a) ge (re     g'e       // PB agere
         ge (nial   ge        // PB
         ge (ni     Se        // PB
+        ge (ninvest gE       // PB geninvestere
         ge (nital  ge        // PB
         ge (nitiv  ge        // PB
         ge (nius             // PB
@@ -3755,17 +3870,20 @@ proktolo) ge (n    3         // PB
      _) huges (_   hju:s     // PB name
         huckleberry hVk@lbEri // PB name
         hipokrates hip'okratEs // PB name
-        hieroglyf  hirofl'yf
+        hierogly (f hirofl'y // PB
         heavy      hEvi      // PB
+     _) hearst     hWst      // PB name
 
 .group i
         i          i
+//		C) i (C% i // PB svirret - TEST
+//     C) i (CA      i:        // PB sviret - TEST
 
 // PB general rule: initial in- : [e]
      _) i (n       e         // PB instinkt, ineffektiv
         i (ns      e         // PB bladinsekt, musikinstrument
      h) i (n       i         // PB hinsides
-        i (nf      e         // PB marineinfanteri
+        i (nfant   e         // PB marineinfanteri
      f) i (nsky    i         // PB finskytte, finskydning
         i (nc      e         // PB pincet
      _) insider    ensajdV   // PB
@@ -3825,7 +3943,9 @@ mississ) i (ppi    'i        // PB stressed
      l) i (nt      e         // PB flint, klint, splint
 
 // general rule: [e] between h and m
-     h) i (m       e         // PB himlen
+     h) i (m+      e         // PB himlen
+     h) iroshi (ma iroS'i    // PB
+     h) imalaya    em&l'aj&  // PB stressed
 
 // general rule: [e] before mp
         i (mp      e         // PB imperium, impuls
@@ -3868,6 +3988,7 @@ mississ) i (ppi    'i        // PB stressed
     pl) i (L01L11+ i         // PB komplikation
      s) i (L01L07  e         // PB sigte, sigt, udsigt
      l) ig (C      ij        // PB lighus
+   fil) ig (ran    ig        // PB
      l) ig (i      ig        // PB relegiøs
     _n) i (L10     e         // PB nikke, nik, Nick
      n) i (kL04    i         // PB nikotin
@@ -3925,6 +4046,8 @@ espadr) ille       'ilj3     // PB
 // PB [e] after gr - exception
     gr) i (m       e         // PB grimrian
      C) i (ng+     e         // PB dressing, ising, ping, ring
+   len) i (n       i         // PB Leningrad
+     v) ing (ummi  ing       // PB
     gr) i (mL11    i:        // PB grime, grimasse
 
      l) inge (ri   l&NSe     // PB
@@ -3940,6 +4063,7 @@ espadr) ille       'ilj3     // PB
      v) i (nkort   i         // PB
      f) i (nkæm    i         // PB finkæmme
 
+// exceptions
      v) i (ndrik+            // PB vindrikker
      v) i (nkæld+  i         // PB vinkælder
      v) i (ngård+  i         // PB vingård
@@ -3949,8 +4073,13 @@ espadr) ille       'ilj3     // PB
      f) ind (yrk   ind       // PB findyrke
  _vest) i (ndi     'e        // PB vestindisk
 
+ // PB general rule: [e] before nn
+        i (nn      e         // PB linning, finne, fortinne
+// exceptions
+     c) i (nn      i         // PB cinnober
+     t) i (nnitus  i         // PB
+
 // PB general rule: [e] after sp/st/sk/r before k/l
-//    st) i (k+++    e         // PB stik
      t) i (L01+    e         // ting, folketing, stik, joystick
   part) i          i         // PB skyggepartikler
  polit) i (k       i         // PB miljøpolitikken
@@ -3970,6 +4099,8 @@ espadr) ille       'ilj3     // PB
 // greneral rule: [e] between r and c/k - [i] followerd by front vowel
      r) i (L10     e         // PB drik, skiderik
      r) i (L10L11  i         // PB Erika
+    fr) ikadelle   ek&d'El3  // PB
+_ventr) i (k       'i        // PB ventrikel, ventrikler
      r) i (ce      i         // PB servitrice
      r) i (L10L04  i         // PB frikendt, briket
      r) i (L10CL04 i         // PB friktion
@@ -3982,6 +4113,7 @@ espadr) ille       'ilj3     // PB
   obel) i (sk      'i        // PB stressed
      r) i (L08+    e         // PB riste, frisk, brist, vrist, Kristus, dristig
      r) i (L08L04+ i         // PB aristokrat
+    dr) i (stig    e         // PB
      r) i (stik+   i         // PB karakteristik
     fr) i (stad    i         // PB
     kr) i (sti_    e         // PB Kristi genkomst
@@ -4002,6 +4134,7 @@ infanter) i        i         // PB marineinfanterist
    bev) i (s       i         // PB beviskæde
    høv) i (sk      i         // PB
      m) i (ste     e         // PB miste
+    _m) i (st_     e         // PB
      m) i (stanke  i         // PB
      m) istelten   istElten  // PB
    bil) i (s       i         // PB spritbilist
@@ -4010,7 +4143,7 @@ infanter) i        i         // PB marineinfanterist
 ganske_v) i (st_   e         // PB
    jov) i (st      e         // PB
    jav) i (st      e         // PB
-  L07v) i (st      e         // PB kvist, tvist
+  L07v) i (st+     e         // PB kvist, tvist
  bortv) i (s       i         // PB bortvist
     _v) i (st_     e         // PB "vist" = probably/might/maybe - problem with verb "vise/vist"
      v) i (stnok   e,        // PB
@@ -4152,7 +4285,7 @@ special) i (st     i         // PB stålspecialist
      f) i (nte_    e         // PB
      r) idge       idZ       // PB Coleridge, bridge
     br) idget      idZit     // PB name
-     r) isike      esike     // PB risikere
+     r) isik (e    esik      // PB risikere
      r) isiko      isiko     // PB risiko
     gl) i (m       e         // PB glimt, glimrende
      l) i (nned    e         // PB
@@ -4160,6 +4293,7 @@ special) i (st     i         // PB stålspecialist
     @t) i (k_++    i         // PB ferieromantik, finanspolitik
   best) i (k++     e         // PB bestikke
   bist) i (k++     e         // PB
+knivst) i (k       e         // PB
 spadest) i (k      e         // PB
 myggest) i (k      e         // PB
 nålest) i (k+      e         // PB
@@ -4212,7 +4346,7 @@ havde_st) i (l_    i         // PB
 projekt) i (l      i         // PB blyprojektiler
    art) ille (ri   il@       // PB artilleri
     st) i (lfuld   i         // PB
-// PB stil = "style" not the verb 'stil' = "put"
+// PB stil = "style" not the verb 'stil' = "put, place"
 _min_st) i (l_     i         // PB
 _din_st) i (l_     i         // PB
 _jeres_st) i (l_   i         // PB
@@ -4226,6 +4360,7 @@ _ny_st) i (l_      i         // PB
     st) i (lart    i         // PB
 forest) i (l       e         // PB
 livsst) i (l       i         // PB
+    st) i (lling++ e         // PB livsstilling
   vent) i (l       i         // PB slangeventil
     st) i (le      i:        // PB stile
     ju) i (ce                // PB juice - skip the i
@@ -4247,8 +4382,9 @@ luksusl) i (ner    aj        // PB
      d) i (skrimi  i         // PB diskriminere
      d) i (skett   i         // PB diskette
      d) i (sko     i         // PB diskotek, diskodans
-     d) i (sL10L11 i         // PB diskant
+     d) i (sL10a   i         // PB diskant
    ind) i (sk      i         // PB
+  jord) i (sk      i         // PB
     tw) i (st      e         // PB
      d) i (sku     i         // PB diskutere
      d) i (skret   i         // PB
@@ -4276,6 +4412,7 @@ new_york_t) imes   ajms      // PB
   lesl) ie         i         // PB name
   ronn) ie         i         // PB name
         idaho      ajd&h'ow  // PB
+        ivanhoe    ajv@nh'ow // PB name
  long_) island     ajl@nd    // PB
 amnesty_) international intVn'&Son&l // PB
      v) irtual (_reality '3tSu-@l/2 // PB
@@ -4363,7 +4500,7 @@ _terap) i          'i
      l) i (e       j
      r) i (gti     e         // PB rigtigt
 offentl) ig        i         // PB
-     s) i (e       j
+    as) i (e       j
      t) i (øs 
      s) i (on      j
      s) i (ar      j'        // PB passiar
@@ -4484,6 +4621,8 @@ ampicill) i (n     'i        // PB stressed
 valent) i (no      ''i       // PB name
   _sus) ie         i         // PB name
 michel) in         EN        // PB Michelinguide
+  houd) i (ni      'i        // PB name
+     _) iron (_    ajVn      // PB
 
 .group ig
 
@@ -4541,11 +4680,12 @@ skæmted) ig (t     eg        // PB
 
         ige (++    i:@       // PB pige, pigen, stige, sige, lige
      s) ige (++    i:@       // PB sigende
-        iger       i:V       // PB piger
+        iger (+    i:V       // PB piger, afskediger
      p) igen       i:3n      // PB pigen
 gensid) ig         ij        // PB maybe "j" should be removed
      n) ige (ri    ige       // PB nigerianer
    dir) ig (ent    ig        // PB
+    er) ige (re    ig'e      // PB erigeret
     _n) iger (_    igV       // PB Niger (river)
 privil) ige        ig'e      // PB priviligeret
      n) igeria     ig'eRi&   // PB
@@ -4559,13 +4699,15 @@ behænd) ig         i         // PB silent g
     ld) ig         i         // PB heldig
 
 // PB stressed e after -ig
-    ed) ige (r     ig'e      // PB redigere
+   red) ige (r     ig'e      // PB redigere
     rr) ige (r     ig'e      // PB korrigere
    nav) ige (r     ig'e      // PB navigere
    dir) ige (r     ig'e      // PB dirigere
 intell) ige (n     ig'e      // PB intelligent
         ige (n+    ig'E      // PB igen, igennem, herigennem
+    sn) ige (+     ij3       // PB
    bol) ig (+      i         // PB boligen
+  intr) ig         'i        // PB intrigen
      d) ige (nde   ij@       // PB nedværdigende
      v) ige (n     ij3       // PB vigen, mundvigen
     st) ig (e+     ij        // PB rangstigen
@@ -4586,7 +4728,7 @@ intell) ige (n     ig'e      // PB intelligent
 // PB words ending with "in" in da_list with $alt - stressed i
      &) in ($p_alt 'in       // baldakin, bekkasin
      &) in (ar$p_alt in'     // disciplinarmiddel
-   &ss) in ($p_alt 'EN       // bassin
+  &ass) in ($p_alt 'EN       // bassin
    &at) in ($p_alt 'EN       // satin
   &lat) in ($p_alt 'in       // latin
 byzant) in         'in       // PB byzantinsk
@@ -4602,6 +4744,7 @@ byzant) in         'in       // PB byzantinsk
 .group it
 // PB words with final  -it - stressed i
      &) it ($p_alt 'it       //PB bakelit
+     &) it (an$p_alt it'     //PB samaritan
      &) ition ($p_alt iS'on  //PB definition
      &) it (t$p_alt 'i       //PB avoid double t - bakelitten [ b,ak@l'it@-n]
 
@@ -4639,6 +4782,7 @@ _sport) iv         'iv
         j (aw      dZ
     fi) j (i       dZ        // PB
         ja (ck     dZ&
+     _) jarvis     dZA:ves   // PB name
         jitterbug  dZidVbVg  // PB
         jingle     dZeng3l   // PB
         jewel      dZu:l     // PB
@@ -4751,7 +4895,7 @@ _sport) iv         'iv
 
         l          l
         ll         l
-     a) llende     lj'End3   // PB name
+    _a) llende     lj'End3   // PB name
 
 // PB nouns in da_list with final -log - stressed o
 // A lot of these can have a stressed i added (-gi rule in group g)
@@ -4799,6 +4943,7 @@ hestefi) let       le        // PB silent t
     he) lg (e      lj        // PB Helge, helgen
         lincoln    lenkVl/2n // PB name
      _) lee (_     li:       // PB the name Lee
+     _) leed (s    li:d      // PB city
      @) levere     leveV     // PB
         ley        li        // PB volley
         long (_island lVN    // PB
@@ -4839,7 +4984,7 @@ hestefi) let       le        // PB silent t
         mareridt   mA:@rit   // PB
      _) mc (C@     m&k       // PB McDonald
         musketer   musget'er // PB musketer
-        milkshake  _^_EN     // PB
+        milkshake  melkSEjk  // PB
      _) mike (_    majk      // PB Mike
      _) mike (s_   majk      // PB Mikes
         mail       mEjl      // PB
@@ -4847,6 +4992,7 @@ hestefi) let       le        // PB silent t
         montre     mO:ntrV
         mayday     mEjdE:j   // PB
         miami      m&j'&:mi  // PB
+        milwaukee  melw'Oki  // PB
         machete    m&S'Ed    // PB
         miguel     _^_ES     // PB
         madero     _^_ES     // PB
@@ -5005,6 +5151,7 @@ _harmo) nika       =nik&     // PB stressed o
      _) niagara    naj'&g3ra // PB
      _) nigel      najdZ3l   // PB name
      _) noreen     nOwr'i:n  // PB name
+     _) norwich    nVritS    // PB city
 
 .group nd
 // PB general rule: nd = [n] after a vowel
@@ -5015,9 +5162,12 @@ happy_e) nd (_     nd        // PB happy end
  en_ru) nd (e      nd        // PB en runde
 james_bo) nd       nd        // PB James Bond
     we) nd (y      nd        // PB name
+   gwe) nd (a      nd        // PB name
     pa) nd (ora    nd'       // PB name
    ama) nd (a      =nd       // PB name
     li) nd (y      nd        // PB name
+    va) nd (erbilt nd        // PB name
+    _i) nd (y      nd        // PB name - Indy = Indiana Jones
 chippe) ndale      ndEjl     // PB
      a) nd (alus   nd        // PB Andalusien
      i) nd (one    nd        // PB Indonesien
@@ -5027,6 +5177,8 @@ chippe) ndale      ndEjl     // PB
     va) nd (al     nd        // PB
     ke) nd (is     nd        // PB
     pa) nd (a      nd        // PB
+    ro) nd (el     nd        // PB rondel
+    mu) nd (ering  nd        // PB
    ska) nd (inav   nd        // PB
     ge) nd (an     nd        // PB gendanne
     fu) nd (a      nd        // PB fundament
@@ -5128,6 +5280,7 @@ chippe) ndale      ndEjl     // PB
     du) nd (re     n         // PB dundre
     hu) nd (+      n         // PB hundrede
     hu) nd (yr     nd        // PB hundyr
+    hu) nd (jævel  nd        // PB
     va) nd (re     nd        // PB vandretur
     ma) nd (ag     nd        // PB
     sø) nd (ag     nd        // PB
@@ -5164,6 +5317,7 @@ _den_ba) nd (e     nd        // PB
     ba) nd (ero    nd        // PB banderole
     ba) nde (leder+ nd3      // PB
     ba) nde (medlem nd3      // PB
+    ba) nde (opgør nd3       // PB
 tyveba) nde        nd3       // PB
 røverba) nde       nd3       // PB
 bjørneba) nde      nd3       // PB
@@ -5173,6 +5327,8 @@ hele_ba) nde       nd3       // PB hele banden
 res_ba) nde        nd3       // PB vores/jeres/deres bande
  forba) nd (er     n         // PB
 jeg_ba) nd (er     n         // PB
+ du_ba) nd (er     n         // PB
+ _i_ba) nd (er     n         // PB
 _vi_ba) nd (er     n         // PB
 _de_ba) nd (er     n         // PB
 _man_ba) nd (er    n         // PB
@@ -5186,7 +5342,7 @@ _man_ba) nd (er    n         // PB
     vi) nd (in     n         // PB udvinding
      i) nd (imellem n        // exception
      i) nd (erl+   n         // PB inderlig
-     a) nd (ere    nd        // PB propagandere
+    ga) nd (ere    nd        // PB propagandere
     ko) nd (i      nd        // PB konditori, kondicykel
   seku) nd         nd
 
@@ -5199,6 +5355,7 @@ _man_ba) nd (er    n         // PB
     la) ngu (st    ng'u      // PB languster
     vi) ng (ård    ng        // PB vingård
     pa) ng (æa     ng'       // PB Pangæa
+        ng (rad    ng        // PB Leningrad
  flami) ng (o      =ng       // PB stressed i
     ra) ng (ere    NS        // PB
     ta) ng (ent    ng        // PB
@@ -5245,6 +5402,7 @@ _man_ba) nd (er    n         // PB
  shamp) oo         o         // PB
   nark) o          o         // PB narkoopgør
   hall) o          'o        // PB stressed
+    ky) o (to      'o        // PB stressed
     br) ooke       uk        // PB name
      f) ood        u:d       // PB
     fl) ood        Vd        // PB
@@ -5310,7 +5468,7 @@ elektr) o (de      'o
 //     C) o (L02%L04++ V       // PB koffein
     gr) o (ssi+    o         // PB grossist
     fr) o (ss++    o         // PB frosset, frossen
-    fr) otte (++   ot'e      // PB frottehåndklæde
+    fr) otte (++   ot'e      // PB frottehåndklæde - stressed
      m) o (sset++  o         // PB
      k) ommers (_  om'Ers    // PB stressed
     ap) o (llo++   'V        // PB stressed
@@ -5363,6 +5521,8 @@ elektr) o (de      'o
 // PB general rule consonant + o + velars: V
      C) o (L01+    V         // PB  fjong, jogge, knokle
      C) o (L01rL11+ o        // PB  aristokrat - TEST
+     k) ong (res   Vng       // PB
+    sm) og (_      Vg        // PB smog
      r) o (kL11+   o         // PB provokere
      v) o (kL11+   o         // PB provokere
      p) o (ker++   o         // PB
@@ -5386,6 +5546,7 @@ elektr) o          =o        // PB elektrokromatisk
   L06r) o (j       o         // PB projektør
      d) o (L01rL04 o         // PB endokrin TEST
      C) o (g+      o         // PB noget, bogmærke, bedrog, krog, tog (verb "took", noun "train")
+     C) o (gg+     V         // PB jogging
  van_g) ogh        Vk        // PB name
      j) o (L01%L11 V         // PB jogge, jokke
      l) o (L01%L11 V         // PB logge, lokke
@@ -5403,10 +5564,13 @@ elektr) o          =o        // PB elektrokromatisk
  _mask) o (t       'V        // PB stressed
    L08) o (tL04    o         // PB followed by front vowel: o - skotøj
   disk) o          o         // PB diskotek
+  kach) o (t       'V        // PB
 
 // PB general rule o + front consonant: [V]
         o (L03K    V         // PB Olga, Volga, vold, vod, od, volt
         o (lsen    o         // PB name
+   gaj) o (l       'o        // PB candy
+  symb) o (l       o         // PB sexsymbol
  //    k) o (ntrol   o         // PB toldkontrol
 //     k) o (ntrollere V       // PB kontrollere
 //	 k) o (ntrollør V // PB
@@ -5435,6 +5599,7 @@ trækkes_l) o (d    V         // PB
 trak_l) o (d                 // PB
      r) o (d       o         // PB
     br) o (d       V         // PB
+   _br) o (dy      0w        // PB name
     br) o (der     o         // PB
   forl) o (ds      V         // PP
      g) o (d       o         // PB
@@ -5467,6 +5632,7 @@ trak_l) o (d                 // PB
      s) ophia      of'i&     // PB name
         o (pposit  o         // PB opposition
         o (L06L11+ o         // PB oktober, global, Robert, oberst
+        o (pefter+ V         // PB
      j) o (b@      V         // PB jobannonce
         o (pad+    V         // PB
      b) o (pæl     o         // PB
@@ -5481,6 +5647,7 @@ trak_l) o (d                 // PB
      k) o (bber    O         // PB
   selv) o (p       V         // PB selvoptaget
     _r) o (bin++   V         // PB Robin Hood
+    _r) oby (n++   Vbe       // PB name
     pr) o (ble     o         // PB problem
      r) o (L06L05+ o         // PB europæer, propan
     le) o (par     o'        // PB leopard
@@ -5507,6 +5674,8 @@ trak_l) o (d                 // PB
   kask) o          o         // PB kaskoforsikring
     tr) o (CL04    o         // PB antropolog, tropisk, troperne
      _) o (mC      ''V       // PB omgang, omformulere
+     _) o (ma      V         // PB omarrangere, omarbejde
+     _) oman       om'&n     // PB Oman - stressed
         o (ms      V         // PB pladeomslag
         o (mråd    V         // PB katastrofeområde
         o (mtale   V         // PB presseomtale
@@ -5514,6 +5683,7 @@ trak_l) o (d                 // PB
         o (mk      V         // PB deromkring
      k) o (nC      V         // PB konfirmand, konfekt,  konkurrence
      C) o (sCL11   V         // PB fosfat, koster, moster, foster
+    kl) o (stre    V         // PB klostret
     pr) o (s+      o         // PB prospekt
      m) o (ske     o         // PB
      k) o (steskaft o        // PB
@@ -5563,7 +5733,7 @@ rekogn) o (scere   o         // PB
 
 // PB general rule: labial (+r) + o + st: [V]
    L02) o (st      V         // PB opfostre, moster, post, frost
-    fr) o (st      V         // PB frost
+    fr) o (st+     V         // PB frost
     br) o (sten    o         // PB
 // exceptions
      p) o (stmod   O         // PB postmoderne
@@ -5587,7 +5757,7 @@ rekogn) o (scere   o         // PB
      v) od (ka     Vd        // PB
         o (ttawa   V         // PB
   term) o          o         // PB termostat
-     r) o (st      o         // PB rost, skamrost, prostitueret
+     r) o (st+     o         // PB rost, skamrost, prostitueret, roste
 //    pr) o (sta     V         // PB prostata
 //    fr) o (st      V         // PB
      f) oged       o:@D      // PB silent g
@@ -5676,7 +5846,7 @@ klorof) o (rm      'V        // PB stressed
    mon) o (k       'V        // PB monokel - stressed
   konv) oj         'Vj       // PB stressed
 mening) oko (k     ok'V      // PB meningokokker
- hypok) o (nder    'V        // PB
+ hypok) ond (er    'Vnd      // PB
      h) o (ck+     V         // PB hockey
 _horis) o (n       'V        // PB horisont
   _kan) o (n       'o        // PB stressed
@@ -5722,6 +5892,7 @@ _paran) oia        'Vj&      // PB stressed
     gr) og         Vg        // PB grog
     gr) ogg        Vg        // PB groggen
      k) og (nit    Vg        // PB kognitiv
+        og (tredive V        // PB fireogtredive
  hvalr) o (s       V         // PB
      _) obo        ob'o      // PB
         org (+     V:w       // PB sorg, morgen, Norge
@@ -5739,6 +5910,8 @@ _paran) oia        'Vj&      // PB stressed
      C) ov (+      Vw        // PB sjov, lov, skov, plov
      t) ov (ør     ov        // PB tatovør
      n) ov (icA    ov        // PB novice, noviciat
+    sl) ov (ak     ov'       // PB
+     d) o (wning   a         // PB Downing Street
      s) ovjet      Vwj'Et    // PB
     kr) o (væ      o         // PB krovært
         ov (erhead Ouv       // PB overhead
@@ -5771,6 +5944,7 @@ artisk) o (k       'V        // PB stressed
      t) o (t       V         // PB hårtot, tot, hottentot
      t) o (tA      o         // PB total
     em) o (+       o         // PB demokrati
+ _anem) o (ne      'o        // PB stressed
         o (ktob    %o        // PB stressed next syllable - oktober
     sm) o (king    o:        // PB
      j) o (rt      V         // PB hjort, pjort
@@ -5858,11 +6032,12 @@ repert) oire       'wA:      // PB
      f) o (rL04+   o         // PB aforisme, eufori
  ortod) o (ks      'V        // PB
      l) o (kA      o         // PB lokal
-    bl) o (k       V         // PB blokere
+    bl) o (k+      V         // PB blokere
      k) o (ka      o         // PB kokasse, kokain
      s) o (pra     o         // PB sopran
         oregonpine VregVn||pajn // PB
         oklahoma   okl&h'om& // PB
+  _ram) o (na      'o        // PB name
      b) o (ss      V         // PB
 
      p) oint (_    wEN       // PB
@@ -5876,7 +6051,6 @@ west_p) oint       Vjnt      // PB
      b) o (mm++    o         // PB bommen
      b) ombay      Vmb,Ej    // PB
      k) omet       om'et     // PB
-//     k) o (mmo++   o         // PB kommode
   komm) o (de      'o        // PB stressed
    L01) o (mman+   o         // PB kommando
   pomp) on         VN        // PB pompon
@@ -5933,7 +6107,7 @@ noblesse_) oblige  _^_fr     // PB noblesse oblige
 
 
 // PB final -ol words in da_list - stressed o
-     &) ol ($p_alt+ 'ol      // parabol
+     &) ol ($p_alt++ 'ol     // parabol, symbol
   mong) oliet      ol'i@D    // PB
     &s) ol ($p_alt+ 'Vl      // konsol
     &s) ol (L04$p_alt+ 'ol   // konsolidere
@@ -5968,6 +6142,7 @@ noblesse_) oblige  _^_fr     // PB noblesse oblige
      h) otdog      VtdVg     // PB
     _h) o (t_      V         // PB
         or (l      O:        // PB orlov
+     _) orly (_    O*l'i     // PB French airport
         oscar      VskA      // PB
         oxford     VgsfV:d   // PB
         oakland    Wwkl@nd   // PB
@@ -6051,6 +6226,7 @@ robins) on         Vn        // PB name
      m) onty       Vnti      // PB name
      b) on (_      VN        // PB kassebon
      b) on (en_    VN        // PB kassebonen
+  karb) on         'VN       // PB stressed
      b) onjour     VNZ'ur    // PB
      b) onbon      VNbVn     // PB
         on (tol    Vn        // PB ontologi
@@ -6106,6 +6282,7 @@ helsingf) or (s    'V        // PB stressed
      s) or (tA     O         // PB sortiment
 _transp) or (t     'V:       // PB stressed - transport
      n) orth       V:T       // PB
+  rekt) or         V         // PB rektorforening
 
 // PB when "ord" means 'word', the d isn't pronunced
         ord (++    oR        // PB ord , forord
@@ -6164,6 +6341,7 @@ _transp) or (t     'V:       // PB stressed - transport
     &t) orium ($p_alt+ 'oriOm // don't spoil the -ium rule - laboratorium
      &) or (isk$p_alt ''o    // manipulatorisk
    mot) or (er     'o        // PB flymotorer
+     d) or ($p_alt+ 'or      // PB kondor
 
 // PB no stress on initial 'for' - 1.550 words.
 // Secondary stress on the next syllable after a syllable.
@@ -6203,6 +6381,7 @@ _transp) or (t     'V:       // PB stressed - transport
     _f) or (dør+   'OR       // PB
     _f) ore (++    '0:3      // PB foreberinge, foregribe
     _f) ore (n+    V'e:      // PB forene, forening
+  genf) ore (n+    Ve:       // PB genforene
      f) ore (sC    0:3       // PB middagsforeslag
     _f) or (el_+   or        // PB forel
     _f) or (et_+   'o3       // PB foret
@@ -6264,18 +6443,19 @@ _transp) or (t     'V:       // PB stressed - transport
     _f) or (kærlighed 'V     // PB forkærlighed
     _f) or (køb+   'V        // PB forkøbet, forkøbsret
     _f) or (kørselsret V     // PB forkørselsret
-    _f) or (lag    'V        // PB forlag
-    _f) or (lags   'V        // PB forlagsret
-    _f) or (land   'V        // PB forland
+    _f) or (lag+   'V        // PB forlag
+    _f) or (lags+  'V        // PB forlagsret
+    _f) or (land+  'V        // PB forland
     _f) or (lem+   'V        // PB forlem
     _f) or (lover+ 'V        // PB forlover
     _f) or (lyd+   'V        // PB forlyd
+    _f) or (lydende+ V'
     _f) or (lygte+ 'Vr       // PB forlygte
     _f) or (lys+   'V        // PB forlys
     _f) orlyst     Vl'Wsd    // PB forlyste, forlystelse
     _f) or (lægger 'V        // PB forlægger
-    _f) or (læns   'V        // PB forlæns
-    _f) or (læse   'V        // PB forlæse
+    _f) or (læns+  'V        // PB forlæns
+    _f) or (læse+  'V        // PB forlæse
     _f) or (maldehyd+ 'V     // PB formaldehyd
     _f) or (mand+  'V        // PB formand, formandsskifte
     _f) or (mænd+  'V        // PB formænd
@@ -6357,7 +6537,7 @@ _transp) or (t     'V:       // PB stressed - transport
     _f) or (spring+ 'Vr      // PB forspring
     _f) or (spændt+ 'Vr      // PB forspændt
     _f) or (stad+  'Vr       // PB forstad, forstadium
-    _f) or (stæ+   'Vr
+    _f) or (stæder+ 'Vr
     _f) or (stander+ 'Vr     // PB forstander
     _f) or (stavelse+ 'Vr    // PB forstavelse
     _f) or (stavn+ 'Vr       // PB forstavn
@@ -6512,6 +6692,7 @@ _transp) or (t     'V:       // PB stressed - transport
         roquefort  rVkf'V:   // PB cheese
         roger      rVdZV     // PB
         russell    rVs@-l    // PB name
+     _) robie      rVbi      // PB name
         resolution REsoluS'on // PB
      _) road (_    rWwd      // PB
         rugby      RVgbi     // PB
@@ -6557,6 +6738,7 @@ transpo) r (t                //PB transport
  home_) run        RVn       // PB
         richelieu  riSlj'W   // PB name
         reality    ri'&liti  // PB
+        rushmore   rVSmO:    // PB
 
 // PB words ending with -ri in da_list have a stressed "i"
 // The stress is kept in compounds where a word is added after the word.
@@ -6580,6 +6762,8 @@ fransi) sc (o      =sk       // PB
         s (cigar   s         // PB majscigaret
         sc (oo     sk        // PB scooter, scoop
      _) sh         S         // PB shaman
+     _) shirley    SWli      // PB name
+    fi) sh (er     S         // PB
         shot       SVt       // PB snapshot
         shaw       SO:       // PB name
         sc (or     sk        // PB score
@@ -6605,6 +6789,7 @@ fransi) sc (o      =sk       // PB
     ky) s          s         // PB not a suffix
 anderlede) s       s         // PB not a suffix
 interferen) s      s         // PB not a suffix
+eksisten) s s // PB
 //kohæren) s s // PB
 residen) s         s         // PB
 // tilpa) s          s
@@ -6640,7 +6825,7 @@ franci) sc (o      sk        // PB Francisco
      _) substitution substituS'on // PB
         substitution substituSon // PB
         shine      sjajn@    // PB
-        saloon     sal'u:n   // PB
+        saloon     s&l'u:n   // PB
         skyline    skajlajn  // PB
         slimline   slemlajn  // PB
         support    sOp'Vrd   // PB
@@ -6682,6 +6867,7 @@ empire_) state (_  stEjt     // PB
         solsjenitsyn sVlsj@n'itsin // PB
         sloane     slOwn     // PB name
         swanee     swVni     // PB Swanee River
+        sweet      swi:t     // PB
 
    er_) sig (_til  saj       // PB avoid [si] - glæder sig [saj] til
    et_) sig (_til  saj       // PB avoid [si] - glædet sig [saj] til
@@ -6703,6 +6889,7 @@ empire_) state (_  stEjt     // PB
   gav_) sig (_     saj       // PB gav sig til, overgav sig
      _) sig (_selv saj       // PB noget for sig selv
      _) sig (_for  saj       // PB han holdt sig for sig selv
+     _) sig (_i_deC saj      // PB Han fandt sig i det/dem
   for_) sig (_     saj       // PB se noget for sig
   fra_) sig (_     saj       // PB slå fra sig
   til_) sig (_     saj       // PB tage noget til sig
@@ -6832,6 +7019,7 @@ kompromi) s        '         // PB stress added
         smith      smet      // PB - name, Danish version
      _) season     sis@n     // PB Four Seasons
      _) seymour    si:mO:    // PB name
+     _) stacy      stEjsi    // PB name
 
 .group t
         t          t
@@ -6885,10 +7073,11 @@ world_) trade      trEjd     // PB
      _) teach      ti:tS     // PB name
         titanic    tajt'&nik // PB
         timeshare  tajmSE:r  // PB
+        timothy    tem0Ti    // PB name
      _) trevor     t*EvV     // PB name
      _) tucson     tu:sVn    // PB US city
         torquay    tO:ki     // PB
-     _) ar)        t         (_deco // PB silent t
+   _ar) t (_deco             // PB silent t
 
 // PB final -tek - stressed e
   _apo) tek        t'ek
@@ -6964,7 +7153,6 @@ meningi) ti (s     =ti
     pa) ti (ent    S         // PB patient
    kvo) ti (en     S         // PB kvotient
      r) til (_     tel       // PP hertil, dertil
-// _poli) ti (k      t'i       // PB politik
 
 .group u
         u          u
@@ -6977,7 +7165,7 @@ meningi) ti (s     =ti
      C) u (L01L04  u         // Jugoslavien
     gl) u (kose    y         // PB
      C) u (L01L11  u         // halleluja
-     r) u (ktL04   u         // PB struktur
+    tr) u (ktL04   u         // PB struktur
      C) u (L01e+   O         // lunge
      t) ucker      VkV       // PB name
      h) u (je+     u         // PB
@@ -6988,6 +7176,7 @@ meningi) ti (s     =ti
      k) u (k       u         // PB
      b) u (gse     u         // PB bugsere
     gl) u (g       u         // PB glugger, glughul
+  røgl) u (gt      O         // PB
     fn) u (g       u         // PB snefnug
         u (gl+     u         // PB fuglene, uglerne
     br) u (gt      O         // PB
@@ -7055,7 +7244,7 @@ meningi) ti (s     =ti
     _p) u (b_      V         // PB
      p) u (bb      V         // PB pubben, pubber
         u (hyre+   u
-        u (enig+   u'
+        u (enig+   u'        // PB
         uformel    ufVm'el   // PB
         u (ltima   u         // PB ultimatum
         u (ltra    u         // PB  ultraviolet
@@ -7064,6 +7253,9 @@ meningi) ti (s     =ti
         u (imodståelig u     // PB
         u (surp    u         // PB usurpator
         u (ni++    u         // uniform, universitet
+     t) u (ning+   ju        // PB
+     t) u (ne      ju        // PB
+   _st) u (art     ju        // PB name
         u (den     u         // udenfor
         u (ge++    u         // ugerne
      _) u (r++     u         // ur, urrem, uret
@@ -7073,7 +7265,6 @@ meningi) ti (s     =ti
         u (topi    u         // PB
         uskyldig   usg'yldi  // PB
      d) u (blin    V         // PB city
-   _st) u (p_      O         // PB rub og stup
     st) u (kket    O         // PB
         ukulele    ukul'el3  // PB
   acap) u (lco     'u        // PB stressed
@@ -7300,11 +7491,7 @@ mudderh) u (l      O         // PB
      h) u (lle     O         // PB hulledame
 
      h) u (g       O         // PB hugge, hugorm
-//    dr) u (k+      O         // PM fordrukken
-//    tr) u (k       O         // PB foretrukne
-//	spr) u (k O // PB sprukne
     Cr) u (k       O         // sprukne, fordrukken, foretrukne, trukket, krukket TEST
-//     r) u (kk      O         // PB trukket, krukket
      p) u (f       O         // PB
      f) u (n+      0         // PB funktion, karpunkel
      p) u (lv      0         // PB pulver
@@ -7322,6 +7509,7 @@ mudderh) u (l      O         // PB
      g) ulv        Ol        // PB gulv - silent v
      g) ulv (e     Olv       // PB gulve
     sm) u (C       O         // PB smukkere, smurt
+     m) u (sik     u         // PB middagsmusik
   sL09) u (t       u         // PB snut, smutte
   sL09) u (CL11    u         // PB snude
     sm) u (L03+    u         // PB smule, smuld, smuds
@@ -7332,6 +7520,7 @@ mudderh) u (l      O         // PB
    val) u (ta      'u        // PB stressed
   _der) u (d       'u        // PB stressed - derud
 _instr) u (ks      'u        // PB stressed
+  valp) u (rgis    'u        // PB stressed valpurgisnat
     gr) u (p       u         // PB gruppe
      r) u (m       O
     tr) u (man     u         // PB name
@@ -7348,6 +7537,7 @@ _instr) u (ks      'u        // PB stressed
    men) u          y         // PB festmenu
    men) uet        u'Et      // PB
   parf) u (me      'y        // PB
+    _b) u (ste_    y         // PB
 proced) u (re      'y
 proven) u          'y
   _nat) u (rel_+   y'        // PB naturel
@@ -7372,6 +7562,7 @@ proven) u          'y
      h) urdle      Wd@l      // PB
      h) urdlen     Wdl3n     // PB
         utah       'ju:tA    // PB US state
+     t) u (tor     ju        // PB
      b) u (tler    V         // PB
      b) ur (ma     W:        // PB
   tamb) ur         ur        // PB tamburmajor
@@ -7383,6 +7574,8 @@ proven) u          'y
      d) u (bbe     V         // PB
      d) u (bbing   V         // PB
      l) u (bbock   V         // PB
+    _d) u (stin    V         // PB name
+ _kibb) u (tz      'u        // PB stressed
 
 .group v
         v          v
@@ -7467,6 +7660,8 @@ udeble) v          w         // PB
         worth      wW:T      // PB last part of a name - Wordsworth
         word       wWd       // PB MS Word, Wordsworth
         wanda      wVnd&     // PB name
+        widescreen wajdskri:n // PB
+        winnipeg   wenipEg   // PB
 
 .group x
 
@@ -7518,7 +7713,7 @@ udeble) v          w         // PB
 
 // PB general rule: consonant + y + sp/st/sk: [y]
      C) y (L08+    y         // PB kysk
-//	 _er_l) y (st y
+     l) y (stgård  W         // PB
 //    kr) y (b+      y:        // PB krybe
     kr) y (bb+     y         // PB krybbe
     kr) y (s+      y         // PB krystal, kryster
@@ -7527,6 +7722,7 @@ udeble) v          w         // PB
  _harr) y          i         // PB
     dr) y (p       W         // PB
      r) y (CA+     y         // PB tryne
+     r) ydell      ajd'El/2  // PB name
      r) y (sk+     y         // PB brysk
    mar) y (s       i         // PB
      r) y (L06+    y         // PB rype, kryptere, kryb
@@ -7619,6 +7815,7 @@ _molek) y (le      'y        // PB stressed
      s) y (ndrom   y         // PB
      s) y (nkr     y         // PB synkron
      s) y (nt      y         // PB syntes
+     s) ynthesizer enTesajsV // PB
      s) y (nkroc   W         // PB  synkrocyklotron
      s) y (tten    W         // PB
     fl) y (t_      W         // PB flyt
@@ -7709,6 +7906,8 @@ _stereot) y (p     'y        // PB stressed
     _l) yle        ajl       // PB name
      b) y (A       y
   penn) y          i         // PB coin
+        yokohama   jokoh'&m& // PB
+     _) yates      jEjts     // PB name
 
 .group z
 
@@ -7770,7 +7969,7 @@ _portr) æ (t       '&#       // PB stressed
     rr) æ (Cer+    &#        // PB forræderi
     dr) æ (ber     E         // PB
   _mor) æ (ne+     'E        // PB stressed
-   _tr) æ (ben+    &#        // PB træben
+   _tr) æ (ben++   &#        // PB træben
 
 // PB general rule r + æ + d + e: &#
      r) æ (de++    &#        // PB græde
@@ -7983,6 +8182,7 @@ slagsm) å (l       O         // PB
     gr) å (ne      O         // PB
      r) å (bt      V         // PB råbte
      r) å (lam     V         // PB
+     r) å (material V        // PB
    str) å (mand    V         // PB
    str) å (forkort V         // PB stråforkorter
    str) å (hat     V         // PB
