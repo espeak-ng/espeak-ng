@@ -1610,7 +1610,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 			if(v_stress <= 1)
 			{
-				if((v > 1) && (max_stress >= 4) && (stressflags & 4) && (v == (vowel_count-1)))
+				if((v > 1) && (max_stress >= 2) && (stressflags & 4) && (v == (vowel_count-1)))
 				{
 					// option: mark unstressed final syllable as diminished
 					v_stress = 0;

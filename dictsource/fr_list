@@ -1,4 +1,4 @@
-
+/
 // ***************************************************************************
 // *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2011-04-15 Michel Such  <michel.such@free.fr>
+// Updated 2011-10-14 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -350,6 +350,7 @@ tva	$abbrev
 uk	$abbrev
 ups	ypeEs
 url		y:ErEl
+USA	$abbrev
 usb		y:Esbe
 utc     $abbrev
 utf		$abbrev
@@ -372,10 +373,10 @@ le	$nounf $u+
 le  $verb $verbextend $u
 el	$u+
 los	los $u+
-la $nounf $u+
-la	$verb $verbextend $u
-les	lez2 $nounf $u+
-les	lez2 $verb $verbextend $u
+la la- $nounf $u+
+la	la- $verb $verbextend $u
+les	le-z2 $nounf $u+
+les	le-z2 $verb $verbextend $u
 un $nounf $u+
 une	$nounf $u+
 
@@ -465,33 +466,33 @@ voici	$u+
 voilà	$u+
 
 // possessives
-ma	$u $nounf
+ma	ma- $u $nounf
 mon	$u $nounf
-mes	mez2 $u $nounf
-ta	$u $nounf
+mes	me-z2 $u $nounf
+ta	ta- $u $nounf
 ton	$u $nounf
-tes	tez2 $u $nounf
-sa	$u $nounf
+tes	te-z2 $u $nounf
+sa	sa- $u $nounf
 son	$u+ $nounf
 son	sO~ $noun
-ses	sez2 $u $nounf
+ses	se-z2 $u $nounf
 notre	$u $nounf
 votre	$u $nounf
 leur	$u $nounf
 leur	$u $verb $verbextend
-(la leur)	la||lYr $u+ $verbf
-(le leur)	l@||lYr $u+ $verbf
+(la leur)	la-||lYr $u+ $verbf
+(le leur)	l@-||lYr $u+ $verbf
 nos	$u $nounf
 vos	$u $nounf
 leurs	$u+ $nounf
 leurs	$u $verb $verbextend
-(les leur)	le||lYr $u+ $verbf
-(les leurs)	le||lYr $u+ $verbf
+(les leur)	le-||lYr $u+ $verbf
+(les leurs)	le-||lYr $u+ $verbf
 
 // prepositions
 de $u $nounf
-du	$u $nounf
-des	dez2 $u $nounf
+du	dy- $u $nounf
+des	de-z2 $u $nounf
 
 
 à	a $u+
@@ -758,6 +759,7 @@ peter	_^_en
 phallus    falys
 pokémon	pokemOn
 polder    pOldEr
+pouls	pu
 premier    pr@mjer2
 program	_^_en
 query	_^_en
@@ -942,7 +944,7 @@ votions		vOotjO~z2
 évitions	evitjO~z2
 
 // no liaison
-(quelqu'un)	kElkW~ $U+
+(quelqu'un)	kElkW~ $u+
 pourcent	pursA~
 vincent		vE~sA~
 

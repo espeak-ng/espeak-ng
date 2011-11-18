@@ -1,7 +1,7 @@
 //====================================================
 //  French
 //====================================================
-// Updated 2011-04-15 Michel Such  <michel.such@free.fr>
+// Updated 2011-10-14 Michel Such  <michel.such@free.fr>
 
 phoneme #l  virtual
 // Used for l and l/
@@ -272,6 +272,13 @@ phoneme @
   FMT(vowel/@_hgh)
 endphoneme
 
+phoneme @-
+  vowel starttype #@  endtype #@
+  unstressed
+  length 130
+  FMT(vowel/@_hgh)
+endphoneme
+
 
 phoneme a
   vowel  starttype #a  endtype #a
@@ -281,7 +288,16 @@ phoneme a
     length 170
   ENDIF
 
-  FMT(vowel/a_7, 85)
+  FMT(vowel/a_7, 80)
+endphoneme
+
+
+phoneme a-
+  vowel  starttype #a  endtype #a
+  unstressed
+  length 130
+
+  FMT(vowel/a_7, 80)
 endphoneme
 
 
@@ -305,6 +321,14 @@ phoneme e
 endphoneme
 
 
+phoneme e-
+  vowel starttype #e  endtype #e
+  unstressed
+  length 130
+  FMT(vowel/e_8)
+endphoneme
+
+
 phoneme E
   vowel starttype #e  endtype #e
 
@@ -314,6 +338,14 @@ phoneme E
     length 170
   ENDIF
 
+  FMT(vowel/e_mid)
+endphoneme
+
+
+phoneme E-
+  vowel starttype #e  endtype #e
+  unstressed
+  length 130
   FMT(vowel/e_mid)
 endphoneme
 
@@ -442,6 +474,15 @@ phoneme y
 endphoneme
 
 
+phoneme y-
+  vowel starttype #u  endtype #u
+  unstressed
+
+  length 130
+  FMT(vowel/y)
+endphoneme
+
+
 phoneme W
   vowel starttype #@  endtype #@
   length 180
@@ -539,7 +580,7 @@ endphoneme
 phoneme O~
   vowel  starttype #o  endtype #o
   length 190
-  FMT(vnasal/o_n2)
+  FMT(vnasal/o_n4)
 endphoneme
 
 
@@ -958,6 +999,7 @@ A:      a :
 A@      a r
 aa      a :
 aI      a j
+aI3     a j W2 r
 aI@     a j W2 r
 aU      a w
 aU@     a w @

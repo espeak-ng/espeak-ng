@@ -61,8 +61,8 @@ _tld	t'Ild@
 _,	k'Oma:
 _:	d'8b@l@p,8nt
 _;	p'8ntkOm,a:
-/	sl'As
-\	b'AkkslAs
+/	sl'ES
+\	b'EkslES
 _?	v@-*'a:xte:k@n
 _!	'Wyt@-*upt,e:k@n
 _"	'a:nha:lInxste:k@n
@@ -93,9 +93,9 @@ _8	'Axt
 _9	n'e:Q@n
 _10	t'in
 _11	'Elf
-_12	tw'a:lf
+_12	tv#'a:lf
 _13	d'Ertin
-_14	v'e:rtin
+_14	f'I:rtin
 _15	v'EIftin
 _16	z'Estin
 _17	z'e:v@ntin
@@ -103,7 +103,7 @@ _18	'Axtin
 _19	n'e:Q@ntin
 _2X	tv#'Int@x
 _3X	d'Ert@x
-_4X	v'e:rt@x
+_4X	f'I:rt@x
 _5X	v'EIft@x
 _6X	z'Est@x
 _7X	z'e:v@nt@x
@@ -335,6 +335,7 @@ game	_^_EN
 hardware        _^_EN
 homepage	_^_EN
 items	_^_EN
+jaws    _^_EN
 laptop	_^_EN
 malware _^_EN
 medical _^_EN
@@ -1514,15 +1515,20 @@ ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 (al-qaeda)      Al_:k'AjdA
 Betty           bE:ti
 charlotte	$2
+Danica		dan'itsa
 Dewever		d@'v#e:v@r
+Herman		$1
 Henin		_^_FR
 Inge		IN@
 Ingeborg	INe:bOrx
 Ingmar		INmAr
 Ingrid		IN@-*It
+Joe		dZo:
+Joey		dZo:wi
 Justine		Zyst'in
 kennedy		kEn@dE
 Laurent		lo:r'An^
+Lisette		_^_FR
 Naomi		$2
 Nys		nEIsd'WyzEnt
 
