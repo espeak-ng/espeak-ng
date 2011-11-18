@@ -60,6 +60,7 @@
 #define OFFSET_KANNADA  0xc80
 #define OFFSET_MALAYALAM 0xd00
 #define OFFSET_SINHALA  0x0d80
+#define OFFSET_TIBET    0x0f00
 #define OFFSET_GEORGIAN 0x1080
 
 #define OFFSET_KOREAN   0x1100
@@ -422,6 +423,11 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
+	case L('b','o'):  // Tibet
+		SetLetterBitsRange(tr,LETTERGP_A,0x71,0x7d);   // vowel signs
+		tr->letter_bits_offset = OFFSET_TIBET;
+		break;
+
 	case L('c','y'):   // Welsh
 		{
 			static const short stress_lengths_cy[8] = {170,220, 180,180, 0, 0, 250,270};
@@ -578,8 +584,7 @@ Translator *SelectTranslator(const char *name)
 	case L('c','a'):   // Catalan
 	case L_pap:        // Papiamento
 		{
-			static const short stress_lengths_es[8] = {180, 210,  190, 190,  0, 0,  230, 260};
-//			static const short stress_lengths_es[8] = {170, 200,  180, 180,  0, 0,  220, 250};
+			static const short stress_lengths_es[8] = {180, 190,  230, 190,  0, 0,  230, 260};
 			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,20, 20,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 			static const wchar_t ca_punct_within_word[] = {'\'',0xb7,0};   // ca: allow middle-dot within word
 

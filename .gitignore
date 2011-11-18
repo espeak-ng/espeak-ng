@@ -27,3 +27,7 @@ espeak-data/phondata-manifest
 espeak-data/phonindex
 espeak-data/phontab
 
+# other (from espeak development releases)
+
+espeak-data/config
+phsource/compile_prog_log

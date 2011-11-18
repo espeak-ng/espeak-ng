@@ -176,7 +176,7 @@ phoneme a
   length 160
   ChangeIfDiminished(a#)
   IF thisPh(isUnstressed) THEN
-    FMT(vowel/a_7)
+    FMT(vowel/a_8)
   ENDIF
   FMT(vowel/a)
 endphoneme
