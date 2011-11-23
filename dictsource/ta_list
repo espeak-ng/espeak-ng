@@ -360,7 +360,7 @@ tamil	தமிழ்	$text
 பைக்க	$alt
 பாதிக்கும்	$alt
 பாதிக்குமா	$alt
-பத்திரப்	$alt
+பத்திரப்	bVttirVp
 
 
 
@@ -425,6 +425,8 @@ tamil	தமிழ்	$text
 தன	$alt
 தடியா	$alt
 தட	$alt
+தடியாய்	$alt
+தொள	$alt
 
 
 	// initial ட
@@ -507,6 +509,7 @@ tamil	தமிழ்	$text
 கவுன்	$alt
 கௌன்	$alt
 கிண்	$alt
+கிர்	$alt
 
 
 

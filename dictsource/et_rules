@@ -1,53 +1,73 @@
 // Estonian translation rules
 // This file is UTF-8 encoded
 
+
+
 .L01 i j	// used in palatalization rules
+
+.L02 b d f g h j l m n r s v
+
+.L03 l m n r
+
+.L04 a b c d e f g h i j k l m n o p q r s t u v õ ä ö ü
+
+.L05 a e i l m n o r u õ ä ö ü
+
 
 .group a
         a          a
     Ai) a          ja        // maia -> maija
-    au) a          wa       // kaua -> kauUa
-    uu) a          wa       // juua -> juuUa
-    õu) a         wa       // n8uab -> n8uUab
-    @)  aa         'a:
-    @)  aa (_      'aa:
-   _AC) a          A1       // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
-  _CAC) a          A1       // CVCV mallis
+    au) a          wa        // kaua -> kauUa
+    uu) a          wa        // juua -> juuUa
+    õu) a          wa        // n8uab -> n8uUab
+        aa         'a:       // pikk aa r�huliseks
+     X) aa (L02_   'aa:      // �hesilbilised pika aa-ga s�nad, millele järgneb mitte-klusiil, III vältesse
+     X) aa (_      'aa:
+ _AL02) a (K       A1        // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
+_CAL02) a (K       A1        // CVCV mallis
 
+        ao         'ao:
+        ai (_      'ai:
+        au (_      'au:
+        ae (_      'ae:
+        ambi       ambi
 
 .group b
         b          b
      _) b          p
-        bb         bb
 
 
 .group c
         c          k
         c (i       ts
         c (e       ts
-     _) c (e	   s
-        city       siti      // Pronounce foreign word city as siti. Include all inflections and compound words.
-                               // eg. city, cityst, intercity.
-
+     _) c (e       s
+        city       siti      // Pronounce foreign word city as siti.
+     _) ch         tS        // Charles, Charlie
 
 .group d
         d          d
      _) d          t
-       dd          dd
-     &) d (L01	   d^	// default d + i/j
+     &) d (L01     d^        // default d + i/j
      K) d (L01     d
-    @@) d (L01	   d   // kaugemal 1.- 2. silbipiirist mitte
+    @@) d (L01     d         // kaugemal 1.- 2. silbipiirist mitte
 
 .group e
         e          e
-     @) ee         'e:
-     @) ee (_      'ee:
     Ai) e          je        // meie -> meije
-    au) e          we       // kauem -> kauUem
-    uu) e          we       // juues -> juuUes
-    õu) e         we       // 8ue -> 8uUe
-   _AC) e          E1       // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
-  _CAC) e          E1       // CVCV mallis
+    au) e          we        // kauem -> kauUem
+    uu) e          we        // juues -> juuUes
+    õu) e          we        // 8ue -> 8uUe
+        ee         'e:       // pikk ee r�huliseks
+     X) ee (L02_   'ee:      // �hesilbilised pika ee-ga s�nad kolmandasse v�ltesse, va klusiiliga lõppevad
+     X) ee (_      'ee:
+ _AL02) e (K       E1        // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
+_CAL02) e (K       E1        // CVCV mallis
+
+        eo         'eo:
+        ea (_      'ea:
+        ei (_      'ei:
+
 
 .group f
         f          f
@@ -56,81 +76,86 @@
 .group g
         g          g
      _) g          k
-        gg         gg
 
 
 .group h
         h          h
-        hh         h:h
 
+    la) h (ti      hh
 
 .group i
         i          i
-     @) ii         'i:
-     @) ii (_      'ii:
-   _AC) i          I1       // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
-  _CAC) i          I1       // CVCV mallis
-
+        ii         'i:
+     X) ii (L02_   'ii:
+     X) ii (_      'ii:
+ _AL02) i (K       I1        // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
+_CAL02) i (K       I1        // CVCV mallis
 
 .group j
         j          j
-        jj         j:j
-
-        jazz       dZ&s:
-
+        jj         j:
+        jazz       tZ&s:
+        jumbu      jumbu
 
 .group k
         k          k
-        kk         k:k
+        kk         k:
+    AA) k (L05     k:        //kiikus, söökla IIIv
+  AL03) k (L05     k:        //kinkis, parkla IIIv
+     A) k (L03     k:        //akna IIIv
 
+        kamba      kamba
+        kimbatus   kimbatus
+        kimbu      kimbu
+        kauge      k'au:ge
 
 .group l
         l          l
-        ll         l:l
 
-     A) ll (_	i1l^:l^	// v.a all, kell, lill, vill, hull, p�ll
-        l (ss_	l^	// valss
+     A) ll (_      i1l^:     // v.a all, kell, lill, vill, hull, p�ll
+        l (ss_     l^        // valss
 
-     &) l (dL01	l^	// meeldib, haldjas
-     &) l (gL01	l^	// palgi, sulgjas
-     &) l (kL01	l^	// palki, m�lkis, n�lkjas
-     &) l (ni	l^	// sulnis, k�lni
-     &) l (si	l^	// valsi
-     &) l (s%i	l^	// valssi
-     &) l (ti	l^	// pilti
-     &) l (L01	l^	// default l + i/j
-     K) l (L01  l
-    @@) l (L01  l
+     &) l (dL01    l^        // meeldib, haldjas
+     &) l (gL01    l^        // palgi, sulgjas
+     &) l (kL01    l^        // palki, m�lkis, n�lkjas
+     &) l (ni      l^        // sulnis, k�lni
+     &) l (si      l^        // valsi
+     &) l (s%i     l^        // valssi
+     &) l (ti      l^        // pilti
+     &) l (L01     l^        // default l + i/j
+     K) l (L01     l
+    @@) l (L01     l
 
-    &) ll (i       l^:l^      // palataliseerime 1. ja 2. silbi piiril
-    K) ll (i       l:l
-   @@) ll (i       l:l        // kaugemal ei palataliseeri
+     &) ll (i      l^:       // palataliseerime 1. ja 2. silbi piiril
+     K) ll (i      l:
+    @@) ll (i      l:        // kaugemal ei palataliseeri
 
 
 .group m
         m          m
-        mm         m:
+     &) m (b       mm        // sõnades nagu november IIIv
+     &) m (bA%     m         //sõnades nagu plombiir ei lähe m IIIv-sse
 
 
 .group n
         n          n
 
-     A) nn (_	i1n^:n^	// v.a konn, nunn
-     i) nn (_	n:n	// linn
-        n (st_	n^	// kunst
+     A) nn (_      i1n^:     // v.a konn, nunn
+     i) nn (_      n:        // linn
+        n (st_     n^        // kunst
 
-     &) n (dL01	n^	// vindi, tundi, tundja
-     &A) n (lL01 n	// piinlik
-     &) n (si	n^	// Ansip
-     &) n (ti	n^	// tinti
-     &) n (t_	n^	// tint
-     &) n (L01	n^	// default n+i/j
-     K) n (L01  n
-    @@) n (L01 n
+     &) n (dL01    n^        // vindi, tundi, tundja
+    &A) n (lL01    n         // piinlik
+     &) n (si      n^        // Ansip
+     &) n (ti      n^        // tinti
+     &) n (t_      n^        // tint
+     &) n (L01     n^        // default n+i/j
+     K) n (L01     n
+    @@) n (L01     n
 
-    &) nn (i       n^:n^     // palataliseerime 1. ja 2. silbi piiril
-    K) nn (i       nn
-   @@) nn (i       nn         // kaugemal ei palataliseeri
+     &) nn (i      n^:       // palataliseerime 1. ja 2. silbi piiril
+     K) nn (i      nn
+    @@) nn (i      nn        // kaugemal ei palataliseeri
 
         n (k       N         // will retain the k/g; link -> liNk
         n (_k      N
@@ -142,17 +167,21 @@
         o          o
     ii) o          o         // do nothing
     Ai) o          jo        //
-     @) oo         'o:
-     @) oo (_      'oo: 
-   _AC) o          O1       // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
-  _CAC) o          O1       // CVCV mallis
+        oo         'o:
+     X) oo (L02_   'oo:
+     X) oo (_      'oo:
+ _AL02) o (K       O1        // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
+_CAL02) o (K       O1        // CVCV mallis
 
-
+        oa         'oa:
+        oi (_      'oi:
+        oe (_      'oe:
 
 .group p
         p          p
-        pp         p:p
-
+        pp         p:
+    AA) p (L05     p:        //liiper, liipri IIIv
+  AL03) p (_       p:        //kirp IIIv
 
 .group q
         q          k
@@ -162,64 +191,76 @@
 
 .group r
         r          r
-        rr         R:R
+        rr         RR
+    ke) r (ge      RR
+    kõ) r (ge      RR
 
 .group s
         s          s
+     A) ss (_      i1s^:     // v.a �ss, m�ss
 
-     A) ss (_	i1s^:s^	// v.a �ss, m�ss
+     &) s (di      s^        // ?
+     &) s (lL01    s         // oskuslik, usjas
+     &) s (nL01    s         // m�isnik
+     A) s (ti      s^        // h�sti
+     &) s (L01     s^        // default s + i/j
+     K) s (L01     s
+    @@) s (L01     s
 
-     &) s (di	s^	// ?
-     &) s (lL01	s	// oskuslik, usjas
-     &) s (nL01	s	// m�isnik
-     &A) s (ti	s^	// h�sti
-//     C) s (ti s
-     &) s (L01	s^	// default s + i/j
-     K) s (L01  s
-     @@) s (L01 s
-
-     &) ss (i      i1s^s^      // palataliseerime ss 1. ja 2. silbi piiril
-     K) ss (i      ss	
+     &) ss (i      s^s^      // palataliseerime ss 1. ja 2. silbi piiril
+     K) ss (i      ss
     @@) ss (i      ss        // kaugemal ei palataliseeri
         ss         ss2       // [s2] is a continuation for [s]
      K) sh         S
      K) sch        S         // Schmitt
 
+        sombu      sombu
+        sümboliseer s,ymbolis'e:r
+
 .group t
         t          t
         tt         t:
+    AA) t (L05     t:        //kiita IIIv
+  //AL03) t  (L05	   t:		//vintis IIIv
+     A) t (L03     t:        //ütles IIIv
+   &ma) t (a_      t:        //elamata
 
-     A) tt (_	i1t^:	// v.a sitt
+    XA) tt (_      i1t^:     // v.a sitt
 
-     &) t (lL01	t	// m�tlik
-     &) t (nL01	t	// kunstnik
-     &) t (si	i1t^	// patsi, otsi, ...
-    @@) t (si   t	
-     &) t (L01	t^	// default t + i/j
-     K) t (L01  t
-    @@) t (L01  t       // kaugemal ei palataliseeri
+     &) t (lL01    t^        // m�tlik
+     &) t (nL01    t^        // kunstnik
+    &A) t (si      i1t^      // patsi, otsi, ...
+    @@) t (si      t
+     &) t (L01     t^        // default t + i/j
+     K) t (L01     t
+    @@) t (L01     t         // kaugemal ei palataliseeri
+  // s) t (L01     t^   //  vesti, kuna kuulates vahet pole, siis välja
 
-     &) tt (i      i1t^:        // palataliseerime 1. ja 2. silbi piiril
-     K) tt (i       t:
-    @@) tt (i       t:         // kaugemal ei palataliseeri
-//     @) tse (_     tse_X1    // double the initial consonant of the next word
+     &) tt (i      t^:       // palataliseerime 1. ja 2. silbi piiril
+     K) tt (i      t:
+    @@) tt (i      t:        // kaugemal ei palataliseeri
 
+        tambu      tambu
+        tumba      tumba
 
 .group u
         u          u
     ii) u          u         // do nothing
     Ai) u          ju        // t&ius -> t&ijus
-    @)  uu         'u:
-    @)  uu (_      'uu:
-   _AC) u          U1       // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
-  _CAC) u          U1       // CVCV mallis
-//      ui         wi
-        uo         uo
+        uu         'u:
+     X) uu (L02_   'uu:
+     X) uu (_      'uu:
+ _AL02) u (K       U1        // r�huta silbi vokaali pikendamine 1. v�ltes s�nadel VCV mallis
+_CAL02) u (K       U1        // CVCV mallis
+
+        ui (_      'ui:
+
 
 
 .group v
         v          v
-        vv         v:v
+        vabarii    v'abar,ii
+        vembu      vembu
 
 
 .group w
@@ -228,27 +269,53 @@
 
 .group õ
         õ          8
-        õõ        '8:
+        õõ         '8:
+     X) õõ (L02_   '88:
+     X) õõ (_      '88:
         õu         8u
+
+        õo         '8o:
+        õa         '8a:
+        õi (_      '8i:
+        õu (_      '8u:
+        õe (_      '8e:
 
 
 .group ä
         ä          &
-        ää        '&:
+        ää         '&:
+     X) ää (L02_   '&&:
+     X) ää (_      '&&:
         äi         &i
+
+        äo         '&o:
+        äi (_      '&i:
+        äu (_      '&u:
+        äe (_      '&e:
+
+
 
 .group ö
         ö          Y
-        öö        'Y:
+        öö         'Y:
+     X) öö (L02_   'YY:
+     X) öö (_      'YY:
         öi         Yi
+
+        öe         'Ye:
+        öa         'Ya:
+
 
 .group ü
         ü          y
-        üü        'y:
-        üü (a     yij       // pyya -> pyija
-        üü (ja    yi        // myyja -> myija
+        üü         'y:
+     X) üü (L02_   'yy:
+     X) üü (_      'yy:
+        üü (a      yij       // pyya -> pyija
+        üü (ja     yi        // myyja -> myija
         üi         yi
 
+        ümbri      ymbri
 
 .group x
         x          ks
@@ -262,15 +329,17 @@
 
 
 .group z
-	z	   z
+        z          z
      K) zh         Z
-        zz         ts       // pizza, mozzarella, mezzo
+        zz         ts        // pizza, mozzarella, mezzo
 
 .group
         š          S
         ž          Z
 
-        $          dol:lar
+//        $          dol:lar
     __) - (_D      mi:nus
     A_) - (_D      _
     C_) - (_D      _
+
+

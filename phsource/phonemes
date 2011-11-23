@@ -1881,3 +1881,6 @@ include ph_setswana
 
 phonemetable mt base
 include ph_maltese
+
+phonemetable bo hi
+include ph_tibetan

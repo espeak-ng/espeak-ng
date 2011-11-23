@@ -309,6 +309,8 @@ standar) d (jegy   d
         dt (sz     t:
 miliár) d (szor    d
    tér) d (sérül   d
+    jó) d (szivár  d
+ beszé) d (jel     d
 
 .group dz
   fogó) dz (kod    ts
@@ -1789,6 +1791,7 @@ magyará) z (kod    s
   ezkö) z (sor     z
    wal) z (er      ts
 tanácskö) z (társaság s
+    tű) z (sebesség z
 
 .group
         $          dolla:R2

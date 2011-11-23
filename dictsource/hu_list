@@ -327,7 +327,7 @@ _20e	hus
 (XVIII-al) tizEnn^olts:Al
 (XIX-el) tizEnkilEnts:El
 (XX-al)	hu:s:Al
-XXX-al)	hAR2mints:al
+(XXX-al)	hAR2mints:al
 //etc, need do general rule similar with normal number exceptions, please test for example 22-el, 32-el, 42-el, 52-el, 40-el, 50-el, 60-al, 70-el etc
 //phonemes if this is possible.
 (CD-ellenőrzést)	tse:de:El:EnY:R2ze:St //this is not a mistake, default Espeak spokening roman number before the ellenőrzés word
@@ -488,7 +488,7 @@ stb	SAtYb:i  $hasdot
 u.n	u:JnEvEzEt:   $hasdot
 ú.n	u:JnEvEzEt:   $hasdot
 vö	v'EZd||_'Yss2E	$hasdot
-(u . i .) $abbrew
+(u . i .) $abbrev
 NVDA Enve:de:A $allcaps
 
 
@@ -1388,7 +1388,8 @@ stratégiájával	$unstressend
 rendszerekre	$unstressend
 vicc	$unstressend
 szakemberei	$unstressend
-változatból	$unstressendváltozatából	$unstressend
+változatból	$unstressend
+változatából	$unstressend
 bizottságnak	$unstressend
 nyilatkozta	$unstressend
 rendelkezések	$unstressend
@@ -2448,7 +2449,8 @@ ellen	$unstressend
 elől	$unstressend
 helyzetért	$unstressend
 hangsúlyozta	$unstressend
-vételét	$unstressendtárgyaljanak	$unstressend
+vételét	$unstressend
+tárgyaljanak	$unstressend
 tárgyaljanak	$unstressend
 védelmét	$unstressend
 elegendőnek	$unstressend
@@ -2914,7 +2916,7 @@ fogát	$unstressend
 rajtam	$unstressend
 tömik	$unstressend
 foga	$unstressend
-(sem tömik)	SEm||tYmik $unstresend
+(sem tömik)	SEm||tYmik $unstressend
 abba	$unstressend
 orvosnak	$unstressend
 tudná	$unstressend
@@ -4197,7 +4199,7 @@ szellem	$unstressend
 érzése	$unstressend
 (együvé tartozás) EJ:yve:_||tArtoza:S	$unstressend
 (egyesületi vezetők) EJ:ESylEti_||vEzEtY:k	$unstressend
-(vezetőségi tagjai) vEzEtY:Se:gi_||tAgjAi	$unstressed
+(vezetőségi tagjai) vEzEtY:Se:gi_||tAgjAi	$unstressend
 (egyesülettel szemben) EJ:ESylEt:El_||sEmbEn	$unstressend
 (bérleti díjakra) be:R2lEti_||di:jAkR2A	$unstressend
 (megoldási lehetőséggel) mEgolda:Si_||lEhEtY:Se:g:El	$unstressend
@@ -4936,7 +4938,7 @@ egyezség	eggyesség
 (cd-n) cédén
 (cd-d) cédéd
 (CD-d) cédéd
-CD-m) cédém
+(CD-m) cédém
 (cd-m) cédém
 (db-os) darabos
 (db-ot) darabot

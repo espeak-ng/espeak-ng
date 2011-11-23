@@ -542,14 +542,15 @@ static char nullstring[] = {0};
 				{
 					p[0] = 0;
 					multiple_words = 0;
+					step = 3;
 				}
 				else
 				if(word[0] != '_')
 				{
 					fprintf(f_log, "%5d: Missing '('\n", linenum);
 					error_count++;
+					step = 3;
 				}
-				step = 3;
 			}
 			break;
 

@@ -30,16 +30,9 @@ Compiling: '/home/jsd1/speechdata/dictsource/da_rules'
 
 Using phonemetable: 'hu'
 Compiling: '/home/jsd1/speechdata/dictsource/hu_list'
-  330: Missing '('
-  491: Unknown keyword: $abbrew
- 1391: Unknown keyword: $unstressendváltozatából
- 2451: Unknown keyword: $unstressendtárgyaljanak
- 2917: Unknown keyword: $unstresend
- 4200: Unknown keyword: $unstressed
- 4939: Missing '('
-	4823 entries
+	4825 entries
 Compiling: '/home/jsd1/speechdata/dictsource/hu_rules'
-	1667 rules, 45 groups (0)
+	1670 rules, 45 groups (0)
 
 Using phonemetable: 'de'
 Compiling: '/home/jsd1/speechdata/dictsource/de_list'
@@ -55,9 +48,9 @@ Compiling: '/home/jsd1/speechdata/dictsource/el_rules'
 
 Using phonemetable: 'en'
 Compiling: '/home/jsd1/speechdata/dictsource/en_list'
-	3345 entries
+	3343 entries
 Compiling: '/home/jsd1/speechdata/dictsource/en_rules'
-	5487 rules, 97 groups (0)
+	5486 rules, 97 groups (0)
 
 Using phonemetable: 'eo'
 Compiling: '/home/jsd1/speechdata/dictsource/eo_list'
@@ -67,7 +60,7 @@ Compiling: '/home/jsd1/speechdata/dictsource/eo_rules'
 
 Using phonemetable: 'es'
 Compiling: '/home/jsd1/speechdata/dictsource/es_list'
-	384 entries
+	385 entries
 Compiling: '/home/jsd1/speechdata/dictsource/es_rules'
 	173 rules, 27 groups (0)
 
@@ -103,9 +96,9 @@ Compiling: '/home/jsd1/speechdata/dictsource/hi_rules'
 
 Using phonemetable: 'ta'
 Compiling: '/home/jsd1/speechdata/dictsource/ta_list'
-	483 entries
+	486 entries
 Compiling: '/home/jsd1/speechdata/dictsource/ta_rules'
-	2988 rules, 31 groups (26)
+	3003 rules, 31 groups (26)
 
 Using phonemetable: 'hy'
 Compiling: '/home/jsd1/speechdata/dictsource/hy_list'
@@ -171,9 +164,9 @@ Compiling: '/home/jsd1/speechdata/dictsource/nci_rules'
 
 Using phonemetable: 'nl'
 Compiling: '/home/jsd1/speechdata/dictsource/nl_list'
-	1450 entries
+	1463 entries
 Compiling: '/home/jsd1/speechdata/dictsource/nl_rules'
-	628 rules, 33 groups (0)
+	633 rules, 33 groups (0)
 
 Using phonemetable: 'no'
 Compiling: '/home/jsd1/speechdata/dictsource/no_list'
@@ -379,13 +372,17 @@ Compiling: '/home/jsd1/speechdata/dictsource/si_rules'
 
 Using phonemetable: 'et'
 Compiling: '/home/jsd1/speechdata/dictsource/et_list'
-	211 entries
+	303 entries
 Compiling: '/home/jsd1/speechdata/dictsource/et_rules'
-	167 rules, 31 groups (0)
+	220 rules, 31 groups (0)
 
 Using phonemetable: 'mt'
 Compiling: '/home/jsd1/speechdata/dictsource/mt_list'
 	232 entries
 Compiling: '/home/jsd1/speechdata/dictsource/mt_rules'
 	99 rules, 31 groups (0)
+
+Using phonemetable: 'bo'
+Compiling: '/home/jsd1/speechdata/dictsource/bo_rules'
+	259 rules, 44 groups (41)
 
