@@ -62,8 +62,9 @@
 #define OFFSET_SINHALA  0x0d80
 #define OFFSET_TIBET    0x0f00
 #define OFFSET_GEORGIAN 0x1080
-
 #define OFFSET_KOREAN   0x1100
+#define OFFSET_ETHIOPIC 0x1200
+
 
 static void Translator_Russian(Translator *tr);
 
@@ -376,6 +377,7 @@ Translator *SelectTranslator(const char *name)
 	case L('a','m'):  // Amharic, Ethiopia
 		{
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
+			tr->letter_bits_offset = OFFSET_ETHIOPIC;
 			tr->langopts.stress_rule = STRESSPOSN_1L;
 			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable

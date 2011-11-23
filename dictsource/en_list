@@ -2106,11 +2106,12 @@ shiver		SIv3
 shone		S0n
 shoulder	SoUld3
 shrilly		SrIllI       $verbf
-sibelius	sI2beIli@s
 si		si:
 sí		Si:
+sibelius	sI2beIli@s
 sidhe		Si:@
 sídhe		Si:@
+siecle		sjEkl@-
 sienna		si:'En@
 sierra		si:'e@r@
 signage		saInI2dZ
@@ -2866,6 +2867,7 @@ Ian		i:@n
 Igor		i:go@
 Imogen		Im@dZ@n
 Imogene		Im@dZ@n
+Ingrid		$1
 Irene		aIri:n
 Isaac		aIs@k
 Isabel		Iz@bEl
@@ -3248,6 +3250,7 @@ has              haz		$only $atend
 (has to)         haztu:		$atend
 (has not)        h@zn%0t	$pastf
 (has not)        ha#zn0t	$pastf $atend
+(has it)         h,azI2t		$atend
 has              haz		$allcaps
 hath             %haT		$pastf $only
 had              %ha#d		$pastf $strend2 $only
@@ -3255,6 +3258,7 @@ had              ,had		$atend
 (had to)         h%adt@5
 (had to)         hadtu:		$atend
 (had been)       %ha#d%bIn	$pastf
+(had it)         h,adI2t		$atend
 having           ,havIN		$strend2 $pastf $only
 haven't          hav@nt		$pastf
 hadn't           had@nt		$pastf

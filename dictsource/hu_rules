@@ -126,6 +126,11 @@ szanité) c (cs     ts
         cszs       tSZ
  kilen) c (schill  ts
  _bohó) cs         ts|S
+   _ar) c (sérül   ts
+  _har) c (sor     ts
+  _áká) c (söv     ts
+  _áká) c (söv     ts
+ _bohó) c (sz      ts
 
 .group ch
   anar) ch (i      h
@@ -311,6 +316,8 @@ miliár) d (szor    d
    tér) d (sérül   d
     jó) d (szivár  d
  beszé) d (jel     d
+_biliár) d (szo    d
+ rekor) d (sebesség d
 
 .group dz
   fogó) dz (kod    ts
@@ -905,6 +912,7 @@ pedagógu) s (sztrájk S
 identitá) s (zavar S
 fáklyá) s (zen     S
    _ki) s (zombor  S
+ _alvá) ssz (üksé  Ss
 
 .group ss
         ssz        ss2
@@ -1792,6 +1800,7 @@ magyará) z (kod    s
    wal) z (er      ts
 tanácskö) z (társaság s
     tű) z (sebesség z
+   _tű) z (zsonglőr z
 
 .group
         $          dolla:R2
