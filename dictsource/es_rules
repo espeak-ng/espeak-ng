@@ -61,6 +61,7 @@
 .group e
           e          e
 //          e (CK      E
+          e (nK      E
           e (r       E
           e (Ch      e
       Ar) e          E
@@ -93,6 +94,7 @@
 
 .group h
           h              // silent
+       _) hi (A      J^
 
 
 .group i
@@ -236,9 +238,6 @@
 ?1     A) x (A       Qs
           x (_       =Qs
        _) x ($unpr   z      // ?
-?3     _e) x (c      x      // ?? needed for mbrola-vz1
-?3     _e) x (p      x
-?3     _e) x (t      x
 
 
 .group y

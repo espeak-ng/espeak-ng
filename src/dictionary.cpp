@@ -2573,7 +2573,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 					if((match1.points == 0) && ((option_sayas & 0x10) == 0))
 					{
 						n = utf8_in(&letter,p-1)-1;
-
 						if(tr->letter_bits_offset > 0)
 						{
 							// not a Latin alphabet, switch to the default Latin alphabet language
