@@ -6,29 +6,45 @@
 
 phoneme a
   vowel starttype #a endtype #a
-  length 160
-//  IF thisPh(isDiminished) THEN
-//    FMT(vowel/a#)
-//  ENDIF
-  FMT(vowel/a_2)
+  length 180
+  FMT(vowel/a_4)
 endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 170
+  length 190
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 180
+  length 190
   FMT(vowel/e_mid)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 170
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 190
+  FMT(vowel/o)
 endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
-  length 170
+  length 190
   FMT(vowel/oo)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 180
+  FMT(vowel/u_bck2)
 endphoneme
 
 

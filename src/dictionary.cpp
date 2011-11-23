@@ -776,7 +776,7 @@ static int IsLetter(Translator *tr, int letter, int group)
 
 	if(tr->letter_bits_offset > 0)
 	{
-		if(((letter2 = (letter - tr->letter_bits_offset)) > 0) && (letter2 < 0x80))
+		if(((letter2 = (letter - tr->letter_bits_offset)) > 0) && (letter2 < 0x100))
 				letter = letter2;
 		else
 			return(0);
@@ -787,7 +787,7 @@ static int IsLetter(Translator *tr, int letter, int group)
 			return(tr->letter_bits[remove_accent[letter-0xc0]] & (1L << group));
 	}
 
-	if((letter >= 0) && (letter < 0x80))
+	if((letter >= 0) && (letter < 0x100))
 		return(tr->letter_bits[letter] & (1L << group));
 
 	return(0);

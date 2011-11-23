@@ -269,12 +269,12 @@ niet	n,it	$strend
 
 // auxillary verbs  (be, have, can, etc)
 zijn	$u	// to be
-ben	$u
-bent	$u
-is	$u
-was	$u
-waren	$u
-geweest	$u
+ben	$u $only
+bent	$u $only
+is	$u $only
+was	$u $only
+waren	$u $only
+geweest	$u $only
 
 hebben  $u          // to have
 heb	$u
@@ -398,6 +398,7 @@ baster		$alt
 beender		$alt
 belemmer	$alt
 beter		$alt
+beirer		$alt
 bibber		$alt
 bitter		$alt
 bladder		$alt
@@ -1389,7 +1390,17 @@ armand		_^_FR
 augustus	VUQ'8st8s
 banengids	$alt3
 beha            be:_h'a:
+beige		bEZ@
+benard		b@nArt
+beker		be:k@r
+bendes		bEnd@s
+benig		be:n@Q
+benige		be:n@Q@
+berig		bI:r@Q
+berige		bI:r@Q@
+berin		bI:r'In
 beste		bEst@
+bevend		be:v@nd
 bijziend	$2	// bijziendheid
 blitzkrieg	blItskri:g
 boudoir		budw'a:r
@@ -1513,6 +1524,7 @@ ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 
 // names
 (al-qaeda)      Al_:k'AjdA
+Beilen		bEIl@n
 Betty           bE:ti
 charlotte	$2
 Danica		dan'itsa
@@ -1541,6 +1553,7 @@ google          gu:g@l
 
 // places
 alexandrië	$3
+Benin		be:n'in
 canada		kAna:da:
 Kinshasa	kInS'a:sa:
 Nairobi		nAjr'o:bi

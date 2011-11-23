@@ -424,8 +424,16 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('b','o'):  // Tibet
-		SetLetterBitsRange(tr,LETTERGP_A,0x71,0x7d);   // vowel signs
-		tr->letter_bits_offset = OFFSET_TIBET;
+		{
+			tr->langopts.stress_rule = STRESSPOSN_1L;
+			tr->letter_bits_offset = OFFSET_TIBET;
+			SetLetterBitsRange(tr,LETTERGP_A,0x71,0x7d);   // vowel signs
+			SetLetterBitsRange(tr,LETTERGP_B,0x71,0x81);   // vowel signs and subjoined letters
+			SetLetterBitsRange(tr,LETTERGP_B,0x90,0xbc);
+			SetLetterBitsRange(tr,LETTERGP_C,0x40,0x6c);   // consonant letters (not subjoined)
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+			tr->langopts.numbers = 1;
+		}
 		break;
 
 	case L('c','y'):   // Welsh
@@ -584,7 +592,7 @@ Translator *SelectTranslator(const char *name)
 	case L('c','a'):   // Catalan
 	case L_pap:        // Papiamento
 		{
-			static const short stress_lengths_es[8] = {180, 190,  230, 190,  0, 0,  230, 260};
+			static const short stress_lengths_es[8] = {180, 190,  230, 180,  0, 0,  240, 270};
 			static const unsigned char stress_amps_es[8] = {16,12, 18,18, 20,20, 20,20 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 			static const wchar_t ca_punct_within_word[] = {'\'',0xb7,0};   // ca: allow middle-dot within word
 
@@ -1278,6 +1286,13 @@ SetLengthMods(tr,3);  // all equal
 				tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
 			}
 			tr->langopts.max_initial_consonants = 2;
+		}
+		break;
+
+	case L('u','k'):   // Ukrainian
+		{
+			SetCyrillicLetters(tr);
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
 		}
 		break;
 
