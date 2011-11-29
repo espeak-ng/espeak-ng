@@ -745,19 +745,32 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 int wave_close(void* theHandler)
 {
   SHOW_TIME("wave_close > ENTER");
+  static int aStopStreamCount = 0;
 
-  int a_status = pthread_mutex_lock(&pulse_mutex);
-  if (a_status) {
-    SHOW("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
-    return PULSE_ERROR;
-  }
-  
-  drain();
+	// Avoid race condition by making sure this function only
+	// gets called once at a time
+	aStopStreamCount++;
+	if (aStopStreamCount != 1)
+	{
+		SHOW_TIME("wave_close > LEAVE (stopStreamCount)");
+		return 0;
+	}
 
-  pthread_mutex_unlock(&pulse_mutex);
-  SHOW_TIME("wave_close (ret)");
+	int a_status = pthread_mutex_lock(&pulse_mutex);
+	if (a_status)
+	{
+		SHOW("Error: pulse_mutex lock=%d (%s)\n", a_status, __FUNCTION__);
+		aStopStreamCount = 0; // last action
+		return PULSE_ERROR;
+	}
 
-  return PULSE_OK;
+	drain();
+
+	pthread_mutex_unlock(&pulse_mutex);
+	SHOW_TIME("wave_close (ret)");
+
+	aStopStreamCount = 0; // last action
+	return PULSE_OK;
 }
 
 //>
