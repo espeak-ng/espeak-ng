@@ -15,29 +15,6 @@ n    N    n^   p    r    s    S    t
 T    tS   v    w    x    x2   z    Z    
 
 
-Dictionary bg_dict  2011-04-29
-
-@    a    e    i    o    u    
-
-:    ;    b    C    d    d;   dZ   dz   
-f    g    g;   h    j    k    l    L    
-l^   m    n    n^   p    r    s    S    
-s;   t    t;   tS   ts   v    x    z    
-Z    z;   
-
-
-Dictionary hu_dict  2011-11-22
-
-a    A    a:   e    E    e:   i    i:   
-o    o:   u    u:   Y    y    y:   Y:   
-
--    :    b    c    C    d    dZ   dz   
-f    g    h    j    J    k    l    l^   
-m    n    n^   p    r    R    R2   s    
-S    s2   t    t2   tS   ts   v    w    
-z    Z    
-
-
 Dictionary ca_dict  2010-07-27
 
 @    a    a#   aI   e    E    E2   i    
@@ -89,7 +66,7 @@ R3   s    S    t    T    tS   v    w
 x    Z    
 
 
-Dictionary hu_dict  2011-11-22
+Dictionary hu_dict  2011-11-29
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
@@ -125,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2011-11-22
+Dictionary en_dict  2011-11-29
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -225,7 +202,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2011-11-19
+Dictionary ta_dict  2011-11-29
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -295,30 +272,6 @@ l    m    n    N    p    R    s    S
 t    tS   v    w    x    z    Z    
 
 
-Dictionary ka_dict  2011-04-11
-
-@    @-   a    e    i    o    u    
-
-:    ?    b    c    d    dZ   dz   f    
-g    h    j    k    k#   l    m    n    
-p    p#   Q    q    r    s    S    t    
-t#   tS   ts   ts#  v    w    x    z    
-Z    
-
-
-Dictionary kn_dict  2011-06-25
-
-a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   r-   u    u:   
-
-#X1  #X2  :    b    bh   c    ch   d    
-d.   dh   dh.  dZ   f    g    gh   h    
-j    J    Jh   k    kh   l    l.   m    
-n    N    n.   n^   p    ph   r    s    
-S    s.   S;   t    t.   th   th.  tS   
-v    w    z    
-
-
 Dictionary ku_dict  2008-04-14
 
 8    a    e    E    E#   eI   eU   i    
@@ -363,20 +316,6 @@ oU   r-   u    u:
 h    j    k    k^   l    l^   m    n    
 N    n^   p    r    R    s    S    t    
 tS   ts   tS;  v    x    z    Z    
-
-
-Dictionary ml_dict  2011-04-25
-
-@    a    a#   a:   aI   aU   e    E    
-e:   i    I    i:   o    o:   r-   u    
-u:   V    y    
-
-#X1  #X2  :    ;    b    bh   c    ch   
-d    d#   d.   dh   dh.  dZ   f    g    
-gh   h    j    J    Jh   k    kh   l    
-l.   m    n    N    n.   n^   p    ph   
-r    R    r.   R2   s    s.   S;   t    
-t.   th   th.  tS   v    w    z    
 
 
 Dictionary nci_dict  2010-01-20
@@ -526,17 +465,15 @@ p    Q    R    s    S    t    T    tS
 v    w    x    z    
 
 
-Dictionary ta_dict  2011-11-19
+Dictionary sl_dict  2011-03-14
 
-a    a:   aI   aU   e    E    e:   i    
-I    i:   o    o:   u    U    u2   u:   
-U:   V    V#   
+@    a    a:   e    E    e:   i    i:   
+o    O    o:   u    u:   y    
 
-#    #X1  #X2  :    ;    b    C    d    
-d.   dZ   f    g    h    H    j    k    
-l    l.   m    n    N    n.   n^   p    
-Q    r    R    s    S    s.   t    T    
-t.   th   tS   v    w    z    z.   
+:    b    d    dZ   dz   f    g    h    
+j    k    l    l^   m    n    N    n^   
+p    R    R^   s    S    t    tS   ts   
+v    w    x    z    Z    
 
 
 Dictionary tr_dict  2011-09-16

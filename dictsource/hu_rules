@@ -127,9 +127,9 @@ szanité) c (cs     ts
  kilen) c (schill  ts
  _bohó) cs         ts|S
    _ar) c (sérül   ts
-  _har) c (sor     ts
+  _har) csor       ts|SoR2
   _áká) c (söv     ts
-  _áká) c (söv     ts
+  _aká) c (söv     ts
  _bohó) c (sz      ts
 
 .group ch
@@ -161,6 +161,7 @@ oligar) ch         h
   mazo) ch (izm    h
   mazo) ch (is     h
     ar) ch (aikus  h
+   _ar) ch (imé    h
 
 
 .group d
@@ -318,6 +319,9 @@ miliár) d (szor    d
  beszé) d (jel     d
 _biliár) d (szo    d
  rekor) d (sebesség d
+ beszé) d (stílus  d
+   zöl) d (szín    d
+    ná) d (szőnye  d
 
 .group dz
   fogó) dz (kod    ts
@@ -913,6 +917,14 @@ identitá) s (zavar S
 fáklyá) s (zen     S
    _ki) s (zombor  S
  _alvá) ssz (üksé  Ss
+_barná) ssz (ürke  Ss
+_kőműve) s (sz     S
+ _lőré) s (sz      S
+_pörkölé) s (sz    S
+  hadá) s (szag    S
+ _körö) s (szakál  S
+    hú) s (szag    S
+
 
 .group ss
         ssz        ss2
@@ -1150,7 +1162,11 @@ _farka) ssz (ig    Ss
   lako) ssz (ám    Ss
 _szencsége) ssz (űz Ss
     ki) ssz (ekrény Ss
-
+csattaná) ssz (erű Ss
+ csikó) ssz (ám    Ss
+_csipké) ssz       Ss
+csobbaná) ssz (erű Ss
+csuklá) ssz (erű   Ss
 
 .group sz
         sz         s
@@ -1376,6 +1392,7 @@ terüle) tj (elöl   tj
     _á) tj (u      tj
 _tábláza) tj (egy  tj
  üzene) tj (el     tj
+     á) tj (össz   tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1588,6 +1605,7 @@ támogato) ts (ág   tS:
     _á) tsz (olgál t|s
 felira) ts (áv     t|S
     pö) tsz (en    ts:
+    _á) tsz (orult t|s
 
 .group tt
         tt         t:

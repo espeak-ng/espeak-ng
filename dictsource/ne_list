@@ -1,0 +1,174 @@
+// Nepali
+// This file is UTF8 encoded
+
+// Numbers
+// devanagari numbers are changed to latin characters before translation
+
+_0        S'un.j@3
+_1        'ek
+_2        d'uI
+_3        t'in
+_4        c'ar:
+_5        p'anc
+_6        ch'@2
+_7        s'at
+_8        'at.h
+_9        n'VU
+
+_10       dVs
+_11       egh'ar@
+_12       b'ar@
+_13       t'er@
+_14       ch'od@
+_15       p'Vndr@
+_16       s'or@
+_17       s'Vt:r@2
+_18       Vt.h:'ar@2
+_19       unn'aIs
+
+_20       b'is
+_21       ek:'aIs
+_22       b'aIs
+_23       t'eIs
+_24       c'obis
+_25       p@c:'is
+_26       ch@bb'irs
+_27       s@t:'aIs
+_28       ath:'aIs
+_29       unt'is
+_30       t'is
+
+_31       ekt:'is
+_32       bat:'is
+_33       tet:'is
+_34       co~t'is
+_35       p@Int:'is
+_36       chaT:'tis
+_37       s@Int'is
+_38       art'is
+_39       untal'is
+
+_40       cal'is
+_41       ikcal'is
+_42       baIal'is
+_43       tE~tal'is
+_44       cowal'is
+_45       paI'ntalis
+_46       chhijal'is
+_47       sE~tal'is
+_48       artal'is
+_49       'un^cas
+
+_50       p@c'as
+_51       ek'aUnn@
+_52       baH'unn@
+_53       tr'ipnn@
+_54       c'Ouw@nn@
+_55       p'achp@nn@
+_56       chh@p:'p@nn@
+_57       s@nt'aUnn@
+_58       @nth:'aUnn@
+_59       un@n'sat:hi
+
+_60       s'at.hi
+_61       'iks@t.hi
+_62       b'@is@t.hi
+_63       t'irs@t.hi
+_64       c'O~s@t.hi
+_65       p@Ins@t.hi
+_66       ch'ijas@t.hi
+_67       s'Vrs@t.hi
+_68       ars@t.hi
+_69       un@ans@tt@ri
+
+_70       sat:'Vr:
+_71       ikhat:'Vr:
+_72       b@hat:'Vr:
+_73       tihat:'Vr:
+_74       cohat:'Vr:
+_75       pach,at:'Vr:
+_76       ch@3j@3t:'Vr:
+_77       s@t@hat:'Vr:
+_78       athhat:'Vr:
+_79       ,un^ias'i
+
+_80       ,Vss'i
+_81       ikjas'i
+_82       baIas'i
+_83       tiras'i
+_84       coras'i
+_85       p@'casi
+_86       chijas'i
+_87       sVt:as'i
+_88       ath:as'i
+_89       'unan:'n@b:e
+
+_90       nVb:'e
+_91       ikj'an@we
+_92       b'an@we
+_93       tir'an@we
+_94       cor'am@we
+_95       p@c'an@we
+_96       chij'an@we
+_97       s@t:'an@we
+_98       ath:'an@we
+_99       nin^j'an@we
+
+_0C	s'Ve
+_0M1	h@z'ar
+_0M2	l'akh
+_0M3	cr'ore
+_0M4	b'ilion  // ?? English
+_dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
+
+// Single consonants
+क      k@
+क़      q@
+ख      kh@
+ख़      x@
+ग      g@
+ग़      Q@
+घ      gh@
+ङ      N@
+च      c@
+छ      ch@
+ज      J@
+ज़      z@
+झ      Jh@
+ञ      n^@
+ट      t.@
+ठ      t.h@
+ड      d.@
+ड़      r.@
+ढ      d.h@
+ण      n.@   // retroflex n.@
+त      t@
+थ      th@
+द      d@
+ध      dh@
+न      n@
+प      p@
+फ      ph@
+फ़      f@
+ब      b@
+भ      bh@
+म      m@
+य      j@
+र      r@
+ऱ      r@
+ल      l@
+ळ      l.@
+व      v@
+श      S@
+ष      s.@   //  retroflex [S]
+स      s@
+ह      H@
+क़      q@
+ख़      x@
+ग़      Q@
+ज़      z@
+ड़      r-@
+ढ़      hr@
+फ़      f@
+य़      j@
+

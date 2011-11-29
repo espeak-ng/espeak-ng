@@ -1,0 +1,147 @@
+// maintainer: Sternly K Simon
+// email:sternly_simon@yahoo.com
+// setswana translation rules
+// with support from Jonathan Duddington
+
+//2-letter groupds that represent classes of setswana nouns
+// mo, ba, mo, me, le, ma, se, di, lo, bo, go, fa, ko, mo
+
+.group a
+        a        a
+    _C) a        a
+     _) a     (C a
+      a (_       a
+      a (s       a:
+        aa       a:
+
+.group b
+        b        b
+        b        B
+
+.group c
+        c        k
+        ch       tS
+
+.group d
+        d        d
+        dh       D
+
+.group e
+        e        e
+        ee       e:
+     s) e        i
+
+.group f
+        f        f
+
+.group g
+        g        g
+    _k) g        g x2
+        gh       Q
+
+
+.group h
+        h        h
+        hl       l#
+
+.group i
+        i        i
+        ii       i:
+
+.group j
+        j        J
+
+.group k
+        k        k
+        kh       x
+
+.group l
+        l        l
+
+.group m
+        m        m
+     _) m        m-
+        m (A     m
+     K) m (@@    _|m
+     K) m (C     m-
+     K) m (b@@   _|m
+     K) m (v@@   _|m
+     K) m (w@@   _|m
+
+.group n
+        n        n
+     _) n        n-
+        n (A     n
+        n (@@    n
+        ny       n^
+        n (ch    n^
+        n (j     n^
+        ng'      N
+        n (k     N
+     _) n (k     N-
+     _) n (k@@   N-
+        n (g     N
+     _) n (g     N-
+     _) n (g@@   N-
+
+.group o
+        o        o
+        oo       o:
+
+.group p
+        p        p
+
+.group q
+        q        k
+
+.group r
+        r          r
+        r          R
+        r          R3
+     A) r (A       R
+     C) r (A       @-*
+        rr         RR
+
+.group s
+        s        s
+        sh       S
+     s  (e       s-
+    _t) se       si:
+
+.group t
+        t        t
+        th       T
+        tsen ts'e:n
+        tlh      K
+        tl       l#
+
+.group u
+        u        u
+        uu       u:
+    _d) u        u:
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group x
+        x        ks
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+.group
+        $        dola
+        %        asilimia
+
+        *        n^ota
+    *)  * (*
+        **
+   **)  * (_     _::
+
+

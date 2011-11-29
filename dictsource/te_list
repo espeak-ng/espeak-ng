@@ -1,0 +1,171 @@
+ 
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Telugu
+
+
+
+// speak Latin letters as English
+a	e:j
+b	bi:
+c	si:
+d	di:
+e	i:
+f	Ef
+g	dZi:
+h	e:tS
+i	a:j
+j	dZe:j
+k	ke:j
+l	El
+m	Em
+n	En
+o	o:
+p	pi:
+q	kju:
+r	a:r
+s	Es
+t	thi:
+u	ju:
+v	vi:
+w	dVbVlju:
+x	Eks
+y	wa:j
+z	zEd
+
+
+
+// numbers
+_0	sunna
+_1	okat.i
+_1a	oka
+_2	rend.u
+_3	mu:d.u
+_4	na:lgu
+_5	aIdu
+_6	a:ru
+_7	e:d.u
+_8	;enimidi
+_9	tommidi
+_1X	padi
+_11	padakond.u
+_12	pannemd.u
+_13	padamu:d.u:
+_14	padhna:lugu
+_15	padihe:nu
+_16	padaha:ru
+_17	padihe:d.u
+_18	paddhenimidi
+_19	pamdommadi
+_2X	iravaI
+_3X	muppaI
+_4X	nalubhaI
+_5X	ja:bhaI
+_6X	aravaI
+_7X	d.ebhbaI
+_8X	jenabhaI
+_9X	tombhaI
+_0C	vandala
+_0C0	vandalu
+_1C	okavanda
+_0M1	vela
+_0M1x	velu
+_1M1	okavejji
+_0M2	laks.ala
+_0M2x	laks.alu
+_1M2	laks.a
+_0M3	kotla
+_0M3x	kotlu
+_1M3	koti
+_dpt	_d,aS;a:mkam
+
+
+// symbols
+_??	aks.aram   // 'unknown character'
+%	S;a:tam
++	ku:d.ika
+*	naks.atra
+\	bja:kasla:s.
+/	sla:s.
+©	ka:pi:raIt.
+¶	ve:ra:
+
+_,	ka:ma:
+_;	semi:ko:lan
+_:	ko:lan
+_!	a:S;carja:rthaka
+_?	praS;na:rthaka
+_-	haIfan
+__	amd.ar||sko:r
+
+
+// unstressed function words
+// articles
+ద	$u
+అ	$u+
+ఆ	$u+
+ఒక	$u
+
+
+// letter names
+U+c01	am
+U+c02	an
+U+c03	ah
+U+c4d	vottu
+
+   // consonants with virama
+క్	ik
+ఖ్	ikh
+గ్	ig
+ఘ్	igh
+ఙ్	iN
+చ్	ic
+ఛ్	ich
+జ్	iJ
+ఝ్	iJh
+ఞ్	in^
+ట్	it.
+ఠ్	ith.
+డ్	id.
+ఢ్	idh.
+ణ్	in.
+త్	it
+థ్	ith
+ద్	id
+ధ్	idh
+న్	in
+ప్	ip
+ఫ్	iph
+బ్	ib
+భ్	ibh
+మ్	im
+య్	ij
+ర్	ir
+ఱ్	ir
+ల్	il
+ళ్	il.
+వ్	iv
+శ్	iS;
+ష్	is.
+స్	is
+హ్	ih
+ౘ్	its
+ౙ్	idz
+
+
+   // combining vowels, precede by a click so they
+   // can be distinguished from stand-alone vowels
+ా	#X2a::
+ి	#X1i
+ీ	#X2i::
+ు	#X1u
+ూ	#X2u::
+ృ	#X1ru
+ౄ	#X2ru:
+ె	#X1e
+ే	#X2e::
+ై	#X2aI
+ొ	#X1o
+ో	#X2o::
+ౌ	#X2aU
+
+

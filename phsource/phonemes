@@ -1884,3 +1884,7 @@ include ph_maltese
 
 phonemetable bo hi
 include ph_tibetan
+
+phonemetable fa base
+include ph_farsi
+
