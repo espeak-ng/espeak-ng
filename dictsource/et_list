@@ -16,23 +16,23 @@ b	bee:
 c	tsee:
 d	dee:
 e	ee:
-f	eff:
+f	eff
 g	gee:
 h	haa:
 i	ii:
 j	jot:
 k	kaa:
-l	ell:
-m	em:
-n	enn:
+l	ell
+m	emm
+n	enn
 o	oo:
 ö	YY:
 õ	88:
 ü      yy:
 p	pee:
 q	kuu:
-r	eR:R
-s	ess:
+r	eRR
+s	ess
 t	tee:
 u	u:
 v	vee:
@@ -51,19 +51,19 @@ _!	hyi:jum,&rk:
 _?	kys^I1m,&rk:
 _"	jutU1m,&rk:
 _#	trel^l^id
-_$	dol:lar
+_$	tol:lar
 _%	prots'ent:
-_&	jaa:,m&rk:
-_'	ylA1koma
+_&	j'aa:||m,&rk:
+_'	ylA1||koma
 _:	ko:lon
-€	euro
-%	protsent:     $2   
+_€	euro
+_%	protsent:     $2   
 _(	alU1stav||sul:g
 _)	l8petav||sul:g
-_[	alU1stav||kandiline||sul:g
-_]	l8petav||kandiline||sul:g
-_{	alU1stav||lo:geline||sul:g
-_}	l8petav||loogeline||sul:g
+_[	'alU1stav||k'andil.ine||s'ul:g
+_]	l'8petav||k'andil,ine||s'ul:g
+_{	alU1stav||l'o:gel,ine||s'ul:g
+_}	l8petav||l'o:gel,ine||s'ul:g
 _<	v&ik:sem
 _>	su:rem
 _-	kri:ps
@@ -71,12 +71,13 @@ __	al:lkri:ps
 
 +	plus:s	$max3
 *	t&R:n	$max3
-=	v8R:dusm&rk:	$max3
-%	prots'ent:	$max3
-/	kal:dkri:ps
-\	l&Ngkri:ps
-€	euro
-£	nae:l
+=	v8R:dus||m&rk:	$max3
+%	prots'ent:i      $max3
+/	kal:d||kri:ps
+\	l&Ng||kri:ps
+$	tol:larit
+€	eurot
+£	nae:la
 ¤	val'u:ta
 &	_et
 @	_&t
@@ -87,39 +88,39 @@ _brv	ka:r
 _ced	sedi:
 _cir	katus
 _dia	t&pid
-_grv	gra:vIs
+_grv	gra:vis
 _tld	tilde
 
 // numbers
-_0       nul:l
-_1       yk:s
-_2       kak:s
-_3       kol:m
-_4       nelI1
-_5       vi:s
-_6       ku:s
-_7       seitse
-_8       kaheksa
-_9       yheksa
-_10      kymme
+_0       n'ul:l
+_1       'yk:s
+_2       k'ak:s
+_3       k'ol:m
+_4       n'elI1
+_5       v'ii:s
+_6       k'uu:s
+_7       s'eitse
+_8       k'aheksa
+_9       'yheksa
+_10      k'ymme
 _11      yksteist
-_12      kaksteist
-_13      kolmteist
-_14      neliteist
-_15      vi:steist
-_16      ku:steist
-_17      seitseteist
-_18      kaheksateist
-_19      yheksateist
+_12      k'aksteist
+_13      k'olmteist
+_14      n'eliteist
+_15      v'i:steist
+_16      k'u:steist
+_17      s'eitseteist
+_18      k'aheksateist
+_19      'yheksateist
 
-_2X      kakskymmend
-_3X      kolmkymmend
-_4X      nelI1kymmend
-_5X      vi:skymmend
-_6X      ku:skymmend
-_7X      seitsekymmend
-_8X      kaheksakymmend
-_9X      yheksakymmend
+_2X      k'aks||k,ymmend
+_3X      k'olm||k,ymmend
+_4X      n'elI1||k,ymmend
+_5X      v'i:s||k,ymmend
+_6X      k'u:s||k,ymmend
+_7X      s'eitse||k,ymmend
+_8X      k'aheksa||k,ymmend
+_9X      'yheksa||k,ymmend
 
 _0C      sadA1_
 _1C      sadA1
@@ -148,8 +149,9 @@ ma   $u
 sa   $u
 ta   $u
 me   $u
+te   $u
 
-ise  $u $double      // reflexive pronoun
+ise  $u   // reflexive pronoun
 
 see   $u+ // this
 selle $u+
@@ -186,7 +188,7 @@ ehk    $u $pause // nor
 
 // negative
 
-ei		$u		// not
+ei	$u		// not
 
 // questions
 
@@ -198,7 +200,7 @@ on      $u
 oleme  $u
 olete  $u
 
-ole     $u $double
+ole     $u 
 olnud	$u
 olin    $u
 olid    $u
@@ -228,51 +230,147 @@ yogurt     jogurt
 
 abc		$abbrev
 ad		$abbrev		$dot	// anno Domini
-(à la)	'ala		$dot	// moodi
-ca		ts'irka		$dot	// circa 
+(à la)	        'aa:||la:	$dot	// moodi
 em		$abbrev		$dot    
-ekr		$abbrev		$dot	// enne Kristust
-etc		et_setera	$dot	// et cetera, jne.
-eg		n'&it:eks		$dot	// exempli gratia
 kt		$abbrev		$dot	// kohusetäitja
-os		$abbrev		$dot
+//os		$abbrev		$dot
 oü		$abbrev				// osaühing
+USA 		$abbrev         $allcaps
+AS 		$abbrev         $allcaps
+AP              $abbrev         $allcaps
+ATM 		$abbrev         $allcaps
+ATV 		$abbrev         $allcaps
+AüE 		$abbrev         $allcaps
+BBC 		b,i:||b,i:||s'ii:         $allcaps
+DNA 		$abbrev         $allcaps
+EN 		$abbrev         $allcaps
+EOK 		$abbrev         $allcaps
+IT 		$abbrev         $allcaps
+MA 		$abbrev         $allcaps
+MTü 		$abbrev         $allcaps
+RNA 		$abbrev         $allcaps
+SEJ 		s'o:jus||el'ektri||j'aa:m         $allcaps
+UV 		$abbrev         $allcaps
+WTO 		v,e:||t,e:||'oo:         $allcaps
 
 // expanded to something more meaningful
 
-a		'a:sta		$dot	// circa 
-(à la)	'ala		$dot	// moodi
-ca		ts'irka		$dot	// circa 
-cm		s'entim,e:trit
-etc		et_setera	$dot	// et cetera, jne.
-eg		n'&it:eks	$dot	// exempli gratia
-jm		j'a||m'u:d	$dot
-jms		j'a||m'u:||sel:ine	$dot
-jne		j'a:ni:edasi	$dot
-jt		j'a||teised	$dot
-lp		l'ugupe:tud	$dot
-nn		n'i:nimetatud	$dot
-nr		n'umber		$dot
-sh		s'ealh,ulgas	$dot
-st		s'e:||t&hendab	$dot
-u		'umbes		$dot
-va		v'&lja_arvatud	$dot
-vt		v'a:ta		$dot
-wc		v'e:||ts'e:
-
+//a		'a:sta		$dot	// 
+apr		,appr'il^l^	$dot
+aug		'au:gust		$dot
+aü		'aa:||'yy:		$dot
+ca		ts'irka		$dot	// circa
+cm		s'enti||m,e:trit	$dot
+dm		t,ei1t^si||m'e:trit	$dot
+dB		t,ei1t^si||b'elli	$dot
+dets		t,ets'emmber		$dot
+dir		d,ir'ek:tor		$dot
+dl		t,ei1t^si||l'i:t:rit 	$dot
+dr		t'ok:tor 		$dot
+eg		n'&it:eks		$dot	// exempli gratia
+EKG		'ee:||k,aa:||g'ee:	$dot
+(e kr)	 	'enne||kr'is:tust		$dot
+(e . m . a)		'enne||m,eije||,ajA1||'ar:vamist	$dot
+etc		et||tsetera		$dot	// et cetera, jne.
+//g		kr'ammi		$dot
+GMO		g'ee:||,emm||'oo:	$dot
+ha		h'ek:tarit		$dot
+hr		h'&RRa		$dot
+hrl		h'arI1l,ikult	$dot
+IQ		'ii:||k'uu:	$dot
+jj		j,a:||j'&rrgmised	$dot
+jm		j,a:||m'uu:d	     $dot
+jms		j,a:||m'uu:||s'elline	$dot
+jmt		j,a:||m'uu:d||t'eised 	$dot
+jn		j'o:n^is		$dot
+jne		j,a:||n,i:||'edasi	$dot
+jt		j,a:||t'eised	$dot
+jr		j'u:n^ior		$dot
+jrk		j,&rje||k'orrd		$dot
+jsk		j,aosk'onnd 			$dot
+jv		j'&rrv 		$dot
+kd		k'Yide 		$dot
+kg		k,ilO1gr'amm 	$dot
+khk		k,ihE1lk'ond 	$dot
+knd		k,an^did'a:t 	$dot
+kod		k'odA1nik 		$dot
+kp		k'u:p'&ev 		$dot
+kpl		k'aup:lus 		$dot
+kpt		k'ap:ten 		$dot
+// kr		kr'oo:n		$dot
+krt		k'orter		$dot
+Kü		k'orteri||'yh,istu 	$dot
+lp		l,ugU1||p'e:tud	$dot
+(m . a . j)		m,eije||'ajA1||'arvam,ise||j'&rgi
+mg		m,il^l^i||gr'ammi $dot
+mh		m'uu:||h'ulgas	$dot
+mjr		m'ajO1r		$dot
+mk		m'a:||k'onnd 		$dot
+ml		m,il^l^i||l'i:trit		$dot
+mld		m'il^jardit 	$dot
+mln		m'il^jonit 	$dot
+// mm		m,il^l^im'e:trit 	$dot
+mnt 		m'a:n||t'ee: 		$dot
+mob		m,ob'ii:l		$dot
+Mr		m'ister 		$dot
+Mrs		m'is^s^is 	$dot
+nn		n'ii:||n'imet,atud 	$dot
+nov		n,ov'emmber 		$dot
+nr		n'ummber		$dot
+nt 		n'&iteks 		$dot
+näd		n'&dA1l		$dot
+okt		,okt'o:ber 		$dot
+osk		'osA1||k'onnd		$dot
+// PhD		f,ilO1ss2'o:fia||d,ok:tor 	$dot
+(p kr)		p'&rA1st||kr'istust		$dot
+pms		p'eamiselt 		$dot
+pr		pr'oua 		$dot
+prk		p'erE1||k'ond 		$dot
+prl		pr'eili 		$dot
+prof		pr,of'ess2or 	$dot
+pst		p'uijes||t,e: 	$dot
+ptk		p,ea||t'yk: 		$dot
+rbl		r'ubla 		$dot
+rdt		r,aud||t'e: 		$dot
+rmtk		r'a:matu||k'ogu 	$dot
+rtj		r,aud||t'ee:||j'aa:m 	$dot
+(s . a)		s'el||'a:stal 	$dot
+saj		s'ajA1ndil 	$dot
+sealh		s'eal||h,ulgas 	$dot
+sek		s'ekU1ndit 	$dot
+sept		s'ept'emmber 	$dot
+sh		s'eal||h,ulgas	$dot
+snd		s'yn^n^dinud 	$dot
+s.o		s'ee:||'onn		$dot
+spl		s'upI1||l,usika||t'&it: 	$dot
+srn		s'urrnud 		$dot
+st		s'ee:||t'&hendab	$dot
+tel		t'elE1fon 		$dot
+tk		t'yk:i 		$dot
+tlk		t'8l^kinud 	$dot
+tn		t'&nA1v 		$dot
+tr		tr'yk: 		$dot	
+veebr		v'e:bruar 		$dot
+vms		v,8i||m'uu:||s'ee:||s,ugune 	$dot
+vrd		v'8rrdle 		$dot
+vt		v'aa:ta		$dot
+wc		v'ee:||ts'ee:		$dot
+õa		'8p:e||,a:sta 	$dot
+õp		'8pE1t,aja		$dot
+	
 // Erandid
 
 // exceptions to ll_ palatalization
-all		'al:l
-kell		k'el:l
-lill		l'il:l
-vill		v'il:l	// ==hair, ==bristle is palatalized
-hull		h'ul:l
-põll		p'8l:l
+all		'al:
+kell		k'el:
+lill		l'il:
+vill		v'il:	// ==hair, ==bristle is palatalized
+hull		h'ul:
+põll		p'8l:
 
 // exceptions to nn_ palatalization
-konn		k'on:n
-nunn		n'un:n
+konn		k'on:
+nunn		n'un:
 
 // exceptions to tt_ palatalization
 sitt		s'it:
@@ -280,4 +378,3 @@ sitt		s'it:
 // exceptions to ss_ palatalization
 äss		'&s:s
 mäss		m'&s:s
-

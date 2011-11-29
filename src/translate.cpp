@@ -401,6 +401,9 @@ int IsAlpha(unsigned int c)
 	if((c >= 0x780) && (c <= 0x7b1))
 		return(1);   // taani/divehi (maldives)
 
+	if((c >= 0xf40) && (c <= 0xfbc))
+		return(1);   // tibetan
+
 	if((c >= 0x1100) && (c <= 0x11ff))
 		return(1);  //Korean jamo
 
@@ -1436,9 +1439,11 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 		dictionary_flags[0] &= ~FLAG_PAUSE1;
 	}
 
+#ifdef deleted
+// but it causes problems if these are not a person name
 	if(tr->translator_name == L('h','u'))
 	{
-		// lang=Hungarian, If the last two words of a clause have capital letters (eg. a person name), unstress the last word.
+		// lang=hu, If the last two words of a clause have capital letters (eg. a person name), unstress the last word.
 		if((wflags & (FLAG_LAST_WORD | FLAG_FIRST_UPPER | FLAG_ALL_UPPER | FLAG_FIRST_WORD)) == (FLAG_LAST_WORD | FLAG_FIRST_UPPER))
 		{
 			if(((wtab[-1].flags & (FLAG_FIRST_UPPER | FLAG_ALL_UPPER)) == FLAG_FIRST_UPPER) && ((tr->clause_terminator != 0x90028) || (wflags & FLAG_HAS_DOT)))
@@ -1447,6 +1452,7 @@ if(dictionary_flags2[0] & FLAG_ABBREV)
 			}
 		}
 	}
+#endif
 
 	if((wflags & FLAG_HYPHEN) && (tr->langopts.stress_flags & S_HYPEN_UNSTRESS))
 	{

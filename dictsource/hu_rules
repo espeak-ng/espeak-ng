@@ -125,6 +125,12 @@ szanité) c (cs     ts
  kilen) c (sáv     ts
         cszs       tSZ
  kilen) c (schill  ts
+ _bohó) cs         ts|S
+   _ar) c (sérül   ts
+  _har) c (sor     ts
+  _áká) c (söv     ts
+  _áká) c (söv     ts
+ _bohó) c (sz      ts
 
 .group ch
   anar) ch (i      h
@@ -308,6 +314,10 @@ standar) d (jegy   d
         dt (sz     t:
 miliár) d (szor    d
    tér) d (sérül   d
+    jó) d (szivár  d
+ beszé) d (jel     d
+_biliár) d (szo    d
+ rekor) d (sebesség d
 
 .group dz
   fogó) dz (kod    ts
@@ -466,6 +476,8 @@ imádsá) g (gyűjt   g
   végi) g (gyö     g
     ro) ggyj (ék   J:
     rá) g (gyűjt   g         //for example virággyűjtés, virággyűjteményt words
+   _lo) g (gyűjt   g         //for example loggyűjtemény word
+   dro) g (gyanú   g
 
 .group gy
         gy         J
@@ -580,6 +592,7 @@ harmince) gy (edik J:
 huszone) gy (es    J:
     _e) gy (é_     J:
 _mint-e) gy (é_    J:
+    na) gy (sáp    J
 
 .group h
         h          h
@@ -748,6 +761,7 @@ bagate) ll (iz     l
   pihe) nj (_S2    n^
   főbe) n (jár     n
 
+     _) nvda (-    Enve:de:a:
  ingye) n          n
 ?1   _) nylon      nEjlon
    ajá) nlj        j:
@@ -801,6 +815,7 @@ helybe) n (jár     n
  benzi) nj         nj
 mikrofo) n (nyílás n
    szí) n (nyom    n
+ kormá) ny (javaslat n^
 
 .group o
         o          o
@@ -897,6 +912,7 @@ pedagógu) s (sztrájk S
 identitá) s (zavar S
 fáklyá) s (zen     S
    _ki) s (zombor  S
+ _alvá) ssz (üksé  Ss
 
 .group ss
         ssz        ss2
@@ -1212,7 +1228,6 @@ gaboná) szs (ák    SZ
         t (-t      t:        // use long [t:], not two [t]
     t-) t                    // silent after 'tt-'
 
-
      -) t (_       t
      _) t (_       te:
         tc         ts:
@@ -1290,6 +1305,9 @@ fejeze) t (sor     t
  _spor) t (cél     t
     pó) t (selejt  t
   diva) t (cikk    t
+ küldö) tt (gyűl   t
+   szé) t (söpör   t
+rokkan) t (segít   t
 
 .group tj
      C) tj         c
@@ -1357,6 +1375,7 @@ természe) tj (ár   tj
 terüle) tj (elöl   tj
     _á) tj (u      tj
 _tábláza) tj (egy  tj
+ üzene) tj (el     tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1779,6 +1798,9 @@ magyará) z (kod    s
    _gő) z (süvölt  z
   ezkö) z (sor     z
    wal) z (er      ts
+tanácskö) z (társaság s
+    tű) z (sebesség z
+   _tű) z (zsonglőr z
 
 .group
         $          dolla:R2

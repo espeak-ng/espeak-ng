@@ -373,6 +373,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	unsigned int  ix;
 	int  step;
 	unsigned int  n_flag_codes = 0;
+	int flagnum;
 	int  flag_offset;
 	int  length;
 	int  multiple_words = 0;
@@ -395,10 +396,6 @@ static char nullstring[] = {0};
 	text_not_phonemes = 0;
 	phonetic = word = nullstring;
 
-if(memcmp(linebuf,"_-",2)==0)
-{
-step=1;  // TEST
-}
 	p = linebuf;
 //	while(isspace2(*p)) p++;
 
@@ -460,26 +457,26 @@ step=1;  // TEST
 			while(!isspace2(c = *p)) p++;
 			*p = 0;
 	
-			ix = LookupMnem(mnem_flags,mnemptr);
-			if(ix > 0)
+			flagnum = LookupMnem(mnem_flags,mnemptr);
+			if(flagnum > 0)
 			{
-				if(ix == 200)
+				if(flagnum == 200)
 				{
 					text_mode = 1;
 				}
 				else
-				if(ix == 201)
+				if(flagnum == 201)
 				{
 					text_mode = 0;
 				}
 				else
-				if(ix == BITNUM_FLAG_TEXTMODE)
+				if(flagnum == BITNUM_FLAG_TEXTMODE)
 				{
 					text_not_phonemes = 1;
 				}
 				else
 				{
-					flag_codes[n_flag_codes++] = ix;
+					flag_codes[n_flag_codes++] = flagnum;
 				}
 			}
 			else
@@ -539,11 +536,21 @@ step=1;  // TEST
 				}
 			}
 			else
-			if((c == ')') && multiple_words)
+			if(c == ')')
 			{
-				p[0] = 0;
-				step = 3;
-				multiple_words = 0;
+				if(multiple_words)
+				{
+					p[0] = 0;
+					multiple_words = 0;
+					step = 3;
+				}
+				else
+				if(word[0] != '_')
+				{
+					fprintf(f_log, "%5d: Missing '('\n", linenum);
+					error_count++;
+					step = 3;
+				}
 			}
 			break;
 
@@ -720,6 +727,7 @@ step=1;  // TEST
 		if(multiple_words > 10)
 		{
 			fprintf(f_log,"%5d: Two many parts in a multi-word entry: %d\n",linenum,multiple_words);
+			error_count++;
 		}
 		else
 		{

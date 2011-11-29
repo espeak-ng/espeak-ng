@@ -327,7 +327,7 @@ _20e	hus
 (XVIII-al) tizEnn^olts:Al
 (XIX-el) tizEnkilEnts:El
 (XX-al)	hu:s:Al
-XXX-al)	hAR2mints:al
+(XXX-al)	hAR2mints:al
 //etc, need do general rule similar with normal number exceptions, please test for example 22-el, 32-el, 42-el, 52-el, 40-el, 50-el, 60-al, 70-el etc
 //phonemes if this is possible.
 (CD-ellenőrzést)	tse:de:El:EnY:R2ze:St //this is not a mistake, default Espeak spokening roman number before the ellenőrzés word
@@ -382,13 +382,13 @@ nyarán	$alt
 telén	$alt
 tavaszi	$alt
 nyári	$alt
-őszi	$alt
+őszi	$alt $unstressend
 téli	$alt
 végén	$alt
 elején	$alt $unstressend
 folyamán	$alt
 úton	$alt
-
+lts	$alt
 // accent names
 _lig	ligAtu:R2A
 _acu	e:lES
@@ -419,8 +419,18 @@ ADSL	a:de:ESEl	$allcaps //Internet connection type, we pronouns this with ádée
 ÁSZ	a:s	$allcaps
 ÁNTSZ a:Ente:Es $allcaps
 ATM	a:te:Em	$allcaps	//The ATM stands. We pronouns this abbreviation with átéem word. Default, Espeak pronouns this abbreviation with atéem word.
-cm	tsEntime:tER2
-km	kilo:me:tER2
+cm	tsEntime:tER2	$unstressend
+(cm-re) tsEntime:tER2R2E	$unstressend
+(cm-nyire) tsEntime:tER2n^iR2E	$unstressend
+(cm-nyi) tsEntime:tER2n^i	$unstressend
+(cm-es) tsEntime:tER2ES	$unstressend
+(cm-t) tsEntime:tER2t	$unstressend
+km	kilo:me:tER2	$unstressend
+(km-re)	kilo:me:tER2R2E	$unstressend
+(km-nyire)	kilo:me:tER2n^iR2E	$unstressend
+(km-nyi)	kilo:me:tER2n^i	$unstressend
+(km-es)	kilo:me:tER2ES	$unstressend
+(km-t) kilo:me:tER2t	$unstressend
 DNS	de:EnES	$allcaps
 GYSEV	JESEv	$allcaps
 GYESEV	JESEv	$allcaps
@@ -437,7 +447,11 @@ ORFK	oEREfka:	$abbrev $allcaps
 MÁV	ma:v	$allcaps
 LMP ElEmpe:	$allcaps
 MTI	$abbrev $allcaps
-mm      milime:tER2
+mm      milime:tER2	$unstressend
+(mm-nyi)      milime:tER2n^i	$unstressend
+(mm-nyire)      milime:tER2n^iR2E	$unstressend
+(mm-es)      milime:tER2ES	$unstressend
+(mm-t) milime:tER2t	$unstressend
 RAM	R2Am	$allcaps //Espeak normaly spokening this abbreviation with erraem, but this is not good
 Psszt ps:t $capital // similar word with quiet word. Espeak default spokening this abbrew quiet word with letter by letter by default.
 Pszt ps:t $capital //same as prewious abbrewiation
@@ -474,7 +488,7 @@ stb	SAtYb:i  $hasdot
 u.n	u:JnEvEzEt:   $hasdot
 ú.n	u:JnEvEzEt:   $hasdot
 vö	v'EZd||_'Yss2E	$hasdot
-(u . i .) $abbrew
+(u . i .) $abbrev
 NVDA Enve:de:A $allcaps
 
 
@@ -1374,7 +1388,8 @@ stratégiájával	$unstressend
 rendszerekre	$unstressend
 vicc	$unstressend
 szakemberei	$unstressend
-változatból	$unstressendváltozatából	$unstressend
+változatból	$unstressend
+változatából	$unstressend
 bizottságnak	$unstressend
 nyilatkozta	$unstressend
 rendelkezések	$unstressend
@@ -2434,7 +2449,8 @@ ellen	$unstressend
 elől	$unstressend
 helyzetért	$unstressend
 hangsúlyozta	$unstressend
-vételét	$unstressendtárgyaljanak	$unstressend
+vételét	$unstressend
+tárgyaljanak	$unstressend
 tárgyaljanak	$unstressend
 védelmét	$unstressend
 elegendőnek	$unstressend
@@ -2754,7 +2770,7 @@ befolyásolta	$unstressend
 bújtatja	$unstressend
 hasonlóságot	$unstressend
 (lévő hasonlóságot) le:vY:|hASonlo:Sa:got	$unstressend
-(is akadt) iS||AkAt:	$unstressend
+(is akadt) iS_'||AkAt:	$unstressend
 ismeretlen	$unstressend
 hadifogoly	$unstressend
 raboskodott	$unstressend
@@ -2900,7 +2916,7 @@ fogát	$unstressend
 rajtam	$unstressend
 tömik	$unstressend
 foga	$unstressend
-(sem tömik)	SEm||tYmik $unstresend
+(sem tömik)	SEm||tYmik $unstressend
 abba	$unstressend
 orvosnak	$unstressend
 tudná	$unstressend
@@ -3088,7 +3104,7 @@ fizetniük	$unstressend
 (szoftverek aránya) softvER2Ek||AR2a:n^A	$unstressend
 lépés	$unstressend
 tegyek	$unstressend
-(ez a probléma) Ez||A||pR2oble:mA	$unstressend
+(ez a probléma) Ez_'||A'||pR2oble:mA	$unstressend
 (valami probléma) vAlAmi||pR2oble:mA	$unstressend
 telepítéssel	$unstressend
 (az is) Az||iS	$unstressend
@@ -3194,8 +3210,7 @@ leírás	$unstressend
 (lett gond) lEt:_||gond	$unstressend
 (a felhőzet) A'||fElhY:zEt	$unstressend
 (indul a felhőzet) indul_||A'||fElhY:zEt	$unstressend
-
-
+(időnként a felhőzet) idY:nke:nt_||A'||fElhY:zEt	$unstressend
 (az ég) Az_||e:,g	$unstressend
 (az eső) Az_||ESY:	$unstressend
 (kis türelmet) kiS||tyR2ElmEt	$unstressend
@@ -3248,7 +3263,7 @@ mérnek	$unstressend
 (lenne szükségem) lEn:E_||sykSe:gEm	$unstressend
 fellelni	$unstressend
 telepítésével	$unstressend
-(az a probléma) Az_||A_||pR2oble:mA	$unstressend
+(az a probléma) Az_'||A'||pR2oble:mA	$unstressend
 (közti nézeteltéréseket) kYsti_||ne:zEtElte:R2e:SEkEt	$unstressend
 (miatt tiltakoznak) miAt:_||tiltAkoznAk	$unstressend
 diákokat	$unstressend
@@ -3355,7 +3370,6 @@ helyettese	$unstressend
 (említett szervezet) Emli:tEt:_||sER2vEzEt	$unstressend
 (említett cikkben) Emli:tEt:_||tsikbEn	$unstressend
 (a fejlesztéseket) A'||fEjlEste:SEkEt	$unstressend
-hozzátette	$unstressend
 semmi	$unstressend
 (azt tanácsolják) Ast_||tAna:tSojjja:k	$unstressend
 (útmutatóban is azt tanácsolják) u:tmutAto:bAn_||iS_||Ast_||tAna:tSojjja:k	$unstressend
@@ -3380,7 +3394,7 @@ konfigurációját	$unstressend
 (nem mozgatta tovább) nEm_||mozgAt:A_||tova:b:	$unstressend
 (reagál többé) R2EAga:l_||tYb:e:	$unstressend
 (is lehet) iS_||lEhEt	$unstressend
-(ma délelőtt) mA_||de:lElY:t:	$unstressend
+(ma délelőtt) mA||de:lElY:t:	$unstressend
 (sem kizárt) SEm_||kiza:R2t	$unstressend
 (a felhő) A'||fElhY:	$unstressend
 (is képződhetnek) iS_||ke:pzY:dhEtnEk	$unstressend
@@ -3741,12 +3755,978 @@ kategória	$unstressend
 nyomunk	$unstressend
 (számolnunk kell azzal) sa:molnunk_||kEl:_||AzzAl	$unstressend
 üzemmód	$unstressend
+várom	$unstressend
+(sikerült kifognom) SikER2ylt_||kifognom	$unstressend
+(frissítés is) fR2iS:i:te:S_||iS	$unstressend
+oldalát	$unstressend
+elrendezés	$unstressend
+kedvűek	$unstressend
+(körében is vitatott) kYR2e:bEn_||iS_||vitAtot:	$unstressend
+témával	$unstressend
+(is fejlődik) iS_||fEjlY:dik	$unstressend
+idővel	$unstressend
+(is kivárni) iS_||kiva:R2ni	$unstressend
+(is kísérhetik) iS_||ki:Se:R2hEtik	$unstressend
+(kezd a felhőzet) kEzd_||A'_||fElhY:zEt	$unstressend
+(gyenge légmozgásra számíthatunk) JEngE||le:gmozga:SR2A_||sa:mi:thAtunk	$unstressend
+(is mérséklődik) iS_||me:R2Se:klY:dik	$unstressend
+benyomások	$unstressend
+(szabható menüvel) sAbhAto:_||mEnyvEl	$unstressend
+keresőjük	$unstressend
+elérésre	$unstressend
+(és fapados) e:S_||fApAdoS	$unstressend
+rablás	$unstressend
+(is volt) iS_||volt	$unstressend
+(is lett) iS_||lEt:	$unstressend
+gyorsítás	$unstressend
+specifikus	$unstressend
+(bug van) bug_||vAn	$unstressend
+(is hiányolom) iS_||hia:n^olom	$unstressend
+produkál	$unstressend
+(fura dolgokat) fuR2A_||dolgokAt	$unstressend
+(se vettem) SE_||vEt:Em	$unstressend
+(se csinálok) SE_||tSina:lok	$unstressend
+jelentene	$unstressend
+nálam	$unstressend
+(nálad van) na:lAd_||vAn	$unstressend
+(is bukkan) iS_||buk:An	$unstressend
+(így van) i:J_||vAn	$unstressend
+érkezett	$unstressend
+problémára	$unstressend
+hozzákezdek	$unstressend
+kifejtettem	$unstressend
+(itt is) it:_||iS	$unstressend
+fennakadtam	$unstressend
+válaszok	$unstressend
+kényszerít	$unstressend
+használd	$unstressend
+megfigyel	$unstressend
+hasonlatot	$unstressend
+(az a kérdés) Az_||A'||ke:R2de:S	$unstressend
+idegesít	$unstressend
+(egy felmérést) EJ_||fElme:R2e:St	$unstressend
+várjuk	$unstressend
+(került szóba) kER2ylt_||so:bA	$unstressend
+igényeinek	$unstressend
+készítésével	$unstressend
+hiányt	$unstressend
+visszaállítására	$unstressend
+(a felelős) A'||fElElY:S	$unstressend
+kezelője	$unstressend
+(viszont az) visont_||Az	$unstressend
+(készült róla) ke:sylt_||R2o:lA	$unstressend
+(kellene a program) kEl:EnE_||A'||pR2ogR2Am	$unstressend
+időjárását	$unstressend
+(tájak is) ta:jAk_||iS	$unstressend
+(időjárás lesz a jellemző) idY:ja:R2a:S_||lEs_||A_||jEl:EmzY:	$unstressend
+(egész kellemes) Ege:s_||kEl:EmES	$unstressend
+(időre számíthatunk) idY:R2E_||sa:mi:thAtunk	$unstressend
+országrészben	$unstressend
+(fok közé emelkedik) fok_||kYze:_||EmElkEdik	$unstressend
+módosításokat	$unstressend
+(gép fogyasztását) ge:p_||foJAsta:Sa:t	$unstressend
+dolgokkal	$unstressend
+üzemmódba	$unstressend
+(módja megváltozik) mo:J:A_||mEgva:ltozik	$unstressend
+(le fog futni) lE_||fog_||futni	$unstressend
+(második elem) ma:Sodik_||ElEm	$unstressend
+(szerint módosítható) sER2int_||mo:doSi:thAto:	$unstressend
+opciók	$unstressend
+szükségesek	$unstressend
+(gépen szükségesek) ge:pEn_||sykSe:gESEk	$unstressend
+(akarja hajtani) AkAR2jA_||hAjtAni	$unstressend
+(a témában) A'||te:ma:bAn	$unstressend
+(rá szükségem) R2a:_||sykSe:gEm	$unstressend
+használható	$unstressend
+(rendszer frissítést) R2EntsER2_||fR2iS:i:te:St	$unstressend
+támogatásával	$unstressend
+intézetben	$unstressend
+újdonsága	$unstressend
+olvashatják	$unstressend
+(is öröm) iS_||YR2Ym	$unstressend
+pillanatokból	$unstressend
+azoknak	$unstressend
+tartalmára	$unstressend
+(az izgalmas) Az_'||izgAlmAS	$unstressend
+társasházból	$unstressend
+központját	$unstressend
+fizetése	$unstressend
+vitája	$unstressend
+felelőse	$unstressend
+jelentése	$unstressend
+(fogadta az elképzeléseket) fogAt:A_||Az'_||Elke:pzEle:SEkEt	$unstressend
+tervezetét	$unstressend
+léphet	$unstressend
+(lakása gyulladt ki) lAka:SA_||Jul:At:_||ki	$unstressend
+(a tüzet) A'||tyzEt	$unstressend
+(embert kimenekítettek) EmbER2t_||kimEnEki:tEt:Ek	$unstressend
+egyértelmű	$unstressend
+tartalmának	$unstressend
+sajtótájékoztatóján	$unstressend
+(a felelősséget) A'||fElElY:Se:gEt	$unstressend
+(vontak felelősségre) vontAk_||fElElY:Se:gRE	$unstressend
+központjában	$unstressend
+(miatt nyomoznak) m'iAt:||n^omoznAk	$unstressend
+(szerint volt) sER2int_||volt	$unstressend
+(el a rendőrök) El'_||A'||R2EndY:R2Yk	$unstressend
+vettek	$unstressend
+(is folynak) iS_||fojnAk	$unstressend
+gyanúja	$unstressend
+(bűncselekmény gyanúja) byntSElEkme:n^_'||JAnu:jA	$unstressend
+(kárt okozna) ka:R2t_'||okoznA	$unstressend
+központja	$unstressend
+(a nyomozók) A'||n^omozo:k	$unstressend
+(ellenőrzött egysége) El:EnYR2zYt:_||EJSe:gE	$unstressend
+(vonatkozó pontjait) vonAtkozo:_'||poncAit	$unstressend
+kaphatják	$unstressend
+(a díjazás) A'||di:jAza:S	$unstressend
+(az alapilletménye) Az_'||AlApil:Etme:n^E	$unstressend
+(településeken dolgozik) tElEpyle:SEkEn_'||dolgozik	$unstressend
+(százalékot veszítene) sa:zAle:kot_||vEsi:tEnE	$unstressend
+(is tartalmaz) iS_||tAR2tAlmAz	$unstressend
+(sem jelentéktelen összeg) SEm_||jElEnte:ktElEn_||Ys:Eg	$unstressend
+számíthat	$unstressend
+ampulla	$unstressend
+telephelyéről	$unstressend
+mennyiségű	$unstressend
+(a tényt) A'||te:n^t	$unstressend
+(az ügyben) Az_'||yJbEn	$unstressend
+(tett az ügyben) tEt:_||Az_'||yJbEn	$unstressend
+(tűnt el) ty:nt_||El	$unstressend
+(az sem szokványos) Az_||SEm_||sokva:n^oS	$unstressend
+(álljanak rendelkezésre) a:jjAnAk_||R2EndElkEze:SR2E	$unstressend
+gyógyszerből	$unstressend
+indított	$unstressend
+egysége	$unstressend
+(forintot érnek) foR2intot_||e:R2nEk	$unstressend
+(lehet az ügyben) lEhEt_||Az_'||yJbEn	$unstressend
+jelentik	$unstressend
+(egyik telephelyéről) EJ:ik_'||tElEphEje:R2Y:l	$unstressend
+megfelelőnek	$unstressend
+gyógyszertámogatását	$unstressend
+(a betegeknek a gyógyszertámogatását) A'||bEtEgEknEk_||A'||Jo:JsER2ta:mogAta:Sa:t	$unstressend
+betegek	$unstressend
+(a betegek) A'||bEtEgEk	$unstressend
+ellenőrizni	$unstressend
+(fogják ellenőrizni) fogja:k_||El:EnY:R2izni	$unstressend
+hozzájárulást	$unstressend
+(a gyógyszerekért) A'||Jo:JsER2Eke:R2t	$unstressend
+(is fizethetnek a gyógyszerekért) iS_||fizEthEtnEk_||A'||Jo:JsER2Eke:R2t	$unstressend
+(dokumentumra hivatkozva) dokumEntumR2A_||hivAtkozvA	$unstressend
+(körében próbálnák ki) kYR2e:bEn_||pR2o:ba:lna:k_||ki	$unstressend
+(az állapotukon) Az_'||a:l:Apotukon	$unstressend
+(szenvedők körében próbálnák ki) sEnvEdY:k_||kYR2e:bEn_||pR2o:ba:lna:k_||ki	$unstressend
+(szerint azoknak) sER2int_||AzoknAk	$unstressend
+programban	$unstressend
+(be azt is) bE_'||Ast_||iS	$unstressend
+vitáját	$unstressend
+(szóló javaslatot) so:lo:_||jAvASlAtot	$unstressend
+zárul	$unstressend
+javaslatot	$unstressend
+(milliárd forint) milia:R2d_||foR2int	$unstressend
+(millió forint) milio:_||foR2int	$unstressend
+számol	$unstressend
+(célokra használhatnák) tse:lokR2A_||hAsna:lhAtna:k	$unstressend
+kezdeményezte	$unstressend
+méter	$unstressend
+mérföld	$unstressend
+milliárd	$unstressend
+szorításán	$unstressend
+ellenőrzést	$unstressend
+lövöldöző	$unstressend
+diáktüntetés	$unstressend
+(egy férfi) EJ_'||fe:R2fi	$unstressend
+(orra alá) oR2R2A_'||Ala:	$unstressend
+(raknak bennünket) R2AknAk_'||bEn:ynkEt	$unstressend
+(állami támogatása) a:l:Ami_'||ta:mogAta:SA	$unstressend
+fenyegeti	$unstressend
+(munkát itt) munka:t_||it:	$unstressend
+államtitkár	$unstressend
+bére	$unstressend
+munkaideje	$unstressend
+középpontjába	$unstressend
+(tevékenység középpontjába) tEve:kEn^Se:g_||kYze:p:onca:bA	$unstressend
+formálását	$unstressend
+ismereteket	$unstressend
+(tanítandó ismereteket) tAni:tAndo:_||iSmER2EtEkEt	$unstressend
+gyermekeiket	$unstressend
+(lehetőségük arra) lEhEtY:Se:gyk_||AR2R2A	$unstressend
+(indul majd) indul_||mAjd	$unstressend
+számukra	$unstressend
+(belül marad) bElyl_||mAR2Ad	$unstressend
+(órán belül marad) o:R2a:n_'||bElyl_'||mAR2Ad	$unstressend
+keresni	$unstressend
+(többet fog) tYb:Et_||fog	$unstressend
+elbocsátásokról	$unstressend
+szövegével	$unstressend
+szállni	$unstressend
+ugyanakkor	$unstressend
+(száma csökken) sa:mA_||tSYk:En	$unstressend
+(nyelv is) n^Elv_||iS	$unstressend
+témája	$unstressend
+oktatniuk	$unstressend
+(kell oktatniuk) kEl:_||oktAtniuk	$unstressend
+(nevelés témája) nEvEle:S_||te:ma:jA	$unstressend
+(a kérdésre) A'||ke:R2de:SR2E	$unstressend
+tagozat	$unstressend
+gyermek	$unstressend
+szülő	$unstressend
+(rá igény) R2a:_||ige:n^	$unstressend
+(arra is) AR2R2A_||iS	$unstressend
+kötése	$unstressend
+dolgozniuk	$unstressend
+(a változás) A'||va:ltoza:S	$unstressend
+(a hallgatónak) A'_||hAlgAto:nAk	$unstressend
+hallgatónak	$unstressend
+tárgyaláson	$unstressend
+törvényről	$unstressend
+(múlt héten) mu:lt_'||he:tEn	$unstressend
+(kérte fel múlt héten) ke:R2tE_'||fEl_||mu:lt_'||he:tEn	$unstressend
+kötendő	$unstressend
+(vevőkkel kötendő) vEvY:k:El_||kYtEndY:	$unstressend
+pontjának	$unstressend
+kötés	$unstressend
+(állt példaként) a:lt_||pe:ldAke:nt	$unstressend
+vállalniuk	$unstressend
+intézménynek	$unstressend
+(említett arra) Emli:tEt:_||AR2R2A	$unstressend
+(sem említett arra) SEm_||Emli:tEt:_||AR2R2A	$unstressend
+cserébe	$unstressend
+(meg a jelentkezővel) mEg_||A'||jElEntkEzY:vEl	$unstressend
+(kell kötni) kEl:_||kYtni	$unstressend
+(szerződést kell kötni) sER2zY:de:St_||kEl:_||kYtni	$unstressend
+jogosult	$unstressend
+(alakult ki) AlAkult_||ki	$unstressend
+(formában a tervezetben) foR2ma:bAn_||A'||tER2vEzEtbEn	$unstressend
+(felmutatni a tárgyalásokon) fElmutAtni_||A'||ta:R2JAla:Sokon	$unstressend
+ötlettől	$unstressend
+sérelmezi	$unstressend
+diák	$unstressend
+(függ össze) fyg:_||Ys:E	$unstressend
+(egy diák) EJ_'||dia:k	$unstressend
+(költségekkel függ össze) kYltSe:gEk:El_||fyg:_||Ys:E	$unstressend
+(kellene fizetni) kEl:EnE_||fizEtni	$unstressend
+(határozza meg) hAta:R2ozzA_||mEg	$unstressend
+(alapul vennie) AlApul_||vEn:iE	$unstressend
+(arra vonatkozóan) AR2R2A_||vonAtkozo:An	$unstressend
+képzése	$unstressend
+(becsült értékének) bEtSylt_||e:R2te:ke:nEk	$unstressend
+(is rávilágított) iS_||R2a:vila:gi:tot:	$unstressend
+(az indoklással) Az_'||indokla:S:Al	$unstressend
+(állapították meg) a:l:Api:tot:a:k_||mEg	$unstressend
+(a költségekről) A'||kYltSe:gEkR2Y:l	$unstressend
+(ezer forint) EzER2_||foR2int	$unstressend
+önköltsége	$unstressend
+megállapítására	$unstressend
+venné	$unstressend
+szövettségek	$unstressend
+szövetségek	$unstressend
+kérdésekben	$unstressend
+(érintő kérdésekben) e:R2intY:_||ke:R2de:SEkbEn	$unstressend
+(jogra változtatott) jogR2A_||va:ltostAtot:	$unstressend
+változtatott	$unstressend
+befolyását	$unstressend
+eredménye	$unstressend
+(is felmerült) iS_||fElmER2ylt	$unstressend
+(a háttérben) A'||ha:t:e:R2bEn	$unstressend
+(épülete előtt) e:pylEtE_||ElY:t:	$unstressend
+(utcai épülete előtt) uts:Ai_||e:pylEtE_||ElY:t:	$unstressend
+(korábbi elképzelés) koR2a:b:i_||Elke:pzEle:S	$unstressend
+(a korábbi elképzelés) A'||koR2a:b:i_||Elke:pzEle:S	$unstressend
+formában	$unstressend
+(az intézmények) Az_'||inte:zme:n^Ek	$unstressend
+(a hallgatók) A'||hAlgAto:k	$unstressend
+tervezet	$unstressend
+(felelt volna meg) fElElt_||volnA_||mEg	$unstressend
+(volna meg) volnA_||mEg	$unstressend
+alakulniuk	$unstressend
+(a tervezet) A'||tER2vEzEt	$unstressend
+(kategória is) kAtEgo:R2iA_||iS	$unstressend
+tárgyalnak	$unstressend
+(a mérleg) A'||me:R2lEg	$unstressend
+(tanácsok kérdéséről is) tAna:tSok_||ke:R2de:Se:R2Y:l_||iS	$unstressend
+véglegesítették	$unstressend
+hétvégére	$unstressend
+hétvégén	$unstressend
+(vállalat közleménye) va:l:AlAt_||kYzlEme:n^E	$unstressend
+járatai	$unstressend
+(kiszolgáló járatai) kisolga:lo:_||ja:R2AtAi	$unstressend
+járatok	$unstressend
+közleményében	$unstressend
+(már megszokott) ma:R2_||mEgsokot:	$unstressend
+közlekedteti	$unstressend
+(szerelvényeit megerősítve) sER2Elve:n^Eit_||mEgER2Y:Si:tvE	$unstressend
+általános	$unstressend
+tervezete	$unstressend
+(szerződésben kell) sER2zY:de:SbEn_||kEl:	$unstressend
+(támogatásra jogosult) ta:mogAta:SR2A_||jogoSult	$unstressend
+(generációs ok) gEnER2a:tsio:S_'||ok	$unstressend
+ellentétben	$unstressend
+hallható	$unstressend
+növekedésének	$unstressend
+szerintem	$unstressend
+(lenne szerintem) lEn:E_||sER2intEm	$unstressend
+(a helyzet) A'||hEjzEt	$unstressend
+fájlhoz	$unstressend
+(vizsgálni azt) viZga:lni_||Ast	$unstressend
+(lehetett vizsgálni azt) lEhEtEt:_||viZga:lni_||Ast	$unstressend
+(kellett elolvasnom) kEl:Et:_||ElolvASnom	$unstressend
+alakot	$unstressend
+(megoldható az) mEgoldhAto:_||Az	$unstressend
+intonációja	$unstressend
+(el nektek) El_'||nEktEk	$unstressend
+verzióval
+állományt	$unstressend
+verzióval	$unstressend
+hangsúlyozva	$unstressend
+(szókapcsolatok vannak) so:kAptSolAtok_||vAn:Ak	$unstressend
+(újabb feladat) u:jAb:_||fElAdAt	$unstressend
+teremben	$unstressend
+várunk	$unstressend
+(főt várunk) fY:t_||va:R2unk	$unstressend
+(is lesz) iS_||lEs	$unstressend
+mindenki	$unstressend
+játszani	$unstressend
+(el mindenki) El_||mindEnki	$unstressend
+megszületését	$unstressend
+(jelentkezését várjuk) jElEntkEze:Se:t_||va:R2juk	$unstressend
+(közönség soraiba) kYzYnSe:g_||SoR2AibA	$unstressend
+(vesz részt) vEs_||R2e:st	$unstressend
+(a közönség soraiban) A'||kYzYnSe:g_||SoR2AibAn	$unstressend
+örömére	$unstressend
+(sikeres volt) SikER2ES_||volt $unstressend
+ülésén	$unstressend
+termében	$unstressend
+hangoztatom	$unstressend
+irányítani	$unstressend
+(álláspontomat hangoztatom) a:l:a:SpontomAt_||hAngostAtom	$unstressend
+tekintetében	$unstressend
+(a nyugati) A'||n^ugAti	$unstressend
+párás	$unstressend
+(is reménykedhetünk) iS_||R2Eme:n^kEdhEtynk	$unstressend
+(idő várható) idY:_||va:R2hAto:	$unstressend
+kivéve	$unstressend
+órákban	$unstressend
+(kapcsolódási probléma) kAptSolo:da:Si_||pR2oble:mA	$unstressend
+(érv a linux mellett) e:R2v_||A'||linuks_||mEl:Et:	$unstressend
+adjon	$unstressend
+(opció bekapcsolása) optsio:_||bEkAptSola:SA	$unstressend
+(felállás szerint) fEla:l:a:S_||sER2int	$unstressend
+problémás	$unstressend
+(is felvethet) iS_'||fElvEthEt	$unstressend
+(is kiderül) iS_||kidER2yl	$unstressend
+higanyszála	$unstressend
+övezetben	$unstressend
+rendeletet	$unstressend
+kérésre	$unstressend
+(foglaltak állást) foglAltAk_'||a:l:a:St	$unstressend
+emelése	$unstressend
+(biztos szerint) bistoS_||sER2int	$unstressend
+(megoldást épít be) mEgolda:St_||e:pi:t_||bE	$unstressend
+kulcsát	$unstressend
+kulcsa	$unstressend
+(való trükközést) vAlo:_||tR2yk:Yze:St	$unstressend
+folyamatát	$unstressend
+(új megoldást) u:j_||mEgolda:St	$unstressend
+(jelent számukra) jElEnt_||sa:mukR2A	$unstressend
+(költséget jelent számukra) kYltSe:gEt_||jElEnt_||sa:mukR2A	$unstressend
+irányult	$unstressend
+tendenciát	$unstressend
+(az előrejelzése) Az_'||ElY:R2EjElze:SE	$unstressend
+támogatásából	$unstressend
+megszorítások	$unstressend
+bizonytalanságok	$unstressend
+(kapcsolatos bizonytalanságok) kAptSolAtoS_||bizon^tAlAnSa:gok	$unstressend
+(költségvetési soron) kYltSe:gvEte:Si_||SoR2on	$unstressend
+soron	$unstressend
+(támogatást biztosítani) ta:mogAta:St_||bistoSi:tAni	$unstressend
+számlájára	$unstressend
+(körüli összegből) kYR2yli_||Ys:EgbY:l	$unstressend
+(szervezetek pályázhatnak) sER2vEzEtEk_||pa:ja:zhAtnAk	$unstressend
+tevékenységekre	$unstressend
+elnyernie	$unstressend
+működtetéshez	$unstressend
+(a megszorításokban) A'||mEgsoR2i:ta:SokbAn	$unstressend
+(a célja) A'||tse:l^jA	$unstressend
+biztosításához	$unstressend
+(okozta problémákból) okostA_||pR2oble:ma:kbo:l	$unstressend
+(viszont elengedhetetlen) visont_||ElEngEdhEtEtlEn	$unstressend
+(a szövettség) A'||sYvEtS:e:g	$unstressend
+(a szövetség) A'||sYvEtS:e:g	$unstressend
+(elektronikus változatát) ElEktR2onikuS_||va:ltozAta:t	$unstressend
+(kiadásokból ahhoz) kiAda:Sokbo:l_||Ahoz	$unstressend
+(az egyesületek) Az_'||EJ:ESylEtEk	$unstressend
+(ha kell) hA_||kEl:	$unstressend
+végrehajtásával	$unstressend
+(várható alakulásáról) va:R2hAto:_||AlAkula:Sa:R2o:l	$unstressend
+(elvárható szerinte) Elva:R2hAto:_||sER2intE	$unstressend
+(állapot javítására) a:l:Apot_||jAvi:ta:Sa:R2A	$unstressend
+(az elnökséget) Az_'||ElnYkSe:gEt	$unstressend
+illetékesével	$unstressend
+(hivatal illetékesével) hivAtAl_||il:Ete:kESe:vEl	$unstressend
+(merültek fel) mER2yltEk_||fEl	$unstressend
+problémák	$unstressend
+akadálymentesítéséhez	$unstressend
+szervezettel	$unstressend
+(során kiderült) SoR2a:n_||kidER2ylt	$unstressend
+(felvételének szükségességét) fElve:tEle:nEk_||sykSe:gES:e:ge:t	$unstressend
+(az ügyről) Az_'||yJR2Y:l	$unstressend
+(kérdőív véleményezésére) ke:R2dY:i:v_||ve:lEme:n^Eze:Se:R2E	$unstressend
+(egy fórumon) EJ_||fo:R2umon	$unstressend
+véleményezésére	$unstressend
+(egyértelműen megállapította) EJ:e:R2tElmy:En_||mEga:l:Api:tot:A	$unstressend
+elvárásoknak	$unstressend
+(akadálymentesítési elvárásoknak) AkAda:jmEntESi:te:Si_'||Elva:R2a:SoknAk	$unstressend
+(fejlesztők felé) fEjlEstY:k_||fEle:	$unstressend
+(szükséges intézkedéseket) sykSe:gES_||inte:skEde:SEkEt	$unstressend
+(emberek számára) EmbER2Ek_||sa:ma:R2A	$unstressend
+együttműködést	$unstressend
+(az oldalt) Az_'||oldAlt	$unstressend
+(a döntésre) A'||dYnte:SR2E	$unstressend
+(azt képviseli) Ast_'ke:pviSEli	$unstressend
+kötelezettségét	$unstressend
+hangsúlyozták	$unstressend
+folyóirata	$unstressend
+(figyelmet kell fordítani) fiJElmEt_||kEl:_||foR2di:tAni	$unstressend
+(is voltak) iS_||voltAk	$unstressend
+álláspontjukat	$unstressend
+elvégzésébe	$unstressend
+vételével	$unstressend
+díj	$unstressend
+(az indítványa) Az_'||indi:tva:n^A	$unstressend
+termeit	$unstressend
+szellem	$unstressend
+érzése	$unstressend
+(együvé tartozás) EJ:yve:_||tArtoza:S	$unstressend
+(egyesületi vezetők) EJ:ESylEti_||vEzEtY:k	$unstressend
+(vezetőségi tagjai) vEzEtY:Se:gi_||tAgjAi	$unstressend
+(egyesülettel szemben) EJ:ESylEt:El_||sEmbEn	$unstressend
+(bérleti díjakra) be:R2lEti_||di:jAkR2A	$unstressend
+(megoldási lehetőséggel) mEgolda:Si_||lEhEtY:Se:g:El	$unstressend
+találtak	$unstressend
+összegben	$unstressend
+(a kitétellel) A'||kite:tEl:El	$unstressend
+(a feltétellel) A'||fElte:tEl:El	$unstressend
+(összegét feltüntesse) Ys:Ege:t_||fEltyntES:E	$unstressend
+(a honlapján) A'||honlApja:n	$unstressend
+(járulékos elemek) ja:R2ule:koS_||ElEmEk	$unstressend
+(a szervező) A'||sER2vEzY:	$unstressend
+(valósítja meg) vAlo:Si:c:A_||mEg	$unstressend
+(tevékenységet végez) tEve:kEn^Se:gEt_||ve:gEz	$unstressend
+részesül	$unstressend
+jogával	$unstressend
+(iskolák működtetését) iSkola:k_||mykYt:Ete:Se:t	$unstressend
+(fenntartott iskolák működtetését) fEn:tAR2tot:_||iSkola:k_||mykYt:Ete:Se:t	$unstressend
+(is eredményezheti) iS_||ER2Edme:n^EzhEti	$unstressend
+(a költséget) A'||kYltSe:gEt	$unstressend
+fejlesztésén	$unstressend
+lehetőségeiről	$unstressend
+spórol	$unstressend
+észjárás	$unstressend
+(év eltelt) e:v_||EltElt	$unstressend
+(arra jutottam) AR2R2A_||jutot:Am	$unstressend
+(elnézést kérek) Elne:ze:St_||ke:R2Ek	$unstressend
+(akarok lenni) AkAR2ok_||lEn:i	$unstressend
+(amit használok) Amit_||hAsna:lok	$unstressend
+(apró dolgok) ApR2o:_'||dolgok	$unstressend
+tűzfalat	$unstressend
+ikontémára	$unstressend
+(tervezésével foglalkozó cég) tErvEze:Se:vEl_||foglAlkozo:_||tse:g	$unstressend
+(nincsenek róla) nintSEnEk_||R2o:lA	$unstressend
+(hivatalos lenne) hivAtAloS_||lEn:E	$unstressend
+(a valóság) A'||vAlo:Sa:g	$unstressend
+élőket	$unstressend
+állapotú	$unstressend
+tulajdonostól	$unstressend
+tartozékával	$unstressend
+(hetet használt) hEtEt_||hAsna:lt	$unstressend
+(a kérdés) A'||ke:R2de:S	$unstressend
+vittem	$unstressend
+veszem	$unstressend
+ugyanaz	$unstressend
+rejlik	$unstressend
+megéri	$unstressend
+belőniük	$unstressend
+(rajta gépelni) R2AjtA_||ge:pElni	$unstressend
+(nincs is) nintS_||iS	$unstressend
+árban	$unstressend
+(boltok ajánlatai) boltok_'||Aja:nlAtAi	$unstressend
+valaki	$unstressend
+(kellene biztosítani) kEl:Ene_||bistosi:tAni	$unstressend
+(már lehetséges) ma:R2_||lEhEtS:e:gES	$unstressend
+(is támogatja) iS_||ta:mogAc:A	$unstressend
+(lehet használni) lEhEt_||hAsna:lni	$unstressend
+(problémám van) pR2oble:ma:m_||vAn	$unstressend
+(kis teló) kiS_||tElo:	$unstressend
+(hete használom) hEtE_||hAsna:lom	$unstressend
+(reggelre ébredhetünk) R2Eg:ElR2e_||e:bR2EdhEtynk	$unstressend
+(fok közé) fok_||kYze:	$unstressend
+várhatóak	$unstressend
+gyengül	$unstressend
+(idő valószínű) idY:_||vAlo:si:ny:	$unstressend
+(alakul majd) AlAkul_||mAjd	$unstressend
+(szintű felhőzet) sinty:_||fElhY:zEt	$unstressend
+nőnek	$unstressend
+(vezető nőnek) vEzEtY:_||nY:nEk	$unstressend
+szerelme	$unstressend
+küzdenek	$unstressend
+(éves kisfiú) e:vES_||kiSfiu:	$unstressend
+(éves kisfiút) e:vES_||kiSfiu:t	$unstressend
+kisfiúnak	$unstressend
+(is lelövik) iS_||lElYvik	$unstressend
+támadtak	$unstressend
+követelnek	$unstressend
+születtek	$unstressend
+ünnepen	$unstressend
+fejbe	$unstressend
+munkatársát	$unstressend
+sofőr	$unstressend
+(a mérget) A'||me:R2gEt	$unstressend
+vize	$unstressend
+idősebb	$unstressend
+mesél	$unstressend
+mesélt	$unstressend
+(a kérdésem) A'||ke:R2de:SEm	$unstressend
+(kellett ahhoz) kEl:Et:_||Ahoz	$unstressend
+(a helyet) A_'||hEjEt	$unstressend
+(fent a helyet) fEnt_||A'||hEjEt	$unstressend
+(csak később) tSAk_||ke:SY:b:	$unstressend
+(első sorbanálló) ElSY:_||SoR2bAna:l:o:	$unstressend
+(a sorba) A'||SoR2bA	$unstressend
+(meg a sorba) mEg_||A'||SoR2bA	$unstressend
+(állt össze) a:lt_||Ys:E	$unstressend
+(is megszerezték) iS_||mEgsER2Este:k	$unstressend
+(óta tartó) o:tA_||tAR2to:	$unstressend
+(a tömeg) A'||tYmEg	$unstressend
+világát	$unstressend
+(közti különbségek) kYsti_||kylYnbSe:gEk	$unstressend
+(funkciókat ellátó) funktsio:kAt_||El:a:to:	$unstressend
+szoftvere	$unstressend
+(az angol) Az_'||Angol	$unstressend
+(a sorban) A'||SoR2bAn	$unstressend
+(fel a sorban) fEl_||A'||SoR2bAn	$unstressend
+(az éjjel) Az_'||e:l^jEl	$unstressend
+csomagra	$unstressend
+ügyfelek$unstressend
+tarifacsomagokkal	$unstressend
+premiert	$unstressend
+(előtt publikálta) ElY:t:_||publika:ltA	$unstressend
+készüléket	$unstressend
+(forintért elvihető) foR2inte:R2t_||ElvihEtY:	$unstressend
+legdrágább	$unstressend
+(ezer forintot) EzER2_||foR2intot	$unstressend
+tarifával	$unstressend
+(egy hajléktalant) EJ_||hAjle:ktAlAnt	$unstressend
+(a büntetés) A'||byntEte:S	$unstressend
+megalázásról	$unstressend
+(előtt közöl) ElY:t:_||kYzYl	$unstressend
+(nyilvánosság számára) n^ilva:noS:a:g_||sa:ma:R2A	$unstressend
+ígér	$unstressend
+(riadnak vissza) RiAdnAk_||vis:A	$unstressend
+(sem riadnak vissza) SEm_'||RiAdnAk_||vis:A	$unstressend
+tartsák	$unstressend
+polgármestere	$unstressend
+korúak	$unstressend
+(a jövőben) A'||jYvY:bEn	$unstressend
+(azt gyanították) Ast_'||JAni:tot:a:k	$unstressend
+(tart ott) tAR2t_||ot:	$unstressend
+(találtak a nyomozók) tAla:ltAk_||A'||n^omozo:k	$unstressend
+(a férfi) A'||fe:R2fi	$unstressend
+(el a férfi) El_||A'||fe:R2fi	$unstressend
+követelte	$unstressend
+férfit	$unstressend
+előéletű	$unstressend
+bűncselekményt	$unstressend
+telefonált	$unstressend
+(az elvet) Az_'||ElvEt	$unstressend
+többet	$unstressend
+leszokni	$unstressend
+büntessék	$unstressend
+finanszírozza	$unstressend
+gyógyulásához	$unstressend
+(el pénzt) El_||pe:nst	$unstressend
+(államtitkárság tervezetéről) al:Amtitka:R2Sa:g_||tErvEzEte:R2Y:l	$unstressend
+(a dohányzást) A'||doha:n^za:St	$unstressend
+államtitkársága	$unstressend
+vonatkozna	$unstressend
+(programot indítanának) pR2ogR2Amot_||indi:tAna:nAk	$unstressend
+(részt vesz) R2e:st_||vEs	$unstressend
+(részt venni) R2e:st_||vEn:i	$unstressend
+összegeket	$unstressend
+(képtelen betegnek) ke:ptElEn_||bEtEgnEk	$unstressend
+havonta	$unstressend
+(elmarad attól) ElmAR2Ad_||At:o:l	$unstressend
+(szív el) si:v_||El	$unstressend
+cigit	$unstressend
+(a dohányzásról) A'||doha:n^za:Sro:l	$unstressend
+átlag	$unstressend
+(forintba kerülnek) foR2intbA_||kER2ylnEk	$unstressend
+hozzátette	$unstressend
+drágulása	$unstressend
+(tudomásul kell) tudoma:Sul_||kEl:	$unstressend
+(a dohányzó) A'||doha:n^zo:	$unstressend
+válaszaiból	$unstressend
+vizsgálható	$unstressend
+lefogyni	$unstressend
+(a válaszokat) A'||va:lAsokAt	$unstressend
+(hírem van) hi:R2Em_||vAn	$unstressend
+(fölött áll) fYlYt:_||a:l:	$unstressend
+fiataloknak	$unstressend
+kongresszusán	$unstressend
+munkáról	$unstressend
+válnia	$unstressend
+erősödik	$unstressend
+megküzdenie	$unstressend
+támogatnák	$unstressend
+képeznék	$unstressend
+(a helyzetét) A'||hEjzEte:t	$unstressend
+küldöttet	$unstressend
+legyőzni	$unstressend
+tevékenységéről	$unstressend
+elnökét	$unstressend
+(emelte ki) EmEltE_||ki	$unstressend
+tagságát	$unstressend
+(a szakadékot) A'||sAkAde:kot	$unstressend
+(az országban) Az_'||orsa:gbAn	$unstressend
+eszközét	$unstressend
+méretű	$unstressend
+ketyeg	$unstressend
+(is használhatók) iS_||hAsna:lhAto:k	$unstressend
+tervezhetünk	$unstressend
+(is használható) iS_||hAsna:lhAto:	$unstressend
+alkalmazás	$unstressend
+rend	$unstressend
+számomra	$unstressend
+(a megoldással) A'||mEgolda:S:Al	$unstressend
+(fogja eredményezni) fogjA_||ER2Edme:n^Ezni	$unstressend
+összejönni	$unstressend
+részét	$unstressend
+nyomok	$unstressend
+(kellett kapcsolnom) kEl:Et:_||kAptSolnom	$unstressend
+fogy	$unstressend
+hely	$unstressend
+ijesztő	$unstressend
+növekszik	$unstressend
+élnek	$unstressend
+(az adat) Az_'||AdAt	$unstressend
+népessége	$unstressend
+milliót	$unstressend
+kérjen	$unstressend
+megállítására	$unstressend
+(a tudatban) A'||tudAtbAn	$unstressend
+(is kijelölhető) iS_||kijElYlhEtY:	$unstressend
+vagyunk	$unstressend
+nemzet	$unstressend
+(a trendet) A'||tR2EndEt	$unstressend
+(a családoknak) A'||tSAla:doknAk	$unstressend
+nevelőknél	$unstressend
+serkenteni	$unstressend
+(az a baj) Az_'||A'||bAj	$unstressend
+képességek	$unstressend
+hiányoznak	$unstressend
+születnek	$unstressend
+(nem jelent semmit) nEm_||jElEnt_||SEm:it	$unstressend
+(a kérdés az) A'||ke:R2de:S_||Az	$unstressend
+(önmagában az) YnmAga:bAn_||Az	$unstressend
+példázza	$unstressend
+(is szűkösebbek) iS_||sykYSEb:Ek	$unstressend
+sajátosságok	$unstressend
+(a föld) A'||fYld	$unstressend	
+számítottak	$unstressend
+erejét	$unstressend
+összefüggés	$unstressend
+(a hónapok) A'||ho:nApok	$unstressend
+mondhatnák	$unstressend
+(a dolgot) A'||dolgot	$unstressend
+(a cím) A'||tsi:m	$unstressend
+(a tartalmat) A'||tAR2tAlmAt	$unstressend
+alkalmazással	$unstressend
+(volna fel) volnA_||fEl	$unstressend
+(dolgok idegesítenek) dolgok_'||idEgESi:tEnEk	$unstressend
+(is jelezték) iS_||jElEzte:k	$unstressend
+fordulok	$unstressend
+(miért van az) mie:R2t_'||vAn_'||Az	$unstressend
+(módot választom) mo:dot_||va:lAstom	$unstressend
+(a hiba) A'||hibA	$unstressend
+(kerül sor) kER2yl_||SoR2	$unstressend
+céljait	$unstressend
+részletek	$unstressend
+összpontosítani	$unstressend
+finomítsák	$unstressend
+(a cél az) A'||tse:l_||Az	$unstressend
+eszközökön	$unstressend
+(is együttműködik) iS_||EJ:ytmy:kYdik	$unstressend
+találkozójával	$unstressend
+(kiadás céljait) kiAda:S_||tse:l^jAit	$unstressend
+(meg azokat) mEg_||AzokAt	$unstressend
+(kapcsolatos híreket) kAptSolAtoS_||hi:R2EkEt	$unstressend
+(kapcsolatos tervekről) kAptSolAtoS_||tER2vEkR2Y:l	$unstressend
+komoly	$unstressend
+(rendszer futtatására) R2EntsER2_||fut:Ata:Sa:R2A	$unstressend
+(teszi majd) tEsi_||mAjd	$unstressend
+adottságaihoz	$unstressend
+viselkedni	$unstressend
+(kategóriába sorolom) kAtEgo:R2ia:bA_||SoR2olom	$unstressend
+láz	$unstressend
+(és jó) e:S_||jo:	$unstressend
+(sem merek) SEm_'||mER2Ek	$unstressend
+cserélni	$unstressend
+(majd rajta) mAjd_'||R2AjtA	$unstressend
+(is szeretnék) iS_||sER2Etne:k	$unstressend
+(lehet ezzel) lEhEt_||EzzEl	$unstressend
+(a fejlesztőknek) A'||fEjlEstY:knEk	$unstressend
+(az időt) Az_'||idY:t	$unstressend
+(látszik tehát) la:ts:ik_'||tEha:t	$unstressend
+(mit változtatni) mit_'||va:ltostAtni	$unstressend
+(lesz ajánlott) lEs_||Aja:nlot:	$unstressend
+(le voksát) lE_'||vokSa:t	$unstressend
+(kevesebben annál) kEvESEb:En_'||An:a:l	$unstressend
+nyilvánítástól	$unstressend
+(eséjt látok) ESe:jt_'||la:tok	$unstressend
+értelmezzük	$unstressend
+főnek	$unstressend
+mindegy	$unstressend
+(első éven) ElSY:_'||e:vEn	$unstressend
+(az évet) Az_'||e:vEt	$unstressend
+voksot	$unstressend
+(ez valamit) Ez_'||vAlAmit	$unstressend
+tesszük	$unstressend
+feladatok	$unstressend
+nagyot	$unstressend
+értékeljük	$unstressend
+(a probléma) A'||pR2oble:mA	$unstressend
+kérdése	$unstressend
+jelölt	$unstressend
+(ne tenné) nE_'||tEn:e:	$unstressend
+valószínűtlen	$unstressend
+(évre készülne) e:vR2E_'||ke:sylnE	$unstressend
+(olyan kérdés) ojAn_'||ke:R2de:S	$unstressend
+tudható	$unstressend
+(már kevésbé hallani) ma:R2_'||kEve:Sbe:_'||hAl:Ani	$unstressend
+(is szükséges) iS_'||sykSe:gES	$unstressend
+(volt elfoglalva) volt_'||ElfoglAlvA	$unstressend
+(is hatott) iS_'||hAtot:	$unstressend
+(nagy meglepetést) nAJ_'||mEglEpEte:St	$unstressend
+ülőt	$unstressend
+(tény sem) te:n^_'||SEm	$unstressend
+(tűnt ki) ty:nt_'||ki	$unstressend
+(is ér) iS_'||e:R2	$unstressend
+(tenni akarás) tEn:i_'||AkAR2a:S	$unstressend
+(esélyt látok) ESe:jt_'||la:tok	$unstressend
+(a véleményem) A'||ve:lEme:n^Em	$unstressend
+(jelzi az) jElzi_'|||Az	$unstressend
+(volt olyan) volt_'||ojAn	$unstressend
+(trend az) tR2End_'||Az	$unstressend
+(ezt az) Est_'||Az	$unstressend
+(baj az) bAj_'||Az	$unstressend
+(is lázad) iS_'||la:zAd	$unstressend
+(testre szabható) tEStR2E_'||sAbhAto:	$unstressend
+(ismét felmerült) iSme:t_'||fElmER2ylt	$unstressend
+portolni	$unstressend
+(a felállás) A'||fEla:l:a:S	$unstressend
+(az eszközöket) Az_'||EskYzYkEt	$unstressend
+(is választotta) iS_'||va:lAstot:A	$unstressend
+(ilyen bolt) ijEn_'||bolt	$unstressend
+(baj van) bAj_'||vAn	$unstressend
+(is lenne) iS_'|lEn:E	$unstressend
+(vegyük figyelembe) vEJyk_'||fiJElEmbE	$unstressend
+(a népnek) A'||ne:pnEk	$unstressend
+lévőket	$unstressend
+ver	$unstressend
+részéből	$unstressend
+készítettek	$unstressend
+jeleket	$unstressend
+(jelzést adnak) jElze:St_'||AdnAk	$unstressend
+(azt jelzik) Ast_'||jElzik	$unstressend
+(is ügyeltek) iS_'||yJEltEk	$unstressend
+(vettük észre) vEt:yk_'||e:sR2E	$unstressend
+pontját	$unstressend
+(a hozzászólásokat) A'||hozza:so:la:SokAt	$unstressend
+(arra kérjük) AR2R2A_'||ke:R2jyk	$unstressend
+baki	$unstressend
+veszteség	$unstressend
+(is tilos) iS_'||tiloS	$unstressend
+(a dolgokat) A'||dolgokAt	$unstressend
+(arra törekedni) AR2R2A_'||tYR2EkEdni	$unstressend
+lettetek	$unstressend
+mondjam	$unstressend
+(fogja érteni) fogjA_'||e:R2tEni	$unstressend
+(által kínált szolgáltatásokat) a:ltAl_'||ki:na:lt_'||solga:ltAta:SokAt	$unstressend
+(fut rajta) fut_'||R2AjtA	$unstressend
+(sem mutatják) SEm_'||mutAc:a:k	$unstressend
+felbontású	$unstressend
+szereltek	$unstressend
+(majd hallgatni) mAjd_'||hAlgAtni	$unstressend
+(az árát) Az_'||a:R2a:t	$unstressend
+(is árul) iS_'||a:R2ul	$unstressend
+(kicsi ahhoz) kitSi_'||Ahoz	$unstressend
+dobásával	$unstressend
+(azon gondolkodni) Azon_'||gondolkodni	$unstressend
+(ki az ötlet) ki_'||Az_'||YtlEt	$unstressend
+(nap is) nAp_'||iS	$unstressend
+újraírása	$unstressend
+(lehetőséget megvalósítani) lEhEtY:Se:gEt_'||mEgvAlo:Si:tAni	$unstressend
+(a rendszerét) A'||R2EntsER2e:t	$unstressend
+(másik téma) ma:Sik_'||te:mA	$unstressend
+(jobb támogatása) job:_'||ta:mogAta:SA	$unstressend
+(is koncentrálni) iS_'||kontsEntR2a:lni	$unstressend
+(területre is koncentrálni) tER2ylEtR2E_'||iS_'||kontsEntR2a:lni	$unstressend
+morfondíroztak	$unstressend
+mechanizmusával	$unstressend
+mechanizmusát	$unstressend
+(a rendszerbe) A'||R2EntsER2bE	$unstressend
+(állapotban van) a:l:ApotbAn_||vAn	$unstressend
+szempont	$unstressend
+munkásnak	$unstressend
+vádolnak	$unstressend
+munkást	$unstressend
+(követett el) kYvEtEt:_'||El	$unstressend
+(ellen hirdették meg) El:En_'||hiR2dEt:e:k_'||mEg	$unstressend
+(a kerületben) A'||kER2ylEtbEn	$unstressend
+(bűnösnek találják) by:nYSnEk_'||tAla:l^ja:k	$unstressend
+(is ítélhetik) iS_'||i:te:lhEtik	$unstressend
+kora	$unstressend
+világháború	$unstressend
+koráról	$unstressend
+elfogadásáról	$unstressend
+(majd megtekinteni) mAjd_'||mEgtEkintEni	$unstressend
+nyelvet	$unstressend
+(meg kell nyomni) mEg_'||kEl:_'||n^omni	$unstressend
+láttam	$unstressend
+(bizonnyal az) bizon^n^Al_'||Az	$unstressend
+(az kellene) Az_'||kEl:EnE	$unstressend
+(új ablakot) u:j_'||AblAkot	$unstressend
+(is köszönhető) iS'||kYsYnhEtY:	$unstressend
+valamiért	$unstressend
+(olvasása közben) olvASa:SA_'||kYzbEn	$unstressend
+(az esetben) Az_'|||ESEtbEn	$unstressend
+(a képviselők) A'||ke:pviSElY:k	$unstressend
+dolgozott	$unstressend
+(alapú rendszeren) AlApu:_'||R2EntsER2En	$unstressend
+festeni	$unstressend
+(a kijelentéseddel) A'||kijElEnte:SEd:El	$unstressend
+(úgy értelmezem) u:J_'||e:R2tElmEzEm	$unstressend
+(úgy értelmeztem) u:J_'||e:R2tElmEstEm	$unstressend
+(a legfontosabbnak) A'||lEgfontoSAbnAk	$unstressend
+élményt	$unstressend
+támogatják	$unstressend
+(a gépére) A'||ge:pe:R2E	$unstressend
+(kéne választanom) ke:nE_'||va:lAstAnom	$unstressend
+hónapja	$unstressend
+(hangzott el) hAngzot:_'||El	$unstressend
+(a választ) A'||va:lAst	$unstressend
+(is rendelkeztek) iS_'||R2EndElkEstEk	$unstressend
+(fel rá) fEl_'||R2a:	$unstressend
+(a titkot) A'||titkot	$unstressend
+(is kiegészítette) iS_'||kiEge:si:tEt:E	$unstressend
+(volt halott) volt_'||hAlot:	$unstressend
+(a költőre) A'||kYltY:R2E	$unstressend
+vágysz	$unstressend
+okoznak	$unstressend
+okozni	$unstressend
+(az illetőt) Az_'||il:EtY:t	$unstressend
+fehérbe	$unstressend
+gombolnám	$unstressend
+öltöznék	$unstressend
+mosnék	$unstressend
+kikérdezném	$unstressend
+(rendszert készít) R2EntsER2t_'||ke:si:t	$unstressend
+(is megmutatják) iS_'||mEgmutAc:a:k	$unstressend
+jutottak	$unstressend
+(arról van szó) AR2R2o:l_'||vAn_'||so:	$unstressend
+(ér el) e:R2_'||El	$unstressend
+(azt szeretné) Ast_'||sER2Etne:	$unstressend
+hasonlít	$unstressend
+(tartalmakkal kapcsolatban) tAR2tAlmAk:Al_'||kAptSolAtbAn	$unstressend
+(honlap törlését) honlAp_'||tYR2le:Se:t	$unstressend
+(lehet jelenteni) lEhEt_'||jElEntEni	$unstressend
+(oldalra bukkan) oldAlR2A'||buk:An	$unstressend
+bukkan	$unstressend
+(szervezet működtette) sER2vEzEt_'||my:kYt:Et:E	$unstressend
+hatóságnak	$unstressend
+üzemelteti	$unstressend
+működtettek	$unstressend
+jogkörrel	$unstressend
+(csak megtenni) tSAk_'||mEgtEn:i	$unstressend
+jogsértőt	$unstressend
+(majd lehetővé) mAjd_'||lEhEtY:ve:	$unstressend
+üzemeltetik	$unstressend
+(azt várják) Ast_'||va:R2ja:k	$unstressend
+(a hatóság) A'||hAto:Sa:g	$unstressend
+(majd működni) mAjd_'||my:kYdni	$unstressend
+(már elérték) ma:R2_'||Ele:R2te:k	$unstressend
+(a szervezet) A'||sErvEzEt	$unstressend
+pusztít	$unstressend
+üzeme	$unstressend
+gyártják	$unstressend
+csökkenése	$unstressend
+(is vannak) iS_'||vAn:Ak	$unstressend
+számítanak	$unstressend
+(majd meg) mAjd_'||mEg	$unstressend
+élveznek	$unstressend
+véleményezni	$unstressend
+(a feladat) A'||fElAdAt	$unstressend
+képviseletében	$unstressend
+(munkát végeztek) munka:t_'||ve:gEstEk	$unstressend
+ítéltetve	$unstressend
+(se tréfa) SE_'||tR2e:fA	$unstressend
+emeleten	$unstressend
+lépve	$unstressend
+tudtuk	$unstressend
+egyeztetésen	$unstressend
+(egy fogadásunk) EJ_'||fogAda:Sunk	$unstressend
+(az első) Az_'||ElSY:	$unstressend
+gondolták	$unstressend
+megvalósítani	$unstressend
+(a prezentálásnak) A'||pR2EzEnta:la:SnAk	$unstressend
+(nehézségbe ütközött) nEhe:S:e:gbE_'||ytkYzYt:	$unstressend
+(a honlap) A'||honlAp	$unstressend
+(is jegyeztük) iS_'||jEJEstyk	$unstressend
+szánták	$unstressend
+(sem az) SEm_'||Az	$unstressend
+(a sár) A'||Sa:R2	$unstressend
+(felől nézzük) fElY:l_'||ne:zzyk	$unstressend
+közlekedő	$unstressend
+szoruljon	$unstressend
+(a kézből) A'||ke:zbY:l	$unstressend
+vastag	$unstressend
+emlékeztet	$unstressend
+(lehet markolni) lEhEt_'||mArkolni	$unstressend
+(attól félni) At:o:l_'||fe:lni	$unstressend
+hatású	$unstressend
+mélységben	$unstressend
+(a telefon) A'||tElEfon	$unstressend
+tönkreteheti	$unstressend
+(a mobilt) A'||mobilt	$unstressend
+mérnökei	$unstressend
+végződik	$unstressend
+takarja	$unstressend
+membrán	$unstressend
+testébe	$unstressend
+sarkához	$unstressend
+(hüvelyk átmérőjű) hyvEjk_'||a:tme:R2Y:jy:	$unstressend
+elektronikája	$unstressend
+(mutatkozik meg) mutAtkozik_'||mEg	$unstressend
+(a készülék) A'||ke:syle:k	$unstressend
+(már apró) ma:R2_'||ApR2o:	$unstressend
+(is található) iS_'||tAla:lhAto:	$unstressend
+indulására	$unstressend
+(közben sem) kYzbEn_'||SEm	$unstressend
+gyűrődéseit	$unstressend
+(vágjuk zsebre) va:gjuk_'||ZEbR2E	$unstressend
+(is lehet használni) iS_'||lEhEt_'||hAsna:lni	$unstressend
+sérülékeny	$unstressend
+biciklizőknek	$unstressend
+forintért	$unstressend
+(a szintet) A'||sintEt	$unstressend
+(egy próbát) EJ_'||pR2o:ba:t	$unstressend
 
 // word pairs
 
+
 (hogy a)   h,oJ,A
 (hogy az)  h,oJ,Az
-(hogy aki) h,oJ,Aki
+(hogy aki) hoJ,Aki
 
 
 // Verbs
@@ -3859,8 +4839,12 @@ _.	pont
 §	s'AkAs
 ~	tildE
 °	fokjEl
-Ft	foR2int
-(Ft-tal)	foR2int:Al
+Ft	foR2int	$unstressend
+(Ft-tal)	foR2int:Al	$unstressend
+(ft-ot) foR2intot	$unstressend
+(Ft-ba) foR2intbA	$unstressend
+(Ft-nak) foR2intnAk	$unstressend
+(Ft-tól) foR2int:o:l	$unstressend
 \	bEks2lES	$max3
 ^	fYlfEle:n^i:l
 
@@ -3881,7 +4865,7 @@ _[	n^'ito:sYglEtES	$max3
 _]	z'a:R2o:sYglEtES	$max3
 _{	k'EzdY:kAptSoS	$max3
 _}	v'e:gkAptSoS	$max3
-//_…	pontpontpont
+_…	pontpontpont
 
 _•	liStAjEl
 _|	fyg:Y:lEgESvonAl
@@ -3954,7 +4938,7 @@ egyezség	eggyesség
 (cd-n) cédén
 (cd-d) cédéd
 (CD-d) cédéd
-CD-m) cédém
+(CD-m) cédém
 (cd-m) cédém
 (db-os) darabos
 (db-ot) darabot
@@ -4006,4 +4990,6 @@ CD-m) cédém
 (MHZ-en) megahercen
 (Mhz-en) megahercen
 (ORTT-től) oerrtététől //special exceptio
+(kilogramm) kilogram
+
 

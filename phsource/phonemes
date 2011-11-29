@@ -833,7 +833,7 @@ endphoneme
 
 
 phoneme **    //   TEST flap
-  liquid alv
+  liquid alv rhotic
   ipa ɾ
   lengthmod 3
   Vowelout f1=3 f2=1600 -300 300  f3=-300 80 rms=35 len=15
@@ -1881,3 +1881,6 @@ include ph_setswana
 
 phonemetable mt base
 include ph_maltese
+
+phonemetable bo hi
+include ph_tibetan

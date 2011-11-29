@@ -27,7 +27,7 @@
 // http://www.fluxnic.net/cicero
 //
 // Rules are now maintained by Michel Such <michel.such@free.fr>
-// Last update: 2011-08-13 Michel Such  <michel.such@free.fr>
+// Last update: 2011-10-26 Michel Such  <michel.such@free.fr>
 //
 
 // Letter classes:
@@ -292,7 +292,7 @@ _ingré) dien (t_   djA~      // ingrédient
      e (ct+++++    E
      e (x+++++    E
 
-    _C) e (_       @         // je te
+    _C) e (_       @-        // je te
     -c) e (_
     -j) e (_
      C) e (-
@@ -638,7 +638,8 @@ no)	ë (_	e		// canoë
   _neu) f (_heures v
 
 // group f: English section
-     _) fire       _^_en
+     _) fire (CA       _^_en
+     _) fire (CCA       _^_en
         fly        _^_en
      _) frame      _^_en
         fter (_    _^_en
@@ -1078,7 +1079,7 @@ _C)        oy (X      _^_en     // boy, toy
 
 
 .group q
-        q          k         // coq
+        q          k        // coq
      _) qu' (AP3   k
      _) qua (d     kwa       // quadrature
      _) qua (tA    kwa       // quaternaire
@@ -1094,7 +1095,9 @@ _C)        oy (X      _^_en     // boy, toy
      _) qua (rtz   kwa       // quartz
         qu         k         // quatre
      _) que (_     k@        // que
-     n) q (_       k         // cinq cent
+     n) q (_       k         // cinq
+     n) q (_mill                // cinq mille
+     n) q (_cent_                // cinq cent
 
 // group q: English section
         quick      _^_en     // quick, quickly
@@ -1213,7 +1216,7 @@ _cACpu) s (_       s
 
 // group s: English section
         send  (_      _^_en
-        server (X     _^_en
+_)        server (X     _^_en
         sh (_      _^_en
         sh (Ap     _^_en     // shop, ship
         sh (At     _^_en     // shut, shot

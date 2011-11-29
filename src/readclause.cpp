@@ -94,6 +94,9 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x0b1b,  // Arabic ;
   0x061f,  // Arabic ?
 
+  0x0f0d,  // Tibet Shad
+  0x0f0e,
+
   0x1362,  // Ethiopic period
   0x1363,
   0x1364,
@@ -136,6 +139,9 @@ static const unsigned int punct_attributes [] = { 0,
 
   CLAUSE_SEMICOLON,  // Arabic ;
   CLAUSE_QUESTION,   // Arabic question mark
+
+  CLAUSE_PERIOD+0x8000,     // Tibet period
+  CLAUSE_PARAGRAPH,
 
   CLAUSE_PERIOD,     // Ethiopic period
   CLAUSE_COMMA,      // Ethiopic comma
@@ -2390,6 +2396,9 @@ f_input = f_in;  // for GetC etc
 				// ignore this character (eg. zero-width-non-joiner U+200C)
 				continue;
 			}
+
+			if(c1 == 0xf0b)
+				c1 = ' ';    // Tibet inter-syllabic mark, ?? replace by space ??
 
 			if(iswspace(c1))
 			{

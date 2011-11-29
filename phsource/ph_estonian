@@ -11,7 +11,7 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 170
-  ChangeIfUnstressed(A)
+//  ChangeIfUnstressed(A)
   FMT(vowel/aa_9)
 endphoneme
 
@@ -21,11 +21,11 @@ phoneme a:
   FMT(vowel/aa)
 endphoneme
 
-phoneme A
-  vowel starttype #a endtype #a
-  length 170
-  FMT(vowel/aa_8)
-endphoneme
+//phoneme A
+//  vowel starttype #a endtype #a
+//  length 170
+//  FMT(vowel/a#_2)
+//endphoneme
 
 phoneme A1
   vowel starttype #a endtype #a
@@ -36,8 +36,8 @@ endphoneme
 phoneme e
   vowel starttype #e endtype #e
   length 160
-  ChangeIfUnstressed(E)
-  FMT(vowel/e_7)
+//  ChangeIfUnstressed(E)
+  FMT(vowel/e#)
 endphoneme
 
 phoneme e:
@@ -46,23 +46,23 @@ phoneme e:
   FMT(vowel/e_7)
 endphoneme
 
-phoneme E
-  vowel starttype #e endtype #e
-  length 160
-  FMT(vowel/ee_4)
-endphoneme
+//phoneme E
+//  vowel starttype #e endtype #e
+//  length 160
+//  FMT(vowel/ee_4)
+//endphoneme
 
 phoneme E1
   vowel starttype #e endtype #e
   length 240
-  FMT(vowel/ee_4)
+  FMT(vowel/ee#_2)
 endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
   length 140
-  ChangeIfUnstressed(I)
-  FMT(vowel/i_2)
+//  ChangeIfUnstressed(I)
+  FMT(vowel/i_8)
 endphoneme
 
 phoneme i:
@@ -71,28 +71,28 @@ phoneme i:
   FMT(vowel/i_7)
 endphoneme
 
-phoneme I
-  vowel starttype #i endtype #i
-  length 140
-  FMT(vowel/i_3)
-endphoneme
+//phoneme I
+//  vowel starttype #i endtype #i
+//  length 140
+//  FMT(vowel/i_3)
+//endphoneme
 
 phoneme I1
   vowel starttype #i endtype #i
   length 210
-  FMT(vowel/i_3)
+  FMT(vowel/ii_3)
 endphoneme
 
 phoneme i1
   vowel starttype #i endtype #i
-  length 40
-  FMT(vowel/ii_5)
+  length 30
+  FMT(vowel/i#_7)
 endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
   length 160
-  ChangeIfUnstressed(O)
+//  ChangeIfUnstressed(O)
   FMT(vowel/o_mid)
 endphoneme
 
@@ -102,36 +102,36 @@ phoneme o:
   FMT(vowel/o)
 endphoneme
 
-phoneme O
-  vowel starttype #o endtype #o
-  length 150
-  FMT(vowel/o_mid)
-endphoneme
+//phoneme O
+//  vowel starttype #o endtype #o
+//  length 150
+//  FMT(vowel/o_mid)
+//endphoneme
 
 phoneme O1
   vowel starttype #o endtype #o
   length 225
-  FMT(vowel/o_mid)
+  FMT(vowel/oo_4)
 endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
   length 145
-  ChangeIfUnstressed(U)
-  FMT(vowel/u_3)
+//  ChangeIfUnstressed(U)
+  FMT(vowel/u_bck2)
 endphoneme
 
 phoneme u:    // TEST
   vowel starttype #u endtype #u
   length 290
-  FMT(vowel/u_3)
+  FMT(vowel/u_bck3)
 endphoneme
 
-phoneme U    // TEST
-  vowel starttype #u endtype #u
-  length 145
-  FMT(vowel/u_5)
-endphoneme
+//phoneme U    // TEST
+//  vowel starttype #u endtype #u
+//  length 145
+//  FMT(vowel/u_5)
+//endphoneme
 
 phoneme U1    // TEST
   vowel starttype #u endtype #u
@@ -143,13 +143,13 @@ endphoneme
 phoneme 8
   vowel starttype #@ endtype #@
   length 165
-  FMT(vowel/8_2)
+  FMT(vowel/8_7)
 endphoneme
 
 phoneme 8:
   vowel starttype #@ endtype #@
   length 330
-  FMT(vowel/8_7)
+  FMT(vowel/8_4)
 endphoneme
 
 // ä
@@ -234,12 +234,12 @@ endphoneme
 // phoneme ca
 
 
-phoneme 8u
-  vowel starttype #@ endtype #u
-  length 310
-  long
-  FMT(vdiph/8u)
-endphoneme
+//phoneme 8u
+//  vowel starttype #@ endtype #u
+//  length 310
+//  long
+//  FMT(vdiph/8u)
+//endphoneme
 
 // phoneme xu
 
@@ -248,20 +248,6 @@ endphoneme
 
 // CONSONANTS
 //===========
-
-
-
-phoneme R2   // this is [R2], but shorter
-  liquid
-  trill
-  lengthmod 6
-  ipa r
-  Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
-  Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  FMT(r3/r_trill_short) addWav(r3/r_trill.wav, 50)
-endphoneme
-
-
 
 
 phoneme v        // approximant, not fricative
@@ -278,16 +264,16 @@ endphoneme
 
 
 phoneme t        // dental variant of /t/
-  vls dnt stop
-  voicingswitch d[
+  vls dnt stop lengthenstop
+  voicingswitch d
   lengthmod 2
-  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=20
   Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
 
   IF nextPh(isPause2) THEN
-    WAV(ustop/t_dnt, 35)
+    WAV(ustop/t_dnt, 60)
   ENDIF
-  WAV(ustop/t_hi, 40)
+  WAV(ustop/t_hi, 80)
 endphoneme
 
 
@@ -371,12 +357,13 @@ phoneme h
   ELIF nextPh(#i) THEN
     WAV(h/hi)
   ELIF nextPh(#o) THEN
-    WAV(h/hu_fi, 70)
+    WAV(h/ho)
   ELIF nextPh(#u) THEN
-    WAV(h/hu_fi, 80)
+    WAV(h/hu)
   ENDIF
   WAV(h/h_, 70)  // no vowel following
 endphoneme
+
 
 // Palatalized versions of consonants
 
@@ -386,23 +373,9 @@ phoneme s^
   lengthmod 3
   Vowelin  f1=0  f2=1700 -300 300  f3=-100 80
   Vowelout f1=0  f2=1700 -300 250  f3=-100 80  rms=20
-//  Vowelin  f1=1  f2=2700 400 600  f3=200 70 rate len=70
-//  Vowelout f1=1  f2=2700 400 600  f3=200 70 rate len=70
 
   WAV(ufric/s_pal)
 endphoneme
-
-//phoneme t;
-//  import_phoneme pl/t;
-//endphoneme
-
-//phoneme d
-//  import_phoneme pl/d
-//endphoneme
-
-//phoneme d;
-//  import_phoneme pl/d;
-//endphoneme
 
 phoneme t^
   vls pal stop palatal
@@ -411,9 +384,9 @@ phoneme t^
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   IF nextPh(isPause2) THEN
-    WAV(ustop/t_pzd, 30)
+    WAV(ustop/t_pzd, 60)
   ENDIF
-  WAV(ustop/t_pzd, 60)
+  WAV(ustop/t_hi, 80)
 endphoneme
 
 phoneme d^

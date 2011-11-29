@@ -61,8 +61,8 @@ _tld	t'Ild@
 _,	k'Oma:
 _:	d'8b@l@p,8nt
 _;	p'8ntkOm,a:
-/	sl'As
-\	b'AkkslAs
+/	sl'ES
+\	b'EkslES
 _?	v@-*'a:xte:k@n
 _!	'Wyt@-*upt,e:k@n
 _"	'a:nha:lInxste:k@n
@@ -93,9 +93,9 @@ _8	'Axt
 _9	n'e:Q@n
 _10	t'in
 _11	'Elf
-_12	tw'a:lf
+_12	tv#'a:lf
 _13	d'Ertin
-_14	v'e:rtin
+_14	f'I:rtin
 _15	v'EIftin
 _16	z'Estin
 _17	z'e:v@ntin
@@ -103,7 +103,7 @@ _18	'Axtin
 _19	n'e:Q@ntin
 _2X	tv#'Int@x
 _3X	d'Ert@x
-_4X	v'e:rt@x
+_4X	f'I:rt@x
 _5X	v'EIft@x
 _6X	z'Est@x
 _7X	z'e:v@nt@x
@@ -269,12 +269,12 @@ niet	n,it	$strend
 
 // auxillary verbs  (be, have, can, etc)
 zijn	$u	// to be
-ben	$u
-bent	$u
-is	$u
-was	$u
-waren	$u
-geweest	$u
+ben	$u $only
+bent	$u $only
+is	$u $only
+was	$u $only
+waren	$u $only
+geweest	$u $only
 
 hebben  $u          // to have
 heb	$u
@@ -335,6 +335,7 @@ game	_^_EN
 hardware        _^_EN
 homepage	_^_EN
 items	_^_EN
+jaws    _^_EN
 laptop	_^_EN
 malware _^_EN
 medical _^_EN
@@ -397,6 +398,7 @@ baster		$alt
 beender		$alt
 belemmer	$alt
 beter		$alt
+beirer		$alt
 bibber		$alt
 bitter		$alt
 bladder		$alt
@@ -1386,9 +1388,20 @@ amnestie	$3
 april		a:pr'Il
 armand		_^_FR
 augustus	VUQ'8st8s
+bacterie	bAkt'I:ri
 banengids	$alt3
 beha            be:_h'a:
+beige		bEZ@
+benard		b@nArt
+beker		be:k@r
+bendes		bEnd@s
+benig		be:n@Q
+benige		be:n@Q@
+berig		bI:r@Q
+berige		bI:r@Q@
+berin		bI:r'In
 beste		bEst@
+bevend		be:v@nd
 bijziend	$2	// bijziendheid
 blitzkrieg	blItskri:g
 boudoir		budw'a:r
@@ -1429,6 +1442,7 @@ gamasche	Qa:m'AS
 gazet		$2
 gouache		Qu'AS
 gefrituurd	$3
+hysterie	hIstI:r'i
 impregnering    Impr,EQn'e:IN
 inductie	$2
 ingewikkeld	$3
@@ -1441,11 +1455,13 @@ informatie	$3
 januari		$3
 kadaster	$2
 mangat		$alt3
+materie		ma:t'e:ri
 maxima		$1
 meteen		mEt'e:n
 metro		me:tro:
 minima		$1
 (mise-en)	mizA~
+ministerie	minIst'I:ri
 misbaksel	$1
 misbruik	$1
 misdruk		$1
@@ -1465,6 +1481,7 @@ misstap		$1
 mistral		mistr'Al
 misvatting	$1
 miszit		$1
+mysterie	mIst'I:ri
 nabij		nab'EI
 new		nyU
 november	$2
@@ -1479,6 +1496,7 @@ ongemakkelijk	$3
 ongerieflijk	$3
 //ongrondwettig	$3
 partijvoorzitters $2
+periferie	pI:rifI:r'i
 pistache	pist'AS
 proces		$2
 projectielen    $3
@@ -1491,7 +1509,9 @@ rubriek		rybr'ik
 sacristie	$3
 saint		_^_FR
 salomo		$1
+selderie	$1
 september	$2
+serie		sI:ri
 sms'jes		EsEm'Es_j@s
 spektakel	$2
 tegennatuur	$4
@@ -1512,17 +1532,23 @@ ziekenhuisbevalling   zi:k@nhWysb@vAlIN
 
 // names
 (al-qaeda)      Al_:k'AjdA
+Beilen		bEIl@n
 Betty           bE:ti
 charlotte	$2
+Danica		dan'itsa
 Dewever		d@'v#e:v@r
+Herman		$1
 Henin		_^_FR
 Inge		IN@
 Ingeborg	INe:bOrx
 Ingmar		INmAr
 Ingrid		IN@-*It
+Joe		dZo:
+Joey		dZo:wi
 Justine		Zyst'in
 kennedy		kEn@dE
 Laurent		lo:r'An^
+Lisette		_^_FR
 Naomi		$2
 Nys		nEIsd'WyzEnt
 
@@ -1535,6 +1561,7 @@ google          gu:g@l
 
 // places
 alexandrië	$3
+Benin		be:n'in
 canada		kAna:da:
 Kinshasa	kInS'a:sa:
 Nairobi		nAjr'o:bi

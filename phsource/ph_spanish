@@ -6,29 +6,45 @@
 
 phoneme a
   vowel starttype #a endtype #a
-  length 160
-  IF thisPh(isDiminished) THEN
-    FMT(vowel/a#)
-  ENDIF
-  FMT(vowel/a_2)
+  length 180
+  FMT(vowel/a_4)
 endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 170
+  length 190
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 180
+  length 190
   FMT(vowel/e_mid)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 170
+  IfNextVowelAppend(;)
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 190
+  FMT(vowel/o)
 endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
-  length 170
+  length 190
   FMT(vowel/oo)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 180
+  FMT(vowel/u_bck2)
 endphoneme
 
 
@@ -41,7 +57,7 @@ phoneme g
   Vowelin  f1=2  f2=2300 200 300  f3=-300 80
   Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
 
-  IF thisPh(isWordStart) AND nextPh(isVowel) THEN
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
     IF prevPh(isPause) OR prevPh(isNasal) THEN
     ELSE
       ChangePhoneme(Q)
@@ -61,7 +77,7 @@ endphoneme
 phoneme d
   vcd dnt stop
 
-  IF thisPh(isWordStart) AND nextPh(isVowel) THEN
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(j) THEN
     IF prevPh(isPause) OR prevPh(isNasal) OR prevPh(l) THEN
     ELSE
       ChangePhoneme(D)
@@ -74,7 +90,7 @@ endphoneme
 phoneme b
   vcd blb stop
 
-  IF thisPh(isWordStart) AND nextPh(isVowel) THEN
+  IF nextPh(isVowel) OR nextPh(isRhotic) OR nextPh(isLiquid) THEN
     IF prevPh(isPause) OR prevPh(isNasal) THEN
     ELSE
       ChangePhoneme(B)
@@ -124,6 +140,20 @@ phoneme v#   // a shorter [v], a little towards [b]
     FMT(voc/v_) addWav(vocw/v, 80)
   ENDIF
   FMT(voc/v2) addWav(vocw/v, 80)
+endphoneme
+
+
+phoneme r
+  vcd alv flp rhotic
+  brkafter
+  ipa ɾ
+  lengthmod 3
+
+  IF nextPhW(isVowel) OR nextPhW(t) THEN
+    ChangePhoneme(**)
+  ENDIF
+
+  CALL base/*
 endphoneme
 
 

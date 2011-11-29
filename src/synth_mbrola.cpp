@@ -218,6 +218,8 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 	// bit 2  only at the start of a word
 	// bit 3  don't match two phonemes across a word boundary
 	// bit 4  add this phoneme name as a prefix to the next phoneme name (used for de4 phoneme prefix '?')
+	// bit 5  only in stressed syllable
+	// bit 6  only at the end of a word
 
 	*name2=0;
 	*split=0;
@@ -256,6 +258,12 @@ static int GetMbrName(PHONEME_LIST *plist, PHONEME_TAB *ph, PHONEME_TAB *ph_prev
 
 			if((pr->control & 4) && (plist->newword == 0))  // only at start of word
 				found = 0;
+
+			if((pr->control & 0x40) && (plist[1].newword == 0))  // only at the end of a word
+				found = 0;
+
+			if((pr->control & 0x20) && (plist->stresslevel < plist->wordstress))
+				found = 0;   // only in stressed syllables
 
 			if(found)
 			{

@@ -4,6 +4,7 @@
 // Conditional rules
 // ?1  Castilian
 // ?2  Latin America
+// ?3  mbrola VZ1
 
 .L01 l r y
 .L02 b d g n m         // change [s] to [z] before these
@@ -25,6 +26,7 @@
           b          b
        _) b ($unpr   b  // phoneme definition may change it to [B]
        _) b (L01A    b  // Only bl, br are allowed at start of word
+       _) b (A       b
           b (A       B
           b (cY      B
           b (L03     B
@@ -46,6 +48,7 @@
           d          d
        _) d ($unpr   d  // phoneme definition may change it to [D]
        _) d (rA      d
+       _) d (A       d
           d (A       D
           d (cY      D
           d (L03     D
@@ -57,7 +60,8 @@
 
 .group e
           e          e
-          e (CK      E
+//          e (CK      E
+          e (nK      E
           e (r       E
           e (Ch      e
       Ar) e          E
@@ -79,6 +83,7 @@
        _) g (L01A    g
        _) gh (A      g  // allow _gh in foreign words
        _) gn (A      n
+       _) g (A       g
           g (A       Q
           g (cY      Q
           g (L03     Q
@@ -89,14 +94,16 @@
 
 .group h
           h              // silent
+       _) hi (A      J^
 
 
 .group i
           i          i
           i (A       J^
        C) i (A       j
-       l) i (A       %i
-       r) i (A       %i
+      gu) i (A       j
+?!3    l) i (A       %i
+?!3    r) i (A       %i
 
 
 .group j
@@ -166,11 +173,12 @@
 
 
 .group r
-          r          R
-          r (_       *
-          r (t       **
-       A) r (A       **
-       C) r (A       **
+          r          r
+          r (_       r
+          r (t       r
+       A) r (A       r
+       C) r (A       r
+       _) r (A       R
        l) r (A       R
        m) r (A       R
        n) r (A       R
@@ -182,6 +190,7 @@
           s          s
        &) s (_S1     s
        _) s (C@      %Es
+          ss (K      s
        _) sh (A      S
        _) sh (L01A   S
           sh (K      S
@@ -198,26 +207,25 @@
           u          u
           u (A       w
           u (y_      w
-       l) u (A       %u
-       r) u (A       %u
+!?3    l) u (A       %u
+!?3    r) u (A       %u
 
-       g) u (Y             // gue gui
+       g) u (e
+       g) u (i
 
 
 .group v
-          v          B
-       _) v (L01A    b   // allow vl vr  at start of word
-?1     m) v          b
-?1     n) v          b
-?1        v (L06     b
-?1        v (iA      b
-?1        v (uA      b
-?2        v          v#
-?2     _) v          v
-?2        v (L06     v
-?2        v (j       v
-?2        v (iA      v
-?2        v (uA      v
+          v          b
+       _) v ($unpr   b  // phoneme definition may change it to [B]
+       _) v (L01A    b  // Only bl, br are allowed at start of word
+       _) v (A       b
+          v (A       B
+          v (cY      B
+          v (L03     B
+       m) v          b
+       n) v          b
+          v (iA      b
+          v (uA      b
 
 
 .group w
@@ -256,7 +264,7 @@
           ú        ''u
           ü        u
           ñ        n^
-          $          d'Ola*
+          $          d'Olar
 
       _)  - (_D      m'EnOs
      A_)  - (_D      _

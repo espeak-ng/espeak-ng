@@ -776,7 +776,7 @@ static int IsLetter(Translator *tr, int letter, int group)
 
 	if(tr->letter_bits_offset > 0)
 	{
-		if(((letter2 = (letter - tr->letter_bits_offset)) > 0) && (letter2 < 0x80))
+		if(((letter2 = (letter - tr->letter_bits_offset)) > 0) && (letter2 < 0x100))
 				letter = letter2;
 		else
 			return(0);
@@ -787,7 +787,7 @@ static int IsLetter(Translator *tr, int letter, int group)
 			return(tr->letter_bits[remove_accent[letter-0xc0]] & (1L << group));
 	}
 
-	if((letter >= 0) && (letter < 0x80))
+	if((letter >= 0) && (letter < 0x100))
 		return(tr->letter_bits[letter] & (1L << group));
 
 	return(0);
@@ -1610,7 +1610,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 
 			if(v_stress <= 1)
 			{
-				if((v > 1) && (max_stress >= 4) && (stressflags & 4) && (v == (vowel_count-1)))
+				if((v > 1) && (max_stress >= 2) && (stressflags & 4) && (v == (vowel_count-1)))
 				{
 					// option: mark unstressed final syllable as diminished
 					v_stress = 0;
@@ -2573,7 +2573,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 					if((match1.points == 0) && ((option_sayas & 0x10) == 0))
 					{
 						n = utf8_in(&letter,p-1)-1;
-
 						if(tr->letter_bits_offset > 0)
 						{
 							// not a Latin alphabet, switch to the default Latin alphabet language

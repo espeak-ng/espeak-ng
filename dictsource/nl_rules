@@ -47,6 +47,7 @@
           @) ant (er_     'Ant
              aris (_      'a:rIs
              arissen (_   'a:rIs@n
+             a (tor_      'a:
 
           @) a (de_       'a:
           @) a (ta_       'a:
@@ -75,9 +76,15 @@
 .group be
           _) be (@P2      b@
           _) bee (+       be:
+          _) be (CjeK     bE
+          _) be (C%       bE
+          _) be (CCe_     bE
+          _) be (CCen_    bE
+          _) be (Cer_     be:
           _) be (cC       bE
           _) be (del      be:
           _) bei (de      bEI
+          _) beie (r      bEi@
           _) bei (tel     bEI
              be (lg       bE
           _) be (ngel     bE
@@ -88,7 +95,7 @@
           _) be (ven_     be:
           _) bever        be:v@r
           _) be (zem      be:
-          _) bezig        be:z@x
+          _) be (zig      be:
           _) beu          bY:
 
 
@@ -153,6 +160,8 @@
 //          _) de (CC@P2      d@  // Used a lot in family names
           _) de (geen     d@    // degene, degenen
           _) de (zelf     d@
+          _) dj           dZ
+             dj           tj
 
 
 .group e
@@ -172,6 +181,7 @@
 
          &C) e (_S1qd     @
         KAC) e (_S1e      @   // remove 'e' and double the vowel
+        KAj) e (_S1       @
          el) e (_+S1qd    @
          er) e (_+S1qd    @
          ig) e (_+S1qd    @
@@ -210,6 +220,7 @@
 
           &) en (_S2qd    @n
         KAC) en (_S2e     @n   // flag 'e' means double the previous vowel
+        KAj) en (_S2      @n
         and) en (_S2      @n
          el) en (_+S2qd   @n
          er) en (_+S2qd   @n
@@ -286,6 +297,8 @@
           &) er (en_$p_alt @r     // where 'eren' is not a verb ending
              eren (_      'I:r@n
 
+             erie (_      @r'i
+             er (ij_      @r
         tol) er (abel     @r
         mis) er (abel     @r
           _) erger        ErQ@r  // ergeren
@@ -380,6 +393,7 @@
              ij (_        'EI
              ij (e_       'EI
           @) ij (n_       'EI
+             ij (tjeX     'EI
              ij (en       'EI
           &) ika (_       =ika:
           &) iko (_       =iko:
@@ -460,7 +474,7 @@ _) inn (@P2 'I    // ?? inneren
              n (k$w_alt3  n
 
           _) na (C@@P2    n'a:
-          _) na (C@       n'a:
+          _) na (C@N      n'a:
           _) na (C%       nA
           _) na (cht      nA
           _) narci (s     n%ArsI
@@ -512,7 +526,6 @@ _) inn (@P2 'I    // ?? inneren
           _) openings (P8 'o:p@nINs
           _) op (era      'o:p
           _) op (tion     Op
-        @at) or (_        'o:r
              ou (che_     u
              ouch (en_    uS
           d) ou (blu      u
@@ -605,7 +618,8 @@ _) inn (@P2 'I    // ?? inneren
           _) sh           S
              sh (K        S
              sj           S
-         @@) s (_S1       s
+          @) sje (_       sj@
+          @) s (_S1       s
 
              sc (oop      sk
              sc (opi      sk
@@ -761,5 +775,8 @@ _) inn (@P2 'I    // ?? inneren
             , (D          k'Oma:
         __) - (_D         m'In
          @) 's (_S2       s
+
+      erie) ën (_S2       @n
+ 
 
 

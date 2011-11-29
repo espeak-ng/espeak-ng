@@ -126,7 +126,7 @@ _3	mu:nRU
 _4	na:ngU
 _5	aIndU
 _6	a:RU
-_7	;e:lU
+_7	;e:z.U
 _8	;et.t.U
 _9	onbVd.U
 _10	pattU
@@ -360,6 +360,7 @@ tamil	தமிழ்	$text
 பைக்க	$alt
 பாதிக்கும்	$alt
 பாதிக்குமா	$alt
+பத்திரப்	bVttirVp
 
 
 
@@ -424,6 +425,8 @@ tamil	தமிழ்	$text
 தன	$alt
 தடியா	$alt
 தட	$alt
+தடியாய்	$alt
+தொள	$alt
 
 
 	// initial ட
@@ -500,6 +503,13 @@ tamil	தமிழ்	$text
 காட்	$alt
 கிடு	$alt
 களிலேயே	$alt
+கோபிக்கு	$alt
+கிரே	gre:
+க்ரே	$alt
+கவுன்	$alt
+கௌன்	$alt
+கிண்	$alt
+கிர்	$alt
 
 
 
@@ -530,3 +540,4 @@ tamil	தமிழ்	$text
 கப்	kVp
 செட்	set.
 திக்	dik
+பிட்	bit.

@@ -1,7 +1,7 @@
 Phonemes which are used in the *_rules and *_list files
 
 
-Dictionary af_dict  2011-05-04
+Dictionary af_dict  2011-11-22
 
 &    &:   3:   @    @-   @L   @U   a    
 A:   aI   AI   aU   A~   E    e:   e@   
@@ -66,10 +66,10 @@ R3   s    S    t    T    tS   v    w
 x    Z    
 
 
-Dictionary hu_dict  2011-10-24
+Dictionary hu_dict  2011-11-22
 
-a    A    a:   E    e:   i    i:   o    
-o:   u    u:   Y    y    y:   Y:   
+a    A    a:   e    E    e:   i    i:   
+o    o:   u    u:   Y    y    y:   Y:   
 
 -    :    b    c    C    d    dZ   dz   
 f    g    h    j    J    k    l    l^   
@@ -102,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2011-10-24
+Dictionary en_dict  2011-11-22
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -129,15 +129,15 @@ s    S    t    T    tS   ts   v    w
 x    z    Z    
 
 
-Dictionary es_dict  2011-05-15
+Dictionary es_dict  2011-11-22
 
 a    aI   aU   e    E    eI   eU   i    
 o    O    oI   u    
 
-*    **   :    b    B    d    D    f    
-g    j    J    J^   k    l    m    n    
-N    n^   p    Q    R    R2   s    S    
-t    T    tS   v    v#   w    x    z    
+:    b    B    d    D    f    g    j    
+J    J^   k    l    m    n    N    n^   
+p    Q    r    R    R2   s    S    t    
+T    tS   w    x    z    
 
 
 Dictionary fi_dict  2011-10-14
@@ -152,11 +152,11 @@ l    m    n    N    p    r    R    s
 S    s2   t    v    w    Z    
 
 
-Dictionary fr_dict  2011-08-14
+Dictionary fr_dict  2011-11-15
 
-@    @-   a    A~   e    E    E:   E~   
-i    I    o    O    O~   u    u:   w    
-W    W~   y    Y    
+@    @-   a    a-   A~   e    E    e-   
+E:   E~   i    I    o    O    O~   u    
+u:   w    W    W~   y    Y    y-   
 
 :    b    d    dZ   f    g    h    j    
 k    l    m    n    N    n2   n^   p    
@@ -202,7 +202,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2011-09-13
+Dictionary ta_dict  2011-11-19
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -327,7 +327,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary nl_dict  2011-10-14
+Dictionary nl_dict  2011-11-22
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -525,14 +525,14 @@ l    m    n    N    p    r    s    t
 tS   v    w    z    
 
 
-Dictionary am_dict  2011-08-26
+Dictionary am_dict  2011-11-22
 
 @    a    e    i    o    u    y    
 
-:    ?    b    d    dZ   f    g    h    
-j    k    k`   l    m    n    N    n^   
-p    p`   r    s    S    t    t`   tS   
-tS`  v    w    x    z    Z    
+:    ?    b    B    d    dZ   f    g    
+h    j    k    k`   l    m    n    N    
+n^   p    p`   r    s    S    t    t`   
+tS   tS`  v    w    x    z    Z    
 
 
 Dictionary ml_dict  2011-04-25
@@ -751,17 +751,17 @@ N#   n.   n.#  n^   n^#  p    r    s
 S    t    t.   th   tS   v    w    z    
 
 
-Dictionary et_dict  2011-07-01
+Dictionary et_dict  2011-11-16
 
-&    &:   &i   8    8:   8u   a    A1   
-a:   e    E1   e:   i    I    I1   i1   
-i:   o    O1   o:   u    U1   u:   Y    
-y    Y:   y:   Yi   yi   
+&    &:   &i   8    8:   a    A1   a:   
+e    E1   e:   i    I1   i1   i:   o    
+O1   o:   u    U1   u:   Y    y    Y:   
+y:   Yi   yi   
 
-:    b    d    d^   dZ   f    g    h    
-j    k    l    l^   m    n    N    n^   
+:    b    d    d^   f    g    h    j    
+k    l    l.   l^   m    n    N    n^   
 p    r    R    s    S    s2   s^   t    
-t^   v    w    z    Z    
+t^   tS   v    w    z    Z    
 
 
 Dictionary mt_dict  2011-07-29
@@ -774,3 +774,15 @@ y    yi   yY
 g    h    j    k    l    m    n    p    
 q    r    s    S    t    tS   v    w    
 x    z    Z    
+
+
+Dictionary bo_dict  2011-11-17
+
+a    a:   e    e:   i    i:   l-   o    
+o:   r-   u    u:   
+
+:    ?    b    bh   c    ch   d    d.   
+dh   dh.  dz   dzh  g    gh   H    j    
+J    k    kh   l    m    n    N    n.   
+n^   p    ph   r    s    S    s.   t    
+t.   th   th.  ts   tsh  w    z    Z    
