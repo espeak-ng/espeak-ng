@@ -1,0 +1,130 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Kazakh
+
+.group а
+        а	A
+        а (й    a
+
+.group ә
+        ә	&
+
+.group б
+        б	b
+
+.group в
+        в	v
+
+.group г
+        г	g
+
+.group ғ
+        ғ	G
+
+.group д
+        д	d
+
+.group е
+        е	e
+
+.group ё
+        ё	;o
+
+.group ж
+        ж	Z
+
+.group з
+        з	z
+
+.group и
+        и	i
+
+.group й
+        й	j
+
+.group к
+        к	k
+
+.group қ
+        қ	q
+
+.group л
+        л	l
+
+.group м
+        м	m
+
+.group н
+        н	n
+
+.group ң
+        ң	N
+
+.group о
+        о	o
+
+.group ө
+        ө	Y
+
+.group п
+        п	p
+
+.group р
+        р	r
+
+.group с
+        с	s
+
+.group т
+        т	t
+
+.group у
+        у	u
+     A) у	w
+        у (A    w
+
+.group ұ
+        ұ	U
+
+.group ү
+        ү	u#
+
+.group ф
+        ф	f
+
+.group х
+        х	X
+
+.group һ
+        һ	h
+
+.group ц
+        ц	ts
+
+.group ч
+        ч	tS
+
+.group ш
+        ш	S
+
+.group щ
+        щ	StS
+
+.group ы
+        ы	8    // oU ??
+
+.group і
+        і	I
+
+.group э
+        э	E
+
+.group ю
+        ю	;u
+
+.group я
+        я	;a
+
+.group
+        ъ
+        ь

@@ -254,14 +254,14 @@
 
 
 .group 0xe0a4  // devanagari
-	\340\244  _^_HI  // switch to hindi voice for devanagari characters
+	0xe0a4  _^_HI  // switch to hindi voice for devanagari characters
 .group 0xe0a5  // devanagari
-	\340\245  _^_HI
+	0xe0a5  _^_HI
 
 .group 0xe0ae  // Tamil
-	\340\256  _^_TA  // switch to Tamil voice for Tamil characters
+	0xe0ae  _^_TA  // switch to Tamil voice for Tamil characters
 .group 0xe0af  // Tamil
-	\340\257  _^_TA
+	0xe0af  _^_TA
 
 
 .group
