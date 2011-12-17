@@ -225,19 +225,19 @@
 //   Give the utf8 codes in octal, because these characters don't
 //   display correctly without a letter to attach to.
 .group 0xe0bd
-	\340\275\261	a:
-	\340\275\262	i
-	\340\275\263	i:
-	\340\275\264	u
-	\340\275\265	u:
-	\340\275\266	r-
-	\340\275\267	r-:
-	\340\275\270	l-
-	\340\275\271	l-:
-	\340\275\272	e
-	\340\275\273	e:
-	\340\275\274	o
-	\340\275\275	o:
+	0xe0bdb1	a:
+	0xe0bdb2	i
+	0xe0bdb3	i:
+	0xe0bdb4	u
+	0xe0bdb5	u:
+	0xe0bdb6	r-
+	0xe0bdb7	r-:
+	0xe0bdb8	l-
+	0xe0bdb9	l-:
+	0xe0bdba	e
+	0xe0bdbb	e:
+	0xe0bdbc	o
+	0xe0bdbd	o:
 
 // subjoined letters
 .group 0xe0be   // characters which start with UTF-8 bytes: [e0 be]

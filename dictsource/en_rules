@@ -2589,7 +2589,7 @@
          _) gnu          g@nu:
        hun) g            g
             g (ear       g
-        oo) g (er        g
+        %A) g (er        g
             g (et        g
             g (ette_     dZ
         ve) g (et        dZ
@@ -3621,7 +3621,7 @@
 
        &ia) n (_S1       n
        &ia) ns (_S2      nz
-         @) name (_S4    neIm
+         &) name (_S4    neIm
          _) nano (P4     n,anoU
             nause        nO:sI
             necessit     n@sEsIt
@@ -4675,7 +4675,7 @@
         &B) red (_       r@d
         uv) re           @
             rer (_       r@
-            re (_        3
+         &) re (_        3
          A) re (_        r@
          r) re (_        r@
          _) re (C_       rE
@@ -5424,6 +5424,7 @@
             with (C      w%ID
             with (A      w%ID
             with (e      wID
+         &) wood (_S4    wUd
          s) wor (d       o@
         ss) wor (d       w3:
 ?5      ss) wor (d       wVR

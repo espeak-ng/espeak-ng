@@ -44,6 +44,7 @@
 extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
 extern int utf8_out(unsigned int c, char *buf);
+extern void DrawEnvelopes();
 char path_source[sizeof(path_home)+20];
 
 
@@ -3503,9 +3504,9 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 
 	CompileReport();
 	report_dict = CompileAllDictionaries();
-#ifdef deleted
+//#ifdef deleted
 	DrawEnvelopes();
-#endif
+//#endif
 
 	if(gui_flag)
 	{

@@ -140,13 +140,13 @@
 
 // For cyrillic characters (U+0400 to U+04FF) use Russian voice
 .group 0xd0
-	\320	_^_RU
+	0xd0	_^_RU
 .group 0xd1
-	\321	_^_RU
+	0xd1	_^_RU
 .group 0xd2
-	\322	_^_RU
+	0xd2	_^_RU
 .group 0xd3
-	\323	_^_RU
+	0xd3	_^_RU
 
 .group
 	$	dolari
