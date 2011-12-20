@@ -70,16 +70,16 @@ endif
 endif
 endif
 
-speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp mbrowrap.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp klatt.cpp sonic.cpp
-
-libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
+common_SOURCES = compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp mbrowrap.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp klatt.cpp sonic.cpp
+	klatt.cpp sonic.cpp
+
+speak_SOURCES = speak.cpp $(common_SOURCES)
+
+libespeak_SOURCES = speak_lib.cpp $(common_SOURCES) \
+	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
