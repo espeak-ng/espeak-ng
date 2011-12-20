@@ -8,10 +8,10 @@ INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
 
 RELEASE = 1.46
-BIN_NAME = speak
-BIN2_NAME = espeak
-LIB_NAME = libespeak.so
-STATIC_LIB_NAME = libespeak.a
+SPEAK = speak
+ESPEAK = espeak
+LIBESPEAK = libespeak.so
+STATIC_LIBESPEAK = libespeak.a
 LIB_VERSION = 1
 LIBTAG = $(LIB_VERSION).$(RELEASE)
 
@@ -81,55 +81,52 @@ speak_SOURCES = speak.cpp $(common_SOURCES)
 libespeak_SOURCES = speak_lib.cpp $(common_SOURCES) \
 	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
 
-SRCS1=$(speak_SOURCES)
-OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
+speak_OBJS = $(patsubst %.cpp,%.o,$(speak_SOURCES))
+speak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
 
-SRCS2=$(libespeak_SOURCES)
-OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++ $(LIB_AUDIO) -lpthread
+libespeak_OBJS = $(patsubst %.cpp,x_%.o,$(libespeak_SOURCES))
+libespeak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread
 
-SRCS3 = espeak.cpp
-OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
-LIBS3=-lstdc++ -L . -lespeak
+espeak_SOURCES = espeak.cpp
+espeak_OBJS = $(patsubst %.cpp,%.o,$(espeak_SOURCES))
+espeak_LIBS = -lstdc++ -L . -lespeak
 
 CXXFLAGS=-O2
 
 
-all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
-
 .cpp.o:
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
-
-$(BIN_NAME): $(OBJS1)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS1) $(LIBS1)
-
-$(BIN2_NAME): $(OBJS3) $(LIB_NAME)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS3) $(LIBS3)
-
-
 
 x_%.o: %.cpp
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -fpic -fvisibility=hidden -pedantic \
 	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
 
-$(LIB_NAME): $(OBJS2)
-	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIB_NAME).$(LIB_VERSION) -o $@ \
-	$(OBJS2) $(LIBS2)
-	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
-	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(LIB_NAME).$(LIB_VERSION)
-	$(LN_SF) $(LIB_NAME).$(LIB_VERSION) $(LIB_NAME)
+all: $(SPEAK) $(LIBESPEAK) $(STATIC_LIBESPEAK) $(ESPEAK)
 
-$(STATIC_LIB_NAME): $(OBJS2)
-	$(AR) cqs $(STATIC_LIB_NAME) $(OBJS2)
+$(SPEAK): $(speak_OBJS)
+	$(CXX) $(LDFLAGS) -o $@ $(speak_OBJS) $(speak_LIBS)
+
+$(ESPEAK): $(espeak_OBJS) $(LIB_NAME)
+	$(CXX) $(LDFLAGS) -o $@ $(espeak_OBJS) $(espeak_LIBS)
+
+$(LIBESPEAK): $(libespeak_OBJS)
+	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIBESPEAK).$(LIB_VERSION) -o $@ \
+	$(libespeak_OBJS) $(libespeak_LIBS)
+	mv $(LIBESPEAK) $(LIBESPEAK).$(LIBTAG)
+	$(LN_SF) $(LIBESPEAK).$(LIBTAG) $(LIBESPEAK).$(LIB_VERSION)
+	$(LN_SF) $(LIBESPEAK).$(LIB_VERSION) $(LIBESPEAK)
+
+$(STATIC_LIBESPEAK): $(libespeak_OBJS)
+	$(AR) cqs $(STATIC_LIBESPEAK) $(libespeak_OBJS)
 
 clean:
 	rm -f *.o *.a *~
 
 distclean: clean
-	rm -f $(BIN_NAME)
-	rm -f $(BIN2_NAME)
-	rm -f $(LIB_NAME)*
+	rm -f $(SPEAK)
+	rm -f $(ESPEAK)
+	rm -f $(LIBESPEAK)*
+	rm -f $(STATIC_LIBESPEAK)
 
 install: all
 	# Create directories
@@ -139,13 +136,13 @@ install: all
 	$(MKDIR) $(DESTDIR)$(INCDIR)
 	$(MKDIR) $(DESTDIR)$(DATADIR)
 	# Install espeak executable
-	$(INSTALL) -m 755 $(BIN2_NAME) $(DESTDIR)$(BINDIR)
+	$(INSTALL) -m 755 $(ESPEAK) $(DESTDIR)$(BINDIR)
 	# Install shared library
-	$(INSTALL) -m 755 $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)
+	$(INSTALL) -m 755 $(LIBESPEAK).$(LIBTAG) $(DESTDIR)$(LIBDIR)
 	# Install static library
-	$(INSTALL) -m 755 $(STATIC_LIB_NAME) $(DESTDIR)$(LIBDIR)
-	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIB_NAME).$(LIB_VERSION)
-	$(LN_SF) $(LIB_NAME).$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/$(LIB_NAME)
+	$(INSTALL) -m 755 $(STATIC_LIBESPEAK) $(DESTDIR)$(LIBDIR)
+	$(LN_SF) $(LIBESPEAK).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIBESPEAK).$(LIB_VERSION)
+	$(LN_SF) $(LIBESPEAK).$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/$(LIBESPEAK)
 	# Install development headers
 	$(INSTALL) -pm 644 speak_lib.h $(DESTDIR)$(INCDIR)
 	# Install data files
