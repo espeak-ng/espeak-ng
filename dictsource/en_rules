@@ -893,7 +893,7 @@
          _) arch (AA     A@k
          _) arch (er     A@tS
          _) arch (et     A@k
-         _) archi        A@kI
+         _) archi (@     A@kI
          _) archiv (+    A@kaIv
          @) arch (y      A@k
          @) arch (i      A@k
@@ -1420,7 +1420,7 @@
             co (llab     k@
             co (llap     k@
             collar       k0l3
-            co (llat     k%0
+            co (llat     k@
             co (llec     k@
             colle (gi    k@li:
             co (llis     k@
@@ -1457,7 +1457,7 @@
             co (mper     k0
             compe (tAn   k0mpI
             co (mpila    k0
-         _) co (mpl      k%0
+         _) co (mpl      k@
             co (mplem    k0
             co (mplex_   k0
             co (mplica   k0
@@ -1470,7 +1470,7 @@
          _) comp (tr     k%0m
             co (mputa    k,0
          _) co (mr       k0
-         _) con (@       k%0n
+         _) con (@       k@n
          _) conce (ntra  k0ns@
          _) co (ncept_   k0
          _) co (ncret    k0
@@ -1497,11 +1497,11 @@
          _) co (nque     k0
          _) co (nsc      k0
             co (nsec     k0
-            co (nsecu    k%0
+            co (nsecu    k@
          _) conse (q     k0nsI
             conser (v    k%0ns3:
             conser (vatio k0ns@
-            consider     k%0nsId3
+            consider     k@nsId3
             co (nson     k0
          _) co (nstabl   k0
             co (nstan    k0
@@ -1523,8 +1523,9 @@
             contrar      k%0ntre@
          _) co (ntrib    k0
          _) co (ntrov    k,0
-            co (ntrol+   k%0
+            co (ntrol+   k@
             conva (l     k0nv@
+         _) con (v       k%0n
          _) co (nvoy     k0
          _) co (nw       k0
          _) copy         k0pI
@@ -1789,6 +1790,7 @@
             e (ffic      %I
             efier (_     I2faI3
             e (ful
+         _) e (ffu       %I
         @@) efy (_       I2faI
          l) e (gal       i:
          l) egi (b       EdZ@
@@ -2343,7 +2345,7 @@
          c) er (n_       3:
          &) er (oCe_     =@r
             er (se       3:
-            er (sal      '3:
+         v) er (sal      '3:
          @) er (sial     '3:
          @) er (sy       3:
             er (sib      3:
@@ -2589,6 +2591,7 @@
          _) gnu          g@nu:
        hun) g            g
             g (ear       g
+        %A) g (er        g
             g (et        g
             g (ette_     dZ
         ve) g (et        dZ
@@ -3282,6 +3285,7 @@
          _) ir (rA       I
             ir (ro       I
             ir (ru       I
+         v) ir (us       aIr
             iry (_       aI3rI
 
 
@@ -3619,7 +3623,7 @@
 
        &ia) n (_S1       n
        &ia) ns (_S2      nz
-         @) name (_S4    neIm
+         &) name (_S4    neIm
          _) nano (P4     n,anoU
             nause        nO:sI
             necessit     n@sEsIt
@@ -4673,7 +4677,7 @@
         &B) red (_       r@d
         uv) re           @
             rer (_       r@
-            re (_        3
+         &) re (_        3
          A) re (_        r@
          r) re (_        r@
          _) re (C_       rE
@@ -5422,6 +5426,7 @@
             with (C      w%ID
             with (A      w%ID
             with (e      wID
+         &) wood (_S4    wUd
          s) wor (d       o@
         ss) wor (d       w3:
 ?5      ss) wor (d       wVR

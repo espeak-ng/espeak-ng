@@ -355,6 +355,7 @@ typedef struct {
 #define S_INITIAL_2         0x2000
 #define S_NO_AUTO_DIM       0x10000
 #define S_HYPEN_UNSTRESS    0x100000
+#define S_NO_EOC_LENGTHEN   0x200000
 // bit0=don't stress monosyllables, except at end of clause
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
@@ -373,6 +374,7 @@ typedef struct {
 // bit18= don't lengthen short vowels more than long vowels at end-of-clause
 // bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
 // bit20= hyphenated words, 2nd part is unstressed
+// bit21= don't lengthen vowels at end-of-clause
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -398,6 +400,7 @@ typedef struct {
 #define NUM_DFRACTION_3  0x6000
 #define NUM_DFRACTION_4  0x8000
 #define NUM_DFRACTION_5  0xa000
+#define NUM_DFRACTION_6  0xc000
 #define NUM_ORDINAL_DOT   0x10000
 #define NUM_NOPAUSE       0x20000
 #define NUM_AND_HUNDRED   0x40000
@@ -476,7 +479,8 @@ typedef struct {
 	const unsigned int *replace_chars;      // characters to be substitutes
 	const char *ascii_language;  // switch to this language for Latin characters
 	int max_lengthmod;
-	int suffix_add_e;     // replace a suffix (which has the SUFX_E flag) with this character
+	int lengthen_tonic;   // lengthen the tonic syllable
+	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
 } LANGUAGE_OPTIONS;
 
 

@@ -713,6 +713,7 @@ bombard		$2
 bonbon		b0nb0n
 bonhomie	b0n@mi:
 bonjour		bO:nZ'U@
+booger		bUg3
 boogie		b'u:gi
 bosun		boUs@n
 boutique	bu:t'i:k
@@ -891,18 +892,18 @@ concise		k0ns'aIs
 conduct		k0ndVkt
 conduct		$verb
 cone		koUn
-conflict	$1           $onlys
+conflict	k0nflIkt           $onlys
 conflict	$verb
 conger		k0Ng3
 conscience	k0nS@ns
-construct	$1 $onlys
+construct	k0nstrVkt     $onlys
 construct	$verb
 contemplative 	$2
-content		$1 $onlys
+content		k0ntEnt       $onlys
 content		$verb $past
-contest		$1 $onlys
+contest		k0ntEst       $onlys
 contest		$verb
-contract	$1 $onlys
+contract	$1      $onlys
 contract	$verb
 contralto	k0ntr'altoU
 contraption	k0ntr'apS@n
@@ -1397,6 +1398,7 @@ interrogatory	$3
 inventory	Inv@ntrI
 interface	$1
 intermin	Int'3:mIn	// interminable
+intern		$1  $onlys
 internee	Int'3:ni:
 internet	Int3nEt
 interrupt	$1 $onlys
@@ -1618,6 +1620,7 @@ mutate		mju:t'eIt
 myriad		mIrIad
 myrrh		m3:
 ?5 myrrh	mVR
+myrtle		m3:t@L
 
 naif		naI'i:f
 naïve		naI'i:v
@@ -2377,7 +2380,6 @@ vineyard	vInj3d
 vinyl		vaInI2l
 viola		vaI'oUl@
 violin		$2
-virus		vaI3r@s
 viral		vaI3r@L
 visa		vi:z@
 visit		vIzI2t

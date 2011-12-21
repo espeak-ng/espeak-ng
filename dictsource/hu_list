@@ -452,6 +452,7 @@ mm      milime:tER2	$unstressend
 (mm-nyire)      milime:tER2n^iR2E	$unstressend
 (mm-es)      milime:tER2ES	$unstressend
 (mm-t) milime:tER2t	$unstressend
+nszk EnEska:
 RAM	R2Am	$allcaps //Espeak normaly spokening this abbreviation with erraem, but this is not good
 Psszt ps:t $capital // similar word with quiet word. Espeak default spokening this abbrew quiet word with letter by letter by default.
 Pszt ps:t $capital //same as prewious abbrewiation
@@ -3272,6 +3273,8 @@ koncepciójáról	$unstressend
 (törvény koncepciójáról) tYR2ve:n^_||kontsEptsio:ja:R2o:l	$unstressend
 miniszterelnök	$unstressend
 (orbán viktor miniszterelnök) oR2ba:n_||viktoR2_||ministER2ElnYk	$unstressend
+(számít a miniszterelnök) sa:mi:t_'||A'||ministER2ElnYk	$unstressend
+(a miniszterelnök) A'||ministER2ElnYk	$unstressend
 minisztert	$unstressend
 összeülnek	$unstressend
 tárgyalásokban	$unstressend
@@ -4445,7 +4448,7 @@ alkalmazással	$unstressend
 (dolgok idegesítenek) dolgok_'||idEgESi:tEnEk	$unstressend
 (is jelezték) iS_||jElEzte:k	$unstressend
 fordulok	$unstressend
-(miért van az) mie:R2t_'||vAn_'||Az	$unstressend
+(miért van az) mie:R2t||vAn||Az	$unstressend
 (módot választom) mo:dot_||va:lAstom	$unstressend
 (a hiba) A'||hibA	$unstressend
 (kerül sor) kER2yl_||SoR2	$unstressend
@@ -4720,6 +4723,85 @@ biciklizőknek	$unstressend
 forintért	$unstressend
 (a szintet) A'||sintEt	$unstressend
 (egy próbát) EJ_'||pR2o:ba:t	$unstressend
+(lehetőség van arra) lEhEtY:Se:g||vAn||AR2R2A	$unstressend
+szervét	$unstressend
+parancsnokságát	$unstressend
+kötelezettséget	$unstressend
+tarthatnak	$unstressend
+korhatárt	$unstressend
+korhatára	$unstressend
+törvényt	$unstressend
+gondoskodik	$unstressend
+(tartja el) tArcA_'||El	$unstressend
+(alól az) Alo:l_'||Az	$unstressend
+életévét	$unstressend
+
+
+nagykorú	$unstressend
+szólaljon	$unstressend
+elmaradt	$unstressend
+őszintén	$unstressend
+(éjszaka volt) e:jsAkA_'||volt	$unstressend
+szabott	$unstressend
+dolgok	$unstressend
+kifizetnie	$unstressend
+különadót	$unstressend
+ezzel	$unstressend
+szóba	$unstressend
+azzal	$unstressend
+(van itt) vAn_'||it:	$unstressend
+(tudta volna) tut:A'||volnA	$unstressend
+maradhatnak	$unstressend
+címezte	$unstressend
+hivatkozott	$unstressend
+felelősségük	$unstressend
+bíróságot	$unstressend
+(vezetik el) vEzEtik_'||El	$unstressend
+firtassuk	$unstressend
+fogni	$unstressend
+társadalomban	$unstressend
+években	$unstressend
+(számunkra az) sa:munkR2A_'||Az	$unstressend
+azután	$unstressend
+vitába	$unstressend
+múltról	$unstressend
+munkahely	$unstressend
+pedig	$unstressend
+vitában	$unstressend
+(ki kell mondani) ki_||kEl:_||mondAni	$unstressend
+(lehet venni) lEhEt_'||vEn:i	$unstressend
+klónok	$unstressend
+(kerül itthon) kER2yl_'||ithon	$unstressend
+összeg	$unstressend
+élményét	$unstressend
+háttértár	$unstressend
+(fejlett processzor) fEjlEt:_'||pR2otsEs:oR2	$unstressend
+eredményező	$unstressend
+alkalmazásával	$unstressend
+(akar a gyártó) AkAR2_'||A'||Ja:R2to:	$unstressend
+(dob piacra) dob_'||piAtsR2A	$unstressend
+nyitja	$unstressend
+kötnie	$unstressend
+(úgy fest) u:J_'||fESt	$unstressend
+(lehet ismerős) lEhEt_'||iSmER2Y:S	$unstressend
+kamerát	$unstressend
+alkalmas	$unstressend
+bővíteni	$unstressend
+(is lehet bővíteni) iS_'||lEhEt_'||bY:vi:tEni	$unstressend
+(a tablethez) A'||tAblEthEz	$unstressend
+olcsó	$unstressend
+kapcsolható	$unstressend
+kapcsolni	$unstressend
+peremére	$unstressend
+(nagyra van állítva) nAJR2A_'||vAn_'||a:li:tvA	$unstressend
+folyamatos	$unstressend
+(is lehet csatlakoztatni) iS_'||lEhEt_'||tSAtlAkostAtni	$unstressend
+kipróbálni	$unstressend
+(lehet tudni róla) lEhEt_'||tudni_'||Ro:lA	$unstressend
+váltana	$unstressend
+találtam	$unstressend
+(sem biztosak) SEm_'||bistoSAk	$unstressend
+
 
 // word pairs
 
@@ -4991,5 +5073,5 @@ egyezség	eggyesség
 (Mhz-en) megahercen
 (ORTT-től) oerrtététől //special exceptio
 (kilogramm) kilogram
-
+mszmp emeszempé
 

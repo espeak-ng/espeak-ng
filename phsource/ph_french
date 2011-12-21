@@ -288,7 +288,7 @@ phoneme a
     length 170
   ENDIF
 
-  FMT(vowel/a_7, 80)
+  FMT(vowel/a_7)
 endphoneme
 
 
@@ -297,7 +297,7 @@ phoneme a-
   unstressed
   length 130
 
-  FMT(vowel/a_7, 80)
+  FMT(vowel/a_7, 85)
 endphoneme
 
 
@@ -984,7 +984,7 @@ endphoneme
 
 // translate from English to French phonemes
 equivalents en
-remove_stress
+//remove_stress
 0	O
 3	W r
 3:	W : r
