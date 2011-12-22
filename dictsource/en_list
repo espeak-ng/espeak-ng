@@ -892,18 +892,18 @@ concise		k0ns'aIs
 conduct		k0ndVkt
 conduct		$verb
 cone		koUn
-conflict	$1           $onlys
+conflict	k0nflIkt           $onlys
 conflict	$verb
 conger		k0Ng3
 conscience	k0nS@ns
-construct	$1 $onlys
+construct	k0nstrVkt     $onlys
 construct	$verb
 contemplative 	$2
-content		$1 $onlys
+content		k0ntEnt       $onlys
 content		$verb $past
-contest		$1 $onlys
+contest		k0ntEst       $onlys
 contest		$verb
-contract	$1 $onlys
+contract	$1      $onlys
 contract	$verb
 contralto	k0ntr'altoU
 contraption	k0ntr'apS@n
@@ -1398,6 +1398,7 @@ interrogatory	$3
 inventory	Inv@ntrI
 interface	$1
 intermin	Int'3:mIn	// interminable
+intern		$1  $onlys
 internee	Int'3:ni:
 internet	Int3nEt
 interrupt	$1 $onlys
