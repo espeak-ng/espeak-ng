@@ -50,7 +50,7 @@
 #endif
 
 #ifdef _ESPEAKEDIT
-#define USE_PORTAUDIO
+// USE_PORTAUDIO or USE_PULSEAUDIO are now defined in the makefile
 #define USE_ASYNC
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
 #endif

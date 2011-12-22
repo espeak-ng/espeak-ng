@@ -10,6 +10,7 @@ LIBDIR=$(PREFIX)/lib
 RELEASE = 1.46
 SPEAK = speak
 ESPEAK = espeak
+ESPEAKEDIT = espeakedit
 LIBESPEAK = libespeak.so
 STATIC_LIBESPEAK = libespeak.a
 LIB_VERSION = 1
@@ -77,12 +78,16 @@ CPPFLAGS = -pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 	# Compiling $@
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -I. $(CPPFLAGS) $<
 
+e_%.o: %.cpp
+	# Compiling $@
+	$(CXX) $(CXXFLAGS) $(espeakedit_CXXFLAGS) $(USE_AUDIO) $(CPPFLAGS) -I. $< -o e_$*.o
+
 x_%.o: %.cpp
 	# Compiling $@
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -fpic -fvisibility=hidden \
 	-I. -D LIBRARY $(CPPFLAGS) $< -o x_$*.o
 
-all: $(SPEAK) $(LIBESPEAK) $(STATIC_LIBESPEAK) $(ESPEAK)
+all: $(SPEAK) $(LIBESPEAK) $(STATIC_LIBESPEAK) $(ESPEAK) $(ESPEAKEDIT)
 
 common_SOURCES = compiledict.cpp dictionary.cpp intonation.cpp \
 	klatt.cpp mbrowrap.cpp numbers.cpp readclause.cpp \
@@ -94,14 +99,14 @@ speak_SOURCES = speak.cpp $(common_SOURCES)
 speak_OBJS = $(patsubst %.cpp,%.o,$(speak_SOURCES))
 speak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
 $(SPEAK): $(speak_OBJS)
-	# Linking $(SPEAK)
+	# Linking $@
 	$(CXX) $(LDFLAGS) -o $@ $(speak_OBJS) $(speak_LIBS)
 
 espeak_SOURCES = espeak.cpp
 espeak_OBJS = $(patsubst %.cpp,%.o,$(espeak_SOURCES))
 espeak_LIBS = -lstdc++ -L . -lespeak
 $(ESPEAK): $(espeak_OBJS) $(LIB_NAME)
-	# Linking $(ESPEAK)
+	# Linking $@
 	$(CXX) $(LDFLAGS) -o $@ $(espeak_OBJS) $(espeak_LIBS)
 
 libespeak_SOURCES = speak_lib.cpp $(common_SOURCES) \
@@ -109,7 +114,7 @@ libespeak_SOURCES = speak_lib.cpp $(common_SOURCES) \
 libespeak_OBJS = $(patsubst %.cpp,x_%.o,$(libespeak_SOURCES))
 libespeak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread
 $(LIBESPEAK): $(libespeak_OBJS)
-	# Linking $(LIBESPEAK)
+	# Linking $@
 	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIBESPEAK).$(LIB_VERSION) -o $@ \
 	$(libespeak_OBJS) $(libespeak_LIBS)
 	mv $(LIBESPEAK) $(LIBESPEAK).$(LIBTAG)
@@ -117,8 +122,27 @@ $(LIBESPEAK): $(libespeak_OBJS)
 	$(LN_SF) $(LIBESPEAK).$(LIB_VERSION) $(LIBESPEAK)
 
 $(STATIC_LIBESPEAK): $(libespeak_OBJS)
-	# Linking $(STATIC_LIBESPEAK)
+	# Linking $@
 	$(AR) cqs $(STATIC_LIBESPEAK) $(libespeak_OBJS)
+
+
+espeakedit_SOURCES = $(common_SOURCES) compiledata.cpp debug.cpp espeakedit.cpp \
+	event.cpp extras.cpp fifo.cpp formantdlg.cpp \
+	menus.cpp options.cpp prosodydisplay.cpp \
+	espeak_command.cpp speak_lib.cpp spect.cpp \
+	spectdisplay.cpp spectseq.cpp \
+	transldlg.cpp voicedlg.cpp vowelchart.cpp $(WAVE)
+espeakedit_OBJS=$(patsubst %.cpp,e_%.o,$(espeakedit_SOURCES))
+espeakedit_WX_LIBS = -pthread   -lwx_gtk2u_xrc-2.6 -lwx_gtk2u_qa-2.6 -lwx_gtk2u_html-2.6 \
+	-lwx_gtk2u_adv-2.6 -lwx_gtk2u_core-2.6 -lwx_baseu_xml-2.6 -lwx_baseu_net-2.6 -lwx_baseu-2.6
+espeakedit_LIBS=-lstdc++ $(LIB_AUDIO)
+espeakedit_CXXFLAGS = -I/usr/lib/wx/include/gtk2-unicode-release-2.6 \
+	-I/usr/include/wx-2.6 \
+	-DGTK_NO_CHECK_CASTS -D__WXGTK__ -D_FILE_OFFSET_BITS=64 \
+	-D_LARGE_FILES -D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
+$(ESPEAKEDIT): $(espeakedit_OBJS)
+	# Linking $@
+	$(CXX) $(LDFLAGS) $(espeakedit_CXXFLAGS) $(espeakedit_LIBS) $(espeakedit_WX_LIBS) -o $@ $(espeakedit_OBJS)
 
 clean:
 	rm -f *.o *.a *~
@@ -128,6 +152,7 @@ distclean: clean
 	rm -f $(ESPEAK)
 	rm -f $(LIBESPEAK)*
 	rm -f $(STATIC_LIBESPEAK)
+	rm -f $(ESPEAKEDIT)
 
 install: all
 	# Create directories
@@ -138,6 +163,8 @@ install: all
 	$(MKDIR) $(DESTDIR)$(DATADIR)
 	# Install espeak executable
 	$(INSTALL) -m 755 $(ESPEAK) $(DESTDIR)$(BINDIR)
+	# Should we install espeakedit executable?
+	# $(INSTALL) -m 755 $(ESPEAKEDIT) $(DESTDIR)$(BINDIR)
 	# Install shared library
 	$(INSTALL) -m 755 $(LIBESPEAK).$(LIBTAG) $(DESTDIR)$(LIBDIR)
 	# Install static library
