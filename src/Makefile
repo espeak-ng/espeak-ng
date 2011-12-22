@@ -70,56 +70,54 @@ endif
 endif
 endif
 
-CXXFLAGS=-O2
-
 common_SOURCES = compiledict.cpp dictionary.cpp intonation.cpp \
 	klatt.cpp mbrowrap.cpp numbers.cpp readclause.cpp \
 	phonemelist.cpp setlengths.cpp sonic.cpp \
 	synthdata.cpp synthesize.cpp synth_mbrola.cpp \
 	translate.cpp tr_languages.cpp voices.cpp wavegen.cpp 
 
-speak_SOURCES = speak.cpp $(common_SOURCES)
+CXXFLAGS=-O2 -Wall -c
 
-libespeak_SOURCES = speak_lib.cpp $(common_SOURCES) \
-	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
-
-speak_OBJS = $(patsubst %.cpp,%.o,$(speak_SOURCES))
-speak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
-
-libespeak_OBJS = $(patsubst %.cpp,x_%.o,$(libespeak_SOURCES))
-libespeak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread
-
-espeak_SOURCES = espeak.cpp
-espeak_OBJS = $(patsubst %.cpp,%.o,$(espeak_SOURCES))
-espeak_LIBS = -lstdc++ -L . -lespeak
-
-
-CPPFLAGS = -Wall -pedantic -c -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
+CPPFLAGS = -pedantic -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 
 .cpp.o:
+	# Making $@
 	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -I. $(CPPFLAGS) $<
-
-x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -fpic -fvisibility=hidden \
-	-I. -D LIBRARY $(CPPFLAGS) $< -o x_$*.o
 
 all: $(SPEAK) $(LIBESPEAK) $(STATIC_LIBESPEAK) $(ESPEAK)
 
+speak_SOURCES = speak.cpp $(common_SOURCES)
+speak_OBJS = $(patsubst %.cpp,%.o,$(speak_SOURCES))
+speak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread $(EXTRA_LIBS)
 $(SPEAK): $(speak_OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $(speak_OBJS) $(speak_LIBS)
+	# Making $(SPEAK)
+	$(CXX) $(LDFLAGS) $(speak_OBJS) $(speak_LIBS) -o $@
 
-$(ESPEAK): $(espeak_OBJS) $(LIB_NAME)
-	$(CXX) $(LDFLAGS) -o $@ $(espeak_OBJS) $(espeak_LIBS)
-
+libespeak_SOURCES = speak_lib.cpp $(common_SOURCES) \
+	espeak_command.cpp event.cpp fifo.cpp $(WAVE) debug.cpp
+libespeak_OBJS = $(patsubst %.cpp,x_%.o,$(libespeak_SOURCES))
+libespeak_LIBS = -lstdc++ $(LIB_AUDIO) -lpthread
 $(LIBESPEAK): $(libespeak_OBJS)
+	# Making $(LIBESPEAK)
 	$(CXX) $(LDFLAGS) -shared $(SONAME_OPT)$(LIBESPEAK).$(LIB_VERSION) -o $@ \
 	$(libespeak_OBJS) $(libespeak_LIBS)
 	mv $(LIBESPEAK) $(LIBESPEAK).$(LIBTAG)
 	$(LN_SF) $(LIBESPEAK).$(LIBTAG) $(LIBESPEAK).$(LIB_VERSION)
 	$(LN_SF) $(LIBESPEAK).$(LIB_VERSION) $(LIBESPEAK)
+x_%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -fpic -fvisibility=hidden \
+	-I. -D LIBRARY $(CPPFLAGS) $< -o x_$*.o
 
 $(STATIC_LIBESPEAK): $(libespeak_OBJS)
+	# Making $(STATIC_LIBESPEAK)
 	$(AR) cqs $(STATIC_LIBESPEAK) $(libespeak_OBJS)
+
+espeak_SOURCES = espeak.cpp
+espeak_OBJS = $(patsubst %.cpp,%.o,$(espeak_SOURCES))
+espeak_LIBS = -lstdc++ -L . -lespeak
+$(ESPEAK): $(espeak_OBJS) $(LIBESPEAK)
+	# Making $(ESPEAK)
+	$(CXX) $(LDFLAGS) $(espeak_LIBS) $(espeak_OBJS) -o $@
 
 clean:
 	rm -f *.o *.a *~
