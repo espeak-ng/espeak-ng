@@ -141,7 +141,7 @@ static Translator* NewTranslator(void)
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 	memset(tr->letter_groups,0,sizeof(tr->letter_groups));
 
-	// 0-5 sets of characters matched by A B C H F G Y  in pronunciation rules
+	// 0-6 sets of characters matched by A B C H F G Y  in pronunciation rules
 	// these may be set differently for different languages
 	SetLetterBits(tr,0,"aeiou");  // A  vowels, except y
 	SetLetterBits(tr,1,"bcdfgjklmnpqstvxz");      // B  hard consonants, excluding h,r,w

@@ -77,7 +77,7 @@ consonants  10  116
       tn  27  119
       mt  32  127
       bo  10  152
-      kk  17  116
+      kk  20  117
       fa   9  110
 
 Data file      Used by
@@ -402,8 +402,8 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [háÿ] base
-                [l#] base
+l/l@            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -436,16 +436,16 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [háÿ] base
-                [l#] base
+l/la            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [háÿ] base
-                [l#] base
+l/le            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -456,8 +456,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [háÿ] base
-                [l#] base
+l/li            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [l] zh
@@ -470,8 +470,8 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [háÿ] base
-                [l#] base
+l/lo            [l#] base
+                [”¦] base
                 [l/2] fr
                 [K] nso
                 [K] tn
@@ -480,8 +480,8 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [háÿ] base
-                [l#] base
+l/lu            [l#] base
+                [”¦] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -1459,6 +1459,7 @@ vowel/@_6       [@] en
                 [W] fr
                 [W2] fr
 vowel/8         [o-] zh
+                [8] kk
 vowel/8_2       [U] en-us
                 [8] sv
 vowel/8_3       [eo] zhy
@@ -1563,6 +1564,7 @@ vowel/a_4       [a] es
                 [a] vi
 vowel/a#_4      [a:] nl
                 [a] bg
+                [a/] it
                 [a] tr
 vowel/a_5       [a:] ta
                 [a:] ml
