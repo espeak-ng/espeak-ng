@@ -1862,15 +1862,19 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 			case NUM_DFRACTION_1:   // italian, say "hundredths" if leading zero
 			case NUM_DFRACTION_5:   // hungarian, always say "tenths" etc.
+			case NUM_DFRACTION_6:   // kazakh, always say "tenths" etc, before the decimal fraction
 				LookupNum3(tr, atoi(&word[n_digits]), ph_buf, 0,0,0);
-				if((word[n_digits]=='0') || (decimal_mode == NUM_DFRACTION_5))
+				if((word[n_digits]=='0') || (decimal_mode != NUM_DFRACTION_1))
 				{
 					// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
 					sprintf(string,"_0Z%d",decimal_count);
 					if(Lookup(tr, string, buf1) == 0)
 						break;   // revert to speaking single digits
 
-					strcat(ph_buf,buf1);
+					if(decimal_mode == NUM_DFRACTION_6)
+						strcat(ph_out, buf1);
+					else
+						strcat(ph_buf, buf1);
 				}
 				strcat(ph_out,ph_buf);
 				n_digits += decimal_count;

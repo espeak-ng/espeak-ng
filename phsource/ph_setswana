@@ -1,0 +1,300 @@
+
+//====================================================
+//  Setswana phoneme file
+//  maitained by: Sternly K Simon
+//  email: sternly_simon@yahoo.com
+//====================================================
+
+phoneme l      // use dark [l/2] before not-vowel
+  liquid
+  lengthmod 7
+
+  IF nextPhW(isVowel) THEN
+  ELSE
+    IF prevPh(isNotVowel) THEN
+      ChangePhoneme(l/)
+    ELSE
+      ChangePhoneme(l/2)
+    ENDIF
+  ENDIF
+
+  CALL base/l
+endphoneme
+
+phoneme r-   // linking r, used in Setswana between certain vowels and a following vowel
+  liquid rhotic
+  ipa ɹ
+  lengthmod 0
+
+  NextVowelStarts
+    VowelStart(r2/r2@)
+    VowelStart(r2/r2a)
+    VowelStart(r2/r2e)
+    VowelStart(r2/r2i)
+    VowelStart(r2/r2o)
+    VowelStart(r2/r2u)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(r/xr, -60)
+  ENDIF
+
+  FMT(r/r)
+endphoneme
+
+// Default vowel definitions
+
+phoneme @
+  vowel starttype #@ endtype #@
+  unstressed
+  length 140
+  IF nextPh(r/) THEN
+    length 190
+    FMT(vwl_tn/r@)
+  ENDIF
+  FMT(vwl_tn/@)
+endphoneme  // Vowels
+
+// VOWELS
+//****************************************************************
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 170
+  FMT(vowel/ii)
+endphoneme
+
+phoneme I
+  vowel  starttype #i  endtype #i
+  length 130
+  IfNextVowelAppend(;)
+  FMT(vwl_tn/I)
+endphoneme
+
+phoneme I2
+  vowel  starttype #i  endtype #i
+  unstressed
+  length 130
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_4)
+endphoneme
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 180
+  ChangeIfUnstressed(l)
+  FMT(vowel/ee#_2)
+endphoneme
+
+phoneme e@    // long E
+  vowel  starttype #i  endtype #@
+  ipa iə
+  length 230
+  IfNextVowelAppend(r-)
+  FMT(vdiph/i@_2)
+endphoneme
+
+phoneme E
+  vowel  starttype #e  endtype #e
+  unstressed
+  length 140
+  ChangeIfDiminished(I2)
+  FMT(vowel/ee_5)
+endphoneme
+
+phoneme a
+  vowel starttype #a endtype #a
+  ipa a
+  length 180
+  FMT(vowel/a_5)
+endphoneme
+
+phoneme A@     // Used for [A:] when followed by 'r'
+  vowel  starttype #a  endtype #a
+  ipa ɑː
+  length 230
+  IfNextVowelAppend(r-)
+  FMT(vowel/aa_2)
+endphoneme
+
+phoneme O     // short O
+  vowel  starttype #o   endtype #o
+  length 140
+  FMT(vowel/oo_1)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 180
+  ChangeIfUnstressed(U)
+  FMT(vowel/0_2)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 170
+  FMT(vowel/u_5)
+endphoneme
+
+phoneme U
+  vowel  starttype #o  endtype #o
+  length 150
+  FMT(vowel/uu)
+endphoneme
+
+
+// Consonants
+//=================================================
+
+phoneme l
+  import_phoneme en/l
+endphoneme
+
+phoneme ts
+  vls alv afr sibilant
+//  voicingswitch dz
+  lengthmod 2
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_)
+  ENDIF
+  WAV(ustop/ts)
+endphoneme
+
+phoneme d       // dental variant of /d/
+  import_phoneme base2/d
+endphoneme
+
+phoneme kh
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 300  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_asp, 50)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_asp, 90)
+endphoneme
+
+phoneme k-  // unaspirated
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 300  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_unasp, 50)
+  ENDIF
+  WAV(ustop/k_unasp, 60)   // weaker
+endphoneme
+
+phoneme K   // Setswna tlh sound
+  vls alv frc
+  lengthmod 3
+
+  NextVowelStarts
+    VowelStart(l/l@)
+    VowelStart(l/la)
+    VowelStart(l/le)
+    VowelStart(l/li, -10)
+    VowelStart(l/lo)
+    VowelStart(l/lu)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(l/xl, -40)
+  ENDIF
+
+  WAV(ufric/tlh, 80)
+endphoneme
+
+
+phoneme ph  // aspirated
+  vls blb stop
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_)
+  ENDIF
+  IF nextPh(r) THEN
+    WAV(ustop/pr)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/pl)
+  ENDIF
+  WAV(ustop/p_asp)
+endphoneme
+
+phoneme r
+  liquid rhotic
+  trill
+  lengthmod 6
+  Vowelin  f1=2  f2=2700 -300 -200  f3=-1300 80  
+  Vowelout f1=2  f2=1700 -300 -200  f3=-1300 80
+
+  NextVowelStarts
+    VowelStart(r/r@, -15)
+    VowelStart(r/ra, -15)
+    VowelStart(r/re, -15)
+    VowelStart(r/ri, -15)
+    VowelStart(r/ro, -15)
+    VowelStart(r/ru, -15)
+  EndSwitch
+
+  IF prevPh(isVowel) THEN
+    VowelEnding(r/xr, -50)
+  ENDIF
+
+  FMT(r3/r_trill) addWav(r3/r_trill3.wav, 100)
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  lengthmod 7
+
+  IF prevPh(@) OR prevPh(I) THEN
+  ELSE
+    FMT(r3/r_) addWav(r3/rx)
+  ENDIF
+endphoneme
+
+phoneme t        // dental variant of /t/
+  import_phoneme base2/t
+endphoneme
+
+phoneme tS
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh)
+endphoneme
+
+phoneme tS;
+  vls pal afr sibilant palatal
+  voicingswitch dZ;
+  ipa tɕ
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd)
+  ENDIF
+  WAV(ustop/ts_pzd)
+endphoneme
+
+
+
+

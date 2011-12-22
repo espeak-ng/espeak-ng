@@ -902,7 +902,6 @@ static void setzeroabc(long int f, long int bw, resonator_ptr rp)
 	/* Let a = 1.0 - b - c */
 	rp->a = 1.0 - rp->b - rp->c;
 	
-	/* Now convert to antiresonator coefficients (a'=1/a, b'=b/a, c'=c/a) */
 	/* If f == 0 then rp->a gets set to 0 which makes a'=1/a set a', b' and c' to
 	 * INF, causing an audible sound spike when triggered (e.g. apiration with the
 	 * nasal register set to f=0, bw=0).

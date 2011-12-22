@@ -1,0 +1,270 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Sinhala
+
+// A means vowel letters (not vowel signs)
+// B means a combining vowel sign or a virama
+
+
+.group ක
+	ක	ka
+	ක (B	k
+
+.group ඛ
+	ඛ	ka
+	ඛ (B	k
+
+.group ග
+	ග	ga
+	ග (B	g
+
+.group ඝ
+	ඝ	ga
+	ඝ (B	g
+
+.group ඞ
+	ඞ	Na
+	ඞ (B	N
+
+.group ඟ
+	ඟ	N#ga
+	ඟ (B	N#g
+
+.group ච
+	ච	tSa
+	ච (B	tS
+
+.group ඡ
+	ඡ	tSa
+	ඡ (B	tS
+
+.group ජ
+	ජ	dZa
+	ජ (B	dZ
+
+.group ඣ
+	ඣ	dZa
+	ඣ (B	dZh
+
+.group ඤ
+	ඤ	n^a
+	ඤ (B	n^
+
+.group ඥ
+	ඥ	gna
+	ඥ (B	gn
+
+.group ඦ
+	ඦ	n^#dZa
+	ඦ (B	n^#dZ
+
+.group ට
+	ට	t.a
+	ට (B	t.
+
+.group ඨ
+	ඨ	t.a
+	ඨ (B	t.
+
+.group ඩ
+	ඩ	d.a
+	ඩ (B	d.
+
+.group ඪ
+	ඪ	d.a
+	ඪ (B	d.
+
+.group ණ
+	ණ	n.a
+	ණ (B	n.
+
+.group ඬ
+	ඬ	n.#d.a
+	ඬ (B	n.#d.
+
+
+.group ත
+	ත	ta
+	ත (B	t
+
+.group ථ
+	ථ	ta
+	ථ (B	t
+
+.group ද
+	ද	da
+	ද (B	d
+
+.group ධ
+	ධ	da
+	ධ (B	d
+
+.group න
+	න	na
+	න (B	n
+
+.group ඳ
+	ඳ	n#da
+	ඳ (B	n#d
+
+.group ප
+	ප	pa
+	ප (B	p
+
+.group ඵ
+	ඵ	pa
+	ඵ (B	p
+
+.group බ
+	බ	ba
+	බ (B	b
+
+.group භ
+	භ	ba
+	භ (B	b
+
+.group ම
+	ම	ma
+	ම (B	m
+
+.group ඹ
+	ඹ	m#ba
+	ඹ (B	m#b
+
+.group ය
+	ය	ja
+	ය (B	j
+
+.group ර
+	ර	ra
+	ර (B	r
+
+.group ල
+	ල	la
+	ල (B	l
+
+.group ව
+	ව	va
+	ව (B	v
+
+.group ශ
+	ශ	Sa
+	ශ (B	S
+
+.group ෂ
+	ෂ	Sa
+	ෂ (B	S
+
+.group ස
+	ස	sa
+	ස (B	s
+
+.group හ
+	හ	ha
+	හ (B	h
+
+.group ළ
+	ළ	l.a
+	ළ (B	l.
+
+.group ෆ
+	ෆ	fa
+	ෆ (B	f
+
+
+.group අ
+	අ	a
+
+.group ආ
+	ආ	a:
+
+.group ඇ
+	ඇ	&
+
+.group ඈ
+	ඈ	&:
+
+.group ඉ
+	ඉ	i
+
+.group ඊ
+	ඊ	i:
+
+.group උ
+	උ	u
+
+.group ඌ
+	ඌ	u:
+
+.group ඍ
+	ඍ	ru
+
+.group ඎ
+	ඎ	ru:
+
+.group ඏ
+	ඏ	li
+
+.group ඐ
+	ඐ	li:
+
+.group එ
+	එ	e
+
+.group ඒ
+	ඒ	e:
+
+.group ඓ
+	ඓ	aI
+
+.group ඔ
+	ඔ	o
+
+.group ඕ
+	ඕ	o:
+
+.group ඖ
+	ඖ	aU
+
+.group 0xe0b6   // characters which start with UTF-8 bytes: [e0 b6]
+	ං	m  // anusvaraya
+	ඃ	n  // visargaya
+
+
+.group 0xe0b7   // characters which start with UTF-8 bytes: [e0 b7]
+	ා	a:
+	ැ	&
+	ෑ	&:
+	ි	i
+	ී	i:
+	ු	u
+	ූ	u:
+	ෘ	ru
+	ෙ	e
+	ේ	e:
+	ෛ	aI
+	ො	o
+	ෝ  	o:
+	ෞ	aU
+	ෟ	li
+	ෲ	ru:
+	ෳ	li:
+
+	්	// hal kirima (virima)
+
+
+.group 0xe0a4  // devanagari
+	0xe0a4  _^_HI  // switch to hindi voice for devanagari characters
+.group 0xe0a5  // devanagari
+	0xe0a5  _^_HI
+
+.group 0xe0ae  // Tamil
+	0xe0ae  _^_TA  // switch to Tamil voice for Tamil characters
+.group 0xe0af  // Tamil
+	0xe0af  _^_TA
+
+
+.group
+	$	do:l.ar
+
+

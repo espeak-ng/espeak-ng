@@ -361,6 +361,8 @@ tamil	தமிழ்	$text
 பாதிக்கும்	$alt
 பாதிக்குமா	$alt
 பத்திரப்	bVttirVp
+பாய்ஸ்	$alt
+புக்கர்	$alt
 
 
 
@@ -427,6 +429,9 @@ tamil	தமிழ்	$text
 தட	$alt
 தடியாய்	$alt
 தொள	$alt
+தான	$alt
+தம்மம்	$alt
+தம்ம	$alt
 
 
 	// initial ட
@@ -510,6 +515,7 @@ tamil	தமிழ்	$text
 கௌன்	$alt
 கிண்	$alt
 கிர்	$alt
+கங்க	$alt
 
 
 
@@ -541,3 +547,5 @@ tamil	தமிழ்	$text
 செட்	set.
 திக்	dik
 பிட்	bit.
+புட்	fud.
+உப்ப	ubbV

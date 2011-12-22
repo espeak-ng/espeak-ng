@@ -1,0 +1,52 @@
+
+0  r/  r#     0   NULL
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/ NULL   0  r
+0  r- NULL   0  r
+0  l- NULL   0  l
+0  w/ NULL   0  u
+0  j/ NULL   0  j
+0  ;  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL
+0  ** NULL   0  NULL
+0  *  NULL   0  NULL
+
+
+0  y   NULL   0   Y
+0  y:  NULL   0   Y:
+0  W   NULL   0   9
+0  W:  NULL   0   9:
+0  eI  NULL   0   ei
+0  eI: NULL   0   ei:
+0  aI  NULL   0   ai
+0  aI: NULL   0   ai:
+0  oU  NULL   0   ou
+0  oU: NULL   0   ou:
+0  aU  NULL   0   au
+0  aU: NULL   0   au:
+0  Yy  NULL   0   9y
+0  Yy: NULL   0   9y:
+0  OI  NULL   0   Oi
+0  yi  NULL   0   Yi
+
+0  _|  NULL   0   NULL
+0  R   _      0   r0
+0  R   NULL   0   r
+0  R2  NULL   0   r
+0  Q   NULL   0   G
+0  m#  NULL   0   m0
+0  n#  NULL   0   n0
+0  N#  NULL   0   N0
+0  n^  NULL   0   J
+0  n^# NULL   0   J0
+0  l#  NULL   0   l0
+0  r#  NULL   0   r0
+0  J   NULL   0   J-
+0  s2  NULL   0   NULL
+
+5  h  l#      0   l0
+5  h  n#      0   n0
+5  h  r#      0   r0

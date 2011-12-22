@@ -1,0 +1,208 @@
+// translation rules for Bulgarian
+// This file is UTF-8 encoded
+
+// Letter groups:
+// C  consonants
+// Y  iotated vowels and soft sign
+.L01 е ѐ и ѝ  // 'i' and 'e' vowels
+.L02 р л м н    //sonorant consonants
+.L03 б в г д з  дз ж дж //sounded consonants
+.L04 п ф к т с ц ш щ ч х  //silent consonants
+
+.group а
+        а          a
+     @) а (_S1     a
+     @) ак (_      'ak
+     @) ар (_      'ar
+     @) ач (_      'atS
+
+     @) алище (_   'aliSte
+     @) ание (_    'anie
+     @) авище (_   'aviSte
+     @) аж (_      'aZ
+     @) алня (_    'aln;a
+     @) ария (_    aria
+     @) ация (_    'atsia
+     @) ателство (_ 'atelstvo
+     @) ален (_    'alen
+     @) ански (_   'anski
+     @) ателен (_  'atelen
+
+
+.group б
+        б          b
+        б (Y       b;
+
+.group в
+        в          v
+        в (Y       v;
+
+.group г
+        г          g
+        г (Y       g;
+
+.group д
+        д          d
+        д (Y       d;
+        дж         dZ
+        дз         dz
+        дз (Y      dz|;
+
+
+.group е
+        е          e
+     @) ение (_    'enie
+     @) ент (_     'ent
+
+     @) евен (_    'even
+     @) ебен (_    'eben
+     @) ейски (_   'ejski
+     @) еен (_     'een
+
+
+.group ж
+        ж          Z
+
+.group з
+        з          z
+        з (Y       z;
+
+
+.group и
+        и          i
+        и (_N      i:
+     @) ител (_    'itel
+     @) ист (_     'ist
+
+     @) илище (_   'iliSte
+     @) икав (_    'ikav
+     @) ит (_      'it
+     @) ив (_      'iv
+     @) изъм (_    'iz@m
+    от) и (я_      'i
+     к) и (ня_     'i
+     @) идба (_    'itba
+     @) ивен (_    'iven
+     @) илен (_    'ilen
+     @) ински (_   'inski
+     @) ителен (_  'itelen
+     @) ически (_  'itSeski
+     @) има (_     'ima
+
+
+.group й
+        й          j
+
+.group к
+        к          k
+        к (Y       k;
+     @) ко (_S2    ko
+
+.group л
+        л          L
+        л (L01     l         // ле  ли
+        л (Y       l
+        л (ьL01    l^
+
+.group м
+        м          m
+        м (Y       m;
+
+.group н
+        н          n
+        н (Y       n^
+        нн         n:
+
+.group о
+        о          o
+
+     @) овище (_   'oviSte
+        ова (т_    ov'a
+        ови (т_    ov'i      //??
+     @) овен (_    'oven
+     @) ок (_      'ok
+     @) овник (_   'ovnik
+     @) ориум (_   'orium
+        озен (_    'ozen
+
+
+.group п
+        п          p
+        п (Y       p;
+
+.group р
+        р          r
+        р (Y       r;
+
+.group с
+        с          s
+        с (Y       s;
+
+.group т
+        т          t
+        т (Y       t;
+        тт         t:
+     @) та (_S2    ta
+     @) те (_S2    te
+
+.group у
+        у          u
+
+.group ф
+        ф          f
+        ф (Y       f;
+
+.group х
+        х          x
+        х (Y       C
+        х (и       C
+
+.group ц
+        ц          ts
+        ц (Y       ts|;
+
+
+.group ч
+        ч          tS
+     @) чо (_      =tSo
+
+
+.group ш
+        ш          S
+
+
+.group щ
+        щ          St
+        щ (Y       St;
+
+
+.group ъ
+        ъ          @
+     @) ът (_S2    @t
+
+
+.group ь
+        ь          j
+     C) ь 
+
+
+.group ю
+        ю          ju
+     C) ю          u
+
+
+.group я
+        я          ja
+     C) я          a
+     @) я (_S1q    ja
+    @C) я (_S1q    a
+     @) ят (_S2q   jat
+    @C) ят (_S2q   at
+     @) яние (_    'janie
+
+.group
+        ̀          =         // combining grave accent
+        $          d'oLar
+        ѐ          ''e
+        ѝ          ''i
+

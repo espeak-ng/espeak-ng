@@ -1,0 +1,596 @@
+
+// Rules for Nepali
+// This file is UTF8 encoded 
+
+// letter groups:
+// A   vowel letters
+// B   vowel signs and virama ्
+// C   consonants
+// Y   vowel letters and vowel signs
+
+
+// conditional rules
+// ?1   drop schwa at end of word
+
+
+.replace
+ ०	0
+ १	1
+ २	2
+ ३	3
+ ४	4
+ ५	5
+ ६	6
+ ७	7
+ ८	8
+ ९	9
+
+
+// Vowels
+
+.group अ
+        अ        V
+        अँ        V~  // + candrabinbu
+
+
+.group आ
+        आ        a
+        आँ        a~  // + candrabinbu
+        आइ       aI
+        आउ       aU
+        आऊ       aU
+
+
+.group इ
+        इ        i
+        इँ        i~
+
+
+.group ई
+        ई        i
+        ईँ        i~
+
+
+.group उ
+        उ        u
+        उँ        u~
+        उई       uI
+
+
+.group ऊ
+        ऊ        u
+        ऊँ        u~
+
+
+.group ऋ
+        ऋ        rI
+
+
+.group ऌ
+        ऌ        l-   // vocalic l
+
+
+.group ऍ
+        ऍ        E   // candra e
+
+
+.group ऎ
+        ऎ        e
+        ऎँ        e~
+
+
+.group ए
+        ए        e
+        एँ        e~
+        एउ       eU
+
+
+.group ऐ
+        ऐ        VI
+
+
+.group ऑ
+        ऑ        O  // candra O
+
+
+.group ऒ
+        ऒ        o
+
+
+.group ओ
+        ओ        o
+        ओउ       oU
+        ओऊ       oU
+        ओइ       oI
+
+
+.group औ
+        औ        VU
+
+
+// Vowel Signs
+
+.group ा
+        ा        a
+        ाँ       a~
+        ाइ       aI
+        ाऊ       aU
+        ाउ       aU
+
+.group ि
+        ि        i
+        िँ       i~
+
+.group ी
+        ी        i
+        ीँ       i~
+
+.group ु
+        ु        u
+        ुँ       u~
+        ुई       uI
+
+.group ू
+        ू        u
+        ूँ       u~
+
+.group ृ
+        ृ        rI
+
+.group ॄ
+        ॄ        rI
+
+.group ॅ
+        ॅ        E
+
+.group ॆ
+        ॆ        e
+        ॆँ       e~
+
+.group े
+        े        e
+        ेँ       e~
+        ेउ       eU
+
+.group ै
+        ै        VI 
+
+.group ॉ
+        ॉ        O
+
+.group ॊ
+        ॊ        o
+
+.group ो
+        ो        o
+        ोउ       oU
+        ोऊ       oU
+        ोइ       oI
+
+.group ौ
+        ौ        VU  
+
+
+.group ॢ     // vowel sign l
+        ॢ        l-
+
+
+.group ॣ    // vowel sign ll
+        ॣ        l-:
+
+
+.group ॐ
+        ॐ        o~m
+
+// Consonants
+
+.group क
+        क        kV
+        कँ        kV~
+        क (B     k
+        क (्य    k:
+?1      क (_     k
+     ्) क (_     k@/
+        क़        qV
+        क़ँ        qV~
+        क़ (B     q
+?1      क़ (_     q
+     ्) क़ (_     q@/
+
+.group ख
+        ख        khV
+        खँ        khV~
+        ख (B     kh
+?1      ख (_     kh
+     ्) ख (_     kh@/
+        ख़        xV
+        ख़ँ        xV~
+        ख़ (B     x
+?1      ख़ (_     x
+     ्) ख़ (_     x@/
+
+.group ग
+        ग        gV
+        गँ        gV~
+        ग (B     g
+?1      ग (_     g
+     ्) ग (_     g@/
+        ग़        QV
+        ग़ँ        QV~
+        ग़ (B     Q
+?1      ग़ (_     Q
+     ्) ग़ (_     Q@/
+
+.group घ
+        घ        ghV
+        घँ        ghV~
+        घ (B     gh
+?1      घ (_     gh
+     ्) घ (_     gh@/
+
+.group ङ
+        ङ        NV
+        ङँ        NV~
+        ङ (B     N
+?1      ङ (_     N
+     ्) ङ (_     N@/
+
+.group च
+        च        c@3
+        चँ        cV~
+        च (B     c
+        च (्य    c:
+?1      च (_     c
+     ्) च (_     c@/
+
+.group छ
+        छ        ch@3
+        छँ        chV~
+        छ (B     ch
+//?1      छ (_     ch
+     ्) छ (_     ch@/
+
+.group ज
+        ज        J@3
+        जँ        JV~
+        ज (B     J
+?1      ज (_     J
+     ्) ज (_     J@/
+        ज़        zV
+        ज़ँ        zV~
+        ज़ (B     z
+?1      ज़ (_     z
+     ्) ज़ (_     z@/
+
+.group झ
+        झ        Jh@3
+        झँ        JhV~
+        झ (B     Jh
+?1      झ (_     Jh
+     ्) झ (_     Jh@/
+
+.group ञ
+        ञ        n^@3
+        ञ        n^V~
+        ञ (B     n^
+?1      ञ (_     n^
+     ्) ञ (_     n^
+
+.group ट
+        ट        t.V
+        टँ        t.V~
+        ट (B     t.
+        ट (्य    t.:
+?1      ट (_     t.
+     ्) ट (_     t.@/
+
+.group ठ
+        ठ        t.hV
+        ठँ        t.hV~
+        ठ (B     t.h
+?1      ठ (_     t.h
+     ्) ठ (_     t.h@/
+
+.group ड
+        ड        d.V
+        डँ        d.V~
+        ड (B     d.
+?1      ड (_     d.
+     ्) ड (_     d.@/
+
+        ड़        r.V
+        ड़ँ        r.V~
+        ड़ (B     r.
+?1      ड़ (_     r.
+     ्) ड़ (_     r.@/
+
+.group ढ
+        ढ        d.hV
+        ढँ        d.hV~
+        ढ (B     d.h
+?1      ढ (_     d.h
+     ्) ढ (_     d.h@/
+        ढ़        r.hV  // nukta  (should be retroflex flap)
+        ढ़ँ        r.hV~
+        ढ़ (B     r.h
+?1      ढ़ (_     r.h
+     ्) ढ़ (_     r.h@/
+
+.group ण
+        ण        n.V
+        णँ        n.V~
+        ण (B     n.
+?1      ण (_     n.
+     ्) ण (_     n.@/
+
+.group त
+        त        tV
+        तँ        tV~
+        त (B     t
+        त (्य    t:
+?1      त (_     t
+     ्) त (_     t@/
+
+.group थ
+        थ        thV
+        थँ        thV~
+        थ (B     th
+?1      थ (_     th
+     ्) थ (_     th@/
+
+.group द
+        द        dV
+        दँ        dV~
+        द (B     d
+?1      द (_     d
+     ्) द (_     d@/
+
+.group ध
+        ध        dhV
+        धँ        dhV~
+        ध (B     dh
+?1      ध (_     dh
+     ्) ध (_     dh@/
+
+.group न
+        न        nV
+        नँ        nV~
+        न (B     n
+?1      न (_     n
+     ्) न (_     n@/
+     र्) न (_     n          // r +virama
+
+
+.group ऩ
+        ऩ        n:     // should this be a long [n] ?
+
+.group प
+        प        pV
+        पँ        pV~
+        प (B     p
+        प (्य    p:
+?1      प (_     p
+     ्) प (_     p@/
+
+.group फ
+        फ        phV
+        फँ        phV~
+        फ (B     ph
+?1      फ (_     ph
+     ्) फ (_     ph
+        फ़        fV
+        फ़ँ        fV~
+        फ़ (B     f
+?1      फ़ (_     f
+     ्) फ़ (_     f@/
+
+.group ब
+        ब        bV
+        बँ        bV~
+        ब (B     b
+?1      ब (_     b
+     ्) ब (_     b@/
+
+.group भ
+        भ        bhV
+        भँ        bhV~
+        भ (B     bh
+?1      भ (_     bh
+     ्) भ (_     bh@/
+
+.group म
+        म        mV
+        मँ        mV~
+        म (B     m
+?1      म (_     m
+     ्) म (_     m@/
+     र्) म (_     m          // r +virama
+     न्) म (_     m          // n +virama
+
+.group य
+        य        j@3
+        यँ        jV~
+        य (B     j
+?1      य (_     j
+     ्) य (_     j@/
+
+.group र
+        र        r@2
+        रँ        r@2
+        र (B     r
+?1      र (_     r
+     ्) र (_     r@/
+
+.group ऱ             // rra
+        ऱ        rV   // (temporary) same as [r]
+        ऱ (B     r
+?1      ऱ (_     r
+     ्) ऱ (_     r@/
+
+.group ल
+        ल        lV
+        लँ        lV~
+        ल (B     l
+?1      ल (_     l
+     ्) ल (_     l@/
+
+.group ळ
+        ळ        l.V
+        ळँ        l.V~
+        ळ (B     l.
+?1      ळ (_     l.
+     ्) ळ (_     l.@/
+
+.group ऴ
+        ऴ        l.V  // (temporary) same as [l.]
+        ऴँ        l.V~
+        ऴ (B     l.
+?1      ऴ (_     l.
+     ्) ऴ (_     l.@/
+
+.group व
+        व        vV
+        वँ        vV~
+        व (B     v
+     _) व        wV
+     _) वँ        wV~
+     _) व (B     w
+     _) व (्     v   // +virma
+?1      व (_     v
+     ्) व (_     v@/
+
+.group श
+        श        SV
+        शँ        SV~
+        श (B     S
+?1      श (_     S
+     ्) श (_     S@/
+
+.group ष
+        ष        s.V
+        षँ        s.V~
+        ष (B     s.
+?1      ष (_     s.
+     ्) ष (_     s.@/
+
+.group स
+        स        sV
+        सँ        sV~
+        स (B     s
+?1      स (_     s
+     ्) स (_     s@/
+
+.group ह
+        ह        HV
+        हँ        HV~
+        ह (B     H
+?1      ह (_     H
+     ्) ह (_     H@/
+
+
+                        // nukta,  modifies a consonant
+
+.group ऽ                // avagraha, lengthens a vowel ??
+        ऽ        :
+
+.group ँ
+	ँ	n	// candrabindu
+
+.group ं 
+        ं        m    // anusvara
+        ं  (प    m
+        ं  (फ    m
+        ं  (ब    m
+        ं  (भ    m
+        ं  (म    m
+
+        ं  (ट    n.
+        ं  (ठ    n.
+        ं  (ड    n.
+        ं  (ढ    n.
+        ं  (ण    n.
+
+        ं  (च    n^
+        ं  (छ    n^
+        ं  (ज    n^
+        ं  (झ    n^
+        ं  (ञ    n^
+        ं  (य    n^
+
+        ं  (क    N
+        ं  (ख    N
+        ं  (ग    N
+        ं  (घ    N
+        ं  (ङ    N
+        ं  (ह    N
+
+.group ः
+        ः        H   //  visarga
+
+.group ्		// virama
+	्
+
+// Extra consonants
+
+.group क़   // qa
+        क़        qV
+        क़ (B     q
+?1      क़ (_     q
+     ्) क़ (_     q@/
+
+.group ख़   // khha
+        ख़        xV
+        ख़ (B     x
+?1      ख़ (_     x
+     ्) ख़ (_     x@/
+
+.group ग़    // ghha
+        ग़        QV
+        ग़ (B     Q
+?1      ग़ (_     Q
+     ्) ग़ (_     Q@/
+
+.group ज़    // za
+        ज़        zV
+        ज़ (B     z
+?1      ज़ (_     z
+     ्) ज़ (_     z@/
+
+.group ड़    // dddha
+        ड़        z.V      //  ???
+        ड़ (B     z.
+?1      ड़ (_     z.
+     ्) ड़ (_     z.@/
+
+.group ढ़    // rha  (aspirated version of dddha)
+        ढ़        r.hV
+        ढ़ (B     r.h
+?1      ढ़ (_     r.h
+     ्) ढ़ (_     r.h@/
+
+.group फ़    // fa
+        फ़        fV
+        फ़ (B     f
+?1      फ़ (_     f
+     ्) फ़ (_     f@/
+
+.group य़    // yya
+        य़        jV
+        य़ (B     j
+?1      य़ (_     j
+     ्) य़ (_     j@/
+
+.group ॠ    // rr
+        ॠ        V-rr
+
+.group ॡ    // ll
+        ॡ        l-:     // long syllabic l
+
+
+
+
+.group
+        $        dOlV
+        %        pVsEnt
+
+

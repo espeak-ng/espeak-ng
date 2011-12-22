@@ -1,0 +1,65 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Sinhala
+
+
+// speak Latin letters as English
+a	e:j
+b	bi:
+c	si:
+d	di:
+e	i:
+f	Ef
+g	dZi:
+h	e:tS
+i	a:j
+j	dZe:j
+k	ke:j
+l	El
+m	Em
+n	En
+o	o:
+p	pi:
+q	kju:
+r	a:r
+s	Es
+t	thi:
+u	ju:
+v	vi:
+w	dabalju:
+x	Eks
+y	wa:j
+z	zEd
+
+
+// symbols
+%	sij@j@t.@  $max3
+*	&st.@risk@j@  $max3
+
+_;	 t'itk,oma:v@
+
+// numbers
+_1	ek@
+_2	dek@
+_3	tu:n@
+_4	hat@r@
+_5	pah@
+_6	haj@
+_7	hat@
+_8	at.@
+_9	nav@j@
+_10	dah@j@
+_11	ekol.@h@
+_12	dol.@h@
+_13	dah@tun@
+_14	dah@hat@r@
+_15	pah@l.ov@
+_16	dah@saj@
+_17	dah@hat@
+_18	dah@at.@
+_19	dah@nav@j@
+_2X	viss@
+_0C	sij@j@
+_0M1	dah@s@
+_0M2	milij@n@j@
+_0M3	bilij@n@j@

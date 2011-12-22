@@ -1,0 +1,215 @@
+
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Urdu
+
+.replace
+٠	0
+١	1
+٢	2
+٣	3
+٤	4
+٥	5
+٦	6
+٧	7
+٨	8
+٩	9
+
+
+
+// vowel signs, alif is silent at start of word if these follow
+.L01  َ  ِ  ُ  و  ی   ع  ا
+
+// VOWELS
+
+.group َ
+	َ	a
+	َی 	E
+	َے	E
+	َو 	O
+	َع	a:
+
+.group ِ
+	ِ	I
+	ِی	i:
+	ِع	i:
+
+.group ُ
+	ُ	U
+	ُو	u:
+	ُع	O
+
+.group ھ
+	ھ	H
+
+.group ا
+	ا	a:
+   _)	ا (L01   // silent before a vowel
+   _)	ا	a
+   _) او	u:
+   _) ای	i:
+
+.group آ
+	آ	a:
+
+.group ع
+	ع	a:
+	عا	a:
+   _)	ع	a
+
+
+.group و
+	و	o:
+	وُ	u:
+	وٗ	u:
+	و (L01	v
+   _) و	v
+
+.group ی
+	ی	e:
+	ی (L01	j
+	ی (_	i:
+   _) ی	j
+
+
+.group ے		// yeh barree
+	ے	e:
+
+// with hamza
+.group ئ
+	ئ
+
+.group ؤ
+	ؤ	aU   // ??
+
+.group أ
+	أ	// ??
+
+
+// CONSONANTS
+
+.group ب
+	ب	b
+	بھ	bh
+
+
+.group پ
+	پ	p
+	پھ	ph
+
+
+.group ت
+	ت	t
+	تھ	th
+
+
+.group ٹ
+	ٹ	t.
+	ٹھ	th.
+
+
+.group ث
+	ث	s
+
+
+.group ج
+	ج	J
+	جھ	Jh
+
+
+.group چ
+	چ	c
+	چھ	ch
+
+.group ح
+	ح	H
+
+.group خ
+	خ	x
+
+.group د
+	د	d
+	دھ	dh
+
+.group ڈ
+	ڈ	d.
+	ڈھ	dh.
+
+.group ذ
+	ذ	D
+
+.group ر
+	ر	R
+
+.group ڑ
+	ڑ	r.
+
+.group ز
+	ز	z
+
+.group ژ
+	ژ	Z
+
+.group س
+	س	s
+
+.group ش
+	ش	S
+
+.group ص
+	ص	s.
+
+.group ض
+	ض	z
+
+.group ط
+	ط	t
+	طھ	th
+
+.group ظ
+	ظ	z.
+
+.group غ
+	غ	Q
+
+.group ف
+	ف	f
+
+.group ق
+	ق	q
+
+.group ک
+	ک	k
+	کھ	kh
+
+.group گ
+	گ	g
+	گھ	gh
+
+.group ل
+	ل	l
+
+.group م
+	م	m
+
+.group ن
+	ن	n
+
+.group ں
+	ں	n    // this should nasalize the vowel
+
+.group ء
+	ء	
+
+.group ہ
+	ہ	H
+	ہ (_	a
+
+
+.group 0xe0a4  // devanagari
+	0xe0a4  _^_HI  // switch to hindi voice
+.group 0xe0a5  // devanagari
+	0xe0a5  _^_HI
+
+.group
+	$	do:l@R

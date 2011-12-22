@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.45.05
+AppVerName=eSpeak version 1.46.08
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -116,9 +116,9 @@ begin
   Result := 'en';
 
   // Translation from microsoft codes to language codes
-  // Used to set default voices for inatallation.
+  // Used to set default voices for installation.
   case lang_main of
-  //$02: Result := 'bg';
+  $02: Result := 'bg';
   $03: Result := 'ca';
   $04: Result := 'zh';
   $05: Result := 'cs';
@@ -155,6 +155,7 @@ begin
   $36: Result := 'af';
   $39: Result := 'hi';
   //$3a: Result := 'mt';
+  //$3f: Result := 'kk';
   $41: Result := 'sw';
   $49: Result := 'ta';
   $4b: Result := 'kn';
@@ -226,6 +227,7 @@ begin
   'is': value := $40f;
   'it': value := $410;
   'ka': value := $437;
+  'kk': value := $43f;
   'kn': value := $44b;
   'ko': value := $412;
   'lv': value := $426;

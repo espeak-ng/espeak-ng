@@ -60,7 +60,7 @@ static void* say_thread(void*);
 
 static espeak_ERROR push(t_espeak_command* the_command);
 static t_espeak_command* pop();
-static void init();
+static void init(int process_parameters);
 static int node_counter=0;
 enum {MAX_NODE_COUNTER=400,
       INACTIVITY_TIMEOUT=50, // in ms, check that the stream is inactive
@@ -75,7 +75,7 @@ void fifo_init()
 
   // security
   pthread_mutex_init( &my_mutex, (const pthread_mutexattr_t *)NULL);
-  init();
+  init(0);
 
   assert(-1 != sem_init(&my_sem_start_is_required, 0, 0));
   assert(-1 != sem_init(&my_sem_stop_is_acknowledged, 0, 0));
@@ -457,7 +457,7 @@ static void* say_thread(void*)
 	{ 
 	  // no mutex required since the stop command is synchronous
 	  // and waiting for my_sem_stop_is_acknowledged
-	  init();
+	  init(1);
 
 	  // purge start semaphore
 	  SHOW_TIME("say_thread > purge my_sem_start_is_required\n");
@@ -569,13 +569,23 @@ static t_espeak_command* pop()
 }
 
 
-static void init()
+static void init(int process_parameters)
 {
-  ENTER("fifo > init");
-  while (delete_espeak_command( pop() ))
-    {}
-  node_counter = 0;
+	// Changed by Tyler Spivey 30.Nov.2011
+	t_espeak_command *c = NULL;
+	ENTER("fifo > init");
+	c = pop();
+	while (c != NULL) {
+		if (process_parameters && (c->type == ET_PARAMETER || c->type == ET_VOICE_NAME || c->type == ET_VOICE_SPEC))
+		{
+			process_espeak_command(c);
+		}
+		delete_espeak_command(c);
+		c = pop();
+	}
+	node_counter = 0;
 }
+
 
 //>
 //<fifo_init
@@ -589,7 +599,7 @@ void fifo_terminate()
   sem_destroy(&my_sem_start_is_required);
   sem_destroy(&my_sem_stop_is_acknowledged);
 
-  init(); // purge fifo
+  init(0); // purge fifo
 }
 
 #endif
