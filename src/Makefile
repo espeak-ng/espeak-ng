@@ -70,11 +70,13 @@ endif
 endif
 endif
 
+CXXFLAGS=-O2
+
 common_SOURCES = compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
-	synthdata.cpp synthesize.cpp translate.cpp mbrowrap.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
-	klatt.cpp sonic.cpp
+	klatt.cpp mbrowrap.cpp numbers.cpp readclause.cpp \
+	phonemelist.cpp setlengths.cpp sonic.cpp \
+	synthdata.cpp synthesize.cpp synth_mbrola.cpp \
+	translate.cpp tr_languages.cpp voices.cpp wavegen.cpp 
 
 speak_SOURCES = speak.cpp $(common_SOURCES)
 
@@ -91,15 +93,15 @@ espeak_SOURCES = espeak.cpp
 espeak_OBJS = $(patsubst %.cpp,%.o,$(espeak_SOURCES))
 espeak_LIBS = -lstdc++ -L . -lespeak
 
-CXXFLAGS=-O2
 
+CPPFLAGS = -Wall -pedantic -c -fno-exceptions -D PATH_ESPEAK_DATA=\"$(DATADIR)\"
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions  $<
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -I. $(CPPFLAGS) $<
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -fpic -fvisibility=hidden -pedantic \
-	-I. -D LIBRARY -c -fno-exceptions  $<  -o x_$*.o
+	$(CXX) $(CXXFLAGS) $(USE_AUDIO) -fpic -fvisibility=hidden \
+	-I. -D LIBRARY $(CPPFLAGS) $< -o x_$*.o
 
 all: $(SPEAK) $(LIBESPEAK) $(STATIC_LIBESPEAK) $(ESPEAK)
 
