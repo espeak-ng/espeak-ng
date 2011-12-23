@@ -26,10 +26,10 @@ distclean: clean
 ##### build targets:
 
 espeak:
-	cd src && make PREFIX=$(PREFIX) && cd ..
+	cd src && make espeak PREFIX=$(PREFIX) && cd ..
 
 espeakedit:
-	cd src && make -f Makefile.espeakedit PREFIX=$(PREFIX) && cd ..
+	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
 
 espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
