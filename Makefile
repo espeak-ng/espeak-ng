@@ -8,9 +8,9 @@ PLATFORM=big_endian
 
 ##### standard build actions:
 
-all: espeak espeakedit espeak-data
+all: speak libespeak.so libespeak.a espeak espeakedit espeak-data
 
-install:
+install: all
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) install && cd ..
 	install -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
 
@@ -25,7 +25,16 @@ distclean: clean
 
 ##### build targets:
 
-espeak:
+libespeak.a:
+	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
+
+libespeak.so:
+	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
+
+speak:
+	cd src && make speak PREFIX=$(PREFIX) && cd ..
+
+espeak: libespeak.so
 	cd src && make espeak PREFIX=$(PREFIX) && cd ..
 
 espeakedit:
