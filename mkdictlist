@@ -28,6 +28,7 @@ for n, name in enumerate(sorted(dictionaries.keys())):
 			print '\tespeak-data/%s_dict \\' % name
 for name, files in sorted(dictionaries.items()):
 	print
+	print '%s: espeak-data/%s_dict' % (name, name)
 	print 'dictsource/%s_extra:' % name
 	print '\ttouch dictsource/%s_extra' % name
 	print 'espeak-data/%s_dict: %s dictsource/%s_extra' % (name, ' '.join(sorted(files)), name)
