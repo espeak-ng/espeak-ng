@@ -16,8 +16,15 @@ src/speak
 
 # espeak-data
 
-dictsource/en_extra
+dictsource/*_extra
+dictsource/dict_log
+dictsource/dict_phonemes
 
+phsource/compile_prog_log
+phsource/compile_report
+phsource/error_log
+
+espeak-data/config
 espeak-data/dictsource
 espeak-data/phsource
 espeak-data/*_dict
@@ -26,8 +33,3 @@ espeak-data/phondata
 espeak-data/phondata-manifest
 espeak-data/phonindex
 espeak-data/phontab
-
-# other (from espeak development releases)
-
-espeak-data/config
-phsource/compile_prog_log
