@@ -4,11 +4,11 @@ DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
 
-.PHONY: all clean distclean espeak espeakedit espeak-phoneme-data espeak-data
+.PHONY: all clean distclean espeak-phoneme-data espeak-data
 
 ##### standard build actions:
 
-all: speak libespeak.so libespeak.a espeak espeakedit espeak-data dictionaries
+all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data dictionaries
 
 install: all
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) install && cd ..
@@ -25,19 +25,19 @@ distclean: clean
 
 ##### build targets:
 
-libespeak.a:
+src/libespeak.a:
 	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
 
-libespeak.so:
+src/libespeak.so:
 	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
 
-speak:
+src/speak:
 	cd src && make speak PREFIX=$(PREFIX) && cd ..
 
-espeak: libespeak.so
+src/espeak: src/libespeak.so
 	cd src && make espeak PREFIX=$(PREFIX) && cd ..
 
-espeakedit:
+src/espeakedit:
 	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
 
 espeak-phoneme-data:
@@ -48,7 +48,7 @@ espeak-data-dir:
 	cp -a phsource espeak-data/phsource
 	cp -a dictsource espeak-data/dictsource
 
-espeak-data: espeakedit espeak-data-dir
+espeak-data: src/espeakedit espeak-data-dir
 	rm -rf $(HOME)/espeak-data
 	ln -sv $(PWD)/espeak-data $(HOME)/espeak-data
 	src/espeakedit --compile
