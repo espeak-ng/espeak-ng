@@ -1,4 +1,4 @@
-PREFIX=/usr
+REFIX=/usr
 BINDIR=$(PREFIX)/bin
 DATADIR=$(PREFIX)/share/espeak-data
 
@@ -45,8 +45,8 @@ espeak-phoneme-data:
 
 espeak-data-dir:
 	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
-	cp -a phsource espeak-data/phsource
-	cp -a dictsource espeak-data/dictsource
+	./shadowdir $(PWD)/phsource $(PWD)/espeak-data/phsource
+	./shadowdir $(PWD)/dictsource $(PWD)/espeak-data/dictsource
 
 espeak-data: src/espeakedit espeak-data-dir
 	rm -rf $(HOME)/espeak-data
