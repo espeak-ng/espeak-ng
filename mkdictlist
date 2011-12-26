@@ -1,0 +1,34 @@
+#!/usr/bin/python
+#
+# Copyright (C) 2011 Reece H. Dunn
+# Licence: GPLv3
+#
+# A script for generating the dictionary Makefile rules from the files in dictsource.
+
+import sys
+import os
+
+dictionaries = {}
+
+for filename in os.listdir('dictsource'):
+	if filename.endswith('_rules') or filename.endswith('_list') or filename.endswith('_listx'):
+		dic, cat = filename.split('_')
+		if not dic in dictionaries.keys():
+			dictionaries[dic] = []
+		dictionaries[dic].append('dictsource/%s' % filename)
+
+print '##### dictionaries:'
+print
+print 'dictionaries: \\'
+for n, name in enumerate(sorted(dictionaries.keys())):
+	if not name in ['bo']: # espeak fails to read these voices
+		if n == len(dictionaries.keys()) - 1:
+			print '\tespeak-data/%s_dict' % name
+		else:
+			print '\tespeak-data/%s_dict \\' % name
+for name, files in sorted(dictionaries.items()):
+	print
+	print 'dictsource/%s_extra:' % name
+	print '\ttouch dictsource/%s_extra' % name
+	print 'espeak-data/%s_dict: %s dictsource/%s_extra' % (name, ' '.join(sorted(files)), name)
+	print '\tcd dictsource && ../src/espeak --compile=%s && cd ..' % name

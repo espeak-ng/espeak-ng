@@ -16,7 +16,7 @@ src/speak
 
 # espeak-data
 
-dictsource/en_extra
+dictsource/*_extra
 
 espeak-data/dictsource
 espeak-data/phsource
