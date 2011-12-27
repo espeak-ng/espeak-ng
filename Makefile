@@ -25,19 +25,63 @@ distclean: clean
 
 ##### build targets:
 
-src/libespeak.a:
+common_SOURCES = \
+	src/compiledict.cpp \
+	src/dictionary.cpp \
+	src/intonation.cpp \
+	src/klatt.cpp \
+	src/mbrowrap.cpp \
+	src/numbers.cpp \
+	src/readclause.cpp \
+	src/phonemelist.cpp \
+	src/setlengths.cpp \
+	src/sonic.cpp \
+	src/synthdata.cpp \
+	src/synthesize.cpp \
+	src/synth_mbrola.cpp \
+	src/translate.cpp \
+	src/tr_languages.cpp \
+	src/voices.cpp \
+	src/wavegen.cpp 
+
+libespeak_SOURCES = \
+	src/speak_lib.cpp \
+	src/espeak_command.cpp \
+	src/event.cpp \
+	src/fifo.cpp \
+	src/wave.cpp \
+	src/wave_pulse.cpp \
+	src/wave_sada.cpp \
+	src/debug.cpp
+
+espeakedit_SOURCES = \
+	src/compiledata.cpp \
+	src/espeakedit.cpp \
+	src/extras.cpp \
+	src/formantdlg.cpp \
+	src/menus.cpp \
+	src/options.cpp \
+	src/prosodydisplay.cpp \
+	src/spect.cpp \
+	src/spectdisplay.cpp \
+	src/spectseq.cpp \
+	src/transldlg.cpp \
+	src/voicedlg.cpp \
+	src/vowelchart.cpp
+
+src/libespeak.a: $(common_SOURCES) $(libespeak_SOURCES)
 	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
 
-src/libespeak.so:
+src/libespeak.so: $(common_SOURCES) $(libespeak_SOURCES)
 	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
 
-src/speak:
+src/speak: $(common_SOURCES) src/speak.cpp
 	cd src && make speak PREFIX=$(PREFIX) && cd ..
 
-src/espeak: src/libespeak.so
+src/espeak: src/libespeak.so src/espeak.cpp
 	cd src && make espeak PREFIX=$(PREFIX) && cd ..
 
-src/espeakedit:
+src/espeakedit: $(common_SOURCES) $(libespeak_SOURCES) $(espeakedit_SOURCES)
 	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
 
 espeak-phoneme-data:
