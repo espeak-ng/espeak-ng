@@ -22,6 +22,7 @@ dictsource/dict_phonemes
 
 phsource/compile_prog_log
 phsource/compile_report
+phsource/error_intonation
 phsource/error_log
 
 espeak-data/dir.stamp
