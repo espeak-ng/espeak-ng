@@ -24,6 +24,7 @@ phsource/compile_prog_log
 phsource/compile_report
 phsource/error_log
 
+espeak-data/dir.stamp
 espeak-data/config
 espeak-data/dictsource
 espeak-data/phsource

@@ -4,11 +4,11 @@ DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
 
-.PHONY: all clean distclean espeak-phoneme-data espeak-data
+.PHONY: all clean distclean espeak-phoneme-data
 
 ##### standard build actions:
 
-all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data dictionaries
+all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries
 
 install: all
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) install && cd ..
@@ -43,14 +43,22 @@ src/espeakedit:
 espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
 
-espeak-data-dir:
-	rm -rf espeak-data/dictsource espeak-data/phsource espeak-data/phondata-manifest
-	./shadowdir $(PWD)/phsource $(PWD)/espeak-data/phsource
-	./shadowdir $(PWD)/dictsource $(PWD)/espeak-data/dictsource
-
-espeak-data: src/espeakedit espeak-data-dir
+espeak-data/dir.stamp:
 	rm -rf $(HOME)/espeak-data
 	ln -sv $(PWD)/espeak-data $(HOME)/espeak-data
+	touch espeak-data/dir.stamp
+
+espeak-data/dictsource/dir.stamp: dictsource/*
+	rm -rf espeak-data/dictsource
+	./shadowdir $(PWD)/dictsource $(PWD)/espeak-data/dictsource
+	touch espeak-data/dictsource/dir.stamp
+
+espeak-data/phsource/dir.stamp: phsource/ph_* phsource/phonemes phsource/intonation
+	rm -rf espeak-data/phsource
+	./shadowdir $(PWD)/phsource $(PWD)/espeak-data/phsource
+	touch espeak-data/phsource/dir.stamp
+
+espeak-data/phontab: src/espeakedit espeak-data/dir.stamp espeak-data/dictsource/dir.stamp espeak-data/phsource/dir.stamp
 	src/espeakedit --compile
 
 ##### dictionaries:
