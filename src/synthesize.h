@@ -475,7 +475,7 @@ int  WavegenInitSound();
 void WavegenInit(int rate, int wavemult_fact);
 float polint(float xa[],float ya[],int n,float x);
 int WavegenFill(int fill_zeros);
-void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr);
+void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr);
 
 
 extern unsigned char *wavefile_data;
@@ -559,7 +559,7 @@ int MbrolaFill(int length, int resume, int amplitude);
 void MbrolaReset(void);
 void DoEmbedded(int *embix, int sourceix);
 void DoMarker(int type, int char_posn, int length, int value);
-//int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
+void DoPhonemeMarker(int type, int char_posn, int length, char *name);
 int DoSample3(PHONEME_DATA *phdata, int length_mod, int amp);
 int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_LIST *plist, int modulation);
 int PauseLength(int pause, int control);

@@ -488,7 +488,11 @@ int MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, int resume, FILE *f_mbr
 			len = (80 * speed.wav_factor)/256;
 
 		if(ph->code != phonEND_WORD)
-			DoMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, ph->mnemonic); 
+		{
+			char phoneme_name[16];
+			WritePhMnemonic(phoneme_name, p->ph, p, option_phoneme_events & espeakINITIALIZE_PHONEME_IPA);
+			DoPhonemeMarker(espeakEVENT_PHONEME, (p->sourceix & 0x7ff) + clause_start_char, 0, phoneme_name);
+		}
 
 		ptr += sprintf(ptr,"%s\t",WordToString(name));
 

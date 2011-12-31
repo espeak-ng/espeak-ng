@@ -282,7 +282,7 @@ static void CloseWaveFile()
 
 
 
-void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr)
+void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
 {//======================================================================================
 // Do nothing in the command-line version.
 	if(type == 2)
