@@ -524,27 +524,33 @@ unsigned short ipa1[96] = {
 };
 
 
-static void WritePhMnemonic(char **buf, PHONEME_TAB *ph, PHONEME_LIST *plist)
-{//=======================================================================================
+char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa)
+{//=====================================================================================
 	int c;
 	int mnem;
 	int len;
 	int first;
 	int ix = 0;
-	char *phon_out;
+	char *p;
 	unsigned int ipa_control=0;  // first byte of ipa string may control the phoneme name interpretation. 0x20 = ignore this phoneme
 	PHONEME_DATA phdata;
-
-	phon_out = *buf;
 
 	if(ph->code == phonEND_WORD)
 	{
 		// ignore
 		phon_out[0] = 0;
-		return;
+		return(phon_out);
 	}
 
-	if(option_phonemes == 3)
+	if(ph->code == phonSWITCH)
+	{
+		// the tone_ph field contains a phoneme table number
+		p = phoneme_tab_list[plist->tone_ph].name;
+		sprintf(phon_out, "(%s)", p);
+		return(phon_out + strlen(phon_out));
+	}
+
+	if(use_ipa)
 	{
 		// has an ipa name been defined for this phoneme ?
 		phdata.ipa_string[0] = 0;
@@ -568,8 +574,9 @@ static void WritePhMnemonic(char **buf, PHONEME_TAB *ph, PHONEME_LIST *plist)
 			}
 			if(ipa_control >= 0x20)
 			{
-				*buf += ix;
-				return;  // 0x20 = ignore phoneme
+				phon_out = &phon_out[ix];
+				*phon_out = 0;
+				return(phon_out);  // 0x20 = ignore phoneme
 			}
 		}
 	}
@@ -580,7 +587,7 @@ static void WritePhMnemonic(char **buf, PHONEME_TAB *ph, PHONEME_LIST *plist)
 		if((c == '/') && (option_phoneme_variants==0))
 			break;      // discard phoneme variant indicator
 
-		if(option_phonemes == 3)
+		if(use_ipa)
 		{
 			// convert from ascii to ipa
 			if(first && (c == '_'))
@@ -605,13 +612,15 @@ static void WritePhMnemonic(char **buf, PHONEME_TAB *ph, PHONEME_LIST *plist)
 		first = 0;
 	}
 
-	*buf += ix;
+	phon_out = &phon_out[ix];
+	*phon_out = 0;
+	return(phon_out);
 }  // end of WritePhMnemonic
 
 
 
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
-{//============================================================
+void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
+{//=========================================================================
 /* Can be called after a clause has been translated into phonemes, in order
    to display the clause in phoneme mnemonic form.
 */
@@ -622,7 +631,6 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 	int  phon_out_ix=0;
 	int  stress;
 	unsigned int c;
-	char *p;
 	char *buf;
 	char phon_buf[30];
 	PHONEME_LIST *plist;
@@ -646,7 +654,7 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 					c = 0;
 					if(stress > 5) stress = 5;
 
-					if(option_phonemes == 3)
+					if(use_ipa)
 					{
 						c = 0x2cc;  // ipa, secondary stress
 						if(stress > 3)
@@ -664,30 +672,22 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 				}
 			}
 
-			if(plist->ph->code == phonSWITCH)
-			{
-				// the tone_ph field contains a phoneme table number
-				p = phoneme_tab_list[plist->tone_ph].name;
+			buf = WritePhMnemonic(buf, plist->ph, plist, use_ipa);
 
-				sprintf(buf, "(%s)", p);
-				buf += (strlen(p) + 2);
-			}
-			else
+			if(plist->ph->code != phonSWITCH)
 			{
-				WritePhMnemonic(&buf, plist->ph, plist);
-	
 				if(plist->synthflags & SFLAG_LENGTHEN)
 				{
-					WritePhMnemonic(&buf, phoneme_tab[phonLENGTHEN], NULL);
+					buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa);
 				}
 				if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
 				{
 					// syllablic consonant
-					WritePhMnemonic(&buf, phoneme_tab[phonSYLLABIC], NULL);
+					buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa);
 				}
 				if(plist->tone_ph > 0)
 				{
-					WritePhMnemonic(&buf, phoneme_tab[plist->tone_ph], NULL);
+					buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa);
 				}
 			}
 	

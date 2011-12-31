@@ -123,3 +123,17 @@ phoneme X
   lengthmod 3
   WAV(ufric/x2, 60)
 endphoneme
+
+phoneme L
+  import_phoneme sq/ll
+//  import_phoneme base/l-
+endphoneme
+
+phoneme l
+  liquid
+  IF nextPhW(isFlag1) THEN
+  ELSE
+    ChangePhoneme(L)  // Hard
+  ENDIF
+  CALL base/l
+endphoneme

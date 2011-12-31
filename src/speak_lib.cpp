@@ -543,12 +543,13 @@ static const char* label[] = {
 #endif
 
 
-void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr)
-{//======================================================================================
-	// type: 1=word, 2=sentence, 3=named mark, 4=play audio, 5=end
+void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
+{//==================================================================================================
+	// type: 1=word, 2=sentence, 3=named mark, 4=play audio, 5=end, 7=phoneme
 	ENTER("MarkerEvent");
 	espeak_EVENT *ep;
 	double time;
+	PHONEME_TAB *ph;
 	
 	if((event_list == NULL) || (event_list_ix >= (n_event_list-2)))
 		return;
@@ -574,7 +575,17 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 	if((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
 		ep->id.name = &namedata[value];
 	else
+	if(type == espeakEVENT_PHONEME)
+	{
+		int *p;
+		p = (int *)(ep->id.string);
+		p[0] = value;
+		p[1] = value2;
+	}
+	else
+	{
 		ep->id.number = value;
+	}
 }  //  end of MarkerEvent
 
 
@@ -769,7 +780,7 @@ ENTER("espeak_Initialize");
 	
 	option_phonemes = 0;
 	option_mbrola_phonemes = 0;
-	option_phoneme_events = (options & 1);
+	option_phoneme_events = (options & (espeakINITIALIZE_PHONEME_EVENTS | espeakINITIALIZE_PHONEME_IPA));
 
 	VoiceReset(0);
 //	SetVoiceByName("default");
