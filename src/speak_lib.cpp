@@ -66,6 +66,7 @@ int (* uri_callback)(int, const char *, const char *) = NULL;
 int (* phoneme_callback)(const char *) = NULL;
 
 char path_home[N_PATH_HOME];   // this is the espeak-data directory
+extern int saved_parameters[N_SPEECH_PARAM]; //Parameters saved on synthesis start
 
 
 void WVoiceChanged(voice_t *wvoice)
@@ -575,6 +576,8 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 	if((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
 		ep->id.name = &namedata[value];
 	else
+#ifdef deleted
+// temporarily removed, don't introduce until after eSpeak version 1.46.02
 	if(type == espeakEVENT_PHONEME)
 	{
 		int *p;
@@ -583,6 +586,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, int value2, un
 		p[1] = value2;
 	}
 	else
+#endif
 	{
 		ep->id.number = value;
 	}
@@ -607,6 +611,9 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 	my_unique_identifier = unique_identifier;
 	my_user_data = user_data;
 	
+	for (int i=0; i < N_SPEECH_PARAM; i++)
+		saved_parameters[i] = param_stack[0].parameter[i];
+
 	switch(position_type)
 		{
 		case POS_CHARACTER:
@@ -786,7 +793,7 @@ ENTER("espeak_Initialize");
 //	SetVoiceByName("default");
 	
 	for(param=0; param<N_SPEECH_PARAM; param++)
-		param_stack[0].parameter[param] = param_defaults[param];
+		param_stack[0].parameter[param] = saved_parameters[param] = param_defaults[param];
 	
 	SetParameter(espeakRATE,175,0);
 	SetParameter(espeakVOLUME,100,0);
@@ -1168,6 +1175,10 @@ ESPEAK_API espeak_ERROR espeak_Cancel(void)
 	SHOW_TIME("espeak_Cancel > LEAVE");
 #endif
 	embedded_value[EMBED_T] = 0;    // reset echo for pronunciation announcements
+
+	for (int i=0; i < N_SPEECH_PARAM; i++)
+		SetParameter(i, saved_parameters[i], 0);
+
 	return EE_OK;
 }   //  end of espeak_Cancel
 

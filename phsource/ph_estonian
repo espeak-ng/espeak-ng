@@ -314,7 +314,7 @@ phoneme r   // used for [r] when not preceding a vowel
   FMT(r3/r_) addWav(r3/rx)
 endphoneme
 
-phoneme k          // tasasemad klõklsud
+phoneme k          // tasasemad klï¿½klsud
   vls vel stop
   lengthmod 2
   voicingswitch g

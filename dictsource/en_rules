@@ -1425,7 +1425,7 @@
             co (llab     k@
             co (llap     k@
             collar       k0l3
-            co (llat     k@
+            co (llat     k%0
             co (llec     k@
             colle (gi    k@li:
             co (llis     k@
@@ -1475,7 +1475,7 @@
          _) comp (tr     k%0m
             co (mputa    k,0
          _) co (mr       k0
-         _) con (@       k@n
+         _) con (@       k%0n
          _) conce (ntra  k0ns@
          _) co (ncept_   k0
          _) co (ncret    k0
@@ -1488,6 +1488,7 @@
          _) co (nfid     k0
          _) co (nfide    k%0
          _) confi (den   k0nfI
+         _) co (nfigu    k@
          _) co (nfis     k0
          _) co (nflu     k0
          _) co (ngre     k0
@@ -1502,11 +1503,12 @@
          _) co (nque     k0
          _) co (nsc      k0
             co (nsec     k0
-            co (nsecu    k@
+            co (nsecu    k%0
          _) conse (q     k0nsI
             conser (v    k%0ns3:
             conser (vatio k0ns@
             consider     k@nsId3
+         _) co (nsi      k@
             co (nson     k0
          _) co (nstabl   k0
             co (nstan    k0
@@ -1528,9 +1530,8 @@
             contrar      k%0ntre@
          _) co (ntrib    k0
          _) co (ntrov    k,0
-            co (ntrol+   k@
+            co (ntrol+   k%0
             conva (l     k0nv@
-         _) con (v       k%0n
          _) co (nvoy     k0
          _) co (nw       k0
          _) copy         k0pI
@@ -1566,6 +1567,7 @@
             dg (i        dZ
             dg (y        dZ
          _) dir (_       daI3
+         _) dmi (tr      d@mi:
         we) dne (sd      n
             dt (_        t
 ?3       &) du (CA       dZu:
@@ -4493,6 +4495,7 @@
             photocop     foUt@k0p
             phot (ograph+  foUt
          _) phot (oL10++   foUt
+         _) phth (A      fT
          _) phyco        f,aIkoU
             p (hole      p
        sym) pa           p@

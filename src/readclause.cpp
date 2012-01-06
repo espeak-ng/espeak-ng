@@ -191,6 +191,7 @@ static int n_param_stack;
 PARAM_STACK param_stack[N_PARAM_STACK];
 
 static int speech_parameters[N_SPEECH_PARAM];     // current values, from param_stack
+int saved_parameters[N_SPEECH_PARAM];             //Parameters saved on synthesis start
 
 const int param_defaults[N_SPEECH_PARAM] = {
    0,     // silence (internal use)
