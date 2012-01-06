@@ -299,7 +299,6 @@ tamil	தமிழ்	$text
 பீச்சில்	$alt
 பீல்	fi:l
 புக்	$alt
-பீர்	$alt
 போயிங்	$alt
 பலத்தாலான	$alt
 பார	$alt
@@ -308,7 +307,6 @@ tamil	தமிழ்	$text
 பாலிய	$alt
 புக்கு	$alt
 படுவா	$alt
-பீரும்	$alt
 பல்ப்	$alt
 பிரேக்	bre:k
 ப்ரேக் 	bre:k
@@ -362,6 +360,8 @@ tamil	தமிழ்	$text
 பத்திரப்	bVttirVp
 பாய்ஸ்	$alt
 புக்கர்	$alt
+பாதிக்க	$alt
+பலக்க	$alt
 
 
 
@@ -386,7 +386,6 @@ tamil	தமிழ்	$text
 திக்கற்ற	$alt
 தானு	$alt
 திட	$alt
-தேவ	$alt
 தோ	$alt
 தரும	$alt
 தொப்	$alt
@@ -431,6 +430,7 @@ tamil	தமிழ்	$text
 தான	$alt
 தம்மம்	$alt
 தம்ம	$alt
+தாயம்	$alt
 
 
 	// initial ட
@@ -515,6 +515,8 @@ tamil	தமிழ்	$text
 கிண்	$alt
 கிர்	$alt
 கங்க	$alt
+காந்த	$alt
+
 
 
 
@@ -527,7 +529,6 @@ tamil	தமிழ்	$text
 பாதரிடம்	fa:dVrid.Vm
 பாதருடன்	fa:dVrUd.Vn
 பாதரில்லாமல்	fa:dVrilla:mVl
-காபி	ka:fi
 பேனில்	fe:nil
 பேன்ல	fe:nlV
 போன்ல	fo:nlV
