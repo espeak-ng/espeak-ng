@@ -142,7 +142,9 @@ martaló) c (ser    ts
  _újon) c (ság     ts
  _kuru) c (ság     ts
  _paló) c (ság     ts
-
+_fejlé) c          ts
+  nyol) c (seb     ts
+  bará) cs (ágta   tS:
 
 .group ch
   anar) ch (i      h
@@ -177,6 +179,8 @@ oligar) ch         h
 diszti) ch (on     h
     ma) ch (iavell h
    _or) ch (ide    h
+almana) ch         h
+
 
 
 .group d
@@ -540,6 +544,8 @@ imádsá) g (gyűjt   g
    _lo) g (gyűjt   g         //for example loggyűjtemény word
    dro) g (gyanú   g
     le) gg (roteszk g:
+ _agya) g (gy      g
+  anya) g (győz    g
 
 .group gy
         gy         J
@@ -1018,6 +1024,10 @@ ejtőernyő) s       S
  _piro) s          S
   típu) s (zub     S
  _vörö) s          S
+termelé) s         S
+ _áldá) s          S
+_asztalo) s        S
+ _árgu) s          S
 
 .group ss
         ssz        ss2
@@ -1389,6 +1399,9 @@ _nesze) ssz (er    s
 bégeté) ssz (erű   Ss
      a) ssz (isztál s
   piro) ssz (ka    s
+  ágyú) ssz        Ss
+   alá) ssz (olg   Ss
+  almá) ssz (ürk   Ss
 
 
 .group sz
@@ -1436,6 +1449,7 @@ fáklyá) sz (ene    Sz
         szs (ák    SZ        //All szsák part containing part need spokening single S and Z phoneme, for example kenyereszsák, pénzeszsák, krumpliszsák, cukroszsák words
         sz (acsk   Sz        //all szacsk containing part block need spokening single S and z phoneme, for example chipseszacskó word
  legké) szs (éges  S:
+ ameti) sztsze     st|sE
 
 .group t
         t          t
@@ -1540,6 +1554,9 @@ rokkan) t (segít   t
    _hé) t (col     t
   _fro) tt (ír     t
  plaká) t (cég     t
+  álla) t (szőr    t
+ aszal) t (jeg     t
+
 
 .group tj
      C) tj         c
@@ -2067,6 +2084,7 @@ csatlako) z (tok   s
   neme) z          z
  helye) z (ke      s
    _tí) z (sou     z
+  leme) z (stú     z
 
 .group
         $          dolla:R2

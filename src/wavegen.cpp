@@ -261,8 +261,11 @@ unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
 
 
 #ifdef LOG_FRAMES
-static void LogMarker(int type, int value)
-{//=======================================
+static void LogMarker(int type, int value, int value2)
+{//===================================================
+	char buf[20];
+	int *p;
+
 	if(option_log_frames == 0)
 		return;
 
@@ -272,7 +275,13 @@ static void LogMarker(int type, int value)
 		if(f_log)
 		{
 			if(type == espeakEVENT_PHONEME)
-				fprintf(f_log,"Phoneme [%s]\n",WordToString(value));
+			{
+				p = (int *)buf;
+				p[0] = value;
+				p[1] = value2;
+				buf[8] = 0;
+				fprintf(f_log,"Phoneme [%s]\n", buf);
+			}
 			else
 				fprintf(f_log,"\n");
 			fclose(f_log);
@@ -1630,7 +1639,7 @@ void WavegenSetVoice(voice_t *v)
 	}
 	WavegenSetEcho();
 	SetPitchFormants();
-	MarkerEvent(espeakEVENT_SAMPLERATE,0,wvoice->samplerate,out_ptr);
+	MarkerEvent(espeakEVENT_SAMPLERATE, 0, wvoice->samplerate, 0, out_ptr);
 //	WVoiceChanged(wvoice);
 }
 
@@ -1862,6 +1871,7 @@ int WavegenFill2(int fill_zeros)
 	long *q;
 	int length;
 	int result;
+	int marker_type;
 	static int resume=0;
 	static int echo_complete=0;
 
@@ -1889,7 +1899,7 @@ int WavegenFill2(int fill_zeros)
 		q = wcmdq[wcmdq_head];
 		length = q[1];
 
-		switch(q[0])
+		switch(q[0] & 0xff)
 		{
 		case WCMD_PITCH:
 			SetPitch(length,(unsigned char *)q[2],q[3] >> 16,q[3] & 0xffff);
@@ -1946,13 +1956,14 @@ int WavegenFill2(int fill_zeros)
 #endif
 
 		case WCMD_MARKER:
-			MarkerEvent(q[1],q[2],q[3],out_ptr);
+			marker_type = q[0] >> 8;
+			MarkerEvent(marker_type, q[1],q[2],q[3],out_ptr);
 #ifdef LOG_FRAMES
-			LogMarker(q[1],q[3]);
+			LogMarker(marker_type, q[2], q[3]);
 #endif
-			if(q[1] == 1)
+			if(marker_type == 1)  // word marker
 			{
-				current_source_index = q[2] & 0xffffff;
+				current_source_index = q[1] & 0xffffff;
 			}
 			break;
 

@@ -1211,10 +1211,27 @@ void DoMarker(int type, int char_posn, int length, int value)
 // Type 1=word, 2=sentence, 3=named marker, 4=play audio, 5=end
 	if(WcmdqFree() > 5)
 	{
-		wcmdq[wcmdq_tail][0] = WCMD_MARKER;
-		wcmdq[wcmdq_tail][1] = type;
-		wcmdq[wcmdq_tail][2] = (char_posn & 0xffffff) | (length << 24);
-		wcmdq[wcmdq_tail][3] = value;
+		wcmdq[wcmdq_tail][0] = WCMD_MARKER + (type << 8);
+		wcmdq[wcmdq_tail][1] = (char_posn & 0xffffff) | (length << 24);
+		wcmdq[wcmdq_tail][2] = value;
+		WcmdqInc();
+	}
+}  // end of DoMarker
+
+
+void DoPhonemeMarker(int type, int char_posn, int length, char *name)
+{//==================================================================
+// This could be used to return an index to the word currently being spoken
+// Type 7=phoneme
+	int *p;
+
+	if(WcmdqFree() > 5)
+	{
+		wcmdq[wcmdq_tail][0] = WCMD_MARKER + (type << 8);
+		wcmdq[wcmdq_tail][1] = (char_posn & 0xffffff) | (length << 24);
+		p = (int *)name;
+		wcmdq[wcmdq_tail][2] = p[0];   // up to 8 bytes of UTF8 characters
+		wcmdq[wcmdq_tail][3] = p[1];
 		WcmdqInc();
 	}
 }  // end of DoMarker
@@ -1319,6 +1336,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
+	int use_ipa=0;
+	char phoneme_name[16];
 	static int sourceix=0;
 
 	PHONEME_DATA phdata;
@@ -1329,6 +1348,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 	if(option_quiet)
 		return(0);
+
+	if(option_phoneme_events & espeakINITIALIZE_PHONEME_IPA)
+		use_ipa = 1;
 
 	if(mbrola_name[0] != 0)
 		return(MbrolaGenerate(phoneme_list,n_ph,resume));
@@ -1405,7 +1427,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(option_phoneme_events && (p->type != phVOWEL) && (p->ph->code != phonEND_WORD))
 		{
 			// Note, for vowels, do the phoneme event after the vowel-start
-			DoMarker(espeakEVENT_PHONEME, sourceix, 0, p->ph->mnemonic);
+			WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
+			DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 		}
 
 		switch(p->type)
@@ -1712,7 +1735,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 			if(option_phoneme_events)
 			{
-				DoMarker(espeakEVENT_PHONEME, sourceix, 0, p->ph->mnemonic);
+				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
+				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 			}
 
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
@@ -1896,7 +1920,11 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	if((option_phonemes > 0) || (phoneme_callback != NULL))
 	{
-		GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
+		int use_ipa = 0;
+		if(option_phonemes == 3)
+			use_ipa = 1;
+
+		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
 		if(option_phonemes > 0)
 		{
 			fprintf(f_trans,"%s\n",translator->phon_out);

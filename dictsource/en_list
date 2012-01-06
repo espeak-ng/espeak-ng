@@ -17,6 +17,7 @@
 // ?8  Use full vowel, not schwa in some word endings
 
 // $alt    use strong ending
+// $alt2   use weak ending
 
 
 // letter names, as they are spoken as a single character in text
@@ -297,6 +298,7 @@ _17	s'Ev@nti:n
 _18	'eIti:n
 _19	n'aInti:n
 _2X	tw'Enti
+?3 _2X  tw'Eni
 _3X	T'3:ti
 ?5 _3X	T'IRti
 _4X	f'o@ti
@@ -306,6 +308,7 @@ _7X	s'Ev@nti
 ?7 _7X  s'@v@nti
 _8X	'eIti
 _9X	n'aInti
+
 _0C	h'Vndr@d
 _0M1	T'aUz@nd
 _0M2	m'Ili@n
@@ -628,6 +631,7 @@ askance		a#skaans
 askew		a#skju:
 ass		as
 assess		a#sEs
+asus		eIs@s
 atlas		atl@s
 atop		a#t0p
 attache		at'aSeI         $only
@@ -702,6 +706,7 @@ bizarre		bIz'A@
 bizzare		bIz'A@
 blancmange	bl@m0nZ
 blase		blA:zeI
+bleh		blEh
 blockade	$2
 blouse		blaUz
 bluest		blu:@st
@@ -776,10 +781,13 @@ capitol		kapIt@L
 caprice		ka#pr'i:s
 caramel		kar@mEl
 caravan		kar@van
+carburetor	kA@b@r'Et3
+?3 carburetor	kA@b@reIt3
 career		k@r'i@3
 caress		k@rEs
 carpel		kA@p@l
 cascade		$2
+cashier		kaS'i@3
 cashmere	kaSm'i@3
 catastrophe	ka#tastr@f%i
 catarrh		k@tA@
@@ -808,6 +816,8 @@ chapel		tSap@L
 charade		Sa#rA:d
 charismatic	karIsm'atIk
 charit		tSarIt        // charitable
+charlatan	SA@l@t@n
+chassis		SaSi
 chateau		SatoU
 chemise		SEm'i:z
 chevrolet	SEvr@leI
@@ -894,6 +904,7 @@ conduct		$verb
 cone		koUn
 conflict	k0nflIkt           $onlys
 conflict	$verb
+confront	k@nfrVnt
 conger		k0Ng3
 conscience	k0nS@ns
 construct	k0nstrVkt     $onlys
@@ -929,6 +940,7 @@ corollary	$2
 corporal	kO@pr@L
 corporate	kO@p@r@t
 corps		kO@           $only
+corral		k@r'al
 cosmos		k0zm0s
 countered	kaUnt3d
 coupon		ku:p0n
@@ -1076,6 +1088,7 @@ educe		I2dju:s
 edwardian	Edw'O@di@n
 efile		i:faIl
 egg		Eg	// egging 
+egregious	Igr'i:dZ@s
 eh		eI
 eid		i:d
 el		,El $only
@@ -1087,6 +1100,7 @@ elicit		I2lIsI2t
 élite		Il'i:t
 embed		Emb'Ed
 ember		Emb3
+emphasis	Emf@sIs
 empire		$1
 emu		i:mju:
 enroute		0nr'u:t
@@ -1163,6 +1177,7 @@ familiar	f@mIli@3
 famine		famIn
 farewell	$2
 fasten		faas@n
+fatigue		fa#ti:g
 fathom		faD@m
 (faux pas)	f'oU||p'A:
 favorite	feIv@-rI2t	// sp.
@@ -1207,6 +1222,7 @@ foretell	fo@t'El
 forever		$2
 forewarn	$2
 formid		fO@m'Id	// formidable
+formica		fO@m'aIk@
 fortunate	fO@tS@n@t
 fortune		fO@tSu:n
 foyer		fOIeI
@@ -1253,6 +1269,7 @@ gilead		g'IlIad
 gimme		gImi
 giraffe		dZI2raaf
 goin		,goUI2n $only // for goin'
+gonna		g,@n@
 goodbye		$2
 goodday		$2
 goodnight	$2
@@ -1337,8 +1354,6 @@ huzza		h@z'A:
 huzzah		h@z'A:
 hyperbola	haIp'3:b@l@
 hyperbole	haIp'3:b@li
-hypothesis	haIp'0T@sIs
-hypotheses	haIp'0T@si:z 
 hypotenuse	haIp'0t@nju:s
 hypoxia		haIp'0ksi@
 
@@ -1347,6 +1362,7 @@ icon		aIk0n
 iconbar		aIk0nbA@
 idly		aIdlI
 ignoramus	Igno@r'eIm@s
+illiterate	$alt2
 imagine		I2madZI2n
 impedance	Imp'i:d@ns
 imperative	Imp'Er@tIv
@@ -1450,7 +1466,7 @@ laity		leI@ti
 landowner	l'and,oUn3
 las		,las $only
 ?3 las		,lA:s $only
-lasagne		l@zanj@
+lasagna		l@zanj@
 laser		leIz3
 lasso		las'u:
 latte		lateI
@@ -1484,6 +1500,7 @@ lingerie	l0nZ@ri
 linen		lInI2n
 liqueur		lI2kjU@
 liter		li:t3
+literate	$alt2
 literature	lItrI2tS3
 live		laIv          $onlys
 live		lIv           $verb
@@ -1546,6 +1563,8 @@ meant		mEnt
 meadow		mEdoU
 mediaeval	mEdI'i:v@L
 medicine	mEds@n
+melee		mEleI
+?3 melee	meIleI
 melon		mEl@n
 menus		mEnju:z
 memo		mEmoU
@@ -1624,6 +1643,7 @@ myrtle		m3:t@L
 
 naif		naI'i:f
 naïve		naI'i:v
+naivete		naI'i:v@teI
 naked		neIkI#d
 nasa		nasa#
 nascent		neIs@nt
@@ -1749,6 +1769,7 @@ paltry		pO:ltrI
 panacea		pana#s'i:@
 panache		$2
 pancreas	pankri@s
+papaya		pa#paI;@
 parabola	p@rab@l@
 paralysis	p@ral@sIs
 parameter	p@ramI2t3
@@ -1907,6 +1928,7 @@ rabid		reIbId
 radar		reIdA@
 radish		radIS
 ragged		ragI#d
+raiment		reIm@nt
 rainforest	r'eInf,0rI2st
 rajah		rA:dZA:
 rapier		reIpi@3
@@ -2141,6 +2163,7 @@ society		s@saI@ti
 sofa		soUf@
 soiree		swA:reI
 sojourn		soUdZ3:n
+solder		s0ld3
 soldier		soUldZ3
 solemn		s0l@m
 solicit		s@lIsI2t       // solicited,ing
@@ -2155,7 +2178,7 @@ soundbite	saUndbaIt
 souvenir	su:v@n'i@3
 sorbet		sO@beI
 soyabean	sOI@bi:n
-spaghetti	spag'Eti
+spaghetti	spa#gEti
 spasm		spas@m
 specific	sp@sIfIk
 specimen	spEsI2m@n
@@ -2209,8 +2232,6 @@ suspect		sVspEkt       $onlys
 suspect		$verb
 symbol		sImb@L
 sync		sINk
-synthesis	sInT@sIs      $only
-synthesise	sInT@saIz
 
 tableau		tabloU
 tablet		tabl@t
@@ -2559,16 +2580,18 @@ Chile		tSIli
 Cincinnati	sInsIn'ati
 Cologne		k@loUn
 Columbus	$2
-Congo		$1
+Congo		k0NgoU
 Connecticut	k@nEtI2k@t
 Copenhagen	koUp@nh'eIg@n
 Cruz		kru:z
 Cyprus		saIpr@s
 Dahomey		$2
+Dallas		dal@s
 Damascus	da#mask@s
 Dakota		da#koUt@
 Danish		deInIS
 Delhi		dEli
+(Des moines)	d@mOIn
 Dhabi		dA:bi
 Djibouti	dZIb'u:ti
 Donegal		d0nI2g'O:l
@@ -2909,6 +2932,7 @@ Loinnir		lVni@
 Lois		loUIs
 Louis		lu:i
 Louise		lu:w'i:z
+Luigi		lu:'i:dZi
 Luis		lu:Is
 Lupe		lu:peI
 Madeline	mad@lI2n
@@ -2926,7 +2950,7 @@ Matthew		maTju:
 Maurice		m0rIs
 Mavis		meIvIs
 Megan		mEg@n
-Melissa		$2
+Melissa		m@lIs@
 Michele		mI2SEl
 Michelle	mI2SEl
 Miguel		mi:Q'El
@@ -2959,6 +2983,7 @@ Pamela		pam@l@
 Pandora		$2
 Patricia	pa#trIS@
 Penelope	p@nEl@pi
+Persephone	p3s'Ef@ni
 Phoebe		fi:bi:
 Rachael		reItS@L
 Rachel		reItS@L
@@ -2966,6 +2991,7 @@ Raul		raU'u:l
 Rees		ri:s
 Reese		ri:s
 Reggie		rEdZi
+Remus		ri:m@s
 Reynold		rEn@Ld
 Rhys		ri:s
 Rihanna		rI'A:n@
@@ -3023,11 +3049,13 @@ Dante		danteI
 Disney		dIzni
 Dolce		d0ltSeI
 Dvorak		d@-vo@Zak
+Folger		foUldZ3
 Gibson		gIbs@n
 Guinness	gInIs
 Hades		heIdi:z
 Mackenna	m@kEn@
 Mackenzie	m@kEnzi
+Medusa		$2
 Montague	m0nt@gju:
 Niro		ni@roU
 Patel		pa#tEl
@@ -3043,6 +3071,7 @@ Ubuntu		u:b'u:ntu:
 Wii		wi::
 Yaesu		jeIsu:
 Yamaha		jam@hA:
+zeus		zju:s
 zhivago		ZI2vA:goU
 
 

@@ -639,7 +639,7 @@ int IsDigit(unsigned int c);
 int IsAlpha(unsigned int c);
 int isspace2(unsigned int c);
 int towlower2(unsigned int c);
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
+void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
@@ -679,6 +679,7 @@ int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata);
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
+char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa);
 
 extern FILE *f_trans;		// for logging
 extern FILE *f_logespeak;
