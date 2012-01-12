@@ -4,6 +4,8 @@
 
 # libraries
 
+docs/speak_lib.h
+
 src/libespeak.a
 src/libespeak.so*
 

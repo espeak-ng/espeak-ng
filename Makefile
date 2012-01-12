@@ -8,7 +8,7 @@ PLATFORM=big_endian
 
 ##### standard build actions:
 
-all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries
+all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
 
 install: all
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) install && cd ..
@@ -68,6 +68,9 @@ espeakedit_SOURCES = \
 	src/transldlg.cpp \
 	src/voicedlg.cpp \
 	src/vowelchart.cpp
+
+docs/speak_lib.h: src/speak_lib.h
+	cp $< $@
 
 src/libespeak.a: $(common_SOURCES) $(libespeak_SOURCES)
 	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
