@@ -142,7 +142,7 @@ static void EndPitch(int voice_break)
 
 static void DoAmplitude(int amp, unsigned char *amp_env)
 {//=====================================================
-	long *q;
+	long64 *q;
 
 	last_amp_cmd = wcmdq_tail;
 	amp_length = 0;       // total length of vowel with this amplitude envelope
@@ -150,7 +150,7 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_AMPLITUDE;
 	q[1] = 0;        // fill in later from amp_length
-	q[2] = (long)amp_env;
+	q[2] = (long64)amp_env;
 	q[3] = amp;
 	WcmdqInc();
 }  // end of DoAmplitude
@@ -159,7 +159,7 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 
 static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 {//============================================================
-	long *q;
+	long64 *q;
 
 	EndPitch(0);
 
@@ -179,7 +179,7 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_PITCH;
 	q[1] = 0;   // length, fill in later from pitch_length
-	q[2] = (long)env;
+	q[2] = (long64)env;
 	q[3] = (pitch1 << 16) + pitch2;
 	WcmdqInc();
 }  //  end of DoPitch
@@ -248,7 +248,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	int min_length;
 	int x;
 	int len4;
-	long *q;
+	long64 *q;
 	unsigned char *p;
 
 	index = index & 0x7fffff;
@@ -336,7 +336,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q = wcmdq[wcmdq_tail];
 		q[0] = WCMD_WAVE2;
 		q[1] = length | (wav_length << 16);   // length in samples
-		q[2] = long(&wavefile_data[index]);
+		q[2] = long64(&wavefile_data[index]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
 		return(length);
@@ -357,7 +357,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_WAVE;
 	q[1] = x;   // length in samples
-	q[2] = long(&wavefile_data[index]);
+	q[2] = long64(&wavefile_data[index]);
 	q[3] = wav_scale + (amp << 8);
 	WcmdqInc();
 
@@ -372,7 +372,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q = wcmdq[wcmdq_tail];
 		q[0] = WCMD_WAVE;
 		q[1] = len4*2;   // length in samples
-		q[2] = long(&wavefile_data[index+x]);
+		q[2] = long64(&wavefile_data[index+x]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
 
@@ -388,7 +388,7 @@ static int DoSample2(int index, int which, int std_length, int control, int leng
 		q = wcmdq[wcmdq_tail];
 		q[0] = WCMD_WAVE;
 		q[1] = length;   // length in samples
-		q[2] = long(&wavefile_data[index+x]);
+		q[2] = long64(&wavefile_data[index+x]);
 		q[3] = wav_scale + (amp << 8);
 		WcmdqInc();
 	}
@@ -775,7 +775,7 @@ static void SmoothSpect(void)
 {//==========================
 	// Limit the rate of frequence change of formants, to reduce chirping
 
-	long *q;
+	long64 *q;
 	frame_t *frame;
 	frame_t *frame2;
 	frame_t *frame1;
@@ -817,7 +817,7 @@ static void SmoothSpect(void)
 			frame1 = (frame_t *)q[3];
 			if(frame1 == frame)
 			{
-				q[3] = (long)frame2;
+				q[3] = (long64)frame2;
 				frame1 = frame2;
 			}
 			else
@@ -865,7 +865,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->ffreq[pk] = frame1->ffreq[pk] + allowed;
-					q[2] = (long)frame2;
+					q[2] = (long64)frame2;
 				}
 				else
 				if(diff < -allowed)
@@ -876,7 +876,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->ffreq[pk] = frame1->ffreq[pk] - allowed;
-					q[2] = (long)frame2;
+					q[2] = (long64)frame2;
 				}
 			}
 		}
@@ -907,7 +907,7 @@ static void SmoothSpect(void)
 			{
 				if(frame1 == frame)
 				{
-					q[2] = (long)frame2;
+					q[2] = (long64)frame2;
 					frame1 = frame2;
 				}
 				else
@@ -949,7 +949,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->ffreq[pk] = frame1->ffreq[pk] + allowed;
-					q[3] = (long)frame2;
+					q[3] = (long64)frame2;
 				}
 				else
 				if(diff < -allowed)
@@ -960,7 +960,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->ffreq[pk] = frame1->ffreq[pk] - allowed;
-					q[3] = (long)frame2;
+					q[3] = (long64)frame2;
 				}
 			}
 		}
@@ -997,7 +997,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 	frame_t *frame2;
 	frame_t *fr;
 	int  ix;
-	long *q;
+	long64 *q;
 	int  len;
 	int  frame_length;
 	int  length_factor;
@@ -1083,7 +1083,7 @@ if(which==1)
 			&& !(last_frame->frflags & FRFLAG_BREAK))
 		{
 			// last frame of previous sequence was zero-length, replace with first of this sequence
-			wcmdq[last_wcmdq][3] = (long)frame1;
+			wcmdq[last_wcmdq][3] = (long64)frame1;
 
 			if(last_frame->frflags & FRFLAG_BREAK_LF)
 			{
@@ -1095,7 +1095,7 @@ if(which==1)
 						fr->ffreq[ix] = last_frame->ffreq[ix];
 					fr->fheight[ix] = last_frame->fheight[ix];
 				}
-				wcmdq[last_wcmdq][3] = (long)fr;
+				wcmdq[last_wcmdq][3] = (long64)fr;
 			}
 		}
 	}
@@ -1180,8 +1180,8 @@ if(which==1)
 				q = wcmdq[wcmdq_tail];
 				q[0] = wcmd_spect;
 				q[1] = len + (modulation << 16);
-				q[2] = long(frame1);
-				q[3] = long(frame2);
+				q[2] = (long64)frame1;
+				q[3] = (long64)frame2;
 	
 				WcmdqInc();
 			}
@@ -1254,7 +1254,7 @@ void DoVoiceChange(voice_t *v)
 	v2 = (voice_t *)malloc(sizeof(voice_t));
 	memcpy(v2,v,sizeof(voice_t));
 	wcmdq[wcmdq_tail][0] = WCMD_VOICE;
-	wcmdq[wcmdq_tail][1] = (long)(v2);
+	wcmdq[wcmdq_tail][2] = (long64)v2;
 	WcmdqInc();
 }
 
@@ -1291,7 +1291,7 @@ void DoEmbedded(int *embix, int sourceix)
 					DoPause(10,0);   // ensure a break in the speech
 					wcmdq[wcmdq_tail][0] = WCMD_WAVE;
 					wcmdq[wcmdq_tail][1] = soundicon_tab[value].length;
-					wcmdq[wcmdq_tail][2] = (long)soundicon_tab[value].data + 44;  // skip WAV header
+					wcmdq[wcmdq_tail][2] = (long64)soundicon_tab[value].data + 44;  // skip WAV header
 					wcmdq[wcmdq_tail][3] = 0x1500;   // 16 bit data, amp=21
 					WcmdqInc();
 				}
@@ -1337,6 +1337,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
 	int use_ipa=0;
+	int done_phoneme_marker;
 	char phoneme_name[16];
 	static int sourceix=0;
 
@@ -1424,11 +1425,19 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->prepause > 0)
 			DoPause(p->prepause,1);
 
-		if(option_phoneme_events && (p->type != phVOWEL) && (p->ph->code != phonEND_WORD))
+		done_phoneme_marker = 0;
+		if(option_phoneme_events && (p->ph->code != phonEND_WORD))
 		{
-			// Note, for vowels, do the phoneme event after the vowel-start
-			WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
-			DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
+			if((p->type == phVOWEL) && (prev->type==phLIQUID || prev->type==phNASAL))
+			{
+				// For vowels following a liquid or nasal, do the phoneme event after the vowel-start
+			}
+			else
+			{
+				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
+				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
+				done_phoneme_marker = 1;
+			}
 		}
 
 		switch(p->type)
@@ -1733,7 +1742,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				DoSpect2(ph, 1, &fmtp, p, modulation);
 			}
 
-			if(option_phoneme_events)
+			if((option_phoneme_events) && (done_phoneme_marker == 0))
 			{
 				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);

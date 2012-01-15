@@ -63,7 +63,7 @@
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
 typedef double DOUBLEX;
-
+typedef unsigned long long64;   // use this for conversion between pointers and integers
 
 
 
