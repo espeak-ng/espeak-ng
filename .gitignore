@@ -4,15 +4,23 @@
 
 # libraries
 
-src/libespeak.a
-src/libespeak.so*
+libespeak.a
+libespeak.so*
 
-# programs:
+# programs
 
 platforms/*/espeak-phoneme-data
-src/espeak
-src/espeakedit
-src/speak
+espeak
+espeakedit
+speak
+
+# Linux/Source distribution files
+
+praat-mod/
+
+ChangeLog.txt
+License.txt
+ReadMe
 
 # espeak-data
 

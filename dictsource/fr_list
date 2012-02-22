@@ -1,6 +1,6 @@
 /
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2012 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2011-10-29 Michel Such  <michel.such@free.fr>
+// Updated 2012-02-12 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -754,6 +754,8 @@ matthias	matjas
 merguez	mErgEz
 messieurs         mesjYz2
 mieux	miY $u+
+miloud	milud
+mouloud	mulud
 monsieur         m@sjY
 mrs	_^_en
 oasis	oazis
