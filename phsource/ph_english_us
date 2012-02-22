@@ -104,6 +104,16 @@ phoneme I2
 endphoneme
 
 
+phoneme I#
+  vowel  starttype #i  endtype #i
+  unstressed
+  length 160
+//  FMT(vowel/@_fnt)
+  FMT(vowel/ii#)
+endphoneme
+
+
+
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   unstressed

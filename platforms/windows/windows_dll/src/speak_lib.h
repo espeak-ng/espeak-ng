@@ -1,7 +1,7 @@
 #ifndef SPEAK_LIB_H
 #define SPEAK_LIB_H
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2012 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -24,13 +24,17 @@
 /* This is the header file for the library version of espeak */
 /*                                                           */
 /*************************************************************/
-#define ESPEAK_API __declspec(dllexport)
-
 
 #include <stdio.h>
 #include <stddef.h>
 
-#define ESPEAK_API_REVISION  6
+#ifdef __WIN32__
+#define ESPEAK_API __declspec(dllexport)
+#else
+#define ESPEAK_API
+#endif
+
+#define ESPEAK_API_REVISION  7
 /*
 Revision 2
    Added parameter "options" to eSpeakInitialize()
@@ -46,6 +50,11 @@ Revision 5
 
 Revision 6
   Added macros: espeakRATE_MINIMUM, espeakRATE_MAXIMUM, espeakRATE_NORMAL
+
+Revision 7  24.Dec.2011
+  Changed espeak_EVENT structure to add id.string[] for phoneme mnemonics.
+  Added espeakINITIALIZE_PHONEME_IPA option for espeak_Initialize() to report phonemes as IPA names.
+
 */
          /********************/
          /*  Initialization  */
@@ -80,8 +89,9 @@ typedef struct {
 	int sample;           // sample id (internal use)
 	void* user_data;      // pointer supplied by the calling program
 	union {
-		int number;        // used for WORD and SENTENCE events. For PHONEME events this is the phoneme mnemonic.
+		int number;        // used for WORD and SENTENCE events.
 		const char *name;  // used for MARK and PLAY events.  UTF8 string
+		char string[8];    // used for phoneme names (UTF8). Terminated by a zero byte unless the name needs the full 8 bytes.
 	} id;
 } espeak_EVENT;
 /* 
@@ -160,6 +170,7 @@ typedef enum {
 } espeak_ERROR;
 
 #define espeakINITIALIZE_PHONEME_EVENTS 0x0001
+#define espeakINITIALIZE_PHONEME_IPA   0x0002
 #define espeakINITIALIZE_DONT_EXIT     0x8000
 
 #ifdef __cplusplus
@@ -174,6 +185,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output, int buflength, cons
    path: The directory which contains the espeak-data directory, or NULL for the default location.
 
    options: bit 0:  1=allow espeakEVENT_PHONEME events.
+            bit 1:  1= espeakEVENT_PHONEME events give IPA phoneme names, not eSpeak phoneme names
             bit 15: 1=don't exit if espeak_data is not found (used for --help)
 
    Returns: sample rate in Hz, or -1 (EE_INTERNAL_ERROR).
@@ -392,7 +404,7 @@ typedef enum {
 #ifdef __cplusplus
 extern "C"
 #endif
-espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative);
+ESPEAK_API espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int relative);
 /* Sets the value of the specified parameter.
    relative=0   Sets the absolute value of the parameter.
    relative=1   Sets a relative value of the parameter.
