@@ -172,6 +172,7 @@ nyargon) c (cs     ts
  suhan) c          ts
 udvaron) c (ser    ts
   pere) c (cs      ts
+ licen) ccs        ts|tS
 
 .group ch
   anar) ch (i      h
@@ -447,6 +448,10 @@ szomszé) d (sor    d
     va) d (szegf   d
     va) d (szilv   d
     vá) d (szóza   d
+ borso) d (sz      d
+ herná) d (sz      d
+ szaba) d (szent   d
+   for) d (jános   d
 
 .group dz
   fogó) dz (kod    ts
@@ -748,7 +753,7 @@ huszone) gy (ez    J:
 _egyszere) gy (e   J:
 _huszone) gy (e    J:
  száze) gy (edik   J:
-
+ védje) gy (straté J
 
 .group h
         h          h
@@ -761,6 +766,7 @@ _huszone) gy (e    J:
    _ju) h (sajt 
    _ju) h (tenyész 
    _ju) h (szárnyék 
+   cse) h (bánya 
 
 .group i
         i          i
@@ -1133,6 +1139,11 @@ _tetszé) s         S
   toko) s (zászl   S
   váro) s (zaj     S
   váro) s (zs      S
+    ki) s (zsidá   S
+    ki) s (szent   S
+    ki) s (sziget  S
+    ki) s (szőlő   S
+  körö) s (szeg    S
 
 .group ss
         ssz        ss2
@@ -1616,6 +1627,17 @@ villamo) ssz       Ss
  zölde) ssz (ürk   Ss
  zsíro) ssz (áj    Ss
 zsoldo) ssz        Ss
+  bázi) ssz        Ss
+ _kapo) ssz        Ss
+_agyago) ssz (erg  Ss
+ _béké) ssz        Ss
+_gombo) ssz        Ss
+_kemene) ssz       Ss
+ _miko) ssz        Ss
+ _neme) ssz        Ss
+_szamo) ssz        Ss
+_szilvá) ssz       Ss
+ _vámo) ssz        Ss
 
 .group sz
         sz         s
@@ -1900,6 +1922,7 @@ természe) tj (áték tj
 természe) tj (og   tj
 _tisztele) tj (el  tj
   zené) tj (átsz   tj
+  szen) tj (akab   tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters

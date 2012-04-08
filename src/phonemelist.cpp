@@ -308,7 +308,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			next = phoneme_tab[plist3->phcode];      // this phoneme, i.e. after the insert
 
 			// re-use the previous entry for the inserted phoneme.
-			// That's OK because we don't look backwards from plist3
+			// That's OK because we don't look backwards from plist3   *** but CountVowelPosiion() and isAfterStress does !!!
 			j--;
 			plist3 = plist3_inserted = &ph_list3[j];
 			if(j > 0)

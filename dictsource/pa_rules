@@ -1,6 +1,6 @@
-
+﻿
 // Punjabi Gurmukhi script
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 
 // letter groups:
 // A   vowel letters
@@ -11,6 +11,17 @@
 
 
 .replace
+ ੦	0
+ ੧	1
+ ੨	2
+ ੩	3
+ ੪	4
+ ੫	5
+ ੬	6
+ ੭	7
+ ੮	8
+ ੯	9
+
  ૦	0
  ૧	1
  ૨	2
@@ -21,6 +32,7 @@
  ૭	7
  ૮	8
  ૯	9
+
 
 // combine dot consonants into a single character
 ਸ਼	ਸ਼
@@ -45,413 +57,413 @@
 // Vowels
 
 .group ੳ
-	ੳ	u
+        ੳ          u
 
 .group ੲ
-	ੲ	i
+        ੲ          i
 
 
 .group ਅ
-	ਅ	,V
-	ਅਂ	V~
-	ਅੰ	V~
+        ਅ          ,V
+        ਅਂ         V~
+        ਅੰ         V~
 
 .group ਆ
-	ਆ	a
-	ਆਂ	a~
-	ਆੰ	a~
+        ਆ          a
+        ਆਂ         a~
+        ਆੰ         a~
 
 .group ਇ
-	ਇ	I
-	ਇਂ	I~
-	ਇੰ	I~
+        ਇ          I
+        ਇਂ         I~
+        ਇੰ         I~
 
 .group ਈ
-	ਈ	i
-	ਈਂ	i~
-	ਈੰ	i~
+        ਈ          i
+        ਈਂ         i~
+        ਈੰ         i~
 
 .group ਉ
-	ਉ	U
-	ਉਂ	U~
-	ਉੰ	U~
+        ਉ          U
+        ਉਂ         U~
+        ਉੰ         U~
 
 .group ਊ
-	ਊ	u
-	ਊਂ	u~
-	ਊੰ	u~
+        ਊ          u
+        ਊਂ         u~
+        ਊੰ         u~
 
 .group ਏ
-	ਏ	e
-	ਏਂ	e~
-	ਏੰ	e~
+        ਏ          e
+        ਏਂ         e~
+        ਏੰ         e~
 
 .group ਐ
-	ਐ	E
-	ਐਂ	E~
-	ਐੰ	E~
+        ਐ          E
+        ਐਂ         E~
+        ਐੰ         E~
 
 .group ਓ
-	ਓ	o
-	ਓਂ	o~
-	ਓੰ	o~
+        ਓ          o
+        ਓਂ         o~
+        ਓੰ         o~
 
 .group ਔ
-	ਔ	O
-	ਔਂ	O~
-	ਔੰ	O~
+        ਔ          O
+        ਔਂ         O~
+        ਔੰ         O~
 
 .group ૠ
-	ૠ	r-
+        ૠ          r-
 
 
 // Vowel Signs
 
 .group ਾ
-	ਾ	a
-	ਾਂ	a~
-	ਾੰ	a~
+        ਾ          a
+        ਾਂ         a~
+        ਾੰ         a~
 
 .group ਿ
-	ਿ	I
-	ਿਂ	I~
-	ਿੰ	I~
+        ਿ          I
+        ਿਂ         I~
+        ਿੰ         I~
 
 .group ੀ
-	ੀ	i
-	ੀਂ	i~
-	ੀੰ	i~
+        ੀ          i
+        ੀਂ         i~
+        ੀੰ         i~
 
 .group ੁ
-	ੁ	U
-	ੁਂ	U~
-	ੁੰ	U~
+        ੁ          U
+        ੁਂ         U~
+        ੁੰ         U~
 
 .group ੂ
-	ੂ	u
-	ੂਂ	u~
-	ੂੰ	u~
+        ੂ          u
+        ੂਂ         u~
+        ੂੰ         u~
 
 .group ੇ
-	ੇ	e
-	ੇਂ	e~
-	ੇੰ	e~
+        ੇ          e
+        ੇਂ         e~
+        ੇੰ         e~
 
 .group ੈ
-	ੈ	E	// aI
-	ੈਂ	E~
-	ੈੰ	E~
+        ੈ          E         // aI
+        ੈਂ         E~
+        ੈੰ         E~
 
 .group ੋ
-	ੋ	o
-	ੋਂ	o~
-	ੋੰ	o~
+        ੋ          o
+        ੋਂ         o~
+        ੋੰ         o~
 
 .group ੌ
-	ੌ	O	// aU
-	ੌਂ	O~
-	ੌੰ	O~
+        ੌ          O         // aU
+        ੌਂ         O~
+        ੌੰ         O~
 
 
 // Consonants ਕે
 
 .group ਕ
-	ਕ	kV	// inherent vowel
-	ਕ (B	k	// no inherent vowel if vowel or virama follows
-     @) ਕ (_	k	// omit inherent vowel at end of word
-     ੱ) ਕ	k:V
-     ੱ) ਕ (B	k:
-     ੱ) ਕ (_	k:
+        ਕ          kV        // inherent vowel
+        ਕ (B       k         // no inherent vowel if vowel or virama follows
+     @) ਕ (_       k         // omit inherent vowel at end of word
+     ੱ) ਕ          k:V
+     ੱ) ਕ (B       k:
+     ੱ) ਕ (_       k:
 
 .group ਖ
-	ਖ	khV
-	ਖ (B	kh
-     @) ਖ (_	kh
-     ੱ) ਖ	kh:V
-     ੱ) ਖ (B	kh:
-     ੱ) ਖ (_	kh:
+        ਖ          khV
+        ਖ (B       kh
+     @) ਖ (_       kh
+     ੱ) ਖ          kh:V
+     ੱ) ਖ (B       kh:
+     ੱ) ਖ (_       kh:
 
 .group ਗ
-	ਗ	gV
-	ਗ (B	g
-     @) ਗ (_	g
-     ੱ) ਗ	g:V
-     ੱ) ਗ (B	g:
-     ੱ) ਗ (_	g:
+        ਗ          gV
+        ਗ (B       g
+     @) ਗ (_       g
+     ੱ) ਗ          g:V
+     ੱ) ਗ (B       g:
+     ੱ) ਗ (_       g:
 
 .group ਘ
-	ਘ	ghV
-	ਘ (B	gh
-     @) ਘ (_	gh
-     _) ਘ	k+V   // high tone
-     _) ਘ (B	k+
+        ਘ          ghV
+        ਘ (B       gh
+     @) ਘ (_       gh
+     _) ਘ          k+V       // high tone
+     _) ਘ (B       k+
 
 .group ਙ
-	ਙ	NV
-	ਙ (B	N
-     @) ਙ (_	N
-     ੱ) ਙ	N:V
-     ੱ) ਙ (B	N:
-     ੱ) ਙ (_	N:
+        ਙ          NV
+        ਙ (B       N
+     @) ਙ (_       N
+     ੱ) ਙ          N:V
+     ੱ) ਙ (B       N:
+     ੱ) ਙ (_       N:
 
 .group ਚ
-	ਚ	cV
-	ਚ (B	c
-     @) ਚ (_	c
-     ੱ) ਚ	c:V
-     ੱ) ਚ (B	c:
-     ੱ) ਚ (_	c:
+        ਚ          cV
+        ਚ (B       c
+     @) ਚ (_       c
+     ੱ) ਚ          c:V
+     ੱ) ਚ (B       c:
+     ੱ) ਚ (_       c:
 
 .group ਛ
-	ਛ	chV
-	ਛ (B	ch
-     @) ਛ (_	ch
-     ੱ) ਛ	ch:V
-     ੱ) ਛ (B	ch:
-     ੱ) ਛ (_	ch:
+        ਛ          chV
+        ਛ (B       ch
+     @) ਛ (_       ch
+     ੱ) ਛ          ch:V
+     ੱ) ਛ (B       ch:
+     ੱ) ਛ (_       ch:
 
 .group ਜ
-	ਜ	JV
-	ਜ (B	J
-     @) ਜ (_	J
-     ੱ) ਜ	J:V
-     ੱ) ਜ (B	J:
-     ੱ) ਜ (_	J:
+        ਜ          JV
+        ਜ (B       J
+     @) ਜ (_       J
+     ੱ) ਜ          J:V
+     ੱ) ਜ (B       J:
+     ੱ) ਜ (_       J:
 
 .group ਝ
-	ਝ	JhV
-	ਝ (B	Jh
-     @) ਝ (_	Jh
-     _) ਝ	c+V
-     _) ਝ (B	c+
+        ਝ          JhV
+        ਝ (B       Jh
+     @) ਝ (_       Jh
+     _) ਝ          c+V
+     _) ਝ (B       c+
 
 .group ਞ
-	ਞ	n^V
-	ਞ (B	n^
-     @) ਞ (_	n^
-     ੱ) ਞ	n^:V
-     ੱ) ਞ (B	n^:
-     ੱ) ਞ (_	n^:
+        ਞ          n^V
+        ਞ (B       n^
+     @) ਞ (_       n^
+     ੱ) ਞ          n^:V
+     ੱ) ਞ (B       n^:
+     ੱ) ਞ (_       n^:
 
 .group ਟ
-	ਟ	t.V
-	ਟ (B	t.
-     @) ਟ (_	t.
-     ੱ) ਟ	t.:V
-     ੱ) ਟ (B	t.:
-     ੱ) ਟ (_	t.:
+        ਟ          t.V
+        ਟ (B       t.
+     @) ਟ (_       t.
+     ੱ) ਟ          t.:V
+     ੱ) ਟ (B       t.:
+     ੱ) ਟ (_       t.:
 
 .group ਠ
-	ਠ	th.V
-	ਠ (B	th.
-     @) ਠ (_	th.
-     ੱ) ਠ	th.:V
-     ੱ) ਠ (B	th.:
-     ੱ) ਠ (_	th.:
+        ਠ          th.V
+        ਠ (B       th.
+     @) ਠ (_       th.
+     ੱ) ਠ          th.:V
+     ੱ) ਠ (B       th.:
+     ੱ) ਠ (_       th.:
 
 .group ਡ
-	ਡ	d.V
-	ਡ (B	d.
-     @) ਡ (_	d.
-     ੱ) ਡ	d.:V
-     ੱ) ਡ (B	d.:
-     ੱ) ਡ (_	d.:
+        ਡ          d.V
+        ਡ (B       d.
+     @) ਡ (_       d.
+     ੱ) ਡ          d.:V
+     ੱ) ਡ (B       d.:
+     ੱ) ਡ (_       d.:
 
 .group ਢ
-	ਢ	dh.V
-	ਢ (B	dh.
-     @) ਢ (_	dh.
-     _) ਢ	t.+V
-     _) ਢ (B	t.
+        ਢ          dh.V
+        ਢ (B       dh.
+     @) ਢ (_       dh.
+     _) ਢ          t.+V
+     _) ਢ (B       t.
 
 .group ਣ
-	ਣ	n.V
-	ਣ (B	n.
-     @) ਣ (_	n.
-     ੱ) ਣ	n.:V
-     ੱ) ਣ (B	n.:
-     ੱ) ਣ (_	n.:
+        ਣ          n.V
+        ਣ (B       n.
+     @) ਣ (_       n.
+     ੱ) ਣ          n.:V
+     ੱ) ਣ (B       n.:
+     ੱ) ਣ (_       n.:
 
 .group ਤ
-	ਤ	tV
-	ਤ (B	t
-     @) ਤ (_	t
-     ੱ) ਤ	t:V
-     ੱ) ਤ (B	t:
-     ੱ) ਤ (_	t:
+        ਤ          tV
+        ਤ (B       t
+     @) ਤ (_       t
+     ੱ) ਤ          t:V
+     ੱ) ਤ (B       t:
+     ੱ) ਤ (_       t:
 
 .group ਥ
-	ਥ	thV
-	ਥ (B	th
-     @) ਥ (_	th
-     ੱ) ਥ	th:V
-     ੱ) ਥ (B	th:
-     ੱ) ਥ (_	th:
+        ਥ          thV
+        ਥ (B       th
+     @) ਥ (_       th
+     ੱ) ਥ          th:V
+     ੱ) ਥ (B       th:
+     ੱ) ਥ (_       th:
 
 .group ਦ
-	ਦ	dV
-	ਦ (B	d
-     @) ਦ (_	d
-     ੱ) ਦ	d:V
-     ੱ) ਦ (B	d:
-     ੱ) ਦ (_	d:
+        ਦ          dV
+        ਦ (B       d
+     @) ਦ (_       d
+     ੱ) ਦ          d:V
+     ੱ) ਦ (B       d:
+     ੱ) ਦ (_       d:
 
 .group ਧ
-	ਧ	dhV
-	ਧ (B	dh
-     @) ਧ (_	dh
-     _) ਧ	t+V
-     _) ਧ (B	t+
+        ਧ          dhV
+        ਧ (B       dh
+     @) ਧ (_       dh
+     _) ਧ          t+V
+     _) ਧ (B       t+
 
 .group ਨ
-	ਨ	nV
-	ਨ (B	n
-     @) ਨ (_	n
-     ੱ) ਨ	n:V
-     ੱ) ਨ (B	n:
-     ੱ) ਨ (_	n:
+        ਨ          nV
+        ਨ (B       n
+     @) ਨ (_       n
+     ੱ) ਨ          n:V
+     ੱ) ਨ (B       n:
+     ੱ) ਨ (_       n:
 
 .group ਪ
-	ਪ	pV
-	ਪ (B	p
-     @) ਪ (_	p
-     ੱ) ਪ	p:V
-     ੱ) ਪ (B	p:
-     ੱ) ਪ (_	p:
+        ਪ          pV
+        ਪ (B       p
+     @) ਪ (_       p
+     ੱ) ਪ          p:V
+     ੱ) ਪ (B       p:
+     ੱ) ਪ (_       p:
 
 .group ਫ
-	ਫ	phV
-	ਫ (B	ph
-     @) ਫ (_	ph
-     ੱ) ਫ	ph:V
-     ੱ) ਫ (B	ph:
-     ੱ) ਫ (_	ph:
+        ਫ          phV
+        ਫ (B       ph
+     @) ਫ (_       ph
+     ੱ) ਫ          ph:V
+     ੱ) ਫ (B       ph:
+     ੱ) ਫ (_       ph:
 
 .group ਬ
-	ਬ	bV
-	ਬ (B	b
-     @) ਬ (_	b
-     ੱ) ਬ	b:V
-     ੱ) ਬ (B	b:
-     ੱ) ਬ (_	b:
+        ਬ          bV
+        ਬ (B       b
+     @) ਬ (_       b
+     ੱ) ਬ          b:V
+     ੱ) ਬ (B       b:
+     ੱ) ਬ (_       b:
 
 .group ਭ
-	ਭ	bhV
-	ਭ (B	bh
-     @) ਭ (_	bh
-     _) ਭ	p+V
-     _) ਭ (B	p+
+        ਭ          bhV
+        ਭ (B       bh
+     @) ਭ (_       bh
+     _) ਭ          p+V
+     _) ਭ (B       p+
 
 .group ਮ
-	ਮ	mV
-	ਮ (B	m
-     @) ਮ (_	m
-     ੱ) ਮ	m:V
-     ੱ) ਮ (B	m:
-     ੱ) ਮ (_	m:
+        ਮ          mV
+        ਮ (B       m
+     @) ਮ (_       m
+     ੱ) ਮ          m:V
+     ੱ) ਮ (B       m:
+     ੱ) ਮ (_       m:
 
 .group ਯ
-	ਯ	jV
-	ਯ (B	j
-     @) ਯ (_	j
-     ੱ) ਯ	j:V
-     ੱ) ਯ (B	j:
-     ੱ) ਯ (_	j:
+        ਯ          jV
+        ਯ (B       j
+     @) ਯ (_       j
+     ੱ) ਯ          j:V
+     ੱ) ਯ (B       j:
+     ੱ) ਯ (_       j:
 
 .group ਰ
-	ਰ	RV
-	ਰ (B	R
-     @) ਰ (_	R
-     ੱ) ਰ	R:V
-     ੱ) ਰ (B	R:
-     ੱ) ਰ (_	R:
+        ਰ          RV
+        ਰ (B       R
+     @) ਰ (_       R
+     ੱ) ਰ          R:V
+     ੱ) ਰ (B       R:
+     ੱ) ਰ (_       R:
 
 .group ਲ
-	ਲ	lV
-	ਲ (B	l
-     @) ਲ (_	l
-     ੱ) ਲ	l:V
-     ੱ) ਲ (B	l:
-     ੱ) ਲ (_	l:
+        ਲ          lV
+        ਲ (B       l
+     @) ਲ (_       l
+     ੱ) ਲ          l:V
+     ੱ) ਲ (B       l:
+     ੱ) ਲ (_       l:
 
 .group ਲ਼
-	ਲ਼	l.V
-	ਲ਼ (B	l.
-     @) ਲ਼ (_	l.
+        ਲ਼          l.V
+        ਲ਼ (B       l.
+     @) ਲ਼ (_       l.
 
 .group ਵ
-	ਵ	vV
-	ਵ (B	v
-     @) ਵ (_	v
-     ੱ) ਵ	v:V
-     ੱ) ਵ (B	v:
-     ੱ) ਵ (_	v:
+        ਵ          vV
+        ਵ (B       v
+     @) ਵ (_       v
+     ੱ) ਵ          v:V
+     ੱ) ਵ (B       v:
+     ੱ) ਵ (_       v:
 
 .group ਸ਼
-	ਸ਼	SV
-	ਸ਼ (B	S
-     @) ਸ਼ (_	S
-     ੱ) ਸ਼	S:V
-     ੱ) ਸ਼ (B	S:
-     ੱ) ਸ਼ (_	S:
+        ਸ਼          SV
+        ਸ਼ (B       S
+     @) ਸ਼ (_       S
+     ੱ) ਸ਼          S:V
+     ੱ) ਸ਼ (B       S:
+     ੱ) ਸ਼ (_       S:
 
 .group ਸ
-	ਸ	sV
-	ਸ (B	s
-     @) ਸ (_	s
-     ੱ) ਸ	s:V
-     ੱ) ਸ (B	s:
-     ੱ) ਸ (_	s:
+        ਸ          sV
+        ਸ (B       s
+     @) ਸ (_       s
+     ੱ) ਸ          s:V
+     ੱ) ਸ (B       s:
+     ੱ) ਸ (_       s:
 
 .group ਹ
-	ਹ	HV
-	ਹ (B	H
-     @) ਹ (_	H
+        ਹ          HV
+        ਹ (B       H
+     @) ਹ (_       H
 
 .group ਖ਼
-	ਖ਼	xV
-	ਖ਼ (B	x
-     @) ਖ਼ (_	x
+        ਖ਼          xV
+        ਖ਼ (B       x
+     @) ਖ਼ (_       x
 
 .group ਗ਼
-	ਗ਼	QV
-	ਗ਼ (B	Q
-     @) ਗ਼ (_	Q
+        ਗ਼          QV
+        ਗ਼ (B       Q
+     @) ਗ਼ (_       Q
 
 .group ਜ਼
-	ਜ਼	zV
-	ਜ਼ (B	z
-     @) ਜ਼ (_	z
+        ਜ਼          zV
+        ਜ਼ (B       z
+     @) ਜ਼ (_       z
 
 .group ੜ
-	ੜ	R2V
-	ੜ (B	R2
-     @) ੜ (_	R2
+        ੜ          R2V
+        ੜ (B       R2
+     @) ੜ (_       R2
 
 .group ਫ਼
-	ਫ਼	fV
-	ਫ਼ (B	f
-     @) ਫ਼ (_	f
+        ਫ਼          fV
+        ਫ਼ (B       f
+     @) ਫ਼ (_       f
 
 
 .group ੍
-	੍		// virama
+        ੍                    // virama
 
 .group ਼
-	਼		// nukta
+        ਼                    // nukta
 
 .group ੱ
-	ੱ		// addak
+        ੱ                    // addak
 
 .group ਂ
-	ਂ	N	// bindi
+        ਂ          N         // bindi
 
 .group ੰ
-	ੰ	n	// tippi
+        ੰ          n         // tippi
 
 .group ਃ
-	ਃ	h
+        ਃ          h
 
 .group
-	$	dOlVR	// TEST
-	%	pVsEnt  // TEST
+        $          dOlVR     // TEST
+        %          pVsEnt    // TEST
