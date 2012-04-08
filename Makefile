@@ -1,5 +1,7 @@
 REFIX=/usr
 BINDIR=$(PREFIX)/bin
+INCDIR=$(PREFIX)/include/espeak
+LIBDIR=$(PREFIX)/lib
 DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
@@ -11,7 +13,7 @@ PLATFORM=big_endian
 all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
 
 install: all
-	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) install && cd ..
+	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) BINDIR=$(BINDIR) INCDIR=$(INCDIR) LIBDIR=$(LIBDIR) install && cd ..
 	install -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
 
 clean:
