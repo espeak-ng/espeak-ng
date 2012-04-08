@@ -70,7 +70,7 @@ __	b'Onsdrai
 &	Vw
 £	pun?
 €	euro
-© kopyrajt
+© kVpirajt
 ÷ divid'eReD||meD 
 =	l'imeD
 #	n'OmV
@@ -78,9 +78,10 @@ __	b'Onsdrai
 ×	g'aNe
 ª	feminin||Wdin'al
 º	m'askulin||Wdin'al
-®	registr'eret||varemerke
+®	registr'Er@D||v'ar@mErk3
 ¼	en||kvart
-¢	s'ents
+¾   trEkv'art
+¢	s'ent
 ¥	j'en:
 µ	my
 '	apostr'Vf // PB o changed to V
@@ -103,7 +104,7 @@ _11	'Elv@
 _12	t'Vl
 _13	tR'&#d@-n // PB & changed to &#
 _14	fj'ord@-n
-_15	 f'emt@n
+_15	 f'emt@-n
 _16	s'ajsd@-n
 _17	s'Wd@-n // PP Y changed to W
 _18	'&d@-n  // PB a changed to &
@@ -111,8 +112,8 @@ _19	n'ed@-n
 _2X	t'y:w
 _3X	tR'&#Dv@               //PB [tR'ADv@] changed to [tR'&#Dv@]
 _4X	 f'W:V                 //PB [f'W:*3] changed to [ f'W:V]
-_5X	h&l't*es               // PB [a] changed to [&]
-_6X	t*'es
+_5X	h&l't*Es               // PB [a] changed to [&], e changed to E
+_6X	t*'Es                  // PB changed from e to E
 _7X	h&lfj'&rs               // PV a changed to &
 _8X	f'irs
 _9X	h&lf'Ems // PB a changed to &
@@ -1159,7 +1160,6 @@ nymfoman $alt2
 obsidian $alt2
 ocean $alt2
 oktan $alt2
-oman $alt2
 organ $alt2
 orkan $alt2
 osman $alt2
@@ -2957,11 +2957,9 @@ lupin  $alt
 magasin  $alt
 mandarin  $alt
 mandolin  $alt
-margin  $alt
 marin  $alt
 marocain mAro'kEN  $alt
 maroquin mAro'kEN  $alt
-maskulin  $alt
 mazarin  $alt
 medicin  $alt
 melamin  $alt
@@ -5773,6 +5771,7 @@ adopter   $alt
 bortadopter   $alt
 adoucer   $alt
 adressere   $alt
+omadressere   $alt
 adsorber   $alt
 adstringer   $alt
 adviser   $alt
@@ -6075,7 +6074,7 @@ dramatiser   $alt
 draper   $alt
 dresser   $alt
 dubler   $alt
-dueller   $alt
+duellere   $alt
 duetter   $alt
 duper   $alt
 duplicer   $alt
@@ -6401,7 +6400,6 @@ interpunkter   $alt
 intervener   $alt
 intimider   $alt
 intoner   $alt
-intriger   $alt
 introducer   $alt
 intuber $alt
 invader   $alt
@@ -9677,7 +9675,6 @@ epigon   $alt
 estragon  estRag'VN   $alt
 glukagon   $alt
 heksagon   $alt
-jargon SjArg'VN   $alt
 oktagon   $alt
 oktogon   $alt
 ortogon   $alt
@@ -9686,7 +9683,6 @@ polygon    $alt
 wagon v&g'VN   $alt
 
 // -son list (VN/on
-bison   b'isVn   $alt
 blouson blus'VN   $alt
 chanson  SjAns'VN   $alt
 garnison   $alt
@@ -9695,7 +9691,7 @@ liaison  li&s'VN   $alt
 meson   $alt
 person   $alt
 ræson   REs'VN   $alt
-//sæson    sEs'VN   $alt
+sæson    $alt
 unison   $alt
 
 // PB exceptions from the "be" rule in group "be"
@@ -11247,7 +11243,7 @@ ikes ajks // PB
 (et kvarter) et||kvA'ter      // PB
 (mit kvarter) mit||kvA'ter      // PB
 (vores kvarter) vV:s||kvA'ter      // PB
-(deres kvarter) de@s||kvA'ter      // PB
+(deres kvarter) dE:Vs||kvA'ter      // PB
 (det kvarter) de||kvA'ter      // PB
 (i kvarter) i||kv'A:dV
 (at have) &||h&:                // PB the verb 'have', not the noun 'have' = garden
