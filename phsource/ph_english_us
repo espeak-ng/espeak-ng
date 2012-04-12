@@ -104,6 +104,16 @@ phoneme I2
 endphoneme
 
 
+phoneme I#
+  vowel  starttype #i  endtype #i
+  unstressed
+  length 160
+//  FMT(vowel/@_fnt)
+  FMT(vowel/ii#)
+endphoneme
+
+
+
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   unstressed
@@ -143,7 +153,7 @@ endphoneme
 
 phoneme A:
   vowel  starttype #a  endtype #a
-  length 210
+  length 200
   IF nextPh(r) THEN
     FMT(vwl_en_us/ar)
   ENDIF

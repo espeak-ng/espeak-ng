@@ -343,6 +343,9 @@ phoneme u:
   IF nextPh(l/2) THEN
     FMT(vwl_en/u_L)
   ENDIF
+  IF prevPhW(j) THEN
+    length 180
+  ENDIF
   FMT(vdiph2/uw_2)
 endphoneme
 

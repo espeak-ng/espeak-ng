@@ -137,14 +137,42 @@ szanité) c (cs     ts
    _in) cz (éd     ts
 _virgon) c (ság    ts
 _elmén) c (ség     ts
-martaló) c (ser    ts
+martaló) c         ts
    _ér) c (sas     ts
- _újon) c (ság     ts
- _kuru) c (ság     ts
+ _újon) c          ts
+ _kuru) c          ts
  _paló) c (ság     ts
 _fejlé) c          ts
   nyol) c (seb     ts
   bará) cs (ágta   tS:
+   bér) c (csut    ts
+   bér) c (süveg   ts
+ bilin) cs (zör    tS
+   _ér) c (salak   ts
+   _ér) c (cs      ts
+   _ér) c (sely    ts
+   _ér) c (síp     ts
+    ér) cs (ípte   tS
+    ér) c (sodr    ts
+garabon) c (ser    ts
+_laban) c          ts
+_kéjen) c          ts
+  _ner) c (stólá   ts
+ _jege) c          ts
+  kavi) cs (z      tS
+ kilin) cs (zör    tS
+  laza) c          ts
+  árbo) c (sud     ts
+   _ar) c (seb     ts
+nyargon) c (cs     ts
+  pere) c (süt     ts
+ _prin) c (ség     ts
+   _rá) c (ság     ts
+ sátán) cs (ap     tS
+ suhan) c          ts
+udvaron) c (ser    ts
+  pere) c (cs      ts
+ licen) ccs        ts|tS
 
 .group ch
   anar) ch (i      h
@@ -180,8 +208,8 @@ diszti) ch (on     h
     ma) ch (iavell h
    _or) ch (ide    h
 almana) ch         h
-
-
+kronoszti) ch (on  h
+  arca) ch (on     h
 
 .group d
         d          d
@@ -382,6 +410,48 @@ smarag) d (szín    d
   _tér) d (zseb    d
   twee) d (szövet  d
    utó) d (szerv   d
+ epizó) d (szer    d
+  tize) d (szám    d
+   faj) d (tyúk    d
+    kó) d (szerke  d
+    ha) d (szertá  d
+  _föl) d (szelle  d
+  _föl) d (szerz   d
+  _föl) d (sziget  d
+  _föl) d (szín    d
+  _föl) d (szurok  d
+  _föl) d (szült   d
+  _gon) d (szer    d
+   _ha) d (játék   d
+   _ha) d (száll   d
+   _ha) d (szer    d
+_harma) d (szül    d
+  _hor) d (szek    d
+ kalan) d (szer    d
+   _kó) d (szob    d
+  _küz) d (szell   d
+   _lú) d (szokás  d
+    lú) d (zsír    d
+    va) d (szerű   d
+    hó) d (szőr    d
+ kobol) d (szög    d
+  máso) d (szerep  d
+  _mon) dsz (a     ts
+    ná) d (szilán  d
+   _rá) d (sóz     d
+   ötö) d (szülö   d
+    pa) d (szőny   d
+_smarag) d (sz     d
+ szaba) d (szól    d
+szomszé) d (sor    d
+    va) d (sáfr    d
+    va) d (szegf   d
+    va) d (szilv   d
+    vá) d (szóza   d
+ borso) d (sz      d
+ herná) d (sz      d
+ szaba) d (szent   d
+   for) d (jános   d
 
 .group dz
   fogó) dz (kod    ts
@@ -546,6 +616,20 @@ imádsá) g (gyűjt   g
     le) gg (roteszk g:
  _agya) g (gy      g
   anya) g (győz    g
+ felsé) g (gy      g
+ elesé) g (gy      g
+  sere) g (gyűj    g
+kötelessé) g (gyak g
+  _lán) g (gy      g
+szentsé) g (gy     g
+  zálo) g (gy      g
+    me) ggy (em    J:
+  mére) g (gy      g
+ nyere) g (gy      g
+ vendé) g (gy      g
+világossá) g (gy   g
+  vilá) g (gy      g
+  virá) g (gy      g
 
 .group gy
         gy         J
@@ -651,7 +735,7 @@ harmince) gy (edik J:
     _e) gy (ablak  J:
 összee) gy (esít   J:
  nem-e) gy (ik     J:
-     e) gy (összeg J:
+    _e) gy (összeg J:
      e) gys (ík    J|S       //for example egysíkú word need spokening single J and S phoneme
     _e) gy (öntet  J:
    tár) gy (sor    J
@@ -668,6 +752,8 @@ huszone) gy (ez    J:
      e) gy (éjszak J:
 _egyszere) gy (e   J:
 _huszone) gy (e    J:
+ száze) gy (edik   J:
+ védje) gy (straté J
 
 .group h
         h          h
@@ -680,6 +766,7 @@ _huszone) gy (e    J:
    _ju) h (sajt 
    _ju) h (tenyész 
    _ju) h (szárnyék 
+   cse) h (bánya 
 
 .group i
         i          i
@@ -712,7 +799,9 @@ agressz) í (v      i:
    _sz) í (néssz   i
     sz) í (vatn    i
 _megsz) í (vatta   i
-
+szabad) ítsz       its:
+    sz) í (vemészt i:
+  vesz) ítsz       i:ts:
 
 .group j
         j          j
@@ -905,6 +994,17 @@ mikrofo) n (nyílás n
    _me) ny (assz   n^
    _me) nny (assz  n^
 kölcsö) n (jegyz   n
+   _bű) n (nyom    n
+filigrá) n (nyel   n
+  kabi) n (nyíl    n
+  magá) n (nyel    n
+oroszlá) n (nyom   n
+    _ö) n (nyom    n
+  _szi) n (játsz   n
+szivárvá) ny (játsz n^
+   utá) n (nyom    n
+ verse) ny (játék  n^
+ _elle) n (jav     n
 
 .group o
         o          o
@@ -931,7 +1031,6 @@ kölcsö) n (jegyz   n
         ppr        pR2       //special exception with always need executing
 ?1   _) potsdam    potsda:m
         pp (-L01   p         //if have consonant after - character, need spokening one p letter
-
 
 .group q
         q          kv
@@ -1028,6 +1127,23 @@ termelé) s         S
  _áldá) s          S
 _asztalo) s        S
  _árgu) s          S
+dragonyo) s        S
+_képzé) s          S
+ farka) s (szőr    S
+fedezé) s          S
+galaxi) s          S
+ koldu) s          S
+brekegé) s         S
+ ritmu) s (zaj     S
+_tetszé) s         S
+  toko) s (zászl   S
+  váro) s (zaj     S
+  váro) s (zs      S
+    ki) s (zsidá   S
+    ki) s (szent   S
+    ki) s (sziget  S
+    ki) s (szőlő   S
+  körö) s (szeg    S
 
 .group ss
         ssz        ss2
@@ -1037,6 +1153,7 @@ _asztalo) s        S
 mennydörgé) ssz (erű Ss
 robbaná) ss        S:
  hamva) ssz        s:
+kotyva) ssz        s:
 robbaná) ssz (er   Ss
 danubiu) ss        s:        //a radio station name
 danubiu) ssz       s:        //a radio station name
@@ -1293,7 +1410,7 @@ fertőzé) ssz (erű  Ss
 csuszamlá) ssz (erű Ss
   fűté) ssz (ag    Ss
 habitu) ssz (erű   Ss
-halotta) ssz (ob   Ss
+halotta) ssz       Ss
  hányá) ssz (ag    Ss
 világo) ssz (őke   Ss
 
@@ -1400,9 +1517,127 @@ bégeté) ssz (erű   Ss
      a) ssz (isztál s
   piro) ssz (ka    s
   ágyú) ssz        Ss
-   alá) ssz (olg   Ss
+  _alá) ssz (olg   Ss
   almá) ssz (ürk   Ss
-
+csárdá) ssz (ól    Ss
+ csikó) ssz        Ss
+   éde) ssz (ül    Ss
+   éke) ssz (ó     Ss
+föléle) ssz (em    s:
+ frázi) ssz (erű   Ss
+fuvaro) ssz (ekér  Ss
+  fúvó) ssz (ersz  Ss
+   ver) ssz (erz   Ss
+ _gyor) ssz        Ss
+   _ki) ssz (állá  Ss
+ _hajó) ssz        Ss
+  _hár) ssz        Ss
+ _hasi) ssz (ag    Ss
+ _hatá) ssz (er    Ss
+ _heku) ssz (ag    Ss
+_hízelkedé) ssz    Ss
+_horkantá) ssz (er Ss
+   _hő) ssz        Ss
+   _hú) ssz (ín    Ss
+   _hú) ssz (iget  Ss
+  hűvö) ssz (emű   Ss
+  _ina) ssz        Ss
+_forrá) ssz        Ss
+_jáspi) ssz (ob    Ss
+   _jó) ssz        Ss
+_kacagá) ssz (er   Ss
+  kapu) ssz        Ss
+    má) ssz (er    Ss
+ _kevé) ssz        Ss
+    ki) ssz (eb    Ss
+    ki) ssz (ed    Ss
+ kormo) ssz        Ss
+ köntö) ssz        Ss
+könyve) ssz        Ss
+ farka) ssz (ürk   Ss
+    hú) ssz (aft   Ss
+kihívá) ssz        Ss
+lőszere) ssz       Ss
+  lövé) ssz (erű   Ss
+fehére) ssz (ürk   Ss
+köhinté) ssz (erű  Ss
+   kva) ssz (iakér s:
+nyeríté) ssz (erű  Ss
+lőporo) ssz        Ss
+kapará) ssz (erű   Ss
+nyávogá) ssz (erű  Ss
+ szoká) ssz (ám    Ss
+ borza) ssz (őr    Ss
+ harco) ssz        S|s
+ kocsi) ssz (erep  Ss
+vitorlá) ssz       Ss
+ mágná) ssz        Ss
+    má) ssz (őr    Ss
+ mécse) ssz        Ss
+téveszté) ssz (erű Ss
+  méhe) ssz        Ss
+ dörgé) ssz        Ss
+muzsiku) ssz       Ss
+  oázi) ssz (erű   Ss
+ _orda) ssz        Ss
+  állá) ssz        Ss
+  ősze) ssz        Ss
+     ő) ssz (árm   Ss
+    _ő) ssz (ell   Ss
+    _ő) ssz (i     Ss
+    _ő) ssz (ék    Ss
+    _ő) ssz (erű   Ss
+     ő) ssz (arv   Ss
+    _ő) ssz (oká   Ss
+     ő) ssz (örny  Ss
+     ő) ssz (ülő   Ss
+papiro) ssz        Ss
+papriká) ssz       Ss
+   plü) ss (zs     S
+_portá) ssz        Ss
+ _raká) ssz        Ss
+ rántá) ssz        Ss
+ _rava) ssz        s:
+keríté) ssz        Ss
+repülő) ssz (trájk Ss
+ rezgé) ssz (ám    Ss
+_rongyo) ssz       Ss
+  ruhá) ssz (ob    Ss
+   _sá) ssz        Ss
+_sorva) ssz        s:
+sugárzá) ssz       Ss
+szindikátu) ssz    Ss
+_szólá) ssz        Ss
+ szőrö) ssz (ív    Ss
+  _tár) ssz (ob    Ss
+   tár) ssz (omszéd Ss
+   teá) ssz (erv   Ss
+  tövi) ssz        Ss
+tubáko) ssz (el    Ss
+_tükrö) ssz        Ss
+  tüze) ssz (em    Ss
+ pótlá) ssz        Ss
+vallatá) ssz (er   Ss
+ _váro) ssz        Ss
+ _vere) ssz        Ss
+ _veté) ssz        Ss
+világo) ssz        Ss
+villamo) ssz       Ss
+ rángá) ssz (er    Ss
+ zölde) ssz (ürk   Ss
+ zsíro) ssz (áj    Ss
+zsoldo) ssz        Ss
+  bázi) ssz        Ss
+ _kapo) ssz        Ss
+_agyago) ssz (erg  Ss
+ _béké) ssz        Ss
+_gombo) ssz        Ss
+_kemene) ssz       Ss
+ _miko) ssz        Ss
+ _neme) ssz        Ss
+_szamo) ssz        Ss
+_szilvá) ssz       Ss
+ _vámo) ssz        Ss
 
 .group sz
         sz         s
@@ -1438,6 +1673,7 @@ fáklyá) sz (ene    Sz
   para) sztsz (andál st|s
     te) szts (oroz st|S
  _dama) szts       st|S
+ _dama) sztsz      st|s
   kere) szt (sor   st
   kere) szt (szer  st
   para) szt (segg  st
@@ -1450,6 +1686,14 @@ fáklyá) sz (ene    Sz
         sz (acsk   Sz        //all szacsk containing part block need spokening single S and z phoneme, for example chipseszacskó word
  legké) szs (éges  S:
  ameti) sztsze     st|sE
+  bati) sztsze (gé st|sE
+  kere) sztsz (e   st|s
+  mala) szts (ugal st|S
+  para) szts (ihed st|S
+  para) szts (ors  st|S
+  para) szts (üte  st|S
+  para) sztsz (ag  st|s
+  para) szts (uhan st|S
 
 .group t
         t          t
@@ -1503,6 +1747,7 @@ használ) t (cikk   t
     ha) t (cell    t         //for example hatcellás, hatcella word need spokening t before c letter.
    pár) t (székház t
 hálóza) t (semleges t
+  lisz) t (cipel   t
  vajon) t (szoros  t
         tsz (h     ts
     te) tsz (h     ts
@@ -1556,7 +1801,42 @@ rokkan) t (segít   t
  plaká) t (cég     t
   álla) t (szőr    t
  aszal) t (jeg     t
-
+bölcsele) t (sava  t
+  diva) t (szép    t
+   éle) t (szomj   t
+   eli) t (szolg   t
+   _es) t (szél    t
+  ezüs) t (sark    t
+gyémán) t (szoli   t
+ halla) tsz (ának  ts:
+ kárpi) t (szőny   t
+   _ké) t (szél    t
+  kilá) tssz (ék   ts:
+    me) tsz (vény  ts
+  köte) t (szám    t
+ halla) tsz (ód    ts:
+    _ú) tsz (ék    t|s
+  ezüs) t (szob    t
+  ezüs) t (szőr    t
+  ezüs) t (szél    t
+    lá) tsz (va    ts
+    me) tsz (itek  ts:
+ nemze) t (szín    t
+ padla) t (szőny   t
+  _par) t (szél    t
+  robo) t (szond   t
+   _rő) t (szők    t
+  sajá) t (szemé   t
+_szegle) t (sz     t
+   szé) t (szorít  t
+szögle) t (szob    t
+  tuca) t (szép    t
+ ügyle) t (szob    t
+  üzle) t (szob    t
+  vivá) t (szó     t
+  vizi) t (szob    t
+   zár) t (szék    t
+   szé) t (szortír t
 
 .group tj
      C) tj         c
@@ -1631,6 +1911,18 @@ _deszan) tj (árm   tj
 _készle) tj (elen  tj
 tisztele) tj (egy  tj
  _vész) tj (ósl    tj
+  cson) tj (áték   tj
+hangula) tj (avít  tj
+állapo) tj (avul   tj
+körösz) tj (ár     tj
+  ezüs) tj (elv    tj
+többle) tj (övedel tj
+  piké) tj (átsz   tj
+természe) tj (áték tj
+természe) tj (og   tj
+_tisztele) tj (el  tj
+  zené) tj (átsz   tj
+  szen) tj (akab   tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -1851,7 +2143,7 @@ felira) ts (áv     t|S
         ttgy       t:J
         ttj        c:
    ala) tt (jár    t
- krike) tt (játék  t
+ krike) tt (ját    t
         ttr        tR2       //special exception with always need executing
 helyeze) tt (ről   t:
         tts (á     tS:
@@ -1862,9 +2154,12 @@ helyeze) tt (ről   t:
 keresz) tt (űz     t:
     me) ttsz (et   ts:
 bennszülö) tt (jelmez t
+ krike) tt (ját    t
+   szé) tt (rancsír t:
 
 .group ty
 mindszen) ty       t|i
+        ty (ard    t|j
 
 .group u
         u          u
@@ -1879,6 +2174,8 @@ szovjet) u (nió    u:
      h) ú (gom     u
     _h) ú (gy      u
     _h) ú (ggy     u
+     h) ú (szanny  u:
+
 
 
 .group ü
@@ -2036,7 +2333,7 @@ ajándéko) z (t     s
  rejtő) z (t       s
  hango) z (t       s
 szerve) z (ked     s
-  kaló) z (ság     z
+  kaló) z          z
 szellő) z (tet     s
  vigyá) zz (áll    z
         zippzár    tsipza:R2
@@ -2085,6 +2382,26 @@ csatlako) z (tok   s
  helye) z (ke      s
    _tí) z (sou     z
   leme) z (stú     z
+    gá) z (sug     z
+   _gő) z          z
+  _pén) zs (ed     Z
+   _lá) z (seb     z
+   _lá) z (sóh     z
+    ré) z (serleg  z
+   _tí) z (zsák    z
+    ré) z (sárká   z
+    ké) z (seb     z
+ matró) z (sipk    z
+   _mé) z (ser     z
+    _ő) z (sut     z
+    _ő) z (seb     z
+    ré) z (sark    z
+    ré) z (sav     z
+    ré) z (sipk    z
+    ré) z (sod     z
+    tí) z (sáv     z
+   _tí) z (shill   z
+  topá) z          z
 
 .group
         $          dolla:R2

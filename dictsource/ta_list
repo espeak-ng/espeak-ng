@@ -239,7 +239,6 @@ tamil	தமிழ்	$text
 
 // exceptions
 பாபு	$alt	// initial ப as [b]
-பானம்	$alt
 பாணம்	$alt
 பாறம்	$alt
 பாரதம்	$alt
@@ -250,7 +249,6 @@ tamil	தமிழ்	$text
 பவனி	$alt
 பாபா	$alt
 போண்டா	$alt
-பஜ்ஜி	$alt
 பாதாம்	$alt
 போகம்	$alt
 போதனை	$alt
@@ -318,7 +316,6 @@ tamil	தமிழ்	$text
 பலிக்குத்தான்	$alt
 பவ	$alt
 புஸ்	$alt
-போஸின்	$alt
 போனி	$alt
 பிஸி	$alt
 பேஷ்	$alt
@@ -362,7 +359,10 @@ tamil	தமிழ்	$text
 புக்கர்	$alt
 பாதிக்க	$alt
 பலக்க	$alt
-
+பூமா	$alt
+பூம்பா	$alt
+பலத்து	$alt
+பலத்தும்	$alt
 
 
 
@@ -398,7 +398,6 @@ tamil	தமிழ்	$text
 தீரமுள்ள	$alt
 தீரமற்ற	$alt
 தலாய்	$alt
-தானம்	$alt
 தீரமும்	$alt
 தீரத்தோடு	$alt
 தவத்தில்	$alt
