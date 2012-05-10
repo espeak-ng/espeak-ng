@@ -388,3 +388,7 @@ phoneme t
   WAV(ustop/t, 90)
 endphoneme
 
+
+phoneme t2   // [t] which doesn't reduce
+  import_phoneme  base/t
+endphoneme
