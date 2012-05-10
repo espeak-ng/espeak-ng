@@ -1503,16 +1503,23 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	ph_hundred_and[0] = 0;
 	if(tensunits > 0)
 	{
-		if((value > 100) || ((control & 1) && (thousandplex==0)))
+		if((control & 2) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
 		{
-			if((tr->langopts.numbers & NUM_HUNDRED_AND) || ((tr->langopts.numbers & NUM_HUNDRED_AND_DIGIT) && (tensunits < 10)))
+			// Don't use "and" if we apply ordinal to both hundreds and units
+		}
+		else
+		{
+			if((value > 100) || ((control & 1) && (thousandplex==0)))
+			{
+				if((tr->langopts.numbers & NUM_HUNDRED_AND) || ((tr->langopts.numbers & NUM_HUNDRED_AND_DIGIT) && (tensunits < 10)))
+				{
+					Lookup(tr, "_0and", ph_hundred_and);
+				}
+			}
+			if((tr->langopts.numbers & NUM_THOUSAND_AND) && (hundreds == 0) && ((control & 1) || (ph_thousands[0] != 0)))
 			{
 				Lookup(tr, "_0and", ph_hundred_and);
 			}
-		}
-		if((tr->langopts.numbers & NUM_THOUSAND_AND) && (hundreds == 0) && ((control & 1) || (ph_thousands[0] != 0)))
-		{
-			Lookup(tr, "_0and", ph_hundred_and);
 		}
 	}
 

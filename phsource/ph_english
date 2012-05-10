@@ -1,6 +1,7 @@
 
 phoneme t2   // [t] which doesn't reduce
-  import_phoneme  base/t
+  vcd alv stop
+  ChangePhoneme(t)
 endphoneme
 
 
