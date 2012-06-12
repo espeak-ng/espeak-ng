@@ -1,0 +1,64 @@
+
+0  A  NULL   0  a
+0  A1 NULL   0  a
+0  a: NULL   50 a a
+0  E  NULL   0  e
+0  E1 NULL   0  e
+0  e: NULL   50 e e
+0  I  NULL   0  i
+0  I1 NULL   0  i
+0  i1 NULL   0  i
+0  i: NULL   50 i i
+0  O  NULL   0  o
+0  O1 NULL   0  o
+0  o: NULL   50 o o
+0  U  NULL   0  u
+0  U1 NULL   0  u
+0  u: NULL   50 u u
+0  8  NULL   0  7
+0  8: NULL   50 7 7
+0  &  NULL   0  {
+0  &: NULL   50 { {
+0  Y  NULL   0  2
+0  Y: NULL   50 2 2
+0  y: NULL   50 y y
+
+0  8u NULL   50  7 u
+0  &i NULL   50  { i
+0  Yi NULL   50  2 i
+0  yi NULL   50  y i
+
+0  b  :      0  p:
+0  d  :      0  t:
+0  d^ NULL   0  d'	
+0  d^ :      0  d'	
+0  g  :      0  k:
+0  h  :      0  h
+0  j  :      0  j
+0  k  :      0  k
+0  l  :      0  l
+0  l/ NULL   0  l
+0  l^ NULL   0  l'
+0  l^ :      0  l'
+0  m  :      0  m
+0  n  :      0  n
+0  n^ NULL   0  n'
+0  n^ :      0  n'
+0  N  :      0  N
+0  p  :      0  p
+0  R  NULL   0  r
+0  R  :      0  r
+0  b  :      0  p
+0  s2 NULL   0  s
+0  s^ NULL   0  s'
+0  s^ :      0  s'	
+0  S  :      0  S
+0  t  :      0  t
+0  t^ NULL   0  t'
+0  t^ :      0  t'
+0  v  :      0  v
+0  w  NULL   0  v
+0  Z  NULL   0  S
+0  z  NULL   0  s
+
+

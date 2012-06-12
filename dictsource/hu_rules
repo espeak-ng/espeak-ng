@@ -1063,6 +1063,7 @@ szivárvá) ny (játsz n^
         s          S
         s (-sz     s:        //if have the - character the next word part beginning with sz, always need spokening s: phoneme
     s-) sz                   //but not need spokening second sz phoneme
+dns-) sz s
   föld) s (ánc     S
 ?1 hel) s (inki    z
     ki) s (ebb     SS
@@ -1638,9 +1639,9 @@ _kemene) ssz       Ss
 _szamo) ssz        Ss
 _szilvá) ssz       Ss
  _vámo) ssz        Ss
-keresé) ssz        Ss
-  cipő) ssz        Ss
-szorongá) ssz      Ss
+keresé) ssz Ss
+cipő) ssz Ss
+szorongá) ssz Ss
 
 .group sz
         sz         s
@@ -1840,6 +1841,7 @@ szögle) t (szob    t
   vizi) t (szob    t
    zár) t (szék    t
    szé) t (szortír t
+_robo) t (szoftve t
 
 .group tj
      C) tj         c
@@ -1926,6 +1928,7 @@ természe) tj (og   tj
 _tisztele) tj (el  tj
   zené) tj (átsz   tj
   szen) tj (akab   tj
+közérze) tj (aví tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -2140,6 +2143,7 @@ felira) ts (áv     t|S
     pö) tsz (en    ts:
     _á) tsz (orult t|s
   leme) tsz (vén   ts
+_cha) tsz (ob t|s
 
 .group tt
         tt         t:

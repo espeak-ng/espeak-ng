@@ -1,0 +1,90 @@
+
+0  l/2 NULL  0  l
+0  l/ NULL   0  l
+0  r/ NULL   0  r
+0  r- NULL   0  r
+0  l- NULL   0  l
+0  w/ NULL   0  w
+0  j/ NULL   0  i
+0  ;  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL
+0  *  NULL   0  r
+0  :  NULL   0  NULL
+
+0  ** NULL   0  r
+2  R  s      1  _ rr  // s-rr, t-rr are unknown
+2  R  t      1  _ rr
+0  R  NULL   0  rr
+0  R2 NULL   0  NULL
+0  v# NULL   0  b
+0  v  NULL   0  b
+0  j  NULL   0  i
+0  J  NULL   0  jj
+0  J^ NULL   0  jj
+0  n^ NULL   0  J
+0  N  NULL   0  n
+
+0  B  NULL   0  b
+0  D  NULL   0  d
+0  Q  NULL   0  g
+
+0  z  NULL   0  s
+
+
+// don't allow [u] next to a vowel, except [u]
+0  u  u      0  u
+0  u  VWL    0  w
+2  u  u      0  u
+2  u  VWL    0  w
+
+0  j  NULL   0  i
+
+0  a/ NULL   0  a
+0  E  NULL   0  e
+0  O  NULL   0  o
+0  aI NULL   60 a i
+0  eI NULL   60 e i
+0  oI NULL   60 o i
+0  aU NULL   60 a w
+0  eU NULL   60 e w
+
+0  S  NULL   60 s i
+0  Z  NULL   60 s i
+
+0  @  NULL   0  e
+0  @2 NULL   0  e
+0  @5 NULL   0  u
+0  0  NULL   0  o
+0  V  NULL   0  a
+0  U  NULL   0  u
+0  I  NULL   0  i
+0  I2 NULL   0  i
+0  A: NULL   0  a
+0  A@ NULL   60 a r
+0  o: NULL   0  o
+0  O: NULL   0  o
+0  O@ NULL   60 o r
+0  o@ NULL   60 o r
+0  i: NULL   0  i
+0  i@ NULL   60 i a
+0  i@3 NULL  60 i r
+0  u: NULL   0  u
+0  U@ NULL   60 u r
+0  3  NULL   60 e r
+0  3: NULL   60 e r
+0  @L NULL   40 e l
+0  a# NULL   0  a
+0  aa NULL   0  a
+0  e@ NULL   0  e r
+0  oU NULL   0  o
+0  OI NULL   60 o i
+0  aI@ NULL  60 a r
+0  aU@ NULL  0  a
+0  t2 NULL   0  t
+0  h  NULL   0  NULL
+
+
+
+
+
