@@ -399,7 +399,7 @@ pelos	$u
 
 ao	$u
 à	,a:
-à	$atend $accent
+à	$atend $atstart $accent
 aos	$u
 às	,a:s
 
@@ -481,7 +481,7 @@ se	$u		// if
 ser	$u
 sou	$u
 é	E  $u
-é	$atend $accent
+é	$atend $atstart $accent
 és	Es $u
 somos	$u
 sois	$u

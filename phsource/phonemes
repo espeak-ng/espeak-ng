@@ -1891,3 +1891,5 @@ include ph_kazakh
 phonemetable fa base
 include ph_farsi
 
+phonemetable ga base
+include ph_irish

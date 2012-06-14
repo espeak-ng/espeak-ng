@@ -266,7 +266,7 @@ endphoneme
 phoneme t        // dental variant of /t/
   vls dnt stop lengthenstop
   voicingswitch d
-  lengthmod 2
+  lengthmod 5
   Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=20
   Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
 
@@ -314,9 +314,9 @@ phoneme r   // used for [r] when not preceding a vowel
   FMT(r3/r_) addWav(r3/rx)
 endphoneme
 
-phoneme k          // tasasemad klï¿½klsud
+phoneme k          // tasasemad klõklsud
   vls vel stop
-  lengthmod 2
+  lengthmod 5
   voicingswitch g
   Vowelin f1=0  f2=2300 200 400  f3=-100 80
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
@@ -379,7 +379,7 @@ endphoneme
 
 phoneme t^
   vls pal stop palatal
-  lengthmod 2
+  lengthmod 5
   voicingswitch d^
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
