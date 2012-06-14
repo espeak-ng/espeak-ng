@@ -217,6 +217,7 @@ _#-ikának	a:nAk
 (0-nál) nul:a:na:l
 (0-hoz) nul:a:hoz
 (0-s) nul:a:S
+(0-sra) nul:a:SR2A
 (0-ára) nul:a:R2A //But if the 0-ára string have the text (only 0 number before the suffix, need spokening this exception.
 (0-án)	nul:a:n	//same as prewious exception.
 (0-ig) nul:a:ig
@@ -4635,7 +4636,6 @@ kikérdezném	$unstressend
 (rendszert készít) R2EntsER2t_'||ke:si:t	$unstressend
 (is megmutatják) iS_'||mEgmutAc:a:k	$unstressend
 jutottak	$unstressend
-(arról van szó) AR2R2o:l_'||vAn_'||so:	$unstressend
 (ér el) e:R2_'||El	$unstressend
 (azt szeretné) Ast_'||sER2Etne:	$unstressend
 hasonlít	$unstressend

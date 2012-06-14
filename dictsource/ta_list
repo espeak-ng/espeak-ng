@@ -117,6 +117,12 @@ U+bf9	ru:ba:j
 ரூ	ru:ba:j  $dot $only
 (பி . ஏ)	bije: $dot
 (கி . மீ)	kilo:mi:t.t.Vr $dot
+aud	ostr'eIlIVn||d'olVz
+gbp	br'itiS||p'aUndz
+inr	'IndIVn||r'u:ba:j
+usd     j'ues||d'olVz
+
+
 
 // numbers
 _0	suz.ijVm    // சுழியம்
@@ -363,7 +369,8 @@ tamil	தமிழ்	$text
 பூம்பா	$alt
 பலத்து	$alt
 பலத்தும்	$alt
-
+பூந்தி 	$alt
+பாவிக்க	$alt
 
 
 	// initial த as [d]
@@ -531,6 +538,7 @@ tamil	தமிழ்	$text
 பேனில்	fe:nil
 பேன்ல	fe:nlV
 போன்ல	fo:nlV
+ஆப்	a:f
 
 
 பப	pVpV

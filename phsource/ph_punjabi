@@ -83,6 +83,11 @@ phoneme u
 endphoneme
 
 
+phoneme eI    // for English words
+  import_phoneme en/eI
+endphoneme
+
+
 // Consonants
 
 phoneme v   // Try English [v]

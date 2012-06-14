@@ -1,4 +1,4 @@
-﻿ 
+ 
 // This file is UTF8 encoded 		
 // Punjabi/Gurmukhi
 
@@ -130,6 +130,8 @@ _dpt	_dOth  // ??
 ੱ	VddVk
 ਃ	visaRg
 ੍	hVlVnt
+ॄ 	addak
+
 
 ਅ	'ERV
 ੲ	'IRI
@@ -155,6 +157,15 @@ _ਔ	'ERV||kVnOR'a
 ੌ	kVn'ORa
 
 ।	d.'Vnd.i
+₹ 	rupi
+
+
 ਸਰਕਾਰ	 sR@k'aR
  ਸਰਕਾਰੀ	sR@k'aRi
 
+
+// English words
+ਸੋਫਟਵਿਅਰ	 s'OftwER
+ਵੈਬਪੇਜ	w'EbpeIdZ
+ਈਮੇਲ	'i:meIl
+ਕੀਬੋਰਡ	k'i:boRd
