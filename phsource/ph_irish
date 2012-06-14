@@ -1,0 +1,198 @@
+// Irish Phonemes
+// written by Ronan McGuirk
+// April 2012 version 0.3
+
+//====================================================
+//====================================================
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 180
+  FMT(vowel/a_4)
+endphoneme
+
+phoneme E
+  vowel  starttype #e  endtype #e
+  length 140
+  FMT(vowel/ee_5)
+endphoneme
+
+phoneme I
+  vowel  starttype #i  endtype #i
+  length 110
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_2)
+endphoneme
+phoneme i   //  optional variant of [I] for end of words
+  vowel  starttype #i  endtype #i
+  ipa ?
+  length 80
+  FMT(vowel/ii_7)
+endphoneme
+
+
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 190
+  FMT(vowel/oo)
+endphoneme
+
+phoneme U
+  vowel starttype #u endtype #u
+  length 180
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme 0
+  vowel  starttype #a   endtype #a
+  length 180
+  ipa ??
+  ChangeIfDiminished(@)
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme A:
+  vowel  starttype #a  endtype #a
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+
+phoneme A1:
+  vowel  starttype #a  endtype #@
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+
+phoneme A0:
+  vowel  starttype #a  endtype #o
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+phoneme 0A:
+  vowel  starttype #o  endtype #a
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+phoneme A9:
+  vowel  starttype #@  endtype #a
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 210
+  FMT(vowel/i)
+endphoneme
+
+
+
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 190
+  FMT(vowel/o)
+endphoneme
+
+phoneme o2
+  vowel  starttype #o  endtype #@
+  length 190
+  FMT(vowel/o)
+endphoneme
+phoneme o3
+  vowel  starttype #o  endtype #a
+  length 190
+  FMT(vowel/o)
+endphoneme
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 210
+  FMT(vowel/u)
+endphoneme
+
+phoneme @    //  Schwa, but always unstressed
+  vowel   starttype #@  endtype #@
+  unstressed
+  length 100
+  IF nextPh(i:) THEN
+    Length 50
+    FMT(vwl_af/r@)
+  ENDIF
+  IF nextPh(e:) THEN
+    Length 50
+    FMT(vwl_af/r@)
+  ENDIF
+    FMT(vwl_af/@)
+endphoneme
+
+phoneme V
+  vowel  starttype #a  endtype #@
+  length 140
+  ChangeIfDiminished(@)
+  FMT(vowel/V_4)
+endphoneme
+
+phoneme d[
+  vcd dnt stop
+  voicingswitch t[
+  lengthmod 5
+  Vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  Vowelout f1=2 f2=1500 -300 300  f3=-150 80
+
+  IF PreVoicing THEN
+    FMT(d/xd)
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    FMT(d/d_)  addWav(x/d_)
+  ELIF nextPh(r) THEN
+    FMT(d/dr) addWav(x/d_dnt, 100)
+  ENDIF
+
+  FMT(d/d) addWav(x/d_dnt, 100)
+endphoneme
+
+
+
+
+phoneme t[        // dental variant of /t/
+  vls dnt stop
+  voicingswitch d[
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_hi, 70)
+endphoneme
+phoneme x
+  vls vel frc
+  voicingswitch Q
+  lengthmod 1
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+  Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+
+  IF nextPh(isPause) THEN
+    WAV(ufric/x, 120)
+  ENDIF
+  WAV(ufric/x_hr, 25)
+endphoneme
+
+
+
+
+
+
+
+
+
