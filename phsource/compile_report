@@ -79,7 +79,7 @@ consonants  10  116
       bo  10  152
       kk  20  117
       fa   9  110
-      ga  24  124
+      ga  25  125
 
 Data file      Used by
 b/b             [b] base
@@ -407,7 +407,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [h样] base
+l/l@            [h杚] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -441,7 +441,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [h样] base
+l/la            [h杚] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -449,7 +449,7 @@ l/la            [h样] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [h样] base
+l/le            [h杚] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -461,7 +461,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [h样] base
+l/li            [h杚] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -475,7 +475,7 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [h样] base
+l/lo            [h杚] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -485,7 +485,7 @@ l/l_o           [l/3] base
 l^/l_rfx        [l.] base
                 [l] ru
                 [l^] ru
-l/lu            [h样] base
+l/lu            [h杚] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -2143,6 +2143,7 @@ vowel/u         [u] base
                 [u] ak
                 [u:] wo
                 [u] bo
+                [u1] ga
                 [u:] ga
 vowel/u#        [u:] en-sc
                 [Y] tr

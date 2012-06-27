@@ -102,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2012-04-07
+Dictionary en_dict  2012-06-15
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -202,7 +202,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2012-06-06
+Dictionary ta_dict  2012-06-27
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -797,3 +797,15 @@ o    u    U    u#   Y
 k    l    m    n    N    p    q    r    
 s    S    t    tS   v    w    X    z    
 Z    
+
+
+Dictionary ga_dict  2012-06-27
+
+0    @    a    A:   e    E    e:   i    
+I    i:   o    O    o:   u    U    u1   
+u:   V    
+
+:    ;    b    c    C    d    d[   dZ   
+f    g    h    j    k    l    m    n    
+p    r    R    s    S    t    t[   tS   
+v    w    x    X    z    

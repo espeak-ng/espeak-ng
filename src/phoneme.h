@@ -161,7 +161,7 @@ typedef struct {
 int LookupPhonemeString(const char *string);
 int PhonemeCode(unsigned int mnem);
 
-char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme);
+const char *EncodePhonemes(const char *p, char *outptr, unsigned char *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
 
 extern const char *WordToString(unsigned int word);

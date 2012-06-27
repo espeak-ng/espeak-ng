@@ -308,22 +308,23 @@ static void SetCyrillicLetters(Translator *tr)
 void SetIndicLetters(Translator *tr)
 {//=================================
 	// Set letter types for Indic scripts, Devanagari, Tamill, etc
-	static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
+	static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f,0x7b,0x7c,0x7e,0x7f,0};
+	static const char dev_vowels2[] = {0x60,0x61, 0x55,0x56,0x57,0x62,0x63,0};  // non-consecutive vowels and vowel-signs
 
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 	SetLetterBitsRange(tr,LETTERGP_A,0x04,0x14);   // vowel letters
 	SetLetterBitsRange(tr,LETTERGP_A,0x3e,0x4d);   // + vowel signs, and virama
-	SetLetterBitsRange(tr,LETTERGP_A,0x55,0x57);   // + vowel signs
+	SetLetterBits(tr,LETTERGP_A, dev_vowels2);     // + extra vowels and vowel signs
 
 	SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs, and virama
-	SetLetterBitsRange(tr,LETTERGP_B,0x55,0x57);   // + vowel signs
+	SetLetterBits(tr,LETTERGP_B, dev_vowels2);     // + extra vowels and vowel signs
 
 	SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
 	SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // + additional consonants
 
 	SetLetterBitsRange(tr,LETTERGP_Y,0x04,0x14);   // vowel letters
 	SetLetterBitsRange(tr,LETTERGP_Y,0x3e,0x4c);   // + vowel signs
-	SetLetterBitsRange(tr,LETTERGP_Y,0x55,0x57);   // + vowel signs
+	SetLetterBits(tr,LETTERGP_Y, dev_vowels2);     // + extra vowels and vowel signs
 
 	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 	tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4d;   //virama
@@ -710,6 +711,12 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L('p','a'))
 			{
 				tr->letter_bits_offset = OFFSET_GURMUKHI;
+			}
+			if(name2 == L('n','e'))
+			{
+				tr->langopts.break_numbers = 0x2aaaa8;
+				tr->langopts.max_digits = 22;
+				tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;
 			}
 			SetIndicLetters(tr);
 		}
