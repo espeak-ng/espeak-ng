@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.08
+AppVerName=eSpeak version 1.46.19
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -62,7 +62,7 @@ Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
-;Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
+Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
 Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
 Name: "zh"; MessagesFile: "compiler:Languages\ChineseSimp-12-5.1.11.isl"
@@ -155,6 +155,7 @@ begin
   $36: Result := 'af';
   $39: Result := 'hi';
   //$3a: Result := 'mt';
+  //$3c: Result := 'ga';
   //$3f: Result := 'kk';
   $41: Result := 'sw';
   $49: Result := 'ta';
@@ -218,6 +219,7 @@ begin
   'eu': value := $42d;
   'fi': value := $40b;
   'fr': value := $40c;
+  'ga': value := $83c;
   'gu': value := $447;
   'hi': value := $439;
   'hr': value := $41a;
