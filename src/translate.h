@@ -110,6 +110,7 @@
 #define FLAG_MULTIPLE_SPACES 0x40000  // word is preceded by multiple spaces, newline, or tab
 #define FLAG_INDIVIDUAL_DIGITS 0x80000  // speak number as individual digits
 #define FLAG_DELETE_WORD     0x100000   // don't speak this word, it has been spoken as part of the previous word
+#define FLAG_CHAR_REPLACED   0x200000   // characters have been replaced by .replace in the *_rules 
 
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
@@ -444,12 +445,14 @@ typedef struct {
 	int numbers;
 
 #define NUM2_MULTIPLE_ORDINAL   0x1000
+#define NUM2_ENGLISH_NUMERALS   0x2000
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bit6=(LANG=pl) two forms of plural, M or MA
 	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
 	// bit8=(LANG=cs,sk) two forms of plural, M or MA
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
 	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
+	// bit13=(LANG=ne)  speak (non-replaced) English numerals in English
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248
