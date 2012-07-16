@@ -29,7 +29,7 @@
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
-#define N_LETTER_GROUPS   26
+#define N_LETTER_GROUPS   95          // maximum is 127-32 
 
 
 /* dictionary flags, word 1 */
@@ -520,6 +520,7 @@ typedef struct
 	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
 	const wchar_t *punct_within_word;   // allow these punctuation characters within words
+	const unsigned short *chars_ignore;
 
 // holds properties of characters: vowel, consonant, etc for pronunciation rules
 	unsigned char letter_bits[256];
@@ -632,6 +633,7 @@ int utf8_in2(int *c, const char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 int utf8_nbytes(const char *buf);
 int lookupwchar(const unsigned short *list,int c);
+int lookupwchar2(const unsigned short *list,int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);

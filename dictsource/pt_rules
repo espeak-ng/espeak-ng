@@ -556,7 +556,7 @@
 
 ?1      o (l_      'O
 ?2      ol (_      Ow
-        o (lh+     o
+        o (lh      o
 ?2   _) o (lhA_    O
 ?2   _) o (lhAm_   O
         om (_      oN
@@ -583,7 +583,7 @@
         o (sto_    o
         o (stAm_   O
         o (strA_   O
-        os (trAm_  O
+        o (strAm_  O
 
         o (tA_     O
         o (tAm_    O
@@ -841,6 +841,8 @@
     ri) x (A       S
   rela) x (A       S
    _ro) x (A       S
+ _trou) x (e       s
+ _trou) xe (@      sE
    _ve) x (A       S
    _xi) x (A       S
 ?1   i) x (a_      S

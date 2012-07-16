@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.02
+AppVerName=eSpeak version 1.46.20
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -62,7 +62,7 @@ Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
-;Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
+Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
 Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
 Name: "zh"; MessagesFile: "compiler:Languages\ChineseSimp-12-5.1.11.isl"
@@ -146,7 +146,8 @@ begin
   $1f: Result := 'tr';
   $21: Result := 'id';
   $25: Result := 'et';
-  $26: Result := 'lv';
+  //$26: Result := 'lv';
+  $27: Result := 'lt';
   $2a: Result := 'vi';
   $2b: Result := 'hy';
   //$2c: Result := 'az';
@@ -155,11 +156,11 @@ begin
   $36: Result := 'af';
   $39: Result := 'hi';
   //$3a: Result := 'mt';
+  //$3c: Result := 'ga';
   //$3f: Result := 'kk';
   $41: Result := 'sw';
   $49: Result := 'ta';
   $4b: Result := 'kn';
-  $4c: Result := 'ml';
   //$50: Result := 'mn';
   $52: Result := 'cy';
   //$5e: Result := 'am';
@@ -219,6 +220,7 @@ begin
   'eu': value := $42d;
   'fi': value := $40b;
   'fr': value := $40c;
+  'ga': value := $83c;
   'gu': value := $447;
   'hi': value := $439;
   'hr': value := $41a;
@@ -231,6 +233,7 @@ begin
   'kk': value := $43f;
   'kn': value := $44b;
   'ko': value := $412;
+  'lt': value := $427;
   'lv': value := $426;
   'mk': value := $42f;
   'ml': value := $44c;

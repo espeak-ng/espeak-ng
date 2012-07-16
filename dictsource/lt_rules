@@ -1,0 +1,315 @@
+// translation rules for Lithuanian
+// This file is UTF-8 encoded
+
+
+// Dar ne visai sutvarkytas jot tarimas,
+
+
+.L01 b d g z ž h dz dž // skardieji priebalsiai
+.L02 p t k s š ch c č f // duslieji priebalsiai
+//.L03 l m n r j v // pusbalsiai
+.L04 b d g z ž h dz dž p t k s š ch c č f l m n r j v // priebalsiai
+.L05 a ą e ę ė i į y o u ų ū // balsiai
+.L06 i į y e ę ė // priešakinės eilės balsiai; po jų priebalsiai visada minkšti
+//.L07 ai au ei ui ie uo // dvibalsiai
+//.L08 al am an ar el em en er il im in ir ul um un ur // mišrieji dvigarsiai
+.L10 is io iui į iu yje yj y iai ių iams ius iais iuose // vyr. g. galūnės, jei vardininko galūne -IS
+.L11 ias io iui ią iu yje yj y iai ių iams ius iais iuos // vyr. g. galūnės, jei vardininko galūne IAS
+.L12 as o ui ą u e ai ų ams us ais uose // vyr. g. galūnės, jei vardininko galūne -AS
+.L13 a os ai ą oje oj os ų oms as omis ose // mot. g. galūnės, jei vardininko galėnė A
+.L14 ė ės ei ę e ėje ėj ėms ių ėmis ėm ėse // mot. g. galūnės, jei vardininko galėnė Ė
+.L21 t č // kaitant žodžius t kartais virsta č
+.L22 d dž // kaitant žodžius d kartais virsta dž
+
+
+.group a
+        a a
+        a (ikL13_ a: // po to J tariamos nors nerašomas: archaika
+        a (izmL12_ a // po to J tariamos nors nerašomas: archaizmas
+        ai (L04 ai // tik jei po to seka priebalsis; jei seka balsis, gali tai būti kitas dvibalsis kaip žodyje ilgauodegis
+        ai (_ ai // ...arba žodžio gale
+     @) ai (nL10_ A=i // I kirčiuotė; priesaga -aĩnis: riestaĩnis, saldaĩnis
+     @) ai (nL14_ A=i // I kirčiuotė; priesaga -aĩnė: mišraĩnė
+     @) ai (L21L10_ a=I // I kirčiuotė; priesaga -áitis: gimináitis
+     @) ai (L21L14_ a=I // I kirčiuotė; priesaga -áitė: giráitė
+_aukšt) ai (L21L10_ A=i // išimtis: aukštaĩtis ; FIXME: tai II kirčiuotės žodis
+_aukšt) ai (L21L14_ A=i // išimtis: aukštaĩtė ; FIXME: tai II kirčiuotės žodis
+  _žem) ai (L21L10_ A=i // išimtis: žemaĩtis ; FIXME: tai II kirčiuotės žodis
+  _žem) ai (L21L14_ A=i // išimtis: žemaĩtė ; FIXME: tai II kirčiuotės žodis
+        au (L04 au // tik jei po to seka priebalsis; jei seka balsis, gali tai būti kitas dvibalsis kaip žodyje ilgauodegis
+        au (_ au // ...arba žodžio gale
+        
+.group ą
+        ą a:
+
+.group b
+        b b
+        b (L06 b; // minštasis prieš priešakinės eilės balsius: bėga
+        b (CL06 b; // minštasis prieš priešakinės eilės balsius, įsiterpia priebalsis: astroblema
+        b (L02 p // prieš dusliuosius priebalsius suduslėja: skalbti [skalpti]
+
+.group c
+        c ts
+        c (L06 ts; // minštasis prieš priešakinės eilės balsius
+        ch x
+        ch (L06 x; // minštasis prieš priešakinės eilės balsius
+
+.group č
+        č tS
+        č (L06 tS; // minštasis prieš priešakinės eilės balsius
+
+.group d
+        d d
+        d (L06 d; // minštasis prieš priešakinės eilės balsius
+        d (L02 t // prieš dusliuosius priebalsius suduslėja: medkirtys [metkirtys]
+        d (_ t // skardieji [d], [g], [ž] žodžio gale tariami dusliai: kad – kat
+        dz dz
+        dz (L06 dz; // minštasis prieš priešakinės eilės balsius
+        dž dZ
+        dž (L06 dZ; // minštasis prieš priešakinės eilės balsius
+
+.group e
+        e e
+        ei ;ei
+     @) ei (vL13_ e=I // I kirčiuotė; priesaga -éiva: rašéiva
+
+.group ę
+        ę eA
+
+.group ė
+        ė ee
+     @) ė (jL12_ ee= // I kirčiuotė; priesaga -ėjas: siuvėjas
+     @) ė (jL13_ ee= // I kirčiuotė; priesaga -ėja: šlavėja
+     @) ė (nL12_ ee= // I kirčiuotė; priesaga -ėnas: brolėnas
+     @) ė (nL14_ ee= // I kirčiuotė; priesaga -ėnas: kupiškėnė
+     @) ė (čiL13_ ee= // I kirčiuotė; priesaga -ėčia: pasakėčia
+  _kop) ė (čiL13_ ee // išimtis – kopėčios
+     
+.group f
+        f f
+// f (L06 f; // minštasis prieš priešakinės eilės balsius
+
+.group g
+        g g
+        g (L02 k // prieš dusliuosius priebalsius suduslėja: segti [sekti]
+        g (_ k // skardieji [d], [g], [ž] žodžio gale tariami dusliai: daug – dauk
+        gg g // du vienodi priebalsiai suliejami: burggrafas [burgrafas]
+
+.group h
+        h h
+// h (L06 h; // minštasis prieš priešakinės eilės balsius
+
+.group i
+        i i
+        ia e
+     c) ia (cijL13_ ija // J tariamos nors nerašomas: diferenciacija
+     c) ia (lL12_ ija // J tariamos nors nerašomas: diferencialas
+        ie ie
+     _) ie (v jie // Ieva [Jieva]
+        ie (šk jie // ieškoti [jieškoti]
+     _) ie (šm jie // iešmas [jiešmas]
+     @) ie (nL13_ I=e // I kirčiuotė; priesaga -iena: naujiena
+ _jaut) ie (nL13_ ie // išimtis: jautiena
+     o) i (kL13_ ji // J tariamos nors nerašomas: heroika
+     a) i (kL13_ ji // J tariamos nors nerašomas: archaika
+     a) i (zmL12_ ji // J tariamos nors nerašomas: archaizmas
+        i (A ; // jei po to eina balsis – interpretuoti kaip minkštumo ženklą
+     
+.group į
+        į i:
+// _) į (@ i:= // I kirčiuotė; priešdėlis į-: įšalas ; bėt ne visada tinka: įžeminimas, įėjo
+
+.group y
+        y i:
+   _ap) y (@ i:= // I kirčiuotė; priešdėlis apý-: apýaušris, apýsaka, apývarta
+   @en) y (bL14_ i:= // I kirčiuotė; priesaga -enýbė: brangenýbė
+     @) y (bL13_ i:= // I kirčiuotė; priesaga -ýba: daugýba
+     @) y (bL14_ i:= // I kirčiuotė; priesaga -ýbė: gyvýbė
+   @um) y (nL12_ i:= // I kirčiuotė; priesaga -umýnas: gardumýnas
+     @) y (L21L10_ i:= // I kirčiuotė; priesaga -ýtis: brolýtis
+     @) y (L21L14_ i:= // I kirčiuotė; priesaga -ýtė: mergýtė
+
+.group j
+        j j
+// j j; // jot visada minkštas
+
+.group k
+        k k
+        k (L06 k; // minštasis prieš priešakinės eilės balsius
+        k (CL06 k; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: klega
+        k (CCL06 k; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: brūkštelėti
+        kk k // du vienodi priebalsiai suliejami: aplinkkelis [aplinkelis]
+        k (L01 g // prieš skardžiuosius priebalsius suskardėja: sukdamas [sugdamas]
+
+.group l
+        l l
+        l (L06 l; // minštasis prieš priešakinės eilės balsius
+        l (CL06 l; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: algebra
+        l (CCL06 l; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: asfaltbetonis
+
+.group m
+        m m
+        m (L06 m; // minštasis prieš priešakinės eilės balsius
+        m (CL06 m; // minštasis prieš priešakinės eilės balsius
+        m (CCL06 m; // minštasis prieš priešakinės eilės balsius
+        mm m // du vienodi priebalsiai suliejami: šėmmargis [šėmargis]
+
+.group n
+        n n
+        n (L06 n; // minštasis prieš priešakinės eilės balsius
+        n (CL06 n; // minštasis prieš priešakinės eilės balsius
+        n (CCL06 n; // minštasis prieš priešakinės eilės balsius
+        nn n // du vienodi priebalsiai suliejami: vandennešis [vandenešis]
+
+.group o
+        o o:
+     f) o (nL12_ O= // tarptautiniai žodžiai, besibaigiantys -fonas, pvz., telefonas
+// _p) o o:= // I kirčiuotė; kai kuriuose žodžiuose priešdėlis pó-: pódukra, póilsis, pókylis, pósėdis
+        o (kšnL10_ o:= // I kirčiuotė; priesaga -ókšnis: balókšnis, krūmókšnis, upókšnis
+
+.group p
+        p p
+        p (L06 p; // minštasis prieš priešakinės eilės balsius
+        p (CL06 p; // minštasis prieš priešakinės eilės balsius
+        p (CCL06 p; // minštasis prieš priešakinės eilės balsius
+        p (L01 b // prieš skardžiuosius priebalsius suskardėja: apdaras [abdaras]
+        pp p // du vienodi priebalsiai suliejami: tarppirštis [tarpirštis]
+        
+.group q
+        q kv
+        q (L06 k;v;
+
+.group r
+        r r
+        r (L06 r; // minštasis prieš priešakinės eilės balsius
+        r (CL06 r; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: agurkiniai
+        r (CCL06 r; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: absorbcija
+        rr r // du vienodi priebalsiai suliejami: švarraštis [švaraštis]
+
+.group s
+        s s
+        s (L01 z // prieš skardžiuosius priebalsius suskardėja: kasdamas [kazdamas]
+        s (L06 s; // minštasis prieš priešakinės eilės balsius
+        s (CL06 s; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: akimirksnis
+        s (CCL06 s; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: apskritaveidis
+        ss s // du vienodi priebalsiai suliejami: pusseserė [puseserė]
+        sš S // susidūrus priebalsiams [s], [š], [z], [ž] tariamas paskutinysis: pusšimtis [pušimtis]
+        
+.group š
+        š S
+        š (L01 Z // prieš skardžiuosius priebalsius suskardėja: išgirsti [ižgirsti]
+        š (L06 S; // minštasis prieš priešakinės eilės balsius
+        š (CL06 S; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: rūgštis
+        š (CCL06 S; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: apyaštris
+        šš S // du vienodi priebalsiai suliejami: iššovė [išovė]
+
+.group t
+        t t
+        t (L06 t; // minštasis prieš priešakinės eilės balsius
+        t (CL06 t; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: aistringas
+        t (CCL06 t; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: antslenkstis
+        t (L01 d // prieš skardžiuosius priebalsius suskardėja: atgarsis [adgarsis]
+        tt t // du vienodi priebalsiai suliejami: dešimttomis [dešimtomis]
+
+.group u
+        u u
+        ui ui
+        uo uo
+     @) uo (menL14_ U=o // I kirčiuotė; priesaga -úomenė: bendrúomenė
+
+.group ų
+        ų u:
+
+.group ū
+        ū u:
+     @) ū (kšL21L10_ U=u // I kirčiuotė; priesaga -(i)ūkštis: berniūkštis
+     @) ū (kšL21L14_ U=u // I kirčiuotė; priesaga -(i)ūkštė: mergiūkštė
+
+.group v
+        v v
+        v (L06 v; // minštasis prieš priešakinės eilės balsius
+
+.group w
+        w v
+        w (L06 v; // minštasis prieš priešakinės eilės balsius
+
+.group x
+        x ks
+        x (L06 k;s; // minštasis prieš priešakinės eilės balsius
+
+.group z
+        z z
+        z (L06 z; // minštasis prieš priešakinės eilės balsius
+        z (CL06 z; // minštasis prieš priešakinės eilės balsius, įsiterpia vienas priebalsis: dūzgesys
+        z (L02 s // prieš dusliuosius priebalsius suduslėja: zyzti [zysti]
+        z (č S // priebalsis z prieš č virsta š: mokesčiai [mokeščiai]
+        z (dž Z // priebalsis z prieš dž virsta ž: vabzdžiai [vabždžiai]
+
+.group ž
+        ž Z
+        ž (L06 Z; // minštasis prieš priešakinės eilės balsius
+        ž (CL06 Z; // minštasis prieš priešakinės eilės balsius, įsiterpia priebalsis: žvelgti
+        ž (CCL06 Z; // minštasis prieš priešakinės eilės balsius, įsiterpia du priebalsiai: užkrešėti
+        žž Z // du vienodi priebalsiai suliejami: užžėlė [užėlė]
+        ž (L02 S // prieš dusliuosius priebalsius suduslėja: vežti [vešti]
+        ž (_ S // skardieji [d], [g], [ž] žodžio gale tariami dusliai: bemaž – bemaš
+        žs s // susidūrus priebalsiams [s], [š], [z], [ž] tariamas paskutinysis: užsienis [usienis]
+        žš S // susidūrus priebalsiams [s], [š], [z], [ž] tariamas paskutinysis: užšoko [ušoko]
+
+        
+.group 0xce // Greek letters
+// 0xce is the first byte of the utf-8 code for these characters
+
+α 'alfa_
+β b;'eta_
+γ g'a:ma_
+δ d;'elta_
+ε 'eps;ilon_
+ζ z;'eta_
+η eta_
+θ t;eta_
+ι jota_
+κ k'apa_
+λ l;'amda_
+μ m;'i_
+ν n;'i_
+ξ ks;'i_
+ο 'om;ikron_
+
+.group 0xcf // Greek letters
+
+π p;'i:_
+ρ r'o_
+σ s;'igma_
+ς s;'igma_
+τ t'aU_
+υ 'ips;ilon_
+φ f;'i_
+χ x;'i_
+ψ ps;'i_
+ω om'ega_
+        
+        
+.group
+            '
+            ! _:Saukt'Ukas
+            ! (\!
+            : d;v;'ItaS;k;is
+        D_) : (_DD_ // omit colon in time, eg: 2:30
+            != n;el;'i:gu
+            >= daug;'au_arb'A_l;i:gu
+            <= maZ;'au_arb'A_li:gu
+          
+
+        __) - (_D minus
+        A_) - (_D _
+        C_) - (_D _
+
+      \#\#) # (_ _::
+        \#) #
+
+            . (. _:
+            . _:t'aSkas
+        \.) .
+
+ 

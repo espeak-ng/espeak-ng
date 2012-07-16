@@ -643,46 +643,65 @@ governo	gov'ernU	$noun
 //*********************
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
+
 boca		$alt2
 borboleta	$alt2
 catorze		$alt2
 copo		$alt
-escova		$alt2
+corpos		$alt
+corvos		$alt
+der		$alt
+doce		$alt2
+descova		$alt2
+fizer		$alt
+fizerem		$alt
+fogos		$alt
 fosse		$alt2
 fossem		$alt2
+grosso		$alt2
 hoje		$alt2
+jogos		$alt
 líderes		$alt2
+lopes		$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
+modo		$alt
+modos		$alt
+mortos		$alt
 ?2 mulher	mulj'Er
 ?4 mulher	mul^'Er
 mui		mwi
 muito		mw'iNtU	// -s is included as a suffix
 muita		mw'iNt&
-paexa		paeSa
-perdem		$alt
-preto		$alt2
+mulheres	$alt
+novos		$alt
 onu		$1
+ovos		$alt
+paexa		paeSa
+pedra		$alt
+perdem		$alt
+portos		$alt
+povos		$alt
+preto		$alt2
+puder		$alt
 rede		$alt2
 rixa		xiS&
+rogas		$alt
 selvagem	seUv'aZeIN
+souber		$alt
+souberem	$alt
+sugerem		$alt
 suor		swOr
 tapete		$alt2
 teta		$alt2
-
-novos		$alt
-mortos		$alt
-corpos		$alt
-modo		$alt
-modos		$alt
-fogos		$alt
-lopes		$alt
-jogos		$alt
-doce		$alt2
-drogas		$alt
-grosso		$alt2
+tiver		$alt
+tiveres		$alt
 torres		$alt2
+vanessa		$alt2
+verbo		$alt
+vierem		$alt
+violeta		$alt2
 
 // Close [o]
 ?1 calculadora	$alt2
@@ -690,8 +709,6 @@ torres		$alt2
 ?1 senhora	$alt2
 ?1 sobre	$alt2
 
-vanessa		$alt2
-violeta		$alt2
 
 
 abacaxi      abakaSy
