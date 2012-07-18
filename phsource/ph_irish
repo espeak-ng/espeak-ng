@@ -1,6 +1,6 @@
 // Irish Phonemes
 // written by Ronan McGuirk
-// April 2012 version 0.3
+// April-June  2012 version 1.0
 
 //====================================================
 //====================================================
@@ -27,7 +27,7 @@ endphoneme
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   ipa ?
-  length 80
+  length 50
   FMT(vowel/ii_7)
 endphoneme
 
@@ -44,6 +44,12 @@ phoneme U
   length 180
   FMT(vowel/u_bck2)
 endphoneme
+phoneme u1
+  vowel starttype #u endtype #u
+  length 50
+  FMT(vowel/u)
+endphoneme
+
 
 phoneme 0
   vowel  starttype #a   endtype #a

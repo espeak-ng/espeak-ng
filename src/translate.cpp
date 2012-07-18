@@ -392,6 +392,9 @@ int IsAlpha(unsigned int c)
 		return(0);
 	}
 
+	if(c == 0x0605)
+		return(1);
+
 	if((c >= 0x64b)  && (c <= 0x65e))
 		return(1);   // arabic vowel marks
 
@@ -466,6 +469,22 @@ int lookupwchar(const unsigned short *list,int c)
 	}
 	return(0);
 }
+
+
+int lookupwchar2(const unsigned short *list,int c)
+{//==============================================
+// Replace character c by another character.
+// Returns 0 = not found, 1 = delete character
+	int ix;
+
+	for(ix=0; list[ix] != 0; ix+=2)
+	{
+		if(list[ix] == c)
+			return(list[ix+1]);
+	}
+	return(0);
+}
+
 
 int IsBracket(int c)
 {//=================
