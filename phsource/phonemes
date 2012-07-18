@@ -1708,6 +1708,10 @@ include ph_malayalam
 phonemetable hu base
 include ph_hungarian
 
+phonemetable lt base
+include ph_lithuanian
+
+
 phonemetable lv base
 include ph_latvian
 

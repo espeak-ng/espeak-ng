@@ -1,4 +1,4 @@
- 
+﻿ 
 // translation rules for Georgian
 // This file is UTF-8 encoded
 
@@ -13,15 +13,6 @@ _7	Sv'idi
 _8	rv'a
 _9	ts#xr'a
 
-_0a	n'ul
-_1a	'ert#
-_2a	'or
-_3a	s'am
-_4a	'ot#x
-_5a	x'ut#
-_6a	'ek#vs
-_7a	Sv'id
-
 _10	'at#i
 _11	t#'ert#meti
 _12	t#'ormeti
@@ -33,31 +24,34 @@ _17	tSv'idmeti
 _18	t#vr'ameti
 _19	ts#xr'ameti
 
-_10a	'at#
-_11a	t#'ert#met
-_12a	t#'ormet
-_13a	ts#'amet
-_14a	t#'ot#xmet
-_15a	t#x'ut#met
-_16a	t#'ek#vsmet
-_17a	tSv'idmet
-_18a	t#vr'amet
-_19a	ts#xr'amet
-
 _20	'ots#i
-_20a	'ots#
 _2X	'ots#
 _40	'ormotsi
-_40a	'ormots
 _4X	'ormots
 _60	s'amotsi
-_60a	s'amots
 _6X	s'amots
-_80	'ot#xotsi
-_80a	'ot#xots
-_8X	'ot#xots
+_80	'ot#xmotsi
+_8X	'ot#xmots
+
 _0C0	asi
 _0C	as
+_2C0	orasi
+_2C	oras
+_3C0	samasi
+_3C	samas
+_4C0	otxasi
+_4C	otxas
+_5C0	x'ut#asi
+_5C	x'ut#as
+_6C0	'ek#vsasi
+_6C	'ek#vsas
+_7C0	Sv'idasi
+_7C	Sv'idas
+_8C0	rvaasi
+_8C	rvaas
+_9C0	ts#xr'aasi
+_9C	ts#xr'aas
+
 _0M1	'at#as
 _0M1x	'at#asi
 _0M2	m'ilion
@@ -118,7 +112,7 @@ _ე	e
 ჶ	fi
 ჷ	shva
 ჸ	elifi
-უ	unbrigu
+უ	u
 
 
 %	prots#enti  $max3
@@ -154,3 +148,4 @@ _)	m'ardZvena||mr@-gv'ali||p#r@-tSx'ili
 
 // common function words
 და	$u $brk
+

@@ -111,6 +111,18 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 	}
 }
 
+// ignore these characters
+static const unsigned short chars_ignore_default[] = {
+	0x200c,  1, // zero width non-joiner
+	0x200d,  1, // zero width joiner
+	0, 0 };
+
+// alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
+static const unsigned short chars_ignore_fa[] = {
+	0x200c,  0x0605, // zero width non-joiner, replace with not-used Arabic character code
+	0x200d,  1, // zero width joiner
+	0, 0 };
+
 
 static Translator* NewTranslator(void)
 {//===================================
@@ -121,6 +133,7 @@ static Translator* NewTranslator(void)
 	static const wchar_t empty_wstring[1] = {0};
 	static const wchar_t punct_in_word[2] = {'\'', 0};  // allow hyphen within words
 	static const unsigned char default_tunes[6] = {0, 1, 2, 3, 0, 0};
+
 
 	tr = (Translator *)Alloc(sizeof(Translator));
 	if(tr == NULL)
@@ -155,6 +168,7 @@ static Translator* NewTranslator(void)
 
 	tr->char_plus_apostrophe = empty_wstring;
 	tr->punct_within_word = punct_in_word;
+	tr->chars_ignore = chars_ignore_default;
 
 	for(ix=0; ix<8; ix++)
 	{
@@ -647,9 +661,13 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','a'):   // Farsi
 		{
+			static const char fa_ZWNJ[] = {0x05, 0};  // use letter group G for ZWNJ U+200c
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+
+			tr->chars_ignore = chars_ignore_fa;
+			SetLetterBits(tr,LETTERGP_G,(char *)fa_ZWNJ);
 		}
 		break;
 
@@ -968,6 +986,20 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_DIERESES] = 1;
 			tr->langopts.numbers = NUM_ROMAN;
+			tr->langopts.max_roman = 5000;
+		}
+		break;
+
+	case L('l','t'): // Lithuanian
+		{
+			tr->charset_a0 = charsets[4]; // ISO-8859-4
+			tr->langopts.stress_rule = STRESSPOSN_2R;
+			tr->langopts.stress_flags = 0x20;
+			tr->langopts.unstressed_wd1 = 0;
+			tr->langopts.unstressed_wd2 = 2;
+			tr->langopts.param[LOPT_DIERESES] = 1;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
+			tr->langopts.numbers2 = 0x100;
 			tr->langopts.max_roman = 5000;
 		}
 		break;

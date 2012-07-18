@@ -986,6 +986,18 @@ static const char *M_Variant(int value)
 {//====================================
 	// returns M, or perhaps MA for some cases
 	
+	if(translator->translator_name == L('l','t'))
+	{
+		// Lithuanian
+		if((value % 10) == 1)
+			return("0MA");
+		if(((value % 10) == 0) || ((value % 100) > 10) && ((value % 100) < 20))
+		{
+			return("0MB");
+		}
+		return("0M");
+	}
+
 	if((translator->langopts.numbers2 & 0x100) && (value >= 2) && (value <= 4))
 		return("0MA");  // Czech, Slovak
 	else
