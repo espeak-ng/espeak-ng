@@ -1,0 +1,236 @@
+// Nepali Language.
+// This list file is prepared by Him Prasad Gautam (Nepal).
+// This file is UTF-8 encoded.
+
+// letter groups:
+// A - Independent and Dependent Vowels:
+//	0x904 to 0x914, 0x93E to 0x94D, 0x950, 0x960 to 0x963, 0x972
+// B - Dependent Vowels and Halanta:
+//	0x93E to 0x94C, 0x94d, 0x962, 0x963
+// C - Consonants:
+//	0x915 to 0x939, 0x958 to 0x95F, 0x97B, 0x97c, 0x97E, 0x97F
+//    Independent Vowels:
+//	0x904 to 0x914, 0x950,0x960, 0x961, 0x977
+//  Nepali (Devanagari) Alphabets:	0x901 to 0x980
+//  Numbers:	0x966 to 096F
+//  symbols:
+//	0x901 to 0x903, 0x93C, 0x93D, 0x951 to 0x954, 0x964, 0x965, 0x970, 0x971, 0x97D
+
+// conditional rules
+// ?1   Pronounciation of a consonant at the end of a word.
+// ?2	use diphthong for "ai".
+// ?3	use diphthong for "au"
+
+
+
+
+_0        S'u:n'na:
+_1        e:'k'
+_2        d'u:,i:
+_3        t'i:n
+_4        c'a:r:
+_5        p'a:nc
+_6        ch'@2
+_7        s'a:t
+_8        'a:th.
+_9        n'V'u:
+
+_10       d'Vs
+_11       e:'gh'a:r'V
+_12       b'a:r@2
+_13       t'e:hr@
+_14       ch'O:d@2
+_15       p'Vndr@2
+_16       s'o:r@2
+_17       s'Vtr@2
+_18       a'th.'a:r@2
+_19       U:nn'a:i's
+_20       b'i:s
+
+_21       e:k:k'a:i:s
+_22       b'a:Is
+_23       t'e:Is
+_24       c'O:b'Is
+_25       p@c:'Is
+_26       ch@b'b'i:s
+_27       s@t:'a:Is
+_28       ath:'a:Is
+_29       U:n'Vnt'Is
+_30       t'i:s
+
+_31       e:k@t:'Is
+_32       b'at:'Is
+_33       t'e:t't'i:s      
+_34       cO~,t'I:s
+_35       pE~t'Is
+_36       ch@:t't'I:s
+_37       sE~t'Is
+_38       art'Is
+_39       U:n'an'c'a:l'i:s 
+
+_40       ca:l'Is
+_41       e':kc'a:l'is
+_42       baIa:l'Is
+_43       t'ri:c'a:l'i:s
+_44       cO:wa:l'Is
+_45       paI'nta:l'Is
+_46       chhIja:l'Is
+_47       s@'d.cta:l'Is
+_48       a'th.'c'a:l'Is
+_49       U'n'an'c'a:s
+ :
+_50       p@c'a:s
+_51       e:k'a:wVn'n:'V
+_52       b'a:wVn'n:'V
+_53       t'rI:p'an'nV
+_54       c'Ou:wVn'nV
+_55       p'ac'pVn'nV
+_56       chh@p:'Vn'nV
+_57       s'Vn't:'a:w@n'n':V
+_58       a'nth:'a:w@n'n':V
+_59       U'n'Vn's'a:th.i:
+
+_60       s'a:th.i:
+_61       e:k'as@th.'th.i:
+_62       b'E:s@th.':th.'i:
+_63       t'r'i:,s@th.'th.'i:
+_64       c'O:s@th.'th.'i:
+_65       p'E~'s@th.'th.'i:
+_66       ch'E's@th.'th.'i:
+_67       s'Vt's@th.'th.'i:
+_68       a'th.,s@th.'th.'i:
+_69       U:n'an's'Vtt'ar'i:
+
+_70       s'at't@r'i::
+_71       e:k'ah'at:'Vr:
+_72       b@h'att'Vr:
+_73       tIjatt:'Vr:
+_74       cO:hat:'Vr:
+_75       pach,at:'Vr:
+_76       ch@'j'ah'at't'Vr:
+_77       s@t@hatt:'Vr:
+_78       athhatt:'Vr:
+_79       U'n'a:s'i: 
+
+_80       a's's'i:
+_81       e:k'a:s'i:
+_82       baIa:s'i:
+_83       trIj'a:s'i:
+_84       cO:ra:s'i:
+_85       p'ac'a:s'i:
+_86       ch@j'a:s'i:
+_87       s'V:t'a:s'i:
+_88       a'th.:a:s'i:
+_89       u:n'a:n'ab'b'e:
+
+_90       n@b'b'e:
+_91       e:k'a:n@b'b'e:
+_92       b'aj'a:n@b'b'e:
+_93       trIj'a:n@b'b'e:
+_94       cO:r'a:n@b'b'e:
+_95       p@n'c'a:n@b'b'e:
+_96       ch@j'a:n@b'b'e:
+_97       s@n't:'a:n@b'b'e:
+_98       a'n'th.'a:n@b'b'e:
+_99       U:n'n'a:nsh@je:
+
+_0C            s'aj@
+_0M1	h@z'a:r@
+_0M2	l'a:kh@
+_0M3	k'a'ro:d.@ 
+_0M4	'Vr@b
+_0M5	kh'Vr@b'V
+_0M6	n'i:l'	
+_0M7	p'Vd'm@
+_0M8	sh'an,kh@
+_0M9	m'ah'a:,sh'ankh@
+_0M10	p@r'a:rrd:dh@
+
+_dpt	_th'o:plo_
+        
+//	Symbols in Nepali
+
+।	$pause
+
+
+
+	// Single consonants
+क      k@
+क़      q@
+ख      kh@
+ख़      x@
+ग      g@
+ग़      Q@
+घ      gh@
+ङ      N@
+च      c@
+छ      ch@
+ज      J@
+ज़      z@
+झ      Jh@
+ञ      n^@
+ट      t.@
+ठ      th.@
+ड      d.@
+ड़      r.@
+ढ      dh.@
+ण      n.@  // retroflex n.@
+त      t@
+थ      th@
+द      d@
+ध      dh@
+न      n@
+प      p@
+फ      ph@
+फ़      f@
+ब      b@
+भ      bh@
+म      m@
+य      j@
+र      r@
+ऱ      r@
+ल      l@
+ळ      l.@
+व      w@
+श      S@
+ष      s.@   //  retroflex [S]
+स      s@
+ह      H@
+क़      q@
+ख़      x@
+ग़      Q@
+ज़      z@
+ड़      r@
+ढ़      hr@
+फ़      f@
+य़      j@
+
+	// Exceptions of pronounciation rules in some words
+
+हुन	h'u'n@
+आज	a:'J@:
+अब	V'b@2
+वन	b'a'n@2
+तर	t'ar@,	$pause
+पर	p'ar@,
+वर	w'ar@:
+मेरो	$pause
+म	m@2,,	$u   $brk
+नि	$pause
+त	t@,
+र	$u  	$pause
+पो	$u  	$pause
+हो	$u  	$brk
+के	k'e,:  	$brk
+दुःख	d'u,,kh@
+सुख	s'u=kh@
+जव	J'a@
+राष्ट्रिय 	r'a:S,t.rI:j@2	$2
+ सित	s'it@
+ होइन	h'oi:n@2
+ भएन	bh'Vj'en@2	
+ गएन	g'Vj'en@2
+ खाएन	khaj'en@2
+ दिएन	d'ij'en@2
+	
+// 
