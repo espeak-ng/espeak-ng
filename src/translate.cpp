@@ -2797,6 +2797,20 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 				letter_count++;
 
+				if(tr->letter_bits_offset > 0)
+				{
+					if(((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
+						((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
+					{
+						// Don't mix native and Latin characters in the same word
+						// Break into separate words
+						c = ' ';
+						space_inserted = 1;
+						word_flags |= FLAG_HYPHEN_AFTER;
+						next_word_flags |= FLAG_HYPHEN;
+					}
+				}
+
 				if(iswupper(c))
 				{
 					c = towlower2(c);
