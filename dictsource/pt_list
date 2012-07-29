@@ -644,25 +644,52 @@ governo	gov'ernU	$noun
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+acerto		$alt2 $noun
+adore		$alt
+alferes		$alt
+ameba		$alt
 boca		$alt2
 borboleta	$alt2
 catorze		$alt2
+cerca		$alt $verb
+cerco		$alt $verb
+chamego		$alt2
+comeres		$alt2
+conheço		$alt2
+copa		$alt
 copo		$alt
 corpos		$alt
 corvos		$alt
+couber		$alt
+couberem	$alt
+couberdes	$alt
+couberes	$alt
 der		$alt
+dez		$alt
 doce		$alt2
 descova		$alt2
+enumerem	$alt
+erro		$alt2 $noun
+estiverdes	$alt
+estiveres	$alt
+farofa		$alt
+fere		$alt
+ferem		$alt
 fizer		$alt
 fizerem		$alt
+fizerdes	$alt
+fizeres		$alt
 fogos		$alt
 fosse		$alt2
 fossem		$alt2
+germe		$alt
 grosso		$alt2
 hoje		$alt2
 jogos		$alt
 líderes		$alt2
 lopes		$alt
+mantiverdes	$alt
+mantiveres	$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
@@ -681,15 +708,30 @@ ovos		$alt
 paexa		paeSa
 pedra		$alt
 perdem		$alt
+pesa		$alt
+pesam		$alt
+peso		$alt
+peso		$alt2 $noun
 portos		$alt
 povos		$alt
 preto		$alt2
+profere		$alt
+proferem	$alt
 puder		$alt
+puserdes	$alt
+quero		$alt
 rede		$alt2
 rixa		xiS&
 rogas		$alt
 selvagem	seUv'aZeIN
+soco		$alt2
+sofrem		$alt
+sofres		$alt
+sopre		$alt
+soprem		$alt
 souber		$alt
+souberdes	$alt
+souberes	$alt
 souberem	$alt
 sugerem		$alt
 suor		swOr
@@ -698,8 +740,10 @@ teta		$alt2
 tiver		$alt
 tiveres		$alt
 torres		$alt2
+tropeço		$alt2 $noun
 vanessa		$alt2
 verbo		$alt
+verme		$alt
 vierem		$alt
 violeta		$alt2
 
