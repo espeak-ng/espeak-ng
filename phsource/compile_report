@@ -80,7 +80,7 @@ consonants  10  116
       bo  10  152
       kk  20  117
       fa   9  110
-      ga  25  125
+      ga  21  125
 
 Data file      Used by
 b/b             [b] base
@@ -118,7 +118,6 @@ d/d             [d] base
                 [d] hr
                 [d] sq
                 [d] mt
-                [d[] ga
 d/d_            [d] base
                 [d[] base
                 [d] base2
@@ -136,7 +135,6 @@ d/d_            [d] base
                 [d] hr
                 [d] sq
                 [d] mt
-                [d[] ga
 d/d_dnt         [d] sr
 d/dr            [*] base
                 [d[] base
@@ -156,7 +154,6 @@ d/dr            [*] base
                 [d] hr
                 [d] sq
                 [d] mt
-                [d[] ga
 d/tap           [*;] ro
 d/tap1          [*] base
 d/tap2          [t#] en
@@ -182,7 +179,6 @@ d/xd            [d] base
                 [d] mt
                 [dz] bo
                 [dzh] bo
-                [d[] ga
 d/xd3           [dh] hi
 d/xd_pzd        [d^] et
                 [d;] lt
@@ -418,7 +414,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [höx] base
+l/l@            [hF{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -452,7 +448,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [höx] base
+l/la            [hF{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -460,7 +456,7 @@ l/la            [höx] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [höx] base
+l/le            [hF{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -472,7 +468,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [höx] base
+l/li            [hF{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -486,7 +482,7 @@ ll/ll           [L] bg
 ll/_ll          [L] bg
 l/l_long        [l] base
                 [l] fr
-l/lo            [höx] base
+l/lo            [hF{] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -497,7 +493,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [höx] base
+l/lu            [hF{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -813,14 +809,12 @@ ufric/tlh       [K] nso
                 [K] tn
 ufric/x         [x] base
                 [kh] vi
-                [x] ga
 ufric/x2        [x2] af
                 [x] ku
                 [X] kk
 ufric/x_hr      [x] base
                 [x] hr
                 [x] ru
-                [x] ga
 ufric/x_sr      [h#] sr
                 [x#] sr
 ufric/xx        [X] base
@@ -951,14 +945,12 @@ ustop/t_dnt     [t] base
                 [t] lt
                 [t] pl
                 [t] hr
-                [t[] ga
 ustop/t_dnt2    [t] base2
                 [d] kn
 ustop/t_hi      [t[] base
                 [t] et
                 [t^] et
                 [t`] am
-                [t[] ga
 ustop/t_pzd     [c] base
                 [t^] et
                 [t;] lt
@@ -1046,6 +1038,7 @@ vdiph2/eo       [eo] ro
 vdiph2/e_u      [e[u] ro
 vdiph2/i@       [i@] en-n
                 [i@] hy
+                [i@] ga
 vdiph2/i@_2     [i@] en-wm
 vdiph2/ie       [i@] en-wi
                 [ie] fi
@@ -1077,6 +1070,7 @@ vdiph2/oa       [Oa] ro
 vdiph2/o_oo     [o@] en-wi
                 [O:] is
                 [o] zh
+vdiph2/u@       [u@] ga
 vdiph2/u#@      [U@] en-sc
 vdiph2/uaa      [uo] lt
                 [uo] lv
@@ -1231,6 +1225,7 @@ vdiph/eu_2      [eu] fi
 vdiph/@i        [Yi] et
                 [@I] vi
                 [@:I] vi
+                [@I] ga
 vdiph/&i        [&i] fi
                 [&i] et
                 [aI] hi
@@ -1290,6 +1285,7 @@ vdiph/@u        [u:] en-wm
                 [@:U] vi
 vdiph/@u_2      [oU] en-rp
 vdiph/@u_3      [@U] ro
+                [@U] ga
 vdiph/@u_en     [oU] en
                 [@U] id
 vdiph/ui        [uI] base2
@@ -1450,6 +1446,11 @@ vowel/@         [@] base
                 [@] wo
                 [@:] wo
                 [@] te
+                [@] ga
+                [E#] ga
+                [I#] ga
+                [O#] ga
+                [U#] ga
 vowel/@-        [@-] base
                 [r*] hr
 vowel/&         [a] en-rp
@@ -1610,6 +1611,7 @@ vowel/a#_3      [a#] en
                 [a] sq
                 [a/] sq
                 [3] da
+                [a#] ga
 vowel/a_4       [a] es
                 [a] el
                 [a] vi
@@ -1653,10 +1655,6 @@ vowel/aa_2      [A:] en
                 [A] zh
                 [A@] tn
                 [A:] ga
-                [A0:] ga
-                [A1:] ga
-                [A9:] ga
-                [0A:] ga
 vowel/aa_3      [A:] af
                 [A] sq
                 [A] prs
@@ -1673,7 +1671,6 @@ vowel/aa_8      [0] en-us
                 [A1] et
                 [A] nl
                 [a:] is
-                [0] ga
 vowel/aa_9      [a] fi
                 [a] et
                 [a:] hi
@@ -1782,7 +1779,6 @@ vowel/ee_5      [E] en
                 [E] wo
                 [E:] wo
                 [E] tn
-                [E] ga
 vowel/ee_6      [&] sk
                 [E3] sv
                 [E] ku
@@ -1820,6 +1816,7 @@ vowel/e_mid     [E] en-rp
                 [E] prs
                 [E] ht
                 [e] si
+                [E] ga
 vowel/e_mid2    [E] af
                 [E] de
                 [E2] de
@@ -2001,7 +1998,6 @@ vowel/ii_6      [I] en-wm
                 [i] wo
 vowel/ii_7      [i] en
                 [i] sq
-                [i] ga
 vowel/ii_8      [i] kk
 vowel/ii_final  [i] en-us
                 [i] en-rp
@@ -2058,8 +2054,6 @@ vowel/o         [o] base2
                 [o] te
                 [o:] te
                 [o] bo
-                [o2] ga
-                [o3] ga
                 [o:] ga
 vowel/o_2       [o:] cy
                 [o:] hi
@@ -2118,7 +2112,6 @@ vowel/oo        [o] base
                 [o] prs
                 [O] wo
                 [O:] wo
-                [O] ga
 vowel/oo_1      [O:] en-n
                 [O:] en-rp
                 [O@] en-rp
@@ -2157,6 +2150,7 @@ vowel/oo_4      [O] base2
                 [O:] hi
                 [O] it
                 [O] pa
+                [O] ga
 vowel/oo_5      [O] pl
                 [O] is
                 [O] sq
@@ -2200,8 +2194,6 @@ vowel/u         [u] base
                 [u] ak
                 [u:] wo
                 [u] bo
-                [u1] ga
-                [u:] ga
 vowel/u#        [u:] en-sc
                 [Y] tr
 vowel/u_2       [u1] fi
@@ -2273,6 +2265,7 @@ vowel/u_bck     [u] base2
                 [u] ne
                 [u] pa
                 [u] mt
+                [u:] ga
 vowel/u_bck2    [u] et
                 [u] fr
                 [u:] fr
@@ -2280,13 +2273,13 @@ vowel/u_bck2    [u] et
                 [u] es
                 [u] ht
                 [u] fa
-                [U] ga
 vowel/u_bck3    [u:] et
                 [u] kk
 vowel/uu        [U] en
                 [U] en-n
                 [U] en-wm
                 [U] tn
+                [U] ga
 vowel/uu#       [U] ku
 vowel/uu_2      [U] base2
                 [U] de
@@ -2325,7 +2318,6 @@ vowel/V_3       [V] en-rp
                 [V] pa
 vowel/V_4       [V] en-sc
                 [V] da
-                [V] ga
 vowel/V_6       [V] en-us
                 [a#] lv
 vowel/y         [y] base2
@@ -2381,11 +2373,9 @@ vowel/yy_4      [y] de
                 [yI] is
                 [y] hy
 vwl_af/@        [@] af
-                [@] ga
 vwl_af/I        [I] af
 vwl_af/r@       [@] af
                 [I] af
-                [@] ga
 vwl_de/uu_@     [UR] de
 vwl_en/aI@      [aI@] en
                 [aI@] en-n
@@ -2598,7 +2588,6 @@ x/d_            [d] base
                 [d] is
                 [d] sq
                 [d] mt
-                [d[] ga
 x/d_dnt         [d[] base
                 [d] base2
                 [d] fi
@@ -2608,7 +2597,6 @@ x/d_dnt         [d[] base
                 [d] lt
                 [d] pl
                 [d] mt
-                [d[] ga
 x/d_pzd         [d^] et
                 [d;] lt
                 [d;] pl

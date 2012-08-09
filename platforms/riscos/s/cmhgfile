@@ -3,7 +3,7 @@
 initialisation-code: user_init
 
 title-string: Speak
-help-string: Speak 3.30 Text to Speech (32 bit)
+help-string: Speak 3.46 Text to Speech (32 bit)
 
 swi-chunk-base-number: &4ad80
 swi-handler-code: swi_handler

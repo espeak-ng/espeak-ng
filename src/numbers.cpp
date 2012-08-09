@@ -984,39 +984,46 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 
 static const char *M_Variant(int value)
 {//====================================
-	// returns M, or perhaps MA for some cases
+	// returns M, or perhaps MA or MB for some cases
 	
-	if(translator->translator_name == L('l','t'))
+	int teens = 0;
+
+	if(((value % 100) > 10) && ((value % 100) < 20))
+		teens = 1;
+
+	switch((translator->langopts.numbers2 >> 6) & 0x7)
 	{
-		// Lithuanian
+	case 1:  // lang=ru  use singular for xx1 except for x11
+		if((teens == 0) && ((value % 10) == 1))
+			return("1M");
+		break;
+
+	case 2:  // lang=cs,sk
+		if((value >= 2) && (value <= 4))
+			return("0MA");
+		break;
+
+	case 3:  // lang=pl
+		if((teens == 0) && (((value % 10) >= 2) && ((value % 10) <= 4)))
+			return("0MA");
+		break;
+
+	case 4:  // lang=lt
+		if((teens == 1) || ((value % 10) == 0))
+			return("0MB");
 		if((value % 10) == 1)
 			return("0MA");
-		if(((value % 10) == 0) || ((value % 100) > 10) && ((value % 100) < 20))
-		{
-			return("0MB");
-		}
-		return("0M");
-	}
+		break;
 
-	if((translator->langopts.numbers2 & 0x100) && (value >= 2) && (value <= 4))
-		return("0MA");  // Czech, Slovak
-	else
-	if(((value % 100) < 10) || ((value % 100) > 20))   // but not teens, 10 to 19
-	{
-		if ((translator->langopts.numbers2 & 0x40) &&
-			((value % 10)>=2) &&
-			((value % 10)<=4))
+	case 5:  // lang=bs,hr,sr
+		if(teens == 0)
 		{
-		// for Polish language - two forms of plural!
-			return("0MA");
+			if((value % 10) == 1)
+				return("1M");
+			if(((value % 10) >= 2) && ((value % 10) <= 4))
+				return("0MA");
 		}
-
-		if((translator->langopts.numbers2 & 0x80) &&
-			((value % 10)==1))
-		{
-			return("1MA");
-		}
-
+		break;
 	}
 	return("0M");
 }
