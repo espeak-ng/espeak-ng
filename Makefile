@@ -146,6 +146,7 @@ dictionaries: \
 	espeak-data/kn_dict \
 	espeak-data/ku_dict \
 	espeak-data/la_dict \
+	espeak-data/lt_dict \
 	espeak-data/lv_dict \
 	espeak-data/mk_dict \
 	espeak-data/ml_dict \
@@ -382,6 +383,12 @@ dictsource/la_extra:
 	touch dictsource/la_extra
 espeak-data/la_dict: dictsource/la_list dictsource/la_rules dictsource/la_extra
 	cd dictsource && ../src/espeak --compile=la && cd ..
+
+lt: espeak-data/lt_dict
+dictsource/lt_extra:
+	touch dictsource/lt_extra
+espeak-data/lt_dict: dictsource/lt_list dictsource/lt_rules dictsource/lt_extra
+	cd dictsource && ../src/espeak --compile=lt && cd ..
 
 lv: espeak-data/lv_dict
 dictsource/lv_extra:
