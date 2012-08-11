@@ -14,6 +14,10 @@
 // G  a voiced consonant
 // K  not a vowel
 
+// endings
+.L01 a am o
+.L02 a am e em o
+
 .group a
      _) a (_       a
      _) a (_W      'a        // in an acronym
@@ -330,6 +334,16 @@
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
+  _com) e (tL01_    e
+ _prom) e (tL01_    e
+ _esqu) e (çL01_    e
+ _derr) e (tL01_    e
+  _atr) e (vL01_    e
+    _f) e (rvL01_   e
+  _per) e (çL01_    e
+  _pad) e (çL01_    e
+  _dec) e (pL02_    E
+    _p) e (scL01_   E
 
 .group é
         é          ''E
@@ -613,6 +627,8 @@
 ?1 interr) o (g       u         // eg: interrogação
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
 ?1   v) o (lt      O
+
+    _m) o (lhL02_  O
 
 
 .group ô

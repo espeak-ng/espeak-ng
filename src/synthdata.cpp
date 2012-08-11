@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.21  25.Jul.12";
+const char *version_string = "1.46.22  09.Aug.12";
 const int version_phdata  = 0x014600;
 
 int option_device_number = -1;
@@ -975,7 +975,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			if(instn2 < 8)
 			{
 				// ChangeIf
-				if(StressCondition(tr, plist, instn2 & 7, 1))
+				if(StressCondition(tr, plist, instn2 & 7, 1) == true)
 				{
 					phdata->pd_param[i_CHANGE_PHONEME] = instn & 0xff;
 					end_flag = 1;    // change phoneme, exit

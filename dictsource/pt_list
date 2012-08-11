@@ -646,46 +646,79 @@ governo	gov'ernU	$noun
 
 acerto		$alt2 $noun
 adore		$alt
+albatrozes	$alt
 alferes		$alt
+algozes		$alt
+atrozes		$alt
 ameba		$alt
+belo		$alt
+besta		$alt2
 boca		$alt2
+bolo		$alt2
 borboleta	$alt2
+bordo		$alt
+cabeça		$alt2
+casebre		$alt
 catorze		$alt2
 cerca		$alt $verb
 cerco		$alt $verb
 chamego		$alt2
+chefe		$alt
+chinelo		$alt
+coco		$alt2
+começo		$alt2 $noun
 comeres		$alt2
 conheço		$alt2
 copa		$alt
 copo		$alt
+cornos		$alt
 corpos		$alt
+corto		$alt
 corvos		$alt
+coto		$alt2
 couber		$alt
 couberem	$alt
 couberdes	$alt
 couberes	$alt
 der		$alt
+descova		$alt2
+desfecho	$alt2
 dez		$alt
 doce		$alt2
-descova		$alt2
+droga		$alt
 enumerem	$alt
 erro		$alt2 $noun
+esforços	$alt
+esperma		$alt
+estrofe		$alt
 estiverdes	$alt
 estiveres	$alt
 farofa		$alt
 fere		$alt
 ferem		$alt
+fezes		$alt
 fizer		$alt
 fizerem		$alt
 fizerdes	$alt
 fizeres		$alt
 fogos		$alt
+fores		$alt2
 fosse		$alt2
 fossem		$alt2
+foste		$alt2
+frevo		$alt2
+gelo		$alt $verb
 germe		$alt
+grego		$alt2
+groselha	$alt
 grosso		$alt2
+grozo		$alt $verb
 hoje		$alt2
+joga		$alt
+jogam		$alt
 jogos		$alt
+jogue		$alt
+joguem		$alt
 líderes		$alt2
 lopes		$alt
 mantiverdes	$alt
@@ -693,8 +726,12 @@ mantiveres	$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
+miolo		$alt2
 modo		$alt
 modos		$alt
+molho		$alt $verb
+morcego		$alt2
+morda		$alt2
 mortos		$alt
 ?2 mulher	mulj'Er
 ?4 mulher	mul^'Er
@@ -702,17 +739,25 @@ mui		mwi
 muito		mw'iNtU	// -s is included as a suffix
 muita		mw'iNt&
 mulheres	$alt
+negro		$alt2
 novos		$alt
 onu		$1
+opereta		$alt2
+osso		$alt2
 ovos		$alt
 paexa		paeSa
 pedra		$alt
+pelego		$alt2
 perdem		$alt
+perede		$alt2
 pesa		$alt
 pesam		$alt
+pesque		$alt
+pesquem		$alt
 peso		$alt
 peso		$alt2 $noun
 portos		$alt
+pose		$alt2
 povos		$alt
 preto		$alt2
 profere		$alt
@@ -726,13 +771,15 @@ rogas		$alt
 selvagem	seUv'aZeIN
 soco		$alt2
 sofrem		$alt
-sofres		$alt
+sofre		$alt
+sofreste	$alt2
 sopre		$alt
 soprem		$alt
 souber		$alt
 souberdes	$alt
 souberes	$alt
 souberem	$alt
+sugere		$alt
 sugerem		$alt
 suor		swOr
 tapete		$alt2
@@ -740,12 +787,17 @@ teta		$alt2
 tiver		$alt
 tiveres		$alt
 torres		$alt2
+tortos		$alt
+travesso	$alt2
+trevo		$alt2
+troco		$alt2 $noun
 tropeço		$alt2 $noun
 vanessa		$alt2
 verbo		$alt
 verme		$alt
 vierem		$alt
 violeta		$alt2
+vozes		$alt
 
 // Close [o]
 ?1 calculadora	$alt2

@@ -216,6 +216,7 @@ _tld	t'ild&
 ?2 _3C   tR'ist'a_
 ?2 _4C   tSetR'ist'o_
    _6C   S'Est'o
+
    _0M1  t'isUtS;&
    _0MA1 t'isUtS;e
    _1M1  t'isUtS;U
@@ -226,22 +227,26 @@ _tld	t'ild&
 ?3 _0M1  h'il^ad&
 ?3 _0MA1 h'il^ade
 ?3 _1M1  h'il^adU
+
    _0M2  m'ilijUna
    _0MA2 m'ilijUna
    _1M2  m'ilijUn
 ?4 _0M2  m'ilijOna
 ?4 _0MA2 m'ilijOna
 ?4 _1M2  m'ilijOn
+
    _0M3  m'iliaRdI
    _0MA3 m'iliaRde
    _1M3  m'iliaRdU
 ?2 _0M3  milijArdI
 ?2 _0MA3 milijArde
 ?2 _1M3  milijArdU
+
    _0M4  b'ilijUna
    _1M4  b'ilijUn
 ?4 _0M4  b'ilijOna
 ?4 _1M4  b'ilijOn
+
    _dpt  _:z'a*Ez_
    _roman  r*'imsko
 
