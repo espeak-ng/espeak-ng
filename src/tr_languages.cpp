@@ -118,8 +118,8 @@ static const unsigned short chars_ignore_default[] = {
 	0, 0 };
 
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
-static const unsigned short chars_ignore_fa[] = {
-	0x200c,  0x0605, // zero width non-joiner, replace with not-used Arabic character code
+static const unsigned short chars_ignore_zwnj_hyphen[] = {
+	0x200c,  '-', // zero width non-joiner, replace with hyphen
 	0x200d,  1, // zero width joiner
 	0, 0 };
 
@@ -661,13 +661,11 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','a'):   // Farsi
 		{
-			static const char fa_ZWNJ[] = {0x05, 0};  // use letter group G for ZWNJ U+200c
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 
-			tr->chars_ignore = chars_ignore_fa;
-			SetLetterBits(tr,LETTERGP_G,(char *)fa_ZWNJ);
+			tr->chars_ignore = chars_ignore_zwnj_hyphen;   // replace ZWNJ by hyphen
 		}
 		break;
 
@@ -763,7 +761,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.accents = 1;
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
-			tr->langopts.numbers2 = 0x4a;  // variant numbers before thousands,milliards
+			tr->langopts.numbers2 = 0xa + NUM2_THOUSANDS_VAR5;  // variant numbers before thousands,milliards
 			tr->langopts.replace_chars = replace_cyrillic_latin;
 
 			SetLetterVowel(tr,'y');
@@ -999,7 +997,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_DIERESES] = 1;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
-			tr->langopts.numbers2 = 0x100;
+			tr->langopts.numbers2 = NUM2_THOUSANDS_VAR4;
 			tr->langopts.max_roman = 5000;
 		}
 		break;
@@ -1098,7 +1096,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x9;
  			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
  			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2;
-			tr->langopts.numbers2 = 0x40;
+			tr->langopts.numbers2 = NUM2_THOUSANDS_VAR3;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable (and 2-syllable) words (marked with $alt)
 			SetLetterVowel(tr,'y');
 		}
@@ -1170,7 +1168,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
 			tr->langopts.numbers = NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ROMAN;
-			tr->langopts.numbers2 = 0x100;
+			tr->langopts.numbers2 = NUM2_THOUSANDS_VAR2;
 			tr->langopts.thousands_sep = STRESSPOSN_1L;   //no thousands separator
 			tr->langopts.decimal_sep = ',';
 
@@ -1478,7 +1476,7 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.stress_flags = 0x0020;  // waas 0x1010
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
-	tr->langopts.numbers2 = 0xc2;  // variant numbers before thousands
+	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1;  // variant numbers before thousands
 	tr->langopts.phoneme_change = 1;
 	tr->langopts.testing = 2;
 

@@ -446,10 +446,13 @@ typedef struct {
 
 #define NUM2_MULTIPLE_ORDINAL   0x1000
 #define NUM2_ENGLISH_NUMERALS   0x2000
+#define NUM2_THOUSANDS_VAR1     0x40
+#define NUM2_THOUSANDS_VAR2     0x80
+#define NUM2_THOUSANDS_VAR3     0xc0
+#define NUM2_THOUSANDS_VAR4     0x100
+#define NUM2_THOUSANDS_VAR5     0x140
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
-	// bit6=(LANG=pl) two forms of plural, M or MA
-	// bit7=(LANG-ru) use MB for 1 thousand, million, etc
-	// bit8=(LANG=cs,sk) two forms of plural, M or MA
+	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
 	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
 	// bit13=(LANG=ne)  speak (non-replaced) English numerals in English

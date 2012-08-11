@@ -1591,7 +1591,7 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 static int ReplaceKeyName(char *outbuf, int index, int &outix)
 {//===========================================================
 // Replace some key-names by single characters, so they can be pronounced in different languages
-	MNEM_TAB keynames[] = {
+	static MNEM_TAB keynames[] = {
 	{"space ",0xe020},
 	{"tab ", 0xe009},
 	{"underscore ", 0xe05f},
