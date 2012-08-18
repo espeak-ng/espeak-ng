@@ -5,6 +5,7 @@ LIBDIR=$(PREFIX)/lib
 DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
+AUDIO=@AUDIO@
 
 .PHONY: all clean distclean espeak-phoneme-data
 
@@ -88,19 +89,19 @@ docs/speak_lib.h: src/speak_lib.h
 	cp $< $@
 
 src/libespeak.a: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
+	cd src && make libespeak.a AUDIO=${AUDIO} PREFIX=$(PREFIX) && cd ..
 
 src/libespeak.so: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
+	cd src && make libespeak.so AUDIO=${AUDIO} PREFIX=$(PREFIX) && cd ..
 
 src/speak: $(common_SOURCE) src/speak.cpp
-	cd src && make speak PREFIX=$(PREFIX) && cd ..
+	cd src && make speak AUDIO=${AUDIO} PREFIX=$(PREFIX) && cd ..
 
 src/espeak: src/libespeak.so src/espeak.cpp
-	cd src && make espeak PREFIX=$(PREFIX) && cd ..
+	cd src && make espeak AUDIO=${AUDIO} PREFIX=$(PREFIX) && cd ..
 
 src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
-	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
+	cd src && make espeakedit AUDIO=${AUDIO} PREFIX=$(PREFIX) && cd ..
 
 espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..

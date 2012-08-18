@@ -25,6 +25,38 @@ AC_CHECK_HEADERS([getopt.h])
 AC_CHECK_FUNCS([getopt_long])
 
 dnl ================================================================
+dnl PulseAudio checks.
+dnl ================================================================
+
+AC_ARG_WITH([pulseaudio],
+    [AS_HELP_STRING([--with-pulseaudio], [use the pulseaudio library for audio output @<:@default=yes@:>@])],
+    [])
+
+if test "$with_pulseaudio" = "no"; then
+    echo "Disabling pulseaudio output support via pulseaudio"
+    have_pulseaudio=no
+else
+    PKG_CHECK_MODULES(PULSEAUDIO, [libpulse >= 0.9],
+        [
+            have_pulseaudio=yes
+        ],[
+            have_pulseaudio=no
+        ])
+fi
+
+dnl ================================================================
+dnl Audio checks.
+dnl ================================================================
+
+if test "$have_pulseaudio" = yes ; then
+	AUDIO=pulseaudio
+else
+	AUDIO=disabled
+fi
+
+AC_SUBST(AUDIO)
+
+dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
@@ -36,8 +68,10 @@ AC_MSG_NOTICE([
     Configuration for eSpeak complete.
 
         Source code location:          ${srcdir}
-        XDG data location:             ${XDGDATADIR}
 
         Compiler:                      ${CXX}
         Compiler flags:                ${CXXFLAGS}
+
+	pulseaudio:                    ${have_pulseaudio}
+	audio configuration:           ${AUDIO}
 ])
