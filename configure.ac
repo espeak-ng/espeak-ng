@@ -56,11 +56,18 @@ fi
 
 AC_SUBST(AUDIO)
 
+AM_CONDITIONAL(AUDIO_RUNTIME,    [test x"$AUDIO" = xruntime])
+AM_CONDITIONAL(AUDIO_PULSEAUDIO, [test x"$AUDIO" = xpulseaudio])
+AM_CONDITIONAL(AUDIO_PORTAUDIO,  [test x"$AUDIO" = xportaudio])
+AM_CONDITIONAL(AUDIO_PORTAUDIO0, [test x"$AUDIO" = xportaudio0])
+AM_CONDITIONAL(AUDIO_PORTAUDIO2, [test x"$AUDIO" = xportaudio2])
+AM_CONDITIONAL(AUDIO_SADA,       [test x"$AUDIO" = xsada])
+
 dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile src/Makefile])
 AC_OUTPUT
 
 AC_MSG_NOTICE([
