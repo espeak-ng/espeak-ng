@@ -8,6 +8,19 @@ PLATFORM=big_endian
 
 .PHONY: all clean distclean espeak-phoneme-data
 
+EXTRA_DIST=
+
+##### ChangeLog:
+
+ChangeLog:
+	git log > ChangeLog
+
+dist-hook: ChangeLog
+
+.PHONY: ChangeLog
+
+EXTRA_DIST += ChangeLog
+
 ##### standard build actions:
 
 all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
@@ -27,7 +40,7 @@ distclean: clean
 
 ##### build targets:
 
-common_SOURCES = \
+common_SOURCE = \
 	src/compiledict.cpp \
 	src/dictionary.cpp \
 	src/intonation.cpp \
@@ -46,7 +59,7 @@ common_SOURCES = \
 	src/voices.cpp \
 	src/wavegen.cpp 
 
-libespeak_SOURCES = \
+libespeak_SOURCE = \
 	src/speak_lib.cpp \
 	src/espeak_command.cpp \
 	src/event.cpp \
@@ -56,7 +69,7 @@ libespeak_SOURCES = \
 	src/wave_sada.cpp \
 	src/debug.cpp
 
-espeakedit_SOURCES = \
+espeakedit_SOURCE = \
 	src/compiledata.cpp \
 	src/espeakedit.cpp \
 	src/extras.cpp \
@@ -74,19 +87,19 @@ espeakedit_SOURCES = \
 docs/speak_lib.h: src/speak_lib.h
 	cp $< $@
 
-src/libespeak.a: $(common_SOURCES) $(libespeak_SOURCES)
+src/libespeak.a: $(common_SOURCE) $(libespeak_SOURCE)
 	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
 
-src/libespeak.so: $(common_SOURCES) $(libespeak_SOURCES)
+src/libespeak.so: $(common_SOURCE) $(libespeak_SOURCE)
 	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
 
-src/speak: $(common_SOURCES) src/speak.cpp
+src/speak: $(common_SOURCE) src/speak.cpp
 	cd src && make speak PREFIX=$(PREFIX) && cd ..
 
 src/espeak: src/libespeak.so src/espeak.cpp
 	cd src && make espeak PREFIX=$(PREFIX) && cd ..
 
-src/espeakedit: $(common_SOURCES) $(libespeak_SOURCES) $(espeakedit_SOURCES)
+src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
 	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
 
 espeak-phoneme-data:
