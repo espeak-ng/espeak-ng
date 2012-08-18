@@ -120,15 +120,10 @@ espeakedit_SOURCE = $(common_SOURCE) compiledata.cpp debug.cpp espeakedit.cpp \
 	spectdisplay.cpp spectseq.cpp \
 	transldlg.cpp voicedlg.cpp vowelchart.cpp $(WAVE)
 espeakedit_OBJS=${espeakedit_SOURCE:%.cpp=e_%.o}
-espeakedit_WX_LIBS = -pthread   -lwx_gtk2u_xrc-2.6 -lwx_gtk2u_qa-2.6 -lwx_gtk2u_html-2.6 \
-	-lwx_gtk2u_adv-2.6 -lwx_gtk2u_core-2.6 -lwx_baseu_xml-2.6 -lwx_baseu_net-2.6 -lwx_baseu-2.6
 espeakedit_LIBS=-lstdc++ $(LIB_AUDIO)
-espeakedit_CXXFLAGS = -I/usr/lib/wx/include/gtk2-unicode-release-2.6 \
-	-I/usr/include/wx-2.6 \
-	-DGTK_NO_CHECK_CASTS -D__WXGTK__ -D_FILE_OFFSET_BITS=64 \
-	-D_LARGE_FILES -D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
+espeakedit_CXXFLAGS = ${WX_CXXFLAGS} -D_LARGEFILE_SOURCE=1 -DNO_GCC_PRAGMA -D_ESPEAKEDIT
 $(ESPEAKEDIT): $(espeakedit_OBJS)
-	$(CXX) $(LDFLAGS) -o $@ $(espeakedit_OBJS) $(espeakedit_LIBS) $(espeakedit_WX_LIBS)
+	$(CXX) $(LDFLAGS) -o $@ $(espeakedit_OBJS) $(espeakedit_LIBS) ${WX_LIBS}
 
 clean:
 	rm -f *.o *.a *~

@@ -64,6 +64,22 @@ AM_CONDITIONAL(AUDIO_PORTAUDIO2, [test x"$AUDIO" = xportaudio2])
 AM_CONDITIONAL(AUDIO_SADA,       [test x"$AUDIO" = xsada])
 
 dnl ================================================================
+dnl wxWidgets checks.
+dnl ================================================================
+
+AC_CHECK_PROG(WXCONFIG_CHECK,wx-config,yes)
+if test x"$WXCONFIG_CHECK" != x"yes" ; then
+    AC_MSG_ERROR([Please install wxWidgets which is needed for espeakedit.])
+fi
+
+WX_LIBS=`wx-config --libs`
+WX_CXXFLAGS=`wx-config --cxxflags`
+WX_VERSION=`wx-config --version`
+
+AC_SUBST(WX_LIBS)
+AC_SUBST(WX_CXXFLAGS)
+
+dnl ================================================================
 dnl Generate output.
 dnl ================================================================
 
@@ -79,6 +95,7 @@ AC_MSG_NOTICE([
         Compiler:                      ${CXX}
         Compiler flags:                ${CXXFLAGS}
 
+        wxWidgets:                     ${WX_VERSION}
 	pulseaudio:                    ${have_pulseaudio}
 	audio configuration:           ${AUDIO}
 ])
