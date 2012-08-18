@@ -1,3 +1,7 @@
+# editor files:
+
+.*.swp
+
 # intermediate build output:
 
 *.o
