@@ -45,13 +45,46 @@ else
 fi
 
 dnl ================================================================
+dnl PortAudio checks.
+dnl ================================================================
+
+AC_ARG_WITH([portaudio],
+    [AS_HELP_STRING([--with-portaudio], [use the portaudio library for audio output @<:@default=yes@:>@])],
+    [])
+
+if test "$with_portaudio" = "no"; then
+    echo "Disabling portaudio output support via portaudio"
+    have_portaudio=no
+else
+    AC_CHECK_HEADERS([portaudio.h],
+        [
+            have_portaudio=yes
+        ],[
+            have_portaudio=no
+        ])
+fi
+
+dnl ================================================================
 dnl Audio checks.
 dnl ================================================================
 
-if test "$have_pulseaudio" = yes ; then
-	AUDIO=pulseaudio
+if test "$have_portaudio" = yes ; then
+    if test "$have_pulseaudio" = yes ; then
+        PKG_CHECK_MODULES(PULSEAUDIO_SIMPLE, [libpulse-simple >= 0.9],
+            [
+                have_pulseaudio=yes
+                AUDIO=runtime
+            ],[
+                have_pulseaudio=no
+                AUDIO=portaudio
+            ])
+    else
+        AUDIO=portaudio
+    fi
+elif test "$have_pulseaudio" = yes ; then
+    AUDIO=pulseaudio
 else
-	AUDIO=disabled
+    AUDIO=disabled
 fi
 
 AC_SUBST(AUDIO)
@@ -97,5 +130,6 @@ AC_MSG_NOTICE([
 
         wxWidgets:                     ${WX_VERSION}
 	pulseaudio:                    ${have_pulseaudio}
+	portaudio:                     ${have_portaudio}
 	audio configuration:           ${AUDIO}
 ])
