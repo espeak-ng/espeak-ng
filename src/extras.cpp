@@ -351,17 +351,19 @@ void VowelChart(int control, char *fname)
 
 	// draw grid
 	dc.SetPen(*wxLIGHT_GREY_PEN);
-	for(ix=200; ix<=1000; ix+=100)
+	for(ix=200; ix<=1000; ix+=50)
 	{
 		y = VowelY(ix);
 		dc.DrawLine(0,y,WIDTH,y);
-		dc.DrawText(wxString::Format(_T("%d"),ix),1,y);
+		if((ix % 100) == 0)
+			dc.DrawText(wxString::Format(_T("%d"),ix),1,y);
 	}
-	for(ix=800; ix<=2400; ix+=200)
+	for(ix=800; ix<=2400; ix+=100)
 	{
 		x = VowelX(ix);
 		dc.DrawLine(x,0,x,HEIGHT);
-		dc.DrawText(wxString::Format(_T("%d"),ix),x+1,0);
+		if((ix % 200)==0)
+			dc.DrawText(wxString::Format(_T("%d"),ix),x+1,0);
 	}
 	dc.SetPen(*wxBLACK_PEN);
 	
@@ -1193,6 +1195,53 @@ void ConvertToUtf8()
 
 
 
+//#define calcspeedtab
+#ifdef calcspeedtab
+// used to set up the presets in the speed_lookup table
+// interpolate between a set of measured wpm values
+void SetSpeedTab(void)
+{//===================
+#define N_WPM   19
+
+	// Interpolation table to translate from words-per-minute to internal speed
+	// words-per-minute values (measured)
+	static float wpm1[N_WPM] =
+		{0, 82, 96, 108, 124, 134, 147, 162, 174, 189, 224, 259, 273, 289, 307, 326, 346, 361, 370 }; 
+	// corresponding internal speed values
+	static float wpm2[N_WPM] = 
+		{0,253,200, 170, 140, 125, 110,  95,  85,  75,  55,  40,  35,  30,  25,  20,  15,  10,  5 };
+
+	unsigned char speed_lookup[290];
+	unsigned int ix;
+	float x;
+	int speed_wpm;
+	FILE *f;
+
+	// convert from word-per-minute to internal speed code
+	for(speed_wpm=80; speed_wpm<370; speed_wpm++)
+	{
+		for(ix=2; ix<N_WPM-2; ix++)
+		{
+			if(speed_wpm < wpm1[ix])
+				break;
+		}
+		x = polint(&wpm1[ix-1], &wpm2[ix-1], 3, speed_wpm);
+
+		speed_lookup[speed_wpm-80] = (unsigned char)x;
+	}
+	f = fopen("speed_lookup","w");
+	if(f == NULL) return;
+	for(ix=0; ix<sizeof(speed_lookup); ix++)
+	{
+		fprintf(f,"%4d,",speed_lookup[ix]);
+		if((ix % 5) == 4)
+			fprintf(f,"\t//%4d\n\t",(ix / 5)*5 + 80);
+	}
+	fclose(f);
+}	// end of SetSpeedTab
+#endif
+
+
 
 char* text[]=
 {
@@ -1200,6 +1249,32 @@ char* text[]=
   " <voice xml:lang=\"en\" gender=\"male\" variant=\"1\"><prosody rate=\"1.0\"> normally would, </prosody></voice>"
 };
 
+
+void Test2()
+{
+	char buf[120];
+	FILE *f;
+	FILE *f_out;
+	unsigned char *p;
+
+	f = fopen("/home/jsd1/tmp1/list","r");
+	if(f == NULL) return;
+	f_out = fopen("/home/jsd1/tmp1/list_out","w");
+	if(f_out == NULL) return;
+
+	while(!feof(f))
+	{
+		if(fgets(buf,sizeof(buf),f) == NULL)
+			break;
+
+		p = (unsigned char *)buf;
+		while(*p > ' ') p++;
+		*p = 0;
+		fprintf(f_out,"%s . . .\n",buf);
+	}
+	fclose(f);
+	fclose(f_out);
+}
 
 
 void TestTest(int control)
@@ -1212,6 +1287,7 @@ void TestTest(int control)
 
 //FindPhonemesUsed();
 //return;
+return;
 
 if(control==2)
 {
@@ -1223,6 +1299,7 @@ if(control==2)
 	if(f==NULL)
 		return;
 	
+
 	while(!feof(f) && (ix < sizeof(textbuf)-2))
 	{
 		c = fgetc(f);

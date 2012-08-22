@@ -78,7 +78,7 @@ endphoneme
 
 phoneme E
   vowel  starttype (e)  endtype (e)
-  length 170
+  length 160
   formants vwl_en_us/ee
 //  formants vowel/ee_2
   reduceto I  0
@@ -87,7 +87,7 @@ endphoneme
 
 phoneme I
   vowel  starttype (i) endtype (i)
-  length 150
+  length 130
   formants vwl_en_us/ii
   linkout ;
 endphoneme
@@ -95,7 +95,7 @@ endphoneme
 phoneme I2
   vowel  starttype (i)  endtype (i)
   unstressed
-  length 140
+  length 130
   formants vwl_en_us/ii
   linkout ;
 endphoneme
@@ -103,7 +103,7 @@ endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype (i)  endtype (i)
-  length 175
+  length 170
   formants vwl_en_us/i_final3
   linkout ;
 endphoneme
@@ -111,7 +111,7 @@ endphoneme
 
 phoneme 0
   vowel  starttype (o)   endtype (o)
-  length 200
+  length 190
   formants vowel/aa
   reduceto @  0
 endphoneme
@@ -161,7 +161,7 @@ endphoneme
 
 phoneme i:
   vowel  starttype (i)  endtype (i)
-  length 175
+  length 165
   formants vowel/i_en
   after w w/wi2
   linkout ;
@@ -170,7 +170,7 @@ endphoneme
 
 phoneme O:
   vowel  starttype (o)  endtype (o)
-  length 220
+  length 210
   formants vowel/0_3
   before r vwl_en_us/or
   reduceto @  0
@@ -178,6 +178,14 @@ endphoneme
 
 
 phoneme O@
+  vowel  starttype (o)  endtype (@)
+  length 240
+  formants vwl_en_us/or
+  appendph r
+endphoneme
+
+
+phoneme o@
   vowel  starttype (o)  endtype (@)
   length 240
   formants vwl_en_us/or
@@ -217,14 +225,14 @@ endphoneme
 
 phoneme aI
   vowel  starttype (a)  endtype (i)
-  length 220
+  length 210
   formants vdiph/ai_2
 endphoneme
 
 
 phoneme eI
   vowel  starttype (e)  endtype (i)
-  length 220
+  length 210
   formants vdiph/eei_3
 endphoneme
 

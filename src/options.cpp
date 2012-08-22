@@ -21,9 +21,13 @@
 #include "wx/wx.h"
 #include "wx/fileconf.h"
 #include "sys/stat.h"
+#include "speech.h"
+
+#ifdef PLATFORM_WINDOWS
+#include "wx/msw/registry.h"
+#endif
 
 #include "main.h"
-#include "speech.h"
 
 #include "options.h"
 
@@ -117,11 +121,24 @@ void ConfigInit()
 {//==============
 	long value;
 	wxString string;
-	char *path_base;
+	const char *path_base;
 	
 #ifdef PLATFORM_WINDOWS
-	strcpy(path_home,"C:/Program Files/eSpeak/espeak-data");
-	path_base = "C:/Program Files/eSpeak";
+	char buf[200];
+	wxRegKey *pRegKey = new wxRegKey(_T("HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak"));
+
+	if(pRegKey->Exists() )
+	{
+		wxString RegVal;
+		pRegKey->QueryValue(_T("Path"),RegVal); 
+		strcpy(buf,RegVal.mb_str(wxConvLocal));
+		path_base = buf;
+	}
+	else
+	{
+		path_base = "C:\\Program Files\\eSpeak";
+	}
+	sprintf(path_home,"%s\\espeak-data",path_base);
 #else
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	path_base = path_home;
@@ -132,6 +149,9 @@ void ConfigInit()
 	wxFileConfig::Set(pConfig);
 
 	pConfig->Read(_T("/samplerate"),&value,22050);
+#ifdef PLATFORM_WINDOWS
+	value = 22050;
+#endif
 	WavegenInit(value,0);
 
 	pConfig->Read(_T("/basedir"),&basedir,wxString(path_base,wxConvLocal));
@@ -156,6 +176,9 @@ void ConfigSave(int exit)
 {//======================
 	wxFileConfig *pConfig = (wxFileConfig *)(wxConfigBase::Get());
 
+#ifdef PLATFORM_WINDOWS
+	samplerate = 22050;
+#endif
 	pConfig->Write(_T("/samplerate"),samplerate);
 	pConfig->Write(_T("/basedir"),basedir);
 	pConfig->Write(_T("/spectload"),path_spectload);

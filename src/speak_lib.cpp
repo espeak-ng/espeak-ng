@@ -46,6 +46,7 @@
 #include "wave.h"
 
 unsigned char *outbuf=NULL;
+extern espeak_VOICE *voice_selected;
 
 int outbuf_size=0;
 espeak_EVENT *event_list=NULL;
@@ -57,7 +58,7 @@ void* my_audio=NULL;
 static unsigned int my_unique_identifier=0;
 static void* my_user_data=NULL;
 static espeak_AUDIO_OUTPUT my_mode=AUDIO_OUTPUT_SYNCHRONOUS;
-static t_espeak_callback* synth_callback = NULL;
+t_espeak_callback* synth_callback = NULL;
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 char path_home[120];
@@ -292,9 +293,10 @@ static int initialise(void)
 		if(result == -1)
 			fprintf(stderr,"Failed to load espeak-data\n");
 		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,version_phdata);
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x)\n",result,version_phdata);
 	}
 
+	voice_selected = NULL;
 	SynthesizeInit();
 	InitNamedata();
 
@@ -303,7 +305,6 @@ static int initialise(void)
 
 	return(0);
 }
-
 
 
 static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text, int flags)
@@ -485,6 +486,9 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
   end_character_position = end_position;
 
   aStatus = Synthesize(unique_identifier, text, flags);
+#ifdef USE_ASYNC
+  wave_flush(my_audio);
+#endif
 
   SHOW_TIME("LEAVE sync_espeak_Synth");
   return aStatus;
@@ -583,7 +587,7 @@ extern "C" int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
   setlocale(LC_CTYPE,"ISO8859-1");
 #else
   if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
-    setlocale(LC_CTYPE,"german");
+    setlocale(LC_CTYPE,"");
 #endif
 
   init_path(path);
@@ -848,16 +852,16 @@ extern "C" espeak_ERROR espeak_SetVoiceByProperties(espeak_VOICE *voice_selector
 
 extern "C" int espeak_GetParameter(espeak_PARAMETER parameter, int current)
 {//========================================================================
-  ENTER("espeak_GetParameter");
-  // current: 0=default value, 1=current value
-  if(current)
-    {
-      return(param_stack[0].parameter[parameter]);
-    }
-  else
-    {
-      return(param_defaults[parameter]);
-    }
+	ENTER("espeak_GetParameter");
+	// current: 0=default value, 1=current value
+	if(current)
+	{
+		return(param_stack[0].parameter[parameter]);
+	}
+	else
+	{
+		return(param_defaults[parameter]);
+	}
 }  //  end of espeak_GetParameter
 
 

@@ -78,7 +78,7 @@ endphoneme
 phoneme t;
   vls pal stop palatal
   vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  vowelout f1=1  f2=2700 400 600  f3=200 70 len=50
+  vowelout f1=1  f2=2700 400 600  f3=200 70 len=50 colr=1
   lengthmod 2
   wave ustop/t_pzd%60
   before _ ustop/t_pzd%30
@@ -102,7 +102,7 @@ endphoneme
 phoneme d;
   vcd alv stop palatal
   vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
-  vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100
+  vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100 colr=1
   formants d/d+x/d_pzd%80
   before _ d/d_+x/d_pzd%40
   before r d/dr+x/d_pzd%80

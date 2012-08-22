@@ -178,6 +178,7 @@ endphoneme
 
 
 phoneme w2
+  starttype w  endtype w
   liquid
   length 100
   beforenotvowel w/

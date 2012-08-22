@@ -1,0 +1,355 @@
+
+
+//*******************************************************************
+// VOWELS
+//*******************************************************************
+
+
+phoneme @    //  Schwa
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@_3
+  unstressed
+  linkout r-
+  length 140
+endphoneme
+
+
+phoneme 3    //  Schwa, used for rhotic schwa in American
+  vowel   starttype (@)  endtype (@)
+  formants vowel/V
+  before _ vowelr/V3_r
+  unstressed
+  linkout r-
+  beforevowel @
+  length 140
+endphoneme
+
+
+phoneme @2   //  Schwa, changes to I before a vowel
+  vowel  starttype (@)  endtype (@)
+  formants vowel/@_3
+  unstressed
+  beforevowel I2
+  length 120
+endphoneme
+
+phoneme @5   //  Schwa, changes to U before a vowel
+  vowel  starttype (@)  endtype (@)
+  formants vowel/@_3
+  unstressed
+  beforevowelpause U
+  length 140
+endphoneme
+
+
+phoneme @L
+  vowel  starttype (@)  endtype l
+  length 160
+  formants vwl_en/@L
+  unstressed
+  before _ vwl_en/@L
+endphoneme
+
+
+phoneme a
+  vowel  starttype (a)  endtype (a)
+  length 200
+  formants vowel/a_3
+  reduceto a/  4
+endphoneme
+
+phoneme a/
+  vowel  starttype (a)  endtype (a)
+  length 160
+  formants vowel/a_3
+  reduceto a2  0
+endphoneme
+
+
+phoneme a2
+  vowel  starttype (@)  endtype (@)
+  unstressed
+  length 140
+  formants vowel/a#
+  linkout r-
+endphoneme
+
+
+phoneme aa   //   'bath' etc.
+  vowel  starttype (a)  endtype (a)
+  length 220
+  formants vowel/a_3
+  linkout r-
+endphoneme
+
+
+phoneme E
+  vowel  starttype (e)  endtype (e)
+  length 170
+  formants vowel/e_e
+  reduceto I  0
+endphoneme
+
+
+phoneme I
+  vowel  starttype (e) endtype (e)
+  length 110
+  formants vowel/e#
+  before l/2 vowel/@_3-30+l/L2_@L
+endphoneme
+
+phoneme I2
+  vowel  starttype (e)  endtype (e)
+  unstressed
+  length 110
+  formants vowel/e#
+endphoneme
+
+
+phoneme i   //  optional variant of [I] for end of words
+  vowel  starttype (i)  endtype (e)
+  length 150
+  formants vowel/e_5
+  linkout ;
+endphoneme
+
+
+phoneme 0
+  vowel  starttype (o)   endtype (o)
+  length 180
+  formants vowel/oo_2
+  reduceto @  0
+endphoneme
+
+
+phoneme V
+  vowel  starttype (a)  endtype (@)
+  length 140
+  formants vowel/V_4
+  reduceto @  0
+endphoneme
+
+
+phoneme U
+  vowel  starttype (u)  endtype (u)
+  length 140
+  formants vowel/u#_4
+endphoneme
+
+
+phoneme A:
+  vowel  starttype (a)  endtype (a)
+  length 220
+  formants vowel/a_3
+  before r vowelr/aa_r+30
+  linkout r-
+endphoneme
+
+
+phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in American
+  vowel  starttype (a)  endtype (@)
+  length 250
+  formants vowelr/aa_r
+  appendph r
+endphoneme
+
+
+phoneme 3:
+  vowel  starttype (e)  endtype (@)
+  length 210
+  formants vdiph2/e@
+  appendph r
+  reduceto VR  4      // also need "replace 02 3: VR" in voice file
+endphoneme
+
+
+phoneme i:
+  vowel  starttype (i)  endtype (i)
+  length 130
+  formants vowel/i_5
+  before v vowel/i_5+50
+  before z vowel/i_5+50
+  before D vowel/i_5+50
+  before _ vowel/i_5+50
+  after w w/wi2
+  linkout ;
+endphoneme
+
+
+phoneme O:
+  vowel  starttype (o)  endtype (o)
+  length 200
+  formants vowel/oo
+  before r vwl_en_us/or
+  reduceto @  0
+endphoneme
+
+
+phoneme O@
+  vowel  starttype (o)  endtype (@)
+  length 230
+  formants vowelr/oo_r
+  appendph r
+endphoneme
+
+phoneme o@
+  vowel  starttype (o)  endtype (@)
+  length 230
+  formants vowelr/o_r
+  appendph r
+endphoneme
+
+
+phoneme O
+  vowel  starttype (o)  endtype (o)
+  length 150
+  formants vowel/0_3
+  reduceto @  0
+endphoneme
+
+
+phoneme u:
+  vowel  starttype (u)  endtype (u)
+  length 160
+  formants vowel/u#
+  before v vowel/u#+40
+  before z vowel/u#+40
+  before D vowel/u#+40
+  before _ vowel/u#_4+40
+endphoneme
+
+
+phoneme aU
+  vowel  starttype (a)  endtype (u)
+  length 200
+  formants vdiph/au#
+endphoneme
+
+
+phoneme oU
+  vowel  starttype (o)  endtype (u)
+  length 190
+  formants vowel/o_3
+  before l/2 vowel/o_3-60+l/L2_oL
+endphoneme
+
+
+phoneme aI
+  vowel  starttype (a)  endtype (i)
+  length 190
+  beforevowel aI2
+//  formants vdiph/&i_2
+  formants vdiph/ai_7
+  before v vdiph/ai_7+50
+  before z vdiph/ai_7+50
+  before l/2 vwl_en/aI@_2+vwl_en/@L_2
+endphoneme
+
+phoneme aI2
+  vowel  starttype (a)  endtype (i)
+  length 240
+  formants vdiph/ai_7
+endphoneme
+
+
+phoneme eI
+  vowel  starttype (e)  endtype (i)
+  length 190
+  formants vowel/e_2
+endphoneme
+
+
+phoneme OI
+  vowel  starttype (o)  endtype (i)
+  length 210
+  formants vdiph/0i_2
+endphoneme
+
+
+phoneme e@
+  vowel  starttype (e)  endtype (@)
+  length 220
+  formants vdiph2/e@
+  appendph r
+endphoneme
+
+
+phoneme i@
+  vowel  starttype (i)  endtype (@)
+  length 220
+  formants vwl_en_us/ir
+//  formants vdiph2/i@_2
+  appendph r
+endphoneme
+
+
+phoneme U@
+  vowel  starttype (u)  endtype (@)
+  length 240
+  formants vdiph2/u#@
+  linkout r-
+endphoneme
+
+
+phoneme aI@
+  vowel  starttype (a)  endtype (@)
+  length 270
+  formants vwl_en/aI@
+  linkout r-
+endphoneme
+
+
+phoneme aU@
+  vowel  starttype (a)   endtype (@)
+  length 270
+  formants vwl_en/aU@
+  linkout r-
+endphoneme
+
+
+phoneme @L
+  vowel  starttype (o)  endtype l
+  length 160
+  formants vwl_en/@L_2
+  unstressed
+  before _ vwl_en/@L_2
+endphoneme
+
+
+phoneme aI@
+  vowel  starttype (a)  endtype (@)
+  length 270
+  formants vwl_en/aI@_2
+  linkout r-
+endphoneme
+
+
+
+
+//==============
+// Consonants
+//==============
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants NULL
+endphoneme
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/r
+  after _ r/_r  t r/tr p r/tr k r/tr
+  before _ r/r_
+endphoneme
+
+
+
+
+
+

@@ -54,6 +54,7 @@ extern void ConvertToUtf8();
 
 extern void init_z();
 extern void CompileInit(void);
+extern void CompileMbrola();
 extern void InitSpectrumDisplay();
 extern void InitProsodyDisplay();
 extern void InitWaveDisplay();
@@ -154,7 +155,8 @@ extern void VoiceReset(int control);
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
-	setlocale(LC_CTYPE,"en_US.UTF-8");
+	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
+		setlocale(LC_CTYPE,"");
 
 
   // Create the main frame window
@@ -189,8 +191,12 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
    EVT_MENU(MENU_PATH3, MyFrame::OnOptions)
    EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
+	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
 	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
+	EVT_MENU(MENU_SPEAK_TRANSLATE, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_RULES, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_TEXT, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_FILE, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_STOP, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_PAUSE, MyFrame::OnSpeak)
@@ -236,13 +242,14 @@ wxSashLayoutWindow *win;
   m_leftWindow2 = win;
 
 	notebook = new wxNotebook(m_leftWindow2,-1);
+//	notebook->AddPage(voicedlg,_T("Voice"),FALSE);
 	formantdlg = new FormantDlg(notebook);
-	notebook->AddPage(formantdlg,_T("Spect"),TRUE);
+	notebook->AddPage(formantdlg,_T(" Spect"),FALSE);
 	voicedlg = new VoiceDlg(notebook);
 
-//	notebook->AddPage(voicedlg,_T("Voice"),FALSE);
 	transldlg = new TranslDlg(notebook);
-	notebook->AddPage(transldlg,_T("Text"),FALSE);
+	notebook->AddPage(transldlg,_T("Text"),TRUE);
+
 
 	ConfigInit();
 	WavegenInitSound();
@@ -252,7 +259,7 @@ wxSashLayoutWindow *win;
 		if(result == -1)
 			wxLogError(_T("Failed to load phoneme data,\nneeds espeak-data/phontab,phondata,phonindex"));
 		else
-			wxLogError(_T("Wrong version of espeak-data: 0x%x (0x%x)"),result,version_phdata);
+			wxLogError(_T("Wrong version of espeak-data: 0x%x (expects 0x%x)"),result,version_phdata);
 
 		error_flag = 1;
 	}
@@ -335,8 +342,8 @@ void MyFrame::OnQuit(wxCommandEvent& event)
 	}
 }
 
-
-#ifdef deleted
+//#define xcharset
+#ifdef xcharset
 #include "iconv.h"
 void CharsetToUnicode(const char *charset)
 {//=======================================
@@ -414,7 +421,7 @@ void CharsetToUnicode(const char *charset)
 void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {//===================================================
 //CharsetToUnicode("ISO-8859-3");
-//CharsetToUnicode("KOI8-R");
+//CharsetToUnicode("ISCII");
 	char buf[120];
 
 	sprintf(buf,about_string,espeak_Info(NULL));
@@ -500,6 +507,10 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	case MENU_COMPILE_PH:
 		CompileInit();
 		break;
+
+	case MENU_COMPILE_MBROLA:
+		CompileMbrola();
+		break;
 		
 	case MENU_COMPILE_DICT:
 		sprintf(fname_log,"%s%s",path_dsource,"dict_log");
@@ -548,6 +559,12 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 {//=========================================
 	switch(event.GetId())
 	{
+	case MENU_SPEAK_TRANSLATE:
+	case MENU_SPEAK_RULES:
+	case MENU_SPEAK_TEXT:
+		transldlg->OnCommand(event);
+		break;
+
 	case MENU_SPEAK_FILE:
 		transldlg->SpeakFile();
 		break;

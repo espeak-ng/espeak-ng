@@ -11,7 +11,7 @@
 
 phoneme @   //  Schwa
   vowel starttype (@) endtype (@)
-  formants vowel/@
+  formants vowel/@_4
   unstressed
   length 125
 endphoneme
@@ -26,7 +26,7 @@ endphoneme
 phoneme I
   vowel starttype (i) endtype (i)
   length 130
-  formants vowel/ii_2
+  formants vowel/ii
 endphoneme
 
 phoneme y
@@ -38,19 +38,19 @@ endphoneme
 phoneme 8
   vowel starttype (u) endtype (u)
   length 140
-  formants vowel/oe
+  formants vowel/y#
 endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 180
-  formants vowel/u
+  length 150
+  formants vowel/u_bck
 endphoneme
 
 phoneme E
   vowel starttype (e) endtype (e)
   length 140
-  formants vowel/ee
+  formants vowel/e_mid2
 endphoneme
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
@@ -60,16 +60,10 @@ phoneme E2    //  as[E] but reduces to @ if unstressed
   reduceto @  0
 endphoneme
 
-phoneme W
-  vowel starttype (@) endtype (@)
-  length 160
-  formants vowel/oe
-endphoneme
-
 phoneme O
   vowel starttype (o) endtype (o)
   length 150
-  formants vowel/oo
+  formants vowel/o_6
 endphoneme
 
 phoneme a:
@@ -81,7 +75,7 @@ endphoneme
 phoneme A
   vowel starttype (a) endtype (a)
   length 160
-  formants vowel/aa_2
+  formants vowel/aa_7
 endphoneme
 
 
@@ -97,20 +91,20 @@ endphoneme
 phoneme Y:
   vowel starttype (@) endtype (@)
   length 220
-  formants vdiph/y#y
+  formants vdiph/y#y_3
 endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (u)
   length 200
-  formants vdiph/ou
+  formants vdiph/Vu_3
 endphoneme
 
 
 phoneme EI
   vowel starttype (a) endtype (i)
   length 210
-  formants vdiph/&i
+  formants vdiph/eei_4
 endphoneme
 
 phoneme Wy
@@ -120,9 +114,9 @@ phoneme Wy
 endphoneme
 
 phoneme VU
-  vowel starttype (a) endtype (u)
+  vowel starttype (a) endtype (o)
   length 220
-  formants vdiph/Vu
+  formants vdiph/aau_2
 endphoneme
 
 phoneme eU
@@ -173,6 +167,17 @@ phoneme v2        // approximant, not fricative
   before _ voc/v_
   switchvoicing f
 endphoneme
+
+phoneme Q
+  vcd vel frc
+  vowelin f1=2  f2=2300 200 300  f3=-300 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  lengthmod 6
+  formants voc/Q_less+vocw/Q2%140
+  before _ voc/Q_+vocw/Q_
+  switchvoicing x
+endphoneme
+
 
 
 phoneme x2        // a stronger version of [x] (for Afrikaans)

@@ -132,6 +132,14 @@ endphoneme
 phoneme O@
   vowel  starttype (o)  endtype (@)
   length 240
+  formants vowel/oo_1
+  linkout r-
+endphoneme
+
+
+phoneme O@
+  vowel  starttype (o)  endtype (@)
+  length 240
   formants vwl_en_n/O@
   linkout r-
 endphoneme

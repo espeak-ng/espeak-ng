@@ -41,6 +41,7 @@
 #define SFLAG_SYLLABLE         0x04   // vowel or syllabic consonant
 #define SFLAG_LENGTHEN         0x08   // lengthen symbol : included after this phoneme
 #define SFLAG_DICTIONARY       0x10   // the pronunciation of this word was listed in the xx_list dictionary
+#define SFLAG_SWITCHED_LANG    0x20   // this word uses phonemes from a different language
 
 
 // embedded command numbers
@@ -117,6 +118,16 @@ typedef struct {
 	char *filename;
 } SOUND_ICON;
 
+typedef struct {
+	int  name;
+	unsigned int  next_phoneme;
+	int  mbr_name;
+	int  mbr_name2;
+	int  percent;         // percentage length of first component
+	int  control;
+} MBROLA_TAB;
+
+
 // phoneme table
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
@@ -171,6 +182,7 @@ extern unsigned char *out_end;
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
+extern int samplerate_native;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
@@ -178,6 +190,8 @@ extern int wavefile_ix2;
 extern int wavefile_amp2;
 extern int vowel_transition[4];
 extern int vowel_transition0, vowel_transition1;
+
+extern char mbrola_name[20];
 
 // from synthdata file
 unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int control);
@@ -200,6 +214,8 @@ int  SelectPhonemeTableName(const char *name);
 
 extern unsigned char *envelope_data[16];
 extern int formant_rate[];         // max rate of change of each formant
+extern int speed_factor1;
+extern int speed_factor2;
 
 #define N_SOUNDICON_TAB  100
 extern int n_soundicon_tab;
@@ -207,4 +223,11 @@ extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 espeak_ERROR SetVoiceByName(const char *name);
 espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
+espeak_ERROR LoadMbrolaTable(const char *mbrola_voice, const char *phtrans);
 void SetParameter(int parameter, int value, int relative);
+void MbrolaTranslate(PHONEME_LIST *plist, int n_phonemes, FILE *f_mbrola);
+int MbrolaSynth(char *p_mbrola);
+int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp);
+int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
+		int which, PHONEME_LIST *plist, int modulation);
+int PauseLength(int pause);

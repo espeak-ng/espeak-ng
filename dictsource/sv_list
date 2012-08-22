@@ -17,6 +17,7 @@ e	e:
 f	Ef
 g	ge:
 h	hO:
+i	i:
 j	ji:
 k	kO:
 l	El
@@ -60,7 +61,7 @@ _16	s'EkstOn
 _17	sx'8tOn
 _18	'A:rtOn
 _19	n'ItOn
-_2X	s;'u-gu:
+_2X	S;'u-gu:
 _3X	tr'Eti:
 _4X	f'Y:rtI
 _5X	f'Emti:
@@ -90,7 +91,7 @@ ett	$u
 jag	jA:g $u
 du	$u
 han	han $u
-hon	$u
+hon	hUn  $u
 den	dEn $u
 det	de:t $u
 man	man $u
@@ -116,12 +117,14 @@ vår	$u+
 vårt	$u+
 våra	$u+
 er	$u+
-ert	$u+
+ert	e:rt $u+
 era	$u+
-deras	$u+
+erat	E:rat $u+
+eran	E:ran $u+
+deras	de:ras $u+
 
 // prepositions
-i	I $u $brk	// in
+i	i: $u $brk	// in
 på	$u		// on, in, at
 vid	$u $brk		// by, at, next to
 av	$u		// of, by
@@ -130,7 +133,7 @@ för	$u $brk
 
 om	$u $brk		// about
 till	$u $brk		// to
-från	$u $brk		// from
+från	fr'o:n $u $brk		// from
 mot	$u $brk		// towards
 över	$brk		// over
 längs	$brk		// along
@@ -141,7 +144,7 @@ under	$brk		// during
 
 
 // conjunctions
-och	Ok $u $pause	// and
+och	'Ok $u $pause	// and
 eller	$u $pause	// or
 om	$u $pause	// if
 då	$u $brk		// as
@@ -158,19 +161,19 @@ som	$u $pause	// that, which
 
 
 // auxillary verbs  (be, have, can, etc)
-är	$u		// is
-var	vA: $u		// was 
+är	'E:r $u		// is
+var	vA:r $u		// was 
 
 har	$u		// has
-hade	$u		// had
+hade	hadE $u		// had
 
-ska	$u		// will (future)
+ska	skA: $u		// will (future)
 
-kan	$u		// can
+kan	k'an $u		// can
 kunde	$u		// could
 vill	$u		// want to
 ville	$u		// wanted to
-ska	$u		// should, supposed to
+ska	skA: $u		// should, supposed to
 skulle	$u
 bör	$u		// should, ought to
 borde	$u
@@ -179,79 +182,105 @@ brukade	$u		// used to
 
 
 // some common adjectives and adverbs
-någon	$u		// some
-något	$u
-några	$u
+någon	 n,o:gOn $u		// some
+något	 n,o:gOt $u
+några	  n'o:gra $u
 
 
 // MAIN WORD DICTIONARY
 //*********************
-var	vA:r $u
-har	hA:r $u
-vad	vA:d $u
-hej          hEj
-in        In
-fem         fEm
-sex      s'Eks
-botten     b'OtEn
-fram     fr'am
-framme     fr'amE
-program     prUgr'am
-människa     m'EnIsx,a
-människor     m'EnIsx,o:r
-människorna     m'EnIsx,o:rna
+andas	andas
+andras	andras
 arkiv    'arki:v
-redigera      rEdIs;'e:ra
-ost	Ust
-ha	hA:
-har	hA:r
-tar	tA:r
-av      A:v
-ja	jA:
-ta      tA:
-emot    Em'u:t
+av      A:v    $u
 bäste     b'EstE
-hem   hEm
 betala    b'Et'A:l,a
 betalt    b'Et'A:lt
+bort	bOrt
+botten     b'OtEn
+bra	brA:
+dan	dA:n
+dem	dEm
+dig	dEj
+dra	drA:
+därför	d'ErfY:r
+emot    Em'u:t
+ett	'Et
+fem         fEm
+fram     fr'am
+framme     fr'amE
+gemensam	 jEm'e:nsam
+gemensamt	 jEm'e:nsamt
+ha	hA:
+har	hA:r $u
+hej          hEj
+honom	hOnOm
+idag	Id,A:g
+in        In
+ja	jA:
+jan	jA:n
+klar	klA:r
+log	 l'u:g
+mat	mA:t
+men	mEn
+mig	mEj
+ost	Ust
+program     prUgr'am
+redigera      rEdIS;'e:ra
+sex      s'Eks
+sig	sEj
+skolan	 sk'u:lan
+son	so:n
+stan	stA:n
+svar	svA:r
+tar	tA:r
+ta      tA:
+tomt	t'Umt
+tom	t'Um
+torsdag	 t'u:SdA:g
+vad	vA:d $u
+var	vA:r $u
+vem	vEm
+
+
 // some words to translate using English (mostly for screenreaders)
-button   _^_EN
-Microsoft         _^_EN
-Explorer      _^_EN
-desktop    _^_EN
-office     _^_EN
-taskbar     _^_EN
-checked   _^_EN
-unchecked   _^_EN
-menu     _^_EN
-submenu     _^_EN
-selected     _^_EN
-unselected     _^_EN
-item     _^_EN
-items     _^_EN
-word    _^_EN
-password    _^_EN
-user   _^_EN
-name   _^_EN
-heading    _^_EN
-level   _^_EN
-software    _^_EN
-tray    _^_EN
-cansel    _^_EN
-group   _^_EN
-groupwise   _^_EN
-mail    _^_EN
-e-mail    _^_EN
-view     _^_EN
 adobe    _^_EN
-read   _^_EN
-reader   _^_EN
-readme   _^_EN
-one    _^_EN
+browser	_^_EN
+button   _^_EN
+cancel    _^_EN
+checked   _^_EN
+desktop    _^_EN
 dot    _^_EN
+email    _^_EN
+Explorer      _^_EN
+firefox	_^_EN
+frame	_^_EN
+graphic	_^_EN
+heading    _^_EN
+image	_^_EN
+internet _^_EN
+jaws	_^_EN
+leaving    _^_EN
+level   _^_EN
+link	_^_EN
+mail    _^_EN
+messenger   _^_EN
+Microsoft         _^_EN
+mozilla	_^_EN
+name   _^_EN
 no    _^_EN
+office     _^_EN
 one    _^_EN
 online    _^_EN
-// Online    _^_EN
 orca    _^_EN
-// Orca    _^_EN
+password    _^_EN
+read   _^_EN
+software    _^_EN
+submenu     _^_EN
+tray    _^_EN
+unchecked   _^_EN
+unselected     _^_EN
+user   _^_EN
+view     _^_EN
+web	_^_EN
+word    _^_EN

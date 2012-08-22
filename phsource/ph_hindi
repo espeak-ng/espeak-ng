@@ -172,7 +172,7 @@ phoneme r-
   vowel  starttype (@)  endtype (@)
   unstressed
   length 100
-  formants vwl_hi/r-voc
+  formants vowelr/r-voc
 endphoneme
 
 phoneme l-
@@ -344,7 +344,7 @@ phoneme d       // (weak) dental variant of /d/
   vcd dnt stop
   vowelin f1=2  f2=1700 -300 300  f3=-100 80
   vowelout f1=2 f2=1700 -300 300  f3=-100 80  rms=20 len=1
-  formants d/d_dnt+x/d_dnt%60
+  formants d/d_dnt+x/d_dnt%50
   before _ d/d_+x/d_
   before r d/dr+x/d_dnt%60
   after _ NULL
@@ -517,9 +517,9 @@ endphoneme
 
 phoneme g     //
   vcd vel stop
-  vowelin f1=1  f2=2300 200 400  f3=-100 80
+  vowelin f1=1  f2=2300 200 300  f3=-300 80
   vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
-  formants g/g+x/g2_
+  formants g/g+x/g2
   before _ g/g_+x/g2_
   after _ NULL
   after @ g2/xg

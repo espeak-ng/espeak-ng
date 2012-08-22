@@ -1,10 +1,13 @@
+// translation rules for Romanian
+// This file is UTF-8 encoded
+
 
 
 .group a
         a        a
         ai       aI
         ai (_    'aI
-        au       aU
+        au       aU   // ?? only at end of word ??
         au (_    'aU
         a (AAA   a
      &) a (_S1q  a
@@ -13,13 +16,13 @@
     ăi) a (_     'a
      @) abil (_  'abil
      _) anti (@P4  anti
-    @c) ale (_   'ale
-    @n) ale (_   'ale
+     @) ale (_   'ale
 
 .group ă
         ă        @
         ăi       @I
-        ău       @U
+        ău       @U  // ?? only at end of word ??
+        ău (_    @U
 
         ăi (m_   @'i
         ăi (t_   @'i
@@ -48,11 +51,11 @@
         c        k
         c (e     tS
         c (i     tS
-//        ci (A    tS
+        ci (o    tS
         cii      tSiI
         ch       k
     @@) col (_   =kol
-    @@) coli (_S1t  =I
+    @@) coli (_S1t  =I^
     @@) cole (_S1t  =e
 
 .group d
@@ -63,7 +66,8 @@
 .group e
         e        e
         ei       eI
-        eu       eU
+//        eu       eU   // only at end of word ??
+//        eu       e[u    // ??
         eu (_    'eU
         ea       ea
      &) ea (_S2q ea
@@ -83,6 +87,9 @@
      @) e (re_   =e
      @) e (ri_   =e
      @) e (rea_  =e
+     i) e (re_   e
+     i) e (ri_   e
+     i) e (rea_  e
 
 
 .group f
@@ -106,9 +113,11 @@
 .group i
         i        i
         i (A     j
-     &) i (_N$1q i/
+    &C) i (_N$1q i/
+     &) i (_N$1q i
+     &) i (-N$1q i        // don't reduce to [I^] if a hyphen follows
     &') i (_     i
-   ţi-) i (_     _         // combined with previous word as [iI]
+   ţi-) i (_     _        // combined with previous word as [iI]
     Cr) i (_     i
     V&) i (_     'i       // verb
     ăC) ia (_    'ia
@@ -151,6 +160,7 @@
      _) l (_     le
      -) l (_     l         // -l
 
+    iu) l (_S1t   l
      &) le (_S2t  le
      &) lor (_S3t lor
      &) lui (_S3t luI
@@ -205,7 +215,8 @@
      A) r (i_      *;
 
      _) re (@P2v   re
-    @u) ri (_NS2t   rI
+     _) re (gul    re
+    @u) ri (_NS2t   rI^
     @u) rile (_S4t rile
 
 
@@ -232,11 +243,11 @@
 .group ţ
         ţ        ts
     @)  ţ (i_    ts;
-    @)  ţi (-mă  ts;'i
-    @)  ţi (-vă  ts;'i
-    @)  ţi (-le  ts;'i
-    @)  ţi (-i   ts;'iI
-    @)  ţi (-l   ts;'i
+//    @)  ţi (-mă  ts;'i
+//    @)  ţi (-vă  ts;'i
+//    @)  ţi (-le  ts;'i
+//    @)  ţi (-i   ts;'iI
+//    @)  ţi (-l   ts;'i
 
 
 .group u
@@ -251,7 +262,7 @@
      &) ul  (_S2t ul
 
    @ic) ul (_S2 ul
-   @ic) uri (_S3 urI
+   @ic) uri (_S3 urI^
    @ic) urile (_S5 urile
    @ic) urilor (_S6 urilor
 

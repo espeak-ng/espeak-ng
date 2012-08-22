@@ -2,6 +2,8 @@
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
+//With contributions by Christo de Klerk
+
 
 // This file is UTF-8 encoded
 // all words lower case
@@ -87,32 +89,38 @@ _dpt    'pWnt
 afrika      'A:frika
 china       S'ina
 engeland    'EN@lant
+mesopotamië mEsuput'A:mi@
 thaba       tA:ba
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
 
-natal       nat'al
 pretoria    prit'o@ria
 worcester   v'ust@r
 
 
 
 // People names
+Abiméleg    abin'e@lEx2
 André       'andreI
 annette     an'Et
 aucamp      @Ukamp
+benjamin    bEndZ@m@n
 botha       bo@ta
 charles     _^_EN
 chris       krIs
 christo     krIstu
 christian   krIstian
 christine   kr@st'i:n
+coetzee     kuts'e@
+debora      d@bo@ra
 der         d@r
+esegiël    is'e@x2i_@l
 eugene      judZ'i:n
+ferreira    f@r&:r@
+fourie      fur'i
 francois    franSwa
 freud       frOId
 george      _^_EN
-gert        x2&rt
 gerhard     x2&rart
 grange      x2rA:nsi
 jacobus     jako@bWs
@@ -121,6 +129,7 @@ jesus       ji:sWs
 john        _^_EN
 leandra     li'andra
 leroux      l@ru
+levi        le@fi
 
 louis       luI
 louise      luw'i:z
@@ -130,6 +139,8 @@ paul        p@Ul
 paulus      p@UlWs
 petrus      pe@trWs
 phoebe      fi:bi
+preez       pr'e@
+rebekka     r@bEka
 ronel       run'&l
 rousseau    r@s@U
 terblanche  t@rblA:nS
@@ -241,8 +252,8 @@ te		t@
 nie $unstressend
 
 soos		$u
-beker		b,e@k@r
-bekers		b,e@k@rs
+beker		be@k@r
+bekers		be@k@rs
 
 
 
@@ -253,7 +264,7 @@ u		$u
 hy		$u
 sy		$u
 dit		$u
-ons		$u
+ons		o~ns $u
 julle		$u
 hulle		$u
 hulleself       hWl@s&lf
@@ -280,6 +291,7 @@ mev         m@fr@U
 dr          d'Okt@r
 insp        InspEkt'Y@r
 prof        pruf'Es@r
+st          s@nt
 supt        suprEntEnd'Ent
 pres        pr@s@d'Ent
 bv          beIf'o@rbe@lt
@@ -290,13 +302,12 @@ bv          beIf'o@rbe@lt
 
 aanbid        $2
 aanstaande    $2
-afrikaans     $3
-afrikaner     $3
 agenda        ax2'Enda
 algehele      alx2@h,e@l@
-alleen        $2
 alles         al@s
 alternatiewe  $4
+amen          A:mEn
+anatomie      $4
 asof          asOf
 asook         aso@k
 asseblief     as@bl'if
@@ -306,6 +317,7 @@ belangriker   b@laNr@k,Ir
 belangrikst@  b@laNr@kst@
 bene          be@n@
 bêre          b&:r@
+beskryf b@skr'eIf
 beste         bEst@
 bestes        bEst@s
 betekenis     b@te@k@n@s
@@ -318,7 +330,6 @@ dadelik       dA:d@lIk
 darem         dar@m
 derde         d&:rd@
 dekade        dEk'A:d@
-demokrasie    d,EmOkras'i
 diegene       dix2,e@n@
 dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
@@ -347,7 +358,7 @@ gegewens      x2@x2e@v@ns
 geldelike     x2&ld@l@k@
 genade        $2
 genesis       x2e@n@s@s 
-gesamentlik   x2@sA:m@ntl@k
+//gesamentlik   x2@sA:m@ntl@k
 gooi          x2OI
 gomorra       x2@mOra
 gunsteling    x2Wnst@l@N
@@ -358,6 +369,7 @@ heeltemal     he@lt@mal
 heengaan      he@nx2A:n
 hek           h&k
 hekke         h&k@
+helaas        he@l'A:s
 hele          he@l@
 here          he@r@
 hoewel        huv'&l
@@ -365,8 +377,9 @@ hoofsaaklik   $2
 hotel         hut'&l
 
 idee          $2
+ietwat        itvat
 ignoreer      ix2no@r'e@r
-inagneming    @nax2n,e@m@N
+inagneming    @nax2ne@m@N
 inderdaad     @nd@rd'A:t
 ingang        Inx2aN
 intens @nt'Ens
@@ -376,7 +389,6 @@ ironie        irun'i
 joernalis $3
 
 
-kabinet       kabin'Et
 kafee         kaf'e@
 kantoor       $2
 kapitaal      kapit'A:l
@@ -396,10 +408,10 @@ lekkerder     l&k@rd@r
 lekkerste     l&k@rst@
 lughawe       lWx2h,A:v@
 
+makabere m%ak'A:b@r@
 manier        $2
 matige        mA:t@x2@
 meegee        me@x2e@
-mens          me:ns
 militêre      mIl@t'&:r@
 minister      m@nIst@r
 minute        m@nyt@
@@ -412,21 +424,23 @@ motor         mo@t@r
 motortjie     mo@t@rki
 
 nadele        nA:de@l@
-nag           nax2
 nature        nat'yr@
 natuurlik     nat'yrl@k
 natuur        nat'yr
 nalatigheid   nA:l'A:t@x2eIt
+namate        $2
 netjies       nE:icis
 netjiese      nEicis@
+netsowel      nEtso@v&l
 nietemin      n'it@m@n
+nobelprys     $2
 nogal         nOx2al
 normale       nOrm'A:l@
 november      $2
 numeri        nWm@ri
-nuweling      nyv@l@N
 
 omtrent       Omtr'Ent
+onbegrip      $1
 onderstebo    On@rst@b,o@
 onderwyser    $3
 onkunde       $1
@@ -435,18 +449,15 @@ onrus         $1
 oorkom        $2
 oorleef       $2
 oorspronklike $2
-oortref       $2
 oranje        $2
 
 patriotisme   patri|ut'Ism@
 parlement     parl@m'Ent
+penorent      pEno@rEnt
 per           pIr
 persent       p@rsEnt
-probleem      prubl'e@m
-probleme      prubl'e@m@
 program       prux2r'am
 
-redelik       re@d@l@k
 reeds         re@ts
 retireer      r@t@re@:r
 rimpeling     rImp@l@N
@@ -458,8 +469,9 @@ sedert        se@d@rt
 sekonde       s@kOnd@
 sekondes      s@kOnd@s
 sektore       $2
-silinder      s@lInd@r
 s'n           s'@n
+sobere s'o@b@r@
+sombere s'Omb@r@
 sodra         so@dr'A:
 sogenaamde    s'o@x2@n,A:md@
 soldaat       $2
@@ -469,7 +481,7 @@ sonop         sOn,Op
 sover         so@f&r
 stabiel       stab'il
 
-tema          te@ma
+terdeë       $2
 terug         t@-rWx2
 terwyl        t@rveIl
 tesame        t@sA:m@
@@ -477,6 +489,8 @@ tevrede       t@fre@d@
 toegee        tux2e@
 toenemend     $2
 totale        tut'A:l@
+totsiens      $2
+
 
 uitdagings    YydA:x2@Ns
 uitdaging     YydA:x2@N
@@ -517,5 +531,4 @@ waarskynlik   $2
 waarskynlike  $2
 weg           v&x2
 weggewens     v&x2@v'E:ns
-wens          vE:ns
 

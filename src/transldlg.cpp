@@ -209,8 +209,8 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 	t_translate = new wxButton(this,T_RULES,_T("Show Rules"),wxPoint(4,652));
 	t_process = new wxButton(this,T_PROCESS,_T("Speak"),wxPoint(100,620));
 
+	t_source->SetFocus();
 }  // end of TransDlg::TransDlg
-
 
 
 
@@ -276,9 +276,12 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	static int n_ph_list;
 	static PHONEME_LIST ph_list[N_PH_LIST+1];
 
+	option_phonemes = 0;
+
 	switch(event.GetId())
 	{
 	case T_RULES:
+	case MENU_SPEAK_RULES:
 		option_phonemes = 2;
 		strcpy(fname_temp,tmpnam(NULL));
 		if((f = fopen(fname_temp,"w+")) != NULL)
@@ -286,6 +289,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			f_trans = f;   // write translation rule trace to a temp file
 		}
 	case T_TRANSLATE:
+	case MENU_SPEAK_TRANSLATE:
 		SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
 		strncpy0(buf,t_source->GetValue().mb_str(wxConvLocal),sizeof(buf));
@@ -316,7 +320,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		}
 
 		t_phonetic->Clear();
-		if(event.GetId() == T_RULES)
+		if(option_phonemes == 2)
 		{
 			option_phonemes=0;
 			rewind(f_trans);
@@ -329,9 +333,11 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			remove(fname_temp);
 		}
 		t_phonetic->AppendText(wxString(phon_out,wxConvLocal));
+// MbrolaTranslate(ph_list,n_ph_list,stdout);     // for Testing
 		break;
 
 	case T_PROCESS:
+	case MENU_SPEAK_TEXT:
 		if(prosodycanvas != NULL)
 		{
 			prosodycanvas->LayoutData(ph_list,n_ph_list);

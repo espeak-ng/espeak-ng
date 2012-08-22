@@ -81,6 +81,7 @@
              д (_G      d
              д (ь_      t;
              д (ь_G     d;
+             дж         dZ
 
 .group е
           _) е (_       jE
@@ -220,9 +221,12 @@
              ш          S        // always hard
 
 .group щ
-          _) щ (_       s;s;a
+          _) щ (_       S;ja
              щ (щ
-             щ          s;s;     // always soft
+             щ          S;       // always soft
+          д) щ          S;
+          т) щ          S;
+
 
 .group ъ
           _) ъ (_       'tv;ord@j'znak

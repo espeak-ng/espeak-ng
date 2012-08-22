@@ -34,45 +34,71 @@ extern int GetAmplitude(void);
 
 
 // convert from words-per-minute to internal speed factor
-static unsigned char speed_lookup[241] = {
-	253, 250, 247, 243, 240, 237, 234, 231,   //  80
-   229, 226, 223, 220, 217, 214, 212, 209,   //  88
-   206, 204, 201, 198, 196, 193, 191, 189,   //  96
-   186, 184, 181, 179, 177, 175, 172, 170,   // 104
-   166, 164, 162, 160, 159, 157, 155, 153,   // 112
-   151, 150, 148, 146, 144, 143, 141, 136,   // 120
-   135, 134, 133, 131, 130, 129, 128, 126,   // 128
-   125, 124, 123, 122, 121, 119, 118, 117,   // 136
-   116, 114, 113, 112, 111, 110, 109, 108,   // 144
-   107, 106, 105, 104, 103, 102, 101, 100,   // 152
-    97,  96,  95,  95,  94,  93,  92,  92,   // 160
-    91,  90,  89,  89,  88,  87,  86,  86,   // 168
-    85,  84,  84,  83,  82,  81,  81,  80,   // 176
-    78,  77,  77,  76,  75,  75,  74,  74,   // 184
-    73,  73,  72,  71,  71,  70,  70,  69,   // 192
-    69,  68,  68,  67,  66,  66,  65,  65,   // 200
-    64,  64,  63,  63,  62,  62,  61,  61,   // 208
-    60,  60,  58,  57,  57,  56,  56,  56,   // 216
-    55,  55,  54,  54,  54,  53,  53,  53,   // 224
-    52,  52,  51,  51,  51,  50,  50,  44,   // 232
-    44,  44,  44,  44,  44,  44,  43,  43,   // 240
-    43,  43,  43,  43,  42,  42,  42,  42,   // 248
-    41,  41,  41,  41,  40,  40,  40,  40,   // 256
-    34,  34,  34,  34,  34,  34,  34,  34,   // 264
-    34,  34,  34,  33,  33,  33,  33,  32,   // 272
-    32,  32,  32,  31,  31,  31,  30,  30,   // 280
-    32,  32,  31,  30,  29,  29,  28,  27,   // 288
-    26,  25,  25,  24,  23,  22,  21,  21,   // 296
-    20,  19,  18,  17,  16,  16,  15,  15,   // 304
-    14,  13,  12,  11,  10,   9,   8,   7,   6,  // 312
+static unsigned char speed_lookup[290] = {
+	 250, 246, 243, 239, 236,	//  80
+	 233, 229, 226, 223, 220,	//  85
+	 217, 214, 211, 208, 205,	//  90
+	 202, 197, 194, 192, 190,	//  95
+	 187, 185, 183, 180, 178,	// 100
+	 176, 174, 172, 170, 168,	// 105
+	 166, 164, 161, 159, 158,	// 110
+	 156, 154, 152, 150, 148,	// 115
+	 146, 145, 143, 141, 137,	// 120
+	 136, 135, 133, 132, 131,	// 125
+	 129, 128, 127, 126, 125,	// 130
+	 124, 122, 121, 120, 119,	// 135
+	 117, 116, 115, 114, 113,	// 140
+	 112, 111, 110, 108, 107,	// 145
+	 106, 105, 104, 103, 102,	// 150
+	 101, 100,  99,  98,  97,	// 155
+	  96,  95,  93,  92,  92,	// 160
+	  91,  90,  89,  89,  88,	// 165
+	  87,  87,  86,  85,  85,	// 170
+	  84,  83,  83,  82,  81,	// 175
+	  80,  80,  79,  78,  78,	// 180
+	  77,  76,  76,  75,  73,	// 185
+	  72,  72,  71,  71,  70,	// 190
+	  70,  69,  69,  68,  67,	// 195
+	  67,  66,  66,  65,  65,	// 200
+	  64,  64,  63,  63,  62,	// 205
+	  62,  61,  60,  60,  59,	// 210
+	  59,  58,  58,  57,  57,	// 215
+	  56,  56,  55,  55,  55,	// 220
+	  54,  54,  53,  53,  52,	// 225
+	  52,  51,  51,  50,  50,	// 230
+	  49,  49,  49,  48,  48,	// 235
+	  47,  47,  46,  46,  46,	// 240
+	  45,  45,  44,  44,  43,	// 245
+	  43,  43,  42,  42,  41,	// 250
+	  41,  41,  40,  40,  39,	// 255
+	  39,  39,  38,  38,  38,	// 260
+	  37,  37,  37,  36,  36,	// 265
+	  35,  35,  35,  34,  34,	// 270
+	  34,  33,  33,  33,  32,	// 275
+	  32,  32,  32,  31,  31,	// 280
+	  31,  30,  30,  30,  29,	// 285
+	  29,  29,  29,  28,  28,	// 290
+	  28,  28,  27,  27,  27,	// 295
+	  26,  26,  26,  26,  25,	// 300
+	  25,  25,  22,  22,  22,	// 305
+	  22,  22,  22,  22,  22,	// 310
+	  21,  21,  21,  21,  21,	// 315
+	  21,  20,  20,  20,  20,	// 320
+	  20,  15,  15,  15,  15,	// 325
+	  15,  15,  15,  15,  16,	// 330
+	  16,  16,  16,  15,  15,	// 335
+	  15,  15,  15,  15,  15,	// 340
+	  15,  17,  17,  16,  16,	// 345
+	  15,  15,  14,  14,  13,	// 350
+	  13,  12,  12,  11,  11,	// 355
+	  10,  10,   9,   8,   8,	// 360
+	   7,   7,   6,   6,   5,	// 365
 };
 
 static int speed1 = 130;
 static int speed2 = 121;
 static int speed3 = 118;
 
-extern int speed_factor1;
-extern int speed_factor2;
 
 
 void SetSpeed(int control)
@@ -82,7 +108,7 @@ void SetSpeed(int control)
 	int wpm;
 
 	wpm = embedded_value[EMBED_S];
-	if(wpm > 320) wpm = 320;
+	if(wpm > 369) wpm = 369;
 	if(wpm < 80) wpm = 80;
 
 	x = speed_lookup[wpm-80];
@@ -101,13 +127,13 @@ void SetSpeed(int control)
 		// these are used in synthesis file
 		s1 = (x * voice->speedf1)/256;
 		speed_factor1 = (256 * s1)/115;      // full speed adjustment, used for pause length
-if(speed_factor1 < 17)
-	speed_factor1 = 17;
+if(speed_factor1 < 16)
+	speed_factor1 = 16;
 		if(wpm >= 170)
+//			speed_factor2 = 100 + (166*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
 			speed_factor2 = 110 + (151*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
 		else
-			speed_factor2 = 128 + (128*s1)/130; 
-//		speed_factor2 = 120 + (137*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+			speed_factor2 = 128 + (128*s1)/130;  // = 215 at 170 wpm
 	}
 
 }  //  end of SetSpeed
@@ -183,43 +209,6 @@ void SetParameter(int parameter, int value, int relative)
 	}
 }  // end of espeak_SetParameter
 
-
-
-
-#ifdef deleted
-// used to set up the presets in the speed_lookup table
-// interpolate between a set of measured wpm values
-void SetSpeedTab(void)
-{//===================
-#define N_WPM   13
-
-	// Interpolation table to translate from words-per-minute to internal speed
-	// words-per-minute values (measured)
-	static float wpm1[N_WPM] =
-			{0, 99.0, 111.3, 127.0, 140.9, 160.0, 183.9, 217.3, 238.5, 263.2, 287.5, 304.4, 316 };
-	// corresponding internal speed values
-	static float wpm2[N_WPM] = 
-			{0, 200,  170,   140,   120,   100,    80,    60,    50,    40,    30,    20,  10};
-
-
-	int ix;
-	float x;
-
-
-	// convert from word-per-minute to internal speed code
-	for(speed_wpm=80; speed_wpm<320; speed_wpm++)
-	{
-		for(ix=2; ix<N_WPM-2; ix++)
-		{
-			if(speed_wpm < wpm1[ix])
-				break;
-		}
-		x = polint(&wpm1[ix-1], &wpm2[ix-1], 3, speed);
-
-		speed_lookup[speed_wpm-80] = x;
-	}
-}	// end of SetSpeedTab
-#endif
 
 
 static void DoEmbedded2(int &embix)
@@ -487,13 +476,15 @@ p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 				length_mod *= speed3;
 
 			length_mod = length_mod / 128;
-			if(length_mod < 24)
-				length_mod = 24;     // restrict how much lengths can be reduced
+//			if(length_mod < 24)
+//				length_mod = 24;     // restrict how much lengths can be reduced
+			if(length_mod < 9)
+				length_mod = 9;     // restrict how much lengths can be reduced
 
 			if(stress >= 7)
 			{
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
-				length_mod += 20;
+				length_mod += 22;
 			}
 			
 			length_mod = (length_mod * stress_lengths[stress])/128;

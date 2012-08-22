@@ -1,6 +1,15 @@
-// translation rules
+// translation rules Brazilian
 // This file is UTF-8 encoded
 
+// Options
+// ?1  European Portuguese
+// ?2  Brazilian Portuguese
+
+// Letter groups
+// A  a vowel
+// C  a consonant
+// G  a voiced consonant
+// K  not a vowel
 
 .group a
        _) a (_       a
@@ -9,13 +18,17 @@
        &) a (s_      =&
        &) a (_a      =&/      // ?? elide final a before a
        &) a (_à      =&/
+?1        a (_       =&       // in final unstressed syllable
+?1        a (s_      =&
+?1        a (_a      =&/      // ?? elide final a before a
+?1        a (_à      =&/
 
           a (C_      &
           a (r_      a
           a (CC_     &
-
-          al (K      aU
-          alh        alj
+?1        al (K      Al
+?2        al (K      aU
+?2        alh        alj
 
           a (m       &~
           a (n       &~
@@ -24,6 +37,7 @@
           an (K      &~N
           a (nhA     &~
           am (_      =&U~
+?1    @@) ar (_      =Ar            // ??
 
           ai         aI
           ai (s      aI
@@ -88,29 +102,33 @@
        _) d (_       de
           d          d
           d (d
-          d (i       dZ
-          d (í       dZ
-          d (e_      dZ
+?2        d (i       dZ
+?2        d (í       dZ
+?2        d (e_      dZ
 
 
 .group e
-       _) e (_       e
+       _) e (_       E
           e          e
           e (_       =i
-          e (_AN     =i/      // ?? elide to [j] if next word starts with a vowel
-      &l) e (_AN     =i       //    but not after l or r
-      &r) e (_AN     =i
           e (s_      =i
+?2        e (_AN     =i/      // ?? elide to [j] if next word starts with a vowel
+?2    &l) e (_AN     =i       //    but not after l or r
+?2    &r) e (_AN     =i
+?1        e (_       =y
+?1        e (s_      =y
+?1        e (_iN     =i/      // drop final [i] is next word starts with another i
 
-          ee         i
+?1        e (e       i
+?2        ee         i
 
           e (be_     E
           e (bes_    E
           e (ce_     E
           e (ces_    E
 
-          el (K      EU
-          elh        elj
+?2        el (K      EU
+?2        elh        elj
 
           em (C      eIm
           en (K      eIN
@@ -129,6 +147,8 @@
           eu         eU
           eu (s      eU
           e (uCK     e
+
+?1     _) es (C@@    S        // drop initial "e" ??
 
 
 .group é
@@ -156,13 +176,15 @@
 
 
 .group f
-       _) f (_       'Efe
+?1       _) f (_       Ef
+?2       _) f (_       'Efe
           f          f
           f (f
 
 
 .group g
-       _) g (_       Ze
+?1       _) g (_       ge
+?2       _) g (_       Ze
           g          g
           g (g
           g (Y       Z        // ge gi
@@ -182,12 +204,13 @@
       Cl) i          i
           i (_       'i
 
-          il (K      iU
-          ilh        ilj
+?2        il (K      iU
+?2        ilh        ilj
 
           im (_      iN
           im (C      im
-          in (K      iN
+          in (g      iN
+          in (k      iN
           inh        in^
 
           i (A_      'i
@@ -229,29 +252,33 @@
        _) j (_       Z'Ot&
           j          Z
 
-
 .group k
-       _) k (_       ka
+?1     _) k (_       k'ap&
+?2       _) k (_       ka
           k          k
           k (k
 
 
 .group l
-       _) l (_       'Ele
+?1       _) l (_       El
+?2       _) l (_       'Ele
           l          l
           l (l
           lh         l^
        A) lh         lj
+?1     A) lh         l^  // ??
 
 
 .group m
-       _) m (_       'eme
+?1       _) m (_       Em
+?2       _) m (_       'eme
           m          m
           m (m
 
 
 .group n
-       _) n (_       'ene
+?1       _) n (_       En
+?2       _) n (_       'ene
           n          n
           n (n
           nh         n^
@@ -259,8 +286,10 @@
 
 .group o
           o          o
-          o (_       =u
+       @) o (_       =u
           o (s_      =u
+?1     @) o (_       =U
+?1        o (s_      =U
           ou         ow
           oi         oI
           oi (s      oI
@@ -268,9 +297,10 @@
           oo         u
           oy         OI
 
-          ol (K      Ow
           o (Ca_     O
-          olh        olj
+?2        ol (K      Ow
+?2        olh        olj
+?1     C) o (A@      w
 
           om (_      oN
           o (ma_     o
@@ -324,7 +354,8 @@
 
  
 .group r
-       _) r (_       'Exe
+?1       _) r (_       'Err
+?2       _) r (_       'Exe
        _) r (_\$     xe'aU    // currency
           r          r
        A) r (A       *
@@ -352,14 +383,19 @@
        A) s (_AS1    z     // next word starts with vowel
        A) s (_GS1    z     // next word starts with voiced consonant
 
+?1     A) s (C       S
+?1     A) ss         s
+?1     A) s (G+      Z
+?1     A) s (_KS1    S
+?1     A) s (_G+S1   Z
 
 .group t
        _) t (_       te
           t          t
           t (t
-          t (i       tS
-          t (í       tS
-          t (e_      tS
+?2        t (i       tS
+?2        t (í       tS
+?2        t (e_      tS
 
 
 .group u
@@ -367,7 +403,9 @@
           u          u
           u (A       w
           u (_A      w
-          u(A_       'u
+       r) u (A       u
+       r) u (_A      u
+          u (A_      'u
 
           ui         'uI
           ui (_      uI
@@ -406,6 +444,7 @@
           x (A       S
        A) x (A       ks
        e) x (A       z
+       e) x (o_      ks
       ai) x (A       S
       ei) x (A       S
       au) x          s
@@ -413,6 +452,9 @@
           x (C       s
           x (s
           x (_       ks
+     ale) x (a       S
+     pro) x (i       s  // aproximado, aproximadamente, aproximar, etc.
+     pró) x (i       s  // próximo, etc.
 
 
 .group y
@@ -425,10 +467,19 @@
        _) z (_       ze
           z          z
           z (z
+          z (_       s
+          z (_A      z
+          z (_G      z
 
+?1     A) z (C       S
+?1     A) z (G+      Z
+?1     A) z (_C      S
+?1     A) z (_G+     Z
 
 .group
           ç          s
+       _) ç (_       s'esed'il^&
+
           ü          u
 
           ß          s
@@ -464,6 +515,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

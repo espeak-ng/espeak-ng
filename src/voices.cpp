@@ -48,7 +48,8 @@ MNEM_TAB genders [] = {
 	{NULL, 0 }};
 
 // limit the rate of change for each formant number
-static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate
+//static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate
+static int formant_rate_22050[9] = {50, 100, 165, 200, 200, 200, 200, 200, 200};  // values for 22kHz sample rate
 int formant_rate[9];         // values adjusted for actual sample rate
 
 
@@ -92,8 +93,10 @@ char voice_name[40];
 #define V_NUMBERS     23
 #define V_OPTION      24
 
+#define V_MBROLA     25
+
 // these need a phoneme table to have been specified
-#define V_REPLACE    25
+#define V_REPLACE    26
 
 
 
@@ -128,6 +131,7 @@ static keywtab_t keyword_tab[] = {
 	{"tone",       V_TONE},
 	{"numbers",    V_NUMBERS},
 	{"option",     V_OPTION},
+	{"mbrola",     V_MBROLA},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -250,6 +254,8 @@ SetToneAdjust(voice,tone_points);
 	{
 		n_replace_phonemes = 0;
 		option_tone1 = 0;
+		option_quiet = 0;
+		LoadMbrolaTable(NULL,NULL);
 	}
 }  // end of VoiceReset
 
@@ -430,13 +436,14 @@ voice_t *LoadVoice(char *vname, int control)
 
 	while((f_voice != NULL) && (fgets(buf,sizeof(buf),f_voice) != NULL))
 	{
+		if((p = strstr(buf,"//")) != NULL)
+			*p = 0;
+
+		// isolate the attribute name
 		for(p=buf; (*p != 0) && !isspace(*p); p++);
 		*p++ = 0;
 
 		if(buf[0] == 0) continue;
-
-		if((buf[0]=='/') && (buf[1]=='/'))
-			continue;   // skip comment line
 
 		key = 0;
 		for(k=keyword_tab; k->mnem != NULL; k++)
@@ -526,8 +533,11 @@ voice_t *LoadVoice(char *vname, int control)
 			{
 				while(isspace(*p)) p++;
 				n = -1;
-				if((n = atoi(p++)) >= 0)
+				if((n = atoi(p)) > 0)
+				{
+					p++;
 					conditional_rules |= (1 << n);
+				}
 				while(isalnum(*p)) p++;
 			}
 			break;
@@ -604,6 +614,16 @@ voice_t *LoadVoice(char *vname, int control)
 				int tone_data[10];
 				ReadTonePoints(p,tone_data);
 				SetToneAdjust(voice,tone_data);
+			}
+			break;
+
+		case V_MBROLA:
+			{
+				char name[40];
+				char phtrans[40];
+				phtrans[0] = 0;
+				sscanf(p,"%s %s",name,phtrans);
+				LoadMbrolaTable(name,phtrans);
 			}
 			break;
 
@@ -1328,8 +1348,8 @@ extern "C" const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	char path_voices[80];
 
 	// free previous voice list data
-	if(voice_selected != NULL)
-		strcpy(selected_voice_id,voice_selected->identifier);
+	if((voice_selected != NULL) && (voice_selected->identifier != NULL))
+		strncpy0(selected_voice_id,voice_selected->identifier,sizeof(selected_voice_id));
 	else
 		selected_voice_id[0] = 0;
 	voice_selected = NULL;

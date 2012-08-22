@@ -11,6 +11,7 @@ extern void* wave_open(char* the_api);
 
 extern size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize);
 extern int wave_close(void* theHandler);
+extern void wave_flush(void* theHandler);
 extern int wave_is_busy(void* theHandler);
 extern void wave_terminate();
 extern uint32_t wave_get_read_position(void* theHandler);

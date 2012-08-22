@@ -1,30 +1,30 @@
+// Swahili translation list
+// This file is UTF-8 encoded.
+
 // letters (just guesses)
-b	ba
-c	tSa
-d	da
-f	fi
-g	ga
-h	ha
-j	Ja
-k	ka
-l	la
-_m	ma
-n	na
-p	pa
-q	kwa
-r	ra
-s	so
+b	bi
+c	si
+d	di
+f	ef
+g	Ji
+h	etSi
+j	Je
+k	ke
+l	el
+_m	em
+n	en
+p	pi
+q	kju
+r	ar
+s	es
 t	ti
 v	vi
-w	wa
-x	ksa
-y	ja
-z	za
+w	dabalju
+x	eks
+y	jai
+z	zedi
 
-dh      Da
-gh      xa
-sh      Si
-th      Te
+
 
 
 // numbers
@@ -90,7 +90,7 @@ u       $u+   // you,it
 ni	$u+  // i,me,you,  is,are
 ku      $u+  // it,you
 m       $u+  // you,him,it
-m       ma $atend
+m       em $atend
 tu      $u+  // we,us,only,just
 
 nami    $u+

@@ -137,7 +137,7 @@ phoneme I  // same as [i]
   linkout ;
 endphoneme
 
-phoneme u  // same as [u]
+phoneme U  // same as [u]
   vowel starttype (u) endtype (u)
   length 174
   formants vowel/u

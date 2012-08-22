@@ -738,11 +738,18 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 	sr2 = Read4Bytes(f);
 	fseek(f,40,SEEK_SET);	
 
-	if((sr1 != samplerate) || (sr2 != samplerate*2))
+	if((sr1 != samplerate) || (sr2 != sr1*2))
 	{
 #ifdef PLATFORM_WINDOWS
-	fprintf(f_errors,"Wrong samplerate %d, %d \n",sr1,sr2);
-	Error("Wrong samplerate: ",fname);
+		if(sr1 != samplerate)
+		{
+			fprintf(f_errors,"Wrong samplerate %d, wants %d\n",sr1,samplerate);
+			Error("Wrong samplerate: ",fname);
+		}
+		if(sr2 != sr1*2)
+		{
+			Error("Not mono: ",fname);
+		}
 #else
 		sprintf(fname_temp,"%s.wav",tmpnam(NULL));
 		sprintf(command,"sox \"%s\" -r %d -c 1 -w  %s polyphase\n",fname,samplerate,fname_temp);
@@ -1796,7 +1803,6 @@ void Compile::Report(void)
 }
 
 
-
 wxString CompileAllDictionaries()
 {//==============================
 	wxString filename;
@@ -1995,6 +2001,87 @@ fprintf(f_errors,"Refs %d,  Reused %d\n",count_references,duplicate_references);
 	}
 }  // end of Compile::CPhonemeTab
 
+
+
+void CompileMbrola()
+{//=================
+	char *p;
+	FILE *f_in;
+	FILE *f_out;
+	int percent;
+	int n;
+	int count = 0;
+	int control;
+	char phoneme[40];
+	char phoneme2[40];
+	char name1[40];
+	char name2[40];
+	char mbrola_voice[40];
+	char buf[150];
+	int mbrola_ctrl = 20;   // volume in 1/16 ths
+	MBROLA_TAB data[N_PHONEME_TAB];
+
+	wxString filepath = wxFileSelector(_T("Read Mbrola phonemes file"),path_phsource+_T("/mbrola"),_T(""),_T(""),_T("*"),wxOPEN);
+	strcpy(buf,filepath.mb_str(wxConvLocal));
+	if((f_in = fopen(buf,"r")) == NULL)
+	{
+		wxLogError(_T("Can't read: ")+filepath);
+		return;
+	}
+
+	while(fgets(buf,sizeof(phoneme),f_in) != NULL)
+	{
+		buf[sizeof(phoneme)-1] = 0;
+
+		if((p = strstr(buf,"//")) != NULL)
+			*p = 0;   // truncate line at comment
+
+		if(memcmp(buf,"volume",6)==0)
+		{
+			mbrola_ctrl = atoi(&buf[6]);
+			continue;
+		}
+
+		n = sscanf(buf,"%d %s %s %d %s %s",&control,phoneme,phoneme2,&percent,name1,name2);
+		if(n >= 5)
+		{
+			data[count].name = StringToWord(phoneme);
+			if(strcmp(phoneme2,"NULL")==0)
+				data[count].next_phoneme = 0;
+			else
+			if(strcmp(phoneme2,"VWL")==0)
+				data[count].next_phoneme = 2;
+			else
+				data[count].next_phoneme = StringToWord(phoneme2);
+			data[count].mbr_name = 0;
+			data[count].mbr_name2 = 0;
+			data[count].percent = percent;
+			data[count].control = control;
+			if(strcmp(name1,"NULL")!=0)
+				data[count].mbr_name = StringToWord(name1);
+			if(n == 6)
+				data[count].mbr_name2 = StringToWord(name2);
+
+			count++;
+		}
+	}
+	fclose(f_in);
+
+	wxFileName filename = wxFileName(filepath);
+	strcpy(mbrola_voice,filename.GetName().mb_str(wxConvLocal));
+	sprintf(buf,"%s/mbrola_ph/%s_phtrans",path_home,mbrola_voice);
+	if((f_out = fopen(buf,"w")) == NULL)
+	{
+		wxLogError(_T("Can't write to: ")+wxString(buf,wxConvLocal));
+		return;
+	}
+	
+	data[count].name = 0;  // list terminator
+	fwrite(&mbrola_ctrl,4,1,f_out);
+	fwrite(data,sizeof(MBROLA_TAB),count+1,f_out);
+	fclose(f_out);
+	wxLogStatus(_T("Mbrola translation file: %d phonemes"),count);
+}  // end of CompileMbrola
 
 
 

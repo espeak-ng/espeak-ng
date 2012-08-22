@@ -102,6 +102,12 @@ phoneme a
   formants vowel/a_5
 endphoneme
 
+phoneme a2
+  vowel starttype (a) endtype (a)
+  length 140
+  formants vowel/a#_2
+endphoneme
+
 phoneme &
   vowel starttype (a) endtype (a)
   length 140
@@ -172,17 +178,6 @@ phoneme sx        // Swedish "sj" sound
   vowelout f1=0 f2=2300 300 400  f3=200 100  rms=20
   length 100
   lengthmod 3
-  wave ufric/sx_sv%70
-endphoneme
-
-phoneme s;
-  vls pal frc sibilant palatal
-  vowelin  f1=0  f2=2300 300 500  f3= -200 80
-  vowelout f1=0  f2=2300 300 500  f3= -200 80
-  length 100
-  lengthmod 3
-  wave ufric/s_pzd
-  before _ ufric/s_pzd_
-  switchvoicing z;
+  wave ufric/sx_sv%60
 endphoneme
 

@@ -65,7 +65,7 @@ static const char *tone_punct_on = "\001+50R\001+15T";  // add reverberation, re
 static const char *tone_punct_off = "\001R\001T";
 
 // punctuations symbols that can end a clause
-static const short punct_chars[] = {',','.','?','!',':',';',
+static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x2013,  // en-dash
   0x2014,  // em-dash
   0x2026,  // elipsis
@@ -87,7 +87,7 @@ static const short punct_chars[] = {',','.','?','!',':',';',
 
 
 // indexed by (entry num. in punct_chars) + 1
-// bits 0-7 pause x 10mS, bits 8-11 intonation type,
+// bits 0-7 pause x 10mS, bits 8-10 intonation type, bit 11 don't need following space or bracket
 static const unsigned short punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
   CLAUSE_SEMICOLON,  // en-dash
@@ -96,16 +96,16 @@ static const unsigned short punct_attributes [] = { 0,
 
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
-  CLAUSE_PERIOD,     // Devanagari Danda (fullstop)
-  CLAUSE_COMMA,      // ideograph
-  CLAUSE_PERIOD,
+  CLAUSE_PERIOD+0x800,     // Devanagari Danda (fullstop)
+  CLAUSE_COMMA+0x800,      // ideograph comma
+  CLAUSE_PERIOD+0x800,     // ideograph period
 
-  CLAUSE_EXCLAMATION, // fullwidth
-  CLAUSE_COMMA,
-  CLAUSE_PERIOD,
-  CLAUSE_COLON,
-  CLAUSE_SEMICOLON,
-  CLAUSE_QUESTION,
+  CLAUSE_EXCLAMATION+0x800, // fullwidth
+  CLAUSE_COMMA+0x800,
+  CLAUSE_PERIOD+0x800,
+  CLAUSE_COLON+0x800,
+  CLAUSE_SEMICOLON+0x800,
+  CLAUSE_QUESTION+0x800,
 
   CLAUSE_SEMICOLON,  // spare
   0 };
@@ -146,6 +146,8 @@ const int param_defaults[N_SPEECH_PARAM] = {
    0,     // punctuation
    0,     // capital letters
    0,     // emphasis
+   0,     // line length
+   0,     // voice type
 };
 
 
@@ -203,7 +205,7 @@ static int GetC_get(void)
 		return(c & 0xff);
 	}
 
-	if(option_multibyte == 3)
+	if(option_multibyte == espeakCHARS_WCHAR)
 	{
 		if(*p_wchar_input == 0)
 		{
@@ -249,7 +251,7 @@ static int GetC(void)
 	}
 
 	c1 = GetC_get();
-	if(option_multibyte == 3)
+	if(option_multibyte == espeakCHARS_WCHAR)
 	{
 		count_characters++;
 		return(c1);   // wchar_t  text
@@ -278,8 +280,8 @@ static int GetC(void)
 				c2 = GetC_get();
 				if(c2 == 0)
 				{
-					if(option_multibyte==0)
-						option_multibyte=2;   // change "auto" option to "no"
+					if(option_multibyte==espeakCHARS_AUTO)
+						option_multibyte=espeakCHARS_8BIT;   // change "auto" option to "no"
 					GetC_unget(' ');
 					break;
 				}
@@ -300,8 +302,8 @@ static int GetC(void)
 			}
 		}
 		// top-bit-set character is not utf8, drop through to 8bit charset case
-		if((option_multibyte==0) && !Eof())
-			option_multibyte=2;   // change "auto" option to "no"
+		if((option_multibyte==espeakCHARS_AUTO) && !Eof())
+			option_multibyte=espeakCHARS_8BIT;   // change "auto" option to "no"
 	}
 
 	// 8 bit character set, convert to unicode if
@@ -404,6 +406,7 @@ static int LoadSoundFile(const char *fname, int index)
 	p = Alloc(length);
 	fread(p,length,1,f);
 	fclose(f);
+	remove(fname_temp);
 
 	ip = (int *)(&p[40]);
 	soundicon_tab[index].length = (*ip) / 2;  // length in samples
@@ -1711,51 +1714,53 @@ if(option_ssml) parag=1;
 			}
 		}
 
-		if((phoneme_mode==0) && (sayas_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0) &&
-			(iswspace(c2) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
+		if((phoneme_mode==0) && (sayas_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0))
 		{
-			// note: (c2='?') is for when a smart-quote has been replaced by '?'
-			buf[ix] = ' ';
-			buf[ix+1] = 0;
-
-			if((c1 == '.') && (cprev == '.'))
+			if((iswspace(c2) || (punct_attributes[punct] & 0x800) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 			{
-				c1 = 0x2026;
-				punct = 9;   // elipsis
-			}
-
-			nl_count = 0;
-			while(!Eof() && iswspace(c2))
-			{
-				if(c2 == '\n')
-					nl_count++;
-				c2 = GetC();   // skip past space(s)
-			}
-			UngetC(c2);
-
-			if((nl_count==0) && (c1 == '.'))
-			{
-				if(iswdigit(cprev) && (langopts.numbers & 0x10000))
+				// note: (c2='?') is for when a smart-quote has been replaced by '?'
+				buf[ix] = ' ';
+				buf[ix+1] = 0;
+	
+				if((c1 == '.') && (cprev == '.'))
 				{
-					// dot after a number indicates an ordinal number
-					c2 = ' ';
-					continue;
+					c1 = 0x2026;
+					punct = 9;   // elipsis
 				}
-				if(iswlower(c2))
+	
+				nl_count = 0;
+				while(!Eof() && iswspace(c2))
 				{
-					c2 = ' ';
-					continue;  // next word has no capital letter, this dot is probably from an abbreviation
+					if(c2 == '\n')
+						nl_count++;
+					c2 = GetC();   // skip past space(s)
 				}
-				if(any_alnum==0)
+				UngetC(c2);
+	
+				if((nl_count==0) && (c1 == '.'))
 				{
-					c2 = ' ';   // no letters or digits yet, so probably not a sentence terminator
-					continue;
+					if(iswdigit(cprev) && (langopts.numbers & 0x10000))
+					{
+						// dot after a number indicates an ordinal number
+						c2 = ' ';
+						continue;
+					}
+					if(iswlower(c2))
+					{
+						c2 = ' ';
+						continue;  // next word has no capital letter, this dot is probably from an abbreviation
+					}
+					if(any_alnum==0)
+					{
+						c2 = ' ';   // no letters or digits yet, so probably not a sentence terminator
+						continue;
+					}
 				}
+	
+				if(nl_count > 1)
+					return(CLAUSE_PARAGRAPH);
+				return(punct_attributes[punct]);   // only recognise punctuation if followed by a blank or bracket/quote
 			}
-
-			if(nl_count > 1)
-				return(CLAUSE_PARAGRAPH);
-			return(punct_attributes[punct]);   // only recognise punctuation if followed by a blank or bracket/quote
 		}
 
 		if(speech_parameters[espeakSILENCE]==1)

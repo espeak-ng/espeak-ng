@@ -279,10 +279,10 @@ vos	$u+
 leurs	$u+
 
 // prepositions
-de	$u $brk $nounf
-du	$u+ $brk $nounf
-des	dEz2 $u $brk $nounf
-?2 des  dez2 $u+ $brk $nounf
+de	$u $nounf
+du	$u+ $nounf
+des	dEz2 $u $nounf
+?2 des  dez2 $u+ $nounf
 
 
 à	$u $brk

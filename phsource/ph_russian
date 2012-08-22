@@ -134,7 +134,7 @@ endphoneme
 
 phoneme ii
   vowel starttype (i) endtype (i)
-  length 100
+  length 80
   formants vwl_ru/ii
 endphoneme
 
@@ -147,8 +147,20 @@ endphoneme
 
 phoneme i&
   vowel starttype (i) endtype (i)
-  length 100
+  length 80
   formants vwl_ru/i&
+endphoneme
+
+phoneme i&%
+  vowel starttype (i) endtype (i)
+  length 80
+  formants vwl_ru/i&%
+endphoneme
+
+phoneme i&#
+  vowel starttype (i) endtype (i)
+  length 80
+  formants vwl_ru/i&#
 endphoneme
 
 phoneme y      // close central unrounded (i-bar)
@@ -174,8 +186,15 @@ endphoneme
 
 phoneme E@
   vowel  starttype (e)  endtype (e)
-  length 100
+  length 80
   formants vwl_ru/E@
+//  reduceto I  4
+endphoneme
+
+phoneme E%
+  vowel  starttype (e)  endtype (e)
+  length 80
+  formants vwl_ru/E%
 //  reduceto I  4
 endphoneme
 
@@ -186,13 +205,6 @@ phoneme E:
   formants vowel/ee_1
   reduceto I  4
 endphoneme
-
-phoneme e@
-  vowel  starttype (i)  endtype (e)
-  length 200
-  formants vwl_ru/e@
-endphoneme
-
 
 
 phoneme A
@@ -228,7 +240,7 @@ endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 100
+  length 80
   formants vwl_ru/o
 //  reduceto V  4
 endphoneme
@@ -265,7 +277,7 @@ endphoneme
 phoneme e
   vowel starttype (e) endtype (e)
   length 190
-  formants vowel/e
+  formants vwl_ru/e
 //  reduceto I  4
 endphoneme
 
@@ -307,13 +319,22 @@ phoneme I
   length 200
   formants vwl_ru/I
  // linkout ;
+ // unstressed
 endphoneme
 
 
 phoneme V
   vowel  starttype (a)  endtype (@)
-  length 100
+  length 40
   formants vowel/V_2
+  unstressed
+endphoneme
+
+phoneme V#
+  vowel  starttype (a)  endtype (@)
+  length 40
+  formants vwl_ru/V#
+  unstressed
 endphoneme
 
 
@@ -321,6 +342,7 @@ phoneme U
   vowel  starttype (u)  endtype (u)
   length 140
   formants vowel/uu
+  unstressed
 endphoneme
 
 
@@ -328,12 +350,14 @@ phoneme Y
   vowel  starttype (u)  endtype (u)
   length 140
   formants vowel/ii#
+  unstressed
 endphoneme
 
 
-phoneme a
+phoneme a    
   vowel   starttype (a)  endtype (a)
   formants vwl_ru/a
+ // unstressed
   length 100
 endphoneme
 

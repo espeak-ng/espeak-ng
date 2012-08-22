@@ -64,10 +64,11 @@ static char myBuffer[BUFFER_LENGTH];
 static char* myRead=NULL; 
 static char* myWrite=NULL; 
 static int out_channels=1;
+static int my_stream_could_start=0;
 
+static int mInCallbackFinishedState = false;
 #if (USE_PORTAUDIO == 18)
 static PortAudioStream *pa_stream=NULL;
-static int mInCallbackFinishedState = false;
 #endif
 #if (USE_PORTAUDIO == 19)
 static struct PaStreamParameters myOutputParameters;
@@ -124,6 +125,33 @@ static int get_used_mem()
 }
 
 //>
+//<start stream
+
+static void start_stream()
+{
+  SHOW_TIME("start_stream");
+
+  my_stream_could_start=0;  
+  mInCallbackFinishedState = false;
+
+  PaError err = Pa_StartStream(pa_stream);
+  SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
+  
+#if USE_PORTAUDIO == 19
+  if(err == paStreamIsNotStopped)
+    {
+      SHOW_TIME("start_stream > restart stream (begin)");
+      // not sure why we need this, but PA v19 seems to need it
+      err = Pa_StopStream(pa_stream);
+      SHOW("start_stream > Pa_StopStream=%d (%s)\n", err, Pa_GetErrorText(err));
+      err = Pa_StartStream(pa_stream);
+      SHOW("start_stream > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
+      SHOW_TIME("start_stream > restart stream (end)");
+    }
+#endif
+}
+
+//>
 //<pa_callback
 
 /* This routine will be called by the PortAudio engine when audio is needed.
@@ -157,9 +185,7 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 	{
 	  SHOW_TIME("pa_callback > underflow");
 	  aResult=1; // paComplete;
-#if (USE_PORTAUDIO == 18)
 	  mInCallbackFinishedState = true;
-#endif
 	  size_t aUsedMem=0;
 	  aUsedMem = (size_t)(aWrite - myRead);
 	  if (aUsedMem)
@@ -267,6 +293,22 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
 }  //  end of WaveCallBack
 
 //>
+
+
+void wave_flush(void* theHandler)
+{
+  ENTER("wave_flush");
+
+  if (my_stream_could_start)
+    {
+//       #define buf 1024
+//       static char a_buffer[buf*2];
+//       memset(a_buffer,0,buf*2);
+//       wave_write(theHandler, a_buffer, buf*2);
+      start_stream();
+    }
+}
+
 //<wave_open_sound
 
 static int wave_open_sound()
@@ -393,6 +435,7 @@ static int wave_open_sound()
 
 	  //	  err = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,(double)SAMPLE_RATE,FRAMES_PER_BUFFER,pa_callback,(void *)userdata);
 	}
+      mInCallbackFinishedState = false;
 #endif
     }
 
@@ -575,9 +618,7 @@ void wave_init()
   PaError err;
 
   pa_stream = NULL;
-#if (USE_PORTAUDIO == 18)
   mInCallbackFinishedState = false;
-#endif
   init_buffer();
 
   // PortAudio sound output library
@@ -643,7 +684,7 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
   ENTER("wave_write");
   size_t bytes_written = 0;
   size_t bytes_to_write = (out_channels==1) ? theSize : theSize*2;
-  int aNewStream = 0;
+  my_stream_could_start = 0;
 
   if(pa_stream == NULL)
     {
@@ -653,11 +694,11 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 	  SHOW_TIME("wave_write > wave_open_sound fails!");
 	  return 0;
 	}
-      aNewStream=1;
+      my_stream_could_start=1;
     }
   else if (!wave_is_busy(NULL))
     {
-      aNewStream = 1;
+      my_stream_could_start = 1;
     }
   assert(BUFFER_LENGTH >= bytes_to_write);
 
@@ -733,33 +774,9 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
   bytes_written = theSize;
   myWritePosition += theSize/sizeof(uint16_t); // add number of samples
 
-  if (aNewStream && (get_used_mem() >= out_channels * FRAMES_PER_BUFFER))
+  if (my_stream_could_start && (get_used_mem() >= out_channels * sizeof(uint16_t) * FRAMES_PER_BUFFER))
     {
-      SHOW_TIME("wave_write > start stream");
-      
-#if (USE_PORTAUDIO == 18)
-      mInCallbackFinishedState = false;
-#endif
-
-      PaError err = Pa_StartStream(pa_stream);
-      SHOW("wave_write > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
-      
-#if USE_PORTAUDIO == 19
-      if(err == paStreamIsNotStopped)
-	{
-	  SHOW_TIME("wave_write > restart stream (begin)");
-	  // not sure why we need this, but PA v19 seems to need it
-	  err = Pa_StopStream(pa_stream);
-	  SHOW("wave_write > Pa_StopStream=%d (%s)\n", err, Pa_GetErrorText(err));
-	  err = Pa_StartStream(pa_stream);
-	  SHOW("wave_write > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
-	  SHOW_TIME("wave_write > restart stream (end)");
-	}
-#endif
-//       if(err != paNoError)
-// 	{
-// 	  samples_written = 0;
-// 	}
+      start_stream();
     }
 
   SHOW_TIME("wave_write > LEAVE");
@@ -848,6 +865,7 @@ int wave_close(void* theHandler)
       Pa_CloseStream( pa_stream );
       SHOW_TIME("wave_close > Pa_CloseStream (end)");
       pa_stream = NULL;
+      mInCallbackFinishedState = false;
     }
 #else
   if (pa_stream)
@@ -924,7 +942,8 @@ int wave_is_busy(void* theHandler)
       active = Pa_StreamActive(pa_stream) 
 	&& (mInCallbackFinishedState == false);
 #else
-      active = Pa_IsStreamActive(pa_stream);
+      active = Pa_IsStreamActive(pa_stream)
+	&& (mInCallbackFinishedState == false);
 #endif
     }
   

@@ -3,7 +3,7 @@ INCDIR=/usr/include/espeak
 LIBDIR=/usr/lib
 DATADIR=/usr/share/espeak-data
 
-RELEASE = 1.21
+RELEASE = 1.22
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -15,12 +15,12 @@ LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp \
+	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp
 
 libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp numbers.cpp \
+	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp \
 	espeak_command.cpp event.cpp fifo.cpp wave.cpp debug.cpp
@@ -75,6 +75,7 @@ distclean: clean
 
 install: all
 	# Create directories
+	rm -r $(DESTDIR)$(DATADIR)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)

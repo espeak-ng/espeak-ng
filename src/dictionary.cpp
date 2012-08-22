@@ -42,8 +42,8 @@ char dictionary_name[40];
 extern MNEM_TAB mnem_flags[];
 
 // accented characters which indicate (in some languages) the start of a separate syllable
-//static const short diereses_list[7] = {L'ä',L'ë',L'ï',L'ö',L'ü',L'ÿ',0};
-static const short diereses_list[7] = {0xe4,0xeb,0xef,0xf6,0xfc,0xff,0};
+//static const unsigned short diereses_list[7] = {L'ä',L'ë',L'ï',L'ö',L'ü',L'ÿ',0};
+static const unsigned short diereses_list[7] = {0xe4,0xeb,0xef,0xf6,0xfc,0xff,0};
 
 // convert characters to an approximate 7 bit ascii equivalent
 // used for checking for vowels
@@ -626,7 +626,7 @@ int Translator::IsVowel(int letter)
 
 void SetLetterVowel(Translator *tr, int c)
 {//=======================================
-	tr->letter_bits[c] = 0x01;   // group 0 only
+	tr->letter_bits[c] = 0x81;   // group 0 only
 }
 
 void SetLetterBits(Translator *tr, int group, const char *string)
@@ -1352,7 +1352,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K','V','L'};
+			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K','V','L','T'};
 
 
 	match_type = 0;
@@ -1512,8 +1512,8 @@ void Translator::AppendPhonemes(char *string, int size, const char *ph)
 
 
 
-void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int word_flags)
-{//==========================================================================================================
+void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int word_flags, int dict_flags)
+{//============================================================================================================================
 /* Checks a specified word against dictionary rules.
 	Returns with phoneme code string, or NULL if no match found.
 
@@ -1723,10 +1723,17 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						failed = 1;
 					break;
 
+				case RULE_ALT1:
+					if(dict_flags & FLAG_ALT_TRANS)
+						match.points++;
+					else
+						failed = 1;
+					break;
+
 				case '-':
 					if((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER))
 					{
-						match.points += (21-distance_right);
+						match.points += (22-distance_right);    // one point more than match against space
 					}
 					else
 						failed = 1;
@@ -1909,7 +1916,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				case '-':
 					if((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN)))
 					{
-						match.points += (21-distance_right);
+						match.points += (22-distance_right);       // one point more than match against space
 					}
 					else
 						failed = 1;
@@ -1919,7 +1926,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					if(letter == rb)
 					{
 						if(letter == RULE_SPACE)
-							match.points += 2;
+							match.points += 3;
 						else
 							match.points += (21-distance_left);
 					}
@@ -2085,13 +2092,13 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 						group_name[1] = c2;
 						group_name[2] = 0;
 						p2 = p;
-						MatchRule(&p2, group_name, groups2[g], &match2, word_flags);
+						MatchRule(&p2, group_name, groups2[g], &match2, word_flags, dict_flags);
 						if(match2.points > 0)
 							match2.points += 35;   /* to acount for 2 letters matching */
 
 						/* now see whether single letter chain gives a better match ? */
 						group_name[1] = 0;
-						MatchRule(&p, group_name, groups1[c], &match1, word_flags);
+						MatchRule(&p, group_name, groups1[c], &match1, word_flags, dict_flags);
 
 						if(match2.points >= match1.points)
 						{
@@ -2110,11 +2117,11 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 				group_name[1] = 0;
 	
 				if(groups1[c] != NULL)
-					MatchRule(&p, group_name, groups1[c], &match1, word_flags);
+					MatchRule(&p, group_name, groups1[c], &match1, word_flags, dict_flags);
 				else
 				{
 					// no group for this letter, use default group
-					MatchRule(&p, "", groups1[0],&match1,word_flags);
+					MatchRule(&p, "", groups1[0], &match1, word_flags, dict_flags);
 
 					if(match1.points == 0)
 					{

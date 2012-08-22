@@ -79,6 +79,8 @@ void event_init(t_espeak_callback* SynthCallback)
   ENTER("event_init");
 
   my_callback = SynthCallback;
+  SHOW("event_init > my_callback=0x%x\n", my_callback);
+
   my_event_is_running=0;
 
   // security
@@ -174,6 +176,60 @@ static espeak_EVENT* event_copy (espeak_EVENT* event)
 }
 
 //>
+//<event_notify
+
+// Call the user supplied callback
+//
+// Note: the current sequence is:
+//
+// * First call with: event->type = espeakEVENT_SENTENCE
+// * 0, 1 or several calls: event->type = espeakEVENT_WORD
+// * Last call: event->type = espeakEVENT_MSG_TERMINATED
+//
+
+static void event_notify(espeak_EVENT* event)
+{
+  ENTER("event_notify");
+
+  static unsigned int a_old_uid = 0;
+
+  if (event && my_callback)
+    {      
+      event_display(event);
+
+      switch(event->type)
+	{
+	case espeakEVENT_SENTENCE:
+	  my_callback(NULL, 0, event);
+	  a_old_uid = event->unique_identifier;
+	  break;
+
+	case espeakEVENT_WORD:
+	case espeakEVENT_MSG_TERMINATED:	  
+	  {
+	    if (a_old_uid != event->unique_identifier)
+	      {
+		espeak_EVENT_TYPE a_new_type = event->type;
+		event->type = espeakEVENT_SENTENCE;
+		my_callback(NULL, 0, event);
+		event->type = a_new_type;
+		usleep(50000);
+	      }
+	    my_callback(NULL, 0, event);
+	    a_old_uid = event->unique_identifier;
+	  }
+	  break;
+	  
+	default:
+	case espeakEVENT_LIST_TERMINATED:
+	case espeakEVENT_MARK:
+	case espeakEVENT_PLAY:
+	case espeakEVENT_END:
+	  break;
+	}
+    }
+}
+//>
 //<event_delete
 
 static int event_delete(espeak_EVENT* event)
@@ -190,10 +246,7 @@ static int event_delete(espeak_EVENT* event)
   switch(event->type)
     {
     case espeakEVENT_MSG_TERMINATED:
-      if (my_callback)
-	{
-	  my_callback(NULL, 0, event);
-	}
+      event_notify(event);
       break;
 
     case espeakEVENT_MARK:
@@ -482,8 +535,7 @@ static void* polling_thread(void*)
 	    { // the event is already reached.
 	      if (my_callback)
 		{
-		  SHOW_TIME("polling_thread > callback\n");
-		  my_callback(NULL, 0, event);
+		  event_notify(event);
 		  // the user_data (and the type) are cleaned to be sure 
 		  // that MSG_TERMINATED is called twice (at delete time too).
 		  event->type=espeakEVENT_LIST_TERMINATED;

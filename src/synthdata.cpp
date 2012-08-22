@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.21  01.Mar.07";
-const int version_phdata  = 0x012001;
+const char *version_string = "1.22  03.Apr.07";
+const int version_phdata  = 0x012201;
 
 int option_device_number = -1;
 
@@ -113,7 +113,7 @@ int LoadPhData()
 {//=============
 	int ix;
 	int n_phonemes;
-	unsigned int version;
+	int version;
 	int result = 1;
 	unsigned char *p;
 

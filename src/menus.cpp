@@ -35,6 +35,7 @@ wxMenuBar *MakeMenu(int type)
 	wxMenu *paths_menu;
 	wxMenu *data_menu = NULL;
 	wxMenu *tools_menu;
+	wxMenu *voice_menu;
 	wxMenu *vowelchart_menu;
 	wxMenu *lexicon_menu;
 
@@ -69,16 +70,23 @@ wxMenuBar *MakeMenu(int type)
 
 	// SPEAK_MENU
 	speak_menu = new wxMenu;
+	speak_menu->Append(MENU_SPEAK_TRANSLATE, _T("&Translate"));
+	speak_menu->Append(MENU_SPEAK_RULES, _T("Show &Rules"));
+	speak_menu->Append(MENU_SPEAK_TEXT, _T("&Speak"));
+	speak_menu->AppendSeparator();
 	speak_menu->Append(MENU_SPEAK_FILE, _T("Speak &file"));
 	speak_menu->Append(MENU_SPEAK_PAUSE, _T("&Pause"));
-	speak_menu->Append(MENU_SPEAK_STOP, _T("&Stop"));
-	speak_menu->AppendSeparator();
-	speak_menu->Append(MENU_SPEAK_VOICE, _T("&Voice"));
+	speak_menu->Append(MENU_SPEAK_STOP, _T("St&op"));
+
+	// VOICE MENU
+	voice_menu = new wxMenu;
+	voice_menu->Append(MENU_SPEAK_VOICE, _T("Select &Voice"));
 
 	// DATA MENU
 	data_menu = new wxMenu;
 	data_menu->Append(MENU_COMPILE_PH, _T("Compile &phoneme data"));
 	data_menu->Append(MENU_COMPILE_DICT, _T("Compile &dictionary"));
+	data_menu->Append(MENU_COMPILE_MBROLA, _T("Compile &mbrola phonemes list"));
 	
 	// OPTIONS MENU
 	paths_menu = new wxMenu;
@@ -106,7 +114,7 @@ wxMenuBar *MakeMenu(int type)
 	tools_menu->Append(MENU_TO_UTF8, _T("Convert file to &UTF8"));
 	tools_menu->Append(MENU_COUNT_WORDS, _T("Count word &frequencies"));
 	tools_menu->Append(MENU_TEST    ,   _T("Test (temporary)"));
-	tools_menu->Append(MENU_TEST2    ,   _T("Test2"));
+//	tools_menu->Append(MENU_TEST2    ,   _T("Test2"));
 
 	// HELP MENU
 	help_menu = new wxMenu;
@@ -117,6 +125,7 @@ wxMenuBar *MakeMenu(int type)
 
 	menu_bar->Append(file_menu, _T("&File"));
 	menu_bar->Append(speak_menu, _T("&Speak"));
+	menu_bar->Append(voice_menu, _T("&Voice"));
 	menu_bar->Append(option_menu, _T("&Options"));
 	menu_bar->Append(tools_menu, _T("&Tools"));
 	menu_bar->Append(data_menu, _T("&Data"));

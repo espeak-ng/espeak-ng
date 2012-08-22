@@ -126,7 +126,8 @@ typedef enum {
 typedef enum {
 	EE_OK=0,
 	EE_INTERNAL_ERROR=-1,
-	EE_BUFFER_FULL=1
+	EE_BUFFER_FULL=1,
+	EE_NOT_FOUND=2
 } espeak_ERROR;
 
 
@@ -336,6 +337,7 @@ typedef enum {
   espeakCAPITALS,
   espeakEMPHASIS,   /* internal use */
   espeakLINELENGTH, /* internal use */
+  espeakVOICETYPE,  // internal, 1=mbrola
   N_SPEECH_PARAM    /* last enum */
 } espeak_PARAMETER;
 

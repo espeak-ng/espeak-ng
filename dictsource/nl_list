@@ -98,20 +98,20 @@ er		$u
 waar		$pause
 
 // prepositions
-in		$u+		// in
-op		$u+		// in
-aan		$u+		// at, on
-bij		$u+		// at, near
+in		$u+ $brk	// in
+op		$u+ $brk	// in
+aan		$u+ $pause	// at, on
+bij		$u+ $pause	// at, near
 om		$u+ $brk	// at
-met		$u+ $brk	// with, by
-over		$u+ $brk	// about
-na		$u+		// after
-door		$u+		// through, by
-tot		$u+ $brk	// until
-uit		$u+		// from, out of
-voor		$u+ $brk	// for, in front of
-van		$u+		// from, of
-zonder		$u+ $brk	// without
+met		$u+ $pause	// with, by
+over		$u+ $pause	// about
+na		$u+ $pause	// after
+door		$u+ $pause	// through, by
+tot		$u+ $pause	// until
+uit		$u+ $pause	// from, out of
+voor		$u+ $pause	// for, in front of
+van		$u+ $brk	// from, of
+zonder		$u+ $pause	// without
 
 
 // conjunctions
@@ -199,6 +199,11 @@ werd	$u
 
 // some common adjectives and adverbs
 
+
+// Pronounce as English
+game        _^_EN
+player      _^_EN
+the         _^_EN
 
 // pronunciation exceptions
 

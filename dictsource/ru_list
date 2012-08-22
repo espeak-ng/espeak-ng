@@ -95,6 +95,12 @@ _dpt2	_d;Is;'atYx   // end of decimal fraction
 // misc.
 не	$u           // negative
 
+// Letters (which are also words)
+_в      vE
+в       vE   $atend
+_с      Es
+с       Es   $atend
+
 
 // auxillary verbs
 быть	$u1       // to be

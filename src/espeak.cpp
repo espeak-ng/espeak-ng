@@ -46,11 +46,12 @@ static const char *help_text =
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
-"\t   Speed in words per minute, default is 170\n"
+"\t   Speed in words per minute, 80 to 370, default is 170\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
+"-b\t   Input text is 8-bit encoding\n"
 "-m\t   Interpret SSML markup, and ignore other < > tags\n"
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
@@ -97,8 +98,11 @@ int GetFileLength(const char *filename)
 
 void strncpy0(char *dest, const char *source, int size)
 {//====================================================
-	strncpy(dest,source,size);
-	dest[size-1] = 0;
+	if(source!=NULL)
+	{
+		strncpy(dest,source,size);
+		dest[size-1] = 0;
+	}
 }
 
 
@@ -132,7 +136,7 @@ void DisplayVoices(FILE *f_out, char *language)
 		voices = espeak_ListVoices(NULL);
 	}
 
-	fprintf(f_out,"Pty Language Age/Gender VoiceName     File       Other Langs\n");
+	fprintf(f_out,"Pty Language Age/Gender VoiceName       File        Other Langs\n");
 
 	for(ix=0; (v = voices[ix]) != NULL; ix++)
 	{
@@ -150,7 +154,7 @@ void DisplayVoices(FILE *f_out, char *language)
 
 			if(count==0)
 			{
-				fprintf(f_out,"%2d  %-12s%s%c  %-15s %-10s ",
+				fprintf(f_out,"%2d  %-12s%s%c  %-17s %-11s ",
                p[0],lang_name,age_buf,genders[v->gender],v->name,v->identifier);
 			}
 			else
@@ -190,7 +194,6 @@ int OpenWavFile(const char *path, int rate)
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
 		0x10,0,0,0,1,0,1,0,  0,0,0,0, 0,0,0,0,
 		2,0,0x10,0,'d','a','t','a',  0,0,0,0 };
-
 
 	if(path == NULL)
 		return(2);
@@ -280,6 +283,9 @@ int main (int argc, char **argv)
 		{0, 0, 0, 0}
 		};
 
+	static const char* err_load = "Failed to read ";
+
+
 	FILE *f_text=NULL;
 	char *p_text=NULL;
 
@@ -303,11 +309,13 @@ int main (int argc, char **argv)
 
 	char filename[120];
 	char voicename[40];
+	char voice_mbrola[20];
 	char dictname[40];
 #define N_PUNCTLIST  100
 	wchar_t option_punctlist[N_PUNCTLIST];
 
 	voicename[0] = 0;
+	voice_mbrola[0] = 0;
 	dictname[0] = 0;
 	wavefile[0] = 0;
 	filename[0] = 0;
@@ -315,7 +323,7 @@ int main (int argc, char **argv)
 
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:f:hk:l:mp:qs:v:w:xXz",
+		c = getopt_long (argc, argv, "a:bf:hk:l:mp:qs:v:w:xXz",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -324,6 +332,10 @@ int main (int argc, char **argv)
 
 		switch (c)
 		{
+		case 'b':
+			synth_flags |= espeakCHARS_8BIT;
+			break;
+
 		case 'h':
 			printf("\n");
 			printf("eSpeak text-to-speech: %s\n%s",espeak_Info(NULL),help_text);
@@ -393,8 +405,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x102:		// --compile
-			if(optarg != NULL)
-				strncpy0(voicename,optarg,sizeof(voicename));
+			strncpy0(voicename,optarg,sizeof(voicename));
 			flag_compile = 1;
 			quiet = 1;
 			break;
@@ -425,6 +436,7 @@ int main (int argc, char **argv)
 	{
 		// writing to a file (or no output), we can use synchronous mode
 		samplerate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,0,NULL);
+
 		espeak_SetSynthCallback(SynthCallback);
 		if(option_waveout)
 		{
@@ -443,7 +455,7 @@ int main (int argc, char **argv)
 	{
 		if(espeak_SetVoiceByName(voicename) != EE_OK)
 		{
-			fprintf(stderr,"Failed to load voice '%s'\n",voicename);
+			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
 			exit(2);
 		}
 	}
@@ -498,7 +510,7 @@ int main (int argc, char **argv)
 
 	if((f_text == NULL) && (p_text == NULL))
 	{
-		fprintf(stderr,"Failed to read file '%s'\n",filename);
+		fprintf(stderr,"%sfile '%s'\n",err_load,filename);
 		exit(1);
 	}
 
@@ -561,5 +573,5 @@ int main (int argc, char **argv)
 	}
 
 	espeak_Synchronize();
-	exit(0);
+	return(0);
 }

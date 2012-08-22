@@ -414,6 +414,21 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 
 
 
+static char *M_Variant(int value)
+{//==============================
+	// returns M, or perhaps MA for some cases
+	
+	// for Polish language - two forms of plural!
+	if ((translator->langopts.numbers & 0x80000) &&
+		((value % 10)>=2) &&
+		((value % 10)<=4) &&
+		((value % 100)>20 || (value % 100)<10))
+	{
+		return("MA");
+	}
+	return("M");
+}
+
 
 int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 {//=======================================================================
@@ -423,6 +438,8 @@ int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 	char ph_thousands[40];
 
 	ph_of[0] = 0;
+
+	// first look fora match with the exact value of thousands
 	sprintf(string,"_%dM%d",value,thousandplex);
 
 	if((found = Lookup(string,ph_thousands)) == 0)
@@ -432,7 +449,7 @@ int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 			Lookup("_0of",ph_of);
 		}
 
-		sprintf(string,"_0M%d",thousandplex);
+		sprintf(string,"_0%s%d",M_Variant(value),thousandplex);
 
 		if(Lookup(string,ph_thousands) == 0)
 		{
@@ -495,7 +512,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		}
 	}
 
-	if((word[0] == '0') && (prev_thousands == 0) && (n_digits > 2))
+	if((word[0] == '0') && (prev_thousands == 0))
 	{
 		return(0);     // number string with leading zero, speak as individual digits
 	}
@@ -570,10 +587,10 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	else
 	if((thousandplex > 1) && prev_thousands && (prev_value > 0))
 	{
-		// speak this thousandplex if there was no word for the previous thousandplex
-		sprintf(string,"_0M%d",thousandplex+1);
+		sprintf(string,"_0%s%d",M_Variant(value),thousandplex+1);
 		if(Lookup(string,buf1)==0)
 		{
+			// speak this thousandplex if there was no word for the previous thousandplex
 			sprintf(string,"_0M%d",thousandplex);
 			Lookup(string,ph_append);
 		}
@@ -596,21 +613,58 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		while(isdigit(word[n_digits+decimal_count]))
 			decimal_count++;
 
-		if((langopts.numbers & 0x2000) && (decimal_count > 1))
+		if(decimal_count > 1)
 		{
-			// Italian decimal fractions
-			if((decimal_count < 4) || ((decimal_count==4) && (word[n_digits] != '0')))
+			switch(langopts.numbers & 0x60000)
 			{
-				LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
-				strcat(ph_out,buf1);
-				if(word[n_digits]=='0')
+			case 0x40000:
+				if(decimal_count < 4)
 				{
-					// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
-					sprintf(string,"_0Z%d",decimal_count);
-					Lookup(string,buf1);
-					strcat(ph_out,buf1);
+					// Polish decimal fraction
+					if ((word[n_digits] != '0'))
+					{
+						LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+						strcat(ph_out,buf1);
+						n_digits += decimal_count;
+					}
+					else
+					if ((word[n_digits+1] != '0'))
+					{
+						Lookup("_0",buf1);
+						strcat(ph_out,buf1);
+						LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+						strcat(ph_out,buf1);
+						n_digits += decimal_count;
+					}
 				}
-				n_digits += decimal_count;
+				break;
+
+			case 0x20000:
+				// Italian decimal fractions
+				if((decimal_count < 4) || ((decimal_count==4) && (word[n_digits] != '0')))
+				{
+					LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+					strcat(ph_out,buf1);
+					if(word[n_digits]=='0')
+					{
+						// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
+						sprintf(string,"_0Z%d",decimal_count);
+						Lookup(string,buf1);
+						strcat(ph_out,buf1);
+					}
+					n_digits += decimal_count;
+				}
+				break;
+
+			case 0x60000:
+				// Romanian decimal fractions
+				if((decimal_count <= 4) && (word[n_digits] != '0'))
+				{
+						LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+						strcat(ph_out,buf1);
+						n_digits += decimal_count;
+				}
+				break;
 			}
 		}
 

@@ -45,6 +45,7 @@ FILE *f_trans = NULL;     // phoneme output text
 int option_tone1 = 0;
 int option_tone2 = 0;
 int option_phonemes = 0;
+int option_quiet = 0;
 int option_endpause = 0;  // suppress pause after end of text
 int option_capitals = 0;
 int option_punctuation = 0;
@@ -74,7 +75,7 @@ int max_clause_pause = 0;
 
 wchar_t option_punctlist[N_PUNCTLIST]={0};
 char ctrl_embedded = '\001';    // to allow an alternative CTRL for embedded commands
-int option_multibyte=0;   // 0=auto, 1=utf8, 2=8bit
+int option_multibyte=espeakCHARS_AUTO;   // 0=auto, 1=utf8, 2=8bit, 3=wchar
 
 // these are overridden by defaults set in the "speak" file
 int option_linelength = 0;
@@ -93,14 +94,14 @@ REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
 
 // brackets, also 0x2014 to 0x021f which don't need to be in this list
-static const short brackets[] = {
+static const unsigned short brackets[] = {
 '(',')','[',']','{','}','<','>','"','\'','`',
 0xab,0xbb,  // double angle brackets
 0x300a,0x300b,  // double angle brackets (ideograph)
 0};
 
 // other characters which break a word, but don't produce a pause
-static const short breaks[] = {'_', 0};
+static const unsigned short breaks[] = {'_', 0};
 
 
 
@@ -226,6 +227,21 @@ static const unsigned short KOI8_R[0x60] = {
    0x042c, 0x042b, 0x0417, 0x0428, 0x042d, 0x0429, 0x0427, 0x042a, // f8
 };
 
+static const unsigned short ISCII[0x60] = {
+   0x0020, 0x0901, 0x0902, 0x0903, 0x0905, 0x0906, 0x0907, 0x0908, // a0
+   0x0909, 0x090a, 0x090b, 0x090e, 0x090f, 0x0910, 0x090d, 0x0912, // a8
+   0x0913, 0x0914, 0x0911, 0x0915, 0x0916, 0x0917, 0x0918, 0x0919, // b0
+   0x091a, 0x091b, 0x091c, 0x091d, 0x091e, 0x091f, 0x0920, 0x0921, // b8
+   0x0922, 0x0923, 0x0924, 0x0925, 0x0926, 0x0927, 0x0928, 0x0929, // c0
+   0x092a, 0x092b, 0x092c, 0x092d, 0x092e, 0x092f, 0x095f, 0x0930, // c8
+   0x0931, 0x0932, 0x0933, 0x0934, 0x0935, 0x0936, 0x0937, 0x0938, // d0
+   0x0939, 0x0020, 0x093e, 0x093f, 0x0940, 0x0941, 0x0942, 0x0943, // d8
+   0x0946, 0x0947, 0x0948, 0x0945, 0x094a, 0x094b, 0x094c, 0x0949, // e0
+   0x094d, 0x093c, 0x0964, 0x0020, 0x0020, 0x0020, 0x0020, 0x0020, // e8
+   0x0020, 0x0030, 0x0031, 0x0032, 0x0033, 0x0034, 0x0035, 0x0036, // f0
+   0x0037, 0x0038, 0x0039, 0x20,   0x20,   0x20,   0x20,   0x20,   // f8
+};
+
 const unsigned short *charsets[N_CHARSETS] = {
 	ISO_8859_1,
 	ISO_8859_1,
@@ -245,7 +261,8 @@ const unsigned short *charsets[N_CHARSETS] = {
 	ISO_8859_1,
 	ISO_8859_1,
 	ISO_8859_1,
-	KOI8_R };
+	KOI8_R,          // 18
+	ISCII };
 
 // Tables of the relative lengths of vowels, depending on the
 // type of the two phonemes that follow
@@ -353,7 +370,7 @@ int IsDigit(unsigned int c)
 Translator::Translator()
 {//=====================
 	int ix;
-	static int stress_amps2[] = {16,16, 20,20, 20,24, 24,22 };
+	static int stress_amps2[] = {16,16, 20,20, 20,24, 24,21 };
 	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 260,280};
 	static const wchar_t empty_wstring[1] = {0};
 
@@ -420,8 +437,8 @@ Translator::~Translator(void)
 }
 
 
-int lookupwchar(const short *list,int c)
-{//====================================
+int lookupwchar(const unsigned short *list,int c)
+{//==============================================
 // Is the character c in the list ?
 	int ix;
 
@@ -662,7 +679,7 @@ int Translator::SubstitutePhonemes(PHONEME_LIST2 *plist_out)
 					if((replace_flags & 1) && (word_end == 0))
 						continue;     // this replacement only occurs at the end of a word
 	
-					if((replace_flags & 2) && (plist2->stress > 3))
+					if((replace_flags & 2) && ((plist2->stress & 0x7) > 3))
 						continue;     // this replacement doesn't occur in stressed syllables
 	
 					// substitute the replacement phoneme
@@ -817,6 +834,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 
 	// transfer all the phonemes of the clause into phoneme_list
 	ph = phoneme_tab[phonPAUSE];
+	switched_language = 0;
 
 	for(j=0; insert_ph || ((j<n_ph_list2) && (ix < N_PHONEME_LIST-3)); j++)
 	{
@@ -844,6 +862,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 			{
 				// change phoneme table
 				SelectPhonemeTable(plist2->tone_number);
+				switched_language ^= SFLAG_SWITCHED_LANG;
 			}
 			next = phoneme_tab[(plist2+1)->phcode];      // the phoneme after this one
 		}
@@ -999,6 +1018,7 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 			{
 				// always append the specified phoneme, unless it already is the next phoneme
 				if((ph->link_out != (plist2+1)->phcode) && (next->type == phVOWEL))
+//				if(ph->link_out != (plist2+1)->phcode)
 				{
 					insert_ph = ph->link_out;
 				}
@@ -1030,7 +1050,7 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 		phlist[ix].ph = ph;
 		phlist[ix].type = ph->type;
 		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
-		phlist[ix].synthflags = plist2->synthflags;
+		phlist[ix].synthflags = plist2->synthflags | switched_language;
 		phlist[ix].tone = plist2->stress & 0xf;
 		phlist[ix].tone_ph = plist2->tone_number;
 		phlist[ix].sourceix = 0;
@@ -1354,6 +1374,15 @@ strcpy(phonemes2,phonemes);
 							TranslateRules(word, phonemes, N_WORD_PHONEMES, NULL,wflags | FLAG_SUFFIX_REMOVED, dictionary_flags);
 						else
 							TranslateRules(word, phonemes, N_WORD_PHONEMES, NULL,wflags,dictionary_flags);
+
+						if(phonemes[0] == phonSWITCH)
+						{
+							// change to another language in order to translate this word
+							strcpy(word_phonemes,phonemes);
+							memcpy(word,word_copy,strlen(word_copy));
+							word[-1] = c_temp;
+							return(0);
+						}
 					}
 				}
 
@@ -1513,6 +1542,17 @@ static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
 	p->sourceix = 0;
 }
 
+static int CountSyllables(unsigned char *phonemes)
+{//===============================================
+	int count = 0;
+	int phon;
+	while((phon = *phonemes++) != 0)
+	{
+		if(phoneme_tab[phon]->type == phVOWEL)
+			count++;
+	}
+	return(count);
+}
 
 int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause)
 {//======================================================================================
@@ -1537,6 +1577,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	int first_phoneme = 1;
 	int source_ix;
 	int len;
+	int limit;
 	char *new_language;
 	unsigned char bad_phoneme[4];
 
@@ -1612,6 +1653,47 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	else
 	{
 		flags = translator->TranslateWord(word, next_pause, wtab);
+
+		if((flags & FLAG_ALT2_TRANS) && ((limit = langopts.param[LOPT_COMBINE_WORDS]) > 0))
+		{
+			char *p2;
+			int ok = 1;
+			int flags2;
+			char ph_buf[N_WORD_PHONEMES];
+
+			// LANG=cs,sk
+			// combine a preposition with the following word
+			p2 = word;
+			while(*p2 != ' ') p2++;
+
+			if(limit & 0x100)
+			{
+				// only if the second word has $alt attribute
+				strcpy(ph_buf,word_phonemes);
+				flags2 = translator->TranslateWord(p2+1, 0, wtab+1);
+				if((flags2 & FLAG_ALT_TRANS) == 0)
+				{
+					ok = 0;
+					strcpy(word_phonemes,ph_buf);
+				}
+			}
+
+			if(ok)
+			{
+				*p2 = '-'; // replace next space by hyphen
+				flags = translator->TranslateWord(word, next_pause, wtab);  // translate the combined word
+				if(CountSyllables(p) > (limit & 0xf))
+				{
+					// revert to separate words
+					*p2 = ' ';
+					flags = translator->TranslateWord(word, next_pause, wtab);
+				}
+				else
+				{
+					flags |= FLAG_SKIPWORDS_1;
+				}
+			}
+		}
 
 		if(p[0] == phonSWITCH)
 		{
@@ -2563,7 +2645,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 	if(Eof() || (vp_input==NULL))
 		return(NULL);
 
-	if(option_multibyte == 3)
+	if(option_multibyte == espeakCHARS_WCHAR)
 		return((void *)p_wchar_input);
 	else
 		return((void *)p_textinput);

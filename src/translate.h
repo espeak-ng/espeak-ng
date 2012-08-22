@@ -28,11 +28,12 @@
 #define N_CLAUSE_WORDS   256          // max words in a clause
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
-#define N_CHARSETS        19
+#define N_CHARSETS        20
 
 /* flags from word dictionary */
 // bits 0-3  stressed syllable,  7=unstressed
 #define FLAG_SKIPWORDS        0xe0  /* bits 5,6,7  number of words to skip */
+#define FLAG_SKIPWORDS_1      0x20
 #define FLAG_PREPAUSE        0x100
 #define FLAG_ONLY            0x200
 #define BITNUM_FLAG_ONLY         9  // bit 9 is set
@@ -121,7 +122,8 @@
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
 #define RULE_LETTERGP   27   // L + letter group number
-#define RULE_LAST_RULE   27
+#define RULE_ALT1       28   // word has $alt attribute
+#define RULE_LAST_RULE   28
 
 #define LETTERGP_A	0
 #define LETTERGP_B	1
@@ -134,7 +136,7 @@
 
 
 // Punctuation types  returned by ReadClause()
-// bits 0-7 pause x 10mS, bits 8-11 intonation type,
+// bits 0-7 pause x 10mS, bits 8-10 intonation type,
 // bit 15=sentence, bit 14=clause,  bits 13=voice change
 // bit 12 used to distinguish otherwise identical types
 #define CLAUSE_BIT_SENTENCE  0x8000
@@ -146,6 +148,7 @@
 #define CLAUSE_VOICE        0 + 0x2400
 #define CLAUSE_PERIOD      35 + 0x8000
 #define CLAUSE_COMMA       20 + 0x4100
+#define CLAUSE_SHORTCOMMA  15 + 0x4100
 #define CLAUSE_QUESTION    35 + 0x8200
 #define CLAUSE_EXCLAMATION 40 + 0x8300
 #define CLAUSE_COLON       30 + 0x4000
@@ -229,6 +232,8 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_MAXAMP_EOC      9
  // don't reduce the strongest vowel in a word which is marked 'unstressed'
 #define LOPT_KEEP_UNSTR_VOWEL  10
+ // LANG=cs,sk  combine some prepositions with the following word, if the combination has N or fewer syllables
+#define LOPT_COMBINE_WORDS 11
 
 
 typedef struct {
@@ -269,10 +274,11 @@ typedef struct {
 	// bit10=omit "one" before "hundred"
 	// bit11=don't say 19** as nineteen hundred
 	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
-	// bit13=(LANG=it) speak post-decimal-point digits as a combined number not as single digits
+	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
 	// bit16=dot after number indicates ordinal
 	// bit17=use feminine form of 2 before thousands and millions LANG=ro
 	// bit18=special word for 100,000s LANG=sw
+	// bit19=(LANG=pl)
 	int numbers;
 	int thousands_sep;
 	int decimal_sep;
@@ -369,7 +375,7 @@ private:
 	void InitGroups(void);
 	void AppendPhonemes(char *string, int size, const char *ph);
 	char *DecodeRule(const char *group, char *rule);
-	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags);
+	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags, int dict_flags);
 	int TranslateRules(char *p, char *phonemes, int size, char *end_phonemes, int end_flags, int dict_flags);
 	void ApplySpecialAttribute(char *phonemes, int dict_flags);
 
@@ -428,6 +434,7 @@ protected:
 extern int option_tone1;
 extern int option_tone2;
 extern int option_waveout;
+extern int option_quiet;
 extern int option_phonemes;
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
 extern int option_harmonic1;
@@ -480,7 +487,7 @@ void ChangeWordStress(char *word, int new_stress);
 int TransposeAlphabet(char *text, int offset, int min, int max);
 int utf8_in(int *c, char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
-int lookupwchar(const short *list,int c);
+int lookupwchar(const unsigned short *list,int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);

@@ -219,6 +219,14 @@ phoneme O@
 endphoneme
 
 
+phoneme o@
+  vowel  starttype (o)  endtype (@)
+  length 240
+  formants vowel/oo_en
+  linkout r-
+endphoneme
+
+
 phoneme O
   vowel  starttype (o)  endtype (o)
   length 150
@@ -280,7 +288,7 @@ endphoneme
 
 phoneme i@
   vowel  starttype (i)  endtype (@)
-  length 240
+  length 250
   formants vdiph2/ii@
   linkout r-
 endphoneme
@@ -338,6 +346,22 @@ phoneme uI
   length 240
   formants vdiph/ui
 endphoneme
+
+
+phoneme IR        // used for "ir" when [3:] is split (Scottish)
+  vowel  starttype (@)  endtype (@)
+  length 190
+  formants vowelr/V_r
+  appendph r
+endphoneme
+
+phoneme VR        // used for "or"/"ur" when [3:] is split (Scottish)
+  vowel  starttype (@)  endtype (@)
+  length 210
+  formants vowelr/V3_r
+  appendph r
+endphoneme
+
 
 
 phoneme A~

@@ -232,9 +232,9 @@ endphoneme
 
 phoneme g
   vcd vel stop
-  vowelin  f1=2  f2=2300 200 400  f3=-100 80
+  vowelin  f1=2  f2=2300 200 300  f3=-300 80
   vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
-  formants g/g+x/g
+  formants g/g+x/g2%150
   before _ g/g_+x/g_%140
   after _ NULL
   after @ g/xg

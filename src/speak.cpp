@@ -19,6 +19,8 @@
  ***************************************************************************/
 #include "StdAfx.h"
 
+#include "speech.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -27,14 +29,15 @@
 #else
 #include <unistd.h>
 #endif
+#ifndef NEED_GETOPT
 #include <getopt.h>
+#endif
 #include <time.h>
 #include <signal.h>
 #include <locale.h>
 #include "sys/stat.h"
 
 #include "speak_lib.h"
-#include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -61,11 +64,12 @@ static const char *help_text =
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
-"\t   Speed in words per minute, default is 170\n"
+"\t   Speed in words per minute 80 to 370, default is 170\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
+"-b\t   Input text is 8-bit encoding\n"
 "-m\t   Interpret SSML markup, and ignore other < > tags\n"
 "-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
@@ -157,7 +161,7 @@ void DisplayVoices(FILE *f_out, char *language)
 		voices = espeak_ListVoices(NULL);
 	}
 
-	fprintf(f_out,"Pty Language Age/Gender VoiceName     File       Other Langs\n");
+	fprintf(f_out,"Pty Language Age/Gender VoiceName       File        Other Langs\n");
 
 	for(ix=0; (v = voices[ix]) != NULL; ix++)
 	{
@@ -175,7 +179,7 @@ void DisplayVoices(FILE *f_out, char *language)
 
 			if(count==0)
 			{
-				fprintf(f_out,"%2d  %-12s%s%c  %-15s %-10s ",
+				fprintf(f_out,"%2d  %-12s%s%c  %-17s %-11s ",
                p[0],lang_name,age_buf,genders[v->gender],v->name,v->identifier);
 			}
 			else
@@ -220,7 +224,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 static void init_path(void)
 {//========================
 #ifdef PLATFORM_WINDOWS
-	strcpy(path_home,"espeak-data");
+	strcpy(path_home,"C:\\Program Files\\eSpeak\\espeak-data");
 #else
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
@@ -243,7 +247,7 @@ static int initialise(void)
    setlocale(LC_CTYPE,"ISO8859-1");
 #else
 	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
-		setlocale(LC_CTYPE,"german");
+		setlocale(LC_CTYPE,"");
 #endif
 
 
@@ -253,9 +257,9 @@ static int initialise(void)
 		if(result == -1)
 			fprintf(stderr,"Failed to load espeak-data\n");
 		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,version_phdata);
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x)\n",result,version_phdata);
 	}
-#ifndef __WIN32__
+#ifndef PLATFORM_WINDOWS
 	LoadConfig();  // causes problem on Windows, don't know why
 #endif
 	SynthesizeInit();
@@ -277,7 +281,20 @@ static void StopSpeak(int unused)
 	signal(SIGINT,StopSpeak);
 }  //  end of StopSpeak()
 
-
+#ifdef NEED_GETOPT
+	struct option {
+		char *name;
+		int has_arg;
+		int *flag;
+		int val;
+	};
+	static int optind;
+	static int optional_argument;
+	static const char *arg_opts = "afklpsvw";  // which options have arguments
+	static char *opt_string="";
+#define no_argument 0
+#define optional_argument 2
+#endif
 
 int main (int argc, char **argv)
 //==============================
@@ -299,6 +316,8 @@ int main (int argc, char **argv)
 		{0, 0, 0, 0}
 		};
 
+	static const char *err_load = "Failed to read ";
+
 	FILE *f_text=NULL;
 	const char *p_text=NULL;
 
@@ -307,6 +326,7 @@ int main (int argc, char **argv)
 	int value;
 	int speed=170;
 	int ix;
+	char *optarg2;
 	int amp = 100;     // default
 	int speaking = 0;
 	int quiet = 0;
@@ -318,28 +338,87 @@ int main (int argc, char **argv)
 	char dictname[40];
 
 	voicename[0] = 0;
+	mbrola_name[0] = 0;
 	dictname[0] = 0;
 	wavefile[0] = 0;
 	filename[0] = 0;
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
-	option_multibyte = 0;  // auto
+	option_multibyte = espeakCHARS_AUTO;  // auto
 	f_trans = stdout;
 
 	init_path();
 
+#ifdef NEED_GETOPT
+	optind = 1;
+	while(optind < argc)
+	{
+		int len;
+		char *p;
+
+		if((c = *opt_string) == 0)
+		{
+			opt_string = argv[optind];
+			if(opt_string[0] != '-')
+				break;
+
+			optind++;
+			opt_string++;
+			c = *opt_string;
+		}
+		opt_string++;
+		p = optarg2 = opt_string;
+
+		if(c == '-')
+		{
+			opt_string="";
+			for(ix=0; ;ix++)
+			{
+				if(long_options[ix].name == 0)
+					break;
+				len = strlen(long_options[ix].name);
+				if(memcmp(long_options[ix].name,p,len)==0)
+				{
+					c = long_options[ix].val;
+					optarg2 = NULL;
+
+					if((long_options[ix].has_arg != 0) && (p[len]=='='))
+					{
+						optarg2 = &p[len+1];
+					}
+					break;
+				}
+			}
+		}
+		else
+		if(strchr(arg_opts,c) != NULL)
+		{
+			opt_string="";
+			if(optarg2[0]==0)
+			{
+				// the option's value is in the next argument
+				optarg2 = argv[optind++];
+			}
+		}
+#else
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:f:hk:l:p:qs:v:w:xXm",
+		c = getopt_long (argc, argv, "a:bf:hk:l:p:qs:v:w:xXm",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
 		if (c == -1)
 			break;
+		optarg2 = optarg;
+#endif
 
 		switch (c)
 		{
+		case 'b':
+			option_multibyte = espeakCHARS_8BIT;
+			break;
+
 		case 'h':
 			printf("\n");
 			printf("speak text-to-speech: %s\n%s",version_string,help_text);
@@ -347,7 +426,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 'k':
-			option_capitals = atoi(optarg);
+			option_capitals = atoi(optarg2);
 			break;
 
 		case 'x':
@@ -363,7 +442,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 'p':
-			pitch_adjustment = atoi(optarg);
+			pitch_adjustment = atoi(optarg2);
 			if(pitch_adjustment > 99) pitch_adjustment = 99;
 			break;
 
@@ -372,30 +451,30 @@ int main (int argc, char **argv)
 			break;
 
 		case 'f':
-			strncpy0(filename,optarg,sizeof(filename));
+			strncpy0(filename,optarg2,sizeof(filename));
 			break;
 
 		case 'l':
 			value = 0;
-			value = atoi(optarg);
+			value = atoi(optarg2);
 			option_linelength = value;
 			break;
 
 		case 'a':
-			amp = atoi(optarg);
+			amp = atoi(optarg2);
 			break;
 
 		case 's':
-			speed = atoi(optarg);
+			speed = atoi(optarg2);
 			break;
 
 		case 'v':
-			strncpy0(voicename,optarg,sizeof(voicename));
+			strncpy0(voicename,optarg2,sizeof(voicename));
 			break;
 
 		case 'w':
 			option_waveout = 1;
-			strncpy0(wavefile,optarg,sizeof(filename));
+			strncpy0(wavefile,optarg2,sizeof(filename));
 			break;
 
 		case 0x100:		// --stdin
@@ -408,24 +487,24 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x102:		// --compile
-			if(optarg != NULL)
-				strncpy0(voicename,optarg,sizeof(voicename));
+			if(optarg2 != NULL)
+				strncpy0(voicename,optarg2,sizeof(voicename));
 			flag_compile = 1;
 			break;
 
 		case 0x103:		// --punct
 			option_punctuation = 1;
-			if(optarg != NULL)
+			if(optarg2 != NULL)
 			{
 				ix = 0;
-				while((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg[ix]) != 0)) ix++;
+				while((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg2[ix]) != 0)) ix++;
 				option_punctlist[N_PUNCTLIST-1] = 0;
 				option_punctuation = 2;
 			}
 			break;
 
 		case 0x104:   // --voices
-			DisplayVoices(stdout,optarg);
+			DisplayVoices(stdout,optarg2);
 			exit(0);
 
 		default:
@@ -442,7 +521,7 @@ int main (int argc, char **argv)
 		{
 			if((ix = SetVoiceByName(voicename)) != 0)
 			{
-				fprintf(stderr,"Failed to load voice '%s'\n",voicename);
+				fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
 			}
 		}
 		if(ix != 0)
@@ -460,7 +539,11 @@ int main (int argc, char **argv)
 
 	if(flag_compile)
 	{
+#ifdef PLATFORM_WINDOWS
+		CompileDictionary("C:\\Program Files\\eSpeak\\dictsource\\",dictionary_name,NULL,NULL);
+#else
 		CompileDictionary(NULL,dictionary_name,NULL,NULL);
+#endif
 		exit(0);
 	}
 
@@ -497,7 +580,7 @@ int main (int argc, char **argv)
 
 	if((f_text == NULL) && (p_text == NULL))
 	{
-		fprintf(stderr,"Failed to read file '%s'\n",filename);
+		fprintf(stderr,"%sfile '%s'\n",err_load,filename);
 		exit(1);
 	}
 
@@ -525,7 +608,9 @@ int main (int argc, char **argv)
 		for(;;)
 		{
 			if(WavegenFile() != 0)
+			{
 				break;   // finished, wavegen command queue is empty
+			}
 
 			if(Generate(phoneme_list,&n_phoneme_list,1)==0)
 				SpeakNextClause(NULL,NULL,1);
@@ -543,6 +628,12 @@ int main (int argc, char **argv)
 
 		InitText(0);
 		SpeakNextClause(f_text,p_text,0);
+
+		if(option_quiet)
+		{
+			while(SpeakNextClause(NULL,NULL,1) != 0);
+			return(0);
+		}
 
 #ifdef USE_PORTAUDIO
 		speaking = 1;
@@ -566,7 +657,9 @@ int main (int argc, char **argv)
 			if(SynthOnTimer() != 0)
 				speaking = 0;
 		}
+#else
+		fprintf(stderr,"-w option must be used because the program was built without a sound interface\n");
 #endif  // USE_PORTAUDIO
 	}
-	exit(0);
+	return(0);
 }

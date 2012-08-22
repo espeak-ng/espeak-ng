@@ -68,7 +68,9 @@ int embedded_value[N_EMBEDDED_VALUES];
 
 static int PHASE_INC_FACTOR;
 int samplerate = 0;       // this is set by Wavegeninit()
+int samplerate_native=0;
 extern int option_device_number;
+extern int option_quiet;
 
 static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
@@ -133,8 +135,8 @@ int wcmdq_head=0;
 int wcmdq_tail=0;
 
 // pitch,speed,
-int embedded_default[N_EMBEDDED_VALUES]        = {0,50,165,100,50, 0,50, 0,165,0,0,0,0,0};
-static int embedded_max[N_EMBEDDED_VALUES]     = {0,99,320,300,99,99,99, 0,320,0,0,0,0,4};
+int embedded_default[N_EMBEDDED_VALUES]        = {0,50,170,100,50, 0,50, 0,170,0,0,0,0,0};
+static int embedded_max[N_EMBEDDED_VALUES]     = {0,99,360,300,99,99,99, 0,360,0,0,0,0,4};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;
@@ -183,14 +185,14 @@ unsigned char Pitch_long[ENV_LEN] = {
 // value: bits 0-3  amplitude (16ths), bits 4-7 every n cycles
 #define N_ROUGHNESS 8
 static unsigned char modulation_tab[N_ROUGHNESS][8] = {
-	{0, 0x00, 0x00, 0x00, 0, 0x35, 0xf2, 0x29},
-	{0, 0x2f, 0x00, 0x2f, 0, 0x34, 0xf2, 0x29},
-	{0, 0x2f, 0x00, 0x2e, 0, 0x33, 0xf2, 0x28},
-	{0, 0x2e, 0x00, 0x2d, 0, 0x33, 0xf2, 0x28},
-	{0, 0x2d, 0x2d, 0x2c, 0, 0x33, 0xf2, 0x28},
-	{0, 0x2b, 0x2b, 0x2b, 0, 0x33, 0xf2, 0x28},
-	{0, 0x2a, 0x2a, 0x2a, 0, 0x33, 0xf2, 0x28},
-	{0, 0x29, 0x29, 0x29, 0, 0x33, 0xf2, 0x28},
+	{0, 0x00, 0x00, 0x00, 0, 0x46, 0xf2, 0x29},
+	{0, 0x2f, 0x00, 0x2f, 0, 0x45, 0xf2, 0x29},
+	{0, 0x2f, 0x00, 0x2e, 0, 0x45, 0xf2, 0x28},
+	{0, 0x2e, 0x00, 0x2d, 0, 0x34, 0xf2, 0x28},
+	{0, 0x2d, 0x2d, 0x2c, 0, 0x34, 0xf2, 0x28},
+	{0, 0x2b, 0x2b, 0x2b, 0, 0x34, 0xf2, 0x28},
+	{0, 0x2a, 0x2a, 0x2a, 0, 0x34, 0xf2, 0x28},
+	{0, 0x29, 0x29, 0x29, 0, 0x34, 0xf2, 0x28},
 };
 
 // Flutter table, to add natural variations to the pitch
@@ -557,7 +559,7 @@ int WavegenOpenSound()
 	PaError err, err2;
 	PaError active;
 
-	if(option_waveout)
+	if(option_waveout || option_quiet)
 	{
 		// writing to WAV file, not to portaudio
 		return(0);
@@ -643,6 +645,9 @@ int WavegenInitSound()
 {//===================
 	PaError err;
 
+	if(option_quiet)
+		return(0);
+
 	// PortAudio sound output library
 	err = Pa_Initialize();
 	pa_init_err = err;
@@ -677,7 +682,7 @@ void WavegenInit(int rate, int wavemult_fact)
 	if(wavemult_fact == 0)
 		wavemult_fact=60;  // default
 
-	samplerate = rate;
+	samplerate = samplerate_native = rate;
 	PHASE_INC_FACTOR = 0x8000000 / samplerate;   // assumes pitch is Hz*32
 	Flutter_inc = (64 * samplerate)/rate;
 	samplecount = 0;

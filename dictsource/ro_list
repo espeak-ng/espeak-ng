@@ -57,7 +57,7 @@ _2	d'oI
 _2f	d'ou@
 _3	t@-*'eI
 _4	p'at@-*u
-_5	tS'intSI
+_5	tS'intSI^
 _6	S'ase
 _7	S'apte
 _8	'opt
@@ -68,7 +68,7 @@ _11	'unsp@-*ez,etSe
 _12	d'oIsp@-*ez,etSe
 _13	t@-*'eIsp@-*ez,etSe
 _14	p'aIsp@-*ez,etSe
-_15	tS'intSIsp@-*ez,etSe
+_15	tS'intSI^sp@-*ez,etSe
 _16	S'aIsp@-*ez,etSe
 _17	S'aptesp@-*ez,etSe
 _18	'optsp@-*ez,etSe
@@ -84,23 +84,23 @@ _19	n'oU@sp@-*ez,etSe
 //_18	'optiSpe
 //_19	n'oU@Spe
 
-_20	doU@z'etSI
-_30	t@-*eIz'etSI
-_40	pat@-*uz'etSI
-_50	tSintSIz'etSI
-_60	SaIz'etSI
-_70	Saptez'etSI
-_80	optz'etSI
-_90	noU@z'etSI
+_20	doU@z'etSI^
+_30	t@-*eIz'etSI^
+_40	pat@-*uz'etSI^
+_50	tSintSI^z'etSI^
+_60	SaIz'etSI^
+_70	Saptez'etSI^
+_80	optz'etSI^
+_90	noU@z'etSI^
 
-_2X	d'oU@zetSI
-_3X	t@-*'eIzetSI
-_4X	p'at@-*uzetSI
-_5X	tS'intSIzetSI
-_6X	S'aIzetSI
-_7X	S'aptezetSI
-_8X	'optzetSI
-_9X	n'oU@zetSI
+_2X	d'oU@zetSI^
+_3X	t@-*'eIzetSI^
+_4X	p'at@-*uzetSI^
+_5X	tS'intSI^zetSI^
+_6X	S'aIzetSI^
+_7X	S'aptezetSI^
+_8X	'optzetSI^
+_9X	n'oU@zetSI^
 
 _0C	s'ute
 _1C	,os'ut@
@@ -179,8 +179,9 @@ le	$u
 se	$u
 îmi	$u
 îţi	$u
-
+ţi	$u
 mi	$u
+şi	$u
 
 care	$u $brk   // who that which what
 ceea	$u $brk   // that
@@ -224,11 +225,11 @@ in	$u $brk
 pe	$u $brk
 ce	$u $brk
 la      $u $brk
-de	$u $brk
-(de la)	dela $u $brk
+de	$u
+(de la)	dela $u
 din	$u $brk
 pentru	$u $brk
-cu	$u $pause	// with
+cu	$u		// with
 fără	f,@r@ $pause		// without
 fara	f,@r@ $pause	// (fără)
 lângă	$brk		// beside
@@ -246,7 +247,7 @@ către	k'@t@-*e $brk	// towards
 
 
 // conjunctions
-şi	$u $pause	// and
+// şi	$u $pause	// and
 iar	$pause		// and, again
 sau	$u $pause	// or
 ori	$u $pause	// or
@@ -258,7 +259,7 @@ când	$u $pause	// when
 cum	$pause		// how, as, since
 astfel	$pause		// thus
 deşi	$2 $pause	// although
-fie	$pause		// either
+fie	$u		// either
 însă	$pause		// but, yet, however
 atunci	$pause		// therefore
 (de atunci) d%e||at'untSi $pause   // since then
@@ -287,7 +288,7 @@ să	$u
 
 
 sunt	$u+            // to be
-eştI	jeSti $u+
+eşti	jeStI^ $u+
 este	jeste $u+
 suntem	$u1+
 sunteţi	$u1+
@@ -298,7 +299,7 @@ fost	$u+            // been
 eram	je*am $u2+     // was
 erai	je*aI $u2+
 era	je*a $u2+
-eraţi	je*ats;I $u2+
+eraţi	je*ats;I^ $u2+
 erau	je*aU $u2+
 
 avea	ave|a $u3+    // to have
@@ -355,18 +356,18 @@ teori		$2
 // hyphenated contractions
 (să l)	s@l     $u
 (să i)	s@I     $u
-(să şi)	s@S;I   $u
-(să mi)	s@m;I   $u
+(să şi)	s@S;I^  $u
+(să mi)	s@m;I^  $u
 (te am)	team    $u
 (te ai) teaj    $u
 (ne am) team    $u
 (l a)	la      $u
 (l au)	laU     $u
 (l am)	lam     $u
-(l aţi)	lats;I  $u
-(v aţi)	vats;I  $u
+(l aţi)	lats;I^ $u
+(v aţi)	vats;I^ $u
 (i am)	jam     $u
-(a şi)  aS;I    $u
+(a şi)  aS;I^   $u
 (într o) ynt@-*o
 (dintr o) dint@-ro
 
@@ -380,7 +381,7 @@ abzice		$2
 acelaş		$2
 adventice	$3
 aer		aIer
-aici		a'itSI
+aici		a'itSI^
 apoi		$2
 artefice	$3
 asemenea	$2
@@ -449,6 +450,7 @@ minumum		$1
 murdărie	murd@*'ie
 muzik		$1
 
+nimic		$2
 novice		$2
 numai		$1	// only
 
@@ -471,6 +473,8 @@ privi		$3
 propice		$2
 protocol	$4
 
+regul		$1
+reguli		$1
 repede		$1
 repezi		$1
 români          romyn'i

@@ -16,7 +16,7 @@ endphoneme
 
 phoneme a    // short A
   vowel  starttype (a)  endtype (a)
-  length 150
+  length 140
   formants vowel/V_2
 endphoneme
 
@@ -90,7 +90,7 @@ endphoneme
 
 phoneme i     // long I
   vowel  starttype (i)  endtype (i)
-  length 140
+  length 130
   formants vowel/i_3
   linkout ;
 endphoneme
@@ -221,22 +221,22 @@ endphoneme
 
 phoneme A~
   vowel  starttype (a) endtype (a)
-  length 230
-  formants vnasal/aa_n
+  length 240
+  formants vnasal/aa_n3
 endphoneme
 
 
-phoneme E~ 
+phoneme e~ 
   vowel  starttype (e)  endtype (e)
-  length 190
-  formants vnasal/ee_n2
+  length 240
+  formants vnasal/e_n
 endphoneme
 
 
-phoneme O~
+phoneme o~
   vowel  starttype (o)  endtype (o)
-  length 190
-  formants vnasal/oo_n
+  length 240
+  formants vnasal/o_n2
 endphoneme
 
 

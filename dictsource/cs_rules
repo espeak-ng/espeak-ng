@@ -1,0 +1,229 @@
+// translation rules for Czech
+// This file is UTF-8 encoded
+
+.group a
+        a        a
+        au       aU
+
+.group á
+        á        a:
+
+.group ä
+        ä        e
+
+.group b
+        b        b
+        b (_     p
+        b (_G    b
+        bě       bje
+
+.group c
+        c        ts
+        ch       x
+
+.group č
+        č        tS
+
+.group d
+        d        d
+        d (_     t
+        d (_G    d
+        d (ě     J
+        d (i     J
+        d (í     J
+        d (iT    d     // word has $alt attribute
+        d (íT    d
+        dz       dz
+        dz (_    ts
+        dz (_G   dz
+        dž       dZ
+        dž (_    tS
+        dž (_G   dZ
+
+
+
+.group ď
+        ď        J
+        ď (_     c
+        ď (_G    J
+
+.group e
+        e        e
+        eu       eU
+
+.group é
+        é        e:
+
+.group ě
+        ě        e
+
+.group f
+        f        f
+        fě       fje
+
+.group g
+        g        g
+        g (_     k
+        g (_G    g
+
+.group h
+        h        h
+        h (_     x
+        h (_G    h
+
+.group i
+        i        i
+        ia       %ia
+        ie       %ie
+        iu       %iu
+
+.group í
+        í        i:
+
+.group j
+        j        j
+
+.group k
+        k        k
+        kk (A_   k
+
+.group l
+        l        l
+     K) l (K     l-
+
+.group ĺ
+        ĺ        l:
+
+.group ľ
+        ľ        l^
+
+.group m
+        m        m
+        mě       mn^e
+
+.group n
+        n        n
+        nn (A_   n
+        n (g     N
+        n (k     N
+        n (ě     n^
+        n (i     n^
+        n (í     n^
+        n (iT    n    // word has $alt attribute
+        n (íT    n
+
+
+.group ň
+        ň        n^
+
+.group o
+        o        o
+        ou       oU
+
+.group ó
+        ó        o:
+
+.group ô
+        ô        uo
+
+.group p
+        p        p
+        pp (A_   p
+        pě       pje
+
+.group q
+        q        k
+        qu       kv
+
+.group r
+        r        r
+     A) r (A     *
+     C) r (A     @-*
+        rr       *r
+
+     K) r (K     r-
+
+
+.group ŕ
+        ŕ        r:
+
+.group ř
+        ř        R
+
+.group s
+        s        s
+        ss (_    s
+        ss (A_   s
+
+.group š
+        š        S
+
+.group t
+        t        t
+        tt (_    t
+        tt (A_   t
+        t (ě     c
+        t (i     c
+        t (í     c
+        t (iT    t       // word has $alt attribute
+        t (íT    t
+
+
+
+.group ť
+        ť        c
+
+.group u
+        u        u
+
+.group ú
+        ú        u:
+
+.group ů
+        ů        u:
+
+.group v
+        v        v
+        vě       vje
+
+.group w
+        w        v
+
+.group x
+        x        ks
+
+.group y
+        y        i
+
+.group ý
+        ý        i:
+
+.group z
+        z        z
+        z (_     s
+        z (_G    z
+
+.group ž
+        ž        Z
+        ž (_     S
+        ž (_G    Z
+
+.group
+        $        dola:r
+        %        procento
+        +        plus
+        €        eU*o
+
+        .        tetSka
+        . (.     _:
+   \.)  .
+
+   __)  - (_D    mi:nus
+   A_)  - (_D    _
+   C_)  - (_D    _
+    --) -
+
+        *        hvj'ezJitSka
+    *)  * (*
+        **
+   **)  * (_     _::

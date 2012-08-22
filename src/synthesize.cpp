@@ -45,6 +45,7 @@ static void SmoothSpect(void);
 int n_phoneme_list=0;
 PHONEME_LIST phoneme_list[N_PHONEME_LIST];
 
+char mbrola_name[20];
 
 int speed_factor1;
 int speed_factor2;
@@ -69,7 +70,7 @@ SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 #define RMS1  16      //
 #define RMS2  20      // 16 - 20
 #define RMS_GLOTTAL1 35   // vowel before glottal stop
-#define RMS_START  25  // 14 - 30
+#define RMS_START  28  // 14 - 30
 
 #define VOWEL_FRONT_LENGTH  50
 
@@ -188,13 +189,20 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 
 
 
+int PauseLength(int pause)
+{//=======================
+	int len;
+	len = (pause * speed_factor1)/256;
+	if(len < 5) len = 5;      // mS, limit the amount to which pauses can be shortened
+	return(len);
+}
+
+
 static void DoPause(int length)
 {//============================
 	int len;
 
-	len = length * speed_factor1;
-	if(len < 1000) len = 1000;      // limit the amount to which pauses can be shortened
-	len = len / 256;
+	len = PauseLength(length);
 
 	len = (len * samplerate) / 1000;  // convert from mS to number of samples
 
@@ -209,8 +217,8 @@ static void DoPause(int length)
 extern int seq_len_adjust;   // temporary fix to advance the start point for playing the wav sample
 
 
-static void DoSample2(int index, int which, int length_mod, int amp)
-{//=================================================================
+static int DoSample2(int index, int which, int length_mod, int amp)
+{//================================================================
 	int length;
 	int length1;
 	int format;
@@ -249,37 +257,45 @@ static void DoSample2(int index, int which, int length_mod, int amp)
 
 	index += 4;
 
-	last_wcmdq = wcmdq_tail;
-	q = wcmdq[wcmdq_tail];
-	if(which & 0x100)
-		q[0] = WCMD_WAVE2;    // mix this with synthesised wave
-	else
-		q[0] = WCMD_WAVE;
-	q[1] = length;   // length in samples
-	q[2] = long(&wavefile_data[index]);
-	q[3] = format + (amp << 8);
-	WcmdqInc();
-
+	if(amp >= 0)
+	{
+		last_wcmdq = wcmdq_tail;
+		q = wcmdq[wcmdq_tail];
+		if(which & 0x100)
+			q[0] = WCMD_WAVE2;    // mix this with synthesised wave
+		else
+			q[0] = WCMD_WAVE;
+		q[1] = length;   // length in samples
+		q[2] = long(&wavefile_data[index]);
+		q[3] = format + (amp << 8);
+		WcmdqInc();
+	}
+	return(length);
 }  // end of Synthesize::DoSample2
 
 
-static void DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp)
-{//=========================================================================================
+int DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_mod, int amp)
+{//====================== ==========================================================
 	int index;
 	int match_level;
 	int amp2;
+	int result;
 
 	EndPitch(1);
 	index = LookupSound(ph1,ph2,which & 0xff,&match_level,0);
 	if((index & 0x800000) == 0)
-		return;             // not wavefile data
+		return(0);             // not wavefile data
 
 	amp2 = wavefile_amp;
 	if(amp != 0)
 		amp2 = (amp * wavefile_amp)/20;
 
-	DoSample2(index,which,length_mod,amp2);
+	if(amp == -1)
+		amp2 = amp;
+
+	result = DoSample2(index,which,length_mod,amp2);
 	last_frame = NULL;
+	return(result);
 }  // end of Synthesize::DoSample
 
 
@@ -704,6 +720,9 @@ static void SmoothSpect(void)
 			frame = frame2 = (frame_t *)q[3];
 			modified = 0;
 
+			if(frame->frflags & FRFLAG_BREAK)
+				break;
+
 			if(frame->frflags & FRFLAG_FORMANT_RATE)
 				len = (len *6)/5;      // allow slightly greater rate of change for this frame
 
@@ -754,11 +773,12 @@ static void StartSyllable(void)
 }
 
 
-static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
+int DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
 		int which, PHONEME_LIST *plist, int modulation)
 {//===================================================================================
 	// which  1  start of phoneme,   2 body and end
 	// length_mod: 256 = 100%
+	// modulation: -1 = don't write to wcmdq
 
 	int  n_frames;
 	frameref_t *frames;
@@ -775,6 +795,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *nex
 	int  frame2_length;
 	int  length_factor;
 	int  length_mod;
+	int  total_len = 0;
 	static int wave_flag = 0;
 	int wcmd_spect = WCMD_SPECT;
 
@@ -796,7 +817,7 @@ if(which==1)
 	modn_flags = 0;
 	frames = LookupSpect(this_ph,prev_ph,next_ph,which,&match_level,&n_frames, plist);
 	if(frames == NULL)
-		return;   // not found
+		return(0);   // not found
 
 	if(wavefile_ix == 0)
 	{
@@ -862,17 +883,20 @@ if(which==1)
 		length_factor = length_mod;
 		if(frame1->frflags & FRFLAG_LEN_MOD)     // reduce effect of length mod
 		{
-			length_factor = (length_mod + 256)/2;
-		}
-		if(frame1->frflags & FRFLAG_MODULATE)
-		{
-			modulation = 6;
+			length_factor = (length_mod*4 + 256*3)/7;
 		}
 		len = (frame_length * samplerate)/1000;
 		len = (len * length_factor)/256;
 
-		if((frameix == n_frames-1) && (modn_flags & 0xf00))
-			modulation |= modn_flags;   // before or after a glottal stop
+		if(modulation >= 0)
+		{
+			if(frame1->frflags & FRFLAG_MODULATE)
+			{
+				modulation = 6;
+			}
+			if((frameix == n_frames-1) && (modn_flags & 0xf00))
+				modulation |= modn_flags;   // before or after a glottal stop
+		}
 
 		pitch_length += len;
 		amp_length += len;
@@ -886,17 +910,23 @@ if(which==1)
 		else
 		{
 			last_wcmdq = wcmdq_tail;
-			q = wcmdq[wcmdq_tail];
-			q[0] = wcmd_spect;
-			q[1] = len + (modulation << 16);
-			q[2] = long(frame1);
-			q[3] = long(frame2);
 
-			WcmdqInc();
+			if(modulation >= 0)
+			{
+				q = wcmdq[wcmdq_tail];
+				q[0] = wcmd_spect;
+				q[1] = len + (modulation << 16);
+				q[2] = long(frame1);
+				q[3] = long(frame2);
+	
+				WcmdqInc();
+			}
 			last_frame = frame1 = frame2;
 			frame_length = frame2_length;
+			total_len += len;
 		}
 	}
+	return(total_len);
 }  // end of Synthesize::DoSpect
 
 
@@ -984,6 +1014,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 {//============================================================
 	static int  ix;
 	static int  embedded_ix;
+	static int  word_count;
 	PHONEME_LIST *prev;
 	PHONEME_LIST *next;
 	PHONEME_LIST *next2;
@@ -992,15 +1023,18 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	int  stress;
 	int  modulation;
 	int  pre_voiced;
-	int  word_count = 0;
 	unsigned char *pitch_env=NULL;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
+
+	if(option_quiet)
+		return(0);
 
 	if(resume == 0)
 	{
 		ix = 1;
 		embedded_ix=0;
+		word_count = 0;
 		pitch_length = 0;
 		amp_length = 0;
 		last_frame = NULL;
@@ -1450,6 +1484,15 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	{
 		n_phoneme_list = 0;
 		return(1);
+	}
+
+	if(mbrola_name[0] != 0)
+	{
+#ifdef USE_MBROLA_DLL
+		MbrolaTranslate(phoneme_list,n_phoneme_list,NULL);
+#else
+		MbrolaTranslate(phoneme_list,n_phoneme_list,stdout);
+#endif
 	}
 
 	Generate(phoneme_list,&n_phoneme_list,0);

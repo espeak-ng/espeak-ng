@@ -222,7 +222,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','r'):  // french
 		{
-			static int stress_lengths_fr[8] = {180, 180,  180, 180,  0, 0,  220, 260};
+			static int stress_lengths_fr[8] = {180, 180,  180, 180,  0, 0,  220, 220};
 			static int stress_amps_fr[8] = {16,14, 20,20, 20,24, 24,22 };
 
 			tr = new Translator();
@@ -246,6 +246,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_hi,stress_amps_hi);
+			tr->charset_a0 = charsets[19];   // ISCII
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable
@@ -339,8 +340,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('p','l'):   // Polish
 		{
-			static int stress_lengths_pl[8] = {155, 170,  175, 175,  0, 0,  260, 290};
-			static int stress_amps_pl[8] = {16,14, 20,20, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			static int stress_lengths_pl[8] = {160, 180,  175, 175,  0, 0,  260, 290};
+			static int stress_amps_pl[8] = {17,14, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_pl,stress_amps_pl);
@@ -349,7 +350,9 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x8;
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+ 			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
+ 			tr->langopts.numbers=0x84801;
+			tr->langopts.param[LOPT_COMBINE_WORDS] = 2 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable words (marked with $alt)
 			SetLetterVowel(tr,'y');
 		}
 		break;
@@ -385,7 +388,7 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.replace_chars = replace_chars_ro;
 			tr->langopts.replacement_chars = replacement_chars_ro;
-			tr->langopts.numbers = 0x3829+0x20000;
+			tr->langopts.numbers = 0x3829+0x60000;
 		}
 		break;
 
@@ -394,9 +397,10 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('s','k'):   // Slovak
+	case L('c','s'):   // Czech
 		{
 			static int stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
-			static int stress_lengths_sk[8] = {180,150, 200,180, 0,0, 230,270};
+			static int stress_lengths_sk[8] = {180,180, 200,180, 0,0, 220,230};
          static char *sk_voiced = "bdgjlmnrvwzaeiouy";
 
 			tr = new Translator();
@@ -404,14 +408,13 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.stress_flags = 0x56;  // move secondary stress from light to a following heavy syllable
-			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x1;
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
-
+			tr->langopts.stress_flags = 0x16;  
+			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;        // disable check for unpronouncable words
+			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 			tr->langopts.numbers = 0x1c09;
 			SetLetterVowel(tr,'y');
 			SetLetterBits(tr,5,sk_voiced);
-//			tr->langopts.spelling_stress = 1;
 		}
 		break;
 
@@ -537,7 +540,7 @@ Translator *SelectTranslator(const char *name)
 Translator_Russian::Translator_Russian() : Translator()
 {//===================================
 	static int stress_amps_ru[] = {16,16, 18,18, 20,24, 24,22 };
-	static int stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,280};
+	static int stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,270};
 
 
 	// character codes offset by 0x420
@@ -575,12 +578,12 @@ Translator_Russian::Translator_Russian() : Translator()
 	letter_groups[9] = ru_L09;        // This is  L09  in ru_rules
 
 	langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
-	langopts.param[LOPT_REGRESSIVE_VOICING] = 2;
+	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;    // or  = 2 ??  don't propagate over [v] ?
 	langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
 	langopts.stress_rule = 5;
 	langopts.stress_flags = 0x1020;
 
-	langopts.numbers = 0x409;
+	langopts.numbers = 0xc09;
 	langopts.phoneme_change = 1;
 	langopts.testing = 2;
 

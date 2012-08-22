@@ -1,0 +1,185 @@
+
+//====================================================
+//  Portuguese  - based on Italian
+//====================================================
+
+phoneme e~
+  vowel starttype (e) endtype (e)
+  length 240
+  formants vnasal/e_n
+endphoneme
+
+phoneme i~
+  vowel starttype (i) endtype (i)
+  length 240
+  formants vnasal/i_n
+  linkout ;
+endphoneme
+
+phoneme o~
+  vowel starttype (o) endtype (o)
+  length 240
+  formants vnasal/o_n
+endphoneme
+
+phoneme u~
+  vowel starttype (u) endtype (u)
+  length 180
+  formants vnasal/u_n
+endphoneme
+
+phoneme &~
+  vowel  starttype (@) endtype (@)
+  length 240
+  formants vnasal/&_n
+endphoneme
+
+phoneme &U~
+  vowel  starttype (a) endtype (@)
+  length 240
+  formants vnasal/&u_n
+endphoneme
+
+phoneme oI~
+  vowel starttype (o) endtype (i)
+  length 260
+  formants vnasal/oi_n
+endphoneme
+
+
+
+
+phoneme &
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/a#
+endphoneme
+
+phoneme &/       // Used for final "a" when next word starts with "a"
+  vowel starttype (@) endtype (@)
+  beforevowel NULL
+  length 180
+  formants vowel/a#
+endphoneme
+
+phoneme A            // for "al" in European Portuguese
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vowel/aa_7
+//  reduceto &  4
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/ee_3
+endphoneme
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 160
+  formants vowel/e
+endphoneme
+
+
+phoneme y          // this is the same as [i] for Brazil
+  vowel starttype (i) endtype (i)
+  length 150
+  formants vowel/i
+  linkout ;
+endphoneme
+
+
+phoneme i/            // changes to [j] before a vowel
+  vowel starttype (i) endtype (i)
+  beforevowel j
+  length 150
+  formants vowel/i
+  linkout ;
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/0
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_bck
+endphoneme
+
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 230
+  formants vdiph/ai
+endphoneme
+
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 210
+  formants vdiph/ei
+endphoneme
+
+
+phoneme EI
+  vowel starttype (e) endtype (i)
+  length 230
+  formants vdiph/eei
+endphoneme
+
+
+phoneme OI
+  vowel starttype (o) endtype (i)
+  length 230
+  formants vdiph/0i
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 230
+  formants vdiph/eu
+endphoneme
+
+
+phoneme EU
+  vowel starttype (e) endtype (u)
+  length 230
+  formants vdiph/eeu
+endphoneme
+
+
+
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/2       // use 'dark' [l] after a vowel, should be [w]
+  formants l/l
+  after _ l/_l
+  after t l/tl
+  before _ l/l_2
+endphoneme
+
+
+
+phoneme x   // for "r"
+  vcd vel frc
+  vowelin f1=0  f2=1500 0 400  f3=-500 100
+  vowelout f1=0 f2=1500 0 400  f3=-500 100  rms=20
+  lengthmod 6
+  formants voc/Q_less+ufric/x2%110
+  before _ voc/Q_+ufric/x2
+  switchvoicing x
+endphoneme
+
+

@@ -1,6 +1,11 @@
 
 // This file in UTF8 encoded
 
+// Options
+// ?1  European Portuguese
+// ?2  Brazilian Portuguese
+
+
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
@@ -8,9 +13,6 @@
 
 
 // character names
-_e      e
-_o	o
-_s	'Ese
 
 _á	,a&g'udu
 _à	,ag@-*'avi
@@ -131,6 +133,7 @@ o	$u+
 a	$u+
 os	$u+
 as	$u+
+?1 a    & $u+
 
 um	$u
 uma	$u
@@ -202,6 +205,7 @@ em	$u $brk  // in,on,at
 no	nu $u $brk
 na	$u $brk
 nos	nus $u $brk
+?1 nos	nuS $u $brk
 nas	$u $brk
 num	$u $brk
 numa	$u $brk
@@ -215,6 +219,7 @@ pelos	$u $brk
 pelas	$u $brk
 
 a	$u $brk	// to,at
+?1 a    & $u $brk
 ao	$u $brk
 à	,a: $brk
 aos	$u $brk
@@ -223,6 +228,7 @@ aos	$u $brk
 para	$u $brk		// for,to
 pro	$u $brk
 pra	$u $brk
+?1 pra  pr& $u $brk
 pros	$u $brk
 pras	$u $brk
 prò	$u $brk
@@ -426,6 +432,15 @@ vão	$u+
 há	$u+
 
 
+// Letter names
+_e      E
+_o	O
+_s	'Ese
+a       a $atend
+e       E $atend        // assume letter-e at end of sentence
+o       O $atend
+s       'Ese $atend
+
 
 // some common adjectives and adverbs
 alguns		$u	// some
@@ -443,4 +458,95 @@ muita        m'u~jt&
 // $alt   changes the first [o] phoneme to [O]
 costa        $alt
 forte        $alt
+porta        $alt
+novos        $alt
+novas        $alt
+morte        $alt
+mortos       $alt
+porte        $alt
+norte        $alt
+corpos       $alt
+modos        $alt
+fogos        $alt
+
+// Open [E]
+nela         n'El&
+nessa        n'Es&
+
+abacaxi      abakaSi
+axé          aSE
+elixir       eliSir
+lixo         l'iSu
+roxo         x'oSu
+
+// foreign words
+site        s'aIt
+layout      l'eI,aUt
+mail        m'ejaU
+kernel      k'ErnEU
+software    s'Oftwe@
+hardware    h'ardwe@
+
+// common person names
+alan       'al@n
+
+
+// foreign product names
+debian      d'Ebj&~N
+espeak      Esp'i:k
+firefox     f'ai@foks
+linux       l'inuks
+openoffice  'opeIN|'Ofis
+slackware   sl'akwe@
+suse        z'u:ts@
+ubuntu      ub'untu
+unix        j'u:niks
+
+
+// historical/famous person names
+babbage     b'abidZ
+bernhard    bern'ard
+darwin      d'Arwin
+dijkstra    d'ijkstrA:
+einstein    _!'aInSt,aIn
+feynman     f'ainm@n
+freud       fr'OId
+friedrich   fr'i:driS
+gauss       g'aUs
+geisel      g'aIzEU
+gottfried   g'Otfri:t
+hawking     h'o:king
+heisenberg  h'aIzEnberg
+hitler      h'itler
+isaac       iz'&k
+lavoisier   lavwazj'e
+leibniz     l'aIbni:ts
+montesquieu m,oNteskj'e
+neumann     n'OIman
+newton      n'i;utoN
+oppenheimer _!'Op@nh,aImar
+richard     x'iS&rd
+riemann     r'i:man
+rijndael    x'ain;d'al
+rousseau    Rus'o
+schrödinger Sr'edinger
+stephen     st'i:v@n
+steve       st'i:v
+turing      t'u*iNg
+voltaire    vOlt'Er
+von         f'On
+
+
+// foreign common names/surnames
+klein       kl'aIn      // Very common on southern Brazil.
+krueger     k@-*'iZer
+krüger      k@-*'iZer
+kühl        k'il
+mueler      m'iler
+mueller     m'iler
+müler       m'iler
+müller      m'iler
+ronchi      r'OnCi:
+vogel       f'o:g@l
+volkmann    f'Olkman
 

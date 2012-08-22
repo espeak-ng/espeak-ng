@@ -101,6 +101,7 @@ public:
 	void OnKey(wxKeyEvent& event);
 	void SpeakFile(void);
 	void ReadVoice(void);
+	void OnCommand(wxCommandEvent& event);
 
 private:
 	wxButton *t_translate;
@@ -108,7 +109,6 @@ private:
 	wxTextCtrl* t_source;
 	wxTextCtrl* t_phonetic;
 
-	void OnCommand(wxCommandEvent& event);
 
 	DECLARE_EVENT_TABLE()
 };
@@ -140,6 +140,11 @@ enum {
 	MENU_PROSODY,
 	MENU_COMPILE_PH,
 	MENU_COMPILE_DICT,
+	MENU_COMPILE_MBROLA,
+
+	MENU_SPEAK_TRANSLATE,
+	MENU_SPEAK_RULES,
+	MENU_SPEAK_TEXT,
 	MENU_SPEAK_FILE,
 	MENU_SPEAK_PAUSE,
 	MENU_SPEAK_STOP,

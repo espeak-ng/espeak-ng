@@ -11,9 +11,12 @@
 		aux	aU
 		aŭ	aU
      D_-_)      a (_    %a    //'a' after a number
+     D_-_)      an (_   %an   //'an' after a number
+       D_)      a (_    %a    //'a' after a number
+       D_)      an (_   %an   //'an' after a number
 		
 .group b
-	_)	b(_	ba
+	_)	b(_	bo
 		b       b
 		
 .group c
@@ -27,7 +30,7 @@
 		
 		
 .group d
-	_)	d(_	da
+	_)	d(_	do
 		d	d
 
 .group e
@@ -43,14 +46,14 @@
 		f	f
 		
 .group g
-	_)	g(_	ga
-	_)	gx(_	dZa
+	_)	g(_	go
+	_)	gx(_	dZo
 		g	g
 		gh (K	dZ
 		gx	dZ
 				
 .group h
-	_)	h(_	ha
+	_)	h(_	ho
 	_)	hx(_	xo
 		h	h
 		hh	x
@@ -63,7 +66,7 @@
 		
 .group j
 	_)	j(_	jo
-	_)	jx(_	Za
+	_)	jx(_	Zo
 		j	j
 		jh (C	Z
 		jx	Z
@@ -82,7 +85,7 @@
 		m	m
 		
 .group n
-	_)	n(_	na
+	_)	n(_	no
 		n	n
 		n (_S1	n
 		
@@ -100,12 +103,15 @@
 		
 .group q
 	_)	q(_	kwo
-		q	kw
+		q	k
+		qu	kv
 		
 .group r
-	_)	r(_	ra
+	_)	r(_	ro
 		r	r
-	A)	r (A	*r
+		rr      @-*r
+	A)	r (A	*
+//	A)	r (A	@-*
 	C)	r (A	@-*
 		
 .group s
@@ -126,7 +132,7 @@
 		
 .group u
 	_)	u(_	u
-	_)	ux(_	wa
+	_)	ux(_	wo
 		u	u
 		uj	uI
 		u (jx   u
@@ -134,11 +140,11 @@
 		
 		
 .group v
-	_)	v(_	va
+	_)	v(_	vo
 		v	v
 		
 .group w
-	_)	w(_	wa
+	_)	w(_	du'oblav,o
 		w	w
 	K)	wh	w    // foreign words
 		
@@ -149,11 +155,11 @@
 .group y
 	_)	y(_	ipsilono
 		y	j
-		y (_	i        // foreign words
+	K)	y (K	i
 	
 		
 .group z
-	_)	z(_	za
+	_)	z(_	zo
 		z	z
 			
 		
@@ -161,13 +167,13 @@
 	_)	ĉ (_	tSo
 		ĉ	tS
 
-	_)	ĝ (_	dZa
+	_)	ĝ (_	dZo
 		ĝ	dZ
 
 	_)	ĥ (_	xo
 		ĥ	x
 
-	_)	ĵ (_	Za
+	_)	ĵ (_	Zo
 		ĵ	Z
 
 	_)	ŝ (_	So
@@ -204,15 +210,3 @@
 		&	%kaI
 			
 
-
-.group 9
-	0		nul
-	1		'unu
-	2		d'u
-	3		tr'i
-	4		kv'ar
-	5		kv'in
-	6		s'es
-	7		s'ep
-	8		'ok
-	9		n'aU

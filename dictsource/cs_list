@@ -1,0 +1,216 @@
+ // translation rules for Slovak
+// This file is UTF-8 encoded
+
+// Letters
+_a    a:
+á     dl'oUhe:,a:
+b     be:
+c     tse:
+č     tSe:
+ch    xa:
+d     de:
+ď     Je:
+e     e:
+é     dl'oUhe:,e:
+ě     ije
+f     ef
+g     ge:
+h     ha:
+_i    i:
+í     dl'oUhe:,i:
+j     je:
+_k     ka:
+l     el
+ľ     el^
+ĺ     dl'oUhe:,el
+m     em
+n     en
+ň     en^
+_o    o:
+ó     dl'oUhe:,o:
+p     pe:
+q     kve:
+r     er
+ř     eZ
+_s    es
+š     eS
+t     te:
+ť     ce:
+u     u:
+ú     dl'oUhe:,u:
+ů     'u:s_k@-r'oUZkem
+_v    ve:
+w     dv'ojite:,ve:
+x     iks
+y     ipsilon
+ý     dl'oUe:,ipsilon
+_z    zet
+ž     Zet
+
+
+
+// Numbers
+_0    n'ula
+_1    j'eden
+_2    dv'a
+_3    tRi
+_4    tSt'iRi
+_5    p'jet
+_6    S'est
+_7    s'edum
+_8    'osum
+_9    d'evjet
+_10   d'eset
+_11   j'edena:tst
+_12   dv'ana:tst
+_13   tR'ina:tst
+_14   tSt'r-na:tst
+_15   p'atna:tst
+_16   S'estna:tst
+_17   s'edumna:tst
+_18   'osumna:tst
+_19   d'evatena:tst
+_2X   dv'atset
+_3X   tR'itset
+_4X   tSt'iRitset
+_5X   p'adesa:t
+_6X   S'edesa:t
+_7X   s'edumdesa:t
+_8X   'osumdesa:t
+_9X   devadesa:t
+_0C   st'e
+_1C   st'o
+_2C   dvj'esc'e
+_3C   tR'ist'a
+_4C   tStiRist'a
+_0M1  t'isi:ts
+_2M1  dv'at'isitse
+_0M2  m'ilio:nu:
+_1M2  m'ilio:n
+_2M2  dv'am'ilio:ni
+_0M3  m'iliarda
+_dpt  _:tSa:rka_
+_.    tetSka
+
+
+// Pronouns
+mi       $u
+ti       $u
+se       $u
+si       $u
+
+
+// Prepositions
+skrz     $u $brk $alt2    // though
+skrze    $u $pause        // through
+pro      $u $pause $alt2  // for
+na       $u $brk $alt2    // to/for/on
+o        $u $pause $alt2  // around/about
+při      $u $pause $alt2  // into,in,around
+v        v_ $brk          // in
+po       $u $pause $alt2  // after,around
+za       $u $pause $alt2  // behind
+před     $u $pause $alt2  // in front of
+mezi     $pause           // between
+pod      $u $pause $alt2  // below
+pode     $u $pause        // below
+s        s_ $pause        // with
+nad      $u $pause $alt2  // above
+nade     $u $pause        // above
+
+k        $brk             // towards
+proti    $u $pause        // against
+díky     $pause           // thanks to
+naproti  $pause           // opposite
+
+během    $pause           // during
+podle    $pause           // according to
+dle      $u $pause $alt2  // along
+vedle    $pause           // beside
+kolem    $pause           // around
+okolo    $pause           // around
+do       $u $brk $alt2    // to
+od       $u $brk $alt2    // away from
+ode      $u $brk          // away from
+z        s_ $brk          // out of/from
+ze       $u $brk $alt2    // out of/from
+bez      $pause $alt2     // without
+beze     $pause           // without
+místo    $pause           // instead of
+
+i        $u $brk    // ???
+
+// Conjunctions
+a        $u $pause      // and
+nebo     $u $pause      // or
+však     $pause         // but
+krom     $pause         // except
+ale      $pause         // however
+ač       $pause         // although
+leč      $pause         // unless
+sice     $pause         // although
+že       $u $pause      // if,that
+mimo     $pause         // except
+což      $pause         // which
+ani      $pause         // neither,nor
+
+// Negative
+
+
+// Auxillary verbs
+být      $u     // to be
+jsem     $u     // am
+jsi      $u
+je       $u
+jsme     $u
+jste     $u
+jsou     $u
+
+byl      $u     // (past participle)
+byla     $u
+bylo     $u
+byli     $u
+byly     $u
+
+
+budu     $u     // (future)
+budeš    $u
+bude     $u
+budeme   $u
+budete   $u
+budou    $u
+
+bych     $u     // (conditional)
+bys      $u
+by       $u
+bychom   $u
+byste    $u
+by       $u
+
+mám      $u+     // have
+máš      $u+
+má       $u+
+máme     $u+
+máte     $u+
+mají     $u+
+měl      $u+
+
+chci     $u+     // want
+chceš    $u+
+chce     $u+
+chceme   $u+
+chcete   $u+
+chtějí   $u+
+
+// treat as letters if at the end of the clause
+a        a:    $atend    // letter-a
+i        i:    $atend    // letter-i
+k        ke:   $atend    // letter-k
+o        o:    $atend    // letter-o
+s        es    $atend
+v        ve:   $atend
+z        zet   $atend
+
+// Exceptions
+
+// don't soften (d,n,t) before e,i
