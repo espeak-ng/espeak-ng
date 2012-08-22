@@ -39,7 +39,7 @@ typedef struct {
    short pkright;
 }  peak_t;
 
-extern int GetFileLength(const char *filename);
-extern char *Alloc(int size);
-extern void Free(void *ptr);
+int  GetFileLength(const char *filename);
+char *Alloc(int size);
+void Free(void *ptr);
 

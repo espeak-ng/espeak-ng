@@ -1,4 +1,7 @@
 // translation rules
+// This file is UTF-8 encoded
+
+// includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
 
 .group a
 	_)	a(_	a
@@ -6,7 +9,7 @@
 		aj	aI
 		a (jx   a
 		aux	aU
-		aı	aU
+		aÅ­	aU
 		
 .group b
 	_)	b(_	ba
@@ -31,7 +34,7 @@
 		ej	eI
 		e (jx	e
 		eux	eU
-		eı	eU
+		eÅ­	eU
 		
 .group f
 	_)	f(_	fo
@@ -39,7 +42,6 @@
 		
 .group g
 	_)	g(_	ga
-	_)	gh(_	dZa
 	_)	gx(_	dZa
 		g	g
 		gh (C	dZ
@@ -47,7 +49,6 @@
 				
 .group h
 	_)	h(_	ha
-	_)	hh(_	xo
 	_)	hx(_	xo
 		h	h
 		hh	x
@@ -60,7 +61,6 @@
 		
 .group j
 	_)	j(_	jo
-	_)	jh(_	Za
 	_)	jx(_	Za
 		j	j
 		jh (C	Z
@@ -145,23 +145,23 @@
 			
 		
 .group
-	_)	æ(_	tSo
-		æ	tS
+	_)	Ä‰ (_	tSo
+		Ä‰	tS
 
-	_)	ø(_	dZa
-		ø	dZ
+	_)	Ä (_	dZa
+		Ä	dZ
 
-	_)	¶(_	xo
-		¶	x
+	_)	Ä¥ (_	xo
+		Ä¥	x
 
-	_)	¼(_	Za
-		¼	Z
+	_)	Äµ (_	Za
+		Äµ	Z
 
-	_)	ş(_	So
-		ş	S
+	_)	Å (_	So
+		Å	S
 
-	_)	ı(_	wo
-		ı	w
+	_)	Å­ (_	wo
+		Å­	w
 
 		
 		=	,,egala,
@@ -172,9 +172,10 @@
 	_)	++ (_	plusplus
 
 		.	punkto
+		. (D	_k'omo;
 		*	asterisko
-		£	pundo
-		£ (D	_pundOI_
+			pundo
+		 (D	_pundOI_
 	        !	,ekkrio,
 		:	dupunkto
 		-	_
@@ -182,30 +183,68 @@
 		$ (D	_dolarOI_
 		%	protsento
 		@	po
-		&	¬kaI
-		
-	
+		&	%kaI
+			
+          D) , (_DDD      mil__
+      ,_000) , (_DDD
+      ,_000) , (_DDD,_DDD  miliono__
+          D) , (_DDD,_DDD  miliono__
+          D) , (_DDD,_DDD,_DDD mil__
 
 
 .group 9
+     _) 0 (_		nul
+     _) 00 (D		_
+	0 (D_		;
+     D) 0
+
+	1		'unu
+	2		d'u
+	3		tr'i
+	4		kv'ar
+	5		kv'in
+	6		s'es
+	7		s'ep
+	8		'ok
+	9		n'aU
+
+     .) 0		;n'ul
+     .) 1		;'unu
+     .) 2		;d'u
+     .)	3		;tr'i
+     .)	4		;kv'ar
+     .)	5		;kv'in
+     .)	6		;s'es
+     .)	7		;s'ep
+     .)	8		;'ok
+     .)	9		;n'aU
 		
-	1		unu
-	2		du
-	3		tri
-	4		kvar
-	5		kvin
-	6		ses
-	7		sep
-	8		ok
-	9		naI
-		
-	10		dek
-	20		dudek
-	30		tridek
-	40		kvardek
-	50		kvindek
-	60		sesdek
-	70		sepdek
-	80		okdek
-	90		naIdek
-	
+	1 (D		d'ek
+	2 (D		d'udek
+	3 (D		tr'idek
+	4 (D		kv'ardek
+	5 (D		kv'indek
+	6 (D		s'esdek
+	7 (D		s'epdek
+	8 (D		'okdek
+	9 (D		n'aUdek
+
+	1 (DD		ts'ent;
+	2 (DD		d'utsent;
+	3 (DD		tr'itsent;
+	4 (DD		kv'artsent;
+	5 (DD		kv'intsent;
+	6 (DD		s'estsent;
+	7 (DD		s'eptsent;
+	8 (DD		'oktsent;
+	9 (DD		n'aUtsent;
+
+	1 (DDD_		m'il_
+	2 (DDD_		d'um,il_
+	3 (DDD_		tr'im,il_
+	4 (DDD_		kv'arm,il_
+	5 (DDD_		kv'inm,il_
+	6 (DDD_		s'esm,il_
+	7 (DDD_		s'epm,il_
+	8 (DDD_		'okm,il_
+	9 (DDD_		n'aUm,il_

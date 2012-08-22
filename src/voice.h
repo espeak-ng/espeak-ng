@@ -20,7 +20,8 @@
 
 
 typedef struct {
-	// pitch
+	char name[40];
+
 	int pitch_base;    // Hz<<12
 	int pitch_range;   // standard = 0x1000
 	
@@ -30,14 +31,28 @@ typedef struct {
 
 	int intonation1;
 	int intonation2;
-	// percentages shown to user, ix=N_PEAKS means ALL peaks
-	USHORT pcnt[N_PEAKS+1][3];
+
+	int flutter;
+	int roughness;
+	int echo_delay;
+	int echo_amp;
 
 	// parameters used by Wavegen
-	int freq[N_PEAKS];    // 100% = 0x100
-	int height[N_PEAKS];  // 100% = 0x100
-	int width[N_PEAKS];   // 100% = 0x100
+	int freq[N_PEAKS];    // 100% = 256
+	int height[N_PEAKS];  // 100% = 256
+	int width[N_PEAKS];   // 100% = 256
+
+	// copies without temporary adjustments from embedded commands
+	int freq2[N_PEAKS];    // 100% = 256
+	int height2[N_PEAKS];  // 100% = 256
+	int width2[N_PEAKS];   // 100% = 256
+
 } voice_t;
+
+// percentages shown to user, ix=N_PEAKS means ALL peaks
+extern USHORT voice_pcnt[N_PEAKS+1][3];
 
 
 extern voice_t *voice;
+voice_t *LoadVoice(char *voice_name, int reset);
+void WavegenSetVoice(voice_t *v);

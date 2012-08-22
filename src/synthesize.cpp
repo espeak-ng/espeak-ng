@@ -35,9 +35,7 @@
 
 
 const char *tempwav = "speech.wav";
-//#define LOG_WGEN
 
-FILE *f_logrms=NULL;
 extern FILE *f_log;
 static void SmoothSpect(void);
 
@@ -49,6 +47,7 @@ PHONEME_LIST phoneme_list[N_PHONEME_LIST];
 
 int speed_factor1;
 int speed_factor2;
+int global_speed = 160;  // default
 
 static int  last_pitch_cmd;
 static int  last_amp_cmd;
@@ -61,6 +60,10 @@ static int  syllable_start;
 static int  syllable_end;
 static int  syllable_centre;
 
+static voice_t *new_voice=NULL;
+
+int n_soundicon_tab=0;
+SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
 
 #define RMS1  15  // 12 - 15
@@ -86,39 +89,6 @@ const char *WordToString(unsigned int word)
 	return(buf);
 }
 
-
-void StartLog(void)
-{//==================
-#ifdef LOG_WGEN
-	if(f_log == NULL)
-		f_log=fopen("speech.log","w");
-#endif
-}
-
-
-#ifdef LOG_SYNTH
-void LogPitch(PHONEME_LIST *p)
-{//===========================
-	int x;
-	int pitch1 = p->pitch1;
-	int pitch2 = p->pitch2;
-	float pitch_base;
-	float pitch_range;
-
-return;
-	if(pitch1 > pitch2)
-	{
-		x = pitch1;   // swap values
-		pitch1 = pitch2;
-		pitch2 = x;
-	}
-
-	pitch_base = float(voice->pitch_base + (pitch1 * voice->pitch_range))/4096;
-	pitch_range = float(voice->pitch_base + (pitch2 * voice->pitch_range) - pitch_base)/4096;
-	fprintf(f_logs,"%2s  %d  %5.1f %5.1f\n",WordToString(p->ph->mnemonic),p->env,pitch_base,pitch_range);
-	fflush(f_logs);
-}
-#endif
 
 
 void PlayWavFile(const char *fname)
@@ -160,7 +130,7 @@ static void EndAmplitude(void)
 static void EndPitch(int voice_break)
 {//==================================
 	// posssible end of pitch envelope, fill in the length
-	if(pitch_length > 0)
+	if((pitch_length > 0) && (last_pitch_cmd >= 0))
 	{
 		if(wcmdq[last_pitch_cmd][1] == 0)
 			wcmdq[last_pitch_cmd][1] = pitch_length;
@@ -181,7 +151,7 @@ static void EndPitch(int voice_break)
 
 static void DoAmplitude(int amp, unsigned char *amp_env)
 {//=====================================================
-	int *q;
+	long *q;
 
 	last_amp_cmd = wcmdq_tail;
 	amp_length = 0;       // total length of vowel with this amplitude envelope
@@ -189,7 +159,7 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_AMPLITUDE;
 	q[1] = 0;        // fill in later from amp_length
-	q[2] = (int)amp_env;
+	q[2] = (long)amp_env;
 	q[3] = amp;
 	WcmdqInc();
 }  // end of Synthesize::DoAmplitude
@@ -198,17 +168,24 @@ static void DoAmplitude(int amp, unsigned char *amp_env)
 
 static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 {//============================================================
-	int *q;
+	long *q;
 
 	EndPitch(0);
 
+	if(pitch1 == 1024)
+	{
+		// pitch was not set
+		pitch1 = 24;
+		pitch2 = 33;
+		env = envelope_data[PITCHfall];
+	}
 	last_pitch_cmd = wcmdq_tail;
 	pitch_length = 0;       // total length of spect with this pitch envelope
 
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_PITCH;
 	q[1] = 0;   // length, fill in later from pitch_length
-	q[2] = (int)env;
+	q[2] = (long)env;
 	q[3] = (pitch1 << 16) + pitch2;
 	WcmdqInc();
 }  //  end of Synthesize::DoPitch
@@ -236,7 +213,7 @@ static void DoSample2(int index, int which, int length_mod)
 	int length;
 	int length1;
 	int format;
-	int *q;
+	long *q;
 	unsigned char *p;
 
 	index = index & 0x7fffff;
@@ -265,7 +242,7 @@ static void DoSample2(int index, int which, int length_mod)
 	else
 		q[0] = WCMD_WAVE;
 	q[1] = length;   // length in samples
-	q[2] = int(&wavefile_data[index]);
+	q[2] = long(&wavefile_data[index]);
 	q[3] = format;
 	WcmdqInc();
 
@@ -583,7 +560,7 @@ static void SmoothSpect(void)
 {//==========================
 	// Limit the rate of frequence change of formants, to reduce chirping
 
-	int *q;
+	long *q;
 	frame_t *frame;
 	frame_t *frame2;
 	frame_t *frame1;
@@ -625,7 +602,7 @@ static void SmoothSpect(void)
 			frame1 = (frame_t *)(q[3]-4);
 			if(frame1 == frame)
 			{
-				q[3] = (int)frame2->peaks;
+				q[3] = (long)frame2->peaks;
 				frame1 = frame2;
 			}
 			else
@@ -650,7 +627,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq + allowed;
-					q[2] = (int)frame2->peaks;
+					q[2] = (long)frame2->peaks;
 				}
 				else
 				if(diff < -allowed)
@@ -661,7 +638,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq - allowed;
-					q[2] = (int)frame2->peaks;
+					q[2] = (long)frame2->peaks;
 				}
 			}
 		}
@@ -692,7 +669,7 @@ static void SmoothSpect(void)
 			{
 				if(frame1 == frame)
 				{
-					q[2] = (int)frame2->peaks;
+					q[2] = (long)frame2->peaks;
 					frame1 = frame2;
 				}
 				else
@@ -718,7 +695,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq + allowed;
-					q[3] = (int)frame2->peaks;
+					q[3] = (long)frame2->peaks;
 				}
 				else
 				if(diff < -allowed)
@@ -729,7 +706,7 @@ static void SmoothSpect(void)
 						modified = 1;
 					}
 					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq - allowed;
-					q[3] = (int)frame2->peaks;
+					q[3] = (long)frame2->peaks;
 				}
 			}
 		}
@@ -763,7 +740,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 	frame_t *frame1;
 	frame_t *frame2;
 	frame_t *fr;
-	int  *q;
+	long *q;
 	int  len;
 	int  match_level;
 	int  frame_length;
@@ -801,14 +778,14 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 		if((last_frame->length < 2) && !(last_frame->flags & FRFLAG_BREAK))
 		{
 			// last frame of previous sequence was zero-length, replace with first of this sequence
-			wcmdq[last_wcmdq][3] = (int)frame1->peaks;
+			wcmdq[last_wcmdq][3] = (long)frame1->peaks;
 
 			if(last_frame->flags & FRFLAG_BREAK_LF)
 			{
 				// but flag indicates keep HF peaks in last segment
 				fr = CopyFrame(frame1);
 				memcpy(&fr->peaks[3],&last_frame->peaks[3],sizeof(peak_t)*6);
-				wcmdq[last_wcmdq][3] = (int)fr->peaks;
+				wcmdq[last_wcmdq][3] = (long)fr->peaks;
 			}
 		}
 	}
@@ -842,7 +819,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 		}
 		if(frame1->flags & FRFLAG_MODULATE)
 		{
-			modulation = 0x10;
+			modulation = 6;
 		}
 		len = (frame_length * samplerate)/1000;
 		len = (len * length_factor)/256;
@@ -870,8 +847,8 @@ if((which==2) && (other_ph->mnemonic == 'R'))
 			q = wcmdq[wcmdq_tail];
 			q[0] = wcmd_spect;
 			q[1] = len + (modulation << 16);
-			q[2] = int(frame1->peaks);
-			q[3] = int(frame2->peaks);
+			q[2] = long(frame1->peaks);
+			q[3] = long(frame2->peaks);
 			WcmdqInc();
 			last_frame = frame1 = frame2;
 			frame_length = frame2_length;
@@ -891,10 +868,62 @@ static void DoMarker(int type, int index)
 }  // end of Synthesize::DoMarker
 
 
+static void DoVoice(voice_t *v)
+{//============================
+	wcmdq[wcmdq_tail][0] = WCMD_VOICE;
+	wcmdq[wcmdq_tail][1] = (long)v;
+	WcmdqInc();
+}
+
+
+static void DoEmbedded(int &embix)
+{//===============================
+	// There were embedded commands in the text at this point
+	unsigned char c;
+	unsigned char value;
+
+	while((c = embedded_list[embix++]) != 0)
+	{
+		value = embedded_list[embix++];
+		if((c & 0x3f) == EMBED_S)
+		{
+			// speed
+			SetEmbedded((c & 0xc0) + EMBED_S2,value);   // adjusts embedded_value[EMBED_S2]
+			SetSpeed(global_speed,2);
+		}
+		else
+		if(c == EMBED_I)
+		{
+			// play dynamically loaded wav data (sound icon)
+			if(value < n_soundicon_tab)
+			{
+				if((wcmdq[wcmdq_tail][1] = soundicon_tab[value].length) != 0)
+				{
+					DoPause(10);   // ensure a break in the speech
+					wcmdq[wcmdq_tail][0] = WCMD_WAVE;
+					wcmdq[wcmdq_tail][1] = soundicon_tab[value].length;
+					wcmdq[wcmdq_tail][2] = (long)soundicon_tab[value].data;
+					wcmdq[wcmdq_tail][3] = 0;   // 16 bit data
+					WcmdqInc();
+				}
+			}
+		}
+		else
+		{
+			DoPause(10);   // ensure a break in the speech
+			wcmdq[wcmdq_tail][0] = WCMD_EMBEDDED;
+			wcmdq[wcmdq_tail][1] = c;
+			wcmdq[wcmdq_tail][2] = value;
+			WcmdqInc();
+		}
+	}
+}
+
 
 int Generate(PHONEME_LIST *phoneme_list, int resume)
 {//=================================================
 	static int  ix;
+	static int  embedded_ix;
 	PHONEME_LIST *prev;
 	PHONEME_LIST *next;
 	PHONEME_LIST *next2;
@@ -910,6 +939,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 	if(resume == 0)
 	{
 		ix = 1;
+		embedded_ix=0;
 		pitch_length = 0;
 		amp_length = 0;
 		last_frame = NULL;
@@ -917,6 +947,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 		syllable_start = wcmdq_tail;
 		syllable_end = wcmdq_tail;
 		syllable_centre = -1;
+		last_pitch_cmd = -1;
 	}
 
 	while(ix<n_phoneme_list)
@@ -936,6 +967,10 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 		if(p->sourceix > 0)
 		{
 			DoMarker(1,p->sourceix);
+		}
+		if(p->synthflags & SFLAG_EMBEDDED)
+		{
+			DoEmbedded(embedded_ix);
 		}
 
 		if(option_words > 0)
@@ -978,9 +1013,6 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 				DoAmplitude(p->amp,NULL);
 				DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
 				pre_voiced = 1;
-#ifdef LOG_SYNTH
-	LogPitch(p);
-#endif
 			}
 			else
 			if((next->type==phLIQUID) && !next->newword)
@@ -988,10 +1020,16 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 				DoAmplitude(next->amp,NULL);
 				DoPitch(envelope_data[next->env],next->pitch1,next->pitch2);
 				pre_voiced = 1;
-#ifdef LOG_SYNTH
-	LogPitch(next);
-#endif
 			}
+			else
+			{
+				if(last_pitch_cmd < 0)
+				{
+					DoAmplitude(next->amp,NULL);
+					DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
+				}
+			}
+
 			if(prev->type==phVOWEL)
 			{
 				DoSpect(p->ph,&phoneme_tab[phonSCHWA],1,p->length,0,0);
@@ -1011,19 +1049,22 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			{
 				DoAmplitude(p->amp,NULL);
 				DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
-#ifdef LOG_SYNTH
-	LogPitch(p);
-#endif
 			}
 			else
 			if(next->type==phLIQUID)
 			{
 				DoAmplitude(next->amp,NULL);
 				DoPitch(envelope_data[next->env],next->pitch1,next->pitch2);
-#ifdef LOG_SYNTH
-	LogPitch(next);
-#endif
 			}
+			else
+			{
+				if(last_pitch_cmd < 0)
+				{
+					DoAmplitude(p->amp,NULL);
+					DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
+				}
+			}
+
 			if((next->type==phVOWEL) || (next->type==phLIQUID))
 			{
 				StartSyllable();
@@ -1038,9 +1079,6 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			{
 				DoAmplitude(p->amp,NULL);
 				DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
-#ifdef LOG_SYNTH
-	LogPitch(p);
-#endif
 			}
 
 			if(prev->type==phNASAL)
@@ -1073,15 +1111,12 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 		case phLIQUID:
 			modulation = 0;
 			if(p->ph->flags & phMODULATE)
-				modulation = 3;
+				modulation = 5;
 
 			if(!(p->synthflags & SFLAG_SEQCONTINUE))
 			{
 				DoAmplitude(p->amp,NULL);
 				DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
-#ifdef LOG_SYNTH
-	LogPitch(p);
-#endif
 			}
 
 			if(prev->type==phNASAL)
@@ -1122,21 +1157,18 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 
 			StartSyllable();
 
-			modulation = 0;
+			modulation = 2;
 			if(stress <= 1)
-				modulation = 14;  // 16ths
+				modulation = 1;  // 16ths
 			else
 			if(stress >= 7)
-				modulation = 13;
+				modulation = 3;
 
 			if(prev->type == phVSTOP || prev->type == phVFRICATIVE)
 			{
 				DoAmplitude(p->amp,amp_env);
 				DoPitch(pitch_env,p->pitch1,p->pitch2);  // don't use prevocalic rising tone
 				DoSpect(ph,prev->ph,1,p->length,stress,modulation);
-#ifdef LOG_SYNTH
-	LogPitch(p);
-#endif
 			}
 			else
 			if(prev->type==phLIQUID || prev->type==phNASAL)
@@ -1144,9 +1176,6 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 				DoAmplitude(p->amp,amp_env);
 				DoSpect(ph,prev->ph,1,p->length,stress,modulation);   // continue with pre-vocalic rising tone
 				DoPitch(pitch_env,p->pitch1,p->pitch2);
-#ifdef LOG_SYNTH
-	LogPitch(p);
-#endif
 			}
 			else
 			{
@@ -1165,6 +1194,14 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 		ix++;
 	}
 	EndPitch(1);
+
+	if(new_voice)
+	{
+		// finished the current clause, now change the voice if there was an embedded
+		// change voice command at the end of it (i.e. clause was broken at the change voice command)
+		DoVoice(new_voice);
+		new_voice = NULL;
+	}
 	return(0);  // finished the phoneme list
 }  //  end of Generate
 
@@ -1194,8 +1231,8 @@ void MakeWave2(PHONEME_LIST *p, int n_ph)
 
 
 
-int timer_on = 0;
-int paused = 0;
+static int timer_on = 0;
+static int paused = 0;
 
 int SynthOnTimer()
 {//===============
@@ -1232,6 +1269,7 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 //         4: is file being read (0=no, 1=yes)
 
 	int clause_tone;
+	char *voice_change;
 	static FILE *f_text=NULL;
 	static char *p_text=NULL;
 
@@ -1277,7 +1315,6 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 
 	if((f_in != NULL) || (text_in != NULL))
 	{
-		WavegenSetEcho(option_echo_delay,option_echo_amp);
 		f_text = f_in;
 		p_text = text_in;
 		translator->input_start = text_in;
@@ -1295,23 +1332,27 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 		f_text=NULL;
 		return(0);
 	}
-	if((p_text != NULL) && (*p_text == 0))
-	{
-		p_text = NULL;
-		return(0);
-	}
 
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
-	p_text = translator->TranslateClause(f_text,p_text,&clause_tone);
+	p_text = translator->TranslateClause(f_text,p_text,&clause_tone,&voice_change);
 	if(option_phonemes)
 	{
 		printf("%s\n",translator->phon_out);
 	}
 	translator->CalcPitches(clause_tone);
 	translator->CalcLengths();
+
+	if(voice_change != NULL)
+	{
+		// voice change at the end of the clause (i.e. clause was terminated by a voice change)
+		new_voice = LoadVoice(voice_change,0); // add a Voice instruction to wavegen at the end of the clause
+		if(new_voice != NULL)
+			voice = new_voice; 
+	}
 	Generate(phoneme_list,0);
 	WavegenOpenSound();
+
 	return(1);
 }  //  end of SpeakNextClause
 

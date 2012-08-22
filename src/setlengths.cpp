@@ -68,7 +68,7 @@ static unsigned char length_mod_tab0[9][9] = {
 	{105,150,100,105,105,115,135,110,105} };  /* N */
 
 // convert from words-per-minute to internal speed factor
-static unsigned char speed_lookup[240] = {
+static unsigned char speed_lookup[241] = {
 	253, 250, 247, 243, 240, 237, 234, 231,   //  80
    229, 226, 223, 220, 217, 214, 212, 209,   //  88
    206, 204, 201, 198, 196, 193, 191, 189,   //  96
@@ -98,40 +98,65 @@ static unsigned char speed_lookup[240] = {
     32,  32,  31,  30,  29,  29,  28,  27,   // 288
     26,  25,  25,  24,  23,  22,  21,  21,   // 296
     20,  19,  18,  17,  16,  16,  15,  14,   // 304
-    13,  12,  11,  10,  10,   9,   8,   7,   // 312
+    13,  12,  11,  10,   9,   8,   7,   6,  5,  // 312
 };
 
-int speed1 = 130;
-int speed2 = 121;
-int speed3 = 118;
+static int speed1 = 130;
+static int speed2 = 121;
+static int speed3 = 118;
 
 extern int speed_factor1;
 extern int speed_factor2;
 
 
-void SetSpeed(int speed_wpm, int amp)
-{//==================================
+void SetSpeed(int speed_wpm, int control)
+{//======================================
 	int x;
+	int s1;
+	int wpm;
+
+
+	if(control & 1)
+	{
+		// set speed factors for different syllable positions within a word
+		// these are used in CalcLengths()
+		wpm = speed_wpm + (embedded_value[EMBED_S]-50)*3;
+		if(wpm > 320) wpm = 320;
+		if(wpm < 80) wpm = 80;
+
+		x = speed_lookup[wpm-80];
+		speed1 = (x * voice->speedf1)/256;
+		speed2 = (x * voice->speedf2)/256;
+		speed3 = (x * voice->speedf3)/256;
+	}
+
+	if(control & 2)
+	{
+		// these are used in synthesis file
+		wpm = speed_wpm + (embedded_value[EMBED_S2]-50)*3;
+		if(wpm >= 320) wpm = 319;
+		if(wpm < 80) wpm = 80;
+
+		x = speed_lookup[wpm-80];
+		s1 = (x * voice->speedf1)/256;
+		speed_factor1 = (256 * s1)/115;      // full speed adjustment
+		speed_factor2 = 128 + (128*s1)/130;  // reduced speed adjustment
+	}
+
+}  //  end of SetSpeed
+
+
+
+void SetAmplitude(int amp)
+{//=======================
 	static unsigned char amplitude_factor[] = {0,5,6,7,9,11,14,17,21,26, 32, 38,44,50,56,63,70,77,84,91,100 };
-
-	if(speed_wpm >= 320) speed_wpm = 319;
-	if(speed_wpm < 80) speed_wpm = 80;
-
-	x = speed_lookup[speed_wpm-80];
-	
-	// set speed factors for different syllable positions within a word
-	speed1 = (x * voice->speedf1)/256;
-	speed2 = (x * voice->speedf2)/256;
-	speed3 = (x * voice->speedf3)/256;
-
-	speed_factor1 = (256 * speed1)/110;      // full speed adjustment
-	speed_factor2 = 128 + (128*speed1)/130;  // reduced speed adjustment
 
 	if((amp >= 0) && (amp <= 20))
 	{
 		option_amplitude = (amplitude_factor[amp] * 480)/256; 
 	}
-}  //  end of SetSpeed
+}
+
 
 
 #ifdef deleted
@@ -170,6 +195,25 @@ void SetSpeedTab(void)
 #endif
 
 
+static void DoEmbedded2(int &embix)
+{//================================
+	// There were embedded commands in the text at this point
+
+	unsigned char c;
+	unsigned char value;
+
+	while((c = embedded_list[embix++]) != 0)
+	{
+		value = embedded_list[embix++];
+		if((c & 0x3f) == EMBED_S)
+		{
+			// speed
+			SetEmbedded(c,value);   // adjusts embedded_value[EMBED_S]
+			SetSpeed(global_speed,1);
+		}
+	}
+}
+
 
 void Translator::CalcLengths()
 {//===========================
@@ -191,6 +235,7 @@ void Translator::CalcLengths()
 	int  length_mod;
 	int  env2;
 	int  end_of_clause;
+	int  embedded_ix = 0;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
 	{
@@ -199,7 +244,12 @@ void Translator::CalcLengths()
 		stress = p->tone & 0xf;
 
 		next = &phoneme_list[ix+1];
-			
+
+		if(p->synthflags & SFLAG_EMBEDDED)
+		{
+			DoEmbedded2(embedded_ix);
+		}
+
 		switch(p->type)
 		{
 		case phPAUSE:
@@ -292,6 +342,8 @@ void Translator::CalcLengths()
 			{
 				p->length = prev->length;
 				p->pitch2 = last_pitch;
+				if(p->pitch2 < 7)
+					p->pitch2 = 7;
 				p->pitch1 = p->pitch2-8;
 				p->env = PITCHfall;
 				pre_voiced = 0;
@@ -370,12 +422,12 @@ void Translator::CalcLengths()
 				length_mod *= speed3;
 
 			length_mod = length_mod / 128;
-			if(length_mod < 28)
-				length_mod = 28;
+			if(length_mod < 26)
+				length_mod = 26;     // restrict how much lengths can be reduced
 
 			if(stress >= 7)
 			{
-				// include a constant component so it doesn't decrease directly with speed
+				// tonic syllable, include a constant component so it doesn't decrease directly with speed
 				length_mod += 20;
 			}
 			
@@ -388,13 +440,6 @@ void Translator::CalcLengths()
 			}
 
 			p->length = length_mod;
-#ifdef LOG_WGEN
-if(f_log != NULL)
-{
-	fprintf(f_log,"%2s LMOD %3d  stress %d  syllab %d\n",
-		WordToString(p->ph->mnemonic),length_mod,stress,more_syllables);
-}
-#endif
 
 			// pre-vocalic part
 			// set last-pitch
@@ -448,6 +493,8 @@ if(f_log != NULL)
 						if(ix2 < 15)
 						{
 							p->pitch1 = p->pitch2 - 15;
+							if(p->pitch1 < 0)
+								p->pitch1 = 0;
 						}
 					}
 				}

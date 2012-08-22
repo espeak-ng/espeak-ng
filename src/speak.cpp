@@ -33,45 +33,53 @@
 #include "synthesize.h"
 #include "translate.h"
 
-extern int VoicePhonemes(const char *name);
-extern void SetSpeed(int speed, int amp);
+int VoicePhonemes(const char *name);
 
 
-int verbose_flag;
 FILE *f_text;
 
 char path_home[120];
 char path_source[80] = "";
 char wavefile[120];
 
-const char *version = "Speak text-to-speech: 1.08  06.Apr.2006";
+static const char *version = "Speak text-to-speech: 1.09g  27.Apr.2006";
 
-const char *help_text =
+static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
 "--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, <words> are spoken, or if none then text is\n"
 "spoken from stdin, each line separately.\n\n"
-"-p\t   Write phoneme mnemonics to stdout\n"
-"-P\t   Write phonemes mnemonics and translation trace to stdout\n"
-"-q\t   Quiet, don't produce any speech (can use with -p)\n"
+"-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-a <integer>\n"
 "\t   Amplitude, 0 to 20, default is 10\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as and-of-clause\n"
+"-p <integer>\n"
+"\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
 "\t   Speed in words per minute, default is 160\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
+"-x\t   Write phoneme mnemonics to stdout\n"
+"-X\t   Write phonemes mnemonics and translation trace to stdout\n"
 "--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
-"\t   directory. =<voice name> is optional and specifies which language\n";
+"\t   directory. =<voice name> is optional and specifies which language\n"
+"--punct=\"<characters>\"\n"
+"\t   Speak the names of punctuation characters during speaking.  If\n"
+"\t   =<characters> is omitted, all punctuation is spoken.\n"
+"-k <integer>\n"
+"\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
+"\t   higher values = a pitch increase (try -k20).\n";
+
 
 voice_t voice_data;
+USHORT voice_pcnt[N_PEAKS+1][3];
 voice_t *voice;
 
 
@@ -94,47 +102,28 @@ char *Alloc(int size)
 
 void Free(void *ptr)
 {//=================
-	free(ptr);
+	if(ptr != NULL)
+		free(ptr);
 }
 
 
 
 
-static void VoiceSetup()
-{//=====================
-	int pk;
-	voice_t *v = &voice_data;
 
-	// modifications to formants, set up the data which is used by wavegen 
-	for(pk=0; pk<N_PEAKS; pk++)
+void PitchAdjust(int pitch_adjustment)
+{//===================================
+	int ix, factor;
+	extern unsigned char pitch_adjust_tab[100];
+
+	voice->pitch_base = (voice->pitch_base * pitch_adjust_tab[pitch_adjustment])/128;
+
+	// adjust formants to give better results for a different voice pitch
+	factor = 256 + (25 * (pitch_adjustment - 50))/50;
+	for(ix=0; ix<=5; ix++)
 	{
-		v->freq[pk] = int(v->pcnt[pk][0] * 2.56001 * v->pcnt[N_PEAKS][0] / 100.0);
-		v->height[pk] = int(v->pcnt[pk][1] * 2.56001 * v->pcnt[N_PEAKS][1] / 100.0);
-		v->width[pk] = int(v->pcnt[pk][2] * 2.56001 * v->pcnt[N_PEAKS][2] / 100.0);
+		voice->freq[ix] = (voice->freq2[ix] * factor)/256;
 	}
-}
-
-
-static void VoiceInit()
-{//====================
-	int  pk, j;
-	voice_t *v;
-
-	v = &voice_data;
-
-	v->pitch_base = 71 << 12;
-	v->pitch_range =  0x1000;     // default = 0x1000
-	
-	// initialise formant modifications to 100%
-	for(pk=0; pk<N_PEAKS+1; pk++)
-	{
-		for(j=0; j<3; j++)
-			v->pcnt[pk][j] = 100;
-	}
-	VoiceSetup();
-
-	voice = v;
-}  // end of voice_init
+}  //  end of PitchAdjustment
 
 
 
@@ -147,8 +136,8 @@ int initialise(void)
 	}
 
 	WavegenInit(22050,0);   // 22050
-	VoiceInit();
 	LoadPhData();
+	LoadConfig();
 	SynthesizeInit();
 	return(0);
 }
@@ -170,19 +159,20 @@ int main (int argc, char **argv)
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
 		{"stdout",  no_argument,       0, 0x101},
-		{"compile", optional_argument,       0, 0x102},
+		{"compile", optional_argument, 0, 0x102},
+		{"punct",   optional_argument, 0, 0x103},
 		{0, 0, 0, 0}
 		};
 
 	int option_index = 0;
 	int c;
 	int value;
-	int speed = 160;  // default
 	int amp = 10;     // default
 	int speaking = 0;
 	int quiet = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
+	int pitch_adjustment = 50;
 	int error;
 	char filename[120];
 	char voicename[40];
@@ -195,11 +185,12 @@ int main (int argc, char **argv)
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
+	option_utf8 = 2;
 	f_trans = NULL;
 
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:f:hl:pPqs:v:w:",
+		c = getopt_long (argc, argv, "a:f:hk:l:p:qs:v:w:xX",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -214,13 +205,21 @@ int main (int argc, char **argv)
 			exit(0);
 			break;
 
-		case 'p':
+		case 'k':
+			option_capitals = atoi(optarg);
+			break;
+
+		case 'x':
 			option_phonemes = 1;
 			break;
 
-		case 'P':
+		case 'X':
 			option_phonemes = 2;
 			f_trans = stdout;
+			break;
+
+		case 'p':
+			pitch_adjustment = atoi(optarg);
 			break;
 
 		case 'q':
@@ -242,7 +241,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 's':
-			speed = atoi(optarg);
+			global_speed = atoi(optarg);
 			break;
 
 		case 'v':
@@ -269,6 +268,12 @@ int main (int argc, char **argv)
 			flag_compile = 1;
 			break;
 
+		case 0x103:		// --punct
+			if(optarg != NULL)
+				strncpy0(option_punctlist,optarg,sizeof(option_punctlist));
+			option_punctuation = 1;
+			break;
+
 		default:
 			abort();
 		}
@@ -276,11 +281,10 @@ int main (int argc, char **argv)
 
 	initialise();
 
-	if((error = LoadVoice(voicename,0)) != 0)
+	if(LoadVoice(voicename,0) == NULL)
 	{
 		fprintf(stderr,"Failed to load voice '%s'\n",voicename);
-		if(error < 0)
-			exit(error);
+		exit(2);
 	}
 
 	if(flag_compile)
@@ -288,7 +292,14 @@ int main (int argc, char **argv)
 		CompileDictionary(dictionary_name,0);
 		exit(0);
 	}
-	SetSpeed(speed,amp);
+	SetSpeed(global_speed,3);
+	SetAmplitude(amp);
+
+	if(pitch_adjustment != 50)
+	{
+		PitchAdjust(pitch_adjustment);
+	}
+	WavegenSetVoice(voice);
 
 	if(filename[0]==0)
 	{

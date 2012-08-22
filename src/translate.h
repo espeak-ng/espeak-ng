@@ -18,6 +18,9 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
+#define REPLACED_E       'E'          // 'e' replaced by silent e
+
 #define N_WORD_PHONEMES  120          // max phonemes in a word
 #define N_CLAUSE_WORDS   256          // max words in a clause
 #define N_CHAINS2        120          // max num of two-letter rule chains
@@ -55,6 +58,7 @@
 #define FLAG_PHONEMES      0x8    /* word is phonemes */
 #define FLAG_LAST_WORD    0x10    /* last word in clause */
 #define FLAG_STRESSED_WORD  0x20    /* this word has explicit stress */
+#define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 
 // prefix/suffix flags
 #define SUFX_E        0x0100   // e may have been added
@@ -123,6 +127,7 @@ typedef struct {
 	unsigned char phcode;
 	unsigned char stress;
 	unsigned char tone_number; 
+	unsigned char synthflags;
 	short sourceix;
 } PHONEME_LIST2;
 
@@ -135,38 +140,33 @@ class Translator
 public:
 	Translator();
 	virtual ~Translator();
-	char *TranslateClause(FILE *f_text, char *buf, int *tone);
+	char *TranslateClause(FILE *f_text, char *buf, int *tone, char **voice_change);
 	int LoadDictionary(const char *name);
 	virtual void CalcLengths();
 	virtual void CalcPitches(int clause_tone);
 	
 	char *input_start;
 	char phon_out[300];
-	FILE *f_input;
 
 protected:
 	int TranslateWord(char *word, int next_pause, int wflags);
 	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix);
-	void TranslateLetter(char letter, char *phonemes);
+	int TranslateLetter(char *letter, char *phonemes);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
-	void MakePhonemeList(int post_pause);
+	void MakePhonemeList(int post_pause, int embedded);
+	int EmbeddedCommand(unsigned int &source_index);
 	
-	char GetC(void);
-	void UngetC(char c);
-	int Eof(void);
-	int Pos(void);
-	char *p_input;
-	char ungot_char;
-	int end_of_input;
 
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
 	virtual int RemoveEnding(char *word, int end_type);
 
 	int ReadClause(FILE *f_in, char *buf, int n_buf);
+	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
 	int LookupDict2(char *word, char *word2, char *phonetic, unsigned int *flags, int end_flags);
 	int LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags);
+	const char *LookupCharName(int c);
 
 	void InitGroups(void);
 	void AppendPhonemes(char *string, const char *ph);
@@ -174,14 +174,11 @@ protected:
 	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags);
 	int TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags);
 
-	int IsLetter(unsigned char letter, int group);
-	int IsVowel(unsigned char letter);
+	int IsLetter(int letter, int group);
+	int IsVowel(int letter);
 	void SetLetterBits(int group, const char *string);
 	int GetVowelStress(char *phonemes, char *vowel_stress, int *vowel_count, int stressed_syllable);
 
-   char prev_locale[40];	// previous value of locale before this translator was created
-
-	char source[300];     // the source text of a single clause
 
 	int n_ph_list2;
 	PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
@@ -268,6 +265,7 @@ private:
 extern unsigned char letter_bits[256];
 
 
+
 extern int stress_lengths[8];
 extern int stress_amps[8];
 extern int stress_amps_r[8];
@@ -279,20 +277,23 @@ extern int option_vowel_pause;    // 1=pause before words starting with vowel
 extern int option_stress_rule;    // 1=first syllable, 2=penultimate,  3=last
 extern int option_unstressed_wd1; // stress for $u word of 1 syllable
 extern int option_unstressed_wd2; // stress for $u word of >1 syllable
-extern int option_echo_delay;
-extern int option_echo_amp;
 extern int option_amplitude;
 extern int option_waveout;
 extern int option_phonemes;
 extern int option_log_trans;      // log pronunciation translation
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
 extern int option_harmonic1;
-extern int option_flutter;
+extern int option_utf8;
+extern int option_capitals;
+extern int option_punctuation;
+#define N_PUNCTLIST  60
+extern char option_punctlist[N_PUNCTLIST];
 
 extern Translator *translator;
 extern char dictionary_name[40];
-extern int LoadVoice(char *voice_name, int reset);
-extern void CompileDictionary(const char *dict_name, int log);
-extern void strncpy0(char *to,const char *from, int size);
+void CompileDictionary(const char *dict_name, int log);
+void LoadConfig(void);
+void strncpy0(char *to,const char *from, int size);
+int utf8_in(int *c, char *buf, int backwards);
 
 extern FILE *f_trans;		// for logging

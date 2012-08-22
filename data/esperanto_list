@@ -1,23 +1,23 @@
+// This file is UTF-8 encoded
 
-// includes both Latin3 accented characters and Latin1 digraphs (cx, gx, ux, etc)
+// includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
 
 la              $u
 ne              $u
 cxu             $u      // interogative particle
-(cxi tio)       $u
-(cxi tiu)       $u
-æu             $u      // cxi  interogative particle
-(æi tio)       $u
-(æi tiu)       $u
+cxi             $u
+Ä‰u              $u      // cxi  interogative particle
+Ä‰i              $u      // cxi  interogative particle
 ia              $u      // any
 
+de              $u   $strend
+(de la)         dela  $u
 
 antaux          $u   $strend
-antaı          $u    $strend
+antaÅ­           $u   $strend
 apud            $u   $strend
 ol              $u   $strend
 da              $u   $strend
-de              $u   $strend
 al              $u   $strend
 en              $u   $strend
 kun             $u   $strend
@@ -25,14 +25,18 @@ per             $u   $strend
 sub             $u   $strend
 sur             $u   $strend
 
+dum             $pause
+tra             $pause
+
+
 // pronouns
 mi              $u
 ci              $u
 li              $u
 sxi             $u
-şi             $u        // sxi
+Åi             $u        // sxi
 gxi             $u
-øi             $u        // gxi
+Äi             $u        // gxi
 ni              $u
 vi              $u
 ili             $u
@@ -43,9 +47,9 @@ mia             $u
 cia             $u
 lia             $u
 sxia            $u
-şia            $u       // sxia
+Åia            $u       // sxia
 gxia            $u
-øia            $u       // gxia
+Äia            $u       // gxia
 nia             $u
 via             $u
 ilia            $u
@@ -80,17 +84,20 @@ metus           $u
 
 eble            $u       // may
 
-kia             $u
-kie             $u
-kio             $u
-kiu             $u
-kiam            $u
+kia             $u $pause
+kie             $u $pause
+kio             $u $pause
+kiu             $u $pause
+kiuj            $u $pause
+kiun            $pause
+kiunj           $pause
+kiam            $u $pause
 
 // conjunctions
-ke              $u       // that (conj)
-aux             $u
-aı             $u       // aux
-cxar            $u
-æar            $u
-kaj             $u
-sed             $u
+ke              $u $pause      // that (conj)
+aux             $u $pause
+aÅ­             $u $pause      // aux
+cxar            $u $pause
+Ä‰ar            $u $pause
+kaj             $u $pause
+sed             $u $pause

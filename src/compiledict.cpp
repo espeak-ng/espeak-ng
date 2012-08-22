@@ -22,6 +22,7 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <wctype.h>
 
 #include "speech.h"
 #include "phoneme.h"
@@ -30,8 +31,9 @@
 
 #define OPT_PH_COMMON      // sort rules by phoneme string, common phoneme string output only once
 //#define OPT_FORMAT         // format the text and write formatted copy to Log file 
+//#define OUTPUT_FORMAT
 
-extern int HashDictionary(const char *string);
+int HashDictionary(const char *string);
 extern char path_home[];
 extern char path_source[];
 
@@ -131,8 +133,8 @@ static const char *lookup_mnem(MNEM_TAB *table, int value)
 
 
 int compile_line(char *linebuf, char *dict_line, int *hash)
-/**********************************************************/
-{
+{//========================================================
+// Compile a line in the language_list file
 	unsigned char  c;
 	char *p;
 	char *word;
@@ -166,7 +168,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	{
 		c = *p;
 	
-		if(c == '?')
+		if((c == '?') && (step==0))
 		{
 			p++;
 			ix = 0;
@@ -184,7 +186,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 			c = *p;
 		}
 		
-		if(c == '$')
+		if((c == '$') && (step != 1))
 		{
 			/* read keyword parameter */
 			mnemptr = p;
@@ -237,7 +239,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 				}
 			}
 			else
-			if(c == ')')
+			if((c == ')') && multiple_words)
 			{
 				p[0] = 0;
 				step = 3;
@@ -306,11 +308,12 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	}
 	
 	len_word = strlen(word);
-	for(ix=0; ix<len_word; ix++)
+	if((word[0] & 0x80)==0)  // 7 bit ascii only
 	{
-		word[ix] = tolower(word[ix]);
+		// 1st letter - need to consider utf8 here
+		word[0] = tolower(word[0]);
 	}
-	
+
 	*hash = HashDictionary(word);
 	len_phonetic = strlen(encoded_ph);
 	length = len_word + len_phonetic + 3;
@@ -499,6 +502,7 @@ void copy_rule_string(char *string, int &state)
 	char c;
 	int  sxflags;
 	int  value;
+	int  literal;
 
 	if(string[0] == 0) return;
 
@@ -515,90 +519,103 @@ void copy_rule_string(char *string, int &state)
 	
 	for(p=string,ix=0;;)
 	{
+		literal = 0;
 		c = *p++;
+		if(c == '\\')
+		{
+			c = *p++;   // treat next character literally
+			if((c >= '0') && (c <= '2') && (p[0] >= '0') && (p[0] <= '7') && (p[1] >= '0') && (p[1] <= '7'))
+			{
+				// character code given by 3 digit octal value;
+				c = (c-'0')*64 + (p[0]-'0')*8 + (p[1]-'0');
+				p += 2;
+			}
+			literal = 1;
+		}
+
 		if((state==1) || (state==3))
 		{
-			// replace special characters
-			switch(c)
+			// replace special characters (note: 'E' is reserved for a replaced silent 'e')
+			if(literal == 0)
 			{
-			case '\\':		// treat next character literally
-				c = *p++;
-				break;
-			case '_':
-			case '-':
-				c = RULE_SPACE;
-				break;
-			case 'A':
-				c = RULE_LETTER1;
-				break;
-			case 'B':
-				c = RULE_LETTER2;
-				break;
-			case 'C':
-				c = RULE_LETTER3;
-				break;
-			case 'D':
-				c = RULE_DIGIT;
-				break;
-         case 'N':
-				c = RULE_NO_SUFFIX;
-				break;
-			case 'Z':
-				c = RULE_NONALPHA;
-				break;
-			case '+':
-				c = RULE_INC_SCORE;
-				break;
-			case '@':
-				c = RULE_SYLLABLE;
-				break;
-			case '&':
-				c = RULE_STRESSED;
-				break;
-			case '%':
-				c = RULE_DOUBLE;
-				break;
-			case '£':
-				c = RULE_DEL_FWD;
-				break;
-			case 'P':
-				sxflags |= SUFX_P;   // Prefix, now drop through to Suffix
-			case '$':   // obsolete, replaced by S
-			case 'S':
-				output[ix++] = RULE_ENDING;
-				value = 0;
-				while(!isspace(c = *p++) && (c != 0))
+				switch(c)
 				{
-					switch(c)
+				case '_':
+				case '-':
+					c = RULE_SPACE;
+					break;
+				case 'A':
+					c = RULE_LETTER1;
+					break;
+				case 'B':
+					c = RULE_LETTER2;
+					break;
+				case 'C':
+					c = RULE_LETTER3;
+					break;
+				case 'D':
+					c = RULE_DIGIT;
+					break;
+				case 'N':
+					c = RULE_NO_SUFFIX;
+					break;
+				case 'Z':
+					c = RULE_NONALPHA;
+					break;
+				case '+':
+					c = RULE_INC_SCORE;
+					break;
+				case '@':
+					c = RULE_SYLLABLE;
+					break;
+				case '&':
+					c = RULE_STRESSED;
+					break;
+				case '%':
+					c = RULE_DOUBLE;
+					break;
+				case '#':
+					c = RULE_DEL_FWD;
+					break;
+				case 'P':
+					sxflags |= SUFX_P;   // Prefix, now drop through to Suffix
+				case '$':   // obsolete, replaced by S
+				case 'S':
+					output[ix++] = RULE_ENDING;
+					value = 0;
+					while(!isspace(c = *p++) && (c != 0))
 					{
-					case 'e':
-						sxflags |= SUFX_E;
-						break;
-					case 'i':
-						sxflags |= SUFX_I;
-						break;
-					case 'p':	// obsolete, replaced by 'P' above
-						sxflags |= SUFX_P;
-						break;
-					case 'v':
-						sxflags |= SUFX_V;
-						break;
-					case 'd':
-						sxflags |= SUFX_D;
-						break;
-					case 'f':
-						sxflags |= SUFX_F;
-						break;
-					default:
-						if(isdigit(c))
-							value |= (c - '0');
-						break;
+						switch(c)
+						{
+						case 'e':
+							sxflags |= SUFX_E;
+							break;
+						case 'i':
+							sxflags |= SUFX_I;
+							break;
+						case 'p':	// obsolete, replaced by 'P' above
+							sxflags |= SUFX_P;
+							break;
+						case 'v':
+							sxflags |= SUFX_V;
+							break;
+						case 'd':
+							sxflags |= SUFX_D;
+							break;
+						case 'f':
+							sxflags |= SUFX_F;
+							break;
+						default:
+							if(isdigit(c))
+								value |= (c - '0');
+							break;
+						}
 					}
+					p--;
+					output[ix++] = sxflags >> 8;
+					c = value;
+					break;
 				}
-				p--;
-				output[ix++] = sxflags >> 8;
-				c = value;
-				break;
 			}
 		}
 		output[ix++] = c;
@@ -700,7 +717,7 @@ char *compile_rule(char *input)
 	len_name = strlen(group_name);
 	if((len_name > 0) && (memcmp(rule_match,group_name,len_name) != 0))
 	{
-		if((group_name[0] == '9') && isdigit(rule_match[0]))
+		if((group_name[0] == '9') && iswdigit(rule_match[0]))
 		{
 			// numeric group, rule_match starts with a digit, so OK
 		}
@@ -765,7 +782,7 @@ void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 	char buf[80];
 	char suffix[12];
 
-	static unsigned char symbols[] = {'@','&','%','+','£','$','D','Z','A','B','C','F'};
+	static unsigned char symbols[] = {'@','&','%','+','#','$','D','Z','A','B','C','F'};
 
 	fprintf(f_out,"\n$group %s\n",name);
 
@@ -933,10 +950,8 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 	linenum = 0;
 	group_name[0] = 0;
 
-	while(!feof(f_in))
+	while(fgets(buf,sizeof(buf),f_in) != NULL)
 	{
-		if(fgets(buf,sizeof(buf),f_in) == NULL)
-			break;
 		linenum++;
 		
 		if(memcmp(buf,".group",6)==0)

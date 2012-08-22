@@ -25,34 +25,66 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <wctype.h>
+
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
 
 
-extern PHONEME_TAB *phoneme_tab;
-extern char path_home[];
 
-char *data_dictrules = NULL;     // language_1   translation rules file
-char *data_dictlist = NULL;      // language_2   dictionary lookup file
-char *dict_hashtab[N_HASH_DICT];   // hash table to index dictionary lookup file
+static char *data_dictrules = NULL;     // language_1   translation rules file
+static char *data_dictlist = NULL;      // language_2   dictionary lookup file
+static char *dict_hashtab[N_HASH_DICT];   // hash table to index dictionary lookup file
 
 // groups1 and groups2 are indexes into data_dictrules, set up by InitGroups()
 // the two-letter rules for each letter must be consecutive in the language_rules source
 
-char *groups1[256];         // translation rule lists, index by single letter
-char *groups2[N_CHAINS2];   // translation rule lists, indexed by two-letter pairs
-unsigned int groups2_name[N_CHAINS2];  // the two letter pairs for groups2[]
-int n_groups2;              // number of groups2[] entries used
+static char *groups1[256];         // translation rule lists, index by single letter
+static char *groups2[N_CHAINS2];   // translation rule lists, indexed by two-letter pairs
+static unsigned int groups2_name[N_CHAINS2];  // the two letter pairs for groups2[]
+static int n_groups2;              // number of groups2[] entries used
 
-char groups2_count[256];    // number of 2 letter groups for this initial letter
-char groups2_start[256];    // index into groups2
+static char groups2_count[256];    // number of 2 letter groups for this initial letter
+static char groups2_start[256];    // index into groups2
 
 char dictionary_name[40];
 
 // flag bits for each character code, for vowel, consonant, etc
 unsigned char letter_bits[256];
+
+// convert characters to an approximate 7 bit ascii equivalent
+// used for checking for vowels
+static char remove_accent[] = {
+'a','a','a','a','a','a','a','c','e','e','e','e','i','i','i','i',  // 0c0
+'d','n','o','o','o','o','o', 0, 'o','u','u','u','u','y','t','s',  // 0d0
+'a','a','a','a','a','a','a','c','e','e','e','e','i','i','i','i',  // 0e0
+'d','n','o','o','o','o','o', 0 ,'o','u','u','u','u','y','t','y',  // 0f0
+
+'a','a','a','a','a','a','c','c','c','c','c','c','c','c','d','d',  // 100
+'d','d','e','e','e','e','e','e','e','e','e','e','g','g','g','g',  // 110
+'g','g','g','g','h','h','h','h','i','i','i','i','i','i','i','i',  // 120
+'i','i','i','i','j','j','k','k','k','l','l','l','l','l','l','l',  // 130
+'l','l','l','n','n','n','n','n','n','n','n','n','o','o','o','o',  // 140
+'o','o','o','o','r','r','r','r','r','r','s','s','s','s','s','s',  // 150
+'s','s','t','t','t','t','t','t','u','u','u','u','u','u','u','u',  // 160
+'u','u','u','u','w','w','y','y','y','z','z','z','z','z','z','s',  // 170
+'b','b','b','b', 0,  0, 'o','c','c','d','d','d','d','d','e','e',  // 180
+'e','f','f','g','g','h','i','i','k','k','l','l','m','n','n','o',  // 190
+'o','o','o','o','p','p','y', 0,  0, 's','s','t','t','t','t','u',  // 1a0
+'u','u','v','y','y','z','z','z','z','z','z','z', 0,  0,  0, 'w',  // 1b0
+'t','t','t','k','d','d','d','l','l','l','n','n','n','a','a','i',  // 1c0
+'i','o','o','u','u','u','u','u','u','u','u','u','u','e','a','a',  // 1d0
+'a','a','a','a','g','g','g','g','k','k','o','o','o','o','z','z',  // 1e0
+'j','d','d','d','g','g','w','w','n','n','a','a','a','a','o','o',  // 1f0
+
+'a','a','a','a','e','e','e','e','i','i','i','i','o','o','o','o',  // 200
+'r','r','r','r','u','u','u','u','s','s','t','t','y','y','h','h',  // 210
+'n','d','o','o','z','z','a','a','e','e','o','o','o','o','o','o',  // 220
+'o','o','y','y','l','n','t','j','d','q','a','c','c','l','t','s',  // 230
+'z', 0 };
+
 
 
 
@@ -73,8 +105,8 @@ void strncpy0(char *to,const char *from, int size)
 
 
 
-int LoadDictFile(const char *name, const char *suffix, char **data_ptr)
-{//====================================================================
+static int LoadDictFile(const char *name, const char *suffix, char **data_ptr)
+{//===========================================================================
 // Load a pronunciation data file into memory
 	FILE *f;
 	char *ptr;
@@ -102,6 +134,14 @@ int LoadDictFile(const char *name, const char *suffix, char **data_ptr)
 }  // end of LoadDictFile
 
 
+#ifdef PLATFORM_RISCOS
+void FreeDictionary(void)
+{//======================
+	Free(data_dictrules);
+	Free(data_dictlist);
+}
+#endif
+
 
 int Translator::LoadDictionary(const char *name)
 {//=============================================
@@ -119,6 +159,10 @@ int Translator::LoadDictionary(const char *name)
 
 	// set up indices into data_dictrules
 	InitGroups();
+	if(groups1[0] == NULL)
+	{
+		fprintf(stderr,"Error in %s_rules, no default rule group\n",name);
+	}
 
 	// set up hash table for data_dictlist
 	p = &data_dictlist[4];
@@ -201,6 +245,7 @@ void Translator::InitGroups(void)
 		}
 		p++;
 	}
+
 }  //  end of InitGroups
 
 
@@ -214,9 +259,8 @@ int HashDictionary(const char *string)
 	int  chars=0;
    int  hash=0;
 
-   while((c = *string++) != 0)
+   while((c = (*string++ & 0xff)) != 0)
    {
-      c = tolower(c) - 'a';
       hash = hash * 8 + c;
       hash = (hash & 0x3ff) ^ (hash >> 8);    /* exclusive or */
 		chars++;
@@ -367,7 +411,7 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 	unsigned int mnem;
 	PHONEME_LIST *plist;
 	
-	static const char *stress_chars = "~~,,'*";
+	static const char *stress_chars = "==,,'*";
 
 	if(phon_out != NULL)
 	{
@@ -495,14 +539,20 @@ return(0);
 
 
 
-int Translator::IsLetter(unsigned char letter, int group)
-{//======================================================
-	return(letter_bits[letter] & (1L << group));
+int Translator::IsLetter(int letter, int group)
+{//============================================
+	if(letter < 0x80)
+		return(letter_bits[letter] & (1L << group));
+
+	if((letter >= 0xc0) && (letter <= 0x241))
+		return(letter_bits[remove_accent[letter-0xc0]] & (1L << group));
+
+	return(0);
 }
 
 
-int Translator::IsVowel(unsigned char letter)
-{//==========================================
+int Translator::IsVowel(int letter)
+{//================================
 	return(letter_bits[letter] & 0x01);
 }
 
@@ -660,7 +710,10 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				stressed_syllable = vowel_count - 2;
 			else
 				stressed_syllable = 1;
-			vowel_stress[stressed_syllable] = 4;
+
+			// don't stress if next and prev syllables are stressed
+			if((vowel_stress[stressed_syllable-1] < 4) || (vowel_stress[stressed_syllable+1] < 4))
+				vowel_stress[stressed_syllable] = 4;
 			max_stress = 4;
 		}
 	}
@@ -832,7 +885,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','£','S','D','Z','A','B','C','E','F','G','N'};
+			'@','&','%','+','#','S','D','Z','A','B','C','E','F','G','N'};
 
 
 	match_type = 0;
@@ -978,8 +1031,10 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 	end_flags:  indicates whether this is a retranslation after a suffix has been removed
 */
 
-	unsigned char rb;     /* current instuction from rule */
-	unsigned char letter;          /* current letter from input word */
+	unsigned char rb;     // current instuction from rule
+	unsigned char letter;   // current letter from input word, single byte
+	int letter_w;         // current letter, wide character
+	int letter_xbytes;    // number of extra bytes of multibyte character (num bytes - 1)
 	unsigned char last_letter;
 
 	char *pre_ptr;
@@ -1008,8 +1063,12 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 
 
+	if(rule == NULL)
+	{
+		match_out->points = 0;
+		return;
+	}
 
-	group_length = strlen(group);
 
 	total_consumed = 0;
 	count = 0;
@@ -1020,6 +1079,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 	best.phonemes = "";
 	best.end_type = 0;
 	best.del_fwd = NULL;
+
+	group_length = strlen(group);
 	
 	/* search through dictionary rules */
 	while(rule[0] != RULE_GROUP_END)
@@ -1092,7 +1153,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				last_letter = letter;
 				letter = *post_ptr++;
 
-				if((letter == rb) || ((letter==(unsigned char)'¬') && (rb=='e')))
+				if((letter == rb) || ((letter==(unsigned char)REPLACED_E) && (rb=='e')))
 				{
 					match.points += 21;
 					consumed++;
@@ -1108,9 +1169,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				if(distance_right > 18)
 					distance_right = 19;
 				last_letter = letter;
+				letter_xbytes = utf8_in(&letter_w,post_ptr,0)-1;
 				letter = *post_ptr++;
-//				if(letter == '¬')
-//					letter = 'e';
 
 				switch(rb)
 				{
@@ -1118,22 +1178,31 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				case RULE_LETTER2:
 				case RULE_LETTER3:
 				case RULE_LETTER4:
-					if(IsLetter(letter,rb-RULE_LETTER1))
+					if(IsLetter(letter_w,rb-RULE_LETTER1))
+					{
 						match.points += (20-distance_right);
+						post_ptr += letter_xbytes;
+					}
 					else
 						failed = 1;
 					break;
 
 				case RULE_DIGIT:
-					if(isdigit(letter))
+					if(iswdigit(letter_w))
+					{
 						match.points += (21-distance_right);
+						post_ptr += letter_xbytes;
+					}
 					else
 						failed = 1;
 					break;
 					
 				case RULE_NONALPHA:
-					if(!isalpha(letter))
+					if(!iswalpha(letter_w))
+					{
 						match.points += (21-distance_right);
+						post_ptr += letter_xbytes;
+					}
 					else
 						failed = 1;
 					break;
@@ -1146,7 +1215,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_SYLLABLE:
-					/* more than specified number of vowels to the left */
+					/* more than specified number of vowel letters to the right */
 					syllable_count = 1;
 					while(*rule == RULE_SYLLABLE)
 					{
@@ -1174,7 +1243,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_DEL_FWD:
-					// find the next 'e' in the word and replace by '¬'
+					// find the next 'e' in the word and replace by ''
 					for(p = *word + group_length; *p != ' '; p++)
 					{
 						if(*p == 'e')
@@ -1218,11 +1287,9 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					distance_left = 19;
 
 				last_letter = *pre_ptr;
-				letter = *(--pre_ptr);
-#ifdef deleted
-				if(letter == '¬')
-					letter = *(--pre_ptr);     /* ignore a discarded 'e' */
-#endif
+				pre_ptr--;
+				letter_xbytes = utf8_in(&letter_w,pre_ptr,1)-1;
+				letter = *pre_ptr;
 
 				switch(rb)
 				{
@@ -1230,8 +1297,11 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 				case RULE_LETTER2:
 				case RULE_LETTER3:
 				case RULE_LETTER4:
-					if(IsLetter(letter,rb-RULE_LETTER1))
+					if(IsLetter(letter_w,rb-RULE_LETTER1))
+					{
 						match.points += (20-distance_left);
+						pre_ptr -= letter_xbytes;
+					}
 					else
 						failed = 1;
 					break;
@@ -1244,15 +1314,21 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_DIGIT:
-					if(isdigit(letter))
+					if(iswdigit(letter_w))
+					{
 						match.points += (21-distance_left);
+						pre_ptr -= letter_xbytes;
+					}
 					else
 						failed = 1;
 					break;
 
 				case RULE_NONALPHA:
-					if(!isalpha(letter))
+					if(!iswalpha(letter_w))
+					{
 						match.points += (21-distance_right);
+						pre_ptr -= letter_xbytes;
+					}
 					else
 						failed = 1;
 					break;
@@ -1275,6 +1351,20 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					if(word_stressed_count > 0)
 						match.points += 19;
 					else
+						failed = 1;
+					break;
+
+				case '.':
+					// dot in pre- section, match on any dot before this point in the word
+					for(p=pre_ptr; *p != ' '; p--)
+					{
+						if(*p == '.')
+						{
+							match.points +=50;
+							break;
+						}
+					}
+					if(*p == ' ')
 						failed = 1;
 					break;
 
@@ -1362,6 +1452,8 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 	int  g;             /* group chain number */
 	int  g1;            /* first group for this letter */
 	int  n;
+	int  letter;
+	char *p_start;
 	MatchRecord match1;
 	MatchRecord match2;
 	
@@ -1382,6 +1474,7 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 	}
 #endif
 
+	p_start = p;
 	word_vowel_count = 0;
 	word_stressed_count = 0;
 	
@@ -1390,23 +1483,18 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 	
 	while(((c = *p) != ' ') && (c != 0))
 	{
+		n = groups2_count[c];
 		if((c >= '0') && (c <= '9'))
 		{
 			MatchRule(&p, "", groups1[(unsigned char)'9'],&match1,end_flags);
 		}
 		else
-		if(groups1[c] == NULL)
-		{
-			// no chain defined for this letter, use default chain
-			MatchRule(&p, "", groups1[0],&match1,end_flags);
-		}
-		else
 		{
 			found = 0;
 	
-			if((n = groups2_count[c]) > 0)
+			if(n > 0)
 			{
-				/* there are some 2 letter chains for this initial letter */
+				/* there are some 2 byte chains for this initial letter */
 				c2 = p[1];
 				c12 = c + (c2 << 8);   /* 2 characters */
 	
@@ -1429,7 +1517,7 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 						group_name[1] = 0;
 						MatchRule(&p, group_name, groups1[c], &match1, end_flags);
 
-						if(match2.points > match1.points)
+						if(match2.points >= match1.points)
 						{
 							// use match from the 2-letter group
 							memcpy(&match1,&match2,sizeof(MatchRecord));
@@ -1445,7 +1533,31 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 				group_name[0] = c;
 				group_name[1] = 0;
 	
-				MatchRule(&p, group_name, groups1[c], &match1, end_flags);
+				if(groups1[c] != NULL)
+					MatchRule(&p, group_name, groups1[c], &match1, end_flags);
+				else
+				{
+					// no group for this letter, use default group
+					MatchRule(&p, "", groups1[0],&match1,end_flags);
+
+					if(match1.points == 0)
+					{
+						// no match, try removing the accent and re-translating the word
+						n = utf8_in(&letter,p-1,0)-1;
+						if((letter >= 0xc0) && (letter <= 0x241))
+						{
+							// within range of the remove_accent table
+							p[-1] = remove_accent[letter-0xc0];
+							while((p[0] = p[n]) != ' ')  p++;
+							while(n-- > 0) *p++ = ' ';  // replacement character must be no longer than original
+							phonemes[0] = 0;  // delete any phonemes which have been produced so far
+							p = p_start;
+							word_vowel_count = 0;
+							word_stressed_count = 0;
+							continue;  // start again at the beginning of the word
+						}
+					}
+				}
 			}
 		}
 	
@@ -1459,7 +1571,7 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 			return(match1.end_type);
 		}
 		if(match1.del_fwd != NULL)
-			*match1.del_fwd = '¬';
+			*match1.del_fwd = REPLACED_E;
 		AppendPhonemes(phonemes,match1.phonemes);
 	}
 	return(0);
@@ -1663,7 +1775,7 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 
 	for(length=0; length<N_WORD_PHONEMES; length++)
 	{
-		if(((c = *word1++)==0) || isspace(c))
+		if(((c = *word1++)==0) || (c == ' '))
 			break;
 		word[length] = c;
 	}
@@ -1726,7 +1838,7 @@ int Translator::RemoveEnding(char *word, int end_type)
 	for(word_end = word; *word_end != ' '; word_end++)
 	{
 		/* replace discarded 'e's */
-		if(*word_end == '¬')
+		if(*word_end == REPLACED_E)
 			*word_end = 'e';
 	}
 	

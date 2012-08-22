@@ -92,6 +92,7 @@
 #define phonEND_WORD    15
 #define phonSONORANT    16
 #define phonDEFAULTTONE 17
+#define phonCAPITAL     18
 
 
 
@@ -145,7 +146,7 @@ extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
 
 
-extern char *EncodePhonemes(char *p, char *outptr, char *bad_phoneme);
-extern void DecodePhonemes(const char *inptr, char *outptr);
-extern const char *PhonemeTabName(void);
+char *EncodePhonemes(char *p, char *outptr, char *bad_phoneme);
+void DecodePhonemes(const char *inptr, char *outptr);
+const char *PhonemeTabName(void);
 

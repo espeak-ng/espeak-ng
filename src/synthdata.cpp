@@ -31,10 +31,7 @@
 
 static int stress_lengths1[8] = {182,140, 220,220, 220,240, 248,250};
 static int stress_amps1[] = {16,16, 20,20, 20,24, 24,22 };
-extern char path_home[];
 char voice_name[40];
-int option_echo_delay;
-int option_echo_amp;
 
 // limit the rate of change for each formant number
 //static float formant_rate_22050[9] = {0.2, 0.4, 0.64, 0.9, 0.85, 0.85, 1, 1, 1};
@@ -44,18 +41,18 @@ int formant_rate[9];         // values adjusted for actual sample rate
 
 PHONEME_TAB *phoneme_tab=NULL;
 unsigned int *phoneme_index=NULL;
-char *spects_data=NULL;
+static char *spects_data=NULL;
 unsigned char *wavefile_data=NULL;
-unsigned char *phoneme_tab_data = NULL;
+static unsigned char *phoneme_tab_data = NULL;
 
-int n_phoneme_tables;
-int phoneme_tab_number = 0;
-PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
+static int n_phoneme_tables;
+static int phoneme_tab_number = 0;
+static PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
 
 int wavefile_ix;              // a wavefile to play along with the synthesis
-int seq_len_adjust;
+static int seq_len_adjust;
 
-extern void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which);
+void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which);
 
 
 unsigned int StringToWord(const char *string)
@@ -65,7 +62,7 @@ unsigned int StringToWord(const char *string)
 	unsigned int word;
 
 	word = 0;
-	for(ix=0; ix<3; ix++)
+	for(ix=0; ix<4; ix++)
 	{
 		if(string[ix]==0) break;
 		c = string[ix];
@@ -97,8 +94,8 @@ const char *PhonemeTabName(void)
 }
 
 
-int ReadPhFile(char **ptr, const char *fname)
-{//==========================================
+static int ReadPhFile(char **ptr, const char *fname)
+{//=================================================
 	FILE *f_in;
 	char *p;
 	unsigned int  length;
@@ -168,10 +165,17 @@ int LoadPhData()
 	return(0);
 }  //  end of LoadPhData
 
+#ifdef PLATFORM_RISCOS
+void FreePhData(void)
+{//==================
+	Free(phoneme_tab_data);
+	Free(phoneme_index);
+	Free(spects_data);
+}
+#endif
 
-
-unsigned int LookupSound2(int index, unsigned int phcode)
-{//======================================================
+static unsigned int LookupSound2(int index, unsigned int phcode)
+{//=============================================================
 	unsigned int value, value2;
 	
 	while((value = phoneme_index[index++]) != 0)
@@ -429,7 +433,7 @@ typedef struct {
 	int data;
 } keywtab_t;
 
-keywtab_t keyword_tab[] = {
+static keywtab_t keyword_tab[] = {
 	{"formant",   1},
 	{"pitch",     2},
 	{"phonemes",  3},
@@ -443,11 +447,16 @@ keywtab_t keyword_tab[] = {
 	{"words",      11},
 	{"echo",       12},
 	{"flutter",    13},
+	{"roughness",  14},
 	{NULL,   0} };
 
+#define N_VOICES 100
+int n_voices_tab = 0;
+voice_t *voices_tab[N_VOICES];
 
-void VoiceReset(void)
-{//==================
+
+static void VoiceReset(void)
+{//=========================
 	// Set voice to the default values
 	int  pk;
 	int  ix;
@@ -455,9 +464,19 @@ void VoiceReset(void)
 // try default of:  pitch 82,118
 	voice->pitch_base =   0x49000;      // default 71 << 12;
 	voice->pitch_range =  0x0f30;     // default = 0x1000
+
+	voice->echo_delay = 0;
+	voice->echo_amp = 0;
+	voice->flutter = 64;
+#ifdef PLATFORM_RISCOS
+	voice->roughness = 1;
+#else
+	voice->roughness = 2;
+#endif
+
 	voice->intonation1 = 0;
 	voice->intonation2 = 0;
-option_stress_rule = 2;
+	option_stress_rule = 2;
 	
 
 	for(pk=0; pk<N_PEAKS; pk++)
@@ -476,10 +495,6 @@ option_stress_rule = 2;
 	voice->speedf2 = 238;
 	voice->speedf3 = 232;
 
-	option_echo_delay = 0;
-	option_echo_amp = 0;
-	option_flutter = 64;
-
 	// relative lengths of different stress syllables
 	memcpy(stress_lengths,stress_lengths1,sizeof(stress_lengths));
 	memcpy(stress_amps,stress_amps1,sizeof(stress_amps));
@@ -494,8 +509,8 @@ option_stress_rule = 2;
 }
 
 
-void VoiceFormant(char *p)
-{//=======================
+static void VoiceFormant(char *p)
+{//==============================
 	// Set parameters for a formant
 	int ix;
 	int formant;
@@ -519,8 +534,8 @@ void VoiceFormant(char *p)
 }
 
 
-int VoicePhonemes(const char *name)
-{//================================
+static int VoicePhonemes(const char *name)
+{//=======================================
 // Look up a phoneme set by name, and select it if it exists
 	int ix;
 
@@ -539,8 +554,11 @@ int VoicePhonemes(const char *name)
 }
 
 
-int VoiceLanguage(const char *name)
-{//================================
+static int VoiceLanguage(const char *name)
+{//=======================================
+	if(translator != NULL)
+		delete translator;
+
 	if(strcmp(name,"english")==0)
 	{
 		translator = new Translator_English();
@@ -549,28 +567,53 @@ int VoiceLanguage(const char *name)
 	if(strcmp(name,"esperanto")==0)
 	{
 		translator = new Translator_Esperanto();
-		return(3);
+		return(1);
 	}
 	if(strcmp(name,"german")==0)
 	{
 		translator = new Translator_German();
-		return(2);
+		return(1);
 	}
 	if(strcmp(name,"tone")==0)
 	{
 		translator = new Translator_Tone();
-		return(3);
+		return(1);
 	}
 	translator = new Translator_Default();
 	return(-1);
 }
 
 
+static voice_t *VoiceLookup(char *voicename)
+{//=========================================
+	int ix;
+	voice_t *v;
 
-int LoadVoice(char *voicename, int reset)
-{//============================================
+	for(ix=0; ix < N_VOICES; ix++)
+	{
+		if(ix == n_voices_tab)
+		{
+			// found a free slot
+			v = (voice_t *)Alloc(sizeof(voice_t));
+			if(v == NULL)
+				return(NULL);
+			voices_tab[n_voices_tab++] = v;
+			strncpy0(v->name,voicename,sizeof(v->name));
+			return(v);
+		}
+		else
+		if(strcmp(voices_tab[ix]->name,voicename)==0)
+		{
+			return(voices_tab[ix]);   // found the entry for the specified voice name
+		}
+	}
+	return(NULL);  // table is full
+}
+
+
+voice_t *LoadVoice(char *vname, int reset)
+{//=======================================
 	FILE *f_voice = NULL;
-	char buf[120];
 	keywtab_t *k;
 	char *p;
 	int  key;
@@ -581,33 +624,38 @@ int LoadVoice(char *voicename, int reset)
 	int  replace_type=0;
 	int  error = 0;
 	int  language_set = 0;
+	voice_t *v;
+	char voicename[40];
 	char new_dictionary[80];
 	char language_name[80];
 	char phonemes_name[80];
 	char phon_string1[12];
 	char phon_string2[12];
+	char buf[120];
 
 	int pitch1;
 	int pitch2;
 
-	VoiceReset();
 	strcpy(language_name,"english");
 	strcpy(new_dictionary,language_name);      // default
 	strcpy(phonemes_name,language_name);
 	if(translator != NULL)
 		delete translator;
 
+	strcpy(voicename,vname);
+	if(voicename[0]==0)
+		strcpy(voicename,"default");
+
+	sprintf(buf,"%s%cvoices%c%s",path_home,PATHSEP,PATHSEP,voicename);
+	f_voice = fopen(buf,"r");
+
+	if((v = VoiceLookup(voicename)) != NULL)
+		voice = v;
+	VoiceReset();
+
 	translator = new Translator_English();
 	VoicePhonemes(phonemes_name);
 
-	if(voicename != NULL)
-	{
-		if(voicename[0]==0)
-			strcpy(voicename,"default");
-
-		sprintf(buf,"%s%cvoices%c%s",path_home,PATHSEP,PATHSEP,voicename);
-		f_voice = fopen(buf,"r");
-	}
 
 	while((f_voice != NULL) && (fgets(buf,sizeof(buf),f_voice) != NULL))
 	{
@@ -659,13 +707,13 @@ int LoadVoice(char *voicename, int reset)
 			n = sscanf(p,"%s",new_dictionary);
 			break;
 
-		case 6:
+		case 6:   // stressLength
 			sscanf(p,"%d %d %d %d %d %d %d %d",
 				&stress_lengths[0], &stress_lengths[1], &stress_lengths[2], &stress_lengths[3],
 				&stress_lengths[4], &stress_lengths[5], &stress_lengths[6], &stress_lengths[7]);
 			break;
 
-		case 7:
+		case 7:   // stressAmp
 			sscanf(p,"%d %d %d %d %d %d %d %d",
 				&stress_amps[0], &stress_amps[1], &stress_amps[2], &stress_amps[3],
 				&stress_amps[4], &stress_amps[5], &stress_amps[6], &stress_amps[7]);
@@ -673,7 +721,7 @@ int LoadVoice(char *voicename, int reset)
 					stress_amps_r[ix] = stress_amps[ix] -1;
 			break;
 
-		case 8:
+		case 8:   // intonation
 			sscanf(p,"%d %d",&option_tone1,&option_tone2);
 			break;
 
@@ -693,29 +741,37 @@ int LoadVoice(char *voicename, int reset)
 			replace_phonemes[n_replace_phonemes++].type = replace_type;
 			break;
 
-		case 11:
+		case 11:   // words
 			sscanf(p,"%d",&option_words);
 			break;
 
 		case 12:
 			// echo.  suggest: 135mS  11%
 			value = 0;
-			option_echo_amp = 0;
-			sscanf(p,"%d %d",&value,&option_echo_amp);
-			option_echo_delay = int((value * samplerate)/1000.0);
+			voice->echo_amp = 0;
+			sscanf(p,"%d %d",&voice->echo_delay,&voice->echo_amp);
 			break;
 
-		case 13:
+		case 13:   // flutter
 			if(sscanf(p,"%d",&value)==1)
-				option_flutter = value * 32;
+				voice->flutter = value * 32;
+			break;
+
+		case 14:   // roughness
+			if(sscanf(p,"%d",&value)==1)
+				voice->roughness = value;
 			break;
 		}
 	}
 	if(f_voice != NULL)
 		fclose(f_voice);
 
-
-	WavegenSetEcho(option_echo_delay,option_echo_amp);
+	for(ix=0; ix<N_PEAKS; ix++)
+	{
+		voice->freq2[ix] = voice->freq[ix];
+		voice->height2[ix] = voice->height[ix];
+		voice->width2[ix] = voice->width[ix];
+	}
 
 	if(VoicePhonemes(phonemes_name) != 0)
 	{
@@ -725,10 +781,10 @@ int LoadVoice(char *voicename, int reset)
 	{
 		error = translator->LoadDictionary(new_dictionary);
 		if(dictionary_name[0]==0)
-			error = -1;   // no dictionary loaded
+			return(NULL);   // no dictionary loaded
 	}
 
 	strcpy(voice_name,voicename);
-	return(error);
+	return(voice);
 }
 

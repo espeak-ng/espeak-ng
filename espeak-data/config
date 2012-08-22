@@ -1,0 +1,8 @@
+soundicon _( /usr/share/sounds/sound-icons/left-round-bracket
+soundicon _) /usr/share/sounds/sound-icons/right-round-bracket
+soundicon _[ /usr/share/sounds/sound-icons/left-square-bracket
+soundicon _] /usr/share/sounds/sound-icons/right-square-bracket
+soundicon _{ /usr/share/sounds/sound-icons/left-brace
+soundicon _} /usr/share/sounds/sound-icons/right-brace
+
+

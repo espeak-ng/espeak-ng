@@ -1,3 +1,4 @@
+// This file is UTF-8 encoded
 
 .group a
           _) a (_         A:
@@ -9,7 +10,7 @@
              a (C%        a
              a (BC        a
              a (sch       a
-             a (ß         a
+             a (ÃŸ         a
 
              ai           aI
              au           aU
@@ -42,13 +43,13 @@
           o) ch           x
           u) ch           x
          au) ch           x
-         äu) ch           C
+         Ã¤u) ch           C
          eu) ch           C
              chs          ks
              ck           k
 
           @) chen (_$4    C@n
-         nä) chs (t       Cs
+         nÃ¤) chs (t       Cs
 
 .group d
           _) d (_         deI
@@ -69,7 +70,7 @@
              e (C%        E
              e (BC        E
              e (sch       E
-             e (ß         E
+             e (ÃŸ         E
 
              ei           aI
              eu           OI
@@ -93,9 +94,9 @@
           &) er (C@       E2r
           &) el (@        E2l
 
-          _) ent (@       ¬Ent
+          _) ent (@       %Ent
           _) enten        Ent@n
-          _) er (@        ¬E:r
+          _) er (@        %E:r
 
 .group f
              f            f
@@ -129,7 +130,7 @@
              hinaus       hIn'aUs
              hinein       hIn'aIn
              hinweg       hInv'e:g
-             hinzü        hInts'y
+             hinzÃ¼        hInts'y
 
 .group i
              i            i:
@@ -140,7 +141,7 @@
              i (C%        I
              i (BC        I
              i (sch       I
-             i (ß         I
+             i (ÃŸ         I
           @) i (ng        I
 
              ier (_       i|@r
@@ -191,7 +192,7 @@
              o (C%        O
              o (BC        O
              o (sch       O
-             o (ß         O
+             o (ÃŸ         O
 
              oe           Y:
 
@@ -247,12 +248,12 @@
              u (C%        U
              u (BC        U
              u (sch       U
-             u (ß         U
+             u (ÃŸ         U
           @) u (ng        U
 
-          _) un (@P2      ¬Un
+          _) un (@P2      %Un
 
-          _) unter (@P5   ¬Unt@r
+          _) unter (@P5   %Unt@r
 
 
 .group v
@@ -260,9 +261,9 @@
              v            f
           v) v
 
-          _) ver (@       f¬E:r
+          _) ver (@       f%E:r
 
-             vorüber      fo:r'yb@r
+             vorÃ¼ber      fo:r'yb@r
 
 .group w
           _) w (_         veI
@@ -283,42 +284,42 @@
              z            ts
           z) z
 
-          _) zer (@       ¬tsEr
-          _) zu (C@P2     ts¬u
+          _) zer (@       %tsEr
+          _) zu (C@P2     ts%u:
 
-.group ä
-             ä            e:
-             äh           e:
+.group Ã¤
+             Ã¤            e:
+             Ã¤h           e:
 
-             ä (C%        E
-             ä (BC        E
-             ä (sch       E
-             ä (ß         E
+             Ã¤ (C%        E
+             Ã¤ (BC        E
+             Ã¤ (sch       E
+             Ã¤ (ÃŸ         E
 
-             äu           OI
+             Ã¤u           OI
 
-.group ö
-             ö            Y:
-             öh           Y:
+.group Ã¶
+             Ã¶            Y:
+             Ã¶h           Y:
 
-             ö (C%        W
-             ö (BC        W
-             ö (sch       W
-             ö (ß         W
+             Ã¶ (C%        W
+             Ã¶ (BC        W
+             Ã¶ (sch       W
+             Ã¶ (ÃŸ         W
 
-.group ü
-             ü            y:
-             üh           y:
+.group Ã¼
+             Ã¼            y:
+             Ã¼h           y:
 
-             ü (C%        y
-             ü (BC        y
-             ü (sch       y
-             ü (ß         y
+             Ã¼ (C%        y
+             Ã¼ (BC        y
+             Ã¼ (sch       y
+             Ã¼ (ÃŸ         y
 
-          _) über (@P4    ,y:b@r
+          _) Ã¼ber (@P4    ,y:b@r
 
-.group ß
-             ß            s
+.group ÃŸ
+             ÃŸ            s
 
 
 .group 9
