@@ -363,7 +363,7 @@ private:
 	void SetSpellingStress(char *phonemes, int control);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	void WriteMnemonic(int *ix, int mnem);
-	void MakePhonemeList(int post_pause, int embedded, int new_sentence);
+	void MakePhonemeList(int post_pause, int new_sentence);
 	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
 
 	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);

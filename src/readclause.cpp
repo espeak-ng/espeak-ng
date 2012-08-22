@@ -119,7 +119,7 @@ typedef struct {
 	int voice_gender;
 	int voice_age;
 	char voice_name[40];
-	char language[40];
+	char language[20];
 } SSML_STACK;
 
 #define N_SSML_STACK  20
@@ -933,14 +933,16 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	{
 		// delete a stack frame
 		if(n_ssml_stack > 1)
+		{
 			n_ssml_stack--;
+		}
 		ssml_sp = &ssml_stack[n_ssml_stack];
 	}
 	else
 	{
 		// add a stack frame if any voice details are specified
 		lang = GetSsmlAttribute(pw,"xml:lang");
-	
+
 		if(tag_type != SSML_VOICE)
 		{
 			// only expect an xml:lang attribute
@@ -1354,7 +1356,9 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	case SSML_VOICE + SSML_CLOSE:
 		// unwind stack until the previous <voice> or <speak> tag
 		while((n_ssml_stack > 1) && (ssml_stack[n_ssml_stack-1].tag_type != (tag_type - SSML_CLOSE)))
+		{
 			n_ssml_stack--;
+		}
 
 		return(terminator + GetVoiceAttributes(px, tag_type));
 
@@ -1819,6 +1823,7 @@ void InitNamedata(void)
 void InitText2(void)
 {//=================
 	int param;
+	espeak_VOICE *pvoice;
 
 	n_ssml_stack =1;
 	n_param_stack = 1;
@@ -1829,13 +1834,15 @@ void InitText2(void)
 	option_punctuation = speech_parameters[espeakPUNCTUATION];
 	option_capitals = speech_parameters[espeakCAPITALS];
 
+	pvoice = espeak_GetCurrentVoice();
+
 	ssml_sp = &ssml_stack[0];
 	ssml_sp->tag_type = 0;
 	ssml_sp->voice_variant = 0;
 	ssml_sp->voice_gender = 0;
 	ssml_sp->voice_age = 0;
-	ssml_sp->voice_name[0] = 0;
-	strcpy(ssml_sp->language,"en");
+	strncpy0(ssml_sp->voice_name,pvoice->name,sizeof(ssml_sp->voice_name));
+	strncpy0(ssml_sp->language,&pvoice->languages[1],sizeof(ssml_sp->language));
 	current_voice_id[0] = 0;
 
 	n_param_stack = 1;

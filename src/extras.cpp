@@ -125,6 +125,7 @@ if(f_wavtest == NULL) return(0);
 
 	if(wav == NULL)
 	{
+fprintf(f_events,"Finished\n");
 		CloseWaveFile3(samplerate);
 		fclose(f_events);
 		return(0);
@@ -844,6 +845,7 @@ void TestTest(int control)
 //FindPhonemesUsed();
 //return;
 
+
 return;
 
 if(control==2)
@@ -869,8 +871,8 @@ if(control==2)
 	OpenWaveFile3("/home/jsd1/speechdata/text/test.wav",samplerate);
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
 
-	espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,100,NULL);
-//	espeak_SetSynthCallback(TestSynthCallback);
+	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL);
+	espeak_SetSynthCallback(TestSynthCallback);
 //	espeak_SetUriCallback(TestUriCallback);
 
 	voice.languages = "fr";
@@ -879,7 +881,7 @@ if(control==2)
 	voice.variant = 0;
 	espeak_SetVoiceByName("en");
 //	espeak_SetVoiceByProperties(&voice);
-	espeak_SetParameter(espeakLINELENGTH,11,0);
+	espeak_SetParameter(espeakRANGE,0,0);
 	espeak_Synth(textbuf,ix+1,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML,NULL,NULL);
 
 //	for(voice.variant = 1; voice.variant < 9; voice.variant++)

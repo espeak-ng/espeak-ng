@@ -268,7 +268,8 @@ wxSashLayoutWindow *win;
 	option_ssml = 1;
 
 
-	if(LoadVoice(voice_name,0) == NULL)
+//	if(LoadVoice(voice_name,0) == NULL)
+	if(SetVoiceByName(voice_name) != EE_OK)
 	{
 		if(error_flag==0)
 			wxLogError(_T("Failed to load voice data"));

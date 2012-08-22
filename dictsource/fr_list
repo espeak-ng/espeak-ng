@@ -6,24 +6,30 @@
 //	* Numbers, a few abbreviations and exceptions.
 //
 
+
 // Letters
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
 
-_ç	sesedij
-_ë	@:trema
-_é	@:aksA~Egy
-_è	@:aksA~grav
-_ê	@:aksA~sirkO~flEks
-_ï	i:trema
-_ë	@:trema
-_ñ	Entilde
-_ô	o:aksA~sirkO~flEks
-_û	u:aksA~sirkO~flEks
-_ü	u:trema
+_à      a:aksA~grav
+â       a:aksA~sirkO~flEks
+ä       a:trema
+ç	sesedij
+ë	@:trema
+é	@:aksA~Egy
+è	@:aksA~grav
+ê	@:aksA~sirkO~flEks
+ï	i:trema
+ë	@:trema
+ñ	Entilde
+ô	o:aksA~sirkO~flEks
+ö       o:trema
+ù       u:aksA~grav
+û	u:aksA~sirkO~flEks
+ü	u:trema
 _y      i:gr'Ek
-_t	te
+
 
 
 // character names
@@ -32,7 +38,7 @@ _t	te
 _?A  lEt@
 _??  sE~b'OL
 
-_!   Eksklamassj'O~
+!   Eksklamassj'O~
 _"   gijm'E
 _#   dj'Ez
 _$   dOl'ar
@@ -339,6 +345,14 @@ eut	yt2 $u+
 quelque	$u
 tout	$u
 
+
+// Letters which can be words
+//===========================
+à       a:aksA~grav  $atend
+y       i:gr'Ek      $atend
+
+
+
 // pronunciation exceptions
 
 scient           si
@@ -368,12 +382,15 @@ montréal mO~real	// Montréal
 (mon haillon)    m'O~||najO~
 (son haillon)    s'O~||najO~
 (ton haillon)    tO~||na=jO~
-fils	      fis
 bus	      bys
+echo          Eko
+fils	      fis
 mars	      mars
-sens	      sA~s
 pays	      pEi
+sens	      sA~s
 c'est         sEt2 $u
+qu'à          ka
+qu'y          ki
 (sud est)     sydEst
 (nord est)    nOREst
 

@@ -525,28 +525,15 @@ int main (int argc, char **argv)
 
 	initialise();
 
-	if(flag_compile == 0)
+	if(voicename[0] == 0)
+		strcpy(voicename,"default");
+
+	if(SetVoiceByName(voicename) != EE_OK)
 	{
-		ix = 1;
-		if((voicename[0] != 0) && (strchr(voicename,'+')==NULL))
-		{
-			if((ix = SetVoiceByName(voicename)) != 0)
-			{
-				fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
-			}
-		}
-		if(ix != 0)
-		{
-			if(LoadVoiceVariant(voicename,0) == NULL)
-			{
-				exit(2);
-			}
-		}
+		fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+		exit(2);
 	}
-	else
-	{
-		LoadVoice(voicename,4);
-	}
+
 
 	if(flag_compile)
 	{

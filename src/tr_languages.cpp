@@ -202,8 +202,8 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','i'):   // Finnish
 		{
-			static int stress_amps_fi[8] = {16,16, 22,22, 20,24, 24,22 };
-			static int stress_lengths_fi[8] = {150,180, 210,220, 0,0, 240,280};
+			static int stress_amps_fi[8] = {18,16, 22,22, 20,22, 22,22 };
+			static int stress_lengths_fi[8] = {150,170, 200,200, 0,0, 210,250};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
@@ -218,6 +218,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.max_initial_consonants = 2;
 			tr->langopts.spelling_stress = 1;
 			tr->punct_to_tone[0][1] = 0;   // don't raise pitch for comma
+//			tr->punct_to_tone[0][2] = 0;   // don't raise pitch for question
 		}
 		break;
 

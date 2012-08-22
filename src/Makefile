@@ -18,12 +18,12 @@ MKDIR = mkdir -p
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp
+	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp
 
 libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp numbers.cpp synth_mbrola.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp \
+	tr_languages.cpp voices.cpp wavegen.cpp phonemelist.cpp \
 	espeak_command.cpp event.cpp fifo.cpp wave.cpp debug.cpp
 
 

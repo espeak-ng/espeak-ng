@@ -257,7 +257,10 @@ void TranslDlg::ReadVoice()
 	filename = path.Mid(strlen(fname)+1);
 	strcpy(fname,filename.mb_str(wxConvLocal));
 
-	LoadVoice(fname,0);
+	if(SetVoiceByName(fname) != EE_OK)
+	{
+		wxLogError(_T("Failed to load voice data"));
+	}
 	WavegenSetVoice(voice);
 }
 

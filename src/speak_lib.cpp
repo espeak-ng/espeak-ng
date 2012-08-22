@@ -366,7 +366,7 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 
 	if(translator == NULL)
 	{
-		LoadVoice("default",0);
+		SetVoiceByName("default");
 	}
 
 	SpeakNextClause(NULL,text,0);
@@ -654,7 +654,7 @@ ESPEAK_API int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
 
   option_phonemes = 0;
 
-  LoadVoice("default",0);
+  SetVoiceByName("default");
 
   for(param=0; param<N_SPEECH_PARAM; param++)
     param_stack[0].parameter[param] = param_defaults[param];
@@ -1048,8 +1048,8 @@ ESPEAK_API espeak_ERROR espeak_Terminate(void)
 		wave_terminate();
 	}
 
-	Free(event_list);
 #endif
+	Free(event_list);
 	Free(outbuf);
 	FreePhData();
 

@@ -38,6 +38,10 @@
 //#define USE_MBROLA_LIB
 #endif
 
+#ifdef _ESPEAKEDIT
+#define USE_ASYNC
+#define LOG_FRAMES      // write keyframe info to log-espeakedit
+#endif
 
 // will look for espeak_data directory here, and also in user's home directory
 #ifndef PATH_ESPEAK_DATA
@@ -51,7 +55,7 @@ typedef double DOUBLEX;
 
 
 #define N_PEAKS   9
-#define N_MARKERS 7
+#define N_MARKERS 8
 
 
 typedef struct {

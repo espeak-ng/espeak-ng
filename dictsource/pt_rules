@@ -1,4 +1,4 @@
-﻿// translation rules Brazilian
+// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -25,6 +25,7 @@
 
           a (C_      &
           a (r_      'a
+?1 p) a (d_     =E
           a (CC_     &
 ?1        al (_      'al // eg: Portugal, capital, etc.
 ?2        al (K      aU
@@ -98,6 +99,7 @@
           c (c              //drop “c” in European Portuguese (eg: seleccionar)
 ?1     A) ct         t      //drop “c” in European Portuguese (eg: exacto)
 ?1     A) cç         s      //drop “c” in European Portuguese (eg: selecção)
+?1 conta) ct      ct
 
 
 .group d
@@ -131,6 +133,7 @@
 ?2        el (K      EU
 ?2        elh        elj
 
+?1 e (rtA_       'E // Eg: Alberto, aberta, etc...
           em (C      eIm
           en (K      eIN
           enh        en^
@@ -154,6 +157,19 @@
 ?1 C) e (cC       'E // eg: seleccionar, efectuar, selecção, etc...
 ?1     C) e (ã       i // leão, panteão, etc.
 ?1     C) e (a       i // oceano, etc.
+?1 _C) e (CACA       =y  //definições.
+?1 _C) e (CCACAr       =y   // desligar.
+?1 _C) e (CKAr      =y // fechar
+?1 _C) e (CCACAr       =y // terminar.
+?1 _C) e (CACC     =y // recicla, reciclagem, etc...
+?1 _f) e (rrament       =y // ferramenta, ferramentas.
+?1 hip) e (r       ,E // eg: hiper
+?1 sup) e (r       ,E // super
+?1 int) e (rC       'E // Interno
+?1 int) e (rr       E // Interno
+?1 n) e (t       ,E // eg: net
+
+?1 e (l_       ,E
 
 
 .group é
@@ -181,21 +197,22 @@
 
 
 .group f
-?1       _) f (_       Ef
-?2       _) f (_       'Efe
+?1     _) f (_       Ef;     // individual letter
+?1     _) f (__      Ef      // individual letter at end-of-word
+       _) f (_       'Efe
           f          f
           f (f
 
 
 .group g
-?1       _) g (_       ge
-?2       _) g (_       Ze
+?1     _) g (_       ge
+       _) g (_       Ze
           g          g
           g (g
           g (Y       Z        // ge gi
           gu (Y      g
-?1     guen (C       gw'eIN    // aguenta, etc.
-?1     n) gu (A       gw // eg: língua, etc.
+?1        guen (C    gw'eIN    // aguenta, etc.
+?1     n) gu (A      gw // eg: língua, etc.
 
 
 .group h
@@ -271,8 +288,9 @@
 
 
 .group l
-?1       _) l (_       El
-?2       _) l (_       'Ele
+?1     _) l (_       El;       // individual letter
+?1     _) l (__      El        // individual letter at end-of-word
+       _) l (_       'Ele
           l          l
           l (l
           lh         l^
@@ -281,15 +299,17 @@
 
 
 .group m
-?1       _) m (_       Em
-?2       _) m (_       'eme
+?1     _) m (_       Em;
+?1     _) m (__      Em
+       _) m (_       'eme
           m          m
           m (m
 
 
 .group n
-?1       _) n (_       En
-?2       _) n (_       'ene
+?1     _) n (_       En;
+?1     _) n (__      En
+       _) n (_       'ene
           n          n
           n (n
           nh         n^
@@ -320,9 +340,11 @@
 ?2        ol (K      Ow
 ?2        olh        olj
 
-          om (_      oN
+?1          om (_      'om
+?2          om (_      oN
           o (ma_     o
-          om (C      om
+?1          om (C      'om
+?2          om (C      om
           on (K      oN
           o (na_     o
           onh        on^
@@ -334,6 +356,9 @@
           o (zes_    O
           o (ra_     O
           o (ras_    O
+?1 _C) o (CACACC       =u // Documento, documentação, etc.
+?1 _C) o (CCAC       =u // formatar, formato.
+
 
 .group ô
           ô          ''o
@@ -352,6 +377,7 @@
           óu         ''Ow 
           óy         ''OI
 
+
 .group õ
           õ          o~
           õe         o~j
@@ -362,7 +388,7 @@
           p          p
           p (p
 ?1        ph         f     //Didn’t use in European Portuguese (eg: English)
-?1          ple (_     _^_EN
+?1        ple (_     _^_EN
 
 
 .group q
@@ -389,8 +415,9 @@
 
  
 .group r
-?1       _) r (_       'Err
-?2       _) r (_       'Exe
+?1     _) r (_       'Err;    // individual letter
+?1     _) r (__      'Err     // individual letter at end-of-word
+       _) r (_       'Exe
        _) r (_\$     xe'aU    // currency
           r          r
 ?1       A) r (A       :r
@@ -404,12 +431,13 @@
        l) r          x
        n) r          x
        s) r          x
-?1       A) r (_       =@- //now, tis sound isn’t perfect but is is acceptable.
+?1     A) r (_       =@- //now, tis sound isn’t perfect but is is acceptable.
 
 
 .group s
-?1       _) s (_       'Ess
-?2       _) s (_       'Ese
+?1     _) s (_       'Ess|;    [s]+[;] not [s;] phoneme
+?1     _) s (__      'Ess
+       _) s (_       'Ese
           s          s
           ss         s
           sc (Y      s
@@ -429,6 +457,7 @@
 ?1     A) s (G+      Z
 ?1     A) s (_KS1    S
 ?1     A) s (_G+S1   Z
+
 
 .group t
        _) t (_       te
@@ -561,6 +590,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

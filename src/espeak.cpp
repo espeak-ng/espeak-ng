@@ -66,14 +66,10 @@ static const char *help_text =
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
 "--voices=<langauge>\n"
 "\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n";
-
-
-#ifdef deleted
+"\t   If <language> is omitted, then list all voices.\n"
 "-k <integer>\n"
 "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
 "\t   higher values = a pitch increase (try -k20).\n";
-#endif
 
 
 
@@ -451,13 +447,13 @@ int main (int argc, char **argv)
 	}
 	
 
-	if(voicename[0] != 0)
+	if(voicename[0] == 0)
+		strcpy(voicename,"default");
+
+	if(espeak_SetVoiceByName(voicename) != EE_OK)
 	{
-		if(espeak_SetVoiceByName(voicename) != EE_OK)
-		{
-			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
-			exit(2);
-		}
+		fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+		exit(2);
 	}
 
 	if(flag_compile)

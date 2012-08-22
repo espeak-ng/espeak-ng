@@ -69,6 +69,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 
 	len = utf8_out(letter,&single_letter[2]);
 	single_letter[2+len] = ' ';
+	memcpy(&single_letter[3+len],&word[n_bytes],3);   // include the next letter, after a space, in case it affects the translation rules
 
 	single_letter[1] = '_';
 	if(Lookup(&single_letter[1],ph_buf) == 0)

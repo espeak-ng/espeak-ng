@@ -1237,7 +1237,7 @@ void GetVoices(const char *path)
 			GetVoices(fname);
 		}
 		else
-		if((ftype > 0) && (strcmp(FindFileData.cFileName,"default") != 0))
+		if(ftype > 0)
 		{
 			// a regular line, add it to the voices list	
 			if((f_voice = fopen(fname,"r")) == NULL)
@@ -1277,7 +1277,7 @@ void GetVoices(const char *path)
 			GetVoices(fname);
 		}
 		else
-		if((ftype > 0) && (strcmp(ent->d_name,"default") != 0))
+		if(ftype > 0)
 		{
 			// a regular line, add it to the voices list	
 			if((f_voice = fopen(fname,"r")) == NULL)

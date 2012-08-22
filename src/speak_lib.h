@@ -363,9 +363,9 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
 
       espeakVOLUME:  volume in range 0-100    0=silence
 
-      espeakPITCH:   base pitch in Hz
+      espeakPITCH:   base pitch, range 0-100.  50=normal
 
-      espeakRANGE:   pitch range in Hz
+      espeakRANGE:   pitch range, range 0-100. 0-monotone, 50=normal
 
       espeakPUNCTUATION:  which punctuation characters to announce:
          value in espeak_PUNCT_TYPE (none, all, some), 

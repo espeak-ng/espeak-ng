@@ -189,7 +189,7 @@ phoneme R
   lengthmod 7
   beforenotvowel r/
   trill
-  formants vwl_fr/@R+r3/rx%120
+  formants vwl_fr/@R+r3/rx%80
 endphoneme
 
 

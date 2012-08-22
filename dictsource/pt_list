@@ -1,4 +1,4 @@
-﻿
+
 // This file in UTF8 encoded
 
 // Options
@@ -466,13 +466,12 @@ há	$u+
 
 
 // Letter names
+_a      a
 _e      E
 _o	O
-_s	'Ese
 a       a $atend
 e       E $atend        // assume letter-e at end of sentence
 o       O $atend
-s       'Ese $atend
 
 
 // some common adjectives and adverbs
