@@ -87,6 +87,12 @@ phoneme oU
   formants vdiph/ou_2
 endphoneme
 
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 260
+  formants vdiph/eei_3
+endphoneme
+
 
 
 phoneme r-

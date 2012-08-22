@@ -176,8 +176,6 @@ float polint(float xa[],float ya[],int n,float x);
 int  WavegenFile(void);
 int WavegenFill(int fill_zeros);
 void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr);
-extern unsigned char *out_ptr;
-extern unsigned char *out_end;
 
 
 extern unsigned char *wavefile_data;
@@ -216,6 +214,16 @@ extern unsigned char *envelope_data[16];
 extern int formant_rate[];         // max rate of change of each formant
 extern int speed_factor1;
 extern int speed_factor2;
+
+
+extern long count_samples;
+extern int outbuf_size;
+extern unsigned char *out_ptr;
+extern unsigned char *out_start;
+extern unsigned char *out_end;
+extern int event_list_ix;
+extern espeak_EVENT *event_list;
+extern t_espeak_callback* synth_callback;
 
 #define N_SOUNDICON_TAB  100
 extern int n_soundicon_tab;

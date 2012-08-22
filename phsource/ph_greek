@@ -3,11 +3,17 @@
 //  Greek  - based on Italian
 //====================================================
 
- 
+
+phoneme a/
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vowel/a_4
+endphoneme
+
 phoneme e
   vowel starttype (e) endtype (e)
   length 180
-  formants vowel/e_mid
+  formants vowel/e_mid2
 endphoneme
 
 phoneme o
@@ -25,7 +31,7 @@ phoneme t         // revert to alveolar /t/
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t
+  wave  ustop/t_short%80
   before _ ustop/t_
   before r ustop/tr
   switchvoicing d
@@ -50,17 +56,12 @@ phoneme k
   vowelin f1=0  f2=2300 200 400  f3=-100 80
   vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
   lengthmod 2
-  wave ustop/k%70
+  wave ustop/k_unasp%70
   before _ ustop/k_
   before r ustop/kr
   before l ustop/kl
-
-  // use [c] before an e or i vowel
-//  vowelin f1=0  f2=2700 400 600  f3= 200 80
-//  vowelout f1=0 f2=2700 400 600  f3= 200 80  rms=20
-  before (i) ustop/ki
-  before (e) ustop/ki
-
+//  before (i) ustop/ki
+ 
   switchvoicing g
 endphoneme
 

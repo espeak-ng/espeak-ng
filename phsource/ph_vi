@@ -59,33 +59,33 @@ endphoneme
 
 phoneme a
   vowel starttype (@) endtype (@)
-  length 150
-  formants vowel/a_2
+  length 130
+  formants vowel/a_4
 endphoneme
 
 phoneme a:
   vowel starttype (a) endtype (a)
-  length 270
+  length 260
   formants vowel/a_2
 endphoneme
 
 
 phoneme E
   vowel starttype (e) endtype (e)
-  length 160
+  length 200
   formants vowel/ee_3
 endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
-  length 160
+  length 200
   formants vowel/e
 endphoneme
 
 
 phoneme i
   vowel  starttype (i)  endtype (i)
-  length 180
+  length 190
   formants vowel/i_en
   after w w/wi
   linkout ;
@@ -94,34 +94,34 @@ endphoneme
 
 phoneme O
   vowel starttype (o) endtype (o)
-  length 170
-  formants vowel/0
+  length 200
+  formants vowel/aa_4
 endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 170
-  formants vowel/o
+  length 200
+  formants vowel/oo_1
 endphoneme
 
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 160
-  formants vowel/u
+  length 200
+  formants vowel/u_7
 endphoneme
 
 phoneme y
   vowel starttype (u) endtype (u)
-  length 160
-  formants vowel/u_unr
+  length 200
+  formants vowel/y#
 endphoneme
 
 
 
 phoneme @
   vowel  starttype (@)  endtype (a)
-  length 140
+  length 130
   formants vowel/a#_3
 endphoneme
 
@@ -129,7 +129,7 @@ endphoneme
 phoneme @:
   vowel  starttype (@)  endtype (@)
   length 260
-  formants vowel/3_en
+  formants vowel/V_3
 endphoneme
 
 
@@ -139,29 +139,29 @@ endphoneme
 
 phoneme aI
   vowel starttype (a) endtype (i)
-  length 170
-  formants vdiph/ai
+  length 250
+  formants vdiph/&i_3
 endphoneme
 
 
 phoneme a:I
   vowel starttype (a) endtype (i)
-  length 270
+  length 250
   formants vdiph/ai
 endphoneme
 
 
 phoneme @I
   vowel starttype (@) endtype (i)
-  length 170
-  formants vdiph/@i
+  length 250
+  formants vdiph/@i_4
 endphoneme
 
 
 phoneme @:I
   vowel starttype (@) endtype (i)
-  length 270
-  formants vdiph/@i
+  length 250
+  formants vdiph/Vi
 endphoneme
 
 
@@ -210,8 +210,8 @@ endphoneme
 
 phoneme aU
   vowel starttype (a) endtype (u)
-  length 170
-  formants vdiph/au
+  length 230
+  formants vdiph/aau_4
 endphoneme
 
 
@@ -243,7 +243,7 @@ endphoneme
 
 phoneme @U
   vowel  starttype (@)  endtype (u)
-  length 170
+  length 200
   formants vdiph/@u_en
 endphoneme
 
@@ -257,8 +257,8 @@ endphoneme
 
 phoneme i@
   vowel  starttype (i)  endtype (@)
-  length 200
-  formants vdiph2/ii@_2
+  length 230
+  formants vdiph2/ii@_3
 endphoneme
 
 phoneme y@
@@ -274,4 +274,25 @@ phoneme u@
 endphoneme
 
 
+
+phoneme t[        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=1  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  ustop/t_dnt2%60
+  before _ ustop/t_dnt%30 
+  switchvoicing d
+endphoneme
+
+
+phoneme kh
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=200 80
+  vowelout f1=0 f2=2300 300 400  f3=200 80  rms=20
+  length 100
+  lengthmod 3
+  wave ufric/x%50
+  switchvoicing Q
+endphoneme
 

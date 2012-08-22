@@ -31,9 +31,11 @@
 #define USE_PORTAUDIO
 #define USE_NANOSLEEP
 #define __cdecl 
+#define ESPEAK_API  extern "C"
 
 #ifdef LIBRARY
 #define USE_ASYNC
+//#define USE_MBROLA_LIB
 #endif
 
 

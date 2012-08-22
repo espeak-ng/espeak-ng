@@ -323,10 +323,10 @@ unsigned char *length_mod_tabs[6] = {
 
 /* index by 0=. 1=, 2=?, 3=! 4=none */
 static unsigned char punctuation_to_tone[4][5] = {
-	{0,1,1,0,0},
-	{2,3,3,2,2},
-	{4,5,5,4,4},
-	{6,7,7,6,6} };
+	{0,1,1,2,0},
+	{3,4,4,5,3},
+	{6,7,7,8,6},
+	{9,10,10,11,9} };
 
 
 
@@ -409,7 +409,6 @@ Translator::Translator()
 	}
 	memset(&langopts,0,sizeof(langopts));
 
-	langopts.word_gap = 0;
 	langopts.stress_rule = 2;
 	langopts.unstressed_wd1 = 1;
 	langopts.unstressed_wd2 = 3;
@@ -421,7 +420,7 @@ Translator::Translator()
 
 	langopts.length_mods = length_mods_en;
 	langopts.length_mods0 = length_mods_en0;
-	langopts.long_stop = 90;
+	langopts.long_stop = 100;
 
 	langopts.thousands_sep = ',';
 	langopts.decimal_sep = '.';
@@ -1190,6 +1189,12 @@ if((wmark > 0) && (wmark < 8))
 	dictionary_flags = (dictionary_flags & ~0xf) | wmark;
 }
 
+		if(!found && (dictionary_flags & FLAG_ABBREV))
+		{
+			// the word has $abbrev flag, but no pronunciation specified.  Speak as individual letters
+			spell_word = 1;
+		}
+ 
 		if(!found && iswdigit(first_char))
 		{
 			found = TranslateNumber(word,phonemes,&dictionary_flags,wflags);

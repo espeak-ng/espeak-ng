@@ -28,10 +28,11 @@ n     en
 ň     en^
 _o    o:
 ó     dl'oUhe:,o:
+ô     uo:
 p     pe:
 q     kve:
 r     er
-ř     eZ
+ř     eR
 _s    es
 š     eS
 t     te:
@@ -40,19 +41,60 @@ u     u:
 ú     dl'oUhe:,u:
 ů     'u:s_k@-r'oUZkem
 _v    ve:
-w     dv'ojite:,ve:
+w     dv'ojve:
 x     iks
 y     ipsilon
 ý     dl'oUe:,ipsilon
 _z    zet
 ž     Zet
 
+:     dv'ojtetSka
+%     p@-*otsento
++     plus
+€     eU*o
+@     zavina:tS
+&     ampr-sent
+#     gRi:Zek
+/     lomeno
+\\    beksleS
+!     vigRitSn^i:k
+°     stupen^
+×     kra:t
+÷     Jeleno
+§     pa*ag@-*af
+~     tilda
+^     zdRi:Ska
+©     k'opi*ajt
+
+_$    dola:r
+_'    apost@-*of
+_"    uvozovki
+_,    tSa:rka
+_-    mi:nus
+_;    zdRedn^i:k
+_=    rovno
+_*    hvjezJitSka
+_?    otazn^i:k
+__    pottr-Zen^i:
+_`    'ob@-*a:ts,ena:||tS'a:rka
+_(    za:vorka
+_)    za:vorkazavRi:t
+_[    h@-*'anata:||z'a:vorka
+_]    h@-*'anata:||z'avRi:t
+_{    sl'oZena:||z'a:vorka
+_}    sl'oZena:||z'avRi:t
+_<    menSi:
+_>    vjetSi:
+_|    sv'isla:||tS'a:*a
+_??   simbol
+_?A   znak
 
 
 // Numbers
 _0    n'ula
 _1    j'eden
 _2    dv'a
+_2f   dvj'e
 _3    tRi
 _4    tSt'iRi
 _5    p'jet
@@ -77,18 +119,29 @@ _5X   p'adesa:t
 _6X   S'edesa:t
 _7X   s'edumdesa:t
 _8X   'osumdesa:t
-_9X   devadesa:t
-_0C   st'e
+_9X   d'evadesa:t
+_0C   s'et
 _1C   st'o
 _2C   dvj'esc'e
 _3C   tR'ist'a
 _4C   tStiRist'a
-_0M1  t'isi:ts
-_2M1  dv'at'isitse
-_0M2  m'ilio:nu:
+
+_1M1  c'isi:ts
+_0MA1 c'isi:tse
+_0M1  c'isi:ts
+
 _1M2  m'ilio:n
-_2M2  dv'am'ilio:ni
-_0M3  m'iliarda
+_0MA2 m'ilio:ni
+_0M2  m'ilio:nu:
+
+_1M3  m'iliarda
+_0MA3 m'iliardi
+_0M3  m'iliard
+
+_1M4  b'ilio:n
+_0MA4 b'ilio:ni
+_0M4  b'ilio:nu:
+
 _dpt  _:tSa:rka_
 _.    tetSka
 
@@ -205,12 +258,124 @@ chtějí   $u+
 // treat as letters if at the end of the clause
 a        a:    $atend    // letter-a
 i        i:    $atend    // letter-i
-k        ke:   $atend    // letter-k
+k        ka:   $atend    // letter-k
 o        o:    $atend    // letter-o
 s        es    $atend
 v        ve:   $atend
 z        zet   $atend
 
+
+// Abbreviations
+// if a word has no vowels (or "r") then it will
+// automatically be spoken as individual letters
+arc      $abbrev
+arj      $abbrev
+atd      $abbrev
+bes      $abbrev
+blr      $abbrev
+cab      $abbrev
+cga      $abbrev
+cm       tsentimetr-
+crd      $abbrev
+ča       $abbrev
+čav      $abbrev
+čla      $abbrev
+člr      $abbrev
+čr       $abbrev
+čsad     $abbrev
+čsfr     $abbrev
+čsr      $abbrev
+čssr     $abbrev
+čvut     $abbrev
+dcl      detsilitr-
+dpi      $abbrev
+drv      $abbrev
+dta      $abbrev
+eeg      $abbrev
+ekg      $abbrev
+esc      iskeip
+etf      $abbrev
+kb       kilobajt
+ghz      gigaherts
+gn       gigan^utn
+gpa      $abbrev
+gw       gigavat
+(http ://)  ha:tetepe:
+hz       herts
+ibm      $abbrev
+ip       $abbrev
+khz      kiloherts
+kldr     $abbrev
+km       kilometr-
+kn       kilon^utn
+kpa      $abbrev
+kw       kilovat
+mhz      megaherts
+mkr      $abbrev
+mlr      $abbrev
+mpa      $abbrev
+ndr      $abbrev
+nsr      $abbrev
+ocr      $abbrev
+ods      $abbrev
+ohc      $abbrev
+ohv      $abbrev
+okd      $abbrev
+om       $abbrev
+osn      $abbrev
+ozv      $abbrev
+pci      $abbrev
+pdr      $abbrev
+pgdn     peIdZdaUn
+pgup     peIdZap
+plr      $abbrev
+prm      $abbrev
+rc       $abbrev
+rlc      $abbrev
+rlr      $abbrev
+rs       $abbrev
+rx       $abbrev
+scsi     $abbrev
+sr       $abbrev
+ssr      $abbrev
+sssr     $abbrev
+stva     $abbrev
+trm      $abbrev
+ufz      $abbrev
+uhf      $abbrev
+ukv      $abbrev
+usa      $abbrev
+uvf      $abbrev
+vga      $abbrev
+wgpo     $abbrev
+wri      $abbrev
+www      veveve:
+
+
 // Exceptions
 
-// don't soften (d,n,t) before e,i
+antoni     antoni
+ascii      aski
+balistika  balistika
+cancel     kensl-
+(caps lock) kapslok
+change     tSeIndZ
+delete     dili:t
+down       daUn
+exchange   ikstSeIndZ
+home       hoUm
+insert     inzert
+lazer      leIzr-
+newton     n^u:tn
+num        nam
+outlook    aUtlu:k
+page       peIdZ
+power      paUr-
+scroll     skro:l
+search     sertS
+size       sajz
+this       Dis
+unie       unije
+untitled   antitl-
+up         ap
+

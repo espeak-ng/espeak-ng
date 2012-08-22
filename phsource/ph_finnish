@@ -102,49 +102,49 @@ endphoneme
 
 phoneme ai
   vowel starttype (a) endtype (i)
-  length 270
+  length 310
   long
-  formants vdiph/aai_2
+  formants vdiph/aai_3
 endphoneme
 
 phoneme &i
   vowel starttype (a) endtype (i)
-  length 270
+  length 290
   long
   formants vdiph/&i
 endphoneme
 
 phoneme oi
   vowel starttype (o) endtype (i)
-  length 270
+  length 280
   long
   formants vdiph/ooi
 endphoneme
 
 phoneme ei
   vowel starttype (e) endtype (i)
-  length 270
+  length 280
   long
   formants vdiph/eei_2
 endphoneme
 
 phoneme Yi
   vowel starttype (@) endtype (i)
-  length 260
+  length 270
   long
   formants vdiph/y#i
 endphoneme
 
 phoneme ui
   vowel starttype (u) endtype (i)
-  length 260
+  length 270
   long
   formants vdiph/ui
 endphoneme
 
 phoneme yi
   vowel starttype (u) endtype (i)
-  length 250
+  length 270
   long
   formants vdiph/yi
 endphoneme
@@ -152,7 +152,7 @@ endphoneme
 
 phoneme au
   vowel starttype (a) endtype (u)
-  length 270
+  length 300
   long
   formants vdiph/aau
 endphoneme
@@ -181,28 +181,28 @@ endphoneme
 
 phoneme &y
   vowel starttype (a) endtype (u)
-  length 270
+  length 280
   long
   formants vdiph/&y
 endphoneme
 
 phoneme ey
   vowel starttype (e) endtype (u)
-  length 270
+  length 280
   long
   formants vdiph/eey
 endphoneme
 
 phoneme Yy
   vowel starttype (@) endtype (u)
-  length 260
+  length 270
   long
   formants vdiph/y#y
 endphoneme
 
 phoneme iy
   vowel starttype (i) endtype (u)
-  length 250
+  length 260
   long
   formants vdiph2/iy
 endphoneme
@@ -210,21 +210,21 @@ endphoneme
 
 phoneme uo
   vowel starttype (u) endtype (o)
-  length 260
+  length 280
   long
   formants vdiph2/uo
 endphoneme
 
 phoneme ie
   vowel starttype (i) endtype (e)
-  length 250
+  length 280
   long
   formants vdiph2/ie
 endphoneme
 
 phoneme yY
   vowel starttype (u) endtype (@)
-  length 260
+  length 280
   long
   formants vdiph2/y-y#
 endphoneme

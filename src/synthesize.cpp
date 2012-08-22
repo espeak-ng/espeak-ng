@@ -1027,6 +1027,11 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
 
+#ifdef TEST_MBROLA
+	if(mbrola_name[0] != 0)
+		return(MbrolaGenerate(phoneme_list,n_ph,resume));
+#endif
+
 	if(option_quiet)
 		return(0);
 
@@ -1489,7 +1494,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	if(mbrola_name[0] != 0)
 	{
-#ifdef USE_MBROLA_DLL
+#ifdef USE_MBROLA_LIB
 		MbrolaTranslate(phoneme_list,n_phoneme_list,NULL);
 #else
 		MbrolaTranslate(phoneme_list,n_phoneme_list,stdout);

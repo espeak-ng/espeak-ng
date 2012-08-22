@@ -6,24 +6,15 @@
 // Ο ο, Π π, Ρ ρ, Σ σ ς (word-final form), Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω.
 // ά έ ή ί ΰ ϊ ϋ ό ύ ώ
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
-_η	'ita
-_ή	'ita
-_ο	'omikron
-
-_.      tel'ia
-_,      k'oma
-
 
 // numbers
 _0        miD'en
 _1        'ena
 _2        D'io
 _3        tr'ia
+_3f       tr'is
 _4        t'esera
+_4f       t'eseris
 _5        p'ente
 _6        'eksi
 _7        ept'a
@@ -51,11 +42,14 @@ _6C       eksak'os;a_
 _7C       eptak'os;a_
 _8C       oktak'os;a_
 _9C       en^ak'os;a_
-_0M1      C'il;a
-_1M1      C'il;a        // no '1' before thousand
-_0M2      ekatom'irio
-_0M3      Disekatom'irio
+_0M1      Cil^'aDes
+_1M1      C'il^a        // no '1' before thousand
+_1M2      'ena|ekatom'irio
+_0M2      ekatom'iria
+_1M3      'ena|Disekatom'irio
+_0M3      Disekatom'iria
 _dpt      k'oma
+_.        tel'ia
 
 
 // articles
@@ -186,6 +180,57 @@ _dpt      k'oma
 επειδή	$pause		// because
 γιατί	$pause		// because, why
 διότι	$pause		// because, for
+
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+α       alfa
+β       vita
+γ       Qama
+δ       Delta
+ε       'epsilon
+ζ       zita
+
+_η	'ita
+η	'ita  $atend
+θ       Tita
+ι       i'ota
+κ       kapa
+λ       lamDa
+μ       mi
+ν       ni
+ξ       ksi
+_ο	'omikron
+ο	'omikron  $atend
+π       pi
+ρ       Ro
+σ       s'iQma
+ς       s'iQma
+τ       taf
+υ       'ipsilon
+φ       fi
+χ       Ci
+ψ       psi
+ω       om'eQa
+
+ά       ,alfa|t'onos
+έ       ,epsilon|t'onos
+_ή	,ita|t'onos
+ή	,ita|t'onos $atend
+ί       i,ota|t'onos
+ΰ       ,ipsilon|t'onos
+ϊ       i'ota
+ϋ       'ipsilon
+ό	,omikron|t'onos
+ύ       ,ipsilon|t'onos
+ώ       om,eQa|t'onos
+
+_.      tel'ia
+_,      k'oma
+
 
 
 // miscellaneous exceptions

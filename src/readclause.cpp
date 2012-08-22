@@ -351,16 +351,25 @@ const char *Translator::LookupCharName(int c)
 
 	int ix;
 	const char *p;
-	static char buf[12];
+	static char buf[24];
 
 	buf[0] = '_';
 	ix = utf8_out(c,&buf[1]);
 	buf[1+ix]=0;
 
-	if((p = LookupSpecial(buf))!=NULL)
+	if((p = LookupSpecial(buf)) == NULL)
+	{
+		p = LookupSpecial(&buf[1]);
+	}
+	if(p != NULL)
 		return(p);
 
-	sprintf(buf,"char%d ",c);
+	if((p = LookupSpecial("_??")) == NULL)
+	{
+		p = "symbol";
+	}
+	strcpy(buf,p);
+//	sprintf(buf,"%s%d ",p,c);
 	return(buf);
 }
 

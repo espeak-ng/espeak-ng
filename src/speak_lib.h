@@ -118,7 +118,10 @@ typedef enum {
 	AUDIO_OUTPUT_RETRIEVAL,
  
 	/* SYNCHRONOUS mode: as RETRIEVAL but doesn't return until synthesis is completed */
-	AUDIO_OUTPUT_SYNCHRONOUS
+	AUDIO_OUTPUT_SYNCHRONOUS,
+
+	/* Synchronous playback */
+	AUDIO_OUTPUT_SYNCH_PLAYBACK
 
 } espeak_AUDIO_OUTPUT;
 

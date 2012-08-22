@@ -32,6 +32,55 @@ y     ipsilon
 z     z@
 ž     Z@
 
+_??   znak          // unknown symbol
+_?A   slovo         // unknown letter
+©     'aUtorsk&||p@-*'av&
+%     posto
++     plus
+€     Eu*o
+@     _Et
+&     _End
+!     'usklItSnIk
+:     dv'ototSk&
+#     b@-*'oj
+/     k@-*'oz
+\\    b'EkslES
+^     tsirkUmflEks
+~     tild&
+¤     valUt&
+§     oldom&k
+µ     mikro
+¶     tSlan&k
+°     st'up&n^
+
+_$    dol&r
+_-    minus
+_*    zvj'ezdIts@
+_=    jedn&ko
+_@    t'r-gov,&tSko||'i
+_(    'otvo*,En&||'ok@-*Ugl&
+_)    z'atvo*,En&||'ok@-*Ugl&
+_'    apost@-*of
+_*    zvjezdIts&
+_,    za*Ez
+_-    tsr-tIts&
+_.    totSk&
+_;    t'otSk&z,a*Ez
+_<    man^I
+_=    jedn&ko
+_>    vEtS;I
+_?    upItnIk
+_&    t'r-gov,&tSk||'a
+_[    'otvo*,En&||'ugl&t&
+_]    z'atvo*,En&||'ugl&t&
+__    ts'r-t&
+_`    g@-*'avIs
+_{    'otvo*,En&||v'itItS,&st&
+_|    okom,It&
+_}    z'atvo*,En&||v'itItS,&st&
+
+
+
 
 // Numbers
 _0    n'ul&
@@ -78,7 +127,6 @@ _1M3  m'iliardU
 _0M4  b'ilijUna
 _1M4  b'ilijUn
 _dpt  _:z'a*Ez_
-_.    t'otSk&
 
 
 // Demonstratives
@@ -100,8 +148,9 @@ s        s_ $brk
 // Conjunctions
 a        $u $pause    // and
 i        $u $pause    // and
-but      $pause       // pause
-nego     $pause       // pause
+but      $pause       // but
+nego     $pause       // but
+ili      $u $pause    // or
 
 
 
@@ -116,6 +165,11 @@ je       $u
 smo      $u
 ste      $u
 su       $u
+
+bio      $u       // to be, past tense
+bila     $u
+bilo     $u
+bili     $u
 
 nisam    $u+      // to be, negative
 nisi     $u+

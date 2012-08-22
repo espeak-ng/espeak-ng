@@ -147,7 +147,8 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0x509;
+			tr->langopts.numbers = 0xb09;
+			tr->langopts.numbers2 = 0x2;   // variant form of numbers before thousands
 		}
 		break;
 
@@ -202,7 +203,7 @@ Translator *SelectTranslator(const char *name)
 	case L('f','i'):   // Finnish
 		{
 			static int stress_amps_fi[8] = {16,16, 22,22, 20,24, 24,22 };
-			static int stress_lengths_fi[8] = {140,140, 210,220, 0,0, 240,280};
+			static int stress_lengths_fi[8] = {150,180, 210,220, 0,0, 240,280};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
@@ -210,7 +211,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x56;  // move secondary stress from light to a following heavy syllable
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
-			tr->langopts.long_stop = 130;
+			tr->langopts.long_stop = 140;
 
 			tr->langopts.numbers = 0x1009;
 			SetLetterVowel(tr,'y');
@@ -388,7 +389,8 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.replace_chars = replace_chars_ro;
 			tr->langopts.replacement_chars = replacement_chars_ro;
-			tr->langopts.numbers = 0x3829+0x6000;
+			tr->langopts.numbers = 0x1829+0x6000;
+			tr->langopts.numbers2 = 0x1e;  // variant numbers before all thousandplex
 		}
 		break;
 
@@ -412,11 +414,15 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x16;  
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
  			tr->langopts.max_initial_consonants = 5;
+			tr->langopts.spelling_stress = 1;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
 
-			tr->langopts.numbers = 0x1c09 + 0x4000;
+			tr->langopts.numbers = 0x1c0d + 0x84000;
 			if(name2 == L('h','r'))
-				tr->langopts.numbers = 0x1c09 + 0xa4000;
+				tr->langopts.numbers2 = 0xa;  // variant numbers before thousands,milliards
+			if(name2 == L('c','s'))
+				tr->langopts.numbers2 = 0x8;  // variant numbers before milliards
+
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');
@@ -534,6 +540,10 @@ Translator *SelectTranslator(const char *name)
 		// use . and ; for thousands and decimal separators
 		tr->langopts.thousands_sep = '.';
 		tr->langopts.decimal_sep = ',';
+	}
+	if(tr->langopts.numbers & 0x4)
+	{
+		tr->langopts.thousands_sep = 0;   // don't allow thousands separator, except space
 	}
 	return(tr);
 }  // end of SelectTranslator

@@ -118,7 +118,8 @@
 
 .group c
         c        k
-        ch       ts;   // try [ts;] [tS] [c] [dZ] [dz;]
+        c (_     kh
+        ch       c   // try [ts;] [tS] [c] [dZ] [dz;]
 
 .group d
         d        z
@@ -192,7 +193,7 @@
 .group g
         g        Q   // try [g] [Q]
         gh       Q   // or [g]  [Q]
-        gi       dZ
+        gi       D   // ??? [dZ]
 
 
 .group h
@@ -261,6 +262,7 @@
 
 .group k
         k        k
+        k (_     kh
         kh       x
 
 .group l
@@ -381,18 +383,19 @@
 
 .group q
         q        k
+        q (_     kh
         qu       kw
 
 .group r
-        r        z
+        r        D
 
 .group s
-        s        s;
+        s        s
 
 .group t
         t        t[
         th       t
-        tr       ts;   // try [ts;] [tS] [c] [dZ] [dz;]
+        tr       c   // try [ts;] [tS] [c] [dZ] [dz;]
 
 //=============================
 .group u
@@ -567,6 +570,6 @@
 
 .group
 	$	d'o||l'a
-	%	f'@2n||ts;'am
+	%	f'@2n||tS;'am
 
 

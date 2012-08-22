@@ -263,8 +263,9 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-	// bits0-2=which numbers routine to use. 0=none, 1=english/german
-	// bit3=  . , for thousands and decimal separator
+	// bits0-1=which numbers routine to use.
+	// bit2=  thousands separator must be space
+	// bit3=  , decimal separator, not .
 	// bit4=use three-and-twenty rather than twenty-three
 	// bit5='and' between tens and units
 	// bit6=add "and" after hundred and thousand
@@ -276,10 +277,14 @@ typedef struct {
 	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
 	// bits13-15  post-decimal-digits 0=single digits, 1=(LANG=it) 2=(LANG=pl) 3=(LANG=ro)
 	// bit16=dot after number indicates ordinal
-	// bit17=use feminine form of 2 before thousands and millions LANG=ro
 	// bit18=special word for 100,000s LANG=sw
 	// bit19=(LANG=pl)
+
 	int numbers;
+
+	// bits 1-4  use variant form of numbers before thousands,millions,etc.
+	int numbers2;
+
 	int thousands_sep;
 	int decimal_sep;
 	int intonation;          // 1=tone language

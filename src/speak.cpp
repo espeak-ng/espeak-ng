@@ -26,6 +26,7 @@
 #include <string.h>
 #ifdef PLATFORM_WINDOWS
 #include <windows.h>
+#include <winreg.h>
 #else
 #include <unistd.h>
 #endif
@@ -224,7 +225,18 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 static void init_path(void)
 {//========================
 #ifdef PLATFORM_WINDOWS
-	strcpy(path_home,"C:\\Program Files\\eSpeak\\espeak-data");
+	HKEY RegKey;
+	unsigned long size;
+	unsigned long var_type;
+	unsigned char buf[100];
+
+	buf[0] = 0;
+	RegOpenKeyEx(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Speech\\Voices\\Tokens\\eSpeak", 0, KEY_READ, &RegKey);
+	size = sizeof(buf);
+	var_type = REG_SZ;
+	RegQueryValueEx(RegKey, "path", 0, &var_type, buf, &size);
+
+	sprintf(path_home,"%s\\espeak-data",buf);
 #else
 	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)

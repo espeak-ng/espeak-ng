@@ -789,6 +789,7 @@ char* text[]=
 };
 
 
+#ifdef deleted
 void Test2()
 {
 // 
@@ -816,6 +817,21 @@ void Test2()
 	fclose(f_out);
 }
 
+void Test3()
+{
+	espeak_VOICE voicespec;
+	espeak_VOICE *newvoice;
+int x;
+
+	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS,100,NULL);
+	memset(&voicespec,0,sizeof(voicespec));
+	voicespec.languages = "de";
+	espeak_SetVoiceByProperties(&voicespec);
+	newvoice = espeak_GetCurrentVoice();
+	x = 1;
+}
+#endif
+
 
 void TestTest(int control)
 {//=======================
@@ -827,7 +843,7 @@ void TestTest(int control)
 
 //FindPhonemesUsed();
 //return;
-	Test2();
+
 return;
 
 if(control==2)

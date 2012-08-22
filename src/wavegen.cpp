@@ -52,7 +52,7 @@
 
 #define PI2 6.283185307
 #define STEPSIZE  64                // 2.9mS at 22 kHz sample rate
-#define N_WAV_BUF   15
+#define N_WAV_BUF   10
 
 static voice_t *wvoice;
 
@@ -126,7 +126,9 @@ static int hf_factor;
 
 
 unsigned char *out_ptr;
+unsigned char *out_start;
 unsigned char *out_end;
+int outbuf_size = 0;
 static unsigned char outbuf[1024];  // used when writing to file
 
 // the queue of operations passed to wavegen from sythesize
@@ -456,10 +458,28 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	int result;
 	unsigned char *p;
 
-	out_ptr = (unsigned char *)outputBuffer;
+	out_ptr = out_start = (unsigned char *)outputBuffer;
 	out_end = out_ptr + framesPerBuffer*2;
 
+#ifdef LIBRARY
+	event_list_ix = 0;
+#endif
+
 	result = WavegenFill(1);
+
+#ifdef LIBRARY
+	count_samples += framesPerBuffer;
+	if(synth_callback)
+	{
+		// synchronous-playback mode, allow the calling process to abort the speech
+		event_list[event_list_ix].type = espeakEVENT_LIST_TERMINATED; // indicates end of event list
+		if(synth_callback(NULL,0,event_list) == 1)
+		{
+			SpeakNextClause(NULL,NULL,2);  // stop speaking
+			result = 1;
+		}
+	}
+#endif
 
 #ifdef ARCH_BIG
 	{
@@ -491,6 +511,9 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	}
 
 #if USE_PORTAUDIO == 18
+#ifdef PLATFORM_WINDOWS
+	return(result);
+#endif
 	if(result != 0)
 	{
 		static int end_timer = 0;
@@ -1609,7 +1632,7 @@ void MakeWaveFile()
 
 	while(result != 0)
 	{
-		out_ptr = outbuf;
+		out_ptr = out_start = outbuf;
 		out_end = &outbuf[sizeof(outbuf)];
 		result = Wavegen();
 		if(f_wave != NULL)
@@ -1631,8 +1654,11 @@ int WavegenFill(int fill_zeros)
 	int length;
 	int result;
 	static int resume=0;
-//	static unsigned char speed_adjust_tab[10] = {223,199,179,160,143,128,115,103,92,82};
 
+#ifdef TEST_MBROLA
+	if(mbrola_name[0] != 0)
+		return(MbrolaFill(fill_zeros));
+#endif
 
 	while(out_ptr < out_end)
 	{
@@ -1727,7 +1753,7 @@ int WavegenFile(void)
 {//==================
 	int finished;
 
-	out_ptr = outbuf;
+	out_ptr = out_start = outbuf;
 	out_end = outbuf + sizeof(outbuf);
 
 	finished = WavegenFill(0);

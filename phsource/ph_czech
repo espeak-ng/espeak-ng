@@ -27,7 +27,7 @@ phoneme R
   vcd pla frc sibilant
   vowelin  f1=0  f2=1700 -300 300  f3=-300 80
   vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  formants voc/zh_2+vocw/zh
+  formants voc/zh_2+vocw/zh_rfx%130
   lengthmod 6
 //  switchvoicing S
 endphoneme

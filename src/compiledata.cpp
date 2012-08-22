@@ -884,7 +884,7 @@ int Compile::LoadDataFile(const char *path, int control)
 	int id;
 	int ix;
 	int hash;
-	int type_code;
+	int type_code=' ';
 	REF_HASH_TAB *p, *p2;
 	char buf[256];
 

@@ -55,7 +55,7 @@ enum {ONE_BILLION=1000000000};
 
 static t_wave_callback* my_callback_is_output_enabled=NULL;
 
-#define N_WAV_BUF   15
+#define N_WAV_BUF   10
 #define SAMPLE_RATE 22050
 #define FRAMES_PER_BUFFER 512
 #define BUFFER_LENGTH (SAMPLE_RATE*2*sizeof(uint16_t))

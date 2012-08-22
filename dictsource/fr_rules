@@ -596,7 +596,6 @@
 	y) 	s (A        z		// paysage
 	CCan) 	s (A        z		// transition
 
-		s (_        
 
 	ibu) 	s (_        s
 	mbu) 	s (_        s
@@ -624,6 +623,7 @@
 		s (v         z
 
 .group t
+	_)	t (_        te
 		t           t	// bataille
 		t (_        t2  // silent at end of word unless next word starts with a vowel
 		ts (_       z2  // silent at end of word unless next word starts with a vowel

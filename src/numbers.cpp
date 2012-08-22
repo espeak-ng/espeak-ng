@@ -203,14 +203,18 @@ int Translator::LookupNum2(int value, int control, char *ph_out)
 		if(Lookup("_1a",ph_out) != 0)
 			return(0);
 	}
-	if((value == 2) && (control & 4))
-	{
-		if(Lookup("_2f",ph_out) != 0)
-			return(0);
-	}
 	// is there a special pronunciation for this 2-digit number
-	sprintf(string,"_%d",value);
-	found = Lookup(string,ph_digits);
+	found = 0;
+	if(control & 4)
+	{
+		sprintf(string,"_%df",value);
+		found = Lookup(string,ph_digits);
+	}
+	if(found == 0)
+	{
+		sprintf(string,"_%d",value);
+		found = Lookup(string,ph_digits);
+	}
 
 	// no, speak as tens+units
 	if((control & 2) && (value < 10))
@@ -243,12 +247,15 @@ int Translator::LookupNum2(int value, int control, char *ph_out)
 			return(0);
 		}
 
+		found = 0;
 		units = (value % 10);
-		if((units == 2) && (control & 4))
+		if(control & 4)
 		{
-			Lookup("_2f",ph_digits);
+			// is there a variant form of this number?
+			sprintf(string,"_%df",units);
+			found = Lookup(string,ph_digits);
 		}
-		else
+		if(found == 0)
 		{
 			sprintf(string,"_%d",units);
 			Lookup(string,ph_digits);
@@ -328,7 +335,10 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 
 			if(LookupThousands(hundreds / 10, thousandplex+1, ph_10T) == 0)
 			{
-				LookupNum2(hundreds/10, 4, ph_digits);
+				x = 0;
+				if(langopts.numbers2 & (1 << (thousandplex+1)))
+					x = 4;
+				LookupNum2(hundreds/10, x, ph_digits);
 			}
 
 			sprintf(ph_thousands,"%s%s%c",ph_digits,ph_10T,phonPAUSE_NOLINK);
@@ -396,8 +406,8 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 			x = 1;   // allow "eins" for 1 rather than "ein"
 		else
 		{
-			if(langopts.numbers & 0x20000)
-				x = 4;   // use feminine form of "2" before thousands and millions
+			if(langopts.numbers2 & (1 << thousandplex))
+				x = 4;   // use variant (feminine) for before thousands and millions
 		}
 
 		if(LookupNum2(value,x,buf2) != 0)
@@ -709,7 +719,7 @@ int Translator::TranslateNumber(char *word1, char *ph_out, unsigned int *flags, 
 	if(option_sayas == SAYAS_DIGITS1)
 		return(0);  // speak digits individually
 
-	if((langopts.numbers & 0x7) == 1)
+	if((langopts.numbers & 0x3) == 1)
 		return(TranslateNumber_1(word1,ph_out,flags,wflags));
 
 	return(0);

@@ -1,4 +1,4 @@
-//maintainer: Willem van der Walt
+﻿//maintainer: Willem van der Walt
 // email: wvdwalt@csir.co.za
 // tel: +27 12 8413996
 // Meraka Institute, CSIR
@@ -87,14 +87,17 @@ _dpt    'pWnt
 // Place names
 
 afrika      'A:frika
+bethlehem   bEt_liEm
+ceylon      s@lOn
 china       S'ina
 engeland    'EN@lant
 mesopotamië mEsuput'A:mi@
 thaba       tA:ba
 (thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
-
+paarl       p&:r@L
 pretoria    prit'o@ria
+stellenbosch st%&l@mbOs 
 worcester   v'ust@r
 
 
@@ -106,6 +109,7 @@ annette     an'Et
 aucamp      @Ukamp
 benjamin    bEndZ@m@n
 botha       bo@ta
+carl        kA:r@L
 charles     _^_EN
 chris       krIs
 christo     krIstu
@@ -116,6 +120,7 @@ debora      d@bo@ra
 der         d@r
 esegiël    is'e@x2i_@l
 eugene      judZ'i:n
+eugène     yZ'En
 ferreira    f@r&:r@
 fourie      fur'i
 francois    franSwa
@@ -123,10 +128,12 @@ freud       frOId
 george      _^_EN
 gerhard     x2&rart
 grange      x2rA:nsi
+gustav      gustaf
 jacobus     jako@bWs
 jacques     ZA:k
 jesus       ji:sWs
 john        _^_EN
+le l@
 leandra     li'andra
 leroux      l@ru
 levi        le@fi
@@ -135,15 +142,23 @@ louis       luI
 louise      luw'i:z
 louw l'@U
 maria mar'ia
+michiel $2
+natasha n%at'aSa
 paul        p@Ul
 paulus      p@UlWs
 petrus      pe@trWs
 phoebe      fi:bi
+plooy pl'oI
 preez       pr'e@
 rebekka     r@bEka
 ronel       run'&l
 rousseau    r@s@U
+roux r'u
+scheepers   ske@p@rs
+schoor      sko@r
+shakespeare _^_EN
 terblanche  t@rblA:nS
+theron tr'On
 viljoen     $2
 villiers    vIli@rs
 marais      mar'E:
@@ -177,8 +192,8 @@ kan		$u $strend
 kon		$u $strend
 wil		$u $strend
 word		$u
+gaan            $u $only
 kry		$u
-gaan		$u
 
 
 // conjunctions and questions
@@ -197,6 +212,7 @@ daarom		$pause
 dus		$pause
 gevolglik	$pause
 daarna		$pause
+desondanks      dEs?OndaNks $pause
 ondanks         'OndaNks $pause
 verder		f'&rd@r $pause
 nogtans		$pause
@@ -311,11 +327,13 @@ anatomie      $4
 asof          asOf
 asook         aso@k
 asseblief     as@bl'if
+babelaas      bab@lA:s
 bedjie        bE:ici
 beide         beId@
 belangriker   b@laNr@k,Ir
 belangrikst@  b@laNr@kst@
 bene          be@n@
+beswil        bEsv@l	
 bêre          b&:r@
 beskryf b@skr'eIf
 beste         bEst@
@@ -336,7 +354,9 @@ diplomasie    d@plo@mas'i
 dusver        dWsf&r
 
 effense       Ef@ns@
-ekonomie      Ekuno@m'i
+ekself %&ks'&lf
+ekstra $1
+
 elders        &ld@rs
 enige         e@nIx2@
 era           e@ra
@@ -346,8 +366,6 @@ euro          Y@ru
 exodus        Eks'o@dWs
 
 figuur        f@x2yr
-finaal        $2
-finale        $2
 finalis       $3
 finaliste     $3
 
@@ -361,7 +379,6 @@ genesis       x2e@n@s@s
 //gesamentlik   x2@sA:m@ntl@k
 gooi          x2OI
 gomorra       x2@mOra
-gunsteling    x2Wnst@l@N
 
 hallo         h'Il,@U
 hanteer       $2
@@ -394,6 +411,7 @@ kantoor       $2
 kapitaal      kapit'A:l
 koevert       kuf'&rt
 kollega       kul'e@x2a
+komaan        kOmA:n
 komberse      kOmb'&rs@
 kombers       kOmb'&rs
 konferensie   kOnf@r'e:nsi
@@ -403,13 +421,13 @@ kritiek       krIt'ik
 kultuur       $2
 kunsmatige    kWnsm'A:t@x2@
 
+latere l'A:t@r@
 lekker        l&k@r
 lekkerder     l&k@rd@r
 lekkerste     l&k@rst@
 lughawe       lWx2h,A:v@
 
 makabere m%ak'A:b@r@
-manier        $2
 matige        mA:t@x2@
 meegee        me@x2e@
 militêre      mIl@t'&:r@
@@ -425,10 +443,9 @@ motortjie     mo@t@rki
 
 nadele        nA:de@l@
 nature        nat'yr@
-natuurlik     nat'yrl@k
-natuur        nat'yr
 nalatigheid   nA:l'A:t@x2eIt
 namate        $2
+negeer        n@x2e@r
 netjies       nE:icis
 netjiese      nEicis@
 netsowel      nEtso@v&l
@@ -443,8 +460,18 @@ omtrent       Omtr'Ent
 onbegrip      $1
 onderstebo    On@rst@b,o@
 onderwyser    $3
+ongeag        $1
+ongeduld      $1
+ongeloof      $1
+ongelyk       $1
+ongemak       $1
+ongerief      $1
+ongewens      $1
+ongewensde    $3
+ongewoons     $1
 onkunde       $1
 onlangs       $1
+onmag         $1
 onrus         $1
 oorkom        $2
 oorleef       $2
@@ -460,15 +487,16 @@ program       prux2r'am
 
 reeds         re@ts
 retireer      r@t@re@:r
+retoriek      r@tur'ik
 rimpeling     rImp@l@N
+roterende rut'e@r@nd@
 rukkerig      rWk@r@x2
 
 
 samelewing    sA:m@l,e@v@N
 sedert        se@d@rt
-sekonde       s@kOnd@
-sekondes      s@kOnd@s
 sektore       $2
+skepsele      skEps@l@
 s'n           s'@n
 sobere s'o@b@r@
 sombere s'Omb@r@
@@ -479,6 +507,7 @@ soldate       $2
 sononder      sOn,On@r
 sonop         sOn,Op
 sover         so@f&r
+spesmaas      $2
 stabiel       stab'il
 
 terdeë       $2
@@ -496,6 +525,7 @@ uitdagings    YydA:x2@Ns
 uitdaging     YydA:x2@N
 uiteindelik   $2
 
+vaarwel       fA:rv'&l
 vanaf         fanaf
 vandag        $2
 vandaan       $2
@@ -503,6 +533,7 @@ vanjaar       $2
 vanoggend     fan'Ox2@nt
 vanuit        fan'Yyt
 veraf         f&r_af
+verafgeleë    f&rafx2@le@@
 verantwoordelikheid f@rantv'o@rd@l@keIt
 verdere       f&rd@r@
 vere          fe@r@
@@ -529,6 +560,7 @@ vrek          fr&k
 
 waarskynlik   $2
 waarskynlike  $2
+wangedrag     vanx2@drax2
 weg           v&x2
 weggewens     v&x2@v'E:ns
 

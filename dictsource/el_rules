@@ -7,22 +7,21 @@
 // Ο ο, Π π, Ρ ρ, Σ σ ς (word-final form), Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω.
 
 .group α
-        _) α (_     alfa
            α        a
            αι       e
            αί       'e
            αυ       av
            αυ (B    af      // +voiceless consonant κ, π, τ, χ, θ, σ, ξ.
+           αύ      'av
+           αύ (B   'af      // +voiceless consonant κ, π, τ, χ, θ, σ, ξ.
            αη       aI
            αϊ       aI
 
 .group β
-        _) β (_     vita
            β        v
            β (β
 
 .group γ
-        _) γ (_     Qama
            γ        Q
            γγ       g
            γκ       g
@@ -38,12 +37,10 @@
            γοι (A   j
 
 .group δ
-        _) δ (_     Delta
            δ        D
            δ (δ
 
 .group ε
-        _) ε (_     'epsilon
            ε        e
            ει       i
            εί       'i
@@ -52,9 +49,12 @@
            ευ (B    ef      // +voiceless consonant
            ευ (β    e
            ευ (φ    e
+           εύ      'ev
+           εύ (B   'ef      // +voiceless consonant
+           εύ (β   'e
+           εύ (φ   'e
 
 .group ζ
-        _) ζ (_     zita
            ζ        z
            ζ (ζ
            ζη (A    z;
@@ -64,24 +64,21 @@
            ζοι (A   z;
 
 .group η
-        _) η (_     ita
            η        i
         C) η (A     ;
            ηυ       iv
            ηυ (B    if      // +voiceless consonant
 
 .group θ
-        _) θ (_     Tita
            θ        T
            θ (θ
 
 .group ι
-        _) ι (_     i'ota
            ι        i
         C) ι (A     ;
+        ρ) ι (A     i
 
 .group κ
-        _) κ (_     kapa
            κ        k
            κ (κ
        ν_) κ        g
@@ -94,7 +91,6 @@
 
 
 .group λ
-        _) λ (_     lamDa
            λ        l
            λ (λ
            λη (A    l^
@@ -104,13 +100,11 @@
            λοι (A   l^
 
 .group μ
-        _) μ (_     mi
            μ        m
            μ (μ
         _) μπ       b
 
 .group ν
-        _) ν (_     ni
            ν        n
            ν (ν
            ντ       d  // always? or not after a vowel?
@@ -126,13 +120,11 @@
 
 
 .group ξ
-        _) ξ (_     ksi
            ξ        ks
            ξ (ξ
        ν_) ξ        gz
 
 .group ο
-        _) ο (_     'omikron
            ο        o
            οι       i
            οί       'i
@@ -143,19 +135,17 @@
            οϊ       oI
 
 .group π
-        _) π (_     pi
            π        p
            π (π
        ν_) π        b
 
 .group ρ
-        _) ρ (_     Ro
            ρ        R
            ρ (ρ
-        A) ρ        r
+        A) ρ (A     *
+        C) ρ (A     @-*
 
 .group σ
-        _) σ (_     s'iQma    // we can get  s'  in the text
            σ        s
            σ (σ
            ση (A    s;
@@ -165,13 +155,11 @@
            σοι (A   s;
 
 .group ς
-        _) ς (_     s'iQma
            ς        s
            ς (_B    s    // +voiceless consonant
            ς (_C    z
 
 .group τ
-        _) τ (_     taf
            τ        t
            τ (τ
            τσ       ts
@@ -180,19 +168,16 @@
        ν_) τσ       dz
 
 .group υ
-        _) υ (_     'ipsilon
            υ        i
         C) υ (A     ;
            υι       i
            υί       'i
 
 .group φ
-        _) φ (_     fi
            φ        f
            φ (φ
 
 .group χ
-        _) χ (_     Ci
            χ        x
            χ (αι    C
            χ (αί    C
@@ -208,26 +193,12 @@
            χ (ύ     C
 
 .group ψ
-        _) ψ (_     psi
            ψ        ps
            ψ (ψ
        ν_) ψ        bz
 
 .group ω
-        _) ω (_     om'eQa
            ω        o
-
-.group 9
-           0        miD'en_
-           1        'ena_
-           2        D'io_
-           3        tr'ia_
-           4        t'esera_
-           5        p'ente_
-           6        'eksi_!
-           7        ept'a_
-           8        okt'o_
-           9        en^'a_
 
 
 

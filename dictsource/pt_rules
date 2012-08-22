@@ -1,4 +1,4 @@
-// translation rules Brazilian
+﻿// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -26,6 +26,7 @@
           a (C_      &
           a (r_      'a
           a (CC_     &
+?1        al (_      'al // eg: Portugal, capital, etc.
 ?2        al (K      aU
 ?2        alh        alj
 
@@ -127,7 +128,6 @@
           e (bes_    E
           e (ce_     E
           e (ces_    E
-?1        el (K      El
 ?2        el (K      EU
 ?2        elh        elj
 
@@ -245,8 +245,8 @@
       úC) i (A_       j
      úCC) i (A_       j
 
-       @) ing (_      _^_EN
-       @) ings (_     _^_EN
+?1       @) ing (_      _^_EN
+?1       @) ings (_     _^_EN
 
 
 .group í
@@ -362,7 +362,7 @@
           p          p
           p (p
 ?1        ph         f     //Didn’t use in European Portuguese (eg: English)
-          ple (_     _^_EN
+?1          ple (_     _^_EN
 
 
 .group q
@@ -379,8 +379,6 @@
 ?1        quec       kes     // esquece, etc.
 ?1        queç       kes     // esqueça.
 ?1     A) que (nA_   ke      // pequeno, etc.
-?1     A) que (_     ke      // toque, etc.
-?1     C) que (_     ky      // porque, etc.
 ?1     C) quê (_     ke      // porquê, etc.
 ?1        que (l     ke      // aquele, etc.
 ?1        que (r_    ke      // qualquer, etc.
@@ -439,8 +437,8 @@
 ?2        t (i       tS
 ?2        t (í       tS
 ?2        t (e_      tS
-          th         _^_EN
-          tion (_    _^_EN
+?1          th         _^_EN
+?1          tion (_    _^_EN
 
 
 .group u
@@ -482,7 +480,7 @@
 .group w
        _) w (_       d'ablju
           w          w
-          w (_       _^_EN
+?1          w (_       _^_EN
 
 
 .group x
@@ -514,7 +512,8 @@
        _) z (_       ze
           z          z
           z (z
-          z (_       s
+?1          z (_       S
+?2          z (_       s
           z (_A      z
           z (_G      z
 
@@ -562,6 +561,7 @@
           = (==        
       =)  = (=         
      ==)  = (_         _::
+
 
 
 

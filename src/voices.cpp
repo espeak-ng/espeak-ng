@@ -931,7 +931,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 // Read a Voice file, allocate a VOICE_DATA and set data from the
 // file's  language, gender, name  lines
 
-	char linebuf[80];
+	char linebuf[120];
 	char vname[80];
 	char vgender[80];
 	char vlanguage[80];
@@ -947,6 +947,19 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 	int age;
 	int n_variants = 3;    // default, number of variants of this voice before using another voice
 	int gender;
+
+#ifdef PLATFORM_WINDOWS
+	if(memcmp(leafname,"mb-",3) == 0)
+	{
+		// check whether the mbrola speech data is present for this voice
+		memcpy(vname,&leafname[3],3);
+		vname[3] = 0;
+		sprintf(linebuf,"%s/mbrola/%s",path_home,vname);
+
+		if(GetFileLength(linebuf) <= 0)
+			return(0);
+	}
+#endif
 
 	vname[0] = 0;
 	vgender[0] = 0;
@@ -1339,7 +1352,7 @@ espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector)
 #pragma GCC visibility push(default)
 
 
-extern "C" const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
+ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {//========================================================================
 #ifndef PLATFORM_RISCOS
 	int ix;
@@ -1397,7 +1410,7 @@ extern "C" const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 
 
 
-extern "C" espeak_VOICE *espeak_GetCurrentVoice(void)
+ESPEAK_API espeak_VOICE *espeak_GetCurrentVoice(void)
 {//==================================================
 	return(voice_selected);
 }
