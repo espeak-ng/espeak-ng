@@ -1,0 +1,189 @@
+
+allein           $2
+andre           andr@        // andere
+beste           bEst@
+damit            $2
+direkt           $2
+einander         $2
+erde            E:rd@
+erste           E:st@
+geben           ge:b@n
+hm              h@m
+machen          max@n
+problem         prObl'e:m
+sagt            zA:gt
+sofort           $2
+tag             tA:g
+unten           Unt@n
+vielleicht       $2
+vorbei           $2
+zuerst          tsu:'E:rst
+zurück           $2
+
+
+// definite article
+der             ¬dE:r
+die             ¬di:
+das             ¬das
+den             ¬de:n
+dem             ¬de:m
+des             ¬dEz
+
+derselbe        dE:rz'Elb@
+desselbe        dEs:Elb@
+dieselbe        di:z'Elb@
+
+// conjunctions
+und             ¬Unt      $pause $strend
+aber            ,A:b@r    $pause $strend
+oder            ,o:d@r    $pause $strend
+denn            ¬dEn      $pause $strend
+weil                      $pause $strend
+also                      $pause $strend
+wenn            ,vEn      $pause $strend
+
+deren           ,dE:r@n   $pause
+
+// prepositions
+an              ¬an       $strend
+am              ¬am
+auf             ¬aUf      $strend
+bei             ¬baI      $strend
+bis             ¬bIs      $strend
+für             ¬fy:r      $strend
+gegen           ,ge:g@n   $strend
+gegend          ge:g@nt
+hin             hIn
+in              ¬In       $strend
+(in der)        ¬Ind¬Er
+im              ¬Im
+mit             ¬mIt      $strend
+nach            ¬nax      $strend
+ob              ¬Ob       $strend
+von             ¬fOn      $strend
+vom             ¬fOm
+vor             ,fO:r      $strend
+zu              ¬tsu:     $strend
+zum             ¬tsUm
+zur             ¬tsu:r
+über            ,y:b@r    $strend
+unter           ,Unt@r    $strend
+um               Um       $strend
+
+// misc
+so              ¬zo:      $strend
+doch            ¬dOx      $strend
+
+(nicht mehr)    n'ICt||mE:r
+(nicht mehr)    n,ICt||m'E:r  $atend
+
+// should these be in the Rules because they can be a prefix in a
+// compound verb ?
+darauf           $2
+daraus           $2
+dabei            $2
+dadurch         dA:d'u:rx
+daher           dA:h'E:r
+dahin           dA:h'In
+darein           $2
+darin           dA:r'In
+darüber          $2
+darunter         $2
+dazu            dAz'u:
+umher           Umh'E:r
+umhin           Umh'In
+voraus          fo:r'aUs
+worin           vo:r'In
+
+// pronouns
+ich             ¬IC
+du              ¬du:
+er              ¬E:r
+es              ¬Ez
+sie             ¬si:
+wir             ¬vi:r
+ihr             ¬i:r
+man             ¬man
+sich            ¬zIC
+
+daß             ¬das      $strend
+
+ein             ¬aIn      $strend
+eine            ,aIn@
+einem           ,aIn@m
+einer           ,aIn@r
+
+kein             ¬kaIn    $strend
+keine            ,kaIn@
+keinem           ,kaIn@m
+keiner           ,kaIn@r
+
+sein             ¬zaIn    $strend
+seine            ,zaIn@
+seinem           ,zaIn@m
+seiner           ,zaIn@r
+
+unsre           ,Vnzr@
+unser           ,Vnz@r
+unserm          ,Uns@rm
+
+
+ihre            ,i:r@
+ihrem           ,i:r@m
+ihrer           ,i:r@r
+
+dieser          ,di:z@r
+diesem          ,di:z@m
+
+//
+was             vas
+
+// verbs
+
+bin             ¬bIn
+bist            ¬bIst
+ist             ¬Ist 
+sind            ¬zInt
+seit            ¬zaIt
+
+gehen           ge:@n
+gehe            ge:@
+
+habe            ¬hA:b@
+habst           ¬habst
+hast            ¬hast
+hat             ¬hat
+haben           h,A:b@n
+hatte           h,at@
+hatten          h,at@n
+hätte           h,Et@
+hättest         h,EtEst
+hättet          h,Et@t
+hätten          h,Et@n
+
+war             ¬vA:r
+warst           ¬vA:rsr
+wart            ¬vA:rt
+waren           ¬vA:r@n
+
+will            ¬vIl
+willst          ¬vIlst
+wollen          ¬vOl@n
+wolt            ¬vOlt
+
+werden          v,E:rd@n
+werde           v,E:rd@
+werdst          v,E:rdst
+werdet          v,E:rd@t
+wurden          vUrd@n
+wurde           vUrd@
+wurdst          vUrdst
+wurdet          vUrd@t
+
+können          ,kWn@n
+kann            ,kan
+kannst          ,kanst
+könnt           ,kWnt
+
+
+

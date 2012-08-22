@@ -1,0 +1,96 @@
+
+// includes both Latin3 accented characters and Latin1 digraphs (cx, gx, ux, etc)
+
+la              $u
+ne              $u
+cxu             $u      // interogative particle
+(cxi tio)       $u
+(cxi tiu)       $u
+æu             $u      // cxi  interogative particle
+(æi tio)       $u
+(æi tiu)       $u
+ia              $u      // any
+
+
+antaux          $u   $strend
+antaý          $u    $strend
+apud            $u   $strend
+ol              $u   $strend
+da              $u   $strend
+de              $u   $strend
+al              $u   $strend
+en              $u   $strend
+kun             $u   $strend
+per             $u   $strend
+sub             $u   $strend
+sur             $u   $strend
+
+// pronouns
+mi              $u
+ci              $u
+li              $u
+sxi             $u
+þi             $u        // sxi
+gxi             $u
+øi             $u        // gxi
+ni              $u
+vi              $u
+ili             $u
+oni             $u
+si              $u
+
+mia             $u
+cia             $u
+lia             $u
+sxia            $u
+þia            $u       // sxia
+gxia            $u
+øia            $u       // gxia
+nia             $u
+via             $u
+ilia            $u
+sia             $u
+
+// aux verbs
+esti            $u
+estas           $u
+estis           $u
+estos           $u
+estus           $u
+
+povas           $u      // can
+povis           $u
+povos           $u
+povus           $u
+
+devas           $u      // must
+devis           $u
+devos           $u
+devus           $u
+
+iras            $u      // go
+iris            $u
+iros            $u
+irus            $u
+
+metas           $u      // put
+metis           $u
+metos           $u
+metus           $u
+
+eble            $u       // may
+
+kia             $u
+kie             $u
+kio             $u
+kiu             $u
+kiam            $u
+
+// conjunctions
+ke              $u       // that (conj)
+aux             $u
+aý             $u       // aux
+cxar            $u
+æar            $u
+kaj             $u
+sed             $u

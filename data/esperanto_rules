@@ -1,0 +1,211 @@
+// translation rules
+
+.group a
+	_)	a(_	a
+		a	a
+		aj	aI
+		a (jx   a
+		aux	aU
+		aý	aU
+		
+.group b
+	_)	b(_	ba
+		b       b
+		
+.group c
+	_)	c(_	tso
+	_)	ch(_	tSo
+	_)	cx(_	tSo
+		c	ts
+		ch (C	tS
+		cx	tS
+		
+		
+.group d
+	_)	d(_	da
+		d	d
+
+.group e
+	_)	e(_	e
+		e	e
+		ej	eI
+		e (jx	e
+		eux	eU
+		eý	eU
+		
+.group f
+	_)	f(_	fo
+		f	f
+		
+.group g
+	_)	g(_	ga
+	_)	gh(_	dZa
+	_)	gx(_	dZa
+		g	g
+		gh (C	dZ
+		gx	dZ
+				
+.group h
+	_)	h(_	ha
+	_)	hh(_	xo
+	_)	hx(_	xo
+		h	h
+		hh	x
+		hx	x
+		
+		
+.group i
+	_)	i(_	i
+		i	i
+		
+.group j
+	_)	j(_	jo
+	_)	jh(_	Za
+	_)	jx(_	Za
+		j	j
+		jh (C	Z
+		jx	Z
+		
+.group k
+	_)	k(_	ko
+		k	k
+		
+.group l
+	_)	l(_	lo
+		l	l
+		
+.group m
+	_)	m(_	mo
+		m	m
+		
+.group n
+	_)	n(_	na
+		n	n
+		
+.group o
+	_)	o(_	o
+		o	o
+		oj	OI
+		o (jx   o
+		
+.group p
+	_)	p(_	po
+		p	p
+		
+.group q
+	_)	q(_	kwo
+		q	kw
+		
+.group r
+	_)	r(_	ra
+		r	r
+		
+.group s
+	_)	s(_	so
+	_)	sh(_	So
+	_)	sx(_	So
+		s	s
+		sh (C	S
+		sx	S
+		
+		
+.group t
+	_)	t(_	to
+		t	t
+		
+.group u
+	_)	u(_	u
+	_)	ux(_	wa
+		u	u
+		uj	uI
+		u (jx   u
+		ux	w
+		
+		
+.group v
+	_)	v(_	va
+		v	v
+		
+.group w
+	_)	w(_	wa
+		w	w
+		
+.group x
+	_)	x(_	ikso
+		x	ks
+		
+.group y
+	_)	y(_	ipsilono
+		y	j
+	
+		
+.group z
+	_)	z(_	za
+		z	z
+			
+		
+.group
+	_)	æ(_	tSo
+		æ	tS
+
+	_)	ø(_	dZa
+		ø	dZ
+
+	_)	¶(_	xo
+		¶	x
+
+	_)	¼(_	Za
+		¼	Z
+
+	_)	þ(_	So
+		þ	S
+
+	_)	ý(_	wo
+		ý	w
+
+		
+		=	,,egala,
+		\	malantaIstreko
+		/	streko
+		'	
+		+	plus
+	_)	++ (_	plusplus
+
+		.	punkto
+		*	asterisko
+		£	pundo
+		£ (D	_pundOI_
+	        !	,ekkrio,
+		:	dupunkto
+		-	_
+		$	dolaro
+		$ (D	_dolarOI_
+		%	protsento
+		@	po
+		&	¬kaI
+		
+	
+
+
+.group 9
+		
+	1		unu
+	2		du
+	3		tri
+	4		kvar
+	5		kvin
+	6		ses
+	7		sep
+	8		ok
+	9		naI
+		
+	10		dek
+	20		dudek
+	30		tridek
+	40		kvardek
+	50		kvindek
+	60		sesdek
+	70		sepdek
+	80		okdek
+	90		naIdek
+	
