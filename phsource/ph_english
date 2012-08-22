@@ -239,7 +239,7 @@ endphoneme
 phoneme eI
   vowel  starttype (e)  endtype (i)
   length 210
-  formants vowel/eI
+  formants vowel/EI
 endphoneme
 
 
@@ -333,31 +333,31 @@ phoneme uI
 endphoneme
 
 
-phoneme a~
+phoneme A~
   vowel  starttype (a) endtype (a)
   length 260
-  formants vowel/an
+  formants vowel/A_n
 endphoneme
 
 
 phoneme E~
   vowel  starttype (e)  endtype (e)
   length 260
-  formants vowel/En
+  formants vowel/E_n
 endphoneme
 
 
 phoneme O~
   vowel  starttype (o)  endtype (o)
   length 260
-  formants vowel/On
+  formants vowel/O_n
 endphoneme
 
 
 phoneme W~
   vowel  starttype (@)  endtype (@)
   length 260
-  formants vowel/Wn
+  formants vowel/W_n
 endphoneme
 
 

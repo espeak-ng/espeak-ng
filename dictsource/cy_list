@@ -63,8 +63,8 @@ sydd      $u $pause   // which are
 //yn        @n      // in  (cy_rules)
 ym        @       // in (+nasal word)
 yng       @       // in (+nasal word)
-ynddi     $u $strend     // in it (f)
-ynddo     $u $strend      // in it (m)
+ynddi     $u+     // in it (f)
+ynddo     $u+      // in it (m)
 
 o         _%o:      // of,from,out of
 (o hyd)   o:h'y:d  $pause // until
@@ -73,28 +73,28 @@ am        _%am      // for
 ar        _%ar      // on
 at        _%at      // to,towards
 ap        _%ap
-gan       $u $strend      // by,with,from
-mewn      $u $strend      // in(a)
-tu        $u $strend
+gan       $u+      // by,with,from
+mewn      $u+      // in(a)
+tu        $u+
 wrth      $u $pause $strend     // by,with,while
 
 heb       $u      // without,not
-gyda      $u $strend     // with
+gyda      $u+     // with
 ers       $u $pause $strend  // since
 cyn       $u $pause $strend  // before,as
 nes       $pause $strend     // until
 tan       $pause $strend     // until
 dan       $pause $strend     // until,under
 
-agos      _A:gOs $u $strend // near
-blaen     $u $strend        // in front of
+agos      _A:gOs $u+ // near
+blaen     $u+        // in front of
 ôl        _%o:l $strend     // behind
-rhwng     $u $strend        // between
-dan       $u $strend        // under
-dros      $u $strend        // over,for,on behalf of
+rhwng     $u+        // between
+dan       $u+        // under
+dros      $u+        // over,for,on behalf of
 //draws               // across
-drwy      $u $strend        // through
-erbyn     $u $strend        // by, against
+drwy      $u+        // through
+erbyn     $u+        // by, against
 ymhen     $pause $strend    // within
 
 
@@ -107,28 +107,28 @@ ni        %ni:
 chi       %xi:
 nhw       %nhu:
 
-hon       $u $strend       // this one (f)
-honna     $u $strend       // that one (f)
-hwn       $u $strend       // this one (m)
-hwnna     $u $strend       // that one (m)
-hwnnw     $u $strend       // that one (m)
-hyn       $u $strend       // this, these
-hynny     $u $strend       // that, those
+hon       $u+       // this one (f)
+honna     $u+       // that one (f)
+hwn       $u+       // this one (m)
+hwnna     $u+       // that one (m)
+hwnnw     $u+       // that one (m)
+hyn       $u+       // this, these
+hynny     $u+       // that, those
 
-rhain     $u $strend       // these
-rheina    $u $strend       // those
-rheini    $u $strend       // those
+rhain     $u+       // these
+rheina    $u+       // those
+rheini    $u+       // those
 
-taw       $u $strend       // that
+taw       $u+       // that
 
-mai       $u $strend       // that
+mai       $u+       // that
 Mai       $capital         // May: month
 
-'na       $u $strend       // that
-yna       $u $strend       // that
+'na       $u+       // that
+yna       $u+       // that
 
-'ma       $u $strend       // this
-yma       $u $strend       // this
+'ma       $u+       // this
+yma       $u+       // this
 
 // possessives
 fy        $u     // my
@@ -154,7 +154,7 @@ unrhyw    $u      // any
 // verbs
 yn        @n
 wedi      $u   // perfect tense
-fe        $u $strend  // positive marker
+fe        $u+  // positive marker
 
 bod       $u  // to be
 rydw      $u
@@ -182,15 +182,15 @@ yw        %Yu  // is,are
 dyma      $u  // here is
 dyna      $u  // there is, that's
 
-cael	$u $strend // to get,have
-ga	$u $strend
+cael	$u+ // to get,have
+ga	$u+
 
-gafodd	$u $strend  // past
-gawson	$u $strend
-gawsoch	$u $strend
-gas	$u $strend
-geson	$u $strend
-gesoch	$u $strend
+gafodd	$u+  // past
+gawson	$u+
+gawsoch	$u+
+gas	$u+
+geson	$u+
+gesoch	$u+
 
 
 gallu     $u  // can, to be able to
@@ -210,8 +210,8 @@ gallan	$u
 //gorfod        // must, to have to
 //gorffod
 
-gwneud    $u $strend   // to do, make
-neud      $u $strend   // to do, make
+gwneud    $u+   // to do, make
+neud      $u+   // to do, make
 
 //myna           // to go
 

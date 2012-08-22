@@ -32,13 +32,13 @@ _/   slaS
 _:   d,Uep'Unte
 _;   p'Untoev'irgola
 _<   ap'erta'angolo
-_=   Ugw2ale
+_=   Ugwale
 _>   kj,Uza'angolo
 _?   p'UntointeRogat'ivo
 _@   ki'otS:ola
-_[   ap'ertakw2'adra
+_[   ap'ertakw'adra
 _\   bakslaS
-_]   kj,Uzakw2'adra
+_]   kj,Uzakw'adra
 _^   kap:UtS:o
 __   'Underskore
 _`   bakpraIm
@@ -54,8 +54,8 @@ _0	dz'eRo
 _1	'Uno
 _2	d'Ue
 _3	tR'e
-_4	kw2'at:Ro
-_5	tS'inkw2e
+_4	kw'at:Ro
+_5	tS'inkwe
 _6	s'ej
 _7	s'Et:e
 _8	'Okt:o
@@ -64,16 +64,16 @@ _10     di'etSi
 _11     'unditSi
 _12     d'oditSi
 _13     tr'editSi
-_14     kw2at:'OrditSi
-_15     kw2'imditSi
+_14     kwat:'OrditSi
+_15     kw'imditSi
 _16     s'editSi
 _17     ditSas:'Et:e
 _18     ditS'Ot:o
 _19     ditSann'ove
 _20     v'ente
 _30     tr'enta
-_40     kw2ar'anta
-_50     tSinkw2'anta
+_40     kwar'anta
+_50     tSinkw'anta
 _60     sess'anta
 _70     set:'anta
 _80     ot'anta
@@ -105,26 +105,26 @@ gli	l^i  $u
 
 
 // pronouns
-io	$u $strend
-tu	$u $strend
-lui	$u $strend
-lei	$u $strend
-noi	$u $strend
-voi	$u $strend
-loro	$u $strend
+io	$u+
+tu	$u+
+lui	$u+
+lei	$u+
+noi	$u+
+voi	$u+
+loro	$u+
 
-egli	$u $strend
-ella	$u $strend
-essa	$u $strend
-esse	$u $strend
-essi	$u $strend
+egli	$u+
+ella	$u+
+essa	$u+
+esse	$u+
+essi	$u+
 
-mi	$u $strend
-ti	$u $strend
-si      $u $strend
-ci	$u $strend
-vi	$u $strend
-li	$u $strend
+mi	$u+
+ti	$u+
+si      $u+
+ci	$u+
+vi	$u+
+li	$u+
 
 
 // words that double the following consonant
@@ -182,7 +182,7 @@ malevolenza	$pause      // despite
 pertanto        $pause      // therefore
 né              $pause      // neither-nor
 
-(in cui)        in||kw,i  $pause   // in which
+(in cui)        in||kw2,i  $pause   // in which
 che             $u $pause   // which
 
 
@@ -233,12 +233,12 @@ con	$u $pause	// with
 col     $u
 coi     $u
 
-attraverso $u $strend	// across, through
-contro     $u $strend   // against
-accanto    $u $strend   // beside
-verso      $u $strend   // toward
-sopra	   $u $strend	// above
-sotto	   $u $strend	// below
+attraverso $u+	// across, through
+contro     $u+   // against
+accanto    $u+   // beside
+verso      $u+   // toward
+sopra	   $u+	// above
+sotto	   $u+	// below
 per        $u $pause    // for
 eccetto    $pause       // except
 senza      $pause       // without
@@ -314,10 +314,10 @@ avremo	$u
 avrete	$u
 avranno	$u
 
-abbia	$u $strend
-abbiamo	$u $strend
-abbiate	$u $strend
-abbiano	$u $strend
+abbia	$u+
+abbiamo	$u+
+abbiate	$u+
+abbiano	$u+
 avessi	$u
 avesse	$u
 avessimo	$u
@@ -332,20 +332,20 @@ avreste	$u
 avrebbero	$u
 
 // to do/make
-fare	$u $strend
-faccio	$u $strend
-facciamo	$u $strend
-fai	$u $strend
-fate	$u $strend
-fa	$u $strend
-fanno	$u $strend
+fare	$u+
+faccio	$u+
+facciamo	$u+
+fai	$u+
+fate	$u+
+fa	$u+
+fanno	$u+
 
-facevo	$u $strend
-facevi	$u $strend
-faceva	$u $strend
-facevamo	$u $strend
-facevate	$u $strend
-facevano	$u $strend
+facevo	$u+
+facevi	$u+
+faceva	$u+
+facevamo	$u+
+facevate	$u+
+facevano	$u+
 
 
 // exceptions

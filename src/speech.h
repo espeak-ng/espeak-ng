@@ -36,7 +36,9 @@
 #endif
 
 // will look for espeak_data directory here, and also in user's home directory
-#define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
+#ifndef PATH_ESPEAK_DATA
+   #define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
+#endif
 
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;

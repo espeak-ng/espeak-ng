@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+#include "StdAfx.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -303,6 +304,8 @@ Translator::Translator()
 	SetLetterBits(2,"bcdfghjklmnpqrstvwxz");  // C  all consonants
 	SetLetterBits(3,"hlmnr");                 // H  'soft' consonants
 
+	SetLetterBits(5,"bdgjlmnrvwyz");   // G voiced
+	SetLetterBits(6,"eiy");   // Letter group Y, front vowels
 	SetLetterBits(7,"aeiouy");  // vowels, including y
 
 	char_plus_apostrophe = empty_wstring;
@@ -316,16 +319,18 @@ Translator::Translator()
 
 	memset(&langopts,0,sizeof(langopts));
 
-	langopts.word_gap = 1;
+	langopts.word_gap = 0;
 	langopts.stress_rule = 2;
 	langopts.unstressed_wd1 = 1;
 	langopts.unstressed_wd2 = 3;
 	langopts.param[LOPT_SONORANT_MIN] = 95;
 	langopts.param[LOPT_MAXAMP_EOC] = 19;
 	langopts.param[LOPT_UNPRONOUNCABLE] = 's';    // don't count this character at start of word
+	langopts.max_initial_consonants = 3;
 
 	langopts.length_mods = length_mod_tab;
 	langopts.length_mods0 = length_mod_tab0;
+	langopts.long_stop = 90;
 
 	langopts.thousands_sep = ',';
 	langopts.decimal_sep = '.';
@@ -632,6 +637,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 	int voicing;
 	int regression;
 	int end_sourceix;
+	int alternative;
 	PHONEME_LIST2 ph_list3[N_PHONEME_LIST];
 
 	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0};
@@ -807,23 +813,37 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 
 		if(ph->alternative_ph > 0)
 		{
+			alternative = 0;
+
 			switch(ph->phflags & phALTERNATIVE)
 			{
 			// This phoneme changes if vowel follows, or doesn't follow, depending on its phNOTFOLLOWS flag
 			case phBEFORENOTVOWEL:
 				if(next->type != phVOWEL)
-					ph = phoneme_tab[ph->alternative_ph];
+					alternative = ph->alternative_ph;
 				break;
 
 			case phBEFOREVOWELPAUSE:
 				if((next->type == phVOWEL) || (next->type == phPAUSE))
-					ph = phoneme_tab[ph->alternative_ph];
+					alternative = ph->alternative_ph;
 				break;
 
 			case phBEFOREVOWEL:
 				if(next->type == phVOWEL)
-					ph = phoneme_tab[ph->alternative_ph];
+					alternative = ph->alternative_ph;
 				break;
+			}
+
+			if(alternative == 1)
+				continue;    // NULL phoneme, discard
+
+			if(alternative > 1)
+			{
+				ph = phoneme_tab[alternative];
+				if(ph->type == phVOWEL)
+					plist2->synthflags |= SFLAG_SYLLABLE;
+				else
+					plist2->synthflags &= ~SFLAG_SYLLABLE;
 			}
 		}
 
@@ -1034,8 +1054,8 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 
 
 
-void SetSpellingStress(char *phonemes, int control)
-{//================================================
+void Translator::SetSpellingStress(char *phonemes, int control)
+{//============================================================
 // Individual letter names, reduce the stress of some.
 	int ix;
 	unsigned int c;
@@ -1059,10 +1079,20 @@ void SetSpellingStress(char *phonemes, int control)
 		if(c == phonSTRESS_P)
 		{
 			count++;
-			if((count != n_stress) && (control < 4))
+
+			if(langopts.spelling_stress == 1)
 			{
-				if(((count % 3) != 0) || (count == n_stress-1))
+				// stress on initial letter when spelling
+				if(count > 1)
 					c = phonSTRESS_3;
+			}
+			else
+			{
+				if((count != n_stress) && (control < 4))
+				{
+					if(((count % 3) != 0) || (count == n_stress-1))
+						c = phonSTRESS_3;   // reduce to secondary stress
+				}
 			}
 		}
 		else
@@ -1084,6 +1114,9 @@ void SetSpellingStress(char *phonemes, int control)
 		*phonemes++ = phonPAUSE_NOLINK;
 	*phonemes = 0;
 }  // end of SetSpellingStress
+
+
+
 
 
 
@@ -1143,6 +1176,12 @@ int Translator::TranslateWord(char *word1, int next_pause, int wflags, int wmark
 	{
 		spell_word = 0;
 		found = LookupDictList(word,phonemes,&dictionary_flags,wflags << 16);
+		if(phonemes[0] == phonSWITCH)
+		{
+			// change to another language in order to translate this word
+			strcpy(word_phonemes,phonemes);
+			return(0);
+		}
 
 if((wmark > 0) && (wmark < 8))
 {
@@ -1239,6 +1278,7 @@ if((wmark > 0) && (wmark < 8))
 				// Found a standard prefix, remove it and retranslate
 				strcat(prefix_phonemes,end_phonemes);
 
+				word[-1] = c_temp;
 				for(ix=(end_type & 0xf); ix>0; ix--)    // num. of characters to remove
 				{
 					word++;
@@ -1366,10 +1406,12 @@ strcpy(phonemes2,phonemes);
 	{
 		// the word has attribute to stress or unstress when at end of clause
 		if(dictionary_flags & (FLAG_STRESS_END | FLAG_STRESS_END2))
-			SetWordStress(word_phonemes,0,4,prev_last_stress);
+			ChangeWordStress(word_phonemes,4);
+//			SetWordStress(word_phonemes,0,4,prev_last_stress);
 		else
 		if(dictionary_flags & FLAG_UNSTRESS_END)
-			SetWordStress(word_phonemes,0,3,prev_last_stress);
+			ChangeWordStress(word_phonemes,3);
+//			SetWordStress(word_phonemes,0,3,prev_last_stress);
 	}
 	if(wflags & FLAG_STRESSED_WORD)
 	{
@@ -1520,7 +1562,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	if((option_sayas & 0xf0) == 0x10)
 	{
 		// SAYAS_CHARS, SAYAS_GLYPHS, or SAYAS_SINGLECHARS.  Pause between each word.
-		pre_pause += 2;
+		pre_pause += 4;
 	}
 
 	if(wflags & FLAG_FIRST_UPPER)
@@ -1593,15 +1635,23 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 			}
 		}
 
-		if((flags & FLAG_PREPAUSE) && (prepause_timeout == 0) && !(wflags & FLAG_LAST_WORD))
+		if(!(wflags & FLAG_LAST_WORD)  && !(wflags & FLAG_HYPHEN))
 		{
-			// the word is marked in the dictionary list with $pause
-			if(pre_pause < 2) pre_pause = 2;
-			prepause_timeout = 3;
+			if(flags & FLAG_PAUSE1)
+			{
+				if(pre_pause < 1)
+					pre_pause = 1;
+			}
+			if((flags & FLAG_PREPAUSE) && (prepause_timeout == 0))
+			{
+				// the word is marked in the dictionary list with $pause
+				if(pre_pause < 4) pre_pause = 4;
+				prepause_timeout = 3;
+			}
 		}
 
-		if((option_emphasis >= 3) && (pre_pause < 1))
-			pre_pause = 1;
+		if((option_emphasis >= 3) && (pre_pause < 2))
+			pre_pause = 2;
 	}
 
 	plist2 = &ph_list2[n_ph_list2];
@@ -1614,11 +1664,20 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	if(flags & FLAG_FOUND)
 		found_dict_flag = SFLAG_DICTIONARY;
 
-	while((pre_pause-- > 0) && (n_ph_list2 < N_PHONEME_LIST-4))
+	while((pre_pause > 0) && (n_ph_list2 < N_PHONEME_LIST-4))
 	{
 		// add pause phonemes here. Either because of punctuation (brackets or quotes) in the
 		// text, or because the word is marked in the dictionary lookup as a conjunction
-		SetPlist2(&ph_list2[n_ph_list2++],phonPAUSE);
+		if(pre_pause > 1)
+		{
+			SetPlist2(&ph_list2[n_ph_list2++],phonPAUSE);
+			pre_pause -= 2;
+		}
+		else
+		{
+			SetPlist2(&ph_list2[n_ph_list2++],phonPAUSE_NOLINK);
+			pre_pause--;
+		}
 		end_stressed_vowel = 0;   // forget about the previous word
 		prev_dict_flags = 0;
 	}
@@ -1642,6 +1701,10 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		ph_list2[n_ph_list2++].tone_number = switch_phonemes;  // temporary phoneme table number
 	}
 
+	// remove initial pause from a word if it follows a hyphen
+	if((wflags & FLAG_HYPHEN) && (phoneme_tab[*p]->type == phPAUSE))
+		p++;
+
 	while(((ph_code = *p++) != 0) && (n_ph_list2 < N_PHONEME_LIST-4))
 	{
 		if(ph_code == 255)
@@ -1660,7 +1723,9 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 			{
 				// for tone languages, the tone number for a syllable follows the vowel
 				if(prev_vowel >= 0)
+				{
 					ph_list2[prev_vowel].tone_number = ph_code;
+				}
 			}
 		}
 		else
@@ -2155,6 +2220,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 				if(iswalpha(prev_in) && iswalpha(next_in))
 				{
 					// '-' between two letters is a hyphen, treat as a space
+					word_flags |= FLAG_HYPHEN;
 					c = ' ';
 				}
 				else
@@ -2162,7 +2228,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 				{
 					// ' - ' dash between two spaces, treat as pause
 					c = ' ';
-					pre_pause_add = 2;
+					pre_pause_add = 4;
 				}
 				else
 				if(next_in=='-')
@@ -2170,7 +2236,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 					// double hyphen, treat as pause
 					source_index++;
 					c = ' ';
-					pre_pause_add = 2;
+					pre_pause_add = 4;
 				}
 				else
 				if((prev_out == ' ') && iswalpha(sbuf[ix-2]) && !iswalpha(prev_in))
@@ -2183,7 +2249,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 			else
 			if(c == '\'')
 			{
-				if(iswalpha(prev_in) && iswalpha(next_in))
+				if(iswalnum(prev_in) && iswalpha(next_in))
 				{
 					// between two letters, consider apostrophe as part of the word
 					single_quoted = 0;
@@ -2212,7 +2278,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 						else
 							single_quoted = 0;
 
-						pre_pause_add = 2;   // single quote
+						pre_pause_add = 4;   // single quote
 						c = ' ';
 					}
 				}
@@ -2220,7 +2286,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 			else
 			if(IsBracket(c))
 			{
-				pre_pause_add = 2;
+				pre_pause_add = 4;
 				c = ' ';
 			}
 			else
@@ -2316,7 +2382,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 	clause_end = &sbuf[ix-1];
 	sbuf[ix] = 0;
 	words[0].pre_pause = 0;  // don't add extra pause at beginning of clause
-	words[word_count].pre_pause = 4;
+	words[word_count].pre_pause = 8;
 	if(word_count > 0)
 		words[word_count-1].flags |= FLAG_LAST_WORD;
 

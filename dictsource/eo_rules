@@ -74,6 +74,7 @@
 .group l
 	_)	l(_	lo
 		l	l
+		ll (_	l
 		
 .group m
 	_)	m(_	mo
@@ -82,6 +83,7 @@
 .group n
 	_)	n(_	na
 		n	n
+		n (_S1	n
 		
 .group o
 	_)	o(_	o
@@ -102,6 +104,8 @@
 .group r
 	_)	r(_	ra
 		r	r
+	A)	r (A	*r
+	C)	r (A	@-*
 		
 .group s
 	_)	s(_	so
@@ -193,19 +197,10 @@
 		@	po
 		&	%kaI
 			
-          D) , (_DDD      mil_:_:
-      ,_000) , (_DDD
-      ,_000) , (_DDD,_DDD  miliono_:_:
-          D) , (_DDD,_DDD  miliono_:_:
-          D) , (_DDD,_DDD,_DDD mil_:_:
 
 
 .group 9
-     _) 0 (_		nul
-     _) 00 (D		_:
-	0 (D_		_
-     D) 0
-
+	0		nul
 	1		'unu
 	2		d'u
 	3		tr'i
@@ -215,33 +210,3 @@
 	7		s'ep
 	8		'ok
 	9		n'aU
-	
-	1 (D		d'ek
-	2 (D		d'udek
-	3 (D		tr'idek
-	4 (D		kv'ardek
-	5 (D		kv'indek
-	6 (D		s'esdek
-	7 (D		s'epdek
-	8 (D		'okdek
-	9 (D		n'aUdek
-
-	1 (DD		ts'ent_
-	2 (DD		d'utsent_
-	3 (DD		tr'itsent_
-	4 (DD		kv'artsent_
-	5 (DD		kv'intsent_
-	6 (DD		s'estsent_
-	7 (DD		s'eptsent_
-	8 (DD		'oktsent_
-	9 (DD		n'aUtsent_
-
-	1 (DDD_		m'il_:
-	2 (DDD_		d'um,il_:
-	3 (DDD_		tr'im,il_:
-	4 (DDD_		kv'arm,il_:
-	5 (DDD_		kv'inm,il_:
-	6 (DDD_		s'esm,il_:
-	7 (DDD_		s'epm,il_:
-	8 (DDD_		'okm,il_:
-	9 (DDD_		n'aUm,il_:

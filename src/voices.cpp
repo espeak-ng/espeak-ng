@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
+#include "StdAfx.h"
 
 #include "stdio.h"
 #include "ctype.h"
@@ -44,8 +44,7 @@ MNEM_TAB genders [] = {
 	{NULL, 0 }};
 
 // limit the rate of change for each formant number
-//static float formant_rate_22050[9] = {0.2, 0.4, 0.65, 0.9, 0.85, 0.85, 1, 1, 1};
-static int formant_rate_22050[9] = {52, 104, 165, 232, 220, 220, 256, 256, 256};  // values for 22kHz sample rate
+static int formant_rate_22050[9] = {50, 104, 165, 230, 220, 220, 220, 220, 220};  // values for 22kHz sample rate
 int formant_rate[9];         // values adjusted for actual sample rate
 
 
@@ -300,7 +299,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 	char translator_name[40];
 	char new_dictionary[40];
 	char phonemes_name[40];
-	char language_type[8];
+	char *language_type;
 	char buf[120];
 	char langname[4];
 
@@ -336,7 +335,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 		translator = NULL;
 	}
 
-	strcpy(language_type,"en");    // default
+	language_type = "en";    // default
 	strcpy(translator_name,language_type);
 	strcpy(new_dictionary,language_type);
 	strcpy(phonemes_name,language_type);
@@ -377,8 +376,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 				break;
 
 			sscanf(p,"%s",language_name);
-			memcpy(language_type,language_name,2);
-			language_type[2] = 0;
+			language_type = strtok(language_name,"-");
 			language_set = 1;
 			strcpy(translator_name,language_type);
 			strcpy(new_dictionary,language_type);

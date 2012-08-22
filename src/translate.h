@@ -32,13 +32,14 @@
 #define FLAG_SKIPWORDS        0x20  /* bits 5,6,7  number of words to skip */
 #define FLAG_PREPAUSE        0x100
 #define FLAG_ONLY            0x200
+#define BITNUM_FLAG_ONLY         9  // bit 9 is set
 #define FLAG_ONLY_S          0x400
 #define FLAG_STRESS_END      0x800  /* full stress if at end of clause */
 #define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
 #define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
 #define FLAG_ATEND          0x4000  /* use this pronunciation if at end of clause */
 
-#define FLAG_CAPITAL        0x8000  /* pronunciation if initial letter is upepr case */
+#define FLAG_CAPITAL        0x8000  /* pronunciation if initial letter is upper case */
 #define FLAG_DOT           0x10000  /* ignore '.' after word (abbreviation) */
 #define FLAG_ABBREV        0x20000  /* use this pronunciation rather than split into letters */
 #define FLAG_STEM          0x40000  // must have a suffix
@@ -55,6 +56,7 @@
 #define FLAG_PASTF       0x8000000  /* past tense follows */
 #define FLAG_VERB_EXT   0x10000000  /* extend the 'verb follows' */
 
+#define FLAG_PAUSE1     0x40000000  // shorter prepause
 #define FLAG_FOUND      0x80000000  /* pronunciation was found in the dictionary list */
 
 // wordflags, flags in source word
@@ -62,9 +64,10 @@
 #define FLAG_FIRST_UPPER   0x2    /* first letter is upper case */
 #define FLAG_HAS_PLURAL    0x4    /* upper-case word with s or 's lower-case ending */
 #define FLAG_PHONEMES      0x8    /* word is phonemes */
-#define FLAG_LAST_WORD    0x10    /* last word in clause */
-#define FLAG_STRESSED_WORD  0x20    /* this word has explicit stress */
+#define FLAG_LAST_WORD     0x10   /* last word in clause */
+#define FLAG_STRESSED_WORD 0x20   /* this word has explicit stress */
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
+#define FLAG_HYPHEN        0x80
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 
 // prefix/suffix flags
@@ -191,7 +194,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_PREFIXES        3
  // 1=regressive,  change voiced/unoiced to match last consonant in a cluster
 #define LOPT_REGRESSIVE_VOICING  4
- // 0=default, 1=no check
+ // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE  5
  // 0=default, 1=set length_mod0 = length_mod
 #define LOPT_FINAL_SYLLABLE  6
@@ -214,7 +217,8 @@ typedef struct {
 // bit2=mark unstressed final syllables as diminished
 // bit3=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
 // bit4=don't allow secondary stress on last syllable
-// bit5=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
+// bit5-don't use automatic secondary stress
+// bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
@@ -222,11 +226,12 @@ typedef struct {
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
 
-	// bits0-3=which numbers routine to use. 0=none, 1=english/german
+	// bits0-2=which numbers routine to use. 0=none, 1=english/german
+	// bit3=  . , for thousands and decimal separator
 	// bit4=use three-and-twenty rather than twenty-three
 	// bit5='and' between tens and units
 	// bit6=add "and" after hundred and thousand
-	// bit7
+	// bit7=don't have "and" both after hundreds and also between tens and units
    // bit8=only one primary stress in tens+units
 	// bit9=only one vowel betwen tens and units
 	// bit10=omit "one" before "hundred"
@@ -236,11 +241,18 @@ typedef struct {
 	int numbers;
 	int thousands_sep;
 	int decimal_sep;
+	int intonation;    // 1=tone language
+	int long_stop;     // extra mS pause for a lengthened stop
 	int phoneme_change;  // TEST, change phonemes, after translation
+	char max_initial_consonants;
+	char spelling_stress;   // 0=default, 1=stress first letter
 	int testing;   // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 } LANGUAGE_OPTIONS;
 
 
+#define NUM_SEP_DOT    0x0008    // . , for thousands and decimal separator
+#define NUM_SEP_SPACE  0x1000    // allow space as thousands separator (in addition to langopts.thousands_sep)
+#define NUM_DEC_IT     0x2000    // (LANG=it) speak post-decimal-point digits as a combined number not as single digits
 
 class Translator
 {//=============
@@ -278,6 +290,7 @@ public:
 private:
 	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int len, int wmark);
 	int TranslateLetter(char *letter, char *phonemes, int control);
+	void SetSpellingStress(char *phonemes, int control);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	void WriteMnemonic(int *ix, int mnem);
 	void MakePhonemeList(int post_pause, int embedded, int new_sentence);
@@ -302,7 +315,8 @@ private:
 	int TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags);
 
 	int IsLetter(int letter, int group);
-	int GetVowelStress(unsigned char *phonemes, char *vowel_stress, int &vowel_count, int &stressed_syllable);
+
+	void CalcPitches_Tone(int clause_tone);
 
 protected:
 	virtual int Unpronouncable(char *word);
@@ -328,8 +342,8 @@ protected:
 	unsigned int groups2_name[N_CHAINS2];  // the two letter pairs for groups2[]
 	int n_groups2;              // number of groups2[] entries used
 	
-	char groups2_count[256];    // number of 2 letter groups for this initial letter
-	char groups2_start[256];    // index into groups2
+	unsigned char groups2_count[256];    // number of 2 letter groups for this initial letter
+	unsigned char groups2_start[256];    // index into groups2
 	
 
 	int n_ph_list2;
@@ -408,6 +422,7 @@ Translator *SelectTranslator(const char *name);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name);
 void LoadConfig(void);
 int PhonemeCode(unsigned int mnem);
+void ChangeWordStress(char *word, int new_stress);
 int TransposeAlphabet(char *text, int offset, int min, int max);
 int utf8_in(int *c, char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);

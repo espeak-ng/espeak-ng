@@ -17,7 +17,8 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-// 
+#include "StdAfx.h"
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <wctype.h>
@@ -30,9 +31,6 @@
 #include "speak_lib.h"
 
 
-/* amplitudes for syllable stress levels */
-//static int stress_amps[] = {13,13, 16,16, 16,20, 20,20 };
-//static int stress_amps_r[] = {13,13, 15,15, 15,18, 18,20 };
 
 // convert from words-per-minute to internal speed factor
 static unsigned char speed_lookup[241] = {
@@ -241,6 +239,7 @@ void Translator::CalcLengths()
 	int  end_of_clause;
 	int  embedded_ix = 0;
 	int  min_drop;
+	unsigned char *pitch_env;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
 	{
@@ -279,7 +278,7 @@ void Translator::CalcLengths()
 				p->prepause = 60;
 
 			if(p->synthflags & SFLAG_LENGTHEN)
-				p->prepause += 80;
+				p->prepause += langopts.long_stop;
 			break;
 
 		case phVFRICATIVE:
@@ -479,7 +478,17 @@ if(p->type != phVOWEL)
 			// set last-pitch
 			env2 = p->env;
 			if(env2 > 1) env2++;   // version for use with preceding semi-vowel
-			pitch_start = p->pitch1 + ((p->pitch2-p->pitch1)*envelope_data[env2][0])/256;
+
+			if(p->tone_ph != 0)
+			{
+				pitch_env = LookupEnvelope(phoneme_tab[p->tone_ph]->spect);
+			}
+			else
+			{
+				pitch_env = envelope_data[env2];
+			}
+
+			pitch_start = p->pitch1 + ((p->pitch2-p->pitch1)*pitch_env[0])/256;
 
 			if(pre_sonorant || pre_voiced)
 			{
@@ -512,8 +521,7 @@ if(p->type != phVOWEL)
 				
 			if(next->type == phLIQUID)
 			{
-//				if(next2->prepause == 0)    // what was this for?  caused discon. for [er]
-					next->synthflags |= SFLAG_SEQCONTINUE;
+				next->synthflags |= SFLAG_SEQCONTINUE;
 					
 				if(next2->type == phVOWEL)
 				{

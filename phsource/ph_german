@@ -119,7 +119,7 @@ endphoneme
 phoneme OI
   vowel starttype (o) endtype (i)
   length 220
-  formants vwl_de/OI
+  formants vowel/oI
 endphoneme
 
 
@@ -156,7 +156,7 @@ endphoneme
 phoneme y
   vowel starttype (u) endtype (u)
   length 150
-  formants vowel/y
+  formants vwl_de/y_lax
   before r/ vwl_de/r_y+60
 endphoneme
 

@@ -397,6 +397,9 @@ int Compile::LookupPhoneme(const char *string, int control)
 	int  use;
 	unsigned int word;
 
+	if(strcmp(string,"NULL")==0)
+		return(1);
+
 	ix = strlen(string);
 	if((ix==0) || (ix> 4))
 	{
@@ -1225,8 +1228,8 @@ int Compile::CPhoneme()
 			break;
 
 		case tTONESPEC:
-			ph->start_type = NextItem(tNUMBER);
-			ph->end_type = NextItem(tNUMBER);
+			ph->start_type = NextItem(tNUMBER);   // tone's min pitch (range 0-50)
+			ph->end_type = NextItem(tNUMBER);     // tone's max pitch (range 0-50)
 			if(ph->start_type > ph->end_type)
 			{
 				// ensure pitch1 < pitch2
@@ -1234,8 +1237,8 @@ int Compile::CPhoneme()
 				ph->start_type = ph->end_type;
 				ph->end_type = value;
 			}
-			AddEnvelope(default_spect);
-			AddEnvelope(after_tab);
+			AddEnvelope(default_spect);       // envelope for pitch change,  rise or fall or fall/rise, etc
+			AddEnvelope(after_tab);           // envelope for amplitude change
 			break;
 			
 		case tREDUCETO:
@@ -1372,6 +1375,7 @@ void Compile::WritePhonemeTable()
 			if(p[j].std_length & 0x8000)
 				count++;
 		}
+		phoneme_tab_list2[ix].n_phonemes = count+1;
 
 		fputc(count+1,f_phdata);
 		fputc(phoneme_tab_list2[ix].includes,f_phdata);
@@ -1554,7 +1558,7 @@ void Compile::CPhonemeFiles(char *path_source)
 }  //  end of CPhonemeFiles
 
 
-//#define MAKE_ENVELOPES
+#define MAKE_ENVELOPES
 #ifdef  MAKE_ENVELOPES 
 
 #define ENV_LEN  128
@@ -1588,10 +1592,17 @@ static float env5_y[]={0,0x28,0x50,0xa0,0xf0,255};
 static float env6_x[]={0,0x20,0x38,0x60,ENV_LEN};
 static float env6_y[]={255,0xe8,0xd0,0x68,0};
 
-static float env7_x[]={0,44,64,84,ENV_LEN};  // amp env for broken tone
-static float env7_y[]={255,255,160,255,255};
-static float env8_x[]={0,44,64,80,ENV_LEN};  // amp env for drop tone
-static float env8_y[]={255,255,255,250,50};
+static float env7_x[]={0,0x20,0x40,0x60,ENV_LEN};    // 214
+static float env7_y[]={85,42,0,128,255};
+static float env8_x[]={0,0x20,0x40,0x60,ENV_LEN};    // 211
+static float env8_y[]={255,130,20,10,0};
+static float env9_x[]={0,0x20,0x40,0x60,ENV_LEN};    // 51 fall
+static float env9_y[]={255,210,140,70,0};
+
+static float enva3_x[]={0,44,64,84,ENV_LEN};  // amp env for broken tone
+static float enva3_y[]={255,255,160,255,255};
+static float enva6_x[]={0,44,64,80,ENV_LEN};  // amp env for drop tone
+static float enva6_y[]={255,255,255,250,50};
 
 
 unsigned char env_test[ENV_LEN];
@@ -1626,14 +1637,21 @@ void MakeEnvFile(char *fname, float *x, float *y, int source)
 
 void make_envs()
 {//=============
-	MakeEnvFile("vi_1",env1_x,env1_y,0);
+	MakeEnvFile("p_level",env1_x,env1_y,0);
+	MakeEnvFile("p_rise",env5_x,env5_y,0);
+	MakeEnvFile("p_fall",env9_x,env9_y,0);
+	MakeEnvFile("p_214",env7_x,env7_y,0);
+	MakeEnvFile("p_211",env8_x,env8_y,0);
+
+
 	MakeEnvFile("vi_2",env2_x,env2_y,0);
 	MakeEnvFile("vi_3",env3_x,env3_y,0);
-	MakeEnvFile("vi_4",env4_x,env4_y,0);
-	MakeEnvFile("vi_5",env5_x,env5_y,0);
+	MakeEnvFile("p_fallrise",env4_x,env4_y,0);
 	MakeEnvFile("vi_6",env6_x,env6_y,0);
-	MakeEnvFile("vi_3amp",env7_x,env7_y,0);
-	MakeEnvFile("vi_6amp",env8_x,env8_y,0);
+
+
+	MakeEnvFile("vi_3amp",enva3_x,enva3_y,0);
+	MakeEnvFile("vi_6amp",enva6_x,enva6_y,0);
 
 }
 #endif
@@ -1669,6 +1687,14 @@ void Compile::Report(void)
 		free(list);
 		return;
 	}
+
+	fprintf(f_report,"%d phoneme tables\n",n_phoneme_tabs);
+   fprintf(f_report,"          new total\n");
+	for(ix=0; ix<n_phoneme_tabs; ix++)
+	{
+		fprintf(f_report,"%8s %3d %4d\n",phoneme_tab_list2[ix].name, phoneme_tab_list2[ix].n_phonemes, n_phcodes_list[ix]+1);
+	}
+	fputc('\n',f_report);
 
 	ix = 0;
 	for(hash=0; (hash < 256) && (ix < count_references); hash++)

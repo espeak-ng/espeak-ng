@@ -56,15 +56,3 @@ private:
 };  // end of class Translator_Afrikaans
 
 
-
-
-class Translator_Tone: public Translator
-{//==========================================
-
-public:
-	Translator_Tone();
-private:
-	void CalcPitches(int clause_tone);
-
-};  // end of class Translator_Tone
-

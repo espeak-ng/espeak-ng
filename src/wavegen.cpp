@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+#include "StdAfx.h"
 
 // this version keeps wavemult window as a constant fraction
 // of the cycle length - but that spreads out the HF peaks too much
@@ -536,6 +537,16 @@ int WavegenOpenSound()
 #endif
 	}
 	err = Pa_StartStream(pa_stream);
+
+#if USE_PORTAUDIO == 19
+	if(err == paStreamIsNotStopped)
+	{
+		// not sure why we need this, but PA v19 seems to need it
+		err = Pa_StopStream(pa_stream);
+		err = Pa_StartStream(pa_stream);
+	}
+#endif
+
 	if(err != paNoError)
 	{
 		// exit speak if we can't open the sound device - this is OK if speak is being run for each utterance

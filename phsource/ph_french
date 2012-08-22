@@ -1,0 +1,245 @@
+
+//====================================================
+//  French
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 70
+endphoneme
+
+
+
+phoneme @
+  vowel starttype (@) endtype (@)
+  length 120
+  formants vowel/@
+endphoneme
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 166
+  formants vowel/a
+  reduceto a/  4
+endphoneme
+
+// this is an example of changing the vowel quality in an unstressed syllable
+phoneme a/
+  vowel starttype (@) endtype (@)
+  length 166
+  formants vwl_it/&
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 172
+  formants vowel/e:
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 164
+  formants vowel/E
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 158
+  formants vowel/i:
+  linkout ;
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 166
+  formants vowel/o:
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 190
+  formants vowel/0
+endphoneme
+
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 174
+  formants vwl_de/U
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 174
+  formants vowel/u_bck
+endphoneme
+
+phoneme y
+  vowel starttype (e) endtype (u)
+  length 148
+  formants vwl_fr/y
+endphoneme
+
+phoneme Y
+  vowel starttype (@) endtype (@)
+  length 214
+  formants vowel/Y
+endphoneme
+
+
+phoneme W
+  vowel starttype (@) endtype (@)
+  length 198
+  formants vwl_de/W
+endphoneme
+
+
+phoneme A~
+  vowel  starttype (a) endtype (a)
+  length 222
+  formants vowel/A_n
+endphoneme
+
+
+phoneme E~
+  vowel  starttype (e)  endtype (e)
+  length 192
+  formants vowel/E_n
+endphoneme
+
+
+phoneme O~
+  vowel  starttype (o)  endtype (o)
+  length 222
+  formants vowel/O_n
+endphoneme
+
+
+phoneme W~
+  vowel  starttype (@)  endtype (@)
+  length 204
+  formants vowel/W_n
+endphoneme
+
+
+phoneme w^i
+  vowel starttype (i) endtype (i)
+  length 220
+  formants vwl_fr/yi
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+// uses the consonants in file "phonemes", unless overridden here
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/r
+  after _ r/_r  t r/tr p r/tr k r/tr
+  before _ r/r_
+endphoneme
+
+
+
+phoneme R
+  liquid starttype r endtype r
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  unvoc/t_dnt%50
+  before _ unvoc/t_dnt%40
+  before r unvoc/tr
+  switchvoicing d
+endphoneme
+
+
+phoneme t2      // silent unless followed by vowel
+  beforenotvowel NULL
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  unvoc/t_dnt%50
+  before _ unvoc/t_dnt%40
+  before r unvoc/tr
+endphoneme
+
+
+phoneme z2      // silent unless followed by vowel
+  beforenotvowel NULL
+  vcd alv frc sibilant
+  vowelout f1=0  f2=1700 -300 300  f3=-100 60  len=50 
+  formants voc/z+unvoc/s_
+  before _ voc/z_+unvoc/s_
+  lengthmod 6
+endphoneme
+
+
+phoneme d       // dental variant of /d/
+  vcd dnt stop
+  vowelin f1=1  f2=1500 -300 300  f3=-150 80
+  vowelout f1=1 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave unvoc/k%60     // reduce strength of noise burst
+  before _ unvoc/k_
+  before r unvoc/kr
+  before l unvoc/kl
+  before (i) unvoc/ki
+  switchvoicing g
+endphoneme
+
+
+

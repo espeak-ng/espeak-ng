@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+#include "StdAfx.h"
 
 #define LOG_TRANSLATE
  
@@ -200,7 +201,7 @@ void Translator::InitGroups(void)
 	{
 		groups1[ix]=NULL;
 		groups2_count[ix]=0;
-		groups2_start[ix]=-1;
+		groups2_start[ix]=255;  // indicates "not set"
 	}
 
 	p = data_dictrules;
@@ -228,7 +229,7 @@ void Translator::InitGroups(void)
 		}
 		else
 		{
-			if(groups2_start[c] == -1)
+			if(groups2_start[c] == 255)
 				groups2_start[c] = n_groups2;
 
 			groups2_count[c]++;
@@ -399,7 +400,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 	
-		if(ph->type == phSTRESS)
+		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->spect == 0))
 		{
 			if(ph->std_length > 1)
 				*outptr++ = stress_chars[ph->std_length];
@@ -474,6 +475,10 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 			{
 				// syllablic consonant
 				WriteMnemonic(&phon_out_ix,phoneme_tab[phonSYLLABIC]->mnemonic);
+			}
+			if(plist->tone_ph > 0)
+			{
+				WriteMnemonic(&phon_out_ix,phoneme_tab[plist->tone_ph]->mnemonic);
 			}
 		}
 	
@@ -558,7 +563,7 @@ int Translator::Unpronouncable(char *word)
 	if(c1 == langopts.param[LOPT_UNPRONOUNCABLE])
 		vowel_posn--;   // disregard this as the initial letter when counting
 
-	if(vowel_posn > 4)
+	if(vowel_posn > (langopts.max_initial_consonants+1))
 		return(1);  // no vowel, or no vowel in first four letters
 
 return(0);
@@ -614,8 +619,8 @@ void Translator::SetLetterBits(int group, const char *string)
 
 
 
-int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int &vowel_count, int &stressed_syllable)
-{//=========================================================================================================
+int GetVowelStress(unsigned char *phonemes, unsigned char *vowel_stress, int &vowel_count, int &stressed_syllable)
+{//===============================================================================================================
 
 	unsigned char phcode;
 	PHONEME_TAB *ph;
@@ -623,6 +628,7 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 	int count = 1;
 	int max_stress = 0;
 	int ix;
+	int j;
 	int stress = 0;
 	int primary_posn = 0;
 
@@ -632,25 +638,36 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 
-		if(ph->type == phSTRESS)
+		if((ph->type == phSTRESS) && (ph->spect == 0))
 		{
 			/* stress marker, use this for the following vowel */
 
 			if(phcode == phonSTRESS_PREV)
 			{
 				/* primary stress on preceeding vowel */
-				if((count > 1) && (stressed_syllable == 0))
+				j = count - 1;
+				while((j > 0) && (stressed_syllable == 0) && (vowel_stress[j] < 4))
 				{
-					vowel_stress[count-1] = 4;
-					max_stress = 4;
-					primary_posn = count-1;
-
-					/* reduce any preceding primary stress markers */
-					for(ix=1; ix<(count-1); ix++)
+					if(vowel_stress[j] != 1)
 					{
-						if(vowel_stress[ix] == 4)
-							vowel_stress[ix] = 3;
+						// don't promote a phoneme which must be unstressed
+						vowel_stress[j] = 4;
+
+						if(max_stress < 4)
+						{
+							max_stress = 4;
+							primary_posn = j;
+						}
+	
+						/* reduce any preceding primary stress markers */
+						for(ix=1; ix<j; ix++)
+						{
+							if(vowel_stress[ix] == 4)
+								vowel_stress[ix] = 3;
+						}
+						break;
 					}
+					j--;
 				}
 			}
 			else
@@ -669,8 +686,11 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 		if(ph->type == phVOWEL)
 		{
 			vowel_stress[count] = (char)stress;
-			if(stress >= 4)
+			if((stress >= 4) && (stress >= max_stress))
+			{
 				primary_posn = count;
+				max_stress = stress;
+			}
 
 			if((stress == 0) && (ph->phflags & phUNSTRESSED))
 				vowel_stress[count] = 1;   /* weak vowel, must be unstressed */
@@ -693,14 +713,6 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 	*ph_out = 0;
 
 	/* has the position of the primary stress been specified by $1, $2, etc? */
-#ifdef deleted
-	if(stressed_syllable == 6)
-	{
-		// primary stress of 1st syllable and secondary stress on 2nd
-		vowel_stress[2] = 3;
-		stressed_syllable = 1;
-	}
-#endif
 	if(stressed_syllable > 0)
 	{
 		vowel_stress[stressed_syllable] = 4;
@@ -708,10 +720,85 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 		primary_posn = stressed_syllable;
 	}
 
+	if(max_stress == 5)
+	{
+		// priority stress, replaces any other primary stress marker
+		for(ix=1; ix<count; ix++)
+		{
+			if(vowel_stress[ix] == 4)
+				vowel_stress[ix] = 0;
+
+			if(vowel_stress[ix] == 5)
+			{
+				vowel_stress[ix] = 4;
+				primary_posn = ix;
+			}
+		}
+		max_stress = 4;
+	}
+
 	stressed_syllable = primary_posn;
 	vowel_count = count;
 	return(max_stress);
 }  // end of GetVowelStress
+
+
+
+static char stress_phonemes[] = {phonSTRESS_U, phonSTRESS_D, phonSTRESS_2, phonSTRESS_3,
+		phonSTRESS_P, phonSTRESS_TONIC, phonSTRESS_TONIC};
+
+
+void ChangeWordStress(char *word, int new_stress)
+{//==============================================
+	int ix;
+	unsigned char *p;
+	int  max_stress;
+	int  vowel_count;              // num of vowels + 1
+	int  stressed_syllable=0;      // position of stressed syllable
+	unsigned char phonetic[N_WORD_PHONEMES];
+	unsigned char vowel_stress[N_WORD_PHONEMES/2];
+
+	strcpy((char *)phonetic,word);
+	max_stress = GetVowelStress(phonetic,vowel_stress,vowel_count,stressed_syllable);
+
+	if(new_stress >= 4)
+	{
+		// promote to primary stress
+		for(ix=1; ix<vowel_count; ix++)
+		{
+			if(vowel_stress[ix] == max_stress)
+			{
+				vowel_stress[ix] = new_stress;
+				break;
+			}
+		}
+	}
+	else
+	{
+		// remove primary stress
+		for(ix=1; ix<vowel_count; ix++)
+		{
+			if(vowel_stress[ix] > new_stress)
+				vowel_stress[ix] = new_stress;
+		}
+	}
+
+	// write out phonemes
+	ix = 1;
+	p = phonetic;
+	while(*p != 0)
+	{
+		if(phoneme_tab[*p]->type == phVOWEL)
+		{
+			if(vowel_stress[ix] != 0)
+				*word++ = stress_phonemes[vowel_stress[ix]];
+
+			ix++;
+		}
+		*word++ = *p++;
+	}
+	*word = 0;
+}  // end of ChangeWordStress
 
 
 
@@ -746,14 +833,12 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int mnem;
 	int post_tonic;
 
-	char vowel_stress[N_WORD_PHONEMES/2];
+	unsigned char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_type[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
 
 	static char consonant_types[16] = {0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0};
 
-	static char stress_phonemes[] = {phonSTRESS_U, phonSTRESS_D, phonSTRESS_2, phonSTRESS_3,
-		phonSTRESS_P, phonSTRESS_TONIC, phonSTRESS_TONIC};
 
 	/* stress numbers  STRESS_BASE +
 		0  diminished, unstressed within a word
@@ -861,9 +946,12 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		// stress on last vowel
 		if(stressed_syllable == 0)
 		{
-			/* no explicit stress - stress the penultimate vowel */
+			/* no explicit stress - stress the final vowel */
 			stressed_syllable = vowel_count - 1;
-			vowel_stress[stressed_syllable] = 4;
+			if(max_stress == 0)
+			{
+				vowel_stress[stressed_syllable] = 4;
+			}
 			max_stress = 4;
 		}
 		break;
@@ -916,7 +1004,10 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			{
 				/* trochaic: give stress to vowel surrounded by unstressed vowels */
 
-				if((v > 1) && (langopts.stress_flags & 0x20) && (syllable_type[v]==0) && (syllable_type[v+1]==1))
+				if((stress == 3) && (langopts.stress_flags & 0x20))
+					continue;      // don't use secondary stress
+
+				if((v > 1) && (langopts.stress_flags & 0x40) && (syllable_type[v]==0) && (syllable_type[v+1]==1))
 				{
 					// don't put secondary stress on a light syllable which is followed by a heavy syllable
 					continue;
@@ -2158,6 +2249,9 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 				continue;   // this word must have a suffix
 		}
 
+		if((end_flags & SUFX_P) && (dictionary_flags & (FLAG_ONLY | FLAG_ONLY_S)))
+			continue;    // $only or $onlys, don't match if a prefix has been removed
+
 		if(end_flags & FLAG_SUFX)
 		{
 			// a suffix was removed from the word
@@ -2638,7 +2732,10 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 			x = 1;   // allow "eins" for 1 rather than "ein"
 
 		if(LookupNum2(value,x,buf2) != 0)
-			ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
+		{
+			if(langopts.numbers & 0x80)
+				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
+		}
 	}
 
 	sprintf(ph_out,"%s%s%s",buf1,ph_hundred_and,buf2);
@@ -2725,11 +2822,6 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		decimal_point = 1;
 	}
 	else
-	if(word[n_digits] == '.')
-	{
-		Lookup("_.",ph_append);
-	}
-	else
 	if(suppress_null == 0)
 	{
 		thousands_inc = 0;
@@ -2765,6 +2857,11 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 				}
 			}
 		}
+	}
+
+	if((ph_append[0] == 0) && (word[n_digits] == '.'))
+	{
+		Lookup("_.",ph_append);
 	}
 
 	LookupNum3(value, ph_out, suppress_null, thousandplex, prev_thousands);
@@ -2819,7 +2916,12 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		}
 	}
 	if(ph_out[0] != 0)
-		strcat(ph_out,str_pause);
+	{
+		int next_char;
+		utf8_in(&next_char,&word[n_digits+1],0);
+		if(!iswalpha(next_char))
+			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
+	}
 
 	*flags = FLAG_FOUND;
 	return(1);
@@ -2832,7 +2934,7 @@ int Translator::TranslateNumber(char *word1, char *ph_out, unsigned int *flags, 
 	if(option_sayas == SAYAS_DIGITS1)
 		return(0);  // speak digits individually
 
-	if((langopts.numbers & 0xf) == 1)
+	if((langopts.numbers & 0x7) == 1)
 		return(TranslateNumber_1(word1,ph_out,flags,wflags));
 
 	return(0);

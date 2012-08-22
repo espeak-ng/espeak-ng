@@ -29,7 +29,7 @@ o	oU
 p	pi:
 q	kju:
 r	A:
-s	Es
+_s	Es
 t	ti:
 u	ju:
 v	vi:
@@ -137,7 +137,7 @@ ctrl             k0ntr'oUl
 dept             dI2pA:tm@nt
 diy              di:aI'waI
 eg               fO@Egz'aamp@L
-etc              Ek'sEtr@
+etc              Et'sEtr@
 eur              jU@
 hmm              h@m
 (http ://)       eItSti:ti:'pi:_
@@ -2011,12 +2011,14 @@ Amy              eImI2
 Andre            0ndreI
 Anthony          ant@nI2
 Anton            ant0n
+Astley           astlI2
 Barbara          bA:b@r@
 Boris            b0rIs
 Brien            braI@n
 Carol            kar@l
 Calliope         ka2laI@pI
 Cassandra        k@sandr@
+Cassey           keIsI2
 Catherine        kaTrIn
 Chris            krIs
 Connor           k0n@
@@ -2367,13 +2369,13 @@ she's            %Si:z         $pastf
 we've            %wi:v         $pastf
 they've          %DeIv         $pastf
 
-I                %aI           $verbf only
+I                %aI           $verbf $only
 (I am)           %aIa2m
 he               %hi:          $verbsf
 she              %Si:          $only $verbsf
 it               %It           $verbsf
 (it has)         I2t||h'az     $atend
-we               %wi:          $verbf
+we               %wi:          $verbf $only
 you              %ju:          $verbf
 they             %DeI          $verbf
 
@@ -2382,8 +2384,8 @@ thou             DaU
 thy              ,DaI
 thine            ,DaIn
 
-me               ,mi:
-him              ,hIm
+me               ,mi:          $only
+him              ,hIm          $only
 us               ,Vz           $only
 them             ,DEm          $only
 

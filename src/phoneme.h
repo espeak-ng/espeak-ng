@@ -81,8 +81,8 @@
 #define phPLACE        0xf0000
 #define phPLACE_pla    0x60000
 
-#define N_PHONEME_TABS      50
-#define N_PHONEME_TAB      256
+#define N_PHONEME_TABS      50     // number of phoneme tables
+#define N_PHONEME_TAB      256     // max phonemes in a phoneme table
 #define N_PHONEME_TAB_NAME  32     // must be multiple of 4
 
 // main table of phonemes, index by phoneme number (1-254)
@@ -118,7 +118,7 @@ typedef struct {
 	char name[N_PHONEME_TAB_NAME];
 	PHONEME_TAB *phoneme_tab_ptr;
 	int n_phonemes;
-	int includes;
+	int includes;           // also include the phonemes from this other phoneme table
 } PHONEME_TAB_LIST;
 
 

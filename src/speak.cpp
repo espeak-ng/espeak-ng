@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
+#include "StdAfx.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,7 +43,7 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.16  02.Oct.06";
+static const char *version = "Speak text-to-speech: 1.17  17.Nov.06";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -59,7 +59,7 @@ static const char *help_text =
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
-"\t   Speed in words per minute, default is 160\n"
+"\t   Speed in words per minute, default is 170\n"
 "-v <voice name>\n"
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
@@ -356,16 +356,34 @@ int main (int argc, char **argv)
 			exit(0);
 
 		default:
+exit(0);
 			abort();
 		}
 	}
 
 	initialise();
 
-	if((LoadVoice(voicename,0) == NULL) && (flag_compile == 0))
+	if(flag_compile == 0)
 	{
-		fprintf(stderr,"Failed to load voice '%s'\n",voicename);
-		exit(2);
+		ix = 1;
+		if(voicename[0] != 0)
+		{
+			if((ix = espeak_SetVoiceByName(voicename)) != 0)
+			{
+				fprintf(stderr,"Failed to load voice '%s'\n",voicename);
+			}
+		}
+		if(ix != 0)
+		{
+			if(LoadVoice(voicename,0) == NULL)
+			{
+				exit(2);
+			}
+		}
+	}
+	else
+	{
+		LoadVoice(voicename,0);
 	}
 
 	if(flag_compile)

@@ -1,0 +1,482 @@
+// translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+       _) a (_       a
+          a          a
+       &) a (_       =&       // in final unstressed syllable
+       &) a (s_      =&
+       &) a (_a      =&/      // ?? elide final a before a
+       &) a (_à      =&/
+
+          a (C_      &
+          a (r_      a
+          a (CC_     &
+
+          al (K      aU
+          alh        alj
+
+          a (m       &~
+          a (n       &~
+          am (_      =&~N
+          am (C      &~m
+          an (K      &~N
+          a (nhA     &~
+          am (_      =&U~
+
+          ai         aI
+          ai (s      aI
+          a (iCK     a
+          ay         aI
+          ao         aU
+          au         aU
+          au (s      aU
+          a (uCK     a
+
+
+.group â
+          â          ''&
+          â (m       ''&~
+          â (n       ''&~
+          âm (K      ''&~m
+          ân (K      ''&~N
+          ânh        ''&~n^
+
+
+.group à
+          à          a
+       _) à (s_      aI
+
+          à (m       &~
+          à (n       &~
+          àm (K      &~m
+          àn (K      &~N
+          à (nhA     &~n^
+
+
+.group á
+          á          ''a
+          ái         ''aI
+          ái (s      ''aI
+          á (iCK     ''a
+          áy         ''aI
+          áu         ''aU
+          áu (s      ''aU
+          á (uCK     ''a
+
+
+.group ã
+          ã          &~
+          ão         &U~
+
+
+.group b
+       _) b (_       be
+          b          b
+          b (b
+
+
+.group c
+       _) c (_       se
+          c          k
+          c (Y       s         // ce ci
+          ch         S
+
+
+.group d
+       _) d (_       de
+          d          d
+          d (d
+          d (i       dZ
+          d (í       dZ
+          d (e_      dZ
+
+
+.group e
+       _) e (_       e
+          e          e
+          e (_       =i
+          e (_AN     =i/      // ?? elide to [j] if next word starts with a vowel
+      &l) e (_AN     =i       //    but not after l or r
+      &r) e (_AN     =i
+          e (s_      =i
+
+          ee         i
+
+          e (be_     E
+          e (bes_    E
+          e (ce_     E
+          e (ces_    E
+
+          el (K      EU
+          elh        elj
+
+          em (C      eIm
+          en (K      eIN
+          enh        en^
+
+          em (_      =eIN
+          em (s_     =eIN
+          en (_      =eIN
+          en (s_     =eIN
+
+
+          ei         eI
+          ei (s      eI
+          e (iCK     e
+          ey         eI
+          eu         eU
+          eu (s      eU
+          e (uCK     e
+
+
+.group é
+          é          ''E
+          éi         ''EI
+          éi (s      ''EI
+          é (iCK     ''E
+          éy         ''eI
+          éu         ''EU
+          éu (s      ''EU
+          é (uCK     ''E
+          ém (_      ''eIN
+          ém (s_     ''eIN
+          én (_      ''eIN
+          én (s_     ''eIN
+
+
+.group ê
+          ê          ''e
+          êm (_      ''eIN
+          êm (C      ''eIm
+          ên (K      ''eIN
+          ênh        ''en^
+          êm (_      ''eIN
+
+
+.group f
+       _) f (_       'Efe
+          f          f
+          f (f
+
+
+.group g
+       _) g (_       Ze
+          g          g
+          g (g
+          g (Y       Z        // ge gi
+          gu (Y      g
+
+
+.group h
+       _) h (_       ag'a
+          h              // silent
+
+
+.group i
+       _) i (_       i
+          i          i
+          i (A       j
+      Cr) i          i
+      Cl) i          i
+          i (_       'i
+
+          il (K      iU
+          ilh        ilj
+
+          im (_      iN
+          im (C      im
+          in (K      iN
+          inh        in^
+
+          i (A_      'i
+          io (_      iU
+          io (s_     iU
+          i (oCK     i
+          iu (_      iU
+          iu (s_     iU
+          i (uCK     i
+
+      áC) i (A_       j
+     áCC) i (A_       j
+      âC) i (A_       j
+     âCC) i (A_       j
+      éC) i (A_       j
+     éCC) i (A_       j
+      êC) i (A_       j
+     êCC) i (A_       j
+      íC) i (A_       j
+     íCC) i (A_       j
+      óC) i (A_       j
+     óCC) i (A_       j
+      ôC) i (A_       j
+     ôCC) i (A_       j
+      úC) i (A_       j
+     úCC) i (A_       j
+
+.group í
+          í          ''i
+          í (m       ''i
+          í (n       ''i
+          ím (_      ''iN
+          ím (C      ''im
+          ín (K      ''iN
+          ính        ''in^
+
+
+.group j
+       _) j (_       Z'Ot&
+          j          Z
+
+
+.group k
+       _) k (_       ka
+          k          k
+          k (k
+
+
+.group l
+       _) l (_       'Ele
+          l          l
+          l (l
+          lh         l^
+       A) lh         lj
+
+
+.group m
+       _) m (_       'eme
+          m          m
+          m (m
+
+
+.group n
+       _) n (_       'ene
+          n          n
+          n (n
+          nh         n^
+
+
+.group o
+          o          o
+          o (_       =u
+          o (s_      =u
+          ou         ow
+          oi         oI
+          oi (s      oI
+          o (iCK     o
+          oo         u
+          oy         OI
+
+          ol (K      Ow
+          o (Ca_     O
+          olh        olj
+
+          om (_      oN
+          o (ma_     o
+          om (C      om
+          on (K      oN
+          o (na_     o
+          onh        on^
+          o (rmA_    O
+          o (rmAC    O
+
+          oz (_      Oz
+          o (zes_    O
+          o (ra_     O
+          o (ras_    O
+
+.group ô
+          ô          ''o
+          ôm (_      ''oN
+          ôm (C      ''om
+          ôn (K      ''oN
+          ônh        ''on^
+
+
+.group ó
+          ó          ''O
+
+          ói         ''OI
+          ói (s      ''OI
+          ó (iCK     ''O
+          óu         ''Ow 
+          óy         ''OI
+
+.group õ
+          õ          o~
+          õe         o~j
+
+
+.group p
+       _) p (_       pe
+          p          p
+          p (p
+
+
+.group q
+       _) q (_       ke
+          q          k
+          qu         kw
+          qü         kw
+          qu (Y      k
+          qu (K      ku
+
+ 
+.group r
+       _) r (_       'Exe
+       _) r (_\$     xe'aU    // currency
+          r          r
+       A) r (A       *
+       A) r (_A      *
+          rr         x
+       C) r (A       @-*
+       _) r          x
+       l) r          x
+       n) r          x
+       s) r          x
+
+
+.group s
+       _) s (_       'Ese
+          s          s
+          ss         s
+          sc (Y      s
+          sç         s
+       A) s (A       z
+          s (_       s
+          s (_A      z     // next word starts with vowel
+          s (_G      z     // next word starts with voiced consonant
+
+       A) s (_S1     s
+       A) s (_AS1    z     // next word starts with vowel
+       A) s (_GS1    z     // next word starts with voiced consonant
+
+
+.group t
+       _) t (_       te
+          t          t
+          t (t
+          t (i       tS
+          t (í       tS
+          t (e_      tS
+
+
+.group u
+       _) u (_       u
+          u          u
+          u (A       w
+          u (_A      w
+          u(A_       'u
+
+          ui         'uI
+          ui (_      uI
+          ui (s      'uI
+          u (iCK     u
+          uy         uI
+
+          um (_      u~N
+          um (C      u~m
+          un (K      u~N
+          unh        u~n^
+
+       g) u (Y
+
+
+.group ú
+          ú          ''u
+          úm (_      ''u~N
+          úm (C      ''u~m
+          ún (K      ''u~N
+          únh        ''u~n^
+
+.group v
+       _) v (_       ve
+          v          v
+          v (v
+
+
+.group w
+       _) w (_       d'ablju
+          w          w
+
+
+.group x
+       _) x (_       Sis
+          x (A       S
+       A) x (A       ks
+       e) x (A       z
+      ai) x (A       S
+      ei) x (A       S
+      au) x          s
+      ou) x          s
+          x (C       s
+          x (s
+          x (_       ks
+
+
+.group y
+       _) y (_       'ipsiloN
+          y          i
+          y (A       j
+
+
+.group z
+       _) z (_       ze
+          z          z
+          z (z
+
+
+.group 9
+0	z'Exu
+1	'uN
+2	d'oIs
+3	t@-*'es
+4	kw'at@-*u
+5	s'iNku
+6	s'eIs
+7	s'EtSi
+8	'oItu
+9	n'Ovi
+
+.group
+          ç          s
+          ü          u
+
+          ß          s
+
+          %          pors'eNtu
+          $          sif@-*'&U~
+     _r_) $
+	−          m'enus
+	+          maIs
+	&	'e
+	@	ax'ob&
+	¤	'eU*u
+	€	'eU*u
+	§	pa*'ag@-*,afu
+
+    // don't speak multiple occurances of these symbols
+          .          p'oNtu
+          . (.       _:
+      \.) .
+
+          *          aste*r'isku
+      *)  * (*
+          ** 
+     **)  * (_       _::
+
+     __)  - (_D      m'enus
+     A_)  - (_D      _
+     C_)  - (_D      _
+      --) -
+
+          =            __igw'&l_
+          = (==        
+      =)  = (=         
+     ==)  = (_         _::
+
+
+
+
+

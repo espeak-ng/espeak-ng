@@ -5,29 +5,31 @@
 
 phoneme : //  Lengthen previous vowel by "length"
   virtual
-  length 90
+  length 140
 endphoneme
 
 
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 140
-  formants vowel/i:
+  length 150
+  formants vwl_en/i:
+  linkout ;
 endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
   length 160
-  formants vwl_af/E
+  formants vowel/e:
 endphoneme
 
 
 phoneme &
   vowel starttype (a) endtype (a)
-  length 170
+  length 160
   formants vowel/&
 endphoneme
+
 
 phoneme a
   vowel starttype (a) endtype (a)
@@ -35,16 +37,22 @@ phoneme a
   formants vwl_fi/A
 endphoneme
 
+phoneme a2    // TEST
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vwl_fi/A_1
+endphoneme
+
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 160
+  length 165
   formants vowel/O:
 endphoneme
 
 phoneme Y
   vowel starttype (@) endtype (@)
-  length 160
+  length 165
   formants vowel/Y
 endphoneme
 
@@ -52,14 +60,29 @@ endphoneme
 phoneme u
   vowel starttype (u) endtype (u)
   length 150
-  formants vowel/u:
+  formants vowel/u_bck
 endphoneme
+
+phoneme u1    // TEST
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vwl_fi/u
+endphoneme
+
+
 
 phoneme y
   vowel starttype (u) endtype (u)
-  length 140
+  length 165
   formants vowel/y
 endphoneme
+
+phoneme y4
+  vowel starttype (u) endtype (u)
+  length 165
+  formants vwl_fi/y
+endphoneme
+
 
 
 
@@ -68,112 +91,130 @@ endphoneme
 
 phoneme ai
   vowel starttype (a) endtype (i)
-  length 250
-  formants vowel/aI
+  length 270
+  long
+  formants vwl_fi/AI
 endphoneme
 
 phoneme &i
   vowel starttype (a) endtype (i)
-  length 250
+  length 270
+  long
   formants vwl_fi/&I
 endphoneme
 
 phoneme oi
   vowel starttype (o) endtype (i)
-  length 250
+  length 270
+  long
   formants vowel/OI
 endphoneme
 
 phoneme ei
   vowel starttype (e) endtype (i)
-  length 250
+  length 270
+  long
   formants vwl_fi/EI
 endphoneme
 
 phoneme Yi
   vowel starttype (@) endtype (i)
-  length 230
+  length 260
+  long
   formants vwl_fi/YI
 endphoneme
 
 phoneme ui
   vowel starttype (u) endtype (i)
-  length 230
-  formants vwl_fi/uI
+  length 260
+  long
+  formants vowel/uI
 endphoneme
 
 phoneme yi
   vowel starttype (u) endtype (i)
-  length 220
+  length 250
+  long
   formants vwl_fi/yI
 endphoneme
 
 
 phoneme au
   vowel starttype (a) endtype (u)
-  length 250
-  formants vowel/aU
+  length 270
+  long
+  formants vwl_fi/AU
 endphoneme
 
 phoneme ou
   vowel starttype (o) endtype (u)
-  length 250
+  length 270
+  long
   formants vwl_fi/OU
 endphoneme
 
 phoneme eu
   vowel starttype (e) endtype (u)
-  length 250
-  formants vwl_fi/EU
+  length 280
+  long
+  formants vwl_fi/eU
 endphoneme
 
 phoneme iu
   vowel starttype (i) endtype (u)
-  length 230
-  formants vwl_af/iu
+  length 280
+  long
+  formants vwl_fi/iU
 endphoneme
 
 
 phoneme &y
   vowel starttype (a) endtype (u)
-  length 250
+  length 270
+  long
   formants vwl_fi/&y
 endphoneme
 
 phoneme ey
   vowel starttype (e) endtype (u)
-  length 250
+  length 270
+  long
   formants vwl_fi/Ey
 endphoneme
 
 phoneme Yy
   vowel starttype (@) endtype (u)
-  length 240
+  length 260
+  long
   formants vwl_fi/Yy
 endphoneme
 
 phoneme iy
   vowel starttype (i) endtype (u)
-  length 220
+  length 250
+  long
   formants vwl_fi/iy
 endphoneme
 
 
 phoneme uo
   vowel starttype (u) endtype (o)
-  length 240
+  length 260
+  long
   formants vwl_fi/uo
 endphoneme
 
 phoneme ie
   vowel starttype (i) endtype (e)
-  length 220
+  length 250
+  long
   formants vwl_fi/ie
 endphoneme
 
 phoneme yY
   vowel starttype (u) endtype (@)
-  length 240
+  length 260
+  long
   formants vwl_fi/yY
 endphoneme
 
@@ -224,8 +265,11 @@ endphoneme
 
 phoneme d       // (weak) dental variant of /d/
   vcd dnt stop
-  vowelin f1=1  f2=1500 -300 300  f3=-150 80
-  vowelout f1=1 f2=1500 -300 300  f3=-150 80
+//  vowelin f1=1  f2=1500 -300 300  f3=-150 80
+//  vowelout f1=1 f2=1500 -300 300  f3=-150 80
+  
+  vowelin f1=1  f2=2095 100 200  f3=100 80
+  vowelout f1=1 f2=3000 100 200  f3=100 80  rms=20 len=1
   formants d/d+x/d_dnt%60
   before _ d/d_+x/d_
   before r d/dr+x/d_dnt%60
@@ -236,8 +280,30 @@ phoneme d       // (weak) dental variant of /d/
 endphoneme
 
 
+phoneme p2
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -50  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  lengthmod 2
+  wave unvoc/p
+  before _ unvoc/p_ r unvoc/pr l unvoc/pl
+  switchvoicing b
+endphoneme
 
-phoneme k
+
+phoneme p
+  vls blb stop
+  vowelin  f1=0  f2=1000 -50 -50  f3=-200 80
+  vowelout f1=0  f2=1000 -500 -350  f3=-200 80
+  lengthmod 2
+  wave unvoc/p_unasp
+  before _ unvoc/p_ r unvoc/pr l unvoc/pl
+  switchvoicing b
+endphoneme
+
+
+
+phoneme k2
   vls vel stop
   vowelin f1=0  f2=2300 200 400  f3=-100 80
   vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
@@ -250,5 +316,18 @@ phoneme k
   switchvoicing g
 endphoneme
 
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave unvoc/k_unasp%60   // weaker
+  before _ unvoc/k_
+  before r unvoc/kr
+  before l unvoc/kl
+  before (i) unvoc/ki
+  switchvoicing g
+endphoneme
 
 

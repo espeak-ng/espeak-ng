@@ -17,6 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
+#include "StdAfx.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -93,6 +94,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$pastf",     27},   /* past tense follows */
 	{"$verbextend",28},   /* extend influence of 'verb follows' */
 
+	{"$brk",       30},   /* a shorter $pause */
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
 	{NULL,   -1}
@@ -296,6 +298,10 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 		return(0);   /* blank line */
 	}
 	EncodePhonemes(phonetic,encoded_ph,bad_phoneme);
+	if(strchr(encoded_ph,phonSWITCH) != 0)
+	{
+		flag_codes[n_flag_codes++] = BITNUM_FLAG_ONLY;
+	}
 	
 	for(ix=0; ix<255; ix++)
 	{
@@ -442,9 +448,9 @@ void compile_dictlist_end(FILE *f_out)
 	
 		while(p != NULL)
 		{
-			length = *(p+4);
-			fwrite(p+4,length,1,f_out);
-			memcpy(&p,p,4);
+			length = *(p+sizeof(char *));
+			fwrite(p+sizeof(char *),length,1,f_out);
+			memcpy(&p,p,sizeof(char *));
 		}
 		fputc(0,f_out);
 	}
@@ -576,6 +582,7 @@ void copy_rule_string(char *string, int &state)
 					c = RULE_SPACE;
 					break;
 				case 'A':
+				case 'V':   // vowel
 					c = RULE_LETTER1;
 					break;
 				case 'B':

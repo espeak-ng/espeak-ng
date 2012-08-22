@@ -39,7 +39,7 @@
 
 #include "speak_lib.h"
 
-static char *about_string = "espeakedit 0.027  02.Oct.2006\nAuthor: Jonathan Duddington (c) 2006";
+static char *about_string = "espeakedit 1.17  17.Nov.2006\nAuthor: Jonathan Duddington (c) 2006";
 
 
 const char *path_data = "/home/jsd1/speechdata/phsource";
@@ -388,7 +388,7 @@ void CharsetToUnicode(const char *charset)
 
 
 void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
-{
+{//===================================================
 //CharsetToUnicode("ISO-8859-3");
 //CharsetToUnicode("KOI8-R");
 //Test();

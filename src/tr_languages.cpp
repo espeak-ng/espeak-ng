@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
+#include "StdAfx.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -37,6 +37,7 @@
 
 
 #define L(c1,c2)  (c1<<8)+c2
+#define L_qa   0x716100
 
 
 void SetupTranslator(Translator *tr, int *lengths, int *amps)
@@ -59,33 +60,8 @@ Translator *SelectTranslator(const char *name)
 
 	switch(name2)
 	{
-	case L('e','n'):
-		tr = new Translator_English();
-		break;
-
 	case L('a','f'):
 		tr = new Translator_Afrikaans();
-		break;
-
-	case L('r','u'):  // Russian
-			tr = new Translator_Russian();
-		break;
-
-	case L('d','e'):
-		{
-			static const int stress_lengths_de[8] = {145,135, 190,190,  0, 0, 270,285};
-			tr = new Translator();
-			tr->langopts.stress_rule = 0;
-			tr->langopts.word_gap = 1;
-			tr->langopts.vowel_pause = 2;
-			tr->langopts.param[LOPT_PREFIXES] = 1;
-			memcpy(tr->stress_lengths,stress_lengths_de,sizeof(tr->stress_lengths));
-		
-			tr->langopts.numbers = 0x1c11;
-			tr->langopts.thousands_sep = '.';   // and also allow space
-			tr->langopts.decimal_sep = ',';
-			tr->SetLetterBits(0,"aeiouy");  // A  vowels
-		}
 		break;
 
 	case L('c','y'):   // Welsh
@@ -114,52 +90,23 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
-	case L('i','t'):   // Italian
+	case L('d','e'):
 		{
-			static int stress_lengths_it[8] = {150, 140,  180, 180,  0, 0,  270, 320};
-
+			static const int stress_lengths_de[8] = {145,135, 190,190,  0, 0, 270,285};
 			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_it,NULL);
-
-			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
-			tr->langopts.stress_rule = 2;
-			tr->langopts.word_gap = 0;
-			tr->langopts.vowel_pause = 1;
-			tr->langopts.unstressed_wd1 = 2;
-			tr->langopts.unstressed_wd2 = 2;
-			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
-			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
-			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
-			tr->langopts.numbers = 0x2701;
-			tr->langopts.thousands_sep = '.';
-			tr->langopts.decimal_sep = ',';
+			tr->langopts.stress_rule = 0;
+			tr->langopts.word_gap = 1;
+			tr->langopts.vowel_pause = 2;
+			tr->langopts.param[LOPT_PREFIXES] = 1;
+			memcpy(tr->stress_lengths,stress_lengths_de,sizeof(tr->stress_lengths));
+		
+			tr->langopts.numbers = 0x11c19;
+			tr->SetLetterBits(0,"aeiouy");  // A  vowels
 		}
 		break;
 
-	case L('e','s'):   // Spanish
-		{
-			static int stress_lengths_es[8] = {175, 200,  190, 190,  0, 0,  230, 260};
-			static int stress_amps_es[8] = {16,13, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
-
-			tr = new Translator();
-			SetupTranslator(tr,stress_lengths_es,stress_amps_es);
-
-			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
-			tr->langopts.stress_rule = 2;
-
-			// stress last syllable if it doesn't end in vowel or "s" or "n"
-			// 'diminished' is an unstressed final syllable
-			tr->langopts.stress_flags = 0x8 | 0x6 | 0x10; 
-			tr->langopts.word_gap = 0;
-			tr->langopts.vowel_pause = 0;
-			tr->langopts.unstressed_wd1 = 0;
-			tr->langopts.unstressed_wd2 = 2;
-			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
-
-			tr->langopts.numbers = 0x521;
-			tr->langopts.thousands_sep = '.';
-			tr->langopts.decimal_sep = ',';
-		}
+	case L('e','n'):
+		tr = new Translator_English();
 		break;
 
 	case L('e','l'):   // Greek
@@ -195,15 +142,13 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
-			tr->langopts.numbers = 0x501;
-			tr->langopts.thousands_sep = '.';
-			tr->langopts.decimal_sep = ',';
+			tr->langopts.numbers = 0x509;
 		}
 		break;
 
 	case L('e','o'):
 		{
-			static int stress_lengths_eo[8] = {150, 150,  180, 180,    0,   0,  260, 310};
+			static int stress_lengths_eo[8] = {150, 140,  190, 200,    0,   0,  300, 320};
 			static const wchar_t eo_char_apostrophe[2] = {'l',0};
 		
 			tr = new Translator();
@@ -213,37 +158,114 @@ Translator *SelectTranslator(const char *name)
 			tr->char_plus_apostrophe = eo_char_apostrophe;
 		
 			tr->langopts.stress_rule = 2;
-			tr->langopts.stress_flags = 0x1;  // don't give full stress to monosyllables
+//			tr->langopts.stress_flags = 0x1;  // don't give full stress to monosyllables
+			tr->langopts.unstressed_wd1 = 0;
+			tr->langopts.unstressed_wd2 = 2;
+
+			tr->langopts.numbers = 0x1409;
+		}
+		break;
+
+	case L('e','s'):   // Spanish
+		{
+			static int stress_lengths_es[8] = {170, 200,  180, 180,  0, 0,  230, 260};
+			static int stress_amps_es[8] = {16,13, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_es,stress_amps_es);
+
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+			tr->langopts.stress_rule = 2;
+
+			// stress last syllable if it doesn't end in vowel or "s" or "n"
+			// 'diminished' is an unstressed final syllable
+			tr->langopts.stress_flags = 0x8 | 0x6 | 0x10; 
 			tr->langopts.word_gap = 0;
 			tr->langopts.vowel_pause = 0;
-			tr->langopts.unstressed_wd1 = 2;
+			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
+			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
+
+			tr->langopts.numbers = 0x529;
 		}
 		break;
 
 
 	case L('f','i'):   // Finnish
 		{
-			static int stress_amps_fi[] = {16,16, 22,22, 20,24, 24,22 };
-			static int stress_lengths_fi[8] = {170,140, 240,240, 0,0, 250,270};
+			static int stress_amps_fi[8] = {16,16, 22,22, 20,24, 24,22 };
+			static int stress_lengths_fi[8] = {140,120, 220,220, 0,0, 240,280};
 
 			tr = new Translator();
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
 
 			tr->langopts.stress_rule = 0;
-			tr->langopts.stress_flags = 0x30;  // move secondary stress from light to a following heavy syllable
+			tr->langopts.stress_flags = 0x50;  // move secondary stress from light to a following heavy syllable
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
+			tr->langopts.long_stop = 130;
 
-			tr->langopts.numbers = 0x1001;
-			tr->langopts.thousands_sep = '.';   // and also allow space
-			tr->langopts.decimal_sep = ',';
+			tr->langopts.numbers = 0x1009;
 			tr->SetLetterBits(0,"aeiouy");  // A  vowels
+			tr->langopts.max_initial_consonants = 2;
+			tr->langopts.spelling_stress = 1;
+		}
+		break;
+
+	case L('f','r'):  // french
+		{
+			static int stress_lengths_fr[8] = {180, 180,  180, 180,  0, 0,  180, 200};
+			static int stress_amps_fr[8] = {16,14, 20,20, 20,24, 24,22 };
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
+			tr->langopts.stress_rule = 3;      // stress on final syllable
+			tr->langopts.stress_flags = 0x20;  // don't use secondary stress
+
+			tr->langopts.numbers = 0x509;
+			tr->SetLetterBits(0,"aeiouy");  // A  vowels
+		}
+		break;
+
+	case L('i','t'):   // Italian
+		{
+			static int stress_lengths_it[8] = {150, 140,  180, 180,  0, 0,  270, 320};
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_it,NULL);
+
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+			tr->langopts.stress_rule = 2;
+			tr->langopts.word_gap = 0;
+			tr->langopts.vowel_pause = 1;
+			tr->langopts.unstressed_wd1 = 2;
+			tr->langopts.unstressed_wd2 = 2;
+			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
+			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
+			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
+			tr->langopts.numbers = 0x2709;
+		}
+		break;
+
+	case L('n','l'):
+		{
+			static const int stress_lengths_nl[8] = {160,135, 210,210,  0, 0, 260,280};
+			tr = new Translator();
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.word_gap = 0;
+			tr->langopts.vowel_pause = 1;
+			tr->langopts.param[LOPT_DIERESES] = 1;
+			tr->langopts.param[LOPT_PREFIXES] = 1;
+			tr->SetLetterBits(0,"aeiouy");  // A  vowels
+		
+			tr->langopts.numbers = 0x11419;
+			memcpy(tr->stress_lengths,stress_lengths_nl,sizeof(tr->stress_lengths));
 		}
 		break;
 
 	case L('p','l'):   // Polish
 		{
-			static int stress_lengths_pl[8] = {155, 170,  175, 175,  0, 0,  240, 280};
+			static int stress_lengths_pl[8] = {155, 170,  175, 175,  0, 0,  250, 280};
 			static int stress_amps_pl[8] = {16,14, 20,20, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
@@ -252,15 +274,43 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.stress_rule = 2;
 			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
-			tr->langopts.word_gap = 0;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->SetLetterBits(0,"aeiouy");  // A  vowels
 		}
 		break;
 
-	case L('x','x'):
-		tr = new Translator_Tone();  // for testing
+	case L('p','t'):  // Portuguese
+		{
+			static int stress_lengths_pt[8] = {170, 120,  210, 210,  0, 0,  260, 290};
+			static int stress_amps_pt[8] = {16,13, 19,19, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_pt,stress_amps_pt);
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+
+			tr->langopts.stress_rule = 3;        // stress on final syllable
+			tr->langopts.stress_flags =  0x6 | 0x10; 
+			tr->langopts.numbers = 0x469 + 0x2000;
+		}
+		break;
+
+	case L('r','u'):  // Russian
+			tr = new Translator_Russian();
+		break;
+
+	case L('z','h'):
+	case L_qa + 'a':   // Test qaa
+		{
+			static int stress_lengths_qaa[8] = {200,200, 248,248, 248,0, 248,250};
+			static int stress_amps_qaa[] = {16,16, 20,20, 24,24, 24,22 };
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_qaa,stress_amps_qaa);
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.vowel_pause = 0;
+			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
+			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+		}
 		break;
 
 	default:
@@ -268,6 +318,12 @@ Translator *SelectTranslator(const char *name)
 		break;
 	}
 
+	if(tr->langopts.numbers & 0x8)
+	{
+		// use . and ; for thousands and decimal separators
+		tr->langopts.thousands_sep = '.';
+		tr->langopts.decimal_sep = ',';
+	}
 	return(tr);
 }  // end of SelectTranslator
 
@@ -317,9 +373,7 @@ Translator_Russian::Translator_Russian() : Translator()
 	langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
 	langopts.stress_rule = 5;
 
-	langopts.numbers = 0x401;
-	langopts.thousands_sep = '.';
-	langopts.decimal_sep = ',';
+	langopts.numbers = 0x409;
 	langopts.phoneme_change = 1;
 	langopts.testing = 2;
 

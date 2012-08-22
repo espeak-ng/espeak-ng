@@ -1,3 +1,18 @@
+BINDIR=/usr/local/bin
+INCDIR=/usr/include/espeak
+LIBDIR=/usr/lib
+DATADIR=/usr/share/espeak-data
+
+RELEASE = 1.17
+BIN_NAME = speak
+LIB_NAME = libespeak.so
+LIB_VERSION = 1
+LIBTAG = $(LIB_VERSION).$(RELEASE)
+
+INSTALL = /usr/bin/install
+LN_SF = /bin/ln -sf
+MKDIR = mkdir -p
+
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
 	readclause.cpp setlengths.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
@@ -17,29 +32,48 @@ SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
 LIBS2=-lstdc++
 
+CXXFLAGS=-O2
 
 
-all: speak libespeak.so
-	mv libespeak.so libespeak.so.1.1.16
+all: $(BIN_NAME) $(LIB_NAME)
+	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) -O2 -Wall -pedantic -I. -c -fno-exceptions $<
+	$(CXX) $(CXXFLAGS) -D PATH_ESPEAK_DATA=\"$(DATADIR)\" -Wall -pedantic -I. -c -fno-exceptions $<
 
-speak: $(OBJS1)
+$(BIN_NAME): $(OBJS1)
 	$(CXX) -o $@ $(OBJS1) $(LIBS1)
 
 
 
 x_%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -O2 -Wall -fpic -fvisibility=hidden -pedantic \
+	$(CXX) $(CXXFLAGS) -Wall -fpic -fvisibility=hidden -pedantic \
 	-I. -D LIBRARY -c -fno-exceptions $<  -o x_$*.o
 
-libespeak.so: $(OBJS2)
-	$(CXX) -shared -Wl,-soname,libespeak.so.1 -o $@ $(OBJS2) $(LIBS2)
+$(LIB_NAME): $(OBJS2)
+	$(CXX) -shared -Wl,-soname,$(LIB_NAME).$(LIB_VERSION) -o $@ $(OBJS2) $(LIBS2)
 
 clean:
 	rm -f *.o *~
 
 distclean: clean
-	rm -f speak
-	rm -f libespeak.so*
+	rm -f $(BIN_NAME)
+	rm -f $(LIB_NAME)*
+
+install: all
+	# Create directories
+	$(MKDIR) $(DESTDIR)$(BINDIR)
+	$(MKDIR) $(DESTDIR)$(LIBDIR)
+	$(MKDIR) $(DESTDIR)$(INCDIR)
+	$(MKDIR) $(DESTDIR)$(DATADIR)
+	# Install executable
+	$(INSTALL) -m 755 $(BIN_NAME) $(DESTDIR)$(BINDIR)
+	# Install shared library
+	$(INSTALL) -m 755 $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)
+	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIB_NAME).$(LIB_VERSION)
+	$(LN_SF) $(LIB_NAME).$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/$(LIB_NAME)
+	# Install development headers
+	$(INSTALL) -pm 644 speak_lib.h $(DESTDIR)$(INCDIR)
+	# Install data files
+	cp -prf ../espeak-data/* $(DESTDIR)$(DATADIR)
+

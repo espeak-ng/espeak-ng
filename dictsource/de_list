@@ -56,6 +56,7 @@ _dpt	_kOma
 // abbreviations
 dm             d'OItSm,A:rk     $capital $only $abbrev
 dr             dOkt'o:r
+km             ki:lo:me:t3
 z.b            tsUmb'aISpi:l
 
 
@@ -166,14 +167,14 @@ deren           _,dEr@n
 ab              %ap       $strend
 an              %an       $strend
 am              %am
-auf             _%aUf      $strend
-aus             _,aUs      $strend
+auf             %aUf      $brk $strend
+aus             ,aUs      $brk $strend
 bei             %baI      $pause $strend $only
-bis             _%bIs      $strend
+bis             %bIs      $brk $strend
 da              $u        $strend
 durch           $u        $pause $strend
-für             _fy:r     $u $strend
-gegen           _,ge:g@n   $strend
+für             fy:r      $brk $u $strend
+gegen           ,ge:g@n   $brk $strend
 gegend          ge:g@nt
 hin             hIn
 in              %In       $strend
@@ -181,21 +182,21 @@ in              %In       $strend
 (in den)        %Ind%e:n
 (in der)        %Ind%Er
 im              %Im
-ins             _%Ins
+ins             %Ins      $brk
 mit             %mIt      $pause $strend
 nach            %nax      $strend
-ob              _,Ob      $strend $only
+ob              ,Ob       $brk $strend $only
 pro             ,pro:     $pause
-von             _%fOn      $strend
-(von dem)       _%fOn%de:m
-vom             _%fOm
+von             %fOn      $brk $strend
+(von dem)       %fOn%de:m $brk
+vom             %fOm      $brk
 vor             ,fOr      $strend
 zu              %tsu:     $strend
 zum             %tsUm
 zur             %tsu:r
-über            _,yb3     $strend
-unter           _,Unt3     $strend
-um              _%Um       $strend
+über            ,yb3      $brk $strend
+unter           ,Unt3     $brk $strend
+um              %Um       $brk $strend
 (um die)        %Umd%i:
 (um den)        %Umd%e:m
 
@@ -203,7 +204,7 @@ um              _%Um       $strend
 so              %zo:      $strend
 doch            %dOx      $strend
 noch             $pause
-(noch nicht)    _n'Ox||n,ICt
+(noch nicht)    n'Ox||n,ICt  $brk
 (nicht mehr)    n'ICt||,mEr
 (nicht mehr)    n,ICt||m'Er  $atend
 (gar nicht)     g,A:rn'ICt
@@ -239,7 +240,7 @@ worin           vo:r'In
 // pronouns
 ich             %IC    $only
 du              %du:   $only
-er              _%Er   $only
+er              %Er    $brk $only
 es              %Ez    $only
 sie             %zi:   $only
 wir             %vi:r  $only
@@ -350,5 +351,4 @@ soll            ,zOl
 sollst          ,zOlst
 sollte          ,zOlt@
 sollten         ,zOlt@n
-
 

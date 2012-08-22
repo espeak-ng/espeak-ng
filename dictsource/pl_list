@@ -21,29 +21,29 @@ oni          $u             // they (m)
 one          $u             // they (f)
 się          $u             // (reflexive)
 
-który        $u $strend     // which,what,that (+declines)
+który        $u+            // which,what,that (+declines)
 to           $u $strend2    // this
 
 // questions
 czy          $u
 
 // prepositions
-na           $u $strend     // in/on
-po           $u $strend
-z            $u $strend
-w            $u $strend     // in
-do           $u $strend
-o            $u $strend
-obok         $u $strend     // near/next to
-przy         $u $strend     // near/at
-nad          $u $strend     // over
-pod          $u $strend
-między       $u $strend     // between
-przed        $u $strend     // in front of, before
-za           $u $strend     // beyond, at the back
+na           $u+     // in/on
+po           $u+
+z            $u+
+w            $u+     // in
+do           $u+
+o            $u+
+obok         $u+     // near/next to
+przy         $u+     // near/at
+nad          $u+     // over
+pod          $u+
+między       $u+     // between
+przed        $u+     // in front of, before
+za           $u+     // beyond, at the back
 
 // misc
-nie          $u $strend     // not, no
+nie          $u+     // not, no
 (nie ma)     n^'E||ma       // not any
 taki         $u             // such
 

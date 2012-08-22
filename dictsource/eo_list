@@ -1,14 +1,44 @@
 // This file is UTF-8 encoded
 
 
+// Numbers
+_0		nul
+_1		'unu
+_2		d'u
+_3		tr'i
+_4		kv'ar
+_5		kv'in
+_6		s'es
+_7		s'ep
+_8		'ok
+_9		n'aU
+_10		d'ek
+_20		d'udek
+_30		tr'idek
+_40		kv'ardek
+_50		kv'indek
+_60		s'esdek
+_70		s'epdek
+_80		'okdek
+_90		n'aUdek
+_1H		ts'ent
+_0H		tsent
+_1T1		m'il_
+_0T1		m,il_
+_0T2		mili'ono
+_0T3		mili'ardo
+_0T4		duili'ono
+_dpt		komo_
+
 _.	punkto
 
+t.e		t'e,e
 
 // includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
 
 l'              la
 la              %la
-ne              $u
+ne              $u+     // negative
 cxu             $u      // interogative particle
 cxi             $u
 ĉu              $u      // cxi  interogative particle
@@ -16,88 +46,116 @@ cxi             $u
 ia              $u      // any
 
 // prepositions
-de              de   $strend
-(de la)         dela  $u
+de              $u+ $brk
+(de la)         dela	$u
 
-antaux          $u   $strend
-antaŭ           $u   $strend
-apud            $u   $strend
-ol              _ol $u   $strend
-da              $u   $strend
-al              _%al  $strend
-el              _el  $strend
-en              _en $u   $strend
-kun             $u   $strend
-per             $u   $strend
-preter          $u   $strend
-por             _por $strend
-pro             _pro  $strend
-sub             $u   $strend
-sur             $u   $strend
+antaux          $u+ $brk
+antaŭ           $u+ $brk
+apud            $u+ $brk
+ol              $u+ $brk
+ĉe              $u+ $brk
+da              $u+
+al              $u+ $brk
+(al la)         alla $u $brk
+el              $u+ $brk
+(el la)         ella $u $brk
+en              $u+ $brk
+(en la)         enla $u $brk
+je		$u
+kun             $u+ $brk
+laŭ		$u+
+per             $u+ $brk
+preter          $u+
+pri		$u+ $brk
+por             $u+ $brk
+post		$u+ $brk
+pro             $u+ $brk
+sen		$u+ $brk
+sub             $u+ $brk
+sur             $u+ $brk
 
-dum             $pause
-tra             $pause
+dum             $u $pause
+tra             $u $pause
 
 // misc adverbs etc
 eĉ              _etS
+(pli ol)	pliol
 
 // pronouns
 mi              $u
 ci              $u
 li              $u
 sxi             $u
-ŝi             $u        // sxi
+ŝi              $u       // sxi
 gxi             $u
-ĝi             $u        // gxi
+ĝi              $u        // gxi
 ni              $u
 vi              $u
 ili             $u
 oni             $u
 si              $u
 
-mia             $u
-cia             $u
-lia             $u
-sxia            $u
-ŝia            $u       // sxia
-gxia            $u
-ĝia            $u       // gxia
-nia             $u
-via             $u
-ilia            $u
-sia             $u
+mia             $u+
+cia             $u+
+lia             $u+
+sxia            $u+
+ŝia             $u+       // sxia
+gxia            $u+
+ĝia             $u+       // gxia
+nia             $u+
+via             $u+
+ilia            $u+
+sia             $u+
+
+miaj             $u+
+ciaj             $u+
+liaj             $u+
+sxiaj            $u+
+ŝiaj             $u+       // sxia
+gxiaj            $u+
+ĝiaj             $u+       // gxia
+niaj             $u+
+viaj             $u+
+iliaj            $u+
+siaj             $u+
 
 // aux verbs
-esti            $u
-estas           $u
-estis           $u
-estos           $u
-estus           $u
+esti            $u+
+estas           $u+
+estis           $u+
+estos           $u+
+estus           $u+
 
-povas           $u      // can
-povis           $u
-povos           $u
-povus           $u
+povas           $u+      // can
+povis           $u+
+povos           $u+
+povus           $u+
 
-devas           $u      // must
-devis           $u
-devos           $u
-devus           $u
+devas           $u+      // must
+devis           $u+
+devos           $u+
+devus           $u+
 
-iras            $u      // go
-iris            $u
-iros            $u
-irus            $u
+iras            $u+      // go
+iris            $u+
+iros            $u+
+irus            $u+
 
-metas           $u      // put
-metis           $u
-metos           $u
-metus           $u
+metas           $u+      // put
+metis           $u+
+metos           $u+
+metus           $u+
+
+havi		$u+
+havas		$u+
+havis		$u+
+havos		$u+
 
 eble            $u       // may
 
 kia             $u $pause
 kie             $u $pause
+kiel            $u $pause
 kio             $u $pause
 kiu             $u $pause
 kiuj            $u $pause
@@ -105,11 +163,22 @@ kiun            $pause
 kiunj           $pause
 kiam            $u $pause
 
+tio             $u+
+
+
 // conjunctions
-ke              $u $pause      // that (conj)
-aux             $u $pause
-aŭ             $u $pause      // aux
-cxar            $u $pause
-ĉar            $u $pause
-kaj             $u $pause
-sed             $u $pause
+ke		$u $pause      // that (conj)
+aux		$u $pause
+aŭ		$u $pause      // aux
+cxar		$u $pause
+ĉar		$u $pause
+kaj		$u $pause
+sed		$u $pause
+nek		$u $pause
+se		$u $pause
+ju		$u
+des		$u $pause
+do		$pause	       // thereforem, so, then
+ekde		$pause         // since
+
+

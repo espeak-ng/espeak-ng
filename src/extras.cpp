@@ -455,7 +455,7 @@ int OpenWaveFile3(const char *path, int rate)
 
 
 
-void CloseWaveFile2(int rate)
+void CloseWaveFile3(int rate)
 /******************/
 {
    unsigned int pos;
@@ -502,7 +502,7 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 	int type;
 	if(wav == NULL)
 	{
-		CloseWaveFile2(samplerate);
+		CloseWaveFile3(samplerate);
 		fclose(f_events);
 		return(0);
 	}

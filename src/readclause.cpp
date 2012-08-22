@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
+#include "StdAfx.h"
 
 #include <stdio.h>
 #include <ctype.h>
@@ -127,7 +127,7 @@ const int param_defaults[N_SPEECH_PARAM] = {
 };
 
 
-#ifdef PLATFORM_RISCOS
+#ifdef NEED_WCSTOF
 float wcstof(const wchar_t *str, wchar_t **tailptr)
 {
    int ix;
@@ -360,7 +360,7 @@ static int LoadSoundFile(const char *fname, int index)
 	if(fname == NULL)
 		fname = soundicon_tab[index].filename;
 
-	if(fname==NULL)
+	if((fname==NULL) || (GetFileLength(fname) <= 0))
 		return(1);
 	if(fname[0] != '/')
 	{

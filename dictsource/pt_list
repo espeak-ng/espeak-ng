@@ -1,0 +1,438 @@
+
+// This file in UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+
+// character names
+_e      e
+_o	o
+_s	'Ese
+
+_á	,a&g'udu
+_à	,ag@-*'avi
+_â	,asirkuNfl'Eksu
+_ã	,atS'iU
+_ç	s,esed'elj&
+_é	,e&g'udu
+_ê	,asirkuNfl'Eksu
+_í	,i&g'udu
+_ó	,o&g'udu
+_ô	,osirkuNfl'Eksu
+_õ	,otS'iU
+_ú	,u&g'udu
+_ü	,utr@-*'em&
+
+_cap	maI'uskulu
+_?A	l'et@-*&
+_??	s'imbolu
+
+_.	p'oNtu
+_!	,eskl&mas'&U~
+_"	'asp&s
+_#	k,ardZin'aU
+_$	s,if@-*'&U~
+_%	pors'eINtu
+_&	'e
+_'	ap'Ost@-*,ofu
+_(	,ab@-*ipa*'eINtezi
+_)	f,ES&pa*'eINtezi
+_*	,aste*'isku
+_+	m'aIs
+_,	v'irgul&
+_-	'ifeIN
+_/	b'aQ&
+_:	d,oIsp'oNtus
+_;	p,oNtu_iv'irgul&
+_<	men'Or
+_=	igw'aU
+_>	maI'Or
+_?	,iNtex,ogas'&U~
+_@	ax'ob&
+_[	,ab@-*ikowS'etSi
+_\	b,ax&,iNvertS'id&
+_]	f,ES&kowS'etSi
+_^	s,irkuNfl'Eksu
+__	s,ublin^'adu
+_`	g@-*'avi
+_{	,ab@-*iS'avi
+_|	b,ax&v,ertSik'aU
+_}	f,ES&S'avi
+_~	tS'iU
+_¡	,eskl&mas,&U~,iNvertS'id&
+_¿	,iNtex,ogas,&U~,iNvertS'id&
+_"	'ab@-*i;'asp&z d'upl&s
+
+
+// numeric
+//********
+
+_0	z'Exu
+_1	'uN
+_2	d'oIs
+_3	t@-*'es
+_4	kw'at@-*u
+_5	s'iNku
+_6	s'eIs
+_7	s'EtSi
+_8	'oItu
+_9	n'Ovi
+_10	d'Ez
+_11	'oNzi
+_12	d'ozi
+_13	t@-*'ezi
+_14	kat'Orzi
+_15	k'iNzi
+_16	d,ezes'eIs
+_17	d,ezes'EtSi
+_18	dez'oItu
+_19	dezen'Ovi
+_20	v'iNtSi
+_30	t@-*'iNt&
+_40	kwa*'eINt&
+_50	siNkw'eINt&
+_60	ses'eINt&
+_70	set'eINt&
+_80	oIt'eINt&
+_90	nov'eINt&
+_1H0	s'eIN
+_0H	s'eINtuz
+_1H	s'eINtu
+_2H	duz'eINtuz
+_3H	t@-*ez'eNtuz
+_5H	kin^'eINtuz
+_0T1	m'iU_
+_1T1	m'iU_
+_0T2	milj'o~jz
+_1T2	'u~milj'&U~
+_OT3	bilj'o~jz
+_1T3	'u~mbilj'&U~
+_OT4	trilj'o~jz
+_1T4	'u~ntrilj'&U~
+_0and	_i
+_dpt    _v'irgul&
+_0Z2	seNt'Ezim&     // 100ths
+_0Z3	mil'Ezim&      // 1000ths
+
+
+// ABBREVIATIONS
+//**************
+(http ://)       ag,atete'pe_
+a.c		,as'e
+d.c		d,es'e
+etc	,ets'Ete*&
+
+
+// articles
+o	$u+
+a	$u+
+os	$u+
+as	$u+
+
+um	$u
+uma	$u
+uns	$u
+umas	$u
+
+
+// pronouns
+eu	$u+
+tu	$u+
+você	$u+
+ele	$u+
+ela	$u+
+nós	$u+
+vós	$u+
+vocês	$u+
+eles	$u+
+elas	$u+
+
+me	$u	// reflexive
+te	$u 
+nos	$u 
+//se	$u
+
+este	$u+       // this
+esta	'Est& $brk $u+
+esse	$u+       // that
+essa	'Es& $brk  $u+
+aquele	$u+       // that
+aquela	$u+
+
+que	$u $brk
+
+// possessive adjectives
+meu	$u+
+minha	$u+
+meus	$u+
+minhas	$u+
+teu	$u+
+tua	$u+
+teus	$u+
+tuas	$u+
+seu	$u+
+sua	$u+
+seus	$u+
+suas	$u+
+nosso	$u+
+nossa	$u+
+nossos	$u+
+nossas	$u+
+dele	$u+
+dela	$u+
+deles	$u+
+delas	$u+
+
+
+// prepositions
+de	$u	// of,from
+do	$u
+da	$u
+dos	$u
+das	$u
+dum	$u
+duma	$u
+duns	$u
+dumas	$u
+
+em	$u $brk  // in,on,at
+no	nu $u
+na	$u
+nos	nus $u
+nas	$u
+num	$u
+numa	$u
+nuns	$u
+numas	$u
+
+por	$u $brk	// by,for,through
+pelo	$u
+pela	$u
+pelos	$u
+pelas	$u
+
+a	$u	// to,at
+ao	$u
+à	,a:
+aos	$u
+às	,a:s
+
+para	$u $brk		// for,to
+pro	$u
+pra	$u
+pros	$u
+pras	$u
+prò	$u
+prà	$u
+pròs	$u
+pràs	$u
+
+com	$u $brk		// with
+sem	$brk		// without
+até	$u $brk		// until
+desde	$u $brk		// from,since
+entre	$u $brk		// between,among
+
+durante	$pause
+
+// conjunctions
+e	i $u $pause	// and
+se	$u $brk		// if
+
+
+mas	$u $pause	// but
+porém	$pause		// however
+todavia	$pause		// yet
+contudo	$pause		// nevertheless
+
+ou	$u $pause	// or
+quer	$pause		// whether
+
+assim	$pause		// thus
+portanto	$pause	// therefore
+
+porque	$pause		// because
+pois	$pause		// because
+como	$u $pause	// as
+
+embora	$pause		// although
+apesar	$pause		// despite
+
+
+caso	$pause			// if
+(desde que)	d'esdZiki/  $pause	// provided that
+(exceto se)	es'Etusi/   $pause	// unless
+(salvo se)	s'alvusi/   $pause	// unless
+
+(para que)	p,a*&ki/    $pause       // so that
+
+
+
+quando	$pause			// when
+onde	$u $pause	// where
+apenas	$pause			// as soon as
+mal	$pause			// as soon as, hardly
+(logo que)	l'Oguki/ $pause		// as soon as
+(antes que)     '&~NtSiski/  $pause	// before
+(depois que)    dep'OIski/  $pause	// after
+(sempre que)    s'eNpriki/  $pause	// whenever
+enquanto  $pause			// while
+
+
+// negative
+
+// questions
+
+
+// auxillary verbs  (be, have, can, etc)
+	// ser, to be
+ser	$u
+sou	$u
+é	E  $u
+és	Es $u
+somos	$u
+sois	$u
+são	$u
+
+era	$u	// .. imperfect
+éramos	$u
+éreis	$u
+eram	$u
+
+fui	$u      // .. preterite
+foste	$u
+foi	$u
+fomos	$u
+fostes	$u
+foram	$u
+
+fora	$u      // .. pluperfect
+fômamos	$u
+fôreis	$u
+foram	$u
+
+serei	$u	// .. future
+será	$u
+seremos	$u
+sereis	$u
+serão	$u
+
+seria	$u      // .. conditional
+seríamos $u
+seríeis	$u
+seriam	$u
+
+	// estar - to be
+estar	$u
+estou	$u
+está	$u
+estamos	$u
+estais	$u
+estão	$u
+
+estava	$u
+estávamos	$u
+astavam	$u
+
+estive	$u
+esteve	$u
+estivemos	$u
+estiveram	$u
+
+estarei	$u
+estará	$u
+estaremos	$u
+estarão	$u
+
+
+      // ter - to have
+ter	$u
+tenho	$u
+tens	$u
+tem	$u
+temos	$u
+tendes	$u
+têm	$u
+
+tinha	$u
+tínhamos	$u
+tínheis	$u
+tinham	$u
+
+tive	$u
+tiveste	$u
+teve	$u
+tivemos	$u
+tivestes	$u
+tiveram	$u
+
+tivera	$u
+tivéramos	$u
+tivéreis	$u
+tiveram	$u
+
+terei	$u
+terás	$u
+terá	$u
+teremos	$u
+tereis	$u
+terão	$u
+
+      // fazer - to do
+fazer	$u+
+faço	$u+
+faz	$u+
+fazemos	$u+
+fazem	$u+
+
+
+	// poder - can
+poder	$u+
+posso	$u+
+pode	$u+
+podemos	$u+
+podem	$u+
+
+podia	$u+
+podíamos	$u+
+podiam	$u+
+
+pude	$u+
+pôde	$u+
+pudemos	$u+
+puderam	$u+
+
+poderei	$u+
+poderá	$u+
+poderemos	$u+
+poderão	$u+
+
+
+	// ir - to go  (used to make future tense)
+vou	$u+
+vai	$u+
+vamos	$u+
+vão	$u+
+
+	// haver
+há	$u+
+
+
+
+// some common adjectives and adverbs
+alguns		$u	// some
+algumas		$u	// some
+não		n,&U~ $strend	// not
+
+
+
+// MAIN WORD DICTIONARY
+//*********************
+mui          mu~j
+muito        m'u~jtu	// -s is included as a suffix
+muita        m'u~jt&
+
+

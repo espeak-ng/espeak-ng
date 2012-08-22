@@ -5,18 +5,19 @@
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
-å	r'uotsalainen'o:
-š	h'at:u&s
-ž	h'at:uts,et
 
-_.	piste
-_!	hu:tomerk:i
-_"	lainaus
-_#	rist:o
-_$	dollarin
-_%	prosent:i
-_&	etmerk:i
-_'	heit:o
+å r'uotsalainen'o:
+š h'at:u&s
+ž h'at:uts,et
+
+_. piste
+_! hu:tomerk:i
+_" lainaus
+_# rist:o
+_$ dollarin
+_% prosent:i
+_& etmerk:i
+_' heit:o
 
 // numbers
 _0       nolla
@@ -50,7 +51,7 @@ _90      yhdeks&mkymment&
 _0H      sata:
 _1H      sata
 _0T1     tuhata:
-_1T1     tuhat           // no '1' before thousand
+_1T1     tuhat          // no '1' before thousand
 _0T2     miljo:na:
 _1T2     miljo:na
 _0T3     miljardi
@@ -60,27 +61,25 @@ _1T4     biljo:na
 _dpt     pilk:u        // comma
 
 
-
 // articles
 
 
-
 // pronouns
-minä	$u
-sinä	$u
-hän	$u
-se	$u
-me	$u
-te	$u
-he	$u
-ne	$u
+minä $u
+sinä $u
+hän  $u
+se   $u
+me   $u
+te   $u
+he   $u
+ne   $u
 
-itse	$u $double      // reflexive pronoun
+itse  $u $double      // reflexive pronoun
 
-tämä	$u	// this
-tuo	$u	// that
-nämä	$u	// these
-nuo	$u	// those
+tämä  $u // this
+tuo   $u // that
+nämä  $u // these
+nuo   $u // those
 
 
 
@@ -89,91 +88,120 @@ nuo	$u	// those
 // prepositions
 
 // conjunctions
-ja	$u $pause	// and
-entä	$u $pause	// and
-tai	$u $pause	// or
-vai     $u $pause
-mutta	$u $pause	// but
+ja     $u $pause // and
+entä   $u $pause // and
+tai    $u $pause // or
+vai    $u $pause
+mutta  $u $pause // but
 
 // negative
 
-en	$u
-et	$u
-ei	$u		// not
-emme	$u
-ette	$u
-eivät	$u
+en    $u
+et    $u
+ei    $u  // not
+emme  $u
+ette  $u
+eivät $u
 
 // questions
 
 
 // auxillary verbs
-olla	$u	// to be
-olen	$u
-olet	$u
-on	$u
-olemme	$u
-olette	$u
-ovat	$u
+olla    $u // to be
+olen    $u
+olet    $u
+on      $u
+olemme  $u
+olette  $u
+ovat    $u
 
-ole	$u $double
-olleet	$u
-ollut	$u
-olin	$u
-olit	$u
-oli	$u
-olimme	$u
-olitte	$u
-olivat	$u
-olisin	$u
-olisit	$u
-olisi	$u
-olisimme	$u
-olisitte	$u
-olisivat	$u
+ole     $u $double
+olleet  $u
+ollut   $u
+olin    $u
+olit    $u
+oli     $u
+olimme  $u
+olitte  $u
+olivat  $u
+olisin  $u
+olisit  $u
+olisi   $u
+olisimme  $u
+olisitte  $u
+olisivat  $u
 
-lienen	$u
-lienet	$u
-lienee	$u
-lienemme	$u
-lienette	$u
-lienevät	$u
-liene	$u
-lienneet	$u
+lienen    $u
+lienet    $u
+lienee    $u
+lienemme  $u
+lienette  $u
+lienevät  $u
+liene     $u
+lienneet  $u
 
 
 // some common adjectives and adverbs
-vähän	$u	// some
+vähän   $u // some
 
 // words that cause doubling
-kiinni	$double
-luo	$double
-taa	$double
-terve	$double
-tuore	$double
+kiinni  $double
+luo     $double
+taa     $double
+terve   $double
+tuore   $double
 
-aihe	$double
-aste	$double
-kone	$double
-laite	$double
-lause	$double
-luode	$double
-näyte	$double
-oire	$double
-puhe	$double
-purje	$double
-tunne	$double
-vene	$double
-virhe	$double
+aihe    $double
+aste    $double
+kone    $double
+laite   $double
+lause   $double
+luode   $double
+näyte   $double
+oire    $double
+puhe    $double
+purje   $double
+tunne   $double
+vene    $double
+virhe   $double
 
-aja	$double
-auta	$double
-mene	$double
-ota	$double
-pue	$double
-pure	$double
-syö	$double
-tule	$double
+aja     $double
+auta    $double
+mene    $double
+ota     $double
+pue     $double
+pure    $double
+syö     $double
+tule    $double
 
-// pronunciation exceptions
+// Pronunciation exceptions
+
+ok        oo_,ko:
+// ok     _^_EN                  // Translates to english o'kay.
+okay      okei
+
+// Jogurtti (also: jugurtti or jukurtti)
+yoghurt    jogurtti
+yogurt     jogurtti
+
+
+// Abbreviations
+
+abc        'a:,be:,se:
+os         o:&s:   $dot
+ad         a:de:   $dot            // anno Domini, Herran vuonna
+ca         'se:a:    $dot            // circa 
+em         e:,&m  $dot    
+ekr        'e:,ko:,&r   $dot         // ennen Kristuksen syntymää
+etc        et_setera  $dot          // et cetera, ym., jne.
+ym         ynn&_mu:ta  $dot        // ynnä muuta (etc)
+eg         esimerkiksi  $dot       // exempli gratia, esimerkiksi
+jne        'ji,&n,e:  $dot  // ja niin edelleen
+(à la)     'ala    $dot            // jonka mukaan
+ky         ko:y:   $dot            // kommandiittiyhtiö
+oy         o:y:                    // osakeyhtiö 
+nro        numero  $dot
+
+
+
 

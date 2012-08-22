@@ -26,13 +26,6 @@ endphoneme
 
 
 
-phoneme r    //   tap
-  liquid
-  formants d/d*
-  before r d/dr
-  lengthmod 6
-//  beforenotvowel r/
-endphoneme
 
 
 phoneme R

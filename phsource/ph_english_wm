@@ -213,7 +213,7 @@ endphoneme
 phoneme OI
   vowel  starttype (o)  endtype (i)
   length 230
-  formants vwl_de/OI
+  formants vowel/oI
 endphoneme
 
 

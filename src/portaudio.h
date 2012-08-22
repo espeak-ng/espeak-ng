@@ -1,3 +1,6 @@
+// NOTE: Copy this file to  portaudio.h  in order to compile with V18 portaudio
+
+
 #ifndef PORT_AUDIO_H
 #define PORT_AUDIO_H
 

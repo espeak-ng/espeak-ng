@@ -57,10 +57,6 @@ _0T2      ekatom'irio
 _0T3      Disekatom'irio
 _dpt      k'oma
 
-// miscellaneous exceptions
-μιερός     mier'os
-ρια        rQ;a
-
 
 // articles
 ο	o $u   // definate article
@@ -162,9 +158,19 @@ _dpt      k'oma
 στο	$u
 στα	$u
 
-από	$u	// from
-με	$u	// with
-μασί	$u	// with,together
+εκ	$u	// of
+να	$u $brk	// to
+από	$u	// from, by, of
+με	$u $brk	// with
+μασί	$u $brk	// with,together
+παρά	$u $brk	// by, of, than
+μέσα	$u $brk	// in, inside, within
+εις	$u $brk	// on, to
+διά	$u $brk	// by
+περί	$brk	// towards
+προς	$brk	// towards
+μέχρι	$brk	// until
+κοντά	$brk	// beside
 
 // conjunctions
 
@@ -172,3 +178,17 @@ _dpt      k'oma
 και	ke   $u $pause	// and (don't change to [ge] after n)
 ή	$u $pause	// or
 ότι	$u $pause	// that
+αν	$u $pause	// if, whether
+εάν	$u $pause	// if, whether
+(εκτός εάν)	ekt'ose,an  $pause  // unless
+παρόλο	$pause		// despite
+
+επειδή	$pause		// because
+γιατί	$pause		// because, why
+διότι	$pause		// because, for
+
+
+// miscellaneous exceptions
+μιερός     mier'os
+ρια        rQ;a
+

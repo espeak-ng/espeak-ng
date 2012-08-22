@@ -47,7 +47,7 @@ endphoneme
 phoneme dz;
   vcd pal afr sibilant palatal
   vowelin f1=1  f2=2700 400 600  f3=300 80 rate len=70
-  formants dZ/dZ+x/dz;
+  formants dZ/dZ+x/dz_pzd
   before _ dZ/dZ_+x/dZ_
   after _ NULL  @ dZ/xdZ
   lengthmod 5
@@ -59,8 +59,8 @@ phoneme ts;
   vls pal afr sibilant palatal
   vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   lengthmod 2
-  wave unvoc/ts;
-  before _ unvoc/ts;
+  wave unvoc/ts_pzd
+  before _ unvoc/ts_pzd
   switchvoicing dz;
 endphoneme
 
@@ -126,7 +126,7 @@ endphoneme
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 170
+  length 130
   formants vowel/i:
   linkout ;
 //  reduceto I  4    // done in function ChangePhonemes()
@@ -176,7 +176,7 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 200
-  formants vowel/o:
+  formants vwl_ru/o
 //  reduceto V  4
 endphoneme
 
@@ -184,8 +184,22 @@ endphoneme
 phoneme u
   vowel starttype (u) endtype (u)
   length 190
-  formants vowel/u:
+  formants vowel/u_bck
 //  reduceto U  4
+endphoneme
+
+
+phoneme u2          // TEST
+  vowel starttype (u) endtype (u)
+  length 190
+  formants vowel/u_bck2
+endphoneme
+
+phoneme o2          // TEST
+  vowel starttype (o) endtype (o)
+  length 200
+  formants vowel/O:
+//  reduceto V  4
 endphoneme
 
 

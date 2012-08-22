@@ -119,7 +119,7 @@
 		gli (A  l^
 	_)	gl	gl
 		gn	n^
-		gu (A   gw2
+		gu (A   gw
 
 	@)	g (ero_  =g
 
@@ -187,7 +187,7 @@
 	_)	o(_	O:
 		o	o:
 		o (CK	o
-		oi	OI (K
+		oi	oI (K
 
 	&)	o (_S1q  o     // lookup it_list without suffix 
 
@@ -210,8 +210,8 @@
 
 .group q
 	_)	q(_	ku:
-		q	kw2
-		qu	kw2
+		q	kw
+		qu	kw
 
 .group r
 	_)	r(_	ERRe
@@ -259,7 +259,7 @@
 	_)	u(_	U:
 		u	U:
 		u (CK	U
-		u (A	w
+		u (A	w2
 	Kr)	u (A	U
 	Kl)	u (A	U
 
@@ -272,7 +272,7 @@
 	
 .group w
 	_)	w(_	d'op:jav'U
-		w	w
+		w	w2
 
 .group x
 	_)	x(_	'iks
@@ -341,8 +341,8 @@
 		1	'Uno_
 		2	d'Ue_
 		3	tR'e_
-		4	kw2'at:Ro_
-		5	tS'inkw2e_
+		4	kw'at:Ro_
+		5	tS'inkwe_
 		6	s'ej_
 		7	s'Et:e_
 		8	'Okt:o_

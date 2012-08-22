@@ -36,14 +36,14 @@ endphoneme
 phoneme E
   vowel starttype (e) endtype (e)
   length 170
-  formants vwl_af/E2
+  formants vowel/E:
   reduceto  e  4        // [E] only in stressed syllables
 endphoneme
 
 
 phoneme i
   vowel starttype (i) endtype (i)
-  length 160
+  length 150
   formants vowel/i:
   linkout ;
 endphoneme
@@ -74,28 +74,35 @@ endphoneme
 phoneme u
   vowel starttype (u) endtype (u)
   length 160
-  formants vowel/u:
+  formants vowel/u_bck
 endphoneme
 
 
 phoneme aU
   vowel starttype (a) endtype (u)
-  length 230
+  length 250
   formants vowel/aU
 endphoneme
 
 
 phoneme eU
   vowel starttype (e) endtype (u)
-  length 230
+  length 250
   formants vowel/eU
+endphoneme
+
+
+phoneme iU
+  vowel starttype (i) endtype (u)
+  length 240
+  formants vowel/iU
 endphoneme
 
 
 phoneme aI
   vowel starttype (a) endtype (i)
   length 250
-  formants vowel/aI
+  formants vwl_it/ai
 endphoneme
 
 
@@ -106,10 +113,10 @@ phoneme eI
 endphoneme
 
 
-phoneme OI
+phoneme oI
   vowel starttype (o) endtype (i)
   length 230
-  formants vwl_de/OI
+  formants vowel/oI
 endphoneme
 
 
@@ -163,22 +170,12 @@ phoneme r/   // used for [r] when not preceding a vowel
 endphoneme
 
 
-phoneme w
+phoneme w2
   liquid
   length 100
   beforenotvowel w/
   lengthmod 7
   formants w/w2
-  after _  w/w2
-endphoneme
-
-
-phoneme w2
-  liquid  starttype w  endtype w
-  length 100
-  beforenotvowel w/
-  lengthmod 7
-  formants w/w
   after _  w/w2
 endphoneme
 

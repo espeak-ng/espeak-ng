@@ -13,11 +13,11 @@ _.	punta
 
 
 // numbers
-_0       TEro
+_0       TE*o
 _1       'uno
 _2       d'os
-_3       tr'es
-_4       kw'atro
+_3       t@-*'es
+_4       kw'at@-*o
 _5       T'inko
 _6       s'eIs
 _7       sj'Ete
@@ -26,12 +26,12 @@ _9       nw'EBe
 _10      dj'es
 _11      'onTe
 _12      d'oTe
-_13      tR'ETe
+_13      t@-*'ETe
 _14      kat'orTe
 _15      k'inTe
 _20      b'eInte
-_30      tR'eInta
-_40      kwar'Enta
+_30      t@-*'eInta
+_40      kwa*'Enta
 _50      Tinkw'Enta
 _60      sEs'Enta
 _70      sEt'Enta
@@ -41,7 +41,7 @@ _1H0     T'ent         // exactly one hundred
 _0H      T'iento
 _0T1     m'il
 _1T1     m'il          // no '1' before thousand
-_0T2     mij'on
+_0T2     mil^'on
 _0and    i
 _dpt     koma
 
@@ -60,73 +60,73 @@ una          $u
 unos         $u
 unas         $u
 
-este         $u $strend   // this
-esta         $u $strend
-estos        $u $strend
-estas        $u $strend
-esto         $u $strend
+este         $u+   // this
+esta         $u+
+estos        $u+
+estas        $u+
+esto         $u+
 
-ese          $u $strend   // that
-esa          $u $strend
-esos         $u $strend
-esas         $u $strend
-eso          $u $strend
+ese          $u+   // that
+esa          $u+
+esos         $u+
+esas         $u+
+eso          $u+
 
-aquel        $u $strend   // that
-aquella      $u $strend
-aquellos     $u $strend
-aquellas     $u $strend
+aquel        $u+   // that
+aquella      $u+
+aquellos     $u+
+aquellas     $u+
 
 
 
 // pronouns
-yo	$u
-tu	$u
-tú	$u
-usted	$u
-él	$u
-ella	$u
-nosotros	$u
-nosotras	$u
-vosotros	$u
-vosotras	$u
-as	$u
-ustedes	$u
-ellos	$u
-ellas	$u
-ud      $u
-uds     $u
+yo	$u+
+tu	$u+
+tú	$u+
+usted	$u+
+él	$u+
+ella	$u+
+nosotros	$u+
+nosotras	$u+
+vosotros	$u+
+vosotras	$u+
+as	$u+
+ustedes	$u+
+ellos	$u+
+ellas	$u+
+ud      $u+
+uds     $u+
 
-me      $u  // reflexive pronouns
-te      $u
-se	$u
-nos     $u
-os      $u
+me      $u+  // reflexive pronouns
+te      $u+
+se	$u+
+nos     $u+
+os      $u+
 
 
 // possessives
-mi	$u
-mis	$u
-tu      $u
-tus     $u
-su	$u
-sus	$u
-nuestro   $u
-nuestros  $u
-nuestra   $u
-nuestras  $u
-vuestro   $u
-vuestros  $u
-vuestra   $u
-vuestras  $u
+mi	$u+
+mis	$u+
+tu      $u+
+tus     $u+
+su	$u+
+sus	$u+
+nuestro   $u+
+nuestros  $u+
+nuestra   $u+
+nuestras  $u+
+vuestro   $u+
+vuestros  $u+
+vuestra   $u+
+vuestras  $u+
 
 // prepositions
-a            _%a          // at
-al           _%al
+a            $u $brk    // at
+al           $u $brk
 de           $u           // of,from
 del          $u
 (de la)      d,ela
-en           _%En
+en           $u $brk
 con          $u $pause    // with
 por          $u $pause    // for,through,along,via
 para         $u $pause    // for,in order,by
@@ -144,7 +144,7 @@ siquiera     $pause
 
 
 // questions
-que          $u $pause $strend   // whar
+que          $u+ $pause   // what
 cuál         $pause       // which
 cuáles       $pause
 cómo         $pause       // how
@@ -257,13 +257,13 @@ tenemos $u
 tenéis  $u
 tienen  $u
 
-hacer    $u $strend  // to do/make
-hago     $u $strend
-haces    $u $strend
-hace     $u $strend
-hacemos  $u $strend
-hacéis   $u $strend
-hacen    $u $strend
+hacer    $u+  // to do/make
+hago     $u+
+haces    $u+
+hace     $u+
+hacemos  $u+
+hacéis   $u+
+hacen    $u+
 
 
 // some common adjectives and adverbs

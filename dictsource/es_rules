@@ -24,8 +24,7 @@
        _) c (_       se
        _) ch (_      tSe
           c          k
-          c (e       T
-          c (i       T
+          c (Y       T         // ce, ci
           ch         tS
 
 
@@ -56,8 +55,7 @@
        _) g          g
        m) g          g
        n) g          g
-          g (e       x
-          g (i       x
+          g (Y       x        // ge gi
 
 
 .group h
@@ -87,7 +85,7 @@
        _) l (_       Ele
        _) ll (_      Eje
           l          l
-          ll         j
+          ll         l^
 
 
 .group m
@@ -107,7 +105,7 @@
 .group o
        _) o (_       o
           o          o
-          oy         OI
+          oy         oI
 
 
 .group p
@@ -122,10 +120,12 @@
 
 
 .group r
-       _) r (_       Ere
+       _) r (_       E*e
           r          r
-       K) r          R
-          rr         R
+       _) r          R
+       A) r (A       *
+       C) r (A       @-*
+          rr         *R
 
 
 .group s
@@ -146,8 +146,7 @@
        l) u (A       %u
        r) u (A       %u
 
-       g) u (e
-       g) u (i
+       g) u (Y             // gue gui
 
 
 .group v
@@ -170,7 +169,7 @@
 
 
 .group y
-       _) y (_       ,igr'iEQa
+       _) y (_       ,ig@-*'iEQa
           y          i
           y (A       j
 
@@ -181,11 +180,11 @@
 
 
 .group 9
-          0          T'Ero_
+          0          T'E*o_
           1          'uno_
           2          d'os_
-          3          tr'es_
-          4          kw'atro_
+          3          t@-*'es_
+          4          kw'at@-*o_
           5          T'inko_
           6          s'eIs_
           7          sj'Ete_
