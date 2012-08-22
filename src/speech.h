@@ -18,8 +18,13 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <sys/types.h>
+
 // conditional compilation options
 
+#if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
+#define ARCH_BIG
+#endif
 
 #define PLATFORM_POSIX
 #define PATHSEP  '/'

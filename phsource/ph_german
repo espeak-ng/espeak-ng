@@ -10,40 +10,43 @@ phoneme @   //  Schwa
   vowel starttype (@) endtype (@)
   formants vowel/@_3
   unstressed
-  before r/  vwl_de/3+50     // replace [@r] by [3]
+  before r/  vowel/a#_3     // replace [@r] by [3]
   length 125
 endphoneme
 
 
 phoneme 3   //  open Schwa
   vowel starttype (@) endtype (@)
-  formants vwl_de/3
+//  formants vwl_de/3
+  formants vowel/a#_3
   unstressed
-  length 160
+  // length 160
+  length 125
 endphoneme
 
 
 phoneme a
   vowel starttype (a) endtype (a)
-  length 140
+  // length 140
+  length 110
   formants vowel/a
-  before r/ vwl_de/r_a+100
+  before * DFT+40
 endphoneme
 
 
 phoneme E
   vowel starttype (e) endtype (e)
-  length 130
-  formants vowel/ee
-  before r/ vwl_de/r_ee+120
+  length 120
+  formants vowel/e_mid2
+  before * DFT+40
 endphoneme
 
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
   vowel starttype (e) endtype (e)
-  length 130
-  formants vowel/ee_2
-  before r/ vwl_de/r_ee+120
+  length 120
+  formants vowel/e_mid2
+  before * DFT+40
   reduceto @  0
 endphoneme
 
@@ -51,8 +54,8 @@ endphoneme
 phoneme I
   vowel starttype (i) endtype (i)
   length 120
-  formants vowel/ii_2
-  before r/ vwl_de/r_I+70
+  formants vowel/ii
+  before * DFT+40
   linkout ;
 endphoneme
 
@@ -60,7 +63,7 @@ endphoneme
 phoneme I:
   vowel starttype (i) endtype (i)
   length 190
-  formants vowel/ii_2
+  formants vowel/ii
 endphoneme
 
 
@@ -68,7 +71,7 @@ phoneme O
   vowel starttype (o) endtype (o)
   length 140
   formants vowel/oo
-  before r/ vwl_en_n/O@+60
+  before * DFT+40
 endphoneme
 
 
@@ -76,7 +79,7 @@ phoneme U
   vowel starttype (u) endtype (u)
   length 140
   formants vowel/uu_2
-  before r/ vwl_de/r_U+70
+  before * DFT+40
 endphoneme
 
 
@@ -92,6 +95,7 @@ phoneme i:
   length 180
   formants vowel/i_2
   after w w/wi2
+  before * DFT+40
 endphoneme
 
 
@@ -100,6 +104,7 @@ phoneme u:
   length 190
 //  formants vwl_de/u:
   formants vowel/u
+  before * DFT+40
 endphoneme
 
 
@@ -127,15 +132,15 @@ endphoneme
 phoneme E:
   vowel starttype (e) endtype (e)
   length 190
-  formants vowel/ee_1
+  formants vowel/e_mid2
 endphoneme
 
 
 phoneme e:
   vowel starttype (e) endtype (e)
   length 200
-  formants vowel/e
-  before r/ vwl_de/r_e+80
+  formants vowel/e_2
+  before * DFT+40
 endphoneme
 
 
@@ -143,6 +148,7 @@ phoneme o:
   vowel starttype (o) endtype (o)
   length 200
   formants vowel/o
+  before * DFT+40
 endphoneme
 
 
@@ -150,7 +156,7 @@ phoneme y:
   vowel starttype (u) endtype (u)
   length 200
   formants vowel/y
-  before r/ vwl_de/r_y+70
+  before * DFT+40
 endphoneme
 
 
@@ -158,7 +164,7 @@ phoneme y
   vowel starttype (u) endtype (u)
   length 150
   formants vowel/yy_4
-  before r/ vwl_de/r_y+60
+  before * DFT+40
 endphoneme
 
 
@@ -166,6 +172,7 @@ phoneme Y:
   vowel starttype (@) endtype (@)
   length 220
   formants vowel/y#
+  before * DFT+40
 endphoneme
 
 
@@ -173,6 +180,7 @@ phoneme W
   vowel starttype (@) endtype (@)
   length 160
   formants vowel/oe
+  before * DFT+40
 endphoneme
 
 
@@ -196,25 +204,35 @@ phoneme pF
   wave ufric/f    // could replace this with a [pf] wav file
 endphoneme
 
+phoneme l/    // used for [l] when not before a vowel
+  liquid
+  length 100
+  lengthmod 7
+  formants l/l_3
+  before (r) l/_l
+  beforevowel l
+endphoneme
 
+
+// This is actually the ENGLISH "rolling r". For german, we now use * in the dictionary,
+// so this phoneme will only be used in english words in german texts.
 phoneme r
   liquid
   lengthmod 7
   beforenotvowel r/
   trill
-  formants r/rr
+  formants r/r
   after _ r/rr
   after t r/trr p r/trr k r/trr
   before _ r/r_
 endphoneme
 
 
-phoneme r/   // variant of [r] when not preceding a vowel
+phoneme r/   // variant of [r] when not preceding a vowel, in english words only
   liquid vowel2
   length 100
   lengthmod 7   //
   formants NULL
 endphoneme
-
 
 

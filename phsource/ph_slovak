@@ -82,7 +82,7 @@ phoneme eU
 endphoneme
 
 phoneme oU
-  vowel starttype (e) endtype (u)
+  vowel starttype (o) endtype (u)
   length 260
   formants vdiph/ou_2
 endphoneme
@@ -91,15 +91,13 @@ endphoneme
 
 phoneme r-
   vowel  starttype (@)  endtype (@)
-  length 200
-//  formants vwl_hi/r-voc
+  length 220
   formants vowelr/r-voc
 endphoneme
 
 phoneme r:
   vowel  starttype (@)  endtype (@)
   length 300
-//  formants vwl_hi/r-voc
   formants vowelr/r-voc
 endphoneme
 

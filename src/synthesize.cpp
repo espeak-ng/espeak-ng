@@ -1090,6 +1090,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		if(p->prepause > 0)
 			DoPause(p->prepause);
 
+// printf("phoneme [%s]\n",WordToString(p->ph->mnemonic));
 		switch(p->type)
 		{
 		case phPAUSE:

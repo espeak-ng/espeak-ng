@@ -36,7 +36,26 @@
 
 #ifdef USE_MBROLA_DLL
 #include <windows.h>
-#include "mbrola.h"
+typedef void (WINAPI *PROCVV)(void);
+typedef void (WINAPI *PROCVI)(int);
+typedef void (WINAPI *PROCVF)(float);
+typedef int (WINAPI *PROCIV)();
+typedef int (WINAPI *PROCIC) (char *);
+typedef int (WINAPI *PROCISI)(short *,int);
+typedef char* (WINAPI *PROCVCI)(char *,int);
+
+PROCIC		init_MBR;
+PROCIC		write_MBR;
+PROCIV		flush_MBR;
+PROCISI		read_MBR;
+PROCVV		close_MBR;
+PROCVV		reset_MBR;
+PROCIV		lastError_MBR;
+PROCVCI		lastErrorStr_MBR;
+PROCVI		setNoError_MBR;
+PROCVI		setFreq_MBR;
+PROCVF		setVolumeRatio_MBR;
+
 
 extern int event_list_ix;
 extern long count_samples;
@@ -46,17 +65,6 @@ extern espeak_EVENT *event_list;
 extern t_espeak_callback* synth_callback;
 
 HINSTANCE	hinstDllMBR = NULL;
-PROCIC		init_MBR;
-PROCICCC	init_rename_MBR;
-PROCIC		write_MBR;
-PROCIV		flush_MBR;
-PROCISI		read_MBR;
-PROCVV		close_MBR;
-PROCVV		reset_MBR;
-PROCIV		lastError_MBR;
-PROCVCI		lastErrorStr_MBR;
-PROCVI		setNoError_MBR;
-PROCVF		setVolumeRatio_MBR;
 
 
 BOOL load_MBR()

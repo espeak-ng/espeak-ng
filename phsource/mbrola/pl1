@@ -7,7 +7,9 @@
 0  l- NULL   0  l
 0  w/ NULL   0  w
 0  j/ NULL   0  j
-0  ;  NULL   0  NULL
+2  ;   i     0  NULL
+0  ;  NULL   0  j
+0  -  NULL   0  NULL
 0  g- NULL   0  NULL
 0  @- NULL   0  NULL
 0  *  NULL   0  r

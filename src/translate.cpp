@@ -2016,7 +2016,7 @@ int Translator::TranslateChar(char *ptr, int prev_in, int c, int next_in)
 {//======================================================================
 	// To allow language specific examination and replacement of characters
 
-	wchar_t *p;
+	const wchar_t *p;
 
 	if(langopts.replace_chars != NULL)
 	{

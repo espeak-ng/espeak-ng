@@ -10,54 +10,47 @@
 //   speak --compile=ru 
 
 
-// Letters
-// If a letter has a "word" pronunciation which is different from its
-// "letter" name, then include the letter name here, with the letter
-// prefixed by a _ character.
-_в	vE
-_с	Es
-
 
 // Numbers
 _0	n'ol
-_1	Vd;'in
-_2	dv'a
+_1	Od;'in
+_2	dv'A
 _3	t;r'i
-_4	ts;It'yrI
-_5	p;'&t;
+_4	ts;It'yr;I
+_5	p;'jat;
 _6	S'Es;t;
 _7	s;'em
-_8	v'os;Im
-_9	d;'ev;@t
-_10	d;'es;@t
-_11	Vd;inn@tts,@t;
-_12	dv;In'atts@t;
-_13	t;rIn'atts@t;
-_14	ts;It'yrn@tts,@t;
-_15	p;Vtn'atts@t;
-_16	SIsn'atts@t;
-_17	s;Imn'atts@t;
-_18	v,Vs;Imn'atts@t;
-_19	d;,Iv;Vtn'atts@t;
-_2X	dv'atts@t;
-_3X	t;r'itts@t;
-_4X	s'or@k
-_5X	p;,Vdd;Is;'at
-_6X	S,Iz;dd;Is;'at
-_7X	s;'emd;Is;,@t
-_8X	v'os;Imd;,Is;@t
-_9X	d;,Iv;Vn'ost@
+_8	v'os;E2m
+_9	d;'ev;It;
+_10	d;'es;It;
+_11	Od;'innVttsVt;
+_12	dv;In'AttsVt;
+_13	tr;In'AttsVt;
+_14	ts;It'y@-*nVttsVt;
+_15	p;Itn'AttsVt;
+_16	SE#stn'AttsVt;
+_17	s;Imn'AttsVt;
+_18	vOs;Imn'AttsVt;
+_19	d;E2v;Itn'AttsVt;
+_2X	dv'AttsVt;
+_3X	tr;'ittsVt;
+_4X	s'o@-*Ok
+_5X	p;Id;d;Is;'jat
+_6X	SE2z;d;d;Is;'jat
+_7X	s;'emd;E2s;It
+_8X	v'os;E2md;E2s;It
+_9X	d;E2v;In'ostO
 _0C	st'o
 _2C	dv;'es;t;I
-_3C	t;r'ist@
-_4C	ts;It'yrIst,@
-_5C	p;Vt;s'ot
-_6C	SIs;t;s'ot
-_7C	s;Ims'ot
-_8C	v,Vs;Im-s'ot
-_9C	d;,Iv;Vt;s'ot
-_0M1	t'ys;@ts;,@
-_1M1	t'ys;@ts;,@     // no '1' before thousand
+_3C	tr;'ista
+_4C	ts;It'yr;E2sta
+_5C	p;,It;s'ot
+_6C	S,E#s;t;s'ot
+_7C	s;,Ims'ot
+_8C	vOs;Ims'ot
+_9C	d;E2v;It;s'ot
+_0M1	t'ys;Its;V
+_1M1	t'ys;Its;V     // no '1' before thousand
 _0M2	m;,IlI;'on
 _0M3	m;,IlI;'art
 _dpt	_:'i_:        // start of decimal fraction
@@ -94,12 +87,6 @@ _dpt2	_d;Is;'atYx   // end of decimal fraction
 
 // misc.
 не	$u           // negative
-
-// Letters (which are also words)
-_в      vE
-в       vE   $atend
-_с      Es
-с       Es   $atend
 
 
 // auxillary verbs
@@ -159,6 +146,15 @@ _с      Es
 сможем	$u1
 сможете	$u1
 смогут	$u1
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_в	vE
+в       vE  $atend
+_с	Es
+с       Es  $atend
 
 
 // exceptions

@@ -364,7 +364,7 @@ espeak_ERROR espeak_SetParameter(espeak_PARAMETER parameter, int value, int rela
 
       espeakRANGE:   pitch range in Hz
 
-      epeakPUNCTUATION:  which punctuation characters to announce:
+      espeakPUNCTUATION:  which punctuation characters to announce:
          value in espeak_PUNCT_TYPE (none, all, some), 
 	 see espeak_GetParameter() to specify which characters are announced.
 

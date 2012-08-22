@@ -3,10 +3,11 @@ INCDIR=/usr/include/espeak
 LIBDIR=/usr/lib
 DATADIR=/usr/share/espeak-data
 
-RELEASE = 1.22
+RELEASE = 1.23
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
+STATIC_LIB_NAME = libespeak.a
 LIB_VERSION = 1
 LIBTAG = $(LIB_VERSION).$(RELEASE)
 
@@ -39,12 +40,9 @@ OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ ./libespeak.so
 
 CXXFLAGS=-O2
-ifeq ($(shell uname -m), ppc)
-	CXXFLAGS += -D ARCH_BIG
-endif
 
 
-all: $(BIN_NAME) $(LIB_NAME) $(BIN2_NAME)
+all: $(BIN_NAME) $(LIB_NAME) $(STATIC_LIB_NAME) $(BIN2_NAME)
 	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
@@ -65,8 +63,11 @@ x_%.o: %.cpp
 $(LIB_NAME): $(OBJS2)
 	$(CXX) -shared -Wl,-soname,$(LIB_NAME).$(LIB_VERSION) -o $@ $(OBJS2) $(LIBS2)
 
+$(STATIC_LIB_NAME): $(OBJS2)
+	$(AR) cqs $(STATIC_LIB_NAME) $(OBJS2)
+
 clean:
-	rm -f *.o *~
+	rm -f *.o *.a *~
 
 distclean: clean
 	rm -f $(BIN_NAME)
@@ -75,7 +76,7 @@ distclean: clean
 
 install: all
 	# Create directories
-	rm -r $(DESTDIR)$(DATADIR)
+	rm -rf $(DESTDIR)$(DATADIR)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
@@ -84,6 +85,8 @@ install: all
 	$(INSTALL) -m 755 $(BIN2_NAME) $(DESTDIR)$(BINDIR)
 	# Install shared library
 	$(INSTALL) -m 755 $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)
+	# Install static library
+	$(INSTALL) -m 755 $(STATIC_LIB_NAME) $(DESTDIR)$(LIBDIR)
 	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIB_NAME).$(LIB_VERSION)
 	$(LN_SF) $(LIB_NAME).$(LIB_VERSION) $(DESTDIR)$(LIBDIR)/$(LIB_NAME)
 	# Install development headers

@@ -889,6 +889,7 @@ gases            gasI2z
 gauche           goUS
 gauge            geIdZ
 geese            gi:s
+gemini           dZEmInaI
 geni             dZi:nI2
 genome           dZi:noUm
 genre            Z0nr@
@@ -945,6 +946,7 @@ heroic           hI2roUIk
 heroin           hEroUIn
 heroine          hEroUIn
 herpes           h3:pi:z
+hideout          haIdaUt
 hindu            hIndu:
 hindus           hIndu:z
 hiya             haIa2
@@ -1047,6 +1049,7 @@ kilo             ki:loU
 kilter           kIlt3
 kiosk            ki:0sk
 kiwi             ki:wi:
+knavish          neIvI2S
 koala            koU'A:l@
 kopje            k0pI 
 kosher           koUS3
@@ -1117,6 +1120,7 @@ malice           malIs
 mall             mal
 mammoth          mam@T
 mandate           $2           $verb
+manganese         $1
 manger           meIndZ3
 manhour          manaU@
 mankind                        $2
@@ -1127,29 +1131,36 @@ maraud           m@rO:d
 marauder         m@rO:d3
 market           mA@kI2t       // for marketing
 marcel           mA@s'El
+marquee          mA@k'i:
 margarine        mA@dZ@ri:n
+marmoset         mA@m@sEt
 marijuana        marIw'A:n@
+marshall         mA@S@L
 massacre         mas@k3
 massage          masA:Z
 matrices         meItr@si:z
 mausoleum        mO:s@li:@m
 mayhem           meIhEm
-mayor            me@
 meant            mEnt
 matrix           meItrIks
 meadow           mEdoU
 meander          mI2and3
+mediaeval        mEdI'i:v@L
 medicine         mEds@n
 melon            mEl@n
 menus            mEnju:z
 memo             mEmoU
 menagerie        m@n'adZj@rI2
+mercedes         m3:s'eIdi:z
 mercenary        m3:s@n@rI2
 merest           mi@r@st
 meringue         m@rang
 metabolic        mEt@b'0lIk
 metaphor         mEt@fO@
 metallic         mEt'alIk
+miaou            mi:'aU
+miaow            mi:'aU
+mica             maIk@
 microorganism    maIkroU'O@g@nIz@m
 midday           m,Idd'eI
 midterm          m'Idt,3:m
@@ -1168,7 +1179,7 @@ mischievous      mIstSIv@s
 miscreant        mIskri@nt
 missed           mIst
 misses           mIsIz
-mist             mIst
+misted           mIstI2d
 mister           mIst3
 mitre            maIt3
 mixer            mIks3
@@ -1192,7 +1203,6 @@ movies           mu:vI2z
 mundane           $2
 murmur           m3:m3
 ?5 murmur        mVRm3
-muscle           mVs@L
 museum           mju:z'i@m
 mutate           mju:t'eIt
 myriad           mIrIad
@@ -1228,6 +1238,7 @@ nowhere          noUwe@
 
 oases            oU'eIsi:z
 oasis            oU'eIsIs
+obesity          oUb'i:s@tI2
 obey             oUb'eI
 obituary         0b'ItSU@I2
 object                         $1 $onlys
@@ -1251,6 +1262,7 @@ opaque           oUp'eIk
 opine            oUp'aIn
 opponent         @poUn@nt
 oppose           @poUz
+opposer          @poUz3
 orange           0rIndZ
 orion            0r'aI@n
 ordeal           O@d'i@l
@@ -1385,6 +1397,7 @@ proactive        proU'aktIv
 pros             proUz
 proceed          proUsi:d      $onlys
 proceed                        $verb
+proceed                        $only
 progress         proUgrEs      $only
 progress                       $verb
 project          pr0dZEkt      $onlys
@@ -1408,6 +1421,7 @@ purist           pju:r-Ist
 purport          p3:p'o@t
 purportedly      p3p'o@tIdlI2  $verbf
 pyjama           p@dZA:m@
+pyrites          paIr'aIti:z
 pythagoras       paIT'ag@r@s
 python           paIT@n
 pyramidal        pIr'amId@L
@@ -1690,6 +1704,7 @@ tear             ti@           $onlys
 tear             te@           $verb
 teddybear        t'Ed,Ib,e@ 
 ten              tEn           // untenable
+termini          t3:mInaI
 terrain          t@reIn
 testes           tEsti:z
 tobacco                        $2
@@ -1810,6 +1825,7 @@ vengeance        vEndZ@ns
 venus            vi:n@s
 versus           v3:sIz
 vestige          vEstIdZ
+vex              vEks        // for vexed
 vicar            vIk3
 vigilante        vIdZIl'antI2 
 villi            vIlaI
@@ -1990,7 +2006,7 @@ Illinois         Il@n'OI
 Indochina        IndoUtS'aIn@
 Israeli          Izr'eIlI2
 Istanbul         ,Ist,anb'Ul
-Italian          It'alI2@n
+Italia           It'alI2@           // Italian(s)
 Jakarta           $2
 Jerusalem        dZ@ru:s@l@m
 Johannesburg      $2
@@ -2014,9 +2030,12 @@ Madrid           m@drId
 Malawi           ma2lA:wI2
 Maldives         mO:ld'i:v
 Mali             mA:lI2
+Manhatten         $2
+Massachusetts     $3
 Maya             maI@
 Mayan            maI@n
-Melbourne        mElb3n 
+Melbourne        mElb3n
+Memphis          mEmfIs
 Mexico            $1
 Milan             $2
 Mindanao         mInd@n'aU
@@ -2126,7 +2145,9 @@ Derek            dErIk
 Dinah            daIn@
 Dominic          d0mInIk
 Donald           d0n@Ld
+Dougall          du:g@L
 Dylan            dIl@n
+Edith            i:dIT
 Elizabeth        I2lIz@b@T
 Emma             Em@
 Evan             Ev@n
@@ -2139,6 +2160,7 @@ Graeme           greI@m
 Graham           greI@m
 Hadrian          heIdri:@n
 Hugh             hju:
+Hughes           hju:z
 Huw              hju:
 Iain             i:@n
 Ian              i:@n
@@ -2175,7 +2197,7 @@ Margaret         mA@gr@t
 Marilyn          mar@lIn
 Matilda          ma2tIld@
 Matthew          maTju:
-Maurice          mO:rIs
+Maurice          m0rIs
 Mavis            meIvIs
 Melissa                        $2
 Miami            maI'amI
@@ -2278,6 +2300,7 @@ for              fO@ $u
 (for an)         f@@n         $nounf
 (for the)        f3D@2        $nounf
 (for a while)    f@@||w'aIl
+(for one)        fO@w'0n      $atend
 
 to               t@5          $verbf    // @ change to U before vowel
 (to be)          t@bI2        $pastf
@@ -2589,7 +2612,7 @@ than             %Dan          $only
 then             DEn           $verbf 
 
 // these should be stressed at the start of a sentence
-which            ,wItS         $pause $strend2 $only
+which            ,wItS         $pause $strend2 $only $verbsf
 who              ,hu:          $verbsf $pause $strend2 $onlys
 whose            ,hu:z         $pause $only
 what             ,w0t          $strend2 $onlys

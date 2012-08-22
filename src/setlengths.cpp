@@ -207,7 +207,7 @@ void SetParameter(int parameter, int value, int relative)
 	default:
 		break;
 	}
-}  // end of espeak_SetParameter
+}  // end of SetParameter
 
 
 

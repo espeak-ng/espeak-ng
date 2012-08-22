@@ -420,8 +420,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 'h':
-			printf("\n");
-			printf("speak text-to-speech: %s\n%s",version_string,help_text);
+			printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
 			exit(0);
 			break;
 
@@ -474,7 +473,7 @@ int main (int argc, char **argv)
 
 		case 'w':
 			option_waveout = 1;
-			strncpy0(wavefile,optarg2,sizeof(filename));
+			strncpy0(wavefile,optarg2,sizeof(wavefile));
 			break;
 
 		case 0x100:		// --stdin

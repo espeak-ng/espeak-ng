@@ -724,7 +724,7 @@ int GetVowelStress(unsigned char *phonemes, unsigned char *vowel_stress, int &vo
 			continue;
 		}
 
-		if(ph->type == phVOWEL)
+		if((ph->type == phVOWEL) && (ph->code != phonSCHWA_SHORT))
 		{
 			vowel_stress[count] = (char)stress;
 			if((stress >= 4) && (stress >= max_stress))
@@ -832,7 +832,7 @@ void ChangeWordStress(char *word, int new_stress)
 	p = phonetic;
 	while(*p != 0)
 	{
-		if(phoneme_tab[*p]->type == phVOWEL)
+		if((phoneme_tab[*p]->type == phVOWEL) && (*p != phonSCHWA_SHORT))
 		{
 			if(vowel_stress[ix] != 0)
 				*word++ = stress_phonemes[vowel_stress[ix]];
@@ -920,7 +920,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	ix = 1;
 	for(p = phonetic; *p != 0; p++)
 	{
-		if(phoneme_tab[p[0]]->type == phVOWEL)
+		if((phoneme_tab[p[0]]->type == phVOWEL) && (p[0] != phonSCHWA_SHORT))
 		{
 			int weight = 0;
 			int lengthened = 0;
@@ -1217,7 +1217,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			prev_last_stress = 0;
 		}
 		else
-		if((ph->type == phVOWEL) || (*p == phonSYLLABIC))
+		if(((ph->type == phVOWEL) && (ph->code != phonSCHWA_SHORT)) || (*p == phonSYLLABIC))
 		{
 			// a vowel, or a consonant followed by a syllabic consonant marker
 
@@ -1256,7 +1256,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			if(v_stress > 0)
 				*output++ = stress_phonemes[v_stress];  // mark stress of all vowels except 0 (unstressed)
 
-			if((ph->reduce_to != 0) && !(dictionary_flags & FLAG_FOUND))
+			while((ph->reduce_to != 0) && !(dictionary_flags & FLAG_FOUND))
 			{
 				// this vowel can be reduced to another if the stress is below a specified value
 				int reduce = 0;
@@ -1290,6 +1290,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				if(reduce)
 				{
 					phcode = ph->reduce_to;
+					ph = phoneme_tab[phcode];
 #ifdef deleted
 					if(*p == phonLENGTHEN)
 					{
@@ -1298,6 +1299,8 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 					}
 #endif
 				}
+				else
+					break;
 			}
 
 			if(langopts.param[LOPT_IT_LENGTHEN] && (*p == phonLENGTHEN))
@@ -2353,8 +2356,9 @@ int TransposeAlphabet(char *text, int offset, int min, int max)
 			*p2++ = (acc << (8-bits));
 		}
 		*p2 = 0;
+		return((p2 - text) | 0x40);  // bit 6 indicates compressed characters
 	}
-	return((p2 - text) | 0x40);  // bit 6 indicates compressed characters
+	return(p2 - text);
 }  // end of TransposeAlphabet
 
 

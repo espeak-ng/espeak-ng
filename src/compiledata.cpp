@@ -118,7 +118,7 @@ private:
 	const char *GetKeyMnem(int value);
 	int LoadSpect(const char *path, int control);
 	int LoadWavefile(FILE *f, const char *fname);
-	int LoadEnvelope(FILE *f);
+	int LoadEnvelope(FILE *f, const char *fname);
 	int LoadDataFile(const char *path, int control);
 	int AddSpect(int phcode, int *list, int control);
 	void AddSpectList(int *list, int control);
@@ -127,11 +127,11 @@ private:
 
 
 	FILE *f_in;
-	FILE *f_spects;
-	FILE *f_samples;
+	FILE *f_phdata;
+	FILE *f_phcontents;
 	FILE *f_errors;
 	FILE *f_phindex;
-	FILE *f_phdata;
+	FILE *f_phtab;
 	int f_in_displ;
 	int f_in_linenum;
 
@@ -139,6 +139,7 @@ private:
 
 	int linenum;
 	int item_type;
+	char current_fname[80];
 	char item_string[256];
 	char phoneme_tab_name[N_PHONEME_TAB_NAME];
 	unsigned int vowel_in[2];
@@ -162,6 +163,7 @@ private:
 	typedef struct {
 		FILE *file;
 		int  linenum;
+		char fname[80];
 	} STACK;
 	
 	#define N_STACK  12
@@ -608,7 +610,7 @@ int Compile::LoadSpect(const char *path, int control)
 	}
 	spectseq->Load(stream);
 
-	displ = ftell(f_spects);
+	displ = ftell(f_phdata);
 
 	seq_out.n_frames=0;
 	seq_out.flags=0;
@@ -708,7 +710,7 @@ fprintf(f_errors,"Frame %d  %3dmS  rms=%3d  flags=%2d  pk=%4d %4d %4d",ix,seq_ou
 	ix = (char *)(&seq_out.frame[seq_out.n_frames]) - (char *)(&seq_out);
 	ix = (ix+3) & 0xfffc;   // round up to multiple of 4 bytes
 
-	fwrite(&seq_out,ix,1,f_spects);
+	fwrite(&seq_out,ix,1,f_phdata);
 	
 	delete spectseq;
 	return(displ);
@@ -752,7 +754,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 		}
 #else
 		sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-		sprintf(command,"sox \"%s\" -r %d -c 1 -w  %s polyphase\n",fname,samplerate,fname_temp);
+		sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate,fname_temp);
 		if(system(command) < 0)
 		{
 			Error("Failed to resample: ",command);
@@ -770,7 +772,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 #endif
 	}
 
-	displ = ftell(f_spects);
+	displ = ftell(f_phdata);
 
 	// data contains:  4 bytes of length (n_samples * 2), followed by 2-byte samples (lsb byte first)
 	length = Read4Bytes(f);
@@ -808,8 +810,8 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 		length = length/2 + (scale_factor << 16);
 	}
 
-	Write4Bytes(f_spects,length);
-//	fwrite(&length,4,1,f_spects);
+	Write4Bytes(f_phdata,length);
+//	fwrite(&length,4,1,f_phdata);
 	fseek(f,44,SEEK_SET);
 
 	while(!feof(f))
@@ -825,8 +827,8 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 
       if(scale_factor <= MIN_FACTOR)
 		{
-			fputc(sample & 0xff,f_spects);
-			fputc(sample >> 8,f_spects);
+			fputc(sample & 0xff,f_phdata);
+			fputc(sample >> 8,f_phdata);
 		}
 		else
 		{
@@ -836,15 +838,15 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 				sample2 = 127;
 			if(sample2 < -128)
 				sample2 = -128;
-			fputc(sample2,f_spects);
+			fputc(sample2,f_phdata);
 		}
 	}
 
-	length = ftell(f_spects);
+	length = ftell(f_phdata);
 	while((length & 3) != 0)
 	{
 		// pad to a multiple of 4 bytes
-		fputc(0,f_spects);
+		fputc(0,f_phdata);
 		length++;
 	}
 
@@ -858,16 +860,16 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 
 
 
-int Compile::LoadEnvelope(FILE *f)
-{//===============================
+int Compile::LoadEnvelope(FILE *f, const char *fname)
+{//==================================================
 	int displ;
 	char buf[128];
 
-	displ = ftell(f_spects);
+	displ = ftell(f_phdata);
 
 	fseek(f,12,SEEK_SET);
 	fread(buf,1,128,f);
-	fwrite(buf,1,128,f_spects);
+	fwrite(buf,1,128,f_phdata);
 
 	return(displ);
 }
@@ -882,6 +884,7 @@ int Compile::LoadDataFile(const char *path, int control)
 	int id;
 	int ix;
 	int hash;
+	int type_code;
 	REF_HASH_TAB *p, *p2;
 	char buf[256];
 
@@ -943,19 +946,34 @@ int Compile::LoadDataFile(const char *path, int control)
 	rewind(f);
 
 	if(id == 0x43455053)
+	{
 		ix = LoadSpect(path, control);
+		type_code = 'S';
+	}
 	else
 	if(id == 0x46464952)
-		ix = LoadWavefile(f,buf);
+	{
+		ix = LoadWavefile(f,path);
+		type_code = 'W';
+	}
 	else
 	if(id == 0x43544950)
-		ix = LoadEnvelope(f);
+	{
+		ix = LoadEnvelope(f,path);
+		type_code = 'E';
+	}
 	else
 	{
 		Error("File not SPEC or RIFF",path);
 		ix = -1;
 	}
 	fclose(f);
+
+	if(ix > 0)
+	{
+//		fprintf(f_phcontents,"%c  %-15s %4d 0x%.5x  %s\n",type_code,current_fname,linenum,ix & 0x7fffff,path);
+		fprintf(f_phcontents,"%c  0x%.5x  %s\n",type_code,ix & 0x7fffff,path);
+	}
 
 	// add this item to the hash table
 	p = ref_hash_tab[hash];
@@ -1420,10 +1438,10 @@ void Compile::WritePhonemeTable()
 	PHONEME_TAB *p;
 
 	value = n_phoneme_tabs;
-	fputc(value,f_phdata);
-	fputc(0,f_phdata);
-	fputc(0,f_phdata);
-	fputc(0,f_phdata);
+	fputc(value,f_phtab);
+	fputc(0,f_phtab);
+	fputc(0,f_phtab);
+	fputc(0,f_phtab);
 
 	for(ix=0; ix<n_phoneme_tabs; ix++)
 	{
@@ -1443,12 +1461,12 @@ void Compile::WritePhonemeTable()
 		}
 		phoneme_tab_list2[ix].n_phonemes = count+1;
 
-		fputc(count+1,f_phdata);
-		fputc(phoneme_tab_list2[ix].includes,f_phdata);
-		fputc(0,f_phdata);
-		fputc(0,f_phdata);
+		fputc(count+1,f_phtab);
+		fputc(phoneme_tab_list2[ix].includes,f_phtab);
+		fputc(0,f_phtab);
+		fputc(0,f_phtab);
 
-		fwrite(phoneme_tab_list2[ix].name,1,N_PHONEME_TAB_NAME,f_phdata);
+		fwrite(phoneme_tab_list2[ix].name,1,N_PHONEME_TAB_NAME,f_phtab);
 
 		for(j=0; j<n; j++)
 		{
@@ -1457,10 +1475,10 @@ void Compile::WritePhonemeTable()
 				// this bit is set temporarily to incidate a local phoneme, declared in
 				// in the current phoneme file
 				p[j].std_length &= 0x7fff;
-				fwrite(&p[j],sizeof(PHONEME_TAB),1,f_phdata);
+				fwrite(&p[j],sizeof(PHONEME_TAB),1,f_phtab);
 			}
 		}
-		fwrite(&p[n],sizeof(PHONEME_TAB),1,f_phdata);  // include the extra list-terminator phoneme entry
+		fwrite(&p[n],sizeof(PHONEME_TAB),1,f_phtab);  // include the extra list-terminator phoneme entry
 		free(p);
 	}
 }
@@ -1572,6 +1590,7 @@ void Compile::CPhonemeFiles(char *path_source)
 				break;   // end of top level, finished
 			fclose(f_in);
 			f_in = stack[--stack_ix].file;
+			strcpy(current_fname,stack[stack_ix].fname);
 			linenum = stack[stack_ix].linenum;
 			fprintf(f_errors,"\n\n");
 		}
@@ -1586,9 +1605,11 @@ void Compile::CPhonemeFiles(char *path_source)
 			{
 				fprintf(f_errors,"include %s\n",item_string);
 				stack[stack_ix].linenum = linenum;
+				strcpy(stack[stack_ix].fname,current_fname);
 				stack[stack_ix++].file = f_in;
 				
 				f_in = f;
+				strncpy0(current_fname,item_string,sizeof(current_fname));
 				linenum = 1;
 			}
 		}
@@ -1895,6 +1916,7 @@ memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
 
+	strncpy0(current_fname,source,sizeof(current_fname));
 	sprintf(fname,"%s%s",path_source,source);
 	f_in = fopen_log(f_errors,fname,"rb");
 	if(f_in == NULL)
@@ -1928,17 +1950,39 @@ memset(markers_used,0,sizeof(markers_used));
 	}
 	rewind(f_in);
 
-	sprintf(fname,"%s/%s",path_home,"phondata");
-	f_spects = fopen_log(f_errors,fname,"wb");
 	sprintf(fname,"%s%s",path_source,"error_log");
 	if((f_errors = fopen_log(f_errors,fname,"w")) == NULL)
 		f_errors = stderr;
-	sprintf(fname,"%s/%s",path_home,"phonindex");
-	f_phindex = fopen_log(f_errors,fname,"wb");
-	sprintf(fname,"%s/%s",path_home,"phontab");
+
+	sprintf(fname,"%s/%s",path_home,"phondata_manifest");
+	if((f_phcontents = fopen_log(f_phcontents,fname,"w")) == NULL)
+		f_phcontents = stderr;
+
+	fprintf (f_phcontents,
+"# This file lists the type of data that has been compiled into the\n"
+"# phondata file\n"
+"#\n"
+"# The first character of a line indicates the type of data:\n"
+"#   S - A SPECT_SEQ structure\n"
+"#   W - A wavefile segment\n"
+"#   E - An envelope\n"
+"#\n"
+"# Address is the displacement within phondata of this item\n"
+"#\n"
+"#  Address  Data file\n"
+"#  -------  ---------\n");
+
+
+	sprintf(fname,"%s/%s",path_home,"phondata");
 	f_phdata = fopen_log(f_errors,fname,"wb");
 
-	if(f_spects==NULL || f_phindex==NULL || f_phdata==NULL)
+	sprintf(fname,"%s/%s",path_home,"phonindex");
+	f_phindex = fopen_log(f_errors,fname,"wb");
+
+	sprintf(fname,"%s/%s",path_home,"phontab");
+	f_phtab = fopen_log(f_errors,fname,"wb");
+
+	if(f_phdata==NULL || f_phindex==NULL || f_phtab==NULL)
 	{
 		return;
 	}
@@ -1953,7 +1997,7 @@ memset(markers_used,0,sizeof(markers_used));
 	}
 
 	// write a word so that further data doesn't start at displ=0
-	fwrite(&version_phdata,4,1,f_spects);
+	fwrite(&version_phdata,4,1,f_phdata);
 	fwrite(&version_phdata,4,1,f_phindex);
 
 	memset(ref_hash_tab,0,sizeof(ref_hash_tab));
@@ -1968,10 +2012,11 @@ memset(markers_used,0,sizeof(markers_used));
 
 fprintf(f_errors,"Refs %d,  Reused %d\n",count_references,duplicate_references);
 	fclose(f_in);
-	fclose(f_spects);
+	fclose(f_phdata);
 	fclose(f_errors);
 	fclose(f_phindex);
-	fclose(f_phdata);
+	fclose(f_phtab);
+	fclose(f_phcontents);
 
 	LoadPhData();
 	LoadVoice(voice_name,0);

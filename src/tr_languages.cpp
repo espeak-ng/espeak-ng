@@ -241,7 +241,7 @@ Translator *SelectTranslator(const char *name)
 			static const char dev_consonants2[] = {0x02,0x03,0x58,0x59,0x5a,0x5b,0x5c,0x5d,0x5e,0x5f};
 			static wchar_t replace_chars_hi[11] = {0x966,0x967,0x968,0x969,0x96a,0x96b,0x96c,0x96d,0x96e,0x96f,0};  // digits 0-9
 			static wchar_t replacement_chars_hi[11] = {0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0};
-			static int stress_lengths_hi[8] = {180, 180,  200, 200,  0, 0,  230, 250};
+			static int stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static int stress_amps_hi[8] = {17,14, 20,20, 20,24, 24,22 };
 
 			tr = new Translator();
@@ -250,7 +250,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable
-			tr->langopts.stress_flags =  0x6;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  0x4;   // use 'diminished' for unstressed final syllable
 			tr->langopts.numbers = 0x811 + 0x40000;
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
 			tr->langopts.replace_chars = replace_chars_hi;
@@ -351,7 +351,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x8;
  			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
- 			tr->langopts.numbers=0x84801;
+ 			tr->langopts.numbers=0x81809 + 0x4000;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 2 + 0x100;  // combine 'nie' (marked with $alt2) with some 1-syllable words (marked with $alt)
 			SetLetterVowel(tr,'y');
 		}
@@ -368,7 +368,7 @@ Translator *SelectTranslator(const char *name)
 //			tr->langopts.vowel_pause = 1;
 			tr->langopts.stress_rule = 3;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10; 
-			tr->langopts.numbers = 0x469 + 0x2000;
+			tr->langopts.numbers = 0xa69 + 0x2000;
 		}
 		break;
 
@@ -388,7 +388,7 @@ Translator *SelectTranslator(const char *name)
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.replace_chars = replace_chars_ro;
 			tr->langopts.replacement_chars = replacement_chars_ro;
-			tr->langopts.numbers = 0x3829+0x60000;
+			tr->langopts.numbers = 0x3829+0x6000;
 		}
 		break;
 
@@ -398,6 +398,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('s','k'):   // Slovak
 	case L('c','s'):   // Czech
+	case L('h','r'):   // Croatian
 		{
 			static int stress_amps_sk[8] = {16,16, 20,20, 20,24, 24,22 };
 			static int stress_lengths_sk[8] = {180,180, 200,180, 0,0, 220,230};
@@ -410,10 +411,15 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 0;
 			tr->langopts.stress_flags = 0x16;  
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
-			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;        // disable check for unpronouncable words
+ 			tr->langopts.max_initial_consonants = 5;
 			tr->langopts.param[LOPT_COMBINE_WORDS] = 4;  // combine some prepositions with the following word
-			tr->langopts.numbers = 0x1c09;
+
+			tr->langopts.numbers = 0x1c09 + 0x4000;
+			if(name2 == L('h','r'))
+				tr->langopts.numbers = 0x1c09 + 0xa4000;
+
 			SetLetterVowel(tr,'y');
+			SetLetterVowel(tr,'r');
 			SetLetterBits(tr,5,sk_voiced);
 		}
 		break;
@@ -537,10 +543,11 @@ Translator *SelectTranslator(const char *name)
 //**********************************************************************************************************
 
 
+
 Translator_Russian::Translator_Russian() : Translator()
 {//===================================
 	static int stress_amps_ru[] = {16,16, 18,18, 20,24, 24,22 };
-	static int stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,270};
+	static int stress_lengths_ru[8] = {150,140, 220,220, 0,0, 260,280};
 
 
 	// character codes offset by 0x420
@@ -578,12 +585,12 @@ Translator_Russian::Translator_Russian() : Translator()
 	letter_groups[9] = ru_L09;        // This is  L09  in ru_rules
 
 	langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
-	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;    // or  = 2 ??  don't propagate over [v] ?
+	langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
 	langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
 	langopts.stress_rule = 5;
 	langopts.stress_flags = 0x1020;
 
-	langopts.numbers = 0xc09;
+	langopts.numbers = 0x409;
 	langopts.phoneme_change = 1;
 	langopts.testing = 2;
 
@@ -591,6 +598,7 @@ Translator_Russian::Translator_Russian() : Translator()
 
 
 #define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
+#define PY(c1,c2,c3) (c3<<16)+(c2<<8)+c1
 
 /*
 typedef struct {
@@ -627,20 +635,27 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 
 	if(ph->type == phVOWEL)
 	{
-		bool prestressed = ch->vowel_stressed==ch->vowel_this+1;  // the next vowel after this has the main stress
+		int prestressed = ch->vowel_stressed==ch->vowel_this+1;  // the next vowel after this has the main stress
 
-		#define N_VOWELS_RU   5
-		static unsigned int vowels_ru[N_VOWELS_RU] = {'a','V','o',PH('i','&'),PH('i','i')};
+		#define N_VOWELS_RU   11
+                static unsigned int vowels_ru[N_VOWELS_RU] = {'a','V','O','I',PH('I','#'),PH('E','#'),PH('E','2'),
+PH('V','#'),PH('I','3'),PH('I','2'),PH('E','3')};
 
 
-		static unsigned int vowel_replace[N_VOWELS_RU][6] = {
-			// stressed, soft, soft-stressed, j+stressed, j+soft, j+soft-stressed
-			{'A', '&', 'I',            'A', '&', 'I'},                   // a
-			{'A', 'V', 'I',            'a', 'V', 'a'},                   // V
-			{'O', PH('y', 'o'), PH('y', 'o'), 'O', PH('y', 'o'), PH('y', 'o')}, // o
-			{'i', PH('i', '&'), 'i',   'a', PH('i', '&'), 'a'},          // i&
-			{'i', PH('i', 'i'), 'i',   'i', PH('i', 'i'), 'i'}          // ii
-		};
+                static unsigned int vowel_replace[N_VOWELS_RU][6] = {
+                        // stressed, soft, soft-stressed, j+stressed, j+soft, j+soft-stressed
+                /*0*/        {'A', 'I', PH('j','a'),         'a', 'a', 'a'},                // a   Uses 3,4,5 columns.
+                /*1*/        {'A', 'V', PH('j','a'),         'a', 'V', 'a'},                // V   Uses 3,4,5 columns.
+                /*2*/        {'o', '8', '8',                 'o', '8', '8'},                // O
+                /*3*/        {'i', 'I', 'i',                 'a', 'I', 'a'},                // I  Uses 3,4,5 columns.
+                /*4*/        {'i', PH('I','#'), 'i',         'i', PH('I','#'), 'i'},        // I#
+                /*5*/        {'E', PH('E','#'), 'E',         'e', PH('E','#'), 'e'},        // E# 
+                /*6*/        {'E', PH('E','2'), 'E',         'e', PH('E','2'), 'e'},        // E2  Uses 3,4,5 columns.
+                /*7*/        {'i', 'V', 'i',                 'A', 'V', 'A'},                // V#
+                /*8*/        {PH('j','a'), 'I', PH('j','a'), 'e', 'I', 'e'},                // I3 Uses 3,4,5 columns.
+                /*9*/        {'e', 'I', 'e',                 'e', 'I', 'e'},                // I2
+                /*10*/       {'e', PH('E', '2'), 'e',        'e', PH('E','2'), 'e'}         // E3
+                };
 
 		prev = phoneme_tab[phlist[index-1].phcode];
 		next = phoneme_tab[phlist[index+1].phcode];
@@ -656,16 +671,23 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 
 		if(prestressed)
 		{
+			if((vowelix==6)&&(prev->mnemonic=='j'))
+				vowelix=8;
 			if(vowelix==1)
 				vowelix=0;
 			if(vowelix==4)
 				vowelix=3;
+			if(vowelix==6)
+				vowelix=5;
+			if(vowelix==7)
+				vowelix=8;
+			if(vowelix==10)
+				vowelix=9;
 		}
-
 		// do we need a variant of this vowel, depending on the stress and adjacent phonemes ?
 		variant = -1;
-		bool stressed = ch->flags & 2;
-		bool soft=prev->phflags & phPALATAL;
+		int stressed = ch->flags & 2;
+		int soft=prev->phflags & phPALATAL;
 
 		if (soft && stressed)
 			variant = 2; else
@@ -673,7 +695,6 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 					variant = 0; else
 						if (soft)
 							variant = 1;
-
 		if(variant >= 0)
 		{
 			if(prev->mnemonic == 'j')

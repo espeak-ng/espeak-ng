@@ -176,10 +176,9 @@ void ConfigSave(int exit)
 {//======================
 	wxFileConfig *pConfig = (wxFileConfig *)(wxConfigBase::Get());
 
-#ifdef PLATFORM_WINDOWS
-	samplerate = 22050;
-#endif
+#ifndef PLATFORM_WINDOWS
 	pConfig->Write(_T("/samplerate"),samplerate);
+#endif
 	pConfig->Write(_T("/basedir"),basedir);
 	pConfig->Write(_T("/spectload"),path_spectload);
 	pConfig->Write(_T("/spectload2"),path_spectload2);

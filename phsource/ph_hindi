@@ -13,6 +13,7 @@ phoneme @
   length 130
   formants vowel/@_bck
   before H vowel/@_low
+  reduceto  NULL 0
 endphoneme
 
 phoneme V
@@ -33,6 +34,7 @@ phoneme @3
   vowel  starttype (@)  endtype (@)
   length 130
   formants vowel/@_3
+  reduceto  @- 0
 endphoneme
 
 phoneme @4
@@ -46,6 +48,13 @@ endphoneme
 
 phoneme i:
   vowel long starttype (i) endtype (i)
+  length 220
+  formants vowel/i_fnt
+  linkout ;
+endphoneme
+
+phoneme i         // as [i:] but not marked as 'long'
+  vowel starttype (i) endtype (i)
   length 220
   formants vowel/i_fnt
   linkout ;
@@ -171,14 +180,14 @@ endphoneme
 phoneme r-
   vowel  starttype (@)  endtype (@)
   unstressed
-  length 100
+  length 220
   formants vowelr/r-voc
 endphoneme
 
 phoneme l-
   vowel  starttype (@)  endtype (@)
   unstressed
-  length 140
+  length 200
   formants vwl_hi/l-voc
 endphoneme
 
@@ -321,10 +330,10 @@ endphoneme
 
 phoneme t        // dental variant of /t/
   vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelin f1=1  f2=1600 -300 300  f3=-100 80
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  ustop/t_dnt%50
+  wave  ustop/t_dnt2%60
   before _ ustop/t_dnt%35 
   switchvoicing d
 endphoneme

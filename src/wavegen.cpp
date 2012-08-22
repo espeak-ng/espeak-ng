@@ -623,7 +623,8 @@ int WavegenCloseSound()
 	PaError active;
 
 	// check whether speaking has finished, and close the stream
-	if(pa_stream != NULL)
+//	if(pa_stream != NULL)
+	if((pa_stream != NULL) && (WcmdqUsed() == 0))  // TEST, also check that queue is empty
 	{
 #if USE_PORTAUDIO == 18
 		active = Pa_StreamActive(pa_stream);

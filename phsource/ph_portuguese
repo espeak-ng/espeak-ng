@@ -76,7 +76,7 @@ phoneme O
   vowel starttype (o) endtype (o)
   length 170
   formants vowel/0_2
-  reduceto o  4
+//  reduceto o  4
 endphoneme
 
 

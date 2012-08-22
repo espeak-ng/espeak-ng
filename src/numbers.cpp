@@ -512,7 +512,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		}
 	}
 
-	if((word[0] == '0') && (prev_thousands == 0))
+	if((word[0] == '0') && (prev_thousands == 0) && (word[1] != langopts.decimal_sep))
 	{
 		return(0);     // number string with leading zero, speak as individual digits
 	}
@@ -615,9 +615,9 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 
 		if(decimal_count > 1)
 		{
-			switch(langopts.numbers & 0x60000)
+			switch(langopts.numbers & 0x6000)
 			{
-			case 0x40000:
+			case 0x4000:
 				if(decimal_count < 4)
 				{
 					// Polish decimal fraction
@@ -639,7 +639,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 				}
 				break;
 
-			case 0x20000:
+			case 0x2000:
 				// Italian decimal fractions
 				if((decimal_count < 4) || ((decimal_count==4) && (word[n_digits] != '0')))
 				{
@@ -656,7 +656,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 				}
 				break;
 
-			case 0x60000:
+			case 0x6000:
 				// Romanian decimal fractions
 				if((decimal_count <= 4) && (word[n_digits] != '0'))
 				{

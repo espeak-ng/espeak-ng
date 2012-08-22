@@ -851,7 +851,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 	if((tail[0]=='s') && (tail[1]=='t'))
 	{
 		// convert from semitones to a  frequency percentage
-		*value_out = (int)(pow(2.0,(value*sign)/12) * 100);
+		*value_out = (int)(pow(double(2.0),double((value*sign)/12) * 100));
 		return(2);   // percentage
 	}
 

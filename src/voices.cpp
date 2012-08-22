@@ -1054,7 +1054,7 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 	int match_name = -1;
 	char *id;
 	int last_part_len;
-	char last_part[20];
+	char last_part[41];
 
 	sprintf(last_part,"%c%s",PATHSEP,name);
 	last_part_len = strlen(last_part);

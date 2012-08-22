@@ -31,9 +31,9 @@
           @) an (_        'an
           @) ant (_       'ant
           @) atisch (_S6  'A:tIS
-          @) atisieren (_S9  A:tIs'i:r@n
+          @) atisieren (_S9  A:tIs'i:*@n
              anier (_     'A:ni:3
-             arier (_     'A:ri:3
+             arier (_     'A:*i:3
              adier (_     'A:di:3
 
 .group b
@@ -82,7 +82,7 @@
           u) ch           x
          äu) ch           C
          eu) ch           C
-          _) chr          kr
+          _) chr          k@-*
              chs          ks
              ck           k
 
@@ -144,17 +144,17 @@
           &) em (_$2      @m
           @) en (_$2      @n
           @) er (C        3
-          @) er (r        Er
-          @) er (nC       Er
-          @) er (n_       3
+          @) er (r        E*
+          @) er (nC       E*
           @) er (_$2      3
-          &) ere (_       @r@
+          &) ere (_       @*@
           &) eren (_$1    n
-          &) erer (_      @r3
+          &) erer (_      @*3
           &) eres (_$1    s
-          &) er (C_       3
+          &) er (C_       @*
+          &) er (n_       @r
           &) er (r_       E
-          w) er (k_       Er
+          w) er (k_       E*
           @) es (_$2      @s
           &) et (_        @t
          Ad) ent (_       'Ent
@@ -163,26 +163,26 @@
           &) est (_       @st
 
           &) en (@        E2n       // [E2] can reduce to [@]
-  //      &) er (C@       E2r
+  //      &) er (C@       E2*
           &) el (@        E2l
 
           @) ei (_        'aI
-          &) erung (_     =@rUN
+          &) erung (_     =@*UN
 
           _) ein (@P3     'aIn
           _) emp (@P3     _|%Emp
           _) ent (@P3     _|%Ent
           _) enten        Ent@n
           _) ent (er      Ent
-          _) er (@P2      _|%Er
-          _) er (HC       Er        //  lC, mC, nC, rC
-          _) ergeb (nis   Erg'e:b
-          _) er (stC      Er
-          _) er (ste      Er
-          _) er (ste@@P2  _|%Er
+          _) er (@P2      _|%E*
+          _) er (HC       E*        //  lC, mC, nC, rC
+          _) ergeb (nis   E*g'e:b
+          _) er (stC      E*
+          _) er (ste      E*
+          _) er (ste@@P2  _|%E*
 
           _) entert       _^_EN
-          _) erob (er     %Ero:b
+          _) erob (er     %E*o:b
 
 
 .group f
@@ -216,7 +216,7 @@
              gegen (_     ge:g@n
              gegn         ge:gn
              gehen        ge:@n
-             general      ge:nEr'al
+             general      ge:nE*'al
           _) g (ener      g
           _) g (eo+       g
           @) ght (_       _^_EN
@@ -229,13 +229,13 @@
              h            h
           h) h
 
-          _) herauf (P6      hEr'aUf
-          _) herab  (P5      hEr'ab
-          _) heraus (P6      hEr'aUs
-          _) herbei (P6      hEr'baI
-          _) herum  (P5      hEr'Um
-          _) hervor (P6      hErf'Or
-          _) hier (@         h%i:r
+          _) herauf (P6      hE*'aUf
+          _) herab  (P5      hE*'ab
+          _) heraus (P6      hE*'aUs
+          _) herbei (P6      hE*'baI
+          _) herum  (P5      hE*'Um
+          _) hervor (P6      hE*f'Or
+          _) hier (@         h%i:*
           _) hinab  (P5      hIn'ab
           _) hinauf (P6      hIn'aUf
           _) hinaus (P6      hIn'aUs
@@ -268,10 +268,10 @@
           &) iens (_      =I;@ns
           &) ient (_      =I;@nt
         sch) ie (n        i:
-             ieren        'i:r@n
-          @) iert (_      'i:rt
-             ierungs      'i:rUNs
-             ierung       'i:rUN
+             ieren        'i:*@n
+          @) iert (_      'i:*t
+             ierungs      'i:*UNs
+             ierung       'i:*UN
 
              ig (C        IC
              ig (_N       IC
@@ -319,7 +319,7 @@
              m            m
           m) m
 
-             marine       mA:r'i:n@
+             marine       mA:*'i:n@
           A) meter (_     me:t3
           _) micro        _^_EN
           _) mit (P3      m'It
@@ -370,11 +370,11 @@
 
           _) pay          _^_EN
              philie       f'i:li:
-          _) pro (@       %pro:
+          _) pro (@       %p@-*o:
 
           _) po (e        p%o:
           _) poe (sc      pY:
-             partei       p%artaI
+             partei       p%a*taI
              pool         _^_EN
              power        _^_EN
           _) pu (e        p%u:
@@ -385,10 +385,12 @@
              qu           kv
 
 .group r
-          _) r (_         Er
-             r            r
+          _) r (_         E*
+             r            *
              r (r
-          _) rh           r
+          C) r            @-*
+          _) r            @-*
+          _) rh           @-*
 
 .group s
           _) s (_         Es
@@ -416,7 +418,7 @@
           _) safe         _^_EN
           &) schaft (_S6  Saft
              schein (lich S'aIn
-             schwer       Sve:r
+             schwer       Sve:*
              shop         _^_EN
           _) sky          _^_EN
              soldat       z%OldA:t
@@ -467,13 +469,13 @@
           _) un (C@P2     Un
           _) unbe (@P4    _|,Unb@
           _) unge (@P4    _|,Ung@
-          _) unver (@P5   _|,UnfEr
+          _) unver (@P5   _|,UnfE*
           _) un (iv       u:n
           _) under        _^_EN
           _) unter (@P5   _|%Unt3
 
           &) uela (_      u:,e:la
-          @) uerisch (_   'u:rIS
+          @) uerisch (_   'u:*IS
           _) user         _^_EN
 
 .group v
@@ -487,20 +489,20 @@
           _) vi (CC       vI
           _) vi           vi:
 
-          _) ver (@P3     f%Er
-          _) vor (@P3     'fOr
-          _) vor (ne      'fOr
-          _) vorbei (@P6  fOr'baI
+          _) ver (@P3     f%E*
+          _) vor (@P3     'fO*
+          _) vor (ne      'fO*
+          _) vorbei (@P6  fO*'baI
 
 
-             voraus       fOr'aUs
-             vorüber      fOr'yb3
+             voraus       fO*'aUs
+             vorüber      fO*'yb3
 
 .group w
           _) w (_         ve:
              w            v
 
-          @) wert (_      vErt
+          @) wert (_      vE*t
           _) wh           _^_EN
           &) ware (_      _^_EN
              work         _^_EN
@@ -526,7 +528,7 @@
           z) z
              ziell        tsj'El
 
-          _) zer (@       %tsEr
+          _) zer (@       %tsE*
           _) zu (C@P2     ts%u:
 
 .group ä
@@ -565,9 +567,9 @@
 .group
              , (D         kOma
              /            slaS
-             %            pro:ts'Ent
+             %            p@-*o:ts'Ent
              $            dOl@
-             €            OIro:
+             €            OI*o:
              £            paUnd
 
              .            pUnkt

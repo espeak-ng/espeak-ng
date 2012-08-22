@@ -25,6 +25,7 @@
 
 .group ई
         ई        i:
+        ई (_     i
 
 .group उ
         उ        U
@@ -81,6 +82,7 @@
 
 .group ी
         ी        i:
+        ी (_     i
 
 .group ु
         ु        U
@@ -221,9 +223,9 @@
         ढ        d.hV
         ढ (B     d.h
 ?1      ढ (_     d.h
-        ढ़        DV  // nukta
-        ढ़ (B     D   // nukta
-?1      ढ़ (_     D   // nukta
+        ढ़        r-V  // nukta  (should retroflex flap)
+        ढ़ (B     r-   // nukta
+?1      ढ़ (_     r-   // nukta
 
 .group ण
         ण        nV   // (temporary) same as dental [n]
@@ -345,7 +347,7 @@
 ?1      श (_     S
 
 .group ष
-        ष        SV   //?? or [s;]
+        ष        SV   //?? or retroflex [S]
         ष (B     S    //??
 ?1      ष (_     S    //??
 
@@ -423,12 +425,12 @@
         ज़ (B     z
 ?1      ज़ (_     z
 
-.group ड़    // ddha
-        ड़        DV
-        ड़ (B     D
-?1      ड़ (_     D
+.group ड़    // dddha   (should retroflex flap)
+        ड़        r-V
+        ड़ (B     r-
+?1      ड़ (_     r-
 
-.group ढ़    // rha
+.group ढ़    // rha  (aspirated version of dddha)
         ढ़        hrV
         ढ़ (B     hr
 ?1      ढ़ (_     hr

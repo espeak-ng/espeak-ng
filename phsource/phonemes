@@ -171,10 +171,11 @@ endphoneme
 
 
 phoneme @-   //  very short schwa
-  vowel  starttype (@)  endtype (@)
+  vowel
+  starttype (@)  endtype (@)
   formants vowel/@-
   unstressed
-  length 60
+  length 50
 endphoneme
 
 
@@ -469,7 +470,7 @@ phoneme ;     // linking j, (formerly [j-]) used between (i) vowels
   length 100
   lengthmod 0
   formants NULL
-  beforenotvowel -    // this is to ignore this phoneme if not before a vowel
+  beforenotvowel NULL    // this is to ignore this phoneme if not before a vowel
   after _ j2/_j2
 endphoneme
 
@@ -649,8 +650,9 @@ phoneme dZ
   switchvoicing tS
 endphoneme
 
-phoneme dz;
-  vcd pla afr sibilant
+
+phoneme dz;       // this should be different from dZ;
+  vcd pla afr sibilant palatal
   vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
   formants dzh/dzh+x/dz_pzd
   before _ dzh/dzh_+x/dzh_
@@ -658,6 +660,18 @@ phoneme dz;
   after @ dzh/xdzh
   lengthmod 5
   switchvoicing ts;
+endphoneme
+
+
+phoneme dZ;
+  vcd pla afr sibilant palatal
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  formants dzh/dzh+x/dz_pzd
+  before _ dzh/dzh_+x/dzh_
+  after _ NULL
+  after @ dzh/xdzh
+  lengthmod 5
+  switchvoicing tS;
 endphoneme
 
 
@@ -864,14 +878,25 @@ phoneme tS
 endphoneme
 
 
-phoneme ts;
-  vls pal afr sibilant
+phoneme ts;      // this should be different from tS;
+  vls pal afr sibilant palatal
   vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   lengthmod 2
   wave ustop/ts_pzd
   before _ ustop/ts_pzd
   switchvoicing dz;
 endphoneme
+
+
+phoneme tS;
+  vls pal afr sibilant palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  lengthmod 2
+  wave ustop/ts_pzd
+  before _ ustop/ts_pzd
+  switchvoicing dZ;
+endphoneme
+
 
 
 
@@ -1094,6 +1119,9 @@ include ph_slovak
 
 phonemetable cs sk
 include ph_czech
+
+phonemetable hr sk
+include ph_croatian
 
 phonemetable ru base
 include ph_russian

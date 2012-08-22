@@ -72,47 +72,80 @@ _"	'ab@-*i;'asp&z d'upl&s
 // numeric
 //********
 
-_0	z'Exu
-_1	'uN
-_2	d'oIs
-_3	t@-*'es
-_4	kw'at@-*u
+?1_0	z'Eru
+?2_0	z'Exu
+?1_1	'um
+?2_1	'uN
+?1_2	d'oIS
+?2_2	d'oIs
+?1_3	tr'eS
+?2_3	t@-*'es
+?1_4	kw'atru
+?2_4	kw'at@-*u
 _5	s'iNku
-_6	s'eIs
-_7	s'EtSi
+?1_6	s'eIS
+?2_6	s'eIs
+?1_7	s'Et
+?2_7	s'EtSi
 _8	'oItu
-_9	n'Ovi
-_10	d'Ez
-_11	'oNzi
-_12	d'ozi
-_13	t@-*'ezi
-_14	kat'Orzi
-_15	k'iNzi
-_16	d,ezes'eIs
-_17	d,ezes'EtSi
-_18	dez'oItu
-_19	dezen'Ovi
-_2X	v'iNtSi
-_3X	t@-*'iNt&
-_4X	kwa*'eINt&
+?1_9	n'Ov
+?2_9	n'Ovi
+?1_10	d'ES
+?2_10	d'Ez
+?1_11	'oNz
+?2_11	'oNzi
+?1_12	d'oz
+?2_12	d'ozi
+?1_13	t:r'ez
+?2_13	t@-*'ezi
+?1_14	k&t'Orz
+?2_14	kat'Orzi
+?1_15	k'iNz
+?2_15	k'iNzi
+?1_16	dyz&s'eiS
+?2_16	d,ezes'eIs
+?1_17	dyz&s'Et
+?2_17	d,ezes'EtSi
+?1_18	dyz'Oitu
+?2_18	dez'oItu
+?1_19	dyz&n'Ov
+?2_19	dezen'Ovi
+?1_2X	v'iNt
+?2_2X	v'iNtSi
+?1_3X	tr'iNt&
+?2_3X	t@-*'iNt&
+?1_4X	kw&r'eNt&
+?2_4X	kwa*'eINt&
 _5X	siNkw'eINt&
-_6X	ses'eINt&
-_7X	set'eINt&
+?1_6X	sys'eINt&
+?2_6X	ses'eINt&
+?1_7X	syt'eINt&
+?2_7X	set'eINt&
 _8X	oIt'eINt&
 _9X	nov'eINt&
 _1C0	s'eIN
-_0C	s'eINtuz
+?1_0C	s'eINtuS
+?2_0C	s'eINtuz
 _1C	s'eINtu
-_2C	duz'eINtuz
-_3C	t@-*ez'eNtuz
-_5C	kin^'eINtuz
-_0M1	m'iU_
-_1M1	m'iU_
-_0M2	milj'o~jz
+?1_2C	duz'eINtuS
+?2_2C	duz'eINtuz
+?1_3C	trez'eNtuS
+?2_3C	t@-*ez'eNtuz
+?1_5C	kin^'eINtuS
+?2_5C	kin^'eINtuz
+?1_0M1	m'il_
+?2_0M1	m'iU_
+?1_1M1	m'il_
+?2_1M1	m'iU_
+
+?1_0M2	milj'o~jS
+?2_0M2	milj'o~jz
 _1M2	'u~milj'&U~
-_0M3	bilj'o~jz
+?1_0M3	bilj'o~jS
+?2_0M3	bilj'o~jz
 _1M3	'u~mbilj'&U~
-_0M4	trilj'o~jz
+?1_0M4	trilj'o~jS
+?2_0M4	trilj'o~jz
 _1M4	'u~ntrilj'&U~
 _0and	_i
 _dpt    _v'irgul&
@@ -468,73 +501,116 @@ norte        $alt
 corpos       $alt
 modos        $alt
 fogos        $alt
+sorte        $alt
+toque        $alt
+bloco        $alt
+blocos        $alt
+floco        $alt
+flocos        $alt
+
 
 // Open [E]
 nela         n'El&
 nessa        n'Es&
+era        'Er&
 
 abacaxi      abakaSi
 axé          aSE
 elixir       eliSir
+?1fixe       fiSe
 lixo         l'iSu
 roxo         x'oSu
 
 // foreign words
-site        s'aIt
-layout      l'eI,aUt
-mail        m'ejaU
-kernel      k'ErnEU
-software    s'Oftwe@
-hardware    h'ardwe@
+?1 alt        'alt
+?1 bacalhau   b,&k&lj'aU
+?1 caps       k'aps
+?1 ctrl       k,oNtr'ol
+?1 delete     dil'i:t
+?1 design     diz'aIn //? In Brasilian Portuguese
+?1 down       d'aUn
+?1 download   d'aUnloUd
+?1 escape     Sk'eIpy
+?1 eyes       w'aIz
+?1 google     g'u:g&l 
+hardware      h'ardwe@
+?1 kernel     k'ErnEl
+?2 kernel     k'ErnEU
+?1 line       l'aIn
+layout        l'eI,aUt
+?1 lock       _^_EN
+?1 mail       meIl
+?2 mail       m'eja	
+?1 menu       mEnU
+?1 num        _^_EN
+?1 ok         Ok'eI
+?1 pause      p'au:z
+?1 page       p'eIdZ
+?1 scroll     _^_EN
+site          s'aIt
+software      s'Oftwe@
+?1 up         _^_EN
+?1 upload     _^_EN
+?1 window     _^_EN
+?1 yes        j'Es
+
 
 // common person names
 alan       'al@n
 
 
 // foreign product names
-debian      d'Ebj&~N
-espeak      Esp'i:k
-firefox     f'ai@foks
-linux       l'inuks
-openoffice  'opeIN|'Ofis
-slackware   sl'akwe@
-suse        z'u:ts@
-ubuntu      ub'untu
-unix        j'u:niks
+?1 access     'aksEs
+debian        d'Ebj&~N
+espeak        isp'i:k
+speak         spi:k
+firefox       f'ai@foks
+?1 hal        hal
+?1 jaws       dZ'au:z
+?1 linux      l'inUks
+?2 linux      l'inuks
+openoffice    'opeIN|'Ofis
+?1 reader     r'i:d&@
+slackware     sl'akwe@
+suse          z'u:ts@
+ubuntu        ub'untu
+unix          j'u:niks
+?1 windows    _^_EN
+
 
 
 // historical/famous person names
-babbage     b'abidZ
-bernhard    bern'ard
-darwin      d'Arwin
-dijkstra    d'ijkstrA:
-einstein    _!'aInSt,aIn
-feynman     f'ainm@n
-freud       fr'OId
-friedrich   fr'i:driS
-gauss       g'aUs
-geisel      g'aIzEU
-gottfried   g'Otfri:t
-hawking     h'o:king
-heisenberg  h'aIzEnberg
-hitler      h'itler
-isaac       iz'&k
-lavoisier   lavwazj'e
-leibniz     l'aIbni:ts
-montesquieu m,oNteskj'e
-neumann     n'OIman
-newton      n'i;utoN
-oppenheimer _!'Op@nh,aImar
-richard     x'iS&rd
-riemann     r'i:man
-rijndael    x'ain;d'al
-rousseau    Rus'o
-schrödinger Sr'edinger
-stephen     st'i:v@n
-steve       st'i:v
-turing      t'u*iNg
-voltaire    vOlt'Er
-von         f'On
+babbage       b'abidZ
+bernhard      bern'ard
+darwin        d'Arwin
+dijkstra      d'ijkstrA:
+einstein      _!'aInSt,aIn
+feynman       f'ainm@n
+freud         fr'OId
+friedrich     fr'i:driS
+gauss         g'aUs
+geisel        g'aIzEU
+gottfried     g'Otfri:t
+hawking       h'o:king
+heisenberg    h'aIzEnberg
+hitler        h'itler
+isaac         iz'&k
+lavoisier     lavwazj'e
+leibniz       l'aIbni:ts
+montesquieu   m,oNteskj'e
+neumann       n'OIman
+newton        n'i;utoN
+oppenheimer   _!'Op@nh,aImar
+richard       x'iS&rd
+riemann       r'i:man
+rijndael      x'ain;d'al
+rousseau      Rus'o
+schrödinger   Sr'edinger
+stephen       st'i:v@n
+steve         st'i:v
+turing        t'u*iNg
+voltaire      vOlt'Er
+von           f'On
 
 
 // foreign common names/surnames

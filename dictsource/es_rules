@@ -7,6 +7,7 @@
           a          a
           ai         aI
           ay         aI
+          ay (_      'aI
 
 
 .group b
@@ -39,6 +40,7 @@
           e (_       e
           ei         eI
           ey         eI
+          ey (_      'eI
        _) eu         eU
 
 
@@ -53,7 +55,7 @@
        _) g          g
        m) g          g
        n) g          g
-          g (Y       x        // ge gi
+          g (Y+      x        // ge gi
 
 
 .group h
@@ -98,12 +100,15 @@
           n (v       m
           n (f       m
           n (p       m
+//          n (g       N  // ??
+//          n (k       N  // ??
 
 
 .group o
        _) o (_       o
           o          o
           oy         oI
+          oy (_      'oI
 
 
 .group p
@@ -164,6 +169,7 @@
        _) x (_       Ekis
           x          ks
        A) x (A       ks
+          x (_       =ks
 
 
 .group y
@@ -178,11 +184,11 @@
 
 
 .group
-          á          'a
-          é          'E
-          í          'i
-          ó          'o
-          ú          'u
+          á          ''a
+          é          ''E
+          í          ''i
+          ó          ''o
+          ú          ''u
           ü          u
           ñ          n^
         _)ñ (_       En^e
@@ -212,7 +218,7 @@
           **
      **)  * (_       _::
 
-          .          punta
+          .          punto
           . (.       _:
       \.) .
 

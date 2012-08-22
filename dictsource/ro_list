@@ -259,7 +259,7 @@ când	$u $pause	// when
 cum	$pause		// how, as, since
 astfel	$pause		// thus
 deşi	$2 $pause	// although
-fie	$u		// either
+fie	fie $u		// either
 însă	$pause		// but, yet, however
 atunci	$pause		// therefore
 (de atunci) d%e||at'untSi $pause   // since then
@@ -382,6 +382,7 @@ acelaş		$2
 adventice	$3
 aer		aIer
 aici		a'itSI^
+altceva         $3
 apoi		$2
 artefice	$3
 asemenea	$2
@@ -389,14 +390,18 @@ asemenea	$2
 biseric		$2
 
 capitol		$2
+careva          $3
+cândva		$2
 câteva		$3
 cerbice		$2
-cicatrice	$4      // @-
+ceva            $2
+cicatrice	$3      // @-
+cineva          $3
 chimi		$alt
 chimic		$1
 complice	$2
 contrazice	$3
-creier		$2	// @-
+creier		$1	// @-
 
 deja		$2
 denzic		$2
@@ -481,6 +486,7 @@ români          romyn'i
 rotocol		$3
 
 sadic		$1
+sâmbătă		$1
 securice	$3
 sergiu		sergj'u
 sigur		$1
@@ -494,6 +500,7 @@ terapi          $alt
 terapii		$3
 
 ultim		$1
+undeva          $3
 
 veder		$2
 vineri		$1
