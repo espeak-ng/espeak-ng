@@ -24,9 +24,9 @@ typedef struct {
 	int pitch_base;    // Hz<<12
 	int pitch_range;   // standard = 0x1000
 	
-	float speedf1;
-	float speedf2;
-	float speedf3;
+	int speedf1;
+	int speedf2;
+	int speedf3;
 
 	int intonation1;
 	int intonation2;

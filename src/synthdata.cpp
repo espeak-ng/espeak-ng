@@ -37,8 +37,9 @@ int option_echo_delay;
 int option_echo_amp;
 
 // limit the rate of change for each formant number
-static float formant_rate_22050[9] = {0.2, 0.4, 0.64, 0.9, 0.85, 0.85, 1, 1, 1};  // values for 22kHz sample rate
-float formant_rate[9];         // values adjusted for actual sample rate
+//static float formant_rate_22050[9] = {0.2, 0.4, 0.64, 0.9, 0.85, 0.85, 1, 1, 1};
+static int formant_rate_22050[9] = {51, 102, 164, 230, 218, 218, 256, 256, 256};  // values for 22kHz sample rate
+int formant_rate[9];         // values adjusted for actual sample rate
 
 
 PHONEME_TAB *phoneme_tab=NULL;
@@ -441,6 +442,7 @@ keywtab_t keyword_tab[] = {
 	{"replaceWE",  10},
 	{"words",      11},
 	{"echo",       12},
+	{"flutter",    13},
 	{NULL,   0} };
 
 
@@ -470,12 +472,13 @@ option_stress_rule = 2;
 	phoneme_tab = phoneme_tab_list[0].phoneme_tab_ptr;
 
 	// default values of speed factors
-	voice->speedf1 = 1.0;
-	voice->speedf2 = 0.931;
-	voice->speedf3 = 0.908;
+	voice->speedf1 = 256;
+	voice->speedf2 = 238;
+	voice->speedf3 = 232;
 
 	option_echo_delay = 0;
 	option_echo_amp = 0;
+	option_flutter = 64;
 
 	// relative lengths of different stress syllables
 	memcpy(stress_lengths,stress_lengths1,sizeof(stress_lengths));
@@ -573,8 +576,8 @@ int LoadVoice(char *voicename, int reset)
 	int  key;
 	int  ix;
 	int  n;
+	int  value;
 	int  phon;
-	float x1;
 	int  replace_type=0;
 	int  error = 0;
 	int  language_set = 0;
@@ -696,10 +699,16 @@ int LoadVoice(char *voicename, int reset)
 
 		case 12:
 			// echo.  suggest: 135mS  11%
-			x1 = 0;
+			value = 0;
 			option_echo_amp = 0;
-			sscanf(p,"%f %d",&x1,&option_echo_amp);
-			option_echo_delay = int((x1 * samplerate)/1000.0);
+			sscanf(p,"%d %d",&value,&option_echo_amp);
+			option_echo_delay = int((value * samplerate)/1000.0);
+			break;
+
+		case 13:
+			if(sscanf(p,"%d",&value)==1)
+				option_flutter = value * 32;
+			break;
 		}
 	}
 	if(f_voice != NULL)

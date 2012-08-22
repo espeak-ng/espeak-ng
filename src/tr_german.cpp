@@ -37,10 +37,15 @@ Translator_German::Translator_German() : Translator()
 {//===================================
 // Initialise options for this language
 	const char *p;
+#ifdef PLATFORM_RISCOS
+	static char *locale = "ISO8859-1";
+#else
+	static char *locale = "german";
+#endif
 
 	// set locale to ensure 8 bit character set, for isalpha(), tolower() etc
 	prev_locale[0] = 0;
-	if((p = setlocale(LC_CTYPE,"german")) != NULL)
+	if((p = setlocale(LC_CTYPE,locale)) != NULL)
 		strncpy(prev_locale,p,sizeof(prev_locale));  // keep copy of previous locale
 
 	static const int stress_lengths2[8] = {170,140, 220,220, 220,240, 248,250};

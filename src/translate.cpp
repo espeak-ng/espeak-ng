@@ -61,10 +61,15 @@ Translator::Translator()
 {//=====================
 
 	char *p;
+#ifdef PLATFORM_RISCOS
+	static char *locale = "ISO8859-1";
+#else
+	static char *locale = "german";
+#endif
 
 	// set locale to ensure 8 bit character set, for isalpha(), tolower() etc
 	prev_locale[0] = 0;
-	if((p = setlocale(LC_CTYPE,"german")) != NULL)
+	if((p = setlocale(LC_CTYPE,locale)) != NULL)
 		strncpy(prev_locale,p,sizeof(prev_locale));  // keep copy of previous locale
 
 	dict_condition=0;
@@ -991,6 +996,7 @@ char *Translator::TranslateClause(FILE *f_text, char *buf, int *tone_out)
 		clause_pause = 350;
 		break;
 	case ':':
+	case ';':
 		clause_pause = 300;
 		break;
 	case '?':

@@ -42,14 +42,14 @@ typedef struct {
 	int height;   // height<<15
 	int left;     // Hz<<16
 	int right;    // Hz<<16
-	double freq1; // floating point versions of the above
-	double height1;
-	double left1;
-	double right1;
-	double freq_inc;    // increment by this every 64 samples
-	double height_inc;
-	double left_inc;
-	double right_inc;
+	DOUBLEX freq1; // floating point versions of the above
+	DOUBLEX height1;
+	DOUBLEX left1;
+	DOUBLEX right1;
+	DOUBLEX freq_inc;    // increment by this every 64 samples
+	DOUBLEX height_inc;
+	DOUBLEX left_inc;
+	DOUBLEX right_inc;
 }  wavegen_peaks_t;
 
 
@@ -158,5 +158,5 @@ extern int SynthStatus(void);
 
 extern char *spects_data;
 extern unsigned char *envelope_data[16];
-extern float formant_rate[];         // max rate of change of each formant
+extern int formant_rate[];         // max rate of change of each formant
 

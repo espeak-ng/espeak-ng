@@ -41,32 +41,65 @@ int stress_lengths[8];
 
 // indexes are the "length_mod" value for the following phonemes
 
-	// use this table if vowel is not the last in the word
-   static unsigned char length_mod_tab[9][9] = {
-   /*  a   ,   t   s   n   d   z   r   N   <- next */
-      {100,150,100,105, 95,110,110,100, 95},  /* a  <- next2 */
-      {105,150,105,110,125,130,135,115,125},  /* , */
-      {105,150, 75,100, 75,115,120, 85, 75},  /* t */
-      {105,150, 85,105, 95,115,120,100, 95},  /* s */
-      {110,150, 95,105,100,115,120,100,100},  /* n */
-      {105,150,100,105, 95,115,120,110, 95},  /* d */
-      {105,150,100,105,105,122,125,110,105},  /* z */
-      {105,150,100,105,105,122,125,110,105},  /* r */
-      {105,150, 95,105,100,115,120,110,100} }; /* N */
+// use this table if vowel is not the last in the word
+static unsigned char length_mod_tab[9][9] = {
+/*  a   ,   t   s   n   d   z   r   N   <- next */
+	{100,150,100,105, 95,110,110,100, 95},  /* a  <- next2 */
+	{105,150,105,110,125,130,135,115,125},  /* , */
+	{105,150, 75,100, 75,115,120, 85, 75},  /* t */
+	{105,150, 85,105, 95,115,120,100, 95},  /* s */
+	{110,150, 95,105,100,115,120,100,100},  /* n */
+	{105,150,100,105, 95,115,120,110, 95},  /* d */
+	{105,150,100,105,105,122,125,110,105},  /* z */
+	{105,150,100,105,105,122,125,110,105},  /* r */
+	{105,150, 95,105,100,115,120,110,100} }; /* N */
 
-   // as above, but for the last syllable in a word
-   static unsigned char length_mod_tab0[9][9] = {
-   /*  a   ,   t   s   n   d   z   r    N  <- next */
-      {100,150,100,105,110,115,110,110,110},  /* a  <- next2 */
-      {105,150,105,110,125,135,140,115,135},  /* , */
-      {105,150, 90,105, 90,122,135,100, 90},  /* t */
-      {105,150,100,105,100,122,135,100,100},  /* s */
-      {105,150,100,105,105,115,135,110,105},  /* n */
-      {105,150,100,105,105,122,130,120,125},  /* d */
-      {105,150,100,105,110,122,125,115,110},  /* z */
-      {105,150,100,105,105,122,135,120,105},  /* r */
-      {105,150,100,105,105,115,135,110,105} };  /* N */
+// as above, but for the last syllable in a word
+static unsigned char length_mod_tab0[9][9] = {
+/*  a   ,   t   s   n   d   z   r    N  <- next */
+	{100,150,100,105,110,115,110,110,110},  /* a  <- next2 */
+	{105,150,105,110,125,135,140,115,135},  /* , */
+	{105,150, 90,105, 90,122,135,100, 90},  /* t */
+	{105,150,100,105,100,122,135,100,100},  /* s */
+	{105,150,100,105,105,115,135,110,105},  /* n */
+	{105,150,100,105,105,122,130,120,125},  /* d */
+	{105,150,100,105,110,122,125,115,110},  /* z */
+	{105,150,100,105,105,122,135,120,105},  /* r */
+	{105,150,100,105,105,115,135,110,105} };  /* N */
 
+// convert from words-per-minute to internal speed factor
+static unsigned char speed_lookup[240] = {
+	253, 250, 247, 243, 240, 237, 234, 231,   //  80
+   229, 226, 223, 220, 217, 214, 212, 209,   //  88
+   206, 204, 201, 198, 196, 193, 191, 189,   //  96
+   186, 184, 181, 179, 177, 175, 172, 170,   // 104
+   166, 164, 162, 160, 159, 157, 155, 153,   // 112
+   151, 150, 148, 146, 144, 143, 141, 136,   // 120
+   135, 134, 133, 131, 130, 129, 128, 126,   // 128
+   125, 124, 123, 122, 121, 119, 118, 117,   // 136
+   116, 114, 113, 112, 111, 110, 109, 108,   // 144
+   107, 106, 105, 104, 103, 102, 101, 100,   // 152
+    97,  96,  95,  95,  94,  93,  92,  92,   // 160
+    91,  90,  89,  89,  88,  87,  86,  86,   // 168
+    85,  84,  84,  83,  82,  81,  81,  80,   // 176
+    78,  77,  77,  76,  75,  75,  74,  74,   // 184
+    73,  73,  72,  71,  71,  70,  70,  69,   // 192
+    69,  68,  68,  67,  66,  66,  65,  65,   // 200
+    64,  64,  63,  63,  62,  62,  61,  61,   // 208
+    60,  60,  58,  57,  57,  56,  56,  56,   // 216
+    55,  55,  54,  54,  54,  53,  53,  53,   // 224
+    52,  52,  51,  51,  51,  50,  50,  44,   // 232
+    44,  44,  44,  44,  44,  44,  43,  43,   // 240
+    43,  43,  43,  43,  42,  42,  42,  42,   // 248
+    41,  41,  41,  41,  40,  40,  40,  40,   // 256
+    34,  34,  34,  34,  34,  34,  34,  34,   // 264
+    34,  34,  34,  33,  33,  33,  33,  32,   // 272
+    32,  32,  32,  31,  31,  31,  30,  30,   // 280
+    32,  32,  31,  30,  29,  29,  28,  27,   // 288
+    26,  25,  25,  24,  23,  22,  21,  21,   // 296
+    20,  19,  18,  17,  16,  16,  15,  14,   // 304
+    13,  12,  11,  10,  10,   9,   8,   7,   // 312
+};
 
 int speed1 = 130;
 int speed2 = 121;
@@ -76,8 +109,36 @@ extern int speed_factor1;
 extern int speed_factor2;
 
 
-void SetSpeed(int speed, int amp)
-{//==============================
+void SetSpeed(int speed_wpm, int amp)
+{//==================================
+	int x;
+	static unsigned char amplitude_factor[] = {0,5,6,7,9,11,14,17,21,26, 32, 38,44,50,56,63,70,77,84,91,100 };
+
+	if(speed_wpm >= 320) speed_wpm = 319;
+	if(speed_wpm < 80) speed_wpm = 80;
+
+	x = speed_lookup[speed_wpm-80];
+	
+	// set speed factors for different syllable positions within a word
+	speed1 = (x * voice->speedf1)/256;
+	speed2 = (x * voice->speedf2)/256;
+	speed3 = (x * voice->speedf3)/256;
+
+	speed_factor1 = (256 * speed1)/110;      // full speed adjustment
+	speed_factor2 = 128 + (128*speed1)/130;  // reduced speed adjustment
+
+	if((amp >= 0) && (amp <= 20))
+	{
+		option_amplitude = (amplitude_factor[amp] * 480)/256; 
+	}
+}  //  end of SetSpeed
+
+
+#ifdef deleted
+// used to set up the presets in the speed_lookup table
+// interpolate between a set of measured wpm values
+void SetSpeedTab(void)
+{//===================
 #define N_WPM   13
 
 	// Interpolation table to translate from words-per-minute to internal speed
@@ -88,36 +149,25 @@ void SetSpeed(int speed, int amp)
 	static float wpm2[N_WPM] = 
 			{0, 200,  170,   140,   120,   100,    80,    60,    50,    40,    30,    20,  10};
 
-	static int amplitude_factor[] = {0,5,6,7,9,11,14,17,21,26, 32, 38,44,50,56,63,70,77,84,91,100 };
 
 	int ix;
 	float x;
 
 
 	// convert from word-per-minute to internal speed code
-	if(speed > 320)
-		speed = 320;
-
-	for(ix=2; ix<N_WPM-2; ix++)
+	for(speed_wpm=80; speed_wpm<320; speed_wpm++)
 	{
-		if(speed < wpm1[ix])
-			break;
+		for(ix=2; ix<N_WPM-2; ix++)
+		{
+			if(speed_wpm < wpm1[ix])
+				break;
+		}
+		x = polint(&wpm1[ix-1], &wpm2[ix-1], 3, speed);
+
+		speed_lookup[speed_wpm-80] = x;
 	}
-	x = polint(&wpm1[ix-1], &wpm2[ix-1], 3, speed);
-	speed1 = int(x * voice->speedf1 + 0.5);
-	speed2 = int(x * voice->speedf2 + 0.5);
-	speed3 = int(x * voice->speedf3 + 0.5);
-
-
-	speed_factor1 = (256 * speed1)/110;      // full speed adjustment
-	speed_factor2 = 128 + (128*speed1)/130;  // reduced speed adjustment
-
-	if((amp >= 0) && (amp <= 20))
-	{
-		x = amplitude_factor[amp] * 1.875; 
-		option_amplitude = int(x);
-	}
-}	// end of SetSpeed
+}	// end of SetSpeedTab
+#endif
 
 
 

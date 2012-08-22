@@ -37,6 +37,7 @@
 const char *tempwav = "speech.wav";
 //#define LOG_WGEN
 
+FILE *f_logrms=NULL;
 extern FILE *f_log;
 static void SmoothSpect(void);
 
@@ -104,7 +105,7 @@ void LogPitch(PHONEME_LIST *p)
 	float pitch_base;
 	float pitch_range;
 
-return;	
+return;
 	if(pitch1 > pitch2)
 	{
 		x = pitch1;   // swap values
@@ -203,7 +204,7 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 
 	last_pitch_cmd = wcmdq_tail;
 	pitch_length = 0;       // total length of spect with this pitch envelope
-	
+
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_PITCH;
 	q[1] = 0;   // length, fill in later from pitch_length
@@ -216,13 +217,14 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 
 static void DoPause(int length)
 {//============================
-	float len;
+	int len;
 
-	len = float(length) * samplerate * speed_factor1;
+	len = (length * samplerate)/1000;
+	len = (len * speed_factor1)/256;
 
 	EndPitch(1);
 	wcmdq[wcmdq_tail][0] = WCMD_PAUSE;
-	wcmdq[wcmdq_tail][1] = int(len/256000);
+	wcmdq[wcmdq_tail][1] = len;
 	WcmdqInc();
 	last_frame = NULL;
 }  // end of Synthesize::DoPause
@@ -255,7 +257,7 @@ static void DoSample2(int index, int which, int length_mod)
 		length /= 2;     // 2 byte samples
 
 	index += 4;
-	
+
 	last_wcmdq = wcmdq_tail;
 	q = wcmdq[wcmdq_tail];
 	if(which & 0x100)
@@ -280,7 +282,7 @@ static void DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_m
 	index = LookupSound(ph1,ph2,which & 0xff,&match_level);
 	if((index & 0x800000) == 0)
 		return;             // not wavefile data
-	
+
 	DoSample2(index,which,length_mod);
 	last_frame = NULL;
 }  // end of Synthesize::DoSample
@@ -297,7 +299,7 @@ static frame_t *AllocFrame()
 #define N_FRAME_POOL  N_WCMDQ
 	static int ix=0;
 	static frame_t frame_pool[N_FRAME_POOL];
-	
+
 	ix++;
 	if(ix >= N_FRAME_POOL)
 		ix = 0;
@@ -310,28 +312,38 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 // Each frame includes its RMS amplitude value, so to set a new
 // RMS just adjust the formant amplitudes by the appropriate ratio
 
-	double x;
-	double h;
+	int x;
+	int h;
 	int ix;
-	
+	static const short sqrt_tab[100] = {
+     0, 64, 90,110,128,143,156,169,181,192,202,212,221,230,239,247,
+   256,263,271,278,286,293,300,306,313,320,326,332,338,344,350,356,
+   362,367,373,378,384,389,394,399,404,409,414,419,424,429,434,438,
+   443,448,452,457,461,465,470,474,478,483,487,491,495,499,503,507,
+   512,515,519,523,527,531,535,539,543,546,550,554,557,561,565,568,
+   572,576,579,583,586,590,593,596,600,603,607,610,613,617,620,623,
+   627,630,633,636 };
+
 	if(fr->rms == 0) return;    // check for divide by zero
-	x = double(new_rms);
-	x = sqrt(x / fr->rms);
-	
+	x = (new_rms * 64)/fr->rms;
+	if(x >= 100) x = 99;
+
+	x = sqrt_tab[x];   // sqrt(new_rms/fr->rms)*0x200;
+
 	for(ix=0; ix<9; ix++)
 	{
-		h = (double)fr->peaks[ix].pkheight;
-		fr->peaks[ix].pkheight = int(h * x);
+		h = fr->peaks[ix].pkheight * x;
+		fr->peaks[ix].pkheight = h/0x200;
 	}
 }   /* end of set_frame_rms */
 
 
 static void formants_reduce_hf(frame_t *fr, int level)
 {//====================================================
-//  change height of peaks 2 to 8 to level/128 
+//  change height of peaks 2 to 8 to level/128
 	int  ix;
 	int  x;
-	
+
 	for(ix=2; ix<9; ix++)
 	{
 		x = fr->peaks[ix].pkheight * level;
@@ -344,10 +356,10 @@ static frame_t *CopyFrame(frame_t *frame1)
 {//=======================================
 //  create a copy of the specified frame in temporary buffer
 	frame_t *frame2;
-	
+
 	frame2 = AllocFrame();
 	if(frame2 != NULL)
-	{	
+	{
 		memcpy(frame2,frame1,sizeof(frame_t));
 		frame2->length = 0;
 	}
@@ -370,7 +382,7 @@ static frame_t *DuplicateLastFrame(frameref_t *seq, int n_frames, int length)
 static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj, int f3_adj, int hf_reduce)
 {//=========================================================================================================
 	int x;
-	
+
 	x = (target - fr->peaks[2].pkfreq) / 2;
 	if(x > max) x = max;
 	if(x < min) x = min;
@@ -378,7 +390,7 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 	fr->peaks[3].pkfreq += f3_adj;
 	fr->peaks[4].pkfreq += f3_adj;
 	fr->peaks[5].pkfreq += f3_adj;
-	
+
 	if(f1_adj)
 	{
 		x = (235 - fr->peaks[1].pkfreq);
@@ -398,15 +410,15 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 
 // Note: It would be better for this function to look at the adacent phoneme's properties
 // (type and place of articulation) rather than its mnemonic
-	
+
 	unsigned int  ph_name;
 	frame_t *fr;
-	
+
 	if(n_frames < 2)
 		return;
 
 	ph_name = other_ph->mnemonic;
-	
+
 	if(which == 1)
 	{
 		/* entry to vowel */
@@ -495,7 +507,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			AdjustFormants(fr,1000,-500,-300,0,-300,80);
 			set_frame_rms(fr,RMS1);
 			break;
-			
+
 		case 'p':
 		case 'f':
 		case 'm':
@@ -503,7 +515,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			AdjustFormants(fr,1000,-500,-300,0,-300,100);
 			set_frame_rms(fr,RMS2);
 			break;
-			
+
 		case 'D':
 		case 'z':
 			fr = DuplicateLastFrame(seq,n_frames++,50);
@@ -535,7 +547,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 		case 'g':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
 			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
-			
+
 			AdjustFormants(fr,2300,300,400,1,100,100);
 			set_frame_rms(fr,RMS1);
 			break;
@@ -543,23 +555,23 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 		case 'b':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
 			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
-			
+
 			AdjustFormants(fr,1000,-500,-300,1,-300,100);
 			set_frame_rms(fr,RMS1);
 			break;
-			
+
 		case 'd':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
 			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
-			
+
 			AdjustFormants(fr,1700,-300,300,1,-100,100);
 			set_frame_rms(fr,RMS1);
 			break;
-			
+
 		}
 		if(other_ph->type == phNASAL)
 		{
-			// duplicate last frame to prevent merging to next sequence 
+			// duplicate last frame to prevent merging to next sequence
 			DuplicateLastFrame(seq,n_frames++,0);
 		}
 	}
@@ -607,9 +619,9 @@ static void SmoothSpect(void)
 			break;
 
 		if(q[0] == WCMD_SPECT || q[0] == WCMD_SPECT2)
-		{	
+		{
 			len = q[1] & 0xffff;
-	
+
 			frame1 = (frame_t *)(q[3]-4);
 			if(frame1 == frame)
 			{
@@ -618,7 +630,7 @@ static void SmoothSpect(void)
 			}
 			else
 				break;  // doesn't follow on from previous frame
-	
+
 			frame = frame2 = (frame_t *)(q[2]-4);
 			modified = 0;
 
@@ -627,8 +639,8 @@ static void SmoothSpect(void)
 
 			for(pk=0; pk<6; pk++)
 			{
-				allowed = int(formant_rate[pk] * len);
-		
+				allowed = (formant_rate[pk] * len)/256;
+
 				diff = frame->peaks[pk].pkfreq - frame1->peaks[pk].pkfreq;
 				if(diff > allowed)
 				{
@@ -672,9 +684,9 @@ static void SmoothSpect(void)
 
 		if(q[0] == WCMD_SPECT || q[0] == WCMD_SPECT2)
 		{
-	
+
 			len = q[1] & 0xffff;
-	
+
 			frame1 = (frame_t *)(q[2]-4);
 			if(frame != NULL)
 			{
@@ -686,7 +698,7 @@ static void SmoothSpect(void)
 				else
 					break;  // doesn't follow on from previous frame
 			}
-	
+
 			frame = frame2 = (frame_t *)(q[3]-4);
 			modified = 0;
 
@@ -695,8 +707,8 @@ static void SmoothSpect(void)
 
 			for(pk=0; pk<6; pk++)
 			{
-				allowed = int(formant_rate[pk] * len);
-		
+				allowed = (formant_rate[pk] * len)/256;
+
 				diff = frame->peaks[pk].pkfreq - frame1->peaks[pk].pkfreq;
 				if(diff > allowed)
 				{
@@ -757,8 +769,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 	int  frame_length;
 	int  frame1_length;
 	int  frame2_length;
-	float xlength;
-	float length_factor;
+	int  length_factor;
 	static int wave_flag = 0;
 	int wcmd_spect = WCMD_SPECT;
 
@@ -801,7 +812,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 			}
 		}
 	}
-	
+
 	if((this_ph->type == phVOWEL) && (which == 2))
 	{
 		SmoothSpect();    // process previous syllable
@@ -815,7 +826,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 	{
 		frame2 = frames[frameix].frame;
 		frame2_length = frames[frameix].length;
-		
+
 		if(wavefile_ix != 0)
 		{
 			// there is a wave file to play along with this synthesis
@@ -823,27 +834,27 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 			wave_flag = 1;
 			wavefile_ix = 0;
 		}
- 
-		length_factor = float(length_mod)/256;
+
+		length_factor = length_mod;
 		if(frame1->flags & FRFLAG_LEN_MOD)     // reduce effect of length mod
 		{
-			length_factor = float(length_mod + 256)/512;
+			length_factor = (length_mod + 256)/2;
 		}
 		if(frame1->flags & FRFLAG_MODULATE)
 		{
 			modulation = 0x10;
 		}
-		xlength = (frame_length * samplerate * length_factor)/1000;
+		len = (frame_length * samplerate)/1000;
+		len = (len * length_factor)/256;
 
 #ifdef deleted
 if((which==2) && (other_ph->mnemonic == 'R'))
 {
 	// try this: lengthen last (modulated) frame of vowel before [R]
-	if(frameix == n_frames-1) 
-		xlength = xlength + (1200 * speed_factor2)/256;
+	if(frameix == n_frames-1)
+		len = len + (1200 * speed_factor2)/256;
 }
 #endif
-		len = int(xlength);
 		pitch_length += len;
 		amp_length += len;
 
@@ -907,7 +918,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 		syllable_end = wcmdq_tail;
 		syllable_centre = -1;
 	}
-	
+
 	while(ix<n_phoneme_list)
 	{
 		if(WcmdqFree() <= MIN_WCMDQ)
@@ -938,13 +949,13 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 
 		if(p->prepause > 0)
 			DoPause(p->prepause);
-			
+
 		switch(p->type)
 		{
 		case phPAUSE:
 			DoPause(p->length);
 			break;
-			
+
 		case phSTOP:
 			released = 0;
 			if(next->type==phVOWEL) released = 1;
@@ -955,7 +966,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			else
 				DoSample(p->ph,&phoneme_tab[phonPAUSE],2,0);
 			break;
-			
+
 		case phFRICATIVE:
 			DoSample(p->ph,next->ph,2,p->length);
 			break;
@@ -1108,7 +1119,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 				pitch_env = LookupEnvelope(phoneme_tab[p->tone_ph].spect);
 				amp_env = LookupEnvelope(phoneme_tab[p->tone_ph].after);
 			}
-			
+
 			StartSyllable();
 
 			modulation = 0;
@@ -1122,7 +1133,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			{
 				DoAmplitude(p->amp,amp_env);
 				DoPitch(pitch_env,p->pitch1,p->pitch2);  // don't use prevocalic rising tone
-				DoSpect(ph,prev->ph,1,p->length,stress,modulation); 
+				DoSpect(ph,prev->ph,1,p->length,stress,modulation);
 #ifdef LOG_SYNTH
 	LogPitch(p);
 #endif
@@ -1147,7 +1158,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 
 				DoSpect(ph,prev->ph,1,p->length,stress,modulation);
 			}
-			
+
 			DoSpect(p->ph,next->ph,2,p->length,stress,modulation);
 			break;
 		}
@@ -1162,7 +1173,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 void MakeWave2(PHONEME_LIST *p, int n_ph)
 {//======================================
 	int result;
-	
+
 	OpenWaveFile(tempwav, samplerate);
 
 	Generate(p,0);
@@ -1174,7 +1185,7 @@ void MakeWave2(PHONEME_LIST *p, int n_ph)
 			break;
 		Generate(p,1);
 	}
-	
+
 	CloseWaveFile(samplerate);
 	PlayWavFile(tempwav);
 
@@ -1188,7 +1199,7 @@ int paused = 0;
 
 int SynthOnTimer()
 {//===============
-	
+
 	if(!timer_on)
 	{
 		return(WavegenCloseSound());
@@ -1196,7 +1207,7 @@ int SynthOnTimer()
 
 	if(Generate(phoneme_list,1)==0)
 		SpeakNextClause(NULL,NULL,1);
-		
+
 	return(0);
 }
 
@@ -1289,7 +1300,7 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 		p_text = NULL;
 		return(0);
 	}
-	
+
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
 	p_text = translator->TranslateClause(f_text,p_text,&clause_tone);

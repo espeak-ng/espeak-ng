@@ -27,6 +27,7 @@
 #include <stdlib.h>
 #include <math.h>
 
+
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
@@ -51,6 +52,7 @@ FILE *f_log = NULL;
 int option_amplitude = 60;
 int option_waveout = 0;
 int option_harmonic1 = 11;   // 10
+int option_flutter = 64;
 
 int general_amplitude = 60;
 int consonant_amp = 26;   // 24
@@ -169,56 +171,56 @@ unsigned char Pitch_long[ENV_LEN] = {
 #define N_FLUTTER  0x170
 int Flutter_inc;
 const unsigned char Flutter_tab[N_FLUTTER] = {
-   0x80, 0x9b, 0xb5, 0xcb, 0xdc, 0xe8, 0xed, 0xec, 
-   0xe6, 0xdc, 0xce, 0xbf, 0xb0, 0xa3, 0x98, 0x90, 
-   0x8c, 0x8b, 0x8c, 0x8f, 0x92, 0x94, 0x95, 0x92, 
-   0x8c, 0x83, 0x78, 0x69, 0x59, 0x49, 0x3c, 0x31, 
-   0x2a, 0x29, 0x2d, 0x36, 0x44, 0x56, 0x69, 0x7d, 
-   0x8f, 0x9f, 0xaa, 0xb1, 0xb2, 0xad, 0xa4, 0x96, 
-   0x87, 0x78, 0x69, 0x5c, 0x53, 0x4f, 0x4f, 0x55, 
-   0x5e, 0x6b, 0x7a, 0x88, 0x96, 0xa2, 0xab, 0xb0, 
+   0x80, 0x9b, 0xb5, 0xcb, 0xdc, 0xe8, 0xed, 0xec,
+   0xe6, 0xdc, 0xce, 0xbf, 0xb0, 0xa3, 0x98, 0x90,
+   0x8c, 0x8b, 0x8c, 0x8f, 0x92, 0x94, 0x95, 0x92,
+   0x8c, 0x83, 0x78, 0x69, 0x59, 0x49, 0x3c, 0x31,
+   0x2a, 0x29, 0x2d, 0x36, 0x44, 0x56, 0x69, 0x7d,
+   0x8f, 0x9f, 0xaa, 0xb1, 0xb2, 0xad, 0xa4, 0x96,
+   0x87, 0x78, 0x69, 0x5c, 0x53, 0x4f, 0x4f, 0x55,
+   0x5e, 0x6b, 0x7a, 0x88, 0x96, 0xa2, 0xab, 0xb0,
 
-   0xb1, 0xae, 0xa8, 0xa0, 0x98, 0x91, 0x8b, 0x88, 
-   0x89, 0x8d, 0x94, 0x9d, 0xa8, 0xb2, 0xbb, 0xc0, 
-   0xc1, 0xbd, 0xb4, 0xa5, 0x92, 0x7c, 0x63, 0x4a, 
-   0x32, 0x1e, 0x0e, 0x05, 0x02, 0x05, 0x0f, 0x1e, 
-   0x30, 0x44, 0x59, 0x6d, 0x7f, 0x8c, 0x96, 0x9c, 
-   0x9f, 0x9f, 0x9d, 0x9b, 0x99, 0x99, 0x9c, 0xa1, 
-   0xa9, 0xb3, 0xbf, 0xca, 0xd5, 0xdc, 0xe0, 0xde, 
-   0xd8, 0xcc, 0xbb, 0xa6, 0x8f, 0x77, 0x60, 0x4b, 
+   0xb1, 0xae, 0xa8, 0xa0, 0x98, 0x91, 0x8b, 0x88,
+   0x89, 0x8d, 0x94, 0x9d, 0xa8, 0xb2, 0xbb, 0xc0,
+   0xc1, 0xbd, 0xb4, 0xa5, 0x92, 0x7c, 0x63, 0x4a,
+   0x32, 0x1e, 0x0e, 0x05, 0x02, 0x05, 0x0f, 0x1e,
+   0x30, 0x44, 0x59, 0x6d, 0x7f, 0x8c, 0x96, 0x9c,
+   0x9f, 0x9f, 0x9d, 0x9b, 0x99, 0x99, 0x9c, 0xa1,
+   0xa9, 0xb3, 0xbf, 0xca, 0xd5, 0xdc, 0xe0, 0xde,
+   0xd8, 0xcc, 0xbb, 0xa6, 0x8f, 0x77, 0x60, 0x4b,
 
-   0x3a, 0x2e, 0x28, 0x29, 0x2f, 0x3a, 0x48, 0x59, 
-   0x6a, 0x7a, 0x86, 0x90, 0x94, 0x95, 0x91, 0x89, 
-   0x80, 0x75, 0x6b, 0x62, 0x5c, 0x5a, 0x5c, 0x61, 
-   0x69, 0x74, 0x80, 0x8a, 0x94, 0x9a, 0x9e, 0x9d, 
-   0x98, 0x90, 0x86, 0x7c, 0x71, 0x68, 0x62, 0x60, 
-   0x63, 0x6b, 0x78, 0x88, 0x9b, 0xaf, 0xc2, 0xd2, 
-   0xdf, 0xe6, 0xe7, 0xe2, 0xd7, 0xc6, 0xb2, 0x9c, 
-   0x84, 0x6f, 0x5b, 0x4b, 0x40, 0x39, 0x37, 0x38, 
+   0x3a, 0x2e, 0x28, 0x29, 0x2f, 0x3a, 0x48, 0x59,
+   0x6a, 0x7a, 0x86, 0x90, 0x94, 0x95, 0x91, 0x89,
+   0x80, 0x75, 0x6b, 0x62, 0x5c, 0x5a, 0x5c, 0x61,
+   0x69, 0x74, 0x80, 0x8a, 0x94, 0x9a, 0x9e, 0x9d,
+   0x98, 0x90, 0x86, 0x7c, 0x71, 0x68, 0x62, 0x60,
+   0x63, 0x6b, 0x78, 0x88, 0x9b, 0xaf, 0xc2, 0xd2,
+   0xdf, 0xe6, 0xe7, 0xe2, 0xd7, 0xc6, 0xb2, 0x9c,
+   0x84, 0x6f, 0x5b, 0x4b, 0x40, 0x39, 0x37, 0x38,
 
-   0x3d, 0x43, 0x4a, 0x50, 0x54, 0x56, 0x55, 0x52, 
-   0x4d, 0x48, 0x42, 0x3f, 0x3e, 0x41, 0x49, 0x56, 
-   0x67, 0x7c, 0x93, 0xab, 0xc3, 0xd9, 0xea, 0xf6, 
-   0xfc, 0xfb, 0xf4, 0xe7, 0xd5, 0xc0, 0xaa, 0x94, 
-   0x80, 0x71, 0x64, 0x5d, 0x5a, 0x5c, 0x61, 0x68, 
-   0x70, 0x77, 0x7d, 0x7f, 0x7f, 0x7b, 0x74, 0x6b, 
-   0x61, 0x57, 0x4e, 0x48, 0x46, 0x48, 0x4e, 0x59, 
-   0x66, 0x75, 0x84, 0x93, 0x9f, 0xa7, 0xab, 0xaa, 
+   0x3d, 0x43, 0x4a, 0x50, 0x54, 0x56, 0x55, 0x52,
+   0x4d, 0x48, 0x42, 0x3f, 0x3e, 0x41, 0x49, 0x56,
+   0x67, 0x7c, 0x93, 0xab, 0xc3, 0xd9, 0xea, 0xf6,
+   0xfc, 0xfb, 0xf4, 0xe7, 0xd5, 0xc0, 0xaa, 0x94,
+   0x80, 0x71, 0x64, 0x5d, 0x5a, 0x5c, 0x61, 0x68,
+   0x70, 0x77, 0x7d, 0x7f, 0x7f, 0x7b, 0x74, 0x6b,
+   0x61, 0x57, 0x4e, 0x48, 0x46, 0x48, 0x4e, 0x59,
+   0x66, 0x75, 0x84, 0x93, 0x9f, 0xa7, 0xab, 0xaa,
 
-   0xa4, 0x99, 0x8b, 0x7b, 0x6a, 0x5b, 0x4e, 0x46, 
-   0x43, 0x45, 0x4d, 0x5a, 0x6b, 0x7f, 0x92, 0xa6, 
-   0xb8, 0xc5, 0xcf, 0xd3, 0xd2, 0xcd, 0xc4, 0xb9, 
-   0xad, 0xa1, 0x96, 0x8e, 0x89, 0x87, 0x87, 0x8a, 
-   0x8d, 0x91, 0x92, 0x91, 0x8c, 0x84, 0x78, 0x68, 
-   0x55, 0x41, 0x2e, 0x1c, 0x0e, 0x05, 0x01, 0x05, 
-   0x0f, 0x1f, 0x34, 0x4d, 0x68, 0x81, 0x9a, 0xb0, 
-   0xc1, 0xcd, 0xd3, 0xd3, 0xd0, 0xc8, 0xbf, 0xb5, 
+   0xa4, 0x99, 0x8b, 0x7b, 0x6a, 0x5b, 0x4e, 0x46,
+   0x43, 0x45, 0x4d, 0x5a, 0x6b, 0x7f, 0x92, 0xa6,
+   0xb8, 0xc5, 0xcf, 0xd3, 0xd2, 0xcd, 0xc4, 0xb9,
+   0xad, 0xa1, 0x96, 0x8e, 0x89, 0x87, 0x87, 0x8a,
+   0x8d, 0x91, 0x92, 0x91, 0x8c, 0x84, 0x78, 0x68,
+   0x55, 0x41, 0x2e, 0x1c, 0x0e, 0x05, 0x01, 0x05,
+   0x0f, 0x1f, 0x34, 0x4d, 0x68, 0x81, 0x9a, 0xb0,
+   0xc1, 0xcd, 0xd3, 0xd3, 0xd0, 0xc8, 0xbf, 0xb5,
 
-   0xab, 0xa4, 0x9f, 0x9c, 0x9d, 0xa0, 0xa5, 0xaa, 
-   0xae, 0xb1, 0xb0, 0xab, 0xa3, 0x96, 0x87, 0x76, 
-   0x63, 0x51, 0x42, 0x36, 0x2f, 0x2d, 0x31, 0x3a, 
-   0x48, 0x59, 0x6b, 0x7e, 0x8e, 0x9c, 0xa6, 0xaa, 
-   0xa9, 0xa3, 0x98, 0x8a, 0x7b, 0x6c, 0x5d, 0x52, 
+   0xab, 0xa4, 0x9f, 0x9c, 0x9d, 0xa0, 0xa5, 0xaa,
+   0xae, 0xb1, 0xb0, 0xab, 0xa3, 0x96, 0x87, 0x76,
+   0x63, 0x51, 0x42, 0x36, 0x2f, 0x2d, 0x31, 0x3a,
+   0x48, 0x59, 0x6b, 0x7e, 0x8e, 0x9c, 0xa6, 0xaa,
+   0xa9, 0xa3, 0x98, 0x8a, 0x7b, 0x6c, 0x5d, 0x52,
    0x4a, 0x48, 0x4a, 0x50, 0x5a, 0x67, 0x75, 0x82
 };
 
@@ -226,8 +228,43 @@ const unsigned char Flutter_tab[N_FLUTTER] = {
 #define N_WAVEMULT 512
 int wavemult_offset=0;
 int wavemult_max=0;
-unsigned char wavemult[N_WAVEMULT];
 
+// the presets are for 22050 Hz sample rate.
+// A different rate will need to recalculate the presets in WavegenInit()
+unsigned char wavemult[N_WAVEMULT] = {
+  0,  0,  0,  2,  3,  5,  8, 11, 14, 18, 22, 27, 32, 37, 43, 49,
+    55, 62, 69, 76, 83, 90, 98,105,113,121,128,136,144,152,159,166,
+   174,181,188,194,201,207,213,218,224,228,233,237,240,244,246,249,
+   251,252,253,253,253,253,252,251,249,246,244,240,237,233,228,224,
+   218,213,207,201,194,188,181,174,166,159,152,144,136,128,121,113,
+   105, 98, 90, 83, 76, 69, 62, 55, 49, 43, 37, 32, 27, 22, 18, 14,
+    11,  8,  5,  3,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 };
+   
 int WavegenFill(void);
 
 
@@ -274,21 +311,63 @@ int WgenSourceIndex(int reset)
 }
 
 
-// data points from which to make the pk_shape
-#define PEAKSHAPEW 256
 
+
+// data points from which to make the presets for pk_shape1 and pk_shape2
+#define PEAKSHAPEW 256
 static float pk_shape_x[2][8] = {
 	{0,-0.6, 0.0, 0.6, 1.4, 2.5, 4.5, 5.5},
 	{0,-0.6, 0.0, 0.6, 1.4, 2.0, 4.5, 5.5 }};
 static float pk_shape_y[2][8] = {
 	{0,  67,  81,  67,  31,  14,   0,  -6} ,
-	{0,  77,  81,  77,  31,   6,   0,  -6 }};
-unsigned char pk_shape1[PEAKSHAPEW+1];
-unsigned char pk_shape2[PEAKSHAPEW+1];
+	{0,  77,  81,  77,  31,   7,   0,  -6 }};
+
+unsigned char pk_shape1[PEAKSHAPEW+1] = {
+   255,254,254,254,254,254,253,253,252,251,251,250,249,248,247,246,
+   245,244,242,241,239,238,236,234,233,231,229,227,225,223,220,218,
+   216,213,211,209,207,205,203,201,199,197,195,193,191,189,187,185,
+   183,180,178,176,173,171,169,166,164,161,159,156,154,151,148,146,
+   143,140,138,135,132,129,126,123,120,118,115,112,108,105,102, 99,
+    96, 95, 93, 91, 90, 88, 86, 85, 83, 82, 80, 79, 77, 76, 74, 73,
+    72, 70, 69, 68, 67, 66, 64, 63, 62, 61, 60, 59, 58, 57, 56, 55,
+    55, 54, 53, 52, 52, 51, 50, 50, 49, 48, 48, 47, 47, 46, 46, 46,
+    45, 45, 45, 44, 44, 44, 44, 44, 44, 44, 43, 43, 43, 43, 44, 43,
+    42, 42, 41, 40, 40, 39, 38, 38, 37, 36, 36, 35, 35, 34, 33, 33,
+    32, 32, 31, 30, 30, 29, 29, 28, 28, 27, 26, 26, 25, 25, 24, 24,
+    23, 23, 22, 22, 21, 21, 20, 20, 19, 19, 18, 18, 18, 17, 17, 16,
+    16, 15, 15, 15, 14, 14, 13, 13, 13, 12, 12, 11, 11, 11, 10, 10,
+    10,  9,  9,  9,  8,  8,  8,  7,  7,  7,  7,  6,  6,  6,  5,  5,
+     5,  5,  4,  4,  4,  4,  4,  3,  3,  3,  3,  2,  2,  2,  2,  2,
+     2,  1,  1,  1,  1,  1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0 };
+
+unsigned char pk_shape2[PEAKSHAPEW+1] = {
+   255,254,254,254,254,254,254,254,254,254,253,253,253,253,252,252,
+   252,251,251,251,250,250,249,249,248,248,247,247,246,245,245,244,
+   243,243,242,241,239,237,235,233,231,229,227,225,223,221,218,216,
+   213,211,208,205,203,200,197,194,191,187,184,181,178,174,171,167,
+   163,160,156,152,148,144,140,136,132,127,123,119,114,110,105,100,
+    96, 94, 91, 88, 86, 83, 81, 78, 76, 74, 71, 69, 66, 64, 62, 60,
+    57, 55, 53, 51, 49, 47, 44, 42, 40, 38, 36, 34, 32, 30, 29, 27,
+    25, 23, 21, 19, 18, 16, 14, 12, 11,  9,  7,  6,  4,  3,  1,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
+     0 };
+
 unsigned char *pk_shape;
+
+
 
 void WavegenInitPkData(int which)
 {//==============================
+// this is only needed to set up the presets for pk_shape1 and pk_shape2
+#ifdef deleted
 	int ix;
 	int p;
 	float x;
@@ -314,7 +393,7 @@ void WavegenInitPkData(int which)
       pk_shape[ix] = (p >= 0) ? p : 0;
 	}
 	pk_shape[PEAKSHAPEW]=0;
-
+#endif
 }  //  end of WavegenInitPkData
 
 
@@ -336,10 +415,10 @@ int WaveCallback(void *inputBuffer, void *outputBuffer,
 	callback_ix++;
 	if(callback_ix >= N_CALLBACK_IX)
 		callback_ix = 0;
-	
+
 	out_ptr = (unsigned char *)outputBuffer;
 	out_end = out_ptr + framesPerBuffer*2;
-	
+
 	ix = WavegenFill();
 	return(ix);
 }  //  end of WaveCallBack
@@ -371,7 +450,7 @@ int WavegenOpenSound()
 	{
 		return(2);
 	}
-		
+
 	return(0);
 }
 
@@ -452,15 +531,19 @@ void WavegenInit(int rate, int wavemult_fact)
 	// single peak for HF peaks
 	wavemult_max = (samplerate * wavemult_fact)/(256 * 50);
 	if(wavemult_max > N_WAVEMULT) wavemult_max = N_WAVEMULT;
-	
+
 	wavemult_offset = wavemult_max/2;
 
-	for(ix=0; ix<wavemult_max; ix++)
+	if(samplerate != 22050)
 	{
-		x = 127*(1.0 - cos(PI2*ix/wavemult_max));
-		wavemult[ix] = (int)x;
+		// wavemult table has preset values for 22050 Hz, we only need to
+		// recalculate them if we have a different sample rate
+		for(ix=0; ix<wavemult_max; ix++)
+		{
+			x = 127*(1.0 - cos(PI2*ix/wavemult_max));
+			wavemult[ix] = (int)x;
+		}
 	}
-
 	// adjustment of harmonic amplitudes, steps of 8Hz
 	// value of 128 means no change
 	for(ix=0; ix<N_TONE_ADJUST; ix++)
@@ -474,7 +557,7 @@ void WavegenInit(int rate, int wavemult_fact)
 			x = 128;
 		tone_adjust[ix] = int(x);
 	}
-  
+
 	WavegenInitPkData(1);
 	WavegenInitPkData(0);
 	pk_shape = pk_shape2;
@@ -508,7 +591,7 @@ float polint(float xa[],float ya[],int n,float x)
 			w=c[i+1]-d[i];
 			if((den=ho-hp) == 0.0)
 			{
-//				wxLogError(_T("Error in routine 'polint'"));
+//				fprintf(stderr,"Error in routine 'polint'");
 				return(ya[2]);  // two input xa are identical
 			}
 			den=w/den;
@@ -519,19 +602,6 @@ float polint(float xa[],float ya[],int n,float x)
 	}
 	return(y);
 }  // end of polint
-
-
-#ifdef deleted
-void log_params()
-{//==============
-if(f_log != NULL)
-{
-	fprintf(f_log,"%2d %5d: %4d %5.1f %5d %3.0f %5d %5.1f %5d %3.0f\n",amplitude,samplecount,
-	peaks[1].freq>>16,(float)peaks[1].freq_inc/0x10000,peaks[1].height>>8,peaks[1].height_inc/256,
-	peaks[2].freq>>16,(float)peaks[2].freq_inc/0x10000,peaks[2].height>>8,peaks[2].height_inc/256);
-}
-}
-#endif
 
 
 
@@ -568,10 +638,10 @@ int HarmToHarmspect(int pitch, int *htab)
 	float xa[4];
 	float y;
 	int  y1;
-	
+
 	pitch_source = int(harm_sqrt_pitch * 65536);    // pitch << 16
 	pitch_max = pitch_source * harm_sqrt_n;
-	
+
 	for(fq = pitch, h=1; fq<pitch_max; fq += pitch, h++)
 	{
 		ix = int(fq / pitch_source + 0.5);   // nearest harmonic
@@ -599,10 +669,10 @@ void SetSynthHtab(int length_mS, USHORT *ht1, int nh1, float dx1, USHORT *ht2, i
 	int length;
 	int length2;
 	float harm_sqrt2[600];
-	
-	
+
+
 	length = (length_mS * samplerate)/1000;
-	
+
 	for(ix=0; ix<nh1 && ix<600; ix++)
 	{
 		harm_sqrt[ix] = ht1[ix];
@@ -613,12 +683,12 @@ void SetSynthHtab(int length_mS, USHORT *ht1, int nh1, float dx1, USHORT *ht2, i
 	}
 	harm_sqrt_pitch = dx1;
 	harm_sqrt_n = nh1;
-	
+
 	if(dx1 != dx2)
 	{
 		// convert the harmonic tables to the same pitch
 	}
-	
+
 	for(ix=0; ix<nh1; ix++)
 	{
 		if(nh1 <= nh2)
@@ -626,7 +696,7 @@ void SetSynthHtab(int length_mS, USHORT *ht1, int nh1, float dx1, USHORT *ht2, i
 		else
 			harm_sqrt_inc[ix] = 0;
 	}
-	
+
 	// round the length to a multiple of the stepsize
 	length2 = (length + STEPSIZE/2) & ~0x3f;
 	if(length2 == 0)
@@ -687,7 +757,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab)
 		fhi = p->freq + p->right;
 		h = ((p->freq - p->left) / pitch) + 1;
 		if(h <= 0) h = 1;
-		
+
 		for(f=pitch*h; f < fp; f+=pitch)
 		{
 			htab[h++] += pk_shape[(fp-f)/(p->left>>8)] * p->height;
@@ -732,7 +802,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab)
 			harm_inc[h] = (htab[h] - harmspect[h]) >> 3;
 		}
 	}
-	
+
 	return(hmax);  // highest harmonic number
 }  // end of PeaksToHarmspect
 
@@ -745,27 +815,26 @@ static void AdvanceParameters()
 	int x;
 	int ix;
 	static int Flutter_ix = 0;
-	static int FlutterAmp = 64;
-	
+
 	// advance the pitch
 	pitch_ix += pitch_inc;
 	if((ix = pitch_ix>>8) > 127) ix = 127;
 	x = pitch_env[ix] * pitch_range;
 	pitch = (x>>8) + pitch_base;
-	
+
 	amp_ix += amp_inc;
 
 	/* add pitch flutter */
 	if(Flutter_ix >= (N_FLUTTER*64))
 		Flutter_ix = 0;
-	x = ((int)(Flutter_tab[Flutter_ix >> 6])-0x80) * FlutterAmp;
+	x = ((int)(Flutter_tab[Flutter_ix >> 6])-0x80) * option_flutter;
 	Flutter_ix += Flutter_inc;
 	pitch += x;
 
 
 	if(samplecount == samplecount_start)
 		return;
-		
+
 	for(ix=0; ix<n_peaks1; ix++)
 	{
 		peaks[ix].freq1 += peaks[ix].freq_inc;
@@ -839,7 +908,7 @@ static int Wavegen()
 			}
 			else
 				AdvanceParameters();
-				
+
 // log_params();
 			// pitch is Hz<<12
 			phaseinc = (pitch>>7) * PHASE_INC_FACTOR;
@@ -850,18 +919,18 @@ static int Wavegen()
 			harmspect = hspect[hswitch];
 			hswitch ^= 1;
 			maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[hswitch]);
-			
+
 		}
 		else
 		if((samplecount & 0x07) == 0)
 		{
 			for(h=1; h<N_LOWHARM && h<maxh2; h++)
 				harmspect[h] += harm_inc[h];
-				
+
 			// bring automctic gain control back towards unity
 			if(agc < 256) agc++;
 		}
-		
+
 		samplecount++;
 
 		if(wavephase > 0)
@@ -881,6 +950,7 @@ static int Wavegen()
 
 				if(amplitude_env != NULL)
 				{
+					// amplitude envelope is only used for creaky voice effect on certain vowels/tones
 					if((ix = amp_ix>>8) > 127) ix = 127;
 					amp = amplitude_env[ix];
 					amplitude2 = (amplitude2 * amp)/255;
@@ -906,12 +976,6 @@ static int Wavegen()
 		}
 		else
 		{
-#ifdef test2
-if(cycle_count & 1)
-	wavephase += 100000;
-else
-	wavephase -= 100000;
-#endif
 			wavephase += phaseinc;
 		}
 		waveph = (unsigned short)(wavephase >> 16);
@@ -929,13 +993,16 @@ else
 				theta = peak_harmonic[pk] * waveph;
 				total += (long)sin_tab[theta >> 5] * peak_height[pk];
 			}
-			
+
 			// spread the peaks by multiplying by a window
 			total = (long)(total / hf_factor) * wavemult[cbytes];
 		}
 
-
 		// apply main peaks, formants 0 to 5
+#ifdef USE_ASSEMBLER_1
+		// use an optimised routine for this loop, if available
+		total += AddSineWaves(waveph, h_switch_sign, maxh, harmspect);  // call an assembler code routine
+#else
 		theta = waveph;
 
 		for(h=1; h<=h_switch_sign; h++)
@@ -949,7 +1016,7 @@ else
 			theta += waveph;
 			h++;
 		}
-
+#endif
 		// mix with sampled wave if required
 		z2 = 0;
 		if(mix_wavefile_ix < n_mix_wavefile)
@@ -971,7 +1038,7 @@ else
 
 		z1 = z2 + (((total>>7) * amplitude2) >> 14);
 		z = (z1 * agc) >> 8;
-		
+
 		z += ((echo_buf[echo_tail++] * echo_amp) >> 8);
 		if(echo_tail >= N_ECHO_BUF)
 			echo_tail=0;
@@ -1011,10 +1078,10 @@ int PlaySilence(int length, int resume)
 
 	nsamples = 0;
 	samplecount = 0;
-	
+
 	if(resume==0)
 		n_samples = length;
-		
+
 	while(n_samples-- > 0)
 	{
 		value = (echo_buf[echo_tail++] * echo_amp) >> 8;
@@ -1043,16 +1110,16 @@ int PlayWave(int length, int resume, unsigned char *data, int scale)
 	static int ix=0;
 	int value;
 	signed char c;
-	
+
 	if(resume==0)
 	{
 		n_samples = length;
 		ix = 0;
 	}
-		
+
 	nsamples = 0;
 	samplecount = 0;
-	
+
 	while(n_samples-- > 0)
 	{
 		if(scale == 0)
@@ -1082,7 +1149,7 @@ int PlayWave(int length, int resume, unsigned char *data, int scale)
 		out_ptr[0] = value;
 		out_ptr[1] = value >> 8;
 		out_ptr+=2;
-		
+
 		echo_buf[echo_head++] = (value*3)/4;
 		if(echo_head >= N_ECHO_BUF)
 			echo_head = 0;
@@ -1114,7 +1181,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 {//==================================================================
 // length in samples
 	int x;
-	
+
 	if((pitch_env = env)==NULL)
 		pitch_env = Pitch_env0;  // default
 
@@ -1133,7 +1200,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 
 	pitch_base = voice->pitch_base + (pitch1 * voice->pitch_range);
 	pitch_range = voice->pitch_base + (pitch2 * voice->pitch_range) - pitch_base;
-	
+
 	// set initial pitch
 	pitch = ((pitch_env[0]*pitch_range)>>8) + pitch_base;   // Hz << 12
 
@@ -1155,9 +1222,10 @@ void PeaksZero(peak_t *sp, peak_t *zero)
 void SetSynth(int param1, peak_t *sp1, peak_t *sp2)
 {//================================================
 	int ix;
-	double next;
+	DOUBLEX next;
 	int length;
 	int length2;
+	int length4;
 	int qix;
 	int cmd;
 	voice_t *v;
@@ -1173,7 +1241,7 @@ void SetSynth(int param1, peak_t *sp1, peak_t *sp2)
 	{
 		if(qix >= N_WCMDQ) qix = 0;
 		if(qix == wcmdq_tail) break;
-		
+
 		cmd = wcmdq[qix][0];
 		if(cmd==WCMD_SPECT)
 		{
@@ -1195,23 +1263,14 @@ void SetSynth(int param1, peak_t *sp1, peak_t *sp2)
 	samplecount_start = samplecount;
 	nsamples += length2;
 
-#ifdef LOG_WGEN
-if(f_log != NULL)
-{
-	fprintf(f_log,"%c %3.1f mS  %3d/%3d, %4d/%3d,  to  %3d/%3d, %4d/%3d\n",
-		'A',(float(length)*1000.0)/samplerate,
-		sp1[1].pkfreq,sp1[1].pkheight/40, sp1[2].pkfreq,sp1[2].pkheight/40,
-		sp2[1].pkfreq,sp2[1].pkheight/40, sp2[2].pkfreq,sp2[2].pkheight/40);
-}
-#endif
-
+	length4 = length2/4;
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
 		peaks[ix].freq1 = (sp1[ix].pkfreq * v->freq[ix]) << 8;
 		peaks[ix].freq = int(peaks[ix].freq1);
 		next = (sp2[ix].pkfreq * v->freq[ix]) << 8;
-		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * STEPSIZE) / length2;
-			
+		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * (STEPSIZE/4)) / length4;  // lower headroom for fixed point math
+
 		peaks[ix].height1 = sp1[ix].pkheight * v->height[ix];
 		peaks[ix].height = int(peaks[ix].height1);
 		next = sp2[ix].pkheight * v->height[ix];
@@ -1223,7 +1282,7 @@ if(f_log != NULL)
 			peaks[ix].left = int(peaks[ix].left1);
 			next = (sp2[ix].pkwidth * v->width[ix]) << 8;
 			peaks[ix].left_inc =  ((next - peaks[ix].left1) * STEPSIZE) / length2;
-			
+
 			peaks[ix].right1 = (sp1[ix].pkright * v->width[ix]) << 8;
 			peaks[ix].right = int(peaks[ix].right1);
 			next = (sp2[ix].pkright * v->width[ix]) << 8;
@@ -1243,7 +1302,7 @@ int Wavegen2(int length, int resume, peak_t *sp1, peak_t *sp2)
 {//===========================================================
 	if(resume==0)
 		SetSynth(length,sp1,sp2);
-		
+
 	return(Wavegen());
 }
 
@@ -1372,24 +1431,24 @@ int WavegenFill()
 		result = 0;
 		q = wcmdq[wcmdq_head];
    	length = q[1];
-	
+
 		switch(q[0])
 		{
 		case WCMD_PITCH:
 			SetPitch(length,(unsigned char *)q[2],q[3] >> 16,q[3] & 0xffff);
 			break;
-	
+
 		case WCMD_PAUSE:
 			n_mix_wavefile = 0;
 			if(length==0) break;
 			result = PlaySilence(length,resume);
 			break;
-	
+
 		case WCMD_WAVE:
 			n_mix_wavefile = 0;
 			result = PlayWave(length,resume,(unsigned char*)q[2],q[3]);
 			break;
-	
+
 		case WCMD_WAVE2:
 			// wave file to be played at the same time as synthesis
 			mix_wave_scale = q[3];
@@ -1400,28 +1459,28 @@ int WavegenFill()
 			mix_wavefile_ix = 0;
 			mix_wavefile = (unsigned char *)q[2];
 			break;
-	
+
 		case WCMD_SPECT2:   // as WCMD_SPECT but stop any concurrent wave file
 			n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
 			result = Wavegen2(length,resume,(peak_t *)q[2],(peak_t *)q[3]);
 			break;
-	
+
 		case WCMD_MARKER:
 			if(q[1] == 1)
 			{
 				current_source_index = q[2];
 			}
 			break;
-	
+
 		case WCMD_AMPLITUDE:
 			SetAmplitude(length,(unsigned char *)q[2],q[3]);
 			break;
-	
+
 		case WCMD_VOICE:
 			break;
 		}
-	
+
 		if(result==0)
 		{
 			WcmdqIncHead();
@@ -1432,7 +1491,7 @@ int WavegenFill()
 			resume=1;
 		}
 	}
-	
+
 	return(0);
 }  // end of WavegenFill
 

@@ -30,7 +30,7 @@
 
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
-
+typedef double DOUBLEX;
 
 typedef struct {
    short pkfreq;

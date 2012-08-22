@@ -286,6 +286,8 @@ extern int option_waveout;
 extern int option_phonemes;
 extern int option_log_trans;      // log pronunciation translation
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
+extern int option_harmonic1;
+extern int option_flutter;
 
 extern Translator *translator;
 extern char dictionary_name[40];
