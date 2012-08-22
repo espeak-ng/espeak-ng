@@ -43,7 +43,7 @@ char path_home[120];
 char path_source[80] = "";
 char wavefile[120];
 
-const char *version = "Speak text-to-speech: 1.05  16.Feb.2006";
+const char *version = "Speak text-to-speech: 1.06  18.Feb.2006";
 
 const char *help_text =
 "-f <text file>\n"
@@ -317,9 +317,12 @@ int main (int argc, char **argv)
 		speaking = 1;
 		while(speaking)
 		{
+			// NOTE: if nanosleep() isn't recognised on your system, try replacing
+			// this by  sleep(1);
 			period.tv_sec = 0;
 			period.tv_nsec = 300000000;  // 0.3 sec
 			nanosleep(&period,&remaining);
+
 			if(synth->OnTimer() != 0)
 				speaking = 0;
 		}

@@ -21,8 +21,7 @@
 #define N_PEAKS   9
 #define N_MARKERS 7
 
-// not used for "speak" process
-// #define SPECT_EDITOR
+#define SPECT_EDITOR
 
 
 typedef unsigned short USHORT;

@@ -60,7 +60,12 @@ static const char *brackets = "()[]{}<>\"'`";
 Translator::Translator()
 {//=====================
 
-	strncpy(prev_locale,setlocale(LC_CTYPE, "german"),sizeof(prev_locale));
+	char *p;
+
+	// set locale to ensure 8 bit character set, for isalpha(), tolower() etc
+	prev_locale[0] = 0;
+	if((p = setlocale(LC_CTYPE,"german")) != NULL)
+		strncpy(prev_locale,p,sizeof(prev_locale));  // keep copy of previous locale
 
 	dict_condition=0;
 
@@ -106,7 +111,8 @@ Translator_Esperanto::Translator_Esperanto()
 
 Translator::~Translator(void)
 {//==========================
-	setlocale(LC_CTYPE,prev_locale);   // return locale to previous value
+	if(prev_locale[0] != 0)
+		setlocale(LC_CTYPE,prev_locale);   // return locale to previous value
 }
 
 
@@ -318,8 +324,8 @@ void Translator::MakePhonemeList(int post_pause)
 	max_stress = 0;
 	for(j=n_ph_list2-1; j>=0; j--)
 	{
-		if((ph_list2[j].tone & 0x7f) > max_stress)
-			max_stress = ph_list2[j].tone & 0x7f;
+		if((ph_list2[j].stress & 0x7f) > max_stress)
+			max_stress = ph_list2[j].stress & 0x7f;
 		if(ph_list2[j].sourceix != 0)
 			break;
 	}
@@ -328,12 +334,12 @@ void Translator::MakePhonemeList(int post_pause)
 		// the last word is unstressed, look for a previous word that can be stressed
 		while(--j >= 0)
 		{
-			if(ph_list2[j].tone & 0x80)  // dictionary flags indicated that this stress can be promoted
+			if(ph_list2[j].stress & 0x80)  // dictionary flags indicated that this stress can be promoted
 			{
-				ph_list2[j].tone = 4;   // promote to stressed
+				ph_list2[j].stress = 4;   // promote to stressed
 				break;
 			}
-			if((ph_list2[j].tone & 0x7f) >= 4)
+			if((ph_list2[j].stress & 0x7f) >= 4)
 			{
 				// found a stressed syllable, so stop looking
 				break;
@@ -386,7 +392,7 @@ void Translator::MakePhonemeList(int post_pause)
 		if(ph->type == phVOWEL)
 		{
 			// check for consecutive unstressed syllables
-			if(plist2->tone == 0)
+			if(plist2->stress == 0)
 			{
 				// an unstressed vowel
 				unstress_count++;
@@ -401,14 +407,14 @@ void Translator::MakePhonemeList(int post_pause)
 					}
 					else
 					{
-						plist2->tone = 1;    // change stress to 'diminished'
+						plist2->stress = 1;    // change stress to 'diminished'
 					}
 				}
 			}
 			else
 			{
 				unstress_count = 0;
-				if(plist2->tone > 3)
+				if(plist2->stress > 3)
 					word_has_stress = 1;   // word has a primary or a secondary stress
 			}
 		}
@@ -463,7 +469,7 @@ void Translator::MakePhonemeList(int post_pause)
 		phlist[ix].flags = ph->flags & 0xff;
 		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
 		phlist[ix].sflags = 0;
-		phlist[ix].tone = plist2->tone & 0x7f;
+		phlist[ix].tone = plist2->stress & 0xf;
 
 		if((phlist[ix].sourceix = plist2->sourceix) > 0)
 			phlist[ix].newword = 1;     // this phoneme is the start of a word
@@ -804,6 +810,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 {//=================================================================================================
 	int flags=0;
 	int stress;
+	int tone_number;
 	char *p;
 	int srcix;
 	unsigned char ph_code;
@@ -811,6 +818,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	PHONEME_TAB *ph;
 	int max_stress;
 	int max_stress_ix=0;
+	int prev_vowel = -1;
 	char bad_phoneme[4];
 	
 	word_flags = wflags;
@@ -837,6 +845,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	
 	plist2 = &ph_list2[n_ph_list2];
 	stress = 0;
+	tone_number = 0;
 	srcix = 0;
 	max_stress = -1;
 
@@ -846,7 +855,8 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		// add pause phonemes here. Either because of punctuation (brackets or quotes) in the
 		// text, or because the word is marked in the dictionary lookup as a conjunction
 		ph_list2[n_ph_list2].phcode = phonPAUSE;
-		ph_list2[n_ph_list2].tone = 0;
+		ph_list2[n_ph_list2].stress = 0;
+		ph_list2[n_ph_list2].tone_number = 0;
 		ph_list2[n_ph_list2++].sourceix = 0;
 	}
 
@@ -858,7 +868,12 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		{
 			// don't add stress phonemes codes to the list, but give their stress
 			// value to the next vowel phoneme 
-			stress = ph->std_length;
+			stress = ph->std_length & 0xf;
+			tone_number = ph->std_length & 0xf0;
+
+			// for tone languages, the tone number for a syllable folows the vowel
+			if((tone_number != 0) && (prev_vowel >= 0))
+				ph_list2[prev_vowel].tone_number = tone_number;
 		}
 		else
 		if(ph_code == phonEND_WORD)
@@ -871,12 +886,14 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		else
 		{
 			ph_list2[n_ph_list2].phcode = ph_code;
-			ph_list2[n_ph_list2].tone = stress;
+			ph_list2[n_ph_list2].stress = stress;
 			ph_list2[n_ph_list2].sourceix = srcix;
 			srcix = 0;
 			
 			if(ph->type == phVOWEL)
 			{
+				prev_vowel = n_ph_list2;
+
 				if(stress > max_stress)
 				{
 					max_stress = stress;
@@ -892,7 +909,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	if(flags & FLAG_STRESS_END2)
 	{
 		// this's word's stress could be increased later
-		ph_list2[max_stress_ix].tone |= 0x80;
+		ph_list2[max_stress_ix].stress |= 0x80;
 	}
 	return(flags);
 }  //  end of TranslateWord2
@@ -967,7 +984,8 @@ char *Translator::TranslateClause(FILE *f_text, char *buf, int *tone_out)
 	}
 
 	ph_list2[0].phcode = phonPAUSE;
-   ph_list2[0].tone = 0;
+   ph_list2[0].stress = 0;
+	ph_list2[0].tone_number = 0;
 	ph_list2[0].sourceix = 0;
 	n_ph_list2 = 1;
 	prev_last_stress = 0;
@@ -1264,7 +1282,7 @@ char *Translator::TranslateClause(FILE *f_text, char *buf, int *tone_out)
 	{
 		// terminate the clause with 2 PAUSE phonemes
 		ph_list2[n_ph_list2+ix].phcode = phonPAUSE;
-   	ph_list2[n_ph_list2+ix].tone = 0;
+   	ph_list2[n_ph_list2+ix].stress = 0;
 		ph_list2[n_ph_list2+ix].sourceix = source_index;
 	}
 

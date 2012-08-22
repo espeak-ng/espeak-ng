@@ -146,6 +146,8 @@ void Translator::CalcLengths()
 	{
 		prev = &phoneme_list[ix-1];
 		p = &phoneme_list[ix];
+		stress = p->tone & 0xf;
+
 		next = &phoneme_list[ix+1];
 			
 		switch(p->type)
@@ -159,7 +161,7 @@ void Translator::CalcLengths()
 			if(prev->type == phSTOP || prev->type == phFRICATIVE)
 				p->prepause = 20;
 			else
-			if((more_syllables > 0) || (p->tone < 4))
+			if((more_syllables > 0) || (stress < 4))
 				p->prepause = 40;
 			else
 				p->prepause = 60;
@@ -279,7 +281,7 @@ void Translator::CalcLengths()
 			next2 = &phoneme_list[ix+2];
 			next3 = &phoneme_list[ix+3];
 
-			if((stress = p->tone) > 7) stress = 7;
+			if(stress > 7) stress = 7;
 
 			if(pre_sonorant)
 				p->amp = stress_amps_r[stress];

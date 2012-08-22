@@ -121,7 +121,8 @@ typedef struct{
 // a clause translated into phoneme codes (first stage)
 typedef struct {
 	unsigned char phcode;
-	unsigned char tone;
+	unsigned char stress;
+	unsigned char tone_number; 
 	short sourceix;
 } PHONEME_LIST2;
 

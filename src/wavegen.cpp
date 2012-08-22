@@ -1007,12 +1007,6 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 
 
 
-void SetPitch_Hz(int length, unsigned char *env, int pitch1, int pitch2)
-{//==================================================================
-	SetPitch(length, env, pitch1, pitch2);
-}
-
-
 void PeaksZero(peak_t *sp, peak_t *zero)
 {//===========================================
 	int pk;

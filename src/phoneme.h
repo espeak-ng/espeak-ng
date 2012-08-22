@@ -42,6 +42,7 @@
 #define tBEFORENOTVOWEL 19
 #define tLINKOUT  20
 #define tPHONEMETABLE  30
+#define tINCLUDE  31
 
 
 // phoneme types

@@ -855,6 +855,7 @@ int Synthesize::Generate(PHONEME_LIST *phoneme_list, int resume)
 	PHONEME_LIST *next2;
 	PHONEME_LIST *p;
 	int  released;
+	int  stress;
 	int  modulation;
 	int  pre_voiced;
 	PHONEME_TAB *ph;
@@ -1053,21 +1054,22 @@ int Synthesize::Generate(PHONEME_LIST *phoneme_list, int resume)
 
 		case phVOWEL:
 			ph = p->ph;
+			stress = p->tone & 0xf;
 			
 			StartSyllable();
 
 			modulation = 0;
-			if(p->tone <= 1)
+			if(stress <= 1)
 				modulation = 2;
 			else
-			if(p->tone >= 7)
+			if(stress >= 7)
 				modulation = 2;
 
 			if(prev->type == phVSTOP || prev->type == phVFRICATIVE)
 			{
 				DoAmplitude(p->amp);
 				DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);  // don't use prevocalic rising tone
-				DoSpect(ph,prev->ph,1,p->length,p->tone,modulation); 
+				DoSpect(ph,prev->ph,1,p->length,stress,modulation); 
 #ifdef LOG_SYNTH
 	LogPitch(p);
 #endif
@@ -1076,7 +1078,7 @@ int Synthesize::Generate(PHONEME_LIST *phoneme_list, int resume)
 			if(prev->type==phLIQUID || prev->type==phNASAL)
 			{
 				DoAmplitude(p->amp);
-				DoSpect(ph,prev->ph,1,p->length,p->tone,modulation);   // continue with pre-vocalic rising tone
+				DoSpect(ph,prev->ph,1,p->length,stress,modulation);   // continue with pre-vocalic rising tone
 				DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
 #ifdef LOG_SYNTH
 	LogPitch(p);
@@ -1090,12 +1092,10 @@ int Synthesize::Generate(PHONEME_LIST *phoneme_list, int resume)
 					DoPitch(envelope_data[p->env],p->pitch1,p->pitch2);
 				}
 
-				DoSpect(ph,prev->ph,1,p->length,p->tone,modulation);
+				DoSpect(ph,prev->ph,1,p->length,stress,modulation);
 			}
-//			if(next->newword)
-//				DoSpect(p->ph,&phoneme_tab[phonPAUSE],2,p->length);
-//			else
-				DoSpect(p->ph,next->ph,2,p->length,p->tone,modulation);
+			
+			DoSpect(p->ph,next->ph,2,p->length,stress,modulation);
 			break;
 		}
 		ix++;
@@ -1158,7 +1158,7 @@ void Synthesize::SpeakNextClause(FILE *f_in, int stop)
 // stop 1: stop
 //      2: pause
 
-	int tone;
+	int clause_tone;
 	static FILE *f_text=NULL;
 
 	if(stop == 1)
@@ -1209,12 +1209,12 @@ void Synthesize::SpeakNextClause(FILE *f_in, int stop)
 	
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
-	translator->TranslateClause(f_text,NULL,&tone);
+	translator->TranslateClause(f_text,NULL,&clause_tone);
 	if(option_phonemes)
 	{
 		printf("%s\n",translator->phon_out);
 	}
-	translator->CalcPitches(tone);
+	translator->CalcPitches(clause_tone);
 	translator->CalcLengths();
 	Generate(phoneme_list,0);
 	WavegenOpenSound();
