@@ -13,20 +13,35 @@ phoneme @
 //  unstressed
   length 130
   formants vowel/@_bck
+  before H vowel/@_low
 endphoneme
+
+phoneme @2
+  vowel  starttype (@)  endtype (@)
+//  unstressed
+  length 130
+  formants vowel/@_low
+endphoneme
+
+phoneme V
+  vowel  starttype (@)  endtype (@)
+  length 130
+  formants vowel/V_2
+endphoneme
+
 
 
 
 phoneme i:
   vowel long starttype (i) endtype (i)
-  length 200
+  length 210
   formants vowel/i_fnt
   linkout ;
 endphoneme
 
 phoneme I
   vowel starttype (i) endtype (i)
-  length 120
+  length 110
   formants vwl_hi/I
   linkout ;
 endphoneme
@@ -105,13 +120,13 @@ endphoneme
 
 phoneme u:
   vowel long starttype (u) endtype (u)
-  length 200
+  length 210
   formants vowel/u_bck
 endphoneme
 
 phoneme u2:
   vowel long starttype (u) endtype (u)
-  length 200
+  length 210
   formants vowel/u
 endphoneme
 

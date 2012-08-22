@@ -48,7 +48,6 @@ extern wxString path_phsource;
 extern char path_source[];
 extern char voice_name[];
 
-extern const char *WordToString(unsigned int word);
 extern char *spects_data;
 extern int n_phoneme_tables;
 extern PHONEME_TAB_LIST phoneme_tab_list[N_PHONEME_TABS];
@@ -377,6 +376,63 @@ void VowelChart(int control, char *fname)
 }
 
 
+static void FindPhonemesUsed(void)
+{//===============================
+	int hash;
+	char *p;
+	char *next;
+	unsigned char c;
+	int count = 0;
+
+	// look through all the phoneme strings in the **_rules data
+	// and mark these phoneme codes as used.
+	p = translator->data_dictrules;
+	while(*p != 0)
+	{
+		if(*p == RULE_GROUP_END)
+			p++;
+		if(*p == RULE_GROUP_START)
+			p += (strlen(p)+1);
+
+		while((((c = *p) != RULE_PHONEMES)) && (c != 0)) p++;
+		count++;
+		if(c == RULE_PHONEMES)
+		{
+			p++;
+			while(*p != 0)
+			{
+				phoneme_tab_flags[*p & 0xff] |= 2;
+				p++;
+			}
+		}
+		p++;
+	}
+
+	for(hash=0; hash<N_HASH_DICT; hash++)
+	{
+		p = translator->dict_hashtab[hash];
+		if(p == NULL)
+			continue;
+
+		while(*p != 0)
+		{
+			next = p + p[0];
+			if((p[1] & 0x80) == 0)
+			{
+				p += ((p[1] & 0x3f) + 2);
+				while(*p != 0)
+				{
+					phoneme_tab_flags[*p & 0xff] |= 2;
+					p++;
+				}
+			}
+			p = next;
+		}
+	}
+}   // end of FindPhonemesUsed
+
+
+
 void MakeVowelLists(void)
 {//======================
 // For each phoneme table, make a list of its vowels and their
@@ -406,11 +462,16 @@ void MakeVowelLists(void)
 		progress->Update(table);
 
 		// select the phoneme table by name
+//		if(SetVoiceByName(phoneme_tab_list[table].name) != 0) continue;
 		if(SelectPhonemeTableName(phoneme_tab_list[table].name) < 0) continue;
+		FindPhonemesUsed();
 
 		// phoneme table is terminated by a phoneme with no name (=0)
 		for(phcode=1; phcode < n_phoneme_tab; phcode++)
 		{
+//if((phoneme_tab_flags[phcode] & 3) == 0)
+//	continue;   // inherited, and not used 
+
 			ph = phoneme_tab[phcode];
 
 			if(ph->type != phVOWEL)
@@ -1138,6 +1199,9 @@ void TestTest(void)
 	unsigned int ix=0;
 	char textbuf[2000];
 	espeak_VOICE voice;
+
+FindPhonemesUsed();
+return;
 
 	memset(&voice,0,sizeof(voice));
 

@@ -114,7 +114,7 @@ int isspace2(unsigned int c)
 // can't use isspace() because on Windows, isspace(0xe1) gives TRUE !
 	int c2;
 
-	if(((c2 = (c & 0xff)) == 0) || ((c > ' ') && (c != 0xa0)))
+	if(((c2 = (c & 0xff)) == 0) || (c > ' '))
 		return(0);
 	return(1);
 }
@@ -174,7 +174,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	char *comment;
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
-	char bad_phoneme[4];
+	unsigned char bad_phoneme[4];
 	
 	
 	p = linebuf;
@@ -330,7 +330,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 		if(c == 255)
 		{
 			/* unrecognised phoneme, report error */
-			fprintf(f_log,"%5d: Bad phoneme [%c] in: %s  %s\n",linenum,bad_phoneme[0],word,phonetic);
+			fprintf(f_log,"%5d: Bad phoneme [%c] (0x%x) in: %s  %s\n",linenum,bad_phoneme[0],bad_phoneme[0],word,phonetic);
 			error_count++;
 		}
 	}
@@ -594,34 +594,35 @@ void copy_rule_string(char *string, int &state)
 			// replace special characters (note: 'E' is reserved for a replaced silent 'e')
 			if(literal == 0)
 			{
+				static const char lettergp_letters[9] = {LETTERGP_A,LETTERGP_B,LETTERGP_C,0,0,LETTERGP_F,LETTERGP_G,LETTERGP_H,LETTERGP_Y};
 				switch(c)
 				{
 				case '_':
 					c = RULE_SPACE;
 					break;
+
+				case 'Y':
+					c = 'I';   // drop through to next case
 				case 'A':   // vowel
-					c = RULE_LETTER1;
-					break;
 				case 'B':
-					c = RULE_LETTER2;
-					break;
 				case 'C':
-					c = RULE_LETTER3;
+				case 'H':
+				case 'F':
+				case 'G':
+					if(state == 1)
+					{
+						// pre-rule, put the number before the RULE_LETTERGP;
+						output[ix++] = lettergp_letters[c-'A'] + 'A';
+						c = RULE_LETTERGP;
+					}
+					else
+					{
+						output[ix++] = RULE_LETTERGP;
+						c = lettergp_letters[c-'A'] + 'A';
+					}
 					break;
 				case 'D':
 					c = RULE_DIGIT;
-					break;
-				case 'H':
-					c = RULE_LETTER4;
-					break;
-				case 'F':
-					c = RULE_LETTER5;
-					break;
-				case 'G':
-					c = RULE_LETTER6;
-					break;
-				case 'Y':
-					c = RULE_LETTER7;
 					break;
 				case 'K':
 					c = RULE_NOTVOWEL;
@@ -649,6 +650,30 @@ void copy_rule_string(char *string, int &state)
 					break;
 				case '#':
 					c = RULE_DEL_FWD;
+					break;
+
+				case 'L':
+					// expect two digits
+					c = *p++ - '0';
+					value = *p++ - '0';
+					c = c * 10 + value;
+					if((value < 0) || (value > 9) || (c <= 0) || (c >= N_LETTER_TYPES))
+					{
+						c = 0;
+						fprintf(f_log,"%5d: Expected 2 digits after 'L'",linenum);
+						error_count++;
+					}
+					c += 'A';
+					if(state == 1)
+					{
+						// pre-rule, put the group number before the RULE_LETTERGP command
+						output[ix++] = c;
+						c = RULE_LETTERGP;
+					}
+					else
+					{
+						output[ix++] = RULE_LETTERGP;
+					}
 					break;
 
 				case 'P':
@@ -722,7 +747,7 @@ char *compile_rule(char *input)
 	int pre_bracket=0;
 	char buf[80];
 	char output[150];
-	char bad_phoneme[4];
+	unsigned char bad_phoneme[4];
 
 	buf[0]=0;
 	rule_cond[0]=0;
@@ -1187,8 +1212,8 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 	FILE *f_out;
 	int offset_rules=0;
 	int value;
-	char fname_buf[80];
-	char fname_temp[80];
+	char fname_buf[130];
+	char fname_temp[130];
 	char path[80];
 
 	error_count = 0;

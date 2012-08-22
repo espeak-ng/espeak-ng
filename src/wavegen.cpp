@@ -510,6 +510,45 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 }  //  end of WaveCallBack
 
 
+#if USE_PORTAUDIO == 19
+/* This is a fixed version of Pa_OpenDefaultStream() for use if the version in portaudio V19
+   is broken */
+
+PaError Pa_OpenDefaultStream2( PaStream** stream,
+                              int inputChannelCount,
+                              int outputChannelCount,
+                              PaSampleFormat sampleFormat,
+                              double sampleRate,
+                              unsigned long framesPerBuffer,
+                              PaStreamCallback *streamCallback,
+                              void *userData )
+{
+	PaError result;
+	PaStreamParameters hostApiOutputParameters;
+
+	 hostApiOutputParameters.device = Pa_GetDefaultOutputDevice();
+	if( hostApiOutputParameters.device == paNoDevice )
+		return paDeviceUnavailable; 
+
+	hostApiOutputParameters.channelCount = outputChannelCount;
+	hostApiOutputParameters.sampleFormat = sampleFormat;
+	/* defaultHighOutputLatency is used below instead of
+	   defaultLowOutputLatency because it is more important for the default
+	   stream to work reliably than it is for it to work with the lowest
+	   latency.
+	*/
+	hostApiOutputParameters.suggestedLatency =
+	      Pa_GetDeviceInfo( hostApiOutputParameters.device )->defaultHighOutputLatency;
+	hostApiOutputParameters.hostApiSpecificStreamInfo = NULL;
+
+	result = Pa_OpenStream(
+		stream, NULL, &hostApiOutputParameters, sampleRate, framesPerBuffer, paNoFlag, streamCallback, userData );
+
+	return(result);
+}
+#endif
+
+
 int WavegenOpenSound()
 {//===================
 	PaError err, err2;
@@ -543,7 +582,7 @@ int WavegenOpenSound()
 			err2 = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,samplerate,512,N_WAV_BUF,WaveCallback,(void *)userdata);
 		}
 #else
-		err2 = Pa_OpenDefaultStream(&pa_stream,0,1,paInt16,(double)samplerate,512,WaveCallback,(void *)userdata);
+		err2 = Pa_OpenDefaultStream2(&pa_stream,0,1,paInt16,(double)samplerate,512,WaveCallback,(void *)userdata);
 
 		if(err2 == paInvalidChannelCount)
 		{

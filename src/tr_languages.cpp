@@ -97,7 +97,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('d','e'):
 		{
-			static const int stress_lengths_de[8] = {150,130, 190,190,  0, 0, 250,265};
+			static const int stress_lengths_de[8] = {150,130, 190,190,  0, 0, 260,275};
 			tr = new Translator();
 			tr->langopts.stress_rule = 0;
 			tr->langopts.word_gap = 0x3;   // don't use linking phonemes
@@ -133,9 +133,9 @@ Translator *SelectTranslator(const char *name)
 
 			tr->letter_bits_offset = OFFSET_GREEK;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-			SetLetterBits(tr,0,el_vowels);
-			SetLetterBits(tr,1,el_voiceless);
-			SetLetterBits(tr,2,el_consonants);
+			SetLetterBits(tr,LETTERGP_A,el_vowels);
+			SetLetterBits(tr,LETTERGP_B,el_voiceless);
+			SetLetterBits(tr,LETTERGP_C,el_consonants);
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = 2;
@@ -152,7 +152,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('e','o'):
 		{
-			static int stress_lengths_eo[8] = {150, 140,  190, 200,    0,   0,  300, 320};
+			static int stress_lengths_eo[8] = {150, 180,  200, 200,    0,   0,  300, 320};
 			static const wchar_t eo_char_apostrophe[2] = {'l',0};
 		
 			tr = new Translator();
@@ -162,8 +162,9 @@ Translator *SelectTranslator(const char *name)
 			tr->char_plus_apostrophe = eo_char_apostrophe;
 		
 			tr->langopts.stress_rule = 2;
+			tr->langopts.stress_flags =  0x6 | 0x10; 
 //			tr->langopts.stress_flags = 0x1;  // don't give full stress to monosyllables
-			tr->langopts.unstressed_wd1 = 0;
+			tr->langopts.unstressed_wd1 = 1;
 			tr->langopts.unstressed_wd2 = 2;
 
 			tr->langopts.numbers = 0x1409;
@@ -246,10 +247,10 @@ Translator *SelectTranslator(const char *name)
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
 			tr->langopts.replace_chars = replace_chars_hi;
 			tr->langopts.replacement_chars = replacement_chars_hi;
-			SetLetterBitsRange(tr,0,0x06,0x14);   // vowel letters
-			SetLetterBitsRange(tr,1,0x3e,0x4d);   // vowel signs + virama
-			SetLetterBitsRange(tr,2,0x15,0x39);   // the main consonant range
-			SetLetterBits(tr,2,dev_consonants2);  // additional consonants
+			SetLetterBitsRange(tr,LETTERGP_A,0x06,0x14);   // vowel letters
+			SetLetterBitsRange(tr,LETTERGP_B,0x3e,0x4d);   // vowel signs + virama
+			SetLetterBitsRange(tr,LETTERGP_C,0x15,0x39);   // the main consonant range
+			SetLetterBits(tr,LETTERGP_C,dev_consonants2);  // additional consonants
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		}
 		break;
@@ -306,7 +307,7 @@ Translator *SelectTranslator(const char *name)
 
 	case L('p','l'):   // Polish
 		{
-			static int stress_lengths_pl[8] = {155, 170,  175, 175,  0, 0,  250, 280};
+			static int stress_lengths_pl[8] = {155, 170,  175, 175,  0, 0,  260, 290};
 			static int stress_amps_pl[8] = {16,14, 20,20, 20,24, 24,22 };    // 'diminished' is used to mark a quieter, final unstressed syllable
 
 			tr = new Translator();
@@ -384,7 +385,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = 0;
 			tr->langopts.word_gap = 0x4;   // length of a final vowel is less dependent on the next consonant
 			tr->langopts.vowel_pause = 2;
-			tr->letter_type_list[0] =
+			tr->letter_groups[0] =
 L"aàáảãạăằắẳẵặâầấẩẫậeèéẻẽẹêềếểễệiìíỉĩịoòóỏõọôồốổỗộơờớởỡợuùúủũụưừứửữựyỳýỷỹỵ";  // vowels
 //			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
@@ -404,6 +405,9 @@ L"aàáảãạăằắẳẵặâầấẩẫậeèéẻẽẹêềếểễệ
 			tr->langopts.vowel_pause = 0;
 			tr->langopts.intonation = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
+			tr->langopts.tone_numbers = 9;
+			tr->langopts.ideographs = 1;
+			tr->langopts.word_gap = 0x4;   // length of a final vowel is less dependent on the next consonant
 		}
 		break;
 
@@ -432,6 +436,7 @@ Translator_Russian::Translator_Russian() : Translator()
 {//===================================
 	static int stress_amps_ru[] = {16,16, 19,19, 20,24, 24,22 };
 	static int stress_lengths_ru[8] = {165,140, 190,190, 0,0, 250,260};
+
 
 	// character codes offset by 0x420
 	static const char ru_vowels[] = {0x10,0x15,0x31,0x18,0x1e,0x23,0x2b,0x2d,0x2e,0x2f,0};
@@ -474,21 +479,35 @@ Translator_Russian::Translator_Russian() : Translator()
 
 #define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
 
-#ifdef deleted
+/*
+typedef struct {
+	int flags;
+	unsigned char stress;          // stress level of this vowel
+	unsigned char stress_highest;  // the highest stress level of a vowel in this word
+	unsigned char n_vowels;        // number of vowels in the word
+	unsigned char vowel_this;      // syllable number of this vowel (counting from 1)
+	unsigned char vowel_stressed;  // syllable number of the highest stressed vowel
+} CHANGEPH;
+*/
 
-int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags)
-{//===========================================================================================================
+//#define RUSSIAN2
+#ifdef RUSSIAN2
+
+int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
+{//==============================================================================================================
 // Called for each phoneme in the phoneme list, to allow a language to make changes
 // flags: bit 0=1 last phoneme in a word
 //        bit 1=1 this is the highest stressed vowel in the current word
 //        bit 2=1 after the highest stressed vowel in the current word
 //        bit 3=1 the phonemes were specified explicitly, or found from an entry in the xx_list dictionary
+//        bits 8-15 syllable number, 1=first syllable, etc.
+// ph     The current phoneme
 
 	int variant;
 	int vowelix;
 	PHONEME_TAB *prev, *next;
 
-	if(flags & 8)
+	if(ch->flags & 8)
 		return(0);    // full phoneme translation has already been given
 	// Russian vowel softening and reduction rules
 
@@ -519,7 +538,7 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 
 		// do we need a variant of this vowel, depending on the stress and adjacent phonemes ?
 		variant = -1;
-		bool stressed=flags & 2;
+		bool stressed = ch->flags & 2;
 		//		bool soft=phoneme_tab[phlist[index+2].phcode]->mnemonic == ';';
 		bool soft=prev->phflags & phPALATAL;
 		if (soft && stressed)
@@ -536,21 +555,22 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 
 	return(0);
 }
-#endif
+#else
 
-int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags)
-{//===========================================================================================================
+int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
+{//===============================================================================================================
 // Called for each phoneme in the phoneme list, to allow a language to make changes
 // flags: bit 0=1 last phoneme in a word
 //        bit 1=1 this is the highest stressed vowel in the current word
 //        bit 2=1 after the highest stressed vowel in the current word
 //        bit 3=1 the phonemes were specified explicitly, or found from an entry in the xx_list dictionary
+// ph     The current phoneme
 
 	int variant;
 	int vowelix;
 	PHONEME_TAB *prev, *next;
 
-	if(flags & 8)
+	if(ch->flags & 8)
 		return(0);    // full phoneme translation has already been given
 
 	// Russian vowel softening and reduction rules
@@ -572,6 +592,9 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 		prev = phoneme_tab[phlist[index-1].phcode];
 		next = phoneme_tab[phlist[index+1].phcode];
 
+if(prev->mnemonic == 'j')
+  return(0);
+
 		// lookup the vowel name to get an index into the vowel_replace[] table
 		for(vowelix=0; vowelix<N_VOWELS_RU; vowelix++)
 		{
@@ -583,7 +606,7 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 
 		// do we need a variant of this vowel, depending on the stress and adjacent phonemes ?
 		variant = -1;
-		if(flags & 2)
+		if(ch->flags & 2)
 		{
 			// a stressed vowel
 			if((prev->phflags & phPALATAL) && ((next->phflags & phPALATAL) || phoneme_tab[phlist[index+2].phcode]->mnemonic == ';'))
@@ -605,7 +628,7 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 				variant = 2;  // unstressed soft  ([o] vowel following:  ш ж
 			}
 			else
-			if(flags & 4)
+			if(ch->flags & 4)
 			{
 				variant = 3;  // post tonic
 			}
@@ -622,6 +645,7 @@ int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int inde
 
 	return(0);
 }
+#endif
 
 //**********************************************************************************************************
 

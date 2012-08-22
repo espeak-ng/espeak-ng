@@ -304,7 +304,7 @@ voice_t *LoadVoice(char *vname, int control)
 	char new_dictionary[40];
 	char phonemes_name[40];
 	char *language_type;
-	char buf[120];
+	char buf[200];
 	char langname[4];
 
 	int stress_amps[8];

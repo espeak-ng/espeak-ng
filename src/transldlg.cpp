@@ -245,7 +245,7 @@ void TranslDlg::ReadVoice()
 {//========================
 	wxString path;
 	wxString filename;
-	char fname[120];
+	char fname[130];
 
 	sprintf(fname,"%s/voices",path_home);
 	path = wxFileSelector(_T("Load voice"),wxString(fname,wxConvLocal),_T(""),_T(""),_T("*"),wxOPEN);

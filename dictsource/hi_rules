@@ -13,7 +13,7 @@
 // Vowels
 
 .group अ
-        अ        @
+        अ        V        // open+back schwa
         अ (ह     E
     अह) अ        E
 
@@ -348,7 +348,7 @@
         ं  (भ    m
 
 .group ः
-        ः        H%@     //  visarga
+        ः        H   //  visarga
 
 
 

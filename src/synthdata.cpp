@@ -34,12 +34,11 @@
 #include "synthesize.h"
 #include "translate.h"
 
-extern const char *WordToString(unsigned int word);
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
 PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
-
+unsigned char phoneme_tab_flags[N_PHONEME_TAB];   // bit 0: not inherited
 
 unsigned int *phoneme_index=NULL;
 char *spects_data=NULL;
@@ -109,6 +108,8 @@ int LoadPhData()
 {//=============
 	int ix;
 	int n_phonemes;
+	unsigned int version;
+	int result = 1;
 	unsigned char *p;
 
 	if(ReadPhFile((char **)(&phoneme_tab_data),"phontab") != 0)
@@ -118,6 +119,12 @@ int LoadPhData()
 	if(ReadPhFile((char **)(&spects_data),"phondata") != 0)
 		return(-1);
    wavefile_data = (unsigned char *)spects_data;
+
+	version = *((unsigned int *)spects_data);
+	if(version != VERSION_DATA)
+	{
+		result = version;
+	}
 
 	// set up phoneme tables
 	p = phoneme_tab_data;
@@ -139,7 +146,7 @@ int LoadPhData()
 	if(phoneme_tab_number >= n_phoneme_tables)
 		phoneme_tab_number = 0;
 
-	return(0);
+	return(result);
 }  //  end of LoadPhData
 
 
@@ -508,17 +515,22 @@ unsigned char *LookupEnvelope(int ix)
 }
 
 
-static void SetUpPhonemeTable(int number)
-{//======================================
+static void SetUpPhonemeTable(int number, int recursing)
+{//=====================================================
 	int ix;
 	int includes;
 	int ph_code;
 	PHONEME_TAB *phtab;
 
+	if(recursing==0)
+	{
+		memset(phoneme_tab_flags,0,sizeof(phoneme_tab_flags));
+	}
+
 	if((includes = phoneme_tab_list[number].includes) > 0)
 	{
 		// recursively include base phoneme tables
-		SetUpPhonemeTable(includes-1);
+		SetUpPhonemeTable(includes-1,1);
 	}
 
 	// now add the phonemes from this table
@@ -529,6 +541,9 @@ static void SetUpPhonemeTable(int number)
 		phoneme_tab[ph_code] = &phtab[ix];
 		if(ph_code > n_phoneme_tab)
 			n_phoneme_tab = ph_code;
+
+		if(recursing == 0)
+			phoneme_tab_flags[ph_code] |= 1;   // not inherited
 	}
 }  // end of SetUpPhonemeTable
 
@@ -536,7 +551,7 @@ static void SetUpPhonemeTable(int number)
 void SelectPhonemeTable(int number)
 {//================================
 	n_phoneme_tab = 0;
-	SetUpPhonemeTable(number);  // recursively for included phoneme tables
+	SetUpPhonemeTable(number,0);  // recursively for included phoneme tables
 	n_phoneme_tab++;
 }  //  end of SelectPhonemeTable
 

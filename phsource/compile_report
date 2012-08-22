@@ -1,4 +1,4 @@
-26 phoneme tables
+25 phoneme tables
           new total
     base  82   82
       en  49  126
@@ -9,7 +9,7 @@
       af  34  110
       cy  30  108
       de  27  105
-      eo  16   95
+      eo  15   94
       fi  40  113
       fr  31  105
    fr_ca  11  106
@@ -24,8 +24,7 @@
       sv  25  103
       no  29  108
       vi  39  118
-      hi  40  109
-     qaa   6  129
+      hi  42  111
 
   3  b/b            base ro hi
   2  b/b_           base hi
@@ -47,12 +46,10 @@
   4  dzh/dzh        base ru hi
   4  dzh/dzh_       base ru hi
   4  dzh/xdzh       base ru hi
-  1  envelope/p_211 qaa
-  1  envelope/p_214 qaa
-  3  envelope/p_fall vi qaa
+  2  envelope/p_fall vi
   1  envelope/p_fallrise vi
-  2  envelope/p_level vi qaa
-  2  envelope/p_rise vi qaa
+  1  envelope/p_level vi
+  1  envelope/p_rise vi
   1  envelope/vi_5  vi
   1  envelope/vi_5amp vi
   1  envelope/vi_6  vi
@@ -270,8 +267,8 @@
   1  vdiph/au_2     en_us
   1  vdiph/au_3     en_rp
   1  vdiph/ee-e     hi
-  4  vdiph/eei      en eo pt vi
-  1  vdiph/eei_2    fi
+  3  vdiph/eei      en pt vi
+  2  vdiph/eei_2    eo fi
   2  vdiph/eei_3    en_us en_rp
   2  vdiph/eeu      pt vi
   2  vdiph/eeu_3    en_n en_wm
@@ -354,7 +351,7 @@
   1  vowel/8        ru
   2  vowel/8_2      en_us sv
   7  vowel/a        en_n cy de nl pl ru
-  4  vowel/a#       eo it pt
+  3  vowel/a#       it pt
   5  vowel/a_2      eo it ro vi
   5  vowel/a#_3     en en_n en_us en_wm vi
   2  vowel/a_4      en_wm
@@ -395,7 +392,7 @@
   3  vowel/ii_3     fi sv no
   2  vowel/ii_4     en_rp
   6  vowel/ii_en    en en_n
-  2  vowel/@_low    ro no
+  4  vowel/@_low    ro no hi
   9  vowel/o        en en_wm de fr it sv vi hi
   3  vowel/o_2      cy no hi
   2  vowel/o-_2     en_n en_wm
@@ -405,8 +402,8 @@
   6  vowel/oe       en af de fr nl
   1  vowel/oe_2     no
   1  vowel/oe_4     sv
-  6  vowel/oo       de nl es el sv no
-  8  vowel/oo_1     en_n en_rp en_wm af eo fi ru
+  7  vowel/oo       de eo nl es el sv no
+  7  vowel/oo_1     en_n en_rp en_wm af fi ru
   1  vowel/oo_2     cy
   1  vowel/oo_3     af
   1  vowel/oo_4     pl
@@ -427,7 +424,7 @@
   4  vowel/uu_bck   fr_ca ru no hi
   1  vowel/u_unr    vi
   1  vowel/V        en
-  2  vowel/V_2      af ru
+  3  vowel/V_2      af ru hi
   1  vowel/V_3      en_rp
   4  vowel/y        en de fi nl
   6  vowel/y#       en en_wm de fi fr ro

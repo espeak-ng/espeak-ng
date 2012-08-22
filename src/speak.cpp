@@ -47,7 +47,7 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.19  26.Jan.07";
+static const char *version = "Speak text-to-speech: 1.20  06.Feb.07";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -224,7 +224,7 @@ static void init_path(void)
 #ifdef PLATFORM_WINDOWS
 	strcpy(path_home,"espeak-data");
 #else
-	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
+	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
 		strcpy(path_home,PATH_ESPEAK_DATA);
@@ -236,6 +236,7 @@ static void init_path(void)
 static int initialise(void)
 {//========================
 	int param;
+	int result;
 
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
@@ -249,7 +250,13 @@ static int initialise(void)
 
 
 	WavegenInit(22050,0);   // 22050
-	LoadPhData();
+	if((result = LoadPhData()) != 1)
+	{
+		if(result == -1)
+			fprintf(stderr,"Failed to load espeak-data\n");
+		else
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,VERSION_DATA);
+	}
 #ifndef __WIN32__
 	LoadConfig();  // causes problem on Windows, don't know why
 #endif

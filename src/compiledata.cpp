@@ -272,7 +272,6 @@ static keywtab_t keywords[] = {
 };
 
 
-extern const char *WordToString(unsigned int word);
 extern void strncpy0(char *to,const char *from, int size);
 
 
@@ -742,7 +741,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 	if((sr1 != samplerate) || (sr2 != samplerate*2))
 	{
 #ifdef PLATFORM_WINDOWS
-	fprintf(f_errors,"Wrong samplerate %d, %d \n",pw[0],pw[1]);
+	fprintf(f_errors,"Wrong samplerate %d, %d \n",sr1,sr2);
 	Error("Wrong samplerate: ",fname);
 #else
 		sprintf(fname_temp,"%s.wav",tmpnam(NULL));
@@ -1878,7 +1877,7 @@ wxString CompileAllDictionaries()
 void Compile::CPhonemeTab(const char *source)
 {//========================================
 	int label;
-	char fname[120];
+	char fname[130];
 	wxString report;
 	wxString report_dict;
 
@@ -1949,7 +1948,7 @@ memset(markers_used,0,sizeof(markers_used));
 	}
 
 	// write a word so that further data doesn't start at displ=0
-	label = 0;
+	label = VERSION_DATA;
 	fwrite(&label,4,1,f_spects);
 	fwrite(&label,4,1,f_phindex);
 

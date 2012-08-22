@@ -253,16 +253,23 @@ void Free(void *ptr)
 
 static void init_path(const char *path)
 {//====================================
+#ifdef PLATFORM_WINDOWS
 	if(path != NULL)
 	{
 		sprintf(path_home,"%s/espeak-data",path);
 		return;
 	}
 
-#ifdef PLATFORM_WINDOWS
 	strcpy(path_home,"c:\\Program Files\\espeak\\espeak-data");
+
 #else
-	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
+	if(path != NULL)
+	{
+		snprintf(path_home,sizeof(path_home),"%s/espeak-data",path);
+		return;
+	}
+
+	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
 		strcpy(path_home,PATH_ESPEAK_DATA);
@@ -272,20 +279,28 @@ static void init_path(const char *path)
 
 static int initialise(void)
 {//========================
-  int param;
+	int param;
+	int result;
 
-  WavegenInit(22050,0);   // 22050
-  LoadPhData();
+	WavegenInit(22050,0);   // 22050
+	if((result = LoadPhData()) != 1)
+	{
+		if(result == -1)
+			fprintf(stderr,"Failed to load espeak-data\n");
+		else
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,VERSION_DATA);
+	}
+
 #ifndef __WIN32__
-  LoadConfig();  // causes problem on Windows, don't know why
+	LoadConfig();  // causes problem on Windows, don't know why
 #endif
-  SynthesizeInit();
-  InitNamedata();
+	SynthesizeInit();
+	InitNamedata();
 
-  for(param=0; param<N_SPEECH_PARAM; param++)
-    param_stack[0].parameter[param] = param_defaults[param];
+	for(param=0; param<N_SPEECH_PARAM; param++)
+		param_stack[0].parameter[param] = param_defaults[param];
 
-  return(0);
+	return(0);
 }
 
 

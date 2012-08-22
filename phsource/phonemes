@@ -1039,8 +1039,10 @@ include ph_norwegian
 phonemetable vi base
 include ph_vi
 
+//phonemetable zh_yue base
+//include ph_zh_yue
+
+
 phonemetable hi base
 include ph_hindi
 
-phonemetable qaa en
-include ph_test_qaa

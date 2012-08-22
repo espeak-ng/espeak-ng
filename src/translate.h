@@ -32,7 +32,7 @@
 
 /* flags from word dictionary */
 // bits 0-3  stressed syllable,  7=unstressed
-#define FLAG_SKIPWORDS        0x20  /* bits 5,6,7  number of words to skip */
+#define FLAG_SKIPWORDS        0xe0  /* bits 5,6,7  number of words to skip */
 #define FLAG_PREPAUSE        0x100
 #define FLAG_ONLY            0x200
 #define BITNUM_FLAG_ONLY         9  // bit 9 is set
@@ -106,18 +106,30 @@
 #define RULE_INC_SCORE	12
 #define RULE_DEL_FWD		13
 #define RULE_ENDING		14
-#define RULE_DIGIT		15
-#define RULE_NONALPHA	16
+#define RULE_DIGIT		15   // D digit
+#define RULE_NONALPHA	16   // Z non-alpha
+#define RULE_LETTER_GROUPS 17  // 17 to 23
 #define RULE_LETTER1		17   // A vowels
 #define RULE_LETTER2		18   // B 'hard' consonants 
 #define RULE_LETTER3		19   // C all consonants
-#define RULE_LETTER4		20   // H spare
-#define RULE_LETTER5    21   // F spare
-#define RULE_LETTER6		22   // G spare
-#define RULE_LETTER7    23   // Y spare
+#define RULE_LETTER4		20   // H letter group
+#define RULE_LETTER5    21   // F letter group
+#define RULE_LETTER6		22   // G letter group
+#define RULE_LETTER7    23   // Y letter group
 #define RULE_NO_SUFFIX  24   // N
 #define RULE_NOTVOWEL   25   // K
 #define RULE_IFVERB     26   // V
+#define RULE_LETTERGP   27   // L + letter group number
+#define RULE_LAST_RULE   27
+
+#define LETTERGP_A	0
+#define LETTERGP_B	1
+#define LETTERGP_C	2
+#define LETTERGP_H	3
+#define LETTERGP_F	4
+#define LETTERGP_G	5
+#define LETTERGP_Y	6
+#define LETTERGP_VOWEL2   7
 
 
 // Punctuation types  returned by ReadClause()
@@ -263,10 +275,23 @@ typedef struct {
 	int phoneme_change;     // TEST, change phonemes, after translation
 	char max_initial_consonants;
 	char spelling_stress;   // 0=default, 1=stress first letter
+	char tone_numbers;
+	char ideographs;      // treat as separate words
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	const wchar_t *replace_chars;   // characters to be substitutes
 	const wchar_t *replacement_chars;  // substitutes for replace_chars
 } LANGUAGE_OPTIONS;
+
+
+// a parameter of ChangePhonemes()
+typedef struct {
+	int flags;
+	unsigned char stress;          // stress level of this vowel
+	unsigned char stress_highest;  // the highest stress level of a vowel in this word
+	unsigned char n_vowels;        // number of vowels in the word
+	unsigned char vowel_this;      // syllable number of this vowel (counting from 1)
+	unsigned char vowel_stressed;  // syllable number of the highest stressed vowel
+} CHANGEPH;
 
 
 
@@ -302,14 +327,17 @@ public:
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
 
 // holds properties of characters: vowel, consonant, etc for pronunciation rules
-#define LETTERGP_VOWEL    0
-#define LETTERGP_VOWEL2   7
 	unsigned char letter_bits[256];
 	int letter_bits_offset;
-	wchar_t *letter_type_list[8];
+#define N_LETTER_TYPES 20
+	wchar_t *letter_groups[N_LETTER_TYPES];
 
 	/* index1=option, index2 by 0=. 1=, 2=?, 3=! 4=none */
 	unsigned char punct_to_tone[4][5];
+
+	char *data_dictrules;     // language_1   translation rules file
+	char *data_dictlist;      // language_2   dictionary lookup file
+	char *dict_hashtab[N_HASH_DICT];   // hash table to index dictionary lookup file
 
 
 private:
@@ -333,10 +361,10 @@ private:
    int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
 
 	void InitGroups(void);
-	void AppendPhonemes(char *string, const char *ph);
+	void AppendPhonemes(char *string, int size, const char *ph);
 	char *DecodeRule(const char *group, char *rule);
 	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags);
-	int TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags, int dict_flags);
+	int TranslateRules(char *p, char *phonemes, int size, char *end_phonemes, int end_flags, int dict_flags);
 	void ApplySpecialAttribute(char *phonemes, int dict_flags);
 
 	int IsLetter(int letter, int group);
@@ -349,15 +377,12 @@ protected:
 	virtual int RemoveEnding(char *word, int end_type, char *word_copy);
 	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
    virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
-	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags);
+	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 
 	int IsVowel(int letter);
 	int LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags);
 	int Lookup(char *word, char *ph_out);
 
-	char *data_dictrules;     // language_1   translation rules file
-	char *data_dictlist;      // language_2   dictionary lookup file
-	char *dict_hashtab[N_HASH_DICT];   // hash table to index dictionary lookup file
 	
 	// groups1 and groups2 are indexes into data_dictrules, set up by InitGroups()
 	// the two-letter rules for each letter must be consecutive in the language_rules source

@@ -43,7 +43,7 @@
 #include "prosodydisplay.h"
 
 
-static char *about_string = "espeakedit 1.19  26.Jan.2007\nAuthor: Jonathan Duddington (c) 2006";
+static char *about_string = "espeakedit 1.20  06.Feb.2007\nAuthor: Jonathan Duddington (c) 2006";
 
 
 const char *path_data = "/home/jsd1/speechdata/phsource";
@@ -140,7 +140,7 @@ extern void VoiceReset(int control);
 	}
 	if(strcmp(param,"--lex=ru")==0)
 	{
-		if(LoadPhData() != 0)
+		if(LoadPhData() != 1)
 		{
 			fprintf(stderr,"Failed to load phoneme data\n");
 			exit(1);
@@ -217,6 +217,7 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 // Main Frame constructor
 
 	int error_flag = 0;
+	int result;
 
   // Create some dummy layout windows
 wxSashLayoutWindow *win;
@@ -245,9 +246,13 @@ wxSashLayoutWindow *win;
 	ConfigInit();
 	WavegenInitSound();
 
-	if(LoadPhData() != 0)
+	if((result = LoadPhData()) != 1)
 	{
-		wxLogError(_T("Failed to load phoneme data,\nneeds espeak-data/phontab,phondata,phonindex"));
+		if(result == -1)
+			wxLogError(_T("Failed to load phoneme data,\nneeds espeak-data/phontab,phondata,phonindex"));
+		else
+			wxLogError(_T("Wrong version of espeak-data: 0x%x (0x%x)"),result,VERSION_DATA);
+
 		error_flag = 1;
 	}
 
@@ -465,7 +470,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	int err;
 	FILE *log;
 	char fname_log[80];
-	char err_fname[80];
+	char err_fname[130];
 
 	switch(event.GetId())
 	{

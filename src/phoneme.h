@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#define VERSION_DATA  0x011901
 
 // phoneme types
 #define phPAUSE   0
@@ -115,6 +116,7 @@ typedef struct {
 // one for the current voice
 extern int n_phoneme_tab;
 extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
+extern unsigned char phoneme_tab_flags[N_PHONEME_TAB];  // bit 0: not inherited
 
 typedef struct {
 	char name[N_PHONEME_TAB_NAME];
@@ -138,8 +140,9 @@ extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
 
 
-char *EncodePhonemes(char *p, char *outptr, char *bad_phoneme);
+char *EncodePhonemes(char *p, char *outptr, unsigned char *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
 const char *PhonemeTabName(void);
 int LookupPh(const char *string);
+extern const char *WordToString(unsigned int word);
 

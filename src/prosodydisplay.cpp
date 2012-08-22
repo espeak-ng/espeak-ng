@@ -32,7 +32,6 @@
 extern MyFrame *myframe;
 extern ChildFrProsody *prosodyframe;
 extern ProsodyDisplay *prosodycanvas;
-extern const char *WordToString(unsigned int word);
 
 wxMenu *menu_prosody;
 

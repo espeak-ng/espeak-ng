@@ -37,7 +37,7 @@ class Translator_Russian: public Translator
 public:
 	Translator_Russian();
 private:
-	int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags);
+	int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
 
 };  // end of class Translator_Russian
 

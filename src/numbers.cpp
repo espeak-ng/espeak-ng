@@ -76,7 +76,7 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 		single_letter[1] = ' ';
 		if(Lookup(&single_letter[2],ph_buf) == 0)
 		{
-			TranslateRules(&single_letter[2], ph_buf, NULL,0,0);
+			TranslateRules(&single_letter[2], ph_buf, sizeof(ph_buf), NULL,0,0);
 		}
 	}
 

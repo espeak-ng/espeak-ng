@@ -73,6 +73,16 @@ static const short punct_chars[] = {',','.','?','!',':',';',
   0x037e,  // Greek question mark (looks like semicolon)
   0x0387,  // Greek semicolon, ano teleia
   0x0964,  // Devanagari Danda (fullstop)
+  0x3001,  // ideograph comma
+  0x3002,  // ideograph period
+
+  0xff01,  // fullwidth exclamation
+  0xff0c,  // fullwidth comma
+  0xff0e,  // fullwidth period
+  0xff1a,  // fullwidth colon
+  0xff1b,  // fullwidth semicolon
+  0xff1f,  // fullwidth question mark
+  
   0};
 
 
@@ -87,6 +97,15 @@ static const unsigned short punct_attributes [] = { 0,
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
   CLAUSE_PERIOD,     // Devanagari Danda (fullstop)
+  CLAUSE_COMMA,      // ideograph
+  CLAUSE_PERIOD,
+
+  CLAUSE_EXCLAMATION, // fullwidth
+  CLAUSE_COMMA,
+  CLAUSE_PERIOD,
+  CLAUSE_COLON,
+  CLAUSE_SEMICOLON,
+  CLAUSE_QUESTION,
 
   CLAUSE_SEMICOLON,  // spare
   0 };
@@ -342,7 +361,7 @@ static int LoadSoundFile(const char *fname, int index)
 	int *ip;
 	int  length;
 	char fname_temp[80];
-	char fname2[80];
+	char fname2[200];
 	char command[150];
 
 	if(fname == NULL)

@@ -96,6 +96,7 @@ REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 static const short brackets[] = {
 '(',')','[',']','{','}','<','>','"','\'','`',
 0xab,0xbb,  // double angle brackets
+0x300a,0x300b,  // double angle brackets (ideograph)
 0};
 
 // other characters which break a word, but don't produce a pause
@@ -366,6 +367,7 @@ Translator::Translator()
 	// only need lower case
 	letter_bits_offset = 0;
 	memset(letter_bits,0,sizeof(letter_bits));
+	memset(letter_groups,0,sizeof(letter_groups));
 
 	// 0-5 sets of characters matched by A B C E F G in pronunciation rules
 	// these may be set differently for different languages
@@ -378,8 +380,6 @@ Translator::Translator()
 	SetLetterBits(this,6,"eiy");   // Letter group Y, front vowels
 	SetLetterBits(this,7,"aeiouy");  // vowels, including y
 
-	for(ix=0; ix<8; ix++)
-		letter_type_list[ix] = NULL;
 
 	char_plus_apostrophe = empty_wstring;
 
@@ -533,7 +533,7 @@ char *strchr_w(const char *s, int c)
 void LoadConfig(void)
 {//==================
 // Load configuration file, if one exists
-	char buf[120];
+	char buf[130];
 	FILE *f;
 	int ix;
 	char c1;
@@ -577,15 +577,14 @@ int PhonemeCode(unsigned int mnem)
 }
 
 
-int Translator::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags)
-{//===================================================================================================
+int Translator::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch)
+{//======================================================================================================
 // Called for each phoneme in the phoneme list, to allow a language to make changes
 // flags: bit 0=1 last phoneme in a word
 //        bit 1=1 this is the highest stressed vowel in the current word
 //        bit 2=1 after the highest stressed vowel in the current word
 //        bit 3=1 the phonemes were specified explicitly, or found from an entry in the xx_list dictionary
-
-
+// ph     The current phoneme
 	return(0);
 }
 
@@ -599,9 +598,12 @@ int Translator::SubstitutePhonemes(PHONEME_LIST2 *plist_out)
 	int replace_flags;
 	int n_plist_out = 0;
 	int word_end;
-	int max_stress;
+	int max_stress = -1;
 	int switched_language = 0;
 	int max_stress_posn=0;
+	int n_syllables = 0;
+	int syllable = 0;
+	int syllable_stressed = 0;
 	PHONEME_LIST2 *plist2;
 	PHONEME_LIST2 *pl;
 	PHONEME_TAB *next=NULL;
@@ -630,6 +632,10 @@ int Translator::SubstitutePhonemes(PHONEME_LIST2 *plist_out)
 				if(plist2->sourceix)
 				{
 					// start of a word, find the stressed vowel
+					syllable = 0;
+					syllable_stressed = 0;
+					n_syllables = 0;
+
 					max_stress = -1;
 					max_stress_posn = ix;
 					for(k=ix; k < n_ph_list2; k++)
@@ -639,16 +645,28 @@ int Translator::SubstitutePhonemes(PHONEME_LIST2 *plist_out)
 		
 						pl->stress &= 0xf;
 		
-						if((phoneme_tab[pl->phcode]->type == phVOWEL) && (pl->stress  > max_stress))
+						if(phoneme_tab[pl->phcode]->type == phVOWEL)
 						{
-							max_stress = pl->stress;
-							max_stress_posn = k;
+							n_syllables++;
+
+							if(pl->stress  > max_stress)
+							{
+								syllable_stressed = n_syllables;
+								max_stress = pl->stress;
+								max_stress_posn = k;
+							}
 						}
 					}
+				}
+
+				if(phoneme_tab[plist2->phcode]->type == phVOWEL)
+				{
+					syllable++;
 				}
 	
 				// make any language specific changes
 				int flags;
+				CHANGEPH ch;
 				flags = 0;
 				if(ix == max_stress_posn)
 					flags |= 2;
@@ -656,8 +674,15 @@ int Translator::SubstitutePhonemes(PHONEME_LIST2 *plist_out)
 					flags |= 4;
 				if(ph_list2[ix].synthflags & SFLAG_DICTIONARY)
 					flags |= 8;
-		
-				ChangePhonemes(ph_list2, n_ph_list2, ix, phoneme_tab[ph_list2[ix].phcode], word_end | flags);
+				ch.flags = flags | word_end;
+
+				ch.stress = plist2->stress;
+				ch.stress_highest = max_stress;
+				ch.n_vowels = n_syllables;
+				ch.vowel_this = syllable;
+				ch.vowel_stressed = syllable_stressed;
+
+				ChangePhonemes(ph_list2, n_ph_list2, ix, phoneme_tab[ph_list2[ix].phcode], &ch);
 			}
 	
 			// check whether a Voice has specified that we should replace this phoneme
@@ -1083,6 +1108,7 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	int prefix_type=0;
 	char *word;
 	char phonemes[N_WORD_PHONEMES];
+	char *ph_limit;
 	char *phonemes_ptr;
 	char prefix_phonemes[N_WORD_PHONEMES];
 	char end_phonemes[N_WORD_PHONEMES];
@@ -1108,6 +1134,7 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 	word = word1;
 	prefix_phonemes[0] = 0;
 	end_phonemes[0] = 0;
+	ph_limit = &phonemes[N_WORD_PHONEMES];
 
 	// count the length of the word
 	utf8_in(&first_char,word,0);
@@ -1118,6 +1145,10 @@ int Translator::TranslateWord(char *word1, int next_pause, WORD_TAB *wtab)
 		word_length++;
 	}
 	word = word1;
+//#define DEBUG3
+#ifdef DEBUG3
+printf("TR1  wlen=%d, %x %x %x %x %x %x %x %x\n",word_length,word[0],word[1],word[2],word[3],word[4],word[5],word[6],word[7]);
+#endif
 
 	// try an initial lookup in the dictionary list, we may find a pronunciation specified, or
 	// we may just find some flags
@@ -1149,13 +1180,16 @@ if((wmark > 0) && (wmark < 8))
 		}
 
 		if((wflags & FLAG_ALL_UPPER) && (clause_upper_count <= clause_lower_count) &&
-			!(dictionary_flags & FLAG_ABBREV) && (word_length>1) && (word_length<4) && iswalpha(first_char))
+			!(dictionary_flags & (FLAG_ABBREV | FLAG_SKIPWORDS)) && (word_length>1) && (word_length<4) && iswalpha(first_char))
 		{
 			// An upper case word in a lower case clause. This could be an abbreviation.
 			spell_word = 1;
 		}
 	}
 
+#ifdef DEBUG3
+printf("TR2  spell_word=%d\n",spell_word);
+#endif
 	if(spell_word > 0)
 	{
 		// Speak as individual letters
@@ -1188,6 +1222,9 @@ if((wmark > 0) && (wmark < 8))
 		{
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
+#ifdef DEBUG3
+printf("TR3  length=%d\n",length);
+#endif
 			word += TranslateLetter(word,phonemes,0);
 			if(phonemes[0] == phonSWITCH)
 			{
@@ -1215,7 +1252,7 @@ if((wmark > 0) && (wmark < 8))
 		{
 			// Translate the stem
 			unpron_length = strlen(phonemes);
-			end_type = TranslateRules(word, phonemes, end_phonemes,wflags,dictionary_flags);
+			end_type = TranslateRules(word, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags);
 
 			if(phonemes[0] == phonSWITCH)
 			{
@@ -1256,7 +1293,7 @@ if((wmark > 0) && (wmark < 8))
 					prefix_flags = 1;
 				if(found == 0)
 				{
-					end_type = TranslateRules(word, phonemes, end_phonemes,0,dictionary_flags);
+					end_type = TranslateRules(word, phonemes, N_WORD_PHONEMES, end_phonemes, 0, dictionary_flags);
 
 					if(phonemes[0] == phonSWITCH)
 					{
@@ -1318,16 +1355,16 @@ strcpy(phonemes2,phonemes);
 					else
 					{
 						if(end_flags & FLAG_SUFX)
-							TranslateRules(word, phonemes, NULL,wflags | FLAG_SUFFIX_REMOVED, dictionary_flags);
+							TranslateRules(word, phonemes, N_WORD_PHONEMES, NULL,wflags | FLAG_SUFFIX_REMOVED, dictionary_flags);
 						else
-							TranslateRules(word, phonemes, NULL,wflags,dictionary_flags);
+							TranslateRules(word, phonemes, N_WORD_PHONEMES, NULL,wflags,dictionary_flags);
 					}
 				}
 
 				if((end_type & SUFX_T) == 0)
 				{
 					// the default is to add the suffix and then determine the word's stress pattern
-					AppendPhonemes(phonemes,end_phonemes);
+					AppendPhonemes(phonemes, N_WORD_PHONEMES, end_phonemes);
 					end_phonemes[0] = 0;
 				}
 			}
@@ -1339,12 +1376,12 @@ strcpy(phonemes2,phonemes);
 	{
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if(last_char == 'f')
-			TranslateRules(&word_ss[1],phonemes,NULL,0,0);
+			TranslateRules(&word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
 		else
 		if(strchr_w("hsx",last_char)==NULL)
-			TranslateRules(&word_zz[1],phonemes,NULL,0,0);
+			TranslateRules(&word_zz[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
 		else
-			TranslateRules(&word_iz[1],phonemes,NULL,0,0);
+			TranslateRules(&word_iz[1], phonemes, N_WORD_PHONEMES, NULL, 0, 0);
 	}
 
 
@@ -1505,7 +1542,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 	int source_ix;
 	int len;
 	char *new_language;
-	char bad_phoneme[4];
+	unsigned char bad_phoneme[4];
 
 	len = wtab->length;
 	if(len > 31) len = 31;
@@ -1630,7 +1667,7 @@ int Translator::TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int ne
 
 		if(!(word_flags & FLAG_LAST_WORD)  && !(word_flags & FLAG_HYPHEN))
 		{
-			if(word_flags & FLAG_PAUSE1)
+			if(flags & FLAG_PAUSE1)
 			{
 				if(pre_pause < 1)
 					pre_pause = 1;
@@ -2138,8 +2175,15 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			{
 				if(IsAlpha(prev_out))
 				{
-					c = ' ';   // ensure we have an end-of-word terminator
-					source_index = prev_source_index;
+					if(langopts.tone_numbers && isdigit(c) && !isdigit(next_in))
+					{
+						// allow a tone number as part of the word
+					}
+					else
+					{
+						c = ' ';   // ensure we have an end-of-word terminator
+						source_index = prev_source_index;
+					}
 				}
 			}
 			if(iswdigit(prev_out))
@@ -2166,7 +2210,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			else
 			if(IsAlpha(c))
 			{
-				if(!IsAlpha(prev_out))
+				if(!IsAlpha(prev_out) || (langopts.ideographs && (c >= 0x3000)))
 				{
 					if((prev_out != ' ') && (prev_out != '\''))
 					{
@@ -2323,6 +2367,10 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 			else
 			if(iswdigit(c))
 			{
+				if(langopts.tone_numbers && IsAlpha(prev_out) && !isdigit(next_in))
+				{
+				}
+				else
 				if((prev_out != ' ') && !iswdigit(prev_out) && (prev_out != langopts.decimal_sep))   // TEST2
 				{
 					c = ' ';

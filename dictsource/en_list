@@ -1412,6 +1412,7 @@ regime           reIZ'i:m
 region           ri:dZ@n       // & regional
 reign            reIn
 rein             reIn
+reined           reInd
 reindeer         reIndi@
 reinvent         ri:Inv'Ent
 refinery         rI2faIn@rI2
@@ -2198,6 +2199,7 @@ to               t@5          $verbf    // @ change to U before vowel
 (to be)          t@||'bi:       $atend
 (to to)          %tU_t@5        $verbf
 (to and fro)     tu:@ndfr'oU
+to               tu:          $u $atend
 
 
 at               at           $nounf $only $u

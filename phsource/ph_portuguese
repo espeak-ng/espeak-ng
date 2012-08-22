@@ -156,7 +156,7 @@ phoneme x   // for "r"
   vowelin f1=0  f2=1500 0 400  f3=-500 100
   vowelout f1=0 f2=1500 0 400  f3=-500 100  rms=20
   lengthmod 6
-  formants voc/Q_less+ufric/x2%140
+  formants voc/Q_less+ufric/x2%110
   before _ voc/Q_+ufric/x2
   switchvoicing x
 endphoneme

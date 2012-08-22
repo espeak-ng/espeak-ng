@@ -47,38 +47,42 @@ ia              $u      // any
 
 // prepositions
 de              $u+ $brk
-(de la)         dela	$u
+(de la)         dela	$u $brk
 
-antaux          $u+ $brk
-antaŭ           $u+ $brk
-apud            $u+ $brk
+antaux          $u+ $pause
+antaŭ           $u+ $pause
+apud            $u+ $pause
 ol              $u+ $brk
 ĉe              $u+ $brk
 da              $u+
 al              $u+ $brk
 (al la)         alla $u $brk
-el              $u+ $brk
-(el la)         ella $u $brk
+el              $u+ $pause
+(el la)         ella $u $pause
 en              $u+ $brk
 (en la)         enla $u $brk
+ĝis		$pause
+inter		$pause
 je		$u
-kun             $u+ $brk
-laŭ		$u+
+
+kun             $u+ $pause
+laŭ		$u+ $brk
+laux		$u+ $brk
 per             $u+ $brk
-preter          $u+
-pri		$u+ $brk
-por             $u+ $brk
-post		$u+ $brk
-pro             $u+ $brk
-sen		$u+ $brk
-sub             $u+ $brk
-sur             $u+ $brk
+preter          $u+ $brk
+pri		$u+ $pause
+por             $u+ $pause
+post		$u+ $pause
+pro             $u+ $pause
+sen		$u+ $pause
+sub             $u+ $pause
+sur             $u+ $pause
 
 dum             $u $pause
 tra             $u $pause
 
 // misc adverbs etc
-eĉ              _etS
+eĉ              $brk
 (pli ol)	pliol
 
 // pronouns
@@ -153,17 +157,18 @@ havos		$u+
 
 eble            $u       // may
 
-kia             $u $pause
-kie             $u $pause
-kiel            $u $pause
-kio             $u $pause
-kiu             $u $pause
-kiuj            $u $pause
+kia             $u+ $pause
+kie             $u+ $pause
+kiel            $u+ $pause
+kio             $u+ $pause
+kiu             $u+ $pause
+kiuj            $u+ $pause
 kiun            $pause
 kiunj           $pause
-kiam            $u $pause
+kiam            $u+ $pause
 
 tio             $u+
+tiam            $brk
 
 
 // conjunctions
@@ -176,9 +181,9 @@ kaj		$u $pause
 sed		$u $pause
 nek		$u $pause
 se		$u $pause
-ju		$u
+ju		$u $brk
 des		$u $pause
-do		$pause	       // thereforem, so, then
+do		$pause	       // therefore, so, then
 ekde		$pause         // since
 
 

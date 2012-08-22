@@ -121,7 +121,7 @@ void ConfigInit()
 	strcpy(path_home,"C:/Program Files/eSpeak/espeak-data");
 	path_base = "C:/Program Files/eSpeak";
 #else
-	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
+	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
 	path_base = path_home;
 #endif
 	mkdir(path_home,S_IRWXU);    // create if it doesn't already exist

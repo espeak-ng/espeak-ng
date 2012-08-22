@@ -45,6 +45,7 @@ Translator_English::Translator_English() : Translator()
 	langopts.word_gap = 0;
 
 	langopts.numbers = 0x41;
+
 }
 
 

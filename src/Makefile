@@ -3,7 +3,7 @@ INCDIR=/usr/include/espeak
 LIBDIR=/usr/lib
 DATADIR=/usr/share/espeak-data
 
-RELEASE = 1.19
+RELEASE = 1.20
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so

@@ -227,7 +227,7 @@ phoneme x2
   vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
   length 100
   lengthmod 3
-  wave ufric/x2%40      // stronger version of [x]
+  wave ufric/x2%60      // stronger version of [x]
 endphoneme
 
 
