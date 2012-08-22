@@ -34,26 +34,37 @@
 //#define OUTPUT_FORMAT
 
 int HashDictionary(const char *string);
-char path_dsource[80];
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
 
 int linenum;
 static int error_count;
+static int transpose_offset;  // transpose character range for LookupDictList()
+static int transpose_min;
+static int transpose_max;
 
 int hash_counts[N_HASH_DICT];
 char *hash_chains[N_HASH_DICT];
 
 MNEM_TAB mnem_flags[] = {
-	// these in the first group put a value in bits0-2 of dictionary_flags
-	{"$1", 1},           // stress on 1st syllable
-	{"$2", 2},           // stress on 2nd syllable
-	{"$3", 3},
-	{"$4", 4},
-	{"$5", 5},
-	{"$12",6},           // stress on 1st and 2nd syllables
-	{"$u", 7},           // reduce to unstressed
+	// these in the first group put a value in bits0-3 of dictionary_flags
+	{"$1", 0x41},           // stress on 1st syllable
+	{"$2", 0x42},           // stress on 2nd syllable
+	{"$3", 0x43},
+	{"$4", 0x44},
+	{"$5", 0x45},
+	{"$6", 0x46},
+	{"$7", 0x47},
+	{"$u", 0x48},           // reduce to unstressed
+	{"$u1", 0x49},
+	{"$u2", 0x4a},
+	{"$u3", 0x4b},
+	{"$u+",  0x4c},           // reduce to unstressed, but stress at end of clause
+	{"$u1+", 0x4d},
+	{"$u2+", 0x4e},
+	{"$u3+", 0x4f},
+
 
 	// these set the corresponding numbered bit if dictionary_flags
 	{"$pause",     8},    /* ensure pause before this word */
@@ -67,13 +78,12 @@ MNEM_TAB mnem_flags[] = {
 	{"$capital",   15},   /* use this pronunciation if initial letter is upper case */
 	{"$dot",       16},   /* ignore '.' after this word (abbreviation) */
 	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
+	{"$stem",      18},   // must have a suffix
 
 // language specific
-	{"$alt",       18},   // use alternative pronunciation
-	{"$d",         19},   // IT double the initial consonant of next word
 	{"$double",    19},   // IT double the initial consonant of next word
-	{"$x2",        20},
-	{"$x3",        21},
+	{"$alt",       20},   // use alternative pronunciation
+	{"$x2",        21},
 
 	{"$verbf",     22},    /* verb follows */
 	{"$verbsf",    23},    /* verb follows, allow -s suffix */
@@ -300,19 +310,38 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 		}
 	}
 	
-	len_word = strlen(word);
 	if((word[0] & 0x80)==0)  // 7 bit ascii only
 	{
 		// 1st letter - need to consider utf8 here
 		word[0] = tolower(word[0]);
 	}
 
+	len_word = strlen(word);
+
+	if(transpose_offset > 0)
+	{
+		len_word = TransposeAlphabet(word, transpose_offset, transpose_min, transpose_max);
+	}
+
 	*hash = HashDictionary(word);
 	len_phonetic = strlen(encoded_ph);
-	length = len_word + len_phonetic + 3;
 	
-	strcpy(&dict_line[1],word);
-	strcpy(&dict_line[len_word+2],encoded_ph);
+	dict_line[1] = len_word;   // bit 6 indicates whether the word has been compressed
+	len_word &= 0x3f;
+
+	memcpy(&dict_line[2],word,len_word);
+
+	if(len_phonetic == 0)
+	{
+		// no phonemes specified. set bit 7
+		dict_line[1] |= 0x80;
+		length = len_word + 2;
+	}
+	else
+	{
+		length = len_word + len_phonetic + 3;
+		strcpy(&dict_line[(len_word)+2],encoded_ph);
+	}
 	
 	for(ix=0; ix<n_flag_codes; ix++)
 	{
@@ -322,7 +351,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 
 	if((multiple_string != NULL) && (multiple_words > 0) && (multiple_words <= 4))
 	{
-		dict_line[length++] = 28 + multiple_words;
+		dict_line[length++] = 40 + multiple_words;
 		ix = multiple_string_end - multiple_string;
 		memcpy(&dict_line[length],multiple_string,ix);
 		length += ix;
@@ -422,22 +451,30 @@ void compile_dictlist_end(FILE *f_out)
 }
 
 
-void compile_dictlist_file(FILE *f_in)
-{//===================================
+
+int compile_dictlist_file(const char *path, const char* filename)
+{//==============================================================
 	int  length;
 	int  hash;
 	char *p;
 	int  count=0;
-	char source_line[256];
+	FILE *f_in;
+	char buf[256];
 	char dict_line[128];
 	
+	sprintf(buf,"%s%s",path,filename);
+	if((f_in = fopen(buf,"r")) == NULL)
+		return(-1);
+
+	fprintf(f_log,"Compiling: '%s'\n",buf);
+
 	linenum=0;
 	
-	while(fgets(source_line,256,f_in) != NULL)
+	while(fgets(buf,sizeof(buf),f_in) != NULL)
 	{
 		linenum++;
 
-		length = compile_line(source_line,dict_line,&hash);
+		length = compile_line(buf,dict_line,&hash);
 		if(length == 0)  continue;   /* blank line */
 
 		hash_counts[hash]++;
@@ -460,6 +497,8 @@ void compile_dictlist_file(FILE *f_in)
 	}
 	
 	fprintf(f_log,"\t%d entries\n",count);
+	fclose(f_in);
+	return(0);
 }   /* end of compile_dictlist_file */
 
 
@@ -554,6 +593,12 @@ void copy_rule_string(char *string, int &state)
 				case 'F':
 					c = RULE_LETTER5;
 					break;
+				case 'G':
+					c = RULE_LETTER6;
+					break;
+				case 'Y':
+					c = RULE_LETTER7;
+					break;
 				case 'K':
 					c = RULE_NOTVOWEL;
 					break;
@@ -584,7 +629,7 @@ void copy_rule_string(char *string, int &state)
 				case '$':   // obsolete, replaced by S
 				case 'S':
 					output[ix++] = RULE_ENDING;
-					value = 0;
+					value = 0x80;
 					while(!isspace(c = *p++) && (c != 0))
 					{
 						switch(c)
@@ -607,9 +652,12 @@ void copy_rule_string(char *string, int &state)
 						case 'f':
 							sxflags |= SUFX_F;
 							break;
+						case 'q':
+							sxflags |= SUFX_Q;
+							break;
 						default:
 							if(isdigit(c))
-								value |= (c - '0');
+								value = (c - '0') + 0x80;
 							break;
 						}
 					}
@@ -832,7 +880,7 @@ void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 				pout += strlen(suffix);
 				break;
 			default:
-				if(c <= RULE_LETTER4)
+				if(c <= RULE_LETTER7)
 					c = symbols[c-RULE_SYLLABLE];
 				if(c == ' ')
 					c = '_';
@@ -955,6 +1003,8 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 	int n_rules=0;
 	int n_groups=0;
 	int count=0;
+	int len;
+	char prev_group_name[12];
 	unsigned int char_code;
 	char *buf;
 	char buf1[120];
@@ -962,6 +1012,7 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 	
 	linenum = 0;
 	group_name[0] = 0;
+	prev_group_name[0] = 0;
 
 	while(fgets(buf1,sizeof(buf1),f_in) != NULL)
 	{
@@ -985,25 +1036,37 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 			while(!isspace(*p) && (*p != 0) && (ix<12))
 				group_name[ix++] = *p++;
 			group_name[ix]=0;
-			if(strlen(group_name) > 2)
+			if((len = strlen(group_name)) > 2)
 			{
 				if(sscanf(group_name,"0x%x",&char_code)==1)
 				{
 					// group character is given as a character code
 					p = group_name;
+					len = 1;
 
 					if(char_code > 0x100)
 					{
 						*p++ = (char_code >> 8);
+						len++;
 					}
 					*p++ = char_code;
 					*p = 0;
 				}
 				else
 				{
-					fprintf(f_log,"%5d: Group name longer than 2 characters: %s\n",linenum,group_name);
+					fprintf(f_log,"%5d: Group name longer than 2 bytes (UTF8): %s\n",linenum,group_name);
 					error_count++;
 				}
+			}
+
+			if(len > 1)
+			{
+				if((unsigned int)group_name[0] < (unsigned int)prev_group_name[0])
+				{
+					fprintf(f_log,"%5d: Group %s should be before %s\n",linenum,group_name,prev_group_name);
+					error_count++;
+				}
+				strcpy(prev_group_name,group_name);
 			}
 			continue;
 		}
@@ -1027,37 +1090,31 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 
 
 
-int CompileDictionary(const char *dict_name, int log, char *fname)
-{//===============================================================
+
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname)
+{//======================================================================================
 // fname:  space to write the filename in case of error
 
 	FILE *f_in;
 	FILE *f_out;
-	int offset_rules;
+	int offset_rules=0;
 	int value;
+	char fname_buf[80];
+	char path[80];
 
 	error_count = 0;
 
-	if(log==1)
-	{
-		sprintf(fname,"%s%cdict_log",path_dsource,PATHSEP);
-		if((f_log = fopen(fname,"w")) == NULL)
-			f_log = stderr;
-	}
-	else
-	{
+	if(dsource == NULL)
+		dsource = "";
+	if(fname == NULL)
+		fname = fname_buf;
+
+	f_log = log;
+	if(log == NULL)
 		f_log = stderr;
-	}
 
-	fprintf(f_log,"Phonemes: '%s'\n",PhonemeTabName());
+	sprintf(path,"%s%s_",dsource,dict_name);
 
-	sprintf(fname,"%s%s_list",path_dsource,dict_name);
-	fprintf(f_log,"Compiling: '%s'\n",fname);
-	f_in = fopen_log(fname,"r");
-	if(f_in == NULL)
-	{
-		return(-1);
-	}
 	sprintf(fname,"%s%c%s_dict",path_home,PATHSEP,dict_name);
 	f_out = fopen_log(fname,"wb+");
 	if(f_out == NULL)
@@ -1065,25 +1122,33 @@ int CompileDictionary(const char *dict_name, int log, char *fname)
 		return(-1);
 	}
 
+	transpose_offset = 0;
+
+	if(strcmp(dict_name,"ru") == 0)
+	{
+		// transpose cyrillic alphabet from unicode to iso8859-5
+//		transpose_offset = 0x430-0xd0;
+		transpose_offset = 0x42f;   // range 0x01 to 0x22
+		transpose_min = 0x430;
+		transpose_max = 0x451;
+	}
+
 	value = N_HASH_DICT;
 	fwrite(&value,4,1,f_out);
 	fwrite(&offset_rules,4,1,f_out);
 
 	compile_dictlist_start();
-	compile_dictlist_file(f_in);
-	fclose(f_in);
 
-	sprintf(fname,"%s%s_extra",path_dsource,dict_name);
-	if((f_in = fopen(fname,"r")) != NULL)
-	{
-		fprintf(f_log,"Compiling: '%s'\n",fname);
-		compile_dictlist_file(f_in);
-		fclose(f_in);
-	}
+	fprintf(f_log,"Using phonemetable: '%s'\n",PhonemeTabName());
+	compile_dictlist_file(path,"roots");
+	compile_dictlist_file(path,"listx");
+	compile_dictlist_file(path,"list");
+	compile_dictlist_file(path,"extra");
+	
 	compile_dictlist_end(f_out);
 	offset_rules = ftell(f_out);
 	
-	sprintf(fname,"%s%s_rules",path_dsource,dict_name);
+	sprintf(fname,"%srules",path);
 	fprintf(f_log,"Compiling: '%s'\n",fname);
 	f_in = fopen_log(fname,"r");
 	if(f_in == NULL)
@@ -1097,9 +1162,6 @@ int CompileDictionary(const char *dict_name, int log, char *fname)
 	fseek(f_out,4,SEEK_SET);
 	fwrite(&offset_rules,4,1,f_out);
 	fclose(f_out);
-
-	if(f_log != stderr)
-		fclose(f_log);
 
 	translator->LoadDictionary(dict_name);
 

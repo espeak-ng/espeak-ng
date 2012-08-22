@@ -215,9 +215,12 @@ unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which,
 	unsigned int  other_code;
 	unsigned int  other_virtual;
 	
-	wavefile_ix = 0;
-	wavefile_amp = 32;
-	seq_len_adjust = 0;
+	if(control==0)
+	{
+		wavefile_ix = 0;
+		wavefile_amp = 32;
+		seq_len_adjust = 0;
+	}
 	memset(vowel_transition,0,sizeof(vowel_transition));
 	
 	other_code = other_ph->code;
@@ -308,6 +311,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	int  length_factor;
 	SPECT_SEQ *seq;
 	SPECT_SEQ *seq2;
+	PHONEME_TAB *next2_ph;
 	static frameref_t frames_buf[N_SEQ_FRAMES];
 	
 	PHONEME_TAB *other_ph;
@@ -347,17 +351,33 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	}
 	
 	// do we need to modify a frame for blending with a consonant?
-	if((this_ph->type == phVOWEL) && (*match_level == 0))
+	if(this_ph->type == phVOWEL)
 	{
 		if(which==2)
 		{
 			// lookup formant transition for the following phoneme
-			LookupSound(next_ph,this_ph,1,NULL,1);
-			FormantTransition2(frames,nf,vowel_transition[2],vowel_transition[3],next_ph,which);
+
+			if(*match_level == 0)
+			{
+				LookupSound(next_ph,this_ph,1,NULL,1);
+				FormantTransition2(frames,nf,vowel_transition[2],vowel_transition[3],next_ph,which);
+			}
+			else
+			if(next_ph->phflags == phVOWEL2)
+			{
+				// not really a consonant, rather a coloured vowel
+				if(LookupSound(next_ph,this_ph,1,NULL,1) == 0)
+				{
+					next2_ph = plist[2].ph;
+					LookupSound(next2_ph,next_ph,1,NULL,1);
+					FormantTransition2(frames,nf,vowel_transition[2],vowel_transition[3],next2_ph,which);
+				}
+			}
 		}
 		else
 		{
-			FormantTransition2(frames,nf,vowel_transition0,vowel_transition1,prev_ph,which);
+			if(*match_level == 0)
+				FormantTransition2(frames,nf,vowel_transition0,vowel_transition1,prev_ph,which);
 		}
 //		FormantTransitions(frames,nf,this_ph,other_ph,which);
 	}

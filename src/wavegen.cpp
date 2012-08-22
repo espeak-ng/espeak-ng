@@ -452,7 +452,6 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	int ix;
 	int result;
 	unsigned char *p;
-	static int end_timer = 0;
 
 	out_ptr = (unsigned char *)outputBuffer;
 	out_end = out_ptr + framesPerBuffer*2;
@@ -473,13 +472,16 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	}
 
 #if USE_PORTAUDIO == 18
-	if((result > 0) && (end_timer == 0))
-		end_timer =12;
-	if(end_timer > 0)
 	{
-		end_timer--;
-		if(end_timer == 0)
-			return(1);
+		static int end_timer = 0;
+		if((result > 0) && (end_timer == 0))
+			end_timer =12;
+		if(end_timer > 0)
+		{
+			end_timer--;
+			if(end_timer == 0)
+				return(1);
+		}
 	}
 	return(0);
 #else

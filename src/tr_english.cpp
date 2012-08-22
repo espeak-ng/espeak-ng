@@ -43,6 +43,8 @@ Translator_English::Translator_English() : Translator()
 	langopts.vowel_pause = 0;
 	langopts.stress_rule = 0;
 	langopts.word_gap = 0;
+
+	langopts.numbers = 0x41;
 }
 
 
@@ -122,8 +124,6 @@ int Translator_English::Unpronouncable(char *word)
 	else
 		return(1);   /****/
 }   /* end of Unpronounceable */
-
-
 
 
 

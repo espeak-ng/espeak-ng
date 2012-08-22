@@ -38,6 +38,8 @@
 #define SFLAG_EMBEDDED         0x02   // there are embedded commands before this phoneme
 #define SFLAG_SYLLABLE         0x04   // vowel or syllabic consonant
 #define SFLAG_LENGTHEN         0x08   // lengthen symbol : included after this phoneme
+#define SFLAG_DICTIONARY       0x10   // the pronunciation of this word was listed in the xx_list dictionary
+
 
 // embedded command numbers
 #define EMBED_P     1   // pitch

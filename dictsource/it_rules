@@ -3,19 +3,27 @@
 
 
 .group a
-	_)	a(_	a
+	_)	a(_	a:
 		a	a:
 		a (CK	a
 		ai      aI (K
 
+	&)	a (_S1q  a     // lookup it_list without suffix
+
+		a (ista_  a
+		a (ismo_  a
+	@)	a (bile_  'a
+	@)	a (ggine_ 'a
+
+	@)	avano (_S5  'avano
 		
 .group b
-	_)	b(_	ba
+	_)	b(_	bi:
 		b       b
 		bb      b:
 		
 .group c
-	_)	c(_	tso
+	_)	c(_	tSi:
 		c	k
 		cc	k:
 		c (e	tS
@@ -44,22 +52,37 @@
 		cci (ù	tS:
 		
 .group d
-	_)	d(_	da
+	_)	d(_	di:
 		d	d
 		dd	d:
 
 .group e
-	_)	e(_	e
+	_)	e(_	e:
 		e	e:
 		e (CK	e
-		ei	eI (K
+		ei	ej (K
+
+	&)	e (_S1q  e     // lookup it_list without suffix
+
+	@)	e (nte_   E
+	@)	e (nza_   E
+	@)	e (vole_  'e
+	@)	e (rrimo_ 'E
+	@)	e (simo_  'e
+
+	@)	evano(_S5  'evano
+
 		
 .group f
-	_)	f(_	fo
+	_)	f(_	Effe
 		f	f
+
+	@A)	f (ico_  =f
+	@A)	f (ilo_  =f
+	@A)	f (ero_  =f
 		
 .group g
-	_)	g(_	ga
+	_)	g(_	dZi:
 		g	g
 		gg	g:
 		gh	g
@@ -90,13 +113,16 @@
 		gli (A  l;
 	_)	gl	gl
 		gn	n^
+
+	@)	g (ero_  =g
+
 	
 .group h
-	_)	h(_	ha
+	_)	h(_	ak:a
 		h
 
 .group i
-	_)	i(_	i
+	_)	i(_	i:
 		i	i:
 		i (CK	i
 		i (A	j
@@ -109,54 +135,81 @@
 	a)	i (+	j
 	e)	i (+	j
 	o)	i (+	j
+
+	&)	i (_S1q  i     // lookup it_list without suffix
+
+	@)	iera (_   i'E:ra
+	@)	iere (_   i'E:re
+        @)      i (ente_  i
+	@)	i (ante_  i
+	@)	i (bile_  'i
+	@)	issimo(_S6 'issimo
+	@)	issero(_S6 'issero
+
 		
 .group j
-	_)	j(_	jo
+	_)	j(_	dZe:j
 		j	j
 
 .group k
-	_)	k(_	ko
+	_)	k(_	kap:a
 		k	k
 		kk	k:
 		
 .group l
-	_)	l(_	lo
+	_)	l(_	Elle
 		l	l
+               ll (C    l_
+               ll (_    l
 		
 .group m
-	_)	m(_	mo
+	_)	m(_	Emme
 		m	m
 		
 .group n
-	_)	n(_	na
+	_)	n(_	Enne
 		n	n
 		n (g	N
 		n (k	N
 		
 .group o
-	_)	o(_	o
+	_)	o(_	O:
 		o	o:
 		o (CK	o
 		oi	OI (K
+
+	&)	o (_S1q  o     // lookup it_list without suffix 
+
+	@)	o (ista_   o
+	@)	o (ismo_   o
+	@)	o (gnolo_  'o
+	@)	o (nzolo_  'o
+	@)	o (grafo_  'O
+	@)	o (fono_   'O
+	@)	o (metro_  'O
+	@)	o (logo_   'O
+
 	
 .group p
-	_)	p(_	po
+	_)	p(_	pi:
 		p	p
 		pp	p:
+        _)      pn (@@   n
+	_)	ps (A@	s
 
 .group q
-	_)	q(_	kw2o
+	_)	q(_	ku:
 		q	kw2
 		qu	kw2
 
 .group r
-	_)	r(_	Ra
+	_)	r(_	ERRe
 		r	R
 		rr	RR
 	A)	r (A	r
 		
 .group s
-	_)	s(_	so
+	_)	s(_	Esse
 		s	z
 	-)	s	s
 		s (c	s
@@ -187,36 +240,41 @@
 		
 		
 .group t
-	_)	t(_	to
+	_)	t(_	ti:
 		t	t
 		tt	t:
 		
 .group u
-	_)	u(_	U
+	_)	u(_	U:
 		u	U:
 		u (CK	U
 		u (A	w
+	Kr)	u (A	U
+	Kl)	u (A	U
+
+	@)	u (dine_  'u
+	@)	u (colo_  'u
 
 .group v
-	_)	v(_	va
+	_)	v(_	vU:
 		v	v
 	
 .group w
-	_)	w(_	wa
+	_)	w(_	d'op:jav'U
 		w	w
 
 .group x
-	_)	x(_	ikso
+	_)	x(_	'iks
 		x	ks
 		
 .group y
-	_)	y(_	ipsilono
+	_)	y(_	'ipsilon
 		y	j
 		y (K	i        // foreign words
 	
 		
 .group z
-	_)	z(_	za
+	_)	z(_	ze:ta
 		z	ts
 	A)	z	ts:
 	A)	zz	ts:
@@ -240,26 +298,16 @@
 		%       pertS'ento
 		$	doll'a:ro
 
-          D) , (_DDD      mila_:_:
-      ,_000) , (_DDD
-      ,_000) , (_DDD,_DDD  milioni_:_:
-          D) , (_DDD,_DDD  milioni_:_:
-          D) , (_DDD,_DDD,_DDD mila_:_:
 
 
 .group 9
-	_)	0 (_	z'ero
-	_)	00 (D	_:
-		0 (D_	_
-	D)	0
-
-		0	z'ero_
+		0	dz'eRo_
 		1	'Uno_
 		2	d'Ue_
 		3	tR'e_
-		4	kw2'attRo_
+		4	kw2'at:Ro_
 		5	tS'inkw2e_
 		6	s'ej_
-		7	s'Ette_
-		8	'Oktto_
+		7	s'Et:e_
+		8	'Okt:o_
 		9	n'Ove_

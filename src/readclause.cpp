@@ -45,7 +45,6 @@ int n_namedata = 0;
 char *namedata = NULL;
 
 
-FILE *f_trans = NULL;
 FILE *f_input = NULL;
 int ungot_char2 = 0;
 char *p_textinput;
@@ -56,7 +55,7 @@ int end_of_input;
 int ignore_text=0;   // set during <sub> ... </sub>  to ignore text which has been replaced by an alias
 int clear_skipping_text = 0;  // next clause should clear the skipping_text flag
 int count_characters = 0;
-
+int sayas_mode;
 
 static const char *punct_stop = ".:!?";    // pitch fall if followed by space
 static const char *punct_close = ")]}>;'\"";  // always pitch fall unless followed by alnum
@@ -528,11 +527,11 @@ MNEM_TAB ssmltags[] = {
 	{"br", HTML_BREAK},
 	{"li", HTML_BREAK},
 	{"img", HTML_BREAK},
-	{"h1", HTML_BREAK},
-	{"h2", HTML_BREAK},
-	{"h3", HTML_BREAK},
-	{"h4", HTML_BREAK},
 	{"td", HTML_BREAK},
+	{"h1", SSML_PARAGRAPH},
+	{"h2", SSML_PARAGRAPH},
+	{"h3", SSML_PARAGRAPH},
+	{"h4", SSML_PARAGRAPH},
 	{"hr", SSML_PARAGRAPH},
 	{NULL,0}};
 
@@ -1025,10 +1024,12 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 	int tag_type;
 	int value;
 	int value2;
+	int value3;
 	int voice_change_flag;
 	wchar_t *px;
 	wchar_t *attr1;
 	wchar_t *attr2; 
+	wchar_t *attr3;
 	int terminator;
 	char *uri;
 	int param_type;
@@ -1050,10 +1051,15 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		{NULL, -1}};
 
 	static const MNEM_TAB mnem_interpret_as[] = {
+		{"characters",SAYAS_CHARS},
+		{"tts:char",SAYAS_SINGLE_CHARS},
+		{"tts:key",SAYAS_KEY},
+		{"tts:digits",SAYAS_DIGITS},
+		{"telephone",SAYAS_DIGITS1},
+		{NULL, -1}};
+
+	static const MNEM_TAB mnem_sayas_format[] = {
 		{"glyphs",1},
-		{"tts:char",2},
-		{"tts:key",3},
-		{"tts:digits",4},
 		{NULL, -1}};
 
 	static const MNEM_TAB mnem_break[] = {
@@ -1156,15 +1162,34 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 
 	case SSML_SAYAS:
 		attr1 = GetSsmlAttribute(px,"interpret-as");
+		attr2 = GetSsmlAttribute(px,"format");
+		attr3 = GetSsmlAttribute(px,"detail");
 		value = attrlookup(attr1,mnem_interpret_as);
-		outbuf[outix++] = CTRL_EMBEDDED;
-		outbuf[outix++] = '0'+value;
-		outbuf[outix++] = 'Y';
+		value2 = attrlookup(attr2,mnem_sayas_format);
+		if(value2 == 1)
+			value = SAYAS_GLYPHS;
+
+		value3 = attrnumber(attr3,0,0);
+
+		if(value == SAYAS_DIGITS)
+		{
+			if(value3 <= 1)
+				value = SAYAS_DIGITS1;
+			else
+				value = SAYAS_DIGITS + value3;
+		}
+
+		sprintf(buf,"%c%dY",CTRL_EMBEDDED,value);
+		strcpy(&outbuf[outix],buf);
+		outix += strlen(buf);
+
+		sayas_mode = value;   // punctuation doesn't end clause during SAY-AS
 		break;
 
 	case SSML_SAYAS + SSML_CLOSE:
 		outbuf[outix++] = CTRL_EMBEDDED;
 		outbuf[outix++] = 'Y';
+		sayas_mode = 0;
 		break;
 
 	case SSML_SUB:
@@ -1652,7 +1677,7 @@ if(option_ssml) parag=1;
 			}
 		}
 
-		if((phoneme_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0) &&
+		if((phoneme_mode==0) && (sayas_mode==0) && ((punct = lookupwchar(punct_chars,c1)) != 0) &&
 			(iswspace(c2) || IsBracket(c2) || (c2=='?') || (c2=='-') || Eof()))
 		{
 			// note: (c2='?') is for when a smart-quote has been replaced by '?'
@@ -1670,6 +1695,12 @@ if(option_ssml) parag=1;
 
 			if((nl_count==0) && (c1 == '.'))
 			{
+				if(iswdigit(cprev) && (langopts.numbers & 0x10000))
+				{
+					// dot after a number indicates an ordinal number
+					c2 = ' ';
+					continue;
+				}
 				if(iswlower(c2))
 				{
 					c2 = ' ';
@@ -1745,6 +1776,7 @@ void InitText2(void)
 	ignore_text = 0;
 	clear_skipping_text = 0;
 	count_characters = -1;
+	sayas_mode = 0;
 
 	xmlbase = NULL;
 	namedata_ix = 0;

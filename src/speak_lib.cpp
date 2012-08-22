@@ -96,7 +96,7 @@ static void init_path(void)
 	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
-		strcpy(path_home,"/usr/share/espeak-data");
+		strcpy(path_home,PATH_ESPEAK_DATA);
 	}
 #endif
 }
@@ -120,12 +120,15 @@ static int initialise(void)
 
 
 
-void Synthesize(const void *text, int flags)
-{//=========================================
+static int Synthesize(const void *text, int flags)
+{//===============================================
 // Fill the buffer with output sound
 	int length;
 	int finished = 0;
 	int count_buffers = 0;
+
+	if((outbuf==NULL) || (event_list==NULL))
+		return(-1);  // espeak_Initialize()  has not been called
 
 	option_multibyte = flags & 7;
 	option_ssml = flags & espeakSSML;
@@ -171,6 +174,7 @@ void Synthesize(const void *text, int flags)
 			}
 		}
 	}
+	return(0);
 }  //  end of Synthisize
 
 
@@ -198,6 +202,10 @@ void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr)
 
 
 
+
+#pragma GCC visibility push(default)
+
+
 void espeak_SetSynthCallback(int (* SynthCallback)(short*, int, espeak_EVENT*))
 {//============================================================================
 	synth_callback = SynthCallback;
@@ -216,11 +224,11 @@ int espeak_Initialize(int buf_length)
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
 #ifdef PLATFORM_RISCOS
-	static char *locale = "ISO8859-1";
+   setlocale(LC_CTYPE,"ISO8859-1");
 #else
-	static const char *locale = "german";
+	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
+		setlocale(LC_CTYPE,"german");
 #endif
-   setlocale(LC_CTYPE,locale);
 
 
 	init_path();
@@ -235,6 +243,7 @@ int espeak_Initialize(int buf_length)
 	event_list = (espeak_EVENT *)realloc(event_list,sizeof(espeak_EVENT) * n_event_list);
 
 	option_waveout = 1;
+	option_phonemes = 0;
 
 	LoadVoice("default",0);
 
@@ -276,8 +285,7 @@ int espeak_Synth(void *text, unsigned int position, espeak_POSITION_TYPE positio
 
 	end_character_position = end_position;
 
-	Synthesize(text,flags);
-	return(0);
+	return(Synthesize(text,flags));
 }  //  end of espeak_Synth
 
 
@@ -294,8 +302,7 @@ int espeak_Synth_Mark(void *text, const char *index_mark,
 
 	end_character_position = end_position;
 
-	Synthesize(text, flags | espeakSSML);
-	return(0);
+	return(Synthesize(text, flags | espeakSSML));
 }  //  end of espeak_Synth_Mark
 
 
@@ -310,8 +317,12 @@ void espeak_Key(const char *key)
 void espeak_Char(wchar_t character)
 {//================================
 // is there a system resource of character names per language?
-
+	char buf[80];
+	
+	sprintf(buf,"<say-as interpret-as=\"tts:char\">&#%d;</say-as>",character);
+	Synthesize(buf,espeakSSML);
 }
+
 
 int espeak_GetParameter(int parameter, int current)
 {//================================================
@@ -333,4 +344,28 @@ void espeak_SetPunctuationList(wchar_t *punctlist)
 	wcsncpy(option_punctlist, punctlist, N_PUNCTLIST);
 	option_punctlist[N_PUNCTLIST-1] = 0;
 }  //  end of espeak_SetPunctuationList
+
+
+void espeak_SetPhonemes(int value, FILE *stream)
+{//=============================================
+/* Controls the output of phoneme symbols for the text
+   value=0  No phoneme output (default)
+   value=1  Output the translated phoneme symbols for the text
+   value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
+*/
+	option_phonemes = value;
+	f_trans = stream;
+	if(stream == NULL)
+		f_trans = stdout;
+
+}   //  end of espeak_SetPhonemes
+
+
+void espeak_CompileDictionary(const char *path, FILE *log)
+{//======================================================
+	CompileDictionary(path,dictionary_name,log,NULL);
+}   //  end of espeak_CompileDirectory
+
+
+#pragma GCC visibility pop
 

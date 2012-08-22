@@ -6,6 +6,53 @@
 // Ο ο, Π π, Ρ ρ, Σ σ ς (word-final form), Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω.
 // ά έ ή ί ΰ ϊ ϋ ό ύ ώ
 
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_η	'ita
+_ή	'ita
+_ο	'omikron
+
+
+// numbers
+_0        miD'en
+_1        'ena
+_2        D'io
+_3        tr'ia
+_4        t'esera
+_5        p'ente
+_6        'eksi
+_7        ept'a
+_8        okt'o
+_9        en'ea
+_10       D'eka
+_11       'enDeka
+_12       D'oDeka
+_20       'ikosi
+_30       tri'anda
+_40       sar'anda
+_50       pen'inda
+_60       eks'inda
+_70       ebdom'inda
+_80       ogd'onda
+_90       enen'inda
+_0H       ekat'on_
+_1H0      ekat'o
+_1H       ekat'on_
+_2H       D;ak'os;a_
+_3H       triak'os;a_
+_4H       tetrak'os;a_
+_5H       pendak'os;a_
+_6H       eksak'os;a_
+_7H       eptak'os;a_
+_8H       oktak'os;a_
+_9H       en^ak'os;a_
+_0T1      C'il;a
+_1T1      C'il;a        // no '1' before thousand
+_0T2      ekatom'irio
+_0T3      Disekatom'irio
+_dpt      k'oma
 
 // miscellaneous exceptions
 μιερός     mier'os
@@ -13,8 +60,8 @@
 
 
 // articles
-ο	$u o   // definate article
-η	$u i
+ο	o $u   // definate article
+η	i $u
 το	$u
 του	$u
 της	$u
@@ -28,7 +75,7 @@
 
 ένας	$u    // indefinate article
 μία	$u
-μια	$u mn^a
+μια	mn^a $u
 ένα	$u
 ενός	$u
 μίας	$u

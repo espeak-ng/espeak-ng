@@ -7,6 +7,80 @@
 // all words lower case
 
 
+// abbreviations
+(http ://)       hA:te@te@p'e@_
+e.a             _:En_'and@r
+
+// letter names
+// any letter which also appear as words should be prefixed by a _ here
+a         A:
+b         be@
+c         se@
+d         de@
+e         e@
+f         Ef
+g         x2e@
+h         hA:
+i         i
+j         je@
+k         kA:
+l         &l
+m         Em
+n         En
+o         o@
+p         pe@
+q         kwu
+//r         &r
+s         Es
+t         te@
+_u         y
+v         fe@
+w         ve@
+x         Eks
+y         eI
+z         zEd
+
+
+// numeric
+_0	'nWl
+_1	_'e@n
+_1a	_'e@n
+_2	'twe@
+_3	'dri
+_4	'fir
+_5	'feIf
+_6	'sEs
+_7	'se@v@
+_8	_'axt
+_9	'ne@x@
+_10     'tin
+_11     _'&lf
+_12     'tw'A:lf
+_13     'd&rtin
+_14     'fe@rtin
+_15     'feIftin
+_16     'sEstin
+_17     'se@vEntin
+_18     _'ax2tin
+_19     'ne@x2@ntin
+_20     'twIntIx2
+_30     'd&rtIx2
+_40     'fe@rtIx2
+_50     'feIftIx2
+_60     'sEstIx2
+_70     'se@vEntIx2
+_80     'tax2tIx2
+_90     'ne@x2@ntIx2
+_0H     'hOn@rt
+_0T1    'd'Yys@nt
+_0T2    'mIljun
+_0T3     mIlj'art
+_0and   _!En
+_dpt    'pWnt
+
+
+
+
 
 // Place names
 
@@ -21,10 +95,15 @@ pretoria prit'o@ria
 André 'andreI
 botha b'o@ta
 der d@r
+eugene judZ'i:n
 jacques		ZA:k
 johan juh'an
 grange x2r'A:nsi
 louis l'uI
+louise luw'i:z
+paul p'@Ul
+phoebe f'i:bi
+rousseau r@s'@U
 viljoen $2
 marais mar'E:
 mandela mand'E:la
@@ -188,6 +267,7 @@ alternatiewe $4
 asof asOf
 asook aso@k
 
+bedjie b'E:ici
 beide b'eId@
 belangriker b@l'aNr@k,Ir
 belangrikst@ b@l'aNr@kst@
@@ -199,18 +279,22 @@ beter b'e@t@r
 bewe b'e@v@
 biblioteek $4
 
+dadelik d'A:d@lIk
 darem d'ar@m
 demokrasie d,EmOkras'i
 dikwels d'Ikv@ls
 diplomasie d@plo@mas'i
+dusver d'Wsf&r
 
 ekonomie Ekuno@m'i
 elders '&ld@rs
+energie En@rx2'i
 enige e@nIx2@
 erger '&rg@r
 erken &rk'En
 ervare $2
 ervaring &rf'A:r@N
+espeak i:;spi:k
 
 figuur f@x2'yr
 finaal $2
@@ -227,6 +311,7 @@ gesamentlik x2@s'A:m@ntl@k
 geskiedenis x2@skid@n@s
 geur x2'Y@r
 gooi x2OI
+genade $2
 gunsteling x2'Wnst@l@N
 
 hallo h'Il,@U
@@ -265,6 +350,7 @@ lughawe l'Wx2h,A:v@
 
 manier $2
 matige m'A:t@x2@
+meegee m'e@x2e@
 mense m'e:ns@
 mens m'e:ns
 militêre mIl@t'&:r@
@@ -280,6 +366,8 @@ motortjie m'o@t@rki
 
 natuurlik nat'yrl@k
 natuur nat'yr
+netjies n'E:icis
+netjiese n'Eicis@
 nogal n'Ox2al
 normaal $2
 normale nOrm'A:l@
@@ -306,6 +394,7 @@ probleme prubl'e@m@
 program prux2r'am
 
 redelik r'e@d@l@k
+reeds r'e@ts
 regverdig r&x2f'&rd@x2
 resep r@s'Ep
 resepte r@s'Ept@
@@ -324,9 +413,13 @@ soldaat $2
 soldate $2
 sononder s'On,On@r
 sonop s'On,Op
+sover s'o@f&r
 spesiale spiSi'A:l@
 stabiel stab'il
 
+tema t'e@ma
+terug t@-r'Wx2
+terwyl t@rv'eIl
 toegee t'ux2e@
 toenemend $2
 totale tut'A:l@
@@ -347,6 +440,7 @@ vere f'e@r@
 vererger f@r'&rg@r
 ver f'&r
 vergete f@rx2'e@t@
+vermy $2
 verre f'&:r@
 verse f'&:rs@
 vers f'&:rs
@@ -366,17 +460,3 @@ waarskynlike $2
 weg v&x2
 
 
-terug t@-r'Wx2
-dadelik d'A:d@lIk
-terwyl t@rv'eIl
-tema t'e@ma
-reeds r'e@ts
-meegee m'e@x2e@
-bedjie b'E:ici
-netjies n'E:icis
-espeak i:;spi:k
-genade $2
-vermy $2
-sover s'o@f&r
-dusver d'Wsf&r
-energie En@rx2'i

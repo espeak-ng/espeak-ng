@@ -30,6 +30,14 @@
 #define USE_NANOSLEEP
 #endif
 
+// don't use portaudio in the library version
+#ifdef LIBRARY
+#undef USE_PORTAUDIO
+#endif
+
+// will look for espeak_data directory here, and also in user's home directory
+#define PATH_ESPEAK_DATA  "/usr/share/espeak-data"
+
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
 typedef double DOUBLEX;
@@ -39,8 +47,6 @@ typedef double DOUBLEX;
 #define N_PEAKS   9
 #define N_MARKERS 7
 
-// not used for "speak" process
-// #define SPECT_EDITOR
 
 typedef struct {
    const char *mnem;

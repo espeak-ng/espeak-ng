@@ -1256,8 +1256,9 @@ int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
 				}
 			}
 
-			if(prev->type==phVOWEL)
+			if((prev->type==phVOWEL) || (prev->ph->phflags & phVOWEL2))
 			{
+				// a period of voicing before the release
 				DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
 			}
 
@@ -1564,9 +1565,9 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	// entries in the wavegen command queue
 	p_text = translator->TranslateClause(f_text,p_text,&clause_tone,&voice_change);
 
-	if(option_phonemes)
+	if(option_phonemes > 0)
 	{
-		printf("%s\n",translator->phon_out);
+		fprintf(f_trans,"%s\n",translator->phon_out);
 	}
 	translator->CalcPitches(clause_tone);
 	translator->CalcLengths();

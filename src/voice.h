@@ -30,9 +30,6 @@ typedef struct {
 	int speedf2;
 	int speedf3;
 
-	int intonation1;
-	int intonation2;
-
 	int flutter;
 	int roughness;
 	int echo_delay;

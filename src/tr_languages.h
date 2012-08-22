@@ -27,23 +27,21 @@ class Translator_English: public Translator
 public:
 	Translator_English();
 	int Unpronouncable(char *word);
-
 };  // end of class Translator_English
 
 
 
-
-
-class Translator_German: public Translator
+class Translator_Russian: public Translator
 {//=======================================
 
 public:
-	Translator_German();
+	Translator_Russian();
+private:
+	int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags);
 
-//	void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
-//	int Unpronouncable(char *word);
+};  // end of class Translator_Russian
 
-};  // end of class Translator_German
+
 
 
 

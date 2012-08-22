@@ -43,7 +43,7 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.13  30.Aug.06";
+static const char *version = "Speak text-to-speech: 1.14  22.Sep.06";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -158,7 +158,7 @@ static void init_path(void)
 	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
-		strcpy(path_home,"/usr/share/espeak-data");
+		strcpy(path_home,PATH_ESPEAK_DATA);
 	}
 #endif
 }
@@ -172,11 +172,11 @@ static int initialise(void)
 	// to something other than the default "C".  Then, not only Latin1 but also the
 	// other characters give the correct results with iswalpha() etc.
 #ifdef PLATFORM_RISCOS
-	static char *locale = "ISO8859-1";
+   setlocale(LC_CTYPE,"ISO8859-1");
 #else
-	static const char *locale = "german";
+	if(setlocale(LC_CTYPE,"en_US.UTF-8") == NULL)
+		setlocale(LC_CTYPE,"german");
 #endif
-   setlocale(LC_CTYPE,locale);
 
 
 	WavegenInit(22050,0);   // 22050
@@ -251,7 +251,7 @@ int main (int argc, char **argv)
 	option_phonemes = 0;
 	option_waveout = 0;
 	option_multibyte = 0;  // auto
-	f_trans = NULL;
+	f_trans = stdout;
 
 	init_path();
 
@@ -282,7 +282,6 @@ int main (int argc, char **argv)
 
 		case 'X':
 			option_phonemes = 2;
-			f_trans = stdout;
 			break;
 
 		case 'm':
@@ -370,7 +369,7 @@ int main (int argc, char **argv)
 
 	if(flag_compile)
 	{
-		CompileDictionary(dictionary_name,0,filename);
+		CompileDictionary(NULL,dictionary_name,NULL,NULL);
 		exit(0);
 	}
 

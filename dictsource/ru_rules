@@ -1,0 +1,328 @@
+// Russian translation rules
+// This file is UTF8 encoded
+
+// Special characters:
+// A  vowel:   а о у ы э  е ё и ю я
+// B  soft consonant:  ь й ч щ
+// C  any consonant:
+// F  consonant, not hard: 
+// H  hard consonant:  ъ ж ц ш
+// Y  iotated vowel, softsign:  ь е ё и ю я
+
+
+.group а
+          _) а (_       a
+             а          a
+
+             а (л       A       // followed by [l]
+            аа          VV      // unstressed
+            ао          VV      // unstressed
+
+//         @@) а (_S1q    @
+
+
+.group б
+          _) б (_       bE
+             б (б               // treat double letter as single
+             б          b
+             б (Y       b;
+             б (FY      b;
+             б (_       p
+             б (_G      b
+             б (ь_      p;
+             б (ь_G     b;
+
+.group в
+          _) в (_       vE
+             в (в
+             в          v
+             в (Y       v;
+             в (FY      v;
+             в (_       f
+             в (_G      v
+             в (ь_      f;
+             в (ь_G     v;
+
+          _) вы         v'y
+          _) выба (@@   vYb'a
+          _) выбега     vYb;Ig'a
+          _) выбива     vYb;Iv'a
+          _) выбира     vYb;Ir'a
+          _) выбра (с   vYbr'a
+          _) выбри (в   vYbr'i
+          _) выва (лив  vYv'a
+          _) выве (ды   vYv;'E
+          _) выве (рты@	vYv;'o
+          _) выве (трива   vYv;'E
+          _) выве (шива   vYv;'E
+          _) выви (нч	vYv;'i
+          _) выводи	vYvVd;'i
+          _) выводя	vYvVd;'a
+
+          _) воспи (@@  vVs;p;'i
+
+.group г
+          _) г (_       gE
+             г (г
+             г          g
+             г (Y       g;
+             г (FY      g;
+             г (_       k
+             г (_G      g
+             г (ь_      c
+             г (ь_G     g;
+
+             г (к       x       // [g] before [k] is [x]  ??
+             г (кY      C
+
+.group д
+          _) д (_       dE
+             д (д
+             д          d
+             д (Y       d;
+             д (FY      d;
+             д (_       t
+             д (_G      d
+             д (ь_      t;
+             д (ь_G     d;
+
+.group е
+          _) е (_       jE
+             е          jE
+          ъ) е          jE
+          C) е          E
+
+             ест (нA	Es      // drop [t] in 'estn'
+             ест (нY	Es;
+        _кр) ест (нA	Est
+
+
+.group ж
+          _) ж (_       ZE
+             ж (ж
+             ж          Z       // always hard
+             ж (_       S
+             ж (_G      Z
+
+.group з
+          _) з (_       zE
+             з (з
+             з          z
+             з (Y       z;
+             з (FY      z;
+             з (_       s
+             з (_G      z
+             з (ь_      s;
+             з (ь_G     z;
+
+.group и
+          _) и (_       i
+             и          i
+          H) и          y       // preceded by hard consonant
+
+
+.group й
+          _) й (_       ,i'kratk@j
+             й          j
+
+.group к
+          _) к (_       ka
+             к (к
+             к          k
+             к (Y       c
+             к (FY      c
+
+.group л
+          _) л (_       El
+             л (л
+             л          l
+          A) л (Y       l;
+             л (ь       l       // should be soft, but we need a proper [l;] phoneme
+             л (FY      l       // should be soft
+
+.group м
+          _) м (_       Em
+             м (м
+             м          m
+             м (Y       m;
+             м (FY      m;
+
+.group н
+          _) н (_       En
+             н          n        // can be doubled
+             н (Y       n^
+             н (FY      n^
+             н (нY      n^
+             н (нFY     n^
+
+.group о
+          _) о (_       o
+             о          o
+             оо         VV      // unstressed
+             оа         VV      // unstressed
+
+.group п
+          _) п (_       pE
+             п (п
+             п          p
+             п (Y       p;
+             п (FY      p;
+
+.group р
+          _) р (_       Er
+             р (р
+             р          r
+             р (Y       r       // should be soft
+             р (FY      r       // should be soft
+
+.group с
+          _) с (_       Es
+             с (с
+             с          s
+             с (Y       s;
+             с (FY      s;
+
+
+.group т
+          _) т (_       tE
+             т (т
+             т          t
+             т (Y       t;
+             т (FY      t;
+
+.group у
+          _) у (_       u
+             у          u
+
+.group ф
+          _) ф (_       Ef
+             ф (ф
+             ф          f
+             ф (Y       f;
+             ф (FY      f;
+
+.group х
+          _) х (_       xa
+             х (х
+             х          x
+             х (Y       C
+             х (FY      C
+
+.group ц
+          _) ц (_       tsE
+             ц (ц
+             ц          ts       // always hard
+
+.group ч
+          _) ч (_       ts;E
+             ч (ч
+             ч          ts;      // always soft
+
+.group ш
+          _) ш (_       Sa
+             ш (ш
+             ш          S        // always hard
+
+.group щ
+          _) щ (_       s;s;a
+             щ (щ
+             щ          s;s;     // always soft
+
+.group ъ
+          _) ъ (_       'tv;ord@j'znak
+             ъ
+
+.group ы
+          _) ы (_       y
+             ы          y
+
+.group ь
+          _) ь (_       'm;ak;Ij'znak
+             ь
+             ь (Y       j
+
+.group э
+          _) э (_       E
+             э          E
+
+.group ю
+          _) ю (_       ju
+             ю          ju
+          ъ) ю          ju
+          C) ю          u
+
+
+
+.group я
+          _) я (_       ja
+             я          ja
+          ъ) я          ja
+          C) я          a
+
+
+.group ё
+          _) ё (_       jo
+             ё          jo
+          ъ) ё          jo
+          C) ё          o
+
+             ё (_       j'o
+          C) ё (_       'o
+
+// If we find a Latin letter a-z, then translate as English
+.group a
+           a        _^_EN
+.group b
+           b        _^_EN
+.group c
+           c        _^_EN
+.group d
+           d        _^_EN
+.group e
+           e        _^_EN
+.group f
+           f        _^_EN
+.group g
+           g        _^_EN
+.group h
+           h        _^_EN
+.group i
+           i        _^_EN
+.group j
+           j        _^_EN
+.group k
+           k        _^_EN
+.group l
+           l        _^_EN
+.group m
+           m        _^_EN
+.group n
+           n        _^_EN
+.group o
+           o        _^_EN
+.group p
+           p        _^_EN
+.group q
+           q        _^_EN
+.group r
+           r        _^_EN
+.group s
+           s        _^_EN
+.group t
+           t        _^_EN
+.group u
+           u        _^_EN
+.group v
+           v        _^_EN
+.group w
+           w        _^_EN
+.group x
+           x        _^_EN
+.group y
+           y        _^_EN
+.group z
+           z        _^_EN
+
+.group
+             $          dVlar
+

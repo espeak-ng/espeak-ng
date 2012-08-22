@@ -1,4 +1,12 @@
 
+// This file is UTF8 encoded
+
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
 
 
 // pronouns
@@ -15,6 +23,9 @@ się          $u             // (reflexive)
 
 który        $u $strend     // which,what,that (+declines)
 to           $u $strend2    // this
+
+// questions
+czy          $u
 
 // prepositions
 na           $u $strend     // in/on

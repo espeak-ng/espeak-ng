@@ -8,8 +8,41 @@
 
 //stress symbols  ' primary  , secondary  % unstressed
 
+// letter names, as they are spoken as a single character in text
+// precede by _  to distinguish from pronunciation as a language word
+
+_a	eI
+b	bi:
+c	si:
+d	di:
+e	i:
+f	Ef
+g	dZi:
+h	eItS
+_i	aI
+j	dZeI
+k	keI
+l	El
+m	Em
+n	En
+o	oU
+p	pi:
+q	kju:
+r	A:
+s	Es
+t	ti:
+u	ju:
+v	vi:
+w	d'Vb@Lju:
+x	Eks
+y	waI
+z	zEd
+
+é	i:@k'ju:t
+
+
 // character names
-_cap kapIt@L
+_cap k,ap@-t@L
 
 _!   Ekskl@m'eIS@n
 _"   kwoUts
@@ -46,19 +79,57 @@ _~   tIld@
 _£   paUnd
 
 
+// numeric
+
+_0	z'I2@roU
+_1	w'0n
+?3 _1	w'Vn
+_2	t'u:
+_3	Tr'i:
+_4	f'O@
+_5	f'aIv
+_6	s'Iks
+_7	s'Ev@n
+_8	'eIt
+_9	n'aIn
+_10	t'En
+_11	Il'Ev@n
+_12	tw'Elv
+_13	T'3:ti:n
+_14	f'O@ti:n
+_15	f'Ifti:n
+_16	s'Iksti:n
+_17	s'Ev@nti:n
+_18	'eIti:n
+_19	n'aInti:n
+_20	tw'EntI2
+_30	T'3:tI2
+_40	f'O@tI2
+_50	f'IftI2
+_60	s'IkstI2
+_70	s'Ev@ntI2
+_80	'eItI2
+_90	n'aIntI2
+_0H	h'Vndr@d
+_0T1	T'aUz@nd
+_0T2	m'IlI@n
+_0T3	b'IlI@n
+_0and	@n
+_dpt	pOInt
+
+
 // ABBREVIATIONS
 //**************
 
-fi               f,aI          // as in "hi-fi"
 abc              eIbi:s'i:
 ac               eI'si:
 adfs             eIdi:Ef'Es
+a.k.a            aka2_!
 agm              eIdZi:'Em 
 ai               eI;'aI
 api              apI2
 asap             eIEseIpi:
 awol             eIw0l
-cap              kap           $onlys
 cio              si:aI'oU
 ctrl             k0ntr'oUl
 dept             dI2pA:tm@nt
@@ -69,7 +140,8 @@ eur              jU@
 hmm              h@m
 (http ://)       eItSti:ti:'pi:_
 ibm              aIbi:Em
-ie               aIi:
+ie               aIi:_!        $pause
+i.e              aIi:_!        $pause
 irc              aI;A:s'i:
 ltd              lImItId
 mc               m@k
@@ -709,6 +781,7 @@ feisty           faIstI2
 feline           fi:laIn
 feminine         fEm@nIn
 fete             feIt
+fi               f,aI          // as in "hi-fi"
 fiasco           fi:'askoU
 fiery            faI@rI2
 finale           fIn'A:lI2

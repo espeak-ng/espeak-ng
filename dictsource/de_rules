@@ -12,7 +12,13 @@
              a (sch       a
 
              ai           aI
+             ay           aI
              au           aU
+
+         @A) al (_        'al
+          @) ant (_       'ant
+          @) atisch (_S6  'A:tIS
+          @) atisieren (_S9  A:tIs'i:r@n
 
           _) ab (@P2      'ab
           _) abend        A:b@nt
@@ -52,6 +58,7 @@
           _) b (eut       b
 
 .group c
+          _) c (_         se:
              c            k
           c) c
 
@@ -68,7 +75,9 @@
              ck           k
 
           @) chen (_$4    C@n
+        bre) ch (en       x
        spro) ch (en       x     // not spro-chen
+         wo) ch (en+      x
          nä) chs (t       Cs
 
 .group d
@@ -84,6 +93,7 @@
 
 
 .group e
+          _) e (_         e:
              e            e:
              ee           e:
              eh (+        e:
@@ -108,18 +118,21 @@
           @) er (n_       3
           @) er (_$2      3
           &) ere (_       @r@
-          &) eren (_      @r@n
+          &) eren (_$1    n
           &) erer (_      @r3
-          &) eres (_      @r@s
+          &) eres (_$1    s
           &) er (C_       3
           &) er (r_       E
           w) er (k_       Er
           @) es (_$2      @z
           &) et (_        @t
+         Ad) ent (_       'Ent
 
           &) en (@        E2n       // [E2] can reduce to [@]
   //      &) er (C@       E2r
           &) el (@        E2l
+
+          @) ei (_        'aI
 
           _) ein (@P3     'aIn
           _) emp (@P3     %Emp
@@ -130,13 +143,17 @@
           _) ergeb (nis   Erg'e:b
           _) er (stC      Er
 
+          _) erob (er     %Ero:b
+
 .group f
+          _) f (_         Ef
              f            f
           f) f
           _) fest (P4     f'Est
           _) flug         fl'u:g
 
 .group g
+          _) g (_         ge:
              g            g
           g) g
              g (_N        k
@@ -151,6 +168,7 @@
           _) gn (A        g@-n
           B) gn (A        g@-n
 
+             geben        ge:b@n
              gegen (@P5   ge:g@n
              gegen (_     ge:g@n
              gegn         ge:gn
@@ -160,6 +178,7 @@
           _) g (eo+        g
 
 .group h
+          _) h (_         hA:
              h            h
           h) h
 
@@ -169,6 +188,7 @@
           _) herbei (P6      hEr'baI
           _) herum  (P5      hEr'Um
           _) hervor (P6      hErf'Or
+          _) hier (@         h%i:r
           _) hinab  (P5      hIn'ab
           _) hinauf (P6      hIn'aUf
           _) hinaus (P6      hIn'aUs
@@ -177,6 +197,7 @@
           _) hinzu  (P5      hInts'u:
 
 .group i
+          _) i (          i:
              i            i:
              ie           i:
              ih (+        i:
@@ -187,20 +208,26 @@
              i (sch       I
           @) i (ng        I
 
-          &) ier (_       i|3
+          &) ier (_       I:|3
           r) ien (@       IEn
-          &) ien (_       =i|@n
+          &) ien (_       =I:|@n
+          &) iens (_      =I:|@ns
         sch) ie (n        i:
              ieren        'i:r@n
           @) iert (_      'i:rt
              ierung       'i:rUN
 
              ig (_        IC
+         @)  ik (_        'i:k
+
+          @) ion (_       I'o:n
+          @) ional (_     Io:n'al
           @) is (_        Is
           &) isch (_      =IS
           @) ität (_S4    It'e:t
 
 .group j
+          _) j (_         jOt
              j            j
 
 .group k
@@ -210,6 +237,8 @@
 
           @) keit (_$4    kaIt
 
+             kolleg       k%Ole:g
+
 .group l
           _) l (_         El
              l            l
@@ -218,14 +247,18 @@
           @) lich (_$4    lIC
 
 .group m
+          _) m (_         Em
              m            m
           m) m
 
              marine       mA:r'i:n@
+          A) meter (_     me:t3
           _) mit (P3      m'It
              mitt (eC     mIt
+             musik        m%u:zi:k
 
 .group n
+          _) n (_         En
              n            n
           n) n
              ng           N
@@ -238,35 +271,44 @@
              nieder       ni:d3
 
 .group o
+          _) o (_         o:
              o            o:
              oh (+        o:
              oo           o:
+             oe           Y:
 
              o (C%        O
              o (CC        O
              o (sch       O
 
           _) ober (@P4    ,o:b3
-             oe           Y:
+
+         @A) on (_        'o:n
 
 .group p
+          _) p (_         pe:
              p            p
           p) p
              pf           pF
              ph           f
 
+          _) pro (@       %pro:
+
+             partei       p%artaI
+
 .group q
-          _) q (_         kve:
+          _) q (_         ku:
              q            k
              qu           kv
 
 .group r
-          _) r (_         A:r
+          _) r (_         Er
              r            r
              r (r
           _) rh           r
 
 .group s
+          _) s (_         Es
              s            s
              s (A         z
              s (_         s
@@ -288,27 +330,30 @@
 
           &) schaft (_S6  Saft
              schwer       Sve:r
+             soldat       z%OldA:t
 
 .group t
           _) t (_         te:
              t            t
           t) t
              th (K        t
+          K) th           t
              tz           ts
 
          &B) te (_$2      t@
          &t) te (_        @
-         &B) ten (_$3     t@n
-         &t) ten (_       @n
-         &B) tet (_$3     t@t
+//         &B) ten (_$3     t@n
+//         &t) ten (_       @n
+//         &B) tet (_$3     t@t
 
 .group u
+          _) u (_         u:
              u            u:
              uh (+        u:
              ue           y:
 
              u (C%        U
-             u (BC        U
+             u (CC        U
              u (sch       U
           @) u (ng        U
 
@@ -326,24 +371,28 @@
           _) ver (@P3     f%Er
           _) vor (@P3     'fOr
 
+             voraus       fOr'aUs
              vorüber      fOr'yb3
 
 .group w
           _) w (_         ve:
              w            v
 
+          @) wert (_      vErt
  
 .group x
+          _) x (_         Iks
              x            ks
 
 .group y
-             y            y
+          _) y (_         UpsIlOn
 
-             y            y:
-         @)  y (_         i:
+             y            i:
+             y (CC        I
              y (A         j
 
 .group z
+          _) z (_         tsEt
              z            ts
           z) z
 
@@ -351,7 +400,7 @@
           _) zu (C@P2     ts%u:
 
 .group ä
-             ä            e:
+             ä            E:
              äh (+        e:
 
              ä (C%        E
@@ -379,20 +428,28 @@
           _) über (@P4    ,y:b3
 
 .group ß
+          _) ß (_         EstsEt
              ß            s
 
 
 .group 9
-             0            nUl_
-             1            aIns_
-             2            tsvaI_
-             3            draI_
-             4            fi:r_
-             5            fy:nf_
-             6            zEks_
-             7            zi:b@n_
-             8            axt_
-             9            nOIn_
+             0            'nUl_
+             1            'aIns_
+             2            'tsvaI_
+             3            'draI_
+             4            'fi:r_
+             5            'fynf_
+             6            'zEks_
+             7            'zi:b@n_
+             8            'axt_
+             9            'nOIn_
 
 .group
              .            pUnkt
+             %            pro:ts'Ent
+
+          D) , (_DDD      ||t'aUz@nt
+      ,_000) , (_DDD
+      ,_000) , (_DDD,_DDD  ||mIlI'o:n
+          D) , (_DDD,_DDD  ||mIlI'o:n
+          D) , (_DDD,_DDD,_DDD t,aUz@nt

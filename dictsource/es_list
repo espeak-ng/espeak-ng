@@ -1,21 +1,78 @@
-méxico       mExiko
-mexicano     mExikano
+
+// This file in UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_a	a
+_o	o
+_y	,igr'iEQa
+
+// numbers
+_0       TEro
+_1       'uno
+_2       d'os
+_3       tr'es
+_4       kw'atro
+_5       T'inko
+_6       s'eIs
+_7       sj'Ete
+_8       'otSo
+_9       nw'EBe
+_10      dj'es
+_11      'onTe
+_12      d'oTe
+_13      tR'ETe
+_14      kat'orTe
+_15      k'inTe
+_20      b'eInte
+_30      tR'eInta
+_40      kwar'Enta
+_50      Tinkw'Enta
+_60      sEs'Enta
+_70      sEt'Enta
+_80      otS'Enta
+_90      noB'Enta
+_1H0     T'ent         // exactly one hundred
+_0H      T'iento
+_0T1     m'il
+_1T1     m'il          // no '1' before thousand
+_0T2     mij'on
+_0and    i
+_dpt     koma
+
 
 
 // articles
 el           $u
-les          $u
+los          $u
 la           $u
 las          $u
 lo           $u
-los          $u
+les          $u
 
 un           $u
 una          $u
+unos         $u
+unas         $u
 
-esta    $u       // this
-ese     $u       // that
-estas   $u       // those
+este         $u $strend   // this
+esta         $u $strend
+estos        $u $strend
+estas        $u $strend
+esto         $u $strend
+
+ese          $u $strend   // that
+esa          $u $strend
+esos         $u $strend
+esas         $u $strend
+eso          $u $strend
+
+aquel        $u $strend   // that
+aquella      $u $strend
+aquellos     $u $strend
+aquellas     $u $strend
 
 
 
@@ -27,34 +84,52 @@ usted	$u
 él	$u
 ella	$u
 nosotros	$u
+nosotras	$u
 vosotros	$u
+vosotras	$u
 as	$u
 ustedes	$u
 ellos	$u
 ellas	$u
+ud      $u
+uds     $u
+
+me      $u  // reflexive pronouns
+te      $u
 se	$u
+nos     $u
+os      $u
+
 
 // possessives
 mi	$u
 mis	$u
+tu      $u
+tus     $u
 su	$u
 sus	$u
-nuestro $u
-nuestros $u
-nuestra $u
-nuestras $u
+nuestro   $u
+nuestros  $u
+nuestra   $u
+nuestras  $u
+vuestro   $u
+vuestros  $u
+vuestra   $u
+vuestras  $u
 
 // prepositions
-a            _%a
+a            _%a          // at
 al           _%al
-de           $u
+de           $u           // of,from
 del          $u
 (de la)      d,ela
 en           _%En
-con          $u $pause
-por          $u $pause
-para         $u $pause
+con          $u $pause    // with
+por          $u $pause    // for,through,along,via
+para         $u $pause    // for,in order,by
 entre        $u $pause
+desde        $pause       // from,since
+después      $pause       // after
 
 // conjunctions
 y            %i $pause    // and
@@ -64,7 +139,12 @@ así          $pause
 aunque       $u $pause    // although
 siquiera     $pause
 
-que          $pause
+
+// questions
+que          $u $pause $strend   // whar
+cuál         $pause       // which
+cuáles       $pause
+cómo         $pause       // how
 
 
 // auxillary verbs
@@ -73,6 +153,7 @@ soy	$u
 eras	$u
 es	$u
 somos	$u
+sois    $u
 son	$u
 
 fui	$u
@@ -164,3 +245,34 @@ habrá	$u
 habremos	$u
 habréis	$u
 habrán	$u
+
+tener   $u   // to have
+tengo   $u
+tienes  $u
+tiene   $u
+tenemos $u
+tenéis  $u
+tienen  $u
+
+hacer    $u $strend  // to do/make
+hago     $u $strend
+haces    $u $strend
+hace     $u $strend
+hacemos  $u $strend
+hacéis   $u $strend
+hacen    $u $strend
+
+
+// some common adjectives and adverbs
+algún    $u        // some
+algunos  $u
+alguna   $u
+
+
+
+
+// pronunciation exceptions
+
+méxico       mExiko
+mexicano     mExikano
+

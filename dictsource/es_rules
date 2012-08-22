@@ -41,6 +41,7 @@
        _) e (_       e
           e          E
           e (_       e
+          ei         eI
           ey         eI
 
 
@@ -123,7 +124,7 @@
 .group r
        _) r (_       Ere
           r          r
-       _) r          R
+       K) r          R
           rr         R
 
 
@@ -180,13 +181,13 @@
 
 
 .group 9
-          0          n'ul_
+          0          T'Ero_
           1          'uno_
           2          d'os_
-          3          tr'Es_
+          3          tr'es_
           4          kw'atro_
           5          T'inko_
-          6          s'Eis_
+          6          s'eIs_
           7          sj'Ete_
           8          'otSo_
           9          nw'EBe_
@@ -201,3 +202,5 @@
           ñ          n^
         _)ñ (_       En^e
 
+          .          punta
+          ,          koma

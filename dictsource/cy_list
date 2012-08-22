@@ -1,0 +1,224 @@
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_a	A:
+_e	e:
+_I	i:
+_o	o:
+_y	V
+
+
+// numbers
+_0       n'Ul
+_1       'Yn
+_2       d'aY
+_3       tr'i:
+_4       p'Edwar
+_5       p'Ymp
+_6       xw'e:C
+_7       s'aIT
+_8       w'YT
+_9       n'aU
+_10      d'e:g
+_20      d'aYD,e:g
+_30      tr'i:D,e:g
+_40      p'EdwarD,e:g
+_50      p'YmD,e:g
+_60      xw'e:D,e:g
+_70      s'aITD,e:g
+_80      w'YTD,e:g
+_90      n'aUD,e:g
+_0H      k'ant
+_2H      d'aYg,ant
+_3H      tr'i:x,ant
+_0T1     m'i:l_
+_1T1     m'i:l_          // no '1' before thousand
+_0T2     m'i:lIun_
+_0T3     b'i:lIun_
+_dpt     puYnt
+
+
+// articles
+y         @
+yr        @r
+
+// conjunctions
+a         %a  $pause  // and
+ac        $u $pause   // and
+os        $u $pause   // if
+er        $u $pause   // although
+achos     $pause      // because
+felly     $pause      // so, therefore
+mor       $pause      // as,so
+neu       $pause      // or(not)
+oherwydd  $pause      // because
+ond       $pause      // but
+petai     $pause      // if it were
+sy        $u $pause   // which is
+sydd      $u $pause   // which are
+
+// prepositions
+//yn        @n      // in  (cy_rules)
+ym        @       // in (+nasal word)
+yng       @       // in (+nasal word)
+ynddi     $u $strend     // in it (f)
+ynddo     $u $strend      // in it (m)
+
+o         _%o:      // of,from,out of
+(o hyd)   o:h'y:d  $pause // until
+â         _%A:      // with
+am        _%am      // for
+ar        _%ar      // on
+at        _%at      // to,towards
+ap        _%ap
+gan       $u $strend      // by,with,from
+mewn      $u $strend      // in(a)
+tu        $u $strend
+wrth      $u $pause $strend     // by,with,while
+
+heb       $u      // without,not
+gyda      $u $strend     // with
+ers       $u $pause $strend  // since
+cyn       $u $pause $strend  // before,as
+nes       $pause $strend     // until
+tan       $pause $strend     // until
+dan       $pause $strend     // until,under
+
+agos      _A:gOs $u $strend // near
+blaen     $u $strend        // in front of
+ôl        _%o:l $strend     // behind
+rhwng     $u $strend        // between
+dan       $u $strend        // under
+dros      $u $strend        // over,for,on behalf of
+//draws               // across
+drwy      $u $strend        // through
+erbyn     $u $strend        // by, against
+ymhen     $pause $strend    // within
+
+
+// pronouns
+i         %I
+ti        %ti:
+e         %E
+hi        %hi:
+ni        %ni:
+chi       %xi:
+nhw       %nhu:
+
+hon       $u $strend       // this one (f)
+honna     $u $strend       // that one (f)
+hwn       $u $strend       // this one (m)
+hwnna     $u $strend       // that one (m)
+hwnnw     $u $strend       // that one (m)
+hyn       $u $strend       // this, these
+hynny     $u $strend       // that, those
+
+rhain     $u $strend       // these
+rheina    $u $strend       // those
+rheini    $u $strend       // those
+
+taw       $u $strend       // that
+
+mai       $u $strend       // that
+Mai       $capital         // May: month
+
+'na       $u $strend       // that
+yna       $u $strend       // that
+
+'ma       $u $strend       // this
+yma       $u $strend       // this
+
+// possessives
+fy        $u     // my
+ei        $u     // his, her
+ein       $u     // our
+eu        $u     // their
+
+// questions
+shwd      $u $pause $strend     // how
+sud       $u $pause $strend     // how
+
+// adverbs etc.
+fel       $u      // like,as
+na        $u      // than
+nag       $u      // than
+//bron            // almost
+//cwbl            // all
+pob       $u      // each
+rhywfaint $u      // some (amount)
+rhywrai   $u      // some (pl)
+unrhyw    $u      // any
+
+// verbs
+yn        @n
+wedi      $u   // perfect tense
+fe        $u $strend  // positive marker
+
+bod       $u  // to be
+rydw      $u
+rwyt      $u
+mae       $u
+mae       $u
+rydyn     $u
+rydych    $u
+maen      $u
+
+dwy       $u  // to be, contractions
+dan       $u
+dach      $u
+rwy       $u
+ryn       $u
+rych      $u
+
+roedd     $u  // was
+
+fod       $u
+
+oes       $u  // is there?
+yw        %Yu  // is,are
+
+dyma      $u  // here is
+dyna      $u  // there is, that's
+
+cael	$u $strend // to get,have
+ga	$u $strend
+
+gafodd	$u $strend  // past
+gawson	$u $strend
+gawsoch	$u $strend
+gas	$u $strend
+geson	$u $strend
+gesoch	$u $strend
+
+
+gallu     $u  // can, to be able to
+alla	$u
+alli	$u
+all	$u
+allwn	$u
+allwch	$u
+allan	$u
+galla	$u
+galli	$u
+gall	$u
+gallwn	$u
+gallwch	$u
+gallan	$u
+
+//gorfod        // must, to have to
+//gorffod
+
+gwneud    $u $strend   // to do, make
+neud      $u $strend   // to do, make
+
+//myna           // to go
+
+
+bangor    baNgOr
+cymraeg   kVmr'AYg
+ysbryd    $2
+
+Hughes    hIu:s
+Jones     dZo:ns

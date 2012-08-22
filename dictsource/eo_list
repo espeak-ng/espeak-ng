@@ -11,19 +11,22 @@ cxi             $u
 ĉi              $u      // cxi  interogative particle
 ia              $u      // any
 
-de              $u   $strend
+// prepositions
+de              de   $strend
 (de la)         dela  $u
 
 antaux          $u   $strend
 antaŭ           $u   $strend
 apud            $u   $strend
-ol              $u   $strend
+ol              _ol $u   $strend
 da              $u   $strend
-al              $u   $strend
-en              $u   $strend
+al              _%al  $strend
+el              _el  $strend
+en              _en $u   $strend
 kun             $u   $strend
 per             $u   $strend
 preter          $u   $strend
+por             _por $strend
 pro             _pro  $strend
 sub             $u   $strend
 sur             $u   $strend
@@ -31,6 +34,8 @@ sur             $u   $strend
 dum             $pause
 tra             $pause
 
+// misc adverbs etc
+eĉ              _etS
 
 // pronouns
 mi              $u

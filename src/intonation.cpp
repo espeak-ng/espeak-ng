@@ -259,6 +259,11 @@ unsigned char *envelope_data[16] = {
 
 /* all pitches given in Hz above pitch_base */
 
+// pitch change during the main part of the clause
+static int drops_0[8] = {0x400,0x400,0x700,0x700,0x700,0xa00,0x0e00,0x0e00};
+static int drops_1[8] = {0x400,0x400,0x600,0x600,0xc00,0xc00,0x0e00,0x0e00};
+static int drops_2[8] = {0x400,0x400,0x600,0x600,-0x800,0xc00,0x0e00,0x0e00};
+
 typedef struct {
    unsigned char pitch_env0;     /* pitch envelope, tonic syllable at end */
    unsigned char tonic_max0;
@@ -274,7 +279,7 @@ typedef struct {
    unsigned char body_start;
    unsigned char body_end;
 
-   unsigned char body_drops;
+   int  *body_drops;
    unsigned char body_max_steps;
    unsigned char body_lower_u;
 
@@ -283,37 +288,53 @@ typedef struct {
    unsigned char tail_shape;
 } TONE_TABLE;
 
+#define N_TONE_TABLE  15
+
+static TONE_TABLE tone_table[N_TONE_TABLE] = {
+   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
+   20, 25,   34, 22,  drops_0, 3, 3,   12, 8, 0},
+
+   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
+   20, 25,   34, 20,  drops_0, 3, 3,   15, 25, 0},
+
+
+   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
+   20, 25,   34, 22,  drops_1, 3, 3,   12, 8, 0},
+
+   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
+   20, 25,   34, 20,  drops_1, 3, 3,   15, 25, 0},
+
+
+   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
+   20, 25,   34, 22,  drops_2, 3, 3,   12, 8, 0},
+
+   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
+   20, 25,   34, 20,  drops_2, 3, 3,   15, 25, 0},
+
+
+// alternatives
+   {PITCHfall, 36, 6,  PITCHfall, 36, 8,
+   30, 20,   18, 34,  drops_0, 3, 3,   12, 8, 0},
+   
+   {PITCHfrise, 38, 8, PITCHfrise2, 36, 8,
+   30, 20,   18, 34,  drops_0, 3, 3,   20, 32, 0},
+};
+  
+
 
 /* index by 0=. 1=, 2=?, 3=! 4=none */
-static unsigned char punctuation_to_tone[] = {0,1,1,0,0};
-static unsigned char punctuation_to_tone2[] = {2,3,3,3,3};
+static unsigned char punctuation_to_tone[4][5] = {
+	{0,1,1,0,0},
+	{2,3,3,2,2},
+	{4,5,5,4,4},
+	{6,7,7,6,6} };
 
-#define N_TONE_TABLE  15
+
 
 /* indexed by stress */
 static int min_drop[] =  {0x300,0x300,0x300,0x300,0x300,0x500,0xc00,0xc00};
 
-/* 2nd index is by stress */
-static int head_drops[][8] = {
-      {0x400,0x400,0x700,0x700,0x700,0xa00,0x0e00,0x0e00},
-      {0x800,0x800,0xc00,0xc00,0xc00,0xe00,0x1000,0x1000},
-};
 
-static TONE_TABLE tone_table[N_TONE_TABLE] = {
-   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
-   20, 25,   34, 22,  0, 3, 3,   12, 8, 0},
-
-   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
-   20, 25,   34, 20,  0, 3, 3,   15, 25, 0},
-
-// alternatives
-   {PITCHfall, 36, 6,  PITCHfall, 36, 8,
-   30, 20,   18, 34,  0, 3, 3,   12, 8, 0},
-   
-   {PITCHfrise, 38, 8, PITCHfrise2, 36, 8,
-   30, 20,   18, 34,  0, 3, 3,   20, 32, 0},
-};
-  
 
 
 #define SECONDARY  3
@@ -498,7 +519,7 @@ static int calc_pitch_segment(int ix, int end_ix, TONE_TABLE *t, int min_stress)
 
 	static char overflow_tab[5] = {0, 5, 3, 1, 0};
 
-	drops = head_drops[t->body_drops];
+	drops = t->body_drops;
 	
 	initial = 1;
 	while(ix < end_ix)
@@ -630,22 +651,6 @@ static int calc_pitches(int *syllable_tab, int num, int sentence_tone)
 	TONE_TABLE *t;
 	int  drop;
 
-	if(voice->intonation1==0)
-		tone_type = punctuation_to_tone[sentence_tone];  /* unless changed by count_pitch_vowels */
-	else
-		tone_type = punctuation_to_tone2[sentence_tone];
-
-	if(sentence_tone == 4)
-		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */
-	else
-		no_tonic = 0;
-
-	/* transfer vowel data from ph_list to syllable_tab */
-	vowel_tab = syllable_tab;
-	vowel_ix_top = num;
-
-	count_pitch_vowels();
-
 	t = &tone_table[tone_type];
 	ix = vowel_ix;
 
@@ -695,6 +700,132 @@ static int calc_pitches(int *syllable_tab, int num, int sentence_tone)
 
 
 
+
+
+static int calc_pitch_segmentX(int ix, int end_ix, TONE_TABLE *t, int min_stress)
+/******************************************************************************/
+/* Calculate pitches until next RESET or tonic syllable, or end.
+	Increment pitch if stress is >= min_stress.
+	Used for tonic segment */
+// EXPERIMENTAL VERSION
+{
+	int  stress;
+	int  pitch=0;
+	int  n_primary;
+	int  initial;
+	int *drops;
+
+	int prev_stress=0;
+	int n_unstressed;
+	int j;
+
+	drops = t->body_drops;  // pitch fall or raise for each stress value
+
+	n_primary = count_increments(ix,end_ix,min_stress)-1;   // number if primary stress in the clause -1
+	
+	initial = 1;
+	while(ix < end_ix)  // for each syllable
+	{
+		for(j=ix; j<end_ix; j++)
+		{
+			// how many unstressed syllables before the next primary stress ?
+			if((vowel_tab[j] & 0x3f) > SECONDARY)
+				break;
+		}
+		n_unstressed = (j - ix - 1);
+
+		stress = vowel_tab[ix] & 0x3f;  // stress value of this syllable
+
+		pitch = 0x1000;      // set a base pitch
+		pitch += ((n_primary % 3) * 0x0500);   // some variety. add an offset that changes after each primary stress
+
+		if(stress >= PRIMARY)
+		{
+			vowel_tab[ix] = PRIMARY_MARKED;
+			set_pitch(ix,pitch+0x100, -0x0900);
+			n_primary--;
+		}
+//		else
+//		if(stress >= SECONDARY)
+//		{
+//			set_pitch(ix,pitch,drops[stress]);
+//		}
+		else
+		{
+			if(ix > 0)
+				prev_stress = vowel_tab[ix-1] & 0x3f;   // stress level of previous syllable
+
+			if(prev_stress >= PRIMARY)
+			{
+				// an unstressed syllable which follows a primary stress syllable
+				set_pitch(ix,pitch+0x0200, 0x0800);
+			}
+			else
+			{
+stress = 0; // treat secondary stress the same as unstressed ??
+
+				set_pitch(ix,pitch + n_unstressed*0x300, drops[stress]);
+			}
+			n_unstressed--;
+		}
+		ix++;
+	}
+	return(ix);
+}   /* end of calc_pitch_segmentX */
+
+
+
+static int calc_pitchesX(int *syllable_tab, int num, int sentence_tone)
+/********************************************************************/
+/* Calculate pitch values for the vowels in this tone group */
+// EXPERMENTAL VERSION of calc_pitches()
+{
+	int  ix;
+	TONE_TABLE *t;
+	int  drop;
+
+	t = &tone_table[tone_type];
+	ix = vowel_ix;
+
+
+	/* body of tonic segment */
+	/*************************/
+
+	if(annotation)
+		ix = calc_pitch_segmentX(ix,tone_posn, t, PRIMARY_MARKED);
+	else
+		ix = calc_pitch_segmentX(ix,tone_posn, t, PRIMARY);
+		
+	if(no_tonic)
+		return(0);
+
+	/* tonic syllable */
+	/******************/
+	
+	if(number_tail == 0)
+	{
+		tone_pitch_env = t->pitch_env0;
+		drop = t->tonic_max0 - t->tonic_min0;
+		set_pitch(ix++,t->tonic_min0 << 8,drop << 8);
+	}
+	else
+	{
+		tone_pitch_env = t->pitch_env1;
+		drop = t->tonic_max1 - t->tonic_min1;
+		set_pitch(ix++,t->tonic_min1 << 8,drop << 8);
+	}
+
+
+	/* tail, after the tonic syllable */
+	/**********************************/
+	
+	calc_pitch_segment2(ix,vowel_ix_top,t->tail_start,t->tail_end,0);
+
+	return(tone_pitch_env);
+}   /* end of calc_pitchesX */
+
+
+
 void Translator::CalcPitches(int clause_tone)
 {//==========================================
 //  clause_tone: 0=. 1=, 2=?, 3=! 4=none
@@ -705,6 +836,7 @@ void Translator::CalcPitches(int clause_tone)
 	int  tonic_ix=0;
 	int  tonic_env;
 	int  max_stress=0;
+	int  option;
 	int  st_ix_changed = -1;
 	int  syllable_tab[N_PHONEME_LIST];
 
@@ -751,7 +883,28 @@ void Translator::CalcPitches(int clause_tone)
 	if(st_ix == 0)
 		return;  // no vowels, nothing to do
 
-	tonic_env = calc_pitches(syllable_tab,st_ix,clause_tone);
+
+	option = option_tone1 & 0xf;
+	if(option > 4)
+		option = 0;
+
+	tone_type = punctuation_to_tone[option][clause_tone];  /* unless changed by count_pitch_vowels */
+
+	if(clause_tone == 4)
+		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */
+	else
+		no_tonic = 0;
+
+	/* transfer vowel data from ph_list to syllable_tab */
+	vowel_tab = syllable_tab;
+	vowel_ix_top = st_ix;
+
+	count_pitch_vowels();
+
+	if((option_tone1 & 0xf0)== 0x10)
+		tonic_env = calc_pitchesX(syllable_tab,st_ix,clause_tone);
+	else
+		tonic_env = calc_pitches(syllable_tab,st_ix,clause_tone);
 
 	// unpack pitch data
 	st_ix=0;
@@ -770,11 +923,12 @@ void Translator::CalcPitches(int clause_tone)
 			if(x < 0) x = 0;
 			p->pitch2 = x;
 
-			if((syllable_tab[st_ix] & 0x80) || p->pitch1 > p->pitch2)
+			p->env = PITCHfall;
+			if(syllable_tab[st_ix] & 0x80)
 			{
-				if(p->pitch1 > p->pitch2)
-					p->env = PITCHfall;
-				else
+//				if(p->pitch1 > p->pitch2)
+//					p->env = PITCHfall;
+//				else
 					p->env = PITCHrise;
 			}
 

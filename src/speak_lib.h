@@ -232,7 +232,24 @@ void espeak_SetPunctuationList(wchar_t *punctlist);
 */
 
 
+void espeak_SetPhonemes(int value, FILE *stream);
+/* Controls the output of phoneme symbols for the text
+   value=0  No phoneme output (default)
+   value=1  Output the translated phoneme symbols for the text
+   value=2  as (1), but also output a trace of how the translation was done (matching rules and list entries)
 
+   stream   output stream for the phoneme symbols (and trace).  If stream=NULL then it uses stdout.
+*/
+
+
+void espeak_CompileDictionary(const char *path, FILE *log);
+/* Compile pronunciation dictionary for a language which corresponds to the currently
+   selected voice.  The required voice should be selected before calling this function.
+
+   path:  The directory which contains the language's '_rules' and '_list' files.
+          'path' should end with a path separator character ('/').
+   log:   Stream for error reports and statistics information. If log=NULL then stderr will be used.
+*/
          /***********************/
          /*   Voice Selection   */
          /***********************/

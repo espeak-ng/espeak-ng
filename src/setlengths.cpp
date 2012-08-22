@@ -122,6 +122,9 @@ void SetAmplitude(int amp)
 #endif
 
 
+
+#pragma GCC visibility push(default)
+
 void espeak_SetParameter(int parameter, int value, int relative)
 {//=============================================================
 // parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
@@ -153,6 +156,7 @@ void espeak_SetParameter(int parameter, int value, int relative)
 		break;
 	}
 }  // end of espeak_SetParameter
+#pragma GCC visibility pop
 
 
 
@@ -406,6 +410,13 @@ p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 				p->amp = stress_amps[stress]-1;
 			else
 				p->amp = stress_amps[stress];
+
+			if(ix >= (n_phoneme_list-3))
+			{
+				// last phoneme of a clause, limit its amplitude
+				if(p->amp > langopts.param[LOPT_MAXAMP_EOC])
+					p->amp = langopts.param[LOPT_MAXAMP_EOC];
+			}
 
 			// is the last syllable of a word ?
 			more_syllables=0;

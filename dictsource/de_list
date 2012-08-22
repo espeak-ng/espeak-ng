@@ -1,24 +1,85 @@
 // This file is UTF-8 encoded
 // all words lower case
 
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+
+// Numbers
+_0	'nUl
+_1	_'aIn
+_1a	_'aIns
+_2	'tsvaI
+_3	'draI
+_4	'fi:r
+_5	'fynf
+_6	'zEks
+_7	'zi:b@n
+_8	'_axt
+_9 	'nOIn
+_10	'tse:n
+_11	'_Elf
+_12	'tsvWlf
+_13	'draItse:n
+_14	'fi:rtse:n
+_15	'fynftse:n
+_16	'zEktse:n
+_17	'zi:btse:n
+_18	'_axttse:n
+_19	'nOIntse:n
+_20	'tsvantsIC
+_30	'draItsIC
+_40	'fi:rtsIC
+_50	'fynftsIC
+_60	'zEktsIC
+_70	'zi:btsIC
+_80	'_axttsIC
+_90	'nOIntsIC
+_0H	'hUnd3t
+_0T1	'taUz@nt
+_1T1	'taUz@nt    // no '1' before thousand
+_0T2	||mIlI'o:n@n
+_1T2	_'aIn@||mIlI'o:n
+_0T3    ||mIlI'ard@n
+_1T3    _'aIn@||mIlI'ard@
+_0T4    bIlI'o:n
+_0and	||Unt
+//_dpt    _pUnkt
+_dpt	_kOma
+
+// abbreviations
+dm             d'OItSm,A:rk     $capital $only $abbrev
+dr             dOkt'o:r
+z.b            tsUmb'aISpi:l
+
+
 
 allein           $2
 andre           andr@        // andere
+außerdem        aUs3de:m
 
 beben           be:b@n
 beere           be:r@
 best            bEst
 beten           be:t@n
 
-damit            $2
+deshalb          $2
+dezember         $2
+
 direkt           $2
 dritte          drIt@
 einander         $2
+einig           aInIC
 erde            Erd@
 erst            Erst
 erste           Erst@
 ersten          Erst@n
 erstens         Erst@ns
+erster          Erst3
+
+familie         fam'i:lI@
 
 geben           ge:b@n
 geber           ge:b3
@@ -31,19 +92,42 @@ gestrig         gEstrIC
 
 hm              h@m
 
+insbesondere     $3
+interess        Int@r'Es
+
+kommend         kOm'End
+
 machen          max@n
 mitte           mIt@
 
+oberen          o:b@r@n
+
+präsident        $3
 problem         prObl'e:m
+
 sagt            zA:gt
 selbst          zElpst
 sofort           $2
+sogar            $2
+soweit           $2
+sowohl           $2
+system          z%IstEm
+
 tag             tA:g
+the             D@         // English
+theater         te:'A:t3
+
 unten           Unt@n
+
+verein          fEr'aIn
 vielleicht       $2
 vorbei          fOrb'aI
+
 wahrscheinlich   $2
+warum           vA:r'Um
+
 zuerst          tsu:'Erst
+zudem           tsu:'de:m
 zurück           $2
 
 
@@ -67,23 +151,25 @@ sondern                   $pause
 denn            %dEn      $pause $strend
 weil                      $pause $strend
 als                       $pause
+bevor           be:f'o:r  $pause
 also                      $pause $strend
 wenn            ,vEn      $pause $strend
-sowie                     $pause
+sowie            $2       $pause
 
 deren           _,dEr@n
 
 // prepositions
+ab              %ap       $strend
 an              %an       $strend
 am              %am
-auf             _,aUf      $strend
+auf             _%aUf      $strend
 aus             _,aUs      $strend
-bei             %baI      $strend $only
-bis             %bIs      $strend
+bei             %baI      $pause $strend $only
+bis             _%bIs      $strend
 da              $u        $strend
-durch           $u        $strend
+durch           $u        $pause $strend
 für             _fy:r     $u $strend
-gegen           ,ge:g@n   $strend
+gegen           _,ge:g@n   $strend
 gegend          ge:g@nt
 hin             hIn
 in              %In       $strend
@@ -91,13 +177,14 @@ in              %In       $strend
 (in den)        %Ind%e:n
 (in der)        %Ind%Er
 im              %Im
-mit             %mIt      $strend
+ins             _%Ins
+mit             %mIt      $pause $strend
 nach            %nax      $strend
 ob              _,Ob      $strend $only
 pro             ,pro:     $pause
-von             %fOn      $strend
-(von dem)       %fOn%de:m
-vom             %fOm
+von             _%fOn      $strend
+(von dem)       _%fOn%de:m
+vom             _%fOm
 vor             ,fOr      $strend
 zu              %tsu:     $strend
 zum             %tsUm
@@ -119,40 +206,49 @@ noch             $pause
 
 // should these be in the Rules because they can be a prefix in a
 // compound verb ?
-daran            $2
+daran           dA:r'an
 darauf           $2
 daraus           $2
 dabei            $2
-dadurch         dA:d'u:rx
+dadurch         dA:d'Urx
+dafür            $2
+dagegen          $2
 daher           dA:h'Er
 dahin           dA:h'In
+damit           dA:m'It
+danach           $2
+daneben          $2
 darein           $2
 darin           dA:r'In
 darüber          $2
+darum            $2
 darunter         $2
+davon           dA:f'On
 dazu            dA:ts'u:
 umher           Umh'Er
 umhin           Umh'In
-voraus          fOr'aUs
+woran           vo:r'an
+worauf           $2
+woraus           $2
 worin           vo:r'In
 
 // pronouns
-ich             %IC
-du              %du:
-er              _%Er
-es              %Ez
-sie             %zi:
-wir             %vi:r
+ich             %IC    $only
+du              %du:   $only
+er              _%Er   $only
+es              %Ez    $only
+sie             %zi:   $only
+wir             %vi:r  $only
 ihr             %i:r
-man             %man
-sich            %zIC
+man             %man   $only
+sich            %zIC   $only
 (es ist)        %Ez%Ist
 
 
 daß             %das      $strend
 dass            %das      $strend
 
-ein             ,aIn      $strend
+ein             aIn       $u $strend
 eine            ,aIn@
 einem           ,aIn@m
 einen           ,aIn@n
@@ -168,7 +264,7 @@ meine           $u $strend
 dein            $u $strend
 deine           $u $strend
 
-sein            $u $strend
+sein            $u            // can also be verb "to be"
 seine           $u $strend
 
 unsre           ,Unzr@
@@ -187,11 +283,14 @@ diese           ,di:z@
 
 //
 was             vas
+wie             $u $pause
 
 // abverbs
 auch            ,aUx
 dann            $u
-
+etwa            $u
+ganz            g,ants  $only
+je              $u
 
 // verbs
 
@@ -241,5 +340,11 @@ kann            ,kan    $only
 kannst          ,kanst  $only
 könnt           ,kWnt   $only
 konnt           ,kOnt   $only
+
+sollen          ,zOl@n
+soll            ,zOl
+sollst          ,zOlst
+sollte          ,zOlt@
+sollten         ,zOlt@n
 
 

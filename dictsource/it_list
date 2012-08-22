@@ -1,5 +1,55 @@
 // This file is UTF-8 encoded
 
+// Italian:  any [E] or [O] phonemes in unstressed words must be listed explicitly
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+_e	e:
+_i	i:
+_o	O:
+
+
+// numbers
+_0	dz'eRo
+_1	'Uno
+_2	d'Ue
+_3	tR'e
+_4	kw2'at:Ro
+_5	tS'inkw2e
+_6	s'ej
+_7	s'Et:e
+_8	'Okt:o
+_9	n'Ove
+_10     di'etSi
+_11     'unditSi
+_12     d'oditSi
+_13     tr'editSi
+_14     kw2at:'OrditSi
+_15     kw2'imditSi
+_16     s'editSi
+_17     ditSas:'Et:e
+_18     ditS'Ot:o
+_19     ditSann'ove
+_20     v'ente
+_30     tr'enta
+_40     kw2ar'anta
+_50     tSinkw2'anta
+_60     sess'anta
+_70     set:'anta
+_80     ot'anta
+_90     nov'anta
+_0H     tS'ento
+_0T1    m'ila
+_1T1	m'ille
+_0T2    mili'oni
+_1T2	unmili'one
+_0T3	mili'ardi
+_1T3	unmili'ardo
+_dpt    _v'irgola
+
+
 // articles
 i	$u
 il	$u
@@ -13,25 +63,27 @@ gli	li  $u   //  l;i
 
 
 // pronouns
-io	$u
-tu	$u
-lui	$u
-lei	$u
-noi	$u
-voi	$u
-loro	$u
+io	$u $strend
+tu	$u $strend
+lui	$u $strend
+lei	$u $strend
+noi	$u $strend
+voi	$u $strend
+loro	$u $strend
 
-egli	$u
-ella	$u
-essa	$u
-esse	$u
-essi	$u
+egli	$u $strend
+ella	$u $strend
+essa	$u $strend
+esse	$u $strend
+essi	$u $strend
 
-mi	$u
-ti	$u
-ci	$u
-vi	$u
-li	$u
+mi	$u $strend
+ti	$u $strend
+si      $u $strend
+ci	$u $strend
+vi	$u $strend
+li	$u $strend
+
 
 // words that double the following consonant
 qualche  $double
@@ -62,36 +114,99 @@ vostre	$u
 
 questo	$u	// this
 questa	$u	// this
+questi  $u      // these
+queste  $u      // these
+
 quel	$u	// that
 quella	$u	// that
+quei    $u      // those
+quegli  $u      // those
+quelle  $u      // those
+
+
+
+// conjunctions
+e		$u $pause $double  // and
+ed		$u $pause
+o		$u $pause $double  // or
+se		$pause      // if
+ma		$pause      // but
+perché		$pause      // because
+benchè		$pause      // though
+anche		$pause      // although
+tuttavia	$pause      // however
+invece		$pause      // instead
+malevolenza	$pause      // despite
+pertanto        $pause      // therefore
+né              $pause      // neither-nor
+
+(in cui)        in||kw,i  $pause   // in which
+che             $u $pause   // which
+
 
 // prepositions
 a       $u $double
-ai      $u
+al      $u
+allo    $u
 alla    $u
-di	$u	// of
-del	$u
-della	$u	// of the
-in	$u	// in
-nel	$u
-nella	$u	// in the
-su	$u $double	// on
-sul	$u
-sulla	$u	// on the
+ai      $u
+agli    $u
+alle    $u
+
 da	$u      // by
 dal	$u
+dallo   $u
 dalla	$u	// by the
+dai     $u
+dagli   $u
+dalle   $u
+
+di	$u	// of
+del	$u
+dello   $u
+della	$u	// of the
+dei     $u
+degli   $u
+delle   $u
+de      $u
+
+in	$u	// in
+nel	$u
+nello   $u
+nella	$u	// in the
+nei     $u
+negli   $u
+nelle   $u
+ne      $u
+
+su	$u $double	// on
+sul	$u
+sullo   $u
+sulla	$u	// on the
+sui     $u
+sugli   $u
+sulle   $u
+
 con	$u $pause	// with
-attraverso $u	// through
-sopra	$u $strend	// above
-sotto	$u $strend	// below
-per     $u $pause     // for
+col     $u
+coi     $u
+
+attraverso $u $strend	// across, through
+contro     $u $strend   // against
+accanto    $u $strend   // beside
+verso      $u $strend   // toward
+sopra	   $u $strend	// above
+sotto	   $u $strend	// below
+per        $u $pause    // for
+eccetto    $pause       // except
+senza      $pause       // without
+durante    $pause       // during
 
 
 // aux verb, to be
 sono	$u
 sei	$u
-è	$u $double
+è	E  $u $double
 siamo	$u
 siete	$u
 sono	$u
@@ -107,7 +222,7 @@ era	$u
 eravamo	$u
 eravate	$u
 erano	$u
-sarò	$u
+sarò	sa/r'O $u
 sarai	$u
 sarà	$u
 saremo	$u
@@ -150,7 +265,7 @@ avevamo	$u
 avevate	$u
 avevano	$u
 
-avrò	$u
+avrò	a/vr'O $u
 avrai	$u
 avrà	$u
 avremo	$u
@@ -174,20 +289,28 @@ avremmo	$u
 avreste	$u
 avrebbero	$u
 
+// to do/make
+fare	$u $strend
+faccio	$u $strend
+facciamo	$u $strend
+fai	$u $strend
+fate	$u $strend
+fa	$u $strend
+fanno	$u $strend
+
+facevo	$u $strend
+facevi	$u $strend
+faceva	$u $strend
+facevamo	$u $strend
+facevate	$u $strend
+facevano	$u $strend
 
 
-// conjunctions
-e		$u $pause $double  // and
-ed		$u $pause
-o		$u $pause $double  // or
-se		$pause      // if
-ma		$pause      // but
-perché		$pause      // because
-benchè		$pause      // though
-anche		$pause      // although
-tuttavia	$pause      // however
-invece		$pause      // instead
-malevolenza	$pause      // despite
-pertanto        $pause      // therefore
+// exceptions
+aereo        $2
+difficile    $2
+pneumatici   $3
 
-(in cui)        in||kw,i  $pause   // in which
+nott        nOt: $stem
+tavol       $1   $stem
+vent        vEnt $stem

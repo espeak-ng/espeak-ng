@@ -21,13 +21,15 @@
 #define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
 #define REPLACED_E       'E'          // 'e' replaced by silent e
 
-#define N_WORD_PHONEMES  120          // max phonemes in a word
+#define N_WORD_PHONEMES  150          // max phonemes in a word
 #define N_CLAUSE_WORDS   256          // max words in a clause
 #define N_CHAINS2        120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
-#define N_CHARSETS        16
+#define N_CHARSETS        19
 
 /* flags from word dictionary */
+// bits 0-3  stressed syllable,  7=unstressed
+#define FLAG_SKIPWORDS        0x20  /* bits 5,6,7  number of words to skip */
 #define FLAG_PREPAUSE        0x100
 #define FLAG_ONLY            0x200
 #define FLAG_ONLY_S          0x400
@@ -39,6 +41,7 @@
 #define FLAG_CAPITAL        0x8000  /* pronunciation if initial letter is upepr case */
 #define FLAG_DOT           0x10000  /* ignore '.' after word (abbreviation) */
 #define FLAG_ABBREV        0x20000  /* use this pronunciation rather than split into letters */
+#define FLAG_STEM          0x40000  // must have a suffix
 
 #define FLAG_XX1           0x80000  // language specific
 #define FLAG_XX2          0x100000
@@ -52,7 +55,6 @@
 #define FLAG_PASTF       0x8000000  /* past tense follows */
 #define FLAG_VERB_EXT   0x10000000  /* extend the 'verb follows' */
 
-#define FLAG_SKIPWORDS  0x20000000  /* bits 29,30  number of words to skip */
 #define FLAG_FOUND      0x80000000  /* pronunciation was found in the dictionary list */
 
 // wordflags, flags in source word
@@ -72,6 +74,7 @@
 #define SUFX_V        0x0800   // suffix means use the verb form pronunciation
 #define SUFX_D        0x1000   // previous letter may have been doubles
 #define SUFX_F        0x2000   // verb follows
+#define SUFX_Q        0x4000   // don't retranslate
 
 #define FLAG_SUFX       0x04
 #define FLAG_SUFX_S     0x08
@@ -99,11 +102,12 @@
 #define RULE_LETTER1		17   // A vowels
 #define RULE_LETTER2		18   // B 'hard' consonants 
 #define RULE_LETTER3		19   // C all consonants
-#define RULE_LETTER4		20   // E spare
+#define RULE_LETTER4		20   // H spare
 #define RULE_LETTER5    21   // F spare
-#define RULE_LETTER6    22   // G spare
-#define RULE_NO_SUFFIX  23
-#define RULE_NOTVOWEL   24
+#define RULE_LETTER6		22   // G spare
+#define RULE_LETTER7    23   // Y spare
+#define RULE_NO_SUFFIX  24
+#define RULE_NOTVOWEL   25
 
 // Punctuation types  returned by ReadClause()
 // bits 0-7 pause x 10mS, bits 8-11 intonation type,
@@ -127,10 +131,12 @@
 #define CLAUSE_SEMICOLON   30 + 0x4100
 #endif
 
-#define SAYAS_GLYPHS    1
-#define SAYAS_CHAR      2
-#define SAYAS_KEY       3
-#define SAYAS_DIGITS    4
+#define SAYAS_CHARS     0x12
+#define SAYAS_GLYPHS    0x13
+#define SAYAS_SINGLE_CHARS 0x14
+#define SAYAS_KEY       0x20
+#define SAYAS_DIGITS1   0x21
+#define SAYAS_DIGITS    0x30  // + number of digits
 
 // Rule:
 // [4] [match] [1 pre] [2 post] [3 phonemes] 0
@@ -152,6 +158,7 @@ typedef struct{
 	unsigned short sourceix;
 	unsigned char pre_pause;
 	unsigned char flags;
+	unsigned char wmark;
 } WORD_TAB;
 
 // a clause translated into phoneme codes (first stage)
@@ -175,7 +182,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      9
+#define N_LOPTS      11
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables
 #define LOPT_IT_LENGTHEN        2
@@ -191,7 +198,10 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_SONORANT_MIN    7
  // Italian "syntactic doubling"
 #define LOPT_IT_DOUBLING     8
-
+ // max. amplitude for vowel at the end of a clause
+#define LOPT_MAXAMP_EOC      9
+ // don't reduce the strongest vowel in a word which is marked 'unstressed'
+#define LOPT_KEEP_UNSTR_VOWEL  10
 
 typedef struct {
 	int word_gap; // 0,  2=don't merge phonemes,  3= pause before stops and fricatives, 4= PAUSE_SHORT between words
@@ -209,6 +219,23 @@ typedef struct {
 	int param[N_LOPTS];
 	unsigned char *length_mods;
 	unsigned char *length_mods0;
+
+	// bits0-3=which numbers routine to use. 0=none, 1=english/german
+	// bit4=use three-and-twenty rather than twenty-three
+	// bit5='and' between tens and units
+	// bit6=add "and" after hundred and thousand
+	// bit7
+   // bit8=only one primary stress in tens+units
+	// bit9=only one vowel betwen tens and units
+	// bit10=omit "one" before "hundred"
+	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
+	// bit13=speak post-decimal-point digits in pairs 
+	// bit16=dot after number indicates ordinal
+	int numbers;
+	int thousands_sep;
+	int decimal_sep;
+	int phoneme_change;  // TEST, change phonemes, after translation
+	int testing;   // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 } LANGUAGE_OPTIONS;
 
 
@@ -219,13 +246,19 @@ public:
 	Translator();
 	virtual ~Translator();
 	void *TranslateClause(FILE *f_text, const void *vp_input, int *tone, char **voice_change);
+	int TranslateWord(char *word, int next_pause, int wflags, int wmark);
 	int LoadDictionary(const char *name);
 	void SetLetterBits(int group, const char *string);
 	virtual void CalcLengths();
 	virtual void CalcPitches(int clause_tone);
 	
 	LANGUAGE_OPTIONS langopts;
+	int transpose_offset;
+	int transpose_max;
+	int transpose_min;
+
 	char phon_out[300];
+	char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 
 	int stress_amps[8];
 	int stress_amps_r[8];
@@ -236,25 +269,27 @@ public:
 
 // holds properties of characters: vowel, consonant, etc for pronunciation rules
 #define LETTERGP_VOWEL    0
-#define LETTERGP_VOWEL_Y  7
+#define LETTERGP_VOWEL2   7
 	unsigned char letter_bits[256];
 	int letter_bits_offset;
 
 private:
-	int TranslateWord(char *word, int next_pause, int wflags);
-	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix);
-	int TranslateLetter(char *letter, char *phonemes);
+	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int wmark);
+	int TranslateLetter(char *letter, char *phonemes, int control);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	void WriteMnemonic(int *ix, int mnem);
 	void MakePhonemeList(int post_pause, int embedded, int new_sentence);
+	int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
 
 	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
 	int LookupDict2(char *word, char *word2, char *phonetic, unsigned int *flags, int end_flags);
-	int LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags);
 	const char *LookupSpecial(char *string);
 	const char *LookupCharName(int c);
+	int LookupNum2(int value, int control, char *ph_out);
+	int LookupThousands(int value, int thousandplex, char *ph_out);
+   int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
 
 	void InitGroups(void);
 	void AppendPhonemes(char *string, const char *ph);
@@ -270,9 +305,12 @@ protected:
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
 	virtual int RemoveEnding(char *word, int end_type);
 	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
-	virtual int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
+   virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
+	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags);
 
 	int IsVowel(int letter);
+	int LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags);
+	int Lookup(char *word, char *ph_out);
 
 	char *data_dictrules;     // language_1   translation rules file
 	char *data_dictlist;      // language_2   dictionary lookup file
@@ -293,7 +331,6 @@ protected:
 	int n_ph_list2;
 	PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
 
-	char word_phonemes[N_WORD_PHONEMES];    // a word translated into phoneme codes
 	
 
 	int expect_verb;
@@ -312,7 +349,6 @@ protected:
 	int clause_upper_count;   // number of upper case letters in the clause
 	int clause_lower_count;   // number of lower case letters in the clause
 
-
 }; //  end of class Translator
 
 
@@ -320,7 +356,6 @@ extern int option_tone1;
 extern int option_tone2;
 extern int option_waveout;
 extern int option_phonemes;
-extern int option_log_trans;      // log pronunciation translation
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
 extern int option_harmonic1;
 extern int option_multibyte;
@@ -330,6 +365,7 @@ extern int option_endpause;
 extern int option_ssml;
 extern int option_phoneme_input;   // allow [[phonemes]] in input text
 extern int option_phoneme_variants;
+extern int option_sayas;
 
 extern int count_characters;
 extern int count_words;
@@ -342,6 +378,8 @@ extern int end_character_position;
 extern int clause_start_char;
 extern int clause_start_word;
 extern char *namedata;
+
+
 
 #define N_MARKER_LENGTH 50   // max.length of a mark name
 extern char skip_marker[N_MARKER_LENGTH];
@@ -363,8 +401,10 @@ extern int ungot_char;
 extern int (* uri_callback)(int, const char *, const char *);
 
 Translator *SelectTranslator(const char *name);
-int CompileDictionary(const char *dict_name, int log, char *err_name);
+int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name);
 void LoadConfig(void);
+int PhonemeCode(unsigned int mnem);
+int TransposeAlphabet(char *text, int offset, int min, int max);
 int utf8_in(int *c, char *buf, int backwards);
 int utf8_out(unsigned int c, char *buf);
 int lookupwchar(const short *list,int c);

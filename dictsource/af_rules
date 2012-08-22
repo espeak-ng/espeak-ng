@@ -5,7 +5,6 @@
  
 
 .group a
-          _) a (_         A:
              a            A:
              agent ax2'Ent
              algemeen     'alx2@m,e@n
@@ -41,7 +40,6 @@
 
 
 .group b
-          _) b (_         be@
              b            b
              b (b
              b (_         p
@@ -62,7 +60,6 @@
              besem        b,e@s@m
 
 .group c
-          _) c (_         se@
              c            k
              c (c
              c (e         s
@@ -73,7 +70,6 @@
              ch (ro       k
 
 .group d
-          _) d (_         de@
              d            d
              d (d
 
@@ -84,14 +80,13 @@
              dj           c     // palatal stop
 
              d (_dN             // next word starts with d, drop the d
-//words ending in dge is English
-             @) dge (_  _^_EN
-&) dele (_   de@l@ 
-&) ddele (_   d@l@ 
+             @) dge (_  _^_EN   //words ending in dge is English
+
+             &) dele (_   de@l@ 
+             &) ddele (_   d@l@ 
              doku         dOky
 
 .group e
-          _) e (_         e@
              e            e@
              e (C         E
 
@@ -125,25 +120,24 @@
          &b) e (s@        @
              eenge 'e@nx2@
              entjie       EiNci
-   edjie        'E:ici
+             edjie        'E:ici
              etjie        ici
           &) elik (_S4    @l@k
           &) ere (_S3     @r@
 
 
 .group f
-          _) f (_         Ef
              f            f
              f (f
 
-             familie fam'ili
+             familie      fam'ili
+              foto f'o@tu
 
 
 .group g
-          _) g (_         x2e@
              g            x2
              g (g
-             ge        x2@
+             ge           x2@
 //re-enable following rule to get [g@] at end of words
              ge (_        g@
              gh           g
@@ -164,7 +158,6 @@
 
 
 .group h
-          _) h (_         hA:
              h            h
              h (h
           _) her (@P3     h%&r
@@ -174,7 +167,6 @@
              heg          h&x2
 
 .group i
-          _) i (_         i
              i            i
              i (C         I
              i (CA        i
@@ -204,12 +196,10 @@
 
 
 .group j
-          _) j (_         je@
              j            j
              j (j
 
 .group k
-          _) k (_         kA:
              k            k
              k (k
              kk           k
@@ -220,7 +210,6 @@
 
 
 .group l
-          _) l (_         &l
              l            l
              l (l
           &) lede (_S4    le@d@
@@ -232,7 +221,6 @@
           &) lm (K        l@-m
 
 .group m
-          _) m (_         Em
              m            m
              m (m
 
@@ -251,7 +239,6 @@
 
 
 .group n
-          _) n (_         En
              n            n
              n (n
              n (c         N
@@ -266,10 +253,9 @@
           _) nage (@P4    n'A:x2@
 
              nasionale    naSEun'A:l@
-&) nele (_   n'e@l@ 
+          &) nele (_      n'e@l@ 
 
 .group o
-          _) o (_         o@
              o            o@
              o (C         O
              o (CA        o@
@@ -304,7 +290,6 @@
              organisasie  Orx2anis'A:si
 
 .group p
-          _) p (_         pe@
              p            p
              p (p
 
@@ -316,10 +301,10 @@
              produk       prud'Wk
              projek       pruj'Ek
              proses       prus'Es
+              prosedure prOs@d'yr@
 
 
 .group q
-          _) q (_         kwu
              q            kw
              q (q
 
@@ -330,6 +315,9 @@
           _) r (_         &r
              r            r
              r (r
+          _) r (_D.       rant
+          _) r (_DD.      rant
+          _) r (_DDD      rant
 
           &) ring (_S4    rIN
           &) rm (K        r@-m
@@ -342,11 +330,10 @@
              regering     r@x2'e@r@N
              respek       r@spEk
 rugby r'Wgbi
-&) rele (_   r'e@l@ 
+          &) rele (_      r'e@l@ 
 
 
 .group s
-          _) s (_         Es
              s            s
              s (s
              sch          S
@@ -363,13 +350,12 @@ rugby r'Wgbi
              stel         st&l
              sistem       sIst'e@m
              stem         stEm
-&) sele (_   s'e@l@ 
-&) spele (_   sp'e@l@ 
+          &) sele (_      s'e@l@ 
+          &) spele (_     sp'e@l@ 
              storm        stOr@-m
              streke       str'e@k@
 
 .group t
-          _) t (_         te@
              t            t
              t (t
              t (_dN           // final t, and next word starts with d
@@ -386,8 +372,16 @@ rugby r'Wgbi
 
           _) terug (@P5   t@-r'Wx2
           _) terugge (@P7   t@-r'Wx2@
-@) tele (_   t'e@l@ 
+          @) tele (_      t'e@l@ 
+              telefoon t&l@f'o@n
+              telegram t&l@x2r'am
+              televisie t&l@v'isi
+              telekom t&l@kOm
+              teleskoop t&l@sk'o@p
+
              tenis        t@nIs
+             @) tion (_  _^_EN   //words ending in tion is English
+             @) tions (_  _^_EN   //words ending in tions is English
              toneel       tun'e@l
 
           &) trede (_S5   tr,e@d@
@@ -396,7 +390,6 @@ rugby r'Wgbi
 
 
 .group u
-          _) u (_         y
              u            y
              u (C         W
              u (CA        y
@@ -407,10 +400,10 @@ rugby r'Wgbi
           _) uitge (@P5   Yytx2@
              uitgewer     'Yytx2,e@v@r
              utjie        Yyci
+	     universiteit yniv&rsit'eIt
 
 
 .group v
-          _) v (_         fe@
              v            f
              v (v
 
@@ -430,7 +423,6 @@ rugby r'Wgbi
 
 
 .group w
-          _) w (_         ve@
              w            v
              w (w
           d) w            w
@@ -447,16 +439,13 @@ rugby r'Wgbi
           @) w (_N        _^_EN 
 
 .group x
-          _) x (_         Eks
              x            ks
              x (x
 
 .group y
-          _) y (_         eI
              y            eI
 
 .group z
-          _) z (_         zEd
              z            z
              z (z
 
@@ -479,6 +468,41 @@ rugby r'Wgbi
              ê (r         E
              îe           3:
              ô            O:
+
+// punctution
+             !            _:eItrup_:
+          !) !
+             $            dOl@r
+             %            p&rs'Ent
+             &            _|amp&rsant
+             £            p@Unt
+             /            stre@p
+             @            beI_:
+             \\           trystre@p
+
+// punctuation, but don't speak multiple occurrances
+             =            _:x2@l'eIk_:
+             = (==
+         =)  = (=
+        ==)  = (_         _::
+
+             *            st&r
+         *)  * (* 
+             ** 
+        **)  * (_         _::
+
+             +            plus
+         _)  ++ (_        pluspl'us
+    \+\+\+)  +          // ignore + after the first 3
+
+         __) - (_D        minWs
+         A_) - (_D        _
+         C_) - (_D        _
+         --) -
+
+             .            pWnt
+             . (.        _:
+        \.)  .
 
 
 

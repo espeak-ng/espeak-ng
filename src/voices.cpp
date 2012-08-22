@@ -132,8 +132,8 @@ static int n_voices_tab = 0;
 static voice_t *voices_tab[N_VOICES];
 
 
-static void VoiceReset(void)
-{//=========================
+void VoiceReset(void)
+{//==================
 	// Set voice to the default values
 	int  pk;
 
@@ -151,9 +151,6 @@ static void VoiceReset(void)
 #else
 	voice->roughness = 2;
 #endif
-
-	voice->intonation1 = 0;
-	voice->intonation2 = 0;
 
 	for(pk=0; pk<N_PEAKS; pk++)
 	{
@@ -1023,7 +1020,7 @@ void GetVoices(const char *path)
 //=======================================================================
 //  Library Interface Functions
 //=======================================================================
-
+#pragma GCC visibility push(default)
 
 
 espeak_VOICE **espeak_ListVoices(void)
@@ -1113,4 +1110,7 @@ espeak_VOICE *espeak_GetCurrentVoice(void)
 {//=======================================
 	return(voice_selected);
 }
+
+#pragma GCC visibility pop
+
 
