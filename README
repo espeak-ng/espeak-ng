@@ -12,6 +12,24 @@ This allows you to run:
 
 and end up with a working espeak application.
 
-
 This branch also contains some bug fixes and improvements that get
 sent back upstream.
+
+
+HISTORICAL RELEASES
+
+
+1.24.02 is the first version of eSpeak to appear in the subversion
+repository, but releases from 1.05 to 1.24 are available on the
+sourceforge website at http://sourceforge.net/projects/espeak/files/espeak/.
+
+These early releases have been checked into the historical branch,
+with the 1.24.02 release as the last entry. This makes it possible
+to use the replace functionality of git to see the earlier history:
+
+	$ git replace 8d59235f 63c1c019
+
+NOTE: The source releases contain the big_endian, espeak-edit, praat-mod,
+riskos, windows_dll and windows_sapi folders. These do not appear in the
+source repository until later releases, so have been excluded from the
+historical commits to align them better with the 1.24.02 source commit.
