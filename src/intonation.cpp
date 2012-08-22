@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -23,6 +23,7 @@
 #include <string.h>
 #include <wctype.h>
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
@@ -320,14 +321,6 @@ static TONE_TABLE tone_table[N_TONE_TABLE] = {
    30, 20,   18, 34,  drops_0, 3, 3,   20, 32, 0},
 };
   
-
-
-/* index by 0=. 1=, 2=?, 3=! 4=none */
-static unsigned char punctuation_to_tone[4][5] = {
-	{0,1,1,0,0},
-	{2,3,3,2,2},
-	{4,5,5,4,4},
-	{6,7,7,6,6} };
 
 
 
@@ -833,6 +826,7 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	int  ix;
 	int  count_stressed=0;
 	int  count_stressed2=0;
+	int  final_stressed=0;
 
 	int  tone_ph;
 
@@ -849,9 +843,21 @@ void Translator::CalcPitches_Tone(int clause_tone)
 	{
 		if((p->type == phVOWEL) && (p->tone >= 4))
 		{
+			final_stressed = ix;
 			count_stressed++;
 		}
 	}
+
+	// language specific, changes to tones
+	if(translator_name == L('v','i'))
+	{
+		// LANG=vi
+		p = &phoneme_list[final_stressed];
+		p->tone = 7;
+		if(p->tone_ph == 0)
+			p->tone_ph = LookupPh("7");   // change tone 1 to falling tone at end of clause
+	}
+
 
 	p = &phoneme_list[0];
 	for(ix=0; ix<n_phoneme_list; ix++, p++)
@@ -860,20 +866,24 @@ void Translator::CalcPitches_Tone(int clause_tone)
 		{
 			tone_ph = p->tone_ph;
 
-			if(p->tone >= 4)
+			if(p->tone >= 2)
 			{
 				// a stressed syllable
-				count_stressed2++;
-				if(count_stressed2 == count_stressed)
+				if(p->tone >= 4)
 				{
-					// the last stressed syllable
-					pitch_adjust = pitch_low;
-				}
-				else
-				{
-					pitch_adjust -= pitch_decrement;
-					if(pitch_adjust <= pitch_low)
-						pitch_adjust = pitch_high;
+
+					count_stressed2++;
+					if(count_stressed2 == count_stressed)
+					{
+						// the last stressed syllable
+						pitch_adjust = pitch_low;
+					}
+					else
+					{
+						pitch_adjust -= pitch_decrement;
+						if(pitch_adjust <= pitch_low)
+							pitch_adjust = pitch_high;
+					}
 				}
 
 				if(tone_ph ==0)
@@ -892,6 +902,8 @@ void Translator::CalcPitches_Tone(int clause_tone)
 			}
 		}
 	}
+
+
 }  // end of Translator::CalcPitches_Tone
 
 
@@ -964,7 +976,7 @@ void Translator::CalcPitches(int clause_tone)
 	if(option > 4)
 		option = 0;
 
-	tone_type = punctuation_to_tone[option][clause_tone];  /* unless changed by count_pitch_vowels */
+	tone_type = punct_to_tone[option][clause_tone];  /* unless changed by count_pitch_vowels */
 
 	if(clause_tone == 4)
 		no_tonic = 1;       /* incomplete clause, used for abbreviations such as Mr. Dr. Mrs. */

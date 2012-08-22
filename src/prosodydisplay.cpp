@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,6 +22,7 @@
 #include "wx/wx.h"
 #include "wx/numdlg.h"
 
+#include "speak_lib.h"
 #include "main.h"
 #include "speech.h"
 #include "phoneme.h"
@@ -592,9 +593,11 @@ ChildFrProsody::~ChildFrProsody(void)
 	prosodycanvas = NULL;
 	prosodyframe = NULL;
 
+#ifndef PLATFORM_WINDOWS
 	// bug in wxMDIChildFrame, we need to explicitly remove the ChildFrame from the ClientWindow
 	w = myframe->GetClientWindow();
 	w->RemoveChild(this);
+#endif
 }
 
 void ChildFrProsody::OnQuit(wxCommandEvent& WXUNUSED(event))

@@ -21,22 +21,22 @@ _6       xw'e:C
 _7       s'aIT
 _8       w'YT
 _9       n'aU
-_10      d'e:g
-_20      d'aYD,e:g
-_30      tr'i:D,e:g
-_40      p'EdwarD,e:g
-_50      p'YmD,e:g
-_60      xw'e:D,e:g
-_70      s'aITD,e:g
-_80      w'YTD,e:g
-_90      n'aUD,e:g
-_0H      k'ant
-_2H      d'aYg,ant
-_3H      tr'i:x,ant
-_0T1     m'i:l_
-_1T1     m'i:l_          // no '1' before thousand
-_0T2     m'i:lIun_
-_0T3     b'i:lIun_
+_1X      d'e:g
+_2X      d'aYD,e:g
+_3X      tr'i:D,e:g
+_4X      p'EdwarD,e:g
+_5X      p'YmD,e:g
+_6X      xw'e:D,e:g
+_7X      s'aITD,e:g
+_8X      w'YTD,e:g
+_9X      n'aUD,e:g
+_0C      k'ant
+_2C      d'aYg,ant
+_3C      tr'i:x,ant
+_0M1     m'i:l_
+_1M1     m'i:l_          // no '1' before thousand
+_0M2     m'i:lIun_
+_0M3     b'i:lIun_
 _dpt     puYnt
 
 

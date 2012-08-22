@@ -11,7 +11,7 @@
 
        &) a (lla_    %a
 
-       _austr) a (l  a:        // double the middle a in australia and its inflections. 
+  _austr) a (l       a:        // double the middle a in australia and its inflections. 
 
 
 .group ä
@@ -32,7 +32,9 @@
 
 .group c
        _) c (_       se:
-          c          s         // Pronounce c as s. Mostly foreign words such as celcius, center, cervantes, cezanne.
+          c          k
+          c (i       s
+          c (e       s         // Pronounce c as s. Mostly foreign words such as celcius, center, cervantes, cezanne.
           cc         k:        // Utter cc as k. This includes rebecca, accord, puccini etc.
        
           city       siti      // Pronounce foreign word city as siti. Include all inflections and compound words.
@@ -83,7 +85,7 @@
           // iä         ii&      // Improve the i in iä words. Eg. ryhmiä (ryhmä), äitiä.
           // ia         iia      // Improve the i in ia words. Eg. mattia, lattia.
 
-       &) i(lla_     %i
+       &) i (lla_    %i
 
 
 .group j
@@ -108,13 +110,14 @@
        _) m (_       &m
           m          m
 
-      _sydä) m  (A   m:        // double the m in sydämelinnen 
+   _sydä) m (A       m:        // double the m in sydämelinnen 
 
 
 .group n
        _) n (_       &n
           n          n
           ng         N:
+          ng (_      N
           n (p       m
           n (_p      m
           n (k       N
@@ -122,7 +125,6 @@
 
        @) nne (_     nne_X1    // double the initial consonant of the next word
 
-       _ole) n  (pa  m         // double the p in olepa, olepahan.
 
 
 .group o
@@ -132,7 +134,7 @@
           oi         oi
           ou         ou
 
-      symb) o (l  oo           // double the o in symboli. Include inflections and compound words.
+     symb) o (l      oo         // double the o in symboli. Include inflections and compound words.
 
 
 
@@ -150,12 +152,13 @@
           p          p
           pp         p:
 
-          _ota) p  (a  p:       // double the p in otapa, otapahan.
+    _ole) p (a       p:      // double the p in olepa, olepahan.
+    _ota) p (a       p:      // double the p in otapa, otapahan.
 
-          kam)  p  (anj  p:     // double the p in kampanja. Include inflections and compound words.
+     kam) p (anj     p:      // double the p in kampanja. Include inflections and compound words.
 
-          sam)  p  (oo  p:      // double the p in sampoo. Include inflections and compound words.
-          sham) p  (o   p:      // double the p in shampo. Include inflections and compound words.
+     sam) p (oo      p:      // double the p in sampoo. Include inflections and compound words.
+    sham) p (o       p:      // double the p in shampo. Include inflections and compound words.
 
 
 .group q
@@ -167,11 +170,15 @@
 .group r
        _) r (_       &r
           r          r
+       A) r (A       *
+       C) r (A       @-*
+          rr         *r
 
 
 .group s
        _) s (_       &s
           s          s
+          ss         ss2      // [s2] is a continuation for [s]
        K) sh         S
 
        @) sti (_     sti_X1    // double the initial consonant of the next word
@@ -223,7 +230,7 @@
           zz         t:s
        K) zh         Z
 
-       pi) zza (tsa           // Pronounce pizza as pitsa. Include inflections and compound words.
+       pi) zza       tsa       // Pronounce pizza as pitsa. Include inflections and compound words.
 
 
 .group 9

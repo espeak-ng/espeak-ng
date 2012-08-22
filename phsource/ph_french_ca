@@ -1,0 +1,88 @@
+
+//====================================================
+//  French - Canadian
+//====================================================
+
+// Based on French.
+// This file redefines phonemes which differ from those in ph_french
+
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 70
+endphoneme
+
+
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 164
+  formants vowel/e_mid
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 174
+  formants vowel/u_bck
+endphoneme
+
+
+phoneme E~
+  vowel  starttype (e)  endtype (e)
+  length 192
+  formants vnasal/ee_n
+endphoneme
+
+
+phoneme I
+  vowel  starttype (i) endtype (i)
+  length 158
+  formants vowel/ii
+  linkout ;
+endphoneme
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vowel/uu_bck
+endphoneme
+
+
+phoneme y"
+  vowel starttype (u) endtype (u)
+  length 140
+  formants vowel/yy        // was sv_y2
+endphoneme
+
+phoneme E:         // [ae] diphthong
+  vowel starttype (@) endtype (e)
+  length 230
+  formants vdiph/ae
+endphoneme
+
+phoneme A
+  vowel  starttype (a)  endtype (a)
+  length 166
+  formants vowel/aa
+endphoneme
+
+
+
+
+
+// CONSONANTS
+//===========
+// uses the consonants in file "phonemes", unless overridden here
+
+phoneme R
+  liquid
+  vowelin f1=0  f2=1500 -400 400  f3=-400 80
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants vwl_fr/@R2+r3/rx%120
+endphoneme
+

@@ -1,0 +1,178 @@
+
+// This file is UTF8 encoded
+
+.group a
+        a        A:
+        a (CC    a
+        a (_     a
+
+.group b
+        b        b
+        b (b
+
+.group c
+        c        k
+        cc       k
+        c (e     s
+        c (i     s
+        c (y     s
+        c (ä     s
+        c (ö     s
+        ch       S
+        ck       k
+
+.group d
+        d        d
+        d (d
+
+.group e
+        e        e:
+        e (CC    E
+     &) e (_     E
+     &) es (_    Es
+     &) en (_    En
+     &) ens (_   Ens
+     &) er (_    Er
+     &) et (_S2  Et         // ??
+
+.group f
+        f        f
+        f (f
+
+.group g
+        g        g
+        gg       g
+        g (e     j
+        g (i     j
+        g (y     j
+        g (ä     j
+        g (ö     j
+        g (t     k
+        g (n     N
+        gj       j
+
+.group h
+        h        h
+        h (h
+        hj       j
+
+.group i
+        i        i:
+        i (CC    I
+
+.group j
+        j        j
+
+.group k
+        k        k
+
+        kk       k
+        k ( er      k
+        k ( en      k
+        kj       s;
+        k (e     s;
+        k (i     s;
+        k (y     s;
+        k (ä     s;
+        k (ö     s;
+
+.group l
+        l        l
+        l (l
+
+.group m
+        m        m
+        m (m
+
+.group n
+        n        n
+        n (n
+        ng       N
+        n (k     N
+
+.group o
+        o        u:
+        o (CC    U
+        o (rC    u:
+        o (rr    O
+        o (ll    O
+        o (m_    O
+     d) o (k     O
+        o (rk    O
+        o (rg    O
+
+.group p
+        p        p
+        p (p
+
+.group q
+        q        k
+        q (q
+        qu       kw
+
+.group r
+        r        r
+     r) r
+        rs (_    S
+
+.group s
+        s        s
+        ss       s
+        sch      S
+        sj       sx
+        sk (e    sx
+        sk (i    sx
+        sk (y    sx
+        sk (ä    sx
+        sk (ö    sx
+        skj      sx
+        stj      sx
+
+.group t
+        t        t
+        tt       t
+        ti (on   S
+        tj       s;
+
+    &C) te (_S2  tE       // ??
+
+
+.group u
+        u        u-
+        u (CC    8
+
+.group v
+        v        v
+        v (v
+
+.group w
+        w        v
+
+.group x
+        x        ks
+        x (x
+
+.group y
+        y        y:
+        y (CC    y
+
+.group z
+        z        s
+        zz       z
+
+.group å
+        å        o:
+        å (CC    O
+
+.group ä
+        ä        E:
+        ä (CC    E
+        ä (r     &
+
+.group ö
+        ö        Y:
+        ö (CC    W
+
+.group
+        é        'e:
+

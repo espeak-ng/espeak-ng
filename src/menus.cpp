@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -40,8 +40,8 @@ wxMenuBar *MakeMenu(int type)
 
 	// FILE MENU
 	file_menu = new wxMenu;
-	file_menu->Append(MENU_SPECTRUM, _T("Open"));
-	file_menu->Append(MENU_SPECTRUM2, _T("Open2"));
+	file_menu->Append(MENU_SPECTRUM, _T("&Open"));
+	file_menu->Append(MENU_SPECTRUM2, _T("O&pen2"));
 //	file_menu->Append(MENU_PROSODY, _T("&Prosody window"));
 	if(type==0)
 	{
@@ -65,7 +65,7 @@ wxMenuBar *MakeMenu(int type)
 		file_menu->Append(SPECTSEQ_CLOSE, _T("&Close"));
 //		file_menu->Append(MENU_CLOSE_ALL, _T("Close &All"));
 	}
-	file_menu->Append(MENU_QUIT, _T("&Exit"));
+	file_menu->Append(MENU_QUIT, _T("&Quit"));
 
 	// SPEAK_MENU
 	speak_menu = new wxMenu;
@@ -103,6 +103,8 @@ wxMenuBar *MakeMenu(int type)
 	tools_menu->Append(MENU_VOWELCHART, _T("Make &Vowels Chart"), vowelchart_menu);
 //	tools_menu->Append(MENU_LOAD_WAV,   _T("Analyse WAV file"));
 	tools_menu->Append(MENU_LEXICON, _T("Compare &Lexicon"), lexicon_menu);
+	tools_menu->Append(MENU_TO_UTF8, _T("Convert file to &UTF8"));
+	tools_menu->Append(MENU_COUNT_WORDS, _T("Count word &frequencies"));
 	tools_menu->Append(MENU_TEST    ,   _T("Test (temporary)"));
 
 	// HELP MENU

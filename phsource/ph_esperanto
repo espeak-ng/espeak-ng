@@ -7,7 +7,7 @@
 phoneme a
   vowel starttype (a) endtype (a)
   length 180
-  formants vwl_it/a
+  formants vowel/a_2
   reduceto &  4
 endphoneme
 
@@ -15,7 +15,7 @@ endphoneme
 phoneme &
   vowel starttype (@) endtype (@)
   length 180
-  formants vwl_it/&
+  formants vowel/a#
 endphoneme
 
 
@@ -23,14 +23,14 @@ endphoneme
 phoneme e
   vowel starttype (e) endtype (e)
   length 170
-  formants vowel/e:
+  formants vowel/e
 endphoneme
 
 
 phoneme i
   vowel starttype (i) endtype (i)
   length 160
-  formants vowel/i:
+  formants vowel/i
   linkout ;
 endphoneme
 
@@ -38,56 +38,56 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/O:
+  formants vowel/oo_1
 endphoneme
 
 
 phoneme u
   vowel starttype (u) endtype (u)
   length 160
-  formants vowel/u_bck
+  formants vowel/u
 endphoneme
 
 
 phoneme aU
   vowel starttype (a) endtype (u)
   length 230
-  formants vowel/aU
+  formants vdiph/au
 endphoneme
 
 
 phoneme eU
   vowel starttype (e) endtype (u)
   length 230
-  formants vowel/eU
+  formants vdiph/eu
 endphoneme
 
 
 phoneme aI
   vowel starttype (a) endtype (i)
   length 230
-  formants vwl_it/ai
+  formants vdiph/ai
 endphoneme
 
 
 phoneme eI
   vowel starttype (e) endtype (i)
   length 230
-  formants vowel/EI
+  formants vdiph/eei
 endphoneme
 
 
 phoneme OI
   vowel starttype (o) endtype (i)
   length 230
-  formants vowel/OI
+  formants vdiph/ooi
 endphoneme
 
 
 phoneme uI
   vowel starttype (u) endtype (i)
   length 240
-  formants vowel/uI
+  formants vdiph/ui
 endphoneme
 
 
@@ -123,7 +123,7 @@ phoneme ts
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave unvoc/ts
+  wave ustop/ts
 endphoneme
 
 

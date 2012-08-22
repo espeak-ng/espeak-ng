@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,19 +22,21 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#ifndef PLATFORM_WINDOWS
 #include <unistd.h>
+#endif
 #include <getopt.h>
 #include <time.h>
 #include <signal.h>
 #include <locale.h>
 #include "sys/stat.h"
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-#include "speak_lib.h"
 
 
 
@@ -43,7 +45,7 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.17  17.Nov.06";
+static const char *version = "Speak text-to-speech: 1.18  13.Jan.07";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -55,7 +57,7 @@ static const char *help_text =
 "\t   Amplitude, 0 to 200, default is 100\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
-"\t   lines less than this length as and-of-clause\n"
+"\t   lines less than this length as end-of-clause\n"
 "-p <integer>\n"
 "\t   Pitch adjustment, 0 to 99, default is 50\n"
 "-s <integer>\n"
@@ -87,7 +89,7 @@ static const char *help_text =
 #endif
 
 
-void DisplayVoices(FILE *f_out, espeak_VOICE **voices_list, char *language);
+void DisplayVoices(FILE *f_out, char *language);
 
 voice_t voice_data;
 USHORT voice_pcnt[N_PEAKS+1][3];
@@ -125,6 +127,70 @@ void Free(void *ptr)
 }
 
 
+void DisplayVoices(FILE *f_out, char *language)
+{//============================================
+	int ix;
+	char *p;
+	int len;
+	int count;
+	int scores = 0;
+	const espeak_VOICE *v;
+	char *lang_name;
+	char age_buf[12];
+	const espeak_VOICE **voices;
+	espeak_VOICE voice_select;
+
+	static char genders[4] = {' ','M','F',' '};
+
+	if((language != NULL) && (language[0] != 0))
+	{
+		// display only voices for the specified language, in order of priority
+		voice_select.languages = language;
+		voice_select.age = 0;
+		voice_select.gender = 0;
+		voice_select.name = NULL;
+		voices = espeak_ListVoices(&voice_select);
+		scores = 1;
+	}
+	else
+	{
+		voices = espeak_ListVoices(NULL);
+	}
+
+	fprintf(f_out,"Pty Language Age/Gender VoiceName     File       Other Langs\n");
+
+	for(ix=0; (v = voices[ix]) != NULL; ix++)
+	{
+		count = 0;
+		p = v->languages;
+		while(*p != 0)
+		{
+			len = strlen(p+1);
+			lang_name = p+1;
+
+			if(v->age == 0)
+				strcpy(age_buf,"   ");
+			else
+				sprintf(age_buf,"%3d",v->age);
+
+			if(count==0)
+			{
+				fprintf(f_out,"%2d  %-12s%s%c  %-15s %-10s ",
+               p[0],lang_name,age_buf,genders[v->gender],v->name,v->identifier);
+			}
+			else
+			{
+				fprintf(f_out,"(%s %d)",lang_name,p[0]);
+			}
+			count++;
+			p += len+2;
+		}
+//		if(scores)
+//			fprintf(f_out,"%3d  ",v->score);
+		fputc('\n',f_out);
+	}
+}   //  end of DisplayVoices
+
 
 
 
@@ -153,7 +219,7 @@ void MarkerEvent(int type, unsigned int char_position, int value, unsigned char 
 
 static void init_path(void)
 {//========================
-#ifdef __WIN32__
+#ifdef PLATFORM_WINDOWS
 	strcpy(path_home,"espeak-data");
 #else
 	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
@@ -352,12 +418,11 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x104:   // --voices
-			DisplayVoices(stdout,espeak_ListVoices(),optarg);
+			DisplayVoices(stdout,optarg);
 			exit(0);
 
 		default:
-exit(0);
-			abort();
+			exit(0);
 		}
 	}
 
@@ -366,16 +431,16 @@ exit(0);
 	if(flag_compile == 0)
 	{
 		ix = 1;
-		if(voicename[0] != 0)
+		if((voicename[0] != 0) && (strchr(voicename,'+')==NULL))
 		{
-			if((ix = espeak_SetVoiceByName(voicename)) != 0)
+			if((ix = SetVoiceByName(voicename)) != 0)
 			{
 				fprintf(stderr,"Failed to load voice '%s'\n",voicename);
 			}
 		}
 		if(ix != 0)
 		{
-			if(LoadVoice(voicename,0) == NULL)
+			if(LoadVoiceVariant(voicename,0) == NULL)
 			{
 				exit(2);
 			}
@@ -383,7 +448,7 @@ exit(0);
 	}
 	else
 	{
-		LoadVoice(voicename,0);
+		LoadVoice(voicename,4);
 	}
 
 	if(flag_compile)
@@ -392,10 +457,10 @@ exit(0);
 		exit(0);
 	}
 
-	espeak_SetParameter(espeakRATE,speed,0);
-	espeak_SetParameter(espeakVOLUME,amp,0);
-	espeak_SetParameter(espeakCAPITALS,option_capitals,0);
-	espeak_SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	SetParameter(espeakRATE,speed,0);
+	SetParameter(espeakVOLUME,amp,0);
+	SetParameter(espeakCAPITALS,option_capitals,0);
+	SetParameter(espeakPUNCTUATION,option_punctuation,0);
 
 	if(pitch_adjustment != 50)
 	{
@@ -410,7 +475,6 @@ exit(0);
 			// there's a non-option parameter, and no -f or --stdin
 			// use it as text
 			p_text = argv[optind];
-//			f_text = fmemopen(argv[optind],strlen(argv[optind]),"r");
 		}
 		else
 		{
@@ -448,7 +512,7 @@ exit(0);
 			}
 		}
 
-		InitText();
+		InitText(0);
 		SpeakNextClause(f_text,p_text,0);
 
 		for(;;)
@@ -456,7 +520,7 @@ exit(0);
 			if(WavegenFile() != 0)
 				break;   // finished, wavegen command queue is empty
 
-			if(Generate(phoneme_list,n_phoneme_list,1)==0)
+			if(Generate(phoneme_list,&n_phoneme_list,1)==0)
 				SpeakNextClause(NULL,NULL,1);
 		}
 
@@ -470,7 +534,7 @@ exit(0);
 		// output sound using portaudio
 		WavegenInitSound();
 
-		InitText();
+		InitText(0);
 		SpeakNextClause(f_text,p_text,0);
 
 #ifdef USE_PORTAUDIO
@@ -479,6 +543,9 @@ exit(0);
 		{
 			// NOTE: if nanosleep() isn't recognised on your system, try replacing
 			// this by  sleep(1);
+#ifdef PLATFORM_WINDOWS
+			Sleep(300);   // 0.3s
+#else
 #ifdef USE_NANOSLEEP
 			struct timespec period;
 			struct timespec remaining;
@@ -488,10 +555,11 @@ exit(0);
 #else
 			sleep(1);
 #endif
+#endif
 			if(SynthOnTimer() != 0)
 				speaking = 0;
 		}
-#endif
+#endif  // USE_PORTAUDIO
 	}
 	exit(0);
 }

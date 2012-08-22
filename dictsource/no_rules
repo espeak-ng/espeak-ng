@@ -1,0 +1,195 @@
+
+// This file is UTF8 encoded
+
+// C%  indicates a double consonant (same letter twice)
+
+
+.group a
+        a        A:
+        a (C%    A
+        a (_     A
+        ai       AI
+        au       aU
+
+        aa       o:   // å
+        aa (C%   O
+        ae       a:   // æ
+        ae (C%   a
+
+.group b
+        b        b
+        bb       b:
+
+     _) be (@    b@
+
+
+.group c
+        c        k
+        cc       k:
+        c (i     s
+        c (y     s
+        c (ei    s
+        c (øy    s
+        ch       S
+
+.group d
+        d        d
+        dd       d:
+     r) d (_
+
+.group e
+        e        e:
+        e (C%    E
+        ei       aI
+        e (rC    a           //  ??
+     &) e (_     @2
+     &) e (C_    @
+     &) en (_    @n
+     &) ens (_   @ns
+     &) es (_    @s
+     &) et (_    @t
+
+.group f
+        f        f
+
+.group g
+        g        g
+        gg       g:
+        g (n     N
+        gj       j
+        g (i     j
+        g (y     j
+        g (ei    j
+        g (øy    j
+
+.group h
+        h        h
+        hj       j
+        hv       v
+
+.group i
+        i        i:
+        i (C%    I
+     &) ig (_    I
+
+.group j
+        j        j
+
+.group k
+        k        k
+        kk       k:
+        kj       x
+        k (i     x
+        k (y     x
+        k (ei    x
+        k (øy    x
+
+.group l
+        l        l
+        lj       j
+
+.group m
+        m        m
+
+.group n
+        n        n
+        ng       N
+        n (k     N
+
+.group o
+        o        u:
+        o (C%    O
+        oi       OI
+
+        oe       Y:   // ø
+        oe (C%   W
+        oey      Yy
+
+        o (nd    U
+        o (rt    U
+        o (st    U
+
+.group p
+        p        p
+        pp       p:
+
+.group q
+        q        k
+        qq       k:
+        qu       kw
+
+.group r
+        r        r
+     r) r
+        rs (_    S
+
+.group s
+        s        s
+        ss       ss
+        sch      S
+        sj       S
+        skj      S
+        sk (i    S
+        sk (y    S
+        sk (ei   S
+        sk (øy   S
+     r) s        S
+        s (l     S
+     A) s (lA    s 
+
+.group t
+        t        t
+        tt       t:
+        ti (on   S
+        tj       s;
+
+ 
+
+.group u
+        u        u-:
+        u (C%    u-
+        ui       u-I
+
+.group v
+        v        v
+
+.group w
+        w        v
+
+.group x
+        x        ks
+        x (x
+
+.group y
+        y        y:
+        y (C%    y
+
+.group z
+        z        s
+        zz       z
+
+.group å
+        å        o:
+        å (C%    O
+
+.group æ
+        æ        E:
+        æ (r     a:
+        æ (C%    a
+
+.group ø
+        ø        Y:
+        ø (C%    W
+        øy       Yy
+
+.group ä
+        ä        E:
+        ä (C%    E
+
+.group ö
+        ö        Y:
+        ö (C%    W
+
+.group
+        é        'e:
+

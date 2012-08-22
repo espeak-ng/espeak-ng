@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,7 +27,9 @@
 #include <string.h>
 
 #include <wctype.h>
+#include <wchar.h>
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -117,14 +119,14 @@ const char *LookupMnem(MNEM_TAB *table, int value)
 
 
 
-int Translator::LoadDictionary(const char *name)
-{//=============================================
+int Translator::LoadDictionary(const char *name, int no_error)
+{//===========================================================
 	int hash;
 	char *p;
 	int *pw;
 	int length;
 	FILE *f;
-	int size;
+	unsigned int size;
 	char fname[120];
 
 	strcpy(dictionary_name,name);   // currently loaded dictionary name
@@ -138,7 +140,10 @@ int Translator::LoadDictionary(const char *name)
 	f = fopen(fname,"rb");
 	if((f == NULL) || (size == 0))
 	{
-		fprintf(stderr,"Can't read data file: '%s'\n",fname);
+		if(no_error == 0)
+		{
+			fprintf(stderr,"Can't read dictionary file: '%s'\n",fname);
+		}
 		return(1);
 	}
 
@@ -152,6 +157,11 @@ int Translator::LoadDictionary(const char *name)
 
 	pw = (int *)data_dictlist;
 	length = pw[1];
+	if(size <= (N_HASH_DICT + sizeof(int)*2))
+	{
+		fprintf(stderr,"Empty dictionary: '%s\n",fname);
+		return(2);
+	}
 	if((pw[0] != N_HASH_DICT) || (length <= 0) || (length > 0x8000000))
 	{
 		fprintf(stderr,"Bad data: '%s'\n",fname);
@@ -368,9 +378,14 @@ char *EncodePhonemes(char *p, char *outptr, char *bad_phoneme)
 			if(max_ph == phonSWITCH)
 			{
 				// Switch Language: this phoneme is followed by a text string
+				char *p_lang = outptr;
 				while(!isspace(c = *p++) && (c != 0))
 					*outptr++ = tolower(c);
 				*outptr = 0;
+				if(strcmp(p_lang,"en")==0)
+				{
+					*p_lang = 0;   // don't need "en", it's assumed by default
+				}
 				return(p);
 			}
 			break;
@@ -576,6 +591,9 @@ return(0);
 
 int Translator::IsLetter(int letter, int group)
 {//============================================
+	if(letter_type_list[group] != NULL)
+		return((int)wcschr(letter_type_list[group],letter));
+
 	if(letter_bits_offset > 0)
 	{
 		letter -= letter_bits_offset;
@@ -599,16 +617,27 @@ int Translator::IsVowel(int letter)
 }
 
 
-void Translator::SetLetterBits(int group, const char *string)
-{//==========================================================
+void SetLetterBits(Translator *tr, int group, const char *string)
+{//==============================================================
 	int bits;
 	unsigned char c;
 	
 	bits = (1L << group);
 	while((c = *string++) != 0)
-		letter_bits[c] |= bits;
+		tr->letter_bits[c] |= bits;
 }
 
+void SetLetterBitsRange(Translator *tr, int group, int first, int last)
+{//====================================================================
+	int bits;
+	int ix;
+
+	bits = (1L << group);
+	for(ix=first; ix<=last; ix++)
+	{
+		tr->letter_bits[ix] |= bits;
+	}
+}
 
 
 
@@ -715,6 +744,9 @@ int GetVowelStress(unsigned char *phonemes, unsigned char *vowel_stress, int &vo
 	/* has the position of the primary stress been specified by $1, $2, etc? */
 	if(stressed_syllable > 0)
 	{
+		if(stressed_syllable >= count)
+			stressed_syllable = count-1;   // the final syllable
+
 		vowel_stress[stressed_syllable] = 4;
 		max_stress = 4;
 		primary_posn = stressed_syllable;
@@ -876,15 +908,28 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	ix = 1;
 	for(p = phonetic; *p != 0; p++)
 	{
-		if(phoneme_tab[*p]->type == phVOWEL)
+		if(phoneme_tab[p[0]]->type == phVOWEL)
 		{
-			syllable_type[ix] = 0;
-			if((phoneme_tab[p[0]]->phflags & phLONG) || (phoneme_tab[p[1]]->code == phonLENGTHEN) ||
-				(consonant_types[phoneme_tab[p[1]]->type] && (phoneme_tab[p[2]]->type != phVOWEL)))
+			int weight = 0;
+			int lengthened = 0;
+
+			if(phoneme_tab[p[1]]->code == phonLENGTHEN)
+				lengthened = 1;
+
+			if(lengthened || (phoneme_tab[p[0]]->phflags & phLONG))
 			{
-				// a long vowel, a vowel+:, or a vowel plus a consonant which is not followed by another vowel
-				syllable_type[ix] = 1;   // heavy syllable
+				// long vowel, increase syllable weight
+				weight++;
 			}
+
+			if(lengthened) p++;  // advance over phonLENGTHEN
+
+			if(consonant_types[phoneme_tab[p[1]]->type] && ((phoneme_tab[p[2]]->type != phVOWEL) || (phoneme_tab[p[1]]->phflags & phLONG)))
+			{
+				// followed by two consonants, a long consonant, or consonant and end-of-word
+				weight++;
+			}
+			syllable_type[ix] = weight;
 			ix++;
 		}
 	}
@@ -903,15 +948,22 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			{
 				stressed_syllable = vowel_count - 2;
 
-				if(langopts.stress_flags & 0x8)
+				if(langopts.stress_flags & 0x300)
 				{
 					// LANG=Spanish, stress on last vowel if the word ends in a consonant other than 'n' or 's'
 					if(phoneme_tab[final_ph]->type != phVOWEL)
 					{
-						mnem = phoneme_tab[final_ph]->mnemonic;
-						if((mnem != 'n') && (mnem != 's'))
+						if(langopts.stress_flags & 0x100)
 						{
 							stressed_syllable = vowel_count - 1;
+						}
+						else
+						{
+							mnem = phoneme_tab[final_ph]->mnemonic;
+							if((mnem != 'n') && (mnem != 's'))
+							{
+								stressed_syllable = vowel_count - 1;
+							}
 						}
 					}
 				}
@@ -981,6 +1033,22 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		}
 		break;
 
+	case 6:    // stress on the last heaviest syllable
+		if(stressed_syllable == 0)
+		{
+			int max_weight = -1;
+			for(ix = vowel_count-1; ix>0; ix--)
+			{
+				if((syllable_type[ix] > max_weight) && (vowel_stress[ix] == 0))
+				{
+					max_weight = syllable_type[ix];
+					stressed_syllable = ix;
+				}
+			}
+			vowel_stress[stressed_syllable] = 4;
+			max_stress = 4;
+		}
+		break;
 	}
 
 	/* now guess the complete stress pattern */
@@ -1007,7 +1075,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				if((stress == 3) && (langopts.stress_flags & 0x20))
 					continue;      // don't use secondary stress
 
-				if((v > 1) && (langopts.stress_flags & 0x40) && (syllable_type[v]==0) && (syllable_type[v+1]==1))
+				if((v > 1) && (langopts.stress_flags & 0x40) && (syllable_type[v]==0) && (syllable_type[v+1]>0))
 				{
 					// don't put secondary stress on a light syllable which is followed by a heavy syllable
 					continue;
@@ -1056,16 +1124,18 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 
 	if((ph = phoneme_tab[*p]) != NULL)
 	{
+		int gap = langopts.word_gap & 0xf00;
+
 		if(ph->type == phSTRESS)
 			ph = phoneme_tab[p[1]];
 
-		if(((langopts.word_gap > 0) && (vowel_stress[1] >= 4) && (prev_stress >= 4)) || (langopts.word_gap >= 4))
+		if(((gap) && (vowel_stress[1] >= 4) && (prev_stress >= 4)) || (langopts.word_gap & 0x8))
 		{
 			/* two primary stresses together, insert a short pause */
-			if(langopts.word_gap == 5)
+			if(gap == 0x0300)
 				*output++ = phonPAUSE;
 			else
-			if((langopts.vowel_pause>=3) && (ph->type == phVOWEL))
+			if((gap == 0x0200) && (ph->type == phVOWEL))
 				*output++ = phonGLOTTALSTOP;
 			else
 				*output++ = phonPAUSE_SHORT;
@@ -1080,6 +1150,10 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 					*output++ = phonGLOTTALSTOP;
 				else
 					*output++ = phonPAUSE_NOLINK;   // not to be replaced by link
+			}
+			else
+			{
+				*output++ = phonPAUSE_VSHORT;     // break, but no pause
 			}
 		}
 	}
@@ -1172,19 +1246,6 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				if(reduce)
 				{
 					phcode = ph->reduce_to;
-				}
-
-#ifdef deleted
-				if(post_tonic && (ph->phflags & phREDUCE2) && (v_stress < max_stress))
-				{
-					// reduce to schwa if it's after the main stress
-					reduce = 1;
-					phcode = phonSCHWA;
-				}
-#endif
-
-				if(reduce)
-				{
 					if(*p == phonLENGTHEN)
 					{
 						/* delete length indicator after vowel now that it has been reduced */
@@ -1193,16 +1254,25 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				}
 			}
 
-			if((langopts.param[LOPT_IT_LENGTHEN] == 1) && (*p == phonLENGTHEN))
+			if(langopts.param[LOPT_IT_LENGTHEN] && (*p == phonLENGTHEN))
 			{
-				if((v_stress < 4) || (v != (vowel_count - 2)))
-					p++;    // LANG=Italian, only lengthen vowel for stressed syllable in penultimate syllable
+				// remove lengthen indicator from non-stressed syllables
+				if(v_stress < 4)
+					p++;
+				else
+				if((langopts.param[LOPT_IT_LENGTHEN]==2) && (v != (vowel_count - 2)))
+					p++;    // LANG=Italian, remove lengthen indicator from non-penultimate syllables
 			}
 
+			if(vowel_stress[v] > max_stress)
+			{
+				max_stress = vowel_stress[v];
+			}
 			v++;
 		}
 
-		*output++ = phcode;
+		if(phcode != 1)
+			*output++ = phcode;
 	}
 	*output++ = 0;
 
@@ -1235,7 +1305,7 @@ char *Translator::DecodeRule(const char *group, char *rule)
 	static char output[60];
 
 	static char symbols[] = {' ',' ',' ',' ',' ',' ',' ',' ',' ',
-			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K'};
+			'@','&','%','+','#','S','D','Z','A','B','C','H','F','G','Y','N','K','V'};
 
 
 	match_type = 0;
@@ -1366,7 +1436,7 @@ void Translator::AppendPhonemes(char *string, const char *ph)
 
 
 
-void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags)
+void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int word_flags)
 {//==========================================================================================================
 /* Checks a specified word against dictionary rules.
 	Returns with phoneme code string, or NULL if no match found.
@@ -1380,7 +1450,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 	match_out:  returns best points score
 
-	end_flags:  indicates whether this is a retranslation after a suffix has been removed
+	word_flags:  indicates whether this is a retranslation after a suffix has been removed
 */
 
 	unsigned char rb;     // current instuction from rule
@@ -1553,7 +1623,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_DIGIT:
-					if(iswdigit(letter_w))
+					if(IsDigit(letter_w))
 					{
 						match.points += (21-distance_right);
 						post_ptr += letter_xbytes;
@@ -1625,13 +1695,13 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_ENDING:
-					// next 2 bytes are a (non-zero) ending type
-					match.end_type = (rule[0] << 8) + (rule[1] & 0x7f);
-					rule += 2;
+					// next 3 bytes are a (non-zero) ending type. 2 bytes of flags + suffix length
+					match.end_type = (rule[0] << 16) + ((rule[1] & 0x7f) << 8) + (rule[2] & 0x7f);
+					rule += 3;
 					break;
 
 				case RULE_NO_SUFFIX:
-					if(end_flags & FLAG_SUFX)
+					if(word_flags & FLAG_SUFFIX_REMOVED)
 						failed = 1;             // a suffix has been removed
 					break;
 
@@ -1697,7 +1767,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case RULE_DIGIT:
-					if(iswdigit(letter_w))
+					if(IsDigit(letter_w))
 					{
 						match.points += (21-distance_left);
 						pre_ptr -= letter_xbytes;
@@ -1737,6 +1807,13 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						failed = 1;
 					break;
 
+				case RULE_IFVERB:
+					if(expect_verb)
+						match.points += 1;
+					else
+						failed = 1;
+					break;
+
 				case '.':
 					// dot in pre- section, match on any dot before this point in the word
 					for(p=pre_ptr; *p != ' '; p--)
@@ -1748,6 +1825,15 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						}
 					}
 					if(*p == ' ')
+						failed = 1;
+					break;
+
+				case '-':
+					if((letter == ' ') && (word_flags & FLAG_HYPHEN))
+					{
+						match.points += (21-distance_right);
+					}
+					else
 						failed = 1;
 					break;
 
@@ -1821,8 +1907,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 
 
 
-int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags)
-{//=======================================================================================
+int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int word_flags, int dict_flags)
+{//========================================================================================================
 /* Translate a word bounded by space characters
    Append the result to 'phonemes' and any standard prefix/suffix in 'end_phonemes' */
 	
@@ -1836,10 +1922,12 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 	int  g1;            /* first group for this letter */
 	int  n;
 	int  letter;
+	int  digit_count=0;
 	char *p_start;
 	MatchRecord match1;
 	MatchRecord match2;
-	
+	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
+
 	char group_name[4];
 
 	if(data_dictrules == NULL)
@@ -1872,14 +1960,31 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 		wc_bytes = utf8_in(&wc,p,0);
 
 		n = groups2_count[c];
-		if(iswdigit(wc))
+		if(IsDigit(wc))
 		{
-			MatchRule(&p, "", groups1[(unsigned char)'9'],&match1,end_flags);
-			if(match1.points == 0)
-				p++;   // not found, move on past this digit
+			// lookup the number in *_list not *_rules
+	char string[8];
+	char buf[40];
+			string[0] = '_';
+			memcpy(&string[1],p,wc_bytes);
+			string[1+wc_bytes] = 0;
+			Lookup(string,buf);
+			if(++digit_count >= 2)
+			{ 
+				strcat(buf,str_pause);
+				digit_count=0;
+			}
+			AppendPhonemes(phonemes,buf);
+			p += wc_bytes;
+			continue;
+
+//			MatchRule(&p, "", groups1[(unsigned char)'9'],&match1,word_flags);
+//			if(match1.points == 0)
+//				p++;   // not found, move on past this digit
 		}
 		else
 		{
+			digit_count = 0;
 			found = 0;
 	
 			if(n > 0)
@@ -1899,13 +2004,13 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 						group_name[1] = c2;
 						group_name[2] = 0;
 						p2 = p;
-						MatchRule(&p2, group_name, groups2[g], &match2, end_flags);
+						MatchRule(&p2, group_name, groups2[g], &match2, word_flags);
 						if(match2.points > 0)
 							match2.points += 35;   /* to acount for 2 letters matching */
 
 						/* now see whether single letter chain gives a better match ? */
 						group_name[1] = 0;
-						MatchRule(&p, group_name, groups1[c], &match1, end_flags);
+						MatchRule(&p, group_name, groups1[c], &match1, word_flags);
 
 						if(match2.points >= match1.points)
 						{
@@ -1924,11 +2029,11 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 				group_name[1] = 0;
 	
 				if(groups1[c] != NULL)
-					MatchRule(&p, group_name, groups1[c], &match1, end_flags);
+					MatchRule(&p, group_name, groups1[c], &match1, word_flags);
 				else
 				{
 					// no group for this letter, use default group
-					MatchRule(&p, "", groups1[0],&match1,end_flags);
+					MatchRule(&p, "", groups1[0],&match1,word_flags);
 
 					if(match1.points == 0)
 					{
@@ -1965,7 +2070,7 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 	
 		if(match1.points > 0)
 		{
-			if((match1.phonemes[0] == phonSWITCH) && ((end_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
+			if((match1.phonemes[0] == phonSWITCH) && ((word_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
 			{
 				// an instruction to switch language, return immediately so we can re-translate
 				strcpy(phonemes,match1.phonemes);
@@ -1983,10 +2088,50 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 			AppendPhonemes(phonemes,match1.phonemes);
 		}
 	}
+
+	// any language specific changes ?
+	ApplySpecialAttribute(phonemes,dict_flags);
 	return(0);
 }   /* end of TranslateRules */
 
 
+
+void Translator::ApplySpecialAttribute(char *phonemes, int dict_flags)
+{//===================================================================
+// Amend the translated phonemes according to an attribute which is specific for the language.
+	int len;
+	char *p_end;
+
+	if((dict_flags & (FLAG_ALT_TRANS | FLAG_ALT2_TRANS)) == 0)
+		return;
+
+	len = strlen(phonemes);
+	p_end = &phonemes[len-1];
+
+	switch(translator_name)
+	{
+	case L('d','e'):
+		if(p_end[0] == LookupPh("i:"))
+		{
+			// words ends in ['i:], change to [=I@]
+			p_end[-1] = phonSTRESS_PREV;
+			p_end[0] = LookupPh("I");
+			p_end[1] = phonSCHWA;
+			p_end[2] = 0;
+		}
+		break;
+
+	case L('r','o'):
+		if(p_end[0] == LookupPh("j"))
+		{
+			// word end in [j], change to ['i]
+			p_end[0] = phonSTRESS_P;
+			p_end[1] = LookupPh("i");
+			p_end[2] = 0;
+		}
+		break;
+	}
+}  // end of ApplySpecialAttribute
 
 
 
@@ -2036,7 +2181,7 @@ static const short pairs_ru[] = {
 int TransposeAlphabet(char *text, int offset, int min, int max)
 {//============================================================
 // transpose cyrillic alphabet (for example) into ascii (single byte) character codes
-// return: number of bytes, bit 7: 1=used compression
+// return: number of bytes, bit 6: 1=used compression
 	int c;
 	int c2;
 	int ix;
@@ -2137,7 +2282,7 @@ int Translator::LookupDict2(char *word, char *word2, char *phonetic, unsigned in
 	int  no_phonemes;
 	char *word_end;
 	char *word1;
-	char word_buf[N_WORD_PHONEMES];
+	char word_buf[N_WORD_BYTES];
 
 	word1 = word;
 	if(transpose_offset > 0)
@@ -2348,7 +2493,7 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 	int  found;
 	char *word2;
 	unsigned char c;
-	char word[N_WORD_PHONEMES];
+	char word[N_WORD_BYTES];
 
 	length = 0;
 	word2 = word1;
@@ -2373,7 +2518,7 @@ int Translator::LookupDictList(char *word1, char *ph_out, unsigned int *flags, i
 		}
 	}
 
-	for(length=0; length<N_WORD_PHONEMES; length++)
+	for(length=0; length<N_WORD_BYTES; length++)
 	{
 		if(((c = *word1++)==0) || (c == ' '))
 			break;
@@ -2417,12 +2562,13 @@ int Translator::Lookup(char *word, char *ph_out)
 
 
 
-int Translator::RemoveEnding(char *word, int end_type)
-{//===================================================
+int Translator::RemoveEnding(char *word, int end_type, char *word_copy)
+{//====================================================================
 /* Removes a standard suffix from a word, once it has been indicated by the dictionary rules.
    end_type: bits 0-6  number of letters
              bits 8-14  suffix flags
 
+	word_copy: make a copy of the original word
 	This routine is language specific.  In English it deals with reversing y->i and e-dropping
 	that were done when the suffix was added to the original word.
 */
@@ -2448,7 +2594,10 @@ int Translator::RemoveEnding(char *word, int end_type)
 		if(*word_end == REPLACED_E)
 			*word_end = 'e';
 	}
-	
+	i = word_end - word;
+	memcpy(word_copy,word,i);
+	word_copy[i] = 0;
+
 	// look for multibyte characters to increase the number of bytes to remove
 	for(len_ending = i = (end_type & 0xf); i>0 ;i--)   // num.of characters of the suffix
 	{
@@ -2532,411 +2681,9 @@ if(option_phonemes == 2)
 		end_flags |= FLAG_SUFX_S;
 
 	if(strcmp(ending,"'s")==0)
-		end_flags &= ~FLAG_SUFX;  // don't consider 's as am added suffix
+		end_flags &= ~FLAG_SUFX;  // don't consider 's as an added suffix
 
 	return(end_flags);
 }   /* end of RemoveEnding */
 
-
-
-
-int Translator::LookupNum2(int value, int control, char *ph_out)
-{//=============================================================
-// Lookup a 2 digit number
-// control bit 0: use special form of '1'
-
-	int found;
-	int ix;
-	int used_and=0;
-	int next_phtype;
-	char string[12];  // for looking up entries in de_list
-	char ph_tens[50];
-	char ph_digits[50];
-	char ph_and[12];
-
-	if((value == 1) && (control & 1))
-	{
-		if(Lookup("_1a",ph_out) != 0)
-			return(0);
-	}
-	// is there a special pronunciation for this 2-digit number
-	sprintf(string,"_%d",value);
-	found = Lookup(string,ph_digits);
-
-	// no, speak as tens+units
-	if((control & 2) && (value < 10))
-	{
-		// speak leading zero
-		Lookup("_0",ph_tens);
-	}
-	else
-	{
-		if(found)
-		{
-			strcpy(ph_out,ph_digits);
-			return(0);
-		}
-
-		sprintf(string,"_%d0",value / 10);
-		Lookup(string,ph_tens);
-
-		if((value % 10) == 0)
-		{
-			strcpy(ph_out,ph_tens);
-			return(0);
-		}
-
-		sprintf(string,"_%d",value % 10);
-		Lookup(string,ph_digits);
-	}
-
-	if(langopts.numbers & 0x30)
-	{
-		Lookup("_0and",ph_and);
-		if(langopts.numbers & 0x10)
-			sprintf(ph_out,"%s%s%s",ph_digits,ph_and,ph_tens);
-		else
-			sprintf(ph_out,"%s%s%s",ph_tens,ph_and,ph_digits);
-		used_and = 1;
-	}
-	else
-	{
-		if(langopts.numbers & 0x200)
-		{
-			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
-			ix = strlen(ph_tens)-1;
-			if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-				next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type;
-
-			if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
-				ph_tens[ix] = 0;
-		}
-		sprintf(ph_out,"%s%s",ph_tens,ph_digits);
-	}
-
-	if(langopts.numbers & 0x100)
-	{
-		// only one primary stress
-		found = 0;
-		for(ix=strlen(ph_out)-1; ix>=0; ix--)
-		{
-			if(ph_out[ix] == phonSTRESS_P)
-			{
-				if(found)
-					ph_out[ix] = phonSTRESS_3;
-				else
-					found = 1;
-			}
-		}
-	}
-	return(used_and);
-}  // end of LookupNum2
-
-
-int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands)
-{//=========================================================================================================
-// Translate a 3 digit number
-	int found;
-	int hundreds;
-	int x;
-	char string[12];  // for looking up entries in de_list
-	char buf1[100];
-	char buf2[100];
-	char ph_100[20];
-	char ph_10T[20];
-	char ph_digits[50];
-	char ph_thousands[50];
-	char ph_hundred_and[12];
-	
-	hundreds = value / 100;
-	buf1[0] = 0;
-
-	if(hundreds > 0)
-	{
-		ph_thousands[0] = 0;
-
-		Lookup("_0H",ph_100);
-
-		if((hundreds >= 10) && (hundreds != 19))
-		{
-			ph_digits[0] = 0;
-
-			if(LookupThousands(hundreds / 10, thousandplex+1, ph_10T) == 0)
-			{
-				sprintf(string,"_%d",hundreds / 10);
-				Lookup(string,ph_digits);
-			}
-
-			sprintf(ph_thousands,"%s%s",ph_digits,ph_10T);
-			hundreds %= 10;
-			if(hundreds == 0)
-				ph_100[0] = 0;
-			suppress_null = 1;
-		}
-
-		ph_digits[0] = 0;
-		if(hundreds > 0)
-		{
-			suppress_null = 1;
-
-			found = 0;
-			if((value % 1000) == 100)
-			{
-				// is there a special pronunciation for exactly 100 ?
-				found = Lookup("_1H0",ph_digits);
-			}
-			if(!found)
-			{
-				sprintf(string,"_%dH",hundreds);
-				found = Lookup(string,ph_digits);  // is there a specific pronunciation for n-hundred ?
-			}
-
-			if(found)
-			{
-				ph_100[0] = 0;
-			}
-			else
-			{
-				if((hundreds > 1) || ((langopts.numbers & 0x400) == 0))
-				{
-					LookupNum2(hundreds,0,ph_digits);
-				}
-			}
-		}
-
-		sprintf(buf1,"%s%s%s",ph_thousands,ph_digits,ph_100);
-	}
-
-	ph_hundred_and[0] = 0;
-	if((langopts.numbers & 0x40) && ((value % 100) != 0))
-	{
-		if((value > 100) || (prev_thousands && (thousandplex==0)))
-		{
-			Lookup("_0and",ph_hundred_and);
-		}
-	}
-
-
-	buf2[0] = 0;
-	value = value % 100;
-
-	if(value == 0)
-	{
-		if(suppress_null == 0)
-			Lookup("_0",buf2);
-	}
-	else
-	{
-		x = 0;
-		if(thousandplex==0)
-			x = 1;   // allow "eins" for 1 rather than "ein"
-
-		if(LookupNum2(value,x,buf2) != 0)
-		{
-			if(langopts.numbers & 0x80)
-				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
-		}
-	}
-
-	sprintf(ph_out,"%s%s%s",buf1,ph_hundred_and,buf2);
-
-	return(0);
-}  // end of LookupNum3
-
-
-
-
-int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
-{//=======================================================================
-	int found;
-	char string[12];
-
-	sprintf(string,"_%dT%d",value,thousandplex);
-	if((found = Lookup(string,ph_out)) == 0)
-	{
-		sprintf(string,"_0T%d",thousandplex);
-		if(Lookup(string,ph_out) == 0)
-		{
-			// repeat "thousand" if higher order names are not available
-			sprintf(string,"_%dT1",value);
-			if((found = Lookup(string,ph_out)) == 0)
-				Lookup("_0T1",ph_out);
-		}
-	}
-	return(found);
-}
-
-
-int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags, int wflags)
-{//=========================================================================================
-//  Number translation with various options
-// the "word" may be up to 4 digits
-// "words" of 3 digits may be preceded by another number "word" for thousands or millions
-
-	int n_digits;
-	int value;
-	int ix;
-	unsigned char c;
-	int suppress_null = 0;
-	int decimal_point = 0;
-	int thousandplex = 0;
-	int thousands_inc;
-	int prev_thousands = 0;
-	int decimal_count;
-	char string[12];  // for looking up entries in de_list
-	char buf1[100];
-	char ph_append[50];
-
-	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
-
-	for(ix=0; isdigit(word[ix]); ix++) ;
-	n_digits = ix;
-	value = atoi(word);
-
-	ph_append[0] = 0;
-
-	// is there a previous thousands part (as a previous "word") ?
-	if((n_digits == 3) && (word[-2] == langopts.thousands_sep) && isdigit(word[-3]))
-	{
-		prev_thousands = 1;
-	}
-	else
-	if((langopts.thousands_sep == ' ') || (langopts.numbers & 0x1000))
-	{
-		// thousands groups can be separated by spaces
-		if((n_digits == 3) && isdigit(word[-2]))
-		{
-			prev_thousands = 1;
-		}
-	}
-
-	if((value == 0) && prev_thousands)
-	{
-		suppress_null = 1;
-	}
-
-	if(word[n_digits] == langopts.decimal_sep)
-	{
-		// this "word" ends with a decimal point
-		Lookup("_dpt",ph_append);
-		decimal_point = 1;
-	}
-	else
-	if(suppress_null == 0)
-	{
-		thousands_inc = 0;
-
-		if((langopts.numbers & 0x1000) && (word[n_digits] == ' '))
-			thousands_inc = 1;
-		else
-		if(word[n_digits] == langopts.thousands_sep)
-			thousands_inc = 2;
-
-		if(thousands_inc > 0)
-		{
-			// if the following "words" are three-digit groups, count them and add
-			// a "thousand"/"million" suffix to this one
-	
-			ix = n_digits + thousands_inc;
-			while(isdigit(word[ix]) && isdigit(word[ix+1]) && isdigit(word[ix+2]))
-			{
-				thousandplex++;
-				if(word[ix+3] == langopts.thousands_sep)
-					ix += (3 + thousands_inc);
-				else
-					break;
-			}
-	
-			if(thousandplex > 0)
-			{
-				if(LookupThousands(value,thousandplex,ph_append))
-				{
-					// found an exact match for N thousand
-					value = 0;
-					suppress_null = 1;
-				}
-			}
-		}
-	}
-
-	if((ph_append[0] == 0) && (word[n_digits] == '.'))
-	{
-		Lookup("_.",ph_append);
-	}
-
-	LookupNum3(value, ph_out, suppress_null, thousandplex, prev_thousands);
-	strcat(ph_out,ph_append);
-
-
-	while(decimal_point)
-	{
-		n_digits++;
-
-		decimal_count = 0;
-		while(isdigit(word[n_digits+decimal_count]))
-			decimal_count++;
-
-		if((langopts.numbers & 0x2000) && (decimal_count > 1))
-		{
-			// Italian decimal fractions
-			if((decimal_count < 4) || ((decimal_count==4) && (word[n_digits] != '0')))
-			{
-				LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
-				strcat(ph_out,buf1);
-				if(word[n_digits]=='0')
-				{
-					// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
-					sprintf(string,"_0Z%d",decimal_count);
-					Lookup(string,buf1);
-					strcat(ph_out,buf1);
-				}
-				n_digits += decimal_count;
-			}
-		}
-
-		while(isdigit(c = word[n_digits]) && (strlen(ph_out) < (N_WORD_PHONEMES - 10)))
-		{
-			value = word[n_digits++] - '0';
-			LookupNum2(value, 1, buf1);
-			strcat(ph_out,buf1);
-		}
-
-		// something after the decimal part ?
-		if(Lookup("_dpt2",buf1))
-			strcat(ph_out,buf1);
-
-		if(c == langopts.decimal_sep)
-		{
-			Lookup("_dpt",buf1);
-			strcat(ph_out,buf1);
-		}
-		else
-		{
-			decimal_point = 0;
-		}
-	}
-	if(ph_out[0] != 0)
-	{
-		int next_char;
-		utf8_in(&next_char,&word[n_digits+1],0);
-		if(!iswalpha(next_char))
-			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
-	}
-
-	*flags = FLAG_FOUND;
-	return(1);
-}  // end of TranslateNumber_1
-
-
-
-int Translator::TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags)
-{//=======================================================================================
-	if(option_sayas == SAYAS_DIGITS1)
-		return(0);  // speak digits individually
-
-	if((langopts.numbers & 0x7) == 1)
-		return(TranslateNumber_1(word1,ph_out,flags,wflags));
-
-	return(0);
-}  // end of TranslateNumber
 

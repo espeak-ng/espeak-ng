@@ -2,9 +2,26 @@
 .group a
          a          a
 
+
+.group ą
+         ą          O~
+         ą (p       Om
+         ą (b       Om
+         ą (t       On
+         ą (c       On
+         ą (d       On
+         ą (ć       On^
+         ą (dź      On^
+         ą (k       ON
+         ą (g       ON
+         ą (l       O
+         ą (ł       O
+
+
 .group b
          b          b
          b (_A      p
+
 
 .group c
          c          ts
@@ -12,6 +29,11 @@
          c (i       ts;
          ci (A      ts;
          cz         tS
+
+
+.group ć
+         ć          ts;
+
 
 .group d
          d          d
@@ -27,18 +49,39 @@
          dż         dZ
          dż (_A     tS
 
+
 .group e
          e          E
 
+
+.group ę
+         ę          E~
+         ę (_       E
+         ę (p       Em
+         ę (b       Em
+         ę (t       En
+         ę (c       En
+         ę (d       En
+         ę (ć       En^
+         ę (dź      En^
+         ę (k       EN
+         ę (g       EN
+         ę (l       E
+         ę (ł       E
+
+
 .group f
          f          f
+
 
 .group g
          g          g
          g (_A      k
 
+
 .group h
          h          x
+
 
 .group i
          i          i
@@ -47,18 +90,27 @@
 
       @) ika (_     =ika
 
+
 .group j
          j          j
+
 
 .group k
          k          k
          k (i       c
 
+
 .group l
          l          l
 
+
+.group ł
+         ł          w
+
+
 .group m
          m          m
+
 
 .group n
          n          n
@@ -67,14 +119,26 @@
          n (k       N
          n (g       N
 
+
+.group ń
+         ń          n^
+
+
 .group o
          o          O
+
+
+.group ó
+         ó          u
+
 
 .group p
          p          p
 
+
 .group q
          q          k
+
 
 .group r
          r          r
@@ -91,22 +155,31 @@
      sz) rz (A      S
       t) rz (A      S
 
+
 .group s
          s          s
          s (i       s;
          si (A      s;
          sz         S
 
+
+.group ś
+         ś          s;
+
+
 .group t
          t          t
          t (i       t;
          ti (A      t;
 
+
 .group u
          u          u
 
+
 .group v
          v          v
+
 
 .group w
          w          v
@@ -123,13 +196,16 @@
      sz) w (A       f
       t) w (A       f
 
+
 .group x
          x          ks
+
 
 .group y
          y          y
 
       @) yka (_     =yka
+
 
 .group z
          z          z
@@ -138,59 +214,19 @@
          zi (A      z;
 
 
-.group
-         ą          O~
-         ą (p       Om
-         ą (b       Om
-         ą (t       On
-         ą (c       On
-         ą (d       On
-         ą (ć       On^
-         ą (dź      On^
-         ą (k       ON
-         ą (g       ON
-         ą (l       O
-         ą (ł       O
-
-         ć          ts;
-
-         ę          E~
-         ę (_       E
-         ę (p       Em
-         ę (b       Em
-         ę (t       En
-         ę (c       En
-         ę (d       En
-         ę (ć       En^
-         ę (dź      En^
-         ę (k       EN
-         ę (g       EN
-         ę (l       E
-         ę (ł       E
-
-         ł          w
-
-         ń          n^
-
-         ó          u
-
-         ś          s;
-
+.group ź
          ź          z;
          ź (_A      s;
 
+
+.group ż
          ż          Z
          ż (_A      S
 
-.group 9
-         0          z'ErO_
-         1          j'EdEn_
-         2          dv'a_
-         3          tS'y_
-         4          tSt'Ery_
-         5          p;'En^ts;_
-         6          S'Es;ts;_
-         7          s;'EdEm_
-         8          'Os;Em_
-         9          dz;'Ev;En^ts;_
+
+.group
+        $        dOlar
+
+
+
 

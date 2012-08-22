@@ -1,0 +1,463 @@
+
+// This file is UTF8 encoded 
+
+// letter groups:
+// B - vowel signed and virama
+
+// conditional rules
+// ?1   drop schwa at end of word
+// ?2   use diphthong for "ai"
+// ?3   use diphthong for "au"
+
+
+// Vowels
+
+.group अ
+        अ        @
+        अ (ह     E
+    अह) अ        E
+
+.group आ
+        आ        a:
+
+.group इ
+        इ        I
+
+.group ई
+        ई        i:
+
+.group उ
+        उ        U
+
+.group ऊ
+        ऊ        u:
+
+.group ऋ
+        ऋ        rI
+
+.group ऌ
+        ऌ        l-   // vocalic l
+
+.group ऍ
+        ऍ        E   // candra e
+
+.group ऎ
+        ऎ        e
+
+.group ए
+        ए        e:
+
+.group ऐ
+        ऐ        E:  // ?? [aI] [E:] [&:] 
+?2      ऐ        aI  // ?? [aI] [E:] [&:] 
+
+
+.group ऑ
+        ऑ        O  // candra O
+
+.group ऒ
+        ऒ        o
+
+.group ओ
+        ओ        o:
+
+.group औ
+        औ        O:  // ?? [aU] [O:]
+?3      औ        aU  // ?? [aU] [O:]
+
+
+// Vowel Signs
+
+.group ा
+        ा        a:
+
+.group ि
+        ि        I
+
+.group ी
+        ी        i:
+
+.group ु
+        ु        U
+
+.group ू
+        ू        u:
+
+.group ृ
+        ृ        rI
+
+.group ॄ
+        ॄ        rI
+
+.group ॅ
+        ॅ        E
+
+.group ॆ
+        ॆ        e
+
+.group े
+        े        e:
+
+.group ै
+        ै        E:    // ?? [aI] [E:] [&:] 
+?2      ै        aI    // ?? [aI] [E:] [&:] 
+
+.group ॉ
+        ॉ        O
+
+.group ॊ
+        ॊ        o
+
+.group ो
+        ो        o:
+
+.group ौ
+        ौ        O:    //  [O:] or [aU] ??
+?3      ौ        aU    //  [O:] or [aU] ??
+
+.group ॢ     // vowel sign l
+        ॢ        l-
+
+.group ॣ    // vowel sign ll
+        ॣ        l-:
+
+
+// Consonants
+
+.group क
+        क        k@
+        क (B     k
+?1      क (_     k
+        क़        q@
+        क़ (B     q
+?1      क़ (_     q
+
+.group ख
+        ख        kh@
+        ख (B     kh
+?1      ख (_     kh
+        ख़        x@
+        ख़ (B     x
+?1      ख़ (_     x
+
+.group ग
+        ग        g@
+        ग (B     g
+?1      ग (_     g
+        ग़        Q@
+        ग़ (B     Q
+?1      ग़ (_     Q
+
+.group घ
+        घ        gh@
+        घ (B     gh
+?1      घ (_     gh
+
+.group ङ
+        ङ        N@
+        ङ (B     N
+?1      ङ (_     N
+     ्) ङ (_     N@
+
+.group च
+        च        c@
+        च (B     c
+?1      च (_     c
+
+.group छ
+        छ        ch@
+        छ (B     ch
+?1      छ (_     ch
+
+.group ज
+        ज        J@
+        ज (B     J
+?1      ज (_     J
+        ज़        z@
+        ज़ (B     z
+?1      ज़ (_     z
+
+.group झ
+        झ        Jh@
+        झ (B     Jh
+?1      झ (_     Jh
+
+.group ञ
+        ञ        n^@
+        ञ (B     n^
+?1      ञ (_     n^
+     ्) ञ (_     n^
+
+.group ट
+        ट        t.@
+        ट (B     t.
+?1      ट (_     t.
+
+.group ठ
+        ठ        t.h@
+        ठ (B     t.h
+?1      ठ (_     t.h
+
+.group ड
+        ड        d.@
+        ड (B     d.
+?1      ड (_     d.
+
+.group ढ
+        ढ        d.h@
+        ढ (B     d.h
+?1      ढ (_     d.h
+
+.group ण
+        ण        n@   // (temporary) same as dental [n]
+        ण (B     n
+?1      ण (_     n
+     ्) ण (_     n@
+
+.group त
+        त        t@
+        त (B     t
+?1      त (_     t
+
+.group थ
+        थ        th@
+        थ (B     th
+?1      थ (_     th
+
+.group द
+        द        d@
+        द (B     d
+?1      द (_     d
+
+.group ध
+        ध        dh@
+        ध (B     dh
+?1      ध (_     dh
+
+.group न
+        न        n@
+        न (B     n
+?1      न (_     n
+     ्) न (_     n@
+
+.group ऩ
+        ऩ        n:     // should this be a long [n] ?
+
+.group प
+        प        p@
+        प (B     p
+?1      प (_     p
+
+.group फ
+        फ        ph@
+        फ (B     ph
+?1      फ (_     ph
+        फ़        f@
+        फ़ (B     f
+?1      फ़ (_     f
+
+.group ब
+        ब        b@
+        ब (B     b
+?1      ब (_     b
+
+.group भ
+        भ        bh@
+        भ (B     bh
+?1      भ (_     bh
+
+.group म
+        म        m@
+        म (B     m
+?1      म (_     m
+     ्) म (_     m@
+
+.group य
+        य        j@
+        य (B     j
+?1      य (_     j
+     ्) य (_     j@
+
+.group र
+        र        r@
+        र (B     r
+?1      र (_     r
+     ्) र (_     r@
+
+.group ऱ             // rra
+        ऱ        r@   // (temporary) same as [r]
+        ऱ (B     r
+?1      ऱ (_     r
+     ्) ऱ (_     r@
+
+.group ल
+        ल        l@
+        ल (B     l
+?1      ल (_     l
+     ्) ल (_     l@
+
+.group ळ
+        ळ        l@  // (temporary) same as [l]
+        ळ (B     l
+?1      ल (_     l
+     ्) ल (_     l@
+
+.group ऴ
+        ऴ        l@  // (temporary) same as [l]
+        ऴ (B     l
+?1      ल (_     l
+     ्) ल (_     l@
+
+.group व
+        व        v@
+        व (B     v
+?1      व (_     v
+
+.group श
+        श        S@
+        श (B     S
+?1      श (_     S
+
+.group ष
+        ष        s;@   //??
+        ष (B     s;    //??
+?1      ष (_     s;    //??
+
+.group स
+        स        s@
+        स (B     s
+?1      स (_     s
+
+.group ह
+        ह        H@
+        ह (B     H
+?1      ह (_     H
+
+
+.group ऽ                // avagraha, lengthens a vowel ??
+        ऽ        :
+
+.group ँ
+	ँ	n	// candrabindu
+
+.group ं
+        ं        N     // anusvara
+        ं  (प    m
+        ं  (फ    m
+        ं  (ब    m
+        ं  (भ    m
+
+.group ः
+        ः        H%@     //  visarga
+
+
+
+// Extra consonants
+
+.group क़   // qa
+        क़        q@
+        क़ (B     q
+?1      क़ (_     q
+
+.group ख़   // khha
+        ख़        x@
+        ख़ (B     x
+?1      ख़ (_     x
+
+.group ग़    // ghha
+        ग़        Q@
+        ग़ (B     Q
+?1      ग़ (_     Q
+
+.group ज़    // za
+        ज़        z@
+        ज़ (B     z
+?1      ज़ (_     z
+
+.group ड़    // ddha
+        ड़        D@
+        ड़ (B     D
+?1      ड़ (_     D
+
+.group ढ़    // rha
+        ढ़        hr@
+        ढ़ (B     hr
+?1      ढ़ (_     hr
+
+.group फ़    // fa
+        फ़        f@
+        फ़ (B     f
+?1      फ़ (_     f
+
+.group य़    // yya
+        य़        j@
+        य़ (B     j
+?1      य़ (_     j
+
+.group ॠ    // rr
+        ॠ        @-rr
+
+.group ॡ    // ll
+        ॡ        l-:     // long syllabic l
+
+
+// If we find a Latin letter a-z, then translate as English
+
+.group a
+           a        _^_EN
+.group b
+           b        _^_EN
+.group c
+           c        _^_EN
+.group d
+           d        _^_EN
+.group e
+           e        _^_EN
+.group f
+           f        _^_EN
+.group g
+           g        _^_EN
+.group h
+           h        _^_EN
+.group i
+           i        _^_EN
+.group j
+           j        _^_EN
+.group k
+           k        _^_EN
+.group l
+           l        _^_EN
+.group m
+           m        _^_EN
+.group n
+           n        _^_EN
+.group o
+           o        _^_EN
+.group p
+           p        _^_EN
+.group q
+           q        _^_EN
+.group r
+           r        _^_EN
+.group s
+           s        _^_EN
+.group t
+           t        _^_EN
+.group u
+           u        _^_EN
+.group v
+           v        _^_EN
+.group w
+           w        _^_EN
+.group x
+           x        _^_EN
+.group y
+           y        _^_EN
+.group z
+           z        _^_EN
+
+
+
+.group
+        $        dOl@
+        %        p@sEnt

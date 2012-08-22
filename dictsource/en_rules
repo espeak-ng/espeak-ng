@@ -2206,6 +2206,7 @@
       phab)  et (_        Et
        ber)  et (_        eI
         gr)  et (+        Et
+         f)  et (a        i:
         _m)  et (e        i:t
         _p)  et (e        i:t
              et (itor     'Et
@@ -3161,7 +3162,7 @@
              mish (ma     mIS
              miss         mIs
              mi (ssi      mI
-             mis (B       mI2s
+//           mis (B       mI2s
              mis (ty      mIs
              mistle       mIs@L
              mis (tral    mIs
@@ -4790,19 +4791,6 @@
              zue          zw'eI
              zure         Z;@
              zo (olo      zu:
-
-.group 9
-             0            z'I2@roU
-             1            w'0n
-?3           1            w'Vn
-             2            t'u:
-             3            Tr'i:
-             4            f'O@
-             5            f'aIv
-             6            s'Iks
-             7            s'Ev@n
-             8            'eIt
-             9            n'aIn
 
 .group E
              E                    // silent 'e' , ignore by default

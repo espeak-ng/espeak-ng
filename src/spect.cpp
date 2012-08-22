@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -21,6 +21,7 @@
 
 #include "wx/wx.h"
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "main.h"
 #include "voice.h"
@@ -46,7 +47,8 @@ wxBrush BRUSH_MARKER[N_MARKERS] = {
 	wxBrush(wxColour(0,255,0),wxSOLID),
 	wxBrush(wxColour(0,255,255),wxSOLID),
 	wxBrush(wxColour(200,0,255),wxSOLID),
-	wxBrush(wxColour(200,0,255),wxSOLID) };
+	wxBrush(wxColour(200,0,255),wxSOLID),
+	wxBrush(wxColour(255,0,200),wxSOLID) };
 	
 #define DRAWPEAKWIDTH 2000
 #define PEAKSHAPEW 256

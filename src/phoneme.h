@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -75,6 +75,7 @@
 #define phonSYLLABIC    20
 #define phonSWITCH      21
 #define phonX1          22      // a language specific action
+#define phonPAUSE_VSHORT 23
 
 
 // place of articulation
@@ -139,4 +140,5 @@ extern REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 char *EncodePhonemes(char *p, char *outptr, char *bad_phoneme);
 void DecodePhonemes(const char *inptr, char *outptr);
 const char *PhonemeTabName(void);
+int LookupPh(const char *string);
 

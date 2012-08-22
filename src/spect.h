@@ -1,4 +1,5 @@
 #include "wx/spinctrl.h"
+#include "wx/notebook.h"
 
 #define PROGRAM_NAME _T("Voice Editor")
 

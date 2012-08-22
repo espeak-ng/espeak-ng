@@ -427,18 +427,6 @@
           z (z
 
 
-.group 9
-0	z'Exu
-1	'uN
-2	d'oIs
-3	t@-*'es
-4	kw'at@-*u
-5	s'iNku
-6	s'eIs
-7	s'EtSi
-8	'oItu
-9	n'Ovi
-
 .group
           ç          s
           ü          u
@@ -457,6 +445,7 @@
 	§	pa*'ag@-*,afu
 
     // don't speak multiple occurances of these symbols
+          , (D       v'irgul&
           .          p'oNtu
           . (.       _:
       \.) .

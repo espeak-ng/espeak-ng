@@ -26,7 +26,12 @@
 #include "wx/image.h"
 #include "wx/filename.h"
 #include "wx/numdlg.h"
+#include "wx/mdi.h"
+#include "wx/laywin.h"
+#include "wx/sashwin.h"
+#include <locale.h>
 
+#include "speak_lib.h"
 #include "main.h"
 #include "speech.h"
 #include "voice.h"
@@ -37,15 +42,15 @@
 #include "translate.h"
 #include "prosodydisplay.h"
 
-#include "speak_lib.h"
 
-static char *about_string = "espeakedit 1.17  17.Nov.2006\nAuthor: Jonathan Duddington (c) 2006";
+static char *about_string = "espeakedit 1.17.27  12.Jan.2007\nAuthor: Jonathan Duddington (c) 2006";
 
 
 const char *path_data = "/home/jsd1/speechdata/phsource";
 
 extern void TestTest(void);
 extern void CompareLexicon(int);
+extern void ConvertToUtf8();
 
 extern void init_z();
 extern void CompileInit(void);
@@ -55,7 +60,7 @@ extern void InitWaveDisplay();
 
 extern void VowelChart(int control, char *fname);
 extern void MakeVowelLists(void);
-extern void DisplayVoices(FILE *f_out, espeak_VOICE **voices_list, char *language);
+extern void MakeWordFreqList();
 
 extern const char *dict_name;
 extern char voice_name[];
@@ -110,7 +115,7 @@ char param[80];
 
 if(argc > 1)
 {
-extern void VoiceReset(void);
+extern void VoiceReset(int control);
 
 	p = argv[1];
 	j = 0;
@@ -124,7 +129,7 @@ extern void VoiceReset(void);
 	}
 
 	ConfigInit();
-	VoiceReset();
+	VoiceReset(0);
 	WavegenSetVoice(voice);
 	WavegenInitSound();
 
@@ -174,32 +179,34 @@ extern void VoiceReset(void);
 
 BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_CHAR(MyFrame::OnKey)
-    EVT_MENU(MENU_ABOUT, MyFrame::OnAbout)
-    EVT_MENU(MENU_SPECTRUM, MyFrame::OnNewWindow)
-    EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
-    EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
-    EVT_MENU(MENU_PARAMS, MyFrame::OnOptions)
-    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
-    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
-    EVT_MENU(MENU_PATH3, MyFrame::OnOptions)
-    EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
-	 EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
-    EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
-    EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
-	 EVT_MENU(MENU_SPEAK_FILE, MyFrame::OnSpeak)
-	 EVT_MENU(MENU_SPEAK_STOP, MyFrame::OnSpeak)
-	 EVT_MENU(MENU_SPEAK_PAUSE, MyFrame::OnSpeak)
-	 EVT_MENU(MENU_SPEAK_VOICE, MyFrame::OnSpeak)
-	 EVT_MENU(MENU_LOAD_WAV, MyFrame::OnTools)
-	 EVT_MENU(MENU_VOWELCHART1, MyFrame::OnTools)
-	 EVT_MENU(MENU_VOWELCHART2, MyFrame::OnTools)
-	 EVT_MENU(MENU_VOWELCHART3, MyFrame::OnTools)
-	 EVT_MENU(MENU_LEXICON_RU, MyFrame::OnTools)
-	 EVT_MENU(MENU_TEST, MyFrame::OnTools)
+   EVT_MENU(MENU_ABOUT, MyFrame::OnAbout)
+   EVT_MENU(MENU_SPECTRUM, MyFrame::OnNewWindow)
+   EVT_MENU(MENU_SPECTRUM2, MyFrame::OnNewWindow)
+   EVT_MENU(MENU_PROSODY, MyFrame::OnProsody)
+   EVT_MENU(MENU_PARAMS, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
+   EVT_MENU(MENU_PATH3, MyFrame::OnOptions)
+   EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
+	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
+	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
+	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
+	EVT_MENU(MENU_SPEAK_FILE, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_STOP, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_PAUSE, MyFrame::OnSpeak)
+	EVT_MENU(MENU_SPEAK_VOICE, MyFrame::OnSpeak)
+	EVT_MENU(MENU_LOAD_WAV, MyFrame::OnTools)
+	EVT_MENU(MENU_VOWELCHART1, MyFrame::OnTools)
+	EVT_MENU(MENU_VOWELCHART2, MyFrame::OnTools)
+	EVT_MENU(MENU_VOWELCHART3, MyFrame::OnTools)
+	EVT_MENU(MENU_LEXICON_RU, MyFrame::OnTools)
+	EVT_MENU(MENU_TO_UTF8, MyFrame::OnTools)
+	EVT_MENU(MENU_COUNT_WORDS, MyFrame::OnTools)
+	EVT_MENU(MENU_TEST, MyFrame::OnTools)
 
-    EVT_TIMER(1, MyFrame::OnTimer)
-    EVT_SIZE(MyFrame::OnSize)
-    EVT_SASH_DRAGGED_RANGE(ID_WINDOW_TOP, ID_WINDOW_BOTTOM, MyFrame::OnSashDrag)
+	EVT_TIMER(1, MyFrame::OnTimer)
+	EVT_SIZE(MyFrame::OnSize)
+	EVT_SASH_DRAGGED_RANGE(ID_WINDOW_TOP, ID_WINDOW_BOTTOM, MyFrame::OnSashDrag)
 END_EVENT_TABLE()
 
 
@@ -260,7 +267,7 @@ wxSashLayoutWindow *win;
 	}
 	WavegenSetVoice(voice);
 
-	espeak_SetParameter(espeakRATE,option_speed,0);
+	SetParameter(espeakRATE,option_speed,0);
 
 	SetSpeed(3);
 	SynthesizeInit();
@@ -268,7 +275,7 @@ wxSashLayoutWindow *win;
 	InitSpectrumDisplay();
 	InitProsodyDisplay();
 //	InitWaveDisplay();
-	espeak_ListVoices();
+	espeak_ListVoices(NULL);
 
    m_timer.SetOwner(this,1);
 
@@ -407,7 +414,7 @@ void MyFrame::OnOptions(wxCommandEvent& event)
 		if(value > 0)
 		{
 			option_speed = value;
-			espeak_SetParameter(espeakRATE,option_speed,0);
+			SetParameter(espeakRATE,option_speed,0);
 			SetSpeed(3);
 		}
 		break;
@@ -455,21 +462,16 @@ void MyFrame::OnTools(wxCommandEvent& event)
 		TestTest();
 		break;
 
-	case MENU_LEXICON_RU:
-		CompareLexicon(event.GetId());  // Compare a lexicon with _rules translation
+	case MENU_TO_UTF8:
+		ConvertToUtf8();
 		break;
 
-#ifdef deleted
-		FILE *f_out;
-		espeak_VOICE **voices_list;
+	case MENU_COUNT_WORDS:
+		MakeWordFreqList();
+		break;
 
-		voices_list = espeak_ListVoices();
-		if((f_out = fopen("log_voices","w")) != NULL)
-		{
-			DisplayVoices(f_out,voices_list,NULL);
-			fclose(f_out);
-		}
-#endif
+	case MENU_LEXICON_RU:
+		CompareLexicon(event.GetId());  // Compare a lexicon with _rules translation
 		break;
 
 	case MENU_COMPILE_PH:
@@ -617,9 +619,12 @@ const long style):
 MyChild::~MyChild(void)
 {
 	wxWindow *w;
+	canvas = NULL;
+#ifndef PLATFORM_WINDOWS
 	// bug in wxMDIChildFrame, we need to explicitly remove the ChildFrame from the ClientWindow
 	w = myframe->GetClientWindow();
 	w->RemoveChild(this);
+#endif
   my_children.DeleteObject(this);
 }
 

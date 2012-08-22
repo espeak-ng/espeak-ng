@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Jonathan Duddington                             *
- *   jsd1@clara.co.uk                                                      *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,16 +27,16 @@
 #include <wchar.h>
 #include <math.h>
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-#include "speak_lib.h"
 
 #define N_XML_BUF   256
 
-espeak_VOICE *SelectVoice(espeak_VOICE *voice_select);
+espeak_VOICE *SelectVoice(espeak_VOICE *voice_select, int *variant);
 
 char *xmlbase = NULL;    // base URL from <speak>
 
@@ -72,6 +72,7 @@ static const short punct_chars[] = {',','.','?','!',':',';',
 
   0x037e,  // Greek question mark (looks like semicolon)
   0x0387,  // Greek semicolon, ano teleia
+  0x0964,  // Devanagari Danda (fullstop)
   0};
 
 
@@ -85,6 +86,7 @@ static const unsigned short punct_attributes [] = { 0,
 
   CLAUSE_QUESTION,   // Greek question mark
   CLAUSE_SEMICOLON,  // Greek semicolon
+  CLAUSE_PERIOD,     // Devanagari Danda (fullstop)
 
   CLAUSE_SEMICOLON,  // spare
   0 };
@@ -107,6 +109,7 @@ SSML_STACK *ssml_sp;
 SSML_STACK ssml_stack[N_SSML_STACK];
 
 char current_voice_id[40] = {0};
+int current_voice_variant = 0;
 
 
 #define N_PARAM_STACK  20
@@ -127,24 +130,8 @@ const int param_defaults[N_SPEECH_PARAM] = {
 };
 
 
-#ifdef NEED_WCSTOF
-float wcstof(const wchar_t *str, wchar_t **tailptr)
-{
-   int ix;
-   char buf[80];
-   while(isspace(*str)) str++;
-   for(ix=0; ix<80; ix++)
-   {
-      buf[ix] = str[ix];
-      if(isspace(buf[ix]))
-         break;
-   }
-   *tailptr = (wchar_t *)&str[ix];
-   return(atof(buf));
-}
-#endif
-#ifdef __BORLANDC__
-float wcstof(const wchar_t *str, wchar_t **tailptr)
+#ifdef PLATFORM_RISCOS
+float wcstod(const wchar_t *str, wchar_t **tailptr)
 {
    int ix;
    char buf[80];
@@ -321,6 +308,7 @@ const char *Translator::LookupSpecial(char *string)
 		SetWordStress(phonemes,flags,-1,0);
 		DecodePhonemes(phonemes,phonemes2);
 		sprintf(buf,"[[%s]] ",phonemes2);
+		option_phoneme_input = 1;
 		return(buf);
 	}
 	return(NULL);
@@ -463,8 +451,11 @@ int Translator::AnnouncePunctuation(int c1, int c2, char *buf, int bufix)
 				sprintf(p,"%s %s\001S",buf,tone_punct_off);
 			}
 			else
+			{
 				sprintf(p,"%s %s %d %s %s [[______]]",
 						tone_punct_on,punctname,punct_count,punctname,tone_punct_off);
+				option_phoneme_input = 1;
+			}
 		}
 		else
 		{
@@ -538,14 +529,15 @@ MNEM_TAB ssmltags[] = {
 
 
 
-static char *VoiceFromStack(void)
-{//==============================
+static char *VoiceFromStack(int *voice_variant)
+{//============================================
 // Use the voice properties from the SSML stack to choose a voice, and switch
 // to that voice if it's not the current voice
 	int ix;
 	SSML_STACK *sp;
 	espeak_VOICE *v;
 	espeak_VOICE voice_select;
+	int variant;
 	char voice_name[40];
 	char language[40];
 
@@ -574,7 +566,8 @@ static char *VoiceFromStack(void)
 			voice_select.variant = sp->voice_variant;
 	}
 
-	v = SelectVoice(&voice_select);
+	v = SelectVoice(&voice_select,&variant);
+	*voice_variant = variant;
 	if((v == NULL) || (v->identifier == NULL))
 		return("default");
 	return(v->identifier);
@@ -808,7 +801,7 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 		pw++;	
 		sign = -1;
 	}
-	value = wcstof(pw,&tail);
+	value = wcstod(pw,&tail);
 	if(tail == pw)
 	{
 		// failed to find a number, return 100%
@@ -842,14 +835,22 @@ static int attr_prosody_value(int param_type, const wchar_t *pw, int *value_out)
 }  // end of attr_prosody_value
 
 
-int AddNameData(const char *name)
-{//==============================
+int AddNameData(const char *name, int wide)
+{//========================================
 // Add the name to the namedata and return its position
 	int ix;
 	int len;
 	void *vp;
 
-	len = strlen(name)+1;
+	if(wide)
+	{
+		len = (wcslen((const wchar_t *)name)+1)*sizeof(wchar_t);
+		n_namedata = (n_namedata + sizeof(wchar_t) - 1) % sizeof(wchar_t);  // round to wchar_t boundary
+	}
+	else
+	{
+		len = strlen(name)+1;
+	}
 
 	if(namedata_ix+len >= n_namedata)
 	{
@@ -860,7 +861,7 @@ int AddNameData(const char *name)
 		namedata = (char *)vp;
 		n_namedata = namedata_ix+len + 300;
 	}
-	strcpy(&namedata[ix = namedata_ix],name);
+	memcpy(&namedata[ix = namedata_ix],name,len);
 	namedata_ix += len;
 	return(ix);
 }  //  end of AddNameData
@@ -880,6 +881,7 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 	wchar_t *age;
 	wchar_t *variant;
 	char *new_voice_id;
+	int voice_variant;
 
 	static const MNEM_TAB mnem_gender[] = {
 		{"male", 1},
@@ -928,11 +930,12 @@ static int GetVoiceAttributes(wchar_t *pw, int tag_type)
 		ssml_sp->tag_type = tag_type;
 	}
 
-	new_voice_id = VoiceFromStack();
-	if(strcmp(new_voice_id,current_voice_id) != 0)
+	new_voice_id = VoiceFromStack(&voice_variant);
+	if((strcmp(new_voice_id,current_voice_id) != 0) || (current_voice_variant != voice_variant))
 	{
 		// add an embedded command to change the voice
 		strcpy(current_voice_id,new_voice_id);
+		current_voice_variant = voice_variant;
 		return(CLAUSE_BIT_VOICE);    // change of voice
 	}
 
@@ -1219,7 +1222,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 				return(CLAUSE_NONE);
 			}
 
-			if((index = AddNameData(buf)) >= 0)
+			if((index = AddNameData(buf,0)) >= 0)
 			{
 				sprintf(buf,"%c%dM",CTRL_EMBEDDED,index);
 				strcpy(&outbuf[outix],buf);
@@ -1236,7 +1239,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		if((attr1 = GetSsmlAttribute(px,"src")) != NULL)
 		{
 			attrcopy_utf8(buf,attr1,sizeof(buf));
-			if((index = AddNameData(buf)) >= 0)
+			if((index = AddNameData(buf,0)) >= 0)
 			{
 				uri = &namedata[index];
 				if(uri_callback(1,uri,xmlbase) == 0)
@@ -1292,7 +1295,7 @@ static int ProcessSsmlTag(wchar_t *xml_buf, char *outbuf, int &outix, int n_outb
 		if((attr1 = GetSsmlAttribute(px,"xml:base")) != NULL)
 		{
 			attrcopy_utf8(buf,attr1,sizeof(buf));
-			if((index = AddNameData(buf)) >= 0)
+			if((index = AddNameData(buf,0)) >= 0)
 			{
 				xmlbase = &namedata[index];
 			}
@@ -1518,6 +1521,7 @@ f_input = f_in;  // for GetC etc
 					if(terminator & CLAUSE_BIT_VOICE)
 					{
 						// a change in voice, write the new voice name to the end of the buf
+						buf[ix++] = current_voice_variant;
 						p = current_voice_id;
 						while((*p != 0) && (ix < (n_buf-1)))
 						{
@@ -1596,6 +1600,8 @@ f_input = f_in;  // for GetC etc
 			}
 		}
 
+		linelength++;
+
 		if(iswalnum(c1))
 			any_alnum = 1;
 
@@ -1654,7 +1660,7 @@ if(option_ssml) parag=1;
 				return((CLAUSE_PARAGRAPH-30) + 30*parag);  // several blank lines, longer pause
 			}
 
-			if(linelength < option_linelength)
+			if(linelength <= option_linelength)
 			{
 				// treat lines shorter than a specified length as end-of-clause
 				UngetC(c2);
@@ -1683,6 +1689,12 @@ if(option_ssml) parag=1;
 			// note: (c2='?') is for when a smart-quote has been replaced by '?'
 			buf[ix] = ' ';
 			buf[ix+1] = 0;
+
+			if((c1 == '.') && (cprev == '.'))
+			{
+				c1 = 0x2026;
+				punct = 9;   // elipsis
+			}
 
 			nl_count = 0;
 			while(!Eof() && iswspace(c2))
@@ -1750,6 +1762,18 @@ if(option_ssml) parag=1;
 }  //  end of ReadClause
 
 
+void InitNamedata(void)
+{//====================
+	namedata_ix = 0;
+	if(namedata != NULL)
+	{
+		free(namedata);
+		namedata = NULL;
+		n_namedata = 0;
+	}
+}
+
+
 void InitText2(void)
 {//=================
 	int param;
@@ -1779,12 +1803,5 @@ void InitText2(void)
 	sayas_mode = 0;
 
 	xmlbase = NULL;
-	namedata_ix = 0;
-	if(namedata != NULL)
-	{
-		free(namedata);
-		namedata = NULL;
-		n_namedata = 0;
-	}
 }
 

@@ -20,44 +20,44 @@ _& etmerk:i
 _' heit:o
 
 // numbers
-_0       nolla
-_1       yksi
-_2       kaksi
-_3       kolme
-_4       nelj&
-_5       vi:si
-_6       ku:si
-_7       seitsem&n
-_8       kahdeksan
-_9       yhdeks&m
-_10      kymmenen
-_11      yksitoista
-_12      kaksitoista
-_13      kolmetoista
-_14      nelj&toista
-_15      vi:sitoista
-_16      ku:sitoista
-_17      seitsem&ntoista
-_18      kahdeksantoista
-_19      yhdeks&ntoista
-_20      kaksikymment&
-_30      kolmekymment&
-_40      nelj&kymment&
-_50      vi:sikymment&
-_60      ku:sikymment&
-_70      seitsem&nkymment&
-_80      kahdeksankymment&
-_90      yhdeks&mkymment&
-_0H      sata:
-_1H      sata
-_0T1     tuhata:
-_1T1     tuhat          // no '1' before thousand
-_0T2     miljo:na:
-_1T2     miljo:na
-_0T3     miljardi
-_1T3     miljardi
-_0T4     biljo:na:
-_1T4     biljo:na
+_0       n'olla
+_1       'yksi
+_2       k'aksi
+_3       k'olme
+_4       n'elj&
+_5       v'i:si
+_6       k'u:si
+_7       s'eitsem&n
+_8       k'ahdeksan
+_9       'yhdeks&m
+_10      k'ymmenen
+_11      'yksitoista
+_12      k'aksitoista
+_13      k'olmetoista
+_14      n'elj&toista
+_15      v'i:sitoista
+_16      k'u:sitoista
+_17      s'eitsem&nt,oista
+_18      k'ahdeksant,oista
+_19      'yhdeks&nt,oista
+_2X      k'aksikymment&
+_3X      k'olmekymment&
+_4X      n'elj&kymment&
+_5X      v'i:sikymment&
+_6X      k'u:sikymment&
+_7X      s'eitsem&nk,ymment&
+_8X      k'ahdeksank,ymment&
+_9X      'yhdeks&mk,ymment&
+_0C      s'ata:_
+_1C      s'ata
+_0M1     t'uhata:
+_1M1     t'uhat          // no '1' before thousand
+_0M2     m'iljo:na:
+_1M2     m'iljo:na
+_0M3     m'iljardi
+_1M3     m'iljardi
+_0M4     b'iljo:na:
+_1M4     b'iljo:na
 _dpt     pilk:u        // comma
 
 
@@ -76,11 +76,72 @@ ne   $u
 
 itse  $u $double      // reflexive pronoun
 
-tämä  $u // this
-tuo   $u // that
-nämä  $u // these
-nuo   $u // those
+tämä  $u+ // this
+tämän  $u+
+tätä  $u+
+tässä  $u+
+tästä  $u+
+tähän  $u+
+tällä  $u+
+tältä  $u+
+tälle  $u+
+tänä  $u+
 
+tuo   $u+ // that
+tuon  $u+
+tuota  $u+
+tuossa  $u+
+tuosta  $u+
+tuohon  $u+
+tuolla  $u+
+tuolta  $u+
+tuolle  $u+
+tuona  $u+
+
+nämä  $u+ // these
+näiden   $u+
+näitten  $u+
+näitä  $u+
+näissä  $u+
+näistä  $u+
+näihin  $u+
+näillä  $u+
+näiltä  $u+
+näille  $u+
+näinä  $u+
+
+nuo   $u+ // those
+noiden  $u+
+noitten  $u+
+noissa  $u+
+noista  $u+
+noihin  $u+
+noilla  $u+
+noilta  $u+
+noille  $u+
+noina  $u+
+
+joka  $u+
+jonka  $u+
+jota  $u+
+jossa  $u+
+josta  $u+
+johon  $u+
+jolla  $u+
+jolle  $u+
+jolta  $u+
+jona  $u+
+
+jotka  $u+
+joiden  $u+
+joita  $u+
+joissa  $u+
+joista  $u+
+joihin  $u+
+joilla  $u+
+joilta  $u+
+joille  $u+
+joina  $u+
 
 
 // possessives

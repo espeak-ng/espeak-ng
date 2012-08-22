@@ -1,10 +1,11 @@
-BINDIR=/usr/local/bin
+BINDIR=/usr/bin
 INCDIR=/usr/include/espeak
 LIBDIR=/usr/lib
 DATADIR=/usr/share/espeak-data
 
-RELEASE = 1.17
+RELEASE = 1.18
 BIN_NAME = speak
+BIN2_NAME = espeak
 LIB_NAME = libespeak.so
 LIB_VERSION = 1
 LIBTAG = $(LIB_VERSION).$(RELEASE)
@@ -14,14 +15,15 @@ LN_SF = /bin/ln -sf
 MKDIR = mkdir -p
 
 speak_SOURCES = speak.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp \
+	readclause.cpp setlengths.cpp numbers.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
 	tr_languages.cpp voices.cpp wavegen.cpp
 
 libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp \
-	readclause.cpp setlengths.cpp \
+	readclause.cpp setlengths.cpp numbers.cpp \
 	synthdata.cpp synthesize.cpp translate.cpp tr_english.cpp \
-	tr_languages.cpp voices.cpp wavegen.cpp
+	tr_languages.cpp voices.cpp wavegen.cpp \
+	espeak_command.cpp event.cpp fifo.cpp wave.cpp debug.cpp
 
 
 SRCS1=$(speak_SOURCES)
@@ -30,12 +32,16 @@ LIBS1=-lstdc++ -lportaudio
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++
+LIBS2=-lstdc++ -lportaudio
+
+SRCS3 = espeak.cpp
+OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
+LIBS3=-lstdc++ ./libespeak.so
 
 CXXFLAGS=-O2
 
 
-all: $(BIN_NAME) $(LIB_NAME)
+all: $(BIN_NAME) $(LIB_NAME) $(BIN2_NAME)
 	mv $(LIB_NAME) $(LIB_NAME).$(LIBTAG)
 
 .cpp.o:
@@ -43,6 +49,9 @@ all: $(BIN_NAME) $(LIB_NAME)
 
 $(BIN_NAME): $(OBJS1)
 	$(CXX) -o $@ $(OBJS1) $(LIBS1)
+
+$(BIN2_NAME): $(OBJS3)
+	$(CXX) -o $@ $(OBJS3) $(LIBS3)
 
 
 
@@ -66,8 +75,8 @@ install: all
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
 	$(MKDIR) $(DESTDIR)$(INCDIR)
 	$(MKDIR) $(DESTDIR)$(DATADIR)
-	# Install executable
-	$(INSTALL) -m 755 $(BIN_NAME) $(DESTDIR)$(BINDIR)
+	# Install espeak executable
+	$(INSTALL) -m 755 $(BIN2_NAME) $(DESTDIR)$(BINDIR)
 	# Install shared library
 	$(INSTALL) -m 755 $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)
 	$(LN_SF) $(LIB_NAME).$(LIBTAG) $(DESTDIR)$(LIBDIR)/$(LIB_NAME).$(LIB_VERSION)

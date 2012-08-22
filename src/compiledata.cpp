@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -29,6 +29,7 @@
 #include "wx/dir.h"
 #include "wx/filename.h"
 
+#include "speak_lib.h"
 #include "main.h"
 #include "speech.h"
 #include "voice.h"
@@ -261,6 +262,9 @@ static keywtab_t keywords[] = {
 	{"rate", 0x3000007},
 	{"glstop", 0x3000008},
 	{"lenadd", 0x3000009},
+	{"f4",   0x300000a},
+	{"paus", 0x300000b},
+	{"colr=",0x300000c},
 	{"", -1}
 };
 
@@ -637,7 +641,7 @@ for(ix=0; ix<8; ix++)
 			if(x > 255) x = 255;
 			seq_out.frame[ix].length = x;
 
-			seq_out.frame[ix].flags = fr->markers;
+			seq_out.frame[ix].frflags = fr->markers;
 			rms = int(fr->GetRms(spectseq->amplitude));
 			if(rms > 255) rms = 255;
 			seq_out.frame[ix].rms = rms;
@@ -715,6 +719,10 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 
 	if((pw[0] != samplerate) || (pw[1] != samplerate*2))
 	{
+#ifdef PLATFORM_WINDOWS
+	fprintf(f_errors,"Wrong samplerate %d, %d \n",pw[0],pw[1]);
+	Error("Wrong samplerate: ",fname);
+#else
 		sprintf(fname_temp,"%s.wav",tmpnam(NULL));
 		sprintf(command,"sox \"%s\" -r %d -c 1 -w  %s polyphase\n",fname,samplerate,fname_temp);
 		if(system(command) < 0)
@@ -723,7 +731,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 			return(0);
 		}
 
-		f = fopen(fname_temp,"r");
+		f = fopen(fname_temp,"rb");
 		if(f == NULL)
 		{
 			Error("Can't read temp file: ",fname_temp);
@@ -731,6 +739,7 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 		}
 		resample_wav = 1;
 		fread(wave_hdr,40,1,f);  // skip past the WAV header, up to before "data length"
+#endif
 	}
 
 	displ = ftell(f_spects);
@@ -1080,6 +1089,8 @@ void Compile::VowelTransition(int which, unsigned int *trans)
 	int f3_adj=0;
 	int f3_amp=0;
 	int flags=0;
+	int vcolour=0;
+	int x;
 
 	if(which==1)
 	{
@@ -1119,6 +1130,12 @@ void Compile::VowelTransition(int which, unsigned int *trans)
 			f2 = Range(NextItem(tNUMBER), 50, 0, 63) & 0x3f;
 			f2_min = Range(NextItem(tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
 			f2_max = Range(NextItem(tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
+			if(f2_min > f2_max)
+			{
+				x = f2_min;
+				f2_min = f2_max;
+				f2_max = x;
+			}
 			break;
 		case 5:
 			f3_adj = Range(NextItem(tSIGNEDNUMBER), 50, -15, 15) & 0x1f;
@@ -1136,10 +1153,19 @@ void Compile::VowelTransition(int which, unsigned int *trans)
 		case 9:
 			flags |= 16;  // lenadd
 			break;
+		case 10:
+			flags |= 32;  // f4
+			break;
+		case 11:
+			flags |= 64;  // paus
+			break;
+		case 12:
+			vcolour = NextItem(tNUMBER);
+			break;
 		}
 	}
 	trans[0] = len + (rms << 6) + (flags << 12) + 0x80000000;
-	trans[1] =  f2 + (f2_min << 6) + (f2_max << 11) + (f3_adj << 16) + (f3_amp << 21) + (f1 << 26);
+	trans[1] =  f2 + (f2_min << 6) + (f2_max << 11) + (f3_adj << 16) + (f3_amp << 21) + (f1 << 26) + (vcolour << 29);
 }  // end of VowelTransition
 
 
@@ -1515,7 +1541,7 @@ void Compile::CPhonemeFiles(char *path_source)
 		{
 			NextItem(tSTRING);
 			sprintf(buf,"%s%s",path_source,item_string);
-			if((stack_ix < N_STACK) && (f = fopen_log(f_errors,buf,"r")) != NULL)
+			if((stack_ix < N_STACK) && (f = fopen_log(f_errors,buf,"rb")) != NULL)
 			{
 				fprintf(f_errors,"include %s\n",item_string);
 				stack[stack_ix].linenum = linenum;
@@ -1558,7 +1584,7 @@ void Compile::CPhonemeFiles(char *path_source)
 }  //  end of CPhonemeFiles
 
 
-#define MAKE_ENVELOPES
+//#define MAKE_ENVELOPES
 #ifdef  MAKE_ENVELOPES 
 
 #define ENV_LEN  128
@@ -1614,7 +1640,7 @@ void MakeEnvFile(char *fname, float *x, float *y, int source)
 	int ix;
 
 	MakeEnvelope(env_test,x,y);
-	f = fopen(fname,"w");
+	f = fopen(fname,"wb");
 
 	if(source)
 	{
@@ -1645,12 +1671,12 @@ void make_envs()
 
 
 	MakeEnvFile("vi_2",env2_x,env2_y,0);
-	MakeEnvFile("vi_3",env3_x,env3_y,0);
+	MakeEnvFile("vi_5",env3_x,env3_y,0);
 	MakeEnvFile("p_fallrise",env4_x,env4_y,0);
 	MakeEnvFile("vi_6",env6_x,env6_y,0);
 
 
-	MakeEnvFile("vi_3amp",enva3_x,enva3_y,0);
+	MakeEnvFile("vi_5amp",enva3_x,enva3_y,0);
 	MakeEnvFile("vi_6amp",enva6_x,enva6_y,0);
 
 }
@@ -1658,9 +1684,11 @@ void make_envs()
 
 static int ref_sorter(char **a, char **b)
 {//======================================
+	
 	REF_HASH_TAB *p1 = (REF_HASH_TAB *)(*a);
  	REF_HASH_TAB *p2 = (REF_HASH_TAB *)(*b);
-  return(strcmp(p1->string,p2->string));
+
+  return(strcoll(p1->string,p2->string));
 }   /* end of strcmp2 */
 
 
@@ -1829,7 +1857,7 @@ memset(markers_used,0,sizeof(markers_used));
 	f_errors = stderr;
 
 	sprintf(fname,"%s%s",path_source,source);
-	f_in = fopen_log(f_errors,fname,"r");
+	f_in = fopen_log(f_errors,fname,"rb");
 	if(f_in == NULL)
 	{
 		if(gui_flag)
@@ -1844,7 +1872,7 @@ memset(markers_used,0,sizeof(markers_used));
 		}
 
 		sprintf(fname,"%s%s",path_source,source);
-		f_in = fopen_log(f_errors,fname,"r");
+		f_in = fopen_log(f_errors,fname,"rb");
 		if(f_in == NULL)
 		{
 			wxLogError(_T("Can't read master phonemes file:\n") + wxString(fname,wxConvLocal));
@@ -1862,14 +1890,14 @@ memset(markers_used,0,sizeof(markers_used));
 	rewind(f_in);
 
 	sprintf(fname,"%s/%s",path_home,"phondata");
-	f_spects = fopen_log(f_errors,fname,"w");
+	f_spects = fopen_log(f_errors,fname,"wb");
 	sprintf(fname,"%s%s",path_source,"error_log");
 	if((f_errors = fopen_log(f_errors,fname,"w")) == NULL)
 		f_errors = stderr;
 	sprintf(fname,"%s/%s",path_home,"phonindex");
-	f_phindex = fopen_log(f_errors,fname,"w");
+	f_phindex = fopen_log(f_errors,fname,"wb");
 	sprintf(fname,"%s/%s",path_home,"phontab");
-	f_phdata = fopen_log(f_errors,fname,"w");
+	f_phdata = fopen_log(f_errors,fname,"wb");
 
 	if(f_spects==NULL || f_phindex==NULL || f_phdata==NULL)
 	{

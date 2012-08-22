@@ -19,14 +19,14 @@ endphoneme
 phoneme i
   vowel starttype (i) endtype (i)
   length 160
-  formants vwl_de/i:
-  after w w/wi:
+  formants vowel/i_2
+  after w w/wi2
 endphoneme
 
 phoneme I
   vowel starttype (i) endtype (i)
   length 130
-  formants vwl_de/I
+  formants vowel/ii_2
 endphoneme
 
 phoneme y
@@ -38,38 +38,38 @@ endphoneme
 phoneme 8
   vowel starttype (u) endtype (u)
   length 140
-  formants vwl_af/W
+  formants vowel/oe
 endphoneme
 
 phoneme u
   vowel starttype (u) endtype (u)
   length 180
-  formants vowel/u_bck
+  formants vowel/u
 endphoneme
 
 phoneme E
   vowel starttype (e) endtype (e)
   length 140
-  formants vwl_de/E
+  formants vowel/ee
 endphoneme
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
   vowel starttype (e) endtype (e)
   length 140
-  formants vwl_de/E
+  formants vowel/ee_2
   reduceto @  0
 endphoneme
 
 phoneme W
   vowel starttype (@) endtype (@)
   length 160
-  formants vwl_de/W
+  formants vowel/oe
 endphoneme
 
 phoneme O
   vowel starttype (o) endtype (o)
   length 150
-  formants vwl_de/O
+  formants vowel/oo
 endphoneme
 
 phoneme a:
@@ -81,7 +81,7 @@ endphoneme
 phoneme A
   vowel starttype (a) endtype (a)
   length 160
-  formants vowel/A:
+  formants vowel/aa_2
 endphoneme
 
 
@@ -91,50 +91,50 @@ endphoneme
 phoneme e:
   vowel starttype (e) endtype (i)
   length 190
-  formants vowel/eI
+  formants vdiph/ei
 endphoneme
 
 phoneme Y:
   vowel starttype (@) endtype (@)
   length 220
-  formants vwl_fi/Yy
+  formants vdiph/y#y
 endphoneme
 
 phoneme o:
   vowel starttype (o) endtype (u)
   length 200
-  formants vwl_fi/OU
+  formants vdiph/ou
 endphoneme
 
 
 phoneme EI
   vowel starttype (a) endtype (i)
   length 210
-  formants vwl_fi/&I
+  formants vdiph/&i
 endphoneme
 
 phoneme Wy
   vowel starttype (@) endtype (u)
   length 220
-  formants vwl_fi/&y
+  formants vdiph/&y
 endphoneme
 
 phoneme VU
   vowel starttype (a) endtype (u)
   length 220
-  formants vwl_af/@U
+  formants vdiph/Vu
 endphoneme
 
 phoneme eU
   vowel starttype (e) endtype (u)
   length 220
-  formants vowel/eU
+  formants vdiph/eu
 endphoneme
 
 phoneme yU
   vowel starttype (u) endtype (u)
   length 220
-  formants vwl_nl/yU
+  formants vdiph2/yu
 endphoneme
 
 
@@ -181,7 +181,7 @@ phoneme x2        // a stronger version of [x] (for Afrikaans)
   vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
   length 100
   lengthmod 3
-  wave unvoc/xx      // stronger version
+  wave ufric/x2      // stronger version
 endphoneme
 
 

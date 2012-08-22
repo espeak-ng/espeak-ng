@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005, 2006 by Jonathan Duddington                       *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -28,6 +28,7 @@
 #include <math.h>
 
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
@@ -106,7 +107,7 @@ static int mix_wavefile_ix = 0;
 static int pitch;          // pitch Hz*256
 static int pitch_ix;       // index into pitch envelope (*256)
 static int pitch_inc;      // increment to pitch_ix
-static unsigned char *pitch_env;
+static unsigned char *pitch_env=NULL;
 static int pitch_base;     // Hz*256 low, before modified by envelope
 static int pitch_range;    // Hz*256 range of envelope
 static int amp_ix;
@@ -125,7 +126,6 @@ static int hf_factor;
 
 unsigned char *out_ptr;
 unsigned char *out_end;
-static int out_channels=1;
 static unsigned char outbuf[1024];  // used when writing to file
 
 // the queue of operations passed to wavegen from sythesize
@@ -440,6 +440,7 @@ static void WavegenInitPkData(int which)
 
 static int userdata[4];
 static PaError pa_init_err=0;
+static int out_channels=1;
 
 #if USE_PORTAUDIO == 18
 static int WaveCallback(void *inputBuffer, void *outputBuffer,
@@ -672,15 +673,16 @@ remove("log");
 }  // end of WavegenInit
 
 
-static int GetAmplitude(void)
-{//==========================
+int GetAmplitude(void)
+{//===================
 	int amp;
 
 	// normal, none, reduced, moderate, strong
 	static const unsigned char amp_emphasis[5] = {16, 16, 8, 24, 32};
 
 	amp = (embedded_value[EMBED_A])*60/100;
-	return(amp * amp_emphasis[embedded_value[EMBED_F]] / 16);
+	general_amplitude = amp * amp_emphasis[embedded_value[EMBED_F]] / 16;
+	return(general_amplitude);
 }
 
 
@@ -1313,7 +1315,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	int range;
 
 #ifdef LOG_FRAMES
-f_log=fopen("log","a");
+f_log=fopen("log-espeakedit","a");
 if(f_log != NULL)
 {
 fprintf(f_log,"	  %3d %3d\n",pitch1,pitch2);
@@ -1371,12 +1373,12 @@ void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2)
 	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
 
 #ifdef LOG_FRAMES
-f_log=fopen("log","a");
+f_log=fopen("log-espeakedit","a");
 if(f_log != NULL)
 {
-fprintf(f_log,"%3d   %4d %4d %4d   %4d %4d %4d\n",length*1000/samplerate,
-	fr1->ffreq[1], fr1->ffreq[2], fr1->ffreq[3],
-	fr2->ffreq[1], fr2->ffreq[2], fr2->ffreq[3] );
+fprintf(f_log,"%3dmS  %4d/%3d %4d/%3d %4d/%3d %4d/%3d   %4d/%3d %4d/%3d %4d/%3d %4d/%3d\n",length*1000/samplerate,
+	fr1->ffreq[0],fr1->fheight[0],fr1->ffreq[1],fr1->fheight[1], fr1->ffreq[2],fr1->fheight[2], fr1->ffreq[3],fr1->fheight[3],
+	fr2->ffreq[0],fr2->fheight[0],fr2->ffreq[1],fr2->fheight[1], fr2->ffreq[2],fr2->fheight[2], fr2->ffreq[3],fr2->fheight[3] );
 fclose(f_log);
 f_log=NULL;
 }

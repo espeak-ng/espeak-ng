@@ -22,26 +22,29 @@ _5       T'inko
 _6       s'eIs
 _7       sj'Ete
 _8       'otSo
-_9       nw'EBe
-_10      dj'es
+_9       nw'Eve
+_1X      dj'es
 _11      'onTe
 _12      d'oTe
 _13      t@-*'ETe
 _14      kat'orTe
 _15      k'inTe
-_20      b'eInte
-_30      t@-*'eInta
-_40      kwa*'Enta
-_50      Tinkw'Enta
-_60      sEs'Enta
-_70      sEt'Enta
-_80      otS'Enta
-_90      noB'Enta
-_1H0     T'ent         // exactly one hundred
-_0H      T'iento
-_0T1     m'il
-_1T1     m'il          // no '1' before thousand
-_0T2     mil^'on
+_2X      v'eInte
+_3X      t@-*'eInta
+_4X      kwa*'Enta
+_5X      Tinkw'Enta
+_6X      sEs'Enta
+_7X      sEt'Enta
+_8X      otS'Enta
+_9X      nov'Enta
+_0C      T'ientos
+_1C0     T'ien         // exactly one hundred
+_1C      T'iento
+_5C      kinj'Entos
+_0M1     m'il
+_1M1     m'il          // no '1' before thousand
+_0M2     mil^'ones
+_1M2     'unomil^'on
 _0and    i
 _dpt     koma
 
@@ -141,7 +144,7 @@ o            $u $pause    // or
 así          $pause
 aunque       $u $pause    // although
 siquiera     $pause
-
+porque       $pause       // because
 
 // questions
 que          $u+ $pause   // what
@@ -149,6 +152,8 @@ cuál         $pause       // which
 cuáles       $pause
 cómo         $pause       // how
 
+// negative
+no           $u
 
 // auxillary verbs
 ser	$u
@@ -228,6 +233,7 @@ hay	$u
 hemos	$u
 habéis	$u
 han	$u
+ha	$u      // ??
 
 hube	$u
 hubiste	$u

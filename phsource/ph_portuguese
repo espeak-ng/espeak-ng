@@ -6,44 +6,44 @@
 phoneme e~
   vowel starttype (e) endtype (e)
   length 240
-  formants vwl_pt/e_n
+  formants vnasal/e_n
 endphoneme
 
 phoneme i~
   vowel starttype (i) endtype (i)
   length 240
-  formants vwl_pt/i_n
+  formants vnasal/i_n
   linkout ;
 endphoneme
 
 phoneme o~
   vowel starttype (o) endtype (o)
   length 240
-  formants vwl_pt/o_n
+  formants vnasal/o_n
 endphoneme
 
 phoneme u~
   vowel starttype (u) endtype (u)
   length 180
-  formants vwl_pt/u_n
+  formants vnasal/u_n
 endphoneme
 
 phoneme &~
   vowel  starttype (@) endtype (@)
   length 240
-  formants vwl_pt/&_n
+  formants vnasal/&_n
 endphoneme
 
 phoneme &U~
   vowel  starttype (a) endtype (@)
   length 240
-  formants vwl_pt/&U_n
+  formants vnasal/&u_n
 endphoneme
 
 phoneme oI~
   vowel starttype (o) endtype (i)
   length 260
-  formants vwl_pt/oI_n
+  formants vnasal/oi_n
 endphoneme
 
 
@@ -52,32 +52,26 @@ endphoneme
 phoneme &
   vowel starttype (@) endtype (@)
   length 180
-  formants vwl_it/&
+  formants vowel/a#
 endphoneme
 
 phoneme &/       // Used for final "a" when next word starts with "a"
   vowel starttype (@) endtype (@)
   beforevowel NULL
   length 180
-  formants vwl_it/&
+  formants vowel/a#
 endphoneme
 
 phoneme E
   vowel starttype (e) endtype (e)
   length 170
-  formants vwl_af/E2
+  formants vowel/ee_3
 endphoneme
 
 phoneme e
   vowel starttype (e) endtype (e)
   length 160
-  formants vowel/e:
-endphoneme
-
-phoneme e2        // a closer version of [e]
-  vowel starttype (e) endtype (e)
-  length 160
-  formants vwl_pt/e
+  formants vowel/e
 endphoneme
 
 
@@ -85,7 +79,7 @@ phoneme i/            // changes to [j] before a vowel
   vowel starttype (i) endtype (i)
   beforevowel j
   length 150
-  formants vowel/i:
+  formants vowel/i
   linkout ;
 endphoneme
 
@@ -103,42 +97,42 @@ endphoneme
 phoneme aI
   vowel starttype (a) endtype (i)
   length 230
-  formants vwl_it/ai
+  formants vdiph/ai
 endphoneme
 
 
 phoneme eI
   vowel starttype (e) endtype (i)
   length 210
-  formants vowel/eI
+  formants vdiph/ei
 endphoneme
 
 
 phoneme EI
   vowel starttype (e) endtype (i)
   length 230
-  formants vowel/EI
+  formants vdiph/eei
 endphoneme
 
 
 phoneme OI
   vowel starttype (o) endtype (i)
   length 230
-  formants vowel/0I
+  formants vdiph/0i
 endphoneme
 
 
 phoneme eU
   vowel starttype (e) endtype (u)
   length 230
-  formants vowel/eU
+  formants vdiph/eu
 endphoneme
 
 
 phoneme EU
   vowel starttype (e) endtype (u)
   length 230
-  formants vowel/EU
+  formants vdiph/eeu
 endphoneme
 
 
@@ -150,8 +144,9 @@ phoneme l
   lengthmod 7
   beforenotvowel l/2       // use 'dark' [l] after a vowel, should be [w]
   formants l/l
-  after _ l/_l  t l/tl
-  before _ l/l_
+  after _ l/_l
+  after t l/tl
+  before _ l/l_2
 endphoneme
 
 
@@ -161,8 +156,8 @@ phoneme x   // for "r"
   vowelin f1=0  f2=1500 0 400  f3=-500 100
   vowelout f1=0 f2=1500 0 400  f3=-500 100  rms=20
   lengthmod 6
-  formants voc/Q_less+unvoc/xx%140
-  before _ voc/Q_+unvoc/xx
+  formants voc/Q_less+ufric/x2%140
+  before _ voc/Q_+ufric/x2
   switchvoicing x
 endphoneme
 

@@ -1,0 +1,265 @@
+
+
+.group a
+        a        a
+        ai       aI
+        ai (_    'aI
+        au       aU
+        au (_    'aU
+        a (AAA   a
+     &) a (_S1q  a
+    V@) a (_     'a	
+    ăi) a (_     'a
+     @) abil (_  'abil
+     _) anti (@P4  anti
+
+.group ă
+        ă        @
+        ăi       @I
+        ău       @U
+
+     &) ă (_S1q  @
+        ări (A_  @*'i
+        ării (_  @*'iI
+        ări (AA_ @*'i
+
+.group â
+        â        y
+        âi       yI
+        âu       yU
+
+
+.group b
+        b        b
+     @) b (i_    b;
+
+
+.group c
+        c        k
+        c (e     tS
+        c (i     tS
+        ch       k
+
+
+.group d
+        d        d
+     @) d (i_    d;
+
+
+.group e
+        e        e
+        ei       eI
+        eu       eU
+        eu (_    'eU
+     _) eu (@    e[u
+        ea       ea
+     &) ea (_S2q ea
+        eai      eaj
+        eau      eaw
+        eoa      'eOa
+        eo       eo
+        e (AAA   e
+
+     &) e (_S1q  e
+    &C) e (re_   %e
+ 
+   _ac) ee (a	 eI
+
+     r) ei (er_  'eI
+
+
+.group f
+        f        f
+     @) f (i_    f;
+
+
+.group g
+        g        g
+        g (e     dZ
+        g (i     dZ
+        gh       g
+
+
+.group h
+        h        h
+     @) h (i_    C
+
+
+.group i
+        i        i
+        i (A     j
+     &) i (_N$1q i/
+    Cr) i (_     i
+    V&) i (_     'i       // verb
+//      ie (_    'ie
+        iei (_   'ieI
+        ii       iI
+     &) ii (_S2q iI
+        iii      iji
+        iu (_    iU
+        iu       ju
+        iile (_  'iIle
+
+     &) ing (_   %iNg     // foreign words
+
+
+.group î
+        î        y
+
+
+.group j
+        j        Z
+     @) j (i_    Z;
+
+
+.group k
+        k        k
+
+
+.group l
+        l        l
+     @) l (i_    l;
+
+     &) le (_S2t  le
+     &) lor (_S3t lor
+     &) lui (_S3t luI
+     &) logi (A_  lodZ'i
+
+.group m
+        m        m
+     @) m (i_    m;
+
+
+.group n
+        n        n
+     @) n (i_    n;
+        n (g     N
+        n (k     N
+     @) n (tic_  =n
+
+.group o
+        o        o
+        oa       Oa
+        oai      Oaj
+        oi       oI
+        oi (_    'oI
+        ou       oU
+        ou (_    'oU
+        o (AAA   o
+
+
+.group p
+        p        p
+     @) p (i_    p;
+
+
+
+.group q
+        q        k
+        qu       kw
+
+
+.group r
+        r          r
+     A) r (A       *
+     C) r (A       @-*
+        rr         *r
+     A) r (i_      *;
+
+     _) re (@P2v   re
+    @u) ri (_S2t   rI
+    @u) rile (_S4t tile
+
+
+.group s
+        s        s
+     @) s (i_    s;
+
+     &) sprezece (_S8t sp@-*ez,etSe
+
+
+.group ş
+        ş        S
+     @) ş (i_    S;
+
+
+.group t
+        t        t
+        tt (_    t
+     @) t (i_    t;
+
+
+.group ţ
+        ţ        ts
+    @)  ţ (i_    ts;
+
+
+.group u
+        u        u
+        u (A     w
+        ui       uI
+        ui (e    wi
+    V&) ui (_    w'i
+     &) ul  (_S2t ul
+
+
+.group v
+        v        v
+     @) v (i_    v;
+
+
+.group w
+        w        w
+
+
+.group x
+        x        ks
+     A) x (A     gz
+    ma) x (i     ks
+     e) x (e     ks
+  cone) x (iu    ks
+     i) x (e     ks
+     o) x (e     ks       // boxele
+     o) x (i     ks       // oxigen
+     a) x (ia    ks       // axial
+   ale) x        ks
+    ta) x        ks
+
+
+.group y
+        y        i
+        y (A     j
+
+
+.group z
+        z        z
+     @) z (i_    z;
+
+
+
+.group
+        ö        Y
+
+        %        prosent   // ??
+        $        dolar
+        +        plus
+        &        perlwet
+        @        a*'ond
+        /        sleS
+        €        e[u*'o
+
+        , (D     v'irgol@
+
+        .        puntk
+        . (.     _:
+   \.)  .
+
+   __)  - (_D    m'inus
+   A_)  - (_D    _
+   C_)  - (_D    _
+    --) -
+
+        *        aste*isk
+    *)  * (*
+        **
+   **)  * (_     _::

@@ -1,0 +1,174 @@
+// This file is UTF8 encoded
+
+// Numbers
+_0        S'Un^a:
+_1        'e:k
+_2        d'o:
+_3        t'i:n
+_4        c'a:r
+_5        p'a:nc
+_6        ch'@H@
+_7        s'a:t
+_8        'a:t.h
+_9        n'O:
+?3  _9    n'aU
+
+// not needed, as devanagari numbers are changed to latin characters before translation
+//_०        S'Un^a:
+//_१        'e:k
+//_२        d'o:
+//_३        t'i:n
+//_४        c'a:r
+//_५        p'a:nc
+//_६        ch'@H@
+//_७        s'a:t
+//_८        'a:t.h
+//_९        n'O:
+//?3  _९    n'aU
+
+// Single consonants
+क      k@
+क़      q@
+ख      kh@
+ख़      x@
+ग      g@
+ग़      Q@
+घ      gh@
+ङ      N@
+च      c@
+छ      ch@
+ज      J@
+ज़      z@
+झ      Jh@
+ञ      n^@
+ट      t.@
+ठ      t.h@
+ड      d.@
+ढ      d.h@
+ण      n@   // should be n.@
+त      t@
+थ      th@
+द      d@
+ध      dh@
+न      n@
+प      p@
+फ      ph@
+फ़      f@
+ब      b@
+भ      bh@
+म      m@
+य      j@
+र      r@
+ऱ      r@
+व      v@
+श      S@
+ष      s;@   //??
+स      s@
+ह      H@
+क़      q@
+ख़      x@
+ग़      Q@
+ज़      z@
+ड़      D@
+ढ़      hr@
+फ़      f@
+य़      j@
+
+// Pronouns
+मैं 	$u	// main: I
+मुझे 	$u
+मेरा 	$u
+मेरी 	$u
+मेरे 	$u
+
+हम 	$u	// we
+हमें 	$u
+हमारा 	$u
+हमारी 	$u
+हमारे 	$u
+
+
+आप 	$u	// you(formal)
+आपको 	$u
+आपका 	$u
+आपकी 	$u
+आपके 	$u
+
+तुम 	$u	// you (informal)
+तुम्हें 	$u
+तुम्हारा 	$u
+तुम्हारी 	$u
+तुम्हारे 	$u
+
+तू 	$u	// you (informal)
+तुझे 	$u
+तेरा 	$u
+
+यह	$u	// he/she/it
+ये 	$u
+इस्से 	$u
+इसका 	$u
+
+ये 	$u	// they
+इन्हें 	$u
+इनका 	$u
+
+वह	$u	// he/she/it
+वो 	$u
+उस्से 	$u
+उसका 	$u
+उसकी 	$u
+उसके 	$u
+
+वे	$u	// they
+वो 	$u
+उन्हें	$u	// unheṃ: them 
+उनका	$u
+उनकी	$u
+उनके	$u
+
+
+// Prepositions/Postpositions
+का	$u	// kā:  of, possessive particle
+की	$u	// kī
+के	$u	// ke
+
+को 	$u	// ko: to
+तक 	$u	// tak: until, for(time)
+बिना	$u $pause	// without (preposition)
+में 	$u	// me: in
+से 	$u	// se: from, with, by
+
+
+// Questions
+क्या	$u $pause	// interrogative particle
+
+
+// Conjunctions
+
+और	$u $pause	// aur: and
+य	j@ $u $pause	// ja: or
+अगर	$u $pause	// agar: if
+यदि	$u $pause	// yadi: if, whether
+अगरचे	$pause	// agarce: although, even
+पर	$pause	// par: but, still, yet
+मगर	$pause	// magar: however, unless
+
+
+
+// Verbs
+हूँ 	$u	// to be
+हो 	$u
+है 	$u
+हैं 	$u
+
+था 	$u	// thā: past aux
+थे 	$u	// the
+थी 	$u	// thī
+थीं 	$u	// thīh
+
+रहा 	$u	// rahā: continuous
+रहे 	$u	// rahe
+रही 	$u	// rahī
+
+

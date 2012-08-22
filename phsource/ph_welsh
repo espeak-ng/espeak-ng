@@ -17,35 +17,35 @@ endphoneme
 phoneme E
   vowel starttype (e) endtype (e)
   length 150
-  formants vowel/E
+  formants vowel/ee_2
 endphoneme
 
 
 phoneme I
   vowel starttype (i) endtype (i)
   length 150
-  formants vowel/I
+  formants vowel/ii
 endphoneme
 
 
 phoneme Y   // symbol used in place of I"  (I bar)
   vowel starttype (i) endtype (i)
   length 150
-  formants vowel/I"
+  formants vowel/ii#
 endphoneme
 
 
 phoneme O
   vowel starttype (o) endtype (o)
   length 150
-  formants vowel/O
+  formants vowel/oo_2
 endphoneme
 
 
 phoneme U
   vowel starttype (u) endtype (u)
   length 150
-  formants vowel/U
+  formants vowel/u_bck
 endphoneme
 
 
@@ -62,7 +62,7 @@ endphoneme
 phoneme i:
   vowel starttype (i) endtype (i)
   length 180
-  formants vowel/i:
+  formants vowel/i
   reduceto I  4
 endphoneme
 
@@ -70,7 +70,7 @@ endphoneme
 phoneme y:     // symbol used in place of i" (i bar)
   vowel starttype (i) endtype (i)
   length 180
-  formants vowel/i"
+  formants vowel/i#
   reduceto Y  4
 endphoneme
 
@@ -78,7 +78,7 @@ endphoneme
 phoneme u:
   vowel starttype (u) endtype (u)
   length 190
-  formants vowel/u:
+  formants vowel/u
   reduceto U  4
 endphoneme
 
@@ -86,7 +86,7 @@ endphoneme
 phoneme e:
   vowel starttype (e) endtype (e)
   length 210
-  formants vowel/e:
+  formants vowel/e
   reduceto E  4
 endphoneme
 
@@ -94,7 +94,7 @@ endphoneme
 phoneme o:
   vowel starttype (o) endtype (o)
   length 210
-  formants vowel/o:
+  formants vowel/o_2
   reduceto O  4
 endphoneme
 
@@ -102,7 +102,7 @@ endphoneme
 phoneme A:
   vowel starttype (a) endtype (a)
   length 230
-  formants vowel/A:
+  formants vowel/aa_2
   reduceto a  4
 endphoneme
 
@@ -113,91 +113,91 @@ endphoneme
 phoneme AY
   vowel starttype (a) endtype (i)
   length 250
-  formants vwl_af/AI
+  formants vdiph/aai_2
 endphoneme
 
 
 phoneme aI
   vowel starttype (a) endtype (i)
   length 210
-  formants vowel/aI
+  formants vdiph/ai_2
 endphoneme
 
 
 phoneme aY
   vowel starttype (a) endtype (i)
   length 210
-  formants vowel/aI
+  formants vdiph/ai_2
 endphoneme
 
 
 phoneme aU
   vowel starttype (a) endtype (u)
   length 210
-  formants vowel/aU
+  formants vdiph/au
 endphoneme
 
 
 phoneme @I
   vowel starttype (@) endtype (i)
   length 210
-  formants vwl_af/eI
+  formants vdiph/@i_2
 endphoneme
 
 
 phoneme @Y
   vowel starttype (@) endtype (i)
   length 210
-  formants vwl_af/eI
+  formants vdiph/@i_2
 endphoneme
 
 
 phoneme eU
   vowel starttype (e) endtype (u)
   length 210
-  formants vowel/eU
+  formants vdiph/eu
 endphoneme
 
 
 phoneme Iu
   vowel starttype (i) endtype (u)
   length 210
-  formants vwl_cy/Iu
+  formants vdiph2/iu_4
 endphoneme
 
 
 phoneme Yu
   vowel starttype (i) endtype (u)
   length 210
-  formants vwl_cy/Iu
+  formants vdiph2/iu_4
 endphoneme
 
 
 phoneme OI
   vowel starttype (o) endtype (i)
   length 210
-  formants vowel/OI
+  formants vdiph/ooi
 endphoneme
 
 
 phoneme OY
   vowel starttype (o) endtype (i)
   length 210
-  formants vowel/OI
+  formants vdiph/ooi
 endphoneme
 
 
 phoneme uI
   vowel starttype (u) endtype (i)
   length 210
-  formants vwl_cy/uI
+  formants vdiph/ui_3
 endphoneme
 
 
 phoneme uY
   vowel starttype (u) endtype (i)
   length 210
-  formants vwl_cy/uI
+  formants vdiph/ui_3
 endphoneme
 
 
@@ -232,8 +232,8 @@ endphoneme
 
 phoneme g
   vcd vel stop
-  vowelin  f1=1  f2=2300 200 400  f3=-100 80
-  vowelout f1=1  f2=2300 250 300  f3=-300 80 brk
+  vowelin  f1=2  f2=2300 200 400  f3=-100 80
+  vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
   formants g/g+x/g
   before _ g/g_+x/g_%140
   after _ NULL

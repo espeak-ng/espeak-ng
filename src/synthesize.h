@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -33,8 +33,10 @@
 #define FRFLAG_BREAK           0x10   // don't merge with next frame
 #define FRFLAG_FORMANT_RATE    0x20   // Flag5 allow increased rate of change of formant freq
 #define FRFLAG_MODULATE        0x40   // Flag6 modulate amplitude of some cycles to give trill
+#define FRFLAG_DEFER_WAV       0x80   // Flag7 defer mixing WAV until the next frame
+#define FRFLAG_COPIED        0x8000   // This frame has been copied into temporary rw memory
 
-#define SFLAG_SEQCONTINUE      0x01
+#define SFLAG_SEQCONTINUE      0x01   // a liquid or nasal after a vowel, but not followed by a vowel
 #define SFLAG_EMBEDDED         0x02   // there are embedded commands before this phoneme
 #define SFLAG_SYLLABLE         0x04   // vowel or syllabic consonant
 #define SFLAG_LENGTHEN         0x08   // lengthen symbol : included after this phoneme
@@ -86,7 +88,7 @@ typedef struct {
 
 typedef struct {
 	short length;
-	short flags;
+	short frflags;
 	frame_t *frame;
 } frameref_t;
 
@@ -172,6 +174,8 @@ extern int samplerate;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
+extern int wavefile_ix2;
+extern int wavefile_amp2;
 extern int vowel_transition[4];
 extern int vowel_transition0, vowel_transition1;
 
@@ -183,7 +187,7 @@ unsigned char *LookupEnvelope(int ix);
 int LoadPhData();
 
 void SynthesizeInit(void);
-int  Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume);
+int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
 int  SynthOnTimer(void);
 int  SpeakNextClause(FILE *f_text, const void *text_in, int control);
@@ -193,9 +197,14 @@ void SetEmbedded(int control, int value);
 void SelectPhonemeTable(int number);
 int  SelectPhonemeTableName(const char *name);
 
+
 extern unsigned char *envelope_data[16];
 extern int formant_rate[];         // max rate of change of each formant
 
 #define N_SOUNDICON_TAB  100
 extern int n_soundicon_tab;
 extern SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
+
+espeak_ERROR SetVoiceByName(const char *name);
+espeak_ERROR SetVoiceByProperties(espeak_VOICE *voice_selector);
+void SetParameter(int parameter, int value, int relative);

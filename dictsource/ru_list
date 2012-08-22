@@ -39,27 +39,27 @@ _16	SIsn'atts@t;
 _17	s;Imn'atts@t;
 _18	v,Vs;Imn'atts@t;
 _19	d;,Iv;Vtn'atts@t;
-_20	dv'atts@t;
-_30	t;r'itts@t;
-_40	s'or@k
-_50	p;,Vdd;Is;'at
-_60	S,Iz;dd;Is;'at
-_70	s;'emd;Is;,@t
-_80	v'os;Imd;,Is;@t
-_90	d;,Iv;Vn'ost@
-_0H	st'o
-_2H	dv;'es;t;I
-_3H	t;r'ist@
-_4H	ts;It'yrIst,@
-_5H	p;Vt;s'ot
-_6H	SIs;t;s'ot
-_7H	s;Ims'ot
-_8H	v,Vs;Im-s'ot
-_9H	d;,Iv;Vt;s'ot
-_0T1	t'ys;@ts;,@
-_1T1	t'ys;@ts;,@     // no '1' before thousand
-_0T2	m;,IlI;'on
-_0T3	m;,IlI;'art
+_2X	dv'atts@t;
+_3X	t;r'itts@t;
+_4X	s'or@k
+_5X	p;,Vdd;Is;'at
+_6X	S,Iz;dd;Is;'at
+_7X	s;'emd;Is;,@t
+_8X	v'os;Imd;,Is;@t
+_9X	d;,Iv;Vn'ost@
+_0C	st'o
+_2C	dv;'es;t;I
+_3C	t;r'ist@
+_4C	ts;It'yrIst,@
+_5C	p;Vt;s'ot
+_6C	SIs;t;s'ot
+_7C	s;Ims'ot
+_8C	v,Vs;Im-s'ot
+_9C	d;,Iv;Vt;s'ot
+_0M1	t'ys;@ts;,@
+_1M1	t'ys;@ts;,@     // no '1' before thousand
+_0M2	m;,IlI;'on
+_0M3	m;,IlI;'art
 _dpt	_:'i_:        // start of decimal fraction
 _dpt2	_d;Is;'atYx   // end of decimal fraction
 

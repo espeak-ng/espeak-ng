@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -23,13 +23,14 @@
 #include <stdio.h>
 #include <wctype.h>
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-#include "speak_lib.h"
 
+extern int GetAmplitude(void);
 
 
 // convert from words-per-minute to internal speed factor
@@ -123,10 +124,8 @@ void SetAmplitude(int amp)
 
 
 
-#pragma GCC visibility push(default)
-
-void espeak_SetParameter(int parameter, int value, int relative)
-{//=============================================================
+void SetParameter(int parameter, int value, int relative)
+{//======================================================
 // parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
 // relative 0=absolute  1=relative
 
@@ -153,10 +152,33 @@ void espeak_SetParameter(int parameter, int value, int relative)
 
 	case espeakVOLUME:
 		embedded_value[EMBED_A] = new_value;
+		GetAmplitude();
+		break;
+
+	case espeakPITCH:
+		if(new_value > 99) new_value = 99;
+		embedded_value[EMBED_P] = new_value;
+		break;
+
+	case espeakRANGE:
+		if(new_value > 99) new_value = 99;
+		embedded_value[EMBED_R] = new_value;
+		break;
+
+	case espeakPUNCTUATION:
+		break;
+
+	case espeakCAPITALS:
+		break;
+
+	case espeakLINELENGTH:
+		option_linelength = new_value;
+		break;
+
+	default:
 		break;
 	}
 }  // end of espeak_SetParameter
-#pragma GCC visibility pop
 
 
 
@@ -235,11 +257,12 @@ void Translator::CalcLengths()
 	int  last_pitch = 0;
 	int  pitch_start;
 	int  length_mod;
+	int  len;
 	int  env2;
 	int  end_of_clause;
 	int  embedded_ix = 0;
 	int  min_drop;
-	unsigned char *pitch_env;
+	unsigned char *pitch_env=NULL;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
 	{
@@ -274,7 +297,7 @@ void Translator::CalcLengths()
 			else
 				p->prepause = 60;
 
-			if((langopts.word_gap==3) && (p->newword))
+			if((langopts.word_gap & 0x10) && (p->newword))
 				p->prepause = 60;
 
 			if(p->synthflags & SFLAG_LENGTHEN)
@@ -303,8 +326,9 @@ void Translator::CalcLengths()
 			else
 				p->length = 256;
 
-			if((langopts.word_gap==3) && (p->newword))
+			if((langopts.word_gap & 0x10) && (p->newword))
 				p->prepause = 30;
+
 			break;
 
 		case phVSTOP:
@@ -318,7 +342,7 @@ void Translator::CalcLengths()
 
 				p->prepause = 40;
 
-				if((prev->type == phPAUSE) || (prev->type == phVOWEL) || (prev->ph->mnemonic == ('/'*256+'r')))
+				if((prev->type == phPAUSE) || (prev->type == phVOWEL)) // || (prev->ph->mnemonic == ('/'*256+'r')))
 					p->prepause = 0;
 				else
 				if(p->newword==0)
@@ -332,7 +356,7 @@ void Translator::CalcLengths()
 						p->prepause = 0;
 				}
 			}
-			if((langopts.word_gap==3) && (p->newword) && (p->prepause < 20))
+			if((langopts.word_gap & 0x10) && (p->newword) && (p->prepause < 20))
 				p->prepause = 20;
 
 			break;
@@ -432,7 +456,17 @@ p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 
 			// calc length modifier
 			if(more_syllables==0)
-				length_mod = langopts.length_mods0[next2->ph->length_mod *10+ next->ph->length_mod];
+			{
+				len = langopts.length_mods0[next2->ph->length_mod *10+ next->ph->length_mod];
+
+				if((next->newword) && (langopts.word_gap & 0x4))
+				{
+					// consider as a pause + first phoneme of the next word
+					length_mod = (len + langopts.length_mods0[next->ph->length_mod *10+ 1])/2;
+				}
+				else
+					length_mod = len;
+			}
 			else
 			{
 				length_mod = langopts.length_mods[next2->ph->length_mod *10+ next->ph->length_mod];

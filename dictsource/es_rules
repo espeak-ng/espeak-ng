@@ -150,11 +150,11 @@
 
 
 .group v
-       _) v (_       be
-          v          B
-       _) v          b
-       m) v          b
-       n) v          b
+       _) v (_       ve
+          v          v
+       _) v          v
+       m) v          v
+       n) v          v
 
 
 .group w
@@ -175,21 +175,9 @@
 
 
 .group z
-       _) z (_       sEta
-          z          s
+       _) z (_       TEta
+          z          T
 
-
-.group 9
-          0          T'E*o_
-          1          'uno_
-          2          d'os_
-          3          t@-*'es_
-          4          kw'at@-*o_
-          5          T'inko_
-          6          s'eIs_
-          7          sj'Ete_
-          8          'otSo_
-          9          nw'EBe_
 
 .group
           á          'a
@@ -202,4 +190,7 @@
         _)ñ (_       En^e
 
           .          punta
-          ,          koma
+          . (.       _:
+      \.) .
+
+          , (D       koma

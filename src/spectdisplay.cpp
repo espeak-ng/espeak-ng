@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -28,8 +28,8 @@
 #include "wx/numdlg.h"
 #include "wx/utils.h"
 
-
 #include <ctype.h>
+
 #include "main.h"
 #include "speech.h"
 #include "voice.h"
@@ -355,7 +355,7 @@ void SpectDisplay::OnZoom(int command)
 void SpectDisplay::Save(const wxString &path, int selection)
 {//=========================================================
 	wxString filename;
-	wxWindow *parent;
+	wxFrame *parent;
 	wxString msg;
 	wxString fname = _T("");
 	wxFileName f;
@@ -371,7 +371,6 @@ void SpectDisplay::Save(const wxString &path, int selection)
 	if(path.empty())
 	{
 		filename = wxFileSelector(msg,wxFileName(savepath).GetPath(),fname,_T(""),_T("*"),wxSAVE);
-//		filename = wxFileSelector(msg,path_spectsave,fname,_T(""),_T("*"),wxSAVE);
 	}
 	else
 		filename = path;
@@ -388,7 +387,7 @@ void SpectDisplay::Save(const wxString &path, int selection)
 	}
 	spectseq->Save(stream,selection);
 	savepath = filename;
-	if((parent = GetParent()) != NULL)
+	if((parent = (wxFrame *)GetParent()) != NULL)
 	{
 		f = wxFileName(filename);
 		parent->SetTitle(f.GetName());
@@ -399,7 +398,6 @@ void SpectDisplay::Save(const wxString &path, int selection)
 	if(path.empty())
 	{
 		wxFileName p(filename);
-		path_spectsave = p.GetPath();
 	}
 }  //  end of Save
 
@@ -961,7 +959,7 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	// Make another frame, containing a canvas
 	MyChild *subframe = new MyChild(myframe, _T("Spectrum"),
                                       wxPoint(10, 10), wxSize(300, 300),
-                                      wxDEFAULT_FRAME_STYLE |
+                                      wxDEFAULT_FRAME_STYLE | wxMAXIMIZE |
                                       wxNO_FULL_REPAINT_ON_RESIZE);
 
 	subframe->SetTitle(leaf);
@@ -993,7 +991,7 @@ void InitSpectrumDisplay()
 	menu_markers->Append(304,_T("4  Break. All formants"));
 	menu_markers->Append(305,_T("5  Allow greater rate of formant change"));
 	menu_markers->Append(306,_T("6  Trill"));
-	
+	menu_markers->Append(307,_T("7  Defer wav mixing"));
 
 	menu_spectdisplay->Append(201,_T("Copy Peaks Down	CTRL+D"));
 	menu_spectdisplay->Append(202,_T("Copy Peaks Up	SHIFT+CTRL+D"));

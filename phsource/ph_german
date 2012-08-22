@@ -8,7 +8,7 @@
 
 phoneme @   //  Schwa
   vowel starttype (@) endtype (@)
-  formants vowel/@
+  formants vowel/@_3
   unstressed
   before r/  vwl_de/3+50     // replace [@r] by [3]
   length 125
@@ -34,16 +34,16 @@ endphoneme
 phoneme E
   vowel starttype (e) endtype (e)
   length 140
-  formants vwl_de/E
-  before r/ vwl_de/r_E+120
+  formants vowel/ee
+  before r/ vwl_de/r_ee+120
 endphoneme
 
 
 phoneme E2    //  as[E] but reduces to @ if unstressed
   vowel starttype (e) endtype (e)
   length 140
-  formants vwl_de/E
-  before r/ vwl_de/r_E+120
+  formants vowel/ee_2
+  before r/ vwl_de/r_ee+120
   reduceto @  0
 endphoneme
 
@@ -51,22 +51,23 @@ endphoneme
 phoneme I
   vowel starttype (i) endtype (i)
   length 120
-  formants vwl_de/I
+  formants vowel/ii_2
   before r/ vwl_de/r_I+70
+  linkout ;
 endphoneme
 
 
 phoneme I:
   vowel starttype (i) endtype (i)
   length 190
-  formants vwl_de/I
+  formants vowel/ii_2
 endphoneme
 
 
 phoneme O
   vowel starttype (o) endtype (o)
   length 150
-  formants vwl_de/O
+  formants vowel/oo
   before r/ vwl_en_n/O@+60
 endphoneme
 
@@ -74,7 +75,7 @@ endphoneme
 phoneme U
   vowel starttype (u) endtype (u)
   length 150
-  formants vwl_de/U
+  formants vowel/uu_2
   before r/ vwl_de/r_U+70
 endphoneme
 
@@ -82,15 +83,15 @@ endphoneme
 phoneme A:
   vowel starttype (a) endtype (a)
   length 240
-  formants vwl_de/A:
+  formants vowel/aa_6
 endphoneme
 
 
 phoneme i:
   vowel starttype (i) endtype (i)
   length 180
-  formants vwl_de/i:
-  after w w/wi:
+  formants vowel/i_2
+  after w w/wi2
 endphoneme
 
 
@@ -98,42 +99,42 @@ phoneme u:
   vowel starttype (u) endtype (u)
   length 190
 //  formants vwl_de/u:
-  formants vowel/u:
+  formants vowel/u
 endphoneme
 
 
 phoneme aU
   vowel starttype (a) endtype (u)
   length 220
-  formants vwl_de/aU
+  formants vdiph/aau_2
 endphoneme
 
 
 phoneme aI
   vowel starttype (a) endtype (i)
   length 210
-  formants vwl_de/aI
+  formants vdiph/ai_5
 endphoneme
 
 
 phoneme OI
   vowel starttype (o) endtype (i)
   length 220
-  formants vowel/oI
+  formants vdiph/oi
 endphoneme
 
 
 phoneme E:
   vowel starttype (e) endtype (e)
   length 190
-  formants vowel/E:
+  formants vowel/ee_1
 endphoneme
 
 
 phoneme e:
   vowel starttype (e) endtype (e)
   length 200
-  formants vowel/e:
+  formants vowel/e
   before r/ vwl_de/r_e+80
 endphoneme
 
@@ -141,7 +142,7 @@ endphoneme
 phoneme o:
   vowel starttype (o) endtype (o)
   length 200
-  formants vowel/o:
+  formants vowel/o
 endphoneme
 
 
@@ -156,7 +157,7 @@ endphoneme
 phoneme y
   vowel starttype (u) endtype (u)
   length 150
-  formants vwl_de/y_lax
+  formants vowel/yy_4
   before r/ vwl_de/r_y+60
 endphoneme
 
@@ -164,14 +165,14 @@ endphoneme
 phoneme Y:
   vowel starttype (@) endtype (@)
   length 220
-  formants vowel/Y
+  formants vowel/y#
 endphoneme
 
 
 phoneme W
   vowel starttype (@) endtype (@)
   length 160
-  formants vwl_de/W
+  formants vowel/oe
 endphoneme
 
 
@@ -184,7 +185,7 @@ phoneme ts
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave unvoc/ts
+  wave ustop/ts
 endphoneme
 
 
@@ -192,7 +193,7 @@ phoneme pF
   vls blb afr
   vowelout f1=0  f2=1000 -500 -350  f3=-200 80
   lengthmod 2
-  wave unvoc/f    // could replace this with a [pf] wav file
+  wave ufric/f    // could replace this with a [pf] wav file
 endphoneme
 
 

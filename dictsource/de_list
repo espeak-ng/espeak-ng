@@ -1,18 +1,22 @@
 // This file is UTF-8 encoded
 // all words lower case
 
+// Uses of $alt:
+// 1.  Change ['i:] to [=I@] at end of word 
+
+
 // Letters
+//========
 // If a letter has a "word" pronunciation which is different from its
 // "letter" name, then include the letter name here, with the letter
 // prefixed by a _ character.
-
-
 
 _.	pUnkt
 _,	kOma
 
 
 // Numbers
+//========
 _0	'nUl
 _1	_'aIn
 _1a	_'aIns
@@ -34,84 +38,245 @@ _16	'zEktse:n
 _17	'zi:btse:n
 _18	'_axttse:n
 _19	'nOIntse:n
-_20	'tsvantsIC
-_30	'draItsIC
-_40	'fi:rtsIC
-_50	'fynftsIC
-_60	'zEktsIC
-_70	'zi:btsIC
-_80	'_axttsIC
-_90	'nOIntsIC
-_0H	'hUnd3t
-_0T1	'taUz@nt
-_1T1	'taUz@nt    // no '1' before thousand
-_0T2	||mIlI'o:n@n
-_1T2	_'aIn@||mIlI'o:n
-_0T3    ||mIlI'ard@n
-_1T3    _'aIn@||mIlI'ard@
-_0T4    bIlI'o:n
+_2X	'tsvantsIC
+_3X	'draItsIC
+_4X	'fi:rtsIC
+_5X	'fynftsIC
+_6X	'zEktsIC
+_7X	'zi:btsIC
+_8X	'_axttsIC
+_9X	'nOIntsIC
+_0C	'hUnd3t
+_0M1	'taUz@nt
+_1M1	'taUz@nt    // no '1' before thousand
+_0M2	||mIlI'o:n@n
+_1M2	_'aIn@||mIlI'o:n
+_0M3    ||mIlI'ard@n
+_1M3    _'aIn@||mIlI'ard@
+_0M4    bIlI'o:n
 _0and	||Unt
 _dpt	_kOma
 
-// abbreviations
-dm             d'OItSm,A:rk     $capital $only $abbrev
-dr             dOkt'o:r
-km             ki:lo:me:t3
-z.b            tsUmb'aISpi:l
+// Abbreviations
+//==============
+a.a.o    A:A:o:
+allg     'alg@maIn@n
+abb      'abb,IldUN
+anm      'anm,ErkUN
+bd       band
+bde      bEnd@
+bzw      b@tsi:hUNsvaIz@
+chr      krIstu:s
+dm       d'OItSm,A:rk     $capital $only $abbrev
+dr       dOkt'o:r
+evtl     e:vEntu:'El
+od       o:d3
+fr       fraU
+frl      frOIlaIn
+hr       hEr
+hrsg     hEr'aUsge:b3
+inkl     Inklu:s'i:v@
+km       ki:lo:me:t3
+nr       nUm3
+st       'Este:
+usf      %Untzo:f'Ort
+usw      %Untzo:v'aIt3   $pause
+vgl      fErgl'aIC@
+z.b      tsUmb'aISpi:l
 
 
+// English words 
+//==============
+// de_rules includes the words ending in "-ing"
+access		_^_EN
+account		_^_EN
+aid		_^_EN  // aids
+appeal		_^_EN
+apple		_^_EN
+baseball	_^_EN
+bbc		_^_EN
+beat		_^_EN
+browser         _^_EN
+byte		_^_EN
+camcorder	_^_EN
+chart		_^_EN
+coach		_^_EN
+coke		_^_EN
+computer	_^_EN
+cool		_^_EN
+couch		_^_EN
+cursor		_^_EN
+dj		_^_EN
+email		_^_EN
+ensemble	_^_FR
+event		_^_EN
+firewall	_^_EN
+foul		_^_EN
+foyer		_^_EN
+frame		_^_EN
+freak		_^_EN
+gin		_^_EN
+groupie		_^_EN
+hip		_^_EN
+homepage	_^_EN
+hooligan	_^_EN
+interface	_^_EN
+jean		_^_EN
+jet		_^_EN
+job		_^_EN
+joke		_^_EN
+joystick	_^_EN
+junkie		_^_EN
+laptop		_^_EN
+laser		_^_EN
+level		_^_EN
+login		_^_EN
+look		_^_EN
+macho		_^_EN
+mail		_^_EN
+message		_^_EN
+offline		_^_EN
+online		_^_EN
+out		_^_EN
+pair		_^_EN
+penthouse	_^_EN
+pidgin		_^_EN
+plot		_^_EN
+poster		_^_EN
+receiver	_^_EN
+remake		_^_EN
+roadie		_^_EN
+roastbeef	_^_EN
+quiz		_^_EN
+run             _^_EN
+scanner		_^_EN
+science		_^_EN
+server		_^_EN
+sex		_^_EN
+sexy		_^_EN
+shirt		_^_EN
+show		_^_EN
+single          _^_EN
+slip		_^_EN
+slum		_^_EN
+small		_^_EN
+snob		_^_EN
+song		_^_EN
+spam		_^_EN
+spirit          _^_EN
+squaw		_^_EN
+suite		_^_EN
+sweatshirt	_^_EN
+talk		_^_EN
+teaser		_^_EN
+tech		_^_EN
+terminal	_^_EN
+trip		_^_EN
+tuner		_^_EN
+unix		_^_EN
+window		_^_EN
+word		_^_EN
 
+
+// Main exceptions list
+//=====================
 allein           $2
 andre           andr@        // andere
+anomalie         $2
+akazie           $alt
+arie             $alt
+arterie          $alt
 außerdem        aUs3de:m
 
 beben           be:b@n
 beere           be:r@
+bestie          bEstI@
 best            bEst
 beten           be:t@n
+bronchie         $alt
 
+coup            ku:
+
+dahlie           $alt
 deshalb          $2
 dezember         $2
+duett           du:'Et
 
 direkt           $2
 dritte          drIt@
-einander         $2
+
+einander        aIn'and3
 einig           aInIC
+endivie          $alt
 erde            Erd@
 erst            Erst
-erste           Erst@
-ersten          Erst@n
-erstens         Erst@ns
-erster          Erst3
 
-familie         fam'i:lI@
+furie            $alt
 
 geben           ge:b@n
 geber           ge:b3
 gegenüber       ge:g@n'y:b3
+gemein          g@maIn
 genial          ge:nI'al
+geranie         ge:r'A:nI@
 gessen          gEs@n
 geste           gEst@
 gestern         gEst3n
 gestrig         gEstrIC
+glorie           $alt
+grazie           $alt
 
+handy           handI
+historie         $alt
 hm              h@m
+hostie           $alt
 
+immobilie        $alt
+injurie          $alt
 insbesondere     $3
 interess        Int@r'Es
 
+januar          janu:A:r
+
+kamelie          $alt
+kastanie         $alt
+kid             kId
 kommend         kOm'End
+komödie          $alt
+kurie            $alt
+
+lappalie         $alt
+lilie            $alt
+linie            $alt
+luetisch        lu:'e:tIS
 
 machen          max@n
+marginalie       $alt
+materie          $alt
+menuette        mEnu:'Et
+mikrofiche	maIkro:fIS
+miteinander      $1
 mitte           mIt@
+mumie            $alt
 
 oberen          o:b@r@n
+oboe            o:bo:@
+orgie            $alt
+ok              o:k'e:
 
+petersilie       $alt
+pinie            $alt
 präsident        $3
+prämie           $alt
 problem         prObl'e:m
+
+reliquie         $alt
+rupie            $alt
 
 sagt            zA:gt
 selbst          zElpst
+serie           se:rI;@
+service         sErvIs
 sofort           $2
 sogar            $2
 soweit           $2
@@ -121,6 +286,7 @@ system          z%IstEm
 tag             tA:g
 the             D@         // English
 theater         te:'A:t3
+tuerei          tu:raI
 
 unten           Unt@n
 
@@ -128,9 +294,10 @@ verein          fEr'aIn
 vielleicht       $2
 vorbei          fOrb'aI
 
-wahrscheinlich   $2
+//wahrscheinlich   $2
 warum           vA:r'Um
 
+zoom            zu:m
 zuerst          tsu:'Erst
 zudem           tsu:'de:m
 zurück           $2
@@ -144,65 +311,69 @@ den             %de:n
 dem             %de:m
 des             %dEz
 
-derselbe        dErz'Elb@
-desselbe        dEs:Elb@
-dieselbe        di:z'Elb@
+derselb          $2
+desselb         dEss'Elb
+dieselb          $2
+dasselb         dasz'Elb
+demselb          $2
+denselb          $2
 
 // conjunctions
-und             %Unt      $pause $strend
+und             Unt       $pause $u+
 aber            ,A:b3     $pause $strend
 oder            ,o:d3     $pause $strend
 sondern                   $pause
-denn            %dEn      $pause $strend
+denn            dEn       $pause $u+
 weil                      $pause $strend
-als                       $pause
+als                       $pause $u+
 bevor           be:f'o:r  $pause
 also                      $pause $strend
 wenn            ,vEn      $pause $strend
 sowie            $2       $pause
 
-deren           _,dEr@n
+deren           ,dEr@n    $brk
 
 // prepositions
-ab              %ap       $strend
-an              %an       $strend
-am              %am
-auf             %aUf      $brk $strend
+ab              ap        $u+ $brk
+an              an        $u+ $brk
+am              am        $brk
+auf             aUf       $u+ $brk
 aus             ,aUs      $brk $strend
-bei             %baI      $pause $strend $only
-bis             %bIs      $brk $strend
-da              $u        $strend
-durch           $u        $pause $strend
-für             fy:r      $brk $u $strend
-gegen           ,ge:g@n   $brk $strend
+bei             baI       $u+ $pause $only
+bis             bIs       $u+ $pause
+da                        $u+
+durch                     $u+ $pause
+für             fy:r      $u+ $pause
+gegen           ge:g@n    $u+ $pause
 gegend          ge:g@nt
 hin             hIn
-in              %In       $strend
+in              In        $u+ $brk
 (in die)        %Ind%i:
 (in den)        %Ind%e:n
 (in der)        %Ind%Er
-im              %Im
-ins             %Ins      $brk
-mit             %mIt      $pause $strend
-nach            %nax      $strend
-ob              ,Ob       $brk $strend $only
+im              Im        $u+ $brk
+ins             Ins       $u+ $brk
+mit             mIt       $u+ $pause
+nach            nax       $u+ $brk
+ob              ,Ob       $pause $strend $only
 pro             ,pro:     $pause
-von             %fOn      $brk $strend
+von             fOn       $u+ $brk
 (von dem)       %fOn%de:m $brk
-vom             %fOm      $brk
+vom             fOm       $u+ $brk
 vor             ,fOr      $strend
-zu              %tsu:     $strend
-zum             %tsUm
-zur             %tsu:r
-über            ,yb3      $brk $strend
-unter           ,Unt3     $brk $strend
-um              %Um       $brk $strend
-(um die)        %Umd%i:
-(um den)        %Umd%e:m
+zu              tsu:      $u+ $brk
+zum             tsUm      $u+ $brk
+zur             tsu:r     $u+ $brk
+über            ,yb3      $pause $strend
+unter           ,Unt3     $pause $strend
+um              Um        $u+ $brk
+(um die)        %Umd%i:   $brk
+(um den)        %Umd%e:m  $brk
+während         $pause
 
 // misc
-so              %zo:      $strend
-doch            %dOx      $strend
+so              zo:       $u+
+doch            dOx       $u+
 noch             $pause
 (noch nicht)    n'Ox||n,ICt  $brk
 (nicht mehr)    n'ICt||,mEr
@@ -250,27 +421,27 @@ sich            %zIC   $only
 (es ist)        %Ez%Ist
 
 
-daß             %das      $strend
-dass            %das      $strend
+daß             das      $u+
+dass            das      $u+
 
-ein             aIn       $u $strend
+ein             aIn      $u+
 eine            ,aIn@
 einem           ,aIn@m
 einen           ,aIn@n
 einer           ,aIn3
 eines           ,aIn@s
 
-//kein            $u $strend
-//keine           $u $strend
+//kein            $u+
+//keine           $u+
 
-mein            $u $strend
-meine           $u $strend
+mein            $u+
+meine           $u+
 
-dein            $u $strend
-deine           $u $strend
+dein            $u+
+deine           $u+
 
 sein            $u            // can also be verb "to be"
-seine           $u $strend
+seine           $u+
 
 unsre           ,Unzr@
 unsere          ,Unzr@
@@ -296,6 +467,7 @@ dann            $u
 etwa            $u
 ganz            g,ants  $only
 je              $u
+nur             $brk
 
 // verbs
 

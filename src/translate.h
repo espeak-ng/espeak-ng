@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,12 +18,15 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#define L(c1,c2)  (c1<<8)+c2          // combine two characters into an integer for translator name 
+
 #define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
 #define REPLACED_E       'E'          // 'e' replaced by silent e
 
-#define N_WORD_PHONEMES  150          // max phonemes in a word
+#define N_WORD_PHONEMES  160          // max phonemes in a word
+#define N_WORD_BYTES     160          // max bytes for the UTF8 characters in a word
 #define N_CLAUSE_WORDS   256          // max words in a clause
-#define N_CHAINS2        120          // max num of two-letter rule chains
+#define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        19
 
@@ -33,6 +36,7 @@
 #define FLAG_PREPAUSE        0x100
 #define FLAG_ONLY            0x200
 #define BITNUM_FLAG_ONLY         9  // bit 9 is set
+#define BITNUM_FLAG_ONLY_S      10  // bit 10 is set
 #define FLAG_ONLY_S          0x400
 #define FLAG_STRESS_END      0x800  /* full stress if at end of clause */
 #define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
@@ -45,8 +49,8 @@
 #define FLAG_STEM          0x40000  // must have a suffix
 
 #define FLAG_DOUBLING      0x80000  // doubles the following consonant
-#define FLAG_XX2          0x100000  // language specific
-#define FLAG_XX3          0x200000
+#define FLAG_ALT_TRANS    0x100000  // language specific
+#define FLAG_ALT2_TRANS   0x200000  // language specific
 
 #define FLAG_VERBF        0x400000  /* verb follows */
 #define FLAG_VERBSF       0x800000  /* verb follows, may have -s suffix */
@@ -69,8 +73,9 @@
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
 #define FLAG_HYPHEN        0x80
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
+#define FLAG_SUFFIX_REMOVED  0x2000
 
-// prefix/suffix flags
+// prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added
 #define SUFX_I        0x0200   // y may have been changed to i
 #define SUFX_P        0x0400   // prefix
@@ -78,6 +83,7 @@
 #define SUFX_D        0x1000   // previous letter may have been doubles
 #define SUFX_F        0x2000   // verb follows
 #define SUFX_Q        0x4000   // don't retranslate
+#define SUFX_T        0x10000   // don't affect the stress position in the stem
 
 #define FLAG_SUFX       0x04
 #define FLAG_SUFX_S     0x08
@@ -109,8 +115,10 @@
 #define RULE_LETTER5    21   // F spare
 #define RULE_LETTER6		22   // G spare
 #define RULE_LETTER7    23   // Y spare
-#define RULE_NO_SUFFIX  24
-#define RULE_NOTVOWEL   25
+#define RULE_NO_SUFFIX  24   // N
+#define RULE_NOTVOWEL   25   // K
+#define RULE_IFVERB     26   // V
+
 
 // Punctuation types  returned by ReadClause()
 // bits 0-7 pause x 10mS, bits 8-11 intonation type,
@@ -175,7 +183,6 @@ typedef struct {
 } PHONEME_LIST2;
 
 
-#define N_SPEECH_PARAM  8
 typedef struct {
 	int type;
 	int parameter[N_SPEECH_PARAM];
@@ -186,9 +193,9 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      11
+#define N_LOPTS      12
 #define LOPT_DIERESES        1
- // 1=remove [:] from unstressed syllables
+ // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
 #define LOPT_IT_LENGTHEN        2
  // 1=german
 #define LOPT_PREFIXES        3
@@ -196,8 +203,8 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_REGRESSIVE_VOICING  4
  // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE  5
- // 0=default, 1=set length_mod0 = length_mod
-#define LOPT_FINAL_SYLLABLE  6
+ // select length_mods tables,  (length_mod_tab) + (length_mod_tab0 * 100)
+#define LOPT_LENGTH_MODS    6
  // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
 #define LOPT_SONORANT_MIN    7
  // Italian "syntactic doubling"
@@ -207,18 +214,26 @@ extern const int param_defaults[N_SPEECH_PARAM];
  // don't reduce the strongest vowel in a word which is marked 'unstressed'
 #define LOPT_KEEP_UNSTR_VOWEL  10
 
+
 typedef struct {
-	int word_gap; // 0,  2=don't merge phonemes,  3= pause before stops and fricatives, 4= PAUSE_SHORT between words
+// bit0=don't link consonants with the next word
+// bit1=don't add linking phonemes
+// bit2=length of a final vowel doesn't depend on the next phoneme
+// bit4=longer pause before STOP, VSTOP,FRIC
+// bit8-11=separate words with adjacent stressed syllables with (1=pause, 2=long pausem 3=[?] phoneme)
+	int word_gap;
 	int vowel_pause;
 	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
 
 // bit0=don't stress monosyllables,
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
-// bit3=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
 // bit4=don't allow secondary stress on last syllable
 // bit5-don't use automatic secondary stress
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
+// bit8=stress last syllable if it doesn't end in a vowel
+// bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
+
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
@@ -235,19 +250,24 @@ typedef struct {
    // bit8=only one primary stress in tens+units
 	// bit9=only one vowel betwen tens and units
 	// bit10=omit "one" before "hundred"
+	// bit11=don't say 19** as nineteen hundred
 	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
 	// bit13=(LANG=it) speak post-decimal-point digits as a combined number not as single digits
 	// bit16=dot after number indicates ordinal
+	// bit17=use feminine form of 2 before thousands and millions LANG=ro
 	int numbers;
 	int thousands_sep;
 	int decimal_sep;
-	int intonation;    // 1=tone language
-	int long_stop;     // extra mS pause for a lengthened stop
-	int phoneme_change;  // TEST, change phonemes, after translation
+	int intonation;          // 1=tone language
+	int long_stop;          // extra mS pause for a lengthened stop
+	int phoneme_change;     // TEST, change phonemes, after translation
 	char max_initial_consonants;
 	char spelling_stress;   // 0=default, 1=stress first letter
-	int testing;   // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
+	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
+	const wchar_t *replace_chars;   // characters to be substitutes
+	const wchar_t *replacement_chars;  // substitutes for replace_chars
 } LANGUAGE_OPTIONS;
+
 
 
 #define NUM_SEP_DOT    0x0008    // . , for thousands and decimal separator
@@ -260,13 +280,13 @@ public:
 	Translator();
 	virtual ~Translator();
 	void *TranslateClause(FILE *f_text, const void *vp_input, int *tone, char **voice_change);
-	int TranslateWord(char *word, int next_pause, int wflags, int wmark);
-	int LoadDictionary(const char *name);
-	void SetLetterBits(int group, const char *string);
+	int TranslateWord(char *word, int next_pause, WORD_TAB *wtab);
+	int LoadDictionary(const char *name, int no_error);
 	virtual void CalcLengths();
 	virtual void CalcPitches(int clause_tone);
 	
 	LANGUAGE_OPTIONS langopts;
+	int translator_name;
 	int transpose_offset;
 	int transpose_max;
 	int transpose_min;
@@ -286,9 +306,14 @@ public:
 #define LETTERGP_VOWEL2   7
 	unsigned char letter_bits[256];
 	int letter_bits_offset;
+	wchar_t *letter_type_list[8];
+
+	/* index1=option, index2 by 0=. 1=, 2=?, 3=! 4=none */
+	unsigned char punct_to_tone[4][5];
+
 
 private:
-	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int len, int wmark);
+	int TranslateWord2(char *word, WORD_TAB *wtab, int pre_pause, int next_pause);
 	int TranslateLetter(char *letter, char *phonemes, int control);
 	void SetSpellingStress(char *phonemes, int control);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
@@ -303,7 +328,6 @@ private:
 	const char *LookupSpecial(char *string);
 	const char *LookupCharName(int c);
 	int LookupNum2(int value, int control, char *ph_out);
-	int LookupNum3(int value, int suppress_null, int thousandplex, char *ph_out);
 	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
 	int LookupThousands(int value, int thousandplex, char *ph_out);
    int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
@@ -312,7 +336,8 @@ private:
 	void AppendPhonemes(char *string, const char *ph);
 	char *DecodeRule(const char *group, char *rule);
 	void MatchRule(char *word[], const char *group, char *rule, MatchRecord *match_out, int end_flags);
-	int TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags);
+	int TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags, int dict_flags);
+	void ApplySpecialAttribute(char *phonemes, int dict_flags);
 
 	int IsLetter(int letter, int group);
 
@@ -321,7 +346,7 @@ private:
 protected:
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
-	virtual int RemoveEnding(char *word, int end_type);
+	virtual int RemoveEnding(char *word, int end_type, char *word_copy);
 	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
    virtual int TranslateNumber(char *word1, char *ph_out, unsigned int *flags, int wflags);
 	virtual int ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags);
@@ -338,14 +363,13 @@ protected:
 	// the two-letter rules for each letter must be consecutive in the language_rules source
 	
 	char *groups1[256];         // translation rule lists, index by single letter
-	char *groups2[N_CHAINS2];   // translation rule lists, indexed by two-letter pairs
-	unsigned int groups2_name[N_CHAINS2];  // the two letter pairs for groups2[]
+	char *groups2[N_RULE_GROUP2];   // translation rule lists, indexed by two-letter pairs
+	unsigned int groups2_name[N_RULE_GROUP2];  // the two letter pairs for groups2[]
 	int n_groups2;              // number of groups2[] entries used
 	
 	unsigned char groups2_count[256];    // number of 2 letter groups for this initial letter
 	unsigned char groups2_start[256];    // index into groups2
 	
-
 	int n_ph_list2;
 	PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
 
@@ -405,8 +429,6 @@ extern char skip_marker[N_MARKER_LENGTH];
 #define N_PUNCTLIST  60
 extern wchar_t option_punctlist[N_PUNCTLIST];
 
-#define espeakSILENCE   0
-#define espeakEMPHASIS  7
 extern int speech_parameters[];
 
 extern Translator *translator;
@@ -417,6 +439,7 @@ extern char *p_textinput;
 extern wchar_t *p_wchar_input;
 extern int ungot_char;
 extern int (* uri_callback)(int, const char *, const char *);
+extern void SetLengthMods(Translator *tr, int value);
 
 Translator *SelectTranslator(const char *name);
 int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *err_name);
@@ -430,7 +453,13 @@ int lookupwchar(const short *list,int c);
 int Eof(void);
 char *strchr_w(const char *s, int c);
 int IsBracket(int c);
-void InitText(void);
+void SetLetterBits(Translator *tr, int group, const char *string);
+void SetLetterBitsRange(Translator *tr, int group, int first, int last);
+void InitNamedata(void);
+void InitText(int flags);
 void InitText2(void);
+int IsDigit(unsigned int c);
+int IsAlpha(unsigned int c);
+int isspace2(unsigned int c);
 
 extern FILE *f_trans;		// for logging

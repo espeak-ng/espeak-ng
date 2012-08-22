@@ -1,74 +1,67 @@
-19 phoneme tables
+25 phoneme tables
           new total
-    base  78   78
-      en  53  125
-    en_n  33  125
-   en_rp  33  125
-   en_wm  33  125
-      af  33  106
-      cy  30  104
-      de  27  101
-      eo  16   91
-      fi  39  109
-      fr  28   98
-      nl  25   99
-      pl  19   91
-      ru  30  101
-      it  26   97
-      es   4   97
-      pt  23  111
-      el   6   97
-     qaa   6  129
+    base  82   82
+      en  52  129
+    en_n  33  129
+   en_rp  33  129
+   en_wm  33  129
+      af  34  110
+      cy  30  108
+      de  27  105
+      eo  16   95
+      fi  40  113
+      fr  31  105
+   fr_ca  11  106
+      nl  25  103
+      pl  17   93
+      ru  30  103
+      it  27  101
+      es   7  101
+      pt  22  114
+      ro  36  127
+      el   6  101
+      sv  25  103
+      no  29  108
+      vi  39  118
+      hi  40  109
+     qaa   6  133
 
-  1  N/N@           base
-  2  N/N_           base en
-  1  N/Na           base
-  1  N/Ne           base
-  1  N/Ni           base
-  1  N/No           base
-  1  N/Nu           base
-  2  N/_N           base en
-  1  N/iN           base
-  1  b/b            base
-  1  b/b@           base
-  1  b/b@2          base
-  1  b/b_           base
-  1  b/ba           base
-  1  b/be           base
-  1  b/bi           base
-  1  b/bo           base
-  1  b/bu           base
-  1  b/xb           base
- 10  d/d            base fi fr pl ru it el
-  2  d/d*           base
-  2  d/d*i          base
- 10  d/d_           base fi fr pl ru it el
- 11  d/dr           base fi fr pl ru it el
-  8  d/xd           base fi fr pl ru it el
+  3  b/b            base ro hi
+  2  b/b_           base hi
+  2  b/b@           base hi
+  2  b/b@2          base hi
+  2  b/ba           base hi
+  2  b/be           base hi
+  3  b/bi           base ro hi
+  2  b/bo           base hi
+  2  b/bu           base hi
+  2  b/xb           base hi
+ 13  d/d            base fi fr pl ru it ro el hi
+ 13  d/d_           base fi fr pl ru it ro el hi
+ 14  d/dr           base fi fr pl ru it ro el hi
+  3  d/tap          base ro
+  3  d/tap_i        base ro
+ 11  d/xd           base fi fr pl ru it ro el hi
   2  d/xd_pzd       pl ru
-  3  dZ/dZ          base pl ru
-  3  dZ/dZ_         base pl ru
-  3  dZ/xdZ         base pl ru
+  4  dzh/dzh        base ru hi
+  4  dzh/dzh_       base ru hi
+  4  dzh/xdzh       base ru hi
   1  envelope/p_211 qaa
   1  envelope/p_214 qaa
-  1  envelope/p_fall qaa
-  1  envelope/p_level qaa
-  1  envelope/p_rise qaa
-  3  g/g            base cy es
-  3  g/g_           base cy es
-  3  g/xg           base cy es
+  3  envelope/p_fall vi qaa
+  1  envelope/p_fallrise vi
+  2  envelope/p_level vi qaa
+  2  envelope/p_rise vi qaa
+  1  envelope/vi_5  vi
+  1  envelope/vi_5amp vi
+  1  envelope/vi_6  vi
+  1  envelope/vi_6amp vi
   1  g2/g           base
   1  g2/g_          base
-  1  g2/xg          base
-  1  j/_L           base
-  1  j/j@           base
-  1  j/j_           base
-  1  j/ja           base
-  1  j/je           base
-  1  j/ji           base
-  1  j/jo           base
-  1  j/ju           base
-  6  j/xj           base
+  2  g2/xg          base hi
+  4  g/g            base cy es hi
+  4  g/g_           base cy es hi
+  3  g/xg           base cy es
   1  j2/_j2         base
   1  j2/j2@         base
   1  j2/j2a         base
@@ -77,78 +70,85 @@
   1  j2/j2o         base
   1  j2/j2u         base
   1  j2/xj2         base
-  1  l/L1_@L        base
-  1  l/L1_aL        base
-  1  l/L1_eL        base
-  1  l/L1_iL        base
-  1  l/L1_oL        base
-  1  l/L1_uL        base
-  1  l/L2_@L        base
-  1  l/L2_aL        base
-  1  l/L2_eL        base
-  1  l/L2_iL        base
-  1  l/L2_oL        base
-  4  l/L2_uL        base en en_n en_rp
-  1  l/L_eL_af      af
-  5  l/_l           base en af ru pt
-  5  l/l            base en af ru pt
-  2  l/l@           base
-  4  l/l_           en af ru pt
-  1  l/l_long       base
-  2  l/la           base
-  2  l/le           base
-  2  l/li           base
-  2  l/lo           base
-  2  l/lu           base
-  5  l/tl           base en af ru pt
-  6  l/xl           base
-  1  l^/_l^         base
+  1  j/_j           base
+  1  j/j_           base
+  1  j/j@           base
+  1  j/ja           base
+  1  j/je           base
+  1  j/ji           base
+  1  j/jo           base
+  1  j/ju           base
+  6  j/xj           base
   1  l^/j2@         base
   1  l^/j2a         base
   1  l^/j2e         base
   1  l^/j2i         base
   1  l^/j2o         base
   1  l^/j2u         base
+  1  l^/_l^         base
   1  l^/l^          base
-  1  m/_m           base
+  6  l/l            base en af ru pt ro
+  7  l/_l           base en af ru pt ro
+  1  l/l_           base
+  2  l/l@           base
+  1  l/L1_aL        base
+  1  l/L1_eL        base
+  1  l/L1_iL        base
+  1  l/L1_@L        base
+  1  l/L1_oL        base
+  1  l/L1_uL        base
+  4  l/l_2          en af ru pt
+  1  l/L2_aL        base
+  1  l/L2_eL        base
+  1  l/L2_iL        base
+  1  l/L2_@L        base
+  1  l/L2_oL        base
+  4  l/L2_uL        base en en_n en_rp
+  2  l/la           base
+  2  l/le           base
+  1  l/L_eL_af      af
+  2  l/li           base
+  2  l/l_long       base ro
+  2  l/lo           base
+  2  l/lu           base
+  6  l/tl           base en af ru pt ro
+  6  l/xl           base
+  2  m/_m           base ro
+  2  m/m_           base ro
   1  m/m@           base
-  1  m/m_           base
   1  m/ma           base
   1  m/me           base
   1  m/mi           base
-  1  m/mj           base
+  2  m/mj           base ro
   1  m/mo           base
   1  m/mu           base
-  2  n/_n           base
-  1  n/n@           base
-  1  n/n_           base
-  1  n/na           base
-  1  n/ne           base
-  1  n/ni           base
-  2  n/nj           base
-  1  n/no           base
-  1  n/nu           base
   1  n^/_n^         base
-  1  n^/n^@         base
   1  n^/n^_         base
+  1  n^/n^@         base
+  4  n/_n           base ro
+  2  n/n_           base ro
+  1  n/n@           base
   1  n^/n^a         base
+  1  n/na           base
   1  n^/n^e         base
+  1  n/ne           base
   1  n^/n^i         base
+  1  n/ni           base
+  1  nn/inn         base
+  3  n/nj           base ro
+  2  nn/_nn         base en
+  2  nn/nn_         base en
+  1  nn/nn@         base
+  1  nn/nna         base
+  1  nn/nne         base
+  1  nn/nni         base
+  1  nn/nnj         base
+  1  nn/nno         base
+  1  nn/nnu         base
   1  n^/n^o         base
+  1  n/no           base
   1  n^/n^u         base
-  3  r/_r           base fr it
-  4  r/r            base fr it
-  1  r/r@           base
- 14  r/r_           base af cy de eo fi fr nl pl ru it es
-  1  r/ra           base
-  1  r/re           base
-  1  r/ri           base
-  1  r/ro           base
- 30  r/rr           base af cy de eo fi fr nl pl ru it es
-  1  r/ru           base
-  9  r/tr           base fr it
- 57  r/trr          base af cy de eo fi fr nl pl ru it es
- 11  r/xr           base
+  1  n/nu           base
   1  r2/_r2         base
   1  r2/r2@         base
   1  r2/r2a         base
@@ -156,280 +156,350 @@
   1  r2/r2i         base
   1  r2/r2o         base
   1  r2/r2u         base
-  2  r3/@*          base
-  2  r3/@*i         base
   8  r3/r_          base af cy eo fr pl ru it
   1  r3/r_@         base
-  1  r3/r_A         base
-  1  r3/r_E2        base
-  1  r3/r_I         base
-  1  r3/r_O         base
+  1  r3/r_a         base
+  1  r3/r_e         base
+  1  r3/r_i         base
   7  r3/r_n         base cy eo fr pl ru it
+  1  r3/r_o         base
   1  r3/r_u         base
- 23  r3/rx          base af cy eo fr pl ru it
-  1  unvoc/C        base
-  1  unvoc/S        base
-  1  unvoc/S_       base
-  1  unvoc/T        base
-  1  unvoc/T_       base
-  2  unvoc/f        base de
-  1  unvoc/f_       base
-  1  unvoc/h@       base
-  1  unvoc/h_       base
-  1  unvoc/ha       base
-  1  unvoc/he       base
-  1  unvoc/hi       base
-  1  unvoc/ho       base
-  1  unvoc/hu       base
-  6  unvoc/k        base en fi fr it el
-  8  unvoc/k_       base en fi fr it el
-  1  unvoc/k_unasp  fi
- 12  unvoc/ki       base en fi fr it el
-  7  unvoc/kl       base en fi fr it el
-  7  unvoc/kr       base en fi fr it el
-  1  unvoc/ll       base
-  2  unvoc/p        base fi
-  3  unvoc/p_       base fi
-  1  unvoc/p_unasp  fi
-  1  unvoc/percus10 base
-  3  unvoc/pl       base fi
-  3  unvoc/pr       base fi
-  1  unvoc/s        base
-  3  unvoc/s!       base
-  5  unvoc/s_       base fr
-  1  unvoc/s_pzd    base
-  3  unvoc/s_pzd_   base
-  2  unvoc/t        base el
-  1  unvoc/tS       base
-  1  unvoc/tS_      base
-  5  unvoc/t_       base fi it el
- 11  unvoc/t_dnt    base fi fr pl ru it
-  4  unvoc/t_pzd    pl ru
-  9  unvoc/tr       base fi fr pl ru it el
-  5  unvoc/ts       de eo pl ru it
-  4  unvoc/ts_pzd   pl ru
-  1  unvoc/x        base
-  4  unvoc/xx       af nl pt
-  1  voc/B          base
-  1  voc/D          base
-  1  voc/D_         base
+ 28  r3/rx          base af cy eo fr fr_ca pl ru it ro
+  2  r3/@tap        base
+  2  r3/@tap_i      base
+  4  r/r            base fr it
+  3  r/_r           base fr it
+ 16  r/r_           base af cy de eo fi fr nl pl ru it es ++
+  1  r/r@           base
+  1  r/ra           base
+  1  r/re           base
+  1  r/ri           base
+  1  r/ro           base
+ 33  r/rr           base af cy de eo fi nl pl ru it es ro ++
+  1  r/ru           base
+  9  r/tr           base fr it
+ 60  r/trr          base af cy de eo fi nl pl ru it es ro ++
+ 11  r/xr           base
+  1  ufric/ch       base
+  3  ufric/f        base de ro
+  2  ufric/f_       base ro
+  4  ufric/h_       base fi hi
+  5  ufric/h@       base fi hi
+  4  ufric/ha       base fi hi
+  4  ufric/he       base fi hi
+  4  ufric/hi       base fi hi
+  3  ufric/ho       base hi
+  3  ufric/hu       base hi
+  2  ufric/hu_fi    fi
+  1  ufric/ll       base
+  3  ufric/s        base es ro
+  9  ufric/s_       base fi fr es ro
+  9  ufric/s!       base fi es
+  1  ufric/s_continue fi
+  2  ufric/sh       base ro
+  1  ufric/sh_      base
+  2  ufric/s_pzd    base sv
+  4  ufric/s_pzd_   base sv
+  1  ufric/sx_sv    sv
+  1  ufric/th       base
+  1  ufric/th_      base
+  1  ufric/x        base
+  4  ufric/x2       af nl pt
+  2  ustop/c        base
+  5  ustop/k        base en fr el hi
+  7  ustop/k_       base en fi fr it el hi
+ 11  ustop/ki       base en af fi fr it el hi
+  8  ustop/kl       base en fi fr it el hi
+  8  ustop/kr       base en fi fr it el hi
+  6  ustop/k_unasp  base fi it hi
+  2  ustop/p        base hi
+  2  ustop/p_       base hi
+  1  ustop/percus10 base
+  6  ustop/pl       base fi it ro hi
+  6  ustop/pr       base fi it ro hi
+  4  ustop/p_unasp  fi it ro hi
+  4  ustop/p_unasp_ fi it ro hi
+  3  ustop/t        base el hi
+  8  ustop/t_       base fi it ro el hi
+ 15  ustop/t_dnt    base fi fr pl ru it ro hi
+  4  ustop/t_pzd    pl ru
+ 13  ustop/tr       base fi fr pl ru it ro el hi
+  6  ustop/ts       de eo pl ru it ro
+  1  ustop/tsh      base
+  1  ustop/tsh_     base
+  1  ustop/t_short  hi
+  8  ustop/ts_pzd   base ru hi
+  2  vdiph/0i       pt vi
+  1  vdiph/0i_2     no
+  1  vdiph2/ea      ro
+  1  vdiph2/eo      ro
+  1  vdiph2/e[u     ro
+  2  vdiph2/i@      en_n
+  1  vdiph2/ie      fi
+  1  vdiph2/ii@     en
+  4  vdiph2/ii@_2   en en_wm vi
+  2  vdiph2/iu      it vi
+  1  vdiph2/iu_2    fi
+  1  vdiph2/iu_3    af
+  2  vdiph2/iu_4    cy
+  1  vdiph2/iy      fi
+  1  vdiph2/o@      af
+  1  vdiph2/oa      ro
+  1  vdiph2/u-@     vi
+  1  vdiph2/uo      fi
+  4  vdiph2/uu@     en en_n en_wm vi
+  1  vdiph2/y#@     af
+  1  vdiph2/yu      nl
+  1  vdiph2/y-y#    fi
+  3  vdiph/aai_2    af cy fi
+  1  vdiph/aaoo     hi
+  1  vdiph/aau      fi
+  1  vdiph/aau_2    de
+  1  vdiph/aau_3    hi
+  1  vdiph/ae       fr_ca
+  1  vdiph/ae_2     en_n
+  5  vdiph/ai       eo it pt vi
+  2  vdiph/ai_2     cy
+  1  vdiph/ai_3     no
+  1  vdiph/ai_4     af
+  1  vdiph/ai_5     de
+  1  vdiph/ai_6     en_rp
+  1  vdiph/ai_en    en
+  7  vdiph/au       en af cy eo it vi
+  1  vdiph/au_3     en_rp
+  1  vdiph/ee-e     hi
+  4  vdiph/eei      en eo pt vi
+  1  vdiph/eei_2    fi
+  1  vdiph/eei_3    en_rp
+  2  vdiph/eeu      pt vi
+  2  vdiph/eeu_3    en_n en_wm
+  1  vdiph/eey      fi
+  4  vdiph/ei       nl it pt vi
+  7  vdiph/eu       en cy eo nl it pt vi
+  1  vdiph/eu_2     fi
+  2  vdiph/@i       vi
+  2  vdiph/&i       fi nl
+  4  vdiph/@i_2     af cy hi
+  1  vdiph/i@_2     af
+  2  vdiph/@i_3     en_wm ro
+  1  vdiph/ii       ro
+  1  vdiph/i#i      ro
+  4  vdiph/oi       en_wm de it vi
+  1  vdiph/oi_2     af
+  8  vdiph/ooi      en en_n en_rp cy eo fi no
+  1  vdiph/ooi_2    af
+  1  vdiph/ooi_3    en_wm
+  2  vdiph/ou       fi nl
+  1  vdiph/ou_2     ro
+  1  vdiph/@u       en_wm
+  1  vdiph/@u_2     en_rp
+  4  vdiph/@u_en    en ro vi
+  5  vdiph/ui       en eo fi it vi
+  1  vdiph/u-i      vi
+  1  vdiph/ui_2     af
+  2  vdiph/ui_3     cy
+  2  vdiph/Vu       af nl
+  1  vdiph/Vu_2     en_wm
+  2  vdiph/&y       fi nl
+  2  vdiph/yi       fi no
+  1  vdiph/y#i      fi
+  1  vdiph/yi_fr    fr
+  2  vdiph/y#y      fi nl
+  1  vdiph/y#y_2    af
+  2  vnasal/aa_n    en fr
+  2  vnasal/ee_n    en fr_ca
+  1  vnasal/ee_n2   pl
+  1  vnasal/e_n     pt
+  1  vnasal/i_n     pt
+  1  vnasal/&_n     pt
+  1  vnasal/oi_n    pt
+  1  vnasal/o_n     pt
+  2  vnasal/oo_n    en fr
+  1  vnasal/oo_n2   pl
+  1  vnasal/&u_n    pt
+  1  vnasal/u_n     pt
+  3  vnasal/W_n     en fr
+  1  voc/bh         base
+  2  voc/dh         base es
+  2  voc/dh_        base es
   2  voc/Q          base
   3  voc/Q_         base pt
   1  voc/Q_less     pt
-  1  voc/Z          base
-  1  voc/Z_         base
-  3  voc/v          base fi nl
-  4  voc/v_         base fi nl
-  2  voc/z          base fr
-  2  voc/z_         base fr
-  1  voc/z_pzd      base
-  1  voc/z_pzd_     base
-  2  vocw/D         base
+  5  voc/v          base fi nl ro hi
+  6  voc/v_         base fi nl ro hi
+  4  vocw/dh        base es
   2  vocw/Q         base
   2  vocw/Q_        base
-  2  vocw/Z         base
-  4  vocw/v         base
-  3  vowel/&        en_rp fi ru
-  4  vowel/0        en fr it pt
-  1  vowel/0I       pt
-  1  vowel/8        ru
- 17  vowel/@        base en en_n en_rp en_wm cy de fr nl ru
+  6  vocw/v         base ro
+  4  vocw/zh        base ro
+  3  voc/z          base fr ro
+  3  voc/z_         base fr ro
+  2  voc/zh         base ro
+  2  voc/zh_        base ro
+  1  voc/z_pzd      base
+  1  voc/z_pzd_     base
+ 15  vowel/@        base en en_n en_rp en_wm cy nl ru
   1  vowel/@-       base
-  3  vowel/A:       cy nl ru
-  2  vowel/A_n      en fr
-  2  vowel/E        cy fr
-  7  vowel/E:       en en_n de pl ru it
-  3  vowel/EI       en eo pt
-  1  vowel/EU       pt
-  3  vowel/E_mid    ru es el
-  2  vowel/E_n      en fr
-  7  vowel/I        en en_n en_wm cy
-  3  vowel/I"       cy pl ru
-  1  vowel/O        cy
-  9  vowel/O:       en_n en_rp en_wm af eo fi ru el
-  7  vowel/OI       en en_n en_rp cy eo fi
-  2  vowel/O_n      en fr
-  5  vowel/U        en en_n en_wm cy ru
-  1  vowel/V        en
-  1  vowel/W        en
-  2  vowel/W_n      en fr
-  5  vowel/Y        en en_wm de fi fr
-  8  vowel/a        en_n cy de fr nl pl ru
-  2  vowel/aI       cy
-  5  vowel/aU       en af cy eo it
- 11  vowel/e:       en en_n af cy de eo fi fr ru it pt
-  3  vowel/eI       nl it pt
-  6  vowel/eU       en cy eo nl it pt
-  3  vowel/i"       en cy ru
- 10  vowel/i:       en_n en_rp en_wm cy eo fr pl ru it pt
-  1  vowel/iU       it
+  5  vowel/&        en_rp fi ru sv hi
+  6  vowel/0        en fr it pt vi hi
+  2  vowel/0_2      en_n en_wm
+  1  vowel/0_3      en_rp
+  1  vowel/@_2      fr
+  1  vowel/@_3      de
+  1  vowel/3_2      en_n
+  1  vowel/3_3      en_rp
+  4  vowel/3_en     en en_wm af vi
+  1  vowel/8        ru
+  1  vowel/8_2      sv
+  7  vowel/a        en_n cy de nl pl ru
+  4  vowel/a#       eo it pt
+  5  vowel/a_2      eo it ro vi
+  4  vowel/a#_3     en en_n en_wm vi
+  2  vowel/a_4      en_wm
+  1  vowel/a_5      sv
+  4  vowel/aa       fi fr_ca no
+  1  vowel/aa#      fi
+  4  vowel/aa_2     en cy nl ru
+  1  vowel/aa_3     af
+  1  vowel/aa_4     sv
+  1  vowel/aa_5     en_n
+  1  vowel/aa_6     de
+  4  vowel/a_en     en fr
+  1  vowel/@_bck    hi
+ 12  vowel/e        en en_n af cy de eo fr ru it pt vi
+  2  vowel/e_2      sv no
+  2  vowel/e_3      hi
+  5  vowel/ee       de fr nl pl sv
+  9  vowel/ee_1     en en_n de pl ru it sv no
+  4  vowel/ee_2     en cy de nl
+  1  vowel/ee#_2    sv
+  3  vowel/ee_3     af pt vi
+  2  vowel/ee_6     en_n sv
+  8  vowel/e_mid    en_rp en_wm fr_ca ru es el no hi
+  3  vowel/e_mid2   af fi ro
+  1  vowel/@_hgh    no
+ 13  vowel/i        en_n en_rp en_wm cy eo fr pl ru it pt ro no
+  3  vowel/i#       en cy ru
+  3  vowel/i_2      de nl sv
+  1  vowel/i_3      af
+  1  vowel/i_4      fi
+  1  vowel/i#_4     ro
+  2  vowel/i_en     en vi
+  1  vowel/i_fnt    hi
+  4  vowel/ii       en_wm cy fr_ca
+  3  vowel/ii#      cy pl ru
+  4  vowel/ii_2     de nl ru
+  3  vowel/ii_3     fi sv no
+  2  vowel/ii_4     en_rp
+  6  vowel/ii_en    en en_n
+  2  vowel/@_low    ro no
+  9  vowel/o        en en_wm de fr it sv vi hi
   1  vowel/o-       en
-  7  vowel/o:       en en_wm cy de fr it
-  3  vowel/oI       en_wm de it
-  1  vowel/u-       en
-  2  vowel/u:       cy de
-  4  vowel/uI       en eo fi it
-  7  vowel/u_bck    eo fi fr nl pl ru it
-  1  vowel/u_bck2   ru
+  3  vowel/o_2      cy no hi
+  2  vowel/o-_2     en_n en_wm
+  1  vowel/o-_3     en_rp
+  1  vowel/o_4      en_n
+  1  vowel/o_5      ru
+  6  vowel/oe       en af de fr nl
+  1  vowel/oe_2     no
+  1  vowel/oe_4     sv
+  7  vowel/oo       de nl es ro el sv no
+  8  vowel/oo_1     en_n en_rp en_wm af eo fi ru
+  1  vowel/oo_2     cy
+  1  vowel/oo_3     af
+  1  vowel/oo_4     pl
+  5  vowel/oo_en    en en_n en_rp
+  9  vowel/u        en_n cy de eo fr nl vi hi
+  1  vowel/u#       en
+  2  vowel/u_2      fi ro
+  1  vowel/u#_2     sv
+  3  vowel/u_3      en_rp ru ro
+  1  vowel/u#_3     en_n
+  9  vowel/u_bck    cy fi fr_ca pl ru it sv no hi
+  3  vowel/uu       en en_wm ru
+  2  vowel/uu_2     de it
+  1  vowel/uu_3     af
+  2  vowel/uu_4     fi sv
+  4  vowel/uu_bck   fr_ca ru no hi
+  1  vowel/u_unr    vi
+  1  vowel/V        en
+  2  vowel/V_2      af ru
+  1  vowel/V_3      en_rp
   5  vowel/y        en de fi nl
+  6  vowel/y#       en en_wm de fi fr ro
+  2  vowel/y_2      fr
+  1  vowel/y#_2     sv
+  1  vowel/y_3      af
+  1  vowel/y_4      no
+  1  vowel/y_5      sv
+  1  vowel/yy       fr_ca
+  1  vowel/yy_2     no
+  1  vowel/yy_3     sv
+  1  vowel/yy_4     de
   1  vwl_af/@       af
-  2  vwl_af/@U      af nl
-  1  vwl_af/A:      af
-  2  vwl_af/AI      af cy
-  1  vwl_af/E       af
-  2  vwl_af/E2      af pt
   1  vwl_af/I       af
-  1  vwl_af/O       af
-  1  vwl_af/OI      af
-  2  vwl_af/W       af nl
-  1  vwl_af/Y@      af
-  1  vwl_af/Yy      af
-  2  vwl_af/a       af ru
-  1  vwl_af/aI      af
-  1  vwl_af/e@      af
-  3  vwl_af/eI      af cy
-  1  vwl_af/i       af
-  1  vwl_af/iu      af
-  1  vwl_af/o@      af
-  1  vwl_af/oI      af
   2  vwl_af/r@      af
-  1  vwl_af/u       af
-  1  vwl_af/uI      af
-  1  vwl_af/y       af
-  2  vwl_cy/Iu      cy
-  2  vwl_cy/uI      cy
   2  vwl_de/3       de
-  1  vwl_de/A:      de
-  4  vwl_de/E       de nl
-  4  vwl_de/I       de nl ru
-  2  vwl_de/O       de nl
-  3  vwl_de/U       de fr it
-  3  vwl_de/W       de fr nl
-  1  vwl_de/aI      de
-  1  vwl_de/aU      de
-  2  vwl_de/i:      de nl
-  2  vwl_de/r_E     de
-  1  vwl_de/r_I     de
-  1  vwl_de/r_U     de
   1  vwl_de/r_a     de
   1  vwl_de/r_e     de
+  2  vwl_de/r_ee    de
+  1  vwl_de/r_I     de
+  1  vwl_de/r_U     de
   2  vwl_de/r_y     de
-  1  vwl_de/y_lax   de
-  3  vwl_en/3:      en en_wm af
- 10  vwl_en/@L      en en_n en_rp en_wm af
-  1  vwl_en/A:      en
-  1  vwl_en/E       en
-  1  vwl_en/I@      en
-  5  vwl_en/O@      en en_n en_rp
-  3  vwl_en/U@      en en_n en_wm
-  2  vwl_en/a       en
-  3  vwl_en/a2      en en_n en_wm
-  1  vwl_en/aI      en
   4  vwl_en/aI@     en en_n en_rp en_wm
   3  vwl_en/aU@     en en_n en_wm
-  3  vwl_en/i       en en_n en_rp
-  2  vwl_en/i:      en fi
-  3  vwl_en/i@      en en_wm
-  1  vwl_en/oU      en
-  1  vwl_en/u:      en
-  3  vwl_en/u:L2    en en_n en_rp
-  2  vwl_en_n/0     en_n en_wm
-  1  vwl_en_n/3:    en_n
-  1  vwl_en_n/A:    en_n
-  1  vwl_en_n/E     en_n
+  1  vwl_en/i       en_rp
+ 10  vwl_en/@L      en en_n en_rp en_wm af
   2  vwl_en_n/O@    en_n de
-  2  vwl_en_n/V     en_n en_wm
-  1  vwl_en_n/aI    en_n
-  2  vwl_en_n/aU    en_n en_wm
-  2  vwl_en_n/i@    en_n
-  1  vwl_en_n/o:    en_n
-  1  vwl_en_n/u:    en_n
-  1  vwl_en_n/u:_   en_n
-  1  vwl_en_rp/0    en_rp
-  1  vwl_en_rp/3:   en_rp
+  1  vwl_en_n/u_    en_n
   3  vwl_en_rp/@    en_rp
-  2  vwl_en_rp/A:   en_rp
-  2  vwl_en_rp/E    en_rp en_wm
-  2  vwl_en_rp/I    en_rp
-  1  vwl_en_rp/O:   en_rp
-  1  vwl_en_rp/U    en_rp
-  1  vwl_en_rp/V    en_rp
-  1  vwl_en_rp/aI   en_rp
-  1  vwl_en_rp/aU   en_rp
+  2  vwl_en_rp/aa   en_rp
   1  vwl_en_rp/aU@  en_rp
   1  vwl_en_rp/e@   en_rp
-  1  vwl_en_rp/eI   en_rp
   2  vwl_en_rp/i@   en_rp
-  1  vwl_en_rp/oU   en_rp
-  2  vwl_en_rp/u:   en_rp ru
-  1  vwl_en_wm/@u   en_wm
-  1  vwl_en_wm/A:   en_wm
-  2  vwl_en_wm/I    en_wm
-  2  vwl_en_wm/a    en_wm
-  1  vwl_en_wm/aI   en_wm
-  1  vwl_en_wm/eI   en_wm
-  1  vwl_en_wm/i:   en_wm
-  1  vwl_en_wm/oU   en_wm
-  2  vwl_fi/&I      fi nl
-  2  vwl_fi/&y      fi nl
-  1  vwl_fi/A       fi
-  1  vwl_fi/AI      fi
-  1  vwl_fi/AU      fi
-  1  vwl_fi/A_1     fi
-  1  vwl_fi/EI      fi
-  1  vwl_fi/Ey      fi
-  2  vwl_fi/OU      fi nl
-  1  vwl_fi/YI      fi
-  2  vwl_fi/Yy      fi nl
-  1  vwl_fi/eU      fi
-  1  vwl_fi/iU      fi
-  1  vwl_fi/ie      fi
-  1  vwl_fi/iy      fi
-  1  vwl_fi/u       fi
-  1  vwl_fi/uo      fi
-  1  vwl_fi/y       fi
-  1  vwl_fi/yI      fi
-  1  vwl_fi/yY      fi
-  1  vwl_fr/y       fr
-  1  vwl_fr/yi      fr
-  5  vwl_it/&       eo fr it pt
-  2  vwl_it/a       eo it
-  3  vwl_it/ai      eo it pt
-  1  vwl_nl/yU      nl
-  1  vwl_pl/E       pl
-  1  vwl_pl/E_n     pl
-  1  vwl_pl/O       pl
-  1  vwl_pl/O_n     pl
-  1  vwl_pt/&U_n    pt
-  1  vwl_pt/&_n     pt
-  1  vwl_pt/e       pt
-  1  vwl_pt/e_n     pt
-  1  vwl_pt/i_n     pt
-  1  vwl_pt/oI_n    pt
-  1  vwl_pt/o_n     pt
-  1  vwl_pt/u_n     pt
-  1  vwl_ru/o       ru
-  1  w/_w           base
+  1  vwl_en_rp/oo   en_rp
+  1  vwl_en/u       en
+  3  vwl_en/u_L     en en_n en_rp
+  1  vwl_en_wm/aa   en_wm
+  1  vwl_en_wm/i    en_wm
+  2  vwl_en_wm/ii   en_wm
+  1  vwl_fr/@R      fr
+  2  vwl_fr/@R2     fr fr_ca
+  1  vwl_hi/A       hi
+  1  vwl_hi/I       hi
+  1  vwl_hi/l-voc   hi
+  1  vwl_hi/r-voc   hi
+  2  vwl_no/&       no
+  1  vwl_no/au-     no
+  1  vwl_no/u#      no
+  1  vwl_no/u#2     no
+  1  vwl_no/y#      no
+  1  vwl_no/y#y     no
+  1  vwl_ro/ii-     ro
+  1  vwl_ro/li      ro
+  1  vwl_ro/mi      ro
+  1  vwl_ro/ni      ro
   1  w/w            base
-  4  w/w2           pl it
-  1  w/w@           base
+  1  w/_w           base
   1  w/w_           base
+  1  w/w@           base
+  4  w/w2           pl it
   1  w/wa           base
   1  w/we           base
-  1  w/wi           base
-  6  w/wi:          en en_n en_rp en_wm de nl
+  2  w/wi           base vi
+  8  w/wi2          en en_n en_rp en_wm de nl sv no
   1  w/wo           base
   1  w/wu           base
   5  w/xw           base
-  8  x/b            base
+ 19  x/b            base ro hi
   1  x/b_           base
-  4  x/d            base el
-  1  x/dZ           base
-  3  x/dZ_          base pl ru
-  8  x/d_           base fi fr pl ru it el
- 12  x/d_dnt        base fi fr pl ru it
+  6  x/d            base el hi
+ 11  x/d_           base fi fr pl ru it ro el hi
+ 16  x/d_dnt        base fi fr pl ru it ro hi
   6  x/d_pzd        pl ru
-  2  x/dz_pzd       pl ru
+  1  x/dzh          base
+  4  x/dzh_         base ru hi
+  3  x/dz_pzd       base ru hi
   3  x/g            base cy es
-  2  x/g2_          base
   3  x/g_           base cy es
+  4  x/g2_          base hi

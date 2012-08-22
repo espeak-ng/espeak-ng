@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2006 by Jonathan Duddington                             *
- *   jsd1@clara.co.uk                                                      *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#include <math.h>
 #include "wx/wx.h"
 #include <wx/dcmemory.h>
 #include <wx/dc.h>
@@ -25,9 +26,11 @@
 #include <wx/dirdlg.h>
 #include "wx/filename.h"
 #include "wx/wfstream.h"
+#include "wx/sound.h"
 
 #include "sys/stat.h"
 
+#include "speak_lib.h"
 #include "main.h"
 #include "speech.h"
 #include "voice.h"
@@ -37,7 +40,6 @@
 #include "translate.h"
 #include "options.h"
 
-#include "speak_lib.h"
 
 
 /* Read a file of vowel symbols and f1,f2 formants, and produce a vowel diagram
@@ -125,21 +127,32 @@ void HslToRgb (int *hue, int *saturation, int *lightness)
 static int vowel_posn[N_PHONEME_TAB];
 static int vowel_posn_ix;
 
+
+static double log2a(double x)
+{//========================
+// log2(x) = log(x) / log(2)
+	return(log(x) / 0.693147);
+}
+
+#define WIDTH  1200
+#define HEIGHT 800
+
 static int VowelX(int f2)
 {//======================
-	return(1024 - int((log2(f2) - 9.45)*1020/1.8));
+	return(WIDTH - int((log2a(f2) - 9.49)*WIDTH/1.8));
+//	return(1024 - int((log2a(f2) - 9.50)*1020/1.8));
 }
 
 static int VowelY(int f1)
 {//======================
-	return(int((log2(f1) - 7.8)*760/2.2));
+	return(int((log2a(f1) - 7.85)*HEIGHT/2.15));
 }
 
 static int VowelZ(int f3)
 {//======================
 	int z;
 // range 2000-3000Hz, log2= 10.96 to 11.55
-	z = int((log2(f3) - 11.05)*256/0.50);
+	z = int((log2a(f3) - 11.05)*256/0.50);
 	if(z < 0) z = 0;
 	if(z > 255) z = 255;
 	return(z);
@@ -161,9 +174,9 @@ static void DrawVowel(wxDC *dc, wxString name, int f1, int f2, int f3, int g1, i
 	z = VowelZ(f3);
 
 	if(y < 0) y = 0;
-	if(y > 764) y= 764;
+	if(y > (HEIGHT-4)) y= (HEIGHT-4);
 	if(x < 0) x = 0;
-	if(x > 1016) x = 1016;
+	if(x > (WIDTH-8)) x = (WIDTH-8);
 
 	r = z;
 	g = 255;
@@ -175,7 +188,7 @@ static void DrawVowel(wxDC *dc, wxString name, int f1, int f2, int f3, int g1, i
 
 	// check for a label already at this position
 	collisions = 0;
-	posn = (x/8)*1024 + (y/8);
+	posn = (x/8)*WIDTH + (y/8);
 	for(ix=0; ix<vowel_posn_ix; ix++)
 	{
 		if(posn == vowel_posn[ix])
@@ -183,7 +196,7 @@ static void DrawVowel(wxDC *dc, wxString name, int f1, int f2, int f3, int g1, i
 	}
 	vowel_posn[vowel_posn_ix++] = posn;
 
-	dc->DrawText(name,x+6,y+(collisions*10));
+	dc->DrawText(name,x+4,y+(collisions*10));
 
 	if(g2 != 0xffff)
 	{
@@ -202,7 +215,7 @@ static int VowelChartDir(wxDC *dc, wxBitmap *bitmap)
 	int count = 0;
 	SpectSeq *spectseq;
 	SpectFrame *frame1;
-	SpectFrame *frame2;
+	SpectFrame *frame2=NULL;
 	wxFileName filename;
 
 	wxString dir = wxDirSelector(_T("Directory of vowel files"),path_phsource);
@@ -226,7 +239,10 @@ static int VowelChartDir(wxDC *dc, wxBitmap *bitmap)
 		nf = 0;
 		frame1 = NULL;
 
-		frame2 = spectseq->frames[0];
+		if(spectseq->numframes > 0)
+		{
+			frame2 = spectseq->frames[0];
+		}
 		for(ix=0; ix<spectseq->numframes; ix++)
 		{
 			if(spectseq->frames[ix]->keyframe)
@@ -325,7 +341,7 @@ void VowelChart(int control, char *fname)
 	int count;
 	wxFileName filename;
 
-	wxBitmap bitmap(1024,768);
+	wxBitmap bitmap(WIDTH,HEIGHT);
 
 	// Create a memory DC
 	wxMemoryDC dc;
@@ -339,13 +355,13 @@ void VowelChart(int control, char *fname)
 	for(ix=200; ix<=1000; ix+=100)
 	{
 		y = VowelY(ix);
-		dc.DrawLine(0,y,1023,y);
+		dc.DrawLine(0,y,WIDTH,y);
 		dc.DrawText(wxString::Format(_T("%d"),ix),1,y);
 	}
 	for(ix=800; ix<=2400; ix+=200)
 	{
 		x = VowelX(ix);
-		dc.DrawLine(x,0,x,767);
+		dc.DrawLine(x,0,x,HEIGHT);
 		dc.DrawText(wxString::Format(_T("%d"),ix),x+1,0);
 	}
 	dc.SetPen(*wxBLACK_PEN);
@@ -417,6 +433,8 @@ void MakeVowelLists(void)
 	LoadVoice(voice_name,0);  // reset the original phoneme table
 	delete progress;
 }
+
+//******************************************************************************************************
 
 
 
@@ -500,6 +518,9 @@ int TestUriCallback(int type, const char *uri, const char *base)
 int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 {//====================================================================
 	int type;
+
+if(f_wavtest == NULL) return(0);
+
 	if(wav == NULL)
 	{
 		CloseWaveFile3(samplerate);
@@ -521,6 +542,8 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 	}
 	return(0);
 }
+
+//******************************************************************************************************
 
 
 #ifdef deleted
@@ -595,6 +618,7 @@ void Lexicon_Ru()
 	int wlen;
 	int len;
 	int check_root;
+	WORD_TAB winfo;
 
 	char word[80];
 	char word2[80];
@@ -688,7 +712,7 @@ void Lexicon_Ru()
 		if(fgets(buf,sizeof(buf),f_in) == NULL)
 			break;
 
-		if(isspace(buf[0]))
+		if(isspace2(buf[0]))
 			continue;
 
 		// convert word from KOI8-R to UTF8
@@ -696,7 +720,7 @@ void Lexicon_Ru()
 		ix = 0;
 		wlength = 0;
 p_unicode = unicode;
-		while(!isspace(c = (*p++ & 0xff)))
+		while(!isspace2(c = (*p++ & 0xff)))
 		{
 			if(c >= 0xa0)
 			{
@@ -732,7 +756,8 @@ p_unicode = unicode;
 		}
 
 		// translate
-		translator->TranslateWord(&word2[1],0,0,0);
+		memset(&winfo,0,sizeof(winfo));
+		translator->TranslateWord(&word2[1],0,&winfo);
 		DecodePhonemes(translator->word_phonemes,phonemes);
 
 		// find the stress position in the translation
@@ -874,6 +899,237 @@ void CompareLexicon(int id)
 }  // end of CompareLexicon
 
 
+//******************************************************************************************************
+extern int HashDictionary(const char *string);
+static int n_words;
+
+struct wcount {
+	struct wcount *link;
+	int count;
+	char *word;
+};
+
+
+
+static int wfreq_sorter(wcount **p1, wcount **p2)
+{//==============================================
+	int x;
+	wcount *a, *b;
+	a = *p1;
+	b = *p2;
+	if((x = b->count - a->count) != 0)
+		return(x);
+	return(strcmp(a->word,b->word));
+}
+
+
+static void wfreq_add(const char *word, wcount **hashtab)
+{//======================================================
+	wcount *p;
+	wcount **p2;
+	int len;
+	int hash;
+
+	hash = HashDictionary(word);
+	p2 = &hashtab[hash];
+	p = *p2;
+
+	while(p != NULL)
+	{
+		if(strcmp(p->word,word)==0)
+		{
+			p->count++;
+			return;
+		}
+		p2 = &p->link;
+		p = *p2;
+	}
+
+	// word not found, add it to the list
+	len = strlen(word) + 1;
+	if((p = (wcount *)malloc(sizeof(wcount)+len)) == NULL)
+		return;
+
+	p->count = 1;
+	p->link = NULL;
+	p->word = (char *)p + sizeof(wcount);
+	strcpy(p->word,word);
+	*p2 = p;
+	n_words++;
+}
+
+
+void CountWordFreq(wxString path, wcount **hashtab)
+{//================================================
+	// Count the occurances of words in this file
+	FILE *f_in;
+	unsigned char c;
+	int wc;
+	unsigned int ix, j, k;
+	int n_chars;
+	char buf[80];
+	char wbuf[80];
+
+	if((f_in = fopen(path.mb_str(wxConvLocal),"rb")) == NULL)
+		return;
+
+	while(!feof(f_in))
+	{
+		while((c = fgetc(f_in)) < 'A')
+		{
+			// skip leading spaces, numbers, etc
+			if(feof(f_in)) break;
+		}
+	
+		// read utf8 bytes until a space, number or punctuation
+		ix = 0;
+		while(!feof(f_in) && (c >= 'A') && (ix < sizeof(buf)-1))
+		{
+			buf[ix++] = c;
+			c = fgetc(f_in);
+		}
+		buf[ix++] = 0;
+		buf[ix] = 0;
+	
+		// the buf may contain non-alphabetic characters
+		j = 0;
+		n_chars = 0;
+		for(k=0; k<ix; )
+		{
+			k += utf8_in(&wc,&buf[k],0);
+			wc = towlower(wc);       // convert to lower case
+			if(iswalpha(wc))
+			{
+				j += utf8_out(wc,&wbuf[j]);
+				n_chars++;
+			}
+			else
+			{
+				wbuf[j] = 0;
+				if(n_chars > 2)
+				{
+					wfreq_add(wbuf,hashtab);
+				}
+				j = 0;
+				n_chars = 0;
+			}
+		}
+	}
+	fclose(f_in);
+	
+}   // end of CountWordFreq
+
+
+void MakeWordFreqList()
+{//====================
+// Read text files from a specified directory and make a list of the most frequently occuring words.
+	struct wcount *whashtab[N_HASH_DICT];
+	wcount **w_list;
+	int ix;
+	int j;
+	int hash;
+	wcount *p;
+	FILE *f_out;
+	char buf[200];
+	char buf2[200];
+
+	wxString dir = wxDirSelector(_T("Directory of text files"),path_speaktext);
+	if(dir.IsEmpty()) return;
+
+	memset(whashtab,0,sizeof(whashtab));
+
+	wxString path = wxFindFirstFile(dir+_T("/*"),wxFILE);
+
+	while (!path.empty())
+	{
+		if(path.AfterLast(PATHSEP) != _T("!wordcounts"))
+		{
+			CountWordFreq(path,whashtab);
+			path = wxFindNextFile();
+		}
+	}
+
+	// put all the words into a list and then sort it
+	w_list = (wcount **)malloc(sizeof(wcount *) * n_words);
+
+	ix = 0;
+	for(hash=0; hash < N_HASH_DICT; hash++)
+	{
+		p = whashtab[hash];
+		while((p != NULL) && (ix < n_words))
+		{
+			w_list[ix++] = p;
+			p = p->link;
+		}
+	}
+
+	qsort((void *)w_list,ix,sizeof(wcount *),(int(*)(const void *,const void *))wfreq_sorter);
+
+	// write out the sorted list
+	strcpy(buf,dir.mb_str(wxConvLocal));
+	sprintf(buf2,"%s/!wordcounts",buf);
+	if((f_out = fopen(buf2,"w")) == NULL)
+		return;
+
+	for(j=0; j<ix; j++)
+	{
+		p = w_list[j];
+		fprintf(f_out,"%5d  %s\n",p->count,p->word);
+		free(p);
+	}
+	fclose(f_out);
+	
+}  // end of Make WorkFreqList
+
+
+
+//******************************************************************************************************
+
+void ConvertToUtf8()
+{//=================
+// Convert a file from 8bit to UTF8, according to the current voice
+	unsigned int c;
+	int ix;
+	FILE *f_in;
+	FILE *f_out;
+	char buf[80];
+
+	wxString fname = wxFileSelector(_T("Convert file to UTF8"),wxString(path_home,wxConvLocal),
+		_T(""),_T(""),_T("*"),wxOPEN);
+	if(fname.IsEmpty())
+		return;
+	strcpy(buf,fname.mb_str(wxConvLocal));
+	f_in = fopen(buf,"r");
+	if(f_in == NULL)
+	{
+		wxLogError(_T("Can't read file: ")+fname);
+		return;
+	}
+
+	strcat(buf,"_1");
+	f_out = fopen(buf,"w");
+	if(f_out == NULL)
+	{
+		wxLogError(_T("Can't create file: ")+wxString(buf,wxConvLocal));
+		fclose(f_in);
+		return;
+	}
+
+	while(!feof(f_in))
+	{
+		c = fgetc(f_in);
+		if(c >= 0xa0)
+			c = translator->charset_a0[c-0xa0];
+
+		ix = utf8_out(c,buf);
+		fwrite(buf,ix,1,f_out);
+	}
+	fclose(f_in);
+	fclose(f_out);
+
+
+}  // end of ConvertToItf8
+
 
 void TestTest(void)
 {//================
@@ -881,7 +1137,9 @@ void TestTest(void)
 	unsigned int c;
 	unsigned int ix=0;
 	char textbuf[2000];
+	espeak_VOICE voice;
 
+	memset(&voice,0,sizeof(voice));
 
 	f = fopen("/home/jsd1/speechdata/text/test","r");
 	if(f==NULL)
@@ -899,10 +1157,24 @@ void TestTest(void)
 	OpenWaveFile3("/home/jsd1/speechdata/text/test.wav",samplerate);
 	f_events = fopen("/home/jsd1/speechdata/text/events","w");
 
-	ix = espeak_Initialize(100);
-	espeak_SetSynthCallback(TestSynthCallback);
+	espeak_Initialize(AUDIO_OUTPUT_PLAYBACK,100,NULL);
+//	espeak_SetSynthCallback(TestSynthCallback);
 //	espeak_SetUriCallback(TestUriCallback);
+
+	voice.languages = "fr";
+	voice.gender = 0;
+	voice.age = 0;
+	voice.variant = 0;
 	espeak_SetVoiceByName("en");
-	espeak_Synth(textbuf,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML);
+//	espeak_SetVoiceByProperties(&voice);
+	espeak_SetParameter(espeakLINELENGTH,11,0);
+	espeak_Synth(textbuf,ix+1,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML,NULL,NULL);
+
+//	for(voice.variant = 1; voice.variant < 9; voice.variant++)
+//	{
+//		espeak_SetVoiceByProperties(&voice);
+//		espeak_Synth(textbuf,ix+1,0,POS_CHARACTER,0,espeakCHARS_8BIT+espeakSSML,NULL,NULL);
+//	}
 }
+
 

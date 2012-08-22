@@ -51,7 +51,7 @@ endphoneme
 phoneme E
   vowel  starttype (e)  endtype (e)
   length 140
-  formants vwl_en_rp/E
+  formants vowel/e_mid
   reduceto I  0
 endphoneme
 
@@ -59,7 +59,7 @@ endphoneme
 phoneme I
   vowel  starttype (i) endtype (i)
   length 130
-  formants vwl_en_rp/I
+  formants vowel/ii_4
   linkout ;
 endphoneme
 
@@ -74,7 +74,7 @@ endphoneme
 phoneme 0
   vowel  starttype (o)   endtype (o)
   length 140
-  formants vwl_en_rp/0
+  formants vowel/0_3
   reduceto @  0
 endphoneme
 
@@ -82,7 +82,7 @@ endphoneme
 phoneme V
   vowel  starttype (a)  endtype (@)
   length 140
-  formants vwl_en_rp/V
+  formants vowel/V_3
 //  formants vwl_af/a
   reduceto @  0
 endphoneme
@@ -91,7 +91,7 @@ endphoneme
 phoneme U
   vowel  starttype (u)  endtype (u)
   length 150
-  formants vwl_en_rp/U
+  formants vowel/o-_3
 endphoneme
 
 
@@ -99,7 +99,7 @@ phoneme I2
   vowel  starttype (i)  endtype (i)
   unstressed
   length 140
-  formants vwl_en_rp/I
+  formants vowel/ii_4
   linkout ;
 endphoneme
 
@@ -116,7 +116,7 @@ endphoneme
 phoneme A:
   vowel  starttype (a)  endtype (a)
   length 240
-  formants vwl_en_rp/A:
+  formants vwl_en_rp/aa
   linkout r-
 endphoneme
 
@@ -124,7 +124,7 @@ endphoneme
 phoneme aa   //   'bath' etc.
   vowel  starttype (a)  endtype (a)
   length 190
-  formants vwl_en_rp/A:
+  formants vwl_en_rp/aa
   linkout r-
 endphoneme
 
@@ -132,7 +132,7 @@ endphoneme
 phoneme 3:
   vowel  starttype (@)  endtype (@)
   length 210
-  formants vwl_en_rp/3:
+  formants vowel/3_3
   reduceto @  0
   linkout r-
 endphoneme
@@ -141,8 +141,8 @@ endphoneme
 phoneme i:
   vowel  starttype (i)  endtype (i)
   length 175
-  formants vowel/i:
-  after w w/wi:
+  formants vowel/i
+  after w w/wi2
   linkout ;
 endphoneme
 
@@ -150,7 +150,7 @@ endphoneme
 phoneme O:
   vowel  starttype (o)  endtype (o)
   length 230
-  formants vowel/O:
+  formants vowel/oo_1
   reduceto @  0
   linkout r-
 endphoneme
@@ -159,7 +159,7 @@ endphoneme
 phoneme O@
   vowel  starttype (o)  endtype (@)
   length 230
-  formants vowel/O:
+  formants vowel/oo_1
   linkout r-
 endphoneme
 
@@ -167,7 +167,7 @@ endphoneme
 phoneme O
   vowel  starttype (o)  endtype (o)
   length 150
-  formants vwl_en/O@
+  formants vowel/oo_en
   reduceto @  0
 endphoneme
 
@@ -175,43 +175,43 @@ endphoneme
 phoneme u:
   vowel  starttype (u)  endtype (u)
   length 190
-  formants vwl_en_rp/u:
-  before l/2 vwl_en/u:L2-40+l/L2_uL
+  formants vowel/u_3
+  before l/2 vwl_en/u_L-40+l/L2_uL
 endphoneme
 
 
 phoneme aU
   vowel  starttype (a)  endtype (u)
   length 230
-  formants vwl_en_rp/aU
+  formants vdiph/au_3
 endphoneme
 
 
 phoneme oU
   vowel  starttype (@)  endtype (u)
   length 220
-  formants vwl_en_rp/oU
+  formants vdiph/@u_2
 endphoneme
 
 
 phoneme aI
   vowel  starttype (a)  endtype (i)
   length 230
-  formants vwl_en_rp/aI
+  formants vdiph/ai_6
 endphoneme
 
 
 phoneme eI
   vowel  starttype (i)  endtype (i)
   length 210
-  formants vwl_en_rp/eI
+  formants vdiph/eei_3
 endphoneme
 
 
 phoneme OI
   vowel  starttype (o)  endtype (i)
   length 230
-  formants vowel/OI
+  formants vdiph/ooi
 endphoneme
 
 
@@ -242,7 +242,7 @@ endphoneme
 phoneme U@
   vowel  starttype (u)  endtype (@)
   length 230
-  formants vwl_en_rp/O:
+  formants vwl_en_rp/oo
   linkout r-
 endphoneme
 

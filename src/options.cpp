@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,10 +19,11 @@
  ***************************************************************************/
 
 #include "wx/wx.h"
-#include "wx/config.h"
+#include "wx/fileconf.h"
 #include "sys/stat.h"
 
 #include "main.h"
+#include "speech.h"
 
 #include "options.h"
 
@@ -37,14 +38,13 @@ extern char voice_name[40];
 wxString basedir;
 wxString path_spectload;
 wxString path_spectload2;
-wxString path_spectsave;
 wxString path_pitches;
 wxString path_wave;
 wxString path_speech;
 wxString path_voices;
 wxString path_phsource;
 wxString path_dictsource;
-wxString path_speaktext = wxEmptyString;
+wxString path_speaktext;
 int option_speed=160;
 
 char path_dsource[80];
@@ -55,8 +55,8 @@ BEGIN_EVENT_TABLE(Options, wxDialog)
 END_EVENT_TABLE()
 
 
-Options::Options(wxWindow *parent) : wxDialog(parent,-1,_T("Options"))
-{//====================================================================
+Options::Options(wxWindow *parent) : wxDialog(parent,-1,_T("Options"),wxDefaultPosition,wxDefaultSize)
+{//===================================================================================================
 
 	m_lab[0] = new wxStaticText(this,-1,_T("Sample rate"),wxPoint(72,84));
 	m_samplerate = new wxTextCtrl(this,-1,_T(""),wxPoint(8,80),wxSize(60,24));
@@ -115,29 +115,35 @@ void ConfigInit()
 {//==============
 	long value;
 	wxString string;
+	char *path_base;
 	
+#ifdef PLATFORM_WINDOWS
+	strcpy(path_home,"C:/Program Files/eSpeak/espeak-data");
+	path_base = "C:/Program Files/eSpeak";
+#else
 	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
+	path_base = path_home;
+#endif
 	mkdir(path_home,S_IRWXU);    // create if it doesn't already exist
 
-	wxConfig *pConfig = new wxConfig(_T("espeakedit"));
-	wxConfig::Set(pConfig);
+	wxFileConfig *pConfig = new wxFileConfig(_T("espeakedit"));
+	wxFileConfig::Set(pConfig);
 
 	pConfig->Read(_T("/samplerate"),&value,22050);
 	WavegenInit(value,0);
 
-	pConfig->Read(_T("/basedir"),&basedir,wxString(path_home,wxConvLocal));
-	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/spect"));
-	pConfig->Read(_T("/spectload2"),&path_spectload2,basedir+_T("/spect"));
-	pConfig->Read(_T("/spectsave"),&path_spectsave,basedir+_T("/spect"));
+	pConfig->Read(_T("/basedir"),&basedir,wxString(path_base,wxConvLocal));
+	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/phsource"));
+	pConfig->Read(_T("/spectload2"),&path_spectload2,basedir+_T("/phsource"));
 	pConfig->Read(_T("/pitchpath"),&path_pitches,basedir+_T("/pitch"));
-	pConfig->Read(_T("/wavepath"),&path_wave,_T(""));
-	pConfig->Read(_T("/speechpath"),&path_speech,_T(""));
+	pConfig->Read(_T("/wavepath"),&path_wave,wxEmptyString);
+	pConfig->Read(_T("/speechpath"),&path_speech,wxEmptyString);
 	pConfig->Read(_T("/voicepath"),&path_voices,basedir+_T("/voices"));
-	pConfig->Read(_T("/voicename"),&string,_T(""));
+	pConfig->Read(_T("/voicename"),&string,wxEmptyString);
 	strcpy(voice_name,string.mb_str(wxConvLocal));
 	pConfig->Read(_T("/phsource"),&path_phsource,basedir+_T("/phsource"));
 	pConfig->Read(_T("/dictsource"),&path_dictsource,basedir+_T("/dictsource"));
-	pConfig->Read(_T("/speaktext"),&path_speaktext);
+	pConfig->Read(_T("/speaktext"),&path_speaktext,wxEmptyString);
 	option_speed = pConfig->Read(_T("/speed"),160);
 	ConfigSetPaths();
 }  // end of ConfigInit
@@ -146,13 +152,12 @@ void ConfigInit()
 
 void ConfigSave(int exit)
 {//======================
-	wxConfigBase *pConfig = wxConfigBase::Get();
+	wxFileConfig *pConfig = (wxFileConfig *)(wxConfigBase::Get());
 
 	pConfig->Write(_T("/samplerate"),samplerate);
 	pConfig->Write(_T("/basedir"),basedir);
 	pConfig->Write(_T("/spectload"),path_spectload);
 	pConfig->Write(_T("/spectload2"),path_spectload2);
-	pConfig->Write(_T("/spectsave"),path_spectsave);
 	pConfig->Write(_T("/pitchpath"),path_pitches);
 	pConfig->Write(_T("/wavepath"),path_wave);
 	pConfig->Write(_T("/speechpath"),path_speech);
@@ -164,5 +169,5 @@ void ConfigSave(int exit)
 	pConfig->Write(_T("/speed"),option_speed);
 
 	if(exit)
-		delete wxConfigBase::Set((wxConfig *)NULL);
+		delete wxFileConfig::Set((wxFileConfig *)NULL);
 }

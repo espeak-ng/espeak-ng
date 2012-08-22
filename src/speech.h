@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -20,20 +20,17 @@
 
 // conditional compilation options
 
-#ifdef __WIN32__
-#define PATHSEP '\\'
-#else
+
 #define PLATFORM_POSIX
-#define __cdecl               // define as null, needed for Borland compiler ?
-#define PATHSEP  '/'          // unix style file paths
+#define PATHSEP  '/'
 #define USE_PORTAUDIO
 #define USE_NANOSLEEP
+#define __cdecl 
+
+#ifdef LIBRARY
+#define USE_ASYNC
 #endif
 
-// don't use portaudio in the library version
-#ifdef LIBRARY
-#undef USE_PORTAUDIO
-#endif
 
 // will look for espeak_data directory here, and also in user's home directory
 #ifndef PATH_ESPEAK_DATA
@@ -65,7 +62,7 @@ typedef struct {
 }  peak_t;
 
 typedef struct {
-	short flags;
+	short frflags;
 	unsigned char length;
 	unsigned char rms;
 	short ffreq[9];

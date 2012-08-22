@@ -29,32 +29,32 @@ _6        'eksi
 _7        ept'a
 _8        okt'o
 _9        en'ea
-_10       D'eka
+_1X       D'eka
 _11       'enDeka
 _12       D'oDeka
-_20       'ikosi
-_30       tri'anda
-_40       sar'anda
-_50       pen'inda
-_60       eks'inda
-_70       ebdom'inda
-_80       ogd'onda
-_90       enen'inda
-_0H       ekat'on_
-_1H0      ekat'o
-_1H       ekat'on_
-_2H       D;ak'os;a_
-_3H       triak'os;a_
-_4H       tetrak'os;a_
-_5H       pendak'os;a_
-_6H       eksak'os;a_
-_7H       eptak'os;a_
-_8H       oktak'os;a_
-_9H       en^ak'os;a_
-_0T1      C'il;a
-_1T1      C'il;a        // no '1' before thousand
-_0T2      ekatom'irio
-_0T3      Disekatom'irio
+_2X       'ikosi
+_3X       tri'anda
+_4X       sar'anda
+_5X       pen'inda
+_6X       eks'inda
+_7X       ebdom'inda
+_8X       ogd'onda
+_9X       enen'inda
+_0C       ekat'on_
+_1C0      ekat'o
+_1C       ekat'on_
+_2C       D;ak'os;a_
+_3C       triak'os;a_
+_4C       tetrak'os;a_
+_5C       pendak'os;a_
+_6C       eksak'os;a_
+_7C       eptak'os;a_
+_8C       oktak'os;a_
+_9C       en^ak'os;a_
+_0M1      C'il;a
+_1M1      C'il;a        // no '1' before thousand
+_0M2      ekatom'irio
+_0M3      Disekatom'irio
 _dpt      k'oma
 
 

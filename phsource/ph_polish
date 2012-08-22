@@ -14,15 +14,15 @@ endphoneme
 phoneme E
   vowel starttype (e) endtype (e)
   length 180
-  formants vwl_pl/E
-  before _ vowel/E:
+  formants vowel/ee
+  before _ vowel/ee_1
 endphoneme
 
 
 phoneme i
   vowel starttype (i) endtype (i)
   length 170
-  formants vowel/i:
+  formants vowel/i
   linkout ;
 endphoneme
 
@@ -30,7 +30,7 @@ endphoneme
 phoneme O
   vowel starttype (o) endtype (o)
   length 180
-  formants vwl_pl/O
+  formants vowel/oo_4
 endphoneme
 
 
@@ -44,21 +44,21 @@ endphoneme
 phoneme y      // close central unrounded (i-bar)
   vowel starttype (i) endtype (i)
   length 180
-  formants vowel/I"
+  formants vowel/ii#
 endphoneme
 
 
 phoneme E~
   vowel starttype (e) endtype (e)
   length 250
-  formants vwl_pl/E_n
+  formants vnasal/ee_n2
 endphoneme
 
 
 phoneme O~
   vowel starttype (o) endtype (o)
   length 250
-  formants vwl_pl/O_n
+  formants vnasal/oo_n2
 endphoneme
 
 
@@ -70,9 +70,9 @@ phoneme t
   vowelin f1=0  f2=1600 -300 300  f3=-100 80
   vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave  unvoc/t_dnt%60
-  before _ unvoc/t_dnt%30
-  before r unvoc/tr
+  wave  ustop/t_dnt%60
+  before _ ustop/t_dnt%30
+  before r ustop/tr
   switchvoicing d
 endphoneme
 
@@ -81,16 +81,16 @@ phoneme t;
   vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   vowelout f1=1  f2=2700 400 600  f3=200 70 len=50
   lengthmod 2
-  wave unvoc/t_pzd%60
-  before _ unvoc/t_pzd%30
+  wave ustop/t_pzd%60
+  before _ ustop/t_pzd%30
   switchvoicing d;
 endphoneme
 
 
 phoneme d
   vcd dnt stop
-  vowelin f1=1  f2=1500 -300 300  f3=-150 80
-  vowelout f1=1 f2=1500 -300 300  f3=-150 80
+  vowelin f1=2  f2=1500 -300 300  f3=-150 80
+  vowelout f1=2 f2=1500 -300 300  f3=-150 80
   formants d/d+x/d_dnt%110
   before _ d/d_+x/d_
   before r d/dr+x/d_dnt%110
@@ -102,8 +102,8 @@ endphoneme
 
 phoneme d;
   vcd alv stop palatal
-  vowelin f1=1  f2=2700 400 600  f3=200 80 rate len=80
-  vowelout f1=1 f2=2700 400 600  f3=200 80 rate len=100
+  vowelin f1=2  f2=2700 400 600  f3=200 80 rate len=80
+  vowelout f1=2 f2=2700 400 600  f3=200 80 rate len=100
   formants d/d+x/d_pzd%80
   before _ d/d_+x/d_pzd%40
   before r d/dr+x/d_pzd%80
@@ -120,28 +120,7 @@ phoneme ts
   vowelin f1=0  f2=1700 -300 300  f3=-100 80
   vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
   lengthmod 2
-  wave unvoc/ts
-endphoneme
-
-
-phoneme dz;
-  vcd pla afr sibilant
-  vowelin f1=1  f2=2700 400 600  f3=300 80 rate len=70
-  formants dZ/dZ+x/dz_pzd
-  before _ dZ/dZ_+x/dZ_
-  after _ NULL  @ dZ/xdZ
-  lengthmod 5
-  switchvoicing ts;
-endphoneme
-
-
-phoneme ts;
-  vls pal afr sibilant
-  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
-  lengthmod 2
-  wave unvoc/ts_pzd
-  before _ unvoc/ts_pzd
-  switchvoicing dz;
+  wave ustop/ts
 endphoneme
 
 

@@ -104,18 +104,18 @@ _16	s'Iksti:n
 _17	s'Ev@nti:n
 _18	'eIti:n
 _19	n'aInti:n
-_20	tw'EntI2
-_30	T'3:tI2
-_40	f'O@tI2
-_50	f'IftI2
-_60	s'IkstI2
-_70	s'Ev@ntI2
-_80	'eItI2
-_90	n'aIntI2
-_0H	h'Vndr@d
-_0T1	T'aUz@nd
-_0T2	m'IlI@n
-_0T3	b'IlI@n
+_2X	tw'EntI2
+_3X	T'3:tI2
+_4X	f'O@tI2
+_5X	f'IftI2
+_6X	s'IkstI2
+_7X	s'Ev@ntI2
+_8X	'eItI2
+_9X	n'aIntI2
+_0C	h'Vndr@d
+_0M1	T'aUz@nd
+_0M2	m'IlI@n
+_0M3	b'IlI@n
 _0and	@n
 _dpt	pOInt
 
@@ -783,6 +783,7 @@ feisty           faIstI2
 feline           fi:laIn
 feminine         fEm@nIn
 fete             feIt
+fetus            fi:t@s
 fi               f,aI          // as in "hi-fi"
 fiasco           fi:'askoU
 fiery            faI@rI2
@@ -856,6 +857,7 @@ graffiti         gra2fi:tI2
 gredient         gri:di@nt     // ingredient
 grenade          gr@neId
 grosvenor        groUv@n@
+groupie          gru:pI
 gui              gu:I2
 guinea           gInI2
 gurus            gu:ru:z
@@ -2255,55 +2257,59 @@ weren't          ,w3:nt        $pastf $strend2
 will             wI2l           $only $verbf $strend2
 (will to)        wIlt@5
 would            %wUd           $verbf $only
-(would have)     ,wUdhav         $pastf $strend2
-(would have to)  wUd,havt@5         $verbf $strend2
+(would have)     w%Udh%a2v      $pastf
+(would have)     wUdhav         $pastf $atend
+(would have to)  wUd,havt@5     $verbf $strend2
 (wouldn't have)  ,wUdnt@v       $pastf $strend2
 (wouldn't have to)  ,wUdntavt@5       $verbf $strend2
-won't            %woUnt        $verbf $strend2 $only
-(won't have)     ,woUntav      $pastf $strend2
-(won't have to)  w'oUntavt@      $verbf $strend2
+won't            %woUnt         $verbf $strend2 $only
+(won't have)     woUnta2v       $pastf $u1
+(won't have)     woUnthav       $pastf $atend
+(won't have to)  w'oUntavt@     $verbf $strend2
 
-must                           $verbf
-(must have)      mVstav         $pastf
+must                            $verbf
+(must have)      mVsta2v        $pastf $1
+(must have)      mVsthav        $pastf $atend
 (must have to)   m,Vstavt@5     $pastf
-mustn't          mVsnt         $verbf
-(mustn't have)   mVsnt@v       $pastf
-(mustn't have to) m'Vsntavt@5       $pastf
+mustn't          mVsnt          $verbf
+(mustn't have)   mVsntha2v      $pastf $u1+
+(mustn't have to) m'Vsnthavt@5  $pastf
 
 shall            ,Sal           $verbf $only
 shalt            ,Salt          $verbf $only
 should           ,SUd           $verbf $only
-(should have)    ,SUd@v         $pastf $strend2
+(should have)    SUd@v          $pastf $u1+
 (should have to)    SUd,havt@5         $verbf $strend2
-shouldn't        ,SUdnt        $verbf $strend2 $only
-(shouldn't have) ,SUdnt@v      $pastf $strend2
+shouldn't        ,SUdnt         $verbf $strend2 $only
+(shouldn't have) SUdnth@v       $pastf $u1+
 (shouldn't have to) 'SUdntavt@5      $verbf $strend2
-shalln't         ,SA:nt        $verbf $strend2
-shan't           ,SA:nt        $verbf $strend2
+shalln't         ,SA:nt         $verbf $strend2
+shan't           ,SA:nt         $verbf $strend2
 
 can              %kan           $verbf $only $strend2
-can't            kA:nt         $verbf $only $strend2
+can't            kA:nt          $verbf $only $strend2
 (can't have)     kA:nta2v       $pastf
 (can't have to)   ,kA:nt'avt@5       $verbf $atend
 could            %kUd           $verbf $strend2 $only
 (could have)     ,kUda2v        $pastf
 (could have)     kUdhav         $pastf $atend
 (could have to)  kUd,havt@5         $verbf $strend2
-couldn't         ,kUd@nt       $verbf $strend2
-(couldn't have)  ,kUd@nt@v     $pastf $strend2
+couldn't         ,kUd@nt        $verbf $strend2
+(couldn't have)  kUd@nt@v       $pastf $u1+
 (couldn't have to)  'kUd@ntavt@5     $verbf $strend2
 
 may              meI            $verbf $strend2
-(may have)       meIha2v         $pastf $strend2
-(may have to)    ,meIh'avt@5         $verbf $atend
+(may have)       meIha2v        $pastf $u1+
+(may have to)    ,meIh'avt@5    $verbf $atend
 might            ,maIt          $verbf $strend2 $only
-(might have)     maIta2v         $pastf $strend2
-(might have to)  ,maIth'avt@5         $verbf $atend
+(might have)     maItha2v       $pastf $u1+
+(might have to)  ,maIth'avt@5   $verbf $atend
 
 have             %hav           $pastf $only
 (have been)      %hav%bIn       $pastf
 (have to)        havtU          $atend
-has              %haz           $pastf $only
+has              %ha2z          $pastf $only
+has              haz            $only $atend
 (has been)       %haz%bIn       $pastf
 hath             %haT           $pastf $only
 had              %had           $pastf $strend2 $only
@@ -2324,15 +2330,15 @@ gone             %g0n          $strend2 $only
 went             %wEnt         $strend2 $only
 
 do               du:           $verbf
-(do not)         %du:n0t       $verbf
+(do not)         du:n0t        $verbf $u2+
 does             dVz           $verbf
-(does not)       %dVzn,0t      $verbf
+(does not)       dVzn0t        $verbf $u2+
 don't            doUnt         $verbf
 doesn't          dVz@nt        $verbf
 doesnt           dVz@nt        $verbf
 doing            ,du:I2N       $strend2 $only
 did              dId            $verbf
-(did not)        %dIdn0t       $verbf
+(did not)        dIdn0t        $verbf $u2+
 didn't           dIdnt         $verbf
 done             dVn
 
@@ -2369,7 +2375,7 @@ she's            %Si:z         $pastf
 we've            %wi:v         $pastf
 they've          %DeIv         $pastf
 
-I                %aI           $verbf $only
+I                aI            $u+ $verbf $only
 (I am)           %aIa2m
 he               %hi:          $verbsf
 she              %Si:          $only $verbsf
@@ -2441,11 +2447,12 @@ now               $verbf
 soon              $verbf
 still             $verbf
 also              $verbf
-already          O:lr,EdI2     $verbf $strend2
+already           O:lr,EdI2    $verbf $strend2
 
 not              ,n0t          $verbextend $only $strend
-(not have)       ,n0t@v        $pastf $strend
-(not have to)    ,n0thavt@5        $pastf $strend
+(not have)       n0ta2v        $pastf $u1
+(not have)       n0thav        $pastf $atend
+(not have to)    ,n0thavt@5    $pastf $strend
 (not a)          ,n0t@         $nounf
 only             oUnlI2        $verbextend
 

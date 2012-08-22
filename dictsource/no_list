@@ -1,0 +1,168 @@
+
+// This file in UTF8 encoded
+
+// Letters
+// If a letter has a "word" pronunciation which is different from its
+// "letter" name, then include the letter name here, with the letter
+// prefixed by a _ character.
+
+
+// character names
+//****************
+
+
+// numeric
+//********
+_0        n'Ul
+_1        'E:n
+_2        t'u:
+_3        tr'e:
+_4        f'i:rE
+_5        f'E:m
+_6        s'Eks
+_7        S'u-:
+_8        'Ot:@2
+_9        n'i:
+
+
+
+
+// abbreviations
+//**************
+
+
+// articles
+en	$u
+et	$u
+ei	$u
+
+
+// pronouns
+jeg	$u+
+du	$u+
+han	$u+
+hun	$u+
+vi	$u+
+dere	$u+
+de	$u+
+
+meg	$u+
+deg	$u+
+ham	$u+
+henne	$u+
+oss	$u+
+dere	$u+
+dem	$u+
+
+denne	$u+
+dette	$u+
+disse	$u+
+den	$u+
+det	$u+
+de	$u+
+
+
+// possessive adjectives
+min	$u+
+mi	$u+
+mitt	$u+
+mine	$u+
+din	$u+
+di	$u+
+ditt	$u+
+dine	$u+
+hans	$u+
+hennes	$u+
+vår	$u+
+vårt	$u+
+våre	$u+
+deres	$u+
+sin	$u+
+si	$u+
+sitt	$u+
+sine	$u+
+
+
+// prepositions
+i	$u $brk     // in
+å	$u $brk     // to
+av	$u $brk     // of, off, by
+bak     $pause      // behind
+etter	$u $pause   // after
+for	$u $pause   // for
+foran   $pause      // in front of
+fra	$u $pause   // from
+in	$u $brk     // in
+innen	$pause      // within
+hos     $u $pause   // with, by, at
+langs	$u $pause   // along
+med	$u $pause   // with
+mellom	$pause      // between
+mens	$u $pause   // while
+mot	$u $pause   // against, towards
+ned	$pause      // down
+om	$u $brk     // about
+over	$brk        // over
+på      $u $brk     // on
+som	$u $pause   // as, that, which
+til	$u $brk     // to
+under	$brk        // under
+uten    $brk        // without
+
+// conjunctions
+at	$u $pause   // that
+og	$u $pause   // and
+samt	$u $pause   // and
+men	$u $pause   // but
+så	$u $pause   // so
+fordi	$pause      // because
+før     $pause      // before
+hvis	$u $pause   // if
+dersom  $pause      // if
+eller	$u $pause   // or
+enn	$u $pause   // than
+mens	$pause      // while
+
+// negative
+ikke	$u
+
+// questions
+
+
+// auxillary verbs  (be, have, can, etc)
+
+være	$u+
+er	$u
+var	$u
+vært	$u
+
+ha	$u+
+har	$u
+hadde	$u
+hatt	$u
+
+// bli
+blir	$u+
+ble	$u+
+blitt	$u+
+
+vil	$u+
+kan	$u+
+kunne	$u+
+kunnet	$u+
+
+skal	$u+
+skulle	$u+
+skullet	$u+
+
+bør	$u+
+
+
+
+// some common adjectives and adverbs
+bare    $u          // only
+også	$brk        // also
+
+
+// MAIN WORD DICTIONARY
+//*********************

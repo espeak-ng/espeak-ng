@@ -29,10 +29,8 @@ extern void ConfigInit();
 extern void ConfigSave(int end);
 extern void ConfigSetPaths();
 
-extern wxString basedir;
 extern wxString path_spectload;
 extern wxString path_spectload2;
-extern wxString path_spectsave;
 extern wxString path_pitches;
 extern wxString path_voices;
 extern wxString path_phsource;

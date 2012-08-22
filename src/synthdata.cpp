@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -25,6 +25,7 @@
 #include <wctype.h>
 #include <string.h>
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
@@ -49,7 +50,10 @@ static int phoneme_tab_number = 0;
 
 int wavefile_ix;              // a wavefile to play along with the synthesis
 int wavefile_amp;
-static int seq_len_adjust;
+int wavefile_ix2;
+int wavefile_amp2;
+
+int seq_len_adjust;
 int vowel_transition[4];
 int vowel_transition0;
 int vowel_transition1;
@@ -136,14 +140,42 @@ int LoadPhData()
 	return(0);
 }  //  end of LoadPhData
 
-#ifdef PLATFORM_RISCOS
+
 void FreePhData(void)
 {//==================
 	Free(phoneme_tab_data);
 	Free(phoneme_index);
 	Free(spects_data);
 }
-#endif
+
+
+int LookupPh(const char *string)
+{//=============================
+	int  ix;
+	unsigned char c;
+	unsigned int  mnem;
+
+	// Pack up to 4 characters into a word
+	mnem = 0;
+	for(ix=0; ix<4; ix++)
+	{
+		if(string[ix]==0) break;
+		c = string[ix];
+		mnem |= (c << (ix*8));
+	}
+
+	for(ix=0; ix<n_phoneme_tab; ix++)
+	{
+		if(phoneme_tab[ix] == NULL)
+			continue;
+		if(phoneme_tab[ix]->mnemonic == mnem)
+			return(ix);
+	}
+	return(0);
+}
+
+
+
 
 static unsigned int LookupSound2(int index, unsigned int other_phcode, int control)
 {//================================================================================
@@ -163,7 +195,9 @@ static unsigned int LookupSound2(int index, unsigned int other_phcode, int contr
 				case 0:
 					// next entry is a wavefile to be played along with the synthesis
 					if(control==0)
+					{
 						wavefile_ix = value2 >> 8;
+					}
 					break;
 				case 1:
 					if(control==0)
@@ -175,7 +209,9 @@ static unsigned int LookupSound2(int index, unsigned int other_phcode, int contr
 					break;
 				case 3:
 					if(control==0)
+					{
 						wavefile_amp = value2 >> 8;
+					}
 					break;
 				case 4:
 					// formant transition data, 2 words
@@ -331,9 +367,9 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	for(ix=0; ix<nf; ix++)
 	{
 		frames_buf[ix].frame = &seq->frame[ix];
-		frames_buf[ix].flags = seq->frame[ix].flags;
+		frames_buf[ix].frflags = seq->frame[ix].frflags;
 		frames_buf[ix].length = seq->frame[ix].length;
-		if(seq->frame[ix].flags & FRFLAG_VOWEL_CENTRE)
+		if(seq->frame[ix].frflags & FRFLAG_VOWEL_CENTRE)
 			seq_break = ix;
 	}
 	
@@ -492,17 +528,15 @@ static void SetUpPhonemeTable(int number)
 
 
 void SelectPhonemeTable(int number)
-{//===============================
+{//================================
 	n_phoneme_tab = 0;
 	SetUpPhonemeTable(number);  // recursively for included phoneme tables
 	n_phoneme_tab++;
 }  //  end of SelectPhonemeTable
 
 
-int SelectPhonemeTableName(const char *name)
-{//=========================================
-// Look up a phoneme set by name, and select it if it exists
-// Returns the phoneme table number
+int LookupPhonemeTable(const char *name)
+{//=====================================
 	int ix;
 
 	for(ix=0; ix<n_phoneme_tables; ix++)
@@ -516,7 +550,19 @@ int SelectPhonemeTableName(const char *name)
 	if(ix == n_phoneme_tables)
 		return(-1);
 
+	return(ix);
+}
+
+
+int SelectPhonemeTableName(const char *name)
+{//=========================================
+// Look up a phoneme set by name, and select it if it exists
+// Returns the phoneme table number
+	int ix;
+
+	if((ix = LookupPhonemeTable(name)) == -1)
+		return(-1);
+
 	SelectPhonemeTable(ix);
 	return(ix);
 }  //  end of DelectPhonemeTableName
-

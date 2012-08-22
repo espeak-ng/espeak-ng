@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005 by Jonathan Duddington                             *
- *   jsd1@clara.co.uk                                                      *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -54,6 +54,7 @@ extern USHORT voice_pcnt[N_PEAKS+1][3];
 
 
 extern voice_t *voice;
-voice_t *LoadVoice(char *voice_name, int no_default);
+voice_t *LoadVoice(char *voice_name, int control);
+voice_t *LoadVoiceVariant(const char *voice_name, int variant);
 void WavegenSetVoice(voice_t *v);
 

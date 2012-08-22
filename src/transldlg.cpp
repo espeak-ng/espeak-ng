@@ -1,6 +1,6 @@
 /***************************************************************************
  *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
- *   jsd@clara.co.uk                                                       *
+ *   jonsd@users.sourceforge.net                                           *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -22,6 +22,7 @@
 #include "wx/wx.h"
 
 
+#include "speak_lib.h"
 #include "speech.h"
 #include "phoneme.h"
 #include "voice.h"
@@ -35,6 +36,7 @@
 #include "wx/button.h"
 #include "wx/checkbox.h"
 #include "wx/filename.h"
+#include "wx/sound.h"
 
 #define T_SOURCE    501
 #define T_PHONETIC  502
@@ -129,11 +131,15 @@ void PlayWavFile(const char *fname)
 {//================================
 	char command[120];
 
+#ifdef PLATFORM_WINDOWS
+	wxSound(wxString(fname,wxConvLocal)).Play(wxSOUND_SYNC);
+#else
 	sprintf(command,"play %s",fname);
 	if(system(command) == -1)
 	{
 		wxLogError(_T("Failed to run system command:\n\n"+wxString(command,wxConvLocal)));
 	}
+#endif
 }
 
 
@@ -162,22 +168,24 @@ int OpenWaveFile2(const char *fname)
 }
 
 
-void MakeWave2(PHONEME_LIST *p, int n_ph)
-{//======================================
+void MakeWave2(PHONEME_LIST *p, int n_phonemes)
+{//============================================
 	int result;
 	char *fname_speech;
+	int n_ph;
 
+	n_ph = n_phonemes;
 	fname_speech = WavFileName();
 	OpenWaveFile2(fname_speech);
 
-	Generate(p,n_ph,0);
+	Generate(p,&n_ph,0);
 
 	for(;;)
 	{
 		result = WavegenFile();
 		if(result != 0)
 			break;
-		Generate(p,n_ph,1);
+		Generate(p,&n_ph,1);
 	}
 
 	CloseWaveFile(samplerate);
@@ -226,7 +234,7 @@ void TranslDlg::SpeakFile(void)
 	
 	path_speaktext = file;
 	
-	InitText();
+	InitText(0);
 	SpeakNextClause(f_text,NULL,0);
 	return;
 }  //  end of SpeakFile
@@ -275,7 +283,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		clause_count = 0;
 
 		vp = buf;
-		InitText();
+		InitText(0);
 		while((vp != NULL) && (n_ph_list < N_PH_LIST))
 		{
 			vp = translator->TranslateClause(NULL,vp,&clause_tone,NULL);
