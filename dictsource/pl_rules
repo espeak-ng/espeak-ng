@@ -1,0 +1,196 @@
+ 
+.group a
+         a          a
+
+.group b
+         b          b
+         b (_A      p
+
+.group c
+         c          ts
+         ch         x
+         c (i       ts;
+         ci (A      ts;
+         cz         tS
+
+.group d
+         d          d
+         d (_A      t
+         d (i       dj
+         di (A      dj
+         dz         dz
+         dz (_A     ts
+         dz (i     dz;
+         dzi (A     dz;
+         dź         dz;
+         dź (_A     ts;
+         dż         dZ
+         dż (_A     tS
+
+.group e
+         e          E
+
+.group f
+         f          f
+
+.group g
+         g          g
+         g (_A      k
+
+.group h
+         h          x
+
+.group i
+         i          i
+         i (A_      j
+         i (A       ;      // palatize p,b,k,g, etc
+
+      @) ika (_     =ika
+
+.group j
+         j          j
+
+.group k
+         k          k
+         k (i       c
+
+.group l
+         l          l
+
+.group m
+         m          m
+
+.group n
+         n          n
+         n (i       n^
+         ni (A      n^
+         n (k       N
+         n (g       N
+
+.group o
+         o          O
+
+.group p
+         p          p
+
+.group q
+         q          k
+
+.group r
+         r          r
+         rz         Z
+      c) rz (A      S
+      ć) rz (A      S
+     cz) rz (A      S
+      f) rz (A      S
+      h) rz (A      S
+      k) rz (A      S
+      p) rz (A      S
+      s) rz (A      S
+      ś) rz (A      S
+     sz) rz (A      S
+      t) rz (A      S
+
+.group s
+         s          s
+         s (i       s;
+         si (A      s;
+         sz         S
+
+.group t
+         t          t
+         t (i       tj
+         ti (A      tj
+
+.group u
+         u          u
+
+.group v
+         v          v
+
+.group w
+         w          v
+         w (_A      f
+      c) w (A       f
+      ć) w (A       f
+     cz) w (A       f
+      f) w (A       f
+      h) w (A       f
+      k) w (A       f
+      p) w (A       f
+      s) w (A       f
+      ś) w (A       f
+     sz) w (A       f
+      t) w (A       f
+
+.group x
+         x          ks
+
+.group y
+         y          y
+
+      @) yka (_     =yka
+
+.group z
+         z          z
+         z (_A      s
+         z (i       z;
+         zi (A      z;
+
+
+.group
+         ą          O~
+         ą (p       Om
+         ą (b       Om
+         ą (t       On
+         ą (c       On
+         ą (d       On
+         ą (ć       On^
+         ą (dź      On^
+         ą (k       ON
+         ą (g       ON
+         ą (l       O
+         ą (ł       O
+
+         ć          ts;
+
+         ę          E~
+         ę (_       E
+         ę (p       Em
+         ę (b       Em
+         ę (t       En
+         ę (c       En
+         ę (d       En
+         ę (ć       En^
+         ę (dź      En^
+         ę (k       EN
+         ę (g       EN
+         ę (l       E
+         ę (ł       E
+
+         ł          w
+
+         ń          n^
+
+         ó          u
+
+         ś          s;
+
+         ź          z;
+         ź (_A      s;
+
+         ż          Z
+         ż (_A      S
+
+.group 9
+         0          z'ErO_
+         1          j'EdEn_
+         2          dv'a_
+         3          tS'y_
+         4          tSt'Ery_
+         5          p;'En^ts;_
+         6          S'Es;ts;_
+         7          s;'EdEm_
+         8          'Os;Em_
+         9          dz;'Ev;En^ts;_
+

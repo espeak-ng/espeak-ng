@@ -1,7 +1,0 @@
-These are pronunciation rules and exceptions lists for each language.
-
-use:
-  speak --compile=<voicename>
-
-to compile the data files for each language in espeak-data (eg. english_1 and english_2).
-

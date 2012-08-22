@@ -17,7 +17,7 @@
  *   Free Software Foundation, Inc.,                                       *
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
-
+// 
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -26,46 +26,12 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "speak_lib.h"
 
 
 /* amplitudes for syllable stress levels */
 //static int stress_amps[] = {13,13, 16,16, 16,20, 20,20 };
 //static int stress_amps_r[] = {13,13, 15,15, 15,18, 18,20 };
-
-int stress_amps[8];
-int stress_amps_r[8];
-int stress_lengths[8];
-
-// Tables of the relative lengths of vowels, depending on the
-// type of the two phonemes that follow
-
-// indexes are the "length_mod" value for the following phonemes
-
-// use this table if vowel is not the last in the word
-static unsigned char length_mod_tab[9][9] = {
-/*  a   ,   t   s   n   d   z   r   N   <- next */
-	{100,150,100,105, 95,110,110,100, 95},  /* a  <- next2 */
-	{105,150,105,110,125,130,135,115,125},  /* , */
-	{105,150, 75,100, 75,115,120, 85, 75},  /* t */
-	{105,150, 85,105, 95,115,120,100, 95},  /* s */
-	{110,150, 95,105,100,115,120,100,100},  /* n */
-	{105,150,100,105, 95,115,120,110, 95},  /* d */
-	{105,150,100,105,105,122,125,110,105},  /* z */
-	{105,150,100,105,105,122,125,110,105},  /* r */
-	{105,150, 95,105,100,115,120,110,100} }; /* N */
-
-// as above, but for the last syllable in a word
-static unsigned char length_mod_tab0[9][9] = {
-/*  a   ,   t   s   n   d   z   r    N  <- next */
-	{100,150,100,105,110,115,110,110,110},  /* a  <- next2 */
-	{105,150,105,110,125,135,140,115,135},  /* , */
-	{105,150, 90,105, 90,122,135,100, 90},  /* t */
-	{105,150,100,105,100,122,135,100,100},  /* s */
-	{105,150,100,105,105,115,135,110,105},  /* n */
-	{105,150,100,105,105,122,130,120,125},  /* d */
-	{105,150,100,105,110,122,125,115,110},  /* z */
-	{105,150,100,105,105,122,135,120,105},  /* r */
-	{105,150,100,105,105,115,135,110,105} };  /* N */
 
 // convert from words-per-minute to internal speed factor
 static unsigned char speed_lookup[241] = {
@@ -109,22 +75,22 @@ extern int speed_factor1;
 extern int speed_factor2;
 
 
-void SetSpeed(int speed_wpm, int control)
-{//======================================
+void SetSpeed(int control)
+{//=======================
 	int x;
 	int s1;
 	int wpm;
 
+	wpm = embedded_value[EMBED_S];
+	if(wpm > 320) wpm = 320;
+	if(wpm < 80) wpm = 80;
+
+	x = speed_lookup[wpm-80];
 
 	if(control & 1)
 	{
 		// set speed factors for different syllable positions within a word
 		// these are used in CalcLengths()
-		wpm = speed_wpm + (embedded_value[EMBED_S]-50)*3;
-		if(wpm > 320) wpm = 320;
-		if(wpm < 80) wpm = 80;
-
-		x = speed_lookup[wpm-80];
 		speed1 = (x * voice->speedf1)/256;
 		speed2 = (x * voice->speedf2)/256;
 		speed3 = (x * voice->speedf3)/256;
@@ -133,20 +99,16 @@ void SetSpeed(int speed_wpm, int control)
 	if(control & 2)
 	{
 		// these are used in synthesis file
-		wpm = speed_wpm + (embedded_value[EMBED_S2]-50)*3;
-		if(wpm >= 320) wpm = 319;
-		if(wpm < 80) wpm = 80;
-
-		x = speed_lookup[wpm-80];
 		s1 = (x * voice->speedf1)/256;
 		speed_factor1 = (256 * s1)/115;      // full speed adjustment
-		speed_factor2 = 128 + (128*s1)/130;  // reduced speed adjustment
+		speed_factor2 = 120 + (137*s1)/128;  // reduced speed adjustment
+//		speed_factor2 = 128 + (128*s1)/130;  // reduced speed adjustment
 	}
 
 }  //  end of SetSpeed
 
 
-
+#ifdef deleted
 void SetAmplitude(int amp)
 {//=======================
 	static unsigned char amplitude_factor[] = {0,5,6,7,9,11,14,17,21,26, 32, 38,44,50,56,63,70,77,84,91,100 };
@@ -156,6 +118,41 @@ void SetAmplitude(int amp)
 		option_amplitude = (amplitude_factor[amp] * 480)/256; 
 	}
 }
+#endif
+
+
+void espeak_SetParameter(int parameter, int value, int relative)
+{//=============================================================
+// parameter: reset-all, amp, pitch, speed, linelength, expression, capitals, number grouping
+// relative 0=absolute  1=relative
+
+	int new_value = value;
+	int default_value;
+
+	if(relative)
+	{
+		if(parameter < 5)
+		{
+			default_value = param_defaults[parameter];
+			new_value = default_value + (default_value * value)/100;
+		}
+	}
+	param_stack[0].parameter[parameter] = new_value;
+
+	switch(parameter)
+	{
+	case espeakRATE:
+		embedded_value[EMBED_S] = new_value;
+		embedded_value[EMBED_S2] = new_value;
+		SetSpeed(3);
+		break;
+
+	case espeakVOLUME:
+		embedded_value[EMBED_A] = new_value;
+		break;
+	}
+}  // end of espeak_SetParameter
+
 
 
 
@@ -199,19 +196,18 @@ static void DoEmbedded2(int &embix)
 {//================================
 	// There were embedded commands in the text at this point
 
-	unsigned char c;
-	unsigned char value;
+	unsigned int word;
 
-	while((c = embedded_list[embix++]) != 0)
-	{
-		value = embedded_list[embix++];
-		if((c & 0x3f) == EMBED_S)
+	do {
+		word = embedded_list[embix++];
+
+		if((word & 0x1f) == EMBED_S)
 		{
 			// speed
-			SetEmbedded(c,value);   // adjusts embedded_value[EMBED_S]
-			SetSpeed(global_speed,1);
+			SetEmbedded(word & 0x7f, word >> 8);   // adjusts embedded_value[EMBED_S]
+			SetSpeed(1);
 		}
-	}
+	} while((word & 0x80) == 0);
 }
 
 
@@ -227,6 +223,7 @@ void Translator::CalcLengths()
 	PHONEME_LIST *p2;
 
 	int  stress;
+	int  type;
 	static int  more_syllables=0;
 	int  pre_sonorant=0;
 	int  pre_voiced=0;
@@ -236,6 +233,7 @@ void Translator::CalcLengths()
 	int  env2;
 	int  end_of_clause;
 	int  embedded_ix = 0;
+	int  min_drop;
 
 	for(ix=1; ix<n_phoneme_list; ix++)
 	{
@@ -250,7 +248,11 @@ void Translator::CalcLengths()
 			DoEmbedded2(embedded_ix);
 		}
 
-		switch(p->type)
+		type = p->type;
+		if(p->synthflags & SFLAG_SYLLABLE)
+			type = phVOWEL;
+
+		switch(type)
 		{
 		case phPAUSE:
 			last_pitch = 0;
@@ -266,8 +268,11 @@ void Translator::CalcLengths()
 			else
 				p->prepause = 60;
 
-			if((option_words==2) && (p->newword))
+			if((langopts.word_gap==3) && (p->newword))
 				p->prepause = 60;
+
+			if(p->synthflags & SFLAG_LENGTHEN)
+				p->prepause += 60;
 			break;
 
 		case phVFRICATIVE:
@@ -279,20 +284,25 @@ void Translator::CalcLengths()
 			if(p->newword)
 				p->prepause = 15;
 
-			if(next->type==phPAUSE && prev->type==phNASAL && !p->ph->flags&phFORTIS)
+			if(next->type==phPAUSE && prev->type==phNASAL && !p->ph->phflags&phFORTIS)
 				p->prepause = 25;
 
-			if((p->ph->flags & phSIBILANT) && next->type==phSTOP && !next->newword && prev->type != phVOWEL)
-				p->length = 150;
+			if((p->ph->phflags & phSIBILANT) && next->type==phSTOP && !next->newword)
+			{
+				if(prev->type == phVOWEL)
+					p->length = 200;      // ?? should do this if it's from a prefix
+				else
+					p->length = 150;
+			}
 			else
 				p->length = 256;
 
-			if((option_words==2) && (p->newword))
+			if((langopts.word_gap==3) && (p->newword))
 				p->prepause = 30;
 			break;
 
 		case phVSTOP:
-			if(prev->type==phVFRICATIVE || prev->type==phFRICATIVE || (prev->ph->flags & phSIBILANT) || (prev->type == phLIQUID))
+			if(prev->type==phVFRICATIVE || prev->type==phFRICATIVE || (prev->ph->phflags & phSIBILANT) || (prev->type == phLIQUID))
 				p->prepause = 30;
 
 			if(next->type==phVOWEL || next->type==phLIQUID)
@@ -302,7 +312,7 @@ void Translator::CalcLengths()
 
 				p->prepause = 40;
 
-				if((prev->type == phPAUSE) || (prev->type == phVOWEL))
+				if((prev->type == phPAUSE) || (prev->type == phVOWEL) || (prev->ph->mnemonic == ('/'*256+'r')))
 					p->prepause = 0;
 				else
 				if(p->newword==0)
@@ -312,18 +322,22 @@ void Translator::CalcLengths()
 					if(prev->type==phNASAL)
 						p->prepause = 12;
 
-					if(prev->type==phSTOP && !(prev->ph->flags & phFORTIS))
+					if(prev->type==phSTOP && !(prev->ph->phflags & phFORTIS))
 						p->prepause = 0;
 				}
 			}
-			if((option_words==2) && (p->newword) && (p->prepause < 20))
+			if((langopts.word_gap==3) && (p->newword) && (p->prepause < 20))
 				p->prepause = 20;
+
+			if(p->synthflags & SFLAG_LENGTHEN)
+				p->prepause += 60;
 			break;
 
 		case phLIQUID:
 		case phNASAL:
 			p->amp = stress_amps[1];  // unless changed later
 			p->length = 256;  //  TEMPORARY
+			min_drop = 0;
 			
 			if(p->newword)
 			{
@@ -344,13 +358,14 @@ void Translator::CalcLengths()
 				p->pitch2 = last_pitch;
 				if(p->pitch2 < 7)
 					p->pitch2 = 7;
-				p->pitch1 = p->pitch2-8;
+				p->pitch1 = p->pitch2 - 8;
 				p->env = PITCHfall;
 				pre_voiced = 0;
 				
 				if(p->type == phLIQUID)
 				{
 					p->length = speed1;
+p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 				}
 
 				if(next->type == phVSTOP)
@@ -380,6 +395,7 @@ void Translator::CalcLengths()
 			break;
 
 		case phVOWEL:
+			min_drop = 0;
 			next2 = &phoneme_list[ix+2];
 			next3 = &phoneme_list[ix+3];
 
@@ -398,18 +414,19 @@ void Translator::CalcLengths()
 				if(p2->type == phVOWEL)
 					more_syllables++;
 			}
-			if((p2->newword == 2) && (more_syllables==0))
+			if((p2->newword & 2) && (more_syllables==0))
 			{
 				end_of_clause = 2;
 			}
 
 			// calc length modifier
 			if(more_syllables==0)
-				length_mod = length_mod_tab0[next2->ph->length_mod][next->ph->length_mod];
+				length_mod = langopts.length_mods0[next2->ph->length_mod *10+ next->ph->length_mod];
 			else
 			{
-				length_mod = length_mod_tab[next2->ph->length_mod][next->ph->length_mod];
-				if((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->ph->flags & phFORTIS))
+				length_mod = langopts.length_mods[next2->ph->length_mod *10+ next->ph->length_mod];
+
+				if((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->ph->phflags & phFORTIS))
 					length_mod -= 15;
 			}
 
@@ -439,6 +456,11 @@ void Translator::CalcLengths()
 				length_mod = length_mod * (256 + (280 - p->ph->std_length)/3)/256;
 			}
 
+if(p->type != phVOWEL)
+{
+	length_mod = 256;   // syllabic consonant
+	min_drop = 8;
+}
 			p->length = length_mod;
 
 			// pre-vocalic part
@@ -487,17 +509,19 @@ void Translator::CalcLengths()
 
 				if(next2->type != phVOWEL)
 				{
-					if(next->ph->mnemonic == 'R')
+					if(next->ph->mnemonic == ('/'*256+'r'))
 					{
-						ix2 = p->pitch2 - p->pitch1;
-						if(ix2 < 15)
-						{
-							p->pitch1 = p->pitch2 - 15;
-							if(p->pitch1 < 0)
-								p->pitch1 = 0;
-						}
+						next->synthflags &= ~SFLAG_SEQCONTINUE;
+//						min_drop = 15;
 					}
 				}
+			}
+
+			if((min_drop > 0) && ((p->pitch2 - p->pitch1) < min_drop))
+			{
+				p->pitch1 = p->pitch2 - min_drop;
+				if(p->pitch1 < 0)
+					p->pitch1 = 0;
 			}
 
 			last_pitch = p->pitch1 + ((p->pitch2-p->pitch1)*envelope_data[p->env][127])/256;

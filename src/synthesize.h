@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#define N_PHONEME_LIST  600    // enough for source[] full of text, else it will truncate
+#define N_PHONEME_LIST  700    // enough for source[] full of text, else it will truncate
 
 #define MAX_HARMONIC  400           // 400 * 50Hz = 20 kHz, more than enough
 #define N_SEQ_FRAMES   25           // max frames in a spectrum sequence (real max is ablut 8)
@@ -36,20 +36,27 @@
 
 #define SFLAG_SEQCONTINUE      0x01
 #define SFLAG_EMBEDDED         0x02   // there are embedded commands before this phoneme
+#define SFLAG_SYLLABLE         0x04   // vowel or syllabic consonant
+#define SFLAG_LENGTHEN         0x08   // lengthen symbol : included after this phoneme
 
 // embedded command numbers
 #define EMBED_P     1   // pitch
-#define EMBED_S     2   // speed (in setlengths)
-#define EMBED_V     3   // volume
-#define EMBED_E     4   // expression (pitch range)
-#define EMBED_R     5   // reverberation (echo)
+#define EMBED_S     2   // speed (used in setlengths)
+#define EMBED_A     3   // amplitude/volume
+#define EMBED_R     4   // pitch range/expression
+#define EMBED_H     5   // echo/reverberation
 #define EMBED_T     6   // different tone
 #define EMBED_I     7   // sound icon
-#define EMBED_S2    8   // speed (in synthesize)
+#define EMBED_S2    8   // speed (used in synthesize)
+#define EMBED_Y     9   // say-as commands
+#define EMBED_M    10   // mark name
+#define EMBED_U    11   // audio uri
+#define EMBED_B    12   // break
+#define EMBED_F    13   // emphasis
 
-#define N_EMBEDDED_VALUES    9
+#define N_EMBEDDED_VALUES    14
 extern int embedded_value[N_EMBEDDED_VALUES];
-extern unsigned char embedded_default[N_EMBEDDED_VALUES];
+extern int embedded_default[N_EMBEDDED_VALUES];
 
 
 // formant data used by wavegen
@@ -67,14 +74,6 @@ typedef struct {
 	DOUBLEX left_inc;
 	DOUBLEX right_inc;
 }  wavegen_peaks_t;
-
-
-typedef struct {
-	short length;
-	unsigned char flags;
-	unsigned char rms;
-	peak_t peaks[9];
-} frame_t;
 
 typedef struct {
    short length;
@@ -98,7 +97,7 @@ typedef struct {
 	unsigned char prepause;
 	unsigned char amp;
 	unsigned char tone_ph;   // tone phoneme to use with this vowel
-	unsigned char newword;   // 1=start of word, 2=end of clause
+	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
 	unsigned char synthflags;
 	short length;  // length_mod
 	short pitch1;  // pitch, 0-4095 within the Voice's pitch range
@@ -115,14 +114,16 @@ typedef struct {
 } SOUND_ICON;
 
 // phoneme table
-extern PHONEME_TAB *phoneme_tab;
+extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 // list of phonemes in a clause
 extern int n_phoneme_list;
 extern PHONEME_LIST phoneme_list[N_PHONEME_LIST];
-extern unsigned char embedded_list[];
+extern unsigned int embedded_list[];
 
-extern unsigned char Pitch_env0[128];
+extern unsigned char env_fall[128];
+extern unsigned char env_rise[128];
+extern unsigned char env_frise[128];
 
 
 // queue of commands for wavegen
@@ -133,7 +134,7 @@ extern unsigned char Pitch_env0[128];
 #define WCMD_PAUSE	5
 #define WCMD_WAVE    6
 #define WCMD_WAVE2   7
-#define WCMD_MARKER	8		// not yet used
+#define WCMD_MARKER	8
 #define WCMD_VOICE   9
 #define WCMD_EMBEDDED 10
 
@@ -158,33 +159,38 @@ int  OpenWaveFile(const char *path, int rate);
 void CloseWaveFile(int rate);
 float polint(float xa[],float ya[],int n,float x);
 int  WavegenFile(void);
+int WavegenFill(int fill_zeros);
+void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr);
+extern unsigned char *out_ptr;
+extern unsigned char *out_end;
+
 
 extern unsigned char *wavefile_data;
 extern int samplerate;
 
 extern int wavefile_ix;
-
+extern int wavefile_amp;
 
 // from synthdata file
 unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level);
-frameref_t *LookupSpect(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int *n_frames, int stress);
+frameref_t *LookupSpect(PHONEME_TAB *ph1, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph, int which, int *match_level, int *n_frames, PHONEME_LIST *plist);
+
 unsigned char *LookupEnvelope(int ix);
 int LoadPhData();
 
 void SynthesizeInit(void);
-int  Generate(PHONEME_LIST *phoneme_list, int resume);
+int  Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume);
 void MakeWave2(PHONEME_LIST *p, int n_ph);
 int  SynthOnTimer(void);
-int  SpeakNextClause(FILE *f_text, char *text_in, int control);
+int  SpeakNextClause(FILE *f_text, const void *text_in, int control);
 int  SynthStatus(void);
-void SetSpeed(int speed, int control);
-void SetAmplitude(int amp);
+void SetSpeed(int control);
 void SetEmbedded(int control, int value);
+void SelectPhonemeTable(int number);
+int  SelectPhonemeTableName(const char *name);
 
 extern unsigned char *envelope_data[16];
 extern int formant_rate[];         // max rate of change of each formant
-extern int global_speed;
-extern char path_home[];
 
 #define N_SOUNDICON_TAB  100
 extern int n_soundicon_tab;

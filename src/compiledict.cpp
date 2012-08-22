@@ -34,22 +34,16 @@
 //#define OUTPUT_FORMAT
 
 int HashDictionary(const char *string);
-extern char path_home[];
-extern char path_source[];
+char path_dsource[80];
 
 static FILE *f_log = NULL;
 extern char *dir_dictionary;
 
 int linenum;
+static int error_count;
 
 int hash_counts[N_HASH_DICT];
 char *hash_chains[N_HASH_DICT];
-
-typedef struct {
-   const char *mnem;
-   int  value;
-} MNEM_TAB;
-
 
 MNEM_TAB mnem_flags[] = {
 	// these in the first group put a value in bits0-2 of dictionary_flags
@@ -58,6 +52,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$3", 3},
 	{"$4", 4},
 	{"$5", 5},
+	{"$12",6},           // stress on 1st and 2nd syllables
 	{"$u", 7},           // reduce to unstressed
 
 	// these set the corresponding numbered bit if dictionary_flags
@@ -87,31 +82,18 @@ MNEM_TAB mnem_flags[] = {
 };
 
 
-FILE *fopen_log(const char *fname,const char *access)
+static FILE *fopen_log(const char *fname,const char *access)
 {//==================================================
 // performs fopen, but produces error message to f_log if it fails
 	FILE *f;
 
 	if((f = fopen(fname,access)) == NULL)
 	{
-		fprintf(f_log,"Can't access (%s) file '%s'\n",access,fname);
+		if(f_log != NULL)
+			fprintf(f_log,"Can't access (%s) file '%s'\n",access,fname);
 	}
 	return(f);
 }
-
-
-static int lookup_mnem(MNEM_TAB *table, char* mnem)
-/******************************************/
-/* Lookup a mnemonic string in a table, return its value */
-{
-   while(table->mnem != NULL)
-   {
-      if(strcmp(table->mnem,mnem) == 0)
-         return(table->value);
-      table++;
-   }
-   return(-1);   /* not found */
-}   /* end of mnem */
 
 
 #ifdef OPT_FORMAT
@@ -193,11 +175,14 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 			while(!isspace(c = *p)) p++;
 			*p = 0;
 	
-			ix = lookup_mnem(mnem_flags,mnemptr);
+			ix = LookupMnem(mnem_flags,mnemptr);
 			if(ix > 0)
 				flag_codes[n_flag_codes++] = ix;
 			else
+			{
 				fprintf(f_log,"%5d: Unknown keyword: %s\n",linenum,mnemptr);
+				error_count++;
+			}
 		}
 	
 		if((c == '/') && (p[1] == '/') && (multiple_words==0))
@@ -304,6 +289,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 		{
 			/* unrecognised phoneme, report error */
 			fprintf(f_log,"%5d: Bad phoneme [%c] in: %s  %s\n",linenum,bad_phoneme[0],word,phonetic);
+			error_count++;
 		}
 	}
 	
@@ -396,13 +382,9 @@ void compile_dictlist_start(void)
 void compile_dictlist_end(FILE *f_out)
 {//===================================
 // Write out the compiled dictionary list
-	int value;
 	int hash;
 	int length;
 	char *p;
-
-	value = N_HASH_DICT;
-	fwrite(&value,4,1,f_out);
 
 	if(f_log != NULL)
 	{
@@ -457,7 +439,10 @@ void compile_dictlist_file(FILE *f_in)
 		if(p == NULL)
 		{
 			if(f_log != NULL)
+			{
 				fprintf(f_log,"Can't allocate memory\n");
+				error_count++;
+			}
 			break;
 		}
 	
@@ -556,6 +541,15 @@ void copy_rule_string(char *string, int &state)
 				case 'D':
 					c = RULE_DIGIT;
 					break;
+				case 'H':
+					c = RULE_LETTER4;
+					break;
+				case 'F':
+					c = RULE_LETTER5;
+					break;
+				case 'K':
+					c = RULE_NOTVOWEL;
+					break;
 				case 'N':
 					c = RULE_NO_SUFFIX;
 					break;
@@ -577,6 +571,7 @@ void copy_rule_string(char *string, int &state)
 				case '#':
 					c = RULE_DEL_FWD;
 					break;
+
 				case 'P':
 					sxflags |= SUFX_P;   // Prefix, now drop through to Suffix
 				case '$':   // obsolete, replaced by S
@@ -674,6 +669,7 @@ char *compile_rule(char *input)
 			break;
 			
 		case '\n':		// end of line
+		case '\r':
 		case 0:			// end of line
 			*p = 0;
 			copy_rule_string(buf,state);
@@ -690,6 +686,8 @@ char *compile_rule(char *input)
 		case '?':
 			if(state==2)
 				state=0;
+			else
+				*p++ = c;
 			break;
 
 		default:
@@ -708,6 +706,7 @@ char *compile_rule(char *input)
 		if(c==255)
 		{
 			fprintf(f_log,"%5d: Bad phoneme [%c] in %s",linenum,bad_phoneme[0],input);
+			error_count++;
 			break;
 		}
 	}
@@ -724,6 +723,7 @@ char *compile_rule(char *input)
 		else
 		{
 			fprintf(f_log,"%5d: Wrong initial letters '%s' for group '%s'\n",linenum,rule_match,group_name);
+			error_count++;
 		}
 	}
 	strcpy(&output[len],rule_match);
@@ -740,6 +740,7 @@ char *compile_rule(char *input)
 		else
 		{
 			fprintf(f_log,"%5d: bad condition number ?%d\n",linenum,ix);
+			error_count++;
 		}
 	}
 	if(rule_pre[0] != 0)
@@ -944,16 +945,19 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 	int n_rules=0;
 	int n_groups=0;
 	int count=0;
-	char buf[120];
+	char *buf;
+	char buf1[120];
 	char *rules[N_RULES];
 	
 	linenum = 0;
 	group_name[0] = 0;
 
-	while(fgets(buf,sizeof(buf),f_in) != NULL)
+	while(fgets(buf1,sizeof(buf1),f_in) != NULL)
 	{
 		linenum++;
-		
+		buf = buf1;
+		if(buf[0] == '\r') buf++;  // ignore extra \r in \r\n 
+
 		if(memcmp(buf,".group",6)==0)
 		{
 			if(n_rules > 0)
@@ -971,7 +975,10 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 				group_name[ix++] = *p++;
 			group_name[ix]=0;
 			if(strlen(group_name) > 2)
+			{
 				fprintf(f_log,"%5d: Group name longer than 2 characters: %s\n",linenum,group_name);
+				error_count++;
+			}
 			continue;
 		}
 		
@@ -994,48 +1001,53 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 
 
 
-void CompileDictionary(const char *dict_name, int log)
-{//===================================================
+int CompileDictionary(const char *dict_name, int log, char *fname)
+{//===============================================================
+// fname:  space to write the filename in case of error
+
 	FILE *f_in;
 	FILE *f_out;
-	char fname[120];
+	int offset_rules;
+	int value;
+
+	error_count = 0;
 
 	if(log==1)
 	{
-		sprintf(fname,"%s%cdict_log",path_source,PATHSEP);
-		f_log = fopen(fname,"w");
+		sprintf(fname,"%s%cdict_log",path_dsource,PATHSEP);
+		if((f_log = fopen(fname,"w")) == NULL)
+			f_log = stderr;
 	}
 	else
 	{
 		f_log = stderr;
 	}
 
-	if(phoneme_tab == NULL)
-	{
-		fprintf(stderr,"Phoneme data is not loaded");
-		return;
-	}
 	fprintf(f_log,"Phonemes: '%s'\n",PhonemeTabName());
 
-	sprintf(fname,"%s%s_list",path_source,dict_name);
+	sprintf(fname,"%s%s_list",path_dsource,dict_name);
 	fprintf(f_log,"Compiling: '%s'\n",fname);
 	f_in = fopen_log(fname,"r");
 	if(f_in == NULL)
 	{
-		return;
+		return(-1);
 	}
-	sprintf(fname,"%s%c%s_2",path_home,PATHSEP,dict_name);
+	sprintf(fname,"%s%c%s_dict",path_home,PATHSEP,dict_name);
 	f_out = fopen_log(fname,"wb+");
 	if(f_out == NULL)
 	{
-		return;
+		return(-1);
 	}
+
+	value = N_HASH_DICT;
+	fwrite(&value,4,1,f_out);
+	fwrite(&offset_rules,4,1,f_out);
 
 	compile_dictlist_start();
 	compile_dictlist_file(f_in);
 	fclose(f_in);
 
-	sprintf(fname,"%s%s_extra",path_source,dict_name);
+	sprintf(fname,"%s%s_extra",path_dsource,dict_name);
 	if((f_in = fopen(fname,"r")) != NULL)
 	{
 		fprintf(f_log,"Compiling: '%s'\n",fname);
@@ -1043,28 +1055,28 @@ void CompileDictionary(const char *dict_name, int log)
 		fclose(f_in);
 	}
 	compile_dictlist_end(f_out);
-	fclose(f_out);
+	offset_rules = ftell(f_out);
 	
-	sprintf(fname,"%s%s_rules",path_source,dict_name);
+	sprintf(fname,"%s%s_rules",path_dsource,dict_name);
 	fprintf(f_log,"Compiling: '%s'\n",fname);
 	f_in = fopen_log(fname,"r");
 	if(f_in == NULL)
 	{
-		return;
+		return(-1);
 	}
-	sprintf(fname,"%s%c%s_1",path_home,PATHSEP,dict_name);
-	f_out = fopen_log(fname,"wb+");
-	if(f_out == NULL)
-	{
-		return;
-	}
+
 	compile_dictrules(f_in,f_out);
 	fclose(f_in);
+
+	fseek(f_out,4,SEEK_SET);
+	fwrite(&offset_rules,4,1,f_out);
 	fclose(f_out);
 
 	if(f_log != stderr)
 		fclose(f_log);
 
 	translator->LoadDictionary(dict_name);
+
+	return(error_count);
 }  //  end of compile_dictionary
 

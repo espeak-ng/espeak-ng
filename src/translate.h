@@ -25,7 +25,7 @@
 #define N_CLAUSE_WORDS   256          // max words in a clause
 #define N_CHAINS2        120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
-
+#define N_CHARSETS        16
 
 /* flags from word dictionary */
 #define FLAG_PREPAUSE        0x100
@@ -98,7 +98,34 @@
 #define RULE_LETTER5    21   // F spare
 #define RULE_LETTER6    22   // G spare
 #define RULE_NO_SUFFIX  23
+#define RULE_NOTVOWEL   24
 
+// Punctuation types  returned by ReadClause()
+// bits 0-7 pause x 10mS, bits 8-11 intonation type,
+// bit 15=sentence, bit 14=clause,  bits 13=voice change
+// bit 12 used to distinguish otherwise identical types
+#define CLAUSE_BIT_SENTENCE  0x8000
+#define CLAUSE_BIT_VOICE     0x2000
+
+#define CLAUSE_NONE         0 + 0x0400
+#define CLAUSE_PARAGRAPH   70 + 0x8000
+#define CLAUSE_EOF         35 + 0x9000
+#define CLAUSE_VOICE        0 + 0x2400
+#define CLAUSE_PERIOD      35 + 0x8000
+#define CLAUSE_COMMA       20 + 0x4100
+#define CLAUSE_QUESTION    35 + 0x8200
+#define CLAUSE_EXCLAMATION 40 + 0x8300
+#define CLAUSE_COLON       30 + 0x4000
+#ifdef PLATFORM_RISCOS
+#define CLAUSE_SEMICOLON   30 + 0x4000
+#else
+#define CLAUSE_SEMICOLON   30 + 0x4100
+#endif
+
+#define SAYAS_GLYPHS    1
+#define SAYAS_CHAR      2
+#define SAYAS_KEY       3
+#define SAYAS_DIGITS    4
 
 // Rule:
 // [4] [match] [1 pre] [2 post] [3 phonemes] 0
@@ -132,6 +159,46 @@ typedef struct {
 } PHONEME_LIST2;
 
 
+#define N_SPEECH_PARAM  8
+typedef struct {
+	int type;
+	int parameter[N_SPEECH_PARAM];
+} PARAM_STACK;
+
+extern PARAM_STACK param_stack[];
+extern const int param_defaults[N_SPEECH_PARAM];
+
+
+// holds properties of characters: vowel, consonant, etc for pronunciation rules
+#define LETTERGP_VOWEL    0
+#define LETTERGP_VOWEL_Y  7
+extern unsigned char letter_bits[256];
+
+#define N_LOPTS      7
+#define LOPT_DIERESES        1
+ // 1=remove [:] from unstressed syllables
+#define LOPT_LENGTHEN        2
+ // 1=german
+#define LOPT_PREFIXES        3
+ // 1=regressive,  change voiced/unoiced to match last consonant in a cluster
+#define LOPT_REGRESSIVE_VOICING  4
+ // 0=default, 1=no check
+#define LOPT_UNPRONOUNCABLE  5
+ // 0=default, 1=set length_mod0 = length_mod
+#define LOPT_FINAL_SYLLABLE  6
+
+
+typedef struct {
+	int word_gap; // 0,  2=don't merge phonemes,  3= pause before stops and fricatives, 4= PAUSE_SHORT between words
+	int vowel_pause;
+	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
+	int stress_rule2;  // bit1=don't stress monosyllables
+	int unstressed_wd1; // stress for $u word of 1 syllable
+	int unstressed_wd2; // stress for $u word of >1 syllable
+	int param[N_LOPTS];
+	unsigned char *length_mods;
+	unsigned char *length_mods0;
+} LANGUAGE_OPTIONS;
 
 
 
@@ -140,32 +207,41 @@ class Translator
 public:
 	Translator();
 	virtual ~Translator();
-	char *TranslateClause(FILE *f_text, char *buf, int *tone, char **voice_change);
+	void *TranslateClause(FILE *f_text, const void *vp_input, int *tone, char **voice_change);
 	int LoadDictionary(const char *name);
+	void SetLetterBits(int group, const char *string);
 	virtual void CalcLengths();
 	virtual void CalcPitches(int clause_tone);
 	
-	char *input_start;
+	LANGUAGE_OPTIONS langopts;
 	char phon_out[300];
+
+	int stress_amps[8];
+	int stress_amps_r[8];
+	int stress_lengths[8];
+	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
+	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
 
 protected:
 	int TranslateWord(char *word, int next_pause, int wflags);
 	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix);
 	int TranslateLetter(char *letter, char *phonemes);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
-	void MakePhonemeList(int post_pause, int embedded);
-	int EmbeddedCommand(unsigned int &source_index);
-	
+	void WriteMnemonic(int *ix, int mnem);
+	void MakePhonemeList(int post_pause, int embedded, int new_sentence);
 
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
 	virtual int RemoveEnding(char *word, int end_type);
+	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
+	virtual int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
 
-	int ReadClause(FILE *f_in, char *buf, int n_buf);
+	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
 
 	int LookupDict2(char *word, char *word2, char *phonetic, unsigned int *flags, int end_flags);
 	int LookupDictList(char *word1, char *ph_out, unsigned int *flags, int end_flags);
+	const char *LookupSpecial(char *string);
 	const char *LookupCharName(int c);
 
 	void InitGroups(void);
@@ -176,9 +252,24 @@ protected:
 
 	int IsLetter(int letter, int group);
 	int IsVowel(int letter);
-	void SetLetterBits(int group, const char *string);
-	int GetVowelStress(char *phonemes, char *vowel_stress, int *vowel_count, int stressed_syllable);
+	int GetVowelStress(unsigned char *phonemes, char *vowel_stress, int &vowel_count, int &stressed_syllable);
 
+
+	char *data_dictrules;     // language_1   translation rules file
+	char *data_dictlist;      // language_2   dictionary lookup file
+	char *dict_hashtab[N_HASH_DICT];   // hash table to index dictionary lookup file
+	
+	// groups1 and groups2 are indexes into data_dictrules, set up by InitGroups()
+	// the two-letter rules for each letter must be consecutive in the language_rules source
+	
+	char *groups1[256];         // translation rule lists, index by single letter
+	char *groups2[N_CHAINS2];   // translation rule lists, indexed by two-letter pairs
+	unsigned int groups2_name[N_CHAINS2];  // the two letter pairs for groups2[]
+	int n_groups2;              // number of groups2[] entries used
+	
+	char groups2_count[256];    // number of 2 letter groups for this initial letter
+	char groups2_start[256];    // index into groups2
+	
 
 	int n_ph_list2;
 	PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
@@ -193,7 +284,6 @@ protected:
 	int prev_last_stress;
 	int prepause_timeout;
 	char *clause_end;
-	int clause_start_index;
 
 	int word_vowel_count;     // number of vowels so far
 	int word_stressed_count;  // number of vowels so far which could be stressed
@@ -201,99 +291,66 @@ protected:
 	int clause_upper_count;   // number of upper case letters in the clause
 	int clause_lower_count;   // number of lower case letters in the clause
 
-	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
 
 }; //  end of class Translator
 
 
-class Translator_Default: public Translator
-{//========================================
-
-
-};  // end of class Translator_German
-
-
-
-class Translator_English: public Translator
-{//=======================================
-
-public:
-	Translator_English();
-	int Unpronouncable(char *word);
-
-};  // end of class Translator_English
-
-
-
-class Translator_Esperanto: public Translator
-{//==========================================
-
-public:
-	Translator_Esperanto();
-
-};  // end of class Translator_Esperanto
-
-
-class Translator_German: public Translator
-{//=======================================
-
-public:
-	Translator_German();
-
-//	void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
-//	int Unpronouncable(char *word);
-
-};  // end of class Translator_German
-
-
-class Translator_Tone: public Translator
-{//==========================================
-
-public:
-	Translator_Tone();
-
-private:
-	void CalcPitches(int clause_tone);
-
-};  // end of class Translator_Tone
-
-
-
-// holds properties of characters: vowel, consonant, etc for pronunciation rules
-#define LETTERGP_VOWEL    0
-#define LETTERGP_VOWEL_Y  7
-extern unsigned char letter_bits[256];
-
-
-
-extern int stress_lengths[8];
-extern int stress_amps[8];
-extern int stress_amps_r[8];
 extern int option_tone1;
 extern int option_tone2;
-extern int option_words;          // 0,  1=don't merge phonemes,  
-                                  // 2= pause before stops and fricatives, 3= PAUSE_SHORT between words
-extern int option_vowel_pause;    // 1=pause before words starting with vowel
-extern int option_stress_rule;    // 1=first syllable, 2=penultimate,  3=last
-extern int option_unstressed_wd1; // stress for $u word of 1 syllable
-extern int option_unstressed_wd2; // stress for $u word of >1 syllable
-extern int option_amplitude;
 extern int option_waveout;
 extern int option_phonemes;
 extern int option_log_trans;      // log pronunciation translation
 extern int option_linelength;     // treat lines shorter than this as end-of-clause
 extern int option_harmonic1;
-extern int option_utf8;
+extern int option_multibyte;
 extern int option_capitals;
 extern int option_punctuation;
+extern int option_endpause;
+extern int option_ssml;
+extern int option_phoneme_input;   // allow [[phonemes]] in input text
+extern int option_phoneme_variants;
+
+extern int count_characters;
+extern int count_words;
+extern int count_sentences;
+extern int skip_characters;
+extern int skip_words;
+extern int skip_sentences;
+extern int skipping_text;
+extern int end_character_position;
+extern int clause_start_char;
+extern int clause_start_word;
+extern char *namedata;
+
+#define N_MARKER_LENGTH 50   // max.length of a mark name
+extern char skip_marker[N_MARKER_LENGTH];
+
 #define N_PUNCTLIST  60
-extern char option_punctlist[N_PUNCTLIST];
+extern wchar_t option_punctlist[N_PUNCTLIST];
+
+#define espeakSILENCE   0
+#define espeakEMPHASIS  7
+extern int speech_parameters[];
 
 extern Translator *translator;
+extern const unsigned short *charsets[N_CHARSETS];
 extern char dictionary_name[40];
-void CompileDictionary(const char *dict_name, int log);
+extern char ctrl_embedded;    // to allow an alternative CTRL for embedded commands
+extern char *p_textinput;
+extern wchar_t *p_wchar_input;
+extern int ungot_char;
+extern int (* uri_callback)(int, const char *, const char *);
+
+Translator *SelectTranslator(const char *name);
+int CompileDictionary(const char *dict_name, int log, char *err_name);
 void LoadConfig(void);
-void strncpy0(char *to,const char *from, int size);
 int utf8_in(int *c, char *buf, int backwards);
+int utf8_out(unsigned int c, char *buf);
+int lookupwchar(const short *list,int c);
+int Eof(void);
+char *strchr_w(const char *s, int c);
+int IsBracket(int c);
+void InitText(void);
+void InitText2(void);
 
 extern FILE *f_trans;		// for logging

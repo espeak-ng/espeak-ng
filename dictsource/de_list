@@ -1,0 +1,245 @@
+// This file is UTF-8 encoded
+// all words lower case
+
+
+allein           $2
+andre           andr@        // andere
+
+beben           be:b@n
+beere           be:r@
+best            bEst
+beten           be:t@n
+
+damit            $2
+direkt           $2
+dritte          drIt@
+einander         $2
+erde            Erd@
+erst            Erst
+erste           Erst@
+ersten          Erst@n
+erstens         Erst@ns
+
+geben           ge:b@n
+geber           ge:b3
+gegenüber       ge:g@n'y:b3
+genial          ge:nI'al
+gessen          gEs@n
+geste           gEst@
+gestern         gEst3n
+gestrig         gEstrIC
+
+hm              h@m
+
+machen          max@n
+mitte           mIt@
+
+problem         prObl'e:m
+sagt            zA:gt
+selbst          zElpst
+sofort           $2
+tag             tA:g
+unten           Unt@n
+vielleicht       $2
+vorbei          fOrb'aI
+wahrscheinlich   $2
+zuerst          tsu:'Erst
+zurück           $2
+
+
+// definite article
+der             %dEr
+die             %di:
+das             %das
+den             %de:n
+dem             %de:m
+des             %dEz
+
+derselbe        dErz'Elb@
+desselbe        dEs:Elb@
+dieselbe        di:z'Elb@
+
+// conjunctions
+und             %Unt      $pause $strend
+aber            ,A:b3     $pause $strend
+oder            ,o:d3     $pause $strend
+sondern                   $pause
+denn            %dEn      $pause $strend
+weil                      $pause $strend
+als                       $pause
+also                      $pause $strend
+wenn            ,vEn      $pause $strend
+sowie                     $pause
+
+deren           _,dEr@n
+
+// prepositions
+an              %an       $strend
+am              %am
+auf             _,aUf      $strend
+aus             _,aUs      $strend
+bei             %baI      $strend $only
+bis             %bIs      $strend
+da              $u        $strend
+durch           $u        $strend
+für             _fy:r     $u $strend
+gegen           ,ge:g@n   $strend
+gegend          ge:g@nt
+hin             hIn
+in              %In       $strend
+(in die)        %Ind%i:
+(in den)        %Ind%e:n
+(in der)        %Ind%Er
+im              %Im
+mit             %mIt      $strend
+nach            %nax      $strend
+ob              _,Ob      $strend $only
+pro             ,pro:     $pause
+von             %fOn      $strend
+(von dem)       %fOn%de:m
+vom             %fOm
+vor             ,fOr      $strend
+zu              %tsu:     $strend
+zum             %tsUm
+zur             %tsu:r
+über            _,yb3     $strend
+unter           _,Unt3     $strend
+um              _%Um       $strend
+(um die)        %Umd%i:
+(um den)        %Umd%e:m
+
+// misc
+so              %zo:      $strend
+doch            %dOx      $strend
+noch             $pause
+(noch nicht)    _n'Ox||n,ICt
+(nicht mehr)    n'ICt||,mEr
+(nicht mehr)    n,ICt||m'Er  $atend
+(gar nicht)     g,A:rn'ICt
+
+// should these be in the Rules because they can be a prefix in a
+// compound verb ?
+daran            $2
+darauf           $2
+daraus           $2
+dabei            $2
+dadurch         dA:d'u:rx
+daher           dA:h'Er
+dahin           dA:h'In
+darein           $2
+darin           dA:r'In
+darüber          $2
+darunter         $2
+dazu            dA:ts'u:
+umher           Umh'Er
+umhin           Umh'In
+voraus          fOr'aUs
+worin           vo:r'In
+
+// pronouns
+ich             %IC
+du              %du:
+er              _%Er
+es              %Ez
+sie             %zi:
+wir             %vi:r
+ihr             %i:r
+man             %man
+sich            %zIC
+(es ist)        %Ez%Ist
+
+
+daß             %das      $strend
+dass            %das      $strend
+
+ein             ,aIn      $strend
+eine            ,aIn@
+einem           ,aIn@m
+einen           ,aIn@n
+einer           ,aIn3
+eines           ,aIn@s
+
+//kein            $u $strend
+//keine           $u $strend
+
+mein            $u $strend
+meine           $u $strend
+
+dein            $u $strend
+deine           $u $strend
+
+sein            $u $strend
+seine           $u $strend
+
+unsre           ,Unzr@
+unsere          ,Unzr@
+unser           ,Unz3
+unserm          ,Uns3m
+unserem         ,Uns@r@m
+
+
+ihre            ,i:r@
+ihrem           ,i:r@m
+ihrer           ,i:r3
+
+dies            ,di:z
+diese           ,di:z@
+
+//
+was             vas
+
+// abverbs
+auch            ,aUx
+dann            $u
+
+
+// verbs
+
+bin             %bIn
+bist            %bIst
+ist             %Ist
+sind            %zInt
+seit            %zaIt  $only
+
+gehen           ge:@n   $only
+geht            ge:t    $only
+gehe            ge:@    $only
+
+habe            %hA:b@  $only
+habst           %habst  $only
+hast            %hast   $only
+hat             %hat    $only
+haben           h,A:b@n $only
+hatte           h,at@   $only
+hatten          h,at@n  $only
+hätte           h,Et@   $only
+hättest         h,EtEst $only
+hättet          h,Et@t  $only
+hätten          h,Et@n  $only
+
+war             %vA:r   $only
+warst           %vA:rsr $only
+wart            %vA:rt  $only
+waren           'vA:r@n
+
+will            %vIl   $only
+willst          %vIlst $only
+wollen          %vOl@n $only
+wolt            %vOlt
+
+werden          v,Erd@n
+werde           v,Erd@
+werdst          v,Erdst
+werdet          v,Erd@t
+wurden          vUrd@n
+wurde           vUrd@
+wurdst          vUrdst
+wurdet          vUrd@t
+
+können          ,kWn@n  $only
+kann            ,kan    $only
+kannst          ,kanst  $only
+könnt           ,kWnt   $only
+konnt           ,kOnt   $only
+
+

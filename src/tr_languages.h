@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2005 by Jonathan Duddington                             *
- *   jsd1@clara.co.uk                                                      *
+ *   Copyright (C) 2005,2006 by Jonathan Duddington                        *
+ *   jsd@clara.co.uk                                                       *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,44 +19,62 @@
  ***************************************************************************/
 
 
-typedef struct {
-	char name[40];
-
-	int phoneme_tab_ix;  // phoneme table number
-	int pitch_base;    // Hz<<12
-	int pitch_range;   // standard = 0x1000
-	
-	int speedf1;
-	int speedf2;
-	int speedf3;
-
-	int intonation1;
-	int intonation2;
-
-	int flutter;
-	int roughness;
-	int echo_delay;
-	int echo_amp;
-	int n_harmonic_peaks;  // highest formant which is formed from adding harmonics
-	int peak_shape;        // alternative shape for formant peaks (0=standard 1=squarer)
-
-	// parameters used by Wavegen
-	int freq[N_PEAKS];    // 100% = 256
-	int height[N_PEAKS];  // 100% = 256
-	int width[N_PEAKS];   // 100% = 256
-
-	// copies without temporary adjustments from embedded commands
-	int freq2[N_PEAKS];    // 100% = 256
-	int height2[N_PEAKS];  // 100% = 256
-	int width2[N_PEAKS];   // 100% = 256
-
-} voice_t;
-
-// percentages shown to user, ix=N_PEAKS means ALL peaks
-extern USHORT voice_pcnt[N_PEAKS+1][3];
 
 
-extern voice_t *voice;
-voice_t *LoadVoice(char *voice_name, int no_default);
-void WavegenSetVoice(voice_t *v);
+class Translator_English: public Translator
+{//=======================================
+
+public:
+	Translator_English();
+	int Unpronouncable(char *word);
+
+};  // end of class Translator_English
+
+
+
+
+class Translator_Esperanto: public Translator
+{//==========================================
+public:
+	Translator_Esperanto();
+private:
+	int TranslateChar(char *ptr, int prev_in, int c, int next_in);
+};
+
+
+
+class Translator_German: public Translator
+{//=======================================
+
+public:
+	Translator_German();
+
+//	void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
+//	int Unpronouncable(char *word);
+
+};  // end of class Translator_German
+
+
+class Translator_Afrikaans: public Translator
+{//==========================================
+
+public:
+	Translator_Afrikaans();
+private:
+	int TranslateChar(char *ptr, int prev_in, int c, int next_in);
+
+};  // end of class Translator_Afrikaans
+
+
+
+
+class Translator_Tone: public Translator
+{//==========================================
+
+public:
+	Translator_Tone();
+private:
+	void CalcPitches(int clause_tone);
+
+};  // end of class Translator_Tone
 

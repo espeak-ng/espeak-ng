@@ -1,0 +1,11 @@
+language en-uk
+name fuzzy
+
+clarity 2
+formant 0 100  90 115
+formant 1 100  90 115
+formant 2 100  90 115
+formant 3 100  90 115
+formant 4 100  90 115
+formant 5 100  90 115
+

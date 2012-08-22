@@ -42,6 +42,7 @@
 #define tBEFOREVOWELPAUSE 18
 #define tBEFORENOTVOWEL 19
 #define tLINKOUT  20
+#define tSWITCHVOICING  21
 #define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
 #define tINCLUDE  31
@@ -69,10 +70,13 @@
 #define phVOICED  0x10
 #define phSIBILANT 0x20
 #define phNOLINK   0x40
-#define phMODULATE 0x80
+#define phTRILL    0x80
 
-#define phNOTFOLLOWS     0x0400
-#define phORPAUSEFOLLOWS 0x0800
+#define phALTERNATIVE    0x0c00   // bits 10,11  specifying use of alternative_ph
+#define phBEFOREVOWEL    0x0000
+#define phBEFOREVOWELPAUSE  0x0400
+#define phBEFORENOTVOWEL 0x0c00
+#define phSWITCHVOICING  0x0800
 
 // fixed phoneme code numbers, these can be used from the program code
 #define phonCONTROL     1
@@ -85,7 +89,7 @@
 #define phonSTRESS_PREV 8
 #define phonPAUSE       9
 #define phonPAUSE_SHORT 10
-#define phonPAUSE_LONG  11
+#define phonPAUSE_NOLINK 11
 #define phonLENGTHEN    12
 #define phonSCHWA       13
 #define phonSCHWA_SHORT 14
@@ -93,7 +97,9 @@
 #define phonSONORANT    16
 #define phonDEFAULTTONE 17
 #define phonCAPITAL     18
-
+#define phonGLOTTALSTOP 19
+#define phonSYLLABIC    20
+#define phonSWITCH      21
 
 
 #define N_PHONEME_TABS      50
@@ -102,33 +108,38 @@
 
 // main table of phonemes, index by phoneme number (1-254)
 typedef struct {
-	unsigned int mnemonic;      /* 1st char in l.s.byte */
-	unsigned int flags;
+	unsigned int mnemonic;        // 1st char is in the l.s.byte
+	unsigned int phflags;         // bits 28-30 reduce_to level,  bits 16-19 place of articulation
+                                 // bits 10-11 alternative ph control
 
-	unsigned short std_length;              // for vowels, in mS
+	unsigned short std_length;    // for vowels, in mS;  for phSTRESS, the stress/tone type
 	unsigned short  spect;
 	unsigned short  before;
 	unsigned short  after;
 
-	unsigned char  code;
-	unsigned char  type;          /* vowel, etc */
+	unsigned char  code;          // the phoneme number
+	unsigned char  type;          // phVOWEL, phPAUSE, phSTOP etc
 	unsigned char  start_type;
 	unsigned char  end_type;
 	
-	unsigned char  length_mod;
-	unsigned char  reduce_to;
-	unsigned char  vowel_follows;  // change to this if a vowel follows
+	unsigned char  length_mod;     // a length_mod group number, used to access length_mod_tab
+	unsigned char  reduce_to;      // change to this phoneme if unstressed
+	unsigned char  alternative_ph; // change to this phoneme if a vowel follows/doesn't follow
 	unsigned char  link_out;       // insert linking phoneme if a vowel follows
 	
 } PHONEME_TAB;
 
+
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
-extern PHONEME_TAB *phoneme_tab;
+extern int n_phoneme_tab;
+extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 typedef struct {
 	char name[N_PHONEME_TAB_NAME];
 	PHONEME_TAB *phoneme_tab_ptr;
+	int n_phonemes;
+	int includes;
 } PHONEME_TAB_LIST;
 
 

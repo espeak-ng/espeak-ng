@@ -20,6 +20,7 @@
 
 #include <stdio.h>
 #include <ctype.h>
+#include <wctype.h>
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
@@ -34,8 +35,6 @@
 #define    PITCHrise   1
 
 
-const char *tempwav = "speech.wav";
-
 extern FILE *f_log;
 static void SmoothSpect(void);
 
@@ -47,7 +46,6 @@ PHONEME_LIST phoneme_list[N_PHONEME_LIST];
 
 int speed_factor1;
 int speed_factor2;
-int global_speed = 160;  // default
 
 static int  last_pitch_cmd;
 static int  last_amp_cmd;
@@ -55,6 +53,7 @@ static frame_t  *last_frame;
 static int  last_wcmdq;
 static int  pitch_length;
 static int  amp_length;
+static int  modn_flags;
 
 static int  syllable_start;
 static int  syllable_end;
@@ -65,10 +64,11 @@ static voice_t *new_voice=NULL;
 int n_soundicon_tab=0;
 SOUND_ICON soundicon_tab[N_SOUNDICON_TAB];
 
-
-#define RMS1  15  // 12 - 15
-#define RMS2  20  // 16 - 20
+#define RMS1  16      //
+#define RMS2  20      // 16 - 20
+#define RMS_GLOTTAL1 35   // vowel before glottal stop
 #define RMS_START  25  // 14 - 30
+
 #define VOWEL_FRONT_LENGTH  50
 
 
@@ -90,16 +90,6 @@ const char *WordToString(unsigned int word)
 }
 
 
-
-void PlayWavFile(const char *fname)
-{//================================
-	char command[120];
-
-	sprintf(command,"play %s",fname);
-	system(command);
-}
-
-
 void SynthesizeInit()
 {//==================
 	last_pitch_cmd = 0;
@@ -108,9 +98,9 @@ void SynthesizeInit()
 	syllable_centre = -1;
 
 	// initialise next_pause, a dummy phoneme_list entry
-	next_pause.ph = &phoneme_tab[phonPAUSE];
+//	next_pause.ph = phoneme_tab[phonPAUSE];   // this must be done after voice selection
 	next_pause.type = phPAUSE;
-	next_pause.newword = 1;
+	next_pause.newword = 0;
 }
 
 
@@ -182,6 +172,9 @@ static void DoPitch(unsigned char *env, int pitch1, int pitch2)
 	last_pitch_cmd = wcmdq_tail;
 	pitch_length = 0;       // total length of spect with this pitch envelope
 
+	if(pitch2 < 0)
+		pitch2 = 0;
+
 	q = wcmdq[wcmdq_tail];
 	q[0] = WCMD_PITCH;
 	q[1] = 0;   // length, fill in later from pitch_length
@@ -208,8 +201,8 @@ static void DoPause(int length)
 
 
 
-static void DoSample2(int index, int which, int length_mod)
-{//========================================================
+static void DoSample2(int index, int which, int length_mod, int amp)
+{//=================================================================
 	int length;
 	int length1;
 	int format;
@@ -243,7 +236,7 @@ static void DoSample2(int index, int which, int length_mod)
 		q[0] = WCMD_WAVE;
 	q[1] = length;   // length in samples
 	q[2] = long(&wavefile_data[index]);
-	q[3] = format;
+	q[3] = format + (amp << 8);
 	WcmdqInc();
 
 }  // end of Synthesize::DoSample2
@@ -260,7 +253,7 @@ static void DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_m
 	if((index & 0x800000) == 0)
 		return;             // not wavefile data
 
-	DoSample2(index,which,length_mod);
+	DoSample2(index,which,length_mod,wavefile_amp);
 	last_frame = NULL;
 }  // end of Synthesize::DoSample
 
@@ -292,6 +285,7 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 	int x;
 	int h;
 	int ix;
+
 	static const short sqrt_tab[100] = {
      0, 64, 90,110,128,143,156,169,181,192,202,212,221,230,239,247,
    256,263,271,278,286,293,300,306,313,320,326,332,338,344,350,356,
@@ -307,12 +301,13 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 
 	x = sqrt_tab[x];   // sqrt(new_rms/fr->rms)*0x200;
 
-	for(ix=0; ix<9; ix++)
+	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		h = fr->peaks[ix].pkheight * x;
-		fr->peaks[ix].pkheight = h/0x200;
+		h = fr->fheight[ix] * x;
+		fr->fheight[ix] = h/0x200;
 	}
 }   /* end of set_frame_rms */
+
 
 
 static void formants_reduce_hf(frame_t *fr, int level)
@@ -321,10 +316,10 @@ static void formants_reduce_hf(frame_t *fr, int level)
 	int  ix;
 	int  x;
 
-	for(ix=2; ix<9; ix++)
+	for(ix=2; ix<N_PEAKS; ix++)
 	{
-		x = fr->peaks[ix].pkheight * level;
-		fr->peaks[ix].pkheight = x >> 7;
+		x = fr->fheight[ix] * level;
+		fr->fheight[ix] = x >> 7;
 	}
 }
 
@@ -360,28 +355,53 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 {//=========================================================================================================
 	int x;
 
-	x = (target - fr->peaks[2].pkfreq) / 2;
+hf_reduce = 70;
+
+	x = (target - fr->ffreq[2]) / 2;
 	if(x > max) x = max;
 	if(x < min) x = min;
-	fr->peaks[2].pkfreq += x;
-	fr->peaks[3].pkfreq += f3_adj;
-	fr->peaks[4].pkfreq += f3_adj;
-	fr->peaks[5].pkfreq += f3_adj;
+	fr->ffreq[2] += x;
+	fr->ffreq[3] += f3_adj;
+	fr->ffreq[4] += f3_adj;
+	fr->ffreq[5] += f3_adj;
 
-	if(f1_adj)
+	if(f1_adj==1)
 	{
-		x = (235 - fr->peaks[1].pkfreq);
+		x = (235 - fr->ffreq[1]);
 		if(x < -300) x = -300;
 		if(x > -150) x = -150;
-		fr->peaks[1].pkfreq += x;
-		fr->peaks[0].pkfreq += x;
+		fr->ffreq[1] += x;
+		fr->ffreq[0] += x;
+	}
+	if(f1_adj==2)
+	{
+		x = (100 - fr->ffreq[1]);
+		if(x < -400) x = -400;
+		if(x > -300) x = -400;
+		fr->ffreq[1] += x;
+		fr->ffreq[0] += x;
 	}
 	formants_reduce_hf(fr,70);       // ?? using fixed amount rather than the parameter??
 }
 
 
-void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
-{//=============================================================================
+int VowelCloseness(frame_t *fr)
+{//============================
+// return a value 0-3 depending on the vowel's f1
+	int f1;
+
+	if((f1 = fr->ffreq[1]) < 300)
+		return(3);
+	if(f1 < 400)
+		return(2);
+	if(f1 < 500)
+		return(1);
+	return(0);
+}
+
+
+void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which)
+{//===================================================================================================
 // Adjust the beginning (which=1) and end (which=2) of a vowel, depending on the
 // adjacent phoneme.
 
@@ -390,11 +410,15 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 
 	unsigned int  ph_name;
 	frame_t *fr;
+	int voiced = 0;
 
 	if(n_frames < 2)
 		return;
 
 	ph_name = other_ph->mnemonic;
+
+	if((other_ph->type == phVSTOP) || (other_ph->type == phVFRICATIVE))
+		voiced = 1;
 
 	if(which == 1)
 	{
@@ -407,6 +431,11 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 
 		switch(ph_name)
 		{
+		case '?':
+			set_frame_rms(fr,seq[1].frame->rms - 5);
+			modn_flags = 0x800 + (VowelCloseness(fr) << 8);
+			break;
+
 		case 'v':
 			AdjustFormants(fr,1000,-300,-200,0,-300,128);
 			set_frame_rms(fr,RMS_START);
@@ -415,15 +444,8 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 		case 'b':
 			break;
 
-		case (('-'*256) + 'g'):
-		case 'g':
-		case 'Q':
-		case (('Z'*256) + 'd'):
-			AdjustFormants(fr,2300,300,400,1,-100,100);
-			set_frame_rms(fr,RMS_START);
-			break;
-
 		case 'd':
+		case '*':
 			AdjustFormants(fr,1700,-300,300,1,-100,100);
 			set_frame_rms(fr,RMS_START);
 			break;
@@ -449,13 +471,29 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			break;
 
 		case 'k':
+		case 'c':
 		case 'N':
 		case 'x':
 		case 'S':
-		case (('S'*256) + 't'):
-			AdjustFormants(fr,2300,300,400,0,-100,100);
+		case (('S'<<8) + 't'):
+		case 'g':
+		case (('-'<<8) + 'g'):
+		case 'Q':
+		case (('Z'<<8) + 'd'):
+			AdjustFormants(fr,2300,200,400,voiced,-100,100);
 			set_frame_rms(fr,RMS_START);
 			break;
+
+		case ((';'<<8) + 's'):
+		case ((';'<<16) + ('s'<<8) + 't'):
+		case ((';'<<8) + 'z'):
+		case ((';'<<16) + ('z'<<8) + 'd'):
+			seq[0].length = VOWEL_FRONT_LENGTH+20;
+			seq[0].flags |= FRFLAG_FORMANT_RATE;      // allow faster formant change
+			AdjustFormants(fr,2700,400,600,voiced,300,100);
+			set_frame_rms(fr,RMS_START);
+			break;
+
 
 		default:
 			set_frame_rms(fr,RMS_START);
@@ -467,10 +505,21 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 		/* exit from vowel */
 		switch(ph_name)
 		{
-		case 'R':
-			fr = CopyFrame(seq[n_frames-2].frame);
-			seq[n_frames-2].frame = fr;
-			fr->flags |= (FRFLAG_MODULATE);
+		case '?':
+			fr = CopyFrame(seq[n_frames-1].frame);
+			set_frame_rms(fr,RMS_GLOTTAL1);
+			seq[n_frames-1].frame = fr;
+
+			// degree of glottal-stop effect depends on closeness of vowel (indicated by f1 freq)
+			modn_flags = 0x400 + (VowelCloseness(fr) << 8);
+
+			break;
+
+		case (('/'<<8) + 'j'):
+			fr = DuplicateLastFrame(seq,n_frames++,70);
+			break;
+		case (('/'<<8) + 'w'):
+			fr = DuplicateLastFrame(seq,n_frames++,50);
 			break;
 
 		case ';':      // pause
@@ -486,10 +535,11 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			break;
 
 		case 'p':
+		case (('f'<<8) + 'p'):
 		case 'f':
 		case 'm':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
-			AdjustFormants(fr,1000,-500,-300,0,-300,100);
+			AdjustFormants(fr,1000,-500,-350,0,-200,100);
 			set_frame_rms(fr,RMS2);
 			break;
 
@@ -511,6 +561,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			break;
 
 		case 'k':
+		case 'c':
 		case 'x':
 //		case 'N':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
@@ -519,6 +570,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			break;
 
 		case 'Z':
+		case ((';'*256) + 'z'):
 		case 'Q':
 		case (('Z'*256) + 'd'):
 		case 'g':
@@ -526,6 +578,15 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
 
 			AdjustFormants(fr,2300,300,400,1,100,100);
+			set_frame_rms(fr,RMS1);
+			break;
+
+		case (('^'*256) + 'n'):
+			fr = DuplicateLastFrame(seq,n_frames++,35);
+			fr->flags |= FRFLAG_FORMANT_RATE;
+			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
+
+			AdjustFormants(fr,2300,300,400,2,100,100);
 			set_frame_rms(fr,RMS1);
 			break;
 
@@ -543,6 +604,13 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *other_ph, int which)
 
 			AdjustFormants(fr,1700,-300,300,1,-100,100);
 			set_frame_rms(fr,RMS1);
+			break;
+		case '*':
+			fr = DuplicateLastFrame(seq,n_frames++,35);
+//			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
+
+			AdjustFormants(fr,1700,-300,300,2,-100,100);
+			set_frame_rms(fr,RMS_GLOTTAL1);
 			break;
 
 		}
@@ -582,7 +650,7 @@ static void SmoothSpect(void)
 	}
 
 	q = wcmdq[syllable_centre];
-	frame_centre = (frame_t *)(q[2]-4);
+	frame_centre = (frame_t *)q[2];
 
 	// backwards
 	ix = syllable_centre -1;
@@ -599,26 +667,26 @@ static void SmoothSpect(void)
 		{
 			len = q[1] & 0xffff;
 
-			frame1 = (frame_t *)(q[3]-4);
+			frame1 = (frame_t *)q[3];
 			if(frame1 == frame)
 			{
-				q[3] = (long)frame2->peaks;
+				q[3] = (long)frame2;
 				frame1 = frame2;
 			}
 			else
 				break;  // doesn't follow on from previous frame
 
-			frame = frame2 = (frame_t *)(q[2]-4);
+			frame = frame2 = (frame_t *)q[2];
 			modified = 0;
 
 			if(frame->flags & FRFLAG_FORMANT_RATE)
-				len = (len * 6)/5;      // allow slightly greater rate of change for this frame
+				len = (len * 13)/10;      // allow slightly greater rate of change for this frame (was 12/10)
 
 			for(pk=0; pk<6; pk++)
 			{
 				allowed = (formant_rate[pk] * len)/256;
 
-				diff = frame->peaks[pk].pkfreq - frame1->peaks[pk].pkfreq;
+				diff = frame->ffreq[pk] - frame1->ffreq[pk];
 				if(diff > allowed)
 				{
 					if(modified == 0)
@@ -626,8 +694,8 @@ static void SmoothSpect(void)
 						frame2 = CopyFrame(frame);
 						modified = 1;
 					}
-					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq + allowed;
-					q[2] = (long)frame2->peaks;
+					frame2->ffreq[pk] = frame1->ffreq[pk] + allowed;
+					q[2] = (long)frame2;
 				}
 				else
 				if(diff < -allowed)
@@ -637,8 +705,8 @@ static void SmoothSpect(void)
 						frame2 = CopyFrame(frame);
 						modified = 1;
 					}
-					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq - allowed;
-					q[2] = (long)frame2->peaks;
+					frame2->ffreq[pk] = frame1->ffreq[pk] - allowed;
+					q[2] = (long)frame2;
 				}
 			}
 		}
@@ -664,19 +732,19 @@ static void SmoothSpect(void)
 
 			len = q[1] & 0xffff;
 
-			frame1 = (frame_t *)(q[2]-4);
+			frame1 = (frame_t *)q[2];
 			if(frame != NULL)
 			{
 				if(frame1 == frame)
 				{
-					q[2] = (long)frame2->peaks;
+					q[2] = (long)frame2;
 					frame1 = frame2;
 				}
 				else
 					break;  // doesn't follow on from previous frame
 			}
 
-			frame = frame2 = (frame_t *)(q[3]-4);
+			frame = frame2 = (frame_t *)q[3];
 			modified = 0;
 
 			if(frame->flags & FRFLAG_FORMANT_RATE)
@@ -686,7 +754,7 @@ static void SmoothSpect(void)
 			{
 				allowed = (formant_rate[pk] * len)/256;
 
-				diff = frame->peaks[pk].pkfreq - frame1->peaks[pk].pkfreq;
+				diff = frame->ffreq[pk] - frame1->ffreq[pk];
 				if(diff > allowed)
 				{
 					if(modified == 0)
@@ -694,8 +762,8 @@ static void SmoothSpect(void)
 						frame2 = CopyFrame(frame);
 						modified = 1;
 					}
-					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq + allowed;
-					q[3] = (long)frame2->peaks;
+					frame2->ffreq[pk] = frame1->ffreq[pk] + allowed;
+					q[3] = (long)frame2;
 				}
 				else
 				if(diff < -allowed)
@@ -705,8 +773,8 @@ static void SmoothSpect(void)
 						frame2 = CopyFrame(frame);
 						modified = 1;
 					}
-					frame2->peaks[pk].pkfreq = frame1->peaks[pk].pkfreq - allowed;
-					q[3] = (long)frame2->peaks;
+					frame2->ffreq[pk] = frame1->ffreq[pk] - allowed;
+					q[3] = (long)frame2;
 				}
 			}
 		}
@@ -729,8 +797,9 @@ static void StartSyllable(void)
 }
 
 
-static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int length_mod, int stress, int modulation)
-{//=============================================================================================
+static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph,
+		int which, PHONEME_LIST *plist, int modulation)
+{//===================================================================================
 	// which  1  start of phoneme,   2 body and end
 	// length_mod: 256 = 100%
 
@@ -740,6 +809,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 	frame_t *frame1;
 	frame_t *frame2;
 	frame_t *fr;
+	int  ix;
 	long *q;
 	int  len;
 	int  match_level;
@@ -747,13 +817,15 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 	int  frame1_length;
 	int  frame2_length;
 	int  length_factor;
+	int  length_mod;
 	static int wave_flag = 0;
 	int wcmd_spect = WCMD_SPECT;
 
-
+	length_mod = plist->length;
 	if(length_mod==0) length_mod=256;
 
-	frames = LookupSpect(this_ph,other_ph,which,&match_level,&n_frames, stress);
+	modn_flags = 0;
+	frames = LookupSpect(this_ph,prev_ph,next_ph,which,&match_level,&n_frames, plist);
 	if(frames == NULL)
 		return;   // not found
 
@@ -775,17 +847,22 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 	frame1_length = frames[0].length;
 	if(last_frame != NULL)
 	{
-		if((last_frame->length < 2) && !(last_frame->flags & FRFLAG_BREAK))
+		if(((last_frame->length < 2) || (last_frame->flags & FRFLAG_VOWEL_CENTRE))
+			&& !(last_frame->flags & FRFLAG_BREAK))
 		{
 			// last frame of previous sequence was zero-length, replace with first of this sequence
-			wcmdq[last_wcmdq][3] = (long)frame1->peaks;
+			wcmdq[last_wcmdq][3] = (long)frame1;
 
 			if(last_frame->flags & FRFLAG_BREAK_LF)
 			{
 				// but flag indicates keep HF peaks in last segment
 				fr = CopyFrame(frame1);
-				memcpy(&fr->peaks[3],&last_frame->peaks[3],sizeof(peak_t)*6);
-				wcmdq[last_wcmdq][3] = (long)fr->peaks;
+				for(ix=3; ix<N_PEAKS; ix++)
+				{
+					fr->ffreq[ix] = last_frame->ffreq[ix];
+					fr->fheight[ix] = last_frame->fheight[ix];
+				}
+				wcmdq[last_wcmdq][3] = (long)fr;
 			}
 		}
 	}
@@ -807,7 +884,7 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int 
 		if(wavefile_ix != 0)
 		{
 			// there is a wave file to play along with this synthesis
-			DoSample2(wavefile_ix,which+0x100,0);
+			DoSample2(wavefile_ix,which+0x100,0,wavefile_amp);
 			wave_flag = 1;
 			wavefile_ix = 0;
 		}
@@ -832,6 +909,10 @@ if((which==2) && (other_ph->mnemonic == 'R'))
 		len = len + (1200 * speed_factor2)/256;
 }
 #endif
+
+		if((frameix == n_frames-1) && (modn_flags & 0xf00))
+			modulation |= modn_flags;   // before or after a glottal stop
+
 		pitch_length += len;
 		amp_length += len;
 
@@ -847,8 +928,8 @@ if((which==2) && (other_ph->mnemonic == 'R'))
 			q = wcmdq[wcmdq_tail];
 			q[0] = wcmd_spect;
 			q[1] = len + (modulation << 16);
-			q[2] = long(frame1->peaks);
-			q[3] = long(frame2->peaks);
+			q[2] = long(frame1);
+			q[3] = long(frame2);
 			WcmdqInc();
 			last_frame = frame1 = frame2;
 			frame_length = frame2_length;
@@ -857,12 +938,14 @@ if((which==2) && (other_ph->mnemonic == 'R'))
 }  // end of Synthesize::DoSpect
 
 
-static void DoMarker(int type, int index)
-{//======================================
+static void DoMarker(int type, int char_posn, int value)
+{//=====================================================
 // This could be used to return an index to the word currently being spoken
+// Type 1=word, 2=sentence, 3=named marker, 4=play audio
 	wcmdq[wcmdq_tail][0] = WCMD_MARKER;
 	wcmdq[wcmdq_tail][1] = type;
-	wcmdq[wcmdq_tail][2] = index;
+	wcmdq[wcmdq_tail][2] = char_posn;
+	wcmdq[wcmdq_tail][3] = value;
 	WcmdqInc();
 
 }  // end of Synthesize::DoMarker
@@ -876,26 +959,27 @@ static void DoVoice(voice_t *v)
 }
 
 
-static void DoEmbedded(int &embix)
-{//===============================
+static void DoEmbedded(int &embix, int sourceix)
+{//=============================================
 	// There were embedded commands in the text at this point
-	unsigned char c;
-	unsigned char value;
+	unsigned int word;  // bit 7=last command for this word, bits 5,6 sign, bits 0-4 command
+	unsigned int value;
+	int command;
 
-	while((c = embedded_list[embix++]) != 0)
-	{
-		value = embedded_list[embix++];
-		if((c & 0x3f) == EMBED_S)
+	do {
+		word = embedded_list[embix++];
+		value = word >> 8;
+		command = word & 0x7f;
+
+		switch(command & 0x1f)
 		{
-			// speed
-			SetEmbedded((c & 0xc0) + EMBED_S2,value);   // adjusts embedded_value[EMBED_S2]
-			SetSpeed(global_speed,2);
-		}
-		else
-		if(c == EMBED_I)
-		{
-			// play dynamically loaded wav data (sound icon)
-			if(value < n_soundicon_tab)
+		case EMBED_S:   // speed
+			SetEmbedded((command & 0x60) + EMBED_S2,value);   // adjusts embedded_value[EMBED_S2]
+			SetSpeed(2);
+			break;
+
+		case EMBED_I:   // play dynamically loaded wav data (sound icon)
+			if((int)value < n_soundicon_tab)
 			{
 				if((wcmdq[wcmdq_tail][1] = soundicon_tab[value].length) != 0)
 				{
@@ -907,21 +991,35 @@ static void DoEmbedded(int &embix)
 					WcmdqInc();
 				}
 			}
-		}
-		else
-		{
+			break;
+
+		case EMBED_M:   // named marker
+			DoMarker(3, sourceix + clause_start_char, value);
+			break;
+
+		case EMBED_U:   // play sound
+			DoMarker(4, count_characters+1, value);  // always occurs at end of clause
+			break;
+
+		default:
 			DoPause(10);   // ensure a break in the speech
 			wcmdq[wcmdq_tail][0] = WCMD_EMBEDDED;
-			wcmdq[wcmdq_tail][1] = c;
+			wcmdq[wcmdq_tail][1] = command;
 			wcmdq[wcmdq_tail][2] = value;
 			WcmdqInc();
+			break;
 		}
-	}
+	} while ((word & 0x80) == 0);
 }
 
 
-int Generate(PHONEME_LIST *phoneme_list, int resume)
-{//=================================================
+void SwitchDictionary()
+{//====================
+}
+
+
+int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
+{//=====================================================================
 	static int  ix;
 	static int  embedded_ix;
 	PHONEME_LIST *prev;
@@ -932,6 +1030,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 	int  stress;
 	int  modulation;
 	int  pre_voiced;
+	int  word_count = 0;
 	unsigned char *pitch_env;
 	unsigned char *amp_env;
 	PHONEME_TAB *ph;
@@ -960,24 +1059,30 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 		next = &phoneme_list[ix+1];
 		next2 = &phoneme_list[ix+2];
 
+		if(p->synthflags & SFLAG_EMBEDDED)
+		{
+			DoEmbedded(embedded_ix, p->sourceix);
+		}
+
 		if(p->newword)
 		{
 			last_frame = NULL;
-		}
-		if(p->sourceix > 0)
-		{
-			DoMarker(1,p->sourceix);
-		}
-		if(p->synthflags & SFLAG_EMBEDDED)
-		{
-			DoEmbedded(embedded_ix);
+
+			if(p->newword & 4)
+				DoMarker(2, p->sourceix + clause_start_char, count_sentences);
+
+			if(p->newword & 1)
+				DoMarker(1, p->sourceix + clause_start_char, clause_start_word + word_count++);
 		}
 
-		if(option_words > 0)
+		if((translator->langopts.word_gap > 1) || (translator->langopts.vowel_pause && (next->type == phVOWEL)))
 		{
 			// prevent word merging into next, make it look as though next is a pause
 			if((next->newword) && (next->type != phPAUSE))
+			{
+				next_pause.ph = phoneme_tab[phonPAUSE];
 				next = &next_pause;
+			}
 		}
 
 		EndAmplitude();
@@ -999,10 +1104,12 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			if(released)
 				DoSample(p->ph,next->ph,2,0);
 			else
-				DoSample(p->ph,&phoneme_tab[phonPAUSE],2,0);
+				DoSample(p->ph,phoneme_tab[phonPAUSE],2,0);
 			break;
 
 		case phFRICATIVE:
+			if(p->synthflags & SFLAG_LENGTHEN)
+				DoSample(p->ph,next->ph,2,p->length);  // play it twice for [s:] etc.
 			DoSample(p->ph,next->ph,2,p->length);
 			break;
 
@@ -1032,16 +1139,16 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 
 			if(prev->type==phVOWEL)
 			{
-				DoSpect(p->ph,&phoneme_tab[phonSCHWA],1,p->length,0,0);
+				DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
 			}
 
 			if(pre_voiced)
 			{
 				StartSyllable();
-				DoSpect(p->ph,next->ph,2,p->length,0,0);
+				DoSpect(p->ph,prev->ph,next->ph,2,p,0);
 			}
 			else
-				DoSpect(p->ph,&phoneme_tab[phonPAUSE],2,p->length,0,0);
+				DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
 			break;
 
 		case phVFRICATIVE:
@@ -1068,10 +1175,16 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			if((next->type==phVOWEL) || (next->type==phLIQUID))
 			{
 				StartSyllable();
-				DoSpect(p->ph,next->ph,2,p->length,0,0);
+				if(p->synthflags & SFLAG_LENGTHEN)
+					DoSpect(p->ph,prev->ph,next->ph,2,p,0);
+				DoSpect(p->ph,prev->ph,next->ph,2,p,0);
 			}
 			else
-				DoSpect(p->ph,&phoneme_tab[phonPAUSE],2,p->length,0,0);
+			{
+				if(p->synthflags & SFLAG_LENGTHEN)
+					DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
+				DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
+			}
 			break;
 
 		case phNASAL:
@@ -1089,20 +1202,20 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			if(next->type==phVOWEL)
 			{
 				StartSyllable();
-				DoSpect(p->ph,prev->ph,1,p->length,0,0);  // (,)r
+				DoSpect(p->ph,prev->ph,next->ph,1,p,0);
 			}
 			else
 			if(prev->type==phVOWEL && (p->synthflags & SFLAG_SEQCONTINUE))
 			{
-				DoSpect(p->ph,&phoneme_tab[phonPAUSE],2,p->length,0,0);
+				DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
 			}
 			else
 			{
 				last_frame = NULL;  // only for nasal ?
 				if(next->type == phLIQUID)
-					DoSpect(p->ph,&phoneme_tab[phonSONORANT],2,p->length,0,0);
+					DoSpect(p->ph,prev->ph,phoneme_tab[phonSONORANT],2,p,0);
 				else
-					DoSpect(p->ph,&phoneme_tab[phonPAUSE],2,p->length,0,0);
+					DoSpect(p->ph,prev->ph,phoneme_tab[phonPAUSE],2,p,0);
 				last_frame = NULL;
 			}
 
@@ -1110,7 +1223,7 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 
 		case phLIQUID:
 			modulation = 0;
-			if(p->ph->flags & phMODULATE)
+			if(p->ph->phflags & phTRILL)
 				modulation = 5;
 
 			if(!(p->synthflags & SFLAG_SEQCONTINUE))
@@ -1127,18 +1240,16 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			if(next->type==phVOWEL)
 			{
 				StartSyllable();
-				DoSpect(p->ph,prev->ph,1,p->length,0,modulation);  // (,)r
+				DoSpect(p->ph,prev->ph,next->ph,1,p,modulation);  // (,)r
 			}
 			else
 			if(prev->type==phVOWEL && (p->synthflags & SFLAG_SEQCONTINUE))
 			{
-				DoSpect(p->ph,prev->ph,1,p->length,0,modulation);
+				DoSpect(p->ph,prev->ph,next->ph,1,p,modulation);
 			}
 			else
 			{
-				last_frame = NULL;
-				DoSpect(p->ph,next->ph,2,p->length,0,modulation);
-				last_frame = NULL;
+				DoSpect(p->ph,prev->ph,next->ph,1,p,modulation);
 			}
 
 			break;
@@ -1151,8 +1262,8 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			amp_env = NULL;
 			if(p->tone_ph != 0)
 			{
-				pitch_env = LookupEnvelope(phoneme_tab[p->tone_ph].spect);
-				amp_env = LookupEnvelope(phoneme_tab[p->tone_ph].after);
+				pitch_env = LookupEnvelope(phoneme_tab[p->tone_ph]->spect);
+				amp_env = LookupEnvelope(phoneme_tab[p->tone_ph]->after);
 			}
 
 			StartSyllable();
@@ -1168,13 +1279,13 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 			{
 				DoAmplitude(p->amp,amp_env);
 				DoPitch(pitch_env,p->pitch1,p->pitch2);  // don't use prevocalic rising tone
-				DoSpect(ph,prev->ph,1,p->length,stress,modulation);
+				DoSpect(ph,prev->ph,next->ph,1,p,modulation);
 			}
 			else
 			if(prev->type==phLIQUID || prev->type==phNASAL)
 			{
 				DoAmplitude(p->amp,amp_env);
-				DoSpect(ph,prev->ph,1,p->length,stress,modulation);   // continue with pre-vocalic rising tone
+				DoSpect(ph,prev->ph,next->ph,1,p,modulation);   // continue with pre-vocalic rising tone
 				DoPitch(pitch_env,p->pitch1,p->pitch2);
 			}
 			else
@@ -1185,10 +1296,10 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 					DoPitch(pitch_env,p->pitch1,p->pitch2);
 				}
 
-				DoSpect(ph,prev->ph,1,p->length,stress,modulation);
+				DoSpect(ph,prev->ph,next->ph,1,p,modulation);
 			}
 
-			DoSpect(p->ph,next->ph,2,p->length,stress,modulation);
+			DoSpect(p->ph,prev->ph,next->ph,2,p,modulation);
 			break;
 		}
 		ix++;
@@ -1207,29 +1318,6 @@ int Generate(PHONEME_LIST *phoneme_list, int resume)
 
 
 
-void MakeWave2(PHONEME_LIST *p, int n_ph)
-{//======================================
-	int result;
-
-	OpenWaveFile(tempwav, samplerate);
-
-	Generate(p,0);
-
-	for(;;)
-	{
-		result = WavegenFile();
-		if(result != 0)
-			break;
-		Generate(p,1);
-	}
-
-	CloseWaveFile(samplerate);
-	PlayWavFile(tempwav);
-
-}  // end of Synthesize::MakeWave2
-
-
-
 
 static int timer_on = 0;
 static int paused = 0;
@@ -1242,8 +1330,10 @@ int SynthOnTimer()
 		return(WavegenCloseSound());
 	}
 
-	if(Generate(phoneme_list,1)==0)
-		SpeakNextClause(NULL,NULL,1);
+	do {
+		if(Generate(phoneme_list,n_phoneme_list,1)==0)
+			SpeakNextClause(NULL,NULL,1);
+	} while(skipping_text);
 
 	return(0);
 }
@@ -1256,8 +1346,8 @@ int SynthStatus()
 
 
 
-int SpeakNextClause(FILE *f_in, char *text_in, int control)
-{//========================================================
+int SpeakNextClause(FILE *f_in, const void *text_in, int control)
+{//==============================================================
 // Speak text from file (f_in) or memory (text_in)
 // control 0: start
 //    either f_in or text_in is set, the other must be NULL
@@ -1267,11 +1357,12 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 //         2: stop
 //         3: pause (toggle)
 //         4: is file being read (0=no, 1=yes)
+//         5: interrupt and flush current text.
 
 	int clause_tone;
 	char *voice_change;
 	static FILE *f_text=NULL;
-	static char *p_text=NULL;
+	static const void *p_text=NULL;
 
 	if(control == 4)
 	{
@@ -1295,6 +1386,7 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 		WcmdqStop();
 		return(0);
 	}
+
 	if(control == 3)
 	{
 		// toggle pause
@@ -1308,8 +1400,16 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 			WavegenOpenSound();
 			timer_on = 1;
 			paused = 0;
-			Generate(phoneme_list,0);   // re-start from beginning of clause
+			Generate(phoneme_list,n_phoneme_list,0);   // re-start from beginning of clause
 		}
+		return(0);
+	}
+
+	if(control == 5)
+	{
+		// stop speaking, but continue looking for text
+		n_phoneme_list = 0;
+		WcmdqStop();
 		return(0);
 	}
 
@@ -1317,13 +1417,15 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 	{
 		f_text = f_in;
 		p_text = text_in;
-		translator->input_start = text_in;
 		timer_on = 1;
 		paused = 0;
 	}
 
 	if((f_text==NULL) && (p_text==NULL))
+	{
+		skipping_text = 0;
 		return(0);
+	}
 
 	if((f_text != NULL) && feof(f_text))
 	{
@@ -1336,6 +1438,7 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
 	p_text = translator->TranslateClause(f_text,p_text,&clause_tone,&voice_change);
+
 	if(option_phonemes)
 	{
 		printf("%s\n",translator->phon_out);
@@ -1350,7 +1453,14 @@ int SpeakNextClause(FILE *f_in, char *text_in, int control)
 		if(new_voice != NULL)
 			voice = new_voice; 
 	}
-	Generate(phoneme_list,0);
+
+	if(skipping_text)
+	{
+		n_phoneme_list = 0;
+		return(1);
+	}
+
+	Generate(phoneme_list,n_phoneme_list,0);
 	WavegenOpenSound();
 
 	return(1);

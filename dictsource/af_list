@@ -1,0 +1,373 @@
+//maintainer: Willem van der Walt
+// email: wvdwalt@csir.co.za
+// tel: +27 12 8413996
+// Meraka Institute, CSIR
+
+// This file is UTF-8 encoded
+// all words lower case
+
+
+
+// Place names
+
+afrika 'A:frika
+
+johannesburg juh'an@sbWrx2
+pretoria prit'o@ria
+
+
+
+// People names
+botha b'o@ta
+jacques		ZA:k
+johan juh'an
+grange x2r'A:nsi
+louis l'uI
+viljoen $2
+marais mar'E:
+mandela mand'E:la
+celliers sIlj'e@
+chris kr'Is
+christo kr'Istu
+christian kr'Istian
+joubert jub'&:r
+pleses pl@s'i
+schalkwyk sk'alkveIk
+xhosa k'O:za
+
+toit toI
+khumalo kum'A:lu
+
+
+
+
+// article
+
+die		$u
+
+
+
+// unstressed verbs
+
+is		$u
+het		$u
+sal		$u
+sou 		$u
+kan		$u $strend
+kon		$u $strend
+wil		$u $strend
+word		$u
+kry		$u
+gaan		$u
+
+
+// conjunctions and questions
+
+//maar
+toe		$u
+//tog
+
+en		$u $pause
+want		$pause
+of		$u $pause
+dan		$pause
+anders		$pause
+al		$pause
+daarom		$pause
+dus		$pause
+gevolglik	$pause
+daarna		$pause
+verder		f'&rd@r $pause
+nogtans		$pause
+intussen	$pause
+omdat		$pause
+sodat		$pause
+voordat		$pause
+nadat		$pause
+totdat		$pause
+as		,as  $pause
+soos		$pause
+solank		$pause
+sodra		$pause
+sedert		$pause
+alhoewel	$pause
+tensy		$pause
+aangesien	$pause
+wie		$pause
+wanneer		$pause
+waar		$pause
+waarom		$pause
+waarheen	$pause
+hoe		$pause
+hoekom		$pause
+hoeveel		$pause
+wat		$pause
+watter		$pause
+
+
+// prepositions
+aan		$u $strend2
+agter		$u $strend2
+bo		$u $strend2
+by		$u
+in		$u
+met		$u
+na		$u
+om		$u $strend2
+onder		$u $strend2
+op		$u $strend2
+van		$u
+vir		$u
+voor		$u $strend2
+
+
+// misc unstressed
+de		d@
+du		$u
+dat		$u $strend
+te		t@
+nie $unstressend
+
+soos $u
+beker b,e@k@r
+bekers b,e@k@rs
+
+
+
+// pronouns
+ek	&k 	$u
+jy		$u
+u		$u
+hy		$u
+sy		$u
+dit		$u
+ons		$u
+julle		$u
+hulle		$u
+my		$u
+jou		$u
+hom		$u
+haar		$u
+se		s@
+
+dis		$u
+
+
+
+// phrase with words spoken together
+
+(nie waar nie)	n,i||v,A:r||n'i
+
+
+// abbreviations
+
+mnr mIn'e@r
+mej m@jWfr@U
+dr d'Okt@r
+prof pruf'Es@r
+supt suprEntEnd'Ent
+pres pr@s@d'Ent
+
+
+
+// main word list
+
+aangaan 'A:nx2A:n
+aanstaande $2
+aanvaar $2
+aanvanklik $2
+afrikaans $3
+afrikaner $3
+agenda ax2'Enda
+algehele 'alx2@h,e@l@
+alleen $2
+alles 'al@s
+alternatiewe $4
+asof asOf
+asook aso@k
+
+bedjie b'E:ici
+beide b'eId@
+belangriker b@l'aNr@k,Ir
+belangrikst@ b@l'aNr@kst@
+bene b'e@n@
+bêre b'&:r@
+beste b'Est@
+bestes b'Est@s
+beter b'e@t@r
+bewe b'e@v@
+biblioteek $4
+
+dadelik d'A:d@lIk
+darem d'ar@m
+demokrasie d,EmOkras'i
+dikwels d'Ikv@ls
+diplomasie d@plo@mas'i
+
+ekonomie Ekuno@m'i
+elders '&ld@rs
+enige e@nIx2@
+erger '&rg@r
+erken &rk'En
+ervare $2
+ervaring &rf'A:r@N
+
+figuur f@x2'yr
+finaal $2
+finale $2
+finalis $3
+finaliste $3
+
+garages g@r'A:dZ@s
+gee	x2e@
+geen	x2'e@n
+gegewens x2@x2'e@v@ns
+geldelike x2'&ld@l@k@
+gesamentlik x2@s'A:m@ntl@k
+geskiedenis x2@skid@n@s
+geur x2'Y@r
+gooi x2OI
+gunsteling x2'Wnst@l@N
+
+hallo h'Il,@U
+hanteer $2
+heeltemal h'e@lt@mal
+hek h'&k
+hekke h'&k@
+hele h'e@l@
+here he@r@
+hoewel huv'&l
+hoofsaaklik $2
+hotel hut'&l
+
+idee $2
+ignoreer ix2no@r'e@r
+inagneming @n'ax2n,e@m@N
+ingang 'Inx2aN
+intensiteit $4
+
+kabinet kabin'Et
+kafee kaf'e@
+kantoor $2
+kapitaal kapit'A:l
+kategorie kat@x2ur'i
+koevert kuf'&rt
+kollega kul'e@x2a
+komberse kOmb'&rs@
+kombers kOmb'&rs
+krediet kr@d'it
+kritiek krIt'ik
+kultuur $2
+kunsmatige kWnsm'A:t@x2@
+
+lekker l'&k@r
+lughawe l'Wx2h,A:v@
+
+manier $2
+matige m'A:t@x2@
+meegee m'e@x2e@
+mense m'e:ns@
+mens m'e:ns
+militêre mIl@t'&:r@
+minister m@n'Ist@r
+minute m@n'yt@
+minuut m@n'yt
+miskien $2
+monitor m'OnitOr
+motore mo@t'o@r@
+motor m'o@t@r
+motors m'o@t@rs
+motortjie m'o@t@rki
+
+natuurlik nat'yrl@k
+natuur nat'yr
+netjies n'E:icis
+nogal n'Ox2al
+normaal $2
+normale nOrm'A:l@
+november $2
+
+omtrent Omtr'Ent
+onderstebo On@rst@b,o@
+onlangs $1
+oorkom $2
+oorspronklike $2
+oortref $2
+oortuig $2
+oorweeg $2
+oranje $2
+
+parlement parl@m'Ent
+party $2
+per p'Ir
+polisie pul'isi
+presies pr@s'is
+probeer prube@r
+probleem prubl'e@m
+probleme prubl'e@m@
+program prux2r'am
+
+redelik r'e@d@l@k
+reeds r'e@ts
+regverdig r&x2f'&rd@x2
+resep r@s'Ep
+resepte r@s'Ept@
+
+samelewing s'A:m@l,e@v@N
+sekere s'e@k@r@
+sekonde s@k'Ond@
+sekondes s@k'Ond@s
+sektore $2
+september s@pt'Emb@r
+silinder s@l'Ind@r
+s'n s'@n
+sodra so@dr'A:
+sogenaamde s'o@x2@n,A:md@
+soldaat $2
+soldate $2
+sononder s'On,On@r
+sonop s'On,Op
+spesiale spiSi'A:l@
+stabiel stab'il
+
+tema t'e@ma
+terug t@-r'Wx2
+terwyl t@rv'eIl
+toegee t'ux2e@
+toenemend $2
+totale tut'A:l@
+
+uitdagings 'YydA:x2@Ns
+uitdaging 'YydA:x2@N
+uiteindelik $2
+
+vanaf fanaf
+vandag $2
+vanjaar $2
+vanoggend fan'Ox2@nt
+vanuit fan'Yyt
+veraf f'&r_af
+verantwoordelikheid f@rantv'o@rd@l@keIt
+verdere f'&rd@r@
+vere f'e@r@
+vererger f@r'&rg@r
+ver f'&r
+vergete f@rx2'e@t@
+verre f'&:r@
+verse f'&:rs@
+vers f'&:rs
+verste f'&rst@
+verte f'&rt@
+via v'ia
+volwassenes fOlv'as@n@s
+voorgee f'o@rx2e@
+voorkom $2
+voormalige fo@rm'A:l@x2@
+voorsien $2
+voorspel fo@rsp'&l
+vorige f'o@r@x2@
+
+waarskynlik $2
+waarskynlike $2
+weg v&x2
+

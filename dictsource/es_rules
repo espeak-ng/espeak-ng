@@ -1,0 +1,203 @@
+// translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+       _) a (_       a
+          a          a
+          ai         aI
+          ay         aI
+
+       @) ado (_     ao
+       @) ados (_    aos
+
+
+.group b
+       _) b (_       be
+          b          B
+       _) b          b
+       m) b          b
+       n) b          b
+
+
+.group c
+       _) c (_       se
+       _) ch (_      tSe
+          c          k
+          c (e       T
+          c (i       T
+          ch         tS
+
+
+.group d
+       _) d (_       de
+          d          D
+       _) d          d
+       m) d          d
+       n) d          d
+
+
+.group e
+       _) e (_       e
+          e          E
+          e (_       e
+          ey         eI
+
+
+.group f
+       _) f (_       'Efe
+          f          f
+
+
+.group g
+       _) g (_       xe
+          g          Q
+       _) g          g
+       m) g          g
+       n) g          g
+          g (e       x
+          g (i       x
+
+
+.group h
+       _) h (_       'atSe
+          h              // silent
+
+
+.group i
+       _) i (_       i
+          i          i
+          i (A       j
+       l) i (A       %i
+       r) i (A       %i
+
+
+.group j
+       _) j (_       x'ota
+          j          x
+
+
+.group k
+       _) k (_       ka
+          k          k
+
+
+.group l
+       _) l (_       Ele
+       _) ll (_      Eje
+          l          l
+          ll         j
+
+
+.group m
+       _) m (_       Eme
+          m          m
+
+
+.group n
+       _) n (_       Ene
+          n          n
+          n (b       m
+          n (v       m
+          n (f       m
+          n (p       m
+
+
+.group o
+       _) o (_       o
+          o          o
+          oy         OI
+
+
+.group p
+       _) p (_       pe
+          p          p
+
+
+.group q
+       _) q (_       ku
+          q          k
+          qu         k
+
+
+.group r
+       _) r (_       Ere
+          r          r
+       _) r          R
+          rr         R
+
+
+.group s
+       _) s (_       Ese
+          s          s
+       &) s (_S1     s
+
+
+.group t
+       _) t (_       te
+          t          t
+
+
+.group u
+       _) u (_       u
+          u          u
+          u (A       w
+       l) u (A       %u
+       r) u (A       %u
+
+       g) u (e
+       g) u (i
+
+
+.group v
+       _) v (_       be
+          v          B
+       _) v          b
+       m) v          b
+       n) v          b
+
+
+.group w
+       _) w (_       d'oBle,u
+          w          w
+
+
+.group x
+       _) x (_       Ekis
+          x          ks
+       A) x (A       ks
+
+
+.group y
+       _) y (_       ,igr'iEQa
+          y          i
+          y (A       j
+
+
+.group z
+       _) z (_       sEta
+          z          s
+
+
+.group 9
+          0          n'ul_
+          1          'uno_
+          2          d'os_
+          3          tr'Es_
+          4          kw'atro_
+          5          T'inko_
+          6          s'Eis_
+          7          sj'Ete_
+          8          'otSo_
+          9          nw'EBe_
+
+.group
+          á          'a
+          é          'E
+          í          'i
+          ó          'o
+          ú          'u
+          ü          u
+          ñ          n^
+        _)ñ (_       En^e
+

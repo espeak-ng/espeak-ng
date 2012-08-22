@@ -18,7 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-
 // this version keeps wavemult window as a constant fraction
 // of the cycle length - but that spreads out the HF peaks too much
 
@@ -35,22 +34,27 @@
 
 #ifdef USE_PORTAUDIO
 #include "portaudio.h"
+#undef USE_PORTAUDIO
+// determine portaudio version by looking for a #define which is not in V18
+#ifdef paNeverDropInput
+#define USE_PORTAUDIO   19
+#else
+#define USE_PORTAUDIO   18
+#endif
 #endif
 
 #define N_SINTAB  2048
 #include "sintab.h"
 
 
-float polint(float xa[],float ya[],int n,float x);
 
 #define PI2 6.283185307
 #define STEPSIZE  64                // 2.9mS at 22 kHz sample rate
-#define N_WAV_BUF   20
+#define N_WAV_BUF   15
 
 static voice_t *wvoice;
 
 FILE *f_log = NULL;
-int option_amplitude = 60;
 int option_waveout = 0;
 int option_harmonic1 = 11;   // 10
 static int flutter_amp = 64;
@@ -61,10 +65,9 @@ static int consonant_amp = 26;   // 24
 int embedded_value[N_EMBEDDED_VALUES];
 
 static int PHASE_INC_FACTOR;
-static int n_peaks1=5;   // highest peak to use shape
 int samplerate = 0;       // this is set by Wavegeninit()
 
-wavegen_peaks_t peaks[N_PEAKS];
+static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
 static int peak_height[N_PEAKS];
 
@@ -90,12 +93,14 @@ static int nsamples=0;       // number to do
 static int amplitude = 32;
 static int amplitude_v = 0;
 static int modulation_type = 0;
+static int glottal_flag = 0;
+static int glottal_reduce = 0;
 
 static unsigned char *mix_wavefile = NULL;  // wave file to be added to synthesis
 static int n_mix_wavefile = 0;       // length in bytes
 static int mix_wave_scale = 0;         // 0=2 byte samples
+static int mix_wave_amp = 32;
 static int mix_wavefile_ix = 0;
-
 
 static int pitch;          // pitch Hz*256
 static int pitch_ix;       // index into pitch envelope (*256)
@@ -112,14 +117,15 @@ static int samplecount_start=0;  // count at start of this segment
 static int end_wave=0;      // continue to end of wave cycle
 static int wavephase;
 static int phaseinc;
-static int wbytes;         // number of samples in half a cycle at current pitch
+static int cycle_samples;         // number of samples in a cycle at current pitch
 static int cbytes;
 static int hf_factor;
 
 
 unsigned char *out_ptr;
 unsigned char *out_end;
-static unsigned char outbuf[1024];
+static int out_channels=1;
+static unsigned char outbuf[1024];  // used when writing to file
 
 // the queue of operations passed to wavegen from sythesize
 long wcmdq[N_WCMDQ][4];
@@ -127,22 +133,26 @@ int wcmdq_head=0;
 int wcmdq_tail=0;
 
 // pitch,speed,
-unsigned char embedded_default[N_EMBEDDED_VALUES]        = {0,50,50,50,50, 0,50, 0,50};
-static unsigned char embedded_max[N_EMBEDDED_VALUES]     = {0,99,99,99,99,99,99, 0,99};
+int embedded_default[N_EMBEDDED_VALUES]        = {0,50,165,100,50, 0,50, 0,165,0,0,0,0,0};
+static int embedded_max[N_EMBEDDED_VALUES]     = {0,99,320,300,99,99,99, 0,320,0,0,0,0,4};
 
 #define N_CALLBACK_IX N_WAV_BUF-2   // adjust this delay to match display with the currently spoken word
 int current_source_index=0;
-static int callback_ix = 0;
-static int source_marker[N_CALLBACK_IX];
 
 FILE *f_wave = NULL;
 
-#ifdef USE_PORTAUDIO
+#if (USE_PORTAUDIO == 18)
 static PortAudioStream *pa_stream=NULL;
+#endif
+#if (USE_PORTAUDIO == 19)
+static PaStream *pa_stream=NULL;
 #endif
 
 /* default pitch envelope, a steady fall */
 #define ENV_LEN  128
+
+
+/*
 unsigned char Pitch_env0[ENV_LEN] = {
     255,253,251,249,247,245,243,241,239,237,235,233,231,229,227,225,
     223,221,219,217,215,213,211,209,207,205,203,201,199,197,195,193,
@@ -153,6 +163,7 @@ unsigned char Pitch_env0[ENV_LEN] = {
      63, 61, 59, 57, 55, 53, 51, 49, 47, 45, 43, 41, 39, 37, 35, 33,
      31, 29, 27, 25, 23, 21, 19, 17, 15, 13, 11,  9,  7,  5,  3,  1
 };
+*/
 
 /*
 unsigned char Pitch_long[ENV_LEN] = {
@@ -172,14 +183,14 @@ unsigned char Pitch_long[ENV_LEN] = {
 // value: bits 0-3  amplitude (16ths), bits 4-7 every n cycles
 #define N_ROUGHNESS 8
 static unsigned char modulation_tab[N_ROUGHNESS][8] = {
-	{0, 0x00, 0x00, 0x00, 0, 0x35, 0x38, 0x29},
-	{0, 0x2f, 0x00, 0x2f, 0, 0x34, 0x38, 0x29},
-	{0, 0x2f, 0x00, 0x2e, 0, 0x33, 0x37, 0x28},
-	{0, 0x2e, 0x00, 0x2d, 0, 0x33, 0x37, 0x28},
-	{0, 0x2d, 0x2d, 0x2c, 0, 0x33, 0x37, 0x28},
-	{0, 0x2b, 0x2b, 0x2b, 0, 0x33, 0x37, 0x28},
-	{0, 0x2a, 0x2a, 0x2a, 0, 0x33, 0x37, 0x28},
-	{0, 0x29, 0x29, 0x29, 0, 0x33, 0x37, 0x28},
+	{0, 0x00, 0x00, 0x00, 0, 0x35, 0xf2, 0x29},
+	{0, 0x2f, 0x00, 0x2f, 0, 0x34, 0xf2, 0x29},
+	{0, 0x2f, 0x00, 0x2e, 0, 0x33, 0xf2, 0x28},
+	{0, 0x2e, 0x00, 0x2d, 0, 0x33, 0xf2, 0x28},
+	{0, 0x2d, 0x2d, 0x2c, 0, 0x33, 0xf2, 0x28},
+	{0, 0x2b, 0x2b, 0x2b, 0, 0x33, 0xf2, 0x28},
+	{0, 0x2a, 0x2a, 0x2a, 0, 0x33, 0xf2, 0x28},
+	{0, 0x29, 0x29, 0x29, 0, 0x33, 0xf2, 0x28},
 };
 
 // Flutter table, to add natural variations to the pitch
@@ -297,13 +308,16 @@ unsigned char pitch_adjust_tab[100] = {
    217,220,223,226,229,232,236,239,
    242,246,249,252 };
 
-int WavegenFill(void);
+int WavegenFill(int fill_zeros);
 
 
 void WcmdqStop()
 {//=============
 	wcmdq_head = 0;
 	wcmdq_tail = 0;
+#ifdef USE_PORTAUDIO
+	Pa_AbortStream(pa_stream);
+#endif
 }
 
 
@@ -327,21 +341,11 @@ void WcmdqInc()
 	if(wcmdq_tail >= N_WCMDQ) wcmdq_tail=0;
 }
 
-void WcmdqIncHead()
-{//================
+static void WcmdqIncHead()
+{//=======================
 	wcmdq_head++;
 	if(wcmdq_head >= N_WCMDQ) wcmdq_head=0;
 }
-
-static int WgenSourceIndex(int reset)
-{//==================================
-	if(reset)
-	{
-		memset(source_marker,0,sizeof(source_marker));
-	}
-	return(source_marker[callback_ix]);
-}
-
 
 
 
@@ -395,9 +399,10 @@ static unsigned char pk_shape2[PEAKSHAPEW+1] = {
 static unsigned char *pk_shape;
 
 
-void WavegenInitPkData(int which)
-{//==============================
+static void WavegenInitPkData(int which)
+{//=====================================
 // this is only needed to set up the presets for pk_shape1 and pk_shape2
+// These have already been pre-calculated and preset
 #ifdef deleted
 	int ix;
 	int p;
@@ -435,21 +440,52 @@ void WavegenInitPkData(int which)
 static int userdata[4];
 static PaError pa_init_err=0;
 
+#if USE_PORTAUDIO == 18
 static int WaveCallback(void *inputBuffer, void *outputBuffer,
 		unsigned long framesPerBuffer, PaTimestamp outTime, void *userData )
-{//=======================================================================
+#else
+static int WaveCallback(const void *inputBuffer, void *outputBuffer,
+		long unsigned int framesPerBuffer, const PaStreamCallbackTimeInfo *outTime,
+		PaStreamCallbackFlags flags, void *userData )
+#endif
+{
 	int ix;
-
-	source_marker[callback_ix] = current_source_index;
-	callback_ix++;
-	if(callback_ix >= N_CALLBACK_IX)
-		callback_ix = 0;
+	int result;
+	unsigned char *p;
+	static int end_timer = 0;
 
 	out_ptr = (unsigned char *)outputBuffer;
 	out_end = out_ptr + framesPerBuffer*2;
 
-	ix = WavegenFill();
-	return(ix);
+	result = WavegenFill(1);
+
+	if(out_channels == 2)
+	{
+		// sound output can only do stereo, not mono.  Duplicate each sound sample to
+		// produce 2 channels.
+		out_ptr = (unsigned char *)outputBuffer;
+		for(ix=framesPerBuffer-1; ix>=0; ix--)
+		{
+			p = &out_ptr[ix*4];
+			p[3] = p[1] = out_ptr[ix*2 + 1];
+			p[2] = p[0] = out_ptr[ix*2];
+		}
+	}
+
+#if USE_PORTAUDIO == 18
+	if((result > 0) && (end_timer == 0))
+		end_timer = 3;
+	if(end_timer > 0)
+	{
+		end_timer--;
+		if(end_timer == 0)
+			return(1);
+	}
+	return(0);
+#else
+	return(result);
+#endif
+
 }  //  end of WaveCallBack
 
 
@@ -464,22 +500,43 @@ int WavegenOpenSound()
 		return(0);
 	}
 
-	// NOTE: This is for PortAudio version 1.8
-	// for version 1.9 this call is renamed Pa_IsStreamActive(pa_stream)
+#if USE_PORTAUDIO == 18
 	active = Pa_StreamActive(pa_stream);
+#else
+	active = Pa_IsStreamActive(pa_stream);
+#endif
 
 	if(active == 1)
 		return(0);
 	if(active < 0)
 	{
+		out_channels = 1;
+
+#if USE_PORTAUDIO == 18
 		err2 = Pa_OpenDefaultStream(&pa_stream,0,1,paInt16,samplerate,512,N_WAV_BUF,WaveCallback,(void *)userdata);
+
+		if(err2 == paInvalidChannelCount)
+		{
+			// failed to open with mono, try stereo
+			out_channels=2;
+			err2 = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,samplerate,512,N_WAV_BUF,WaveCallback,(void *)userdata);
+		}
+#else
+		err2 = Pa_OpenDefaultStream(&pa_stream,0,1,paInt16,(double)samplerate,512,WaveCallback,(void *)userdata);
+
+		if(err2 == paInvalidChannelCount)
+		{
+			// failed to open with mono, try stereo
+			out_channels=2;
+			err2 = Pa_OpenDefaultStream(&pa_stream,0,2,paInt16,(double)samplerate,512,WaveCallback,(void *)userdata);
+		}
+#endif
 	}
 	err = Pa_StartStream(pa_stream);
 	if(err != paNoError)
 	{
 		// exit speak if we can't open the sound device - this is OK if speak is being run for each utterance
 		exit(2);
-	//	return(2);
 	}
 
 	return(0);
@@ -493,7 +550,11 @@ int WavegenCloseSound()
 	// check whether speaking has finished, and close the stream
 	if(pa_stream != NULL)
 	{
+#if USE_PORTAUDIO == 18
 		active = Pa_StreamActive(pa_stream);
+#else
+		active = Pa_IsStreamActive(pa_stream);
+#endif
 		if(active == 0)
 		{
 			Pa_CloseStream(pa_stream);
@@ -589,49 +650,24 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	WavegenInitPkData(1);
 	WavegenInitPkData(0);
-	pk_shape = pk_shape2;
+	pk_shape = pk_shape2;         // ph_shape2
+
+#ifdef LOG_FRAMES
+remove("log");
+#endif
 }  // end of WavegenInit
 
 
+static int GetAmplitude(void)
+{//==========================
+	int amp;
 
-float polint(float xa[],float ya[],int n,float x)
-{//==============================================
-// General polinomial interpolation routine, xa[1...n] ya[1...n]
-	int i,m,ns=1;
-	float den,dif,dift,ho,hp,w;
-	float y;  // result
-	float c[9],d[9];
+	// normal, none, reduced, moderate, strong
+	static const unsigned char amp_emphasis[5] = {16, 16, 8, 24, 32};
 
-	dif=fabs(x-xa[1]);
-
-	for(i=1;i<=n;i++){
-		if((dift=fabs(x-xa[i])) < dif) {
-			ns=i;
-			dif=dift;
-		}
-		c[i]=ya[i];
-		d[i]=ya[i];
-	}
-	y=ya[ns--];
-	for(m=1;m<n;m++) {
-		for(i=1;i<=n-m;i++) {
-			ho=xa[i]-x;
-			hp=xa[i+m]-x;
-			w=c[i+1]-d[i];
-			if((den=ho-hp) == 0.0)
-			{
-//				fprintf(stderr,"Error in routine 'polint'");
-				return(ya[2]);  // two input xa are identical
-			}
-			den=w/den;
-			d[i]=hp*den;
-			c[i]=ho*den;
-		}
-		y += ((2*ns < (n-m) ? c[ns+1] : d[ns--]));
-	}
-	return(y);
-}  // end of polint
-
+	amp = (embedded_value[EMBED_A])*60/100;
+	return(amp * amp_emphasis[embedded_value[EMBED_F]] / 16);
+}
 
 
 static void WavegenSetEcho(void)
@@ -650,23 +686,23 @@ static void WavegenSetEcho(void)
 	memset(echo_buf,0,sizeof(echo_buf));
 	echo_tail = 0;
 
-	if(embedded_value[EMBED_R] > 0)
+	if(embedded_value[EMBED_H] > 0)
 	{
 		// set echo from an embedded command in the text
-		amp = embedded_value[EMBED_R];
+		amp = embedded_value[EMBED_H];
 		delay = 130;
 	}
 	echo_head = (delay * samplerate)/1000;
 	echo_amp = amp;
 	// compensate (partially) for increase in amplitude due to echo
-	general_amplitude = (option_amplitude * embedded_value[EMBED_V])/50;
+	general_amplitude = GetAmplitude();
 	general_amplitude = ((general_amplitude * (512-amp))/512);
 }
 
 
 
-int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab)
-{//===============================================================
+int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
+{//============================================================================
 // Calculate the amplitude of each  harmonics from the formants
 // Only for formants 0 to 5
 
@@ -689,7 +725,9 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab)
 #endif
 
 	// initialise as much of *out as we will need
-	hmax = (peaks[n_peaks1].freq + peaks[n_peaks1].right)/pitch;
+	if(wvoice == NULL)
+		return(1);
+	hmax = (peaks[wvoice->n_harmonic_peaks].freq + peaks[wvoice->n_harmonic_peaks].right)/pitch;
 
 	// restrict highest harmonic to half the samplerate
 	hmax_samplerate = (((samplerate * 19)/40) << 16)/pitch;   // only 95% of Nyquist freq
@@ -702,7 +740,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab)
 		htab[h]=0;
 
 	h=0;
-	for(pk=0; pk<=n_peaks1; pk++)
+	for(pk=0; pk<=wvoice->n_harmonic_peaks; pk++)
 	{
 		p = &peaks[pk];
 		if((p->height == 0) || (fp = p->freq)==0)
@@ -750,7 +788,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab)
 
 
 	// calc intermediate increments of LF harmonics
-	if(samplecount != 0)
+	if(control & 1)
 	{
 		for(h=1; h<N_LOWHARM; h++)
 		{
@@ -790,7 +828,7 @@ static void AdvanceParameters()
 	if(samplecount == samplecount_start)
 		return;
 
-	for(ix=0; ix<n_peaks1; ix++)
+	for(ix=0; ix <= wvoice->n_harmonic_peaks; ix++)
 	{
 		peaks[ix].freq1 += peaks[ix].freq_inc;
 		peaks[ix].freq = int(peaks[ix].freq1);
@@ -858,7 +896,8 @@ static int Wavegen()
 			if(samplecount == 0)
 			{
 				hswitch = 0;
-				maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[0]);
+				harmspect = hspect[0];
+				maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[0],0);
 				amplitude2 = (amplitude * pitch)/(100 << 12);
 
             // switch sign of harmonics above about 900Hz, to reduce max peak amplitude
@@ -869,20 +908,22 @@ static int Wavegen()
 
 			// pitch is Hz<<12
 			phaseinc = (pitch>>7) * PHASE_INC_FACTOR;
-			wbytes = samplerate/(pitch >> 11);  // sr/(pitch*2)
+			cycle_samples = samplerate/(pitch >> 12);  // sr/(pitch*2)
 			hf_factor = pitch >> 11;
 
 			maxh = maxh2;
 			harmspect = hspect[hswitch];
 			hswitch ^= 1;
-			maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[hswitch]);
+			maxh2 = PeaksToHarmspect(peaks,pitch<<4,hspect[hswitch],1);
 
 		}
 		else
 		if((samplecount & 0x07) == 0)
 		{
-			for(h=1; h<N_LOWHARM && h<maxh2; h++)
+			for(h=1; h<N_LOWHARM && h<=maxh2 && h<=maxh; h++)
+			{
 				harmspect[h] += harm_inc[h];
+			}
 
 			// bring automctic gain control back towards unity
 			if(agc < 256) agc++;
@@ -896,7 +937,7 @@ static int Wavegen()
 			if(wavephase < 0)
 			{
 				// sign has changed, reached a quiet point in the waveform
-				cbytes = wavemult_offset-wbytes;
+				cbytes = wavemult_offset - (cycle_samples)/2;
 				if(samplecount > nsamples)
 					return(0);
 
@@ -904,6 +945,32 @@ static int Wavegen()
 
 				// adjust amplitude to compensate for fewer harmonics at higher pitch
 				amplitude2 = (amplitude * pitch)/(100 << 12);
+
+				if(glottal_flag > 0)
+				{
+					if(glottal_flag == 3)
+					{
+						if((nsamples-samplecount) < (cycle_samples*2))
+						{
+							// Vowel before glottal-stop.
+							// This is the start of the penultimate cycle, reduce its amplitude
+							glottal_flag = 2;
+							amplitude2 = (amplitude2 *  glottal_reduce)/256;
+						}
+					}
+					else
+					if(glottal_flag == 4)
+					{
+						// Vowel following a glottal-stop.
+						// This is the start of the second cycle, reduce its amplitude
+						glottal_flag = 2;
+						amplitude2 = (amplitude2 * glottal_reduce)/256;
+					}
+					else
+					{
+						glottal_flag--;
+					}
+				}
 
 				if(amplitude_env != NULL)
 				{
@@ -926,9 +993,18 @@ static int Wavegen()
 
 				if(modn_period != 0)
 				{
-					// reduce amplitude every [modn_period} cycles
-					if((cycle_count % modn_period)==0)
+					if(modn_period==0xf)
+					{
+						// just once */
 						amplitude2 = (amplitude2 * modn_amp)/16;
+						modulation_type = 0;
+					}
+					else
+					{
+						// reduce amplitude every [modn_period} cycles
+						if((cycle_count % modn_period)==0)
+							amplitude2 = (amplitude2 * modn_amp)/16;
+					}
 				}
 			}
 		}
@@ -946,7 +1022,7 @@ static int Wavegen()
 		cbytes++;
 		if(cbytes >=0 && cbytes<wavemult_max)
 		{
-			for(pk=n_peaks1+1; pk<N_PEAKS; pk++)
+			for(pk=wvoice->n_harmonic_peaks+1; pk<N_PEAKS; pk++)
 			{
 				theta = peak_harmonic[pk] * waveph;
 				total += (long)sin_tab[theta >> 5] * peak_height[pk];
@@ -992,6 +1068,7 @@ static int Wavegen()
 				sample = (signed char)mix_wavefile[mix_wavefile_ix++] * mix_wave_scale;
 			}
 			z2 = (sample * amplitude_v) >> 10;
+			z2 = (z2 * mix_wave_amp)/32;
 		}
 
 		z1 = z2 + (((total>>7) * amplitude2) >> 14);
@@ -1062,8 +1139,8 @@ static int PlaySilence(int length, int resume)
 
 
 
-static int PlayWave(int length, int resume, unsigned char *data, int scale)
-{//========================================================================
+static int PlayWave(int length, int resume, unsigned char *data, int scale, int amp)
+{//=================================================================================
 	static int n_samples;
 	static int ix=0;
 	int value;
@@ -1094,6 +1171,7 @@ static int PlayWave(int length, int resume, unsigned char *data, int scale)
 		}
 		value *= (consonant_amp * general_amplitude);   // reduce strength of consonant
 		value = value >> 10;
+		value = (value * amp)/32;
 
 		value += ((echo_buf[echo_tail++] * echo_amp) >> 8);
 
@@ -1139,11 +1217,11 @@ void SetEmbedded(int control, int value)
 	int ix;
 	int factor;
 
-	command = control & 0x3f;
-	if((control & 0xc0) == 0xc0)
+	command = control & 0x1f;
+	if((control & 0x60) == 0x60)
 		sign = -1;
 	else
-	if(control & 0x80)
+	if((control & 0x60) == 0x40)
 		sign = 1;
 
 	if(command < N_EMBEDDED_VALUES)
@@ -1170,11 +1248,15 @@ void SetEmbedded(int control, int value)
 		wvoice->height[1] = (wvoice->height2[1] * (256 - factor))/256;
 		break;
 
-	case EMBED_V:
-		general_amplitude = (option_amplitude * embedded_value[EMBED_V])/50;
+	case EMBED_A:  // amplitude
+		general_amplitude = GetAmplitude();
 		break;
 
-	case EMBED_R:
+	case EMBED_F:   // emphasiis
+		general_amplitude = GetAmplitude();
+		break;
+
+	case EMBED_H:
 		WavegenSetEcho();
 		break;
 	}
@@ -1184,6 +1266,11 @@ void SetEmbedded(int control, int value)
 void WavegenSetVoice(voice_t *v)
 {//=============================
 	wvoice = v;
+
+	if(v->peak_shape==0)
+		pk_shape = pk_shape1;
+	else
+		pk_shape = pk_shape2;
 
 	WavegenSetEcho();
 }
@@ -1211,8 +1298,17 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	int base;
 	int range;
 
+#ifdef LOG_FRAMES
+f_log=fopen("log","a");
+if(f_log != NULL)
+{
+fprintf(f_log,"	  %3d %3d\n",pitch1,pitch2);
+fclose(f_log);
+f_log=NULL;
+}
+#endif
 	if((pitch_env = env)==NULL)
-		pitch_env = Pitch_env0;  // default
+		pitch_env = env_fall;  // default
 
 	pitch_ix = 0;
 	if(length==0)
@@ -1228,7 +1324,7 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	}
 
 	base = (wvoice->pitch_base * pitch_adjust_tab[embedded_value[EMBED_P]])/128;
-	range =  (wvoice->pitch_range * embedded_value[EMBED_E])/50;
+	range =  (wvoice->pitch_range * embedded_value[EMBED_R])/50;
 
 	// compensate for change in pitch when the range is narrowed or widened
 	base -= (range - wvoice->pitch_range)*20;
@@ -1240,14 +1336,15 @@ void SetPitch(int length, unsigned char *env, int pitch1, int pitch2)
 	pitch = ((pitch_env[0]*pitch_range)>>8) + pitch_base;   // Hz << 12
 
 	flutter_amp = wvoice->flutter;
+
 }  // end of SetPitch
 
 
 
 
 
-static void SetSynth(int length, int mod, peak_t *sp1, peak_t *sp2)
-{//================================================================
+void SetSynth(int length, int modn, frame_t *fr1, frame_t *fr2)
+{//============================================================
 	int ix;
 	DOUBLEX next;
 	int length2;
@@ -1255,12 +1352,39 @@ static void SetSynth(int length, int mod, peak_t *sp1, peak_t *sp2)
 	int qix;
 	int cmd;
 	voice_t *v;
+	static int glottal_reduce_tab1[4] = {0x30, 0x30, 0x40, 0x50};  // vowel before [?], amp * 1/256
+//	static int glottal_reduce_tab1[4] = {0x30, 0x40, 0x50, 0x60};  // vowel before [?], amp * 1/256
+	static int glottal_reduce_tab2[4] = {0x90, 0xa0, 0xb0, 0xc0};  // vowel after [?], amp * 1/256
+
+#ifdef LOG_FRAMES
+f_log=fopen("log","a");
+if(f_log != NULL)
+{
+fprintf(f_log,"%3d   %4d %4d %4d   %4d %4d %4d\n",length*1000/samplerate,
+	fr1->ffreq[1], fr1->ffreq[2], fr1->ffreq[3],
+	fr2->ffreq[1], fr2->ffreq[2], fr2->ffreq[3] );
+fclose(f_log);
+f_log=NULL;
+}
+#endif
 
 	harm_sqrt_n = 0;
 	end_wave = 1;
 
 	// any additional information in the param1 ?
-	modulation_type = mod & 0xff;
+	modulation_type = modn & 0xff;
+
+	glottal_flag = 0;
+	if(modn & 0x400)
+	{
+		glottal_flag = 3;  // before a glottal stop
+		glottal_reduce = glottal_reduce_tab1[(modn >> 8) & 3];
+	}
+	if(modn & 0x800)
+	{
+		glottal_flag = 4;  // after a glottal stop
+		glottal_reduce = glottal_reduce_tab2[(modn >> 8) & 3];
+	}
 
 	for(qix=wcmdq_head+1;;qix++)
 	{
@@ -1291,42 +1415,36 @@ static void SetSynth(int length, int mod, peak_t *sp1, peak_t *sp2)
 	length4 = length2/4;
 	for(ix=0; ix<N_PEAKS; ix++)
 	{
-		peaks[ix].freq1 = (sp1[ix].pkfreq * v->freq[ix]) << 8;
+		peaks[ix].freq1 = (fr1->ffreq[ix] * v->freq[ix]) << 8;
 		peaks[ix].freq = int(peaks[ix].freq1);
-		next = (sp2[ix].pkfreq * v->freq[ix]) << 8;
+		next = (fr2->ffreq[ix] * v->freq[ix]) << 8;
 		peaks[ix].freq_inc =  ((next - peaks[ix].freq1) * (STEPSIZE/4)) / length4;  // lower headroom for fixed point math
 
-		peaks[ix].height1 = sp1[ix].pkheight * v->height[ix];
+		peaks[ix].height1 = (fr1->fheight[ix] * v->height[ix]) << 6;
 		peaks[ix].height = int(peaks[ix].height1);
-		next = sp2[ix].pkheight * v->height[ix];
+		next = (fr2->fheight[ix] * v->height[ix]) << 6;
 		peaks[ix].height_inc =  ((next - peaks[ix].height1) * STEPSIZE) / length2;
 
-		if(ix <= n_peaks1)
+		if(ix <= wvoice->n_harmonic_peaks)
 		{
-			peaks[ix].left1 = (sp1[ix].pkwidth * v->width[ix]) << 8;
+			peaks[ix].left1 = (fr1->fwidth[ix] * v->width[ix]) << 10;
 			peaks[ix].left = int(peaks[ix].left1);
-			next = (sp2[ix].pkwidth * v->width[ix]) << 8;
+			next = (fr2->fwidth[ix] * v->width[ix]) << 10;
 			peaks[ix].left_inc =  ((next - peaks[ix].left1) * STEPSIZE) / length2;
 
-			peaks[ix].right1 = (sp1[ix].pkright * v->width[ix]) << 8;
+			peaks[ix].right1 = (fr1->fright[ix] * v->width[ix]) << 10;
 			peaks[ix].right = int(peaks[ix].right1);
-			next = (sp2[ix].pkright * v->width[ix]) << 8;
+			next = (fr2->fright[ix] * v->width[ix]) << 10;
 			peaks[ix].right_inc = ((next - peaks[ix].right1) * STEPSIZE) / length2;
 		}
 	}
 }  // end of SetSynth
 
 
-void SetSynth_mS(int length_mS, peak_t *sp1, peak_t *sp2)
-{//======================================================
-	SetSynth((length_mS * samplerate) / 1000, 0, sp1, sp2);    // convert mS to samples
-}
-
-
-int Wavegen2(int length, int modulation, int resume, peak_t *sp1, peak_t *sp2)
-{//===========================================================
+static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_t *fr2)
+{//====================================================================================
 	if(resume==0)
-		SetSynth(length,modulation,sp1,sp2);
+		SetSynth(length,modulation,fr1,fr2);
 
 	return(Wavegen());
 }
@@ -1429,8 +1547,8 @@ void MakeWaveFile()
 
 
 
-int WavegenFill()
-{//==============
+int WavegenFill(int fill_zeros)
+{//============================
 // Pick up next wavegen commands from the queue
 // return: 0  output buffer has been filled
 // return: 1  input command queue is now empty
@@ -1439,14 +1557,18 @@ int WavegenFill()
 	int length;
 	int result;
 	static int resume=0;
-	static unsigned char speed_adjust_tab[10] = {223,199,179,160,143,128,115,103,92,82};
+//	static unsigned char speed_adjust_tab[10] = {223,199,179,160,143,128,115,103,92,82};
+
 
 	while(out_ptr < out_end)
 	{
 		if(WcmdqUsed() <= 0)
 		{
-			while(out_ptr < out_end)
-				*out_ptr++ = 0;
+			if(fill_zeros)
+			{
+				while(out_ptr < out_end)
+					*out_ptr++ = 0;
+			}
 			return(1);              // queue empty, close sound channel
 		}
 
@@ -1468,12 +1590,13 @@ int WavegenFill()
 
 		case WCMD_WAVE:
 			n_mix_wavefile = 0;
-			result = PlayWave(length,resume,(unsigned char*)q[2],q[3]);
+			result = PlayWave(length,resume,(unsigned char*)q[2], q[3] & 0xff, q[3] >> 8);
 			break;
 
 		case WCMD_WAVE2:
 			// wave file to be played at the same time as synthesis
-			mix_wave_scale = q[3];
+			mix_wave_amp = q[3] >> 8;
+			mix_wave_scale = q[3] & 0xff;
 			if(mix_wave_scale == 0)
 				n_mix_wavefile = length*2;
 			else
@@ -1485,10 +1608,12 @@ int WavegenFill()
 		case WCMD_SPECT2:   // as WCMD_SPECT but stop any concurrent wave file
 			n_mix_wavefile = 0;   // ... and drop through to WCMD_SPECT case
 		case WCMD_SPECT:
-			result = Wavegen2(length & 0xffff,q[1] >> 16,resume,(peak_t *)q[2],(peak_t *)q[3]);
+			result = Wavegen2(length & 0xffff,q[1] >> 16,resume,(frame_t *)q[2],(frame_t *)q[3]);
 			break;
 
 		case WCMD_MARKER:
+			MarkerEvent(q[1],q[2],q[3],out_ptr);
+
 			if(q[1] == 1)
 			{
 				current_source_index = q[2];
@@ -1531,7 +1656,7 @@ int WavegenFile(void)
 	out_ptr = outbuf;
 	out_end = outbuf + sizeof(outbuf);
 
-	finished = WavegenFill();
+	finished = WavegenFill(0);
 
 	if(f_wave != NULL)
 	{

@@ -1,0 +1,150 @@
+méxico       mExiko
+mexicano     mExikano
+
+
+// articles
+el           $u
+les          $u
+la           $u
+las          $u
+lo           $u
+los          $u
+
+un           $u
+una          $u
+
+
+// pronouns
+yo	$u
+tu	$u
+tú	$u
+usted	$u
+él	$u
+ella	$u
+nosotros	$u
+vosotros	$u
+as	$u
+ustedes	$u
+ellos	$u
+ellas	$u
+se	$u
+
+// prepositions
+a            _%a
+al           _%al
+de           $u
+del          $u
+(de la)      d,ela
+en           _%En
+con          $u $pause
+por          $u $pause
+
+
+// conjunctions
+y            %i $pause    // and
+o            $u $pause    // or
+
+así          $pause
+aunque       $pause
+siquiera     $pause
+
+que          $pause
+
+
+// auxillary verbs
+ser	$u
+soy	$u
+eras	$u
+es	$u
+somos	$u
+son	$u
+
+fui	$u
+fuiste	$u
+fue	$u
+fuimos	$u
+fuisteis	$u
+fueron	$u
+
+era	$u
+eras	$u
+éramos	$u
+erais	$u
+eran	$u
+
+seré	$u
+serás	$u
+será	$u
+seremos	$u
+seréis	$u
+serán	$u
+
+sería	$u
+serías	$u
+seríamos	$u
+seríais	$u
+serían	$u
+
+
+estar	$u
+estoy	$u
+estás	$u
+está	$u
+estamos	$u
+estáis	$u
+están	$u
+
+estuve	$u
+estuviste	$u
+estuvo	$u
+estuvimos	$u
+estuvisteis	$u
+estuvieron	$u
+
+estaba	$u
+estabas	$u
+estaba	$u
+estábamos	$u
+estabais	$u
+estaban	$u
+
+estaré	$u
+estarás	$u
+estará	$u
+estaremos	$u
+estaréis	$u
+estarán	$u
+
+estaría	$u
+estarías	$u
+estaríamos	$u
+estaríais	$u
+estarían	$u
+
+haber	$u
+he	$u
+has	$u
+hay	$u
+hemos	$u
+habéis	$u
+han	$u
+
+hube	$u
+hubiste	$u
+hubo	$u
+hubimos	$u
+hubisteis	$u
+hubieron	$u
+
+había	$u
+habías	$u
+habíamos	$u
+habíais	$u
+habían	$u
+
+habré	$u
+habrás	$u
+habrá	$u
+habremos	$u
+habréis	$u
+habrán	$u

@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <time.h>
+#include <signal.h>
 #include "sys/stat.h"
 
 #include "speech.h"
@@ -32,17 +33,16 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
-
-int VoicePhonemes(const char *name);
+#include "speak_lib.h"
 
 
 FILE *f_text;
 
 char path_home[120];
-char path_source[80] = "";
 char wavefile[120];
+int (* uri_callback)(int, const char *, const char *) = NULL;
 
-static const char *version = "Speak text-to-speech: 1.09g  27.Apr.2006";
+static const char *version = "Speak text-to-speech: 1.11  07.Aug.06";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -50,9 +50,8 @@ static const char *help_text =
 "--stdin    Read text input from stdin instead of a file\n\n"
 "If neither -f nor --stdin, <words> are spoken, or if none then text is\n"
 "spoken from stdin, each line separately.\n\n"
-"-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-a <integer>\n"
-"\t   Amplitude, 0 to 20, default is 10\n"
+"\t   Amplitude, 0 to 200, default is 100\n"
 "-l <integer>\n"
 "\t   Line length. If not zero (which is the default), consider\n"
 "\t   lines less than this length as and-of-clause\n"
@@ -64,6 +63,8 @@ static const char *help_text =
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
+"-m\t   Interpret SSML markup, and ignore other < > tags\n"
+"-q\t   Quiet, don't produce any speech (may be useful with -x)\n"
 "-x\t   Write phoneme mnemonics to stdout\n"
 "-X\t   Write phonemes mnemonics and translation trace to stdout\n"
 "--stdout   Write speech output to stdout\n"
@@ -73,23 +74,38 @@ static const char *help_text =
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
+"--voices=<langauge>\n"
+"\t   List the available voices for the specified language.\n"
+"\t   If <language> is omitted, then list all voices.\n";
+
+
+#ifdef deleted
 "-k <integer>\n"
 "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
 "\t   higher values = a pitch increase (try -k20).\n";
+#endif
 
+
+void DisplayVoices(FILE *f_out, espeak_VOICE **voices_list, char *language);
 
 voice_t voice_data;
 USHORT voice_pcnt[N_PEAKS+1][3];
 voice_t *voice;
 
 
+
 int GetFileLength(const char *filename)
 {//====================================
 	struct stat statbuf;
 
-	stat(filename,&statbuf);
+	if(stat(filename,&statbuf) != 0)
+		return(0);
+
+	if(S_ISDIR(statbuf.st_mode))
+		return(-2);  // a directory
+
 	return(statbuf.st_size);
-}
+}  // end of GetFileLength
 
 
 char *Alloc(int size)
@@ -110,8 +126,8 @@ void Free(void *ptr)
 
 
 
-void PitchAdjust(int pitch_adjustment)
-{//===================================
+static void PitchAdjust(int pitch_adjustment)
+{//==========================================
 	int ix, factor;
 	extern unsigned char pitch_adjust_tab[100];
 
@@ -126,14 +142,25 @@ void PitchAdjust(int pitch_adjustment)
 }  //  end of PitchAdjustment
 
 
+void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr)
+{//==============================================================================
+// Do nothing in the command-line version.
+}  // end of MarkerEvent
 
-int initialise(void)
-{//=================
+
+
+static void init_path(void)
+{//========================
 	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
 		strcpy(path_home,"/usr/share/espeak-data");
 	}
+}
+
+
+static int initialise(void)
+{//========================
 
 	WavegenInit(22050,0);   // 22050
 	LoadPhData();
@@ -142,6 +169,16 @@ int initialise(void)
 	return(0);
 }
 
+
+static void StopSpeak(int unused)
+{//==============================
+	signal(SIGINT,SIG_IGN);
+	// DEBUG
+//	printf("\n*** Interrupting speech output (use Ctrl-D to actually quit).\n");
+	fflush(stdout);
+	SpeakNextClause(NULL,NULL,5);
+	signal(SIGINT,StopSpeak);
+}  //  end of StopSpeak()
 
 
 
@@ -161,19 +198,21 @@ int main (int argc, char **argv)
 		{"stdout",  no_argument,       0, 0x101},
 		{"compile", optional_argument, 0, 0x102},
 		{"punct",   optional_argument, 0, 0x103},
+		{"voices",  optional_argument, 0, 0x104},
 		{0, 0, 0, 0}
 		};
 
 	int option_index = 0;
 	int c;
 	int value;
-	int amp = 10;     // default
+	int speed=165;
+	int ix;
+	int amp = 100;     // default
 	int speaking = 0;
 	int quiet = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
 	int pitch_adjustment = 50;
-	int error;
 	char filename[120];
 	char voicename[40];
 	char dictname[40];
@@ -185,12 +224,14 @@ int main (int argc, char **argv)
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
-	option_utf8 = 2;
+	option_multibyte = 0;  // auto
 	f_trans = NULL;
+
+	init_path();
 
 	while(true)
 	{
-		c = getopt_long (argc, argv, "a:f:hk:l:p:qs:v:w:xX",
+		c = getopt_long (argc, argv, "a:f:hk:l:p:qs:v:w:xXm",
 					long_options, &option_index);
 
 		/* Detect the end of the options. */
@@ -218,8 +259,13 @@ int main (int argc, char **argv)
 			f_trans = stdout;
 			break;
 
+		case 'm':
+			option_ssml = 1;
+			break;
+
 		case 'p':
 			pitch_adjustment = atoi(optarg);
+			if(pitch_adjustment > 99) pitch_adjustment = 99;
 			break;
 
 		case 'q':
@@ -241,7 +287,7 @@ int main (int argc, char **argv)
 			break;
 
 		case 's':
-			global_speed = atoi(optarg);
+			speed = atoi(optarg);
 			break;
 
 		case 'v':
@@ -269,10 +315,19 @@ int main (int argc, char **argv)
 			break;
 
 		case 0x103:		// --punct
-			if(optarg != NULL)
-				strncpy0(option_punctlist,optarg,sizeof(option_punctlist));
 			option_punctuation = 1;
+			if(optarg != NULL)
+			{
+				ix = 0;
+				while((ix < N_PUNCTLIST) && ((option_punctlist[ix] = optarg[ix]) != 0)) ix++;
+				option_punctlist[N_PUNCTLIST-1] = 0;
+				option_punctuation = 2;
+			}
 			break;
+
+		case 0x104:   // --voices
+			DisplayVoices(stdout,espeak_ListVoices(),optarg);
+			exit(0);
 
 		default:
 			abort();
@@ -281,7 +336,7 @@ int main (int argc, char **argv)
 
 	initialise();
 
-	if(LoadVoice(voicename,0) == NULL)
+	if((LoadVoice(voicename,0) == NULL) && (flag_compile == 0))
 	{
 		fprintf(stderr,"Failed to load voice '%s'\n",voicename);
 		exit(2);
@@ -289,11 +344,12 @@ int main (int argc, char **argv)
 
 	if(flag_compile)
 	{
-		CompileDictionary(dictionary_name,0);
+		CompileDictionary(dictionary_name,0,filename);
 		exit(0);
 	}
-	SetSpeed(global_speed,3);
-	SetAmplitude(amp);
+
+	espeak_SetParameter(espeakRATE,speed,0);
+	espeak_SetParameter(espeakVOLUME,amp,0);
 
 	if(pitch_adjustment != 50)
 	{
@@ -345,6 +401,7 @@ int main (int argc, char **argv)
 			}
 		}
 
+		InitText();
 		SpeakNextClause(f_text,NULL,0);
 
 		for(;;)
@@ -352,7 +409,7 @@ int main (int argc, char **argv)
 			if(WavegenFile() != 0)
 				break;   // finished, wavegen command queue is empty
 
-			if(Generate(phoneme_list,1)==0)
+			if(Generate(phoneme_list,n_phoneme_list,1)==0)
 				SpeakNextClause(NULL,NULL,1);
 		}
 
@@ -360,9 +417,13 @@ int main (int argc, char **argv)
 	}
 	else
 	{
+		// Silence on ^C or SIGINT
+//		signal(SIGINT,StopSpeak);
+
 		// output sound using portaudio
 		WavegenInitSound();
 
+		InitText();
 		SpeakNextClause(f_text,NULL,0);
 
 		speaking = 1;

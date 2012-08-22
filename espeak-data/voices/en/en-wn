@@ -1,0 +1,7 @@
+name english_wmids
+language en-uk-wmids  4
+gender male
+
+phonemes en_wm
+
+replace 00 h NULL

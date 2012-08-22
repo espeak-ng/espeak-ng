@@ -1,0 +1,220 @@
+// translation rules
+// This file is UTF-8 encoded
+
+
+.group a
+	_)	a(_	a
+		a	a:
+		a (CK	a
+		ai      aI
+
+		
+.group b
+	_)	b(_	ba
+		b       b
+		bb      b:
+		
+.group c
+	_)	c(_	tso
+		c	k
+		cc	k:
+		c (e	tS
+		c (i	tS
+		cc (e	tS:
+		cc (i	tS:
+		ch	k
+		cch	k:
+		ci (a	tS
+		ci (o	tS
+		ci (u	tS
+		cci (a	tS:
+		cci (o	tS:
+		cci (u	tS:
+		
+.group d
+	_)	d(_	da
+		d	d
+		dd	d:
+
+.group e
+	_)	e(_	e
+		e	e:
+		e (CK	e
+		ei	eI
+		
+.group f
+	_)	f(_	fo
+		f	f
+		
+.group g
+	_)	g(_	ga
+		g	g
+		gg	g:
+		gh	g
+		g (e	dZ
+		g (i	dZ
+		gi (a	dZ
+		gi (o	dZ
+		gi (u	dZ
+		gg (e	dZ:
+		gg (i	dZ:
+		ggi (a	dZ:
+		ggi (o	dZ:
+		ggi (u	dZ:
+		gl (i	l;
+	_)	gl	gl
+		gn	n^:
+	
+.group h
+	_)	h(_	ha
+		h
+
+.group i
+	_)	i(_	i
+		i	i:
+		i (CK	i
+		i (A	i
+        @)      ia (_   =ia
+	a)	i (+	j
+	e)	i (+	j
+	o)	i (+	j
+		
+.group j
+	_)	j(_	jo
+		j	j
+
+.group k
+	_)	k(_	ko
+		k	k
+		kk	k:
+		
+.group l
+	_)	l(_	lo
+		l	l
+		
+.group m
+	_)	m(_	mo
+		m	m
+		
+.group n
+	_)	n(_	na
+		n	n
+		n (g	N
+		n (k	N
+		
+.group o
+	_)	o(_	o
+		o	o:
+		o (CK	o
+		oi	OI
+	
+.group p
+	_)	p(_	po
+		p	p
+		pp	p:
+
+.group q
+	_)	q(_	kwo
+		q	kw
+		qu	kw
+
+.group r
+	_)	r(_	ra
+		r	r
+		
+.group s
+	_)	s(_	so
+		s	z
+	-)	s	s
+		s (c	s
+		s (f	s
+		s (k	s
+		s (p	s
+		s (q	s
+		ss	ss
+		s (t	s
+		s (x	s
+		sc (e	S
+		sc (i	S
+	A)	sc (e	SS
+	A)	sc (i	SS
+		sch (e	sk
+		sch (e	sk
+		sh (K	S    // foreign words
+	K)	sh	S    // foreign words
+		
+		
+.group t
+	_)	t(_	to
+		t	t
+		tt	t:
+		
+.group u
+	_)	u(_	u
+		u	u:
+		u (CK	u
+		u (A	w
+
+.group v
+	_)	v(_	va
+		v	v
+	
+.group w
+	_)	w(_	wa
+		w	w
+
+.group x
+	_)	x(_	ikso
+		x	ks
+		
+.group y
+	_)	y(_	ipsilono
+		y	j
+		y (K	i        // foreign words
+	
+		
+.group z
+	_)	z(_	za
+		z	ts
+	A)	z	ts:
+	A)	zz	ts:
+
+.group
+		à	'a:
+		à (CK	'a
+		é	'e:
+		é (CK	'e
+		è	'E:
+		è (CK	'E
+		ì	'i:
+		ì (CK	'i
+		ó	'o:
+		ó (CK	'o
+		ò	'O:
+		ò (CK	'O
+		ù	'u:
+		ù (CK	'u
+
+          D) , (_DDD      mila_:_:
+      ,_000) , (_DDD
+      ,_000) , (_DDD,_DDD  milioni_:_:
+          D) , (_DDD,_DDD  milioni_:_:
+          D) , (_DDD,_DDD,_DDD mila_:_:
+
+
+.group 9
+	_)	0 (_	z'ero
+	_)	00 (D	_:
+		0 (D_	_
+	D)	0
+
+		0	z'ero_
+		1	'uno_
+		2	d'ue_
+		3	tr'e_
+		4	kw'attro_
+		5	tS'inkwe_
+		6	s'ej_
+		7	s'Ette_
+		8	'Oktto_
+		9	n'Ove_

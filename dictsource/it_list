@@ -1,0 +1,185 @@
+// This file is UTF-8 encoded
+
+// articles
+i	$u
+il	$u
+la	$u
+le	$u
+lo	$u
+un	$u
+una	$u
+
+gli	l;i
+
+
+// pronouns
+io	$u
+tu	$u
+lui	$u
+lei	$u
+noi	$u
+voi	$u
+loro	$u
+
+egli	$u
+ella	$u
+essa	$u
+esse	$u
+essi	$u
+
+mi	$u
+ti	$u
+ci	$u
+vi	$u
+li	$u
+
+// possessive adjectives
+mio	$u
+tuo	$u
+suo	$u
+nostro	$u
+vostro	$u
+loro	$u
+mia	$u
+tua	$u
+sua	$u
+nostra	$u
+vostra	$u
+miei	$u
+tuoi	$u
+suoi	$u
+nostri	$u
+vostri	$u
+mie	$u
+tue	$u
+sue	$u
+nostre	$u
+vostre	$u
+
+questo	$u	// this
+questa	$u	// this
+quel	$u	// that
+quella	$u	// that
+
+// prepositions
+di	$u	// of
+del	$u
+della	$u	// of the
+in	$u	// in
+nel	$u
+nella	$u	// in the
+su	$u	// on
+sul	$u
+sulla	$u	// on the
+da	$u      // by
+dal	$u
+dalla	$u	// by the
+con	$u $pause	// with
+attraverso $u	// through
+sopra	$u	// above
+sotto	$u	// below
+per     $u $pause     // for
+
+
+// aux verb, to be
+sono	$u
+sei	$u
+è	$u
+siamo	$u
+siete	$u
+sono	$u
+fui	$u
+fosti	$u
+fu	$u
+fummo	$u
+foste	$u
+furono	$u
+ero	$u
+eri	$u
+era	$u
+eravamo	$u
+eravate	$u
+erano	$u
+sarò	$u
+sarai	$u
+sarà	$u
+saremo	$u
+srete	$u
+saranno	$u
+
+sia	$u
+siate	$u
+siano	$u
+fossi	$u
+fosse	$u
+fossimo	$u
+fossero	$u
+sarei	$u
+saresti	$u
+sarebbe	$u
+saremmo	$u
+sareste	$u
+sarebbero	$u
+
+// aux verb, to have
+ho	$u
+hai	$u
+ha	$u
+abbiamo	$u
+avete	$u
+hanno	$u
+
+ebbi	$u
+avesti	$u
+ebbe	$u
+avemmo	$u
+aveste	$u
+ebbero	$u
+
+avevo	$u
+avevi	$u
+aveva	$u
+avevamo	$u
+avevate	$u
+avevano	$u
+
+avrò	$u
+avrai	$u
+avrà	$u
+avremo	$u
+avrete	$u
+avranno	$u
+
+abbia	$u
+abbiamo	$u
+abbiate	$u
+abbiano	$u
+avessi	$u
+avesse	$u
+avessimo	$u
+aveste	$u
+avessero	$u
+
+avrei	$u
+avresti	$u
+avrebbe	$u
+avremmo	$u
+avreste	$u
+avrebbero	$u
+
+
+
+// conjunctions
+e		$u $pause   // and
+o		$u $pause   // or
+se		$pause      // if
+ma		$pause      // but
+perché		$pause      // because
+benchè		$pause      // though
+anche		$pause      // although
+tuttavia	$pause      // however
+invece		$pause      // instead
+malevolenza	$pause      // despite
+pertanto        $pause      // therefore
+
+(in cui)        in||kw,i  $pause   // in which

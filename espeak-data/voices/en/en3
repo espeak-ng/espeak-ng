@@ -1,0 +1,14 @@
+pitch 82 120
+formant 0 100 105 100
+formant 1 100 105 100
+formant 2 100 100 100
+formant 3 100  90 100
+formant 4 104 100 100
+formant 5 105 100 100
+formant 6 100 100 150
+formant 7 100 100 150
+formant 8 100 100 150
+
+replace aa A:
+//stressLength  200 200 180 180 120 190 200 200
+stressLength 140 100 250 250 300 300 300 330

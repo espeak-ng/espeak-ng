@@ -1,0 +1,65 @@
+
+
+
+// pronouns
+ja           $u             // I
+ty           $u             // you (sng)
+on           $u             // he
+ona          $u             // she
+ono          $u
+my           $u             // we
+wy           $u             // you
+oni          $u             // they (m)
+one          $u             // they (f)
+się          $u             // (reflexive)
+
+który        $u $strend     // which,what,that (+declines)
+to           $u $strend2    // this
+
+// prepositions
+na           $u $strend     // in/on
+po           $u $strend
+z            $u $strend
+w            $u $strend     // in
+do           $u $strend
+o            $u $strend
+obok         $u $strend     // near/next to
+przy         $u $strend     // near/at
+nad          $u $strend     // over
+pod          $u $strend
+między       $u $strend     // between
+przed        $u $strend     // in front of, before
+za           $u $strend     // beyond, at the back
+
+// misc
+nie          $u $strend     // not, no
+(nie ma)     n^'E||ma       // not any
+taki         $u             // such
+
+// verbs
+być          $u             // to be
+jestem       $u             // am
+jesteś       $u             // are
+jest         $u             // is
+jesteśmy     $u             // (we) are
+jesteście    $u             // (you) are
+są           $u             // (they) are
+
+mieć         $u             // to have
+mam          $u
+masz         $u
+ma           $u
+
+
+// conjunctions
+a            $u $pause      // and/but
+i            $u $pause      // and
+oraz         $u $pause      // and
+bo           $pause         // because
+gdyż         $pause         // because
+ponieważ     $pause         // because
+ale          $pause         // but
+ani          $pause         // neither
+też          $pause         // also, as well, too
+przecież     $pause         // after all
+

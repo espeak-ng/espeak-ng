@@ -1,0 +1,105 @@
+// This file is UTF-8 encoded
+
+// includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
+
+la              $u
+ne              $u
+cxu             $u      // interogative particle
+cxi             $u
+ĉu              $u      // cxi  interogative particle
+ĉi              $u      // cxi  interogative particle
+ia              $u      // any
+
+de              $u   $strend
+(de la)         dela  $u
+
+antaux          $u   $strend
+antaŭ           $u   $strend
+apud            $u   $strend
+ol              $u   $strend
+da              $u   $strend
+al              $u   $strend
+en              $u   $strend
+kun             $u   $strend
+per             $u   $strend
+preter          $u   $strend
+pro             _pro  $strend
+sub             $u   $strend
+sur             $u   $strend
+
+dum             $pause
+tra             $pause
+
+
+// pronouns
+mi              $u
+ci              $u
+li              $u
+sxi             $u
+ŝi             $u        // sxi
+gxi             $u
+ĝi             $u        // gxi
+ni              $u
+vi              $u
+ili             $u
+oni             $u
+si              $u
+
+mia             $u
+cia             $u
+lia             $u
+sxia            $u
+ŝia            $u       // sxia
+gxia            $u
+ĝia            $u       // gxia
+nia             $u
+via             $u
+ilia            $u
+sia             $u
+
+// aux verbs
+esti            $u
+estas           $u
+estis           $u
+estos           $u
+estus           $u
+
+povas           $u      // can
+povis           $u
+povos           $u
+povus           $u
+
+devas           $u      // must
+devis           $u
+devos           $u
+devus           $u
+
+iras            $u      // go
+iris            $u
+iros            $u
+irus            $u
+
+metas           $u      // put
+metis           $u
+metos           $u
+metus           $u
+
+eble            $u       // may
+
+kia             $u $pause
+kie             $u $pause
+kio             $u $pause
+kiu             $u $pause
+kiuj            $u $pause
+kiun            $pause
+kiunj           $pause
+kiam            $u $pause
+
+// conjunctions
+ke              $u $pause      // that (conj)
+aux             $u $pause
+aŭ             $u $pause      // aux
+cxar            $u $pause
+ĉar            $u $pause
+kaj             $u $pause
+sed             $u $pause

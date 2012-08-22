@@ -1,0 +1,477 @@
+//maintainer: Willem van der Walt
+// email: wvdwalt@csir.co.za
+// tel: +27 12 8413996
+// Meraka Institute, CSIR
+ 
+
+.group a
+          _) a (_         A:
+             a            A:
+             agent ax2'Ent
+             algemeen     'alx2@m,e@n
+
+             a (C         a
+             a (CA        A:
+//           a (r_        A:    // ??
+             aa           A:
+             ae           'A: //should be A:@ but sounds wrong
+             ai           aI
+             aai          AI
+             au           aU    // ??
+
+          &) a (_S1       A:
+
+          _) aange (@P5   A:nx@
+          _) afge (@P4    afx2@
+          _) agterge (@P7   'ax2t@rx2@
+             a (dj        aI
+             aan (djie    AIN
+             aan (tjie    AIN
+             adjie        AIci
+             atjie        aIci
+             aadjie       AIci
+             aatjie       AIci
+          &) asie (_S4    'A:si
+          &) asies (_S5   'A:sis
+             adjunk       adj'WNk
+
+.group an
+             an (djie+   aIN
+             an (tjie aIN
+
+
+.group b
+          _) b (_         be@
+             b            b
+             b (b
+             b (_         p
+          _) be (@P2      b@
+          _) byge (@P4    b'eIx2@
+
+             badjie baIci
+
+             baba         b'A:ba
+             bee          be@
+             bederf       b@d'&rf
+             beur         b'Y@r
+             besig        b'e@s@x2
+             bessie       bEsi
+             bekommer     b@k'Om@r
+             berg         b&rx2
+             besem        b,e@s@m
+
+.group c
+          _) c (_         se@
+             c            k
+             c (c
+             c (e         s
+             c (i         s
+             c (y         s
+             ch           x
+          _) ch           x2
+             ch (ro       k
+
+.group d
+          _) d (_         de@
+             d            d
+             d (d
+
+          &) ding (_S4    dIN
+          &) de (_S2      d@
+
+             d (_N        t     // 
+             dj           c     // palatal stop
+
+             d (_dN             // next word starts with d, drop the d
+
+          @) dge (_       _^_EN  //words ending in dge are English
+          &) dele (_      de@l@
+          &) ddele (_     d@l@ 
+             doku         dOky
+
+.group e
+          _) e (_         e@
+             e            e@
+             e (C         E
+
+             e (CA        e@
+             ee           e@
+             eeu          iu
+             ei           eI
+             ey           eI
+             eu           Y@
+
+          &) e (_         @
+             e (gK        &
+          &) e (l_        @
+             e (lK        &
+          &) e (lC_       @
+
+
+          &) ele (_       @l@
+
+          &) e (m_        @
+          &) e (n_        @
+          &) e (nC_       @
+
+          &) e (r_        @
+          &) ers (_       @rs
+          &) erei (_      @reI
+             e (r         &
+
+         &d) e (r@        @    // not initial or final syllable
+         &t) e (r@        @
+         &b) e (s@        @
+
+             entjie       EiNci
+   edjie        'E:ici
+             etjie        ici
+          &) elik (_S4    @l@k
+          &) ere (_S3     @r@
+
+
+.group f
+          _) f (_         Ef
+             f            f
+             f (f
+
+             familie fam'ili
+
+
+.group g
+          _) g (_         x2e@
+             g            x2
+             g (g
+             ge (_        g@
+             gh           g
+             gh (_        k
+          _) ge (@P2      x2@
+
+             gee          x2e@
+             gegee        =x2@x2'e@
+
+             ght          _^_EN
+             gesels       x2@s'&ls
+             generaal     x2@n@r'A:l
+             garage       g@r'A:dZ
+
+
+.group h
+          _) h (_         hA:
+             h            h
+             h (h
+          _) her (@P3     h%&r
+
+             hel          h&l
+             heg          h&x2
+
+.group i
+          _) i (_         i
+             i            i
+             i (C         I
+             i (CA        i
+             ie           i
+             ieu          iu
+             ij (C        eI
+          _) inge (@P4    @nx2@
+          &) ige (_S1     @
+          &) iger (_S2    @r
+          &) ike (_S3     @k@
+          &) ing (_       @N
+
+             indjie       'IiNci
+             intjie       IiNci
+             idjie        Iici
+             itjie        Iici
+
+             igheid       @x2eIt
+          &) igheid (_S6  Ix2eIt
+          &) ighede (_S6  Ix2e@d@
+
+             ingenieur    @nx2@n'y@r
+             interessant  Int;r@s'ant
+
+             ity (_N  _^_EN
+
+
+.group j
+          _) j (_         je@
+             j            j
+             j (j
+
+.group k
+          _) k (_         kA:
+             k            k
+             k (k
+             kk           k
+
+             karakter     kar'akt@r
+             koeël        k'ul
+             kombuis      kOmb'Yys
+
+
+.group l
+          _) l (_         &l
+             l            l
+             l (l
+          &) lede (_S4    le@d@
+          &) lik (_S3     l@k
+          &) like (_S4    l@k@
+          &) likste (_S6  l@kst@
+          _) losge (@P5    l'Osx2@
+
+
+.group m
+          _) m (_         Em
+             m            m
+             m (m
+
+          &) mal (_S3     mal
+          _) meege (@P5    m'e@x2@
+             mekaar       m@k'A:r
+             mekaarge     m@k'A:rx2@
+             mment        m@nt
+             ment         m'Ent
+
+             metaal       m@t'A:l
+             metale       m@t'A:l@
+             mikro        mikru
+             ministers    m@n'Ist@rs
+             musiek       m'Wsik
+
+
+.group n
+          _) n (_         En
+             n            n
+             n (n
+             n (c         N
+             n (k         N
+             n (q         N
+             n (x         N
+             ng           N
+             n (_g        N
+
+
+          &) ning (_S4     n@N
+          _) nage (@P4    n'A:x2@
+
+             nasionale    naSEun'A:l@
+          &) nele (_      n'e@l@ 
+
+.group o
+          _) o (_         o@
+             o            o@
+             o (C         O
+             o (CA        o@
+             oo           o@
+             oe           u
+             oei          uI
+             oi           OI
+             ooi          oI
+             oy           OI
+             ou           @U
+
+             oetjie       uIci
+             oentjie      uINci
+             oedjie       uIci
+             odjie        OIci
+             otjie        OIci
+             ondjie       OINci
+             ontjie       OINci
+             ontjie       OINci
+             oodjie       oIci
+             ootjie       oIci
+
+          _) omge (@P4    Omx2@
+             omgewing     Omx2'e@vIN
+
+          _) on (@P2      %On
+          _) ont (@P3     %Ont
+          _) onge (@P4    Onx2@
+             onder        'On@r
+          _) onderge (@P7    'On@rx2@
+          _) opge (@P4    Opx2@
+             organisasie  Orx2anis'A:si
+
+.group p
+          _) p (_         pe@
+             p            p
+             p (p
+
+             persoon      p@rs'o@n
+             politiek     pOl@t'ik
+             president    pr@s@d'Ent
+             plek         pl'&k
+             posisie      puz'isi
+             produk       prud'Wk
+             projek       pruj'Ek
+             proses       prus'Es
+
+
+.group q
+          _) q (_         kwu
+             q            kw
+             q (q
+
+             que          _^_EN
+
+
+.group r
+          _) r (_         &r
+             r            r
+             r (r
+
+          &) ring (_S4    rIN
+          &) rm (K        r@-m
+          &) rn (K        r@-n
+
+             reg          r&x2
+             rekenaar     r'e@k@nA:r
+             rekord       r'EkOrt
+             rivier       r@f'ir
+             regering     r@x2'e@r@N
+             respek       r@spEk
+          &) rele (_      r'e@l@
+
+
+.group s
+          _) s (_         Es
+             s            s
+             s (s
+             sch          S
+             sj           S
+
+             self         s'&lf
+             sio          Siu
+             sioe         Si'u
+
+             situasie     sItSu'A:si
+             skerp        sk&rp
+             smelt        sm&lt
+             spesialiseer spESialis'e@r 
+             stel         st&l
+             sistem       sIst'e@m
+             stem         stEm
+          &) sele (_      s'e@l@ 
+          &) spele (_     sp'e@l@ 
+             storm        stOrm
+             streke       str'e@k@
+
+.group t
+          _) t (_         te@
+             t            t
+             t (t
+             t (_dN           // final t, and next word starts with d
+
+             tj           tS
+             tj (ie       c
+          _) tj (ie       tS
+          @) th (_N       _^_EN
+
+          &) tel (_S3     t@l
+          &) tels (_S4    t@ls
+             tel          t&l
+          _) toege (@P5   tux2@
+
+          _) terug (@P5   t@-r'Wx2
+          _) terugge (@P7   t@-r'Wx2@
+          @) tele (_      t'e@l@ 
+             tenis        t@nIs
+             toneel       tun'e@l
+
+          &) trede (_S5   tr,e@d@
+             trek tr&k
+             tuur         t'yr
+
+
+.group u
+          _) u (_         y
+             u            y
+             u (C         W
+             u (CA        y
+             uu           y
+             ui           Yy
+             uy           Yy
+
+          _) uitge (@P5   Yytx2@
+             uitgewer     'Yytx2,e@v@r
+             utjie        Yyci
+
+
+.group v
+          _) v (_         fe@
+             v            f
+             v (v
+
+             vel          f'&l
+             vele         f'e@l@
+             ver          f@r
+          _) ver (@P3     f@r
+             verfyn       f@rf'eIn
+             verf         f'&rf
+          _) veronge (@P7   f@r'Onx2@
+
+             ville         _^_EN
+          _) vasge (@P5    f'asx2@
+
+          _) voorge (@P6  f'o@rx2@
+             vorm         f'Or@m
+
+
+.group w
+          _) w (_         ve@
+             w            v
+             w (w
+          d) w            w
+          k) w            w
+          s) w            w
+          t) w            w
+
+             werp         v'&rp
+             wêreld       v'&:r@ld
+
+             worth        _^_EN
+             wood         _^_EN
+          @) ws (_N       _^_EN
+          @) w (_N        _^_EN
+
+
+.group x
+          _) x (_         Eks
+             x            ks
+             x (x
+
+.group y
+          _) y (_         eI
+             y            eI
+
+.group z
+          _) z (_         zEd
+             z            z
+             z (z
+
+.group 9
+             0            'nWl_
+             1            'e@n_
+             2            'twe@_
+             3            'dri_
+             4            'fir_
+             5            'feIf_
+             6            'sEs_
+             7            'se@v@_
+             8            'axt_
+             9            'ne@x@_
+
+.group 
+             ə            @       // char.replacement for 'n
+
+             ê            e:
+             ê (r         E
+             îe           3:
+             ô            O:
+
+
+
+
+
+

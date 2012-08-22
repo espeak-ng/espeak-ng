@@ -33,13 +33,34 @@ typedef unsigned char  UCHAR;
 typedef double DOUBLEX;
 
 typedef struct {
+   const char *mnem;
+   int  value;
+} MNEM_TAB;
+int LookupMnem(MNEM_TAB *table, char *string);
+
+
+typedef struct {
    short pkfreq;
    short pkheight;
    short pkwidth;
    short pkright;
 }  peak_t;
 
+typedef struct {
+	short flags;
+	unsigned char length;
+	unsigned char rms;
+	short ffreq[9];
+	unsigned char fheight[9];
+	unsigned char fwidth[6];          // width/4
+	unsigned char fright[6];          // width/4
+} frame_t;
+
+
 int  GetFileLength(const char *filename);
 char *Alloc(int size);
 void Free(void *ptr);
 
+
+extern void strncpy0(char *to,const char *from, int size);
+extern char path_home[];
