@@ -81,8 +81,10 @@ int LoadDictFile(const char *name, const char *suffix, char **data_ptr)
 	int size;
 	char fname[120];
 
-	sprintf(fname,"%s/%s%s",path_home,name,suffix);
-	f = fopen(fname,"r");
+	sprintf(fname,"%s%c%s%s",path_home,PATHSEP,name,suffix);
+	size = GetFileLength(fname);
+
+	f = fopen(fname,"rb");
 	if(f == NULL)
 	{
 		fprintf(stderr,"Can't read data file: '%s'\n",fname);
@@ -92,10 +94,7 @@ int LoadDictFile(const char *name, const char *suffix, char **data_ptr)
 	if(*data_ptr != NULL)
 		free(*data_ptr);
 
-	fseek(f,0,SEEK_END);
-	size = ftell(f);
-	fseek(f,0,SEEK_SET);
-	ptr = (char *)malloc(size);
+	ptr = Alloc(size);
 	fread(ptr,size,1,f);
 	fclose(f);
 	*data_ptr = ptr;
@@ -298,7 +297,7 @@ char *EncodePhonemes(char *p, char *outptr, char *bad_phoneme)
 										(c == ((mnemonic_word >> (count*8)) & 0xff)))
 					count++;
 
-				if((count > max) &
+				if((count > max) &&
 					((count == 4) || (((mnemonic_word >> (count*8)) & 0xff)==0)))
 				{
 					max = count;
@@ -368,7 +367,7 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 	unsigned int mnem;
 	PHONEME_LIST *plist;
 	
-	static char *stress_chars = "~~,,'*";
+	static const char *stress_chars = "~~,,'*";
 
 	if(phon_out != NULL)
 	{

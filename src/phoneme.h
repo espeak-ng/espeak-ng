@@ -31,6 +31,7 @@
 #define tENDTYPE  6
 #define tBEFORE   7
 #define tAFTER    8
+#define tTONESPEC 9
 #define tLENGTHMOD 11
 #define tLENGTH   12
 #define tLONGLENGTH 13
@@ -41,6 +42,7 @@
 #define tBEFOREVOWELPAUSE 18
 #define tBEFORENOTVOWEL 19
 #define tLINKOUT  20
+#define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
 #define tINCLUDE  31
 
@@ -89,15 +91,24 @@
 #define phonSCHWA_SHORT 14
 #define phonEND_WORD    15
 #define phonSONORANT    16
+#define phonDEFAULTTONE 17
 
 
 
-#define N_PHONEME_TABS      20
+#define N_PHONEME_TABS      50
 #define N_PHONEME_TAB      256
-#define N_PHONEME_TAB_NAME  32
+#define N_PHONEME_TAB_NAME  32     // must be multiple of 4
 
 // main table of phonemes, index by phoneme number (1-254)
 typedef struct {
+	unsigned int mnemonic;      /* 1st char in l.s.byte */
+	unsigned int flags;
+
+	unsigned short std_length;              // for vowels, in mS
+	unsigned short  spect;
+	unsigned short  before;
+	unsigned short  after;
+
 	unsigned char  code;
 	unsigned char  type;          /* vowel, etc */
 	unsigned char  start_type;
@@ -107,23 +118,22 @@ typedef struct {
 	unsigned char  reduce_to;
 	unsigned char  vowel_follows;  // change to this if a vowel follows
 	unsigned char  link_out;       // insert linking phoneme if a vowel follows
-	short std_length;              // for vowels, in mS
-	unsigned short  spect;
-	unsigned short  before;
-	unsigned short  after;
 	
-	unsigned int mnemonic;      /* 1st char in l.s.byte */
-	unsigned int flags;
 } PHONEME_TAB;
 
 // Several phoneme tables may be loaded into memory. phoneme_tab points to
 // one for the current voice
 extern PHONEME_TAB *phoneme_tab;
 
+typedef struct {
+	char name[N_PHONEME_TAB_NAME];
+	PHONEME_TAB *phoneme_tab_ptr;
+} PHONEME_TAB_LIST;
+
 
 
 // table of phonemes to be replaced with different phonemes, for the current voice
-#define N_REPLACE_PHONEMES   40
+#define N_REPLACE_PHONEMES   60
 typedef struct {
 	unsigned char old_ph;
 	unsigned char new_ph;

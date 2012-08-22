@@ -81,9 +81,9 @@ typedef struct {
 	unsigned char type;
 	unsigned char prepause;
 	unsigned char amp;
-	unsigned char flags;
+	unsigned char tone_ph;   // tone phoneme to use with this vowel
 	unsigned char newword;   // 1=start of word, 2=end of clause
-	unsigned char sflags;
+	unsigned char synthflags;
 	short length;  // length_mod
 	short pitch1;  // pitch, 0-4095 within the Voice's pitch range
 	short pitch2;
@@ -115,7 +115,7 @@ extern unsigned char Pitch_env0[128];
 #define N_WCMDQ   200
 #define MIN_WCMDQ  20   // need this many free entries before adding new phoneme
 
-extern int wcmdq[N_WCMDQ][5];
+extern int wcmdq[N_WCMDQ][4];
 extern int wcmdq_head;
 extern int wcmdq_tail;
 
@@ -129,7 +129,7 @@ extern int WavegenCloseSound();
 extern int	WavegenInitSound();
 extern void WavegenInit(int rate, int wavemult_fact);
 extern int OpenWaveFile(const char *path);
-extern void CloseWaveFile();
+extern void CloseWaveFile(int rate);
 
 extern float polint(float xa[],float ya[],int n,float x);
 extern void WavegenSetEcho(int delay, int amp);
@@ -143,46 +143,19 @@ extern int WavegenFile(void);
 // from synthdata file
 extern unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level);
 extern frameref_t *LookupSpect(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int *n_frames, int stress);
+extern unsigned char *LookupEnvelope(int ix);
 extern int LoadPhData();
 
 
-
-class Synthesize
-{//=============
-public:
-	Synthesize();
-	~Synthesize();
-	int Generate(PHONEME_LIST *phoneme_list, int resume);
-	void MakeWave2(PHONEME_LIST *p, int n_ph);
-	int OnTimer(void);
-	void SpeakNextClause(FILE *f_text, int stop);
-	int Status(void);
-
-private:
-	void DoAmplitude(int amp);
-	void DoPitch(unsigned char *env, int pitch1, int pitch2);
-	void DoPause(int length);
-	void DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length);
-	void DoSample2(int index, int which, int length_mod);
-	void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *this_ph, int which, int length_mod, int stress, int modulation);
-	void DoMarker(int type, int index);
-	void EndPitch(int voice_break);
-	void SmoothSpect(void);
-	void StartSyllable(void);
-
-	int  last_pitch_cmd;
-	frame_t  *last_frame;
-	int  last_wcmdq;
-	int  pitch_length;
-
-	int  syllable_start;
-	int  syllable_end;
-	int  syllable_centre;
-	int  smoothing_factor;
-};
+extern void SynthesizeInit(void);
+extern int Generate(PHONEME_LIST *phoneme_list, int resume);
+extern void MakeWave2(PHONEME_LIST *p, int n_ph);
+extern int SynthOnTimer(void);
+extern void SpeakNextClause(FILE *f_text, int stop);
+extern int SynthStatus(void);
 
 
-extern Synthesize *synth;
+
 extern char *spects_data;
 extern unsigned char *envelope_data[16];
 

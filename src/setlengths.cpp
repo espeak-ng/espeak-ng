@@ -179,10 +179,10 @@ void Translator::CalcLengths()
 			if(p->newword)
 				p->prepause = 15;
 
-			if(next->type==phPAUSE && prev->type==phNASAL && !p->flags&phFORTIS)
+			if(next->type==phPAUSE && prev->type==phNASAL && !p->ph->flags&phFORTIS)
 				p->prepause = 25;
 
-			if((p->flags & phSIBILANT) && next->type==phSTOP && !next->newword && prev->type != phVOWEL)
+			if((p->ph->flags & phSIBILANT) && next->type==phSTOP && !next->newword && prev->type != phVOWEL)
 				p->length = 150;
 			else
 				p->length = 256;
@@ -192,7 +192,7 @@ void Translator::CalcLengths()
 			break;
 
 		case phVSTOP:
-			if(prev->type==phVFRICATIVE || prev->type==phFRICATIVE || (prev->flags & phSIBILANT) || (prev->type == phLIQUID))
+			if(prev->type==phVFRICATIVE || prev->type==phFRICATIVE || (prev->ph->flags & phSIBILANT) || (prev->type == phLIQUID))
 				p->prepause = 30;
 
 			if(next->type==phVOWEL || next->type==phLIQUID)
@@ -212,7 +212,7 @@ void Translator::CalcLengths()
 					if(prev->type==phNASAL)
 						p->prepause = 12;
 
-					if(prev->type==phSTOP && !(prev->flags & phFORTIS))
+					if(prev->type==phSTOP && !(prev->ph->flags & phFORTIS))
 						p->prepause = 0;
 				}
 			}
@@ -307,7 +307,7 @@ void Translator::CalcLengths()
 			else
 			{
 				length_mod = length_mod_tab[next2->ph->length_mod][next->ph->length_mod];
-				if((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->flags & phFORTIS))
+				if((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->ph->flags & phFORTIS))
 					length_mod -= 15;
 			}
 
@@ -376,18 +376,18 @@ if(f_log != NULL)
 			}
 
 			// vowel & post-vocalic part
-			next->sflags &= ~SFLAG_SEQCONTINUE;
+			next->synthflags &= ~SFLAG_SEQCONTINUE;
 			if(next->type == phNASAL && next2->type != phVOWEL)
-				next->sflags |= SFLAG_SEQCONTINUE;
+				next->synthflags |= SFLAG_SEQCONTINUE;
 				
 			if(next->type == phLIQUID)
 			{
 //				if(next2->prepause == 0)    // what was this for?  caused discon. for [er]
-					next->sflags |= SFLAG_SEQCONTINUE;
+					next->synthflags |= SFLAG_SEQCONTINUE;
 					
 				if(next2->type == phVOWEL)
 				{
-					next->sflags &= ~SFLAG_SEQCONTINUE;
+					next->synthflags &= ~SFLAG_SEQCONTINUE;
 				}
 
 				if(next2->type != phVOWEL)

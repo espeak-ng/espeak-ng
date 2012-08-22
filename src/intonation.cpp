@@ -297,7 +297,7 @@ static int head_drops[][8] = {
 };
 
 static TONE_TABLE tone_table[N_TONE_TABLE] = {
-   PITCHfall, 30, 6,  PITCHfall, 30, 10,              // statement
+   PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
    20, 25,   34, 22,  0, 3, 3,   12, 8, 0,
 
    PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question

@@ -37,7 +37,7 @@
 
 Translator_English::Translator_English() : Translator()
 {//===================================
-	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 248,250};
+	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 248,270};
 
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
 	option_vowel_pause = 0;

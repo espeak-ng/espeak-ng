@@ -1,7 +1,7 @@
 pitch 82 117
 
 
-formant 0 100 100 100
+formant 0 100 100 110
 formant 1 100 100 100
 formant 2 100 100 100
 formant 3 100 100 100
@@ -10,5 +10,6 @@ formant 5 100 100 100
 formant 6 100 100 100
 formant 7 100 100 100
 formant 8 100 100 100
+
 
 

@@ -140,7 +140,9 @@ public:
 	virtual void CalcLengths();
 	virtual void CalcPitches(int clause_tone);
 	
+	char *input_start;
 	char phon_out[300];
+	FILE *f_input;
 
 protected:
 	int TranslateWord(char *word, int next_pause, int wflags);
@@ -151,11 +153,11 @@ protected:
 	
 	char GetC(void);
 	void UngetC(char c);
-	bool Eof(void);
-	FILE *f_input;
+	int Eof(void);
+	int Pos(void);
 	char *p_input;
 	char ungot_char;
-	bool end_of_input;
+	int end_of_input;
 
 	virtual int Unpronouncable(char *word);
 	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
@@ -194,6 +196,7 @@ protected:
 	int prev_last_stress;
 	int prepause_timeout;
 	char *clause_end;
+	int clause_start_index;
 
 	int word_vowel_count;     // number of vowels so far
 	int word_stressed_count;  // number of vowels so far which could be stressed
@@ -244,6 +247,19 @@ public:
 //	int Unpronouncable(char *word);
 
 };  // end of class Translator_German
+
+
+class Translator_Tone: public Translator
+{//==========================================
+
+public:
+	Translator_Tone();
+
+private:
+	void CalcPitches(int clause_tone);
+
+};  // end of class Translator_Tone
+
 
 
 // holds properties of characters: vowel, consonant, etc for pronunciation rules

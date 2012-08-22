@@ -45,7 +45,7 @@ int option_phonemes = 0;
 FILE *f_trans = NULL;
 
 // these are overridden by defaults set in the "speak" file
-int option_speed = 165;  // 168wpm = 90speed
+int option_speed = 160;  // 168wpm = 90speed
 int option_linelength = 70;
 	
 
@@ -132,7 +132,7 @@ char Translator::GetC(void)
 
 	if(*p_input == 0)
 	{
-		end_of_input = true;
+		end_of_input = 1;
 		return(0);
 	}
 
@@ -152,12 +152,22 @@ void Translator::UngetC(char c)
 	ungot_char = c;
 }
 
-bool Translator::Eof(void)
+int Translator::Eof(void)
 {//=======================
 	if(f_input != 0)
 		return(feof(f_input));
 
 	return(end_of_input);
+}
+
+int Translator::Pos(void)
+{//======================
+// return the current index into the input text
+
+	if(f_input != 0)
+		return(ftell(f_input));
+
+	return(p_input - input_start);	
 }
 
 
@@ -466,13 +476,17 @@ void Translator::MakePhonemeList(int post_pause)
 
 		phlist[ix].ph = ph;
 		phlist[ix].type = ph->type;
-		phlist[ix].flags = ph->flags & 0xff;
 		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
-		phlist[ix].sflags = 0;
+		phlist[ix].synthflags = 0;
 		phlist[ix].tone = plist2->stress & 0xf;
+		phlist[ix].tone_ph = plist2->tone_number;
+		phlist[ix].sourceix = 0;
 
-		if((phlist[ix].sourceix = plist2->sourceix) > 0)
+		if(plist2->sourceix > 0)
+		{
+			phlist[ix].sourceix = plist2->sourceix;
 			phlist[ix].newword = 1;     // this phoneme is the start of a word
+		}
 		else
 			phlist[ix].newword = 0;
 		phlist[ix].length = ph->std_length;
@@ -482,8 +496,6 @@ void Translator::MakePhonemeList(int post_pause)
 			phlist[ix].length = 128;  // length_mod
 			phlist[ix].env = PITCHfall;
 		}
-		else
-			phlist[ix].flags |= phWAVE;
 
 		phlist[ix].prepause = 0;
 		phlist[ix].amp = 20;          // default, will be changed later
@@ -494,9 +506,11 @@ void Translator::MakePhonemeList(int post_pause)
 	phlist[ix].newword = 2;     // end of clause
    phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
 	phlist[ix].length = post_pause;  // length of the pause, depends on the punctuation
+	phlist[ix].sourceix=0;
    phlist[ix++].ph = &phoneme_tab[phonPAUSE];
    phlist[ix].type = phPAUSE;
 	phlist[ix].length = 0;
+	phlist[ix].sourceix=0;
    phlist[ix++].ph = &phoneme_tab[phonPAUSE];
 	
 	n_phoneme_list = ix;
@@ -810,8 +824,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 {//=================================================================================================
 	int flags=0;
 	int stress;
-	int tone_number;
-	char *p;
+	unsigned char *p;
 	int srcix;
 	unsigned char ph_code;
 	PHONEME_LIST2 *plist2;
@@ -841,11 +854,10 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 			prepause_timeout = 3;
 		}
 	}
-	p = translator->word_phonemes;
+	p = (unsigned char *)translator->word_phonemes;
 	
 	plist2 = &ph_list2[n_ph_list2];
 	stress = 0;
-	tone_number = 0;
 	srcix = 0;
 	max_stress = -1;
 
@@ -862,18 +874,24 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 
 	while(((ph_code = *p++) != 0) && (n_ph_list2 < N_PHONEME_LIST-2))
 	{
+		if(ph_code == 255)
+			continue;      // unknown phoneme
+
 		// Add the phonemes to the first stage phoneme list (ph_list2)
 		ph = &phoneme_tab[ph_code];
 		if(ph->type == phSTRESS)
 		{
 			// don't add stress phonemes codes to the list, but give their stress
 			// value to the next vowel phoneme 
-			stress = ph->std_length & 0xf;
-			tone_number = ph->std_length & 0xf0;
-
-			// for tone languages, the tone number for a syllable folows the vowel
-			if((tone_number != 0) && (prev_vowel >= 0))
-				ph_list2[prev_vowel].tone_number = tone_number;
+			// std_length is used to hold stress number or (if >10) a tone number for a tone language
+			if(ph->spect == 0)
+				stress = ph->std_length;
+			else
+			{
+				// for tone languages, the tone number for a syllable folows the vowel
+				if(prev_vowel >= 0)
+					ph_list2[prev_vowel].tone_number = ph_code;
+			}
 		}
 		else
 		if(ph_code == phonEND_WORD)
@@ -887,6 +905,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		{
 			ph_list2[n_ph_list2].phcode = ph_code;
 			ph_list2[n_ph_list2].stress = stress;
+			ph_list2[n_ph_list2].tone_number = 0;
 			ph_list2[n_ph_list2].sourceix = srcix;
 			srcix = 0;
 			
@@ -913,6 +932,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	}
 	return(flags);
 }  //  end of TranslateWord2
+
 
 
 
@@ -949,7 +969,9 @@ char *Translator::TranslateClause(FILE *f_text, char *buf, int *tone_out)
 	f_input = f_text;
 	p_input = buf;
 	ungot_char = 0;
-	end_of_input = false;
+	end_of_input = 0;
+
+	clause_start_index = Pos();
 	terminator = translator->ReadClause(f_text,source,sizeof(source));
 
 	clause_pause = 300;  // mS
@@ -1266,7 +1288,7 @@ char *Translator::TranslateClause(FILE *f_text, char *buf, int *tone_out)
 	for(ix=0; ix<word_count; ix++)
 	{
 		dict_flags = TranslateWord2(&sbuf[words[ix].start], words[ix].flags, words[ix].pre_pause,
-		 	words[ix+1].pre_pause, words[ix].sourceix);
+		 	words[ix+1].pre_pause, words[ix].sourceix + clause_start_index);
 		skip_words = (dict_flags >> 29) & 3;
 		ix += skip_words;
 
@@ -1283,7 +1305,7 @@ char *Translator::TranslateClause(FILE *f_text, char *buf, int *tone_out)
 		// terminate the clause with 2 PAUSE phonemes
 		ph_list2[n_ph_list2+ix].phcode = phonPAUSE;
    	ph_list2[n_ph_list2+ix].stress = 0;
-		ph_list2[n_ph_list2+ix].sourceix = source_index;
+		ph_list2[n_ph_list2+ix].sourceix = 0;
 	}
 
 	MakePhonemeList(clause_pause);

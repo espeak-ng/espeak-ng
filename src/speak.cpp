@@ -25,6 +25,7 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <time.h>
+#include "sys/stat.h"
 
 #include "speech.h"
 #include "voice.h"
@@ -43,7 +44,7 @@ char path_home[120];
 char path_source[80] = "";
 char wavefile[120];
 
-const char *version = "Speak text-to-speech: 1.06  18.Feb.2006";
+const char *version = "Speak text-to-speech: 1.07  23.Mar.2006";
 
 const char *help_text =
 "-f <text file>\n"
@@ -62,7 +63,7 @@ const char *help_text =
 "-s <integer>\n"
 "\t   Speed in words per minute, default is 160\n"
 "-v <voice name>\n"
-"\t   Use voice file of this name from speak-data/voices\n"
+"\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
 "--compile=<voice name>\n"
@@ -71,6 +72,24 @@ const char *help_text =
 
 voice_t voice_data;
 voice_t *voice;
+
+
+int GetFileLength(const char *filename)
+{//====================================
+	struct stat statbuf;
+
+	stat(filename,&statbuf);
+	return(statbuf.st_size);
+}
+
+
+char *Alloc(int size)
+{//==================
+	char *p;
+	if((p = (char *)malloc(size)) == NULL)
+		fprintf(stderr,"Can't allocate memory\n");
+	return(p);
+}
 
 
 static void VoiceSetup()
@@ -113,16 +132,16 @@ static void VoiceInit()
 
 int initialise(void)
 {//=================
-	sprintf(path_home,"%s/speak-data",getenv("HOME"));
+	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
-		strcpy(path_home,"/usr/share/speak-data");
+		strcpy(path_home,"/usr/share/espeak-data");
 	}
 
 	WavegenInit(22050,0);
 	VoiceInit();
 	LoadPhData();
-	synth = new Synthesize();
+	SynthesizeInit();
 	return(0);
 }
 
@@ -159,8 +178,6 @@ int main (int argc, char **argv)
 	char filename[120];
 	char voicename[40];
 	char dictname[40];
-	struct timespec period;
-	struct timespec remaining;
 
 	voicename[0] = 0;
 	dictname[0] = 0;
@@ -294,36 +311,42 @@ int main (int argc, char **argv)
 			}
 		}
 
-		synth->SpeakNextClause(f_text,0);
+		SpeakNextClause(f_text,0);
 
 		for(;;)
 		{
 			if(WavegenFile() != 0)
 				break;   // finished, wavegen command queue is empty
 
-			if(synth->Generate(phoneme_list,1)==0)
-				synth->SpeakNextClause(NULL,0);
+			if(Generate(phoneme_list,1)==0)
+				SpeakNextClause(NULL,0);
 		}
 
-		CloseWaveFile();
+		CloseWaveFile(samplerate);
 	}
 	else
 	{
 		// output sound using portaudio
 		WavegenInitSound();
 
-		synth->SpeakNextClause(f_text,0);
+		SpeakNextClause(f_text,0);
 
 		speaking = 1;
 		while(speaking)
 		{
 			// NOTE: if nanosleep() isn't recognised on your system, try replacing
 			// this by  sleep(1);
+#ifdef USE_NANOSLEEP
+			struct timespec period;
+			struct timespec remaining;
 			period.tv_sec = 0;
 			period.tv_nsec = 300000000;  // 0.3 sec
 			nanosleep(&period,&remaining);
+#else
+			sleep(1);
+#endif
 
-			if(synth->OnTimer() != 0)
+			if(SynthOnTimer() != 0)
 				speaking = 0;
 		}
 	}

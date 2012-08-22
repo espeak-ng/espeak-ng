@@ -22,7 +22,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#include "sys/stat.h"
 
 #include "speech.h"
 #include "voice.h"
@@ -43,11 +42,6 @@ unsigned int *phoneme_index=NULL;
 char *spects_data=NULL;
 unsigned char *wavefile_data=NULL;
 unsigned char *phoneme_tab_data = NULL;
-
-typedef struct {
-	char name[N_PHONEME_TAB_NAME];
-	PHONEME_TAB *phoneme_tab_ptr;
-} PHONEME_TAB_LIST;
 
 int n_phoneme_tables;
 int phoneme_tab_number = 0;
@@ -102,26 +96,22 @@ int ReadPhFile(char **ptr, const char *fname)
 {//==========================================
 	FILE *f_in;
 	char *p;
-	int ix;
 	unsigned int  length;
 	char buf[200];
-	struct stat statbuf;
 
-	sprintf(buf,"%s/%s",path_home,fname);
-	ix = stat(buf,&statbuf);
+	sprintf(buf,"%s%c%s",path_home,PATHSEP,fname);
+	length = GetFileLength(buf);
 	
 	if((f_in = fopen(buf,"rb")) == NULL)
 	{
 		fprintf(stderr,"Can't read data file: '%s'\n",buf);
 		return(1);
 	}
-	ix = stat(buf,&statbuf);
-	length = statbuf.st_size;
 
 	if(*ptr != NULL)
 		free(*ptr);
 		
-	if((p = (char *)malloc(length)) == NULL)
+	if((p = Alloc(length)) == NULL)
 	{
 		fclose(f_in);
 		return(-1);
@@ -153,11 +143,13 @@ int LoadPhData()
 
 	// set up phoneme tables
 	p = phoneme_tab_data;
-	n_phoneme_tables = *p++;
+	n_phoneme_tables = p[0];
+	p+=4;
 
 	for(ix=0; ix<n_phoneme_tables; ix++)
 	{
-		n_phonemes = *p++;
+		n_phonemes = p[0];
+		p += 4;
 		memcpy(phoneme_tab_list[ix].name,p,N_PHONEME_TAB_NAME);
 		p += N_PHONEME_TAB_NAME;
 		phoneme_tab_list[ix].phoneme_tab_ptr = (PHONEME_TAB *)p;
@@ -387,17 +379,27 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, 
 			}
 		}
 		else
-		if((which==1) && (seq_len_adjust != 0))
 		{
-			length_std = 0;
-			for(ix=0; ix<nf1; ix++)
+			// front of a vowel
+			if(*match_level == 0)
 			{
-				length_std += frames[ix].length;
+				// allow very short vowels to have shorter front parts
+				if(this_ph->std_length < 130)
+					frames[0].length = (frames[0].length * this_ph->std_length)/130;
 			}
-			length_factor = ((length_std + seq_len_adjust) * 256)/length_std;
-			for(ix=0; ix<nf1; ix++)
+
+			if(seq_len_adjust != 0)
 			{
-				frames[ix].length = (frames[ix].length * length_factor)/256;
+				length_std = 0;
+				for(ix=0; ix<nf1; ix++)
+				{
+					length_std += frames[ix].length;
+				}
+				length_factor = ((length_std + seq_len_adjust) * 256)/length_std;
+				for(ix=0; ix<nf1; ix++)
+				{
+					frames[ix].length = (frames[ix].length * length_factor)/256;
+				}
 			}
 		}
 	}
@@ -405,6 +407,14 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, 
 	*n_frames = nf;
 	return(frames);
 }  //  end of LookupSpect
+
+
+unsigned char *LookupEnvelope(int ix)
+{//================================
+	if(ix==0)
+		return(NULL);
+	return((unsigned char *)&spects_data[phoneme_index[ix]]);
+}
 
 
 
@@ -535,6 +545,11 @@ int VoiceLanguage(const char *name)
 		translator = new Translator_German();
 		return(2);
 	}
+	if(strcmp(name,"tone")==0)
+	{
+		translator = new Translator_Tone();
+		return(3);
+	}
 	translator = new Translator_Default();
 	return(-1);
 }
@@ -552,11 +567,12 @@ int LoadVoice(char *voicename, int reset)
 	int  n;
 	int  phon;
 	float x1;
+	int  replace_type=0;
 	int  error = 0;
 	int  language_set = 0;
-	char string[120];
 	char new_dictionary[80];
 	char language_name[80];
+	char phonemes_name[80];
 	char phon_string1[12];
 	char phon_string2[12];
 
@@ -564,18 +580,21 @@ int LoadVoice(char *voicename, int reset)
 	int pitch2;
 
 	VoiceReset();
-	strcpy(new_dictionary,"english");      // default
+	strcpy(language_name,"english");
+	strcpy(new_dictionary,language_name);      // default
+	strcpy(phonemes_name,language_name);
 	if(translator != NULL)
 		delete translator;
 
 	translator = new Translator_English();
+	VoicePhonemes(phonemes_name);
 
 	if(voicename != NULL)
 	{
 		if(voicename[0]==0)
 			strcpy(voicename,"default");
 
-		sprintf(buf,"%s/voices/%s",path_home,voicename);
+		sprintf(buf,"%s%cvoices%c%s",path_home,PATHSEP,PATHSEP,voicename);
 		f_voice = fopen(buf,"r");
 	}
 
@@ -609,12 +628,8 @@ int LoadVoice(char *voicename, int reset)
 			voice->pitch_range = (pitch2 - pitch1) * 108;
 			break;
 
-		case 3:
-			n = sscanf(p,"%s",string);
-			if(VoicePhonemes(string) != 0)
-			{
-				fprintf(stderr,"Unknown phoneme table: '%s'\n",string);
-			}
+		case 3:        // phoneme table
+			n = sscanf(p,"%s",phonemes_name);
 			break;
 
 		case 4:        // language_name
@@ -623,8 +638,9 @@ int LoadVoice(char *voicename, int reset)
 			language_set = VoiceLanguage(language_name);
 			if(language_set != 0)
 			{
-				VoicePhonemes(language_name);
 				strcpy(new_dictionary,language_name);
+				strcpy(phonemes_name,language_name);
+				VoicePhonemes(phonemes_name);
 			}
 			break;
 
@@ -650,8 +666,9 @@ int LoadVoice(char *voicename, int reset)
 			sscanf(p,"%d %d",&option_tone1,&option_tone2);
 			break;
 
-		case 9:
 		case 10:
+			replace_type = 1;
+		case 9:
 			strcpy(phon_string2,"NULL");
 			n = sscanf(p,"%s %s",phon_string1,phon_string2);
 			if((n < 1) || (n_replace_phonemes >= N_REPLACE_PHONEMES))
@@ -662,7 +679,7 @@ int LoadVoice(char *voicename, int reset)
 	
 			replace_phonemes[n_replace_phonemes].old_ph = phon;
 			replace_phonemes[n_replace_phonemes].new_ph = LookupPh(phon_string2);
-			replace_phonemes[n_replace_phonemes++].type = key-5;
+			replace_phonemes[n_replace_phonemes++].type = replace_type;
 			break;
 
 		case 11:
@@ -683,6 +700,10 @@ int LoadVoice(char *voicename, int reset)
 
 	WavegenSetEcho(option_echo_delay,option_echo_amp);
 
+	if(VoicePhonemes(phonemes_name) != 0)
+	{
+		fprintf(stderr,"Unknown phoneme table: '%s'\n",phonemes_name);
+	}
 	if(strcmp(new_dictionary,dictionary_name) != 0)
 	{
 		error = translator->LoadDictionary(new_dictionary);

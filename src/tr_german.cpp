@@ -43,7 +43,7 @@ Translator_German::Translator_German() : Translator()
 	if((p = setlocale(LC_CTYPE,"german")) != NULL)
 		strncpy(prev_locale,p,sizeof(prev_locale));  // keep copy of previous locale
 
-	const int stress_lengths2[8] = {170,140, 220,220, 220,240, 248,250};
+	static const int stress_lengths2[8] = {170,140, 220,220, 220,240, 248,250};
 	option_stress_rule = 0;
 	option_vowel_pause = 1;
 	option_words = 2;

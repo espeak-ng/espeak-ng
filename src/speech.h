@@ -21,8 +21,12 @@
 #define N_PEAKS   9
 #define N_MARKERS 7
 
+// comment this out when compiling the "speak" process
 #define SPECT_EDITOR
 
+#define PATHSEP  '/'
+#define USE_PORTAUDIO
+#define USE_NANOSLEEP
 
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
@@ -35,5 +39,7 @@ typedef struct {
    short pkright;
 }  peak_t;
 
+extern int GetFileLength(const char *filename);
+extern char *Alloc(int size);
 
 
