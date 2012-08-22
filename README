@@ -1,4 +1,4 @@
-Changes to eSpeak to support building on a POSIX system by running make.
+Changes to eSpeak to support building on a POSIX system by using autotools.
 
 This does the following things:
    1/  compile the libespeak library;
@@ -6,14 +6,24 @@ This does the following things:
    3/  compile the espeakedit application;
    4/  compile the voice data, creating an espeak-data directory.
 
-This allows you to run:
-
-	make && sudo make install
-
-and end up with a working espeak application.
-
 This branch also contains some bug fixes and improvements that get
 sent back upstream.
+
+
+BUILDING
+
+
+The espeak and espeakedit programs, along with the espeak voices, can
+be built via the standard autotools commands:
+
+	$ ./autogen.sh
+	$ ./configure
+	$ make
+	$ sudo make install
+
+NOTE: The configure command detects various platform differences that
+the espeak makefiles don't cater for (e.g. different wxWidgets version)
+and detect the available audio setup to use automatically.
 
 
 HISTORICAL RELEASES
