@@ -137,7 +137,7 @@ endphoneme
 phoneme y      // close central unrounded (i-bar)
   vowel starttype (i) endtype (i)
   length 190
-  formants vowel/i#
+  formants vowel/i#_6
 //  reduceto Y  4
 endphoneme
 

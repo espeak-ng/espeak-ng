@@ -36,7 +36,7 @@ endphoneme
 
 
 phoneme R
-  liquid
+  liquid starttype r endtype r
   length 100
   lengthmod 7
   beforenotvowel r/
@@ -46,6 +46,8 @@ phoneme R
   after t r/trr p r/trr k r/trr
   before _ r/r_
 endphoneme
+
+
 
 phoneme D
   vcd dnt frc

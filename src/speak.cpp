@@ -22,7 +22,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#ifndef PLATFORM_WINDOWS
+#ifdef PLATFORM_WINDOWS
+#include <windows.h>
+#else
 #include <unistd.h>
 #endif
 #include <getopt.h>
@@ -45,7 +47,7 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.18  13.Jan.07";
+static const char *version = "Speak text-to-speech: 1.19  26.Jan.07";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"

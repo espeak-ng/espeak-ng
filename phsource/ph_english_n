@@ -5,41 +5,6 @@
 //*******************************************************************
 
 
-phoneme @    //  Schwa
-  vowel   starttype (@)  endtype (@)
-  formants vowel/@
-  unstressed
-  linkout r-
-  length 140
-endphoneme
-
-
-phoneme @2   //  Schwa, changes to I before a vowel
-  vowel  starttype (@)  endtype (@)
-  formants vowel/@
-  unstressed
-  beforevowel I
-  length 120
-endphoneme
-
-phoneme @5   //  Schwa, changes to U before a vowel
-  vowel  starttype (@)  endtype (@)
-  formants vowel/@
-  unstressed
-  beforevowelpause U
-  length 140
-endphoneme
-
-
-phoneme @L
-  vowel  starttype (@)  endtype l
-  length 160
-  formants vwl_en/@L
-  unstressed
-  before _ vwl_en/@L
-endphoneme
-
-
 phoneme a
   vowel  starttype (a)  endtype (a)
   length 140
@@ -114,6 +79,14 @@ endphoneme
 
 
 phoneme A:
+  vowel  starttype (a)  endtype (@)
+  length 240
+  formants vowel/aa_5
+  linkout r-
+endphoneme
+
+
+phoneme A@
   vowel  starttype (a)  endtype (@)
   length 240
   formants vowel/aa_5
@@ -220,14 +193,6 @@ phoneme e@
   vowel  starttype (e)  endtype (@)
   length 220
   formants vowel/ee_1
-  linkout r-
-endphoneme
-
-
-phoneme I@
-  vowel  starttype (i)  endtype (@)
-  length 240
-  formants vdiph2/i@
   linkout r-
 endphoneme
 

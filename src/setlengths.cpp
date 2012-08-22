@@ -289,7 +289,7 @@ void Translator::CalcLengths()
 			
 		case phSTOP:
 			last_pitch = 0;
-			if(prev->type == phSTOP || prev->type == phFRICATIVE)
+			if(prev->type == phFRICATIVE)
 				p->prepause = 20;
 			else
 			if((more_syllables > 0) || (stress < 4))

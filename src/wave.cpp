@@ -57,10 +57,7 @@ static t_wave_callback* my_callback_is_output_enabled=NULL;
 
 #define N_WAV_BUF   15
 #define SAMPLE_RATE 22050
-#define FRAMES_PER_BUFFER 512 // TBD: remove
-//#define FRAMES_PER_BUFFER 32
-//#define FRAMES_PER_BUFFER 2048
-//#define FRAMES_PER_BUFFER 4096
+#define FRAMES_PER_BUFFER 512
 #define BUFFER_LENGTH (SAMPLE_RATE*2*sizeof(uint16_t))
 #define THRESHOLD (BUFFER_LENGTH/5)
 static char myBuffer[BUFFER_LENGTH];
@@ -245,6 +242,25 @@ static int pa_callback(void *inputBuffer, void *outputBuffer,
   //   return(0);
   // #else
 
+#ifdef ARCH_BIG
+	{
+		// BIG-ENDIAN, swap the order of bytes in each sound sample in the portaudio buffer
+		int c;
+		unsigned char *out_ptr;
+		unsigned char *out_end;
+		out_ptr = (unsigned char *)outputBuffer;
+		out_end = out_ptr + framesPerBuffer*2 * out_channels;
+		while(out_ptr < out_end)
+		{
+			c = out_ptr[0];
+			out_ptr[0] = out_ptr[1];
+			out_ptr[1] = c;
+			out_ptr += 2;
+		}
+	}
+#endif
+
+
   return(aResult);
   //#endif
 
@@ -297,7 +313,7 @@ static int wave_open_sound()
 				paNoFlag,
 				pa_callback, (void *)userdata);
    
-      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d\n",err);
+      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d\n",err);      
 
       if(err == paInvalidChannelCount)
 	{
@@ -326,21 +342,38 @@ static int wave_open_sound()
 // 				     FRAMES_PER_BUFFER,
 // 				     N_WAV_BUF,pa_callback,(void *)userdata);
 	  SHOW("wave_open_sound > Pa_OpenDefaultStream(2): err=%d\n",err);
+	  err=0; // avoid warning
 	}
    mInCallbackFinishedState = false; // v18 only
 #else
       myOutputParameters.channelCount = out_channels;
+      unsigned long framesPerBuffer = paFramesPerBufferUnspecified;
       err = Pa_OpenStream(
 			  &pa_stream,
 			  NULL, /* no input */
 			  &myOutputParameters,
 			  SAMPLE_RATE,
-			  paFramesPerBufferUnspecified,
+			  framesPerBuffer,
 			  paNoFlag,
 			  //			  paClipOff | paDitherOff,
 			  pa_callback,
 			  (void *)userdata);
-
+      if ((err!=paNoError) 
+	  && (err!=paInvalidChannelCount)) //err==paUnanticipatedHostError
+	{
+	  fprintf(stderr, "wave_open_sound > Pa_OpenStream : err=%d\n",err);
+	  framesPerBuffer = FRAMES_PER_BUFFER;
+	  err = Pa_OpenStream(
+			      &pa_stream,
+			      NULL, /* no input */
+			      &myOutputParameters,
+			      SAMPLE_RATE,
+			      framesPerBuffer,
+			      paNoFlag,
+			      //			  paClipOff | paDitherOff,
+			      pa_callback,
+			      (void *)userdata);
+	}
       if(err == paInvalidChannelCount)
 	{
 	  SHOW_TIME("wave_open_sound > try stereo");
@@ -352,7 +385,7 @@ static int wave_open_sound()
 			       NULL, /* no input */
 			       &myOutputParameters,
 			       SAMPLE_RATE,
-			       paFramesPerBufferUnspecified,
+			       framesPerBuffer,
 			       paNoFlag,
 			       //			       paClipOff | paDitherOff,
 			       pa_callback,
@@ -371,12 +404,45 @@ static int wave_open_sound()
 //>
 //<select_device
 
+#if (USE_PORTAUDIO == 19)
+static void update_output_parameters(int selectedDevice, const PaDeviceInfo *deviceInfo)
+{
+  //  const PaDeviceInfo *pdi = Pa_GetDeviceInfo(i);
+  myOutputParameters.device = selectedDevice;
+  //  myOutputParameters.channelCount = pdi->maxOutputChannels;
+  myOutputParameters.channelCount = 1;
+  myOutputParameters.sampleFormat = paInt16;
+
+  // Latency greater than 100ms for avoiding glitches 
+  // (e.g. when moving a window in a graphical desktop)
+  //  deviceInfo = Pa_GetDeviceInfo(selectedDevice);
+  if (deviceInfo)
+    {
+      double aLatency = deviceInfo->defaultLowOutputLatency;
+      double aCoeff = roundl(0.100 / aLatency);
+      myOutputParameters.suggestedLatency = aCoeff * aLatency;
+      SHOW("myOutputParameters.suggestedLatency=%f, aCoeff=%f\n",
+	   myOutputParameters.suggestedLatency,
+	   aCoeff);
+    }
+  else
+    {
+      myOutputParameters.suggestedLatency = (double)0.1; // 100ms
+      SHOW("myOutputParameters.suggestedLatency=%f (default)\n",
+	   myOutputParameters.suggestedLatency);
+    }
+    //pdi->defaultLowOutputLatency;
+
+  myOutputParameters.hostApiSpecificStreamInfo = NULL;
+}
+#endif
+
 static void select_device(const char* the_api)
 {
   ENTER("select_device");
 
 #if (USE_PORTAUDIO == 19)
-  int i;
+  PaDeviceIndex i=0;
   int numDevices = Pa_GetDeviceCount();
   if( numDevices < 0 )
     {
@@ -389,13 +455,25 @@ static void select_device(const char* the_api)
     {
       deviceInfo = Pa_GetDeviceInfo( i );
       
+      if (deviceInfo == NULL)
+	{
+	  break;
+	}
       const PaHostApiInfo *hostInfo = Pa_GetHostApiInfo( deviceInfo->hostApi );
       
       // TBD: if not alsa, find the best device (see Audacity).
       if (hostInfo && hostInfo->type == paALSA)
 	{
-	  i = Pa_GetHostApiInfo( deviceInfo->hostApi )->defaultOutputDevice;
-	  break;
+	  SHOW( "select_device > ALSA, i=%d (numDevices=%d)\n", i, numDevices);
+
+	  update_output_parameters(i, deviceInfo);
+
+	  if (Pa_IsFormatSupported(NULL, &myOutputParameters, SAMPLE_RATE) == 0)
+	    {
+	      SHOW( "select_device > ALSA, %s\n", "format supported");
+	      break;
+	    }
+	  SHOW( "select_device > ALSA, %s\n", "format not supported");
 	}
     }
 
@@ -403,17 +481,9 @@ static void select_device(const char* the_api)
     {
       i = Pa_GetDefaultOutputDevice();
       deviceInfo = Pa_GetDeviceInfo( i );
+      update_output_parameters(i, deviceInfo);
     }
 
-  //  const PaDeviceInfo *pdi = Pa_GetDeviceInfo(i);
-  myOutputParameters.device = i;
-  //  myOutputParameters.channelCount = pdi->maxOutputChannels;
-  myOutputParameters.channelCount = 1;
-  myOutputParameters.sampleFormat = paInt16;
-  myOutputParameters.suggestedLatency = (double)0.1; //100ms
-    //pdi->defaultLowOutputLatency;
-
-  myOutputParameters.hostApiSpecificStreamInfo = NULL;
 #endif    
 }
 
@@ -634,6 +704,7 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 
       PaError err = Pa_StartStream(pa_stream);
       SHOW("wave_write > Pa_StartStream=%d\n", err);
+      err=0; // avoid warning
       
 #if USE_PORTAUDIO == 19
       if(err == paStreamIsNotStopped)
@@ -877,9 +948,9 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 //>
 //<wave_test_get_write_buffer
 
-uint32_t wave_test_get_write_buffer()
+void *wave_test_get_write_buffer()
 {
-  return (uint32_t)myWrite;
+  return myWrite;
 }
 
 

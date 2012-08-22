@@ -19,11 +19,13 @@
  ***************************************************************************/
 #include "StdAfx.h"
 
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <wctype.h>
 #include <string.h>
+
 
 #include "speak_lib.h"
 #include "speech.h"
@@ -357,10 +359,14 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	else
 		other_ph = next_ph;
 
-	if((ix = LookupSound(this_ph,other_ph,which,match_level,0)) == 0)
+	if((ix = LookupSound(this_ph,other_ph,which,match_level,0)) < 4)
 		return(NULL);
 	seq = (SPECT_SEQ *)(&spects_data[ix]);
 	nf = seq->n_frames;
+
+
+	if(nf >= N_SEQ_FRAMES)
+		nf = N_SEQ_FRAMES - 1;
 
 	seq_break = 0;
 	length1 = 0;

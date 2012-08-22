@@ -14,6 +14,16 @@ phoneme @    //  Schwa
 endphoneme
 
 
+phoneme 3    //  Schwa, used for rhotic schwa in American
+  vowel   starttype (@)  endtype (@)
+  formants vowel/@
+  before _ vwl_en_rp/@
+  unstressed
+  linkout r-
+  beforevowel @
+  length 140
+endphoneme
+
 phoneme @2   //  Schwa, changes to I before a vowel
   vowel  starttype (@)  endtype (@)
   formants vwl_en_rp/@
@@ -121,6 +131,14 @@ phoneme A:
 endphoneme
 
 
+phoneme A@
+  vowel  starttype (a)  endtype (a)
+  length 240
+  formants vwl_en_rp/aa
+  linkout r-
+endphoneme
+
+
 phoneme aa   //   'bath' etc.
   vowel  starttype (a)  endtype (a)
   length 190
@@ -219,14 +237,6 @@ phoneme e@
   vowel  starttype (e)  endtype (@)
   length 220
   formants vwl_en_rp/e@
-  linkout r-
-endphoneme
-
-
-phoneme I@
-  vowel  starttype (i)  endtype (@)
-  length 240
-  formants vwl_en_rp/i@
   linkout r-
 endphoneme
 

@@ -7,6 +7,7 @@
 		a	a:
 		a (CK	a
 		ai      aI (K
+                ao (_   aU
 
 	&)	a (_S1q  a     // lookup it_list without suffix
 
@@ -17,7 +18,7 @@
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 
-	-)	ae (ro    aI
+	_)	ae (ro    aI
 	@)	avano (_S5  'avano
 		
 .group b
@@ -135,6 +136,7 @@
 		i (A	j
 	l)	i (A	%i
 	r)	i (A	%i
+       _C)	i (a    i
 		i (o    i
 		i (ò	i
         @)      ia (_   =i%a
@@ -147,6 +149,8 @@
 
 	@)	i (ce_	=i
 	@)	i (ci_	=i
+        @)      i (de_  =i
+        @)      i (do_  =i
 	@)	i (le_  =i
 	@)	i (li_  =i
 	@)	iera (_   i'E:ra
@@ -222,7 +226,11 @@
 .group s
 	_)	s(_	Esse
 		s	z
-	-)	s	s
+	_)	s	s
+
+	l)      s       s
+	p)      s       s
+	k)	s	s
 		s (c	s
 		s (f	s
 		s (k	s
@@ -289,6 +297,8 @@
 		z	ts
 	A)	z	ts:
 	A)	zz	ts:
+
+        _)	z (i	dz
 
 .group
 		à	'a:

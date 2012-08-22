@@ -8,9 +8,6 @@
           ai         aI
           ay         aI
 
-       @) ado (_     ao
-       @) ados (_    aos
-
 
 .group b
        _) b (_       be
@@ -21,7 +18,7 @@
 
 
 .group c
-       _) c (_       se
+       _) c (_       Te
        _) ch (_      tSe
           c          k
           c (Y       T         // ce, ci
@@ -42,6 +39,7 @@
           e (_       e
           ei         eI
           ey         eI
+       _) eu         eU
 
 
 .group f
@@ -188,6 +186,31 @@
           ü          u
           ñ          n^
         _)ñ (_       En^e
+
+          $          d'olar
+          €          eU*o
+          %          porTj'Ento
+          &          ampErs'ant
+          @          a*R'oBa
+          /          b'a*Ra
+          ©          k,opi*R'aIt
+
+          +          m'as
+      _)  ++ (_      masm'as
+ \+\+\+)  +          // ignore + after the first 3
+
+          #          almoaD'il^a
+      \#) #
+
+     __)  - (_D      m'Enos
+     A_)  - (_D      _
+     C_)  - (_D      _
+      --) -
+
+          *          astE*'isko
+      *)  * (*
+          **
+     **)  * (_       _::
 
           .          punta
           . (.       _:

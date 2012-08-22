@@ -43,7 +43,7 @@
 #include "prosodydisplay.h"
 
 
-static char *about_string = "espeakedit 1.17.27  12.Jan.2007\nAuthor: Jonathan Duddington (c) 2006";
+static char *about_string = "espeakedit 1.19  26.Jan.2007\nAuthor: Jonathan Duddington (c) 2006";
 
 
 const char *path_data = "/home/jsd1/speechdata/phsource";
@@ -296,6 +296,17 @@ void MyFrame::OnKey(wxKeyEvent& event)
 	int key;
 
 	key = event.GetKeyCode();
+
+	if((currentcanvas != NULL) && (currentcanvas != FindFocus()))
+	{
+		if((key == WXK_F1) || (key == WXK_F2))
+		{
+			currentcanvas->OnKey(event);
+			currentcanvas->SetFocus();
+			return;
+		}
+	}
+
 	event.Skip();
 }
 

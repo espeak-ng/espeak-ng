@@ -34,7 +34,7 @@ endphoneme
 phoneme y
   vowel starttype (@) endtype (@)
   length 180
-  formants vowel/i#_4
+  formants vowel/i#_5
 endphoneme
 
 phoneme a
@@ -53,7 +53,7 @@ endphoneme
 phoneme o
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/oo
+  formants vowel/oo_5
 endphoneme
 
 phoneme u

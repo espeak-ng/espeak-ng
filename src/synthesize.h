@@ -143,7 +143,7 @@ extern unsigned char env_frise[128];
 #define WCMD_EMBEDDED 10
 
 
-#define N_WCMDQ   200
+#define N_WCMDQ   160
 #define MIN_WCMDQ  20   // need this many free entries before adding new phoneme
 
 extern long wcmdq[N_WCMDQ][4];

@@ -67,11 +67,13 @@
 #define tSWITCHVOICING  21
 #define tVOWELIN  22
 #define tVOWELOUT 23
+#define tAPPENDPH 24
+
 #define tPHONEMENUMBER 29
 #define tPHONEMETABLE  30
 #define tINCLUDE  31
 
-
+extern void Write4Bytes(FILE *f, int value);
 extern void MakeVowelLists(void);
 extern int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, char *fname);
 extern char voice_name[];
@@ -222,6 +224,7 @@ static keywtab_t keywords[] = {
 	{"switchvoicing",21},
 	{"vowelin",22},
 	{"vowelout",23},
+	{"appendph",24},
 
 	// flags
 	{"wavef",      0x2000000+phWAVE},
@@ -289,6 +292,22 @@ static unsigned int StringToWord(const char *string)
 		word |= (c << (ix*8));
 	}
 	return(word);
+}
+
+
+int Read4Bytes(FILE *f)
+{//====================
+// Read 4 bytes (least significant first) into a word
+	int ix;
+	unsigned char c;
+	int acc=0;
+
+	for(ix=0; ix<4; ix++)
+	{
+		c = fgetc(f) & 0xff;
+		acc += (c << (ix*8));
+	}
+	return(acc);
 }
 
 
@@ -451,8 +470,8 @@ int Compile::LookupPhoneme(const char *string, int control)
 int Compile::NextItem(int type)
 {//============================
 	int  acc;
-	char  c=0;
-	char c2;
+	unsigned char  c=0;
+	unsigned char c2;
 	int  ix;
 	int  sign;
 	int  keyword;
@@ -701,23 +720,26 @@ fprintf(f_errors,"Frame %d  %3dmS  rms=%3d  flags=%2d  pk=%4d %4d %4d",ix,seq_ou
 int Compile::LoadWavefile(FILE *f, const char *fname)
 {//==================================================
 	int displ;
-	char c1, c2;
+	unsigned char c1;
+	unsigned char c3;
+	int c2;
 	int sample;
 	int sample2;
 	float x;
 	int max = 0;
 	int length;
-	int *pw;
+	int sr1, sr2;
 	int resample_wav = 0;
 	char fname_temp[100];
 	int scale_factor=0;
-	char wave_hdr[40];
 	char command[200];
 
-	fread(wave_hdr,40,1,f);  // skip past the WAV header, up to before "data length"
-	pw = (int *)(&wave_hdr[24]);
+	fseek(f,24,SEEK_SET);
+	sr1 = Read4Bytes(f);
+	sr2 = Read4Bytes(f);
+	fseek(f,40,SEEK_SET);	
 
-	if((pw[0] != samplerate) || (pw[1] != samplerate*2))
+	if((sr1 != samplerate) || (sr2 != samplerate*2))
 	{
 #ifdef PLATFORM_WINDOWS
 	fprintf(f_errors,"Wrong samplerate %d, %d \n",pw[0],pw[1]);
@@ -738,22 +760,25 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 			return(0);
 		}
 		resample_wav = 1;
-		fread(wave_hdr,40,1,f);  // skip past the WAV header, up to before "data length"
+		fseek(f,40,SEEK_SET);  // skip past the WAV header, up to before "data length"
 #endif
 	}
 
 	displ = ftell(f_spects);
 
 	// data contains:  4 bytes of length (n_samples * 2), followed by 2-byte samples (lsb byte first)
-	fread(&length,4,1,f);
+	length = Read4Bytes(f);
 
 	while(!feof(f))
 	{
 		c1 = fgetc(f);
-		c2 = fgetc(f);
+		c3 = fgetc(f);
 		if(feof(f)) break;
 
-		sample = (c1 & 0xff)+ (c2 * 256);
+		c2 = c3 << 24;
+		c2 = c2 >> 16;  // sign extend
+
+		sample = (c1 & 0xff) + c2;;
 
 		if(sample > max)
 			max = sample;
@@ -777,14 +802,18 @@ int Compile::LoadWavefile(FILE *f, const char *fname)
 		length = length/2 + (scale_factor << 16);
 	}
 
-	fwrite(&length,4,1,f_spects);
+	Write4Bytes(f_spects,length);
+//	fwrite(&length,4,1,f_spects);
 	fseek(f,44,SEEK_SET);
 
 	while(!feof(f))
 	{
 		c1 = fgetc(f);
-		c2 = fgetc(f);
-		sample = (c1 & 0xff)+ (c2 * 256);
+		c3 = fgetc(f);
+		c2 = c3 << 24;
+		c2 = c2 >> 16;  // sign extend
+
+		sample = (c1 & 0xff) + c2;
 
 		if(feof(f)) break;
 
@@ -836,7 +865,6 @@ int Compile::LoadEnvelope(FILE *f)
 
 	return(displ);
 }
-
 
 
 int Compile::LoadDataFile(const char *path, int control)
@@ -904,7 +932,8 @@ int Compile::LoadDataFile(const char *path, int control)
 		}
 	}
 
-	fread(&id,1,4,f);
+	id = Read4Bytes(f);
+//	fread(&id,1,4,f);
 	rewind(f);
 
 	if(id == 0x43455053)
@@ -1293,6 +1322,8 @@ int Compile::CPhoneme()
 			ph->alternative_ph = phcode;
 			break;
 
+		case tAPPENDPH:
+			ph->phflags |= phAPPENDPH;  // drop through to tLINKOUT
 		case tLINKOUT:
 			phcode = NextItem(tPHONEMEMNEM);
 			if(phcode == -1)
@@ -1383,7 +1414,10 @@ void Compile::WritePhonemeTable()
 	PHONEME_TAB *p;
 
 	value = n_phoneme_tabs;
-	fwrite(&value,4,1,f_phdata);
+	fputc(value,f_phdata);
+	fputc(0,f_phdata);
+	fputc(0,f_phdata);
+	fputc(0,f_phdata);
 
 	for(ix=0; ix<n_phoneme_tabs; ix++)
 	{
@@ -1407,6 +1441,7 @@ void Compile::WritePhonemeTable()
 		fputc(phoneme_tab_list2[ix].includes,f_phdata);
 		fputc(0,f_phdata);
 		fputc(0,f_phdata);
+
 		fwrite(phoneme_tab_list2[ix].name,1,N_PHONEME_TAB_NAME,f_phdata);
 
 		for(j=0; j<n; j++)
@@ -1950,7 +1985,7 @@ fprintf(f_errors,"Refs %d,  Reused %d\n",count_references,duplicate_references);
 	report.Printf(_T("Compiled phonemes: %d errors."),error_count);
 	if(error_count > 0)
 	{
-		report += _T(" See 'error.log'.");
+		report += _T(" See file: 'error_log'.");
 		wxLogError(report);
 	}
 	wxLogStatus(report + report_dict);

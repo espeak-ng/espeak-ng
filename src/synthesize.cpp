@@ -891,6 +891,7 @@ if(which==1)
 			q[1] = len + (modulation << 16);
 			q[2] = long(frame1);
 			q[3] = long(frame2);
+
 			WcmdqInc();
 			last_frame = frame1 = frame2;
 			frame_length = frame2_length;

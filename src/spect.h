@@ -34,12 +34,11 @@
 
 class MyFrame;
 
-class PitchEnvelope {
-public:
+typedef struct {
 	unsigned short pitch1;
 	unsigned short pitch2;
 	unsigned char env[128];
-};
+} PitchEnvelope;
 
 typedef struct {
    short freq;
@@ -82,6 +81,8 @@ typedef struct {
 	
 extern int SPC2_size_cycle(CYCLE *cy);
 //==============================================================================================
+
+
 
 class SpectFrame
 {//=============

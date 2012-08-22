@@ -472,6 +472,71 @@ Translator_Russian::Translator_Russian() : Translator()
 }  // end of Translator_Russian
 
 
+#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
+
+#ifdef deleted
+
+int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags)
+{//===========================================================================================================
+// Called for each phoneme in the phoneme list, to allow a language to make changes
+// flags: bit 0=1 last phoneme in a word
+//        bit 1=1 this is the highest stressed vowel in the current word
+//        bit 2=1 after the highest stressed vowel in the current word
+//        bit 3=1 the phonemes were specified explicitly, or found from an entry in the xx_list dictionary
+
+	int variant;
+	int vowelix;
+	PHONEME_TAB *prev, *next;
+
+	if(flags & 8)
+		return(0);    // full phoneme translation has already been given
+	// Russian vowel softening and reduction rules
+
+	if(ph->type == phVOWEL)
+	{
+		#define N_VOWELS_RU   3
+		static unsigned int vowels_ru[N_VOWELS_RU] = {'a','V','o'};
+
+
+		static unsigned int vowel_replace[N_VOWELS_RU][3] = {
+			// stressed, soft, soft-stressed
+			{'A', '&', 'I'},  // a
+			{'A', 'V', 'I'},  // V
+			{'O', PH('y', 'o'), PH('y', 'o')}  // o
+		};
+
+		prev = phoneme_tab[phlist[index-1].phcode];
+		next = phoneme_tab[phlist[index+1].phcode];
+
+		// lookup the vowel name to get an index into the vowel_replace[] table
+		for(vowelix=0; vowelix<N_VOWELS_RU; vowelix++)
+		{
+			if(vowels_ru[vowelix] == ph->mnemonic)
+				break;
+		}
+		if(vowelix == N_VOWELS_RU)
+			return(0);
+
+		// do we need a variant of this vowel, depending on the stress and adjacent phonemes ?
+		variant = -1;
+		bool stressed=flags & 2;
+		//		bool soft=phoneme_tab[phlist[index+2].phcode]->mnemonic == ';';
+		bool soft=prev->phflags & phPALATAL;
+		if (soft && stressed)
+			variant = 2; else
+				if (stressed)
+					variant = 0; else
+						if (soft)
+							variant = 1;
+		if(variant >= 0)
+		{
+			phlist[index].phcode = PhonemeCode(vowel_replace[vowelix][variant]);
+		}
+	}
+
+	return(0);
+}
+#endif
 
 int Translator_Russian::ChangePhonemes(PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, int flags)
 {//===========================================================================================================

@@ -109,11 +109,11 @@ _2C	d'oU@s'ute
 _0M1	m'iI
 _1M1	,om'ie
 _ofM1	m'iI
-_0M2	mil'jOane
+_0M2	mil'joane
 _1M2	'unmil'jon
 _0M3	mil'jarde
 _1M3	'unmil'jard
-_0M4	bil'jOane
+_0M4	bil'joane
 _1M4	'unbil'jon
 _0M5	bil'jarde
 _1M5	'unbil'jard
@@ -350,21 +350,31 @@ teori		$2
 // Use of $alt:
 // replaces final [j] ny ['i]  (i.e. "i" is stressed if followed by a vowel)
 
+abil		$2
+abzice		$2
 acelaş		$2
+adventice	$3
 aer		aIer
 aici		a'itSI
 apoi		$2
+artefice	$3
 asemenea	$2
 
 biseric		$2
 
 capitol		$2
 câteva		$3
+cerbice		$2
+cicatrice	$4      // @-
 chimi		$alt
 chimic		$1
+complice	$2
+contrazice	$3
 creier		$2	// @-
 
 deja		$2
+denzic		$2
+denzice		$2
 deoarece	$4
 destul		$2
 dincolo		$1
@@ -373,8 +383,13 @@ dori		$2
 
 edit		$1
 egale		$2
+elice		$2
 exista		$3
 
+factice		$2
+fenicşi		$1
+fenix		$1
+ferice		$1
 filozofi	$alt
 filozofii	$4
 fizic		$1
@@ -382,17 +397,22 @@ fizicul		$1
 folosi		$3
 
 gastronomi	$alt
+gâgâlice	$3
+găurice		$2
 ghilimele	$3
 gimnastic	$2
 gimnaziu	dZimn'azju
 
 imagin		$2
 înainte		yna'inte
+interzice	$3
 
+latice		$2
 limit		$1
 lipsi		$2
 logic           $1
 
+matrice		$2
 maxim		$1
 maximum		$1
 merit		$1
@@ -403,13 +423,15 @@ minumum		$1
 murdărie	murd@*'ie
 muzik		$1
 
+novice		$2
 numai		$1	// only
 
+oareşice	$4
 obişnuit        obiSnw'it
 ordin		$1
+orice		$3
 ovidiu		ovidj'u
 
-panic		$1
 pagin		$1
 parodi		pa*od'i
 parodii		$3
@@ -419,12 +441,14 @@ pricin		$1
 prieten         $2
 prietenie	p@-*jeten'ie
 privi		$3
+propice		$2
 
 repede		$1
 repezi		$1
 români          romyn'i
 
 sadic		$1
+securice	$3
 sergiu		sergj'u
 sigur		$1
 simbolic	$2
@@ -439,7 +463,6 @@ trebuie		$1
 
 ultim		$1
 
-valabil		$1
 veder		$2
 vineri		$1
 vinovăţi        $alt

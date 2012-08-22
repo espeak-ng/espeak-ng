@@ -271,7 +271,7 @@ int Translator::LookupNum2(int value, int control, char *ph_out)
 			// remove vowel from the end of tens if units starts with a vowel (LANG=Italian)
 			ix = strlen(ph_tens)-1;
 			if((next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type) == phSTRESS)
-				next_phtype = phoneme_tab[(unsigned int)(ph_digits[0])]->type;
+				next_phtype = phoneme_tab[(unsigned int)(ph_digits[1])]->type;
 
 			if((phoneme_tab[(unsigned int)(ph_tens[ix])]->type == phVOWEL) && (next_phtype == phVOWEL))
 				ph_tens[ix] = 0;
@@ -463,6 +463,8 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	int thousandplex = 0;
 	int thousands_inc = 0;
 	int prev_thousands = 0;
+	int this_value;
+	static int prev_value;
 	int decimal_count;
 	char string[12];  // for looking up entries in de_list
 	char buf1[100];
@@ -472,7 +474,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 
 	for(ix=0; isdigit(word[ix]); ix++) ;
 	n_digits = ix;
-	value = atoi(word);
+	value = this_value = atoi(word);
 
 	ph_append[0] = 0;
 
@@ -545,6 +547,17 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 			}
 		}
 	}
+	else
+	if((thousandplex > 1) && prev_thousands && (prev_value > 0))
+	{
+		// speak this thousandplex if there was no word for the previous thousandplex
+		sprintf(string,"_0M%d",thousandplex+1);
+		if(Lookup(string,buf1)==0)
+		{
+			sprintf(string,"_0M%d",thousandplex);
+			Lookup(string,ph_append);
+		}
+	}
 
 	if((ph_append[0] == 0) && (word[n_digits] == '.') && (thousandplex == 0))
 	{
@@ -611,6 +624,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	}
 
 	*flags = FLAG_FOUND;
+	prev_value = this_value;
 	return(1);
 }  // end of TranslateNumber_1
 

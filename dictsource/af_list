@@ -60,7 +60,7 @@ _13     'd&rtin
 _14     'fe@rtin
 _15     'feIftin
 _16     'sEstin
-_17     'se@vEntin
+_17     'se@v@ntin
 _18     _'ax2tin
 _19     'ne@x2@ntin
 _2X     'twIntIx2
@@ -68,7 +68,7 @@ _3X     'd&rtIx2
 _4X     'fe@rtIx2
 _5X     'feIftIx2
 _6X     'sEstIx2
-_7X     'se@vEntIx2
+_7X     'se@v@ntIx2
 _8X     'tax2tIx2
 _9X     'ne@x2@ntIx2
 _0C     'hOn@rt
@@ -85,6 +85,9 @@ _dpt    'pWnt
 // Place names
 
 afrika      'A:frika
+china       S'ina
+europa      Y@r'o@pa
+
 pretoria    prit'o@ria
 worcester   v'ust@r
 
@@ -92,41 +95,50 @@ worcester   v'ust@r
 
 // People names
 André       'andreI
-botha       b'o@ta
+annette     an'Et
+aucamp      @Ukamp
+botha       bo@ta
 charles     _^_EN
-chris       kr'Is
-christo     kr'Istu
-christian   kr'Istian
+chris       krIs
+christo     krIstu
+christian   krIstian
 christine   kr@st'i:n
 der         d@r
 eugene      judZ'i:n
-francois    fr'anSwa
-freud       fr'OId
+francois    franSwa
+freud       frOId
 george      _^_EN
-grange      x2r'A:nsi
-jacobus     jak'o@bWs
+gert        x2&rt
+gerhard     x2&rart
+grange      x2rA:nsi
+jacobus     jako@bWs
 jacques     ZA:k
-jesus       j'i:sWs
+jesus       ji:sWs
 john        _^_EN
-louis       l'uI
+leandra     li'andra
+leroux      l@ru
+
+louis       luI
 louise      luw'i:z
-paul        p'@Ul
-paulus      p'@UlWs
-petrus      p'e@trWs
-phoebe      f'i:bi
+louw l'@U
+maria mar'ia
+paul        p@Ul
+paulus      p@UlWs
+petrus      pe@trWs
+phoebe      fi:bi
 ronel       run'&l
-rousseau    r@s'@U
-terblanche t@rbl'A:nS
+rousseau    r@s@U
+terblanche  t@rblA:nS
 viljoen     $2
-villiers    v'Ili@rs
+villiers    vIli@rs
 marais      mar'E:
 mandela     mand'E:la
 celliers    sIlj'e@
 joubert     jub'&:r
 plessis     pl@s'i
-schalkwyk   sk'alkveIk
-tony        t'@Uni
-xhosa       k'O:za
+schalkwyk   skalkveIk
+tony        t@Uni
+xhosa       kO:za
 
 toit        toI
 khumalo     kum'A:lu
@@ -182,7 +194,7 @@ as		,as  $pause
 soos		$pause
 solank		$pause
 sodra		$pause
-sowel so@v'&l
+sowel 		so@v'&l
 sedert		$pause
 alhoewel	$3 $pause
 tensy		$pause
@@ -192,7 +204,7 @@ wanneer		$pause
 waar		$pause
 waarom		$pause
 waarheen	$pause
-weliswaar v'&l@-svA:r $pause
+weliswaar 	v'&l@-svA:r $pause
 hoe		$pause
 hoekom		$pause
 hoeveel		$pause
@@ -258,6 +270,7 @@ dis		$u
 
 mnr         mIn'e@r
 mej         m@jWfr@U
+mev         m@fr@U
 dr          d'Okt@r
 insp        InspEkt'Y@r
 prof        pruf'Es@r
@@ -270,49 +283,50 @@ bv          beIf'o@rbe@lt
 // main word list
 
 aanbid        $2
-aangaan       'A:nx2A:n
+aangaan       A:nx2A:n
 aanstaande    $2
 aanvaar       $2
 aanvanklik    $2
 afrikaans     $3
 afrikaner     $3
 agenda        ax2'Enda
-algehele      'alx2@h,e@l@
+algehele      alx2@h,e@l@
 alleen        $2
-alles         'al@s
+alles         al@s
 alternatiewe  $4
 asof          asOf
 asook         aso@k
 
-bedjie        b'E:ici
-beide         b'eId@
-belangriker   b@l'aNr@k,Ir
-belangrikst@  b@l'aNr@kst@
-bene          b'e@n@
-bêre          b'&:r@
-beste         b'Est@
-bestes        b'Est@s
-betekenis     b@t'e@k@n@s
-bewe          b'e@v@
-bewend        b'e@v@nd
-bewering      b@v'e@rIN
+bedjie        bE:ici
+beide         beId@
+belangriker   b@laNr@k,Ir
+belangrikst@  b@laNr@kst@
+bene          be@n@
+bêre          b&:r@
+beste         bEst@
+bestes        bEst@s
+betekenis     b@te@k@n@s
+bewe          be@v@
+bewend        be@v@nd
+bewering      b@ve@rIN
 biblioteek    $4
 
-dadelik       d'A:d@lIk
-darem         d'ar@m
-derde         d'&:rd@
+dadelik       dA:d@lIk
+darem         dar@m
+derde         d&:rd@
+dekade        dEk'A:d@
 demokrasie    d,EmOkras'i
-diegene       d'ix2,e@n@
-dikwels       d'Ikv@ls
+diegene       dix2,e@n@
+dikwels       dIkv@ls
 diplomasie    d@plo@mas'i
-dusver        d'Wsf&r
+dusver        dWsf&r
 
+effense       Ef@ns@
 ekonomie      Ekuno@m'i
-elders        '&ld@rs
-energie       En@rx2'i
+elders        &ld@rs
 enige         e@nIx2@
-era           'e@ra
-erger         '&rg@r
+era           e@ra
+erger         &rg@r
 erken         &rk'En
 ervare        $2
 ervaring      &rf'A:r@N
@@ -320,33 +334,32 @@ espeak        i:;spi:k
 euro          Y@ru
 exodus        Eks'o@dWs
 
-figuur        f@x2'yr
+figuur        f@x2yr
 finaal        $2
 finale        $2
 finalis       $3
 finaliste     $3
 
-garages       g@r'A:dZ@s
+garages       g@rA:dZ@s
 gee	      x2e@
-geen	      x2'e@n
-gegewens      x2@x2'e@v@ns
-geldelike     x2'&ld@l@k@
+geen	      x2e@n
+gegewens      x2@x2e@v@ns
+geldelike     x2&ld@l@k@
 genade        $2
-genesis       x2'e@n@s@s 
-gesamentlik   x2@s'A:m@ntl@k
-geskiedenis   x2@skid@n@s
-geur          x2'Y@r
+genesis       x2e@n@s@s 
+gesamentlik   x2@sA:m@ntl@k
+geur          x2Y@r
 gooi          x2OI
-gomorra       x2@m'Ora
-gunsteling    x2'Wnst@l@N
+gomorra       x2@mOra
+gunsteling    x2Wnst@l@N
 
 hallo         h'Il,@U
 hanteer       $2
-heeltemal     h'e@lt@mal
-heengaan      h'e@nx2A:n
-hek           h'&k
-hekke         h'&k@
-hele          h'e@l@
+heeltemal     he@lt@mal
+heengaan      he@nx2A:n
+hek           h&k
+hekke         h&k@
+hele          he@l@
 here          he@r@
 hoewel        huv'&l
 hoofsaaklik   $2
@@ -354,8 +367,9 @@ hotel         hut'&l
 
 idee          $2
 ignoreer      ix2no@r'e@r
-inagneming    @n'ax2n,e@m@N
-ingang        'Inx2aN
+inagneming    @nax2n,e@m@N
+ingang        Inx2aN
+intens @nt'Ens
 intensiteit   $4
 ironie        irun'i
 
@@ -366,52 +380,51 @@ kabinet       kabin'Et
 kafee         kaf'e@
 kantoor       $2
 kapitaal      kapit'A:l
-kategorie     kat@x2ur'i
 koevert       kuf'&rt
 kollega       kul'e@x2a
 komberse      kOmb'&rs@
 kombers       kOmb'&rs
 konferensie   kOnf@r'e:nsi
 kopiereg      kup'ir&x2
-krediet       kr@d'it
+krediet       kr@dit
 kritiek       krIt'ik
 kultuur       $2
 kunsmatige    kWnsm'A:t@x2@
 
-lekker        l'&k@r
-lekkerder     l'&k@rd@r
-lekkerste     l'&k@rst@
-lughawe       l'Wx2h,A:v@
+lekker        l&k@r
+lekkerder     l&k@rd@r
+lekkerste     l&k@rst@
+lughawe       lWx2h,A:v@
 
 manier        $2
-matige        m'A:t@x2@
-meegee        m'e@x2e@
-mense         m'e:ns@
-mens          m'e:ns
+matige        mA:t@x2@
+meegee        me@x2e@
+mens          me:ns
 militêre      mIl@t'&:r@
-minister      m@n'Ist@r
-minute        m@n'yt@
-minuut        m@n'yt
+minister      m@nIst@r
+minute        m@nyt@
+minuut        m@nyt
 miskien       $2
-misterie      m@st'e@ri
-monitor       m'OnitOr
+misterie      m@ste@ri
+monitor       mOnitOr
 motore        mo@t'o@r@
-motor         m'o@t@r
-motors        m'o@t@rs
-motortjie     m'o@t@rki
+motor         mo@t@r
+motors        mo@t@rs
+motortjie     mo@t@rki
 
-nag           n'ax2
+nadele        nA:de@l@
+nag           nax2
 natuurlik     nat'yrl@k
 natuur        nat'yr
 nalatigheid   nA:l'A:t@x2eIt
-netjies       n'E:icis
-netjiese      n'Eicis@
-nogal         n'Ox2al
+netjies       nE:icis
+netjiese      nEicis@
+nogal         nOx2al
 normaal       $2
 normale       nOrm'A:l@
 november      $2
-numeri        n'Wm@ri
-nuweling      n'yv@l@N
+numeri        nWm@ri
+nuweling      nyv@l@N
 
 omtrent       Omtr'Ent
 onderstebo    On@rst@b,o@
@@ -428,53 +441,53 @@ oranje        $2
 patriotisme   patri|ut'Ism@
 parlement     parl@m'Ent
 party         $2
-per           p'Ir
-persent       p@rs'Ent
-presies       pr@s'is
+per           pIr
+persent       p@rsEnt
 probeer       prube@r
 probleem      prubl'e@m
 probleme      prubl'e@m@
 program       prux2r'am
 
-redelik       r'e@d@l@k
-reeds         r'e@ts
+redelik       re@d@l@k
+reeds         re@ts
 regverdig     r&x2f'&rd@x2
-resep         r@s'Ep
-resepte       r@s'Ept@
-retireer      r@t@r'e@:r
-rimpeling     r'Imp@l@N
-rukkerig      r'Wk@r@x2
+resep         r@sEp
+resepte       r@sEpt@
+retireer      r@t@re@:r
+rimpeling     rImp@l@N
+rukkerig      rWk@r@x2
 
 
-samelewing    s'A:m@l,e@v@N
-sedert        s'e@d@rt
-sekere        s'e@k@r@
-sekonde       s@k'Ond@
-sekondes      s@k'Ond@s
+samelewing    sA:m@l,e@v@N
+sedert        se@d@rt
+sekere        se@k@r@
+sekonde       s@kOnd@
+sekondes      s@kOnd@s
 sektore       $2
-silinder      s@l'Ind@r
+silinder      s@lInd@r
 s'n           s'@n
 sodra         so@dr'A:
 sogenaamde    s'o@x2@n,A:md@
 soldaat       $2
 soldate       $2
-sononder      s'On,On@r
-sonop         s'On,Op
-sover         s'o@f&r
+sononder      sOn,On@r
+sonop         sOn,Op
+sover         so@f&r
 spesiale      spiSi'A:l@
 stabiel       stab'il
 
-tema          t'e@ma
-terug         t@-r'Wx2
-terwyl        t@rv'eIl
-tevrede       t@fr'e@d@
-toegee        t'ux2e@
+tema          te@ma
+terug         t@-rWx2
+terwyl        t@rveIl
+tesame        t@sA:m@
+tevrede       t@fre@d@
+toegee        tux2e@
 toenemend     $2
 totale        tut'A:l@
 
-uitdagings    'YydA:x2@Ns
-uitdaging     'YydA:x2@N
-uiteindelik    $2
+uitdagings    YydA:x2@Ns
+uitdaging     YydA:x2@N
+uiteindelik   $2
 
 vanaf         fanaf
 vandag        $2
@@ -482,34 +495,35 @@ vandaan       $2
 vanjaar       $2
 vanoggend     fan'Ox2@nt
 vanuit        fan'Yyt
-veraf         f'&r_af
+veraf         f&r_af
 verantwoordelikheid f@rantv'o@rd@l@keIt
-verdere       f'&rd@r@
-vere          f'e@r@
-vererger      f@r'&rg@r
-ver           f'&r
-verg          f'&rx2
-vergete       f@rx2'e@t@
-vergewe       f@rx2'e@v@
+verdere       f&rd@r@
+vere          fe@r@
+vererger      f@r&rg@r
+ver           f&r
+verg          f&rx2
+vergete       f@rx2e@t@
+vergewe       f@rx2e@v@
 vermy         $2
-verre         f'&:r@
-verreweg      f'&r@v&x2
-verse         f'&:rs@
-vers          f'&:rs
-verste        f'&rst@
-verte         f'&rt@
-via           v'ia
+verre         f&:r@
+verreweg      f&r@v&x2
+verse         f&:rs@
+vers          f&:rs
+verste        f&rst@
+verte         f&rt@
+via           via
 volwassenes   fOlv'as@n@s
-voorgee       f'o@rx2e@
+voorgee       fo@rx2e@
 voorkom       $2
 voormalige    fo@rm'A:l@x2@
 voorsien      $2
 voorspel      fo@rsp'&l
-vorige        f'o@r@x2@
-vrek          fr'&k
+vorige        fo@r@x2@
+vrek          fr&k
 
 waarskynlik   $2
 waarskynlike  $2
 weg           v&x2
-weggewens v'&x2@v'E:ns
-wens v'E:ns
+weggewens     v&x2@v'E:ns
+wens          vE:ns
+

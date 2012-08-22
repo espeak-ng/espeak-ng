@@ -18,7 +18,7 @@
         ăi       @I
         ău       @U
 
-     &) ă (_S1q  @
+     &) ă (_S1   @
         ări (A_  @*'i
         ării (_  @*'iI
         ări (AA_ @*'i
@@ -33,11 +33,16 @@
         b        b
      @) b (i_    b;
 
+     @) b (il_   =b
+    mo) bil (_   b'il
+
 
 .group c
         c        k
         c (e     tS
         c (i     tS
+        ci (A    tS
+        cii      tSiI
         ch       k
 
 
@@ -51,7 +56,6 @@
         ei       eI
         eu       eU
         eu (_    'eU
-     _) eu (@    e[u
         ea       ea
      &) ea (_S2q ea
         eai      eaj
@@ -77,6 +81,8 @@
         g        g
         g (e     dZ
         g (i     dZ
+        gi (A    dZ
+        gii      dZiI
         gh       g
 
 
@@ -91,7 +97,10 @@
      &) i (_N$1q i/
     Cr) i (_     i
     V&) i (_     'i       // verb
-//      ie (_    'ie
+    ăC) ia (_    'ia
+    âC) ia (_    'ia
+    ăC) ie (_    'ie
+    âC) ie (_    'ie
         iei (_   'ieI
         ii       iI
      &) ii (_S2q iI
@@ -100,6 +109,8 @@
         iu       ju
         iile (_  'iIle
 
+     &) ic (_    =ik
+     &) ice (_   =itSe
      &) ing (_   %iNg     // foreign words
 
 
@@ -136,6 +147,8 @@
         n (g     N
         n (k     N
      @) n (tic_  =n
+     @) n (ic_   =n
+
 
 .group o
         o        o
@@ -168,7 +181,7 @@
 
      _) re (@P2v   re
     @u) ri (_S2t   rI
-    @u) rile (_S4t tile
+    @u) rile (_S4t rile
 
 
 .group s
@@ -246,7 +259,7 @@
         &        perlwet
         @        a*'ond
         /        sleS
-        €        e[u*'o
+        €        'eU*o
 
         , (D     v'irgol@
 

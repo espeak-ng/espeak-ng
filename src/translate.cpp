@@ -821,9 +821,11 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 	// transfer all the phonemes of the clause into phoneme_list
 	ph = phoneme_tab[phonPAUSE];
 
-	for(j=0; (j<n_ph_list2) && (ix < N_PHONEME_LIST-3); j++)
+	for(j=0; insert_ph || ((j<n_ph_list2) && (ix < N_PHONEME_LIST-3)); j++)
 	{
 		prev = ph;
+
+		plist2 = &ph_list3[j];
 
 		if(insert_ph != 0)
 		{
@@ -839,7 +841,6 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 		else
 		{
 			// otherwise get the next phoneme from the list
-			plist2 = &ph_list3[j];
 			ph = phoneme_tab[plist2->phcode];
 
 			if(plist2->phcode == phonSWITCH)
@@ -973,6 +974,15 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 
 		if((insert_ph == 0) && (ph->link_out != 0) && (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
 		{
+			if(ph->phflags & phAPPENDPH)
+			{
+				// always append the specified phoneme, unless it already is the next phoneme
+				if((ph->link_out != (plist2+1)->phcode) && (next->type == phVOWEL))
+				{
+					insert_ph = ph->link_out;
+				}
+			}
+			else
 			if(((langopts.word_gap & 2)==0) || ((plist2+1)->sourceix == 0))
 			{
 				// This phoneme can be linked to a following vowel by inserting a linking phoneme

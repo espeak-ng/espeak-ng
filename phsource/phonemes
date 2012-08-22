@@ -921,7 +921,7 @@ phoneme L   // Welsh "ll"
   vls alv frc
   length 100
   lengthmod 3
-  wave ufric/ll
+  wave ufric/ll%80
 //  before _ ufric/ll_
 endphoneme
 
@@ -973,6 +973,9 @@ include ph_english
 
 phonemetable en_n en
 include ph_english_n
+
+phonemetable en_us en
+include ph_english_us
 
 phonemetable en_rp en
 include ph_english_rp

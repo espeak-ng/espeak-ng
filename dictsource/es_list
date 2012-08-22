@@ -44,7 +44,9 @@ _5C      kinj'Entos
 _0M1     m'il
 _1M1     m'il          // no '1' before thousand
 _0M2     mil^'ones
-_1M2     'unomil^'on
+_1M2     'unmil^'on
+_0M4     _bil^'ones
+_1M4     'unbil^'on
 _0and    i
 _dpt     koma
 

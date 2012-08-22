@@ -45,6 +45,7 @@
 #define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
 #define phLONG     0x1000
+#define phAPPENDPH 0x2000  // always insert another phoneme (link_out) after this one
 
 #define phALTERNATIVE    0x0c00   // bits 10,11  specifying use of alternative_ph
 #define phBEFOREVOWEL    0x0000

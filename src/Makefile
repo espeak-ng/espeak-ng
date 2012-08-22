@@ -3,7 +3,7 @@ INCDIR=/usr/include/espeak
 LIBDIR=/usr/lib
 DATADIR=/usr/share/espeak-data
 
-RELEASE = 1.18
+RELEASE = 1.19
 BIN_NAME = speak
 BIN2_NAME = espeak
 LIB_NAME = libespeak.so
@@ -28,17 +28,20 @@ libespeak_SOURCES = speak_lib.cpp compiledict.cpp dictionary.cpp intonation.cpp 
 
 SRCS1=$(speak_SOURCES)
 OBJS1=$(patsubst %.cpp,%.o,$(SRCS1))
-LIBS1=-lstdc++ -lportaudio
+LIBS1=-lstdc++ -lportaudio -lpthread
 
 SRCS2=$(libespeak_SOURCES)
 OBJS2=$(patsubst %.cpp,x_%.o,$(SRCS2))
-LIBS2=-lstdc++ -lportaudio
+LIBS2=-lstdc++ -lportaudio -lpthread
 
 SRCS3 = espeak.cpp
 OBJS3=$(patsubst %.cpp,%.o,$(SRCS3))
 LIBS3=-lstdc++ ./libespeak.so
 
 CXXFLAGS=-O2
+ifeq ($(shell uname -m), ppc)
+	CXXFLAGS += -D ARCH_BIG
+endif
 
 
 all: $(BIN_NAME) $(LIB_NAME) $(BIN2_NAME)
@@ -50,7 +53,7 @@ all: $(BIN_NAME) $(LIB_NAME) $(BIN2_NAME)
 $(BIN_NAME): $(OBJS1)
 	$(CXX) -o $@ $(OBJS1) $(LIBS1)
 
-$(BIN2_NAME): $(OBJS3)
+$(BIN2_NAME): $(OBJS3) $(LIB_NAME)
 	$(CXX) -o $@ $(OBJS3) $(LIBS3)
 
 
@@ -67,6 +70,7 @@ clean:
 
 distclean: clean
 	rm -f $(BIN_NAME)
+	rm -f $(BIN2_NAME)
 	rm -f $(LIB_NAME)*
 
 install: all

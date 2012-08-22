@@ -460,6 +460,22 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 
 	result = WavegenFill(1);
 
+#ifdef ARCH_BIG
+	{
+		// swap the order of bytes in each sound sample in the portaudio buffer
+		int c;
+		out_ptr = (unsigned char *)outputBuffer;
+		out_end = out_ptr + framesPerBuffer*2;
+		while(out_ptr < out_end)
+		{
+			c = out_ptr[0];
+			out_ptr[0] = out_ptr[1];
+			out_ptr[1] = c;
+			out_ptr += 2;
+		}
+	}
+#endif
+
 	if(out_channels == 2)
 	{
 		// sound output can only do stereo, not mono.  Duplicate each sound sample to
@@ -668,7 +684,7 @@ void WavegenInit(int rate, int wavemult_fact)
 	pk_shape = pk_shape2;         // ph_shape2
 
 #ifdef LOG_FRAMES
-remove("log");
+remove("log-espeakedit");
 #endif
 }  // end of WavegenInit
 
@@ -1125,7 +1141,7 @@ static int Wavegen()
 static int PlaySilence(int length, int resume)
 {//===========================================
 	static int n_samples;
-	int value;
+	int value=0;
 
 	nsamples = 0;
 	samplecount = 0;
@@ -1465,13 +1481,23 @@ static int Wavegen2(int length, int modulation, int resume, frame_t *fr1, frame_
 	return(Wavegen());
 }
 
+void Write4Bytes(FILE *f, int value)
+{//=================================
+// Write 4 bytes to a file, least significant first
+	int ix;
+
+	for(ix=0; ix<4; ix++)
+	{
+		fputc(value & 0xff,f);
+		value = value >> 8;
+	}
+}
+
 
 
 int OpenWaveFile(const char *path, int rate)
 /******************************************/
 {
-	int *p;
-
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
 		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
@@ -1483,11 +1509,6 @@ int OpenWaveFile(const char *path, int rate)
 
 	wavephase = 0x7fffffff;
 
-	// set the sample rate in the header
-	p = (int *)(&wave_hdr[24]);
-	p[0] = rate;
-	p[1] = rate * 2;
-
 	if(strcmp(path,"stdout")==0)
 		f_wave = stdout;
 	else
@@ -1495,7 +1516,10 @@ int OpenWaveFile(const char *path, int rate)
 
 	if(f_wave != NULL)
 	{
-		fwrite(wave_hdr,1,sizeof(wave_hdr),f_wave);
+		fwrite(wave_hdr,1,24,f_wave);
+		Write4Bytes(f_wave,rate);
+		Write4Bytes(f_wave,rate * 2);
+		fwrite(&wave_hdr[32],1,8,f_wave);
 		return(0);
 	}
 	return(1);
@@ -1508,7 +1532,6 @@ void CloseWaveFile(int rate)
 /******************/
 {
    unsigned int pos;
-   static int value;
 
    if(f_log != NULL)
 	{
@@ -1522,21 +1545,12 @@ void CloseWaveFile(int rate)
    fflush(f_wave);
    pos = ftell(f_wave);
 
-   value = pos - 8;
-   fseek(f_wave,4,SEEK_SET);
-   fwrite(&value,4,1,f_wave);
+	fseek(f_wave,4,SEEK_SET);
+	Write4Bytes(f_wave,pos - 8);
 
-	value = rate;
-	fseek(f_wave,24,SEEK_SET);
-	fwrite(&value,4,1,f_wave);
+	fseek(f_wave,40,SEEK_SET);
+	Write4Bytes(f_wave,pos - 44);
 
-	value = rate*2;
-	fseek(f_wave,28,SEEK_SET);
-	fwrite(&value,4,1,f_wave);
-
-   value = pos - 44;
-   fseek(f_wave,40,SEEK_SET);
-   fwrite(&value,4,1,f_wave);
 
    fclose(f_wave);
    f_wave = NULL;
@@ -1592,6 +1606,17 @@ int WavegenFill(int fill_zeros)
 		q = wcmdq[wcmdq_head];
 		length = q[1];
 
+#ifdef LOG_FRAMES
+f_log=fopen("log-espeakedit","a");
+if(f_log != NULL)
+{
+	int c=' ';
+	if(resume) c='r';
+	fprintf(f_log,"\tq%d%c ix%3d %5d\n",(int)q[0],c,wcmdq_head,(int)(q[1]&0xffff));
+	fclose(f_log);
+	f_log=NULL;
+}
+#endif
 		switch(q[0])
 		{
 		case WCMD_PITCH:

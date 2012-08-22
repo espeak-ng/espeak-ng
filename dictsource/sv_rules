@@ -3,8 +3,13 @@
 
 .group a
         a        A:
+        a (vs  A:
+        a (vb  A:
+        a (va  a
         a (CC    a
         a (_     a
+        a (C_   a 
+        a  (rn   A:
 
 .group b
         b        b
@@ -34,6 +39,7 @@
      &) ens (_   Ens
      &) er (_    Er
      &) et (_S2  Et         // ??
+        e (ve   E
 
 .group f
         f        f
@@ -50,6 +56,7 @@
         g (t     k
         g (n     N
         gj       j
+
 
 .group h
         h        h
@@ -79,6 +86,7 @@
 .group l
         l        l
         l (l
+        lg  (_   j
 
 .group m
         m        m
@@ -92,7 +100,7 @@
 
 .group o
         o        u:
-        o (CC    U
+        o (CC    O
         o (rC    u:
         o (rr    O
         o (ll    O
@@ -100,6 +108,7 @@
      d) o (k     O
         o (rk    O
         o (rg    O
+        o ( ck    O
 
 .group p
         p        p
@@ -127,6 +136,7 @@
         sk (ö    sx
         skj      sx
         stj      sx
+        ssio (n  sxu:
 
 .group t
         t        t
@@ -167,7 +177,7 @@
 .group ä
         ä        E:
         ä (CC    E
-        ä (r     &
+        ä (r     E:
 
 .group ö
         ö        Y:

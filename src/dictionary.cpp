@@ -219,7 +219,7 @@ void Translator::InitGroups(void)
 	{
 		if(*p != RULE_GROUP_START)
 		{
-			fprintf(stderr,"Bad rules data in '%s_dict' at 0x%x\n",dictionary_name,p-data_dictrules);
+			fprintf(stderr,"Bad rules data in '%s_dict' at 0x%x\n",dictionary_name,(unsigned int)(p-data_dictrules));
 			break;
 		}
 		p++;
@@ -592,7 +592,11 @@ return(0);
 int Translator::IsLetter(int letter, int group)
 {//============================================
 	if(letter_type_list[group] != NULL)
-		return((int)wcschr(letter_type_list[group],letter));
+	{	
+		if(wcschr(letter_type_list[group],letter))
+			return(1);
+		return(0);
+	}
 
 	if(letter_bits_offset > 0)
 	{
@@ -1563,6 +1567,8 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					condition_num = *rule++;
 					if((dict_condition & (1L << condition_num))==0)
 						failed = 1;
+					else
+						match.points++;  // add one point for a matched conditional rule
 					break;
 				}
 				continue;

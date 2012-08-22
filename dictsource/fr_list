@@ -166,7 +166,10 @@ dept		depart@m'A~
 etc		etseter'a
 hmm		h@m
 ibm		'i:b'e:'Em
+ip		'i:p'e
+kde		kade@
 m.		m@sj'Y
+mbrola		Em'bRola
 mlle		mad@mwaz'El
 mme		mad'am
 mr		m@sj'Y
@@ -179,6 +182,9 @@ ste		s'E~t
 stp		s'il:t'@:pl'E
 svp		s'il:v'u:pl'E
 url		'y:'Er:'El
+usb		'y:'Es:'be
+utf		y:te:Ef
+xfce		iksEfse@
 xy		'iks:igr'Ek
 
 ii               d'Y          $abbrev    // roman numerals
@@ -203,13 +209,12 @@ une	$u $nounf
 
 
 // conjonctions
-et	E $u $pause
+et	e $u $pause
 ou	$u $pause
 car	$u $pause
 soit	$u $pause
 mais	$u $pause
 ou	u $u $pause
-et	$u $pause
 donc	$u $pause
 or	$u $pause
 ni	$u $pause
@@ -218,7 +223,6 @@ cependant  $u $pause
 néanmoins  $u $pause
 toutefois  $u $pause
 
-(en effet) $u $pause
 
 comme	   $u $pause
 lorsque	   $u $pause
@@ -280,7 +284,6 @@ du	$u+ $brk $nounf
 des	dEz2 $u $brk $nounf
 ?2 des  dez2 $u+ $brk $nounf
 
-en	$u+ $pause
 
 à	$u $brk
 au	$u $brk
@@ -291,6 +294,8 @@ sur	$u+ $pause
 par	$u+ $pause
 pour	$u+ $pause
 en	$u+ $brk
+(en effet) A~nEf'E $pause
+
 vers	$u+ $pause
 avec	$u+ $pause
 sans	$u+ $pause
@@ -372,6 +377,8 @@ c'est         sEt2 $u
 (sud est)     sydEst
 (nord est)    nOREst
 
+processus	pROsEsys
+
 // ut (t is said)
 août		ut
 azimut		azim'yt
@@ -396,15 +403,23 @@ zut		syt
 
 //Downing_street
 //Dun_and_Bradstreet
+bridget		bRidZ'Et
 exocet		EgzOs'Et
+fret		fR'Et
 gadget		gadZ'Et
+hamlet		aml'Et
+internet	E~tErn'Et
+jacket		Zak'Et
 knesset		knEs'Et
 lazaret		lazar'Et
 margaret	margar'Et
+net		n'Et
 offset		OfsEt
+pickpocket	pikpOk'Et
+racket		Rak'Et
 set		sEt
 soviet		sOvjEt
-ticket		tikE
+//ticket		tikE
 
 // ct (ct are not said)
 aspect		aspE
@@ -441,19 +456,37 @@ flirt		fl@rt
 tee-shirt	tiS@rt
 
 parfum		parfW~
+forum		fOR@m
 
-// anglicism
+// words from other languages
 boy		bOj
 byte		bajt
 bytes		bajts
+debian		dEbj'An
+download	dOnlod
+emacs		Emaks
+emacspeak	Emakspik
+espeak		@spik
+firefox		faj@rfOks
+thunderbird	f@ndErb@rd
 girl		g@rl
+gnome		gnom
+gnu		gnu
 insight		insajt
 liszt 		list
+(mac os x)	makoEs'iks
 night		najt
+redhat		rEdat
 schubert	SubEr
+sun		s@n
 sunlight	s@nlajt
+ubuntu		ubuntu
+viavoice	viavOjs
+windows		windoz
+word		wOrd
 wright		wrajt
 yacht		jot
+
 
 // tions (tjO~ instead of sjO~)
 achetions	aS@tjO~z2

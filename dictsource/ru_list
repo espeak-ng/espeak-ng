@@ -74,7 +74,8 @@ _dpt2	_d;Is;'atYx   // end of decimal fraction
 
 // conjunctions
 и	i $u $pause    // and
-а	a $u $pause    // and
+а	 $u $pause    // and
+а	 $atend
 но	$u $pause    // but
 ибо	$u $pause    // for
 

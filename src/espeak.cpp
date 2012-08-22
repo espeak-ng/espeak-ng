@@ -31,7 +31,7 @@
 // libespeak.so.1  library
 
 
-static const char *version = "eSpeak text-to-speech: 1.18  13.Jan.07";
+static const char *version = "eSpeak text-to-speech: 1.19  26.Jan.07";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -170,15 +170,26 @@ void DisplayVoices(FILE *f_out, char *language)
 
 
 
+static void Write4Bytes(FILE *f, int value)
+{//=================================
+// Write 4 bytes to a file, least significant first
+	int ix;
+
+	for(ix=0; ix<4; ix++)
+	{
+		fputc(value & 0xff,f);
+		value = value >> 8;
+	}
+}
+
+
 
 int OpenWavFile(const char *path, int rate)
 //=========================================
 {
-	int *p;
-
 	static unsigned char wave_hdr[44] = {
 		'R','I','F','F',0,0,0,0,'W','A','V','E','f','m','t',' ',
-		0x10,0,0,0,1,0,1,0,  9,0x3d,0,0,0x12,0x7a,0,0,
+		0x10,0,0,0,1,0,1,0,  0,0,0,0, 0,0,0,0,
 		2,0,0x10,0,'d','a','t','a',  0,0,0,0 };
 
 
@@ -188,11 +199,6 @@ int OpenWavFile(const char *path, int rate)
 	if(path[0] == 0)
 		return(0);
 
-	// set the sample rate in the header
-	p = (int *)(&wave_hdr[24]);
-	p[0] = rate;
-	p[1] = rate * 2;
-
 	if(path == "stdout")
 		f_wavfile = stdout;
 	else
@@ -200,7 +206,10 @@ int OpenWavFile(const char *path, int rate)
 
 	if(f_wavfile != NULL)
 	{
-		fwrite(wave_hdr,1,sizeof(wave_hdr),f_wavfile);
+		fwrite(wave_hdr,1,24,f_wavfile);
+		Write4Bytes(f_wavfile,rate);
+		Write4Bytes(f_wavfile,rate * 2);
+		fwrite(&wave_hdr[32],1,8,f_wavfile);
 		return(0);
 	}
 	return(1);
@@ -208,13 +217,10 @@ int OpenWavFile(const char *path, int rate)
 
 
 
-
 static void CloseWavFile(int rate)
 //================================
 {
 	unsigned int pos;
-	static int value;
-
 
 	if((f_wavfile==NULL) || (wavefile == "stdout"))
 		return;
@@ -222,13 +228,11 @@ static void CloseWavFile(int rate)
 	fflush(f_wavfile);
 	pos = ftell(f_wavfile);
 
-	value = pos - 8;
 	fseek(f_wavfile,4,SEEK_SET);
-	fwrite(&value,1,4,f_wavfile);
+	Write4Bytes(f_wavfile,pos - 8);
 
-	value = pos - 44;
 	fseek(f_wavfile,40,SEEK_SET);
-	fwrite(&value,4,1,f_wavfile);
+	Write4Bytes(f_wavfile,pos - 44);
 
 	fclose(f_wavfile);
 	f_wavfile = NULL;

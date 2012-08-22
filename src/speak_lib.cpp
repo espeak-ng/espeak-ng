@@ -73,7 +73,7 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 
 	int a_wave_can_be_played = fifo_is_command_enabled();
 
-	SHOW("*** dispatch_audio > uid=%d, [write=%x (%d bytes)], sample=%d, a_wave_can_be_played = %d\n", 
+	SHOW("*** dispatch_audio > uid=%d, [write=%p (%d bytes)], sample=%d, a_wave_can_be_played = %d\n", 
        (event) ? event->unique_identifier : 0, wave_test_get_write_buffer(), 2*length, 
        (event) ? event->sample : 0,
        a_wave_can_be_played);

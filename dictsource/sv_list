@@ -24,13 +24,13 @@ m	Em
 n	En
 //o	o:
 p	pe:
-q	ku:
+q	ku-
 r	Er
 s	Es
 t	te:
 //u	u-
 v	ve:
-w	d'Ub@lve:
+w	d'8b@lve:
 x	Eks
 y	y:
 z	s'e:t@
@@ -81,13 +81,13 @@ _dpt    p'8Nkt
 
 
 // articles
-en	$u
+en	En  $u
 ett	$u
 
 
 
 // pronouns
-jag	ja $u
+jag	jA:g $u
 du	$u
 han	han $u
 hon	$u
@@ -100,21 +100,21 @@ de	$u
 
 
 // possessive adjectives
-min	$u+
+min	mIn  $u+
 mitt	$u+
 mina	$u+
-din	$u+
+din	dIn  $u+
 ditt	$u+
 dina	$u+
-sin	$u+
+sin	sIn $u+
 sitt	$u+
 sina	$u+
 hans	$u+
 hennes	$u+
 dess	$u+
-vär	$u+
-värt	$u+
-vära	$u+
+vår	$u+
+vårt	$u+
+våra	$u+
 er	$u+
 ert	$u+
 era	$u+
@@ -130,7 +130,7 @@ för	$u $brk
 
 om	$u $brk		// about
 till	$u $brk		// to
-frän	$u $brk		// from
+från	$u $brk		// from
 mot	$u $brk		// towards
 över	$brk		// over
 längs	$brk		// along
@@ -148,7 +148,7 @@ då	$u $brk		// as
 fastän	$pause		// although
 medan	$pause		// while
 
-än	$u		// than
+än	En $u		// than
 att	$u $pause	// that
 som	$u $pause	// that, which
 
@@ -186,6 +186,10 @@ några	$u
 
 // MAIN WORD DICTIONARY
 //*********************
+var	vA:r $u
+har	hA:r $u
+vad	vA:d $u
+hej          hEj
 in        In
 fem         fEm
 sex      s'Eks
@@ -195,10 +199,21 @@ framme     fr'amE
 program     prUgr'am
 människa     m'EnIsx,a
 människor     m'EnIsx,o:r
+människorna     m'EnIsx,o:rna
 arkiv    'arki:v
 redigera      rEdIs;'e:ra
-
-
+ost	Ust
+ha	hA:
+har	hA:r
+tar	tA:r
+av      A:v
+ja	jA:
+ta      tA:
+emot    Em'u:t
+bäste     b'EstE
+hem   hEm
+betala    b'Et'A:l,a
+betalt    b'Et'A:lt
 // some words to translate using English (mostly for screenreaders)
 button   _^_EN
 Microsoft         _^_EN
@@ -237,3 +252,6 @@ dot    _^_EN
 no    _^_EN
 one    _^_EN
 online    _^_EN
+// Online    _^_EN
+orca    _^_EN
+// Orca    _^_EN
