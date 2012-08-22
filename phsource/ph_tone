@@ -1,0 +1,47 @@
+ 
+//====================================================
+//  Testing Tone levels for a tone language
+//====================================================
+
+
+phoneme 1   //  tone: level
+  stress
+  length 11
+  tone 30 35 envelope/vi_1 NULL
+endphoneme
+
+
+phoneme 2   //  tone: low falling
+  stress
+  length 12
+  tone 20  8 envelope/vi_2 NULL
+endphoneme
+
+
+phoneme 3   //  tone: broken (creaking rising)
+  stress
+  length 13
+  tone 30 50 envelope/vi_3 envelope/vi_3amp
+endphoneme
+
+
+phoneme 4   //  tone curve (dipping rising)
+  stress
+  length 14
+  tone 30  5 envelope/vi_4 NULL
+endphoneme
+
+
+phoneme 5   //  tone rising
+  stress
+  length 15
+  tone 30 45 envelope/vi_5 NULL
+endphoneme
+
+
+phoneme 6   //  tone drop  (constricted)
+  stress
+  length 16
+  tone 30  5 envelope/vi_6 envelope/vi_6amp
+endphoneme
+

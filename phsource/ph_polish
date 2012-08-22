@@ -1,0 +1,182 @@
+
+//====================================================
+//  Polish
+//====================================================
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 190
+  formants vowel/a
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 180
+  formants vwl_pl/E
+  before _ vowel/E:
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 170
+  formants vowel/i:
+  linkout ;
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 180
+  formants vwl_pl/O
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 180
+  formants vowel/u:
+endphoneme
+
+
+phoneme y      // close central unrounded (i-bar)
+  vowel starttype (i) endtype (i)
+  length 180
+  formants vowel/I"
+endphoneme
+
+
+phoneme E~
+  vowel starttype (e) endtype (e)
+  length 250
+  formants vwl_pl/E_n
+endphoneme
+
+
+phoneme O~
+  vowel starttype (o) endtype (o)
+  length 250
+  formants vwl_pl/O_n
+endphoneme
+
+
+// CONSONANTS
+//===========
+
+phoneme t
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  unvoc/t_dnt%60
+  before _ unvoc/t_dnt%30
+  before r unvoc/tr
+  switchvoicing d
+endphoneme
+
+phoneme t;
+  vls pal stop palatal
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=1  f2=2700 400 600  f3=200 70 len=50
+  lengthmod 2
+  wave unvoc/t_pzd%60
+  before _ unvoc/t_pzd%30
+  switchvoicing d;
+endphoneme
+
+
+phoneme d
+  vcd dnt stop
+  vowelin f1=1  f2=1500 -300 300  f3=-150 80
+  vowelout f1=1 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+phoneme d;
+  vcd alv stop palatal
+  vowelin f1=1  f2=2700 400 600  f3=200 80 rate len=80
+  vowelout f1=1 f2=2700 400 600  f3=200 80 rate len=100
+  formants d/d+x/d_pzd%80
+  before _ d/d_+x/d_pzd%40
+  before r d/dr+x/d_pzd%80
+  after _ NULL
+  after @ d/xd_pzd
+  lengthmod 5
+  switchvoicing t;
+endphoneme
+
+
+
+phoneme ts
+  vls alv afr sibilant
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave unvoc/ts
+endphoneme
+
+
+phoneme dz;
+  vcd pla afr sibilant
+  vowelin f1=1  f2=2700 400 600  f3=300 80 rate len=70
+  formants dZ/dZ+x/dz;
+  before _ dZ/dZ_+x/dZ_
+  after _ NULL  @ dZ/xdZ
+  lengthmod 5
+  switchvoicing ts;
+endphoneme
+
+
+phoneme ts;
+  vls pal afr sibilant
+  vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+  lengthmod 2
+  wave unvoc/ts;
+  before _ unvoc/ts;
+  switchvoicing dz;
+endphoneme
+
+
+
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+phoneme w
+  liquid
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w2
+  after _  w/w2
+endphoneme
+

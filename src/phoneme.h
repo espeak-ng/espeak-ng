@@ -35,15 +35,16 @@
 
 // phoneme properties
 //   bits 16-19 give place of articulation (not currently used)
-#define phWAVE  0x01
+#define phWAVE     0x01
 #define phUNSTRESSED 0x02
-#define phFORTIS  0x08
-#define phVOICED  0x10
+#define phFORTIS   0x08
+#define phVOICED   0x10
 #define phSIBILANT 0x20
 #define phNOLINK   0x40
 #define phTRILL    0x80
 #define phVOWEL2   0x100   // liquid that is considered a vowel
 #define phPALATAL  0x200
+#define phLONG     0x1000
 
 #define phALTERNATIVE    0x0c00   // bits 10,11  specifying use of alternative_ph
 #define phBEFOREVOWEL    0x0000
@@ -73,6 +74,8 @@
 #define phonGLOTTALSTOP 19
 #define phonSYLLABIC    20
 #define phonSWITCH      21
+#define phonX1          22      // a language specific action
+
 
 // place of articulation
 #define phPLACE        0xf0000

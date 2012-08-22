@@ -5,7 +5,8 @@
 // A  vowel:   а о у ы э  е ё и ю я
 // B  soft consonant:  ь й ч щ
 // C  any consonant:
-// F  consonant, not hard: 
+// F  consonant, not hard:
+// G  voiced: б в г д ж з
 // H  hard consonant:  ъ ж ц ш
 // Y  iotated vowel, softsign:  ь е ё и ю я
 
@@ -135,9 +136,9 @@
 .group л
           _) л (_       El
              л (л
-             л          l
-          A) л (Y       l;
-             л (ь       l       // should be soft, but we need a proper [l;] phoneme
+             л          l ле
+             л (Y       l^
+             л (ь       l^       // should be soft, but we need a proper [l^] phoneme
              л (FY      l       // should be soft
 
 .group м

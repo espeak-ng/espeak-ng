@@ -30,6 +30,7 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "speak_lib.h"
 
 #define    PITCHfall   0
 #define    PITCHrise   1
@@ -190,8 +191,11 @@ static void DoPause(int length)
 {//============================
 	int len;
 
-	len = (length * samplerate)/1000;
-	len = (len * speed_factor1)/256;
+	len = length * speed_factor1;
+	if(len < 1000) len = 1000;      // limit the amount to which pauses can be shortened
+	len = len / 256;
+
+	len = (len * samplerate) / 1000;  // convert from mS to number of samples
 
 	EndPitch(1);
 	wcmdq[wcmdq_tail][0] = WCMD_PAUSE;
@@ -401,7 +405,7 @@ int VowelCloseness(frame_t *fr)
 }
 
 
-void FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
+int FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
 {//==============================================================================================================================
 	int len;
 	int rms;
@@ -416,7 +420,7 @@ void FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsi
 	frame_t *fr = NULL;
 
 	if(n_frames < 2)
-		return;
+		return(0);
 
 	len = (data1 & 0x3f) * 2;
 	rms = ((data1 >> 6) & 0x3f) * 2;
@@ -441,6 +445,8 @@ void FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsi
 		fr = CopyFrame(seq[0].frame);
 		seq[0].frame = fr;
 		seq[0].length = VOWEL_FRONT_LENGTH;
+		if(len > 0)
+			seq[0].length = len;
 		seq[0].flags |= FRFLAG_LEN_MOD;              // reduce length modification
 		fr->flags |= FRFLAG_LEN_MOD;
 
@@ -495,6 +501,10 @@ void FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsi
 		if(flags & 2)
 			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
 	}
+
+	if(flags & 16)
+		return(len);
+	return(0);
 } //  end of FormantTransition2
 
 
@@ -1056,13 +1066,13 @@ if(which==1)
 }  // end of Synthesize::DoSpect
 
 
-static void DoMarker(int type, int char_posn, int value)
-{//=====================================================
+static void DoMarker(int type, int char_posn, int length, int value)
+{//=================================================================
 // This could be used to return an index to the word currently being spoken
-// Type 1=word, 2=sentence, 3=named marker, 4=play audio
+// Type 1=word, 2=sentence, 3=named marker, 4=play audio, 5=end
 	wcmdq[wcmdq_tail][0] = WCMD_MARKER;
 	wcmdq[wcmdq_tail][1] = type;
-	wcmdq[wcmdq_tail][2] = char_posn;
+	wcmdq[wcmdq_tail][2] = (char_posn & 0xffffff) | (length << 24);
 	wcmdq[wcmdq_tail][3] = value;
 	WcmdqInc();
 
@@ -1112,11 +1122,11 @@ static void DoEmbedded(int &embix, int sourceix)
 			break;
 
 		case EMBED_M:   // named marker
-			DoMarker(3, sourceix + clause_start_char, value);
+			DoMarker(espeakEVENT_MARK, (sourceix & 0x7ff) + clause_start_char, 0, value);
 			break;
 
 		case EMBED_U:   // play sound
-			DoMarker(4, count_characters+1, value);  // always occurs at end of clause
+			DoMarker(espeakEVENT_PLAY, count_characters+1, 0, value);  // always occurs at end of clause
 			break;
 
 		default:
@@ -1188,10 +1198,13 @@ int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
 			last_frame = NULL;
 
 			if(p->newword & 4)
-				DoMarker(2, p->sourceix + clause_start_char, count_sentences);
+				DoMarker(espeakEVENT_SENTENCE, (p->sourceix & 0x7ff) + clause_start_char, 0, count_sentences);  // start of sentence
+
+//			if(p->newword & 2)
+//				DoMarker(espeakEVENT_END, count_characters, 0, count_sentences);  // end of clause
 
 			if(p->newword & 1)
-				DoMarker(1, p->sourceix + clause_start_char, clause_start_word + word_count++);
+				DoMarker(espeakEVENT_WORD, (p->sourceix & 0x7ff) + clause_start_char, p->sourceix >> 11, clause_start_word + word_count++);
 		}
 
 		if((translator->langopts.word_gap > 1) || (translator->langopts.vowel_pause && (next->type == phVOWEL)))
@@ -1260,6 +1273,11 @@ int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
 			{
 				// a period of voicing before the release
 				DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
+				if(p->synthflags & SFLAG_LENGTHEN)
+				{
+					DoPause(20);
+					DoSpect(p->ph,phoneme_tab[phonSCHWA],next->ph,1,p,0);
+				}
 			}
 
 			if(pre_voiced)
@@ -1457,7 +1475,9 @@ int SynthOnTimer()
 
 	do {
 		if(Generate(phoneme_list,n_phoneme_list,1)==0)
+		{
 			SpeakNextClause(NULL,NULL,1);
+		}
 	} while(skipping_text);
 
 	return(0);

@@ -26,12 +26,13 @@
 #include "wchar.h"
 #include "locale.h"
 
+#include "speech.h"
+
 #include "sys/stat.h"
 #ifndef __WIN32__
 #include <unistd.h>
 #endif
 
-#include "speech.h"
 #include "voice.h"
 #include "phoneme.h"
 #include "synthesize.h"
@@ -65,7 +66,8 @@ int GetFileLength(const char *filename)
 	if(stat(filename,&statbuf) != 0)
 		return(0);
 
-	if(S_ISDIR(statbuf.st_mode))
+	if((statbuf.st_mode & S_IFMT) == S_IFDIR)
+//	if(S_ISDIR(statbuf.st_mode))
 		return(-2);  // a directory
 
 	return(statbuf.st_size);
@@ -98,6 +100,10 @@ static void init_path(void)
 	{
 		strcpy(path_home,PATH_ESPEAK_DATA);
 	}
+#endif
+
+#ifdef PLATFORM_WINDOWS
+	strcpy(path_home,"c:\\Program Files\\espeak\\espeak-data");
 #endif
 }
 
@@ -178,9 +184,9 @@ static int Synthesize(const void *text, int flags)
 }  //  end of Synthisize
 
 
-void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr)
-{//==============================================================================
-// type: 1=word, 2=sentence, 3=named mark, 4=play audio
+void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr)
+{//======================================================================================
+// type: 1=word, 2=sentence, 3=named mark, 4=play audio, 5=end
 	espeak_EVENT *ep;
 	double time;
 
@@ -189,9 +195,10 @@ void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr)
 
 	ep = &event_list[event_list_ix++];
 	ep->type = type;
-	ep->text_position = char_position;
+	ep->text_position = char_position & 0xffff;
+	ep->length = char_position >> 24;
 
-	time = (double(count_samples + (out_ptr - outbuf))*1000.0)/samplerate;
+	time = (double(count_samples + (out_ptr - outbuf)/2)*1000.0)/samplerate;
 	ep->audio_position = int(time);
 
 	if((type == espeakEVENT_MARK) || (type == espeakEVENT_PLAY))
@@ -250,7 +257,7 @@ int espeak_Initialize(int buf_length)
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
 
-	espeak_SetParameter(espeakRATE,160,0);
+	espeak_SetParameter(espeakRATE,165,0);
 	espeak_SetParameter(espeakVOLUME,100,0);
 	espeak_SetParameter(espeakCAPITALS,option_capitals,0);
 	espeak_SetParameter(espeakPUNCTUATION,option_punctuation,0);
@@ -260,7 +267,7 @@ int espeak_Initialize(int buf_length)
 }
 
 
-int espeak_Synth(void *text, unsigned int position, espeak_POSITION_TYPE position_type,
+int espeak_Synth(const void *text, unsigned int position, espeak_POSITION_TYPE position_type,
 	unsigned int end_position, unsigned int flags)
 {//=====================================================================================
 	InitText();
@@ -289,7 +296,7 @@ int espeak_Synth(void *text, unsigned int position, espeak_POSITION_TYPE positio
 }  //  end of espeak_Synth
 
 
-int espeak_Synth_Mark(void *text, const char *index_mark,
+int espeak_Synth_Mark(const void *text, const char *index_mark,
 		unsigned int end_position, unsigned int flags)
 {//=========================================================================
 	InitText();

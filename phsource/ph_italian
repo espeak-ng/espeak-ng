@@ -1,0 +1,236 @@
+
+//====================================================
+//  Italian
+//====================================================
+
+phoneme : //  Lengthen previous vowel by "length"
+  virtual
+  length 70
+endphoneme
+
+
+
+
+phoneme a
+  vowel starttype (a) endtype (a)
+  length 180
+  formants vwl_it/a
+  reduceto a/  4
+endphoneme
+
+
+phoneme a/
+  vowel starttype (@) endtype (@)
+  length 180
+  formants vwl_it/&
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vowel/e:
+endphoneme
+
+
+phoneme E
+  vowel starttype (e) endtype (e)
+  length 170
+  formants vwl_af/E2
+  reduceto  e  4        // [E] only in stressed syllables
+endphoneme
+
+
+phoneme i
+  vowel starttype (i) endtype (i)
+  length 160
+  formants vowel/i:
+  linkout ;
+endphoneme
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/o:
+endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/0
+  reduceto  o  4        // [O] only in stressed syllables
+endphoneme
+
+
+phoneme U
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vwl_de/U
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u:
+endphoneme
+
+
+phoneme aU
+  vowel starttype (a) endtype (u)
+  length 230
+  formants vowel/aU
+endphoneme
+
+
+phoneme eU
+  vowel starttype (e) endtype (u)
+  length 230
+  formants vowel/eU
+endphoneme
+
+
+phoneme aI
+  vowel starttype (a) endtype (i)
+  length 250
+  formants vowel/aI
+endphoneme
+
+
+phoneme eI
+  vowel starttype (e) endtype (i)
+  length 250
+  formants vowel/eI
+endphoneme
+
+
+phoneme OI
+  vowel starttype (o) endtype (i)
+  length 230
+  formants vwl_de/OI
+endphoneme
+
+
+phoneme uI
+  vowel starttype (u) endtype (i)
+  length 240
+  formants vowel/uI
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/r
+  after _ r/_r  t r/tr p r/tr k r/tr
+  before _ r/r_
+endphoneme
+
+
+
+
+phoneme R
+  liquid starttype r endtype r
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 2   //
+  formants r3/r_+r3/rx
+  before n   r3/r_n+r3/rx
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+phoneme w
+  liquid
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w2
+  after _  w/w2
+endphoneme
+
+
+phoneme w2
+  liquid  starttype w  endtype w
+  length 100
+  beforenotvowel w/
+  lengthmod 7
+  formants w/w
+  after _  w/w2
+endphoneme
+
+
+phoneme ts
+  vls alv afr sibilant
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave unvoc/ts
+endphoneme
+
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  vowelin f1=0  f2=1600 -300 300  f3=-100 80
+  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave  unvoc/t_dnt%50
+  before _ unvoc/t_ r unvoc/tr
+  switchvoicing d
+endphoneme
+
+
+
+phoneme d       // dental variant of /d/
+  vcd dnt stop
+  vowelin f1=1  f2=1500 -300 300  f3=-150 80
+  vowelout f1=1 f2=1500 -300 300  f3=-150 80
+  formants d/d+x/d_dnt%110
+  before _ d/d_+x/d_
+  before r d/dr+x/d_dnt%110
+  after _ NULL
+  after @ d/xd
+  lengthmod 5
+  switchvoicing t
+endphoneme
+
+
+
+phoneme k
+  vls vel stop
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
+  lengthmod 2
+  wave unvoc/k%60
+  before _ unvoc/k_
+  before r unvoc/kr
+  before l unvoc/kl
+  before (i) unvoc/ki
+  switchvoicing g
+endphoneme
+
+
+

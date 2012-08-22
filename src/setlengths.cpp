@@ -64,8 +64,8 @@ static unsigned char speed_lookup[241] = {
     32,  32,  32,  31,  31,  31,  30,  30,   // 280
     32,  32,  31,  30,  29,  29,  28,  27,   // 288
     26,  25,  25,  24,  23,  22,  21,  21,   // 296
-    20,  19,  18,  17,  16,  16,  15,  14,   // 304
-    13,  12,  11,  10,   9,   8,   7,   6,  5,  // 312
+    20,  19,  18,  17,  16,  16,  15,  15,   // 304
+    14,  13,  12,  11,  10,   9,   8,   7,   6,  // 312
 };
 
 static int speed1 = 130;
@@ -101,8 +101,10 @@ void SetSpeed(int control)
 	{
 		// these are used in synthesis file
 		s1 = (x * voice->speedf1)/256;
-		speed_factor1 = (256 * s1)/115;      // full speed adjustment
-		speed_factor2 = 120 + (137*s1)/128;  // reduced speed adjustment
+		speed_factor1 = (256 * s1)/115;      // full speed adjustment, used for pause length
+if(speed_factor1 < 18)
+	speed_factor1 = 18;
+		speed_factor2 = 120 + (137*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
 //		speed_factor2 = 128 + (128*s1)/130;  // reduced speed adjustment
 	}
 
@@ -289,7 +291,7 @@ void Translator::CalcLengths()
 			if(p->newword)
 				p->prepause = 15;
 
-			if(next->type==phPAUSE && prev->type==phNASAL && !p->ph->phflags&phFORTIS)
+			if(next->type==phPAUSE && prev->type==phNASAL && !(p->ph->phflags&phFORTIS))
 				p->prepause = 25;
 
 			if((p->ph->phflags & phSIBILANT) && next->type==phSTOP && !next->newword)
@@ -334,8 +336,6 @@ void Translator::CalcLengths()
 			if((langopts.word_gap==3) && (p->newword) && (p->prepause < 20))
 				p->prepause = 20;
 
-			if(p->synthflags & SFLAG_LENGTHEN)
-				p->prepause += 60;
 			break;
 
 		case phLIQUID:
@@ -451,8 +451,8 @@ p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 				length_mod *= speed3;
 
 			length_mod = length_mod / 128;
-			if(length_mod < 26)
-				length_mod = 26;     // restrict how much lengths can be reduced
+			if(length_mod < 24)
+				length_mod = 24;     // restrict how much lengths can be reduced
 
 			if(stress >= 7)
 			{

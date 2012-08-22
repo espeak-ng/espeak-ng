@@ -43,7 +43,7 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.14  22.Sep.06";
+static const char *version = "Speak text-to-speech: 1.16  02.Oct.06";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -102,7 +102,8 @@ int GetFileLength(const char *filename)
 	if(stat(filename,&statbuf) != 0)
 		return(0);
 
-	if(S_ISDIR(statbuf.st_mode))
+	if((statbuf.st_mode & S_IFMT) == S_IFDIR)
+//	if(S_ISDIR(statbuf.st_mode))
 		return(-2);  // a directory
 
 	return(statbuf.st_size);
@@ -143,8 +144,8 @@ static void PitchAdjust(int pitch_adjustment)
 }  //  end of PitchAdjustment
 
 
-void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr)
-{//==============================================================================
+void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr)
+{//======================================================================================
 // Do nothing in the command-line version.
 }  // end of MarkerEvent
 
@@ -231,7 +232,7 @@ int main (int argc, char **argv)
 	int option_index = 0;
 	int c;
 	int value;
-	int speed=165;
+	int speed=170;
 	int ix;
 	int amp = 100;     // default
 	int speaking = 0;

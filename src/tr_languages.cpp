@@ -128,7 +128,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
-			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
+			tr->langopts.param[LOPT_IT_DOUBLING] = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 			tr->langopts.numbers = 0x2701;
 			tr->langopts.thousands_sep = '.';
@@ -222,6 +222,25 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 
+	case L('f','i'):   // Finnish
+		{
+			static int stress_amps_fi[] = {16,16, 22,22, 20,24, 24,22 };
+			static int stress_lengths_fi[8] = {170,140, 240,240, 0,0, 250,270};
+
+			tr = new Translator();
+			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
+
+			tr->langopts.stress_rule = 0;
+			tr->langopts.stress_flags = 0x30;  // move secondary stress from light to a following heavy syllable
+			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
+
+			tr->langopts.numbers = 0x1001;
+			tr->langopts.thousands_sep = '.';   // and also allow space
+			tr->langopts.decimal_sep = ',';
+			tr->SetLetterBits(0,"aeiouy");  // A  vowels
+		}
+		break;
+
 	case L('p','l'):   // Polish
 		{
 			static int stress_lengths_pl[8] = {155, 170,  175, 175,  0, 0,  240, 280};
@@ -296,7 +315,7 @@ Translator_Russian::Translator_Russian() : Translator()
 	langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
 	langopts.param[LOPT_REGRESSIVE_VOICING] = 2;
 	langopts.param[LOPT_KEEP_UNSTR_VOWEL] = 1;
-	langopts.stress_rule = 4;
+	langopts.stress_rule = 5;
 
 	langopts.numbers = 0x401;
 	langopts.thousands_sep = '.';

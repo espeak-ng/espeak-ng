@@ -472,10 +472,11 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 	}
 
 #if USE_PORTAUDIO == 18
+	if(result != 0)
 	{
 		static int end_timer = 0;
-		if((result > 0) && (end_timer == 0))
-			end_timer =12;
+		if(end_timer == 0)
+			end_timer = 4;
 		if(end_timer > 0)
 		{
 			end_timer--;
@@ -1618,7 +1619,7 @@ int WavegenFill(int fill_zeros)
 
 			if(q[1] == 1)
 			{
-				current_source_index = q[2];
+				current_source_index = q[2] & 0xffffff;
 			}
 			break;
 

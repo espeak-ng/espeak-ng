@@ -208,7 +208,7 @@ void Translator::InitGroups(void)
 	{
 		if(*p != RULE_GROUP_START)
 		{
-			fprintf(stderr,"Bad rules data in '%s_1' at 0x%x\n",dictionary_name,p-data_dictrules);
+			fprintf(stderr,"Bad rules data in '%s_dict' at 0x%x\n",dictionary_name,p-data_dictrules);
 			break;
 		}
 		p++;
@@ -619,6 +619,7 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 
 	unsigned char phcode;
 	PHONEME_TAB *ph;
+	unsigned char *ph_out = phonemes;
 	int count = 1;
 	int max_stress = 0;
 	int ix;
@@ -685,8 +686,11 @@ int Translator::GetVowelStress(unsigned char *phonemes, char *vowel_stress, int 
 			if(stress == 0)
 				vowel_stress[count++] = 1;    // syllabic consonant, usually unstressed
 		}
+
+		*ph_out++ = phcode;
 	}
 	vowel_stress[count] = 0;
+	*ph_out = 0;
 
 	/* has the position of the primary stress been specified by $1, $2, etc? */
 #ifdef deleted
@@ -743,7 +747,10 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int post_tonic;
 
 	char vowel_stress[N_WORD_PHONEMES/2];
+	char syllable_type[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
+
+	static char consonant_types[16] = {0,0,0,1,1,1,1,1,1,1,0,0,0,0,0,0};
 
 	static char stress_phonemes[] = {phonSTRESS_U, phonSTRESS_D, phonSTRESS_2, phonSTRESS_3,
 		phonSTRESS_P, phonSTRESS_TONIC, phonSTRESS_TONIC};
@@ -780,9 +787,27 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 
 	max_stress = GetVowelStress(phonetic,vowel_stress,vowel_count,stressed_syllable);
 
-	if(langopts.stress_rule == 2)
+	// heavy or light syllables
+	ix = 1;
+	for(p = phonetic; *p != 0; p++)
 	{
-		// language with stress on penultimate vowel
+		if(phoneme_tab[*p]->type == phVOWEL)
+		{
+			syllable_type[ix] = 0;
+			if((phoneme_tab[p[0]]->phflags & phLONG) || (phoneme_tab[p[1]]->code == phonLENGTHEN) ||
+				(consonant_types[phoneme_tab[p[1]]->type] && (phoneme_tab[p[2]]->type != phVOWEL)))
+			{
+				// a long vowel, a vowel+:, or a vowel plus a consonant which is not followed by another vowel
+				syllable_type[ix] = 1;   // heavy syllable
+			}
+			ix++;
+		}
+	}
+	
+	switch(langopts.stress_rule)
+	{
+	case 2:
+		// a language with stress on penultimate vowel
 
 		if(stressed_syllable == 0)
 		{
@@ -830,9 +855,9 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 					vowel_stress[stressed_syllable] = max_stress;
 			}
 		}
-	}
-   if(langopts.stress_rule == 3)
-	{
+		break;
+
+   case 3:
 		// stress on last vowel
 		if(stressed_syllable == 0)
 		{
@@ -841,20 +866,19 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			vowel_stress[stressed_syllable] = 4;
 			max_stress = 4;
 		}
-	}
-	if(langopts.stress_rule == 4)
-	{
-		// antepenultimate
+		break;
+
+	case 5:
+		// LANG=Russian
 		if(stressed_syllable == 0)
 		{
-			/* no explicit stress - stress the penultimate vowel */
-			static char guess_ru[15] =   {0,0,1,1,2,3,3,4,5,6,7,7,8,9,10};
-			static char guess_ru_v[15] = {0,0,1,1,2,2,3,3,4,5,6,7,7,8,9};  // for final vowel
-			static char guess_ru_t[15] = {0,0,1,2,3,3,3,4,5,6,7,7,7,8,9};  // for final unv.stop (with palatal stops)
-//			static char guess_ru_t[15] = {0,0,1,2,2,3,2,3,5,5,6,7,7,8,9};  // for final unv.stop (with separate ;)
+			/* no explicit stress - guess the stress from the number of syllables */
+			static char guess_ru[16] =   {0,0,1,1,2,3,3,4,5,6,7,7,8,9,10,11};
+			static char guess_ru_v[16] = {0,0,1,1,2,2,3,3,4,5,6,7,7,8,9,10};  // for final phoneme is a vowel
+			static char guess_ru_t[16] = {0,0,1,2,3,3,3,4,5,6,7,7,7,8,9,10};  // for final phoneme is an unvoiced stop
 
 			stressed_syllable = vowel_count - 3;
-			if(vowel_count < 15)
+			if(vowel_count < 16)
 			{
 				if(phoneme_tab[final_ph]->type == phVOWEL)
 					stressed_syllable = guess_ru_v[vowel_count];
@@ -867,8 +891,9 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			vowel_stress[stressed_syllable] = 4;
 			max_stress = 4;
 		}
-	}
+		break;
 
+	}
 
 	/* now guess the complete stress pattern */
 	if(max_stress < 4)
@@ -890,6 +915,12 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			if((vowel_stress[v-1] <= 1) && (vowel_stress[v+1] <= 1))
 			{
 				/* trochaic: give stress to vowel surrounded by unstressed vowels */
+
+				if((v > 1) && (langopts.stress_flags & 0x20) && (syllable_type[v]==0) && (syllable_type[v+1]==1))
+				{
+					// don't put secondary stress on a light syllable which is followed by a heavy syllable
+					continue;
+				}
 
 // should start with secondary stress on the first syllable, or should it count back from
 // the primary stress and put secondary stress on alternate syllables?
@@ -969,8 +1000,8 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
 
-		if(ph->type == phSTRESS)
-			continue;
+//		if(ph->type == phSTRESS)
+//			continue;
 
 		if(ph->type == phPAUSE)
 		{
@@ -2508,45 +2539,12 @@ int Translator::LookupNum2(int value, int control, char *ph_out)
 }  // end of LookupNum2
 
 
-
-int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
-{//=======================================================================
+int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands)
+{//=========================================================================================================
+// Translate a 3 digit number
 	int found;
-	char string[12];
-
-	sprintf(string,"_%dT%d",value,thousandplex);
-	if((found = Lookup(string,ph_out)) == 0)
-	{
-		sprintf(string,"_0T%d",thousandplex);
-		if(Lookup(string,ph_out) == 0)
-		{
-			// repeat "thousand" if higher order names are not available
-			sprintf(string,"_%dT1",value);
-			if((found = Lookup(string,ph_out)) == 0)
-				Lookup("_0T1",ph_out);
-		}
-	}
-	return(found);
-}
-
-
-int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags, int wflags)
-{//=========================================================================================
-//  Number translation with various options
-// the "word" may be up to 4 digits
-// "words" of 3 digits may be preceded by another number "word" for thousands or millions
-
-	int n_digits;
-	int value;
 	int hundreds;
-	int ix;
-	int found;
 	int x;
-	int suppress_null = 0;
-	int decimal_point = 0;
-	int thousandplex = 0;
-	int thousands_inc;
-	int prev_thousands = 0;
 	char string[12];  // for looking up entries in de_list
 	char buf1[100];
 	char buf2[100];
@@ -2555,80 +2553,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	char ph_digits[50];
 	char ph_thousands[50];
 	char ph_hundred_and[12];
-	char ph_append[50];
-
-	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
-
-	for(ix=0; isdigit(word[ix]); ix++) ;
-	n_digits = ix;
-	value = atoi(word);
-
-	ph_append[0] = 0;
-
-	// is there a previous thousands part (as a previous "word") ?
-	if((n_digits == 3) && (word[-2] == langopts.thousands_sep) && isdigit(word[-3]))
-	{
-		prev_thousands = 1;
-	}
-	else
-	if((langopts.thousands_sep == ' ') || (langopts.numbers & 0x1000))
-	{
-		// thousands groups can be separated by spaces
-		if((n_digits == 3) && isdigit(word[-2]))
-		{
-			prev_thousands = 1;
-		}
-	}
-
-	if((value == 0) && prev_thousands)
-	{
-		suppress_null = 1;
-	}
-
-	if(word[n_digits] == langopts.decimal_sep)
-	{
-		// this "word" ends with a decimal point
-		Lookup("_dpt",ph_append);
-		decimal_point = 1;
-	}
-	else
-	if(suppress_null == 0)
-	{
-		thousands_inc = 0;
-
-		if((langopts.numbers & 0x1000) && (word[n_digits] == ' '))
-			thousands_inc = 1;
-		else
-		if(word[n_digits] == langopts.thousands_sep)
-			thousands_inc = 2;
-
-		if(thousands_inc > 0)
-		{
-			// if the following "words" are three-digit groups, count them and add
-			// a "thousand"/"million" suffix to this one
 	
-			ix = n_digits + thousands_inc;
-			while(isdigit(word[ix]) && isdigit(word[ix+1]) && isdigit(word[ix+2]))
-			{
-				thousandplex++;
-				if(word[ix+3] == langopts.thousands_sep)
-					ix += (3 + thousands_inc);
-				else
-					break;
-			}
-	
-			if(thousandplex > 0)
-			{
-				if(LookupThousands(value,thousandplex,ph_append))
-				{
-					// found an exact match for N thousand
-					value = 0;
-					suppress_null = 1;
-				}
-			}
-		}
-	}
-
 	hundreds = value / 100;
 	buf1[0] = 0;
 
@@ -2709,39 +2634,189 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	else
 	{
 		x = 0;
-		if(ph_append[0] == 0)
+		if(thousandplex==0)
 			x = 1;   // allow "eins" for 1 rather than "ein"
 
 		if(LookupNum2(value,x,buf2) != 0)
 			ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
 	}
 
-	sprintf(ph_out,"%s%s%s%s",buf1,ph_hundred_and,buf2,ph_append);
+	sprintf(ph_out,"%s%s%s",buf1,ph_hundred_and,buf2);
 
-	if(decimal_point)
+	return(0);
+}  // end of LookupNum3
+
+
+
+
+int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
+{//=======================================================================
+	int found;
+	char string[12];
+
+	sprintf(string,"_%dT%d",value,thousandplex);
+	if((found = Lookup(string,ph_out)) == 0)
+	{
+		sprintf(string,"_0T%d",thousandplex);
+		if(Lookup(string,ph_out) == 0)
+		{
+			// repeat "thousand" if higher order names are not available
+			sprintf(string,"_%dT1",value);
+			if((found = Lookup(string,ph_out)) == 0)
+				Lookup("_0T1",ph_out);
+		}
+	}
+	return(found);
+}
+
+
+int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags, int wflags)
+{//=========================================================================================
+//  Number translation with various options
+// the "word" may be up to 4 digits
+// "words" of 3 digits may be preceded by another number "word" for thousands or millions
+
+	int n_digits;
+	int value;
+	int ix;
+	unsigned char c;
+	int suppress_null = 0;
+	int decimal_point = 0;
+	int thousandplex = 0;
+	int thousands_inc;
+	int prev_thousands = 0;
+	int decimal_count;
+	char string[12];  // for looking up entries in de_list
+	char buf1[100];
+	char ph_append[50];
+
+	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
+
+	for(ix=0; isdigit(word[ix]); ix++) ;
+	n_digits = ix;
+	value = atoi(word);
+
+	ph_append[0] = 0;
+
+	// is there a previous thousands part (as a previous "word") ?
+	if((n_digits == 3) && (word[-2] == langopts.thousands_sep) && isdigit(word[-3]))
+	{
+		prev_thousands = 1;
+	}
+	else
+	if((langopts.thousands_sep == ' ') || (langopts.numbers & 0x1000))
+	{
+		// thousands groups can be separated by spaces
+		if((n_digits == 3) && isdigit(word[-2]))
+		{
+			prev_thousands = 1;
+		}
+	}
+
+	if((value == 0) && prev_thousands)
+	{
+		suppress_null = 1;
+	}
+
+	if(word[n_digits] == langopts.decimal_sep)
+	{
+		// this "word" ends with a decimal point
+		Lookup("_dpt",ph_append);
+		decimal_point = 1;
+	}
+	else
+	if(word[n_digits] == '.')
+	{
+		Lookup("_.",ph_append);
+	}
+	else
+	if(suppress_null == 0)
+	{
+		thousands_inc = 0;
+
+		if((langopts.numbers & 0x1000) && (word[n_digits] == ' '))
+			thousands_inc = 1;
+		else
+		if(word[n_digits] == langopts.thousands_sep)
+			thousands_inc = 2;
+
+		if(thousands_inc > 0)
+		{
+			// if the following "words" are three-digit groups, count them and add
+			// a "thousand"/"million" suffix to this one
+	
+			ix = n_digits + thousands_inc;
+			while(isdigit(word[ix]) && isdigit(word[ix+1]) && isdigit(word[ix+2]))
+			{
+				thousandplex++;
+				if(word[ix+3] == langopts.thousands_sep)
+					ix += (3 + thousands_inc);
+				else
+					break;
+			}
+	
+			if(thousandplex > 0)
+			{
+				if(LookupThousands(value,thousandplex,ph_append))
+				{
+					// found an exact match for N thousand
+					value = 0;
+					suppress_null = 1;
+				}
+			}
+		}
+	}
+
+	LookupNum3(value, ph_out, suppress_null, thousandplex, prev_thousands);
+	strcat(ph_out,ph_append);
+
+
+	while(decimal_point)
 	{
 		n_digits++;
-		while(isdigit(word[n_digits]) && (strlen(ph_out) < (N_WORD_PHONEMES - 10)))
+
+		decimal_count = 0;
+		while(isdigit(word[n_digits+decimal_count]))
+			decimal_count++;
+
+		if((langopts.numbers & 0x2000) && (decimal_count > 1))
+		{
+			// Italian decimal fractions
+			if((decimal_count < 4) || ((decimal_count==4) && (word[n_digits] != '0')))
+			{
+				LookupNum3(atoi(&word[n_digits]),buf1,0,0,0);
+				strcat(ph_out,buf1);
+				if(word[n_digits]=='0')
+				{
+					// decimal part has leading zeros, so add a "hundredths" or "thousandths" suffix
+					sprintf(string,"_0Z%d",decimal_count);
+					Lookup(string,buf1);
+					strcat(ph_out,buf1);
+				}
+				n_digits += decimal_count;
+			}
+		}
+
+		while(isdigit(c = word[n_digits]) && (strlen(ph_out) < (N_WORD_PHONEMES - 10)))
 		{
 			value = word[n_digits++] - '0';
-
-			if((langopts.numbers & 0x2000) && isdigit(word[n_digits]))
-			{
-				// decimals in pairs
-				value = value*10 + word[n_digits++] - '0';
-				LookupNum2(value, 3, buf1);
-			}
-			else
-			{
-				LookupNum2(value, 1, buf1);
-			}
+			LookupNum2(value, 1, buf1);
 			strcat(ph_out,buf1);
 		}
 
 		// something after the decimal part ?
 		if(Lookup("_dpt2",buf1))
 			strcat(ph_out,buf1);
-		
+
+		if(c == langopts.decimal_sep)
+		{
+			Lookup("_dpt",buf1);
+			strcat(ph_out,buf1);
+		}
+		else
+		{
+			decimal_point = 0;
+		}
 	}
 	if(ph_out[0] != 0)
 		strcat(ph_out,str_pause);

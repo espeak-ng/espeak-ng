@@ -41,6 +41,7 @@ typedef enum {
 typedef struct {
 	int type;
 	int text_position;    // the number of characters from the start of the text
+	int length;           // word length, in characters (for espeakEVENT_WORD)
 	int audio_position;   // the time in mS within the generated speech output data
 	union {
 		int number;        // used for WORD and SENTENCE events
@@ -127,7 +128,7 @@ int UriCallback(int type, const char *uri, const char *base);
 #define espeakPHONEMES    0x100
 #define espeakENDPAUSE    0x1000
 
-int espeak_Synth(void *text, unsigned int position, espeak_POSITION_TYPE position_type, unsigned int end_position, unsigned int flags);
+int espeak_Synth(const void *text, unsigned int position, espeak_POSITION_TYPE position_type, unsigned int end_position, unsigned int flags);
 /* Synthesize speech for the specified text.  The speech sound data is passed to the calling
    program in buffers by means of the callback function specified by espeak_SetSynthCallback()
 
@@ -159,7 +160,7 @@ int espeak_Synth(void *text, unsigned int position, espeak_POSITION_TYPE positio
          this pause is suppressed.
 */
 
-int espeak_Synth_Mark(void *text, const char *index_mark, unsigned int end_position, unsigned int flags);
+int espeak_Synth_Mark(const void *text, const char *index_mark, unsigned int end_position, unsigned int flags);
 /* Synthesize speech for the specified text.  Similar to espeak_Synth() but the start position is
    specified by the name of a <mark> element in the text.
 

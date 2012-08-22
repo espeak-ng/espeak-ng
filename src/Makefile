@@ -20,7 +20,7 @@ LIBS2=-lstdc++
 
 
 all: speak libespeak.so
-	mv libespeak.so libespeak.so.1.1.14
+	mv libespeak.so libespeak.so.1.1.16
 
 .cpp.o:
 	$(CXX) $(CXXFLAGS) -O2 -Wall -pedantic -I. -c -fno-exceptions $<

@@ -43,6 +43,8 @@ z	zEd
 
 // character names
 _cap k,ap@-t@L
+_?A  lEt@
+_??  sImb@L
 
 _!   Ekskl@m'eIS@n
 _"   kwoUts
@@ -2218,8 +2220,8 @@ above            @b,Vv         $strend2
 about            a2b,aUt       $strend2
 against          a2gEnst
 ahead            a2hEd
-among            a2m,VN
-amongst          a2m,VNst
+among            a2m,VN        $strend2
+amongst          a2m,VNst      $strend2
 around           a2raUnd
 before           bI2f,O@       $strend2
 behind           bI2h,aInd     $strend2

@@ -10,6 +10,44 @@ _e	e:
 _i	i:
 _o	O:
 
+// character names
+_cap k'apital
+_??  s'imbolo
+
+_!   p'Untoesklamat'ivo
+_"   virgolet:e
+_#   kantSellet:o
+_$   dolla:ro
+_%   pertS'ento
+_&   _!e:
+_'   ap'Ostrofo
+_(   ap'ertapar'entezi
+_)   kj,Uzapar'entezi
+_*   asterisko
+_+   pjU
+_,   v'irgola
+_-   trat:ino
+_.   pUnto
+_/   slaS
+_:   d,Uep'Unte
+_;   p'Untoev'irgola
+_<   ap'erta'angolo
+_=   Ugw2ale
+_>   kj,Uza'angolo
+_?   p'UntointeRogat'ivo
+_@   ki'otS:ola
+_[   ap'ertakw2'adra
+_\   bakslaS
+_]   kj,Uzakw2'adra
+_^   kap:UtS:o
+__   'Underskore
+_`   bakpraIm
+_{   ap'ertagr'af:a
+_|   b'aRa
+_}   kj,Uzagr'af:a
+_~   tilde
+
+
 
 // numbers
 _0	dz'eRo
@@ -48,7 +86,11 @@ _1T2	unmili'one
 _0T3	mili'ardi
 _1T3	unmili'ardo
 _dpt    _v'irgola
+_0Z2	tSent'ezimi     // 100ths
+_0Z3	mill'ezimi      // 1000ths
 
+// abbreviations
+(http ://)       'ak:at,i:t,i:p'i:_
 
 // articles
 i	$u
@@ -59,7 +101,7 @@ lo	$u
 un	$u
 una	$u
 
-gli	li  $u   //  l;i
+gli	l^i  $u
 
 
 // pronouns
@@ -314,3 +356,10 @@ pneumatici   $3
 nott        nOt: $stem
 tavol       $1   $stem
 vent        vEnt $stem
+
+celsius     tsElsj'us
+conoscerla   $1
+no          nO
+posta       pOsta
+tesser      tess'Er
+uomini       $1

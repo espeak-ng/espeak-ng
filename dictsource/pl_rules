@@ -16,8 +16,8 @@
 .group d
          d          d
          d (_A      t
-         d (i       dj
-         di (A      dj
+         d (i       d;
+         di (A      d;
          dz         dz
          dz (_A     ts
          dz (i     dz;
@@ -99,8 +99,8 @@
 
 .group t
          t          t
-         t (i       tj
-         ti (A      tj
+         t (i       t;
+         ti (A      t;
 
 .group u
          u          u

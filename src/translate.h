@@ -43,8 +43,8 @@
 #define FLAG_ABBREV        0x20000  /* use this pronunciation rather than split into letters */
 #define FLAG_STEM          0x40000  // must have a suffix
 
-#define FLAG_XX1           0x80000  // language specific
-#define FLAG_XX2          0x100000
+#define FLAG_DOUBLING      0x80000  // doubles the following consonant
+#define FLAG_XX2          0x100000  // language specific
 #define FLAG_XX3          0x200000
 
 #define FLAG_VERBF        0x400000  /* verb follows */
@@ -159,6 +159,7 @@ typedef struct{
 	unsigned char pre_pause;
 	unsigned char flags;
 	unsigned char wmark;
+	unsigned char length;
 } WORD_TAB;
 
 // a clause translated into phoneme codes (first stage)
@@ -167,7 +168,7 @@ typedef struct {
 	unsigned char stress;
 	unsigned char tone_number; 
 	unsigned char synthflags;
-	short sourceix;
+	unsigned short sourceix;
 } PHONEME_LIST2;
 
 
@@ -211,8 +212,9 @@ typedef struct {
 // bit0=don't stress monosyllables,
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
-// bit3=stress last syllable if it doesn't end in vowel or "s" or "n" 
+// bit3=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
 // bit4=don't allow secondary stress on last syllable
+// bit5=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
@@ -229,7 +231,7 @@ typedef struct {
 	// bit9=only one vowel betwen tens and units
 	// bit10=omit "one" before "hundred"
 	// bit12=allow space as thousands separator (in addition to langopts.thousands_sep)
-	// bit13=speak post-decimal-point digits in pairs 
+	// bit13=(LANG=it) speak post-decimal-point digits as a combined number not as single digits
 	// bit16=dot after number indicates ordinal
 	int numbers;
 	int thousands_sep;
@@ -274,7 +276,7 @@ public:
 	int letter_bits_offset;
 
 private:
-	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int wmark);
+	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int len, int wmark);
 	int TranslateLetter(char *letter, char *phonemes, int control);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	void WriteMnemonic(int *ix, int mnem);
@@ -288,6 +290,8 @@ private:
 	const char *LookupSpecial(char *string);
 	const char *LookupCharName(int c);
 	int LookupNum2(int value, int control, char *ph_out);
+	int LookupNum3(int value, int suppress_null, int thousandplex, char *ph_out);
+	int LookupNum3(int value, char *ph_out, int suppress_null, int thousandplex, int prev_thousands);
 	int LookupThousands(int value, int thousandplex, char *ph_out);
    int TranslateNumber_1(char *word1, char *ph_out, unsigned int *flags, int wflags);
 

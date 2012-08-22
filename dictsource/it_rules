@@ -10,11 +10,14 @@
 
 	&)	a (_S1q  a     // lookup it_list without suffix
 
+	@)	a (ce_	=a
+	@)	a (ci_	=a
 		a (ista_  a
 		a (ismo_  a
 	@)	a (bile_  'a
 	@)	a (ggine_ 'a
 
+	-)	ae (ro    aI
 	@)	avano (_S5  'avano
 		
 .group b
@@ -63,8 +66,11 @@
 		ei	ej (K
 
 	&)	e (_S1q  e     // lookup it_list without suffix
+	@)	e (ce_	=e
+	@)	e (ci_	=e
 
 	@)	e (nte_   E
+	@m)	e (nte_   e
 	@)	e (nza_   E
 	@)	e (vole_  'e
 	@)	e (rrimo_ 'E
@@ -108,11 +114,12 @@
 		ggi (ò	dZ:
 		ggi (u	dZ:
 		ggi (ù	dZ:
-		gl (i	l;
-		gl (ì	l;
-		gli (A  l;
+		gl (i	l^
+		gl (ì	l^
+		gli (A  l^
 	_)	gl	gl
 		gn	n^
+		gu (A   gw2
 
 	@)	g (ero_  =g
 
@@ -138,6 +145,10 @@
 
 	&)	i (_S1q  i     // lookup it_list without suffix
 
+	@)	i (ce_	=i
+	@)	i (ci_	=i
+	@)	i (le_  =i
+	@)	i (li_  =i
 	@)	iera (_   i'E:ra
 	@)	iere (_   i'E:re
         @)      i (ente_  i
@@ -296,8 +307,33 @@
 		ù (CK	'U
 
 		%       pertS'ento
-		$	doll'a:ro
+		$	dolla:ro
+		₤       lira
+		£       sterl'ina
+		&	_!e
+		@       ki'otS:ola
+		©       k'opiraIt
+		+	pjU
+		.       pUnto
+		:       d,Uep'Unte
+		;       p'Untoev'irgola
+		!       _p'Untoesklamat'ivo_
+	!)	!
+		?	_p'UntointeRogat'ivo_
+	?)	?
+		\\	bakslaS
+		/	slaS
 
+        __)  - (_D         meno
+        A_)  - (_D        _
+        C_)  - (_D        _
+         --) -
+		−	meno
+
+		*	asterisko
+	*)	* (*
+		**           
+	**)	* (_	_::
 
 
 .group 9

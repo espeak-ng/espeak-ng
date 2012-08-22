@@ -7,6 +7,11 @@
 // prefixed by a _ character.
 
 
+
+_.	pUnkt
+_,	kOma
+
+
 // Numbers
 _0	'nUl
 _1	_'aIn
@@ -46,7 +51,6 @@ _0T3    ||mIlI'ard@n
 _1T3    _'aIn@||mIlI'ard@
 _0T4    bIlI'o:n
 _0and	||Unt
-//_dpt    _pUnkt
 _dpt	_kOma
 
 // abbreviations

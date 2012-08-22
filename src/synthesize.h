@@ -86,7 +86,7 @@ typedef struct {
 
 typedef struct {
 	short length;
-	unsigned char flags;
+	short flags;
 	frame_t *frame;
 } frameref_t;
 
@@ -104,7 +104,7 @@ typedef struct {
 	short length;  // length_mod
 	short pitch1;  // pitch, 0-4095 within the Voice's pitch range
 	short pitch2;
-	short sourceix;  // ix into the original source text string, only set at the start of a word
+	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 } PHONEME_LIST;
 
 
@@ -162,7 +162,7 @@ void CloseWaveFile(int rate);
 float polint(float xa[],float ya[],int n,float x);
 int  WavegenFile(void);
 int WavegenFill(int fill_zeros);
-void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr);
+void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr);
 extern unsigned char *out_ptr;
 extern unsigned char *out_end;
 

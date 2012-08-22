@@ -1540,7 +1540,7 @@ f_input = f_in;  // for GetC etc
 			if((punct = lookupwchar(punct_chars,c1)) == 0)
 			{
 				charix[ix] = count_characters - clause_start_char;
-				buf[ix++] = c1;
+				ix += utf8_out(c1,&buf[ix]);
 				terminator = CLAUSE_PERIOD;  // line doesn't end in punctuation, assume period
 			}
 			else

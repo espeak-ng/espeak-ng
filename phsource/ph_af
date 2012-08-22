@@ -1,0 +1,270 @@
+ 
+
+//****************************************************************
+// VOWELS
+//****************************************************************
+
+
+phoneme @    //  Schwa, but always unstressed
+  vowel   starttype (@)  endtype (@)
+  length 140
+  formants vwl_af/@
+  unstressed
+  before r/ vwl_af/r@+50
+endphoneme
+
+
+phoneme a    // short A
+  vowel  starttype (a)  endtype (a)
+  length 150
+  formants vwl_af/a
+endphoneme
+
+
+phoneme E    // short E
+  vowel  starttype (i)  endtype (e)
+  length 140
+  formants vwl_af/E
+endphoneme
+
+
+phoneme I     // short I,  Schwa
+  vowel   starttype (@)  endtype (@)
+  length 140
+  formants vwl_af/I
+  before r/ vwl_af/r@+50
+endphoneme
+
+
+phoneme O     // short O
+  vowel  starttype (o)   endtype (o)
+  length 140
+  formants vwl_af/O
+endphoneme
+
+
+phoneme W    //  short U
+  vowel starttype (@) endtype (@)
+  length 140
+  formants vwl_af/W
+endphoneme
+
+
+phoneme u    // short OE
+  vowel  starttype (u)  endtype (u)
+  length 140
+  formants vwl_af/u
+endphoneme
+
+
+phoneme &    //  more open [E]
+  vowel  starttype (e)  endtype (e)
+  length 150
+  formants vwl_af/E2
+  before l/2 DFT-30+l/L_eL_af
+endphoneme
+
+
+phoneme @L   // syllabic L
+  vowel  starttype (@)  endtype l
+  length 160
+  formants vwl_en/@L
+  unstressed
+  before _ vwl_en/@L
+endphoneme
+
+
+
+phoneme A:   // long A
+  vowel  starttype (a)  endtype (a)
+  length 230
+  formants vwl_af/A:
+endphoneme
+
+
+phoneme e@    // long E
+  vowel  starttype (i)  endtype (@)
+  length 230
+  formants vwl_af/e@
+endphoneme
+
+
+phoneme i     // long I
+  vowel  starttype (i)  endtype (i)
+  length 140
+  formants vwl_af/i
+  linkout ;
+endphoneme
+
+
+phoneme o@    // long O
+  vowel  starttype (u)  endtype (@)
+  length 250
+  formants vwl_af/o@
+endphoneme
+
+
+phoneme y     // long U
+  vowel starttype (i)  endtype (i)
+  length 180
+  formants vwl_af/y
+endphoneme
+
+
+phoneme iu
+  vowel  starttype (i)  endtype (u)
+  length 220
+  formants vwl_af/iu
+endphoneme
+
+
+phoneme @U
+  vowel  starttype (@)  endtype (u)
+  length 220
+  formants vwl_af/@U
+endphoneme
+
+
+phoneme aI
+  vowel  starttype (a)  endtype (i)
+  length 220
+  formants vwl_af/aI
+  linkout ;
+endphoneme
+
+
+phoneme AI
+  vowel  starttype (a)  endtype (i)
+  length 310
+  formants vwl_af/AI
+  linkout ;
+endphoneme
+
+
+phoneme eI
+  vowel  starttype (e)  endtype (i)
+  length 170
+  formants vwl_af/eI
+  linkout ;
+endphoneme
+
+
+phoneme OI
+  vowel  starttype (o)  endtype (i)
+  length 230
+  formants vwl_af/OI
+  linkout ;
+endphoneme
+
+
+phoneme oI
+  vowel  starttype (o)  endtype (i)
+  length 290
+  formants vwl_af/oI
+  linkout ;
+endphoneme
+
+
+phoneme uI
+  vowel  starttype (u)  endtype (i)
+  length 240
+  formants vwl_af/uI
+  linkout ;
+endphoneme
+
+
+phoneme Yy
+  vowel  starttype (@)  endtype (i)
+  length 220
+  formants vwl_af/Yy
+  linkout ;
+endphoneme
+
+
+phoneme Y@
+  vowel  starttype (i)  endtype (@)
+  length 210
+  formants vwl_af/Y@
+endphoneme
+
+
+phoneme aU
+  vowel  starttype (a)  endtype (u)
+  length 230
+  formants vowel/aU 
+endphoneme
+
+
+// circumflex accent vowels
+
+phoneme e:
+  vowel  starttype (e)  endtype (e)
+  length 210
+  formants vowel/e:
+endphoneme
+
+
+phoneme O:
+  vowel  starttype (o)  endtype (o)
+  length 240
+  formants vowel/O:
+endphoneme
+
+
+phoneme 3:
+  vowel  starttype (@)  endtype (@)
+  length 230
+  formants vwl_en/3:
+endphoneme
+
+
+
+// CONSONANTS
+//===========
+
+phoneme x2
+  vls vel frc
+  vowelin f1=0  f2=2300 200 400  f3=-100 100
+  vowelout f1=0 f2=2300 300 400  f3=-100 100  rms=20
+  length 100
+  lengthmod 3
+  wave unvoc/xx      // stronger version
+endphoneme
+
+
+
+phoneme r
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel r/
+  trill
+  formants r/rr
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+  before _ r/r_
+endphoneme
+
+
+phoneme r/   // used for [r] when not preceding a vowel
+  liquid
+  length 100
+  lengthmod 7   //
+  formants r3/r_+r3/rx
+  after  @   NULL
+  after _ r/rr
+  after t r/trr p r/trr k r/trr
+endphoneme
+
+
+phoneme l
+  liquid
+  length 100
+  lengthmod 7
+  beforenotvowel l/2       // 'darl' [l]
+  formants l/l
+  after _ l/_l  t l/tl
+  before _ l/l_
+endphoneme
+
+

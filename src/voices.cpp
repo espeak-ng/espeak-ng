@@ -18,6 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+
 #include "stdio.h"
 #include "ctype.h"
 #include "wctype.h"
@@ -35,7 +36,6 @@
 #include "translate.h"
 
 #include "speak_lib.h"
-
 
 MNEM_TAB genders [] = {
 	{"unknown", 0},
@@ -918,7 +918,14 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 {//============================================================================
 	int ix;
 	int match_fname = -1;
+	int match_fname2 = -1;
 	int match_name = -1;
+	char *id;
+	int last_part_len;
+	char last_part[20];
+
+	sprintf(last_part,"%c%s",PATHSEP,name);
+	last_part_len = strlen(last_part);
 
 	for(ix=0; voices[ix] != NULL; ix++)
 	{
@@ -928,14 +935,23 @@ static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 			break;
 		}
 		else
-		if(strcmp(name,voices[ix]->identifier)==0)
+		if(strcmp(name,id = voices[ix]->identifier)==0)
 		{
 			match_fname = ix;  // matching identifier, use this if no matching name
+		}
+		else
+		if(strcmp(last_part,&id[strlen(id)-last_part_len])==0)
+		{
+			match_fname2 = ix;
 		}
 	}
 
 	if(match_name < 0)
-		match_name = match_fname;
+	{
+		match_name = match_fname;  // no matching name, try matching filename
+		if(match_name < 0)
+			match_name = match_fname2;  // try matching just the last part of the filename
+	}
 
 	if(match_name < 0)
 		return(NULL);
@@ -969,14 +985,55 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select)
 
 void GetVoices(const char *path)
 {//=============================
-#ifndef PLATFORM_RISCOS
-
-	DIR *dir;
-	struct dirent *ent;
 	FILE *f_voice;
 	espeak_VOICE *voice_data;
 	int ftype;
 	char fname[80];
+
+#ifdef PLATFORM_RISCOS
+#else
+#ifdef PLATFORM_WINDOWS
+   WIN32_FIND_DATA FindFileData;
+   HANDLE hFind = INVALID_HANDLE_VALUE;
+   DWORD dwError;
+
+	sprintf(fname,"%s\\*",path);
+	hFind = FindFirstFile(fname, &FindFileData);
+	if(hFind == INVALID_HANDLE_VALUE)
+		return;
+
+	do {
+		sprintf(fname,"%s%c%s",path,PATHSEP,FindFileData.cFileName);
+
+		ftype = GetFileLength(fname);
+
+		if((ftype == -2) && (FindFileData.cFileName[0] != '.'))
+		{
+			// a sub-sirectory
+			GetVoices(fname);
+		}
+		else
+		if(ftype > 0)
+		{
+			// a regular line, add it to the voices list	
+			if((f_voice = fopen(fname,"r")) == NULL)
+				continue;
+		
+			// pass voice file name within the voices directory
+			voice_data = ReadVoiceFile(f_voice,fname+len_path_voices);
+			fclose(f_voice);
+
+			if(voice_data != NULL)
+			{
+				voices_list[n_voices_list++] = voice_data;
+			}
+		}
+	} while(FindNextFile(hFind, &FindFileData) != 0);
+	FindClose(hFind);
+
+#else
+	DIR *dir;
+	struct dirent *ent;
 
 	if((dir = opendir(path)) == NULL)
 		return;
@@ -1013,6 +1070,7 @@ void GetVoices(const char *path)
 		}
 	}
 	closedir(dir);
+#endif
 #endif
 }   // end of GetVoices
 
@@ -1068,7 +1126,6 @@ espeak_VOICE **espeak_ListVoices(void)
 		}
 	}
 #endif
-
 	return(voices_list);
 }  //  end of espeak_ListVoices
 

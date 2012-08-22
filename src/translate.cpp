@@ -631,17 +631,20 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 	int max_stress;
 	int voicing;
 	int regression;
+	int end_sourceix;
 	PHONEME_LIST2 ph_list3[N_PHONEME_LIST];
 
 	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0};
 	PHONEME_LIST2 *plist2 = &ph_list2_null;
 
 	phlist = phoneme_list;
+	end_sourceix = ph_list2[n_ph_list2-1].sourceix;
 
 	// is the last word of the clause unstressed ?
 	max_stress = 0;
-	for(j=n_ph_list2-1; j>=0; j--)
+	for(j=n_ph_list2-3; j>=0; j--)
 	{
+		// start with the last phoneme (before the terminating pauses) and move forwards
 		if((ph_list2[j].stress & 0x7f) > max_stress)
 			max_stress = ph_list2[j].stress & 0x7f;
 		if(ph_list2[j].sourceix != 0)
@@ -828,7 +831,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 // experimenting with [t] glottaling
 if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n')))
 {
-	if(((plist2+1)->sourceix > 0) || ((plist2-1)->stress == 4) && (next->type == phVOWEL))
+	if(((plist2+1)->sourceix != 0) || ((plist2-1)->stress == 4) && (next->type == phVOWEL))
 	{
 		ph = phoneme_tab[phonGLOTTALSTOP];
 	}
@@ -846,7 +849,7 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 			}
 		}
 
-		if((plist2+1)->sourceix > 0)
+		if((plist2+1)->sourceix != 0)
 		{
 			if((langopts.vowel_pause == 2) && (ph->type == phVOWEL) && (next->type == phVOWEL))
 			{
@@ -903,7 +906,7 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 		phlist[ix].tone_ph = plist2->tone_number;
 		phlist[ix].sourceix = 0;
 
-		if(plist2->sourceix > 0)
+		if(plist2->sourceix != 0)
 		{
 			phlist[ix].sourceix = plist2->sourceix;
 			phlist[ix].newword = 1;     // this phoneme is the start of a word
@@ -937,7 +940,7 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 
    phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
 	phlist[ix].length = post_pause;  // length of the pause, depends on the punctuation
-	phlist[ix].sourceix=0;
+	phlist[ix].sourceix = end_sourceix;
 	phlist[ix].synthflags = 0;
 	if(embedded)   // ???? is this needed
 	{
@@ -1003,6 +1006,15 @@ int Translator::TranslateLetter(char *word, char *phonemes, int control)
 	{
 		strcpy(phonemes,ph_buf);
 		return(0);
+	}
+	if(ph_buf[0] == 0)
+	{
+		// character name not found
+		if(iswalpha(letter))
+			Lookup("_?A",ph_buf);
+
+		if((ph_buf[0]==0) && !iswspace(letter))
+			Lookup("_??",ph_buf);
 	}
 
 	// at a stress marker at the start of the letter name, unless one is already marked
@@ -1441,8 +1453,8 @@ static void SetPlist2(PHONEME_LIST2 *p, unsigned char phcode)
 }
 
 
-int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int wmark)
-{//============================================================================================================
+int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix, int len, int wmark)
+{//=====================================================================================================================
 	int flags=0;
 	int stress;
 	int next_stress;
@@ -1463,6 +1475,9 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	int first_phoneme = 1;
 	char *new_language;
 	char bad_phoneme[4];
+
+	if(len > 31) len = 31;
+	source_ix = (source_ix & 0x7ff) | (len << 11); // bits 0-10 sourceix, bits 11-15 word length
 
 	word_flags = wflags;
 	if(wflags & FLAG_EMBEDDED)
@@ -1669,6 +1684,15 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 			srcix = source_ix+1;
 		}
 		else
+		if(ph_code == phonX1)
+		{
+			// a language specific action 
+			if(langopts.param[LOPT_IT_DOUBLING])
+			{
+				flags |= FLAG_DOUBLING;
+			}
+		}
+		else
 		{
 			ph_list2[n_ph_list2].phcode = ph_code;
 			ph_list2[n_ph_list2].tone_number = 0;
@@ -1696,12 +1720,14 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 			}
 			else
 			{
-				if(first_phoneme && langopts.param[LOPT_IT_DOUBLING]
-					&& (end_stressed_vowel || (prev_dict_flags & FLAG_XX1)))
+				if(first_phoneme && langopts.param[LOPT_IT_DOUBLING])
 				{
-					// italian, double the initial consonant if the previous word ends with a
-					// stressed vowel, or is marked with a flag
-					ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
+					if((prev_dict_flags & FLAG_DOUBLING)  || (end_stressed_vowel && (langopts.param[LOPT_IT_DOUBLING] == 2)))
+					{
+						// italian, double the initial consonant if the previous word ends with a
+						// stressed vowel, or is marked with a flag
+						ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
+					}
 				}
 			}
 
@@ -1836,9 +1862,8 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	int embedded_count = 0;
 	char *word;
 	char *p;
-	int j;
+	int j, k;
 	int n_digits;
-	int final_sourceix;
 
 	unsigned short charix[N_TR_SOURCE+1];
 
@@ -1931,6 +1956,8 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	for(j=0; charix[j]==0; j++);
 	words[0].sourceix = charix[j];
+	for(k=j; charix[k]!=0; k++);
+	words[0].length = k-j;
 
 	while(!finished && (ix < (int)sizeof(sbuf))&& (n_ph_list2 < N_PHONEME_LIST-4))
 	{
@@ -2260,6 +2287,9 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 
 				for(j=source_index; charix[j] == 0; j++);
 				words[word_count].sourceix = charix[j];
+				for(k=j; charix[k]!=0; k++);
+				words[word_count].length = k-j;
+
 				word_flags = 0;
 				pre_pause = 0;
 				word_mark = 0;
@@ -2274,7 +2304,6 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 			pre_pause = pre_pause_add;
 		pre_pause_add = 0;
 	}
-	final_sourceix = ix;
 
 	if((word_count==0) && (embedded_count > 0))
 	{
@@ -2337,7 +2366,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 
 			for(pw = &number_buf[1]; pw < pn;)
 			{
-				TranslateWord2(pw, words[ix].flags, words[ix].pre_pause,0, words[ix].sourceix,0);
+				TranslateWord2(pw, words[ix].flags, words[ix].pre_pause,0, words[ix].sourceix, words[ix].length, 0);
 				while(*pw++ != ' ');
 				words[ix].pre_pause = 0;
 				words[ix].flags = 0;
@@ -2346,7 +2375,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 		else
 		{
 			dict_flags = TranslateWord2(word, words[ix].flags, words[ix].pre_pause,
-		 		words[ix+1].pre_pause, words[ix].sourceix, words[ix].wmark);
+		 		words[ix+1].pre_pause, words[ix].sourceix, words[ix].length, words[ix].wmark);
 			ix += ((dict_flags >> 5) & 7);  // dictionary indicates skip next word(s)
 
 			if((dict_flags & FLAG_DOT) && (ix == word_count-1) && (terminator == CLAUSE_PERIOD))
@@ -2363,7 +2392,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && iswalpha(prev_out
 		// terminate the clause with 2 PAUSE phonemes
 		ph_list2[n_ph_list2+ix].phcode = phonPAUSE;
    	ph_list2[n_ph_list2+ix].stress = 0;
-		ph_list2[n_ph_list2+ix].sourceix = final_sourceix;
+		ph_list2[n_ph_list2+ix].sourceix = 0;
 		ph_list2[n_ph_list2+ix].synthflags = 0;
 	}
 	n_ph_list2 += 2;
