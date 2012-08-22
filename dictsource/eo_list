@@ -2,7 +2,8 @@
 
 // includes both accented characters and ascii digraph alternatives (cx, gx, ux, etc)
 
-la              $u
+l'              la
+la              %la
 ne              $u
 cxu             $u      // interogative particle
 cxi             $u

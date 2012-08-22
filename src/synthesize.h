@@ -170,9 +170,11 @@ extern int samplerate;
 
 extern int wavefile_ix;
 extern int wavefile_amp;
+extern int vowel_transition[4];
+extern int vowel_transition0, vowel_transition1;
 
 // from synthdata file
-unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level);
+unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *match_level, int control);
 frameref_t *LookupSpect(PHONEME_TAB *ph1, PHONEME_TAB *prev_ph, PHONEME_TAB *next_ph, int which, int *match_level, int *n_frames, PHONEME_LIST *plist);
 
 unsigned char *LookupEnvelope(int ix);

@@ -6,7 +6,7 @@
 	_)	a(_	a
 		a	a:
 		a (CK	a
-		ai      aI
+		ai      aI (K
 
 		
 .group b
@@ -19,17 +19,29 @@
 		c	k
 		cc	k:
 		c (e	tS
+		c (é	tS
+		c (è	tS
 		c (i	tS
+		c (ì	tS
 		cc (e	tS:
+		cc (é	tS:
+		cc (è	tS:
 		cc (i	tS:
+		cc (ì	tS:
 		ch	k
 		cch	k:
 		ci (a	tS
+		ci (à	tS
 		ci (o	tS
+		ci (ò	tS
 		ci (u	tS
+		ci (ù	tS
 		cci (a	tS:
+		cci (à	tS:
 		cci (o	tS:
+		cci (ò	tS:
 		cci (u	tS:
+		cci (ù	tS:
 		
 .group d
 	_)	d(_	da
@@ -40,7 +52,7 @@
 	_)	e(_	e
 		e	e:
 		e (CK	e
-		ei	eI
+		ei	eI (K
 		
 .group f
 	_)	f(_	fo
@@ -52,18 +64,32 @@
 		gg	g:
 		gh	g
 		g (e	dZ
+		g (é	dZ
+		g (è	dZ
 		g (i	dZ
+		g (ì	dZ
 		gi (a	dZ
+		gi (à	dZ
 		gi (o	dZ
+		gi (ò	dZ
 		gi (u	dZ
+		gi (ù	dZ
 		gg (e	dZ:
+		gg (é	dZ:
+		gg (è	dZ:
 		gg (i	dZ:
+		gg (ì	dZ:
 		ggi (a	dZ:
+		ggi (à	dZ:
 		ggi (o	dZ:
+		ggi (ò	dZ:
 		ggi (u	dZ:
+		ggi (ù	dZ:
 		gl (i	l;
+		gl (ì	l;
+		gli (A  l;
 	_)	gl	gl
-		gn	n^:
+		gn	n^
 	
 .group h
 	_)	h(_	ha
@@ -73,8 +99,13 @@
 	_)	i(_	i
 		i	i:
 		i (CK	i
-		i (A	i
-        @)      ia (_   =ia
+		i (A	j
+	l)	i (A	%i
+	r)	i (A	%i
+		i (o    i
+		i (ò	i
+        @)      ia (_   =i%a
+        @)      io (_   =i%o
 	a)	i (+	j
 	e)	i (+	j
 	o)	i (+	j
@@ -106,7 +137,7 @@
 	_)	o(_	o
 		o	o:
 		o (CK	o
-		oi	OI
+		oi	OI (K
 	
 .group p
 	_)	p(_	po
@@ -114,13 +145,15 @@
 		pp	p:
 
 .group q
-	_)	q(_	kwo
-		q	kw
-		qu	kw
+	_)	q(_	kw2o
+		q	kw2
+		qu	kw2
 
 .group r
-	_)	r(_	ra
-		r	r
+	_)	r(_	Ra
+		r	R
+		rr	RR
+	A)	r (A	r
 		
 .group s
 	_)	s(_	so
@@ -135,11 +168,20 @@
 		s (t	s
 		s (x	s
 		sc (e	S
+		sc (é	S
+		sc (è	S
 		sc (i	S
+		sc (ì	S
 	A)	sc (e	SS
+	A)	sc (é	SS
+	A)	sc (è	SS
 	A)	sc (i	SS
+	A)	sc (ì	SS
 		sch (e	sk
-		sch (e	sk
+		sch (é	sk
+		sch (è	sk
+		sch (i	sk
+		sch (ì	sk
 		sh (K	S    // foreign words
 	K)	sh	S    // foreign words
 		
@@ -150,9 +192,9 @@
 		tt	t:
 		
 .group u
-	_)	u(_	u
-		u	u:
-		u (CK	u
+	_)	u(_	U
+		u	U:
+		u (CK	U
 		u (A	w
 
 .group v
@@ -192,8 +234,11 @@
 		ó (CK	'o
 		ò	'O:
 		ò (CK	'O
-		ù	'u:
-		ù (CK	'u
+		ù	'U:
+		ù (CK	'U
+
+		%       pertS'ento
+		$	doll'a:ro
 
           D) , (_DDD      mila_:_:
       ,_000) , (_DDD
@@ -209,11 +254,11 @@
 	D)	0
 
 		0	z'ero_
-		1	'uno_
-		2	d'ue_
-		3	tr'e_
-		4	kw'attro_
-		5	tS'inkwe_
+		1	'Uno_
+		2	d'Ue_
+		3	tR'e_
+		4	kw2'attRo_
+		5	tS'inkw2e_
 		6	s'ej_
 		7	s'Ette_
 		8	'Oktto_

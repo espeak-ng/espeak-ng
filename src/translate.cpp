@@ -22,9 +22,9 @@
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
-#include <locale.h>
 
 #include <wctype.h>
+#include <wchar.h>
 
 #include "speech.h"
 #include "voice.h"
@@ -42,8 +42,6 @@ static char translator2_language[20] = {0};
 int option_log_trans = 0;
 int option_tone1 = 0;
 int option_tone2 = 0;
-int option_words = 0;
-int option_unstressed_wd2;
 int option_phonemes = 0;
 int option_endpause = 0;  // suppress pause after end of text
 int option_capitals = 0;
@@ -148,8 +146,23 @@ static const unsigned short ISO_8859_3[0x60] = {
    0x011d, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x016d, 0x015d, 0x02d9, // f8
 };
 
+static const unsigned short ISO_8859_7[0x60] = {
+   0x00a0, 0x2018, 0x2019, 0x00a3, 0x20ac, 0x20af, 0x00a6, 0x00a7, // a0  Greek
+   0x00a8, 0x00a9, 0x037a, 0x00ab, 0x00ac, 0x00ad, 0x0000, 0x2015, // a8
+   0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x0384, 0x0385, 0x0386, 0x00b7, // b0
+   0x0388, 0x0389, 0x038a, 0x00bb, 0x038c, 0x00bd, 0x038e, 0x038f, // b8
+   0x0390, 0x0391, 0x0392, 0x0393, 0x0394, 0x0395, 0x0396, 0x0397, // c0
+   0x0398, 0x0399, 0x039a, 0x039b, 0x039c, 0x039d, 0x039e, 0x039f, // c8
+   0x03a0, 0x03a1, 0x0000, 0x03a3, 0x03a4, 0x03a5, 0x03a6, 0x03a7, // d0
+   0x03a8, 0x03a9, 0x03aa, 0x03ab, 0x03ac, 0x03ad, 0x03ae, 0x03af, // d8
+   0x03b0, 0x03b1, 0x03b2, 0x03b3, 0x03b4, 0x03b5, 0x03b6, 0x03b7, // e0
+   0x03b8, 0x03b9, 0x03ba, 0x03bb, 0x03bc, 0x03bd, 0x03be, 0x03bf, // e8
+   0x03c0, 0x03c1, 0x03c2, 0x03c3, 0x03c4, 0x03c5, 0x03c6, 0x03c7, // f0
+   0x03c8, 0x03c9, 0x03ca, 0x03cb, 0x03cc, 0x03cd, 0x03ce, 0x0000, // f8
+};
+
 static const unsigned short ISO_8859_14[0x60] = {
-   0x00a0, 0x1e02, 0x1e03, 0x00a3, 0x010a, 0x010b, 0x1e0a, 0x00a7, // a0
+   0x00a0, 0x1e02, 0x1e03, 0x00a3, 0x010a, 0x010b, 0x1e0a, 0x00a7, // a0  Welsh
    0x1e80, 0x00a9, 0x1e82, 0x1e0b, 0x1ef2, 0x00ad, 0x00ae, 0x0178, // a8
    0x1e1e, 0x1e1f, 0x0120, 0x0121, 0x1e40, 0x1e41, 0x00b6, 0x1e56, // b0
    0x1e81, 0x1e57, 0x1e83, 0x1e60, 0x1ef3, 0x1e84, 0x1e85, 0x1e61, // b8
@@ -171,7 +184,7 @@ const unsigned short *charsets[N_CHARSETS] = {
 	ISO_8859_1,
 	ISO_8859_1,
 	ISO_8859_1,
-	ISO_8859_1,
+	ISO_8859_7,
 	ISO_8859_1,
 	ISO_8859_1,
 	ISO_8859_1,
@@ -188,16 +201,16 @@ const unsigned short *charsets[N_CHARSETS] = {
 // use this table if vowel is not the last in the word
 static unsigned char length_mod_tab[100] = {
 /*  a   ,   t   s   n   d   z   r   N   <- next */
-	100,105,100,105, 95,110,110,100, 95, 100,  /* a  <- next2 */
-	105,105,105,110,125,130,135,115,125, 100,  /* , */
-	105,105, 75,100, 75,105,120, 85, 75, 100,  /* t */
-	105,105, 85,105, 95,115,120,100, 95, 100,  /* s */
-	110,105, 95,105,100,115,120,100,100, 100,  /* n */
-	105,105,100,105, 95,115,120,110, 95, 100,  /* d */
-	105,105,100,105,105,122,125,110,105, 100,  /* z */
-	105,105,100,105,105,122,125,110,105, 100,  /* r */
-	105,105, 95,105,100,115,120,110,100, 100,  /* N */
-	100,100,100,100,100,100,100,100,100, 100 }; // SPARE
+	100,120,100,105, 95,110,110,100, 95, 100,  /* a  <- next2 */
+	105,120,105,110,125,130,135,115,125, 100,  /* , */
+	105,120, 75,100, 75,105,120, 85, 75, 100,  /* t */
+	105,120, 85,105, 95,115,120,100, 95, 100,  /* s */
+	110,120, 95,105,100,115,120,100,100, 100,  /* n */
+	105,120,100,105, 95,115,120,110, 95, 100,  /* d */
+	105,120,100,105,105,122,125,110,105, 100,  /* z */
+	105,120,100,105,105,122,125,110,105, 100,  /* r */
+	105,120, 95,105,100,115,120,110,100, 100,  /* N */
+	100,120,100,100,100,100,100,100,100, 100 }; // SPARE
 
 // as above, but for the last syllable in a word
 static unsigned char length_mod_tab0[100] = {
@@ -219,27 +232,17 @@ Translator::Translator()
 	int ix;
 	static int stress_amps2[] = {16,16, 20,20, 20,24, 24,22 };
 	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 260,260};
-
-	// It seems that the wctype functions don't work until the locale has been set
-	// to something other than the default "C".  Then, not only Latin1 but also the
-	// other characters give the correct results with iswalpha() etc.
-#ifdef PLATFORM_RISCOS
-	static char *locale = "ISO8859-1";
-#else
-	static const char *locale = "german";
-#endif
-   setlocale(LC_CTYPE,locale);
-
+	static const wchar_t empty_wstring[1] = {0};
 
 	charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
 	dictionary_name[0] = 0;
 	dict_condition=0;
-	ungot_char = 0;
 	data_dictrules = NULL;     // language_1   translation rules file
 	data_dictlist = NULL;      // language_2   dictionary lookup file
 
 
 	// only need lower case
+	letter_bits_offset = 0;
 	memset(letter_bits,0,sizeof(letter_bits));
 
 	// 0-5 sets of characters matched by A B C E F G in pronunciation rules
@@ -250,6 +253,8 @@ Translator::Translator()
 	SetLetterBits(3,"hlmnr");                 // H  'soft' consonants
 
 	SetLetterBits(7,"aeiouy");  // vowels, including y
+
+	char_plus_apostrophe = empty_wstring;
 
 	for(ix=0; ix<8; ix++)
 	{
@@ -266,9 +271,10 @@ Translator::Translator()
 	langopts.vowel_pause = 1;
 	langopts.word_gap = 1;
 	langopts.stress_rule = 2;
-	langopts.stress_rule2 = 0;
+	langopts.stress_flags = 0;
 	langopts.unstressed_wd1 = 1;
 	langopts.unstressed_wd2 = 3;
+	langopts.param[LOPT_SONORANT_MIN] = 95;
 
 	langopts.length_mods = length_mod_tab;
 	langopts.length_mods0 = length_mod_tab0;
@@ -311,7 +317,7 @@ int utf8_out(unsigned int c, char *buf)
 	int n_bytes;
 	int j;
 	int shift;
-	static char code[4] = {0,0xc0,0xe0,0xf0};
+	static char unsigned code[4] = {0,0xc0,0xe0,0xf0};
 
 	if(c < 0x80)
 	{
@@ -390,7 +396,7 @@ char *strchr_w(const char *s, int c)
 // return NULL for any non-ascii character
 	if(c >= 0x80)
 		return(NULL);
-	return(strchr(s,c));
+	return(strchr((char *)s,c));    // (char *) is needed for Borland compiler
 }
 
 
@@ -490,7 +496,6 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 	int  insert_ph = 0;
 	int  insert_synthflags = 0;
 	PHONEME_LIST *phlist;
-	PHONEME_LIST2 *plist2;
 	PHONEME_TAB *ph;
 	PHONEME_TAB *prev, *next, *next2;
 	int unstress_count = 0;
@@ -500,6 +505,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 	PHONEME_LIST2 ph_list3[N_PHONEME_LIST];
 
 	static PHONEME_LIST2 ph_list2_null = {0,0,0,0,0};
+	PHONEME_LIST2 *plist2 = &ph_list2_null;
 
 	phlist = phoneme_list;
 
@@ -620,7 +626,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 				{
 					// in a sequence of unstressed syllables, reduce alternate syllables to 'diminished'
                // stress.  But not for the last phoneme of a stressed word
-					if((word_has_stress) && ((plist2+1)->sourceix!=0))
+					if((langopts.stress_flags & 0x2) || (word_has_stress && ((plist2+1)->sourceix!=0)))
 					{
 						// An unstressed final vowel of a stressed word
 						unstress_count=1;    // try again for next syllable
@@ -672,6 +678,17 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 }
 #endif
 
+		if((plist2+1)->synthflags & SFLAG_LENGTHEN)
+		{
+			static char types_double[] = {phFRICATIVE,phVFRICATIVE,phNASAL,phLIQUID,0};
+			if(strchr(types_double,next->type))
+			{
+				// lengthen this consonant by doubling it
+				insert_ph = next->code;
+				(plist2+1)->synthflags ^= SFLAG_LENGTHEN;
+			}
+		}
+
 		if((plist2+1)->sourceix > 0)
 		{
 			if((langopts.vowel_pause == 2) && (ph->type == phVOWEL) && (next->type == phVOWEL))
@@ -697,7 +714,7 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 			insert_synthflags = SFLAG_SYLLABLE;
 		}
 
-		if((insert_ph == 0) && (ph->link_out != 0) && (option_words < 4)
+		if((insert_ph == 0) && (ph->link_out != 0) && (langopts.word_gap < 4)
 			&& (((plist2+1)->synthflags & SFLAG_EMBEDDED)==0))
 		{
 			// This phoneme can be linked to a following vowel by inserting a linking phoneme
@@ -883,6 +900,12 @@ int Translator::TranslateWord(char *word1, int next_pause, int wflags)
 		while(*word != ' ')
 		{
 			word += TranslateLetter(word, phonemes);
+			if(phonemes[0] == phonSWITCH)
+			{
+				// change to another language in order to translate this word
+				strcpy(word_phonemes,phonemes);
+				return(0);
+			}
 			if(++posn < 5)
 			{
 					/* stress the last vowel (assume one syllable each - not "w") */
@@ -903,6 +926,12 @@ int Translator::TranslateWord(char *word1, int next_pause, int wflags)
 			// This word looks "unpronouncable", so speak letters individually until we
 			// find a remainder that we can pronounce.
 			word += TranslateLetter(word,phonemes);
+			if(phonemes[0] == phonSWITCH)
+			{
+				// change to another language in order to translate this word
+				strcpy(word_phonemes,phonemes);
+				return(0);
+			}
 			if(++posn < 5)
 			{
 					/* stress last vowel (assume one syllable each - not "w") */
@@ -1167,9 +1196,9 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 	int prev_vowel = -1;
 	int pitch_raised = 0;
 	int switch_phonemes = -1;
+	int first_phoneme = 1;
 	char *new_language;
 	char bad_phoneme[4];
-
 
 	word_flags = wflags;
 	if(wflags & FLAG_EMBEDDED)
@@ -1269,10 +1298,15 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 				// re-translate the word using the new translator
 				flags = translator2->TranslateWord(word, next_pause, wflags);
 				strcpy((char *)p,translator2->word_phonemes);
+				if(p[0] == phonSWITCH)
+				{
+					// the second translator doesn't want to process this word
+					switch_phonemes = -1;
+				}
 			}
-			else
+			if(switch_phonemes < 0)
 			{
-				// language code is not recognised
+				// language code is not recognised or 2nd translator won't translate it
 				p[0] = phonSCHWA;  // just say something
 				p[1] = phonSCHWA;
 				p[2] = 0;
@@ -1302,7 +1336,10 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		// add pause phonemes here. Either because of punctuation (brackets or quotes) in the
 		// text, or because the word is marked in the dictionary lookup as a conjunction
 		SetPlist2(&ph_list2[n_ph_list2++],phonPAUSE);
+		end_stressed_vowel = 0;   // forget about the previous word
+		prev_dict_flags = 0;
 	}
+
 	if((option_capitals==1) && (wflags & FLAG_FIRST_UPPER))
 	{
 		SetPlist2(&ph_list2[n_ph_list2++],phonPAUSE_SHORT);
@@ -1353,7 +1390,7 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		else
 		if(ph_code == phonLENGTHEN)
 		{
-			if((langopts.param[LOPT_LENGTHEN] == 1) && (phoneme_tab[ph_list2[n_ph_list2-1].phcode]->type == phVOWEL)
+			if((langopts.param[LOPT_IT_LENGTHEN] == 1) && (phoneme_tab[ph_list2[n_ph_list2-1].phcode]->type == phVOWEL)
 				&& ((*p == 0) || (ph_list2[n_ph_list2-1].stress < 4)))
 			{
 				// don't lengthen the vowel if it's not a stressed syllable, or it's at end of word
@@ -1398,11 +1435,29 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 					max_stress_ix = n_ph_list2;
 				}
 			}
+			else
+			{
+				if(first_phoneme && langopts.param[LOPT_IT_DOUBLING]
+					&& (end_stressed_vowel || (prev_dict_flags & FLAG_XX1)))
+				{
+					// italian, double the initial consonant if the previous word ends with a
+					// stressed vowel, or is marked with a flag
+					ph_list2[n_ph_list2].synthflags |= SFLAG_LENGTHEN;
+				}
+			}
+
 			ph_list2[n_ph_list2].stress = stress;
 			n_ph_list2++;
+			first_phoneme = 0;
 		}
 	}
 	plist2->sourceix = source_ix;
+
+	end_stressed_vowel = 0;
+	if((stress >= 4) && (phoneme_tab[ph_list2[n_ph_list2-1].phcode]->type == phVOWEL))
+	{
+		end_stressed_vowel = 1;   // word ends with a stressed vowel
+	}
 
 	if(switch_phonemes >= 0)
 	{
@@ -1425,6 +1480,8 @@ int Translator::TranslateWord2(char *word, int wflags, int pre_pause, int next_p
 		// this's word's stress could be increased later
 		ph_list2[max_stress_ix].stress |= 0x80;
 	}
+
+	prev_dict_flags = flags;
 	return(flags);
 }  //  end of TranslateWord2
 
@@ -1497,7 +1554,8 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	unsigned int source_index=0;
 	unsigned int prev_source_index;
 	int prev_in;
-	int prev_out;
+	int prev_out=' ';
+	int prev_out2;
 	int prev_in2=0;
 	int next_in;
 	int clause_pause;
@@ -1590,10 +1648,13 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 	expect_verb=0;
 	expect_past=0;
 	expect_verb_s=0;
+	end_stressed_vowel=0;
+	prev_dict_flags = 0;
 
 	sbuf[0] = 0;
 	sbuf[1] = ' ';
-	ix = 2;
+	sbuf[2] = ' ';
+	ix = 3;
 	prev_in = ' ';
 
 	words[0].start = ix;
@@ -1605,6 +1666,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 
 	while(!finished && (ix < (int)sizeof(sbuf))&& (n_ph_list2 < N_PHONEME_LIST-4))
 	{
+		prev_out2 = prev_out;
 		utf8_in(&prev_out,&sbuf[ix-1],1);   // prev_out = sbuf[ix-1];
 
 		if(prev_in2 != 0)
@@ -1665,7 +1727,7 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 				c = '\'';
 			}
 
-			c = TranslateChar(&source[source_index],prev_in,c,next_in);  // language specific
+			c = TranslateChar(&source[source_index],prev_in,c,next_in);  // optional language specific function
 
 			if(!iswalpha(c) && !iswspace(c) && (c != '\''))
 			{
@@ -1782,6 +1844,13 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 					c = ' ';
 					pre_pause_add = 2;
 				}
+				else
+				if((prev_out == ' ') && iswalpha(sbuf[ix-2]) && !iswalpha(prev_in))
+				{
+					// insert extra space between a word + space + hyphen, to distinguish 'a -2' from 'a-2'
+					sbuf[ix++] = ' ';
+					words[word_count].start++;
+				}
 			}
 			else
 			if(c == '\'')
@@ -1790,6 +1859,16 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 				{
 					// between two letters, consider apostrophe as part of the word
 					single_quoted = 0;
+				}
+				else
+				if((wcschr(char_plus_apostrophe,prev_in) != 0) && (prev_out2 == ' '))
+				{
+					// consider single character plus apostrophe as a word
+					single_quoted = 0;
+					if(next_in == ' ')
+					{
+						source_index++;  // skip following space
+					}
 				}
 				else
 				{
@@ -1860,6 +1939,19 @@ void *Translator::TranslateClause(FILE *f_text, const void *vp_input, int *tone_
 				}
 				words[word_count].pre_pause = pre_pause;
 				words[word_count].flags |= (all_upper_case | word_flags);
+
+				if(pre_pause > 0)
+				{
+					// insert an extra space before the word, to prevent influence from previous word across the pause
+					for(j=ix; j>words[word_count].start; j--)
+					{
+						sbuf[j] = sbuf[j-1];
+					}
+					sbuf[j] = ' ';
+					words[word_count].start++;
+					ix++;
+				}
+
 				word_count++;
 				words[word_count].start = ix;
 				words[word_count].flags = 0;

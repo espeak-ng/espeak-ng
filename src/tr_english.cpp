@@ -36,7 +36,8 @@
 
 Translator_English::Translator_English() : Translator()
 {//===================================
-	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 248,270};
+//	static int stress_lengths2[8] = {182,140, 220,220, 220,240, 248,270};
+	static int stress_lengths2[8] = {182,140, 220,220, 0,0, 248,275};
 
 	memcpy(stress_lengths,stress_lengths2,sizeof(stress_lengths));
 	langopts.vowel_pause = 0;
@@ -46,7 +47,7 @@ Translator_English::Translator_English() : Translator()
 
 
 
-static char initials_bitmap[86] = {
+static unsigned char initials_bitmap[86] = {
  0x00, 0x00, 0x00, 0x00, 0x22, 0x08, 0x00, 0x88,  //  0
  0x20, 0x24, 0x20, 0x80, 0x10, 0x00, 0x00, 0x00,
  0x00, 0x28, 0x08, 0x00, 0x88, 0x22, 0x04, 0x00,  // 16

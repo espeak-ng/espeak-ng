@@ -33,15 +33,6 @@ public:
 
 
 
-class Translator_Esperanto: public Translator
-{//==========================================
-public:
-	Translator_Esperanto();
-private:
-	int TranslateChar(char *ptr, int prev_in, int c, int next_in);
-};
-
-
 
 class Translator_German: public Translator
 {//=======================================
@@ -53,6 +44,7 @@ public:
 //	int Unpronouncable(char *word);
 
 };  // end of class Translator_German
+
 
 
 class Translator_Afrikaans: public Translator

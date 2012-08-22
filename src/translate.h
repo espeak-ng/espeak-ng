@@ -40,6 +40,10 @@
 #define FLAG_DOT           0x10000  /* ignore '.' after word (abbreviation) */
 #define FLAG_ABBREV        0x20000  /* use this pronunciation rather than split into letters */
 
+#define FLAG_XX1           0x80000  // language specific
+#define FLAG_XX2          0x100000
+#define FLAG_XX3          0x200000
+
 #define FLAG_VERBF        0x400000  /* verb follows */
 #define FLAG_VERBSF       0x800000  /* verb follows, may have -s suffix */
 #define FLAG_NOUNF       0x1000000  /* noun follows */
@@ -59,6 +63,7 @@
 #define FLAG_LAST_WORD    0x10    /* last word in clause */
 #define FLAG_STRESSED_WORD  0x20    /* this word has explicit stress */
 #define FLAG_EMBEDDED      0x40   /* word is preceded by embedded commands */
+#define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 
 // prefix/suffix flags
 #define SUFX_E        0x0100   // e may have been added
@@ -169,15 +174,11 @@ extern PARAM_STACK param_stack[];
 extern const int param_defaults[N_SPEECH_PARAM];
 
 
-// holds properties of characters: vowel, consonant, etc for pronunciation rules
-#define LETTERGP_VOWEL    0
-#define LETTERGP_VOWEL_Y  7
-extern unsigned char letter_bits[256];
 
-#define N_LOPTS      7
+#define N_LOPTS      9
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables
-#define LOPT_LENGTHEN        2
+#define LOPT_IT_LENGTHEN        2
  // 1=german
 #define LOPT_PREFIXES        3
  // 1=regressive,  change voiced/unoiced to match last consonant in a cluster
@@ -186,13 +187,23 @@ extern unsigned char letter_bits[256];
 #define LOPT_UNPRONOUNCABLE  5
  // 0=default, 1=set length_mod0 = length_mod
 #define LOPT_FINAL_SYLLABLE  6
+ // increase this to prevent sonorants being shortened before shortened (eg. unstressed) vowels
+#define LOPT_SONORANT_MIN    7
+ // Italian "syntactic doubling"
+#define LOPT_IT_DOUBLING     8
 
 
 typedef struct {
 	int word_gap; // 0,  2=don't merge phonemes,  3= pause before stops and fricatives, 4= PAUSE_SHORT between words
 	int vowel_pause;
 	int stress_rule; // 1=first syllable, 2=penultimate,  3=last
-	int stress_rule2;  // bit1=don't stress monosyllables
+
+// bit0=don't stress monosyllables,
+// bit1=don't set diminished stress,
+// bit2=mark unstressed final syllables as diminished
+// bit3=stress last syllable if it doesn't end in vowel or "s" or "n" 
+// bit4=don't allow secondary stress on last syllable
+	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
 	int param[N_LOPTS];
@@ -221,20 +232,21 @@ public:
 	int stress_lengths[8];
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
 	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
+	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
 
-protected:
+// holds properties of characters: vowel, consonant, etc for pronunciation rules
+#define LETTERGP_VOWEL    0
+#define LETTERGP_VOWEL_Y  7
+	unsigned char letter_bits[256];
+	int letter_bits_offset;
+
+private:
 	int TranslateWord(char *word, int next_pause, int wflags);
 	int TranslateWord2(char *word, int wflags, int pre_pause, int next_pause, int source_ix);
 	int TranslateLetter(char *letter, char *phonemes);
 	void GetTranslatedPhonemeString(char *phon_out, int n_phon_out);
 	void WriteMnemonic(int *ix, int mnem);
 	void MakePhonemeList(int post_pause, int embedded, int new_sentence);
-
-	virtual int Unpronouncable(char *word);
-	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
-	virtual int RemoveEnding(char *word, int end_type);
-	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
-	virtual int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
 
 	int ReadClause(FILE *f_in, char *buf, unsigned short *charix, int n_buf);
 	int AnnouncePunctuation(int c1, int c2, char *buf, int ix);
@@ -251,9 +263,16 @@ protected:
 	int TranslateRules(char *p, char *phonemes, char *end_phonemes, int end_flags);
 
 	int IsLetter(int letter, int group);
-	int IsVowel(int letter);
 	int GetVowelStress(unsigned char *phonemes, char *vowel_stress, int &vowel_count, int &stressed_syllable);
 
+protected:
+	virtual int Unpronouncable(char *word);
+	virtual void SetWordStress(char *output, unsigned int dictionary_flags, int tonic, int prev_stress);
+	virtual int RemoveEnding(char *word, int end_type);
+	virtual int TranslateChar(char *ptr, int prev_in, int c, int next_in);
+	virtual int SubstitutePhonemes(PHONEME_LIST2 *plist_out);
+
+	int IsVowel(int letter);
 
 	char *data_dictrules;     // language_1   translation rules file
 	char *data_dictlist;      // language_2   dictionary lookup file
@@ -283,6 +302,8 @@ protected:
 	int word_flags;     // word is all upper case
 	int prev_last_stress;
 	int prepause_timeout;
+	int end_stressed_vowel;  // word ends with stressed vowel
+	int prev_dict_flags;     // dictionary flags from previous word
 	char *clause_end;
 
 	int word_vowel_count;     // number of vowels so far

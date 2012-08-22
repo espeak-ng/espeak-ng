@@ -70,6 +70,9 @@ static const short punct_chars[] = {',','.','?','!',':',';',
   0x2013,  // en-dash
   0x2014,  // em-dash
   0x2026,  // elipsis
+
+  0x037e,  // Greek question mark (looks like semicolon)
+  0x0387,  // Greek semicolon, ano teleia
   0};
 
 
@@ -80,6 +83,10 @@ static const unsigned short punct_attributes [] = { 0,
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash
   CLAUSE_SEMICOLON,  // elipsis
+
+  CLAUSE_QUESTION,   // Greek question mark
+  CLAUSE_SEMICOLON,  // Greek semicolon
+
   CLAUSE_SEMICOLON,  // spare
   0 };
 
@@ -119,6 +126,40 @@ const int param_defaults[N_SPEECH_PARAM] = {
    0,     // capital letters
    0,     // emphasis
 };
+
+
+#ifdef PLATFORM_RISCOS
+float wcstof(const wchar_t *str, wchar_t **tailptr)
+{
+   int ix;
+   char buf[80];
+   while(isspace(*str)) str++;
+   for(ix=0; ix<80; ix++)
+   {
+      buf[ix] = str[ix];
+      if(isspace(buf[ix]))
+         break;
+   }
+   *tailptr = (wchar_t *)&str[ix];
+   return(atof(buf));
+}
+#endif
+#ifdef __BORLANDC__
+float wcstof(const wchar_t *str, wchar_t **tailptr)
+{
+   int ix;
+   char buf[80];
+   while(isspace(*str)) str++;
+   for(ix=0; ix<80; ix++)
+   {
+      buf[ix] = str[ix];
+      if(isspace(buf[ix]))
+         break;
+   }
+   *tailptr = (wchar_t *)&str[ix];
+   return(atof(buf));
+}
+#endif
 
 
 static void GetC_unget(int c)
@@ -1299,6 +1340,8 @@ MNEM_TAB xml_char_mnemonics[] = {
 	{"gt",'>'},
 	{"lt",'<'},
 	{"amp", '&'},
+	{"quot", '"'},
+	{"nbsp", ' '},
 	{NULL,-1}};
 
 
@@ -1682,9 +1725,6 @@ void InitText2(void)
 
 	n_ssml_stack =1;
 	n_param_stack = 1;
-
-	for(param=0; param<N_SPEECH_PARAM; param++)
-		param_stack[0].parameter[param] = param_defaults[param];
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		speech_parameters[param] = param_stack[0].parameter[param];   // set all speech parameters to defaults

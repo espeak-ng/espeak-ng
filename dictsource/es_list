@@ -13,6 +13,11 @@ los          $u
 un           $u
 una          $u
 
+esta    $u       // this
+ese     $u       // that
+estas   $u       // those
+
+
 
 // pronouns
 yo	$u
@@ -29,6 +34,16 @@ ellos	$u
 ellas	$u
 se	$u
 
+// possessives
+mi	$u
+mis	$u
+su	$u
+sus	$u
+nuestro $u
+nuestros $u
+nuestra $u
+nuestras $u
+
 // prepositions
 a            _%a
 al           _%al
@@ -38,14 +53,15 @@ del          $u
 en           _%En
 con          $u $pause
 por          $u $pause
-
+para         $u $pause
+entre        $u $pause
 
 // conjunctions
 y            %i $pause    // and
 o            $u $pause    // or
 
 así          $pause
-aunque       $pause
+aunque       $u $pause    // although
 siquiera     $pause
 
 que          $pause

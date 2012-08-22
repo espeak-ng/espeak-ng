@@ -1,0 +1,124 @@
+ 
+// This file is UTF-8 encoded
+// all words lower case
+
+// Α α, Β β, Γ γ, Δ δ, Ε ε, Ζ ζ, Η η, Θ θ, Ι ι, Κ κ, Λ λ, Μ μ, Ν ν, Ξ ξ,
+// Ο ο, Π π, Ρ ρ, Σ σ ς (word-final form), Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω.
+// ά έ ή ί ΰ ϊ ϋ ό ύ ώ
+
+
+// miscellaneous exceptions
+μιερός     mier'os
+ρια        rQ;a
+
+
+// articles
+ο	$u o   // definate article
+η	$u i
+το	$u
+του	$u
+της	$u
+τον	$u
+την	$u
+οι	$u
+τα	$u
+των	$u
+τους	$u
+τις	$u
+
+ένας	$u    // indefinate article
+μία	$u
+μια	$u mn^a
+ένα	$u
+ενός	$u
+μίας	$u
+μιας	$u
+έναν	$u
+
+
+
+
+// pronouns
+τη	$u	// her
+
+που	$u	// that,which
+
+
+// verbs
+είμαι	$u         // to be
+είσαι	$u
+είναι	$u
+είμαστε	$u
+είστε	$u
+
+ήμουν	$u
+ήσουν	$u
+ήταν	$u
+ήμασταν	$u
+ήσασταν	$u
+
+θαείμαι	$u
+θαείσαι	$u
+θαείναι	$u
+θαείμαστε	$u
+θαείστε	$u
+
+ναείμαι	$u
+ναείσαι	$u
+ναείναι	$u
+ναείμαστε	$u
+ναείστε	$u
+
+
+έχω	$u         // to have
+έχεις	$u
+έχει	$u
+έχουμε	$u
+έχετε	$u
+έχουν	$u
+
+είχα	$u
+είχες	$u
+είχε	$u
+είχαμε	$u
+είχατε	$u
+είχαν	$u
+
+θαέχω	$u
+θαέχεις	$u
+θαέχει	$u
+θαέχουμε	$u
+θαέχετε	$u
+θαέχουν	$u
+
+ναέχω	$u
+ναέχεις	$u
+ναέχει	$u
+ναέχουμε	$u
+ναέχετε	$u
+ναέχουν	$u
+
+
+// prepositions
+
+σε	$u	// in,at,to
+στου	$u	// + the
+στον	$u
+στων	$u
+στους	$u
+στης	$u
+στην	$u
+στις	$u
+στο	$u
+στα	$u
+
+από	$u	// from
+με	$u	// with
+μασί	$u	// with,together
+
+// conjunctions
+
+αλλά	$u $pause	// but
+και	ke   $u $pause	// and (don't change to [ge] after n)
+ή	$u $pause	// or
+ότι	$u $pause	// that

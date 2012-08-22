@@ -26,8 +26,7 @@
 #include "speech.h"
 
 #ifndef PLATFORM_RISCOS
-#include "ftw.h"
-#include "sys/stat.h"
+#include "dirent.h"
 #endif
 
 #include "voice.h"
@@ -120,11 +119,12 @@ static keywtab_t keyword_tab[] = {
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
-	{"l_lengthen", 0x100+LOPT_LENGTHEN},
+//	{"l_lengthen", 0x100+LOPT_IT_LENGTHEN},
 	{"l_prefix",   0x100+LOPT_PREFIXES},
 	{"l_regressive_voicing", 0x100+LOPT_REGRESSIVE_VOICING},
 	{"l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE},
 	{"l_final_syllable", 0x100+LOPT_FINAL_SYLLABLE},
+	{"l_sonorant_min", 0x100+LOPT_SONORANT_MIN},
 	{NULL,   0} };
 
 #define N_VOICES 100
@@ -172,7 +172,7 @@ static void VoiceReset(void)
 
 	n_replace_phonemes = 0;
 	option_tone1 = 0;
-}
+}  // end of VoiceReset
 
 
 static void VoiceFormant(char *p)
@@ -319,7 +319,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 
 	sprintf(buf,"%s%cvoices%c%s",path_home,PATHSEP,PATHSEP,voicename);
 
-        if(GetFileLength(buf) <= 0)
+	if(GetFileLength(buf) <= 0)
 	{
 		// look for the voice in a sub-directory of the language name
 		langname[0] = voicename[0];
@@ -365,7 +365,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 		key = 0;
 		for(k=keyword_tab; k->mnem != NULL; k++)
 		{
-			if(strcasecmp(buf,k->mnem)==0)
+			if(strcmp(buf,k->mnem)==0)
 			{
 				key = k->data;
 				break;
@@ -472,7 +472,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 
 		case V_STRESSRULE:
 			sscanf(p,"%d %d %d %d",&langopts->stress_rule,
-				&langopts->stress_rule2,
+				&langopts->stress_flags,
 				&langopts->unstressed_wd1,
 				&langopts->unstressed_wd2);
 			break;
@@ -573,7 +573,7 @@ voice_t *LoadVoice(char *vname, int no_default)
 
 
 
-static int VoiceNameSorter(const void *p1, const void *p2)
+static int __cdecl VoiceNameSorter(const void *p1, const void *p2)
 {//=======================================================
 	int ix;
 	espeak_VOICE *v1 = *(espeak_VOICE **)p1;
@@ -588,7 +588,7 @@ static int VoiceNameSorter(const void *p1, const void *p2)
 }
 
 
-static int VoiceScoreSorter(const void *p1, const void *p2)
+static int __cdecl VoiceScoreSorter(const void *p1, const void *p2)
 {//========================================================
 	int ix;
 	espeak_VOICE *v1 = *(espeak_VOICE **)p1;
@@ -759,7 +759,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices)
 		return(0);
 
 	// sort the selected voices by their score
-	qsort(voices,nv,sizeof(espeak_VOICE *),VoiceScoreSorter);
+	qsort(voices,nv,sizeof(espeak_VOICE *),(int (__cdecl *)(const void *,const void *))VoiceScoreSorter);
 	return(nv);
 }  // end of SetVoiceScores
 
@@ -917,32 +917,6 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname)
 }
 
 
-#ifndef PLATFORM_RISCOS
-static int ReadVoicesCallback(const char *fname, const struct stat *fstat, int flags)
-{//==================================================================================
-	FILE *f_voice;
-	espeak_VOICE *voice_data;
-
-	if(flags != FTW_F)
-		return(0);
-
-	if((f_voice = fopen(fname,"r")) == NULL)
-		return(0);
-
-	// pass voice file name within the voices directory
-	voice_data = ReadVoiceFile(f_voice,fname+len_path_voices);
-	if(voice_data != NULL)
-	{
-		voices_list[n_voices_list++] = voice_data;
-	}
-
-	if(n_voices_list >= (N_VOICES_LIST-2))
-		return(1);  // voices list is full
-	return(0);
-}
-#endif
-
-
 static espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name)
 {//============================================================================
 	int ix;
@@ -996,6 +970,54 @@ espeak_VOICE *SelectVoice(espeak_VOICE *voice_select)
 
 
 
+void GetVoices(const char *path)
+{//=============================
+#ifndef PLATFORM_RISCOS
+
+	DIR *dir;
+	struct dirent *ent;
+	FILE *f_voice;
+	espeak_VOICE *voice_data;
+	int ftype;
+	char fname[80];
+
+	if((dir = opendir(path)) == NULL)
+		return;
+
+	while((ent = readdir(dir)) != NULL)
+	{
+		if(n_voices_list >= (N_VOICES_LIST-2))
+			break;   // voices list is full
+
+		sprintf(fname,"%s%c%s",path,PATHSEP,ent->d_name);
+
+		ftype = GetFileLength(fname);
+
+		if((ftype == -2) && (ent->d_name[0] != '.'))
+		{
+			// a sub-sirectory
+			GetVoices(fname);
+		}
+		else
+		if(ftype > 0)
+		{
+			// a regular line, add it to the voices list	
+			if((f_voice = fopen(fname,"r")) == NULL)
+				continue;
+		
+			// pass voice file name within the voices directory
+			voice_data = ReadVoiceFile(f_voice,fname+len_path_voices);
+			fclose(f_voice);
+
+			if(voice_data != NULL)
+			{
+				voices_list[n_voices_list++] = voice_data;
+			}
+		}
+	}
+	closedir(dir);
+#endif
+}   // end of GetVoices
 
 
 //=======================================================================
@@ -1029,11 +1051,12 @@ espeak_VOICE **espeak_ListVoices(void)
 	sprintf(path_voices,"%s%cvoices",path_home,PATHSEP);
 	len_path_voices = strlen(path_voices)+1;
 
-	ftw(path_voices, ReadVoicesCallback, 3);
+	GetVoices(path_voices);
 	voices_list[n_voices_list] = NULL;  // voices list terminator
 
 	// sort the voices list
-	qsort(voices_list,n_voices_list,sizeof(espeak_VOICE *),VoiceNameSorter);
+	qsort(voices_list,n_voices_list,sizeof(espeak_VOICE *),
+		(int (__cdecl *)(const void *,const void *))VoiceNameSorter);
 
 	// restore pointer to current voice
 	if(selected_voice_id[0] != 0)
@@ -1066,6 +1089,7 @@ int espeak_SetVoiceByName(const char *name)
 		if(LoadVoice(v->identifier,1) != NULL)
 		{
 			voice_selected = v;
+			WavegenSetVoice(voice);
 			return(0);
 		}
 	}
@@ -1079,6 +1103,7 @@ int espeak_SetVoiceByProperties(espeak_VOICE *voice_selector)
 	voice_selected = SelectVoice(voice_selector);
 
 	LoadVoice(voice_selected->identifier,0);
+	WavegenSetVoice(voice);
 	return(0);
 }  //  end of espeak_SetVoiceByProperties
 

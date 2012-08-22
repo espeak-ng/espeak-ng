@@ -18,35 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#define tNUMBER   1
-#define tSTRING   2
-#define tPHONEMEMNEM  3
-#define tKEYWORD  4
-
-#define tPHONEMESTART 1
-#define tEND      2
-#define tSPECT    3
-#define tWAVE   4
-#define tSTARTTYPE 5
-#define tENDTYPE  6
-#define tBEFORE   7
-#define tAFTER    8
-#define tTONESPEC 9
-#define tLENGTHMOD 11
-#define tLENGTH   12
-#define tLONGLENGTH 13
-#define tOLDNAME  14
-#define tREDUCETO 15
-#define tFIXEDCODE 16
-#define tBEFOREVOWEL 17
-#define tBEFOREVOWELPAUSE 18
-#define tBEFORENOTVOWEL 19
-#define tLINKOUT  20
-#define tSWITCHVOICING  21
-#define tPHONEMENUMBER 29
-#define tPHONEMETABLE  30
-#define tINCLUDE  31
-
 
 // phoneme types
 #define phPAUSE   0

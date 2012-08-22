@@ -18,19 +18,29 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+// conditional compilation options
+
+#ifdef __WIN32__
+#define PATHSEP '\\'
+#else
+#define PLATFORM_POSIX
+#define __cdecl               // define as null, needed for Borland compiler ?
+#define PATHSEP  '/'          // unix style file paths
+#define USE_PORTAUDIO
+#define USE_NANOSLEEP
+#endif
+
+typedef unsigned short USHORT;
+typedef unsigned char  UCHAR;
+typedef double DOUBLEX;
+
+
+
 #define N_PEAKS   9
 #define N_MARKERS 7
 
 // not used for "speak" process
 // #define SPECT_EDITOR
-
-#define PATHSEP  '/'          // unix style file paths
-#define USE_PORTAUDIO
-#define USE_NANOSLEEP
-
-typedef unsigned short USHORT;
-typedef unsigned char  UCHAR;
-typedef double DOUBLEX;
 
 typedef struct {
    const char *mnem;

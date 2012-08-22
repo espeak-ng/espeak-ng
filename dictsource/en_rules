@@ -348,6 +348,7 @@
              aff (er      af
          _)  affia        a2faI@
              aff (lu      af
+         w)  aff          0f
          _)  af (g        af
              afore        a2fO@
              af (ri       af
@@ -1323,6 +1324,7 @@
          _)  co (nfis     k0
          _)  co (nflu     k0
          _)  co (ngress   k0
+             congru       k0ngru:
          _)  co (ni       k0
          _)  co (njug     k0
          _)  co (njur     kV
@@ -1626,6 +1628,7 @@
         ll)  e (nge       I
              e (o         I2
          _)  e (phem      I2
+        cr)  e (pe+       E
          _)  epi          EpI
          _)  epider       EpId'3:
          _)  ep (isC      I2p
@@ -1661,6 +1664,7 @@
              eu (m_       i:
          s)  eu (m_       'i@
              eur          3:
+             eur (_       '3:
          &)  eus (_       =I2@s
          _)  euro         jU@roU
          _)  euro (pe     jU@r-@
@@ -1863,7 +1867,7 @@
          _)  em           %Em
          _)  em (a        I2m
              em (ana      Em
-             em (bas      Em
+             emba (s      Emb@
              em (blem     Em
              em (bry      Em
              em (eral     Em
@@ -1912,7 +1916,6 @@
          t)  enem         En@m
          _)  ener         En@
       @@th)  enes (_      =@ni:z
-             eneur        @n'3:
          &)  en (ger      In
              eng (lA      INg
              eng (in      EndZ
@@ -1983,6 +1986,7 @@
         nt)  en (t        En
         xt)  en (t        En
          v)  en (t_       En
+        lv)  en (t_       @n
        @@v)  en (t_       @n
          &)  en (th_      @n
          &)  en (ce_      @n
@@ -2019,6 +2023,7 @@
        all)  er (_        @
          &)  er (_        @
         mb)  er (_        @
+       lin)  er (_S1      @
              er           3:
          _)  er (A        I2r
          _)  er           3:
@@ -2203,7 +2208,7 @@
         An)  et (_        Et
       phab)  et (_        Et
        ber)  et (_        eI
-        gr)  et           Et
+        gr)  et (+        Et
         _m)  et (e        i:t
         _p)  et (e        i:t
              et (itor     'Et
@@ -2408,7 +2413,7 @@
         er)  ings (_$4v    I2Nz
         er)  ingly (_$5vf   I2Ng-lI
         er)  ingment (_$7v  I2Ng-m@nt
-        Cr)  ing (_       IN
+        Br)  ing (_       IN
          _)  i (a         aI
          _)  i (b         aI
          _)  i (c         aI
@@ -2774,10 +2779,10 @@
          _)  in (fo_      In
          _)  infra (P5    ,Infr@
          _)  infra (c     I2nfrak
-             in (got      In
-         _)  in (gro      In
+             in (got      IN
+         _)  in (gro      IN
          _)  in (jur      In
-         _)  in (k        In
+         _)  in (k        IN
          _)  in (l        In
          _)  in (m        In
          _)  inno (ce     In@
@@ -3139,7 +3144,7 @@
          C)  mented       m'EntId
              mEntary (_   m'Ent@rI2
          _)  meta         mEt@
-             meta (bolis  mEt'a
+             meta (bo     mEt'a
              millen       mI2lEn
          _)  mobile       moUbaIl
         im)  mobile       moUbaIl
@@ -3301,6 +3306,7 @@
       cust)  o (d         @
       cust)  o (di        'oU
              o (da_       oU
+         k)  o (dA        oU
          d)  o (dec       %oU
          m)  o (del       0
          m)  o (der       0
@@ -3653,7 +3659,7 @@
              os (ity      '0s
              os (ive      'oUs
          p)  oss (ess     @z
-        gr)  oss         oUst
+        gr)  oss          oUs
          h)  ost (_       oUst
         gh)  ost          oUst
          m)  ost          oUst
@@ -3892,6 +3898,7 @@
              ph (erd      p
              phila        fIla
              p (hole      p
+       sym)  pa           p@
          _)  pico         pi:koU
              piece (_$5   pi:s
              por (tray    p%O@
@@ -4155,7 +4162,8 @@
              s (sh        s
          _)  sch          S
          _)  sch (e       sk
-         _)  sch (i       sk
+         _)  sch (ism     sk
+         _)  sch (iz      sk
              sch (o       sk
              sch (C       S
              sch (_       S
@@ -4222,6 +4230,7 @@
         ai)  sin (_       z@n
          u)  sin (_       z@n
          _)  soma (li     s@mA:
+       pri)  s (o         z
              ssion        S@n
              ssion (_     =S@n
         1_)  st (_
@@ -4901,6 +4910,18 @@
              7 (DD        sEv@nh,Vndr@da2nd
              8 (DD        eIt_h,Vndr@da2nd
              9 (DD        naInh,Vndr@da2nd
+
+// variant: numbers without "and" after "hundred
+?4             1 (DD        w,0nh,Vndr@d
+?4             2 (DD        tu:h,Vndr@d
+?4             3 (DD        Tri:h,Vndr@d
+?4             4 (DD        f,O@h,Vndr@d
+?4             5 (DD        faIvh,Vndr@d
+?4             6 (DD        sIks_h,Vndr@d
+?4             7 (DD        sEv@nh,Vndr@d
+?4             8 (DD        eIt_h,Vndr@d
+?4             9 (DD        naInh,Vndr@d
+
 //         _)  000 (_       TaUz@nd
              1 (DDD_       w'0nTaUz@nd_
 ?3           1 (DDD_       w'VnTaUz@nd_
@@ -5021,8 +5042,7 @@
         ob)  Ey (_        eI
 
 
-// default group for "non of the above"
-.group
+.group '
              's (_$2      z
          f)  's (_$2      s
          p)  's (_$2      s
@@ -5043,6 +5063,50 @@
              'd (_$2      d
              'll (_$3     @L
 
+
+.group 0xce
+//        $group (++    _^_EL
+
+	α	'alf@_
+	ά	'alf@_
+	β	b'i:t@_
+	γ	g'am@_
+	δ	d'Elt@_
+	ε	'EpsIl0n_
+	έ	'EpsIl0n_
+	ζ	z'i:t@_
+	η	'i:t@_
+	ή	'i:t@_
+	θ	T'i:t@_
+	ι	aI'oUt@_
+	ί	aI'oUt@_
+	κ	k'ap@_
+	λ	l'amd@_
+	μ	m'ju:_
+	ν	n'ju:_
+	ξ	ks'aI_
+	ο	oUm'aIkr0n_
+
+.group 0xcf
+//        $group (++    _^_EL
+
+	π	p'aI_
+	ρ	r'oU_
+	σ	s'Igm@_
+	ς	s'Igm@_
+	τ	t'aU_
+	υ	'UpsIl0n_
+	ύ	'UpsIl0n_
+	φ	f'aI_
+	χ	tS'aI_
+	ψ	ps'aI_
+	ω	'oUmIg@_
+	ώ	'oUmIg@_
+	ό	oUm'aIkr0n_
+
+
+// default group for "non of the above"
+.group
 // non-ascii characters with specified pronunciations
              é            eI
          _)  é            I2
@@ -5061,8 +5125,9 @@
 
              =            __i:kw@Lz_
 //             -            haIf@n
-//             - (_D         m'aIn@s
-             - (_D        _
+        __)  - (_D         m'aIn@s
+        A_)  - (_D        _
+        C_)  - (_D        _
          --) -
              \\           bakstroUk
              /            stroUk

@@ -474,7 +474,7 @@ static int WaveCallback(const void *inputBuffer, void *outputBuffer,
 
 #if USE_PORTAUDIO == 18
 	if((result > 0) && (end_timer == 0))
-		end_timer = 3;
+		end_timer =12;
 	if(end_timer > 0)
 	{
 		end_timer--;
@@ -606,7 +606,7 @@ void WavegenInit(int rate, int wavemult_fact)
 
 	samplerate = rate;
 	PHASE_INC_FACTOR = 0x8000000 / samplerate;   // assumes pitch is Hz*32
-	Flutter_inc = (64 * 22050)/rate;
+	Flutter_inc = (64 * samplerate)/rate;
 	samplecount = 0;
 	nsamples = 0;
 	wavephase = 0x7fffffff;

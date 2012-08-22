@@ -26,6 +26,7 @@
 #include <getopt.h>
 #include <time.h>
 #include <signal.h>
+#include <locale.h>
 #include "sys/stat.h"
 
 #include "speech.h"
@@ -36,13 +37,13 @@
 #include "speak_lib.h"
 
 
-FILE *f_text;
 
 char path_home[120];
 char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
-static const char *version = "Speak text-to-speech: 1.11  07.Aug.06";
+
+static const char *version = "Speak text-to-speech: 1.13  30.Aug.06";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -151,21 +152,43 @@ void MarkerEvent(int type, int char_position, int value, unsigned char *out_ptr)
 
 static void init_path(void)
 {//========================
+#ifdef __WIN32__
+	strcpy(path_home,"espeak-data");
+#else
 	sprintf(path_home,"%s/espeak-data",getenv("HOME"));
 	if(access(path_home,R_OK) != 0)
 	{
 		strcpy(path_home,"/usr/share/espeak-data");
 	}
+#endif
 }
 
 
 static int initialise(void)
 {//========================
+	int param;
+
+	// It seems that the wctype functions don't work until the locale has been set
+	// to something other than the default "C".  Then, not only Latin1 but also the
+	// other characters give the correct results with iswalpha() etc.
+#ifdef PLATFORM_RISCOS
+	static char *locale = "ISO8859-1";
+#else
+	static const char *locale = "german";
+#endif
+   setlocale(LC_CTYPE,locale);
+
 
 	WavegenInit(22050,0);   // 22050
 	LoadPhData();
-	LoadConfig();
+#ifndef __WIN32__
+	LoadConfig();  // causes problem on Windows, don't know why
+#endif
 	SynthesizeInit();
+
+	for(param=0; param<N_SPEECH_PARAM; param++)
+		param_stack[0].parameter[param] = param_defaults[param];
+
 	return(0);
 }
 
@@ -201,6 +224,9 @@ int main (int argc, char **argv)
 		{"voices",  optional_argument, 0, 0x104},
 		{0, 0, 0, 0}
 		};
+
+	FILE *f_text=NULL;
+	const char *p_text=NULL;
 
 	int option_index = 0;
 	int c;
@@ -350,6 +376,8 @@ int main (int argc, char **argv)
 
 	espeak_SetParameter(espeakRATE,speed,0);
 	espeak_SetParameter(espeakVOLUME,amp,0);
+	espeak_SetParameter(espeakCAPITALS,option_capitals,0);
+	espeak_SetParameter(espeakPUNCTUATION,option_punctuation,0);
 
 	if(pitch_adjustment != 50)
 	{
@@ -363,7 +391,8 @@ int main (int argc, char **argv)
 		{
 			// there's a non-option parameter, and no -f or --stdin
 			// use it as text
-			f_text = fmemopen(argv[optind],strlen(argv[optind]),"r");
+			p_text = argv[optind];
+//			f_text = fmemopen(argv[optind],strlen(argv[optind]),"r");
 		}
 		else
 		{
@@ -377,7 +406,7 @@ int main (int argc, char **argv)
 		f_text = fopen(filename,"r");
 	}
 
-	if(f_text == NULL)
+	if((f_text == NULL) && (p_text == NULL))
 	{
 		fprintf(stderr,"Failed to read file '%s'\n",filename);
 		exit(1);
@@ -402,7 +431,7 @@ int main (int argc, char **argv)
 		}
 
 		InitText();
-		SpeakNextClause(f_text,NULL,0);
+		SpeakNextClause(f_text,p_text,0);
 
 		for(;;)
 		{
@@ -424,8 +453,9 @@ int main (int argc, char **argv)
 		WavegenInitSound();
 
 		InitText();
-		SpeakNextClause(f_text,NULL,0);
+		SpeakNextClause(f_text,p_text,0);
 
+#ifdef USE_PORTAUDIO
 		speaking = 1;
 		while(speaking)
 		{
@@ -440,10 +470,10 @@ int main (int argc, char **argv)
 #else
 			sleep(1);
 #endif
-
 			if(SynthOnTimer() != 0)
 				speaking = 0;
 		}
+#endif
 	}
 	exit(0);
 }

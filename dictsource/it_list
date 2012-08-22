@@ -9,7 +9,7 @@ lo	$u
 un	$u
 una	$u
 
-gli	l;i
+gli	li  $u   //  l;i
 
 
 // pronouns
@@ -32,6 +32,10 @@ ti	$u
 ci	$u
 vi	$u
 li	$u
+
+// words that double the following consonant
+qualche  $double
+come     $double
 
 // possessive adjectives
 mio	$u
@@ -62,13 +66,16 @@ quel	$u	// that
 quella	$u	// that
 
 // prepositions
+a       $u $double
+ai      $u
+alla    $u
 di	$u	// of
 del	$u
 della	$u	// of the
 in	$u	// in
 nel	$u
 nella	$u	// in the
-su	$u	// on
+su	$u $double	// on
 sul	$u
 sulla	$u	// on the
 da	$u      // by
@@ -76,21 +83,21 @@ dal	$u
 dalla	$u	// by the
 con	$u $pause	// with
 attraverso $u	// through
-sopra	$u	// above
-sotto	$u	// below
+sopra	$u $strend	// above
+sotto	$u $strend	// below
 per     $u $pause     // for
 
 
 // aux verb, to be
 sono	$u
 sei	$u
-è	$u
+è	$u $double
 siamo	$u
 siete	$u
 sono	$u
 fui	$u
 fosti	$u
-fu	$u
+fu	$u $double
 fummo	$u
 foste	$u
 furono	$u
@@ -122,9 +129,9 @@ sareste	$u
 sarebbero	$u
 
 // aux verb, to have
-ho	$u
-hai	$u
-ha	$u
+ho	$u $double
+hai	$u $double
+ha	$u $double
 abbiamo	$u
 avete	$u
 hanno	$u
@@ -150,10 +157,10 @@ avremo	$u
 avrete	$u
 avranno	$u
 
-abbia	$u
-abbiamo	$u
-abbiate	$u
-abbiano	$u
+abbia	$u $strend
+abbiamo	$u $strend
+abbiate	$u $strend
+abbiano	$u $strend
 avessi	$u
 avesse	$u
 avessimo	$u
@@ -170,8 +177,9 @@ avrebbero	$u
 
 
 // conjunctions
-e		$u $pause   // and
-o		$u $pause   // or
+e		$u $pause $double  // and
+ed		$u $pause
+o		$u $pause $double  // or
 se		$pause      // if
 ma		$pause      // but
 perché		$pause      // because

@@ -68,6 +68,13 @@ MNEM_TAB mnem_flags[] = {
 	{"$dot",       16},   /* ignore '.' after this word (abbreviation) */
 	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
 
+// language specific
+	{"$alt",       18},   // use alternative pronunciation
+	{"$d",         19},   // IT double the initial consonant of next word
+	{"$double",    19},   // IT double the initial consonant of next word
+	{"$x2",        20},
+	{"$x3",        21},
+
 	{"$verbf",     22},    /* verb follows */
 	{"$verbsf",    23},    /* verb follows, allow -s suffix */
 	{"$nounf",     24},    /* noun follows */
@@ -696,6 +703,9 @@ char *compile_rule(char *input)
 		}
 	}
 	
+	if(strcmp(rule_match,"$group")==0)
+		strcpy(rule_match,group_name);
+
 	if(rule_match[0]==0)
 		return(NULL);
 
@@ -762,8 +772,8 @@ char *compile_rule(char *input)
 }  //  end of compile_rule
 
 
-int string_sorter(char **a, char **b)
-{//==================================
+static int __cdecl string_sorter(char **a, char **b)
+{//==========================================
    return(strcmp(*a,*b));
 }   /* end of strcmp2 */
 
@@ -895,7 +905,7 @@ void output_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 
 	common = "";
 #ifdef OPT_PH_COMMON
-	qsort((void *)rules,n_rules,sizeof(char *),(int (*)(const void *,const void *))string_sorter);
+	qsort((void *)rules,n_rules,sizeof(char *),(int (__cdecl *)(const void *,const void *))string_sorter);
 #endif
 
 	fputc(RULE_GROUP_START,f_out);
@@ -945,6 +955,7 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 	int n_rules=0;
 	int n_groups=0;
 	int count=0;
+	unsigned int char_code;
 	char *buf;
 	char buf1[120];
 	char *rules[N_RULES];
@@ -976,8 +987,23 @@ int compile_dictrules(FILE *f_in, FILE *f_out)
 			group_name[ix]=0;
 			if(strlen(group_name) > 2)
 			{
-				fprintf(f_log,"%5d: Group name longer than 2 characters: %s\n",linenum,group_name);
-				error_count++;
+				if(sscanf(group_name,"0x%x",&char_code)==1)
+				{
+					// group character is given as a character code
+					p = group_name;
+
+					if(char_code > 0x100)
+					{
+						*p++ = (char_code >> 8);
+					}
+					*p++ = char_code;
+					*p = 0;
+				}
+				else
+				{
+					fprintf(f_log,"%5d: Group name longer than 2 characters: %s\n",linenum,group_name);
+					error_count++;
+				}
 			}
 			continue;
 		}

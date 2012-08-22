@@ -20,6 +20,7 @@
 // 
 #include <stdlib.h>
 #include <stdio.h>
+#include <wctype.h>
 
 #include "speech.h"
 #include "voice.h"
@@ -272,7 +273,7 @@ void Translator::CalcLengths()
 				p->prepause = 60;
 
 			if(p->synthflags & SFLAG_LENGTHEN)
-				p->prepause += 60;
+				p->prepause += 80;
 			break;
 
 		case phVFRICATIVE:
@@ -402,7 +403,7 @@ p->pitch1 = p->pitch2 - 20;   // post vocalic [r/]
 			if(stress > 7) stress = 7;
 
 			if(pre_sonorant)
-				p->amp = stress_amps_r[stress];
+				p->amp = stress_amps[stress]-1;
 			else
 				p->amp = stress_amps[stress];
 
@@ -487,6 +488,7 @@ if(p->type != phVOWEL)
 				}
 
 				prev->length = length_mod;
+
 				prev->amp = p->amp;
 				if((prev->type != phLIQUID) && (prev->amp > 18))
 					prev->amp = 18;

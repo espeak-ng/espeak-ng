@@ -1,0 +1,298 @@
+// Greek -modern
+ 
+// This file is UTF-8 encoded
+// all words lower case
+
+// Α α, Β β, Γ γ, Δ δ, Ε ε, Ζ ζ, Η η, Θ θ, Ι ι, Κ κ, Λ λ, Μ μ, Ν ν, Ξ ξ,
+// Ο ο, Π π, Ρ ρ, Σ σ ς (word-final form), Τ τ, Υ υ, Φ φ, Χ χ, Ψ ψ, Ω ω.
+
+.group α
+        _) α (_     alfa
+           α        a
+           αι       e
+           αί       'e
+           αυ       av
+           αυ (B    af      // +voiceless consonant κ, π, τ, χ, θ, σ, ξ.
+           αη       aI
+           αϊ       aI
+
+.group β
+        _) β (_     vita
+           β        v
+           β (β
+
+.group γ
+        _) γ (_     Qama
+           γ        Q
+           γγ       g
+           γκ       g
+        A) γγ       Ng
+        A) γκ       Ng
+           γ (χ     N
+           γαι (A   j
+           γε (A    j
+           γει (A   j
+           γη (A    j
+           γι (A    j
+           γυ (A    j
+           γοι (A   j
+
+.group δ
+        _) δ (_     Delta
+           δ        D
+           δ (δ
+
+.group ε
+        _) ε (_     'epsilon
+           ε        e
+           ει       i
+           εί       'i
+        C) ει (A    ;
+           ευ       ev
+           ευ (B    ef      // +voiceless consonant
+           ευ (β    e
+           ευ (φ    e
+
+.group ζ
+        _) ζ (_     zita
+           ζ        z
+           ζ (ζ
+           ζη (A    z;
+           ζι (A    z;
+           ζυ (A    z;
+           ζει (A   z;
+           ζοι (A   z;
+
+.group η
+        _) η (_     ita
+           η        i
+        C) η (A     ;
+           ηυ       iv
+           ηυ (B    if      // +voiceless consonant
+
+.group θ
+        _) θ (_     Tita
+           θ        T
+           θ (θ
+
+.group ι
+        _) ι (_     i'ota
+           ι        i
+        C) ι (A     ;
+
+.group κ
+        _) κ (_     kapa
+           κ        k
+           κ (κ
+       ν_) κ        g
+
+           κη (A    c  // k + i sound = [c]
+           κι (A    c
+           κυ (A    c
+           κει (A   c
+           κοι (A   c
+
+
+.group λ
+        _) λ (_     lamDa
+           λ        l
+           λ (λ
+
+.group μ
+        _) μ (_     mi
+           μ        m
+           μ (μ
+        _) μπ       b
+
+.group ν
+        _) ν (_     ni
+           ν        n
+           ν (ν
+           ντ       d  // always? or not after a vowel?
+           ν (_π    m
+           ν (_ψ    m
+           ν (_κ    N
+           ν (_ξ    N
+           νη (A    n^
+           νι (A    n^
+           νυ (A    n^
+           νει (A   n^
+           νοι (A   n^
+
+
+.group ξ
+        _) ξ (_     ksi
+           ξ        ks
+           ξ (ξ
+       ν_) ξ        gz
+
+.group ο
+        _) ο (_     'omikron
+           ο        o
+           οι       i
+           οί       'i
+        C) οι (A    ;
+           ου       u
+           ού       'u
+           οη       OI
+           οϊ       OI
+
+.group π
+        _) π (_     pi
+           π        p
+           π (π
+       ν_) π        b
+
+.group ρ
+        _) ρ (_     Ro
+           ρ        R
+           ρ (ρ
+        A) ρ        r
+
+.group σ
+        _) σ (_     s'iQma    // we can get  s'  in the text
+           σ        s
+           σ (σ
+           ση (A    s;
+           σι (A    s;
+           συ (A    s;
+           σει (A   s;
+           σοι (A   s;
+
+.group ς
+        _) ς (_     s'iQma
+           ς        s
+           ς (_B    s    // +voiceless consonant
+           ς (_C    z
+
+.group τ
+        _) τ (_     taf
+           τ        t
+           τ (τ
+           τσ       ts
+           τζ       dz
+       ν_) τ        d
+       ν_) τσ       dz
+
+.group υ
+        _) υ (_     'ipsilon
+           υ        i
+        C) υ (A     ;
+           υι       i
+           υί       'i
+
+.group φ
+        _) φ (_     fi
+           φ        f
+           φ (φ
+
+.group χ
+        _) χ (_     Ci
+           χ        x
+           χ (αι    C
+           χ (αί    C
+           χ (ε     C
+           χ (έ     C
+           χ (η     C
+           χ (ή     C
+           χ (ι     C
+           χ (ί     C
+           χ (οι    C
+           χ (οί    C
+           χ (υ     C
+           χ (ύ     C
+
+.group ψ
+        _) ψ (_     psi
+           ψ        ps
+           ψ (ψ
+       ν_) ψ        bz
+
+.group ω
+        _) ω (_     om'eQa
+           ω        o
+
+.group 9
+           0        miD'en_
+           1        'ena_
+           2        D'io_
+           3        tr'ia_
+           4        t'esera_
+           5        p'ente_
+           6        'eksi_!
+           7        ept'a_
+           8        okt'o_
+           9        en^'a_
+
+
+
+// If we find a Latin letter a-z, then translate as English
+.group a
+           a        _^_EN
+.group b
+           b        _^_EN
+.group c
+           c        _^_EN
+.group d
+           d        _^_EN
+.group e
+           e        _^_EN
+.group f
+           f        _^_EN
+.group g
+           g        _^_EN
+.group h
+           h        _^_EN
+.group i
+           i        _^_EN
+.group j
+           j        _^_EN
+.group k
+           k        _^_EN
+.group l
+           l        _^_EN
+.group m
+           m        _^_EN
+.group n
+           n        _^_EN
+.group o
+           o        _^_EN
+.group p
+           p        _^_EN
+.group q
+           q        _^_EN
+.group r
+           r        _^_EN
+.group s
+           s        _^_EN
+.group t
+           t        _^_EN
+.group u
+           u        _^_EN
+.group v
+           v        _^_EN
+.group w
+           w        _^_EN
+.group x
+           x        _^_EN
+.group y
+           y        _^_EN
+.group z
+           z        _^_EN
+
+.group
+           ά        'a
+           άη       'aI
+           άι       'aI
+           έ        'e
+           ή        'i
+           ί        'i
+           ΰ        'i
+           ϊ        i
+           ϋ        i
+           ό        'o
+           όη       'OI
+           όι       'OI
+           ύ        'i
+           ώ        'o
+

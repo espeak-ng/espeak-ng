@@ -36,8 +36,6 @@
 
 char dictionary_name[40];
 
-// flag bits for each character code, for vowel, consonant, etc
-unsigned char letter_bits[256];
 
 // accented characters which indicate (in some languages) the start of a separate syllable
 //static const short diereses_list[7] = {L'ä',L'ë',L'ï',L'ö',L'ü',L'ÿ',0};
@@ -468,7 +466,7 @@ void Translator::GetTranslatedPhonemeString(char *phon_out, int n_phon_out)
 
 #ifdef deleted
 // this is the initials_bitmap for english
-static char initials_bitmap[86] = {
+static unsigned char initials_bitmap[86] = {
  0x00, 0x00, 0x00, 0x00, 0x22, 0x08, 0x00, 0x88,  //  0
  0x20, 0x24, 0x20, 0x80, 0x10, 0x00, 0x00, 0x00,
  0x00, 0x28, 0x08, 0x00, 0x88, 0x22, 0x04, 0x00,  // 16
@@ -488,12 +486,13 @@ int Translator::Unpronouncable(char *word)
 /* Determines whether a word in 'unpronouncable', i.e. whether it should
 	be spoken as individual letters.
 
-	This function is language specific.
+	This function may be language specific. This is a generic version.
 */
 
-	unsigned char  c;
+	int  c;
 	int  vowel_posn=9;
 	int  index;
+	int  count;
 	int  ix;
 	int  apostrophe=0;
 
@@ -514,42 +513,32 @@ int Translator::Unpronouncable(char *word)
 			return(0);
 	}
 
-	index=0;
-	while(((c = word[index++]) != 0) && !isspace(c))
+	index = 0;
+	count = 0;
+	for(;;)
 	{
-		if(IsVowel(c) || (c == 'y'))
+		index += utf8_in(&c,&word[index],0);
+		if((c==0) || (c==' '))
+			break;
+
+		count++;
+
+		if(IsVowel(c))
 		{
-			vowel_posn = index;    // position of the first vowel
+			vowel_posn = count;    // position of the first vowel
 			break;
 		}
 
 		if(c == '\'')
 			apostrophe = 1;
 		else
-		if((c < 'a') || (c > 'z'))
+		if(!iswalpha(c))
 			return(0);        // letter (not vowel) outside a-z range or apostrophe, abort test
 	}
 	if((vowel_posn > 5) || ((word[0]!='s') && (vowel_posn > 4)))
 		return(1);  // no vowel, or no vowel in first four letters
 
 return(0);
-
-// disable table lookup in the generic version of this function
-#ifdef deleted
-	/* there is at least one vowel, is the initial letter combination valid ? */
-
-	if(vowel_posn < 3)
-		return(0);   /* vowel in first two letters, OK */
-
-	if(apostrophe)
-		return(0);   // first two letters not a-z, abort test
-
-	index = (word[0]-'a') * 26 + (word[1]-'a');
-	if(initials_bitmap[index >> 3] & (1L << (index & 7)))
-		return(0);
-	else
-		return(1);   // OK
-#endif
 
 }   /* end of Unpronounceable */
 
@@ -559,11 +548,18 @@ return(0);
 
 int Translator::IsLetter(int letter, int group)
 {//============================================
-	if(letter < 0x80)
-		return(letter_bits[letter] & (1L << group));
+	if(letter_bits_offset > 0)
+	{
+		letter -= letter_bits_offset;
+	}
+	else
+	{
+		if((letter >= 0xc0) && (letter <= 0x241))
+			return(letter_bits[remove_accent[letter-0xc0]] & (1L << group));
+	}
 
-	if((letter >= 0xc0) && (letter <= 0x241))
-		return(letter_bits[remove_accent[letter-0xc0]] & (1L << group));
+	if((letter >= 0) && (letter < 0x80))
+		return(letter_bits[letter] & (1L << group));
 
 	return(0);
 }
@@ -571,7 +567,7 @@ int Translator::IsLetter(int letter, int group)
 
 int Translator::IsVowel(int letter)
 {//================================
-	return(letter_bits[letter] & 0x01);
+	return(IsLetter(letter,0));
 }
 
 
@@ -717,7 +713,6 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	int final_ph;
 	int mnem;
 
-
 	char vowel_stress[N_WORD_PHONEMES/2];
 	unsigned char phonetic[N_WORD_PHONEMES];
 
@@ -759,15 +754,17 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	if(langopts.stress_rule == 2)
 	{
 		// language (eg Esperanto) with stress on penultimate vowel
+
 		if(stressed_syllable == 0)
 		{
 			/* no explicit stress - stress the penultimate vowel */
 			max_stress = 4;
+
 			if(vowel_count > 2)
 			{
 				stressed_syllable = vowel_count - 2;
 
-				if(langopts.stress_rule2 & 0x2)
+				if(langopts.stress_flags & 0x8)
 				{
 					// spanish, stress on last vowel if the word ends in a consonant other than 'n' or 's'
 					if(phoneme_tab[final_ph]->type != phVOWEL)
@@ -792,7 +789,7 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 			else
 			{
 				stressed_syllable = 1;
-				if(langopts.stress_rule2 & 0x1)
+				if(langopts.stress_flags & 0x1)
 					max_stress = 3;   // don't give full stress to monosyllables
 			}
 
@@ -830,9 +827,17 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 	{
 		if(vowel_stress[v] == 0)
 		{
+			if((langopts.stress_flags & 0x10) && (stress < 4) && (v == vowel_count-1))
+			{
+				// flag: don't give secondary stress to final vowel
+			}
+			else
 			if((vowel_stress[v-1] <= 1) && (vowel_stress[v+1] <= 1))
 			{
-				/* give stress to vowel surrounded by unstressed vowels */
+				/* trochaic: give stress to vowel surrounded by unstressed vowels */
+
+// should start with secondary stress on the first syllable, or should it count back from
+// the primary stress and put secondary stress on alternate syllables?
 				vowel_stress[v] = (char)stress;
 				stress = 3;  /* use secondary stress for remaining syllables */
 			}
@@ -924,9 +929,21 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 
 			if(v_stress <= 1)
 			{
-				if((v == 1) || (v == (vowel_count-1)))
+				if((v > 1) && (langopts.stress_flags & 4) && (v == (vowel_count-1)))
 				{
-					// first or last syllable
+					// option: mark unstressed final syllable as diminished
+					v_stress = 1;
+				}
+				else
+				if((langopts.stress_flags & 2) || (v == 1) || (v == (vowel_count-1)))
+				{
+					// first or last syllable, or option 'don't set diminished stress'
+					v_stress = 0;
+				}
+				else
+				if((v == (vowel_count-2)) && (vowel_stress[vowel_count-1] <= 1))
+				{
+					// penultimate syllable, followed by an unstressed final syllable
 					v_stress = 0;
 				}
 				else
@@ -1735,7 +1752,7 @@ int Translator::TranslateRules(char *p, char *phonemes, char *end_phonemes, int 
 	
 		if(match1.points > 0)
 		{
-			if(match1.phonemes[0] == phonSWITCH)
+			if((match1.phonemes[0] == phonSWITCH) && ((end_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
 			{
 				// an instruction to switch language, return immediately so we can re-translate
 				strcpy(phonemes,match1.phonemes);

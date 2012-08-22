@@ -8,7 +8,6 @@
 
 //stress symbols  ' primary  , secondary  % unstressed
 
-
 // character names
 _cap kapIt@L
 
@@ -296,6 +295,7 @@ asiatic          eISI'atIk
 askance          a2skans
 ass              as
 assess           a2sEs
+atlas            atl@s
 atone            a2toUn
 atop             a2t0p
 attache          at'aSeI         $only
@@ -341,9 +341,10 @@ bastion          bastI@n
 batman           batman
 belisha          b@l'i:S@
 bely             bI2laI
-beverage         bEv@rIdZ
+basal            beIs@L
 best             bEst
 beta             bi:t@
+beverage         bEv@rIdZ
 bias             baI@s
 biased           baI@st
 bible            baIb@L
@@ -541,6 +542,7 @@ cutoff           kVt0f
 cyan             saI'an
 cymru            kVmrI2
 
+dahlia           deIli:@
 dais             deIIs
 damaged          d'amIdZd
 dandelion        dandIlaI@n
@@ -693,6 +695,7 @@ extremist        Ekstr'i:mIst
 eyrie            i@rI2
 
 facade           f@sA:d
+façade           f@sA:d
 faeces           fi:si:z
 fallible         fal@b@L
 familiar         f@mIlI@
@@ -857,6 +860,7 @@ indy             IndI2
 infamous         Inf@m@s
 infer            Inf'3:
 inference        Inf@r@ns
+influenza        Influ:'Enz@
 infrastructure    $1 
 ingenuity        IndZIn'ju:I2tI2
 inherit          I2nhErIt      // inherited
@@ -937,12 +941,14 @@ leopard          lEp@d
 lesion           li:Z@n
 lethal           li:T@L
 libre            li:br@
+lier             laI@         // outlier
 lilac            laIl@k
 lily             lIlI2
 limit            lImIt        // limited
 limousine        lIm@zi:n
 lingerie         l0nZ@rI2
 linen            lInIn
+liqueur          lI2kjU@
 literature       lItrItS@
 live             laIv          $onlys
 live             lIv           $verb
@@ -1005,6 +1011,7 @@ memo             mEmoU
 menagerie        m@n'adZj@rI2
 merest           mi@r@st
 meringue         m@rang
+metabolic        mEt@b'0lIk
 metaphor         mEt@fO@
 metallic         mEt'alIk
 microorganism    maIkroU'O@g@nIz@m
@@ -1034,6 +1041,7 @@ moderate         m0d@reIt      $verb
 momentum                       $2
 monday           mVndeI
 monotone         m0n@toUn
+monsieur         m@sj3:
 mony             mVnI2         // monies, monied
 moraine          m@reIn
 morale           m@ral
@@ -1097,6 +1105,7 @@ offer            0f@
 offers           0f@z
 ogre             oUg@
 okay             oUk'eI
+omelet           0ml@t
 omelette         0ml@t
 opaque           oUp'eIk
 opine            oUp'aIn
@@ -1119,6 +1128,7 @@ outfit            $1
 outing            $1
 outlaw            $1
 outlet            $1
+outlier          'aUtl,aI@
 outline           $1
 outlive          aUtl'Iv
 outlook           $1
@@ -1177,6 +1187,7 @@ pharaoh          fe@roU
 philistine       fIlI2staIn
 philosophy       fIl'0s@fI2
 phoenix          fi:nIks
+photograph       foUt@graf
 piano            pI2anoU
 piecemeal        p'i:sm,i:l
 pier             pI@
@@ -1309,6 +1320,7 @@ referral         rIf'3:r@L
 referring        rIf'3:rIN 
 refit            ri:fIt
 reflex           ri:flEks
+reflux           ri:flVks
 reg              rEdZ
 regal            ri:g@L
 regime           reIZ'i:m
@@ -1385,6 +1397,7 @@ saga             sA:g@
 salad            sal@d
 saline           seIlaIn
 san              ,san
+sardine           $2
 satan            seIt@n
 satellite        sat@laIt
 saucepan         sO:sp@n
@@ -1505,6 +1518,7 @@ symbol           sImbVl
 sync             sINk
 synthesis        sInT@sIs      $only
 synthesise       sInT@saIz
+syringe           $2
 
 tablet           tabl@t
 taboo             $2
@@ -1789,6 +1803,7 @@ Chile            tSIlI2
 Ceylon            $2
 Cologne          k@loUn
 Congo             $1
+Copenhagen       koUp@nh'eIg@n
 Cruz             kru:z
 Cyprus           saIpr@s
 Dahomey           $2
@@ -1930,7 +1945,6 @@ Cassandra        k@sandr@
 Catherine        kaTrIn
 Chris            krIs
 Connor           k0n@
-Copenhagen       koUp@nh'eIg@n
 Daphne           dafnI2
 Darryl           dar@L
 Davis            deIvIs
@@ -1955,6 +1969,7 @@ Huw              hju:
 Iain             i:@n
 Ian              i:@n
 Igor             i:gO@
+Imogen           Im@dZ@n
 Irene            aIri:n
 Isaac            aIs@k
 Isabel           Iz@bEl

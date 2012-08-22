@@ -30,6 +30,7 @@
 #include "synthesize.h"
 #include "translate.h"
 
+extern const char *WordToString(unsigned int word);
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
@@ -48,8 +49,12 @@ static int phoneme_tab_number = 0;
 int wavefile_ix;              // a wavefile to play along with the synthesis
 int wavefile_amp;
 static int seq_len_adjust;
+int vowel_transition[4];
+int vowel_transition0;
+int vowel_transition1;
 
-void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which);
+void FormantTransitions(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which);
+void FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which);
 
 
 const char *PhonemeTabName(void)
@@ -139,13 +144,16 @@ void FreePhData(void)
 }
 #endif
 
-static unsigned int LookupSound2(int index, unsigned int other_phcode)
-{//===================================================================
+static unsigned int LookupSound2(int index, unsigned int other_phcode, int control)
+{//================================================================================
+// control=1  get formant transition data only
+
+	int code;
 	unsigned int value, value2;
 	
 	while((value = phoneme_index[index++]) != 0)
 	{
-		if((value & 0xff) == other_phcode)
+		if((code = (value & 0xff)) == other_phcode)
 		{
 			while(((value2 = phoneme_index[index]) != 0) && ((value2 & 0xff) < 8))
 			{
@@ -153,30 +161,51 @@ static unsigned int LookupSound2(int index, unsigned int other_phcode)
 				{
 				case 0:
 					// next entry is a wavefile to be played along with the synthesis
-					wavefile_ix = value2 >> 8;
+					if(control==0)
+						wavefile_ix = value2 >> 8;
 					break;
 				case 1:
-					seq_len_adjust = value2 >> 8;
+					if(control==0)
+						seq_len_adjust = value2 >> 8;
 					break;
 				case 2:
-					seq_len_adjust = -(value2 >> 8);
+					if(control==0)
+						seq_len_adjust = -(value2 >> 8);
 					break;
 				case 3:
-					wavefile_amp = value2 >> 8;
+					if(control==0)
+						wavefile_amp = value2 >> 8;
+					break;
+				case 4:
+					// formant transition data, 2 words
+					vowel_transition[0] = value2 >> 8;
+					vowel_transition[1] = phoneme_index[index++ + 1];
+					break;
+				case 5:
+					// formant transition data, 2 words
+					vowel_transition[2] = value2 >> 8;
+					vowel_transition[3] = phoneme_index[index++ + 1];
 					break;
 				}
 				index++;
 			}
 			return(value >> 8);
 		}
+		else
+		if((code == 4) || (code == 5))
+		{
+			// formant transition data, ignore next word of data
+			index++;
+		}
 	}
 	return(3);   // not found
 }  //  end of LookupSound2
 
 
-unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int *match_level)
-{//===============================================================================================
+unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which, int *match_level, int control)
+{//============================================================================================================
 	// follows,  1 other_ph preceeds this_ph,   2 other_ph follows this_ph
+   // control:  1= get formant transition data only
 	int spect_list;
 	int spect_list2;
 	int s_list;
@@ -189,6 +218,7 @@ unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which,
 	wavefile_ix = 0;
 	wavefile_amp = 32;
 	seq_len_adjust = 0;
+	memset(vowel_transition,0,sizeof(vowel_transition));
 	
 	other_code = other_ph->code;
 	if(phoneme_tab[other_code]->type == phPAUSE)
@@ -213,14 +243,14 @@ unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which,
 	// look for ph1-ph2 combination
 	if((s_list = spect_list) != 0)
 	{
-		if((result = LookupSound2(s_list,other_code)) != 3)
+		if((result = LookupSound2(s_list,other_code,control)) != 3)
 		{
 			level = 2;
 		}
 		else
 		if(other_virtual != 0)
 		{
-			if((result = LookupSound2(spect_list,other_virtual)) != 3)
+			if((result = LookupSound2(spect_list,other_virtual,control)) != 3)
 			{
 				level = 1;
 			}
@@ -229,21 +259,22 @@ unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which,
 	// not found, look in a virtual phoneme if one is given for this phoneme
 	if((result==3) && (virtual_ph != 0) && ((s_list = spect_list2) != 0))
 	{
-		if((result = LookupSound2(s_list,other_code)) != 3)
+		if((result = LookupSound2(s_list,other_code,control)) != 3)
 		{
 			level = 1;
 		}
 		else
 		if(other_virtual != 0)
 		{
-			if((result = LookupSound2(spect_list2,other_virtual)) != 3)
+			if((result = LookupSound2(spect_list2,other_virtual,control)) != 3)
 			{
 				level = 1;
 			}
 		}
 	}
 
-	*match_level = level;
+	if(match_level != NULL)
+		*match_level = level;
 	
 	if(result==0)
 		return(0);   // NULL was given in the phoneme source
@@ -258,7 +289,7 @@ unsigned int LookupSound(PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which,
 	}
 	
 	// no match found for other_ph, return the default
-	return(LookupSound2(this_ph->spect,phonPAUSE));
+	return(LookupSound2(this_ph->spect,phonPAUSE,control));
 
 }  //  end of LookupSound
 
@@ -285,7 +316,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	else
 		other_ph = next_ph;
 
-	if((ix = LookupSound(this_ph,other_ph,which,match_level)) == 0)
+	if((ix = LookupSound(this_ph,other_ph,which,match_level,0)) == 0)
 		return(NULL);
 	seq = (SPECT_SEQ *)(&spects_data[ix]);
 	nf = seq->n_frames;
@@ -318,7 +349,17 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	// do we need to modify a frame for blending with a consonant?
 	if((this_ph->type == phVOWEL) && (*match_level == 0))
 	{
-		BendVowel(frames,nf,this_ph,other_ph,which);
+		if(which==2)
+		{
+			// lookup formant transition for the following phoneme
+			LookupSound(next_ph,this_ph,1,NULL,1);
+			FormantTransition2(frames,nf,vowel_transition[2],vowel_transition[3],next_ph,which);
+		}
+		else
+		{
+			FormantTransition2(frames,nf,vowel_transition0,vowel_transition1,prev_ph,which);
+		}
+//		FormantTransitions(frames,nf,this_ph,other_ph,which);
 	}
 
 	nf1 = nf - 1;

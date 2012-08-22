@@ -134,6 +134,7 @@ static void EndPitch(int voice_break)
 		syllable_end = wcmdq_tail;
 		SmoothSpect();
 		syllable_centre = -1;
+		memset(vowel_transition,0,sizeof(vowel_transition));
 	}
 }  // end of Synthesize::EndPitch
 
@@ -249,7 +250,7 @@ static void DoSample(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int length_m
 	int match_level;
 
 	EndPitch(1);
-	index = LookupSound(ph1,ph2,which & 0xff,&match_level);
+	index = LookupSound(ph1,ph2,which & 0xff,&match_level,0);
 	if((index & 0x800000) == 0)
 		return;             // not wavefile data
 
@@ -312,14 +313,14 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 
 static void formants_reduce_hf(frame_t *fr, int level)
 {//====================================================
-//  change height of peaks 2 to 8 to level/128
+//  change height of peaks 2 to 8, percentage
 	int  ix;
 	int  x;
 
 	for(ix=2; ix<N_PEAKS; ix++)
 	{
 		x = fr->fheight[ix] * level;
-		fr->fheight[ix] = x >> 7;
+		fr->fheight[ix] = x/100;
 	}
 }
 
@@ -355,7 +356,7 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 {//=========================================================================================================
 	int x;
 
-hf_reduce = 70;
+//hf_reduce = 70;      // ?? using fixed amount rather than the parameter??
 
 	x = (target - fr->ffreq[2]) / 2;
 	if(x > max) x = max;
@@ -381,7 +382,7 @@ hf_reduce = 70;
 		fr->ffreq[1] += x;
 		fr->ffreq[0] += x;
 	}
-	formants_reduce_hf(fr,70);       // ?? using fixed amount rather than the parameter??
+	formants_reduce_hf(fr,hf_reduce); 
 }
 
 
@@ -400,7 +401,106 @@ int VowelCloseness(frame_t *fr)
 }
 
 
-void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which)
+void FormantTransition2(frameref_t *seq, int &n_frames, unsigned int data1, unsigned int data2, PHONEME_TAB *other_ph, int which)
+{//==============================================================================================================================
+	int len;
+	int rms;
+	int f1;
+	int f2;
+	int f2_min;
+	int f2_max;
+	int f3_adj;
+	int f3_amp;
+	int flags;
+
+	frame_t *fr = NULL;
+
+	if(n_frames < 2)
+		return;
+
+	len = (data1 & 0x3f) * 2;
+	rms = ((data1 >> 6) & 0x3f) * 2;
+	flags = (data1 >> 12);
+
+	f2 = (data2 & 0x3f) * 50;
+	f2_min = (((data2 >> 6) & 0x1f) - 15) * 50;
+	f2_max = (((data2 >> 11) & 0x1f) - 15) * 50;
+	f3_adj = (((data2 >> 16) & 0x1f) - 15) * 50;
+	f3_amp = ((data2 >> 21) & 0x1f) * 8;
+	f1 = (data2 >> 26);
+
+//	fprintf(stderr,"FMT%d %3s  %3d-%3d f1=%d  f2=%4d %4d %4d  f3=%4d %3d\n",
+//		which,WordToString(other_ph->mnemonic),len,rms,f1,f2,f2_min,f2_max,f3_adj,f3_amp);
+
+	if(other_ph->mnemonic == '?')
+		flags |= 8;
+
+	if(which == 1)
+	{
+		/* entry to vowel */
+		fr = CopyFrame(seq[0].frame);
+		seq[0].frame = fr;
+		seq[0].length = VOWEL_FRONT_LENGTH;
+		seq[0].flags |= FRFLAG_LEN_MOD;              // reduce length modification
+		fr->flags |= FRFLAG_LEN_MOD;
+
+		if(f2 != 0)
+		{
+			AdjustFormants(fr, f2, f2_min, f2_max, f1, f3_adj, f3_amp);
+			set_frame_rms(fr,rms);
+		}
+		else
+		{
+			set_frame_rms(fr,RMS_START);
+		}
+
+		if(flags & 8)
+		{
+			set_frame_rms(fr,seq[1].frame->rms - 5);
+			modn_flags = 0x800 + (VowelCloseness(fr) << 8);
+		}
+	}
+	else
+	{
+		if((f2 != 0) || (flags != 0))
+		{
+
+			if(flags & 8)
+			{
+				fr = CopyFrame(seq[n_frames-1].frame);
+				seq[n_frames-1].frame = fr;
+				rms = RMS_GLOTTAL1;
+	
+				// degree of glottal-stop effect depends on closeness of vowel (indicated by f1 freq)
+				modn_flags = 0x400 + (VowelCloseness(fr) << 8);
+			}
+			else
+			{
+				fr = DuplicateLastFrame(seq,n_frames++,len);
+	
+				if(f2 != 0)
+				{
+					AdjustFormants(fr, f2, f2_min, f2_max, f1, f3_adj, f3_amp);
+				}
+			}
+
+			set_frame_rms(fr,rms);
+		}
+	}
+
+	if(fr != NULL)
+	{
+		if(flags & 4)
+			fr->flags |= FRFLAG_FORMANT_RATE;
+		if(flags & 2)
+			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
+	}
+} //  end of FormantTransition2
+
+
+#ifdef deleted
+// old version
+void FormantTransitions(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB *other_ph, int which)
 {//===================================================================================================
 // Adjust the beginning (which=1) and end (which=2) of a vowel, depending on the
 // adjacent phoneme.
@@ -451,11 +551,10 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB
 			break;
 
 //		case 'p':
-		case 'm':
 //		case 'f':
-			AdjustFormants(fr,1000,-300,-100,0,-300,128);
-			set_frame_rms(fr,14);
-			break;
+//			AdjustFormants(fr,1000,0,0,0,-200,60);
+//			set_frame_rms(fr,RMS_START);
+//			break;
 
 		case 'n':
 			AdjustFormants(fr,1700,-300,300,0,-100,100);
@@ -523,7 +622,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB
 			break;
 
 		case ';':      // pause
-		case '_':
+		case ((':'<<8) + '_'):
 			fr = DuplicateLastFrame(seq,n_frames++,50);
 			set_frame_rms(fr,RMS1);
 			break;
@@ -537,10 +636,15 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB
 		case 'p':
 		case (('f'<<8) + 'p'):
 		case 'f':
-		case 'm':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
 			AdjustFormants(fr,1000,-500,-350,0,-200,100);
-			set_frame_rms(fr,RMS2);
+			set_frame_rms(fr,RMS1);
+			break;
+
+		case 'm':
+			fr = DuplicateLastFrame(seq,n_frames++,35);
+			AdjustFormants(fr,1000,-500,-350,1,-200,100);
+			set_frame_rms(fr,RMS1);
 			break;
 
 		case 'D':
@@ -554,18 +658,29 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB
 		case 's':
 		case 'T':
 		case 'C':
+//		case 'n':
+			fr = DuplicateLastFrame(seq,n_frames++,35);
+			AdjustFormants(fr,1700,-300,250,0,-100,100);
+			set_frame_rms(fr,RMS2);
+			break;
+
 		case 'n':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
-			AdjustFormants(fr,1700,-300,300,0,-100,100);
+			AdjustFormants(fr,1700,-300,250,2,-100,100);
 			set_frame_rms(fr,RMS2);
 			break;
 
 		case 'k':
 		case 'c':
 		case 'x':
-//		case 'N':
 			fr = DuplicateLastFrame(seq,n_frames++,35);
 			AdjustFormants(fr,2300,300,400,0,-100,100);
+			set_frame_rms(fr,RMS2);
+			break;
+
+		case 'N':
+			fr = DuplicateLastFrame(seq,n_frames++,40);
+			AdjustFormants(fr,2300,300,400,2,-200,100);
 			set_frame_rms(fr,RMS2);
 			break;
 
@@ -577,7 +692,7 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB
 			fr = DuplicateLastFrame(seq,n_frames++,35);
 			fr->flags |= FRFLAG_BREAK;       // don't merge with next frame
 
-			AdjustFormants(fr,2300,300,400,1,100,100);
+			AdjustFormants(fr,2300,250,300,1,-300,100);
 			set_frame_rms(fr,RMS1);
 			break;
 
@@ -620,8 +735,8 @@ void BendVowel(frameref_t *seq, int &n_frames, PHONEME_TAB *this_ph, PHONEME_TAB
 			DuplicateLastFrame(seq,n_frames++,0);
 		}
 	}
-}   //  end of Bend Vowel
-
+}   //  end of Formant_Transitions
+#endif
 
 
 static void SmoothSpect(void)
@@ -824,6 +939,18 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *nex
 	length_mod = plist->length;
 	if(length_mod==0) length_mod=256;
 
+if(which==1)
+{
+	// limit the shortening of sonorants before shortened (eg. unstressed vowels)
+	if((this_ph->type==phLIQUID) || (prev_ph->type==phLIQUID) || (prev_ph->type==phNASAL))
+	{
+		if(length_mod < (len = translator->langopts.param[LOPT_SONORANT_MIN]))
+		{
+			length_mod = len;
+		}
+	}
+}
+
 	modn_flags = 0;
 	frames = LookupSpect(this_ph,prev_ph,next_ph,which,&match_level,&n_frames, plist);
 	if(frames == NULL)
@@ -900,15 +1027,6 @@ static void DoSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB *nex
 		}
 		len = (frame_length * samplerate)/1000;
 		len = (len * length_factor)/256;
-
-#ifdef deleted
-if((which==2) && (other_ph->mnemonic == 'R'))
-{
-	// try this: lengthen last (modulated) frame of vowel before [R]
-	if(frameix == n_frames-1)
-		len = len + (1200 * speed_factor2)/256;
-}
-#endif
 
 		if((frameix == n_frames-1) && (modn_flags & 0xf00))
 			modulation |= modn_flags;   // before or after a glottal stop
@@ -1047,6 +1165,7 @@ int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
 		syllable_end = wcmdq_tail;
 		syllable_centre = -1;
 		last_pitch_cmd = -1;
+		memset(vowel_transition,0,sizeof(vowel_transition));
 	}
 
 	while(ix<n_phoneme_list)
@@ -1258,6 +1377,10 @@ int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
 			ph = p->ph;
 			stress = p->tone & 0xf;
 
+			// vowel transition from the preceding phoneme
+			vowel_transition0 = vowel_transition[0];
+			vowel_transition1 = vowel_transition[1];
+
 			pitch_env = envelope_data[p->env];
 			amp_env = NULL;
 			if(p->tone_ph != 0)
@@ -1300,6 +1423,8 @@ int Generate(PHONEME_LIST *phoneme_list, int n_phoneme_list, int resume)
 			}
 
 			DoSpect(p->ph,prev->ph,next->ph,2,p,modulation);
+
+			memset(vowel_transition,0,sizeof(vowel_transition));
 			break;
 		}
 		ix++;
@@ -1324,7 +1449,6 @@ static int paused = 0;
 
 int SynthOnTimer()
 {//===============
-
 	if(!timer_on)
 	{
 		return(WavegenCloseSound());
@@ -1424,6 +1548,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	if((f_text==NULL) && (p_text==NULL))
 	{
 		skipping_text = 0;
+		timer_on = 0;
 		return(0);
 	}
 

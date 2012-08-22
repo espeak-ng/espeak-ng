@@ -21,6 +21,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <wctype.h>
 
 #include "speech.h"
 #include "voice.h"
@@ -207,6 +208,8 @@ unsigned char env_13[128] = {
 
 */
    // long vowel fall
+
+#ifdef deleted
 static unsigned char env_long_fall[128] = {
 	254,249,250,251,252,253,254,254, 255,255,255,255,254,254,253,252,
 	251,250,249,247,244,242,238,234, 230,225,221,217,213,209,206,203,
@@ -216,7 +219,7 @@ static unsigned char env_long_fall[128] = {
 	49,47,46,45, 43,42,40,38, 36,34,31,28, 26,24,22,20,
 	18,16,14,12, 11,10,9,8, 8,8,8,8, 9,8,8,8,
 	8,8,7,7, 6,6,6,5, 4,4,3,3, 2,1,1,0 };
-
+#endif
  
 /* 14  drop2 */
 /*

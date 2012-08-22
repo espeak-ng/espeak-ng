@@ -1,9 +1,0 @@
-
-// Additional lookup dictionary items can be added here.
-// They are added to the end of those listed in the english_list
-// file, so they will take precedence over them.
-
-// This file is UTF-8 encoded
-// all words must be LOWER CASE  (although the initial letter will be automatically
-//    converted if it's a 7bit ascii character)
-

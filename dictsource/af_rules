@@ -58,6 +58,7 @@
              bessie       bEsi
              bekommer     b@k'Om@r
              berg         b&rx2
+             berge         b&rg@
              besem        b,e@s@m
 
 .group c
@@ -83,10 +84,10 @@
              dj           c     // palatal stop
 
              d (_dN             // next word starts with d, drop the d
-
-          @) dge (_       _^_EN  //words ending in dge are English
-          &) dele (_      de@l@
-          &) ddele (_     d@l@ 
+//words ending in dge is English
+             @) dge (_  _^_EN
+&) dele (_   de@l@ 
+&) ddele (_   d@l@ 
              doku         dOky
 
 .group e
@@ -122,7 +123,7 @@
          &d) e (r@        @    // not initial or final syllable
          &t) e (r@        @
          &b) e (s@        @
-
+             eenge 'e@nx2@
              entjie       EiNci
    edjie        'E:ici
              etjie        ici
@@ -142,6 +143,8 @@
           _) g (_         x2e@
              g            x2
              g (g
+             ge        x2@
+//re-enable following rule to get [g@] at end of words
              ge (_        g@
              gh           g
              gh (_        k
@@ -149,7 +152,11 @@
 
              gee          x2e@
              gegee        =x2@x2'e@
-
+             geld x2&lt
+             gelde x2&ld@
+             geldi x2&ld@
+             geldjie x2'&lci
+             gemmer x2'Em@r
              ght          _^_EN
              gesels       x2@s'&ls
              generaal     x2@n@r'A:l
@@ -163,6 +170,7 @@
           _) her (@P3     h%&r
 
              hel          h&l
+          &) hede (_    he@d@
              heg          h&x2
 
 .group i
@@ -174,7 +182,8 @@
              ieu          iu
              ij (C        eI
           _) inge (@P4    @nx2@
-          &) ige (_S1     @
+          &) ige (_     Ix2@
+          &) iges (_     Ix2@s
           &) iger (_S2    @r
           &) ike (_S3     @k@
           &) ing (_       @N
@@ -215,11 +224,12 @@
              l            l
              l (l
           &) lede (_S4    le@d@
+             ligen l@x2'En
           &) lik (_S3     l@k
           &) like (_S4    l@k@
           &) likste (_S6  l@kst@
           _) losge (@P5    l'Osx2@
-
+          &) lm (K        l@-m
 
 .group m
           _) m (_         Em
@@ -256,7 +266,7 @@
           _) nage (@P4    n'A:x2@
 
              nasionale    naSEun'A:l@
-          &) nele (_      n'e@l@ 
+&) nele (_   n'e@l@ 
 
 .group o
           _) o (_         o@
@@ -331,7 +341,8 @@
              rivier       r@f'ir
              regering     r@x2'e@r@N
              respek       r@spEk
-          &) rele (_      r'e@l@
+rugby r'Wgbi
+&) rele (_   r'e@l@ 
 
 
 .group s
@@ -352,9 +363,9 @@
              stel         st&l
              sistem       sIst'e@m
              stem         stEm
-          &) sele (_      s'e@l@ 
-          &) spele (_     sp'e@l@ 
-             storm        stOrm
+&) sele (_   s'e@l@ 
+&) spele (_   sp'e@l@ 
+             storm        stOr@-m
              streke       str'e@k@
 
 .group t
@@ -375,7 +386,7 @@
 
           _) terug (@P5   t@-r'Wx2
           _) terugge (@P7   t@-r'Wx2@
-          @) tele (_      t'e@l@ 
+@) tele (_   t'e@l@ 
              tenis        t@nIs
              toneel       tun'e@l
 
@@ -433,8 +444,7 @@
              worth        _^_EN
              wood         _^_EN
           @) ws (_N       _^_EN
-          @) w (_N        _^_EN
-
+          @) w (_N        _^_EN 
 
 .group x
           _) x (_         Eks
