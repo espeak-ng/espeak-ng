@@ -21,10 +21,10 @@
 #define N_PEAKS   9
 #define N_MARKERS 7
 
-// comment this out when compiling the "speak" process
-#define SPECT_EDITOR
+// not used for "speak" process
+// #define SPECT_EDITOR
 
-#define PATHSEP  '/'
+#define PATHSEP  '/'          // unix style file paths
 #define USE_PORTAUDIO
 #define USE_NANOSLEEP
 
@@ -41,5 +41,5 @@ typedef struct {
 
 extern int GetFileLength(const char *filename);
 extern char *Alloc(int size);
-
+extern void Free(void *ptr);
 

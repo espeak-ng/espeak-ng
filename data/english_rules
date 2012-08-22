@@ -229,6 +229,7 @@
              accus (A     a2kju:z
              ace (_       eIs
          _)  ac (e        a2s
+             acean (_     'eIS@n
         pl)  ac (at       a2k
         pl)  ac (eb       @s
        _pl)  ac (ent      @s
@@ -825,6 +826,7 @@
          m)  ar (it       ar
          p)  ar (i        ar
          p)  ar (in       e@
+         &)  ar (in_      @r
          v)  ar (iA       e@r
          @)  ar (ity      ar
              ar (ium      'e@r
@@ -1299,6 +1301,7 @@
          _)  conce (ntra  k0ns@
          _)  co (ncept_   k0
          _)  co (ncret    k0
+         _)  conde (sc    k,0ndI2
          _)  co (ndim     k0
          _)  co (ndom     k0
          _)  co (ndor     k0
@@ -1355,7 +1358,7 @@
              correspo     k,0rIsp'0
              co (rro      k@
              co (rrup     k@
-         _)  counter (P7  k'aUnt@            // prefix
+         _)  counter (@P7  k'aUnt@            // prefix
 
 .group d
          _)  d (_         di:
@@ -1821,6 +1824,7 @@
          _)  ele (p       ElI
          _)  ele (va      ElI
              el (igi      'El
+         _)  elit         I2li:t
          &)  el (_        @L
          &)  ella (_      'El@
         &v)  eller (_     @l@
@@ -1894,6 +1898,7 @@
          _)  endor        ¬EndO@
          _)  en (du       ¬En
          _)  en (e        En
+         t)  enem         En@m
          _)  ener         En@
       @@th)  enes (_      =@ni:z
              eneur        @n'3:
@@ -1917,6 +1922,7 @@
          @)  enous (_     =@n@s
        ost)  en (s        'En
              en (sig      En
+             ensk (_      'Ensk
              enshrine     ¬EnSraIn
          m)  entary (_    'Ent@rI2
              en (ter      En
@@ -2333,12 +2339,14 @@
              ha  (st      heI
          _)  he'          ¬hi:
          @)  head (_$4    hEd
+             heir         e@
          _)  hetero       hEtroU
          &)  hold (_$4    hoULd
              holme        hoUm
          _)  h (our       
          _)  h (ono       
              hone (st     0nI
+         _)  horri         h0rI
          _)  horse         hO@s
          _)  house (@      haUs
              house (_$5    haUs
@@ -2550,6 +2558,7 @@
          @)  istan (_     =Istan
          @)  istani (_     Ist'A:nI2
          r)  is (y_       =@s
+             ithe (_      aID
              i (tion      'I
          &)  ius          I2@s
          &)  iu (m        =I@
@@ -2617,6 +2626,7 @@
              ie (f        i:
              iege         i:dZ
              ie (go       I'eI
+             ieh (C       i:
              iei (_       i:aI 
              iej          i:'eI
              ie (k        i:
@@ -2643,6 +2653,7 @@
              ierre (_     I2j-e@
              ie (t        aI@
          @)  ie (th       I@
+             iesta        i:'Est@
              iette        I2'Et
          @)  iety         'aI@tI2
          l)  ieu          u:
@@ -2683,7 +2694,8 @@
              ig (no       I2g
              ig (noran    Ig
              ig (na       Ig
-        _m)  ig (ra       ¬aIg
+        _m)  ig (ra       aIg
+        _m)  ig (rat      ¬aIg
              igu (e       'i:g
              igu (_       'i:g
 
@@ -2736,8 +2748,9 @@
          _)  in (dir      In
          _)  in (disP2   ,In
          _)  in (divP2   ,In
-         _)  in (do       In
-             in (exP2   ,In
+         _)  in (dol      In
+             in (exP2    ,In
+         _)  inex (or    In'Eks
          _)  infa (l       ¬Infa
          _)  in (fam      In
          _)  infan        Inf@n
@@ -2748,6 +2761,7 @@
          _)  in (flu      In
          _)  in (fo_      In
          _)  infra (P5    ,Infr@
+         _)  infra (c     I2nfrak
              in (got      In
          _)  in (gro      In
          _)  in (jur      In
@@ -3112,6 +3126,7 @@
              m¬ntary (_   m'Ent@rI2
          _)  meta         mEt@
              meta (bolis  mEt'a
+             millen       mI2lEn
          _)  mobile       moUbaIL
         im)  mobile       moUbaIL
              mobile       m@bi:L
@@ -3156,6 +3171,7 @@
          n)  n
        &ia)  n (_$1       n
        &ia)  ns (_$2      nz
+         @)  name (_      neIm
          _)  nano (P4    n,anoU
              necessit     n@sEsIt
          &)  ness (_$4i   n@s
@@ -3451,6 +3467,7 @@
          s)  om (e_       Vm
         st)  omach        Vm@k
          r)  om (an       oUm
+         r)  oman (ti     oUm'an
        chr)  om           oUm
          w)  oma (n       Um@
          w)  ome (n       ImI
@@ -3563,6 +3580,7 @@
          w)  orce (st     U
         &f)  or (d_       @
              ore          O@
+             oresc        @r'Es
              ora (cl      0r@
              or (eB_      0r
              or (eA       O@
@@ -3586,7 +3604,8 @@
          h)  ori (z       @raI
          h)  ori (zont    0rI
         _h)  or (o        0r
-             orr (A       0r
+             orr (_       O@
+             or (r        0
         bb)  or (n        @
          f)  oreign       0r@n
          f)  or (ever     O@
@@ -3788,7 +3807,7 @@
         cl)  ov (e        oUv
         pl)  ov           oUv
       pull)  ov           oUv
-         m)  ov           u:v
+         m)  ov (A        u:v
          n)  ov (el       0v
          p)  ov (er@      0v
         pr)  ov (e£       u:v
@@ -3878,6 +3897,7 @@
              pyon         pj0n
 
 .group pe
+             peace        pi:s
           _) pe (nr       p¬E
              pe (ninsu    p@
              per (cep     p@
@@ -4085,6 +4105,7 @@
              re (pt       rE
              re (sidue    rE
              res (ign     rI2z
+             rese (l      ri:sE
              re (solu     rE
              re (son      rE
              re (stl      rE
@@ -4104,6 +4125,7 @@
              re (ment     r@
              represent    rEprI2z'Ent
              resi (den    rEzI2
+         _)  re (unP2     r,i:
 
 .group s
          _)  s (_         Es
@@ -4283,7 +4305,7 @@
          &)  tience       S@ns
          &)  tion         S=@n
         &s)  tion         tS@n
-             tion (al     S=@4n
+             tion (al     S=@-n
          &)  tious        S=@s
        for)  tuna (t      tS@n@
          s)  t (l
@@ -4523,7 +4545,7 @@
          _)  un (enP2     ,Vn
          _)  un (exP2     ,Vn
          _)  un (ic       ju:n
-         _)  unim         ,Vn¬Im
+         _)  un (imP2     ,Vn
          _)  unin         ,Vn¬In
              un (inj      ¬Vn
          _)  un (il       ,ju:n
@@ -4603,7 +4625,7 @@
          _)  v (_         vi:
              v            v
              v (v
-         _)  vehe (m      vi@
+         _)  vehem        vi@m
          _)  vi (brat     v¬aI
              vivi (@      vIvI
              viv (_       vaIv
@@ -4664,6 +4686,7 @@
              ye (_        aI
         _C)  y (Ce        aI
          C)  y (i         I
+             y (iC_       j
         sf)  y (_         aI
         Cf)  y (_         I2
        %Af)  y (_         I2
@@ -4682,6 +4705,7 @@
          h)  y (Cr        aI
          c)  y (lin       I
         th)  y (l_        aI
+        gl)  y (ph        I
          k)  y (l_        aI
          n)  y (l_        aI
          t)  y (l_        aI
@@ -4913,7 +4937,7 @@
              ¬m (_        @m
          @)  ¬ (mber      'E
              ¬me (_       i:m
-//             ¬ment (_   m@nt
+             ¬nsk (_      'Ensk
              ¬n (_        @n
              ¬n (atA      @n
              ¬ (ndous     E
@@ -4982,6 +5006,8 @@
              é            eI
          _)  é            I2
              ä            E
+             ë            E
+             ï            i:
              ö            3:
              ü            u:
              ç            s
@@ -4996,6 +5022,7 @@
              '            
              +           plVs
          _)  ++ (_       plVspl'Vs
+    \+\+\+)  +				// ignore + after the first 3
              .           d0t
          D)  . (D        ,pOInt
              %.           ,pOInt

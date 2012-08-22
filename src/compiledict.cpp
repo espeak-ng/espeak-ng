@@ -51,37 +51,37 @@ typedef struct {
 
 MNEM_TAB mnem_flags[] = {
 	// these in the first group put a value in bits0-2 of dictionary_flags
-	"$1", 1,           // stress on 1st syllable
-	"$2", 2,           // stress on 2nd syllable
-	"$3", 3,
-	"$4", 4,
-	"$5", 5,
-	"$u", 7,           // reduce to unstressed
+	{"$1", 1},           // stress on 1st syllable
+	{"$2", 2},           // stress on 2nd syllable
+	{"$3", 3},
+	{"$4", 4},
+	{"$5", 5},
+	{"$u", 7},           // reduce to unstressed
 
 	// these set the corresponding numbered bit if dictionary_flags
-	"$pause",     8,    /* ensure pause before this word */
-	"$only",      9,    /* only match on this word without suffix */
-	"$onlys",     10,    /* only match with none, or with 's' suffix */
-	"$strend",    11,    /* full stress if at end of clause */
-	"$strend2",   12,    /* full stress if at end of clause, or only followed by unstressed */
-	"$unstressend",13,   /* reduce stress at end of clause */
-	"$atend",     14,    /* use this pronunciation if at end of clause */
+	{"$pause",     8},    /* ensure pause before this word */
+	{"$only",      9},    /* only match on this word without suffix */
+	{"$onlys",     10},    /* only match with none, or with 's' suffix */
+	{"$strend",    11},    /* full stress if at end of clause */
+	{"$strend2",   12},    /* full stress if at end of clause, or only followed by unstressed */
+	{"$unstressend",13},   /* reduce stress at end of clause */
+	{"$atend",     14},    /* use this pronunciation if at end of clause */
 
-	"$capital",   15,   /* use this pronunciation if initial letter is upper case */
-	"$dot",       16,   /* ignore '.' after this word (abbreviation) */
-	"$abbrev",    17,    /* use this pronuciation rather than split into letters */
+	{"$capital",   15},   /* use this pronunciation if initial letter is upper case */
+	{"$dot",       16},   /* ignore '.' after this word (abbreviation) */
+	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
 
-	"$verbf",     22,    /* verb follows */
-	"$verbsf",    23,    /* verb follows, allow -s suffix */
-	"$nounf",     24,    /* noun follows */
-	"$verb",      25,   /* use this pronunciation when its a verb */
-	"$past",      26,   /* use this pronunciation when its past tense */
-	"$pastf",     27,   /* past tense follows */
-	"$verbextend",28,   /* extend influence of 'verb follows' */
+	{"$verbf",     22},    /* verb follows */
+	{"$verbsf",    23},    /* verb follows, allow -s suffix */
+	{"$nounf",     24},    /* noun follows */
+	{"$verb",      25},   /* use this pronunciation when its a verb */
+	{"$past",      26},   /* use this pronunciation when its past tense */
+	{"$pastf",     27},   /* past tense follows */
+	{"$verbextend",28},   /* extend influence of 'verb follows' */
 
 	// doesn't set dictionary_flags
-	"$?",        100,   // conditional rule, followed by byte giving the condition number
-	NULL,   -1
+	{"$?",        100},   // conditional rule, followed by byte giving the condition number
+	{NULL,   -1}
 };
 
 
@@ -112,7 +112,7 @@ static int lookup_mnem(MNEM_TAB *table, char* mnem)
 }   /* end of mnem */
 
 
-
+#ifdef OPT_FORMAT
 static const char *lookup_mnem(MNEM_TAB *table, int value)
 //========================================================
 /* Lookup a mnemonic string in a table, return its name */
@@ -125,6 +125,7 @@ static const char *lookup_mnem(MNEM_TAB *table, int value)
    }
    return("??");   /* not found */
 }   /* end of mnem */
+#endif
 
 
 
@@ -157,7 +158,7 @@ int compile_line(char *linebuf, char *dict_line, int *hash)
 	p = linebuf;
 	comment = NULL;
 	phonetic = word = "";
-	
+
 	step = 0;
 	
 	c = 0;
@@ -986,7 +987,7 @@ void CompileDictionary(const char *dict_name, int log)
 
 	if(log==1)
 	{
-		sprintf(fname,"%s/dict_log",path_source);
+		sprintf(fname,"%s%cdict_log",path_source,PATHSEP);
 		f_log = fopen(fname,"w");
 	}
 	else
@@ -1008,7 +1009,7 @@ void CompileDictionary(const char *dict_name, int log)
 	{
 		return;
 	}
-	sprintf(fname,"%s/%s_2",path_home,dict_name);
+	sprintf(fname,"%s%c%s_2",path_home,PATHSEP,dict_name);
 	f_out = fopen_log(fname,"wb+");
 	if(f_out == NULL)
 	{
@@ -1036,7 +1037,7 @@ void CompileDictionary(const char *dict_name, int log)
 	{
 		return;
 	}
-	sprintf(fname,"%s/%s_1",path_home,dict_name);
+	sprintf(fname,"%s%c%s_1",path_home,PATHSEP,dict_name);
 	f_out = fopen_log(fname,"wb+");
 	if(f_out == NULL)
 	{

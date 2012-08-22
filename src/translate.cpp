@@ -752,7 +752,7 @@ int Translator::TranslateWord(char *word1, int next_pause, int wflags)
 
 		// we need to improve the intonation module to deal better with a clauses tonic
 		// stress being early in the clause, before enabling this
-//		SetWordStress(word_phonemes,0,5,prev_last_stress);
+		//SetWordStress(word_phonemes,0,5,prev_last_stress);
 	}
 
 	// dictionary flags for this word give a clue about which alternative pronunciations of

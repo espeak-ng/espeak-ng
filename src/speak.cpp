@@ -44,14 +44,14 @@ char path_home[120];
 char path_source[80] = "";
 char wavefile[120];
 
-const char *version = "Speak text-to-speech: 1.07  23.Mar.2006";
+const char *version = "Speak text-to-speech: 1.08  06.Apr.2006";
 
 const char *help_text =
-"-f <text file>\n"
-"\t   Text file to speak\n"
-"--stdin\n"
-"\t   Read text input from stdin instead of a file\n"
-"   If neither -f nor --stdin, text is spoken from stdin, each line separately.\n\n"
+"\nspeak [options] [\"<words>\"]\n\n"
+"-f <text file>   Text file to speak\n"
+"--stdin    Read text input from stdin instead of a file\n\n"
+"If neither -f nor --stdin, <words> are spoken, or if none then text is\n"
+"spoken from stdin, each line separately.\n\n"
 "-p\t   Write phoneme mnemonics to stdout\n"
 "-P\t   Write phonemes mnemonics and translation trace to stdout\n"
 "-q\t   Quiet, don't produce any speech (can use with -p)\n"
@@ -66,6 +66,7 @@ const char *help_text =
 "\t   Use voice file of this name from espeak-data/voices\n"
 "-w <wave file name>\n"
 "\t   Write output to this WAV file, rather than speaking it directly\n"
+"--stdout   Write speech output to stdout\n"
 "--compile=<voice name>\n"
 "\t   Compile the pronunciation rules and dictionary in the current\n"
 "\t   directory. =<voice name> is optional and specifies which language\n";
@@ -90,6 +91,13 @@ char *Alloc(int size)
 		fprintf(stderr,"Can't allocate memory\n");
 	return(p);
 }
+
+void Free(void *ptr)
+{//=================
+	free(ptr);
+}
+
+
 
 
 static void VoiceSetup()
@@ -138,7 +146,7 @@ int initialise(void)
 		strcpy(path_home,"/usr/share/espeak-data");
 	}
 
-	WavegenInit(22050,0);
+	WavegenInit(22050,0);   // 22050
 	VoiceInit();
 	LoadPhData();
 	SynthesizeInit();
@@ -161,7 +169,8 @@ int main (int argc, char **argv)
 			We distinguish them by their indices. */
 		{"help",    no_argument,       0, 'h'},
 		{"stdin",   no_argument,       0, 0x100},
-		{"compile", optional_argument,       0, 0x101},
+		{"stdout",  no_argument,       0, 0x101},
+		{"compile", optional_argument,       0, 0x102},
 		{0, 0, 0, 0}
 		};
 
@@ -249,7 +258,12 @@ int main (int argc, char **argv)
 			flag_stdin = 1;
 			break;
 
-		case 0x101:		// --compile
+		case 0x101:		// --stdout
+			option_waveout = 1;
+			strcpy(wavefile,"stdout");
+			break;
+
+		case 0x102:		// --compile
 			if(optarg != NULL)
 				strncpy0(voicename,optarg,sizeof(voicename));
 			flag_compile = 1;
@@ -259,7 +273,7 @@ int main (int argc, char **argv)
 			abort();
 		}
 	}
-	
+
 	initialise();
 
 	if((error = LoadVoice(voicename,0)) != 0)
@@ -278,9 +292,18 @@ int main (int argc, char **argv)
 
 	if(filename[0]==0)
 	{
-		f_text = stdin;
-		if(flag_stdin == 0)
-			option_linelength = -1;  // single input lines on stdin
+		if((optind < argc) && (flag_stdin == 0))
+		{
+			// there's a non-option parameter, and no -f or --stdin
+			// use it as text
+			f_text = fmemopen(argv[optind],strlen(argv[optind]),"r");
+		}
+		else
+		{
+			f_text = stdin;
+			if(flag_stdin == 0)
+				option_linelength = -1;  // single input lines on stdin
+		}
 	}
 	else
 	{
@@ -293,25 +316,25 @@ int main (int argc, char **argv)
 		exit(1);
 	}
 
-	if((option_waveout) || quiet)
+	if(option_waveout || quiet)
 	{
 		if(quiet)
 		{
 			// no sound output
-			OpenWaveFile(NULL);
+			OpenWaveFile(NULL,samplerate);
 			option_waveout = 1;
 		}
 		else
 		{
 			// write sound output to a WAV file
-			if(OpenWaveFile(wavefile) != 0)
+			if(OpenWaveFile(wavefile,samplerate) != 0)
 			{
 				fprintf(stderr,"Can't write to output file '%s'\n'",wavefile);
 				exit(3);
 			}
 		}
 
-		SpeakNextClause(f_text,0);
+		SpeakNextClause(f_text,NULL,0);
 
 		for(;;)
 		{
@@ -319,7 +342,7 @@ int main (int argc, char **argv)
 				break;   // finished, wavegen command queue is empty
 
 			if(Generate(phoneme_list,1)==0)
-				SpeakNextClause(NULL,0);
+				SpeakNextClause(NULL,NULL,1);
 		}
 
 		CloseWaveFile(samplerate);
@@ -329,7 +352,7 @@ int main (int argc, char **argv)
 		// output sound using portaudio
 		WavegenInitSound();
 
-		SpeakNextClause(f_text,0);
+		SpeakNextClause(f_text,NULL,0);
 
 		speaking = 1;
 		while(speaking)

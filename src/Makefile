@@ -4,13 +4,13 @@ LIBS=-lstdc++ -lportaudio
 all: speak
 
 .cpp.o:
-	$(CXX) $(CXXFLAGS) -I. -c $<
+	$(CXX) $(CXXFLAGS) -O2 -Wall -pedantic -I. -c -fno-exceptions $<
 
 speak: $(OBJS)
 	$(CXX) -o $@ $(OBJS) $(LIBS)
 
 clean:
-	rm -f *.o
+	rm -f *.o *~
 
 distclean: clean
 	rm -f speak

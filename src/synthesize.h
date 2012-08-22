@@ -128,7 +128,7 @@ extern int WavegenOpenSound();
 extern int WavegenCloseSound();
 extern int	WavegenInitSound();
 extern void WavegenInit(int rate, int wavemult_fact);
-extern int OpenWaveFile(const char *path);
+extern int OpenWaveFile(const char *path, int rate);
 extern void CloseWaveFile(int rate);
 
 extern float polint(float xa[],float ya[],int n,float x);
@@ -151,11 +151,12 @@ extern void SynthesizeInit(void);
 extern int Generate(PHONEME_LIST *phoneme_list, int resume);
 extern void MakeWave2(PHONEME_LIST *p, int n_ph);
 extern int SynthOnTimer(void);
-extern void SpeakNextClause(FILE *f_text, int stop);
+extern int SpeakNextClause(FILE *f_text, char *text_in, int control);
 extern int SynthStatus(void);
 
 
 
 extern char *spects_data;
 extern unsigned char *envelope_data[16];
+extern float formant_rate[];         // max rate of change of each formant
 

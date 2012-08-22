@@ -59,10 +59,7 @@ static int  amp_length;
 static int  syllable_start;
 static int  syllable_end;
 static int  syllable_centre;
-static int  smoothing_factor;
 
-// limit the rate of change for each formant number
-float formant_rate[9] = {0.2, 0.4, 0.64, 0.9, 0.85, 0.85, 1, 1, 1};
 
 
 #define RMS1  15  // 12 - 15
@@ -89,7 +86,7 @@ const char *WordToString(unsigned int word)
 }
 
 
-void StartLog(int on)
+void StartLog(void)
 {//==================
 #ifdef LOG_WGEN
 	if(f_log == NULL)
@@ -138,7 +135,6 @@ void SynthesizeInit()
 	last_amp_cmd = 0;
 	last_frame = NULL;
 	syllable_centre = -1;
-	smoothing_factor = 0;
 
 	// initialise next_pause, a dummy phoneme_list entry
 	next_pause.ph = &phoneme_tab[phonPAUSE];
@@ -611,8 +607,7 @@ static void SmoothSpect(void)
 			break;
 
 		if(q[0] == WCMD_SPECT || q[0] == WCMD_SPECT2)
-		{
-	
+		{	
 			len = q[1] & 0xffff;
 	
 			frame1 = (frame_t *)(q[3]-4);
@@ -1168,7 +1163,7 @@ void MakeWave2(PHONEME_LIST *p, int n_ph)
 {//======================================
 	int result;
 	
-	OpenWaveFile(tempwav);
+	OpenWaveFile(tempwav, samplerate);
 
 	Generate(p,0);
 
@@ -1200,7 +1195,7 @@ int SynthOnTimer()
 	}
 
 	if(Generate(phoneme_list,1)==0)
-		SpeakNextClause(NULL,0);
+		SpeakNextClause(NULL,NULL,1);
 		
 	return(0);
 }
@@ -1213,17 +1208,35 @@ int SynthStatus()
 
 
 
-void SpeakNextClause(FILE *f_in, int stop)
-{//=======================================
-// stop 1: stop
-//      2: pause
+int SpeakNextClause(FILE *f_in, char *text_in, int control)
+{//========================================================
+// Speak text from file (f_in) or memory (text_in)
+// control 0: start
+//    either f_in or text_in is set, the other must be NULL
+
+// The other calls have f_in and text_in = NULL
+// control 1: speak next text
+//         2: stop
+//         3: pause (toggle)
+//         4: is file being read (0=no, 1=yes)
 
 	int clause_tone;
 	static FILE *f_text=NULL;
+	static char *p_text=NULL;
 
-	if(stop == 1)
+	if(control == 4)
 	{
+		if((f_text == NULL) && (p_text == NULL))
+			return(0);
+		else
+			return(1);
+	}
+
+	if(control == 2)
+	{
+		// stop speaking
 		timer_on = 0;
+		p_text = NULL;
 		if(f_text != NULL)
 		{
 			fclose(f_text);
@@ -1231,10 +1244,11 @@ void SpeakNextClause(FILE *f_in, int stop)
 		}
 		n_phoneme_list = 0;
 		WcmdqStop();
-		return;
+		return(0);
 	}
-	if(stop == 2)
+	if(control == 3)
 	{
+		// toggle pause
 		if(paused == 0)
 		{
 			timer_on = 0;
@@ -1247,30 +1261,38 @@ void SpeakNextClause(FILE *f_in, int stop)
 			paused = 0;
 			Generate(phoneme_list,0);   // re-start from beginning of clause
 		}
-		return;
+		return(0);
 	}
 
-	if(f_in != NULL)
+	if((f_in != NULL) || (text_in != NULL))
 	{
 		WavegenSetEcho(option_echo_delay,option_echo_amp);
 		f_text = f_in;
+		p_text = text_in;
+		translator->input_start = text_in;
 		timer_on = 1;
 		paused = 0;
 	}
 
-	if(f_text==NULL)
-		return;
-	if(feof(f_text))
+	if((f_text==NULL) && (p_text==NULL))
+		return(0);
+
+	if((f_text != NULL) && feof(f_text))
 	{
 		timer_on = 0;
 		fclose(f_text);
 		f_text=NULL;
-		return;
+		return(0);
+	}
+	if((p_text != NULL) && (*p_text == 0))
+	{
+		p_text = NULL;
+		return(0);
 	}
 	
 	// read the next clause from the input text file, translate it, and generate
 	// entries in the wavegen command queue
-	translator->TranslateClause(f_text,NULL,&clause_tone);
+	p_text = translator->TranslateClause(f_text,p_text,&clause_tone);
 	if(option_phonemes)
 	{
 		printf("%s\n",translator->phon_out);
@@ -1279,5 +1301,6 @@ void SpeakNextClause(FILE *f_in, int stop)
 	translator->CalcLengths();
 	Generate(phoneme_list,0);
 	WavegenOpenSound();
+	return(1);
 }  //  end of SpeakNextClause
 

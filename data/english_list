@@ -268,6 +268,7 @@ attribute        atrIbju:t
 attribute         $2             $verb
 au               ,oU
 aubergine        oUb@Zi:n
+aurora           $2
 aussie           0zI
 austere          ¬O:sti@
 authority        a2T0rItI2
@@ -278,6 +279,7 @@ automobile       O:t@m@bi@l
 autonomous       O:t'0n@m@s
 autopsy          O:t0psI2
 avalanche        av@laanS
+average          av@-rIdZ
 aviary           eIvI@rI2
 awry             a2raI
 axes             aksIz
@@ -320,6 +322,7 @@ blancmange       bl@m0nZ
 blase            blA:zeI
 blockade          $2
 blouse           blaUz
+blurry           bl3:rI2
 bogey            boUgI2
 boing            bOIN
 bombard          $2
@@ -561,6 +564,7 @@ divan            dI2van
 doable           du:@b@L
 doctrine         d0ktrIn
 doctrinal        d0ktr'aIn@L
+domino            $1
 donor            doUn@
 dont             doUnt         $only
 dose             doUs
@@ -579,6 +583,7 @@ eweek            i:wi:k
 early            3:lI2
 eavesdrop        i:vzdr0p
 ebay             i:beI
+ecommerce        'i:k,0m3:s
 eden             i:d@n
 edict            i:dIkt
 edit             EdIt
@@ -590,7 +595,6 @@ electricity      I2lEktr'IsItI2
 electrode        I2lEktroUd
 electron         I2lEktr0n
 eligible         ElIdZ@b@L
-elite            I2li:t
 email            i:meIL
 embed            Emb'Ed
 ember            Emb@
@@ -612,6 +616,7 @@ era              i@r@          $only // should by $onlys, but gets 'erased' wron
 ere              e@            $only
 eros             i@r0s
 errand           Er@nd
+escapism         Esk'eIpIzm
 escort           Esk'O@t       $verb
 espionage        EspI@nA:Z
 essential        Is'EnS@L
@@ -651,13 +656,13 @@ famine           famIn
 farewell                       $2
 fasten           faas@n
 fathom           faD@m
-favorite         feIv@rIt     // sp.
+favorite         feIv@-rIt     // sp.
+favourite        feIv@-rIt
 feisty           faIstI2 
 feline           fi:laIn
 feminine         fEm@nIn
 fete             feIt
 fiasco           fi:'askoU
-fiesta           fi:'Est@
 fiery            faI@rI2
 finale           fIn'A:lI2
 finance          faInans       $only
@@ -704,13 +709,13 @@ galore           ga2lO@
 gases            gasI2z
 gauche           goUS
 gauge            geIdZ
-gredient         gri:di@nt     // ingredient
 geni             dZi:nI2
 genome           dZi:noUm
 genre            Z0nr@
 genuine          dZEnju:In
 geyser           gi:z@
-gigantic         dZaIg'antIk 
+gigantic         dZaIg'antIk
+gibbon           gIb@n
 gilead           g'IlIad
 giraffe          dZ¬Iraaf
 goin             ,goUIn        $only // for goin'
@@ -724,7 +729,10 @@ granite          granIt
 graduate         gradju:@t
 graduate         gradju:eIt      $verb
 graffiti         gra2fi:tI2
+gredient         gri:di@nt     // ingredient
+grenade          gr@neId
 grosvenor        groUv@n@
+gui              gu:I2
 guinea           gInI2
 gurus            gu:ru:z
 
@@ -773,6 +781,7 @@ however           $2
 howto            haUtu:
 hubris           hu:brIs
 hunger           hVng@
+hurrah           hVr'A:
 hurray           hVr'eI
 hurricane        hVrIk@n
 hussar           hVz'A:
@@ -794,7 +803,7 @@ increase         I2nkri:s      $verb
 indicative        $2
 indices          IndIsi:z
 indict           Ind'aIt
-indoors           $2
+indoor            $1           $only
 industry         IndVstrI
 indy             IndI2
 infamous         Inf@m@s
@@ -954,7 +963,8 @@ militia          m@lIS@
 minibus          mInIbVs
 mining           maInIN        // not mini
 minuet           mInju:'Et
-minutely         maIn'ju:tlI2 
+minutely         maIn'ju:tlI2
+mirage           mIrA:Z
 misery           mIz@rI2
 misled           mIsl'Ed
 mischievous      mIstSIv@s
@@ -979,6 +989,7 @@ motel            moUt'EL
 motif            moUt'i:f
 moustache        m@st'aaS
 mouths           maUDz         $only
+movies           mu:vI2z
 mundane           $2
 murmur           m3:m@
 muscle           mVs@L
@@ -988,6 +999,7 @@ myriad           mIrIad
 myrrh            m3:
 
 naif             naI'i:f
+naïve            naI'i:v
 nascent          neIs@nt
 nativity                       $2
 natural          natS@r@L
@@ -1045,6 +1057,7 @@ outer            aUt@
 outbreak          $1
 outburst          $1
 outcast           $1
+outcrop           $1
 outcry            $1
 outed            aUtId
 outfit            $1
@@ -1072,6 +1085,7 @@ papa             pa2p'A:
 papal            peIp@L 
 pagan            peIg@n
 pageant          padZ@nt
+panacea          pana2s'i@
 panache           $2
 parabola         p@rab@l@
 paralysis        p@ral@sIs
@@ -1090,6 +1104,7 @@ peculiar         p¬Ikju:lI2@
 pedalo           pEd@loU
 pejorative       p@dZ0r@tIv
 penal            pi:n@L
+peninsula        p@n'InsjUl@
 penis            pi:nI2s
 perfectly        p3:fEktlI2
 perfect          p3:fEkt       $onlys
@@ -1141,9 +1156,10 @@ precedent        prEsId@nt
 precept          pri:sEpt
 precipice        prEsIpIs
 precise          pr¬IsaIs      // 's' not 'z' at end
+predefine        pri:dIf'aIn
 predicate        prEdIkeIt
 preface          prEf@s
-preferably       prEf@4r@blI2   $verbf
+preferably       prEf@-r@blI2   $verbf
 prelude          prElju:d
 preparation      prEp@r'eIS@n 
 present          prEz@nt       $only
@@ -1242,10 +1258,14 @@ reg              rEdZ
 regal            ri:g@L
 regime           reIZ'i:m
 region           ri:dZ@n       // & regional
+reign            reIn
 rein             reIn
 reindeer         reIndi@
 reinvent         ri:Inv'Ent
 refinery         rI2faIn@rI2
+relative         rEl@tIv
+relic            rElIk
+relish           rElIS
 rely             rI2laI
 remedy           rEm@dI2
 remit            ri:mIt
@@ -1255,18 +1275,15 @@ rendevous        r0ndIvu:
 rendezvous       r0ndIvu:
 renegade         rEn@geId
 rental           rEnt@L
-relative         rEl@tIv
-relic            rElIk
-relish           rElIS
 repel            rI2pEl
 repertoir        rEp@twA:
 replay           ri:pleI
 reply            rI2plaI       // for replied
 repost           r,i:p'oUst
+reprisal         rI2praIz@L
 reputation       rEpju:t'eIS@n
 rescue           'rEskju:
-resell           r,i:s'El
-reseller         ri:sEl@
+rescuer          rEskju:@
 reservation      rEz@v'eIS@n
 reservoir        rEz@vwA:
 respiration      rEspIr'eIS@n 
@@ -1274,6 +1291,7 @@ respiratory      r¬IspIr@t@rI2
 respite          rEspaIt
 rest             rEst          // for rested
 restaurant       rEstr0nt
+restful          rEstf@L
 restoration      rEst@r'eIS@n
 retaliatory      rIt'alI@t@rI2
 retrial          ri:traI@L
@@ -1320,6 +1338,8 @@ schema           ski:m@
 shallow          SaloU
 salmon           sam@n
 scalpel          skalp@L
+scared           ske@d
+scaring          ske@rIN
 scenic           si:nIk
 scald            sk0ld
 sclera           skli@r@
@@ -1330,7 +1350,7 @@ secret           si:kr@t
 secretive        si:kr@tI2v
 secretary        sEkr@trI2
 sedate           sI2deIt
-separate         sEp@r@t
+separate         sEp@-r@t
 separate         sEp@reIt      $verb
 semen            si:m@n
 semicolon        sEmIk'oUl0n
@@ -1361,6 +1381,7 @@ simon            saIm@n
 simultaneous                   $3
 singly           sINglI2       $verbf
 sinew            sInju:
+sir              s,3:
 site             saIt          // for sited
 ski              ski:
 skies            skaIz
@@ -1447,10 +1468,9 @@ ten              tEn           // untenable
 terrain          t@reIn
 testes           tEsti:z
 tobacco                        $2
-telephone        tElI2foUn     // for telephoning
+telephon         tElI2foUn     // for telephoning
 temperature      tEmprItS@
 temporary        tEmpr@rI2
-tenement         tEn@m@nt
 thames           tEmz
 thereof          ,De@'0v
 thereon          ,De@'0n
@@ -1484,7 +1504,8 @@ transfer                       $verb
 transport        transpO@t     $only
 transport                      $verb
 transports       transpO@ts    $nounf
-trajectory       tr@dZEkt@rI2 
+trajectory       tr@dZEkt@rI2
+travesty         trav@stI2
 treatise         tri:tIz
 triage           tri:A:Z
 tribunal         traIb'ju:n@L
@@ -1600,6 +1621,7 @@ wordprocess                    $2
 workstation      w'3:kst,eIS@n
 wound            wu:nd
 wound            waUnd         $past
+(wound up)       w,aUnd||'Vp
 wounded          wu:ndId
 wretched         rEtSId
 writable         raIt@b@L
@@ -1719,6 +1741,7 @@ Hebrides         hEbr@di:z
 Honduras         h0nd'jU@ra2s
 Houston          hju:st@n
 Idaho             $1
+Illinois         Il@n'OI
 Israeli          Izr'eIlI2
 Istanbul         ,Ist,anb'UL
 Italian          It'alI2@n
@@ -1750,6 +1773,7 @@ Mindanao         mInd@n'aU
 Missouri         mIs'U@rI
 Montreal         m0ntrI'O:l
 Morocco          m@r0koU
+Munich           mju:nIk
 Nairobi          naIr'oUbI
 Nauru            naUru:
 Nepal            nEp'O:l
@@ -1799,6 +1823,7 @@ Toulouse         tu:l'u:z
 Ukraine          ju:kr'eIn
 Ural             ju:@r@L
 Utah             ju:tA:
+Vancouver         $2
 Vegas            veIg@s
 Vienna           vI'En@
 Wisconsin        wIsk'0nsIn
@@ -2016,6 +2041,7 @@ down             ,daUn         $only $strend2
 by               ¬baI
 across           @kr,0s        $strend2
 per              ¬p3:
+(per cent)       p@||s'Ent
 (per se)         p,3:||s'eI
 through          ¬Tru:         $strend2
 toward           ¬tUwO@d
@@ -2060,12 +2086,12 @@ weren't          ,w3:nt        $pastf $strend2
 will             ¬wIL           $only $verbf $strend2
 (will to)        wIlt@5
 would            ¬wUd           $verbf $only
-(would have)     ,wUd@v         $pastf $strend2
+(would have)     ,wUdhav         $pastf $strend2
 (would have to)  wUd,havt@5         $verbf $strend2
 (wouldn't have)  ,wUdnt@v       $pastf $strend2
 (wouldn't have to)  ,wUdntavt@5       $verbf $strend2
 won't            ¬woUnt        $verbf $strend2 $only
-(won't have)     ,woUnt@v      $pastf $strend2
+(won't have)     ,woUntav      $pastf $strend2
 (won't have to)  w'oUntavt@      $verbf $strend2
 
 must                           $verbf
@@ -2259,7 +2285,7 @@ some             ,sVm          $nounf $unstressend $only
 one              w0n           $nounf $onlys $unstressend
 ones             w0nz          $only $unstressend
 
-this             ¬DIs          $nounf $verbsf
+this             ¬DIs          $nounf $strend $verbsf
 (this one)       D'Isw,0n      $verbsf
 that             ¬Dat          $nounf $strend2 $verbsf
 (that a)         ,Dat@         $nounf

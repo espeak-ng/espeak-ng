@@ -292,23 +292,23 @@ static int min_drop[] =  {0x300,0x300,0x300,0x300,0x300,0x500,0xc00,0xc00};
 
 /* 2nd index is by stress */
 static int head_drops[][8] = {
-      0x400,0x400,0x700,0x700,0x700,0xa00,0x0e00,0x0e00,
-      0x800,0x800,0xc00,0xc00,0xc00,0xe00,0x1000,0x1000,
+      {0x400,0x400,0x700,0x700,0x700,0xa00,0x0e00,0x0e00},
+      {0x800,0x800,0xc00,0xc00,0xc00,0xe00,0x1000,0x1000},
 };
 
 static TONE_TABLE tone_table[N_TONE_TABLE] = {
-   PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
-   20, 25,   34, 22,  0, 3, 3,   12, 8, 0,
+   {PITCHfall, 30, 5,  PITCHfall, 30, 7,              // statement
+   20, 25,   34, 22,  0, 3, 3,   12, 8, 0},
 
-   PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
-   20, 25,   34, 20,  0, 3, 3,   15, 25, 0,
+   {PITCHfrise, 38,10, PITCHfrise2, 36,10,              // comma, or question
+   20, 25,   34, 20,  0, 3, 3,   15, 25, 0},
 
 // alternatives
-   PITCHfall, 36, 6,  PITCHfall, 36, 8,
-   30, 20,   18, 34,  0, 3, 3,   12, 8, 0,
+   {PITCHfall, 36, 6,  PITCHfall, 36, 8,
+   30, 20,   18, 34,  0, 3, 3,   12, 8, 0},
    
-   PITCHfrise, 38, 8, PITCHfrise2, 36, 8,
-   30, 20,   18, 34,  0, 3, 3,   20, 32, 0,
+   {PITCHfrise, 38, 8, PITCHfrise2, 36, 8,
+   30, 20,   18, 34,  0, 3, 3,   20, 32, 0},
 };
   
 

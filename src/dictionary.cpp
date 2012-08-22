@@ -92,7 +92,7 @@ int LoadDictFile(const char *name, const char *suffix, char **data_ptr)
 	}
 	
 	if(*data_ptr != NULL)
-		free(*data_ptr);
+		Free(*data_ptr);
 
 	ptr = Alloc(size);
 	fread(ptr,size,1,f);

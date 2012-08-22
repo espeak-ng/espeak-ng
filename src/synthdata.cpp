@@ -36,6 +36,10 @@ char voice_name[40];
 int option_echo_delay;
 int option_echo_amp;
 
+// limit the rate of change for each formant number
+static float formant_rate_22050[9] = {0.2, 0.4, 0.64, 0.9, 0.85, 0.85, 1, 1, 1};  // values for 22kHz sample rate
+float formant_rate[9];         // values adjusted for actual sample rate
+
 
 PHONEME_TAB *phoneme_tab=NULL;
 unsigned int *phoneme_index=NULL;
@@ -109,7 +113,7 @@ int ReadPhFile(char **ptr, const char *fname)
 	}
 
 	if(*ptr != NULL)
-		free(*ptr);
+		Free(*ptr);
 		
 	if((p = Alloc(length)) == NULL)
 	{
@@ -425,19 +429,19 @@ typedef struct {
 } keywtab_t;
 
 keywtab_t keyword_tab[] = {
-	"formant",   1,
-	"pitch",     2,
-	"phonemes",  3,
-   "language",  4,
-	"dictionary", 5,
-	"stressLength", 6,
-	"stressAmp",  7,
-	"intonation", 8,
-	"replace",    9,
-	"replaceWE",  10,
-	"words",      11,
-	"echo",       12,
-	NULL,   0 };
+	{"formant",   1},
+	{"pitch",     2},
+	{"phonemes",  3},
+   {"language",  4},
+	{"dictionary", 5},
+	{"stressLength", 6},
+	{"stressAmp",  7},
+	{"intonation", 8},
+	{"replace",    9},
+	{"replaceWE",  10},
+	{"words",      11},
+	{"echo",       12},
+	{NULL,   0} };
 
 
 void VoiceReset(void)
@@ -453,11 +457,15 @@ void VoiceReset(void)
 	voice->intonation2 = 0;
 option_stress_rule = 2;
 	
+
 	for(pk=0; pk<N_PEAKS; pk++)
 	{
 		voice->freq[pk] = 256;
 		voice->height[pk] = 256;
 		voice->width[pk] = 256;
+
+		// adjust formant smoothing depending on sample rate
+		formant_rate[pk] = (formant_rate_22050[pk] * 22050)/samplerate;
 	}
 	phoneme_tab = phoneme_tab_list[0].phoneme_tab_ptr;
 
