@@ -134,7 +134,7 @@ endphoneme
 phoneme aU
   vowel starttype (a) endtype (u)
   length 210
-  formants vdiph/au
+  formants vdiph/au_4
 endphoneme
 
 

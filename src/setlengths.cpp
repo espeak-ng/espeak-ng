@@ -101,10 +101,13 @@ void SetSpeed(int control)
 		// these are used in synthesis file
 		s1 = (x * voice->speedf1)/256;
 		speed_factor1 = (256 * s1)/115;      // full speed adjustment, used for pause length
-if(speed_factor1 < 18)
-	speed_factor1 = 18;
-		speed_factor2 = 120 + (137*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
-//		speed_factor2 = 128 + (128*s1)/130;  // reduced speed adjustment
+if(speed_factor1 < 17)
+	speed_factor1 = 17;
+		if(wpm >= 170)
+			speed_factor2 = 110 + (151*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+		else
+			speed_factor2 = 128 + (128*s1)/130; 
+//		speed_factor2 = 120 + (137*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
 	}
 
 }  //  end of SetSpeed

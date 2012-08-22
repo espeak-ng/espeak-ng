@@ -1046,8 +1046,8 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			// prevent word merging into next, make it look as though next is a pause
 			if((next->newword) && (next->type != phPAUSE))
 			{
-				next_pause.ph = phoneme_tab[phonPAUSE];
-				next = &next_pause;
+//				next_pause.ph = phoneme_tab[phonPAUSE];
+//				next = &next_pause;
 			}
 		}
 

@@ -47,8 +47,6 @@ char wavefile[120];
 int (* uri_callback)(int, const char *, const char *) = NULL;
 
 
-static const char *version = "Speak text-to-speech: 1.20  06.Feb.07";
-
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
 "-f <text file>   Text file to speak\n"
@@ -255,7 +253,7 @@ static int initialise(void)
 		if(result == -1)
 			fprintf(stderr,"Failed to load espeak-data\n");
 		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,VERSION_DATA);
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,version_phdata);
 	}
 #ifndef __WIN32__
 	LoadConfig();  // causes problem on Windows, don't know why
@@ -344,7 +342,7 @@ int main (int argc, char **argv)
 		{
 		case 'h':
 			printf("\n");
-			printf("%s\n%s",version,help_text);
+			printf("speak text-to-speech: %s\n%s",version_string,help_text);
 			exit(0);
 			break;
 

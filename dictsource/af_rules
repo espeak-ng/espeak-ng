@@ -10,6 +10,7 @@
              a (C         a
 
           C) abie        'A:bi
+          @) adig       'A:d@x2 // misdadiger/gewelddadigheid/kragdadigheid
 
           C) agie        'A:x2i
           C) asie        'A:si
@@ -17,18 +18,33 @@
              a (CAA       %a
              a (Cy        %a
              a (CA        A:
+             
              aa           A:
-             ae           'A:       //should be A:@ but sounds wrong
+             ae           A:       //should be A:@ but sounds wrong
              ai           aI
              aai          AI
+          _) alle (C      al@ // alledaags/e/allerhande
+             area         A:ria // area/kiesareas
              au           aU        // ??
              austra       o@str,A:
 
           &) a (_S1       A:
 
-          _) aange (@P5   A:nx@
+             aangee (+    'A:nx2e@ // see rule: _) aange (@P5   A:nx@
+          _) aange (@P5   'A:nx@ // added stress mark to ensure stress on aan
+             aan (g       A:n // aangaan/aangaap/aangroei/aangryp
+             aan (skou    A:n' // stress aanskou/lik
+             aansterk     'A:nst&rk // aansterk/ing
+             aan (vaar    %A:n // aanvaar/de/baar
+             aan (vank    A:n' // stress aanvanklik/e
+             aanwen (d    'A:nvEn // to correct pronunciation of e
+             aanwen (_    'A:nvEn // to correct pronunciation of e in aanwen/aanwending
+          _) af (@P2      'af // afbreek/afdwaal/afdwing
+             afgee (+     'afx2e@ // see rule: _) afge (@P4    afx2@
           _) afge (@P4    afx2@
+          _) afge (tr     'afx2@ // afgetree/afgetrek/afgetrokke
           _) agterge (@P7   'ax2t@rx2@
+             agterna      ax2t@rn'A: // agterna/-kyk/-loop/-sit/-staar
              a (dj        aI
              aan (djie    AIN
              aan (tjie    AIN
@@ -42,12 +58,19 @@
 
           _) aarsel       'A:rs@l
              adjunk       adj'WNk
+             a (dres      a' // stress adres/se
+             adresseer    adrEs'e@r // stress
              agent        ax2'Ent
              algemeen     'alx2@m,e@n
              amandel      am'and@l    // amandel/s/-poeding/-tert...
-             amerik       am'e@rik
+             ameri (k     %ame@ri // Amerika/Amerikaner
              anoniem      anun'im
+             asem         A:s@m // asemgehaal/asemhaling/asemteug/ontwaseming
+             assist       %as@st // assistent/e/assisteer
+             attent       at'Ent // attent/heid/onattent
              augustus     Ox2'WstWs
+             ay (_        _^_EN // words ending in ay are English
+             ays (_       _^_EN // words ending in ays are English
 
 
 .group an
@@ -56,14 +79,21 @@
           _) ana          ,ana     // words starting with ana starts destressed
 
 
-
 .group b
              b            b
              b (b
              b (_N        p
+             bei          beI // beier/beitel
           _) be (@P2      b@
-          C) be (C b@
+          C) be (C        b@
+             be (C%       bE // bekke/beffie/bessie/bennie/bettie
+             bell         b&l // inbeller/oorbelle/seepbelle
+          _) bel (C       b&l // Belgies/belhamel
+             be (weging   b@ // draaibeweging/swaaibeweging
+             bewende      be@v@nd@ // first e pronounced long
+             bewing       be@v@N // (aard)bewing/s
 
+             bowen        bo@v@n' // bowenal/bowendien
           _) byge (@P4    b'eIx2@
 
              badjie       baIci
@@ -74,9 +104,15 @@
 
              bee          be@
              bederf       b@d'&rf
+             beginsel     b@x2'Ins@l // many compounds combining after beginsel
+             bende        bEnd@ // bende and its many compounds
           @) bene (_      be@n@
+             bering       b'e@r@N // ontbering/inhibering/inkubering
+          o) bering       b@r@N // versobering
+          C) bering       b@r@N // verorbering/versombering
+      skrob) bering       b'e@r@N // skrobbering
 
-             beur         b'Y@r
+             beu (C       bY@ // beur/beuke/beul
              besig        b'e@s@x2
              bessie       bEsi
              bekommer     b@k'Om@r
@@ -85,9 +121,15 @@
              besem        b,e@s@m
              besering     =b@se@r@N    // besering/s/kniebesering...
              beter        b'e@t@r
+             bidd         b'Id // biddag/aanbidding
+             bid          b'It_ // biduur/aanbid
+             binne        bIn@ // binnekom/binnelandse
           @) ble (_       _^_EN        // words ending in ble is English
+             boere        bur@ // many compounds with boere
              bok (ooi     bOk_         // bokooi/e/ribbokooi/boerbokooi
              buiten (ge   b'Yyt@n      // buitengewoon/s/buitengewone/buitengemeen
+             buiten       bYyt@n' // buitendien/buitensporig
+             buite        b'Yyt@ // buitelandse/buitestander/buitew�reld
 
 
 .group c
@@ -96,10 +138,12 @@
              c (e         s
              c (i         s
              c (y         s
+             ce (_        _^_EN // words ending in ce are English
              ch           x
           _) ch           x2
              ch (ro       k
              chat         _^_EN
+          @) ci (_        s'i // plurals ending in -ci
           @) cel (_       _^_EN        // words ending in cel is English
           @) cle (_       _^_EN        // words ending in cle is English
              chirurg      S@r'Wrx2
@@ -108,12 +152,16 @@
 .group d
              d            d
              d (d
+             dd           d // gladde/midde/kudde/opskudding
         aan) dag (tig     d'ax2 // accent on dag
+             dani (gh     d'A:n@ // -hoedanigheid/hoedanighede/onderdanigheid
+             dapper       dap@r // dapperder/dapperste/dapperheid
              dekade (n    dEkad'E
              dekade (s    dEk'A:d@
 
 
           &) denis        d@n@s // geskiedenisboek/kultuurgeskiedenis/belydenis/beduidenis
+          @) derd (_      d@rt // verouderd/afgesonderd/gevorderd
           &) ding (_S4    dIN
           &) de (_S2      d@
           &) des (_S3     d@s
@@ -127,6 +175,7 @@
           @) dge (_       _^_EN   //words ending in dge is English
 
 //       &C) dele (_      de@l@ 
+          _) dames        d'A:m@s // numerous compounds with dames
              de (bat      d@      // otherwise debatteer does not work
              debuut       d@b'yt  // debuut/-bundel/-vertoning
              desember     de@s'Emb@r
@@ -136,8 +185,13 @@
           _) dode         d'o@d@  //dodelik dodemars etc.
 
              doku         dOky
-             dood (@      do@t
-          @) dst (A       tst     // oudste/benoudste/goudstad
+             dominee (_   d'o@m@ni
+             domin (A     dOmin' // domineer/dominering
+          @) d (C         t     // oudste/benoudste/goudstad/steeds/Sweeds
+          @) dd           d // beddens/bedding
+             djie         ci // bokbaardjie/bordjie/boordjie/perdjie/tydjie
+          @) d (r         d // but oordrewe/oordrom
+          @) dwes         tv'Es // noordwes/te/lik/e suidwes/te/lik/e
 
 
 .group e
@@ -146,12 +200,16 @@
           _) e (mi %E
              e (CA        e@
           @) e (bolder    @      // holderstebolder/holderdebolder
+          C) ede (_       e@d@  // aandgebede/selftevrede
+             ekstase      Ekst'A:s@ // stress ekstase/s
         app) e (l         @      // appelboom/boer/tert/pynappelsap
+      wink) e (l          @ // winkelvensters/-sentrum/-personeel/winkelier/winkelhaak
           C) eloos        @lo@s  // haweloos/hopeloos/hulpeloos/vlekkeloos
           C) elose        @lo@s@ // hawelose/hopelose/hulpelose/vlekkelose
-          C) enaar       ,@nA:r ++
+             emmer        Em@r // emmervol/belemmerend/onbelemmerd
+          C) enaar        @nA:r // eienaar/lessenaar
           d) e (fi E   
-          C) e (kant      @      // binnekant/buitekant/noordekant
+          C) e (kant      @      // buitekant/noordekant
              ee           e@
              eeu          iu
              ei           eI
@@ -163,6 +221,8 @@
           C) e (toe_      @      // binnetoe/buitetoe
              e (gK        &
           C) ektomie      'Ektumi // histerektomie/vasektomie
+          &) elik (ing    @l@k // verduideliking/s/vergoddeliking/verstedeliking
+          
         app) elkoos       @lk'o@s // stress shifts to koos appelkooskonfeit
           &) e (l_        @
         Cdd) e (le_ e@
@@ -175,9 +235,10 @@
       blind) e (ling @
         ind) e (ling e@ 
          nd) e (ling @
-
+          _) eike         'eIk@ // many compounds with eike
           &) e (lC_       @
        wiss) el (@        @l     // wisselende/verwisseling/wisselbaar
+             elagtig      @l'ax2t@x2 // beuselagtig/e/heid/buffelagtig...
              ener (gi     %En@r  // energie/energiek/e
              ele (ment    El@    // element/e/klankelement
           m) e (ling      @      // versameling/insameling/stameling
@@ -194,6 +255,8 @@
           _) ellende      e@l'End@
           _) ellendig     e@l'End@x2
              engels       EN@ls  // engelssprekend/engelstalige/engelsman
+        lei) er (s        @r // leierskap/leiersgroep/leierskursus/leiersposisie...
+         in) er (A        'e@r // kombinering/verkleinering...
           C) eres         @r'Es  // ...onderwyseres/...sangeres/priesteres
           &) e (m_        @
           &) e (n_        @
@@ -212,6 +275,9 @@
          &b) e (s@        @
        komp) e (t@        @      // kompetisie/s/uitklopkompetisie/inkompetensie
              eenge        'e@nx2@
+             eerbied (A   e@rb'id // eerbiedig/ing
+             eerbiedw     %e@rb%itv // eerbiedwaardig/eerbiedwekkend
+             eerw         %e@rv // stress: eerwaarde
              entjie       EiNci
              edjie        'E:ici
              etjie        ici
@@ -223,6 +289,9 @@
          Ai) er (A        @r     // bakleierig/draaiery/mooierige
          nk) es (_        @s     // blankes/blinkes/krankes/dronkes
         hip) e (r @
+          _) er (b          &r' // erbarm/ing
+          _) er (k          &r' // erkenbaar/erkenning
+          _) er (v          &r' // ervaar/ervare/ervarings/ervaringe
           &) ere (_S3     @r@
           @) ery (_       @reI
           s) e (lig       @      //duiselig/e/heid etc.
@@ -230,7 +299,12 @@
 
              ewigheid     'e@v@x2,eIt // ewigheid/hewigheid/stewigheid
              evolus       EvOl'ys // evolusie/devolusie/revolusie
+          C) ewyn         @veIn // alewyn/compounds of brandewyn
         _op) e (n         @
+          C) ensie (_   'Ensi// many words ending in stressed ensie(s)
+        @C) ent (_        'Ent // orent/student/topstudent
+        @C) ent (e_        'Ent // plurals of some of the above
+          _) etens        'e@t@ns // etenstyd/klok/tafel/uur
           d) e (mons      E%
           r) e (digering  E
 
@@ -246,8 +320,9 @@
              fasiliteit   fasilit'eIt  // fasiliteit/e/aftrekorderfasiliteit
              februarie    f'e@-bry,A:ri
              filistyn     f@l@st'eIn  // filistyn/e
-             forseer      fOrs'e@r // forseer/geforseer/d/e/ongeforseerd
+          _) for (C       f%Or // formeel/formele/forseer/fortuin
              foto         f'o@tu
+             fynge (C     feInx2@ // fyngebreekte/-kou/-kap/-maalde
 
 
 .group g
@@ -260,8 +335,10 @@
              gh (_        k
           @) gheid        x2eIt    // traagheid/leegheid/droogheid/stugheid
           _) ge (@P2      x2@
+             geu (C       x2Y@ // geur/e/ig/geut
              gewe (_      x2'e@v@  // begewe/gegewe	
           @) gewende (_   x2'e@v@nd@
+             gewing       x2e@v@N // begewing/vergewing
 
         bur) ger          g@r
              gee          x2e@
@@ -277,11 +354,13 @@
              gesels       x2@s'&ls
              generaal     x2@n@r'A:l
              garage       g@r'A:dZ
+          @) gge (_       x2@ // logge/stugge
              guerrilla    g@r'Ila
 
 .group h
              h            h
              h (h
+             hemde        hEmd@ // naghemde/onderhemde/frokkiehemde
           _) her (@P3     h%&r
              herder       h'&rd@r
              here (_      he@r@
@@ -290,6 +369,7 @@
           &) hede (_      he@d@
              heg          h&x2
           g) heid         eIt      // traagheid/leegheid/droogheid/stugheid
+             herinner     h&r'In@r // herinner/-ing/-e|s
              hister (e    hist@r // histerektomie
              hister (i    hist'e@r // histerie/histeries
              histor       hist,o@r
@@ -304,6 +384,7 @@
         def) i (n         @
           f) i (guu       @    //figuur
           f) i (gure_     @    //figure at word end
+             insi (dent   @ns@ // insident/e/insidentjie
 
 
         _em) i (r         @
@@ -317,13 +398,16 @@
 
              ieu          iu
              ij (C        eI
+             ingee (+     'Inx2e@ // se rule: _) inge (@P4    @nx2@
           _) inge (@P4    @nx2@
+             inge (wing   'Inx2e@ // see rule: _) inge (@P4    @nx2@
          @C) inge (_      @N@
              ings         @Ns      // begrotingsrede/ontvangslokaal
           _) ing (@       'Inx2    // ingaan/ingang/ingiet/ingly/ingroei/ingryp...
           &) ige (_       Ix2@
           &) iges (_      Ix2@s
           &) iger (_S2    @r
+          @) ika (_       =%ik%a // logika/dinamika
           &) ike (_S3     @k@
           C) iking        @k@N
           &) ing (_       @N
@@ -343,22 +427,30 @@
          &C) ikend        @k@nt     // grinnikend/runnikend/sanikend
          &C) ikende       @k@nd@    // grinnikende/runnikende/sanikende
              ingenieur    @nx2@n'y@r
+             inspring     'Inspr@N // see list: insp        InspEkt'Y@r and rule: &) ring (_S4    rIN
              interessant  Int;r@s'ant
+             irrit        ir@t' // irriteer/irritasie
+             irriter (@   ir@t'e@r // irriterend/e/irritering
 
              ity (_N      _^_EN
           @) igering      ix2'e@r@N
+             instruks        @nstr'Wks // instruksie/s (stress)
+             instrukt        @nstr%Wkt // instrukteur/s/instrukteer (stress)
 
              iër (@       i'e@r     // kopiëring/subsidiërende
           @) iseer        is'e@r    // analiseer/kategoriseer             
           @) iseren (d    is'e@r@n  // analiserend/kategoriserend          
+          @) iseur        is'Y@r // adviseur/narkotiseur
           @) i (sering    i
-          C) isie (_      'isi      // ambisie/ammunisie/komposisie
-          C) isies (_     'isis     // ambisies/komposisies
+          C) isie         'isi      // ambisie/ammunisie/komposisie/ammunisiekis
+          C) isieus       isi'Y@s // ambisieus/suspisieuse
+          @) iteit        it'eIt // stress on iteit endings
 
 .group j
              j            j
              j (j
              januarie     j'any,A:ri
+             jeans        _^_EN
              jellie       dZ'Eli
              johan        juh'an
              johannes     juh'an@s
@@ -372,8 +464,15 @@
              k (k
              kk           k
 
+             kake (C      kA:k@ // kakebeen/skakelaar/skakelbord/skakelfunksie
+             kalmeer      kalm'e@r // kalmeer/gekalmeer
+             kalmer (A    kalm'e@r // kalmerend/e/kalmering
              kamera       k'am@ra
              kameraa      kam@r'A:
+             kamer (C     kA:m@r // kamerdeur/eetkamermat/sitkamervenster
+         @A) kaner (_     k'A:n@r // Afrikaner/Amerikaner
+             kapper       kap@r // kappertjie/haarkapperswinkel
+             kap (tein    k%ap // kaptein/kapteinskap/skeepskaptein
           _) kata ,kata
              kategorie    k,at@x2ur'i // to also handle plural
              kategor (isA kat@x2ur    // katagoriseer/kategorisering/gekategoriseer
@@ -382,20 +481,29 @@
              keling       k@l@N
              kkeling      k@l@N
              kker (@      k@r        // swakkerig/blikkerig/flikkerend/flikkering
+             klaarblyklik klA:rbl'eIkl@k // klaarblyklik/e
           _) kamele       kam'e@l@   // kamele teenoor skamele
              karakter     kar'akt@r
+         er) ken          kEn // E sound in erkEn
              klere        kl'e@r@
              kklere       =kl'e@r@
              kollege      k'OlidZ    // kollege/onderwyskollege
              kolleges (_  k'OlidZ@s  // kolleges/onderwyskolleges
+          @)kollek        kulEk // straatkollekte/straatkolleksie/deurkollekte
+          _) kollek       kul'Ek // kollekte/kollektebord/kolleksie
+             kollekteer   kulEkt'e@r // kollekteer/gekollekteer
              koeël        k'ul
              kolonel      kOl@n'&l
              kombuis      kOmb'Yys
              komitee      kOm@te@
           _) kon (C       k%On
+          _) kon (dig     k'On // stress: see rule: _) kon (C       k%On
+             konnekteer   kOnEkt'e@r // (ge)konnekteer
              koppel       kOp@l      // koppelaar/koppeling/koppelvlak/ontkoppeling
+             kritiseer    kr@t@s'e@r // kritiseer/gekritiseer/de
              krokodil     krOk@-d'I:l
              kruger       kr'Y@@r
+             kwali (C     kw%al%i // kwaliteit/kwalifiseer
 
 
 .group l
@@ -403,6 +511,7 @@
              l (l
           &) lede (_S4    le@d@
              lede (C      le@d@     // ledemate/ledegeld/ledelys
+             lening       le@n@N // banklening/sorgverlening/hulpverlening...
           _) lev (i       l@f       // Levitikus/Leviet
              ligen        l@x2'En
           &) lik (_S3     l@k
@@ -410,8 +519,10 @@
           &) likes (_S5   l@k@s
           &) liker (_S5   l@k@r
           &) likste (_S6  l@kst@
+             linker       lINk@r // blinkertjies/many compounds with linker and klinker
           _) losge (@P5   l'Osx2@
           &) lm (K        l@-m
+             liefdes      lifd@s // liefdesbrief/daad/geskiedenis/verhouding...
              lisensie     l@s'E:nsi
 
 
@@ -422,6 +533,7 @@
           &) mal (_S3     mal
              malaria      mal'A:ria;
              manu (sk    ,many
+             ma (triek    m%a // matriek and many compounds with matriek
 
           _) mede (@P4    m'e@d@
 
@@ -440,7 +552,7 @@
              mekaarge     m@k'A:rx2@
              mment        m@nt
              ment         m'Ent
-
+             mentjie      m'EiNci // monumentjie/dokumentjies
              metaal       m@t'A:l
              metale       m@t'A:l@
              meteen       mEt_'e@n  // meteen/meteens/almeteens
@@ -448,13 +560,19 @@
              metodis      mEtud'Is  // metodis/ties/e/metodisme
              mevrou       m@fr'@U
              middagete    m'Idax2_e@t@ // middagete/s
-             middel (C    mId@l     // middellyf/middelpunt/middelste
+             middel       mId@l     // middellyf/middelpunt/middelste/bemiddelend
              minag        m'Inax2   // minag/geminag/minagting/minagtend
              mikro        mikru
              ministers    m@n'Ist@rs
+             miske (n     m@skE // misken/ning/onmiskenbaar
              modern       m%ud&r@-n
              moeite       m'uIt@    // moeitevol/le/moeiteloos/lose
+             moles (tA    mOl@s' // molesteer/der
+             monu (ment   m%On%y // monument/e/vrouemonument/monumenteel
+             motor (C     mo@t@r // motorfiets/motorkar
+          @) mpel (A      mp@l // bewimpeling/dompelaar/strompeling
              musiek       mWs'ik
+             musi (C      mysi' // musikant/musikus/musici
 
 
 .group n
@@ -466,16 +584,25 @@
              n (x         N
              ng           N
              n (_g        N
-             naa          n'A:
              nasio        naSiu
           _) nag (C       n'ax2
           _) na           n'A:
+          _) na (rC       na // nartjie/nardus/narsing
+          _) na (rk       n%a // narkose/narkotiseer/narkoties/narkotika
+          _) na (tC       na // many compounds beginning with nat
+             na (_        na // shorten final na, except for:
+          r) na (_        nA: // daarna/hierna/waarna
+             naasbeste    nA:sbEst@ // naasbeste/s
+             nadruklik    nA:dr'Wkl@k // nadruklik/e
 
           &) ning (_S4    n@N
+             nning        n@N // prevent nn in words like orwinning, see: &) ning (_S4    n@N
           _) nage (@P4    n'A:x2@
 
              nasionale    naSEun'A:l@
           &) nele (_      n'e@l@ 
+             normaal      nOrm'A:l // normaal/normaalweg/abnormaal
+             nota         no@ta // nota/voetnota/keurnota
 
 
 .group o
@@ -512,31 +639,63 @@
 
              oontjie      oINki
              oondjie      oINki
+             omgee (+     'Omx2e@ // se rule: _) omge (@P4    Omx2@
+             omgewe (_    Omx2'e@v@ // se rule: _) omge (@P4    Omx2@
           _) omge (@P4    Omx2@
              omgewing     Omx2'e@vIN
 
           _) on (@P2      %On
+             onheil       Onh%eIl // stress: onheil/e/onheilbringer
+             onheil (ig   %Onh'eIl // stress: onheilig/e
+             onheil (spel %Onh%eIl // stress: onheilspellend/e
+             onreg        'Onr&x2 // stress: onreg/te
+             on (regv+     %On // stress: onregverdig/e/heid
           _) ont (@P3     %Ont
+             onteenseg    Onte@ns'&x2 // onteenseglik/e
+             on (toe      %On // ontoereikend/heid
           _) onge (@P4    Onx2@
              onder        On@r
           _) onderge (@P7  'On@rx2@
 
+             oombliklik   o@mbl'Ikl@k // stress: oombliklik/e
+             oorbluf      o@rbl'Wf // stress: oorbluf/te
+             oordrewe     o@rdr'e@v@ // stress: oordrewe/oordrewenheid
+             oor (hand    o@r' // stress oorhandig/ing
+             oorlede      o@rl'e@d@ // stress oorlede/ne/s
+             oor (tuig    %o@r // oortuig/oortuiging/oortuigende
+             oor (w       o@r' // oorwin/oorweeg/oorweging/oorweldig/end...
+             oor (wig     'o@r // stress
           _) opeen        Op_'e@n
+             ope (l       o@p@ // dopeling/hopelik/opelug/opelyf
+             opgee (+ 'Opx2e@ // see rule: _) opge (@P4    Opx2@
           _) opge (@P4    Opx2@
+         &C) op (ig       'o@p // wanhopig/voorlopige
+             opper        Op@r // oppergesag/wese/vlak/man
              optel Opt&l
+          _) op (@P2      'Op // opeet/opeis/optredes/opoffering
+             open         o@p@n // open/opening/e/s
+             open (b      %o@p@n openbaar/openbare/openbaring
+             oper (A      %o@p@r // operasie/operateur/opereer
+             opera (_     'o@p@ra // stress: opera/operas
              organisasie  Orx2anis'A:si
-
+             ower (@      o@v@r // lowergroen/betowerend/dowerig/compounds of owerheid
 
 .group p
              p            p
              p (p
 
+             party        part'eI // partye/partykeer/partymaal
+             pastorie     pastur'i // pastorie/-paar/-moeder
+//             @) pene (_   p@n@ // geroepene/ontslapene/uitgeworpene
+pene (_   p@n@ // geroepenes/ontslapenes/uitgeworpenes
           _) perde        p'&rd@
              peloton      pEl@t'On
+             permanen     p&rman'En // permanent/e/permanensie
              permit       p@rm'It
              persoon      p@rs'o@n
              pervers      p@rf&rs   // pervers/perversie
              plesier      pl@s'i:r
+             plotse (ling plOts@ // plotseling/e
              polisie      pul'isi
              politiek     pOl@t'ik
              popu         ,pOpy
@@ -545,8 +704,10 @@
              plek         pl'&k
              posisie      puz'isi
              privaat      prif'A:t
+             probeer      prub'e@r // probeer/probeerslag/geprobeer
              produk       prud'Wk
              projek       pruj'Ek
+             prominen    prOmin'En // prominent/e/prominensie
              propag       ,prOpax2
 
              proses       prus'Es
@@ -561,7 +722,7 @@
              q            kw
              q (q
 
-             que          _^_EN
+             qu           _^_EN // words containing qu are English
 
 
 .group r
@@ -575,13 +736,24 @@
              radika (le   radik'A:
              radikaa      radik'A:
              radio        r'A:diu:-
+             rake (t      rak'E // raket/te/tennisraket
+             rea (ks      r%ia // reaksie/s/skokreaksie
+             rea (C       r%i%a // reageer/realis/me|ties
+             redeneer     r@d@n'e@r	// redeneer/geredeneer/beredeneer/beredeneerde
+             reden (ACA   r@d@n' // redenasie/s
+             reg (ist     r@x2 // registrasie/-nommer/register/bevolkingsregister
              regverdig    r&x2f'&rd@x2 // regverdig/onregverdige/regverdigheid - verwyder uit af_list
+             relase       r@lA:s@ // relase/s
+             rele (gA     r@l@ // relegeer/relegasie
              repet rEp@t
              republiek    r@pWbl'ik    // republiek/e/ie/sowjetrepubliek
+             resul (tA     r@sWl' // resultaat/resultate/eksamenresultaat...
+             resep        r@sEp // resep/resepte/resepteboek
              reserwe      r@z'&rv@
              ribbe (tj    r'Ibi
              roman        rum'an
           &) ring (_S4    rIN
+             rring        r@N // karring/torring
           &) rm (K        r@-m
           @) rn (K        r@-n
 
@@ -597,36 +769,61 @@
              respek       r@spEk
              rugby        r'Wgbi
           &) rele (_      r'e@l@ 
+             rondom       rOnt_%Om // rondom/rondomheen/rondomstaner
+             rolprent     r'OlprEnt // rolprent/rolprentvertoning and other compounds
 
 
 .group s
              s            s
              s (s
+        @@@) s (_S1       s // to correctly handle plural s
+          i) s (_         s // exceptions to rule: @@@) s (_S1       s
+          o) s (_         s // exceptions to rule: @@@) s (_S1       s
+          u) s (_         s  // exceptions to rule: @@@) s (_S1       s
              sch          S
              sj           S
          en) sj (@        sj        // diensjaar/lewensjare
              s (iën       S
 
-
+             salaris      s@lA:r@s // salaris/aanvangsalaris/salarisskaal/-uitbetaling
+             salon        salOn // eetsalon/haarkappersalon
+             seker        se@k@r // versekering/sekerheid/onsekerheid/sekere
+             sekreta (ris s@kr@tA: // sekretaris/se
+             sekretaresse s@kr@tar'Es@ // sekretaresse/s
           &) sele (_      s'e@l@ 
+          _) semen (t     s@mEn // sementtafel/blad/vierkant
+             sening       se@n@N // sening/haaksening/heupsening
+             sere (moni   sEr@ // seremonie/-meester/huwelikseremonie/seremonieel
           _) slag         sl'ax2
           @) sering       s'e@r@N    // analisering/kategorisering
              sofie (_     suf'i
+             spelagtig    sp&l'ax2t@x2 // skouspelagtig/e/heid/klugspelagtig
           &) spele (_     sp'e@l@ 
              self         s'&lf
+             sewe (C      s'e@v@ // sewejarige/standerdseweklas
              september    s@pt'Emb@r
+         _) sieke         sik@ // siekeboeg/-fonds/-lys/-lokaal/-loon
+             silwer        sIlv@r // silwerskoon/silwerware/compounds of silwer
              sio          Siu
              sioe         Si'u
              sistem       sIst'e@m
              situasie     sItSu'A:si
              skerp        sk&rp
+             skoonge (C   sko@nx2@ // skoongewaste/skoongevee/skoongeboul
              smelt        sm&lt
+             sonde (C@    sOnd@ // sondebok/sondelas
+             sosi (a      so@Si' // sosiaal/sosiale
+             sosial (i    so@Sial' // sosialis/sosialisme/sosialisties
+             so (v        s'o@ // soveel/sover
+             soverre      so@f'&r@ // stress: se rule: so (v        s'o@ // soveel/sover
+             speku (lA    sp%Ek%y // spekulasie/spekuleer/spekulatief
           @) sper (a      sp@r'     //desperate/desperaatheid/rasperagtig
          ek) sper (im     spEr      // eksperimenteer/eksperimenteel
+             spesi (a     sp%ES%i // spesiaal/spesiale/spesialis
+            spinne (C     spIn@ // spinnekop/spinnerak/spinneweb/spinnewiel
              spesialis (A spESialis
              spesialis    spESal'Is
-             spesiali (@  spESiali 
-             spesif       spEsIf
+             spesi (f     sp%Es%I // spesifiek/spesifiseer
              staties      st'A:tis
           @) stelik       st@l@k    // oostelik/christelik/beestelik
              stel         st&l
@@ -641,6 +838,8 @@
              storm        stOr@-m
              strategie    strat@x2'i
              streke       str'e@k@
+             struikel     str'Yyk@l // struikelblok/struikelaar/struikelend
+             sukse (s     s%WksE // sukses/suksesse/suksesvol
              swag         sv'ax2
              swerk        sv'&rk
              swinkel      sv'INk@l
@@ -649,10 +848,18 @@
              t            t
              t (t
              t (_dN           // final t, and next word starts with d
-         @C) te (C t@
+          A) tch          _^_EN // clutch/pitch/bitch
+         @C) te (C t@ ///
+      adver) t (e         t' // advertensie/afdeling/agent
+      moles) tering       te@r@N // molestering/kindermolestering
              tabak        tab'ak;
+             teen (woor   t%e@n // teenwoordig/heid/verteenwoordiging
+             teo (C       ti|,u' // teorie/teoreties/teoloog/teologies
+             tevore       t@f'o@r@ // tevore/vantevore
 
              tia (_       Sja
+          @) tief (_      t'if // alternatief/aktief/instinktief/(ak)kumulatief
+          @) tiewe (_     t'iv@ // alternatiewe/aktiewe/instinktiewe/(ak)kumulatiewe
              tj           tS
              tj (ie       c
           _) tj (ie       tS
@@ -666,6 +873,7 @@
              tes (_       t@s
 
           &) tel (_S3     t@l
+              ttel        t@l // many compounds of bottel/skottelgoed
              teleur       t@lY@r    // teleur/teleurstelling/teleurgesteld
           &) tels (_S4    t@ls
              tel          t&l
@@ -680,6 +888,7 @@
           _) tege (CA     t@x2@     // tegemoet/tegemoetkom/tegemoetkomende/tegemoetgekom/tegelyk
           _) terug (@P5   t@-r'Wx2
           _) terugge (@P7 t@-r'Wx2@
+             teruggee (+  t@r'Wx2e@ // see rule: _) terugge (@P7 t@-r'Wx2@
           @) tele (_      t'e@l@ 
              telefoon     t&l@f'o@n
              telegram     t&l@x2r'am
@@ -688,15 +897,22 @@
              teleskoop    t&l@sk'o@p
 
              tenis        t@nIs
+             tennis       t'En@s // tennisafrigter/tennisarm
+             tereg (C     t@r&x2 // teregwysing/teregstelling/tereghelp
           _) tever (@     t@f@r
           @) tion (_      _^_EN     //words ending in tion is English
           @) tions (_     _^_EN     //words ending in tions is English
+             toegank      t%ux2'aNk // toeganklik/heid
+             toereike     t%ureIk@ // toereikend/heid
+             toereken (b  t%ur'e@k@n // ontoerekenbaar/heid/ontoerekenbaarheid
              toneel       tun'e@l
 
-          &) trede (_S5   tr,e@d@
+             traw (a      trav' // trawant/e/trawal
           &) treding (_S7 tr,e@d@N  // oortreding/indienstreding...
 
              trek         tr&k
+             trekker      tr&k@r // voortrekkerleier/Voortrekkerstraat/salaristrekkersvergadering
+             tussen       tWs@n // tussenin/tussenbeide/tussenganger
              tuur         t'yr
 
 
@@ -708,6 +924,7 @@
              ui           Yy
              uy           Yy
 
+             uitgee (+     'Yytx2e@ // se rule: _) uitge (@P5   Yytx2@
           _) uitge (@P5   Yytx2@
              uitgewer     'Yytx2,e@v@r
              utjie        Yyci
@@ -720,31 +937,51 @@
              v (v
 
              vakansie     f@k'ansi
+             vangen       f'aN@n // gevangene/gevangenis/bevangenheid
           @) ve (_        _^_EN    //words ending in ve is English
+          A) ves (_       _^_EN // words ending in ves after vowel are English
 
              vel          f'&l
-             vele         f'e@l@
+          @) vel (A       fe@l // aanbeveling/aanbevelingsbrief
+             vele         f'e@l@ 
              ver          f@r
           _) ver (@P3     f@r
              verende      f'e@r@nd@
+             vergete      f@rx2'e@t@ // vergeterig/vergetelheid
              vering       f'e@r@N   //motivering preservering etc.
 
              verfyn       f@rf'eIn
              verf         f'&rf
           _) vergesog     f'&:r;x2@sOx2
+             veronderste (l f@rOn@rst'& // stress: veronderstel/-ling
           _) verse (b     f'&:rs@
           C) verse (_     f&rs@
           A) verse (_     v'&rs@
           _) veronge (@P7  f@r'O:Nx2@
+             verbete      f@rb'e@t@ // verbete/verbetenheid
+             ver (velA    f@r // vervelig/verveling (see: _) ver (@P3     f@r
 
              ville        _^_EN
+             vinger       f'IN@r // numerous compounds with vinger
           _) vasge (@P5   f'asx2@
              vlek         fl&k
+             volop        f'Ol_Op // volop/volopbetaalde
+             volwasse     fOlv'as@ // (on)volwassene/s/(on)volwassenheid
+             vol (C       fOl' // volledig/volmaakte/voltooi
+             vol (g       fOl // volgeling/volgende/volgorde
+             voren        f'o@r@n // alvorens/vorendag/vorentoe
           _) voorbe (@P6  f'o@rb@
           _) voorbee      f'o@rbe@
           _) voorge (@P6  f'o@rx2@
+             voorspe (l     fo@rsp'& // voorspel/voorspelling/voorspelbaar/onvoorspelbaar
+          _) vooruit      fo@r'Yyt // vooruit/vooruitsig/vooruitbeplanning
+             vooruit (strew fo@rYyt' // change stress
              vorm         f'Or@m
              vreemde      fr'e@md@  // vreemde/s/vreemdeling
+             vriendi (n   frind'I // vriendin/vriendinne/vriendinnetjies
+             vrygewig     freIx2'e@v@x2 // vrygewig/-e|-heid
+             vry (wil     fr%eI // vrywillig/-lik|-heid
+             vuldig       f'Wld@x2 // sorgvuldig/veelvuldig/vermenigvuldig and variants
 
 
 
@@ -757,13 +994,16 @@
           ens) w v
           t) w            w
 
+             waardeer     vard'e@r // waardeer/waardeerder
              waarder (@   vard'e@r  // waarderend/e/waardering
           s) wed (C       vEt       // toetswedstryd/tenniswedstryd/afloswedloop
           s) wedd (@      vEd       // beroepswedder
+             weer (spre   ve@r' // weerspreek/weersprekende/weerspreking
              werp         v'&rp
           @) wesigheid    v'e@s@x2eIt // aanwesigheid/afwesigheid
              wêreld       v'&:r@ld
 
+             wn           _^_EN // names containing town/Brackendowns/Brown
              worth        _^_EN
              wood         _^_EN
           @) ws (_N       _^_EN
@@ -789,7 +1029,7 @@
              ə            @       // char.replacement for 'n
 
              ê            e:
-             ê (r         E
+             ê (r         &:
              îe           3:
              ô            O:
 

@@ -1,0 +1,235 @@
+ 
+//====================================================
+//  Tone Numbers
+//====================================================
+
+
+phoneme 1   //  tone: high level
+  stress
+  tone 50 30 envelope/p_fall NULL
+endphoneme
+
+
+phoneme 2   //  tone: rise
+  stress
+  tone 30 50 envelope/p_rise NULL
+endphoneme
+
+
+phoneme 3   //  tone: mid level
+  stress
+  tone 30 30 envelope/p_level NULL
+endphoneme
+
+
+phoneme 4   //  tone: low fall
+  stress
+  tone 20 10 envelope/p_fall NULL
+endphoneme
+
+
+phoneme 5   //  tone: low rise
+  stress
+  tone 10 30 envelope/p_rise NULL
+endphoneme
+
+
+phoneme 6   //  tone: low level
+  stress
+  tone 20 20 envelope/p_level NULL
+endphoneme
+
+
+//====================================================
+//  Consonants
+//====================================================
+
+
+phoneme z  // [ts]
+  vls alv afr sibilant
+  vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  lengthmod 2
+  wave ustop/ts
+endphoneme
+
+
+phoneme c  // [tS]
+  vls pla afr sibilant
+  vowelin f1=0  f2=2300 200 400  f3=-100 80
+  lengthmod 2
+  wave ustop/tsh
+  before _ ustop/tsh_
+  switchvoicing dZ
+endphoneme
+
+
+phoneme ng   // synonym for [N]
+  vcd vel nasal
+  starttype N  endtype N
+  vowelout f1=3 f2=2300 300 400  f3=-200 80  len=40 rms=20 brk
+  length 100
+  formants NULL
+  after _ nn/_nn
+  before _ nn/nn_
+  before (r) nn/nnj
+  lengthmod 8            // longer than 'n'
+endphoneme
+
+
+
+//====================================================
+//  Vowels and Diphtnongs
+//====================================================
+
+
+
+phoneme aa
+  vowel starttype (a) endtype (a)
+  length 230
+  formants vowel/aa
+endphoneme
+
+phoneme aai
+  vowel starttype (a) endtype (i)
+  length 270
+  formants vdiph/aai
+endphoneme
+
+phoneme aau
+  vowel starttype (a) endtype (u)
+  length 260
+  formants vdiph/aau_2
+endphoneme
+
+phoneme aang
+  vowel starttype (a) endtype (u)
+  length 270
+  formants vwl_zh/aang
+endphoneme
+
+
+
+phoneme a
+  vowel  starttype (@)  endtype (@)
+  length 150
+  formants vowel/a#_3
+endphoneme
+
+phoneme ai
+  vowel starttype (@) endtype (i)
+  length 200
+  formants vdiph/@i_3
+endphoneme
+
+phoneme au
+  vowel starttype (a) endtype (u)
+  length 200
+  formants vdiph/au_2
+endphoneme
+
+
+phoneme e
+  vowel starttype (e) endtype (e)
+  length 220
+  formants vowel/ee_1
+endphoneme
+
+phoneme ei
+  vowel starttype (e) endtype (i)
+  length 220
+  formants vdiph/ei
+endphoneme
+
+phoneme eu
+  vowel starttype (e) endtype (u)
+  length 260
+  formants vdiph/eeu
+endphoneme
+
+
+phoneme i
+  vowel  starttype (i)  endtype (i)
+  length 190
+  formants vowel/i
+  before k  vowel/ii-40
+  before N  vowel/ii-40
+  after w w/wi
+  linkout ;
+endphoneme
+
+phoneme iu
+  vowel starttype (i) endtype (u)
+  length 200
+  formants vdiph2/iu
+endphoneme
+
+
+
+phoneme o
+  vowel starttype (o) endtype (o)
+  length 170
+  formants vowel/oo
+endphoneme
+
+phoneme oi
+  vowel starttype (o) endtype (i)
+  length 200
+  formants vdiph/ooi
+endphoneme
+
+phoneme ou
+  vowel starttype (o) endtype (u)
+  length 200
+  formants vdiph/ou
+endphoneme
+
+phoneme ong
+  vowel starttype (o) endtype (u)
+  length 220
+  formants vwl_zh/ong
+endphoneme
+
+
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 170
+  formants vowel/u_bck
+  before k vowel/uu_bck
+  before N vowel/uu_bck
+endphoneme
+
+phoneme ui
+  vowel starttype (u) endtype (i)
+  length 220
+  formants vdiph/ui
+endphoneme
+
+
+phoneme oe
+  vowel  starttype (@)  endtype (@)
+  length 230
+  formants vowel/y#
+endphoneme
+
+
+phoneme eo
+  vowel  starttype (@)  endtype (@)
+  length 170
+  formants vowel/8_3
+endphoneme
+
+phoneme eoi
+  vowel  starttype (@)  endtype (i)
+  length 220
+  formants vdiph/y#y_2
+endphoneme
+
+
+
+phoneme yu
+  vowel  starttype (u)  endtype (u)
+  length 220
+  formants vowel/y
+endphoneme
+

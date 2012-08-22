@@ -74,6 +74,7 @@
 #define FLAG_HYPHEN        0x80
 #define FLAG_DONT_SWITCH_TRANSLATOR  0x1000
 #define FLAG_SUFFIX_REMOVED  0x2000
+#define FLAG_HYPHEN_AFTER    0x4000
 
 // prefix/suffix flags (bits 8 to 14, bits 16 to 22) don't use 0x8000, 0x800000
 #define SUFX_E        0x0100   // e may have been added
@@ -179,8 +180,8 @@ typedef struct {
 typedef struct{
 	unsigned short start;
 	unsigned short sourceix;
+	unsigned short flags;
 	unsigned char pre_pause;
-	unsigned char flags;
 	unsigned char wmark;
 	unsigned char length;
 } WORD_TAB;
@@ -211,7 +212,10 @@ extern const int param_defaults[N_SPEECH_PARAM];
 #define LOPT_IT_LENGTHEN        2
  // 1=german
 #define LOPT_PREFIXES        3
- // 1=regressive,  change voiced/unoiced to match last consonant in a cluster
+ // non-zero, change voiced/unoiced to match last consonant in a cluster
+ // bit 1=LANG=ru,  don't propagate over [v]
+ // bit 2=don't propagate acress word boundaries
+ // bit 3=LANG=pl,  propagate over liquids and nasals
 #define LOPT_REGRESSIVE_VOICING  4
  // 0=default, 1=no check, other allow this character as an extra initial letter (default is 's')
 #define LOPT_UNPRONOUNCABLE  5
@@ -245,6 +249,7 @@ typedef struct {
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
 // bit8=stress last syllable if it doesn't end in a vowel
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
+// bit12= In 2-syllable words, give the first syllable a secondary stress
 
 	int stress_flags; 
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -267,6 +272,7 @@ typedef struct {
 	// bit13=(LANG=it) speak post-decimal-point digits as a combined number not as single digits
 	// bit16=dot after number indicates ordinal
 	// bit17=use feminine form of 2 before thousands and millions LANG=ro
+	// bit18=special word for 100,000s LANG=sw
 	int numbers;
 	int thousands_sep;
 	int decimal_sep;
@@ -330,7 +336,7 @@ public:
 	unsigned char letter_bits[256];
 	int letter_bits_offset;
 #define N_LETTER_TYPES 20
-	wchar_t *letter_groups[N_LETTER_TYPES];
+	const wchar_t *letter_groups[N_LETTER_TYPES];
 
 	/* index1=option, index2 by 0=. 1=, 2=?, 3=! 4=none */
 	unsigned char punct_to_tone[4][5];
@@ -480,6 +486,7 @@ char *strchr_w(const char *s, int c);
 int IsBracket(int c);
 void SetLetterBits(Translator *tr, int group, const char *string);
 void SetLetterBitsRange(Translator *tr, int group, int first, int last);
+void SetLetterVowel(Translator *tr, int c);
 void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);

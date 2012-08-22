@@ -43,7 +43,7 @@ endphoneme
 phoneme aU
   vowel starttype (a) endtype (u)
   length 240
-  formants vdiph/au
+  formants vdiph/au_4
 endphoneme
 
 
@@ -63,7 +63,7 @@ endphoneme
 
 phoneme eI
   vowel starttype (e) endtype (i)
-  length 260
+  length 250
   formants vdiph/eei_2
 endphoneme
 

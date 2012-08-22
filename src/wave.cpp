@@ -313,7 +313,7 @@ static int wave_open_sound()
 				paNoFlag,
 				pa_callback, (void *)userdata);
    
-      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d\n",err);      
+      SHOW("wave_open_sound > Pa_OpenDefaultStream(1): err=%d (%s)\n",err, Pa_GetErrorText(err));      
 
       if(err == paInvalidChannelCount)
 	{
@@ -341,7 +341,7 @@ static int wave_open_sound()
 // 				     SAMPLE_RATE,
 // 				     FRAMES_PER_BUFFER,
 // 				     N_WAV_BUF,pa_callback,(void *)userdata);
-	  SHOW("wave_open_sound > Pa_OpenDefaultStream(2): err=%d\n",err);
+	  SHOW("wave_open_sound > Pa_OpenDefaultStream(2): err=%d (%s)\n",err, Pa_GetErrorText(err));
 	  err=0; // avoid warning
 	}
    mInCallbackFinishedState = false; // v18 only
@@ -361,7 +361,7 @@ static int wave_open_sound()
       if ((err!=paNoError) 
 	  && (err!=paInvalidChannelCount)) //err==paUnanticipatedHostError
 	{
-	  fprintf(stderr, "wave_open_sound > Pa_OpenStream : err=%d\n",err);
+	  fprintf(stderr, "wave_open_sound > Pa_OpenStream : err=%d (%s)\n",err,Pa_GetErrorText(err));
 	  framesPerBuffer = FRAMES_PER_BUFFER;
 	  err = Pa_OpenStream(
 			      &pa_stream,
@@ -420,15 +420,18 @@ static void update_output_parameters(int selectedDevice, const PaDeviceInfo *dev
     {
       double aLatency = deviceInfo->defaultLowOutputLatency;
       double aCoeff = round(0.100 / aLatency);
-      myOutputParameters.suggestedLatency = aCoeff * aLatency;
-      SHOW("myOutputParameters.suggestedLatency=%f, aCoeff=%f\n",
+//      myOutputParameters.suggestedLatency = aCoeff * aLatency;  // to avoid glitches ?
+      myOutputParameters.suggestedLatency =  aLatency;          // for faster response ?
+      SHOW("Device=%d, myOutputParameters.suggestedLatency=%f, aCoeff=%f\n",
+	   selectedDevice,
 	   myOutputParameters.suggestedLatency,
 	   aCoeff);
     }
   else
     {
       myOutputParameters.suggestedLatency = (double)0.1; // 100ms
-      SHOW("myOutputParameters.suggestedLatency=%f (default)\n",
+      SHOW("Device=%d, myOutputParameters.suggestedLatency=%f (default)\n",
+	   selectedDevice,
 	   myOutputParameters.suggestedLatency);
     }
     //pdi->defaultLowOutputLatency;
@@ -439,50 +442,86 @@ static void update_output_parameters(int selectedDevice, const PaDeviceInfo *dev
 
 static void select_device(const char* the_api)
 {
-  ENTER("select_device");
+	ENTER("select_device");
 
 #if (USE_PORTAUDIO == 19)
-  PaDeviceIndex i=0;
-  int numDevices = Pa_GetDeviceCount();
-  if( numDevices < 0 )
-    {
-      SHOW( "ERROR: Pa_CountDevices returned 0x%x\n", numDevices );
-      assert(0);
-    }
-    
-  const PaDeviceInfo *deviceInfo;
-  for( i=0; i<numDevices; i++ )
-    {
-      deviceInfo = Pa_GetDeviceInfo( i );
-      
-      if (deviceInfo == NULL)
+	int numDevices = Pa_GetDeviceCount();
+	if( numDevices < 0 )
 	{
-	  break;
+		SHOW( "ERROR: Pa_CountDevices returned 0x%x\n", numDevices );
+		assert(0);
 	}
-      const PaHostApiInfo *hostInfo = Pa_GetHostApiInfo( deviceInfo->hostApi );
-      
-      // TBD: if not alsa, find the best device (see Audacity).
-      if (hostInfo && hostInfo->type == paALSA)
+
+	PaDeviceIndex i=0, selectedIndex=0, defaultAlsaIndex=numDevices;
+	const PaDeviceInfo *deviceInfo=NULL;
+	const PaDeviceInfo *selectedDeviceInfo=NULL;
+
+	if(option_device_number >= 0)
 	{
-	  SHOW( "select_device > ALSA, i=%d (numDevices=%d)\n", i, numDevices);
-
-	  update_output_parameters(i, deviceInfo);
-
-	  if (Pa_IsFormatSupported(NULL, &myOutputParameters, SAMPLE_RATE) == 0)
-	    {
-	      SHOW( "select_device > ALSA, %s\n", "format supported");
-	      break;
-	    }
-	  SHOW( "select_device > ALSA, %s\n", "format not supported");
+		selectedIndex = option_device_number;
+		selectedDeviceInfo = Pa_GetDeviceInfo(selectedIndex);
 	}
-    }
 
-  if (i == numDevices)
-    {
-      i = Pa_GetDefaultOutputDevice();
-      deviceInfo = Pa_GetDeviceInfo( i );
-      update_output_parameters(i, deviceInfo);
-    }
+	if(selectedDeviceInfo == NULL)
+	{
+		for( i=0; i<numDevices; i++ )
+		{
+		deviceInfo = Pa_GetDeviceInfo( i );
+	
+			if (deviceInfo == NULL)
+			{
+				break;
+			}
+			const PaHostApiInfo *hostInfo = Pa_GetHostApiInfo( deviceInfo->hostApi );
+	
+			if (hostInfo && hostInfo->type == paALSA)
+			{ 
+				// Check (once) the default output device
+				if (defaultAlsaIndex == numDevices)
+				{
+					defaultAlsaIndex = hostInfo->defaultOutputDevice;
+					const PaDeviceInfo *deviceInfo = Pa_GetDeviceInfo( defaultAlsaIndex );
+					update_output_parameters(defaultAlsaIndex, deviceInfo);
+					if (Pa_IsFormatSupported(NULL, &myOutputParameters, SAMPLE_RATE) == 0)
+					{
+						SHOW( "select_device > ALSA (default), name=%s (#%d)\n", deviceInfo->name, defaultAlsaIndex);		  
+						selectedIndex = defaultAlsaIndex;
+						selectedDeviceInfo = deviceInfo;
+						break;
+					}
+				}
+	
+				// if the default output device does not match, 
+				// look for the device with the highest number of output channels 
+				SHOW( "select_device > ALSA, i=%d (numDevices=%d)\n", i, numDevices);
+	
+				update_output_parameters(i, deviceInfo);
+	
+				if (Pa_IsFormatSupported(NULL, &myOutputParameters, SAMPLE_RATE) == 0)
+				{
+					SHOW( "select_device > ALSA, name=%s (#%d)\n", deviceInfo->name, i);
+	
+					if (!selectedDeviceInfo
+						|| (selectedDeviceInfo->maxOutputChannels < deviceInfo->maxOutputChannels))
+					{
+						selectedIndex = i;
+						selectedDeviceInfo = deviceInfo;
+					}
+				}
+			}
+		}
+	}
+
+	if (selectedDeviceInfo)
+	{
+		update_output_parameters(selectedIndex, selectedDeviceInfo);
+	}
+	else 
+	{
+		i = Pa_GetDefaultOutputDevice();
+		deviceInfo = Pa_GetDeviceInfo( i );
+		update_output_parameters(i, deviceInfo);
+	}
 
 #endif    
 }
@@ -703,17 +742,18 @@ size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSiz
 #endif
 
       PaError err = Pa_StartStream(pa_stream);
-      SHOW("wave_write > Pa_StartStream=%d\n", err);
-      err=0; // avoid warning
+      SHOW("wave_write > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
       
 #if USE_PORTAUDIO == 19
       if(err == paStreamIsNotStopped)
 	{
+	  SHOW_TIME("wave_write > restart stream (begin)");
 	  // not sure why we need this, but PA v19 seems to need it
 	  err = Pa_StopStream(pa_stream);
-	  SHOW("wave_write > Pa_StopStream=%d\n", err);
+	  SHOW("wave_write > Pa_StopStream=%d (%s)\n", err, Pa_GetErrorText(err));
 	  err = Pa_StartStream(pa_stream);
-	  SHOW("wave_write > Pa_StartStream=%d\n", err);
+	  SHOW("wave_write > Pa_StartStream=%d (%s)\n", err, Pa_GetErrorText(err));
+	  SHOW_TIME("wave_write > restart stream (end)");
 	}
 #endif
 //       if(err != paNoError)
@@ -876,6 +916,8 @@ int wave_is_busy(void* theHandler)
 {
   PaError active=0;
 
+  SHOW_TIME("wave_is_busy");
+
   if (pa_stream)
     {
 #if USE_PORTAUDIO == 18
@@ -887,6 +929,7 @@ int wave_is_busy(void* theHandler)
     }
   
   SHOW("wave_is_busy: %d\n",active);
+
 
   return (active==1);
 }

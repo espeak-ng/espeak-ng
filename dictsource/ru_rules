@@ -12,15 +12,10 @@
 
 
 .group а
-          _) а (_       a
-             а          a
-
-             а (л       A       // followed by [l]
-            аа          VV      // unstressed
-            ао          VV      // unstressed
-
-//         @@) а (_S1q    @
-
+          _) а          a
+             а (_       a  
+          //B) а (_       V    !!!
+             а          V
 
 .group б
           _) б (_       bE
@@ -118,11 +113,11 @@
 
 .group и
           _) и (_       i
-             и          i
-          ъ) и          y       // preceded by hard consonant
-          ж) и          y
-          ц) и          y
-          ш) и          y
+          _) и          i&
+             и (_       i&
+             и          ii
+        //  H) и          i#       // preceded by hard consonant   !!!!
+
 
 .group й
           _) й (_       ,i'kratk@j
@@ -138,10 +133,10 @@
 .group л
           _) л (_       El
              л (л
-             л          l ле
-             л (Y       l^
-             л (ь       l^       // should be soft, but we need a proper [l^] phoneme
-             л (FY      l       // should be soft
+             л          l 
+          //  л (Y       l^
+          //  л (ь       l^       // should be soft, but we need a proper [l^] phoneme
+           //  л (FY      l       // should be soft
 
 .group м
           _) м (_       Em
@@ -159,10 +154,7 @@
              н (нFY     n^
 
 .group о
-          _) о (_       o
              о          o
-             оо         VV      // unstressed
-             оа         VV      // unstressed
 
 .group п
           _) п (_       pE
@@ -195,6 +187,7 @@
 
 .group у
           _) у (_       u
+       //   B) у          u#
              у          u
 
 .group ф
@@ -236,8 +229,8 @@
              ъ
 
 .group ы
-          _) ы (_       y
-             ы          y
+          _) ы (_       i#
+             ы          i#
 
 .group ь
           _) ь (_       'm;ak;Ij'znak
@@ -250,9 +243,11 @@
 
 .group ю
           _) ю (_       ju
-             ю          ju
+             ю          u"
+          _) ю          ju
+          ь) ю          ju
           ъ) ю          ju
-          C) ю          u
+          A) ю          ju
 
 
 

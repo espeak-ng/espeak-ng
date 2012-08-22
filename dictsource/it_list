@@ -197,7 +197,9 @@ ai      $u
 agli    $u
 alle    $u
 
-da	$u      // by
+ad      $u $brk
+
+da	$u $brk      // by
 dal	$u
 dallo   $u
 dalla	$u	// by the
@@ -205,7 +207,7 @@ dai     $u
 dagli   $u
 dalle   $u
 
-di	$u	// of
+di	$u $brk	// of
 del	$u
 dello   $u
 della	$u	// of the
@@ -214,14 +216,14 @@ degli   $u
 delle   $u
 de      $u
 
-in	$u	// in
-nel	$u
-nello   $u
-nella	$u	// in the
-nei     $u
-negli   $u
-nelle   $u
-ne      $u
+in	$u $brk	// in
+nel	$u $brk
+nello   $u $brk
+nella	$u $brk	// in the
+nei     $u $brk
+negli   $u $brk
+nelle   $u $brk
+ne      $u $brk
 
 su	$u $double	// on
 sul	$u
@@ -235,12 +237,12 @@ con	$u $pause	// with
 col     $u
 coi     $u
 
-attraverso $u+	// across, through
-contro     $u+   // against
-accanto    $u+   // beside
-verso      $u+   // toward
-sopra	   $u+	// above
-sotto	   $u+	// below
+attraverso $u+ $brk	// across, through
+contro     $u+ $brk     // against
+accanto    $u+ $brk     // beside
+verso      $u+ $brk     // toward
+sopra	   $u+ $brk	// above
+sotto	   $u+ $brk	// below
 per        $u $pause    // for
 eccetto    $pause       // except
 senza      $pause       // without

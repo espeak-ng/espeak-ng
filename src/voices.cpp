@@ -78,19 +78,23 @@ char voice_name[40];
 #define V_FLUTTER    10
 #define V_ROUGHNESS  11
 #define V_CLARITY    12
+#define V_TONE       13
 
 // these override defaults set by the translator
-#define V_WORDGAP    13
-#define V_INTONATION 14
-#define V_STRESSLENGTH  15
-#define V_STRESSAMP  16
-#define V_STRESSADD  17
-#define V_DICTRULES   18
-#define V_STRESSRULE  19
-#define V_CHARSET     20
+#define V_WORDGAP    15
+#define V_INTONATION 16
+#define V_STRESSLENGTH  17
+#define V_STRESSAMP  18
+#define V_STRESSADD  19
+#define V_DICTRULES   20
+#define V_STRESSRULE  21
+#define V_CHARSET     22
+#define V_NUMBERS     23
+#define V_OPTION      24
 
-// these two need a phoneme table to have been specified
-#define V_REPLACE    21
+// these need a phoneme table to have been specified
+#define V_REPLACE    25
+
 
 
 typedef struct {
@@ -121,6 +125,9 @@ static keywtab_t keyword_tab[] = {
 	{"flutter",    V_FLUTTER},
 	{"roughness",  V_ROUGHNESS},
 	{"clarity",    V_CLARITY},
+	{"tone",       V_TONE},
+	{"numbers",    V_NUMBERS},
+	{"option",     V_OPTION},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -141,6 +148,61 @@ const char variants_either[N_VOICE_VARIANTS] = {1,2,12,3,13,4,14,5,11,0};
 const char variants_male[N_VOICE_VARIANTS] = {1,2,3,4,5,0};
 const char variants_female[N_VOICE_VARIANTS] = {11,12,13,14,0};
 const char *variant_lists[3] = {variants_either, variants_male, variants_female};
+
+
+int tone_points[10] = {250,140, 1200,110, -1,0, -1,0, -1,0};
+
+void SetToneAdjust(voice_t *voice, int *tone_pts)
+{//==============================================
+	int ix;
+	int pt;
+	int y;
+	int freq1=0;
+	int freq2;
+	int height1 = tone_pts[1];
+	int height2;
+	double rate;
+
+	for(pt=0; pt<10; pt+=2)
+	{
+		if(tone_pts[pt] == -1)
+		{
+			tone_pts[pt] = N_TONE_ADJUST*8;
+			if(pt > 0)
+				tone_pts[pt+1] = tone_pts[pt-1];
+		}
+		freq2 = tone_pts[pt] / 8;   // 8Hz steps
+		height2 = tone_pts[pt+1];
+		if((freq2 - freq1) > 0)
+		{
+			rate = double(height2-height1)/(freq2-freq1);
+
+			for(ix=freq1; ix<freq2; ix++)
+			{
+				y = height1 + int(rate * (ix-freq1));
+				if(y > 255)
+					y = 255;
+				voice->tone_adjust[ix] = y;
+			}
+		}
+		freq1 = freq2;
+		height1 = height2;
+	}
+}
+
+
+void ReadTonePoints(char *string, int *tone_pts)
+{//=============================================
+// tone_pts[] is int[10]
+	int ix;
+
+	for(ix=0; ix<10; ix++)
+		tone_pts[ix] = -1;
+
+	sscanf(string,"%d %d %d %d %d %d %d %d",
+		&tone_pts[0],&tone_pts[1],&tone_pts[2],&tone_pts[3],
+		&tone_pts[4],&tone_pts[5],&tone_pts[6],&tone_pts[7]);
+}
 
 
 void VoiceReset(int tone_only)
@@ -172,6 +234,12 @@ void VoiceReset(int tone_only)
 		// adjust formant smoothing depending on sample rate
 		formant_rate[pk] = (formant_rate_22050[pk] * 22050)/samplerate;
 	}
+
+	// This table provides the opportunity for tone control.
+	// Adjustment of harmonic amplitudes, steps of 8Hz
+	// value of 128 means no change
+//	memset(voice->tone_adjust,128,sizeof(voice->tone_adjust));
+SetToneAdjust(voice,tone_points);
 
 	// default values of speed factors
 	voice->speedf1 = 256;
@@ -490,6 +558,18 @@ voice_t *LoadVoice(char *vname, int control)
 				new_translator->charset_a0 = charsets[value];
 			break;
 
+		case V_NUMBERS:
+			sscanf(p,"%d",&langopts->numbers);
+			break;
+
+		case V_OPTION:
+			if(sscanf(p,"%d %d",&ix,&value) == 2)
+			{
+				if((ix >= 0) && (ix < N_LOPTS))
+					langopts->param[ix] = value;
+			}
+			break;
+
 		case V_ECHO:
 			// echo.  suggest: 135mS  11%
 			value = 0;
@@ -516,6 +596,14 @@ voice_t *LoadVoice(char *vname, int control)
 					value = 4;
 				}
 				voice->n_harmonic_peaks = 1+value;
+			}
+			break;
+
+		case V_TONE:
+			{
+				int tone_data[10];
+				ReadTonePoints(p,tone_data);
+				SetToneAdjust(voice,tone_data);
 			}
 			break;
 

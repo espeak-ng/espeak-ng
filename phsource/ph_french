@@ -222,7 +222,6 @@ phoneme t        // dental variant of /t/
   lengthmod 2
   wave  ustop/t_dnt%50
   before _ ustop/t_dnt%40
-  before r ustop/tr
   switchvoicing d
 endphoneme
 
@@ -235,7 +234,6 @@ phoneme t2      // silent unless followed by vowel
   lengthmod 2
   wave  ustop/t_dnt%50
   before _ ustop/t_dnt%40
-  before r ustop/tr
 endphoneme
 
 

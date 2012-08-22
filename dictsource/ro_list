@@ -24,14 +24,14 @@ _i	i
 _î	,ydin'i
 j	Ze
 k	ka
-l	le
-m	me
-n	ne
+_l	le
+_m	me
+_n	ne
 _o	o
 p	pe
 q	kju
 r	re
-s	se
+_s	se
 ş	Se
 t	te
 ţ	tse
@@ -109,11 +109,11 @@ _2C	d'oU@s'ute
 _0M1	m'iI
 _1M1	,om'ie
 _ofM1	m'iI
-_0M2	mil'joane
+_0M2	mil'jOane
 _1M2	'unmil'jon
 _0M3	mil'jarde
 _1M3	'unmil'jard
-_0M4	bil'joane
+_0M4	bil'jOane
 _1M4	'unbil'jon
 _0M5	bil'jarde
 _1M5	'unbil'jard
@@ -127,7 +127,7 @@ _0Z3	m'iImi
 
 // Abbreviations
 //**************
-etc	ettSet'e*a
+etc	ettS'ete*a
 s.a	Si'aSa
 ş.a.	Si'aSa
 s.a.m.d	Se|aSamaIdeparte
@@ -160,13 +160,13 @@ cea	$u+	// that, she who
 cele	$u+	// those
 
 // pronouns
-eu	jeU $u
-tu	$u
-el	jel $u
-ea	ja $u
-noi	$u
-voi	$u
-ele	jele $u
+eu	jeU $u+
+tu	$u+
+el	jel $u+
+ea	ja $u+
+//noi	$u+
+voi	$u+
+ele	jele $u+
 
 mă	$u
 te	$u
@@ -187,29 +187,29 @@ ceea	$u $brk   // that
 
 
 // possessive adjectives
-meu	$u
-mei	$u
-mea	$u
-mele	$u
-tău	$u
-tăi	$u
-ta	$u
-tale	$u
-său	$u
-săi	$u
-sa	$u
-sale	$u
-lui	$u
-ei	jeI $u
-nostru	$u
-noştri	$u
-noastră	$u
-noastre	$u
-vostru	$u
-voştri	$u
-voastră	$u
-voastre	$u
-lor	$u
+meu	$u+
+mei	$u+
+mea	$u+
+//mele	$u+
+tău	$u+
+tăi	$u+
+ta	$u+
+tale	$u+
+său	$u+
+săi	$u+
+sa	$u+
+sale	$u+
+lui	$u+
+ei	jeI $u+
+//nostru	$u+
+noştri	$u+
+noastră	$u+
+//noastre	$u+
+vostru	$u+
+voştri	$u+
+voastră	$u+
+voastre	$u+
+lor	$u+
 
 
 
@@ -257,6 +257,7 @@ daca	dak@ $u $pause	// (dacă)
 când	$u $pause	// when
 cum	$pause		// how, as, since
 astfel	$pause		// thus
+deşi	$2 $pause	// although
 fie	$pause		// either
 însă	$pause		// but, yet, however
 atunci	$pause		// therefore
@@ -284,20 +285,21 @@ unde		$brk	// where
 // auxillary verbs  (be, have, can, etc)
 să	$u
 
-sunt	$u            // to be
-eştI	jeSti $u
-este	jeste $u
-suntem	$u1
-sunteţi	$u1
-sunt	$u
+
+sunt	$u+            // to be
+eştI	jeSti $u+
+este	jeste $u+
+suntem	$u1+
+sunteţi	$u1+
+sunt	$u+
 e	je $u
 e       e  $atend
-fost	$u            // been
-eram	je*am $u2            // was
-erai	je*aI $u2
-era	je*a $u2
-eraţi	je*ats;I $u2
-erau	je*aU $u2
+fost	$u+            // been
+eram	je*am $u2+     // was
+erai	je*aI $u2+
+era	je*a $u2+
+eraţi	je*ats;I $u2+
+erau	je*aU $u2+
 
 avea	ave|a $u3+    // to have
 as	$u+ $verbf
@@ -305,10 +307,10 @@ ai	$u+ $verbf
 ar	$u+ $verbf
 am	$u+ $verbf
 aţi	$u+ $verbf
-au	$u
-are	$u	// ??
-avem	$u
-aveţi	$u
+au	$u+
+are	$u+	// ??
+avem	$u+
+aveţi	$u+
 
 voi	$u+ $verbf    // will
 vei	$u+ $verbf
@@ -328,6 +330,10 @@ poate   $u+ $verbf
 putem   $u+ $verbf
 puteţi  $u+ $verbf
 
+trebui		t@-*ebw'i        // to have to
+trebuie		$2     // @-
+
+
 
 // Final "i" is stressed
 absolvi		$3
@@ -336,6 +342,7 @@ citi		$2
 dărui		d@*w'i
 deosebi		$3
 descoperi  	$4
+deveni		$3
 întâlni		$3
 izbi		$2
 lovi		$2
@@ -345,10 +352,28 @@ răsuci		$3
 teori		$2
 
 
+// hyphenated contractions
+(să l)	s@l     $u
+(să i)	s@I     $u
+(să şi)	s@S;I   $u
+(să mi)	s@m;I   $u
+(te am)	team    $u
+(te ai) teaj    $u
+(ne am) team    $u
+(l a)	la      $u
+(l au)	laU     $u
+(l am)	lam     $u
+(l aţi)	lats;I  $u
+(v aţi)	vats;I  $u
+(i am)	jam     $u
+(a şi)  aS;I    $u
+(într o) ynt@-*o
+(dintr o) dint@-ro
+
 // MAIN WORD DICTIONARY
 //*********************
 // Use of $alt:
-// replaces final [j] ny ['i]  (i.e. "i" is stressed if followed by a vowel)
+// replaces final [j] by ['i]  (i.e. "i" is stressed if followed by a vowel)
 
 abil		$2
 abzice		$2
@@ -383,6 +408,7 @@ dori		$2
 
 edit		$1
 egale		$2
+energi		$alt
 elice		$2
 exista		$3
 
@@ -428,6 +454,7 @@ numai		$1	// only
 
 oareşice	$4
 obişnuit        obiSnw'it
+ocol		$2
 ordin		$1
 orice		$3
 ovidiu		ovidj'u
@@ -442,10 +469,12 @@ prieten         $2
 prietenie	p@-*jeten'ie
 privi		$3
 propice		$2
+protocol	$4
 
 repede		$1
 repezi		$1
 români          romyn'i
+rotocol		$3
 
 sadic		$1
 securice	$3
@@ -455,11 +484,10 @@ simbolic	$2
 spaţiu		spatsju
 
 tanti		tanti
+târcol		$2
 târziu		tyrz'iu
 terapi          $alt
 terapii		$3
-trebui		t@-*ebw'i
-trebuie		$1
 
 ultim		$1
 

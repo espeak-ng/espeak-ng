@@ -46,14 +46,14 @@ endphoneme
 phoneme @
   vowel starttype (@) endtype (@)
   length 170
-  unstressed
+//  unstressed
   formants vowel/@_low
 endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
   length 170
-  formants vowel/oo_5
+  formants vowel/o_mid
 endphoneme
 
 phoneme u
@@ -165,7 +165,8 @@ endphoneme
 
 phoneme m;
   vcd blb nasal
-  vowelout f1=2  f2=1000 -500 -350  f3=-200 80 brk colr=1
+  vowelout f1=2  f2=1000 -500 -350  f3=200 80 brk colr=1
+  starttype m endtype m
   length 100
   lengthmod 4
   formants NULL
@@ -177,7 +178,8 @@ endphoneme
 
 phoneme n;
   vcd alv nasal
-  vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk colr=1
+  vowelout f1=2 f2=1700 -300 250  f3=200 80  rms=20 brk colr=1
+  starttype n endtype n
   length 100
   lengthmod 4
   formants NULL
@@ -203,12 +205,11 @@ endphoneme
 
 phoneme t;        // dental variant of /t/
   vls dnt stop
-  vowelin f1=0  f2=1600 -300 300  f3=-100 80
-  vowelout f1=0 f2=1600 -300 250  f3=-100 80  rms=20 colr=1
+  vowelin f1=0  f2=1700 100 300  f3=0 80
+  vowelout f1=0 f2=1700 100 250  f3=0 80  rms=20 colr=1
   lengthmod 2
   wave  ustop/t_dnt%50
-  before _ ustop/t_
-  before r ustop/tr
+  before _ ustop/t_dnt%35
   switchvoicing d
 endphoneme
 
@@ -263,8 +264,8 @@ endphoneme
 
 phoneme d;       // dental variant of /d/
   vcd dnt stop
-  vowelin f1=2  f2=1500 -300 300  f3=-150 80
-  vowelout f1=2 f2=1500 -300 300  f3=-150 80 colr=1
+  vowelin f1=2  f2=1700 100 300  f3=0 80
+  vowelout f1=2 f2=1700 100 300  f3=0 80 colr=1
   formants d/d+x/d_dnt%110
   before _ d/d_+x/d_
   before r d/dr+x/d_dnt%110

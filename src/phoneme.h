@@ -18,7 +18,6 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
-#define VERSION_DATA  0x011901
 
 // phoneme types
 #define phPAUSE   0

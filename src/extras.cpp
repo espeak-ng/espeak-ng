@@ -1192,17 +1192,31 @@ void ConvertToUtf8()
 }  // end of ConvertToItf8
 
 
-void TestTest(void)
-{//================
+
+
+char* text[]=
+{
+  "<voice xml:lang=\"en\" variant=\"1\">eSpeak.</voice>",
+  " <voice xml:lang=\"en\" gender=\"male\" variant=\"1\"><prosody rate=\"1.0\"> normally would, </prosody></voice>"
+};
+
+
+
+void TestTest(int control)
+{//=======================
 	FILE *f;
 	unsigned int c;
 	unsigned int ix=0;
 	char textbuf[2000];
 	espeak_VOICE voice;
 
-FindPhonemesUsed();
-return;
+//FindPhonemesUsed();
+//return;
 
+if(control==2)
+{
+	return;
+}
 	memset(&voice,0,sizeof(voice));
 
 	f = fopen("/home/jsd1/speechdata/text/test","r");

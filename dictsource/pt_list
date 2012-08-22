@@ -108,9 +108,9 @@ _0M1	m'iU_
 _1M1	m'iU_
 _0M2	milj'o~jz
 _1M2	'u~milj'&U~
-_OM3	bilj'o~jz
+_0M3	bilj'o~jz
 _1M3	'u~mbilj'&U~
-_OM4	trilj'o~jz
+_0M4	trilj'o~jz
 _1M4	'u~ntrilj'&U~
 _0and	_i
 _dpt    _v'irgul&
@@ -162,7 +162,7 @@ essa	'Es& $brk  $u+
 aquele	$u+       // that
 aquela	$u+
 
-que	$u $brk
+que	$u $pause
 
 // possessive adjectives
 meu	$u+
@@ -199,44 +199,49 @@ duns	$u
 dumas	$u
 
 em	$u $brk  // in,on,at
-no	nu $u
-na	$u
-nos	nus $u
-nas	$u
-num	$u
-numa	$u
-nuns	$u
-numas	$u
+no	nu $u $brk
+na	$u $brk
+nos	nus $u $brk
+nas	$u $brk
+num	$u $brk
+numa	$u $brk
+nuns	$u $brk
+numas	$u $brk
 
 por	$u $brk	// by,for,through
-pelo	$u
-pela	$u
-pelos	$u
-pelas	$u
+pelo	$u $brk
+pela	$u $brk
+pelos	$u $brk
+pelas	$u $brk
 
-a	$u	// to,at
-ao	$u
-à	,a:
-aos	$u
-às	,a:s
+a	$u $brk	// to,at
+ao	$u $brk
+à	,a: $brk
+aos	$u $brk
+às	,a:s $brk
 
 para	$u $brk		// for,to
-pro	$u
-pra	$u
-pros	$u
-pras	$u
-prò	$u
-prà	$u
-pròs	$u
-pràs	$u
+pro	$u $brk
+pra	$u $brk
+pros	$u $brk
+pras	$u $brk
+prò	$u $brk
+prà	$u $brk
+pròs	$u $brk
+pràs	$u $brk
 
 com	$u $brk		// with
-sem	$brk		// without
-até	$u $brk		// until
-desde	$u $brk		// from,since
-entre	$u $brk		// between,among
+sem	$pause		// without
+até	$u $pause	// until
+desde	$u $pause	// from,since
+entre	$pause		// between,among
+por	$u $pause	// by,for,through
+sobre	$pause		// on,above,about
+sob	$pause		// under,below
+debaixo	$pause		// under,below
 
 durante	$pause
+
 
 // conjunctions
 e	i $u $pause	// and
@@ -435,4 +440,7 @@ mui          mu~j
 muito        m'u~jtu	// -s is included as a suffix
 muita        m'u~jt&
 
+// $alt   changes the first [o] phoneme to [O]
+costa        $alt
+forte        $alt
 

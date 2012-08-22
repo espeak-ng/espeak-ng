@@ -106,6 +106,7 @@ wxMenuBar *MakeMenu(int type)
 	tools_menu->Append(MENU_TO_UTF8, _T("Convert file to &UTF8"));
 	tools_menu->Append(MENU_COUNT_WORDS, _T("Count word &frequencies"));
 	tools_menu->Append(MENU_TEST    ,   _T("Test (temporary)"));
+	tools_menu->Append(MENU_TEST2    ,   _T("Test2"));
 
 	// HELP MENU
 	help_menu = new wxMenu;

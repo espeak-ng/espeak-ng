@@ -8,15 +8,22 @@
         au (_    'aU
         a (AAA   a
      &) a (_S1q  a
+    gi) a (_S1q  'a
     V@) a (_     'a	
     ăi) a (_     'a
      @) abil (_  'abil
      _) anti (@P4  anti
+    @c) ale (_   'ale
+    @n) ale (_   'ale
 
 .group ă
         ă        @
         ăi       @I
         ău       @U
+
+        ăi (m_   @'i
+        ăi (t_   @'i
+        ăi (ţi_  @'i
 
      &) ă (_S1   @
         ări (A_  @*'i
@@ -41,10 +48,12 @@
         c        k
         c (e     tS
         c (i     tS
-        ci (A    tS
+//        ci (A    tS
         cii      tSiI
         ch       k
-
+    @@) col (_   =kol
+    @@) coli (_S1t  =I
+    @@) cole (_S1t  =e
 
 .group d
         d        d
@@ -71,6 +80,10 @@
 
      r) ei (er_  'eI
 
+     @) e (re_   =e
+     @) e (ri_   =e
+     @) e (rea_  =e
+
 
 .group f
         f        f
@@ -81,7 +94,6 @@
         g        g
         g (e     dZ
         g (i     dZ
-        gi (A    dZ
         gii      dZiI
         gh       g
 
@@ -95,23 +107,29 @@
         i        i
         i (A     j
      &) i (_N$1q i/
+    &') i (_     i
+   ţi-) i (_     _         // combined with previous word as [iI]
     Cr) i (_     i
     V&) i (_     'i       // verb
     ăC) ia (_    'ia
     âC) ia (_    'ia
     ăC) ie (_    'ie
     âC) ie (_    'ie
+     @) ie (_S1q    =ie
         iei (_   'ieI
         ii       iI
      &) ii (_S2q iI
         iii      iji
         iu (_    iU
         iu       ju
-        iile (_  'iIle
 
      &) ic (_    =ik
      &) ice (_   =itSe
      &) ing (_   %iNg     // foreign words
+        i (t_    'i
+
+   @ic) ii (_S2q ilor
+   @ic) ilor (_S4q ilor
 
 
 .group î
@@ -130,24 +148,31 @@
 .group l
         l        l
      @) l (i_    l;
+     _) l (_     le
+     -) l (_     l         // -l
 
      &) le (_S2t  le
      &) lor (_S3t lor
      &) lui (_S3t luI
      &) logi (A_  lodZ'i
+     &) logii (_  lodZ'iI
 
 .group m
+     _) m (_     me
         m        m
      @) m (i_    m;
+     _) m (-a    m
 
 
 .group n
+     _) n (_     ne
         n        n
      @) n (i_    n;
         n (g     N
         n (k     N
      @) n (tic_  =n
      @) n (ic_   =n
+     _) n (-a     n
 
 
 .group o
@@ -180,11 +205,13 @@
      A) r (i_      *;
 
      _) re (@P2v   re
-    @u) ri (_S2t   rI
+    @u) ri (_NS2t   rI
     @u) rile (_S4t rile
 
 
 .group s
+     _) s (_     se
+     _) s (-a    s
         s        s
      @) s (i_    s;
 
@@ -205,6 +232,11 @@
 .group ţ
         ţ        ts
     @)  ţ (i_    ts;
+    @)  ţi (-mă  ts;'i
+    @)  ţi (-vă  ts;'i
+    @)  ţi (-le  ts;'i
+    @)  ţi (-i   ts;'iI
+    @)  ţi (-l   ts;'i
 
 
 .group u
@@ -212,8 +244,16 @@
         u (A     w
         ui       uI
         ui (e    wi
-    V&) ui (_    w'i
+    V&) ui (_    w2'i
+        ui (m_   w2'i
+        ui (t_   w2'i
+        ui (ţi_  w2'i
      &) ul  (_S2t ul
+
+   @ic) ul (_S2 ul
+   @ic) uri (_S3 urI
+   @ic) urile (_S5 urile
+   @ic) urilor (_S6 urilor
 
 
 .group v

@@ -100,6 +100,8 @@ void Options::OnCommand(wxCommandEvent& event)
 	}
 }
 
+
+
 void ConfigSetPaths()
 {//==================
 	// set paths from wxStrings

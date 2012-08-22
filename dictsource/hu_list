@@ -1,0 +1,157 @@
+// Letters
+_a        A:
+b         be:
+c         tse:
+d         de:
+f         Ef
+g         ge:
+h         ha:
+j         je:
+k         ka:
+l         El
+m         Em
+n         En
+p         pe:
+q         ku:
+r         Er
+s         S_
+s         ES  $atend
+_s        ES
+v         ve:
+w         duplAve:
+x         iks
+y         ipsilAn
+z         ze:
+_.        pont
+
+
+// Numbers
+
+_0        n'ullA
+_1        'EJ
+_2        k'EttY:
+_3        h'a:rom
+_4        n'e:J
+_5        'Yt
+_6        h'At
+_7        h'e:t
+_8        n^'olts
+_9        k'ilEnts
+_10       t'i:z
+_1X       t'izEn
+_20       h'u:s
+_2X       h'uson
+_3X       h'Armints
+_4X       n'EJvEn
+_5X       'YtvEn
+_6X       h'AtvAn
+_7X       h'EtvEn
+_8X       n^'oltsvAn
+_9X       k'ilEntsvEn
+_0C       s'a:z_
+_1C       s'a:z
+
+_0M1      'EzEr
+_1M1      'EzEr
+_2M1      k'e:t,EzEr
+_0M2      m'illio:
+_1M2      m'illio:
+_2M2      k'e:tm,illio:
+_0M3      m'illia:rd
+_1M3      m'illia:rd
+_1M3      k'e:tm,illia:rd
+_0M4      b'illio:
+_1M4      b'illio:
+_2M4      k'e:tb,illio:
+_dpt      v,Ess2Y:
+
+
+// Articles
+a         $u
+a         A: $atend
+az        $u
+
+ez        $u   // this
+
+
+// Pronouns
+
+// If these are only used for emphasis then then don't need $u
+// én        $u
+// te        $u
+// ő         $u
+// mi        $u
+// ti        $u
+// ők        $u
+// maga      $u
+// maguk     $u
+
+
+// Conjunctions
+és        $u $pause  // and
+de        $u $pause  // but
+vagy      $u $pause  // or
+
+mert      $pause     // because
+miatt     $pause     // because
+bár       $pause     // although
+habár     $pause     // although
+
+ha        $u $pause  // if
+
+
+// Negative
+nem       $u+
+ne        $u+
+
+
+// Unstressed adverbs etc.
+néhány    $u+
+
+
+// Verbs
+
+vagyok    $u  // to be, present
+vagy      $u
+van       $u
+vagyunk   $u
+vagytok   $u
+vannak    $u
+
+voltam    $u  // to be, past
+voltál    $u
+volt      $u
+voltunk   $u
+voltatok  $u
+voltak    $u
+
+leszek    $u  // to be, future
+leszel    $u
+lesz      $u
+leszünk   $u
+lesztek   $u
+lesznek   $u
+
+
+kell      $u+  // should
+
+szabad    $u+  // can (allowed)
+
+fog       $u+  // going to
+fogok     $u+
+fogsz     $u+
+fogunk    $u+
+fogtok    $u+
+fognak    $u+
+
+tud       $u+  // can
+tudok     $u+
+tudsz     $u+
+tudunk    $u+
+tudtok    $u+
+tudnak    $u+
+
+
+// Main Exceptions List
+//=====================
+

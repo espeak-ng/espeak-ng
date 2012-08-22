@@ -33,7 +33,12 @@
 #include "phoneme.h"
 #include "synthesize.h"
 #include "translate.h"
+#include "wave.h"
 
+const char *version_string = "1.21  01.Mar.07";
+const int version_phdata  = 0x012001;
+
+int option_device_number = -1;
 
 // copy the current phoneme table into here
 int n_phoneme_tab;
@@ -121,7 +126,7 @@ int LoadPhData()
    wavefile_data = (unsigned char *)spects_data;
 
 	version = *((unsigned int *)spects_data);
-	if(version != VERSION_DATA)
+	if(version != version_phdata)
 	{
 		result = version;
 	}
@@ -403,7 +408,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 	// do we need to modify a frame for blending with a consonant?
 	if(this_ph->type == phVOWEL)
 	{
-		if(which==2)
+		if((which==2) && ((frames[nf-1].frflags & FRFLAG_BREAK) == 0))
 		{
 			// lookup formant transition for the following phoneme
 
@@ -463,6 +468,8 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, PHONEME_TAB *prev_ph, PHONEME_TAB 
 			//   less the front part of the vowel and any added suffix
 	
 			length_std = this_ph->std_length + seq_len_adjust - 45;
+			if(length_std < 10)
+				length_std = 10;
 			if(plist->synthflags & SFLAG_LENGTHEN)
 				length_std += phoneme_tab[phonLENGTHEN]->std_length;  // phoneme was followed by an extra : symbol
 
@@ -587,3 +594,50 @@ int SelectPhonemeTableName(const char *name)
 	SelectPhonemeTable(ix);
 	return(ix);
 }  //  end of DelectPhonemeTableName
+
+
+
+
+void LoadConfig(void)
+{//==================
+// Load configuration file, if one exists
+	char buf[130];
+	FILE *f;
+	int ix;
+	char c1;
+	char *p;
+	char string[120];
+
+	sprintf(buf,"%s%c%s",path_home,PATHSEP,"config");
+	if((f = fopen(buf,"r"))==NULL)
+	{
+		return;
+	}
+
+	while(fgets(buf,sizeof(buf),f)!=NULL)
+	{
+		if(memcmp(buf,"tone",4)==0)
+		{
+			ReadTonePoints(&buf[5],tone_points);
+		}
+		else
+		if(memcmp(buf,"pa_device",9)==0)
+		{
+			sscanf(&buf[7],"%d",&option_device_number);
+		}
+		else
+		if(memcmp(buf,"soundicon",9)==0)
+		{
+			ix = sscanf(&buf[10],"_%c %s",&c1,string);
+			if(ix==2)
+			{
+				soundicon_tab[n_soundicon_tab].name = c1;
+				p = Alloc(strlen(string+1));
+				strcpy(p,string);
+				soundicon_tab[n_soundicon_tab].filename = p;
+				soundicon_tab[n_soundicon_tab++].length = 0;
+			}
+		}
+	}
+}  //  end of LoadConfig
+

@@ -543,11 +543,6 @@ int Translator::Unpronouncable(char *word)
 	int  count;
 	int  apostrophe=0;
 
-//#define DEBUG3
-#ifdef DEBUG3
-printf("UP1 %x %x %x %x %x %x %x %x\n",word[0],word[1],word[2],word[3],word[4],word[5],word[6],word[7]);
-#endif
-
 	if(langopts.param[LOPT_UNPRONOUNCABLE] == 1)
 		return(0);
 
@@ -559,9 +554,6 @@ printf("UP1 %x %x %x %x %x %x %x %x\n",word[0],word[1],word[2],word[3],word[4],w
 	for(;;)
 	{
 		index += utf8_in(&c,&word[index],0);
-#ifdef DEBUG3
-printf("UP2  ix=%4d  c=%x\n",index,c);
-#endif
 		if((c==0) || (c==' '))
 			break;
 
@@ -571,9 +563,6 @@ printf("UP2  ix=%4d  c=%x\n",index,c);
 
 		if(IsVowel(c))
 		{
-#ifdef DEBUG3
-printf("UP3  vpos=%2d  c=%x\n",count,c);
-#endif
 			vowel_posn = count;    // position of the first vowel
 			break;
 		}
@@ -584,6 +573,9 @@ printf("UP3  vpos=%2d  c=%x\n",count,c);
 		if(!iswalpha(c))
 			return(0);        // letter (not vowel) outside a-z range or apostrophe, abort test
 	}
+
+	if((vowel_posn < 9) && (langopts.param[LOPT_UNPRONOUNCABLE] == 2))
+		return(0);   // option means allow any word with a vowel
 
 	if(c1 == langopts.param[LOPT_UNPRONOUNCABLE])
 		vowel_posn--;   // disregard this as the initial letter when counting
@@ -609,18 +601,6 @@ int Translator::IsLetter(int letter, int group)
 	if(group > 7)
 		return(0);
 
-#ifdef DEBUG3
-{
-int x=0;
-int y=0;
-if((letter >= 0xc0) && (letter <= 0x241))
-{
-	x = remove_accent[letter-0xc0];
-	y = letter_bits[remove_accent[letter-0xc0]];
-}
-printf("\tltr=%x  ltr2=%x bits=%x\n",letter,x,y);
-}
-#endif
 
 	if(letter_bits_offset > 0)
 	{
@@ -644,6 +624,10 @@ int Translator::IsVowel(int letter)
 	return(IsLetter(letter,0));
 }
 
+void SetLetterVowel(Translator *tr, int c)
+{//=======================================
+	tr->letter_bits[c] = 0x01;   // group 0 only
+}
 
 void SetLetterBits(Translator *tr, int group, const char *string)
 {//==============================================================
@@ -1112,6 +1096,14 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 		stress = 3;
 
 
+	if((langopts.stress_flags & 0x1000) && (vowel_stress[1] == 0))
+	{
+		if((vowel_count == 3) && (vowel_stress[2] >= 4))
+		{
+			// 2-syllable word, put a secondary stress on the initial syllable
+			vowel_stress[1] = 3;
+		}
+	}
 
 	for(v=1; v<vowel_count; v++)
 	{
@@ -1195,14 +1187,12 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				*output++ = phonPAUSE_SHORT;
 		}
 		else
-		if((langopts.vowel_pause) && (ph->type == phVOWEL))
+		if((langopts.vowel_pause & 0x30) && (ph->type == phVOWEL))
 		{
 			// word starts with a vowel
-			if((vowel_stress[1] >= 4) || (langopts.vowel_pause >= 2))
+
+			if((langopts.vowel_pause & 0x20) && (vowel_stress[1] >= 4))
 			{
-				if(langopts.vowel_pause >= 3)
-					*output++ = phonGLOTTALSTOP;
-				else
 					*output++ = phonPAUSE_NOLINK;   // not to be replaced by link
 			}
 			else
@@ -1300,11 +1290,13 @@ void Translator::SetWordStress(char *output, unsigned int dictionary_flags, int 
 				if(reduce)
 				{
 					phcode = ph->reduce_to;
+#ifdef deleted
 					if(*p == phonLENGTHEN)
 					{
 						/* delete length indicator after vowel now that it has been reduced */
 						p++;
 					}
+#endif
 				}
 			}
 
@@ -1731,6 +1723,15 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 						failed = 1;
 					break;
 
+				case '-':
+					if((letter == ' ') && (word_flags & FLAG_HYPHEN_AFTER))
+					{
+						match.points += (21-distance_right);
+					}
+					else
+						failed = 1;
+					break;
+
 				case RULE_SYLLABLE:
 					{
 						/* more than specified number of vowel letters to the right */
@@ -1906,7 +1907,7 @@ void Translator::MatchRule(char *word[], const char *group, char *rule, MatchRec
 					break;
 
 				case '-':
-					if((letter == ' ') && (word_flags & FLAG_HYPHEN))
+					if((letter == '-') || ((letter == ' ') && (word_flags & FLAG_HYPHEN)))
 					{
 						match.points += (21-distance_right);
 					}
@@ -2004,6 +2005,7 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 	char *p_start;
 	MatchRecord match1;
 	MatchRecord match2;
+	char ph_buf[40];
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
 
 	char group_name[4];
@@ -2139,6 +2141,16 @@ int Translator::TranslateRules(char *p, char *phonemes, int ph_size, char *end_p
 							word_stressed_count = 0;
 							continue;  // start again at the beginning of the word
 						}
+						else
+						if((letter >= 0x3200) && (letter < 0xa700))
+						{
+							// ideograms
+							// outside the range of the accent table, speak the unknown symbol sound
+							Lookup("_??",ph_buf);
+							match1.phonemes = ph_buf;
+							match1.points = 1;
+							p += (wc_bytes-1);
+						}
 					}
 				}
 			}
@@ -2179,7 +2191,9 @@ void Translator::ApplySpecialAttribute(char *phonemes, int dict_flags)
 {//===================================================================
 // Amend the translated phonemes according to an attribute which is specific for the language.
 	int len;
+	int ix;
 	char *p_end;
+	int phoneme_1;
 
 	if((dict_flags & (FLAG_ALT_TRANS | FLAG_ALT2_TRANS)) == 0)
 		return;
@@ -2197,6 +2211,18 @@ void Translator::ApplySpecialAttribute(char *phonemes, int dict_flags)
 			p_end[0] = LookupPh("I");
 			p_end[1] = phonSCHWA;
 			p_end[2] = 0;
+		}
+		break;
+
+	case L('p','t'):
+		phoneme_1 = LookupPh("o");
+		for(ix=0; ix<(len-1); ix++)
+		{
+			if(phonemes[ix] == phoneme_1)
+			{
+				phonemes[ix] = LookupPh("O");
+				break;
+			}
 		}
 		break;
 

@@ -91,6 +91,11 @@ phoneme O
 endphoneme
 
 
+phoneme u
+  vowel starttype (u) endtype (u)
+  length 160
+  formants vowel/u_bck
+endphoneme
 
 
 

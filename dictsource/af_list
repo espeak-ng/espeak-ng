@@ -29,7 +29,7 @@ m         Em
 n         En
 o         o@
 p         pe@
-q         kwu
+q         ky
 //r         &r
 s         Es
 t         te@
@@ -86,8 +86,12 @@ _dpt    'pWnt
 
 afrika      'A:frika
 china       S'ina
+engeland    'EN@lant
+thaba       tA:ba
+(thaba nchu) tab'A:||ntSu
 europa      Y@r'o@pa
 
+natal       nat'al
 pretoria    prit'o@ria
 worcester   v'ust@r
 
@@ -182,6 +186,7 @@ daarom		$pause
 dus		$pause
 gevolglik	$pause
 daarna		$pause
+ondanks         'OndaNks $pause
 verder		f'&rd@r $pause
 nogtans		$pause
 intussen	$pause
@@ -196,7 +201,7 @@ solank		$pause
 sodra		$pause
 sowel 		so@v'&l
 sedert		$pause
-alhoewel	$3 $pause
+alhoewel        alhuv'&l $pause
 tensy		$pause
 aangesien	$pause
 wie		$pause
@@ -251,6 +256,7 @@ dit		$u
 ons		$u
 julle		$u
 hulle		$u
+hulleself       hWl@s&lf
 my		$u
 jou		$u
 hom		$u
@@ -283,10 +289,7 @@ bv          beIf'o@rbe@lt
 // main word list
 
 aanbid        $2
-aangaan       A:nx2A:n
 aanstaande    $2
-aanvaar       $2
-aanvanklik    $2
 afrikaans     $3
 afrikaner     $3
 agenda        ax2'Enda
@@ -296,7 +299,7 @@ alles         al@s
 alternatiewe  $4
 asof          asOf
 asook         aso@k
-
+asseblief     as@bl'if
 bedjie        bE:ici
 beide         beId@
 belangriker   b@laNr@k,Ir
@@ -307,7 +310,7 @@ beste         bEst@
 bestes        bEst@s
 betekenis     b@te@k@n@s
 bewe          be@v@
-bewend        be@v@nd
+bewend        be@v@nt
 bewering      b@ve@rIN
 biblioteek    $4
 
@@ -327,9 +330,6 @@ elders        &ld@rs
 enige         e@nIx2@
 era           e@ra
 erger         &rg@r
-erken         &rk'En
-ervare        $2
-ervaring      &rf'A:r@N
 espeak        i:;spi:k
 euro          Y@ru
 exodus        Eks'o@dWs
@@ -348,7 +348,6 @@ geldelike     x2&ld@l@k@
 genade        $2
 genesis       x2e@n@s@s 
 gesamentlik   x2@sA:m@ntl@k
-geur          x2Y@r
 gooi          x2OI
 gomorra       x2@mOra
 gunsteling    x2Wnst@l@N
@@ -368,6 +367,7 @@ hotel         hut'&l
 idee          $2
 ignoreer      ix2no@r'e@r
 inagneming    @nax2n,e@m@N
+inderdaad     @nd@rd'A:t
 ingang        Inx2aN
 intens @nt'Ens
 intensiteit   $4
@@ -409,18 +409,18 @@ misterie      m@ste@ri
 monitor       mOnitOr
 motore        mo@t'o@r@
 motor         mo@t@r
-motors        mo@t@rs
 motortjie     mo@t@rki
 
 nadele        nA:de@l@
 nag           nax2
+nature        nat'yr@
 natuurlik     nat'yrl@k
 natuur        nat'yr
 nalatigheid   nA:l'A:t@x2eIt
 netjies       nE:icis
 netjiese      nEicis@
+nietemin      n'it@m@n
 nogal         nOx2al
-normaal       $2
 normale       nOrm'A:l@
 november      $2
 numeri        nWm@ri
@@ -429,30 +429,25 @@ nuweling      nyv@l@N
 omtrent       Omtr'Ent
 onderstebo    On@rst@b,o@
 onderwyser    $3
+onkunde       $1
 onlangs       $1
 onrus         $1
 oorkom        $2
+oorleef       $2
 oorspronklike $2
 oortref       $2
-oortuig       $2
-oorweeg       $2
 oranje        $2
 
 patriotisme   patri|ut'Ism@
 parlement     parl@m'Ent
-party         $2
 per           pIr
 persent       p@rsEnt
-probeer       prube@r
 probleem      prubl'e@m
 probleme      prubl'e@m@
 program       prux2r'am
 
 redelik       re@d@l@k
 reeds         re@ts
-regverdig     r&x2f'&rd@x2
-resep         r@sEp
-resepte       r@sEpt@
 retireer      r@t@re@:r
 rimpeling     rImp@l@N
 rukkerig      rWk@r@x2
@@ -460,7 +455,6 @@ rukkerig      rWk@r@x2
 
 samelewing    sA:m@l,e@v@N
 sedert        se@d@rt
-sekere        se@k@r@
 sekonde       s@kOnd@
 sekondes      s@kOnd@s
 sektore       $2
@@ -473,7 +467,6 @@ soldate       $2
 sononder      sOn,On@r
 sonop         sOn,Op
 sover         so@f&r
-spesiale      spiSi'A:l@
 stabiel       stab'il
 
 tema          te@ma
@@ -517,7 +510,6 @@ voorgee       fo@rx2e@
 voorkom       $2
 voormalige    fo@rm'A:l@x2@
 voorsien      $2
-voorspel      fo@rsp'&l
 vorige        fo@r@x2@
 vrek          fr&k
 

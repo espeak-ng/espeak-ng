@@ -2,7 +2,7 @@
 // This file is UTF8 encoded 
 
 // letter groups:
-// B - vowel signed and virama
+// B - vowel signes and virama ्
 
 // conditional rules
 // ?1   drop schwa at end of word
@@ -13,8 +13,8 @@
 // Vowels
 
 .group अ
-        अ        V        // open+back schwa
-        अ (ह     E
+        अ        V
+        अ (ह     E       //  (h
     अह) अ        E
 
 .group आ
@@ -60,16 +60,21 @@
 
 .group ओ
         ओ        o:
+        ओं        o~   // +anusvara
+        ओँ        o~   // +candrabindu
 
 .group औ
         औ        O:  // ?? [aU] [O:]
+        औं        O~  // +anusvara
+        औँ        O~  // +candrabindu
 ?3      औ        aU  // ?? [aU] [O:]
 
 
 // Vowel Signs
 
 .group ा
-        ा        a:
+        ा          a:
+        ाव       aU
 
 .group ि
         ि        I
@@ -110,9 +115,13 @@
 
 .group ो
         ो        o:
+        ों       o~
+        ोँ       o~
 
 .group ौ
         ौ        O:    //  [O:] or [aU] ??
+        ौं       O~   
+        ौँ       O~   
 ?3      ौ        aU    //  [O:] or [aU] ??
 
 .group ॢ     // vowel sign l
@@ -121,218 +130,237 @@
 .group ॣ    // vowel sign ll
         ॣ        l-:
 
+.group ॐ
+        ॐ        o~m
 
 // Consonants
 
 .group क
-        क        k@
+        क        kV
         क (B     k
+        क (्य    k:
 ?1      क (_     k
-        क़        q@
+        क़        qV
         क़ (B     q
 ?1      क़ (_     q
 
 .group ख
-        ख        kh@
+        ख        khV
         ख (B     kh
 ?1      ख (_     kh
-        ख़        x@
+        ख़        xV
         ख़ (B     x
 ?1      ख़ (_     x
 
 .group ग
-        ग        g@
+        ग        gV
         ग (B     g
 ?1      ग (_     g
-        ग़        Q@
+        ग़        QV
         ग़ (B     Q
 ?1      ग़ (_     Q
 
 .group घ
-        घ        gh@
+        घ        ghV
         घ (B     gh
 ?1      घ (_     gh
 
 .group ङ
-        ङ        N@
+        ङ        NV
         ङ (B     N
 ?1      ङ (_     N
-     ्) ङ (_     N@
+     ्) ङ (_     NV
 
 .group च
-        च        c@
+        च        c@3
         च (B     c
+        च (्य    c:
 ?1      च (_     c
 
 .group छ
-        छ        ch@
+        छ        ch@3
         छ (B     ch
 ?1      छ (_     ch
 
 .group ज
-        ज        J@
+        ज        J@3
         ज (B     J
 ?1      ज (_     J
-        ज़        z@
+        ज़        zV
         ज़ (B     z
 ?1      ज़ (_     z
 
 .group झ
-        झ        Jh@
+        झ        Jh@3
         झ (B     Jh
 ?1      झ (_     Jh
 
 .group ञ
-        ञ        n^@
+        ञ        n^@3
         ञ (B     n^
 ?1      ञ (_     n^
      ्) ञ (_     n^
 
 .group ट
-        ट        t.@
+        ट        t.V
         ट (B     t.
+        ट (्य    t.:
 ?1      ट (_     t.
 
 .group ठ
-        ठ        t.h@
+        ठ        t.hV
         ठ (B     t.h
 ?1      ठ (_     t.h
 
 .group ड
-        ड        d.@
+        ड        d.V
         ड (B     d.
 ?1      ड (_     d.
 
 .group ढ
-        ढ        d.h@
+        ढ        d.hV
         ढ (B     d.h
 ?1      ढ (_     d.h
+        ढ़        DV  // nukta
+        ढ़ (B     D   // nukta
+?1      ढ़ (_     D   // nukta
 
 .group ण
-        ण        n@   // (temporary) same as dental [n]
+        ण        nV   // (temporary) same as dental [n]
         ण (B     n
 ?1      ण (_     n
-     ्) ण (_     n@
+     ्) ण (_     nV
 
 .group त
-        त        t@
+        त        tV
         त (B     t
+        त (्य    t:
 ?1      त (_     t
 
 .group थ
-        थ        th@
+        थ        thV
         थ (B     th
 ?1      थ (_     th
 
 .group द
-        द        d@
+        द        dV
         द (B     d
 ?1      द (_     d
 
 .group ध
-        ध        dh@
+        ध        dhV
         ध (B     dh
 ?1      ध (_     dh
 
 .group न
-        न        n@
-        न (B     n
-?1      न (_     n
-     ्) न (_     n@
+        न        n.V
+        न (B     n.
+?1      न (_     n.
+     ्) न (_     n.V
+     र्) न (_     n.          // r +virama
+
 
 .group ऩ
         ऩ        n:     // should this be a long [n] ?
 
 .group प
-        प        p@
+        प        pV
         प (B     p
+        प (्य    p:
 ?1      प (_     p
 
 .group फ
-        फ        ph@
+        फ        phV
         फ (B     ph
 ?1      फ (_     ph
-        फ़        f@
+        फ़        fV
         फ़ (B     f
 ?1      फ़ (_     f
 
 .group ब
-        ब        b@
+        ब        bV
         ब (B     b
 ?1      ब (_     b
 
 .group भ
-        भ        bh@
+        भ        bhV
         भ (B     bh
 ?1      भ (_     bh
 
 .group म
-        म        m@
+        म        mV
         म (B     m
 ?1      म (_     m
-     ्) म (_     m@
+     ्) म (_     mV
+     र्) म (_     m          // r +virama
+     न्) म (_     m          // n +virama
 
 .group य
-        य        j@
+        य        j@3
         य (B     j
 ?1      य (_     j
-     ्) य (_     j@
+     ्) य (_     j@3
 
 .group र
-        र        r@
+        र        rV
         र (B     r
 ?1      र (_     r
-     ्) र (_     r@
+     ्) र (_     r@-
 
 .group ऱ             // rra
-        ऱ        r@   // (temporary) same as [r]
+        ऱ        rV   // (temporary) same as [r]
         ऱ (B     r
 ?1      ऱ (_     r
-     ्) ऱ (_     r@
+     ्) ऱ (_     rV
 
 .group ल
-        ल        l@
+        ल        lV
         ल (B     l
 ?1      ल (_     l
-     ्) ल (_     l@
+     ्) ल (_     lV
 
 .group ळ
-        ळ        l@  // (temporary) same as [l]
+        ळ        lV  // (temporary) same as [l]
         ळ (B     l
 ?1      ल (_     l
-     ्) ल (_     l@
+     ्) ल (_     lV
 
 .group ऴ
-        ऴ        l@  // (temporary) same as [l]
+        ऴ        lV  // (temporary) same as [l]
         ऴ (B     l
 ?1      ल (_     l
-     ्) ल (_     l@
+     ्) ल (_     lV
 
 .group व
-        व        v@
+        व        vV
         व (B     v
+     _) व        wV
+     _) व (B     w
+     _) व (्     v   // +virma
 ?1      व (_     v
 
 .group श
-        श        S@
+        श        SV
         श (B     S
 ?1      श (_     S
 
 .group ष
-        ष        s;@   //??
-        ष (B     s;    //??
-?1      ष (_     s;    //??
+        ष        SV   //?? or [s;]
+        ष (B     S    //??
+?1      ष (_     S    //??
 
 .group स
-        स        s@
+        स        sV
         स (B     s
 ?1      स (_     s
 
 .group ह
-        ह        H@
+        ह        HV
         ह (B     H
 ?1      ह (_     H
 
+
+                        // nukta,  modifies a consonant
 
 .group ऽ                // avagraha, lengthens a vowel ??
         ऽ        :
@@ -340,12 +368,33 @@
 .group ँ
 	ँ	n	// candrabindu
 
-.group ं
+.group ं 
         ं        N     // anusvara
         ं  (प    m
         ं  (फ    m
         ं  (ब    m
         ं  (भ    m
+        ं  (म    m
+
+        ं  (ट    n.
+        ं  (ठ    n.
+        ं  (ड    n.
+        ं  (ढ    n.
+        ं  (ण    n.
+
+        ं  (च    n^
+        ं  (छ    n^
+        ं  (ज    n^
+        ं  (झ    n^
+        ं  (ञ    n^
+        ं  (य    n^
+
+        ं  (क    N
+        ं  (ख    N
+        ं  (ग    N
+        ं  (घ    N
+        ं  (ङ    N
+        ं  (ह    N
 
 .group ः
         ः        H   //  visarga
@@ -355,47 +404,47 @@
 // Extra consonants
 
 .group क़   // qa
-        क़        q@
+        क़        qV
         क़ (B     q
 ?1      क़ (_     q
 
 .group ख़   // khha
-        ख़        x@
+        ख़        xV
         ख़ (B     x
 ?1      ख़ (_     x
 
 .group ग़    // ghha
-        ग़        Q@
+        ग़        QV
         ग़ (B     Q
 ?1      ग़ (_     Q
 
 .group ज़    // za
-        ज़        z@
+        ज़        zV
         ज़ (B     z
 ?1      ज़ (_     z
 
 .group ड़    // ddha
-        ड़        D@
+        ड़        DV
         ड़ (B     D
 ?1      ड़ (_     D
 
 .group ढ़    // rha
-        ढ़        hr@
+        ढ़        hrV
         ढ़ (B     hr
 ?1      ढ़ (_     hr
 
 .group फ़    // fa
-        फ़        f@
+        फ़        fV
         फ़ (B     f
 ?1      फ़ (_     f
 
 .group य़    // yya
-        य़        j@
+        य़        jV
         य़ (B     j
 ?1      य़ (_     j
 
 .group ॠ    // rr
-        ॠ        @-rr
+        ॠ        V-rr
 
 .group ॡ    // ll
         ॡ        l-:     // long syllabic l
@@ -459,5 +508,5 @@
 
 
 .group
-        $        dOl@
-        %        p@sEnt
+        $        dOlV
+        %        pVsEnt

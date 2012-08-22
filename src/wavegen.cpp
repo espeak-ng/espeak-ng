@@ -68,6 +68,7 @@ int embedded_value[N_EMBEDDED_VALUES];
 
 static int PHASE_INC_FACTOR;
 int samplerate = 0;       // this is set by Wavegeninit()
+extern int option_device_number;
 
 static wavegen_peaks_t peaks[N_PEAKS];
 static int peak_harmonic[N_PEAKS];
@@ -79,8 +80,6 @@ static int echo_tail;
 static int echo_amp = 0;
 static short echo_buf[N_ECHO_BUF];
 
-#define N_TONE_ADJUST  1250
-static unsigned char tone_adjust[N_TONE_ADJUST];   //  8Hz steps * 1250 = 10kHz
 static int harm_sqrt_n = 0;
 
 
@@ -526,7 +525,11 @@ PaError Pa_OpenDefaultStream2( PaStream** stream,
 	PaError result;
 	PaStreamParameters hostApiOutputParameters;
 
-	 hostApiOutputParameters.device = Pa_GetDefaultOutputDevice();
+	if(option_device_number >= 0)
+		hostApiOutputParameters.device = option_device_number;
+	else
+		hostApiOutputParameters.device = Pa_GetDefaultOutputDevice();
+
 	if( hostApiOutputParameters.device == paNoDevice )
 		return paDeviceUnavailable; 
 
@@ -710,14 +713,6 @@ void WavegenInit(int rate, int wavemult_fact)
 		}
 	}
 
-	// This table provides the opportunity for tone control.
-	// Adjustment of harmonic amplitudes, steps of 8Hz
-	// value of 128 means no change
-	for(ix=0; ix<N_TONE_ADJUST; ix++)
-	{
-		tone_adjust[ix] = 128;
-	}
-
 	WavegenInitPkData(1);
 	WavegenInitPkData(0);
 	pk_shape = pk_shape2;         // ph_shape2
@@ -788,6 +783,7 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 	int hmax;
 	int hmax_samplerate;      // highest harmonic allowed for the samplerate
 	int x;
+	int ix;
 	int h1;
 
 #ifdef SPECT_EDITOR
@@ -850,7 +846,10 @@ int PeaksToHarmspect(wavegen_peaks_t *peaks, int pitch, int *htab, int control)
 		x = htab[h] >> 15;
 		htab[h] = (x * x) >> 7;
 
-		htab[h] = (htab[h] * tone_adjust[f >> 19]) >> 13;  // index tone_adjust with Hz/8
+		if((ix = (f >> 19)) < N_TONE_ADJUST)
+		{
+			htab[h] = (htab[h] * wvoice->tone_adjust[ix]) >> 13;  // index tone_adjust with Hz/8
+		}
 	}
 
 	// adjust the amplitude of the first harmonic, affects tonal quality
@@ -1645,17 +1644,6 @@ int WavegenFill(int fill_zeros)
 		q = wcmdq[wcmdq_head];
 		length = q[1];
 
-#ifdef LOG_FRAMES
-f_log=fopen("log-espeakedit","a");
-if(f_log != NULL)
-{
-	int c=' ';
-	if(resume) c='r';
-	fprintf(f_log,"\tq%d%c ix%3d %5d\n",(int)q[0],c,wcmdq_head,(int)(q[1]&0xffff));
-	fclose(f_log);
-	f_log=NULL;
-}
-#endif
 		switch(q[0])
 		{
 		case WCMD_PITCH:

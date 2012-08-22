@@ -128,16 +128,33 @@ endphoneme
 phoneme i
   vowel starttype (i) endtype (i)
   length 130
-  formants vowel/i
-  linkout ;
+  formants vwl_ru/i
 //  reduceto I  4    // done in function ChangePhonemes()
 endphoneme
 
+phoneme ii
+  vowel starttype (i) endtype (i)
+  length 100
+  formants vwl_ru/ii
+endphoneme
+
+phoneme i#
+  vowel starttype (i) endtype (i)
+  length 130
+  formants vwl_ru/i#
+//  reduceto I  4    // done in function ChangePhonemes()
+endphoneme
+
+phoneme i&
+  vowel starttype (i) endtype (i)
+  length 100
+  formants vwl_ru/i&
+endphoneme
 
 phoneme y      // close central unrounded (i-bar)
   vowel starttype (i) endtype (i)
   length 190
-  formants vowel/i#_6
+  formants vowel/i#
 //  reduceto Y  4
 endphoneme
 
@@ -145,7 +162,20 @@ endphoneme
 phoneme E
   vowel  starttype (e)  endtype (e)
   length 200
-  formants vowel/e_mid
+  formants vwl_ru/E
+//  reduceto I  4
+endphoneme
+
+phoneme E#
+  vowel  starttype (e)  endtype (e)
+  length 100
+  formants vwl_ru/E#
+endphoneme
+
+phoneme E@
+  vowel  starttype (e)  endtype (e)
+  length 100
+  formants vwl_ru/E@
 //  reduceto I  4
 endphoneme
 
@@ -157,50 +187,76 @@ phoneme E:
   reduceto I  4
 endphoneme
 
-
-phoneme a
-  vowel  starttype (a)  endtype (a)
-  length 210
-  formants vowel/a
-//  reduceto V  4         // done in function ChangePhonemes()
+phoneme e@
+  vowel  starttype (i)  endtype (e)
+  length 200
+  formants vwl_ru/e@
 endphoneme
+
 
 
 phoneme A
   vowel  starttype (a)  endtype (a)
-  length 220
-  formants vowel/aa_2
-  reduceto V  4
+  length 150
+  formants vwl_ru/A
+//  reduceto V  4         // done in function ChangePhonemes()
 endphoneme
 
+
+phoneme @
+  vowel  starttype (@)  endtype (@)
+  length 210
+  formants vowel/@
+//  reduceto V  4         
+endphoneme
+
+
+//phoneme A
+//  vowel  starttype (a)  endtype (a)
+//  length 150
+ // formants vowel/aa_2
+//  reduceto V  4
+//endphoneme
+
+
+phoneme O
+  vowel starttype (o) endtype (o)
+  length 100
+  formants vwl_ru/O
+//  reduceto V  4
+endphoneme
 
 phoneme o
   vowel starttype (o) endtype (o)
-  length 200
-  formants vowel/o_5
+  length 100
+  formants vwl_ru/o
 //  reduceto V  4
 endphoneme
-
 
 phoneme u
   vowel starttype (u) endtype (u)
-  length 190
-  formants vowel/u_bck
-//  reduceto U  4
+  length 150
+  formants vwl_ru/u
 endphoneme
 
 
-phoneme u2          // TEST
+phoneme u#          
   vowel starttype (u) endtype (u)
-  length 190
-  formants vowel/uu_bck
+  length 80
+  formants vwl_ru/u#
 endphoneme
 
-phoneme o2          // TEST
+phoneme u"        
+  vowel starttype (u) endtype (u)
+  length 150
+  formants vwl_ru/u"
+endphoneme
+
+phoneme yo          
   vowel starttype (o) endtype (o)
-  length 200
-  formants vowel/oo_1
-//  reduceto V  4
+  length 150
+  formants vwl_ru/yo
+  reduceto V  4
 endphoneme
 
 
@@ -215,9 +271,9 @@ endphoneme
 
 
 phoneme &
-  vowel  starttype (a)  endtype (a)
-  length 200
-  formants vowel/&
+  vowel  starttype (i)  endtype (i)
+  length 150
+  formants vwl_ru/&
 //  reduceto V  4
 endphoneme
 
@@ -230,30 +286,34 @@ phoneme 8
 endphoneme
 
 
-phoneme u"
+//phoneme u"
+//  vowel starttype (u) endtype (u)
+ // length 190
+//  formants vowel/u_3
+//  reduceto U  4
+//endphoneme
+
+phoneme ju
   vowel starttype (u) endtype (u)
   length 190
-  formants vowel/u_3
-//  reduceto U  4
+  formants vwl_ru/ju
 endphoneme
 
 
 // reduced vowels
 
 phoneme I
-  vowel  starttype (i) endtype (i)
-  length 140
-  formants vowel/ii_2
-  linkout ;
-  unstressed
+  vowel  starttype (i) endtype (a)
+  length 200
+  formants vwl_ru/I
+ // linkout ;
 endphoneme
 
 
 phoneme V
   vowel  starttype (a)  endtype (@)
-  length 140
+  length 100
   formants vowel/V_2
-  unstressed
 endphoneme
 
 
@@ -261,7 +321,6 @@ phoneme U
   vowel  starttype (u)  endtype (u)
   length 140
   formants vowel/uu
-  unstressed
 endphoneme
 
 
@@ -269,15 +328,13 @@ phoneme Y
   vowel  starttype (u)  endtype (u)
   length 140
   formants vowel/ii#
-  unstressed
 endphoneme
 
 
-phoneme @    //  Schwa
-  vowel   starttype (@)  endtype (@)
-  formants vowel/@
-  unstressed
-  length 140
+phoneme a
+  vowel   starttype (a)  endtype (a)
+  formants vwl_ru/a
+  length 100
 endphoneme
 
 

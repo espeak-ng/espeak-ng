@@ -31,7 +31,6 @@
 // libespeak.so.1  library
 
 
-static const char *version = "eSpeak text-to-speech: 1.19  26.Jan.07";
 
 static const char *help_text =
 "\nspeak [options] [\"<words>\"]\n\n"
@@ -327,7 +326,7 @@ int main (int argc, char **argv)
 		{
 		case 'h':
 			printf("\n");
-			printf("%s\n%s",version,help_text);
+			printf("eSpeak text-to-speech: %s\n%s",espeak_Info(NULL),help_text);
 			exit(0);
 			break;
 

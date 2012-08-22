@@ -279,6 +279,7 @@ static unsigned char length_mods_en0[100] = {
 	105,150,100,105,105,115,135,110,105, 100,  /* N */
 	100,100,100,100,100,100,100,100,100, 100 }; // SPARE
 
+
 static unsigned char length_mods_equal[100] = {
 /*  a   ,   t   s   n   d   z   r   N   <- next */
 	100,100,100,100,100,100,100,100,100, 100,  /* a  <- next2 */
@@ -530,40 +531,6 @@ char *strchr_w(const char *s, int c)
 }
 
 
-void LoadConfig(void)
-{//==================
-// Load configuration file, if one exists
-	char buf[130];
-	FILE *f;
-	int ix;
-	char c1;
-	char *p;
-	char string[120];
-
-	sprintf(buf,"%s%c%s",path_home,PATHSEP,"config");
-	if((f = fopen(buf,"r"))==NULL)
-	{
-		return;
-	}
-
-	while(fgets(buf,sizeof(buf),f)!=NULL)
-	{
-		if(memcmp(buf,"soundicon",9)==0)
-		{
-			ix = sscanf(&buf[10],"_%c %s",&c1,string);
-			if(ix==2)
-			{
-				soundicon_tab[n_soundicon_tab].name = c1;
-				p = Alloc(strlen(string+1));
-				strcpy(p,string);
-				soundicon_tab[n_soundicon_tab].filename = p;
-				soundicon_tab[n_soundicon_tab++].length = 0;
-			}
-		}
-	}
-}  //  end of LoadConfig
-
-
 int PhonemeCode(unsigned int mnem)
 {//===============================
 	int ix;
@@ -793,7 +760,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 
 			type = ph->type;
 
-			if(regression == 2)
+			if(regression & 0x2)
 			{
 				// LANG=Russian, [v] amd [v;] don't cause regression
 				if((ph->mnemonic == 'v') || (ph->mnemonic == ((';'<<8)+'v')))
@@ -827,7 +794,7 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 			}
 			else
 			{
-				if(regression == 1)
+				if(regression & 0x8)
 				{
 					// LANG=Polish, propagate through liquids and nasals
 					if((type == phPAUSE) || (type == phVOWEL))
@@ -837,6 +804,11 @@ void Translator::MakePhonemeList(int post_pause, int embedded, int start_sentenc
 				{
 					voicing = 0;
 				}
+			}
+			if((regression & 0x4) && (ph_list2[j].sourceix))
+			{
+				// stop propagation at a word boundary
+				voicing = 0;
 			}
 		}
 	}
@@ -971,10 +943,34 @@ if((ph->mnemonic == 't') && ((prev->type == phVOWEL) || (prev->mnemonic == 'n'))
 
 		if((plist2+1)->sourceix != 0)
 		{
-			if((langopts.vowel_pause == 2) && (ph->type == phVOWEL) && (next->type == phVOWEL))
+			int x;
+
+			if(langopts.word_gap & 1)
 			{
-				// adjacent vowels over a word boundary, insert a short pause
-				insert_ph = phonPAUSE_SHORT;
+				insert_ph = phonPAUSE_VSHORT;
+			}
+			if(langopts.vowel_pause && (ph->type != phPAUSE) && (next->type == phVOWEL))
+			{
+				if(langopts.vowel_pause & 0x04)
+				{
+					// break before a word which starts with a vowel
+					insert_ph = phonPAUSE_VSHORT;
+				}
+
+				if((ph->type == phVOWEL) && ((x = langopts.vowel_pause & 0x03) != 0))
+				{
+					// adjacent vowels over a word boundary
+					if(x == 2)
+						insert_ph = phonPAUSE_SHORT;
+					else
+						insert_ph = phonPAUSE_VSHORT;
+				}
+
+				if(((plist2+1)->stress >= 4) && (langopts.vowel_pause & 0x08))
+				{
+					// pause before a words which starts with a stressed vowel
+					insert_ph = phonPAUSE_SHORT;
+				}
 			}
 		}
 
@@ -2291,6 +2287,7 @@ if((c == '/') && (langopts.testing & 2) && isdigit(next_in) && IsAlpha(prev_out)
 				{
 					// '-' between two letters is a hyphen, treat as a space
 					word_flags |= FLAG_HYPHEN;
+					words[word_count-1].flags |= FLAG_HYPHEN_AFTER;
 					c = ' ';
 				}
 				else

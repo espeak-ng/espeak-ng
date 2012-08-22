@@ -42,7 +42,7 @@
 #define T_PHONETIC  502
 #define T_TRANSLATE 503
 #define T_PROCESS    504
-
+#define T_RULES     505
 
 TranslDlg *transldlg = NULL;
 extern char *speech_to_phonemes(char *data, char *phout);
@@ -51,6 +51,7 @@ extern ProsodyDisplay *prosodycanvas;
 BEGIN_EVENT_TABLE(TranslDlg, wxPanel)
 	EVT_BUTTON(T_TRANSLATE,TranslDlg::OnCommand)
 	EVT_BUTTON(T_PROCESS,TranslDlg::OnCommand)
+	EVT_BUTTON(T_RULES,TranslDlg::OnCommand)
 END_EVENT_TABLE()
 
 
@@ -202,10 +203,11 @@ TranslDlg::TranslDlg(wxWindow *parent) : wxPanel(parent)
 	t_source = new wxTextCtrl(this,T_SOURCE,_T(""),wxPoint(0,4),
 		wxSize(200,250),wxTE_MULTILINE);
 	t_phonetic = new wxTextCtrl(this,T_PHONETIC,_T(""),wxPoint(0,262),
-		wxSize(200,250),wxTE_MULTILINE);
+		wxSize(200,350),wxTE_MULTILINE);
 
-	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,524));
-	t_process = new wxButton(this,T_PROCESS,_T("Speak"),wxPoint(100,524));
+	t_translate = new wxButton(this,T_TRANSLATE,_T("Translate"),wxPoint(4,620));
+	t_translate = new wxButton(this,T_RULES,_T("Show Rules"),wxPoint(4,652));
+	t_process = new wxButton(this,T_PROCESS,_T("Speak"),wxPoint(100,620));
 
 }  // end of TransDlg::TransDlg
 
@@ -269,11 +271,20 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	char phon_out[N_PH_LIST*2];
 	int clause_tone;
 	int clause_count;
+	FILE *f;
+	char fname_temp[100];
 	static int n_ph_list;
 	static PHONEME_LIST ph_list[N_PH_LIST+1];
 
 	switch(event.GetId())
 	{
+	case T_RULES:
+		option_phonemes = 2;
+		strcpy(fname_temp,tmpnam(NULL));
+		if((f = fopen(fname_temp,"w+")) != NULL)
+		{
+			f_trans = f;   // write translation rule trace to a temp file
+		}
 	case T_TRANSLATE:
 		SpeakNextClause(NULL,NULL,2);  // stop speaking file
 
@@ -303,7 +314,21 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			memcpy(&ph_list[n_ph_list],phoneme_list,sizeof(PHONEME_LIST)*n_phoneme_list);
 			n_ph_list += n_phoneme_list;
 		}
-		t_phonetic->SetValue(wxString(phon_out,wxConvLocal));
+
+		t_phonetic->Clear();
+		if(event.GetId() == T_RULES)
+		{
+			option_phonemes=0;
+			rewind(f_trans);
+			while(fgets(buf,sizeof(buf),f_trans) != NULL)
+			{
+				t_phonetic->AppendText(wxString(buf,wxConvLocal));
+			}
+			t_phonetic->AppendText(_T("---\n"));
+			fclose(f_trans);
+			remove(fname_temp);
+		}
+		t_phonetic->AppendText(wxString(phon_out,wxConvLocal));
 		break;
 
 	case T_PROCESS:

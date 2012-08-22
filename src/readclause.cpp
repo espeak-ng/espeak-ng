@@ -176,6 +176,7 @@ static void GetC_unget(int c)
 	{
 		p_textinput--;
 		*p_textinput = c;
+		end_of_input = 0;
 	}
 }
 
@@ -275,6 +276,14 @@ static int GetC(void)
 			while(n_bytes > 0)
 			{
 				c2 = GetC_get();
+				if(c2 == 0)
+				{
+					if(option_multibyte==0)
+						option_multibyte=2;   // change "auto" option to "no"
+					GetC_unget(' ');
+					break;
+				}
+
 				if(((c2 & 0xc0) != 0x80) && ((c2 & m) != 0))
 				{
 					GetC_unget(c2);
@@ -360,7 +369,7 @@ static int LoadSoundFile(const char *fname, int index)
 	char *p;
 	int *ip;
 	int  length;
-	char fname_temp[80];
+	char fname_temp[100];
 	char fname2[200];
 	char command[150];
 

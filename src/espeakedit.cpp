@@ -43,12 +43,12 @@
 #include "prosodydisplay.h"
 
 
-static char *about_string = "espeakedit 1.20  06.Feb.2007\nAuthor: Jonathan Duddington (c) 2006";
+static char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2006";
 
 
 const char *path_data = "/home/jsd1/speechdata/phsource";
 
-extern void TestTest(void);
+extern void TestTest(int control);
 extern void CompareLexicon(int);
 extern void ConvertToUtf8();
 
@@ -123,7 +123,7 @@ extern void VoiceReset(int control);
 
 	if((strcmp(param,"--help")==0) || (strcmp(param,"-h")==0))
 	{
-		printf(about_string);
+		printf(about_string,espeak_Info(NULL));
 		printf(help_text);
 		exit(0);
 	}
@@ -203,6 +203,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_TO_UTF8, MyFrame::OnTools)
 	EVT_MENU(MENU_COUNT_WORDS, MyFrame::OnTools)
 	EVT_MENU(MENU_TEST, MyFrame::OnTools)
+	EVT_MENU(MENU_TEST2, MyFrame::OnTools)
 
 	EVT_TIMER(1, MyFrame::OnTimer)
 	EVT_SIZE(MyFrame::OnSize)
@@ -251,7 +252,7 @@ wxSashLayoutWindow *win;
 		if(result == -1)
 			wxLogError(_T("Failed to load phoneme data,\nneeds espeak-data/phontab,phondata,phonindex"));
 		else
-			wxLogError(_T("Wrong version of espeak-data: 0x%x (0x%x)"),result,VERSION_DATA);
+			wxLogError(_T("Wrong version of espeak-data: 0x%x (0x%x)"),result,version_phdata);
 
 		error_flag = 1;
 	}
@@ -414,8 +415,10 @@ void MyFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {//===================================================
 //CharsetToUnicode("ISO-8859-3");
 //CharsetToUnicode("KOI8-R");
-//Test();
-      (void)wxMessageBox(wxString(about_string,wxConvLocal), _T("About eSpeak Editor"));
+	char buf[120];
+
+	sprintf(buf,about_string,espeak_Info(NULL));
+	(void)wxMessageBox(wxString(buf,wxConvLocal), _T("About eSpeak Editor"));
 }
 
 void MyFrame::OnOptions(wxCommandEvent& event)
@@ -475,7 +478,11 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	switch(event.GetId())
 	{
 	case MENU_TEST:
-		TestTest();
+		TestTest(0);
+		break;
+
+	case MENU_TEST2:
+		TestTest(2);
 		break;
 
 	case MENU_TO_UTF8:

@@ -499,6 +499,21 @@ phoneme n
 endphoneme
 
 
+phoneme n.
+  vcd rfx nasal
+  starttype n  endtype n
+  vowelout f1=2 f2=1700 -300 250  f3=-400 80  rms=20 brk colr=2
+  length 100
+  lengthmod 4
+  formants NULL
+  after _ n/_n
+  after n n/_n      // lengthen [nn]
+  before _ n/n_
+  before (r) n/nj
+endphoneme
+
+
+
 phoneme n^
   vcd pal nasal palatal
   vowelout f1=3 f2=2300 300 400  f3=100 80  brk rate
@@ -594,17 +609,31 @@ endphoneme
 
 phoneme *    //   flap
   vcd alv flp
-  vowelout f1=3 f2=1700 -300 300  f3=-300 80 rms=35 len=15
-  vowelin f1=0  f2=1700 -300 300  f3=-300 80 rms=20
-  formants d/tap+r3/rx
-  vowelin f1=0  f2=1700 -300 300  f3=-400 80 rms=20
-  before (i) d/tap_i+r3/rx
-  before (e) d/tap_i+r3/rx
-  vowelin f1=2  f2=1700 -300 300  f3=-300 80 rms=20
-  before (a) d/tap+r3/rx
+  vowelout f1=3 f2=1700 -300 300  f3=-200 80 rms=35 len=40
+  vowelin f1=0  f2=1700 -300 300  f3=-200 80 rms=20
+  formants d/tap3+r3/rx%200
+  vowelin f1=0  f2=1700 -300 300  f3=-200 80 rms=20
+  before (i) d/tap_i+r3/rx%200
+  before (e) d/tap_i+r3/rx%200
+  vowelin f1=2  f2=1700 -300 300  f3=-200 80 rms=20
+  before (a) d/tap3+r3/rx%200
   before r d/dr
-  lengthmod 2
+  lengthmod 3
 endphoneme
+
+phoneme *2    //   TEST flap
+  vcd alv flp
+  vowelout f1=2 f2=1700 -300 200  f3=-300 60 len=15 brk
+  vowelin f1=2  f2=1700 -300 150  f3=-200 80
+  formants d/tap2+x/d_dnt%30
+  after _ NULL
+  after @ d/x_tap
+  vowelin f1=1  f2=1700 -300 150  f3=-200 80
+  before (i) d/tap2+x/d_dnt%30
+  lengthmod 3
+  switchvoicing t
+endphoneme
+
 
 
 
@@ -629,6 +658,19 @@ phoneme dz;
   after @ dzh/xdzh
   lengthmod 5
   switchvoicing ts;
+endphoneme
+
+
+phoneme J
+  vcd pla afr sibilant
+  vowelin f1=2  f2=2700 400 600  f3=300 80 rate len=70
+  vowelout f1=2 f2=2700 400 600  f3=300 80 colr=1
+  formants dzh/dz_pzd+x/dzh%40
+  before _ dzh/dz_pzd_+x/dz_pzd_%70
+  after _ NULL
+  after @ dzh/xdz_pzd
+  lengthmod 5
+  switchvoicing c
 endphoneme
 
 
@@ -767,6 +809,7 @@ phoneme p
   wave ustop/p
   before _ ustop/p_
   before r ustop/pr
+  before @- ustop/p_unasp
   before l ustop/pl
   switchvoicing b
 endphoneme
@@ -779,6 +822,7 @@ phoneme t
   lengthmod 2
   wave  ustop/t
   before _ ustop/t_
+  before @- ustop/t_dnt%50
   before r ustop/tr
   switchvoicing d
 endphoneme
@@ -824,18 +868,19 @@ phoneme c
   vowelout f1=0  f2=2700 400 600  f3=300 80
   lengthmod 2
   wave ustop/c%130
-  before _ ustop/c
+  before _ ustop/ki%80
 endphoneme
 
 
 phoneme k
   vls vel stop
-  vowelin f1=0  f2=2300 200 400  f3=-200 80
+  vowelin f1=0  f2=2300 200 300  f3=-200 80
   vowelout f1=0 f2=2300 300 400  f3=-200 80  rms=20
   lengthmod 2
   wave ustop/k
   before _ ustop/k_
   before r ustop/kr
+  before @- ustop/k_unasp%70
   before l ustop/kl
   before (i) ustop/ki
   switchvoicing g
@@ -1004,6 +1049,12 @@ include ph_french
 phonemetable fr_ca fr
 include ph_french_ca
 
+phonemetable hi base
+include ph_hindi
+
+phonemetable hu base
+include ph_hungarian
+
 phonemetable nl base
 include ph_dutch
 
@@ -1039,10 +1090,8 @@ include ph_norwegian
 phonemetable vi base
 include ph_vi
 
-//phonemetable zh_yue base
-//include ph_zh_yue
+phonemetable zh_yue base
+include ph_zh_yue
 
-
-phonemetable hi base
-include ph_hindi
-
+phonemetable sw base
+include ph_swahili

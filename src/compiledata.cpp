@@ -1876,7 +1876,6 @@ wxString CompileAllDictionaries()
 
 void Compile::CPhonemeTab(const char *source)
 {//========================================
-	int label;
 	char fname[130];
 	wxString report;
 	wxString report_dict;
@@ -1948,9 +1947,8 @@ memset(markers_used,0,sizeof(markers_used));
 	}
 
 	// write a word so that further data doesn't start at displ=0
-	label = VERSION_DATA;
-	fwrite(&label,4,1,f_spects);
-	fwrite(&label,4,1,f_phindex);
+	fwrite(&version_phdata,4,1,f_spects);
+	fwrite(&version_phdata,4,1,f_phindex);
 
 	memset(ref_hash_tab,0,sizeof(ref_hash_tab));
 

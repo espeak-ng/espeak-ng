@@ -554,4 +554,13 @@ espeak_ERROR espeak_Terminate(void);
    Return: EE_OK: operation achieved 
 	   EE_INTERNAL_ERROR.
 */
+
+
+#ifdef __cplusplus
+extern "C"
+#endif
+const char *espeak_Info(void* ptr);
+/* Returns the version number string.
+   The parameter is for future use, and should be set to NULL
+*/
 #endif

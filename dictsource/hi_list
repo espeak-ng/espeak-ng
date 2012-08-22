@@ -1,30 +1,124 @@
 // This file is UTF8 encoded
 
 // Numbers
-_0        S'Un^a:
+// devanagari numbers are changed to latin characters before translation
+_0        S'u:n.j@3
 _1        'e:k
 _2        d'o:
 _3        t'i:n
 _4        c'a:r
 _5        p'a:nc
-_6        ch'@H@
+_6        ch'@2
 _7        s'a:t
 _8        'a:t.h
 _9        n'O:
 ?3  _9    n'aU
 
-// not needed, as devanagari numbers are changed to latin characters before translation
-//_०        S'Un^a:
-//_१        'e:k
-//_२        d'o:
-//_३        t'i:n
-//_४        c'a:r
-//_५        p'a:nc
-//_६        ch'@H@
-//_७        s'a:t
-//_८        'a:t.h
-//_९        n'O:
-//?3  _९    n'aU
+_10       dVs
+_11       gj'a:r@2
+_12       b'a:r@2
+_13       t'E:r@2
+_14       ch'O:d@2
+_15       p'Vndr@2
+_16       s'o:l@2
+_17       s'Vt:r@2
+_18       Vt.h:'a:r@2
+_19       Unn'i:s
+
+_20       b'i:s
+_21       Ik:'i:s
+_22       b'a:i:s
+_23       t'e:i:s
+_24       c'O:bi:s
+_25       p@c:'i:s
+_26       ch@b'i:s
+_27       s@t:'a:i:s
+_28       Uth:'a:i:s
+_29       Unt'i:s
+_30       t'i:s
+
+_31       Ik@t:'i:s
+_32       bat:'i:s
+_33       tE~t'i:s      // E~ ?
+_34       cO~t'i:s
+_35       pE~t'i:s
+_36       ch@t'i:s
+_37       sE~t'i:s
+_38       Urt'i:s
+_39       Unta:l'i:s
+
+_40       ca:l'i:s
+_41       Ikta:l'i:s
+_42       baIa:l'i:s
+_43       tE~ta:l'i:s
+_44       cO:wa:l'i:s
+_45       paI@3nta:l'i:s
+_46       chIj@3l'i:s
+_47       sE~ta:l'i:s
+_48       Urta:l'i:s
+_49       'Un^ca:s
+
+_50       p@c'a:s
+_51       Ikj'a:wVn
+_52       b'a:wVn
+_53       t'IrpVn
+_54       c'O:wVn
+_55       p'UpVn
+_56       chh@p:'Vn
+_57       sVt:'a:w@n
+_58       Uth:'a:w@n
+_59       Un@s'Vth
+
+_60       s'a:t.h
+_61       'Ik@s@t.h
+_62       b'a:s@t.h
+_63       t'Irs@t.h
+_64       c'O~s@t.h
+_65       p'aI@3ns@t.h
+_66       ch'Ija:s@t.h
+_67       s'Vrs@t.h
+_68       'Urs@t.h
+_69       Un@h,at:'Vr
+
+_70       sat:'Vr
+_71       Ikhat:'Vr
+_72       b@hat:'Vr
+_73       tIhat:'Vr
+_74       cO:hat:'Vr
+_75       p@c@h,at:'Vr
+_76       chIhat:'Vr
+_77       s@t@hat:'Vr
+_78       Ut.h@hat:'Vr
+_79       ,Un^Ia:s'i:
+
+_80       ,Vss'i:
+_81       Ikja:s'i:
+_82       baIa:s'i:
+_83       tIra:s'i:
+_84       cO:ra:s'i:
+_85       pUca:s'i:
+_86       chIja:s'i:
+_87       sVt:a:s'i:
+_88       Ut.h:a:s'i:
+_89       nVwa:s'i:
+
+_90       nVb:'e:
+_91       Ikj'a:n@we:
+_92       b'a:n@we:
+_93       tIr'a:n@we:
+_94       cO:r'a:m@we:
+_95       p@c'a:n@we:
+_96       chIj'a:n@we:
+_97       s@t:'a:n@we:
+_98       Ut.h:'a:n@we:
+_99       nIn^j'a:n@we:
+
+_0C       s'O:
+_0M1      h@z'a:r
+_0M2      d,Vsla:kh@_    // until we fix numbers > 100,000
+_1M2      d,Vsla:kh@_    // until we fix numbers > 100,000
+_0L       l'a:kh
+_dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 // Single consonants
 क      k@
@@ -172,3 +266,6 @@ _9        n'O:
 रही 	$u	// rahī
 
 
+// Exceptions
+क्रिकेट        krIk'Et
+सायबर        s'aIb@r

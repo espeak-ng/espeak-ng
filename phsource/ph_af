@@ -217,6 +217,29 @@ phoneme 3:
 endphoneme
 
 
+// Nasal vowels
+
+phoneme A~
+  vowel  starttype (a) endtype (a)
+  length 230
+  formants vnasal/aa_n
+endphoneme
+
+
+phoneme E~ 
+  vowel  starttype (e)  endtype (e)
+  length 190
+  formants vnasal/ee_n2
+endphoneme
+
+
+phoneme O~
+  vowel  starttype (o)  endtype (o)
+  length 190
+  formants vnasal/oo_n
+endphoneme
+
+
 
 // CONSONANTS
 //===========

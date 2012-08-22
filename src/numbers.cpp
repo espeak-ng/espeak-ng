@@ -205,8 +205,8 @@ int Translator::LookupNum2(int value, int control, char *ph_out)
 	}
 	if((value == 2) && (control & 4))
 	{
-		Lookup("_2f",ph_out);
-		return(0);
+		if(Lookup("_2f",ph_out) != 0)
+			return(0);
 	}
 	// is there a special pronunciation for this 2-digit number
 	sprintf(string,"_%d",value);
@@ -304,7 +304,7 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 	int found;
 	int hundreds;
 	int x;
-	char string[12];  // for looking up entries in de_list
+	char string[12];  // for looking up entries in **_list
 	char buf1[100];
 	char buf2[100];
 	char ph_100[20];
@@ -328,8 +328,7 @@ int Translator::LookupNum3(int value, char *ph_out, int suppress_null, int thous
 
 			if(LookupThousands(hundreds / 10, thousandplex+1, ph_10T) == 0)
 			{
-				sprintf(string,"_%d",hundreds / 10);
-				Lookup(string,ph_digits);
+				LookupNum2(hundreds/10, 4, ph_digits);
 			}
 
 			sprintf(ph_thousands,"%s%s%c",ph_digits,ph_10T,phonPAUSE_NOLINK);
@@ -428,7 +427,7 @@ int Translator::LookupThousands(int value, int thousandplex, char *ph_out)
 
 	if((found = Lookup(string,ph_thousands)) == 0)
 	{
-		if((value % 1000) >= 20)
+		if((value % 100) >= 20) 
 		{
 			Lookup("_0of",ph_of);
 		}
@@ -469,6 +468,8 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	char string[12];  // for looking up entries in de_list
 	char buf1[100];
 	char ph_append[50];
+	char ph_buf[200];
+	char ph_buf2[50];
 
 	static const char str_pause[2] = {phonPAUSE_NOLINK,0};
 
@@ -477,6 +478,7 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 	value = this_value = atoi(word);
 
 	ph_append[0] = 0;
+	ph_buf2[0] = 0;
 
 	// is there a previous thousands part (as a previous "word") ?
 	if((n_digits == 3) && (word[-2] == langopts.thousands_sep) && isdigit(word[-3]))
@@ -538,7 +540,25 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		{
 			if((thousandplex > 0) && (value < 1000))
 			{
-				if(LookupThousands(value,thousandplex,ph_append))
+				if(langopts.numbers & 0x40000)
+				{
+					if((thousandplex == 1) && (value >= 100))
+					{
+						// special word for 100,000's
+						char ph_buf3[20];
+						sprintf(string,"_%dL",value / 100);
+						if(Lookup(string,ph_buf2) == 0)
+						{
+							LookupNum2(value/100,0,ph_buf2);
+							Lookup("_0L",ph_buf3);
+							strcat(ph_buf2,ph_buf3);
+						}
+						value %= 100;
+						if(value == 0)
+							suppress_null = 1;
+					}
+				}
+				if((suppress_null == 0) && (LookupThousands(value,thousandplex,ph_append)))
 				{
 					// found an exact match for N thousand
 					value = 0;
@@ -564,8 +584,8 @@ int Translator::TranslateNumber_1(char *word, char *ph_out, unsigned int *flags,
 		Lookup("_.",ph_append);
 	}
 
-	LookupNum3(value, ph_out, suppress_null, thousandplex, prev_thousands);
-	strcat(ph_out,ph_append);
+	LookupNum3(value, ph_buf, suppress_null, thousandplex, prev_thousands);
+	sprintf(ph_out,"%s%s%s",ph_buf2,ph_buf,ph_append);
 
 
 	while(decimal_point)

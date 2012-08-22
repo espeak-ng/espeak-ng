@@ -146,6 +146,7 @@ ibm              aIbi:Em
 ie               aIi:_!        $pause
 i.e              aIi:_!        $pause
 irc              aI;A@s'i:
+lbs              paUndz
 ltd              lImItId
 mc               m@k
 oem              oUi:'Em
@@ -298,6 +299,7 @@ ambassador       a2mbas@d3
 ambidextrous                   $3
 amen             A:m'En        $onlys
 amok             a2m0k
+amoral           eIm'0r@L
 amount           a2maUnt
 amply            amplI2        $verbf
 anal             eIn@L
@@ -312,7 +314,7 @@ angel            eIndZ@L
 anecdote         anIkdoUt
 anecdotal        anIkd'oUt@L
 anemometer       anIm'0mIt3
-anenome          a2nEn@mI2
+anemone          a2nEn@mI2
 anew             a2nju:
 anion            aneI@n
 anniversary      anIv'3:s@rI2 
@@ -355,6 +357,7 @@ arcade                         $2
 arch             A@tS
 arches           A@tSIz
 archimedes       A@kIm'i:di:z
+archive          A@kaIv
 archway           $1
 arena            a2ri:n@
 arithmetic       a2rITm@tIk
@@ -657,6 +660,7 @@ desert           dI2z3:t       $verb
 desolate         dEs@l@t
 desperate        dEsp@r@t
 detente          deIt'0nt
+détente          deIt'0nt
 detritus         dItr'aIt@s
 deus             deIUs
 di               d,I
@@ -1550,6 +1554,7 @@ solemn           s0l@m
 solute           s0lju:t
 solution         s@lu:S@n
 son              sVn
+sonar            soUnA@
 sonny            sVnI2
 sooth            su:D
 soundbite        saUndbaIt

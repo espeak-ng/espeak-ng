@@ -53,7 +53,7 @@ antaux          $u+ $pause
 antaŭ           $u+ $pause
 apud            $u+ $pause
 ol              $u+ $brk
-ĉe              $u+ $brk
+ĉe              $u+ $pause
 da              $u+
 al              $u+ $brk
 (al la)         alla $u $brk
@@ -61,9 +61,9 @@ el              $u+ $pause
 (el la)         ella $u $pause
 en              $u+ $brk
 (en la)         enla $u $brk
-ĝis		$pause
-inter		$pause
-je		$u
+ĝis		$u+ $pause
+inter		$u+ $pause
+je		$u $brk
 
 kun             $u+ $pause
 laŭ		$u+ $brk
@@ -90,9 +90,9 @@ mi              $u
 ci              $u
 li              $u
 sxi             $u
-ŝi              $u       // sxi
+ŝi              $u
 gxi             $u
-ĝi              $u        // gxi
+ĝi              $u
 ni              $u
 vi              $u
 ili             $u
@@ -103,9 +103,9 @@ mia             $u+
 cia             $u+
 lia             $u+
 sxia            $u+
-ŝia             $u+       // sxia
+ŝia             $u+
 gxia            $u+
-ĝia             $u+       // gxia
+ĝia             $u+
 nia             $u+
 via             $u+
 ilia            $u+
@@ -115,9 +115,9 @@ miaj             $u+
 ciaj             $u+
 liaj             $u+
 sxiaj            $u+
-ŝiaj             $u+       // sxia
+ŝiaj             $u+
 gxiaj            $u+
-ĝiaj             $u+       // gxia
+ĝiaj             $u+
 niaj             $u+
 viaj             $u+
 iliaj            $u+

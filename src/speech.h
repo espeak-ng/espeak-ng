@@ -79,3 +79,6 @@ void Free(void *ptr);
 
 extern void strncpy0(char *to,const char *from, int size);
 extern char path_home[];
+extern const char *version_string;
+extern const int version_phdata;
+

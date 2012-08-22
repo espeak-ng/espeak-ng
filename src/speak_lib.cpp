@@ -65,6 +65,7 @@ char path_home[120];
 voice_t voicedata;
 voice_t *voice = &voicedata;
 
+
 #ifdef USE_ASYNC
 
 static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
@@ -282,18 +283,18 @@ static int initialise(void)
 	int param;
 	int result;
 
+#ifndef __WIN32__
+	LoadConfig();  // causes problem on Windows, don't know why
+#endif
 	WavegenInit(22050,0);   // 22050
 	if((result = LoadPhData()) != 1)
 	{
 		if(result == -1)
 			fprintf(stderr,"Failed to load espeak-data\n");
 		else
-			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,VERSION_DATA);
+			fprintf(stderr,"Wrong version of espeak-data 0x%x (0x%x)\n",result,version_phdata);
 	}
 
-#ifndef __WIN32__
-	LoadConfig();  // causes problem on Windows, don't know why
-#endif
 	SynthesizeInit();
 	InitNamedata();
 
@@ -492,61 +493,31 @@ espeak_ERROR sync_espeak_Synth(unsigned int unique_identifier, const void *text,
 
 
 
-extern "C" espeak_ERROR espeak_Synth_Mark(const void *text, size_t size, 
-					  const char *index_mark, 
-					  unsigned int end_position, 
-					  unsigned int flags, 
-					  unsigned int* unique_identifier,
-					  void* user_data)
+espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text, size_t size, 
+			   const char *index_mark, unsigned int end_position, 
+			   unsigned int flags, void* user_data)
 {//=========================================================================
-  ENTER("espeak_Synth_Mark");
-  SHOW("espeak_Synth_Mark > index_mark=%s, end_position=%d, flags=%d, text=%s\n", index_mark, end_position, flags, text);
+	espeak_ERROR aStatus;
 
-	espeak_ERROR a_error=EE_OK;
-	static unsigned int temp_identifier;
+  InitText(flags);
 
-	if (unique_identifier == NULL)
-	{
-		unique_identifier = &temp_identifier;
-	}
-	*unique_identifier = 0;
+  my_unique_identifier = unique_identifier;
+  my_user_data = user_data;
 
-	if(my_mode == AUDIO_OUTPUT_SYNCHRONOUS)
-	{
-		return(sync_espeak_Synth_Mark(0,text,size,index_mark,end_position,flags,user_data));
-	}
-
-#ifdef USE_ASYNC
-  // Create the mark command
-  t_espeak_command* c1 = create_espeak_mark(text, size, index_mark, end_position, 
-					   flags, user_data);
-
-  // Retrieve the unique identifier
-  *unique_identifier = c1->u.my_mark.unique_identifier;
-
-  // Create the "terminated msg" command (same uid)
-  t_espeak_command* c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
-
-  // Try to add these 2 commands (single transaction)
-  if (c1 && c2)
+  if(index_mark != NULL)
     {
-      a_error = fifo_add_commands(c1, c2);
-      if (a_error != EE_OK)
-	{
-	  delete_espeak_command(c1);
-	  delete_espeak_command(c2);
-	  c1=c2=NULL;
-	}
-    }
-  else
-    {
-      delete_espeak_command(c1);
-      delete_espeak_command(c2);
+      strncpy0(skip_marker, index_mark, sizeof(skip_marker));
+      skipping_text = 1;
     }
 
-#endif
-  return a_error;
-}  //  end of espeak_Synth_Mark
+  end_character_position = end_position;
+
+
+  aStatus = Synthesize(unique_identifier, text, flags | espeakSSML);
+  SHOW_TIME("LEAVE sync_espeak_Synth_Mark");
+
+  return (aStatus);
+}  //  end of sync_espeak_Synth_Mark
 
 
 
@@ -615,13 +586,13 @@ extern "C" int espeak_Initialize(espeak_AUDIO_OUTPUT output_type, int buf_length
     setlocale(LC_CTYPE,"german");
 #endif
 
+  init_path(path);
+  initialise();
 #ifdef USE_ASYNC
   select_output(output_type);
 #else
   my_mode = output_type;
 #endif
-  init_path(path);
-  initialise();
 
   // buflength is in mS, allocate 2 bytes per sample
   if(buf_length == 0)
@@ -712,31 +683,61 @@ extern "C" espeak_ERROR espeak_Synth(const void *text, size_t size,
 
 
 
-espeak_ERROR sync_espeak_Synth_Mark(unsigned int unique_identifier, const void *text, size_t size, 
-			   const char *index_mark, unsigned int end_position, 
-			   unsigned int flags, void* user_data)
+extern "C" espeak_ERROR espeak_Synth_Mark(const void *text, size_t size, 
+					  const char *index_mark, 
+					  unsigned int end_position, 
+					  unsigned int flags, 
+					  unsigned int* unique_identifier,
+					  void* user_data)
 {//=========================================================================
-	espeak_ERROR aStatus;
+  ENTER("espeak_Synth_Mark");
+  SHOW("espeak_Synth_Mark > index_mark=%s, end_position=%d, flags=%d, text=%s\n", index_mark, end_position, flags, text);
 
-  InitText(flags);
+	espeak_ERROR a_error=EE_OK;
+	static unsigned int temp_identifier;
 
-  my_unique_identifier = unique_identifier;
-  my_user_data = user_data;
+	if (unique_identifier == NULL)
+	{
+		unique_identifier = &temp_identifier;
+	}
+	*unique_identifier = 0;
 
-  if(index_mark != NULL)
+	if(my_mode == AUDIO_OUTPUT_SYNCHRONOUS)
+	{
+		return(sync_espeak_Synth_Mark(0,text,size,index_mark,end_position,flags,user_data));
+	}
+
+#ifdef USE_ASYNC
+  // Create the mark command
+  t_espeak_command* c1 = create_espeak_mark(text, size, index_mark, end_position, 
+					   flags, user_data);
+
+  // Retrieve the unique identifier
+  *unique_identifier = c1->u.my_mark.unique_identifier;
+
+  // Create the "terminated msg" command (same uid)
+  t_espeak_command* c2 = create_espeak_terminated_msg(*unique_identifier, user_data);
+
+  // Try to add these 2 commands (single transaction)
+  if (c1 && c2)
     {
-      strncpy0(skip_marker, index_mark, sizeof(skip_marker));
-      skipping_text = 1;
+      a_error = fifo_add_commands(c1, c2);
+      if (a_error != EE_OK)
+	{
+	  delete_espeak_command(c1);
+	  delete_espeak_command(c2);
+	  c1=c2=NULL;
+	}
+    }
+  else
+    {
+      delete_espeak_command(c1);
+      delete_espeak_command(c2);
     }
 
-  end_character_position = end_position;
-
-
-  aStatus = Synthesize(unique_identifier, text, flags | espeakSSML);
-  SHOW_TIME("LEAVE sync_espeak_Synth_Mark");
-
-  return (aStatus);
-}  //  end of sync_espeak_Synth_Mark
+#endif
+  return a_error;
+}  //  end of espeak_Synth_Mark
 
 
 
@@ -1007,6 +1008,11 @@ extern "C" espeak_ERROR espeak_Terminate(void)
 
 	return EE_OK;
 }   //  end of espeak_Terminate
+
+extern "C" const char *espeak_Info(void *)
+{//=======================================
+	return(version_string);
+}
 
 #pragma GCC visibility pop
 

@@ -1,0 +1,36 @@
+ 
+//====================================================
+//  Testing Tone levels for a tone language
+//====================================================
+
+
+phoneme 1   //  tone: high level
+  stress
+  tone 50 45 envelope/p_level NULL
+endphoneme
+
+
+phoneme 2   //  tone: rise
+  stress
+  tone 30 50 envelope/p_rise NULL
+endphoneme
+
+
+phoneme 3   //  tone: fall-rise
+  stress
+  tone 10 40 envelope/p_214 NULL
+endphoneme
+
+
+phoneme 4   //  tone fall
+  stress
+  tone 50  5 envelope/p_fall NULL
+endphoneme
+
+
+phoneme 6   //  tone fall-level (tone 3 when followed by 1,2 or 4)
+  stress
+  tone 20  5 envelope/p_211 NULL
+endphoneme
+
+
