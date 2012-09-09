@@ -87,9 +87,9 @@ _1C	S;imtas_
 //rule #1 - is - last number 1(except 11): 21000, 31000, 41000
 //rule #2 u: - last number 0: 20000, 30000, 40000 and for [11000-19000]
 //rule #3 ei - All other cases
-_0M1	t'u:kstant;ei_ 
+_0M1	t'u:kstantS;ei_ 
 _0MA1	t'u:kstant;is_ 
-_0MB1	t'u:kstant;u_ 
+_0MB1	t'u:kstantS;u_ 
 _1M1	t'u:kstant;is_ // no '1' before thousand
 
 _0M2	m;il;ij'o:nai_

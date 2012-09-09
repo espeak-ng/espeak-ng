@@ -102,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2012-07-16
+Dictionary en_dict  2012-09-08
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -129,15 +129,15 @@ s    S    t    T    tS   ts   v    w
 x    z    Z    
 
 
-Dictionary es_dict  2011-11-22
+Dictionary es_dict  2012-09-04
 
-a    aI   aU   e    E    eI   eU   i    
-o    O    oI   u    
+@    a    aI   aU   e    E    eI   eU   
+i    o    O    oI   u    
 
-:    b    B    d    D    f    g    j    
-J    J^   k    l    m    n    N    n^   
-p    Q    r    R    R2   s    S    t    
-T    tS   w    x    z    
+:    b    B    d    D    f    g    h    
+j    J    J^   k    l    m    n    N    
+n^   p    Q    r    R    R2   s    S    
+t    T    tS   w    x    z    
 
 
 Dictionary fi_dict  2011-10-14
@@ -202,7 +202,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2012-07-25
+Dictionary ta_dict  2012-09-05
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -212,7 +212,7 @@ U:   V    V#
 d.   dZ   f    g    h    H    j    k    
 l    l.   m    n    N    n.   n^   p    
 Q    r    R    s    S    s.   t    T    
-t.   th   tS   v    w    z    Z    z.   
+t.   th   tS   v    w    z    z.   
 
 
 Dictionary hy_dict  2008-12-22
@@ -375,7 +375,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2012-08-08
+Dictionary pt_dict  2012-09-08
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -799,7 +799,7 @@ s    S    t    tS   v    w    X    z
 Z    
 
 
-Dictionary lt_dict  2012-07-15
+Dictionary lt_dict  2012-08-18
 
 a    A    a:   ai   au   aU   e    E    
 eA   ee   ei   i    I    i:   ie   l    
@@ -811,3 +811,14 @@ h    j    k    l;   m    n    N    n;
 p    r    s    S    s;   S;   t    t;   
 tS   ts   tS;  v    x    z    Z    z;   
 Z;   
+
+
+Dictionary tt_dict  2012-09-09
+
+a    A    e    i    I    o    u    V    
+W    y    
+
+:    ?    b    d    f    g    h    j    
+k    l    m    n    N    p    q    r    
+R    s    S    S;   t    w    x    z    
+Z    Z;   

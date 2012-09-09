@@ -309,12 +309,12 @@ static void SetCyrillicLetters(Translator *tr)
 	tr->letter_bits_offset = OFFSET_CYRILLIC;
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 	SetLetterBits(tr,LETTERGP_A,(char *)ru_vowels);
-	SetLetterBits(tr,1,ru_soft);
-	SetLetterBits(tr,2,(char *)ru_consonants);
-	SetLetterBits(tr,3,ru_hard);
-	SetLetterBits(tr,4,ru_nothard);
-	SetLetterBits(tr,5,ru_voiced);
-	SetLetterBits(tr,6,ru_ivowels);
+	SetLetterBits(tr,LETTERGP_B,ru_soft);
+	SetLetterBits(tr,LETTERGP_C,(char *)ru_consonants);
+	SetLetterBits(tr,LETTERGP_H,ru_hard);
+	SetLetterBits(tr,LETTERGP_F,ru_nothard);
+	SetLetterBits(tr,LETTERGP_G,ru_voiced);
+	SetLetterBits(tr,LETTERGP_Y,ru_ivowels);
 	SetLetterBits(tr,LETTERGP_VOWEL2,(char *)ru_vowels);
 }  // end of SetCyrillicLetters
 
@@ -1355,6 +1355,16 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.max_initial_consonants = 2;
 		}
 		break;
+
+	case L('t','t'):   // Tatar
+      {
+			SetCyrillicLetters(tr);
+			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
+			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
+			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
+			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
+      }
+      break;
 
 	case L('u','k'):   // Ukrainian
 		{

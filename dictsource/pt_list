@@ -645,32 +645,56 @@ governo	gov'ernU	$noun
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
 acerto		$alt2 $noun
+adereço		$alt2
 adore		$alt
 albatrozes	$alt
+alcateia	$alt
 alferes		$alt
 algozes		$alt
-atrozes		$alt
+amanheça	$alt2
+amanheço	$alt2
+amarelo		$alt
 ameba		$alt
+amores		$alt2
+anoiteça	$alt2
+anoiteço	$alt2
+apreço		$alt2
+assembleia	$alt
+atrozes		$alt
+austera		$alt
+austero		$alt
+autora		$alt2
+beco		$alt2
 belo		$alt
 besta		$alt2
 boca		$alt2
+boleia		$alt
 bolo		$alt2
 borboleta	$alt2
 bordo		$alt
 cabeça		$alt2
+cacete		$alt2
+cachorra	$alt2
+camiseta	$alt2
+cantora		$alt2
 casebre		$alt
 catorze		$alt2
+cefaleia	$alt
 cerca		$alt $verb
 cerco		$alt $verb
 chamego		$alt2
 chefe		$alt
 chinelo		$alt
 coco		$alt2
+cofre		$alt
+colmeia		$alt
 começo		$alt2 $noun
 comeres		$alt2
 conheço		$alt2
 copa		$alt
 copo		$alt
+coreia		$alt
+corneta		$alt2
 cornos		$alt
 corpos		$alt
 corto		$alt
@@ -680,20 +704,38 @@ couber		$alt
 couberem	$alt
 couberdes	$alt
 couberes	$alt
+crede		$alt2
+cresce		$alt
 der		$alt
+desce		$alt
+descem		$alt
 descova		$alt2
 desfecho	$alt2
+deva		$alt2
+devo		$alt2
 dez		$alt
+diarreia	$alt
+discordo	$alt
 doce		$alt2
 droga		$alt
+endereço	$alt2
 enumerem	$alt
+epopeia		$alt
+eritreia	$alt
 erro		$alt2 $noun
+escopeta	$alt2
+escroto		$alt2
 esforços	$alt
 esperma		$alt
+espiroqueta	$alt2
 estrofe		$alt
 estiverdes	$alt
 estiveres	$alt
+etiqueta	$alt2
+expeça		$alt2
+expeço		$alt2
 farofa		$alt
+febre		$alt
 fere		$alt
 ferem		$alt
 fezes		$alt
@@ -707,22 +749,34 @@ fosse		$alt2
 fossem		$alt2
 foste		$alt2
 frevo		$alt2
+gameta		$alt2
+geleia		$alt
 gelo		$alt $verb
 germe		$alt
+gesso		$alt2
+gonorreia	$alt
 grego		$alt2
+grelha		$alt
 groselha	$alt
 grosso		$alt2
 grozo		$alt $verb
 hoje		$alt2
+ideia		$alt
 joga		$alt
 jogam		$alt
 jogos		$alt
 jogue		$alt
 joguem		$alt
+lerda		$alt
+lerdo		$alt
 líderes		$alt2
 lopes		$alt
+maleta		$alt2
 mantiverdes	$alt
 mantiveres	$alt
+marreta		$alt2
+martelo		$alt
+merda		$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
@@ -730,8 +784,10 @@ miolo		$alt2
 modo		$alt
 modos		$alt
 molho		$alt $verb
+monera		$alt
 morcego		$alt2
 morda		$alt2
+moreia		$alt
 mortos		$alt
 ?2 mulher	mulj'Er
 ?4 mulher	mul^'Er
@@ -739,15 +795,23 @@ mui		mwi
 muito		mw'iNtU	// -s is included as a suffix
 muita		mw'iNt&
 mulheres	$alt
+mureta		$alt2
+naquele		$alt2
 negro		$alt2
 novos		$alt
+odisseia	$alt
 onu		$1
 opereta		$alt2
 osso		$alt2
 ovos		$alt
 paexa		paeSa
+pangeia		$alt
+palheta		$alt2
+parede		$alt2
+pastora		$alt2
 pedra		$alt
 pelego		$alt2
+perde		$alt
 perdem		$alt
 perede		$alt2
 pesa		$alt
@@ -756,25 +820,41 @@ pesque		$alt
 pesquem		$alt
 peso		$alt
 peso		$alt2 $noun
+pirueta		$alt2
+plateia		$alt
+plebeia		$alt
+porrete		$alt2
+porra		$alt2
 portos		$alt
 pose		$alt2
 povos		$alt
+preta		$alt2
 preto		$alt2
 profere		$alt
 proferem	$alt
 puder		$alt
 puserdes	$alt
-quero		$alt
+recordo		$alt
+recorto		$alt
 rede		$alt2
+reforços	$alt
+remorso		$alt
+resolve		$alt
+resolvem	$alt
 rixa		xiS&
 rogas		$alt
+saleta		$alt2
+seborreia	$alt
 selvagem	seUv'aZeIN
+sobe		$alt
+sobem		$alt
 soco		$alt2
 sofrem		$alt
 sofre		$alt
 sofreste	$alt2
 sopre		$alt
 soprem		$alt
+sorvete		$alt2
 souber		$alt
 souberdes	$alt
 souberes	$alt
@@ -784,24 +864,28 @@ sugerem		$alt
 suor		swOr
 tapete		$alt2
 teta		$alt2
+tijolo		$alt2
 tiver		$alt
 tiveres		$alt
+toga		$alt
 torres		$alt2
 tortos		$alt
+traqueia	$alt
 travesso	$alt2
 trevo		$alt2
 troco		$alt2 $noun
 tropeço		$alt2 $noun
+valeta		$alt2
 vanessa		$alt2
 verbo		$alt
 verme		$alt
 vierem		$alt
 violeta		$alt2
 vozes		$alt
+zero		$alt
+zorra		$alt2
 
 // Close [o]
-?1 calculadora	$alt2
-?1 professora	$alt2
 ?1 senhora	$alt2
 ?1 sobre	$alt2
 

@@ -19,7 +19,7 @@ endphoneme
 phoneme E
   vowel starttype #e endtype #e
   length 190
-  FMT(vowel/e_mid)
+  FMT(vowel/e_mid2)
 endphoneme
 
 phoneme i
@@ -32,7 +32,7 @@ endphoneme
 phoneme o
   vowel starttype #o endtype #o
   length 190
-  FMT(vowel/o)
+  FMT(vowel/oo)
 endphoneme
 
 phoneme O
@@ -149,7 +149,7 @@ phoneme r
   ipa ɾ
   lengthmod 3
 
-  IF nextPhW(isVowel) OR nextPhW(t) THEN
+  IF nextPhW(isVowel) THEN
     ChangePhoneme(**)
   ENDIF
 
