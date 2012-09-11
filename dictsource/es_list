@@ -1,5 +1,4 @@
-
-// This file in UTF8 encoded
+﻿// This file in UTF8 encoded
 
 // letters
 
@@ -76,7 +75,7 @@ _»	kom'iJ^as||dEr'EtSas
 
 
 // numbers
-_0	Tero
+_0	T'ero
 _1	'uno
 _2	d'Os
 _3	tr'es
@@ -102,8 +101,8 @@ _7X	sEt'Enta
 _8X	OtS'Enta
 _9X	nOB'Enta
 _0C	Tj'EntOs
-_1C0	T'ien         // exactly one hundred
-_1C	T'iento
+_1C0	Tj'en         // exactly one hundred
+_1C	Tj'ento
 _5C	kinj'EntOs
 _7C	s,eteTj'EntOs
 _9C	n,OBeTj'EntOs
@@ -162,230 +161,130 @@ vi	bi	// not a Roman number
 
 // articles
 el           $u
+el	$atend
 los          $u
+los	$atend
 la           $u
+la	$atend
 las          $u
+las	$atend
 lo           $u
-les          $u
+lo	$atend
 
-un           $u
-una          $u
-unos         $u
-unas         $u
 
-este         $u+   // this
-esta         $u+
-estos        $u+
-estas        $u+
-esto         $u+
 
-ese          $u+   // that
-esa          $u+
-esos         $u+
-esas         $u+
-eso          $u+
 
-aquel        $u+   // that
-aquella      $u+
-aquellos     $u+
-aquellas     $u+
 
 
 
 // pronouns
-yo	$u+
-tu	$u+
-tú	$u+
-usted	$u+
-él	$u+
-ella	$u+
-nosotros	$u+
-nosotras	$u+
-vosotros	$u+
-vosotras	$u+
-as	$u+
-ustedes	$u+
-ellos	$u+
-ellas	$u+
-ud      $u+
-uds     $u+
 
-me      $u+  // reflexive pronouns
-te      $u+
-se	$u+
-nos     $u+
-os      $u+
+me      $u $only // reflexive pronouns
+me	$atend
+te      $u
+te	$atend
+le        $u
+le	$atend
+les         $u
+les	$atend
+se	$u
+se	$atend
+nos     $u
+nos	$atend
+os      $u
+os	$atend
 
 
 // possessives
-mi	mi $u+
-mis	$u+
-tu      $u+
-tus     $u+
-su	$u+
-sus	$u+
-nuestro   $u+
-nuestros  $u+
-nuestra   $u+
-nuestras  $u+
-vuestro   $u+
-vuestros  $u+
-vuestra   $u+
-vuestras  $u+
+mi $u
+mi	$atend
+mis	$u
+mis	$atend
+tu      $u
+tu	$atend
+tus     $u
+tus	$atend
+su	$u
+su	$atend
+sus	$u
+sus	$atend
+nuestro   $u
+nuestro	$atend
+nuestros  $u
+nuestros	$atend
+nuestra   $u
+nuestra	$atend
+nuestras  $u
+nuestras	$atend
+vuestro   $u
+vuestro	$atend
+vuestros  $u
+vuestros	$atend
+vuestra   $u
+vuestra	$atend
+vuestras  $u
+vuestras	$atend
 
 // prepositions
-a            $u $brk    // at
-al           $u $brk
+a            $u     // at
+al           $u
+al	$atend
 de           $u           // of,from
+de	$atend
 del          $u
-(de la)      d,ela
-en           $u $brk
-con          $u $pause    // with
-por          $u $pause    // for,through,along,via
-para         $u $pause    // for,in order,by
-entre        $u $pause
-desde        $pause       // from,since
-después      $pause       // after
-
+del	$atend
+en           $u
+en	$atend
+con          $u     // with
+con	$atend
+sin       $u
+sin	$atend
+por          $u     // for,through,along,via
+por	$atend
+tras          $u
+tras	$atend
+ante	$u
+ante	$atend
+para         $u     // for,in order,by
+para	$atend
+entre        $u 
+entre	$atend	$capital
+desde        $u       // from,since
+desde	$atend
+hasta         $u
+hasta	$atend
+hacia         $u
+hacia	$atend
 // conjunctions
-y            %i $pause    // and
-o            $u $pause    // or
+e         $u       $only
+y            %i     // and
+o            $u     // or
 
-así          $pause
-aunque       $u $pause    // although
-siquiera     $pause
-porque       $pause       // because
-
-// questions
-que          $u $pause   // what
-cuál         $pause       // which
-cuáles       $pause
-cómo         $pause       // how
-
+aunque       $u     // although
+aunque	$atend
+pero       $u
+pero	$atend
+porque       $u       // because
+porque	$atend
+que          $u    // what
+que	$atend
+cuando       $u
+cuando	$atend
+cuanto	$u
+cuanto	$atend
+donde       $u
+donde	$atend
+como        $u
+como	$atend
+mientras         $u
+mientras	$atend
+si       $u
+si	$atend
 // negative
-no           $u
 
 // auxillary verbs
-ser	$u
-soy	$u
-eras	$u
-es	$u
-somos	$u
-sois    $u
-son	$u
-
-fui	$u
-fuiste	$u
-fue	$u
-fuimos	$u
-fuisteis	$u
-fueron	$u
-
-era	$u
-eras	$u
-éramos	$u
-erais	$u
-eran	$u
-
-seré	$u
-serás	$u
-será	$u
-seremos	$u
-seréis	$u
-serán	$u
-
-sería	$u
-serías	$u
-seríamos	$u
-seríais	$u
-serían	$u
-
-
-estar	$u
-estoy	$u
-estás	$u
-está	$u
-estamos	$u
-estáis	$u
-están	$u
-
-estuve	$u
-estuviste	$u
-estuvo	$u
-estuvimos	$u
-estuvisteis	$u
-estuvieron	$u
-
-estaba	$u
-estabas	$u
-estaba	$u
-estábamos	$u
-estabais	$u
-estaban	$u
-
-estaré	$u
-estarás	$u
-estará	$u
-estaremos	$u
-estaréis	$u
-estarán	$u
-
-estaría	$u
-estarías	$u
-estaríamos	$u
-estaríais	$u
-estarían	$u
-
-haber	$u
-he	$u
-has	$u
-hay	$u
-hemos	$u
-habéis	$u
-han	$u
-ha	$u      // ??
-
-hube	$u
-hubiste	$u
-hubo	$u
-hubimos	$u
-hubisteis	$u
-hubieron	$u
-
-había	$u
-habías	$u
-habíamos	$u
-habíais	$u
-habían	$u
-
-habré	$u
-habrás	$u
-habrá	$u
-habremos	$u
-habréis	$u
-habrán	$u
-
-tener   $u   // to have
-tengo   $u
-tienes  $u
-tiene   $u
-tenemos $u
-tenéis  $u
-tienen  $u
-
-hacer    $u+  // to do/make
-hago     $u+
-haces    $u+
-hace     $u+
-hacemos  $u+
-hacéis   $u+
-hacen    $u+
-
 
 // some common adjectives and adverbs
-algún    $u        // some
-algunos  $u
-alguna   $u
 
 
 // Letters
@@ -411,16 +310,18 @@ r	_|Ere
 s	_|Ese
 t	te
 v	_|uBe
-w	,uBe||d'OBle
+w	uBe||d'OBle
 x	_|Ekis
 z	TEta
 
 _a	a
 a       a  $atend
+_e	e
+e	e $atend
 _o	o
 o       o  $atend
-_y	,igr'iEQa
-y	,igr'iEQa  $atend
+_y	igr'iEQa
+y	igr'iEQa  $atend
 ch	tSe
 ll	EJ^e
 ?2 ll	Ej:e
@@ -430,7 +331,7 @@ ll	EJ^e
 _ó	'o||aTEntw'aDa
 ó	'o||aTEntw'aDa $atend
 ú	'u||aTEntw'aDa
-ü	,uDjEr'Esis
+ü	,uDj'ErEsis
 
 
 
@@ -440,11 +341,11 @@ DNI			$abbrev
 dpto	departamento	$text
 dr	doctor		$text $capital $dot
 dra	doctora		$text $capital $dot
-(ee . uu)  Est'aDos||un'iDos
-Excmo	excelentsimo	$text $dot
-Excma	excelentsima	$text $dot
-Ilmo	ilustrisimo	$text $dot
-Ilma	ilustrisima	$text $dot
+(ee.uu)  Est'aDos||un'iDos
+Excmo	excelentísimo	$text $dot
+Excma	excelentísima	$text $dot
+Ilmo	ilustrísimo	$text $dot
+Ilma	ilustrísima	$text $dot
 izq	izquierda	$text $dot
 izqda	izquierda 	$text $dot
 izqdo	izquierdo	$text $dot
@@ -464,8 +365,38 @@ Uds	ustedes		$text $capital $dot
 // pronunciation exceptions
 
 linux        $1
-méxico       mExiko
+méxico       m'Exiko
 mexicano     mExikano
-spanish      _^_EN
 
-
+spanish      sp'aniS
+english ínglish      $text
+firefox	f'aIrfoks
+microsoft	m'aIkrosoft
+software	s'oftwer
+hardware h'ardwer
+skype	sk'aIp
+messenger m'esenJer
+live l'aIB
+facebook f'eIsbuk
+twitter	tw'iter
+twit	tw'it
+mozilla	moT'ila
+espeak	isp'ik
+(e speak) isp'ik
+eloquence	'elokwens
+speech	sp'itS
+platform	pl'atfom
+voice	bois   $text
+windows	w'indows
+android	'androId
+apple	'ap@l
+(i phone)	'aIfon
+iphone	'aIfon
+(i pod)	'aIpod
+ipod	'aIpod
+jaws	J'os
+window	w'indow
+eyes	'aIs
+free	fr'i
+google	g'ug@l
+chrome	kr'owm

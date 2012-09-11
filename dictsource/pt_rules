@@ -17,6 +17,7 @@
 // endings
 .L01 a am o
 .L02 a am e em o
+.L03 a am
 
 .group a
      _) a (_       a
@@ -271,6 +272,7 @@
 
         ei         eI
         ei (s      eI
+        ei ($w_alt EI
         e (iCK     e
         ey         eI
         eu         eU
@@ -334,16 +336,39 @@
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
-  _com) e (tL01_    e
- _prom) e (tL01_    e
- _esqu) e (çL01_    e
- _derr) e (tL01_    e
-  _atr) e (vL01_    e
-    _f) e (rvL01_   e
-  _per) e (çL01_    e
-  _pad) e (çL01_    e
+//sort
+    qu) e (brL02_   E
+ _hosp) e (dL01_    E
+ _estr) ei (L01_    EI
+  _inv) e (jL02_    E
   _dec) e (pL02_    E
+   _op) e (rL02_    E
+   _qu) e (rL02_    E
+  _alt) e (rL02_    E
+  _inv) e (rtL01_   e
+    _f) e (rvL01_   e
     _p) e (scL01_   E
+    _m) e (sclL02_  E
+  _com) e (tL01_    e
+ _derr) e (tL01_    e
+ _prom) e (tL01_    e
+  _atr) e (vL01_    e
+ _escr) e (vL01_    e
+   _pr) e (zL02_    E
+  _ado) e (çL01_    e
+  _aqu) e (çL01_    e
+  _car) e (çL01_    e
+  _mer) e (çL01_    e
+  _pad) e (çL01_    e
+  _per) e (çL01_    e
+ _esqu) e (çL01_    e
+ _obed) e (çL01_    e
+_aborr) e (çL01_    e
+_compar) e (çL01_   e
+_desapar) e (çL01_  e
+_esclar) e (çL01_    e
+_reapar) e (çL01_   e
+//endsort
 
 .group é
         é          ''E
@@ -519,6 +544,9 @@
         o (s_      =U
         ou         ow
         oi         oI
+        oi ($w_alt OI
+        oi (a_     OI   // ??
+        oi (cA_    OI
         oi (s      oI
         o (iCK     o
         oo         u
@@ -629,7 +657,10 @@
 ?1   v) o (lt      O
 
     _m) o (lhL02_  O
-
+     c) o (rrL03_  o   // escorra, incorra, corra, recorra
+    _m) o (rrL03_  o
+   _ap) oi (L03_   OI
+     p) o (stos_   O   // dispostos etc.
 
 .group ô
         ô          ''o
