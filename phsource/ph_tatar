@@ -1,0 +1,93 @@
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 180
+  FMT(vowel/i)
+endphoneme
+
+phoneme y
+  vowel starttype #u endtype #u
+  length 180
+  FMT(vowel/y)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 180
+  FMT(vowel/u)
+endphoneme
+
+
+phoneme e
+  vowel starttype #@ endtype #@
+  length 100
+  FMT(vowel/ii#)
+endphoneme
+
+phoneme W
+  vowel starttype #@ endtype #@
+  length 100
+  FMT(vowel/oe)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 100
+  FMT(vowel/o_mid)
+endphoneme
+
+phoneme V
+  vowel starttype #@ endtype #@
+  length 100
+  FMT(vowel/o-_3)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 180
+  FMT(vowel/&_2)
+endphoneme
+
+phoneme A
+  vowel starttype #a endtype #a
+  length 180
+  IF thisPh(isFirstVowel) THEN
+    ChangePhoneme(0)
+  ENDIF
+  IF thisPh(isSeqFlag1) THEN
+    ChangePhoneme(0)
+  ENDIF
+  FMT(vowel/aa)
+endphoneme
+
+phoneme 0
+  vowel starttype #o endtype #o
+  flag1
+  length 180
+  FMT(vowel/0_3)
+endphoneme
+
+
+phoneme I
+  vowel starttype #i endtype #i
+  length 100
+  FMT(vowel/ii)
+endphoneme
+
+
+
+// Consonants
+
+phoneme r
+  import_phoneme base/R2
+endphoneme
+
+phoneme t
+  import_phoneme base/t[
+endphoneme
+
+phoneme d
+  import_phoneme base/d[
+endphoneme
+

@@ -1,4 +1,4 @@
-// translation rules for Spanish
+﻿// translation rules for Spanish
 // This file is UTF-8 encoded
 
 // Conditional rules
@@ -199,20 +199,20 @@
 .group t
           t          t
        _) t (L01A    t  // all tr at start of word
-       _) th         T
-          th (K      T
+	       _) th   (A      t
+          th (K      t
 
 
 .group u
           u          u
           u (A       w
-          u (y_      w
 !?3    l) u (A       %u
 !?3    r) u (A       %u
 
        g) u (e
        g) u (i
-
+g)	u	(é
+g)	u	(í
 
 .group v
           v          b
@@ -237,7 +237,7 @@
           x          ks
 ?1     A) x (A       Qs
           x (_       =Qs
-       _) x ($unpr   z      // ?
+       _) x ($unpr   s      // ?
 
 
 .group y
@@ -248,7 +248,7 @@
       _l) y          J
           y (A       J^
 ?2     A) y (A       j:
-
+u)	y	(K	j
 
 .group z
           z          T
@@ -271,3 +271,4 @@
      C_)  - (_D      _
 
           , (D       kOma
+

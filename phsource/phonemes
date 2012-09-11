@@ -1897,3 +1897,6 @@ include ph_farsi
 
 phonemetable ga base
 include ph_irish
+
+phonemetable tt base
+include ph_tatar
