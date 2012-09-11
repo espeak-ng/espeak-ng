@@ -1,0 +1,110 @@
+
+// vowels
+
+phoneme a   // a(ㅏ)
+  ipa ɐ
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme E   // ae(ㅐ)
+  ipa ɛ
+  vowel starttype #e endtype #e
+  length 200
+  FMT(vowel/ee_5)
+endphoneme
+
+phoneme @   // eo(ㅓ)
+  ipa ʌ
+  vowel starttype #@ endtype #@
+  length 200
+  FMT(vowel/oo_2)
+endphoneme
+
+phoneme o   // o(ㅗ)
+  ipa o
+  vowel starttype #o endtype #o
+  length 200
+  FMT(vowel/o_8)
+endphoneme
+
+phoneme u   // u(ㅜ)
+  ipa u
+  vowel starttype #u endtype #u
+  length 200
+  FMT(vowel/u_bck)
+endphoneme
+
+phoneme u-  // eu(ㅡ)
+  ipa ɯ
+  vowel starttype #u endtype #u
+  length 200
+  FMT(vowel/i#_7)
+endphoneme
+
+// diphthongs
+
+
+// consonants
+
+phoneme k-  //  /ㄲ/
+  vls vel stop
+  lengthmod 3
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 f4
+  Vowelout f1=1 f2=1700 0 200  f3=-300 80 f4 rms=30
+  WAV(ustop/k_unasp_, 75)
+  length 100
+endphoneme
+
+phoneme kh  //  /ㅋ/
+  import_phoneme  consonants/kh
+endphoneme
+
+phoneme t-  //  /ㄸ/
+  vls alv stop
+  lengthmod 3
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80  rms=40
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ustop/t_unasp, 40)    // TODO
+endphoneme
+
+// TODO: ㅌ
+
+phoneme p-  //  /ㅃ/
+  import_phoneme  consonants/p-
+endphoneme
+
+phoneme ph  //  /ㅍ/
+  import_phoneme  consonants/ph
+endphoneme
+
+phoneme tS; //  voiceless /ㅈ/
+  vls pla afr sibilant palatal
+  ipa tɕ
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80
+  WAV(ustop/ts_pzd3)
+endphoneme
+
+phoneme dZ; //  voiced /ㅈ/
+  vcd pla afr sibilant palatal
+  ipa dʑ
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80
+  FMT(dzh/dzh) addWav(x/dz_pzd)
+endphoneme
+
+phoneme *   // r(ㄹ) at initial, medial
+  vcd alv flp rhotic
+  ipa ɾ
+  lengthmod 3
+  Vowelout f1=3 f2=1600 -300 300  f3=-300 80 rms=35 len=15
+  Vowelin f1=2  f2=1600 -300 300  f3=-100 80 len=20
+
+  IF prevPh(#i) OR prevPh(#e) THEN
+    FMT(r3/@tap2)
+  ENDIF
+  FMT(r3/@tap)
+endphoneme
+

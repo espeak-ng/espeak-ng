@@ -1,12 +1,15 @@
 
+
+// use 'flag1' for front vowels
+
 phoneme i
-  vowel starttype #i endtype #i
+  vowel flag1 starttype #i endtype #i
   length 180
   FMT(vowel/i)
 endphoneme
 
 phoneme y
-  vowel starttype #u endtype #u
+  vowel flag1 starttype #u endtype #u
   length 180
   FMT(vowel/y)
 endphoneme
@@ -17,15 +20,33 @@ phoneme u
   FMT(vowel/u)
 endphoneme
 
+phoneme u2   // letter 'ю'
+  vowel starttype #u endtype #u
+  length 180
+  IF prevVowel(isFlag1) OR nextVowel(isFlag1) THEN
+    ChangePhoneme(y)
+  ELSE
+    ChangePhoneme(u)
+  ENDIF
+endphoneme
 
 phoneme e
-  vowel starttype #@ endtype #@
+  vowel flag1 starttype #@ endtype #@
   length 100
   FMT(vowel/ii#)
 endphoneme
 
-phoneme W
+phoneme e2    // 'e' at start of word
   vowel starttype #@ endtype #@
+  length 100
+  IF nextVowel(isFlag1) THEN
+    ChangePhoneme(e)
+  ENDIF
+  ChangePhoneme(V)
+endphoneme
+
+phoneme W
+  vowel flag1 starttype #@ endtype #@
   length 100
   FMT(vowel/oe)
 endphoneme
@@ -44,7 +65,7 @@ endphoneme
 
 
 phoneme a
-  vowel starttype #a endtype #a
+  vowel flag1 starttype #a endtype #a
   length 180
   FMT(vowel/&_2)
 endphoneme
@@ -55,22 +76,30 @@ phoneme A
   IF thisPh(isFirstVowel) THEN
     ChangePhoneme(0)
   ENDIF
-  IF thisPh(isSeqFlag1) THEN
+  IF prevVowel(0) THEN
     ChangePhoneme(0)
   ENDIF
   FMT(vowel/aa)
 endphoneme
 
+phoneme A2  // letter 'я'
+  vowel starttype #a endtype #a
+  length 180
+  IF prevVowel(isFlag1) OR nextVowel(isFlag1) THEN
+    ChangePhoneme(a)
+  ENDIF
+  ChangePhoneme(A)
+endphoneme
+
 phoneme 0
   vowel starttype #o endtype #o
-  flag1
   length 180
   FMT(vowel/0_3)
 endphoneme
 
 
 phoneme I
-  vowel starttype #i endtype #i
+  vowel flag1 starttype #i endtype #i
   length 100
   FMT(vowel/ii)
 endphoneme

@@ -483,7 +483,7 @@ static void set_frame_rms(frame_t *fr, int new_rms)
 		}
 		return;
 	}
- 
+
 	if(fr->rms == 0) return;    // check for divide by zero
 	x = (new_rms * 64)/fr->rms;
 	if(x >= 200) x = 199;
@@ -507,7 +507,7 @@ static void formants_reduce_hf(frame_t *fr, int level)
 
 	if(voice->klattv[0])
 		return;
- 
+
 	for(ix=2; ix < 8; ix++)
 	{
 		x = fr->fheight[ix] * level;
@@ -594,7 +594,7 @@ static void AdjustFormants(frame_t *fr, int target, int min, int max, int f1_adj
 		fr->ffreq[1] += x;
 		fr->ffreq[0] += x;
 	}
-	formants_reduce_hf(fr,hf_reduce); 
+	formants_reduce_hf(fr,hf_reduce);
 }
 
 
@@ -717,7 +717,7 @@ if(voice->klattv[0])
 				fr = CopyFrame(seq[n_frames-1].frame,0);
 				seq[n_frames-1].frame = fr;
 				rms = RMS_GLOTTAL1;
-	
+
 				// degree of glottal-stop effect depends on closeness of vowel (indicated by f1 freq)
 				modn_flags = 0x400 + (VowelCloseness(fr) << 8);
 			}
@@ -726,7 +726,7 @@ if(voice->klattv[0])
 				fr = DuplicateLastFrame(seq,n_frames++,len);
 				if(len > 36)
 					seq_len_adjust += (len - 36);
-	
+
 				if(f2 != 0)
 				{
 					AdjustFormants(fr, f2, f2_min, f2_max, f1, f3_adj, f3_amp, flags);
@@ -741,7 +741,7 @@ if(voice->klattv[0])
 				{
 					fr = CopyFrame(seq[ix].frame,0);
 					seq[ix].frame = fr;
-					
+
 					for(formant=1; formant<=5; formant++)
 					{
 						int x;
@@ -1182,7 +1182,7 @@ if(which==1)
 				q[1] = len + (modulation << 16);
 				q[2] = (long64)frame1;
 				q[3] = (long64)frame2;
-	
+
 				WcmdqInc();
 			}
 			last_frame = frame1 = frame2;
@@ -1348,6 +1348,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 	PHONEME_DATA phdata_next;
 	PHONEME_DATA phdata_tone;
 	FMT_PARAMS fmtp;
+	static WORD_PH_DATA worddata;
 
 	if(option_quiet)
 		return(0);
@@ -1372,6 +1373,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		syllable_centre = -1;
 		last_pitch_cmd = -1;
 		memset(vowel_transition,0,sizeof(vowel_transition));
+		memset(&worddata, 0, sizeof(worddata));
 		DoPause(0,0);    // isolate from the previous clause
 	}
 
@@ -1463,13 +1465,13 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(released == 0)
 				p->synthflags |= SFLAG_NEXT_PAUSE;
 
-			InterpretPhoneme(NULL, 0, p, &phdata);
+			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 			phdata.pd_control |= pd_DONTLENGTHEN;
 			DoSample3(&phdata, 0, 0);
 			break;
 
 		case phFRICATIVE:
-			InterpretPhoneme(NULL, 0, p, &phdata);
+			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 
 			if(p->synthflags & SFLAG_LENGTHEN)
 			{
@@ -1509,7 +1511,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if((prev->type==phVOWEL) || (prev->ph->phflags & phVOWEL2) || (ph->phflags & phPREVOICE))
 			{
 				// a period of voicing before the release
-				InterpretPhoneme(NULL, 0x01, p, &phdata);
+				InterpretPhoneme(NULL, 0x01, p, &phdata, &worddata);
 				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 				fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 
@@ -1537,7 +1539,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			{
 				p->synthflags |= SFLAG_NEXT_PAUSE;
 			}
-			InterpretPhoneme(NULL,0, p, &phdata);
+			InterpretPhoneme(NULL,0, p, &phdata, &worddata);
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
 			fmtp.wav_addr = phdata.sound_addr[pd_ADDWAV];
@@ -1582,7 +1584,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			{
 				p->synthflags |= SFLAG_NEXT_PAUSE;
 			}
-			InterpretPhoneme(NULL,0, p, &phdata);
+			InterpretPhoneme(NULL,0, p, &phdata, &worddata);
 			memset(&fmtp, 0, sizeof(fmtp));
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
@@ -1608,7 +1610,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 				last_frame = NULL;
 			}
 
-			InterpretPhoneme(NULL,0, p, &phdata);
+			InterpretPhoneme(NULL,0, p, &phdata, &worddata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
@@ -1653,7 +1655,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			{
 				StartSyllable();
 			}
-			InterpretPhoneme(NULL, 0, p, &phdata);
+			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH]*2;
 			fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
 			fmtp.fmt_amp = phdata.sound_param[pd_FMT];
@@ -1669,7 +1671,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 			memset(&fmtp, 0, sizeof(fmtp));
 
-			InterpretPhoneme(NULL, 0, p, &phdata);
+			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 			fmtp.std_length = phdata.pd_param[i_SET_LENGTH] * 2;
 
 			if(((fmtp.fmt_addr = phdata.sound_addr[pd_VWLSTART]) != 0) && ((phdata.pd_control & pd_FORNEXTPH) == 0))
@@ -1681,7 +1683,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(prev->type != phPAUSE)
 			{
 				// check the previous phoneme
-				InterpretPhoneme(NULL, 0, prev, &phdata_prev);
+				InterpretPhoneme(NULL, 0, prev, &phdata_prev, NULL);
 				if((fmtp.fmt_addr = phdata_prev.sound_addr[pd_VWLSTART]) != 0)
 				{
 					// a vowel start has been specified by the Vowel program
@@ -1763,7 +1765,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			if(next->type != phPAUSE)
 			{
 				fmtp.fmt2_lenadj = 0;
-				InterpretPhoneme(NULL, 0, next, &phdata_next);
+				InterpretPhoneme(NULL, 0, next, &phdata_next, NULL);
 
 				fmtp.use_vowelin = 1;
 				fmtp.transition0 = phdata_next.vowel_transition[2];  // always do vowel_transition, even if ph_VWLEND ??  consider [N]
@@ -1939,7 +1941,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		if(option_phonemes > 0)
 		{
 			fprintf(f_trans,"%s\n",translator->phon_out);
-	
+
 			if(!iswalpha(0x010d))
 			{
 				// check that c-caron is recognized as an alphabetic character

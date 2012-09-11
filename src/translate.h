@@ -18,7 +18,7 @@
  ***************************************************************************/
 
 
-#define L(c1,c2)  (c1<<8)+c2          // combine two characters into an integer for translator name 
+#define L(c1,c2)  (c1<<8)+c2          // combine two characters into an integer for translator name
 
 #define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
 #define REPLACED_E       'E'          // 'e' replaced by silent e
@@ -29,7 +29,7 @@
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
 #define N_HASH_DICT     1024
 #define N_CHARSETS        20
-#define N_LETTER_GROUPS   95          // maximum is 127-32 
+#define N_LETTER_GROUPS   95          // maximum is 127-32
 
 
 /* dictionary flags, word 1 */
@@ -52,7 +52,7 @@
 #define FLAG_STEM          0x40000  // must have a suffix
 
 #define FLAG_DOUBLING      0x80000  // doubles the following consonant
-#define BITNUM_FLAG_ALT         19  // bit number of FLAG_ALT_TRANS - 1 
+#define BITNUM_FLAG_ALT         19  // bit number of FLAG_ALT_TRANS - 1
 #define FLAG_ALT_TRANS    0x100000  // language specific
 #define FLAG_ALT2_TRANS   0x200000  // language specific
 #define FLAG_ALT3_TRANS   0x400000  // language specific
@@ -110,7 +110,7 @@
 #define FLAG_MULTIPLE_SPACES 0x40000  // word is preceded by multiple spaces, newline, or tab
 #define FLAG_INDIVIDUAL_DIGITS 0x80000  // speak number as individual digits
 #define FLAG_DELETE_WORD     0x100000   // don't speak this word, it has been spoken as part of the previous word
-#define FLAG_CHAR_REPLACED   0x200000   // characters have been replaced by .replace in the *_rules 
+#define FLAG_CHAR_REPLACED   0x200000   // characters have been replaced by .replace in the *_rules
 
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
@@ -235,7 +235,7 @@ typedef struct {
 	int  end_type;
 	char *del_fwd;
 } MatchRecord;
-	
+
 
 // used to mark words with the source[] buffer
 typedef struct{
@@ -377,7 +377,7 @@ typedef struct {
 // bit20= hyphenated words, 2nd part is unstressed
 // bit21= don't lengthen vowels at end-of-clause
 
-	int stress_flags; 
+	int stress_flags;
 	int unstressed_wd1; // stress for $u word of 1 syllable
 	int unstressed_wd2; // stress for $u word of >1 syllable
 	int param[N_LOPTS];
@@ -542,18 +542,18 @@ typedef struct
 
 	// groups1 and groups2 are indexes into data_dictrules, set up by InitGroups()
 	// the two-letter rules for each letter must be consecutive in the language_rules source
-	
+
 	char *groups1[256];         // translation rule lists, index by single letter
 	char *groups3[128];         // index by offset letter
 	char *groups2[N_RULE_GROUP2];   // translation rule lists, indexed by two-letter pairs
 	unsigned int groups2_name[N_RULE_GROUP2];  // the two letter pairs for groups2[]
 	int n_groups2;              // number of groups2[] entries used
-	
+
 	unsigned char groups2_count[256];    // number of 2 letter groups for this initial letter
 	unsigned char groups2_start[256];    // index into groups2
 	const short *frequent_pairs;   // list of frequent pairs of letters, for use in compressed *_list
-	
-	
+
+
 	int expect_verb;
 	int expect_past;    // expect past tense
 	int expect_verb_s;
@@ -563,7 +563,7 @@ typedef struct
 
 	int word_vowel_count;     // number of vowels so far
 	int word_stressed_count;  // number of vowels so far which could be stressed
-	
+
 	int clause_upper_count;   // number of upper case letters in the clause
 	int clause_lower_count;   // number of lower case letters in the clause
 
@@ -685,7 +685,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
-void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata);
+void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
 char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa);
 

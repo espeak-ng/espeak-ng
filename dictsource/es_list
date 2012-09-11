@@ -158,7 +158,7 @@ _0M1o	mil'Esim
 
 vi	bi	// not a Roman number
 
-
+// unstressed words
 // articles
 el           $u
 el	$atend
@@ -224,9 +224,9 @@ vuestra   $u
 vuestra	$atend
 vuestras  $u
 vuestras	$atend
-
 // prepositions
 a            $u     // at
+a	$atend
 al           $u
 al	$atend
 de           $u           // of,from
@@ -243,22 +243,32 @@ por          $u     // for,through,along,via
 por	$atend
 tras          $u
 tras	$atend
-ante	$u
+ante	$u	$only
 ante	$atend
 para         $u     // for,in order,by
 para	$atend
 entre        $u 
-entre	$atend	$capital
+entre	$atend
+sobre	$u
+sobre	$atend
+bajo	$u
+bajo	$atend
 desde        $u       // from,since
 desde	$atend
 hasta         $u
 hasta	$atend
 hacia         $u
 hacia	$atend
-// conjunctions
+
+
 e         $u       $only
+e	$atend
 y            %i     // and
 o            $u     // or
+o	$atend
+u	$u
+u	$atend
+
 
 aunque       $u     // although
 aunque	$atend
@@ -266,6 +276,8 @@ pero       $u
 pero	$atend
 porque       $u       // because
 porque	$atend
+
+
 que          $u    // what
 que	$atend
 cuando       $u
@@ -276,15 +288,16 @@ donde       $u
 donde	$atend
 como        $u
 como	$atend
+quien	$u
+quien	$atend
+quienes	$u
+quienes	$atend
 mientras         $u
 mientras	$atend
 si       $u
 si	$atend
-// negative
 
-// auxillary verbs
 
-// some common adjectives and adverbs
 
 
 // Letters
@@ -315,21 +328,16 @@ x	_|Ekis
 z	TEta
 
 _a	a
-a       a  $atend
 _e	e
-e	e $atend
 _o	o
-o       o  $atend
-_y	igr'iEQa
-y	igr'iEQa  $atend
+_y	igri'eQa
+y	igri'eQa	$atend
 ch	tSe
-ll	EJ^e
-?2 ll	Ej:e
+ll	'El^e
 á	'a||aTEntw'aDa
 é	'e||aTEntw'aDa
 í	'i||aTEntw'aDa
 _ó	'o||aTEntw'aDa
-ó	'o||aTEntw'aDa $atend
 ú	'u||aTEntw'aDa
 ü	,uDj'ErEsis
 
@@ -375,7 +383,7 @@ microsoft	m'aIkrosoft
 software	s'oftwer
 hardware h'ardwer
 skype	sk'aIp
-messenger m'esenJer
+messenger m'esendZer
 live l'aIB
 facebook f'eIsbuk
 twitter	tw'iter
@@ -394,9 +402,14 @@ apple	'ap@l
 iphone	'aIfon
 (i pod)	'aIpod
 ipod	'aIpod
-jaws	J'os
+jaws	dZ'os
 window	w'indow
 eyes	'aIs
 free	fr'i
 google	g'ug@l
 chrome	kr'owm
+office	'ofis
+service	s'erBis
+power	p'awer
+thunderbird	t'anderbird
+jazz	dZ'as

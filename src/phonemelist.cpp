@@ -63,24 +63,24 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 		{
 			if(ix < (n_ph_list2 -1))
 				next = phoneme_tab[ph_list2[ix+1].phcode];
-	
+
 			word_end = 0;
 			if((plist2+1)->sourceix || ((next != 0) && (next->type == phPAUSE)))
 				word_end = 1;        // this phoneme is the end of a word
-	
+
 			// check whether a Voice has specified that we should replace this phoneme
 			for(k=0; k<n_replace_phonemes; k++)
 			{
 				if(plist2->phcode == replace_phonemes[k].old_ph)
 				{
 					replace_flags = replace_phonemes[k].type;
-	
+
 					if((replace_flags & 1) && (word_end == 0))
 						continue;     // this replacement only occurs at the end of a word
-	
+
 					if((replace_flags & 2) && ((plist2->stresslevel & 0x7) > 3))
 						continue;     // this replacement doesn't occur in stressed syllables
-	
+
 					// substitute the replacement phoneme
 					plist2->phcode = replace_phonemes[k].new_ph;
 					if((plist2->stresslevel > 1) && (phoneme_tab[plist2->phcode]->phflags & phUNSTRESSED))
@@ -88,7 +88,7 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 					break;
 				}
 			}
-	
+
 			if(plist2->phcode == 0)
 			{
 				continue;   // phoneme has been replaced by NULL, so don't copy it
@@ -131,7 +131,9 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_LIST ph_list3[N_PHONEME_LIST];
 
 	PHONEME_LIST2 *plist2;
+	WORD_PH_DATA worddata;
 
+    memset(&worddata, 0, sizeof(worddata));
 	plist2 = ph_list2;
 	phlist = phoneme_list;
 	end_sourceix = plist2[n_ph_list2-1].sourceix;
@@ -339,7 +341,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 		if(ph == NULL) continue;
 
-		InterpretPhoneme(tr, 0x100, plist3, &phdata);
+		InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
 
 		if((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0)
 		{
@@ -363,7 +365,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			// re-interpret the changed phoneme
 			// But it doesn't obey a second ChangePhoneme()
-			InterpretPhoneme(tr, 0x100, plist3, &phdata);
+			InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
 		}
 
 		if((alternative = phdata.pd_param[pd_CHANGEPHONEME]) > 0)
@@ -388,7 +390,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			// re-interpret the changed phoneme
 			// But it doesn't obey a second ChangePhoneme()
-			InterpretPhoneme(tr, 0x100, plist3, &phdata);
+			InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
 		}
 
 		if(ph->type == phVOWEL)
@@ -478,7 +480,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 						else
 							insert_ph = phonPAUSE_VSHORT;
 					}
-	
+
 					if((ph->type == phVOWEL) && ((x = tr->langopts.vowel_pause & 0x03) != 0))
 					{
 						// adjacent vowels over a word boundary
@@ -487,7 +489,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 						else
 							insert_ph = phonPAUSE_VSHORT;
 					}
-	
+
 					if(((plist3+1)->stresslevel >= 4) && (tr->langopts.vowel_pause & 0x100))
 					{
 						// pause before a words which starts with a stressed vowel
