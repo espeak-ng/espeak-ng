@@ -1,0 +1,27 @@
+
+// Korean
+
+0 k-   NULL 0 k_>
+0 t-   NULL 0 t_>
+0 *    NULL 0 4
+0 p-   NULL 0 p_>
+0 s-   NULL 0 s_>
+0 tS;  NULL 0 ts\
+0 tS;- NULL 0 ts\_>
+0 tSh; NULL 0 ts\_h
+0 k_h  NULL 0 ts\_h
+0 tSh; NULL 0 ts\_h
+0 kh   NULL 0 k_h
+0 th   NULL 0 t_h
+0 ph   NULL 0 p_h
+0 dZ;  NULL 0 dz\
+
+0 ng   NULL 0 N
+
+0 @    NULL 0 V
+0 j@   NULL 0 jV
+0 Y    NULL 0 2
+0 w@   NULL 0 wV
+0 u-   NULL 0 M
+0 u-j  NULL 0 M\i
+

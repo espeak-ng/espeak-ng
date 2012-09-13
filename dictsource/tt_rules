@@ -21,7 +21,8 @@
         д        d
 
 .group е
-        е        e  // may be [je] [j@]
+     _) е        je2  // may be [je] [jV]
+        е        e
 
 .group ё
         ё        jo
@@ -119,10 +120,10 @@
         э        e
 
 .group ю
-        ю        ju   // or jy
+        ю        ju2   // or jy
 
 .group я
-        я        jA   // or ja
+        я        jA2   // or ja
 
 .group
         $        dolAR

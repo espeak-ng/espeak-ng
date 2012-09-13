@@ -1,0 +1,286 @@
+// This file is UTF8 encoded
+
+.replace
+
+// Note: These specific range of "normalized" unicode characters of Korean are
+//   hardly used as individually, and look broken and badly aligned in most
+//   fonts.
+//   We're using hard tabs so that we can recognize where they are placed at
+//   the first place.
+
+// Stop finals and their consorts: ㄱㄲㅋ ㄷㅌ ㅂㅍ ㅅㅆㅈㅊ
+.L01	ᆨ	ᆩ	ᆿ	ᆮ	ᇀ	ᆸ	ᇁ	ᆺ	ᆻ	ᆽ	ᆾ	ᆪ	ᆹ	ᆬ	ᆰ	ᆱ	ᆲ	ᆳ	ᆴ	ᆵ
+// i and j-vowels: ㅣ ㅑㅒ ㅕㅖ ㅛㅠ
+.L02	ᅵ	ᅣ	ᅤ	ᅧ	ᅨ	ᅭ	ᅲ
+// h-finals: ㅎ ㄶㅀ
+.L03	ᇂ	ᆭ	ᆶ
+
+// Initials
+// Order: ㄱㄲㅋ ㄷㄸㅌ ㅂㅃㅍ ㅅㅆㅈㅉㅊ ㄴㅁ ㄹ ㅎ
+
+.group		ᄀ	// ㄱ
+		ᄀ	g
+	_)	ᄀ	k
+	L01)	ᄀ	k-
+	L03)	ᄀ	kh
+
+.group		ᄁ	// ㄲ
+		ᄁ	k-
+
+.group		ᄏ	// ㅋ
+		ᄏ	kh
+
+.group		ᄃ	// ㄷ
+		ᄃ	d
+	_)	ᄃ	t
+	L01)	ᄃ	t-
+	L03)	ᄃ	th
+
+.group		ᄄ	// ㄸ
+		ᄄ	t-
+
+.group		ᄐ	// ㅌ
+		ᄐ	th
+
+.group		ᄇ	// ㅂ
+		ᄇ	b
+	_)	ᄇ	p
+	L01)	ᄇ	p-
+	L03)	ᄇ	ph
+
+.group		ᄈ	// ㅃ
+		ᄈ	p-
+
+.group		ᄑ	// ㅍ
+		ᄑ	ph
+
+.group		ᄉ	// ㅅ
+		ᄉ	s
+	L01)	ᄉ	s-
+
+.group		ᄊ	// ㅆ
+		ᄊ	s-	// TODO: phoneme
+
+.group		ᄌ	// ㅈ
+		ᄌ	dZ;
+	_)	ᄌ	tS;
+	L01)	ᄌ	tS;-
+	L03)	ᄌ	tSh;
+
+.group		ᄍ	// ㅉ
+		ᄍ	tS;-	// TODO: phoneme
+
+.group		ᄎ	// ㅊ
+		ᄎ	tSh;	// TODO: phoneme
+
+.group		ᄂ	// ㄴ
+		ᄂ	n
+
+.group		ᄆ	// ㅁ
+		ᄆ	m
+
+.group		ᄅ	// ㄹ
+		ᄅ		*	// TODO: alveolar flap [ɾ]
+		ᄅ	(_	l
+
+.group		ᄒ	// ㅎ
+		ᄒ	h	// TODO: [ɦ]
+	_)	ᄒ	h
+
+// Medials
+
+.group		ᅡ	// ㅏ
+		ᅡ	a
+
+.group		ᅢ	// ㅐ
+		ᅢ	E
+
+.group		ᅣ	// ㅑ
+		ᅣ	ja
+
+.group		ᅤ	// ㅒ
+		ᅤ	jE
+
+.group		ᅥ	// ㅓ
+		ᅥ	@
+
+.group		ᅦ	// ㅔ
+		ᅦ	e
+
+.group		ᅧ	// ㅕ
+		ᅧ	j@
+
+.group		ᅨ	// ㅖ
+		ᅨ	je
+
+.group		ᅩ	// ㅗ
+		ᅩ	o
+
+.group		ᅪ	// ㅘ
+		ᅪ	wa
+
+.group		ᅫ	// ㅙ
+		ᅫ	wE
+
+.group		ᅬ	// ㅚ
+		ᅬ	we	// was [Y] until 1970s
+
+.group		ᅭ	// ㅛ
+		ᅭ	jo
+
+.group		ᅮ	// ㅜ
+		ᅮ	u
+
+.group		ᅯ	// ㅝ
+		ᅯ	w@
+
+.group		ᅰ	// ㅞ
+		ᅰ	we
+
+.group		ᅱ	// ㅟ
+		ᅱ	wi	// was [y] until 1970s
+
+.group		ᅲ	// ㅠ
+		ᅲ	ju
+
+.group		ᅳ	// ㅡ
+		ᅳ	u-
+
+.group		ᅴ	// ㅢ
+		ᅴ	u-j	// TODO: [ɰi]
+	C)	ᅴ	i
+
+.group		ᅵ	// ㅣ
+		ᅵ	i
+
+// Finals
+// Order: ㄱㄳㄲㅋ ㄷㅌ ㅂㅍ ㅅㅆㅈㅊ ㄴㅁ ㅇㅎ ㄹ
+
+.group		ᆨ	// ㄱ
+		ᆨ		k	// TODO: final stops
+		ᆨᄒ		kh
+
+.group		ᆪ	// ㄳ
+		ᆪ		k
+		ᆪ	(A	ks
+		ᆪᄒ		kh
+
+.group		ᆩ	// ㄲ
+		ᆩ		k
+		ᆩ	(A	k-
+		ᆩᄒ		kh	// 꺾히다
+
+.group		ᆿ	// ㅋ
+		ᆿ		k
+		ᆿ	(A	kh
+
+.group		ᆮ	// ㄷ
+		ᆮ		t
+		ᆮᄂ		nn
+		ᆮᄆ		mm
+		ᆮᄒ		th
+		ᆮ	(L02	dZ;
+
+.group		ᇀ	// ㅌ
+		ᇀ		t
+		ᇀᄂ		nn
+		ᇀᄆ		mm
+		ᇀ	(A	th
+		ᇀ	(L02	tSh;
+
+.group		ᆸ	// ㅂ
+		ᆸ		p
+		ᆸᄒ		ph
+
+.group		ᆹ	// ㅄ
+		ᆹ		p
+		ᆹ	(A	ps-
+		ᆹᄒ		ps-
+
+.group		ᇁ	// ㅍ
+		ᇁ		p
+		ᇁ	(A	ph
+
+.group		ᆺ	// ㅅ
+		ᆺ		t
+		ᆺᄂ		nn
+		ᆺᄆ		mm
+		ᆺ	(A	s
+		ᆺᄒ		s-
+
+.group		ᆻ	// ㅆ
+		ᆻ		t
+		ᆻᄂ		nn
+		ᆻᄆ		mm
+		ᆻ	(A	s-
+
+.group		ᆽ	// ㅈ
+		ᆽ		t
+		ᆽᄂ		nn
+		ᆽᄆ		mm
+		ᆽ	(A	tS;
+
+.group		ᆾ	// ㅊ
+		ᆾ		t
+		ᆾᄂ		nn
+		ᆾᄆ		mm
+		ᆾ	(A	tSh;
+
+.group		ᆫ	// ㄴ
+		ᆫ		n
+
+.group		ᆬ	// ㄵ
+		ᆬ		n
+		ᆬ	(A	ndZ;
+
+.group		ᆭ	// ㄶ
+		ᆭ		n
+		ᆭ	(A	n	// no nh
+
+.group		ᆷ	// ㅁ
+		ᆷ		m
+
+.group		ᆼ	// ㅇ
+		ᆼ		ng
+
+.group		ᇂ	// ㅎ
+		ᇂ		t
+		ᇂ	(A
+
+.group		ᆯ	// ㄹ
+		ᆯ		l
+		ᆯᄅ		l
+		ᆯ	(A	*
+
+.group		ᆰ	// ㄺ
+		ᆰ		k
+		ᆰ	(A	lg
+
+.group		ᆱ	// ㄻ
+		ᆱ		m
+		ᆱ	(A	lm
+
+.group		ᆲ	// ㄼ
+		ᆲ		p
+		ᆲ	(A	lb
+
+.group		ᆳ	// ㄽ
+		ᆳ		l
+		ᆳ	(A	ls
+
+.group		ᆴ	// ㄾ
+		ᆴ		l
+		ᆴ	(A	lth
+
+.group		ᆵ	// ㄿ
+		ᆵ		p
+		ᆵ	(A	lph
+
+.group		ᆶ	// ㅀ
+		ᆶ		l
+		ᆶ	(A	*
+
+.group
+       .
+       ː
+

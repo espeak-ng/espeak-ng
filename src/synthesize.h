@@ -265,6 +265,9 @@ typedef struct {
 	int std_length;
 } FMT_PARAMS;
 
+typedef struct {
+    PHONEME_LIST prev_vowel;
+} WORD_PH_DATA;
 
 // instructions
 
@@ -417,7 +420,7 @@ typedef struct {
 	unsigned char split_tail_start;
 	unsigned char split_tail_end;
 	unsigned char split_tune;
-	
+
 	unsigned char spare[8];
 	int spare2;       // the struct length should be a multiple of 4 bytes
 } TUNE;

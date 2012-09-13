@@ -651,6 +651,7 @@ albatrozes	$alt
 alcateia	$alt
 alferes		$alt
 algozes		$alt
+alicerce	$alt
 amanheça	$alt2
 amanheço	$alt2
 amarelo		$alt
@@ -659,6 +660,9 @@ amores		$alt2
 anoiteça	$alt2
 anoiteço	$alt2
 apreço		$alt2
+aperto		$alt2 $noun
+apoio		$alt $verb
+aprendeste	$alt2
 assembleia	$alt
 atrozes		$alt
 austera		$alt
@@ -685,6 +689,7 @@ cerco		$alt $verb
 chamego		$alt2
 chefe		$alt
 chinelo		$alt
+choro		$alt2 $noun
 coco		$alt2
 cofre		$alt
 colmeia		$alt
@@ -697,6 +702,7 @@ coreia		$alt
 corneta		$alt2
 cornos		$alt
 corpos		$alt
+correste	$alt2
 corto		$alt
 corvos		$alt
 coto		$alt2
@@ -706,32 +712,40 @@ couberdes	$alt
 couberes	$alt
 crede		$alt2
 cresce		$alt
+crescem		$alt
 der		$alt
 desce		$alt
 descem		$alt
 descova		$alt2
 desfecho	$alt2
+desprezo	$alt $verb
 deva		$alt2
 devo		$alt2
 dez		$alt
 diarreia	$alt
 discordo	$alt
+dobro		$alt2 $noun
 doce		$alt2
 droga		$alt
 endereço	$alt2
 enumerem	$alt
+enxerto		$alt2 $noun
 epopeia		$alt
 eritreia	$alt
 erro		$alt2 $noun
 escopeta	$alt2
 escroto		$alt2
+esforço		$alt $verb
 esforços	$alt
 esperma		$alt
+espeto		$alt2 $noun
 espiroqueta	$alt2
-estrofe		$alt
+enterro		$alt2 $noun
 estiverdes	$alt
 estiveres	$alt
+estrofe		$alt
 etiqueta	$alt2
+exagero		$alt $verb
 expeça		$alt2
 expeço		$alt2
 farofa		$alt
@@ -740,11 +754,13 @@ fere		$alt
 ferem		$alt
 fezes		$alt
 fizer		$alt
+Fizeram		$alt
 fizerem		$alt
 fizerdes	$alt
 fizeres		$alt
 fogos		$alt
 fores		$alt2
+forro		$alt $verb
 fosse		$alt2
 fossem		$alt2
 foste		$alt2
@@ -755,6 +771,7 @@ gelo		$alt $verb
 germe		$alt
 gesso		$alt2
 gonorreia	$alt
+gozo		$alt $verb
 grego		$alt2
 grelha		$alt
 groselha	$alt
@@ -783,7 +800,7 @@ mexo		m'eSU
 miolo		$alt2
 modo		$alt
 modos		$alt
-molho		$alt $verb
+molho		$alt2 $noun
 monera		$alt
 morcego		$alt2
 morda		$alt2
@@ -796,6 +813,7 @@ muito		mw'iNtU	// -s is included as a suffix
 muita		mw'iNt&
 mulheres	$alt
 mureta		$alt2
+mutreta		$alt2
 naquele		$alt2
 negro		$alt2
 novos		$alt
@@ -804,6 +822,7 @@ onu		$1
 opereta		$alt2
 osso		$alt2
 ovos		$alt
+padeceste	$alt2
 paexa		paeSa
 pangeia		$alt
 palheta		$alt2
@@ -828,6 +847,7 @@ porra		$alt2
 portos		$alt
 pose		$alt2
 povos		$alt
+poxa		p'oS&
 preta		$alt2
 preto		$alt2
 profere		$alt
@@ -838,14 +858,19 @@ recordo		$alt
 recorto		$alt
 rede		$alt2
 reforços	$alt
+refresco	$alt $verb
 remorso		$alt
 resolve		$alt
 resolvem	$alt
-rixa		xiS&
+rixa		x'iS&
 rogas		$alt
 saleta		$alt2
 seborreia	$alt
+seco		$alt2 $noun
+selo		$alt $verb
 selvagem	seUv'aZeIN
+sincera		$alt
+sincero		$alt
 sobe		$alt
 sobem		$alt
 soco		$alt2
@@ -855,6 +880,7 @@ sofreste	$alt2
 sopre		$alt
 soprem		$alt
 sorvete		$alt2
+sossego     $alt2 $noun
 souber		$alt
 souberdes	$alt
 souberes	$alt
@@ -864,7 +890,6 @@ sugerem		$alt
 suor		swOr
 tapete		$alt2
 teta		$alt2
-tijolo		$alt2
 tiver		$alt
 tiveres		$alt
 toga		$alt
@@ -882,6 +907,7 @@ verme		$alt
 vierem		$alt
 violeta		$alt2
 vozes		$alt
+zelo		$alt $verb
 zero		$alt
 zorra		$alt2
 

@@ -151,8 +151,6 @@
 ?1      e (_iN     =i/       // drop final [i] is next word starts with another i
 
 ?1      e (e       i         //eg: candeeiro
-?2      ee         i
-?2  pr) ee (n      ee
 
 ?2      el (K      EU
         e (lh+     e
@@ -342,6 +340,7 @@
  _estr) ei (L01_    EI
   _inv) e (jL02_    E
   _dec) e (pL02_    E
+    _g) e (rL02_	E
    _op) e (rL02_    E
    _qu) e (rL02_    E
   _alt) e (rL02_    E
@@ -547,11 +546,9 @@ _reapar) e (çL01_   e
         oi ($w_alt OI
         oi (a_     OI   // ??
         oi (cA_    OI
+        oi (de_    OI
         oi (s      oI
         o (iCK     o
-        oo         u
-        oon        u~N
-     c) oo         oo
 ?1   C) oo (_      ow        // eg: voo, enjoo, etc...
         oy         OI
 
@@ -660,7 +657,7 @@ _reapar) e (çL01_   e
      c) o (rrL03_  o   // escorra, incorra, corra, recorra
     _m) o (rrL03_  o
    _ap) oi (L03_   OI
-     p) o (stos_   O   // dispostos etc.
+     p) ostos (_   Ost=Us#   // dispostos etc.
 
 .group ô
         ô          ''o
