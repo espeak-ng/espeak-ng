@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.23  09.Sep.12";
-const int version_phdata  = 0x014600;
+const char *version_string = "1.46.24  11.Sep.12";
+const int version_phdata  = 0x014624;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -80,7 +80,7 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 
 	sprintf(buf,"%s%c%s",path_home,PATHSEP,fname);
 	length = GetFileLength(buf);
-	
+
 	if((f_in = fopen(buf,"rb")) == NULL)
 	{
 		fprintf(stderr,"Can't read data file: '%s'\n",buf);
@@ -89,7 +89,7 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 
 	if(ptr != NULL)
 		Free(ptr);
-		
+
 	if((p = Alloc(length)) == NULL)
 	{
 		fclose(f_in);
@@ -230,7 +230,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 	SPECT_SEQK *seqk, *seqk2;
 	frame_t *frame;
 	static frameref_t frames_buf[N_SEQ_FRAMES];
-	
+
 	seq = (SPECT_SEQ *)(&phondata_ptr[fmt_params->fmt_addr]);
 	seqk = (SPECT_SEQK *)seq;
 	nf = seq->n_frames;
@@ -268,7 +268,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 			nf -= seq_break;
 		}
 	}
-	
+
 	// do we need to modify a frame for blending with a consonant?
 	if((this_ph->type == phVOWEL) && (fmt_params->fmt2_addr == 0) && (fmt_params->use_vowelin))
 	{
@@ -286,7 +286,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 		// add these spectra to the main sequence
 		seq2 = (SPECT_SEQ *)(&phondata_ptr[fmt_params->fmt2_addr]);
 		seqk2 = (SPECT_SEQK *)seq2;
-	
+
 		// first frame of the addition just sets the length of the last frame of the main seq
 		nf--;
 		for(ix=0; ix<seq2->n_frames; ix++)
@@ -306,7 +306,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 		}
 		wavefile_ix = 0;
 	}
-	
+
 	if(length1 > 0)
 	{
 		if(which==2)
@@ -324,7 +324,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 
 
 			length_factor = (length_std * 256)/ length1;
-			
+
 			for(ix=0; ix<nf1; ix++)
 			{
 				frames[ix].length = (frames[ix].length * length_factor)/256;
@@ -362,7 +362,7 @@ frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,
 			}
 		}
 	}
-	
+
 	*n_frames = nf;
 	return(frames);
 }  //  end of LookupSpect
@@ -562,7 +562,7 @@ static bool StressCondition(Translator *tr, PHONEME_LIST *plist, int condition, 
 			// change phoneme.  Don't change phonemes which are given for the word in the dictionary.
 			return(false);
 		}
-	
+
 		if((tr->langopts.param[LOPT_REDUCE] & 0x2) && (stress_level >= pl->wordstress))
 		{
 			// treat the most stressed syllable in an unstressed word as stressed
@@ -607,69 +607,107 @@ static int CountVowelPosition(PHONEME_LIST *plist)
 }  // end of CoundVowelPosition
 
 
-static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, int instn)
-{//========================================================================================
+static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, USHORT *p_prog, WORD_PH_DATA *worddata)
+{//========================================================================================================================
 	int which;
 	unsigned int data;
+	int instn;
 	int instn2;
 	int count;
 	PHONEME_TAB *ph;
 	PHONEME_LIST *plist_this;
-	static int ph_position[8] = {0, 1, 2, 3, 2, 0, 1, 3};  // prevPh, thisPh, nextPh, next2Ph, nextPhW, prevPhW, nextVowel, (other conditions)
 
 	// instruction: 2xxx, 3xxx
 
-	// bits 8-10 = 0 to 6,  which phoneme
+	// bits 8-10 = 0 to 5,  which phoneme, =6 the 'which' information is in the next instruction.
 	// bit 11 = 0, bits 0-7 are a phoneme code
 	// bit 11 = 1, bits 5-7 type of data, bits 0-4 data value
 
 	// bits 8-10 = 7,  other conditions
 
-
+	instn = (*p_prog) & 0xfff;
 	data = instn & 0xff;
 	instn2 = instn >> 8;
 
 	if(instn2 < 14)
 	{
+		plist_this = plist;
 		which = (instn2) % 7;
+
+		if(which==6)
+		{
+		    // the 'which' code is in the next instruction
+		    p_prog++;
+		    which = (*p_prog);
+		}
 
 		if(which==4)
 		{
-			// nextPh not word boundary
+			// nextPhW not word boundary
 			if(plist[1].sourceix)
 				return(false);
 		}
 		if(which==5)
 		{
-			// prevPh, not word boundary
+			// prevPhW, not word boundary
 			if(plist[0].sourceix)
 				return(false);
 		}
 		if(which==6)
-		{
+        {
+            // next2PhW, not word boundary
+            if(plist[1].sourceix || plist[2].sourceix)
+                return(false);
+        }
+
+
+        switch(which)
+        {
+        case 0:  // prevPh
+        case 5:  // prevPhW
+            plist--;
+            break;
+
+        case 1:  // thisPh
+            break;
+
+        case 2:  // nextPh
+        case 4:  // nextPhW
+            plist++;
+            break;
+
+        case 3:  // next2Ph
+        case 6:  // next2PhW
+            plist += 2;
+            break;
+
+        case 7:
 			// nextVowel, not word boundary
-			for(which=2;;which++)
+			for(which=1;;which++)
 			{
-				if(plist[which-1].sourceix)
+				if(plist[which].sourceix)
 					return(false);
-				if(phoneme_tab[plist[which-1].phcode]->type == phVOWEL)
+				if(phoneme_tab[plist[which].phcode]->type == phVOWEL)
+				{
+					plist = &plist[which];
 					break;
+				}
 			}
-		}
-		else
-		{
-			which = ph_position[which];
-		}
+			break;
 
-		plist_this = plist;
-		plist = &plist[which-1];
+        case 8:  // prevVowel in this word
+		    if((worddata==NULL) || (worddata->prev_vowel.ph == NULL))
+                return(false);   // no previous vowel
+				plist = &(worddata->prev_vowel);
+            break;
+        }
 
-		if(which == 0)
+		if((which == 0) || (which == 5))
 		{
 			if(plist->phcode == 1)
 			{
 				// This is a NULL phoneme, a phoneme has been deleted so look at the previous phoneme
-				plist = &plist[-1];
+				plist--;
 			}
 		}
 
@@ -739,7 +777,7 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 					plist--;
 					if((plist->stresslevel & 0xf) >= 4)
 						return(true);
-					
+
 				} while (plist->sourceix == 0);
 				break;
 
@@ -814,8 +852,8 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
 }  // end of InterpretCondition
 
 
-static void SwitchVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT **p_prog, int instn_type)
-{//=====================================================================================================
+static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT **p_prog, int instn_type)
+{//========================================================================================================
 	USHORT *prog;
 	int voweltype;
 	signed char x;
@@ -848,18 +886,27 @@ static int NumInstnWords(USHORT *prog)
 	int instn;
 	int instn2;
 	int instn_type;
-	static char n_words[11] = {1,1,1,1,1,1,1,1,1,2,4};
+	int n;
+	static const char n_words[16] = {1,1,0,0,1,1,1,1,1,2,4,0,0,0,0,0};
 
 	instn = *prog;
 	instn_type = instn >> 12;
-	if(instn_type < 11)
-		return(n_words[instn_type]);
+	if((n = n_words[instn_type]) > 0)
+		return(n);
 
-	// 11 to 15, 2 words
+	if(instn_type < 4)
+	{
+		// a condition, check for a 2-word instruction
+		if(((n = instn & 0x0f00) == 0x600) || (n == 0x0d00))
+			return(2);
+		return(1);
+	}
+
+	// instn_type 11 to 15, 2 words
 	instn2 = prog[2];
 	if((instn2 >> 12) == 0xf)
 	{
-		// addWav(), 2 more words
+		// This instruction is followed by addWav(), 2 more words
 		return(4);
 	}
 	if(instn2 == i_CONTINUE)
@@ -871,8 +918,8 @@ static int NumInstnWords(USHORT *prog)
 
 
 
-void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata)
-{//==========================================================================================
+void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata)
+{//===================================================================================================================
 // control:
 //bit 0:  PreVoicing
 //bit 8:  change phonemes
@@ -893,6 +940,12 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 
 	ph = plist->ph;
 
+	if((worddata != NULL) && (plist->sourceix))
+	{
+	    // start of a word, reset word data
+	    worddata->prev_vowel.ph = NULL;
+	}
+
 	memset(phdata, 0, sizeof(PHONEME_DATA));
 	phdata->pd_param[i_SET_LENGTH] = ph->std_length;
 	phdata->pd_param[i_LENGTH_MOD] = ph->length_mod;
@@ -901,13 +954,13 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 		return;
 
 	end_flag = 0;
-	
+
 	for(prog = &phoneme_index[ph->program]; end_flag != 1; prog++)
 	{
 		instn = *prog;
 		instn2 = (instn >> 8) & 0xf;
 		or_flag = 0;
-		
+
 		switch(instn >> 12)
 		{
 		case 0:   // 0xxx
@@ -992,11 +1045,13 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			{
 				// process a sequence of conditions, using  boolean accumulator
 				if(or_flag)
-					truth = (truth || InterpretCondition(tr, control, plist, instn & 0xfff));
+					truth = (truth || InterpretCondition(tr, control, plist, prog, worddata));
 				else
-					truth = (truth && InterpretCondition(tr, control, plist, instn & 0xfff));
+					truth = (truth && InterpretCondition(tr, control, plist, prog, worddata));
 				or_flag = instn & 0x1000;
-				instn = *(++prog);
+				prog += NumInstnWords(prog);
+				instn = *prog;
+//				instn = *(++prog);
 			}
 
 			if(truth == false)
@@ -1010,7 +1065,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 					// instruction after a condition is not JUMP_FALSE, so skip the instruction.
 					prog += NumInstnWords(prog);
 					if((prog[0] & 0xfe00) == 0x6000)
-						prog++;    // and skip ELSE jump 
+						prog++;    // and skip ELSE jump
 				}
 			}
 			prog--;
@@ -1029,11 +1084,11 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 				break;
 
 			case 5:   // NexttVowelStarts
-				SwitchVowelType(plist, phdata, &prog, 2);
+				SwitchOnVowelType(plist, phdata, &prog, 2);
 				break;
 
 			case 6:   // PrevVowelTypeEndings
-				SwitchVowelType(plist, phdata, &prog, 3);
+				SwitchOnVowelType(plist, phdata, &prog, 3);
 				break;
 			}
 		break;
@@ -1130,6 +1185,11 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 		}
 	}
 
+    if((worddata != NULL) && (plist->type == phVOWEL))
+    {
+        memcpy(&worddata->prev_vowel, &plist[0], sizeof(PHONEME_LIST));
+    }
+
 }  // end of InterpretPhoneme
 
 
@@ -1150,5 +1210,5 @@ void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata)
 	plist[1].ph = phoneme_tab[phcode];
 	plist[2].sourceix = 1;
 
-	InterpretPhoneme(NULL, 0, &plist[1], phdata);
+	InterpretPhoneme(NULL, 0, &plist[1], phdata, NULL);
 }  // end of InterpretPhoneme2

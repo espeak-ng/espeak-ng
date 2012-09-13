@@ -1900,3 +1900,7 @@ include ph_irish
 
 phonemetable tt base
 include ph_tatar
+
+phonemetable ko base
+include ph_korean
+
