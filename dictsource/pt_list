@@ -644,6 +644,7 @@ governo	gov'ernU	$noun
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+aborto		$alt $verb
 acerto		$alt2 $noun
 adereço		$alt2
 adore		$alt
@@ -659,10 +660,12 @@ ameba		$alt
 amores		$alt2
 anoiteça	$alt2
 anoiteço	$alt2
+apego		$alt2
 apreço		$alt2
 aperto		$alt2 $noun
 apoio		$alt $verb
 aprendeste	$alt2
+arremesso	$alt2 $noun
 assembleia	$alt
 atrozes		$alt
 austera		$alt
@@ -676,11 +679,13 @@ boleia		$alt
 bolo		$alt2
 borboleta	$alt2
 bordo		$alt
+bromelha	$alt
 cabeça		$alt2
 cacete		$alt2
 cachorra	$alt2
 camiseta	$alt2
 cantora		$alt2
+caractere	$alt
 casebre		$alt
 catorze		$alt2
 cefaleia	$alt
@@ -714,9 +719,12 @@ crede		$alt2
 cresce		$alt
 crescem		$alt
 der		$alt
+desapego	$alt2 $noun
 desce		$alt
 descem		$alt
+descordo	$alt
 descova		$alt2
+desespero	$alt2 $noun
 desfecho	$alt2
 desprezo	$alt $verb
 deva		$alt2
@@ -727,8 +735,11 @@ discordo	$alt
 dobro		$alt2 $noun
 doce		$alt2
 droga		$alt
+emprego		$alt2 $noun
 endereço	$alt2
 enumerem	$alt
+enredo		$alt $verb
+enterro		$alt2 $noun
 enxerto		$alt2 $noun
 epopeia		$alt
 eritreia	$alt
@@ -740,7 +751,7 @@ esforços	$alt
 esperma		$alt
 espeto		$alt2 $noun
 espiroqueta	$alt2
-enterro		$alt2 $noun
+esqueleto	$alt2
 estiverdes	$alt
 estiveres	$alt
 estrofe		$alt
@@ -750,6 +761,7 @@ expeça		$alt2
 expeço		$alt2
 farofa		$alt
 febre		$alt
+fera		$alt
 fere		$alt
 ferem		$alt
 fezes		$alt
@@ -758,6 +770,7 @@ Fizeram		$alt
 fizerem		$alt
 fizerdes	$alt
 fizeres		$alt
+folga		$alt
 fogos		$alt
 fores		$alt2
 forro		$alt $verb
@@ -765,6 +778,7 @@ fosse		$alt2
 fossem		$alt2
 foste		$alt2
 frevo		$alt2
+galera		$alt
 gameta		$alt2
 geleia		$alt
 gelo		$alt $verb
@@ -850,10 +864,12 @@ povos		$alt
 poxa		p'oS&
 preta		$alt2
 preto		$alt2
+primavera	$alt
 profere		$alt
 proferem	$alt
 puder		$alt
 puserdes	$alt
+recomeço	$alt2 $noun
 recordo		$alt
 recorto		$alt
 rede		$alt2
@@ -874,11 +890,14 @@ sincero		$alt
 sobe		$alt
 sobem		$alt
 soco		$alt2
+soco		$alt $verb
 sofrem		$alt
 sofre		$alt
 sofreste	$alt2
+sogra		$alt
 sopre		$alt
 soprem		$alt
+sopro		$alt $verb
 sorvete		$alt2
 sossego     $alt2 $noun
 souber		$alt
@@ -889,6 +908,7 @@ sugere		$alt
 sugerem		$alt
 suor		swOr
 tapete		$alt2
+tempero		$alt $verb
 teta		$alt2
 tiver		$alt
 tiveres		$alt

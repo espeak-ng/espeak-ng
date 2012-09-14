@@ -19,20 +19,20 @@
 // Order: ㄱㄲㅋ ㄷㄸㅌ ㅂㅃㅍ ㅅㅆㅈㅉㅊ ㄴㅁ ㄹ ㅎ
 
 .group		ᄀ	// ㄱ
-		ᄀ	g
-	_)	ᄀ	k
+		ᄀ	q
+	_)	ᄀ	g
 	L01)	ᄀ	k-
 	L03)	ᄀ	kh
 
 .group		ᄁ	// ㄲ
-		ᄁ	k-
+		ᄁ	q-
 
 .group		ᄏ	// ㅋ
 		ᄏ	kh
 
 .group		ᄃ	// ㄷ
 		ᄃ	d
-	_)	ᄃ	t
+	_)	ᄃ	d
 	L01)	ᄃ	t-
 	L03)	ᄃ	th
 
@@ -55,7 +55,7 @@
 		ᄑ	ph
 
 .group		ᄉ	// ㅅ
-		ᄉ	s
+		ᄉ	|s
 	L01)	ᄉ	s-
 
 .group		ᄊ	// ㅆ
@@ -68,16 +68,16 @@
 	L03)	ᄌ	tSh;
 
 .group		ᄍ	// ㅉ
-		ᄍ	tS;-	// TODO: phoneme
+		ᄍ	'tS;-	// TODO: phoneme
 
 .group		ᄎ	// ㅊ
-		ᄎ	tSh;	// TODO: phoneme
+		ᄎ	tSh-	// TODO: phoneme
 
 .group		ᄂ	// ㄴ
-		ᄂ	n
+		ᄂ	;n
 
 .group		ᄆ	// ㅁ
-		ᄆ	m
+		ᄆ	;m
 
 .group		ᄅ	// ㄹ
 		ᄅ		*	// TODO: alveolar flap [ɾ]
@@ -87,7 +87,7 @@
 		ᄒ	h	// TODO: [ɦ]
 	_)	ᄒ	h
 
-// Medials
+// Medials or vowels
 
 .group		ᅡ	// ㅏ
 		ᅡ	a
@@ -157,7 +157,7 @@
 // Order: ㄱㄳㄲㅋ ㄷㅌ ㅂㅍ ㅅㅆㅈㅊ ㄴㅁ ㅇㅎ ㄹ
 
 .group		ᆨ	// ㄱ
-		ᆨ		k	// TODO: final stops
+		ᆨ		q	// It is actually q, as using k adds unnecessary sound.
 		ᆨᄒ		kh
 
 .group		ᆪ	// ㄳ
@@ -175,14 +175,14 @@
 		ᆿ	(A	kh
 
 .group		ᆮ	// ㄷ
-		ᆮ		t
+		ᆮ		d- // Actually a soft D.
 		ᆮᄂ		nn
 		ᆮᄆ		mm
 		ᆮᄒ		th
 		ᆮ	(L02	dZ;
 
 .group		ᇀ	// ㅌ
-		ᇀ		t
+		ᇀ		t-
 		ᇀᄂ		nn
 		ᇀᄆ		mm
 		ᇀ	(A	th
@@ -202,14 +202,14 @@
 		ᇁ	(A	ph
 
 .group		ᆺ	// ㅅ
-		ᆺ		t
+		ᆺ		t-
 		ᆺᄂ		nn
 		ᆺᄆ		mm
 		ᆺ	(A	s
 		ᆺᄒ		s-
 
 .group		ᆻ	// ㅆ
-		ᆻ		t
+		ᆻ		t-
 		ᆻᄂ		nn
 		ᆻᄆ		mm
 		ᆻ	(A	s-
@@ -241,14 +241,14 @@
 		ᆷ		m
 
 .group		ᆼ	// ㅇ
-		ᆼ		ng
+		ᆼ		nN
 
 .group		ᇂ	// ㅎ
-		ᇂ		t
+		ᇂ		t-
 		ᇂ	(A
 
 .group		ᆯ	// ㄹ
-		ᆯ		l
+		ᆯ		rr
 		ᆯᄅ		l
 		ᆯ	(A	*
 

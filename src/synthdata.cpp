@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.24  11.Sep.12";
+const char *version_string = "1.46.25  14.Sep.12";
 const int version_phdata  = 0x014624;
 
 int option_device_number = -1;
@@ -929,6 +929,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 	int instn2;
 	int or_flag;
 	bool truth;
+	bool truth2;
 	int data;
 	int end_flag;
 	int ix;
@@ -1044,14 +1045,20 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			while((instn & 0xe000) == 0x2000)
 			{
 				// process a sequence of conditions, using  boolean accumulator
-				if(or_flag)
-					truth = (truth || InterpretCondition(tr, control, plist, prog, worddata));
-				else
-					truth = (truth && InterpretCondition(tr, control, plist, prog, worddata));
-				or_flag = instn & 0x1000;
+				truth2 = InterpretCondition(tr, control, plist, prog, worddata);
 				prog += NumInstnWords(prog);
+				if(*prog == i_NOT)
+				{
+					truth2 = truth2 ^ 1;
+					prog++;
+				}
+
+				if(or_flag)
+					truth = truth || truth2;
+				else
+					truth = truth && truth2;
+				or_flag = instn & 0x1000;
 				instn = *prog;
-//				instn = *(++prog);
 			}
 
 			if(truth == false)

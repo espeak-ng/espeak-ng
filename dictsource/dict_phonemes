@@ -78,7 +78,7 @@ S    s2   t    t2   tS   ts   v    w
 z    Z    
 
 
-Dictionary de_dict  2012-06-27
+Dictionary de_dict  2012-09-13
 
 3    @    @-   a    A    A:   aI   aU   
 A~   E    E2   E:   e:   EI   i    I    
@@ -102,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2012-09-08
+Dictionary en_dict  2012-09-14
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -376,7 +376,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2012-09-11
+Dictionary pt_dict  2012-09-14
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -508,11 +508,11 @@ i    i.   i[   iA   iE   io   iou  N-
 o    o-   ong  ou   u    u@   ua   uai  
 uei  uo   y    y&   y@   yE   yi   yu   
 
-;    C    f    h    j    k    kh   l    
-l#   m    n    N    p    ph   Q    q    
-Q"   Q^   r    R    R2   R3   s    s.   
-S;   t    th   ts   ts.  ts.  tS;  tS;  
-tsh  v    w    x    X    z.   
+;    C    f    h    j    J^   k    kh   
+l    l#   m    n    N    p    ph   Q    
+q    Q"   Q^   r    R    R2   R3   s    
+s.   S;   t    th   ts   ts.  ts.  tS;  
+tS;  tsh  v    w    x    X    z.   
 
 
 Dictionary zhy_dict  2009-01-19
@@ -814,10 +814,10 @@ tS   ts   tS;  v    x    z    Z    z;
 Z;   
 
 
-Dictionary tt_dict  2012-09-11
+Dictionary tt_dict  2012-09-14
 
-a    A    A2   e    e2   i    I    o    
-u    u2   V    W    y    
+&    a    A    e    e2   e:   i    I    
+o    u    u2   V    W    y    
 
 :    ?    b    d    f    g    h    j    
 k    l    m    n    N    p    q    r    
@@ -825,10 +825,11 @@ R    s    S    S;   t    w    x    z
 Z    Z;   
 
 
-Dictionary ko_dict  2012-06-14
+Dictionary ko_dict  2012-09-14
 
 @    a    e    E    i    o    u    u-   
 
 *    -    ;    b    d    dZ;  g    h    
-j    k    k-   kh   l    m    n    p    
-p-   ph   s    t    t-   tS   tS;  w    
+j    k    k-   kh   l    m    n    N    
+p    p-   ph   q    r    s    t    t-   
+tS   tS;  w    

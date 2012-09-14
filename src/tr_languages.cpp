@@ -957,6 +957,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 8;   // ?? 1st syllable if it is heavy, else 2nd syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
+			tr->langopts.break_numbers = 0x9999998;
+			tr->langopts.max_digits = 20;
 		}
 		break;
 
