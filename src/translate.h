@@ -445,7 +445,9 @@ typedef struct {
 	int numbers;
 
 #define NUM2_MULTIPLE_ORDINAL   0x1000
-#define NUM2_ENGLISH_NUMERALS   0x2000
+#define NUM2_NO_TEEN_ORDINALS   0x2000
+#define NUM2_MYRIADS            0x4000
+#define NUM2_ENGLISH_NUMERALS   0x8000
 #define NUM2_THOUSANDS_VAR1     0x40
 #define NUM2_THOUSANDS_VAR2     0x80
 #define NUM2_THOUSANDS_VAR3     0xc0
@@ -455,7 +457,9 @@ typedef struct {
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
 	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
-	// bit13=(LANG=ne)  speak (non-replaced) English numerals in English
+	// bit13=(LANG=pt) don't use 11-19 numbers to make ordinals
+	// bit14=(LANG=ko)  use myriads (groups of 4 digits) not thousands (groups of 3)
+	// bit15=(LANG=ne)  speak (non-replaced) English numerals in English
 	int numbers2;
 
 #define BREAK_THOUSANDS   0x49249248

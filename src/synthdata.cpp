@@ -881,39 +881,57 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT 
 }  // end of SwitchVowelType
 
 
-static int NumInstnWords(USHORT *prog)
-{//===================================
+int NumInstnWords(USHORT *prog)
+{//============================
 	int instn;
 	int instn2;
 	int instn_type;
 	int n;
-	static const char n_words[16] = {1,1,0,0,1,1,1,1,1,2,4,0,0,0,0,0};
+	int type2;
+	static const char n_words[16] = {0,1,0,0,1,1,0,1,1,2,4,0,0,0,0,0};
 
 	instn = *prog;
 	instn_type = instn >> 12;
 	if((n = n_words[instn_type]) > 0)
 		return(n);
 
-	if(instn_type < 4)
+	switch(instn_type)
 	{
+	case 0:
+		if(((instn & 0xf00) >> 8) == i_IPA_NAME)
+		{
+			n = ((instn & 0xff) + 1) / 2;
+			return(n+1);
+		}
+		return(1);;
+
+	case 6:
+		type2 = (instn & 0xf00) >> 9;
+		if((type2 == 5) || (type2 == 6))
+			return(12);  // switch on vowel type
+		return(1);
+
+	case 2:
+	case 3:
 		// a condition, check for a 2-word instruction
 		if(((n = instn & 0x0f00) == 0x600) || (n == 0x0d00))
 			return(2);
 		return(1);
-	}
 
-	// instn_type 11 to 15, 2 words
-	instn2 = prog[2];
-	if((instn2 >> 12) == 0xf)
-	{
-		// This instruction is followed by addWav(), 2 more words
-		return(4);
+	default:
+		// instn_type 11 to 15, 2 words
+		instn2 = prog[2];
+		if((instn2 >> 12) == 0xf)
+		{
+			// This instruction is followed by addWav(), 2 more words
+			return(4);
+		}
+		if(instn2 == i_CONTINUE)
+		{
+			return(3);
+		}
+		return(2);
 	}
-	if(instn2 == i_CONTINUE)
-	{
-		return(3);
-	}
-	return(2);
 }  //  end of NumInstnWords
 
 

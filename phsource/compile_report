@@ -417,7 +417,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [h1ø] base
+l/l@            [hÖ{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -451,7 +451,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [h1ø] base
+l/la            [hÖ{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -459,7 +459,7 @@ l/la            [h1ø] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [h1ø] base
+l/le            [hÖ{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -471,7 +471,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [h1ø] base
+l/li            [hÖ{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -485,7 +485,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [h1ø] base
+l/lo            [hÖ{] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -496,7 +496,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [h1ø] base
+l/lu            [hÖ{] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -1088,11 +1088,11 @@ vdiph2/uu@      [U@] en
                 [U@] en-n
                 [U@] en-wm
                 [u@] vi
-vdiph2/uw       [u:] en-us
 vdiph2/uw_2     [u:] en
 vdiph2/uw_3     [yU] ro
 vdiph2/uw_4     [u:] en-n
-vdiph2/uw_6     [u#] kk
+vdiph2/uw_6     [u:] en-us
+                [u#] kk
 vdiph2/y@       [y@] zh
 vdiph2/y#@      [Y@] af
 vdiph2/ye       [yE] sq

@@ -571,6 +571,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 unsigned char *GetEnvelope(int index);
+int NumInstnWords(USHORT *prog);
 
 void InitBreath(void);
 

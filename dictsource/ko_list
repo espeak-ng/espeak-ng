@@ -1,68 +1,64 @@
-$textmode
+// eSpeak Korean rules. Changed pronunciation, as numbers were not announced.
+
 
 // Number forms:
-_0      ᅧᆼ
-_1      ᅵᆯ
-_2      ᅵ
-_3      삼
-_4      사
-_5      ᅩ
-_6      ᅲᆨ
-_7      칠
-_8      팔
-_9      구
-_1X     십
-_2X     ᅵ십
-_3X     삼십
-_4X     사십
-_5X     ᅩ십
-_6X     ᅲᆨ십
-_7X     칠십
-_8X     팔십
-_9X     구십
-_0C     백
-_0M1    천
-_1M1    천
+_0	j'@N_!
+_1	'iR_!
+_2	'i_!
+_3	s'am_!
+_4	s'a_!
+_5	'o_!
+_6	j'uq_!
+_7	tS'h'iR_!
+_8	ph'aR_!
+_9	g'u_!
+_1X	s'ip_!
+_2X	'i_!||s'ip_!
+_3X	s'am_!||s'ip_!
+_4X	s'a_!||s'ip_!
+_5X	'o_!||s'ip_!
+_6X	j'uq_!||s'ip_!
+_7X	tS'h'iR_!s'ip_!
+_8X	ph'aR_!||s'ip_!
+_9X	g'u_!||s'ip_!
+_0C	p'Eq_!
 
-$phonememode
-_0M2	m'an          // 10^4
-_1M2	m'an
-_0M3	tSh-@n||m'an  // 10^7
-_1M3	tSh-@n||m'an
-_0M4	'@q           // 10^8
-_1M4	'@q
-_0M5	tSh-@n||'@q   // 10^11
-_1M5	tSh-@n||'@q
-_0M6	tS;'o         // 10^12
-_1M6	tS;'o
-_0M7	tSh-@n||tS;'o
-_1M7	tSh-@n||tS;'o
-_0M8	gj'@nN
-_1M8	gj'@nN
-$textmode
-
+// Larger numbers
+_0M0	tS'h-@n       // 10^3
+_1M0	tS'h-@n
+_0M1	m'an          // 10^4
+_1M1	m'an
+_0M2	'@q           // 10^8
+_1M2	'@q
+_0M3	tS;'o         // 10^12
+_1M3	tS;'o
+_0M4	gj'@N
+_1M4	gj'@N
 
 // Character names:
-ㄱ ㄱㅣㅇㅕㄱ
-ㄲ ㅆㅏㅇㄱㅣㅇㅕㄱ
-ㄴ ㄴㅣㅇㅡㄴ
-ㄷ ㄷㅣㄱㅡㄷ
-ㄸ ㅆㅏㅇㄷㅣㄱㅡㄷ
-ㄹ ㄹㅣㅇㅡㄹ
-ㅁ ㅁㅣㅇㅡㅁ
-ㅂ ㅂㅣㅇㅡㅂ
-ㅃ ㅆㅏㅇㅂㅣㅇㅡㅂ
-ㅅ ㅅㅣㅇㅗㅅ
-ㅆ ㅆㅏㅇㅅㅣㅇㅗㅅ
-ㅇ ㅇㅣㅇㅡㅇ
-ㅈ ㅈㅣㅇㅡㅈ
-ㅉ ㅆㅏㅇㅈㅣㅇㅡㅈ
-ㅊ ㅊㅣㅇㅡㅊ
-ㅋ ㅋㅣㅇㅡㅋ
-ㅌ ㅌㅣㅇㅡㅌ
-ㅍ ㅍㅣㅇㅡㅍ
-ㅎ ㅎㅣㅇㅡㅎ
+ᄀ	gij'@q
+ᄁ	's-aNq,ij@q
+ᄂ	ni;'u-n
+ᄃ	diq'u-d-
+ᄄ	's-aNd,iqu-d-
+ᄅ	*i;'u-rr
+ᄆ	mi;'u-m
+ᄇ	pi;'u-p
+ᄈ	's-aNb,i;u-p
+ᄉ	si;'ot-
+ᄊ	's-aNs,i;ot-
+ᄋ	i;'u-N
+ᄌ	tS;i;'u-t
+ᄍ	's-aNdZ;,i;u-t
+ᄎ	tSh-'i;u-t
+ᄏ	khi;'u-k
+ᄐ	thi;'u-t-
+ᄑ	phi;'u-p
+ᄒ	hi;'u-t-
+// end of character names.
 
+
+$textmode
 // Misc:
 // 사ᅵ시ᅩᆺ
 고랫재		고랟째

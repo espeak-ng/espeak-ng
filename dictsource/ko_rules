@@ -1,4 +1,13 @@
+// eSpeak Korean rules
 // This file is UTF8 encoded
+
+// char names (mostly to catch "ng" sound):
+.group ᄋ
+ᄋ	i;'u-N
+
+
+
+
 
 .replace
 
@@ -14,6 +23,9 @@
 .L02	ᅵ	ᅣ	ᅤ	ᅧ	ᅨ	ᅭ	ᅲ
 // h-finals: ㅎ ㄶㅀ
 .L03	ᇂ	ᆭ	ᆶ
+
+// Char names:
+
 
 // Initials
 // Order: ㄱㄲㅋ ㄷㄸㅌ ㅂㅃㅍ ㅅㅆㅈㅉㅊ ㄴㅁ ㄹ ㅎ
@@ -241,7 +253,7 @@
 		ᆷ		m
 
 .group		ᆼ	// ㅇ
-		ᆼ		nN
+		ᆼ		N
 
 .group		ᇂ	// ㅎ
 		ᇂ		t-

@@ -957,7 +957,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = 8;   // ?? 1st syllable if it is heavy, else 2nd syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
-			tr->langopts.break_numbers = 0x9999998;
+			tr->langopts.numbers2 = NUM2_MYRIADS;
+			tr->langopts.break_numbers = 0x1111110;
 			tr->langopts.max_digits = 20;
 		}
 		break;
@@ -1115,7 +1116,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = STRESSPOSN_1R;        // stress on final syllable
 			tr->langopts.stress_flags =  0x6 | 0x10 | 0x2000 | 0x20000; 
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
-			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL; 
+			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS; 
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
