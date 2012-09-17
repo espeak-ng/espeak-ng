@@ -2,6 +2,7 @@
 #include "wx/toolbar.h"
 #include "wx/laywin.h"
 #include "wx/progdlg.h"
+#include "wx/notebook.h"
 
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
@@ -32,44 +33,45 @@ class MyApp: public wxApp
 };
 
 // Define a new frame
-class MyFrame: public wxMDIParentFrame
+class MyFrame: public wxFrame
 {
   public:
 
     MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, const long style);
 	~MyFrame(void);
 
-    void OnSize(wxSizeEvent& event);
+
     void OnAbout(wxCommandEvent& event);
     void OnQuit(wxCommandEvent& event);
     void OnOptions(wxCommandEvent& event);
-	 void OnSpeak(wxCommandEvent& event);
+    void OnSpeak(wxCommandEvent& event);
     void OnTools(wxCommandEvent& event);
-    void OnSashDrag(wxSashEvent& event);
     void OnKey(wxKeyEvent& event);
     void OnTimer(wxTimerEvent& event);
     void LoadWavFile(void);
 
     void OnNewWindow(wxCommandEvent& event);
     void OnProsody(wxCommandEvent& event);
+    void PageCmd(wxCommandEvent& event);
 	void SetVoiceTitle(char *voice_name);
-
+    void OnPageChanged(wxNotebookEvent& event);
 
 protected:
-    wxSashLayoutWindow* m_leftWindow;
     wxTimer m_timer;
 
 DECLARE_EVENT_TABLE()
 };
 
-class MyChild: public wxMDIChildFrame
+
+#ifdef deleted
+class MyChild: public wxPanel
 {
   public:
     SpectDisplay *canvas;
-    MyChild(wxMDIParentFrame *parent, const wxString& title, const wxPoint& pos, const wxSize& size, const long style);
+    MyChild(wxNotebook *parent, const wxString& title, const wxPoint& pos, const wxSize& size, const long style);
     ~MyChild(void);
     void OnActivate(wxActivateEvent& event);
-	 
+
     void OnQuit(wxCommandEvent& event);
     void OnSave(wxCommandEvent& event);
     void OnSaveAs(wxCommandEvent& event);
@@ -79,7 +81,7 @@ class MyChild: public wxMDIChildFrame
 
 DECLARE_EVENT_TABLE()
 };
-
+#endif
 
 
 class TranslDlg : public wxPanel
@@ -103,6 +105,7 @@ private:
 };
 
 extern MyFrame *myframe;
+extern wxNotebook* screenpages;
 extern TranslDlg *transldlg;
 extern wchar_t ipa1[256];
 
@@ -171,10 +174,12 @@ enum {
 	SPECTSEQ_SAVEAS,
 	SPECTSEQ_SAVESELECT,
 	SPECTSEQ_SAVEPITCH,
-	SPECTSEQ_VOICEDLG
+	SPECTSEQ_VOICEDLG,
+
+	ID_SCREENPAGES,
+	ID_NOTEBOOK
 };
 
-#define ID_WINDOW_LEFT     101
 
 
 

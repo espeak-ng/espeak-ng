@@ -325,12 +325,12 @@ void TranslDlg::SpeakFile(void)
 	wxFileName fname;
 	FILE *f_text;
 	char buf[200];
-	
+
 	fname = wxFileName(path_speaktext);
 
 	file = wxFileSelector(_T("Text file to speak"),fname.GetPath(),fname.GetName(),_T(""),_T("*"),wxOPEN);
 	if(file == wxEmptyString) return;
-	
+
 	strcpy(buf,file.mb_str(wxConvLocal));
 	f_text = fopen(buf,"r");
 	if(f_text == NULL)
@@ -338,9 +338,9 @@ void TranslDlg::SpeakFile(void)
 		wxLogError(_T("Failed to read: ")+file);
 		return;
 	}
-	
+
 	path_speaktext = file;
-	
+
 	InitText(0);
 	SpeakNextClause(f_text,NULL,0);
 	return;
@@ -465,11 +465,9 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 
 	case T_PROCESS:
 	case MENU_SPEAK_TEXT:
-		if(prosodycanvas == NULL)
-		{
-			myframe->OnProsody(event);
-		}
+        myframe->OnProsody(event);
 		prosodycanvas->LayoutData(ph_list,n_ph_list);
+        myframe->Refresh();
 		option_phoneme_events = espeakINITIALIZE_PHONEME_EVENTS;
 		option_log_frames = 1;
 		MakeWave2(ph_list,n_ph_list);

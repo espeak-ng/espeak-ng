@@ -121,7 +121,7 @@ typedef struct {
    PEAKS7 peak_data[7];
    unsigned char  data[1];   /* firstly harmonic data, then f3,f4,f5 data */
    } CYCLE;         /* VARIABLE LENGTH Structure */
-	
+
 extern int SPC2_size_cycle(CYCLE *cy);
 //==============================================================================================
 
@@ -142,7 +142,7 @@ public:
 	void CopyPeaks(SpectFrame *sf);
 	void ToggleMarker(int n);
 	void ApplyVoiceMods();
-	
+
 	void MakeWaveF(int peaks, PitchEnvelope &pitch, int amplitude, int duration);
 	void MakeHtab(int numh, int *htab, int pitch);
 	double GetRms(int amp);
