@@ -3206,7 +3206,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					break;
 
 				*pn++ = c;
-				if((--nx > 0) && (tr->langopts.break_numbers & (1 << nx)))
+				nx--;
+				if((nx > 0) && (tr->langopts.break_numbers & (1 << nx)))
 				{
 					memcpy(&num_wtab[nw++], &words[ix], sizeof(WORD_TAB));   // copy the 'words' entry for each word of numbers
 

@@ -1,4 +1,4 @@
-﻿// translation rules for Spanish
+// translation rules for Spanish
 // This file is UTF-8 encoded
 
 // Conditional rules
@@ -128,8 +128,9 @@ ll	(_	l
 
 .group m
           m          m
+       @) m (_       =m
        _) mn (em     n
-_)	mb	(A	mb
+       _) mb (A      mb
 
 
 .group n

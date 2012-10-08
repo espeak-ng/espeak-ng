@@ -97,7 +97,7 @@ void FormantDlg::OnSpin(wxSpinEvent& event)
 	currentcanvas->SetFocus();
 }
 
-FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,wxSize(400,1000))
+FormantDlg::FormantDlg(wxWindow *parent) : wxPanel(parent,-1,wxDefaultPosition,wxSize(400,800))
 {//=============================================================================================
 	int  ix;
 	int  y;
@@ -395,7 +395,7 @@ void FormantDlg::ShowFrame(SpectSeq *spectseq, int frame, int pk, int field)
 			{
 				value.Printf(_T("%3d"),peak->klt_bp);
 				t_klt_bp[ix]->SetValue(value);
-			} 
+			}
 		}
 	}
 
@@ -469,12 +469,12 @@ void ByteGraph::DrawSpectrum(wxDC& dc)
 	numframes = seq->numframes;
 
 	if(numframes == 0) return;
-	
+
 	GetClientSize(&width,&height);
 
 	if(((length = seq->frames[numframes-1]->time)==0) && (numframes>1))
 		length = seq->frames[numframes-2]->time;
-		
+
 	length = length - seq->frames[0]->time;
 
 	yscale = height/3000.0;
@@ -518,7 +518,7 @@ void ByteGraph::OnDraw(wxDC &dc)
 	double xscale, yscale;
 
 	if(show_spectrum) DrawSpectrum(dc);
-	
+
 	if(npoints==0) return;
 
 	GetClientSize(&width,&height);
@@ -559,7 +559,7 @@ void ByteGraph::OnMouse(wxMouseEvent& event)
 	wxPoint pt(event.GetLogicalPosition(dc));
 	t0 = t2 = seq->frames[0]->time;
 	time = (double(pt.x) / spectrum_scale) + t0;
-	
+
 	for(ix=1; ix<seq->numframes; ix++)
 	{
 		t1=t2;

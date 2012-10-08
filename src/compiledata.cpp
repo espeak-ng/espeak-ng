@@ -71,6 +71,7 @@ typedef struct {
 #define k_AND     1
 #define k_OR      2
 #define k_THEN    3
+#define k_NOT     4
 
 #define kTHISSTRESS 0x800
 
@@ -90,6 +91,7 @@ static keywtab_t k_conditions[] = {
 	{"AND",      0,  k_AND},
 	{"OR",       0,  k_OR},
 	{"THEN",     0,  k_THEN},
+	{"NOT",      0,  k_NOT},
 	{"prevPh",   tWHICH_PHONEME,  0},
 	{"prevPhW",  tWHICH_PHONEME,  5},
 	{"thisPh",   tWHICH_PHONEME,  1},
@@ -2257,10 +2259,11 @@ int CompileIf(int elif)
 	int key;
 	int finish = 0;
 	int word = 0;
-	int word2 = 0;
+	int word2;
 	int data;
 	int bitmap;
 	int brackets;
+	int not_flag;
 	USHORT *prog_last_if = NULL;
 
 	then_count = 2;
@@ -2268,6 +2271,8 @@ int CompileIf(int elif)
 
 	while(!finish)
 	{
+		not_flag = 0;
+		word2 = 0;
 		if(prog_out >= prog_out_max)
 		{
 			error("Phoneme program too large", NULL);
@@ -2276,6 +2281,13 @@ int CompileIf(int elif)
 
 		if((key = NextItem(tCONDITION)) < 0)
 			error("Expected a condition, not '%s'",item_string);
+
+		if((item_type == 0) && (key == k_NOT))
+		{
+			not_flag = 1;
+			if((key = NextItem(tCONDITION)) < 0)
+				error("Expected a condition, not '%s'",item_string);
+		}
 
 		if(item_type == tWHICH_PHONEME)
 		{
@@ -2331,7 +2343,9 @@ int CompileIf(int elif)
 		*prog_out++ = word | i_CONDITION;
 
 		if(word2 != 0)
-            *prog_out++ = word2;
+			*prog_out++ = word2;
+		if(not_flag)
+			*prog_out++ = i_NOT;
 
 		// expect AND, OR, THEN
 		switch(NextItem(tCONDITION))

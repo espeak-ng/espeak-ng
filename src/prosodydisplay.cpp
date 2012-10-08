@@ -31,7 +31,6 @@
 #include "translate.h"
 
 extern MyFrame *myframe;
-extern ChildFrProsody *prosodyframe;
 extern ProsodyDisplay *prosodycanvas;
 
 wxMenu *menu_prosody;
@@ -60,6 +59,7 @@ ProsodyDisplay::ProsodyDisplay(wxWindow *parent, const wxPoint& pos, const wxSiz
 	scalex = 0.5;
 	scaley = double(LINESEP*6)/150.0;
 	selected_ph = -1;
+	SetBackgroundColour(wxColour(245,245,245));
 }  // end of ProsodyDisplay::ProsodyDisplay
 
 
@@ -119,7 +119,7 @@ void ProsodyDisplay::RefreshLine(int line)
 int ProsodyDisplay::GetWidth(PHONEME_LIST *p)
 {//========================================
 	int  w;
-	
+
 	if(p->ph == NULL)
 		return(0);
 
@@ -279,7 +279,7 @@ void ProsodyDisplay::OnKey(wxKeyEvent& event)
 {//========================================
 	PHONEME_LIST *p;
 	int display=1;
-	
+
 	if(selected_ph < 0)
 		selected_ph = 0;
 
@@ -301,7 +301,7 @@ void ProsodyDisplay::OnKey(wxKeyEvent& event)
 		if(selected_ph < (numph-2))
 			selected_ph++;
 		break;
-		
+
 	case WXK_UP:
 		if(event.ControlDown())
 			ChangePh(-1,2);
@@ -360,7 +360,7 @@ void ProsodyDisplay::DrawEnv(wxDC& dc, int x1, int y1, int width, PHONEME_LIST *
 	PHONEME_DATA phdata_tone;
 
 	if(width <= 0) return;
-	
+
 	if((pitchr = ph->pitch2 - ph->pitch1) < 0)
 	{
 		pitchr = -pitchr;
@@ -425,6 +425,7 @@ void ProsodyDisplay::DrawPitchline(wxDC& dc, int line, int x1, int x2)
 
 	y = LINEBASE+LINESEP;
 	dc.SetPen(*wxLIGHT_GREY_PEN);
+//	dc.SetPen(*wxCYAN_PEN);
 	for(ix=0; ix<5; ix++)
 	{
 		dc.DrawLine(0,offy-y,linewidth,offy-y);
@@ -520,6 +521,12 @@ void ProsodyDisplay::OnDraw(wxDC& dc)
 
 	int line, start, end;
 
+    GetClientSize(&x1, &y1);
+    if(x1 != linewidth)
+    {
+        LayoutData(NULL, 0);
+    }
+
 	wxRegionIterator upd(GetUpdateRegion()); // get the update rect list
 
 	while (upd)
@@ -549,15 +556,18 @@ void ProsodyDisplay::LayoutData(PHONEME_LIST *ph_list, int n_ph)
 	int xpos;
 	int w;
 	int ix;
+	int height;
 	PHONEME_LIST *p;
 
-
-
-	numph = n_ph;
-	phlist = ph_list;
+    if(ph_list != NULL)
+    {
+        numph = n_ph;
+        phlist = ph_list;
+    }
 
 	num_lines = 0;
 	linetab[0] = 1;
+	GetClientSize(&linewidth, &height);
 	xpos = linewidth;
 
 	// could improve this to do 'wordwrap' - only split on word boundary
@@ -584,86 +594,35 @@ void ProsodyDisplay::LayoutData(PHONEME_LIST *ph_list, int n_ph)
 }  // end of ProsodyDisplay::LayoutData
 
 
+extern int adding_page;
 
 void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 {//=====================================================
-
 	// Open the Prosody display window
-	// Make another frame, containing a canvas
+	int width, height;
+	int ix, npages;
 
-	int h, w, w2;
-
-	if(prosodyframe != NULL)
+	if(prosodycanvas != NULL)
 	{
 		// The Prosody window is already open
-		prosodyframe->Activate();
+
+		// ?? select the prosody page ??
+		npages = screenpages->GetPageCount();
+		for(ix=0; ix<npages; ix++)
+		{
+		    if(screenpages->GetPage(ix) == (wxWindow*)prosodycanvas)
+		    {
+		        screenpages->ChangeSelection(ix);
+		        break;
+		    }
+		}
 		return;
 	}
 
-	m_leftWindow->GetSize(&w2, &h);
-	GetClientSize(&w, &h);
-	prosodyframe = new ChildFrProsody(myframe, _T(""),
-                                      wxPoint(0, 100), wxSize(w-w2, 420),
-                                      wxDEFAULT_FRAME_STYLE |
-                                      wxNO_FULL_REPAINT_ON_RESIZE);
 
-	prosodyframe->SetTitle(_T("Prosody"));
-
-	// Give it a status line
-	prosodyframe->CreateStatusBar();
-
-	int width, height;
-	wxMDIClientWindow *clientwin = (wxMDIClientWindow *)this->GetClientWindow();
-	clientwin->GetClientSize(&width, &height);
-
-#ifdef deleted
-	wxPanel *panel = new wxPanel(prosodyframe,-1,wxPoint(0,0), wxSize(width,50));
-	ProsodyDisplay *canvas = new ProsodyDisplay(prosodyframe, wxPoint(0, 50), wxSize(width-2, height-50));
-#else
-	ProsodyDisplay *canvas = new ProsodyDisplay(prosodyframe, wxPoint(0, 50), wxSize(width-10, height));
-#endif
-
-	prosodycanvas = canvas;
-	
-	// Associate the menu bar with the frame
-	prosodyframe->SetMenuBar(MakeMenu(2,translator->dictionary_name));
-	prosodyframe->prosodycanvas = canvas;
-	prosodyframe->Show(TRUE);
-
+    screenpages->GetClientSize(&width, &height);
+	prosodycanvas = new ProsodyDisplay(screenpages, wxPoint(0, 50), wxSize(width-10, height));
+	adding_page = 2;  // work around for wxNotebook bug (version 2.8.7)
+	screenpages->AddPage(prosodycanvas, _T("Prosody"), true);
 }
-
-BEGIN_EVENT_TABLE(ChildFrProsody, wxMDIChildFrame)
-  EVT_MENU(SPECTSEQ_CLOSE, ChildFrProsody::OnQuit)
-
-//  EVT_ACTIVATE(ChildFrProsody::OnActivate)
-END_EVENT_TABLE()
-
-extern wxList my_children;
-
-ChildFrProsody::ChildFrProsody(wxMDIParentFrame *parent, const wxString& title, const wxPoint& pos, const wxSize& size,
-const long style):
-  wxMDIChildFrame(parent, -1, title, pos, size, style)
-{
-	my_children.Append(this);
-}
-
-ChildFrProsody::~ChildFrProsody(void)
-{
-	wxWindow *w;
-	my_children.DeleteObject(this);
-	prosodycanvas = NULL;
-	prosodyframe = NULL;
-
-#ifndef PLATFORM_WINDOWS
-	// bug in wxMDIChildFrame, we need to explicitly remove the ChildFrame from the ClientWindow
-	w = myframe->GetClientWindow();
-	w->RemoveChild(this);
-#endif
-}
-
-void ChildFrProsody::OnQuit(wxCommandEvent& WXUNUSED(event))
-{
-      Close(TRUE);
-}
-
 

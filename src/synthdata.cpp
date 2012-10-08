@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.24  11.Sep.12";
+const char *version_string = "1.46.26  17.Sep.12";
 const int version_phdata  = 0x014624;
 
 int option_device_number = -1;
@@ -881,39 +881,57 @@ static void SwitchOnVowelType(PHONEME_LIST *plist, PHONEME_DATA *phdata, USHORT 
 }  // end of SwitchVowelType
 
 
-static int NumInstnWords(USHORT *prog)
-{//===================================
+int NumInstnWords(USHORT *prog)
+{//============================
 	int instn;
 	int instn2;
 	int instn_type;
 	int n;
-	static const char n_words[16] = {1,1,0,0,1,1,1,1,1,2,4,0,0,0,0,0};
+	int type2;
+	static const char n_words[16] = {0,1,0,0,1,1,0,1,1,2,4,0,0,0,0,0};
 
 	instn = *prog;
 	instn_type = instn >> 12;
 	if((n = n_words[instn_type]) > 0)
 		return(n);
 
-	if(instn_type < 4)
+	switch(instn_type)
 	{
+	case 0:
+		if(((instn & 0xf00) >> 8) == i_IPA_NAME)
+		{
+			n = ((instn & 0xff) + 1) / 2;
+			return(n+1);
+		}
+		return(1);;
+
+	case 6:
+		type2 = (instn & 0xf00) >> 9;
+		if((type2 == 5) || (type2 == 6))
+			return(12);  // switch on vowel type
+		return(1);
+
+	case 2:
+	case 3:
 		// a condition, check for a 2-word instruction
 		if(((n = instn & 0x0f00) == 0x600) || (n == 0x0d00))
 			return(2);
 		return(1);
-	}
 
-	// instn_type 11 to 15, 2 words
-	instn2 = prog[2];
-	if((instn2 >> 12) == 0xf)
-	{
-		// This instruction is followed by addWav(), 2 more words
-		return(4);
+	default:
+		// instn_type 11 to 15, 2 words
+		instn2 = prog[2];
+		if((instn2 >> 12) == 0xf)
+		{
+			// This instruction is followed by addWav(), 2 more words
+			return(4);
+		}
+		if(instn2 == i_CONTINUE)
+		{
+			return(3);
+		}
+		return(2);
 	}
-	if(instn2 == i_CONTINUE)
-	{
-		return(3);
-	}
-	return(2);
 }  //  end of NumInstnWords
 
 
@@ -929,6 +947,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 	int instn2;
 	int or_flag;
 	bool truth;
+	bool truth2;
 	int data;
 	int end_flag;
 	int ix;
@@ -1044,14 +1063,20 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 			while((instn & 0xe000) == 0x2000)
 			{
 				// process a sequence of conditions, using  boolean accumulator
-				if(or_flag)
-					truth = (truth || InterpretCondition(tr, control, plist, prog, worddata));
-				else
-					truth = (truth && InterpretCondition(tr, control, plist, prog, worddata));
-				or_flag = instn & 0x1000;
+				truth2 = InterpretCondition(tr, control, plist, prog, worddata);
 				prog += NumInstnWords(prog);
+				if(*prog == i_NOT)
+				{
+					truth2 = truth2 ^ 1;
+					prog++;
+				}
+
+				if(or_flag)
+					truth = truth || truth2;
+				else
+					truth = truth && truth2;
+				or_flag = instn & 0x1000;
 				instn = *prog;
-//				instn = *(++prog);
 			}
 
 			if(truth == false)
