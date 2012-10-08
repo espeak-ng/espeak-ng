@@ -21,7 +21,6 @@
 
 
 #include "wx/wfstream.h"
-#include "wx/notebook.h"
 #include "wx/image.h"
 #include "wx/filename.h"
 #include "wx/numdlg.h"
@@ -74,8 +73,6 @@ extern void VowelChart(int control, char *fname);
 extern void MakeVowelLists(void);
 extern void MakeWordFreqList();
 
-extern const char *dict_name;
-
 extern wxMenu *speak_menu;
 extern wxMenu *data_menu;
 
@@ -83,15 +80,16 @@ extern wxMenu *data_menu;
 MyFrame *myframe = NULL;
 SpectDisplay *currentcanvas = NULL;
 
-ChildFrProsody *prosodyframe = NULL;
 ProsodyDisplay *prosodycanvas = NULL;
 wxNotebook *notebook = NULL;
+wxNotebook *screenpages = NULL;
+
 wxProgressDialog *progress;
 int progress_max;
 int gui_flag = 0;
 int frame_x, frame_y, frame_w, frame_h;
 
-wxList my_children;
+int adding_page = 0;   // fix for wxWidgets (2,8,7) bug, adding first page to a wxNotebook gives emptystring for GetPageTex() in Notebook_Page_Changed event.
 
 wxFont FONT_SMALL(8,wxSWISS,wxNORMAL,wxNORMAL);
 wxFont FONT_MEDIUM(9,wxSWISS,wxNORMAL,wxNORMAL);
@@ -166,7 +164,7 @@ if(argc > 1)
 
 	if((frame_w == 0) || (frame_h == 0))
 	{
-		frame_w = 1024;
+		frame_w = 800;
 		frame_h = 768;
 	}
 
@@ -191,7 +189,7 @@ if(argc > 1)
   return TRUE;
 }
 
-BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
+BEGIN_EVENT_TABLE(MyFrame, wxFrame)
 	EVT_CHAR(MyFrame::OnKey)
    EVT_MENU(MENU_ABOUT, MyFrame::OnAbout)
 	EVT_MENU(MENU_DOCS, MyFrame::OnAbout)
@@ -213,7 +211,6 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_SORT_DICTIONARY, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_MBROLA, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_INTONATION, MyFrame::OnTools)
-	EVT_MENU(MENU_CLOSE_ALL, MyFrame::OnQuit)
 	EVT_MENU(MENU_QUIT, MyFrame::OnQuit)
 	EVT_MENU(MENU_SPEAK_TRANSLATE, MyFrame::OnSpeak)
 	EVT_MENU(MENU_SPEAK_RULES, MyFrame::OnSpeak)
@@ -238,14 +235,22 @@ BEGIN_EVENT_TABLE(MyFrame, wxMDIParentFrame)
 	EVT_MENU(MENU_TEST, MyFrame::OnTools)
 	EVT_MENU(MENU_TEST2, MyFrame::OnTools)
 
+    EVT_MENU(SPECTSEQ_SAVE, MyFrame::PageCmd)
+    EVT_MENU(SPECTSEQ_SAVEAS, MyFrame::PageCmd)
+    EVT_MENU(SPECTSEQ_SAVESELECT, MyFrame::PageCmd)
+    EVT_MENU(SPECTSEQ_CLOSE, MyFrame::PageCmd)
+    EVT_MENU(SPECTSEQ_SAVEPITCH, MyFrame::PageCmd)
+	EVT_MENU(MENU_CLOSE_ALL, MyFrame::PageCmd)
+
+
+    EVT_NOTEBOOK_PAGE_CHANGED(ID_SCREENPAGES, MyFrame::OnPageChanged)
 	EVT_TIMER(1, MyFrame::OnTimer)
-	EVT_SIZE(MyFrame::OnSize)
-	EVT_SASH_DRAGGED(ID_WINDOW_LEFT, MyFrame::OnSashDrag)
 END_EVENT_TABLE()
 
 
 MyFrame::~MyFrame(void)
 {//====================
+	myframe->Maximize(false);
 	myframe->Show(false);
 	myframe->Iconize(false);   // os=Windows, get the non-iconsized size
 	myframe->GetPosition(&frame_x, &frame_y);
@@ -254,7 +259,7 @@ MyFrame::~MyFrame(void)
 
 MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size,
     const long style):
-  wxMDIParentFrame(parent, id, title, pos, size, style)
+  wxFrame(parent, id, title, pos, size, style)
 {//===================================================================================================================
 // Main Frame constructor
 
@@ -262,16 +267,7 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 	int result;
 	int param;
 
-  // Another window to the left of the client window
-  m_leftWindow = new wxSashLayoutWindow(this, ID_WINDOW_LEFT,
-                               wxDefaultPosition, wxSize(298, 30),
-                               wxNO_BORDER | wxSW_3D | wxCLIP_CHILDREN);
-  m_leftWindow->SetDefaultSize(wxSize(310, 1000));
-  m_leftWindow->SetOrientation(wxLAYOUT_VERTICAL);
-  m_leftWindow->SetAlignment(wxLAYOUT_LEFT);
-  m_leftWindow->SetSashVisible(wxSASH_RIGHT, TRUE);
-
-	notebook = new wxNotebook(m_leftWindow,-1);
+	notebook = new wxNotebook(this, ID_NOTEBOOK, wxDefaultPosition, wxSize(312,760));
 //	notebook->AddPage(voicedlg,_T("Voice"),FALSE);
 	formantdlg = new FormantDlg(notebook);
 	notebook->AddPage(formantdlg,_T(" Spect"),FALSE);
@@ -280,6 +276,29 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 	transldlg = new TranslDlg(notebook);
 	notebook->AddPage(transldlg,_T("Text"),TRUE);
 
+
+    screenpages = new wxNotebook(this, ID_SCREENPAGES, wxDefaultPosition, wxSize(554,702));
+
+    wxBoxSizer *framesizer = new wxBoxSizer( wxHORIZONTAL );
+
+
+    framesizer->Add(
+        notebook,
+        0,            // make horizontally stretchable
+        wxEXPAND |    // make vertically stretchable
+        wxALL,        //   and make border all around
+        4 );         // set border width
+
+    framesizer->Add(
+        screenpages,
+        1,            // make horizontally stretchable
+        wxEXPAND |    // make vertically stretchable
+        wxALL,        //   and make border all around
+        4 );         // set border width
+
+    SetSizer( framesizer );      // use the sizer for layout
+    framesizer->SetSizeHints( this );   // set size hints to honour minimum size
+    SetSize(pos.x, pos.y, size.GetWidth(), size.GetHeight());
 
 	LoadConfig();
 	WavegenInitSound();
@@ -310,7 +329,7 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 
 	for(param=0; param<N_SPEECH_PARAM; param++)
 		param_stack[0].parameter[param] = param_defaults[param];
-	
+
 	SetParameter(espeakRATE,option_speed,0);
 
 	SetSpeed(3);
@@ -343,6 +362,110 @@ void MyFrame::SetVoiceTitle(char *voice_name)
 	}
 }
 
+
+
+void MyFrame::PageCmd(wxCommandEvent& event)
+{//=========================================
+    int pagenum;
+    int ix;
+    int n_pages;
+    SpectDisplay *page;
+
+//    if(currentcanvas != NULL)
+    {
+        pagenum = screenpages->GetSelection();
+
+        switch(event.GetId())
+        {
+        case SPECTSEQ_SAVE:
+            currentcanvas->Save(currentcanvas->savepath);
+            break;
+        case SPECTSEQ_SAVEAS:
+            currentcanvas->Save();
+            break;
+        case SPECTSEQ_SAVESELECT:
+            currentcanvas->Save(_T(""), 1);
+            break;
+        case SPECTSEQ_CLOSE:
+            if(screenpages->GetPageText(pagenum) != _T("Prosody"))
+            {
+                currentcanvas->OnActivate(0);
+            }
+            screenpages->DeletePage(pagenum);
+
+            if((n_pages = screenpages->GetPageCount()) > 0)
+            {
+                if(pagenum >= n_pages)
+                    pagenum--;
+                page = (SpectDisplay *)screenpages->GetPage(pagenum);
+
+                if(screenpages->GetPageText(pagenum) == _T("Prosody"))
+                {
+                    MakeMenu(3, NULL);
+                }
+                else
+                {
+                    page->OnActivate(1);
+                    MakeMenu(2, NULL);
+                }
+            }
+            else
+            {
+                MakeMenu(1, NULL);
+            }
+            break;
+
+        case MENU_CLOSE_ALL:
+            n_pages = screenpages->GetPageCount();
+            for(ix=n_pages-1; ix>=0; ix--)
+            {
+                screenpages->DeletePage(ix);
+            }
+            currentcanvas = NULL;
+            MakeMenu(1, NULL);
+            break;
+        case SPECTSEQ_SAVEPITCH:
+            currentcanvas->SavePitchenv(currentcanvas->spectseq->pitchenv);
+            break;
+        }
+    }
+}
+
+
+
+void MyFrame::OnPageChanged(wxNotebookEvent& event)
+{//=================================================
+    int pagenum;
+    wxString title;
+    SpectDisplay *page;
+
+    pagenum = event.GetSelection();
+
+    if(event.GetId() == ID_SCREENPAGES)
+    {
+        title = screenpages->GetPageText(pagenum);
+
+        if((title != _T("Prosody")) && (adding_page != 2))
+        {
+            page = (SpectDisplay *)screenpages->GetPage(pagenum);
+
+            if(page != currentcanvas)
+            {
+                if(currentcanvas != NULL)
+                {
+                    currentcanvas->OnActivate(0);
+                }
+                page->OnActivate(1);
+            }
+            MakeMenu(2, NULL);
+        }
+        else
+        {
+            MakeMenu(3, NULL);
+        }
+    }
+	adding_page = 0;   // work around for wxNotebook bug (version 2.8.7)
+}
 
 
 void MyFrame::OnKey(wxKeyEvent& event)
@@ -624,7 +747,7 @@ void MyFrame::OnTools(wxCommandEvent& event)
 	case MENU_COMPILE_INTONATION:
 		CompileIntonation();
 		break;
-		
+
 	case MENU_COMPILE_DICT_DEBUG:
 		debug_flag =1;  // and drop through to next case
 	case MENU_COMPILE_DICT:
@@ -729,105 +852,4 @@ void MyFrame::OnSpeak(wxCommandEvent& event)
 }
 
 
-void MyFrame::OnSashDrag(wxSashEvent& event)
-{
-	int w, h;
-
-	if (event.GetDragStatus() == wxSASH_STATUS_OUT_OF_RANGE)
-		return;
-
-	GetClientSize(&w, &h);
-
-	switch (event.GetId())
-	{
-		case ID_WINDOW_LEFT:
-		{
-			m_leftWindow->SetDefaultSize(wxSize(event.GetDragRect().width, h));
-			break;
-		}
-	}
-	wxLayoutAlgorithm layout;
-	layout.LayoutMDIFrame(this);
-
-	// Leaves bits of itself behind sometimes
-	GetClientWindow()->Refresh();
-}
-
-
-
-void MyFrame::OnSize(wxSizeEvent& WXUNUSED(event))
-{
-    wxLayoutAlgorithm layout;
-    layout.LayoutMDIFrame(this);
-}
-
-// Note that SASHTEST_NEW_WINDOW and SASHTEST_ABOUT commands get passed
-// to the parent window for processing, so no need to
-// duplicate event handlers here.
-
-BEGIN_EVENT_TABLE(MyChild, wxMDIChildFrame)
-  EVT_MENU(SPECTSEQ_CLOSE, MyChild::OnQuit)
-  EVT_MENU(SPECTSEQ_SAVE, MyChild::OnSave)
-  EVT_MENU(SPECTSEQ_SAVEAS, MyChild::OnSaveAs)
-  EVT_MENU(SPECTSEQ_SAVESELECT, MyChild::OnSaveSelect)
-  EVT_MENU(SPECTSEQ_SAVEPITCH, MyChild::OnSavePitchenv)
-
-  EVT_ACTIVATE(MyChild::OnActivate)
-END_EVENT_TABLE()
-
-MyChild::MyChild(wxMDIParentFrame *parent, const wxString& title, const wxPoint& pos, const wxSize& size,
-const long style):
-  wxMDIChildFrame(parent, -1, title, pos, size, style)
-{
-  canvas = NULL;
-  my_children.Append(this);
-}
-
-MyChild::~MyChild(void)
-{
-	canvas = NULL;
-#ifndef PLATFORM_WINDOWS
-	wxWindow *w;
-	// bug in wxMDIChildFrame, we need to explicitly remove the ChildFrame from the ClientWindow
-	w = myframe->GetClientWindow();
-	w->RemoveChild(this);
-#endif
-  my_children.DeleteObject(this);
-}
-
-//extern void CloseCanvas();
-
-void MyChild::OnQuit(wxCommandEvent& WXUNUSED(event))
-{
-	Destroy();
-
-}
-
-void MyChild::OnSave(wxCommandEvent& WXUNUSED(event))
-{
-	canvas->Save(canvas->savepath);
-}
-
-void MyChild::OnSaveAs(wxCommandEvent& WXUNUSED(event))
-{
-	canvas->Save();
-}
-
-void MyChild::OnSaveSelect(wxCommandEvent& WXUNUSED(event))
-{
-	canvas->Save(_T(""),1);
-}
-
-void MyChild::OnSavePitchenv(wxCommandEvent& WXUNUSED(event))
-{
-	canvas->SavePitchenv(canvas->spectseq->pitchenv);
-}
-
-void MyChild::OnActivate(wxActivateEvent& event)
-{
-	if(canvas)
-		canvas->OnActivate(event.GetActive());
-
-		
-}
 

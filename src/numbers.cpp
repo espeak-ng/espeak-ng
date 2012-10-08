@@ -1137,8 +1137,8 @@ static int LookupThousands(Translator *tr, int value, int thousandplex, int thou
 }  // end f LookupThousands
 
 
-static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
-{//========================================================================
+static int LookupNum2(Translator *tr, int value, const int control, char *ph_out)
+{//=============================================================================
 // Lookup a 2 digit number
 // control bit 0: ordinal number
 // control bit 1: final tens and units (not number of thousands) (use special form of '1', LANG=de "eins")
@@ -1151,6 +1151,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 	int ix;
 	int units;
 	int tens;
+	int is_ordinal;
 	int used_and=0;
 	int found_ordinal = 0;
 	int next_phtype;
@@ -1175,6 +1176,8 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		ord_type = 'q';
 	}
 
+	is_ordinal = control & 1;
+
 	if((control & 2) && (n_digit_lookup == 2))
 	{
 		// pronunciation of the final 2 digits has already been found
@@ -1187,11 +1190,12 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 			// is there a special pronunciation for this 2-digit number
 			if(control & 8)
 			{
+				// is there a feminine form?
 				sprintf(string,"_%df",value);
 				found = Lookup(tr, string, ph_digits);
 			}
 			else
-			if(control & 1)
+			if(is_ordinal)
 			{
 				strcpy(ph_ordinal, ph_ordinal2);
 		
@@ -1229,8 +1233,15 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 
 				if(!found)
 				{
-					sprintf(string,"_%d",value);
-					found = Lookup(tr, string, ph_digits);
+					if((is_ordinal) && (tr->langopts.numbers2 & NUM2_NO_TEEN_ORDINALS))
+					{
+						// don't use numbers 10-99 to make ordinals, always use _1Xo etc (lang=pt)
+					}
+					else
+					{
+						sprintf(string,"_%d",value);
+						found = Lookup(tr, string, ph_digits);
+					}
 				}
 			}
 		}
@@ -1251,7 +1262,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 			else
 			{
 	
-				if((control & 1) && 
+				if((is_ordinal) && 
 					((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
 				{
 					sprintf(string,"_%dX%c", tens, ord_type);
@@ -1300,7 +1311,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 							sprintf(string,"_%df",units);
 							found = Lookup(tr, string, ph_digits);
 						}
-						if((control & 1) && ((tr->langopts.numbers & NUM_SWAP_TENS) == 0))
+						if((is_ordinal) && ((tr->langopts.numbers & NUM_SWAP_TENS) == 0))
 						{
 							// ordinal
 							sprintf(string,"_%d%c",units,ord_type);
@@ -1335,7 +1346,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 			}
 		}
 	
-		if((control & 1) && (found_ordinal == 0) && (ph_ordinal[0] == 0))
+		if((is_ordinal) && (found_ordinal == 0) && (ph_ordinal[0] == 0))
 		{
 			if((value >= 20) && (((value % 10) == 0) || (tr->langopts.numbers & NUM_SWAP_TENS)))
 				Lookup(tr, "_ord20", ph_ordinal);
@@ -1347,7 +1358,7 @@ static int LookupNum2(Translator *tr, int value, int control, char *ph_out)
 		{
 			Lookup(tr, "_0and", ph_and);
 
-			if((control & 1) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
+			if((is_ordinal) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
 				ph_and[0] = 0;
 
 			if(tr->langopts.numbers & NUM_SWAP_TENS)
@@ -1406,6 +1417,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 	int ix;
 	int exact;
 	int ordinal;
+	int tplex;
 	int say_zero_hundred=0;
 	char string[12];  // for looking up entries in **_list
 	char buf1[100];
@@ -1465,10 +1477,16 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			if ((value % 1000) == 0)
 				exact = 1;
 
-			if(LookupThousands(tr, hundreds / 10, thousandplex+1, exact | ordinal, ph_10T) == 0)
+			tplex = thousandplex+1;
+			if(tr->langopts.numbers2 & NUM2_MYRIADS)
+			{
+				tplex = 0;
+			}
+
+			if(LookupThousands(tr, hundreds / 10, tplex, exact | ordinal, ph_10T) == 0)
 			{
 				x = 0;
-				if(tr->langopts.numbers2 & (1 << (thousandplex+1)))
+				if(tr->langopts.numbers2 & (1 << tplex))
 					x = 8;   // use variant (feminine) for before thousands and millions
 				LookupNum2(tr, hundreds/10, x, ph_digits);
 			}
@@ -1615,6 +1633,23 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 }  // end of LookupNum3
 
 
+bool CheckThousandsGroup(char *word, int group_len)
+{//================================================
+// Is this a group of 3 digits which looks like a thousands group?
+	int ix;
+
+	if(isdigit(word[group_len]) || isdigit(-1))
+		return(false);
+
+	for(ix=0; ix < group_len; ix++)
+	{
+		if(!isdigit(word[ix]))
+			return(false);
+	}
+	return(true);
+}
+
+
 static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned int *flags, WORD_TAB *wtab, int control)
 {//=====================================================================================================================
 //  Number translation with various options
@@ -1640,6 +1675,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int decimal_mode;
 	int suffix_ix;
 	int skipwords = 0;
+	int group_len;
 	char *p;
 	char string[32];  // for looking up entries in **_list
 	char buf1[100];
@@ -1662,8 +1698,12 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	n_digits = ix;
 	value = this_value = atoi(word);
 
+	group_len = 3;
+	if(tr->langopts.numbers2 & NUM2_MYRIADS)
+		group_len = 4;
+
 	// is there a previous thousands part (as a previous "word") ?
-	if((n_digits == 3) && (word[-2] == tr->langopts.thousands_sep) && isdigit(word[-3]))
+	if((n_digits == group_len) && (word[-2] == tr->langopts.thousands_sep) && isdigit(word[-3]))
 	{
 		prev_thousands = 1;
 	}
@@ -1777,14 +1817,19 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		// a "thousand"/"million" suffix to this one
 		digix = n_digits + thousands_inc;
 
-		while(((wtab[thousandplex+1].flags & FLAG_MULTIPLE_SPACES) == 0) &&
-			isdigit(word[digix]) && isdigit(word[digix+1]) && isdigit(word[digix+2]) && !isdigit(word[digix+3]) && !isdigit(word[digix-1]))
+		while(((wtab[thousandplex+1].flags & FLAG_MULTIPLE_SPACES) == 0) && CheckThousandsGroup(&word[digix], group_len))
 		{
-			if((word[digix] != '0') || (word[digix+1] != '0') || (word[digix+2] != '0'))
-				thousands_exact = 0;
+			for(ix=0; ix<group_len; ix++)
+			{
+				if(word[digix+ix] != '0')
+				{
+					thousands_exact = 0;
+					break;
+				}
+			}
 
 			thousandplex++;
-			digix += 3;
+			digix += group_len;
 			if((word[digix] == tr->langopts.thousands_sep) || ((tr->langopts.numbers & NUM_ALLOW_SPACE) && (word[digix] == ' ')))
 			{
 				suffix_ix = digix+2;
@@ -1820,7 +1865,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	{
 		if(thousands_inc > 0)
 		{
-			if((thousandplex > 0) && (value < 1000))
+			if(thousandplex > 0)
+//			if((thousandplex > 0) && (value < 1000))
 			{
 				if((suppress_null == 0) && (LookupThousands(tr,value,thousandplex, thousands_exact, ph_append)))
 				{

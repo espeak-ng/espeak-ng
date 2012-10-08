@@ -18,6 +18,5 @@ copy <obey$dir>.^.src.sintab/h <obey$dir>.h.sintab fq~c
 copy <obey$dir>.^.src.speak_lib/h <obey$dir>.h.speak_lib fq~c
 copy <obey$dir>.^.src.synthesize/h <obey$dir>.h.synthesize fq~c
 copy <obey$dir>.^.src.translate/h <obey$dir>.h.translate fq~c
-copy <obey$dir>.^.src.tr_languages/h <obey$dir>.h.tr_languages fq~c
 copy <obey$dir>.^.src.voice/h <obey$dir>.h.voice fq~c
 copy <obey$dir>.^.src.wave/h <obey$dir>.h.wave fq~c

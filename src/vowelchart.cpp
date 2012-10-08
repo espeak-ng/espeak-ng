@@ -525,42 +525,17 @@ static void FindVowelFmt(int prog_start, int length)
 	prog_end = prog_start + length;
 	n_vowelfmt_addr = 0;
 
-	for(prog = &phoneme_index[prog_start]; prog < &phoneme_index[prog_end]; prog++)
+	for(prog = &phoneme_index[prog_start]; prog < &phoneme_index[prog_end]; prog += NumInstnWords(prog))
 	{
 		instn = *prog;
 		
-		switch(instn >> 12)
+		if((instn >> 12) == 11)
 		{
-		case 2:
-		case 3:
-			// conditions
-			while((instn & 0xe000) == 0x2000)
-			{
-				instn = *(++prog);
-			}
-			prog--;
-		break;
-
-		case 10:   //  Vowelin, Vowelout
-			prog += 3;
-			break;
-
-		case 9:
-		case 12:   // WAV
-		case 13:   // VowelStart
-		case 14:   // VowelEnd
-		case 15:   // addWav
-			prog++;
-			break;
-
-		case 11:   // FMT
+			// FMT instruction
 			if(n_vowelfmt_addr < N_VOWELFMT_ADDR)
 			{
 				vowelfmt_addr[n_vowelfmt_addr++] = ((instn & 0xf) << 18) + (prog[1] << 2);
 			}
-			prog++;
-
-			break;
 		}
 	}
 }  // end of FindVowelFmt

@@ -16,7 +16,7 @@
 
 // endings
 .L01 a am o
-.L02 a am e em o
+.L02 a am e em o ue uem
 .L03 a am
 
 .group a
@@ -367,6 +367,13 @@ _compar) e (çL01_   e
 _desapar) e (çL01_  e
 _esclar) e (çL01_    e
 _reapar) e (çL01_   e
+ _sol) e (trL01_    E
+_acont) e (çL03_    e
+_envaid) e (çL01_   e
+ _ofer) e (çL01_    e
+_enriqu) e (çL01_   e
+_descr) e (vL01_    e
+_enfraqu) e (çL01_  e
 //endsort
 
 .group é
@@ -653,11 +660,14 @@ _reapar) e (çL01_   e
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
 ?1   v) o (lt      O
 
+//sort
     _m) o (lhL02_  O
+  _ref) o (gL02_   O
      c) o (rrL03_  o   // escorra, incorra, corra, recorra
     _m) o (rrL03_  o
    _ap) oi (L03_   OI
      p) ostos (_   Ost=Us#   // dispostos etc.
+//endsort
 
 .group ô
         ô          ''o

@@ -16,11 +16,11 @@ Squeezeflags = -o $@
         @.o.intonation @.o.readclause @.o.setlengths @.o.synthdata \
         @.o.synthesize @.o.translate  @.o.tr_languages @.o.numbers \
 	@.o.synth_mbrola @.o.phonemelist \
-        @.o.tr_english @.o.wavegen @.o.voices @.o.assemb @.o.cmhgfile
+        @.o.wavegen @.o.voices @.o.assemb @.o.cmhgfile
         Link $(Linkflags) C:o.stubs C:o.c++lib @.o.speak_riscos @.o.compiledict \
         @.o.dictionary @.o.intonation @.o.readclause @.o.setlengths \
         @.o.synthdata @.o.synthesize @.o.numbers @.o.synth_mbrola \
-        @.o.translate @.o.tr_english @.o.wavegen @.o.tr_languages \
+        @.o.translate @.o.wavegen @.o.tr_languages \
         @.o.voices @.o.phonemelist @.o.assemb @.o.cmhgfile
 
 
@@ -51,8 +51,6 @@ Squeezeflags = -o $@
         c++ $(c++flags) -o @.o.synthesize @.CPP.synthesize 
 @.o.translate:   @.CPP.translate
         c++ $(c++flags) -o @.o.translate @.CPP.translate 
-@.o.tr_english:   @.CPP.tr_english
-        c++ $(c++flags) -o @.o.tr_english @.CPP.tr_english 
 @.o.tr_languages:   @.CPP.tr_languages
         c++ $(c++flags) -o @.o.tr_languages @.CPP.tr_languages 
 @.o.voices:   @.CPP.voices
