@@ -915,7 +915,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->letter_bits_offset = OFFSET_GEORGIAN;
 //			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.max_initial_consonants = 7;
-			tr->langopts.numbers = NUM_VIGESIMAL | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED |NUM_OMIT_1_THOUSAND | NUM_DFRACTION_5;
+			tr->langopts.numbers = NUM_VIGESIMAL | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED |NUM_OMIT_1_THOUSAND | NUM_DFRACTION_5 | NUM_ROMAN;
 		}
 		break;
 
@@ -1207,7 +1207,9 @@ SetLengthMods(tr,3);  // all equal
 		
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4a;   //virama
-			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND ;
+			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND;
+			tr->langopts.numbers2 =  NUM2_PERCENT_BEFORE;
+			tr->langopts.break_numbers = 0x14aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		}
 		break;
 

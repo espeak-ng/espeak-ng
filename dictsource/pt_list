@@ -644,6 +644,7 @@ governo	gov'ernU	$noun
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+abordo		$alt
 aborto		$alt $verb
 acerto		$alt2 $noun
 adereço		$alt2
@@ -667,13 +668,17 @@ apoio		$alt $verb
 aprendeste	$alt2
 arremesso	$alt2 $noun
 assembleia	$alt
+atmosfera	$alt
 atrozes		$alt
 austera		$alt
 austero		$alt
 autora		$alt2
+bebeste		$alt2
 beco		$alt2
 belo		$alt
 besta		$alt2
+bezerro		$alt2
+bilhete		$alt2
 boca		$alt2
 boleia		$alt
 bolo		$alt2
@@ -683,9 +688,12 @@ bromelha	$alt
 cabeça		$alt2
 cacete		$alt2
 cachorra	$alt2
+caderneta	$alt2
 camiseta	$alt2
 cantora		$alt2
 caractere	$alt
+careta		$alt2
+carreta		$alt2
 casebre		$alt
 catorze		$alt2
 cefaleia	$alt
@@ -699,7 +707,10 @@ coco		$alt2
 cofre		$alt
 colmeia		$alt
 começo		$alt2 $noun
+comera		$alt2
 comeres		$alt2
+comeste		$alt2
+conheceste	$alt2
 conheço		$alt2
 copa		$alt
 copo		$alt
@@ -715,6 +726,7 @@ couber		$alt
 couberem	$alt
 couberdes	$alt
 couberes	$alt
+cratera		$alt
 crede		$alt2
 cresce		$alt
 crescem		$alt
@@ -737,13 +749,17 @@ doce		$alt2
 droga		$alt
 emprego		$alt2 $noun
 endereço	$alt2
+enforco		$alt
+engordo		$alt
 enumerem	$alt
 enredo		$alt $verb
 enterro		$alt2 $noun
+envolto		$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
 eritreia	$alt
 erro		$alt2 $noun
+erros		$alt2
 escopeta	$alt2
 escroto		$alt2
 esforço		$alt $verb
@@ -765,13 +781,9 @@ fera		$alt
 fere		$alt
 ferem		$alt
 fezes		$alt
-fizer		$alt
-Fizeram		$alt
-fizerem		$alt
-fizerdes	$alt
-fizeres		$alt
 folga		$alt
 fogos		$alt
+forca		$alt2
 fores		$alt2
 forro		$alt $verb
 fosse		$alt2
@@ -785,6 +797,7 @@ gelo		$alt $verb
 germe		$alt
 gesso		$alt2
 gonorreia	$alt
+gorda		$alt2
 gozo		$alt $verb
 grego		$alt2
 grelha		$alt
@@ -808,10 +821,12 @@ mantiveres	$alt
 marreta		$alt2
 martelo		$alt
 merda		$alt
+megera		$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
 miolo		$alt2
+moeda		$alt
 modo		$alt
 modos		$alt
 molho		$alt2 $noun
@@ -831,6 +846,9 @@ mutreta		$alt2
 naquele		$alt2
 negro		$alt2
 novos		$alt
+obstera		$alt
+obsoleta	$alt2
+obsoleto	$alt2
 odisseia	$alt
 onu		$1
 opereta		$alt2
@@ -856,6 +874,7 @@ peso		$alt2 $noun
 pirueta		$alt2
 plateia		$alt
 plebeia		$alt
+porcos		$alt
 porrete		$alt2
 porra		$alt2
 portos		$alt
@@ -868,6 +887,7 @@ primavera	$alt
 profere		$alt
 proferem	$alt
 puder		$alt
+punheta		$alt
 puserdes	$alt
 recomeço	$alt2 $noun
 recordo		$alt
@@ -881,6 +901,7 @@ resolvem	$alt
 rixa		x'iS&
 rogas		$alt
 saleta		$alt2
+sarjeta		$alt
 seborreia	$alt
 seco		$alt2 $noun
 selo		$alt $verb
@@ -900,12 +921,10 @@ soprem		$alt
 sopro		$alt $verb
 sorvete		$alt2
 sossego     $alt2 $noun
-souber		$alt
 souberdes	$alt
-souberes	$alt
-souberem	$alt
 sugere		$alt
 sugerem		$alt
+suporto		$alt
 suor		swOr
 tapete		$alt2
 tempero		$alt $verb
@@ -920,6 +939,7 @@ travesso	$alt2
 trevo		$alt2
 troco		$alt2 $noun
 tropeço		$alt2 $noun
+trombeta	$alt2
 valeta		$alt2
 vanessa		$alt2
 verbo		$alt

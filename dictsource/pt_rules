@@ -15,9 +15,12 @@
 // K  not a vowel
 
 // endings
-.L01 a am o
-.L02 a am e em o ue uem
-.L03 a am
+.L01 a am
+.L02 e em
+.L03 a am o
+.L04 a am e em o ue uem
+.L05 r ra ram re rem rdes
+
 
 .group a
      _) a (_       a
@@ -335,46 +338,58 @@
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
 //sort
-    qu) e (brL02_   E
- _hosp) e (dL01_    E
- _estr) ei (L01_    EI
-  _inv) e (jL02_    E
-  _dec) e (pL02_    E
-    _g) e (rL02_	E
-   _op) e (rL02_    E
-   _qu) e (rL02_    E
-  _alt) e (rL02_    E
-  _inv) e (rtL01_   e
-    _f) e (rvL01_   e
-    _p) e (scL01_   E
-    _m) e (sclL02_  E
-  _com) e (tL01_    e
- _derr) e (tL01_    e
- _prom) e (tL01_    e
-  _atr) e (vL01_    e
- _escr) e (vL01_    e
-   _pr) e (zL02_    E
-  _ado) e (çL01_    e
-  _aqu) e (çL01_    e
-  _car) e (çL01_    e
-  _mer) e (çL01_    e
-  _pad) e (çL01_    e
-  _per) e (çL01_    e
- _esqu) e (çL01_    e
- _obed) e (çL01_    e
-_aborr) e (çL01_    e
-_compar) e (çL01_   e
-_desapar) e (çL01_  e
-_esclar) e (çL01_    e
-_reapar) e (çL01_   e
- _sol) e (trL01_    E
-_acont) e (çL03_    e
-_envaid) e (çL01_   e
- _ofer) e (çL01_    e
-_enriqu) e (çL01_   e
-_descr) e (vL01_    e
-_enfraqu) e (çL01_  e
+    qu) e (brL04_   E
+ _hosp) e (dL03_    E
+ _estr) ei (L03_    EI
+  _inv) e (jL04_    E
+  _dec) e (pL04_    E
+    _g) e (rL04_	E
+   _op) e (rL04_    E
+   _qu) e (rL04_    E
+  _alt) e (rL04_    E
+  _inv) e (rtL03_   e
+    _f) e (rvL03_   e
+    _p) e (scL03_   E
+    _m) e (sclL04_  E
+    _m) e (tL03_    e
+  _com) e (tL03_    e
+  _rem) e (tL03_    e
+ _derr) e (tL03_    e
+ _prom) e (tL03_    e
+ _subm) e (tL03_    e
+_comprom) e (tL03_  e
+ _sol) e (trL03_    E
+  _atr) e (vL03_    e
+ _escr) e (vL03_    e
+_descr) e (vL03_    e
+_embel) e (zL01_    e
+   _pr) e (zL04_    E
+_acont) e (çL01_    e
+  _ado) e (çL03_    e
+  _aqu) e (çL03_    e
+  _car) e (çL03_    e
+  _mer) e (çL03_    e
+  _pad) e (çL03_    e
+  _per) e (çL03_    e
+ _esqu) e (çL03_    e
+ _obed) e (çL03_    e
+ _ofer) e (çL03_    e
+_aborr) e (çL03_    e
+_compar) e (çL03_   e
+_desapar) e (çL03_  e
+_enfraqu) e (çL03_  e
+_enriqu) e (çL03_   e
+_envaid) e (çL03_   e
+_esclar) e (çL03_    e
+_reapar) e (çL03_   e
+_reconh) e (çL03_   e
 //endsort
+
+ _exag) e (L05_     E
+  _fiz) e (L05_     E
+ _houv) e (L05_     E
+ _soub) e (L05_     E
+
 
 .group é
         é          ''E
@@ -661,11 +676,16 @@ _enfraqu) e (çL01_  e
 ?1   v) o (lt      O
 
 //sort
-    _m) o (lhL02_  O
-  _ref) o (gL02_   O
-     c) o (rrL03_  o   // escorra, incorra, corra, recorra
-    _m) o (rrL03_  o
-   _ap) oi (L03_   OI
+ _engl) o (bL01_   O
+    _r) o (gL04_   O
+  _adv) o (gL04_   O
+  _ref) o (gL04_   O
+   _ap) oi (L01_   OI
+    _m) o (lhL04_  O
+  _abs) o (lvL02_  O
+  _env) o (lvL02_  O
+     c) o (rrL01_  o   // escorra, incorra, corra, recorra
+    _m) o (rrL01_  o
      p) ostos (_   Ost=Us#   // dispostos etc.
 //endsort
 
