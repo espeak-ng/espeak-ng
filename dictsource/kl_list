@@ -1,0 +1,43 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Greenlandic
+
+b	be
+c	se
+d	de
+f	ef
+g	ge
+h	ha
+j	je
+k	ka
+l	el
+m	em
+n	en
+p	pe
+q	qa:
+r	er
+s	es
+t	te
+v	ve
+w	we
+x	iks
+z	ze
+
+// y
+// æ
+// ø
+// å
+
+_0	n'u:lu
+_1	at'a:seq
+_2	m'arluk
+_3	p'iNasut
+_4	s'isamat
+_5	t'al#imat
+_6	arf'inil#it
+_7	arfineqm'arluk
+_8	arfineqp'iNasut
+_9	quliNil'uat
+_10	q'uilit
+
+_dpt	kom:a
