@@ -259,7 +259,6 @@ tamil	தமிழ்	$text
 பண்தம்	$alt
 பவனி	$alt
 பாபா	$alt
-போண்டா	$alt
 பாதாம்	$alt
 போகம்	$alt
 போதனை	$alt
@@ -288,7 +287,6 @@ tamil	தமிழ்	$text
 பால்ய	$alt
 பில்	$alt
 பந்த்	$alt
-பில்லி	$alt
 பம்பளிமாஸ்	$alt
 பைக்கை	$alt
 பெட்டின்	$alt
@@ -468,6 +466,7 @@ tamil	தமிழ்	$text
 சாரு		$alt
 பிரசார்		prVsa:r
 சாயா		$alt
+சோ 		$alt
 
 
 கக	$alt	// initial க as [g]

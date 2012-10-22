@@ -1,0 +1,152 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Greenlandic
+
+
+.group a
+        a        a
+        aa       a:
+        ai (_    aI
+
+
+.group b
+        b        b
+
+
+.group c
+        c        k
+        c (e     s
+        c (i     s
+
+
+.group d
+        d        d
+
+
+.group e
+        e        e
+        ee       e:
+
+
+.group f
+        f        f
+        ff       f:
+
+
+.group g
+        g        Q
+        gg       C:
+
+
+.group h
+        h         h
+        hh        h:
+
+
+.group i
+        i        i
+        ii       i:
+
+
+.group j
+        j        j
+        jj       j:
+
+
+.group k
+        k        k
+        kk       k:
+
+
+.group l
+        l        l
+        ll       l#
+
+
+.group m
+        m        m
+        mm       m:
+
+
+.group n
+        n        n
+        nn       n:
+        ng       N
+        nng      N:
+
+
+.group o
+        o        o
+        oo       o:
+
+
+.group p
+        p        p
+        p        p:
+
+        
+.group q
+        q        q
+        qq       q:
+        
+
+.group r
+        r        r
+        rr       X:
+        
+
+.group s
+        s        s
+        ss       s:
+
+
+.group t
+        t        t
+        tt       t:
+        tl       tl#
+        ts       ts
+
+
+.group u
+        u        u
+        uu       u:
+
+
+.group v
+        v        v
+        vv       v:
+
+
+.group w
+        w        w
+
+
+.group x
+        x        ks
+
+
+.group y
+        y        j
+     K) y (K     i     // not before or after a vowel
+
+
+.group z
+        z        z
+
+
+.group æ
+        æ        &
+
+
+.group ø
+        ø        W
+
+
+.group å
+        å        O
+
+
+.group
+        $        d'olar
+
+        

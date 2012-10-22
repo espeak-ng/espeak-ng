@@ -1927,3 +1927,7 @@ include ph_tatar
 phonemetable ko base
 include ph_korean
 
+phonemetable kl base
+include ph_greenlandic
+
+
