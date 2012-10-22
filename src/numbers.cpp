@@ -1919,6 +1919,22 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				n_digit_lookup = 1;
 			}
 		}
+
+		if((tr->langopts.numbers2 & NUM2_PERCENT_BEFORE) && (prev_thousands == 0))
+		{
+			// LANG=si, say "percent" before the number
+			p2 = word;
+			while((*p2 != ' ') && (*p2 != 0))
+			{
+				p2++;
+			}
+			if(p2[1] == '%')
+			{
+				Lookup(tr, "%", ph_out);
+				ph_out += strlen(ph_out);
+				p2[1] = ' ';
+			}
+		}
 	}
 
 	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal);

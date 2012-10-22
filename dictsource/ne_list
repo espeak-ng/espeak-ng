@@ -1,5 +1,5 @@
-// Nepali Language.
-// This list file is prepared by Him Prasad Gautam (Nepal).
+﻿// Nepali Language.
+// This ne_list file is prepared by Him Prasad Gautam < himjee@yahoo.com >.
 // This file is UTF-8 encoded.
 
 // letter groups:
@@ -214,17 +214,17 @@ _dpt	_th'o:plo_
 तर	t'ar@,	$pause
 पर	p'ar@,
 वर	w'ar@:
-मेरो	$pause
+मेरो	$brk
 म	m@2,,	$u   $brk
 नि	$pause
-त	t@,
+त	t@,	$pause
 र	$u  	$pause
 पो	$u  	$pause
 हो	$u  	$brk
 के	k'e,:  	$brk
 दुःख	d'u,,kh@
 सुख	s'u=kh@
-जव	J'a@
+जव	J'Vv@
 राष्ट्रिय 	r'a:S,t.rI:j@2	$2
  सित	s'it@
  होइन	h'oi:n@2
@@ -232,5 +232,15 @@ _dpt	_th'o:plo_
  गएन	g'Vj'en@2
  खाएन	khaj'en@2
  दिएन	d'ij'en@2
-	
+छुन	ch'un'@
+बाट	b'a:t.@
+अथवा	$pause
+वा	$pause
+उप	u'p@	$brk
+
+
+
+
+
+
 // 

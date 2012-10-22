@@ -3418,6 +3418,24 @@ memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
 
+	if(!wxDirExists(path_phsource))
+	{
+		if(gui_flag)
+		{
+			wxString dirname = wxDirSelector(_T("Phoneme source directory"),path_phsource);
+			if(!dirname.IsEmpty())
+			{
+				path_phsource = dirname;
+				strncpy0(path_source,path_phsource.mb_str(wxConvLocal),sizeof(path_source)-1);
+				strcat(path_source,"/");
+			}
+		}
+		else
+		{
+			fprintf(stderr,"Can't find phoneme source directory: %s\n",path_source);
+		}
+	}
+
 	strncpy0(current_fname,source,sizeof(current_fname));
 
 	strncpy0(fname,path_phfile.mb_str(wxConvLocal),sizeof(fname));
@@ -3520,8 +3538,10 @@ memset(markers_used,0,sizeof(markers_used));
 fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references);
 	fclose(f_in);
 	fclose(f_phdata);
-	fclose(f_errors);
-	fclose(f_prog_log);
+	if(f_errors != stderr)
+        fclose(f_errors);
+    if(f_prog_log != NULL)
+        fclose(f_prog_log);
 	fclose(f_phindex);
 	fclose(f_phtab);
 	fclose(f_phcontents);

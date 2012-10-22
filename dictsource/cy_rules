@@ -1,6 +1,8 @@
 // translation rules for Welsh language
 // This file is UTF-8 encoded
 
+.L01 ch dd ff ll th     // digraph consonants
+
 .group a
      _)  a (_      A:
          a         A:
@@ -21,7 +23,7 @@
          ae        AY
          ai        aI
          au        aY
-      @) au (_     a
+//      @) au (_     a
          aw (+     aU
 
 
@@ -80,6 +82,7 @@
          g         g
          gwl       gw@-l
          gwn       gw@-n
+         gwr       gw@-r
 
 .group h
      _)  h (_      hA:
@@ -230,6 +233,7 @@
          w (dd     u:
 
          w (A      w
+      _) w (l
          wy        uY
 
 .group x

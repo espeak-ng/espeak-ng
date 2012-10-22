@@ -1,5 +1,5 @@
 ﻿// Nepali Language.
-// This rules file is prepared by Him Prasad Gautam (nepal).
+// This ne_rules file is prepared by Him Prasad Gautam < himjee@yahoo.com >.
 // This file is UTF-8 encoded.
 
 // letter groups:
@@ -393,15 +393,15 @@
 	// Independent (Alphabetic) Vowels
 
 .group ऄ
-	ऄ	e~
+	ऄ	e~'
 
 .group अ
 	अ	V
-	अँ	V~
+	अँ	V~'
 
 .group आ
 	आ	a:
-	आँ	a~'
+	आँ	a~''
 	आइ	a:I
 	आउ	a:U
 	आऊ	a:U'
@@ -409,21 +409,21 @@
 .group इ
 
 	इ	I
-	इँ	i~
+	इँ	i~'
 
 .group ई
 	ई	I:
 	ई (_	i:
-	ईँ	i~'
+	ईँ	i~''
 
 .group उ
 	उ	U
-	उँ	u~:
+	उँ	u~'
 
 
 .group ऊ
 	ऊ	U
-	ऊँ	u~:
+	ऊँ	u~'
 
 .group ऋ
 	ऋ	rI
@@ -442,15 +442,15 @@
 
 .group ऎ
 	ऎ	e
-	ऎँ	e~:
+	ऎँ	e~'
 
 .group ए
 	ए	e:
-	एँ	e~,
+	एँ	e~',
 
 .group ऐ
 	ऐ	VI
-	ऐँ	E~:
+	ऐँ	E~'
 ?2	ऐ	aI	// ?? [aI] [E:] [&:]
 
 .group ऑ
@@ -461,18 +461,18 @@
 
 .group ओ
 	ओ	o:
-	ओँ	o~
+	ओँ	o~'
 
 .group औ
 	औ	VU	// ?? [aU] [O:]
-	औँ	O~
+	औँ	O~'
 ?3	औ	aU	// ?? [aU] [O:]
 
 .group ॐ
-	ॐ	o~'m
+	ॐ	o~''m
 
 .group ॲ
-	ॲ	V~:
+	ॲ	V~'
 
 
 	// Dependent (Symbolic) Vowel
@@ -481,29 +481,29 @@
 	ा	a:,k'a::r@ // If not followed to a Consonant.
 	C) ा	a:
 	ाव	aU
-	C) ाँ	a~:
+	C) ाँ	a~'
 
 .group ि
 	ि	i'k'a::r@ // If not followed to a Consonant.
 	C) ि	I
-	C) िँ	i~:
+	C) िँ	i~'
 
 .group ी
 	ी	i:,=k'a::r@ // If not followed to a Consonant.
 	C) ी (_	i:
 	C) ी	I:
-	C) ीँ	i~:
+	C) ीँ	i~'
 
 .group ु
 	ु	U'k'a::r@ // If not followed to a Consonant.
 	अन) ु	u,-
 	C) ु	u
-	C) ुँ	u~:
+	C) ुँ	u~'
 
 .group ू
 	ू	wu:,=k'a::r@ // If not followed to a Consonant.
 	C) ू	u:
-	C) ूँ	u~:
+	C) ूँ	u~'
 
 .group ृ
 	ृ	ri:,k'a:r@ // If not followed to a Consonant.
@@ -515,7 +515,7 @@
 
 .group ॅ
 	ॅ	E,ci:n'h@:
-	C) ॅ	V~
+	C) ॅ	V~'
 
 .group ॆ
 	ॆ	e'k'a::r@/ // If not followed to a Consonant.
@@ -524,12 +524,12 @@
 .group े
 	े	e:'k'a::r@ // If not followed to a Consonant.
 	C) े	e:
-	C) ेँ	e~:
+	C) ेँ	e~'
 
 .group ै
 	ै	VI:'k'a::r@ // If not followed to a Consonant.
 	C) ै	E:	// ?? [aI] [E:] [&:]
-	C) ैँ	E~
+	C) ैँ	E~'
 ?2	C) ै	aI	// ?? [aI] [E:] [&:]
 
 .group ॉ
@@ -543,12 +543,12 @@
 .group ो
 	ो	o:,k'a::r@ // If not followed to a Consonant.
 	C) ो	o:
-	C) ोँ	o~:
+	C) ोँ	o~'
 
 .group ौ
 	ौ	O:uka::r@ // If not followed to a Consonant.
 	C) ौ	O:	//	[O:] or [aU] ??
-	C) ौँ	O~:
+	C) ौँ	O~'
 ?3	C) ौ	aU	//	[O:] or [aU] ??
 
 .group ॢ
@@ -562,8 +562,8 @@
 
 .group क
 	क	kV
-	कँ	kV~:
-	कॅ	kV~
+	कँ	kV~'
+	कॅ	kV~'
 	क (B	k
 ?1	क (_k 
 	्) क (_	k@/
@@ -577,8 +577,8 @@
 ?1	ख (_	kh
 	्) ख (_	kh@/
 	ख (्ख	kh,
-	खँ	khV~:
-	खॅ	khV~
+	खँ	khV~'
+	खॅ	khV~'
 
 .group ग
 	ग	gV
@@ -586,8 +586,8 @@
 ?1	ग (_	g
 	ग (्ग	g,
 	्) ग (_	g@/
-	गँ	gV~:
-	गॅ	gV~
+	गँ	gV~'
+	गॅ	gV~'
 
 .group घ
 	घ	ghV
@@ -595,8 +595,8 @@
 ?1	घ (_	gh
 	घ (्घ	gh,
 	्) घ (_	gh@/
-	घँ	ghV~:
-	घॅ	ghV~
+	घँ	ghV~'
+	घॅ	ghV~'
 
 
 .group ङ	// Phoneme adjustment suggested
@@ -612,31 +612,31 @@
 	च (्च	c,
 	च (्य	c:
 	्) च (_	c@/
-	चँ	cV~:
-	चॅ	cV~
+	चँ	cV~'
+	चॅ	cV~'
 
 .group छ
 	छ	chV
 	छ (B	ch
 	्) छ (C	ch@
 	छ (_	ch@
-	छँ	chV~:
-	छॅ	chV~
+	छँ	chV~'
+	छॅ	chV~'
 
 .group ज
 	ज	JV
 	ज (B	J
 ?1	ज (_	J 
 	ज (्ज	J,
-	जँ	JV~:
-	जॅ	JV~
+	जँ	JV~'
+	जॅ	JV~'
 	्) ज (_	J@/
 
 .group झ	// Phoneme adjustment suggested.
 	झ	JhV
 	झ (B	Jh
-	झँ	JhV~:
-	झॅ 	JhV~
+	झँ	JhV~'
+	झॅ 	JhV~'
 	झ (्झ	J,
 	झ (_	Jh
 
@@ -650,8 +650,8 @@
 .group ट
 	ट	t.V
 	ट (B	t.
-	टँ	t.V~:
-	टॅ	t.V~
+	टँ	t.V~'
+	टॅ	t.V~'
 	ट (्ट	t.,
 ?1	ट (_	t. 
 	्) ट (_	t.@/
@@ -661,8 +661,8 @@
 .group ठ
 	ठ	th.V
 	ठ (B	th.
-	ठँ	t.hV~:
-	ठॅ	t.hV~
+	ठँ	t.hV~'
+	ठॅ	t.hV~'
 	ठ (्ठ	th.,
 	्) ठ (_	th.@/
 ?1	ठ (_	t.h
@@ -670,22 +670,22 @@
 .group ड
 	ड	d.V
 	ड (B	d.
-	डँ	d.V~:
-	डॅ	d.V~
+	डँ	d.V~'
+	डॅ	d.V~'
 	ड (्ड	d.,
 	ड (्य	d.:
 	्) ड (_	d.@/
 ?1	ड (_	d.
 	ड़	d.V:
 	ड़ (B	d.:
-	ड़ँ	d.:V~:
-	ड़ॅ	d.:V~
+	ड़ँ	d.:V~'
+	ड़ॅ	d.:V~'
 
 .group ढ
 	ढ	dh.V
 	ढ (B	dh.
-	ढँ	d.hV~:
-	ढॅ	d.hV~
+	ढँ	d.hV~'
+	ढॅ	d.hV~'
 	्) ढ (_	dh.@/
 ?1	ढ (_	d.h
 	ढ़	d.hV:	// nukta
@@ -701,8 +701,8 @@
 .group त
 	त	tV
 	त (B	t
-	तँ	tV~:
-	तॅ	tV~
+	तँ	tV~'
+	तॅ	tV~'
 	्) त (_	t@/
 	त (्त	t,
 	त (्य	t:
@@ -710,8 +710,8 @@
 
 .group थ
 	थ	thV
-	थँ	thV~:
-	थॅ	thV~
+	थँ	thV~'
+	थॅ	thV~'
 	थ (B	th
 	्) थ (_	th@/
 	थ (्य	th,
@@ -719,8 +719,8 @@
 
 .group द
 	द	dV
-	दँ	dV~:
-	दॅ	dV~
+	दँ	dV~'
+	दॅ	dV~'
 	द (B	d
 	द (्द	d,
 	द (्व	d:
@@ -730,16 +730,16 @@
 
 .group ध
 	ध	dhV
-	धँ	dhV~:
-	धॅ	dhV~
+	धँ	dhV~'
+	धॅ	dhV~'
 	ध (B	dh
 ?1	ध (_	dh
 	्) ध (_	dh@/
 
 .group न
 	न	nV
-	नँ	nV~:
-	नॅ	nV~
+	नँ	nV~'
+	नॅ	nV~'
 	न (B	n
 ?1	न (_	n
 	्) न (_	n@/
@@ -754,8 +754,8 @@
 
 .group प
 	प	pV
-	पँ	pV~:
-	पॅ	pV~
+	पँ	pV~'
+	पॅ	pV~'
 	प (B	p
 ?1	प (_	p
 	प (्प	p,
@@ -764,8 +764,8 @@
 
 .group फ
 	फ	phV
-	फँ	phV~:
-	फॅ	phV~
+	फँ	phV~'
+	फॅ	phV~'
 	फ (B	ph
 	फ (्न	ph:
 ?1	फ (_	ph
@@ -773,8 +773,8 @@
 
 .group ब
 	ब	bV
-	बँ	bV~:
-	बॅ	bV~
+	बँ	bV~'
+	बॅ	bV~'
 	ब (B	b
 	ब (्ब	b:
 ?1	ब (_	b
@@ -782,8 +782,8 @@
 
 .group भ
 	भ	bhV
-	भँ	bhV~:
-	भॅ	bhV~
+	भँ	bhV~'
+	भॅ	bhV~'
 	भ (B	bh
 ?1	भ (_	bh
 	भ (्य	bh,
@@ -791,8 +791,8 @@
 
 .group म
 	म	mV
-	मँ	mV~:
-	मॅ	mV~
+	मँ	mV~'
+	मॅ	mV~'
 	म (B	m
 	म (्म	m,
 	म (्य	m:
@@ -800,16 +800,16 @@
 
 .group य
 	य	jV
-	यँ	jV~:
-	यॅ	jV~
+	यँ	jV~'
+	यॅ	jV~'
 	य (B	j
 ?1	य (_	j@2
 	्) य (_	j@/
 
 .group र
 	र	rV
-	रँ	rV~:
-	रॅ	rV~
+	रँ	rV~'
+	रॅ	rV~'
 
 	र (B	r
 	्) र (c	r'v:
@@ -826,8 +826,8 @@
 
 .group ल
 	ल	lV
-	लँ	lV~:
-	लॅ	lV~
+	लँ	lV~'
+	लॅ	lV~'
 	ल (B	l
 ?1	ल (_	l
 	्) ल (_	l@/
@@ -845,15 +845,15 @@
 
 .group व
 	व	wV
-	वँ	vV~:
-	_) वँ	wV~:
-	वॅ	vV~
-	व (B	w
+	वँ	vV~'
+	_) वँ	wV~'
+	वॅ	vV~'
+	व (B	w'
 	_) व	wV
 	_) व (B	w
 	_) व (्	v
-	C्) व	w:
-	ह्) व	w:
+	C्) व	w'
+	ह्) व	w'
 	ध्) व (_	'wV
 	ध्) व (B	w'
 	ध्) व (C	w'V
@@ -861,8 +861,8 @@
 
 .group श
 	श	SV
-	शँ	SV~:
-	शॅ	SV~
+	शँ	SV~'
+	शॅ	SV~'
 	श (B	S
 	श (्च	S:
 ?1	श (_	S
@@ -870,8 +870,8 @@
 
 .group ष
 	ष	s.V
-	षँ	s.V~:
-	षॅ	s.V~
+	षँ	s.V~'
+	षॅ	s.V~'
 	ष (B	s.
 	ष (्ट	s.,
 	ष (्ठ	s.,
@@ -880,8 +880,8 @@
 
 .group स
 	स	sV
-	सँ	SV~:
-	सॅ	SV~
+	सँ	SV~'
+	सॅ	SV~'
 	स (B	s
 	स (्स	s,
 ?1	स (_	s
@@ -889,8 +889,8 @@
 
 .group ह
 	ह	hV
-	हँ	hV~:
-	हॅ	hV~
+	हँ	hV~'
+	हॅ	hV~'
 	ह (B	h
 	्) ह (_	h@/
 
