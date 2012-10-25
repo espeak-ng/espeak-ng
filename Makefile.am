@@ -156,7 +156,9 @@ dictionaries: \
 	espeak-data/jbo_dict \
 	espeak-data/ka_dict \
 	espeak-data/kk_dict \
+	espeak-data/kl_dict \
 	espeak-data/kn_dict \
+	espeak-data/ko_dict \
 	espeak-data/ku_dict \
 	espeak-data/la_dict \
 	espeak-data/lt_dict \
@@ -187,6 +189,7 @@ dictionaries: \
 	espeak-data/te_dict \
 	espeak-data/tn_dict \
 	espeak-data/tr_dict \
+	espeak-data/tt_dict \
 	espeak-data/ur_dict \
 	espeak-data/vi_dict \
 	espeak-data/wo_dict \
@@ -379,11 +382,23 @@ dictsource/kk_extra:
 espeak-data/kk_dict: dictsource/kk_list dictsource/kk_rules dictsource/kk_extra
 	cd dictsource && ../src/espeak --compile=kk && cd ..
 
+kl: espeak-data/kl_dict
+dictsource/kl_extra:
+	touch dictsource/kl_extra
+espeak-data/kl_dict: dictsource/kl_list dictsource/kl_rules dictsource/kl_extra
+	cd dictsource && ../src/espeak --compile=kl && cd ..
+
 kn: espeak-data/kn_dict
 dictsource/kn_extra:
 	touch dictsource/kn_extra
 espeak-data/kn_dict: dictsource/kn_list dictsource/kn_rules dictsource/kn_extra
 	cd dictsource && ../src/espeak --compile=kn && cd ..
+
+ko: espeak-data/ko_dict
+dictsource/ko_extra:
+	touch dictsource/ko_extra
+espeak-data/ko_dict: dictsource/ko_list dictsource/ko_rules dictsource/ko_extra
+	cd dictsource && ../src/espeak --compile=ko && cd ..
 
 ku: espeak-data/ku_dict
 dictsource/ku_extra:
@@ -564,6 +579,12 @@ dictsource/tr_extra:
 	touch dictsource/tr_extra
 espeak-data/tr_dict: dictsource/tr_list dictsource/tr_rules dictsource/tr_extra
 	cd dictsource && ../src/espeak --compile=tr && cd ..
+
+tt: espeak-data/tt_dict
+dictsource/tt_extra:
+	touch dictsource/tt_extra
+espeak-data/tt_dict: dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
+	cd dictsource && ../src/espeak --compile=tt && cd ..
 
 ur: espeak-data/ur_dict
 dictsource/ur_extra:
