@@ -113,12 +113,14 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 
 // ignore these characters
 static const unsigned short chars_ignore_default[] = {
+	0xad,    1, // soft hyphtn
 	0x200c,  1, // zero width non-joiner
 	0x200d,  1, // zero width joiner
 	0, 0 };
 
 // alternatively, ignore characters but allow zero-width-non-joiner (lang-fa)
 static const unsigned short chars_ignore_zwnj_hyphen[] = {
+	0xad,    1, // soft hyphen
 	0x200c,  '-', // zero width non-joiner, replace with hyphen
 	0x200d,  1, // zero width joiner
 	0, 0 };
@@ -943,6 +945,14 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
+	case L('k','l'):   // Greenlandic
+		{
+			tr->langopts.stress_rule = 12;
+			tr->langopts.stress_flags = S_NO_AUTO_2;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_ORDINAL_DOT | NUM_1900 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;
+		}
+		break;
+
 	case L('k','o'):   // Korean, TEST
 		{
 			static const char ko_ivowels[] = {0x63,0x64,0x67,0x68,0x6d,0x72,0x74,0x75,0};  // y and i vowels
@@ -1207,7 +1217,7 @@ SetLengthMods(tr,3);  // all equal
 		
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.suffix_add_e = tr->letter_bits_offset + 0x4a;   //virama
-			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND;
+			tr->langopts.numbers =  NUM_OMIT_1_THOUSAND | NUM_SINGLE_STRESS_L | NUM_DFRACTION_7;
 			tr->langopts.numbers2 =  NUM2_PERCENT_BEFORE;
 			tr->langopts.break_numbers = 0x14aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		}

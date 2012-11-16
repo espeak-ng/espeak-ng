@@ -1,0 +1,102 @@
+
+
+// vowels
+ 
+phoneme a
+  vowel starttype #a endtype #a
+  length 150
+  FMT(vowel/a)
+endphoneme
+
+phoneme E
+  vowel starttype #e endtype #e
+  length 150
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/e#)
+  ENDIF
+  FMT(vowel/e)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 150
+  FMT(vowel/i)
+endphoneme
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 150
+  FMT(vowel/o)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 150
+  FMT(vowel/u_bck2)
+endphoneme
+
+phoneme aI
+  vowel starttype #a endtype #i
+  length 250
+  FMT(vdiph/ai)
+endphoneme
+
+
+phoneme e
+  import_phoneme da/e
+endphoneme
+
+phoneme &
+  import_phoneme da/&
+endphoneme
+
+phoneme V
+  import_phoneme da/V
+endphoneme
+
+phoneme O
+  import_phoneme da/O
+endphoneme
+
+phoneme y
+  import_phoneme da/y
+endphoneme
+
+phoneme W
+  import_phoneme da/W
+endphoneme
+
+phoneme 3
+  import_phoneme da/3
+endphoneme
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 120
+endphoneme
+
+
+
+// consonants
+
+phoneme r
+  import_phoneme base/r"
+endphoneme
+
+
+phoneme tl#
+  vls alv stop
+  lengthmod 2
+  ipa tl#
+  Vowelin f1=0  f2=1700 -300 300  f3=-100 80
+  Vowelout f1=0 f2=1700 -300 250  f3=-100 80  rms=20
+  WAV(ufric/tl#, 50)
+endphoneme
+
+
+phoneme ts
+  import_phoneme consonants/ts
+endphoneme
+
+
+

@@ -78,7 +78,7 @@ S    s2   t    t2   tS   ts   v    w
 z    Z    
 
 
-Dictionary de_dict  2012-10-17
+Dictionary de_dict  2012-10-22
 
 3    @    @-   a    A    A:   aI   aU   
 A~   E    E2   E:   e:   EI   i    I    
@@ -102,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2012-10-21
+Dictionary en_dict  2012-11-11
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -203,7 +203,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2012-10-17
+Dictionary ta_dict  2012-11-15
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -252,7 +252,7 @@ n^#  p    Q    r    R    r#   R2   s
 S    s2   t    T    tl#  v    x    z    
 
 
-Dictionary it_dict  2011-01-15
+Dictionary it_dict  2012-11-10
 
 @-   a    a/   aI   aU   e    E    eI   
 i    I    i#   o    O    u    
@@ -741,15 +741,16 @@ t#   tS   ts   ts#  v    w    x    z
 Z    
 
 
-Dictionary si_dict  2011-12-05
+Dictionary si_dict  2012-11-05
 
 &    &:   @    a    a:   aI   aU   e    
-E    e:   i    i:   o    o:   u    u:   
+e:   i    i:   o    o:   u    u:   
 
-b    d    d.   dZ   f    g    h    j    
-k    l    l.   m    m#   n    N    n#   
-N#   n.   n.#  n^   n^#  p    r    s    
-S    t    t.   th   tS   v    w    z    
+b    bh   d    d.   dh   dZ   f    g    
+gh   h    j    k    kh   l    l.   m    
+m#   n    N    n#   N#   n.   n.#  n^   
+n^#  p    ph   r    s    S    s.   t    
+t.   th   tS   v    w    
 
 
 Dictionary et_dict  2012-06-12
@@ -825,15 +826,15 @@ R    s    S    S;   t    w    x    z
 Z    Z;   
 
 
-Dictionary kl_dict  2012-10-21
+Dictionary kl_dict  2012-11-15
 
-&    a    aI   e    i    o    O    u    
-W    
+&    3    @    @-   a    aI   e    E    
+i    o    O    u    V    W    y    
 
-:    b    C    d    f    g    h    j    
-k    l    l#   m    n    N    p    Q    
-q    r    s    t    tl#  ts   v    w    
-X    z    
+*    :    b    d    D    f    g    h    
+j    k    l    l#   m    n    N    p    
+Q    q    r    R    s    t    tl#  ts   
+v    w    X    z    
 
 
 Dictionary ko_dict  2012-09-17

@@ -83,7 +83,7 @@ consonants  10  118
       ga  21  127
       tt  23  120
       ko  15  116
-      kl  14  115
+      kl  18  119
 
 Data file      Used by
 b/b             [b] base
@@ -418,7 +418,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [] base
+l/l@            [h&z] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -452,7 +452,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [] base
+l/la            [h&z] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -460,7 +460,7 @@ l/la            [] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [] base
+l/le            [h&z] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -472,7 +472,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [] base
+l/li            [h&z] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -486,7 +486,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [] base
+l/lo            [h&z] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -497,7 +497,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [] base
+l/lu            [h&z] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -1737,10 +1737,10 @@ vowel/e         [e] base
                 [e:] dv
                 [e:] te
                 [e:] ga
-                [e] kl
+                [E] kl
 vowel/e#        [I] en-sc
                 [e] et
-                [e] kl
+                [E] kl
 vowel/e_2       [eI] en-sc
                 [e:] de
                 [e] hi
