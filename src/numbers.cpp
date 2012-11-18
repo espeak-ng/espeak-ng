@@ -1146,6 +1146,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 // control bit 3: use feminine form of '2' (for thousands
 // control bit 4: speak zero tens
 // control bit 5: variant of ordinal number (lang=hu)
+//         bit 8   followed by decimal fraction
 
 	int found;
 	int ix;
@@ -1385,6 +1386,22 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 		}
 	}
 
+	if(tr->langopts.numbers & NUM_SINGLE_STRESS_L)
+	{
+		// only one primary stress, on the first part (tens)
+		found = 0;
+		for(ix=0; ix < (signed)strlen(ph_out); ix++)
+		{
+			if(ph_out[ix] == phonSTRESS_P)
+			{
+				if(found)
+					ph_out[ix] = phonSTRESS_3;
+				else
+					found = 1;
+			}
+		}
+	}
+	else
 	if(tr->langopts.numbers & NUM_SINGLE_STRESS)
 	{
 		// only one primary stress
@@ -1410,6 +1427,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 //  control  bit 0,  previous thousands
 //           bit 1,  ordinal number
 //           bit 5   variant form of ordinal number
+//           bit 8   followed by decimal fraction
 	int found;
 	int hundreds;
 	int tensunits;
@@ -1610,7 +1628,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 				x = 8;   // use variant (feminine) for before thousands and millions
 		}
 
-		if(LookupNum2(tr, tensunits, x, buf2) != 0)
+		if(LookupNum2(tr, tensunits, x | control & 0x100, buf2) != 0)
 		{
 			if(tr->langopts.numbers & NUM_SINGLE_AND)
 				ph_hundred_and[0] = 0;  // don't put 'and' after 'hundred' if there's 'and' between tens and units
@@ -1858,7 +1876,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	{
 		// this "word" ends with a decimal point
 		Lookup(tr, "_dpt", ph_append);
-		decimal_point = 1;
+		decimal_point = 0x100;
 	}
 	else
 	if(suppress_null == 0)
@@ -1913,6 +1931,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 //		if((buf_digit_lookup[0] == 0) && (*p != '0') && (dot_ordinal==0))
 		if((buf_digit_lookup[0] == 0) && (*p != '0'))
 		{
+			// LANG=hu ?
 			// not found, lookup only the last digit (?? but not if dot-ordinal has been found)
 			if(LookupDictList(tr, &p, buf_digit_lookup, flags, FLAG_SUFX, wtab))  // don't match '0', or entries with $only
 			{
@@ -1920,24 +1939,38 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			}
 		}
 
-		if((tr->langopts.numbers2 & NUM2_PERCENT_BEFORE) && (prev_thousands == 0))
+		if(prev_thousands == 0)
 		{
-			// LANG=si, say "percent" before the number
-			p2 = word;
-			while((*p2 != ' ') && (*p2 != 0))
+			if((decimal_point == 0) && (ordinal == 0))
 			{
-				p2++;
+				// Look for special pronunciation for this number in isolation (LANG=kl)
+				sprintf(string, "_%dn", value);
+				if(Lookup(tr, string, ph_out))
+				{
+					return(1);
+				}
 			}
-			if(p2[1] == '%')
+
+			if(tr->langopts.numbers2 & NUM2_PERCENT_BEFORE)
 			{
-				Lookup(tr, "%", ph_out);
-				ph_out += strlen(ph_out);
-				p2[1] = ' ';
+				// LANG=si, say "percent" before the number
+				p2 = word;
+				while((*p2 != ' ') && (*p2 != 0))
+				{
+					p2++;
+				}
+				if(p2[1] == '%')
+				{
+					Lookup(tr, "%", ph_out);
+					ph_out += strlen(ph_out);
+					p2[1] = ' ';
+				}
 			}
 		}
+
 	}
 
-	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal);
+	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal | decimal_point);
 	if((thousandplex > 0) && (tr->langopts.numbers2 & 0x200))
 		sprintf(ph_out,"%s%s%s%s",ph_zeros,ph_append,ph_buf2,ph_buf);  // say "thousands" before its number
 	else
@@ -2005,6 +2038,17 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 						n_digits += decimal_count;
 				}
 				break;
+
+			case NUM_DFRACTION_7:
+				// alternative form of decimal fraction digits, except the final digit
+				while(decimal_count-- > 1)
+				{
+					sprintf(string,"_%cd", word[n_digits]);
+					if(Lookup(tr, string, buf1) == 0)
+						break;
+					n_digits++;
+					strcat(ph_out, buf1);
+				} 
 			}
 		}
 

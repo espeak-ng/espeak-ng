@@ -8,7 +8,7 @@
 // Y  front vowels: e i (& accents)
 .L01 a à o ò ó u ù
 .L02 e é è
-
+.L03 b d g l m n r v     // 's' is [z] before these
 
 .group a
 		a	a
@@ -321,6 +321,7 @@
 		s	s
 	_)	s	s
 	A)	s (A	z
+		s (L03	z
 
 	l)      s       s
 	p)      s       s
@@ -377,6 +378,7 @@
 .group z
 		z	ts
 	A)	zz	ts:
+	A)	z (A	ts:
 
         _)	z (i	dz
         _)	z (ì	dz

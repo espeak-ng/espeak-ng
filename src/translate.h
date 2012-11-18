@@ -402,6 +402,7 @@ typedef struct {
 #define NUM_DFRACTION_4  0x8000
 #define NUM_DFRACTION_5  0xa000
 #define NUM_DFRACTION_6  0xc000
+#define NUM_DFRACTION_7  0xe000    // lang=si, alternative form of number for decimal fraction digits (except the last)
 #define NUM_ORDINAL_DOT   0x10000
 #define NUM_NOPAUSE       0x20000
 #define NUM_AND_HUNDRED   0x40000
@@ -414,6 +415,7 @@ typedef struct {
 #define NUM_ROMAN_CAPITALS 0x2000000
 #define NUM_ROMAN_AFTER    0x4000000
 #define NUM_ROMAN_ORDINAL  0x8000000
+#define NUM_SINGLE_STRESS_L  0x10000000
 
 	// bits0-1=which numbers routine to use.
 	// bit2=  thousands separator must be space
@@ -442,6 +444,7 @@ typedef struct {
 	// bit25= Roman numbers only if upper case
 	// bit26= say "roman" after the number, not before
 	// bit27= Roman numbers are ordinal numbers
+   // bit28= only one primary stress in tens+units (on the tens)
 	int numbers;
 
 #define NUM2_THOUSANDS_VAR1     0x40
