@@ -8,7 +8,7 @@ phoneme a
   FMT(vowel/a)
 endphoneme
 
-phoneme e
+phoneme E
   vowel starttype #e endtype #e
   length 150
   IF thisPh(isWordEnd) THEN
@@ -42,16 +42,32 @@ phoneme aI
 endphoneme
 
 
+phoneme e
+  import_phoneme da/e
+endphoneme
+
 phoneme &
   import_phoneme da/&
+endphoneme
+
+phoneme V
+  import_phoneme da/V
+endphoneme
+
+phoneme O
+  import_phoneme da/O
+endphoneme
+
+phoneme y
+  import_phoneme da/y
 endphoneme
 
 phoneme W
   import_phoneme da/W
 endphoneme
 
-phoneme O
-  import_phoneme da/O
+phoneme 3
+  import_phoneme da/3
 endphoneme
 
 phoneme : //  lengthen previous vowel by "length"

@@ -1129,6 +1129,7 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	int stressflags;
 	int dflags = 0;
 	int first_primary;
+	int long_vowel;
 
 	signed char vowel_stress[N_WORD_PHONEMES/2];
 	char syllable_weight[N_WORD_PHONEMES/2];
@@ -1443,6 +1444,39 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			if(vowel_stress[ix] < 0)
 				vowel_stress[ix] = 4;
 		}
+		break;
+
+	case 12:  // LANG=kl (Greenlandic)
+		long_vowel = 0;
+		for(ix=1; ix < vowel_count; ix++)
+		{
+			if(vowel_stress[ix] == 4)
+					vowel_stress[ix] = 3;    // change marked stress (consonant clusters) to secondary (except the last)
+	
+			if(vowel_length[ix] > 0)
+			{
+					long_vowel = ix;
+					vowel_stress[ix] = 3;    // give secondary stress to all long vowels
+			}
+		}
+	
+		// 'stressed_syllable' gives the last marked stress
+		if(stressed_syllable == 0)
+		{
+			// no marked stress, choose the last long vowel
+			if(long_vowel > 0)
+					stressed_syllable = long_vowel;
+			else
+			{
+					// no long vowels or consonant clusters
+					if(vowel_count > 4)
+						stressed_syllable = vowel_count - 3;
+					else
+						stressed_syllable = vowel_count - 1;
+			}
+		}
+		vowel_stress[stressed_syllable] = 4;
+		max_stress = 4;
 		break;
 	}
 

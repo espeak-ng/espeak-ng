@@ -1,26 +1,34 @@
+// Sinhala Language.
+// This SI_rules file is written by Him Prasad Gautam <himjee@yahoo.com> [Kathmandu, nepal]
+// This file is UTF-8 encoded.
 
-// This file is UTF8 encoded 
-// Spelling to phoneme rules for Sinhala
+// letter groups:
+// A - Alphabetical and Symbolic Vowels:
+//	0x0D85~0x0D16, 0x0DCA~0x0DF3
+// B - Symbolic  Vowels and Halkirima
+//	0x0DCA~0x0DF3
+// C - Consonants:
+//	0x0D9A~0x0DC2
 
-// A means vowel letters (not vowel signs)
-// B means a combining vowel sign or a virama
+// speak Latin letters as English
+
 
 
 .group ක
 	ක	ka
-	ක (B	k
+	 ක (B	k
 
 .group ඛ
-	ඛ	ka
-	ඛ (B	k
+	ඛ	kha
+	ඛ (B	kh
 
 .group ග
 	ග	ga
 	ග (B	g
 
 .group ඝ
-	ඝ	ga
-	ඝ (B	g
+	ඝ	gha
+	ඝ (B	gh
 
 .group ඞ
 	ඞ	Na
@@ -35,23 +43,23 @@
 	ච (B	tS
 
 .group ඡ
-	ඡ	tSa
-	ඡ (B	tS
+	ඡ	tSha
+	ඡ (B	 tSh
 
 .group ජ
 	ජ	dZa
 	ජ (B	dZ
 
 .group ඣ
-	ඣ	dZa
+	ඣ	dZha
 	ඣ (B	dZh
 
 .group ඤ
-	ඤ	n^a
+        ඤ          n^a
 	ඤ (B	n^
 
 .group ඥ
-	ඥ	gna
+	ඥ	 gna
 	ඥ (B	gn
 
 .group ඦ
@@ -63,12 +71,12 @@
 	ට (B	t.
 
 .group ඨ
-	ඨ	t.a
-	ඨ (B	t.
+	ඨ	t.ha
+	ඨ (B	t.h
 
 .group ඩ
-	ඩ	d.a
-	ඩ (B	d.
+        ඩ          d.a
+        ඩ (B       d.
 
 .group ඪ
 	ඪ	d.a
@@ -82,22 +90,21 @@
 	ඬ	n.#d.a
 	ඬ (B	n.#d.
 
-
 .group ත
 	ත	ta
 	ත (B	t
 
 .group ථ
-	ථ	ta
-	ථ (B	t
+	ථ	tha
+	ථ (B	th
 
 .group ද
 	ද	da
 	ද (B	d
 
 .group ධ
-	ධ	da
-	ධ (B	d
+	ධ	dha
+	ධ (B	dh
 
 .group න
 	න	na
@@ -112,22 +119,22 @@
 	ප (B	p
 
 .group ඵ
-	ඵ	pa
-	ඵ (B	p
+	ඵ	pha
+	ඵ (B	ph
 
 .group බ
 	බ	ba
 	බ (B	b
 
 .group භ
-	භ	ba
-	භ (B	b
+	භ	bha
+	භ (B	bh
 
 .group ම
 	ම	ma
 	ම (B	m
 
-.group ඹ
+.group ඹ 
 	ඹ	m#ba
 	ඹ (B	m#b
 
@@ -144,20 +151,20 @@
 	ල (B	l
 
 .group ව
-	ව	va
-	ව (B	v
+	ව	wa
+	ව (B	w
 
 .group ශ
-	ශ	Sa
-	ශ (B	S
+	ශ	sa
+	ශ (B	s
 
 .group ෂ
-	ෂ	Sa
+        ෂ          Sa
 	ෂ (B	S
 
 .group ස
-	ස	sa
-	ස (B	s
+	ස	s.a
+	ස (B	s.
 
 .group හ
 	හ	ha
@@ -171,6 +178,7 @@
 	ෆ	fa
 	ෆ (B	f
 
+// The Vowel Alphabets
 
 .group අ
 	අ	a
@@ -226,45 +234,94 @@
 .group ඖ
 	ඖ	aU
 
-.group 0xe0b6   // characters which start with UTF-8 bytes: [e0 b6]
-	ං	m  // anusvaraya
-	ඃ	n  // visargaya
 
 
-.group 0xe0b7   // characters which start with UTF-8 bytes: [e0 b7]
-	ා	a:
-	ැ	&
-	ෑ	&:
-	ි	i
-	ී	i:
-	ු	u
-	ූ	u:
-	ෘ	ru
-	ෙ	e
-	ේ	e:
-	ෛ	aI
-	ො	o
-	ෝ  	o:
-	ෞ	aU
-	ෟ	li
-	ෲ	ru:
-	ෳ	li:
+.group ං 	// anusvaray@
+	ං	'anus.w,a:r@j@
+	A) ං	m
+	C) ං	m
 
-	්	// hal kirima (virima)
+.group ඃ // visargaya
+	ඃ	w'is.@rg,@j@
+	A) ඃ	n
+	C) ඃ	n
+
+// The Vowelic Symbols
+
+.group ා
+	ා	'&l@p,ill@
+	C) ා	a:
+
+.group ැ
+	ැ	'&d@j@
+	C) ැ	&
+
+.group ෑ
+	ෑ	d'i:rg@,&d@j@
+	C) ෑ	&:
+
+.group ි
+	ි	'ispill@
+	C) ි	i
+
+.group ී
+	ී	d'i:rg@,ispill@
+	C) ී	i:
+
+.group ු
+	ු	p'a:pill@
+	C) ු	u
+
+.group ූ
+	ූ	d'i:rg@p,a:pill@
+	C) ූ	u:
+
+.group ෘ
+	ෘ	g'&t.@p,ill@
+	C) ෘ          ru
+
+.group ෙ
+	ෙ	k'ombuv@
+	C) ෙ	e
 
 
-.group 0xe0a4  // devanagari
-	0xe0a4  _^_HI  // switch to hindi voice for devanagari characters
-.group 0xe0a5  // devanagari
-	0xe0a5  _^_HI
+.group ෛ
+	ෛ	k'ombud,ek@
+	C) ෛ	aI
 
-.group 0xe0ae  // Tamil
-	0xe0ae  _^_TA  // switch to Tamil voice for Tamil characters
-.group 0xe0af  // Tamil
-	0xe0af  _^_TA
+.group ෞ
+	ෞ	g'ajan,ukitt@
+	C) ෞ	aU
+
+
+.group 0xe0b7   // More vowelic symbols b7]
+
+        ේ          e:
+        ො          o
+        ෝ          o:
+        ෟ          li
+        ෲ          ru:
+        ෳ          li:
+
+
+.group ්
+	්	halk'ir'im#@	// Halkirima
+	C) ්	
 
 
 .group
 	$	do:l.ar
 
+
+
+
+.group 0xe0a4  // devanagari
+	0xe0a4	_^_NE  // Nepali voice
+.group 0xe0a5  // devanagari
+	0xe0a5	_^_NE
+
+.group 0xe0ae  // Tamil
+	0xe0ae  _^_TA  // Tamil voice
+.group 0xe0af  // Tamil
+	0xe0af  _^_TA
 

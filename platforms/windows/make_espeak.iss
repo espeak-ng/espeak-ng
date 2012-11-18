@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.23
+AppVerName=eSpeak version 1.46.28
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -220,6 +220,7 @@ begin
   'et': value := $425;
   'eu': value := $42d;
   'fi': value := $40b;
+  'fil': value := $464;
   'fr': value := $40c;
   'ga': value := $83c;
   'gu': value := $447;
@@ -250,15 +251,19 @@ begin
   'rw': value := $487;
   'si': value := $45b;
   'sk': value := $41b;
+  'sl': value := $424;
   'sq': value := $41c;
   'sr': value := $81a;
   'sv': value := $41d;
   'sw': value := $441;
   'ta': value := $449;
   'te': value := $44a;
+  'tg': value := $45e;  // 'am'
+  'tl': value := $464;
   'tn': value := $432;
   'tr': value := $41f;
   'tt': value := $444;
+  'ur': value := $420;
   'vi': value := $42a;
   'wo': value := $488;
   'zh': value := $804;

@@ -375,6 +375,7 @@ tamil	தமிழ்	$text
 பூந்தி 	$alt
 பாவிக்க	$alt
 பார்ல	$alt
+பாட்டனி	$alt
 
 
 	// initial த as [d]
@@ -534,8 +535,7 @@ tamil	தமிழ்	$text
 // p as [f]
 போன்	fo:n
 போனில்	fo:nil
-பைல்	faIl
-பைலை 	faIlaI
+//பைலை 	faIlaI
 பாதர்	fa:dVr
 பாதரிடம்	fa:dVrid.Vm
 பாதருடன்	fa:dVrUd.Vn
