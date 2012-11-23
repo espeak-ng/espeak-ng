@@ -1452,14 +1452,14 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		{
 			if(vowel_stress[ix] == 4)
 					vowel_stress[ix] = 3;    // change marked stress (consonant clusters) to secondary (except the last)
-	
+
 			if(vowel_length[ix] > 0)
 			{
 					long_vowel = ix;
 					vowel_stress[ix] = 3;    // give secondary stress to all long vowels
 			}
 		}
-	
+
 		// 'stressed_syllable' gives the last marked stress
 		if(stressed_syllable == 0)
 		{
@@ -3497,8 +3497,12 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy)
 			*word_end = 'e';
 	}
 	i = word_end - word;
-	memcpy(word_copy,word,i);
-	word_copy[i] = 0;
+
+	if(word_copy != NULL)
+	{
+	    memcpy(word_copy,word,i);
+	    word_copy[i] = 0;
+	}
 
 	// look for multibyte characters to increase the number of bytes to remove
 	for(len_ending = i = (end_type & 0x3f); i>0 ;i--)   // num.of characters of the suffix

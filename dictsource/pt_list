@@ -695,6 +695,7 @@ caractere	$alt
 careta		$alt2
 carreta		$alt2
 casebre		$alt
+cateto		$alt2
 catorze		$alt2
 cefaleia	$alt
 cerca		$alt $verb
@@ -741,6 +742,7 @@ desfecho	$alt2
 desprezo	$alt $verb
 deva		$alt2
 devo		$alt2
+deveras		$alt
 dez		$alt
 diarreia	$alt
 discordo	$alt
@@ -772,14 +774,17 @@ estiverdes	$alt
 estiveres	$alt
 estrofe		$alt
 etiqueta	$alt2
+europa		$alt
 exagero		$alt $verb
 expeça		$alt2
 expeço		$alt2
 farofa		$alt
 febre		$alt
+feitora		$alt2
 fera		$alt
 fere		$alt
 ferem		$alt
+ferozes		$alt
 fezes		$alt
 folga		$alt
 fogos		$alt
@@ -822,6 +827,8 @@ marreta		$alt2
 martelo		$alt
 merda		$alt
 megera		$alt
+mentora		$alt2
+metro		$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
@@ -846,18 +853,20 @@ mutreta		$alt2
 naquele		$alt2
 negro		$alt2
 novos		$alt
-obstera		$alt
+obstetra	$alt
 obsoleta	$alt2
 obsoleto	$alt2
 odisseia	$alt
 onu		$1
 opereta		$alt2
+ordens		$alt
 osso		$alt2
 ovos		$alt
 padeceste	$alt2
 paexa		paeSa
 pangeia		$alt
 palheta		$alt2
+paralelo	$alt
 parede		$alt2
 pastora		$alt2
 pedra		$alt
@@ -908,6 +917,7 @@ selo		$alt $verb
 selvagem	seUv'aZeIN
 sincera		$alt
 sincero		$alt
+sinopse		$alt
 sobe		$alt
 sobem		$alt
 soco		$alt2
@@ -938,14 +948,17 @@ traqueia	$alt
 travesso	$alt2
 trevo		$alt2
 troco		$alt2 $noun
+tropa		$alt
 tropeço		$alt2 $noun
 trombeta	$alt2
 valeta		$alt2
 vanessa		$alt2
+velozes		$alt
 verbo		$alt
 verme		$alt
 vierem		$alt
 violeta		$alt2
+voga		$alt
 vozes		$alt
 zelo		$alt $verb
 zero		$alt
