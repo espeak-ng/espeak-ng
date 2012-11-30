@@ -129,6 +129,7 @@
 #define SUFX_T        0x10000   // don't affect the stress position in the stem
 #define SUFX_B        0x20000  // break, this character breaks the word into stem and suffix (used with SUFX_P)
 #define SUFX_A        0x40000  // remember that the suffix starts with a vowel
+#define SUFX_M        0x80000  // bit 19, allow multiple suffixes
 
 #define SUFX_UNPRON     0x8000   // used to return $unpron flag from *_rules
 
