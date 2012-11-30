@@ -266,7 +266,7 @@ char *DecodeRule(const char *group_chars, int group_length, char *rule, int cont
 			}
 			continue;
 		}
-		
+
 		if(rb == RULE_DOLLAR)
 		{
 			value = *rule++ & 0xff;
@@ -380,13 +380,13 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 	int  multiple_numeric_hyphen = 0;
 	char *multiple_string = NULL;
 	char *multiple_string_end = NULL;
-	
+
 	int len_word;
 	int len_phonetic;
 	int text_not_phonemes;   // this word specifies replacement text, not phonemes
 	unsigned int  wc;
 	int all_upper_case;
-	
+
 	char *mnemptr;
 	unsigned char flag_codes[100];
 	char encoded_ph[200];
@@ -416,12 +416,12 @@ static char nullstring[] = {0};
 #endif
 
 	step = 0;
-	
+
 	c = 0;
 	while(c != '\n')
 	{
 		c = *p;
-	
+
 		if((c == '?') && (step==0))
 		{
 			// conditional rule, allow only if the numbered condition is set for the voice
@@ -449,14 +449,14 @@ static char nullstring[] = {0};
 			flag_codes[n_flag_codes++] = ix + flag_offset;
 			c = *p;
 		}
-		
+
 		if((c == '$') && isalnum(p[1]))
 		{
 			/* read keyword parameter */
 			mnemptr = p;
 			while(!isspace2(c = *p)) p++;
 			*p = 0;
-	
+
 			flagnum = LookupMnem(mnem_flags,mnemptr);
 			if(flagnum > 0)
 			{
@@ -485,12 +485,12 @@ static char nullstring[] = {0};
 				error_count++;
 			}
 		}
-	
+
 		if((c == '/') && (p[1] == '/') && (multiple_words==0))
 		{
 			c = '\n';   /* "//" treat comment as end of line */
 		}
-	
+
 		switch(step)
 		{
 		case 0:
@@ -507,7 +507,7 @@ static char nullstring[] = {0};
 				step = 1;
 			}
 			break;
-	
+
 		case 1:
 			if((c == '-') && multiple_words)
 			{
@@ -567,7 +567,7 @@ static char nullstring[] = {0};
 				step = 3;
 			}
 			break;
-	
+
 		case 3:
 			if(!isspace2(c))
 			{
@@ -575,7 +575,7 @@ static char nullstring[] = {0};
 				step = 4;
 			}
 			break;
-	
+
 		case 4:
 			if(isspace2(c))
 			{
@@ -583,13 +583,13 @@ static char nullstring[] = {0};
 				step = 5;
 			}
 			break;
-	
+
 		case 5:
 			break;
 		}
 		p++;
 	}
-	
+
 	if(word[0] == 0)
 	{
 		return(0);   /* blank line */
@@ -698,7 +698,7 @@ static char nullstring[] = {0};
 
 	*hash = HashDictionary(word);
 	len_phonetic = strlen(encoded_ph);
-	
+
 	dict_line[1] = len_word;   // bit 6 indicates whether the word has been compressed
 	len_word &= 0x3f;
 
@@ -715,7 +715,7 @@ static char nullstring[] = {0};
 		length = len_word + len_phonetic + 3;
 		strcpy(&dict_line[(len_word)+2],encoded_ph);
 	}
-	
+
 	for(ix=0; ix<n_flag_codes; ix++)
 	{
 		dict_line[ix+length] = flag_codes[ix];
@@ -790,12 +790,12 @@ static void compile_dictlist_end(FILE *f_out)
 		fflush(f_log);
 #endif
 	}
-	
+
 	for(hash=0; hash<N_HASH_DICT; hash++)
 	{
 		p = hash_chains[hash];
 		hash_counts[hash] = (int)ftell(f_out);
-	
+
 		while(p != NULL)
 		{
 			length = *(p+sizeof(char *));
@@ -818,7 +818,7 @@ static int compile_dictlist_file(const char *path, const char* filename)
 	char buf[200];
 	char fname[sizeof(path_home)+45];
 	char dict_line[128];
-	
+
 	text_mode = 0;
 
 	// try with and without '.txt' extension
@@ -833,7 +833,7 @@ static int compile_dictlist_file(const char *path, const char* filename)
 	fprintf(f_log,"Compiling: '%s'\n",fname);
 
 	linenum=0;
-	
+
 	while(fgets(buf,sizeof(buf),f_in) != NULL)
 	{
 		linenum++;
@@ -842,7 +842,7 @@ static int compile_dictlist_file(const char *path, const char* filename)
 		if(length == 0)  continue;   /* blank line */
 
 		hash_counts[hash]++;
-	
+
 		p = (char *)malloc(length+sizeof(char *));
 		if(p == NULL)
 		{
@@ -853,13 +853,13 @@ static int compile_dictlist_file(const char *path, const char* filename)
 			}
 			break;
 		}
-	
+
 		memcpy(p,&hash_chains[hash],sizeof(char *));
 		hash_chains[hash] = p;
 		memcpy(p+sizeof(char *),dict_line,length);
 		count++;
 	}
-	
+
 	fprintf(f_log,"\t%d entries\n",count);
 	fclose(f_in);
 	return(0);
@@ -920,7 +920,7 @@ static void copy_rule_string(char *string, int &state)
 		output = &rule_phonemes[len];
 	}
 	sxflags = 0x808000;           // to ensure non-zero bytes
-	
+
 	for(p=string,ix=0;;)
 	{
 		literal = 0;
@@ -1126,6 +1126,9 @@ static void copy_rule_string(char *string, int &state)
 						case 'a':
 							sxflags |= SUFX_A;
 							break;
+                        case 'm':
+                            sxflags |= SUFX_M;
+                            break;
 						default:
 							if(isdigit(c))
 								value = (value*10) + (c - '0');
@@ -1173,7 +1176,7 @@ static char *compile_rule(char *input)
 	rule_phonemes[0]=0;
 
 	p = buf;
-	
+
 	for(ix=0; finish==0; ix++)
 	{
 		c = input[ix];
@@ -1186,7 +1189,7 @@ static char *compile_rule(char *input)
 			copy_rule_string(buf,state);
 			p = buf;
 			break;
-			
+
 		case '(':		// start of suffix section
 			*p = 0;
 			state = 2;
@@ -1199,7 +1202,7 @@ static char *compile_rule(char *input)
 				error_count++;
 			}
 			break;
-			
+
 		case '\n':		// end of line
 		case '\r':
 		case 0:			// end of line
@@ -1207,14 +1210,14 @@ static char *compile_rule(char *input)
 			copy_rule_string(buf,state);
 			finish=1;
 			break;
-			
+
 		case '\t':		// end of section section
 		case ' ':
 			*p = 0;
 			copy_rule_string(buf,state);
 			p = buf;
 			break;
-			
+
 		case '?':
 			if(state==2)
 				state=0;
@@ -1227,7 +1230,7 @@ static char *compile_rule(char *input)
 			break;
 		}
 	}
-	
+
 	if(strcmp(rule_match,"$group")==0)
 		strcpy(rule_match,group_name);
 
@@ -1249,7 +1252,7 @@ static char *compile_rule(char *input)
 	}
 	strcpy(output,buf);
 	len = strlen(buf)+1;
-	
+
 	len_name = strlen(group_name);
 	if((len_name > 0) && (memcmp(rule_match,group_name,len_name) != 0))
 	{
@@ -1382,7 +1385,7 @@ static void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 		len1 = strlen(p) + 1;
 		p = &p[len1];
 		len2 = strlen(p);
-		
+
 		rule_match[0]=0;
 		rule_pre[0]=0;
 		rule_post[0]=0;
@@ -1420,7 +1423,7 @@ static void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 			}
 		}
 		*pout = 0;
-		
+
 		spaces = 12;
 		if(condition > 0)
 		{
@@ -1441,10 +1444,10 @@ static void print_rule_group(FILE *f_out, int n_rules, char **rules, char *name)
 			fprintf(f_out,"%s",buf);
 			spaces = 0;
 		}
-		
+
 		for(ix=0; ix<spaces; ix++)
 			fputc(' ',f_out);
-		
+
 		spaces = 14;
 		sprintf(buf," %s ",rule_match);
 		if(rule_post[0] != 0)
@@ -1633,7 +1636,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 	int n_rgroups = 0;
 	int n_groups3 = 0;
 	RGROUP rgroup[N_RULE_GROUP2];
-	
+
 	linenum = 0;
 	group_name[0] = 0;
 
@@ -1649,7 +1652,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 			if((p = (unsigned char *)strstr(buf,"//")) != NULL)
 				*p = 0;
 
-			if(buf[0] == '\r') buf++;  // ignore extra \r in \r\n 
+			if(buf[0] == '\r') buf++;  // ignore extra \r in \r\n
 		}
 
 		if((buf == NULL) || (buf[0] == '.'))
@@ -1711,7 +1714,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 				{
 					// group character is given as a character code (max 16 bits)
 					p = (unsigned char *)group_name;
-	
+
 					if(char_code > 0x100)
 					{
 						*p++ = (char_code >> 8);
@@ -1730,7 +1733,7 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 						}
 					}
 				}
-	
+
 				if((group3_ix == 0) && (strlen(group_name) > 2))
 				{
 					if(utf8_in(&c,group_name) < 2)
@@ -1738,14 +1741,14 @@ static int compile_dictrules(FILE *f_in, FILE *f_out, char *fname_temp)
 						fprintf(f_log,"%5d: Group name longer than 2 bytes (UTF8)",linenum);
 						error_count++;
 					}
-	
+
 					group_name[2] = 0;
 				}
 			}
 
 			continue;
 		}
-		
+
 		switch(compile_mode)
 		{
 		case 1:    //  .group
@@ -1915,10 +1918,10 @@ int CompileDictionary(const char *dsource, const char *dict_name, FILE *log, cha
 		compile_dictlist_file(path,"list");
 	}
 	compile_dictlist_file(path,"extra");
-	
+
 	compile_dictlist_end(f_out);
 	offset_rules = ftell(f_out);
-	
+
 	fprintf(f_log,"Compiling: '%s'\n",fname_in);
 
 	compile_dictrules(f_in,f_out,fname_temp);

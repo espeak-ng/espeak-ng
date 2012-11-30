@@ -20,6 +20,7 @@
 .L03 a am o
 .L04 a am e em o ue uem
 .L05 r ra ram re rem rdes
+.L06 ra ram ste re rem
 
 
 .group a
@@ -337,6 +338,9 @@
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
+
+    sf) e (ra_      E        // esfera, biosfera
+   
 //sort
     qu) e (brL04_   E
  _hosp) e (dL03_    E
@@ -362,7 +366,7 @@ _comprom) e (tL03_  e
   _atr) e (vL03_    e
  _escr) e (vL03_    e
 _descr) e (vL03_    e
-_embel) e (zL01_    e
+_embel) e (zL04_    E
    _pr) e (zL04_    E
 _acont) e (çL01_    e
   _ado) e (çL03_    e
@@ -383,6 +387,10 @@ _envaid) e (çL03_   e
 _esclar) e (çL03_    e
 _reapar) e (çL03_   e
 _reconh) e (çL03_   e
+  _coop) e (rL04_   E
+   _sup) e (rL04_   E
+   _imp) e (rL03_   E
+  _temp) e (rL04_   E
 //endsort
 
  _exag) e (L05_     E
@@ -390,6 +398,12 @@ _reconh) e (çL03_   e
  _houv) e (L05_     E
  _soub) e (L05_     E
 
+ _compreend) e (L06_ e
+ _correspond) e (L06_ e
+ _entend) e (L06_   e
+ _estend) e (L06_   e
+ _respond)e (L06_   e
+  _vend) e (L06_    e
 
 .group é
         é          ''E
@@ -687,6 +701,7 @@ _reconh) e (çL03_   e
      c) o (rrL01_  o   // escorra, incorra, corra, recorra
     _m) o (rrL01_  o
      p) ostos (_   Ost=Us#   // dispostos etc.
+  _esn) o (bL04_   O
 //endsort
 
 .group ô
@@ -824,6 +839,7 @@ _reconh) e (çL03_   e
      r) u (_A      u
         u (A_      'u
 
+        u (em_    'u
         ui         uI
         u (iu      w
         u (iCK     u
