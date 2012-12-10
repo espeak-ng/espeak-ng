@@ -1,3 +1,4 @@
-Development snapshots of eSpeak.
+Android Port of eSpeak
 
-Taken from http://espeak.sourceforge.net/test/latest.html.
+This branch contains the files needed to build espeak on the android platform.
+It is derived from the eyes-free project.

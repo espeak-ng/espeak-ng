@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.googlecode.eyesfree.espeak"
+    android:versionCode="7"
+    android:versionName="1.46.02_r7" >
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="14" />
+
+    <application
+        android:icon="@drawable/icon"
+        android:label="@string/app_name" >
+        <service
+            android:name=".TtsService"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.TTS_SERVICE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.speech.tts"
+                android:resource="@xml/tts_engine" />
+        </service>
+
+        <activity
+            android:name=".DownloadVoiceData"
+            android:theme="@android:style/Theme.Dialog" >
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".CheckVoiceData"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.CHECK_TTS_DATA" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GetSampleText"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.GET_SAMPLE_TEXT" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".TtsSettingsActivity"
+            android:label="@string/tts_settings_label" >
+            <intent-filter>
+                <action android:name="android.speech.tts.engine.CONFIGURE_ENGINE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".eSpeakActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Legacy code for pre-ICS compatibility. -->
+        <activity
+            android:name=".eSpeak"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.START_TTS_ENGINE" />
+
+                <category android:name="android.intent.category.tts_engine.ESPEAK" />
+                <category android:name="android.intent.category.tts_lang.afr" />
+                <category android:name="android.intent.category.tts_lang.bos" />
+                <category android:name="android.intent.category.tts_lang.zho" />
+                <category android:name="android.intent.category.tts_lang.cmn" />
+                <category android:name="android.intent.category.tts_lang.yue" />
+                <category android:name="android.intent.category.tts_lang.hrv" />
+                <category android:name="android.intent.category.tts_lang.ces" />
+                <category android:name="android.intent.category.tts_lang.nld" />
+                <category android:name="android.intent.category.tts_lang.eng" />
+                <category android:name="android.intent.category.tts_lang.eng.USA" />
+                <category android:name="android.intent.category.tts_lang.eng.GBR" />
+                <category android:name="android.intent.category.tts_lang.epo" />
+                <category android:name="android.intent.category.tts_lang.fin" />
+                <category android:name="android.intent.category.tts_lang.fra" />
+                <category android:name="android.intent.category.tts_lang.deu" />
+                <category android:name="android.intent.category.tts_lang.ell" />
+                <category android:name="android.intent.category.tts_lang.hin" />
+                <category android:name="android.intent.category.tts_lang.hun" />
+                <category android:name="android.intent.category.tts_lang.isl" />
+                <category android:name="android.intent.category.tts_lang.ind" />
+                <category android:name="android.intent.category.tts_lang.ita" />
+                <category android:name="android.intent.category.tts_lang.kur" />
+                <category android:name="android.intent.category.tts_lang.lat" />
+                <category android:name="android.intent.category.tts_lang.mkd" />
+                <category android:name="android.intent.category.tts_lang.nor" />
+                <category android:name="android.intent.category.tts_lang.pol" />
+                <category android:name="android.intent.category.tts_lang.por" />
+                <category android:name="android.intent.category.tts_lang.ron" />
+                <category android:name="android.intent.category.tts_lang.rus" />
+                <category android:name="android.intent.category.tts_lang.srp" />
+                <category android:name="android.intent.category.tts_lang.slk" />
+                <category android:name="android.intent.category.tts_lang.spa" />
+                <category android:name="android.intent.category.tts_lang.spa.MEX" />
+                <category android:name="android.intent.category.tts_lang.swa" />
+                <category android:name="android.intent.category.tts_lang.swe" />
+                <category android:name="android.intent.category.tts_lang.tam" />
+                <category android:name="android.intent.category.tts_lang.tur" />
+                <category android:name="android.intent.category.tts_lang.vie" />
+                <category android:name="android.intent.category.tts_lang.cym" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="com.googlecode.eyesfree.espeak.providers.SettingsProvider"
+            android:authorities="com.googlecode.eyesfree.espeak.providers.SettingsProvider" />
+    </application>
+
+</manifest>

@@ -2,6 +2,11 @@
 
 *.o
 
+# android build output:
+
+obj/
+libs/
+
 # libraries
 
 src/libespeak.a
