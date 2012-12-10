@@ -141,7 +141,7 @@ static Translator* NewTranslator(void)
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 	memset(tr->letter_groups,0,sizeof(tr->letter_groups));
 
-	// 0-5 sets of characters matched by A B C H F G Y  in pronunciation rules
+	// 0-6 sets of characters matched by A B C H F G Y  in pronunciation rules
 	// these may be set differently for different languages
 	SetLetterBits(tr,0,"aeiou");  // A  vowels, except y
 	SetLetterBits(tr,1,"bcdfgjklmnpqstvxz");      // B  hard consonants, excluding h,r,w
@@ -164,6 +164,7 @@ static Translator* NewTranslator(void)
 	}
 	memset(&(tr->langopts),0,sizeof(tr->langopts));
 	tr->langopts.max_lengthmod = 500;
+	tr->langopts.lengthen_tonic = 20;
 
 	tr->langopts.stress_rule = STRESSPOSN_2R;
 	tr->langopts.unstressed_wd1 = 1;
@@ -274,11 +275,13 @@ static const unsigned int replace_cyrillic_latin[] =
 	0x45c,0x107,
 0};  // ѓ  ѕ  ќ
 
+
+static const unsigned char ru_vowels[] = {0x10,0x15,0x31,0x18,0x1e,0x23,0x2b,0x2d,0x2e,0x2f,  0xb9,0xc9,0x91,0x8f,0x36,0};  //also kazakh
+static const unsigned char ru_consonants[] = {0x11,0x12,0x13,0x14,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2c, 0x73,0x7b,0x83,0x9b,0};
+
 static void SetCyrillicLetters(Translator *tr)
 {//===========================================
 	// character codes offset by 0x420
-	static const char ru_vowels[] = {0x10,0x15,0x31,0x18,0x1e,0x23,0x2b,0x2d,0x2e,0x2f,0};
-	static const char ru_consonants[] = {0x11,0x12,0x13,0x14,0x16,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x26,0x27,0x28,0x29,0x2a,0x2c,0};
 	static const char ru_soft[] = {0x2c,0x19,0x27,0x29,0};   // letter group B  [k ts; s;]
 	static const char ru_hard[] = {0x2a,0x16,0x26,0x28,0};   // letter group H  [S Z ts]
 	static const char ru_nothard[] = {0x11,0x12,0x13,0x14,0x17,0x19,0x1a,0x1b,0x1c,0x1d,0x1f,0x20,0x21,0x22,0x24,0x25,0x27,0x29,0x2c,0};
@@ -291,14 +294,14 @@ static void SetCyrillicLetters(Translator *tr)
 
 	tr->letter_bits_offset = OFFSET_CYRILLIC;
 	memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-	SetLetterBits(tr,LETTERGP_A,ru_vowels);
+	SetLetterBits(tr,LETTERGP_A,(char *)ru_vowels);
 	SetLetterBits(tr,1,ru_soft);
-	SetLetterBits(tr,2,ru_consonants);
+	SetLetterBits(tr,2,(char *)ru_consonants);
 	SetLetterBits(tr,3,ru_hard);
 	SetLetterBits(tr,4,ru_nothard);
 	SetLetterBits(tr,5,ru_voiced);
 	SetLetterBits(tr,6,ru_ivowels);
-	SetLetterBits(tr,LETTERGP_VOWEL2,ru_vowels);
+	SetLetterBits(tr,LETTERGP_VOWEL2,(char *)ru_vowels);
 }  // end of SetCyrillicLetters
 
 
@@ -890,6 +893,30 @@ SetLengthMods(tr,3);  // all equal
 //			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.max_initial_consonants = 7;
 			tr->langopts.numbers = NUM_VIGESIMAL | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED |NUM_OMIT_1_THOUSAND | NUM_DFRACTION_5;
+		}
+		break;
+
+	case L('k','k'):   // Kazakh
+		{
+			static const unsigned char stress_amps_tr[8] = {18,16, 20,21, 20,21, 21,20 };
+			static const short stress_lengths_tr[8] = {190,180, 230,230, 0,0, 250,250};
+ 
+			tr->letter_bits_offset = OFFSET_CYRILLIC;
+			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
+			SetLetterBits(tr,LETTERGP_A,(char *)ru_vowels);
+			SetLetterBits(tr,LETTERGP_C,(char *)ru_consonants);
+			SetLetterBits(tr,LETTERGP_VOWEL2,(char *)ru_vowels);
+
+			SetupTranslator(tr,stress_lengths_tr,stress_amps_tr);
+
+			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
+			tr->langopts.stress_flags = S_NO_AUTO_2 + S_NO_EOC_LENGTHEN;  //no automatic secondary stress, don't lengthen at end-of-clause
+			tr->langopts.lengthen_tonic = 0;
+			tr->langopts.param[LOPT_SUFFIX] = 1;
+
+			tr->langopts.numbers =  NUM_OMIT_1_HUNDRED | NUM_DFRACTION_6 ;
+			tr->langopts.max_initial_consonants = 2;
+SetLengthMods(tr,3);  // all equal
 		}
 		break;
 

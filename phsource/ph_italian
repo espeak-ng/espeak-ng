@@ -20,6 +20,9 @@ endphoneme
 phoneme a/
   vowel starttype #@ endtype #@
   length 180
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/a#_4)
+  ENDIF
   FMT(vowel/a_5)
 endphoneme
 

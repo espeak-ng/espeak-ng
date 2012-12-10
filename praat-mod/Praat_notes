@@ -1,0 +1,60 @@
+
+This is a version of Praat which has an extra function added: Sound_to_Espeak(),
+which produces a file: spectrum.dat  which can be loaded by espeakedit.
+
+Praat source is available from  http://www.praat.org/
+Use praat version 5.1.20 or later.
+
+Packages Needed:
+
+Package: "libmotif3" to run praat, and package: "libmotif-dev" to compile praat.
+(or alternatively packages "lesstif2" and "lesstif2-dev", but Pratt's user interface
+doesn't work correctly with these).
+
+install packages: libxt-dev, x11proto-print-dev, libasound-dev
+
+
+
+Modifications to add  "Sound_to_Espeak" function and button.
+This analyses speech WAV data and produces a file: "spectrum.dat"
+which can be loaded in  espeakedit  to show a sequence of time-slice
+spectra.
+
+
+
+1. Copy the file:   "Sound_JSD.c"  into the directory "fon".
+
+
+2. In the file "fon/Makefile", add to the list of OBJECTS:  Sound_JSD.o
+
+
+3. Edit the file:   fon/praat_Sound_Init.c,
+
+after
+	FORM (Sound_to_Spectrogram....
+	...
+	END
+add
+
+FORM (Sound_to_Espeak, L"From Sound to Spectrogram", L"Sound: To Espeak...")
+	POSITIVE (L"Minimum pitch (Hz)", L"75")
+	POSITIVE (L"Maximum pitch (Hz)", L"300")
+	POSITIVE (L"Maximum frequency (Hz)", L"9500")
+	POSITIVE (L"Frequency step (Hz)", L"40")
+	POSITIVE (L"Maximum formant (Hz)", L"5000")
+	REAL (L"Adjust (min freq)", L"2500")
+	OK
+DO
+	EVERY_TO (Sound_to_Espeak (OBJECT, GET_REAL (L"Minimum pitch"), GET_REAL (L"Maximum pitch"),
+		GET_REAL (L"Maximum frequency"),
+		GET_REAL (L"Frequency step"),
+		GET_REAL (L"Maximum formant"),
+		GET_REAL (L"Adjust")))
+END
+
+
+after
+		praat_addAction1 (classSound, 0, L"To Spectrogram...", 0, 1, DO_Sound_to_Spectrogram);
+add
+		praat_addAction1 (classSound, 0, L"To eSpeak...", 0, 1, DO_Sound_to_Espeak);
+

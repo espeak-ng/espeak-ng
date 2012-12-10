@@ -408,6 +408,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 	char phon_out[N_PH_LIST*2];
 	int clause_tone;
 	int clause_count;
+	int use_ipa = 0;
 	FILE *f;
 	int  fd_temp;
 	char fname_temp[100];
@@ -459,6 +460,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		t_phonetic->SetDefaultStyle(style_phonetic_large);
 
 		translate_text = 3;
+		use_ipa = 1;
 		break;
 
 	case T_PROCESS:
@@ -468,7 +470,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			myframe->OnProsody(event);
 		}
 		prosodycanvas->LayoutData(ph_list,n_ph_list);
-		option_phoneme_events = 1;
+		option_phoneme_events = espeakINITIALIZE_PHONEME_EVENTS;
 		option_log_frames = 1;
 		MakeWave2(ph_list,n_ph_list);
 		option_log_frames = 0;
@@ -495,7 +497,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 			CalcPitches(translator,clause_tone);
 			CalcLengths(translator);
 
-			GetTranslatedPhonemeString(translator->phon_out,sizeof(translator->phon_out));
+			GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
 			if(clause_count++ > 0)
 				strcat(phon_out," ||");
 			strcat(phon_out,translator->phon_out);

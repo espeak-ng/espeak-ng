@@ -313,6 +313,17 @@ static int SynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 }
 
 
+static void PrintVersion()
+{//=======================
+	const char *version;
+	const char *path_data;
+	espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, NULL, espeakINITIALIZE_DONT_EXIT);
+	version = espeak_Info(&path_data);
+	printf("eSpeak text-to-speech: %s  Data at: %s\n", version, path_data);
+}
+
+
+
 #ifdef NEED_GETOPT
 	struct option {
 		char *name;
@@ -352,6 +363,7 @@ int main (int argc, char **argv)
 		{"phonout", required_argument, 0, 0x108},
 		{"pho",     no_argument,       0, 0x109},
 		{"ipa",     no_argument,       0, 0x10a},
+		{"version", no_argument,       0, 0x10b},
 		{0, 0, 0, 0}
 		};
 
@@ -473,15 +485,10 @@ int main (int argc, char **argv)
 			break;
 
 		case 'h':
-			{
-				const char *version;
-				const char *path_data;
-				espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 0, data_path, espeakINITIALIZE_DONT_EXIT);
-				version = espeak_Info(&path_data);
-				printf("\n");
-				printf("eSpeak text-to-speech: %s  Data at: %s\n%s", version, path_data, help_text);
-				exit(0);
-			}
+			printf("\n");
+			PrintVersion();
+			printf("%s", help_text);
+			exit(0);
 			break;
 
 		case 'k':
@@ -598,6 +605,10 @@ int main (int argc, char **argv)
 		case 0x10a:  // --ipa
 			option_phonemes = 3;
 			break;
+
+		case 0x10b:  // -version
+			PrintVersion();
+			exit(0);
 
 		default:
 			exit(0);

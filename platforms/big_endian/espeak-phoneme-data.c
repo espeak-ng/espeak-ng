@@ -167,6 +167,7 @@ int main (int argc, char *argv[])
 #else
     printf ("Host seems to be little-endian ..\n");
 #endif
+    printf ("Reading from: %s\n", indir);
 
     sprintf (f1, "%s/phondata", indir);
     sprintf (f2, "%s/temp_1", outdir);
@@ -211,6 +212,8 @@ void swap_phondata  (const char *infile, const char *outfile,
 {//==========================================================
     FILE *in, *mfest, *out;
     int displ;
+    int displ_out;
+    int errorflag_displ = 0;  // only report the first displ mismatch error
     char line[1024];
     unsigned char buf_4[4];
 
@@ -241,6 +244,13 @@ void swap_phondata  (const char *infile, const char *outfile,
 
         sscanf(&line[2],"%x",&displ);
         fseek(in, displ, SEEK_SET);
+        fflush(out);
+        displ_out = ftell(out);
+        if((errorflag_displ==0) && (displ != displ_out))
+        {
+           fprintf(stderr, "Length error at the line before:   %s", line);
+           errorflag_displ = 1;
+        }
 
         if (line[0] == 'S') {
             SPECT_SEQ buf_spect;

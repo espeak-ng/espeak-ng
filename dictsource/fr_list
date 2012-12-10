@@ -24,7 +24,7 @@
 
 // 2006-11-18  Gilles Casse  <gcasse@oralux.org>
 //
-// Updated 2011-10-14 Michel Such  <michel.such@free.fr>
+// Updated 2011-10-29 Michel Such  <michel.such@free.fr>
 //
 //	* Numbers, a few abbreviations and exceptions.
 //
@@ -149,6 +149,8 @@ _’	apostr'Of
 _‘	apostr'Of
 _µ	mikr'o
 _§	sEksj'O~
+_∞	infini
+
 
 // symbols that are normally spoken when reading text
 @	_::arobaz
@@ -680,6 +682,7 @@ bis	      bis
 bissus    bisys
 blues	_^_en
 blum	blum
+bootable	boutable $text
 broglie	breuil $text
 browglie	breuil $text
 buffer	bYfWr
@@ -726,7 +729,9 @@ gus	gys
 gym	Zim
 han	_|A~
 hélas 		elas $u+
+here	_^_en
 hermes _|ErmEs
+his	_^_en
 input	_^_en
 island	_^_en
 jackpot	dZakpOt
@@ -783,7 +788,9 @@ stocker	stoker2
 sus       sys
 sus       sy $verb
 sushi	suSi
+there	_^_en
 thierry	tjEri
+those	_^_en
 to	tu $u+
 tramway	tramwE:
 tuttiquanti       tutikw'anti

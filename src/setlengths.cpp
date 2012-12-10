@@ -32,6 +32,7 @@
 
 extern int GetAmplitude(void);
 extern void DoSonicSpeed(int value);
+extern int saved_parameters[];
 
 
 // convert from words-per-minute to internal speed factor
@@ -343,6 +344,7 @@ void SetParameter(int parameter, int value, int relative)
 		}
 	}
 	param_stack[0].parameter[parameter] = new_value;
+	saved_parameters[parameter] = new_value;
 
 	switch(parameter)
 	{
@@ -715,14 +717,14 @@ if(stress <= 1)
 			if(stress >= 7)
 			{
 				// tonic syllable, include a constant component so it doesn't decrease directly with speed
-				length_mod += 20;
+				length_mod += tr->langopts.lengthen_tonic;
 				if(emphasized)
-					length_mod += 10;
+					length_mod += (tr->langopts.lengthen_tonic/2);
 			}
 			else
 			if(emphasized)
 			{
-				length_mod += 20;
+				length_mod += tr->langopts.lengthen_tonic;
 			}
 
 			if((len = tr->stress_lengths[stress]) == 0)
@@ -739,7 +741,8 @@ if(stress <= 1)
 				}
 			}
 
-			if(end_of_clause == 2)
+
+			if((end_of_clause == 2) && !(tr->langopts.stress_flags & S_NO_EOC_LENGTHEN))
 			{
 				// this is the last syllable in the clause, lengthen it - more for short vowels
 				len = (p->ph->std_length * 2);

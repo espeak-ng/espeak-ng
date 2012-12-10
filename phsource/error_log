@@ -457,5 +457,17 @@ include ph_tibetan
 
 
 
+______________________________
+Phoneme Table: 'kk'
+include ph_kazakh
 
-Refs 2579,  Reused 1791
+
+
+______________________________
+Phoneme Table: 'fa'
+include ph_farsi
+
+
+
+
+Refs 2602,  Reused 1810

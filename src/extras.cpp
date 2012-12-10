@@ -134,7 +134,13 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 			fprintf(f_events,"'%s'\n",events->id.name);
 		else
 		if(type==espeakEVENT_PHONEME)
-			fprintf(f_events,"[%s]\n",WordToString(events->id.number));
+		{
+			char buf[10];
+			fprintf(f_events,"[%s]\n",WordToString(events->id.number));  //old version, only 4 characters bytes
+//			memcpy(buf, events->id.string, 8);
+//			buf[8] = 0;
+//			fprintf(f_events,"[%s]\n", buf);
+		}
 		else
 			fprintf(f_events,"%d\n",events->id.number);
 
@@ -2309,7 +2315,7 @@ if(control==2)
 	fprintf(f_events,"Type             Audio  Text  Length Id\n");
 	fclose(f_events);
 
-	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL,1000,NULL,1);
+	espeak_Initialize(AUDIO_OUTPUT_RETRIEVAL, 1000, NULL, espeakINITIALIZE_PHONEME_EVENTS);
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 
