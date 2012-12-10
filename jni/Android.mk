@@ -1,13 +1,26 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
-# eSpeak (minus command line apps)
+# eSpeak (minus command line apps and espeakedit)
 
 BLACKLIST_SRC_FILES := \
+  %/compiledata.cpp \
   %/espeak.cpp \
-  %/speak.cpp
+  %/espeakedit.cpp \
+  %/extras.cpp \
+  %/formantdlg.cpp \
+  %/menus.cpp \
+  %/options.cpp \
+  %/prosodydisplay.cpp \
+  %/speak.cpp \
+  %/spect.cpp \
+  %/spectdisplay.cpp \
+  %/spectseq.cpp \
+  %/transldlg.cpp \
+  %/voicedlg.cpp \
+  %/vowelchart.cpp
 
-ESPEAK_SRC_PATH := espeak-source/src
+ESPEAK_SRC_PATH := ../src
 
 ESPEAK_SRC_FILES := \
   $(subst $(LOCAL_PATH)/$(ESPEAK_SRC_PATH),$(ESPEAK_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/*.c*))
