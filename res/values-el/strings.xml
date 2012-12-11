@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"Ρυθμίσεις eSpeak TTS"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"Προεπιλεγμένος τόνος"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"Φύλο φωνής"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"Πολλαπλασιαστής ρυθμού ομιλίας"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"Εγκατάσταση δεδομένων φωνής..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"Το eSpeak δεν έχει οριστεί ως η προεπιλεγμένη μηχανή μετατροπής κειμένου σε λόγο. Θέλετε να το ορίσετε τώρα;"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"Το eSpeak απέτυχε να εγκαταστήσει τα δεδομένα φωνής. Ελέγξτε την κάρτα SD."</string>
+    <string name="error_message" msgid="7565522727556545634">"Λυπούμαστε, η εκκίνηση του eSpeak απέτυχε. Θέλετε να στείλετε αναφορά σφάλματος;"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"Σφάλμα κατά τη φόρτωση του eSpeak"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"Το eSpeak αντιμετώπισε ένα σφάλμα κατά τη φόρτωση. Θέλετε να στείλετε αναφορά στον προγραμματιστή;"</string>
+    <string name="no_settings" msgid="1351437843962431135">"Δεν υπάρχουν διαθέσιμες ρυθμίσεις"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Προεπιλεγμένη φωνή: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Φωνές που έχουν εγκατασταθεί: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"Γενικές ρυθμίσεις TTS"</string>
+    <string name="engine_settings" msgid="15960710549009350">"Ρυθμίσεις eSpeak TTS"</string>
+    <string name="loading" msgid="1624831854302260352">"Γίνεται φόρτωση. Περιμένετε..."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"Λυπούμαστε, η φόρτωση του eSpeak απέτυχε."</string>
+    <string name="sample_text" msgid="7870499751575948178">"Αυτό είναι ένα δείγμα κειμένου που εκφέρεται στα <xliff:g id="ID_1">%s</xliff:g>"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"Πολύ χαμηλός"</item>
+    <item msgid="9160252712018935449">"Χαμηλός"</item>
+    <item msgid="6600217296998445656">"Κανονικός"</item>
+    <item msgid="224968018667112211">"Υψηλός"</item>
+    <item msgid="3676463174560550053">"Πολύ υψηλός"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"Προεπιλογή"</item>
+    <item msgid="6629288844142484435">"Άντρας"</item>
+    <item msgid="5166591510034679431">"Γυναίκα"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>

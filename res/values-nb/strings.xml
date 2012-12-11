@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"Innstillinger for eSpeak tekst-til-tale"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"Standard tonehøyde"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"Kjønn for stemmen"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"Multiplikator for talehastighet"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"Installerer taledata …"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak er ikke angitt som standardmotor for tekst-til-tale. Vil du gjøre det nå?"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak mislyktes i å installere taledata. Kontroller SD-kortet ditt."</string>
+    <string name="error_message" msgid="7565522727556545634">"eSpeak startet ikke. Vil du sende en feilrapport?"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"Feil under innlasting av eSpeak"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"Det oppsto en feil under innlastingen av eSpeak. Ønsker du å sende en rapport til utvikleren?"</string>
+    <string name="no_settings" msgid="1351437843962431135">"Ingen innstillinger er tilgjengelige"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Standardstemme: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Installerte stemmer: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"Generelle tekst-til-tale-innstillinger"</string>
+    <string name="engine_settings" msgid="15960710549009350">"Innstillinger for eSpeak tekst-til-tale"</string>
+    <string name="loading" msgid="1624831854302260352">"Laster inn – vent litt …"</string>
+    <string name="loading_failed" msgid="8965859207758593651">"Beklager, eSpeak ble ikke lastet inn."</string>
+    <string name="sample_text" msgid="7870499751575948178">"Dette er et teksteksempel lest opp på <xliff:g id="ID_1">%s</xliff:g>"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"Veldig lav"</item>
+    <item msgid="9160252712018935449">"Lav"</item>
+    <item msgid="6600217296998445656">"Normal"</item>
+    <item msgid="224968018667112211">"Høy"</item>
+    <item msgid="3676463174560550053">"Veldig høy"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"Standard"</item>
+    <item msgid="6629288844142484435">"Mann"</item>
+    <item msgid="5166591510034679431">"Kvinne"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>

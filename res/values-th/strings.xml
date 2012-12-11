@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"การตั้งค่า TTS ของ eSpeak"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"ระดับเสียงเริ่มต้น"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"เพศของเสียง:"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"ตัวคูณความเร็วการพูด"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"กำลังติดตั้งข้อมูลเสียง..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak ไม่ได้ถูกกำหนดให้เป็นเครื่องมืออ่านออกเสียงข้อความเริ่มต้นของคุณ คุณต้องการกำหนดเดี๋ยวนี้หรือไม่"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak ไม่สามารถติดตั้งข้อมูลเสียง โปรดตรวจสอบการ์ด SD ของคุณ"</string>
+    <string name="error_message" msgid="7565522727556545634">"ขออภัย eSpeak ไม่สามารถเริ่มต้นทำงาน คุณต้องการส่งรายงานข้อผิดพลาดหรือไม่"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"เกิดข้อผิดพลาดขณะที่โหลด eSpeak"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak พบข้อผิดพลาดขณะที่กำลังโหลด คุณต้องการส่งรายงานไปยังนักพัฒนาซอฟต์แวร์หรือไม่"</string>
+    <string name="no_settings" msgid="1351437843962431135">"ไม่มีการตั้งค่า"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"เสียงเริ่มต้น: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"เสียงที่ติดตั้ง: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"การตั้งค่า TTS ทั่วไป"</string>
+    <string name="engine_settings" msgid="15960710549009350">"การตั้งค่า TTS ของ eSpeak"</string>
+    <string name="loading" msgid="1624831854302260352">"กำลังโหลด โปรดรอสักครู่..."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"ขออภัย eSpeak ไม่สามารถโหลด"</string>
+    <string name="sample_text" msgid="7870499751575948178">"นี่เป็นตัวอย่างของข้อความที่พูดใน <xliff:g id="ID_1">%s</xliff:g>"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"ต่ำมาก"</item>
+    <item msgid="9160252712018935449">"ต่ำ"</item>
+    <item msgid="6600217296998445656">"ปกติ"</item>
+    <item msgid="224968018667112211">"สูง"</item>
+    <item msgid="3676463174560550053">"สูงมาก"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"ค่าเริ่มต้น"</item>
+    <item msgid="6629288844142484435">"ชาย"</item>
+    <item msgid="5166591510034679431">"หญิง"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>

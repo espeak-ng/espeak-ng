@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"eSpeak TTS 설정"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"기본 피치"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"음성 성별"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"음성 배속 비율"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"음성 데이터 설치 중..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak가 기본 TTS 엔진으로 설정되지 않았습니다. 지금 설정하시겠습니까?"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak에서 음성 데이터를 설치하지 못했습니다. SD 카드를 확인하세요."</string>
+    <string name="error_message" msgid="7565522727556545634">"죄송합니다, eSpeak를 시작할 수 없습니다. 오류를 신고하시겠습니까?"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"eSpeak 로딩 오류"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"로드하는 중에 eSpeak에 오류가 발생했습니다. 개발자에게 신고하시겠습니까?"</string>
+    <string name="no_settings" msgid="1351437843962431135">"이용 가능한 설정 없음"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"기본 음성: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"음성 설치됨: <xliff:g id="ID_1">%d</xliff:g>개"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"일반 TTS 설정"</string>
+    <string name="engine_settings" msgid="15960710549009350">"eSpeak TTS 설정"</string>
+    <string name="loading" msgid="1624831854302260352">"로드 중... 잠시 기다려 주세요."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"죄송합니다, eSpeak를 로드하지 못했습니다."</string>
+    <string name="sample_text" msgid="7870499751575948178">"<xliff:g id="ID_1">%s</xliff:g>로 읽은 텍스트 샘플입니다."</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"매우 낮음"</item>
+    <item msgid="9160252712018935449">"낮음"</item>
+    <item msgid="6600217296998445656">"보통"</item>
+    <item msgid="224968018667112211">"높음"</item>
+    <item msgid="3676463174560550053">"매우 높음"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"기본값"</item>
+    <item msgid="6629288844142484435">"남성"</item>
+    <item msgid="5166591510034679431">"여성"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>

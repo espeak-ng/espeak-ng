@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"eSpeak -- A szövegfelismerő beállításai"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"Alapértelmezett hangszín"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"Szövegfelolvasó neme"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"Beszédsebesség gyorsítása"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"Hangadatok telepítése..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"Nem az eSpeak az alapértelmezett szövegfelolvasó motor. Szeretné most beállítani?"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"Az eSpeak nem tudta telepíteni a hangadatokat. Ellenőrizze az SD-kártyát."</string>
+    <string name="error_message" msgid="7565522727556545634">"Sajnos az eSpeak nem indul. Szeretne hibajelentést küldeni?"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"Hiba az eSpeak betöltése során"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"Az eSpeak hibát észlelt a betöltés során. Szeretne jelentést küldeni a fejlesztőnek?"</string>
+    <string name="no_settings" msgid="1351437843962431135">"Nincs elérhető beállítás"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Alapértelmezett hang: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Telepített hangok: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"Általános szövegfelolvasási beállítások"</string>
+    <string name="engine_settings" msgid="15960710549009350">"eSpeak -- A szövegfelismerő beállításai"</string>
+    <string name="loading" msgid="1624831854302260352">"Betöltés folyamatban -- kérjük, várjon..."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"Sajnos az eSpeak nem töltődött be."</string>
+    <string name="sample_text" msgid="7870499751575948178">"Ez egy <xliff:g id="ID_1">%s</xliff:g> nyelven felolvasott szöveg mintája."</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"Nagyon alacsony"</item>
+    <item msgid="9160252712018935449">"Alacsony"</item>
+    <item msgid="6600217296998445656">"Normál"</item>
+    <item msgid="224968018667112211">"Magas"</item>
+    <item msgid="3676463174560550053">"Nagyon magas"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"Alapértelmezett"</item>
+    <item msgid="6629288844142484435">"Férfi"</item>
+    <item msgid="5166591510034679431">"Nő"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"Paramètres de synthèse vocale eSpeak"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"Tonalité par défaut"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"Sexe de la voix"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"Multiplicateur de la cadence"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"Installation des données vocales en cours…"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak n\'est pas votre moteur de synthèse vocale par défaut. Voulez-vous le définir en tant que tel maintenant ?"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"Échec de l\'installation des données vocales par eSpeak. Veuillez vérifier votre carte SD."</string>
+    <string name="error_message" msgid="7565522727556545634">"Désolé, impossible de lancer eSpeak. Voulez-vous envoyer un rapport d\'erreur ?"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"Erreur lors du chargement d\'eSpeak"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"Une erreur s\'est produite lors du chargement d\'eSpeak. Voulez-vous envoyer un rapport au développeur ?"</string>
+    <string name="no_settings" msgid="1351437843962431135">"Aucun paramètre disponible"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Voix par défaut : <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Voix installées : <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"Paramètres généraux de synthèse vocale"</string>
+    <string name="engine_settings" msgid="15960710549009350">"Paramètres de synthèse vocale eSpeak"</string>
+    <string name="loading" msgid="1624831854302260352">"Chargement en cours, veuillez patienter…"</string>
+    <string name="loading_failed" msgid="8965859207758593651">"Échec du chargement d\'eSpeak."</string>
+    <string name="sample_text" msgid="7870499751575948178">"Voici un exemple de texte énoncé en <xliff:g id="ID_1">%s</xliff:g>."</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"Très grave"</item>
+    <item msgid="9160252712018935449">"Grave"</item>
+    <item msgid="6600217296998445656">"Normale"</item>
+    <item msgid="224968018667112211">"Aiguë"</item>
+    <item msgid="3676463174560550053">"Très aiguë"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"Par défaut"</item>
+    <item msgid="6629288844142484435">"Homme"</item>
+    <item msgid="5166591510034679431">"Femme"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"x 1"</item>
+    <item msgid="7553786328764566293">"x 2"</item>
+    <item msgid="7682118582350353919">"x 3"</item>
+    <item msgid="5021322359195099970">"x 4"</item>
+    <item msgid="6621008032814909392">"x 5"</item>
+  </string-array>
+</resources>

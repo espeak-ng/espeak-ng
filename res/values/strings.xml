@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+    <!--
+        Source: App icon label.
+        Description: The name of the application.
+    -->
+    <string name="app_name" translatable="false">eSpeak TTS</string>
+    <!--
+        Source: Activity title.
+        Description: Title for the Settings activity.
+    -->
+    <string name="tts_settings_label">eSpeak TTS Settings</string>
+    <!--
+        Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.
+    -->
+    <string name="setting_default_pitch">Default pitch</string>
+    <!--
+        Source: Preference title.
+        Description: Title for the preference that controls default voice gender.
+    -->
+    <string name="setting_default_gender">Voice gender</string>
+    <!--
+        Source: Preference title.
+        Description: Title for the preference that controls default speech rate multiplier.
+    -->
+    <string name="setting_default_rate">Speech rate multiplier</string>
+    <!--
+        Source: Dialog text.
+        Description: Status message shown when installing voice data.
+    -->
+    <string name="installing_voice_data">Installing voice data…</string>
+    <!--
+        Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.
+    -->
+    <string name="set_default_message">eSpeak is not set as your default text-to-speech engine. Would you like to set it now?</string>
+    <!--
+        Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.
+    -->
+    <string name="voice_data_failed_message">eSpeak failed to install voice data. Please check your SD card.</string>
+    <!--
+        Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.
+    -->
+    <string name="error_message">Sorry, eSpeak failed to start. Would you like to send an error report?</string>
+    <!--
+        Source: Dialog title.
+        Description: Alert dialog telling the user that an error occurred while loading eSpeak.
+    -->
+    <string name="loading_failed_title">Error loading eSpeak</string>
+    <!--
+        Source: Dialog message.
+        Description: Alert dialog telling the user that an error occurred while loading eSpeak.
+    -->
+    <string name="loading_failed_message">eSpeak encountered an error while loading. Would you like to send a report to the developer?</string>
+    <!--
+        Source: Displayed in the Settings activity.
+        Description: Text shown when there are no settings available for the user to change.
+    -->
+    <string name="no_settings">No settings available</string>
+    <!--
+        Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.
+    -->
+    <string name="current_tts_locale">Default voice: <xliff:g>%s</xliff:g></string>
+    <!--
+        Source: Label text.
+        Description: Label informing the user of how many voices are installed.
+    -->
+    <string name="available_voices">Voices installed: <xliff:g>%d</xliff:g></string>
+    <!--
+        Source: Button label.
+        Description: Button for launching general text-to-speech settings.
+    -->
+    <string name="tts_settings">General TTS settings</string>
+    <!--
+        Source: Button label.
+        Description: Button for launching eSpeak-specific settings.
+    -->
+    <string name="engine_settings">eSpeak TTS settings</string>
+    <!--
+        Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.
+    -->
+    <string name="loading">Loading, please wait…</string>
+    <!--
+        Source: Label text.
+        Description: Label informing the user that eSpeak failed to load.
+    -->
+    <string name="loading_failed">Sorry, eSpeak failed to load.</string>
+    <!--
+        Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.
+    -->
+    <string name="sample_text">This is a sample of text spoken in <xliff:g>%s</xliff:g></string>
+    <!--
+        Source: Pitch preference labels.
+        Description: Labels for possible pitch values.
+    -->
+    <string-array name="default_pitch_entries">
+        <item>Very low</item>
+        <item>Low</item>
+        <item>Normal</item>
+        <item>High</item>
+        <item>Very high</item>
+    </string-array>
+    <!--
+        Source: Gender preference labels.
+        Description: Labels for possible gender values.
+    -->
+    <string-array name="default_gender_entries">
+        <item>Default</item>
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+    <!--
+        Source: Rate preference labels.
+        Description: Labels for possible rate multiplier values.
+    -->
+    <string-array name="default_rate_entries">
+        <item>1x</item>
+        <item>2x</item>
+        <item>3x</item>
+        <item>4x</item>
+        <item>5x</item>
+    </string-array>
+
+</resources>

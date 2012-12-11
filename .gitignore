@@ -4,6 +4,8 @@
 
 # android build output:
 
+bin/
+gen/
 obj/
 libs/
 

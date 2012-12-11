@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="default_pitch_values">
+        <item>50</item>
+        <item>75</item>
+        <item>100</item>
+        <item>150</item>
+        <item>200</item>
+    </string-array>
+    <string-array name="default_rate_values">
+        <item>100</item>
+        <item>200</item>
+        <item>300</item>
+        <item>400</item>
+        <item>500</item>
+    </string-array>
+    <string-array name="default_gender_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string name="afr">haai</string>
+    <string name="bos">Zdravo</string>
+    <string name="zho">你好</string>
+    <string name="hrv">bok</string>
+    <string name="ces">ahoj</string>
+    <string name="nld">hallo</string>
+    <string name="eng">hello</string>
+    <string name="epo">saluton</string>
+    <string name="fin">hei</string>
+    <string name="fra">bonjour</string>
+    <string name="deu">hallo</string>
+    <string name="ell">γεια σου</string>
+    <string name="hin">नमस्ते</string>
+    <string name="hun">jo napot</string>
+    <string name="isl">góðan dag</string>
+    <string name="ind">halo</string>
+    <string name="ita">ciao</string>
+    <string name="kur">roj bahsh</string>
+    <string name="lat">salve</string>
+    <string name="mkd">Zdravo</string>
+    <string name="nor">hallo</string>
+    <string name="pol">witaj</string>
+    <string name="por">Olá</string>
+    <string name="ron">salut</string>
+    <string name="rus">привет</string>
+    <string name="srp">здраво</string>
+    <string name="slk">ahoj</string>
+    <string name="spa">hola</string>
+    <string name="swa">Jambo</string>
+    <string name="swe">hej</string>
+    <string name="tam">vanakkam</string>
+    <string name="tur">merhaba</string>
+    <string name="vie">xin chao</string>
+    <string name="cym">shwmae</string>
+
+</resources>

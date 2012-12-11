@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"eSpeak 文字转语音 (TTS) 设置"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"默认声调"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"语音性别"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"语速倍数"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"正在安装语音数据..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"未将 eSpeak 设置为文字转语音的默认引擎。要立即设置吗？"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak 无法安装语音数据。请检查您的 SD 卡。"</string>
+    <string name="error_message" msgid="7565522727556545634">"很抱歉，eSpeak 启动失败。要发送错误报告吗？"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"加载 eSpeak 时出错"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"加载 eSpeak 时出错。要向开发人员发送报告吗？"</string>
+    <string name="no_settings" msgid="1351437843962431135">"无可用设置"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"默认语音：<xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"已安装的语音库数量：<xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"文字转语音 (TTS) 常规设置"</string>
+    <string name="engine_settings" msgid="15960710549009350">"eSpeak 文字转语音 (TTS) 设置"</string>
+    <string name="loading" msgid="1624831854302260352">"正在加载，请稍候..."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"很抱歉，eSpeak 加载失败。"</string>
+    <string name="sample_text" msgid="7870499751575948178">"正在朗读的是<xliff:g id="ID_1">%s</xliff:g>的语音示例"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"很低"</item>
+    <item msgid="9160252712018935449">"低"</item>
+    <item msgid="6600217296998445656">"正常"</item>
+    <item msgid="224968018667112211">"高"</item>
+    <item msgid="3676463174560550053">"很高"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"默认"</item>
+    <item msgid="6629288844142484435">"男"</item>
+    <item msgid="5166591510034679431">"女"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1 倍"</item>
+    <item msgid="7553786328764566293">"2 倍"</item>
+    <item msgid="7682118582350353919">"3 倍"</item>
+    <item msgid="5021322359195099970">"4 倍"</item>
+    <item msgid="6621008032814909392">"5 倍"</item>
+  </string-array>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"eSpeakテキスト読み上げ設定"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"デフォルトの声の高さ"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"声の性別"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"音声速度"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"音声データをインストールしています..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeakはデフォルトのテキスト読み上げエンジンに設定されていません。今すぐ設定しますか？"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeakで音声データをインストールできませんでした。SDカードを確認してください。"</string>
+    <string name="error_message" msgid="7565522727556545634">"eSpeakを起動できませんでした。エラーレポートを送信しますか？"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"eSpeakの読み込み中にエラーが発生しました"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"eSpeakの読み込み中にエラーが発生しました。デベロッパーにレポートを送信しますか？"</string>
+    <string name="no_settings" msgid="1351437843962431135">"利用できる設定はありません"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"デフォルトの音声: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"インストールされている音声: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"テキスト読み上げの全般設定"</string>
+    <string name="engine_settings" msgid="15960710549009350">"eSpeakテキスト読み上げ設定"</string>
+    <string name="loading" msgid="1624831854302260352">"読み込んでいます。お待ちください..."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"eSpeakを読み込めませんでした。"</string>
+    <string name="sample_text" msgid="7870499751575948178">"<xliff:g id="ID_1">%s</xliff:g>で話すテキストサンプルです。"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"非常に低い"</item>
+    <item msgid="9160252712018935449">"低い"</item>
+    <item msgid="6600217296998445656">"標準"</item>
+    <item msgid="224968018667112211">"高い"</item>
+    <item msgid="3676463174560550053">"非常に高い"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"デフォルト"</item>
+    <item msgid="6629288844142484435">"男性"</item>
+    <item msgid="5166591510034679431">"女性"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"標準"</item>
+    <item msgid="7553786328764566293">"2倍"</item>
+    <item msgid="7682118582350353919">"3倍"</item>
+    <item msgid="5021322359195099970">"4倍"</item>
+    <item msgid="6621008032814909392">"5倍"</item>
+  </string-array>
+</resources>

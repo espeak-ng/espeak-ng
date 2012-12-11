@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ListPreference
+        android:defaultValue="100"
+        android:entries="@array/default_pitch_entries"
+        android:entryValues="@array/default_pitch_values"
+        android:key="default_pitch"
+        android:summary="%s"
+        android:title="@string/setting_default_pitch" />
+    <ListPreference
+        android:defaultValue="100"
+        android:entries="@array/default_rate_entries"
+        android:entryValues="@array/default_rate_values"
+        android:key="default_rate"
+        android:summary="%s"
+        android:title="@string/setting_default_rate" />
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/default_gender_entries"
+        android:entryValues="@array/default_gender_values"
+        android:key="default_gender"
+        android:summary="%s"
+        android:title="@string/setting_default_gender" />
+
+</PreferenceScreen>

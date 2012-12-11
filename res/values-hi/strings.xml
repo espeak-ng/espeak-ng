@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"eSpeak TTS सेटिंग"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"डिफ़ॉल्‍ट पिच"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"ध्‍वनि का लिंग"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"वाक् दर गुणक"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"ध्‍वनि डेटा इंस्टॉल किया जा रहा है…"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak आपके डिफ़ॉल्‍ट पाठ-से-वाक् इंजन के रूप में सेट नहीं है. क्‍या आप इसे अभी सेट करना चाहते हैं?"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak ध्‍वनि डेटा इंस्‍टॉल करने में विफल हुआ. कृपया अपना SD कार्ड जांचें."</string>
+    <string name="error_message" msgid="7565522727556545634">"क्षमा करें, eSpeak प्रारंभ होने में विफल हुआ. क्‍या आप त्रुटि रिपोर्ट भेजना चाहते हैं?"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"eSpeak लोड करने में त्रुटि"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak को लोड करते समय कोई त्रुटि आई. क्‍या आप डेवलपर को रिपोर्ट भेजना चाहते हैं?"</string>
+    <string name="no_settings" msgid="1351437843962431135">"कोई सेटिंग उपलब्‍ध नहीं"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"डिफ़ॉल्‍ट ध्‍वनि: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"इंस्‍टॉल की गई ध्‍वनियां: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"सामान्‍य TTS सेटिंग"</string>
+    <string name="engine_settings" msgid="15960710549009350">"eSpeak TTS सेटिंग"</string>
+    <string name="loading" msgid="1624831854302260352">"लोड हो रहा है, कृपया प्रतीक्षा करें…"</string>
+    <string name="loading_failed" msgid="8965859207758593651">"क्षमा करें, eSpeak प्रारंभ होने में विफल हुआ."</string>
+    <string name="sample_text" msgid="7870499751575948178">"यह <xliff:g id="ID_1">%s</xliff:g> में बोले गए पाठ का नमूना है"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"अत्‍यधिक कम"</item>
+    <item msgid="9160252712018935449">"कम"</item>
+    <item msgid="6600217296998445656">"सामान्य"</item>
+    <item msgid="224968018667112211">"उच्च"</item>
+    <item msgid="3676463174560550053">"अत्‍यधिक उच्‍च"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"डिफ़ॉल्ट"</item>
+    <item msgid="6629288844142484435">"पुरुष"</item>
+    <item msgid="5166591510034679431">"महिला"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>

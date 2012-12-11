@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="tts_settings_label" msgid="2696301846672491410">"eSpeak TTS-instellings"</string>
+    <string name="setting_default_pitch" msgid="2063082697363767286">"Verstek toonhoogte"</string>
+    <string name="setting_default_gender" msgid="8721577045178419807">"Stemgeslag"</string>
+    <string name="setting_default_rate" msgid="3255750767876184606">"Spraaktempo-vermenigvuldiger"</string>
+    <string name="installing_voice_data" msgid="1199950160686799120">"Installeer tans stemdata..."</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak is nie as jou verstek teks-na-spraak-enjin opgestel nie. Wil jy dit nou so stel?"</string>
+    <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak kon  nie stemdata installeer nie. Kontroleer asseblief jou SD-kaart."</string>
+    <string name="error_message" msgid="7565522727556545634">"Jammer, eSpeak kon nie begin nie. Wil jy \'n foutverslag stuur?"</string>
+    <string name="loading_failed_title" msgid="511566315504616423">"Kon nie eSpeak laai nie"</string>
+    <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak kon nie laai nie. Wil jy \'n verslag na die ontwikkelaar stuur?"</string>
+    <string name="no_settings" msgid="1351437843962431135">"Geen instellings beskikbaar nie"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Verstek stem: <xliff:g id="ID_1">%s</xliff:g>"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Stemme geïnstalleer: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="tts_settings" msgid="8094374695950898637">"Algemene TTS-instellings"</string>
+    <string name="engine_settings" msgid="15960710549009350">"eSpeak TTS-instellings"</string>
+    <string name="loading" msgid="1624831854302260352">"Laai tans, wag asseblief..."</string>
+    <string name="loading_failed" msgid="8965859207758593651">"Jammer, eSpeak kon nie laai nie."</string>
+    <string name="sample_text" msgid="7870499751575948178">"Hierdie is \'n voorbeeld van gesproke teks in <xliff:g id="ID_1">%s</xliff:g>"</string>
+  <string-array name="default_pitch_entries">
+    <item msgid="5761992954594669467">"Baie laag"</item>
+    <item msgid="9160252712018935449">"Laag"</item>
+    <item msgid="6600217296998445656">"Normaal"</item>
+    <item msgid="224968018667112211">"Hoog"</item>
+    <item msgid="3676463174560550053">"Baie hoog"</item>
+  </string-array>
+  <string-array name="default_gender_entries">
+    <item msgid="6067066045311564033">"Verstek"</item>
+    <item msgid="6629288844142484435">"Manlik"</item>
+    <item msgid="5166591510034679431">"Vroulik"</item>
+  </string-array>
+  <string-array name="default_rate_entries">
+    <item msgid="2422192643694183245">"1x"</item>
+    <item msgid="7553786328764566293">"2x"</item>
+    <item msgid="7682118582350353919">"3x"</item>
+    <item msgid="5021322359195099970">"4x"</item>
+    <item msgid="6621008032814909392">"5x"</item>
+  </string-array>
+</resources>
