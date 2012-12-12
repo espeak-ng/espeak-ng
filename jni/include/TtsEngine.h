@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009 Google Inc.
+ * Copyright (C) 2012 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,14 +15,13 @@
  * limitations under the License.
  */
 
-// This header defines the interface used by the Android platform
-// to access Text-To-Speech functionality in shared libraries that implement
-// speech synthesis and the management of resources associated with the
-// synthesis.
-// An example of the implementation of this interface can be found in
-// FIXME: add path+name to implementation of default TTS engine
-// Libraries implementing this interface are used in:
-//  frameworks/base/tts/jni/android_tts_SpeechSynthesis.cpp
+/*
+ * This file contains the TtsEngine interface used by Android to implement
+ * Text-to-Speech services.
+ *
+ * Android Version: 2.2 (Froyo)
+ * API Version:     8
+ */
 
 #ifndef TTS_ENGINE_H_
 #define TTS_ENGINE_H_

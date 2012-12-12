@@ -14,8 +14,16 @@
  * limitations under the License.
  */
 
+/*
+ * This file implements the Android Text-to-Speech engine for eSpeak.
+ *
+ * Android Version: 4.0 (Ice Cream Sandwich)
+ * API Version:     14
+ */
+
 package com.googlecode.eyesfree.espeak;
 
+import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +50,7 @@ import java.util.Locale;
  *
  * @author alanv@google.com (Alan Viverette)
  */
+@SuppressLint("NewApi")
 public class TtsService extends TextToSpeechService {
     private static final String TAG = TtsService.class.getSimpleName();
     private static final boolean DEBUG = false;

@@ -14,6 +14,13 @@
  * limitations under the License.
  */
 
+/*
+ * This file implements the Java API to eSpeak using the JNI bindings.
+ *
+ * Android Version: 4.0 (Ice Cream Sandwich)
+ * API Version:     14
+ */
+
 package com.googlecode.eyesfree.espeak;
 
 import android.content.Context;

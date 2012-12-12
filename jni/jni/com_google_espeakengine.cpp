@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2008 Google Inc.
+ * Copyright (C) 2012 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +15,21 @@
  * limitations under the License.
  */
 
+/*
+ * This file contains the TtsEngine implementation for the eSpeak
+ * Text-to-Speech engine.
+ *
+ * Android Version: 2.2 (Froyo)
+ * API Version:     8
+ */
+
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 
 #define LOG_TAG "eSpeak Engine"
+#define DEBUG true
 
 #include <speak_lib.h>
 #include <TtsEngine.h>
@@ -152,6 +163,7 @@ static int eSpeakCallback(short *wav, int numsamples, espeak_EVENT *events) {
 }
 
 static bool fileExists(char *fileName) {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   FILE *file = fopen(fileName, "r");
 
   if (file == NULL) {
@@ -163,6 +175,7 @@ static bool fileExists(char *fileName) {
 }
 
 static bool hasBaseResources() {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   char filename[255];
 
   for (int i = 0; i < NUM_BASE_RESOURCES; i++) {
@@ -180,6 +193,7 @@ static bool hasBaseResources() {
 /* Google Engine API function implementations */
 
 tts_result attemptInit() {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   if (hasInitialized) {
     return TTS_SUCCESS;
   }
@@ -219,6 +233,7 @@ tts_result attemptInit() {
  *  return tts_result
  */
 tts_result TtsEngine::init(synthDoneCB_t synthDoneCBPtr, const char *engineConfig) {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   ttsSynthDoneCBPointer = synthDoneCBPtr;
   hasInitialized = false;
 
@@ -239,6 +254,7 @@ tts_result TtsEngine::init(synthDoneCB_t synthDoneCBPtr, const char *engineConfi
  *  return tts_result
  */
 tts_result TtsEngine::shutdown(void) {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   if (eSpeakDataPath != NULL) {
     free(eSpeakDataPath);
   }
@@ -249,14 +265,14 @@ tts_result TtsEngine::shutdown(void) {
 }
 
 tts_result TtsEngine::loadLanguage(const char *lang, const char *country, const char *variant) {
-  LOGV("loadLanguage(\"%s\", \"%s\", \"%s\")", lang, country, variant);
+  if (DEBUG) LOGV("loadLanguage(\"%s\", \"%s\", \"%s\")", lang, country, variant);
 
   return TTS_FAILURE;
 }
 
 tts_support_result isLanguageSupported(const char *lang, const char *country, const char *variant,
                                        int *pindex) {
-  LOGV("isLanguageSupported(\"%s\", \"%s\", \"%s\")", lang, country, variant);
+  if (DEBUG) LOGV("isLanguageSupported(\"%s\", \"%s\", \"%s\")", lang, country, variant);
 
   if ((lang == NULL) || (strlen(lang) == 0)) {
     LOGE("TtsEngine::isLanguageAvailable called with no language");
@@ -375,7 +391,7 @@ tts_support_result isLanguageSupported(const char *lang, const char *country, co
 }
 
 tts_result TtsEngine::setLanguage(const char *lang, const char *country, const char *variant) {
-  LOGV("setLanguage(\"%s\", \"%s\", \"%s\")", lang, country, variant);
+  if (DEBUG) LOGV("setLanguage(\"%s\", \"%s\", \"%s\")", lang, country, variant);
 
   // Make sure the engine is initialized!
   attemptInit();
@@ -414,10 +430,12 @@ tts_result TtsEngine::setLanguage(const char *lang, const char *country, const c
 
 tts_support_result TtsEngine::isLanguageAvailable(const char *lang, const char *country,
                                                   const char *variant) {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   return isLanguageSupported(lang, country, variant, NULL);
 }
 
 tts_result TtsEngine::getLanguage(char *language, char *country, char *variant) {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   strcpy(language, currentLang);
   strcpy(country, currentCountry);
   strcpy(variant, currentVariant);
@@ -441,7 +459,7 @@ tts_result TtsEngine::setAudioFormat(tts_audio_format& encoding, uint32_t& rate,
 
 // Sets the property with the specified value
 tts_result TtsEngine::setProperty(const char *property, const char *value, const size_t size) {
-  LOGV("setProperty(\"%s\", \"%s\", %d)", property, value, size);
+  if (DEBUG) LOGV("setProperty(\"%s\", \"%s\", %d)", property, value, size);
 
   /* Set a specific property for the engine.
    Supported properties include: language (locale), rate, pitch, volume.    */
@@ -483,7 +501,7 @@ tts_result TtsEngine::setProperty(const char *property, const char *value, const
 
 // Sets the property with the specified value
 tts_result TtsEngine::getProperty(const char *property, char *value, size_t *iosize) {
-  LOGV("getProperty(\"%s\", ...)", property);
+  if (DEBUG) LOGV("getProperty(\"%s\", ...)", property);
 
   /* Get the property for the engine.
    This property was previously set by setProperty or by default.       */
@@ -554,7 +572,7 @@ tts_result TtsEngine::getProperty(const char *property, char *value, size_t *ios
  */
 tts_result TtsEngine::synthesizeText(const char *text, int8_t *buffer, size_t bufferSize,
                                      void *userdata) {
-  LOGI("Synthesize: %s", text);
+  if (DEBUG) LOGV("%s", __FUNCTION__);
 
   espeak_SetSynthCallback(eSpeakCallback);
 
@@ -576,6 +594,7 @@ tts_result TtsEngine::synthesizeText(const char *text, int8_t *buffer, size_t bu
  *  return tts_result
  */
 tts_result TtsEngine::stop() {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   espeak_Cancel();
   return TTS_SUCCESS;
 }
@@ -585,6 +604,7 @@ extern "C" {
 #endif
 
 TtsEngine* getTtsEngine() {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
   return new TtsEngine();
 }
 

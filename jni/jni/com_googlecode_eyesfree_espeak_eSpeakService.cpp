@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 Google Inc.
+ * Copyright (C) 2012 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,6 +15,13 @@
  * limitations under the License.
  */
 
+/*
+ * This file contains the JNI bindings to eSpeak used by SpeechSynthesis.java.
+ *
+ * Android Version: 4.0 (Ice Cream Sandwich)
+ * API Version:     14
+ */
+
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -24,7 +32,7 @@
 #include <Log.h>
 
 #define LOG_TAG "eSpeakService"
-#define DEBUG false
+#define DEBUG true
 
 enum audio_channel_count {
   CHANNEL_COUNT_MONO = 1,
@@ -234,10 +242,10 @@ JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
     JNIEnv *env, jobject object, jstring name, jstring languages, jint gender, jint age,
     jint variant) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
-
   const char *c_name = env->GetStringUTFChars(name, NULL);
   const char *c_languages = env->GetStringUTFChars(languages, NULL);
+
+  if (DEBUG) LOGV("%s(name=%s, languages=%s)", __FUNCTION__, c_name, c_languages);
 
   espeak_VOICE voice_select;
   memset(&voice_select, 0, sizeof(espeak_VOICE));
@@ -262,8 +270,10 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
 JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetLanguage(
     JNIEnv *env, jobject object, jstring language, jint variant) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
   const char *c_language = env->GetStringUTFChars(language, NULL);
+
+  if (DEBUG) LOGV("%s(language=%s)", __FUNCTION__, c_language);
+
   const int len = strlen(c_language);
   char *lang_copy = (char *) calloc(len, sizeof(char));
   strcpy(lang_copy, c_language);
