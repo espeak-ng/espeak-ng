@@ -8,6 +8,10 @@
 
 # android build output:
 
+bin/
+libs/
+obj/
+
 espeak-data.zip
 espeak-data-en_only.zip
 
