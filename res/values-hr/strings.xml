@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Pogreška pri učitavanju programa eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Tijekom učitavanja programa eSpeak došlo je do pogreške. Želite li razvojnom programeru poslati izvješće?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Nema dostupnih postavki"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Zadani glas: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Broj instaliranih glasova: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Zadani glas:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Broj instaliranih glasova:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Opće postavke TTS-a"</string>
     <string name="engine_settings" msgid="15960710549009350">"TTS postavke programa eSpeak"</string>
     <string name="loading" msgid="1624831854302260352">"Učitavanje. Pričekajte..."</string>

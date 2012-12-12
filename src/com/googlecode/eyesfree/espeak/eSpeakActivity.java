@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009 The Android Open Source Project
+ * Copyright (C) 2012 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -121,7 +122,7 @@ public class eSpeakActivity extends Activity {
     private void manageSettingVisibility() {
         if (Build.VERSION.SDK_INT < 14) {
             // Hide the eSpeak setting button on pre-ICS.
-            findViewById(R.id.engineSettings).setVisibility(View.GONE);
+            findViewById(R.id.engineSettingsLayout).setVisibility(View.GONE);
         }
     }
 
@@ -185,15 +186,11 @@ public class eSpeakActivity extends Activity {
             return;
         }
 
-        final Locale ttsLocale = mTts.getLanguage();
-        final String localeText = getString(
-                R.string.current_tts_locale, ttsLocale.getDisplayName());
         final TextView currentLocale = (TextView) findViewById(R.id.currentLocale);
-        currentLocale.setText(localeText);
+        currentLocale.setText(mTts.getLanguage().getDisplayName());
 
-        final String voicesText = getString(R.string.available_voices, mVoices.size());
         final TextView availableVoices = (TextView) findViewById(R.id.availableVoices);
-        availableVoices.setText(voicesText);
+        availableVoices.setText(Integer.toString(mVoices.size()));
 
         findViewById(R.id.ttsSettings).setOnClickListener(mOnClickListener);
         findViewById(R.id.engineSettings).setOnClickListener(mOnClickListener);

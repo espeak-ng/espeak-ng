@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Iphutha lokulayisha i-eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"I-eSpeak ihlangabezane nenkinga ngesikhathi ilayisha. Ungathanda ukuthumelela umsunguli umbiko?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Azikho izilungiselelo ezikhona"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Izwi olithola likhona: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Amazwi afakiwe: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Izwi olithola likhona:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Amazwi afakiwe:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Izilungiselelo ze-TTS ezejwayelekile"</string>
     <string name="engine_settings" msgid="15960710549009350">"Izilungiselelo  ze-eSpeak TTS"</string>
     <string name="loading" msgid="1624831854302260352">"Iyalayisha, ucelwa ukuthi ulinde..."</string>

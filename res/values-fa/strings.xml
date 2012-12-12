@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"خطا در بارگیری eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak در حین بارگیری با خطایی مواجه شده است. می‌خواهید یک گزارش برای برنامه‌نویس ارسال کنید؟"</string>
     <string name="no_settings" msgid="1351437843962431135">"هیچ تنظیمی موجود نیست"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"صدای پیش‌فرض: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"صداهای نصب شده: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"صدای پیش‌فرض:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"صداهای نصب شده:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"تنظیمات کلی TTS"</string>
     <string name="engine_settings" msgid="15960710549009350">"تنظیمات eSpeak TTS"</string>
     <string name="loading" msgid="1624831854302260352">"در حال بارگیری، لطفاً صبر کنید..."</string>

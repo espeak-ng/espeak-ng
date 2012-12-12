@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Fout bij het laden van eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Er is een fout opgetreden tijdens het laden van eSpeak. Wilt u een foutrapport naar de ontwikkelaar verzenden?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Geen instellingen beschikbaar"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Standaardstem: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Geïnstalleerde stemmen: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Standaardstem:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Geïnstalleerde stemmen:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Algemene instellingen voor tekst-naar-spraak"</string>
     <string name="engine_settings" msgid="15960710549009350">"eSpeak-instellingen voor tekst-naar-spraak"</string>
     <string name="loading" msgid="1624831854302260352">"Laden, even geduld..."</string>

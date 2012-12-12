@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"eSpeak 로딩 오류"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"로드하는 중에 eSpeak에 오류가 발생했습니다. 개발자에게 신고하시겠습니까?"</string>
     <string name="no_settings" msgid="1351437843962431135">"이용 가능한 설정 없음"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"기본 음성: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"음성 설치됨: <xliff:g id="ID_1">%d</xliff:g>개"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"기본 음성:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"음성 설치됨:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"일반 TTS 설정"</string>
     <string name="engine_settings" msgid="15960710549009350">"eSpeak TTS 설정"</string>
     <string name="loading" msgid="1624831854302260352">"로드 중... 잠시 기다려 주세요."</string>

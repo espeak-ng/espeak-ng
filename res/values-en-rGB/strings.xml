@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Error loading eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak encountered an error while loading. Would you like to send a report to the developer?"</string>
     <string name="no_settings" msgid="1351437843962431135">"No settings available"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Default voice: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Voices installed: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Default voice:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Voices installed:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"General TTS settings"</string>
     <string name="engine_settings" msgid="15960710549009350">"eSpeak TTS settings"</string>
     <string name="loading" msgid="1624831854302260352">"Loading, please wait…"</string>

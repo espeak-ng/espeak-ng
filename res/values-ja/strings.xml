@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"eSpeakの読み込み中にエラーが発生しました"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeakの読み込み中にエラーが発生しました。デベロッパーにレポートを送信しますか？"</string>
     <string name="no_settings" msgid="1351437843962431135">"利用できる設定はありません"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"デフォルトの音声: <xliff:g id="ID_1">%s</xliff:g>"</string>
-    <string name="available_voices" msgid="1405969819028957410">"インストールされている音声: <xliff:g id="ID_1">%d</xliff:g>"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"デフォルトの音声:"</string>
+    <string name="available_voices" msgid="1405969819028957410">"インストールされている音声:"</string>
     <string name="tts_settings" msgid="8094374695950898637">"テキスト読み上げの全般設定"</string>
     <string name="engine_settings" msgid="15960710549009350">"eSpeakテキスト読み上げ設定"</string>
     <string name="loading" msgid="1624831854302260352">"読み込んでいます。お待ちください..."</string>
