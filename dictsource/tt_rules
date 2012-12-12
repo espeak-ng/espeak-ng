@@ -1,0 +1,134 @@
+// This file is UTF8 encoded 
+// Spelling-to-phoneme rules for Tatar
+
+
+.group а
+        а        A
+
+.group ә
+        ә        &
+        әе       e:  // 'әнкәен'
+
+.group б
+        б        b
+
+.group в
+        в        w   // [v] in Russian words
+
+.group г
+        г        g  // changes to [Q] or [Q"]
+
+.group д
+        д        d
+
+.group е
+     _) е        je2  // changes to [je] or [jV]
+        е        e
+
+.group ё
+        ё        jo
+
+.group ж
+        ж        Z
+
+.group җ
+        җ        Z;
+
+.group з
+        з        z
+
+.group и
+        и        i
+     A) и        j
+
+.group й
+        й        j
+     K) й (K     I   // not next to a vowel
+
+.group к
+        к        k
+
+.group л
+        л        l
+
+.group м
+        м        m
+
+.group н
+        н        n
+//        н (к     N
+        н (г     N
+        н (х     N
+
+.group ң
+        ң        N
+
+.group о
+        о        o
+
+.group ө
+        ө        W
+
+.group п
+        п        p
+
+.group р
+        р        r
+
+.group с
+        с        s
+
+.group т
+        т        t
+
+.group у
+        у        u   // or w
+     A) у        w
+
+.group ү
+        ү        y   // or w
+     A) ү        w
+
+.group ф
+        ф        f
+
+.group х
+        х        x
+
+.group һ
+        һ        h
+
+.group ц
+        ц        ts
+
+.group ч
+        ч        S;
+
+.group ш
+        ш        S
+
+.group щ
+        щ        SS;
+
+.group ъ
+        ъ        ?
+
+.group ы
+        ы        V
+        ый       Vj   // need a diphthong phoneme ??
+
+.group ь
+        ь        ?
+
+.group э
+        э        e
+
+.group ю
+        ю        ju2   // changes to ju or jy
+
+.group я
+        я        ja   // changes to jA or j&
+
+.group
+        $        dolAR
+

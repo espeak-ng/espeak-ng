@@ -1,0 +1,319 @@
+
+// This file in UTF8 encoded
+
+// Letters maltese
+
+
+
+a	a
+b	b@
+c	ka
+ċ	tS@e
+d	dee
+e	e
+f	effe
+g	gie
+ġ	dZe
+h	akka
+ħ	h'@
+i	i
+j	ie
+k	k'@
+l	elle
+m	emme
+n	enne
+o	o
+p	pe
+q	'@
+r	erre
+s	esse
+t	te
+u	u
+v	ve
+w	u'@
+x	eSSe
+y	y
+z	tsee
+ż	z'@
+
+
+
+
+
+
+_.	punt
+_, 	koma
+_!	punt ta’ esklamazzjoni
+_?	mistoqsija
+_"	kwoUts
+_#	hash
+_$	dollaru:
+_%	procentuali:
+_&	u
+_'	accent
+_:	koUl@n
+_;	semIk'oUl@n
+€	ewro
+_(	parentezi tondi
+_)	parentezi tondi
+_[	parentezi kwadri
+_]	parentezi kwadri
+_{	alkua:lto
+_}	lop:ua:lto
+_<	iz'@ minn
+_>	akbar minn
+_-	haIf@n
+__	alavi:va
++	plus	$max3
+*	stil:a	$max3
+=	i:kw@lz	$max3
+/	kaut:a
+\	keno
+£	sterlina
+@	_at
+~	tilde
+
+
+
+// numbers maltese
+
+
+
+_0	z'e*o
+_1	ui:h'@d
+_2	nei:n
+_3	tli:eta
+_4	erba
+_5	h'@amsa
+_6	si:t:a
+_7	seba:
+_8	tmi:ni:a
+_9	dydin'asa
+_10	a'@ra
+_11	h'@daSe
+_12	tnaSe
+_13	tletaSe
+_14	erbataSe
+_15	h'@mistaSe
+_16	sitaSe
+_17	sbataSe
+_18	tmintaSe
+_19	tsetaSe
+_2X	oSerin
+_3X	tl'@ti:n
+_4X	erbai:n
+_5X	h'@amsi:n
+_6X	sit:i:n
+_7X	s'@bei:n
+_8X	tmeni:n
+_9X	d,ydin'isei:n
+_0C	mi:a
+_1C	mi:au
+_0M1	elf
+_1M1
+_2M1	elfeiun          
+3000	tlet: elef
+4000	erbatelef
+_0M2	m'iliun
+2000000	z'@euge  m'iliuni
+_0M3	bi'li'un
+_2M3	z'@euge bi'li'uni
+_3M3	tlet: bi'li'uni
+_4M3	erba bi'li'uni
+_5M3	h'@ames bi'li'uni
+
+
+
+
+// articles 
+
+
+// pronouns maltese
+jiena	iuena $u
+inti	inti: $u
+huwa	ua   $u
+hija	i:a  $u
+aħna	ah'@na   $u
+intom	i:ntom   $u
+huma	u:ma   $u
+
+
+
+
+
+
+// possessives maltese
+
+
+tiegħi	ti:ai: 	$u
+tiegħek	ti:ake	$u
+tiegħu	ti:u:	$u
+tagħha	tah'@a	$u
+tagħna	tana:	$u
+tagħkom	takom	$u
+tagħhom	tahom	$u
+
+
+// prepositions
+ta			ta:
+għal		al:
+lil			li:l:
+ġo			dZeo
+mal			mal:
+mingħajr	mi:nai:r
+madwar		madua:r
+il-quddiem	il-di:m:'@
+qabel		a:bel
+wara		uara
+minbarra	minba:ra:
+bejn		bei:n
+flimkien	flimkin:
+viċin		vi:S@i:n
+minn		mi:n
+minn fejn	mi:n fei:n
+isfel		isfel
+fil-mija	fi:l-mi:a
+permezz		permets
+lejn		lein:
+fuq			fu'@
+taħt		taht
+fi			fi:
+mingħajr	mi:nair
+madwar		madu:ar
+kontra		contra
+quddiem		'@udi:m
+fost        fost  
+qabel		abel
+wara		uara	
+taħt		taht
+lil hinn	lil:in:
+ħdejn		h'@dein
+bejn		bei:n
+flimkien	flinki:m
+qrib		ri:p
+minn hemm	min:em:
+
+
+
+
+
+
+
+// conjunctions
+
+
+minkejja    minCeia
+u           u  	
+kif			Ci:f
+għax		aS
+darba       dar:ba    
+jew         ieu:            
+iżda       	i:z'@da
+jekk        ietSe    
+minkejja    mintSei:a 
+minflok    	minflotSe
+irrespettivament 	ir:espetivament
+mindu  		mindu:	       
+b’hekk      betSe  
+għalkemm 	altSem:	     
+kull darba	kul: darba 
+kull min   	kul: mi:n
+tkun xi tkun    tkun Si tkun
+waqt		ua:t         
+
+
+
+
+
+
+// negative maltese
+
+ma   $u
+
+
+
+
+
+// auxillary verbs
+
+
+ikun		icu:n:              
+kien   		Ci:n              
+qiegħed		ied           
+huwa    	u:a                   
+huma    	uma                    
+ma kienx  	ma CieS      
+kienu     	Cienu        
+mhux      	muS     
+mhumiex   	umumiS       
+ma kienux	ma CienuS       
+għamel      amel      
+għandhom    andom                
+ghandu jkollhom		andu kolum       
+ma jridux ikunu		mrdS kunu				  
+għandu		andu	            
+m'għandux	m'anduS                 
+jista		ista             
+ma jistax   ma istaS         
+għandi		andi             
+għandha     an:a                
+kienet      ki:net     
+ikseb       i:kseb                
+mur         mu:r      
+tmur        tmur    
+sejjer      sei:er   
+mort        mort   
+agħmel      a:mel      
+tagħmilx	ta:milS   
+jagħmel     ia:mel                      
+għamel		a:mel
+għamilt		amilt
+tpoġġi      tpodZi:   
+poġġi       odZi:       
+issir		is:ir     
+saret		sa:ret    
+għamel		a:mel	
+
+
+
+
+
+
+// adverbs
+
+biss		bis:	             	
+qatt        at:    	
+issa        is:a      	              
+dalwaqt     daluat        
+xorta       Sorta     	
+diġa      	didZa
+mhux        mu:S                                  
+kull        cul:     
+bosta       bosta      
+xi          Si:
+dan         dan   
+dak         dak 
+dawn      	dau:n
+dawk       	dau:k
+hemm       	em:
+minn        min:   
+            
+
+
+
+
+
+
+// Abbreviations maltese
+
+$textmode
+eċċ	etSetra
+mm	milim'etri
+cm	tSentim'etri 
+km	kilom'etri
+ml	milil'itri
+mg	miligr'am:i
+kg	kilogr'am:i
+
+
+

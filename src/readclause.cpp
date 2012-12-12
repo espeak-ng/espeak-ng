@@ -69,12 +69,6 @@ static int ssml_ignore_l_angle = 0;
 //static const char *tone_punct_on = "\0016T";  // add reverberation, lower pitch
 //static const char *tone_punct_off = "\001T\001P";
 
-// ignore these characters
-static const unsigned short chars_ignore[] = {
-  0x200c,  // zero width non-joiner
-  0x200d,  // zero width joiner
-  0 };
-
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x2013,  // en-dash
@@ -1597,7 +1591,7 @@ static void SetProsodyParameter(int param_type, wchar_t *attr1, PARAM_STACK *sp)
 static int ReplaceKeyName(char *outbuf, int index, int &outix)
 {//===========================================================
 // Replace some key-names by single characters, so they can be pronounced in different languages
-	MNEM_TAB keynames[] = {
+	static MNEM_TAB keynames[] = {
 	{"space ",0xe020},
 	{"tab ", 0xe009},
 	{"underscore ", 0xe05f},
@@ -2392,10 +2386,14 @@ f_input = f_in;  // for GetC etc
 				c2 = ' ';
 			}
 
-			if(lookupwchar(chars_ignore,c1))
+			if((j = lookupwchar2(tr->chars_ignore,c1)) != 0)
 			{
-				// ignore this character (eg. zero-width-non-joiner U+200C)
-				continue;
+				if(j == 1)
+				{
+					// ignore this character (eg. zero-width-non-joiner U+200C)
+					continue;
+				}
+				c1 = j;   // replace the character
 			}
 
 			if(c1 == 0xf0b)

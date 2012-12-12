@@ -1,0 +1,83 @@
+
+// This file is UTF8 encoded 
+// Spelling-to-phoneme words for Kinyarwanda
+
+a	a:
+b	ba:
+c	ca:
+d	da:
+e	e:
+f	fa:
+g	ga:
+h	ha:
+i	i:
+j	dZa:
+k	ka:
+l	la:
+m	ma:
+n	na:
+o	o:
+p	pa:
+q	kwa:
+r	*a:
+s	sa:
+t	ta:
+u	u:
+v	va:
+w	wa:
+x	eks
+y	ja:
+z	za:
+
+
+// numbers
+_0	z'e*u
+_1	R'imwe
+_2	kaB'i*i
+_3	gat'atu
+_4	k'ane
+_5	gat'anu
+_6	gatand'atu
+_7	ka*'indwi
+_8	umun'ani
+_9	ikj'enda
+
+_1X	itS'umi
+_2X	makumjaB'i*i
+_3X	mi*,oNgwit'atu
+_4X	mi*,oNgw'ine
+_5X	mi*,oNgwit'anu
+_6X	mi*,oNgitand'atu
+_7X	mi*,oNgwi*'indwi
+_8X	mi*,oNgwin'ani
+_9X	mi*,oNgwej'enda
+
+_1C	idZ'ana
+_2C	mag,anaB'i*i
+_3C	mag,anat'atu
+_4C	mag,an'ane
+_5C	mag,anat'anu
+_6C	mag,anatand'atu
+_7C	mag,ana*'indwi
+_8C	mag,anin'ani
+_9C	mag,anakj'enda
+
+_0M1	iBih'umbi
+_1M1	iJih'umbi
+_2M1	iBih'umbibiB'i*i
+_3M1	iBih'umbibit'atu
+_4M1	iBih'umbib'ine
+_5M1	iBih'umbibit'anu
+_6M1	iBih'umbibitand'atu
+_7M1	iBih'umbibi*'indwi
+
+_0M2	milij'oni
+_1M2	milij'on'imwe
+_2M2	milij'oneBj'i*i
+_3M2	milij'oneS'atu
+_4M2	m,ilij'on'en^e
+
+_0and	na
+_dpt	_niB'itSe
+
+

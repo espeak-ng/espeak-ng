@@ -1,30 +1,66 @@
+# editor files:
+
+.*.swp
+
 # intermediate build output:
 
 *.o
 
-# android build output:
+# autotools
 
-bin/
-gen/
-obj/
-libs/
+AUTHORS
+COPYING
+INSTALL
+NEWS
+
+Makefile
+Makefile.in
+aclocal.m4
+autom4te.cache/
+config.*
+configure
+install-sh
+libtool
+ltmain.sh
+m4/
+missing
+stamp-h1
 
 # libraries
 
-src/libespeak.a
-src/libespeak.so*
+docs/speak_lib.h
 
-# programs:
+libespeak.a
+libespeak.so*
+
+# programs
 
 platforms/*/espeak-phoneme-data
-src/espeak
-src/espeakedit
-src/speak
+espeak
+espeakedit
+speak
+
+# Linux/Source distribution files
+
+praat-mod/
+
+ChangeLog.txt
+License.txt
+ReadMe
 
 # espeak-data
 
-dictsource/en_extra
+dictsource/*_extra
+dictsource/dict_log
+dictsource/dict_phonemes
 
+phsource/compile_prog_log
+phsource/compile_report
+phsource/error_intonation
+phsource/error_log
+
+espeak-data/dir.stamp
+espeak-data/config
 espeak-data/dictsource
 espeak-data/phsource
 espeak-data/*_dict
@@ -33,8 +69,3 @@ espeak-data/phondata
 espeak-data/phondata-manifest
 espeak-data/phonindex
 espeak-data/phontab
-
-# other (from espeak development releases)
-
-espeak-data/config
-phsource/compile_prog_log

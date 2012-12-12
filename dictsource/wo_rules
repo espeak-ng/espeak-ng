@@ -1,0 +1,128 @@
+ 
+// Spelling-to-phoneme rules for Wolof (Senegal, Gambia)
+// This file is UTF-8 encoded
+
+.group a
+        a        a
+        aa       a:
+
+.group b
+        b         b
+        bb        b:
+
+.group c
+        c        c
+        cc       c:
+
+.group d
+        d        d
+        dd       d:
+
+.group e
+        e        E
+        ee       E:
+
+.group é
+        é        e
+        ée       e:
+        éé       e:
+
+.group ë
+        ë        @
+        ëe       @:
+        ëë       @:
+
+.group f
+        f        f
+
+.group g
+        g        g
+        gg       g:
+
+.group h
+        h        h
+
+.group i
+        i        i
+        ii       i:
+
+.group j
+        j        J
+        j        J:
+
+.group k
+        k        k
+        kk       k:
+
+.group l
+        l        l
+
+.group m
+        m        m
+        mm       m:
+     K) m (K     m-
+
+.group n
+        n        n
+        nn       n:
+     K) n (K     n-
+
+.group ŋ
+        ŋ        N
+        ŋŋ       N:
+     K) ŋ (K     N-
+
+.group ñ
+        ñ        n^
+
+.group o
+        o        O
+        oo       O:
+
+.group ó
+        ó        o
+        óo       o:
+        óó       o:
+
+.group p
+        p        p
+        pp       p:
+
+.group q
+        q        q
+        qq       q:
+
+.group r
+        r        R2
+        r (r     R
+
+.group s
+        s        s
+        ss       ss2
+
+.group t
+        t        t
+        tt       t:
+
+.group u
+        u        u
+        uu       u:
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group x
+        x        x
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+
+.group
+	$	dOlaR2

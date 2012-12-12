@@ -25,6 +25,7 @@
 // conditional compilation options
 #define INCLUDE_KLATT
 #define INCLUDE_MBROLA
+#define INCLUDE_SONIC
 
 #if defined(BYTE_ORDER) && BYTE_ORDER == BIG_ENDIAN
 #define ARCH_BIG
@@ -50,7 +51,7 @@
 #endif
 
 #ifdef _ESPEAKEDIT
-#define USE_PORTAUDIO
+// USE_PORTAUDIO or USE_PULSEAUDIO are now defined in the makefile
 #define USE_ASYNC
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
 #endif
@@ -63,7 +64,7 @@
 typedef unsigned short USHORT;
 typedef unsigned char  UCHAR;
 typedef double DOUBLEX;
-
+typedef unsigned long long64;   // use this for conversion between pointers and integers
 
 
 

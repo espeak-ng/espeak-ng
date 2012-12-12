@@ -1,0 +1,148 @@
+
+// short vowels
+
+
+phoneme @
+  vowel starttype #@ endtype #@
+  length 120
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/a_4)
+endphoneme
+
+phoneme a#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(a)
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme E
+  vowel  starttype #e  endtype #e
+  length 140
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme E#
+  vowel  starttype #@  endtype #@
+  length 120
+  ChangeIfStressed(E)
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme I
+  vowel  starttype #i  endtype #i
+  length 120
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_2)
+endphoneme
+
+phoneme I#
+  vowel  starttype #@  endtype #@
+  length 120
+  ChangeIfStressed(I)
+  IfNextVowelAppend(;)
+  FMT(vowel/@)
+endphoneme
+
+
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 140
+  FMT(vowel/oo_4)
+endphoneme
+
+phoneme O#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(O)
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme U
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/uu)
+endphoneme
+
+phoneme U#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(U)
+  FMT(vowel/@)
+endphoneme
+
+
+// long vowels
+
+phoneme A:
+  vowel  starttype #a  endtype #a
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 210
+  FMT(vowel/i)
+endphoneme
+
+
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 190
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 210
+  FMT(vowel/u_bck)
+endphoneme
+
+
+// Diphthongs
+
+phoneme @I
+  vowel starttype #@ endtype #i
+  length 240
+  FMT(vdiph/@i)
+endphoneme
+
+phoneme @U
+  vowel starttype #@ endtype #u
+  length 240
+  FMT(vdiph/@u_3)
+endphoneme
+
+phoneme i@
+  vowel starttype #i endtype #@
+  length 240
+  FMT(vdiph2/i@)
+endphoneme
+
+phoneme u@
+  vowel starttype #u endtype #@
+  length 240
+  FMT(vdiph2/u@)
+endphoneme
+
+

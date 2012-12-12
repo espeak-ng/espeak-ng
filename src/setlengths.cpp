@@ -136,6 +136,8 @@ static int speed3 = 118;
 
 //#define TEST_SPEED
 
+#ifdef INCLUDE_SONIC
+
 void SetSpeed(int control)
 {//=======================
 	int x;
@@ -311,6 +313,147 @@ void SetSpeed(int control)
 printf("%3d: speedf %d %d %d   pause=%d %d   wav=%d  lenmod=%d %d\n",wpm,speed1,speed2,speed3, speed.pause_factor,speed.clause_pause_factor, speed.wav_factor,speed.lenmod_factor,speed.lenmod2_factor);
 #endif
 }  //  end of SetSpeed
+
+#else  // not using sonic speed-up
+
+void SetSpeed(int control)
+{//=======================
+// This is the earlier version of SetSpeed() before sonic speed-up was added
+	int x;
+	int s1;
+	int wpm;
+	int wpm2;
+
+	speed.loud_consonants = 0;
+	speed.min_sample_len = 450;
+	speed.lenmod_factor = 110;   // controls the effect of FRFLAG_LEN_MOD reduce length change
+	speed.lenmod2_factor = 100;
+
+	wpm = embedded_value[EMBED_S];
+	if(control == 2)
+		wpm = embedded_value[EMBED_S2];
+
+#ifdef TEST_SPEED
+	if(wpm > 1000)
+	{
+		// TESTING
+		test = wpm / 1000;
+		wpm = wpm % 1000;
+	}
+#endif
+
+	if(voice->speed_percent > 0)
+	{
+		wpm = (wpm * voice->speed_percent)/100;
+	}
+	if(wpm > 450)
+		wpm = 450;
+
+	if(wpm > 360)
+	{
+		speed.loud_consonants = (wpm - 360) / 8;
+	}
+
+	wpm2 = wpm;
+	if(wpm > 359) wpm2 = 359;
+	if(wpm < 80) wpm2 = 80;
+	x = speed_lookup[wpm2-80];
+
+	if(wpm >= 380)
+		x = 7;
+	if(wpm >= 400)
+		x = 6;
+
+	if(control & 1)
+	{
+		// set speed factors for different syllable positions within a word
+		// these are used in CalcLengths()
+		speed1 = (x * voice->speedf1)/256;
+		speed2 = (x * voice->speedf2)/256;
+		speed3 = (x * voice->speedf3)/256;
+
+		if(x <= 7)
+		{
+			speed1 = x;
+			speed2 = speed3 = x - 1;
+		}
+	}
+
+	if(control & 2)
+	{
+		// these are used in synthesis file
+
+		if(wpm > 350)
+		{
+			speed.lenmod_factor = 85 - (wpm - 350) / 3;
+			speed.lenmod2_factor = 60 - (wpm - 350) / 8;
+		}
+		else
+		if(wpm > 250)
+		{
+			speed.lenmod_factor = 110 - (wpm - 250)/4;
+			speed.lenmod2_factor = 110 - (wpm - 250)/2;
+		}
+
+		s1 = (x * voice->speedf1)/256;
+
+		if(wpm >= 170)
+			speed.wav_factor = 110 + (150*s1)/128;  // reduced speed adjustment, used for playing recorded sounds
+		else
+			speed.wav_factor = 128 + (128*s1)/130;  // = 215 at 170 wpm
+
+		if(wpm >= 350)
+		{
+			speed.wav_factor = wav_factor_350[wpm-350];
+		}
+
+		if(wpm >= 390)
+		{
+			speed.min_sample_len = 450 - (wpm - 400)/2;
+			if(wpm > 440)
+				speed.min_sample_len = 420 - (wpm - 440);
+		}
+
+		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
+		speed.clause_pause_factor = 0;
+
+		if(wpm > 430)
+		{
+			speed.pause_factor = 12;
+//			speed.clause_pause_factor = 15;
+		}
+		else
+		if(wpm > 400)
+		{
+			speed.pause_factor = 13;
+//			speed.clause_pause_factor = 15;
+		}
+		else
+		if(wpm > 374)
+		{
+			speed.pause_factor = 14;
+		}
+		else
+		if(wpm > 350)
+		{
+			speed.pause_factor = pause_factor_350[wpm - 350];
+		}
+
+		if(speed.clause_pause_factor == 0)
+		{
+			// restrict the reduction of pauses between clauses
+			if((speed.clause_pause_factor = speed.pause_factor) < 16)
+				speed.clause_pause_factor = 16;
+		}
+	}
+
+#ifdef TEST_SPEED
+//if(control==3)
+printf("%3d: speedf %d %d %d   pause=%d %d   wav=%d  lenmod=%d %d\n",wpm,speed1,speed2,speed3, speed.pause_factor,speed.clause_pause_factor, speed.wav_factor,speed.lenmod_factor,speed.lenmod2_factor);
+#endif
+}  //  end of SetSpeed
+
+#endif   // of INCLUDE_SONIC
 
 
 #ifdef deleted

@@ -1,0 +1,235 @@
+// This file is UTF-8 encoded
+// Text to phoneme rules for Dari
+
+// replace Arabic character numbers with Latin character numbers
+.replace
+٠	0
+١	1
+٢	2
+٣	3
+٤	4
+٥	5
+٦	6
+٧	7
+٨	8
+٩	9
+
+
+//all vowels
+.L01  َ  ِ ُ   ً ٍ   و    ا   ه   ی   ة ي
+
+//commonly unwritten vowels
+.L02  َ   ِ   ُ  
+
+//list of consonants
+.L03 ا ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط  ظ ع غ ف ق ک گ ل م ن و ه ی
+
+.group ا
+	 _) ا  (L01	
+	ا	A	
+	ا (_	A
+	اً	An
+	اٍ	En
+
+.group ب
+	ب (L01	b
+	ب	bA
+	ب (_	b
+	L03) ب (L03	b
+
+.group پ
+	پ (L01	p
+	پ	pA
+	پ (_	p
+	L03) پ (L03	p
+
+.group ة
+	ة (L01	h
+	ة	hA
+	ة (_	@
+
+.group ت
+	ت (L01	t
+	ت	tA
+	ت (_	t
+
+.group ث
+	ث (L01	s
+	ث	sA
+	ث (_	s
+
+.group ج
+	ج (L01	dZ
+	ج	dZA
+	ج (_	dZ
+
+
+.group چ
+	چ (L01	tS
+	چ	tSA
+	چ (_	tS
+
+.group ح	
+	ح (L01	h
+	ح	hA
+	ح (_	h
+
+.group خ
+	خ (L01	X
+	خ	XA
+	خ (_	X
+
+.group د
+	د (L01	d
+	د	dA
+	د (_	d
+
+.group ذ
+	ذ (L01	z
+	ذ	zA
+	ذ (_	z
+
+.group ر
+	ر (L01	R
+	ر	RA
+	ر (_	R
+
+.group ز
+	ز (L01	z
+	ز	zA
+	ز (_	z
+
+.group ژ
+	ژ (L01	Z
+	ژ	ZA
+	ژ (_	Z
+
+.group س
+	س (L01	s
+	س	sA
+	س (_	s
+	L03) س  (L03	s
+	L02) س  (L03	s  
+
+.group ش
+	ش (L01	S
+	ش	SA
+	ش (_	S
+
+.group ص
+	ص (L01	s
+	ص	sA
+	ص (_	s
+
+.group ض
+	ض (L01	z
+	ض	zA
+	ض (_	z
+
+.group ط
+	ط (L01	t
+	ط	tA
+	ط (_	t
+
+.group ظ
+	ظ (L01	z
+	ظ	zA
+	ظ (_	z
+
+.group ع
+	ع (L01
+	ع	A
+	ع (_	@_:
+
+.group غ
+	غ (L01	R
+	غ	RA
+	غ (_	R
+
+.group ـ
+	ـ
+
+.group ف
+	ف (L01	f
+	ف	fA
+	ف (_	f
+
+.group ق
+	ق (L01	R
+	ق	RA
+	ق (_	R
+
+.group ک
+	ک (L01	k
+	ک	kA
+	L02) ک  (L03	k  
+	L03) ک  (L03	k  
+	ک (_	k
+
+.group گ
+	گ (L01	g
+	گ	gA
+	گ (_	g
+
+.group ل
+	ل (L01	l
+	ل	lA
+	ل (_	l
+
+.group م
+	م (L01	m
+	م	mA
+	م (_	m
+
+.group ن
+	ن (L01	n
+	ن (_	n
+	L02) ن  (L03	n  
+	L03) ن  (L03	n
+	ن	nA
+
+.group ه
+	ه (L01	h
+	ه	hA
+	ه (_	@
+
+.group و
+	و (L01	v
+	و (_		u
+	L03) و (L03	u
+	و	vA
+
+.group ی
+	ی	i
+	_) ی	jA
+	
+.group ي
+	ي	i
+	_) ي	jA
+
+.group
+	$	dol@
+
+.group ء
+	ء	@
+	ء (L01
+
+.group ّ
+	ّ	:
+
+.group آ
+	آ	A
+
+//vowels that are not usually written:
+
+.group َ
+	َ	A
+
+.group ِ
+	ِ	E
+
+.group ُ
+	ُ	o	
+
+
+

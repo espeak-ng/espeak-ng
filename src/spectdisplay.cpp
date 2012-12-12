@@ -42,9 +42,6 @@
 extern MyFrame *frame ;
 #define SCROLLUNITS  20
 
-#define N_CANVASLIST   50
-static int canvaslistix=0;
-static SpectDisplay *canvaslist[N_CANVASLIST];
 SpectSeq *clipboard_spect=NULL;
 wxMenu *menu_spectdisplay=NULL;
 
@@ -77,37 +74,14 @@ SpectDisplay::SpectDisplay(wxWindow *parent, const wxPoint& pos, const wxSize& s
 	pk_num = 1;
 
 	SetExtent();
-	
-	if(canvaslistix < N_CANVASLIST-1)
-		canvaslist[canvaslistix++] = this;
-//	WavegenInitPkData(0);
+
 }  // end of SpectDisplay::SpectDisplay
 
 
 
 SpectDisplay::~SpectDisplay()
 {//==========================
-	// delete this from the canvaslist
-	int  ix;
-
-	for(ix=0; ix<canvaslistix; ix++)
-	{
-		if(canvaslist[ix] == this)
-		{
-			for(ix=ix+1; ix<canvaslistix; ix++)
-				canvaslist[ix-1] = canvaslist[ix];
-			canvaslistix--;
-			break;
-		}
-	}
-
-	if(currentcanvas==this)
-	{
-		if(canvaslistix > 0)
-			currentcanvas = canvaslist[0];
-		else
-			currentcanvas = NULL;
-	}
+    // ?? change currentcanvas
 }
 
 
@@ -174,6 +148,7 @@ void SpectDisplay::OnActivate(int active)
 	{
 		formantdlg->GetValues(spectseq, sframe);
 		ReadDialogValues();
+		currentcanvas = NULL;
 	}
 }
 
@@ -209,7 +184,7 @@ int GetNumeric(wxTextCtrl *t)
 void SpectDisplay::WriteDialogLength()
 {//===================================
 	wxString string;
-	
+
 	string.Printf(_T("%d mS"),int(spectseq->GetKeyedLength()+0.5));
 	formantdlg->t_orig_seq->SetLabel(string);
 }
@@ -220,7 +195,7 @@ void SpectDisplay::WriteDialogValues()
 //{===============================
 {
 	wxString string;
-	
+
 	SetSpinCtrl(formantdlg->t_amplitude,spectseq->amplitude);
 
 	string.Printf(_T("%d - %d Hz    %d mS"),
@@ -229,7 +204,7 @@ void SpectDisplay::WriteDialogValues()
 
 	pitchgraph->SetData(128,spectseq->pitchenv.env);
 	voicedlg->SetFromSpect(spectseq);
-	
+
 	WriteDialogLength();
 }
 
@@ -456,14 +431,12 @@ void SpectDisplay::SavePitchenv(PitchEnvelope &pitch)
 }  // end of SpectDisplay::SavePitchenv
 
 
-// WX_DECLARE_LIST(MyChild,ChildList);
-// WX_DEFINE_LIST(ChildList);
 
 
 void SpectDisplay::PlayChild(int number, PitchEnvelope pitchenv)
 {//=========================================================
+#ifdef deleted
 	SpectSeq *seq;
-
 
 	if(number >= canvaslistix) return;
 
@@ -472,6 +445,7 @@ void SpectDisplay::PlayChild(int number, PitchEnvelope pitchenv)
 
 	ReadDialogValues();
 	seq->MakeWave(0,seq->numframes-1,pitchenv);
+#endif
 }  // end of PlayChild
 
 
@@ -481,7 +455,7 @@ void SpectDisplay::SetKeyframe(SpectFrame *sf, int yes)
 
 	sf->keyframe = yes;
 	pitchgraph->Refresh();
-	
+
 	WriteDialogLength();
 }
 
@@ -731,7 +705,7 @@ void SpectDisplay::OnKey(wxKeyEvent& event)
 		spectseq->bass_reduction ^= 1;
 		Refresh();
 		break;
-		
+
 	case 0x1043:   // CTRL-C
 		spectseq->ClipboardCopy();
 		break;
@@ -923,6 +897,7 @@ void SpectDisplay::OnMouse(wxMouseEvent& event)
 	int  frame;
 	int  ix;
 
+    SetFocus();
 	if(event.RightDown())
 	{
 		PopupMenu(menu_spectdisplay);
@@ -935,7 +910,7 @@ void SpectDisplay::OnMouse(wxMouseEvent& event)
 	wxPoint pt(event.GetLogicalPosition(dc));
 
 	if(spectseq->numframes==0) return;
-	
+
 	frame = (int)(pt.y/(FRAME_HEIGHT*zoomy));
 
 	if(!event.ControlDown())
@@ -1018,29 +993,15 @@ void MyFrame::OnNewWindow(wxCommandEvent& event)
 	else
 		path_spectload2 = path.GetPath();
 
-	// Make another frame, containing a canvas
+
+
 	GetClientSize(&width, &height);
-	MyChild *subframe = new MyChild(myframe, _T("Spectrum"),
-                                      wxPoint(10, 0), wxSize(500, height),
-                                      wxDEFAULT_FRAME_STYLE |
-                                      wxNO_FULL_REPAINT_ON_RESIZE);
-
-	subframe->SetTitle(leaf);
-
-	// Give it a status line
-	subframe->CreateStatusBar();
-
-	subframe->GetClientSize(&width, &height);
-	SpectDisplay *canvas = new SpectDisplay(subframe, wxPoint(0, 0), wxSize(width, height), spectseq);
+	SpectDisplay *canvas = new SpectDisplay(screenpages, wxDefaultPosition, wxSize(width, height), spectseq);
+	screenpages->AddPage(canvas, leaf, true);
 	canvas->savepath = filename;
-   currentcanvas = canvas;
-
-	// Associate the menu bar with the frame
-	subframe->SetMenuBar(MakeMenu(1,translator->dictionary_name));
-	subframe->canvas = canvas;
-	subframe->Show(TRUE);
-
+    currentcanvas = canvas;
 }
+
 
 void InitSpectrumDisplay()
 {//=======================

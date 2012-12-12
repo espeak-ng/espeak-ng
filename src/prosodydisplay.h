@@ -15,7 +15,7 @@ class ProsodyDisplay: public wxScrolledWindow
 	public:
 		ProsodyDisplay(wxWindow *parent, const wxPoint& pos, const wxSize& size);
 		~ProsodyDisplay();
-		
+
 		virtual void OnDraw(wxDC& dc);
 		void OnMouse(wxMouseEvent& event);
 		void OnKey(wxKeyEvent& event);
@@ -32,7 +32,7 @@ class ProsodyDisplay: public wxScrolledWindow
 		int  GetWidth(PHONEME_LIST *p);
 		void  ChangePh(int pitch1, int pitch2);
 		void SelectPh(int index);
-		
+
 		int linewidth;   // height for drawing pitch
 		double scalex;  // scale length values
 		double scaley;  // scale pitch values
@@ -47,18 +47,4 @@ class ProsodyDisplay: public wxScrolledWindow
 };  //  end class ProsodyDisplay
 
 
-class ChildFrProsody: public wxMDIChildFrame
-{
-  public:
-    ProsodyDisplay *prosodycanvas;
-    ChildFrProsody(wxMDIParentFrame *parent, const wxString& title, const wxPoint& pos, const wxSize& size, const long style);
-    ~ChildFrProsody(void);
-    void OnActivate(wxActivateEvent& event);
-
-    void OnQuit(wxCommandEvent& event);
-    void OnSave(wxCommandEvent& event);
-    void OnSaveAs(wxCommandEvent& event);
-
-DECLARE_EVENT_TABLE()
-};
 

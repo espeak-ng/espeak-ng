@@ -1,6 +1,7 @@
 
 phoneme t2   // [t] which doesn't reduce
-  import_phoneme  base/t
+  vcd alv stop
+  ChangePhoneme(t)
 endphoneme
 
 
@@ -50,8 +51,7 @@ phoneme l      // use dark [l/2] before not-vowel
   liquid
   lengthmod 7
 
-  IF nextPhW(isVowel) THEN
-  ELSE
+  IF NOT nextPhW(isVowel) THEN
     IF prevPh(isVowel) OR prevPh(j) OR prevPh(w) THEN
       ChangePhoneme(l/2)
     ELSE
@@ -109,8 +109,7 @@ phoneme z/2    // used for 's suffix
     InsertPhoneme(I2)
   ENDIF
 
-  IF prevPh(isVoiced) THEN
-  ELSE
+  IF NOT prevPh(isVoiced) THEN
     ChangePhoneme(s)
   ENDIF
   ChangePhoneme(z)
@@ -342,6 +341,9 @@ phoneme u:
   length 210
   IF nextPh(l/2) THEN
     FMT(vwl_en/u_L)
+  ENDIF
+  IF prevPhW(j) THEN
+    length 180
   ENDIF
   FMT(vdiph2/uw_2)
 endphoneme

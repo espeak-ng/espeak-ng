@@ -576,6 +576,29 @@ phoneme l.
 endphoneme
 
 
+phoneme L/
+  import_phoneme base/l/2
+endphoneme
+
+phoneme L   // velar L
+  liquid
+  lengthmod 7
+
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(L/)     // use 'dark' [l] after a vowel
+  ENDIF
+
+  VowelEnding(ll/xll, -40)
+
+  IF prevPh(isPause) THEN
+     FMT(ll/_ll)
+  ENDIF
+
+  FMT(ll/ll)
+endphoneme
+
+
+
 
 phoneme w
   liquid
@@ -1708,6 +1731,10 @@ include ph_malayalam
 phonemetable hu base
 include ph_hungarian
 
+phonemetable lt base
+include ph_lithuanian
+
+
 phonemetable lv base
 include ph_latvian
 
@@ -1890,4 +1917,17 @@ include ph_kazakh
 
 phonemetable fa base
 include ph_farsi
+
+phonemetable ga base
+include ph_irish
+
+phonemetable tt base
+include ph_tatar
+
+phonemetable ko base
+include ph_korean
+
+phonemetable kl base
+include ph_greenlandic
+
 

@@ -1,0 +1,112 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Greenlandic
+
+b	bE
+c	sE
+d	dE
+f	Ef
+g	ji
+h	ha
+j	jE
+k	ka
+l	El
+m	Em
+n	En
+p	pE
+q	qa
+r	Er
+s	Es
+t	tE
+v	vE
+w	wE
+x	iks
+z	zE
+
+// y
+// æ
+// ø
+// å
+
+// Native numbers 0-10
+_0n	n'u:lu
+_1n	at'a:sEq
+_2n	m'arluk
+_3n	p'iNasut
+_4n	s'isamat
+_5n	t'al#imat
+_6n	arf'inil#it
+_7n	arfinEqm'arluk
+_8n	arfinEqp'iNasut
+_9n	quliNil'uat
+_10n	q'ulit
+
+// Danish numbers
+_0	'nOl
+_1	'en
+_2	t'o
+_3	tR'e
+_4	f'iV
+_5	f'Em
+_6	s'EQs
+_7	s'yw
+_8	'O:d@
+_9	n'i
+_10	t'i
+_11	'Elv@
+_12	t'Vl
+_13	tR'&d@-n
+_14	fj'ord@-n
+_15	f'emt@-n
+_16	s'ajsd@-n
+_17	s'Wd@-n
+_18	'&d@-n
+_19	n'ed@-n
+_2X	t'y:w
+_3X	tR'&Dv@
+_4X	f'W:V
+_5X	h&l't*Es
+_6X	t*'Es
+_7X	h&lfj'&rs
+_8X	f'irs
+_9X	h&lf'Ems
+_0C	h'un*@:D
+_1C     ed||h'unr@:D
+_0M1	t'u:s@-n
+_1M1    ed||t'u:s@-n
+_1M2	'e:n||milij'o:n
+_0M2	milij'o:nV
+_1M3	'e:n||milij'a:d
+_0M3	milij'a:d3
+_1M4	'e:n||bilij'o:n
+_0M4	bilij'o:n3
+
+_0and	V
+_dpt	kom:a_
+
+// ordinals are followed by a dot in Danish
+_ord	3
+
+// exceptions for ordinals
+_1o	fWrsd3
+_2o	&n@n
+_3o	trEdj3
+_4o	fjeV
+_5o	fEmt3
+_6o	sjEd3
+_7o	syvn3
+_8o	Vtn3
+_9o	ni@n3
+_10o	ti@n3
+_11o	Elfd3
+_12o	tVlfd3
+
+_2Xo	t'yv@n@ // 25.
+_3Xo	tr'&ft@ //36.
+_4Xo	fWV'tyv@n@ // 42.
+_5Xo	h&lt*'Esenstyv@n@ // 52.
+_6Xo	tr'Esenstyv@n@ // 62.
+_7Xo	h&lfj'&rsenstyv@n@ // 72.
+_8Xo	firsenstyv@n@ // 82.
+_9Xo	h&lf'Emsenstyv@n@ // 95.
+

@@ -117,6 +117,17 @@ U+bf9	ru:ba:j
 ரூ	ru:ba:j  $dot $only
 (பி . ஏ)	bije: $dot
 (கி . மீ)	kilo:mi:t.t.Vr $dot
+aud	ostr'eIlIVn||d'olVz
+cny	tS'aIni:z||j'uVn
+eur	ju:ro:z
+gbp	br'itiS||p'aUndz
+inr	'IndIVn||r'u:pi:z
+jpy	dZ'a:pVni:z||j'en
+rub	r'VSVn||r'u:bVlz
+usd     j'ues||d'olVz
+
+
+
 
 // numbers
 _0	suz.ijVm    // சுழியம்
@@ -195,7 +206,7 @@ _3o	mu:nR
 _4o	na:ng
 _5o	aInd
 _6o	a:R
-_7o	;e:l
+_7o	;e:z.
 _8o	;et.t.
 _9o	onbVd.
 _10o	patt
@@ -239,7 +250,6 @@ tamil	தமிழ்	$text
 
 // exceptions
 பாபு	$alt	// initial ப as [b]
-பானம்	$alt
 பாணம்	$alt
 பாறம்	$alt
 பாரதம்	$alt
@@ -249,8 +259,6 @@ tamil	தமிழ்	$text
 பண்தம்	$alt
 பவனி	$alt
 பாபா	$alt
-போண்டா	$alt
-பஜ்ஜி	$alt
 பாதாம்	$alt
 போகம்	$alt
 போதனை	$alt
@@ -279,7 +287,6 @@ tamil	தமிழ்	$text
 பால்ய	$alt
 பில்	$alt
 பந்த்	$alt
-பில்லி	$alt
 பம்பளிமாஸ்	$alt
 பைக்கை	$alt
 பெட்டின்	$alt
@@ -318,7 +325,6 @@ tamil	தமிழ்	$text
 பலிக்குத்தான்	$alt
 பவ	$alt
 புஸ்	$alt
-போஸின்	$alt
 போனி	$alt
 பிஸி	$alt
 பேஷ்	$alt
@@ -362,8 +368,14 @@ tamil	தமிழ்	$text
 புக்கர்	$alt
 பாதிக்க	$alt
 பலக்க	$alt
-
-
+பூமா	$alt
+பூம்பா	$alt
+பலத்து	$alt
+பலத்தும்	$alt
+பூந்தி 	$alt
+பாவிக்க	$alt
+பார்ல	$alt
+பாட்டனி	$alt
 
 
 	// initial த as [d]
@@ -398,7 +410,6 @@ tamil	தமிழ்	$text
 தீரமுள்ள	$alt
 தீரமற்ற	$alt
 தலாய்	$alt
-தானம்	$alt
 தீரமும்	$alt
 தீரத்தோடு	$alt
 தவத்தில்	$alt
@@ -456,6 +467,7 @@ tamil	தமிழ்	$text
 சாரு		$alt
 பிரசார்		prVsa:r
 சாயா		$alt
+சோ 		$alt
 
 
 கக	$alt	// initial க as [g]
@@ -523,8 +535,7 @@ tamil	தமிழ்	$text
 // p as [f]
 போன்	fo:n
 போனில்	fo:nil
-பைல்	faIl
-பைலை 	faIlaI
+//பைலை 	faIlaI
 பாதர்	fa:dVr
 பாதரிடம்	fa:dVrid.Vm
 பாதருடன்	fa:dVrUd.Vn
@@ -532,6 +543,7 @@ tamil	தமிழ்	$text
 பேனில்	fe:nil
 பேன்ல	fe:nlV
 போன்ல	fo:nlV
+ஆப்	a:f
 
 
 பப	pVpV

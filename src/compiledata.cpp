@@ -71,6 +71,7 @@ typedef struct {
 #define k_AND     1
 #define k_OR      2
 #define k_THEN    3
+#define k_NOT     4
 
 #define kTHISSTRESS 0x800
 
@@ -90,17 +91,19 @@ static keywtab_t k_conditions[] = {
 	{"AND",      0,  k_AND},
 	{"OR",       0,  k_OR},
 	{"THEN",     0,  k_THEN},
-	{"prevPh",   tWHICH_PHONEME,  0x000},
-	{"prevPhW",  tWHICH_PHONEME,  0x500},
-	{"thisPh",   tWHICH_PHONEME,  0x100},
-	{"nextPh",   tWHICH_PHONEME,  0x200},
-	{"next2Ph",  tWHICH_PHONEME,  0x300},
-	{"nextPhW",  tWHICH_PHONEME,  0x400},
-	{"nextVowel",tWHICH_PHONEME,  0x600},
-//	{"next2PhW", tWHICH_PHONEME,  0x700},
+	{"NOT",      0,  k_NOT},
+	{"prevPh",   tWHICH_PHONEME,  0},
+	{"prevPhW",  tWHICH_PHONEME,  5},
+	{"thisPh",   tWHICH_PHONEME,  1},
+	{"nextPh",   tWHICH_PHONEME,  2},
+	{"next2Ph",  tWHICH_PHONEME,  3},
+	{"nextPhW",  tWHICH_PHONEME,  4},
+	{"next2PhW",  tWHICH_PHONEME, 6},
+	{"nextVowel",tWHICH_PHONEME,  7},
+	{"prevVowel",tWHICH_PHONEME,  8},
+//	{"next2PhW", tWHICH_PHONEME,  0x800},
 
 //	{"numVowels",    tTEST,  0x000},
-//	{"afterStress",  tTEST,  0x000},
 
 	{"PreVoicing",   tTEST,  0xf01},
 	{"KlattSynth",   tTEST,  0xf02},
@@ -605,7 +608,7 @@ return;
 		case 13:
 		case 14:
 		case 15:
-			address = ((instn & 0xf) << 16) + *pc++; 
+			address = ((instn & 0xf) << 16) + *pc++;
 			fprintf(f_out, " %d %.5x",(instn >> 4) & 0xff,address*4);
 			break;
 		}
@@ -770,7 +773,7 @@ static void CompileReport(void)
 	}
 	n = ix;
 	qsort((void *)list,n,sizeof(REF_HASH_TAB *),(int (*)(const void *,const void *))ref_sorter);
-	
+
 	data_path = "";
 	prev_mnemonic = 0;
 	prev_table = 0;
@@ -1197,7 +1200,7 @@ static int LookupPhoneme(const char *string, int control)
 
 	// don't use phoneme number 0, reserved for string terminator
 	start = 1;
-	
+
 	if(control==2)
 		start = 8;   // don't look for control and stress phonemes (allows these characters to be
 		             // used for other purposes)
@@ -1267,12 +1270,12 @@ static int NextItem(int type)
 	int  sign;
 	char *p;
 	keywtab_t *pk;
-	
+
 	item_type = -1;
 
 	f_in_displ = ftell(f_in);
 	f_in_linenum = linenum;
-		
+
 	while(!feof(f_in))
 	{
 		c = get_char();
@@ -1592,7 +1595,7 @@ int LoadSpect(const char *path, int control)
 
 	wxString filename = path_phsource + path_sep + wxString(path,wxConvLocal);
 	wxFileInputStream stream(filename);
-	
+
 	if(stream.Ok() == FALSE)
 	{
 		error("Failed to open: '%s'",path);
@@ -1616,7 +1619,7 @@ int LoadSpect(const char *path, int control)
 	seq_out.sqflags=0;
 	seq_out.length_total=0;
 
-	total = 0;	
+	total = 0;
 	for(frame=0; frame < spectseq->numframes; frame++)
 	{
 
@@ -1650,7 +1653,7 @@ for(ix=0; ix<8; ix++)
 			seq_out.n_frames++;
 			if(frame > 0)
 				total += spectseq->frames[frame-1]->length;
-		}	
+		}
 	}
 	seq_out.length_total = int(total);
 
@@ -1665,7 +1668,7 @@ for(ix=0; ix<8; ix++)
 	for(frame=0; frame < spectseq->numframes; frame++)
 	{
 		fr = spectseq->frames[frame];
-		
+
 		if(fr->keyframe)
 		{
 			if(klatt_flag)
@@ -1756,7 +1759,7 @@ for(ix=0; ix<8; ix++)
 			n_frames++;
 		}
 	}
-	
+
 	if(klatt_flag)
 	{
 		seqk_out.n_frames = seq_out.n_frames;
@@ -1799,7 +1802,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 	fseek(f,24,SEEK_SET);
 	sr1 = Read4Bytes(f);
 	sr2 = Read4Bytes(f);
-	fseek(f,40,SEEK_SET);	
+	fseek(f,40,SEEK_SET);
 
 	if((sr1 != samplerate_native) || (sr2 != sr1*2))
 	{
@@ -1828,7 +1831,7 @@ static int LoadWavefile(FILE *f, const char *fname)
 					return(0);
 				}
 			}
-	
+
 			f = fopen(fname_temp,"rb");
 			if(f == NULL)
 			{
@@ -2078,7 +2081,7 @@ static int LoadDataFile(const char *path, int control)
 	if(addr == 0)
 	{
 		sprintf(buf,"%s%s",path_source,path);
-	
+
 		if((f = fopen(buf,"rb")) == NULL)
 		{
 			sprintf(buf,"%s%s.wav",path_source,path);
@@ -2091,7 +2094,7 @@ static int LoadDataFile(const char *path, int control)
 
 		id = Read4Bytes(f);
 		rewind(f);
-	
+
 		if(id == 0x43455053)
 		{
 			addr = LoadSpect(path, control);
@@ -2121,7 +2124,7 @@ static int LoadDataFile(const char *path, int control)
 			addr = -1;
 		}
 		fclose(f);
-	
+
 		if(addr > 0)
 		{
 			fprintf(f_phcontents,"%c  0x%.5x  %s\n",type_code,addr & 0x7fffff,path);
@@ -2188,7 +2191,7 @@ static int CompileToneSpec(void)
 		*prog_out++ = i_AMPENV + ((amp_env >> 16) & 0xf);
 		*prog_out++ = amp_env;
 	}
-	
+
 	return(0);
 }  // end of CompileToneSpec
 
@@ -2217,7 +2220,7 @@ int CompileSound(int keyword, int isvowel)
 			{
 				value = -128;
 				error("Parameter < -128",NULL);
-			} 
+			}
 		}
 		else
 		{
@@ -2256,9 +2259,11 @@ int CompileIf(int elif)
 	int key;
 	int finish = 0;
 	int word = 0;
+	int word2;
 	int data;
 	int bitmap;
 	int brackets;
+	int not_flag;
 	USHORT *prog_last_if = NULL;
 
 	then_count = 2;
@@ -2266,6 +2271,8 @@ int CompileIf(int elif)
 
 	while(!finish)
 	{
+		not_flag = 0;
+		word2 = 0;
 		if(prog_out >= prog_out_max)
 		{
 			error("Phoneme program too large", NULL);
@@ -2274,10 +2281,25 @@ int CompileIf(int elif)
 
 		if((key = NextItem(tCONDITION)) < 0)
 			error("Expected a condition, not '%s'",item_string);
-	
+
+		if((item_type == 0) && (key == k_NOT))
+		{
+			not_flag = 1;
+			if((key = NextItem(tCONDITION)) < 0)
+				error("Expected a condition, not '%s'",item_string);
+		}
+
 		if(item_type == tWHICH_PHONEME)
 		{
-			// prevPh(), thisPh(), nextPh(), next2Ph()
+			// prevPh(), thisPh(), nextPh(), next2Ph() etc
+			if(key >= 6)
+			{
+			    // put the 'which' code in the next instruction
+			    word2 = key;
+			    key = 6;
+			}
+			key = key << 8;
+
 			data = NextItemBrackets(tPROPERTIES,0);
 			if(data >= 0)
 			{
@@ -2319,6 +2341,11 @@ int CompileIf(int elif)
 		// output the word
 		prog_last_if = prog_out;
 		*prog_out++ = word | i_CONDITION;
+
+		if(word2 != 0)
+			*prog_out++ = word2;
+		if(not_flag)
+			*prog_out++ = i_NOT;
 
 		// expect AND, OR, THEN
 		switch(NextItem(tCONDITION))
@@ -2416,7 +2443,7 @@ int CompileElse(void)
 	{
 		ref = prog_out;
 		*prog_out++ = 0;
-	
+
 		if((p = if_stack[if_level].p_else) != NULL)
 		{
 			*ref = ref - p;    // backwards offset to the previous else
@@ -2461,14 +2488,14 @@ int CompileEndif(void)
 		do
 		{
 			chain = *p;   // a chain of previous else links
-	
+
 			offset = prog_out - p;
 			if(offset > MAX_JUMP)
 			{
 				error("IF block is too long",NULL);
 			}
 			*p = i_JUMP + offset;
-	
+
 			p -= chain;
 		} while (chain > 0);
 	}
@@ -2489,7 +2516,7 @@ static int CompileSwitch(int type)
 		// check the instructions in the Switch
 		return(0);
 	}
-	
+
 //	count_VowelStart = 0;
 //	count_VowelEnding = 0;
 
@@ -2664,7 +2691,7 @@ int CompilePhoneme(int compile_phoneme)
 	phoneme_flags = 0;
 	place_articulation = 0;
 
-	NextItem(tSTRING); 
+	NextItem(tSTRING);
 	if(compile_phoneme)
 	{
 		phcode = LookupPhoneme(item_string,1);    // declare phoneme if not already there
@@ -2825,7 +2852,7 @@ int CompilePhoneme(int compile_phoneme)
 					phcode = LookupPhoneme(item_string,1);
 				phoneme_out->start_type = phcode;
 				break;
-	
+
 			case kENDTYPE:
 				phcode = NextItem(tPHONEMEMNEM);
 				if(phcode == -1)
@@ -2882,7 +2909,7 @@ int CompilePhoneme(int compile_phoneme)
 			case kSWITCH_PREVVOWEL:
 				endphoneme = CompileSwitch(1);
 				break;
-	
+
 			case kSWITCH_NEXTVOWEL:
 				endphoneme = CompileSwitch(2);
 				break;
@@ -2908,7 +2935,7 @@ int CompilePhoneme(int compile_phoneme)
 				DecThenCount();
 				endphoneme = CompileSound(keyword,0);
 				break;
-	
+
 			case kVOWELIN:
 				DecThenCount();
 				endphoneme = CompileVowelTransition(1);
@@ -2968,7 +2995,7 @@ int CompilePhoneme(int compile_phoneme)
 		}
 		phoneme_out->phflags = place_articulation << 16;
 		phoneme_out->phflags |= phoneme_flags;
-	
+
 		if(phoneme_out->phflags & phVOICED)
 		{
 			if(phoneme_out->type == phSTOP)
@@ -2977,15 +3004,15 @@ int CompilePhoneme(int compile_phoneme)
 			if(phoneme_out->type == phFRICATIVE)
 				phoneme_out->type = phVFRICATIVE;
 		}
-	
+
 		if(phoneme_out->std_length == 0)
 		{
 			if(phoneme_out->type == phVOWEL)
 				phoneme_out->std_length = 180/2;  // default length for vowel
 		}
-	
+
 		phoneme_out->phflags |= phLOCAL;  //declared in this phoneme table
-	
+
 		if(phoneme_out->type == phDELETED)
 		{
 			phoneme_out->mnemonic = 0x01;  // will not be recognised
@@ -3334,7 +3361,7 @@ static void CompilePhonemeFiles()
 				stack[stack_ix].linenum = linenum;
 				strcpy(stack[stack_ix].fname,current_fname);
 				stack[stack_ix++].file = f_in;
-				
+
 				f_in = f;
 				strncpy0(current_fname,item_string,sizeof(current_fname));
 				linenum = 1;
@@ -3382,7 +3409,7 @@ static void CompilePhonemeData2(const char *source)
 	wxString report_dict;
 
 #ifdef MAKE_ENVELOPES
-make_envs();	
+make_envs();
 #endif
 
 	n_envelopes = 0;
@@ -3390,6 +3417,24 @@ make_envs();
 memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
+
+	if(!wxDirExists(path_phsource))
+	{
+		if(gui_flag)
+		{
+			wxString dirname = wxDirSelector(_T("Phoneme source directory"),path_phsource);
+			if(!dirname.IsEmpty())
+			{
+				path_phsource = dirname;
+				strncpy0(path_source,path_phsource.mb_str(wxConvLocal),sizeof(path_source)-1);
+				strcat(path_source,"/");
+			}
+		}
+		else
+		{
+			fprintf(stderr,"Can't find phoneme source directory: %s\n",path_source);
+		}
+	}
 
 	strncpy0(current_fname,source,sizeof(current_fname));
 
@@ -3493,8 +3538,10 @@ memset(markers_used,0,sizeof(markers_used));
 fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references);
 	fclose(f_in);
 	fclose(f_phdata);
-	fclose(f_errors);
-	fclose(f_prog_log);
+	if(f_errors != stderr)
+        fclose(f_errors);
+    if(f_prog_log != NULL)
+        fclose(f_prog_log);
 	fclose(f_phindex);
 	fclose(f_phtab);
 	fclose(f_phcontents);
@@ -3525,7 +3572,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 	{
 		strncpy0(fname,(report+report_dict).mb_str(wxConvLocal),sizeof(fname));
 		fprintf(stderr,"%s\n",fname);
-		
+
 	}
 }  // end of CompilePhonemeData
 
@@ -3605,7 +3652,7 @@ void CompileMbrola()
 		wxLogError(_T("Can't write to: ")+wxString(buf,wxConvLocal));
 		return;
 	}
-	
+
 	data[count].name = 0;  // list terminator
 	Write4Bytes(f_out, mbrola_ctrl);
 

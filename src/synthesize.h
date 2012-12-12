@@ -265,11 +265,15 @@ typedef struct {
 	int std_length;
 } FMT_PARAMS;
 
+typedef struct {
+    PHONEME_LIST prev_vowel;
+} WORD_PH_DATA;
 
 // instructions
 
 #define i_RETURN        0x0001
 #define i_CONTINUE      0x0002
+#define i_NOT           0x0003
 
 // Group 0 instrcutions with 8 bit operand.  These values go into bits 8-15 of the instruction
 #define i_CHANGE_PHONEME 0x01
@@ -417,7 +421,7 @@ typedef struct {
 	unsigned char split_tail_start;
 	unsigned char split_tail_end;
 	unsigned char split_tune;
-	
+
 	unsigned char spare[8];
 	int spare2;       // the struct length should be a multiple of 4 bytes
 } TUNE;
@@ -462,7 +466,7 @@ extern unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1];
 #define N_WCMDQ   170
 #define MIN_WCMDQ  25   // need this many free entries before adding new phoneme
 
-extern long wcmdq[N_WCMDQ][4];
+extern long64 wcmdq[N_WCMDQ][4];
 extern int wcmdq_head;
 extern int wcmdq_tail;
 
@@ -567,6 +571,7 @@ int DoSpect2(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  PHONEME_L
 int PauseLength(int pause, int control);
 int LookupPhonemeTable(const char *name);
 unsigned char *GetEnvelope(int index);
+int NumInstnWords(USHORT *prog);
 
 void InitBreath(void);
 

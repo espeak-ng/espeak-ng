@@ -1,0 +1,69 @@
+
+// This file in UTF8 encoded
+// For persian (Dari) language
+
+
+//numeric
+_0	sE'fEr
+_1	j'Ak
+_2	d'u:
+_3	s'E:h
+_4	tS'Ahr
+_5	pA'ndZ
+_6	SE'S
+_7	h'Aft
+_8	h'ASt
+_9	n'o
+// _۱۱	j'AzdAh  // what's this ?
+
+_1X	d'Ah
+_2X	b'ist
+_3X	s'i
+_4X	tS'Ehl
+_5X	p'indZAh
+_6X	S'Ast
+_7X	h'AftAd
+_8X	h'AStAd
+_9X	nAv'Ad
+
+
+_0C	s'Ad
+
+_0and	o
+
+//alphabets
+ا	Al'Ef
+ب	b'E:
+پ	p'E:
+ت	t'E:
+ث	s'E:
+ج	dZ'im
+چ	tS'E:
+ح	h'E:
+خ	X'E:
+د	d'Al
+ذ	z'Al
+ر	r'E:
+ز	z'E:
+س	s'in
+ش	S'in
+ص	s'Ad
+ض	z'Ad
+ط	t'A:
+ظ	z'A:
+ع	'eIn
+غ	R'eIn
+ف	f'E:
+ق	R'Af
+ک	k'Af
+گ	g'Af
+ل	l'Am
+م	m'im
+ن	n'un
+و	w'o:w
+ه	h'E:dotSASm
+ء	hAmz'E:
+ی	j'A:
+
+
+

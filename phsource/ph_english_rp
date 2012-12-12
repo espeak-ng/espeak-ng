@@ -193,7 +193,7 @@ endphoneme
 phoneme u:
   vowel  starttype #u  endtype #u
   length 190
-  FMT(vowel/u_6)
+  FMT(vowel/uu#_2)
 endphoneme
 
 

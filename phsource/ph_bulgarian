@@ -72,20 +72,7 @@ phoneme l
 endphoneme
 
 phoneme L   // velar L
-  liquid
-  lengthmod 7
-
-  IF nextPh(isNotVowel) THEN
-    ChangePhoneme(l/2)     // use 'dark' [l] after a vowel
-  ENDIF
-
-  VowelEnding(ll/xll, -40)
-
-  IF prevPh(isPause) THEN
-     FMT(ll/_ll)
-  ENDIF
-
-  FMT(ll/ll)
+  import_phoneme base/L
 endphoneme
 
 
