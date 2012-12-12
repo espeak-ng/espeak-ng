@@ -138,13 +138,13 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeCreate(
 
   env->SetIntField(object, FIELD_mNativeData, (jint) nat);
 
-  const char *c_path = env->GetStringUTFChars(path, NULL);
+  const char *c_path = path ? env->GetStringUTFChars(path, NULL) : NULL;
 
   nat->object = env->NewWeakGlobalRef(object);
   if (DEBUG) LOGV("Initializing with path %s", c_path);
   nat->sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, nat->bufferSizeInMillis, c_path, 0);
 
-  env->ReleaseStringUTFChars(path, c_path);
+  if (c_path) env->ReleaseStringUTFChars(path, c_path);
 
   if (nat->sampleRate > 0) {
     return JNI_TRUE;
@@ -242,8 +242,8 @@ JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
     JNIEnv *env, jobject object, jstring name, jstring languages, jint gender, jint age,
     jint variant) {
-  const char *c_name = env->GetStringUTFChars(name, NULL);
-  const char *c_languages = env->GetStringUTFChars(languages, NULL);
+  const char *c_name = name ? env->GetStringUTFChars(name, NULL) : NULL;
+  const char *c_languages = languages ? env->GetStringUTFChars(languages, NULL) : NULL;
 
   if (DEBUG) LOGV("%s(name=%s, languages=%s)", __FUNCTION__, c_name, c_languages);
 
@@ -258,8 +258,8 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
 
   const espeak_ERROR result = espeak_SetVoiceByProperties(&voice_select);
 
-  env->ReleaseStringUTFChars(name, c_name);
-  env->ReleaseStringUTFChars(languages, c_languages);
+  if (c_name) env->ReleaseStringUTFChars(name, c_name);
+  if (c_languages) env->ReleaseStringUTFChars(languages, c_languages);
 
   if (result == EE_OK)
     return JNI_TRUE;
@@ -270,14 +270,14 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
 JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetLanguage(
     JNIEnv *env, jobject object, jstring language, jint variant) {
-  const char *c_language = env->GetStringUTFChars(language, NULL);
+  const char *c_language = language ? env->GetStringUTFChars(language, NULL) : NULL;
 
   if (DEBUG) LOGV("%s(language=%s)", __FUNCTION__, c_language);
 
   const int len = strlen(c_language);
   char *lang_copy = (char *) calloc(len, sizeof(char));
   strcpy(lang_copy, c_language);
-  env->ReleaseStringUTFChars(language, c_language);
+  if (c_language) env->ReleaseStringUTFChars(language, c_language);
 
   espeak_VOICE voice;
   memset(&voice, 0, sizeof(espeak_VOICE));  // Zero out the voice first
@@ -320,7 +320,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   native_data_t *nat = getNativeData(env, object);
-  const char *c_text = env->GetStringUTFChars(text, NULL);
+  const char *c_text = text ? env->GetStringUTFChars(text, NULL) : NULL;
   unsigned int unique_identifier;
 
   nat->env = env;
@@ -332,7 +332,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSynthesize(
                &unique_identifier, nat);
   espeak_Synchronize();
 
-  env->ReleaseStringUTFChars(text, c_text);
+  if (c_text) env->ReleaseStringUTFChars(text, c_text);
 
   return JNI_TRUE;
 }
