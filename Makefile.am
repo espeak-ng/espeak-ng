@@ -123,9 +123,25 @@ espeak-data/phsource/dir.stamp: phsource/ph_* phsource/phonemes phsource/intonat
 espeak-data/phontab: src/espeakedit espeak-data/dir.stamp espeak-data/dictsource/dir.stamp espeak-data/phsource/dir.stamp
 	src/espeakedit --compile
 
+##### android language data packs:
+
+espeak-data.zip: espeak-data/dir.stamp espeak-data/phontab dictionaries
+	rm -f $@
+	cd espeak-data && zip -r ../$@ \
+		intonations phondata phonindex phontab \
+		*_dict voices
+
+espeak-data-en_only.zip: espeak-data/dir.stamp espeak-data/phontab espeak-data/en_dict
+	echo rm -f $@
+	cd espeak-data && zip -r ../$@ \
+		intonations phondata phonindex phontab \
+		en_dict voices/en
+
+android: espeak-data.zip espeak-data-en_only.zip
+
 ##### dictionaries:
 
-dictionaries: \
+dictionaries: src/espeak \
 	espeak-data/af_dict \
 	espeak-data/ak_dict \
 	espeak-data/am_dict \

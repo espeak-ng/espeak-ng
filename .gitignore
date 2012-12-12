@@ -6,6 +6,11 @@
 
 *.o
 
+# android build output:
+
+espeak-data.zip
+espeak-data-en_only.zip
+
 # autotools
 
 AUTHORS
