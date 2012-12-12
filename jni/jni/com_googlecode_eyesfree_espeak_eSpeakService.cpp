@@ -268,34 +268,6 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetLanguage(
-    JNIEnv *env, jobject object, jstring language, jint variant) {
-  const char *c_language = language ? env->GetStringUTFChars(language, NULL) : NULL;
-
-  if (DEBUG) LOGV("%s(language=%s)", __FUNCTION__, c_language);
-
-  const int len = strlen(c_language);
-  char *lang_copy = (char *) calloc(len, sizeof(char));
-  strcpy(lang_copy, c_language);
-  if (c_language) env->ReleaseStringUTFChars(language, c_language);
-
-  espeak_VOICE voice;
-  memset(&voice, 0, sizeof(espeak_VOICE));  // Zero out the voice first
-  voice.languages = lang_copy;
-  voice.variant = (int) variant;
-  const espeak_ERROR result = espeak_SetVoiceByProperties(&voice);
-
-  switch (result) {
-    case EE_OK:             return JNI_TRUE;
-    case EE_INTERNAL_ERROR: LOGE("espeak_SetVoiceByProperties: internal error."); break;
-    case EE_BUFFER_FULL:    LOGE("espeak_SetVoiceByProperties: buffer full."); break;
-    case EE_NOT_FOUND:      LOGE("espeak_SetVoiceByProperties: not found."); break;
-  }
-
-  return JNI_FALSE;
-}
-
-JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetRate(
     JNIEnv *env, jobject object, jint rate) {
   if (DEBUG) LOGV("%s", __FUNCTION__);

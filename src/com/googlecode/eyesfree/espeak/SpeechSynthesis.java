@@ -111,12 +111,6 @@ public class SpeechSynthesis {
         nativeSetVoiceByProperties(name, languages, gender, age, variant);
     }
 
-    public void setLanguage(String language, int variant) {
-        attemptInit();
-
-        nativeSetLanguage(language, variant);
-    }
-
     public void setRate(int rate) {
         nativeSetRate(rate);
     }
@@ -184,8 +178,6 @@ public class SpeechSynthesis {
 
     private native final boolean nativeSetVoiceByProperties(
             String name, String languages, int gender, int age, int variant);
-
-    private native final boolean nativeSetLanguage(String language, int variant);
 
     private native final boolean nativeSetRate(int rate);
 
