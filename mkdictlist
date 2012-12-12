@@ -31,5 +31,5 @@ for name, files in sorted(dictionaries.items()):
 	print '%s: espeak-data/%s_dict' % (name, name)
 	print 'dictsource/%s_extra:' % name
 	print '\ttouch dictsource/%s_extra' % name
-	print 'espeak-data/%s_dict: %s dictsource/%s_extra' % (name, ' '.join(sorted(files)), name)
+	print 'espeak-data/%s_dict: src/espeak espeak-data/phontab %s dictsource/%s_extra' % (name, ' '.join(sorted(files)), name)
 	print '\tcd dictsource && ../src/espeak --compile=%s && cd ..' % name
