@@ -953,30 +953,6 @@ SetLengthMods(tr,3);  // all equal
 		}
 		break;
 
-	case L('k','k'):   // Kazakh
-		{
-			static const unsigned char stress_amps_tr[8] = {18,16, 20,21, 20,21, 21,20 };
-			static const short stress_lengths_tr[8] = {190,180, 230,230, 0,0, 250,250};
- 
-			tr->letter_bits_offset = OFFSET_CYRILLIC;
-			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
-			SetLetterBits(tr,LETTERGP_A,(char *)ru_vowels);
-			SetLetterBits(tr,LETTERGP_C,(char *)ru_consonants);
-			SetLetterBits(tr,LETTERGP_VOWEL2,(char *)ru_vowels);
-
-			SetupTranslator(tr,stress_lengths_tr,stress_amps_tr);
-
-			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
-			tr->langopts.stress_flags = S_NO_AUTO_2 + S_NO_EOC_LENGTHEN;  //no automatic secondary stress, don't lengthen at end-of-clause
-			tr->langopts.lengthen_tonic = 0;
-			tr->langopts.param[LOPT_SUFFIX] = 1;
-
-			tr->langopts.numbers =  NUM_OMIT_1_HUNDRED | NUM_DFRACTION_6 ;
-			tr->langopts.max_initial_consonants = 2;
-SetLengthMods(tr,3);  // all equal
-		}
-		break;
-
 	case L('k','o'):   // Korean, TEST
 		{
 			static const char ko_ivowels[] = {0x63,0x64,0x67,0x68,0x6d,0x72,0x74,0x75,0};  // y and i vowels
