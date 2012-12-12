@@ -125,19 +125,13 @@ espeak-data/phontab: src/espeakedit espeak-data/dir.stamp espeak-data/dictsource
 
 ##### android language data packs:
 
-espeak-data.zip: espeak-data/dir.stamp espeak-data/phontab dictionaries
+res/raw/espeakdata.zip: espeak-data/dir.stamp espeak-data/phontab dictionaries
 	rm -f $@
 	cd espeak-data && zip -r ../$@ \
 		intonations phondata phonindex phontab \
 		*_dict voices
 
-espeak-data-en_only.zip: espeak-data/dir.stamp espeak-data/phontab espeak-data/en_dict
-	echo rm -f $@
-	cd espeak-data && zip -r ../$@ \
-		intonations phondata phonindex phontab \
-		en_dict voices/en
-
-android: espeak-data.zip espeak-data-en_only.zip
+android: res/raw/espeakdata.zip
 
 ##### dictionaries:
 
