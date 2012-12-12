@@ -148,10 +148,9 @@ static int eSpeakCallback(short *wav, int numsamples, espeak_EVENT *events) {
   int8_t * castedWav = (int8_t *) wav;
   size_t bufferSize = 0;
   if (numsamples < 1) {
-    size_t silenceBufferSize = 2;
-    int8_t *silence = new int8_t[silenceBufferSize]; // TODO: This will be a small memory leak, but do it this way for now because passing in an empty buffer can cause a crash.
-    silence[0] = 0;
-    silence[1] = 0;
+    int8_t silenceData[] = { 0, 0 };
+    size_t silenceBufferSize = sizeof(silenceData)/sizeof(silenceData[0]);
+    int8_t *silence = silenceData; // Passing in an empty buffer can cause a crash.
     ttsSynthDoneCBPointer(events->user_data, 22050, TTS_AUDIO_FORMAT_PCM_16_BIT, 1, silence,
                           silenceBufferSize, TTS_SYNTH_DONE);
     return 1;
