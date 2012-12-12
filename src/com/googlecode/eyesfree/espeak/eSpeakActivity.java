@@ -31,7 +31,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class eSpeakActivity extends Activity {
     private static final String ACTION_TTS_SETTINGS = "com.android.settings.TTS_SETTINGS";

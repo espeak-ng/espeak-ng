@@ -133,7 +133,6 @@ public class SpeechSynthesis {
         nativeStop();
     }
 
-    @SuppressWarnings("unused")
     private void nativeSynthCallback(byte[] audioData) {
         if (mCallback == null)
             return;
