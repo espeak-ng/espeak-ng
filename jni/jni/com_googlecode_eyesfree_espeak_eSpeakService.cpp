@@ -146,11 +146,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeCreate(
 
   if (c_path) env->ReleaseStringUTFChars(path, c_path);
 
-  if (nat->sampleRate > 0) {
-    return JNI_TRUE;
-  } else {
-    return JNI_FALSE;
-  }
+  return (nat->sampleRate > 0) ? JNI_TRUE : JNI_FALSE;
 }
 
 JNIEXPORT jboolean
@@ -261,10 +257,14 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
   if (c_name) env->ReleaseStringUTFChars(name, c_name);
   if (c_languages) env->ReleaseStringUTFChars(languages, c_languages);
 
-  if (result == EE_OK)
-    return JNI_TRUE;
-  else
-    return JNI_FALSE;
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetVoiceByProperties: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetVoiceByProperties: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetVoiceByProperties: not found."); break;
+  }
+
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean
@@ -285,10 +285,14 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetLanguage(
   voice.variant = (int) variant;
   const espeak_ERROR result = espeak_SetVoiceByProperties(&voice);
 
-  if (result == EE_OK)
-    return JNI_TRUE;
-  else
-    return JNI_FALSE;
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetVoiceByProperties: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetVoiceByProperties: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetVoiceByProperties: not found."); break;
+  }
+
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean
@@ -297,10 +301,14 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetRate(
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const espeak_ERROR result = espeak_SetParameter(espeakRATE, (int) rate, 0);
 
-  if (result == EE_OK)
-    return JNI_TRUE;
-  else
-    return JNI_FALSE;
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetParameter: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetParameter: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetParameter: not found."); break;
+  }
+
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean
@@ -309,10 +317,14 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetPitch(
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const espeak_ERROR result = espeak_SetParameter(espeakPITCH, (int) pitch, 0);
 
-  if (result == EE_OK)
-    return JNI_TRUE;
-  else
-    return JNI_FALSE;
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetParameter: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetParameter: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetParameter: not found."); break;
+  }
+
+  return JNI_FALSE;
 }
 
 JNIEXPORT jboolean
@@ -326,13 +338,20 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSynthesize(
   nat->env = env;
 
   espeak_SetSynthCallback(SynthCallback);
-  espeak_Synth(c_text, strlen(c_text), 0,  // position
+  const espeak_ERROR result = espeak_Synth(c_text, strlen(c_text), 0,  // position
                POS_CHARACTER, 0,  // end position (0 means no end position)
                espeakCHARS_UTF8 | espeakSSML, // use or ignore xml tags
                &unique_identifier, nat);
   espeak_Synchronize();
 
   if (c_text) env->ReleaseStringUTFChars(text, c_text);
+
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_Synth: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_Synth: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_Synth: not found."); break;
+  }
 
   return JNI_TRUE;
 }
