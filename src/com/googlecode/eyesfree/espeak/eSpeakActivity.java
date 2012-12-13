@@ -192,6 +192,7 @@ public class eSpeakActivity extends Activity {
         final TextView availableVoices = (TextView) findViewById(R.id.availableVoices);
         availableVoices.setText(Integer.toString(mVoices.size()));
 
+        findViewById(R.id.updateVoices).setOnClickListener(mOnClickListener);
         findViewById(R.id.ttsSettings).setOnClickListener(mOnClickListener);
         findViewById(R.id.engineSettings).setOnClickListener(mOnClickListener);
 
@@ -301,6 +302,9 @@ public class eSpeakActivity extends Activity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
+                case R.id.updateVoices:
+                    downloadVoiceData();
+                    break;
                 case R.id.engineSettings:
                     startActivityForResult(
                             new Intent(eSpeakActivity.this, TtsSettingsActivity.class),
