@@ -30,6 +30,7 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.TextView;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 public class eSpeakActivity extends Activity {
@@ -277,16 +278,24 @@ public class eSpeakActivity extends Activity {
         }
     };
 
-    private final Handler mHandler = new Handler() {
-        @Override
+    private static class EspeakHandler extends Handler {
+    	private WeakReference<eSpeakActivity> mActivity;
+
+    	public EspeakHandler(eSpeakActivity activity)
+    	{
+    		mActivity = new WeakReference<eSpeakActivity>(activity);
+    	}
+
+    	@Override
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case TTS_INITIALIZED:
-                    onInitialized(msg.arg1);
+                    mActivity.get().onInitialized(msg.arg1);
                     break;
             }
         }
-    };
+    }
+    private final Handler mHandler = new EspeakHandler(this);
 
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
