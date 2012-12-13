@@ -270,8 +270,10 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
 JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetRate(
     JNIEnv *env, jobject object, jint rate) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
-  const espeak_ERROR result = espeak_SetParameter(espeakRATE, (int) rate, 0);
+  const int wpm = ((float)rate / 100) * espeak_GetParameter(espeakRATE, 0);
+  if (DEBUG) LOGV("%s(rate=%d, wpm=%d)", __FUNCTION__, rate, wpm);
+
+  const espeak_ERROR result = espeak_SetParameter(espeakRATE, wpm, 0);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;

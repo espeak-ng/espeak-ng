@@ -118,9 +118,6 @@ const char *eSpeakSupportedVoices[][3] = {
 
 const int NUM_SUPPORTED_VOICES = 55;
 
-/* Integer constants */
-const int DEFAULT_SPEECH_RATE = 150;
-
 // Callback to the TTS API
 synthDoneCB_t *ttsSynthDoneCBPointer;
 
@@ -211,7 +208,6 @@ tts_result attemptInit() {
   }
 
   espeak_SetSynthCallback(eSpeakCallback);
-  espeak_SetParameter(espeakRATE, DEFAULT_SPEECH_RATE, 0);
 
   espeak_VOICE voice;
   memset(&voice, 0, sizeof(espeak_VOICE)); // Zero out the voice first
@@ -479,7 +475,8 @@ tts_result TtsEngine::setProperty(const char *property, const char *value, const
     // TODO: Set this property
     result = EE_OK;
   } else if (strncmp(property, "rate", 4) == 0) {
-    int rate = atoi(value) * DEFAULT_SPEECH_RATE / 100;
+    int rate = atoi(value) * espeak_GetParameter(espeakRATE, 0) / 100;
+    if (DEBUG) LOGV("setProperty rate : rate=%s, wpm=%d", value, rate);
     result = espeak_SetParameter(espeakRATE, rate, 0);
   } else if (strncmp(property, "pitch", 5) == 0) {
     int pitch = atoi(value);
@@ -527,7 +524,7 @@ tts_result TtsEngine::getProperty(const char *property, char *value, size_t *ios
     }
     return TTS_SUCCESS;
   } else if (strncmp(property, "rate", 4) == 0) {
-    int rate = espeak_GetParameter(espeakRATE, 1) * 100 / DEFAULT_SPEECH_RATE;
+    int rate = espeak_GetParameter(espeakRATE, 1) * 100 / espeak_GetParameter(espeakRATE, 0);
     char tmprate[4];
     sprintf(tmprate, "%d", rate);
     if (*iosize < strlen(tmprate)+1) {
