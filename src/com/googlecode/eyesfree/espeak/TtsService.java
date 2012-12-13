@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2011 Google Inc.
+ * Copyright (C) 2012 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -36,7 +37,6 @@ import android.speech.tts.SynthesisCallback;
 import android.speech.tts.SynthesisRequest;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeechService;
-import android.text.TextUtils;
 import android.util.Log;
 
 import com.googlecode.eyesfree.espeak.SpeechSynthesis.SynthReadyCallback;
@@ -63,6 +63,7 @@ public class TtsService extends TextToSpeechService {
     private SynthesisCallback mCallback;
 
     private List<Voice> mAvailableVoices;
+    private Voice mMatchingVoice = null;
 
     private String mLanguage = DEFAULT_LANGUAGE;
     private String mCountry = DEFAULT_COUNTRY;
@@ -118,31 +119,34 @@ public class TtsService extends TextToSpeechService {
 
         final Locale query = new Locale(language, country, variant);
 
-        boolean hasLanguage = false;
-        boolean hasCountry = false;
+        Voice languageVoice = null;
+        Voice countryVoice = null;
 
         synchronized (mAvailableVoices) {
             for (Voice voice : mAvailableVoices) {
                 switch (voice.match(query)) {
                     case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
+                        mMatchingVoice = voice;
                         return TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE;
                     case TextToSpeech.LANG_COUNTRY_AVAILABLE:
-                        hasCountry = true;
+                        countryVoice = voice;
                     case TextToSpeech.LANG_AVAILABLE:
-                        hasLanguage = true;
+                        languageVoice = voice;
                         break;
                 }
             }
         }
 
-        if (!hasLanguage) {
+        if (languageVoice == null) {
+            mMatchingVoice = null;
             return TextToSpeech.LANG_NOT_SUPPORTED;
-        } else if (!hasCountry) {
+        } else if (countryVoice == null) {
+            mMatchingVoice = languageVoice;
             return TextToSpeech.LANG_AVAILABLE;
         } else {
+            mMatchingVoice = countryVoice;
             return TextToSpeech.LANG_COUNTRY_AVAILABLE;
         }
-
     }
 
     @Override
@@ -150,8 +154,7 @@ public class TtsService extends TextToSpeechService {
         final int result = onIsLanguageAvailable(language, country, variant);
 
         // Return immediately if the language is not available.
-        if (result != TextToSpeech.LANG_AVAILABLE && result != TextToSpeech.LANG_COUNTRY_AVAILABLE
-                && result != TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE) {
+        if (result == TextToSpeech.LANG_NOT_SUPPORTED) {
             Log.e(TAG, "Failed to load language {language='" + language + "', country='" + country
                     + "', variant='" + variant + "'");
             return result;
@@ -176,19 +179,21 @@ public class TtsService extends TextToSpeechService {
     @Override
     protected synchronized void onSynthesizeText(
             SynthesisRequest request, SynthesisCallback callback) {
+        final int result = onLoadLanguage(request.getLanguage(), request.getCountry(), request.getVariant());
+
+        // Return immediately if the language is not available.
+        if (result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            return;
+        }
+
         final String text = request.getText();
-        final String language = getRequestLanguage(request);
         final int gender = getDefaultGender();
         final int rate = scaleRate(request.getSpeechRate());
         final int pitch = scalePitch(request.getPitch());
         final Bundle params = request.getParams();
 
-        mLanguage = request.getLanguage();
-        mCountry = request.getCountry();
-        mVariant = request.getVariant();
-
         if (DEBUG) {
-            Log.i(TAG, "Received synthesis request: {language=\"" + language + "\"}");
+            Log.i(TAG, "Received synthesis request: {language=\"" + mMatchingVoice.name + "\"}");
 
             for (String key : params.keySet()) {
                 Log.v(TAG,
@@ -200,7 +205,7 @@ public class TtsService extends TextToSpeechService {
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(),
                 mEngine.getChannelCount());
 
-        mEngine.setVoiceByProperties(null, language, gender, 0, 0);
+        mEngine.setVoiceByProperties(null, mMatchingVoice.name, gender, 0, 0);
         mEngine.setRate(rate);
         mEngine.setPitch(pitch);
         mEngine.synthesize(text);
@@ -245,31 +250,6 @@ public class TtsService extends TextToSpeechService {
         final int defaultRate = Integer.parseInt(defaultRateString);
 
         return (rate * defaultRate / 100);
-    }
-
-    /**
-     * Retrieves the language code from a synthesis request.
-     *
-     * @param request The synthesis request.
-     * @return A language code in the format "en-uk-n".
-     */
-    private static String getRequestLanguage(SynthesisRequest request) {
-        final StringBuffer result = new StringBuffer(request.getLanguage());
-
-        final String country = request.getCountry();
-        final String variant = request.getVariant();
-
-        if (!TextUtils.isEmpty(country)) {
-            result.append('-');
-            result.append(country);
-        }
-
-        if (!TextUtils.isEmpty(variant)) {
-            result.append('-');
-            result.append(variant);
-        }
-
-        return result.toString();
     }
 
     /**
