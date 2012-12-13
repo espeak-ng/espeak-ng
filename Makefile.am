@@ -127,9 +127,10 @@ espeak-data/phontab: src/espeakedit espeak-data/dir.stamp espeak-data/dictsource
 
 res/raw/espeakdata.zip: espeak-data/dir.stamp espeak-data/phontab dictionaries
 	rm -f $@
-	cd espeak-data && zip -r ../$@ \
-		intonations phondata phonindex phontab \
-		*_dict voices
+	zip -r $@ \
+		espeak-data/intonations \
+		espeak-data/phondata espeak-data/phonindex espeak-data/phontab \
+		espeak-data/*_dict espeak-data/voices
 
 android: res/raw/espeakdata.zip
 
