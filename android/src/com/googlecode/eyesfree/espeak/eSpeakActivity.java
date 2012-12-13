@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -46,6 +47,8 @@ public class eSpeakActivity extends Activity {
     private static final int DIALOG_SET_DEFAULT = 1;
     private static final int DIALOG_DOWNLOAD_FAILED = 2;
     private static final int DIALOG_ERROR = 3;
+
+	private static final String TAG = "eSpeakActivity";
 
     private enum State {
         LOADING,
@@ -137,6 +140,7 @@ public class eSpeakActivity extends Activity {
     private void onDataChecked(int resultCode, Intent data) {
         if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
             if (mDownloadedVoiceData) {
+            	Log.e(TAG, "Voice data check failed (error code: " + resultCode + ").");
                 setState(State.FAILURE);
                 showDialog(DIALOG_ERROR);
             } else {
@@ -147,7 +151,17 @@ public class eSpeakActivity extends Activity {
 
         mVoices = data.getStringArrayListExtra(TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);
 
+        if (mVoices == null) {
+        	Log.e(TAG, "Data check failed -- voices is null.");
+            setState(State.FAILURE);
+            showDialog(DIALOG_ERROR);
+            return;
+        }
+
         initializeEngine();
+
+        final TextView availableVoices = (TextView) findViewById(R.id.availableVoices);
+        availableVoices.setText(Integer.toString(mVoices.size()));
     }
 
     /**
@@ -158,6 +172,7 @@ public class eSpeakActivity extends Activity {
      */
     private void onDataDownloaded(int resultCode) {
         if (resultCode != RESULT_OK) {
+        	Log.e(TAG, "Voice data download failed.");
             setState(State.FAILURE);
             showDialog(DIALOG_DOWNLOAD_FAILED);
             return;
@@ -180,7 +195,8 @@ public class eSpeakActivity extends Activity {
             return;
         }
 
-        if (status == TextToSpeech.ERROR || mVoices == null) {
+        if (status == TextToSpeech.ERROR) {
+        	Log.e(TAG, "Initialization failed (status: " + status + ").");
             setState(State.FAILURE);
             showDialog(DIALOG_ERROR);
             return;
@@ -188,9 +204,6 @@ public class eSpeakActivity extends Activity {
 
         final TextView currentLocale = (TextView) findViewById(R.id.currentLocale);
         currentLocale.setText(mTts.getLanguage().getDisplayName());
-
-        final TextView availableVoices = (TextView) findViewById(R.id.availableVoices);
-        availableVoices.setText(Integer.toString(mVoices.size()));
 
         findViewById(R.id.updateVoices).setOnClickListener(mOnClickListener);
         findViewById(R.id.ttsSettings).setOnClickListener(mOnClickListener);
