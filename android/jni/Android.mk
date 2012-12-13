@@ -20,7 +20,7 @@ BLACKLIST_SRC_FILES := \
   %/voicedlg.cpp \
   %/vowelchart.cpp
 
-ESPEAK_SRC_PATH := ../src
+ESPEAK_SRC_PATH := ../../src
 
 ESPEAK_SRC_FILES := \
   $(subst $(LOCAL_PATH)/$(ESPEAK_SRC_PATH),$(ESPEAK_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/*.c*))

@@ -18,13 +18,14 @@ configured correctly:
 
 1.  Build the `libttsespeak.so` file by running:
 
+        $ cd android
         $ ndk-build
 2.  Open Eclipse.
 3.  Create a new workspace.
 4.  Import the espeak folder as an exising Android project.
 5.  Build the espeak apk within Eclipse.
 
-In order to build the `espeak-data.zip` and `espeak-data-en_only.zip` data files, you need to run the following commands:
+In order to build the `espeakdata.zip` file in `android/res/raw`, you need to run the following commands:
 
 	$ ./autogen.sh
 	$ ./configure --prefix=/usr
@@ -35,8 +36,10 @@ In order to build the `espeak-data.zip` and `espeak-data-en_only.zip` data files
 The generated `eSpeakActivity.apk` can be installed like any other apk build
 via eclipse, such as by using the `Run` menu option.
 
-After running, `eSpeakActivity` will download the `espeak-data.zip` file. To
-enable eSpeak, you need to:
+After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
+own data directory to set up the available voices.
+
+To enable eSpeak, you need to:
 
 1.  go into the Android `Text-to-Speech settings` UI;
 2.  enable `eSpeak TTS` in the `Engines` section;
