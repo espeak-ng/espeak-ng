@@ -212,6 +212,7 @@ public class eSpeakActivity extends Activity {
                 initializeEngine();
                 break;
         }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
