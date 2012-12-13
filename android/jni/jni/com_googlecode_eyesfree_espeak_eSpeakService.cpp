@@ -288,7 +288,11 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetRate(
 JNIEXPORT jboolean
 JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetPitch(
     JNIEnv *env, jobject object, jint pitch) {
-  if (DEBUG) LOGV("%s", __FUNCTION__);
+  // The values of pitch from android range from 50 - 200, with 100 being normal.
+  // The values espeak supports are from 0 - 100, with 50 being normal.
+  // Therefore, halve the value to get the value that espeak supports:
+  pitch = pitch / 2;
+  if (DEBUG) LOGV("%s(pitch=%d)", __FUNCTION__, pitch);
   const espeak_ERROR result = espeak_SetParameter(espeakPITCH, (int) pitch, 0);
 
   switch (result) {

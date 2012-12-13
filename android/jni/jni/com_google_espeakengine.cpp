@@ -480,6 +480,11 @@ tts_result TtsEngine::setProperty(const char *property, const char *value, const
     result = espeak_SetParameter(espeakRATE, rate, 0);
   } else if (strncmp(property, "pitch", 5) == 0) {
     int pitch = atoi(value);
+    // The values of pitch from android range from 50 - 200, with 100 being normal.
+    // The values espeak supports are from 0 - 100, with 50 being normal.
+    // Therefore, halve the value to get the value that espeak supports:
+    pitch = pitch / 2;
+    if (DEBUG) LOGV("setProperty pitch : pitch=%d", pitch);
     result = espeak_SetParameter(espeakPITCH, pitch, 0);
   } else if (strncmp(property, "volume", 6) == 0) {
     int volume = atoi(value);
@@ -535,7 +540,7 @@ tts_result TtsEngine::getProperty(const char *property, char *value, size_t *ios
     return TTS_SUCCESS;
   } else if (strncmp(property, "pitch", 5) == 0) {
     char tmppitch[4];
-    sprintf(tmppitch, "%d", espeak_GetParameter(espeakPITCH, 1));
+    sprintf(tmppitch, "%d", (espeak_GetParameter(espeakPITCH, 1) * 2));
     if (*iosize < strlen(tmppitch)+1) {
         *iosize = strlen(tmppitch) + 1;
         return TTS_PROPERTY_SIZE_TOO_SMALL;
