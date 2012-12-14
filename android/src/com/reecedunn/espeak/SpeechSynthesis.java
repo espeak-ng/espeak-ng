@@ -35,6 +35,7 @@ import java.util.Locale;
 public class SpeechSynthesis {
     private static final String TAG = SpeechSynthesis.class.getSimpleName();
 
+    public static final int GENDER_UNSPECIFIED = 0;
     public static final int GENDER_MALE = 1;
     public static final int GENDER_FEMALE = 2;
 
@@ -206,7 +207,45 @@ public class SpeechSynthesis {
             this.gender = gender;
             this.age = age;
 
-            locale = new Locale(name);
+            if (name.equals("en-sc")) {
+                // 'SC' is not a country code.
+                locale = new Locale("en", "GB", "scotland");
+            } else if (name.equals("en-wi")) {
+                // 'WI' is not a country code.
+                locale = new Locale("en", "029");
+            } else if (name.equals("es-la")) {
+                // 'LA' is the country code for Laos, not Latin America.
+                locale = new Locale("es", "419");
+            } else if (name.equals("hy-west")) {
+                // 'west' is not a country code.
+                locale = new Locale("hy", "", "arevmda");
+            } else if (name.equals("zh-yue")) {
+                // Android/Java does not support macrolanguages.
+                locale = new Locale("yue");
+            } else {
+                String[] parts = name.split("-");
+                switch (parts.length) {
+                case 1: // language
+                    locale = new Locale(parts[0]);
+                    break;
+                case 2: // language-country
+                    if (parts[1].equals("uk")) {
+                        // 'uk' is the language code for Ukranian, not Great Britain.
+                        parts[1] = "GB";
+                    }
+                    locale = new Locale(parts[0], parts[1]);
+                    break;
+                case 3: // language-country-variant
+                    if (parts[1].equals("uk")) {
+                        // 'uk' is the language code for Ukranian, not Great Britain.
+                        parts[1] = "GB";
+                    }
+                    locale = new Locale(parts[0], parts[1], parts[2]);
+                    break;
+                default:
+                    locale = null;
+                }
+            }
         }
 
         /**
