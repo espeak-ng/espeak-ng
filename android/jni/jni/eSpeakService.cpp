@@ -116,7 +116,7 @@ JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeClassInit(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeClassInit(
     JNIEnv* env, jclass clazz) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   METHOD_nativeSynthCallback = env->GetMethodID(clazz, "nativeSynthCallback", "([B)V");
@@ -126,7 +126,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeClassInit(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeCreate(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeCreate(
     JNIEnv *env, jobject object, jstring path) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   native_data_t *nat = new native_data_t;
@@ -150,7 +150,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeCreate(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeDestroy(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeDestroy(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   native_data_t *nat = getNativeData(env, object);
@@ -163,7 +163,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeDestroy(
 }
 
 JNIEXPORT jint
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetSampleRate(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetSampleRate(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
@@ -171,7 +171,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetSampleRate(
 }
 
 JNIEXPORT jint
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetChannelCount(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetChannelCount(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
@@ -179,7 +179,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetChannelCoun
 }
 
 JNIEXPORT jint
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetAudioFormat(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAudioFormat(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
@@ -187,7 +187,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetAudioFormat
 }
 
 JNIEXPORT jint
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetBufferSizeInMillis(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetBufferSizeInMillis(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   const native_data_t *nat = getNativeData(env, object);
@@ -195,7 +195,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetBufferSizeI
 }
 
 JNIEXPORT jobjectArray
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetAvailableVoices(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
 
@@ -235,7 +235,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeGetAvailableVo
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
     JNIEnv *env, jobject object, jstring name, jstring languages, jint gender, jint age,
     jint variant) {
   const char *c_name = name ? env->GetStringUTFChars(name, NULL) : NULL;
@@ -268,7 +268,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetVoiceByProp
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetRate(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetRate(
     JNIEnv *env, jobject object, jint rate) {
   const int wpm = ((float)rate / 100) * espeak_GetParameter(espeakRATE, 0);
   if (DEBUG) LOGV("%s(rate=%d, wpm=%d)", __FUNCTION__, rate, wpm);
@@ -286,7 +286,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetRate(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetPitch(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetPitch(
     JNIEnv *env, jobject object, jint pitch) {
   // The values of pitch from android range from 50 - 200, with 100 being normal.
   // The values espeak supports are from 0 - 100, with 50 being normal.
@@ -306,7 +306,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSetPitch(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSynthesize(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   native_data_t *nat = getNativeData(env, object);
@@ -335,7 +335,7 @@ JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeSynthesize(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_googlecode_eyesfree_espeak_SpeechSynthesis_nativeStop(
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeStop(
     JNIEnv *env, jobject object) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   espeak_Cancel();

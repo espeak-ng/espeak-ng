@@ -22,7 +22,7 @@
  * API Version:     14
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.annotation.SuppressLint;
 import android.content.BroadcastReceiver;
@@ -39,8 +39,8 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeechService;
 import android.util.Log;
 
-import com.googlecode.eyesfree.espeak.SpeechSynthesis.SynthReadyCallback;
-import com.googlecode.eyesfree.espeak.SpeechSynthesis.Voice;
+import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
+import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
 import java.util.List;
 import java.util.Locale;

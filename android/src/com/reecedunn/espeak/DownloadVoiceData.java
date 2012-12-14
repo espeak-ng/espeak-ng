@@ -1,5 +1,6 @@
 /*
  * Copyright (C) 2009 The Android Open Source Project
+ * Copyright (C) 2012 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.app.Activity;
 import android.content.Context;
@@ -33,7 +34,7 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 public class DownloadVoiceData extends Activity {
-    public static final String BROADCAST_LANGUAGES_UPDATED = "com.googlecode.eyesfree.espeak.LANGUAGES_UPDATED";
+    public static final String BROADCAST_LANGUAGES_UPDATED = "com.reecedunn.espeak.LANGUAGES_UPDATED";
 
     private AsyncExtract mAsyncExtract;
 

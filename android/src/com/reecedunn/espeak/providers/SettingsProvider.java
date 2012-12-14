@@ -14,9 +14,9 @@
  * limitations under the License.
  */
 
-package com.googlecode.eyesfree.espeak.providers;
+package com.reecedunn.espeak.providers;
 
-import com.googlecode.eyesfree.espeak.CheckVoiceData;
+import com.reecedunn.espeak.CheckVoiceData;
 
 import android.content.ContentProvider;
 import android.content.ContentValues;

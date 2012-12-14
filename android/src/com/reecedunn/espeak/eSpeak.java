@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -28,7 +28,7 @@ import android.os.Bundle;
  * implementing TTS must be a file placed here:
  * /data/data/<PACKAGE_NAME>/lib/libtts<ACTIVITY_NAME_LOWERCASED>.so
  * Example:
- * /data/data/com.googlecode.eyesfree.espeak/lib/libttsespeak.so
+ * /data/data/com.reecedunn.espeak/lib/libttsespeak.so
  */
 
 public class eSpeak extends Activity {

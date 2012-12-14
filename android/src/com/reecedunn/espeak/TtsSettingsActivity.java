@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.os.Bundle;
 import android.preference.ListPreference;

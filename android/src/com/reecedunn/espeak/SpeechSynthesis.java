@@ -21,7 +21,7 @@
  * API Version:     14
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.content.Context;
 import android.speech.tts.TextToSpeech;

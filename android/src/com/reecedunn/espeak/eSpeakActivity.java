@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.app.Activity;
 import android.app.AlertDialog;

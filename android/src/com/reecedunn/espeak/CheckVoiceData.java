@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.googlecode.eyesfree.espeak;
+package com.reecedunn.espeak;
 
 import android.app.Activity;
 import android.content.Context;
@@ -24,8 +24,8 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.Engine;
 import android.util.Log;
 
-import com.googlecode.eyesfree.espeak.SpeechSynthesis.SynthReadyCallback;
-import com.googlecode.eyesfree.espeak.SpeechSynthesis.Voice;
+import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
+import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
 import java.io.File;
 import java.util.ArrayList;
