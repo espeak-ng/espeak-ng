@@ -5,7 +5,7 @@
         Source: App icon label.
         Description: The name of the application.
     -->
-    <string name="app_name" translatable="false">eSpeak TTS</string>
+    <string name="app_name" translatable="false">eSpeak</string>
     <!--
         Source: Activity title.
         Description: Title for the Settings activity.
