@@ -21,7 +21,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.view.accessibility.AccessibilityEvent;
 
 import java.io.BufferedInputStream;
@@ -35,9 +34,6 @@ import java.util.zip.ZipInputStream;
 
 public class DownloadVoiceData extends Activity {
     public static final String BROADCAST_LANGUAGES_UPDATED = "com.googlecode.eyesfree.espeak.LANGUAGES_UPDATED";
-
-    private static final File LEGACY_DATA = new File(
-            Environment.getExternalStorageDirectory(), "espeak-data");
 
     private AsyncExtract mAsyncExtract;
 
@@ -75,7 +71,6 @@ public class DownloadVoiceData extends Activity {
             case RESULT_OK:
                 final Intent intent = new Intent(BROADCAST_LANGUAGES_UPDATED);
                 sendBroadcast(intent);
-                new AsyncCleanup().execute(LEGACY_DATA);
                 break;
             case RESULT_CANCELED:
                 // Do nothing?
@@ -99,17 +94,6 @@ public class DownloadVoiceData extends Activity {
             }
 
             child.delete();
-        }
-    }
-
-    private static class AsyncCleanup extends AsyncTask<File, Void, Void> {
-        @Override
-        protected Void doInBackground(File... params) {
-            for (File directory : params) {
-                clearContents(directory);
-            }
-
-            return null;
         }
     }
 
