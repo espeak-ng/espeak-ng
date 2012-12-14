@@ -17,7 +17,8 @@
         android:label="@string/app_name" >
         <service
             android:name=".TtsService"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.TTS_SERVICE" />
 
@@ -31,7 +32,8 @@
 
         <activity
             android:name=".DownloadVoiceData"
-            android:theme="@android:style/Theme.Dialog" >
+            android:theme="@android:style/Theme.Dialog"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.speech.tts.engine.INSTALL_TTS_DATA" />
 
@@ -40,7 +42,8 @@
         </activity>
         <activity
             android:name=".CheckVoiceData"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.speech.tts.engine.CHECK_TTS_DATA" />
 
@@ -49,7 +52,8 @@
         </activity>
         <activity
             android:name=".GetSampleText"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.speech.tts.engine.GET_SAMPLE_TEXT" />
 
@@ -58,7 +62,8 @@
         </activity>
         <activity
             android:name=".TtsSettingsActivity"
-            android:label="@string/tts_settings_label" >
+            android:label="@string/tts_settings_label"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.speech.tts.engine.CONFIGURE_ENGINE" />
 
@@ -79,7 +84,8 @@
         <activity
             android:name=".eSpeak"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false" >
             <intent-filter>
                 <action android:name="android.intent.action.START_TTS_ENGINE" />
 
@@ -128,7 +134,8 @@
 
         <provider
             android:name="com.reecedunn.espeak.providers.SettingsProvider"
-            android:authorities="com.reecedunn.espeak.providers.SettingsProvider" />
+            android:authorities="com.reecedunn.espeak.providers.SettingsProvider"
+            android:exported="false" />
     </application>
 
 </manifest>
