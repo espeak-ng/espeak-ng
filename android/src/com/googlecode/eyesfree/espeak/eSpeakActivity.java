@@ -151,17 +151,14 @@ public class eSpeakActivity extends Activity {
 
         mVoices = data.getStringArrayListExtra(TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);
 
-        if (mVoices == null) {
-        	Log.e(TAG, "Data check failed -- voices is null.");
-            setState(State.FAILURE);
-            showDialog(DIALOG_ERROR);
-            return;
-        }
-
         initializeEngine();
 
         final TextView availableVoices = (TextView) findViewById(R.id.availableVoices);
-        availableVoices.setText(Integer.toString(mVoices.size()));
+        if (mVoices == null) {
+            availableVoices.setText("0");
+        } else {
+            availableVoices.setText(Integer.toString(mVoices.size()));
+        }
     }
 
     /**
