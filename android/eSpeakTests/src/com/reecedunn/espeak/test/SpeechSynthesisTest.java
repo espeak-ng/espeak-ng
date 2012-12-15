@@ -17,11 +17,13 @@
 package com.reecedunn.espeak.test;
 
 import java.util.List;
+import java.util.Locale;
 
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
 import android.media.AudioFormat;
+import android.speech.tts.TextToSpeech;
 import android.test.AndroidTestCase;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -29,6 +31,34 @@ import static org.hamcrest.Matchers.*;
 
 public class SpeechSynthesisTest extends AndroidTestCase
 {
+    public static final Locale af = new Locale("af"); // Afrikaans
+
+    public static final Locale de = new Locale("de"); // German
+    public static final Locale de_DE = new Locale("de", "DE"); // German (Germany)
+    public static final Locale de_1996 = new Locale("de", "", "1996"); // German (1996 Orthography)
+    public static final Locale de_CH_1901 = new Locale("de", "CH", "1901"); // German (Traditional Orthography,Switzerland)
+
+    public static final Locale fr = new Locale("fr"); // French
+    public static final Locale fr_FR = new Locale("fr", "FR"); // French (France)
+    public static final Locale fr_BE = new Locale("fr", "BE"); // French (Belgium)
+    public static final Locale fr_1694acad = new Locale("fr", "", "1694acad"); // French (Early Modern French)
+    public static final Locale fr_FR_1694acad = new Locale("fr", "FR", "1694acad"); // French (Early Modern French,France)
+    public static final Locale fr_BE_1694acad = new Locale("fr", "BE", "1694acad"); // French (Early Modern French,Belgium)
+
+    public static final Locale hy = new Locale("hy"); // Armenian
+    public static final Locale hy_AM = new Locale("hy", "AM"); // Armenian (Armenia)
+    public static final Locale hy_arevela = new Locale("hy", "", "arevela"); // Armenian (Eastern)
+    public static final Locale hy_arevmda = new Locale("hy", "", "arevmda"); // Armenian (Western)
+    public static final Locale hy_AM_arevela = new Locale("hy", "AM", "arevela"); // Armenian (Eastern,Armenia)
+    public static final Locale hy_AM_arevmda = new Locale("hy", "AM", "arevmda"); // Armenian (Western,Armenia)
+
+    public static final Locale en = new Locale("en"); // English
+    public static final Locale en_GB = new Locale("en", "GB"); // English (Great Britain)
+    public static final Locale en_US = new Locale("en", "US"); // English (USA)
+    public static final Locale en_scotland = new Locale("en", "", "scotland"); // English (Scottish)
+    public static final Locale en_GB_scotland = new Locale("en", "GB", "scotland"); // English (Scottish,Great Britain)
+    public static final Locale en_GB_north = new Locale("en", "GB", "north"); // English (North,Great Britain)
+
     private SpeechSynthesis.SynthReadyCallback mCallback = new SpeechSynthesis.SynthReadyCallback()
     {
         @Override
@@ -48,7 +78,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
     {
         if (mVoices == null)
         {
-            SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
+            final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
             mVoices = synth.getAvailableVoices();
             assertThat(mVoices, is(notNullValue()));
             assertThat(mVoices.size(), is(78));
@@ -70,7 +100,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
 
     public void checkVoice(String name, String identifier, String language, String iso3Language, String country, String iso3Country, String variant, int gender)
     {
-        Voice voice = getVoice(name);
+        final Voice voice = getVoice(name);
         assertThat(voice, is(notNullValue()));
         assertThat(voice.name, is(name));
         assertThat(voice.identifier, is(identifier));
@@ -85,7 +115,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
 
     public void testConstruction()
     {
-        SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
+        final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
         assertThat(synth.getSampleRate(), is(22050));
         assertThat(synth.getChannelCount(), is(1));
         assertThat(synth.getAudioFormat(), is(AudioFormat.ENCODING_PCM_16BIT));
@@ -129,7 +159,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
         checkVoice("ht",          "test/ht",   "ht",   "hat",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Haitian Creole
         checkVoice("hu",          "hu",        "hu",   "hun",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Hungarian
         checkVoice("hy",          "hy",        "hy",   "hye",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Armenian
-        checkVoice("hy-west",     "hy-west",   "hy",   "hye",    "",    "",    "arevmda",    SpeechSynthesis.GENDER_MALE); // Armenian (West)
+        checkVoice("hy-west",     "hy-west",   "hy",   "hye",    "",    "",    "arevmda",    SpeechSynthesis.GENDER_MALE); // Armenian (Western)
         checkVoice("id",          "id",        "in",   "ind",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Indonesia
         checkVoice("is",          "is",        "is",   "isl",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Icelandic
         checkVoice("it",          "it",        "it",   "ita",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Italian
@@ -174,5 +204,75 @@ public class SpeechSynthesisTest extends AndroidTestCase
         checkVoice("wo",          "test/wo",   "wo",   "wol",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Wolof
         checkVoice("zh",          "zh",        "zh",   "zho",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Chinese (Mandarin)
         checkVoice("zh-yue",      "zh-yue",    "yue",  "",       "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Chinese (Cantonese)
+    }
+
+    public void testMatchVoiceWithLanguage()
+    {
+        final Voice voice = getVoice("de"); // language="de" country="" variant=""
+        assertThat(voice, is(notNullValue()));
+
+        assertThat(voice.match(fr), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_BE), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_FR_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
+
+        assertThat(voice.match(de), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(de_1996), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(de_DE), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(de_CH_1901), is(TextToSpeech.LANG_AVAILABLE));
+    }
+
+    public void testMatchVoiceWithLanguageAndCountry()
+    {
+        final Voice voice = getVoice("fr-fr"); // language="fr" country="fr" variant=""
+        assertThat(voice, is(notNullValue()));
+
+        assertThat(voice.match(de), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_1996), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_DE), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_CH_1901), is(TextToSpeech.LANG_NOT_SUPPORTED));
+
+        assertThat(voice.match(fr), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_FR), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(fr_BE), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_1694acad), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(fr_FR_1694acad), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(fr_BE_1694acad), is(TextToSpeech.LANG_AVAILABLE));
+    }
+
+    public void testMatchVoiceWithLanguageAndVariant()
+    {
+        final Voice voice = getVoice("hy-west"); // language="hy" country="" variant="arevmda"
+        assertThat(voice, is(notNullValue()));
+
+        assertThat(voice.match(fr), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_BE), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(fr_FR_1694acad), is(TextToSpeech.LANG_NOT_SUPPORTED));
+
+        assertThat(voice.match(hy), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(hy_AM), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(hy_arevela), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(hy_arevmda), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(hy_AM_arevela), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(hy_AM_arevmda), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
+    }
+
+    public void testMatchVoiceWithLanguageCountryAndVariant()
+    {
+        final Voice voice = getVoice("en-sc"); // language="en" country="GB" variant="scotland"
+        assertThat(voice, is(notNullValue()));
+
+        assertThat(voice.match(de), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_1996), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_DE), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(voice.match(de_CH_1901), is(TextToSpeech.LANG_NOT_SUPPORTED));
+
+        assertThat(voice.match(en), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(en_GB), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+        assertThat(voice.match(en_US), is(TextToSpeech.LANG_AVAILABLE));
+        assertThat(voice.match(en_scotland), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
+        assertThat(voice.match(en_GB_scotland), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
+        assertThat(voice.match(en_GB_north), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
     }
 }
