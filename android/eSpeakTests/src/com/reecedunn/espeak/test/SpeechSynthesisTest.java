@@ -111,6 +111,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
         assertThat(voice.locale.getCountry(), is(country));
         assertThat(voice.locale.getISO3Country(), is(iso3Country));
         assertThat(voice.locale.getVariant(), is(variant));
+        assertThat(voice.toString(), is(name));
     }
 
     public void testConstruction()
