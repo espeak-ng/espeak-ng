@@ -129,6 +129,7 @@ char currentLang[10];
 char currentCountry[10];
 char currentVariant[10];
 
+int sampleRate = 0;
 bool hasInitialized = false;
 
 /* Functions internal to the eSpeak engine wrapper */
@@ -200,7 +201,7 @@ tts_result attemptInit() {
 
   // TODO Make sure that the speech data is loaded in
   // the directory /sdcard/espeak-data before calling this.
-  int sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 4096, eSpeakDataPath, 0);
+  sampleRate = espeak_Initialize(AUDIO_OUTPUT_SYNCHRONOUS, 4096, eSpeakDataPath, 0);
 
   if (sampleRate <= 0) {
     LOGE("eSpeak initialization failed!");
@@ -448,7 +449,9 @@ tts_result TtsEngine::getLanguage(char *language, char *country, char *variant) 
 tts_result TtsEngine::setAudioFormat(tts_audio_format& encoding, uint32_t& rate, int& channels) {
   LOGE("setAudioFormat(%d, %d, %d) is unsupported", encoding, rate, channels);
 
-  // TODO: Fix this!
+  encoding = TTS_AUDIO_FORMAT_PCM_16_BIT;
+  rate = sampleRate;
+  channels = 1;
   return TTS_SUCCESS;
 }
 
