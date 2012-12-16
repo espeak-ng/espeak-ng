@@ -40,7 +40,7 @@ public class SpeechSynthesis {
     public static final int GENDER_FEMALE = 2;
 
     static {
-        System.loadLibrary("ttsespeak");
+        System.loadLibrary("espeak");
 
         nativeClassInit();
     }
