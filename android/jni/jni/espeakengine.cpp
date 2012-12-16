@@ -121,7 +121,6 @@ const int NUM_SUPPORTED_VOICES = 55;
 // Callback to the TTS API
 synthDoneCB_t *ttsSynthDoneCBPointer;
 
-char *currentRate = (char *) "150";
 char *eSpeakDataPath = NULL;
 
 char currentLanguage[33];
