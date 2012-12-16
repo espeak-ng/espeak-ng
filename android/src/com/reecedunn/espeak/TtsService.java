@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011 Google Inc.
  * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2011 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -48,6 +48,7 @@ import java.util.Locale;
 /**
  * Implements the eSpeak engine as a {@link TextToSpeechService}.
  *
+ * @author msclrhd@gmail.com (Reece H. Dunn)
  * @author alanv@google.com (Alan Viverette)
  */
 @SuppressLint("NewApi")
@@ -152,20 +153,32 @@ public class TtsService extends TextToSpeechService {
     @Override
     protected int onLoadLanguage(String language, String country, String variant) {
         final int result = onIsLanguageAvailable(language, country, variant);
-
-        // Return immediately if the language is not available.
-        if (result == TextToSpeech.LANG_NOT_SUPPORTED) {
+        switch (result) {
+        case TextToSpeech.LANG_AVAILABLE:
+            synchronized (this) {
+                mLanguage = language;
+                mCountry = "";
+                mVariant = "";
+            }
+            break;
+        case TextToSpeech.LANG_COUNTRY_AVAILABLE:
+            synchronized (this) {
+                mLanguage = language;
+                mCountry = ((country == null) ? "" : country);
+                mVariant = "";
+            }
+            break;
+        case TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE:
+            synchronized (this) {
+                mLanguage = language;
+                mCountry = ((country == null) ? "" : country);
+                mVariant = ((variant == null) ? "" : variant);
+            }
+            break;
+        default:
             Log.e(TAG, "Failed to load language {language='" + language + "', country='" + country
-                    + "', variant='" + variant + "'");
-            return result;
+                     + "', variant='" + variant + "'}, result=" + result);
         }
-
-        synchronized (this) {
-            mLanguage = language;
-            mCountry = ((country == null) ? "" : country);
-            mVariant = ((variant == null) ? "" : variant);
-        }
-
         return result;
     }
 
