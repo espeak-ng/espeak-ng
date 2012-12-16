@@ -74,10 +74,20 @@ public class TextToSpeechTest extends AndroidTestCase
         }
     }
 
+    public void testUnsupportedLanguage()
+    {
+        assertThat(mEngine, is(notNullValue()));
+
+        Locale initialLocale = mEngine.getLanguage();
+        assertThat(mEngine.isLanguageAvailable(new Locale("cel")), is(TextToSpeech.LANG_NOT_SUPPORTED));
+        assertThat(mEngine.getLanguage().getLanguage(), is(initialLocale.getLanguage()));
+        assertThat(mEngine.getLanguage().getCountry(), is(initialLocale.getCountry()));
+        assertThat(mEngine.getLanguage().getVariant(), is(initialLocale.getVariant()));
+    }
+
     public void testLanguages()
     {
         assertThat(mEngine, is(notNullValue()));
-        assertThat(mEngine.isLanguageAvailable(new Locale("cel")), is(TextToSpeech.LANG_NOT_SUPPORTED));
 
         for (VoiceData.Voice data : VoiceData.voices)
         {
