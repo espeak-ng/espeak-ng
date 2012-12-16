@@ -121,10 +121,10 @@ const int NUM_SUPPORTED_VOICES = 55;
 // Callback to the TTS API
 synthDoneCB_t *ttsSynthDoneCBPointer;
 
-char *currentLanguage = (char *) "en-us";
 char *currentRate = (char *) "150";
 char *eSpeakDataPath = NULL;
 
+char currentLanguage[33];
 char currentLang[10];
 char currentCountry[10];
 char currentVariant[10];
@@ -217,6 +217,7 @@ tts_result attemptInit() {
   voice.variant = 0;
   espeak_SetVoiceByProperties(&voice);
 
+  strcpy(currentLanguage, "en-us");
   hasInitialized = true;
 
   return TTS_SUCCESS;
@@ -401,6 +402,7 @@ tts_result TtsEngine::setLanguage(const char *lang, const char *country, const c
     return TTS_FAILURE;
   }
 
+  strcpy(currentLanguage, lang);
   strcpy(currentLang, lang);
   strcpy(currentCountry, country);
   strcpy(currentVariant, variant);
@@ -413,8 +415,6 @@ tts_result TtsEngine::setLanguage(const char *lang, const char *country, const c
   voice.variant = 0;
   voice.languages = espeakLangStr;
   espeak_ERROR err = espeak_SetVoiceByProperties(&voice);
-  currentLanguage = new char[strlen(lang)];
-  strcpy(currentLanguage, lang);
 
   if (err != EE_OK) {
     LOGE("Error code %d when setting voice properties!", err);
