@@ -125,22 +125,6 @@ public class SpeechSynthesisTest extends AndroidTestCase
         return null;
     }
 
-    public void checkVoice(String name, String identifier, String language, String iso3Language, String country, String iso3Country, String variant, int gender)
-    {
-        final Voice voice = getVoice(name);
-        assertThat(voice, is(notNullValue()));
-        assertThat(voice.name, is(name));
-        assertThat(voice.identifier, is(identifier));
-        assertThat(voice.age, is(0));
-        assertThat(voice.gender, is(gender));
-        assertThat(voice.locale.getLanguage(), is(language));
-        assertThat(voice.locale.getISO3Language(), is(iso3Language));
-        assertThat(voice.locale.getCountry(), is(country));
-        assertThat(voice.locale.getISO3Country(), is(iso3Country));
-        assertThat(voice.locale.getVariant(), is(variant));
-        assertThat(voice.toString(), is(name));
-    }
-
     public void testConstruction()
     {
         final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
@@ -152,86 +136,29 @@ public class SpeechSynthesisTest extends AndroidTestCase
 
     public void testAvailableVoices()
     {
-        //        :              :            : language        : country     :            :
-        //        : name         : identifier : 639-1 : 639-2/T : 2    : 3    : variant    : gender
-        checkVoice("af",          "af",        "af",   "afr",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Afrikaans
-        checkVoice("ak",          "test/ak",   "ak",   "aka",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Akan
-        checkVoice("am",          "test/am",   "am",   "amh",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Amharic
-        checkVoice("az",          "test/az",   "az",   "aze",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Azerbaijani
-        checkVoice("bg",          "test/bg",   "bg",   "bul",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Bulgarian
-        checkVoice("bs",          "bs",        "bs",   "bos",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Bosnian
-        checkVoice("ca",          "ca",        "ca",   "cat",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Catalan
-        checkVoice("cs",          "cs",        "cs",   "ces",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Czech
-        checkVoice("cy",          "cy",        "cy",   "cym",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Welsh
-        checkVoice("da",          "da",        "da",   "dan",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Danish
-        checkVoice("de",          "de",        "de",   "deu",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // German
-        checkVoice("dv",          "test/dv",   "dv",   "div",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Divehi
-        checkVoice("el",          "el",        "el",   "ell",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Greek (Modern)
-        checkVoice("en",          "default",   "en",   "eng",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // German
-        checkVoice("en-sc",       "en/en-sc",  "en",   "eng",    "GB",  "GBR", "scotland",   SpeechSynthesis.GENDER_MALE); // English (Scotland)
-        checkVoice("en-uk",       "en/en",     "en",   "eng",    "GB",  "GBR", "",           SpeechSynthesis.GENDER_MALE); // English (UK)
-        checkVoice("en-uk-north", "en/en-n",   "en",   "eng",    "GB",  "GBR", "north",      SpeechSynthesis.GENDER_MALE); // English (Lancashire)
-        checkVoice("en-uk-rp",    "en/en-rp",  "en",   "eng",    "GB",  "GBR", "rp",         SpeechSynthesis.GENDER_MALE); // English (Received Pronunciation)
-        checkVoice("en-uk-wmids", "en/en-wm",  "en",   "eng",    "GB",  "GBR", "wmids",      SpeechSynthesis.GENDER_MALE); // English (West Midlands)
-        checkVoice("en-us",       "en/en-us",  "en",   "eng",    "US",  "USA", "",           SpeechSynthesis.GENDER_MALE); // English (US)
-        checkVoice("en-wi",       "en/en-wi",  "en",   "eng",    "029", "",    "",           SpeechSynthesis.GENDER_MALE); // English (Caribbean)
-        checkVoice("eo",          "eo",        "eo",   "epo",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Esperanto
-        checkVoice("es-la",       "es-la",     "es",   "spa",    "419", "",    "",           SpeechSynthesis.GENDER_MALE); // Spanish (Latin America & Caribbean)
-        checkVoice("et",          "et",        "et",   "est",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Estonian
-        checkVoice("fi",          "fi",        "fi",   "fin",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Finnish
-        checkVoice("fr-fr",       "fr",        "fr",   "fra",    "FR",  "FRA", "",           SpeechSynthesis.GENDER_MALE); // French (France)
-        checkVoice("ga",          "test/ga",   "ga",   "gle",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Irish
-        checkVoice("grc",         "test/grc",  "grc",  "grc",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Greek (Ancient)
-        checkVoice("hi",          "hi",        "hi",   "hin",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Hindi
-        checkVoice("hr",          "hr",        "hr",   "hrv",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Croatian
-        checkVoice("ht",          "test/ht",   "ht",   "hat",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Haitian Creole
-        checkVoice("hu",          "hu",        "hu",   "hun",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Hungarian
-        checkVoice("hy",          "hy",        "hy",   "hye",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Armenian
-        checkVoice("hy-west",     "hy-west",   "hy",   "hye",    "",    "",    "arevmda",    SpeechSynthesis.GENDER_MALE); // Armenian (Western)
-        checkVoice("id",          "id",        "in",   "ind",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Indonesia
-        checkVoice("is",          "is",        "is",   "isl",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Icelandic
-        checkVoice("it",          "it",        "it",   "ita",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Italian
-        checkVoice("jbo",         "test/jbo",  "jbo",  "jbo",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Lojban
-        checkVoice("ka",          "ka",        "ka",   "kat",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Georgian
-        checkVoice("kk",          "test/kk",   "kk",   "kaz",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Kazakh
-        checkVoice("kl",          "test/kl",   "kl",   "kal",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Greenlandic
-        checkVoice("kn",          "kn",        "kn",   "kan",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Kannada
-        checkVoice("ko",          "test/ko",   "ko",   "kor",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Korean
-        checkVoice("ku",          "ku",        "ku",   "kur",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Kurdish
-        checkVoice("la",          "la",        "la",   "lat",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Latin
-        checkVoice("lt",          "test/lt",   "lt",   "lit",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Lithuanian
-        checkVoice("lv",          "lv",        "lv",   "lav",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Latvian
-        checkVoice("ml",          "ml",        "ml",   "mal",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Malayalam
-        checkVoice("mt",          "test/mt",   "mt",   "mlt",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Maltese
-        checkVoice("nci",         "test/nci",  "nci",  "",       "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Classical Nahuatl
-        checkVoice("ne",          "test/ne",   "ne",   "nep",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Nepali
-        checkVoice("nl",          "nl",        "nl",   "nld",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Dutch
-        checkVoice("no",          "no",        "no",   "nor",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Norwegian
-        checkVoice("nso",         "test/nso",  "nso",  "nso",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Sotho (Northern)
-        checkVoice("pa",          "test/pa",   "pa",   "pan",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Panjabi
-        checkVoice("pap",         "test/pap",  "pap",  "pap",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Papiamento
-        checkVoice("prs",         "test/prs",  "prs",  "",       "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Dari (Afghan Persian)
-        checkVoice("pt-br",       "pt",        "pt",   "por",    "BR",  "BRA", "",           SpeechSynthesis.GENDER_MALE); // Portuguese (Brazil)
-        checkVoice("pt-pt",       "pt-pt",     "pt",   "por",    "PT",  "PRT", "",           SpeechSynthesis.GENDER_MALE); // Portuguese (Portugal)
-        checkVoice("ro",          "ro",        "ro",   "ron",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Romanian
-        checkVoice("ru",          "ru",        "ru",   "rus",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Russian
-        checkVoice("rw",          "test/rw",   "rw",   "kin",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Kinyarwanda
-        checkVoice("si",          "test/si",   "si",   "sin",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Sinhalese
-        checkVoice("sk",          "sk",        "sk",   "slk",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Slovak
-        checkVoice("sl",          "test/sl",   "sl",   "slv",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Slovenian
-        checkVoice("sq",          "sq",        "sq",   "sqi",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Albanian
-        checkVoice("sr",          "sr",        "sr",   "srp",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Serbian
-        checkVoice("sv",          "sv",        "sv",   "swe",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Swedish
-        checkVoice("ta",          "ta",        "ta",   "tam",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Tamil
-        checkVoice("te",          "test/te",   "te",   "tel",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Telugu
-        checkVoice("tn",          "test/tn",   "tn",   "tsn",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Setswana
-        checkVoice("tr",          "tr",        "tr",   "tur",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Turkish
-        checkVoice("tt",          "test/tt",   "tt",   "tat",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Tatar
-        checkVoice("ur",          "test/ur",   "ur",   "urd",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Urdu
-        checkVoice("vi",          "vi",        "vi",   "vie",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Vietnamese
-        checkVoice("wo",          "test/wo",   "wo",   "wol",    "",    "",    "",           SpeechSynthesis.GENDER_UNSPECIFIED); // Wolof
-        checkVoice("zh",          "zh",        "zh",   "zho",    "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Chinese (Mandarin)
-        checkVoice("zh-yue",      "zh-yue",    "yue",  "",       "",    "",    "",           SpeechSynthesis.GENDER_MALE); // Chinese (Cantonese)
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            try
+            {
+                final Voice voice = getVoice(data.name);
+                assertThat(voice, is(notNullValue()));
+    
+                assertThat(voice.name, is(data.name));
+                assertThat(voice.identifier, is(data.identifier));
+                assertThat(voice.age, is(0));
+                assertThat(voice.gender, is(data.gender));
+                assertThat(voice.locale.getLanguage(), is(data.ianaLanguage));
+                assertThat(voice.locale.getISO3Language(), is(data.javaLanguage));
+                assertThat(voice.locale.getCountry(), is(data.ianaCountry));
+                assertThat(voice.locale.getISO3Country(), is(data.javaCountry));
+                assertThat(voice.locale.getVariant(), is(data.variant));
+                assertThat(voice.toString(), is(data.name));
+            }
+            catch (Exception e)
+            {
+                throw new VoiceData.Exception(data, e);
+            }
+        }
     }
 
     public void testMatchVoiceWithLanguage()
