@@ -203,7 +203,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
                 assertThat(voice.locale.getCountry(), is(data.ianaCountry));
                 assertThat(voice.locale.getISO3Country(), is(data.javaCountry));
                 assertThat(voice.locale.getVariant(), is(data.variant));
-                assertThat(voice.toString(), is(data.name));
+                assertThat(voice.toString(), is(data.locale));
             }
             catch (AssertionError e)
             {

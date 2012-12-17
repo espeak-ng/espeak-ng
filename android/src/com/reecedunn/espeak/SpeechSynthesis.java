@@ -274,7 +274,7 @@ public class SpeechSynthesis {
 
         @Override
         public String toString() {
-            return name;
+            return locale.toString().replace('_', '-');
         }
     }
 }

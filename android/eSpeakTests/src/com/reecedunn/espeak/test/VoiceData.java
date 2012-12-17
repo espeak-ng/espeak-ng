@@ -31,6 +31,30 @@ public class VoiceData
         public final String variant;
         public final int    gender;
         public final String displayName;
+        public final String locale;
+
+        public Voice(String name,
+                     String identifier,
+                     String ianaLanguage,
+                     String javaLanguage,
+                     String ianaCountry,
+                     String javaCountry,
+                     String variant,
+                     int    gender,
+                     String displayName,
+                     String locale)
+        {
+            this.name = name;
+            this.identifier = identifier;
+            this.ianaLanguage = ianaLanguage;
+            this.javaLanguage = javaLanguage;
+            this.ianaCountry = ianaCountry;
+            this.javaCountry = javaCountry;
+            this.variant = variant;
+            this.gender = gender;
+            this.displayName = displayName;
+            this.locale = locale;
+        }
 
         public Voice(String name,
                      String identifier,
@@ -51,6 +75,7 @@ public class VoiceData
             this.variant = variant;
             this.gender = gender;
             this.displayName = displayName;
+            this.locale = ianaLanguage;
         }
     }
 
@@ -79,20 +104,20 @@ public class VoiceData
         new Voice("dv",          "test/dv",  "dv",  "div", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Divehi"),
         new Voice("el",          "el",       "el",  "ell", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Greek (Modern)"),
         new Voice("en",          "default",  "en",  "eng", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "German"),
-        new Voice("en-sc",       "en/en-sc", "en",  "eng", "GB",  "GBR", "scotland", SpeechSynthesis.GENDER_MALE,        "English (Scotland)"),
-        new Voice("en-uk",       "en/en",    "en",  "eng", "GB",  "GBR", "",         SpeechSynthesis.GENDER_MALE,        "English (UK)"),
-        new Voice("en-uk-north", "en/en-n",  "en",  "eng", "GB",  "GBR", "north",    SpeechSynthesis.GENDER_MALE,        "English (Lancashire)"),
-        new Voice("en-uk-rp",    "en/en-rp", "en",  "eng", "GB",  "GBR", "rp",       SpeechSynthesis.GENDER_MALE,        "English (Received Pronunciation)"),
-        new Voice("en-uk-wmids", "en/en-wm", "en",  "eng", "GB",  "GBR", "wmids",    SpeechSynthesis.GENDER_MALE,        "English (West Midlands)"),
-        new Voice("en-us",       "en/en-us", "en",  "eng", "US",  "USA", "",         SpeechSynthesis.GENDER_MALE,        "English (US)"),
-        new Voice("en-wi",       "en/en-wi", "en",  "eng", "029", "",    "",         SpeechSynthesis.GENDER_MALE,        "English (Caribbean)"),
+        new Voice("en-sc",       "en/en-sc", "en",  "eng", "GB",  "GBR", "scotland", SpeechSynthesis.GENDER_MALE,        "English (Scotland)",               "en-GB-scotland"),
+        new Voice("en-uk",       "en/en",    "en",  "eng", "GB",  "GBR", "",         SpeechSynthesis.GENDER_MALE,        "English (UK)",                     "en-GB"),
+        new Voice("en-uk-north", "en/en-n",  "en",  "eng", "GB",  "GBR", "north",    SpeechSynthesis.GENDER_MALE,        "English (Lancashire)",             "en-GB-north"),
+        new Voice("en-uk-rp",    "en/en-rp", "en",  "eng", "GB",  "GBR", "rp",       SpeechSynthesis.GENDER_MALE,        "English (Received Pronunciation)", "en-GB-rp"),
+        new Voice("en-uk-wmids", "en/en-wm", "en",  "eng", "GB",  "GBR", "wmids",    SpeechSynthesis.GENDER_MALE,        "English (West Midlands)",          "en-GB-wmids"),
+        new Voice("en-us",       "en/en-us", "en",  "eng", "US",  "USA", "",         SpeechSynthesis.GENDER_MALE,        "English (US)",                     "en-US"),
+        new Voice("en-wi",       "en/en-wi", "en",  "eng", "029", "",    "",         SpeechSynthesis.GENDER_MALE,        "English (Caribbean)",              "en-029"),
         new Voice("eo",          "eo",       "eo",  "epo", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Esperanto"),
         new Voice("es",          "es",       "es",  "spa", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Spanish"),
-        new Voice("es-la",       "es-la",    "es",  "spa", "419", "",    "",         SpeechSynthesis.GENDER_MALE,        "Spanish (Latin America & Caribbean)"),
+        new Voice("es-la",       "es-la",    "es",  "spa", "419", "",    "",         SpeechSynthesis.GENDER_MALE,        "Spanish (Latin America)", "es-419"),
         new Voice("et",          "et",       "et",  "est", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Estonian"),
         new Voice("fi",          "fi",       "fi",  "fin", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Finnish"),
-        new Voice("fr-be",       "fr-be",    "fr",  "fra", "BE",  "BEL", "",         SpeechSynthesis.GENDER_MALE,        "French (Belgium)"),
-        new Voice("fr-fr",       "fr",       "fr",  "fra", "FR",  "FRA", "",         SpeechSynthesis.GENDER_MALE,        "French (France)"),
+        new Voice("fr-be",       "fr-be",    "fr",  "fra", "BE",  "BEL", "",         SpeechSynthesis.GENDER_MALE,        "French (Belgium)", "fr-BE"),
+        new Voice("fr-fr",       "fr",       "fr",  "fra", "FR",  "FRA", "",         SpeechSynthesis.GENDER_MALE,        "French (France)",  "fr-FR"),
         new Voice("ga",          "test/ga",  "ga",  "gle", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Irish"),
         new Voice("grc",         "test/grc", "grc", "grc", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Greek (Ancient)"),
         new Voice("hi",          "hi",       "hi",  "hin", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Hindi"),
@@ -100,7 +125,7 @@ public class VoiceData
         new Voice("ht",          "test/ht",  "ht",  "hat", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Haitian Creole"),
         new Voice("hu",          "hu",       "hu",  "hun", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Hungarian"),
         new Voice("hy",          "hy",       "hy",  "hye", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Armenian"),
-        new Voice("hy-west",     "hy-west",  "hy",  "hye", "",    "",    "arevmda",  SpeechSynthesis.GENDER_MALE,        "Armenian (Western)"),
+        new Voice("hy-west",     "hy-west",  "hy",  "hye", "",    "",    "arevmda",  SpeechSynthesis.GENDER_MALE,        "Armenian (Western)", "hy--arevmda"),
         new Voice("id",          "id",       "in",  "ind", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Indonesia"),
         new Voice("is",          "is",       "is",  "isl", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Icelandic"),
         new Voice("it",          "it",       "it",  "ita", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Italian"),
@@ -126,8 +151,8 @@ public class VoiceData
         new Voice("pap",         "test/pap", "pap", "pap", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Papiamento"),
         new Voice("pl",          "pl",       "pl",  "pol", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Polish"),
         new Voice("prs",         "test/prs", "prs", "",    "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Dari (Afghan Persian)"),
-        new Voice("pt-br",       "pt",       "pt",  "por", "BR",  "BRA", "",         SpeechSynthesis.GENDER_MALE,        "Portuguese (Brazil)"),
-        new Voice("pt-pt",       "pt-pt",    "pt",  "por", "PT",  "PRT", "",         SpeechSynthesis.GENDER_MALE,        "Portuguese (Portugal)"),
+        new Voice("pt-br",       "pt",       "pt",  "por", "BR",  "BRA", "",         SpeechSynthesis.GENDER_MALE,        "Portuguese (Brazil)",   "pt-BR"),
+        new Voice("pt-pt",       "pt-pt",    "pt",  "por", "PT",  "PRT", "",         SpeechSynthesis.GENDER_MALE,        "Portuguese (Portugal)", "pt-PT"),
         new Voice("ro",          "ro",       "ro",  "ron", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Romanian"),
         new Voice("ru",          "ru",       "ru",  "rus", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Russian"),
         new Voice("rw",          "test/rw",  "rw",  "kin", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Kinyarwanda"),
