@@ -14,6 +14,12 @@
  * limitations under the License.
  */
 
+/*
+ * This Activity is used by Android to get the list of languages to display
+ * to the user when selecting the text-to-speech language. This is by locale,
+ * not voice name.
+ */
+
 package com.reecedunn.espeak;
 
 import android.app.Activity;
