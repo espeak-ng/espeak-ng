@@ -154,7 +154,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
                 assertThat(voice.locale.getVariant(), is(data.variant));
                 assertThat(voice.toString(), is(data.name));
             }
-            catch (Exception e)
+            catch (AssertionError e)
             {
                 throw new VoiceData.Exception(data, e);
             }

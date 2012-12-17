@@ -58,7 +58,7 @@ public class VoiceData
     {
         private static final long serialVersionUID = 1L;
 
-        public Exception(Voice voice, java.lang.Exception context)
+        public Exception(Voice voice, AssertionError context)
         {
             super("Voice \"" + voice.name + "\" -- " + context);
         }

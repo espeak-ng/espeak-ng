@@ -137,7 +137,7 @@ public class TextToSpeechTest extends AndroidTestCase
                 assertThat(mEngine.getLanguage().getCountry(), is(""));
                 assertThat(mEngine.getLanguage().getVariant(), is(""));
             }
-            catch (Exception e)
+            catch (AssertionError e)
             {
                 throw new VoiceData.Exception(data, e);
             }
