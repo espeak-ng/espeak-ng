@@ -28,6 +28,7 @@ import com.reecedunn.espeak.SpeechSynthesis.Voice;
 import android.media.AudioFormat;
 import android.speech.tts.TextToSpeech;
 import android.test.AndroidTestCase;
+import android.util.Log;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
@@ -182,6 +183,12 @@ public class SpeechSynthesisTest extends AndroidTestCase
     {
         for (VoiceData.Voice data : VoiceData.voices)
         {
+            if (mRemoved.contains(data.name))
+            {
+                Log.i("SpeechSynthesisTest", "Skipping the missing voice '" + data.name + "'");
+                continue;
+            }
+
             try
             {
                 final Voice voice = getVoice(data.name);
