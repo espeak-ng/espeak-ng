@@ -103,6 +103,8 @@ public class SpeechSynthesisTest extends AndroidTestCase
     };
 
     private List<Voice> mVoices = null;
+    private Set<String> mAdded = new HashSet<String>();
+    private Set<String> mRemoved = new HashSet<String>();
 
     public List<Voice> getVoices()
     {
@@ -111,6 +113,34 @@ public class SpeechSynthesisTest extends AndroidTestCase
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
             mVoices = synth.getAvailableVoices();
             assertThat(mVoices, is(notNullValue()));
+
+            Set<String> voices = new HashSet<String>();
+            for (Voice data : mVoices)
+            {
+                voices.add(data.name);
+            }
+
+            Set<String> expected = new HashSet<String>();
+            for (VoiceData.Voice data : VoiceData.voices)
+            {
+                expected.add(data.name);
+            }
+
+            for (String voice : voices)
+            {
+                if (!expected.contains(voice))
+                {
+                    mAdded.add(voice);
+                }
+            }
+
+            for (String voice : expected)
+            {
+                if (!voices.contains(voice))
+                {
+                    mRemoved.add(voice);
+                }
+            }
         }
         return mVoices;
     }
@@ -138,52 +168,14 @@ public class SpeechSynthesisTest extends AndroidTestCase
 
     public void testAddedVoices()
     {
-        Set<String> voices = new HashSet<String>();
-        for (Voice data : getVoices())
-        {
-            voices.add(data.name);
-        }
-
-        Set<String> expected = new HashSet<String>();
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
-            expected.add(data.name);
-        }
-
-        Set<String> added = new HashSet<String>();
-        for (String voice : voices)
-        {
-            if (!expected.contains(voice))
-            {
-                added.add(voice);
-            }
-        }
-        assertThat(added.toString(), is("[]"));
+        getVoices(); // Ensure that the voice data has been populated.
+        assertThat(mAdded.toString(), is("[]"));
     }
 
     public void testRemovedVoices()
     {
-        Set<String> voices = new HashSet<String>();
-        for (Voice data : getVoices())
-        {
-            voices.add(data.name);
-        }
-
-        Set<String> expected = new HashSet<String>();
-        for (VoiceData.Voice data : VoiceData.voices)
-        {
-            expected.add(data.name);
-        }
-
-        Set<String> removed = new HashSet<String>();
-        for (String voice : expected)
-        {
-            if (!voices.contains(voice))
-            {
-                removed.add(voice);
-            }
-        }
-        assertThat(removed.toString(), is("[]"));
+        getVoices(); // Ensure that the voice data has been populated.
+        assertThat(mRemoved.toString(), is("[]"));
     }
 
     public void testVoiceData()
