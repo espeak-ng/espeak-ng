@@ -16,8 +16,11 @@
 
 package com.reecedunn.espeak.test;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.SpeechSynthesis.Voice;
@@ -108,7 +111,6 @@ public class SpeechSynthesisTest extends AndroidTestCase
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
             mVoices = synth.getAvailableVoices();
             assertThat(mVoices, is(notNullValue()));
-            assertThat(mVoices.size(), is(VoiceData.voices.length));
         }
         return mVoices;
     }
@@ -134,7 +136,57 @@ public class SpeechSynthesisTest extends AndroidTestCase
         assertThat(synth.getBufferSizeInBytes(), is(22050));
     }
 
-    public void testAvailableVoices()
+    public void testAddedVoices()
+    {
+        Set<String> voices = new HashSet<String>();
+        for (Voice data : getVoices())
+        {
+            voices.add(data.name);
+        }
+
+        Set<String> expected = new HashSet<String>();
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            expected.add(data.name);
+        }
+
+        Set<String> added = new HashSet<String>();
+        for (String voice : voices)
+        {
+            if (!expected.contains(voice))
+            {
+                added.add(voice);
+            }
+        }
+        assertThat(added.toString(), is("[]"));
+    }
+
+    public void testRemovedVoices()
+    {
+        Set<String> voices = new HashSet<String>();
+        for (Voice data : getVoices())
+        {
+            voices.add(data.name);
+        }
+
+        Set<String> expected = new HashSet<String>();
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            expected.add(data.name);
+        }
+
+        Set<String> removed = new HashSet<String>();
+        for (String voice : expected)
+        {
+            if (!voices.contains(voice))
+            {
+                removed.add(voice);
+            }
+        }
+        assertThat(removed.toString(), is("[]"));
+    }
+
+    public void testVoiceData()
     {
         for (VoiceData.Voice data : VoiceData.voices)
         {
