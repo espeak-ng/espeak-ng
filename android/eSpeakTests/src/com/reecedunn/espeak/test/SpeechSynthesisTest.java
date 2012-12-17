@@ -108,7 +108,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
             final SpeechSynthesis synth = new SpeechSynthesis(getContext(), mCallback);
             mVoices = synth.getAvailableVoices();
             assertThat(mVoices, is(notNullValue()));
-            assertThat(mVoices.size(), is(78));
+            assertThat(mVoices.size(), is(VoiceData.voices.length));
         }
         return mVoices;
     }
