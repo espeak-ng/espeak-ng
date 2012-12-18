@@ -321,6 +321,12 @@ public class SpeechSynthesisTest extends AndroidTestCase
             {
                 final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
                 assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), is(data.sampleText));
+
+                if (!data.javaLanguage.equals(""))
+                {
+                    final Locale javaLocale = new Locale(data.javaLanguage, data.javaCountry, data.variant);
+                    assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), is(data.sampleText));
+                }
             }
             catch (AssertionError e)
             {

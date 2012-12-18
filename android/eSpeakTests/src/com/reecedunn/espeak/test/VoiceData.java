@@ -138,10 +138,10 @@ public class VoiceData
         new Voice("en-uk-rp",    "en/en-rp", "en",  "eng", "GB",  "GBR", "rp",       SpeechSynthesis.GENDER_MALE,        "English (Received Pronunciation)", "en-GB-rp",       "This is a sample of text spoken in English (United Kingdom,RP)"),
         new Voice("en-uk-wmids", "en/en-wm", "en",  "eng", "GB",  "GBR", "wmids",    SpeechSynthesis.GENDER_MALE,        "English (West Midlands)",          "en-GB-wmids",    "This is a sample of text spoken in English (United Kingdom,WMIDS)"),
         new Voice("en-us",       "en/en-us", "en",  "eng", "US",  "USA", "",         SpeechSynthesis.GENDER_MALE,        "English (US)",                     "en-US",          "This is a sample of text spoken in English (United States)"),
-        new Voice("en-wi",       "en/en-wi", "en",  "eng", "029", "",    "",         SpeechSynthesis.GENDER_MALE,        "English (Caribbean)",              "en-029",         "This is a sample of text spoken in English (Caribbean)"),
+        new Voice("en-wi",       "en/en-wi", "en",  "eng", "029", "",    "",         SpeechSynthesis.GENDER_MALE,        "English (Caribbean)",              "en-029",         "This is a sample of text spoken in English"),
         new Voice("eo",          "eo",       "eo",  "epo", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Esperanto",                        "eo",             "This is a sample of text spoken in Esperanto"),
         new Voice("es",          "es",       "es",  "spa", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Spanish",                          "es",             "Esto es un ejemplo de texto hablado en español."),
-        new Voice("es-la",       "es-la",    "es",  "spa", "419", "",    "",         SpeechSynthesis.GENDER_MALE,        "Spanish (Latin America)",          "es-419",         "Esto es un ejemplo de texto hablado en español (Latinoamérica)."),
+        new Voice("es-la",       "es-la",    "es",  "spa", "419", "",    "",         SpeechSynthesis.GENDER_MALE,        "Spanish (Latin America)",          "es-419",         "Esto es un ejemplo de texto hablado en español."),
         new Voice("et",          "et",       "et",  "est", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Estonian",                         "et",             "This is a sample of text spoken in eesti"),
         new Voice("fi",          "fi",       "fi",  "fin", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Finnish",                          "fi",             "Tämä on näyte kielellä suomi puhutusta tekstistä"),
         new Voice("fr-be",       "fr-be",    "fr",  "fra", "BE",  "BEL", "",         SpeechSynthesis.GENDER_MALE,        "French (Belgium)",                 "fr-BE",          "Voici un exemple de texte énoncé en français (Belgique)."),
@@ -200,6 +200,6 @@ public class VoiceData
         new Voice("vi",          "vi",       "vi",  "vie", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi",             "Đây là mẫu văn bản được đọc bằng Tiếng Việt"),
         new Voice("wo",          "test/wo",  "wo",  "wol", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Wolof",                            "wo",             "This is a sample of text spoken in Wolof"),
         new Voice("zh",          "zh",       "zh",  "zho", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Mandarin)",               "zh",             "This is a sample of text spoken in 中文"),
-        new Voice("zh-yue",      "zh-yue",   "yue", "",    "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Cantonese)",              "yue",            "This is a sample of text spoken in Cantonese"),
+        new Voice("zh-yue",      "zh-yue",   "yue", "",    "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Cantonese)",              "yue",            "This is a sample of text spoken in 中文"),
     };
 }

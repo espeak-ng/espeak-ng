@@ -32,9 +32,11 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 public class SpeechSynthesis {
     private static final String TAG = SpeechSynthesis.class.getSimpleName();
@@ -166,10 +168,13 @@ public class SpeechSynthesis {
     public static String getSampleText(Context context, Locale locale) {
         final DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         final Configuration config = context.getResources().getConfiguration();
-        config.locale = locale;
+
+        final String language = getIanaLocaleCode(locale.getLanguage(), mJavaToIanaLanguageCode);
+        final String country = getIanaLocaleCode(locale.getCountry(), mJavaToIanaCountryCode);
+        config.locale = new Locale(language, country, locale.getVariant());
 
         Resources res = new Resources(context.getAssets(), metrics, config);
-        return res.getString(R.string.sample_text, locale.getDisplayName(locale));
+        return res.getString(R.string.sample_text, config.locale.getDisplayName(config.locale));
     }
 
     private int mNativeData;
@@ -289,5 +294,93 @@ public class SpeechSynthesis {
         public String toString() {
             return locale.toString().replace('_', '-');
         }
+    }
+
+    private static String getIanaLocaleCode(String code, final Map<String, String> javaToIana) {
+        final String iana = javaToIana.get(code);
+        if (iana != null) {
+            return iana;
+        }
+        return code;
+    }
+
+    private static final Map<String, String> mJavaToIanaLanguageCode = new HashMap<String, String>();
+    private static final Map<String, String> mJavaToIanaCountryCode = new HashMap<String, String>();
+    static {
+        mJavaToIanaLanguageCode.put("afr", "af");
+        mJavaToIanaLanguageCode.put("aka", "ak");
+        mJavaToIanaLanguageCode.put("amh", "am");
+        mJavaToIanaLanguageCode.put("aze", "az");
+        mJavaToIanaLanguageCode.put("bul", "bg");
+        mJavaToIanaLanguageCode.put("bos", "bs");
+        mJavaToIanaLanguageCode.put("cat", "ca");
+        mJavaToIanaLanguageCode.put("ces", "cs");
+        mJavaToIanaLanguageCode.put("cym", "cy");
+        mJavaToIanaLanguageCode.put("dan", "da");
+        mJavaToIanaLanguageCode.put("deu", "de");
+        mJavaToIanaLanguageCode.put("div", "dv");
+        mJavaToIanaLanguageCode.put("ell", "el");
+        mJavaToIanaLanguageCode.put("eng", "en");
+        mJavaToIanaLanguageCode.put("epo", "eo");
+        mJavaToIanaLanguageCode.put("spa", "es");
+        mJavaToIanaLanguageCode.put("est", "et");
+        mJavaToIanaLanguageCode.put("fin", "fi");
+        mJavaToIanaLanguageCode.put("fra", "fr");
+        mJavaToIanaLanguageCode.put("gle", "ga");
+        mJavaToIanaLanguageCode.put("hin", "hi");
+        mJavaToIanaLanguageCode.put("hrv", "hr");
+        mJavaToIanaLanguageCode.put("hat", "ht");
+        mJavaToIanaLanguageCode.put("hun", "hu");
+        mJavaToIanaLanguageCode.put("hye", "hy");
+        mJavaToIanaLanguageCode.put("ind", "in"); // NOTE: The deprecated 'in' code is used by Java/Android.
+        mJavaToIanaLanguageCode.put("isl", "is");
+        mJavaToIanaLanguageCode.put("ita", "it");
+        mJavaToIanaLanguageCode.put("kat", "ka");
+        mJavaToIanaLanguageCode.put("kaz", "kk");
+        mJavaToIanaLanguageCode.put("kal", "kl");
+        mJavaToIanaLanguageCode.put("kan", "kn");
+        mJavaToIanaLanguageCode.put("kor", "ko");
+        mJavaToIanaLanguageCode.put("kur", "ku");
+        mJavaToIanaLanguageCode.put("lat", "la");
+        mJavaToIanaLanguageCode.put("lit", "lt");
+        mJavaToIanaLanguageCode.put("lav", "lv");
+        mJavaToIanaLanguageCode.put("mkd", "mk");
+        mJavaToIanaLanguageCode.put("mal", "ml");
+        mJavaToIanaLanguageCode.put("mlt", "mt");
+        mJavaToIanaLanguageCode.put("nep", "ne");
+        mJavaToIanaLanguageCode.put("nld", "nl");
+        mJavaToIanaLanguageCode.put("nor", "no");
+        mJavaToIanaLanguageCode.put("pan", "pa");
+        mJavaToIanaLanguageCode.put("pol", "pl");
+        mJavaToIanaLanguageCode.put("por", "pt");
+        mJavaToIanaLanguageCode.put("ron", "ro");
+        mJavaToIanaLanguageCode.put("rus", "ru");
+        mJavaToIanaLanguageCode.put("kin", "rw");
+        mJavaToIanaLanguageCode.put("sin", "si");
+        mJavaToIanaLanguageCode.put("slk", "sk");
+        mJavaToIanaLanguageCode.put("slv", "sl");
+        mJavaToIanaLanguageCode.put("sqi", "sq");
+        mJavaToIanaLanguageCode.put("srp", "sr");
+        mJavaToIanaLanguageCode.put("swe", "sv");
+        mJavaToIanaLanguageCode.put("swa", "sw");
+        mJavaToIanaLanguageCode.put("tam", "ta");
+        mJavaToIanaLanguageCode.put("tel", "te");
+        mJavaToIanaLanguageCode.put("tsn", "tn");
+        mJavaToIanaLanguageCode.put("tur", "tr");
+        mJavaToIanaLanguageCode.put("tat", "tt");
+        mJavaToIanaLanguageCode.put("urd", "ur");
+        mJavaToIanaLanguageCode.put("vie", "vi");
+        mJavaToIanaLanguageCode.put("wol", "wo");
+        mJavaToIanaLanguageCode.put("zho", "zh");
+        mJavaToIanaLanguageCode.put("yue", "zh");
+
+        mJavaToIanaCountryCode.put("029", "");   // Locale.getCountry() does not map numeric country codes.
+        mJavaToIanaCountryCode.put("419", "");   // Locale.getCountry() does not map numeric country codes.
+        mJavaToIanaCountryCode.put("BEL", "BE");
+        mJavaToIanaCountryCode.put("BRA", "BR");
+        mJavaToIanaCountryCode.put("FRA", "FR");
+        mJavaToIanaCountryCode.put("GBR", "GB");
+        mJavaToIanaCountryCode.put("PRT", "PT");
+        mJavaToIanaCountryCode.put("USA", "US");
     }
 }
