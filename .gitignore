@@ -9,10 +9,10 @@
 # android build output:
 
 bin/
-libs/
 obj/
 gen/
 
+libttsespeak.so
 espeak-data.zip
 espeak-data-en_only.zip
 
