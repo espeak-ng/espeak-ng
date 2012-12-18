@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2012 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -24,7 +25,10 @@
 package com.reecedunn.espeak;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.speech.tts.TextToSpeech;
+import android.util.DisplayMetrics;
 import android.util.Log;
 
 import java.io.File;
@@ -157,6 +161,15 @@ public class SpeechSynthesis {
         Log.i(TAG, "Initialized synthesis library with sample rate = " + getSampleRate());
 
         mInitialized = true;
+    }
+
+    public static String getSampleText(Context context, Locale locale) {
+        final DisplayMetrics metrics = context.getResources().getDisplayMetrics();
+        final Configuration config = context.getResources().getConfiguration();
+        config.locale = locale;
+
+        Resources res = new Resources(context.getAssets(), metrics, config);
+        return res.getString(R.string.sample_text, locale.getDisplayName(locale));
     }
 
     private int mNativeData;

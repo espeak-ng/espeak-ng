@@ -16,7 +16,6 @@
 
 package com.reecedunn.espeak.test;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -306,5 +305,27 @@ public class SpeechSynthesisTest extends AndroidTestCase
         assertThat(voice.match(eng_scotland), is(TextToSpeech.LANG_AVAILABLE)); // NOTE: Android does not support LANG_VAR_AVAILABLE.
         assertThat(voice.match(eng_GBR_scotland), is(TextToSpeech.LANG_COUNTRY_VAR_AVAILABLE));
         assertThat(voice.match(eng_GBR_north), is(TextToSpeech.LANG_COUNTRY_AVAILABLE));
+    }
+
+    public void testGetSampleText()
+    {
+        for (VoiceData.Voice data : VoiceData.voices)
+        {
+            if (mRemoved.contains(data.name))
+            {
+                Log.i("SpeechSynthesisTest", "Skipping the missing voice '" + data.name + "'");
+                continue;
+            }
+
+            try
+            {
+                final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
+                assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), is(data.sampleText));
+            }
+            catch (AssertionError e)
+            {
+                throw new VoiceData.Exception(data, e);
+            }
+        }
     }
 }
