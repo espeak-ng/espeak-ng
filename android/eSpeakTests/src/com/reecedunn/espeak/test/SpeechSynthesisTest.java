@@ -16,6 +16,7 @@
 
 package com.reecedunn.espeak.test;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
@@ -24,6 +25,10 @@ import java.util.Set;
 import com.reecedunn.espeak.SpeechSynthesis;
 import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.media.AudioFormat;
 import android.speech.tts.TextToSpeech;
 import android.test.AndroidTestCase;
@@ -155,6 +160,32 @@ public class SpeechSynthesisTest extends AndroidTestCase
             }
         }
         return null;
+    }
+
+    /**
+      * This tests that the location of the espeak TTS shared object matches
+      * the location that Android 2.2 looks for it in.
+      */
+    public void testSharedObjectLocation()
+    {
+        Intent intent = new Intent("android.intent.action.START_TTS_ENGINE");
+        intent.setPackage("com.reecedunn.espeak");
+        PackageManager pm = getContext().getPackageManager();
+        List<ResolveInfo> resolveInfos = pm.queryIntentActivities(intent, 0);
+        assertThat(resolveInfos, is(notNullValue()));
+        assertThat(resolveInfos.isEmpty(), is(false));
+
+        ResolveInfo[] enginesArray = resolveInfos.toArray(new ResolveInfo[0]);
+        ActivityInfo aInfo = enginesArray[0].activityInfo;
+        String soFilename = aInfo.name.replace(aInfo.packageName + ".", "") + ".so";
+        soFilename = soFilename.toLowerCase();
+        assertThat(soFilename, is("espeak.so"));
+
+        soFilename = "/data/data/" + aInfo.packageName + "/lib/libtts" + soFilename;
+        assertThat(soFilename, is("/data/data/com.reecedunn.espeak/lib/libttsespeak.so"));
+
+        File f = new File(soFilename);
+        assertThat(f.exists(), is(true));
     }
 
     public void testConstruction()

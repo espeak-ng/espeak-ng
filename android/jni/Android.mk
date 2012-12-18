@@ -42,7 +42,7 @@ LOCAL_LDLIBS := \
 
 # Common
 
-LOCAL_MODULE := libespeak
+LOCAL_MODULE := libttsespeak
 LOCAL_MODULE_TAGS := optional
 LOCAL_PRELINK_MODULE := false
 
