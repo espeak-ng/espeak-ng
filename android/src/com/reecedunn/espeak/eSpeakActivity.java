@@ -26,6 +26,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.PreferenceActivity;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
@@ -254,8 +255,7 @@ public class eSpeakActivity extends Activity {
         public void onClick(DialogInterface dialog, int which) {
             switch (which) {
                 case DialogInterface.BUTTON_POSITIVE:
-                    startActivityForResult(
-                            new Intent(ACTION_TTS_SETTINGS), REQUEST_DEFAULT);
+                    launchGeneralTtsSettings();
                     break;
             }
         }
@@ -322,9 +322,27 @@ public class eSpeakActivity extends Activity {
                             REQUEST_DEFAULT);
                     break;
                 case R.id.ttsSettings:
-                    startActivityForResult(new Intent(ACTION_TTS_SETTINGS), REQUEST_DEFAULT);
+                    launchGeneralTtsSettings();
                     break;
             }
         }
     };
+
+    private void launchGeneralTtsSettings()
+    {
+        Intent intent;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB && Build.VERSION.SDK_INT < Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+        {
+            // The Text-to-Speech settings is a Fragment on 3.x:
+            intent = new Intent(android.provider.Settings.ACTION_SETTINGS);
+            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT, "com.android.settings.TextToSpeechSettings");
+            intent.putExtra(PreferenceActivity.EXTRA_SHOW_FRAGMENT_ARGUMENTS, intent.getExtras());
+        }
+        else
+        {
+            // The Text-to-Speech settings is an Activity on 2.x and 4.x:
+            intent = new Intent(ACTION_TTS_SETTINGS);
+        }
+        startActivityForResult(intent, REQUEST_DEFAULT);
+    }
 }
