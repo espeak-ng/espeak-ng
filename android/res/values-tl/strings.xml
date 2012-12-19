@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Ini-install ang data ng boses…"</string>
     <string name="set_default_message" msgid="651325122612558377">"Hindi nakatakda ang eSpeak bilang iyong default na text-to-speech engine."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Nabigong mag-install ng data ng boses ang eSpeak. Pakisuri ang iyong SD card."</string>
-    <string name="error_message" msgid="7565522727556545634">"Paumanhin, nabigong magsimula ang eSpeak. Gusto mo bang magpadala ng ulat ng error?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Paumanhin, nabigong magsimula ang eSpeak."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Error sa pag-load ng eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Nakatagpo ng isang error ang eSpeak habang naglo-load. Gusto mo bang magpadala ng ulat sa developer?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Walang available na mga setting"</string>

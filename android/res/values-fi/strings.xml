@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Asennetaan äänitietoja..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeakia ei ole asetettu tekstistä puheeksi -oletusmoottoriksi."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Äänitietojen asentaminen eSpeakiin epäonnistui. Tarkista SD-kortti."</string>
-    <string name="error_message" msgid="7565522727556545634">"eSpeakin käynnistäminen epäonnistui. Haluatko lähettää virheilmoituksen?"</string>
+    <string name="error_message" msgid="7565522727556545634">"eSpeakin käynnistäminen epäonnistui."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Virhe ladattaessa eSpeakia"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeakissa esiintyi latausvirhe. Haluatko lähettää ilmoituksen kehittäjälle?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Ei asetuksia saatavilla"</string>

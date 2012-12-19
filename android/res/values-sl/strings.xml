@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Namestitev glasovnih podatkov ..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Mehanizem eSpeak ni nastavljen kot privzeti za pretvorbo besedila v govor."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Mehanizmu eSpeak ni uspelo namestiti glasovnih podatkov. Preverite kartico SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Mehanizma eSpeak ni bilo mogoče zagnati. Ali želite poslati poročilo o napaki?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Mehanizma eSpeak ni bilo mogoče zagnati."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Napaka pri nalaganju mehanizma eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"V mehanizmu eSpeak je prišlo do napake med nalaganjem. Ali želite poslati poročilo razvijalcu?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Ni razpoložljivih nastavitev"</string>

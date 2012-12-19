@@ -45,7 +45,7 @@
         Source: Dialog message.
         Description: Alert dialog telling the user that an unknown error has occurred.
     -->
-    <string name="error_message">Sorry, eSpeak failed to start. Would you like to send an error report?</string>
+    <string name="error_message">Sorry, eSpeak failed to start.</string>
     <!--
         Source: Dialog title.
         Description: Alert dialog telling the user that an error occurred while loading eSpeak.

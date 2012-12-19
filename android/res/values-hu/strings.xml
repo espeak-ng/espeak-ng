@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Hangadatok telepítése..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Nem az eSpeak az alapértelmezett szövegfelolvasó motor."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Az eSpeak nem tudta telepíteni a hangadatokat. Ellenőrizze az SD-kártyát."</string>
-    <string name="error_message" msgid="7565522727556545634">"Sajnos az eSpeak nem indul. Szeretne hibajelentést küldeni?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Sajnos az eSpeak nem indul."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Hiba az eSpeak betöltése során"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Az eSpeak hibát észlelt a betöltés során. Szeretne jelentést küldeni a fejlesztőnek?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Nincs elérhető beállítás"</string>

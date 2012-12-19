@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Installerar röstdata ..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Du har inte angett eSpeak som din standardmotor för text-till-tal."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Det gick inte att installera röstsdata i eSpeak. Kontrollera SD-kortet."</string>
-    <string name="error_message" msgid="7565522727556545634">"Det gick tyvärr inte att starta eSpeak. Vill du skicka en felrapport?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Det gick tyvärr inte att starta eSpeak."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Fel vid inläsning av eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Ett fel uppstod när eSpeak lästes in. Vill du skicka en rapport till utvecklaren?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Det finns inga inställningar"</string>

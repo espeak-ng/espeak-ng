@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Εγκατάσταση δεδομένων φωνής..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Το eSpeak δεν έχει οριστεί ως η προεπιλεγμένη μηχανή μετατροπής κειμένου σε λόγο."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Το eSpeak απέτυχε να εγκαταστήσει τα δεδομένα φωνής. Ελέγξτε την κάρτα SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Λυπούμαστε, η εκκίνηση του eSpeak απέτυχε. Θέλετε να στείλετε αναφορά σφάλματος;"</string>
+    <string name="error_message" msgid="7565522727556545634">"Λυπούμαστε, η εκκίνηση του eSpeak απέτυχε."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Σφάλμα κατά τη φόρτωση του eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Το eSpeak αντιμετώπισε ένα σφάλμα κατά τη φόρτωση. Θέλετε να στείλετε αναφορά στον προγραμματιστή;"</string>
     <string name="no_settings" msgid="1351437843962431135">"Δεν υπάρχουν διαθέσιμες ρυθμίσεις"</string>

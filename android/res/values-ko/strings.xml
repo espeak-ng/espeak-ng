@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"음성 데이터 설치 중..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak가 기본 TTS 엔진으로 설정되지 않았습니다."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak에서 음성 데이터를 설치하지 못했습니다. SD 카드를 확인하세요."</string>
-    <string name="error_message" msgid="7565522727556545634">"죄송합니다, eSpeak를 시작할 수 없습니다. 오류를 신고하시겠습니까?"</string>
+    <string name="error_message" msgid="7565522727556545634">"죄송합니다, eSpeak를 시작할 수 없습니다."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"eSpeak 로딩 오류"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"로드하는 중에 eSpeak에 오류가 발생했습니다. 개발자에게 신고하시겠습니까?"</string>
     <string name="no_settings" msgid="1351437843962431135">"이용 가능한 설정 없음"</string>

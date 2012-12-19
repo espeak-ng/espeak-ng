@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"正在安裝語音資料..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak 尚未設為您的預設文字轉語音引擎。"</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak 無法安裝語音資料。請檢查您的 SD 卡。"</string>
-    <string name="error_message" msgid="7565522727556545634">"很抱歉，無法啟動 eSpeak。您要回報錯誤嗎？"</string>
+    <string name="error_message" msgid="7565522727556545634">"很抱歉，無法啟動 eSpeak。"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"載入 eSpeak 時發生錯誤"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"載入 eSpeak 時發生錯誤。您要向開發人員回報嗎？"</string>
     <string name="no_settings" msgid="1351437843962431135">"沒有可用的設定"</string>

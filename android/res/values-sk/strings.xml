@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Prebieha inštalácia hlasových dát..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Aplikácia eSpeak nie je nastavená ako predvolený nástroj na prevod textu na reč."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Aplikácii eSpeak sa nepodarilo nainštalovať hlasové dáta. Skontrolujte kartu SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Je nám ľúto, aplikáciu eSpeak sa nepodarilo spustiť. Chcete odoslať chybovú správu?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Je nám ľúto, aplikáciu eSpeak sa nepodarilo spustiť."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Pri načítavaní aplikácie eSpeak sa vyskytla chyba"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Pri načítavaní aplikácie eSpeak sa vyskytla chyba. Chcete odoslať správu vývojárovi?"</string>
     <string name="no_settings" msgid="1351437843962431135">"K dispozícii nie sú žiadne nastavenia"</string>

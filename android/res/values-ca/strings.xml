@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"S\'estan instal·lant les dades de veu..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak no s\'ha definit com a motor de text a veu predeterminat."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak no ha pogut instal·lar dades de veu. Comprova la targeta SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"No s\'ha pogut iniciar eSpeak. Vols enviar un informe d\'error?"</string>
+    <string name="error_message" msgid="7565522727556545634">"No s\'ha pogut iniciar eSpeak."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"S\'ha produït un error en carregar eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak ha detectat un error durant la càrrega. Vols enviar un informe al desenvolupador?"</string>
     <string name="no_settings" msgid="1351437843962431135">"No hi ha configuracions disponibles"</string>

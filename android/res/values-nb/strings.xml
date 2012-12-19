@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Installerer taledata …"</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak er ikke angitt som standardmotor for tekst-til-tale."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak mislyktes i å installere taledata. Kontroller SD-kortet ditt."</string>
-    <string name="error_message" msgid="7565522727556545634">"eSpeak startet ikke. Vil du sende en feilrapport?"</string>
+    <string name="error_message" msgid="7565522727556545634">"eSpeak startet ikke."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Feil under innlasting av eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Det oppsto en feil under innlastingen av eSpeak. Ønsker du å sende en rapport til utvikleren?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Ingen innstillinger er tilgjengelige"</string>

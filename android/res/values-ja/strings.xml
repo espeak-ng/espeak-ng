@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"音声データをインストールしています..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeakはデフォルトのテキスト読み上げエンジンに設定されていません。"</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeakで音声データをインストールできませんでした。SDカードを確認してください。"</string>
-    <string name="error_message" msgid="7565522727556545634">"eSpeakを起動できませんでした。エラーレポートを送信しますか？"</string>
+    <string name="error_message" msgid="7565522727556545634">"eSpeakを起動できませんでした。"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"eSpeakの読み込み中にエラーが発生しました"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeakの読み込み中にエラーが発生しました。デベロッパーにレポートを送信しますか？"</string>
     <string name="no_settings" msgid="1351437843962431135">"利用できる設定はありません"</string>

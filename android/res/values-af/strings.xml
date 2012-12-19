@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Installeer tans stemdata..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak is nie as jou verstek teks-na-spraak-enjin opgestel nie."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak kon  nie stemdata installeer nie. Kontroleer asseblief jou SD-kaart."</string>
-    <string name="error_message" msgid="7565522727556545634">"Jammer, eSpeak kon nie begin nie. Wil jy \'n foutverslag stuur?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Jammer, eSpeak kon nie begin nie."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Kon nie eSpeak laai nie"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak kon nie laai nie. Wil jy \'n verslag na die ontwikkelaar stuur?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Geen instellings beskikbaar nie"</string>

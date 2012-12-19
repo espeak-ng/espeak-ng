@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Đang cài đặt dữ liệu thoại…"</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak chưa được thiết lập làm công cụ chuyển văn bản thành giọng nói mặc định của bạn."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak không thể cài đặt dữ liệu thoại. Vui lòng kiểm tra thẻ SD của bạn."</string>
-    <string name="error_message" msgid="7565522727556545634">"Rất tiếc, không thể khởi động eSpeak. Bạn có muốn gửi báo cáo lỗi không?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Rất tiếc, không thể khởi động eSpeak."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Lỗi khi tải eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak đã gặp lỗi khi tải. Bạn có muốn gửi báo cáo tới nhà phát triển không?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Không có sẵn cài đặt nào"</string>

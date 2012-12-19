@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Ifaka idatha yezwi"</string>
     <string name="set_default_message" msgid="651325122612558377">"I-eSpeak ayisethwanga njengenjini yombhalo-uya-enkulumweni oyithola ikhona."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"I-eSpeak yehlulekile ukulayisha idatha yezwi. Uyacelwa ukuthi ubheke ikhadi lakho le-SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Uxolo, i-eSpeak yehlulekile ukuqala. Ingabe ungathanda ukuthumela umbiko wephutha?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Uxolo, i-eSpeak yehlulekile ukuqala."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Iphutha lokulayisha i-eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"I-eSpeak ihlangabezane nenkinga ngesikhathi ilayisha. Ungathanda ukuthumelela umsunguli umbiko?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Azikho izilungiselelo ezikhona"</string>

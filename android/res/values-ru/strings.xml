@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Загрузка голосовых данных..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Установить eSpeak в качестве синтезатора речи по умолчанию?"</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Не удалось загрузить голосовые данные. Проверьте SD-карту."</string>
-    <string name="error_message" msgid="7565522727556545634">"Не удалось запустить eSpeak. Отправить отчет об ошибке?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Не удалось запустить eSpeak."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Ошибка при загрузке eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"При загрузке eSpeak произошла ошибка. Сообщить об этом разработчику?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Настройки недоступны"</string>

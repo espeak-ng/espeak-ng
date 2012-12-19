@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Memasang data suara..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak tidak ditetapkan sebagai enjin teks-ke-pertuturan lalai anda."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak gagal memasang data suara. Sila periksa kad SD anda."</string>
-    <string name="error_message" msgid="7565522727556545634">"Maaf, eSpeak gagal untuk bermula. Adakah anda ingin menghantar laporan ralat?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Maaf, eSpeak gagal untuk bermula."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Ralat memuatkan eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak mengalami ralat semasa dimuatkan. Adakah anda ingin menghantar laporan kepada pemaju?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Tiada tetapan tersedia"</string>

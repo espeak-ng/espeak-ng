@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Встановлення голосових даних..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak не встановлено як систему синтезу мовлення за умовчанням."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak не вдалося встановити голосові дані. Перевірте карту SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Не вдалося запустити eSpeak. Надіслати звіт про помилку?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Не вдалося запустити eSpeak."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Помилка завантаження eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Під час завантаження eSpeak сталася помилка. Надіслати звіт розробникові?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Немає доступних налаштувань"</string>

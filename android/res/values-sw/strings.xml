@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Inasakinisha data ya sauti..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak haijawekwa kama injini yako msingi ya maandishi-hadi-usemi."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak imeshindwa kusakinisha data ya sauti. Tafadhali kagua kadi yako ya SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Samahani, eSpeak imeshindwa kuanza. Je, ungependa kutuma ripoti ya hitilafu?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Samahani, eSpeak imeshindwa kuanza."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Hitilafu ya kupakia eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak ilikumbana na hitilafu wakati wa kupakia. Je, ungependa kutuma ripoti kwa msanidi programu?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Hakuna mipangilio inayopatikana"</string>

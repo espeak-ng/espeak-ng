@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Instalowanie danych głosowych..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak nie jest ustawiony jako domyślny mechanizm odczytywania tekstu."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Zainstalowanie danych głosowych przez eSpeak nie powiodło się. Sprawdź kartę SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Przepraszamy, uruchomienie eSpeak nie powiodło się. Czy chcesz wysłać raport o błędach?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Przepraszamy, uruchomienie eSpeak nie powiodło się."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Błąd podczas ładowania eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Podczas ładowania eSpeak wystąpił błąd. Czy chcesz wysłać raport do programisty?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Brak dostępnych ustawień"</string>

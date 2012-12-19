@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Spraakgegevens installeren..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak is niet ingesteld als uw standaardengine voor tekst-naar-spraak."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak heeft geen stemgegevens geïnstalleerd. Controleer uw SD-kaart."</string>
-    <string name="error_message" msgid="7565522727556545634">"eSpeak kan niet worden gestart. Wilt u een foutrapport verzenden?"</string>
+    <string name="error_message" msgid="7565522727556545634">"eSpeak kan niet worden gestart."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Fout bij het laden van eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Er is een fout opgetreden tijdens het laden van eSpeak. Wilt u een foutrapport naar de ontwikkelaar verzenden?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Geen instellingen beschikbaar"</string>

@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Notiek balss datu instalēšana..."</string>
     <string name="set_default_message" msgid="651325122612558377">"Programma eSpeak nav iestatīta kā noklusējuma programma teksta pārveidošanai runā."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Programmā eSpeak neizdevās instalēt balss datus. Lūdzu, pārbaudiet SD karti."</string>
-    <string name="error_message" msgid="7565522727556545634">"Diemžēl programmu eSpeak neizdevās palaist. Vai vēlaties nosūtīt kļūdas ziņojumu?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Diemžēl programmu eSpeak neizdevās palaist."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Ielādējot programmu eSpeak, radās kļūda."</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Ielādējot programmu eSpeak, radās kļūda. Vai vēlaties par to ziņot izstrādātājam?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Iestatījumi nav pieejami."</string>

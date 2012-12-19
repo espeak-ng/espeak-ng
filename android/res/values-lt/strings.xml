@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Diegiami balso duomenys..."</string>
     <string name="set_default_message" msgid="651325122612558377">"„eSpeak“ nenustatytas kaip numatytasis teksto į kalbą variklis."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"„eSpeak“ nepavyko įdiegti balso duomenų. Patikrinkite SD kortelę."</string>
-    <string name="error_message" msgid="7565522727556545634">"Apgailestaujame, bet nepavyko paleisti „eSpeak“. Ar norite siųsti klaidos pranešimą?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Apgailestaujame, bet nepavyko paleisti „eSpeak“."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Įkeliant „eSpeak“ įvyko klaida"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Įkeliant „eSpeak“ įvyko klaida. Ar norėtumėte siųsti pranešimą kūrėjui?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Nėra pasiekiamų nustatymų"</string>

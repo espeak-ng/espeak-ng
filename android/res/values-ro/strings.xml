@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Se instalează datele vocale..."</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak nu este setat ca motor prestabilit de transformare a textului în vorbire."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak nu a putut instala datele vocale. Verificaţi cardul SD."</string>
-    <string name="error_message" msgid="7565522727556545634">"Ne pare rău, dar pornirea eSpeak a eşuat. Doriţi să trimiteţi un raport despre eroare?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Ne pare rău, dar pornirea eSpeak a eşuat."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Eroare la încărcarea eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak a întâmpinat o eroare la încărcare. Doriţi să o raportaţi dezvoltatorului?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Nu există setări disponibile"</string>

@@ -8,7 +8,7 @@
     <string name="installing_voice_data" msgid="1199950160686799120">"Installing voice data…"</string>
     <string name="set_default_message" msgid="651325122612558377">"eSpeak is not set as your default text-to-speech engine."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak failed to install voice data. Please check your SD card."</string>
-    <string name="error_message" msgid="7565522727556545634">"Sorry, eSpeak failed to start. Would you like to send an error report?"</string>
+    <string name="error_message" msgid="7565522727556545634">"Sorry, eSpeak failed to start."</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Error loading eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak encountered an error while loading. Would you like to send a report to the developer?"</string>
     <string name="no_settings" msgid="1351437843962431135">"No settings available"</string>
