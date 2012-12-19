@@ -30,9 +30,11 @@ import android.preference.PreferenceActivity;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -79,7 +81,6 @@ public class eSpeakActivity extends Activity {
         ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
 
         setState(State.LOADING);
-        manageSettingVisibility();
         checkVoiceData();
     }
 
@@ -90,6 +91,36 @@ public class eSpeakActivity extends Activity {
         if (mTts != null) {
             mTts.shutdown();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.options, menu);
+        if (Build.VERSION.SDK_INT < 14) {
+            // Hide the eSpeak setting menu item on pre-ICS.
+            menu.getItem(R.id.espeakSettings).setVisible(false);
+        }
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+        case R.id.espeakSettings:
+            startActivityForResult(new Intent(eSpeakActivity.this, TtsSettingsActivity.class), REQUEST_DEFAULT);
+            return true;
+        case R.id.ttsSettings:
+            launchGeneralTtsSettings();
+            return true;
+        case R.id.updateVoices:
+            downloadVoiceData();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -130,16 +161,6 @@ public class eSpeakActivity extends Activity {
      */
     private void initializeEngine() {
         mTts = new TextToSpeech(this, mInitListener);
-    }
-
-    /**
-     * Hides preferences according to SDK level.
-     */
-    private void manageSettingVisibility() {
-        if (Build.VERSION.SDK_INT < 14) {
-            // Hide the eSpeak setting button on pre-ICS.
-            findViewById(R.id.engineSettingsLayout).setVisibility(View.GONE);
-        }
     }
 
     private void populateInformationView() {
@@ -226,10 +247,6 @@ public class eSpeakActivity extends Activity {
             showDialog(DIALOG_ERROR);
             return;
         }
-
-        findViewById(R.id.updateVoices).setOnClickListener(mOnClickListener);
-        findViewById(R.id.ttsSettings).setOnClickListener(mOnClickListener);
-        findViewById(R.id.engineSettings).setOnClickListener(mOnClickListener);
 
         populateInformationView();
         setState(State.SUCCESS);
@@ -333,25 +350,6 @@ public class eSpeakActivity extends Activity {
         }
     }
     private final Handler mHandler = new EspeakHandler(this);
-
-    private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.updateVoices:
-                    downloadVoiceData();
-                    break;
-                case R.id.engineSettings:
-                    startActivityForResult(
-                            new Intent(eSpeakActivity.this, TtsSettingsActivity.class),
-                            REQUEST_DEFAULT);
-                    break;
-                case R.id.ttsSettings:
-                    launchGeneralTtsSettings();
-                    break;
-            }
-        }
-    };
 
     private void launchGeneralTtsSettings()
     {

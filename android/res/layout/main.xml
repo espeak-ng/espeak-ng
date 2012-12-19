@@ -38,66 +38,6 @@
             android:layout_height="wrap_content" >
 
         </ListView>
-
-        <LinearLayout
-            android:id="@+id/updateVoicesLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/updateVoices"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/update_voices" />
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textAppearance="?android:attr/textAppearanceLarge" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/engineSettingsLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/engineSettings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/engine_settings" />
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ttsSettingsLayout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <Button
-                android:id="@+id/ttsSettings"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:text="@string/tts_settings" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="0.5"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
-        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
