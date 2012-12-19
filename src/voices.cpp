@@ -62,7 +62,7 @@ int formant_rate[9];         // values adjusted for actual sample rate
 
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
-#define N_VOICES_LIST  150
+#define N_VOICES_LIST  200
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 static int len_path_voices;
