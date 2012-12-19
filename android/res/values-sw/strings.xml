@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Hitilafu ya kupakia eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak ilikumbana na hitilafu wakati wa kupakia. Je, ungependa kutuma ripoti kwa msanidi programu?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Hakuna mipangilio inayopatikana"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Sauti chaguo-msingi:"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Sauti zimesakinishwa:"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Sauti chaguo-msingi"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Sauti zimesakinishwa"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Mipangilio ya kawaida ya TTS"</string>
     <string name="engine_settings" msgid="15960710549009350">"Mipangilio ya eSpeak TTS"</string>
     <string name="loading" msgid="1624831854302260352">"Inapakia, tafadhali subiri..."</string>

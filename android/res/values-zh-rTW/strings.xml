@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"載入 eSpeak 時發生錯誤"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"載入 eSpeak 時發生錯誤。您要向開發人員回報嗎？"</string>
     <string name="no_settings" msgid="1351437843962431135">"沒有可用的設定"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"預設語音："</string>
-    <string name="available_voices" msgid="1405969819028957410">"已安裝的語音："</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"預設語音"</string>
+    <string name="available_voices" msgid="1405969819028957410">"已安裝的語音"</string>
     <string name="tts_settings" msgid="8094374695950898637">"文字轉語音一般設定"</string>
     <string name="engine_settings" msgid="15960710549009350">"eSpeak 文字轉語音設定"</string>
     <string name="loading" msgid="1624831854302260352">"載入中，請稍候..."</string>

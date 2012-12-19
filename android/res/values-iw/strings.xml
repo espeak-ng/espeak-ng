@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"שגיאה בטעינת eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"אירעה שגיאה ב-eSpeak בעת הטעינה. האם אתה רוצה לשלוח דוח למפתח?"</string>
     <string name="no_settings" msgid="1351437843962431135">"אין הגדרות זמינות"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"ברירת מחדל לקול:"</string>
-    <string name="available_voices" msgid="1405969819028957410">"קולות שהותקנו:"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"ברירת מחדל לקול"</string>
+    <string name="available_voices" msgid="1405969819028957410">"קולות שהותקנו"</string>
     <string name="tts_settings" msgid="8094374695950898637">"הגדרות TTS כלליות"</string>
     <string name="engine_settings" msgid="15960710549009350">"הגדרות eSpeak TTS"</string>
     <string name="loading" msgid="1624831854302260352">"טוען. המתן..."</string>

@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Σφάλμα κατά τη φόρτωση του eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Το eSpeak αντιμετώπισε ένα σφάλμα κατά τη φόρτωση. Θέλετε να στείλετε αναφορά στον προγραμματιστή;"</string>
     <string name="no_settings" msgid="1351437843962431135">"Δεν υπάρχουν διαθέσιμες ρυθμίσεις"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Προεπιλεγμένη φωνή:"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Φωνές που έχουν εγκατασταθεί:"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Προεπιλεγμένη φωνή"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Φωνές που έχουν εγκατασταθεί"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Γενικές ρυθμίσεις TTS"</string>
     <string name="engine_settings" msgid="15960710549009350">"Ρυθμίσεις eSpeak TTS"</string>
     <string name="loading" msgid="1624831854302260352">"Γίνεται φόρτωση. Περιμένετε..."</string>

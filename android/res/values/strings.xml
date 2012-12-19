@@ -65,12 +65,12 @@
         Source: Label text.
         Description: Label informing the user of the current text-to-speech language.
     -->
-    <string name="current_tts_locale">Default voice:</string>
+    <string name="current_tts_locale">Default voice</string>
     <!--
         Source: Label text.
         Description: Label informing the user of how many voices are installed.
     -->
-    <string name="available_voices">Voices installed:</string>
+    <string name="available_voices">Voices installed</string>
     <!--
         Source: Button label.
         Description: Button for launching general text-to-speech settings.

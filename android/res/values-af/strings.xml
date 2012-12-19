@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Kon nie eSpeak laai nie"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak kon nie laai nie. Wil jy \'n verslag na die ontwikkelaar stuur?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Geen instellings beskikbaar nie"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Verstek stem:"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Stemme geïnstalleer:"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Verstek stem"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Stemme geïnstalleer"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Algemene TTS-instellings"</string>
     <string name="engine_settings" msgid="15960710549009350">"eSpeak TTS-instellings"</string>
     <string name="loading" msgid="1624831854302260352">"Laai tans, wag asseblief..."</string>

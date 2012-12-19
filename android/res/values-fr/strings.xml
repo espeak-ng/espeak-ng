@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Erreur lors du chargement d\'eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Une erreur s\'est produite lors du chargement d\'eSpeak. Voulez-vous envoyer un rapport au développeur ?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Aucun paramètre disponible"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Voix par défaut :"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Voix installées :"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Voix par défaut"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Voix installées"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Paramètres généraux de synthèse vocale"</string>
     <string name="engine_settings" msgid="15960710549009350">"Paramètres de synthèse vocale eSpeak"</string>
     <string name="loading" msgid="1624831854302260352">"Chargement en cours, veuillez patienter…"</string>

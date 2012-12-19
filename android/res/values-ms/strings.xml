@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Ralat memuatkan eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"eSpeak mengalami ralat semasa dimuatkan. Adakah anda ingin menghantar laporan kepada pemaju?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Tiada tetapan tersedia"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Suara lalai:"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Suara dipasang:"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Suara lalai"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Suara dipasang"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Tetapan TTS umum"</string>
     <string name="engine_settings" msgid="15960710549009350">"Tetapan TTS eSpeak"</string>
     <string name="loading" msgid="1624831854302260352">"Memuatkan, sila tunggu..."</string>

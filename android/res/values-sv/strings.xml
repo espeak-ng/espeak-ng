@@ -12,8 +12,8 @@
     <string name="loading_failed_title" msgid="511566315504616423">"Fel vid inläsning av eSpeak"</string>
     <string name="loading_failed_message" msgid="5873070263506367474">"Ett fel uppstod när eSpeak lästes in. Vill du skicka en rapport till utvecklaren?"</string>
     <string name="no_settings" msgid="1351437843962431135">"Det finns inga inställningar"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Standardröst:"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Installerade röster:"</string>
+    <string name="current_tts_locale" msgid="3069242116489679835">"Standardröst"</string>
+    <string name="available_voices" msgid="1405969819028957410">"Installerade röster"</string>
     <string name="tts_settings" msgid="8094374695950898637">"Allmänna TTS-inställningar"</string>
     <string name="engine_settings" msgid="15960710549009350">"TTS-inställningar för eSpeak"</string>
     <string name="loading" msgid="1624831854302260352">"Läser in, vänta …"</string>

@@ -29,11 +29,15 @@ import android.os.Message;
 import android.preference.PreferenceActivity;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class eSpeakActivity extends Activity {
     private static final String ACTION_TTS_SETTINGS = "com.android.settings.TTS_SETTINGS";
@@ -57,15 +61,22 @@ public class eSpeakActivity extends Activity {
         SUCCESS
     }
 
+    private State mState;
     private boolean mDownloadedVoiceData;
     private ArrayList<String> mVoices;
     private TextToSpeech mTts;
+    private List<Pair<String,String>> mInformation;
+    private InformationListAdapter mInformationView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.main);
+
+        mInformation = new ArrayList<Pair<String,String>>();
+        mInformationView = new InformationListAdapter(this, mInformation);
+        ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
 
         setState(State.LOADING);
         manageSettingVisibility();
@@ -87,6 +98,7 @@ public class eSpeakActivity extends Activity {
      * @param state The current state.
      */
     private void setState(State state) {
+        mState = state;
         findViewById(R.id.loading).setVisibility((state == State.LOADING) ? View.VISIBLE
                 : View.GONE);
         findViewById(R.id.success).setVisibility((state == State.SUCCESS) ? View.VISIBLE
@@ -130,6 +142,27 @@ public class eSpeakActivity extends Activity {
         }
     }
 
+    private void populateInformationView() {
+        mInformation.clear();
+
+        if (mTts != null) {
+            Locale language = mTts.getLanguage();
+            if (language != null) {
+                final String currentLocale = getString(R.string.current_tts_locale);
+                mInformation.add(new Pair<String,String>(currentLocale, mTts.getLanguage().getDisplayName()));
+            }
+        }
+
+        final String availableVoices = getString(R.string.available_voices);
+        if (mVoices == null) {
+            mInformation.add(new Pair<String,String>(availableVoices, "0"));
+        } else {
+            mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(mVoices.size())));
+        }
+
+        mInformationView.notifyDataSetChanged();
+    }
+
     /**
      * Handles the result of voice data verification. If verification fails
      * following a successful installation, displays an error dialog. Otherwise,
@@ -153,13 +186,7 @@ public class eSpeakActivity extends Activity {
         mVoices = data.getStringArrayListExtra(TextToSpeech.Engine.EXTRA_AVAILABLE_VOICES);
 
         initializeEngine();
-
-        final TextView availableVoices = (TextView) findViewById(R.id.availableVoices);
-        if (mVoices == null) {
-            availableVoices.setText("0");
-        } else {
-            availableVoices.setText(Integer.toString(mVoices.size()));
-        }
+        populateInformationView();
     }
 
     /**
@@ -200,13 +227,11 @@ public class eSpeakActivity extends Activity {
             return;
         }
 
-        final TextView currentLocale = (TextView) findViewById(R.id.currentLocale);
-        currentLocale.setText(mTts.getLanguage().getDisplayName());
-
         findViewById(R.id.updateVoices).setOnClickListener(mOnClickListener);
         findViewById(R.id.ttsSettings).setOnClickListener(mOnClickListener);
         findViewById(R.id.engineSettings).setOnClickListener(mOnClickListener);
 
+        populateInformationView();
         setState(State.SUCCESS);
     }
 
