@@ -16,6 +16,7 @@
 #define SHOW(format,...)
 #endif
 
+#define LOGI(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 #define LOGE(...) __android_log_print(ANDROID_LOG_ERROR, LOG_TAG, __VA_ARGS__)
 #define SHOW_TIME(text)
 
@@ -25,6 +26,7 @@
 
 #define ENTER(text) debug_enter(text)
 #define SHOW(format,...) debug_show(format,__VA_ARGS__);
+#define LOGI(format,...) debug_show(format,__VA_ARGS__);
 #define LOGE(format,...) debug_show(format,__VA_ARGS__);
 #define SHOW_TIME(text) debug_time(text);
 
@@ -36,9 +38,11 @@ extern void debug_time(const char* text);
 
 #ifdef NO_VARIADIC_MACROS
 #define SHOW(format)   // VC6 doesn't allow "..."
+#define LOGI(format)   // VC6 doesn't allow "..."
 #define LOGE(format)   // VC6 doesn't allow "..."
 #else
 #define SHOW(format,...)
+#define LOGI(format,...)
 #define LOGE(format,...)
 #endif
 

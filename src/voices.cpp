@@ -25,6 +25,7 @@
 #include "string.h"
 #include "stdlib.h"
 #include "speech.h"
+#include "errno.h"
 
 #ifdef PLATFORM_WINDOWS
 #include "windows.h"
@@ -41,7 +42,7 @@
 #include "synthesize.h"
 #include "voice.h"
 #include "translate.h"
-
+#include "debug.h"
 
 MNEM_TAB genders [] = {
 	{"unknown", 0},
@@ -1641,7 +1642,10 @@ static void GetVoices(const char *path)
 	while((ent = readdir(dir)) != NULL)
 	{
 		if(n_voices_list >= (N_VOICES_LIST-2))
+		{
+			LOGE("The voice list is full.");
 			break;   // voices list is full
+		}
 
 		sprintf(fname,"%s%c%s",path,PATHSEP,ent->d_name);
 
@@ -1657,8 +1661,11 @@ static void GetVoices(const char *path)
 		{
 			// a regular line, add it to the voices list	
 			if((f_voice = fopen(fname,"r")) == NULL)
+			{
+				LOGE("Unble to load voice file '%s': %s", fname, strerror(errno));
 				continue;
-		
+			}
+
 			// pass voice file name within the voices directory
 			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, ent->d_name);
 			fclose(f_voice);
@@ -1667,6 +1674,10 @@ static void GetVoices(const char *path)
 			{
 				voices_list[n_voices_list++] = voice_data;
 			}
+		}
+		else if (ftype == 0)
+		{
+			LOGE("Unble to load voice file '%s': %s", fname, strerror(errno));
 		}
 	}
 	closedir(dir);
@@ -1781,6 +1792,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 
 	GetVoices(path_voices);
 	voices_list[n_voices_list] = NULL;  // voices list terminator
+	LOGI("GetVoices found %d voices.", n_voices_list);
 
 	// sort the voices list
 	qsort(voices_list,n_voices_list,sizeof(espeak_VOICE *),
