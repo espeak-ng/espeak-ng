@@ -100,7 +100,7 @@ public class eSpeakActivity extends Activity {
         inflater.inflate(R.menu.options, menu);
         if (Build.VERSION.SDK_INT < 14) {
             // Hide the eSpeak setting menu item on pre-ICS.
-            menu.getItem(R.id.espeakSettings).setVisible(false);
+            menu.findItem(R.id.espeakSettings).setVisible(false);
         }
         return true;
     }
