@@ -18,9 +18,6 @@
 package com.reecedunn.espeak;
 
 import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -51,15 +48,12 @@ public class eSpeakActivity extends Activity {
     private static final int REQUEST_DOWNLOAD = 2;
     private static final int REQUEST_DEFAULT = 3;
 
-    private static final int DIALOG_SET_DEFAULT = 1;
-    private static final int DIALOG_DOWNLOAD_FAILED = 2;
-    private static final int DIALOG_ERROR = 3;
-
 	private static final String TAG = "eSpeakActivity";
 
     private enum State {
         LOADING,
-        FAILURE,
+        DOWNLOAD_FAILED,
+        ERROR,
         SUCCESS
     }
 
@@ -130,12 +124,17 @@ public class eSpeakActivity extends Activity {
      */
     private void setState(State state) {
         mState = state;
-        findViewById(R.id.loading).setVisibility((state == State.LOADING) ? View.VISIBLE
-                : View.GONE);
-        findViewById(R.id.success).setVisibility((state == State.SUCCESS) ? View.VISIBLE
-                : View.GONE);
-        findViewById(R.id.failure).setVisibility((state == State.FAILURE) ? View.VISIBLE
-                : View.GONE);
+        switch (mState)
+        {
+        case LOADING:
+            findViewById(R.id.loading).setVisibility(View.VISIBLE);
+            findViewById(R.id.success).setVisibility(View.GONE);
+            break;
+        default:
+            findViewById(R.id.loading).setVisibility(View.GONE);
+            findViewById(R.id.success).setVisibility(View.VISIBLE);
+            break;
+        }
     }
 
     /**
@@ -181,9 +180,24 @@ public class eSpeakActivity extends Activity {
             mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(mVoices.size())));
         }
 
+        final String statusText;
         if (!getPackageName().equals(mTts.getDefaultEngine())) {
+            statusText = getString(R.string.set_default_message);
+        } else {
+            switch (mState) {
+            case ERROR:
+                statusText = getString(R.string.error_message);
+                break;
+            case DOWNLOAD_FAILED:
+                statusText = getString(R.string.voice_data_failed_message);
+                break;
+            default:
+                statusText = null;
+                break;
+            }
+        }
+        if (statusText != null) {
             final String statusLabel = getString(R.string.status);
-            final String statusText = getString(R.string.set_default_message);
             mInformation.add(new Pair<String,String>(statusLabel, statusText));
         }
 
@@ -202,8 +216,7 @@ public class eSpeakActivity extends Activity {
         if (resultCode != TextToSpeech.Engine.CHECK_VOICE_DATA_PASS) {
             if (mDownloadedVoiceData) {
             	Log.e(TAG, "Voice data check failed (error code: " + resultCode + ").");
-                setState(State.FAILURE);
-                showDialog(DIALOG_ERROR);
+                setState(State.ERROR);
             } else {
                 downloadVoiceData();
             }
@@ -225,8 +238,7 @@ public class eSpeakActivity extends Activity {
     private void onDataDownloaded(int resultCode) {
         if (resultCode != RESULT_OK) {
         	Log.e(TAG, "Voice data download failed.");
-            setState(State.FAILURE);
-            showDialog(DIALOG_DOWNLOAD_FAILED);
+            setState(State.DOWNLOAD_FAILED);
             return;
         }
 
@@ -244,13 +256,12 @@ public class eSpeakActivity extends Activity {
     private void onInitialized(int status) {
         if (status == TextToSpeech.ERROR) {
         	Log.e(TAG, "Initialization failed (status: " + status + ").");
-            setState(State.FAILURE);
-            showDialog(DIALOG_ERROR);
-            return;
+            setState(State.ERROR);
+        } else {
+            setState(State.SUCCESS);
         }
 
         populateInformationView();
-        setState(State.SUCCESS);
     }
 
     @Override
@@ -268,47 +279,6 @@ public class eSpeakActivity extends Activity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
-
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DIALOG_DOWNLOAD_FAILED:
-                return new AlertDialog.Builder(this).setTitle(R.string.app_name)
-                        .setMessage(R.string.voice_data_failed_message)
-                        .setNegativeButton(android.R.string.ok, mFinishClickListener)
-                        .setOnCancelListener(mFinishCancelListener).create();
-            case DIALOG_ERROR:
-                return new AlertDialog.Builder(this).setTitle(R.string.app_name)
-                        .setMessage(R.string.error_message)
-                        .setNegativeButton(android.R.string.no, mFinishClickListener)
-                        .setNegativeButton(android.R.string.ok, mReportClickListener)
-                        .setOnCancelListener(mFinishCancelListener).create();
-        }
-
-        return super.onCreateDialog(id);
-    }
-
-    private final DialogInterface.OnClickListener mReportClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            // TODO: Send a crash report.
-            finish();
-        }
-    };
-
-    private final DialogInterface.OnClickListener mFinishClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            finish();
-        }
-    };
-
-    private final DialogInterface.OnCancelListener mFinishCancelListener = new DialogInterface.OnCancelListener() {
-        @Override
-        public void onCancel(DialogInterface dialog) {
-            finish();
-        }
-    };
 
     private final TextToSpeech.OnInitListener mInitListener = new TextToSpeech.OnInitListener() {
         @Override
