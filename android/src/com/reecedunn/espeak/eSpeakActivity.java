@@ -181,6 +181,12 @@ public class eSpeakActivity extends Activity {
             mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(mVoices.size())));
         }
 
+        if (!getPackageName().equals(mTts.getDefaultEngine())) {
+            final String statusLabel = getString(R.string.status);
+            final String statusText = getString(R.string.set_default_message);
+            mInformation.add(new Pair<String,String>(statusLabel, statusText));
+        }
+
         mInformationView.notifyDataSetChanged();
     }
 
@@ -236,11 +242,6 @@ public class eSpeakActivity extends Activity {
      * @param status The TTS engine initialization status.
      */
     private void onInitialized(int status) {
-        if (!getPackageName().equals(mTts.getDefaultEngine())) {
-            showDialog(DIALOG_SET_DEFAULT);
-            return;
-        }
-
         if (status == TextToSpeech.ERROR) {
         	Log.e(TAG, "Initialization failed (status: " + status + ").");
             setState(State.FAILURE);
@@ -271,11 +272,6 @@ public class eSpeakActivity extends Activity {
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
-            case DIALOG_SET_DEFAULT:
-                return new AlertDialog.Builder(this).setTitle(R.string.app_name)
-                        .setMessage(R.string.set_default_message)
-                        .setNegativeButton(android.R.string.no, mFinishClickListener)
-                        .setPositiveButton(android.R.string.ok, mDialogClickListener).create();
             case DIALOG_DOWNLOAD_FAILED:
                 return new AlertDialog.Builder(this).setTitle(R.string.app_name)
                         .setMessage(R.string.voice_data_failed_message)
@@ -291,17 +287,6 @@ public class eSpeakActivity extends Activity {
 
         return super.onCreateDialog(id);
     }
-
-    private final DialogInterface.OnClickListener mDialogClickListener = new DialogInterface.OnClickListener() {
-        @Override
-        public void onClick(DialogInterface dialog, int which) {
-            switch (which) {
-                case DialogInterface.BUTTON_POSITIVE:
-                    launchGeneralTtsSettings();
-                    break;
-            }
-        }
-    };
 
     private final DialogInterface.OnClickListener mReportClickListener = new DialogInterface.OnClickListener() {
         @Override

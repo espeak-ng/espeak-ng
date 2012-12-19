@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Sesin cinsiyeti"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Konuşma hızı çarpanı"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Ses verileri yükleniyor..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak varsayılan metin konuşma motorunuz olarak ayarlanmadı. Şimdi ayarlamak ister misiniz?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak varsayılan metin konuşma motorunuz olarak ayarlanmadı."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak ses verisini yükleyemedi. Lütfen SD kartınızı kontrol edin."</string>
     <string name="error_message" msgid="7565522727556545634">"Maalesef, eSpeak başlatılamadı. Hata raporu göndermek ister misiniz?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"eSpeak yüklenirken hata oluştu"</string>

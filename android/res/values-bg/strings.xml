@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Пол на гласа"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Множител на скоростта на говора"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Гласовите данни се инсталират..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"Не сте задали eSpeak като машината си по подразбиране за синтезиран говор. Искате ли да го направите сега?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"Не сте задали eSpeak като машината си по подразбиране за синтезиран говор."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Инсталирането на гласови данни от eSpeak не бе успешно. Моля, проверете SD картата си."</string>
     <string name="error_message" msgid="7565522727556545634">"За съжаление стартирането на eSpeak не бе успешно. Искате ли да изпратите сигнал за грешка?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"При зареждането на eSpeak възникна грешка"</string>

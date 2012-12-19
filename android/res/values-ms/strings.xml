@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Jantina suara"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Pengganda kadar ucapan"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Memasang data suara..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak tidak ditetapkan sebagai enjin teks-ke-pertuturan lalai anda. Adakah anda mahu menetapkannya sekarang?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak tidak ditetapkan sebagai enjin teks-ke-pertuturan lalai anda."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak gagal memasang data suara. Sila periksa kad SD anda."</string>
     <string name="error_message" msgid="7565522727556545634">"Maaf, eSpeak gagal untuk bermula. Adakah anda ingin menghantar laporan ralat?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Ralat memuatkan eSpeak"</string>

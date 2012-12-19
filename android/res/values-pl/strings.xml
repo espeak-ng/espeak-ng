@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Rodzaj głosu"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Mnożnik szybkości mowy"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Instalowanie danych głosowych..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak nie jest ustawiony jako domyślny mechanizm odczytywania tekstu. Czy chcesz ustawić go teraz?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak nie jest ustawiony jako domyślny mechanizm odczytywania tekstu."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Zainstalowanie danych głosowych przez eSpeak nie powiodło się. Sprawdź kartę SD."</string>
     <string name="error_message" msgid="7565522727556545634">"Przepraszamy, uruchomienie eSpeak nie powiodło się. Czy chcesz wysłać raport o błędach?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Błąd podczas ładowania eSpeak"</string>

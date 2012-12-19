@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Стать за голосом"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Коефіцієнт темпу мовлення"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Встановлення голосових даних..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak не встановлено як систему синтезу мовлення за умовчанням. Установити зараз?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak не встановлено як систему синтезу мовлення за умовчанням."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak не вдалося встановити голосові дані. Перевірте карту SD."</string>
     <string name="error_message" msgid="7565522727556545634">"Не вдалося запустити eSpeak. Надіслати звіт про помилку?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Помилка завантаження eSpeak"</string>

@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Sexo de la voz"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Multiplicador de velocidad de voz"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Instalando archivos de datos de voz..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak no se ha establecido como tu motor de síntesis de voz predeterminado. ¿Quieres establecerlo ahora?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak no se ha establecido como tu motor de síntesis de voz predeterminado."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak no ha podido instalar los archivos de datos de voz. Comprueba la tarjeta SD."</string>
     <string name="error_message" msgid="7565522727556545634">"Error al iniciar eSpeak. ¿Quieres enviar un informe de error?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Error al cargar eSpeak"</string>

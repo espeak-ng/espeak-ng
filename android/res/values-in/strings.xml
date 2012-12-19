@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Gender suara"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Pengganda laju wicara"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Memasang data suara..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak tidak disetel sebagai mesin text-to-speech default Anda. Apakah Anda ingin menyetelnya sekarang?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak tidak disetel sebagai mesin text-to-speech default Anda."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak gagal memasang data suara. Periksa kartu SD Anda."</string>
     <string name="error_message" msgid="7565522727556545634">"Maaf, eSpeak gagal dimulai. Apakah Anda ingin mengirim laporan kesalahan?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Kesalahan saat memuat eSpeak"</string>

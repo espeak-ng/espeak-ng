@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Jinsia ya sauti"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Kizidisha kiwango cha usemi"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Inasakinisha data ya sauti..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak haijawekwa kama injini yako msingi ya maandishi-hadi-usemi. Je, ungependa kuiweka sasa?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak haijawekwa kama injini yako msingi ya maandishi-hadi-usemi."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak imeshindwa kusakinisha data ya sauti. Tafadhali kagua kadi yako ya SD."</string>
     <string name="error_message" msgid="7565522727556545634">"Samahani, eSpeak imeshindwa kuanza. Je, ungependa kutuma ripoti ya hitilafu?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Hitilafu ya kupakia eSpeak"</string>

@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Gènere de veu"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Multiplicador de velocitat de la veu"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"S\'estan instal·lant les dades de veu..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak no s\'ha definit com a motor de text a veu predeterminat. Vols definir-lo ara?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak no s\'ha definit com a motor de text a veu predeterminat."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak no ha pogut instal·lar dades de veu. Comprova la targeta SD."</string>
     <string name="error_message" msgid="7565522727556545634">"No s\'ha pogut iniciar eSpeak. Vols enviar un informe d\'error?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"S\'ha produït un error en carregar eSpeak"</string>

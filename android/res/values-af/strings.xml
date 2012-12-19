@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Stemgeslag"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Spraaktempo-vermenigvuldiger"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Installeer tans stemdata..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak is nie as jou verstek teks-na-spraak-enjin opgestel nie. Wil jy dit nou so stel?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak is nie as jou verstek teks-na-spraak-enjin opgestel nie."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak kon  nie stemdata installeer nie. Kontroleer asseblief jou SD-kaart."</string>
     <string name="error_message" msgid="7565522727556545634">"Jammer, eSpeak kon nie begin nie. Wil jy \'n foutverslag stuur?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Kon nie eSpeak laai nie"</string>

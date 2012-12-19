@@ -35,7 +35,7 @@
         Source: Dialog message.
         Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.
     -->
-    <string name="set_default_message">eSpeak is not set as your default text-to-speech engine. Would you like to set it now?</string>
+    <string name="set_default_message">eSpeak is not set as your default text-to-speech engine.</string>
     <!--
         Source: Dialog message.
         Description: Alert dialog telling the user that voice data installation failed.
@@ -128,5 +128,6 @@
         <item>5x</item>
     </string-array>
         <string name="update_voices">Update voices</string>
+        <string name="status">Status</string>
 
 </resources>

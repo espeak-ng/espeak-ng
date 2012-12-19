@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Kasarian ng boses"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Multiplier ng rate ng pananalita"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Ini-install ang data ng boses…"</string>
-    <string name="set_default_message" msgid="651325122612558377">"Hindi nakatakda ang eSpeak bilang iyong default na text-to-speech engine. Gusto mo ba itong itakda ngayon?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"Hindi nakatakda ang eSpeak bilang iyong default na text-to-speech engine."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Nabigong mag-install ng data ng boses ang eSpeak. Pakisuri ang iyong SD card."</string>
     <string name="error_message" msgid="7565522727556545634">"Paumanhin, nabigong magsimula ang eSpeak. Gusto mo bang magpadala ng ulat ng error?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Error sa pag-load ng eSpeak"</string>

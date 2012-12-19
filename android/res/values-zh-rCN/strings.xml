@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"语音性别"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"语速倍数"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"正在安装语音数据..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"未将 eSpeak 设置为文字转语音的默认引擎。要立即设置吗？"</string>
+    <string name="set_default_message" msgid="651325122612558377">"未将 eSpeak 设置为文字转语音的默认引擎。"</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak 无法安装语音数据。请检查您的 SD 卡。"</string>
     <string name="error_message" msgid="7565522727556545634">"很抱歉，eSpeak 启动失败。要发送错误报告吗？"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"加载 eSpeak 时出错"</string>

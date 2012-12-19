@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Giới tính của giọng nói"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Bội số tốc độ đọc"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Đang cài đặt dữ liệu thoại…"</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak chưa được thiết lập làm công cụ chuyển văn bản thành giọng nói mặc định của bạn. Bạn có muốn thiết lập bây giờ không?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak chưa được thiết lập làm công cụ chuyển văn bản thành giọng nói mặc định của bạn."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak không thể cài đặt dữ liệu thoại. Vui lòng kiểm tra thẻ SD của bạn."</string>
     <string name="error_message" msgid="7565522727556545634">"Rất tiếc, không thể khởi động eSpeak. Bạn có muốn gửi báo cáo lỗi không?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Lỗi khi tải eSpeak"</string>

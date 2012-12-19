@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Пол гласа"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Множилац брзине говора"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Инсталирање гласовних података..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeak није подешен као подразумевани механизам за пребацивање текста у говор. Да ли желите да га подесите сада?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeak није подешен као подразумевани механизам за пребацивање текста у говор."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak није успео да инсталира податке о гласу. Проверите SD картицу."</string>
     <string name="error_message" msgid="7565522727556545634">"Жао нам је, eSpeak није покренут. Да ли желите да пошаљете извештај о грешци?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Грешка при учитавању eSpeak-а"</string>

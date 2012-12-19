@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Pohlaví"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Multiplikátor rychlosti řeči"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Instalace hlasových dat..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"Aplikace eSpeak není nastavena jako váš výchozí modul pro převod textu na řeč. Chcete ji nastavit nyní?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"Aplikace eSpeak není nastavena jako váš výchozí modul pro převod textu na řeč."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Aplikaci eSpeak se nepodařilo nainstalovat hlasová data. Zkontrolujte prosím kartu SD."</string>
     <string name="error_message" msgid="7565522727556545634">"Je nám líto, aplikaci eSpeak se nepodařilo spustit. Chcete odeslat zprávu o chybě?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Při načítání aplikace eSpeak došlo k chybě"</string>

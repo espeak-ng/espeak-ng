@@ -6,7 +6,7 @@
     <string name="setting_default_gender" msgid="8721577045178419807">"Äänen sukupuoli"</string>
     <string name="setting_default_rate" msgid="3255750767876184606">"Puheen nopeuskerroin"</string>
     <string name="installing_voice_data" msgid="1199950160686799120">"Asennetaan äänitietoja..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"eSpeakia ei ole asetettu tekstistä puheeksi -oletusmoottoriksi. Asetetaanko se oletusmoottoriksi?"</string>
+    <string name="set_default_message" msgid="651325122612558377">"eSpeakia ei ole asetettu tekstistä puheeksi -oletusmoottoriksi."</string>
     <string name="voice_data_failed_message" msgid="8631894446950552673">"Äänitietojen asentaminen eSpeakiin epäonnistui. Tarkista SD-kortti."</string>
     <string name="error_message" msgid="7565522727556545634">"eSpeakin käynnistäminen epäonnistui. Haluatko lähettää virheilmoituksen?"</string>
     <string name="loading_failed_title" msgid="511566315504616423">"Virhe ladattaessa eSpeakia"</string>
