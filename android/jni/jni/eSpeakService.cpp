@@ -157,7 +157,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeDestroy(
 
   env->DeleteWeakGlobalRef(nat->object);
 
-  free(nat);
+  delete nat;
 
   return JNI_TRUE;
 }
