@@ -181,20 +181,20 @@ public class eSpeakActivity extends Activity {
         }
 
         final String statusText;
-        if (!getPackageName().equals(mTts.getDefaultEngine())) {
-            statusText = getString(R.string.set_default_message);
-        } else {
-            switch (mState) {
-            case ERROR:
-                statusText = getString(R.string.error_message);
-                break;
-            case DOWNLOAD_FAILED:
-                statusText = getString(R.string.voice_data_failed_message);
-                break;
-            default:
+        switch (mState) {
+        case ERROR:
+            statusText = getString(R.string.error_message);
+            break;
+        case DOWNLOAD_FAILED:
+            statusText = getString(R.string.voice_data_failed_message);
+            break;
+        default:
+            if (!getPackageName().equals(mTts.getDefaultEngine())) {
+                statusText = getString(R.string.set_default_message);
+            } else {
                 statusText = null;
-                break;
             }
+            break;
         }
         if (statusText != null) {
             final String statusLabel = getString(R.string.status);
@@ -254,7 +254,7 @@ public class eSpeakActivity extends Activity {
      * @param status The TTS engine initialization status.
      */
     private void onInitialized(int status) {
-        if (status == TextToSpeech.ERROR) {
+        if (status != TextToSpeech.SUCCESS) {
         	Log.e(TAG, "Initialization failed (status: " + status + ").");
             setState(State.ERROR);
         } else {
