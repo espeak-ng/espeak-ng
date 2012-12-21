@@ -101,12 +101,22 @@ data_items = {
 }
 
 def parse_ucd_data(ucd_rootdir, dataset):
-	keys = data_items[dataset]
+	keys  = data_items[dataset]
+	first = None
 	with open(os.path.join(ucd_rootdir, '%s.txt' % dataset)) as f:
 		for line in f:
 			line = line.replace('\n', '').split('#')[0]
 			linedata = [' '.join(x.split()) for x in line.split(';')]
 			if len(linedata) == len(keys):
+				if linedata[1].endswith(', First>'):
+					first = linedata
+					continue
+
+				if linedata[1].endswith(', Last>'):
+					linedata[0] = '%s..%s' % (first[0], linedata[0])
+					linedata[1] = linedata[1].replace(', Last>', '').replace('<', '')
+					first = None
+
 				data = {}
 				for keydata, value in zip(keys, linedata):
 					key, typemap = keydata
