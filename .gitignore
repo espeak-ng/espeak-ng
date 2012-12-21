@@ -1,9 +1,5 @@
 .*.swp
 
-# generated files:
-
-src/categories.cpp
-
 # intermediate files:
 
 .deps/
