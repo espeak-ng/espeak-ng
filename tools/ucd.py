@@ -22,29 +22,36 @@ import sys
 
 class CodePoint:
 	def __init__(self, x):
-		self.codepoint = x
+		self.codepoint = int(x, 16)
 
 	def __repr__(self):
-		return self.codepoint
+		return '%04X' % self.codepoint
 
 	def __str__(self):
-		return self.codepoint
+		return '%04X' % self.codepoint
 
 class CodeRange:
 	def __init__(self, x):
-		self.first, self.last = x.split('..')
+		f, l = x.split('..')
+		self.first = CodePoint(f)
+		self.last  = CodePoint(l)
 
 	def __repr__(self):
 		return '%s..%s' % (self.first, self.last)
 
 	def __str__(self):
 		return '%s..%s' % (self.first, self.last)
+
+	def size(self):
+		return self.last.codepoint - self.first.codepoint + 1
 
 def codepoint(x):
 	if '..' in x:
 		return CodeRange(x)
 	if ' ' in x:
 		return [CodePoint(c) for c in x.split()]
+	if x == '':
+		return None
 	return CodePoint(x)
 
 def string(x):
