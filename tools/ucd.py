@@ -22,13 +22,28 @@ import sys
 
 class CodePoint:
 	def __init__(self, x):
-		self.codepoint = int(x, 16)
+		if isinstance(x, str):
+			self.codepoint = int(x, 16)
+		else:
+			self.codepoint = x
 
 	def __repr__(self):
-		return '%04X' % self.codepoint
+		return '%06X' % self.codepoint
 
 	def __str__(self):
-		return '%04X' % self.codepoint
+		return '%06X' % self.codepoint
+
+	def __hash__(self):
+		return self.codepoint
+
+	def __eq__(self, other):
+		return self.codepoint == other.codepoint
+
+	def __ne__(self, other):
+		return self.codepoint != other.codepoint
+
+	def __lt__(self, other):
+		return self.codepoint < other.codepoint
 
 class CodeRange:
 	def __init__(self, x):
@@ -41,6 +56,10 @@ class CodeRange:
 
 	def __str__(self):
 		return '%s..%s' % (self.first, self.last)
+
+	def __iter__(self):
+		for c in range(self.first.codepoint, self.last.codepoint + 1):
+			yield CodePoint(c)
 
 	def size(self):
 		return self.last.codepoint - self.first.codepoint + 1

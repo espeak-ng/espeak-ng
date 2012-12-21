@@ -40,6 +40,7 @@ namespace ucd
 
 		Cc, /**< @brief Control Character */
 		Cf, /**< @brief Format Control Character */
+		Ci, /**< @brief Invalid Unicode Character */
 		Cn, /**< @brief Unassigned */
 		Co, /**< @brief Private Use */
 		Cs, /**< @brief Surrogate Code Point */

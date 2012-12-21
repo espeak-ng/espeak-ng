@@ -54,7 +54,7 @@ EXTRA_DIST += ChangeLog
 
 ############################# Unicode Character Database ######################
 
-src/categories.cpp: tools/categories.py
+src/categories.cpp: tools/categories.py tools/ucd.py
 	tools/categories.py ${UCD_ROOTDIR} > $@
 
 ############################# libucd ##########################################

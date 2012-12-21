@@ -21,8 +21,59 @@ import os
 import sys
 import ucd
 
-ucd_rootdir  = sys.argv[1]
-unicode_data = ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData')
+ucd_rootdir = sys.argv[1]
+
+unicode_chars = {}
+for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
+	if isinstance(data['CodePoint'], ucd.CodePoint):
+		unicode_chars[data['CodePoint']] = data['GeneralCategory']
+
+# This map is a combination of the information in the UnicodeData and Blocks
+# data files. It is intended to reduce the number of character tables that
+# need to be generated.
+category_sets = [
+	(ucd.CodeRange('000000..00D7FF'), None, 'Multiple Blocks'),
+	(ucd.CodeRange('00D800..00DFFF'), 'Cs', 'Surrogates'),
+	(ucd.CodeRange('00E000..00F8FF'), 'Co', 'Private Use Area'),
+	(ucd.CodeRange('00F900..02FAFF'), None, 'Multiple Blocks'),
+	(ucd.CodeRange('02FB00..0DFFFF'), 'Cn', 'Unassigned'),
+	(ucd.CodeRange('0E0000..0E01FF'), None, 'Multiple Blocks'),
+	(ucd.CodeRange('0E0200..0EFFFF'), 'Cn', 'Unassigned'),
+	(ucd.CodeRange('0F0000..0FFFFD'), 'Co', 'Plane 15 Private Use'),
+	(ucd.CodeRange('0FFFFE..0FFFFF'), 'Cn', 'Plane 15 Private Use'),
+	(ucd.CodeRange('100000..10FFFD'), 'Co', 'Plane 16 Private Use'),
+	(ucd.CodeRange('10FFFE..10FFFF'), 'Cn', 'Plane 16 Private Use'),
+]
+
+category_tables = {}
+for codepoints, category, comment in category_sets:
+	if not category:
+		table = {}
+		table_entry = None
+		table_codepoint = None
+		is_unassigned = True
+		for i, codepoint in enumerate(codepoints):
+			if (i % 256) == 0:
+				if table_entry:
+					if is_unassigned:
+						table[table_codepoint] = None
+					else:
+						table[table_codepoint] = table_entry
+				table_entry = []
+				table_codepoint = codepoint
+				is_unassigned = True
+			try:
+				category = unicode_chars[codepoint]
+				is_unassigned = False
+			except KeyError:
+				category = 'Cn' # Unassigned
+			table_entry.append(category)
+		if table_entry:
+			if is_unassigned:
+				table[table_codepoint] = None
+			else:
+				table[table_codepoint] = table_entry
+		category_tables['%s_%s' % (codepoints.first, codepoints.last)] = table
 
 if __name__ == '__main__':
 	sys.stdout.write("""/* Unicode General Categories
@@ -50,11 +101,52 @@ if __name__ == '__main__':
 
 #include "ucd/ucd.h"
 
+#include <stddef.h>
+
 using namespace ucd;
 """)
+
+	for codepoints, category, comment in category_sets:
+		if not category:
+			tables = category_tables['%s_%s' % (codepoints.first, codepoints.last)]
+			for codepoint in sorted(tables.keys()):
+				table = tables[codepoint]
+				if not table:
+					continue
+
+				sys.stdout.write('\n')
+				sys.stdout.write('static const ucd::category categories_%s[256] =\n' % codepoint)
+				sys.stdout.write('{')
+				for i, category in enumerate(table):
+					if (i % 16) == 0:
+						sys.stdout.write('\n\t/* %02X */' % i)
+					sys.stdout.write(' %s,' % category)
+				sys.stdout.write('\n};\n')
+
+	for codepoints, category, comment in category_sets:
+		if not category:
+			table_index = '%s_%s' % (codepoints.first, codepoints.last)
+			sys.stdout.write('\n')
+			sys.stdout.write('static const ucd::category *categories_%s[] =\n' % table_index)
+			sys.stdout.write('{\n')
+			for codepoint, table in sorted(category_tables[table_index].items()):
+				if table:
+					sys.stdout.write('\tcategories_%s,\n' % codepoint)
+				else:
+					sys.stdout.write('\tNULL, // %s : Unassigned\n' % codepoint)
+			sys.stdout.write('};\n')
 
 	sys.stdout.write('\n')
 	sys.stdout.write('ucd::category ucd::lookup_category(codepoint_t c)\n')
 	sys.stdout.write('{\n')
-	sys.stdout.write('\treturn Cn;\n')
+	for codepoints, category, comment in category_sets:
+		if category:
+			sys.stdout.write('\tif (c <= 0x%s) return %s; // %s : %s\n' % (codepoints.last, category, codepoints, comment))
+		else:
+			sys.stdout.write('\tif (c <= 0x%s) // %s\n' % (codepoints.last, codepoints))
+			sys.stdout.write('\t{\n')
+			sys.stdout.write('\t\tconst ucd::category *table = categories_%s_%s[(c - 0x%s) / 256];\n' % (codepoints.first, codepoints.last, codepoints.first))
+			sys.stdout.write('\t\treturn table ? table[c % 256] : Cn;\n')
+			sys.stdout.write('\t}\n')
+	sys.stdout.write('\treturn Ci;\n')
 	sys.stdout.write('}\n')
