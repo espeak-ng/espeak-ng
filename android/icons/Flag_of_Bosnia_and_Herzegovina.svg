@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1000" height="500" viewBox="0 0 200 100">
+<rect width="200" height="100" style="fill:#002395"/>
+<path d="M 116.91604,94.060661 L 122.5,76.875 L 128.08396,94.060662 L 113.46496,83.439338 L 131.53504,83.439339 L 116.91604,94.060661 z" id="star" style="fill:#fff"/>
+<path d="M 53,0 L 153,0 L 153,100 L 53,0 z" style="fill:#FECB00"/>
+<path d="M 31.53125,0 L 35,0 L 38.46875,0 L 40.58396,6.560662 L 35,2.5 L 29.41604,6.560661 L 31.53125,0 z" id="path11682" style="fill:#fff"/>
+<path d="M 131.53125,100 L 125.96496,95.939338 L 132.875,95.9375 L 135,89.375 L 137.125,95.9375 L 144.03504,95.939339 L 138.46875,100 L 135,100 L 131.53125,100 z" id="path11689" style="fill:#fff"/>
+<use transform="translate(-75,-75)" xlink:href="#star"/>
+<use transform="translate(-62.5,-62.5)" xlink:href="#star"/>
+<use transform="translate(-50,-50)" xlink:href="#star"/>
+<use transform="translate(-37.5,-37.5)" xlink:href="#star"/>
+<use transform="translate(-25,-25)" xlink:href="#star"/>
+<use transform="translate(-12.5,-12.5)" xlink:href="#star"/></svg>

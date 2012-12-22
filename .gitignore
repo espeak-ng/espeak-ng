@@ -11,6 +11,7 @@
 bin/
 obj/
 gen/
+android/icons/*.png
 
 libttsespeak.so
 espeak-data.zip

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="600" height="400" viewBox="1 1 27 18" xmlns="http://www.w3.org/2000/svg" version="1.1">
+  <desc>Flag of Greece</desc>
+  <rect x="0" y="0" width="29" height="20" fill="#0d5eaf" />
+  <g stroke-width="2" stroke="white">
+    <line x1="6" y1="0" x2="6" y2="12" />
+    <line x1="0" y1="6" x2="11" y2="6" />
+    <line x1="11" y1="4" x2="29" y2="4" />
+    <line x1="11" y1="8" x2="29" y2="8" />
+    <line x1="0" y1="12" x2="29" y2="12" />
+    <line x1="0" y1="16" x2="29" y2="16" />
+  </g>
+</svg>

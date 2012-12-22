@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
+<path fill="red" d="m40,85-6,15 6,15-24-15zm220,0 6,15-6,15 24-15zM135,30l15-6 15,6-15-24zm0,140 15,6 15-6-15,24"/>
+<g fill="none" stroke-width="10">
+<path stroke="blue" d="M130,99a60,60 0 1,1 0,2m40,0a60,60 0 1,1 0-2"/>
+<path stroke="red" d="m30,100H270M150,20V180"/>
+</g></svg>

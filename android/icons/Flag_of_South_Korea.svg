@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600" viewBox="-36 -24 72 48">
+<title>Flag of South Korea</title>
+<g fill="#fff">
+<rect x="-36" y="-24" width="72" height="48"/>
+<g transform="rotate(-56.3099325)"><!--arctan(-3/2)-->
+<g id="b2">
+<g id="b">
+<rect width="12" height="8" x="-6" y="-26" fill="#000"/>
+<rect width="14" height="1" x="-7" y="-24"/>
+<rect width="14" height="1" x="-7" y="-21"/>
+</g>
+<use xlink:href="#b" y="44"/>
+<rect width="1" height="10" x="-0.5" y="17"/>
+</g>
+<circle fill="#c60c30" r="12"/>
+<path fill="#003478" d="M 0,-12 A 6,6 0 0 0 0,0 A 6,6 0 0 1 0,12 A 12,12 0 0,1 0,-12"/>
+</g>
+<g transform="rotate(-123.6900675)">
+<use xlink:href="#b2"/>
+<rect width="2" height="2" x="-1" y="21" fill="#000"/>
+<rect width="1" height="4" x="-0.5" y="-24"/>
+</g>
+</g>
+</svg>

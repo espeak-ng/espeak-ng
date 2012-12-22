@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="600" viewBox="0 0 45 30">
+<defs><path id="X" d="M0,0L22.5,15L0,30"/>
+<path id="W" d="M0,0L22.5,15H45 M0,30L22.5,15"/>
+<clipPath id="Z"><use xlink:href="#X"/></clipPath>
+<clipPath id="Y"><rect width="45" height="30"/></clipPath></defs>
+<rect fill="#DE3831" width="45" height="15"/>
+<rect fill="#002395" y="15" width="45" height="15"/><use xlink:href="#X"/>
+<g clip-path="url(#Y)" fill="none" stroke-width="10" stroke="#007A4D">
+<use xlink:href="#W" stroke="#FFFFFF"/>
+<g clip-path="url(#Z)"><use xlink:href="#X" stroke="#FFB612"/>
+<use xlink:href="#X" stroke-width="6"/></g>
+<use xlink:href="#W" stroke-width="6"/></g></svg>
