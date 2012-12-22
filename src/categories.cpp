@@ -29,7 +29,7 @@ using namespace ucd;
 
 // Unicode Character Data 6.2
 
-static const ucd::category categories_Cn[256] =
+static const uint8_t categories_Cn[256] =
 {
 	/* 00 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -49,7 +49,7 @@ static const ucd::category categories_Cn[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_Lo[256] =
+static const uint8_t categories_Lo[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -69,7 +69,7 @@ static const ucd::category categories_Lo[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_Sm[256] =
+static const uint8_t categories_Sm[256] =
 {
 	/* 00 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 	/* 10 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
@@ -89,7 +89,7 @@ static const ucd::category categories_Sm[256] =
 	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
-static const ucd::category categories_So[256] =
+static const uint8_t categories_So[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -109,7 +109,7 @@ static const ucd::category categories_So[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 };
 
-static const ucd::category categories_000000[256] =
+static const uint8_t categories_000000[256] =
 {
 	/* 00 */ Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc,
 	/* 10 */ Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc,
@@ -129,7 +129,7 @@ static const ucd::category categories_000000[256] =
 	/* F0 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Sm, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
 };
 
-static const ucd::category categories_000100[256] =
+static const uint8_t categories_000100[256] =
 {
 	/* 00 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 	/* 10 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
@@ -149,7 +149,7 @@ static const ucd::category categories_000100[256] =
 	/* F0 */ Ll, Lu, Lt, Ll, Lu, Ll, Lu, Lu, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 };
 
-static const ucd::category categories_000200[256] =
+static const uint8_t categories_000200[256] =
 {
 	/* 00 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 	/* 10 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
@@ -169,7 +169,7 @@ static const ucd::category categories_000200[256] =
 	/* F0 */ Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk,
 };
 
-static const ucd::category categories_000300[256] =
+static const uint8_t categories_000300[256] =
 {
 	/* 00 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn,
 	/* 10 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn,
@@ -189,7 +189,7 @@ static const ucd::category categories_000300[256] =
 	/* F0 */ Ll, Ll, Ll, Ll, Lu, Ll, Sm, Lu, Ll, Lu, Lu, Ll, Ll, Lu, Lu, Lu,
 };
 
-static const ucd::category categories_000400[256] =
+static const uint8_t categories_000400[256] =
 {
 	/* 00 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
 	/* 10 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
@@ -209,7 +209,7 @@ static const ucd::category categories_000400[256] =
 	/* F0 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 };
 
-static const ucd::category categories_000500[256] =
+static const uint8_t categories_000500[256] =
 {
 	/* 00 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 	/* 10 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
@@ -229,7 +229,7 @@ static const ucd::category categories_000500[256] =
 	/* F0 */ Lo, Lo, Lo, Po, Po, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000600[256] =
+static const uint8_t categories_000600[256] =
 {
 	/* 00 */ Cf, Cf, Cf, Cf, Cf, Cn, Sm, Sm, Sm, Po, Po, Sc, Po, Po, So, So,
 	/* 10 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Po, Cn, Cn, Po, Po,
@@ -249,7 +249,7 @@ static const ucd::category categories_000600[256] =
 	/* F0 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Lo, Lo, Lo, So, So, Lo,
 };
 
-static const ucd::category categories_000700[256] =
+static const uint8_t categories_000700[256] =
 {
 	/* 00 */ Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Cn, Cf,
 	/* 10 */ Lo, Mn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -269,7 +269,7 @@ static const ucd::category categories_000700[256] =
 	/* F0 */ Mn, Mn, Mn, Mn, Lm, Lm, So, Po, Po, Po, Lm, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000800[256] =
+static const uint8_t categories_000800[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Mn, Mn, Mn, Mn, Lm, Mn, Mn, Mn, Mn, Mn,
@@ -289,7 +289,7 @@ static const ucd::category categories_000800[256] =
 	/* F0 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Cn,
 };
 
-static const ucd::category categories_000900[256] =
+static const uint8_t categories_000900[256] =
 {
 	/* 00 */ Mn, Mn, Mn, Mc, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -309,7 +309,7 @@ static const ucd::category categories_000900[256] =
 	/* F0 */ Lo, Lo, Sc, Sc, No, No, No, No, No, No, So, Sc, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000A00[256] =
+static const uint8_t categories_000A00[256] =
 {
 	/* 00 */ Cn, Mn, Mn, Mc, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn, Lo,
 	/* 10 */ Lo, Cn, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -329,7 +329,7 @@ static const ucd::category categories_000A00[256] =
 	/* F0 */ Po, Sc, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000B00[256] =
+static const uint8_t categories_000B00[256] =
 {
 	/* 00 */ Cn, Mn, Mc, Mc, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Lo,
 	/* 10 */ Lo, Cn, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -349,7 +349,7 @@ static const ucd::category categories_000B00[256] =
 	/* F0 */ No, No, No, So, So, So, So, So, So, Sc, So, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000C00[256] =
+static const uint8_t categories_000C00[256] =
 {
 	/* 00 */ Cn, Mc, Mc, Mc, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Lo, Lo,
 	/* 10 */ Lo, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -369,7 +369,7 @@ static const ucd::category categories_000C00[256] =
 	/* F0 */ Cn, Lo, Lo, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000D00[256] =
+static const uint8_t categories_000D00[256] =
 {
 	/* 00 */ Cn, Cn, Mc, Mc, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Lo, Lo,
 	/* 10 */ Lo, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -389,7 +389,7 @@ static const ucd::category categories_000D00[256] =
 	/* F0 */ Cn, Cn, Mc, Mc, Po, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000E00[256] =
+static const uint8_t categories_000E00[256] =
 {
 	/* 00 */ Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -409,7 +409,7 @@ static const ucd::category categories_000E00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_000F00[256] =
+static const uint8_t categories_000F00[256] =
 {
 	/* 00 */ Lo, So, So, So, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po, Po,
 	/* 10 */ Po, Po, Po, So, Po, So, So, So, Mn, Mn, So, So, So, So, So, So,
@@ -429,7 +429,7 @@ static const ucd::category categories_000F00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001000[256] =
+static const uint8_t categories_001000[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -449,7 +449,7 @@ static const ucd::category categories_001000[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Po, Lm, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_001200[256] =
+static const uint8_t categories_001200[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -469,7 +469,7 @@ static const ucd::category categories_001200[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_001300[256] =
+static const uint8_t categories_001300[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Cn, Lo, Lo, Lo, Lo, Cn, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -489,7 +489,7 @@ static const ucd::category categories_001300[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001400[256] =
+static const uint8_t categories_001400[256] =
 {
 	/* 00 */ Pd, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -509,7 +509,7 @@ static const ucd::category categories_001400[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_001600[256] =
+static const uint8_t categories_001600[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -529,7 +529,7 @@ static const ucd::category categories_001600[256] =
 	/* F0 */ Nl, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001700[256] =
+static const uint8_t categories_001700[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Lo, Lo,
 	/* 10 */ Lo, Lo, Mn, Mn, Mn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -549,7 +549,7 @@ static const ucd::category categories_001700[256] =
 	/* F0 */ No, No, No, No, No, No, No, No, No, No, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001800[256] =
+static const uint8_t categories_001800[256] =
 {
 	/* 00 */ Po, Po, Po, Po, Po, Po, Pd, Po, Po, Po, Po, Mn, Mn, Mn, Zs, Cn,
 	/* 10 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -569,7 +569,7 @@ static const ucd::category categories_001800[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001900[256] =
+static const uint8_t categories_001900[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn,
@@ -589,7 +589,7 @@ static const ucd::category categories_001900[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 };
 
-static const ucd::category categories_001A00[256] =
+static const uint8_t categories_001A00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Mn, Mn, Mc, Mc, Mc, Cn, Cn, Po, Po,
@@ -609,7 +609,7 @@ static const ucd::category categories_001A00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001B00[256] =
+static const uint8_t categories_001B00[256] =
 {
 	/* 00 */ Mn, Mn, Mn, Mn, Mc, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -629,7 +629,7 @@ static const ucd::category categories_001B00[256] =
 	/* F0 */ Mn, Mn, Mc, Mc, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Po, Po, Po, Po,
 };
 
-static const ucd::category categories_001C00[256] =
+static const uint8_t categories_001C00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -649,7 +649,7 @@ static const ucd::category categories_001C00[256] =
 	/* F0 */ Lo, Lo, Mc, Mc, Mn, Lo, Lo, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_001D00[256] =
+static const uint8_t categories_001D00[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
 	/* 10 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
@@ -669,7 +669,7 @@ static const ucd::category categories_001D00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Mn, Mn, Mn, Mn,
 };
 
-static const ucd::category categories_001E00[256] =
+static const uint8_t categories_001E00[256] =
 {
 	/* 00 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 	/* 10 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
@@ -689,7 +689,7 @@ static const ucd::category categories_001E00[256] =
 	/* F0 */ Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll, Lu, Ll,
 };
 
-static const ucd::category categories_001F00[256] =
+static const uint8_t categories_001F00[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
 	/* 10 */ Ll, Ll, Ll, Ll, Ll, Ll, Cn, Cn, Lu, Lu, Lu, Lu, Lu, Lu, Cn, Cn,
@@ -709,7 +709,7 @@ static const ucd::category categories_001F00[256] =
 	/* F0 */ Cn, Cn, Ll, Ll, Ll, Cn, Ll, Ll, Lu, Lu, Lu, Lu, Lt, Sk, Sk, Cn,
 };
 
-static const ucd::category categories_002000[256] =
+static const uint8_t categories_002000[256] =
 {
 	/* 00 */ Zs, Zs, Zs, Zs, Zs, Zs, Zs, Zs, Zs, Zs, Zs, Cf, Cf, Cf, Cf, Cf,
 	/* 10 */ Pd, Pd, Pd, Pd, Pd, Pd, Po, Po, Pi, Pf, Ps, Pi, Pi, Pf, Ps, Pi,
@@ -729,7 +729,7 @@ static const ucd::category categories_002000[256] =
 	/* F0 */ Mn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_002100[256] =
+static const uint8_t categories_002100[256] =
 {
 	/* 00 */ So, So, Lu, So, So, So, So, Lu, So, So, Ll, Lu, Lu, Lu, Ll, Ll,
 	/* 10 */ Lu, Lu, Lu, Ll, So, Lu, So, So, Sm, Lu, Lu, Lu, Lu, Lu, So, So,
@@ -749,7 +749,7 @@ static const ucd::category categories_002100[256] =
 	/* F0 */ So, So, So, So, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
-static const ucd::category categories_002300[256] =
+static const uint8_t categories_002300[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, Sm, Sm, Sm, Sm, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -769,7 +769,7 @@ static const ucd::category categories_002300[256] =
 	/* F0 */ So, So, So, So, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_002400[256] =
+static const uint8_t categories_002400[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -789,7 +789,7 @@ static const ucd::category categories_002400[256] =
 	/* F0 */ No, No, No, No, No, No, No, No, No, No, No, No, No, No, No, No,
 };
 
-static const ucd::category categories_002500[256] =
+static const uint8_t categories_002500[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -809,7 +809,7 @@ static const ucd::category categories_002500[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
-static const ucd::category categories_002600[256] =
+static const uint8_t categories_002600[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -829,7 +829,7 @@ static const ucd::category categories_002600[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 };
 
-static const ucd::category categories_002700[256] =
+static const uint8_t categories_002700[256] =
 {
 	/* 00 */ Cn, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -849,7 +849,7 @@ static const ucd::category categories_002700[256] =
 	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
-static const ucd::category categories_002900[256] =
+static const uint8_t categories_002900[256] =
 {
 	/* 00 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 	/* 10 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
@@ -869,7 +869,7 @@ static const ucd::category categories_002900[256] =
 	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Ps, Pe, Sm, Sm,
 };
 
-static const ucd::category categories_002B00[256] =
+static const uint8_t categories_002B00[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -889,7 +889,7 @@ static const ucd::category categories_002B00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_002C00[256] =
+static const uint8_t categories_002C00[256] =
 {
 	/* 00 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
 	/* 10 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
@@ -909,7 +909,7 @@ static const ucd::category categories_002C00[256] =
 	/* F0 */ Mn, Mn, Lu, Ll, Cn, Cn, Cn, Cn, Cn, Po, Po, Po, Po, No, Po, Po,
 };
 
-static const ucd::category categories_002D00[256] =
+static const uint8_t categories_002D00[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
 	/* 10 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
@@ -929,7 +929,7 @@ static const ucd::category categories_002D00[256] =
 	/* F0 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn,
 };
 
-static const ucd::category categories_002E00[256] =
+static const uint8_t categories_002E00[256] =
 {
 	/* 00 */ Po, Po, Pi, Pf, Pi, Pf, Po, Po, Po, Pi, Pf, Po, Pi, Pf, Po, Po,
 	/* 10 */ Po, Po, Po, Po, Po, Po, Po, Pd, Po, Po, Pd, Po, Pi, Pf, Po, Po,
@@ -949,7 +949,7 @@ static const ucd::category categories_002E00[256] =
 	/* F0 */ So, So, So, So, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_002F00[256] =
+static const uint8_t categories_002F00[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -969,7 +969,7 @@ static const ucd::category categories_002F00[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_003000[256] =
+static const uint8_t categories_003000[256] =
 {
 	/* 00 */ Zs, Po, Po, Po, So, Lm, Lo, Nl, Ps, Pe, Ps, Pe, Ps, Pe, Ps, Pe,
 	/* 10 */ Ps, Pe, So, So, Ps, Pe, Ps, Pe, Ps, Pe, Ps, Pe, Pd, Ps, Pe, Pe,
@@ -989,7 +989,7 @@ static const ucd::category categories_003000[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Po, Lm, Lm, Lm, Lo,
 };
 
-static const ucd::category categories_003100[256] =
+static const uint8_t categories_003100[256] =
 {
 	/* 00 */ Cn, Cn, Cn, Cn, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1009,7 +1009,7 @@ static const ucd::category categories_003100[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_003200[256] =
+static const uint8_t categories_003200[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, Cn,
@@ -1029,7 +1029,7 @@ static const ucd::category categories_003200[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, Cn,
 };
 
-static const ucd::category categories_004D00[256] =
+static const uint8_t categories_004D00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1049,7 +1049,7 @@ static const ucd::category categories_004D00[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 };
 
-static const ucd::category categories_009F00[256] =
+static const uint8_t categories_009F00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1069,7 +1069,7 @@ static const ucd::category categories_009F00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00A000[256] =
+static const uint8_t categories_00A000[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lm, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1089,7 +1089,7 @@ static const ucd::category categories_00A000[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_00A400[256] =
+static const uint8_t categories_00A400[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1109,7 +1109,7 @@ static const ucd::category categories_00A400[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lm, Lm, Lm, Lm, Lm, Lm, Po, Po,
 };
 
-static const ucd::category categories_00A600[256] =
+static const uint8_t categories_00A600[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lm, Po, Po, Po,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1129,7 +1129,7 @@ static const ucd::category categories_00A600[256] =
 	/* F0 */ Mn, Mn, Po, Po, Po, Po, Po, Po, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00A700[256] =
+static const uint8_t categories_00A700[256] =
 {
 	/* 00 */ Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk, Sk,
 	/* 10 */ Sk, Sk, Sk, Sk, Sk, Sk, Sk, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm, Lm,
@@ -1149,7 +1149,7 @@ static const ucd::category categories_00A700[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Lm, Lm, Ll, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_00A800[256] =
+static const uint8_t categories_00A800[256] =
 {
 	/* 00 */ Lo, Lo, Mn, Lo, Lo, Lo, Mn, Lo, Lo, Lo, Lo, Mn, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1169,7 +1169,7 @@ static const ucd::category categories_00A800[256] =
 	/* F0 */ Mn, Mn, Lo, Lo, Lo, Lo, Lo, Lo, Po, Po, Po, Lo, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00A900[256] =
+static const uint8_t categories_00A900[256] =
 {
 	/* 00 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1189,7 +1189,7 @@ static const ucd::category categories_00A900[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00AA00[256] =
+static const uint8_t categories_00AA00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1209,7 +1209,7 @@ static const ucd::category categories_00AA00[256] =
 	/* F0 */ Po, Po, Lo, Lm, Lm, Mc, Mn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00AB00[256] =
+static const uint8_t categories_00AB00[256] =
 {
 	/* 00 */ Cn, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Cn,
 	/* 10 */ Cn, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -1229,7 +1229,7 @@ static const ucd::category categories_00AB00[256] =
 	/* F0 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00D700[256] =
+static const uint8_t categories_00D700[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1249,7 +1249,7 @@ static const ucd::category categories_00D700[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00FA00[256] =
+static const uint8_t categories_00FA00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1269,7 +1269,7 @@ static const ucd::category categories_00FA00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_00FB00[256] =
+static const uint8_t categories_00FB00[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Ll, Ll, Ll, Ll, Ll, Cn, Cn, Cn, Cn, Cn, Lo, Mn, Lo,
@@ -1289,7 +1289,7 @@ static const ucd::category categories_00FB00[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_00FD00[256] =
+static const uint8_t categories_00FD00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1309,7 +1309,7 @@ static const ucd::category categories_00FD00[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Sc, So, Cn, Cn,
 };
 
-static const ucd::category categories_00FE00[256] =
+static const uint8_t categories_00FE00[256] =
 {
 	/* 00 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn,
 	/* 10 */ Po, Po, Po, Po, Po, Po, Po, Ps, Pe, Po, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -1329,7 +1329,7 @@ static const ucd::category categories_00FE00[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cf,
 };
 
-static const ucd::category categories_00FF00[256] =
+static const uint8_t categories_00FF00[256] =
 {
 	/* 00 */ Cn, Po, Po, Po, Sc, Po, Po, Po, Ps, Pe, Po, Sm, Po, Pd, Po, Po,
 	/* 10 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Po, Po, Sm, Sm, Sm, Po,
@@ -1349,7 +1349,7 @@ static const ucd::category categories_00FF00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cf, Cf, Cf, So, So, Cn, Cn,
 };
 
-static const ucd::category categories_010000[256] =
+static const uint8_t categories_010000[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1369,7 +1369,7 @@ static const ucd::category categories_010000[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010100[256] =
+static const uint8_t categories_010100[256] =
 {
 	/* 00 */ Po, Po, Po, Cn, Cn, Cn, Cn, No, No, No, No, No, No, No, No, No,
 	/* 10 */ No, No, No, No, No, No, No, No, No, No, No, No, No, No, No, No,
@@ -1389,7 +1389,7 @@ static const ucd::category categories_010100[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, Mn, Cn, Cn,
 };
 
-static const ucd::category categories_010200[256] =
+static const uint8_t categories_010200[256] =
 {
 	/* 00 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -1409,7 +1409,7 @@ static const ucd::category categories_010200[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010300[256] =
+static const uint8_t categories_010300[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn,
@@ -1429,7 +1429,7 @@ static const ucd::category categories_010300[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010400[256] =
+static const uint8_t categories_010400[256] =
 {
 	/* 00 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
 	/* 10 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
@@ -1449,7 +1449,7 @@ static const ucd::category categories_010400[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010800[256] =
+static const uint8_t categories_010800[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Lo, Cn, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1469,7 +1469,7 @@ static const ucd::category categories_010800[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010900[256] =
+static const uint8_t categories_010900[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, No, No, No, No, No, No, Cn, Cn, Cn, Po,
@@ -1489,7 +1489,7 @@ static const ucd::category categories_010900[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010A00[256] =
+static const uint8_t categories_010A00[256] =
 {
 	/* 00 */ Lo, Mn, Mn, Mn, Cn, Mn, Mn, Cn, Cn, Cn, Cn, Cn, Mn, Mn, Mn, Mn,
 	/* 10 */ Lo, Lo, Lo, Lo, Cn, Lo, Lo, Lo, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1509,7 +1509,7 @@ static const ucd::category categories_010A00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010B00[256] =
+static const uint8_t categories_010B00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1529,7 +1529,7 @@ static const ucd::category categories_010B00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010C00[256] =
+static const uint8_t categories_010C00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1549,7 +1549,7 @@ static const ucd::category categories_010C00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_010E00[256] =
+static const uint8_t categories_010E00[256] =
 {
 	/* 00 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -1569,7 +1569,7 @@ static const ucd::category categories_010E00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_011000[256] =
+static const uint8_t categories_011000[256] =
 {
 	/* 00 */ Mc, Mn, Mc, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1589,7 +1589,7 @@ static const ucd::category categories_011000[256] =
 	/* F0 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_011100[256] =
+static const uint8_t categories_011100[256] =
 {
 	/* 00 */ Mn, Mn, Mn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1609,7 +1609,7 @@ static const ucd::category categories_011100[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_011600[256] =
+static const uint8_t categories_011600[256] =
 {
 	/* 00 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -1629,7 +1629,7 @@ static const ucd::category categories_011600[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_012300[256] =
+static const uint8_t categories_012300[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1649,7 +1649,7 @@ static const ucd::category categories_012300[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_012400[256] =
+static const uint8_t categories_012400[256] =
 {
 	/* 00 */ Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl,
 	/* 10 */ Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl, Nl,
@@ -1669,7 +1669,7 @@ static const ucd::category categories_012400[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_013400[256] =
+static const uint8_t categories_013400[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1689,7 +1689,7 @@ static const ucd::category categories_013400[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_016A00[256] =
+static const uint8_t categories_016A00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1709,7 +1709,7 @@ static const ucd::category categories_016A00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_016F00[256] =
+static const uint8_t categories_016F00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1729,7 +1729,7 @@ static const ucd::category categories_016F00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01B000[256] =
+static const uint8_t categories_01B000[256] =
 {
 	/* 00 */ Lo, Lo, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -1749,7 +1749,7 @@ static const ucd::category categories_01B000[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01D000[256] =
+static const uint8_t categories_01D000[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1769,7 +1769,7 @@ static const ucd::category categories_01D000[256] =
 	/* F0 */ So, So, So, So, So, So, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01D100[256] =
+static const uint8_t categories_01D100[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1789,7 +1789,7 @@ static const ucd::category categories_01D100[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01D200[256] =
+static const uint8_t categories_01D200[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1809,7 +1809,7 @@ static const ucd::category categories_01D200[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01D300[256] =
+static const uint8_t categories_01D300[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1829,7 +1829,7 @@ static const ucd::category categories_01D300[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01D400[256] =
+static const uint8_t categories_01D400[256] =
 {
 	/* 00 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
 	/* 10 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Ll, Ll, Ll, Ll, Ll, Ll,
@@ -1849,7 +1849,7 @@ static const ucd::category categories_01D400[256] =
 	/* F0 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
 };
 
-static const ucd::category categories_01D500[256] =
+static const uint8_t categories_01D500[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Lu, Lu, Cn, Lu, Lu, Lu, Lu, Cn, Cn, Lu, Lu, Lu,
 	/* 10 */ Lu, Lu, Lu, Lu, Lu, Cn, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Cn, Ll, Ll,
@@ -1869,7 +1869,7 @@ static const ucd::category categories_01D500[256] =
 	/* F0 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
 };
 
-static const ucd::category categories_01D600[256] =
+static const uint8_t categories_01D600[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
 	/* 10 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu,
@@ -1889,7 +1889,7 @@ static const ucd::category categories_01D600[256] =
 	/* F0 */ Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Lu, Sm, Ll, Ll, Ll, Ll,
 };
 
-static const ucd::category categories_01D700[256] =
+static const uint8_t categories_01D700[256] =
 {
 	/* 00 */ Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll, Ll,
 	/* 10 */ Ll, Ll, Ll, Ll, Ll, Sm, Ll, Ll, Ll, Ll, Ll, Ll, Lu, Lu, Lu, Lu,
@@ -1909,7 +1909,7 @@ static const ucd::category categories_01D700[256] =
 	/* F0 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd,
 };
 
-static const ucd::category categories_01EE00[256] =
+static const uint8_t categories_01EE00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Cn, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -1929,7 +1929,7 @@ static const ucd::category categories_01EE00[256] =
 	/* F0 */ Sm, Sm, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01F000[256] =
+static const uint8_t categories_01F000[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1949,7 +1949,7 @@ static const ucd::category categories_01F000[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01F100[256] =
+static const uint8_t categories_01F100[256] =
 {
 	/* 00 */ No, No, No, No, No, No, No, No, No, No, No, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1969,7 +1969,7 @@ static const ucd::category categories_01F100[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 };
 
-static const ucd::category categories_01F200[256] =
+static const uint8_t categories_01F200[256] =
 {
 	/* 00 */ So, So, So, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -1989,7 +1989,7 @@ static const ucd::category categories_01F200[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01F300[256] =
+static const uint8_t categories_01F300[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -2009,7 +2009,7 @@ static const ucd::category categories_01F300[256] =
 	/* F0 */ So, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01F400[256] =
+static const uint8_t categories_01F400[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -2029,7 +2029,7 @@ static const ucd::category categories_01F400[256] =
 	/* F0 */ So, So, So, So, So, So, So, So, Cn, So, So, So, So, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01F500[256] =
+static const uint8_t categories_01F500[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -2049,7 +2049,7 @@ static const ucd::category categories_01F500[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, So, So, So, So, So,
 };
 
-static const ucd::category categories_01F600[256] =
+static const uint8_t categories_01F600[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -2069,7 +2069,7 @@ static const ucd::category categories_01F600[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_01F700[256] =
+static const uint8_t categories_01F700[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
@@ -2089,7 +2089,7 @@ static const ucd::category categories_01F700[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_02A600[256] =
+static const uint8_t categories_02A600[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -2109,7 +2109,7 @@ static const ucd::category categories_02A600[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_02B700[256] =
+static const uint8_t categories_02B700[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -2129,7 +2129,7 @@ static const ucd::category categories_02B700[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
-static const ucd::category categories_02B800[256] =
+static const uint8_t categories_02B800[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn,
@@ -2149,7 +2149,7 @@ static const ucd::category categories_02B800[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_02FA00[256] =
+static const uint8_t categories_02FA00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 	/* 10 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn,
@@ -2169,7 +2169,7 @@ static const ucd::category categories_02FA00[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_0E0000[256] =
+static const uint8_t categories_0E0000[256] =
 {
 	/* 00 */ Cn, Cf, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 	/* 10 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
@@ -2189,7 +2189,7 @@ static const ucd::category categories_0E0000[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category categories_0E0100[256] =
+static const uint8_t categories_0E0100[256] =
 {
 	/* 00 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn,
 	/* 10 */ Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn, Mn,
@@ -2209,7 +2209,7 @@ static const ucd::category categories_0E0100[256] =
 	/* F0 */ Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn, Cn,
 };
 
-static const ucd::category *categories_000000_00D7FF[] =
+static const uint8_t *categories_000000_00D7FF[] =
 {
 	categories_000000,
 	categories_000100,
@@ -2429,7 +2429,7 @@ static const ucd::category *categories_000000_00D7FF[] =
 	categories_00D700,
 };
 
-static const ucd::category *categories_00F900_02FAFF[] =
+static const uint8_t *categories_00F900_02FAFF[] =
 {
 	categories_Lo, // 00F900
 	categories_00FA00,
@@ -2947,7 +2947,7 @@ static const ucd::category *categories_00F900_02FAFF[] =
 	categories_02FA00,
 };
 
-static const ucd::category *categories_0E0000_0E01FF[] =
+static const uint8_t *categories_0E0000_0E01FF[] =
 {
 	categories_0E0000,
 	categories_0E0100,
@@ -2957,21 +2957,21 @@ ucd::category ucd::lookup_category(codepoint_t c)
 {
 	if (c <= 0x00D7FF) // 000000..00D7FF
 	{
-		const ucd::category *table = categories_000000_00D7FF[(c - 0x000000) / 256];
-		return table[c % 256];
+		const uint8_t *table = categories_000000_00D7FF[(c - 0x000000) / 256];
+		return (ucd::category)table[c % 256];
 	}
 	if (c <= 0x00DFFF) return Cs; // 00D800..00DFFF : Surrogates
 	if (c <= 0x00F8FF) return Co; // 00E000..00F8FF : Private Use Area
 	if (c <= 0x02FAFF) // 00F900..02FAFF
 	{
-		const ucd::category *table = categories_00F900_02FAFF[(c - 0x00F900) / 256];
-		return table[c % 256];
+		const uint8_t *table = categories_00F900_02FAFF[(c - 0x00F900) / 256];
+		return (ucd::category)table[c % 256];
 	}
 	if (c <= 0x0DFFFF) return Cn; // 02FB00..0DFFFF : Unassigned
 	if (c <= 0x0E01FF) // 0E0000..0E01FF
 	{
-		const ucd::category *table = categories_0E0000_0E01FF[(c - 0x0E0000) / 256];
-		return table[c % 256];
+		const uint8_t *table = categories_0E0000_0E01FF[(c - 0x0E0000) / 256];
+		return (ucd::category)table[c % 256];
 	}
 	if (c <= 0x0EFFFF) return Cn; // 0E0200..0EFFFF : Unassigned
 	if (c <= 0x0FFFFD) return Co; // 0F0000..0FFFFD : Plane 15 Private Use

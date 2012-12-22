@@ -119,7 +119,7 @@ using namespace ucd;
 
 	for category in special_categories:
 		sys.stdout.write('\n')
-		sys.stdout.write('static const ucd::category categories_%s[256] =\n' % category)
+		sys.stdout.write('static const uint8_t categories_%s[256] =\n' % category)
 		sys.stdout.write('{')
 		for i in range(0, 256):
 			if (i % 16) == 0:
@@ -136,7 +136,7 @@ using namespace ucd;
 					continue
 
 				sys.stdout.write('\n')
-				sys.stdout.write('static const ucd::category categories_%s[256] =\n' % codepoint)
+				sys.stdout.write('static const uint8_t categories_%s[256] =\n' % codepoint)
 				sys.stdout.write('{')
 				for i, category in enumerate(table):
 					if (i % 16) == 0:
@@ -148,7 +148,7 @@ using namespace ucd;
 		if not category:
 			table_index = '%s_%s' % (codepoints.first, codepoints.last)
 			sys.stdout.write('\n')
-			sys.stdout.write('static const ucd::category *categories_%s[] =\n' % table_index)
+			sys.stdout.write('static const uint8_t *categories_%s[] =\n' % table_index)
 			sys.stdout.write('{\n')
 			for codepoint, table in sorted(category_tables[table_index].items()):
 				if isinstance(table, str):
@@ -166,8 +166,8 @@ using namespace ucd;
 		else:
 			sys.stdout.write('\tif (c <= 0x%s) // %s\n' % (codepoints.last, codepoints))
 			sys.stdout.write('\t{\n')
-			sys.stdout.write('\t\tconst ucd::category *table = categories_%s_%s[(c - 0x%s) / 256];\n' % (codepoints.first, codepoints.last, codepoints.first))
-			sys.stdout.write('\t\treturn table[c % 256];\n')
+			sys.stdout.write('\t\tconst uint8_t *table = categories_%s_%s[(c - 0x%s) / 256];\n' % (codepoints.first, codepoints.last, codepoints.first))
+			sys.stdout.write('\t\treturn (ucd::category)table[c % 256];\n')
 			sys.stdout.write('\t}\n')
 	sys.stdout.write('\treturn Ii; // Invalid Unicode Codepoint\n')
 	sys.stdout.write('}\n')
