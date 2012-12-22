@@ -36,5 +36,8 @@
 #define iswspace(c) ucd::isspace(c)
 #define iswupper(c) ucd::isupper(c)
 
+#define towlower(c) ucd::tolower(c)
+#define towupper(c) ucd::toupper(c)
+
 #endif
 #endif

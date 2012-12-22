@@ -23,6 +23,7 @@ BLACKLIST_SRC_FILES := \
 ESPEAK_SRC_PATH := ../../src
 
 ESPEAK_SRC_FILES := \
+  $(LOCAL_PATH)/../../../ucd-tools/src/case.cpp \
   $(LOCAL_PATH)/../../../ucd-tools/src/categories.cpp \
   $(LOCAL_PATH)/../../../ucd-tools/src/ctype.cpp \
   $(subst $(LOCAL_PATH)/$(ESPEAK_SRC_PATH),$(ESPEAK_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/*.c*))
