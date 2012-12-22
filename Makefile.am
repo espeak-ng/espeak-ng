@@ -68,4 +68,5 @@ lib_LTLIBRARIES += src/libucd.la
 src_libucd_la_LDFLAGS = -version-info $(LIBUCD_VERSION)
 src_libucd_la_CXXFLAGS = ${AM_CXXFLAGS}
 src_libucd_la_SOURCES = \
-	src/categories.cpp
+	src/categories.cpp \
+	src/ctype.cpp
