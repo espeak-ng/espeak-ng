@@ -1,0 +1,3 @@
+[submodule "ucd-tools"]
+	path = ucd-tools
+	url = git@github.com:rhdunn/ucd-tools.git

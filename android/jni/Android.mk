@@ -23,6 +23,8 @@ BLACKLIST_SRC_FILES := \
 ESPEAK_SRC_PATH := ../../src
 
 ESPEAK_SRC_FILES := \
+  $(LOCAL_PATH)/../../../ucd-tools/src/categories.cpp \
+  $(LOCAL_PATH)/../../../ucd-tools/src/ctype.cpp \
   $(subst $(LOCAL_PATH)/$(ESPEAK_SRC_PATH),$(ESPEAK_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/*.c*))
   
 LOCAL_SRC_FILES += \
@@ -35,6 +37,7 @@ LOCAL_SRC_FILES += \
 
 LOCAL_C_INCLUDES += \
   $(LOCAL_PATH)/include \
+  $(LOCAL_PATH)/../../../ucd-tools/src/include \
   $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)
 
 LOCAL_LDLIBS := \

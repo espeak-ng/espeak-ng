@@ -25,26 +25,16 @@
 #include <wchar.h>
 #include <wctype.h>
 
-enum android_wctype
-{
-	android_wctype_upper = 0x01,
-	android_wctype_lower = 0x02,
-	android_wctype_digit = 0x04,
-	android_wctype_lettr = 0x08,
-	android_wctype_space = 0x10,
-	android_wctype_cntrl = 0x20,
-	android_wctype_punct = 0x40,
-	android_wctype_alpha = android_wctype_upper|android_wctype_lower|android_wctype_lettr,
-	android_wctype_alnum = android_wctype_alpha|android_wctype_digit,
-};
+#ifdef ANDROID
 
-extern "C" android_wctype __android_wctype(wint_t c);
+#include "ucd/ucd.h"
 
-#define iswalpha(c) ((__android_wctype(c) & android_wctype_alpha) != 0)
-#define iswalnum(c) ((__android_wctype(c) & android_wctype_alnum) != 0)
-#define iswdigit(c) ((__android_wctype(c) & android_wctype_digit) != 0)
-#define iswlower(c) ((__android_wctype(c) & android_wctype_lower) != 0)
-#define iswspace(c) ((__android_wctype(c) & android_wctype_space) != 0)
-#define iswupper(c) ((__android_wctype(c) & android_wctype_upper) != 0)
+#define iswalpha(c) ucd::isalpha(c)
+#define iswalnum(c) ucd::isalnum(c)
+#define iswdigit(c) ucd::isdigit(c)
+#define iswlower(c) ucd::islower(c)
+#define iswspace(c) ucd::isspace(c)
+#define iswupper(c) ucd::isupper(c)
 
+#endif
 #endif
