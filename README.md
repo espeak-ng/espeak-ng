@@ -14,6 +14,13 @@ configured correctly:
 4.  Android Developer Tools (ADT) for Eclipse
 5.  wxWidgets 2.8 (for espeakedit if building the `espeak-data` zip files)
 
+## Fetching the Sources
+
+The Android port uses the `ucd-tools` submodule. You can fetch this by running:
+
+    $ git submodule init
+    $ git submodule update
+
 ## Building
 
 1.  Build the `libttsespeak.so` file by running:
