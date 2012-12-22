@@ -27,6 +27,8 @@
 
 using namespace ucd;
 
+// Unicode Character Data 6.2
+
 static const ucd::category categories_000000[256] =
 {
 	/* 00 */ Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc,

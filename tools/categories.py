@@ -22,6 +22,7 @@ import sys
 import ucd
 
 ucd_rootdir = sys.argv[1]
+ucd_version = ucd_rootdir.split('-')[-1]
 
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
@@ -104,7 +105,9 @@ if __name__ == '__main__':
 #include <stddef.h>
 
 using namespace ucd;
-""")
+
+// Unicode Character Data %s
+""" % ucd_version)
 
 	for codepoints, category, comment in category_sets:
 		if not category:
