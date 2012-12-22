@@ -70,7 +70,7 @@ def codepoint(x):
 	if ' ' in x:
 		return [CodePoint(c) for c in x.split()]
 	if x == '':
-		return None
+		return CodePoint('0000')
 	return CodePoint(x)
 
 def string(x):

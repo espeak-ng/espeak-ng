@@ -54,6 +54,9 @@ EXTRA_DIST += ChangeLog
 
 ############################# Unicode Character Database ######################
 
+src/case.cpp: tools/case.py tools/ucd.py
+	tools/case.py ${UCD_ROOTDIR} > $@
+
 src/categories.cpp: tools/categories.py tools/ucd.py
 	tools/categories.py ${UCD_ROOTDIR} > $@
 
@@ -68,5 +71,6 @@ lib_LTLIBRARIES += src/libucd.la
 src_libucd_la_LDFLAGS = -version-info $(LIBUCD_VERSION)
 src_libucd_la_CXXFLAGS = ${AM_CXXFLAGS}
 src_libucd_la_SOURCES = \
+	src/case.cpp \
 	src/categories.cpp \
 	src/ctype.cpp

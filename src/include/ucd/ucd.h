@@ -31,6 +31,11 @@ namespace ucd
 	  */
 	typedef uint32_t codepoint_t;
 
+	/** @name  Unicode General Category
+	  * @brief These functions query the General Category property of Unicode codepoints.
+	  */
+	//@{
+
 	/** @brief Unicode General Category Groups
 	  * @see   http://www.unicode.org/reports/tr44/
 	  */
@@ -106,6 +111,7 @@ namespace ucd
 	category lookup_category(codepoint_t c);
 
 
+	//@}
 	/** @name  ctype-style APIs
 	  * @brief These functions provide wctype compatible functions using the UCD data.
 	  */
@@ -181,6 +187,50 @@ namespace ucd
 	  * @return  Non-zero if the codepoint is an upper-case letter, zero otherwise.
 	  */
 	int isupper(codepoint_t c);
+
+
+	//@}
+	/** @name  Case Conversion APIs
+	  * @brief These functions convert Unicode codepoints between lower, upper and title case.
+	  */
+	//@{
+
+
+	/** @brief Convert the Unicode codepoint to upper-case.
+	  *
+	  * This function only uses the simple case mapping present in the
+	  * UnicodeData file. The data in SpecialCasing requires Unicode
+	  * codepoints to be mapped to multiple codepoints.
+	  *
+	  * @param c The Unicode codepoint to convert.
+	  * @return  The upper-case Unicode codepoint for this codepoint, or
+	  *          this codepoint if there is no upper-case codepoint.
+	  */
+	codepoint_t toupper(codepoint_t c);
+
+	/** @brief Convert the Unicode codepoint to lower-case.
+	  *
+	  * This function only uses the simple case mapping present in the
+	  * UnicodeData file. The data in SpecialCasing requires Unicode
+	  * codepoints to be mapped to multiple codepoints.
+	  *
+	  * @param c The Unicode codepoint to convert.
+	  * @return  The lower-case Unicode codepoint for this codepoint, or
+	  *          this codepoint if there is no upper-case codepoint.
+	  */
+	codepoint_t tolower(codepoint_t c);
+
+	/** @brief Convert the Unicode codepoint to title-case.
+	  *
+	  * This function only uses the simple case mapping present in the
+	  * UnicodeData file. The data in SpecialCasing requires Unicode
+	  * codepoints to be mapped to multiple codepoints.
+	  *
+	  * @param c The Unicode codepoint to convert.
+	  * @return  The title-case Unicode codepoint for this codepoint, or
+	  *          this codepoint if there is no upper-case codepoint.
+	  */
+	codepoint_t totitle(codepoint_t c);
 
 
 	//@}
