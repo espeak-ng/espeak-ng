@@ -46,32 +46,38 @@ category_sets = [
 	(ucd.CodeRange('10FFFE..10FFFF'), 'Cn', 'Plane 16 Private Use'),
 ]
 
+# These categories have many pages consisting of just this category:
+#     Cn -- Unassigned
+#     Lo -- CJK Ideographs
+special_categories = ['Cn', 'Lo']
+
 category_tables = {}
 for codepoints, category, comment in category_sets:
 	if not category:
 		table = {}
 		table_entry = None
 		table_codepoint = None
-		is_unassigned = True
+		table_category = None
 		for i, codepoint in enumerate(codepoints):
+			try:
+				category = unicode_chars[codepoint]
+			except KeyError:
+				category = 'Cn' # Unassigned
 			if (i % 256) == 0:
 				if table_entry:
-					if is_unassigned:
-						table[table_codepoint] = None
+					if table_category in special_categories:
+						table[table_codepoint] = table_category
 					else:
 						table[table_codepoint] = table_entry
 				table_entry = []
 				table_codepoint = codepoint
-				is_unassigned = True
-			try:
-				category = unicode_chars[codepoint]
-				is_unassigned = False
-			except KeyError:
-				category = 'Cn' # Unassigned
+				table_category = category
+			if category != table_category:
+				table_category = None
 			table_entry.append(category)
 		if table_entry:
-			if is_unassigned:
-				table[table_codepoint] = None
+			if table_category in special_categories:
+				table[table_codepoint] = table_category
 			else:
 				table[table_codepoint] = table_entry
 		category_tables['%s_%s' % (codepoints.first, codepoints.last)] = table
@@ -109,12 +115,22 @@ using namespace ucd;
 // Unicode Character Data %s
 """ % ucd_version)
 
+	for category in special_categories:
+		sys.stdout.write('\n')
+		sys.stdout.write('static const ucd::category categories_%s[256] =\n' % category)
+		sys.stdout.write('{')
+		for i in range(0, 256):
+			if (i % 16) == 0:
+				sys.stdout.write('\n\t/* %02X */' % i)
+			sys.stdout.write(' %s,' % category)
+		sys.stdout.write('\n};\n')
+
 	for codepoints, category, comment in category_sets:
 		if not category:
 			tables = category_tables['%s_%s' % (codepoints.first, codepoints.last)]
 			for codepoint in sorted(tables.keys()):
 				table = tables[codepoint]
-				if not table:
+				if table in special_categories:
 					continue
 
 				sys.stdout.write('\n')
@@ -133,10 +149,10 @@ using namespace ucd;
 			sys.stdout.write('static const ucd::category *categories_%s[] =\n' % table_index)
 			sys.stdout.write('{\n')
 			for codepoint, table in sorted(category_tables[table_index].items()):
-				if table:
-					sys.stdout.write('\tcategories_%s,\n' % codepoint)
+				if isinstance(table, str):
+					sys.stdout.write('\tcategories_%s, // %s\n' % (table, codepoint))
 				else:
-					sys.stdout.write('\tNULL, // %s : Unassigned\n' % codepoint)
+					sys.stdout.write('\tcategories_%s,\n' % codepoint)
 			sys.stdout.write('};\n')
 
 	sys.stdout.write('\n')
@@ -149,7 +165,7 @@ using namespace ucd;
 			sys.stdout.write('\tif (c <= 0x%s) // %s\n' % (codepoints.last, codepoints))
 			sys.stdout.write('\t{\n')
 			sys.stdout.write('\t\tconst ucd::category *table = categories_%s_%s[(c - 0x%s) / 256];\n' % (codepoints.first, codepoints.last, codepoints.first))
-			sys.stdout.write('\t\treturn table ? table[c % 256] : Cn;\n')
+			sys.stdout.write('\t\treturn table[c % 256];\n')
 			sys.stdout.write('\t}\n')
 	sys.stdout.write('\treturn Ii; // Invalid Unicode Codepoint\n')
 	sys.stdout.write('}\n')
