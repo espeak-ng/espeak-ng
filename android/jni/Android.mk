@@ -1,6 +1,14 @@
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
+# ucd-tools wide-character compatibility support:
+
+UCDTOOLS_SRC_PATH  := ../../ucd-tools/src
+UCDTOOLS_SRC_FILES := \
+  $(subst $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH),$(UCDTOOLS_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/*.c*))
+
+LOCAL_SRC_FILES += $(UCDTOOLS_SRC_FILES)
+
 # eSpeak (minus command line apps and espeakedit)
 
 BLACKLIST_SRC_FILES := \
@@ -20,14 +28,10 @@ BLACKLIST_SRC_FILES := \
   %/voicedlg.cpp \
   %/vowelchart.cpp
 
-ESPEAK_SRC_PATH := ../../src
-
+ESPEAK_SRC_PATH  := ../../src
 ESPEAK_SRC_FILES := \
-  $(LOCAL_PATH)/../../../ucd-tools/src/case.cpp \
-  $(LOCAL_PATH)/../../../ucd-tools/src/categories.cpp \
-  $(LOCAL_PATH)/../../../ucd-tools/src/ctype.cpp \
   $(subst $(LOCAL_PATH)/$(ESPEAK_SRC_PATH),$(ESPEAK_SRC_PATH),$(wildcard $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)/*.c*))
-  
+
 LOCAL_SRC_FILES += \
   $(filter-out $(BLACKLIST_SRC_FILES),$(ESPEAK_SRC_FILES))
 
@@ -36,15 +40,15 @@ LOCAL_SRC_FILES += \
 LOCAL_SRC_FILES += \
   $(subst $(LOCAL_PATH)/jni,jni,$(wildcard $(LOCAL_PATH)/jni/*.c*))
 
+# Common
+
 LOCAL_C_INCLUDES += \
   $(LOCAL_PATH)/include \
-  $(LOCAL_PATH)/../../../ucd-tools/src/include \
+  $(LOCAL_PATH)/$(UCDTOOLS_SRC_PATH)/include \
   $(LOCAL_PATH)/$(ESPEAK_SRC_PATH)
 
 LOCAL_LDLIBS := \
   -llog
-
-# Common
 
 LOCAL_MODULE := libttsespeak
 LOCAL_MODULE_TAGS := optional
