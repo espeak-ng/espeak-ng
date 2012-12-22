@@ -159,7 +159,7 @@ ucd::category_group ucd::lookup_category_group(codepoint_t c)
 {
 	switch (lookup_category(c))
 	{
-	case Cc: case Cf: case Ci: case Cn: case Co: case Cs: case Zc:
+	case Cc: case Cf: case Ci: case Cn: case Co: case Cs:
 		return C;
 	case Ll: case Lm: case Lo: case Lt: case Lu:
 		return L;

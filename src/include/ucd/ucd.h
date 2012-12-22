@@ -84,7 +84,6 @@ namespace ucd
 		Sm, /**< @brief Math Symbol */
 		So, /**< @brief Other Symbol */
 
-		Zc, /**< @brief Whitespace character in the Cc category */
 		Zl, /**< @brief Line Separator */
 		Zp, /**< @brief Paragraph Separator */
 		Zs, /**< @brief Space Separator */

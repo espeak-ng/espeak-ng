@@ -46,12 +46,7 @@ int ucd::isalpha(codepoint_t c)
 
 int ucd::iscntrl(codepoint_t c)
 {
-	switch (lookup_category(c))
-	{
-	case Cc: case Zc:
-		return 1;
-	}
-	return 0;
+	return lookup_category(c) == Cc;
 }
 
 int ucd::isdigit(codepoint_t c)
@@ -69,7 +64,7 @@ int ucd::isgraph(codepoint_t c)
 	switch (lookup_category(c))
 	{
 	case Cc: case Cf: case Ci: case Cn: case Co: case Cs:
-	case Zc: case Zl: case Zp: case Zs:
+	case Zl: case Zp: case Zs:
 		return 0;
 	}
 	return 1;
@@ -104,8 +99,19 @@ int ucd::isspace(codepoint_t c)
 {
 	switch (lookup_category(c))
 	{
-	case Zc: case Zl: case Zp: case Zs:
+	case Zl: case Zp: case Zs:
 		return 1;
+	case Cc:
+		switch (c) // Some control characters are also whitespace characters:
+		{
+		case 0x09: // U+0009 : CHARACTER TABULATION
+		case 0x0A: // U+000A : LINE FEED
+		case 0x0B: // U+000B : LINE TABULATION
+		case 0x0C: // U+000C : FORM FEED
+		case 0x0D: // U+000D : CARRIAGE RETURN
+		case 0x85: // U+0085 : NEXT LINE
+			return 1;
+		}
 	}
 	return 0;
 }
