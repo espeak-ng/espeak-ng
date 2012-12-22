@@ -31,13 +31,25 @@ namespace ucd
 	  */
 	typedef uint32_t codepoint_t;
 
+	/** @brief Unicode General Category Groups
+	  * @see   http://www.unicode.org/reports/tr44/
+	  */
+	enum category_group
+	{
+		C, /**< @brief Other */
+		L, /**< @brief Letter */
+		M, /**< @brief Mark */
+		N, /**< @brief Number */
+		P, /**< @brief Punctuation */
+		S, /**< @brief Symbol */
+		Z, /**< @brief Separator */
+	};
+
 	/** @brief Unicode General Category Values
 	  * @see   http://www.unicode.org/reports/tr44/
 	  */
 	enum category
 	{
-		// Other
-
 		Cc, /**< @brief Control Character */
 		Cf, /**< @brief Format Control Character */
 		Ci, /**< @brief Invalid Unicode Character */
@@ -45,34 +57,19 @@ namespace ucd
 		Co, /**< @brief Private Use */
 		Cs, /**< @brief Surrogate Code Point */
 
-		// Letter
-
 		Ll, /**< @brief Lower Case Letter */
 		Lm, /**< @brief Letter Modifier */
 		Lo, /**< @brief Other Letter */
 		Lt, /**< @brief Title Case Letter */
 		Lu, /**< @brief Upper Case Letter */
 
-		// Mark
-
 		Mc, /**< @brief Spacing Mark */
 		Me, /**< @brief Enclosing Mark */
 		Mn, /**< @brief Non-Spacing Mark */
 
-		// Symbol
-
-		Sc, /**< @brief Currency Symbol */
-		Sk, /**< @brief Modifier Symbol */
-		Sm, /**< @brief Math Symbol */
-		So, /**< @brief Other Symbol */
-
-		// Number
-
 		Nd, /**< @brief Decimal Digit */
 		Nl, /**< @brief Letter-Like Number */
 		No, /**< @brief Other Number */
-
-		// Punctuation
 
 		Pc, /**< @brief Connector */
 		Pd, /**< @brief Dash/Hyphen */
@@ -82,13 +79,23 @@ namespace ucd
 		Po, /**< @brief Other */
 		Ps, /**< @brief Open PUnctuation Mark */
 
-		// Separator
+		Sc, /**< @brief Currency Symbol */
+		Sk, /**< @brief Modifier Symbol */
+		Sm, /**< @brief Math Symbol */
+		So, /**< @brief Other Symbol */
 
 		Zc, /**< @brief Whitespace character in the Cc category */
 		Zl, /**< @brief Line Separator */
 		Zp, /**< @brief Paragraph Separator */
 		Zs, /**< @brief Space Separator */
 	};
+
+	/** @brief Lookup the General Category Group for a Unicode codepoint.
+	  *
+	  * @param c The Unicode codepoint to lookup.
+	  * @return  The General Category Group of the Unicode codepoint.
+	  */
+	category_group lookup_category_group(codepoint_t c);
 
 	/** @brief Lookup the General Category for a Unicode codepoint.
 	  *
