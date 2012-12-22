@@ -151,7 +151,7 @@ using namespace ucd;
 			sys.stdout.write('\t\tconst ucd::category *table = categories_%s_%s[(c - 0x%s) / 256];\n' % (codepoints.first, codepoints.last, codepoints.first))
 			sys.stdout.write('\t\treturn table ? table[c % 256] : Cn;\n')
 			sys.stdout.write('\t}\n')
-	sys.stdout.write('\treturn Ci;\n')
+	sys.stdout.write('\treturn Ii; // Invalid Unicode Codepoint\n')
 	sys.stdout.write('}\n')
 
 	sys.stdout.write("""
@@ -159,7 +159,7 @@ ucd::category_group ucd::lookup_category_group(codepoint_t c)
 {
 	switch (lookup_category(c))
 	{
-	case Cc: case Cf: case Ci: case Cn: case Co: case Cs:
+	case Cc: case Cf: case Cn: case Co: case Cs:
 		return C;
 	case Ll: case Lm: case Lo: case Lt: case Lu:
 		return L;
@@ -173,6 +173,8 @@ ucd::category_group ucd::lookup_category_group(codepoint_t c)
 		return S;
 	case Zl: case Zp: case Zs:
 		return Z;
+	case Ii:
+		return I;
 	}
 }
 """)

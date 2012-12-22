@@ -37,6 +37,7 @@ namespace ucd
 	enum category_group
 	{
 		C, /**< @brief Other */
+		I, /**< @brief Invalid */
 		L, /**< @brief Letter */
 		M, /**< @brief Mark */
 		N, /**< @brief Number */
@@ -52,10 +53,11 @@ namespace ucd
 	{
 		Cc, /**< @brief Control Character */
 		Cf, /**< @brief Format Control Character */
-		Ci, /**< @brief Invalid Unicode Character */
 		Cn, /**< @brief Unassigned */
 		Co, /**< @brief Private Use */
 		Cs, /**< @brief Surrogate Code Point */
+
+		Ii, /**< @brief Invalid Unicode Codepoint */
 
 		Ll, /**< @brief Lower Case Letter */
 		Lm, /**< @brief Letter Modifier */

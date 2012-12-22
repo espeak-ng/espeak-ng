@@ -63,8 +63,9 @@ int ucd::isgraph(codepoint_t c)
 {
 	switch (lookup_category(c))
 	{
-	case Cc: case Cf: case Ci: case Cn: case Co: case Cs:
+	case Cc: case Cf: case Cn: case Co: case Cs:
 	case Zl: case Zp: case Zs:
+	case Ii:
 		return 0;
 	}
 	return 1;
@@ -79,7 +80,8 @@ int ucd::isprint(codepoint_t c)
 {
 	switch (lookup_category(c))
 	{
-	case Cc: case Cf: case Ci: case Cn: case Co: case Cs:
+	case Cc: case Cf: case Cn: case Co: case Cs:
+	case Ii:
 		return 0;
 	}
 	return 1;

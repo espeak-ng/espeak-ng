@@ -3278,14 +3278,14 @@ ucd::category ucd::lookup_category(codepoint_t c)
 	if (c <= 0x0FFFFF) return Cn; // 0FFFFE..0FFFFF : Plane 15 Private Use
 	if (c <= 0x10FFFD) return Co; // 100000..10FFFD : Plane 16 Private Use
 	if (c <= 0x10FFFF) return Cn; // 10FFFE..10FFFF : Plane 16 Private Use
-	return Ci;
+	return Ii; // Invalid Unicode Codepoint
 }
 
 ucd::category_group ucd::lookup_category_group(codepoint_t c)
 {
 	switch (lookup_category(c))
 	{
-	case Cc: case Cf: case Ci: case Cn: case Co: case Cs:
+	case Cc: case Cf: case Cn: case Co: case Cs:
 		return C;
 	case Ll: case Lm: case Lo: case Lt: case Lu:
 		return L;
@@ -3299,5 +3299,7 @@ ucd::category_group ucd::lookup_category_group(codepoint_t c)
 		return S;
 	case Zl: case Zp: case Zs:
 		return Z;
+	case Ii:
+		return I;
 	}
 }
