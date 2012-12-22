@@ -49,7 +49,7 @@ category_sets = [
 # These categories have many pages consisting of just this category:
 #     Cn -- Unassigned
 #     Lo -- CJK Ideographs
-special_categories = ['Cn', 'Lo']
+special_categories = ['Cn', 'Lo', 'Sm', 'So']
 
 category_tables = {}
 for codepoints, category, comment in category_sets:
@@ -67,6 +67,8 @@ for codepoints, category, comment in category_sets:
 				if table_entry:
 					if table_category in special_categories:
 						table[table_codepoint] = table_category
+					elif table_category:
+						raise Exception('%s only table not in the special_categories list.' % table_category)
 					else:
 						table[table_codepoint] = table_entry
 				table_entry = []

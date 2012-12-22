@@ -69,6 +69,46 @@ static const ucd::category categories_Lo[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
 };
 
+static const ucd::category categories_Sm[256] =
+{
+	/* 00 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 10 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 20 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 30 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 40 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 50 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 60 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 70 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 80 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* 90 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* A0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* B0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* C0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* D0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* E0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
+};
+
+static const ucd::category categories_So[256] =
+{
+	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 20 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 30 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 40 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 50 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 60 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 70 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 80 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* 90 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* A0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* B0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* C0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* D0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* E0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
+};
+
 static const ucd::category categories_000000[256] =
 {
 	/* 00 */ Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc, Cc,
@@ -709,26 +749,6 @@ static const ucd::category categories_002100[256] =
 	/* F0 */ So, So, So, So, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
-static const ucd::category categories_002200[256] =
-{
-	/* 00 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 10 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 20 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 30 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 40 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 50 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 60 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 70 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 80 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 90 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* A0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* B0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* C0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* D0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* E0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-};
-
 static const ucd::category categories_002300[256] =
 {
 	/* 00 */ So, So, So, So, So, So, So, So, Sm, Sm, Sm, Sm, So, So, So, So,
@@ -829,26 +849,6 @@ static const ucd::category categories_002700[256] =
 	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
-static const ucd::category categories_002800[256] =
-{
-	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 20 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 30 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 40 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 50 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 60 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 70 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 80 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 90 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* A0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* B0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* C0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* D0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* E0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-};
-
 static const ucd::category categories_002900[256] =
 {
 	/* 00 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
@@ -867,26 +867,6 @@ static const ucd::category categories_002900[256] =
 	/* D0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Ps, Pe, Ps, Pe, Sm, Sm, Sm, Sm,
 	/* E0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Ps, Pe, Sm, Sm,
-};
-
-static const ucd::category categories_002A00[256] =
-{
-	/* 00 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 10 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 20 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 30 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 40 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 50 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 60 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 70 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 80 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* 90 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* A0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* B0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* C0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* D0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* E0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
-	/* F0 */ Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm, Sm,
 };
 
 static const ucd::category categories_002B00[256] =
@@ -1047,26 +1027,6 @@ static const ucd::category categories_003200[256] =
 	/* D0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* E0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, Cn,
-};
-
-static const ucd::category categories_003300[256] =
-{
-	/* 00 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 10 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 20 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 30 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 40 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 50 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 60 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 70 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 80 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* 90 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* A0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* B0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* C0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* D0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* E0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
-	/* F0 */ So, So, So, So, So, So, So, So, So, So, So, So, So, So, So, So,
 };
 
 static const ucd::category categories_004D00[256] =
@@ -2285,15 +2245,15 @@ static const ucd::category *categories_000000_00D7FF[] =
 	categories_001F00,
 	categories_002000,
 	categories_002100,
-	categories_002200,
+	categories_Sm, // 002200
 	categories_002300,
 	categories_002400,
 	categories_002500,
 	categories_002600,
 	categories_002700,
-	categories_002800,
+	categories_So, // 002800
 	categories_002900,
-	categories_002A00,
+	categories_Sm, // 002A00
 	categories_002B00,
 	categories_002C00,
 	categories_002D00,
@@ -2302,7 +2262,7 @@ static const ucd::category *categories_000000_00D7FF[] =
 	categories_003000,
 	categories_003100,
 	categories_003200,
-	categories_003300,
+	categories_So, // 003300
 	categories_Lo, // 003400
 	categories_Lo, // 003500
 	categories_Lo, // 003600
