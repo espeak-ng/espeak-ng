@@ -90,7 +90,7 @@ struct case_conversion_entry
 		sys.stdout.write('\t\tint pos = (begin + end) / 2;\n')
 		sys.stdout.write('\t\tconst case_conversion_entry *item = (case_conversion_data + pos);\n')
 		sys.stdout.write('\t\tif (c == item->codepoint)\n')
-		sys.stdout.write('\t\t\treturn item->%scase;\n' % case)
+		sys.stdout.write('\t\t\treturn item->%scase == 0 ? c : item->%scase;\n' % (case, case))
 		sys.stdout.write('\t\telse if (c > item->codepoint)\n')
 		sys.stdout.write('\t\t\tbegin = pos + 1;\n')
 		sys.stdout.write('\t\telse\n')

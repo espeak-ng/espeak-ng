@@ -33,6 +33,9 @@ class CodePoint:
 	def __str__(self):
 		return '%06X' % self.codepoint
 
+	def __iter__(self):
+		yield self
+
 	def __hash__(self):
 		return self.codepoint
 

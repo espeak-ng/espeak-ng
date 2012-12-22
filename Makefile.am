@@ -66,11 +66,27 @@ libucd_includedir = $(includedir)/ucd
 libucd_include_HEADERS = \
 	src/include/ucd/ucd.h
 
-lib_LTLIBRARIES += src/libucd.la
-
-src_libucd_la_LDFLAGS = -version-info $(LIBUCD_VERSION)
+lib_LTLIBRARIES       += src/libucd.la
+src_libucd_la_LDFLAGS  = -version-info $(LIBUCD_VERSION)
 src_libucd_la_CXXFLAGS = ${AM_CXXFLAGS}
-src_libucd_la_SOURCES = \
+src_libucd_la_SOURCES  = \
 	src/case.cpp \
 	src/categories.cpp \
 	src/ctype.cpp
+
+############################# tests ###########################################
+
+noinst_bin_PROGRAMS       += tests/printucddata
+tests_printucddata_SOURCES = tests/printucddata.cpp
+tests_printucddata_LDADD   = src/libucd.la
+
+tests/unicode-data.expected: tools/printdata.py tools/ucd.py
+	tools/printdata.py ${UCD_ROOTDIR} > $@
+
+tests/unicode-data.actual: tests/printucddata
+	tests/printucddata > $@
+
+tests/unicode-data.diff: tests/unicode-data.expected tests/unicode-data.actual
+	diff -U0 tests/unicode-data.expected tests/unicode-data.actual > tests/unicode-data.diff
+
+check: tests/unicode-data.diff

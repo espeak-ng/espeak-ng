@@ -2140,7 +2140,7 @@ ucd::codepoint_t ucd::toupper(codepoint_t c)
 		int pos = (begin + end) / 2;
 		const case_conversion_entry *item = (case_conversion_data + pos);
 		if (c == item->codepoint)
-			return item->uppercase;
+			return item->uppercase == 0 ? c : item->uppercase;
 		else if (c > item->codepoint)
 			begin = pos + 1;
 		else
@@ -2158,7 +2158,7 @@ ucd::codepoint_t ucd::tolower(codepoint_t c)
 		int pos = (begin + end) / 2;
 		const case_conversion_entry *item = (case_conversion_data + pos);
 		if (c == item->codepoint)
-			return item->lowercase;
+			return item->lowercase == 0 ? c : item->lowercase;
 		else if (c > item->codepoint)
 			begin = pos + 1;
 		else
@@ -2176,7 +2176,7 @@ ucd::codepoint_t ucd::totitle(codepoint_t c)
 		int pos = (begin + end) / 2;
 		const case_conversion_entry *item = (case_conversion_data + pos);
 		if (c == item->codepoint)
-			return item->titlecase;
+			return item->titlecase == 0 ? c : item->titlecase;
 		else if (c > item->codepoint)
 			begin = pos + 1;
 		else

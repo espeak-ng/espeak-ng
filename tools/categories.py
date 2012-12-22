@@ -26,8 +26,8 @@ ucd_version = ucd_rootdir.split('-')[-1]
 
 unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
-	if isinstance(data['CodePoint'], ucd.CodePoint):
-		unicode_chars[data['CodePoint']] = data['GeneralCategory']
+	for codepoint in data['CodePoint']:
+		unicode_chars[codepoint] = data['GeneralCategory']
 
 # This map is a combination of the information in the UnicodeData and Blocks
 # data files. It is intended to reduce the number of character tables that

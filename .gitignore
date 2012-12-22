@@ -13,6 +13,13 @@
 # build output:
 
 src/libucd.la
+tests/printucddata
+
+# test output:
+
+tests/*.expected
+tests/*.actual
+tests/*.diff
 
 # autotools output:
 
