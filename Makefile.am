@@ -132,7 +132,10 @@ android/res/raw/espeakdata.zip: espeak-data/dir.stamp espeak-data/phontab dictio
 		espeak-data/phondata espeak-data/phonindex espeak-data/phontab \
 		espeak-data/*_dict espeak-data/voices
 
-android: android/res/raw/espeakdata.zip
+android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
+	sha1sum $< | awk '{ print $$1 }' > $@
+
+android: android/res/raw/espeakdata.zip android/res/raw/espeakdata_version
 
 ##### dictionaries:
 

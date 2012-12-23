@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2012 Reece H. Dunn
  * Copyright (C) 2009 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,6 +26,7 @@ package com.reecedunn.espeak;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.Engine;
@@ -33,7 +35,11 @@ import android.util.Log;
 import com.reecedunn.espeak.SpeechSynthesis.SynthReadyCallback;
 import com.reecedunn.espeak.SpeechSynthesis.Voice;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -47,7 +53,13 @@ public class CheckVoiceData extends Activity {
 
     /** Resources required for eSpeak to run correctly. */
     private static final String[] BASE_RESOURCES = {
-            "intonations", "phondata", "phonindex", "phontab", "en_dict", "voices/en/en-us"
+        "version",
+        "intonations",
+        "phondata",
+        "phonindex",
+        "phontab",
+        "en_dict",
+        "voices/en/en-us"
     };
 
     public static File getDataPath(Context context) {
@@ -67,6 +79,27 @@ public class CheckVoiceData extends Activity {
         }
 
         return true;
+    }
+
+    public static String readContent(InputStream stream) throws IOException {
+        ByteArrayOutputStream content = new ByteArrayOutputStream();
+        int c = stream.read();
+        while (c != -1)
+        {
+            content.write((byte)c);
+            c = stream.read();
+        }
+        return content.toString();
+    }
+
+    public static boolean canUpgradeResources(Context context) {
+        try {
+            final String version = readContent(context.getResources().openRawResource(R.raw.espeakdata_version));
+            final String installedVersion = readContent(new FileInputStream(new File(getDataPath(context), "version")));
+            return !version.equals(installedVersion);
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override
@@ -91,7 +124,7 @@ public class CheckVoiceData extends Activity {
         ArrayList<String> availableLanguages = new ArrayList<String>();
         ArrayList<String> unavailableLanguages = new ArrayList<String>();
 
-        if (!hasBaseResources(this)) {
+        if (!hasBaseResources(this) || canUpgradeResources(this)) {
             if (!attemptedInstall) {
                 downloadVoiceData();
                 return;

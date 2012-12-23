@@ -173,6 +173,15 @@ public class DownloadVoiceData extends Activity {
                 // Make sure the output file is readable.
                 doChmod(outputFile);
             }
+
+            final String version = CheckVoiceData.readContent(mContext.getResources().openRawResource(R.raw.espeakdata_version));
+            final File outputFile = new File(mOutput, "espeak-data/version");
+            mExtractedFiles.add(outputFile);
+
+            final FileOutputStream outputStream = new FileOutputStream(outputFile);
+            outputStream.write(version.getBytes(), 0, version.length());
+            outputStream.close();
+            doChmod(outputFile);
         }
 
         private void removeExtractedFiles() {
