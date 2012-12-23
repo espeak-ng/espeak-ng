@@ -10,3 +10,4 @@ ls icons/Flag_*.svg | while read flag ; do
 done
 
 rsvg -w 1024 -h 500 icons/feature-graphic.svg icons/feature-graphic.png
+rsvg -w 180 -h 120 icons/promo-graphic.svg icons/promo-graphic.png
