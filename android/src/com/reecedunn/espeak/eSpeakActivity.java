@@ -217,6 +217,7 @@ public class eSpeakActivity extends Activity {
             if (mDownloadedVoiceData) {
             	Log.e(TAG, "Voice data check failed (error code: " + resultCode + ").");
                 setState(State.ERROR);
+                populateInformationView();
             } else {
                 downloadVoiceData();
             }
