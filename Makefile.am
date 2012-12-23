@@ -127,10 +127,9 @@ espeak-data/phontab: src/espeakedit espeak-data/dir.stamp espeak-data/dictsource
 
 android/res/raw/espeakdata.zip: espeak-data/dir.stamp espeak-data/phontab dictionaries
 	rm -f $@
-	zip -r $@ \
-		espeak-data/intonations \
-		espeak-data/phondata espeak-data/phonindex espeak-data/phontab \
-		espeak-data/*_dict espeak-data/voices
+	find espeak-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
+	find espeak-data/*_dict | zip -@ $@
+	find espeak-data/voices -type f | grep -vF "/mb/" | zip -@ $@
 
 android/res/raw/espeakdata_version: android/res/raw/espeakdata.zip
 	sha1sum $< | awk '{ print $$1 }' > $@
