@@ -127,7 +127,6 @@
         <item>4x</item>
         <item>5x</item>
     </string-array>
-        <string name="update_voices">Update voices</string>
         <string name="status">Status</string>
 
 </resources>

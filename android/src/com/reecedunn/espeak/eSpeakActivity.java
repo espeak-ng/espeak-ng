@@ -110,9 +110,6 @@ public class eSpeakActivity extends Activity {
         case R.id.ttsSettings:
             launchGeneralTtsSettings();
             return true;
-        case R.id.updateVoices:
-            downloadVoiceData();
-            return true;
         }
         return super.onOptionsItemSelected(item);
     }
