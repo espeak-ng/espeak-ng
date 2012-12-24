@@ -3020,8 +3020,7 @@ ucd::script ucd::lookup_script(codepoint_t c)
 		const uint8_t *table = scripts_000000_00D7FF[(c - 0x000000) / 256];
 		return (ucd::script)table[c % 256];
 	}
-	if (c <= 0x00DFFF) return Zzzz; // 00D800..00DFFF : Surrogates
-	if (c <= 0x00F8FF) return Zzzz; // 00E000..00F8FF : Private Use Area
+	if (c <= 0x00F8FF) return Zzzz; // 00D800..00F8FF : Surrogates / Private Use Area
 	if (c <= 0x02FAFF) // 00F900..02FAFF
 	{
 		const uint8_t *table = scripts_00F900_02FAFF[(c - 0x00F900) / 256];
@@ -3033,10 +3032,6 @@ ucd::script ucd::lookup_script(codepoint_t c)
 		const uint8_t *table = scripts_0E0000_0E01FF[(c - 0x0E0000) / 256];
 		return (ucd::script)table[c % 256];
 	}
-	if (c <= 0x0EFFFF) return Zzzz; // 0E0200..0EFFFF : Unassigned
-	if (c <= 0x0FFFFD) return Zzzz; // 0F0000..0FFFFD : Plane 15 Private Use
-	if (c <= 0x0FFFFF) return Zzzz; // 0FFFFE..0FFFFF : Plane 15 Private Use
-	if (c <= 0x10FFFD) return Zzzz; // 100000..10FFFD : Plane 16 Private Use
-	if (c <= 0x10FFFF) return Zzzz; // 10FFFE..10FFFF : Plane 16 Private Use
+	if (c <= 0x10FFFF) return Zzzz; // 0E0200..10FFFF : Unassigned
 	return Zzzz; // Invalid Unicode Codepoint
 }

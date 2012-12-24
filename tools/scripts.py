@@ -34,16 +34,11 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 # need to be generated.
 script_sets = [
 	(ucd.CodeRange('000000..00D7FF'), None,   'Multiple Blocks'),
-	(ucd.CodeRange('00D800..00DFFF'), 'Zzzz', 'Surrogates'),
-	(ucd.CodeRange('00E000..00F8FF'), 'Zzzz', 'Private Use Area'),
+	(ucd.CodeRange('00D800..00F8FF'), 'Zzzz', 'Surrogates / Private Use Area'),
 	(ucd.CodeRange('00F900..02FAFF'), None,   'Multiple Blocks'),
 	(ucd.CodeRange('02FB00..0DFFFF'), 'Zzzz', 'Unassigned'),
 	(ucd.CodeRange('0E0000..0E01FF'), None,   'Multiple Blocks'),
-	(ucd.CodeRange('0E0200..0EFFFF'), 'Zzzz', 'Unassigned'),
-	(ucd.CodeRange('0F0000..0FFFFD'), 'Zzzz', 'Plane 15 Private Use'),
-	(ucd.CodeRange('0FFFFE..0FFFFF'), 'Zzzz', 'Plane 15 Private Use'),
-	(ucd.CodeRange('100000..10FFFD'), 'Zzzz', 'Plane 16 Private Use'),
-	(ucd.CodeRange('10FFFE..10FFFF'), 'Zzzz', 'Plane 16 Private Use'),
+	(ucd.CodeRange('0E0200..10FFFF'), 'Zzzz', 'Unassigned'),
 ]
 
 # These scripts have many pages consisting of just this script:
