@@ -57,6 +57,10 @@ EXTRA_DIST += ChangeLog
 UCD_VERSION=6.2.0
 UCD_ROOTDIR=data/ucd
 
+data/ucd/PropList.txt:
+	mkdir -pv data/ucd
+	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropList.txt
+
 data/ucd/UnicodeData.txt:
 	mkdir -pv data/ucd
 	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/UnicodeData.txt
@@ -87,7 +91,9 @@ noinst_bin_PROGRAMS       += tests/printucddata
 tests_printucddata_SOURCES = tests/printucddata.cpp
 tests_printucddata_LDADD   = src/libucd.la
 
-tests/unicode-data.expected: tools/printdata.py tools/ucd.py
+tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
+	data/ucd/UnicodeData.txt \
+	data/ucd/PropList.txt
 	tools/printdata.py ${UCD_ROOTDIR} > $@
 
 tests/unicode-data.actual: tests/printucddata

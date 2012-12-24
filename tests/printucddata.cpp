@@ -69,7 +69,8 @@ int main()
 		ucd::codepoint_t upper = ucd::toupper(c);
 		ucd::codepoint_t lower = ucd::tolower(c);
 		ucd::codepoint_t title = ucd::totitle(c);
-		printf("%06X %s %06X %06X %06X\n", c, category, upper, lower, title);
+		const char *whitespace = ucd::isspace(c) ? "White_Space" : "";
+		printf("%06X %s %06X %06X %06X %s\n", c, category, upper, lower, title, whitespace);
 	}
 	return 0;
 }

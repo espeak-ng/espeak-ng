@@ -27,6 +27,11 @@ unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data
+		unicode_chars[codepoint]['Properties'] = []
+for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
+	if data['Property'] in ['White_Space']:
+		for codepoint in data['Range']:
+			unicode_chars[codepoint]['Properties'].append(data['Property'])
 
 null = ucd.CodePoint('0000')
 if __name__ == '__main__':
@@ -39,6 +44,6 @@ if __name__ == '__main__':
 			if title == null: title = codepoint
 			if upper == null: upper = codepoint
 			if lower == null: lower = codepoint
-			print '%s %s %s %s %s' % (codepoint, data['GeneralCategory'], upper, lower, title)
+			print '%s %s %s %s %s %s' % (codepoint, data['GeneralCategory'], upper, lower, title, ' '.join(data['Properties']))
 		except KeyError:
-			print '%s Cn %s %s %s' % (codepoint, codepoint, codepoint, codepoint)
+			print '%s Cn %s %s %s ' % (codepoint, codepoint, codepoint, codepoint)
