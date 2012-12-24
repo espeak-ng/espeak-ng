@@ -27,7 +27,7 @@
 
 using namespace ucd;
 
-// Unicode Character Data 6.2
+// Unicode Character Data 6.2.0
 
 static const uint8_t categories_Cn[256] =
 {

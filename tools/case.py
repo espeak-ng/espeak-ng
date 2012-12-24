@@ -22,7 +22,7 @@ import sys
 import ucd
 
 ucd_rootdir = sys.argv[1]
-ucd_version = ucd_rootdir.split('-')[-1]
+ucd_version = sys.argv[2]
 
 unicode_chars = {}
 null = ucd.CodePoint('0000')

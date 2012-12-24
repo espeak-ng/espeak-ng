@@ -54,13 +54,20 @@ EXTRA_DIST += ChangeLog
 
 ############################# Unicode Character Database ######################
 
-src/case.cpp: tools/case.py tools/ucd.py
-	tools/case.py ${UCD_ROOTDIR} > $@
+UCD_VERSION=6.2.0
+UCD_ROOTDIR=data/ucd
 
-src/categories.cpp: tools/categories.py tools/ucd.py
-	tools/categories.py ${UCD_ROOTDIR} > $@
+data/ucd/UnicodeData.txt:
+	mkdir -pv data/ucd
+	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/UnicodeData.txt
 
 ############################# libucd ##########################################
+
+src/case.cpp: tools/case.py tools/ucd.py data/ucd/UnicodeData.txt
+	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
+
+src/categories.cpp: tools/categories.py tools/ucd.py data/ucd/UnicodeData.txt
+	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
 libucd_includedir = $(includedir)/ucd
 libucd_include_HEADERS = \

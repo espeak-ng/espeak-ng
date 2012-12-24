@@ -12,6 +12,7 @@
 
 # build output:
 
+data/
 src/libucd.la
 tests/printucddata
 
