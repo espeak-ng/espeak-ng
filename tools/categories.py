@@ -28,6 +28,9 @@ unicode_chars = {}
 for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 	for codepoint in data['CodePoint']:
 		unicode_chars[codepoint] = data['GeneralCategory']
+for data in ucd.parse_ucd_data('supplemental', 'Klingon'):
+	for codepoint in data['CodePoint']:
+		unicode_chars[codepoint] = data['GeneralCategory']
 
 # This map is a combination of the information in the UnicodeData and Blocks
 # data files. It is intended to reduce the number of character tables that
@@ -35,8 +38,8 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'UnicodeData'):
 category_sets = [
 	(ucd.CodeRange('000000..00D7FF'), None, 'Multiple Blocks'),
 	(ucd.CodeRange('00D800..00DFFF'), 'Cs', 'Surrogates'),
-	(ucd.CodeRange('00E000..00F8FF'), 'Co', 'Private Use Area'),
-	(ucd.CodeRange('00F900..02FAFF'), None, 'Multiple Blocks'),
+	(ucd.CodeRange('00E000..00F7FF'), 'Co', 'Private Use Area'),
+	(ucd.CodeRange('00F800..02FAFF'), None, 'Multiple Blocks'),
 	(ucd.CodeRange('02FB00..0DFFFF'), 'Cn', 'Unassigned'),
 	(ucd.CodeRange('0E0000..0E01FF'), None, 'Multiple Blocks'),
 	(ucd.CodeRange('0E0200..0EFFFF'), 'Cn', 'Unassigned'),

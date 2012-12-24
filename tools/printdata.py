@@ -35,6 +35,13 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
 for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
 	for codepoint in data['Range']:
 		unicode_chars[codepoint]['Script'] = data['Script']
+for data in ucd.parse_ucd_data('supplemental', 'Klingon'):
+	for codepoint in data['CodePoint']:
+		unicode_chars[codepoint] = data
+		unicode_chars[codepoint]['Properties'] = []
+		unicode_chars[codepoint]['UpperCase'] = ucd.CodePoint('0000')
+		unicode_chars[codepoint]['LowerCase'] = ucd.CodePoint('0000')
+		unicode_chars[codepoint]['TitleCase'] = ucd.CodePoint('0000')
 
 null = ucd.CodePoint('0000')
 if __name__ == '__main__':

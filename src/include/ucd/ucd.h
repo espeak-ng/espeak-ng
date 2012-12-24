@@ -202,6 +202,7 @@ namespace ucd
 		Phnx, /**< @brief Phoenician Script */
 		Plrd, /**< @brief Miao Script */
 		Prti, /**< @brief Inscriptional Parthian Script */
+		Qaak, /**< @brief Klingon Script */
 		Rjng, /**< @brief Rejang Script */
 		Runr, /**< @brief Runic Script */
 		Samr, /**< @brief Samaritan Script */

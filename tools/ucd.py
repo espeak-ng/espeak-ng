@@ -147,6 +147,14 @@ data_items = {
 		('LowerCase', codepoint),
 		('TitleCase', codepoint),
 	],
+	# Supplemental Data:
+	'Klingon': [
+		('CodePoint', codepoint),
+		('Script', str),
+		('GeneralCategory', string),
+		('Name', string),
+		('Transliteration', string),
+	],
 }
 
 def parse_ucd_data(ucd_rootdir, dataset):

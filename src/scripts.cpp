@@ -1309,6 +1309,26 @@ static const uint8_t scripts_00D700[256] =
 	/* F0 */ Hang, Hang, Hang, Hang, Hang, Hang, Hang, Hang, Hang, Hang, Hang, Hang, Zzzz, Zzzz, Zzzz, Zzzz,
 };
 
+static const uint8_t scripts_00F800[256] =
+{
+	/* 00 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 10 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 20 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 30 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 40 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 50 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 60 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 70 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 80 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* 90 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* A0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* B0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* C0 */ Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* D0 */ Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak,
+	/* E0 */ Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz, Zzzz,
+	/* F0 */ Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Qaak, Zzzz, Zzzz, Zzzz, Zyyy, Zyyy, Zyyy,
+};
+
 static const uint8_t scripts_00FA00[256] =
 {
 	/* 00 */ Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant, Hant,
@@ -2489,8 +2509,9 @@ static const uint8_t *scripts_000000_00D7FF[] =
 	scripts_00D700,
 };
 
-static const uint8_t *scripts_00F900_02FAFF[] =
+static const uint8_t *scripts_00F800_02FAFF[] =
 {
+	scripts_00F800,
 	scripts_Hant, // 00F900
 	scripts_00FA00,
 	scripts_00FB00,
@@ -3020,10 +3041,10 @@ ucd::script ucd::lookup_script(codepoint_t c)
 		const uint8_t *table = scripts_000000_00D7FF[(c - 0x000000) / 256];
 		return (ucd::script)table[c % 256];
 	}
-	if (c <= 0x00F8FF) return Zzzz; // 00D800..00F8FF : Surrogates / Private Use Area
-	if (c <= 0x02FAFF) // 00F900..02FAFF
+	if (c <= 0x00F7FF) return Zzzz; // 00D800..00F7FF : Surrogates / Private Use Area
+	if (c <= 0x02FAFF) // 00F800..02FAFF
 	{
-		const uint8_t *table = scripts_00F900_02FAFF[(c - 0x00F900) / 256];
+		const uint8_t *table = scripts_00F800_02FAFF[(c - 0x00F800) / 256];
 		return (ucd::script)table[c % 256];
 	}
 	if (c <= 0x0DFFFF) return Zzzz; // 02FB00..0DFFFF : Unassigned

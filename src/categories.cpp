@@ -1249,6 +1249,26 @@ static const uint8_t categories_00D700[256] =
 	/* F0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Cn, Cn, Cn, Cn,
 };
 
+static const uint8_t categories_00F800[256] =
+{
+	/* 00 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 10 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 20 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 30 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 40 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 50 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 60 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 70 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 80 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* 90 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* A0 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* B0 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* C0 */ Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co, Co,
+	/* D0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
+	/* E0 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Co, Co, Co, Co, Co, Co,
+	/* F0 */ Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Nd, Co, Co, Co, Po, Po, So,
+};
+
 static const uint8_t categories_00FA00[256] =
 {
 	/* 00 */ Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo, Lo,
@@ -2429,8 +2449,9 @@ static const uint8_t *categories_000000_00D7FF[] =
 	categories_00D700,
 };
 
-static const uint8_t *categories_00F900_02FAFF[] =
+static const uint8_t *categories_00F800_02FAFF[] =
 {
+	categories_00F800,
 	categories_Lo, // 00F900
 	categories_00FA00,
 	categories_00FB00,
@@ -2961,10 +2982,10 @@ ucd::category ucd::lookup_category(codepoint_t c)
 		return (ucd::category)table[c % 256];
 	}
 	if (c <= 0x00DFFF) return Cs; // 00D800..00DFFF : Surrogates
-	if (c <= 0x00F8FF) return Co; // 00E000..00F8FF : Private Use Area
-	if (c <= 0x02FAFF) // 00F900..02FAFF
+	if (c <= 0x00F7FF) return Co; // 00E000..00F7FF : Private Use Area
+	if (c <= 0x02FAFF) // 00F800..02FAFF
 	{
-		const uint8_t *table = categories_00F900_02FAFF[(c - 0x00F900) / 256];
+		const uint8_t *table = categories_00F800_02FAFF[(c - 0x00F800) / 256];
 		return (ucd::category)table[c % 256];
 	}
 	if (c <= 0x0DFFFF) return Cn; // 02FB00..0DFFFF : Unassigned

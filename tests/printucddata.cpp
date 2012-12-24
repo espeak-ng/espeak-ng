@@ -154,6 +154,7 @@ const char *get_script_string(ucd::script s)
 	case Phnx: return "Phnx";
 	case Plrd: return "Plrd";
 	case Prti: return "Prti";
+	case Qaak: return "Qaak";
 	case Rjng: return "Rjng";
 	case Runr: return "Runr";
 	case Samr: return "Samr";

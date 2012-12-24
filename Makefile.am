@@ -76,14 +76,17 @@ data/ucd/UnicodeData.txt:
 ############################# libucd ##########################################
 
 src/case.cpp: tools/case.py tools/ucd.py \
+	supplemental/Klingon.txt \
 	data/ucd/UnicodeData.txt
 	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
 src/categories.cpp: tools/categories.py tools/ucd.py \
+	supplemental/Klingon.txt \
 	data/ucd/UnicodeData.txt
 	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
 src/scripts.cpp: tools/scripts.py tools/ucd.py \
+	supplemental/Klingon.txt \
 	data/language-subtag-registry \
 	data/ucd/Scripts.txt
 	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
@@ -108,8 +111,10 @@ tests_printucddata_SOURCES = tests/printucddata.cpp
 tests_printucddata_LDADD   = src/libucd.la
 
 tests/unicode-data.expected: tools/printdata.py tools/ucd.py \
+	supplemental/Klingon.txt \
 	data/ucd/UnicodeData.txt \
-	data/ucd/PropList.txt
+	data/ucd/PropList.txt \
+	data/ucd/Scripts.txt
 	tools/printdata.py ${UCD_ROOTDIR} > $@
 
 tests/unicode-data.actual: tests/printucddata
