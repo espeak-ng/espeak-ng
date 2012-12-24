@@ -21,6 +21,23 @@
 
 #include <stdio.h>
 
+const char *get_category_group_string(ucd::category_group c)
+{
+	using namespace ucd;
+	switch (c)
+	{
+	case C:  return "C";
+	case I:  return "I";
+	case L:  return "L";
+	case M:  return "M";
+	case N:  return "N";
+	case P:  return "P";
+	case S:  return "S";
+	case Z:  return "Z";
+	default: return "-";
+	}
+}
+
 const char *get_category_string(ucd::category c)
 {
 	using namespace ucd;
@@ -66,11 +83,15 @@ int main()
 	for (ucd::codepoint_t c = 0; c <= 0x10FFFF; ++c)
 	{
 		const char *category = get_category_string(ucd::lookup_category(c));
+		const char *category_group = get_category_group_string(ucd::lookup_category_group(c));
 		ucd::codepoint_t upper = ucd::toupper(c);
 		ucd::codepoint_t lower = ucd::tolower(c);
 		ucd::codepoint_t title = ucd::totitle(c);
 		const char *whitespace = ucd::isspace(c) ? "White_Space" : "";
-		printf("%06X %s %06X %06X %06X %s\n", c, category, upper, lower, title, whitespace);
+		printf("%06X %s %s %06X %06X %06X %s\n",
+		       c, category_group, category,
+		       upper, lower, title,
+		       whitespace);
 	}
 	return 0;
 }

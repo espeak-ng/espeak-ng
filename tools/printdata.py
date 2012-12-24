@@ -44,6 +44,9 @@ if __name__ == '__main__':
 			if title == null: title = codepoint
 			if upper == null: upper = codepoint
 			if lower == null: lower = codepoint
-			print '%s %s %s %s %s %s' % (codepoint, data['GeneralCategory'], upper, lower, title, ' '.join(data['Properties']))
+			print '%s %s %s %s %s %s %s' % (
+			      codepoint, data['GeneralCategory'][0], data['GeneralCategory'],
+			      upper, lower, title,
+			      ' '.join(data['Properties']))
 		except KeyError:
-			print '%s Cn %s %s %s ' % (codepoint, codepoint, codepoint, codepoint)
+			print '%s C Cn %s %s %s ' % (codepoint, codepoint, codepoint, codepoint)
