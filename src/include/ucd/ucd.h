@@ -119,6 +119,131 @@ namespace ucd
 
 
 	//@}
+	/** @name  Unicode Script
+	  * @brief These functions query the Script property of Unicode codepoints.
+	  */
+	//@{
+
+
+	/** @brief Unicode Script
+	  * @see   http://www.iana.org/assignments/language-subtag-registry
+	  * @see   http://www.unicode.org/iso15924/iso15924-codes.html
+	  */
+	enum script
+	{
+		Arab, /**< @brief Arabic Script */
+		Armi, /**< @brief Imperial Aramaic Script */
+		Armn, /**< @brief Armenian Script */
+		Avst, /**< @brief Avestan Script */
+		Bali, /**< @brief Balinese Script */
+		Bamu, /**< @brief Bamum Script */
+		Batk, /**< @brief Batak Script */
+		Beng, /**< @brief Bengali Script */
+		Bopo, /**< @brief Bopomofo Script */
+		Brah, /**< @brief Brahmi Script */
+		Brai, /**< @brief Braille Script */
+		Bugi, /**< @brief Buginese Script */
+		Buhd, /**< @brief Buhid Script */
+		Cans, /**< @brief Unified Canadian Aboriginal Syllabics */
+		Cari, /**< @brief Carian Script */
+		Cakm, /**< @brief Chakma Script */
+		Cham, /**< @brief Cham Script */
+		Cher, /**< @brief Cherokee Script */
+		Copt, /**< @brief Coptic Script */
+		Cprt, /**< @brief Cypriot Script */
+		Cyrl, /**< @brief Cyrillic Script */
+		Deva, /**< @brief Devanagari Script */
+		Dsrt, /**< @brief Deseret Script */
+		Egyp, /**< @brief Egyptian Hiegoglyphs */
+		Ethi, /**< @brief Ethiopic Script */
+		Geor, /**< @brief Geirgian Script */
+		Glag, /**< @brief Glagolitic Script */
+		Goth, /**< @brief Gothic Script */
+		Grek, /**< @brief Greek Script */
+		Gujr, /**< @brief Gujarati Script */
+		Guru, /**< @brief Gurmukhi Script */
+		Hang, /**< @brief Hangul Script */
+		Hano, /**< @brief Hanunoo Script */
+		Hant, /**< @brief Han (Traditional) Script */
+		Hebr, /**< @brief Hebrew Script */
+		Hira, /**< @brief Hiragana Script */
+		Ital, /**< @brief Old Italic Script */
+		Java, /**< @brief Javanese Script */
+		Kali, /**< @brief Kayah Li Script */
+		Kana, /**< @brief Katakana Script */
+		Khar, /**< @brief Kharoshthi Script */
+		Khmr, /**< @brief Khmer Script */
+		Knda, /**< @brief Kannada Script */
+		Kthi, /**< @brief Kaithi Script */
+		Lana, /**< @brief Tai Tham Script */
+		Laoo, /**< @brief Lao Script */
+		Latn, /**< @brief Latin Script */
+		Lepc, /**< @brief Lepcha Script */
+		Limb, /**< @brief Limbu Script */
+		Linb, /**< @brief Linear B Script */
+		Lisu, /**< @brief Lisu Script */
+		Lyci, /**< @brief Lycian Script */
+		Lydi, /**< @brief Lydian Script */
+		Mand, /**< @brief Mandaic Script */
+		Merc, /**< @brief Meroitic Cursive Script */
+		Mero, /**< @brief Meroitic Hieroglyphs */
+		Mlym, /**< @brief Malayalam Script */
+		Mong, /**< @brief Mongolian Script */
+		Mtei, /**< @brief Meitei Mayek Script */
+		Mymr, /**< @brief Myanmar Script */
+		Nkoo, /**< @brief N'Ko Script */
+		Ogam, /**< @brief Ogham Script */
+		Olck, /**< @brief Ol Chiki Script */
+		Orkh, /**< @brief Old Turkic Script */
+		Orya, /**< @brief Oriya Script */
+		Osma, /**< @brief Osmanya Script */
+		Phag, /**< @brief Phags-Pa Script */
+		Phli, /**< @brief Inscriptional Pahlavi Script */
+		Phnx, /**< @brief Phoenician Script */
+		Plrd, /**< @brief Miao Script */
+		Prti, /**< @brief Inscriptional Parthian Script */
+		Rjng, /**< @brief Rejang Script */
+		Runr, /**< @brief Runic Script */
+		Samr, /**< @brief Samaritan Script */
+		Sarb, /**< @brief Old South Arabian Script */
+		Saur, /**< @brief Saurashtra Script */
+		Shaw, /**< @brief Shavian Script */
+		Shrd, /**< @brief Sharada Script */
+		Sinh, /**< @brief Sinhala Script */
+		Sora, /**< @brief Sora Sompeng Script */
+		Sund, /**< @brief Sundanese Script */
+		Sylo, /**< @brief Syloti Nagri Script */
+		Syrn, /**< @brief Syriatic (Eastern) Script */
+		Tagb, /**< @brief Tagbanwa Script */
+		Takr, /**< @brief Takri Script */
+		Tale, /**< @brief Tai Le Script */
+		Talu, /**< @brief New Tai Lue Script */
+		Taml, /**< @brief Tamil Script */
+		Tavt, /**< @brief Tai Viet Script */
+		Telu, /**< @brief Telugu Script */
+		Tfng, /**< @brief Tifinagh Script */
+		Tglg, /**< @brief Tagalog Script */
+		Thaa, /**< @brief Thaana Script */
+		Thai, /**< @brief Thai Script */
+		Tibt, /**< @brief Tibetan Script */
+		Ugar, /**< @brief Ugaritic Script */
+		Vaii, /**< @brief Vai Script */
+		Xpeo, /**< @brief Old Persian Script */
+		Xsux, /**< @brief Cuneiform Script */
+		Yiii, /**< @brief Yi Script */
+		Zyyy, /**< @brief Inherited Script */
+		Zzzz, /**< @brief Unknown Script */
+	};
+
+	/** @brief Lookup the Script for a Unicode codepoint.
+	  *
+	  * @param c The Unicode codepoint to lookup.
+	  * @return  The Script of the Unicode codepoint.
+	  */
+	script lookup_script(codepoint_t c);
+
+
+	//@}
 	/** @name  ctype-style APIs
 	  * @brief These functions provide wctype compatible functions using the UCD data.
 	  */

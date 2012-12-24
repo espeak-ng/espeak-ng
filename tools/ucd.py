@@ -19,6 +19,30 @@
 
 import os
 import sys
+import iana
+
+script_map = {
+	# UCD script names not derivable from IANA script tags:
+	'Canadian_Aboriginal': 'Cans',
+	'Common': 'Zyyy',
+	'Egyptian_Hieroglyphs': 'Egyp',
+	'Inherited': 'Zyyy',
+	'Meetei_Mayek': 'Mtei',
+	'Nko': 'Nkoo',
+	'Phags_Pa': 'Phag',
+	# Codes in http://www.unicode.org/iso15924/iso15924-codes.html not in IANA:
+	'Cuneiform': 'Xsux',
+}
+for ref, tag in iana.read_iana_subtags('data/language-subtag-registry').items():
+	if tag['Type'] == 'Script':
+		# Convert the IANA scipt tag descriptions to the UCD script names:
+		desc = tag['Description']
+		if ' (' in desc:
+			desc = desc.split(' (')[0]
+		desc = desc.replace(' ', '_')
+		script_map[desc] = ref
+# Fix up incorrectly mapped script names:
+script_map['Cyrillic'] = 'Cyrl'
 
 class CodePoint:
 	def __init__(self, x):
@@ -86,6 +110,9 @@ def boolean(x):
 		return True
 	return False
 
+def script(x):
+	return script_map[x]
+
 data_items = {
 	'Blocks': [
 		('Range', codepoint),
@@ -101,7 +128,7 @@ data_items = {
 	],
 	'Scripts': [
 		('Range', codepoint),
-		('Script', str),
+		('Script', script),
 	],
 	'UnicodeData': [
 		('CodePoint', codepoint),

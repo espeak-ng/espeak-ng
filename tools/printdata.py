@@ -32,21 +32,29 @@ for data in ucd.parse_ucd_data(ucd_rootdir, 'PropList'):
 	if data['Property'] in ['White_Space']:
 		for codepoint in data['Range']:
 			unicode_chars[codepoint]['Properties'].append(data['Property'])
+for data in ucd.parse_ucd_data(ucd_rootdir, 'Scripts'):
+	for codepoint in data['Range']:
+		unicode_chars[codepoint]['Script'] = data['Script']
 
 null = ucd.CodePoint('0000')
 if __name__ == '__main__':
 	for codepoint in ucd.CodeRange('000000..10FFFF'):
 		try:
 			data = unicode_chars[codepoint]
-			title = data['TitleCase']
-			upper = data['UpperCase']
-			lower = data['LowerCase']
-			if title == null: title = codepoint
-			if upper == null: upper = codepoint
-			if lower == null: lower = codepoint
-			print '%s %s %s %s %s %s %s' % (
-			      codepoint, data['GeneralCategory'][0], data['GeneralCategory'],
-			      upper, lower, title,
-			      ' '.join(data['Properties']))
 		except KeyError:
-			print '%s C Cn %s %s %s ' % (codepoint, codepoint, codepoint, codepoint)
+			data = {'GeneralCategory': 'Cn', 'TitleCase': codepoint, 'UpperCase': codepoint, 'LowerCase': codepoint, 'Properties': []}
+		try:
+			script = data['Script']
+		except KeyError:
+			script = 'Zzzz'
+		title = data['TitleCase']
+		upper = data['UpperCase']
+		lower = data['LowerCase']
+		if title == null: title = codepoint
+		if upper == null: upper = codepoint
+		if lower == null: lower = codepoint
+		print '%s %s %s %s %s %s %s %s' % (
+		      codepoint, script,
+		      data['GeneralCategory'][0], data['GeneralCategory'],
+		      upper, lower, title,
+		      ' '.join(data['Properties']))

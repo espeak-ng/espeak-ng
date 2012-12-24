@@ -57,9 +57,17 @@ EXTRA_DIST += ChangeLog
 UCD_VERSION=6.2.0
 UCD_ROOTDIR=data/ucd
 
+data/language-subtag-registry:
+	mkdir -pv data
+	wget -O $@ http://www.iana.org/assignments/language-subtag-registry
+
 data/ucd/PropList.txt:
 	mkdir -pv data/ucd
 	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/PropList.txt
+
+data/ucd/Scripts.txt:
+	mkdir -pv data/ucd
+	wget -O $@ http://www.unicode.org/Public/${UCD_VERSION}/ucd/Scripts.txt
 
 data/ucd/UnicodeData.txt:
 	mkdir -pv data/ucd
@@ -67,11 +75,18 @@ data/ucd/UnicodeData.txt:
 
 ############################# libucd ##########################################
 
-src/case.cpp: tools/case.py tools/ucd.py data/ucd/UnicodeData.txt
+src/case.cpp: tools/case.py tools/ucd.py \
+	data/ucd/UnicodeData.txt
 	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
-src/categories.cpp: tools/categories.py tools/ucd.py data/ucd/UnicodeData.txt
+src/categories.cpp: tools/categories.py tools/ucd.py \
+	data/ucd/UnicodeData.txt
 	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
+
+src/scripts.cpp: tools/scripts.py tools/ucd.py \
+	data/language-subtag-registry \
+	data/ucd/Scripts.txt
+	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
 libucd_includedir = $(includedir)/ucd
 libucd_include_HEADERS = \
@@ -83,7 +98,8 @@ src_libucd_la_CXXFLAGS = ${AM_CXXFLAGS}
 src_libucd_la_SOURCES  = \
 	src/case.cpp \
 	src/categories.cpp \
-	src/ctype.cpp
+	src/ctype.cpp \
+	src/scripts.cpp
 
 ############################# tests ###########################################
 
