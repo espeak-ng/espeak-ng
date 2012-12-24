@@ -2981,9 +2981,9 @@ ucd::category ucd::lookup_category(codepoint_t c)
 	return Ii; // Invalid Unicode Codepoint
 }
 
-ucd::category_group ucd::lookup_category_group(codepoint_t c)
+ucd::category_group ucd::lookup_category_group(category c)
 {
-	switch (lookup_category(c))
+	switch (c)
 	{
 	case Cc: case Cf: case Cn: case Co: case Cs:
 		return C;
@@ -3002,4 +3002,9 @@ ucd::category_group ucd::lookup_category_group(codepoint_t c)
 	case Ii:
 		return I;
 	}
+}
+
+ucd::category_group ucd::lookup_category_group(codepoint_t c)
+{
+	return lookup_category_group(lookup_category(c));
 }

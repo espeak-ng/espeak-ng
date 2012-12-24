@@ -96,6 +96,13 @@ namespace ucd
 		Zs, /**< @brief Space Separator */
 	};
 
+	/** @brief Lookup the General Category Group for a General Category.
+	  *
+	  * @param c The General Category to lookup.
+	  * @return  The General Category Group of the General Category.
+	  */
+	category_group lookup_category_group(category c);
+
 	/** @brief Lookup the General Category Group for a Unicode codepoint.
 	  *
 	  * @param c The Unicode codepoint to lookup.
