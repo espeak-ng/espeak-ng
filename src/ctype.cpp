@@ -1,6 +1,6 @@
 /* ctype-style APIs.
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -27,8 +27,9 @@ int ucd::isalnum(codepoint_t c)
 	case Ll: case Lm: case Lo: case Lt: case Lu:
 	case Nd: case Nl: case No:
 		return 1;
+	default:
+		return 0;
 	}
-	return 0;
 }
 
 int ucd::isalpha(codepoint_t c)
@@ -37,8 +38,9 @@ int ucd::isalpha(codepoint_t c)
 	{
 	case Ll: case Lm: case Lo: case Lt: case Lu:
 		return 1;
+	default:
+		return 0;
 	}
-	return 0;
 }
 
 int ucd::iscntrl(codepoint_t c)
@@ -52,8 +54,9 @@ int ucd::isdigit(codepoint_t c)
 	{
 	case Nd: case Nl: case No:
 		return 1;
+	default:
+		return 0;
 	}
-	return 0;
 }
 
 int ucd::isgraph(codepoint_t c)
@@ -64,8 +67,9 @@ int ucd::isgraph(codepoint_t c)
 	case Zl: case Zp: case Zs:
 	case Ii:
 		return 0;
+	default:
+		return 1;
 	}
-	return 1;
 }
 
 int ucd::islower(codepoint_t c)
@@ -80,8 +84,9 @@ int ucd::isprint(codepoint_t c)
 	case Cc: case Cf: case Cn: case Co: case Cs:
 	case Ii:
 		return 0;
+	default:
+		return 1;
 	}
-	return 1;
 }
 
 int ucd::ispunct(codepoint_t c)
@@ -90,8 +95,9 @@ int ucd::ispunct(codepoint_t c)
 	{
 	case Pc: case Pd: case Pe: case Pf: case Pi: case Po: case Ps:
 		return 1;
+	default:
+		return 0;
 	}
-	return 0;
 }
 
 int ucd::isspace(codepoint_t c)
@@ -111,8 +117,9 @@ int ucd::isspace(codepoint_t c)
 		case 0x85: // U+0085 : NEXT LINE
 			return 1;
 		}
+	default:
+		return 0;
 	}
-	return 0;
 }
 
 int ucd::isupper(codepoint_t c)
