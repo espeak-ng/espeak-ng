@@ -1228,10 +1228,11 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = STRESSPOSN_2R;   // Temporary
 			tr->langopts.stress_flags = 0x20;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x103;
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x76;    // [v]  don't count this character at start of word
 			tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
 			tr->langopts.numbers2 = 0x100;   // plural forms of millions etc
 			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
-			SetLetterVowel(tr,'r');
+//			SetLetterVowel(tr,'r');
 		break;
 
 	case L('s','q'):  // Albanian
