@@ -69,7 +69,11 @@
         m        m
         m (g     N
         m (k     N
+<<<<<<< HEAD
      K) m (K     %@m  // unstressed
+=======
+     K) m (K     m@-  // unstressed
+>>>>>>> upstream
 
 
 .group n
@@ -77,7 +81,11 @@
         n (g     N
         n (k     N
 
+<<<<<<< HEAD
      K) n (K     %@n  // unstressed
+=======
+     K) n (K     n@-  // unstressed
+>>>>>>> upstream
         nj       n^
         nj (A    nj
         nj (i    n^
@@ -85,6 +93,10 @@
 
 .group o
         o        o
+<<<<<<< HEAD
+=======
+     _) o        O
+>>>>>>> upstream
 
 
 .group p
@@ -127,12 +139,20 @@
         v (-A+   v    // preposition 'v' before a vowel
      A) v (K     w
      K) v (K     %u
+<<<<<<< HEAD
    L01) v (A     w
 
 
 .group w
         w        v
      A) w (K     w
+=======
+   L01) v (A     v#
+
+
+.group w
+        w        w
+>>>>>>> upstream
 
 
 .group x

@@ -1,4 +1,5 @@
 
+
 // You can use the en_extra file, rather than this one
 // to add your own pronunciation definitions.
 
@@ -427,6 +428,7 @@ mr	mIst3     $dot
 mrs	mIsI2z    $dot
 //ms               mIz         $dot
 dr	d0kt3	$dot
+dr	$abbrev $allcaps
 lt	$dot
 prof	$dot
 rev	$dot
@@ -719,6 +721,7 @@ bijou		bi:Zu:
 bikini		bIk'i:ni
 binman		bInman
 bio		baIoU
+biome		baIoUm
 biped		baIpEd
 bipedal		baIp'i:d@L
 biscuit		bIskIt
@@ -1155,6 +1158,7 @@ empire		$1
 emu		i:mju:
 enroute		0nr'u:t
 ensemble	0ns'0mb@L
+entendre	0nt'0ndr@-
 entente		0nt'0nt
 entourage	0nt2UrA:Z
 entrail		$1
@@ -2831,7 +2835,7 @@ Paris		parIs
 Peking		pi:k'IN
 Persia		p3:Z@
 Peru		p@ru:
-Phillipine	fIlI2pi:n
+Philippine	fIlI2pi:n
 Philipine	fIlI2pi:n        // misspell
 Polish		poUlIS        $capital $only
 Portugal	po@tS@g@L
@@ -3016,6 +3020,7 @@ Gary		gari
 Geraint		gEraInt
 Gerhard		ge@hA@t
 Gibbs		gIbz
+Gillespie	gI2lEspi
 Gillian		dZIli:@n
 Gladys		gladIs
 Glynn		glIn
@@ -3044,7 +3049,8 @@ Isiah		aIz'aI@
 Jacob		dZeIk@b
 Jacques		Zak
 Jamie		dZeImi
-Jared		dZarEd
+Jared		dZar@d
+Jarred		dZar@d
 Jesus		dZi:z@s
 Jonah		dZoUn@
 José		hoUs'eI
