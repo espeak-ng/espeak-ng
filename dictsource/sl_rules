@@ -1,0 +1,174 @@
+
+// Spelling-to-phoneme rules for Slovenian
+// This file is UTF-8 encoded
+
+.L01 b d g j l m n v z ž   // voiced consonants
+
+
+.group a
+        a        a
+
+.group b
+        b        b
+
+.group c
+        c        ts
+
+.group č
+        č        tS
+
+.group d
+        d        d
+        dz       dz
+        dž       dZ
+
+
+.group e
+        e        e
+        e (_     E      // ??
+
+
+.group f
+        f        f
+
+
+.group g
+        g        g
+
+
+.group h
+        h        x
+     i) h        h
+        h (F     h   // before voiceless consonant
+
+
+.group i
+        i        i
+        i (A     j
+        i (r     j
+
+
+.group j
+        j        j
+
+
+.group k
+        k        k
+
+
+.group l
+        l        l
+        l (K     w
+     K) l (K     @l
+        lj       l^
+        lj (A    lj
+        lj (i    l^
+
+
+.group m
+        m        m
+        m (g     N
+        m (k     N
+     K) m (K     m@-  // unstressed
+
+
+.group n
+        n        n
+        n (g     N
+        n (k     N
+
+     K) n (K     n@-  // unstressed
+        nj       n^
+        nj (A    nj
+        nj (i    n^
+
+
+.group o
+        o        o
+     _) o        O
+
+
+.group p
+        p        p
+
+
+.group q
+        q        k
+        qu       kv
+
+
+.group r
+        r        R
+        rr       R
+
+     K) r (K     @R
+
+
+.group s
+        s        s
+
+
+.group š
+        š        S
+
+
+.group t
+        t        t
+
+
+.group u
+        u        u
+        u (A     w
+        u (r     u
+     A) u (K     w
+
+
+.group v
+        v        v
+        v (-A+   v    // preposition 'v' before a vowel
+     A) v (K     w
+     K) v (K     %u
+   L01) v (A     v#
+
+
+.group w
+        w        w
+
+
+.group x
+        x        ks
+
+
+.group y
+        y        j
+     K) y (K     i
+
+
+.group z
+        z        z
+
+
+.group ž
+        ž        Z
+
+
+.group
+	á	'a:
+	é	'e:
+	ê	'E:
+	è	E
+	í	'i:
+	ó	'o:
+	ô	'O:
+	ò	O
+	ú	'u:
+        ć        tS
+        đ        dZ
+        ř        R^
+        ä        E
+        ö        @:
+        ü        y
+        ß        _^_DE
+
+        $        d'olaR
+

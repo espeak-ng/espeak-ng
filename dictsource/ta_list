@@ -363,7 +363,6 @@ tamil	தமிழ்	$text
 பீடா	$alt
 பைக்க	$alt
 பாதிக்குமா	$alt
-பத்திரப்	bVttirVp
 பாய்ஸ்	$alt
 புக்கர்	$alt
 பாதிக்க	$alt
@@ -376,6 +375,10 @@ tamil	தமிழ்	$text
 பாவிக்க	$alt
 பார்ல	$alt
 பாட்டனி	$alt
+பலமே	$alt
+பாதிக்கக்	$alt
+புசு 	$alt
+புஸு	$alt
 
 
 	// initial த as [d]
@@ -442,7 +445,7 @@ tamil	தமிழ்	$text
 தம்மம்	$alt
 தம்ம	$alt
 தாயம்	$alt
-
+திமு	$alt
 
 	// initial ட
 டார்ச்	t.a:rtS

@@ -1,0 +1,132 @@
+
+// translation rules for Slovenian
+// This file is UTF-8 encoded
+ 
+
+// letter names
+b	b@
+c	ts@
+č	tS@
+d	d@
+e	e
+f	f@
+g	g@
+h	h@
+j	j@
+_k	k@
+l	l@
+m	m@
+n	n@
+_o	o
+p	p@
+r	R@
+_s	s@
+š	S@
+t	t@
+_v	v@
+_z	z@
+ž	Z@
+
+q	ku
+w	dv#'ojniv,@
+x	iks
+y	'ipsilon
+ć	m'ehkitS,@
+đ	dZ@
+
+ä	$accent
+ë	$accent
+ö	$accent
+ü	$accent
+
+// accent names  (please fix)
+_dia	'umlawt
+
+
+// numbers
+_0	n'itS
+_1	'ena
+_2	dv#'a
+_3	tR'i
+_4	St'iRi
+_5	p'et
+_6	S'est
+_7	s'edem
+_8	'osem
+_9	d'evet
+_10	d'eset
+_11	'e'najst
+_12	dv#'anajst
+_13	tR'inajst
+_14	St'iRinajst
+_15	p'etnajst
+_16	S'estnajst
+_17	s'edemnajst
+_18	'osemnajst
+_19	d'evetnajst
+_2X	dv#'ajset
+_3X	tR'ideset
+_4X	St'iRideset
+_5X	p'etdeset
+_6X	S'estdeset
+_7X	s'edemdeset
+_8X	'osemdeset
+_9X	d'evetdeset
+_2C	dv'esto
+_0C	sto
+_0M1	t'isotS
+_1M1	t'isotS
+
+_1M2	'enmilij'on
+_2M2	dv#'amilij'ona
+_3M2	tR'ijemilij'oni
+_4M2	St'iRijemilij'oni
+_0M2	milij'onow
+
+_1M3	'enamilij'aRda
+_2M3	dv#'emilij'aRdi
+_3M3	tR'imilij'aRde
+_4M3	St'iRimilij'aRde
+_0M3	milij'aRd
+
+_1M4	'enbilij'on
+_2M4	dv#'abilij'ona
+_3M4	tR'ijebilij'oni
+_4M4	St'iRijebilij'oni
+_0M4	bilij'onow
+
+_0and	in
+_dpt	_tselih
+
+// Single letter words (speak as letter name if at end-of-clause)
+
+a	$u
+o	$u
+k	k
+s	s
+v	w	$combine
+z	z	$combine
+
+a	a	$atend
+k	k@	$atend    // letter-k
+o	o	$atend    // letter-o
+s	s@	$atend
+v	v@	$atend
+z	z@	$atend
+
+// Function words (unstressed)
+
+	// verb: to be
+sem	$u
+si	$u
+je	$u
+sva	$u
+sta	$u
+smo	$u
+ste	$u
+so	$u
+
+bil	$u
+bila	$u
+bili	$u
+

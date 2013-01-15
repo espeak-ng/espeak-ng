@@ -418,7 +418,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [h&z] base
+l/l@            [hæt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -452,7 +452,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [h&z] base
+l/la            [hæt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -460,7 +460,7 @@ l/la            [h&z] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [h&z] base
+l/le            [hæt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -472,7 +472,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [h&z] base
+l/li            [hæt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -486,7 +486,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [h&z] base
+l/lo            [hæt] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -497,7 +497,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [h&z] base
+l/lu            [hæt] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -1483,6 +1483,7 @@ vowel/0         [0] en
 vowel/0_2       [0] en-n
                 [O] pt-pt
                 [o] sw
+                [O] sl
                 [o] nso
                 [o] tn
 vowel/0_3       [O:] en-us
@@ -1730,7 +1731,6 @@ vowel/e         [e] base
                 [e] rw
                 [e#] rw
                 [e] ne
-                [e] sl
                 [e] wo
                 [e:] wo
                 [e] dv
@@ -1749,6 +1749,7 @@ vowel/e_2       [eI] en-sc
                 [e:] sv
                 [e:] no
                 [e] pa
+                [e] sl
 vowel/e_3       [i] en-n
                 [e:] hu
                 [e] ku
@@ -1777,7 +1778,6 @@ vowel/ee_1      [E] base2
                 [E:] sv
                 [E:] no
                 [e] zhy
-                [E] sl
 vowel/ee_2      [E] cy
                 [E2] nl
                 [E] zh
@@ -1834,6 +1834,7 @@ vowel/e_mid     [E] en-rp
                 [e] hy
                 [e] ka
                 [E] prs
+                [E] sl
                 [E] ht
                 [e] si
                 [E] ga
@@ -2072,7 +2073,6 @@ vowel/o         [o] base2
                 [o] rw
                 [o#] rw
                 [o:] pa
-                [o] sl
                 [o] ak
                 [o] wo
                 [o:] wo
@@ -2100,6 +2100,7 @@ vowel/o_6       [O] nl
                 [O:] nl
 vowel/o_7       [o] ku
 vowel/o_8       [o] fr
+                [o] sl
                 [o] ht
                 [o] ko
 vowel/oe        [W] af
@@ -2185,7 +2186,6 @@ vowel/oo_4      [O] base2
 vowel/oo_5      [O] pl
                 [O] is
                 [O] sq
-                [O] sl
 vowel/oo_en     [O] en
                 [O:] en
                 [O@] en
