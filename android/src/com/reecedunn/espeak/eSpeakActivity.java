@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2009 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -176,6 +176,9 @@ public class eSpeakActivity extends Activity {
         } else {
             mInformation.add(new Pair<String,String>(availableVoices, Integer.toString(mVoices.size())));
         }
+
+        final String version = getString(R.string.tts_version);
+        mInformation.add(new Pair<String,String>(version, SpeechSynthesis.getVersion()));
 
         final String statusText;
         switch (mState) {

@@ -128,5 +128,6 @@
         <item>5x</item>
     </string-array>
         <string name="status">Status</string>
+        <string name="tts_version">eSpeak version</string>
 
 </resources>

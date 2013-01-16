@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -76,6 +76,10 @@ public class SpeechSynthesis {
     @Override
     protected void finalize() {
         nativeDestroy();
+    }
+
+    public static String getVersion() {
+        return nativeGetVersion();
     }
 
     public int getSampleRate() {
@@ -184,6 +188,8 @@ public class SpeechSynthesis {
     private native final boolean nativeCreate(String path);
 
     private native final boolean nativeDestroy();
+
+    private native final static String nativeGetVersion();
 
     private native final int nativeGetSampleRate();
 

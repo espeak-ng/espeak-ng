@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2011 Google Inc.
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -160,6 +160,13 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeDestroy(
   delete nat;
 
   return JNI_TRUE;
+}
+
+JNIEXPORT jobject
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetVersion(
+    JNIEnv *env, jclass clazz) {
+  if (DEBUG) LOGV("%s", __FUNCTION__);
+  return env->NewStringUTF(espeak_Info(NULL));
 }
 
 JNIEXPORT jint
