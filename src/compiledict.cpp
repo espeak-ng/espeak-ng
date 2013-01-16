@@ -1586,6 +1586,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 		items[n_items] = p_start = p;
 		while((*p & 0xff) > ' ')
 		{
+			if (*p == '_') *p = ' ';   // allow '_' for word break 
 			p++;
 		}
 		*p++ = 0;

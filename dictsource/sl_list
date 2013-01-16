@@ -28,11 +28,11 @@ _z	z@
 ž	Z@
 
 q	ku
-w	dv'ojniv,@
+w	dv#'ojniv,@
 x	iks
 y	'ipsilon
 ć	m'ehkitS,@
-đ	m'ehkidZ,@
+đ	dZ@
 
 ä	$accent
 ë	$accent
@@ -46,7 +46,7 @@ _dia	'umlawt
 // numbers
 _0	n'itS
 _1	'ena
-_2	dv'a
+_2	dv#'a
 _3	tR'i
 _4	St'iRi
 _5	p'et
@@ -56,7 +56,7 @@ _8	'osem
 _9	d'evet
 _10	d'eset
 _11	'e'najst
-_12	dv'anajst
+_12	dv#'anajst
 _13	tR'inajst
 _14	St'iRinajst
 _15	p'etnajst
@@ -64,7 +64,7 @@ _16	S'estnajst
 _17	s'edemnajst
 _18	'osemnajst
 _19	d'evetnajst
-_2X	dv'ajset
+_2X	dv#'ajset
 _3X	tR'ideset
 _4X	St'iRideset
 _5X	p'etdeset
@@ -78,19 +78,19 @@ _0M1	t'isotS
 _1M1	t'isotS
 
 _1M2	'enmilij'on
-_2M2	dv'amilij'ona
+_2M2	dv#'amilij'ona
 _3M2	tR'ijemilij'oni
 _4M2	St'iRijemilij'oni
 _0M2	milij'onow
 
 _1M3	'enamilij'aRda
-_2M3	dv'emilij'aRdi
+_2M3	dv#'emilij'aRdi
 _3M3	tR'imilij'aRde
 _4M3	St'iRimilij'aRde
 _0M3	milij'aRd
 
 _1M4	'enbilij'on
-_2M4	dv'abilij'ona
+_2M4	dv#'abilij'ona
 _3M4	tR'ijebilij'oni
 _4M4	St'iRijebilij'oni
 _0M4	bilij'onow
