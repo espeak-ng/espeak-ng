@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -93,6 +93,9 @@ public class TextToSpeechTest extends AndroidTestCase
         {
             try
             {
+                // Skip the voice if the language code is not supported by Android:
+                if (data.javaLanguage.equals("")) continue;
+
                 final Locale iana1 = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
                 final Locale iana2 = new Locale(data.ianaLanguage, data.ianaCountry, "test");
                 final Locale iana3 = new Locale(data.ianaLanguage, "VU", data.variant);

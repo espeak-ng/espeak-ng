@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -206,7 +206,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
     public void testRemovedVoices()
     {
         getVoices(); // Ensure that the voice data has been populated.
-        assertThat(mRemoved.toString(), is("[]"));
+        assertThat(mRemoved.toString(), is("[nci, prs]"));
     }
 
     public void testVoiceData()
