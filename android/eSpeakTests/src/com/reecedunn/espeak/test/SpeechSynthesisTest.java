@@ -340,6 +340,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
 
     public void testGetSampleText()
     {
+        final String[] currentLocales = getContext().getResources().getAssets().getLocales();
         for (VoiceData.Voice data : VoiceData.voices)
         {
             if (mRemoved.contains(data.name))
@@ -352,11 +353,13 @@ public class SpeechSynthesisTest extends AndroidTestCase
             {
                 final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
                 assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), is(data.sampleText));
+                assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
 
                 if (!data.javaLanguage.equals(""))
                 {
                     final Locale javaLocale = new Locale(data.javaLanguage, data.javaCountry, data.variant);
                     assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), is(data.sampleText));
+                    assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
                 }
             }
             catch (AssertionError e)
