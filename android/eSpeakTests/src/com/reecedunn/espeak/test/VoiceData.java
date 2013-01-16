@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -200,6 +200,6 @@ public class VoiceData
         new Voice("vi",          "vi",       "vi",  "vie", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi",             "Đây là mẫu văn bản được đọc bằng Tiếng Việt"),
         new Voice("wo",          "test/wo",  "wo",  "wol", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Wolof",                            "wo",             "This is a sample of text spoken in Wolof"),
         new Voice("zh",          "zh",       "zh",  "zho", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Mandarin)",               "zh",             "This is a sample of text spoken in 中文"),
-        new Voice("zh-yue",      "zh-yue",   "yue", "",    "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Cantonese)",              "yue",            "This is a sample of text spoken in 中文"),
+        new Voice("zh-yue",      "zh-yue",   "zh",  "zho", "HK",  "HKG", "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Cantonese)",              "zh-HK",          "This is a sample of text spoken in 中文 (中華人民共和國香港特別行政區)"),
     };
 }

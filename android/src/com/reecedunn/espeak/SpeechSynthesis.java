@@ -245,7 +245,7 @@ public class SpeechSynthesis {
                 locale = new Locale("hy", "", "arevmda");
             } else if (name.equals("zh-yue")) {
                 // Android/Java does not support macrolanguages.
-                locale = new Locale("yue");
+                locale = new Locale("zh", "HK");
             } else {
                 String[] parts = name.split("-");
                 switch (parts.length) {
