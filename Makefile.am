@@ -25,7 +25,7 @@ EXTRA_DIST += ChangeLog
 
 all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
 
-install: all
+install:
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) BINDIR=$(BINDIR) INCDIR=$(INCDIR) LIBDIR=$(LIBDIR) install && cd ..
 	install -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
 

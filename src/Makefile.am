@@ -135,7 +135,7 @@ distclean: clean
 	rm -f $(STATIC_LIBESPEAK)
 	rm -f $(ESPEAKEDIT)
 
-install: all
+install:
 	rm -rf $(DESTDIR)$(DATADIR)
 	$(MKDIR) $(DESTDIR)$(BINDIR)
 	$(MKDIR) $(DESTDIR)$(LIBDIR)
