@@ -1,7 +1,7 @@
-PREFIX=/usr
-BINDIR=$(PREFIX)/bin
-INCDIR=$(PREFIX)/include/espeak
-LIBDIR=$(PREFIX)/lib
+PREFIX=@prefix@
+BINDIR=@bindir@
+INCDIR=@includedir@/espeak
+LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
@@ -88,19 +88,19 @@ docs/speak_lib.h: src/speak_lib.h
 	cp $< $@
 
 src/libespeak.a: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
+	cd src && make libespeak.a && cd ..
 
 src/libespeak.so: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
+	cd src && make libespeak.so && cd ..
 
 src/speak: $(common_SOURCE) src/speak.cpp
-	cd src && make speak PREFIX=$(PREFIX) && cd ..
+	cd src && make speak && cd ..
 
 src/espeak: src/libespeak.so src/espeak.cpp
-	cd src && make espeak PREFIX=$(PREFIX) && cd ..
+	cd src && make espeak && cd ..
 
 src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
-	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
+	cd src && make espeakedit && cd ..
 
 espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..

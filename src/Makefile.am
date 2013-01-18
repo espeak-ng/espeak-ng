@@ -1,11 +1,10 @@
+PREFIX=@prefix@
+BINDIR=@bindir@
+INCDIR=@includedir@/espeak
+LIBDIR=@libdir@
+DATADIR=${PREFIX}/share/espeak-data
+
 # remove -fno-exceptions  if it causes problems with stdio library on some platforms (ARM)
-
-DATADIR=/usr/share/espeak-data
-
-PREFIX=/usr
-BINDIR=$(PREFIX)/bin
-INCDIR=$(PREFIX)/include/espeak
-LIBDIR=$(PREFIX)/lib
 
 RELEASE = 1.46
 SPEAK = speak
