@@ -1,4 +1,4 @@
-REFIX=/usr
+PREFIX=/usr
 BINDIR=$(PREFIX)/bin
 INCDIR=$(PREFIX)/include/espeak
 LIBDIR=$(PREFIX)/lib
