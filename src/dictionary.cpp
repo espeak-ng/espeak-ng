@@ -2863,6 +2863,7 @@ int TransposeAlphabet(Translator *tr, char *text)
 	int offset;
 	int min;
 	int max;
+	const char *map;
 	char *p = text;
 	char *p2 = text;
 	int all_alpha=1;
@@ -2874,20 +2875,39 @@ int TransposeAlphabet(Translator *tr, char *text)
 	offset = tr->transpose_min - 1;
 	min = tr->transpose_min;
 	max = tr->transpose_max;
+	map = tr->transpose_map;
 
 	pairs_start = max - min + 2;
 
 	do {
 		p += utf8_in(&c,p);
-		if((c >= min) && (c <= max))
-		{
-			*p2++ = c - offset;
-		}
-		else
 		if(c != 0)
 		{
-			p2 += utf8_out(c,p2);
-			all_alpha=0;
+			if((c >= min) && (c <= max))
+			{
+				if(map == NULL)
+				{
+					*p2++ = c - offset;
+				}
+				else
+				{
+					// get the code from the transpose map
+					if(map[c - min] > 0)
+					{
+						*p2++ = map[c - min];
+					}
+					else
+					{
+						p2 += utf8_out(c,p2);
+						all_alpha=0;
+					}
+				}
+			}
+			else
+			{
+				p2 += utf8_out(c,p2);
+				all_alpha=0;
+			}
 		}
 	} while (c != 0);
 	*p2 = 0;

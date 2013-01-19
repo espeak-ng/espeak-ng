@@ -1,4 +1,4 @@
-84 phoneme tables
+85 phoneme tables
           new total
     base 109  109
 consonants  10  118
@@ -41,6 +41,7 @@ consonants  10  118
       es  15  125
    es-la   1  125
       ca  11  127
+      an   4  125
       pt  29  140
    pt-pt  20  140
       ro  36  148
@@ -418,7 +419,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [hæt] base
+l/l@            [hÖv] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -452,7 +453,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [hæt] base
+l/la            [hÖv] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -460,7 +461,7 @@ l/la            [hæt] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [hæt] base
+l/le            [hÖv] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -472,7 +473,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [hæt] base
+l/li            [hÖv] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -486,7 +487,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [hæt] base
+l/lo            [hÖv] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -497,7 +498,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [hæt] base
+l/lu            [hÖv] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -1774,6 +1775,7 @@ vowel/ee_1      [E] base2
                 [e] lt
                 [E] pl
                 [E] la
+                [E] an
                 [E] grc
                 [E:] sv
                 [E:] no
@@ -2181,6 +2183,7 @@ vowel/oo_4      [O] base2
                 [O1] et
                 [O:] hi
                 [O] it
+                [O] an
                 [O] pa
                 [O] ga
 vowel/oo_5      [O] pl

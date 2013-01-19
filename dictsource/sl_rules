@@ -26,6 +26,7 @@
 .group e
         e        e
         e (_     E      // ??
+     _) e        E
 
 
 .group f
@@ -45,7 +46,6 @@
 .group i
         i        i
         i (A     j
-        i (r     j
 
 
 .group j
@@ -119,7 +119,6 @@
 .group u
         u        u
         u (A     w
-        u (r     u
      A) u (K     w
 
 

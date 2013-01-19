@@ -1,0 +1,206 @@
+ 
+// Aragon translation rules
+// This file is UTF-8 encoded
+
+
+.L01 l r y
+.L03 f h j s y z r      // allow [B] [D] [Q] before these consonants
+.L04 b v f p      // labials, nasals are [m]
+.L05 g k          // velars, nasals are [N]
+
+
+.group a
+        a        a
+        ai       aI
+        ai (X    'aI
+        ay (K    aI
+        ay (X    'aI
+        au       aU
+        au (X    'aU
+
+
+.group b
+        b          b
+     _) b          b  // phoneme definition may change it to [B]
+     _) b (A       b
+        b (A       B
+        b (cY      B
+        b (L03     B
+     m) b          b
+     n) b          b
+        b (iA      b
+        b (uA      b
+
+
+.group c
+        c        k
+        c (Y     T       // ce  ci
+        cc       kT
+        ch       tS
+
+
+.group d
+        d          d
+     _) d          d  // phoneme definition may change it to [D]
+     _) d (A       d
+        d (A       D
+        d (cY      D
+        d (L03     D
+     m) d          d
+     n) d          d
+     l) d          d
+     r) d          d
+
+     n) d (_     =    // silent, but stress on last vowel
+
+
+.group e
+        e        e
+        ei       eI
+        ei (X    'eI
+        ey (K    eI
+        ey (X    'eI
+        eu       eU
+        eu (X    'eU
+     i) e        E
+     u) e        E
+     y) e        E
+
+
+.group f
+        f        f
+
+
+.group g
+        g          g
+     _) g          g  // phoneme definition may change it to [Q]
+     _) gh (A      g  // allow _gh in foreign words
+     _) gn (A      n
+     _) g (A       g
+        g (A       Q
+        g (cY      Q
+        g (L03     Q
+     m) g          g
+     n) g          g
+        g (Y+      x        // ge gi
+
+        gu (A    gw
+        gü       gw
+        gu (e    g
+        gu (i    g
+
+
+.group h
+        h                // silent
+
+
+.group i
+        i        i
+        i (A     j
+     A) ix       S
+
+
+.group j
+        j        x
+
+
+.group k
+        k        k
+
+.group l
+        l        l
+        ll       l^
+
+
+.group m
+        m        m
+
+
+.group n
+        n        n
+        n (L04   m
+        n (_L04  m
+        ny       n^
+
+
+.group ñ
+        ñ        n^
+
+
+.group o
+        o        o
+        oi       oI
+        oi (X    'oI
+        oy (K    oI
+        oy (X    'oI
+        ou       ow
+        ou (X    'ow
+     i) o        O
+     u) o        O
+     y) o        O
+
+.group p
+        p        p
+
+
+.group q
+        qu (A    kw
+        qü       kw
+        qu (e    k
+        qu (i    k
+
+
+.group r
+        r        r
+     _) r        R
+        rr       RR2
+     @) r (-     =      // followed by hyphen.  Silent, but stress on last vowel
+
+
+.group s
+        s        s
+
+
+.group t
+        t        t
+     a) t (_     t#   // becomes silent in a stressed syllable
+     u) t (_     t#
+    ei) t (_     t#
+     n) t (_     =    // silent, but stress on last vowel
+        tz       T
+
+
+.group u
+        u        u
+        u (A     w
+     _) u (A     gw
+
+
+.group v
+        v        B
+
+
+.group w
+        w        w
+
+
+.group x
+        x        ks
+     _) x        S
+
+
+.group y
+        y        j
+
+
+.group z
+        z        T
+
+
+.group
+        á        ''a
+        é        ''e
+        í        ''i
+        ó        ''o
+        ú        ''u
+

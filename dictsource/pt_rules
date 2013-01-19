@@ -391,6 +391,12 @@ _reconh) e (çL03_   e
    _sup) e (rL04_   E
    _imp) e (rL03_   E
   _temp) e (rL04_   E
+   _esp) e (ssL03_  e
+     _l) e (ssL02_  e
+  _perd) e (L05_    e
+  _rend) e (L06_    e
+ _atend) e (L06_    e
+   _pen) e (trL04_  E
 //endsort
 
  _exag) e (L05_     E
@@ -702,6 +708,10 @@ _reconh) e (çL03_   e
     _m) o (rrL01_  o
      p) ostos (_   Ost=Us#   // dispostos etc.
   _esn) o (bL04_   O
+  _esc) o (lhL02_  O
+  _rev) o (lvL02_  O
+_desenv) o (lvL02_ O
+_  ent) o (pL02_   O
 //endsort
 
 .group ô
@@ -938,8 +948,8 @@ _reconh) e (çL03_   e
    _xi) x (A       S
 ?1   i) x (a_      S
 ?1   i) x (as_     S
-
-
+ _trou) x (ér      s
+  _pro) x (imi     s
 
 
 .group y

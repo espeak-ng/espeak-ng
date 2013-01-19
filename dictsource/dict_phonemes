@@ -102,7 +102,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-01-15
+Dictionary en_dict  2013-01-18
 
 0    3    3:   @    @-   @2   @5   @L   
 a    a#   A:   A@   aa   aI   aI3  aI@  
@@ -203,7 +203,7 @@ q    r    r.   s    S    s.   t    T
 t.   th   th.  v    w    x    z    
 
 
-Dictionary ta_dict  2013-01-15
+Dictionary ta_dict  2013-01-18
 
 a    a:   aI   aU   e    E    e:   i    
 I    i:   o    o:   u    U    u2   u:   
@@ -376,7 +376,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2012-11-24
+Dictionary pt_dict  2013-01-17
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -466,7 +466,7 @@ p    Q    R    s    S    t    T    tS
 v    w    x    z    
 
 
-Dictionary sl_dict  2013-01-15
+Dictionary sl_dict  2013-01-16
 
 @    @-   a    a:   e    E    e:   i    
 i:   o    O    o:   u    u:   y    
@@ -474,7 +474,7 @@ i:   o    O    o:   u    u:   y
 :    b    d    dZ   dz   f    g    h    
 j    k    l    l^   m    n    N    n^   
 p    R    R^   s    S    t    tS   ts   
-v    w    x    z    Z    
+v    v#   w    x    z    Z    
 
 
 Dictionary tr_dict  2011-09-16
@@ -501,7 +501,7 @@ p    Q    r    s    s.   t    t[   tS;
 v    w    x    z    Z    z.   
 
 
-Dictionary zh_dict  2010-09-13
+Dictionary zh_dict  2013-01-04
 
 @    @r   a    A    ai   Au   E    ei   
 i    i.   i[   iA   iE   io   iou  N-   
@@ -550,7 +550,7 @@ r    R    r.   R2   s    s.   S;   t
 t.   th   th.  tS   v    w    z    
 
 
-Dictionary ne_dict  2012-09-19
+Dictionary ne_dict  2013-01-10
 
 @    @/   @2   @3   a    a:   aI   aU   
 a~   e    E    e:   E:   eI   e~   E~   
@@ -741,7 +741,7 @@ t#   tS   ts   ts#  v    w    x    z
 Z    
 
 
-Dictionary si_dict  2012-11-05
+Dictionary si_dict  2013-01-18
 
 &    &:   @    a    a:   aI   aU   e    
 e:   i    i:   o    o:   u    u:   
@@ -845,3 +845,24 @@ Dictionary ko_dict  2012-09-17
 j    k    k-   kh   l    m    n    N    
 p    p-   ph   q    r    R    s    t    
 t-   tS   tS;  w    
+
+
+Dictionary fa_dict  2013-01-19
+
+a    A    e    i    o    u    
+
+:    ?    b    d    dZ   f    g    h    
+j    k    l    m    n    p    q    r    
+R    s    S    t    tS   v    w    x    
+z    Z    
+
+
+Dictionary an_dict  2013-01-18
+
+a    aI   aU   e    E    eI   eU   i    
+o    O    oI   u    
+
+*    b    B    d    D    f    g    j    
+k    l    l^   m    n    n^   p    Q    
+r    R    R2   s    S    t    T    t#   
+tS   w    x    

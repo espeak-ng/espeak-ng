@@ -1,0 +1,74 @@
+ 
+// Aragon translation rules
+// This file is UTF-8 encoded
+
+
+
+// letter names
+b	be
+c	Te
+d	de
+f	Efe
+g	xe
+h	atSe
+j	xOta
+k	ka
+l	Ele
+m	Eme
+n	Ene
+ñ	En^e
+p	pe
+q	ku
+r	E*e	
+s	Ese
+t	te
+u	u
+v	uBe
+w	uBe||dOBle
+x	Ekis
+y	je
+z	Teta
+
+
+// numbers
+_0	T'ero
+_1	'un
+_2	d'os
+_3	tr'es
+_4	kw'atro
+_5	T'inko
+_6	s'eIs
+_7	s'eIt#
+_8	gw'eIto
+_9	nw'eU
+_1X	d,eT
+_10	dj'eT
+_11	'onTe
+_12	d'oTe
+_13	tr'eTe
+_14	kat'orTe
+_15	k'inTe
+_20	B'inte
+_2X	B,int
+_3X	tr'enta
+_4X	kwar'anta
+_5X	Tinkw'anta
+_6X	siks'anta
+_7X	set'anta
+_8X	gwit'anta
+_9X	noB'anta
+_0C	Tj'Entos
+_1C	Tj'En
+_2C	doTj'Entos
+_3C	tresTj'Entos
+_6C	seITj'Entos
+_7C	sjEteTj'Entos
+_8C	gwitoTj'Entos
+_9C	nowTj'Entos
+_0M1	m'il
+_0M2	mil^'ones
+
+_0and	i
+_dpt	kon
+
+

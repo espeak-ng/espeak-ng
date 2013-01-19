@@ -1,0 +1,62 @@
+
+phoneme @    //  Schwa, can be stressed
+  vowel   starttype #@  endtype #@
+  length 140
+  FMT(vowel/@)
+endphoneme
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 140
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_3)
+endphoneme
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/u_2)
+endphoneme
+
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 170
+  FMT(vowel/a)
+endphoneme
+
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 160
+  FMT(vowel/e_2)
+endphoneme
+
+
+phoneme E
+  vowel starttype #e endtype #e
+  length 160
+  FMT(vowel/e_mid)
+endphoneme
+
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 160
+  FMT(vowel/o_8)
+endphoneme
+
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 170
+  FMT(vowel/0_2)
+endphoneme
+
+
+
+phoneme v
+  import_phoneme base/v#
+endphoneme
