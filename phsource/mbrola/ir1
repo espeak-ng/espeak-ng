@@ -1,0 +1,91 @@
+
+// Long Vowels
+// "A"
+2   A   _   0   ?   a:
+2   A   A   0   ?   a:
+2   A   u   0   ?   a:
+2   A   i   0   ?   a:
+2   A   a   0   ?   a:
+2   A   e   0   ?   a:
+2   A   o   0   ?   a:
+0   A   NULL   0   a:
+// "u"
+2   u   _   0   ?   u
+2   u   u   0   ?   u
+2   u   A   0   ?   u
+2   u   i   0   ?   u
+2   u   a   0   ?   u
+2   u   e   0   ?   u
+2   u   o   0   ?   u
+0   u   NULL   0   u
+// "i"
+2   i   _   0   ?   i
+2   i   i   0   ?   i
+2   i   A   0   ?   i
+2   i   u   0   ?   i
+2   i   a   0   ?   i
+2   i   e   0   ?   i
+2   i   o   0   ?   i
+0   i   NULL   0   i
+
+// Short Vowels
+// "a"
+2   a   _   0   ?   a
+2   a   A   0   ?   a
+2   a   u   0   ?   a
+2   a   i   0   ?   a
+2   a   a   0   ?   a
+2   a   e   0   ?   a
+2   a   o   0   ?   a
+0   a   NULL   0   a
+// "e"
+2   e   _   0   ?   e
+2   e   A   0   ?   e
+2   e   u   0   ?   e
+2   e   i   0   ?   e
+2   e   a   0   ?   e
+2   e   e   0   ?   e
+2   e   o   0   ?   e
+0   e   NULL   0   e
+// "o"
+2   o   _   0   ?   o
+2   o   A   0   ?   o
+2   o   u   0   ?   o
+2   o   i   0   ?   o
+2   o   a   0   ?   o
+2   o   e   0   ?   o
+2   o   o   0   ?   o
+0   o   NULL   0   o
+
+// Consonants in end of words.
+
+0   _   NULL   0   NULL
+2   _   NULL   0   NULL
+
+
+// Consonants
+0   dZ   NULL   0   j:
+0   tS   NULL   0   c:
+0   R   NULL   0   r
+1   q   1   0   q
+0   Z   NULL   0   z:
+0   S   NULL   0   s:
+0   j   NULL   0   y
+
+// "g"
+0   g   A   0   g
+0   g   u   99   g   ?
+0   g   o   0   g
+0   g   NULL   0   g:
+// "k"
+0   k   A   0   k
+0   k   u   0   k
+0   k   o   0   k
+0   k   NULL   0   c
+// "l"
+0   l/   NULL   0   l
+
+// Others
+0  ;  NULL   0  NULL
+0  g- NULL   0  NULL
+0  @- NULL   0  NULL

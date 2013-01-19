@@ -25,9 +25,17 @@ _7	h'at@
 _8	'at.@
 _9	n'av@j@
 
-_1d	'ekki     // numbers used in a decimal fraction
-_2d	d'ekki
-_3d	t'unni
+_0d	b'induv@i
+_1d	'eka,i 
+_2d	d'eka,i
+_3d	t'un,i
+_4d	h'at@r@i
+_5d	p'ah@i
+_6d	h'aj@i
+_7d	h'at@i
+_8d	'at.@i
+_9d	n'av@i
+
 
 _10	d'ah@j@
 _11	'ekol,@h@
@@ -39,8 +47,16 @@ _16	d'ah@s,@j@
 _17	d'ah@h,@t@
 _18	d'ah@,@t.@
 _19	d'ah@n,@v@j@
-_2X	v'isi
 _20	v'iss@
+_21	v'isiek@
+_22	v'isid,ek@
+_23	v'isit,un@
+_24	v'isih,@t@r@
+_25	v'isip,@h@
+_26	v'isih,@j@
+_27	v'isih,@t@
+_28	v'isi,@t.@
+_29	v'isin,@v@j@
 _30	t'ih@
 _31	t'isek@
 _32	t'isdek@
@@ -74,14 +90,17 @@ _90	'anu:v@
 
 _1C	s'ij@j@
 _0C	s'ij@
+
 _0M1	d'ah@s
 _0M1x	'ah@s    // exact thousands
 _0M2	l'akS
 _0M2x	l'akS@j@
 _0M3	k'o:t.i
 _0M3x	k'o:t.ij@
-_0M4	v'il'ij@n	//what in sinhala?
+_0M4	v'il'ij@n
+
 _dpt	d'aS@m#@
+
 
 // Consonants
 
@@ -120,12 +139,13 @@ _dpt	d'aS@m#@
 ර	r@
 ල	l@
 ව	w@
-ශ	S@
-ෂ	S@
+ශ	S'@
+ෂ	s.@
 ස	s@
 හ	h@
 ළ	l.@
 ෆ	f@
+
 
 // symbols
 _.	t'it@
