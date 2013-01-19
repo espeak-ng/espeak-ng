@@ -136,6 +136,29 @@ static Translator* NewTranslator(void)
 	static const wchar_t punct_in_word[2] = {'\'', 0};  // allow hyphen within words
 	static const unsigned char default_tunes[6] = {0, 1, 2, 3, 0, 0};
 
+// Translates character codes in the range transpose_min to transpose_max to
+// a number in the range 1 to 63.  0 indicates there is no translation.
+// Used up to 57 (max of 63)
+static const char transpose_map_latin[] = {
+ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,  // 0x60
+16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,  0,  0,  0,  0,  0,  // 0x70
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x80
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x90
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0xa0
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0xb0
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0xc0
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0xd0
+27, 28, 29,  0,  0, 30, 31, 32, 33, 34, 35, 36,  0, 37, 38,  0,  // 0xe0
+ 0,  0,  0, 39,  0,  0, 40,  0, 41,  0, 42,  0, 43,  0,  0,  0,  // 0xf0
+ 0,  0,  0, 44,  0, 45,  0, 46,  0,  0,  0,  0,  0, 47,  0,  0,  // 0x100
+ 0, 48,  0,  0,  0,  0,  0,  0,  0, 49,  0,  0,  0,  0,  0,  0,  // 0x110
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x120
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x130
+ 0,  0, 50,  0, 51,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x140
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 52,  0,  0,  0,  0,  // 0x150
+ 0, 53,  0, 54,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x160
+ 0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 55,  0, 56,  0, 57,  0,  // 0x170
+};
 
 	tr = (Translator *)Alloc(sizeof(Translator));
 	if(tr == NULL)
@@ -147,8 +170,9 @@ static Translator* NewTranslator(void)
 	tr->data_dictrules = NULL;     // language_1   translation rules file
 	tr->data_dictlist = NULL;      // language_2   dictionary lookup file
 
-	tr->transpose_min = 'a';
-	tr->transpose_max = 'z';
+	tr->transpose_min = 0x60;
+	tr->transpose_max = 0x17f;
+	tr->transpose_map = transpose_map_latin;
 	tr->frequent_pairs = NULL;
 
 	// only need lower case
@@ -306,6 +330,7 @@ static void SetCyrillicLetters(Translator *tr)
 	tr->charset_a0 = charsets[18];   // KOI8-R
 	tr->transpose_min = 0x430;  // convert cyrillic from unicode into range 0x01 to 0x22
 	tr->transpose_max = 0x451;
+	tr->transpose_map = NULL;
 	tr->frequent_pairs = pairs_ru;
 
 	tr->letter_bits_offset = OFFSET_CYRILLIC;
@@ -611,6 +636,7 @@ Translator *SelectTranslator(const char *name)
 		break;
 
 	case L('e','s'):   // Spanish
+	case L('a','n'):   // Aragonese
 	case L('c','a'):   // Catalan
 	case L_pap:        // Papiamento
 		{
@@ -639,6 +665,11 @@ Translator *SelectTranslator(const char *name)
 				tr->langopts.stress_flags = 0x200 | 0x6 | 0x30;  // stress last syllable unless word ends with a vowel
 			}
 			else
+			if(name2 == L('a','n'))
+			{
+				tr->langopts.stress_flags = 0x200 | 0x6 | 0x10; 
+			}
+			else
 			if(name2 == L_pap)
 			{
 				tr->langopts.stress_flags = 0x100 | 0x6 | 0x30;  // stress last syllable unless word ends with a vowel
@@ -663,7 +694,25 @@ Translator *SelectTranslator(const char *name)
 
 	case L('f','a'):   // Farsi
 		{
+ 			// Convert characters in the range 0x620 to 0x6cc to the range 1 to 63.
+			// 0 indicates no translation for this character
+			static const char transpose_map_fa[] = {
+			 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,  // 0x620
+			16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26,  0,  0,  0,  0,  0,  // 0x630
+			 0, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,  // 0x640
+			42, 43,  0,  0, 44,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x650
+			 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x660
+			 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 45,  0,  // 0x670
+			 0,  0,  0,  0,  0,  0, 46,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x680
+			 0,  0,  0,  0,  0,  0,  0,  0, 47,  0,  0,  0,  0,  0,  0,  0,  // 0x690
+			 0,  0,  0,  0,  0,  0,  0,  0,  0, 48,  0,  0,  0,  0,  0, 49,  // 0x6a0
+			 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  // 0x6b0
+			50,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 51  };           // 0x6c0
+			tr->transpose_min = 0x620;
+			tr->transpose_max = 0x6cc;
+			tr->transpose_map = transpose_map_fa;
 			tr->letter_bits_offset = OFFSET_ARABIC;
+
 			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 
@@ -1229,10 +1278,10 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = 0x20;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x103;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x76;    // [v]  don't count this character at start of word
+			tr->letter_bits['r'] |= 0x80;    // add 'r' to letter group 7, vowels for Unpronouncable test
 			tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
 			tr->langopts.numbers2 = 0x100;   // plural forms of millions etc
 			tr->langopts.thousands_sep = ' ';   // don't allow dot as thousands separator
-//			SetLetterVowel(tr,'r');
 		break;
 
 	case L('s','q'):  // Albanian

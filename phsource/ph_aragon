@@ -1,0 +1,24 @@
+
+// based on Spanish
+
+phoneme t#
+  vls dnt stop
+  IF NOT prevVowel(isStressed) THEN
+    ChangePhoneme(t)
+  ENDIF
+endphoneme
+
+
+phoneme E
+  vowel starttype #e endtype #e
+  length 170
+  FMT(vowel/ee_1)
+endphoneme
+
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 170
+  FMT(vowel/oo_4)
+endphoneme
+

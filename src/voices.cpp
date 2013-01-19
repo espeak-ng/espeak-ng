@@ -61,7 +61,7 @@ int formant_rate[9];         // values adjusted for actual sample rate
 
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
-#define N_VOICES_LIST  150
+#define N_VOICES_LIST  200
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 static int len_path_voices;
@@ -1770,7 +1770,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	int ix;
 	int j;
 	espeak_VOICE *v;
-	static espeak_VOICE *voices[N_VOICES_LIST];
+	static espeak_VOICE **voices = NULL;
 	char path_voices[sizeof(path_home)+12];
 
 	// free previous voice list data
@@ -1781,6 +1781,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 
 	GetVoices(path_voices);
 	voices_list[n_voices_list] = NULL;  // voices list terminator
+	voices = (espeak_VOICE **)realloc(voices, sizeof(espeak_VOICE *)*(n_voices_list+1));
 
 	// sort the voices list
 	qsort(voices_list,n_voices_list,sizeof(espeak_VOICE *),

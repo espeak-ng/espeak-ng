@@ -666,7 +666,9 @@ apreço		$alt2
 aperto		$alt2 $noun
 apoio		$alt $verb
 aprendeste	$alt2
+aprovo		$alt
 arremesso	$alt2 $noun
+arroz		$alt2
 assembleia	$alt
 atmosfera	$alt
 atrozes		$alt
@@ -695,6 +697,7 @@ caractere	$alt
 careta		$alt2
 carreta		$alt2
 casebre		$alt
+castelo		$alt
 cateto		$alt2
 catorze		$alt2
 cefaleia	$alt
@@ -704,6 +707,7 @@ chamego		$alt2
 chefe		$alt
 chinelo		$alt
 choro		$alt2 $noun
+chupeta		$alt2
 coco		$alt2
 cofre		$alt
 colmeia		$alt
@@ -721,6 +725,7 @@ cornos		$alt
 corpos		$alt
 correste	$alt2
 corto		$alt
+corveta		$alt2
 corvos		$alt
 coto		$alt2
 couber		$alt
@@ -733,6 +738,7 @@ cresce		$alt
 crescem		$alt
 der		$alt
 desapego	$alt2 $noun
+descabelo	$alt
 desce		$alt
 descem		$alt
 descordo	$alt
@@ -756,6 +762,7 @@ engordo		$alt
 enumerem	$alt
 enredo		$alt $verb
 enterro		$alt2 $noun
+envelope	$alt
 envolto		$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
@@ -769,9 +776,12 @@ esforços	$alt
 esperma		$alt
 espeto		$alt2 $noun
 espiroqueta	$alt2
+espoleta	$alt2
+esposa		$alt2
 esqueleto	$alt2
 estiverdes	$alt
 estiveres	$alt
+estrela		$alt2
 estrofe		$alt
 etiqueta	$alt2
 europa		$alt
@@ -789,6 +799,7 @@ fezes		$alt
 folga		$alt
 fogos		$alt
 forca		$alt2
+forças		$alt2
 fores		$alt2
 forro		$alt $verb
 fosse		$alt2
@@ -827,6 +838,7 @@ marreta		$alt2
 martelo		$alt
 merda		$alt
 megera		$alt
+melo		$alt
 mentora		$alt2
 metro		$alt
 mexa		m'eS&
@@ -880,6 +892,7 @@ pesque		$alt
 pesquem		$alt
 peso		$alt
 peso		$alt2 $noun
+piloto		$alt2
 pirueta		$alt2
 plateia		$alt
 plebeia		$alt
@@ -904,6 +917,7 @@ recorto		$alt
 rede		$alt2
 reforços	$alt
 refresco	$alt $verb
+reitora		$alt2
 remorso		$alt
 resolve		$alt
 resolvem	$alt
@@ -911,6 +925,8 @@ rixa		x'iS&
 rogas		$alt
 saleta		$alt2
 sarjeta		$alt
+severa		$alt
+severo		$alt
 seborreia	$alt
 seco		$alt2 $noun
 selo		$alt $verb
@@ -941,6 +957,7 @@ tempero		$alt $verb
 teta		$alt2
 tiver		$alt
 tiveres		$alt
+tocha		$alt
 toga		$alt
 torres		$alt2
 tortos		$alt

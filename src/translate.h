@@ -520,6 +520,7 @@ typedef struct
 	int translator_name;
 	int transpose_max;
 	int transpose_min;
+	const char *transpose_map;
 	char dictionary_name[40];
 
 	char phon_out[400];

@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.28
+AppVerName=eSpeak version 1.46.31
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -205,6 +205,7 @@ begin
   case lang1 of
   'af': value := $436;
   'am': value := $45e;
+  'an': value := $40a;   // Aragon, use code for Spanish
   'az': value := $42c;
   'bg': value := $402;
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
@@ -219,6 +220,7 @@ begin
   'es': value := $40a;
   'et': value := $425;
   'eu': value := $42d;
+  'fa': value := $429;
   'fi': value := $40b;
   'fil': value := $464;
   'fr': value := $40c;
@@ -241,6 +243,7 @@ begin
   'ml': value := $44c;
   'mn': value := $450;
   'mt': value := $43a;
+  'my': value := $455;
   'ne': value := $461;
   'nl': value := $413;
   'no': value := $414;
