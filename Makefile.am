@@ -75,20 +75,26 @@ data/ucd/UnicodeData.txt:
 
 ############################# libucd ##########################################
 
-src/case.cpp: tools/case.py tools/ucd.py \
+tools/ucd.py: data/language-subtag-registry
+
+tools/case.py: tools/ucd.py \
+	data/ucd/UnicodeData.txt
+
+tools/categories.py: tools/ucd.py \
 	supplemental/Klingon.txt \
 	data/ucd/UnicodeData.txt
+
+tools/scripts.py: tools/ucd.py \
+	supplemental/Klingon.txt \
+	data/ucd/Scripts.txt
+
+src/case.cpp: tools/case.py
 	tools/case.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
-src/categories.cpp: tools/categories.py tools/ucd.py \
-	supplemental/Klingon.txt \
-	data/ucd/UnicodeData.txt
+src/categories.cpp: tools/categories.py
 	tools/categories.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
-src/scripts.cpp: tools/scripts.py tools/ucd.py \
-	supplemental/Klingon.txt \
-	data/language-subtag-registry \
-	data/ucd/Scripts.txt
+src/scripts.cpp: tools/scripts.py
 	tools/scripts.py ${UCD_ROOTDIR} ${UCD_VERSION} > $@
 
 libucd_includedir = $(includedir)/ucd
