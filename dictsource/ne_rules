@@ -1125,28 +1125,27 @@
 	९_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
 
 
-// .group (	// Deliminator, not possible
+
 // .group )	// Deliminator, not possible
-// .group .	// Deliminator, not possible
+
 
 		// Special Symbols with special meanings
 .group
 	।	pur',n.@,w'ir'a:m	// Fullstop of Devanagari
-	॥	d'ob'b@2r@2,wir'a::mV	// Double Fullstop - means Read sentence twice.
-	ॱ	b'i:n=d'u:	// Decimal of devanagari (dot [.] is mostly used!).
-
-	॰	V,nsh@	// symbol for degree in Devanagari.
+	॥	d'i:rgh@,w'ir'a:m	// Double Fullstop - means Read sentence twice.
+	ॱ	dVS@mal@w@2	// Decimal of devanagari (dot [.] is mostly used!).
+	॰	saNks.e:p@s'u:c@k@
 	$	dOlV
         
 	%	prVtish'vt
 // Rarely used  Special symbols. Written after Indepedent Vowel or between a Consonants and Symbolic Vowels!
 
 	़	n'u'k't'a:	// Name of symbol.
-	॑ 
-	॓ 
-	॔ 
-	ॽ 
-	॒	Vd'o:,r'ekh'a: // Name of symbol.
+	॑	Ud'Vtt,@
+	॓	Ud:dh@r,@n.@a:r'Vmbh@
+	॔	,Ud:dh@r,@n.@'Vnt@
+	ॽ	k,@n.th.@w'Ira:m
+	॒	a'n'ud'Vtt,@ 
 
 
 // The Latin letter a-z are automatically translated into English.

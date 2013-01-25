@@ -1,4 +1,4 @@
-AC_PREREQ([2.65])
+AC_PREREQ([2.63])
 AC_INIT([eSpeak], [1.46], [https://github.com/rhdunn/espeak/issues], [espeak], [https://github.com/rhdunn/espeak])
 AM_INIT_AUTOMAKE()
 

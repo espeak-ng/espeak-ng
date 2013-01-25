@@ -1,7 +1,7 @@
-REFIX=/usr
-BINDIR=$(PREFIX)/bin
-INCDIR=$(PREFIX)/include/espeak
-LIBDIR=$(PREFIX)/lib
+PREFIX=@prefix@
+BINDIR=@bindir@
+INCDIR=@includedir@/espeak
+LIBDIR=@libdir@
 DATADIR=$(PREFIX)/share/espeak-data
 
 PLATFORM=big_endian
@@ -25,7 +25,7 @@ EXTRA_DIST += ChangeLog
 
 all: src/speak src/libespeak.so src/libespeak.a src/espeak src/espeakedit espeak-data/phontab dictionaries docs/speak_lib.h
 
-install: all
+install:
 	cd src && make DESTDIR=$(DESTDIR) PREFIX=$(PREFIX) BINDIR=$(BINDIR) INCDIR=$(INCDIR) LIBDIR=$(LIBDIR) install && cd ..
 	install -m 755 src/espeakedit $(DESTDIR)$(BINDIR)
 
@@ -88,19 +88,19 @@ docs/speak_lib.h: src/speak_lib.h
 	cp $< $@
 
 src/libespeak.a: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.a PREFIX=$(PREFIX) && cd ..
+	cd src && make libespeak.a && cd ..
 
 src/libespeak.so: $(common_SOURCE) $(libespeak_SOURCE)
-	cd src && make libespeak.so PREFIX=$(PREFIX) && cd ..
+	cd src && make libespeak.so && cd ..
 
 src/speak: $(common_SOURCE) src/speak.cpp
-	cd src && make speak PREFIX=$(PREFIX) && cd ..
+	cd src && make speak && cd ..
 
 src/espeak: src/libespeak.so src/espeak.cpp
-	cd src && make espeak PREFIX=$(PREFIX) && cd ..
+	cd src && make espeak && cd ..
 
 src/espeakedit: $(common_SOURCE) $(libespeak_SOURCE) $(espeakedit_SOURCE)
-	cd src && make espeakedit PREFIX=$(PREFIX) && cd ..
+	cd src && make espeakedit && cd ..
 
 espeak-phoneme-data:
 	cd platforms/$(PLATFORM) && make PREFIX=$(PREFIX) && cd ../..
@@ -142,6 +142,7 @@ dictionaries: src/espeak \
 	espeak-data/af_dict \
 	espeak-data/ak_dict \
 	espeak-data/am_dict \
+	espeak-data/an_dict \
 	espeak-data/az_dict \
 	espeak-data/bg_dict \
 	espeak-data/ca_dict \
@@ -155,6 +156,7 @@ dictionaries: src/espeak \
 	espeak-data/eo_dict \
 	espeak-data/es_dict \
 	espeak-data/et_dict \
+	espeak-data/fa_dict \
 	espeak-data/fi_dict \
 	espeak-data/fr_dict \
 	espeak-data/grc_dict \
@@ -226,6 +228,12 @@ dictsource/am_extra:
 	touch dictsource/am_extra
 espeak-data/am_dict: src/espeak espeak-data/phontab dictsource/am_list dictsource/am_rules dictsource/am_extra
 	cd dictsource && ../src/espeak --compile=am && cd ..
+
+an: espeak-data/an_dict
+dictsource/an_extra:
+	touch dictsource/an_extra
+espeak-data/an_dict: src/espeak espeak-data/phontab dictsource/an_list dictsource/an_rules dictsource/an_extra
+	cd dictsource && ../src/espeak --compile=an && cd ..
 
 az: espeak-data/az_dict
 dictsource/az_extra:
@@ -310,6 +318,12 @@ dictsource/et_extra:
 	touch dictsource/et_extra
 espeak-data/et_dict: src/espeak espeak-data/phontab dictsource/et_list dictsource/et_rules dictsource/et_extra
 	cd dictsource && ../src/espeak --compile=et && cd ..
+
+fa: espeak-data/fa_dict
+dictsource/fa_extra:
+	touch dictsource/fa_extra
+espeak-data/fa_dict: src/espeak espeak-data/phontab dictsource/fa_list dictsource/fa_rules dictsource/fa_extra
+	cd dictsource && ../src/espeak --compile=fa && cd ..
 
 fi: espeak-data/fi_dict
 dictsource/fi_extra:

@@ -1781,6 +1781,9 @@ include ph_spanish_la
 phonemetable ca es
 include ph_catalan
 
+phonemetable an es
+include ph_aragon
+
 phonemetable pt base2
 include ph_pt_brazil
 
