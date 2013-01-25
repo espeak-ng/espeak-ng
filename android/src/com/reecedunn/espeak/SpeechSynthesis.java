@@ -110,7 +110,11 @@ public class SpeechSynthesis {
             final int gender = Integer.parseInt(results[i + 2]);
             final int age = Integer.parseInt(results[i + 3]);
             final Locale locale;
-            if (name.equals("en-sc")) {
+            if (name.equals("fa-pin")) {
+                // Android locales do not support scripts, so fa-Latn is not possible for Farsi Pinglish:
+                locale = null;
+            }
+            else if (name.equals("en-sc")) {
                 // 'SC' is not a country code.
                 locale = new Locale("en", "GB", "scotland");
             } else if (name.equals("en-wi")) {
@@ -319,6 +323,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("afr", "af");
         mJavaToIanaLanguageCode.put("aka", "ak");
         mJavaToIanaLanguageCode.put("amh", "am");
+        mJavaToIanaLanguageCode.put("arg", "an");
         mJavaToIanaLanguageCode.put("aze", "az");
         mJavaToIanaLanguageCode.put("bul", "bg");
         mJavaToIanaLanguageCode.put("bos", "bs");
@@ -333,6 +338,7 @@ public class SpeechSynthesis {
         mJavaToIanaLanguageCode.put("epo", "eo");
         mJavaToIanaLanguageCode.put("spa", "es");
         mJavaToIanaLanguageCode.put("est", "et");
+        mJavaToIanaLanguageCode.put("fas", "fa");
         mJavaToIanaLanguageCode.put("fin", "fi");
         mJavaToIanaLanguageCode.put("fra", "fr");
         mJavaToIanaLanguageCode.put("gle", "ga");
