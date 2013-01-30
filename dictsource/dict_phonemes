@@ -53,9 +53,10 @@ p    r    s    S    t    T    v    w
 x    z    
 
 
-Dictionary da_dict  2012-04-07
+Dictionary da_dict  2013-01-30
 
-&    &#   0    3    @    @-   a    A    
+&    &#   0    3    ?&   ?e   ?E   ?i   
+?O   ?u   ?W   ?y   @    @-   a    A    
 aI   e    E    i    o    O    u    V    
 W    W#   y    Y    
 
@@ -63,7 +64,7 @@ W    W#   y    Y
 dZ   f    g    h    j    J    k    l    
 l/2  l/3  m    n    N    p    r    R    
 R3   s    S    t    T    tS   v    w    
-x    Z    
+x    z    Z    
 
 
 Dictionary hu_dict  2012-07-25
@@ -102,14 +103,14 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-01-18
+Dictionary en_dict  2013-01-30
 
-0    3    3:   @    @-   @2   @5   @L   
-a    a#   A:   A@   aa   aI   aI3  aI@  
-aU   aU@  A~   E    e:   e@   eI   i    
-I    I#   I2   i:   i@   i@3  IR   O    
-O:   o:   O@   o@   OI   oU   O~   U    
-u:   U@   V    VR   
+0    0#   3    3:   @    @-   @2   @5   
+@L   a    a#   A:   A@   aa   aI   aI3  
+aI@  aU   aU@  A~   E    e:   e@   eI   
+i    I    I#   I2   i:   i@   i@3  IR   
+O    O:   o:   O@   o@   OI   oU   O~   
+U    u:   U@   V    VR   
 
 :    ;    ?    b    C    d    D    d#   
 dZ   f    g    h    j    k    l    l#   
@@ -118,7 +119,7 @@ s    S    t    T    t2   tS   v    w
 x    z    Z    z#   
 
 
-Dictionary eo_dict  2011-12-24
+Dictionary eo_dict  2013-01-24
 
 @-   a    aI   aU   e    eI   eU   i    
 o    oI   u    uI   
@@ -376,7 +377,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-01-17
+Dictionary pt_dict  2013-01-27
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -847,22 +848,22 @@ p    p-   ph   q    r    R    s    t
 t-   tS   tS;  w    
 
 
-Dictionary fa_dict  2013-01-19
+Dictionary fa_dict  2013-01-23
 
 a    A    e    i    o    u    
 
-:    ?    b    d    dZ   f    g    h    
-j    k    l    m    n    p    q    r    
-R    s    S    t    tS   v    w    x    
-z    Z    
+-    :    ?    b    d    dZ   f    g    
+h    j    k    l    m    n    p    q    
+r    R    s    S    t    tS   v    w    
+x    z    Z    
 
 
-Dictionary an_dict  2013-01-18
+Dictionary an_dict  2013-01-24
 
 a    aI   aU   e    E    eI   eU   i    
 o    O    oI   u    
 
-*    b    B    d    D    f    g    j    
-k    l    l^   m    n    n^   p    Q    
-r    R    R2   s    S    t    T    t#   
-tS   w    x    
+b    B    d    D    f    g    j    k    
+l    l^   m    n    n^   p    Q    r    
+R    R2   s    S    t    T    t#   tS   
+w    x    

@@ -2,7 +2,7 @@
 phoneme @
   vowel starttype #@ endtype #@
   unstressed
-  length 130
+  length 110
   FMT(vowel/@_3)
 endphoneme
 
@@ -10,7 +10,7 @@ endphoneme
 phoneme 3
   vowel starttype #a endtype #a
   unstressed
-  length 130
+  length 110
   FMT(vowel/a#_3)
 endphoneme
 
@@ -21,9 +21,34 @@ phoneme i
   FMT(vowel/i_4)
 endphoneme
 
+// PB Experimental glottal i
+// sviret vs. svirret
+phoneme ?i
+  vowel starttype #i endtype #i
+  length 95
+  IfNextVowelAppend(;)
+  FMT(vowel/i_4)
+endphoneme
+
+// PB English i - Tim
+phoneme I
+  vowel  starttype #i  endtype #i
+  length 130
+  IfNextVowelAppend(;)
+  FMT(vowel/ii_2)
+endphoneme
+
 phoneme e
   vowel starttype #e endtype #e
   length 150
+  FMT(vowel/e)
+endphoneme
+
+// PB glottal e
+// "skille" vs. "skele", "pille" vs. "pile"
+phoneme ?e
+  vowel starttype #e endtype #e
+  length 95
   FMT(vowel/e)
 endphoneme
 
@@ -33,9 +58,25 @@ phoneme E
   FMT(vowel/e_mid2)
 endphoneme
 
+// PB Experimental glottal E
+// "læsse" vs. "læse"
+phoneme ?E
+  vowel starttype #e endtype #e
+  length 95
+  FMT(vowel/e_mid2)
+endphoneme
+
 phoneme &
   vowel starttype #e endtype #e
   length 150
+  FMT(vowel/ee_2)
+endphoneme
+
+// PB Experimental glottal a
+// e.g. the last a in "staldkarl"
+phoneme ?&
+  vowel starttype #e endtype #e
+  length 95
   FMT(vowel/ee_2)
 endphoneme
 
@@ -64,6 +105,14 @@ phoneme u
   FMT(vowel/u_bck)
 endphoneme
 
+// PB glottal u
+// "gud" vs. "guden" - [guD] [g?D@n]
+phoneme ?u
+  vowel starttype #u endtype #u
+  length 95
+  FMT(vowel/u_bck)
+endphoneme
+
 phoneme o
   vowel starttype #o endtype #o
   length 150
@@ -73,6 +122,14 @@ endphoneme
 phoneme O
   vowel starttype #o endtype #o
   length 150
+  FMT(vowel/o_5)
+endphoneme
+
+// PB Experimental glottal O
+// "toget" vs. "tåget"
+phoneme ?O
+  vowel starttype #o endtype #o
+  length 95
   FMT(vowel/o_5)
 endphoneme
 
@@ -95,6 +152,14 @@ phoneme y
   FMT(vowel/y)
 endphoneme
 
+// PB glottal y
+// "kylling" vs. "kyle", "krybbe" vs. "krybe"
+phoneme ?y
+  vowel starttype #i endtype #i
+  length 95
+  FMT(vowel/y)
+endphoneme
+
 phoneme Y
   vowel starttype #i endtype #i
   length 150
@@ -104,6 +169,14 @@ endphoneme
 phoneme W
   vowel starttype #@ endtype #@
   length 150
+  FMT(vowel/oe)
+endphoneme
+
+// PB glottal W
+// "prøv" vs. "prøve"
+phoneme ?W
+  vowel starttype #@ endtype #@
+  length 80
   FMT(vowel/oe)
 endphoneme
 

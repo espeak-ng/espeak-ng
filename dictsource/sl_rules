@@ -26,6 +26,7 @@
 .group e
         e        e
         e (_     E      // ??
+        e (C_    E
      _) e        E
 
 
@@ -86,6 +87,8 @@
 .group o
         o        o
      _) o        O
+     _) o (l     o
+     _) o (v     o
 
 
 .group p

@@ -9,9 +9,9 @@ b	be
 c	Te
 d	de
 f	Efe
-g	xe
+g	ge
 h	atSe
-j	xOta
+j	,i||l'arga
 k	ka
 l	Ele
 m	Eme
@@ -19,15 +19,18 @@ n	Ene
 ñ	En^e
 p	pe
 q	ku
-r	E*e	
+r	ERR2e	
 s	Ese
 t	te
 u	u
-v	uBe
-w	uBe||dOBle
-x	Ekis
-y	je
+v	,be||b'aIksa
+w	,be||d'Ople
+x	Se
 z	Teta
+
+y	i  $u     // word 'and'
+_y	je
+y	je	$atend
 
 
 // numbers
@@ -38,7 +41,7 @@ _3	tr'es
 _4	kw'atro
 _5	T'inko
 _6	s'eIs
-_7	s'eIt#
+_7	sj'Et
 _8	gw'eIto
 _9	nw'eU
 _1X	d,eT
@@ -58,7 +61,8 @@ _7X	set'anta
 _8X	gwit'anta
 _9X	noB'anta
 _0C	Tj'Entos
-_1C	Tj'En
+_1C	Tj'Ento
+_1C0	Tj'En
 _2C	doTj'Entos
 _3C	tresTj'Entos
 _6C	seITj'Entos
@@ -72,3 +76,5 @@ _0and	i
 _dpt	kon
 
 
+// unstressed words
+lo	$u

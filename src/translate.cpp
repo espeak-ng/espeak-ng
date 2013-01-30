@@ -2974,6 +2974,16 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					single_quoted = 0;
 				}
 				else
+				if((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
+				{
+					single_quoted = 0;   // apostrophe at start of word is part of the word
+				}
+				else
+				if((tr->langopts.param[LOPT_APOSTROPHE] & 2) && IsAlpha(prev_in))
+				{
+					single_quoted = 0;   // apostrophe at end of word is part of the word
+				}
+				else
 				if((wcschr(tr->char_plus_apostrophe,prev_in) != 0) && (prev_out2 == ' '))
 				{
 					// consider single character plus apostrophe as a word

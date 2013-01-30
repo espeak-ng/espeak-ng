@@ -163,6 +163,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"l_unpronouncable", 0x100+LOPT_UNPRONOUNCABLE},
 	{"l_sonorant_min", 0x100+LOPT_SONORANT_MIN},
 	{"l_length_mods", 0x100+LOPT_LENGTH_MODS},
+	{"apostrophe", 0x100+LOPT_APOSTROPHE},
 	{NULL,   0} };
 
 #define N_VOICE_VARIANTS   12

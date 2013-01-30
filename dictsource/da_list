@@ -1793,6 +1793,7 @@ visent  $alt
 
 // PB final -graf - stressed a
 agraf  $alt
+angiograf $alt
 autograf  $alt
 barograf  $alt
 bibliograf  $alt
@@ -2828,6 +2829,7 @@ zucchini suk'ini  $alt
 agronomi  $alt
 akademi  $alt
 alkymi  $alt
+anarki  $alt
 anatomi  $alt
 antinomi  $alt
 antonymi  $alt
@@ -5777,8 +5779,8 @@ adstringer   $alt
 adviser   $alt
 advoker   $alt
 afficer   $alt
-aflever $alt
-afmarcher   $alt
+'aflever $alt
+'afmarcher   $alt
 afrikaniser   $alt
 agere   $alt
 aggraver   $alt
@@ -5992,6 +5994,7 @@ demissioner   $alt
 demokratiser   $alt
 demoler   $alt
 demonstrer   $alt
+demonter   $alt
 denaturer   $alt
 denoter   $alt
 denuntier   $alt
@@ -6344,6 +6347,7 @@ indlever   $alt
 indloger   $alt
 indmarcher   $alt
 indoktriner   $alt
+indruller   $alt
 inducer   $alt
 industrialiser   $alt
 inficer   $alt
@@ -6883,6 +6887,7 @@ praktiser   $alt
 premier   $alt
 primitiviser   $alt
 prioriter   $alt
+omprioriter   $alt
 privatfinansier   $alt
 privatiser   $alt
 privileger   $alt
@@ -6925,7 +6930,6 @@ prædisponer   $alt
 præfabriker   $alt
 præferer   $alt
 præjudicer   $alt
-prækvalificer   $alt
 præluder   $alt
 præmiere   $alt
 prænumerer   $alt
@@ -7150,6 +7154,7 @@ specificer   $alt
 spekuler   $alt
 spender   $alt
 spionere   $alt
+udspioner   $alt
 spolere   $alt
 sponser   $alt
 sponsorere   $alt
@@ -10108,7 +10113,6 @@ violet  $alt
 
 // PB nouns ending with -ine - stressed last syllable
 abonnine   $alt
-aubergine oberS'i:n@  $alt
 barkentine   $alt
 blondine   $alt
 bobine   $alt
@@ -11068,7 +11072,7 @@ titulatur  $alt
 tortur  $alt
 trubadur $alt
 
-// PB final -skop - stressed
+// PB final -skop & -trop - stressed
 biblioskop  $alt
 bronkoskop  $alt
 diaskop  $alt
@@ -11076,6 +11080,7 @@ elektroskop  $alt
 endoskop  $alt
 epidiaskop  $alt
 episkop  $alt
+filantrop  $alt
 galvanoskop  $alt
 gastroskop  $alt
 gyroskop  $alt
@@ -11084,6 +11089,7 @@ kalejdoskop  $alt
 katodoskop  $alt
 laryngoskop  $alt
 mikroskop  $alt
+misantrop  $alt
 oscilloskop  $alt
 otoskop  $alt
 periskop  $alt
@@ -11207,6 +11213,7 @@ fx fVegsemp@l // PB "fx" is short for 'for eksempel'
 (cd'en) se:de:3n // PB
 (cd'er) se:de:V // PB
 emp $abbrev
+evt evEntu'El $abbrev $hasdot
 hbo $abbrev // TV station
 usa $abbrev
 kfum $abbrev
@@ -11257,7 +11264,7 @@ ikes ajks // PB
 hav hAu $atend
 (et for) ed||'for              // PB for i jakke - lining
 // PB problem with 'sig' [si] = "say" and 'sig' = "himself/herself" [saj]
-(sig mig)  si||maj               // PB sig mig engang
+//(sig mig)  si||maj               // PB sig mig engang
 (sig hvad) si||v&                // PB sig hvad du mener 
 sig $atend $sentence saj        // end of a sentence - han vaskede sig.
 (gør sig til) g,Wr||saj||t'el    // PB
