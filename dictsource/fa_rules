@@ -1,4 +1,5 @@
 // *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.0
+// *   Farsi Language fa (or Parsi or Persian) fa_rules Version 3.0
 // *   This file writen by Shadyar Khodayari 2013
 //*********
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -17,6 +18,8 @@
 // ***************************************************************************/
 
 // This file is UTF-8 encoded
+// all words must be LOWER CASE  (although the initial letter will be automatically
+//    converted if it's a 7bit ascii character)
 // Text to phoneme rules for Farsi
 
 
@@ -86,7 +89,7 @@
 .group آ
 	_) آN	'A:
 	آ	'A
-	
+
 	// Prefixes آ
 		
 	// Suffixes آ
@@ -133,39 +136,37 @@
 		L09L04) اً (_NSm2	an
 		L09L04) اٌ (_NSm2	an
 		L09L04) اٍ (_NSm2	an
-		L09L09L03) ان (_Sm2	An
-		//L09L09L03) انی (_NSm3	Ani
+		L09L09L04) ان (_Sm2	An
+		//l09l09l04) انی (_NSm3	Ani
 		// Plural possessive pronouns for ان eg. "مردانت"
-			L09L09L03) انم (_NSm3	Anam
-			L09L09L03) انت (_NSm3	Anat
-			L09L09L03) انش (_NSm3	AnaS
-			L09L09L03) انمان (_NSm5	AnemAn
-			L09L09L03) انمون (_NSm5	Anemun
-			L09L09L03) انتان (_NSm5	AnetAn
-			L09L09L03) انتون (_NSm5	Anetun
-			L09L09L03) انشان (_NSm5	AneSAn
-			L09L09L03) انشون (_NSm5	AneSun
+			l09l09l04) انم (_NSm3	Anam
+			l09l09l04) انت (_NSm3	Anat
+			l09l09l04) انش (_NSm3	AnaS
+			l09l09l04) انمان (_NSm5	AnemAn
+			l09l09l04) انمون (_NSm5	Anemun
+			l09l09l04) انتان (_NSm5	AnetAn
+			l09l09l04) انتون (_NSm5	Anetun
+			l09l09l04) انشان (_NSm5	AneSAn
+			l09l09l04) انشون (_NSm5	AneSun
 		L09L03L01) ات (_Sm2	At
 		//L09L03L01) اتی (_NSm3	Ati
 		L09L09L03) ات (_NSm2	At
 		L09L09L03) اتی (_NSm3	Ati
 		// Plural possessive pronouns for ات eg. " تفکراتمان"
-			L09L03) اتم (_NSm3	Atam
-			L09L03) اتت (_NSm3	Atat
-			L09L03) اتش (_NSm3	AtaS
-			L09L03) اتمان (_NSm5	AtemAn
-			L09L03) اتمون (_NSm5	Atemun
-			L09L03) اتتان (_NSm5	AtetAn
-			L09L03) اتتون (_NSm5	Atetun
-			L09L03) اتشان (_NSm5	AteSAn
-			L09L03) اتشون (_NSm5	AteSun
-			L09L03) اتها (_NSm4	AthA
-			L09L03) اتهای (_NSm5	AthAje
-			L09L03) اتهایی (_NSm6	AthAi:
-		L09L04) انه (_NSm3	A,ne:
-		L09L04) انۀ (_NSm3	A,neje
-		L09L03) ینه (_NSm3	ine:
-		L09L03) ینۀ (_NSm3	ineje
+			L09L09L03) اتم (_NSm3	Atam
+			L09L09L03) اتت (_NSm3	Atat
+			L09L09L03) اتش (_NSm3	AtaS
+			L09L09L03) اتمان (_NSm5	AtemAn
+			L09L09L03) اتمون (_NSm5	Atemun
+			L09L09L03) اتتان (_NSm5	AtetAn
+			L09L09L03) اتتون (_NSm5	Atetun
+			L09L09L03) اتشان (_NSm5	AteSAn
+			L09L09L03) اتشون (_NSm5	AteSun
+			L09L09L03) اتها (_NSm4	AthA
+			L09L09L03) اتهای (_NSm5	AthAje
+			L09L09L03) اتهایی (_NSm6	AthAi:
+		l09l09l03) انه (_NSm3	A,ne:
+		l09l09l03) انۀ (_NSm3	A,neje
 		L09L09L04) اور (_Sm3	AvaR
 		L09L04) اورد (_Sm4	AvaRd
 		L09L04) افزار (_Sm5	afzAR
@@ -178,24 +179,24 @@
 		L09L09) اکبر (_Sm4	akbaR
 		L09L09) اصغر (_Sm4	asq1aR
 		// Special passive pronouns eg. خوابانده
-			L09L09L03) انده (_Sm4	Ande:
-			L09L09L03) اندۀ (_Sm4	Andeje
+			l09l09l03) انده (_Sm4	Ande:
+			l09l09l03) اندۀ (_Sm4	Andeje
 		// Special Subjective pronouns eg. گزراندید
-			L09L09L03) اندم (_NSm4	Andam
-			L09L09L03) اندی (_NSm4	Andi
-			L09L09L03) اند (_NSm3	And
-			L09L09L03) اندیم (_NSm5	Andim
-			L09L09L03) اندید (_NSm5	Andid
-			L09L09L03) اندند (_NSm5	Andand
-			L09L09L03) اندن (_NSm4	Andan
+			l09l09l03) اندم (_NSm4	Andam
+			l09l09l03) اندی (_NSm4	Andi
+			l09l09l03) اند (_NSm3	And
+			l09l09l03) اندیم (_NSm5	Andim
+			l09l09l03) اندید (_NSm5	Andid
+			l09l09l03) اندند (_NSm5	Andand
+			l09l09l03) اندن (_NSm4	Andan
 		// Special Subjective pronouns eg. گزراندید
-			L09L09L03) انیدم (_NSm5	Anidam
-			L09L09L03) انیدی (_NSm5	Anidi
-			L09L09L03) انید (_NSm4	Anid
-			L09L09L03) انیدیم (_NSm6	Anidim
-			L09L09L03) انیدید (_NSm6	Anidid
-			L09L09L03) انیدند (_NSm6	Anidand
-			L09L09L03) انیدن (_NSm5	Anidan
+			l09l09l03) انیدم (_NSm5	Anidam
+			l09l09l03) انیدی (_NSm5	Anidi
+			l09l09l03) انید (_NSm4	Anid
+			l09l09l03) انیدیم (_NSm6	Anidim
+			l09l09l03) انیدید (_NSm6	Anidid
+			l09l09l03) انیدند (_NSm6	Anidand
+			l09l09l03) انیدن (_NSm5	Anidan
 		L09L04) افرین (_Sm5	AfaRin
 		L09L04) الدین (_Sm5	oddin
 		L09L04) الدّین (_Sm6	oddin
@@ -308,6 +309,8 @@
 		_) بلند (آL09L09P4@	boland
 		_) بلا (L04L09L09P3@	belA
 		_) بلا (آL09L09P3@	belA
+		_) بزرگ (L04L09L09P4@	bozoRg
+		_) بزرگ (آL09L09P4@	bozoRg
 
 	// suffixes ب
 		L09L09) بخش (_Sm3	baxS
@@ -340,7 +343,10 @@
 		L09L09) بردار (_Sm5	bardAR
 		L09L09) بین (_Sm3	bin
 		L09L09) بینی (_Sm4	bini
-
+		L09L09) بیگ (_Sm3	bejg
+		L09L09) بخت (_Sm3	baxt
+		L09L09) باش (_Sm3	bAS
+		L09L09) بزرگ (_Sm4	bozoRg
 
 	// arabic form of words  (Babs) ب
 		//فواعل eg. جوامع
@@ -369,7 +375,7 @@
 			_تL04ا) ب (L03_	bo
 		//تفعل eg. تفکر
 			_ت) ب (L03L03_+	ba
-			_تL04) ب (L03_+	bbo
+			_تL04) ب (L03_++	bbo
 		//تفعّل eg. تفکّر
 			_ت) ب (L03ّL03_+	ba
 			_تL04) ب (ّL03_+	bbo
@@ -495,6 +501,8 @@
 		_) پس (آL09L09P2@	'pas
 		_) پسا (L04L09L09P3@	'pasA
 		_) پسا (آL09L09P3@	'pasA
+		_) پیکو (L04L09L09P4@	'piko
+		_) پیکو (آL09L09P4@	'piko
 
 	// suffixes پ
 		L09L09) پژوه (_Sm4	paZuh
@@ -509,6 +517,8 @@
 		L09L09) پیشه (_Sm4	piSe:
 		L09L09) پیشۀ (_Sm4	piSeje
 		L09L09) پرداز (_Sm5	paRdAz
+		L09L09) پندار (_Sm5	pendAR
+		L09L09) پرست (_Sm4	paRast
 
 	// arabic form of words  (Babs) پ
 		//فواعل eg. جوامع
@@ -537,7 +547,7 @@
 			_تL04ا) پ (L03_	po
 		//تفعل eg. تفکر
 			_ت) پ (L03L03_+	pa
-			_تL04) پ (L03_+	ppo
+			_تL04) پ (L03_++	ppo
 		//تفعّل eg. تفکّر
 			_ت) پ (L03ّL03_+	pa
 			_تL04) پ (ّL03_+	ppo
@@ -673,6 +683,7 @@
 			L09L09L03گی) تان (_NSm3	jetAn
 			L09L01یگی) تان (_NSm3	jetAn
 			L09L01وگی) تان (_NSm3	jetAn
+		L09L09) تراش (_Sm4	taRAS
 
 	// arabic form of words  (Babs) ت
 		//فواعل eg. جوامع
@@ -702,11 +713,11 @@
 		//تفعل eg. تفکر
 			_) ت (L04L04L03_	ta
 			_ت) ت (L04L03_+	ta
-			_تL04) ت (L03_+	tto
-		//تفعل eg. تفکر
+			_تL04) ت (L03_++	tto
+		//تفعّل eg. تفکر
 			_) ت (L04L04ّL03_	ta
 			_ت) ت (L04ّL03_+	ta
-			_تL04) ت (ّL03_+	tto
+			_تL04) ت (ّL03_++	tto
 		//مفاعل eg. مباحث
 			_مL04ا) ت (L03_	te
 		//استفعال eg. استخراج (Fa eSpeak read itd correctly)
@@ -714,7 +725,7 @@
 		//انفعال eg. انفجار
 			_ان) ت (L04اL03_++	te
 		//افتعال eg. افتخار
-			_اL03) ت (L04اL03_+	te
+			_اL03) ت (L04اL03_++	te
 			_اL03) ت (یاL03_++	t
 		//مستفعل eg. مستخدم
 			_مس) ت (L04L04L03_+	ta
@@ -871,7 +882,7 @@
 			_تL04ا) ث (L03_+	so
 		//تفعل eg. تفکر
 			_ت) ث (L03L03_+	sa
-			_تL04) ث (L03_++	s:o
+			_تL04) ث (L03_++	sso
 		//تفعّل eg. تفکّر
 			_ت) ث (L03ّL03_+	sa
 			_تL04) ث (ّL03_+	s:o
@@ -1019,7 +1030,7 @@
 			_تL04ا) ج (L03_	dZo
 		//تفعل eg. تفکر
 			_ت) ج (L03L03_+	dZa
-			_تL04) ج (L03_+	dZdZo
+			_تL04) ج (L03_++	dZdZo
 		//تفعّل eg. تفکّر
 			_ت) ج (L03ّL03_+	dZa
 			_تL04) ج (ّL03_+	dZdZo
@@ -1135,11 +1146,21 @@
 			L09L09L09L09) چ (L03L09L09L09_	tSa
 
 	// Prefixes چ
-		
+		_) چار (L04L09L09P3@	'tSAR
+		_) چار (آL09L09P3@	'tSAR
+		_) چهار (L04L09L09P4@	'tSAhAR
+		_) چهار (آL09L09P4@	'tSAhAR
+		_) چند (L04L09L09P3@	'tSAand
+		_) چند (آL09L09P3@	'tSAand
+
 	// Suffixes چ
 		L09L09L09) چی (_Sm2	tSi
 		L09L09) چیان (_Sm4	tSijAn
 		L09L09) چه (_Sm2	tSe
+		L09L09) چین (_Sm3	tSin
+		L09L09) چهر (_Sm3	tSehR
+		L09L09) چهره (_Sm4	tSehRe:
+		L09L09) چهرۀ (_Sm4	tSehReje
 
 	// arabic form of words  (Babs) چ
 		//فواعل eg. جوامع
@@ -1168,7 +1189,7 @@
 			_تL04ا) چ (L03_	tSo
 		//تفعل eg. تفکر
 			_ت) چ (L03L03_+	tSa
-			_تL04) چ (L03_+	tStSo
+			_تL04) چ (L03_++	tStSo
 		//تفعّل eg. تفکّر
 			_ت) چ (L03ّL03_+	tSa
 			_تL04) چ (ّL03_+	tStSo
@@ -1292,6 +1313,7 @@
 	// Suffixes ح
 		L09L09) حسن (_Sm3	hasan
 		L09L09) حسین (_Sm4	hosejn
+		L09L09) حال (_Sm3	hAl
 
 	// arabic form of words  (Babs) ح
 		//فواعل eg. جوامع
@@ -1320,7 +1342,7 @@
 			_تL04ا) ح (L03_	ho
 		//تفعل eg. تفکر
 			_ت) ح (L03L03_+	ha
-			_تL04) ح (L03_+	hho
+			_تL04) ح (L03_++	hho
 		//تفعّل eg. تفکّر
 			_ت) ح (L03ّL03_+	ha
 			_تL04) ح (ّL03_+	hho
@@ -1445,7 +1467,12 @@
 		_) خود (آL09L09P3@	xod
 		_) خدا (L04L09L09P3@	xodA
 		_) خدا (آL09L09P3@	xodA
-
+		_) خواب (L04L09L09P4@	xAb
+		_) خواب (آL09L09P4@	xAb
+		_) خویش (L04L09L09P4@	xiS
+		_) خویش (آL09L09P4@	xiS
+		_) خان (L04L09L09P3@	xAn
+		_) خان (آL09L09P3@	xAn
 
 	// suffixes خ
 		L09L09) خر (_Sm2	xaR
@@ -1456,6 +1483,11 @@
 		L09L09) خوار (_Sm4	xAR
 		L09L09) خدا (_Sm3	xodA
 		L09L09) خور (_Sm3	xoR
+		L09L09) خون (_Sm3	xun
+		L09L09) خان (_Sm3	xAn
+		L09L09) خوش (_Sm3	xoS
+		L09L09) خیز (_Sm3	xiz
+		L09L09) خواست (_Sm5	xAst
 
 	// arabic form of words  (Babs) خ
 		//فواعل eg. جوامع
@@ -1484,7 +1516,7 @@
 			_تL04ا) خ (L03_	xo
 		//تفعل eg. تفکر
 			_ت) خ (L03L03_+	xa
-			_تL04) خ (L03_+	xxo
+			_تL04) خ (L03_++	xxo
 		//تفعّل eg. تفکّر
 			_ت) خ (L03ّL03_+	xa
 			_تL04) خ (ّL03_+	xxo
@@ -1611,6 +1643,8 @@
 		_) دیر (آL09L09P3@	diR
 		_) دست (L04L09L09P3@	dast
 		_) دست (آL09L09P3@	dast
+		_) درست (L04L09L09P4@	dorost
+		_) درست (آL09L09P4@	dorost
 
 	// suffixes د
 		L09L09) داد (_Sm3	dAd
@@ -1628,6 +1662,7 @@
 		L09L09) دل (_Sm2	del
 		L09L09) دست (_Sm3	dast
 		L09L09) درد (_Sm3	daRd
+		L09L09) دوش (_Sm3	duS
 
 	// arabic form of words  (Babs) د
 		//فواعل eg. جوامع
@@ -1656,7 +1691,7 @@
 			_تL04ا) د (L03_	do
 		//تفعل eg. تفکر
 			_ت) د (L03L03_+	da
-			_تL04) د (L03_+	ddo
+			_تL04) د (L03_++	ddo
 		//تفعّل eg. تفکّر
 			_ت) د (L03ّL03_+	da
 			_تL04) د (ّL03_+	ddo
@@ -1781,7 +1816,9 @@
 			L09L09L09L09) ذ (L03L09L09L09_	za
 
 	// Prefixes ذ
-		
+		_) ذی (L04L09L09P2@	zi
+		_) ذی (آL09L09P2@	zi
+
 	// Suffixes ذ
 		
 	// arabic form of words  (Babs) ذ
@@ -1931,6 +1968,10 @@
 	// Prefixes ر
 		_) رضا (L04L09L09P3@	RezA
 		_) رضا (آL09L09P3@	RezA
+		_) ریز (L04L09L09P2@	Riz
+		_) ریز (آL09L09P3@	Riz
+		_) راست (L04L09L09P4@	RAst:
+		_) راست (آL09L09P4@	RAst
 
 	// suffixes ر
 		//L09L09L09) ران (_Sm3	RAn
@@ -1942,6 +1983,9 @@
 		L09L09) ربا (_Sm3	RobA
 		L09L09) رضا (_Sm3	RezA
 		L09L09) رسان (_Sm4	ResAn
+		L09L09) رنگ (_Sm3	Rang
+		L09L09) روان (_Sm4	RavAn
+		L09L09) ریز (_Sm3	Riz
 
 	// arabic form of words  (Babs) ر
 		//فواعل eg. جوامع
@@ -1970,7 +2014,7 @@
 			_تL04ا) ر (L03_	Ro
 		//تفعل eg. تفکر
 			_ت) ر (L03L03_+	Ra
-			_تL04) ر (L03_+	RRo
+			_تL04) ر (L03_++	RRo
 		//تفعّل eg. تفکّر
 			_ت) ر (L03ّL03_+	Ra
 			_تL04) ر (ّL03_+	RRo
@@ -2284,7 +2328,7 @@
 			_تL04ا) ژ (L03_	Zo
 		//تفعل eg. تفکر
 			_ت) ژ (L03L03_+	Za
-			_تL04) ژ (L03_+	ZZo
+			_تL04) ژ (L03_++	ZZo
 		//تفعّل eg. تفکّر
 			_ت) ژ (L03ّL03_+	Za
 			_تL04) ژ (ّL03_+	ZZo
@@ -2415,6 +2459,8 @@
 		_) سوء (L09L09P3@	su?e
 		_) سانتی (L04L09L09P5@	sAnti
 		_) سانتی (آL09L09P5@	sAnti
+		_) سید (L09P3@	sej:ed:
+		_) سید (آL09L09P3@	sej:ed
 
 	// suffixes س
 		L09L01) ست (_+NSm2	st
@@ -2458,7 +2504,7 @@
 			_تL04ا) س (L03_+	so
 		//تفعل eg. تفکر
 			_ت) س (L03L03_+	sa
-			_تL04) س (L03_++	s:o
+			_تL04) س (L03_++	sso
 		//تفعّل eg. تفکّر
 			_ت) س (L03ّL03_+	sa
 			_تL04) س (ّL03_+	s:o
@@ -2608,6 +2654,14 @@
 		L09L09) شاه (_Sm3	SAh
 		L09L09) شمار (_Sm4	SomAR
 		L09L09L09) شدن (_Sm3	Sodan
+		L09L09) شناخت (_Sm5	SenAxt
+		L09L09) شاد (_Sm3	SAd
+		L09L09) شور (_Sm3	SuR
+		L09L09) شده (_Sm3	Sode:
+		L09L09) شدۀ (_Sm3	Sodeje
+		L09L09) شونده (_Sm5	Savande:
+		L09L09) شوندۀ (_Sm5	Savandeje
+		L09L09) شدگان (_Sm5	SodegAn
 
 	// arabic form of words  (Babs) ش
 		//فواعل eg. جوامع
@@ -2762,7 +2816,11 @@
 			L09L09L09L09) ص (L03L09L09L09_	sa
 
 	// Prefixes ص
-		
+		_) صاحب (L04L09L09P4@	saheb
+		_) صاحب (آL09L09P4@	saheb
+		_) صدر (L04L09L09P5@	sadr
+		_) صدر (آL09L09P5@	sadr
+
 	// Suffixes ص
 		L09L09) صد (_Sm2	sad
 
@@ -2793,7 +2851,7 @@
 			_تL04ا) ص (L03_+	so
 		//تفعل eg. تفکر
 			_ت) ص (L03L03_+	sa
-			_تL04) ص (L03_++	s:o
+			_تL04) ص (L03_++	sso
 		//تفعّل eg. تفکّر
 			_ت) ص (L03ّL03_+	sa
 			_تL04) ص (ّL03_+	s:o
@@ -3074,7 +3132,8 @@
 		
 	// Suffixes ط
 		L09L09) طلب (_Sm3	talab
-	// arabic form of words  (Babs) ط
+
+		// arabic form of words  (Babs) ط
 		//فواعل eg. جوامع
 			_L04وا) ط (L03_	te
 			_خوا) ط (L03_+	ta
@@ -3101,7 +3160,7 @@
 			_تL04ا) ط (L03_	to
 		//تفعل eg. تفکر
 			_ت) ط (L03L03_+	ta
-			_تL04) ط (L03_+	tto
+			_تL04) ط (L03_++	tto
 		//تفعّل eg. تفکّر
 			_ت) ط (L03ّL03_+	ta
 			_تL04) ط (ّL03_+	tto
@@ -3408,10 +3467,10 @@
 		//تفاعیل eg. تدابیر (Fa eSpeak read itd correctly)
 		//تفاعل eg. تفاوت
 			_تL04ا) ع (L03_	?o
-			_تL09ا)L09 ع (_	?
+			_تL04اL04) ع (_	?
 		//تفعل eg. تفکر
 			_ت) ع (L03L03_+	?a
-			_تL04) ع (L03_+	??o
+			_تL04) ع (L03_++	??o
 		//تفعّل eg. تفکّر
 			_ت) ع (L03ّL03_+	?a
 			_تL04) ع (ّL03_+	??o
@@ -3570,7 +3629,7 @@
 			_تL04ا) غ (L03_	q1o
 		//تفعل eg. تفکر
 			_ت) غ (L03L03_+	q1a
-			_تL04) غ (L03_+	q1q1o
+			_تL04) غ (L03_++	q1q1o
 		//تفعّل eg. تفکّر
 			_ت) غ (L03ّL03_+	q1a
 			_تL04) غ (ّL03_+	q1q1o
@@ -3705,6 +3764,9 @@
 		L09L09) فر (_Sm2	faR
 		L09L09) فروش (_Sm4	foRuS
 		L09L09) فشان (_Sm4	feSAn
+		L09L09) فریب (_Sm4	faRib
+		L09L09) فرما (_Sm4	faRmA
+		L09L09) فرسا (_Sm4	faRsA
 
 	// arabic form of words  (Babs) ف
 		//فواعل eg. جوامع
@@ -3881,7 +3943,7 @@
 			_تL04ا) ق (L03_	q1o
 		//تفعل eg. تفکر
 			_ت) ق (L03L03_+	q1a
-			_تL04) ق (L03_+	q1q1o
+			_تL04) ق (L03_++	q1q1o
 		//تفعّل eg. تفکّر
 			_ت) ق (L03ّL03_+	q1a
 			_تL04) ق (ّL03_+	q1q1o
@@ -4002,8 +4064,10 @@
 		_) کم (آL09L09P2@	kam
 		_) کند (L04L09L09P3@	kond
 		_) کند (آL09L09P3@	kond
-		_) کیلو (آL09L09P4@	kilu
 		_) کیلو (L04L09L09P4@	kilu
+		_) کیلو (آL09L09P4@	kilu
+		_) کوچک (L04L09L09P4@	kutSak
+		_) کوچک (آL09L09P4@	kutSak
 
 	// suffixes ک
 		L09L09L03) ک (_Sm1	ak
@@ -4017,6 +4081,7 @@
 		L09L09) کنان (_Sm4	konAn
 		L09L09) کننده (_Sm5	konande:
 		L09L09) کنندۀ (_Sm5	konandeje
+		L09L09) کوچک (_Sm4	kutSak
 
 	// arabic form of words  (Babs) ک
 		//فواعل eg. جوامع
@@ -4045,7 +4110,7 @@
 			_تL04ا) ک (L03_	ko
 		//تفعل eg. تفکر
 			_ت) ک (L03L03_+	ka
-			_تL04) ک (L03_+	kko
+			_تL04) ک (L03_++	kko
 		//تفعّل eg. تفکّر
 			_ت) ک (L03ّL03_+	ka
 			_تL04) ک (ّL03_+	kko
@@ -4219,6 +4284,7 @@
 		L09L09) گو (_Sm2	gu
 		L09L09) گرفت (_Sm4	geReft
 		L09L09) گشا (_Sm3	goSA
+		L09L09) گریز (_Sm4	goRiz
 
 	// arabic form of words  (Babs) گ
 		//فواعل eg. جوامع
@@ -4247,7 +4313,7 @@
 			_تL04ا) گ (L03_	go
 		//تفعل eg. تفکر
 			_ت) گ (L03L03_+	ga
-			_تL04) گ (L03_+	ggo
+			_تL04) گ (L03_++	ggo
 		//تفعّل eg. تفکّر
 			_ت) گ (L03ّL03_+	ga
 			_تL04) گ (ّL03_+	ggo
@@ -4378,7 +4444,10 @@
 	// Prefixes ل
 		
 	// Suffixes ل
-		
+		L09L09) لوژ (_Sm3	lotZ
+		L09L09) لوژیک (_Sm5	lotZik
+		L09L09) لوگ (_Sm3	log
+
 	// arabic form of words  (Babs) ل
 		//فواعل eg. جوامع
 			_L04وا) ل (L03_+	le
@@ -4522,7 +4591,6 @@
 			L09L09L09L09) م (L03L09L09L09_	ma
 
 	// Prefixes م
-		//_) م (L03L09L09P1@	ma
 		_) می (L03L09+P2@	mi
 		_) می (آL09L09P2@	mi
 		_) می (وL09L09P2@	mi
@@ -4546,6 +4614,12 @@
 		_) مصطفی (L04L09L09P5@	mostafA
 		_) میلی (L04L09L09P4@	mili
 		_) میلی (آL09L09P4@	mili
+		_) ماه (L04L09L09P3@	mAh
+		_) ماه(آL09L09P3@	mAh
+		_) مگا (L04L09L09P3@	megA
+		_) مگا(آL09L09P3@	megA
+		_) مولتی (L04L09L09P5@	multi
+		_) مولتی(آL09L09P5@	multi
 
 	// suffixes م
 		L09L09) ماه (_Sm3	mAh
@@ -4576,6 +4650,7 @@
 			L09L03) مون (_NSm3	emun
 			L09L01) مون (_Sm3	mun
 		L09L09) مردان (_Sm5	maRdAn
+		L09L09) منش (_Sm3	maneS
 
 	// arabic form of words  (Babs) م
 		//فواعل eg. جوامع
@@ -4611,7 +4686,7 @@
 			_تL04ا) م (L03_	mo
 		//تفعل eg. تفکر
 			_ت) م (L03L03_+	ma
-			_تL04) م (L03_+	mmo
+			_تL04) م (L03_++	mmo
 		//تفعّل eg. تفکّر
 			_ت) م (L03ّL03_+	ma
 			_تL04) م (ّL03_+	mmo
@@ -4759,14 +4834,14 @@
 		L09L09L03) ن (_NSm1	an
 		// Possessive pronouns for "ن" eg. "بودنم"
 			L09L09L03) نم (_NSm2	anam
-			L09L09L03) نت (_NSm1	anat
+			L09L09L03) نت (_NSm2	anat
 			L09L09L03) نش (_NSm2	anaS
 			L09L09L03) نمان (_NSm4	anemAn
 			L09L09L03) نتان (_NSm4	anetAn
 			L09L09L03) نشان (_NSm4	aneSAn
-			L09L09L03) نمان (_NSm4	anemun
-			L09L09L03) نتان (_NSm4	anetun
-			L09L09L03) نشان (_NSm4	aneSun
+			L09L09L03) نمون (_NSm4	anemun
+			L09L09L03) نتون (_NSm4	anetun
+			L09L09L03) نشون (_NSm4	aneSun
 		//L09L09L03) نی (_NSm2	ani
 		L09L09) نامه (_Sm4	nAme:
 		L09L09) نامۀ (_Sm4	nAmeje
@@ -4777,6 +4852,7 @@
 		L09L03) ندۀ (_Sm3	andeje
 		L09L03) ندگی (_Sm4	andegi
 		L09L03) ندگان (_Sm5	andegAn
+		L09L09) نندگان (_Sm6	nandegAn
 		L09L09) نویس (_Sm4	nevis
 		L09L09) نورد (_Sm4	navaRd
 		L09L09) نواز (_Sm4	navAz
@@ -4975,7 +5051,7 @@
 			_تL04ا) و (L03_	vo
 		//تفعل eg. تفکر
 			_ت) و (L03L03_+	va
-			_تL04) و (L03_+	vvo
+			_تL04) و (L03_++	vvo
 		//تفعّل eg. تفکّر
 			_ت) و (L03ّL03_+	va
 			_تL04) و (ّL03_+	vvo
@@ -5162,7 +5238,7 @@
 			_تL04ا) ه (L03_	ho
 		//تفعل eg. تفکر
 			_ت) ه (L03L03_+	ha
-			_تL04) ه (L03_+	hho
+			_تL04) ه (L03_++	hho
 		//تفعّل eg. تفکّر
 			_ت) ه (L03ّL03_+	ha
 			_تL04) ه (ّL03_+	hho
@@ -5268,6 +5344,8 @@
 	// Prefixes ی
 		_) یک (L04L09L09P2@	jek
 		_) یک (آL09L09P2@	jek
+		_) یاد (L09L09P3@	jAd
+		_) یاد (آL09L09P3@	jAd
 
 	// suffixes ی
 		L09L01) یئ (_+Sm2	i:
@@ -5278,9 +5356,11 @@
 		L09L01) یۀ (_+NSm2	jeje
 		L09L09) ییه (_NSm3	i:je
 		L09L09) ییۀ (_NSm3	i:jeje
+		L09L09) یئه (_NSm3	i:je
+		L09L09) یئۀ (_NSm3	i:jeje
 		L09L01) ی (_Sm1	j
 		L09L09آ) ی (_Sm1	je
-		L09L09ا) ی (_Sm1	je
+		L09L09ا) ی (_NSm1	je
 		L09L09ی) ی (_Sm1	je
 		L09L01و) ی (_Sm1	i
 		L09L03و) ی (_Sm1	je
@@ -5290,20 +5370,20 @@
 		L09L04) یت (_Sm2	i:jat
 		L09L04) یّت (_Sm3	i:jat
 		L09L03) یّت (_Sm3	i:jat
+		L09L03) ینه (_NSm3	ine:
+		L09L03) ینۀ (_NSm3	ineje
 		// Possessive pronouns for گی eg. "زندگیتان"
 			L09L09L03گ) یت (_NSm1	jat
 			L09L01یگ) یت (_NSm1	jat
 			L09L01وگ) یت (_NSm1	jat
 		L09L09) یاب (_Sm3	jAb
-		L09L03) یان (_Sm3	ijAn
-		L09L01) یان (_Sm3	jAn
 		L09L01) ییان (_Sm4	i:An	eg. "اروپاییان"
 		L09L09) یار (_Sm3	jAR
 		L09L09) یون (_Sm3	jun
 		L09L09) یوم (_Sm3	jom
 		L09L09م) ین (_Sm2	in
-		L09L03) ین (_NSm2	in	//eg. "زرین"
-		L09L03) ینی (_NSm3	ini	//eg. "زرین"
+		L09L03) ین (_Sm2	in	//eg. "زرین"
+		//L09L03) ینی (_NSm3	ini	//eg. "زرین"
 		// Subjective pronouns
 			L09L03) ی (_Sm1	i
 			L09L01و) ی (_Sm1	i
@@ -5345,6 +5425,8 @@
 			L09ع) یاتمان (_NSm6	ijjAtemAn
 			L09ع) یاتتان (_NSm6	ijjAtetAn
 			L09ع) یاتشان (_NSm6	ijjAteSAn
+		L09L09) یزاسیون (_Sm7	isAsion
+		L09L03) یافت (_Sm4	jAft
 
 	// arabic form of words  (Babs) ی
 		//فواعل eg. جوامع
@@ -5377,7 +5459,7 @@
 			_تL04ا) ی (L03_	jo
 		//تفعل eg. تفکر
 			_ت) ی (L03L03_+	ja
-			_تL04) ی (L03_	jjo
+			_تL04) ی (L03_++	jjo
 		//تفعّل eg. تفکّر
 			_ت) ی (L03ّL03_+	ja
 			_تL04) ی (ّL03_	jjo
@@ -5435,6 +5517,7 @@
 	ئ (L02	?
 	L02) ئ	?
 	ئ (L03	?e
+
 	// Suffixes "ئ"
 		L09L01) ئ (_NSm1	je
 		L09L03) ئ (_NSm1	i
@@ -5446,13 +5529,10 @@
 		L09L03) ئی (_Sm2	ii
 		L09L09) ئیه (_NSm3	i:je
 		L09L09) ئیۀ (_NSm3	i:jeje
-		L09L09) یئه (_NSm3	i:je
-		L09L09) یئۀ (_NSm3	i:jeje
 		L09L03) ئه (_+NSm2	ije
 		L09L01) ئه (_+NSm2	je
 		L09L03) ئۀ (_+NSm2	ijeje
 		L09L01) ئۀ (_+NSm2	jeje
-		
 
 
 .group ؤ
@@ -5536,6 +5616,10 @@
 	a	_^_en
 	?1 a	a
 	?1 a ('	A
+
+
+.group aa
+	aa	_^_en
 	?1 aa	A
 
 
@@ -5550,6 +5634,10 @@
 	?1 c (y	s
 	?1 c (i	s
 	?1 c	k
+
+
+.group ch
+	ch	_^_en
 	?1 ch	tS
 
 
@@ -5561,6 +5649,10 @@
 .group e
 	e	_^_en
 	?1 e	e
+
+
+.group ee
+	ee	_^_en
 	?1 ee	i
 
 
@@ -5572,6 +5664,10 @@
 .group g
 	g	_^_en
 	?1 g	g
+
+
+.group gh
+	gh	_^_en
 	?1 gh	q1
 
 
@@ -5598,6 +5694,10 @@
 .group k
 	k	_^_en
 	?1 k	k
+
+
+.group kh
+	kh	_^_en
 	?1 kh	x
 
 
@@ -5619,15 +5719,28 @@
 .group o
 	o	_^_en
 	?1 o	o
+
+
+.group ou
+	ou	_^_en
 	?1 ou	u
+
+
+.group oo
+	oo	_^_en
 	?1 oo	u
-	?1 oo) o	
+	?1 oo (o	
 
 
 .group p
 	p	_^_en
 	?1 p	p
+
+
+.group ph
+	ph	_^_en
 	
+
 
 .group q
 	q	_^_en
@@ -5642,12 +5755,21 @@
 .group s
 	s	_^_en
 	?1 s	s
+
+
+.group sh
+	sh	_^_en
 	?1 sh	S
 
 
 .group t
 	t	_^_en
 	?1 t	t
+
+
+.group th
+	th	_^_en
+	
 
 
 .group u
