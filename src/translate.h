@@ -259,7 +259,7 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 
 
-#define N_LOPTS      20
+#define N_LOPTS      21
 #define LOPT_DIERESES        1
  // 1=remove [:] from unstressed syllables, 2= remove from unstressed or non-penultimate syllables
  // bit 4=0, if stress < 4,  bit 4=1, if not the highest stress in the word
@@ -328,6 +328,10 @@ extern const int param_defaults[N_SPEECH_PARAM];
 
 	// bit 0:  Don't allow suffices if there is no previous syllable
 #define LOPT_SUFFIX  19
+
+	// bit 0  Apostrophe at start of word is part of the word
+	// bit 1  Apostrophe at end of word is part of the word
+#define LOPT_APOSTROPHE  20
 
 
 // stress_rule

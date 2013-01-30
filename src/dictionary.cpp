@@ -1276,14 +1276,22 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 							mnem = phoneme_tab[final_ph]->mnemonic;
 							mnem2 = phoneme_tab[final_ph2]->mnemonic;
 
-							if((mnem == 's') && (phoneme_tab[final_ph2]->type == phNASAL))
+							if(tr->translator_name == L('a','n'))
 							{
-								// -ns  stress remains on penultimate syllable
+								if(((mnem != 's') && (mnem !='n')) || phoneme_tab[final_ph2]->type != phVOWEL)
+									stressed_syllable = vowel_count - 1;   // stress on last syllable
 							}
 							else
-							if(((phoneme_tab[final_ph]->type != phNASAL) && (mnem != 's')) || (phoneme_tab[final_ph2]->type != phVOWEL))
 							{
-								stressed_syllable = vowel_count - 1;
+								if((mnem == 's') && (phoneme_tab[final_ph2]->type == phNASAL))
+								{
+									// -ns  stress remains on penultimate syllable
+								}
+								else
+								if(((phoneme_tab[final_ph]->type != phNASAL) && (mnem != 's')) || (phoneme_tab[final_ph2]->type != phVOWEL))
+								{
+									stressed_syllable = vowel_count - 1;
+								}
 							}
 						}
 					}

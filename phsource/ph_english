@@ -248,6 +248,17 @@ phoneme 0
 endphoneme
 
 
+phoneme 0#    // [@] in unstressed syllables
+  vowel  starttype #o  endtype #o
+
+  IF thisPh(isUnstressed) AND nextVowel(isVowel) AND NOT nextVowel(isUnstressed) THEN
+    ChangePhoneme(@)
+  ENDIF
+
+  ChangePhoneme(0)
+endphoneme
+
+
 phoneme V
   vowel  starttype #a  endtype #@
   length 140

@@ -419,7 +419,7 @@ com	$u		// with
 ?2	desde	$u	// from,since
 ?2	entre		// between,among
 ?2	por	$u	// by,for,through
-?2	sobre	s'obRy		// on,above,about
+	sobre	$alt2	// on,above,about
 ?2	sob		// under,below
 ?2	debaixo		// under,below
 
@@ -644,9 +644,13 @@ governo	gov'ernU	$noun
 // $alt   changes stressed [e] or [o] phoneme to open [E] or [O]
 // $alt2   changes stressed [E] or [O] phoneme to close [e] or [o]
 
+abacaxi		abakaSy
 abordo		$alt
 aborto		$alt $verb
 acerto		$alt2 $noun
+acertos		$alt2
+acervo		$alt2
+adepto		$alt
 adereço		$alt2
 adore		$alt
 albatrozes	$alt
@@ -667,6 +671,7 @@ aperto		$alt2 $noun
 apoio		$alt $verb
 aprendeste	$alt2
 aprovo		$alt
+arredores	$alt
 arremesso	$alt2 $noun
 arroz		$alt2
 assembleia	$alt
@@ -675,19 +680,23 @@ atrozes		$alt
 austera		$alt
 austero		$alt
 autora		$alt2
+axé		aSE
 bebeste		$alt2
 beco		$alt2
 belo		$alt
 besta		$alt2
+bezerra		$alt2
 bezerro		$alt2
 bilhete		$alt2
 boca		$alt2
+bochecha	$alt2
 boleia		$alt
 bolo		$alt2
 borboleta	$alt2
 bordo		$alt
 bromelha	$alt
 cabeça		$alt2
+cabresto	$alt2
 cacete		$alt2
 cachorra	$alt2
 caderneta	$alt2
@@ -703,6 +712,7 @@ catorze		$alt2
 cefaleia	$alt
 cerca		$alt $verb
 cerco		$alt $verb
+cesta		$alt
 chamego		$alt2
 chefe		$alt
 chinelo		$alt
@@ -710,13 +720,19 @@ choro		$alt2 $noun
 chupeta		$alt2
 coco		$alt2
 cofre		$alt
+coice		$alt2
+colabore	$alt
+colheste	$alt2
 colmeia		$alt
 começo		$alt2 $noun
+comodo		$alt2
 comera		$alt2
 comeres		$alt2
 comeste		$alt2
+concordo	$alt
 conheceste	$alt2
 conheço		$alt2
+contivermos	$alt
 copa		$alt
 copo		$alt
 coreia		$alt
@@ -752,9 +768,11 @@ deveras		$alt
 dez		$alt
 diarreia	$alt
 discordo	$alt
+dissermos	$alt
 dobro		$alt2 $noun
 doce		$alt2
 droga		$alt
+elixir		eliSir
 emprego		$alt2 $noun
 endereço	$alt2
 enforco		$alt
@@ -778,9 +796,11 @@ espeto		$alt2 $noun
 espiroqueta	$alt2
 espoleta	$alt2
 esposa		$alt2
+esqueceste	$alt2
 esqueleto	$alt2
 estiverdes	$alt
 estiveres	$alt
+estivermos	$alt
 estrela		$alt2
 estrofe		$alt
 etiqueta	$alt2
@@ -788,6 +808,7 @@ europa		$alt
 exagero		$alt $verb
 expeça		$alt2
 expeço		$alt2
+explore		$alt
 farofa		$alt
 febre		$alt
 feitora		$alt2
@@ -796,8 +817,12 @@ fere		$alt
 ferem		$alt
 ferozes		$alt
 fezes		$alt
+?1 fixe		fiSy
+fizermos	$alt
 folga		$alt
 fogos		$alt
+foguete		$alt2
+foice		$alt2
 forca		$alt2
 forças		$alt2
 fores		$alt2
@@ -812,21 +837,28 @@ geleia		$alt
 gelo		$alt $verb
 germe		$alt
 gesso		$alt2
+golpe		$alt
 gonorreia	$alt
 gorda		$alt2
+gota		$alt2
 gozo		$alt $verb
 grego		$alt2
 grelha		$alt
+grega		$alt2
 groselha	$alt
 grosso		$alt2
 grozo		$alt $verb
 hoje		$alt2
+houvermos	$alt
 ideia		$alt
 joga		$alt
 jogam		$alt
 jogos		$alt
 jogue		$alt
 joguem		$alt
+joguete		$alt2
+lambreta	$alt2
+lebre		$alt
 lerda		$alt
 lerdo		$alt
 líderes		$alt2
@@ -834,6 +866,7 @@ lopes		$alt
 maleta		$alt2
 mantiverdes	$alt
 mantiveres	$alt
+mantivermos	$alt
 marreta		$alt2
 martelo		$alt
 merda		$alt
@@ -863,11 +896,13 @@ mulheres	$alt
 mureta		$alt2
 mutreta		$alt2
 naquele		$alt2
+negra		$alt2
 negro		$alt2
 novos		$alt
 obstetra	$alt
 obsoleta	$alt2
 obsoleto	$alt2
+obtivermos	$alt
 odisseia	$alt
 onu		$1
 opereta		$alt2
@@ -877,6 +912,7 @@ ovos		$alt
 padeceste	$alt2
 paexa		paeSa
 pangeia		$alt
+palacete	$alt2
 palheta		$alt2
 paralelo	$alt
 parede		$alt2
@@ -908,17 +944,21 @@ preto		$alt2
 primavera	$alt
 profere		$alt
 proferem	$alt
+provo		$alt
 puder		$alt
 punheta		$alt
 puserdes	$alt
+quisermos	$alt
 recomeço	$alt2 $noun
 recordo		$alt
 recorto		$alt
 rede		$alt2
+redor		$alt
 reforços	$alt
 refresco	$alt $verb
 reitora		$alt2
 remorso		$alt
+reprovo		$alt
 resolve		$alt
 resolvem	$alt
 rixa		x'iS&
@@ -931,6 +971,8 @@ seborreia	$alt
 seco		$alt2 $noun
 selo		$alt $verb
 selvagem	seUv'aZeIN
+?1 senhora	$alt2
+sesta		$alt2
 sincera		$alt
 sincero		$alt
 sinopse		$alt
@@ -948,6 +990,7 @@ sopro		$alt $verb
 sorvete		$alt2
 sossego     $alt2 $noun
 souberdes	$alt
+soubermos	$alt
 sugere		$alt
 sugerem		$alt
 suporto		$alt
@@ -957,6 +1000,7 @@ tempero		$alt $verb
 teta		$alt2
 tiver		$alt
 tiveres		$alt
+tivermos	$alt
 tocha		$alt
 toga		$alt
 torres		$alt2
@@ -977,20 +1021,12 @@ vierem		$alt
 violeta		$alt2
 voga		$alt
 vozes		$alt
+xarope		$alt
 zelo		$alt $verb
 zero		$alt
 zorra		$alt2
 
-// Close [o]
-?1 senhora	$alt2
-?1 sobre	$alt2
 
-
-
-abacaxi      abakaSy
-axé          aSE
-elixir       eliSir
-?1 fixe       f'iSy
 
 
 // foreign words
