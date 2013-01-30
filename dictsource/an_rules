@@ -98,6 +98,7 @@
         i        i
         i (A     j
      A) ix       S
+     _) ix       iS
 
 
 .group j
@@ -155,10 +156,13 @@
      _) r        R
         rr       RR2
      @) r (-     =      // followed by hyphen.  Silent, but stress on last vowel
+        rs (_    =s
+
 
 
 .group s
         s        s
+     &) s (_S1   s 
 
 
 .group t
@@ -176,8 +180,17 @@
      _) u (A     gw
 
 
-.group v
-        v        B
+.group v   // same as 'b'
+        v          b
+     _) v          b  // phoneme definition may change it to [B]
+     _) v (A       b
+        v (A       B
+        v (cY      B
+        v (L03     B
+     m) v          b
+     n) v          b
+        v (iA      b
+        v (uA      b
 
 
 .group w

@@ -397,6 +397,14 @@ _reconh) e (çL03_   e
   _rend) e (L06_    e
  _atend) e (L06_    e
    _pen) e (trL04_  E
+  _Xref) e (rL02_   E
+  _desf) e (rL02_   E
+  _conf) e (rL02_   E
+  _reit) e (rL03_   E
+    par) e (çL01_   e  // pareça, apareça
+ _arref) e (çL01_   e
+   _beb) e (ssL02_  e
+    com) e (ssL02_  e
 //endsort
 
  _exag) e (L05_     E
@@ -586,6 +594,7 @@ _reconh) e (çL03_   e
         ou         ow
         oi         oI
         oi ($w_alt OI
+        oi ($w_alt2++ oI
         oi (a_     OI   // ??
         oi (cA_    OI
         oi (de_    OI
@@ -711,7 +720,8 @@ _reconh) e (çL03_   e
   _esc) o (lhL02_  O
   _rev) o (lvL02_  O
 _desenv) o (lvL02_ O
-_  ent) o (pL02_   O
+  _ent) o (pL02_   O
+    _c) o (spL02_  O
 //endsort
 
 .group ô
