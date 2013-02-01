@@ -1,4 +1,5 @@
 /*
+ * Copyright (C) 2013 Reece H. Dunn
  * Copyright (C) 2011 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,21 +17,42 @@
 
 package com.reecedunn.espeak;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
 
 public class TtsSettingsActivity extends PreferenceActivity {
     @Override
+    @SuppressWarnings("deprecation")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        addPreferencesFromResource(R.xml.preferences);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+        {
+            getFragmentManager().beginTransaction().replace(
+                    android.R.id.content,
+                    new PrefsEspeakFragment()).commit();
+        }
+        else
+        {
+            addPreferencesFromResource(R.xml.preferences);
+            fixListSummaries(getPreferenceScreen());
+        }
+    }
 
-        fixListSummaries(getPreferenceScreen());
+    public static class PrefsEspeakFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            addPreferencesFromResource(R.xml.preferences);
+            fixListSummaries(getPreferenceScreen());
+        }
     }
 
     /**
@@ -38,7 +60,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
      * change listener for all {@link ListPreference} views to fill in the
      * summary with the current entry value.
      */
-    private void fixListSummaries(PreferenceGroup group) {
+    private static void fixListSummaries(PreferenceGroup group) {
         if (group == null) {
             return;
         }
@@ -61,7 +83,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
      * current setting. This shouldn't be necessary, since preferences are
      * supposed to automatically do this when the summary is set to "%s".
      */
-    private final OnPreferenceChangeListener mPreferenceChangeListener =
+    private static final OnPreferenceChangeListener mPreferenceChangeListener =
             new OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
