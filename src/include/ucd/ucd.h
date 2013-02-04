@@ -1,6 +1,6 @@
 /* Unicode Character Database API
  *
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  *
  * This file is part of ucd-tools.
  *
@@ -51,6 +51,14 @@ namespace ucd
 		Z, /**< @brief Separator */
 	};
 
+	/** @brief Get a string representation of the category_group enumeration value.
+	  *
+	  * @param c The value to get the string representation for.
+	  *
+	  * @return The string representation, or "-" if the value is not recognized.
+	  */
+	const char *get_category_group_string(category_group c);
+
 	/** @brief Unicode General Category Values
 	  * @see   http://www.unicode.org/reports/tr44/
 	  */
@@ -95,6 +103,14 @@ namespace ucd
 		Zp, /**< @brief Paragraph Separator */
 		Zs, /**< @brief Space Separator */
 	};
+
+	/** @brief Get a string representation of the category enumeration value.
+	  *
+	  * @param c The value to get the string representation for.
+	  *
+	  * @return The string representation, or "--" if the value is not recognized.
+	  */
+	const char *get_category_string(category c);
 
 	/** @brief Lookup the General Category Group for a General Category.
 	  *
@@ -235,6 +251,14 @@ namespace ucd
 		Zyyy, /**< @brief Inherited Script */
 		Zzzz, /**< @brief Unknown Script */
 	};
+
+	/** @brief Get a string representation of the script enumeration value.
+	  *
+	  * @param c The value to get the string representation for.
+	  *
+	  * @return The string representation, or "----" if the value is not recognized.
+	  */
+	const char *get_script_string(script s);
 
 	/** @brief Lookup the Script for a Unicode codepoint.
 	  *

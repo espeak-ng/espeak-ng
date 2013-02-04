@@ -108,7 +108,8 @@ src_libucd_la_SOURCES  = \
 	src/case.cpp \
 	src/categories.cpp \
 	src/ctype.cpp \
-	src/scripts.cpp
+	src/scripts.cpp \
+	src/tostring.cpp
 
 ############################# tests ###########################################
 
