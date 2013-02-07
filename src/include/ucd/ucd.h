@@ -92,7 +92,7 @@ namespace ucd
 		Pf, /**< @brief Final Quotation Mark */
 		Pi, /**< @brief Initial Quotation Mark */
 		Po, /**< @brief Other */
-		Ps, /**< @brief Open PUnctuation Mark */
+		Ps, /**< @brief Open Punctuation Mark */
 
 		Sc, /**< @brief Currency Symbol */
 		Sk, /**< @brief Modifier Symbol */
