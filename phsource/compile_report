@@ -1,4 +1,4 @@
-85 phoneme tables
+86 phoneme tables
           new total
     base 109  109
 consonants  10  118
@@ -24,6 +24,7 @@ consonants  10  118
       ta  23  154
       kn  17  150
       ml  21  153
+      ur   6  150
       hu  25  124
       lt  44  139
       lv  29  127
@@ -60,7 +61,7 @@ consonants  10  118
       sq  33  127
       hy  23  119
       da  36  131
-      ka  19  114
+      ka  20  114
       rw  15  132
       ne  18  158
       pa  15  152
@@ -419,7 +420,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [h|] base
+l/l@            [] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -453,7 +454,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [h|] base
+l/la            [] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -461,7 +462,7 @@ l/la            [h|] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [h|] base
+l/le            [] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -473,7 +474,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [h|] base
+l/li            [] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -487,7 +488,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [h|] base
+l/lo            [] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -498,7 +499,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [h|] base
+l/lu            [] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -928,6 +929,8 @@ ustop/p_unasp_  [p-] consonants
                 [p] lv
                 [p] sq
 ustop/q         [q] base
+ustop/q2        [q] ka
+ustop/q2_i      [q] ka
 ustop/q_u       [q] base
 ustop/t         [t] base
                 [t] en-us
@@ -1505,6 +1508,7 @@ vowel/@_3       [@#] en
                 [@2] en-sc
                 [@5] en-sc
                 [@3] hi
+                [@3] ur
                 [@] da
                 [@3] ne
                 [@] am
@@ -1698,6 +1702,7 @@ vowel/aa_9      [a] fi
                 [a] mt
                 [A] kk
 vowel/@_bck     [@] hi
+                [@] ur
                 [@] bg
                 [@] zh
                 [V] ne
@@ -2043,6 +2048,8 @@ vowel/@_low     [@] en-rp
                 [V] hi
                 [@2] hi
                 [@] ml
+                [@] ur
+                [@2] ur
                 [@] ro
                 [a#] no
                 [@] id
