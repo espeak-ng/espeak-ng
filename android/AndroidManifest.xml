@@ -17,8 +17,7 @@
         android:label="@string/app_name" >
         <service
             android:name=".TtsService"
-            android:label="@string/app_name"
-            android:process=":texttospeech" >
+            android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.TTS_SERVICE" />
 
