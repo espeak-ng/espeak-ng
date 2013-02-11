@@ -62,6 +62,7 @@ public class TtsService extends TextToSpeechService {
 
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
+    private boolean mEngineInitialized = false;
 
     private List<Voice> mAvailableVoices;
     private Voice mMatchingVoice = null;
@@ -72,6 +73,8 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public void onCreate() {
+        super.onCreate();
+
         if (!CheckVoiceData.hasBaseResources(this)) {
             final IntentFilter filter =
                     new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
@@ -85,9 +88,6 @@ public class TtsService extends TextToSpeechService {
         }
 
         initializeTtsEngine();
-
-        // This calls onIsLanguageAvailable() and must run AFTER initialization!
-        super.onCreate();
     }
 
     /**
@@ -100,6 +100,7 @@ public class TtsService extends TextToSpeechService {
         }
 
         mEngine = new SpeechSynthesis(this, mSynthCallback);
+        mEngineInitialized = true;
         mAvailableVoices = mEngine.getAvailableVoices();
     }
 
@@ -113,6 +114,10 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
+        if (!mEngineInitialized) {
+            return TextToSpeech.LANG_MISSING_DATA;
+        }
+
         if (mAvailableVoices == null) {
             Log.e(TAG, "Attempted to check language availability before loading voices!");
             return TextToSpeech.LANG_NOT_SUPPORTED;
@@ -175,9 +180,10 @@ public class TtsService extends TextToSpeechService {
                 mVariant = ((variant == null) ? "" : variant);
             }
             break;
-        default:
-            Log.e(TAG, "Failed to load language {language='" + language + "', country='" + country
-                     + "', variant='" + variant + "'}, result=" + result);
+        case TextToSpeech.LANG_NOT_SUPPORTED:
+            Log.e(TAG, "Unsupported language {language='" + language + "', country='" + country
+                    + "', variant='" + variant + "'}");
+            break;
         }
         return result;
     }
@@ -193,9 +199,9 @@ public class TtsService extends TextToSpeechService {
     protected synchronized void onSynthesizeText(
             SynthesisRequest request, SynthesisCallback callback) {
         final int result = onLoadLanguage(request.getLanguage(), request.getCountry(), request.getVariant());
-
-        // Return immediately if the language is not available.
-        if (result == TextToSpeech.LANG_NOT_SUPPORTED) {
+        switch (result) {
+        case TextToSpeech.LANG_MISSING_DATA:
+        case TextToSpeech.LANG_NOT_SUPPORTED:
             return;
         }
 
