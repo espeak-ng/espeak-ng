@@ -182,5 +182,12 @@ def parse_ucd_data(ucd_rootdir, dataset):
 				yield data
 
 if __name__ == '__main__':
+	try:
+		items = sys.argv[3].split(',')
+	except:
+		items = None
 	for entry in parse_ucd_data(sys.argv[1], sys.argv[2]):
-		print entry
+		if items:
+			print ','.join([str(entry[item]) for item in items])
+		else:
+			print entry
