@@ -1,7 +1,8 @@
 
-
+// This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal).
 // This file is UTF8 encoded 
-// Spelling to phoneme rules for Urdu
+//  phoneme rules for Urdu
+// Letter group - l01: Vowels
 
 .replace
 ٠	0
@@ -17,8 +18,9 @@
 
 
 
-// vowel signs, alif is silent at start of word if these follow
+// vowel signs, alif acts as consonants  at start of word if these follow
 .L01  َ  ِ  ُ  و  ی   ع  ا
+
 
 // VOWELS
 
@@ -40,22 +42,25 @@
 	ُع	O
 
 .group ھ
-	ھ	H
+	ھ	HV 
+	ھ (_	H:
+ھ (l01	H
 
 .group ا
 	ا	a:
-   _)	ا (L01   // silent before a vowel
-   _)	ا	a
-   _) او	u:
-   _) ای	i:
+	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
+_) ا	a
+_) او	u:
+_) ای	i:
 
 .group آ
 	آ	a:
 
+
 .group ع
 	ع	a:
 	عا	a:
-   _)	ع	a
+	_) ع	a
 
 
 .group و
@@ -63,13 +68,13 @@
 	وُ	u:
 	وٗ	u:
 	و (L01	v
-   _) و	v
+	_) و	v
 
 .group ی
 	ی	e:
 	ی (L01	j
 	ی (_	i:
-   _) ی	j
+	_) ی	j
 
 
 .group ے		// yeh barree
@@ -89,111 +94,148 @@
 // CONSONANTS
 
 .group ب
-	ب	b
-	بھ	bh
-
+	ب	bV
+	بھ	bhV
+	بھ (L01	bh
+	ب (L01	b	
 
 .group پ
-	پ	p
-	پھ	ph
+	پ	pV
+	پھ	phV
+	پ (L01	p
+	پھ (L01	ph
 
 
 .group ت
-	ت	t
-	تھ	th
-
+	ت	tV
+	تھ	thV
+	ت (L01	t
+	تھ (L01	th
 
 .group ٹ
-	ٹ	t.
-	ٹھ	th.
-
+	ٹ	t.V
+	ٹھ	th.V
+	ٹ (L01	t.
+	ٹھ (L01	th.
 
 .group ث
-	ث	s
-
+	ث	sV
+	ث (L01	s
 
 .group ج
-	ج	J
-	جھ	Jh
+	ج	JV
+	جھ	JhV
+	ج (L01	J
+	جھ (L01	Jh
 
 
 .group چ
-	چ	c
-	چھ	ch
+	چ	cV
+	چھ	chV
+	چ (L01	c
+	چھ (L01	ch
 
 .group ح
-	ح	H
+	ح	HV
+	ح (L01	H
 
 .group خ
-	خ	x
+	خ	xV
+	خ (L01	x
 
 .group د
-	د	d
-	دھ	dh
+	د	dV
+	دھ	dhV
+	د (L01	d
+	دھ (L01	dh
 
 .group ڈ
-	ڈ	d.
-	ڈھ	dh.
+	ڈ	d.V
+	ڈھ	dh.V
+	ڈ (L01	d.
+	ڈھ (L01	dh.
 
 .group ذ
-	ذ	D
+	ذ	DV
+	ذ (L01	D
 
 .group ر
-	ر	R
+	ر	RV
+	ر (L01	R
 
 .group ڑ
-	ڑ	r.
+	ڑ	r.V
+	ڑ (L01	r.
 
 .group ز
-	ز	z
+	ز	zV
+	ز (L01	z
 
 .group ژ
-	ژ	Z
+	ژ	ZV
+	ژ (L01	Z
 
 .group س
-	س	s
+	س	sV
+	س (L01	s
 
 .group ش
-	ش	S
+	ش	SV
+	ش (L01	S
 
 .group ص
-	ص	s.
+	ص	s.V
+	ص (L01	s.
 
 .group ض
-	ض	z
+	ض	zV
+	ض (L01	z
 
 .group ط
-	ط	t
-	طھ	th
+	ط	tV
+	طھ	thV
+	ط (L01	t
+	طھ (L01	th
 
 .group ظ
-	ظ	z.
+	ظ	z.V
+	ظ (L01	z.
 
 .group غ
-	غ	Q
+	غ	QV
+	غ (L01	Q
 
 .group ف
-	ف	f
+	ف	fV
+	ف (L01	f
 
 .group ق
-	ق	q
+	ق	qV
+	ق (L01	q
 
 .group ک
-	ک	k
-	کھ	kh
+	ک	kV
+	کھ	khV
+	ک (L01	k
+	کھ (L01	kh
 
 .group گ
-	گ	g
-	گھ	gh
+	گ	gV
+	گھ	ghV
+	گ (L01	g
+	گھ (L01	gh
 
 .group ل
-	ل	l
+	ل	lV
+	ل (L01	l
 
 .group م
-	م	m
+	م	mV
+	م (L01	m
 
 .group ن
-	ن	n
+	ن	nV
+	ن (L01	n
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -206,10 +248,21 @@
 	ہ (_	a
 
 
-.group 0xe0a4  // devanagari
-	0xe0a4  _^_HI  // switch to hindi voice
-.group 0xe0a5  // devanagari
-	0xe0a5  _^_HI
+// Common symbols
 
 .group
 	$	do:l@R
+	,	sVkat.Vh	// 	Sakata سکتہ
+		!	f'iJa:ja	//Fijaya	فجائیہ
+	;	w'ak't'a	//Waqfa	وقفہ
+	:	r'a:b'tah//Rabtar 	رابطہ
+	?	saw'a:l'i:ja:n'is'a:nV	// Sawaliya Nishan	سوالیہ نشان
+	%	f'i:sVd	//Fisad	فیصد
+
+	
+
+.group 0xe0a4  // devanagari
+	0xe0a4  _^_NE  // switch to Nepali voice
+.group 0xe0a5  // devanagari
+	0xe0a5  _^_NE
+

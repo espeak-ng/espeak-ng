@@ -85,8 +85,9 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x055e,  // Armenian question
   0x055b,  // Armenian emphasis mark
 
-  0x0b1b,  // Arabic ;
+  0x061b,  // Arabic ;
   0x061f,  // Arabic ?
+  0x06d4,  // Arabic .
 
   0x0f0d,  // Tibet Shad
   0x0f0e,
@@ -133,6 +134,7 @@ static const unsigned int punct_attributes [] = { 0,
 
   CLAUSE_SEMICOLON,  // Arabic ;
   CLAUSE_QUESTION,   // Arabic question mark
+  CLAUSE_PERIOD,     // Arabic full stop
 
   CLAUSE_PERIOD+0x8000,     // Tibet period
   CLAUSE_PARAGRAPH,

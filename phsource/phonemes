@@ -1727,6 +1727,9 @@ include ph_kannada
 phonemetable ml hi
 include ph_malayalam
 
+phonemetable ur hi
+include ph_urdu
+
 
 phonemetable hu base
 include ph_hungarian

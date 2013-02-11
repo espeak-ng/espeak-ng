@@ -1,9 +1,9 @@
-
+// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal)
 // This file is UTF8 encoded 
-// Spelling to phoneme exceptions for Urdu
+// Letter Names, Numbers and  exceptional pronounciation of  Urdu
 
 
-// Letter names
+// The Letter names
 ا	alIf
 ب	be:
 پ	pe:
@@ -51,14 +51,14 @@
 ُ	pe:S
 
 
-// numbers
+// The numbers
 _0	s'IfaR
 _1	'e:k
 _2	'do:
 _3	t'i:n
 _4	c'a:R
 _5	p'a:Nc
-_6	ch'aI
+_6	ch'eh
 _7	s'a:t
 _8	'a:th
 _9	n'aU
@@ -83,9 +83,9 @@ _27	sat:a:'i:s
 _28	stha:'i:s
 _29	Unt'i:s
 _30	t'i:s
-_31	ikt'i:s
+_31	ikVt'i:s
 _32	bat:'i:s
-_33	taINt'i:s
+_33	t'aINt'i:s
 _34	caUNt'i:s
 _35	paINt'i:s
 _36	chat:'i:s
@@ -93,7 +93,7 @@ _37	saINt'i:s
 _38	aRt'i:s
 _39	Unta:l'i:s
 _40	ca:l'i:s
-_41	Ikta:l'i:s
+_41	IkVta:l'i:s
 _42	baja:l'i:s
 _43	te:Nta:l'i:s
 _44	cava:l'i:s
@@ -158,6 +158,10 @@ _0M1	Haz'a:R
 _0M2	l'a:kh
 _0M3	kaR'o:R
 _0M4	'aRab
+_0M5	'khaRab
 _dpt	_ISaRI'Ia_
 
-jonathan dZ'Onathan
+
+// Exception of phonemes
+
+پاکستان	p'a:k'i:st'a:n

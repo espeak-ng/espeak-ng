@@ -113,10 +113,22 @@ phoneme k
   import_phoneme consonants/k-
 endphoneme
 
+phoneme q
+  vls uvl stop
+  lengthmod 2
+  Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
+  Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
+
+  IF nextPh(#i) THEN
+    WAV(ustop/q2_i, 40)
+  ENDIF
+  WAV(ustop/q2, 48)
+endphoneme
+
 
 
 phoneme Q
-  import_phoneme base/Q"
+  import_phoneme base/r"
 endphoneme
 
 phoneme r
