@@ -114,13 +114,11 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
-        if (!mEngineInitialized) {
+        Context context = getApplicationContext();
+        if (!mEngineInitialized ||
+            !CheckVoiceData.hasBaseResources(context) ||
+            CheckVoiceData.canUpgradeResources(context)) {
             return TextToSpeech.LANG_MISSING_DATA;
-        }
-
-        if (mAvailableVoices == null) {
-            Log.e(TAG, "Attempted to check language availability before loading voices!");
-            return TextToSpeech.LANG_NOT_SUPPORTED;
         }
 
         final Locale query = new Locale(language, country, variant);
