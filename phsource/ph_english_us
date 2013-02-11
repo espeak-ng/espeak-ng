@@ -130,7 +130,6 @@ phoneme 0
   ChangeIfDiminished(@)
   IF nextPh(r) THEN
     ChangePhoneme(O:)
-//    FMT(vwl_en_us/oor)
   ENDIF
   FMT(vowel/aa_8)
 endphoneme
@@ -366,7 +365,8 @@ phoneme t
   voicingswitch d
   lengthmod 2
 
-  IF prevPhW(isVowel) OR prevPhW(n) THEN
+//  IF prevPhW(isVowel) OR prevPhW(n) THEN
+  IF prevPhW(isVowel) THEN   // test, don't reduce [t] after [n]
     IF nextPhW(isVowel) AND nextPh(isUnstressed) THEN
       IF next2Ph(n) AND next2Ph(notWordStart) THEN
       ELSE

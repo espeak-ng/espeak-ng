@@ -216,6 +216,8 @@
     @s) e (rAm_    E
     sp) e (rA_     E
     sp) e (rAm_    E
+     f) e (re_     E
+     f) e (rem_    E
 
         e (rgA_    E
         e (rgAm_   E
@@ -391,15 +393,13 @@ _reconh) e (çL03_   e
    _sup) e (rL04_   E
    _imp) e (rL03_   E
   _temp) e (rL04_   E
+   _tol) e (rL04_   E
    _esp) e (ssL03_  e
      _l) e (ssL02_  e
   _perd) e (L05_    e
   _rend) e (L06_    e
  _atend) e (L06_    e
    _pen) e (trL04_  E
-  _Xref) e (rL02_   E
-  _desf) e (rL02_   E
-  _conf) e (rL02_   E
   _reit) e (rL03_   E
     par) e (çL01_   e  // pareça, apareça
  _arref) e (çL01_   e
@@ -859,6 +859,7 @@ _desenv) o (lvL02_ O
      r) u (_A      u
         u (A_      'u
 
+        u (am_    'u
         u (em_    'u
         ui         uI
         ui (_      'uI
@@ -943,6 +944,7 @@ _desenv) o (lvL02_ O
     mo) x (a       S
     _o) x (A       S
     _o) x (i       ks
+    _o) x (í       ks
     pi) x (A       S
   _pro) x (A       S
   _pra) x (A       S

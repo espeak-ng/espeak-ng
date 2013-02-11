@@ -314,12 +314,12 @@ umas	$u	$nounf
 // pronouns
 eu	$u+	$verbf
 tu	$u+
-você	vos'e	$u+
+você	vose	$u2+
 ele	'ely	$u+
 ela	$u+
 nós	$u+
 vós	$u+
-vocês	$u+
+vocês	$u2+
 eles	$u+
 elas	$u+
 
@@ -646,13 +646,14 @@ governo	gov'ernU	$noun
 
 abacaxi		abakaSy
 abordo		$alt
-aborto		$alt $verb
+aborto		$alt  $verb
 acerto		$alt2 $noun
 acertos		$alt2
 acervo		$alt2
 adepto		$alt
 adereço		$alt2
 adore		$alt
+adorno		$alt  $verb
 albatrozes	$alt
 alcateia	$alt
 alferes		$alt
@@ -665,16 +666,19 @@ ameba		$alt
 amores		$alt2
 anoiteça	$alt2
 anoiteço	$alt2
-apego		$alt2
+apego		$alt2 $noun
+apelo		$alt  $verb
+aposto		$alt  $verb
 apreço		$alt2
 aperto		$alt2 $noun
-apoio		$alt $verb
+apoio		$alt  $verb
 aprendeste	$alt2
 aprovo		$alt
 arredores	$alt
 arremesso	$alt2 $noun
 arroz		$alt2
 assembleia	$alt
+aterro		$alt2 $noun
 atmosfera	$alt
 atrozes		$alt
 austera		$alt
@@ -690,10 +694,14 @@ bezerro		$alt2
 bilhete		$alt2
 boca		$alt2
 bochecha	$alt2
+bojo		$alt2
 boleia		$alt
+bolero		$alt
 bolo		$alt2
+bolo		$alt  $verb
 borboleta	$alt2
 bordo		$alt
+boto		$alt2 $noun
 bromelha	$alt
 cabeça		$alt2
 cabresto	$alt2
@@ -703,16 +711,18 @@ caderneta	$alt2
 camiseta	$alt2
 cantora		$alt2
 caractere	$alt
+caramelo	$alt
 careta		$alt2
 carreta		$alt2
 casebre		$alt
 castelo		$alt
 cateto		$alt2
 catorze		$alt2
+cebola		$alt2
 cefaleia	$alt
 cerca		$alt $verb
 cerco		$alt $verb
-cesta		$alt
+cesta		$alt2
 chamego		$alt2
 chefe		$alt
 chinelo		$alt
@@ -729,9 +739,12 @@ comodo		$alt2
 comera		$alt2
 comeres		$alt2
 comeste		$alt2
+concerto	$alt2 $noun
 concordo	$alt
+conforto	$alt  $verb
 conheceste	$alt2
 conheço		$alt2
+consolo		$alt2 $noun
 contivermos	$alt
 copa		$alt
 copo		$alt
@@ -761,7 +774,7 @@ descordo	$alt
 descova		$alt2
 desespero	$alt2 $noun
 desfecho	$alt2
-desprezo	$alt $verb
+desprezo	$alt  $verb
 deva		$alt2
 devo		$alt2
 deveras		$alt
@@ -771,14 +784,20 @@ discordo	$alt
 dissermos	$alt
 dobro		$alt2 $noun
 doce		$alt2
+doutoras	$alt2
 droga		$alt
+duelo		$alt
+dueto		$alt2
 elixir		eliSir
+elo		$alt
 emprego		$alt2 $noun
+encosto		$alt  $verb
 endereço	$alt2
+endereço	$alt  $verb
 enforco		$alt
 engordo		$alt
 enumerem	$alt
-enredo		$alt $verb
+enredo		$alt  $verb
 enterro		$alt2 $noun
 envelope	$alt
 envolto		$alt2
@@ -787,10 +806,12 @@ epopeia		$alt
 eritreia	$alt
 erro		$alt2 $noun
 erros		$alt2
+esboço		$alt  $verb
 escopeta	$alt2
 escroto		$alt2
-esforço		$alt $verb
+esforço		$alt  $verb
 esforços	$alt
+esgoto		$alt2 $noun
 esperma		$alt
 espeto		$alt2 $noun
 espiroqueta	$alt2
@@ -803,12 +824,16 @@ estiveres	$alt
 estivermos	$alt
 estrela		$alt2
 estrofe		$alt
+estorno		$alt  $verb
+estorvo		$alt  $verb
 etiqueta	$alt2
 europa		$alt
 exagero		$alt $verb
 expeça		$alt2
 expeço		$alt2
 explore		$alt
+faceta		$alt2
+farelo		$alt
 farofa		$alt
 febre		$alt
 feitora		$alt2
@@ -851,6 +876,7 @@ grozo		$alt $verb
 hoje		$alt2
 houvermos	$alt
 ideia		$alt
+insonoro	$alt
 joga		$alt
 jogam		$alt
 jogos		$alt
@@ -867,6 +893,7 @@ maleta		$alt2
 mantiverdes	$alt
 mantiveres	$alt
 mantivermos	$alt
+marmelo		$alt
 marreta		$alt2
 martelo		$alt
 merda		$alt
@@ -895,6 +922,7 @@ muita		mw'iNt&
 mulheres	$alt
 mureta		$alt2
 mutreta		$alt2
+namoro		$alt2 $noun
 naquele		$alt2
 negra		$alt2
 negro		$alt2
@@ -902,23 +930,28 @@ novos		$alt
 obstetra	$alt
 obsoleta	$alt2
 obsoleto	$alt2
+pbvivera	$alt
 obtivermos	$alt
 odisseia	$alt
 onu		$1
 opereta		$alt2
 ordens		$alt
 osso		$alt2
+ostra		$alt2
 ovos		$alt
+pachorra	$alt2
 padeceste	$alt2
 paexa		paeSa
-pangeia		$alt
 palacete	$alt2
 palheta		$alt2
+pangeia		$alt
+pantera		$alt
 paralelo	$alt
 parede		$alt2
 pastora		$alt2
 pedra		$alt
 pelego		$alt2
+pelo		$alt  $verb
 perde		$alt
 perdem		$alt
 perede		$alt2
@@ -932,6 +965,7 @@ piloto		$alt2
 pirueta		$alt2
 plateia		$alt
 plebeia		$alt
+polca		$alt
 porcos		$alt
 porrete		$alt2
 porra		$alt2
@@ -948,29 +982,39 @@ provo		$alt
 puder		$alt
 punheta		$alt
 puserdes	$alt
+quarteto	$alt2
+quinteto	$alt2
 quisermos	$alt
 recomeço	$alt2 $noun
 recordo		$alt
 recorto		$alt
 rede		$alt2
 redor		$alt
+reembolso	$alt  $verb
 reforços	$alt
-refresco	$alt $verb
+reforço		$alt  $verb
+refresco	$alt  $verb
 reitora		$alt2
+relevo		$alt2 $noun
 remorso		$alt
 reprovo		$alt
 resolve		$alt
 resolvem	$alt
 rixa		x'iS&
+rocha		$alt
+rock		$alt
 rogas		$alt
+rolo		$alt2 $noun
 saleta		$alt2
 sarjeta		$alt
 severa		$alt
 severo		$alt
 seborreia	$alt
 seco		$alt2 $noun
-selo		$alt $verb
+secos		$alt2
+selo		$alt  $verb
 selvagem	seUv'aZeIN
+sexteto		$alt2
 ?1 senhora	$alt2
 sesta		$alt2
 sincera		$alt
@@ -991,18 +1035,26 @@ sorvete		$alt2
 sossego     $alt2 $noun
 souberdes	$alt
 soubermos	$alt
+suborno		$alt  $verb
+sufoco		$alt2 $noun
 sugere		$alt
 sugerem		$alt
 suporto		$alt
 suor		swOr
 tapete		$alt2
-tempero		$alt $verb
+tempero		$alt2 $noun
 teta		$alt2
+tetra		$alt
 tiver		$alt
+tivera		$alt
 tiveres		$alt
 tivermos	$alt
 tocha		$alt
 toga		$alt
+tola		$alt2
+tolo		$alt2
+topo		$alt  $verb
+torno		$alt  $verb
 torres		$alt2
 tortos		$alt
 traqueia	$alt
