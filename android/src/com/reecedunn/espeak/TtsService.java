@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2012 Reece H. Dunn
+ * Copyright (C) 2012-2013 Reece H. Dunn
  * Copyright (C) 2011 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,7 +62,6 @@ public class TtsService extends TextToSpeechService {
 
     private SpeechSynthesis mEngine;
     private SynthesisCallback mCallback;
-    private boolean mEngineInitialized = false;
 
     private List<Voice> mAvailableVoices;
     private Voice mMatchingVoice = null;
@@ -73,21 +72,8 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     public void onCreate() {
-        super.onCreate();
-
-        if (!CheckVoiceData.hasBaseResources(this)) {
-            final IntentFilter filter =
-                    new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
-            registerReceiver(mBroadcastReceiver, filter);
-
-            final Intent intent = new Intent(this, DownloadVoiceData.class);
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            startActivity(intent);
-
-            return;
-        }
-
         initializeTtsEngine();
+        super.onCreate();
     }
 
     /**
@@ -100,7 +86,6 @@ public class TtsService extends TextToSpeechService {
         }
 
         mEngine = new SpeechSynthesis(this, mSynthCallback);
-        mEngineInitialized = true;
         mAvailableVoices = mEngine.getAvailableVoices();
     }
 
@@ -114,9 +99,14 @@ public class TtsService extends TextToSpeechService {
 
     @Override
     protected int onIsLanguageAvailable(String language, String country, String variant) {
-        if (!mEngineInitialized ||
-            !CheckVoiceData.hasBaseResources(this) ||
-            CheckVoiceData.canUpgradeResources(this)) {
+        if (!CheckVoiceData.hasBaseResources(this) || CheckVoiceData.canUpgradeResources(this)) {
+            final IntentFilter filter = new IntentFilter(DownloadVoiceData.BROADCAST_LANGUAGES_UPDATED);
+            registerReceiver(mBroadcastReceiver, filter);
+
+            final Intent intent = new Intent(this, DownloadVoiceData.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+
             return TextToSpeech.LANG_MISSING_DATA;
         }
 
