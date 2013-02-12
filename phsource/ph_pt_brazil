@@ -39,7 +39,6 @@ phoneme &~
   vowel  starttype #@ endtype #@
   ipa ɐU+0303
   length 180
-//  ChangeIfNotStressed(&)
   FMT(vnasal/a#_n)
 endphoneme
 
@@ -225,3 +224,10 @@ phoneme *
 endphoneme
 
 
+// TESTING
+phoneme &2~
+  vowel  starttype #@ endtype #@
+  ipa ɐU+0303
+  length 200
+  FMT(vnasal/W_n)
+endphoneme

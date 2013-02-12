@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -661,9 +661,9 @@ static REF_HASH_TAB *ref_hash_tab[256];
 
 
 #define N_ENVELOPES  30
-static int n_envelopes = 0;
-static char envelope_paths[N_ENVELOPES][80];
-static unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
+int n_envelopes = 0;
+char envelope_paths[N_ENVELOPES][80];
+unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
 
 
 typedef struct {
@@ -3408,13 +3408,9 @@ static void CompilePhonemeData2(const char *source)
 	wxString report;
 	wxString report_dict;
 
-#ifdef MAKE_ENVELOPES
-make_envs();
-#endif
-
 	n_envelopes = 0;
 	error_count = 0;
-memset(markers_used,0,sizeof(markers_used));
+	memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
 

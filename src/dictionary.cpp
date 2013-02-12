@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -296,10 +296,6 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	// set up indices into data_dictrules
 	InitGroups(tr);
-	if(tr->groups1[0] == NULL)
-	{
-		fprintf(stderr,"Error in %s_rules, no default rule group\n",name);
-	}
 
 	// set up hash table for data_dictlist
 	p = &(tr->data_dictlist[8]);

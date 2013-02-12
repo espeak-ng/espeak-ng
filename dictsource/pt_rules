@@ -21,6 +21,7 @@
 .L04 a am e em o ue uem
 .L05 r ra ram re rem rdes
 .L06 ra ram ste re rem
+.L07 se sem te
 
 
 .group a
@@ -366,7 +367,7 @@
 _comprom) e (tL03_  e
  _sol) e (trL03_    E
   _atr) e (vL03_    e
- _escr) e (vL03_    e
+   scr) e (vL03_    e  // e- in- pre- ree- 
 _descr) e (vL03_    e
 _embel) e (zL04_    E
    _pr) e (zL04_    E
@@ -405,6 +406,26 @@ _reconh) e (çL03_   e
  _arref) e (çL01_   e
    _beb) e (ssL02_  e
     com) e (ssL02_  e
+  _corr) e (ssL02_  e
+  _morr) e (sL07_   e
+ _adoec) e (sL07_   e
+  _torc) e (sL07_   e
+   _viv) e (sL07_   e
+  _eleg) e (sL07_   e
+ respond) e (sL07_  e  // & corres-
+ entend) e (sL07_   e
+compreend) e (sL07_ e
+interromp) e (sL07_  e
+intromet) e (sL07_  e
+_escond) e (sL07_   e
+  _bat) e (sL07_    e
+ _sofr) e (sL07_    e
+     l) e (que_     E
+    _p) e (quL02_   E
+    _s) e (quL02_   E
+     _) e (rguL02_  E
+  _enx) e (rguL02_  E
+  _alb) e (rguL02_  E
 //endsort
 
  _exag) e (L05_     E
