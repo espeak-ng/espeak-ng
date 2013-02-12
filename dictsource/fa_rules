@@ -5606,6 +5606,11 @@
 .group ؛
 	؛	
 
+// default group (required to compile correctly)
+
+.group
+        '
+
 
 
 // rules for Farsi written by English characters (Pinglish)
