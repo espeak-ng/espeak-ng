@@ -493,10 +493,10 @@ era	E*& $u1	// .. imperfect
 eram	E*&U~  $u1
 
 fui	$u      // .. preterite
-foste	$u
+foste	fostSy $u1   // & fostes
 foi	$u
 fomos	$u
-fostes	$u
+
 
 fora	$u      // .. pluperfect
 fômamos	$u
@@ -723,17 +723,20 @@ cefaleia	$alt
 cerca		$alt $verb
 cerco		$alt $verb
 cesta		$alt2
+cesto		$alt2
 chamego		$alt2
 chefe		$alt
 chinelo		$alt
 choro		$alt2 $noun
 chupeta		$alt2
+clamores	$alt2
 coco		$alt2
 cofre		$alt
 coice		$alt2
 colabore	$alt
 colheste	$alt2
 colmeia		$alt
+colore		$alt
 começo		$alt2 $noun
 comodo		$alt2
 comera		$alt2
@@ -784,7 +787,7 @@ discordo	$alt
 dissermos	$alt
 dobro		$alt2 $noun
 doce		$alt2
-doutoras	$alt2
+doutora		$alt2
 droga		$alt
 duelo		$alt
 dueto		$alt2
@@ -823,6 +826,7 @@ estiverdes	$alt
 estiveres	$alt
 estivermos	$alt
 estrela		$alt2
+estremeceste	$alt2
 estrofe		$alt
 estorno		$alt  $verb
 estorvo		$alt  $verb
@@ -854,7 +858,6 @@ fores		$alt2
 forro		$alt $verb
 fosse		$alt2
 fossem		$alt2
-foste		$alt2
 frevo		$alt2
 galera		$alt
 gameta		$alt2
@@ -867,6 +870,7 @@ gonorreia	$alt
 gorda		$alt2
 gota		$alt2
 gozo		$alt $verb
+graveto		$alt2
 grego		$alt2
 grelha		$alt
 grega		$alt2
@@ -914,6 +918,7 @@ morcego		$alt2
 morda		$alt2
 moreia		$alt
 mortos		$alt
+motora		$alt2
 ?2 mulher	mulj'Er
 ?4 mulher	mul^'Er
 mui		mwi
@@ -962,6 +967,7 @@ pesquem		$alt
 peso		$alt
 peso		$alt2 $noun
 piloto		$alt2
+pintora		$alt2
 pirueta		$alt2
 plateia		$alt
 plebeia		$alt
@@ -1005,6 +1011,8 @@ rocha		$alt
 rock		$alt
 rogas		$alt
 rolo		$alt2 $noun
+rosna		$alt
+rumores		$alt2
 saleta		$alt2
 sarjeta		$alt
 severa		$alt
@@ -1016,7 +1024,7 @@ selo		$alt  $verb
 selvagem	seUv'aZeIN
 sexteto		$alt2
 ?1 senhora	$alt2
-sesta		$alt2
+senhores	$alt2
 sincera		$alt
 sincero		$alt
 sinopse		$alt
@@ -1031,12 +1039,14 @@ sogra		$alt
 sopre		$alt
 soprem		$alt
 sopro		$alt $verb
+soro		$alt2
 sorvete		$alt2
 sossego     $alt2 $noun
 souberdes	$alt
 soubermos	$alt
 suborno		$alt  $verb
 sufoco		$alt2 $noun
+sufocos		$alt2
 sugere		$alt
 sugerem		$alt
 suporto		$alt
@@ -1059,6 +1069,7 @@ torres		$alt2
 tortos		$alt
 traqueia	$alt
 travesso	$alt2
+tremores	$alt2
 trevo		$alt2
 troco		$alt2 $noun
 tropa		$alt

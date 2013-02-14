@@ -41,14 +41,6 @@ phoneme @2   //  Schwa, changes to I before a vowel
   FMT(vowel/@_low2)
 endphoneme
 
-phoneme @L
-  vowel  starttype #@  endtype l
-  ipa əl
-  unstressed
-  length 160
-  FMT(vwl_en/@L)
-endphoneme
-
 
 phoneme a
   vowel  starttype #e  endtype #@
@@ -176,6 +168,7 @@ phoneme 3:
   vowel  starttype #@  endtype #@
   length 240
   IfNextVowelAppend(r-)
+  ChangeIfDiminished(3)
   FMT(vwl_en_us/3_us2)
 endphoneme
 
@@ -265,7 +258,7 @@ endphoneme
 phoneme eI
   vowel  starttype #e  endtype #i
   length 230
-  FMT(vdiph2/ei_4)
+  FMT(vdiph/eei_5)
 endphoneme
 
 

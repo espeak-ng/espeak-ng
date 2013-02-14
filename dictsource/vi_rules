@@ -83,12 +83,12 @@ ỵ	ỵ
      _) b          _b
 
 .group c
-        c          k
+        c          g  //k
         c (_       kh
         ch         c         // try [tS;] [tS] [c]
 
 .group d
-        d          J         // try [z] [J] [dZ] [dZ;] [J^]
+        d          J^         // try [z] [J] [dZ] [dZ;] [J^]
 
 .group đ
         đ          d
@@ -101,13 +101,13 @@ ỵ	ỵ
 .group g
         g          Q         // try [g] [Q]
         gh         Q         // or [g]  [Q]
-        g (i       D         // try [D] [z] [j] [J^] [z;] [J] [dZ]
-        g (ì       D
-        g (í       D
-        g (ỉ       D
-        g (ĩ       D
-        g (ị       D
-        gi         D
+        g (i       J^         // try [D] [z] [j] [J^] [z;] [J] [dZ]
+        g (ì       J^
+        g (í       J^
+        g (ỉ       J^
+        g (ĩ       J^
+        g (ị       J^
+        gi         J^
 
 .group h
         h          h
@@ -133,7 +133,7 @@ ỵ	ỵ
         ng         N
         ngh        N
         nh         n^
-
+        
 .group ñ
         ñ          n^
 
@@ -144,7 +144,7 @@ ỵ	ỵ
 .group q
         q          k
         q (_       kh
-        qu         kw
+        qu         w  //kw
 
 .group r
         r          z.        // try [z] [z.] [r] [z;]
@@ -183,11 +183,11 @@ ỵ	ỵ
         aĩ         a:I5
         aị         a:I6
         ay         aI
-        aỳ         aI2
+        aỳ        aI2
         aý         aI3
         aỷ         aI4
-        aỹ         aI5
-        aỵ         aI6
+        aỹ        aI5
+        aỵ        aI6
         ao         a:U
         aò         a:U2
         aó         a:U3
@@ -402,64 +402,81 @@ ỵ	ỵ
 //=========================
 .group o
         o          O
-        o (A       w
+        oa         o@    // modify oa sound  example: hoa,khoa // o (A       w
         oi         OI
         oì         OI2
         oí         OI3
         oỉ         OI4
         oĩ         OI5
         oị         OI6
-
+        ong        O# 
+		oe         o&   // Adding  oe sound  example: lóe sáng,toét mắt 
 .group ò
         ò          O2
         òi         OI2
-        ò (A       w2
+        òa         o@2   //ò (A       w2
+		òng        O#2
+		òe         o&2
 
 .group ó
         ó          O3
         ói         OI3
-        ó (A       w3
+        óa         o@3  //ó (A       w3
+		óng        O#3
+		óe         o&3
 
 .group ỏ
         ỏ          O4
         ỏi         OI4
-        ỏ (A       w4
+        ỏa         o@4  //ỏ (A       w4
+		ỏng        O#4
+		ỏe         o&4
 
 .group õ
         õ          O5
         õi         OI5
-        õ (A       w5
+        õa         o@5 //õ (A       w5
+		õng        O#5
+		õe         o&5
 
 .group ọ
         ọ          O6
         ọi         OI6
-        ọ (A       w6
+        ọa        o@6  //ọ (A       w6
+		ọng        O#6
+		ọe         o&6
 
 
 //=============================
 .group ô
         ô          o
         ôi         oI
+		ông        o# // ông sound
 
 .group ồ
         ồ          o2
         ồi         oI2
+		ồng        o#2
 
 .group ố
         ố          o3
         ối         oI3
+		ống        o#3
 
 .group ổ
         ổ          o4
         ổi         oI4
+		ổng        o#4
 
 .group ỗ
         ỗ          o5
         ỗi         oI5
+		ỗng        o#5
 
 .group ộ
         ộ          o6
         ội         oI6
+		ộng        o#6
 
 
 
@@ -525,36 +542,41 @@ ỵ	ỵ
         uổi        u@j4
         uỗi        u@j5
         uội        u@j6
-
+        //ung        u# 
 .group ù
         ù          u2
         ù (A       w2
         ùi         uI2
         ùa         u@2
+		//ùng        u#2
 
 .group ú
         ú          u3
         ú (A       w3
         úi         uI3
         úa         u@3
+		//úng        u#3
 
 .group ủ
         ủ          u4
         ủ (A       w4
         ủi         uI4
         ủa         u@4
+		//ủng        u#4
 
 .group ũ
         ũ          u5
         ũ (A       w5
         ũi         uI5
         ũa         u@5
+		//ũng        u#5
 
 .group ụ
         ụ          u6
         ụ (A       w6
         ụi         uI6
         ụa         u@6
+		//ụng        u#6
 
 //=============================
 .group ư
@@ -696,13 +718,13 @@ ỵ	ỵ
 
 
 .group
-        %          f'@2n||tS;'am
+        %          f'@2n||cr'am
         !          _:c'@3m_|t'a:7n_:
         ! (\! 
 //            :            koUl@n
     D_) h (_DD_    D'@:2     // omit colon in time, eg: 2:30
         $          d'o||l'a
-        !=         x,o1N_|_b'a2N_
+        !=         x'o#_|_b'a2N_
         >=         l'@:3n_|h'@:1n_|hw,a6kh_b'a2N
         <=         n^'O4_|h'@:1n_|hw,a6kh_b'a2N
 

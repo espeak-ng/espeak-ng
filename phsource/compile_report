@@ -5,7 +5,7 @@ consonants  10  118
    base2  26  125
       en  54  156
     en-n  33  156
-   en-us  41  157
+   en-us  40  157
    en-sc  40  158
    en-rp  34  156
    en-wm  31  156
@@ -43,15 +43,15 @@ consonants  10  118
    es-la   1  125
       ca  11  127
       an   4  125
-      pt  29  140
-   pt-pt  20  140
+      pt  30  141
+   pt-pt  20  141
       ro  36  148
       el  10  125
      grc  12  129
       sv  22  129
       no  28  134
       is  42  141
-      vi  41  141
+      vi  52  146
      zhy  41  138
       zh  64  155
       sw   9  110
@@ -555,6 +555,7 @@ n/n@            [n] base
                 [n#] is
                 [n] zh
 n/n#_           [n#] is
+                [n] vi
 n^/n^a          [n^] base
                 [n;] lt
                 [n#] ru
@@ -817,7 +818,6 @@ ufric/tl#       [tl#] is
 ufric/tlh       [K] nso
                 [K] tn
 ufric/x         [x] base
-                [kh] vi
 ufric/x2        [x2] af
                 [x] ku
                 [X] kk
@@ -927,6 +927,7 @@ ustop/p_unasp_  [p-] consonants
                 [p] base2
                 [p] fr
                 [p] lv
+                [p] vi
                 [p] sq
 ustop/q         [q] base
 ustop/q2        [q] ka
@@ -962,6 +963,7 @@ ustop/t_dnt2    [t] base2
 ustop/t_hi      [t[] base
                 [t] et
                 [t^] et
+                [t[] vi
                 [t`] am
 ustop/t_pzd     [c] base
                 [t^] et
@@ -1028,6 +1030,7 @@ ustop/ts_sr     [tS;] sr
 ustop/ts_unasp  [ts] zh
 ustop/t_unasp   [t-] ko
 ustop/t_unasp2  [t] el
+                [t[] vi
                 [t] zh
 vdiph/0i        [OI] pt
                 [OI] grc
@@ -1045,8 +1048,7 @@ vdiph2/ee@      [e@] en-n
 vdiph2/ee@_2    [e@] en-rp
 vdiph2/ei_2     [eI] en-rp
 vdiph2/ei_3     [i:] en-wm
-vdiph2/ei_4     [eI] en-us
-                [ei] zh
+vdiph2/ei_4     [ei] zh
                 [eI] sq
 vdiph2/eo       [eo] ro
 vdiph2/e_u      [e[u] ro
@@ -1080,6 +1082,7 @@ vdiph2/iy       [iy] fi
 vdiph2/o@       [o@] af
                 [u@] zh
 vdiph2/oa       [Oa] ro
+                [o@] vi
                 [ua] zh
 vdiph2/o_oo     [o@] en-wi
                 [O:] is
@@ -1207,6 +1210,7 @@ vdiph/eei_2     [eI] eo
 vdiph/eei_3     [eI] lt
                 [eI] sk
                 [eI] ku
+vdiph/eei_5     [eI] en-us
 vdiph/eeu       [EU] pt
                 [EU] grc
                 [EU] vi
@@ -1254,7 +1258,6 @@ vdiph/i@_2      [e@] af
 vdiph/@i_3      [eI] en-wm
                 [@I] ro
                 [ai] zhy
-vdiph/&i_3      [aI] vi
 vdiph/ii        [iI] ro
 vdiph/i#i       [yI] ro
 vdiph/oi        [oI] base2
@@ -1296,10 +1299,10 @@ vdiph/ou_3      [oU] is
                 [oU:] is
 vdiph/ou_4      [o:] nl
 vdiph/@u        [u:] en-wm
-                [@U] vi
                 [@:U] vi
 vdiph/@u_2      [oU] en-rp
 vdiph/@u_3      [@U] ro
+                [@U] vi
                 [@U] ga
 vdiph/@u_en     [oU] en
                 [@U] id
@@ -1322,6 +1325,7 @@ vdiph/Vu        [@U] af
 vdiph/Vu_2      [oU] en-wm
 vdiph/&y        [&y] fi
                 [Wy] nl
+                [aI] vi
 vdiph/yi        [yi] fi
                 [yi] et
                 [yI] grc
@@ -1337,6 +1341,13 @@ vdiph/y#y       [Yy] fi
 vdiph/y#y_2     [Yy] af
                 [eoi] zhy
 vdiph/y#y_3     [Y:] nl
+vietnam/a       [a:] vi
+vietnam/_c      [kh] vi
+vietnam/ch      [c] vi
+vietnam/dd      [d] vi
+vietnam/oe      [o&] vi
+vietnam/th      [t] vi
+vietnam/tr      [cr] vi
 vnasal/aa_n     [a~] hi
 vnasal/aa_n2    [A~] en
 vnasal/aa_n3    [A~] af
@@ -1346,6 +1357,7 @@ vnasal/aa_n4    [A~] de
 vnasal/a#_n     [&~] pt
 vnasal/a#u_n    [&U~] pt
                 [&U~] pt-pt
+                [o#] vi
 vnasal/ee_n     [E~] fr-ca
 vnasal/ee_n2    [a] en-us
                 [E~] hi
@@ -1368,13 +1380,16 @@ vnasal/oo_n2    [O~] en
                 [O~] nl
                 [o] zh
 vnasal/oo_n3    [O~] pl
+vnasal/&u_n     [O#] vi
 vnasal/u_n      [U~] hi
                 [u~] hi
                 [u~] pt
+                [u] vi
                 [u] zh
 vnasal/V_n      [V~] hi
 vnasal/W_n      [E~] fr
                 [W~] fr
+                [&2~] pt
                 [E~] ht
 voc/bh          [B] base
 voc/dh          [D] base
@@ -1496,8 +1511,7 @@ vowel/0_3       [O:] en-us
                 [A] hu
                 [A] fa
                 [0] tt
-vowel/@_2       [@] vi
-                [@:] vi
+vowel/@_2       [@:] vi
                 [@] sq
                 [V] sq
                 [@/] sq
@@ -1634,7 +1648,6 @@ vowel/a#_3      [a#] en
                 [a#] ga
 vowel/a_4       [a] es
                 [a] el
-                [a] vi
                 [a] ga
 vowel/a#_4      [a:] nl
                 [a] bg
@@ -1650,7 +1663,7 @@ vowel/a_5       [a:] ta
                 [a] tn
                 [a] kk
 vowel/a_6       [a] ca
-                [a:] vi
+                [a] vi
                 [a] am
                 [a:] wo
 vowel/a_7       [a] fr
@@ -2279,7 +2292,6 @@ vowel/u_6       [u] ta
                 [u:] te
                 [u] si
                 [u:] si
-vowel/u_7       [u] vi
 vowel/u#_7      [@] tr
                 [@] az
 vowel/u_bck     [u] base2
@@ -2355,6 +2367,7 @@ vowel/uu_bck    [U] en-wi
                 [U] pa
 vowel/V         [3] en-sc
                 [@] bg
+                [@] vi
                 [W#] da
 vowel/V_2       [V] en
                 [a] af
@@ -2441,7 +2454,6 @@ vwl_en/aU@      [aU@] en
                 [aU@] en-sc
                 [aU@] en-wm
 vwl_en/@L       [@L] en
-                [@L] en-us
                 [@L] af
 vwl_en/@L_2     [@L] en-sc
 vwl_en_n/O@     [O@] en-n
