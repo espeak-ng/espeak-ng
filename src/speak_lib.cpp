@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -60,6 +60,7 @@ static espeak_AUDIO_OUTPUT my_mode=AUDIO_OUTPUT_SYNCHRONOUS;
 static int synchronous_mode = 1;
 static int out_samplerate = 0;
 static int voice_samplerate = 22050;
+static espeak_ERROR err = EE_OK;
 
 t_espeak_callback* synth_callback = NULL;
 int (* uri_callback)(int, const char *, const char *) = NULL;
@@ -114,7 +115,11 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 					sleep(1);
 				}
 				out_samplerate = voice_samplerate;
-				wave_init(voice_samplerate);
+				if(!wave_init(voice_samplerate))
+				{
+					err = EE_INTERNAL_ERROR;
+					return(-1);
+				}
 				wave_set_callback_is_output_enabled( fifo_is_command_enabled);
 				my_audio = wave_open("alsa");
 				event_init();
@@ -166,8 +171,8 @@ static int dispatch_audio(short* outbuf, int length, espeak_EVENT* event)
 	}
 
 	SHOW_TIME("LEAVE dispatch_audio\n");
-
-	return (a_wave_can_be_played==0); // 1 = stop synthesis
+	
+	return (a_wave_can_be_played==0); // 1 = stop synthesis, -1 = error
 }
 
 
@@ -373,6 +378,7 @@ static int initialise(int control)
 	int param;
 	int result;
 
+	err = EE_OK;
 	LoadConfig();
 	WavegenInit(22050,0);   // 22050
 	if((result = LoadPhData()) != 1)
@@ -487,6 +493,8 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 		{
 #ifdef USE_ASYNC
 			finished = create_events((short *)outbuf, length, event_list, a_write_pos);
+			if(finished < 0)
+				return EE_INTERNAL_ERROR;
 			length = 0; // the wave data are played once.
 #endif
 		}
@@ -516,7 +524,8 @@ static espeak_ERROR Synthesize(unsigned int unique_identifier, const void *text,
 #ifdef USE_ASYNC
 					if (my_mode==AUDIO_OUTPUT_PLAYBACK)
 					{
-						dispatch_audio(NULL, 0, NULL); // TBD: test case
+						if(dispatch_audio(NULL, 0, NULL) < 0) // TBD: test case
+							return err = EE_INTERNAL_ERROR;
 					}
 					else
 					{
@@ -1198,6 +1207,7 @@ ESPEAK_API int espeak_IsPlaying(void)
 
 ESPEAK_API espeak_ERROR espeak_Synchronize(void)
 {//=============================================
+	espeak_ERROR berr = err;
 #ifdef USE_ASYNC
 	SHOW_TIME("espeak_Synchronize > ENTER");
 	while (espeak_IsPlaying())
@@ -1205,8 +1215,9 @@ ESPEAK_API espeak_ERROR espeak_Synchronize(void)
 		usleep(20000);
 	}
 #endif
+	err = EE_OK;
 	SHOW_TIME("espeak_Synchronize > LEAVE");
-	return EE_OK;
+	return berr;
 }   //  end of espeak_Synchronize
 
 

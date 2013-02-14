@@ -660,14 +660,14 @@ void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 //>
 //<wave_init
 
-void wave_init(int srate)
+int wave_init(int srate)
 {
   ENTER("wave_init");
 
   stream = NULL;
 	wave_samplerate = srate;
 
-  pulse_open();
+  return pulse_open() == PULSE_OK;
 }
 
 //>
@@ -870,7 +870,7 @@ void *wave_test_get_write_buffer()
 // notdef USE_PULSEAUDIO
 
 
-void wave_init() {}
+int wave_init() {}
 void* wave_open(const char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
 int wave_close(void* theHandler) {return 0;}

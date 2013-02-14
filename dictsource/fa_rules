@@ -127,6 +127,8 @@
 		_) اصغر (آL09L09P4@	asq1aR
 		_) ابو (L04L09L09P3@	abu
 		_) ابو (آL09L09P3@	abu
+		_) ابوال (L04L09L09P5@	abol'
+		_) ابوال (آL09L09P5@	abol'
 
 	// Suffixes ا
 		L09L04) الله (_Sm4	ollAh
@@ -175,9 +177,6 @@
 		L09L04) انداز (_Sm5	andAz
 		L09L04) انگیز (_Sm5	angiz
 		L09L04) اباد (_Sm4	AbAd
-		L09L09) امیر (_Sm4	amiR
-		L09L09) اکبر (_Sm4	akbaR
-		L09L09) اصغر (_Sm4	asq1aR
 		// Special passive pronouns eg. خوابانده
 			l09l09l03) انده (_Sm4	Ande:
 			l09l09l03) اندۀ (_Sm4	Andeje
@@ -1150,8 +1149,8 @@
 		_) چار (آL09L09P3@	'tSAR
 		_) چهار (L04L09L09P4@	'tSAhAR
 		_) چهار (آL09L09P4@	'tSAhAR
-		_) چند (L04L09L09P3@	'tSAand
-		_) چند (آL09L09P3@	'tSAand
+		_) چند (L04L09L09P3@	'tSand
+		_) چند (آL09L09P3@	'tSand
 
 	// Suffixes چ
 		L09L09L09) چی (_Sm2	tSi
@@ -1473,6 +1472,12 @@
 		_) خویش (آL09L09P4@	xiS
 		_) خان (L04L09L09P3@	xAn
 		_) خان (آL09L09P3@	xAn
+		_) خواهش (L04L09L09P5@	xAheS
+		_) خواهش (آL09L09P5@	xAheS
+		_) خواهد (L04L09L09P5@	xAhad
+		_) خواهد (آL09L09P5@	xAhad
+		_) خواهید (L04L09L09P6@	xAhid
+		_) خواهید (آL09L09P6@	xAhid
 
 	// suffixes خ
 		L09L09) خر (_Sm2	xaR
@@ -1488,6 +1493,7 @@
 		L09L09) خوش (_Sm3	xoS
 		L09L09) خیز (_Sm3	xiz
 		L09L09) خواست (_Sm5	xAst
+		L09L09) خواب (_Sm4	xAb
 
 	// arabic form of words  (Babs) خ
 		//فواعل eg. جوامع
@@ -1663,6 +1669,7 @@
 		L09L09) دست (_Sm3	dast
 		L09L09) درد (_Sm3	daRd
 		L09L09) دوش (_Sm3	duS
+		L09L09) دهی (_Sm3	dehi
 
 	// arabic form of words  (Babs) د
 		//فواعل eg. جوامع
@@ -2154,6 +2161,7 @@
 		L09L09) زده (_+Sm3	zade:
 		L09L09) زدۀ (_+Sm3	zadeje
 		L09L09) زدن (_Sm3	zadan
+		L09L09) زدا (_Sm3	zodA
 
 	// arabic form of words  (Babs) ز
 		//فواعل eg. جوامع
@@ -2816,8 +2824,8 @@
 			L09L09L09L09) ص (L03L09L09L09_	sa
 
 	// Prefixes ص
-		_) صاحب (L04L09L09P4@	saheb
-		_) صاحب (آL09L09P4@	saheb
+		_) صاحب (L04L09L09P4@	sAheb
+		_) صاحب (آL09L09P4@	sAheb
 		_) صدر (L04L09L09P5@	sadr
 		_) صدر (آL09L09P5@	sadr
 
@@ -3132,6 +3140,7 @@
 		
 	// Suffixes ط
 		L09L09) طلب (_Sm3	talab
+		L09L09) طلبان (_Sm5	talabAn
 
 		// arabic form of words  (Babs) ط
 		//فواعل eg. جوامع
@@ -3433,7 +3442,8 @@
 	// Prefixes ع
 		_) عبد (L04L09L09P3@	'a:bd
 		_) عبد (آL09L09P3@	'a:bd
-
+		_) عبدال (L04L09L09P5@	abdol'
+		_) عبدال (آL09L09P5@	abdol'
 		_) علی (L04L09L09P3@	a:li
 		_) علی (آL09L09P3@	a:li
 
@@ -4081,6 +4091,7 @@
 		L09L09) کنان (_Sm4	konAn
 		L09L09) کننده (_Sm5	konande:
 		L09L09) کنندۀ (_Sm5	konandeje
+		L09L09) کنندگان (_Sm7	konandegAn
 		L09L09) کوچک (_Sm4	kutSak
 
 	// arabic form of words  (Babs) ک
@@ -4285,6 +4296,7 @@
 		L09L09) گرفت (_Sm4	geReft
 		L09L09) گشا (_Sm3	goSA
 		L09L09) گریز (_Sm4	goRiz
+		L09L09) گسار (_Sm4	gosAR
 
 	// arabic form of words  (Babs) گ
 		//فواعل eg. جوامع
@@ -4444,8 +4456,8 @@
 	// Prefixes ل
 		
 	// Suffixes ل
-		L09L09) لوژ (_Sm3	lotZ
-		L09L09) لوژیک (_Sm5	lotZik
+		L09L09) لوژ (_Sm3	loZ
+		L09L09) لوژیک (_Sm5	loZik
 		L09L09) لوگ (_Sm3	log
 
 	// arabic form of words  (Babs) ل
@@ -4863,6 +4875,8 @@
 			L09L09L03) ند (_NSm2	and
 		L09L09) نوشت (_Sm4	neveSt
 		L09L09) نشین (_Sm4	neSin
+		L09L09) نکردن (_Sm5	nakaRdan
+		L09L09L09) نشدن (_Sm4	naSodan
 
 	// arabic form of words  (Babs) ن
 		//فواعل eg. جوامع
@@ -5189,9 +5203,8 @@
 		_) هم (آL09P2@	ham
 
 	// suffixes ه
-		L09L03) ه (_++NSm1	e:
-		L09L01و) ه (_++NSm1	e:
-			L09) هٔ (_Sm2	eje
+		L09L03) ه (_++Sm1	e:
+		L09L01و) ه (_++Sm1	e:
 			L09L09) ها (_NSm2	hA
 		// Plural pronoun ها
 			L09L09) های (_NSm3	h'Aje
@@ -5286,7 +5299,7 @@
 		
 	// Suffixes یی
 		L09L01) یی (_Sm2	i:
-		L09L03) یی (_Sm2	ii
+		L09L03) یی (_Sm1	i
 		L09L01) ییم (_NSm3	i:m
 		L09L03) ییم (_NSm3	iim
 		L09L09L01) یید (_NSm3	i:d
@@ -5322,7 +5335,7 @@
 		L09و) ی (L01	j
 		L09ا) ی (L03	j
 		L09ا) ی (L01	j
-		L03) ی (وL03	j
+		L03) ی (وL03	ij
 		//otherwise
 			L02) ی (_	j
 			_ع) ی (L03_	j
@@ -5361,7 +5374,6 @@
 		L09L01) ی (_Sm1	j
 		L09L09آ) ی (_Sm1	je
 		L09L09ا) ی (_NSm1	je
-		L09L09ی) ی (_Sm1	je
 		L09L01و) ی (_Sm1	i
 		L09L03و) ی (_Sm1	je
 		L09L01) یند (_Sm3	jand
@@ -5496,6 +5508,11 @@
 
 .group ء
 	ء	?
+	// suffixes ء
+		L09L09L04) ء (_Sm1	?
+		L09L09ا) ء (_Sm1	
+		L09L09آ) ء (_Sm1	
+
 
 //this character "ٔ" is defrent of "ء" and "ۀ" for example "دانشنامهٔ "
 
@@ -5504,7 +5521,7 @@
 	ٔ	
 
 	// suffixes ٔ
-		L09L09) ٔ (_Sm1	
+		L09L03) ٔ (_NSm1	je
 
 
 .group ّ

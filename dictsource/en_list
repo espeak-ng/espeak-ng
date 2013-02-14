@@ -324,11 +324,14 @@ _#rd	d
 _#th	T
 _ord	T	// default ending
 _1o	f'3:
+?5 _1o  f'IR
 _2o	s'Ek
 _3o	T'3:
+?5 _3o  T'IR
 _5o	f'If
 _20o	tw'Enti@
 _30o	T'3:ti@
+?3 _30o T'IRti@
 _40o	f'o@ti@
 _50o	f'Ifti@
 _60o	s'Iksti@
@@ -649,6 +652,7 @@ apparatus	ap@r'eIt@s
 apprentice	a#prEnt2Is
 approximate	a#pr0ksIm@t   $only
 approximate	a#pr0ksImeIt  $verb
+aqueduct	akwI#dVkt
 arab		ar@b
 arabic		$1
 arable		ara#b@L
@@ -819,6 +823,7 @@ buffet		bVfeI
 bunion		bVnI2@n
 bureaucracy	bjU@'0kr@si
 bursar		b3:s3
+?5 bursar	bVRs3
 bus		bVs
 buses		bVsI#z
 busily		bIzI2lI        $verbf
@@ -976,6 +981,7 @@ cognac		k0njak
 coincide	koUIns'aId
 cojones		k@hoUneIs
 coliseum	k0l@s'i:@m
+collage		k0l'A:Z
 college		k0lI2dZ
 collegiate	k@li:dZI@t
 colloquial	k@loUkwI@L
@@ -991,6 +997,7 @@ combo		k0mboU
 comely		kVmlI    // comeliness
 comer		kVm3
 comet		k0mI2t
+commandant	$alt1
 commence	k@mEns
 commend		k@mEnd
 comment		k0mEnt
@@ -1019,6 +1026,7 @@ conduct		$1
 conduct		$verb
 cone		koUn
 conical		$1
+confidant	$alt1
 conflict	$1          $onlys
 conflict	$verb
 conger		k0Ng3
@@ -1140,6 +1148,7 @@ deny		dI2naI
 depot		dEpoU
 ?3 depot        di:poU
 derange		dI2reIndZ
+descant		dEskant
 descry		dI2skreI
 desert		dI2z3:t
 desert		dEs3t         $only
@@ -1413,8 +1422,12 @@ gala		gA:l@
 galaxy		gala#ksi
 galileo		galI2l'eIoU 
 galore		$alt3
+gallivant	$alt1
 ?3 garage	ga#rA:Z
 garish		ge@rIS
+garote		ga#r0t
+garotte		ga#r0t
+garrot		ga#r0t
 gases		gasI#z
 gauche		goUS
 gauge		geIdZ
@@ -2128,6 +2141,7 @@ predefine	pri:dI2f'aIn
 predicate	prEdI2keIt
 preface		prEf@s
 preferably	prEf@-r@blI   $verbf
+prelate		prEl@t
 prelude		prElju:d
 ?3 prelude	preIlu:d
 premier		prEmI3
@@ -2185,8 +2199,8 @@ pud		pUd           // and pudding
 punative	pju:n@tIv
 puny		pju:ni
 purist		pju:r-Ist
-purport		p3:p'o@t
-purportedly	p3p'o@tI2dlI
+purport		$2
+purportedly	$2
 pyjama		p@dZA:m@
 pyrites		paIr'aIti:z
 pythagoras	paIT'ag@r@s
@@ -2363,6 +2377,7 @@ satanist	seIt@nIst
 saucepan	sO:sp@n
 saudi		saUdi
 saute		sO:teI
+?3 savant	sa#vA:nt
 says		sEz
 scaly		skeIlI
 salmon		sam@n
@@ -2379,6 +2394,7 @@ sceptre		sEpt3
 sciatica	saI'atIk@
 sclera		skli@r
 scourge		sk3:dZ
+?5 scourge	skVRdZ
 scrotum		skroUt@m
 seabed		si:bEd
 sealion		si:laI@n
@@ -2461,6 +2477,7 @@ snooker		snu:k3
 sofa		soUf@
 soiree		swA:reI
 sojourn		soUdZ3:n
+?5 sojourn	soUdZVRn
 solder		s0ld3
 ?3 solder	sA:d3
 soldier		soUldZ3
@@ -2512,6 +2529,7 @@ subsequent	sVbsI2kw@nt
 subside		s@bsaId
 subtly		sVt@lI      $verbf
 suede		sweId
+suerte		swe@rteI
 suet		su:I2t
 suffice		s@faIs
 suffuse		$2
@@ -2528,7 +2546,6 @@ supplier	s@plaI3
 suppose		$2
 suprise		$2                       // misspell
 surest		SU@@st
-surplus		s3:pl@s
 surrogate	sVr@geIt
 ?3 surrogate	s3:@g@t
 survey		s3:veI        $onlys
@@ -2598,6 +2615,7 @@ tho		DoU $only
 thousand	TaUz@nd
 throughout	$2
 thursday	T3:zdeI
+?5 thursday	TVRzdeI
 tidal		taId@L
 tidy		taIdi
 tierra		tI'e@r@
@@ -2648,7 +2666,7 @@ truely		tru:lI       $verbf
 truest		tru:@st
 tryst		trIst
 tudor		tju:d3
-turntable	t3:nt2eIb@L
+turntable	$alt1
 tulip		tju:lIp
 turnkey		t3:nki:
 ?5 turnkey	tVRnki:
@@ -2789,6 +2807,7 @@ without		$2
 wordprocessor	$2
 wordprocess	$2
 workshy		w3:kSaI
+?5 workshy	wVRkSaI
 workstation	w'3:kst,eIS@n
 ?5 workstation	w'VRkst,eIS@n
 worktable	$alt1
@@ -3013,6 +3032,7 @@ Lagos		leIg0s
 Leipzig		laIpsIg
 Leone		li:'oUn
 Lesotho		l@s'u:tu:
+Levant		l@vant
 Liberia		laIb'i@ri:@
 Lima		li:ma#
 Ljubljana	lju:blj'A:n@
@@ -3124,6 +3144,7 @@ Tijuana		ti@w'A:n@
 Tikal		tI2kA:l
 Timor		ti:mo@
 Tokyo		toUkIoU
+Topeka		toUp'i:k@
 Toronto		t@r0ntoU
 Toulouse	tu:l'u:z
 ?3 Tunisia	tu:n'i:Z@
@@ -3198,6 +3219,7 @@ Baez		baI'Ez
 Bambi		bambi:
 Barack		ba#rA:k
 Barbara		bA@b@r@
+Bartholomew	bA@T'0l@mju:
 Benjamin	bEndZ@mI#n
 Benoit		bEnw'A:
 Bernard		b3:n@d
@@ -3238,6 +3260,7 @@ Connor		k0n3
 Conrad		$1
 Crichton	kraIt@n
 Curtis		k3:tI#s
+?5 Curtis	kVRtI#s
 Dana		deIn@
 Daphne		dafni
 Darryl		dar@L
@@ -3524,7 +3547,7 @@ Rameses		ram@si:z
 Ramirez		ra#mi@3rEz
 Reagan		reIg@n
 Reid		ri:d
-Remi		r@ni:
+Remi		r@mi:
 Reuter		rOIt3
 Rivera		rI2ve@r@
 Rizzoli		rI2zoUli

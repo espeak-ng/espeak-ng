@@ -296,6 +296,10 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 
 	// set up indices into data_dictrules
 	InitGroups(tr);
+	if(tr->groups1[0] == NULL)
+	{
+		fprintf(stderr,"Error in %s_rules, no default rule group\n",name);
+	}
 
 	// set up hash table for data_dictlist
 	p = &(tr->data_dictlist[8]);
@@ -2731,6 +2735,12 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		{
 			if(word_flags & FLAG_UNPRON_TEST)
 				return(match1.end_type | 1);
+
+#ifdef deleted
+// ?? allow $unpr while translating rules, not just on initial FLAG_UNPRON_TEST
+            if((match1.end_type & SUFX_UNPRON) && !(word_flags & FLAG_SUFFIX_REMOVED))
+                return(match1.end_type);
+#endif
 
 			if((match1.phonemes[0] == phonSWITCH) && ((word_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
 			{

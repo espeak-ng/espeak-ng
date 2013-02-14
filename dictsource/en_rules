@@ -747,6 +747,7 @@
        hum) an (_        @n
          &) an (ty_      @n
          &) an (t_       @n
+         &) an (t_$w_alt an
 ?8       &) an (t_       a#n
         _f) an (at       a#n
         pl) an (t_       an
@@ -1713,7 +1714,6 @@
             de (rog      dI2
             de (rACatio  dE
          _) des (@       dI2s
-            des (ca      dE
             des (ec      dEs
             des (eg      d%i:s
             dese (l      d,i:sI2
@@ -1865,6 +1865,7 @@
         ch) eese         i:z
             eeze (@      i:z
          d) e (fault     i:
+         _) e (ffac      %I
             e (ffec      %I
             e (ffic      %I
             efier (_     I2faI3
@@ -2490,7 +2491,8 @@
        &ph) es (_S1      z
       neri) es (_S2i     z
         &s) es (_S1      I#z
-       &us) es (_S2e     I#z
+        us) es (_S2e     I#z
+       lus) es (_S2      I#z
       &rus) es (_S2      I#z
       &tus) es (_S2      I#z
        &ss) es (_S2      I#z
@@ -2668,6 +2670,9 @@
             for (see     f%O@
             for (ward    f'o@  // straightforward
             ft (en       f
+         &) ful (_S3     f@L
+         &) fully (_S5   f@li
+         &) fulness (_S7   f@Ln@s
 
 .group g
             g            g
@@ -2704,9 +2709,11 @@
             gh (an       g
             gm (_        m
             gn (_        n
+      _poi) gn           nj
          _) gnu          g@nu:
        hun) g            g
             g (ear       g
+            gei (st_     gaI
         %A) g (er        g
             g (et        g
             g (ette_     dZ
@@ -2715,6 +2722,8 @@
         er) g (et        dZ
        for) ge (t        gE
         bo) g (Ey        g
+         _) gia (@@      dZa#
+         _) g (iant      dZ
          &) gia (_       dZ@
          &) gia (C_      dZ@
         go) g (ic_       g
@@ -3114,7 +3123,7 @@
          l) im           Im
        _pr) im (a        aIm
         sh) im (a_       'i:m
-            image        ImI2dZ
+            imag (e      ImI2dZ
          l) ime          aIm
          d) ime (ns      aImE
             im (ent+     Im
@@ -3431,6 +3440,7 @@
          c) is (_        Is
        @@m) is (_        Is
         am) is (_S1      z
+         v) is (_        Is
        @Cs) is (_        =Is
          &) is (abl      aIz
             isa (tion    aIzeI
@@ -3983,6 +3993,7 @@
             oi (c        oUI2
             oi (ce       OI
             oi (ck       OI
+            oi (zA       oUaI
          c) o (inci      %oU
             o (ing       oU
          d) o (ing       u:
@@ -4345,7 +4356,7 @@
         pl) or           o@
          m) or (al       0r
          w) or (K        3:
-?5       w) or           VR
+?5       w) or (K        VR
          w) or (m        3:
 ?5       w) or (m        VR
          w) or (se       3:
@@ -4721,6 +4732,7 @@
          _) pre (C@      pr%I
          _) pre (C%      prE
          _) prea (ch     pri:
+         _) pre (ad      pr%i:
          _) pre (am      pri:
          _) pre (cinc    pri:
             pre (cio     prE
@@ -4728,7 +4740,7 @@
          _) pre (coP3    pr,i:
             preda (to    prEd@
             prede (ces   pri:dI
-         _) pre (diP3    pr%i
+         _) pre (diP3    pr%i:
          _) pre (dic     pr%I
          _) pre (em      pr%i:
          _) pre (fec     pri:
@@ -5211,27 +5223,7 @@
          _) tera         tEr@
             te (rrest    t2@
          r) tga (g       gI
-         &) tia (_       S@
-        &s) tia (_       tS@
          @) t (ia        S
-        pi) t (ia        t
-        is) t (ian+      t
-         &) tian (_      =S@n
-         _) tian         tjan
-         &) tial         S@L
-        &s) tial         tj@L 
-         &) ti (ali      SI
-         i) tia (liL06   S@
-         &) tien         S@n
-         &) tience       S@ns
-            t (ime_      t2
-         &) tion         S=@n
-        &s) tion         tS@n
-?8       &) tion         S=Vn
-?8      &s) tion         tSVn
-            tion (al     S=@-n
-         &) tious        S=@s
-        AC) tive (_      =tIv
          s) t (l         ?
             to (morr     t@
          _) to (nn       tV
@@ -5254,6 +5246,7 @@
          _) two          tu:
             ttu (r       t@
          @) tu (al       tSu:
+         @) tu (at       tSu:
       _sta) tu           tSu:
 ?3    _sta) tu (to       tS@
          c) tu (al_      =tSu:
@@ -5262,6 +5255,7 @@
          @) tu (lat      =tSU
 ?3          tu (Ant      tSu:
 ?3          tu (Ancy     tSu:
+
             tu (ous      tSu:
          @) tur (A       tS@r
          @) tur (al_     tS=@r
@@ -5321,6 +5315,30 @@
          _) them         D%Em
          _) the (mA      Ti:
 
+.group ti
+         &) tia (_       S@
+        &s) tia (_       tS@
+     propi) ti (a        tI
+            ti (ac       tI
+         &) tian (_      =S@n
+        &s) tian (_      tS@n
+         _) tian         tjan
+         &) tial         S@L
+        &s) tial         tj@L 
+         &) ti (ali      SI
+         i) tia (liL06   S@
+         &) tien         S@n
+         &) tience       S@ns
+            ti (me_      t2aI
+         &) tion         S=@n
+        &s) tion         tS@n
+?8       &) tion         S=Vn
+?8      &s) tion         tSVn
+            tion (al     S=@-n
+         &) tious        S=@s
+        AC) tive (_      =tIv
+
+        
 .group u
             u            V
        man) u            ju:
@@ -5823,6 +5841,7 @@
          _) z (wY        z
 
          @) zales (_     z'A:l@s
+            zei          zaI
             zes (_       zI2z
             zh           Z
             zu (_        =zu:

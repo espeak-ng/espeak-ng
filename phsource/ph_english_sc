@@ -113,6 +113,10 @@ phoneme I2
   CALL I
 endphoneme
 
+phoneme I#
+  vowel  starttype #@ endtype #@
+  ChangePhoneme(I2)
+endphoneme
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #e
@@ -171,11 +175,10 @@ endphoneme
 
 phoneme 3:
   vowel  starttype #e  endtype #@
-  length 210
+  length 230
   ChangeIfNotStressed(VR)    // also need "replace 02 3: VR" in voice file
   ipa e
-  AppendPhoneme(r)
-  FMT(vdiph2/e@)
+  FMT(vowelr/e_r)
 endphoneme
 
 
@@ -217,7 +220,7 @@ phoneme o@
   length 230
   ipa o
   AppendPhoneme(r)
-  FMT(vowelr/o_r)
+  FMT(vowelr/oo_r)
 endphoneme
 
 
@@ -310,7 +313,7 @@ endphoneme
 phoneme i@3
   vowel  starttype #i  endtype #@
   ipa ɪ
-  length 220
+  length 240
   AppendPhoneme(r)
   FMT(vowelr/i_r)
 endphoneme

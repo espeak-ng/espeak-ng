@@ -1,3 +1,4 @@
+
 86 phoneme tables
           new total
     base 109  109
@@ -6,7 +7,7 @@ consonants  10  118
       en  54  156
     en-n  33  156
    en-us  40  157
-   en-sc  40  158
+   en-sc  41  158
    en-rp  34  156
    en-wm  31  156
    en-wi  30  156
@@ -420,7 +421,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [] base
+l/l@            [hFp] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -454,7 +455,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [] base
+l/la            [hFp] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -462,7 +463,7 @@ l/la            [] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [] base
+l/le            [hFp] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -474,7 +475,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [] base
+l/li            [hFp] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -488,7 +489,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [] base
+l/lo            [hFp] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -499,7 +500,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [] base
+l/lu            [hFp] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -1039,8 +1040,7 @@ vdiph/0i_2      [OI] en-sc
                 [OI] en-wi
                 [AI] no
 vdiph2/8@       [U@] en
-vdiph2/e@       [3:] en-sc
-                [e@] en-sc
+vdiph2/e@       [e@] en-sc
                 [e@] en-wi
 vdiph2/ea       [eA] lt
                 [ea] ro
@@ -2224,9 +2224,10 @@ vowel/oo_en     [O] en
                 [O] en-rp
 vowelr/aa_r     [A:] en-sc
                 [A@] en-sc
+vowelr/e_r      [3:] en-sc
 vowelr/i_r      [i@3] en-sc
 vowelr/oo_r     [O@] en-sc
-vowelr/o_r      [o@] en-sc
+                [o@] en-sc
 vowelr/r-voc    [r-] base
                 [r-] sk
                 [r:] sk

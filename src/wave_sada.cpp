@@ -78,7 +78,7 @@ static uint32_t wave_samplerate;
 //
 //<wave_init
 
-void wave_init(int srate) {
+int wave_init(int srate) {
   ENTER("wave_init");
 
   audio_info_t ainfo;
@@ -104,7 +104,7 @@ void wave_init(int srate) {
   SHOW("wave_init() sun_audio_fd: %d\n", sun_audio_fd);
 
   if (sun_audio_fd < 0) {
-    return;
+    return(0);
   }
 
   ioctl(sun_audio_fd, AUDIO_GETINFO, &ainfo);
@@ -117,8 +117,9 @@ void wave_init(int srate) {
   if (ioctl(sun_audio_fd, AUDIO_SETINFO, &ainfo) == -1) {
     SHOW("wave_init() failed to set audio params: %s\n", strerror(errno));
     close(sun_audio_fd);
-    return;
+    return(0);
   }
+  return(1);
 }
 
 //>

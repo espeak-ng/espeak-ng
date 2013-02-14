@@ -62,7 +62,7 @@ enum {ONE_BILLION=1000000000};
 static int pulse_running;
 
 // wave.cpp (this file)
-void wave_port_init(int);
+int wave_port_init(int);
 void* wave_port_open(const char* the_api);
 size_t wave_port_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize);
 int wave_port_close(void* theHandler);
@@ -77,7 +77,7 @@ int wave_port_get_remaining_time(uint32_t sample, uint32_t* time);
 
 // wave_pulse.cpp
 int is_pulse_running();
-void wave_pulse_init(int);
+int wave_pulse_init(int);
 void* wave_pulse_open(const char* the_api);
 size_t wave_pulse_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize);
 int wave_pulse_close(void* theHandler);
@@ -91,13 +91,13 @@ void* wave_pulse_test_get_write_buffer();
 int wave_pulse_get_remaining_time(uint32_t sample, uint32_t* time);
 
 // wrappers
-void wave_init(int srate) {
+int wave_init(int srate) {
   pulse_running = is_pulse_running();
 
   if (pulse_running)
-    wave_pulse_init(srate);
+    return wave_pulse_init(srate);
   else
-    wave_port_init(srate);
+    return wave_port_init(srate);
 }
 
 void* wave_open(const char* the_api) {
@@ -756,7 +756,7 @@ void wave_set_callback_is_output_enabled(t_wave_callback* cb)
 //<wave_init
 
 // TBD: the arg could be "alsa", "oss",...
-void wave_init(int srate)
+int wave_init(int srate)
 {
   ENTER("wave_init");
   PaError err;
@@ -773,6 +773,7 @@ void wave_init(int srate)
     {
       SHOW_TIME("wave_init > Failed to initialise the PortAudio sound");
     }
+    return err == paNoError;
 }
 
 //>
@@ -1194,7 +1195,7 @@ void *wave_test_get_write_buffer()
 // notdef USE_PORTAUDIO
 
 
-void wave_init(int srate) {}
+int wave_init(int srate) {}
 void* wave_open(const char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
 int wave_close(void* theHandler) {return 0;}
