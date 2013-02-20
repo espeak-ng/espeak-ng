@@ -39,7 +39,11 @@ phoneme &~
   vowel  starttype #@ endtype #@
   ipa ɐU+0303
   length 180
-  FMT(vnasal/a#_n)
+  IF thisPh(isStressed) THEN
+    FMT(vnasal/W_n)
+  ELSE
+    FMT(vnasal/a#_n)
+  ENDIF
 endphoneme
 
 phoneme &U~
@@ -224,10 +228,3 @@ phoneme *
 endphoneme
 
 
-// TESTING
-phoneme &2~
-  vowel  starttype #@ endtype #@
-  ipa ɐU+0303
-  length 200
-  FMT(vnasal/W_n)
-endphoneme

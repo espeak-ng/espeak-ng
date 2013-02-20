@@ -103,7 +103,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-02-13
+Dictionary en_dict  2013-02-20
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -377,7 +377,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-02-14
+Dictionary pt_dict  2013-02-19
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -489,13 +489,13 @@ p    Q    r    R    s    S    t    tS
 v    w    z    Z    
 
 
-Dictionary vi_dict  2013-02-10
+Dictionary vi_dict  2013-02-16
 
 @    @:   @:I  @:U  @I   @U   a    a:   
 a:I  a:U  aI   aU   e    E    eU   EU   
-i    i@   iU   o    O    o#   O#   o&   
-o@   OI   oI   u    u@   uI   y    y@   
-yI   
+i    i@   iE   iU   o    O    o#   O#   
+o&   o@   OI   oI   u    u@   uI   y    
+y@   yI   
 
 b    c    cr   d    D    f    g    h    
 j    J    J^   k    kh   l    m    n    

@@ -325,7 +325,7 @@ elas	$u+
 
 me	$u	// reflexive
 te	$u 
-nos	$u 
+nos	$u	$nounf
 la	$u
 lo	$u
 las	$u
@@ -335,35 +335,31 @@ los	$u
 ?2	este	$u+	$nounf	'estSi       // this
 ?2	estes	$u+	$nounf	'estSis       // these
 ?2	esta	'Est& $u+	$nounf
+?2	nesta	$u+	$nounf
 ?2	neste	$u+	$nounf	n'estSi      //in this
-?2	nestes	$u+	n'estSis      //in these
 ?2	esse	$u+	$nounf	'esi       // that
 essa	'Es&  $u+
-desse	d'esy	$u+
-nesse	n'esy	$u+
+desse	$u+	$nounf
+desta	$nounf
+nesse	n'esy	$u+ $nounf
 aquele	&k'ely	$u+	$nounf       // that
-aquela	$u+
+aquela	$u+ $nounf
 daquele	d&k'ely	$u+	$nounf
+daquela $u+ $nounf
 
 	que	$u      // pronunciation is in pt_rules
 
 // possessive adjectives
-meu	$u+	$nounf
-minha	$u+
-meus	$u+
-minhas	$u+
+meu	$u+	$nounf  // meus
+minha	$u+	$nounf  // minhas
 teu	$u+	$nounf
-tua	$u+
-teus	$u+
-tuas	$u+
+tua	$u+	$nounf
 seu	$u+	$nounf
-sua	$u+
-seus	$u+
-suas	$u+
-?2	nosso	$u+ //	n'OsU
-?2	nossa	$u+	n'Os&
-?2	nossos	$u+	n'OsUs
-?2	nossas	$u+	n'Os&s
+sua	$u+	$nounf
+?2	nosso	$u+ $nounf //	n'OsU
+?2	nossa	$u+ $nounf	n'Os&
+?2	nossos	$u+ $nounf	n'OsUs
+?2	nossas	$u+ $nounf	n'Os&s
 dele	dely	$u1+
 dela	$u+
 deles	$u+
@@ -371,11 +367,11 @@ delas	$u+
 nele	nely	$u1+
 
 // prepositions
-de	$u	// of,from
+de	$u	$nounf // of,from
 do	$u	$nounf
 da	$u	$nounf
-dos	$u
-das	$u
+dos	$u	$nounf
+das	$u	$nounf
 dum	$u
 duma	$u
 duns	$u
@@ -383,19 +379,15 @@ dumas	$u
 
 em	$u  // in,on,at
 no	nu $u	$nounf
-na	$u
-?2	nos	nus# $u
-nas	$u
+na	$u	$nounf
 num	$u
 numa	$u
 nuns	$u
 numas	$u
 
-por	$u	// by,for,through
-pelo	$u
-?2	pela	$u	p'el&
-pelos	$u
-?2	pelas	$u	p'el&s
+por	$u $nounf	// by,for,through
+pelo	$u $nounf
+?2	pela	$u $nounf	p'el&
 
 ao	$u
 à	,a:
@@ -418,7 +410,6 @@ com	$u		// with
 ?2	até	$u	// until
 ?2	desde	$u	// from,since
 ?2	entre		// between,among
-?2	por	$u	// by,for,through
 	sobre	$alt2	// on,above,about
 ?2	sob		// under,below
 ?2	debaixo		// under,below
@@ -625,19 +616,6 @@ alguns		$u	// some
 algumas		$u	// some
 não		n,&U~ $strend	// not
 
-// Words with two possible pronounciations
-jogo	Z'OgU	$verb
-gosto	g'OstU	$verb
-começo	kom'EsU	$verb
-almoço	aUm'OsU	$verb
-retorno	xet'OrnU	$verb
-acordo	&k'OrdU	$verb
-governo	gov'ernU	$noun
-?2 olho	'oljU	$noun
-?4 olho	'ol^U	$noun
-?2 colher	kolj'Er	$noun
-?4 colher	kol^'Er	$noun
-
 
 // MAIN WORD DICTIONARY
 //*********************
@@ -648,6 +626,7 @@ abacaxi		abakaSy
 abordo		$alt
 aborto		$alt  $verb
 acerto		$alt2 $noun
+acordo		$alt $verb
 acertos		$alt2
 acervo		$alt2
 adepto		$alt
@@ -659,27 +638,22 @@ alcateia	$alt
 alferes		$alt
 algozes		$alt
 alicerce	$alt
-amanheça	$alt2
-amanheço	$alt2
-amanhecesse	$alt2
+almoço	$alt $verb
 amarelo		$alt
 ameba		$alt
 amores		$alt2
-anoitecesse	$alt2
-anoiteça	$alt2
-anoiteço	$alt2
 apego		$alt2 $noun
 apelo		$alt  $verb
 aposto		$alt  $verb
 apreço		$alt2
 aperto		$alt2 $noun
 apoio		$alt  $verb
-aprendeste	$alt2
 aprovo		$alt
 arredores	$alt
 arremesso	$alt2 $noun
 arroz		$alt2
 assembleia	$alt
+ateia		$alt
 aterro		$alt2 $noun
 atmosfera	$alt
 atrozes		$alt
@@ -687,12 +661,10 @@ austera		$alt
 austero		$alt
 autora		$alt2
 axé		aSE
-bebeste		$alt2
+baqueta		$alt2
 beco		$alt2
 belo		$alt
 besta		$alt2
-bezerra		$alt2
-bezerro		$alt2
 bilhete		$alt2
 boca		$alt2
 bochecha	$alt2
@@ -712,71 +684,73 @@ cachorra	$alt2
 caderneta	$alt2
 camiseta	$alt2
 cantora		$alt2
+capacete		$alt2
 caractere	$alt
 caramelo	$alt
 careta		$alt2
 carreta		$alt2
+carroça		$alt
 casebre		$alt
 castelo		$alt
 cateto		$alt2
 catorze		$alt2
 cebola		$alt2
 cefaleia	$alt
-cerca		$alt $verb
 cerco		$alt $verb
 cesta		$alt2
 cesto		$alt2
 chamego		$alt2
 chefe		$alt
+checam	$alt
+cheque		$alt
 chinelo		$alt
 choro		$alt2 $noun
+chovesse		$alt2
 chupeta		$alt2
 clamores	$alt2
 coco		$alt2
 cofre		$alt
+cogumelo		$alt
 coice		$alt2
 colabore	$alt
-colheste	$alt2
+colete		$alt2
+colchete		$alt2
+colher	$alt $verb
+colheres	$alt $noun
 colmeia		$alt
 colore		$alt
 começo		$alt2 $noun
 comodo		$alt2
-comera		$alt2
-comeres		$alt2
-comeste		$alt2
 concerto	$alt2 $noun
 concordo	$alt
 conforto	$alt  $verb
-conheceste	$alt2
-conheço		$alt2
 consolo		$alt2 $noun
 contivermos	$alt
+controle		$alt2 $noun
+controlo		$alt2 $noun
 copa		$alt
 copo		$alt
 coreia		$alt
 corneta		$alt2
 cornos		$alt
 corpos		$alt
-correste	$alt2
 corto		$alt
 corveta		$alt2
 corvos		$alt
 coto		$alt2
-couber		$alt
-couberem	$alt
 couberdes	$alt
-couberes	$alt
+coubermos	$alt
 cratera		$alt
 crede		$alt2
 cresce		$alt
 crescem		$alt
 der		$alt
+derdes	$alt
 desapego	$alt2 $noun
 descabelo	$alt
 desce		$alt
 descem		$alt
 descordo	$alt
-descova		$alt2
 desespero	$alt2 $noun
 desfecho	$alt2
 desprezo	$alt  $verb
@@ -808,27 +782,29 @@ envelope	$alt
 envolto		$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
+erga		$alt2
+ergam	$alt2
+ergo	$alt2
 eritreia	$alt
 erro		$alt2 $noun
 erros		$alt2
 esboço		$alt  $verb
 escopeta	$alt2
+escova		$alt2 $noun
 escroto		$alt2
 esforço		$alt  $verb
 esforços	$alt
 esgoto		$alt2 $noun
+esgotos	$alt2
 esperma		$alt
 espeto		$alt2 $noun
 espiroqueta	$alt2
 espoleta	$alt2
 esposa		$alt2
-esqueceste	$alt2
 esqueleto	$alt2
 estiverdes	$alt
-estiveres	$alt
 estivermos	$alt
 estrela		$alt2
-estremeceste	$alt2
 estrofe		$alt
 estorno		$alt  $verb
 estorvo		$alt  $verb
@@ -844,24 +820,25 @@ farofa		$alt
 febre		$alt
 feitora		$alt2
 fera		$alt
-fere		$alt
-ferem		$alt
 ferozes		$alt
 fezes		$alt
 ?1 fixe		fiSy
+fizerdes	$alt
 fizermos	$alt
+foda		$alt2 $verb
 folga		$alt
 fogos		$alt
 foguete		$alt2
 foice		$alt2
 forca		$alt2
 forças		$alt2
-fores		$alt2
+fordes	$alt2
+fores	$alt2
 forro		$alt $verb
 fosse		$alt2
-fossem		$alt2
 frevo		$alt2
 galera		$alt
+galileia	$alt
 gameta		$alt2
 geleia		$alt
 gelo		$alt $verb
@@ -870,7 +847,9 @@ gesso		$alt2
 golpe		$alt
 gonorreia	$alt
 gorda		$alt2
+gosto		$alt $verb
 gota		$alt2
+governo	$alt2 $noun
 gozo		$alt $verb
 graveto		$alt2
 grego		$alt2
@@ -879,15 +858,20 @@ grega		$alt2
 groselha	$alt
 grosso		$alt2
 grozo		$alt $verb
+hemorroida		$alt
 hoje		$alt2
+horrores	$alt2
+houverdes	$alt
 houvermos	$alt
 ideia		$alt
 insonoro	$alt
+interesse		$alt2 $noun
 joga		$alt
-jogam		$alt
-jogos		$alt
+jogam$alt
+jogo	$alt $verb
+jogos	$alt
 jogue		$alt
-joguem		$alt
+joguem	$alt
 joguete		$alt2
 lambreta	$alt2
 lebre		$alt
@@ -899,6 +883,7 @@ maleta		$alt2
 mantiverdes	$alt
 mantiveres	$alt
 mantivermos	$alt
+marcelo		$alt
 marmelo		$alt
 marreta		$alt2
 martelo		$alt
@@ -906,11 +891,15 @@ merda		$alt
 megera		$alt
 melo		$alt
 mentora		$alt2
+meta		$alt $noun
+meteoro		$alt
 metro		$alt
 mexa		m'eS&
 mexi		meS'i
 mexo		m'eSU
+minueto		$alt2
 miolo		$alt2
+miolos	$alt
 moeda		$alt
 modo		$alt
 modos		$alt
@@ -930,24 +919,26 @@ mulheres	$alt
 mureta		$alt2
 mutreta		$alt2
 namoro		$alt2 $noun
-naquele		$alt2
+naquela		$nounf
+naquele		$alt2 $nounf
 negra		$alt2
 negro		$alt2
 novos		$alt
 obstetra	$alt
 obsoleta	$alt2
 obsoleto	$alt2
-pbvivera	$alt
+obtivera		$alt
 obtivermos	$alt
 odisseia	$alt
 onu		$1
+olho		$alt2 $noun
+osso	$alt2
+ossos	$alt
 opereta		$alt2
 ordens		$alt
-osso		$alt2
 ostra		$alt2
 ovos		$alt
 pachorra	$alt2
-padeceste	$alt2
 paexa		paeSa
 palacete	$alt2
 palheta		$alt2
@@ -961,14 +952,12 @@ pelego		$alt2
 pelo		$alt  $verb
 perde		$alt
 perdem		$alt
-perede		$alt2
 pesa		$alt
 pesam		$alt
 pesque		$alt
 pesquem		$alt
-peso		$alt
-peso		$alt2 $noun
-piloto		$alt2
+peso		$alt $verb
+piloto		$alt2 $noun
 pintora		$alt2
 pirueta		$alt2
 plateia		$alt
@@ -984,14 +973,14 @@ poxa		p'oS&
 preta		$alt2
 preto		$alt2
 primavera	$alt
-profere		$alt
-proferem	$alt
 provo		$alt
 puder		$alt
-punheta		$alt
+puderdes	$alt
+pudermos	$alt
 puserdes	$alt
 quarteto	$alt2
 quinteto	$alt2
+quiserdes	$alt
 quisermos	$alt
 recomeço	$alt2 $noun
 recordo		$alt
@@ -1008,19 +997,28 @@ remorso		$alt
 reprovo		$alt
 resolve		$alt
 resolvem	$alt
+retorno	$alt $verb
 rixa		x'iS&
 rocha		$alt
 rock		$alt
 rogas		$alt
+rola		$alt2 $noun
 rolo		$alt2 $noun
+rosna		$alt
+rosnam	$alt
+rosne		$alt
+rosnem	$alt
+rosno	$alt
 rumores		$alt2
 saleta		$alt2
 sarjeta		$alt
 severa		$alt
 severo		$alt
 seborreia	$alt
-seco		$alt2 $noun
-secos		$alt2
+seca		$alt2 $noun
+secas	$alt2
+seco		$alt2
+seco	$alt $verb
 selo		$alt  $verb
 selvagem	seUv'aZeIN
 sexteto		$alt2
@@ -1056,17 +1054,18 @@ tapete		$alt2
 tempero		$alt2 $noun
 teta		$alt2
 tetra		$alt
-tiver		$alt
-tivera		$alt
-tiveres		$alt
+tiverdes	$alt
 tivermos	$alt
 tocha		$alt
 toga		$alt
 tola		$alt2
 tolo		$alt2
+tolhe		$alt
+tolhem	$alt
 topo		$alt  $verb
 torno		$alt  $verb
-torres		$alt2
+torre	$alt2 $noun
+torres	$alt2
 tortos		$alt
 traqueia	$alt
 travesso	$alt2
@@ -1076,16 +1075,17 @@ troco		$alt2 $noun
 tropa		$alt
 tropeço		$alt2 $noun
 trombeta	$alt2
+tumores	$alt2
 valeta		$alt2
 vanessa		$alt2
 velozes		$alt
-verbo		$alt
 verme		$alt
 vierem		$alt
 violeta		$alt2
 voga		$alt
 vozes		$alt
 xarope		$alt
+xeque		$alt
 zelo		$alt $verb
 zero		$alt
 zorra		$alt2

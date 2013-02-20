@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -90,6 +90,7 @@ wxMenuBar *MakeMenu(int type, const char *dict_name)
         // DATA MENU
         data_menu = new wxMenu;
         data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data"));
+        data_menu->Append(MENU_COMPILE_PH2, _("Change sample &rate"));
         data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
         data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (debu&g)"));
         data_menu->AppendSeparator();

@@ -35,8 +35,8 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.35  14.Feb.13";
-const int version_phdata  = 0x014631;
+const char *version_string = "1.46.36  20.Feb.13";
+const int version_phdata  = 0x014636;
 
 int option_device_number = -1;
 FILE *f_logespeak = NULL;
@@ -108,13 +108,14 @@ static char *ReadPhFile(void *ptr, const char *fname, int *size)
 }  //  end of ReadPhFile
 
 
-int LoadPhData()
-{//=============
+int LoadPhData(int *srate)
+{//========================
 	int ix;
 	int n_phonemes;
 	int version;
 	int result = 1;
 	int length;
+	int rate;
 	unsigned char *p;
 	int *pw;
 
@@ -126,14 +127,16 @@ int LoadPhData()
 		return(-1);
 	if((tunes = (TUNE *)ReadPhFile((void *)(tunes),"intonations",&length)) == NULL)
 		return(-1);
-   wavefile_data = (unsigned char *)phondata_ptr;
+    wavefile_data = (unsigned char *)phondata_ptr;
 	n_tunes = length / sizeof(TUNE);
 
-	// read the version number from the first 4 bytes of phondata
-	version = 0;
+	// read the version number and sample rate from the first 8 bytes of phondata
+	version = 0;  // bytes 0-3, version number
+	rate = 0;     // bytes 4-7, sample rate
 	for(ix=0; ix<4; ix++)
 	{
 		version += (wavefile_data[ix] << (ix*8));
+		rate += (wavefile_data[ix+4] << (ix*8));
 	}
 
 	if(version != version_phdata)
@@ -163,6 +166,8 @@ int LoadPhData()
 	if(phoneme_tab_number >= n_phoneme_tables)
 		phoneme_tab_number = 0;
 
+    if(srate != NULL)
+        *srate = rate;
 	return(result);
 }  //  end of LoadPhData
 
@@ -970,7 +975,9 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 	phdata->pd_param[i_LENGTH_MOD] = ph->length_mod;
 
 	if(ph->program == 0)
+	{
 		return;
+	}
 
 	end_flag = 0;
 
@@ -1215,7 +1222,13 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
         memcpy(&worddata->prev_vowel, &plist[0], sizeof(PHONEME_LIST));
     }
 
+#ifdef _ESPEAKEDIT
     plist->std_length = phdata->pd_param[i_SET_LENGTH];
+    if(phdata->sound_addr[0] != 0)
+        plist->phontab_addr = phdata->sound_addr[0];  // FMT address
+    else
+        plist->phontab_addr = phdata->sound_addr[1];  // WAV address
+#endif
 }  // end of InterpretPhoneme
 
 

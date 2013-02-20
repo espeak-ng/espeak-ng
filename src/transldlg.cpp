@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -503,12 +503,14 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 
 			if((n_ph_list + n_phoneme_list) >= N_PH_LIST)
 			{
-				n_phoneme_list = N_PH_LIST - n_ph_list - n_phoneme_list;
+				n_phoneme_list = N_PH_LIST - n_ph_list;
 			}
 
 			memcpy(&ph_list[n_ph_list],phoneme_list,sizeof(PHONEME_LIST)*n_phoneme_list);
 			n_ph_list += n_phoneme_list;
 		}
+
+        ph_list[N_PH_LIST].ph = NULL;  // to recognize overrun off list (in Generate() )
 
 		t_phonetic->Clear();
 		if(option_phonemes == 2)
