@@ -220,6 +220,7 @@ typedef struct {
 	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
 	unsigned char pitch1;
 	unsigned char pitch2;
+	unsigned char std_length;
 } PHONEME_LIST;
 
 

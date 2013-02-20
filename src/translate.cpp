@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -1134,6 +1134,17 @@ if((wmark > 0) && (wmark < 8))
 				strcpy(word_phonemes,phonemes);
 				return(0);
 			}
+
+#ifdef deleted
+// ?? allow $unpr while translating rules, not just on initial FLAG_UNPRON_TEST
+if(end_type & SUFX_UNPRON)
+{
+   phonemes[0] = 0;  // discard and retranslate as individual letters
+   SpeakIndividualLetters(tr, wordx, phonemes, 0);
+   strcpy(word_phonemes, phonemes);
+   return(0);
+}
+#endif
 
 			if((phonemes[0] == 0) && (end_phonemes[0] == 0))
 			{
