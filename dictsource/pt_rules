@@ -178,7 +178,7 @@
         e (ctA_    E
         e (ctAm_   E
         e (çA_     E
-        e (çAm_     E
+        e (çAm_    E
 
         e (de_     E
         e (dem_    E
@@ -304,7 +304,7 @@
 ?1  _n) e (nhu     i         // eg: nenhum, nenhuma, nenhuns, nenhumas.
 ?1      e (la_     'E        // eg: cadela, janela, vela, etc...
 ?1   C) e (cC      ,E        // eg: seleccionar, efectuar, etc...
-?1   C) ecç        'E's      // eg: selecção, etc...
+?1   C) ecç        'Es      // eg: selecção, etc...
 ?1   C) e (ã       i         // leão, panteão, etc.
 ?1   C) e (a       i         // oceano, etc.
 ?1   C) e (o       'i        // eg: geologia, etc...
@@ -342,134 +342,138 @@
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
 
-    sf) e (ra_      E        // esfera, biosfera
-   
+    sf) e (ra_     E         // esfera, biosfera
+
 //sort
-   _fiz) e (L05_    E
-   _com) e (L05_   e
-tiv) e (L05_   E   // es-
-_coub) e (L05_   E
-_exag) e (L05_    E
-_houv) e (L05_    E
-_perd) e (L05_    e
-_soub) e (L05_    E
-_rend) e (L06_    e
-_vend) e (L06_    e
- _atend) e (L06_    e
+  _com) e (L05_    e
+   fiz) e (L05_    E
+ _coub) e (L05_    E
+ _exag) e (L05_    E
+ _houv) e (L05_    E
+ _perd) e (L05_    e
+ _soub) e (L05_    E
+   tiv) e (L05_    E         // es-
+_atend) e (L06_    e
 _compreend) e (L06_ e
-_entend) e (L06_    e
-_estend) e (L06_    e
-respond) e (L06_    e   // cor-
-_com) e (L07_    e
-_envelhec) e (L07_   e
-_esclarec) e (L07_   e
-_escurec) e (L07_   e
-padec) e (L07_    e   // com-
-parec) e (L07_    e   // a- rea- com- desa-
-_defend) e (L07_   e
-vert) e (L07_    e   // in- re- con-
-_depend) e (L07_   e
-_arrepend) e (L07_   e
-ced) e (L07_    e   // pro- con- su-
-_mord) e (L07_   e
-bat) e (L07_    e   // re- com-
-_esquec) e (L07_   e
-_ergu) e (L07_   e
-met) e (L07_  e   // co- pro- arre- re- intro- compro- sub-
-_amanhec) e (L07_   e
-_aborrec) e (L07_   e
-_anoitec) e (L07_   e
-_enlouquec) e (L07_   e
-_beb) e (L07_    e
-_tem) e (L07_    e
-viv) e (L07_    e   // re-
-colh) e (L07_    e  // & es-
-corr) e (L07_    e   // per- con- in- so- dis-
-_eleg) e (L07_    e
-_morr) e (L07_    e
-_perd) e (L07_    e
-_sofr) e (L07_    e
-torc) e (L07_    e   // con-
-venc) e (L07_    e   // con-
+_entend) e (L06_   e
+_estend) e (L06_   e
+ _rend) e (L06_    e
+ _vend) e (L06_    e
+respond) e (L06_   e         // cor-
+_aborrec) e (L07_  e
 _adoec) e (L07_    e
-aprend) e (L07_    e   // re-
-merec) e (L07_    e   // des-
-conhec) e (L07_    e  // & re- des-
-entend) e (L07_    e
-preend) e (L07_    e  // sur- com-
-respond) e (L07_   e  // cor-
+_amanhec) e (L07_  e
+_anoitec) e (L07_  e
+_arrepend) e (L07_ e
+  _beb) e (L07_    e
+  _com) e (L07_    e
+_defend) e (L07_   e
+_depend) e (L07_   e
+ _eleg) e (L07_    e
+_enlouquec) e (L07_ e
 _entristec) e (L07_ e
-_envaidec) e (L07_  e
-_escond) e (L07_    e
-_obedec) e (L07_    e
-_interromp) e (L07_  e
-qu) e (brL04_  E
-_hosp) e (dL03_   E
-_amanh) e (çL03_   e
-_bez) e (rrL03_   e
-  prom) e (tL03_   e   // com-
-_v) e (rbL03_   E
-_envelh) e (çL03_   e
-_enlouqu) e (çL03_   e
-_entrist) e (çL03_   e
-conh) e (çL03_    e   // re-
-_anoit) e (çL03_   e
-_estr) ei (L03_   EI
-_inv) e (jL04_   E
-_dec) e (pL04_   E
-_p) e (quL02_  E
-             _s) e (quL02_  E
-l) e (que_    E
-_imp) e (rL03_   E
-_reit) e (rL03_   E
- _fortal) e (çL03_   e
-  abast) e (çL03_   e   // re-
-     _g) e (rL04_   E
-    _op) e (rL04_   E
-    _qu) e (rL04_   E
-   _alt) e (rL04_   E
-   _sup) e (rL04_   E
-   _tol) e (rL04_   E
-  _coop) e (rL04_   E
-  _temp) e (rL04_   E
-      _) e (rguL02_ E
-   _alb) e (rguL02_ E
-   _enx) e (rguL02_ E
-   _inv) e (rtL03_  e
-     _f) e (rvL03_  e
-     _p) e (scL03_  E
-     _m) e (sclL04  E
-     _l) e (ssL02_  e
-   _esp) e (ssL03_  e
-     _m) e (tL03_   e
-   _com) e (tL03_   e
-_rem) e (tL03_   e
-_derr) e (tL03_   e
-_sol) e (trL03_  E
-_pen) e (trL04_  E
-scr) e (vL03_   e  // e- in- pre- ree- de-
-   _atr) e (vL03_   e
- _pr) e (zL04_   E
+_envaidec) e (L07_ e
+_envelhec) e (L07_ e
+ _ergu) e (L07_    e
+_esclarec) e (L07_ e
+_escond) e (L07_   e
+_escurec) e (L07_  e
+_esquec) e (L07_   e
+_interromp) e (L07_ e
+ _mord) e (L07_    e
+ _morr) e (L07_    e
+_obedec) e (L07_   e
+ _perd) e (L07_    e
+ _sofr) e (L07_    e
+  _tem) e (L07_    e
+aprend) e (L07_    e         // re-
+   bat) e (L07_    e         // re- com-
+   ced) e (L07_    e         // pro- con- su-
+  colh) e (L07_    e         // & es-
+conhec) e (L07_    e         // & re- des-
+  corr) e (L07_    e         // per- con- in- so- dis-
+entend) e (L07_    e
+ merec) e (L07_    e         // des-
+   met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
+ padec) e (L07_    e         // com-
+ parec) e (L07_    e         // a- rea- com- desa-
+preend) e (L07_    e         // sur- com-
+respond) e (L07_   e         // cor-
+  torc) e (L07_    e         // con-
+  venc) e (L07_    e         // con-
+  vert) e (L07_    e         // in- re- con-
+   viv) e (L07_    e         // re-
+    qu) e (brL04_  E
+ _hosp) e (dL03_   E
+   _gr) e (gL03_   e
+    _n) e (grL03_  e
+ _estr) ei (L03_   EI
+  _inv) e (jL04_   E
+  _dec) e (pL04_   E
+    _s) e (quL02_  E
+    _p) e (quL02_  E
+     l) e (que_    E
+  _imp) e (rL03_   E
+ _reit) e (rL03_   E
+    _g) e (rL04_   E
+   _op) e (rL04_   E
+   _qu) e (rL04_   E
+  _alt) e (rL04_   E
+  _sup) e (rL04_   E
+  _tol) e (rL04_   E
+ _coop) e (rL04_   E
+ _temp) e (rL04_   E
+  _ven) e (rL04_   E
+    _v) e (rbL03_  E
+    _h) e (rdL04_  E
+     _) e (rguL02_ E
+  _alb) e (rguL02_ E
+  _enx) e (rguL02_ E
+  _bez) e (rrL03_  e
+  _inv) e (rtL03_  e
+    _f) e (rvL03_  e
+    _p) e (scL03_  E
+    _m) e (sclL04  E
+    _l) e (ssL02_  e
+  _esp) e (ssL03_  e
+    _m) e (tL03_   e
+  _com) e (tL03_   e
+  prom) e (tL03_   e         // com-
+ _derr) e (tL03_   e
+  _rem) e (tL03_   e
+  _sol) e (trL03_  E
+  _pen) e (trL04_  E
+  _atr) e (vL03_   e
+   scr) e (vL03_   e         // e- in- pre- ree- de-
+   _pr) e (zL04_   E
 _embel) e (zL04_   E
 _acont) e (çL01_   e
 _arref) e (çL01_   e
-_ado) e (çL03_   e
-   _estrem) e (çL03_   e
-   par) e (çL03_   e  // a- re- com- rea- desa-
-   _aqu) e (çL03_   e
-   _car) e (çL03_   e
-   _mer) e (çL03_   e
-   _pad) e (çL03_   e   // com-
-   _per) e (çL03_   e
-  _esqu) e (çL03_   e
-  _obed) e (çL03_   e
-  _ofer) e (çL03_   e
- _aborr) e (çL03_   e
-_enfraqu) e (çL03_  e
-_enriqu) e (çL03_   e
-_envaid) e (çL03_   e
-_esclar) e (çL03_   e
-_ven) e (rL04_   E
+  _aqu) e (çL03_   e
+  _car) e (çL03_   e
+_estrem) e (çL03_  e
+  _mer) e (çL03_   e
+  _pad) e (çL03_   e         // com-
+  _per) e (çL03_   e
+   par) e (çL03_   e         // a- re- com- rea- desa-
+ _esqu) e (çL03_   e
+ _obed) e (çL03_   e
+ _ofer) e (çL03_   e
+ abast) e (çL03_   e         // re-
+_aborr) e (çL03_   e
+_fortal) e (çL03_  e
+  _ado) e (çL03_   e
+_amanh) e (çL03_   e
+_anoit) e (çL03_   e
+_enfraqu) e (çL03_ e
+_enlouqu) e (çL03_ e
+_enriqu) e (çL03_  e
+_entrist) e (çL03_ e
+_envaid) e (çL03_  e
+_envelh) e (çL03_  e
+_esclar) e (çL03_  e
+ _forn) e (çL03_   e
+  conh) e (çL03_   e         // re-
 //endsort
 
 
@@ -650,7 +654,7 @@ _ven) e (rL04_   E
         oi         oI
         oi ($w_alt OI
         oi ($w_alt2++ oI
-        oi (a_     OI   // ??
+        oi (a_     OI        // ??
         oi (cA_    OI
         oi (de_    OI
         oi (s      oI
@@ -686,7 +690,7 @@ _ven) e (rL04_   E
         o (ltAm_   O
 
         o (sA_     O
-        o (so_N    o   // not for osos_
+        o (so_N    o         // not for osos_
         o (sAm_    O
 
         o (ssA_    O
@@ -775,9 +779,9 @@ _desabr) o (chL04_ O
   _rev) o (lvL02_  O
 _desenv) o (lvL02_ O
   _ent) o (pL02_   O
-       c) o (rrL01_  o   // escorra, incorra, corra, recorra
+     c) o (rrL01_  o         // escorra, incorra, corra, recorra
     _m) o (rrL01_  o
-        _c) o (spL02_  O
+    _c) o (spL02_  O
      p) ostos (_   Ost=Us#   // dispostos etc.
 //endsort
 
@@ -916,8 +920,8 @@ _desenv) o (lvL02_ O
      r) u (_A      u
         u (A_      'u
 
-        u (am_    'u
-        u (em_    'u
+        u (am_     'u
+        u (em_     'u
         ui         uI
         ui (_      'uI
         u (iu      w

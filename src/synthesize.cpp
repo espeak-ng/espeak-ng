@@ -1377,7 +1377,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		DoPause(0,0);    // isolate from the previous clause
 	}
 
-	while(ix < (*n_ph))
+	while((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2))
 	{
 		p = &phoneme_list[ix];
 
@@ -1395,8 +1395,6 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		prev = &phoneme_list[ix-1];
 		next = &phoneme_list[ix+1];
 		next2 = &phoneme_list[ix+2];
-		if(next2->ph == NULL)
-            break;
 
 		if(p->synthflags & SFLAG_EMBEDDED)
 		{

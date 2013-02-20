@@ -39,7 +39,7 @@ phoneme &~
   vowel  starttype #@ endtype #@
   ipa ɐU+0303
   length 180
-  IF thisPh(isStressed) THEN
+  IF thisPh(isFinalVowel) THEN
     FMT(vnasal/W_n)
   ELSE
     FMT(vnasal/a#_n)
