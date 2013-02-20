@@ -630,6 +630,7 @@ static FILE *f_phtab;
 static FILE *f_phcontents;
 static FILE *f_errors = stderr;
 static FILE *f_prog_log = NULL;
+static FILE *f_report;
 
 
 static FILE *f_in;
@@ -642,6 +643,7 @@ static int count_references = 0;
 static int duplicate_references = 0;
 static int count_frames = 0;
 static int error_count = 0;
+static int resample_count = 0;
 static int then_count = 0;
 static int after_if = 0;
 
@@ -733,27 +735,21 @@ static void CompileReport(void)
 	int n;
 	REF_HASH_TAB *p;
 	REF_HASH_TAB **list;
-	FILE *f_report;
 	const char *data_path;
 	int prev_table;
 	int prev_mnemonic;
 	char fname[sizeof(path_source)+20];
+
+    if(f_report == NULL)
+        return;
 
 	// make a list of all the references and sort it
 	list = (REF_HASH_TAB **)malloc((count_references)* sizeof(REF_HASH_TAB *));
 	if(list == NULL)
 		return;
 
-	sprintf(fname,"%scompile_report",path_source);
-	f_report = fopen(fname,"w");
-	if(f_report == NULL)
-	{
-		free(list);
-		return;
-	}
-
-	fprintf(f_report,"%d phoneme tables\n",n_phoneme_tabs);
-   fprintf(f_report,"          new total\n");
+	fprintf(f_report,"\n%d phoneme tables\n",n_phoneme_tabs);
+    fprintf(f_report,"          new total\n");
 	for(ix=0; ix<n_phoneme_tabs; ix++)
 	{
 		fprintf(f_report,"%8s %3d %4d\n",phoneme_tab_list2[ix].name, phoneme_tab_list2[ix].n_phonemes, n_phcodes_list[ix]+1);
@@ -1824,13 +1820,21 @@ static int LoadWavefile(FILE *f, const char *fname)
 			if((fd_temp = mkstemp(fname_temp)) >= 0)
 			{
 				close(fd_temp);
-				sprintf(command,"sox \"%s%s.wav\" -r %d -c 1 -w  %s polyphase\n",path_source,fname,samplerate_native,fname_temp);
+				sprintf(command,"sox \"%s%s.wav\" -c1  -t wav %s rate -h %d\n",path_source,fname,fname_temp,samplerate_native);
 				if(system(command) < 0)
 				{
 					error("Failed to resample: %s",command);
+                    remove(fname_temp);
 					return(0);
 				}
 			}
+
+            if(GetFileLength(fname_temp) <= 0)
+            {
+                error("Failed to resample: %s",command);
+                remove(fname_temp);
+                return(0);
+            }
 
 			f = fopen(fname_temp,"rb");
 			if(f == NULL)
@@ -1838,6 +1842,9 @@ static int LoadWavefile(FILE *f, const char *fname)
 				error("Can't read temp file: %s",fname_temp);
 				return(0);
 			}
+			if(f_report != NULL)
+                fprintf(f_report, "resampled  %s\n", fname);
+			resample_count++;
 			resample_wav = 1;
 			fseek(f,40,SEEK_SET);  // skip past the WAV header, up to before "data length"
 		}
@@ -3408,9 +3415,13 @@ static void CompilePhonemeData2(const char *source)
 	wxString report;
 	wxString report_dict;
 
+#ifdef MAKE_ENVELOPES
+make_envs();
+#endif
+
 	n_envelopes = 0;
 	error_count = 0;
-	memset(markers_used,0,sizeof(markers_used));
+memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
 
@@ -3470,6 +3481,10 @@ static void CompilePhonemeData2(const char *source)
 	sprintf(fname,"%s%s",path_source,"error_log");
 	if((f_errors = fopen_log(f_errors,fname,"w")) == NULL)
 		f_errors = stderr;
+
+	sprintf(fname,"%s%s",path_source,"compile_report");
+	f_report = fopen_log(f_errors, fname,"w");
+
 
 	sprintf(fname,"%s/%s",path_home,"phondata-manifest");
 	if((f_phcontents = fopen_log(f_phcontents,fname,"w")) == NULL)
@@ -3534,8 +3549,6 @@ static void CompilePhonemeData2(const char *source)
 fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references);
 	fclose(f_in);
 	fclose(f_phdata);
-	if(f_errors != stderr)
-        fclose(f_errors);
     if(f_prog_log != NULL)
         fclose(f_prog_log);
 	fclose(f_phindex);
@@ -3545,18 +3558,30 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 	LoadPhData();
 	LoadVoice(voice_name2,0);
 
+
 	CompileReport();
 	report_dict = CompileAllDictionaries();
-//#ifdef deleted
 	DrawEnvelopes();
-//#endif
+
 
 	if(gui_flag)
 	{
 		delete progress;
 	}
 
-	report.Printf(_T("Compiled phonemes: %d errors."),error_count);
+	if(resample_count > 0)
+	{
+	    fprintf(f_errors, "\n%d WAV files resampled to %d Hz\n", resample_count, samplerate_native);
+        report.Printf(_T("Compiled phonemes: %d errors, %d files resampled to %d Hz. "),error_count, resample_count, samplerate_native);
+	}
+	else
+	{
+        report.Printf(_T("Compiled phonemes: %d errors."),error_count);
+	}
+
+	if(f_errors != stderr)
+        fclose(f_errors);
+
 	if(error_count > 0)
 	{
 		report += _T(" See file: 'phsource/error_log'.");
@@ -3734,6 +3759,7 @@ void CompileIntonation()
 	char buf[sizeof(path_source)+120];
 
 	error_count = 0;
+	resample_count = 0;
 
 	sprintf(fname_errors,"%s%s",path_source,"error_intonation");
 	if((f_errors = fopen(fname_errors,"w")) == NULL)
@@ -4002,7 +4028,6 @@ void CompileIntonation()
 	fwrite(tune_data, n_tune_names, sizeof(TUNE), f_out);
 	fclose(f_in);
 	fclose(f_out);
-	fclose(f_errors);
 
 	report.Printf(_T("Compiled %d intonation tunes: %d errors."),n_tune_names, error_count);
 	wxLogStatus(report);

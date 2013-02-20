@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.34  12.Feb.13";
+const char *version_string = "1.46.35  14.Feb.13";
 const int version_phdata  = 0x014631;
 
 int option_device_number = -1;
@@ -1215,6 +1215,7 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
         memcpy(&worddata->prev_vowel, &plist[0], sizeof(PHONEME_LIST));
     }
 
+    plist->std_length = phdata->pd_param[i_SET_LENGTH];
 }  // end of InterpretPhoneme
 
 
