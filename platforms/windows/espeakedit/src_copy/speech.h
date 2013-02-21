@@ -28,8 +28,6 @@
 //#define SPECT_EDITOR
 #define INCLUDE_KLATT
 #define INCLUDE_MBROLA
-#define INCLUDE_SONIC
-#define _ESPEAKEDIT
 
 #include <windows.h>
 #define PLATFORM_WINDOWS
