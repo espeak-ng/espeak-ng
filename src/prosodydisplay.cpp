@@ -50,6 +50,86 @@ static wxPen PEN_PHSELECTED(wxColour(255,0,0),2,wxSOLID);
 static wxPen PEN_PHSTRESSED(wxColour(80,80,196),3,wxSOLID);
 static wxPen PEN_PHSTRESSED2(wxColour(160,160,255),2,wxSOLID);
 
+
+
+
+typedef struct {
+    unsigned int value;
+    char *name;
+} NAMETAB;
+
+NAMETAB *manifest = NULL;
+int n_manifest;
+
+const char *LookupManifest(unsigned int addr)
+{//=============================================
+    int ix;
+
+    if(manifest != NULL)
+    {
+        for(ix=0; ix < n_manifest; ix++)
+        {
+            if(manifest[ix].value == addr)
+                return(manifest[ix].name);
+            if(manifest[ix].value > addr)
+                break;
+        }
+    }
+    return("");
+}
+
+
+void ReadPhondataManifest()
+{//=========================
+// Read the phondata-manifest file
+    FILE *f;
+    int n_lines=0;
+    int ix;
+    char *p;
+    unsigned int value;
+    char buf[sizeof(path_home)+40];
+    char name[120];
+
+	sprintf(buf,"%s%c%s",path_home,PATHSEP,"phondata-manifest");
+    if((f = fopen(buf, "r")) == NULL)
+        return;
+
+    while(fgets(buf, sizeof(buf), f) != NULL)
+        n_lines++;
+
+    rewind(f);
+
+    if(manifest != NULL)
+    {
+        for(ix=0; ix < n_manifest; ix++)
+            free(manifest[ix].name);
+    }
+
+    if((manifest = (NAMETAB *)realloc(manifest, n_lines * sizeof(NAMETAB))) == NULL)
+        return;
+
+    n_manifest = 0;
+    while(fgets(buf, sizeof(buf), f) != NULL)
+    {
+        if(!isalpha(buf[0]))
+           continue;
+
+        if(sscanf(&buf[2], "%x %s", &value, name) == 2)
+        {
+            if((p = (char *)malloc(strlen(name)+1)) != NULL)
+            {
+                strcpy(p, name);
+                manifest[n_manifest].value = value;
+                manifest[n_manifest].name = p;
+                n_manifest++;
+            }
+        }
+    }
+    fclose(f);
+}
+
+
+
 ProsodyDisplay::ProsodyDisplay(wxWindow *parent, const wxPoint& pos, const wxSize& size)
         : wxScrolledWindow(parent, -1, pos, size,
                            wxSUNKEN_BORDER | wxNO_FULL_REPAINT_ON_RESIZE)
@@ -76,6 +156,7 @@ void InitProsodyDisplay()
 	int ix;
 	wxString string;
 
+    ReadPhondataManifest();
 	menu_envelopes = new wxMenu;
 	// entries match those in envelope_data[] in intonation.cpp
 
@@ -142,6 +223,7 @@ void ProsodyDisplay::SelectPh(int index)
 	int ix;
 	const char *name = "?";
 	char buf[120];
+	char len_string[20];
 
 	if(index < 0) return;
 
@@ -162,8 +244,12 @@ void ProsodyDisplay::SelectPh(int index)
 	}
 	y1 = p->pitch1;
 	y2 = p->pitch2;
-	sprintf(buf,"Stress %s%d   Amp %2d   StdLength %2d   LengthMod %2d   Pitch %3d %3d  %s    PhFlags %.2x ",
-		emphasized,p->stresslevel&0x7,p->amp,p->std_length*2, p->length,y1,y2,name,p->ph->phflags);
+	len_string[0] = 0;
+	if(p->std_length > 0)
+        sprintf(len_string,"  Length %d", p->std_length*2);
+
+	sprintf(buf,"Stress %s%d   Amp %2d   LengthMod %2d   Pitch %3d %3d  %s    PhFlags %.2x    [%s%s]",
+		emphasized,p->stresslevel&0x7,p->amp, p->length,y1,y2,name,p->ph->phflags, LookupManifest(p->phontab_addr), len_string);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 
@@ -625,4 +711,3 @@ void MyFrame::OnProsody(wxCommandEvent& WXUNUSED(event))
 	adding_page = 2;  // work around for wxNotebook bug (version 2.8.7)
 	screenpages->AddPage(prosodycanvas, _T("Prosody"), true);
 }
-

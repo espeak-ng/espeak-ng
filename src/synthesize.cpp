@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -40,7 +40,7 @@ static void SmoothSpect(void);
 
 // list of phonemes in a clause
 int n_phoneme_list=0;
-PHONEME_LIST phoneme_list[N_PHONEME_LIST];
+PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
 
 int mbrola_delay;
 char mbrola_name[20];
@@ -1377,7 +1377,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		DoPause(0,0);    // isolate from the previous clause
 	}
 
-	while(ix < (*n_ph))
+	while((ix < (*n_ph)) && (ix < N_PHONEME_LIST-2))
 	{
 		p = &phoneme_list[ix];
 
@@ -1448,6 +1448,9 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 		{
 		case phPAUSE:
 			DoPause(p->length,0);
+#ifdef _ESPEAKEDIT
+            p->std_length = p->ph->std_length;
+#endif
 			break;
 
 		case phSTOP:

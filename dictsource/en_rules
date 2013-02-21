@@ -1771,6 +1771,7 @@
             di (ox       d%aI
          _) di (s@       dI2
          _) di (sa@      ,dI
+         _) di (sarm     dI2
          _) disa (p      ,dIs@
             di (sast     dI2
             di (sbe@     ,dI
@@ -2467,6 +2468,7 @@
             er (ve       3:
          s) er (van      3:
             ery (_       @r%i
+?3          ery (_++$w_alt2   @rI
 ?3    @@AC) ery (_       e@ri
             ery (A       3j
         _v) ery          ErI2
@@ -2745,6 +2747,8 @@
             gue (_       g
             gu (e        g
          _) gu (i        g
+         _) gui (dA      gaI
+            guide (@     gaId
          _) g (yn        g
          o) g (y_        g
             g (ynous_    =dZ
@@ -3262,7 +3266,7 @@
             inter (est   Intr
             interfer     Int@f'i@3
          _) int (erio+   %Int
-         _) inter (n_    %Int3:
+         _) inter (nK    %Int3:
          _) inter (nal   %Int3:
          _) inter (pr    %Int3:
          _) inter (pol@  %Int3:
@@ -4576,7 +4580,7 @@
       pull) ov           oUv
          m) ov (A        u:v
          n) ov (el       0v
-         p) over (@      0v@
+         p) over (@      0v3
         pr) ov (e#       u:v
         gr) ov (el       0v
         tr) ov (er       0v
@@ -4942,6 +4946,8 @@
          _) re (i@P2     r,i:
          _) rei (c       raI
          _) rei (l       raI
+         _) rei (s       raI
+         _) re (iss      r%i:
          _) rele (g      rElI2
             rele (nt     rI2lE
             rele (v      rElI#
@@ -5122,9 +5128,8 @@
         1_) st (_
          _) st (_        s@nt
             stein        staIn
-        ti) ssue         Su:
          _) s (u         s
-            ss (ue       S
+            ssue         Su:
             ssur         S3
          a) ssur         SU@
          a) ssure        S'U@

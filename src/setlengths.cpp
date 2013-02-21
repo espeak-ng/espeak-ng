@@ -104,7 +104,7 @@ static unsigned char pause_factor_350[] = {
 15,15,15,15,15};                // 370
 
 // wav_factor adjustments for speeds 350 to 450
-// Use this to calibrate speed for wpm 350-450 
+// Use this to calibrate speed for wpm 350-450
 static unsigned char wav_factor_350[] = {
  120, 121, 120, 119, 119,   // 350
  118, 118, 117, 116, 116,   // 355
@@ -274,6 +274,9 @@ void SetSpeed(int control)
 			if(wpm > 440)
 				speed.min_sample_len = 420 - (wpm - 440);
 		}
+
+// adjust for different sample rates
+speed.min_sample_len = (speed.min_sample_len * samplerate_native) / 22050;
 
 		speed.pause_factor = (256 * s1)/115;      // full speed adjustment, used for pause length
 		speed.clause_pause_factor = 0;
@@ -463,7 +466,7 @@ void SetAmplitude(int amp)
 
 	if((amp >= 0) && (amp <= 20))
 	{
-		option_amplitude = (amplitude_factor[amp] * 480)/256; 
+		option_amplitude = (amplitude_factor[amp] * 480)/256;
 	}
 }
 #endif
@@ -606,7 +609,7 @@ void CalcLengths(Translator *tr)
 		case phPAUSE:
 			last_pitch = 0;
 			break;
-			
+
 		case phSTOP:
 			last_pitch = 0;
 			if(prev->type == phFRICATIVE)
@@ -710,7 +713,7 @@ void CalcLengths(Translator *tr)
 			p->amp = tr->stress_amps[0];  // unless changed later
 			p->length = 256;  //  TEMPORARY
 			min_drop = 0;
-			
+
 			if(p->newword)
 			{
 				if(prev->type==phLIQUID)
@@ -733,12 +736,12 @@ void CalcLengths(Translator *tr)
 				if((prev->type==phVOWEL) || (prev->type == phLIQUID))
 				{
 					p->length = prev->length;
-					
+
 					if(p->type == phLIQUID)
 					{
 						p->length = speed1;
 					}
-	
+
 					if(next->type == phVSTOP)
 					{
 						p->length = (p->length * 160)/100;
@@ -963,11 +966,11 @@ if(p->type != phVOWEL)
 			next->synthflags &= ~SFLAG_SEQCONTINUE;
 			if(next->type == phNASAL && next2->type != phVOWEL)
 				next->synthflags |= SFLAG_SEQCONTINUE;
-				
+
 			if(next->type == phLIQUID)
 			{
 				next->synthflags |= SFLAG_SEQCONTINUE;
-					
+
 				if(next2->type == phVOWEL)
 				{
 					next->synthflags &= ~SFLAG_SEQCONTINUE;

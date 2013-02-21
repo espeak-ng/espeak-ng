@@ -736,7 +736,6 @@ static int LoadSoundFile(const char *fname, int index)
 	{
 		int ix;
 		int fd_temp;
-		const char *resample;
 		int header[3];
 		char command[sizeof(fname2)+sizeof(fname2)+40];
 
@@ -750,17 +749,11 @@ static int LoadSoundFile(const char *fname, int index)
 			fclose(f);
 			f = NULL;
 
-			if(header[2] == samplerate)
-				resample = "";
-			else
-				resample = "polyphase";
-
 			strcpy(fname_temp,"/tmp/espeakXXXXXX");
 			if((fd_temp = mkstemp(fname_temp)) >= 0)
 			{
 				close(fd_temp);
-//			sprintf(fname_temp,"%s.wav",tmpnam(NULL));
-				sprintf(command,"sox \"%s\" -r %d -w -s -c1 %s %s\n", fname, samplerate, fname_temp, resample);
+				sprintf(command,"sox \"%s\" -r %d -c1 -t wav %s\n", fname, samplerate, fname_temp);
 				if(system(command) == 0)
 				{
 					fname = fname_temp;

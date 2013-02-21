@@ -3378,6 +3378,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 	}
 
 	MakePhonemeList(tr, clause_pause, new_sentence);
+	phoneme_list[N_PHONEME_LIST].ph = NULL;   // recognize end of phoneme_list array, in Generate()
+	phoneme_list[N_PHONEME_LIST].sourceix = 1;
 
 	if(embedded_count)   // ???? is this needed
 	{

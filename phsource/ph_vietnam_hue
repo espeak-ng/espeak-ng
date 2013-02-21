@@ -1,0 +1,49 @@
+ 
+//====================================================
+//  Vietnamese Phonemes - Make Huế Dialect
+//====================================================
+
+
+phoneme 1   //  ngang tone: level
+  stress
+  Tone(30, 2, envelope/p_level, NULL) // similar Hue dialect tone
+endphoneme
+
+
+phoneme 2   //  huyền tone: low falling
+  stress
+  Tone(20, 25, envelope/p_fall,envelope/vi_6amp) // NULL) //20 8
+endphoneme
+
+
+phoneme 3   //  sắc Tone(rising
+  stress
+  Tone(2, 10, envelope/p_rise, NULL) // 25 50 45 75
+endphoneme
+
+
+phoneme 4   //  hỏi Tone(curve (dipping rising)
+  stress
+  Tone(20, 5, envelope/p_512,NULL) //Tone(55, 5, envelope/p_fallrise, NULL) //30 5 m 55 5
+endphoneme
+
+
+phoneme 5   //  ngã tone: broken (creaking rising)
+  stress
+  Tone(50,2, envelope/p_214, envelope/vi_5amp) // 28,58 m20 85
+endphoneme
+
+
+phoneme 6   //  nặng Tone(drop  (constricted)
+  stress
+  //length 150 // ignore because it make too short sound 75  // reduce the length of the vowel
+  Tone(25, 10, envelope/p_512, envelope/vi_6amp) // 40 20
+endphoneme
+
+
+phoneme 7   //  Tone(1 (ngang) at end of clause
+  stress
+  Tone(5, 40, envelope/p_level, NULL) //Tone(99,  50, envelope/p_fall, NULL) // 40 20
+endphoneme
+
+

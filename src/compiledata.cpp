@@ -27,6 +27,7 @@
 #include "wx/wfstream.h"
 #include "wx/dir.h"
 #include "wx/filename.h"
+#include <wx/numdlg.h>
 
 #include "speak_lib.h"
 #include "main.h"
@@ -45,6 +46,7 @@ extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
 extern int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
+extern void ReadPhondataManifest();
 char path_source[sizeof(path_home)+20];
 
 
@@ -465,7 +467,7 @@ return;
 		instn_category = (instn >> 12) & 0xf;
 		data1 = instn & 0xff;
 		type2 = (instn >> 8) & 0xf;
-		fprintf(f_out, "  %.3x: %.4x  %s",pc-prog_buf,instn,instn_category_string[instn_category]);
+		fprintf(f_out, "  %.3x: %.4x  %s",(unsigned int)(pc-prog_buf),instn,instn_category_string[instn_category]);
 
 		switch(instn_category)
 		{
@@ -644,6 +646,7 @@ static int duplicate_references = 0;
 static int count_frames = 0;
 static int error_count = 0;
 static int resample_count = 0;
+static int resample_fails = 0;
 static int then_count = 0;
 static int after_if = 0;
 
@@ -738,7 +741,6 @@ static void CompileReport(void)
 	const char *data_path;
 	int prev_table;
 	int prev_mnemonic;
-	char fname[sizeof(path_source)+20];
 
     if(f_report == NULL)
         return;
@@ -1791,8 +1793,12 @@ static int LoadWavefile(FILE *f, const char *fname)
 	int max = 0;
 	int length;
 	int sr1, sr2;
+	int failed;
+	int len;
 	int resample_wav = 0;
+	const char *fname2;
 	char fname_temp[100];
+	char msg[120];
 	int scale_factor=0;
 
 	fseek(f,24,SEEK_SET);
@@ -1802,53 +1808,67 @@ static int LoadWavefile(FILE *f, const char *fname)
 
 	if((sr1 != samplerate_native) || (sr2 != sr1*2))
 	{
-#ifdef PLATFORM_WINDOWS
-		if(sr1 != samplerate_native)
+        int fd_temp;
+        char command[sizeof(path_source)+200];
+
+	    failed = 0;
+
+#ifdef PLATFORM_POSIX
+		strcpy(fname_temp,"/tmp/espeakXXXXXX");
+		if((fd_temp = mkstemp(fname_temp)) >= 0)
 		{
-			fprintf(f_errors,"Wrong samplerate %d, wants %d\n",sr1,samplerate_native);
-			error("Wrong samplerate: %s",fname);
-		}
-		if(sr2 != sr1*2)
-		{
-			error("Not mono: %s",fname);
+			close(fd_temp);
 		}
 #else
-		{
-			int fd_temp;
-			char command[sizeof(path_source)+200];
-			strcpy(fname_temp,"/tmp/espeakXXXXXX");
-			if((fd_temp = mkstemp(fname_temp)) >= 0)
-			{
-				close(fd_temp);
-				sprintf(command,"sox \"%s%s.wav\" -c1  -t wav %s rate -h %d\n",path_source,fname,fname_temp,samplerate_native);
-				if(system(command) < 0)
-				{
-					error("Failed to resample: %s",command);
-                    remove(fname_temp);
-					return(0);
-				}
-			}
-
-            if(GetFileLength(fname_temp) <= 0)
-            {
-                error("Failed to resample: %s",command);
-                remove(fname_temp);
-                return(0);
-            }
-
-			f = fopen(fname_temp,"rb");
-			if(f == NULL)
-			{
-				error("Can't read temp file: %s",fname_temp);
-				return(0);
-			}
-			if(f_report != NULL)
-                fprintf(f_report, "resampled  %s\n", fname);
-			resample_count++;
-			resample_wav = 1;
-			fseek(f,40,SEEK_SET);  // skip past the WAV header, up to before "data length"
-		}
+		strcpy(fname_temp,tmpnam(NULL));
 #endif
+
+        fname2 = fname;
+        len = strlen(fname);
+        if(strcmp(&fname[len-4], ".wav") == 0)
+        {
+            strcpy(msg, fname);
+            msg[len-4] = 0;
+            fname2 = msg;
+        }
+
+        sprintf(command,"sox \"%s%s.wav\" -r %d -c1 -t wav %s\n",path_source,fname2,samplerate_native, fname_temp);
+        if(system(command) < 0)
+        {
+            failed = 1;
+        }
+
+
+        if(failed || (GetFileLength(fname_temp) <= 0))
+        {
+            if(resample_fails < 2)
+                error("Resample command failed: %s", command);
+            resample_fails++;
+
+            if(sr1 != samplerate_native)
+            {
+                sprintf(msg, "Can't resample (%d to %d): %s", sr1, samplerate_native, fname);
+                error("%s", msg);
+            }
+            else
+            {
+                error("WAV file is not mono: %s", fname);
+            }
+            remove(fname_temp);
+            return(0);
+        }
+
+        f = fopen(fname_temp,"rb");
+        if(f == NULL)
+        {
+            error("Can't read temp file: %s",fname_temp);
+            return(0);
+        }
+        if(f_report != NULL)
+            fprintf(f_report, "resampled  %s\n", fname);
+        resample_count++;
+        resample_wav = 1;
+        fseek(f,40,SEEK_SET);  // skip past the WAV header, up to before "data length"
 	}
 
 	displ = ftell(f_phdata);
@@ -3321,8 +3341,11 @@ static void CompileEquivalents()
 	p_start[2] = n_bytes >> 8;    // index of next table
 	p_start[3] = n_bytes;
 
-	LoadVoice(voice_name2,0);  // reset the original phoneme table
-	LoadVoiceVariant(save_voice_name,0);
+    if(gui_flag != 0)
+    {
+        LoadVoice(voice_name2,0);  // reset the original phoneme table
+        LoadVoiceVariant(save_voice_name,0);
+    }
 }  // end of CompileEquivalents
 
 
@@ -3362,6 +3385,7 @@ static void CompilePhonemeFiles()
 		case kINCLUDE:
 			NextItem(tSTRING);
 			sprintf(buf,"%s%s",path_source,item_string);
+
 			if((stack_ix < N_STACK) && (f = fopen_log(f_errors,buf,"rb")) != NULL)
 			{
 				fprintf(f_errors,"include %s\n",item_string);
@@ -3421,6 +3445,7 @@ make_envs();
 
 	n_envelopes = 0;
 	error_count = 0;
+	resample_count = 0;
 memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
@@ -3534,6 +3559,7 @@ memset(markers_used,0,sizeof(markers_used));
 
 	// write a word so that further data doesn't start at displ=0
 	Write4Bytes(f_phdata,version_phdata);
+	Write4Bytes(f_phdata,samplerate_native);
 	Write4Bytes(f_phindex,version_phdata);
 
 	memset(ref_hash_tab,0,sizeof(ref_hash_tab));
@@ -3555,9 +3581,10 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 	fclose(f_phtab);
 	fclose(f_phcontents);
 
-	LoadPhData();
-	LoadVoice(voice_name2,0);
+	LoadPhData(NULL);
 
+	if(gui_flag != 0)
+        LoadVoice(voice_name2,0);
 
 	CompileReport();
 	report_dict = CompileAllDictionaries();
@@ -3595,6 +3622,8 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 		fprintf(stderr,"%s\n",fname);
 
 	}
+
+    ReadPhondataManifest();
 }  // end of CompilePhonemeData
 
 
@@ -3759,7 +3788,6 @@ void CompileIntonation()
 	char buf[sizeof(path_source)+120];
 
 	error_count = 0;
-	resample_count = 0;
 
 	sprintf(fname_errors,"%s%s",path_source,"error_intonation");
 	if((f_errors = fopen(fname_errors,"w")) == NULL)
@@ -4036,7 +4064,7 @@ void CompileIntonation()
 	{
 		DisplayErrorFile(fname_errors);
 	}
-	LoadPhData();
+	LoadPhData(NULL);
 
 }   // end of CompileIntonation
 
@@ -4044,7 +4072,22 @@ void CompileIntonation()
 
 void CompilePhonemeData()
 {
+    WavegenInit(22050, 0);
+	WavegenSetVoice(voice);
 	CompilePhonemeData2("phonemes");
-	return;
+}
+
+
+void CompileSampleRate()
+{
+    long value;
+    value = wxGetNumberFromUser(_T("Compile phoneme data with a specified sample rate"), _T("Sample rate"), _T("Resample (needs sox)"), 22050, 5000, 48000);
+
+    if(value > 1000)
+    {
+        WavegenInit(value, 0);
+        WavegenSetVoice(voice);
+        CompilePhonemeData2("phonemes");
+    }
 }
 

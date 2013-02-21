@@ -1,5 +1,5 @@
 
-
+// 20.02.13  Add samplerate 4-bytes at start of phondata
 // 14.09.10  Recognize long and short frames in phondata
 // 02.09.10  Fix: Q sections were omitted from the converted phondata
 // 13.08.10  jonsd: Added Q lines.  Use Address to set the displacement in phondata file.
@@ -235,7 +235,9 @@ void swap_phondata  (const char *infile, const char *outfile,
         exit (1);
     }
 
-    xread = fread(buf_4, 4, 1, in);
+    xread = fread(buf_4, 4, 1, in);   // version number
+    fwrite(buf_4, 4, 1, out);
+    xread = fread(buf_4, 4, 1, in);   // sample rate
     fwrite(buf_4, 4, 1, out);
 
     while (fgets (line, sizeof(line), mfest))
