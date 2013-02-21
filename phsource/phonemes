@@ -771,12 +771,12 @@ phoneme n.
   ENDIF
 
   NextVowelStarts
-    VowelStart(n/n@)
-    VowelStart(n/na)
-    VowelStart(n/ne)
-    VowelStart(n/ni)
-    VowelStart(n/no)
-    VowelStart(n/nu)
+    VowelStart(n/nr@)
+    VowelStart(n/nra)
+    VowelStart(n/nre)
+    VowelStart(n/nri)
+    VowelStart(n/nro)
+    VowelStart(n/nru)
   EndSwitch
 
   IF prevPh(isNotVowel) AND nextPhW(isLiquid) THEN
@@ -1935,5 +1935,4 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
-
 

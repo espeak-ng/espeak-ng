@@ -43,11 +43,11 @@
 #include "prosodydisplay.h"
 
 
-#ifdef deleted
-static const char *about_string = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2009\n\n"
+
+static const char *about_string2 = "espeakedit: %s\nAuthor: Jonathan Duddington (c) 2009\n\n"
 "Licensed under GNU General Public License version 3\n"
 "http://espeak.sourceforge.net/";
-#endif
+
 
 static const char *about_string = "<font size=0><b>espeakedit </b> %s<br>Author: Jonathan Duddington (c) 2009<br>"
 "<a href=\"http://espeak.sourceforge.net/\">http://espeak.sourceforge.net</a><br>"
@@ -63,6 +63,7 @@ extern void DictionarySort(const char *dictname);
 
 extern void init_z();
 extern void CompilePhonemeData(void);
+extern void CompileSampleRate(void);
 extern void CompileMbrola();
 extern void CompileIntonation();
 extern void InitSpectrumDisplay();
@@ -133,22 +134,21 @@ if(argc > 1)
 
 	if((strcmp(param,"--help")==0) || (strcmp(param,"-h")==0))
 	{
-		printf(about_string,espeak_Info(NULL));
-		printf(help_text);
+		printf(about_string2,espeak_Info(NULL));
+		printf("%s", help_text);
 		exit(0);
 	}
 
 	ConfigInit();
-	VoiceReset(0);
-	WavegenSetVoice(voice);
-	WavegenInitSound();
 
 	if(strcmp(param,"--compile")==0)
 	{
+	    LoadPhData(NULL);
+        samplerate_native = samplerate = 22050;
 		CompilePhonemeData();
 		CompileIntonation();
-		exit(0);
 	}
+    exit(0);
 }
 
 	ConfigInit();
@@ -205,6 +205,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxFrame)
    EVT_MENU(MENU_PATH3, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH4, MyFrame::OnOptions)
    EVT_MENU(MENU_COMPILE_PH, MyFrame::OnTools)
+   EVT_MENU(MENU_COMPILE_PH2, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT, MyFrame::OnTools)
 	EVT_MENU(MENU_COMPILE_DICT_DEBUG, MyFrame::OnTools)
 	EVT_MENU(MENU_FORMAT_DICTIONARY, MyFrame::OnTools)
@@ -266,6 +267,7 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 	int error_flag = 0;
 	int result;
 	int param;
+	int srate;
 
 	notebook = new wxNotebook(this, ID_NOTEBOOK, wxDefaultPosition, wxSize(312,760));
 //	notebook->AddPage(voicedlg,_T("Voice"),FALSE);
@@ -301,9 +303,8 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
     SetSize(pos.x, pos.y, size.GetWidth(), size.GetHeight());
 
 	LoadConfig();
-	WavegenInitSound();
 
-	if((result = LoadPhData()) != 1)
+	if((result = LoadPhData(&srate)) != 1)
 	{
 		if(result == -1)
 			wxLogError(_T("Failed to read espeak-data/phontab,phondata,phonindex\nPath = ")+wxString(path_home,wxConvLocal)+_T("\n\nThe 'eSpeak' package needs to be installed"));
@@ -311,7 +312,10 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 			wxLogError(_T("Wrong version of espeak-data at:\n")+ wxString(path_home,wxConvLocal)+_T("\nVersion 0x%x (expects 0x%x)"),result,version_phdata);
 
 		error_flag = 1;
+		srate = 22050;
 	}
+	WavegenInit(srate,0);
+	WavegenInitSound();
 
 	f_trans = stdout;
 	option_ssml = 1;
@@ -350,7 +354,13 @@ MyFrame::MyFrame(wxWindow *parent, const wxWindowID id, const wxString& title, c
 void MyFrame::SetVoiceTitle(char *voice_name)
 {//==========================================
 	char buf[100];
-	SetTitle(AppName + _T(" - ") + wxString(voice_name,wxConvLocal) + _T("  voice"));
+
+	if(samplerate_native == 22050)
+        sprintf(buf, " - %s  voice", voice_name);
+    else
+        sprintf(buf, " - %s  voice  %dHz", voice_name, samplerate_native);
+	SetTitle(AppName + wxString(buf,wxConvLocal));
+
 	if((data_menu != NULL) && (translator != NULL))
 	{
 		sprintf(buf,"Compile &dictionary '%s'",translator->dictionary_name);
@@ -738,6 +748,12 @@ void MyFrame::OnTools(wxCommandEvent& event)
 
 	case MENU_COMPILE_PH:
 		CompilePhonemeData();
+		SetVoiceTitle(voice_name2);
+		break;
+
+	case MENU_COMPILE_PH2:
+		CompileSampleRate();
+		SetVoiceTitle(voice_name2);
 		break;
 
 	case MENU_COMPILE_MBROLA:

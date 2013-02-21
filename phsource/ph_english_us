@@ -8,7 +8,7 @@ phoneme 3    //  Schwa, used for rhotic schwa in American
   vowel   starttype #@  endtype #@
   ipa ɚ
   unstressed
-  length 210
+  length 200
   IfNextVowelAppend(r-)
   FMT(vwl_en_us/3_us)
 endphoneme
@@ -21,15 +21,12 @@ phoneme @    //  Schwa
   IF nextPh(isRhotic) THEN
     ChangePhoneme(3)
   ENDIF
+  IF thisPh(isWordEnd) THEN
+    FMT(vowel/@_6)
+  ENDIF
   FMT(vowel/@_4)
 endphoneme
 
-phoneme @/    //  Schwa, end of word
-  vowel   starttype #@  endtype #@
-  unstressed
-  length 130
-  FMT(vowel/@_low2)
-endphoneme
 
 phoneme @2   //  Schwa, changes to I before a vowel
   vowel  starttype #@  endtype #@

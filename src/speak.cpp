@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -397,6 +397,7 @@ static int initialise(void)
 {//========================
 	int param;
 	int result;
+	int srate = 22050;   // default sample rate
 
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
@@ -412,8 +413,7 @@ static int initialise(void)
 #endif
 
 
-	WavegenInit(22050,0);   // 22050
-	if((result = LoadPhData()) != 1)
+	if((result = LoadPhData(&srate)) != 1)
 	{
 		if(result == -1)
 		{
@@ -423,6 +423,7 @@ static int initialise(void)
 		else
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
 	}
+	WavegenInit(srate,0);
 	LoadConfig();
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -79,7 +79,7 @@ Options::~Options()
 
 	for(ix=0; ix < 1; ix++)
 		delete m_lab[ix];
-		
+
 	delete m_samplerate;
 	delete m_save;
 	delete m_close;
@@ -89,13 +89,13 @@ void Options::OnCommand(wxCommandEvent& event)
 {//===========================================
 	int  id;
 	int  value;
-	
+
 	switch(id = event.GetId())
 	{
 	case wxID_SAVE:
 		value = GetNumeric(m_samplerate);
 		if(value > 0) WavegenInit(value,0);
-		
+
 		Destroy();
 		break;
 
@@ -120,11 +120,10 @@ void ConfigSetPaths()
 
 void ConfigInit()
 {//==============
-	long value;
 	wxString string;
 	wxString basedir;
 	const char *path_base;
-	
+
 #ifdef PLATFORM_WINDOWS
 	int found = 0;
 	char buf[200];
@@ -134,7 +133,7 @@ void ConfigInit()
 	{
 		sprintf(path_home,"%s\\espeak-data",path_base);
 		if(GetFileLength(path_home) == -2)
-			found = 1;   // an espeak-data directory exists 
+			found = 1;   // an espeak-data directory exists
 	}
 
 	if(found == 0)
@@ -142,7 +141,7 @@ void ConfigInit()
 		if(pRegKey->Exists() )
 		{
 			wxString RegVal;
-			pRegKey->QueryValue(_T("Path"),RegVal); 
+			pRegKey->QueryValue(_T("Path"),RegVal);
 			strncpy0(buf,RegVal.mb_str(wxConvLocal),sizeof(buf));
 			path_base = buf;
 		}
@@ -160,12 +159,6 @@ void ConfigInit()
 
 	wxFileConfig *pConfig = new wxFileConfig(_T("espeakedit"));
 	wxFileConfig::Set(pConfig);
-
-	pConfig->Read(_T("/samplerate"),&value,22050);
-#ifdef PLATFORM_WINDOWS
-	value = 22050;
-#endif
-	WavegenInit(value,0);
 
 	basedir = wxString(path_base,wxConvLocal);  // this is only used to set defaults for other paths if they are not in the config file
 	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/phsource"));

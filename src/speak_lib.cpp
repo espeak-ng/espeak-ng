@@ -377,11 +377,12 @@ static int initialise(int control)
 {//===============================
 	int param;
 	int result;
+	int srate = 22050;  // default sample rate 22050 Hz
 
 	err = EE_OK;
 	LoadConfig();
-	WavegenInit(22050,0);   // 22050
-	if((result = LoadPhData()) != 1)
+
+	if((result = LoadPhData(&srate)) != 1)  // reads sample rate from espeak-data/phontab
 	{
 		if(result == -1)
 		{
@@ -394,6 +395,7 @@ static int initialise(int control)
 		else
 			fprintf(stderr,"Wrong version of espeak-data 0x%x (expects 0x%x) at %s\n",result,version_phdata,path_home);
 	}
+	WavegenInit(srate,0);
 
 	memset(&current_voice_selected,0,sizeof(current_voice_selected));
 	SetVoiceStack(NULL, "");
