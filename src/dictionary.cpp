@@ -2489,6 +2489,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 	int  ix;
 	unsigned int  digit_count=0;
 	char *p;
+	ALPHABET *alphabet;
 	int  dict_flags0=0;
 	MatchRecord match1;
 	MatchRecord match2;
@@ -2684,6 +2685,13 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							match1.phonemes = ph_buf;
 							match1.points = 1;
 							p += (wc_bytes-1);
+						}
+
+						if(((alphabet = AlphabetFromChar(letter)) != NULL) && (alphabet->language != 0) && (alphabet->offset != tr->letter_bits_offset))
+						{
+						    // switch to the nominated language for this alphabet
+                            sprintf(phonemes,"%c%s",phonSWITCH, WordToString2(alphabet->language));
+                            return(0);
 						}
 					}
 				}

@@ -1390,6 +1390,24 @@ static int NextItem(int type)
 
 
 
+static int NextItemMax(int max)
+{//==============================
+// Get a number, but restrict value to max
+    int value;
+    char msg[80];
+
+    value = NextItem(tNUMBER);
+    if(value > max)
+    {
+        sprintf(msg, "Value %d is greater than maximum %d", value, max);
+        error(msg, NULL);
+        value = max;
+    }
+    return(value);
+}
+
+
+
 static int NextItemBrackets(int type, int control)
 {//===============================================
 // Expect a parameter inside parantheses
@@ -2794,17 +2812,17 @@ int CompilePhoneme(int compile_phoneme)
 				break;
 
 			case i_PAUSE_BEFORE:
-				value = NextItem(tNUMBER);
+				value = NextItemMax(255);
 				*prog_out++ = (i_PAUSE_BEFORE << 8) + value;
 				break;
 
 			case i_PAUSE_AFTER:
-				value = NextItem(tNUMBER);
+				value = NextItemMax(255);
 				*prog_out++ = (i_PAUSE_AFTER << 8) + value;
 				break;
 
 			case i_SET_LENGTH:
-				value = NextItem(tNUMBER);
+				value = NextItemMax(511);
 				if(after_if == 0)
 				{
 					phoneme_out->std_length = value/2;

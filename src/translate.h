@@ -111,6 +111,7 @@
 #define FLAG_INDIVIDUAL_DIGITS 0x80000  // speak number as individual digits
 #define FLAG_DELETE_WORD     0x100000   // don't speak this word, it has been spoken as part of the previous word
 #define FLAG_CHAR_REPLACED   0x200000   // characters have been replaced by .replace in the *_rules
+#define FLAG_TRANSLATOR2     0x400000   // retranslating using a different language
 
 #define FLAG_SUFFIX_VOWEL  0x08000000   // remember an initial vowel from the suffix
 #define FLAG_NO_TRACE      0x10000000   // passed to TranslateRules() to suppress dictionary lookup printout
@@ -257,6 +258,21 @@ typedef struct {
 extern PARAM_STACK param_stack[];
 extern const int param_defaults[N_SPEECH_PARAM];
 
+
+typedef struct {
+    const char *name;
+    int offset;
+    unsigned short range_min, range_max;
+    int language;
+    int flags;
+} ALPHABET;
+
+extern ALPHABET alphabets[];
+extern ALPHABET *current_alphabet;
+// alphabet flags
+#define AL_DONT_NAME  0x01    // don't speak the alphabet name
+#define AL_NOT_LETTERS  0x02  // don't use the language for speaking letters
+#define AL_NOT_WORDS  0x04    // don't use the language to speak words
 
 
 #define N_LOPTS      21
@@ -664,6 +680,8 @@ int IsAlpha(unsigned int c);
 int isspace2(unsigned int c);
 int towlower2(unsigned int c);
 void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
+const char *WordToString2(unsigned int word);
+ALPHABET *AlphabetFromChar(int c);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);
