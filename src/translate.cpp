@@ -77,6 +77,7 @@ static int prev_clause_pause=0;
 static int max_clause_pause = 0;
 static int any_stressed_words;
 int pre_pause;
+ALPHABET *current_alphabet;
 
 
 // these were previously in translator class
@@ -874,6 +875,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	unpron_phonemes[0] = 0;
 	prefix_phonemes[0] = 0;
 	end_phonemes[0] = 0;
+    current_alphabet = NULL;
 
 	if(tr->data_dictlist == NULL)
 	{
@@ -901,6 +903,12 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	memcpy(word_copy2, word_start, word_copy_length);
 
 	spell_word = 0;
+
+	if((word_length == 1) && (wflags & FLAG_TRANSLATOR2))
+	{
+	    // retranslating a 1-character word using a different language, say its name
+	    spell_word = 1;
+	}
 
 	if(option_sayas == SAYAS_KEY)
 	{
@@ -1061,6 +1069,8 @@ if((wmark > 0) && (wmark < 8))
 				return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
 			return(0);
 		}
+		strcpy(word_phonemes, phonemes);
+		return(0);  // ??
 	}
 	else
 	if(found == 0)
@@ -1098,7 +1108,7 @@ if((wmark > 0) && (wmark < 8))
 				if(strcmp(&unpron_phonemes[1],"en")==0)
 					return(FLAG_SPELLWORD);   // _^_en must have been set in TranslateLetter(), not *_rules
 				return(0);
-			}
+        }
 
 #ifdef deleted
 			p = &wordx[word_length-3];    // this looks wrong.  Doesn't consider multi-byte chars.
@@ -1158,6 +1168,8 @@ if(end_type & SUFX_UNPRON)
 					{
 						return(0);
 					}
+					strcpy(word_phonemes, phonemes);
+					return(0);
 				}
 			}
 
@@ -1713,6 +1725,7 @@ int SetTranslator2(const char *new_language)
 				new_phoneme_tab = -1;
 				translator2_language[0] = 0;
 			}
+			translator2->phoneme_tab_ix = new_phoneme_tab;
 		}
 	}
 	return(new_phoneme_tab);
@@ -1953,12 +1966,14 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(switch_phonemes >= 0)
 			{
 				// re-translate the word using the new translator
+				wtab[0].flags |= FLAG_TRANSLATOR2;
 				flags = TranslateWord(translator2, word, next_pause, wtab);
 //				strcpy((char *)p,translator2->word_phonemes);
 				if(p[0] == phonSWITCH)
 				{
 					// the second translator doesn't want to process this word
-					switch_phonemes = -1;
+//					switch_phonemes = -1;
+return(FLAG_SPELLWORD);
 				}
 			}
 			if(switch_phonemes < 0)
@@ -2050,8 +2065,16 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	if(switch_phonemes >= 0)
 	{
 		// this word uses a different phoneme table
-		SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
-		ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
+		if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
+		{
+		    //previous phoneme is also a phonSWITCH, just change its phoneme table number
+            n_ph_list2--;
+		}
+        else
+        {
+            SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
+        }
+        ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
 	}
 
 	// remove initial pause from a word if it follows a hyphen
@@ -2078,7 +2101,9 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			ph_list2[n_ph_list2].phcode = ph_code;
 			ph_list2[n_ph_list2].sourceix = 0;
 			ph_list2[n_ph_list2].synthflags = embedded_flag;
-			ph_list2[n_ph_list2++].tone_ph = *p++;
+			ph_list2[n_ph_list2++].tone_ph = *p;
+            SelectPhonemeTable(*p);
+            p++;
 		}
 		else
 		if(ph->type == phSTRESS)

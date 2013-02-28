@@ -40,7 +40,7 @@ phoneme &~
   ipa ɐU+0303
   length 180
   IF thisPh(isFinalVowel) THEN
-    FMT(vnasal/W_n)
+    FMT(vnasal/a#_n2)
   ELSE
     FMT(vnasal/a#_n)
   ENDIF

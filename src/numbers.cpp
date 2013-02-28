@@ -591,15 +591,19 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	int letter;
 	int len;
 	int ix;
-	int save_option_phonemes;
 	char *p2;
 	char *pbuf;
+	ALPHABET *alphabet;
+	int language;
+    int phontab_1;
 	char capital[20];
 	char ph_buf[80];
 	char ph_buf2[80];
+	char ph_alphabet[80];
 	char hexbuf[6];
 
 	ph_buf[0] = 0;
+	ph_alphabet[0] = 0;
 	capital[0] = 0;
 
 	n_bytes = utf8_in(&letter,word);
@@ -627,6 +631,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		return(0);
 	}
 
+#ifdef deleted
 	if((ph_buf[0] == 0) && (tr->translator_name != L('e','n')))
 	{
 		// speak as English, check whether there is a translation for this character
@@ -642,6 +647,67 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 			sprintf(phonemes,"%cen",phonSWITCH);
 			return(0);
 		}
+	}
+#endif
+
+    alphabet = AlphabetFromChar(letter);
+    if(alphabet != current_alphabet)
+    {
+        current_alphabet = alphabet;
+        if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME))
+        {
+            if(Lookup(translator, alphabet->name, ph_alphabet) == 0)  // the original language for the current voice
+            {
+                // Can't find the local name for this alphabet, use the English name
+                phontab_1 = tr->phoneme_tab_ix;
+                ph_alphabet[2] = SetTranslator2("en");   // overwrites previous contents of translator2
+                if(Lookup(translator2, alphabet->name, &ph_alphabet[3]) != 0)
+                {
+                    ph_alphabet[0] = phonPAUSE;
+                    ph_alphabet[1] = phonSWITCH;
+                    len = strlen(&ph_alphabet[3]) + 3;
+                    ph_alphabet[len] = phonSWITCH;  // switch back
+                    ph_alphabet[len+1] = phontab_1;
+                    ph_alphabet[len+2] = 0;
+                }
+            }
+        }
+    }
+
+
+// caution: SetWordStress() etc don't expect phonSWITCH + phoneme table number
+	if(ph_buf[0] == 0)
+	{
+	    if((alphabet != NULL) && (alphabet->language != 0) && !(alphabet->flags & AL_NOT_LETTERS))
+            language = alphabet->language;
+        else
+            language = L('e','n');
+
+        if(language != tr->translator_name)
+        {
+            // speak in the language for this alphabet (or English)
+            ph_buf[2] = SetTranslator2(WordToString2(language));
+            LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+
+            if(ph_buf[3] == phonSWITCH)
+            {
+                // another level of language change
+                ph_buf[2] = SetTranslator2(&ph_buf[4]);
+                LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+            }
+
+            SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+
+            if(ph_buf[3] != 0)
+            {
+                ph_buf[0] = phonPAUSE;
+                ph_buf[1] = phonSWITCH;
+                len = strlen(&ph_buf[3]) + 3;
+                ph_buf[len] = phonSWITCH;  // switch back
+                ph_buf[len+1] = tr->phoneme_tab_ix;
+                ph_buf[len+2] = 0;
+            }
+        }
 	}
 
 	if(ph_buf[0] == 0)
@@ -695,10 +761,11 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	}
 
 	len = strlen(phonemes);
+
 	if(tr->langopts.accents & 2)
-		sprintf(ph_buf2,"%c%s%s",0xff,ph_buf,capital);
+		sprintf(ph_buf2,"%c%s%s%s",0xff,ph_alphabet,ph_buf,capital);
 	else
-		sprintf(ph_buf2,"%c%s%s",0xff,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
+		sprintf(ph_buf2,"%c%s%s%s",0xff,ph_alphabet,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()
 	if((len + strlen(ph_buf2)) < N_WORD_PHONEMES)
 	{
 		strcpy(&phonemes[len],ph_buf2);
@@ -714,23 +781,25 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 	int ix;
 	unsigned int c;
 	int n_stress=0;
+	int prev = 0;
 	int count;
 	unsigned char buf[N_WORD_PHONEMES];
 
 	for(ix=0; (c = phonemes[ix]) != 0; ix++)
 	{
-		if(c == phonSTRESS_P)
+		if((c == phonSTRESS_P) && (prev != phonSWITCH))
 		{
 			n_stress++;
 		}
-		buf[ix] = c;
+		buf[ix] = prev = c;
 	}
 	buf[ix] = 0;
 
 	count = 0;
+	prev = 0;
 	for(ix=0; (c = buf[ix]) != 0; ix++)
 	{
-		if((c == phonSTRESS_P) && (n_chars > 1))
+		if((c == phonSTRESS_P) && (n_chars > 1) && (prev != phonSWITCH))
 		{
 			count++;
 
@@ -761,10 +830,8 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 				c = phonPAUSE_NOLINK;  // pause following a primary stress
 			else
 				c = phonPAUSE_VSHORT;
-//			else
-//				continue;       // remove marker
 		}
-		*phonemes++ = c;
+		*phonemes++ = prev = c;
 	}
 	if(control >= 2)
 		*phonemes++ = phonPAUSE_NOLINK;
