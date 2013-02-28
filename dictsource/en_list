@@ -225,8 +225,9 @@ _₠	jU@roU
 ♭	flat
 ¬	n0t_|saIn
 √	skw,e@r'u:t
-∞	Inf'InI2tI2
+∞	Inf'InI2ti
 ≠	n0t'i:kw@LtU
+∫	IntIgr@L
 №	nju:m@roU
 ।	dVnda#
 ●	bl,aks'3:k@L
@@ -248,6 +249,140 @@ _₠	jU@roU
 ʔ	gl'0?@Lst0p
 ʧ	tSES
 ʤ	dZEZ
+
+// Language names
+_el	gr'i:k
+_cyr	sI2r'IlIk
+_hy	A@m'i:ni@n
+_he	h'i:bru:
+_ar	'ar@bIk
+_dv	t'A:na#
+_hi	h'Indi
+_bn	bEng'A:li
+_gur	g'U@mUki
+_gu	gu:dZ3r'A:ti
+_or	0r'i@
+_ta	t'amI2l
+_kn	k'A:na#d@
+_ml	maleI'A:l@m
+_si	sI2nh'A:l@
+_th	t'aI
+_lo	l'aU
+_ti	tI2b'Et@n
+_my	mj'A:nmA@
+_ka	dZ'O@dZ@n
+_ko	k3r'i@n
+_eth	i:TI'0pIk
+
+
+// Cyrillic letters
+а	a
+б	bE
+в	vE
+г	gE
+д	dE
+е	jE
+ё	jo
+ж	ZE
+з	zE
+и	I
+й	,Ik@-*'atkOji
+к	ka
+л	El/1
+м	Em
+н	En
+о	o
+п	pE
+р	Er
+с	Es
+т	tE
+у	u
+ф	Ef
+х	xa
+ц	tsE
+ч	tSE
+ш	Sa
+щ	StSa
+ъ	jEr
+ы	_^_RU
+ь	jer
+э	E
+ю	ju
+я	ja
+
+// Arabic letters
+
+ء	h'amza
+آ	'Elifm,adda#
+أ	'Elifh,amza
+ا	'Elif
+ب	bE?
+ة	t'E?maR2b'uta#
+ت	tE?
+ث	TE?
+ج	ZIm
+ح	hE?
+خ	xE?
+د	dEl/1
+ذ	DEl/1
+ر	R2A:?
+ز	zEjn
+س	si:n
+ش	Si:n
+ص	sO:d@-
+ض	dO:d@-
+ط	thA:?
+ظ	DA:?
+ع	?ajn
+غ	Q"ajn
+ف	fE?
+ق	qO:f
+ك	kEf
+ل	lEm
+م	mi:m
+ن	nu|:n
+ه	hE?
+و	wO:w
+ي	jE?
+
+َ	a
+ِ	i
+ُ	u
+ّ	S'ada#
+ْ	suk'un
+	
+
+
+
+// Hebrew letters
+א	'alef_
+ב	bet_
+ג	'gimel_
+ד	'dalet_
+ה	he_
+ו	vav_
+ז	z'ajin_
+ח	xet_
+ט	tet_
+י	jod_
+ך	kaf_
+כ	kaf_
+ל	l'amed_
+ם	mem_
+מ	mem_
+ן	nun_
+נ	nun_
+ס	s'amex_
+ע	?'ajin_
+ף	pe_
+פ	pe_
+ץ	ts'adi_
+צ	ts'adi_
+ק	kuf_
+ר	ReS_
+ש	Sin_
+ת	tav_
+
 
 // phonetic modifiers
 ː	lENT@nd_
@@ -389,6 +524,7 @@ id	$abbrev
 ie	aIi:_!   $pause $only
 i.e	aIi:_!   $pause
 imo	$abbrev
+inlb	$abbrev
 irc	$abbrev
 irs	$abbrev
 itx	$abbrev
@@ -443,6 +579,7 @@ utc     $abbrev
 uv	$abbrev
 VI      $abbrev
 wwii	dVb@Lju:dVb@Lju:t'u:
+xl	$abbrev		// not roman 40
 xxx	$abbrev		// not roman 30
 xy	$abbrev
 yd	$abbrev
@@ -814,12 +951,14 @@ brie		bri:
 bridal		braId@L
 brigade		$2
 brigadier	brIga#d'i@3
+brioche		bri:'oUS
 broccoli	br0k@li
 brochure	broUS3
 ?3 brochure	broU'SU@r
 brooch		broUtS
 budgerigar	bVdZ@rIgA@
 buffet		bVfeI
+?3 bulimia	bUl'Imi@
 bunion		bVnI2@n
 bureaucracy	bjU@'0kr@si
 bursar		b3:s3
@@ -875,6 +1014,7 @@ carburetor	kA@b@r'Et3
 ?3 carburetor	kA@b@reIt3
 career		k@r'i@3
 caress		k@rEs
+carousel	kar@s'El
 carpel		kA@p@l
 cascade		$alt3
 cashier		kaS'i@3
@@ -1056,8 +1196,7 @@ convent		k0nv@nt
 converse	$1 $only
 converse	$verb
 convert		$1 $noun
-convict		$1 $onlys
-convict		$verb
+convict		$2 $verb
 convolute	k0nv@l'u:t
 coop		ku:p
 cooper		ku:p3
@@ -1483,7 +1622,6 @@ haha		hA:h'A:
 halleluiah	halI2'lu:j@
 hallelujah	halI2'lu:j@
 halloween	$3
-hallucinate	$alt3
 halogen		hal@dZ@n
 hanged		haNd
 harem		hA:r'i:m
@@ -1641,6 +1779,7 @@ itinerary	aIt'In@r@rI
 ja		jA:
 jagged		dZagI#d
 jaguar		dZagwA@
+jalapeno	hA:l@p'eIn;oU
 japan		dZ@pan
 jasmine		dZazmIn
 jedi		dZEdaI
@@ -1651,6 +1790,7 @@ jukebox		dZu:kb0ks
 july		dZu:l'aI
 
 kaput		$alt3
+karaoke		karI'oUki
 karate		k@rA:ti
 kebab		k@bab
 ?3 kebab	k@bA:b
@@ -1936,6 +2076,7 @@ nosedive	noUzdaIv
 nosir		noUs3:
 not		noUt          // for noted, notable, etc 
 nots		n0ts
+(nôtre dame)	noUtr@'dA:m
 nott		n0t
 nothing		nVTIN
 notwithstanding	$3
@@ -2027,6 +2168,7 @@ oxymoron	$3
 padre		pA:dreI
 paella		paI'El@
 palling		palIN
+palsy		pO:lzi
 papa		pa#p'A:
 ?3 papa		pA:p@
 papal		peIp@L 
@@ -2116,7 +2258,7 @@ pizzeria	pi:ts@r'i@
 plaguing	pleIgIN
 playtest	pleItEst
 plaza		plA:z@
-plebeian	pl@b'i@n
+plebeian	pl@b'i:@n
 plethora	plET3r@
 plicate		$2
 plumber		plVm3
@@ -2128,6 +2270,7 @@ poll		poUl
 polyamide	p0lI'eImaId
 polythene	$1
 portend		po@t'End
+?!3 portrait	po@treIt
 poseidon	p@saId@n
 posse		p0si
 postage		poUstI2dZ
@@ -2370,19 +2513,18 @@ salad		sal@d
 salami		$alt3
 saline		seIlaIn
 ?3 saline	seIli:n
+salmon		sam@n
 ?3 salon	$alt3
 saloon		$alt3
 san		,san $only
 sardine		$2
-satan		seIt@n
-satanist	seIt@nIst
+satanic		$alt3
 saucepan	sO:sp@n
 saudi		saUdi
 saute		sO:teI
 ?3 savant	sa#vA:nt
 says		sEz
 scaly		skeIlI
-salmon		sam@n
 scalpel		skalp@L
 scared		ske@d
 scaring		ske@rIN
@@ -2458,6 +2600,8 @@ sierra		si:'e@r@
 signage		saInI2dZ
 signal		sIgn@l        // signaled
 signer		saIn3
+signoff		s,aIn'0f
+signon		s,aIn'0n
 signup		saInVp
 sikh		si:k
 silo		saIloU
@@ -2932,7 +3076,6 @@ Belgrade	$2
 Belize		bEl'i:z
 Bengal		b,Eng'O:l
 Benin		bEnIn
-Berlin		b3:l'In
 Bhutan		bu:t'an
 Bideford	bIdIf@d
 Bogota		b0g@t'A:
@@ -2993,6 +3136,7 @@ Geneva		dZ@ni:v@
 Gdansk		g@-dansk
 Gibraltar	$2
 Gomera		goUm'e@r@
+Gurmukhi	gU@mUki
 Harare		ha#rA:ri
 Hanoi		han'OI
 Havana		ha#van@
@@ -3073,6 +3217,7 @@ Moroccan	m@r0k@n
 Montana		m0nt'an@
 Monte		m0nt2i
 Munich		mju:nIk
+Myanmar		mjA:nmA@
 Nairobi		naIr'oUbi
 Naples		neIp@Lz
 Nauru		naUru:
@@ -3136,6 +3281,7 @@ Sumatran	su:m'A:tr@n
 Suriname	sU@rIn'am
 Taipei		t,aIp'eI
 Taiwan		taI'wA:n
+Taiwanese	taIw@n'i:z
 Tawakoni	ta#wA:k@ni
 Tblisi		t@-bli:si
 Tehran		te@r'A:n
@@ -3348,7 +3494,7 @@ Jacob		dZeIk@b
 Jacques		Zak
 Jamie		dZeImi
 Jared		dZar@d
-Jarred		dZar@d
+Jarrad		dZar@d
 Jesus		dZi:z@s
 Jonah		dZoUn@
 José		hoUs'eI
@@ -3496,6 +3642,7 @@ Tricia		trIS@
 Vanessa		$alt3
 Wallace		w0lI#s
 Wally		w0li
+?3 William	wIlj@m
 Yves		i:v
 Yvonne		$2
 Zoe		zoUi
@@ -3510,6 +3657,7 @@ Boswell		b0zwEl
 Buchanan	bju:k'an@n
 Cabrillo	ka#bri:oU
 Campbell	kamb@l
+Capone		ka#poUn
 Carnegie	kA@n@gi
 Cohen		koU@n
 Cthulhu		k@-Tu:l#u:
@@ -3529,6 +3677,7 @@ Gibson		gIbs@n
 Guinness	gInIs
 Hades		heIdi:z
 Hamilton	ham@Lt@n
+Hoosier		hu:Z3
 Jacobi		dZa#koUbi
 Kendell		kEnd@L
 Kyocera		kaI|@s'i@r@
@@ -3555,7 +3704,9 @@ Rivera		rI2ve@r@
 Rizzoli		rI2zoUli
 Rodrigues	r0dr'i:gEz
 Sanchez		santSEz
+Shakur		Sa#kU@
 Tzu		tsu:
+Versace		v3sA:tSi
 Wii		wi::
 Yaesu		jeIsu:
 Yamaha		jam@hA:

@@ -30,7 +30,7 @@
           m) ach (in      %a:S
           _) af (C@P2     'Af
           _) affich       %AfiS
-             age (_N      'a:Z@
+             age (_       'a:Z@
              ages (_S1    s
              age (_$w_alt a:Q@
              aille (_     'Aj@
@@ -45,6 +45,7 @@
           @) ant (e_      'Ant
           @) ant (en_     'Ant
           @) ant (er_     'Ant
+          @) ares (_      a:r'Es
              aris (_      'a:rIs
              arissen (_   'a:rIs@n
              a (tor_      'a:
@@ -243,8 +244,10 @@
           @) ent (st_     'Ent
           @) ent (ste_    'Ent
          ag) ent          'Ent
-         @j) es (_        @s
+         @j) es (_S1       s
+         @z) es (_S1      s  
           @) es (_S2qd    'Es   // double the previous vowel
+          @) es (_$w_alt2S1 s   // just remove 's'
         KAC) es (_S2e     @s
           @) essen (_S5qd 'Es@n
           @) eres (_S4qd  @r'Es
@@ -400,6 +403,9 @@
           _) in (C@P2     'In
 //        _) in (gP2      'In
              io (nage     iO
+             io (de_       i'o:
+             iodes (_      i'o:d@s
+             is (_        Is
           @) isch (_      =is
           @) ische (_     =is@
           @) isme (_      'Ism@
@@ -449,6 +455,7 @@ _) inn (@P2 'I    // ?? inneren
             management    ma:nIdZm@nt
          _) mee (@P3      m'e:
             menu (_       m@ny
+         _) mi (cro       mi
          _) mi (s@        m%I
          _) mis (anC      miz
          _) mis (commP3   m'Is
@@ -526,6 +533,7 @@ _) inn (@P2 'I    // ?? inneren
           _) openings (P8 'o:p@nINs
           _) op (era      'o:p
           _) op (tion     Op
+             os (_        Os
              ou (che_     u
              ouch (en_    uS
           d) ou (blu      u
@@ -620,6 +628,7 @@ _) inn (@P2 'I    // ?? inneren
              sj           S
           @) sje (_       sj@
           @) s (_S1       s
+          @) s (_$w_alt   =s
 
              sc (oop      sk
              sc (opi      sk
@@ -702,6 +711,7 @@ _) inn (@P2 'I    // ?? inneren
              uw (_        yU
 
           _) uit (@P3      'Wyt
+             us (_        8s
              u (sie_      'y
           @) ute (_       'yt
              uu (r_       'y

@@ -703,6 +703,27 @@ zwanger		$alt
 Vlaander	$alt
 
 
+// -s is not a suffix
+as		$alt
+bres		$alt
+chaos		$alt $1
+es		$alt
+fles		$alt
+fris		$alt
+glas		$alt
+mes		$alt
+moeras		$alt
+was		$alt // gewas
+
+// -s, just remove 's' from the plural
+charges		$alt2
+curves		$alt2
+droogtes	$alt2
+groeves		$alt2
+hoeves		$alt2
+reserves	$alt2
+marges		$alt2
+marge		mArZ@
 
 // words where -age  is [a:Q@] not French ['a:Z@]
 drage		$alt
@@ -1369,9 +1390,6 @@ ijssel		$alt
 meppel		$alt
 moesel		muz@l
 vondel		$alt
-
-// -s is not plural
-chaos		xa:Os
 
 // all words on _aard are treated as suffix in the rules.
 
