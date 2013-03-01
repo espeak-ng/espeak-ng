@@ -1718,6 +1718,15 @@ include ph_french_ca
 phonemetable hi base
 include ph_hindi
 
+phonemetable bn hi
+include ph_bengali
+
+phonemetable ne hi
+include ph_nepali
+
+phonemetable ur hi
+include ph_urdu
+
 phonemetable ta hi
 include ph_tamil
 
@@ -1726,9 +1735,6 @@ include ph_kannada
 
 phonemetable ml hi
 include ph_malayalam
-
-phonemetable ur hi
-include ph_urdu
 
 
 phonemetable hu base
@@ -1856,12 +1862,6 @@ include ph_georgian
 
 phonemetable rw base2
 include ph_kinyarwanda
-
-//phonemetable bn hi
-//include ph_bengali
-
-phonemetable ne hi
-include ph_nepali
 
 //phonemetable mr hi
 //include ph_marathi

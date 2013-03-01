@@ -37,26 +37,18 @@
 #define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
 
-#define FLAG_ONLY            0x200
-#define FLAG_ONLY_S          0x400
-#define BITNUM_FLAG_ONLY         9  // bit 9 is set
-#define BITNUM_FLAG_ONLY_S      10  // bit 10 is set
+#define FLAG_STRESS_END      0x200  // full stress if at end of clause
+#define FLAG_STRESS_END2     0x400  // full stress if at end of clause, or only followed by unstressed
+#define FLAG_UNSTRESS_END    0x800  // reduce stress at end of clause
+#define FLAG_SPELLWORD      0x1000  // re-translate the word as individual letters, separated by spaces
+#define FLAG_ABBREV         0x2000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
+#define FLAG_DOUBLING       0x4000  // doubles the following consonant
 
-#define FLAG_STRESS_END      0x800  /* full stress if at end of clause */
-#define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
-#define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
-#define FLAG_ATEND          0x4000  /* use this pronunciation if at end of clause */
-#define FLAG_ATSTART        0x8000  // use this pronunciation if at start of clause
-#define FLAG_SPELLWORD     0x10000  // re-translate the word as individual letters, separated by spaces
-#define FLAG_ABBREV        0x20000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
-#define FLAG_STEM          0x40000  // must have a suffix
-
-#define FLAG_DOUBLING      0x80000  // doubles the following consonant
-#define BITNUM_FLAG_ALT         19  // bit number of FLAG_ALT_TRANS - 1
-#define FLAG_ALT_TRANS    0x100000  // language specific
-#define FLAG_ALT2_TRANS   0x200000  // language specific
-#define FLAG_ALT3_TRANS   0x400000  // language specific
-#define FLAG_COMBINE      0x800000  // combine with the next word
+#define BITNUM_FLAG_ALT         14  // bit number of FLAG_ALT_TRANS - 1
+#define FLAG_ALT_TRANS      0x8000  // language specific
+#define FLAG_ALT2_TRANS    0x10000  // language specific
+#define FLAG_ALT3_TRANS    0x20000  // language specific
+#define FLAG_COMBINE       0x40000  // combine with the next word
 
 #define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
 #define FLAG_NEEDS_DOT  0x02000000  // only if the word is followed by a dot
@@ -83,8 +75,16 @@
 #define FLAG_ACCENT          0x800  // character name is base-character name + accent name
 #define FLAG_HYPHENATED     0x1000  // multiple-words, but needs hyphen between parts 1 and 2
 #define FLAG_SENTENCE       0x2000  // only if the clause is a sentence
+#define FLAG_ONLY           0x4000
+#define FLAG_ONLY_S         0x8000
+#define FLAG_STEM          0x10000  // must have a suffix
+#define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
+#define FLAG_ATSTART       0x30000  // use this pronunciation if at start of clause
+
 #define BITNUM_FLAG_ALLCAPS   0x2a
 #define BITNUM_FLAG_HYPHENATED  0x2c
+#define BITNUM_FLAG_ONLY      0x2e
+#define BITNUM_FLAG_ONLY_S    0x2f
 
 
 // wordflags, flags in source word
@@ -714,7 +714,7 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 int Unpronouncable(Translator *tr, char *word, int posn);
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress);
 int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
-int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
+int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab, char *word_out);
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 

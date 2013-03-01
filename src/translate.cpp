@@ -807,8 +807,8 @@ int ChangeEquivalentPhonemes(Translator *tr, int lang2, char *phonemes)
 
 
 
-int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wtab)
-{//===========================================================================
+int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wtab, char *word_out)
+{//==================================================================================================
 // word1 is terminated by space (0x20) character
 
 	char *word1;
@@ -943,6 +943,9 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 
 		if(dictionary_flags[0] & FLAG_TEXTMODE)
 		{
+		    if(word_out != NULL)
+                strcpy(word_out, word1);
+
 			first_char = word1[0];
 			stress_bits = dictionary_flags[0] & 0x7f;
 			found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, 0, wtab);   // the text replacement
@@ -1760,6 +1763,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	int word_flags;
 	int word_copy_len;
 	char word_copy[N_WORD_BYTES+1];
+	char word_replaced[N_WORD_BYTES+1];
 	char old_dictionary_name[40];
 
 	if((f_logespeak != NULL) && (logging_type & 8))
@@ -1871,7 +1875,8 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		while(((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0) && (ix < N_WORD_BYTES)) ix++;
 		word_copy_len = ix;
 
-		flags = TranslateWord(translator, word, next_pause, wtab);
+        word_replaced[2] = 0;
+		flags = TranslateWord(translator, word, next_pause, wtab, &word_replaced[2]);
 
 		if(flags & FLAG_SPELLWORD)
 		{
@@ -1906,7 +1911,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			{
 				strcpy(ph_buf,word_phonemes);
 
-				flags2[0] = TranslateWord(translator, p2+1, 0, wtab+1);
+				flags2[0] = TranslateWord(translator, p2+1, 0, wtab+1, NULL);
 				if((flags2[0] & FLAG_WAS_UNPRONOUNCABLE) || (word_phonemes[0] == phonSWITCH))
 					ok = 0;
 
@@ -1934,12 +1939,12 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(ok)
 			{
 				*p2 = '-'; // replace next space by hyphen
-				flags = TranslateWord(translator, word, next_pause, wtab);  // translate the combined word
+				flags = TranslateWord(translator, word, next_pause, wtab, NULL);  // translate the combined word
 				if((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f)))
 				{
 					// revert to separate words
 					*p2 = ' ';
-					flags = TranslateWord(translator, word, next_pause, wtab);
+					flags = TranslateWord(translator, word, next_pause, wtab, NULL);
 				}
 				else
 				{
@@ -1967,7 +1972,14 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			{
 				// re-translate the word using the new translator
 				wtab[0].flags |= FLAG_TRANSLATOR2;
-				flags = TranslateWord(translator2, word, next_pause, wtab);
+				if(word_replaced[2] != 0)
+				{
+				    word_replaced[0] = 0;   // byte before the start of the word
+				    word_replaced[1] = ' ';
+                    flags = TranslateWord(translator2, &word_replaced[1], next_pause, wtab, NULL);
+				}
+				else
+                    flags = TranslateWord(translator2, word, next_pause, wtab, NULL);
 //				strcpy((char *)p,translator2->word_phonemes);
 				if(p[0] == phonSWITCH)
 				{

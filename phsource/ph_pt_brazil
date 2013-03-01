@@ -189,18 +189,8 @@ phoneme l
 endphoneme
 
 
-phoneme x   // this is [R] from Slovak/Czech
-  liquid
-  trill
-  ipa ʁ
-  lengthmod 6
-  IF thisPh(isWordStart) THEN
-    ChangePhoneme(h)  // Change by Cleverson 22.09.2012
-  ENDIF
-
-  Vowelin  f1=0  f2=1700 -300 300  f3=-300 80
-  Vowelout f1=2  f2=1700 -300 300  f3=-300 80 brk
-  FMT(r3/r_trill) addWav(r3/r_trill.wav, 50)
+phoneme x   // (previously [R] from Slovak/Czech)
+  import_phoneme base/h
 endphoneme
 
 

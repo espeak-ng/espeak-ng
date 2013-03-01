@@ -132,7 +132,7 @@ phoneme v
 endphoneme
 
 phoneme r
-  import_phoneme base/*
+  import_phoneme base/**
 endphoneme
 
 phoneme R
@@ -142,3 +142,20 @@ endphoneme
 phoneme d#   // 'rr' sounds like English 'd'
   import_phoneme base/d
 endphoneme
+
+
+phoneme kh2
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=0  f2=2300 200 300  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_asp2, 50)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/kl)
+  ENDIF
+  WAV(ustop/k_asp2, 90)
+endphoneme
+

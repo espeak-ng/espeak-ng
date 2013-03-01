@@ -51,15 +51,21 @@ static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
 	{"unpr",   0x01},
+
 	{"w_alt1", 0x11},
 	{"w_alt2", 0x12},
 	{"w_alt3", 0x13},
-//	{"w_alt4", 0x14},
+	{"w_alt4", 0x14},
+	{"w_alt5", 0x15},
+	{"w_alt6", 0x16},
 	{"w_alt", 0x11},   // note: put longer names before their sub-strings
+
 	{"p_alt1", 0x21},
 	{"p_alt2", 0x22},
 	{"p_alt3", 0x23},
-//	{"p_alt4", 0x24},
+	{"p_alt4", 0x24},
+	{"p_alt5", 0x25},
+	{"p_alt6", 0x26},
 	{"p_alt", 0x21},
 	{NULL, -1} };
 
@@ -83,24 +89,22 @@ MNEM_TAB mnem_flags[] = {
 
 
 	// these set the corresponding numbered bit if dictionary_flags
-	{"$pause",     8},    /* ensure pause before this word */
-	{"$only",      9},    /* only match on this word without suffix */
-	{"$onlys",     10},    /* only match with none, or with 's' suffix */
-	{"$strend",    11},    /* full stress if at end of clause */
-	{"$strend2",   12},    /* full stress if at end of clause, or only followed by unstressed */
-	{"$unstressend",13},   /* reduce stress at end of clause */
-	{"$atend",     14},    /* use this pronunciation if at end of clause */
-	{"$atstart",   15},   // use this pronunciation at start of clause
-
-	{"$abbrev",    17},    /* use this pronuciation rather than split into letters */
-	{"$stem",      18},   // must have a suffix
+	{"$pause",     8},    // ensure pause before this word
+	{"$strend",    9},   // full stress if at end of clause
+	{"$strend2",   10},   // full stress if at end of clause, or only followed by unstressed
+	{"$unstressend",11},  // reduce stress at end of clause
+	{"$abbrev",    13},   // use this pronuciation rather than split into letters
 
 // language specific
-	{"$double",    19},   // IT double the initial consonant of next word
-	{"$alt",       20},   // use alternative pronunciation
-	{"$alt1",      20},   // synonym for $alt
-	{"$alt2",      21},
-	{"$alt3",      22},
+	{"$double",    14},   // IT double the initial consonant of next word
+	{"$alt",       15},   // use alternative pronunciation
+	{"$alt1",      15},   // synonym for $alt
+	{"$alt2",      16},
+	{"$alt3",      17},
+	{"$alt4",      18},
+	{"$alt5",      19},
+	{"$alt6",      20},
+
 	{"$combine",   23},   // Combine with the next word
 
 	{"$dot",       24},   // ignore '.' after this word (abbreviation)
@@ -111,18 +115,23 @@ MNEM_TAB mnem_flags[] = {
 	{"$text",      29},   // word translates to replcement text, not phonemes
 
 // flags in dictionary word 2
-	{"$verbf",   0x20},    /* verb follows */
-	{"$verbsf",  0x21},    /* verb follows, allow -s suffix */
-	{"$nounf",   0x22},    /* noun follows */
-	{"$pastf",   0x23},   /* past tense follows */
-	{"$verb",    0x24},   /* use this pronunciation when its a verb */
-	{"$noun",    0x25},   /* use this pronunciation when its a noun */
-	{"$past",    0x26},   /* use this pronunciation when its past tense */
-	{"$verbextend",0x28},   /* extend influence of 'verb follows' */
-	{"$capital", 0x29},   /* use this pronunciation if initial letter is upper case */
-	{"$allcaps", 0x2a},   /* use this pronunciation if initial letter is upper case */
+	{"$verbf",   0x20},   // verb follows
+	{"$verbsf",  0x21},   // verb follows, allow -s suffix
+	{"$nounf",   0x22},   // noun follows
+	{"$pastf",   0x23},   // past tense follows
+	{"$verb",    0x24},   // use this pronunciation when its a verb
+	{"$noun",    0x25},   // use this pronunciation when its a noun
+	{"$past",    0x26},   // use this pronunciation when its past tense
+	{"$verbextend",0x28}, // extend influence of 'verb follows'
+	{"$capital", 0x29},   // use this pronunciation if initial letter is upper case
+	{"$allcaps", 0x2a},   // use this pronunciation if initial letter is upper case
 	{"$accent",  0x2b},   // character name is base-character name + accent name
 	{"$sentence",0x2d},   // only if this clause is a sentence (i.e. terminator is {. ? !} not {, ; :}
+	{"$only",    0x2e},   // only match on this word without suffix
+	{"$onlys",   0x2f},   // only match with none, or with 's' suffix
+	{"$stem",    0x30},   // must have a suffix
+	{"$atend",   0x31},   // use this pronunciation if at end of clause
+	{"$atstart", 0x32},   // use this pronunciation at start of clause
 
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
@@ -611,7 +620,7 @@ static char nullstring[] = {0};
 
 	// PROBLEM  vowel reductions are not applied to the translated phonemes
 	// condition rules are not applied
-			TranslateWord(translator,phonetic,0,NULL);
+			TranslateWord(translator,phonetic,0,NULL,NULL);
 			text_not_phonemes = 0;
 			strncpy0(encoded_ph, word_phonemes, N_WORD_BYTES-4);
 
