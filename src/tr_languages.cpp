@@ -808,6 +808,13 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
+    case L('g','a'):   // irish
+        {
+            tr->langopts.stress_rule = STRESSPOSN_1L;
+            tr->langopts.numbers = 1;
+        }
+        break;
+
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
 	case L('p','a'):    // Punjabi

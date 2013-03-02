@@ -3012,10 +3012,10 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	int  no_phonemes;
 	int  skipwords;
 	int  ix;
+	int  c;
 	const char *word_end;
 	const char *word1;
 	int wflags = 0;
-//	int wflags2;
 	char word_buf[N_WORD_BYTES+1];
 
 	if(wtab != NULL)
@@ -3165,20 +3165,20 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		if((end_flags & FLAG_SUFX)==0)
 		{
 			// no suffix has been removed
-			if(dictionary_flags & FLAG_STEM)
+			if(dictionary_flags2 & FLAG_STEM)
 				continue;   // this word must have a suffix
 		}
 
-		if((end_flags & SUFX_P) && (dictionary_flags & (FLAG_ONLY | FLAG_ONLY_S)))
+		if((end_flags & SUFX_P) && (dictionary_flags2 & (FLAG_ONLY | FLAG_ONLY_S)))
 			continue;    // $only or $onlys, don't match if a prefix has been removed
 
 		if(end_flags & FLAG_SUFX)
 		{
 			// a suffix was removed from the word
-			if(dictionary_flags & FLAG_ONLY)
+			if(dictionary_flags2 & FLAG_ONLY)
 				continue;        // no match if any suffix
 
-			if((dictionary_flags & FLAG_ONLY_S) && ((end_flags & FLAG_SUFX_S)==0))
+			if((dictionary_flags2 & FLAG_ONLY_S) && ((end_flags & FLAG_SUFX_S)==0))
 			{
 				// only a 's' suffix allowed, but the suffix wasn't 's'
 				continue;
@@ -3212,13 +3212,13 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				continue;
 		}
 
-		if((dictionary_flags & FLAG_ATEND) && (word_end < tr->clause_end))
+		if((dictionary_flags2 & FLAG_ATEND) && (word_end < tr->clause_end))
 		{
 			// only use this pronunciation if it's the last word of the clause
 			continue;
 		}
 
-		if((dictionary_flags & FLAG_ATSTART) && !(wtab->flags & FLAG_FIRST_WORD))
+		if((dictionary_flags2 & FLAG_ATSTART) && !(wtab->flags & FLAG_FIRST_WORD))
 		{
 			// only use this pronunciation if it's the first word of a clause
 			continue;
@@ -3318,6 +3318,12 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				fprintf(f_trans,"' [%s]  %s\n",ph_decoded,print_dictionary_flags(flags));
 			}
 		}
+
+		ix = utf8_in(&c, word);
+		if((word[ix] == 0) && !IsAlpha(c))
+		{
+		    flags[0] |= FLAG_MAX3;
+		}
 		return(word_end);
 
 	}
@@ -3389,6 +3395,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 	word[length] = 0;
 
 	found = LookupDict2(tr, word, word1, ph_out, flags, end_flags, wtab);
+
 
 	if(flags[0] & FLAG_MAX3)
 	{

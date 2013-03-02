@@ -87,33 +87,65 @@ _!	a:S;c@rjacihn@m
 // numbers
 _0	p'u:Jj@m
 _1	'onny
-_2	r'an.t.y
-_3	m'unny
+_2	r@n.d#y
+_3	m'u:nny
 _4	n'a:ly
 _5	'an^cy
-_6	'aR2y
+_6	'a:R2y
 _7	'e:r.y
 _8	'et.t.y
 _9	'onpaty
-_1X	p'ati
 _10	p'atty
+_1X	p'ati
+
 _11	p'atinonny
 _12	p'antran.t.y
-_15	p'atinan^cy
-_16	p'atinaR2y
-_17	p'atine:R2y
-_18	p'atine:t.t.y
 _19	p'attompatu
-_2X	'irupat
-_3X	m'uppat
-_4X	n'a:lppat
-_5X	'anpat
-_6X	'aR2upat
-_7X	'er.upat
-_8X	'en.pat
-_9X	t'on.n.u:R2
+_20	'irup'aty
+_2X	'irupatti
+_30	m'uppaty
+_3X	m'uppatti':
+_40	n'a:lppaty
+_4X	n'a:lppatti
+_50	'anpaty
+_5X	'anpatti
+_60	'aR2upaty
+_6X	'aR2upatti
+_70	'er.'upaty
+_7X	'er.'upatti
+_80	'en.paty
+_8X	'en.patti
+_90	t'on.n.u:r:
+_9X	t'on.n.u:t.t.i
+
 _0C	n'u:R
-_0M1	'a:jiRam
-_0M2	l'aks.am
+_1C0	n'u:r:
+_1C	n'u:t.t.i
+_2C0	irunn'u:r
+_2C	irunn'u:t.t.i
+_3C0	munn'u:r
+_3C	munn'u:t.t.i
+_4C0	na:nnu:r
+_4C	na:nnu:t.t.i
+_5C0	'an^cu:r
+_5C	'an^cu:t.t.i
+_6C0	aR2unu:r
+_6C	aR2unu:t.t.i
+_7C0	'er.'unu:r
+_7C	'er.'unu:t.t.i
+_8C0	'en.n.u:r
+_8C	'en.n.u:t.t.i
+_9C0	tol.l.'a:jiRam
+_9C	tol.l.'a:jiRatti
+
+_0M1x	'a:jiRam
+_0M1	'a:jiRat.t.i
+_0M2x	l'aks.am
+_0M2	l'aks.at.t.i
 _0M3	k'o:t.i
+
 _dpt	_d'aS;a:mS;@m_
+
+
+
+

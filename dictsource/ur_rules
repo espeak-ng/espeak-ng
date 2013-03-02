@@ -19,7 +19,7 @@
 
 
 // vowel signs, alif acts as consonants  at start of word if these follow
-.L01  َ  ِ  ُ  و  ی   ع  ا
+.L01  َ ِ ُ و ی ع ا ے 
 
 
 // VOWELS
@@ -52,6 +52,7 @@
 _) ا	a
 _) او	u:
 _) ای	i:
+	ائ	a:j
 
 .group آ
 	آ	a:
@@ -68,13 +69,13 @@ _) ای	i:
 	وُ	u:
 	وٗ	u:
 	و (L01	v
-	_) و	v
+	_) و	vV
 
 .group ی
 	ی	e:
 	ی (L01	j
 	ی (_	i:
-	_) ی	j
+	_) ی	jV
 
 
 .group ے		// yeh barree

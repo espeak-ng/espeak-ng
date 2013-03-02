@@ -464,7 +464,7 @@ void Lexicon_It(int pass)
 		}
 
 		// translate
-		TranslateWord(translator,&word1[1],0, NULL);
+		TranslateWord(translator,&word1[1],0, NULL, NULL);
 		DecodePhonemes(word_phonemes,phonemes);
 
 		stress_posn1 = 0;
@@ -487,7 +487,7 @@ void Lexicon_It(int pass)
 				vowel_ix++;
 		}
 
-		TranslateWord(translator,&word2[1],0, NULL);
+		TranslateWord(translator,&word2[1],0, NULL, NULL);
 		DecodePhonemes(word_phonemes,phonemes2);
 
 		vowel_ix = 1;
@@ -802,7 +802,7 @@ void Lexicon_De()
 		}
 
 		// translate
-		TranslateWord(translator,&word2[1],0, NULL);
+		TranslateWord(translator,&word2[1],0, NULL, NULL);
 
 		DecodePhonemes2(word_phonemes,phonemes);  // also need to change some phoneme names
 
@@ -1042,7 +1042,7 @@ void Lexicon_Bg()
 		*pw1 = 0;
 
 		// translate
-		TranslateWord(translator, &word[2],0, NULL);
+		TranslateWord(translator, &word[2],0, NULL, NULL);
 		DecodePhonemes(word_phonemes,phonemes);
 
 		// find the stress position in the translation
@@ -1300,7 +1300,7 @@ void Lexicon_Ru()
 		}
 
 		// translate
-		TranslateWord(translator, &word2[1],0, NULL);
+		TranslateWord(translator, &word2[1],0, NULL, NULL);
 		DecodePhonemes(word_phonemes,phonemes);
 
 		// find the stress position in the translation

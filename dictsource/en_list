@@ -187,7 +187,7 @@ _‴	trIp@LpraIm
 _‼	Ekskla#m'eIS@nz
 _₠	jU@roU
 
-+	plVs  $max3
++	plVs
 #	haS   $max3
 @	_at_	$u+
 &	_and   $u+
@@ -1196,6 +1196,7 @@ convent		k0nv@nt
 converse	$1 $only
 converse	$verb
 convert		$1 $noun
+convict		$1
 convict		$2 $verb
 convolute	k0nv@l'u:t
 coop		ku:p
@@ -1961,6 +1962,7 @@ mercedes	m3:s'eIdi:z
 //mercenary	m3:s@n@rI
 merest		mi@r@st
 meringue	m@raN
+meson		mi:z0n
 metabolic	mEt@b'0lIk
 metaphor	mEt@fO@
 metastable	$alt1
