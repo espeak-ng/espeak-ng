@@ -3606,7 +3606,9 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 
 	CompileReport();
 	report_dict = CompileAllDictionaries();
+#ifdef MAKE_ENVELOPES
 	DrawEnvelopes();
+#endif
 
 
 	if(gui_flag)
