@@ -1,0 +1,37 @@
+
+//====================================================
+//  Bengali, inherits from Hindi
+//====================================================
+
+phoneme @
+  vowel flag1 starttype #@  endtype #@
+  length 65
+
+  ChangeIfDiminished(@-)
+  IF nextPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+  FMT(vowel/@_bck)
+endphoneme
+
+
+phoneme V
+  vowel flag1 starttype #@  endtype #@
+  length 180
+  CALL hi/V
+endphoneme
+
+
+phoneme a:
+  vowel long starttype #a endtype #a
+  length 230
+  FMT(vowel/aa_9)
+endphoneme
+
+
+phoneme o:
+  vowel long starttype #o endtype #o
+  length 220
+  FMT(vowel/o_2)
+endphoneme
+
