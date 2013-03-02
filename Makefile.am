@@ -132,7 +132,6 @@ dictionaries: \
 	espeak-data/an_dict \
 	espeak-data/az_dict \
 	espeak-data/bg_dict \
-	espeak-data/bn_dict \
 	espeak-data/ca_dict \
 	espeak-data/cs_dict \
 	espeak-data/cy_dict \
