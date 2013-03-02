@@ -647,6 +647,7 @@ almoço	$alt $verb
 amarelo		$alt
 ameba		$alt
 amores		$alt2
+antonieta	$alt2
 apego		$alt2 $noun
 apelo		$alt  $verb
 aposto		$alt  $verb
@@ -723,7 +724,7 @@ coice		$alt2
 colabore	$alt
 colete		$alt2
 colchete		$alt2
-colher	$alt $verb
+colher	$alt $noun
 colheres	$alt $noun
 colmeia		$alt
 colore		$alt
@@ -762,8 +763,6 @@ descordo	$alt
 desespero	$alt2 $noun
 desfecho	$alt2
 desprezo	$alt  $verb
-deva		$alt2
-devo		$alt2
 deveras		$alt
 dez		$alt
 diarreia	$alt
@@ -839,6 +838,8 @@ fogos		$alt
 foguete		$alt2
 foice		$alt2
 forca		$alt2
+força	$alt2 $noun
+forço	$alt
 forças		$alt2
 fordes	$alt2
 fores	$alt2

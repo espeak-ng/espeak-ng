@@ -798,14 +798,25 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_DICTRULES:   // conditional dictionary rules and list entries
+		case V_NUMBERS:
+            // expect a list of numbers
 			while(*p != 0)
 			{
 				while(isspace(*p)) p++;
 				n = -1;
-				if(((n = atoi(p)) > 0) && (n < 32))
+				if((n = atoi(p)) > 0)
 				{
 					p++;
-					conditional_rules |= (1 << n);
+					if((key==V_DICTRULES) && (n < 32))
+                        conditional_rules |= (1 << n);
+					else
+					if((key==V_NUMBERS) && (n < 32))
+                        langopts->numbers |= (1 << n);
+                    else
+                    if((key==V_NUMBERS) && (n < 64))
+                        langopts->numbers |= (1 << (n-32));
+                    else
+                        fprintf(stderr,"Bad option number %d\n", n);
 				}
 				while(isalnum(*p)) p++;
 			}
@@ -835,10 +846,6 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_CHARSET:
 			if((sscanf(p,"%d",&value)==1) && (value < N_CHARSETS))
 				new_translator->charset_a0 = charsets[value];
-			break;
-
-		case V_NUMBERS:
-			sscanf(p,"%d %d",&langopts->numbers,&langopts->numbers2);
 			break;
 
 		case V_OPTION:

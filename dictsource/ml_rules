@@ -1,5 +1,5 @@
 
-// This file is UTF8 encoded 
+// This file is UTF8 encoded
 // Spelling to phoneme rules for Malayalam
 
 // A means vowel letters (not vowel signs)
@@ -17,266 +17,267 @@
 ൭	7
 ൮	8
 ൯	9
-ോ	ോ 
+ോ	ോ
 ൊ	ൊ
 ൌ	ൌ
 
 
 
 .group ക
-	ക	ka
-	ക (B	k
+        ക          ka
+        ക (B       k
 
 .group ഖ
-	ഖ	kha
-	ഖ (B	kh
+        ഖ          kha
+        ഖ (B       kh
 
 .group ഗ
-	ഗ	ga
-	ഗ (B	g
+        ഗ          ga
+        ഗ (B       g
 
 .group ഘ
-	ഘ	gha
-	ഘ (B	gh
+        ഘ          gha
+        ഘ (B       gh
 
 .group ങ
-	ങ	Na
-	ങ (B	N
+        ങ          Na
+        ങ (B       N
 
 .group ച
-	ച	ca
-	ച (B	c
+        ച          ca
+        ച (B       c
 
 .group ഛ
-	ഛ	cha
-	ഛ (B	ch
+        ഛ          cha
+        ഛ (B       ch
 
 .group ജ
-	ജ	Ja
-	ജ (B	J
+        ജ          Ja
+        ജ (B       J
 
 .group ഝ
-	ഝ	Jha
-	ഝ (B	Jh
+        ഝ          Jha
+        ഝ (B       Jh
 
 .group ഞ
-	ഞ	n^a
-	ഞ (B	n^
+        ഞ          n^a
+        ഞ (B       n^
 
 .group ട
-	ട	t.a
-	ട (B	t.
+        ട          t.a
+        ട (B       t.
 
 .group ഠ
-	ഠ	th.a
-	ഠ (B	th.
+        ഠ          th.a
+        ഠ (B       th.
 
 .group ഡ
-	ഡ	d.a
-	ഡ (B	d.
+        ഡ          d.a
+        ഡ (B       d.
 
 .group ഢ
-	ഢ	dh.a
-	ഢ (B	dh.
+        ഢ          dh.a
+        ഢ (B       dh.
 
 .group ണ
-	ണ	n.a
-	ണ (B	n.
+        ണ          n.a
+        ണ (B       n.
 
 .group ത
-	ത	ta
-	ത (B	t
+        ത          ta
+        ത (B       t
 
 .group ഥ
-	ഥ	tha
-	ഥ (B	th
+        ഥ          tha
+        ഥ (B       th
 
 .group ദ
-	ദ	da
-	ദ (B	d
+        ദ          da
+        ദ (B       d
 
 .group ധ
-	ധ	dha
-	ധ (B	dh
+        ധ          dha
+        ധ (B       dh
 
 .group ന
-	ന	na
-	ന (B	n
+        ന          na
+        ന (B       n
 
 .group പ
-	പ	pa
-	പ (B	p
+        പ          pa
+        പ (B       p
 
 .group ഫ
-	ഫ	pha
-	ഫ (B	p
+        ഫ          pha
+        ഫ (B       p
 
-_പ്രൊ) ഫ (സര്	fa
+ _പ്രൊ) ഫ (സര്     fa
 
 
 .group ബ
-	ബ	ba
-	ബ (B	b
+        ബ          ba
+        ബ (B       b
 
 .group ഭ
-	ഭ	bha
-	ഭ (B	bh
+        ഭ          bha
+        ഭ (B       bh
 
 .group മ
-	മ	ma
-	മ (B	m
+        മ          ma
+        മ (B       m
 
 .group യ
-	യ	ja
-	യ (B	j
+        യ          ja
+        യ (B       j
 
 .group ര
-	ര	ra
-	ര (B	r
+        ര          ra
+        ര (B       r
 
 .group റ
-	റ	R2a
-	റ (B	R2
-     ന്) റ	d#
-	റ്റ	t.t.   // ?? R2R2 = t.t.
+        റ          R2a
+        റ (B       R2
+    ന്) റ          d#
+        റ്റ        t.t.      // ?? R2R2 = t.t.
 
 .group ല
-	ല	la
-	ല (B	l
+        ല          la
+        ല (B       l
 
 .group ള
-	ള	l.a
-	ള (B	l.
+        ള          l.a
+        ള (B       l.
 
 .group ഴ    // retroflex [r.] ?
-	ഴ	r.a
-	ഴ (B	r.
+        ഴ          r.a
+        ഴ (B       r.
 
 .group വ
-	വ	va
-	വ (B	v
+        വ          va
+        വ (B       v
 
 .group ശ
-	ശ	S;a
-	ശ (B	S;
+        ശ          S;a
+        ശ (B       S;
 
 .group ഷ
-	ഷ	s.a
-	ഷ (B	s.
+        ഷ          s.a
+        ഷ (B       s.
 
 .group സ
-	സ	sa
-	സ (B	s
+        സ          sa
+        സ (B       s
 
 .group ഹ
-	ഹ	ha
-	ഹ (B	h
+        ഹ          ha
+        ഹ (B       h
 
 
 // chillu consonants
 .group ൺ
-	ൺ	n.
+        ൺ          n.
 
 .group ൻ
-	ൻ	n
+        ൻ          n
 
 .group ർ
-	ർ	r
+        ർ          r
 
 .group ൽ
-	ൽ	l
+        ൽ          l
 
 .group ൾ
-	ൾ	l.
+        ൾ          l.
 
 .group ൿ
-	ൿ	k
+        ൿ          k
 
 
 .group 0xe0b4   // characters which start with UTF-8 bytes: [e0 b4]
 
-	ഽ	// avagraha
+        ഽ                    // avagraha
 
-	ം	m	// anusvara (this should nasalize the vowel)
+        ം          m         // anusvara (this should nasalize the vowel)
 
-	ഃ	h	// visarga
+        ഃ          h         // visarga
 
-	അ	a
+        അ          a
 
-	ആ	a:
+        ആ          a:
 
-	ഇ	i
+        ഇ          i
 
-	ഈ	i:
+        ഈ          i:
 
-	ഉ	u
+        ഉ          u
 
-	ഊ	u:
+        ഊ          u:
 
-	ഋ	Ry
+        ഋ          Ry
 
-	എ	e
-     _) എ	;e
+        എ          e
+     _) എ          ;e
 
-	ഏ	e:
-     _) ഏ	;e:
+        ഏ          e:
+     _) ഏ          ;e:
 
-	ഐ	aI
+        ഐ          aI
 
-	ഒ	o
+        ഒ          o
 
-	ഓ	o:
+        ഓ          o:
 
-	ഔ	aU
+        ഔ          aU
 
 // combining vowel signs
 
-	ാ	a:
+        ാ          a:
 
-	ി	i
-	ി  (ല്K     I
+        ി          i
+        ി (ല്K     I
 
 .group 0xe0b5   // characters which start with UTF-8 bytes: [e0 b5]
 
-	ീ	i:
+        ീ          i:
 
-	ു	u
+        ു          u
 
-	ൂ	u:
+        ൂ          u:
 
-	ൃ	r-
+        ൃ          r-
 
-	ൄ	r-:
+        ൄ          r-:
 
-	െ	e
+        െ          e
 
-	േ	e:
+        േ          e:
 
-	ൈ	aI
+        ൈ          aI
 
-	ൊ	o
+        ൊ          o
 
-	ോ	o:
+        ോ          o:
 
-	ൌ	aU
-	ൗ	aU   // au length mark, treat at [aU] ?
+        ൌ          aU
+        ൗ          aU        // au length mark, treat at [aU] ?
 
-	്	// virama
-	ൎ	// chillu-virama (unofficial)
-	്്	// espeak uses double-virama for "virama + U+200d" (zero-width joiner), to indicate a chillu character
-	്  (_   y //   epenthetic vowel at end of word
+        ്                    // virama
+        ൎ                    // chillu-virama (unofficial)
+        ്്                   // espeak uses double-virama for "virama + U+200d" (zero-width joiner), to indicate a chillu character
+        ് (_       y         //   epenthetic vowel at end of word
 
-	ൠ	Ry:
+        ൠ          Ry:
 
-	ൡ	ly:
+        ൡ          ly:
 
 
 
 .group 0xe0a4  // devanagari
-	0xe0a4  _^_HI  // switch to hindi voice
+        0xe0a4     _^_HI     // switch to hindi voice
+
 .group 0xe0a5  // devanagari
-	0xe0a5  _^_HI
+        0xe0a5     _^_HI
 
 
 .group
-	$	do:l.ar
+        $          do:l.ar

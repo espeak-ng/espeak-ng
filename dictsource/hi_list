@@ -2,12 +2,12 @@
 
 // Numbers
 // devanagari numbers are changed to latin characters before translation
-_0        S'u:n.jV
+_0        s'u:n.jV
 _1        'e:k
 _2        d'o:
 _3        t'i:n
-_4        c'a:r:
-_5        p'a:nc
+_4        c:'a:r:
+_5        'pa~c
 _6        ch'@2
 _7        s'a:t
 _8        'a:th.
@@ -15,30 +15,30 @@ _9        n'O:
 ?3  _9    n'aU
 
 _10       d'Vs
-_11       gj'a:r@2
-_12       b'a:r@2
-_13       t'E:r@2
-_14       ch'O:d@2
-_15       p'Vndr@2
-_16       s'o:l@2
-_17       s'Vt:r@2
-_18       Vth.:'a:r@2
+_11       gj'a:r-ah
+_12       b'a:rah
+_13       t'e:r@2h
+_14       ch'O:d@2h
+_15       p'Vndr@2h
+_16       s'o:l@2h
+_17       sVtr@2h
+_18       a:th:arah
 _19       Unn'Is
 
 _20       b'i:s
 _21       Ik:'Is
 _22       b'a:Is
-_23       t'e:Is
+_23       t'ue:Is
 _24       c'O:bIs
 _25       p@c:'Is
 _26       ch@bb'i:rs
 _27       s@t:'a:Is
 _28       ath:'a:Is
-_29       Unt'Is
+_29       ,Unt'Is
 _30       t'i:s
 
 _31       Ik@t:'Is
-_32       bat:'Is
+_32       b'at:'I'S
 _33       tE~t'Is      // E~ ?
 _34       cO~t'Is
 _35       pE~t'Is
@@ -65,16 +65,16 @@ _53       t'IrpVn
 _54       c'Ou:wVn
 _55       p'achpVn
 _56       chh@p:'Vn
-_57       sVt:'a:w@n
-_58       ath:'a:w@n
+_57       santa:'w@n
+_58       ath:a:'w@n
 _59       Uns'Vth
 
 _60       s'a:th.
 _61       'Iks@th.
 _62       b'a:s@th.
 _63       t'Irs@th.
-_64       c'O~s@th.
-_65       paIns@th.
+_64       cO:'s@th.
+_65       paI's@th.
 _66       ch'Ija:s@th.
 _67       s'Vrs@th.
 _68       ars@th.
@@ -92,15 +92,15 @@ _78       athhat:'Vr:
 _79       ,Un^Ia:s'i:
 
 _80       ,Vss'i:
-_81       Ikja:s'i:
-_82       baIa:s'i:
-_83       tIra:s'i:
-_84       cO:ra:s'i:
-_85       pI'ca:s'i:
-_86       chIja:s'i:
-_87       sVt:a:s'i:
-_88       ath:a:s'i:
-_89       nVwa:s'i:
+_81       Ikja:s'i
+_82       baIa:s'i
+_83       tIra:s'i
+_84       cO:ra:s'i
+_85       pI'ca:s'i
+_86       chIja:s'i
+_87       sVt:a:s'i
+_88       ath:a:s'i
+_89       nVwa:s'i
 
 _90       nVb:'e:
 _91       Ikj'a:n@we:
@@ -114,9 +114,9 @@ _98       ath:'a:n@we:
 _99       nIn^j'a:n@we:
 
 _0C	s'O:
-_0M1	h@z'a:r
+_0M1	h@J,a:r
 _0M2	l'a:kh
-_0M3	cr'ore
+_0M3	k@ro:r.V
 _0M4	'Vr@b
 _0M5	kh'Vr@b
 _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
@@ -162,7 +162,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 श      S@
 ष      s.@   //  retroflex [S]
 स      s@
-ह      H@
+ह      H@-
 क़      q@
 ख़      x@
 ग़      Q@
@@ -199,14 +199,14 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 ।	dVn.d.V
 
 // Pronouns
-मैं 	$u	// main: I
+मैं 	$u	// main: IrI
 मुझे 	$u
 मेरा 	$u
 मेरी 	$u
 मेरे 	$u
 
 हम 	$u	// we
-हमें 	$u
+हमे 	$u
 हमारा 	$u
 हमारी 	$u
 हमारे 	$u
@@ -234,7 +234,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 इसका 	$u
 
 ये 	$u	// they
-इन्हें 	$u
+इन्हें	$u
 इनका 	$u
 
 वह	$u	// he/she/it
@@ -246,7 +246,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 वे	$u	// they
 वो 	$u
-उन्हें	$u	// unheṃ: them 
+उन्हे	$u	// unheṃ: them 
 उनका	$u
 उनकी	$u
 उनके	$u

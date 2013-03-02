@@ -656,20 +656,32 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
         current_alphabet = alphabet;
         if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME))
         {
+            phontab_1 = tr->phoneme_tab_ix;
+            ph_buf2[0] = 0;
             if(Lookup(translator, alphabet->name, ph_alphabet) == 0)  // the original language for the current voice
             {
                 // Can't find the local name for this alphabet, use the English name
-                phontab_1 = tr->phoneme_tab_ix;
                 ph_alphabet[2] = SetTranslator2("en");   // overwrites previous contents of translator2
-                if(Lookup(translator2, alphabet->name, &ph_alphabet[3]) != 0)
-                {
-                    ph_alphabet[0] = phonPAUSE;
-                    ph_alphabet[1] = phonSWITCH;
-                    len = strlen(&ph_alphabet[3]) + 3;
-                    ph_alphabet[len] = phonSWITCH;  // switch back
-                    ph_alphabet[len+1] = phontab_1;
-                    ph_alphabet[len+2] = 0;
-                }
+                Lookup(translator2, alphabet->name, ph_buf2);
+            }
+            else
+            if(translator != tr)
+            {
+                phontab_1 = tr->phoneme_tab_ix;
+                strcpy(ph_buf2, ph_alphabet);
+                ph_alphabet[2] = translator->phoneme_tab_ix;
+            }
+
+            if(ph_buf2[0] != 0)
+            {
+                // we used a different language for the alphabet name (now in ph_buf2)
+                ph_alphabet[0] = phonPAUSE;
+                ph_alphabet[1] = phonSWITCH;
+                strcpy(&ph_alphabet[3], ph_buf2);
+                len = strlen(ph_buf2) + 3;
+                ph_alphabet[len] = phonSWITCH;
+                ph_alphabet[len+1] = phontab_1;
+                ph_alphabet[len+2] = 0;
             }
         }
     }
@@ -876,7 +888,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 					nextflags = 0;
 					if(IsAlpha(c2))
 					{
-						nextflags = TranslateWord(tr, &word_end[2], 0, NULL);
+						nextflags = TranslateWord(tr, &word_end[2], 0, NULL, NULL);
 					}
 
 if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))

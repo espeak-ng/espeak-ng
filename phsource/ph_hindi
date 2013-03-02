@@ -136,7 +136,7 @@ endphoneme
 
 phoneme a:
   vowel long starttype #a endtype #a
-  length 230
+  length 190
   FMT(vowel/aa_9)
 endphoneme
 
@@ -149,7 +149,7 @@ endphoneme
 
 phoneme o:
   vowel long starttype #o endtype #o
-  length 220
+  length 227
   FMT(vowel/o_2)
 endphoneme
 
