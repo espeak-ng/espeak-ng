@@ -524,15 +524,14 @@ unsigned short ipa1[96] = {
 };
 
 
-char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa)
-{//=====================================================================================
+char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags)
+{//===================================================================================================
 	int c;
 	int mnem;
 	int len;
 	int first;
 	int ix = 0;
 	char *p;
-	unsigned int ipa_control=0;  // first byte of ipa string may control the phoneme name interpretation. 0x20 = ignore this phoneme
 	PHONEME_DATA phdata;
 
 	if(ph->code == phonEND_WORD)
@@ -564,20 +563,28 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 			InterpretPhoneme(NULL, 0, plist, &phdata, NULL);
 		}
 
-		len = strlen(phdata.ipa_string);
+        p = phdata.ipa_string;
+        if(*p == 0x20)
+        {
+            // indicates no name for this phoneme
+            *phon_out = 0;
+            return(phon_out);
+        }
+        if((*p != 0) && ((*p & 0xff) < 0x20))
+        {
+            // name starts with a flags byte
+            if(flags != NULL)
+                *flags = *p;
+            p++;
+        }
+
+		len = strlen(p);
 		if(len > 0)
 		{
-			if((ipa_control = phdata.ipa_string[0]) > 0x20)
-			{
-				strcpy(&phon_out[ix], phdata.ipa_string);
-				ix += len;
-			}
-			if(ipa_control >= 0x20)
-			{
-				phon_out = &phon_out[ix];
-				*phon_out = 0;
-				return(phon_out);  // 0x20 = ignore phoneme
-			}
+		    strcpy(phon_out, p);
+		    phon_out += len;
+		    *phon_out = 0;
+		    return(phon_out);
 		}
 	}
 
@@ -630,12 +637,17 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 	unsigned int  max_len;
 	int  phon_out_ix=0;
 	int  stress;
-	unsigned int c;
+	int c;
+	char *p;
 	char *buf;
+	int count;
+	int flags;
 	char phon_buf[30];
+	char phon_buf2[30];
 	PHONEME_LIST *plist;
 
 	static const char *stress_chars = "==,,''";
+	static const int char_tie[] = {0x0361, 0x200d};  // combining-double-inverted-breve, zero-width-joiner
 
 	if(phon_out != NULL)
 	{
@@ -672,22 +684,38 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 				}
 			}
 
-			buf = WritePhMnemonic(buf, plist->ph, plist, use_ipa);
+            flags = 0;
+			WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
+			count = 0;
+			for(p=phon_buf2; *p != 0;)
+			{
+			    p += utf8_in(&c, p);
+			    if(use_ipa > 1)
+			    {
+			        // look for non-inital alphabetic character, but not diacritic, superscript etc.
+                    if((count>0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha(c))
+                    {
+                        buf += utf8_out(char_tie[use_ipa-2], buf);
+                    }
+			    }
+			    buf += utf8_out(c, buf);
+			    count++;
+			}
 
 			if(plist->ph->code != phonSWITCH)
 			{
 				if(plist->synthflags & SFLAG_LENGTHEN)
 				{
-					buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa);
+					buf = WritePhMnemonic(buf, phoneme_tab[phonLENGTHEN], NULL, use_ipa, NULL);
 				}
 				if((plist->synthflags & SFLAG_SYLLABLE) && (plist->type != phVOWEL))
 				{
 					// syllablic consonant
-					buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa);
+					buf = WritePhMnemonic(buf, phoneme_tab[phonSYLLABIC], NULL, use_ipa, NULL);
 				}
 				if(plist->tone_ph > 0)
 				{
-					buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa);
+					buf = WritePhMnemonic(buf, phoneme_tab[plist->tone_ph], NULL, use_ipa, NULL);
 				}
 			}
 

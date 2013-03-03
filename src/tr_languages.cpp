@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -163,7 +163,7 @@ static void SetLetterBitsRange(Translator *tr, int group, int first, int last)
 
 // ignore these characters
 static const unsigned short chars_ignore_default[] = {
-	0xad,    1, // soft hyphtn
+	0xad,    1, // soft hyphen
 	0x200c,  1, // zero width non-joiner
 	0x200d,  1, // zero width joiner
 	0, 0 };
@@ -436,13 +436,16 @@ Translator *SelectTranslator(const char *name)
 	int name2 = 0;
 	Translator *tr;
 
+	static const short stress_lengths_equal[8] = {250, 250,  250, 250,  0, 0,  250, 250};
+	static const unsigned char stress_amps_equal[8] = {18,18, 18,18, 18,18, 18,18 };
+
 	static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
 	static const unsigned char stress_amps_fr[8] = {18,16, 18,18, 18,18, 18,18 };
 
 	static const unsigned char stress_amps_sk[8] = {17,16, 20,20, 20,22, 22,21 };
 	static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 
-	static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
+	static const short stress_lengths_ta[8] = {240, 240,  250, 250,  0, 0,  270, 270};
 	static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
 	// convert name string into a word of up to 4 characters, for the switch()
@@ -836,8 +839,17 @@ Translator *SelectTranslator(const char *name)
 			{
 				tr->letter_bits_offset = OFFSET_GURMUKHI;
 			}
+			else
+			if(name2 == L('g','u'))
+			{
+SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
+			    tr->letter_bits_offset = OFFSET_GUJARATI;
+			    tr->langopts.stress_rule = STRESSPOSN_2R;
+			}
+			else
 			if(name2 == L('n','e'))
 			{
+SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 				tr->langopts.break_numbers = 0x2aaaa8;
 				tr->langopts.max_digits = 22;
 				tr->langopts.numbers2 |= NUM2_ENGLISH_NUMERALS;

@@ -244,6 +244,7 @@
           @) ent (st_     'Ent
           @) ent (ste_    'Ent
          ag) ent          'Ent
+          X) es (_        Es
          @j) es (_S1       s
          @z) es (_S1      s  
           @) es (_S2qd    'Es   // double the previous vowel
@@ -323,6 +324,7 @@
           _) ge (@P2      Q@
              ge (bied     Q@
           _) gee          Qe:
+          _) gei          QEI
              gener (aal   Q,e:n@r
           _) gelijk       Q@lEIk
           _) ge (rC       QE
@@ -630,6 +632,7 @@ _) inn (@P2 'I    // ?? inneren
           @) s (_S1       s
           @) s (_$w_alt   =s
 
+         _) samen(@P5     s'a:m@n
              sc (oop      sk
              sc (opi      sk
           &) sel (_       =s@l

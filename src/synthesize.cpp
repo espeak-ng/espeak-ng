@@ -1438,7 +1438,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 			else
 			{
-				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
+				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 				done_phoneme_marker = 1;
 			}
@@ -1751,7 +1751,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 			if((option_phoneme_events) && (done_phoneme_marker == 0))
 			{
-				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa);
+				WritePhMnemonic(phoneme_name, p->ph, p, use_ipa, NULL);
 				DoPhonemeMarker(espeakEVENT_PHONEME, sourceix, 0, phoneme_name);
 			}
 
@@ -1937,8 +1937,8 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	if((option_phonemes > 0) || (phoneme_callback != NULL))
 	{
 		int use_ipa = 0;
-		if(option_phonemes == 3)
-			use_ipa = 1;
+		if(option_phonemes >= 3)
+			use_ipa = option_phonemes-2;   // 1=ipa, 2=ipa with tie, 3=ipa with ZWJ
 
 		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
 		if(option_phonemes > 0)

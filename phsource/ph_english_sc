@@ -168,7 +168,9 @@ phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in Ameri
   vowel  starttype #a  endtype #@
   length 250
   ipa aː
-  AppendPhoneme(r)
+  IF NOT nextPhW(r) THEN
+    AppendPhoneme(r)
+  ENDIF
   FMT(vowelr/aa_r)
 endphoneme
 
@@ -211,7 +213,9 @@ phoneme O@
   vowel  starttype #o  endtype #@
   length 230
   ipa ɔ
-  AppendPhoneme(r)
+  IF NOT nextPhW(r) THEN
+    AppendPhoneme(r)
+  ENDIF
   FMT(vowelr/oo_r)
 endphoneme
 
@@ -219,7 +223,9 @@ phoneme o@
   vowel  starttype #o  endtype #@
   length 230
   ipa o
-  AppendPhoneme(r)
+  IF NOT nextPhW(r) THEN
+    AppendPhoneme(r)
+  ENDIF
   FMT(vowelr/oo_r)
 endphoneme
 
@@ -305,7 +311,9 @@ phoneme e@
   vowel  starttype #e  endtype #@
   length 220
   ipa e
-  AppendPhoneme(r)
+  IF NOT nextPhW(r) THEN
+    AppendPhoneme(r)
+  ENDIF
   FMT(vdiph2/e@)
 endphoneme
 
@@ -314,7 +322,9 @@ phoneme i@3
   vowel  starttype #i  endtype #@
   ipa ɪ
   length 240
-  AppendPhoneme(r)
+  IF NOT nextPhW(r) THEN
+    AppendPhoneme(r)
+  ENDIF
   FMT(vowelr/i_r)
 endphoneme
 
@@ -380,11 +390,11 @@ phoneme r
   liquid rhotic
   lengthmod 7
   trill
-
   IF nextPh(isNotVowel) THEN
     ChangePhoneme(r/)
   ENDIF
   CALL base/r
+  ipa r
 endphoneme
 
 
