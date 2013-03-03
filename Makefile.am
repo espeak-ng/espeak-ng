@@ -126,6 +126,7 @@ espeak-data/phontab: src/espeakedit espeak-data/dir.stamp espeak-data/dictsource
 ##### android language data packs:
 
 android/res/raw/espeakdata.zip: espeak-data/dir.stamp espeak-data/phontab dictionaries
+	mkdir -pv android/res/raw
 	rm -f $@
 	find espeak-data/{intonations,phondata,phonindex,phontab} | zip -@ $@
 	find espeak-data/*_dict | zip -@ $@

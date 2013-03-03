@@ -15,6 +15,9 @@ android/icons/*.png
 
 libttsespeak.so
 
+android/res/raw/espeakdata.zip
+android/res/raw/espeakdata_version
+
 # autotools
 
 AUTHORS

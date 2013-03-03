@@ -12,7 +12,7 @@ configured correctly:
 2.  Android NDK
 3.  Eclipse
 4.  Android Developer Tools (ADT) for Eclipse
-5.  wxWidgets 2.8 (for espeakedit if building the `espeak-data` zip files)
+5.  wxWidgets 2.8 (for espeakedit when building `android/res/raw/espeakdata.zip`)
 
 ## Fetching the Sources
 
@@ -27,16 +27,15 @@ The Android port uses the `ucd-tools` submodule. You can fetch this by running:
 
         $ cd android
         $ ndk-build
-2.  Open Eclipse.
-3.  Create a new workspace.
-4.  Import the espeak folder as an exising Android project.
-5.  Build the espeak apk within Eclipse.
+2.  Build the `android/res/raw/espeakdata.zip` file by running:
 
-In order to build the `espeakdata.zip` file in `android/res/raw`, you need to run the following commands:
-
-	$ ./autogen.sh
-	$ ./configure --prefix=/usr
-	$ make android
+        $ ./autogen.sh
+        $ ./configure --prefix=/usr
+        $ make android
+3.  Open Eclipse.
+4.  Create a new workspace.
+5.  Import the espeak folder as an exising Android project.
+6.  Build the espeak apk within Eclipse.
 
 ## Installing
 
