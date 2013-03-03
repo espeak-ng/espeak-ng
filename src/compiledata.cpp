@@ -44,6 +44,7 @@
 
 extern void FindPhonemesUsed(void);
 extern void DisplayErrorFile(const char *fname);
+extern int utf8_in(int *c, const char *buf);
 extern int utf8_out(unsigned int c, char *buf);
 extern void DrawEnvelopes();
 extern void ReadPhondataManifest();
@@ -157,6 +158,7 @@ static keywtab_t k_properties[] = {
 
 enum {
 	kPHONEMESTART = 1,
+	kUTF8_BOM,
 	kPROCEDURE,
 	kENDPHONEME,
 	kENDPROCEDURE,
@@ -210,6 +212,8 @@ enum {
 	kTUNE_SPLIT,
 };
 
+static const char utf8_bom[] = {0xef,0xbb,0xbf,0};
+
 static keywtab_t k_intonation[] = {
 	{"tune",      0,   kTUNE},
 	{"endtune",   0,   kENDTUNE},
@@ -250,6 +254,7 @@ static keywtab_t keywords[] = {
 	{"phonemenumber",tSTATEMENT, kPHONEMENUMBER},
 	{"phonemetable",tSTATEMENT, kPHONEMETABLE},
 	{"include",     tSTATEMENT, kINCLUDE},
+	{utf8_bom,      tSTATEMENT, kUTF8_BOM},
 
 	{"phoneme",    tSTATEMENT, kPHONEMESTART},
 	{"procedure",  tSTATEMENT, kPROCEDURE},
@@ -2720,11 +2725,14 @@ int CompilePhoneme(int compile_phoneme)
 	int keyword;
 	int value;
 	int phcode = 0;
+	int flags;
 	int ix;
-	unsigned int c;
+	int start;
+	int count;
+	int c;
 	char *p;
 	char number_buf[12];
-	char ipa_buf[N_ITEM_STRING];
+	char ipa_buf[N_ITEM_STRING+1];
 	PHONEME_TAB phoneme_out2;
 	PHONEME_PROG_LOG phoneme_prog_log;
 
@@ -2852,32 +2860,58 @@ int CompilePhoneme(int compile_phoneme)
 					strcpy(item_string," ");
 
 				// copy the string, recognize characters in the form U+9999
-				p = item_string;
-				ix = 0;
-				while((c = *p++) != 0)
+				flags = 0;
+				count = 0;
+				ix = 1;
+
+				for(p=item_string; *p != 0;)
 				{
+				    p += utf8_in(&c, p);
+
+				    if((c == '|') && (count > 0))
+				    {
+				        // '|' means don't allow a tie or joiner before this letter
+				        flags |= (1 << (count -1));
+				    }
+				    else
 					if((c=='U') && (p[0]=='+'))
 					{
+					    int j;
 						// U+9999
-						memcpy(number_buf,&p[1],4);  // U+ should be followed by 4 hex digits
+						p++;
+						memcpy(number_buf,p,4);  // U+ should be followed by 4 hex digits
 						number_buf[4] = 0;
-						c = 0;
+						c = '#';
 						sscanf(number_buf,"%x",&c);
-						p += 5;
+
+						// move past the 4 hexdecimal digits
+						for(j=0; j<4; j++)
+						{
+						    if(!isalnum(*p))
+                                break;
+                            p++;
+						}
 						ix += utf8_out(c, &ipa_buf[ix]);
+						count++;
 					}
 					else
 					{
-						ipa_buf[ix++] = c;
+					    ix += utf8_out(c, &ipa_buf[ix]);
+						count++;
 					}
 				}
+				ipa_buf[0] = flags;
 				ipa_buf[ix] = 0;
-				value = strlen(ipa_buf);   // number of UTF-8 bytes
+
+                start = 1;
+                if(flags != 0)
+                    start = 0;   // only include the flags byte if bits are set
+				value = strlen(&ipa_buf[start]);   // number of UTF-8 bytes
 
 				*prog_out++ = (i_IPA_NAME << 8) + value;
 				for(ix=0; ix < value; ix += 2)
 				{
-					*prog_out++ = (ipa_buf[ix] << 8) + (ipa_buf[ix+1] & 0xff);
+					*prog_out++ = (ipa_buf[ix+start] << 8) + (ipa_buf[ix+start+1] & 0xff);
 				}
 				break;
 			}
@@ -3400,6 +3434,9 @@ static void CompilePhonemeFiles()
 
 		switch(item)
 		{
+        case kUTF8_BOM:
+            break;  // ignore bytes 0xef 0xbb 0xbf
+
 		case kINCLUDE:
 			NextItem(tSTRING);
 			sprintf(buf,"%s%s",path_source,item_string);
