@@ -1,4 +1,4 @@
-
+﻿
 // This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal).
 // This file is UTF8 encoded 
 //  phoneme rules for Urdu
@@ -70,12 +70,14 @@ _) ای	i:
 	وٗ	u:
 	و (L01	v
 	_) و	vV
+	 وع (_	u:
 
 .group ی
 	ی	e:
 	ی (L01	j
 	ی (_	i:
 	_) ی	jV
+	یع(_	i:
 
 
 .group ے		// yeh barree
@@ -244,8 +246,12 @@ _) ای	i:
 .group ء
 	ء	
 
-.group ہ
+.group ہ 
 	ہ	H
+	_) ہ	Ha
+	_) ہ (L01	H
+	_) ہ (ند	HI
+
 	ہ (_	a
 
 
