@@ -1,4 +1,4 @@
-// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal)
+﻿// This ur_list file is prepared  by Him Prasad Gautam (Kathmandu, Nepal)
 // This file is UTF8 encoded 
 // Letter Names, Numbers and  exceptional pronounciation of  Urdu
 
@@ -162,11 +162,28 @@ _0M5	'khaRab
 _dpt	_ISaRI'Ia_
 
 
-// Exception of phonemes
 
+// pronouns
 یہ	jE	$u
 کہ	kE	$u
 وہ	wo:	$u
+پ 	$u
+تم  	tUm	$u
+ہم	Ham	$u
+اس	Is	$u
+ان	In	$u
 
+// unstressed prepositions
+کا	$u
+کی  	$u
+کے  	$u
+سے 	$u
 
+اور 	OR	$u $brk
+
+// unstressed verbs
+ہے 	$u
+ہیں 	$u
+
+// Pronunciation exceptions
 پاکستان	p'a:k'i:st'a:n

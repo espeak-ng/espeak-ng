@@ -620,6 +620,7 @@ ablaut		ablaUt
 aborigine	ab@r'IdZ@ni
 abracadabra	abr@k@d'abr@
 absence		abs@ns
+absent		$1
 absent		abs'Ent       $verb
 absentia	abs'Ent2i:@
 absinthe	absInT
@@ -902,6 +903,7 @@ bias		baI@s
 biased		baI@st
 bible		baIb@L
 bidet		bi:deI
+bigot		bIg@t  // -ed
 bijou		bi:Zu:
 bikini		bIk'i:ni
 binman		bInman
@@ -1606,6 +1608,7 @@ gourmet		gU@meI
 graduate	gradju:@t
 graduate	gradju:eIt      $verb
 graffiti	$alt3
+grandson	gr'andsVn
 gredient	gri:di@nt	// ingredient
 grenade		gr@neId
 griffon		grIf@n

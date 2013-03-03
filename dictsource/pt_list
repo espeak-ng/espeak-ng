@@ -757,12 +757,10 @@ der		$alt
 derdes	$alt
 desapego	$alt2 $noun
 descabelo	$alt
-desce		$alt
-descem		$alt
 descordo	$alt
 desespero	$alt2 $noun
 desfecho	$alt2
-desprezo	$alt  $verb
+desprezo	$alt2 $noun
 deveras		$alt
 dez		$alt
 diarreia	$alt
@@ -781,10 +779,17 @@ encosto		$alt  $verb
 endereço	$alt2
 endereço	$alt  $verb
 enforco		$alt
+enforque		$alt
+enforquem	$alt
 engordo		$alt
-enumerem	$alt
+ensopa		$alt
+ensopam	$alt
+ensope		$alt
+ensopem	$alt
+ensopo	$alt
 enredo		$alt  $verb
 enterro		$alt2 $noun
+enumerem	$alt
 envelope	$alt
 envolto		$alt2
 enxerto		$alt2 $noun
@@ -818,8 +823,6 @@ estorvo		$alt  $verb
 etiqueta	$alt2
 europa		$alt
 exagero		$alt $verb
-expeça		$alt2
-expeço		$alt2
 explore		$alt
 faceta		$alt2
 farelo		$alt
@@ -833,14 +836,15 @@ fezes		$alt
 fizerdes	$alt
 fizermos	$alt
 foda		$alt2 $verb
+folheto		$alt2
 folga		$alt
 fogos		$alt
 foguete		$alt2
 foice		$alt2
 forca		$alt2
 força	$alt2 $noun
-forço	$alt
 forças		$alt2
+forço	$alt
 fordes	$alt2
 fores	$alt2
 forro		$alt $verb
@@ -882,10 +886,9 @@ joguem	$alt
 joguete		$alt2
 lambreta	$alt2
 lebre		$alt
-lerda		$alt
-lerdo		$alt
 líderes		$alt2
 lopes		$alt
+maior	$alt
 maleta		$alt2
 mantiverdes	$alt
 mantiveres	$alt
@@ -894,6 +897,8 @@ marcelo		$alt
 marmelo		$alt
 marreta		$alt2
 martelo		$alt
+melhor	$alt
+menor	$alt
 merda		$alt
 megera		$alt
 melo		$alt
@@ -917,8 +922,7 @@ morda		$alt2
 moreia		$alt
 mortos		$alt
 motora		$alt2
-?2 mulher	mulj'Er
-?4 mulher	mul^'Er
+mulher	$alt
 mui		mwi
 muito		mw'iNtU	// -s is included as a suffix
 muita		mw'iNt&
@@ -931,8 +935,6 @@ naquele		$alt2 $nounf
 nervo		$alt2
 novos		$alt
 obstetra	$alt
-obsoleta	$alt2
-obsoleto	$alt2
 obtivera		$alt
 obtivermos	$alt
 odisseia	$alt
@@ -948,6 +950,7 @@ pachorra	$alt2
 paexa		paeSa
 palacete	$alt2
 palheta		$alt2
+panfleto		$alt2
 pangeia		$alt
 pantera		$alt
 paralelo	$alt
@@ -956,15 +959,12 @@ pastora		$alt2
 pedra		$alt
 pelego		$alt2
 pelo		$alt  $verb
-perde		$alt
-perdem		$alt
-pesa		$alt
-pesam		$alt
 pesque		$alt
 pesquem		$alt
 peso		$alt $verb
 piloto		$alt2 $noun
 pintora		$alt2
+pior	$alt
 pirueta		$alt2
 plateia		$alt
 plebeia		$alt
@@ -976,8 +976,7 @@ portos		$alt
 pose		$alt2
 povos		$alt
 poxa		p'oS&
-preta		$alt2
-preto		$alt2
+preço	$alt2
 primavera	$alt
 provo		$alt
 puder		$alt
@@ -985,6 +984,7 @@ puderdes	$alt
 pudermos	$alt
 puserdes	$alt
 quarteto	$alt2
+queda	$alt
 quinteto	$alt2
 quiserdes	$alt
 quisermos	$alt
@@ -1018,8 +1018,6 @@ rosno	$alt
 rumores		$alt2
 saleta		$alt2
 sarjeta		$alt
-severa		$alt
-severo		$alt
 seborreia	$alt
 seca		$alt2 $noun
 secas	$alt2
@@ -1030,11 +1028,9 @@ selvagem	seUv'aZeIN
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
-sincera		$alt
-sincero		$alt
 sinopse		$alt
 sobe		$alt
-sobem		$alt
+sobem	$alt
 soco		$alt2
 soco		$alt $verb
 sofrem		$alt
@@ -1042,7 +1038,7 @@ sofre		$alt
 sofreste	$alt2
 sogra		$alt
 sopre		$alt
-soprem		$alt
+soprem	$alt
 sopro		$alt $verb
 soro		$alt2
 sorvete		$alt2
@@ -1052,8 +1048,6 @@ soubermos	$alt
 suborno		$alt  $verb
 sufoco		$alt2 $noun
 sufocos		$alt2
-sugere		$alt
-sugerem		$alt
 suporto		$alt
 suor		swOr
 tapete		$alt2
@@ -1096,8 +1090,6 @@ xeque		$alt
 zelo		$alt $verb
 zero		$alt
 zorra		$alt2
-
-
 
 
 // foreign words
@@ -1144,7 +1136,6 @@ zorra		$alt2
 ?1 install    ,inst'al
 ?2 internet   iNtern'Et
 ?2 Intranet   iNtRan'Et
-?2        inveja        iNv'EZ&
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
 ?1 line       l'ain
@@ -1153,16 +1144,6 @@ zorra		$alt2
 ?1 lock       l'Ok
    mail       m'eIl
         mails        m'eIls
-?1 maior      m,&j'Or-
-?2 maior      maI'Or
-?2        maiores        maI'O*is
-?1 menor      myn'Or-
-?2 menor      men'Or
-?2        menores        men'O*is
-?2        melhor        melj'Or
-?2        melhores        melj'O*is
-?4        melhor        mel^'Or
-?4        melhores        mel^'O*is
 ?2        mouse        m'aUzi
 ?1 menu       menu
 ?1 next       n'Ekst
@@ -1173,11 +1154,7 @@ zorra		$alt2
 ?1 ovo        'ovu
 ?1 pause      p'au:z
    page       p'eIdZ
-?2        pior        pi'Or
-?2        piores        pi'O*is
-preço	$alt2
 python     p'aIT&~N
-queda	$alt
 ?1 readme     r'i:dmi:
 ?1 sapi       s,ap'i
 ?1 scanner    sk'En&r

@@ -379,6 +379,7 @@ tamil	தமிழ்	$text
 பாதிக்கக்	$alt
 புசு 	$alt
 புஸு	$alt
+பாதிக்காம	$alt
 
 
 	// initial த as [d]
@@ -398,7 +399,6 @@ tamil	தமிழ்	$text
 தைவதம்		$alt
 தாட்சண்யம்	$alt
 தனம்	$alt
-திக்கற்ற	$alt
 தானு	$alt
 திட	$alt
 தோ	$alt
@@ -446,6 +446,8 @@ tamil	தமிழ்	$text
 தம்ம	$alt
 தாயம்	$alt
 திமு	$alt
+தாவா	$alt
+
 
 	// initial ட
 டார்ச்	t.a:rtS

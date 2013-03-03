@@ -3309,17 +3309,21 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						*pn++ = tr->langopts.thousands_sep;
 					}
 					*pn++ = ' ';
-					if(tr->langopts.break_numbers & (1 << (nx-1)))
-					{
-						// the next group only has 1 digits (i.e. NUM2_10000), make it three
-						*pn++ = '0';
-						*pn++ = '0';
-					}
-					if(tr->langopts.break_numbers & (1 << (nx-2)))
-					{
-						// the next group only has 2 digits (i.e. NUM2_10000), make it three
-						*pn++ = '0';
-					}
+
+                    if((words[ix].flags & FLAG_INDIVIDUAL_DIGITS) == 0)
+                    {
+                        if(tr->langopts.break_numbers & (1 << (nx-1)))
+                        {
+                            // the next group only has 1 digits, make it three
+                            *pn++ = '0';
+                            *pn++ = '0';
+                        }
+                        if(tr->langopts.break_numbers & (1 << (nx-2)))
+                        {
+                            // the next group only has 2 digits (eg. Indian languages), make it three
+                            *pn++ = '0';
+                        }
+                    }
 				}
 			}
 			pw--;
