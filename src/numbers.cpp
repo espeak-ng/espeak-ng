@@ -653,8 +653,9 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
     alphabet = AlphabetFromChar(letter);
     if(alphabet != current_alphabet)
     {
+        // speak the name of the alphabet
         current_alphabet = alphabet;
-        if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME))
+        if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME) && (alphabet->offset != translator->letter_bits_offset))
         {
             phontab_1 = tr->phoneme_tab_ix;
             ph_buf2[0] = 0;

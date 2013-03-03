@@ -433,8 +433,8 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [] base
-                [l#] base
+l/l@            [l#] base
+                [X)]] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -467,16 +467,16 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [] base
-                [l#] base
+l/la            [l#] base
+                [X)]] base
                 [l] fr
                 [l/2] fr
                 [K] nso
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [] base
-                [l#] base
+l/le            [l#] base
+                [X)]] base
                 [l] fr
                 [l/2] fr
                 [K] nso
@@ -487,8 +487,8 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [] base
-                [l#] base
+l/li            [l#] base
+                [X)]] base
                 [l] fr
                 [l/2] fr
                 [l] zh
@@ -501,8 +501,8 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [] base
-                [l#] base
+l/lo            [l#] base
+                [X)]] base
                 [l/2] fr
                 [K] nso
                 [K] tn
@@ -512,8 +512,8 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [] base
-                [l#] base
+l/lu            [l#] base
+                [X)]] base
                 [l] fr
                 [l/2] fr
                 [K] nso
