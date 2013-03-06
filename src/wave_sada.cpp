@@ -535,7 +535,7 @@ int wave_get_remaining_time(uint32_t sample, uint32_t* time)
 #else
 // notdef USE_SADA
 
-init wave_init() {}
+init wave_init() {return 1;}
 void* wave_open(const char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
 int wave_close(void* theHandler) {return 0;}

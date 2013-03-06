@@ -554,12 +554,13 @@ voice_t *LoadVoice(const char *vname, int control)
 	const char *language_type;
 	char buf[200];
 	char path_voices[sizeof(path_home)+12];
-	char langname[4];
 
 	int stress_amps[8];
 	int stress_lengths[8];
 	int stress_add[8];
 	char names[8][40];
+	char name2[80];
+	const char *voice_dir;
 
 	int pitch1;
 	int pitch2;
@@ -567,6 +568,12 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_identifier[40];  // file name for  current_voice_selected
 	static char voice_name[40];        // voice name for current_voice_selected
 	static char voice_languages[100];  // list of languages and priorities for current_voice_selected
+
+    // which directory to look for a named voice
+    static const char *voices_asia =
+        "fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
+    static const char *voices_europe =
+        "bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
 	strcpy(voicename,vname);
 	if(voicename[0]==0)
@@ -581,27 +588,34 @@ voice_t *LoadVoice(const char *vname, int control)
 	else
 	{
 		sprintf(path_voices,"%s%cvoices%c",path_home,PATHSEP,PATHSEP);
-		sprintf(buf,"%s%s",path_voices,voicename);
+		sprintf(buf,"%s%s",path_voices,voicename);  // first, look in the main voices directory
 
 		if(GetFileLength(buf) <= 0)
 		{
-			// look for the voice in a sub-directory of the language name
-			langname[0] = voicename[0];
-			langname[1] = voicename[1];
-			langname[2] = 0;
-			sprintf(buf,"%s%s%c%s",path_voices,langname,PATHSEP,voicename);
+		    // then look in the appropriate subdirectory
+		    if((voicename[0]=='m') && (voicename[1]=='b'))
+		    {
+		        voice_dir = "mb";   // mbrola voices
+		    }
+		    else
+		    {
+                sprintf(name2, "%s ", voicename);
+                if(strstr(voices_europe, voicename) != NULL)
+                    voice_dir = "europe";
+                else
+                if(strstr(voices_asia, voicename) != NULL)
+                    voice_dir = "asia";
+                else
+                    voice_dir = "other";
 
-			if(GetFileLength(buf) <= 0)
-			{
-				// look in "extra" sub-directory
-				sprintf(buf,"%sextra%c%s",path_voices,PATHSEP,voicename);
+                sprintf(buf,"%s%s%c%s", path_voices,voice_dir,PATHSEP,voicename);
 
-				if(GetFileLength(buf) <= 0)
-				{
-					// look in "test" sub-directory
-					sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
-				}
-			}
+                if(GetFileLength(buf) <= 0)
+                {
+                    // if not found, look in "test" sub-directory
+                    sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
+                }
+		    }
 		}
 	}
 

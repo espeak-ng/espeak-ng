@@ -631,8 +631,8 @@ abacaxi		abakaSy
 abordo		$alt
 aborto		$alt  $verb
 acerto		$alt2 $noun
-acordo		$alt $verb
 acertos		$alt2
+acordo		$alt $verb
 acervo		$alt2
 adepto		$alt
 adereço		$alt2
@@ -663,8 +663,6 @@ ateia		$alt
 aterro		$alt2 $noun
 atmosfera	$alt
 atrozes		$alt
-austera		$alt
-austero		$alt
 autora		$alt2
 avesso	$alt2
 axé		aSE
@@ -706,8 +704,6 @@ cefaleia	$alt
 cerca	$alt
 cerca	$alt2 $noun
 cerco		$alt $verb
-cesta		$alt2
-cesto		$alt2
 chamego		$alt2
 chefe		$alt
 checam	$alt
@@ -737,8 +733,6 @@ consolo		$alt2 $noun
 contivermos	$alt
 controle		$alt2 $noun
 controlo		$alt2 $noun
-copa		$alt
-copo		$alt
 coreia		$alt
 corneta		$alt2
 cornos		$alt
@@ -751,8 +745,6 @@ couberdes	$alt
 coubermos	$alt
 cratera		$alt
 crede		$alt2
-cresce		$alt
-crescem		$alt
 der		$alt
 derdes	$alt
 desapego	$alt2 $noun
@@ -779,14 +771,7 @@ encosto		$alt  $verb
 endereço	$alt2
 endereço	$alt  $verb
 enforco		$alt
-enforque		$alt
-enforquem	$alt
 engordo		$alt
-ensopa		$alt
-ensopam	$alt
-ensope		$alt
-ensopem	$alt
-ensopo	$alt
 enredo		$alt  $verb
 enterro		$alt2 $noun
 enumerem	$alt
@@ -877,16 +862,10 @@ houvermos	$alt
 ideia		$alt
 insonoro	$alt
 interesse		$alt2 $noun
-joga		$alt
-jogam$alt
-jogo	$alt $verb
-jogos	$alt
-jogue		$alt
-joguem	$alt
+jogo	$alt2 $noun
 joguete		$alt2
 lambreta	$alt2
 lebre		$alt
-líderes		$alt2
 lopes		$alt
 maior	$alt
 maleta		$alt2
@@ -913,7 +892,6 @@ minueto		$alt2
 miolo		$alt2
 miolos	$alt
 moeda		$alt
-modo		$alt
 modos		$alt
 molho		$alt2 $noun
 monera		$alt
@@ -1001,20 +979,12 @@ reitora		$alt2
 relevo		$alt2 $noun
 remorso		$alt
 reprovo		$alt
-resolve		$alt
-resolvem	$alt
 retorno	$alt $verb
 rixa		x'iS&
 rocha		$alt
 rock		$alt
-rogas		$alt
 rola		$alt2 $noun
 rolo		$alt2 $noun
-rosna		$alt
-rosnam	$alt
-rosne		$alt
-rosnem	$alt
-rosno	$alt
 rumores		$alt2
 saleta		$alt2
 sarjeta		$alt
@@ -1029,17 +999,10 @@ sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
 sinopse		$alt
-sobe		$alt
-sobem	$alt
 soco		$alt2
 soco		$alt $verb
-sofrem		$alt
-sofre		$alt
-sofreste	$alt2
 sogra		$alt
-sopre		$alt
-soprem	$alt
-sopro		$alt $verb
+sopro		$alt2 $noun
 soro		$alt2
 sorvete		$alt2
 sossego     $alt2 $noun
@@ -1058,10 +1021,6 @@ tiverdes	$alt
 tivermos	$alt
 tocha		$alt
 toga		$alt
-tola		$alt2
-tolo		$alt2
-tolhe		$alt
-tolhem	$alt
 topo		$alt  $verb
 torno		$alt  $verb
 torre	$alt2 $noun

@@ -19,6 +19,7 @@
 // $alt1   use strong ending (-table, -inal)
 // $alt2   use weak ending
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
+// $alt6   'to'
 
 
 // letter names, as they are spoken as a single character in text
@@ -261,11 +262,12 @@ _hi	h'Indi
 _bn	bEng'A:li
 _gur	g'U@mUki
 _gu	gu:dZ3r'A:ti
-_or	0r'i@
+_or	O:r'ia:
 _ta	t'amI2l
+_te	t'Elugu
 _kn	k'A:na#d@
 _ml	maleI'A:l@m
-_si	sI2nh'A:l@
+_si	s'INh@l@
 _th	t'aI
 _lo	l'aU
 _ti	tI2b'Et@n
@@ -3773,7 +3775,7 @@ for              fO@		$u
 (for a while)    f@@||w'aIl
 (for one)        fO@w0n		$2 $atend
 
-to               t@5		$verbf    // @ change to U before vowel
+to               t@5		$verbf $alt6   // @ change to U before vowel
 (to be)          t@b%i		$pastf
 (to be)          t@||'bi:	$atend
 (to to)          %tU_t@5	$verbf
@@ -4035,6 +4037,9 @@ thee             ,Di:
 thou             DaU
 thy              ,DaI
 thine            ,DaIn
+
+(i had)          aI||h'ad	$atend
+(he had)         hi:||h'ad	$atend
 
 me               ,mi:		$only
 me               mi:		$atstart $atend

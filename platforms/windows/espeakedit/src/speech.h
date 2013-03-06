@@ -37,7 +37,7 @@
 #define mkdir(p1,p2) mkdir(p1)
 
 #define PATHSEP  '\\'
-#define USE_PORTAUDIO
+//#define USE_PORTAUDIO
 //#define USE_NANOSLEEP
 #define NO_VARIADIC_MACROS
 #define __cdecl 

@@ -870,7 +870,7 @@ void *wave_test_get_write_buffer()
 // notdef USE_PULSEAUDIO
 
 
-int wave_init() {}
+int wave_init(return 1;) {}
 void* wave_open(const char* the_api) {return (void *)1;}
 size_t wave_write(void* theHandler, char* theMono16BitsWaveBuffer, size_t theSize) {return theSize;}
 int wave_close(void* theHandler) {return 0;}
