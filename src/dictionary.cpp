@@ -37,7 +37,7 @@
 int dictionary_skipwords;
 char dictionary_name[40];
 
-extern char *print_dictionary_flags(unsigned int *flags);
+extern void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len);
 extern char *DecodeRule(const char *group_chars, int group_length, char *rule, int control);
 
 // accented characters which indicate (in some languages) the start of a separate syllable
@@ -770,7 +770,7 @@ static int IsLetterGroup(Translator *tr, char *word, int group, int pre)
 		{
 			w = word;
 		}
-		while(*p == *w)
+		while((*p == *w) && (*w != 0))
 		{
 			w++;
 			p++;
@@ -2715,7 +2715,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							p += (wc_bytes-1);
 						}
 
-						if(((alphabet = AlphabetFromChar(letter)) != NULL) && (alphabet->language != 0) && (alphabet->offset != tr->letter_bits_offset))
+						if(((alphabet = AlphabetFromChar(letter)) != NULL) && (alphabet->flags & AL_WORDS) && (alphabet->offset != tr->letter_bits_offset))
 						{
 						    // switch to the nominated language for this alphabet
                             sprintf(phonemes,"%c%s",phonSWITCH, WordToString2(alphabet->language));
@@ -2808,8 +2808,6 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 		}
 	}
 
-	// any language specific changes ?
-	ApplySpecialAttribute(tr,phonemes,dict_flags0);
 	memcpy(p_start,word_copy,strlen(word_copy));
 
 	return(0);
@@ -2852,46 +2850,6 @@ void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags)
 	}
 }  // end of ApplySpecialAttribute2
 
-
-void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags)
-{//=======================================================================
-// Amend the translated phonemes according to an attribute which is specific for the language.
-	int len;
-	char *p_end;
-
-	if((dict_flags & (FLAG_ALT_TRANS | FLAG_ALT2_TRANS)) == 0)
-		return;
-
-	len = strlen(phonemes);
-	p_end = &phonemes[len-1];
-
-	switch(tr->translator_name)
-	{
-#ifdef deleted
-// this is now done in de_rules
-	case L('d','e'):
-		if(p_end[0] == PhonemeCode2('i',':'))
-		{
-			// words ends in ['i:], change to [=I@]
-			p_end[-1] = phonSTRESS_PREV;
-			p_end[0] = PhonemeCode('I');
-			p_end[1] = phonSCHWA;
-			p_end[2] = 0;
-		}
-		break;
-#endif
-
-	case L('r','o'):
-		if(p_end[0] == PhonemeCode('j'))
-		{
-			// word end in [j], change to ['i]
-			p_end[0] = phonSTRESS_P;
-			p_end[1] = PhonemeCode('i');
-			p_end[2] = 0;
-		}
-		break;
-	}
-}  // end of ApplySpecialAttribute
 
 
 
@@ -3045,6 +3003,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 	const char *word1;
 	int wflags = 0;
 	char word_buf[N_WORD_BYTES+1];
+	char dict_flags_buf[80];
 
 	if(wtab != NULL)
 	{
@@ -3265,6 +3224,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			if(tr->expect_verb || (tr->expect_verb_s && (end_flags & FLAG_SUFX_S)))
 			{
 				// OK, we are expecting a verb
+				if((tr->translator_name == L('e','n')) && (tr->prev_dict_flags[0] & FLAG_ALT6_TRANS) && (end_flags & FLAG_SUFX_S))
+				{
+				    // lang=en, don't use verb form after 'to' if the word has 's' suffix
+				    continue;
+				}
 			}
 			else
 			{
@@ -3294,7 +3258,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		if(dictionary_flags & FLAG_ALT2_TRANS)
 		{
 			// language specific
-			if((tr->translator_name == L('h','u')) && !(tr->prev_dict_flags & FLAG_ALT_TRANS))
+			if((tr->translator_name == L('h','u')) && !(tr->prev_dict_flags[0] & FLAG_ALT_TRANS))
 				continue;
 		}
 
@@ -3308,7 +3272,8 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 		{
 			if(option_phonemes == 2)
 			{
-				fprintf(f_trans,"Flags:  %s  %s\n",word1,print_dictionary_flags(flags));
+			    print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
+				fprintf(f_trans,"Flags:  %s  %s\n", word1, dict_flags_buf);
 			}
 			return(0);    // no phoneme translation found here, only flags. So use rules
 		}
@@ -3331,19 +3296,20 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			if(textmode == translator->langopts.textmode)
 			{
 				// only show this line if the word translates to phonemes, not replacement text
-				if((dictionary_skipwords) && (wtab != NULL))
+				if((dictionary_flags & FLAG_SKIPWORDS) && (wtab != NULL))
 				{
 					// matched more than one word
 					// (check for wtab prevents showing RULE_SPELLING byte when speaking individual letters)
 					memcpy(word_buf,word2,word_end-word2);
 					word_buf[word_end-word2-1] = 0;
-					fprintf(f_trans,"Found: '%s %s",word1,word_buf);
+					fprintf(f_trans,"Found: '%s %s\n",word1,word_buf);
 				}
 				else
 				{
 					fprintf(f_trans,"Found: '%s",word1);
 				}
-				fprintf(f_trans,"' [%s]  %s\n",ph_decoded,print_dictionary_flags(flags));
+			    print_dictionary_flags(flags, dict_flags_buf, sizeof(dict_flags_buf));
+				fprintf(f_trans,"' [%s]  %s\n", ph_decoded,dict_flags_buf);
 			}
 		}
 

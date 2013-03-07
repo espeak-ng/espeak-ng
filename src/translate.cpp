@@ -1374,9 +1374,6 @@ if(end_type & SUFX_UNPRON)
                         {
                             // don't retranslate, use the original lookup result
                             strcpy(phonemes,phonemes2);
-
-                            // language specific changes
-                            ApplySpecialAttribute(tr,phonemes,dictionary_flags[0]);
                         }
                         else
                         {
@@ -2059,7 +2056,8 @@ return(FLAG_SPELLWORD);
 			pre_pause--;
 		}
 		tr->end_stressed_vowel = 0;   // forget about the previous word
-		tr->prev_dict_flags = 0;
+		tr->prev_dict_flags[0] = 0;
+		tr->prev_dict_flags[1] = 0;
 	}
 
 	if((option_capitals==1) && (word_flags & FLAG_FIRST_UPPER))
@@ -2208,7 +2206,7 @@ return(FLAG_SPELLWORD);
 			{
 				if(first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING])
 				{
-					if(((tr->prev_dict_flags & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
+					if(((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
 						(tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2)))
 					{
 						// italian, double the initial consonant if the previous word ends with a
@@ -2264,7 +2262,7 @@ return(FLAG_SPELLWORD);
 		ph_list2[max_stress_ix].synthflags |= SFLAG_PROMOTE_STRESS;
 	}
 
-	tr->prev_dict_flags = flags;
+	tr->prev_dict_flags[0] = flags;
 	return(flags);
 }  //  end of TranslateWord2
 
@@ -2623,7 +2621,8 @@ p = source;
 	tr->expect_verb_s=0;
 	tr->phonemes_repeat_count = 0;
 	tr->end_stressed_vowel=0;
-	tr->prev_dict_flags = 0;
+	tr->prev_dict_flags[0] = 0;
+	tr->prev_dict_flags[1] = 0;
 
 	word_count = 0;
 	single_quoted = 0;

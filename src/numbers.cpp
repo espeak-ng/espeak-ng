@@ -631,25 +631,6 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		return(0);
 	}
 
-#ifdef deleted
-	if((ph_buf[0] == 0) && (tr->translator_name != L('e','n')))
-	{
-		// speak as English, check whether there is a translation for this character
-		SetTranslator2("en");
-		save_option_phonemes = option_phonemes;
-		option_phonemes = 0;
-		LookupLetter(translator2, letter, word[n_bytes], ph_buf, control & 1);
-		SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
-		option_phonemes = save_option_phonemes;
-
-		if(ph_buf[0] != 0)
-		{
-			sprintf(phonemes,"%cen",phonSWITCH);
-			return(0);
-		}
-	}
-#endif
-
     alphabet = AlphabetFromChar(letter);
     if(alphabet != current_alphabet)
     {
@@ -892,7 +873,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 						nextflags = TranslateWord(tr, &word_end[2], 0, NULL, NULL);
 					}
 
-if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))
+if((tr->prev_dict_flags[0] & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))
 	ordinal = 0;   // TEST  09.02.10
 
 					if(nextflags & FLAG_ALT_TRANS)
@@ -903,7 +884,7 @@ if((tr->prev_dict_flags & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG
 						if(word[-2] == '-')
 							ordinal = 0;   // eg. december 2-5. között
 
-						if(tr->prev_dict_flags & (FLAG_ALT_TRANS | FLAG_ALT3_TRANS))
+						if(tr->prev_dict_flags[0] & (FLAG_ALT_TRANS | FLAG_ALT3_TRANS))
 							ordinal = 0x22;
 					}
 				}
@@ -1052,7 +1033,8 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 		}
 	}
 
-	tr->prev_dict_flags = 0;
+	tr->prev_dict_flags[0] = 0;
+	tr->prev_dict_flags[1] = 0;
 	TranslateNumber(tr, &number_chars[2], p, flags, wtab, num_control);
 
 	if(tr->langopts.numbers & NUM_ROMAN_AFTER)

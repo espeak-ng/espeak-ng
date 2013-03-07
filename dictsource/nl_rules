@@ -4,6 +4,7 @@
 // Suffix rule: SUFX_E  eg. S2e  means double the vowel before the final consonant
 
 .L01  g k
+.L02  _ t_ d_ de_ den_  // verb endings
 
 
 .group a
@@ -65,6 +66,7 @@
           &) bare (_S4    =ba:r@
           _) bij (C@P3    b'EI
              bij (zond    b%i
+          _) bijeen       bEI'e:n
           _) binnen (P6   b'In@n
           _) boven (P5    b'o:v@n
           _) brand        br'And
@@ -188,7 +190,8 @@
          ig) e (_+S1qd    @
 
              ea (_        'e:a:
-             eau          o: //words with French origin
+             eau          'o: //words with French origin
+//             eau (_       'o:
           @) ee (_        'e:
           @) ee (X_       'e:
           @) ee (r_       'I
@@ -214,6 +217,7 @@
           &) el (ingen_$p_alt =@l
 
           @) elen (_      'e:l@n
+          @) el (en_$p_alt2 @L
           &) elijks       @l@ks
           &) em (_        @m
           &) e (ment      @
@@ -256,7 +260,6 @@
           @) etten (_S3   @n 
           @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
 
-             eau (_       'o:
              euille       @'y
              eum (_$w_alt 'e:8m
        @mus) eum (_       ,e:8m  // compounds
@@ -360,11 +363,13 @@
              ie           i
              ieuw         iw
              iee          ie:
+             ii           i
 
           d) ie (_        'i
           g) ie (_        'i
           m) ie (_        'i
           p) ie (_        'i
+         ss) ie (_        =i
              ieus (_      ij'Y:s
              ieuze (_     ij'Y:z@
              ieuzer (_    ij'Y:z@r
@@ -407,6 +412,7 @@
              io (nage     iO
              io (de_       i'o:
              iodes (_      i'o:d@s
+          _) in (scrip     In
              is (_        Is
           @) isch (_      =is
           @) ische (_     =is@
@@ -521,6 +527,7 @@ _) inn (@P2 'I    // ?? inneren
         @@C) o (_         =o:
              obsc (u      opsk
              oe (X_       'u
+             office       Of@s
              oir (_       'v#a:r
          pl) oi (t        v#A
           c) oi (ffu      v#A
@@ -532,6 +539,7 @@ _) inn (@P2 'I    // ?? inneren
           _) oost (@P4    o:st
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
+          _) op (enen     'o:p
           _) openings (P8 'o:p@nINs
           _) op (era      'o:p
           _) op (tion     Op
@@ -620,7 +628,8 @@ _) inn (@P2 'I    // ?? inneren
           A) s (A         z
              s (b         z
              s (d         z
-             sc           s
+             sc (e        s
+             sc (i        s
              sch          sx
              sch (_       s
              sch (e_      s
@@ -633,11 +642,14 @@ _) inn (@P2 'I    // ?? inneren
           a) s (_         s
           @) s (_$w_alt   =s
 
-         _) samen(@P5     s'a:m@n
+          _) samen(@P5    s'a:m@n
+          _) scan (L02    skEn
+             science      saI@ns
              sc (oop      sk
              sc (opi      sk
           &) sel (_       =s@l
           &) selen (_     =s@l@n
+             service      s8v@s
           @) si (o        S
           A) si (o        Z
           @) ssi (o       S

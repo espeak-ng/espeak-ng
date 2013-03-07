@@ -46,14 +46,14 @@ t_espeak_command* create_espeak_text(const void *text, size_t size, unsigned int
     {
       goto text_error;
     }
- 
-  a_text = malloc( size );
+
+  a_text = malloc( size+1 );
   if (!a_text)
     {
       goto text_error;
     }
   memcpy(a_text, text, size);
-  
+
   a_command->type = ET_TEXT;
   a_command->state = CS_UNDEFINED;
   data = &(a_command->u.my_text);
@@ -102,7 +102,7 @@ t_espeak_command* create_espeak_terminated_msg(unsigned int unique_identifier, v
     {
       goto msg_error;
     }
-   
+
   a_command->type = ET_TERMINATED_MSG;
   a_command->state = CS_UNDEFINED;
   data = &(a_command->u.my_terminated_msg);
@@ -234,7 +234,7 @@ t_espeak_command* create_espeak_char(wchar_t character, void* user_data)
     {
       goto char_error;
     }
- 
+
   a_command->type = ET_CHAR;
   a_command->state = CS_UNDEFINED;
   a_command->u.my_char.user_data = user_data;
@@ -270,11 +270,11 @@ t_espeak_command* create_espeak_parameter(espeak_PARAMETER parameter, int value,
     {
       goto param_error;
     }
- 
+
   a_command->type = ET_PARAMETER;
   a_command->state = CS_UNDEFINED;
   data = &(a_command->u.my_param);
-  data->parameter = parameter; 
+  data->parameter = parameter;
   data->value = value;
   data->relative = relative;
   a_error=0;
@@ -308,7 +308,7 @@ t_espeak_command* create_espeak_punctuation_list(const wchar_t *punctlist)
     {
       goto list_error;
     }
- 
+
   a_command->type = ET_PUNCTUATION_LIST;
   a_command->state = CS_UNDEFINED;
 
@@ -350,7 +350,7 @@ t_espeak_command* create_espeak_voice_name(const char *name)
     {
       goto name_error;
     }
- 
+
   a_command->type = ET_VOICE_NAME;
   a_command->state = CS_UNDEFINED;
   a_command->u.my_voice_name = strdup( name);
@@ -381,7 +381,7 @@ t_espeak_command* create_espeak_voice_spec(espeak_VOICE *voice)
     {
       goto spec_error;
     }
- 
+
   a_command->type = ET_VOICE_SPEC;
   a_command->state = CS_UNDEFINED;
   {
@@ -451,11 +451,11 @@ int delete_espeak_command( t_espeak_command* the_command)
 	  break;
 
 	case ET_TERMINATED_MSG:
-	  { 
+	  {
 	    // if the terminated msg is pending,
-	    // it must be processed here for informing the calling program 
+	    // it must be processed here for informing the calling program
 	    // that its message is finished.
-	    // This can be important for cleaning the related user data.	    
+	    // This can be important for cleaning the related user data.
 	    t_espeak_terminated_msg* data = &(the_command->u.my_terminated_msg);
 	    if (the_command->state == CS_PENDING)
 	      {
@@ -491,7 +491,7 @@ int delete_espeak_command( t_espeak_command* the_command)
 	    free((void*)(the_command->u.my_voice_name));
 	  }
 	  break;
-	  
+
 	case ET_VOICE_SPEC:
 	  {
 		espeak_VOICE* data = &(the_command->u.my_voice_spec);
@@ -542,23 +542,23 @@ void process_espeak_command( t_espeak_command* the_command)
     case ET_TEXT:
       {
 	t_espeak_text* data = &(the_command->u.my_text);
-	sync_espeak_Synth( data->unique_identifier, data->text, data->size, 
-			   data->position, data->position_type, 
-			   data->end_position, data->flags, data->user_data);	
+	sync_espeak_Synth( data->unique_identifier, data->text, data->size,
+			   data->position, data->position_type,
+			   data->end_position, data->flags, data->user_data);
       }
       break;
 
     case ET_MARK:
       {
 	t_espeak_mark* data = &(the_command->u.my_mark);
-	sync_espeak_Synth_Mark( data->unique_identifier, data->text, data->size, 
-				data->index_mark, data->end_position, data->flags, 
+	sync_espeak_Synth_Mark( data->unique_identifier, data->text, data->size,
+				data->index_mark, data->end_position, data->flags,
 				data->user_data);
       }
       break;
 
     case ET_TERMINATED_MSG:
-      { 
+      {
 	t_espeak_terminated_msg* data = &(the_command->u.my_terminated_msg);
 	sync_espeak_terminated_msg( data->unique_identifier, data->user_data);
       }
@@ -654,8 +654,8 @@ void display_espeak_command( t_espeak_command* the_command)
       {
 	t_espeak_terminated_msg* data = &(the_command->u.my_terminated_msg);
 
-	SHOW("display_espeak_command > (0x%x) TERMINATED_MSG uid=%d, user_data=0x%x, state=%d\n", 
-	     the_command, data->unique_identifier, data->user_data, 
+	SHOW("display_espeak_command > (0x%x) TERMINATED_MSG uid=%d, user_data=0x%x, state=%d\n",
+	     the_command, data->unique_identifier, data->user_data,
 	     the_command->state);
       }
       break;
@@ -670,7 +670,7 @@ void display_espeak_command( t_espeak_command* the_command)
     case ET_PARAMETER:
       {
 	t_espeak_parameter* data = &(the_command->u.my_param);
-	SHOW("display_espeak_command > (0x%x) PARAMETER=%d, value=%d, relative=%d\n", 
+	SHOW("display_espeak_command > (0x%x) PARAMETER=%d, value=%d, relative=%d\n",
 	     the_command, data->parameter, data->value, data->relative);
       }
       break;
