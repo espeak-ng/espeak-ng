@@ -5,6 +5,9 @@
 // A means vowel letters (not vowel signs)
 // B means a combining vowel sign or a virama
 
+// change (k t. t p) to (g d. d b) if followed by a vowel, unless at start of a word or preceeded by an unvoiced stop consonant ??
+.L01 _ ക്  ച്  ട്  ത്  പ്  
+
 
 .replace
 ൦	0	// Convert Malayalam numbers
@@ -24,8 +27,13 @@
 
 
 .group ക
-        ക          ka
-        ക (B       k
+        ക്          k
+   L01) ക          ka
+   L01) ക (B       k
+        ക          ga
+        ക (B       g
+        ക്ക          k:a
+        ക്ക (B       k:
 
 .group ഖ
         ഖ          kha
@@ -64,8 +72,13 @@
         ഞ (B       n^
 
 .group ട
-        ട          t.a
-        ട (B       t.
+        ട്          t.
+   L01) ട          t.a
+   L01) ട (B       t.
+        ട          d.a
+        ട (B       d.
+        ട്ട          t.:a
+        ട്ട (B       t.:
 
 .group ഠ
         ഠ          th.a
@@ -84,8 +97,13 @@
         ണ (B       n.
 
 .group ത
-        ത          ta
-        ത (B       t
+        ത്          t
+   L01) ത          ta
+   L01) ത (B       t
+        ത          da
+        ത (B       d
+        ത്ത          t:a
+        ത്ത (B       t:
 
 .group ഥ
         ഥ          tha
@@ -104,8 +122,13 @@
         ന (B       n
 
 .group പ
-        പ          pa
-        പ (B       p
+        പ്          p
+   L01) പ          pa
+   L01) പ (B       p
+        പ          ba
+        പ (B       b
+        പ്പ          p:a
+        പ്പ (B       p:
 
 .group ഫ
         ഫ          pha

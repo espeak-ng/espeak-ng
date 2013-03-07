@@ -1,6 +1,7 @@
 
 // This file in UTF8 encoded
 
+// $alt2, remove s from plural, remove en from plural
 // Use $alt3  where 'ng' and 'nk' is 'n+g' not [N]
 
 // Letters
@@ -1408,6 +1409,7 @@ armand		_^_FR
 augustus	VUQ'8st8s
 bacterie	bAkt'I:ri
 banengids	$alt3
+bascule		$2
 beha            be:_h'a:
 beige		bEZ@
 benard		b@nArt
@@ -1444,6 +1446,8 @@ damascering     damA;s'e:rIN
 december	$2
 dieet		$2
 diesel		diz@l
+discipline	$3
+//discussie	$2
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
 doordat		$2
@@ -1474,6 +1478,7 @@ januari		$3
 kadaster	$2
 mangat		$alt3
 materie		ma:t'e:ri
+maatregel	ma:tre:Q@l $alt2
 maxima		$1
 meteen		mEt'e:n
 metro		me:tro:

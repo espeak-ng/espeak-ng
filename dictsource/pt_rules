@@ -413,8 +413,8 @@ respond) e (L07_   e         // cor-
  _estr) ei (L03_   EI
   _inv) e (jL04_   E
   _dec) e (pL04_   E
-    _s) e (quL02_  E
     _p) e (quL02_  E
+    _s) e (quL02_  E
      l) e (que_    E
   _sug) e (rL02_   E
   _imp) e (rL03_   E
@@ -442,24 +442,26 @@ respond) e (L07_   e         // cor-
     _f) e (rvL03_  e
     _p) e (sL01_   E
     _d) e (scL02_  E
+   _cr) e (scL02_  E
     _p) e (scL03_  E
     _m) e (sclL04  E
     _l) e (ssL02_  e
   _esp) e (ssL03_  e
+    _c) e (stL03_  e
     _m) e (tL03_   e
+   _pr) e (tL03_   e
   _com) e (tL03_   e
   _rem) e (tL03_   e
   prom) e (tL03_   e         // com-
  _derr) e (tL03_   e
 _obsol) e (tL03_   e
-   _pr) e (tL03_   e
   _sol) e (trL03_  E
   _pen) e (trL04_  E
-   scr) e (vL03_   e         // e- in- pre- ree- de-
     _d) e (vL03_   e
+   scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
-_embel) e (zL04_   E
     pr) e (zL04_   E         / des- menos-
+_embel) e (zL04_   E
 _acont) e (çL01_   e
 _arref) e (çL01_   e
    par) e (çL03_   e         // a- re- com- rea- desa-
@@ -469,7 +471,6 @@ _arref) e (çL01_   e
   _mer) e (çL03_   e
   _pad) e (çL03_   e         // com-
   _per) e (çL03_   e
-_rejuven) e (çL03_ e
   conh) e (çL03_   e         // re-
  _esqu) e (çL03_   e
  _forn) e (çL03_   e
@@ -488,6 +489,7 @@ _envelh) e (çL03_  e
 _esclar) e (çL03_  e
 _estrem) e (çL03_  e
 _fortal) e (çL03_  e
+_rejuven) e (çL03_ e
 //endsort
 
 
@@ -779,26 +781,34 @@ _fortal) e (çL03_  e
 
 //sort
  _engl) o (bL01_   O
+    _s) o (bL02_   O
   _esn) o (bL04_   O
   _deb) o (chL04_  O
 _desabr) o (chL04_ O
+    _s) o (frL02_  O
+    _j) o (gL04_   O
     _r) o (gL04_   O
   _adv) o (gL04_   O
   _ref) o (gL04_   O
    _ap) oi (L01_   OI
-  _esc) o (lhL02_  O
+    _t) o (lL03_   o
+     c) o (lhL02_  O         / es- en- re-
+    _t) o (lhL02_  O
     _m) o (lhL04_  O
+   env) o (lvL02_  O         / des-
   _abs) o (lvL02_  O
-  _env) o (lvL02_  O
+  _res) o (lvL02_  O
   _rev) o (lvL02_  O
-_desenv) o (lvL02_ O
   _ent) o (pL02_   O
+    _c) o (pL03_   O
+  _ens) o (pL04_   O
+    _s) o (prL04_  O
+  _enf) o (rquL02_ O
      c) o (rrL01_  o         // escorra, incorra, corra, recorra
     _m) o (rrL01_  o
+    _r) o (snL04_  O
     _c) o (spL02_  O
      p) ostos (_   Ost=Us#   // dispostos etc.
-    _s) o (bL02_   O
-    _s) o (prL02_  O
 //endsort
 
 .group ô

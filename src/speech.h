@@ -51,7 +51,7 @@
 #endif
 
 #ifdef _ESPEAKEDIT
-#define USE_PORTAUDIO
+//#define USE_PORTAUDIO
 #define USE_ASYNC
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
 #endif

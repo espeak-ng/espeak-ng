@@ -192,12 +192,35 @@ const char *LookupMnemName(MNEM_TAB *table, const int value)
 }   /* end of LookupMnemValue */
 
 
-char *print_dictionary_flags(unsigned int *flags)
-{//==============================================
-	static char buf[20];
+void print_dictionary_flags(unsigned int *flags, char *buf, int buf_len)
+{//========================================================================
+	int stress;
+	int ix;
+	const char *name;
+	int len;
+	int total = 0;
 
-	sprintf(buf,"%s  0x%x/%x",LookupMnemName(mnem_flags,(flags[0] & 0xf)+0x40), flags[0], flags[1]);
-	return(buf);
+    buf[0] = 0;
+	if((stress = flags[0] & 0xf) != 0)
+	{
+	    sprintf(buf, "%s", LookupMnemName(mnem_flags, stress + 0x40));
+	    total = strlen(buf);
+	    buf += total;
+	}
+
+    for(ix=8; ix<64; ix++)
+    {
+        if(((ix < 30) && (flags[0] & (1 << ix))) || ((ix >= 0x20) && (flags[1] & (1 << (ix-0x20)))))
+        {
+            name = LookupMnemName(mnem_flags, ix);
+            len = strlen(name) + 1;
+            total += len;
+            if(total >= buf_len)
+                continue;
+            sprintf(buf, " %s", name);
+            buf += len;
+        }
+    }
 }
 
 

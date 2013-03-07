@@ -48,8 +48,11 @@
 #define FLAG_ALT_TRANS      0x8000  // language specific
 #define FLAG_ALT2_TRANS    0x10000  // language specific
 #define FLAG_ALT3_TRANS    0x20000  // language specific
-#define FLAG_COMBINE       0x40000  // combine with the next word
+#define FLAG_ALT4_TRANS    0x40000  // language specific
+#define FLAG_ALT5_TRANS    0x80000  // language specific
+#define FLAG_ALT6_TRANS   0x100000  // language specific
 
+#define FLAG_COMBINE      0x800000  // combine with the next word
 #define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
 #define FLAG_NEEDS_DOT  0x02000000  // only if the word is followed by a dot
 #define FLAG_WAS_UNPRONOUNCABLE  0x04000000  // the unpronounceable routine was used
@@ -79,7 +82,7 @@
 #define FLAG_ONLY_S         0x8000
 #define FLAG_STEM          0x10000  // must have a suffix
 #define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
-#define FLAG_ATSTART       0x30000  // use this pronunciation if at start of clause
+#define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
 
 #define BITNUM_FLAG_ALLCAPS   0x2a
 #define BITNUM_FLAG_HYPHENATED  0x2c
@@ -272,7 +275,7 @@ extern ALPHABET *current_alphabet;
 // alphabet flags
 #define AL_DONT_NAME  0x01    // don't speak the alphabet name
 #define AL_NOT_LETTERS  0x02  // don't use the language for speaking letters
-#define AL_NOT_WORDS  0x04    // don't use the language to speak words
+#define AL_WORDS  0x04        // use the language to speak words
 
 
 #define N_LOPTS      21
@@ -585,7 +588,6 @@ typedef struct
 	unsigned char groups2_start[256];    // index into groups2
 	const short *frequent_pairs;   // list of frequent pairs of letters, for use in compressed *_list
 
-
 	int expect_verb;
 	int expect_past;    // expect past tense
 	int expect_verb_s;
@@ -601,7 +603,7 @@ typedef struct
 
 	int prepause_timeout;
 	int end_stressed_vowel;  // word ends with stressed vowel
-	int prev_dict_flags;     // dictionary flags from previous word
+	int prev_dict_flags[2];     // dictionary flags from previous word
 	int clause_terminator;
 } Translator;
 
@@ -703,7 +705,6 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 
 void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
-void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
