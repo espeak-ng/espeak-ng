@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.42
+AppVerName=eSpeak version 1.46.31
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -18,11 +18,6 @@ Name: "{group}\TTSApp"; Filename: "{app}\TTSApp.exe"; WorkingDir: "{app}"
 
 [InstallDelete]
 Type: files; Name: "{app}\espeak.dll"
-Type: files; Name: "{app}\espeak-data\voices\*"
-Type: filesandordirs; Name: "{app}\espeak-data\voices\en"
-Type: filesandordirs; Name: "{app}\espeak-data\voices\asia"
-Type: filesandordirs; Name: "{app}\espeak-data\voices\europe"
-Type: filesandordirs; Name: "{app}\espeak-data\voices\other"
 Type: filesandordirs; Name: "{app}\espeak-data\voices\test"
 Type: filesandordirs; Name: "{app}\docs"
 
@@ -166,7 +161,6 @@ begin
   $41: Result := 'sw';
   //$44: Result := 'tt';
   $49: Result := 'ta';
-  $46: Result := 'pa';
   $4b: Result := 'kn';
   //$50: Result := 'mn';
   $52: Result := 'cy';
@@ -214,7 +208,6 @@ begin
   'an': value := $40a;   // Aragon, use code for Spanish
   'az': value := $42c;
   'bg': value := $402;
-  'bn': value := $445;
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
   'ca': value := $403;
   'cs': value := $405;
@@ -254,7 +247,6 @@ begin
   'ne': value := $461;
   'nl': value := $413;
   'no': value := $414;
-  'pa': value := $446;
   'pl': value := $415;
   'pt': value := $416;
   'ro': value := $418;
