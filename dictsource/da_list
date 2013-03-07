@@ -102,16 +102,16 @@ _9	n'i
 _10	t'i
 _11	'Elv@
 _12	t'Vl
-_13	tR'&#d@-n // PB & changed to &#
+_13	tR'?&#d@-n // PB & changed to &#
 _14	fj'ord@-n
-_15	 f'emt@-n
+_15	 f'Emd@-n
 _16	s'ajsd@-n
 _17	s'Wd@-n // PP Y changed to W
-_18	'&d@-n  // PB a changed to &
+_18	'?&d@-n  // PB a changed to &
 _19	n'ed@-n
-_2X	t'y:w
+_2X	t'y:?u
 _3X	tR'&#Dv@               //PB [tR'ADv@] changed to [tR'&#Dv@]
-_4X	 f'W:V                 //PB [f'W:*3] changed to [ f'W:V]
+_4X	 f'?W:_|V              //PB [f'W:*3] changed to [ f'?W:V]
 _5X	h&l't*Es               // PB [a] changed to [&], e changed to E
 _6X	t*'Es                  // PB changed from e to E
 _7X	h&lfj'&rs               // PV a changed to &
@@ -187,7 +187,7 @@ fra			$u+	// from
 ved			$u+	// at
 om			$u+ $brk	// about, within
 med			$u+	// with
-af      &  	// PB changed from [a?] to [&] - sound too short in a sentence
+af      &_|  	// PB changed from [a?] to [&] - sound too short in a sentence
             // Also removed $u from 'af' and other words. They disappeared.
 ad      &:  // PB added 'ad' 
 ad &D $atend $sentence // PB "Det må ikke skille os ad."
@@ -221,10 +221,10 @@ hvis ves   $u+  // PB - whose
 // possessive pronouns
 min	min	$u
 mit	mit	$u
-mine	m'in@	
+mine	m'in3	
 din	d'in $u+
 dit	d'it	$u
-dine	d'ine
+dine	d'in3
 deres dE:Vs	$u
 hans	$u+
 hendes	$u+
@@ -288,7 +288,6 @@ night       _^_EN
 the         _^_EN
 skinhead    _^_EN
 skinheads   _^_EN
-street      _^_EN
 boy         _^_EN
 square      _^_EN
 apple		_^_EN
@@ -11125,18 +11124,18 @@ tournure  $alt
 
 // exceptions
 alene	&l'en@	// alone
-egen a:j@n
+egen _|aj@-n
 mc mak' $capital // PB McDonald
-egne	a:in@
+egne	ajn@-
 enter	entV
 ide	id'e	// idea
 idé	id'e	// idea
 tune tun3 $capital // PB Tune lufthavn - not "tune a car" [tjune]
 ny	ny	// new
-også	Vs@	// also
+også	Vs@-	// also
 idet	id'e	// in so far as
 (rub og stub)  R'Ob||V||sd'Ob
-tre	tr'e	// the number 3
+tre	tr'E	// the number 3
 rejicere rejis'eV          // PB should not be pronounced [raje]
 rejicerer rejis'eV         // PB
 rejiceres rejis'eVs        // PB
@@ -11151,6 +11150,7 @@ konfirmanderne kVnferm'&nd3-n@  // PB
 konfirmandernes kVnferm'&nd3-n@s  // PB
 giv g'i                    // PB the v shouldn't be pronounced
 giver gir                  // PB the v shouldn't be pronounced
+opgiver Vpgir    // PB
 jaloux sj&'lu              // PB jaloux
 aficionado afisjo'na:do    // PB
 breakdance  brEig'da:ns    // PB breakdance
@@ -11184,7 +11184,7 @@ shampu Sjambo                // PB Danish pronunciation - oo has been replaced b
 wien     v'i:n                  // PB Wien - the town of Vienna
 calais   kal'E                   // PB Calais - town in France 
 date dejt                      // PB date - stævnemøde
-siger sir                      // PB silent d
+//siger sir                      // PB silent d
 (tids nok) tis||n'Vk             // PB silent d
 skateboardet  sk'eitbo@d3D      // PB
 (hole in one) h'oulinw,0n      // PB English golf expression used in Danish
@@ -11253,10 +11253,15 @@ ikes ajks // PB
 (deres kvarter) dE:Vs||kvA'ter      // PB
 (det kvarter) de||kvA'ter      // PB
 (i kvarter) i||kv'A:dV
-(at have) &||h&:                // PB the verb 'have', not the noun 'have' = garden
-(vil have) vel||h'&:             // PB
-(du have) du||h&:               // PB
-(må have)  m'O:||h&:               // PB
+(at have) &||h&                // PB the verb 'have', not the noun 'have' = garden
+(vil have) vel||h'&             // PB
+(ville have) v?il3||h'&             // PB
+(du have) du||h&               // PB
+(må have)  mO:||h&               // PB
+(skal have)  sk?&||h&               // PB
+(helst have) h'Elst||h&
+(gerne have) g'Ern3||h&
+(kan have) k?&n||h&        // PB
 (ikke have) ege||h&             // PB
 // PB 'hav' = ocean - 'hav' = have (a nice day)
 (et hav) ed||hAu

@@ -354,7 +354,7 @@ void TranslDlg::ReadVoice(int variant)
 	wxString filename;
 	char *p;
 	char vname[40];
-	char fname[sizeof(path_home)+10];
+	char fname[sizeof(path_home)+30];
 
 	if(variant)
 	{

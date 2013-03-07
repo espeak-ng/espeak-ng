@@ -555,6 +555,7 @@ typedef struct
 	unsigned char stress_amps_r[8];
 	short stress_lengths[8];
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
+	int dict_min_size;
 	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
 	const wchar_t *punct_within_word;   // allow these punctuation characters within words

@@ -730,7 +730,6 @@ concerto	$alt2 $noun
 concordo	$alt
 conforto	$alt  $verb
 consolo		$alt2 $noun
-contivermos	$alt
 controle		$alt2 $noun
 controlo		$alt2 $noun
 coreia		$alt
@@ -741,12 +740,8 @@ corto		$alt
 corveta		$alt2
 corvos		$alt
 coto		$alt2
-couberdes	$alt
-coubermos	$alt
 cratera		$alt
 crede		$alt2
-der		$alt
-derdes	$alt
 desapego	$alt2 $noun
 descabelo	$alt
 descordo	$alt
@@ -779,9 +774,6 @@ envelope	$alt
 envolto		$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
-erga		$alt2
-ergam	$alt2
-ergo	$alt2
 eritreia	$alt
 erro		$alt2 $noun
 erros		$alt2
@@ -799,8 +791,6 @@ espiroqueta	$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
-estiverdes	$alt
-estivermos	$alt
 estrela		$alt2
 estrofe		$alt
 estorno		$alt  $verb
@@ -818,8 +808,6 @@ fera		$alt
 ferozes		$alt
 fezes		$alt
 ?1 fixe		fiSy
-fizerdes	$alt
-fizermos	$alt
 foda		$alt2 $verb
 folheto		$alt2
 folga		$alt
@@ -857,8 +845,6 @@ grozo		$alt $verb
 hemorroida		$alt
 hoje		$alt2
 horrores	$alt2
-houverdes	$alt
-houvermos	$alt
 ideia		$alt
 insonoro	$alt
 interesse		$alt2 $noun
@@ -869,9 +855,6 @@ lebre		$alt
 lopes		$alt
 maior	$alt
 maleta		$alt2
-mantiverdes	$alt
-mantiveres	$alt
-mantivermos	$alt
 marcelo		$alt
 marmelo		$alt
 marreta		$alt2
@@ -892,7 +875,6 @@ minueto		$alt2
 miolo		$alt2
 miolos	$alt
 moeda		$alt
-modos		$alt
 molho		$alt2 $noun
 monera		$alt
 morcego		$alt2
@@ -913,15 +895,13 @@ naquele		$alt2 $nounf
 nervo		$alt2
 novos		$alt
 obstetra	$alt
-obtivera		$alt
-obtivermos	$alt
 odisseia	$alt
 onu		$1
 olho		$alt2 $noun
-osso	$alt2
-ossos	$alt
 opereta		$alt2
 ordens		$alt
+osso	$alt2
+ossos	$alt
 ostra		$alt2
 ovos		$alt
 pachorra	$alt2
@@ -937,8 +917,6 @@ pastora		$alt2
 pedra		$alt
 pelego		$alt2
 pelo		$alt  $verb
-pesque		$alt
-pesquem		$alt
 peso		$alt $verb
 piloto		$alt2 $noun
 pintora		$alt2
@@ -957,15 +935,9 @@ poxa		p'oS&
 preço	$alt2
 primavera	$alt
 provo		$alt
-puder		$alt
-puderdes	$alt
-pudermos	$alt
-puserdes	$alt
 quarteto	$alt2
 queda	$alt
 quinteto	$alt2
-quiserdes	$alt
-quisermos	$alt
 recomeço	$alt2 $noun
 recordo		$alt
 recorto		$alt
@@ -1006,8 +978,6 @@ sopro		$alt2 $noun
 soro		$alt2
 sorvete		$alt2
 sossego     $alt2 $noun
-souberdes	$alt
-soubermos	$alt
 suborno		$alt  $verb
 sufoco		$alt2 $noun
 sufocos		$alt2
@@ -1017,8 +987,6 @@ tapete		$alt2
 tempero		$alt2 $noun
 teta		$alt2
 tetra		$alt
-tiverdes	$alt
-tivermos	$alt
 tocha		$alt
 toga		$alt
 topo		$alt  $verb
@@ -1039,7 +1007,6 @@ valeta		$alt2
 vanessa		$alt2
 velozes		$alt
 verme		$alt
-vierem		$alt
 violeta		$alt2
 violoncelo		$alt
 voga		$alt
