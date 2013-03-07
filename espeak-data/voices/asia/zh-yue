@@ -12,3 +12,4 @@ gender male
 dictrules 1
 
 words 1
+dict_min 10000
