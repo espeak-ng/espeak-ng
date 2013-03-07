@@ -217,6 +217,7 @@ static const char transpose_map_latin[] = {
 	tr->charset_a0 = charsets[1];   // ISO-8859-1, this is for when the input is not utf8
 	dictionary_name[0] = 0;
 	tr->dict_condition=0;
+	tr->dict_min_size = 0;
 	tr->data_dictrules = NULL;     // language_1   translation rules file
 	tr->data_dictlist = NULL;      // language_2   dictionary lookup file
 
@@ -436,7 +437,7 @@ Translator *SelectTranslator(const char *name)
 	int name2 = 0;
 	Translator *tr;
 
-	static const short stress_lengths_equal[8] = {250, 250,  250, 250,  0, 0,  250, 250};
+	static const short stress_lengths_equal[8] = {230, 230,  230, 230,  0, 0,  230, 230};
 	static const unsigned char stress_amps_equal[8] = {18,18, 18,18, 18,18, 18,18 };
 
 	static const short stress_lengths_fr[8] = {190, 170,  190, 200,  0, 0,  190, 240};
@@ -445,7 +446,7 @@ Translator *SelectTranslator(const char *name)
 	static const unsigned char stress_amps_sk[8] = {17,16, 20,20, 20,22, 22,21 };
 	static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 
-	static const short stress_lengths_ta[8] = {240, 240,  250, 250,  0, 0,  270, 270};
+	static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
 	static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
 	// convert name string into a word of up to 4 characters, for the switch()

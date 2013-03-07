@@ -106,6 +106,7 @@ enum {
 	V_KLATT,
 	V_FAST,
 	V_SPEED,
+	V_DICTMIN,
 
 // these need a phoneme table to have been specified
 	V_REPLACE,
@@ -154,6 +155,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"klatt",      V_KLATT},
 	{"fast_test2",  V_FAST},
 	{"speed",      V_SPEED},
+	{"dict_min",   V_DICTMIN},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -552,9 +554,10 @@ voice_t *LoadVoice(const char *vname, int control)
 	char phonemes_name[40];
 	char option_name[40];
 	const char *language_type;
-	char buf[200];
+	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
+    int dict_min = 0;
 	int stress_amps[8];
 	int stress_lengths[8];
 	int stress_add[8];
@@ -965,6 +968,10 @@ voice_t *LoadVoice(const char *vname, int control)
 			SetSpeed(3);
 			break;
 
+        case V_DICTMIN:
+			sscanf(p,"%d",&dict_min);
+            break;
+
 		default:
 			if((key & 0xff00) == 0x100)
 			{
@@ -1007,6 +1014,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		}
 		voice->phoneme_tab_ix = ix;
 		new_translator->phoneme_tab_ix = ix;
+        new_translator->dict_min_size = dict_min;
 		LoadDictionary(new_translator, new_dictionary, control & 4);
 		if(dictionary_name[0]==0)
 			return(NULL);   // no dictionary loaded
@@ -1030,6 +1038,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	{
 		translator = new_translator;
 	}
+
 
 	// relative lengths of different stress syllables
 	for(ix=0; ix<stress_lengths_set; ix++)
