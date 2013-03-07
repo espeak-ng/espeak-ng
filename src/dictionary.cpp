@@ -310,6 +310,11 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 		p++;   // skip over the zero which terminates the list for this hash value
 	}
 
+	if((tr->dict_min_size > 0) && (size < tr->dict_min_size))
+	{
+	    fprintf(stderr, "Full dictionary is not installed for '%s'\n", name);
+	}
+
 	return(0);
 }  //  end of LoadDictionary
 
