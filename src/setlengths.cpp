@@ -892,7 +892,7 @@ if(stress <= 1)
 			{
 				// this is the last syllable in the clause, lengthen it - more for short vowels
 				len = (p->ph->std_length * 2);
-				if(tr->langopts.stress_flags & 0x40000)
+				if(tr->langopts.stress_flags & S_EO_CLAUSE1)
 					len=200;  // don't lengthen short vowels more than long vowels at end-of-clause
 				length_mod = length_mod * (256 + (280 - len)/3)/256;
 			}

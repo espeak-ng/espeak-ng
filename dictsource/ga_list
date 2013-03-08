@@ -1,0 +1,245 @@
+// Irish Gaeilge dictionary
+// written by Ronan McGuirk
+// January 2013
+// version 2.5
+// This file is UTF8 encoded
+
+// letters
+// letter names, as they are spoken as a single character in text
+// precede by _  to distinguish from pronunciation as a language word
+
+_a	eI
+b	bi:
+c	si:
+d	di:
+e	i:
+f	Ef
+g	dZi:
+h	eItS
+_i	aI
+j	dZeI
+k	keI
+l	El
+m	Em
+n	En
+_o	oU
+p	pi:
+q	kju:
+r	ar
+s	Es
+t	ti:
+u	ju:
+v	vi:
+w	d'O#b@lju:
+x	Eks
+y	waI
+z	zEd
+_á	eI||f0d[@
+_é	i:||f0d[@
+_ó	o:||f0d[@
+_ú	ju:||f0d[@
+ 
+_#32	spA:s
+
+
+// accent names
+
+// names of symbols
+ª_.	pO#nk
+_,	k0m@
+_;	semI
+_:	ko:l0n
+_!	Skre:@x
+_?	kESt
+_'	u:sx0m@
+.	pO#nk
+%	f@i:nge:@d[
+
+
+// numbers
+_0	@nA:idZ
+_1	@h'e:n
+_2	@d['o:
+_3	@tSR'i:
+_4	@k'ah@r
+_5	@ku:Ig
+_6	@S'e:
+_7	@S0xt[
+_8	@h'0xt[
+_9	@n@@'i:
+_1X	@dZ'E
+_11	e:@nde:@g
+_12	d[o:je:@g
+_13	tr'i:de:@g
+_14	kah@rde:@g
+_15	ku:igde:@g
+_16 Se:de:@g
+_17	S0xtde:@g
+_18 O#xtde:@g
+_19 ni:de:@g
+_20	fICe
+_2X	fiCE
+_3X	trO#x@
+_31 trO#x@he:@n
+ _40 d[0C@d
+ _4X	d[0C@d@
+ _41 d[0C@dahe:@n
+ _5X	k@e:@g@
+ _51 k@e:@g@he:@n
+_6X	Sask@
+_61 Sask@he:@n
+_7X	S0xto:
+_71 S0xt[o:he:@n
+_8X	O#Xto:
+_81 O#xt[o:he:@n
+_9X	no:x@
+_91 no:x@he:@n
+_0C	ke:@d[
+_1C0	ke:@d[         // exactly one hundred
+_1C	ke:@d[
+_101 ke:@d[@he:@n
+_2C	ga:Ce:@d[
+_3C	tri:Ce:@d[
+_4C	kEr@ke:@d[
+_5C	ku:igce:@d[
+_6C	Se:ke:@d[
+_7C	S0xtge:@d[
+_8C O#xtg'e:@d[
+_9C	ni:ge:@d[
+_0M1	mi:lE
+_1M1 m'i:lE
+_2M1 gA:vi:lE
+_2001 gA:vi:lEs@he:@n
+_2002 gA:vi:lEs@d['o:
+_2003 gA:vi:lEs@tr'i:
+_2004 gA:vi:lEs@kah@r
+_2005 gA:vi:lEs@ku:ig
+_0M2	mIlu:n
+_1M2	'milu:n
+_2M2	d[A:vIlu:n
+_3M2	tri:vilu:n
+_4M2	kEr@milu:n
+_0M4	_bilu:n
+_1M4	'bilu:n
+_2M4 gA:vilu:n
+_3M4 tri:vilu:n
+_4M4 kEr@vilu:n
+
+_0and	Is
+_dpt	pO#nk
+//_roman	Rom'ano
+
+//delete
+
+
+// words 
+a	@
+abhaile @w'0l;E
+ach	0x		$u
+ag Eg $verbf $u
+anall	@n'aUl
+aige @g'E
+air Er
+acu 0k'U
+ar Er		$u
+arsa	@rs@
+agaibh	0g@Iv
+agus	0g@s
+amach	@m'0x
+amárach	@m'A:r@x
+amuigh	@mu1'I
+amháin @w'A:in
+am aUm
+an	@n
+anois	@nIS
+anonn @naUn
+ann aUn
+anseo	@nS'O
+aodh e:
+aodha e:
+aon e:@n
+(ar ais) Er'aS
+arís	@r'i:S
+as 0s
+atá	@t['A:		$u
+baill	bu1'i:l
+bhaill	vu1'i:l
+beidh	bEg
+bhfuil w'Il
+bhuel	w'El
+ceithre kEr@
+cathair	k'0h@r
+chathair	x'0h@r
+clainne	kl'InE
+chlainne	xl'InE
+chun	xUn		$u
+crainn kri:n
+de	dE		$u+
+des	dEs		$u
+
+dhaoibh ji:v
+di	dI		$u+
+do	dO#		$u
+domhnach d[aUn@x
+domhnaigh d[aUnig
+eile	'El@
+euro ju:ro:
+faic f@ak
+  faide f@Id[E
+faigh	faIg
+  feadh fag
+fear	f'ar
+gcathair	g0h@r
+gan	g0n		$u
+  gheall jaUl
+  (go raibh maith) g@r@m0h
+  (go raibh míle) g@r@mi:l@
+gur	gUr		$u
+i	I		$u
+in	In		$u
+ina	In@		$u
+ins	Ins		$u
+    inniu Inj'u:v
+	irish	_^_EN
+    is  'Is		$u
+  (is ea) IS'a
+  isteach	IstS'0x
+      iúl ju:l
+  laoghaire li:@r@
+le	lE		$u
+       leí le:i:
+(maigh eo)	mu1'i:||'o:
+(muigheo)	mu1'i:||'o:
+mhuigh	vu1'i:
+(mhaigh eo)	vu1'i:||'o:
+maith m'0
+mhaith w'0
+	   mbeadh m;O#X
+mo	mO#		$u
+mura	mUr@		$u
+ná	nA:		$u
+	   nigh ni:
+	   níorbh ni:rv
+	   nó nu:		$u
+  nollag n@l@g
+  nolaig nO#lig
+Oirghiall	'Err@X@l
+orthu O#rhu
+os	o:s
+rabh	raU
+raibh rEv
+réamhrá r'e:@vr,a:
+réidh	re:
+samhain saUIn
+	  san s@n
+	  seo S@_
+	tabhair t'u:@r
+	(tiocfaidh ár lá)	tSO#ki:|'A:r|l'A:
+	
+	// temporary fix for NO#DA punctuation
+dot pO#nk
+comma k0m@
+dash flESki:n
+tick u:@sx0m@
+space spA:s
+	

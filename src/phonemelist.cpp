@@ -428,7 +428,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					{
 						// in a sequence of unstressed syllables, reduce alternate syllables to 'diminished'
 						// stress.  But not for the last phoneme of a stressed word
-						if((tr->langopts.stress_flags & 0x2) || ((word_stress > 3) && ((plist3+1)->sourceix!=0)))
+						if((tr->langopts.stress_flags & S_NO_DIM) || ((word_stress > 3) && ((plist3+1)->sourceix!=0)))
 						{
 							// An unstressed final vowel of a stressed word
 							unstress_count=1;    // try again for next syllable

@@ -77,28 +77,42 @@ ỵ	ỵ
 //================================
 //  Consonants
 //================================
+.L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve 
+.L02 n
+
 
 .group b
         b          b
      _) b          _b
+//b($w_alt2 _^_EN
 
 .group c
         c          g         //k
         c (_       kh
         ch         c         // try [tS;] [tS] [c]
-  		
-		
+        ce (_      _^_EN
+     _) cl         _^_EN
+        
+ 
+
 .group d
         d          J^        // try [z] [J] [dZ] [dZ;] [J^]
+        d (_       _^_EN
 
+        
+        
 .group đ
         đ          d
      _) đ          _d
+        
+ 
 
 .group f
-        f          f
-
-
+        //f          f
+     _) f          _^_EN
+        f (_       _^_EN
+        
+ 
 .group g
         g          Q         // try [g] [Q]
         gh         Q         // or [g]  [Q]
@@ -107,7 +121,7 @@ ỵ	ỵ
         //g (í       J^
         //g (ỉ       J^
         //g (ĩ       J^
-		//g (ị       J^
+	//g (ị       J^
         gi         J^
 ?1      giết       J^'iE3g
         giết       J^'iE3t[
@@ -115,25 +129,35 @@ ỵ	ỵ
 ?1      giệt       J^'iE6g
         giệt       J^'iE6t[
         giệc       J^'iE6kh
+     _) gol        _^_EN
+     _) gat        _^_EN     
+        ght (_     _^_EN        
+ 
 
 .group h
         h          h
-
-
+        
+ 
 .group j
         j          Z
 
 
 .group k
         k          k
-        k (_       kh
+        //k (_       kh
         kh         x
-
+        k (_       _^_EN
+        
+ 
 .group l
         l          l
+        l (_       _^_EN
+        le (_      _^_EN
 
+        
 .group m
         m          m
+        
 
 .group n
         n          n
@@ -141,49 +165,75 @@ ỵ	ỵ
         ng         N
         ngh        N
         nh         n^
+        nd (_      _^_EN
 
+        
 .group ñ
         ñ          n^
-
+        
+ 
 .group p
         p          p
         ph         f
-
+        
+ 
 .group q
         q          k
         q (_       kh
         qu         w         //kw
+        
 
 .group r
         r          z.        // try [z] [z.] [r] [z;]
+        r (_       _^_EN
+        rm (_      _^_EN
 
+        
 .group s
         s          s.        // try [s.] [s] [S]
+     _) sh         _^_EN
+        s (_       _^_EN
+        st (_      _^_EN
+        se (_      _^_EN
 
+        
 .group t
         t          t[
 ?1      t (_       g
         th         t
         tr         cr        // try [cr] [tr] [tS;] [tS] [c] [dZ] [dz;]
+        ts (_      _^_EN
+        te (_      _^_EN
+        th (_      _^_EN
+        tt (_      _^_EN
 
+        
 .group v
         v          v
-
+        ve (_      _^_EN     
+        
+ 
 .group w
         w          w
-
+     _) w          _^_EN
+        w (_       _^_EN
+        
+ 
 .group x
         x          s
+        x (_       _^_EN
+
 
 .group z
         z          z
+        z (_       _^_EN
 
-
-
-
+        
 //================================
 //  Vowels
 //================================
+        
+ 
 
 .group a
         a          a:
@@ -211,92 +261,122 @@ ỵ	ỵ
         aủ         aU4
         aũ         aU5
         aụ         aU6
+        a (L01     _^_EN
+        ai (L02    _^_EN
 
+        
 .group à
         à          a:2
         ài         a:I2
         ày         aI2
         ào         a:U2
         àu         aU2
-
+        
+ 
 .group á
         á          a:3
         ái         a:I3
         áy         aI3
         áo         a:U3
         áu         aU3
-
+        
+ 
 .group ả
         ả          a:4
         ải         a:I4
         ảy         aI4
         ảo         a:U4
         ảu         aU4
-
+        
+ 
 .group ã
         ã          a:5
         ãi         a:I5
         ãy         aI5
         ão         a:U5
         ãu         aU5
-
+        
+ 
 .group ạ
         ạ          a:6
         ại         a:I6
         ạy         aI6
         ạo         a:U6
         ạu         aU6
-
+        
+ 
 //================================
 .group ă
         ă          a
+        
+ 
 
 .group ằ
         ằ          a2
+        
+ 
 
 .group ắ
         ắ          a3
+        
+ 
 
 .group ẳ
         ẳ          a4
+        
+ 
 
 .group ẵ
         ẵ          a5
+        
+ 
 
 .group ặ
         ặ          a6
-
+        
+ 
 //=================================
 .group â
         â          @
         ây         @I
-        âu         @U1 
+        âu         @U1       
+        
+ 
 
 .group ầ
         ầ          @2
         ầy         @I2
         ầu         @U2
+        
+ 
 
 .group ấ
         ấ          @3
         ấy         @I3
         ấu         @U3
+        
+ 
 
 .group ẩ
         ẩ          @4
         ẩy         @I4
         ẩu         @U4
+        
+ 
 
 .group ẫ
         ẫ          @5
         ẫy         @I5
         ẫu         @U5
+        
+ 
 
 .group ậ
         ậ          @6
         ậy         @I6
         ậu         @U6
-
+        
+ 
 //===========================
 .group e
         e          E
@@ -306,56 +386,78 @@ ỵ	ỵ
         eỏ         EU4
         eỗ         EU5
         eọ         EU6
+        e (L01     _^_EN
+        ey (_      _^_EN
 
+        
 .group è
         è          E2
         èo         EU2
+        
+ 
 
 .group é
         é          E3
         éo         EU3
+        
+ 
 
 .group ẻ
         ẻ          E4
         ẻo         EU4
+        
+ 
 
 .group ẽ
         ẽ          E5
         ẽo         EU5
+        
+ 
 
 .group ẹ
         ẹ          E6
         ẹo         EU6
-
+        
+ 
 //============================
 
 .group ê
         ê          e
         êu         eU1
+        
+ 
 
 .group ề
         ề          e2
         ều         eU2
+        
+ 
 
 .group ế
         ế          e3
         ếu         eU3
+        
+ 
 
 .group ể
         ể          e4
         ểu         eU4
+        
+ 
 
 .group ễ
         ễ          e5
         ễu         eU5
+        
+ 
 
 .group ệ
         ệ          e6
         ệu         eU6
 
-
-
+ 
 //============================
+
 .group i
         i          i
         i (A       j
@@ -383,40 +485,46 @@ ỵ	ỵ
         iểu        iU4
         iễu        iU5
         iệu        iU6
+        i (L01     _^_EN
 
+        
 .group ì
         ì          i2
         ì (A       j2
         ìa         i@2
         ìu         iU2
-
+        
+ 
 .group í
         í          i3
         í (A       j3
         ía         i@3
         íu         iU3
-
+        
+ 
 .group ỉ
         ỉ          i4
         ỉ (A       j4
         ỉa         i@4
         ỉu         iU4
-
+        
+ 
 .group ĩ
         ĩ          i5
         ĩ (A       j5
         ĩa         i@5
         ĩu         iU5
-
+        
+ 
 .group ị
         ị          i6
         ị (A       j6
         ịa         i@6
         ịu         iU6
-
-
-
+        
+ 
 //=========================
+
 .group o
         o          O
         oa         o@        // modify oa sound  example: hoa,khoa // o (A       w
@@ -428,13 +536,17 @@ ỵ	ỵ
         oị         OI6
         ong        O#
         oe         o&        // Adding  oe sound  example: lóe sáng,toét mắt
-
+        o (L01     _^_EN
+        
+        
 .group ò
         ò          O2
         òi         OI2
         òa         o@2       //ò (A       w2
         òng        O#2
         òe         o&2
+        
+ 
 
 .group ó
         ó          O3
@@ -442,6 +554,8 @@ ỵ	ỵ
         óa         o@3       //ó (A       w3
         óng        O#3
         óe         o&3
+        
+ 
 
 .group ỏ
         ỏ          O4
@@ -449,6 +563,8 @@ ỵ	ỵ
         ỏa         o@4       //ỏ (A       w4
         ỏng        O#4
         ỏe         o&4
+        
+ 
 
 .group õ
         õ          O5
@@ -456,6 +572,8 @@ ỵ	ỵ
         õa         o@5       //õ (A       w5
         õng        O#5
         õe         o&5
+        
+ 
 
 .group ọ
         ọ          O6
@@ -463,75 +581,98 @@ ỵ	ỵ
         ọa         o@6       //ọ (A       w6
         ọng        O#6
         ọe         o&6
-
+        
+ 
 
 //=============================
+
 .group ô
         ô          o
         ôi         oI
         ông        o#        // ông sound
-
+        
+ 
 .group ồ
         ồ          o2
         ồi         oI2
         ồng        o#2
+        
+ 
 
 .group ố
         ố          o3
         ối         oI3
         ống        o#3
+        
+ 
 
 .group ổ
         ổ          o4
         ổi         oI4
         ổng        o#4
+        
+ 
 
 .group ỗ
         ỗ          o5
         ỗi         oI5
         ỗng        o#5
+        
+ 
 
 .group ộ
         ộ          o6
         ội         oI6
         ộng        o#6
-
-
-
+        
+ 
+        
 //=============================
+
 .group ơ
         ơ          @:
         ơi         @:I
         ơu         @:U
+        
+ 
 
 .group ờ
         ờ          @:2
         ời         @:I2
         ờu         @:U2
+        
+ 
 
 .group ớ
         ớ          @:3
         ới         @:I3
         ớu         @:U3
+        
+ 
 
 .group ở
         ở          @:4
         ởi         @:I4
         ởu         @:U4
+        
+ 
 
 .group ỡ
         ỡ          @:5
         ỡi         @:I5
         ỡu         @:U5
+        
+ 
 
 .group ợ
         ợ          @:6
         ợi         @:I6
         ợu         @:U6
-
-
+        
+ 
 
 //=============================
+
 .group u
         u          u
         u (A       w
@@ -561,12 +702,19 @@ ỵ	ỵ
         uỗi        u@j5
         uội        u@j6
         //ung        u#
+        u (L01     _^_EN
+        ui (L01    _^_EN
+        ua (L01    _^_EN
+        
+        
 .group ù
         ù          u2
         ù (A       w2
         ùi         uI2
         ùa         u@2
 		//ùng        u#2
+        
+ 
 
 .group ú
         ú          u3
@@ -574,6 +722,8 @@ ỵ	ỵ
         úi         uI3
         úa         u@3
 		//úng        u#3
+        
+ 
 
 .group ủ
         ủ          u4
@@ -581,6 +731,8 @@ ỵ	ỵ
         ủi         uI4
         ủa         u@4
 		//ủng        u#4
+        
+ 
 
 .group ũ
         ũ          u5
@@ -588,6 +740,8 @@ ỵ	ỵ
         ũi         uI5
         ũa         u@5
 		//ũng        u#5
+        
+ 
 
 .group ụ
         ụ          u6
@@ -595,8 +749,10 @@ ỵ	ỵ
         ụi         uI6
         ụa         u@6
 		//ụng        u#6
-
+        
+ 
 //=============================
+
 .group ư
         ư          y
         ưi         yI
@@ -620,38 +776,49 @@ ỵ	ỵ
         ưởu        y@w4
         ưỡu        y@w5
         ượu        y@w6
+        
+ 
 
 .group ừ
         ừ          y2
         ừi         yI2
         ừa         y@2
         ừu         yw2
+        
+ 
 
 .group ứ
         ứ          y3
         ứi         yI3
         ứa         y@3
         ứu         yw3
+        
+ 
 
 .group ử
         ử          y4
         ửi         yI4
         ửa         y@4
         ửu         yw4
+        
+ 
 
 .group ữ
         ữ          y5
         ữi         yI5
         ữa         y@5
         ữu         yw5
+        
+ 
 
 .group ự
         ự          y6
         ựi         yI6
         ựa         y@6
         ựu         yw6
-
-
+        
+ 
+//=============================
 
 .group y
         y          i
@@ -669,35 +836,49 @@ ỵ	ỵ
         yễ         i@5
         yệ         i@6
       //  yêu        i@U
+        
+ 
 
 .group ỳ
         ỳ          i2
         ỳ (A       j2
         ỳa         i@2
+        
+ 
 
 .group ý
         ý          i3
         ý (A       j3
         ýa         i@3
+        
+ 
 
 .group ỷ
         ỷ          i4
         ỷ (A       j4
         ỷa         i@4
+        
+ 
 
 .group ỹ
         ỹ          i5
         ỹ (A       j5
         ỹa         i@5
+        
+ 
 
 .group ỵ
         ỵ          i6
         ỵ (A       j6
         ỵa         i@6
+        
+ 
+//=============================
 
 .group 0xce   // Greek letters
 // 0xce is the first byte of the utf-8 code for these characters
-
+        
+ 
         α          a:1n_|f'a:1
         ά          a:1n_|f'a:1
         β          b'e1_|t['a:1
@@ -717,9 +898,12 @@ ỵ	ỵ
         ν          nw'i1
         ξ          s'i7
         ο          o1_|m'i1_|kz.'O7n
+        
+ 
 
 .group 0xcf   // Greek letters
-
+        
+ 
         π          p'i1
         ρ          z.'o1
         σ          s'i3c_|m'a:1
@@ -733,26 +917,29 @@ ỵ	ỵ
         ω          o1_|m'e1_|Q'a:7
         ώ          o1_|m'e1_|Q'a:7
         ό          o1_|m'i1_|kz.'O7n
-
+        
+ 
+        
+ 
 
 .group
         %          f'@2n||cr'am
         !          _:c'@3m_|t'a:7n_:
-        ! (\! 
+        ! (\!      
 //            :            koUl@n
     D_) h (_DD_    D'@:2     // omit colon in time, eg: 2:30
         $          d'o||l'a
         !=         x'o#_|_b'a2N_
         >=         l'@:3n_|h'@:1n_|hw,a6kh_b'a2N
         <=         n^'O4_|h'@:1n_|hw,a6kh_b'a2N
-
-
+        
+ 
     __) - (_D      cr'y2
     A_) - (_D      _
     C_) - (_D      _
-
-
+        
         .          c'@3m_
         . (.       _:
-    \.) . 
-
+    \.) .          
+        
+ 

@@ -1,0 +1,430 @@
+// translation rules for Irish Gaeilge
+// This file is UTF-8 encoded
+// written by Ronan McGuirk January 2013
+// Version 2.5B
+
+
+
+.L01 e i é í // slender vowels
+.L02 c ch d g gh n  s // following ea gets ; sounds
+.L03 b bh mb  c ch f m mh dh   // used for words likemuir or cuid 
+.L04 b bh mb    // for words like beag
+.L05 nn nna nnas dh r s ntas nach nas nais dar mar rtha nta mh chas chais cht  chta nnach ntach llach d l  ll             // word endings where @ is to repleace ea or a
+.L06 aidh idh aí á eá eadh adh ad imid aimid imis aimis  ainn inn idís aidís éin     // word endings where f changes to h
+.L07 b c g ch bh gh mb   
+.L08 lc ll nt bhse       // for words like cailc
+.L09 cl cr chr  f
+.L10 c ch p ph gl ghl   
+.L11 c dh gh the s nn nne nt tiúil tiúla tíochta theoir theora    ste steach ll llí llín  g gí mse     // word endings preceded by ai 
+.L12 á é ó eo ua   // when followed by i
+.L13 oc omb 
+.L14 río dún gnío        // followed with mh
+.L15 c ch  f  m d dh g gc  gh mh // aoi following
+.L16 b c bh ch gr ghr    // for inn word ending
+.L17 l le li niste nn  
+.L18 n nt nte neann neadh ntear nim nfear nfinn     
+.L19 na nea ra rea la llea arga     // word endings with silent dh 
+.L20 eo eoir eá eabh io iu iú               // slender m
+.L21 ll nn ndán nntán
+.L22  eadh eag eaga eagán eagáinín eo  io iu iú eall eabh ealtaine
+.L23 ea eo i 
+.L24 b mb bh g gh p ph bp m mh
+.group a
+		a		0#
+		a	(_	@
+		adh	(a	aI	// words like radharc
+		adh	(C	aI
+		abht		aU#t[
+		amhr		aUr	//	words like amhras
+	K)	amhl		aUl
+		abhra		aUr@	//	words like slabhra
+		aghaidh		aIg
+	t)	abhair		u:@r
+	th)	abhair		u:@r
+	t)	abhar		u:@r
+	th)	abhar		u:@r
+	_)	an	(sL01	@n
+	_)	an	(-	0n	// an prefix
+	é)	a		@	// words like féach
+	X)	a	(nn_	aU#
+	X)	a	(ll_	aU#
+		abha		aU@
+		am	(pla	aUm
+		ama(_		aU#m@
+		athair		'ah@r
+	_)	amh		aU
+agha		aI@
+		agh	(d	aI
+		agh	(s	aI
+	_)	ath		0h
+
+		ai	(m_	@
+		aí		i:
+		aoi		@i:
+	_)	aoi		i:
+	ath)	aoi	(r	'i:@
+	r)	aoi	(nín	'e:@
+		aoicht	(_	'i:@xt[
+	C)	ao	(C	@e:@
+	_L24)	ao	(C	w'e:@
+	C)	ao	(th_	@e:
+	b)	ao	(++	we:@
+	b)	ao	(th_++	we:
+		ao		@e
+	_)	ao	e:
+		ae		e:
+		amhna	(_	aUn@
+
+.group á
+		á		A:
+	@)	á		,A:
+		ádh	A:
+		áthair	(_	A:h@r
+		áthar		A:h@r
+		ái	(p	A:
+		áinig		A:nIg
+		ái		'A:i
+.group ai
+		ai		a#
+	L04)	ai	(L17	0#
+		aile	(_	'0l;E	// words like baile
+	Xc)	ai	(l	'0#
+	ch)	ai	(l	'0#
+	m)	ai	(n	0#
+	c)	ai	(th	0#
+	ch)	ai	(th	0#
+		ai	(d	0#
+	p)	ai	(l	0#
+	@)	ai	(L11_	I
+		ai	(L08+	aI#
+	c)	ai	(l_	I
+		ai	(msi	'aI	// words like aimsir
+	_L04)	ai	(L18_++	u1'I//words like bain
+	c)	ai	(t_	u1'I
+	s)	ai	(bh	E
+		aighre		aIr@
+	X)	aigh		'aI
+		aigh		aI#	L04)	aill	(_	wi:l
+		aing	(_	Ing
+.group b
+		b		b	// broad
+	L01)	b		b;	// slender
+		b	(L22	bj	//slender
+		bh		v	// broad
+		bh	(_	vv
+		bh	(L22	vj	// slender
+	L01)	bh		v
+	_)	bhf		v	/urú broad
+	_)	bhf	(L22	v;	// urú slender
+	_)	bp		b	//urú broad
+	_)	bp	(L01	b;	// urú slender
+	a)	bh	(a	U// for example cabhair
+			ear)	bha	u:	// words like Cearbhall
+		bhfaigh		v'aI
+
+.group c
+		c		k
+		c	(L01	k;	// slender
+		ch		x
+		ch	(L01	C;
+		ch	(é+	C;
+		ch	(ei+	x;
+	_)	cabhr		k'aUr
+	_)	chabhr		x'aUr
+
+.group d
+		d		d[	// broad
+	L01)	d		dZ	// slender
+		d	(L22	dZ	//slender
+		d	(L01	d;	//slender
+	i)	d	(i	dZ	
+		dh		Q	// broad
+		dh	(ui	Q	//broad
+		dh	(ao	Q	//broad
+		dh	(L01	j	// slender
+	_)	dt		d[	//broad urú
+	_)	dt	(L01	dZ	// slender urú
+	_)	d'	(@P2	d
+	i)	dh	(_	g
+	a)	dh	(_	X
+	o)	dh	(_	X
+	L19)	dh	(_		// silent dh at wrd end
+	Va)	dh	(_+
+		deartháir		dr@h'A:r
+		dheartháir		gr@h'A:r
+		deirfiúr		d;r@f'u:r
+		dheirfiúr		g;r@f'u:r
+
+.group e
+		e	E#
+		eá		A:
+		ei		E
+		eidh	(C	aI
+	r)	ei	(m	aI
+		eighea		aI
+		eighea		aI
+		eigh		aI
+		
+		
+		eo		o:
+		eogh		o:
+	d)	eo	(ch	O#
+	_)	eo	(ch	O#
+	s)	eo	(_	@
+
+.group é
+		é		'e:
+		éi		'e:
+	_)	éi	(rig	aI	// words like éirigh
+	_)	éi	(rí	aI	// words like éirí
+	_)	éireoidh		aIro:Ig
+		éacs		e:@ks
+.group ea
+		ea		a#
+	X)	ea	(L21_	aU
+		ea	(ltaine	aU
+	g)	ea	(ll	aU
+X)		ea	(ch	0
+	_L04)	ea	(g	@
+	_L04)	ea	(dh_	@
+	_L04)	eagn		@gn
+	L04)	eaga	(_	@g@
+	eaghl		aIl
+		eabhra		aUr@	//	words like Feabhra
+		eanbhean		'an@v,an
+		eadhb		aIb
+
+.group f
+		f		f	// broad
+		f	(L22	f;	// slender
+		fh		//silent
+		fh	(éin_	h
+		fh	(L22	;	//slender
+	@)	f	(L06_	h
+
+.group g
+		g		g	// broad
+		g	(L01	g;	// slender
+	_)	gh		Q"
+	_)	gh	(L01	Q"j
+	_)	gc		g	// urú broad
+	_)	gc	(L01	g;	// urú slender
+	i)	gh	(_	g
+	@C)	gh	(@	X
+	_)	gn		g@n
+		gh(n		X@
+		gheobh		j'o:
+		gabh		gaU
+.group h
+		h		h	// silent 
+
+.group i
+		i		I
+	_)	i	I
+		ia		i@
+		ia	(tha	i:
+		io		O#	
+	_)	io	(nadh	u:// words like ionadh
+	_pr)	io	(n	u:
+	L16)	inn	(_	i:n
+		iai		i:i
+		impeall		i:mp@l
+		io	(s	I	//words like fios and liosta
+	L12)	i		i	// non syllabic short i after long vowel
+		iú		u:
+	m)	i	(d_	i:	// verb ending
+	
+.group k
+		k		k
+
+.group l
+		l		l	// broad
+	L01)	l	(	l;	// slender
+		l	(L23	l;	//slender
+		ll	l
+		ll	(L23	l;
+		l	(g	l@
+		l	(b	l@	
+.group m
+		m		m	// broad
+		m	(L20	m;	//slender
+		mh		v
+		mh	(L20	v;	// slender
+	_)	mb		m	//urú
+	_)	mb	(L22	m;	// urú slender
+	_)	m	(n	m@// words like mná
+	L14)	mh		v
+	_)	mh	(n	v@
+	léir)	mheas		vas
+	r)	m		@m	// words like gorm
+
+.group n
+		n		n	// broad
+		n	(L01	n;	// slender
+	_)	nd		n	// urú
+	_)	nd	(L01	n;	// urú slender
+		nn		n
+		nn	(L01	n;	// slender
+		n	(b	n@
+		n	(m		n@
+		n	(bh	n@		n(ch		n@
+	c)	n		@n
+	ch)	n		@n
+.group o
+		o		O#
+	_)	o		'O
+	C)	o	(cht_		'O
+		orn	(_	'Or@n
+
+	_C)	omh		o:
+	_CC)	omh		o:
+		omha		o:@
+		omhai		o:@
+		o	(ll_	aU
+	C)	o	(nn_	aU
+	r)	o	(nn_	O#
+	C)	ogh		aU
+		omhan(_		aU@n
+		omhain	(_	aUIn
+				odha		aU
+				opaic		@pIk
+	C)	odh	(_	o:
+		odl	(a	O#l
+		oí		i:
+
+.group ó
+		ó		'o:
+		ómhai		o:@
+
+.group oi
+		oi		O
+	_L15)	oi	(+	@'I
+	_)	oi	(b	I
+		oi	(de	I
+	h)	oi	(b	I
+	_)	oi	(r	I
+	r)	oi		I
+	l)	oi	(n	I
+	f)	oi	(lC	aI
+	l)	oi	(g	I
+	fh)	oi	(lC	aI
+	s)	oi	(ls	aI#
+	c)	oi	(c	aI#
+		oi	(nnío	@
+		oi	(mis	@
+		ois	(++	O#S
+		oill		w'i:l
+	_)	oi	(leá	'I
+		oidh		aI
+		oir	(_	'ERR
+		oigh	(ea	aI
+.group p
+		p		p	// broad
+		ph		f	//broad
+		p	(L22	p;	//slender
+		ph	(L20	f;	// slender
+
+.group q
+		q		k
+		qu		k
+
+.group r
+		r		r	// broad
+		 L01)	r		R	// slender
+	_)	r	(L01	R
+	L12i)	r	(e_	Z
+	L12i)	r	(t_	Z
+		rr		R
+		rg		r@g
+L01)	rg		R@g	// slender
+		r	(bh	r@
+		ríomh		ri:@v
+	s)	r	(A	R
+	_)	ramh		raU
+
+.group s
+		s		s	// broad
+	L01)	s		S	// slender
+		s	(L01	S	// slender
+		s	(cL01	S
+		s	(CCL01	S	// slender
+		s	(pCé	s	// broad
+		sh		h
+		sh	(CL01	h
+		sh	(L01	h;
+		s	(lL01	S
+
+.group t
+		t		t[	// broad
+	L01)	t	c	// slender
+		t	(í++n	tS	//slender
+		t	(eo++	tS
+		t	(L01	c	// slender
+	L01C)	t		tS	//slender after consonant
+		t	(CL01	tS	// slender with following consonant before vowels
+		th		h
+		th	(L01	h;
+	L01C)	th		h
+	_)	ts		t[	//eclipsis broad
+	_)	ts	(L01	t;	// eclipsis slender
+	L01)	th		h
+		taine	(_	t[In%E
+	ao)	th	(_
+		thne	(_	h@nE
+	A)	th	(_		// silent th at word end
+
+.group u
+		u		U#
+		ua		u@
+		uai		u@
+		uai	(g	ui
+		uai	(d	ui
+		uá		u:'A:
+		ui		I
+		uinn	(_	'i:n
+		uinti		U#'i:ntI
+	_b)	uí		wi:
+	_bh)	uí		wi:
+	g)	uí		wi:
+		umh		u:
+	L03)	ui		@I
+	_d)	u	(l_	O#
+	g)	ui	(gh_	@i:
+	gh)	ui	(gh_	@i:
+		uí		i:
+		uachai		'ux@
+.group ú
+		ú		u:
+		únmh		u:nv
+
+		úi	(r	u:
+		
+.group j
+	j	dZ
+	
+.group q
+	q	k
+	qu (A	kw
+
+.group v
+	v	v
+	
+.group w
+	w	w
+	
+.group x
+	x	ks
+     _) x	z
+     
+.group y
+	y (A	j
+    _A) y	j
+	y	i
+	
+.group z
+	z	z
+
+.group
+		í		'i:
+		
+

@@ -478,7 +478,7 @@ Translator *SelectTranslator(const char *name)
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->letter_bits_offset = OFFSET_ETHIOPIC;
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
+			tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM;  // don't use secondary stress
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.numbers = NUM_OMIT_1_HUNDRED;
@@ -550,7 +550,7 @@ Translator *SelectTranslator(const char *name)
 //			tr->langopts.intonation_group = 4;
 
 			// 'diminished' is an unstressed final syllable
-			tr->langopts.stress_flags =  0x6 | 0x10;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
@@ -651,7 +651,7 @@ Translator *SelectTranslator(const char *name)
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY;  // mark unstressed final syllables as diminished
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
@@ -681,7 +681,7 @@ Translator *SelectTranslator(const char *name)
 //			tr->langopts.word_gap = 1;
 			tr->langopts.vowel_pause = 2;
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags =  0x6 | 0x10;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 //			tr->langopts.unstressed_wd1 = 3;
 			tr->langopts.unstressed_wd2 = 2;
 
@@ -989,7 +989,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x10 | 0x20000;
+			tr->langopts.stress_flags = 0x10 | S_PRIORITY_STRESS;
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
@@ -1023,8 +1023,9 @@ SetLengthMods(tr,3);  // all equal
 	case L('k','a'):   // Georgian
 		{
 			// character codes offset by 0x1080
-			static const char ka_vowels[] = {0x50,0x54,0x58,0x5d,0x63,0x75,0x77,0};
-			static const char ka_consonants[] = {0x51,0x52,0x53,0x55,0x56,0x57,0x59,0x5a,0x5b,0x5c,0x5e,0x5f,0x60,0x61,0x62,0x64,0x65,0x66,0x67,0x68,0x69,0x6a,0x6b,0x6c,0x6d,0x6e,0x6f,0x70,0x71,0x72,0x73,0x74,0x76,0};
+			static const char ka_vowels[] = {0x30,0x34,0x38,0x3d,0x43,0x55,0x57,0};
+			static const char ka_consonants[] = {0x31,0x32,0x33,0x35,0x36,0x37,0x39,0x3a,0x3b,0x3c,0x3e,0x3f,
+                0x40,0x41,0x42,0x44,0x45,0x46,0x47,0x48,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
 			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,ka_vowels);
@@ -1037,6 +1038,9 @@ SetLengthMods(tr,3);  // all equal
 //			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.max_initial_consonants = 7;
 			tr->langopts.numbers = NUM_VIGESIMAL | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED |NUM_OMIT_1_THOUSAND | NUM_DFRACTION_5 | NUM_ROMAN;
+
+			tr->langopts.alt_alphabet = OFFSET_CYRILLIC;
+			tr->langopts.alt_alphabet_lang = "ru";
 		}
 		break;
 
@@ -1111,7 +1115,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			tr->charset_a0 = charsets[4];   // ISO-8859-4, includes a,e,i,o,u-macron
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x20;
+			tr->langopts.stress_flags = S_NO_AUTO_2;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_DIERESES] = 1;
@@ -1124,7 +1128,7 @@ SetLengthMods(tr,3);  // all equal
 		{
 			tr->charset_a0 = charsets[4]; // ISO-8859-4
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x20;
+			tr->langopts.stress_flags = S_NO_AUTO_2;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_DIERESES] = 1;
@@ -1211,7 +1215,7 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_om,stress_amps_om);
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x16 + 0x80000;
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | 0x80000;
 		}
 		break;
 
@@ -1224,7 +1228,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x6;  // mark unstressed final syllables as diminished
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY;  // mark unstressed final syllables as diminished
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x9;
  			tr->langopts.max_initial_consonants = 7; // for example: wchrzczony :)
  			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_2;
@@ -1243,7 +1247,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1R;        // stress on final syllable
-			tr->langopts.stress_flags =  0x6 | 0x10 | 0x2000 | 0x20000;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_INITIAL_2 | S_PRIORITY_STRESS;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
 			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS;
 			SetLetterVowel(tr,'y');
@@ -1261,7 +1265,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_ro,stress_amps_ro);
 
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x100 + 0x6;
+			tr->langopts.stress_flags = S_FINAL_STRESS_C + S_FINAL_DIM_ONLY;
 
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_DFRACTION_3 | NUM_AND_UNITS | NUM_ROMAN;
@@ -1276,7 +1280,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('r','w'):   // Kiryarwanda
 		{
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x16;
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
@@ -1293,7 +1297,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x16;
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
  			tr->langopts.max_initial_consonants = 5;
 			tr->langopts.spelling_stress = 1;
@@ -1322,7 +1326,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags =  S_FINAL_DIM | S_NO_AUTO_DIM | S_FINAL_NO_2;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.spelling_stress = 1;
 
 			tr->letter_bits_offset = OFFSET_SINHALA;
@@ -1345,7 +1349,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('s','l'):  // Slovenian
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 			tr->langopts.stress_rule = STRESSPOSN_2R;   // Temporary
-			tr->langopts.stress_flags = 0x20;
+			tr->langopts.stress_flags = S_NO_AUTO_2;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x103;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x76;    // [v]  don't count this character at start of word
 			tr->letter_bits['r'] |= 0x80;    // add 'r' to letter group 7, vowels for Unpronouncable test
@@ -1362,7 +1366,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_sq,stress_amps_sq);
 
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags =  0x16 + 0x100;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_FINAL_STRESS_C;
 			SetLetterVowel(tr,'y');
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_4;
 			tr->langopts.accents = 2;  // "capital" after letter name
@@ -1394,7 +1398,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags =  0x6 | 0x10;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 
 			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_OMIT_1_HUNDRED;
 			tr->langopts.break_numbers = 0x49249268;  // for languages which have numbers for 100,000 and 1,000,000
@@ -1411,7 +1415,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY;   // use 'diminished' for unstressed final syllable
 			tr->langopts.spelling_stress = 1;
 			tr->langopts.break_numbers = 0x14a8;  // 1000, 100,000  10,000,000
 
@@ -1457,7 +1461,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_th,stress_amps_th);
 
 			tr->langopts.stress_rule = 0;   // stress on final syllable of a "word"
-			tr->langopts.stress_flags = 2;          // don't automatically set diminished stress (may be set in the intonation module)
+			tr->langopts.stress_flags = S_NO_DIM;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 //			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
@@ -1476,7 +1480,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->charset_a0 = charsets[9];   // ISO-8859-9 - Latin5
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
-			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
+			tr->langopts.stress_flags = S_NO_AUTO_2;  //no automatic secondary stress
 			tr->langopts.param[LOPT_SUFFIX] = 1;
 
 			if(name2 == L('a','z'))
@@ -1496,7 +1500,7 @@ SetLengthMods(tr,3);  // all equal
 			SetCyrillicLetters(tr);
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
-			tr->langopts.stress_flags = 0x20;  //no automatic secondary stress
+			tr->langopts.stress_flags = S_NO_AUTO_2;  //no automatic secondary stress
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
       }
       break;
@@ -1561,7 +1565,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_zh,stress_amps_zh);
 
 			tr->langopts.stress_rule = STRESSPOSN_1R;   // stress on final syllable of a "word"
-			tr->langopts.stress_flags = 2;          // don't automatically set diminished stress (may be set in the intonation module)
+			tr->langopts.stress_flags = S_NO_DIM;          // don't automatically set diminished stress (may be set in the intonation module)
 			tr->langopts.vowel_pause = 0;
 			tr->langopts.tone_language = 1;   // Tone language, use  CalcPitches_Tone() rather than CalcPitches()
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
@@ -1618,7 +1622,7 @@ static void Translator_Russian(Translator *tr)
 	tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 1;
 	tr->langopts.param[LOPT_REDUCE] = 2;
 	tr->langopts.stress_rule = 5;
-	tr->langopts.stress_flags = 0x0020;  // waas 0x1010
+	tr->langopts.stress_flags = S_NO_AUTO_2;
 
 	tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
 	tr->langopts.numbers2 = 0x2 + NUM2_THOUSANDS_VAR1;  // variant numbers before thousands
