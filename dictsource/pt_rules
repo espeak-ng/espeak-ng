@@ -1,4 +1,5 @@
 // translation rules Brazilian
+// translation rules Brazilian
 // This file is UTF-8 encoded
 
 // Options
@@ -365,6 +366,8 @@ _compreend) e (L06_ e
 _entend) e (L06_   e
 _estend) e (L06_   e
 respond) e (L06_   e         // cor-
+_enraivec) e (L07_ e
+_espairec) e (L07_ e
    bat) e (L07_    e         // re- com-
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
@@ -416,7 +419,9 @@ entend) e (L07_    e
 preend) e (L07_    e         // sur- com-
 respond) e (L07_   e         // cor-
     qu) e (brL04_  E
+  acel) e (rL04_   E         / des-
  _hosp) e (dL03_   E
+   _in) e (ptL03_  E
    _gr) e (gL03_   e
     _n) e (grL03_  e
  _estr) ei (L03_   EI
@@ -449,6 +454,7 @@ respond) e (L07_   e         // cor-
   _bez) e (rrL03_  e
   _inv) e (rtL03_  e
     _f) e (rvL03_  e
+_enraiv) e (çL03_  e
     _p) e (sL01_   E
     _d) e (scL02_  E
    _cr) e (scL02_  E
@@ -485,8 +491,10 @@ _emagr) e (çL03
   conh) e (çL03_   e         // re-
  _esqu) e (çL03_   e
  _forn) e (çL03_   e
- _obed) e (çL03_   e
+  obed) e (çL03_   e         / des-
  _ofer) e (çL03_   e
+    pr) e (çL03_   e         / a-
+_espair) e (çL03_  e
  abast) e (çL03_   e         // re-
 _aborr) e (çL03_   e
 _agrad) e (çL03_   e

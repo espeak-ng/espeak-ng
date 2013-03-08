@@ -13,214 +13,215 @@
 
 
 .group a
-	_)	a(_	a
-		a	a
-		aj	aI
-		aŭ	aU
+     _) a (_       a
+        a          a
+        aj         aI
+        aŭ         aU
 
 
 .group b
-	_)	b(_	bo
-		b       b
-		
-.group c
-	_)	c(_	tso
-	_)	ch(_	tSo
-		c	ts
-		ch (K	tS    // foreign words
-	K)	ch	tS    // foreign words
-		
-		
-.group d
-	_)	d(_	do
-		d	d
+     _) b (_       bo
+        b          b
 
-	_)	d (-ro   dokt'o
-	_)	d (-rino d,okto
+.group c
+     _) c (_       tso
+     _) ch (_      tSo
+        c          ts
+        ch (K      tS        // foreign words
+     K) ch         tS        // foreign words
+
+
+.group d
+     _) d (_       do
+        d          d
+
+     _) d (-ro     dokt'o
+     _) d (-rino   d,okto
 
 .group e
-	_)	e(_	e
-		e	e
-		ej	eI
-		eŭ	eU
-		
+     _) e (_       e
+        e          e
+        ej         eI
+        eŭ         eU
+
 .group f
-	_)	f(_	fo
-		f	f
+     _) f (_       fo
+        f          f
 
-	_)	f (-ino  fR%aUl
-	_)	f (-lo   fRaU
-		
+     _) f (-ino    fR%aUl
+     _) f (-lo     fRaU
+
 .group g
-	_)	g(_	go
-		g	g
-		gh (K	dZ
-				
+     _) g (_       go
+        g          g
+        gh (K      dZ
+
 .group h
-	_)	h(_	ho
-		h	h
-		hh	x
-		
-		
+     _) h (_       ho
+        h          h
+        hh         x
+
+
 .group i
-	_)	i(_	i
-		i	i
+     _) i (_       i
+        i          i
 
-		
+
 .group j
-	_)	j(_	jo
-		j	j
-		jh (C	Z
-		
+     _) j (_       jo
+        j          j
+        jh (C      Z
+
 .group k
-	_)	k(_	ko
-		k	k
+     _) k (_       ko
+        k          k
 
-	_)	k (-do		kamaR'a
-	_)	k (-dino	k'amaRa
-	_)	k (-ino		k'amaRad
+     _) k (-do     kamaR'a
+     _) k (-dino   k'amaRa
+     _) k (-ino    k'amaRad
 
-	
+
 .group l
-	_)	l(_	lo
-		l	l
-		ll (_	l
+     _) l (_       lo
+        l          l
+        ll (_      l
 
 
 .group m
-	_)	m(_	mo
-		m	m
-		
+     _) m (_       mo
+        m          m
+
 .group n
-	_)	n(_	no
-		n	n
-		n (_S1	n
+     _) n (_       no
+        n          n
+        n (_S1     n
 
-        _)	n (-ro  num'e
+     _) n (-ro     num'e
 
-		
+
 .group o
-	_)	o(_	o
-		o	o
-		oj	oI
-	-)	o (_	%o
-	-)	oj (_	%oI
-	-)	on (_	%on
-	-X)	o (_	%o     // d-ro  etc
-	-X)	oj (_	%oI
-	-X)	on (_	%on
-		
+     _) o (_       o
+        o          o
+        oj         oI
+     -) o (_       %o
+     -) oj (_      %oI
+     -) on (_      %on
+    -X) o (_       %o        // d-ro  etc
+    -X) oj (_      %oI
+    -X) on (_      %on
+
 .group p
-	_)	p(_	po
-		p	p
-		ph (K	f    // foreign words
-	K)	ph	f    // foreign words
-		
+     _) p (_       po
+        p          p
+        ph (K      f         // foreign words
+     K) ph         f         // foreign words
+
 .group q
-	_)	q(_	kwo
-		q	k
-		qu	kv
-		
+     _) q (_       kwo
+        q          k
+        qu         kv
+
 .group r
-	_)	r(_	Ro
-		r	R
-	A)	r (A	R
-	K)	r (A	@-*
-                rr      RR
+     _) r (_       Ro
+        r          R
+     A) r (A       R
+     K) r (A       @-*
+        rr         RR
 
 .group s
-	_)	s(_	so
-	_)	sh(_	So
-		s	s
-		sh (K	S    // foreign words
-	K)	sh	S    // foreign words
+     _) s (_       so
+     _) sh (_      So
+        s          s
+        sh (K      S         // foreign words
+     K) sh         S         // foreign words
 
-	_)	s (-ino   s,injoR
-	_)	s (-ro    sinj'o
+     _) s (-ino    s,injoR
+     _) s (-ro     sinj'o
 
-	_)	s (-ano   s'am,ide
-	_)	s (-anino   s'am,ide
+     _) s (-ano    s'am,ide
+     _) s (-anino  s'am,ide
 
-	_)	s (-ta_   s'ank
-		
-		
+     _) s (-ta_    s'ank
+
+
 .group t
-	_)	t(_	to
-		t	t
-		th (K	T    // foreign words
-	K)	th	T    // foreign words
+     _) t (_       to
+        t          t
+        th (K      T         // foreign words
+     K) th         T         // foreign words
 
-	-)	ta (_   t%a   // s-ta = sankta
-		
+     -) ta (_      t%a       // s-ta = sankta
+
 .group u
-	_)	u(_	u
-		u	u
-		uj	uI
-		
-		
+     _) u (_       u
+        u          u
+        uj         uI
+
+
 .group v
-	_)	v(_	vo
-		v	v
-		
+     _) v (_       vo
+        v          v
+
 .group w
-	_)	w(_	du'oblav,o
-		w	w
-	K)	wh	w    // foreign words
-		
+     _) w (_       du'oblav,o
+        w          w
+     K) wh         w         // foreign words
+
 .group x
-	_)	x(_	ikso
-		x	ks
-	_)	x	z    // foreign words
-		
+     _) x (_       ikso
+        x          ks
+     _) x          z         // foreign words
+
 .group y
-	_)	y(_	ipsilono
-		y	j
-	K)	y (K	i
-	
-		
+     _) y (_       ipsilono
+        y          j
+     K) y (K       i
+
+
 .group z
-	_)	z(_	zo
-		z	z
-			
-		
+     _) z (_       zo
+        z          z
+
+
 .group
-	_)	ĉ (_	tSo
-		ĉ	tS
+     _) ĉ (_       tSo
+        ĉ          tS
 
-	_)	ĝ (_	dZo
-		ĝ	dZ
+     _) ĝ (_       dZo
+        ĝ          dZ
 
-	_)	ĥ (_	xo
-		ĥ	x
+     _) ĥ (_       xo
+        ĥ          x
 
-	_)	ĵ (_	Zo
-		ĵ	Z
+     _) ĵ (_       Zo
+        ĵ          Z
 
-	_)	ŝ (_	So
-		ŝ	S
+     _) ŝ (_       So
+        ŝ          S
 
-	_)	ŭ (_	wo
-		ŭ	w
+     _) ŭ (_       wo
+        ŭ          w
 
-		
-		'	
-		+	plus_
-	_)	++ (_	plusplus
+     C) ' (_       =         // word end in apostrophe, stress the last vowel
 
-		.	punkto
-		. (.     _:
-	\.)     .
+' 
+        +          plus_
+     _) ++ (_      plusplus
+
+        .          punkto
+        . (.       _:
+    \.) . 
 
 
-		£	pundo
-		£ (_D	_pundoI_:
-        __)  - (_D	minus_
-        D_)  - (_D	st@-*ek'eto_
-        A_)  - (_D        _
-        C_)  - (_D        _
-         --) -
-		-	minus_
-		- (_a
-		$	dolaRo
-		$ (_D	_dolaRoI_:
+        £          pundo
+        £ (_D      _pundoI_:
+    __) - (_D      minus_
+    D_) - (_D      st@-*ek'eto_
+    A_) - (_D      _
+    C_) - (_D      _
+    --) - 
+        -          minus_
+        - (_a 
+        $          dolaRo
+        $ (_D      _dolaRoI_:
 

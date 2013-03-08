@@ -372,34 +372,52 @@ typedef struct {
 
 #define S_NO_DIM            0x02
 #define S_FINAL_DIM         0x04
-#define S_FINAL_NO_2        0x10
-#define S_NO_AUTO_2         0x20
-#define S_2_TO_HEAVY        0x40
-#define S_FIRST_PRIMARY     0x80
-#define S_2_SYL_2           0x1000
-#define S_INITIAL_2         0x2000
-#define S_NO_AUTO_DIM       0x10000
-#define S_HYPEN_UNSTRESS    0x100000
-#define S_NO_EOC_LENGTHEN   0x200000
-// bit0=don't stress monosyllables, except at end of clause
+#define S_FINAL_DIM_ONLY    0x06
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
+
 // bit3=set consecutive unstressed syllables in unstressed words to diminished, but not in stressed words
+
+#define S_FINAL_NO_2        0x10
 // bit4=don't allow secondary stress on last syllable
+
+#define S_NO_AUTO_2         0x20
 // bit5-don't use automatic secondary stress
+
+#define S_2_TO_HEAVY        0x40
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
+
+#define S_FIRST_PRIMARY     0x80
 // bit7=if more than one primary stress, make the subsequent primaries to secondary stress
+
+#define S_FINAL_STRESS_C    0x100
 // bit8=stress last syllable if it doesn't end in a vowel
+
+#define S_FINAL_SPANISH     0x200
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
+
+#define S_2_SYL_2           0x1000
 // bit12= In a 2-syllable word, if one has primary stress then give the other secondary stress
+
+#define S_INITIAL_2         0x2000
 // bit13= If there is only one syllable before the primary stress, give it a secondary stress
-// bit15= Give stress to the first unstressed syllable
-// bit16= Don't diminish consecutive syllables within a word.
+
+#define S_PRIORITY_STRESS   0x20000
 // bit17= "priority" stress reduces other primary stress to "unstressed" not "secondary"
+
+#define S_EO_CLAUSE1        0x40000
 // bit18= don't lengthen short vowels more than long vowels at end-of-clause
-// bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
+
+
+#define S_HYPEN_UNSTRESS    0x100000
 // bit20= hyphenated words, 2nd part is unstressed
+
+#define S_NO_EOC_LENGTHEN   0x200000
 // bit21= don't lengthen vowels at end-of-clause
+
+// bit15= Give stress to the first unstressed syllable
+// bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
+
 
 	int stress_flags;
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -518,6 +536,8 @@ typedef struct {
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
 	const char *ascii_language;  // switch to this language for Latin characters
+	int alt_alphabet;       // offset for another language to recognize
+	const char *alt_alphabet_lang;  // language for the alt_alphabet
 	int max_lengthmod;
 	int lengthen_tonic;   // lengthen the tonic syllable
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
@@ -680,6 +700,7 @@ void InitText(int flags);
 void InitText2(void);
 int IsDigit(unsigned int c);
 int IsAlpha(unsigned int c);
+int IsVowel(Translator *tr, int c);
 int isspace2(unsigned int c);
 int towlower2(unsigned int c);
 void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);

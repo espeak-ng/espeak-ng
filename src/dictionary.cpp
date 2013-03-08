@@ -310,7 +310,7 @@ int LoadDictionary(Translator *tr, const char *name, int no_error)
 		p++;   // skip over the zero which terminates the list for this hash value
 	}
 
-	if((tr->dict_min_size > 0) && (size < tr->dict_min_size))
+	if((tr->dict_min_size > 0) && (size < (unsigned int)tr->dict_min_size))
 	{
 	    fprintf(stderr, "Full dictionary is not installed for '%s'\n", name);
 	}
@@ -1040,7 +1040,7 @@ static int GetVowelStress(Translator *tr, unsigned char *phonemes, signed char *
 		{
 			if(vowel_stress[ix] == 4)
 			{
-				if(tr->langopts.stress_flags & 0x20000)
+				if(tr->langopts.stress_flags & S_PRIORITY_STRESS)
 					vowel_stress[ix] = 1;
 				else
 					vowel_stress[ix] = 3;
@@ -1208,12 +1208,6 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	max_stress = GetVowelStress(tr, phonetic, vowel_stress, vowel_count, stressed_syllable, 1);
 	if((max_stress < 0) && dictionary_flags)
 	{
-		if((tr->langopts.stress_flags & 1) && (vowel_count == 2))
-		{
-			// lang=fr: don't stress monosyllables except at end-of-clause
-			vowel_stress[1] = 0;
-			dictionary_flags[0] |= FLAG_STRESS_END2;
-		}
 		max_stress = 0;
 	}
 
@@ -2652,6 +2646,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 					if((match1.points == 0) && ((option_sayas & 0x10) == 0))
 					{
 						n = utf8_in(&letter,p-1)-1;
+
 						if(tr->letter_bits_offset > 0)
 						{
 							// not a Latin alphabet, switch to the default Latin alphabet language
@@ -2720,11 +2715,19 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 							p += (wc_bytes-1);
 						}
 
-						if(((alphabet = AlphabetFromChar(letter)) != NULL) && (alphabet->flags & AL_WORDS) && (alphabet->offset != tr->letter_bits_offset))
+						if(((alphabet = AlphabetFromChar(letter)) != NULL)  && (alphabet->offset != tr->letter_bits_offset))
 						{
-						    // switch to the nominated language for this alphabet
-                            sprintf(phonemes,"%c%s",phonSWITCH, WordToString2(alphabet->language));
-                            return(0);
+						    if(tr->langopts.alt_alphabet == alphabet->offset)
+                            {
+                                sprintf(phonemes,"%c%s",phonSWITCH, tr->langopts.alt_alphabet_lang);
+                                return(0);
+                            }
+						    if(alphabet->flags & AL_WORDS)
+						    {
+                                // switch to the nominated language for this alphabet
+                                sprintf(phonemes,"%c%s",phonSWITCH, WordToString2(alphabet->language));
+                                return(0);
+						    }
 						}
 					}
 				}

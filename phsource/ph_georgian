@@ -28,7 +28,10 @@ endphoneme
 phoneme a
   vowel  starttype #a  endtype #a
   length 180
-  FMT(vowel/a#_2)
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/a#_2)
+  ENDIF
+  FMT(vowel/a_3)
 endphoneme
 
 
@@ -69,12 +72,15 @@ phoneme k#
   Vowelin f1=1  f2=1400 -100 100  f3=-150 80
   Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
   IF nextPh(isPause2) THEN
-    WAV(ustop/k_asp2, 40)
+    WAV(ustop/k_asp, 40)
   ENDIF
-  IF nextPh(l) THEN
-    WAV(ustop/kl)
+  IF nextPhW(#e) OR nextPhW(#i) THEN
+    WAV(ustop/k_asp_e, 40)
+  ELIF nextPhW(#o) OR nextPhW(#u) THEN
+    WAV(ustop/k_asp_u, 50)
+  ELSE
+    WAV(ustop/k_asp_a, 45)
   ENDIF
-  WAV(ustop/k_asp2, 60)
 endphoneme
 
 
@@ -113,23 +119,26 @@ phoneme k
   import_phoneme consonants/k-
 endphoneme
 
-phoneme q
-  vls uvl stop
-  lengthmod 2
-  Vowelin f1=1  f2=1700 0 200  f3=-300 80 gpaus f4 rms=30
-  Vowelout f1=1 f2=1700 -100 200  f3=-300 80  f4 rms=35
-
-  IF nextPh(#i) THEN
-    WAV(ustop/q2_i, 40)
-  ENDIF
-  WAV(ustop/q2, 48)
-endphoneme
-
 
 
 phoneme Q
-  import_phoneme base/r"
+  vcd vel frc
+  voicingswitch x
+  lengthmod 6
+  Vowelin f1=2  f2=2300 200 400  f3=-100 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(voc/Q) addWav(ufric/xx, 100)
 endphoneme
+
+phoneme Q2
+  vcd vel frc
+  voicingswitch x
+  lengthmod 6
+  Vowelin f1=2  f2=2300 200 400  f3=-100 80
+  Vowelout f1=2  f2=2300 250 300  f3=-300 80 brk
+  FMT(voc/Q) addWav(ufric/x2, 50)
+endphoneme
+
 
 phoneme r
   import_phoneme base/R

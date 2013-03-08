@@ -1,0 +1,239 @@
+// Version 2.4 January 2013
+
+// short vowels
+
+
+phoneme @    //  Schwa, but always unstressed
+  vowel   starttype #@  endtype #@
+  unstressed
+  length 100
+  IF nextPh(i:) THEN
+    Length 70
+    FMT(vwl_af/r@)
+  ENDIF
+  IF nextPh(I) THEN
+    Length 70
+    FMT(vwl_af/r@)
+  ENDIF
+  IF nextPh(e:) THEN
+    Length 70
+    FMT(vwl_af/r@)
+  ENDIF
+  FMT(vwl_af/@)
+endphoneme
+
+
+phoneme @/
+  vowel  starttype #@  endtype #@
+  length 120
+  FMT(vowel/@)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 150
+  FMT(vowel/a_4)
+endphoneme
+
+
+phoneme a#
+  vowel starttype #@ endtype #@
+  ipa ɐ
+  length 120
+  ChangeIfStressed(a)
+  FMT(vowel/a#_3)
+endphoneme
+
+
+phoneme E
+  vowel  starttype #e  endtype #e
+  length 140
+  FMT(vowel/e_mid)
+endphoneme
+
+phoneme E#
+  vowel  starttype #@  endtype #@
+  length 120
+  ChangeIfStressed(E)
+  ChangePhoneme(@/)
+endphoneme
+
+
+phoneme I
+  vowel  starttype #i  endtype #i
+  length 120
+  FMT(vowel/ii_2)
+endphoneme
+
+phoneme i   // non syllabic i for end of words
+  vowel  starttype #i  endtype #i
+  ipa iU+032F
+  length 40
+  FMT(vowel/ii_7)
+endphoneme
+
+
+phoneme O
+  vowel  starttype #a  endtype #@
+  length 140
+  FMT(vowel/V_4)
+endphoneme
+
+phoneme O#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(O)
+  ChangePhoneme(a#)
+endphoneme
+
+
+phoneme U
+  vowel starttype #u endtype #u
+  length 140
+  FMT(vowel/uu)
+endphoneme
+
+phoneme U#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(U)
+  ChangePhoneme(@/)
+endphoneme
+
+phoneme u1
+  vowel starttype #u endtype #u
+  ipa uU+0306
+  length 50
+  FMT(vowel/u)
+endphoneme
+
+phoneme 0
+  vowel  starttype #a   endtype #a
+  length 180
+  ipa A
+  FMT(vowel/aa_8)
+endphoneme
+
+phoneme 0#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(0)
+  ChangePhoneme(a#)
+endphoneme
+
+  
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 190
+  FMT(vowel/o)
+endphoneme
+
+
+// long vowels
+
+phoneme A:
+  vowel  starttype #a  endtype #a
+  length 200
+  FMT(vowel/aa_2)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 210
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 210
+  FMT(vowel/i)
+endphoneme
+
+
+
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 210
+  FMT(vowel/u_bck)
+endphoneme
+
+
+// Diphthongs
+
+
+phoneme @U
+  vowel starttype #@ endtype #u
+  length 240
+  FMT(vdiph/@u_3)
+endphoneme
+
+phoneme i@
+  vowel starttype #i endtype #@
+  length 240
+  FMT(vdiph2/i@)
+endphoneme
+
+phoneme u@
+  vowel starttype #u endtype #@
+  length 240
+  FMT(vdiph2/u@)
+endphoneme
+
+phoneme aI
+  vowel starttype #a endtype #i
+  length 250
+  FMT(vdiph/ai)
+endphoneme
+
+phoneme aI#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(aI)
+  ChangePhoneme(a#)
+endphoneme
+
+phoneme aU
+  vowel starttype #a endtype #u
+  length 270
+  FMT(vdiph/au_4)
+endphoneme
+
+phoneme aU#
+  vowel starttype #@ endtype #@
+  length 120
+  ChangeIfStressed(aU)
+  FMT(vdiph/au_4)
+endphoneme
+
+
+phoneme ;     // linking j, used between (i) vowels and a following vowel
+              // also to palatalize consonants
+  liquid palatal
+  lengthmod 0
+
+  IF prevPh(#i) THEN
+    ipa NULL   // linking after i vowel, don't show in ipa
+  ENDIF
+
+  NextVowelStarts
+    VowelStart(j2/j2@)
+    VowelStart(j2/j2a)
+    VowelStart(j2/j2e)
+    VowelStart(j2/j2i)
+    VowelStart(j2/j2o)
+    VowelStart(j2/j2u)
+  EndSwitch
+
+  IF prevPh(#i) THEN
+    VowelEnding(j2/xj2, -40)
+  ENDIF
+
+  IF prevPh(isPause) THEN
+    FMT(j2/_j2)
+  ENDIF
+endphoneme
+
