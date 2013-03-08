@@ -146,6 +146,7 @@ dictionaries: \
 	espeak-data/fa_dict \
 	espeak-data/fi_dict \
 	espeak-data/fr_dict \
+	espeak-data/ga_dict \
 	espeak-data/grc_dict \
 	espeak-data/hbs_dict \
 	espeak-data/hi_dict \
@@ -329,6 +330,12 @@ dictsource/fr_extra:
 	touch dictsource/fr_extra
 espeak-data/fr_dict: src/espeak espeak-data/phontab dictsource/fr_list dictsource/fr_rules dictsource/fr_extra
 	cd dictsource && ../src/espeak --compile=fr && cd ..
+
+ga: espeak-data/ga_dict
+dictsource/ga_extra:
+	touch dictsource/ga_extra
+espeak-data/ga_dict: src/espeak espeak-data/phontab dictsource/ga_list dictsource/ga_rules dictsource/ga_extra
+	cd dictsource && ../src/espeak --compile=ga && cd ..
 
 grc: espeak-data/grc_dict
 dictsource/grc_extra:
