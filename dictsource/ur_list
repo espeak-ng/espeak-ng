@@ -80,7 +80,7 @@ _24	caUb'i:s
 _25	pacc'i:s
 _26	chabb'i:s
 _27	sat:a:'i:s
-_28	stha:'i:s
+_28	,ath.a:j'i:s
 _29	Unt'i:s
 _30	t'i:s
 _31	ikVt'i:s
@@ -167,11 +167,25 @@ _dpt	_ISaRI'Ia_
 یہ	jE	$u
 کہ	kE	$u
 وہ	wo:	$u
-پ 	$u
+آپ 	$u
 تم  	tUm	$u
 ہم	Ham	$u
 اس	Is	$u
 ان	In	$u
+جس	J'Is	$u
+جسے	J'Ise:
+کس	k'Is
+کسی	k'Isi:
+کسے	k'Ise:
+اسی	'Isi:
+اسے	'Ise:
+مجھ	m'UJh
+مجھے	m'UJhe:
+تجھے	t'UJhe:
+جن	J'In
+جنھیں	J,InH'e:n
+انھوں	,UnH'o:n
+انھیں	,InH'e:n
 
 // unstressed prepositions
 کا	$u
@@ -184,6 +198,111 @@ _dpt	_ISaRI'Ia_
 // unstressed verbs
 ہے 	$u
 ہیں 	$u
+تھا 	$u
+تھی 	$u
+تھے 	$u
 
 // Pronunciation exceptions
 پاکستان	p'a:k'i:st'a:n
+سندھ	s'Indh
+کچھ	k'Uch
+لنکس	l'Ink,s
+لفظ	l'afz.
+سرچ	s'aRc
+وقت	v'aqt
+مبصرین	m,Ubas.IR'i:n
+متحدہ	mUt'aHIda
+جبکہ	J,abk'e:H
+مسلح	m,Usal'aH
+متفق	mUt'afIq
+سابق	s'a:bIq
+برسر	b,aRs'aR
+اعلان	e:l'a:n
+سنئیے	sUn'i:;e:
+کلنگ	k'IlIn,g
+انتقال	,Intaq'a:l
+انتقام	,Intaq'a:m
+انتخاب	,Intax'a:b
+چیف	c'i:f
+جسٹس	J'ast.,Is
+شکایت	S,Ika:j'at
+شکست	SIk'ast
+منزل	m'anz,Il
+شعر	S'e:R
+فعل	f'e:l
+خصوصی	xUs.'u:s.i:
+خصوصیت	 x,Us.u:s.i:;'at
+دنیا	dUn'i:;a:
+مختلف	m,Uxt'alIf
+قوانین	q,ava:n'i:n
+ختم	x'atm
+بزرگ	b'UzUR,g
+بزرگوں	b,UzURg'o:n
+شامل	S'a:mIl
+شمولیت	S,Umu:li:;'at
+بہت	b'aHUt
+دن	d'In
+دنوں	dIn'o:n
+مصر	m'Is.R
+مصری	m'Is.R,i:
+انتظام	,IntIz.'a:m
+مختصر	m,Uxtas.'aR
+پھر	ph'IR
+پھرا	ph'IRa:
+منتخب	m,Unt'ax@b
+منتقل	m,Unt'aqIl
+نیا	n'aja:
+سرخی	s'URx,i:
+صفحہ	s.'afH,a:
+خالص	x'a:lIs.
+باہر	ba:H'aR
+دیا	d'i:;a:
+انڈیا	 ,Ind.'i:;a:
+مظاہرین	m,Uz.a:HIR'i:n
+فائرنگ	f'a:jIR,Ing
+ڈائریکٹر	d.,a:jIR,e:kt.'aR
+فرقہ	f'IRqa
+شدت	SId'at
+بالخصوص	b,IlxUs.'u:s.
+اردو	'URd,u:
+احتجاجی	 'e:Hte:J,a:Ji:
+احتجاج	'e:HtIJ,a:J
+بدھ	b'Udh
+تجزیے	t,aJz'i:;e:
+دوست	 d'o:st
+زندگی	z,Ind'agi:
+دل	d'Il
+شعری	S'e:Ri:
+شہر	S'e:HIR
+اعزاز	e:z'a:z
+صرف	s.'IRf
+طبی	t'Ibi:
+طب	t'Ib
+مقرر	m,UqaR'aR
+تقرری	taq'aRUR,i:
+تقرر	taq'aRUR
+مناسب	mUn'a:sIb
+مناسبت	m,Una:sIb'at
+اول	'avval
+جارحیت	J,a:RIHi:;'at
+متحد	mUt'aHId
+محبت	m,UHab'at
+محمد	m,UHam'ad
+مکمل	m,Ukam'al
+مل	m'Il
+ملے	m'Ile:
+ملی	m'Ili:
+گزشتہ	gUz'aSta
+رشتہ	R'ISta
+اخر	'a:xIR
+آنکھ	'a:nkh
+شکار	SIk'a:R
+جلد	J'ald
+مواد	mav'a:d
+مطابق	mUt'a:bIq
+حاصل	H'a:s.Il
+شدہ	S'Ud,a
+بغیر	baQ'e:R
+امیدوار	Um'i:dva:R
+لکھ	l'Ikh
+لکھئیے	l'Ikhj,e:

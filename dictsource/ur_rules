@@ -51,8 +51,9 @@
 	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
 _) ا	a
 _) او	u:
-_) ای	i:
+_) ای	e:
 	ائ	a:j
+	اہ(_	a:H
 
 .group آ
 	آ	a:
@@ -78,7 +79,8 @@ _) ای	i:
 	ی (_	i:
 	_) ی	jV
 	یع(_	i:
-
+	@) ی	i:
+	یں(_	e:n
 
 .group ے		// yeh barree
 	ے	e:
@@ -141,10 +143,11 @@ _) ای	i:
 .group ح
 	ح	HV
 	ح (L01	H
-
+	ح (_	H
 .group خ
 	خ	xV
 	خ (L01	x
+	خت(_	xt
 
 .group د
 	د	dV
@@ -239,6 +242,10 @@ _) ای	i:
 .group ن
 	ن	nV
 	ن (L01	n
+	@) ن (گ	n
+	@) ن (د	n
+	@) ن (ب	n
+	@) ن (س	n
 
 .group ں
 	ں	n    // this should nasalize the vowel
