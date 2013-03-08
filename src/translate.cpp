@@ -2074,17 +2074,29 @@ return(FLAG_SPELLWORD);
 
 	if(switch_phonemes >= 0)
 	{
-		// this word uses a different phoneme table
-		if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
-		{
-		    //previous phoneme is also a phonSWITCH, just change its phoneme table number
-            n_ph_list2--;
-		}
+        if((p[0] == phonPAUSE) && (p[1] == phonSWITCH))
+        {
+            // the new word starts with a phoneme table switch, so there's no need to switch before it.
+            if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
+            {
+                //previous phoneme is also a phonSWITCH, delete it
+                n_ph_list2--;
+            }
+        }
         else
         {
-            SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
+            // this word uses a different phoneme table
+            if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
+            {
+                //previous phoneme is also a phonSWITCH, just change its phoneme table number
+                n_ph_list2--;
+            }
+            else
+            {
+                SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
+            }
+            ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
         }
-        ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
 	}
 
 	// remove initial pause from a word if it follows a hyphen
@@ -2481,6 +2493,34 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		break;
 	}
 	return(SubstituteChar(tr, c, next_in, insert, wordflags));
+}
+
+
+static const char *UCase_ga[] = {"bp","bhf","dt","gc","hA","mb","ng","ts","tA","nA",NULL};
+
+int UpperCaseInWord(Translator *tr, char *word, int c)
+{//=====================================================
+    int ix;
+    int len;
+    const char *p;
+
+    if(tr->translator_name == L('g','a'))
+    {
+        // Irish
+        for(ix=0; ; ix++)
+        {
+            if((p = UCase_ga[ix]) == NULL)
+                break;
+
+            len = strlen(p);
+            if((word[-len]==' ') && (memcmp(&word[-len+1], p, len-1) == 0))
+            {
+                if((c == p[len-1]) || ((p[len-1]=='A') && IsVowel(tr, c)))
+                    return(1);
+            }
+        }
+    }
+    return(0);
 }
 
 
@@ -2910,10 +2950,19 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					{
 						if(iswlower(prev_in))
 						{
-							c = ' ';      // lower case followed by upper case, treat as new word
-							space_inserted = 1;
-							prev_in_save = c;
-//							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
+						    // lower case followed by upper case in a word
+						    if(UpperCaseInWord(tr, &sbuf[ix], c) == 1)
+						    {
+						        // convert to lower case and continue
+						        c = towlower(c);
+						    }
+						    else
+						    {
+                                c = ' ';      // lower case followed by upper case, treat as new word
+                                space_inserted = 1;
+                                prev_in_save = c;
+    //							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
+						    }
 						}
 						else
 						if((c != ' ') && iswupper(prev_in) && iswlower(next_in))

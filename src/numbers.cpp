@@ -596,6 +596,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	ALPHABET *alphabet;
 	int language;
     int phontab_1;
+    int alphabet_name_switch;
+    char *ph_alphabet_end;
 	char capital[20];
 	char ph_buf[80];
 	char ph_buf2[80];
@@ -631,6 +633,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		return(0);
 	}
 
+    alphabet_name_switch = 0;
     alphabet = AlphabetFromChar(letter);
     if(alphabet != current_alphabet)
     {
@@ -638,38 +641,49 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
         current_alphabet = alphabet;
         if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME) && (alphabet->offset != translator->letter_bits_offset))
         {
-            phontab_1 = tr->phoneme_tab_ix;
-            ph_buf2[0] = 0;
-            if(Lookup(translator, alphabet->name, ph_alphabet) == 0)  // the original language for the current voice
+            if((alphabet->flags & AL_DONT_NAME) || (alphabet->offset == translator->langopts.alt_alphabet))
             {
-                // Can't find the local name for this alphabet, use the English name
-                ph_alphabet[2] = SetTranslator2("en");   // overwrites previous contents of translator2
-                Lookup(translator2, alphabet->name, ph_buf2);
+                // don't say the alphabet name
             }
             else
-            if(translator != tr)
             {
                 phontab_1 = tr->phoneme_tab_ix;
-                strcpy(ph_buf2, ph_alphabet);
-                ph_alphabet[2] = translator->phoneme_tab_ix;
-            }
+                ph_buf2[0] = 0;
+                if(Lookup(translator, alphabet->name, ph_alphabet) == 0)  // the original language for the current voice
+                {
+                    // Can't find the local name for this alphabet, use the English name
+                    ph_alphabet[2] = SetTranslator2("en");   // overwrites previous contents of translator2
+                    Lookup(translator2, alphabet->name, ph_buf2);
+                }
+                else
+                if(translator != tr)
+                {
+                    phontab_1 = tr->phoneme_tab_ix;
+                    strcpy(ph_buf2, ph_alphabet);
+                    ph_alphabet[2] = translator->phoneme_tab_ix;
+                }
 
-            if(ph_buf2[0] != 0)
-            {
-                // we used a different language for the alphabet name (now in ph_buf2)
-                ph_alphabet[0] = phonPAUSE;
-                ph_alphabet[1] = phonSWITCH;
-                strcpy(&ph_alphabet[3], ph_buf2);
-                len = strlen(ph_buf2) + 3;
-                ph_alphabet[len] = phonSWITCH;
-                ph_alphabet[len+1] = phontab_1;
-                ph_alphabet[len+2] = 0;
+                if(ph_buf2[0] != 0)
+                {
+                    // we used a different language for the alphabet name (now in ph_buf2)
+                    ph_alphabet[0] = phonPAUSE;
+                    ph_alphabet[1] = phonSWITCH;
+                    strcpy(&ph_alphabet[3], ph_buf2);
+                    len = strlen(ph_buf2) + 3;
+                    ph_alphabet[len] = phonSWITCH;
+                    ph_alphabet[len+1] = phontab_1;
+                    ph_alphabet[len+2] = 0;
+
+                    ph_alphabet_end = &ph_alphabet[len];
+                    alphabet_name_switch = ph_alphabet[2];
+                }
             }
         }
     }
 
 
 // caution: SetWordStress() etc don't expect phonSWITCH + phoneme table number
+
 	if(ph_buf[0] == 0)
 	{
 	    if((alphabet != NULL) && (alphabet->language != 0) && !(alphabet->flags & AL_NOT_LETTERS))
@@ -701,6 +715,11 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
                 ph_buf[len+1] = tr->phoneme_tab_ix;
                 ph_buf[len+2] = 0;
             }
+        }
+
+        if((ph_buf[2] == alphabet_name_switch) && (capital[0] == 0))
+        {
+            ph_alphabet_end[0]= 0;
         }
 	}
 

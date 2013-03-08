@@ -61,7 +61,7 @@ int formant_rate[9];         // values adjusted for actual sample rate
 
 
 #define DEFAULT_LANGUAGE_PRIORITY  5
-#define N_VOICES_LIST  200
+#define N_VOICES_LIST  250
 static int n_voices_list = 0;
 static espeak_VOICE *voices_list[N_VOICES_LIST];
 static int len_path_voices;
@@ -578,10 +578,8 @@ voice_t *LoadVoice(const char *vname, int control)
     static const char *voices_europe =
         "bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
-	strcpy(voicename,vname);
-	if(voicename[0]==0)
-		strcpy(voicename,"default");
 
+	strncpy0(voicename, vname, sizeof(voicename));
 	if(control & 0x10)
 	{
 		strcpy(buf,vname);
@@ -590,6 +588,9 @@ voice_t *LoadVoice(const char *vname, int control)
 	}
 	else
 	{
+        if(voicename[0]==0)
+            strcpy(voicename,"default");
+
 		sprintf(path_voices,"%s%cvoices%c",path_home,PATHSEP,PATHSEP);
 		sprintf(buf,"%s%s",path_voices,voicename);  // first, look in the main voices directory
 
@@ -1634,30 +1635,35 @@ static void GetVoices(const char *path)
 		return;
 
 	do {
-		sprintf(fname,"%s%c%s",path,PATHSEP,FindFileData.cFileName);
+		if(n_voices_list >= (N_VOICES_LIST-2))
+			break;   // voices list is full
 
-		ftype = GetFileLength(fname);
-
-		if((ftype == -2) && (FindFileData.cFileName[0] != '.'))
+		if(FindFileData.cFileName[0] != '.')
 		{
-			// a sub-sirectory
-			GetVoices(fname);
-		}
-		else
-		if(ftype > 0)
-		{
-			// a regular line, add it to the voices list
-			if((f_voice = fopen(fname,"r")) == NULL)
-				continue;
+            sprintf(fname,"%s%c%s",path,PATHSEP,FindFileData.cFileName);
+            ftype = GetFileLength(fname);
 
-			// pass voice file name within the voices directory
-			voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
-			fclose(f_voice);
+            if(ftype == -2)
+            {
+                // a sub-sirectory
+                GetVoices(fname);
+            }
+            else
+            if(ftype > 0)
+            {
+                // a regular line, add it to the voices list
+                if((f_voice = fopen(fname,"r")) == NULL)
+                    continue;
 
-			if(voice_data != NULL)
-			{
-				voices_list[n_voices_list++] = voice_data;
-			}
+                // pass voice file name within the voices directory
+                voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
+                fclose(f_voice);
+
+                if(voice_data != NULL)
+                {
+                    voices_list[n_voices_list++] = voice_data;
+                }
+            }
 		}
 	} while(FindNextFileA(hFind, &FindFileData) != 0);
 	FindClose(hFind);
@@ -1674,11 +1680,14 @@ static void GetVoices(const char *path)
 		if(n_voices_list >= (N_VOICES_LIST-2))
 			break;   // voices list is full
 
+        if(ent->d_name[0] == '.')
+            continue;
+
 		sprintf(fname,"%s%c%s",path,PATHSEP,ent->d_name);
 
 		ftype = GetFileLength(fname);
 
-		if((ftype == -2) && (ent->d_name[0] != '.'))
+		if(ftype == -2)
 		{
 			// a sub-sirectory
 			GetVoices(fname);
@@ -1710,15 +1719,23 @@ static void GetVoices(const char *path)
 espeak_ERROR SetVoiceByName(const char *name)
 {//=========================================
 	espeak_VOICE *v;
+	int ix;
 	espeak_VOICE voice_selector;
 	char *variant_name;
 	static char buf[60];
 
 	strncpy0(buf,name,sizeof(buf));
+
 	variant_name = ExtractVoiceVariantName(buf, 0, 1);
 
+	for(ix=0; ;ix++)
+	{
+		// convert voice name to lower case  (ascii)
+		if((buf[ix] = tolower(buf[ix])) == 0)
+			break;
+	}
+
 	memset(&voice_selector,0,sizeof(voice_selector));
-//	voice_selector.name = buf;
 	voice_selector.name = (char *)name;  // include variant name in voice stack ??
 
 	// first check for a voice with this filename

@@ -651,7 +651,6 @@ antonieta	$alt2
 apego		$alt2 $noun
 apelo		$alt  $verb
 aposto		$alt  $verb
-apreço		$alt2
 aperto		$alt2 $noun
 apoio		$alt  $verb
 aprovo		$alt
@@ -713,6 +712,7 @@ choro		$alt2 $noun
 chovesse		$alt2
 chupeta		$alt2
 clamores	$alt2
+clero		$alt
 coco		$alt2
 cofre		$alt
 cogumelo		$alt
@@ -910,6 +910,7 @@ palacete	$alt2
 palheta		$alt2
 panfleto		$alt2
 pangeia		$alt
+panqueca		p,&~Nk'Ek&
 pantera		$alt
 paralelo	$alt
 parede		$alt2
@@ -932,7 +933,6 @@ portos		$alt
 pose		$alt2
 povos		$alt
 poxa		p'oS&
-preço	$alt2
 primavera	$alt
 provo		$alt
 quarteto	$alt2

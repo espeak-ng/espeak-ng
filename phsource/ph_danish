@@ -674,7 +674,7 @@ phoneme j
     NextVowelStarts
       VowelStart(j/j@)
       VowelStart(j/ja)
-      VowelStart(j/je,-60)
+      VowelStart(j/je,-40)
       VowelStart(j/ji)
       VowelStart(j/jo)
       VowelStart(j/ju)
