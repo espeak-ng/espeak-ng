@@ -58,8 +58,7 @@ endphoneme
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
   length 150
-  IfNextVowelAppend(;)
-  FMT(vowel/e_3)
+  FMT(vowel/e_2)
 endphoneme
 
 

@@ -275,7 +275,8 @@ extern ALPHABET *current_alphabet;
 // alphabet flags
 #define AL_DONT_NAME  0x01    // don't speak the alphabet name
 #define AL_NOT_LETTERS  0x02  // don't use the language for speaking letters
-#define AL_WORDS  0x04        // use the language to speak words
+#define AL_WORDS      0x04    // use the language to speak words
+#define AL_NOT_CODE   0x08    // don't speak the character code
 
 
 #define N_LOPTS      21
@@ -402,11 +403,17 @@ typedef struct {
 #define S_INITIAL_2         0x2000
 // bit13= If there is only one syllable before the primary stress, give it a secondary stress
 
+#define S_MID_DIM           0x10000
+// bit 16= Set (not first or last) syllables to diminished stress
+
 #define S_PRIORITY_STRESS   0x20000
 // bit17= "priority" stress reduces other primary stress to "unstressed" not "secondary"
 
 #define S_EO_CLAUSE1        0x40000
 // bit18= don't lengthen short vowels more than long vowels at end-of-clause
+
+#define S_FINAL_LONG         0x80000
+// bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
 
 
 #define S_HYPEN_UNSTRESS    0x100000
@@ -416,7 +423,6 @@ typedef struct {
 // bit21= don't lengthen vowels at end-of-clause
 
 // bit15= Give stress to the first unstressed syllable
-// bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
 
 
 	int stress_flags;
@@ -566,7 +572,7 @@ typedef struct
 	const char *transpose_map;
 	char dictionary_name[40];
 
-	char phon_out[400];
+	char phon_out[500];
 	char phonemes_repeat[20];
 	int  phonemes_repeat_count;
 	int  phoneme_tab_ix;

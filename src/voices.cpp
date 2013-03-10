@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -47,7 +47,8 @@ MNEM_TAB genders [] = {
 	{"unknown", 0},
 	{"male", 1},
 	{"female", 2},
-	{NULL, 0 }};
+	{NULL, 0 }
+};
 
 int tone_points[12] = {600,170, 1200,135, 2000,110, 3000,110, -1,0};
 //int tone_points[12] = {250,200,  400,170, 600,170, 1200,135, 2000,110, -1,0};
@@ -98,6 +99,7 @@ enum {
 	V_STRESSADD,
 	V_DICTRULES,
 	V_STRESSRULE,
+	V_STRESSOPT,
 	V_CHARSET,
 	V_NUMBERS,
 	V_OPTION,
@@ -118,7 +120,8 @@ enum {
 static MNEM_TAB options_tab[] = {
 	{"reduce_t",  LOPT_REDUCE_T},
 	{"bracket", LOPT_BRACKET_PAUSE},
-	{NULL,   -1} };
+	{NULL,   -1}
+};
 
 static MNEM_TAB keyword_tab[] = {
 	{"name",       V_NAME},
@@ -128,7 +131,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"formant",    V_FORMANT},
 	{"pitch",      V_PITCH},
 	{"phonemes",   V_PHONEMES},
-   {"translator", V_TRANSLATOR},
+	{"translator", V_TRANSLATOR},
 	{"dictionary", V_DICTIONARY},
 	{"stressLength", V_STRESSLENGTH},
 	{"stressAmp",  V_STRESSAMP},
@@ -137,6 +140,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"tunes",      V_TUNES},
 	{"dictrules",	V_DICTRULES},
 	{"stressrule", V_STRESSRULE},
+	{"stressopt",  V_STRESSOPT},
 	{"charset",    V_CHARSET},
 	{"replace",    V_REPLACE},
 	{"words",      V_WORDGAP},
@@ -166,7 +170,8 @@ static MNEM_TAB keyword_tab[] = {
 	{"l_sonorant_min", 0x100+LOPT_SONORANT_MIN},
 	{"l_length_mods", 0x100+LOPT_LENGTH_MODS},
 	{"apostrophe", 0x100+LOPT_APOSTROPHE},
-	{NULL,   0} };
+	{NULL,   0}
+};
 
 #define N_VOICE_VARIANTS   12
 const char variants_either[N_VOICE_VARIANTS] = {1,2,12,3,13,4,14,5,11,0};
@@ -260,9 +265,9 @@ void ReadTonePoints(char *string, int *tone_pts)
 		tone_pts[ix] = -1;
 
 	sscanf(string,"%d %d %d %d %d %d %d %d %d %d",
-		&tone_pts[0],&tone_pts[1],&tone_pts[2],&tone_pts[3],
-		&tone_pts[4],&tone_pts[5],&tone_pts[6],&tone_pts[7],
-		&tone_pts[8],&tone_pts[9]);
+		   &tone_pts[0],&tone_pts[1],&tone_pts[2],&tone_pts[3],
+		   &tone_pts[4],&tone_pts[5],&tone_pts[6],&tone_pts[7],
+		   &tone_pts[8],&tone_pts[9]);
 }
 
 
@@ -316,8 +321,7 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 			while(isspace(*p)) p++;
 			strncpy0(vname,p,sizeof(vname));
 		}
-		else
-		if(memcmp(linebuf,"language",8)==0)
+		else if(memcmp(linebuf,"language",8)==0)
 		{
 			priority = DEFAULT_LANGUAGE_PRIORITY;
 			vlanguage[0] = 0;
@@ -334,13 +338,11 @@ static espeak_VOICE *ReadVoiceFile(FILE *f_in, const char *fname, const char*lea
 				n_languages++;
 			}
 		}
-		else
-		if(memcmp(linebuf,"gender",6)==0)
+		else if(memcmp(linebuf,"gender",6)==0)
 		{
 			sscanf(&linebuf[6],"%s %d",vgender,&age);
 		}
-		else
-		if(memcmp(linebuf,"variants",8)==0)
+		else if(memcmp(linebuf,"variants",8)==0)
 		{
 			sscanf(&linebuf[8],"%d",&n_variants);
 		}
@@ -443,7 +445,7 @@ void VoiceReset(int tone_only)
 	// Adjustment of harmonic amplitudes, steps of 8Hz
 	// value of 128 means no change
 //	memset(voice->tone_adjust,128,sizeof(voice->tone_adjust));
-SetToneAdjust(voice,tone_points);
+	SetToneAdjust(voice,tone_points);
 
 	// default values of speed factors
 	voice->speedf1 = 256;
@@ -517,7 +519,7 @@ static int Read8Numbers(char *data_in,int *data)
 // Read 8 integer numbers
 	memset(data, 0, 8+sizeof(int));
 	return(sscanf(data_in,"%d %d %d %d %d %d %d %d",
-		&data[0],&data[1],&data[2],&data[3],&data[4],&data[5],&data[6],&data[7]));
+				  &data[0],&data[1],&data[2],&data[3],&data[4],&data[5],&data[6],&data[7]));
 }
 
 
@@ -557,7 +559,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	char buf[sizeof(path_home)+30];
 	char path_voices[sizeof(path_home)+12];
 
-    int dict_min = 0;
+	int dict_min = 0;
 	int stress_amps[8];
 	int stress_lengths[8];
 	int stress_add[8];
@@ -572,11 +574,11 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_name[40];        // voice name for current_voice_selected
 	static char voice_languages[100];  // list of languages and priorities for current_voice_selected
 
-    // which directory to look for a named voice
-    static const char *voices_asia =
-        "fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
-    static const char *voices_europe =
-        "bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
+	// which directory to look for a named voice
+	static const char *voices_asia =
+		"fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
+	static const char *voices_europe =
+		"bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
 
 	strncpy0(voicename, vname, sizeof(voicename));
@@ -588,38 +590,37 @@ voice_t *LoadVoice(const char *vname, int control)
 	}
 	else
 	{
-        if(voicename[0]==0)
-            strcpy(voicename,"default");
+		if(voicename[0]==0)
+			strcpy(voicename,"default");
 
 		sprintf(path_voices,"%s%cvoices%c",path_home,PATHSEP,PATHSEP);
 		sprintf(buf,"%s%s",path_voices,voicename);  // first, look in the main voices directory
 
 		if(GetFileLength(buf) <= 0)
 		{
-		    // then look in the appropriate subdirectory
-		    if((voicename[0]=='m') && (voicename[1]=='b'))
-		    {
-		        voice_dir = "mb";   // mbrola voices
-		    }
-		    else
-		    {
-                sprintf(name2, "%s ", voicename);
-                if(strstr(voices_europe, voicename) != NULL)
-                    voice_dir = "europe";
-                else
-                if(strstr(voices_asia, voicename) != NULL)
-                    voice_dir = "asia";
-                else
-                    voice_dir = "other";
+			// then look in the appropriate subdirectory
+			if((voicename[0]=='m') && (voicename[1]=='b'))
+			{
+				voice_dir = "mb";   // mbrola voices
+			}
+			else
+			{
+				sprintf(name2, "%s ", voicename);
+				if(strstr(voices_europe, voicename) != NULL)
+					voice_dir = "europe";
+				else if(strstr(voices_asia, voicename) != NULL)
+					voice_dir = "asia";
+				else
+					voice_dir = "other";
 
-                sprintf(buf,"%s%s%c%s", path_voices,voice_dir,PATHSEP,voicename);
+				sprintf(buf,"%s%s%c%s", path_voices,voice_dir,PATHSEP,voicename);
 
-                if(GetFileLength(buf) <= 0)
-                {
-                    // if not found, look in "test" sub-directory
-                    sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
-                }
-		    }
+				if(GetFileLength(buf) <= 0)
+				{
+					// if not found, look in "test" sub-directory
+					sprintf(buf,"%stest%c%s",path_voices,PATHSEP,voicename);
+				}
+			}
 		}
 	}
 
@@ -685,48 +686,48 @@ voice_t *LoadVoice(const char *vname, int control)
 		switch(key)
 		{
 		case V_LANGUAGE:
+		{
+			unsigned int len;
+			int priority;
+
+			if(tone_only)
+				break;
+
+			priority = DEFAULT_LANGUAGE_PRIORITY;
+			language_name[0] = 0;
+
+			sscanf(p,"%s %d",language_name,&priority);
+			if(strcmp(language_name,"variant") == 0)
+				break;
+
+			len = strlen(language_name) + 2;
+			// check for space in languages[]
+			if(len < (sizeof(voice_languages)-langix-1))
 			{
-				unsigned int len;
-				int priority;
+				voice_languages[langix] = priority;
 
-				if(tone_only)
-					break;
-
-				priority = DEFAULT_LANGUAGE_PRIORITY;
-				language_name[0] = 0;
-
-				sscanf(p,"%s %d",language_name,&priority);
-				if(strcmp(language_name,"variant") == 0)
-					break;
-
-				len = strlen(language_name) + 2;
-				// check for space in languages[]
-				if(len < (sizeof(voice_languages)-langix-1))
-				{
-					voice_languages[langix] = priority;
-
-					strcpy(&voice_languages[langix+1],language_name);
-					langix += len;
-				}
-
-				// only act on the first language line
-				if(language_set == 0)
-				{
-					language_type = strtok(language_name,"-");
-					language_set = 1;
-					strcpy(translator_name,language_type);
-					strcpy(new_dictionary,language_type);
-					strcpy(phonemes_name,language_type);
-					SelectPhonemeTableName(phonemes_name);
-
-					if(new_translator != NULL)
-							DeleteTranslator(new_translator);
-
-					new_translator = SelectTranslator(translator_name);
-					langopts = &new_translator->langopts;
-				}
+				strcpy(&voice_languages[langix+1],language_name);
+				langix += len;
 			}
-			break;
+
+			// only act on the first language line
+			if(language_set == 0)
+			{
+				language_type = strtok(language_name,"-");
+				language_set = 1;
+				strcpy(translator_name,language_type);
+				strcpy(new_dictionary,language_type);
+				strcpy(phonemes_name,language_type);
+				SelectPhonemeTableName(phonemes_name);
+
+				if(new_translator != NULL)
+					DeleteTranslator(new_translator);
+
+				new_translator = SelectTranslator(translator_name);
+				langopts = &new_translator->langopts;
+			}
+		}
+		break;
 
 		case V_NAME:
 			if(tone_only == 0)
@@ -737,14 +738,14 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_GENDER:
-			{
-				int age = 0;
-				char vgender[80];
-				sscanf(p,"%s %d",vgender,&age);
-				current_voice_selected.gender = LookupMnem(genders,vgender);
-				current_voice_selected.age = age;
-			}
-			break;
+		{
+			int age = 0;
+			char vgender[80];
+			sscanf(p,"%s %d",vgender,&age);
+			current_voice_selected.gender = LookupMnem(genders,vgender);
+			current_voice_selected.age = age;
+		}
+		break;
 
 		case V_TRANSLATOR:
 			if(tone_only) break;
@@ -752,7 +753,7 @@ voice_t *LoadVoice(const char *vname, int control)
 			sscanf(p,"%s",translator_name);
 
 			if(new_translator != NULL)
-					DeleteTranslator(new_translator);
+				DeleteTranslator(new_translator);
 
 			new_translator = SelectTranslator(translator_name);
 			langopts = &new_translator->langopts;
@@ -771,16 +772,16 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_PITCH:
-			{
-				double factor;
-				// default is  pitch 82 118
-				n = sscanf(p,"%d %d",&pitch1,&pitch2);
-				voice->pitch_base = (pitch1 - 9) << 12;
-				voice->pitch_range = (pitch2 - pitch1) * 108;
-				factor = double(pitch1 - 82)/82;
-				voice->formant_factor = (int)((1+factor/4) * 256);  // nominal formant shift for a different voice pitch
-			}
-			break;
+		{
+			double factor;
+			// default is  pitch 82 118
+			n = sscanf(p,"%d %d",&pitch1,&pitch2);
+			voice->pitch_base = (pitch1 - 9) << 12;
+			voice->pitch_range = (pitch2 - pitch1) * 108;
+			factor = double(pitch1 - 82)/82;
+			voice->formant_factor = (int)((1+factor/4) * 256);  // nominal formant shift for a different voice pitch
+		}
+		break;
 
 		case V_STRESSLENGTH:   // stressLength
 			stress_lengths_set = Read8Numbers(p,stress_lengths);
@@ -817,7 +818,8 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_DICTRULES:   // conditional dictionary rules and list entries
 		case V_NUMBERS:
-            // expect a list of numbers
+		case V_STRESSOPT:
+			// expect a list of numbers
 			while(*p != 0)
 			{
 				while(isspace(*p)) p++;
@@ -825,16 +827,22 @@ voice_t *LoadVoice(const char *vname, int control)
 				if((n = atoi(p)) > 0)
 				{
 					p++;
-					if((key==V_DICTRULES) && (n < 32))
-                        conditional_rules |= (1 << n);
+					if(n < 32)
+					{
+						if(key==V_DICTRULES)
+							conditional_rules |= (1 << n);
+						else if(key==V_NUMBERS)
+							langopts->numbers |= (1 << n);
+						else if(key==V_STRESSOPT)
+							langopts->stress_flags |= (1 << n);
+					}
 					else
-					if((key==V_NUMBERS) && (n < 32))
-                        langopts->numbers |= (1 << n);
-                    else
-                    if((key==V_NUMBERS) && (n < 64))
-                        langopts->numbers |= (1 << (n-32));
-                    else
-                        fprintf(stderr,"Bad option number %d\n", n);
+					{
+						if((key==V_NUMBERS) && (n < 64))
+							langopts->numbers |= (1 << (n-32));
+						else
+							fprintf(stderr,"Bad option number %d\n", n);
+					}
 				}
 				while(isalnum(*p)) p++;
 			}
@@ -856,9 +864,9 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_STRESSRULE:
 			sscanf(p,"%d %d %d %d",&langopts->stress_rule,
-				&langopts->stress_flags,
-				&langopts->unstressed_wd1,
-				&langopts->unstressed_wd2);
+				   &langopts->stress_flags,
+				   &langopts->unstressed_wd1,
+				   &langopts->unstressed_wd2);
 			break;
 
 		case V_CHARSET:
@@ -909,12 +917,12 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_TONE:
-			{
-				int tone_data[12];
-				ReadTonePoints(p,tone_data);
-				SetToneAdjust(voice,tone_data);
-			}
-			break;
+		{
+			int tone_data[12];
+			ReadTonePoints(p,tone_data);
+			SetToneAdjust(voice,tone_data);
+		}
+		break;
 
 		case V_VOICING:
 			if(sscanf(p,"%d",&value)==1)
@@ -922,16 +930,16 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_BREATH:
-				voice->breath[0] = Read8Numbers(p,&voice->breath[1]);
-				for(ix=1; ix<8; ix++)
-				{
-					if(ix % 2)
-						voice->breath[ix] = -voice->breath[ix];
-				}
+			voice->breath[0] = Read8Numbers(p,&voice->breath[1]);
+			for(ix=1; ix<8; ix++)
+			{
+				if(ix % 2)
+					voice->breath[ix] = -voice->breath[ix];
+			}
 			break;
 
 		case V_BREATHW:
-				voice->breathw[0] = Read8Numbers(p,&voice->breathw[1]);
+			voice->breathw[0] = Read8Numbers(p,&voice->breathw[1]);
 			break;
 
 		case V_CONSONANTS:
@@ -943,20 +951,20 @@ voice_t *LoadVoice(const char *vname, int control)
 			break;
 
 		case V_MBROLA:
-			{
-				int srate = 16000;
-				char name[40];
-				char phtrans[40];
+		{
+			int srate = 16000;
+			char name[40];
+			char phtrans[40];
 
-				phtrans[0] = 0;
-				sscanf(p,"%s %s %d",name,phtrans,&srate);
-				if(LoadMbrolaTable(name,phtrans,srate) != EE_OK)
-				{
-					fprintf(stderr,"mbrola voice not found\n");
-				}
-				voice->samplerate = srate;
+			phtrans[0] = 0;
+			sscanf(p,"%s %s %d",name,phtrans,&srate);
+			if(LoadMbrolaTable(name,phtrans,srate) != EE_OK)
+			{
+				fprintf(stderr,"mbrola voice not found\n");
 			}
-			break;
+			voice->samplerate = srate;
+		}
+		break;
 
 		case V_KLATT:
 			voice->klattv[0] = 1;  // default source: IMPULSIVE
@@ -969,9 +977,9 @@ voice_t *LoadVoice(const char *vname, int control)
 			SetSpeed(3);
 			break;
 
-        case V_DICTMIN:
+		case V_DICTMIN:
 			sscanf(p,"%d",&dict_min);
-            break;
+			break;
 
 		default:
 			if((key & 0xff00) == 0x100)
@@ -1015,7 +1023,7 @@ voice_t *LoadVoice(const char *vname, int control)
 		}
 		voice->phoneme_tab_ix = ix;
 		new_translator->phoneme_tab_ix = ix;
-        new_translator->dict_min_size = dict_min;
+		new_translator->dict_min_size = dict_min;
 		LoadDictionary(new_translator, new_dictionary, control & 4);
 		if(dictionary_name[0]==0)
 			return(NULL);   // no dictionary loaded
@@ -1255,15 +1263,14 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 			// match on voice name
 			score += 500;
 		}
-		else
-		if(strcmp(voice_spec->name,voice->identifier)==0)
+		else if(strcmp(voice_spec->name,voice->identifier)==0)
 		{
 			score += 400;
 		}
 	}
 
 	if(((voice_spec->gender == 1) || (voice_spec->gender == 2)) &&
-		((voice->gender == 1) || (voice->gender == 2)))
+			((voice->gender == 1) || (voice->gender == 2)))
 	{
 		if(voice_spec->gender == voice->gender)
 			score += 50;
@@ -1395,8 +1402,7 @@ espeak_VOICE *SelectVoiceByName(espeak_VOICE **voices, const char *name2)
 			{
 				match_fname = ix;  // matching identifier, use this if no matching name
 			}
-			else
-			if(strcmp(last_part,&id[strlen(id)-last_part_len])==0)
+			else if(strcmp(last_part,&id[strlen(id)-last_part_len])==0)
 			{
 				match_fname2 = ix;
 			}
@@ -1493,8 +1499,7 @@ char const *SelectVoice(espeak_VOICE *voice_select, int *found)
 	gender = 0;
 	if((voice_select2.gender == 2) || ((voice_select2.age > 0) && (voice_select2.age < 13)))
 		gender = 2;
-	else
-	if(voice_select2.gender == 1)
+	else if(voice_select2.gender == 1)
 		gender = 1;
 
 #define AGE_OLD  60
@@ -1625,8 +1630,8 @@ static void GetVoices(const char *path)
 	}
 #else
 #ifdef PLATFORM_WINDOWS
-   WIN32_FIND_DATAA FindFileData;
-   HANDLE hFind = INVALID_HANDLE_VALUE;
+	WIN32_FIND_DATAA FindFileData;
+	HANDLE hFind = INVALID_HANDLE_VALUE;
 
 #undef UNICODE         // we need FindFirstFileA() which takes an 8-bit c-string
 	sprintf(fname,"%s\\*",path);
@@ -1640,30 +1645,29 @@ static void GetVoices(const char *path)
 
 		if(FindFileData.cFileName[0] != '.')
 		{
-            sprintf(fname,"%s%c%s",path,PATHSEP,FindFileData.cFileName);
-            ftype = GetFileLength(fname);
+			sprintf(fname,"%s%c%s",path,PATHSEP,FindFileData.cFileName);
+			ftype = GetFileLength(fname);
 
-            if(ftype == -2)
-            {
-                // a sub-sirectory
-                GetVoices(fname);
-            }
-            else
-            if(ftype > 0)
-            {
-                // a regular line, add it to the voices list
-                if((f_voice = fopen(fname,"r")) == NULL)
-                    continue;
+			if(ftype == -2)
+			{
+				// a sub-sirectory
+				GetVoices(fname);
+			}
+			else if(ftype > 0)
+			{
+				// a regular line, add it to the voices list
+				if((f_voice = fopen(fname,"r")) == NULL)
+					continue;
 
-                // pass voice file name within the voices directory
-                voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
-                fclose(f_voice);
+				// pass voice file name within the voices directory
+				voice_data = ReadVoiceFile(f_voice, fname+len_path_voices, FindFileData.cFileName);
+				fclose(f_voice);
 
-                if(voice_data != NULL)
-                {
-                    voices_list[n_voices_list++] = voice_data;
-                }
-            }
+				if(voice_data != NULL)
+				{
+					voices_list[n_voices_list++] = voice_data;
+				}
+			}
 		}
 	} while(FindNextFileA(hFind, &FindFileData) != 0);
 	FindClose(hFind);
@@ -1680,8 +1684,8 @@ static void GetVoices(const char *path)
 		if(n_voices_list >= (N_VOICES_LIST-2))
 			break;   // voices list is full
 
-        if(ent->d_name[0] == '.')
-            continue;
+		if(ent->d_name[0] == '.')
+			continue;
 
 		sprintf(fname,"%s%c%s",path,PATHSEP,ent->d_name);
 
@@ -1692,8 +1696,7 @@ static void GetVoices(const char *path)
 			// a sub-sirectory
 			GetVoices(fname);
 		}
-		else
-		if(ftype > 0)
+		else if(ftype > 0)
 		{
 			// a regular line, add it to the voices list
 			if((f_voice = fopen(fname,"r")) == NULL)
@@ -1728,7 +1731,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 
 	variant_name = ExtractVoiceVariantName(buf, 0, 1);
 
-	for(ix=0; ;ix++)
+	for(ix=0; ; ix++)
 	{
 		// convert voice name to lower case  (ascii)
 		if((buf[ix] = tolower(buf[ix])) == 0)
@@ -1833,7 +1836,7 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 
 	// sort the voices list
 	qsort(voices_list,n_voices_list,sizeof(espeak_VOICE *),
-		(int (__cdecl *)(const void *,const void *))VoiceNameSorter);
+		  (int (__cdecl *)(const void *,const void *))VoiceNameSorter);
 
 
 	if(voice_spec)

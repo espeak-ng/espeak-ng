@@ -100,28 +100,28 @@ _) ای	e:
 
 .group ب
 	ب	bV
-	بھ	bhV
-	بھ (L01	bh
+	بھ	b#V
+	بھ (L01	b#
 	ب (L01	b	
 
 .group پ
 	پ	pV
-	پھ	phV
+	پھ	p#V
 	پ (L01	p
-	پھ (L01	ph
+	پھ (L01	p#
 
 
 .group ت
 	ت	tV
-	تھ	thV
+	تھ	t#V
 	ت (L01	t
-	تھ (L01	th
+	تھ (L01	t#
 
 .group ٹ
 	ٹ	t.V
-	ٹھ	th.V
+	ٹھ	t.#V
 	ٹ (L01	t.
-	ٹھ (L01	th.
+	ٹھ (L01	t.#
 
 .group ث
 	ث	sV
@@ -129,16 +129,16 @@ _) ای	e:
 
 .group ج
 	ج	JV
-	جھ	JhV
+	جھ	J#V
 	ج (L01	J
-	جھ (L01	Jh
+	جھ (L01	J#
 
 
 .group چ
 	چ	cV
-	چھ	chV
+	چھ	c#V
 	چ (L01	c
-	چھ (L01	ch
+	چھ (L01	c#
 
 .group ح
 	ح	HV
@@ -151,15 +151,15 @@ _) ای	e:
 
 .group د
 	د	dV
-	دھ	dhV
+	دھ	d#V
 	د (L01	d
-	دھ (L01	dh
+	دھ (L01	d#
 
 .group ڈ
 	ڈ	d.V
-	ڈھ	dh.V
+	ڈھ	d.#V
 	ڈ (L01	d.
-	ڈھ (L01	dh.
+	ڈھ (L01	d.#
 
 .group ذ
 	ذ	DV
@@ -199,9 +199,9 @@ _) ای	e:
 
 .group ط
 	ط	tV
-	طھ	thV
+	طھ	t#V
 	ط (L01	t
-	طھ (L01	th
+	طھ (L01	t#
 
 .group ظ
 	ظ	z.V
@@ -221,15 +221,15 @@ _) ای	e:
 
 .group ک
 	ک	kV
-	کھ	khV
+	کھ	k#V
 	ک (L01	k
-	کھ (L01	kh
+	کھ (L01	k#
 
 .group گ
 	گ	gV
-	گھ	ghV
+	گھ	g#V
 	گ (L01	g
-	گھ (L01	gh
+	گھ (L01	g#
 
 .group ل
 	ل	lV

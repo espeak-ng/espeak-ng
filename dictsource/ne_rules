@@ -572,13 +572,13 @@
 
 
 .group ख
-	ख	khV
-	ख (B	kh
-?1	ख (_	kh
-	्) ख (_	kh@/
-	ख (्ख	kh,
-	खँ	khV~'
-	खॅ	khV~'
+	ख	k#V
+	ख (B	k#
+?1	ख (_	k#
+	्) ख (_	k#@/
+	ख (्ख	k#,
+	खँ	k#V~'
+	खॅ	k#V~'
 
 .group ग
 	ग	gV
@@ -590,13 +590,13 @@
 	गॅ	gV~'
 
 .group घ
-	घ	ghV
-	घ (B	gh
-?1	घ (_	gh
-	घ (्घ	gh,
-	्) घ (_	gh@/
-	घँ	ghV~'
-	घॅ	ghV~'
+	घ	g#V
+	घ (B	g#
+?1	घ (_	g#
+	घ (्घ	g#,
+	्) घ (_	g#@/
+	घँ	g#V~'
+	घॅ	g#V~'
 
 
 .group ङ	// Phoneme adjustment suggested
@@ -616,12 +616,12 @@
 	चॅ	cV~'
 
 .group छ
-	छ	chV
-	छ (B	ch
-	्) छ (C	ch@
-	छ (_	ch@
-	छँ	chV~'
-	छॅ	chV~'
+	छ	c#V
+	छ (B	c#
+	्) छ (C	c#@
+	छ (_	c#@
+	छँ	c#V~'
+	छॅ	c#V~'
 
 .group ज
 	ज	JV
@@ -633,12 +633,12 @@
 	्) ज (_	J@/
 
 .group झ	// Phoneme adjustment suggested.
-	झ	JhV
-	झ (B	Jh
-	झँ	JhV~'
-	झॅ 	JhV~'
+	झ	J#V
+	झ (B	J#
+	झँ	J#V~'
+	झॅ 	J#V~'
 	झ (्झ	J,
-	झ (_	Jh
+	झ (_	J#
 
 .group ञ	// Phoneme adjustment suggested
 	ञ	n^V
@@ -659,13 +659,13 @@
 	ट (्य	t.:
 
 .group ठ
-	ठ	th.V
-	ठ (B	th.
-	ठँ	t.hV~'
-	ठॅ	t.hV~'
-	ठ (्ठ	th.,
-	्) ठ (_	th.@/
-?1	ठ (_	t.h
+	ठ	t.#V
+	ठ (B	t.#
+	ठँ	t.#V~'
+	ठॅ	t.#V~'
+	ठ (्ठ	t.#,
+	्) ठ (_	t.#@/
+?1	ठ (_	t.#
 
 .group ड
 	ड	d.V
@@ -682,14 +682,14 @@
 	ड़ॅ	d.:V~'
 
 .group ढ
-	ढ	dh.V
-	ढ (B	dh.
-	ढँ	d.hV~'
-	ढॅ	d.hV~'
-	्) ढ (_	dh.@/
-?1	ढ (_	d.h
-	ढ़	d.hV:	// nukta
-	ढ़ (B	d.h	// nukta
+	ढ	d.#V
+	ढ (B	d.#
+	ढँ	d.#V~'
+	ढॅ	d.#V~'
+	्) ढ (_	d.#@/
+?1	ढ (_	d.#
+	ढ़	d.#V:	// nukta
+	ढ़ (B	d.#	// nukta
 
 .group ण
 	ण	n.V	// Phoneme adjustment suggested
@@ -709,13 +709,13 @@
 ?1	त (_	t,
 
 .group थ
-	थ	thV
-	थँ	thV~'
-	थॅ	thV~'
-	थ (B	th
-	्) थ (_	th@/
-	थ (्य	th,
-?1	थ (_	th
+	थ	t#V
+	थँ	t#V~'
+	थॅ	t#V~'
+	थ (B	t#
+	्) थ (_	t#@/
+	थ (्य	t#,
+?1	थ (_	t#
 
 .group द
 	द	dV
@@ -729,12 +729,12 @@
 	्) द (_	d@/
 
 .group ध
-	ध	dhV
-	धँ	dhV~'
-	धॅ	dhV~'
-	ध (B	dh
-?1	ध (_	dh
-	्) ध (_	dh@/
+	ध	d#V
+	धँ	d#V~'
+	धॅ	d#V~'
+	ध (B	d#
+?1	ध (_	d#
+	्) ध (_	d#@/
 
 .group न
 	न	nV
@@ -763,13 +763,13 @@
 	्) प (_	p@/
 
 .group फ
-	फ	phV
-	फँ	phV~'
-	फॅ	phV~'
-	फ (B	ph
-	फ (्न	ph:
-?1	फ (_	ph
-	्) फ (_	ph@/
+	फ	p#V
+	फँ	p#V~'
+	फॅ	p#V~'
+	फ (B	p#
+	फ (्न	p#:
+?1	फ (_	p#
+	्) फ (_	p#@/
 
 .group ब
 	ब	bV
@@ -781,12 +781,12 @@
 	्) ब (_	b@/
 
 .group भ
-	भ	bhV
-	भँ	bhV~'
-	भॅ	bhV~'
-	भ (B	bh
-?1	भ (_	bh
-	भ (्य	bh,
+	भ	b#V
+	भँ	b#V~'
+	भॅ	b#V~'
+	भ (B	b#
+?1	भ (_	b#
+	भ (्य	b#,
 	्) भ (_	bh@/
 
 .group म
@@ -1064,65 +1064,65 @@
 
 .group [	
 	[	l'eftbr'ak'et
-	[ (_A	th'ul'ok'osht.@2suru
-	[ (_C	th'ul'ok'osht.@2suru
-	[ (_०	th'ul'ok'osht.@2suru
-	[ (_१	th'ul'ok'osht.@2suru
-	[ (_२	th'ul'ok'osht.@2suru
-	[ (_३	th'ul'ok'osht.@2suru
-	[ (_४	th'ul'ok'osht.@2suru
-	[ (_५	th'ul'ok'osht.@2suru
-	[ (_६	th'ul'ok'osht.@2suru
-	[ (_७	th'ul'ok'osht.@2suru
-	[ (_८	th'ul'ok'osht.@2suru
-	[ (_९	th'ul'ok'osht.@2suru
+	[ (_A	t#'ul'ok'osht.@2suru
+	[ (_C	t#'ul'ok'osht.@2suru
+	[ (_०	t#'ul'ok'osht.@2suru
+	[ (_१	t#'ul'ok'osht.@2suru
+	[ (_२	t#'ul'ok'osht.@2suru
+	[ (_३	t#'ul'ok'osht.@2suru
+	[ (_४	t#'ul'ok'osht.@2suru
+	[ (_५	t#'ul'ok'osht.@2suru
+	[ (_६	t#'ul'ok'osht.@2suru
+	[ (_७	t#'ul'ok'osht.@2suru
+	[ (_८	t#'ul'ok'osht.@2suru
+	[ (_९	t#'ul'ok'osht.@2suru
 
 .group ]
 	]	r'aitbr'ak'et
-	A_) ]	th'ul'ok'osht.@2b'Vnd@2
-	C_) ]	th'ul'ok'osht.@2b'Vnd@2
-	०_) ]	th'ul'ok'osht.@2b'Vnd@2
-	१_) ]	th'ul'ok'osht.@2b'Vnd@2
-	२_) ]	th'ul'ok'osht.@2b'Vnd@2
-	३_) ]	th'ul'ok'osht.@2b'Vnd@2
-	४_) ]	th'ul'ok'osht.@2b'Vnd@2
-	५_) ]	th'ul'ok'osht.@2b'Vnd@2
-	६_) ]	th'ul'ok'osht.@2b'Vnd@2
-	७_) ]	th'ul'ok'osht.@2b'Vnd@2
-	८_) ]	th'ul'ok'osht.@2b'Vnd@2
-	९_) ]	th'ul'ok'osht.@2b'Vnd@2
+	A_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	C_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	०_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	१_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	२_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	३_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	४_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	५_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	६_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	७_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	८_) ]	t#'ul'ok'osht.@2b'Vnd@2
+	९_) ]	t#'ul'ok'osht.@2b'Vnd@2
 
 
 .group {		
 	{	l'eftbr'eIs
-	{ (_A	b'a:Ng'ek'oshth.@2suru
-	{ (_C	b'a:Ng'ek'oshth.@2suru
-	{ (_०	b'a:Ng'ek'oshth.@2suru
-	{ (_१	b'a:Ng'ek'oshth.@2suru
-	{ (_२	b'a:Ng'ek'oshth.@2suru
-	{ (_३	b'a:Ng'ek'oshth.@2suru
-	{ (_४	b'a:Ng'ek'oshth.@2suru
-	{ (_५	b'a:Ng'ek'oshth.@2suru
-	{ (_६	b'a:Ng'ek'oshth.@2suru
-	{ (_७	b'a:Ng'ek'oshth.@2suru
-	{ (_८	b'a:Ng'ek'oshth.@2suru
-	{ (_९	b'a:Ng'ek'oshth.@2suru
+	{ (_A	b'a:Ng'ek'osht.#@2suru
+	{ (_C	b'a:Ng'ek'osht.#@2suru
+	{ (_०	b'a:Ng'ek'osht.#@2suru
+	{ (_१	b'a:Ng'ek'osht.#@2suru
+	{ (_२	b'a:Ng'ek'osht.#@2suru
+	{ (_३	b'a:Ng'ek'osht.#@2suru
+	{ (_४	b'a:Ng'ek'osht.#@2suru
+	{ (_५	b'a:Ng'ek'osht.#@2suru
+	{ (_६	b'a:Ng'ek'osht.#@2suru
+	{ (_७	b'a:Ng'ek'osht.#@2suru
+	{ (_८	b'a:Ng'ek'osht.#@2suru
+	{ (_९	b'a:Ng'ek'osht.#@2suru
 
 
 .group }		
 	}	r'aItbr'eIs
-	A_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	C_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	०_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	१_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	२_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	३_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	४_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	५_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	६_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	७_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	८_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
-	९_) }	b'a:Ng'ek'oshth.@2b'Vnd@2
+	A_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	C_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	०_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	१_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	२_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	३_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	४_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	५_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	६_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	७_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	८_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
+	९_) }	b'a:Ng'ek'osht.#@2b'Vnd@2
 
 
 
@@ -1132,7 +1132,7 @@
 		// Special Symbols with special meanings
 .group
 	।	pur',n.@,w'ir'a:m	// Fullstop of Devanagari
-	॥	d'i:rgh@,w'ir'a:m	// Double Fullstop - means Read sentence twice.
+	॥	d'i:rg#@,w'ir'a:m	// Double Fullstop - means Read sentence twice.
 	ॱ	dVS@mal@w@2	// Decimal of devanagari (dot [.] is mostly used!).
 	॰	saNks.e:p@s'u:c@k@
 	$	dOlV
@@ -1142,9 +1142,9 @@
 
 	़	n'u'k't'a:	// Name of symbol.
 	॑	Ud'Vtt,@
-	॓	Ud:dh@r,@n.@a:r'Vmbh@
-	॔	,Ud:dh@r,@n.@'Vnt@
-	ॽ	k,@n.th.@w'Ira:m
+	॓	Ud:d#@r,@n.@a:r'Vmb#@
+	॔	,Ud:d#@r,@n.@'Vnt@
+	ॽ	k,@n.t.#@w'Ira:m
 	॒	a'n'ud'Vtt,@ 
 
 

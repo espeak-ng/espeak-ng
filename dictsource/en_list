@@ -127,7 +127,7 @@ _,	k0m@
 _-	h,aIf@n
 ?3 _-	daS
 _.	d0t
-?3_.    pi@rI@d
+?3_.p	pi@rI@d
 _:	koUl@n
 _;	sEmIk'oUl@n
 _<	lEsDan
@@ -276,7 +276,8 @@ _my	mj'A:nmA@
 _ka	dZ'O@dZ@n
 _ko	k3r'i@n
 _eth	i:TI'0pIk
-
+_ja	dZ'ap@ni:z
+_zh	tS'aIni:z
 
 // Cyrillic letters
 а	a
@@ -385,6 +386,18 @@ _eth	i:TI'0pIk
 ר	ReS_
 ש	Sin_
 ת	tav_
+ְ	SvA:
+ֱ	E
+ֲ	a
+ֳ	o
+ִ	i:
+ֵ	E
+ֶ	E
+ַ	a
+ָ	a
+ֹ	o
+ֻ	u
+ּ	d'agES
 
 
 // phonetic modifiers
@@ -4184,19 +4197,22 @@ like             laIk          $strend2
 
 
 // General American
-?3 agile	adZ@L
-?3 docile	doUs@L
-?3 facile	fas@L
-?3 fertile	f3:t@L
-?3 fragile	fradZ@L
-?3 futile	fju:t@L
-?3 hostile	h0st@L
-?3 mobile	moUb@L
+agile		$alt2
+docile		$alt2
+ductile		$alt2
+facile		$alt2
+fertile		$alt2
+fragile		$alt2
+futile		$alt2
+hostile		$alt2
+mobile		$alt2
 ?3 missile	mIs@L
-?3 projectile	pr@dZEkt@L
-?3 puerile	pjU@r@L
-?3 sterile	stEr@L
-?3 virile	vIr@L
+projectile	$alt2
+puerile		$alt2
+senile		$alt2
+sterile		$alt2
+tensile		$alt2
+virile		$alt2
 ?3 volatile	v0la#t@L
 
 

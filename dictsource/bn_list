@@ -9,20 +9,20 @@ _2	d:UI
 _3	t'i:n
 _4	c'a:@'r
 _5	,pa~c
-_6	ch'O:j
+_6	c#'O:j
 _7	S'a:t
-_8	'a:th.
+_8	'a:t.#
 _9	n'O:j
 
 _10	d'O:S
 _11	a'g'a:rO:
 _12	b'a:rO:
 _13	t'a:rO:
-_14	ch:O:d'dO:
+_14	c#:O:d'dO:
 _15	p'O:n'e:rO:
 _16	S'o:lO:
 _17	SO:t'e:rO:
-_18	a:th'e:rO:
+_18	a:t#'e:rO:
 _19	U'n'IS
 
 _20	kU:'ri
@@ -31,9 +31,9 @@ _22	b'a:IS
 _23	t'e:IS
 _24	c'O:b'bIS
 _25	pa~O:c'IS
-_26	ch'a:'bb'IS
+_26	c#'a:'bb'IS
 _27	Sa:ta:S
-_28	ath'a:S
+_28	at#'a:S
 _29	Unt'rIs
 _30	t'i:rIS
 
@@ -42,7 +42,7 @@ _32	bat:'rIS
 _33	tE't'rIS
 _34	ca~o:u:t'rIS
 _35	pa~O:it'rIS
-_36	cha'trIS
+_36	c#a'trIS
 _37	Sa~it'rIS
 _38	at'tr'IS
 _39	U'nO:cO:l'IS
@@ -53,7 +53,7 @@ _42	bi'al'lIS
 _43	te:ta:l'lIS
 _44	cu:a:l'lIS
 _45	paI'nta:l'lIS
-_46	che:co:l'lIS
+_46	c#e:co:l'lIS
 _47	Sat'co:l'lIs
 _48	at'co:l'lIS
 _49	Uno:pan'ca:S
@@ -64,18 +64,18 @@ _52	ba:h@n'no:
 _53	t'Ip'pan'no:
 _54	cu:wan'no:
 _55	po:n'ca:n'no:
-_56	chh@p:'an'no:
+_56	c#h@p:'an'no:
 _57	Sa:ta:n'no:
-_58	ath'a:n'no:
-_59	Uno:s'ath
+_58	at#'a:n'no:
+_59	Uno:s'at#
 
-_60	s'a:th.
+_60	s'a:t.#
 _61	e:k'so:t'tI
 _62	ba:so:t'tI
 _63	te:so:t'tI
 _64	ca~o:u:so:t'tI
 _65	pa~I'so:t'tI
-_66	che:so:t'tI
+_66	c#e:so:t'tI
 _67	Sat'so:t'tI
 _68	atso:t'ti
 _69	,Uno:Sat'to:r
@@ -85,8 +85,8 @@ _71	e:kat'to:r
 _72	ba:hat'to:r
 _73	tIat'to:r
 _74	cu:at'to:r
-_75	pa~chat'to:r
-_76	chI'at:to:r
+_75	pa~c#at'to:r
+_76	c#I'at:to:r
 _77	Sa:t@'t:o:r
 _78	atat'to:r
 _79	,Uno:a:Si:
@@ -97,7 +97,7 @@ _82	bI'ra:Si:
 _83	tIra:Si:
 _84	cu:ra:Si:
 _85	pa~ca:Si:
-_86	chIa:Si:
+_86	c#Ia:Si:
 _87	Sa:ta:Si:
 _88	O:sto:a:Si:
 _89	Uno:no:b'bo:I
@@ -108,43 +108,43 @@ _92	bIra:no:b'bo:I
 _93	tIr'a:no:b'bo:I
 _94	cu:r'a:no:b'bo:I
 _95	pa~ca:no:b'bo:I
-_96	chIa:no:b'bo:I
+_96	c#Ia:no:b'bo:I
 _97	S@ta:no:b'bo:I
 _98	ata:no:b'bo:I
 _99	nIra:no:b'bo:I
 
 _0C	SO:
 _0M1	h@z'a:r
-_0M2	l'a:kh
+_0M2	l'a:k#
 _0M3	ko:tI
 _0M4	o:r'bu:d
 _dpt	d@so:mIk
 
 // Single consonants
 ক	k@
-খ	kh@
+খ	k#@
 গ	g@
-ঘ	gh@
+ঘ	g#@
 ঙ	N'g
 চ	c@
-ছ	ch@
+ছ	c#@
 জ	J@
-ঝ	Jh@
+ঝ	J#@
 ঞ	n^@
 ট	t.@
-ঠ	th.@
+ঠ	t.#@
 ড	d.@
-ঢ	dh.@
+ঢ	d.#@
 ণ	n.@   // retroflex n.@
 ত	t@
-থ	th@
+থ	t#@
 দ	d@
-ধ	dh@
+ধ	d#@
 ন	n@
 প	p@
-ফ	ph@
+ফ	p#@
 ব	b@
-ভ	bh@
+ভ	b#@
 ম	m@
 য়	O:j
 য	J@

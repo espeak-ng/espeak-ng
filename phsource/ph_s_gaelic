@@ -9,7 +9,7 @@ phoneme b
 endphoneme
 
 phoneme t
-  import_phoneme hi/th
+  import_phoneme hi/t#
 endphoneme
 
 phoneme d

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -133,7 +133,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_LIST2 *plist2;
 	WORD_PH_DATA worddata;
 
-    memset(&worddata, 0, sizeof(worddata));
+	memset(&worddata, 0, sizeof(worddata));
 	plist2 = ph_list2;
 	phlist = phoneme_list;
 	end_sourceix = plist2[n_ph_list2-1].sourceix;
@@ -142,7 +142,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	max_stress = 0;
 	for(j = n_ph_list2-3; j>=0; j--)
 	{
-		// start with the last phoneme (before the terminating pauses) and move forwards
+		// start with the last phoneme (before the terminating pauses) and move backwards
 		if((plist2[j].stresslevel & 0x7f) > max_stress)
 			max_stress = plist2[j].stresslevel & 0x7f;
 		if(plist2[j].sourceix != 0)
@@ -204,21 +204,18 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				{
 					voicing = 1;
 				}
-				else
-				if((voicing==2) && (ph->end_type != 0))  // use end_type field for voicing_switch for consonants
+				else if((voicing==2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
 				{
 					plist2[j].phcode = ph->end_type;  // change to voiced equivalent
 				}
 			}
-			else
-			if((type==phVSTOP) || type==(phVFRICATIVE))
+			else if((type==phVSTOP) || type==(phVFRICATIVE))
 			{
 				if((voicing==0) && (regression & 0xf))
 				{
 					voicing = 2;
 				}
-				else
-				if((voicing==1) && (ph->end_type != 0))
+				else if((voicing==1) && (ph->end_type != 0))
 				{
 					plist2[j].phcode = ph->end_type;  // change to unvoiced equivalent
 				}
@@ -331,6 +328,9 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if(plist3->phcode == phonSWITCH)
 			{
+				if((plist3[1].phcode == phonSWITCH) || ((plist3[1].type == phPAUSE) && (plist3[2].phcode == phonSWITCH)))
+					continue;  // next phoneme is also a phonSWITCH, so ignore
+
 				// change phoneme table
 				SelectPhonemeTable(plist3->tone_ph);
 				switched_language ^= SFLAG_SWITCHED_LANG;
@@ -580,18 +580,18 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	phlist[ix].newword = 2;     // end of clause
 
 	phlist[ix].phcode = phonPAUSE;
-   phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
+	phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
 	phlist[ix].length = post_pause;  // length of the pause, depends on the punctuation
 	phlist[ix].sourceix = end_sourceix;
 	phlist[ix].synthflags = 0;
-   phlist[ix++].ph = phoneme_tab[phonPAUSE];
+	phlist[ix++].ph = phoneme_tab[phonPAUSE];
 
 	phlist[ix].phcode = phonPAUSE;
-   phlist[ix].type = phPAUSE;
+	phlist[ix].type = phPAUSE;
 	phlist[ix].length = 0;
 	phlist[ix].sourceix=0;
 	phlist[ix].synthflags = 0;
-   phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
+	phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
 }  // end of MakePhonemeList

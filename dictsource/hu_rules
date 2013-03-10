@@ -459,6 +459,7 @@ shetlan) d (szige  d
  szaba) d (szem    d
  _tren) dsz (e     d|s
  vakon) d (sz      d
+vé) d (jeggy d
 
 .group dz
   fogó) dz (kod    ts
@@ -1021,6 +1022,8 @@ szivárvá) ny (játsz n^
  _elle) n (jav     n
  vagyo) n (jog     n
         nny (elv   n|n^
+haszo) n (jár n
+boszorká) ny (jelet n^
 
 .group o
         o          o
@@ -1162,6 +1165,7 @@ _tetszé) s         S
     ki) s (szőlő   S
   körö) s (szeg    S
 kolbászo) s        S
+feldolgozá) s S
 
 .group ss
         ssz        ss2
@@ -1757,6 +1761,7 @@ fáklyá) sz (ene    Sz
  pénze) sz (k      s
 ellenállá) sz (ón  Sz
     ré) sz (árás   Sz
+_te) szts (or st|S
 
 .group t
         t          t
@@ -1988,6 +1993,7 @@ _tisztele) tj (el  tj
   zené) tj (átsz   tj
   szen) tj (akab   tj
 közérze) tj (aví   tj
+ké) tj (átszm tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -2204,6 +2210,8 @@ felira) ts (áv     t|S
   leme) tsz (vén   ts
   _cha) tsz (ob    t|s
   robo) ts (of     t|S
+merényle) ts (or t|S
+
 
 .group tt
         tt         t:
