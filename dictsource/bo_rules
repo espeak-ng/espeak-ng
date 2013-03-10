@@ -21,9 +21,9 @@
      @) ཀ (_	k
 
 .group ཁ
-	ཁ	kha
-	ཁ (B	kh
-     @) ཁ (_	kh
+	ཁ	k#a
+	ཁ (B	k#
+     @) ཁ (_	k#
 
 .group ག
 	ག	ga
@@ -31,9 +31,9 @@
      @) ག (_	g
 
 .group གྷ
-	གྷ	gha
-	གྷ (B	gh
-     @) གྷ (_	gh
+	གྷ	g#a
+	གྷ (B	g#
+     @) གྷ (_	g#
 
 .group ང
 	ང	Na
@@ -46,9 +46,9 @@
      @) ཅ (_	c
 
 .group ཆ
-	ཆ	cha
-	ཆ (B	ch
-     @) ཆ (_	ch
+	ཆ	c#a
+	ཆ (B	c#
+     @) ཆ (_	c#
 
 .group ཇ
 	ཇ	Ja
@@ -66,9 +66,9 @@
      @) ཊ (_	t.
 
 .group ཋ
-	ཋ	th.a
-	ཋ (B	th.
-     @) ཋ (_	th.
+	ཋ	t.#a
+	ཋ (B	t.#
+     @) ཋ (_	t.#
 
 .group ཌ
 	ཌ	d.a
@@ -76,9 +76,9 @@
      @) ཌ (_	d.
 
 .group ཌྷ
-	ཌྷ	dh.a
-	ཌྷ (B	dh.
-     @) ཌྷ (_	dh.
+	ཌྷ	d.#a
+	ཌྷ (B	d.#
+     @) ཌྷ (_	d.#
 
 .group ཎ
 	ཎ	n.a
@@ -91,9 +91,9 @@
      @) ཏ (_	t
 
 .group ཐ
-	ཐ	tha
-	ཐ (B	th
-     @) ཐ (_	th
+	ཐ	t#a
+	ཐ (B	t#
+     @) ཐ (_	t#
 
 .group ད
 	ད	da
@@ -101,9 +101,9 @@
      @) ད (_	d
 
 .group དྷ
-	དྷ	dha
-	དྷ (B	dh
-     @) དྷ (_	dh
+	དྷ	d#a
+	དྷ (B	d#
+     @) དྷ (_	d#
 
 .group ན
 	ན	na
@@ -116,9 +116,9 @@
      @) པ (_	p
 
 .group ཕ
-	ཕ	pha
-	ཕ (B	ph
-     @) ཕ (_	ph
+	ཕ	p#a
+	ཕ (B	p#
+     @) ཕ (_	p#
 
 .group བ
 	བ	ba
@@ -126,9 +126,9 @@
      @) བ (_	b
 
 .group བྷ
-	བྷ	bha
-	བྷ (B	bh
-     @) བྷ (_	bh
+	བྷ	b#a
+	བྷ (B	b#
+     @) བྷ (_	b#
 
 .group མ
 	མ	ma
@@ -141,9 +141,9 @@
      @) ཙ (_	ts
 
 .group ཚ
-	ཚ	tsha
-	ཚ (B	tsh
-     @) ཚ (_	tsh
+	ཚ	ts#a
+	ཚ (B	ts#
+     @) ཚ (_	ts#
 
 .group ཛ
 	ཛ	dza
@@ -151,9 +151,9 @@
      @) ཛ (_	dz
 
 .group ཛྷ
-	ཛྷ	dzha
-	ཛྷ (B	dzh
-     @) ཛྷ (_	dzh
+	ཛྷ	dz#a
+	ཛྷ (B	dz#
+     @) ཛྷ (_	dz#
 
 .group ཝ
 	ཝ	wa
@@ -245,16 +245,16 @@
 	ྐ (B	k
      @) ྐ (_	k
 
-	ྑ	kha
-	ྑ (B	kh
-     @) ྑ (_	kh
+	ྑ	k#a
+	ྑ (B	k#
+     @) ྑ (_	k#
 
 	ྒ	ga
 	ྒ (B	g
      @) ྒ (_	g
 
-	ྒྷ	gha
-     @) ྒྷ (_	gh
+	ྒྷ	g#a
+     @) ྒྷ (_	g#
 
 	ྔ	Na
 	ྔ (B	N
@@ -264,9 +264,9 @@
 	ྕ (B	c
      @) ྕ (_	c
 
-	ྖ	cha
-	ྖ (B	ch
-     @) ྖ (_	ch
+	ྖ	c#a
+	ྖ (B	c#
+     @) ྖ (_	c#
 
 	ྗ	Ja
 	ྗ (B	J
@@ -280,17 +280,17 @@
 	ྚ (B	t.
      @) ྚ (_	t.
 
-	ྛ	th.a
-	ྛ (B	th.
-     @) ྛ (_	th.
+	ྛ	t.#a
+	ྛ (B	t.#
+     @) ྛ (_	t.#
 
 	ྜ	d.a
 	ྜ (B	d.
      @) ྜ (_	d.
 
-	ྜྷ	dh.a
-	ྜྷ (B	dh.
-     @) ྜྷ (_	dh.
+	ྜྷ	d.#a
+	ྜྷ (B	d.#
+     @) ྜྷ (_	d.#
 
 	ྞ	n.a
 	ྞ (B	n.
@@ -300,17 +300,17 @@
 	ྟ (B	t
      @) ྟ (_	t
 
-	ྠ	tha
-	ྠ (B	th
-     @) ྠ (_	th
+	ྠ	t#a
+	ྠ (B	t#
+     @) ྠ (_	t#
 
 	ྡ	da
 	ྡ (B	d
      @) ྡ (_	d
 
-	ྡྷ	dha
-	ྡྷ (B	dh
-     @) ྡྷ (_	dh
+	ྡྷ	d#a
+	ྡྷ (B	d#
+     @) ྡྷ (_	d#
 
 	ྣ	na
 	ྣ (B	n
@@ -320,17 +320,17 @@
 	ྤ (B	p
      @) ྤ (_	p
 
-	ྥ	pha
-	ྥ (B	ph
-     @) ྥ (_	ph
+	ྥ	p#a
+	ྥ (B	p#
+     @) ྥ (_	p#
 
 	ྦ	ba
 	ྦ (B	b
      @) ྦ (_	b
 
-	ྦྷ	bha
-	ྦྷ (B	bh
-     @) ྦྷ (_	bh
+	ྦྷ	b#a
+	ྦྷ (B	b#
+     @) ྦྷ (_	b#
 
 	ྨ	ma
 	ྨ (B	m
@@ -340,17 +340,17 @@
 	ྩ (B	ts
      @) ྩ (_	ts
 
-	ྪ	tsha
-	ྪ (B	tsh
-     @) ྪ (_	tsh
+	ྪ	ts#a
+	ྪ (B	ts#
+     @) ྪ (_	ts#
 
 	ྫ	dza
 	ྫ (B	dz
      @) ྫ (_	dz
 
-	ྫྷ	dzha
-	ྫྷ (B	dzh
-     @) ྫྷ (_	dzh
+	ྫྷ	dz#a
+	ྫྷ (B	dz#
+     @) ྫྷ (_	dz#
 
 	ྭ	wa
 	ྭ (B	w

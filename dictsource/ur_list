@@ -38,11 +38,11 @@
  ن	nu:n
 و	va:O
 ہ	He:
-ں	ghUnna
-ﮨ	cho:ti:||He:
+ں	g#Unna
+ﮨ	c#o:ti:||He:
 ھ	dO||caSmi:||He:
 ء	HamzaH
-ی	cho:t.i:||je:
+ی	c#o:t.i:||je:
 ے	bar.i:||je:
 ئ	h'amza
 
@@ -58,9 +58,9 @@ _2	'do:
 _3	t'i:n
 _4	c'a:R
 _5	p'a:Nc
-_6	ch'eh
+_6	c#'eh
 _7	s'a:t
-_8	'a:th
+_8	'a:t#
 _9	n'aU
 _10	d'as
 _11	gj'a:RaH
@@ -70,7 +70,7 @@ _14	c'aUdaH
 _15	p'andRaH
 _16	s'o:laH
 _17	s'atRaH
-_18	ath'a:RaH
+_18	at#'a:RaH
 _19	'Unni:s
 _20	b'i:s
 _21	Ikk'i:s
@@ -78,9 +78,9 @@ _22	ba:'i:s
 _23	te:'i:s
 _24	caUb'i:s
 _25	pacc'i:s
-_26	chabb'i:s
+_26	c#abb'i:s
 _27	sat:a:'i:s
-_28	,ath.a:j'i:s
+_28	,at.#a:j'i:s
 _29	Unt'i:s
 _30	t'i:s
 _31	ikVt'i:s
@@ -88,7 +88,7 @@ _32	bat:'i:s
 _33	t'aINt'i:s
 _34	caUNt'i:s
 _35	paINt'i:s
-_36	chat:'i:s
+_36	c#at:'i:s
 _37	saINt'i:s
 _38	aRt'i:s
 _39	Unta:l'i:s
@@ -98,7 +98,7 @@ _42	baja:l'i:s
 _43	te:Nta:l'i:s
 _44	cava:l'i:s
 _45	paINta:l'i:s
-_46	chIja:l'i:s
+_46	c#Ija:l'i:s
 _47	saINta:l'i:s
 _48	aRta:l'i:s
 _49	Unc'a:s
@@ -108,29 +108,29 @@ _52	b'a:van
 _53	t'IRpan
 _54	c'aUvan
 _55	p'acpan
-_56	ch'appan
+_56	c#'appan
 _57	sat:'a:van
-_58	ath'a:van
-_59	Uns'ath
-_60	s'a:th
-_61	'Iksath
-_62	b'a:sath
-_63	t'IRsath
-_64	c'aUsath
-_65	p'aINsath
-_66	chIj'a:sath
-_67	s'aRsath
-_68	'aRsath
+_58	at#'a:van
+_59	Uns'at#
+_60	s'a:t#
+_61	'Iksat#
+_62	b'a:sat#
+_63	t'IRsat#
+_64	c'aUsat#
+_65	p'aINsat#
+_66	c#Ij'a:sat#
+_67	s'aRsat#
+_68	'aRsat#
 _69	UnH,at:'aR
 _70	sat:'aR
 _71	IkHat:'aR
 _72	baHat:'aR
 _73	tIHat:'aR
 _74	caUHat:'aR
-_75	pachat:'aR
-_76	chIHat:'aR
-_77	sathat:'aR
-_78	athHat:'aR
+_75	pac#at:'aR
+_76	c#IHat:'aR
+_77	sat#at:'aR
+_78	at#Hat:'aR
 _79	Unna:s'i:
 _80	ass'i:
 _81	Ika:s'i:
@@ -138,9 +138,9 @@ _82	baja:s'i:
 _83	tIRa:s'i:
 _84	caURa:s'i:
 _85	paca:s'i:
-_86	chIja:s'i:
+_86	c#Ija:s'i:
 _87	sat:a:s'i:
-_88	atha:s'i:
+_88	at#a:s'i:
 _89	nava:s'i:
 _90	navv'e:
 _91	Ikj'a:nve:
@@ -148,17 +148,17 @@ _92	b'a:nve:
 _93	tIT'a:nve:
 _94	caUR'a:nve:
 _95	pac'a:nve:
-_96	chIj'a:nve:
+_96	c#Ij'a:nve:
 _97	sat:'a:nve:
-_98	ath:'a:nve:
+_98	at#:'a:nve:
 _99	nInj'a:nve:
 
 _0C	s'aU
 _0M1	Haz'a:R
-_0M2	l'a:kh
+_0M2	l'a:k#
 _0M3	kaR'o:R
 _0M4	'aRab
-_0M5	'khaRab
+_0M5	'k#aRab
 _dpt	_ISaRI'Ia_
 
 
@@ -179,9 +179,9 @@ _dpt	_ISaRI'Ia_
 کسے	k'Ise:
 اسی	'Isi:
 اسے	'Ise:
-مجھ	m'UJh
-مجھے	m'UJhe:
-تجھے	t'UJhe:
+مجھ	m'UJ#
+مجھے	m'UJ#e:
+تجھے	t'UJ#e:
 جن	J'In
 جنھیں	J,InH'e:n
 انھوں	,UnH'o:n
@@ -204,8 +204,8 @@ _dpt	_ISaRI'Ia_
 
 // Pronunciation exceptions
 پاکستان	p'a:k'i:st'a:n
-سندھ	s'Indh
-کچھ	k'Uch
+سندھ	s'Ind#
+کچھ	k'Uc#
 لنکس	l'Ink,s
 لفظ	l'afz.
 سرچ	s'aRc
@@ -247,8 +247,8 @@ _dpt	_ISaRI'Ia_
 مصری	m'Is.R,i:
 انتظام	,IntIz.'a:m
 مختصر	m,Uxtas.'aR
-پھر	ph'IR
-پھرا	ph'IRa:
+پھر	p#'IR
+پھرا	p#'IRa:
 منتخب	m,Unt'ax@b
 منتقل	m,Unt'aqIl
 نیا	n'aja:
@@ -267,7 +267,7 @@ _dpt	_ISaRI'Ia_
 اردو	'URd,u:
 احتجاجی	 'e:Hte:J,a:Ji:
 احتجاج	'e:HtIJ,a:J
-بدھ	b'Udh
+بدھ	b'Ud#
 تجزیے	t,aJz'i:;e:
 دوست	 d'o:st
 زندگی	z,Ind'agi:
@@ -295,7 +295,7 @@ _dpt	_ISaRI'Ia_
 گزشتہ	gUz'aSta
 رشتہ	R'ISta
 اخر	'a:xIR
-آنکھ	'a:nkh
+آنکھ	'a:nk#
 شکار	SIk'a:R
 جلد	J'ald
 مواد	mav'a:d
@@ -304,5 +304,5 @@ _dpt	_ISaRI'Ia_
 شدہ	S'Ud,a
 بغیر	baQ'e:R
 امیدوار	Um'i:dva:R
-لکھ	l'Ikh
-لکھئیے	l'Ikhj,e:
+لکھ	l'Ik#
+لکھئیے	l'Ik#j,e:

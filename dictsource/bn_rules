@@ -128,12 +128,12 @@
 .group ক
         ক        k@
         ক (B     k
-        ক্য (्য    kja:
-        ক্ষ            kh'@
+        ক্য (्য   kja:
+        ক্ষ        k#'@
 
 .group খ
-        খ        khV
-        খ (B  kh@
+        খ        k#V
+        খ (B  k#@
   
 .group গ
         গ        gV
@@ -141,8 +141,8 @@
     ঈ)গ (ল   g@
 
 .group ঘ
-        ঘ        ghV
-        ঘ (B  gh
+        ঘ        g#V
+        ঘ (B  g#
 
 .group ঙ
         ঙ        N'g
@@ -152,66 +152,67 @@
 .group চ
         চ        cV
         চ (B     c
-  ্য) চ্য     c'j@
+   ্য) চ্য        c'j@
 
 .group ছ
-        ছ        chV
-        ছ  (B  ch@
+        ছ        c#V
+        ছ  (B    c#@
 
 .group জ
         জ        J@
-        জ (B  J@
-  ্) জ        zV
-        জ (B  J@
+        জ (B     J@
+  ্) জ           zV
+        জ (B     J@
 
 .group ঝ
-        ঝ        Jh@
-        ঝ (B  Jh@
+        ঝ        J#@
+        ঝ (B     J#@
 
 .group ঞ
         ঞ        n^V
         ঞ্ (B     n^
-   
+ 
+ 
 .group ট
-        ট        tV
-        ট (B     tV
-        ট (्য়      t.j@
+        ট         t.V
+        ট (B      t.V
+        ট (्য়    t.j@
 
 .group ঠ
-        ঠ        thV
-        ঠ (B  th.
+        ঠ        t.#V
+        ঠ (B     t.#
 
 .group ড
         ড        d.V
         ড (B     d.
 
 .group ঢ
-       ঢ        dh.V
-       ঢ (B     dh.
+       ঢ         d.#V
+       ঢ (B      d.#
 .group ণ
         ণ        n.V   // (temporary) same as dental [n]
         ণ (B     n.
-        ণ্ম       n.m
+        ণ্ম        n.m
 
 
 .group ত
         ত        t@
-        ত (B  t@
+        ত (B     t@
               
 .group থ
-        থ        th@
-        থ (B  th.
- ক) থ (ন    th@
+        থ        t#@
+        থ (B     t#
+ ক) থ (ন         t#@
 
 .group দ
         দ        d@
-        দ (B     d.
+        দ (B     d
  ব) দ (ল     d@
 
 .group ধ
-        ধ        dh@
-        ধ (B     dh.
- সা) ধ (ন         dh@
+        ধ        d#@
+        ধ (B     d#
+ সা) ধ (ন         d#@
 
 .group ন
         ন        n@
@@ -229,9 +230,9 @@
         প্য (्য    p:
 
 .group ফ
-        ফ        ph@
-        ফ (B     ph@
-        ফ        ph@
+        ফ        p#@
+        ফ (B     p#@
+        ফ        p#@
   
 
 .group ব
@@ -239,8 +240,8 @@
         ব (B     b@
 
 .group ভ
-        ভ        bh@
-        ভ (B     bh@
+        ভ        b#@
+        ভ (B     b#@
 
 .group ম
         ম        mV
