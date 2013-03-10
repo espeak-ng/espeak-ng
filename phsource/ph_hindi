@@ -294,7 +294,7 @@ phoneme p
 endphoneme
 
 
-phoneme ph
+phoneme p#
   import_phoneme consonants/ph
 endphoneme
 
@@ -304,10 +304,10 @@ phoneme  b       // this is [b]
 endphoneme
 
 
-phoneme bh
+phoneme b#
   vcd blb stop
   lengthmod 5
-  voicingswitch ph
+  voicingswitch p#
   Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
   Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
 
@@ -330,7 +330,7 @@ phoneme t        // dental variant of /t/
 endphoneme
 
 
-phoneme th        // dental variant of /t/
+phoneme t#        // dental variant of /t/
   vls dnt stop
   lengthmod 2
   voicingswitch d
@@ -349,10 +349,10 @@ phoneme d       // dental variant of /d/
 endphoneme
 
 
-phoneme dh
+phoneme d#
   vcd dnt stop
   lengthmod 5
-  voicingswitch th
+  voicingswitch t#
   Vowelin f1=0  f2=1500 -300 300  f3=-100 80
   Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
 
@@ -379,11 +379,11 @@ phoneme t.
   WAV(ustop/t_short)
 endphoneme
 
-phoneme th.
+phoneme t.#
   vls rfx stop
   lengthmod 2
-  ipa ʈh
-  voicingswitch dh.
+  ipa ʈU+02B0
+  voicingswitch d.#
   Vowelin f1=0  f2=1800 -300 300  f3=-400 80
   Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
 //  WAV(ustop/th_rfx)
@@ -410,11 +410,11 @@ phoneme d.
 endphoneme
 
 
-phoneme dh.
+phoneme d.#
   vcd rfx stop
   lengthmod 5
-  ipa ɖh
-  voicingswitch th.
+  ipa ɖU+02B0
+  voicingswitch t.#
   Vowelin f1=1  f2=1800 -300 300  f3=-400 80
   Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
 
@@ -439,7 +439,7 @@ phoneme c
 endphoneme
 
 
-phoneme ch
+phoneme c#
   CALL base/tS;
   ipa ch
 endphoneme
@@ -450,10 +450,10 @@ phoneme J
 endphoneme
 
 
-phoneme Jh
+phoneme J#
   vcd pal afr sibilant
   lengthmod 5
-  voicingswitch ch
+  voicingswitch c#
   Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
   Vowelout f1=0 f2=2700 400 600  f3=300 80 colr=1
 
@@ -477,9 +477,9 @@ phoneme k
   voicingswitch g
 endphoneme
 
-phoneme kh
+phoneme k#
   import_phoneme consonants/kh
-  voicingswitch gh
+  voicingswitch g#
 endphoneme
 
 
@@ -489,10 +489,10 @@ phoneme g
 endphoneme
 
 
-phoneme gh
+phoneme g#
   vcd dnt stop
   lengthmod 5
-  voicingswitch kh
+  voicingswitch k#
   Vowelin f1=1  f2=2300 200 300  f3=-150 80  rms=20
   Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
 

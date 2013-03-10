@@ -8,9 +8,9 @@ _2        d'o:
 _3        t'i:n
 _4        c:'a:r:
 _5        'pa~c
-_6        ch'@2
+_6        c#'@2
 _7        s'a:t
-_8        'a:th.
+_8        'a:t.#
 _9        n'O:
 ?3  _9    n'aU
 
@@ -18,11 +18,11 @@ _10       d'Vs
 _11       gj'a:r-ah
 _12       b'a:rah
 _13       t'e:r@2h
-_14       ch'O:d@2h
+_14       c#'O:d@2h
 _15       p'Vndr@2h
 _16       s'o:l@2h
 _17       sVtr@2h
-_18       a:th:arah
+_18       a:t#:arah
 _19       Unn'Is
 
 _20       b'i:s
@@ -31,9 +31,9 @@ _22       b'a:Is
 _23       t'ue:Is
 _24       c'O:bIs
 _25       p@c:'Is
-_26       ch@bb'i:rs
+_26       c#@bb'i:rs
 _27       s@t:'a:Is
-_28       ath:'a:Is
+_28       at#:'a:Is
 _29       ,Unt'Is
 _30       t'i:s
 
@@ -42,7 +42,7 @@ _32       b'at:'I'S
 _33       tE~t'Is      // E~ ?
 _34       cO~t'Is
 _35       pE~t'Is
-_36       chaT'tIs
+_36       c#aT'tIs
 _37       sE~t'Is
 _38       art'Is
 _39       Unta:l'Is
@@ -53,7 +53,7 @@ _42       baIa:l'Is
 _43       tE~ta:l'Is
 _44       cO:wa:l'Is
 _45       paI'nta:l'Is
-_46       chhIja:l'Is
+_46       c#hIja:l'Is
 _47       sE~ta:l'Is
 _48       arta:l'Is
 _49       'Un^ca:s
@@ -63,32 +63,32 @@ _51       Ikj'a:wVn
 _52       b'a:wVn
 _53       t'IrpVn
 _54       c'Ou:wVn
-_55       p'achpVn
-_56       chh@p:'Vn
+_55       p'ac#pVn
+_56       c#h@p:'Vn
 _57       santa:'w@n
-_58       ath:a:'w@n
-_59       Uns'Vth
+_58       at#:a:'w@n
+_59       Uns'Vt#
 
-_60       s'a:th.
-_61       'Iks@th.
-_62       b'a:s@th.
-_63       t'Irs@th.
-_64       cO:'s@th.
-_65       paI's@th.
-_66       ch'Ija:s@th.
-_67       s'Vrs@th.
-_68       ars@th.
+_60       s'a:t.#
+_61       'Iks@t.#
+_62       b'a:s@t.#
+_63       t'Irs@t.#
+_64       cO:'s@t.#
+_65       paI's@t.#
+_66       c#'Ija:s@t.#
+_67       s'Vrs@t.#
+_68       ars@t.#
 _69       Un@h,at:'Vr:
 
 _70       sat:'Vr:
-_71       Ikhat:'Vr:
+_71       Ik#at:'Vr:
 _72       b@hat:'Vr:
 _73       tIhat:'Vr:
 _74       cO:hat:'Vr:
-_75       pach,at:'Vr:
-_76       chIhat:'Vr:
+_75       pac#,at:'Vr:
+_76       c#Ihat:'Vr:
 _77       s@t@hat:'Vr:
-_78       athhat:'Vr:
+_78       at#hat:'Vr:
 _79       ,Un^Ia:s'i:
 
 _80       ,Vss'i:
@@ -97,9 +97,9 @@ _82       baIa:s'i
 _83       tIra:s'i
 _84       cO:ra:s'i
 _85       pI'ca:s'i
-_86       chIja:s'i
+_86       c#Ija:s'i
 _87       sVt:a:s'i
-_88       ath:a:s'i
+_88       at#:a:s'i
 _89       nVwa:s'i
 
 _90       nVb:'e:
@@ -108,50 +108,50 @@ _92       b'a:n@we:
 _93       tIr'a:n@we:
 _94       cO:r'a:m@we:
 _95       p@c'a:n@we:
-_96       chIj'a:n@we:
+_96       c#Ij'a:n@we:
 _97       s@t:'a:n@we:
-_98       ath:'a:n@we:
+_98       at#:'a:n@we:
 _99       nIn^j'a:n@we:
 
 _0C	s'O:
 _0M1	h@J,a:r
-_0M2	l'a:kh
+_0M2	l'a:k#
 _0M3	k@ro:r.V
 _0M4	'Vr@b
-_0M5	kh'Vr@b
+_0M5	k#'Vr@b
 _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 // Single consonants
 क      k@
 क़      q@
-ख      kh@
+ख      k#@
 ख़      x@
 ग      g@
 ग़      Q@
-घ      gh@
+घ      g#@
 ङ      N@
 च      c@
-छ      ch@
+छ      c#@
 ज      J@
 ज़      z@
-झ      Jh@
+झ      J#@
 ञ      n^@
 ट      t.@
-ठ      th.@
+ठ      t.#@
 ड      d.@
 ड़      r.@
-ढ      dh.@
+ढ      d.#@
 ण      n.@   // retroflex n.@
 त      t@
-थ      th@
+थ      t#@
 द      d@
-ध      dh@
+ध      d#@
 न      n@
 प      p@
-फ      ph@
+फ      p#@
 फ़      f@
 ब      b@
-भ      bh@
+भ      b#@
 म      m@
 य      j@
 र      r@
@@ -194,6 +194,13 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 ॣ	#X2l-:
 ॐ	#X1o~m
 
+_??	Vks.@r
+_a	ej
+_b	bi:
+_c	si:
+_d	di:
+_e	i:
+_f	Ef
 
 // Punctuation
 ।	dVn.d.V

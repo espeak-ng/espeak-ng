@@ -139,7 +139,7 @@ phoneme R
   import_phoneme base/R2
 endphoneme
 
-phoneme d#   // 'rr' sounds like English 'd'
+phoneme d2   // 'rr' sounds like English 'd'
   import_phoneme base/d
 endphoneme
 

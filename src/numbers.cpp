@@ -72,36 +72,36 @@ static int number_control;
 
 
 typedef struct {
-const char *name;
-int  flags;
+	const char *name;
+	int  flags;
 } ACCENTS;
 
 // these are tokens to look up in the *_list file.
 static ACCENTS accents_tab[] = {
-{"_lig", 1},
-{"_smc", 1},  // smallcap
-{"_tur", 1},  // turned
-{"_rev", 1},  // reversed
-{"_crl", 0},  // curl
+	{"_lig", 1},
+	{"_smc", 1},  // smallcap
+	{"_tur", 1},  // turned
+	{"_rev", 1},  // reversed
+	{"_crl", 0},  // curl
 
-{"_acu", 0},  // acute
-{"_brv", 0},  // breve
-{"_hac", 0},  // caron/hacek
-{"_ced", 0},  // cedilla
-{"_cir", 0},  // circumflex
-{"_dia", 0},  // diaeresis
-{"_ac2", 0},  // double acute
-{"_dot", 0},  // dot
-{"_grv", 0},  // grave
-{"_mcn", 0},  // macron
-{"_ogo", 0},  // ogonek
-{"_rng", 0},  // ring
-{"_stk", 0},  // stroke
-{"_tld", 0},  // tilde
+	{"_acu", 0},  // acute
+	{"_brv", 0},  // breve
+	{"_hac", 0},  // caron/hacek
+	{"_ced", 0},  // cedilla
+	{"_cir", 0},  // circumflex
+	{"_dia", 0},  // diaeresis
+	{"_ac2", 0},  // double acute
+	{"_dot", 0},  // dot
+	{"_grv", 0},  // grave
+	{"_mcn", 0},  // macron
+	{"_ogo", 0},  // ogonek
+	{"_rng", 0},  // ring
+	{"_stk", 0},  // stroke
+	{"_tld", 0},  // tilde
 
-{"_bar", 0},  // bar
-{"_rfx", 0},  // retroflex
-{"_hok", 0},  // hook
+	{"_bar", 0},  // bar
+	{"_rfx", 0},  // retroflex
+	{"_hok", 0},  // hook
 };
 
 
@@ -127,270 +127,271 @@ static ACCENTS accents_tab[] = {
 
 
 static const short non_ascii_tab[] = {
-    0, 0x3b1, 0x259, 0x25b, 0x3b3, 0x3b9, 0x153, 0x3c9,
-0x3c6, 0x283, 0x3c5, 0x292, 0x294, 0x27e };
+	0, 0x3b1, 0x259, 0x25b, 0x3b3, 0x3b9, 0x153, 0x3c9,
+	0x3c6, 0x283, 0x3c5, 0x292, 0x294, 0x27e
+};
 
 
 // characters U+00e0 to U+017f
 static const unsigned short letter_accents_0e0[] = {
-LETTER('a',M_GRAVE,0),   // U+00e0
-LETTER('a',M_ACUTE,0),
-LETTER('a',M_CIRCUMFLEX,0),
-LETTER('a',M_TILDE,0),
-LETTER('a',M_DIAERESIS,0),
-LETTER('a',M_RING,0),
-LIGATURE('a','e',0),
-LETTER('c',M_CEDILLA,0),
-LETTER('e',M_GRAVE,0),
-LETTER('e',M_ACUTE,0),
-LETTER('e',M_CIRCUMFLEX,0),
-LETTER('e',M_DIAERESIS,0),
-LETTER('i',M_GRAVE,0),
-LETTER('i',M_ACUTE,0),
-LETTER('i',M_CIRCUMFLEX,0),
-LETTER('i',M_DIAERESIS,0),
-LETTER('d',M_NAME,0),  // eth  // U+00f0
-LETTER('n',M_TILDE,0),
-LETTER('o',M_GRAVE,0),
-LETTER('o',M_ACUTE,0),
-LETTER('o',M_CIRCUMFLEX,0),
-LETTER('o',M_TILDE,0),
-LETTER('o',M_DIAERESIS,0),
-0,     // division sign
-LETTER('o',M_STROKE,0),
-LETTER('u',M_GRAVE,0),
-LETTER('u',M_ACUTE,0),
-LETTER('u',M_CIRCUMFLEX,0),
-LETTER('u',M_DIAERESIS,0),
-LETTER('y',M_ACUTE,0),
-LETTER('t',M_NAME,0),  // thorn
-LETTER('y',M_DIAERESIS,0),
-CAPITAL,                 // U+0100
-LETTER('a',M_MACRON,0),
-CAPITAL,
-LETTER('a',M_BREVE,0),
-CAPITAL,
-LETTER('a',M_OGONEK,0),
-CAPITAL,
-LETTER('c',M_ACUTE,0),
-CAPITAL,
-LETTER('c',M_CIRCUMFLEX,0),
-CAPITAL,
-LETTER('c',M_DOT_ABOVE,0),
-CAPITAL,
-LETTER('c',M_CARON,0),
-CAPITAL,
-LETTER('d',M_CARON,0),
-CAPITAL,                 // U+0110
-LETTER('d',M_STROKE,0),
-CAPITAL,
-LETTER('e',M_MACRON,0),
-CAPITAL,
-LETTER('e',M_BREVE,0),
-CAPITAL,
-LETTER('e',M_DOT_ABOVE,0),
-CAPITAL,
-LETTER('e',M_OGONEK,0),
-CAPITAL,
-LETTER('e',M_CARON,0),
-CAPITAL,
-LETTER('g',M_CIRCUMFLEX,0),
-CAPITAL,
-LETTER('g',M_BREVE,0),
-CAPITAL,                // U+0120
-LETTER('g',M_DOT_ABOVE,0),
-CAPITAL,
-LETTER('g',M_CEDILLA,0),
-CAPITAL,
-LETTER('h',M_CIRCUMFLEX,0),
-CAPITAL,
-LETTER('h',M_STROKE,0),
-CAPITAL,
-LETTER('i',M_TILDE,0),
-CAPITAL,
-LETTER('i',M_MACRON,0),
-CAPITAL,
-LETTER('i',M_BREVE,0),
-CAPITAL,
-LETTER('i',M_OGONEK,0),
-CAPITAL,               // U+0130
-LETTER('i',M_NAME,0), // dotless i
-CAPITAL,
-LIGATURE('i','j',0),
-CAPITAL,
-LETTER('j',M_CIRCUMFLEX,0),
-CAPITAL,
-LETTER('k',M_CEDILLA,0),
-LETTER('k',M_NAME,0),  // kra
-CAPITAL,
-LETTER('l',M_ACUTE,0),
-CAPITAL,
-LETTER('l',M_CEDILLA,0),
-CAPITAL,
-LETTER('l',M_CARON,0),
-CAPITAL,
-LETTER('l',M_MIDDLE_DOT,0),  // U+0140
-CAPITAL,
-LETTER('l',M_STROKE,0),
-CAPITAL,
-LETTER('n',M_ACUTE,0),
-CAPITAL,
-LETTER('n',M_CEDILLA,0),
-CAPITAL,
-LETTER('n',M_CARON,0),
-LETTER('n',M_NAME,0),  // apostrophe n
-CAPITAL,
-LETTER('n',M_NAME,0),  // eng
-CAPITAL,
-LETTER('o',M_MACRON,0),
-CAPITAL,
-LETTER('o',M_BREVE,0),
-CAPITAL,             // U+0150
-LETTER('o',M_DOUBLE_ACUTE,0),
-CAPITAL,
-LIGATURE('o','e',0),
-CAPITAL,
-LETTER('r',M_ACUTE,0),
-CAPITAL,
-LETTER('r',M_CEDILLA,0),
-CAPITAL,
-LETTER('r',M_CARON,0),
-CAPITAL,
-LETTER('s',M_ACUTE,0),
-CAPITAL,
-LETTER('s',M_CIRCUMFLEX,0),
-CAPITAL,
-LETTER('s',M_CEDILLA,0),
-CAPITAL,              // U+0160
-LETTER('s',M_CARON,0),
-CAPITAL,
-LETTER('t',M_CEDILLA,0),
-CAPITAL,
-LETTER('t',M_CARON,0),
-CAPITAL,
-LETTER('t',M_STROKE,0),
-CAPITAL,
-LETTER('u',M_TILDE,0),
-CAPITAL,
-LETTER('u',M_MACRON,0),
-CAPITAL,
-LETTER('u',M_BREVE,0),
-CAPITAL,
-LETTER('u',M_RING,0),
-CAPITAL,              // U+0170
-LETTER('u',M_DOUBLE_ACUTE,0),
-CAPITAL,
-LETTER('u',M_OGONEK,0),
-CAPITAL,
-LETTER('w',M_CIRCUMFLEX,0),
-CAPITAL,
-LETTER('y',M_CIRCUMFLEX,0),
-CAPITAL,   // Y-DIAERESIS
-CAPITAL,
-LETTER('z',M_ACUTE,0),
-CAPITAL,
-LETTER('z',M_DOT_ABOVE,0),
-CAPITAL,
-LETTER('z',M_CARON,0),
-LETTER('s',M_NAME,0), // long-s  // U+17f
+	LETTER('a',M_GRAVE,0),   // U+00e0
+	LETTER('a',M_ACUTE,0),
+	LETTER('a',M_CIRCUMFLEX,0),
+	LETTER('a',M_TILDE,0),
+	LETTER('a',M_DIAERESIS,0),
+	LETTER('a',M_RING,0),
+	LIGATURE('a','e',0),
+	LETTER('c',M_CEDILLA,0),
+	LETTER('e',M_GRAVE,0),
+	LETTER('e',M_ACUTE,0),
+	LETTER('e',M_CIRCUMFLEX,0),
+	LETTER('e',M_DIAERESIS,0),
+	LETTER('i',M_GRAVE,0),
+	LETTER('i',M_ACUTE,0),
+	LETTER('i',M_CIRCUMFLEX,0),
+	LETTER('i',M_DIAERESIS,0),
+	LETTER('d',M_NAME,0),  // eth  // U+00f0
+	LETTER('n',M_TILDE,0),
+	LETTER('o',M_GRAVE,0),
+	LETTER('o',M_ACUTE,0),
+	LETTER('o',M_CIRCUMFLEX,0),
+	LETTER('o',M_TILDE,0),
+	LETTER('o',M_DIAERESIS,0),
+	0,     // division sign
+	LETTER('o',M_STROKE,0),
+	LETTER('u',M_GRAVE,0),
+	LETTER('u',M_ACUTE,0),
+	LETTER('u',M_CIRCUMFLEX,0),
+	LETTER('u',M_DIAERESIS,0),
+	LETTER('y',M_ACUTE,0),
+	LETTER('t',M_NAME,0),  // thorn
+	LETTER('y',M_DIAERESIS,0),
+	CAPITAL,                 // U+0100
+	LETTER('a',M_MACRON,0),
+	CAPITAL,
+	LETTER('a',M_BREVE,0),
+	CAPITAL,
+	LETTER('a',M_OGONEK,0),
+	CAPITAL,
+	LETTER('c',M_ACUTE,0),
+	CAPITAL,
+	LETTER('c',M_CIRCUMFLEX,0),
+	CAPITAL,
+	LETTER('c',M_DOT_ABOVE,0),
+	CAPITAL,
+	LETTER('c',M_CARON,0),
+	CAPITAL,
+	LETTER('d',M_CARON,0),
+	CAPITAL,                 // U+0110
+	LETTER('d',M_STROKE,0),
+	CAPITAL,
+	LETTER('e',M_MACRON,0),
+	CAPITAL,
+	LETTER('e',M_BREVE,0),
+	CAPITAL,
+	LETTER('e',M_DOT_ABOVE,0),
+	CAPITAL,
+	LETTER('e',M_OGONEK,0),
+	CAPITAL,
+	LETTER('e',M_CARON,0),
+	CAPITAL,
+	LETTER('g',M_CIRCUMFLEX,0),
+	CAPITAL,
+	LETTER('g',M_BREVE,0),
+	CAPITAL,                // U+0120
+	LETTER('g',M_DOT_ABOVE,0),
+	CAPITAL,
+	LETTER('g',M_CEDILLA,0),
+	CAPITAL,
+	LETTER('h',M_CIRCUMFLEX,0),
+	CAPITAL,
+	LETTER('h',M_STROKE,0),
+	CAPITAL,
+	LETTER('i',M_TILDE,0),
+	CAPITAL,
+	LETTER('i',M_MACRON,0),
+	CAPITAL,
+	LETTER('i',M_BREVE,0),
+	CAPITAL,
+	LETTER('i',M_OGONEK,0),
+	CAPITAL,               // U+0130
+	LETTER('i',M_NAME,0), // dotless i
+	CAPITAL,
+	LIGATURE('i','j',0),
+	CAPITAL,
+	LETTER('j',M_CIRCUMFLEX,0),
+	CAPITAL,
+	LETTER('k',M_CEDILLA,0),
+	LETTER('k',M_NAME,0),  // kra
+	CAPITAL,
+	LETTER('l',M_ACUTE,0),
+	CAPITAL,
+	LETTER('l',M_CEDILLA,0),
+	CAPITAL,
+	LETTER('l',M_CARON,0),
+	CAPITAL,
+	LETTER('l',M_MIDDLE_DOT,0),  // U+0140
+	CAPITAL,
+	LETTER('l',M_STROKE,0),
+	CAPITAL,
+	LETTER('n',M_ACUTE,0),
+	CAPITAL,
+	LETTER('n',M_CEDILLA,0),
+	CAPITAL,
+	LETTER('n',M_CARON,0),
+	LETTER('n',M_NAME,0),  // apostrophe n
+	CAPITAL,
+	LETTER('n',M_NAME,0),  // eng
+	CAPITAL,
+	LETTER('o',M_MACRON,0),
+	CAPITAL,
+	LETTER('o',M_BREVE,0),
+	CAPITAL,             // U+0150
+	LETTER('o',M_DOUBLE_ACUTE,0),
+	CAPITAL,
+	LIGATURE('o','e',0),
+	CAPITAL,
+	LETTER('r',M_ACUTE,0),
+	CAPITAL,
+	LETTER('r',M_CEDILLA,0),
+	CAPITAL,
+	LETTER('r',M_CARON,0),
+	CAPITAL,
+	LETTER('s',M_ACUTE,0),
+	CAPITAL,
+	LETTER('s',M_CIRCUMFLEX,0),
+	CAPITAL,
+	LETTER('s',M_CEDILLA,0),
+	CAPITAL,              // U+0160
+	LETTER('s',M_CARON,0),
+	CAPITAL,
+	LETTER('t',M_CEDILLA,0),
+	CAPITAL,
+	LETTER('t',M_CARON,0),
+	CAPITAL,
+	LETTER('t',M_STROKE,0),
+	CAPITAL,
+	LETTER('u',M_TILDE,0),
+	CAPITAL,
+	LETTER('u',M_MACRON,0),
+	CAPITAL,
+	LETTER('u',M_BREVE,0),
+	CAPITAL,
+	LETTER('u',M_RING,0),
+	CAPITAL,              // U+0170
+	LETTER('u',M_DOUBLE_ACUTE,0),
+	CAPITAL,
+	LETTER('u',M_OGONEK,0),
+	CAPITAL,
+	LETTER('w',M_CIRCUMFLEX,0),
+	CAPITAL,
+	LETTER('y',M_CIRCUMFLEX,0),
+	CAPITAL,   // Y-DIAERESIS
+	CAPITAL,
+	LETTER('z',M_ACUTE,0),
+	CAPITAL,
+	LETTER('z',M_DOT_ABOVE,0),
+	CAPITAL,
+	LETTER('z',M_CARON,0),
+	LETTER('s',M_NAME,0), // long-s  // U+17f
 };
 
 
 // characters U+0250 to U+029F
 static const unsigned short letter_accents_250[] = {
-LETTER('a',M_TURNED,0),		// U+250
-LETTER(L_ALPHA,0,0),
-LETTER(L_ALPHA,M_TURNED,0),
-LETTER('b',M_IMPLOSIVE,0),
-0,  // open-o
-LETTER('c',M_CURL,0),
-LETTER('d',M_RETROFLEX,0),
-LETTER('d',M_IMPLOSIVE,0),
-LETTER('e',M_REVERSED,0),	// U+258
-0,   // schwa
-LETTER(L_SCHWA,M_HOOK,0),
-0,   // open-e
-LETTER(L_OPEN_E,M_REVERSED,0),
-LETTER(L_OPEN_E,M_HOOK,M_REVERSED),
-0,//LETTER(L_OPEN_E,M_CLOSED,M_REVERSED),
-LETTER('j',M_BAR,0),
-LETTER('g',M_IMPLOSIVE,0),	// U+260
-LETTER('g',0,0),
-LETTER('g',M_SMALLCAP,0),
-LETTER(L_GAMMA,0,0),
-0,   // ramshorn
-LETTER('h',M_TURNED,0),
-LETTER('h',M_HOOK,0),
-0,//LETTER(L_HENG,M_HOOK,0),
-LETTER('i',M_BAR,0),		// U+268
-LETTER(L_IOTA,0,0),
-LETTER('i',M_SMALLCAP,0),
-LETTER('l',M_TILDE,0),
-LETTER('l',M_BAR,0),
-LETTER('l',M_RETROFLEX,0),
-LIGATURE('l','z',0),
-LETTER('m',M_TURNED,0),
-0,//LETTER('m',M_TURNED,M_LEG),	// U+270
-LETTER('m',M_HOOK,0),
-0,//LETTER('n',M_LEFTHOOK,0),
-LETTER('n',M_RETROFLEX,0),
-LETTER('n',M_SMALLCAP,0),
-LETTER('o',M_BAR,0),
-LIGATURE('o','e',M_SMALLCAP),
-0,//LETTER(L_OMEGA,M_CLOSED,0),
-LETTER(L_PHI,0,0),		// U+278
-LETTER('r',M_TURNED,0),
-0,//LETTER('r',M_TURNED,M_LEG),
-LETTER('r',M_RETROFLEX,M_TURNED),
-0,//LETTER('r',M_LEG,0),
-LETTER('r',M_RETROFLEX,0),
-0,  // r-tap
-LETTER(L_RTAP,M_REVERSED,0),
-LETTER('r',M_SMALLCAP,0),	// U+280
-LETTER('r',M_TURNED,M_SMALLCAP),
-LETTER('s',M_RETROFLEX,0),
-0,  // esh
-0,//LETTER('j',M_BAR,L_IMPLOSIVE),
-LETTER(L_ESH,M_REVERSED,0),
-LETTER(L_ESH,M_CURL,0),
-LETTER('t',M_TURNED,0),
-LETTER('t',M_RETROFLEX,0),	// U+288
-LETTER('u',M_BAR,0),
-LETTER(L_UPSILON,0,0),
-LETTER('v',M_HOOK,0),
-LETTER('v',M_TURNED,0),
-LETTER('w',M_TURNED,0),
-LETTER('y',M_TURNED,0),
-LETTER('y',M_SMALLCAP,0),
-LETTER('z',M_RETROFLEX,0),	// U+290
-LETTER('z',M_CURL,0),
-0,  // ezh
-LETTER(L_EZH,M_CURL,0),
-0,  // glottal stop
-LETTER(L_GLOTTAL,M_REVERSED,0),
-LETTER(L_GLOTTAL,M_TURNED,0),
-0,//LETTER('c',M_LONG,0),
-0,  // bilabial click		// U+298
-LETTER('b',M_SMALLCAP,0),
-0,//LETTER(L_OPEN_E,M_CLOSED,0),
-LETTER('g',M_IMPLOSIVE,M_SMALLCAP),
-LETTER('h',M_SMALLCAP,0),
-LETTER('j',M_CURL,0),
-LETTER('k',M_TURNED,0),
-LETTER('l',M_SMALLCAP,0),
-LETTER('q',M_HOOK,0),      // U+2a0
-LETTER(L_GLOTTAL,M_STROKE,0),
-LETTER(L_GLOTTAL,M_STROKE,M_REVERSED),
-LIGATURE('d','z',0),
-0,   // dezh
-LIGATURE('d','z',M_CURL),
-LIGATURE('t','s',0),
-0,   // tesh
-LIGATURE('t','s',M_CURL),
+	LETTER('a',M_TURNED,0),		// U+250
+	LETTER(L_ALPHA,0,0),
+	LETTER(L_ALPHA,M_TURNED,0),
+	LETTER('b',M_IMPLOSIVE,0),
+	0,  // open-o
+	LETTER('c',M_CURL,0),
+	LETTER('d',M_RETROFLEX,0),
+	LETTER('d',M_IMPLOSIVE,0),
+	LETTER('e',M_REVERSED,0),	// U+258
+	0,   // schwa
+	LETTER(L_SCHWA,M_HOOK,0),
+	0,   // open-e
+	LETTER(L_OPEN_E,M_REVERSED,0),
+	LETTER(L_OPEN_E,M_HOOK,M_REVERSED),
+	0,//LETTER(L_OPEN_E,M_CLOSED,M_REVERSED),
+	LETTER('j',M_BAR,0),
+	LETTER('g',M_IMPLOSIVE,0),	// U+260
+	LETTER('g',0,0),
+	LETTER('g',M_SMALLCAP,0),
+	LETTER(L_GAMMA,0,0),
+	0,   // ramshorn
+	LETTER('h',M_TURNED,0),
+	LETTER('h',M_HOOK,0),
+	0,//LETTER(L_HENG,M_HOOK,0),
+	LETTER('i',M_BAR,0),		// U+268
+	LETTER(L_IOTA,0,0),
+	LETTER('i',M_SMALLCAP,0),
+	LETTER('l',M_TILDE,0),
+	LETTER('l',M_BAR,0),
+	LETTER('l',M_RETROFLEX,0),
+	LIGATURE('l','z',0),
+	LETTER('m',M_TURNED,0),
+	0,//LETTER('m',M_TURNED,M_LEG),	// U+270
+	LETTER('m',M_HOOK,0),
+	0,//LETTER('n',M_LEFTHOOK,0),
+	LETTER('n',M_RETROFLEX,0),
+	LETTER('n',M_SMALLCAP,0),
+	LETTER('o',M_BAR,0),
+	LIGATURE('o','e',M_SMALLCAP),
+	0,//LETTER(L_OMEGA,M_CLOSED,0),
+	LETTER(L_PHI,0,0),		// U+278
+	LETTER('r',M_TURNED,0),
+	0,//LETTER('r',M_TURNED,M_LEG),
+	LETTER('r',M_RETROFLEX,M_TURNED),
+	0,//LETTER('r',M_LEG,0),
+	LETTER('r',M_RETROFLEX,0),
+	0,  // r-tap
+	LETTER(L_RTAP,M_REVERSED,0),
+	LETTER('r',M_SMALLCAP,0),	// U+280
+	LETTER('r',M_TURNED,M_SMALLCAP),
+	LETTER('s',M_RETROFLEX,0),
+	0,  // esh
+	0,//LETTER('j',M_BAR,L_IMPLOSIVE),
+	LETTER(L_ESH,M_REVERSED,0),
+	LETTER(L_ESH,M_CURL,0),
+	LETTER('t',M_TURNED,0),
+	LETTER('t',M_RETROFLEX,0),	// U+288
+	LETTER('u',M_BAR,0),
+	LETTER(L_UPSILON,0,0),
+	LETTER('v',M_HOOK,0),
+	LETTER('v',M_TURNED,0),
+	LETTER('w',M_TURNED,0),
+	LETTER('y',M_TURNED,0),
+	LETTER('y',M_SMALLCAP,0),
+	LETTER('z',M_RETROFLEX,0),	// U+290
+	LETTER('z',M_CURL,0),
+	0,  // ezh
+	LETTER(L_EZH,M_CURL,0),
+	0,  // glottal stop
+	LETTER(L_GLOTTAL,M_REVERSED,0),
+	LETTER(L_GLOTTAL,M_TURNED,0),
+	0,//LETTER('c',M_LONG,0),
+	0,  // bilabial click		// U+298
+	LETTER('b',M_SMALLCAP,0),
+	0,//LETTER(L_OPEN_E,M_CLOSED,0),
+	LETTER('g',M_IMPLOSIVE,M_SMALLCAP),
+	LETTER('h',M_SMALLCAP,0),
+	LETTER('j',M_CURL,0),
+	LETTER('k',M_TURNED,0),
+	LETTER('l',M_SMALLCAP,0),
+	LETTER('q',M_HOOK,0),      // U+2a0
+	LETTER(L_GLOTTAL,M_STROKE,0),
+	LETTER(L_GLOTTAL,M_STROKE,M_REVERSED),
+	LIGATURE('d','z',0),
+	0,   // dezh
+	LIGATURE('d','z',M_CURL),
+	LIGATURE('t','s',0),
+	0,   // tesh
+	LIGATURE('t','s',M_CURL),
 };
 
 static int LookupLetter2(Translator *tr, unsigned int letter, char *ph_buf)
-{//========================================================================
+{	//========================================================================
 	int len;
 	char single_letter[10];
 
@@ -431,8 +432,7 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 	{
 		accent_data = letter_accents_0e0[letter - 0xe0];
 	}
-	else
-	if((letter >= 0x250) && (letter <= 0x2a8))
+	else if((letter >= 0x250) && (letter <= 0x2a8))
 	{
 		accent_data = letter_accents_250[letter - 0x250];
 	}
@@ -485,8 +485,7 @@ void LookupAccentedLetter(Translator *tr, unsigned int letter, char *ph_buf)
 				{
 					if(accent1 == 0)
 						strcpy(ph_buf, ph_letter1);
-					else
-					if((tr->langopts.accents & 1) || (accents_tab[accent1].flags & 1))
+					else if((tr->langopts.accents & 1) || (accents_tab[accent1].flags & 1))
 						sprintf(ph_buf,"%s%c%c%s", ph_accent1, phonPAUSE_VSHORT, phonSTRESS_P, ph_letter1);
 					else
 						sprintf(ph_buf,"%c%s%c%s%c", phonSTRESS_2, ph_letter1, phonPAUSE_VSHORT, ph_accent1, phonPAUSE_VSHORT);
@@ -595,18 +594,19 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	char *pbuf;
 	ALPHABET *alphabet;
 	int language;
-    int phontab_1;
-    int alphabet_name_switch;
-    char *ph_alphabet_end;
+	int phontab_1;
+	int speak_letter_number;
 	char capital[20];
 	char ph_buf[80];
 	char ph_buf2[80];
 	char ph_alphabet[80];
 	char hexbuf[6];
+	static char pause_string[] = {phonPAUSE, 0};
 
 	ph_buf[0] = 0;
 	ph_alphabet[0] = 0;
 	capital[0] = 0;
+	phontab_1 = translator->phoneme_tab_ix;
 
 	n_bytes = utf8_in(&letter,word);
 
@@ -633,94 +633,83 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		return(0);
 	}
 
-    alphabet_name_switch = 0;
-    alphabet = AlphabetFromChar(letter);
-    if(alphabet != current_alphabet)
-    {
-        // speak the name of the alphabet
-        current_alphabet = alphabet;
-        if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME) && (alphabet->offset != translator->letter_bits_offset))
-        {
-            if((alphabet->flags & AL_DONT_NAME) || (alphabet->offset == translator->langopts.alt_alphabet))
-            {
-                // don't say the alphabet name
-            }
-            else
-            {
-                phontab_1 = tr->phoneme_tab_ix;
-                ph_buf2[0] = 0;
-                if(Lookup(translator, alphabet->name, ph_alphabet) == 0)  // the original language for the current voice
-                {
-                    // Can't find the local name for this alphabet, use the English name
-                    ph_alphabet[2] = SetTranslator2("en");   // overwrites previous contents of translator2
-                    Lookup(translator2, alphabet->name, ph_buf2);
-                }
-                else
-                if(translator != tr)
-                {
-                    phontab_1 = tr->phoneme_tab_ix;
-                    strcpy(ph_buf2, ph_alphabet);
-                    ph_alphabet[2] = translator->phoneme_tab_ix;
-                }
+	alphabet = AlphabetFromChar(letter);
+	if(alphabet != current_alphabet)
+	{
+		// speak the name of the alphabet
+		current_alphabet = alphabet;
+		if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME) && (alphabet->offset != translator->letter_bits_offset))
+		{
+			if((alphabet->flags & AL_DONT_NAME) || (alphabet->offset == translator->langopts.alt_alphabet))
+			{
+				// don't say the alphabet name
+			}
+			else
+			{
+				ph_buf2[0] = 0;
+				if(Lookup(translator, alphabet->name, ph_alphabet) == 0)  // the original language for the current voice
+				{
+					// Can't find the local name for this alphabet, use the English name
+					ph_alphabet[2] = SetTranslator2("en");   // overwrites previous contents of translator2
+					Lookup(translator2, alphabet->name, ph_buf2);
+				}
+				else if(translator != tr)
+				{
+					phontab_1 = tr->phoneme_tab_ix;
+					strcpy(ph_buf2, ph_alphabet);
+					ph_alphabet[2] = translator->phoneme_tab_ix;
+				}
 
-                if(ph_buf2[0] != 0)
-                {
-                    // we used a different language for the alphabet name (now in ph_buf2)
-                    ph_alphabet[0] = phonPAUSE;
-                    ph_alphabet[1] = phonSWITCH;
-                    strcpy(&ph_alphabet[3], ph_buf2);
-                    len = strlen(ph_buf2) + 3;
-                    ph_alphabet[len] = phonSWITCH;
-                    ph_alphabet[len+1] = phontab_1;
-                    ph_alphabet[len+2] = 0;
-
-                    ph_alphabet_end = &ph_alphabet[len];
-                    alphabet_name_switch = ph_alphabet[2];
-                }
-            }
-        }
-    }
+				if(ph_buf2[0] != 0)
+				{
+					// we used a different language for the alphabet name (now in ph_buf2)
+					ph_alphabet[0] = phonPAUSE;
+					ph_alphabet[1] = phonSWITCH;
+					strcpy(&ph_alphabet[3], ph_buf2);
+					len = strlen(ph_buf2) + 3;
+					ph_alphabet[len] = phonSWITCH;
+					ph_alphabet[len+1] = phontab_1;
+					ph_alphabet[len+2] = 0;
+				}
+			}
+		}
+	}
 
 
 // caution: SetWordStress() etc don't expect phonSWITCH + phoneme table number
 
 	if(ph_buf[0] == 0)
 	{
-	    if((alphabet != NULL) && (alphabet->language != 0) && !(alphabet->flags & AL_NOT_LETTERS))
-            language = alphabet->language;
-        else
-            language = L('e','n');
+		if((alphabet != NULL) && (alphabet->language != 0) && !(alphabet->flags & AL_NOT_LETTERS))
+			language = alphabet->language;
+		else
+			language = L('e','n');
 
-        if(language != tr->translator_name)
-        {
-            // speak in the language for this alphabet (or English)
-            ph_buf[2] = SetTranslator2(WordToString2(language));
-            LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+		if(language != tr->translator_name)
+		{
+			// speak in the language for this alphabet (or English)
+			ph_buf[2] = SetTranslator2(WordToString2(language));
+			LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
 
-            if(ph_buf[3] == phonSWITCH)
-            {
-                // another level of language change
-                ph_buf[2] = SetTranslator2(&ph_buf[4]);
-                LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
-            }
+			if(ph_buf[3] == phonSWITCH)
+			{
+				// another level of language change
+				ph_buf[2] = SetTranslator2(&ph_buf[4]);
+				LookupLetter(translator2, letter, word[n_bytes], &ph_buf[3], control & 1);
+			}
 
-            SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
+			SelectPhonemeTable(voice->phoneme_tab_ix);  // revert to original phoneme table
 
-            if(ph_buf[3] != 0)
-            {
-                ph_buf[0] = phonPAUSE;
-                ph_buf[1] = phonSWITCH;
-                len = strlen(&ph_buf[3]) + 3;
-                ph_buf[len] = phonSWITCH;  // switch back
-                ph_buf[len+1] = tr->phoneme_tab_ix;
-                ph_buf[len+2] = 0;
-            }
-        }
-
-        if((ph_buf[2] == alphabet_name_switch) && (capital[0] == 0))
-        {
-            ph_alphabet_end[0]= 0;
-        }
+			if(ph_buf[3] != 0)
+			{
+				ph_buf[0] = phonPAUSE;
+				ph_buf[1] = phonSWITCH;
+				len = strlen(&ph_buf[3]) + 3;
+				ph_buf[len] = phonSWITCH;  // switch back
+				ph_buf[len+1] = tr->phoneme_tab_ix;
+				ph_buf[len+2] = 0;
+			}
+		}
 	}
 
 	if(ph_buf[0] == 0)
@@ -729,7 +718,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		if((letter >= 0x2800) && (letter <= 0x28ff))
 		{
 			// braille dots symbol
-			Lookup(tr, "_braille", ph_buf);
+			Lookup(translator, "_braille", ph_buf);
 			if(ph_buf[0] == 0)
 			{
 				EncodePhonemes("br'e:l", ph_buf, NULL);
@@ -743,7 +732,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 					if(letter & (1 << ix))
 					{
 						*pbuf++ = phonPAUSE_VSHORT;
-						LookupLetter(tr, '1'+ix, 0, pbuf, 1);
+						LookupLetter(translator, '1'+ix, 0, pbuf, 1);
 						pbuf += strlen(pbuf);
 					}
 				}
@@ -753,12 +742,29 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		if(ph_buf[0]== 0)
 		{
 			if(iswalpha(letter))
-				Lookup(tr, "_?A", ph_buf);
+				Lookup(translator, "_?A", ph_buf);
 
 			if((ph_buf[0]==0) && !iswspace(letter))
-				Lookup(tr, "_??", ph_buf);
+				Lookup(translator, "_??", ph_buf);
 
-			if(ph_buf[0] != 0)
+			speak_letter_number = 1;
+			if(ph_buf[0] == 0)
+			{
+				EncodePhonemes("l'et@", ph_buf, NULL);
+				if(translator->letter_bits_offset != 0)
+					speak_letter_number = 0;   // non-latin alphabet, no _?? entry, may not be able to speak hexadecimal
+			}
+
+			if(!(control & 2) && (alphabet != NULL) && (alphabet->flags & AL_NOT_CODE))
+			{
+				// don't speak the character code number
+				speak_letter_number = 0;
+			}
+
+			if((ph_alphabet[0] != 0) && speak_letter_number)
+				ph_buf[0] = 0;  // don't speak "letter" if we speak alphabet name
+
+			if(speak_letter_number)
 			{
 				// speak the hexadecimal number of the character code
 				sprintf(hexbuf,"%x",letter);
@@ -767,8 +773,9 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 				{
 					pbuf += strlen(pbuf);
 					*pbuf++ = phonPAUSE_VSHORT;
-					LookupLetter(tr, *p2, 0, pbuf, 1);
+					LookupLetter(translator, *p2, 0, pbuf, 1);
 				}
+				strcat(pbuf, pause_string);
 			}
 		}
 	}
@@ -831,8 +838,7 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 				}
 			}
 		}
-		else
-		if(c == 0xff)
+		else if(c == 0xff)
 		{
 			if((control < 2) || (ix==0))
 				continue;   // don't insert pauses
@@ -878,7 +884,7 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 			{
 				// ordinal number is indicated by dot after the number
 				// but not if the next word starts with an upper-case letter
-            // (c2 == 0) is for cases such as, "2.,"
+				// (c2 == 0) is for cases such as, "2.,"
 				ordinal = 2;
 				if(word_end[0] == '.')
 					word_end[0] = ' ';
@@ -892,8 +898,8 @@ static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB 
 						nextflags = TranslateWord(tr, &word_end[2], 0, NULL, NULL);
 					}
 
-if((tr->prev_dict_flags[0] & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))
-	ordinal = 0;   // TEST  09.02.10
+					if((tr->prev_dict_flags[0] & FLAG_ALT_TRANS) && ((c2 == 0) || (wtab[0].flags & FLAG_COMMA_AFTER) || iswdigit(c2)))
+						ordinal = 0;   // TEST  09.02.10
 
 					if(nextflags & FLAG_ALT_TRANS)
 						ordinal = 0;
@@ -991,8 +997,7 @@ int TranslateRoman(Translator *tr, char *word, char *ph_out, WORD_TAB *wtab)
 			subtract = prev;
 			value -= subtract;
 		}
-		else
-		if(value >= subtract)
+		else if(value >= subtract)
 			return(0);
 		else
 			acc += prev;
@@ -1276,8 +1281,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 				sprintf(string,"_%df",value);
 				found = Lookup(tr, string, ph_digits);
 			}
-			else
-			if(is_ordinal)
+			else if(is_ordinal)
 			{
 				strcpy(ph_ordinal, ph_ordinal2);
 
@@ -1345,7 +1349,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 			{
 
 				if((is_ordinal) &&
-					((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
+						((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
 				{
 					sprintf(string,"_%dX%c", tens, ord_type);
 					if(Lookup(tr, string, ph_tens) != 0)
@@ -1410,8 +1414,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 								sprintf(string,"_%de",units);
 								found = Lookup(tr, string, ph_digits);
 							}
-							else
-							if(((control & 2) == 0) || ((tr->langopts.numbers & NUM_SWAP_TENS) != 0))
+							else if(((control & 2) == 0) || ((tr->langopts.numbers & NUM_SWAP_TENS) != 0))
 							{
 								// followed by hundreds or thousands (or tens)
 								sprintf(string,"_%da",units);
@@ -1482,8 +1485,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 			}
 		}
 	}
-	else
-	if(tr->langopts.numbers & NUM_SINGLE_STRESS)
+	else if(tr->langopts.numbers & NUM_SINGLE_STRESS)
 	{
 		// only one primary stress
 		found = 0;
@@ -1567,8 +1569,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			// speak numbers such as 1984 as years: nineteen-eighty-four
 //			ph_100[0] = 0;   // don't say "hundred", we also need to surpess "and"
 		}
-		else
-		if(hundreds >= 10)
+		else if(hundreds >= 10)
 		{
 			ph_digits[0] = 0;
 
@@ -1614,7 +1615,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 
 			found = 0;
 			if((ordinal)
-				&& ((tensunits == 0) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
+					&& ((tensunits == 0) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
 			{
 				// ordinal number
 				sprintf(string, "_%dCo", hundreds);
@@ -1636,7 +1637,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			{
 				if((!found) && (tensunits == 0))
 				{
-				// is there a special pronunciation for exactly n00 ?
+					// is there a special pronunciation for exactly n00 ?
 					sprintf(string,"_%dC0",hundreds);
 					found = Lookup(tr, string, ph_digits);
 				}
@@ -1767,7 +1768,6 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int thousands_inc = 0;
 	int prev_thousands = 0;
 	int ordinal = 0;
-	int dot_ordinal;
 	int this_value;
 	int decimal_count;
 	int max_decimal_count;
@@ -1806,8 +1806,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	{
 		prev_thousands = 1;
 	}
-	else
-	if((tr->langopts.thousands_sep == ' ') || (tr->langopts.numbers & NUM_ALLOW_SPACE))
+	else if((tr->langopts.thousands_sep == ' ') || (tr->langopts.numbers & NUM_ALLOW_SPACE))
 	{
 		// thousands groups can be separated by spaces
 		if((n_digits == 3) && !(wtab->flags & FLAG_MULTIPLE_SPACES) && isdigit(word[-2]))
@@ -1827,7 +1826,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	{
 		// don't check for ordinal if the number has a leading zero
 		if((ordinal = CheckDotOrdinal(tr, word, &word[ix], wtab, 0)) != 0)
-			dot_ordinal = 1;
+		{
+//			dot_ordinal = 1;
+		}
 	}
 
 	if((word[ix] == '.') && !isdigit(word[ix+1]) && !isdigit(word[ix+2]) && !(wtab[1].flags & FLAG_NOSPACE))
@@ -1859,8 +1860,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			{
 				ordinal = 2;
 			}
-			else
-			if(!isdigit(suffix[0]))   // not _#9 (tab)
+			else if(!isdigit(suffix[0]))  // not _#9 (tab)
 			{
 				sprintf(string,"_#%s",suffix);
 				if(Lookup(tr, string, ph_ordinal2))
@@ -1905,8 +1905,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	if((tr->langopts.numbers & NUM_ALLOW_SPACE) && (word[n_digits] == ' '))
 		thousands_inc = 1;
-	else
-	if(word[n_digits] == tr->langopts.thousands_sep)
+	else if(word[n_digits] == tr->langopts.thousands_sep)
 		thousands_inc = 2;
 
 	suffix_ix = n_digits+2;
@@ -1959,8 +1958,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		Lookup(tr, "_dpt", ph_append);
 		decimal_point = 0x100;
 	}
-	else
-	if(suppress_null == 0)
+	else if(suppress_null == 0)
 	{
 		if(thousands_inc > 0)
 		{
@@ -1978,16 +1976,16 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	}
 	else
 
-	if(speak_missing_thousands == 1)
-	{
-		// speak this thousandplex if there was no word for the previous thousandplex
-		sprintf(string,"_0M%d",thousandplex+1);
-		if(Lookup(tr, string, buf1)==0)
+		if(speak_missing_thousands == 1)
 		{
-			sprintf(string,"_0M%d",thousandplex);
-			Lookup(tr, string, ph_append);
+			// speak this thousandplex if there was no word for the previous thousandplex
+			sprintf(string,"_0M%d",thousandplex+1);
+			if(Lookup(tr, string, buf1)==0)
+			{
+				sprintf(string,"_0M%d",thousandplex);
+				Lookup(tr, string, ph_append);
+			}
 		}
-	}
 
 	if((ph_append[0] == 0) && (word[n_digits] == '.') && (thousandplex == 0))
 	{
@@ -2114,9 +2112,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 				// Romanian decimal fractions
 				if((decimal_count <= 4) && (word[n_digits] != '0'))
 				{
-						LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
-						strcat(ph_out,buf1);
-						n_digits += decimal_count;
+					LookupNum3(tr, atoi(&word[n_digits]), buf1, 0,0,0);
+					strcat(ph_out,buf1);
+					n_digits += decimal_count;
 				}
 				break;
 

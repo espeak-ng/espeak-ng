@@ -91,7 +91,7 @@ PHONEME_LIST2 ph_list2[N_PHONEME_LIST];	// first stage of text->phonemes
 
 
 
-wchar_t option_punctlist[N_PUNCTLIST]={0};
+wchar_t option_punctlist[N_PUNCTLIST]= {0};
 char ctrl_embedded = '\001';    // to allow an alternative CTRL for embedded commands
 int option_multibyte=espeakCHARS_AUTO;   // 0=auto, 1=utf8, 2=8bit, 3=wchar, 4=16bit
 
@@ -113,11 +113,12 @@ REPLACE_PHONEMES replace_phonemes[N_REPLACE_PHONEMES];
 
 // brackets, also 0x2014 to 0x021f which don't need to be in this list
 static const unsigned short brackets[] = {
-'(',')','[',']','{','}','<','>','"','\'','`',
-0xab,0xbb,  // double angle brackets
-0x300a,0x300b,  // double angle brackets (ideograph)
-0xe000+'<',  // private usage area
-0};
+	'(',')','[',']','{','}','<','>','"','\'','`',
+	0xab,0xbb,  // double angle brackets
+	0x300a,0x300b,  // double angle brackets (ideograph)
+	0xe000+'<',  // private usage area
+	0
+};
 
 // other characters which break a word, but don't produce a pause
 static const unsigned short breaks[] = {'_', 0};
@@ -129,153 +130,153 @@ static const unsigned short breaks[] = {'_', 0};
 // Translate character codes 0xA0 to 0xFF into their unicode values
 // ISO_8859_1 is set as default
 static const unsigned short ISO_8859_1[0x60] = {
-   0x00a0, 0x00a1, 0x00a2, 0x00a3, 0x00a4, 0x00a5, 0x00a6, 0x00a7, // a0
-   0x00a8, 0x00a9, 0x00aa, 0x00ab, 0x00ac, 0x00ad, 0x00ae, 0x00af, // a8
-   0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x00b4, 0x00b5, 0x00b6, 0x00b7, // b0
-   0x00b8, 0x00b9, 0x00ba, 0x00bb, 0x00bc, 0x00bd, 0x00be, 0x00bf, // b8
-   0x00c0, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x00c7, // c0
-   0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
-   0x00d0, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
-   0x00d8, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x00dd, 0x00de, 0x00df, // d8
-   0x00e0, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x00e7, // e0
-   0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
-   0x00f0, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
-   0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x00fd, 0x00fe, 0x00ff, // f8
+	0x00a0, 0x00a1, 0x00a2, 0x00a3, 0x00a4, 0x00a5, 0x00a6, 0x00a7, // a0
+	0x00a8, 0x00a9, 0x00aa, 0x00ab, 0x00ac, 0x00ad, 0x00ae, 0x00af, // a8
+	0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x00b4, 0x00b5, 0x00b6, 0x00b7, // b0
+	0x00b8, 0x00b9, 0x00ba, 0x00bb, 0x00bc, 0x00bd, 0x00be, 0x00bf, // b8
+	0x00c0, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x00c7, // c0
+	0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
+	0x00d0, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
+	0x00d8, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x00dd, 0x00de, 0x00df, // d8
+	0x00e0, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x00e7, // e0
+	0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
+	0x00f0, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
+	0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x00fd, 0x00fe, 0x00ff, // f8
 };
 
 static const unsigned short ISO_8859_2[0x60] = {
-   0x00a0, 0x0104, 0x02d8, 0x0141, 0x00a4, 0x013d, 0x015a, 0x00a7, // a0
-   0x00a8, 0x0160, 0x015e, 0x0164, 0x0179, 0x00ad, 0x017d, 0x017b, // a8
-   0x00b0, 0x0105, 0x02db, 0x0142, 0x00b4, 0x013e, 0x015b, 0x02c7, // b0
-   0x00b8, 0x0161, 0x015f, 0x0165, 0x017a, 0x02dd, 0x017e, 0x017c, // b8
-   0x0154, 0x00c1, 0x00c2, 0x0102, 0x00c4, 0x0139, 0x0106, 0x00c7, // c0
-   0x010c, 0x00c9, 0x0118, 0x00cb, 0x011a, 0x00cd, 0x00ce, 0x010e, // c8
-   0x0110, 0x0143, 0x0147, 0x00d3, 0x00d4, 0x0150, 0x00d6, 0x00d7, // d0
-   0x0158, 0x016e, 0x00da, 0x0170, 0x00dc, 0x00dd, 0x0162, 0x00df, // d8
-   0x0155, 0x00e1, 0x00e2, 0x0103, 0x00e4, 0x013a, 0x0107, 0x00e7, // e0
-   0x010d, 0x00e9, 0x0119, 0x00eb, 0x011b, 0x00ed, 0x00ee, 0x010f, // e8
-   0x0111, 0x0144, 0x0148, 0x00f3, 0x00f4, 0x0151, 0x00f6, 0x00f7, // f0
-   0x0159, 0x016f, 0x00fa, 0x0171, 0x00fc, 0x00fd, 0x0163, 0x02d9, // f8
+	0x00a0, 0x0104, 0x02d8, 0x0141, 0x00a4, 0x013d, 0x015a, 0x00a7, // a0
+	0x00a8, 0x0160, 0x015e, 0x0164, 0x0179, 0x00ad, 0x017d, 0x017b, // a8
+	0x00b0, 0x0105, 0x02db, 0x0142, 0x00b4, 0x013e, 0x015b, 0x02c7, // b0
+	0x00b8, 0x0161, 0x015f, 0x0165, 0x017a, 0x02dd, 0x017e, 0x017c, // b8
+	0x0154, 0x00c1, 0x00c2, 0x0102, 0x00c4, 0x0139, 0x0106, 0x00c7, // c0
+	0x010c, 0x00c9, 0x0118, 0x00cb, 0x011a, 0x00cd, 0x00ce, 0x010e, // c8
+	0x0110, 0x0143, 0x0147, 0x00d3, 0x00d4, 0x0150, 0x00d6, 0x00d7, // d0
+	0x0158, 0x016e, 0x00da, 0x0170, 0x00dc, 0x00dd, 0x0162, 0x00df, // d8
+	0x0155, 0x00e1, 0x00e2, 0x0103, 0x00e4, 0x013a, 0x0107, 0x00e7, // e0
+	0x010d, 0x00e9, 0x0119, 0x00eb, 0x011b, 0x00ed, 0x00ee, 0x010f, // e8
+	0x0111, 0x0144, 0x0148, 0x00f3, 0x00f4, 0x0151, 0x00f6, 0x00f7, // f0
+	0x0159, 0x016f, 0x00fa, 0x0171, 0x00fc, 0x00fd, 0x0163, 0x02d9, // f8
 };
 
 static const unsigned short ISO_8859_3[0x60] = {
-   0x00a0, 0x0126, 0x02d8, 0x00a3, 0x00a4, 0x0000, 0x0124, 0x00a7, // a0
-   0x00a8, 0x0130, 0x015e, 0x011e, 0x0134, 0x00ad, 0x0000, 0x017b, // a8
-   0x00b0, 0x0127, 0x00b2, 0x00b3, 0x00b4, 0x00b5, 0x0125, 0x00b7, // b0
-   0x00b8, 0x0131, 0x015f, 0x011f, 0x0135, 0x00bd, 0x0000, 0x017c, // b8
-   0x00c0, 0x00c1, 0x00c2, 0x0000, 0x00c4, 0x010a, 0x0108, 0x00c7, // c0
-   0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
-   0x0000, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x0120, 0x00d6, 0x00d7, // d0
-   0x011c, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x016c, 0x015c, 0x00df, // d8
-   0x00e0, 0x00e1, 0x00e2, 0x0000, 0x00e4, 0x010b, 0x0109, 0x00e7, // e0
-   0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
-   0x0000, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x0121, 0x00f6, 0x00f7, // f0
-   0x011d, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x016d, 0x015d, 0x02d9, // f8
+	0x00a0, 0x0126, 0x02d8, 0x00a3, 0x00a4, 0x0000, 0x0124, 0x00a7, // a0
+	0x00a8, 0x0130, 0x015e, 0x011e, 0x0134, 0x00ad, 0x0000, 0x017b, // a8
+	0x00b0, 0x0127, 0x00b2, 0x00b3, 0x00b4, 0x00b5, 0x0125, 0x00b7, // b0
+	0x00b8, 0x0131, 0x015f, 0x011f, 0x0135, 0x00bd, 0x0000, 0x017c, // b8
+	0x00c0, 0x00c1, 0x00c2, 0x0000, 0x00c4, 0x010a, 0x0108, 0x00c7, // c0
+	0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
+	0x0000, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x0120, 0x00d6, 0x00d7, // d0
+	0x011c, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x016c, 0x015c, 0x00df, // d8
+	0x00e0, 0x00e1, 0x00e2, 0x0000, 0x00e4, 0x010b, 0x0109, 0x00e7, // e0
+	0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
+	0x0000, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x0121, 0x00f6, 0x00f7, // f0
+	0x011d, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x016d, 0x015d, 0x02d9, // f8
 };
 
 static const unsigned short ISO_8859_4[0x60] = {
-   0x00a0, 0x0104, 0x0138, 0x0156, 0x00a4, 0x0128, 0x013b, 0x00a7, // a0
-   0x00a8, 0x0160, 0x0112, 0x0122, 0x0166, 0x00ad, 0x017d, 0x00af, // a8
-   0x00b0, 0x0105, 0x02db, 0x0157, 0x00b4, 0x0129, 0x013c, 0x02c7, // b0
-   0x00b8, 0x0161, 0x0113, 0x0123, 0x0167, 0x014a, 0x017e, 0x014b, // b8
-   0x0100, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x012e, // c0
-   0x010c, 0x00c9, 0x0118, 0x00cb, 0x0116, 0x00cd, 0x00ce, 0x012a, // c8
-   0x0110, 0x0145, 0x014c, 0x0136, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
-   0x00d8, 0x0172, 0x00da, 0x00db, 0x00dc, 0x0168, 0x016a, 0x00df, // d8
-   0x0101, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x012f, // e0
-   0x010d, 0x00e9, 0x0119, 0x00eb, 0x0117, 0x00ed, 0x00ee, 0x012b, // e8
-   0x0111, 0x0146, 0x014d, 0x0137, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
-   0x00f8, 0x0173, 0x00fa, 0x00fb, 0x00fc, 0x0169, 0x016b, 0x02d9, // f8
+	0x00a0, 0x0104, 0x0138, 0x0156, 0x00a4, 0x0128, 0x013b, 0x00a7, // a0
+	0x00a8, 0x0160, 0x0112, 0x0122, 0x0166, 0x00ad, 0x017d, 0x00af, // a8
+	0x00b0, 0x0105, 0x02db, 0x0157, 0x00b4, 0x0129, 0x013c, 0x02c7, // b0
+	0x00b8, 0x0161, 0x0113, 0x0123, 0x0167, 0x014a, 0x017e, 0x014b, // b8
+	0x0100, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x012e, // c0
+	0x010c, 0x00c9, 0x0118, 0x00cb, 0x0116, 0x00cd, 0x00ce, 0x012a, // c8
+	0x0110, 0x0145, 0x014c, 0x0136, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
+	0x00d8, 0x0172, 0x00da, 0x00db, 0x00dc, 0x0168, 0x016a, 0x00df, // d8
+	0x0101, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x012f, // e0
+	0x010d, 0x00e9, 0x0119, 0x00eb, 0x0117, 0x00ed, 0x00ee, 0x012b, // e8
+	0x0111, 0x0146, 0x014d, 0x0137, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
+	0x00f8, 0x0173, 0x00fa, 0x00fb, 0x00fc, 0x0169, 0x016b, 0x02d9, // f8
 };
 
 static const unsigned short ISO_8859_5[0x60] = {
-   0x00a0, 0x0401, 0x0402, 0x0403, 0x0404, 0x0405, 0x0406, 0x0407, // a0  Cyrillic
-   0x0408, 0x0409, 0x040a, 0x040b, 0x040c, 0x00ad, 0x040e, 0x040f, // a8
-   0x0410, 0x0411, 0x0412, 0x0413, 0x0414, 0x0415, 0x0416, 0x0417, // b0
-   0x0418, 0x0419, 0x041a, 0x041b, 0x041c, 0x041d, 0x041e, 0x041f, // b8
-   0x0420, 0x0421, 0x0422, 0x0423, 0x0424, 0x0425, 0x0426, 0x0427, // c0
-   0x0428, 0x0429, 0x042a, 0x042b, 0x042c, 0x042d, 0x042e, 0x042f, // c8
-   0x0430, 0x0431, 0x0432, 0x0433, 0x0434, 0x0435, 0x0436, 0x0437, // d0
-   0x0438, 0x0439, 0x043a, 0x043b, 0x043c, 0x043d, 0x043e, 0x043f, // d8
-   0x0440, 0x0441, 0x0442, 0x0443, 0x0444, 0x0445, 0x0446, 0x0447, // e0
-   0x0448, 0x0449, 0x044a, 0x044b, 0x044c, 0x044d, 0x044e, 0x044f, // e8
-   0x2116, 0x0451, 0x0452, 0x0453, 0x0454, 0x0455, 0x0456, 0x0457, // f0
-   0x0458, 0x0459, 0x045a, 0x045b, 0x045c, 0x00a7, 0x045e, 0x045f, // f8
+	0x00a0, 0x0401, 0x0402, 0x0403, 0x0404, 0x0405, 0x0406, 0x0407, // a0  Cyrillic
+	0x0408, 0x0409, 0x040a, 0x040b, 0x040c, 0x00ad, 0x040e, 0x040f, // a8
+	0x0410, 0x0411, 0x0412, 0x0413, 0x0414, 0x0415, 0x0416, 0x0417, // b0
+	0x0418, 0x0419, 0x041a, 0x041b, 0x041c, 0x041d, 0x041e, 0x041f, // b8
+	0x0420, 0x0421, 0x0422, 0x0423, 0x0424, 0x0425, 0x0426, 0x0427, // c0
+	0x0428, 0x0429, 0x042a, 0x042b, 0x042c, 0x042d, 0x042e, 0x042f, // c8
+	0x0430, 0x0431, 0x0432, 0x0433, 0x0434, 0x0435, 0x0436, 0x0437, // d0
+	0x0438, 0x0439, 0x043a, 0x043b, 0x043c, 0x043d, 0x043e, 0x043f, // d8
+	0x0440, 0x0441, 0x0442, 0x0443, 0x0444, 0x0445, 0x0446, 0x0447, // e0
+	0x0448, 0x0449, 0x044a, 0x044b, 0x044c, 0x044d, 0x044e, 0x044f, // e8
+	0x2116, 0x0451, 0x0452, 0x0453, 0x0454, 0x0455, 0x0456, 0x0457, // f0
+	0x0458, 0x0459, 0x045a, 0x045b, 0x045c, 0x00a7, 0x045e, 0x045f, // f8
 };
 
 static const unsigned short ISO_8859_7[0x60] = {
-   0x00a0, 0x2018, 0x2019, 0x00a3, 0x20ac, 0x20af, 0x00a6, 0x00a7, // a0  Greek
-   0x00a8, 0x00a9, 0x037a, 0x00ab, 0x00ac, 0x00ad, 0x0000, 0x2015, // a8
-   0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x0384, 0x0385, 0x0386, 0x00b7, // b0
-   0x0388, 0x0389, 0x038a, 0x00bb, 0x038c, 0x00bd, 0x038e, 0x038f, // b8
-   0x0390, 0x0391, 0x0392, 0x0393, 0x0394, 0x0395, 0x0396, 0x0397, // c0
-   0x0398, 0x0399, 0x039a, 0x039b, 0x039c, 0x039d, 0x039e, 0x039f, // c8
-   0x03a0, 0x03a1, 0x0000, 0x03a3, 0x03a4, 0x03a5, 0x03a6, 0x03a7, // d0
-   0x03a8, 0x03a9, 0x03aa, 0x03ab, 0x03ac, 0x03ad, 0x03ae, 0x03af, // d8
-   0x03b0, 0x03b1, 0x03b2, 0x03b3, 0x03b4, 0x03b5, 0x03b6, 0x03b7, // e0
-   0x03b8, 0x03b9, 0x03ba, 0x03bb, 0x03bc, 0x03bd, 0x03be, 0x03bf, // e8
-   0x03c0, 0x03c1, 0x03c2, 0x03c3, 0x03c4, 0x03c5, 0x03c6, 0x03c7, // f0
-   0x03c8, 0x03c9, 0x03ca, 0x03cb, 0x03cc, 0x03cd, 0x03ce, 0x0000, // f8
+	0x00a0, 0x2018, 0x2019, 0x00a3, 0x20ac, 0x20af, 0x00a6, 0x00a7, // a0  Greek
+	0x00a8, 0x00a9, 0x037a, 0x00ab, 0x00ac, 0x00ad, 0x0000, 0x2015, // a8
+	0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x0384, 0x0385, 0x0386, 0x00b7, // b0
+	0x0388, 0x0389, 0x038a, 0x00bb, 0x038c, 0x00bd, 0x038e, 0x038f, // b8
+	0x0390, 0x0391, 0x0392, 0x0393, 0x0394, 0x0395, 0x0396, 0x0397, // c0
+	0x0398, 0x0399, 0x039a, 0x039b, 0x039c, 0x039d, 0x039e, 0x039f, // c8
+	0x03a0, 0x03a1, 0x0000, 0x03a3, 0x03a4, 0x03a5, 0x03a6, 0x03a7, // d0
+	0x03a8, 0x03a9, 0x03aa, 0x03ab, 0x03ac, 0x03ad, 0x03ae, 0x03af, // d8
+	0x03b0, 0x03b1, 0x03b2, 0x03b3, 0x03b4, 0x03b5, 0x03b6, 0x03b7, // e0
+	0x03b8, 0x03b9, 0x03ba, 0x03bb, 0x03bc, 0x03bd, 0x03be, 0x03bf, // e8
+	0x03c0, 0x03c1, 0x03c2, 0x03c3, 0x03c4, 0x03c5, 0x03c6, 0x03c7, // f0
+	0x03c8, 0x03c9, 0x03ca, 0x03cb, 0x03cc, 0x03cd, 0x03ce, 0x0000, // f8
 };
 
 static const unsigned short ISO_8859_9[0x60] = {
-   0x00a0, 0x00a1, 0x00a2, 0x00a3, 0x00a4, 0x00a5, 0x00a6, 0x00a7, // a0
-   0x00a8, 0x00a9, 0x00aa, 0x00ab, 0x00ac, 0x00ad, 0x00ae, 0x00af, // a8
-   0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x00b4, 0x00b5, 0x00b6, 0x00b7, // b0
-   0x00b8, 0x00b9, 0x00ba, 0x00bb, 0x00bc, 0x00bd, 0x00be, 0x00bf, // b8
-   0x00c0, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x00c7, // c0
-   0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
-   0x011e, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
-   0x00d8, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x0130, 0x015e, 0x00df, // d8
-   0x00e0, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x00e7, // e0
-   0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
-   0x011f, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
-   0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x0131, 0x015f, 0x00ff, // f8
+	0x00a0, 0x00a1, 0x00a2, 0x00a3, 0x00a4, 0x00a5, 0x00a6, 0x00a7, // a0
+	0x00a8, 0x00a9, 0x00aa, 0x00ab, 0x00ac, 0x00ad, 0x00ae, 0x00af, // a8
+	0x00b0, 0x00b1, 0x00b2, 0x00b3, 0x00b4, 0x00b5, 0x00b6, 0x00b7, // b0
+	0x00b8, 0x00b9, 0x00ba, 0x00bb, 0x00bc, 0x00bd, 0x00be, 0x00bf, // b8
+	0x00c0, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x00c7, // c0
+	0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
+	0x011e, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x00d5, 0x00d6, 0x00d7, // d0
+	0x00d8, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x0130, 0x015e, 0x00df, // d8
+	0x00e0, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x00e7, // e0
+	0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
+	0x011f, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x00f7, // f0
+	0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x0131, 0x015f, 0x00ff, // f8
 };
 
 static const unsigned short ISO_8859_14[0x60] = {
-   0x00a0, 0x1e02, 0x1e03, 0x00a3, 0x010a, 0x010b, 0x1e0a, 0x00a7, // a0  Welsh
-   0x1e80, 0x00a9, 0x1e82, 0x1e0b, 0x1ef2, 0x00ad, 0x00ae, 0x0178, // a8
-   0x1e1e, 0x1e1f, 0x0120, 0x0121, 0x1e40, 0x1e41, 0x00b6, 0x1e56, // b0
-   0x1e81, 0x1e57, 0x1e83, 0x1e60, 0x1ef3, 0x1e84, 0x1e85, 0x1e61, // b8
-   0x00c0, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x00c7, // c0
-   0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
-   0x0174, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x00d5, 0x00d6, 0x1e6a, // d0
-   0x00d8, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x00dd, 0x0176, 0x00df, // d8
-   0x00e0, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x00e7, // e0
-   0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
-   0x0175, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x1e6b, // f0
-   0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x00fd, 0x0177, 0x00ff, // f8
+	0x00a0, 0x1e02, 0x1e03, 0x00a3, 0x010a, 0x010b, 0x1e0a, 0x00a7, // a0  Welsh
+	0x1e80, 0x00a9, 0x1e82, 0x1e0b, 0x1ef2, 0x00ad, 0x00ae, 0x0178, // a8
+	0x1e1e, 0x1e1f, 0x0120, 0x0121, 0x1e40, 0x1e41, 0x00b6, 0x1e56, // b0
+	0x1e81, 0x1e57, 0x1e83, 0x1e60, 0x1ef3, 0x1e84, 0x1e85, 0x1e61, // b8
+	0x00c0, 0x00c1, 0x00c2, 0x00c3, 0x00c4, 0x00c5, 0x00c6, 0x00c7, // c0
+	0x00c8, 0x00c9, 0x00ca, 0x00cb, 0x00cc, 0x00cd, 0x00ce, 0x00cf, // c8
+	0x0174, 0x00d1, 0x00d2, 0x00d3, 0x00d4, 0x00d5, 0x00d6, 0x1e6a, // d0
+	0x00d8, 0x00d9, 0x00da, 0x00db, 0x00dc, 0x00dd, 0x0176, 0x00df, // d8
+	0x00e0, 0x00e1, 0x00e2, 0x00e3, 0x00e4, 0x00e5, 0x00e6, 0x00e7, // e0
+	0x00e8, 0x00e9, 0x00ea, 0x00eb, 0x00ec, 0x00ed, 0x00ee, 0x00ef, // e8
+	0x0175, 0x00f1, 0x00f2, 0x00f3, 0x00f4, 0x00f5, 0x00f6, 0x1e6b, // f0
+	0x00f8, 0x00f9, 0x00fa, 0x00fb, 0x00fc, 0x00fd, 0x0177, 0x00ff, // f8
 };
 
 static const unsigned short KOI8_R[0x60] = {
-   0x2550, 0x2551, 0x2552, 0x0451, 0x2553, 0x2554, 0x2555, 0x2556, // a0  Russian
-   0x2557, 0x2558, 0x2559, 0x255a, 0x255b, 0x255c, 0x255d, 0x255e, // a8
-   0x255f, 0x2560, 0x2561, 0x0401, 0x2562, 0x2563, 0x2564, 0x2565, // b0
-   0x2566, 0x2567, 0x2568, 0x2569, 0x256a, 0x256b, 0x256c, 0x00a9, // b8
-   0x044e, 0x0430, 0x0431, 0x0446, 0x0434, 0x0435, 0x0444, 0x0433, // c0
-   0x0445, 0x0438, 0x0439, 0x043a, 0x043b, 0x043c, 0x043d, 0x043e, // c8
-   0x043f, 0x044f, 0x0440, 0x0441, 0x0442, 0x0443, 0x0436, 0x0432, // d0
-   0x044c, 0x044b, 0x0437, 0x0448, 0x044d, 0x0449, 0x0447, 0x044a, // d8
-   0x042e, 0x0410, 0x0411, 0x0426, 0x0414, 0x0415, 0x0424, 0x0413, // e0
-   0x0425, 0x0418, 0x0419, 0x041a, 0x041b, 0x041c, 0x041d, 0x041e, // e8
-   0x041f, 0x042f, 0x0420, 0x0421, 0x0422, 0x0423, 0x0416, 0x0412, // f0
-   0x042c, 0x042b, 0x0417, 0x0428, 0x042d, 0x0429, 0x0427, 0x042a, // f8
+	0x2550, 0x2551, 0x2552, 0x0451, 0x2553, 0x2554, 0x2555, 0x2556, // a0  Russian
+	0x2557, 0x2558, 0x2559, 0x255a, 0x255b, 0x255c, 0x255d, 0x255e, // a8
+	0x255f, 0x2560, 0x2561, 0x0401, 0x2562, 0x2563, 0x2564, 0x2565, // b0
+	0x2566, 0x2567, 0x2568, 0x2569, 0x256a, 0x256b, 0x256c, 0x00a9, // b8
+	0x044e, 0x0430, 0x0431, 0x0446, 0x0434, 0x0435, 0x0444, 0x0433, // c0
+	0x0445, 0x0438, 0x0439, 0x043a, 0x043b, 0x043c, 0x043d, 0x043e, // c8
+	0x043f, 0x044f, 0x0440, 0x0441, 0x0442, 0x0443, 0x0436, 0x0432, // d0
+	0x044c, 0x044b, 0x0437, 0x0448, 0x044d, 0x0449, 0x0447, 0x044a, // d8
+	0x042e, 0x0410, 0x0411, 0x0426, 0x0414, 0x0415, 0x0424, 0x0413, // e0
+	0x0425, 0x0418, 0x0419, 0x041a, 0x041b, 0x041c, 0x041d, 0x041e, // e8
+	0x041f, 0x042f, 0x0420, 0x0421, 0x0422, 0x0423, 0x0416, 0x0412, // f0
+	0x042c, 0x042b, 0x0417, 0x0428, 0x042d, 0x0429, 0x0427, 0x042a, // f8
 };
 
 static const unsigned short ISCII[0x60] = {
-   0x0020, 0x0901, 0x0902, 0x0903, 0x0905, 0x0906, 0x0907, 0x0908, // a0
-   0x0909, 0x090a, 0x090b, 0x090e, 0x090f, 0x0910, 0x090d, 0x0912, // a8
-   0x0913, 0x0914, 0x0911, 0x0915, 0x0916, 0x0917, 0x0918, 0x0919, // b0
-   0x091a, 0x091b, 0x091c, 0x091d, 0x091e, 0x091f, 0x0920, 0x0921, // b8
-   0x0922, 0x0923, 0x0924, 0x0925, 0x0926, 0x0927, 0x0928, 0x0929, // c0
-   0x092a, 0x092b, 0x092c, 0x092d, 0x092e, 0x092f, 0x095f, 0x0930, // c8
-   0x0931, 0x0932, 0x0933, 0x0934, 0x0935, 0x0936, 0x0937, 0x0938, // d0
-   0x0939, 0x0020, 0x093e, 0x093f, 0x0940, 0x0941, 0x0942, 0x0943, // d8
-   0x0946, 0x0947, 0x0948, 0x0945, 0x094a, 0x094b, 0x094c, 0x0949, // e0
-   0x094d, 0x093c, 0x0964, 0x0020, 0x0020, 0x0020, 0x0020, 0x0020, // e8
-   0x0020, 0x0030, 0x0031, 0x0032, 0x0033, 0x0034, 0x0035, 0x0036, // f0
-   0x0037, 0x0038, 0x0039, 0x20,   0x20,   0x20,   0x20,   0x20,   // f8
+	0x0020, 0x0901, 0x0902, 0x0903, 0x0905, 0x0906, 0x0907, 0x0908, // a0
+	0x0909, 0x090a, 0x090b, 0x090e, 0x090f, 0x0910, 0x090d, 0x0912, // a8
+	0x0913, 0x0914, 0x0911, 0x0915, 0x0916, 0x0917, 0x0918, 0x0919, // b0
+	0x091a, 0x091b, 0x091c, 0x091d, 0x091e, 0x091f, 0x0920, 0x0921, // b8
+	0x0922, 0x0923, 0x0924, 0x0925, 0x0926, 0x0927, 0x0928, 0x0929, // c0
+	0x092a, 0x092b, 0x092c, 0x092d, 0x092e, 0x092f, 0x095f, 0x0930, // c8
+	0x0931, 0x0932, 0x0933, 0x0934, 0x0935, 0x0936, 0x0937, 0x0938, // d0
+	0x0939, 0x0020, 0x093e, 0x093f, 0x0940, 0x0941, 0x0942, 0x0943, // d8
+	0x0946, 0x0947, 0x0948, 0x0945, 0x094a, 0x094b, 0x094c, 0x0949, // e0
+	0x094d, 0x093c, 0x0964, 0x0020, 0x0020, 0x0020, 0x0020, 0x0020, // e8
+	0x0020, 0x0030, 0x0031, 0x0032, 0x0033, 0x0034, 0x0035, 0x0036, // f0
+	0x0037, 0x0038, 0x0039, 0x20,   0x20,   0x20,   0x20,   0x20,   // f8
 };
 
 const unsigned short *charsets[N_CHARSETS] = {
@@ -298,7 +299,8 @@ const unsigned short *charsets[N_CHARSETS] = {
 	ISO_8859_1,
 	ISO_8859_1,
 	KOI8_R,          // 18
-	ISCII };
+	ISCII
+};
 
 // Tables of the relative lengths of vowels, depending on the
 // type of the two phonemes that follow
@@ -306,7 +308,7 @@ const unsigned short *charsets[N_CHARSETS] = {
 
 // use this table if vowel is not the last in the word
 static unsigned char length_mods_en[100] = {
-/*  a   ,   t   s   n   d   z   r   N   <- next */
+	/*  a   ,   t   s   n   d   z   r   N   <- next */
 	100,120,100,105,100,110,110,100, 95, 100,  /* a  <- next2 */
 	105,120,105,110,125,130,135,115,125, 100,  /* , */
 	105,120, 75,100, 75,105,120, 85, 75, 100,  /* t */
@@ -316,11 +318,12 @@ static unsigned char length_mods_en[100] = {
 	105,120,100,105,105,122,125,110,105, 100,  /* z */
 	105,120,100,105,105,122,125,110,105, 100,  /* r */
 	105,120, 95,105,100,115,120,110,100, 100,  /* N */
-	100,120,100,100,100,100,100,100,100, 100 }; // SPARE
+	100,120,100,100,100,100,100,100,100, 100
+}; // SPARE
 
 // as above, but for the last syllable in a word
 static unsigned char length_mods_en0[100] = {
-/*  a   ,   t   s   n   d   z   r    N  <- next */
+	/*  a   ,   t   s   n   d   z   r    N  <- next */
 	100,150,100,105,110,115,110,110,110, 100,  /* a  <- next2 */
 	105,150,105,110,125,135,140,115,135, 100,  /* , */
 	105,150, 90,105, 90,122,135,100, 90, 100,  /* t */
@@ -330,11 +333,12 @@ static unsigned char length_mods_en0[100] = {
 	105,150,100,105,110,122,125,115,110, 100,  /* z */
 	105,150,100,105,105,122,135,120,105, 100,  /* r */
 	105,150,100,105,105,115,135,110,105, 100,  /* N */
-	100,100,100,100,100,100,100,100,100, 100 }; // SPARE
+	100,100,100,100,100,100,100,100,100, 100
+}; // SPARE
 
 
 static unsigned char length_mods_equal[100] = {
-/*  a   ,   t   s   n   d   z   r   N   <- next */
+	/*  a   ,   t   s   n   d   z   r   N   <- next */
 	110,120,100,110,110,110,110,110,110, 110,  /* a  <- next2 */
 	110,120,100,110,110,110,110,110,110, 110,  /* , */
 	110,120,100,110,100,110,110,110,100, 110,  /* t */
@@ -344,17 +348,18 @@ static unsigned char length_mods_equal[100] = {
 	110,120,100,110,110,110,110,110,110, 110,  /* z */
 	110,120,100,110,110,110,110,110,110, 110,  /* r */
 	110,120,100,110,110,110,110,110,110, 110,  /* N */
-	110,120,100,110,110,110,110,110,110, 110 }; // SPARE
+	110,120,100,110,110,110,110,110,110, 110
+}; // SPARE
 
 
 static unsigned char *length_mod_tabs[6] = {
-  length_mods_en,
-  length_mods_en,     // 1
-  length_mods_en0,    // 2
-  length_mods_equal,  // 3
-  length_mods_equal,  // 4
-  length_mods_equal   // 5
- };
+	length_mods_en,
+	length_mods_en,     // 1
+	length_mods_en0,    // 2
+	length_mods_equal,  // 3
+	length_mods_equal,  // 4
+	length_mods_equal   // 5
+};
 
 
 void SetLengthMods(Translator *tr, int value)
@@ -374,8 +379,9 @@ int IsAlpha(unsigned int c)
 // Replacement for iswalph() which also checks for some in-word symbols
 
 	static const unsigned short extra_indic_alphas[] = {
-	0xa70,0xa71,	// Gurmukhi: tippi, addak
-	0 };
+		0xa70,0xa71,	// Gurmukhi: tippi, addak
+		0
+	};
 
 	if(iswalpha(c))
 		return(1);
@@ -392,6 +398,9 @@ int IsAlpha(unsigned int c)
 
 		return(0);
 	}
+
+	if((c >= 0x5b0) && (c <= 0x5c2))
+		return(1);  // Hebrew vowel marks
 
 	if(c == 0x0605)
 		return(1);
@@ -516,8 +525,7 @@ int utf8_out(unsigned int c, char *buf)
 	}
 	if(c < 0x0800)
 		n_bytes = 1;
-	else
-	if(c < 0x10000)
+	else if(c < 0x10000)
 		n_bytes = 2;
 	else
 		n_bytes = 3;
@@ -573,11 +581,9 @@ int utf8_in2(int *c, const char *buf, int backwards)
 	{
 		if((c1 & 0xe0) == 0xc0)
 			n_bytes = 1;
-		else
-		if((c1 & 0xf0) == 0xe0)
+		else if((c1 & 0xf0) == 0xe0)
 			n_bytes = 2;
-		else
-		if((c1 & 0xf8) == 0xf0)
+		else if((c1 & 0xf8) == 0xf0)
 			n_bytes = 3;
 
 		c1 &= mask[n_bytes];
@@ -669,19 +675,17 @@ static int CheckDottedAbbrev(char *word1, WORD_TAB *wtab)
 		nbytes = utf8_in(&wc, word);
 		if((word[nbytes] == ' ') && IsAlpha(wc))
 		{
-		 	if(word[nbytes+1] == '.')
+			if(word[nbytes+1] == '.')
 			{
 				if(word[nbytes+2] == ' ')
 					ok = 1;
-				else
-				if(word[nbytes+2] =='\'')
+				else if(word[nbytes+2] =='\'')
 				{
 					nbytes += 2;   // delete the final dot (eg. u.s.a.'s)
 					ok = 2;
 				}
 			}
-			else
-			if((count > 0) && (word[nbytes] == ' '))
+			else if((count > 0) && (word[nbytes] == ' '))
 				ok = 2;
 		}
 
@@ -825,7 +829,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	int prefix_stress;
 	char *wordx;
 	char phonemes[N_WORD_PHONEMES];
-    char phonemes2[N_WORD_PHONEMES];
+	char phonemes2[N_WORD_PHONEMES];
 	char prefix_phonemes[N_WORD_PHONEMES];
 	char unpron_phonemes[N_WORD_PHONEMES];
 	char end_phonemes[N_WORD_PHONEMES];
@@ -835,7 +839,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	int word_copy_length;
 	char prefix_chars[0x3f + 2];
 	int found=0;
-    int end_flags;
+	int end_flags;
 	char c_temp;   // save a character byte while we temporarily replace it with space
 	int first_char;
 	int last_char = 0;
@@ -875,7 +879,6 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	unpron_phonemes[0] = 0;
 	prefix_phonemes[0] = 0;
 	end_phonemes[0] = 0;
-    current_alphabet = NULL;
 
 	if(tr->data_dictlist == NULL)
 	{
@@ -906,8 +909,8 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 
 	if((word_length == 1) && (wflags & FLAG_TRANSLATOR2))
 	{
-	    // retranslating a 1-character word using a different language, say its name
-	    spell_word = 1;
+		// retranslating a 1-character word using a different language, say its name
+		spell_word = 1;
 	}
 
 	if(option_sayas == SAYAS_KEY)
@@ -943,8 +946,8 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 
 		if(dictionary_flags[0] & FLAG_TEXTMODE)
 		{
-		    if(word_out != NULL)
-                strcpy(word_out, word1);
+			if(word_out != NULL)
+				strcpy(word_out, word1);
 
 			first_char = word1[0];
 			stress_bits = dictionary_flags[0] & 0x7f;
@@ -960,8 +963,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 				}
 			}
 		}
-		else
-		if((found==0) && (dictionary_flags[0] & FLAG_SKIPWORDS))
+		else if((found==0) && (dictionary_flags[0] & FLAG_SKIPWORDS))
 		{
 			// grouped words, but no translation.  Join the words with hyphens.
 			wordx = word1;
@@ -1000,11 +1002,11 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 			return(0);
 		}
 
-if((wmark > 0) && (wmark < 8))
-{
-	// the stressed syllable has been specified in the text  (TESTING)
-	dictionary_flags[0] = (dictionary_flags[0] & ~0xf) | wmark;
-}
+		if((wmark > 0) && (wmark < 8))
+		{
+			// the stressed syllable has been specified in the text  (TESTING)
+			dictionary_flags[0] = (dictionary_flags[0] & ~0xf) | wmark;
+		}
 
 		if(!found && (dictionary_flags[0] & FLAG_ABBREV))
 		{
@@ -1050,9 +1052,8 @@ if((wmark > 0) && (wmark < 8))
 				// emphasize words which are in capitals
 				emphasize_allcaps = FLAG_EMPHASIZED;
 			}
-			else
-			if(!found && !(dictionary_flags[0] &  FLAG_SKIPWORDS) && (word_length<4) && (tr->clause_lower_count > 3)
-				&& (tr->clause_upper_count <= tr->clause_lower_count))
+			else if(!found && !(dictionary_flags[0] &  FLAG_SKIPWORDS) && (word_length<4) && (tr->clause_lower_count > 3)
+					&& (tr->clause_upper_count <= tr->clause_lower_count))
 			{
 				// An upper case word in a lower case clause. This could be an abbreviation.
 				spell_word = 1;
@@ -1073,10 +1074,9 @@ if((wmark > 0) && (wmark < 8))
 			return(0);
 		}
 		strcpy(word_phonemes, phonemes);
-		return(0);  // ??
+		return(dictionary_flags[0] & FLAG_SKIPWORDS);  // ??
 	}
-	else
-	if(found == 0)
+	else if(found == 0)
 	{
 		int posn;
 		int non_initial;
@@ -1111,7 +1111,7 @@ if((wmark > 0) && (wmark < 8))
 				if(strcmp(&unpron_phonemes[1],"en")==0)
 					return(FLAG_SPELLWORD);   // _^_en must have been set in TranslateLetter(), not *_rules
 				return(0);
-        }
+			}
 
 #ifdef deleted
 			p = &wordx[word_length-3];    // this looks wrong.  Doesn't consider multi-byte chars.
@@ -1152,10 +1152,10 @@ if((wmark > 0) && (wmark < 8))
 // ?? allow $unpr while translating rules, not just on initial FLAG_UNPRON_TEST
 if(end_type & SUFX_UNPRON)
 {
-   phonemes[0] = 0;  // discard and retranslate as individual letters
-   SpeakIndividualLetters(tr, wordx, phonemes, 0);
-   strcpy(word_phonemes, phonemes);
-   return(0);
+	phonemes[0] = 0;  // discard and retranslate as individual letters
+	SpeakIndividualLetters(tr, wordx, phonemes, 0);
+	strcpy(word_phonemes, phonemes);
+	return(0);
 }
 #endif
 
@@ -1310,110 +1310,110 @@ if(end_type & SUFX_UNPRON)
 
 			if((end_type != 0) && !(end_type & SUFX_P))
 			{
-                end_type1 = end_type;
-                strcpy(phonemes2,phonemes);
+				end_type1 = end_type;
+				strcpy(phonemes2,phonemes);
 
 				// The word has a standard ending, re-translate without this ending
 				end_flags = RemoveEnding(tr, wordx, end_type, word_copy);
-                more_suffixes = 1;
+				more_suffixes = 1;
 
-                while(more_suffixes)
-                {
-                    more_suffixes = 0;
-                    phonemes[0] = 0;
+				while(more_suffixes)
+				{
+					more_suffixes = 0;
+					phonemes[0] = 0;
 
-                    if(prefix_phonemes[0] != 0)
-                    {
-                        // lookup the stem without the prefix removed
-                        wordx[-1] = c_temp;
-                        found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, end_flags, wtab);  // include prefix, but not suffix
-                        wordx[-1] = ' ';
-                        if(phonemes[0] == phonSWITCH)
-                        {
-                            // change to another language in order to translate this word
-                            memcpy(wordx,word_copy,strlen(word_copy));
-                            strcpy(word_phonemes,phonemes);
-                            return(0);
-                        }
-                        if(dictionary_flags[0]==0)
-                        {
-                            dictionary_flags[0] = dictionary_flags2[0];
-                            dictionary_flags[1] = dictionary_flags2[1];
-                        }
-                        if(found)
-                            prefix_phonemes[0] = 0;  // matched whole word, don't need prefix now
+					if(prefix_phonemes[0] != 0)
+					{
+						// lookup the stem without the prefix removed
+						wordx[-1] = c_temp;
+						found = LookupDictList(tr, &word1, phonemes, dictionary_flags2, end_flags, wtab);  // include prefix, but not suffix
+						wordx[-1] = ' ';
+						if(phonemes[0] == phonSWITCH)
+						{
+							// change to another language in order to translate this word
+							memcpy(wordx,word_copy,strlen(word_copy));
+							strcpy(word_phonemes,phonemes);
+							return(0);
+						}
+						if(dictionary_flags[0]==0)
+						{
+							dictionary_flags[0] = dictionary_flags2[0];
+							dictionary_flags[1] = dictionary_flags2[1];
+						}
+						if(found)
+							prefix_phonemes[0] = 0;  // matched whole word, don't need prefix now
 
-                        if((found==0) && (dictionary_flags2[0] != 0))
-                            prefix_flags = 1;
-                    }
-                    if(found == 0)
-                    {
-                        found = LookupDictList(tr, &wordx, phonemes, dictionary_flags2, end_flags, wtab);  // without prefix and suffix
-                        if(phonemes[0] == phonSWITCH)
-                        {
-                            // change to another language in order to translate this word
-                            memcpy(wordx,word_copy,strlen(word_copy));
-                            strcpy(word_phonemes,phonemes);
-                            return(0);
-                        }
+						if((found==0) && (dictionary_flags2[0] != 0))
+							prefix_flags = 1;
+					}
+					if(found == 0)
+					{
+						found = LookupDictList(tr, &wordx, phonemes, dictionary_flags2, end_flags, wtab);  // without prefix and suffix
+						if(phonemes[0] == phonSWITCH)
+						{
+							// change to another language in order to translate this word
+							memcpy(wordx,word_copy,strlen(word_copy));
+							strcpy(word_phonemes,phonemes);
+							return(0);
+						}
 
-    if(dictionary_flags2[0] & FLAG_ABBREV)
-    {
-        // Removing the suffix leaves a word which should be spoken as individual letters
-        // Not yet implemented
-    }
-                        if(dictionary_flags[0]==0)
-                        {
-                            dictionary_flags[0] = dictionary_flags2[0];
-                            dictionary_flags[1] = dictionary_flags2[1];
-                        }
-                    }
-                    if(found == 0)
-                    {
-                        if(end_type & SUFX_Q)
-                        {
-                            // don't retranslate, use the original lookup result
-                            strcpy(phonemes,phonemes2);
-                        }
-                        else
-                        {
-                            if(end_flags & FLAG_SUFX)
-                                wflags |= FLAG_SUFFIX_REMOVED;
-                            if(end_type & SUFX_A)
-                                wflags |= FLAG_SUFFIX_VOWEL;
+						if(dictionary_flags2[0] & FLAG_ABBREV)
+						{
+							// Removing the suffix leaves a word which should be spoken as individual letters
+							// Not yet implemented
+						}
+						if(dictionary_flags[0]==0)
+						{
+							dictionary_flags[0] = dictionary_flags2[0];
+							dictionary_flags[1] = dictionary_flags2[1];
+						}
+					}
+					if(found == 0)
+					{
+						if(end_type & SUFX_Q)
+						{
+							// don't retranslate, use the original lookup result
+							strcpy(phonemes,phonemes2);
+						}
+						else
+						{
+							if(end_flags & FLAG_SUFX)
+								wflags |= FLAG_SUFFIX_REMOVED;
+							if(end_type & SUFX_A)
+								wflags |= FLAG_SUFFIX_VOWEL;
 
-                            if(end_type & SUFX_M)
-                            {
-                                // allow more suffixes before this suffix
-                                strcpy(end_phonemes2, end_phonemes);
-                                end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags);
-                                strcat(end_phonemes, end_phonemes2);   // add the phonemes for the previous suffixes after this one
+							if(end_type & SUFX_M)
+							{
+								// allow more suffixes before this suffix
+								strcpy(end_phonemes2, end_phonemes);
+								end_type = TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, end_phonemes, wflags, dictionary_flags);
+								strcat(end_phonemes, end_phonemes2);   // add the phonemes for the previous suffixes after this one
 
-                                if((end_type != 0) && !(end_type & SUFX_P))
-                                {
-                                    // there is another suffix
-				                    end_flags = RemoveEnding(tr, wordx, end_type, NULL);
-                                    more_suffixes = 1;
-                                }
-                            }
-                            else
-                            {
-                                // don't remove any previous suffix
-                                TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, NULL, wflags, dictionary_flags);
-                                end_type = 0;
-                            }
+								if((end_type != 0) && !(end_type & SUFX_P))
+								{
+									// there is another suffix
+									end_flags = RemoveEnding(tr, wordx, end_type, NULL);
+									more_suffixes = 1;
+								}
+							}
+							else
+							{
+								// don't remove any previous suffix
+								TranslateRules(tr, wordx, phonemes, N_WORD_PHONEMES, NULL, wflags, dictionary_flags);
+								end_type = 0;
+							}
 
-                            if(phonemes[0] == phonSWITCH)
-                            {
-                                // change to another language in order to translate this word
-                                strcpy(word_phonemes,phonemes);
-                                memcpy(wordx,word_copy,strlen(word_copy));
-                                wordx[-1] = c_temp;
-                                return(0);
-                            }
-                        }
-                    }
-                }
+							if(phonemes[0] == phonSWITCH)
+							{
+								// change to another language in order to translate this word
+								strcpy(word_phonemes,phonemes);
+								memcpy(wordx,word_copy,strlen(word_copy));
+								wordx[-1] = c_temp;
+								return(0);
+							}
+						}
+					}
+				}
 
 
 				if((end_type1 & SUFX_T) == 0)
@@ -1437,8 +1437,7 @@ if(end_type & SUFX_UNPRON)
 		// s or 's suffix, append [s], [z] or [Iz] depending on previous letter
 		if(last_char == 'f')
 			TranslateRules(tr, &word_ss[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
-		else
-		if((last_char==0) || (strchr_w("hsx",last_char)==NULL))
+		else if((last_char==0) || (strchr_w("hsx",last_char)==NULL))
 			TranslateRules(tr, &word_zz[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
 		else
 			TranslateRules(tr, &word_iz[1], phonemes, N_WORD_PHONEMES, NULL, 0, NULL);
@@ -1545,8 +1544,7 @@ if(end_type & SUFX_UNPRON)
 	{
 		ChangeWordStress(tr,word_phonemes,3);
 	}
-	else
-	if(wflags & FLAG_EMPHASIZED2)
+	else if(wflags & FLAG_EMPHASIZED2)
 	{
 		// A word is indicated in the source text as stressed
 		// Give it stress level 6 (for the intonation module)
@@ -1555,14 +1553,12 @@ if(end_type & SUFX_UNPRON)
 		if(wflags & FLAG_EMPHASIZED)
 			dictionary_flags[0] |= FLAG_PAUSE1;   // precede by short pause
 	}
-	else
-	if(wtab[dictionary_skipwords].flags & FLAG_LAST_WORD)
+	else if(wtab[dictionary_skipwords].flags & FLAG_LAST_WORD)
 	{
 		// the word has attribute to stress or unstress when at end of clause
 		if(dictionary_flags[0] & (FLAG_STRESS_END | FLAG_STRESS_END2))
 			ChangeWordStress(tr,word_phonemes,4);
-		else
-		if((dictionary_flags[0] & FLAG_UNSTRESS_END) && (any_stressed_words))
+		else if((dictionary_flags[0] & FLAG_UNSTRESS_END) && (any_stressed_words))
 			ChangeWordStress(tr,word_phonemes,3);
 	}
 
@@ -1583,16 +1579,14 @@ if(end_type & SUFX_UNPRON)
 		tr->expect_verb = 0;
 		tr->expect_noun = 0;
 	}
-	else
-	if(dictionary_flags[1] & FLAG_VERBF)
+	else if(dictionary_flags[1] & FLAG_VERBF)
 	{
 		/* expect a verb in the next word */
 		tr->expect_verb = 2;
 		tr->expect_verb_s = 0;   /* verb won't have -s suffix */
 		tr->expect_noun = 0;
 	}
-	else
-	if(dictionary_flags[1] & FLAG_VERBSF)
+	else if(dictionary_flags[1] & FLAG_VERBSF)
 	{
 		// expect a verb, must have a -s suffix
 		tr->expect_verb = 0;
@@ -1600,8 +1594,7 @@ if(end_type & SUFX_UNPRON)
 		tr->expect_past = 0;
 		tr->expect_noun = 0;
 	}
-	else
-	if(dictionary_flags[1] & FLAG_NOUNF)
+	else if(dictionary_flags[1] & FLAG_NOUNF)
 	{
 		/* not expecting a verb next */
 		tr->expect_noun = 2;
@@ -1872,7 +1865,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		while(((c2 = word_copy[ix] = word[ix]) != ' ') && (c2 != 0) && (ix < N_WORD_BYTES)) ix++;
 		word_copy_len = ix;
 
-        word_replaced[2] = 0;
+		word_replaced[2] = 0;
 		flags = TranslateWord(translator, word, next_pause, wtab, &word_replaced[2]);
 
 		if(flags & FLAG_SPELLWORD)
@@ -1953,38 +1946,44 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			}
 		}
 
-		if(p[0] == phonSWITCH)
+		if(p[0]==phonSWITCH)
 		{
-			// this word uses a different language
-			memcpy(word, word_copy, word_copy_len);
-
-			new_language = (char *)(&p[1]);
-			if(new_language[0]==0)
-				new_language = "en";
-
+			int switch_attempt;
 			strcpy(old_dictionary_name, dictionary_name);
-			switch_phonemes = SetTranslator2(new_language);
-
-			if(switch_phonemes >= 0)
+			for(switch_attempt=0; switch_attempt < 2; switch_attempt++)
 			{
-				// re-translate the word using the new translator
-				wtab[0].flags |= FLAG_TRANSLATOR2;
-				if(word_replaced[2] != 0)
+				// this word uses a different language
+				memcpy(word, word_copy, word_copy_len);
+
+				new_language = (char *)(&p[1]);
+				if(new_language[0]==0)
+					new_language = "en";
+
+				switch_phonemes = SetTranslator2(new_language);
+
+				if(switch_phonemes >= 0)
 				{
-				    word_replaced[0] = 0;   // byte before the start of the word
-				    word_replaced[1] = ' ';
-                    flags = TranslateWord(translator2, &word_replaced[1], next_pause, wtab, NULL);
+					// re-translate the word using the new translator
+					wtab[0].flags |= FLAG_TRANSLATOR2;
+					if(word_replaced[2] != 0)
+					{
+						word_replaced[0] = 0;   // byte before the start of the word
+						word_replaced[1] = ' ';
+						flags = TranslateWord(translator2, &word_replaced[1], next_pause, wtab, NULL);
+					}
+					else
+						flags = TranslateWord(translator2, word, next_pause, wtab, &word_replaced[2]);
 				}
-				else
-                    flags = TranslateWord(translator2, word, next_pause, wtab, NULL);
-//				strcpy((char *)p,translator2->word_phonemes);
-				if(p[0] == phonSWITCH)
-				{
-					// the second translator doesn't want to process this word
-//					switch_phonemes = -1;
-return(FLAG_SPELLWORD);
-				}
+
+				if(p[0] != phonSWITCH)
+					break;
 			}
+
+			//				strcpy((char *)p,translator2->word_phonemes);
+
+			if(p[0] == phonSWITCH)
+				return(FLAG_SPELLWORD);
+
 			if(switch_phonemes < 0)
 			{
 				// language code is not recognised or 2nd translator won't translate it
@@ -2074,29 +2073,29 @@ return(FLAG_SPELLWORD);
 
 	if(switch_phonemes >= 0)
 	{
-        if((p[0] == phonPAUSE) && (p[1] == phonSWITCH))
-        {
-            // the new word starts with a phoneme table switch, so there's no need to switch before it.
-            if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
-            {
-                //previous phoneme is also a phonSWITCH, delete it
-                n_ph_list2--;
-            }
-        }
-        else
-        {
-            // this word uses a different phoneme table
-            if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
-            {
-                //previous phoneme is also a phonSWITCH, just change its phoneme table number
-                n_ph_list2--;
-            }
-            else
-            {
-                SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
-            }
-            ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
-        }
+		if((p[0] == phonPAUSE) && (p[1] == phonSWITCH))
+		{
+			// the new word starts with a phoneme table switch, so there's no need to switch before it.
+			if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
+			{
+				//previous phoneme is also a phonSWITCH, delete it
+				n_ph_list2--;
+			}
+		}
+		else
+		{
+			// this word uses a different phoneme table
+			if(ph_list2[n_ph_list2-1].phcode == phonSWITCH)
+			{
+				//previous phoneme is also a phonSWITCH, just change its phoneme table number
+				n_ph_list2--;
+			}
+			else
+			{
+				SetPlist2(&ph_list2[n_ph_list2],phonSWITCH);
+			}
+			ph_list2[n_ph_list2++].tone_ph = switch_phonemes;  // temporary phoneme table number
+		}
 	}
 
 	// remove initial pause from a word if it follows a hyphen
@@ -2124,11 +2123,10 @@ return(FLAG_SPELLWORD);
 			ph_list2[n_ph_list2].sourceix = 0;
 			ph_list2[n_ph_list2].synthflags = embedded_flag;
 			ph_list2[n_ph_list2++].tone_ph = *p;
-            SelectPhonemeTable(*p);
-            p++;
+			SelectPhonemeTable(*p);
+			p++;
 		}
-		else
-		if(ph->type == phSTRESS)
+		else if(ph->type == phSTRESS)
 		{
 			// don't add stress phonemes codes to the list, but give their stress
 			// value to the next vowel phoneme
@@ -2148,29 +2146,25 @@ return(FLAG_SPELLWORD);
 				}
 			}
 		}
-		else
-		if(ph_code == phonSYLLABIC)
+		else if(ph_code == phonSYLLABIC)
 		{
 			// mark the previous phoneme as a syllabic consonant
 			prev_vowel = n_ph_list2-1;
 			ph_list2[prev_vowel].synthflags |= SFLAG_SYLLABLE;
 			ph_list2[prev_vowel].stresslevel = next_stress;
 		}
-		else
-		if(ph_code == phonLENGTHEN)
+		else if(ph_code == phonLENGTHEN)
 		{
 			ph_list2[n_ph_list2-1].synthflags |= SFLAG_LENGTHEN;
 		}
-		else
-		if(ph_code == phonEND_WORD)
+		else if(ph_code == phonEND_WORD)
 		{
 			// a || symbol in a phoneme string was used to indicate a word boundary
 			// Don't add this phoneme to the list, but make sure the next phoneme has
 			// a newword indication
 			srcix = source_ix+1;
 		}
-		else
-		if(ph_code == phonX1)
+		else if(ph_code == phonX1)
 		{
 			// a language specific action
 			if(tr->langopts.param[LOPT_IT_DOUBLING])
@@ -2219,7 +2213,7 @@ return(FLAG_SPELLWORD);
 				if(first_phoneme && tr->langopts.param[LOPT_IT_DOUBLING])
 				{
 					if(((tr->prev_dict_flags[0] & FLAG_DOUBLING) && (tr->langopts.param[LOPT_IT_DOUBLING] & 1)) ||
-						(tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2)))
+							(tr->end_stressed_vowel && (tr->langopts.param[LOPT_IT_DOUBLING] & 2)))
 					{
 						// italian, double the initial consonant if the previous word ends with a
 						// stressed vowel, or is marked with a flag
@@ -2299,8 +2293,7 @@ static int EmbeddedCommand(unsigned int &source_index)
 		sign = 0x40;
 		source_index++;
 	}
-	else
-	if(c == '-')
+	else if(c == '-')
 	{
 		sign = 0x60;
 		source_index++;
@@ -2425,19 +2418,20 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 	int next2;
 
 	static const unsigned char hangul_compatibility[0x34] = {
-	 0,  0x00,0x01,0xaa,0x02,0xac,0xad,0x03,
-	0x04,0x05,0xb0,0xb1,0xb2,0xb3,0xb4,0xb4,
-	0xb6,0x06,0x07,0x08,0xb9,0x09,0x0a,0xbc,
-	0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x61,
-	0x62,0x63,0x64,0x65,0x66,0x67,0x68,0x69,
-	0x6a,0x6b,0x6c,0x6d,0x6e,0x6f,0x70,0x71,
-	0x72,0x73,0x74,0x75 };
+		0,  0x00,0x01,0xaa,0x02,0xac,0xad,0x03,
+		0x04,0x05,0xb0,0xb1,0xb2,0xb3,0xb4,0xb4,
+		0xb6,0x06,0x07,0x08,0xb9,0x09,0x0a,0xbc,
+		0x0c,0x0d,0x0e,0x0f,0x10,0x11,0x12,0x61,
+		0x62,0x63,0x64,0x65,0x66,0x67,0x68,0x69,
+		0x6a,0x6b,0x6c,0x6d,0x6e,0x6f,0x70,0x71,
+		0x72,0x73,0x74,0x75
+	};
 
 	switch(tr->translator_name)
 	{
 	case L('a','f'):
 	case L('n','l'):
-	// look for 'n  and replace by a special character (unicode: schwa)
+		// look for 'n  and replace by a special character (unicode: schwa)
 
 
 		if(!iswalpha(prev_in))
@@ -2484,8 +2478,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 			}
 			return(c);
 		}
-		else
-		if(((code = c - 0x3130) >= 0) && (code < 0x34))
+		else if(((code = c - 0x3130) >= 0) && (code < 0x34))
 		{
 			// Hangul compatibility jamo
 			return(hangul_compatibility[code] + 0x1100);
@@ -2500,27 +2493,27 @@ static const char *UCase_ga[] = {"bp","bhf","dt","gc","hA","mb","ng","ts","tA","
 
 int UpperCaseInWord(Translator *tr, char *word, int c)
 {//=====================================================
-    int ix;
-    int len;
-    const char *p;
+	int ix;
+	int len;
+	const char *p;
 
-    if(tr->translator_name == L('g','a'))
-    {
-        // Irish
-        for(ix=0; ; ix++)
-        {
-            if((p = UCase_ga[ix]) == NULL)
-                break;
+	if(tr->translator_name == L('g','a'))
+	{
+		// Irish
+		for(ix=0; ; ix++)
+		{
+			if((p = UCase_ga[ix]) == NULL)
+				break;
 
-            len = strlen(p);
-            if((word[-len]==' ') && (memcmp(&word[-len+1], p, len-1) == 0))
-            {
-                if((c == p[len-1]) || ((p[len-1]=='A') && IsVowel(tr, c)))
-                    return(1);
-            }
-        }
-    }
-    return(0);
+			len = strlen(p);
+			if((word[-len]==' ') && (memcmp(&word[-len+1], p, len-1) == 0))
+			{
+				if((c == p[len-1]) || ((p[len-1]=='A') && IsVowel(tr, c)))
+					return(1);
+			}
+		}
+	}
+	return(0);
 }
 
 
@@ -2600,7 +2593,7 @@ void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *t
 		fprintf(f_logespeak,"ENDCLAUSE\n");
 		fflush(f_logespeak);
 	}
-p = source;
+	p = source;
 
 	charix[charix_top+1] = 0;
 	charix[charix_top+2] = 0x7fff;
@@ -2706,8 +2699,7 @@ p = source;
 			prev_in = prev_in_save;
 			prev_in_save = 0;
 		}
-		else
-		if(source_index > 0)
+		else if(source_index > 0)
 		{
 			utf8_in2(&prev_in,&source[source_index-1],1);  //  prev_in = source[source_index-1];
 		}
@@ -2773,8 +2765,7 @@ p = source;
 				c = ' ';
 			}
 		}
-		else
-		if((option_sayas2 & 0xf0) == SAYAS_DIGITS)
+		else if((option_sayas2 & 0xf0) == SAYAS_DIGITS)
 		{
 			if(iswdigit(c))
 			{
@@ -2797,8 +2788,7 @@ p = source;
 				}
 			}
 		}
-		else
-		if((option_sayas2 & 0x10) == 0)
+		else if((option_sayas2 & 0x10) == 0)
 		{
 			// speak as words
 
@@ -2922,7 +2912,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				if(tr->letter_bits_offset > 0)
 				{
 					if(((c < 0x250) && (prev_out >= tr->letter_bits_offset)) ||
-						((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
+							((c >= tr->letter_bits_offset) && (letter_count > 1) && (prev_out < 0x250)))
 					{
 						// Don't mix native and Latin characters in the same word
 						// Break into separate words
@@ -2950,22 +2940,21 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					{
 						if(iswlower(prev_in))
 						{
-						    // lower case followed by upper case in a word
-						    if(UpperCaseInWord(tr, &sbuf[ix], c) == 1)
-						    {
-						        // convert to lower case and continue
-						        c = towlower(c);
-						    }
-						    else
-						    {
-                                c = ' ';      // lower case followed by upper case, treat as new word
-                                space_inserted = 1;
-                                prev_in_save = c;
-    //							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
-						    }
+							// lower case followed by upper case in a word
+							if(UpperCaseInWord(tr, &sbuf[ix], c) == 1)
+							{
+								// convert to lower case and continue
+								c = towlower(c);
+							}
+							else
+							{
+								c = ' ';      // lower case followed by upper case, treat as new word
+								space_inserted = 1;
+								prev_in_save = c;
+								//							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
+							}
 						}
-						else
-						if((c != ' ') && iswupper(prev_in) && iswlower(next_in))
+						else if((c != ' ') && iswupper(prev_in) && iswlower(next_in))
 						{
 							int next2_in;
 							utf8_in(&next2_in,&source[source_index + next_in_nbytes]);
@@ -2999,8 +2988,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						all_upper_case = 0;
 				}
 			}
-			else
-			if(c=='-')
+			else if(c=='-')
 			{
 				if(!IsSpace(prev_in) && IsAlpha(next_in))
 				{
@@ -3019,31 +3007,27 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						c = ' ';
 					}
 				}
-				else
-				if((prev_in==' ') && (next_in==' '))
+				else if((prev_in==' ') && (next_in==' '))
 				{
 					// ' - ' dash between two spaces, treat as pause
 					c = ' ';
 					pre_pause_add = 4;
 				}
-				else
-				if(next_in=='-')
+				else if(next_in=='-')
 				{
 					// double hyphen, treat as pause
 					source_index++;
 					c = ' ';
 					pre_pause_add = 4;
 				}
-				else
-				if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
+				else if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
 				{
 					// insert extra space between a word + space + hyphen, to distinguish 'a -2' from 'a-2'
 					sbuf[ix++] = ' ';
 					words[word_count].start++;
 				}
 			}
-			else
-			if(c == '.')
+			else if(c == '.')
 			{
 				if(prev_out == '.')
 				{
@@ -3051,8 +3035,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					c = ' ';
 					space_inserted = 1;
 				}
-				else
-				if((word_count > 0) && !(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in))
+				else if((word_count > 0) && !(words[word_count-1].flags & FLAG_NOSPACE) && IsAlpha(prev_in))
 				{
 					// dot after a word, with space following, probably an abbreviation
 					words[word_count-1].flags |= FLAG_HAS_DOT;
@@ -3061,26 +3044,22 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 						c = ' ';   // remove the dot if it's followed by a space or hyphen, so that it's not pronounced
 				}
 			}
-			else
-			if(c == '\'')
+			else if(c == '\'')
 			{
 				if(((prev_in == '.') || iswalnum(prev_in)) && IsAlpha(next_in))
 				{
 					// between two letters, or in an abbreviation (eg. u.s.a.'s). Consider the apostrophe as part of the word
 					single_quoted = 0;
 				}
-				else
-				if((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
+				else if((tr->langopts.param[LOPT_APOSTROPHE] & 1) && IsAlpha(next_in))
 				{
 					single_quoted = 0;   // apostrophe at start of word is part of the word
 				}
-				else
-				if((tr->langopts.param[LOPT_APOSTROPHE] & 2) && IsAlpha(prev_in))
+				else if((tr->langopts.param[LOPT_APOSTROPHE] & 2) && IsAlpha(prev_in))
 				{
 					single_quoted = 0;   // apostrophe at end of word is part of the word
 				}
-				else
-				if((wcschr(tr->char_plus_apostrophe,prev_in) != 0) && (prev_out2 == ' '))
+				else if((wcschr(tr->char_plus_apostrophe,prev_in) != 0) && (prev_out2 == ' '))
 				{
 					// consider single character plus apostrophe as a word
 					single_quoted = 0;
@@ -3111,44 +3090,41 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 			else
 #ifdef deleted
 // Brackets are now recognised in TranslateRules()
-			if(IsBracket(c))
-			{
-				pre_pause_add = 4;
-				c = ' ';
-			}
-			else
+				if(IsBracket(c))
+				{
+					pre_pause_add = 4;
+					c = ' ';
+				}
+				else
 #endif
-			if(lookupwchar(breaks,c) != 0)
-			{
-				c = ' ';  // various characters to treat as space
-			}
-			else
-			if(iswdigit(c))
-			{
-				if(tr->langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in))
-				{
-				}
-				else
-				if((prev_out != ' ') && !iswdigit(prev_out))
-				{
-					if((prev_out != tr->langopts.decimal_sep) || ((decimal_sep_count > 0) && (tr->langopts.decimal_sep == ',')))
+					if(lookupwchar(breaks,c) != 0)
 					{
-						c = ' ';
-						space_inserted = 1;
+						c = ' ';  // various characters to treat as space
 					}
-					else
+					else if(iswdigit(c))
 					{
-						decimal_sep_count = 1;
+						if(tr->langopts.tone_numbers && IsAlpha(prev_out) && !IsDigit(next_in))
+						{
+						}
+						else if((prev_out != ' ') && !iswdigit(prev_out))
+						{
+							if((prev_out != tr->langopts.decimal_sep) || ((decimal_sep_count > 0) && (tr->langopts.decimal_sep == ',')))
+							{
+								c = ' ';
+								space_inserted = 1;
+							}
+							else
+							{
+								decimal_sep_count = 1;
+							}
+						}
+						else if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
+						{
+							// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
+							sbuf[ix++] = ' ';
+							words[word_count].start++;
+						}
 					}
-				}
-				else
-				if((prev_out == ' ') && IsAlpha(sbuf[ix-2]) && !IsAlpha(prev_in))
-				{
-					// insert extra space between a word and a number, to distinguish 'a 2' from 'a2'
-					sbuf[ix++] = ' ';
-					words[word_count].start++;
-				}
-			}
 		}
 
 		if(IsSpace(c))
@@ -3295,6 +3271,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 		if(skipping_text)
 			continue;
 
+		current_alphabet = NULL;
 
 		// digits should have been converted to Latin alphabet ('0' to '9')
 		word = pw = &sbuf[words[ix].start];
@@ -3309,9 +3286,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 				{
 					*pn++ = *pw++;
 				}
-				else
-				if((*pw == tr->langopts.thousands_sep) && (pw[1] == ' ')
-					&& iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' '))  // don't allow only 1 or 2 digits in the final part
+				else if((*pw == tr->langopts.thousands_sep) && (pw[1] == ' ')
+						&& iswdigit(pw[2]) && (pw[3] != ' ') && (pw[4] != ' '))  // don't allow only 1 or 2 digits in the final part
 				{
 					pw += 2;
 					ix++;  // skip "word"
@@ -3358,20 +3334,20 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 					*pn++ = ' ';
 
-                    if((words[ix].flags & FLAG_INDIVIDUAL_DIGITS) == 0)
-                    {
-                        if(tr->langopts.break_numbers & (1 << (nx-1)))
-                        {
-                            // the next group only has 1 digits, make it three
-                            *pn++ = '0';
-                            *pn++ = '0';
-                        }
-                        if(tr->langopts.break_numbers & (1 << (nx-2)))
-                        {
-                            // the next group only has 2 digits (eg. Indian languages), make it three
-                            *pn++ = '0';
-                        }
-                    }
+					if((words[ix].flags & FLAG_INDIVIDUAL_DIGITS) == 0)
+					{
+						if(tr->langopts.break_numbers & (1 << (nx-1)))
+						{
+							// the next group only has 1 digits, make it three
+							*pn++ = '0';
+							*pn++ = '0';
+						}
+						if(tr->langopts.break_numbers & (1 << (nx-2)))
+						{
+							// the next group only has 2 digits (eg. Indian languages), make it three
+							*pn++ = '0';
+						}
+					}
 				}
 			}
 			pw--;
@@ -3379,7 +3355,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 			for(j=1; j<=nw; j++)
 			{
-					num_wtab[j].flags &= ~(FLAG_MULTIPLE_SPACES | FLAG_EMBEDDED);     // don't use these flags for subsequent parts when splitting a number
+				num_wtab[j].flags &= ~(FLAG_MULTIPLE_SPACES | FLAG_EMBEDDED);     // don't use these flags for subsequent parts when splitting a number
 			}
 
 			// include the next few characters, in case there are an ordinal indicator or other suffix

@@ -97,6 +97,7 @@ phoneme I#
   vowel  starttype #i  endtype #i
   unstressed
   length 160
+  ipa ᵻ
 //  FMT(vowel/@_fnt)
   FMT(vowel/ii#)
 endphoneme
