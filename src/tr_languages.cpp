@@ -79,7 +79,7 @@ ALPHABET alphabets [] = {
     {"_dv",    OFFSET_THAANA,   0x780, 0x7bf,  0, 0},
     {"_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f,L('h','i'), AL_WORDS},
     {"_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, 0, 0},
-    {"_gur",   OFFSET_GURMUKHI, 0xa00, 0xa7f,  0, 0},
+    {"_gur",   OFFSET_GURMUKHI, 0xa00, 0xa7f,  L('p','a'), AL_WORDS},
     {"_gu",    OFFSET_GUJARATI, 0xa80, 0xaff,  0, 0},
     {"_or",    OFFSET_ORIYA,    0xb00, 0xb7f,  0, 0},
     {"_ta",    OFFSET_TAMIL,    0xb80, 0xbff,  L('t','a'), AL_WORDS},
@@ -94,24 +94,26 @@ ALPHABET alphabets [] = {
     {"_ka",    OFFSET_GEORGIAN, 0x10a0,0x10ff, L('k','a'), AL_WORDS},
     {"_ko",    OFFSET_KOREAN,   0x1100,0x11ff, 0, 0},
     {"_eth",   OFFSET_ETHIOPIC, 0x1200,0x139f, 0, 0},
+    {"_ja",    0x3040,          0x3040,0x30ff, 0, AL_NOT_CODE},
+    {"_zh",    0x3100,          0x3100,0x9fff, 0, AL_NOT_CODE},
     {NULL, 0, 0, 0, 0, 0}
 };
 
 
 ALPHABET *AlphabetFromChar(int c)
 {//===============================
-    // Find the alphabet from a character.
-    ALPHABET *alphabet = alphabets;
+	// Find the alphabet from a character.
+	ALPHABET *alphabet = alphabets;
 
-    while(alphabet->name != NULL)
-    {
-        if((c >= alphabet->range_min) && (c <= alphabet->range_max))
-        {
-            return(alphabet);
-        }
-        alphabet++;
-    }
-    return(NULL);
+	while(alphabet->name != NULL)
+	{
+		if((c >= alphabet->range_min) && (c <= alphabet->range_max))
+		{
+			return(alphabet);
+		}
+		alphabet++;
+	}
+	return(NULL);
 }
 
 
@@ -514,7 +516,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM;   // use 'diminished' for unstressed final syllable
 			tr->letter_bits_offset = OFFSET_BENGALI;
 			SetIndicLetters(tr);   // call this after setting OFFSET_BENGALI
 			SetLetterBitsRange(tr,LETTERGP_F,0x3e,0x4c);   // vowel signs, but not virama
@@ -601,7 +603,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->letter_bits_offset = OFFSET_THAANA;
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM;   // use 'diminished' for unstressed final syllable
 			SetLetterBitsRange(tr,LETTERGP_B,0x26,0x30);   // vowel signs, and virama
 			tr->langopts.break_numbers = 0x14a8;  // 1000, 100,000  10,000,000
 			tr->langopts.numbers = 1;
@@ -705,7 +707,7 @@ Translator *SelectTranslator(const char *name)
 
 			// stress last syllable if it doesn't end in vowel or "s" or "n"
 			// 'diminished' is an unstressed final syllable
-			tr->langopts.stress_flags = 0x200 | 0x6 | 0x10;
+			tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.unstressed_wd1 = 0;
 			tr->langopts.unstressed_wd2 = 2;
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
@@ -715,18 +717,20 @@ Translator *SelectTranslator(const char *name)
 
 			if(name2 == L('c','a'))
 			{
+				// stress last syllable unless word ends with a vowel
 				tr->punct_within_word = ca_punct_within_word;
-				tr->langopts.stress_flags = 0x200 | 0x6 | 0x30;  // stress last syllable unless word ends with a vowel
+				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
 			}
 			else
 			if(name2 == L('a','n'))
 			{
-				tr->langopts.stress_flags = 0x200 | 0x6 | 0x10;
+				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			}
 			else
 			if(name2 == L_pap)
 			{
-				tr->langopts.stress_flags = 0x100 | 0x6 | 0x30;  // stress last syllable unless word ends with a vowel
+				// stress last syllable unless word ends with a vowel
+				tr->langopts.stress_flags = S_FINAL_STRESS_C | S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2;
 			}
 			else
 			{
@@ -786,7 +790,7 @@ Translator *SelectTranslator(const char *name)
 			SetupTranslator(tr,stress_lengths_fi,stress_amps_fi);
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x56;  // move secondary stress from light to a following heavy syllable
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_2_TO_HEAVY;  // move secondary stress from light to a following heavy syllable
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.long_stop = 130;
 
@@ -802,7 +806,7 @@ Translator *SelectTranslator(const char *name)
 		{
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
-			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
+			tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM;  // don't use secondary stress
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.accents = 2;   // Say "Capital" after the letter.
@@ -812,12 +816,12 @@ Translator *SelectTranslator(const char *name)
 		}
 		break;
 
-    case L('g','a'):   // irish
-        {
-            tr->langopts.stress_rule = STRESSPOSN_1L;
-            tr->langopts.numbers = 1;
-        }
-        break;
+	case L('g','a'):   // irish
+		{
+			tr->langopts.stress_rule = STRESSPOSN_1L;
+			tr->langopts.numbers = 1;
+		}
+		break;
 
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
@@ -831,7 +835,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = 6;      // stress on last heaviest syllable, excluding final syllable
-			tr->langopts.stress_flags =  0x10004;   // use 'diminished' for unstressed final syllable
+			tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM;   // use 'diminished' for unstressed final syllable
 			tr->langopts.numbers = NUM_SWAP_TENS;
 			tr->langopts.break_numbers = 0x14aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 			tr->letter_bits_offset = OFFSET_DEVANAGARI;
@@ -875,7 +879,7 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 			tr->charset_a0 = charsets[2];   // ISO-8859-2
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x10;
+			tr->langopts.stress_flags = S_FINAL_NO_2;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x3;
  			tr->langopts.max_initial_consonants = 5;
 			tr->langopts.spelling_stress = 1;
@@ -894,7 +898,7 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 	case L('h','t'):  // Haitian Creole
 //			memcpy(tr->stress_lengths,stress_lengths_fr,sizeof(tr->stress_lengths));
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
-			tr->langopts.stress_flags = 0x0024;  // don't use secondary stress
+			tr->langopts.stress_flags = S_NO_AUTO_2 | S_FINAL_DIM;  // don't use secondary stress
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_OMIT_1_HUNDRED | NUM_NOPAUSE | NUM_ROMAN | NUM_VIGESIMAL | NUM_DFRACTION_4;
 		break;
 
@@ -909,7 +913,7 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 
 			tr->langopts.vowel_pause = 0x20;
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x8036 | S_HYPEN_UNSTRESS;
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_NO_AUTO_2 | 0x8000 | S_HYPEN_UNSTRESS;
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.param[LOPT_IT_DOUBLING] = 1;
 			tr->langopts.param[LOPT_ANNOUNCE_PUNCT] = 2;  // don't break clause before announcing . ? !
@@ -942,7 +946,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
 			tr->langopts.max_initial_consonants = 6;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
-//	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
+		//	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		}
 		break;
 
@@ -954,7 +958,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_id,stress_amps_id);
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_ROMAN;
-			tr->langopts.stress_flags =  0x6 | 0x10;
+			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.accents = 2;  // "capital" after letter name
 		}
 		break;
@@ -966,7 +970,7 @@ SetLengthMods(tr,3);  // all equal
 
 			SetupTranslator(tr,stress_lengths_is,NULL);
 			tr->langopts.stress_rule = STRESSPOSN_1L;
-			tr->langopts.stress_flags = 0x10;
+			tr->langopts.stress_flags = S_FINAL_NO_2;
 			tr->langopts.param[LOPT_IT_LENGTHEN] = 0x11;    // remove lengthen indicator from unstressed vowels
 			tr->langopts.param[LOPT_REDUCE] = 2;
 
@@ -989,7 +993,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = STRESSPOSN_2R;
-			tr->langopts.stress_flags = 0x10 | S_PRIORITY_STRESS;
+			tr->langopts.stress_flags = S_FINAL_NO_2 | S_PRIORITY_STRESS;
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.unstressed_wd1 = 2;
 			tr->langopts.unstressed_wd2 = 2;
@@ -1024,8 +1028,9 @@ SetLengthMods(tr,3);  // all equal
 		{
 			// character codes offset by 0x1080
 			static const char ka_vowels[] = {0x30,0x34,0x38,0x3d,0x43,0x55,0x57,0};
-			static const char ka_consonants[] = {0x31,0x32,0x33,0x35,0x36,0x37,0x39,0x3a,0x3b,0x3c,0x3e,0x3f,
-                0x40,0x41,0x42,0x44,0x45,0x46,0x47,0x48,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
+			static const char ka_consonants[] =
+				{0x31,0x32,0x33,0x35,0x36,0x37,0x39,0x3a,0x3b,0x3c,0x3e,0x3f,0x40,0x41,0x42,0x44,
+				0x45,0x46,0x47,0x48,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0x50,0x51,0x52,0x53,0x54,0x56,0};
 			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBits(tr,LETTERGP_A,ka_vowels);
@@ -1149,7 +1154,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.spelling_stress = 1;
 			tr->charset_a0 = charsets[4];   // ISO-8859-4
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_4 | NUM_ORDINAL_DOT;
-			tr->langopts.stress_flags = 0x16 + 0x40000;
+			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_EO_CLAUSE1;
 		}
 		break;
 
@@ -1496,14 +1501,14 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('t','t'):   // Tatar
-      {
+		{
 			SetCyrillicLetters(tr);
 			SetupTranslator(tr,stress_lengths_fr,stress_amps_fr);
 			tr->langopts.stress_rule = STRESSPOSN_1R;      // stress on final syllable
 			tr->langopts.stress_flags = S_NO_AUTO_2;  //no automatic secondary stress
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_4;
-      }
-      break;
+		}
+		break;
 
 	case L('u','k'):   // Ukrainian
 		{
@@ -1513,10 +1518,12 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('u','r'):   // Urdu
+		{
 			tr->letter_bits_offset = OFFSET_ARABIC;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 			tr->langopts.numbers = NUM_SWAP_TENS;
 			tr->langopts.break_numbers = 0x52a8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
+		}
 		break;
 
 	case L('v','i'):  // Vietnamese

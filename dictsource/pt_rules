@@ -361,10 +361,8 @@
  _soub) e (L05_    E
  _rend) e (L06_    e
  _vend) e (L06_    e
-_atend) e (L06_    e
+  tend) e (L06_    e         / a- con- en- es-
 _compreend) e (L06_ e
-_entend) e (L06_   e
-_estend) e (L06_   e
 respond) e (L06_   e         // cor-
 _enraivec) e (L07_ e
 _espairec) e (L07_ e
@@ -383,6 +381,8 @@ _espairec) e (L07_ e
   vert) e (L07_    e         // in- re- con-
  _eleg) e (L07_    e
  _ergu) e (L07_    e
+_escond) e (L06_   e
+ _mord) e (L06_    e
  _mord) e (L07_    e
  _morr) e (L07_    e
  _perd) e (L07_    e
@@ -396,9 +396,12 @@ _adormec) e (L07_  e
 _agradec) e (L07_  e
 _amanhec) e (L07_  e
 _anoitec) e (L07_  e
+_arrepend) e (L06_ e
 _arrepend) e (L07_ e
 _cresc) e (L07_    e
+_defend) e (L06_   e
 _defend) e (L07_   e
+_depend) e (L06_   e
 _depend) e (L07_   e
 _emagrec) e (L07_  e
 _enlouquec) e (L07_ e
@@ -410,17 +413,19 @@ _escond) e (L07_   e
 _escurec) e (L07_  e
 _esquec) e (L07_   e
 _interromp) e (L07_ e
-_obedec) e (L07_   e
+obedec) e (L07_    e         / des-
+_suspend) e (L07_  e
 _perec) e (L07_    e
 _rejuvenec) e (L07_ e
 aprend) e (L07_    e         // re-
 conhec) e (L07_    e         // & re- des-
-entend) e (L07_    e
+  tend) e (L07_    e         / en-  con- a- es-
 preend) e (L07_    e         // sur- com-
 respond) e (L07_   e         // cor-
     qu) e (brL04_  E
   acel) e (rL04_   E         / des-
  _hosp) e (dL03_   E
+_amort) e (çL03_   e
    _in) e (ptL03_  E
    _gr) e (gL03_   e
     _n) e (grL03_  e
@@ -486,7 +491,7 @@ _emagr) e (çL03
   _aqu) e (çL03_   e
   _car) e (çL03_   e
   _mer) e (çL03_   e
-  _pad) e (çL03_   e         // com-
+   pad) e (çL03_   e         // com-
   _per) e (çL03_   e
   conh) e (çL03_   e         // re-
  _esqu) e (çL03_   e

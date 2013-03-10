@@ -1690,6 +1690,9 @@ include ph_afrikaans
 phonemetable cy base
 include ph_welsh
 
+phonemetable ga base
+include ph_irish
+
 phonemetable de base
 include ph_german
 
@@ -1714,6 +1717,9 @@ include ph_french
 phonemetable fr-ca fr
 include ph_french_ca
 
+phonemetable nl base
+include ph_dutch
+
 
 phonemetable hi base
 include ph_hindi
@@ -1727,6 +1733,9 @@ include ph_nepali
 phonemetable ur hi
 include ph_urdu
 
+phonemetable pa hi
+include ph_punjabi
+
 phonemetable ta hi
 include ph_tamil
 
@@ -1735,6 +1744,7 @@ include ph_kannada
 
 phonemetable ml hi
 include ph_malayalam
+
 
 
 phonemetable hu base
@@ -1746,9 +1756,6 @@ include ph_lithuanian
 
 phonemetable lv base
 include ph_latvian
-
-phonemetable nl base
-include ph_dutch
 
 phonemetable pl base
 include ph_polish
@@ -1854,6 +1861,9 @@ include ph_danish
 phonemetable ka base
 include ph_georgian
 
+phonemetable fa base
+include ph_farsi
+
 
 //**************************************************************************************
 // The following lines are experimental, for future additions.
@@ -1871,9 +1881,6 @@ include ph_kinyarwanda
 
 //phonemetable mn base
 //include ph_mongolian
-
-phonemetable pa hi
-include ph_punjabi
 
 phonemetable prs base
 include ph_dari
@@ -1924,12 +1931,6 @@ include ph_tibetan
 phonemetable kk base
 include ph_kazakh
 
-phonemetable fa base
-include ph_farsi
-
-phonemetable ga base
-include ph_irish
-
 phonemetable tt base
 include ph_tatar
 
@@ -1938,4 +1939,5 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
+
 

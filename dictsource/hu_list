@@ -409,7 +409,7 @@ _tld	tildE
 
 // characters
 _#9	tAb
-_#32 	so:kYz
+_#32 	s'o:kYz
 _cap	n'AJ_|
 _??	kAR2AktEr||ko:d      // unknown characters (change this)
 
@@ -5382,7 +5382,7 @@ _¤	pe:nznEmjEl
 ®	bEjEJzEt:
 ™	ve:djEJ
 _`	tompA
-_ 	so:kYz
+_ 	s'o:kYz
 _«	bElSY:|bAl|ide:zY:jEl
 _»	bElSY:|jobb|ide:zY:jEl
 _­	la:JkYtY:jEl
@@ -5423,8 +5423,9 @@ _¡	AlSo:indEks
 
 // Alphabets
 _ar	'AR2Ab
-_cry	ts'iR2ill
+_cyr	ts'iR2ill
 _he	h'e:bER2
+_zh	k'i:nAi
 
 
 // Main Exceptions List

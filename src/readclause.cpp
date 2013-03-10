@@ -842,14 +842,13 @@ static int LoadSoundFile2(const char *fname)
 
 
 static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output, int *bufix, int end_clause)
-{//==========================================================================================================
+{//=============================================================================================================
 	// announce punctuation names
 	// c1:  the punctuation character
 	// c2:  the following character
 
 	int punct_count;
-	const char *punctname;
-	int found = 0;
+	const char *punctname = NULL;
 	int soundicon;
 	int attributes;
 	int short_pause;
@@ -858,6 +857,7 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 	int bufix1;
 	char buf[200];
 	char buf2[80];
+	char ph_buf[30];
 
 	c2 = *c2_ptr;
 	buf[0] = 0;
@@ -867,12 +867,24 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 		// add an embedded command to play the soundicon
 		sprintf(buf,"\001%dI ",soundicon);
 		UngetC(c2);
-		found = 1;
 	}
 	else
-	if((punctname = LookupCharName(tr, c1, 0)) != NULL)
 	{
-		found = 1;
+		if((c1 == '.') && (end_clause) && (c2 != '.'))
+		{
+			if(LookupSpecial(tr, "_.p", ph_buf))
+			{
+				punctname = ph_buf;  // use word for 'period' instead of 'dot'
+			}
+		}
+		if(punctname == NULL)
+		{
+			punctname = LookupCharName(tr, c1, 0);
+		}
+
+		if(punctname == NULL)
+			return(-1);
+
 		if((*bufix==0) || (end_clause ==0) || (tr->langopts.param[LOPT_ANNOUNCE_PUNCT] & 2))
 		{
 			punct_count=1;
@@ -931,9 +943,6 @@ static int AnnouncePunctuation(Translator *tr, int c1, int *c2_ptr, char *output
 			buf[1] = 0;
 		}
 	}
-
-	if(found == 0)
-		return(-1);
 
 	bufix1 = *bufix;
 	len = strlen(buf);

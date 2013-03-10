@@ -30,20 +30,20 @@ _2        d'u:,i:
 _3        t'i:n
 _4        c'a:r:
 _5        p'a:nc
-_6        ch'@2
+_6        c#'@2
 _7        s'a:t
-_8        'a:th.
+_8        'a:t.#
 _9        n'V'u:
 
 _10       d'Vs
-_11       e:'gh'a:r'V
+_11       e:'g#'a:r'V
 _12       b'a:r@2
 _13       t'e:hr@
-_14       ch'O:d@2
+_14       c#'O:d@2
 _15       p'Vndr@2
 _16       s'o:r@2
 _17       s'Vtr@2
-_18       a'th.'a:r@2
+_18       a't.#'a:r@2
 _19       U:nn'a:i's
 _20       b'i:s
 
@@ -52,9 +52,9 @@ _22       b'a:Is
 _23       t'e:Is
 _24       c'O:b'Is
 _25       p@c:'Is
-_26       ch@b'b'i:s
+_26       c#@b'b'i:s
 _27       s@t:'a:Is
-_28       ath:'a:Is
+_28       at#:'a:Is
 _29       U:n'Vnt'Is
 _30       t'i:s
 
@@ -63,7 +63,7 @@ _32       b'at:'Is
 _33       t'e:t't'i:s      
 _34       cO~,t'I:s
 _35       pE~t'Is
-_36       ch@:t't'I:s
+_36       c#@:t't'I:s
 _37       sE~t'Is
 _38       art'Is
 _39       U:n'an'c'a:l'i:s 
@@ -74,9 +74,9 @@ _42       baIa:l'Is
 _43       t'ri:c'a:l'i:s
 _44       cO:wa:l'Is
 _45       paI'nta:l'Is
-_46       chhIja:l'Is
+_46       c#hIja:l'Is
 _47       s@'d.cta:l'Is
-_48       a'th.'c'a:l'Is
+_48       a't.#'c'a:l'Is
 _49       U'n'an'c'a:s
  :
 _50       p@c'a:s
@@ -85,20 +85,20 @@ _52       b'a:wVn'n:'V
 _53       t'rI:p'an'nV
 _54       c'Ou:wVn'nV
 _55       p'ac'pVn'nV
-_56       chh@p:'Vn'nV
+_56       c#h@p:'Vn'nV
 _57       s'Vn't:'a:w@n'n':V
-_58       a'nth:'a:w@n'n':V
-_59       U'n'Vn's'a:th.i:
+_58       a'nt#:'a:w@n'n':V
+_59       U'n'Vn's'a:t.#i:
 
-_60       s'a:th.i:
-_61       e:k'as@th.'th.i:
-_62       b'E:s@th.':th.'i:
-_63       t'r'i:,s@th.'th.'i:
-_64       c'O:s@th.'th.'i:
-_65       p'E~'s@th.'th.'i:
-_66       ch'E's@th.'th.'i:
-_67       s'Vt's@th.'th.'i:
-_68       a'th.,s@th.'th.'i:
+_60       s'a:t.#i:
+_61       e:k'as@t.#'t.#i:
+_62       b'E:s@t.#':t.#'i:
+_63       t'r'i:,s@t.#'t.#'i:
+_64       c'O:s@t.#'t.#'i:
+_65       p'E~'s@t.#'t.#'i:
+_66       c#'E's@t.#'t.#'i:
+_67       s'Vt's@t.#'t.#'i:
+_68       a't.#,s@t.#'t.#'i:
 _69       U:n'an's'Vtt'ar'i:
 
 _70       s'at't@r'i::
@@ -106,10 +106,10 @@ _71       e:k'ah'at:'Vr:
 _72       b@h'att'Vr:
 _73       tIjatt:'Vr:
 _74       cO:hat:'Vr:
-_75       pach,at:'Vr:
-_76       ch@'j'ah'at't'Vr:
+_75       pac#,at:'Vr:
+_76       c#@'j'ah'at't'Vr:
 _77       s@t@hatt:'Vr:
-_78       athhatt:'Vr:
+_78       at#hatt:'Vr:
 _79       U'n'a:s'i: 
 
 _80       a's's'i:
@@ -118,9 +118,9 @@ _82       baIa:s'i:
 _83       trIj'a:s'i:
 _84       cO:ra:s'i:
 _85       p'ac'a:s'i:
-_86       ch@j'a:s'i:
+_86       c#@j'a:s'i:
 _87       s'V:t'a:s'i:
-_88       a'th.:a:s'i:
+_88       a't.#:a:s'i:
 _89       u:n'a:n'ab'b'e:
 
 _90       n@b'b'e:
@@ -129,24 +129,24 @@ _92       b'aj'a:n@b'b'e:
 _93       trIj'a:n@b'b'e:
 _94       cO:r'a:n@b'b'e:
 _95       p@n'c'a:n@b'b'e:
-_96       ch@j'a:n@b'b'e:
+_96       c#@j'a:n@b'b'e:
 _97       s@n't:'a:n@b'b'e:
-_98       a'n'th.'a:n@b'b'e:
+_98       a'n't.#'a:n@b'b'e:
 _99       U:n'n'a:nsh@je:
 
 _0C            s'aj@
 _0M1	h@z'a:r@
-_0M2	l'a:kh@
+_0M2	l'a:k#@
 _0M3	k'a'ro:d.@ 
 _0M4	'Vr@b
-_0M5	kh'Vr@b'V
+_0M5	k#'Vr@b'V
 _0M6	n'i:l'	
 _0M7	p'Vd'm@
-_0M8	sh'an,kh@
-_0M9	m'ah'a:,sh'ankh@
-_0M10	p@r'a:rrd:dh@
+_0M8	sh'an,k#@
+_0M9	m'ah'a:,sh'ank#@
+_0M10	p@r'a:rrd:d#@
 
-_dpt	_th'o:plo_
+_dpt	_t#'o:plo_
         
 //	Symbols in Nepali
 
@@ -157,34 +157,34 @@ _dpt	_th'o:plo_
 	// Single consonants
 क      k@
 क़      q@
-ख      kh@
+ख      k#@
 ख़      x@
 ग      g@
 ग़      Q@
-घ      gh@
+घ      g#@
 ङ      N@
 च      c@
-छ      ch@
+छ      c#@
 ज      J@
 ज़      z@
-झ      Jh@
+झ      J#@
 ञ      n^@
 ट      t.@
-ठ      th.@
+ठ      t.#@
 ड      d.@
 ड़      r.@
-ढ      dh.@
+ढ      d.#@
 ण      n.@  // retroflex n.@
 त      t@
-थ      th@
+थ      t#@
 द      d@
-ध      dh@
+ध      d#@
 न      n@
 प      p@
-फ      ph@
+फ      p#@
 फ़      f@
 ब      b@
-भ      bh@
+भ      b#@
 म      m@
 य      j@
 र      r@
@@ -222,17 +222,17 @@ _dpt	_th'o:plo_
 पो	$u  	$pause
 हो	$u  	$brk
 के	k'e,:  	$brk
-दुःख	d'u,,kh@
-सुख	s'u=kh@
+दुःख	d'u,,k#@
+सुख	s'u=k#@
 जव	J'Vv@
 राष्ट्रिय 	r'a:S,t.rI:j@2	$2
  सित	s'it@
  होइन	h'oi:n@2
- भएन	bh'Vj'en@2	
+ भएन	b#'Vj'en@2	
  गएन	g'Vj'en@2
- खाएन	khaj'en@2
+ खाएन	k#aj'en@2
  दिएन	d'ij'en@2
-छुन	ch'un'@
+छुन	c#'un'@
 बाट	b'a:t.@
 अथवा	$pause
 वा	$pause

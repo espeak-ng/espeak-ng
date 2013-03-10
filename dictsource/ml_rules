@@ -36,16 +36,16 @@
         ക്ക (B       k:
 
 .group ഖ
-        ഖ          kha
-        ഖ (B       kh
+        ഖ          k#a
+        ഖ (B       k#
 
 .group ഗ
         ഗ          ga
         ഗ (B       g
 
 .group ഘ
-        ഘ          gha
-        ഘ (B       gh
+        ഘ          g#a
+        ഘ (B       g#
 
 .group ങ
         ങ          Na
@@ -56,16 +56,16 @@
         ച (B       c
 
 .group ഛ
-        ഛ          cha
-        ഛ (B       ch
+        ഛ          c#a
+        ഛ (B       c#
 
 .group ജ
         ജ          Ja
         ജ (B       J
 
 .group ഝ
-        ഝ          Jha
-        ഝ (B       Jh
+        ഝ          J#a
+        ഝ (B       J#
 
 .group ഞ
         ഞ          n^a
@@ -81,16 +81,16 @@
         ട്ട (B       t.:
 
 .group ഠ
-        ഠ          th.a
-        ഠ (B       th.
+        ഠ          t.#a
+        ഠ (B       t.#
 
 .group ഡ
         ഡ          d.a
         ഡ (B       d.
 
 .group ഢ
-        ഢ          dh.a
-        ഢ (B       dh.
+        ഢ          d.#a
+        ഢ (B       d.#
 
 .group ണ
         ണ          n.a
@@ -106,16 +106,16 @@
         ത്ത (B       t:
 
 .group ഥ
-        ഥ          tha
-        ഥ (B       th
+        ഥ          t#a
+        ഥ (B       t#
 
 .group ദ
         ദ          da
         ദ (B       d
 
 .group ധ
-        ധ          dha
-        ധ (B       dh
+        ധ          d#a
+        ധ (B       d#
 
 .group ന
         ന          na
@@ -131,8 +131,8 @@
         പ്പ (B       p:
 
 .group ഫ
-        ഫ          pha
-        ഫ (B       p
+        ഫ          p#a
+        ഫ (B       p#
 
  _പ്രൊ) ഫ (സര്     fa
 
@@ -142,8 +142,8 @@
         ബ (B       b
 
 .group ഭ
-        ഭ          bha
-        ഭ (B       bh
+        ഭ          b#a
+        ഭ (B       b#
 
 .group മ
         മ          ma
@@ -160,7 +160,7 @@
 .group റ
         റ          R2a
         റ (B       R2
-    ന്) റ          d#
+    ന്) റ          d2
         റ്റ        t.t.      // ?? R2R2 = t.t.
 
 .group ല

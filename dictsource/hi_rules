@@ -172,8 +172,8 @@
         क़ (B      q
 
 .group ख
-        ख          khV
-        ख (B       kh
+        ख          k#V
+        ख (B       k#
         ख़         xV
         ख़ (B      x
 
@@ -184,8 +184,8 @@
         ग़ (B      Q
 
 .group घ
-        घ          ghV
-        घ (B       gh
+        घ          g#V
+        घ (B       g#
 
 .group ङ
         ङ          NV
@@ -198,8 +198,8 @@
         च (्य      c:
 
 .group छ
-        छ          chV
-        छ (B       ch
+        छ          c#V
+        छ (B       c#
 
 .group ज
         ज          JV
@@ -208,8 +208,8 @@
         ज़ (B      z
 
 .group झ
-        झ          JhV
-        झ (B       Jh
+        झ          J#V
+        झ (B       J#
 
 .group ञ
         ञ          n^V
@@ -222,8 +222,8 @@
         ट (्य      t.:
 
 .group ठ
-        ठ          th.V
-        ठ (B       th.
+        ठ          t.#V
+        ठ (B       t.#
 
 .group ड
         ड          d.V
@@ -233,8 +233,8 @@
         ड़ (B      r.
 
 .group ढ
-        ढ          dh.V
-        ढ (B       dh.
+        ढ          d.#V
+        ढ (B       d.#
         ढ़         r.hV      // nukta  (should retroflex flap)
         ढ़ (B      r.h       // nukta
 
@@ -249,16 +249,16 @@
         त (्य      t:
 
 .group थ
-        थ          thV
-        थ (B       th
+        थ          t#V
+        थ (B       t#
 
 .group द
         द          dV
         द (B       d
 
 .group ध
-        ध          dhV
-        ध (B       dh
+        ध          d#V
+        ध (B       d#
 
 .group न
         न          nV
@@ -276,8 +276,8 @@
         प (्य      p:
 
 .group फ
-        फ          phV
-        फ (B       ph
+        फ          p#V
+        फ (B       p#
         फ़         fV
         फ़ (B      f
 
@@ -286,8 +286,8 @@
         ब (B       b
 
 .group भ
-        भ          bhV
-        भ (B       bh
+        भ          b#V
+        भ (B       b#
 
 .group म
         म          mV
