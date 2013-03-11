@@ -56,7 +56,7 @@
 #define EMBED_A     3   // amplitude/volume
 #define EMBED_R     4   // pitch range/expression
 #define EMBED_H     5   // echo/reverberation
-#define EMBED_T     6   // different tone for announcing punctuation
+#define EMBED_T     6   // different tone for announcing punctuation (not used)
 #define EMBED_I     7   // sound icon
 #define EMBED_S2    8   // speed (used in synthesize)
 #define EMBED_Y     9   // say-as commands
@@ -223,6 +223,7 @@ typedef struct {
 #ifdef _ESPEAKEDIT
 	unsigned char std_length;
 	unsigned int phontab_addr;
+	int sound_param;
 #endif
 } PHONEME_LIST;
 

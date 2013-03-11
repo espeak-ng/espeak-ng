@@ -478,7 +478,7 @@ phoneme k
 endphoneme
 
 phoneme k#
-  import_phoneme consonants/kh
+  import_phoneme consonants/k#
   voicingswitch g#
 endphoneme
 

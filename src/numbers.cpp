@@ -578,6 +578,7 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 }  // end of LookupLetter
 
 
+static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'Ef"};  // using phonemes available to all languages
 
 int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 {//=========================================================================
@@ -593,6 +594,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	char *p2;
 	char *pbuf;
 	ALPHABET *alphabet;
+	int al_offset;
+	int al_flags;
 	int language;
 	int phontab_1;
 	int speak_letter_number;
@@ -633,14 +636,21 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		return(0);
 	}
 
-	alphabet = AlphabetFromChar(letter);
+	al_offset = 0;
+	al_flags = 0;
+	if((alphabet = AlphabetFromChar(letter)) != NULL)
+	{
+		al_offset = alphabet->offset;
+		al_flags = alphabet->flags;
+	}
+
 	if(alphabet != current_alphabet)
 	{
 		// speak the name of the alphabet
 		current_alphabet = alphabet;
-		if((alphabet != NULL) && !(alphabet->flags & AL_DONT_NAME) && (alphabet->offset != translator->letter_bits_offset))
+		if((alphabet != NULL) && !(al_flags & AL_DONT_NAME) && (al_offset != translator->letter_bits_offset))
 		{
-			if((alphabet->flags & AL_DONT_NAME) || (alphabet->offset == translator->langopts.alt_alphabet))
+			if((al_flags & AL_DONT_NAME) || (al_offset == translator->langopts.alt_alphabet))
 			{
 				// don't say the alphabet name
 			}
@@ -680,7 +690,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 	if(ph_buf[0] == 0)
 	{
-		if((alphabet != NULL) && (alphabet->language != 0) && !(alphabet->flags & AL_NOT_LETTERS))
+		if((alphabet != NULL) && (alphabet->language != 0) && !(al_flags & AL_NOT_LETTERS))
 			language = alphabet->language;
 		else
 			language = L('e','n');
@@ -715,49 +725,27 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	if(ph_buf[0] == 0)
 	{
 		// character name not found
-		if((letter >= 0x2800) && (letter <= 0x28ff))
-		{
-			// braille dots symbol
-			Lookup(translator, "_braille", ph_buf);
-			if(ph_buf[0] == 0)
-			{
-				EncodePhonemes("br'e:l", ph_buf, NULL);
-			}
-
-			if(ph_buf[0] != 0)
-			{
-				pbuf = ph_buf + strlen(ph_buf);
-				for(ix=0; ix<8; ix++)
-				{
-					if(letter & (1 << ix))
-					{
-						*pbuf++ = phonPAUSE_VSHORT;
-						LookupLetter(translator, '1'+ix, 0, pbuf, 1);
-						pbuf += strlen(pbuf);
-					}
-				}
-			}
-		}
 
 		if(ph_buf[0]== 0)
 		{
-			if(iswalpha(letter))
-				Lookup(translator, "_?A", ph_buf);
-
-			if((ph_buf[0]==0) && !iswspace(letter))
-				Lookup(translator, "_??", ph_buf);
-
 			speak_letter_number = 1;
-			if(ph_buf[0] == 0)
+			if(!(al_flags & AL_NO_SYMBOL))
 			{
-				EncodePhonemes("l'et@", ph_buf, NULL);
-				if(translator->letter_bits_offset != 0)
-					speak_letter_number = 0;   // non-latin alphabet, no _?? entry, may not be able to speak hexadecimal
+				if(iswalpha(letter))
+					Lookup(translator, "_?A", ph_buf);
+
+				if((ph_buf[0]==0) && !iswspace(letter))
+					Lookup(translator, "_??", ph_buf);
+
+				if(ph_buf[0] == 0)
+				{
+					EncodePhonemes("l'et@", ph_buf, NULL);
+				}
 			}
 
-			if(!(control & 2) && (alphabet != NULL) && (alphabet->flags & AL_NOT_CODE))
+			if(!(control & 2) && (al_flags & AL_NOT_CODE))
 			{
-				// don't speak the character code number
+				// don't speak the character code number, unless we want full details of this character
 				speak_letter_number = 0;
 			}
 
@@ -766,14 +754,36 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 			if(speak_letter_number)
 			{
-				// speak the hexadecimal number of the character code
-				sprintf(hexbuf,"%x",letter);
+				if(al_offset == 0x2800)
+				{
+					// braille dots symbol, list the numbered dots
+					p2 = hexbuf;
+					for(ix=0; ix<8; ix++)
+					{
+						if(letter & (1 << ix))
+						{
+							*p2++ = '1'+ix;
+						}
+					}
+					*p2 = 0;
+				}
+				else
+				{
+					// speak the hexadecimal number of the character code
+					sprintf(hexbuf,"%x",letter);
+				}
+
 				pbuf = ph_buf;
 				for(p2 = hexbuf; *p2 != 0; p2++)
 				{
 					pbuf += strlen(pbuf);
 					*pbuf++ = phonPAUSE_VSHORT;
 					LookupLetter(translator, *p2, 0, pbuf, 1);
+					if(((pbuf[0] == 0) || (pbuf[0]==phonSWITCH)) && (*p2 >= 'a'))
+					{
+						// This language has no translation for 'a' to 'f', speak English names using base phonemes
+						EncodePhonemes(hex_letters[*p2 - 'a'], pbuf, NULL);
+					}
 				}
 				strcat(pbuf, pause_string);
 			}

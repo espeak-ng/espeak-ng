@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.46.45  10.Mar.13";
+const char *version_string = "1.46.46  11.Mar.13";
 const int version_phdata  = 0x014640;
 
 int option_device_number = -1;
@@ -1225,9 +1225,15 @@ void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_
 #ifdef _ESPEAKEDIT
     plist->std_length = phdata->pd_param[i_SET_LENGTH];
     if(phdata->sound_addr[0] != 0)
+    {
         plist->phontab_addr = phdata->sound_addr[0];  // FMT address
+        plist->sound_param = phdata->sound_param[0];
+    }
     else
+    {
         plist->phontab_addr = phdata->sound_addr[1];  // WAV address
+        plist->sound_param = phdata->sound_param[1];
+	}
 #endif
 }  // end of InterpretPhoneme
 
