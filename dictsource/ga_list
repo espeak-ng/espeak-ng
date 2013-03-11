@@ -9,25 +9,26 @@
 // precede by _  to distinguish from pronunciation as a language word
 
 _a	eI
-b	bi:
+b	bi: $atend
+?1 bh	v	// eclipsis
 c	si:
-d	di:
+d	di: $atend
 e	i:
 f	Ef
-g	dZi:
-h	eItS
+g	dZi: $atend
+h	eItS $atend
 _i	aI
 j	dZeI
 k	keI
 l	El
-m	Em
-n	En
+m	Em $atend
+n	En $atend
 _o	oU
 p	pi:
 q	kju:
 r	ar
 s	Es
-t	ti:
+t	ti: $atend
 u	ju:
 v	vi:
 w	d'O#b@lju:

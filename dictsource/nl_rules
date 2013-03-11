@@ -254,12 +254,14 @@
           @) es (_S2qd    'Es   // double the previous vowel
           @) es (_$w_alt2S1 s   // just remove 's'
         KAC) es (_S2e     @s
+             es (ie_      e:z
           @) essen (_S5qd 'Es@n
           @) eres (_S4qd  @r'Es
           @) eressen (_S7sq @r'Es@n
           @) etten (_S3   @n 
           @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
-
+          @) esisch      'e:zis
+             
              euille       @'y
              eum (_$w_alt 'e:8m
        @mus) eum (_       ,e:8m  // compounds
@@ -370,6 +372,7 @@
           m) ie (_        'i
           p) ie (_        'i
          ss) ie (_        =i
+          s) ië (_        =i@
              ieus (_      ij'Y:s
              ieuze (_     ij'Y:z@
              ieuzer (_    ij'Y:z@r
@@ -393,6 +396,9 @@
              ie (CtjeX_   'i
              ie (ren_     'i
              ie (rd_      'i
+             iën (_       'i@n
+       CAns) ie (_        =i
+       CAss) ie (_        =i
           @) ig (_S2dq    =@x
           @) ige (_S3dq   =@Q@
           @) igen (_      =@Q@n
@@ -409,6 +415,9 @@
           &) iko (_       =iko:
           _) in (C@P2     'In
 //        _) in (gP2      'In
+          _) in (do       In
+             ine (_       'in@
+             ines (_      'in@s
              io (nage     iO
              io (de_       i'o:
              iodes (_      i'o:d@s
@@ -532,7 +541,6 @@ _) inn (@P2 'I    // ?? inneren
          pl) oi (t        v#A
           c) oi (ffu      v#A
          pr) o (gram      o:
-          _) on (@P2      %On
              oo (X        'o:
              oon          'o:n  // in compounds, eg. telefoongesprek
              oo (C_       'o:
@@ -555,6 +563,7 @@ _) inn (@P2 'I    // ?? inneren
 
 
 .group on
+          _) on (@P2      %On
           _) onaan (@P5   On'a:n
           _) onder (@P5   'Ond@r
           _) onge (@P4    ,OnQ@
@@ -576,6 +585,7 @@ _) inn (@P2 'I    // ?? inneren
           _) onge (nade   OnQ@
           _) onge (rief   OnQ@
           _) onge (val    OnQ@
+
 
 
 
@@ -653,6 +663,7 @@ _) inn (@P2 'I    // ?? inneren
           @) si (o        S
           A) si (o        Z
           @) ssi (o       S
+        CAr) sie (_       =zi
 
           _) standaard (@P9 st'Anda:rt
           @) straat (_S6 stra:t
@@ -727,6 +738,7 @@ _) inn (@P2 'I    // ?? inneren
              uw (_        yU
 
           _) uit (@P3      'Wyt
+             uul (_       'yl  // from -ule
              us (_        8s
              u (sie_      'y
           @) ute (_       'yt

@@ -224,6 +224,7 @@ void ProsodyDisplay::SelectPh(int index)
 	const char *name = "?";
 	char buf[120];
 	char len_string[20];
+	char param_string[20];
 
 	if(index < 0) return;
 
@@ -245,11 +246,14 @@ void ProsodyDisplay::SelectPh(int index)
 	y1 = p->pitch1;
 	y2 = p->pitch2;
 	len_string[0] = 0;
+	param_string[0] = 0;
 	if(p->std_length > 0)
         sprintf(len_string,"  Length %d", p->std_length*2);
+	if(p->sound_param != 0)
+		sprintf(param_string,", %d", p->sound_param);
 
-	sprintf(buf,"Stress %s%d   Amp %2d   LengthMod %2d   Pitch %3d %3d  %s    PhFlags %.2x    [%s%s]",
-		emphasized,p->stresslevel&0x7,p->amp, p->length,y1,y2,name,p->ph->phflags, LookupManifest(p->phontab_addr), len_string);
+	sprintf(buf,"Stress %s%d   Amp %2d   LengthMod %2d   Pitch %3d %3d  %s    PhFlags %.2x    (%s%s)%s",
+		emphasized,p->stresslevel&0x7,p->amp, p->length,y1,y2,name,p->ph->phflags, LookupManifest(p->phontab_addr), param_string, len_string);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 

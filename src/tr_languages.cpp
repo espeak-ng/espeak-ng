@@ -94,6 +94,7 @@ ALPHABET alphabets [] = {
     {"_ka",    OFFSET_GEORGIAN, 0x10a0,0x10ff, L('k','a'), AL_WORDS},
     {"_ko",    OFFSET_KOREAN,   0x1100,0x11ff, 0, 0},
     {"_eth",   OFFSET_ETHIOPIC, 0x1200,0x139f, 0, 0},
+    {"_braille", 0x2800,        0x2800,0x28ff, 0, AL_NO_SYMBOL},
     {"_ja",    0x3040,          0x3040,0x30ff, 0, AL_NOT_CODE},
     {"_zh",    0x3100,          0x3100,0x9fff, 0, AL_NOT_CODE},
     {NULL, 0, 0, 0, 0, 0}

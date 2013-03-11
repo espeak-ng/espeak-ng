@@ -218,3 +218,19 @@ phoneme *
 endphoneme
 
 
+
+// testing
+phoneme x2
+  import_phoneme af/x2
+endphoneme
+
+phoneme x3
+  import_phoneme base/x
+endphoneme
+
+phoneme R1
+  import_phoneme base/R
+endphoneme
+
+
+

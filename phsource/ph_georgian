@@ -77,9 +77,9 @@ phoneme k#
   IF nextPhW(#e) OR nextPhW(#i) THEN
     WAV(ustop/k_asp_e, 40)
   ELIF nextPhW(#o) OR nextPhW(#u) THEN
-    WAV(ustop/k_asp_u, 50)
+    WAV(ustop/k_asp_u, 30)
   ELSE
-    WAV(ustop/k_asp_a, 45)
+    WAV(ustop/k_asp_a, 35)
   ENDIF
 endphoneme
 

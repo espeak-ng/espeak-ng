@@ -319,18 +319,19 @@ umas	$u	$nounf
 
 // pronouns
 eu	$u+	$verbf
-tu	$u+
-você	vose	$u2+
-ele	'ely	$u+
-ela	$u+
-nós	$u+
-vós	$u+
-vocês	$u2+
-eles	$u+
-elas	$u+
+tu	$u+	$verbf
+você	vose	$u2+	$verbf
+ele	'ely	$u+	$verbf
+ela	$u+	$verbf
+nós	$u+	$verbf
+vós	$u+	$verbf
+vocês	$u2+	$verbf
+eles	$u+	$verbf
+elas	$u+	$verbf
 
 me	$u	// reflexive
-te	$u 
+me	$u	$verbf
+te	$u	$verbf
 nos	$u	$nounf
 la	$u
 lo	$u
@@ -743,9 +744,12 @@ corvos		$alt
 coto		$alt2
 cratera		$alt
 crede		$alt2
+decore		$alt
 desapego	$alt2 $noun
 descabelo	$alt
 descordo	$alt
+desemprego	$alt2
+desemprego	$alt $verb
 desespero	$alt2 $noun
 desfecho	$alt2
 desprezo	$alt2 $noun
@@ -854,6 +858,7 @@ jogo	$alt2 $noun
 joguete		$alt2
 lambreta	$alt2
 lebre		$alt
+leste		$alt2 $verb
 lopes		$alt
 maior	$alt
 maleta		$alt2
@@ -918,6 +923,7 @@ paralelo	$alt
 parede		$alt2
 pastora		$alt2
 pedra		$alt
+pela		$alt $verb
 pelego		$alt2
 pelo		$alt  $verb
 peso		$alt $verb
@@ -986,7 +992,9 @@ sufocos		$alt2
 suporto		$alt
 suor		swOr
 tapete		$alt2
+temores	$alt2
 tempero		$alt2 $noun
+terrores	$alt2
 teta		$alt2
 tetra		$alt
 tocha		$alt

@@ -120,6 +120,23 @@ phoneme kh
   WAV(ustop/k_asp, 90)
 endphoneme
 
+phoneme k#
+  vls vel stop
+  lengthmod 2
+  voicingswitch g
+  Vowelin f1=1  f2=1400 -100 100  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_asp, 40)
+  ENDIF
+  IF nextPhW(#e) OR nextPhW(#i) THEN
+    WAV(ustop/k_asp_e, 40)
+  ELIF nextPhW(#o) OR nextPhW(#u) THEN
+    WAV(ustop/k_asp_a, 25)
+  ELSE
+    WAV(ustop/k_asp_a, 30)
+  ENDIF
+endphoneme
 
 phoneme s2  // second part of a long [s:]
   vls alv frc sibilant

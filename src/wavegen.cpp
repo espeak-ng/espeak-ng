@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -244,7 +244,7 @@ static unsigned char wavemult[N_WAVEMULT] = {
    105, 98, 90, 83, 76, 69, 62, 55, 49, 43, 37, 32, 27, 22, 18, 14,
     11,  8,  5,  3,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
      0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 };
- 
+
 
 // set from y = pow(2,x) * 128,  x=-1 to 1
 unsigned char pitch_adjust_tab[MAX_PITCH_VALUE+1] = {
@@ -592,7 +592,7 @@ static PaError Pa_OpenDefaultStream2( PaStream** stream,
 		hostApiOutputParameters.device = Pa_GetDefaultOutputDevice();
 
 	if( hostApiOutputParameters.device == paNoDevice )
-		return paDeviceUnavailable; 
+		return paDeviceUnavailable;
 
 	hostApiOutputParameters.channelCount = outputChannelCount;
 	hostApiOutputParameters.sampleFormat = sampleFormat;
@@ -834,15 +834,6 @@ static void WavegenSetEcho(void)
 		amp = embedded_value[EMBED_H];
 		delay = 130;
 	}
-#ifdef deleted
-	if(embedded_value[EMBED_T] > 0)
-	{
-		// announcing punctuation, add a small echo
-// This seems unpopular
-		amp = embedded_value[EMBED_T] * 8;
-		delay = 60;
-	}
-#endif
 
 	if(delay == 0)
 		amp = 0;
@@ -854,7 +845,7 @@ static void WavegenSetEcho(void)
 	if(amp > 20)
 		echo_length = echo_head * 2;    // perhaps allow 2 echo periods if the echo is loud.
 
-	// echo_amp units are 1/256ths of the amplitude of the original sound. 
+	// echo_amp units are 1/256ths of the amplitude of the original sound.
 	echo_amp = amp;
 	// compensate (partially) for increase in amplitude due to echo
 	general_amplitude = GetAmplitude();
@@ -1559,7 +1550,7 @@ static int SetWithRange0(int value, int max)
 static void SetPitchFormants()
 {//===========================
 	int ix;
-	int factor;
+	int factor = 256;
 	int pitch_value;
 
 	// adjust formants to give better results for a different voice pitch
@@ -1570,11 +1561,13 @@ static void SetPitchFormants()
 	{
 		// only adjust if the pitch is higher than normal
 		factor = 256 + (25 * (pitch_value - 50))/50;
-		for(ix=0; ix<=5; ix++)
-		{
-			wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
-		}
 	}
+
+	for(ix=0; ix<=5; ix++)
+	{
+		wvoice->freq[ix] = (wvoice->freq2[ix] * factor)/256;
+	}
+
 	factor = embedded_value[EMBED_T]*3;
 	wvoice->height[0] = (wvoice->height2[0] * (256 - factor*2))/256;
 	wvoice->height[1] = (wvoice->height2[1] * (256 - factor))/256;
@@ -1755,7 +1748,7 @@ if(option_log_frames)
 		fprintf(f_log,"%3dmS  %3d %3d %4d %4d (%3d %3d %3d %3d)  to  %3d %3d %4d %4d (%3d %3d %3d %3d)\n",length*1000/samplerate,
 			fr1->ffreq[0],fr1->ffreq[1],fr1->ffreq[2],fr1->ffreq[3], fr1->fheight[0],fr1->fheight[1],fr1->fheight[2],fr1->fheight[3],
 			fr2->ffreq[0],fr2->ffreq[1],fr2->ffreq[2],fr2->ffreq[3], fr2->fheight[0],fr2->fheight[1],fr2->fheight[2],fr2->fheight[3] );
-	
+
 	fclose(f_log);
 	f_log=NULL;
 	}
@@ -2036,7 +2029,7 @@ static int SpeedUp(short *outbuf, int length_in, int length_out, int end_of_text
 		{
 		        sonicSetSpeed(sonicSpeedupStream, sonicSpeed);
 		}
-	
+
 		sonicWriteShortToStream(sonicSpeedupStream, outbuf, length_in);
 	}
 
