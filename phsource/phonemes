@@ -731,7 +731,7 @@ endphoneme
 
 phoneme n
   vcd alv nasal
-  Vowelout f1=2 f2=1700 -300 250  f3=-100 80  rms=20 brk
+  Vowelout f1=2 f2=1500 -300 250  f3=-100 80  rms=20 brk
   lengthmod 4
 
   IF KlattSynth THEN
@@ -762,8 +762,8 @@ phoneme n.
   vcd rfx nasal
   ipa ɳ
   starttype n  endtype n
-  Vowelin f1=2 f2=1200 -300 250  f3=-500 80  rms=20 colr=2
-  Vowelout f1=2 f2=1200 -300 250  f3=-500 80  rms=20 brk colr=2
+  Vowelin f1=2 f2=1700 -300 300  f3=-500 80  rms=20 colr=2
+  Vowelout f1=2 f2=1700 -300 300  f3=-500 80  rms=20 brk colr=2
   lengthmod 4
 
   IF KlattSynth THEN
@@ -1610,9 +1610,9 @@ phoneme x
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
 
   IF nextPh(isPause) THEN
-    WAV(ufric/x, 120)
+    WAV(ufric/x, 110)
   ENDIF
-  WAV(ufric/x_hr, 25)
+  WAV(ufric/x_hr, 20)
 endphoneme
 
 
@@ -1624,7 +1624,7 @@ phoneme X
   IF nextPh(isPause) THEN
     WAV(ufric/xx, 70)
   ENDIF
-  WAV(ufric/xx)
+  WAV(ufric/xx,80)
 endphoneme
 
 
@@ -1939,5 +1939,4 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
-
 

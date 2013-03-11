@@ -48,6 +48,10 @@ _у	u
 v	_^_EN	// not Roman number
 x	_^_EN   // not Roman number
 
+_??	znak
+_?A	b'ukva
+
+
 // symbols
 %	prots'ent	$max3
 +	plus	$max3

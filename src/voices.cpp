@@ -192,6 +192,12 @@ static char *fgets_strip(char *buf, int size, FILE *f_in)
 	if(fgets(buf,size,f_in) == NULL)
 		return(NULL);
 
+	if(buf[0] == '#')
+	{
+		buf[0] = 0;
+		return(buf);
+	}
+
 	len = strlen(buf);
 	while((--len > 0) && isspace(buf[len]))
 		buf[len] = 0;
@@ -389,8 +395,10 @@ void VoiceReset(int tone_only)
 // Set voice to the default values
 
 	int  pk;
-	static unsigned char default_heights[N_PEAKS] = {128,128,120,120,110,110,128,128,128};
-	static unsigned char default_widths[N_PEAKS] = {128,128,128,160,171,171,128,128,128};
+//	static unsigned char default_heights[N_PEAKS] = {140,128,120,110,90,90,128,128,128};  // changed for v.1.47
+//	static unsigned char default_widths[N_PEAKS] = {128,128,128,160,171,171,128,128,128};
+	static unsigned char default_heights[N_PEAKS] = {128,128,120,120,110,110,128,128,128};  // previous version
+	static unsigned char default_widths[N_PEAKS] = {140,128,128,160,171,171,128,128,128};
 
 	static int breath_widths[N_PEAKS] = {0,200,200,400,400,400,600,600,600};
 
@@ -411,7 +419,7 @@ void VoiceReset(int tone_only)
 	voice->n_harmonic_peaks = 5;
 	voice->peak_shape = 0;
 	voice->voicing = 64;
-	voice->consonant_amp = 100;
+	voice->consonant_amp = 85;  // change to 85 for v.1.47 was 100
 	voice->consonant_ampv = 100;
 	voice->samplerate = samplerate_native;
 	memset(voice->klattv,0,sizeof(voice->klattv));

@@ -2,7 +2,7 @@
 88 phoneme tables
           new total
     base 109  109
-consonants  10  118
+consonants  11  119
    base2  26  125
       en  54  156
     en-n  33  156
@@ -48,8 +48,8 @@ consonants  10  118
    es-la   1  125
       ca  11  127
       an   4  125
-      pt  29  140
-   pt-pt  20  140
+      pt  32  143
+   pt-pt  20  143
       ro  36  148
       el  10  125
      grc  12  129
@@ -450,7 +450,7 @@ l/l_            [l] base
                 [l/] fr
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [沔0] base
+l/l@            [到,] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -484,7 +484,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [沔0] base
+l/la            [到,] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -492,7 +492,7 @@ l/la            [沔0] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [沔0] base
+l/le            [到,] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -504,7 +504,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [沔0] base
+l/li            [到,] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -518,7 +518,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [沔0] base
+l/lo            [到,] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -529,7 +529,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [沔0] base
+l/lu            [到,] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -869,13 +869,16 @@ ustop/k_        [k] base
                 [k] lv
                 [k] el
                 [k] sq
-ustop/k_asp     [kh] consonants
+ustop/k_asp     [k#] consonants
+                [kh] consonants
                 [g#] hi
                 [kh] zh
                 [k#] ka
                 [kh] tn
-ustop/k_asp_a   [k#] ka
-ustop/k_asp_e   [k#] ka
+ustop/k_asp_a   [k#] consonants
+                [k#] ka
+ustop/k_asp_e   [k#] consonants
+                [k#] ka
 ustop/k_asp_u   [k#] ka
 ustop/k_ejc     [k`] am
 ustop/ki        [k] base

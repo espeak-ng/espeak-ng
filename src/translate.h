@@ -277,6 +277,7 @@ extern ALPHABET *current_alphabet;
 #define AL_NOT_LETTERS  0x02  // don't use the language for speaking letters
 #define AL_WORDS      0x04    // use the language to speak words
 #define AL_NOT_CODE   0x08    // don't speak the character code
+#define AL_NO_SYMBOL  0x10    // don't repeat "symbol" or "character"
 
 
 #define N_LOPTS      21

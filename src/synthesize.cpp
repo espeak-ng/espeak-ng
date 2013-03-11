@@ -1869,7 +1869,6 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 		n_phoneme_list = 0;
 		WcmdqStop();
 
-		embedded_value[EMBED_T] = 0;
 		return(0);
 	}
 
