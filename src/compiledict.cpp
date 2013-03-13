@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -51,11 +51,15 @@ static char letterGroupsDefined[N_LETTER_GROUPS];
 
 MNEM_TAB mnem_rules[] = {
 	{"unpr",   0x01},
+	{"w_alt1", 0x11},
 	{"w_alt2", 0x12},
 	{"w_alt3", 0x13},
+//	{"w_alt4", 0x14},
 	{"w_alt", 0x11},   // note: put longer names before their sub-strings
+	{"p_alt1", 0x21},
 	{"p_alt2", 0x22},
 	{"p_alt3", 0x23},
+//	{"p_alt4", 0x24},
 	{"p_alt", 0x21},
 	{NULL, -1} };
 
@@ -1586,7 +1590,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 		items[n_items] = p_start = p;
 		while((*p & 0xff) > ' ')
 		{
-			if (*p == '_') *p = ' ';   // allow '_' for word break 
+			if (*p == '_') *p = ' ';   // allow '_' for word break
 			p++;
 		}
 		*p++ = 0;

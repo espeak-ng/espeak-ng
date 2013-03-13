@@ -1,0 +1,45 @@
+//====================================================
+// Phonemes adjusted  for Urdu by Him Prasad Gautam.
+//====================================================
+
+
+phoneme : //  Lengthen the previous vowel by "length"
+  virtual
+  length 120
+endphoneme
+
+phoneme @
+  vowel flag1 starttype #@  endtype #@
+  length 130
+
+  ChangeIfDiminished(@-)
+  IF nextPh(H) THEN
+    FMT(vowel/@_low)
+  ENDIF
+  FMT(vowel/@_bck)
+endphoneme
+
+
+phoneme V
+  vowel flag1 starttype #@  endtype #@
+  length 150
+  CALL hi/V
+endphoneme
+
+
+phoneme @2
+  vowel flag1 starttype #@  endtype #@
+  length 150
+  FMT(vowel/@_low)
+endphoneme
+
+phoneme @3
+  vowel flag1 starttype #@  endtype #@
+  length 150
+  ChangeIfDiminished(@-)
+  FMT(vowel/@_3)
+endphoneme
+
+
+//====================================================
+// The rest Phonemes are inherted from Hindi.

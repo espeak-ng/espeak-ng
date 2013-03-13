@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -162,8 +162,8 @@ void ProsodyDisplay::SelectPh(int index)
 	}
 	y1 = p->pitch1;
 	y2 = p->pitch2;
-	sprintf(buf,"Stress %s%d   Amp %2d   LenMod %2d   Pitch %3d %3d  %s    PhFlags %.2x ",
-		emphasized,p->stresslevel&0x7,p->amp,p->length,y1,y2,name,p->ph->phflags);
+	sprintf(buf,"Stress %s%d   Amp %2d   StdLength %2d   LengthMod %2d   Pitch %3d %3d  %s    PhFlags %.2x ",
+		emphasized,p->stresslevel&0x7,p->amp,p->std_length*2, p->length,y1,y2,name,p->ph->phflags);
 	wxLogStatus(wxString(buf,wxConvLocal));
 }
 

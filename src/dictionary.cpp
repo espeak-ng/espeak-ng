@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -1499,21 +1499,24 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 		stress = 3;
 
 
-	if((stressflags & 0x1000) && (vowel_count == 2))
+	if(unstressed_word == 0)
 	{
-		// Two syllable word, if one syllable has primary stress, then give the other secondary stress
-		if(vowel_stress[1] == 4)
-			vowel_stress[2] = 3;
-		if(vowel_stress[2] == 4)
-			vowel_stress[1] = 3;
-	}
-
-	if((stressflags & 0x2000) && (vowel_stress[1] < 0))
-	{
-		// If there is only one syllable before the primary stress, give it a secondary stress
-		if((vowel_count > 2) && (vowel_stress[2] >= 4))
+		if((stressflags & 0x1000) && (vowel_count == 3))
 		{
-			vowel_stress[1] = 3;
+			// Two syllable word, if one syllable has primary stress, then give the other secondary stress
+			if(vowel_stress[1] == 4)
+				vowel_stress[2] = 3;
+			if(vowel_stress[2] == 4)
+				vowel_stress[1] = 3;
+		}
+
+		if((stressflags & 0x2000) && (vowel_stress[1] < 0))
+		{
+			// If there is only one syllable before the primary stress, give it a secondary stress
+			if((vowel_count > 3) && (vowel_stress[2] >= 4))
+			{
+				vowel_stress[1] = 3;
+			}
 		}
 	}
 
@@ -2737,6 +2740,12 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 			if(word_flags & FLAG_UNPRON_TEST)
 				return(match1.end_type | 1);
 
+#ifdef deleted
+// ?? allow $unpr while translating rules, not just on initial FLAG_UNPRON_TEST
+            if((match1.end_type & SUFX_UNPRON) && !(word_flags & FLAG_SUFFIX_REMOVED))
+                return(match1.end_type);
+#endif
+
 			if((match1.phonemes[0] == phonSWITCH) && ((word_flags & FLAG_DONT_SWITCH_TRANSLATOR)==0))
 			{
 				// an instruction to switch language, return immediately so we can re-translate
@@ -2877,13 +2886,15 @@ int TransposeAlphabet(Translator *tr, char *text)
 	int max;
 	const char *map;
 	char *p = text;
-	char *p2 = text;
+	char *p2;
 	int all_alpha=1;
 	int bits;
 	int acc;
 	int pairs_start;
 	const short *pairs_list;
+	char buf[N_WORD_BYTES];
 
+    p2 = buf;
 	offset = tr->transpose_min - 1;
 	min = tr->transpose_min;
 	max = tr->transpose_max;
@@ -2930,8 +2941,8 @@ int TransposeAlphabet(Translator *tr, char *text)
 		acc=0;
 		bits=0;
 
-		p = text;
-		p2 = text;
+		p = buf;
+		p2 = buf;
 		while((c = *p++) != 0)
 		{
 			if((pairs_list = tr->frequent_pairs) != NULL)
@@ -2962,9 +2973,13 @@ int TransposeAlphabet(Translator *tr, char *text)
 			*p2++ = (acc << (8-bits));
 		}
 		*p2 = 0;
-		return((p2 - text) | 0x40);  // bit 6 indicates compressed characters
+		strcpy(text, buf);
+		return((p2 - buf) | 0x40);  // bit 6 indicates compressed characters
 	}
-	return(p2 - text);
+	else
+	{
+	    return(strlen(text));
+	}
 }  // end of TransposeAlphabet
 
 

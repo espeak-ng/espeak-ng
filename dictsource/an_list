@@ -19,11 +19,11 @@ n	Ene
 ñ	En^e
 p	pe
 q	ku
-r	ERR2e	
+r	ERR2e
 s	Ese
 t	te
 u	u
-v	,be||b'aIksa
+v	,be||b'aSa
 w	,be||d'Ople
 x	Se
 z	Teta
@@ -70,7 +70,10 @@ _7C	sjEteTj'Entos
 _8C	gwitoTj'Entos
 _9C	nowTj'Entos
 _0M1	m'il
-_0M2	mil^'ones
+_0M2	mil^'ons
+_1M2	un||mil^'on
+_0M4	bil^'ons
+_1M4	un||bil^'on
 
 _0and	i
 _dpt	kon
@@ -78,3 +81,13 @@ _dpt	kon
 
 // unstressed words
 lo	$u
+la	$u
+los	$u
+las	$u
+ne	$u
+nes	$u
+me	$u
+te	$u
+se	$u
+le	$u
+les	$u

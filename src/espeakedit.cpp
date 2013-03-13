@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -685,7 +685,7 @@ void DisplayErrorFile(const char *fname)
 	if(len > 0)
 	{
 		if(len > 1500)
-			len = 1500;   // restrict length to pppppevent crash in wxLogMessage()
+			len = 1500;   // restrict length to prevent crash in wxLogMessage()
 		msg = (char *)malloc(len+1);
 		if(msg != NULL)
 		{

@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -670,9 +670,9 @@ void MakeVowelLists(void)
 
 
 #define N_ENVELOPES  30
-int n_envelopes = 0;
-char envelope_paths[N_ENVELOPES][80];
-unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
+extern int n_envelopes;
+extern char envelope_paths[N_ENVELOPES][80];
+extern unsigned char envelope_dat[N_ENVELOPES][ENV_LEN];
 
 #define HT_ENV 140
 #define WD_ENV 128*2

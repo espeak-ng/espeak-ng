@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2006 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2006 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -768,7 +768,11 @@ int main (int argc, char **argv)
 		fclose(f_text);
 	}
 
-	espeak_Synchronize();
+	if(espeak_Synchronize() != EE_OK)
+	{
+		fprintf(stderr, "espeak_Synchronize() failed, maybe error when opening output device\n");
+		exit(4);
+	}
 
 	if(f_phonemes_out != stdout)
 		fclose(f_phonemes_out);  // needed for WinCE
