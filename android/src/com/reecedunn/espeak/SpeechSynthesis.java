@@ -126,6 +126,9 @@ public class SpeechSynthesis {
             } else if (name.equals("hy-west")) {
                 // 'west' is not a country code.
                 locale = new Locale("hy", "", "arevmda");
+            } else if (name.equals("vi-hue")) {
+                // 'hue' is not a country code, so treat it as a variant code.
+                locale = new Locale("vi", "", "hue");
             } else if (name.equals("zh-yue")) {
                 // Android/Java does not support macrolanguages.
                 locale = new Locale("zh", "HK");
