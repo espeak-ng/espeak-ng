@@ -135,7 +135,7 @@ int TestSynthCallback(short *wav, int numsamples, espeak_EVENT *events)
 		else
 		if(type==espeakEVENT_PHONEME)
 		{
-			char buf[10];
+//			char buf[10];
 			fprintf(f_events,"[%s]\n",WordToString(events->id.number));  //old version, only 4 characters bytes
 //			memcpy(buf, events->id.string, 8);
 //			buf[8] = 0;
@@ -206,7 +206,7 @@ static const unsigned short KOI8_R[0x60] = {
 
 
 #define N_CHARS  34
-#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name 
+#define PH(c1,c2)  (c2<<8)+c1          // combine two characters into an integer for phoneme name
 
 
 
@@ -236,7 +236,7 @@ static void DecodePhonemes2(const char *inptr, char *outptr)
 			continue;     /* indicates unrecognised phoneme */
 		if((ph = phoneme_tab[phcode]) == NULL)
 			continue;
-	
+
 		if((ph->type == phSTRESS) && (ph->std_length <= 4) && (ph->program == 0))
 		{
 			if(ph->std_length > 2)
@@ -281,7 +281,7 @@ static void DecodePhonemes2(const char *inptr, char *outptr)
 			else
 			if(mnem != 0)
 			{
-				while((c = (mnem & 0xff)) != 0)	
+				while((c = (mnem & 0xff)) != 0)
 				{
 					*outptr++ = c;
 					mnem = mnem >> 8;
@@ -363,7 +363,7 @@ void Lexicon_It(int pass)
 	path_dir1 = wxFileName(fname_lex).GetPath();
 	strcpy(buf_out, path_dir1.mb_str(wxConvLocal));
 	sprintf(buf, "%s/IT_errors", buf_out);
-	
+
 	if((f_out = fopen(buf,"w")) == NULL)
 	{
 		str = wxString(buf, wxConvLocal);
@@ -412,7 +412,7 @@ void Lexicon_It(int pass)
 
 		if((p = strstr(buf,"//")) != NULL)
 			*p = 0;
-		
+
 		if((sscanf(buf,"%s %s",word,temp)) < 2)
 			continue;
 
@@ -522,7 +522,7 @@ void Lexicon_It(int pass)
 						fputc(*p, f_listx);  // omit secondary stress marks
 				}
 				fputc('\n',f_listx);
-			
+
 			}
 			else
 			if((stress_posn1 != stress_posn2) && (stress_posn1 > 0) && (stress_posn2 > 0))
@@ -706,7 +706,7 @@ void Lexicon_De()
 		return;
 	}
 	path_dir1 = wxFileName(fname).GetPath();
-	
+
 	if((f_out = fopen("compare_de","w")) == NULL)
 	{
 		wxLogError(_T("Can't write file "));
@@ -934,7 +934,7 @@ void Lexicon_Bg()
 
 	FILE *f_in;
 	FILE *f_out;
-	
+
 	char word[80];
 	char word_in[80];
 	char phonemes[N_WORD_PHONEMES];
@@ -1101,7 +1101,7 @@ if(n_stress > 1) n_stress = 1;
 
 			if(done)
 				n_out++;
-		} 
+		}
 
 		n_words++;
 	}
@@ -1383,10 +1383,10 @@ void Lexicon_Ru()
 				len = strlen(suffix);
 				if(len >= (wlen-2))
 					continue;
-	
+
 				if(ru_stress > (vcount - suffixes[sfx].syllables))
 					continue;
-				
+
 				if(strcmp(suffix,&word[wlen-len])==0)
 				{
 					strcpy(word2,word);
@@ -1547,7 +1547,7 @@ void CountWordFreq(wxString path, wcount **hashtab)
 			// skip leading spaces, numbers, etc
 			if(feof(f_in)) break;
 		}
-	
+
 		// read utf8 bytes until a space, number or punctuation
 		ix = 0;
 		while(!feof(f_in) && (c >= 'A') && (ix < sizeof(buf)-1))
@@ -1557,7 +1557,7 @@ void CountWordFreq(wxString path, wcount **hashtab)
 		}
 		buf[ix++] = 0;
 		buf[ix] = 0;
-	
+
 		// the buf may contain non-alphabetic characters
 		j = 0;
 		n_chars = 0;
@@ -1583,7 +1583,7 @@ void CountWordFreq(wxString path, wcount **hashtab)
 		}
 	}
 	fclose(f_in);
-	
+
 }   // end of CountWordFreq
 
 
@@ -1645,7 +1645,7 @@ void MakeWordFreqList()
 		free(p);
 	}
 	fclose(f_out);
-	
+
 }  // end of Make WorkFreqList
 
 
@@ -2129,9 +2129,9 @@ void SetSpeedTab(void)
 	// Interpolation table to translate from words-per-minute to internal speed
 	// words-per-minute values (measured)
 	static float wpm1[N_WPM] =
-		{0, 82, 96, 108, 124, 134, 147, 162, 174, 189, 224, 259, 273, 289, 307, 326, 346, 361, 370 }; 
+		{0, 82, 96, 108, 124, 134, 147, 162, 174, 189, 224, 259, 273, 289, 307, 326, 346, 361, 370 };
 	// corresponding internal speed values
-	static float wpm2[N_WPM] = 
+	static float wpm2[N_WPM] =
 		{0,253,200, 170, 140, 125, 110,  95,  85,  75,  55,  40,  35,  30,  25,  20,  15,  10,  5 };
 
 	unsigned char speed_lookup[290];
@@ -2245,7 +2245,7 @@ void CharsetToUnicode(const char *charset)
 #ifdef deleted
 void Test2()
 {
-// 
+//
 	char buf[120];
 	FILE *f;
 	FILE *f_out;
@@ -2299,7 +2299,7 @@ if(control==2)
 	f = fopen("/home/jsd1/speechdata/text/test.txt","r");
 	if(f==NULL)
 		return;
-	
+
 
 	while(!feof(f) && (ix < sizeof(textbuf)-2))
 	{

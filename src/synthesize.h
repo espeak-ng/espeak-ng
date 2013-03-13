@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -220,7 +220,10 @@ typedef struct {
 	unsigned char newword;   // bit 0=start of word, bit 1=end of clause, bit 2=start of sentence
 	unsigned char pitch1;
 	unsigned char pitch2;
+#ifdef _ESPEAKEDIT
 	unsigned char std_length;
+	unsigned int phontab_addr;
+#endif
 } PHONEME_LIST;
 
 
@@ -435,7 +438,7 @@ extern PHONEME_TAB *phoneme_tab[N_PHONEME_TAB];
 
 // list of phonemes in a clause
 extern int n_phoneme_list;
-extern PHONEME_LIST phoneme_list[N_PHONEME_LIST];
+extern PHONEME_LIST phoneme_list[N_PHONEME_LIST+1];
 extern unsigned int embedded_list[];
 
 extern unsigned char env_fall[128];
@@ -510,7 +513,7 @@ unsigned int LookupSound(PHONEME_TAB *ph1, PHONEME_TAB *ph2, int which, int *mat
 frameref_t *LookupSpect(PHONEME_TAB *this_ph, int which, FMT_PARAMS *fmt_params,  int *n_frames, PHONEME_LIST *plist);
 
 unsigned char *LookupEnvelope(int ix);
-int LoadPhData();
+int LoadPhData(int *srate);
 
 void SynthesizeInit(void);
 int  Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
