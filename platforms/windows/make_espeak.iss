@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.42
+AppVerName=eSpeak version 1.46.47
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -149,29 +149,34 @@ begin
   $1c: Result := 'sq';
   $1d: Result := 'sv';
   $1f: Result := 'tr';
+  //$20: Result := 'ur';
   $21: Result := 'id';
   $25: Result := 'et';
-  //$26: Result := 'lv';
+  $26: Result := 'lv';
   $27: Result := 'lt';
+  $29: Result := 'fa';
   $2a: Result := 'vi';
   $2b: Result := 'hy';
   //$2c: Result := 'az';
   //$2d: Result := 'eu';
   $2f: Result := 'mk';
   $36: Result := 'af';
+  $37: Result := 'kn';
   $39: Result := 'hi';
   //$3a: Result := 'mt';
-  //$3c: Result := 'ga';
+  $3c: Result := 'ga';
   //$3f: Result := 'kk';
   $41: Result := 'sw';
   //$44: Result := 'tt';
+  $46: Result := 'pa';
   $49: Result := 'ta';
   $46: Result := 'pa';
   $4b: Result := 'kn';
+  $4c: Result := 'ml';
   //$50: Result := 'mn';
   $52: Result := 'cy';
   //$5e: Result := 'am';
-  //$61: Result := 'ne';
+  $61: Result := 'ne';
   //$87: Result := 'rw';
   //$88: Result := 'wo';
   end;

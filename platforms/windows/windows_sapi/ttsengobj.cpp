@@ -618,7 +618,7 @@ int CTTSEngObj::ProcessFragList(const SPVTEXTFRAG* pTextFragList, wchar_t *pW_st
 				sprintf(&cmdbuf[len],"%c%dF",CTRL_EMBEDDED,emphasis);
 				len += strlen(&cmdbuf[len]);
 			}
-			if(sayas != gSayas)
+			if((sayas != gSayas) || (sayas != 0))
 			{
 				sprintf(&cmdbuf[len],"%c%dY",CTRL_EMBEDDED,sayas);
 				len += strlen(&cmdbuf[len]);

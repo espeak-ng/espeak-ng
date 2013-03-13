@@ -14,7 +14,7 @@ consonants  11  119
       af  39  138
       cy  29  134
       ga  29  133
-      de  41  141
+      de  40  140
       eo  13  116
      jbo   2  116
      nci   3  125
@@ -66,7 +66,7 @@ consonants  11  119
       id  15  127
       sq  33  127
       hy  23  119
-      da  46  139
+      da  45  138
       ka  20  115
       fa   9  112
       rw  15  132
@@ -448,9 +448,11 @@ l/l_            [l] base
                 [l/] base
                 [l/3] base
                 [l/] fr
+                [l/3] da
 l/l_@           [l/3] base
                 [l/] fr
-l/l@            [到,] base
+                [l/3] da
+l/l@            [育8] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -484,7 +486,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [到,] base
+l/la            [育8] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -492,7 +494,8 @@ l/la            [到,] base
                 [K] tn
 l/l_a           [l/3] base
                 [l/] fr
-l/le            [到,] base
+                [l/3] da
+l/le            [育8] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -500,11 +503,12 @@ l/le            [到,] base
                 [K] tn
 l/l_e           [l/3] base
                 [l/] fr
+                [l/3] da
 l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [到,] base
+l/li            [育8] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -514,22 +518,24 @@ l/li            [到,] base
 l/l_i           [l/3] base
                 [l/] fr
                 [i] sq
+                [l/3] da
 ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [到,] base
+l/lo            [育8] base
                 [l#] base
                 [l/2] fr
                 [K] nso
                 [K] tn
 l/l_o           [l/3] base
                 [l/] fr
+                [l/3] da
 l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [到,] base
+l/lu            [育8] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -537,6 +543,7 @@ l/lu            [到,] base
                 [K] tn
 l/l_u           [l/3] base
                 [l/] fr
+                [l/3] da
 l/l_vi          [l] vi
 ll/xll          [L] base
 l/l_y           [l/] fr
@@ -661,7 +668,6 @@ n/nu            [n] base
                 [n] fr
                 [n#] is
                 [n] zh
-r/@_            [V#] de
 r2/r2@          [r-] en
                 [r-] tn
 r2/r2a          [r-] en
@@ -708,9 +714,7 @@ r3/r_trill.wav  [R2] base
                 [r*] sr
                 [r] ru
 r3/r_uvl        [r"] base
-                [r2] de
 r3/r_uvl.wav    [r"] base
-                [r2] de
 r3/rx           [*] base
                 [r/] base
                 [r/] af
@@ -770,8 +774,6 @@ r/ru            [r] base
 r/tr            [r] base
 r/trr           [r/] base
                 [r] ro
-r/V_            [V#] de
-r/V_2_          [V#] de
 r/xr            [r] base
                 [R3] base
                 [r-] en
@@ -1089,6 +1091,7 @@ vdiph2/i@       [i@] en-n
                 [i@] ga
                 [i@] hy
 vdiph2/i@_2     [i@] en-wm
+                [iR] de
 vdiph2/ie       [i@] en-wi
                 [ie] fi
                 [ie] mt
@@ -1633,8 +1636,6 @@ vowel/a_2       [a] base2
                 [a] pt-pt
                 [a] ro
                 [a] el
-                [a] da
-                [?a] da
                 [a] rw
 vowel/a#_2      [A] nl
                 [a:] nl
@@ -1663,8 +1664,6 @@ vowel/a_3       [a] en-sc
                 [a:] la
                 [A] zh
                 [a] sq
-                [A] da
-                [?A] da
                 [a] ka
                 [a:] si
 vowel/a#_3      [a#] en
@@ -1712,6 +1711,8 @@ vowel/a_7       [a] fr
                 [a] ht
 vowel/a_8       [a] en
                 [a] sk
+                [A] da
+                [?A] da
 vowel/aa        [a:] et
                 [A] fr-ca
                 [A] no

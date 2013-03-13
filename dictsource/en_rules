@@ -387,6 +387,7 @@
         _r) adio (@P5    r,eIdI%oU
          r) adi (oL10+   eIdI
          b) ad (os_      eId
+        _s) ado (ma      ,eIdoU
             ad (iA       eId
          s) ad (is       eId
        _tr) ad (it       a#d
@@ -3382,6 +3383,7 @@
          &) ion (_       =i@n
 ?8       &) ion (_       =IVn
         ll) ion          i@n
+        ll) ion (_       =i@n
          n) ion          =i@n
          v) io (l        aI@
             ione (_      'aI@ni
@@ -3572,7 +3574,6 @@
         _l) iv (eB       aIv
         XC) iv (el       Iv
         _g) iv (e        Iv
-        _l) iv (e        Iv
          l) iv (er       Iv
          r) iv (er       Iv
         dr) iv (er       aIv
@@ -3753,8 +3754,7 @@
          _) metall (ic   m@tal
             metabo       m@t'ab0
          _) meta (llu    m%Eta
-         _) mobile       moUbaIl
-            mobile       m@bi:l
+         &) mobile       m@bi:l
             mono (ga     m@n'0
             mo (noto     m@
          _) mono         m0noU
