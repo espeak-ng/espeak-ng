@@ -70,6 +70,7 @@
 #define OFFSET_ETHIOPIC 0x1200
 
 
+// character ranges must be listed in ascending order
 ALPHABET alphabets [] = {
     {"_el",    OFFSET_GREEK,    0x380, 0x3ff,  L('e','l'), AL_DONT_NAME | AL_NOT_LETTERS},
     {"_cyr",   OFFSET_CYRILLIC, 0x400, 0x52f,  0, 0},
@@ -97,6 +98,7 @@ ALPHABET alphabets [] = {
     {"_braille", 0x2800,        0x2800,0x28ff, 0, AL_NO_SYMBOL},
     {"_ja",    0x3040,          0x3040,0x30ff, 0, AL_NOT_CODE},
     {"_zh",    0x3100,          0x3100,0x9fff, 0, AL_NOT_CODE},
+    {"_ko",    0xa700,          0xa700,0xd7ff, 0, AL_NOT_CODE},
     {NULL, 0, 0, 0, 0, 0}
 };
 
@@ -108,9 +110,12 @@ ALPHABET *AlphabetFromChar(int c)
 
 	while(alphabet->name != NULL)
 	{
-		if((c >= alphabet->range_min) && (c <= alphabet->range_max))
+		if(c <= alphabet->range_max)
 		{
-			return(alphabet);
+			if(c >= alphabet->range_min)
+				return(alphabet);
+			else
+				break;
 		}
 		alphabet++;
 	}
@@ -827,6 +832,7 @@ Translator *SelectTranslator(const char *name)
 	case L('h','i'):    // Hindi
 	case L('n','e'):    // Nepali
 	case L('p','a'):    // Punjabi
+	case L('g','u'):    // Gujarati
 		{
 			static const short stress_lengths_hi[8] = {190, 190,  210, 210,  0, 0,  230, 250};
 			static const unsigned char stress_amps_hi[8] = {17,14, 20,19, 20,22, 22,21 };
@@ -1543,7 +1549,7 @@ SetLengthMods(tr,3);  // all equal
 				0x1a1, 0x1edd, 0x1edb, 0x1edf, 0x1ee1, 0x1ee3,	// ơ
 				0x75, 0xf9, 0xfa, 0x1ee7, 0x169, 0x1ee5,			// u
 				0x1b0, 0x1eeb, 0x1ee9, 0x1eed, 0x1eef, 0x1ef1,	// ư
-				0x79, 0x1ef3, 0xfd, 0x1ef7, 0x1ef9, 0x1e, 0 };	// y
+				0x79, 0x1ef3, 0xfd, 0x1ef7, 0x1ef9, 0x1ef5, 0 };	// y
 
 			SetupTranslator(tr,stress_lengths_vi,stress_amps_vi);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable

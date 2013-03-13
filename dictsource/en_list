@@ -274,7 +274,7 @@ _lo	l'aU
 _ti	tI2b'Et@n
 _my	mj'A:nmA@
 _ka	dZ'O@dZ@n
-_ko	k3r'i@n
+_ko	h'angul
 _eth	i:TI'0pIk
 _ja	dZ'ap@ni:z
 _zh	tS'aIni:z
@@ -308,11 +308,15 @@ _zh	tS'aIni:z
 ш	Sa
 щ	StSa
 ъ	jEr
-ы	_^_RU
-ь	jer
+ы	j'Eru
+ь	j'eri
 э	E
 ю	ju
 я	ja
+ћ	tS;E
+ђ	djE
+ќ	kjE
+
 
 // Arabic letters
 
@@ -1020,6 +1024,7 @@ canine		keInaIn
 canoe		k@nu:
 canoes		k@nu:z
 canon		kan@n
+?3 cantaloupe	kant@loUp
 canton		kant0n
 canvas		kanv@s
 capita		kapIt@
@@ -1192,6 +1197,8 @@ conger		k0Ng3
 congressional	k@ngrES@n@L
 conker		$1
 conscience	k0nS@ns
+consort		$1
+consort		$verb
 constitute	$1
 construct	$1     $onlys
 construct	$verb
@@ -2621,7 +2628,7 @@ sierra		si:'e@r@
 signage		saInI2dZ
 signal		sIgn@l        // signaled
 signer		saIn3
-signoff		s,aIn'0f
+signoff		s'aIn0f
 signon		s,aIn'0n
 signup		saInVp
 sikh		si:k

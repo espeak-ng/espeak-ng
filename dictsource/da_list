@@ -67,7 +67,7 @@ _?	spWrgsmVlstajn
 _!	udRVbstejn
 _-	binnesdrai
 __	b'Onsdrai
-&	Vw
+&	_Vw
 £	pun?
 €	euro
 © kVpirajt
@@ -117,8 +117,8 @@ _6X	t*'Es                  // PB changed from e to E
 _7X	h&lfj'&rs               // PV a changed to &
 _8X	f'irs
 _9X	h&lf'Ems // PB a changed to &
-_0C	h'un*@:D
-_1C  ed||h'unR@:D // PB added 'et hundrede'
+_0C	h'un*VD
+_1C  ed||h'unRV:D // PB added 'et hundrede'
 _0M1	t'u:s@-n
 _1M1    ed||t'u:s@-n      // PB added 'et' to tusind
 _1M2	'e:n||milij'o:n
@@ -177,8 +177,8 @@ for
 fordi	fVd'i $pause	// because - PB: changed stress
 når	nVr		$pause	// while
 der	dEr	$u+ $u    // PB changed from [dA]
-hvor	v'Vr	// where
-hvorfor	vVf'V	// why - final r deleted
+hvor	v'O	// where
+hvorfor	v?Of'?V	// why - final r deleted
 
 // prepositions
 på		pO	$u
@@ -187,16 +187,16 @@ fra			$u+	// from
 ved			$u+	// at
 om			$u+ $brk	// about, within
 med			$u+	// with
-af      &_|  	// PB changed from [a?] to [&] - sound too short in a sentence
+af      &  	// PB changed from [a?] to [&] - sound too short in a sentence
             // Also removed $u from 'af' and other words. They disappeared.
-ad      &:  // PB added 'ad' 
+ad      &  // PB added 'ad' 
 ad &D $atend $sentence // PB "Det må ikke skille os ad."
-at		&: $u // PB changed from [at] to [&:]
+at		& $u // PB changed from [at] to [&:]
 hos			// at - PB: removed [$u+]
 som	sVm	 $u   // which / that - PB: removed [$u+]
 
 // pronouns
-jeg	jai	$u+	// I 
+jeg	jaj	$u+	// I 
 du du $u
 de	$u
 han	$u
@@ -272,11 +272,11 @@ q	ku
 r	Er
 s	es
 //t	te: mooved to da_rules because of clash with T-shirt
-u	u?
+u	u
 v	ve
 w	d'Vbeltve:
 x	Eks
-y	Y?
+y	y
 z	sEt
 ø   W
 
@@ -7196,6 +7196,7 @@ suffler   $alt
 suggerer   $alt
 sulfoner   $alt
 summere   $alt
+opsummere   $alt
 superviser   $alt
 suppler   $alt
 supponer   $alt
@@ -7303,7 +7304,7 @@ valuter   $alt
 vandaliser   $alt
 varedeklarer   $alt
 varier   $alt
-vatter   $alt
+vattere   $alt
 vegeter   $alt
 ventilere   $alt
 verbaliser   $alt
@@ -11142,7 +11143,7 @@ rejiceres rejis'eVs        // PB
 rejicering rejis'eRiN      // PB
 nogle  n'o:@-n             // PB English: 'some' - must be pronounced like the Danish word 'nogen'
 nogen  n'o:@-n             // PB
-ligesom lisVm              // PB
+ligesom l?isVm              // PB
 bliver blir                // PB
 konfirmand kVnferm'&nd     // PB
 konfirmander kVnferm'&nd3  // PB
@@ -11286,12 +11287,12 @@ steget ste@d
 // PB problem with noun "hav" = ocean and verb "hav(e)" = to have [hAu]/[h&v]
 (et hav) ed||h'Au              // PB "et hav" = an ocean - not "hav en god dag" - have a nice day
 // PB legende = legend/myth and = playing
-(en legende) en||leg'End@
-legenden leg'End@n
+(en legende) en||leg'End@-
+legenden leg'End@-n
 legender leg'EndV
 legenders leg'EndVs
-legenderne leg'EndVn3
-legenderne leg'EndVn3s
+legenderne leg'EndVn@-
+legendernes leg'EndVn@-s
 // PB verb "forsyne" noun "forsyn" - stress problem
 (et forsyn) ed||f'Vrsyn
 (forsynet har) f'Vrsyn@d||hAr

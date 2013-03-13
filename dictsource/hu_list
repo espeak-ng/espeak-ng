@@ -411,7 +411,7 @@ _tld	tildE
 _#9	tAb
 _#32 	s'o:kYz
 _cap	n'AJ_|
-_??	kAR2AktEr||ko:d      // unknown characters (change this)
+_??	kAR2AktEr      // unknown characters (change this)
 
 
 // Abbreviations
@@ -5419,7 +5419,6 @@ _″	duplA|ApostR2o:f
 ≠	nEmEJEnlY:
 _ˇ	lEfEle:n^i:l
 _¡	AlSo:indEks
-_braille bR2Ail:E
 
 
 // Alphabets
@@ -5427,6 +5426,7 @@ _ar	'AR2Ab
 _cyr	ts'iR2ill
 _he	h'e:bER2
 _zh	k'i:nAi
+_braille bR2Ail:E
 
 
 // Main Exceptions List
