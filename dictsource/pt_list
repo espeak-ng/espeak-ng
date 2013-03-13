@@ -41,6 +41,11 @@ _stk	b'ax&
 _tld	tS'iU
 ?1 _tld	til
 
+// alphabets
+_ar	'a*aby
+_cyr	si*'ilikU
+_he	eb*'aIkU
+
 
 // character names
 
@@ -372,38 +377,38 @@ do	$u	$nounf
 da	$u	$nounf
 dos	$u	$nounf
 das	$u	$nounf
-dum	$u
-duma	$u
-duns	$u
-dumas	$u
+dum	$u	$nounf
+duma	$u	$nounf
+duns	$u	$nounf
+dumas	$u	$nounf
 
 em	$u  // in,on,at
 no	nu $u	$nounf
 na	$u	$nounf
-num	$u
-numa	$u
-nuns	$u
-numas	$u
+num	$u	$nounf
+numa	$u	$nounf
+nuns	$u	$nounf
+numas	$u	$nounf
 
 por	$u $nounf	// by,for,through
 pelo	$u $nounf
 ?2	pela	$u $nounf	p'el&
 
-ao	$u
+ao	$u	$nounf
 à	,a:
 à	$atend $atstart $accent
-aos	$u
-às	,a:s
+aos	$u	$nounf
+às	,a:s	$nounf
 
 para	$u		// for,to
 pro	$u	$nounf
-pra	$u
-pros	$u
-pras	$u
-prò	$u
-prà	$u
-pròs	$u
-pràs	$u
+pra	$u	$nounf
+pros	$u	$nounf
+pras	$u	$nounf
+prò	$u	$nounf
+prà	$u	$nounf
+pròs	$u	$nounf
+pràs	$u	$nounf
 
 com	$u		// with
 ?2	sem		// without
@@ -660,6 +665,7 @@ atrozes		$alt
 austera		$alt
 austero		$alt
 autora		$alt2
+avesso	$alt2
 axé		aSE
 baqueta		$alt2
 beco		$alt2
@@ -696,6 +702,8 @@ cateto		$alt2
 catorze		$alt2
 cebola		$alt2
 cefaleia	$alt
+cerca	$alt
+cerca	$alt2 $noun
 cerco		$alt $verb
 cesta		$alt2
 cesto		$alt2
