@@ -359,6 +359,7 @@
  _perd) e (L05_    e
  _quis) e (L05_    E
  _soub) e (L05_    E
+proteg) e (L05_    e         // des-
   tend) e (L06_    e         // a- con- en- es-
  _mord) e (L06_    e
  _rend) e (L06_    e
@@ -442,7 +443,6 @@ respond) e (L07_   e         // cor-
     _n) e (grL03_  e
  _estr) ei (L03_   EI
   _inv) e (jL04_   E
-proteg) e (l05_    e         // des-
     tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
    _in) e (ptL03_  E
@@ -854,6 +854,7 @@ _desabr) o (chL04_ O
   _enf) o (rquL02_ O
      c) o (rrL01_  o         // escorra, incorra, corra, recorra
     _m) o (rrL01_  o
+     p) o (rtL03_  O         // im- trans- de- re- com- a- ex-
     _r) o (snL04_  O
     _c) o (spL02_  O
      p) ostos (_   Ost=Us#   // dispostos etc.
@@ -946,7 +947,7 @@ _desabr) o (chL04_ O
 
 
 .group s
-?1   _) s (_W      Es|;      within an acronym  [s]+[;] not [s;] phoneme
+?1   _) s (_W      Es|;      // within an acronym  [s]+[;] not [s;] phoneme
 ?1   _) s (_       Es
 ?2   _) s (_       'Ese
         s          s

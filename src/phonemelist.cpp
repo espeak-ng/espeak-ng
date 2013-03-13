@@ -197,6 +197,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			{
 				stop_propagation = 0;
 				voicing = 0;
+				if(regression & 0x100)
+					voicing = 1;   // word-end devoicing
 				continue;
 			}
 
