@@ -23,7 +23,7 @@
 #define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
 #define REPLACED_E       'E'          // 'e' replaced by silent e
 
-#define N_WORD_PHONEMES  160          // max phonemes in a word
+#define N_WORD_PHONEMES  200          // max phonemes in a word
 #define N_WORD_BYTES     160          // max bytes for the UTF8 characters in a word
 #define N_CLAUSE_WORDS   300          // max words in a clause
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains

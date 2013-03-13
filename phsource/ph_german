@@ -97,11 +97,8 @@ phoneme U
     length 135
   ENDIF
 
-  IF nextPh(r) THEN
-    IF next2Ph(isVowel) THEN
-    ELSE
-      ChangePhoneme(UR)
-    ENDIF
+  IF nextPh(r) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(UR)
   ENDIF
   FMT(vowel/uu_2)
 endphoneme
@@ -127,6 +124,10 @@ phoneme i:
   length 180
   IF prevPh(w) THEN
     VowelStart(w/wi2)
+  ENDIF
+  
+  IF nextPh(r) AND next2Ph(isNotVowel) THEN
+    ChangePhoneme(iR)
   ENDIF
   FMT(vowel/i_2)
 endphoneme
@@ -341,41 +342,12 @@ endphoneme
 
 
 
-// This version of [r] was used in eSpeak 1.44, but received complaints
-phoneme r2     // uvular trill or fricative
-  vcd uvl frc
-  ipa ʀ
-  lengthmod 6
-  length 110
-  IF nextPhW(isVowel) THEN
-    FMT(r3/r_uvl) addWav(r3/r_uvl.wav, 50)
-  ELSE
-    IF prevPh(isFlag1) THEN
-      ChangePhoneme(NULL)   // 'r' is already included in the previous vowel
-    ELSE
-      ChangePhoneme(V#)
-    ENDIF
-  ENDIF
-endphoneme
-
-
-
-
-phoneme V#    // used for 'r' after a vowel (to create a diphthong)
-  liquid
-  lengthmod 7
-  IF nextPhW(isVowel) THEN
-    ChangePhoneme(r)
-  ENDIF
-
-  ipa ɐ
-  IF prevPh(#a) OR prevPh(E) THEN
-    FMT(r/V_2_)
-  ENDIF
-  IF prevPh(#u) THEN
-    FMT(r/@_)
-  ENDIF
-  FMT(r/V_)
+phoneme iR
+  vowel starttype #i endtype #@
+  ipa iɐ
+  flag1
+  length 180
+  FMT(vdiph2/i@_2)
 endphoneme
 
 

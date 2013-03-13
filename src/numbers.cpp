@@ -586,6 +586,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 // return number of bytes used by the letter
 // control bit 0:  a non-initial letter in a word
 //         bit 1:  say 'capital'
+//         bit 2:  say character code for unknown letters
 
 	int n_bytes;
 	int letter;
@@ -743,7 +744,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 				}
 			}
 
-			if(!(control & 2) && (al_flags & AL_NOT_CODE))
+			if(!(control & 4) && (al_flags & AL_NOT_CODE))
 			{
 				// don't speak the character code number, unless we want full details of this character
 				speak_letter_number = 0;

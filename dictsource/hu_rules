@@ -460,6 +460,7 @@ shetlan) d (szige  d
  _tren) dsz (e     d|s
  vakon) d (sz      d
 vé) d (jeggy d
+své) d (zseb d
 
 .group dz
   fogó) dz (kod    ts
@@ -1743,7 +1744,7 @@ fáklyá) sz (ene    Sz
   para) szt (segg  st
   azbe) szt (sisak st
    nyu) szt (süveg st
- serté) szs (ír    SZ
+ serté) szs (ír    S|Z
     tá) szs (in    SZ
     va) szs (ír    SZ
         szs (ák    SZ        //All szsák part containing part need spokening single S and Z phoneme, for example kenyereszsák, pénzeszsák, krumpliszsák, cukroszsák words
@@ -1763,6 +1764,7 @@ fáklyá) sz (ene    Sz
 ellenállá) sz (ón  Sz
     ré) sz (árás   Sz
 _te) szts (or st|S
+serté) szs (ir S|Z
 
 .group t
         t          t

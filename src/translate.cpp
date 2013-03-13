@@ -633,8 +633,10 @@ static char *SpeakIndividualLetters(Translator *tr, char *word, char *phonemes, 
 	int capitals = 0;
 	int non_initial = 0;
 
-	if (spell_word > 2)
-		capitals = 2;
+	if(spell_word > 2)
+		capitals = 2;  // speak 'capital'
+	if(spell_word > 1)
+		capitals |= 4; // speak charater code for unknown letters
 
 	while((*word != ' ') && (*word != 0))
 	{
@@ -1109,7 +1111,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 				// change to another language in order to translate this word
 				strcpy(word_phonemes,unpron_phonemes);
 				if(strcmp(&unpron_phonemes[1],"en")==0)
-					return(FLAG_SPELLWORD);   // _^_en must have been set in TranslateLetter(), not *_rules
+					return(FLAG_SPELLWORD);   // _^_en must have been set in TranslateLetter(), not *_rules which uses only _^_
 				return(0);
 			}
 
@@ -1774,6 +1776,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 	word_flags = wtab[0].flags;
 	if(word_flags & FLAG_EMBEDDED)
 	{
+		wtab[0].flags &= ~FLAG_EMBEDDED;  // clear it in case we call TranslateWord2() again for the same word
 		embedded_flag = SFLAG_EMBEDDED;
 
 		Word_EmbeddedCmd();
@@ -2121,7 +2124,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 		{
 			ph_list2[n_ph_list2].phcode = ph_code;
 			ph_list2[n_ph_list2].sourceix = 0;
-			ph_list2[n_ph_list2].synthflags = embedded_flag;
+			ph_list2[n_ph_list2].synthflags = 0;
 			ph_list2[n_ph_list2++].tone_ph = *p;
 			SelectPhonemeTable(*p);
 			p++;

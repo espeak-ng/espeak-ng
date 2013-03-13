@@ -349,7 +349,7 @@
     _d) e (L05_    E
    _vi) e (L05_    E
    fiz) e (L05_    E
-   pus) e (L05_    E         / com- im- de-
+   pus) e (L05_    E         // com- im- de-
    tiv) e (L05_    E         // es-
   _com) e (L05_    e
   _pud) e (L05_    E
@@ -359,34 +359,34 @@
  _perd) e (L05_    e
  _quis) e (L05_    E
  _soub) e (L05_    E
-  tend) e (L06_    e         / a- con- en- es-
+  tend) e (L06_    e         // a- con- en- es-
  _mord) e (L06_    e
  _rend) e (L06_    e
  _vend) e (L06_    e
- prend) e (L06_    e         / a- rea- des- desa-
+ prend) e (L06_    e         // a- rea- des- desa-
 _arrepend) e (L06_ e
 _defend) e (L06_   e
 _depend) e (L06_   e
 _escond) e (L06_   e
-preend) e (L06_    e         / com- a- re- sur-
+preend) e (L06_    e         // com- a- re- sur-
 respond) e (L06_   e         // cor-
    bat) e (L07_    e         // re- com-
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
-   mov) e (L07_    e         / re- co-
+   mov) e (L07_    e         // re- co-
    viv) e (L07_    e         // re-
   _beb) e (L07_    e
   _com) e (L07_    e
   _tem) e (L07_    e
   colh) e (L07_    e         // & es-
   corr) e (L07_    e         // per- con- in- so- dis-
-  ench) e (L07_    e         / pre-
-  nasc) e (L07_    e         / re-
-  tend) e (L07_    e         / en-  con- a- es-
+  ench) e (L07_    e         // pre-
+  nasc) e (L07_    e         // re-
+  tend) e (L07_    e         // en-  con- a- es-
   torc) e (L07_    e         // con-
   venc) e (L07_    e         // con-
   vert) e (L07_    e         // in- re- con-
-  volv) e (L07_    e         de- en- re-
+  volv) e (L07_    e         // de- en- re-
  _eleg) e (L07_    e
  _ergu) e (L07_    e
  _mord) e (L07_    e
@@ -397,7 +397,7 @@ respond) e (L06_   e         // cor-
  padec) e (L07_    e         // com-
  parec) e (L07_    e         // a- rea- com- desa-
  prend) e (L07_    e         // a- rea- des-
- screv) e (L07_    e         / e- in- ree- pre- de-
+ screv) e (L07_    e         // e- in- ree- pre- de-
 _abastec) e (L07_  e
 _aborrec) e (L07_  e
 _absolv) e (L07_   e
@@ -430,11 +430,11 @@ _rejuvenec) e (L07_ e
 _resolv) e (L07_   e
 _suspend) e (L07_  e
 conhec) e (L07_    e         // & re- des-
-estabelec) e (L07_ e         / re-
-favorec) e (L07_   e         / des-
-obedec) e (L07_    e         / des-
+estabelec) e (L07_ e         // re-
+favorec) e (L07_   e         // des-
+obedec) e (L07_    e         // des-
 preend) e (L07_    e         // sur- com-
-proteg) e (L07_    e         / des-
+proteg) e (L07_    e         // des-
 respond) e (L07_   e         // cor-
     qu) e (brL04_  E
  _hosp) e (dL03_   E
@@ -442,6 +442,8 @@ respond) e (L07_   e         // cor-
     _n) e (grL03_  e
  _estr) ei (L03_   EI
   _inv) e (jL04_   E
+proteg) e (l05_    e         // des-
+    tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
    _in) e (ptL03_  E
     _p) e (quL02_  E
@@ -451,14 +453,14 @@ respond) e (L07_   e         // cor-
   _sev) e (rL03_   E
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
-     g) e (rL04_   E         / su- refri-
-    qu) e (rL04_   E         / re-
+     g) e (rL04_   E         // su- refri-
+    qu) e (rL04_   E         // re-
    _op) e (rL04_   E
   _alt) e (rL04_   E
   _sup) e (rL04_   E
   _tol) e (rL04_   E
   _ven) e (rL04_   E
-  acel) e (rL04_   E         / des-
+  acel) e (rL04_   E         // des-
  _coop) e (rL04_   E
  _temp) e (rL04_   E
     _v) e (rbL03_  E
@@ -494,13 +496,13 @@ _obsol) e (tL03_   e
     _d) e (vL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
-    pr) e (zL04_   E         / des- menos-
+    pr) e (zL04_   E         // des- menos-
 _embel) e (zL04_   E
 _acont) e (çL01_   e
 _arref) e (çL01_   e
 _emagr) e (çL03 
-    pr) e (çL03_   e         / a-
-   mer) e (çL03_   e         / des-
+    pr) e (çL03_   e         // a-
+   mer) e (çL03_   e         // des-
    pad) e (çL03_   e         // com-
    par) e (çL03_   e         // a- re- com- rea- desa-
   _ado) e (çL03_   e
@@ -508,7 +510,7 @@ _emagr) e (çL03
   _car) e (çL03_   e
   _per) e (çL03_   e_
   conh) e (çL03_   e         // re-
-  obed) e (çL03_   e         / des-
+  obed) e (çL03_   e         // des-
  _esqu) e (çL03_   e
  _forn) e (çL03_   e
  _ofer) e (çL03_   e
@@ -518,6 +520,7 @@ _agrad) e (çL03_   e
 _amanh) e (çL03_   e
 _amort) e (çL03_   e
 _anoit) e (çL03_   e
+_desguarn) e (çL03_ e
 _desguarnec) e (çL03_ e
 _enfraqu) e (çL03_ e
 _enlouqu) e (çL03_ e
@@ -531,7 +534,7 @@ _espair) e (çL03_  e
 _estrem) e (çL03_  e
 _fortal) e (çL03_  e
 _rejuven) e (çL03_ e
-estabel) e (çL03_  e         / re-
+estabel) e (çL03_  e         // re-
 //endsort
 
 
@@ -828,17 +831,17 @@ estabel) e (çL03_  e         / re-
   _deb) o (chL04_  O
 _desabr) o (chL04_ O
     _s) o (frL02_  O
-     r) o (gL04_   O         / inter-
+     r) o (gL04_   O         // inter-
     _j) o (gL04_   O
    _af) o (gL04_   O
   _adv) o (gL04_   O
   _ref) o (gL04_   O
    _ap) oi (L01_   OI
     _t) o (lL03_   o
-     c) o (lhL02_  O         / es- en- re-
+     c) o (lhL02_  O         // es- en- re-
     _t) o (lhL02_  O
     _m) o (lhL04_  O
-   env) o (lvL02_  O         / des-
+   env) o (lvL02_  O         // des-
   _abs) o (lvL02_  O
   _dev) o (lvL02_  O
   _res) o (lvL02_  O
@@ -854,6 +857,7 @@ _desabr) o (chL04_ O
     _r) o (snL04_  O
     _c) o (spL02_  O
      p) ostos (_   Ost=Us#   // dispostos etc.
+    _g) o (zL04_   O
    _ad) o (çL03_   O
   _end) o (çL03_   O
 //endsort
