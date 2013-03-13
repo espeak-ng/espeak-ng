@@ -189,8 +189,9 @@ phoneme l
 endphoneme
 
 
-phoneme x   // (previously [R] from Slovak/Czech)
-  import_phoneme base/h
+phoneme x
+  CALL base/h
+  ipa x
 endphoneme
 
 
@@ -216,21 +217,4 @@ phoneme *
   ENDIF
   FMT(d/tap2) addWav(x/d, 40)
 endphoneme
-
-
-
-// testing
-phoneme x2
-  import_phoneme af/x2
-endphoneme
-
-phoneme x3
-  import_phoneme base/x
-endphoneme
-
-phoneme R1
-  import_phoneme base/R
-endphoneme
-
-
 
