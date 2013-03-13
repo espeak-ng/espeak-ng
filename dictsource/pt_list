@@ -645,7 +645,7 @@ alcateia	$alt
 alferes		$alt
 algozes		$alt
 alicerce	$alt
-almoço		alt $verb
+almoço		$alt $verb
 amarelo		$alt
 ameba		$alt
 amores		$alt2
@@ -859,6 +859,7 @@ jogo		$alt2 $noun
 joguete		$alt2
 lambreta	$alt2
 lebre		$alt
+lembrete	$alt2
 leste		$alt2 $verb
 lopes		$alt
 maior		$alt
@@ -939,6 +940,7 @@ polca		$alt
 porcos		$alt
 porrete		$alt2
 porra		$alt2
+porto		$alt2
 portos		$alt
 pose		$alt2
 povos		$alt

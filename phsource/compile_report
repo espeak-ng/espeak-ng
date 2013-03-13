@@ -48,8 +48,8 @@ consonants  11  119
    es-la   1  125
       ca  11  127
       an   4  125
-      pt  32  143
-   pt-pt  20  143
+      pt  29  140
+   pt-pt  19  140
       ro  36  148
       el  10  125
      grc  12  129
@@ -452,7 +452,7 @@ l/l_            [l] base
 l/l_@           [l/3] base
                 [l/] fr
                 [l/3] da
-l/l@            [育8] base
+l/l@            [沔.] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -486,7 +486,7 @@ l/L2_oL         [l/2] base
 l/L2_uL         [l/2] base
 l/l_3           [l/] de
 l/l_4           [ll] sq
-l/la            [育8] base
+l/la            [沔.] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -495,7 +495,7 @@ l/la            [育8] base
 l/l_a           [l/3] base
                 [l/] fr
                 [l/3] da
-l/le            [育8] base
+l/le            [沔.] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -508,7 +508,7 @@ l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
 l/l_front_      [l/4] sq
-l/li            [育8] base
+l/li            [沔.] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -523,7 +523,7 @@ ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
                 [l] fr
-l/lo            [育8] base
+l/lo            [沔.] base
                 [l#] base
                 [l/2] fr
                 [K] nso
@@ -535,7 +535,7 @@ l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
                 [l^] ru
-l/lu            [育8] base
+l/lu            [沔.] base
                 [l#] base
                 [l] fr
                 [l/2] fr
@@ -721,7 +721,6 @@ r3/rx           [*] base
                 [r] et
                 [r/] fr
                 [R] fr-ca
-                [x] pt-pt
                 [*;] ro
                 [r#] is
                 [r/] tn
@@ -2553,7 +2552,6 @@ vwl_fr/r        [r] fr
 vwl_fr/r_       [r/] fr
 vwl_fr/r_@      [r/] fr
 vwl_fr/r@       [] fr
-vwl_fr/@R       [x] pt-pt
 vwl_fr/r@2      [] fr
 vwl_fr/@R2      [R] fr-ca
 vwl_fr/ra       [] fr
