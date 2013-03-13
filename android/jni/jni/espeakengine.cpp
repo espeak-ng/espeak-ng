@@ -583,7 +583,7 @@ tts_result TtsEngine::synthesizeText(const char *text, int8_t *buffer, size_t bu
 
   espeak_Synth(text, strlen(text), 0, // position
                      POS_CHARACTER, 0, // end position (0 means no end position)
-                     espeakCHARS_UTF8 | espeakSSML, // use or ignore xml tags
+                     espeakCHARS_UTF8, // text is UTF-8 encoded
                      &unique_identifier, userdata);
   espeak_Synchronize();
 

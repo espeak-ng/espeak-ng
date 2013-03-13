@@ -324,8 +324,8 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
 
   espeak_SetSynthCallback(SynthCallback);
   const espeak_ERROR result = espeak_Synth(c_text, strlen(c_text), 0,  // position
-               POS_CHARACTER, 0,  // end position (0 means no end position)
-               espeakCHARS_UTF8 | espeakSSML, // use or ignore xml tags
+               POS_CHARACTER, 0, // end position (0 means no end position)
+               espeakCHARS_UTF8, // text is UTF-8 encoded
                &unique_identifier, nat);
   espeak_Synchronize();
 
