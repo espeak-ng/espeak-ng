@@ -341,10 +341,13 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			ph = phoneme_tab[plist3->phcode];
 			plist3[0].ph = ph;
 
-			if((plist3->phcode == phonSWITCH) && !(plist3->synthflags & SFLAG_EMBEDDED))  // ?? phonSWITCH can't have SFLAG_EMBEDDED ??
+			if(plist3->phcode == phonSWITCH)
 			{
-				if((plist3[1].phcode == phonSWITCH) || ((plist3[1].type == phPAUSE) && (plist3[2].phcode == phonSWITCH)))
-					continue;  // next phoneme is also a phonSWITCH, so ignore
+				if(!(plist3->synthflags & SFLAG_EMBEDDED))   // ?? phonSWITCH can't have SFLAG_EMBEDDED ??
+				{
+					if((plist3[1].phcode == phonSWITCH) || ((plist3[1].type == phPAUSE) && (plist3[2].phcode == phonSWITCH)))
+						continue;  // next phoneme is also a phonSWITCH, so ignore
+				}
 
 				// change phoneme table
 				SelectPhonemeTable(plist3->tone_ph);
