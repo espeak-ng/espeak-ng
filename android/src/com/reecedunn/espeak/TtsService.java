@@ -192,7 +192,10 @@ public class TtsService extends TextToSpeechService {
             return;
         }
 
-        final String text = request.getText();
+        String text = request.getText();
+        if (text == null)
+            return;
+
         final int gender = getDefaultGender();
         final int rate = scaleRate(request.getSpeechRate());
         final int pitch = scalePitch(request.getPitch());
@@ -207,6 +210,13 @@ public class TtsService extends TextToSpeechService {
             }
         }
 
+        if (text.startsWith("<?xml"))
+        {
+            // eSpeak does not recognise/skip "<?...?>" preprocessing tags,
+            // so need to remove these before passing to synthesize.
+            text = text.substring(text.indexOf("?>") + 2).trim();
+        }
+
         mCallback = callback;
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(),
                 mEngine.getChannelCount());
@@ -214,7 +224,7 @@ public class TtsService extends TextToSpeechService {
         mEngine.setVoiceByProperties(null, mMatchingVoice.name, gender, 0, 0);
         mEngine.setRate(rate);
         mEngine.setPitch(pitch);
-        mEngine.synthesize(text);
+        mEngine.synthesize(text, text.startsWith("<speak"));
     }
 
     /**

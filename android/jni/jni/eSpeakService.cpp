@@ -314,7 +314,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetPitch(
 
 JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
-    JNIEnv *env, jobject object, jstring text) {
+    JNIEnv *env, jobject object, jstring text, jboolean isSsml) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
   native_data_t *nat = getNativeData(env, object);
   const char *c_text = text ? env->GetStringUTFChars(text, NULL) : NULL;
@@ -325,7 +325,8 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
   espeak_SetSynthCallback(SynthCallback);
   const espeak_ERROR result = espeak_Synth(c_text, strlen(c_text), 0,  // position
                POS_CHARACTER, 0, // end position (0 means no end position)
-               espeakCHARS_UTF8, // text is UTF-8 encoded
+               isSsml ? espeakCHARS_UTF8 | espeakSSML // UTF-8 encoded SSML
+                      : espeakCHARS_UTF8,             // UTF-8 encoded text
                &unique_identifier, nat);
   espeak_Synchronize();
 

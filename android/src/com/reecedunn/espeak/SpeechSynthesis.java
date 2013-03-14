@@ -179,8 +179,8 @@ public class SpeechSynthesis {
         nativeSetPitch(pitch);
     }
 
-    public void synthesize(String text) {
-        nativeSynthesize(text);
+    public void synthesize(String text, boolean isSsml) {
+        nativeSynthesize(text, isSsml);
     }
 
     public void stop() {
@@ -257,7 +257,7 @@ public class SpeechSynthesis {
 
     private native final boolean nativeSetPitch(int pitch);
 
-    private native final boolean nativeSynthesize(String text);
+    private native final boolean nativeSynthesize(String text, boolean isSsml);
 
     private native final boolean nativeStop();
 
