@@ -142,7 +142,7 @@ public class TextToSpeechTest extends AndroidTestCase
             }
             catch (AssertionError e)
             {
-                throw new VoiceData.Exception(data, e);
+                throw new VoiceData.Exception(data, null, e);
             }
         }
     }

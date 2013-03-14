@@ -219,25 +219,36 @@ public class SpeechSynthesisTest extends AndroidTestCase
                 continue;
             }
 
+            String context = "[voice]";
             try
             {
                 final Voice voice = getVoice(data.name);
                 assertThat(voice, is(notNullValue()));
-    
+
+                context = "[name]";
                 assertThat(voice.name, is(data.name));
+                context = "[identifier]";
                 assertThat(voice.identifier, is(data.identifier));
+                context = "[age]";
                 assertThat(voice.age, is(0));
+                context = "[gender]";
                 assertThat(voice.gender, is(data.gender));
+                context = "[locale:language]";
                 assertThat(voice.locale.getLanguage(), is(data.ianaLanguage));
+                context = "[locale:iso3language]";
                 assertThat(voice.locale.getISO3Language(), is(data.javaLanguage));
+                context = "[locale:country]";
                 assertThat(voice.locale.getCountry(), is(data.ianaCountry));
+                context = "[locale:iso3country]";
                 assertThat(voice.locale.getISO3Country(), is(data.javaCountry));
+                context = "[locale:variant]";
                 assertThat(voice.locale.getVariant(), is(data.variant));
+                context = "[toString]";
                 assertThat(voice.toString(), is(data.locale));
             }
             catch (AssertionError e)
             {
-                throw new VoiceData.Exception(data, e);
+                throw new VoiceData.Exception(data, context, e);
             }
         }
     }
@@ -349,22 +360,27 @@ public class SpeechSynthesisTest extends AndroidTestCase
                 continue;
             }
 
+            String context = null;
             try
             {
                 final Locale ianaLocale = new Locale(data.ianaLanguage, data.ianaCountry, data.variant);
+                context = "[iana:sample-text]";
                 assertThat(SpeechSynthesis.getSampleText(getContext(), ianaLocale), is(data.sampleText));
+                context = "[iana:resource-locale]";
                 assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
 
                 if (!data.javaLanguage.equals(""))
                 {
                     final Locale javaLocale = new Locale(data.javaLanguage, data.javaCountry, data.variant);
+                    context = "[java:sample-text]";
                     assertThat(SpeechSynthesis.getSampleText(getContext(), javaLocale), is(data.sampleText));
+                    context = "[java:resource-locale]";
                     assertThat(getContext().getResources().getAssets().getLocales(), is(currentLocales));
                 }
             }
             catch (AssertionError e)
             {
-                throw new VoiceData.Exception(data, e);
+                throw new VoiceData.Exception(data, context, e);
             }
         }
     }
