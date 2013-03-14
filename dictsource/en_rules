@@ -1,6 +1,6 @@
 
 // ***************************************************************************
-// *   Copyright (C) 2005 to 2010 by Jonathan Duddington                     *
+// *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
 // *   email: jonsd@users.sourceforge.net                                    *
 // *                                                                         *
 // *   This program is free software; you can redistribute it and/or modify  *
@@ -387,6 +387,7 @@
         _r) adio (@P5    r,eIdI%oU
          r) adi (oL10+   eIdI
          b) ad (os_      eId
+        _s) ado (ma      ,eIdoU
             ad (iA       eId
          s) ad (is       eId
        _tr) ad (it       a#d
@@ -1275,7 +1276,7 @@
          _) be (gg       bE
          _) belarus      bEl@r'u:s
          _) be (lC       bE
-         _) be (lli      bI2
+         _) be (llig     bI2
          _) be (sC       bI2
          _) be (stia     bE
          _) be (tB       bE
@@ -1601,7 +1602,7 @@
             co (ntrol+   k@
             conva (l     k0nv@
          _) co (nvenA    k@
-         _) co (nvi      k0#
+         _) con (vi      k%0#n
          _) co (nvoy     k0
          _) co (nw       k0
          _) copy         k0pI
@@ -1734,7 +1735,7 @@
          _) des (k       dEs
             des (ol      dEs
             des (pot     dEs
-         _) dess         dI2z
+         _) dess (er     dI2z
             desta (b     d%i:steI
             desti        dEstI
             des (ul      d%i:s
@@ -2547,7 +2548,7 @@
          v) es (t+       Es
       harv) es (t        Is
             esti (m      EstI#
-            es (ty       @s
+         &) es (ty       @s
 
 .group et
          _) et (on       i:t
@@ -2681,7 +2682,7 @@
             for (see     f%O@
             for (ward    f'o@  // straightforward
             ft (en       f
-         &) ful (_S3     f@L
+         &) ful (_S3i     f@L
          &) fully (_S5   f@li
          &) fulness (_S7   f@Ln@s
 
@@ -2768,6 +2769,7 @@
             h (_
         _B) h
          @) hammed       h'amId
+         d) h (am_
          A) han (_       han          // places
          e) han (_       h@n
             ha  (st      heI
@@ -2920,6 +2922,7 @@
         nt) il (_        @L
         @v) il (_        @L
          @) ila (_       'Il@
+?3       &) ile (_$w_alt2  @L
         _C) i (lage      aI
         _d) i (lat       %aI
          l) il (ah_      aIl
@@ -2994,6 +2997,7 @@
             iah (_       'aI@
             ia (m        i@
          &) ia (n        i@
+         @) ia (nd       I'a
          @) ia (nic      I'a
          @) ia (nit      I'a
          @) ia (na_      i:'a
@@ -3379,6 +3383,7 @@
          &) ion (_       =i@n
 ?8       &) ion (_       =IVn
         ll) ion          i@n
+        ll) ion (_       =i@n
          n) ion          =i@n
          v) io (l        aI@
             ione (_      'aI@ni
@@ -3394,8 +3399,8 @@
             iority       I'0rI2t%I
             iou (rA      j@
             iour (K      j3
-         @) ious (_      =I2@s
-         g) ious (_      =@s
+         @) ious         =I2@s
+         g) ious         =@s
             ioux         u:
         _r) io (t        aI@
             io (t_       I|@
@@ -3569,7 +3574,6 @@
         _l) iv (eB       aIv
         XC) iv (el       Iv
         _g) iv (e        Iv
-        _l) iv (e        Iv
          l) iv (er       Iv
          r) iv (er       Iv
         dr) iv (er       aIv
@@ -3677,8 +3681,8 @@
             legged       lEgId
 //        Ab) le           @L
          C) le (ton_     @L
-        Ab) ler (_       l@
-        Ab) le (C_       l@
+        Ab) ler (_       l3
+        Ab) le (B_       l@
         Ab) led (_       @Ld
          &) lem (ent     @Lm
         &p) lem (ent     lIm
@@ -3750,8 +3754,7 @@
          _) metall (ic   m@tal
             metabo       m@t'ab0
          _) meta (llu    m%Eta
-         _) mobile       moUbaIl
-            mobile       m@bi:l
+         &) mobile       m@bi:l
             mono (ga     m@n'0
             mo (noto     m@
          _) mono         m0noU
@@ -4081,6 +4084,7 @@
          m) otor         oUt3
          n) o (tor       oU
             otro (py     '0tr@
+         &) o (try       @
          c) otyle        0tIl'i:
          m) o (x         @
             o (x++       0
@@ -4191,7 +4195,6 @@
 ?3      ag) on (_        0n
         rg) on (_        @n
         &s) on (_        @n
-        ds) on (_        Vn
         &t) on (_        @n
        &tr) on (_        0n
         fl) on (_        0n
@@ -4208,7 +4211,9 @@
       pers) on           @n
       pers) on (i        '0n
      postp) on           'oUn
+       _sp) on           0n
             on (ald      0n
+         &) on (age_     @n
          d) on (at       %oUn
             on (an_      oUn
          _) on (io       Vn
@@ -4397,6 +4402,7 @@
             os (al_      'oUz
         _l) os (e        u:z
             ose (_       oUz
+         c) ose (_       oUs
       purp) ose          @s
         _r) os (e#       oUz
          c) os (ec       oUs
@@ -4584,7 +4590,7 @@
 ?3       h) ov (er       Vv
          l) ov           Vv
          l) ov (e        Vv
-        _l) ove          Vv
+        _l) ove (@       Vv
         cl) ov (e        oUv
        _sl) ov (enA      oUv
         pl) ov           oUv
@@ -5881,6 +5887,7 @@
         &d) Ed (_S2vei   I#d
        &ch) Ed (_S2vei   t
         &k) Ed (_S2vei   t
+       ril) Ed (_S2      d
      &@@om) Ed (_S2v     d
         &p) Ed (_S2vei   t
         &t) Ed (_S2vei   I#d

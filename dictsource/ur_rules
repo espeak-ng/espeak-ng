@@ -1,4 +1,4 @@
-
+﻿
 // This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal).
 // This file is UTF8 encoded 
 //  phoneme rules for Urdu
@@ -15,11 +15,12 @@
 ٧	7
 ٨	8
 ٩	9
+ي	ی
 
 
 
 // vowel signs, alif acts as consonants  at start of word if these follow
-.L01  َ  ِ  ُ  و  ی   ع  ا
+.L01  َ ِ ُ و ی ع ا ے 
 
 
 // VOWELS
@@ -51,7 +52,35 @@
 	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
 _) ا	a
 _) او	u:
-_) ای	i:
+_) ای	e:
+	ائ	a:j
+	اہ(_	a:H
+	_) اتن	'Itn
+	_) اتر	Ut'aR
+	_) اتر (L01	UtR
+	_) الٹ	Ul'at.
+	_) الٹ (L01	Ult.
+	_) الجھ	Ul'aJh
+	_) الجھ (L01	UlJh
+	_) ابھر	Ubh'aR
+	_) ابھر (L01	UbhR
+	_) اچھل	Uch'al
+	_) اچھل (L01	Uchl
+	_) اجڑ	UJ'ar.
+	_) اجڑ (L01	UJr.
+	افتتاح	,ItIt'a:H
+	اسلام	,Isl'a:m
+	_) انسان	Ins'a:n
+	_) انت	'Int,a
+	_) امید	Um'i:d
+	اً(_	'an
+	_) امکان	,Imk'a:n
+	_) افسر	,afs'aR
+	_) اتفاق	,ItIf'a:q
+	_) ابتدا	'Ibt,Ida:
+	_) ایمان	i:m'a:n
+	_) اعت	'e:tI
+	_) اضاف	Iz'a:f
 
 .group آ
 	آ	a:
@@ -61,6 +90,7 @@ _) ای	i:
 	ع	a:
 	عا	a:
 	_) ع	a
+	_) عیس	'i:s
 
 
 .group و
@@ -68,14 +98,21 @@ _) ای	i:
 	وُ	u:
 	وٗ	u:
 	و (L01	v
-	_) و	v
+	_) و	vV
+	 وع (_	u:
+	وّ	vv
+
 
 .group ی
 	ی	e:
 	ی (L01	j
 	ی (_	i:
-	_) ی	j
-
+	_) ی	jV
+	یع(_	i:
+	@) ی	i:
+	یں(_	e:n
+	یّ	jj
+	@) یت(_	j'at
 
 .group ے		// yeh barree
 	ے	e:
@@ -95,81 +132,142 @@ _) ای	i:
 
 .group ب
 	ب	bV
-	بھ	bhV
-	بھ (L01	bh
+	بھ	b#V
+	بھ (L01	b#
 	ب (L01	b	
+	بّ	bbV
+	بّ (L01	bb
+	_) بگڑ	bIg'ar.
+	_) بگڑ (L01	b'Igr.
+	_) بکھر	bIkh'aR
+	_) بکھر (L01	b'IkhR
+	_) بچھڑ	bIch'ar.
+	_) بچھڑ (L01	bIchr.
+	_) بجھ	b'UJh
+	بھوک	bh'u:k
+	بھیک	bh'i:k
+	بھیگ	bh'i:g
+	بھول	bh'u:l
+
 
 .group پ
 	پ	pV
-	پھ	phV
+	پھ	p#V
 	پ (L01	p
-	پھ (L01	ph
+	پھ (L01	p#
+	پّ	ppV
+	پّ (L01	pp
+	_) پھر	ph'IR
+	پھول	ph'u:l
+	_) پہل (L01	p'e:Hl
 
 
 .group ت
 	ت	tV
-	تھ	thV
+	تھ	t#V
 	ت (L01	t
-	تھ (L01	th
+	تھ (L01	t#
+	تّ	ttV
+	تّ (L01	tt
+
 
 .group ٹ
 	ٹ	t.V
-	ٹھ	th.V
+	ٹھ	t.#V
 	ٹ (L01	t.
-	ٹھ (L01	th.
+	ٹھ (L01	t.#
+	ٹّ	t.t.V
+	ٹّ (L01	t.t.
+
 
 .group ث
 	ث	sV
 	ث (L01	s
+	ثّ	ssV
+	ثّ (L01	ss
+
 
 .group ج
 	ج	JV
-	جھ	JhV
+	جھ	J#V
 	ج (L01	J
-	جھ (L01	Jh
+	جھ (L01	J#
+	جّ	JJV
+	جّ (L01	JJ
+	_) جیت	J'i:t
+	_) جوا	J'ava:
 
 
 .group چ
 	چ	cV
-	چھ	chV
+	چھ	c#V
 	چ (L01	c
-	چھ (L01	ch
+	چھ (L01	c#
+	چّ	ccV
+	چّ (L01	cc
+
 
 .group ح
 	ح	HV
 	ح (L01	H
+	ح (_	H
+	حّ	HHV
+	حّ (L01	HH
+
 
 .group خ
 	خ	xV
 	خ (L01	x
+	خت(_	xt
+	خّ	xxV
+	خّ (L01	xx
+	_) خوش	x'US
+	_) خود	x'Ud
+	_) خواہش	xv'a:HIS
+
 
 .group د
 	د	dV
-	دھ	dhV
+	دھ	d#V
 	د (L01	d
-	دھ (L01	dh
+	دھ (L01	d#
+	دّ	ddV
+	دّ (L01	dd
+
 
 .group ڈ
 	ڈ	d.V
-	ڈھ	dh.V
+	ڈھ	d.#V
 	ڈ (L01	d.
-	ڈھ (L01	dh.
+	ڈھ (L01	d.#
+	ڈّ	d.d.V
+	ڈّ (L01	d.d.
 
 .group ذ
 	ذ	DV
 	ذ (L01	D
+	ذّ	DDV
+	ذّ (L01	DD
 
 .group ر
 	ر	RV
 	ر (L01	R
+	رّ	RRV
+	رّ (l01	RR
 
 .group ڑ
 	ڑ	r.V
 	ڑ (L01	r.
+	ڑّ	r.r.V
+	ڑّ (L01	r.r.
+	ڑھ	r.hV
+	ڑھ (L01	r.h
 
 .group ز
 	ز	zV
 	ز (L01	z
+	زّ	zzV
+	زّ (L01	zz
 
 .group ژ
 	ژ	ZV
@@ -178,64 +276,113 @@ _) ای	i:
 .group س
 	س	sV
 	س (L01	s
+	سّ	ssV
+	سّ (L01	ss
+	_) سرخ	s'URx
+	_) سن (L01	s'Un
+	_) سلجھ	sUl'aJh
+	_) سلجھ (L01	sUlJh
+	_) سدھر	sUdh'aR
+	_) سدھر (L01	sUdhR
 
 .group ش
 	ش	SV
 	ش (L01	S
+	شّ	SSV
+	شّ (L01	SS
 
 .group ص
 	ص	s.V
 	ص (L01	s.
+	صّ	ssV
+	صّ (L01	ss
 
 .group ض
 	ض	zV
 	ض (L01	z
+	ضّ	zzv
+	ضّ (L01	zz
 
 .group ط
 	ط	tV
-	طھ	thV
+	طھ	t#V
 	ط (L01	t
-	طھ (L01	th
+	طھ (L01	t#
+	طّ	ttV
+	طّ (L01	tt
 
 .group ظ
 	ظ	z.V
 	ظ (L01	z.
+	ظّ	z.z.V
+	ظّ (L01	z.z.
 
 .group غ
 	غ	QV
 	غ (L01	Q
+	غّ	QQV
+	غّ (L01	QQ
 
 .group ف
 	ف	fV
 	ف (L01	f
+	فّ	ffV
+	فّ (L01	ff
 
 .group ق
 	ق	qV
 	ق (L01	q
+	قّ	qqV
+	قّ (L01	qq
 
 .group ک
 	ک	kV
-	کھ	khV
+	کھ	k#V
 	ک (L01	k
-	کھ (L01	kh
+	کھ (L01	k#
+	کّ	kkV
+	کّ (L01	kk
+	_) کتن	k'Itn
 
 .group گ
 	گ	gV
-	گھ	ghV
+	گھ	g#V
 	گ (L01	g
-	گھ (L01	gh
+	گھ (L01	g#
+	گّ	ggV
+	گّ (L01	gg
+	_) گرفت	g'IRIft
+	_) گزر	gUz'aR
+	_) گزر (L01	gUzR
 
 .group ل
 	ل	lV
 	ل (L01	l
+	لّ	llV
+	لّ (L01	ll
+	لکھ	l'Ik#
 
 .group م
 	م	mV
 	م (L01	m
+	مّ	mmV
+	مّ (L01	mm
+	_) مشکل	m'USk,Il
 
 .group ن
 	ن	nV
 	ن (L01	n
+	@) ن (گ	n
+	@) ن (د	n
+	@) ن (ب	n
+	@) ن (س	n
+	نّ	nnV
+	نّ (L01	nn
+	_) نکل	nIk'al
+	_) نکل (L01	nIkl
+	@) ن (چ	n
+	_) نکال	nIk'a:l
+	_) نگاہ	nIg'a:H
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -243,9 +390,21 @@ _) ای	i:
 .group ء
 	ء	
 
-.group ہ
+.group ہ 
 	ہ	H
+	_) ہ	Ha
+	_) ہ (L01	H
+	_) ہ (ند	HI
+	ہّ	HHV
+	ہّ (L01	HH
+
 	ہ (_	a
+
+.group ّ
+	ّ
+
+.group ً
+	ً
 
 
 // Common symbols

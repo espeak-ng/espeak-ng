@@ -23,7 +23,7 @@
 #define CTRL_EMBEDDED    0x01         // control character at the start of an embedded command
 #define REPLACED_E       'E'          // 'e' replaced by silent e
 
-#define N_WORD_PHONEMES  160          // max phonemes in a word
+#define N_WORD_PHONEMES  200          // max phonemes in a word
 #define N_WORD_BYTES     160          // max bytes for the UTF8 characters in a word
 #define N_CLAUSE_WORDS   300          // max words in a clause
 #define N_RULE_GROUP2    120          // max num of two-letter rule chains
@@ -37,27 +37,22 @@
 #define FLAG_SKIPWORDS        0x80
 #define FLAG_PREPAUSE        0x100
 
-#define FLAG_ONLY            0x200
-#define FLAG_ONLY_S          0x400
-#define BITNUM_FLAG_ONLY         9  // bit 9 is set
-#define BITNUM_FLAG_ONLY_S      10  // bit 10 is set
+#define FLAG_STRESS_END      0x200  // full stress if at end of clause
+#define FLAG_STRESS_END2     0x400  // full stress if at end of clause, or only followed by unstressed
+#define FLAG_UNSTRESS_END    0x800  // reduce stress at end of clause
+#define FLAG_SPELLWORD      0x1000  // re-translate the word as individual letters, separated by spaces
+#define FLAG_ABBREV         0x2000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
+#define FLAG_DOUBLING       0x4000  // doubles the following consonant
 
-#define FLAG_STRESS_END      0x800  /* full stress if at end of clause */
-#define FLAG_STRESS_END2    0x1000  /* full stress if at end of clause, or only followed by unstressed */
-#define FLAG_UNSTRESS_END   0x2000  /* reduce stress at end of clause */
-#define FLAG_ATEND          0x4000  /* use this pronunciation if at end of clause */
-#define FLAG_ATSTART        0x8000  // use this pronunciation if at start of clause
-#define FLAG_SPELLWORD     0x10000  // re-translate the word as individual letters, separated by spaces
-#define FLAG_ABBREV        0x20000  // spell as letters, even with a vowel, OR use specified pronunciation rather than split into letters
-#define FLAG_STEM          0x40000  // must have a suffix
+#define BITNUM_FLAG_ALT         14  // bit number of FLAG_ALT_TRANS - 1
+#define FLAG_ALT_TRANS      0x8000  // language specific
+#define FLAG_ALT2_TRANS    0x10000  // language specific
+#define FLAG_ALT3_TRANS    0x20000  // language specific
+#define FLAG_ALT4_TRANS    0x40000  // language specific
+#define FLAG_ALT5_TRANS    0x80000  // language specific
+#define FLAG_ALT6_TRANS   0x100000  // language specific
 
-#define FLAG_DOUBLING      0x80000  // doubles the following consonant
-#define BITNUM_FLAG_ALT         19  // bit number of FLAG_ALT_TRANS - 1
-#define FLAG_ALT_TRANS    0x100000  // language specific
-#define FLAG_ALT2_TRANS   0x200000  // language specific
-#define FLAG_ALT3_TRANS   0x400000  // language specific
 #define FLAG_COMBINE      0x800000  // combine with the next word
-
 #define FLAG_ALLOW_DOT  0x01000000  // ignore '.' after word (abbreviation)
 #define FLAG_NEEDS_DOT  0x02000000  // only if the word is followed by a dot
 #define FLAG_WAS_UNPRONOUNCABLE  0x04000000  // the unpronounceable routine was used
@@ -83,8 +78,16 @@
 #define FLAG_ACCENT          0x800  // character name is base-character name + accent name
 #define FLAG_HYPHENATED     0x1000  // multiple-words, but needs hyphen between parts 1 and 2
 #define FLAG_SENTENCE       0x2000  // only if the clause is a sentence
+#define FLAG_ONLY           0x4000
+#define FLAG_ONLY_S         0x8000
+#define FLAG_STEM          0x10000  // must have a suffix
+#define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
+#define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
+
 #define BITNUM_FLAG_ALLCAPS   0x2a
 #define BITNUM_FLAG_HYPHENATED  0x2c
+#define BITNUM_FLAG_ONLY      0x2e
+#define BITNUM_FLAG_ONLY_S    0x2f
 
 
 // wordflags, flags in source word
@@ -272,7 +275,9 @@ extern ALPHABET *current_alphabet;
 // alphabet flags
 #define AL_DONT_NAME  0x01    // don't speak the alphabet name
 #define AL_NOT_LETTERS  0x02  // don't use the language for speaking letters
-#define AL_NOT_WORDS  0x04    // don't use the language to speak words
+#define AL_WORDS      0x04    // use the language to speak words
+#define AL_NOT_CODE   0x08    // don't speak the character code
+#define AL_NO_SYMBOL  0x10    // don't repeat "symbol" or "character"
 
 
 #define N_LOPTS      21
@@ -369,34 +374,57 @@ typedef struct {
 
 #define S_NO_DIM            0x02
 #define S_FINAL_DIM         0x04
-#define S_FINAL_NO_2        0x10
-#define S_NO_AUTO_2         0x20
-#define S_2_TO_HEAVY        0x40
-#define S_FIRST_PRIMARY     0x80
-#define S_2_SYL_2           0x1000
-#define S_INITIAL_2         0x2000
-#define S_NO_AUTO_DIM       0x10000
-#define S_HYPEN_UNSTRESS    0x100000
-#define S_NO_EOC_LENGTHEN   0x200000
-// bit0=don't stress monosyllables, except at end of clause
+#define S_FINAL_DIM_ONLY    0x06
 // bit1=don't set diminished stress,
 // bit2=mark unstressed final syllables as diminished
+
 // bit3=set consecutive unstressed syllables in unstressed words to diminished, but not in stressed words
+
+#define S_FINAL_NO_2        0x10
 // bit4=don't allow secondary stress on last syllable
+
+#define S_NO_AUTO_2         0x20
 // bit5-don't use automatic secondary stress
+
+#define S_2_TO_HEAVY        0x40
 // bit6=light syllable followed by heavy, move secondary stress to the heavy syllable. LANG=Finnish
+
+#define S_FIRST_PRIMARY     0x80
 // bit7=if more than one primary stress, make the subsequent primaries to secondary stress
+
+#define S_FINAL_STRESS_C    0x100
 // bit8=stress last syllable if it doesn't end in a vowel
+
+#define S_FINAL_SPANISH     0x200
 // bit9=stress last syllable if it doesn't end in vowel or "s" or "n"  LANG=Spanish
+
+#define S_2_SYL_2           0x1000
 // bit12= In a 2-syllable word, if one has primary stress then give the other secondary stress
+
+#define S_INITIAL_2         0x2000
 // bit13= If there is only one syllable before the primary stress, give it a secondary stress
-// bit15= Give stress to the first unstressed syllable
-// bit16= Don't diminish consecutive syllables within a word.
+
+#define S_MID_DIM           0x10000
+// bit 16= Set (not first or last) syllables to diminished stress
+
+#define S_PRIORITY_STRESS   0x20000
 // bit17= "priority" stress reduces other primary stress to "unstressed" not "secondary"
+
+#define S_EO_CLAUSE1        0x40000
 // bit18= don't lengthen short vowels more than long vowels at end-of-clause
+
+#define S_FINAL_LONG         0x80000
 // bit19=stress on final syllable if it has a long vowel, but previous syllable has a short vowel
+
+
+#define S_HYPEN_UNSTRESS    0x100000
 // bit20= hyphenated words, 2nd part is unstressed
+
+#define S_NO_EOC_LENGTHEN   0x200000
 // bit21= don't lengthen vowels at end-of-clause
+
+// bit15= Give stress to the first unstressed syllable
+
 
 	int stress_flags;
 	int unstressed_wd1; // stress for $u word of 1 syllable
@@ -515,6 +543,8 @@ typedef struct {
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
 	const char *ascii_language;  // switch to this language for Latin characters
+	int alt_alphabet;       // offset for another language to recognize
+	const char *alt_alphabet_lang;  // language for the alt_alphabet
 	int max_lengthmod;
 	int lengthen_tonic;   // lengthen the tonic syllable
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
@@ -543,7 +573,7 @@ typedef struct
 	const char *transpose_map;
 	char dictionary_name[40];
 
-	char phon_out[400];
+	char phon_out[500];
 	char phonemes_repeat[20];
 	int  phonemes_repeat_count;
 	int  phoneme_tab_ix;
@@ -552,6 +582,7 @@ typedef struct
 	unsigned char stress_amps_r[8];
 	short stress_lengths[8];
 	int dict_condition;    // conditional apply some pronunciation rules and dict.lookups
+	int dict_min_size;
 	const unsigned short *charset_a0;   // unicodes for characters 0xa0 to oxff
 	const wchar_t *char_plus_apostrophe;  // single chars + apostrophe treated as words
 	const wchar_t *punct_within_word;   // allow these punctuation characters within words
@@ -585,7 +616,6 @@ typedef struct
 	unsigned char groups2_start[256];    // index into groups2
 	const short *frequent_pairs;   // list of frequent pairs of letters, for use in compressed *_list
 
-
 	int expect_verb;
 	int expect_past;    // expect past tense
 	int expect_verb_s;
@@ -601,7 +631,7 @@ typedef struct
 
 	int prepause_timeout;
 	int end_stressed_vowel;  // word ends with stressed vowel
-	int prev_dict_flags;     // dictionary flags from previous word
+	int prev_dict_flags[2];     // dictionary flags from previous word
 	int clause_terminator;
 } Translator;
 
@@ -677,6 +707,7 @@ void InitText(int flags);
 void InitText2(void);
 int IsDigit(unsigned int c);
 int IsAlpha(unsigned int c);
+int IsVowel(Translator *tr, int c);
 int isspace2(unsigned int c);
 int towlower2(unsigned int c);
 void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
@@ -703,7 +734,6 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 
 void MakePhonemeList(Translator *tr, int post_pause, int new_sentence);
 int ChangePhonemes_ru(Translator *tr, PHONEME_LIST2 *phlist, int n_ph, int index, PHONEME_TAB *ph, CHANGEPH *ch);
-void ApplySpecialAttribute(Translator *tr, char *phonemes, int dict_flags);
 void ApplySpecialAttribute2(Translator *tr, char *phonemes, int dict_flags);
 void AppendPhonemes(Translator *tr, char *string, int size, const char *ph);
 
@@ -714,14 +744,14 @@ int RemoveEnding(Translator *tr, char *word, int end_type, char *word_copy);
 int Unpronouncable(Translator *tr, char *word, int posn);
 void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags, int tonic, int prev_stress);
 int TranslateRules(Translator *tr, char *p, char *phonemes, int size, char *end_phonemes, int end_flags, unsigned int *dict_flags);
-int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab);
+int TranslateWord(Translator *tr, char *word1, int next_pause, WORD_TAB *wtab, char *word_out);
 void *TranslateClause(Translator *tr, FILE *f_text, const void *vp_input, int *tone, char **voice_change);
 int ReadClause(Translator *tr, FILE *f_in, char *buf, short *charix, int *charix_top, int n_buf, int *tone_type, char *voice_change);
 
 void SetVoiceStack(espeak_VOICE *v, const char *variant_name);
 void InterpretPhoneme(Translator *tr, int control, PHONEME_LIST *plist, PHONEME_DATA *phdata, WORD_PH_DATA *worddata);
 void InterpretPhoneme2(int phcode, PHONEME_DATA *phdata);
-char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa);
+char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int use_ipa, int *flags);
 
 extern FILE *f_trans;		// for logging
 extern FILE *f_logespeak;

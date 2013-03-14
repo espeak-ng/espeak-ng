@@ -1,6 +1,7 @@
 
 // This file in UTF8 encoded
 
+// $alt2, remove s from plural, remove en from plural
 // Use $alt3  where 'ng' and 'nk' is 'n+g' not [N]
 
 // Letters
@@ -1398,6 +1399,7 @@ vondel		$alt
 accessoire      aksEsw'ar@
 accessoires     aksEsw'ar@s
 actiepunt	Aksip8nt
+adhesie		Ath'e:zi
 agenda		$2
 aldus		Ald'8s
 alles		Al@s
@@ -1436,14 +1438,17 @@ chassis		SAs'i
 chat		tSEt
 check		tSEk
 chiffon		Sif'On
+cohesie		$2
 contour		ko:nt'ur
 controle	$2
 coureur		ku:r'Y:r
 crèches		krES@s
 damascering     damA;s'e:rIN
 december	$2
+desillusie	dEsIlyzi
 dieet		$2
 diesel		diz@l
+//discussie	$2
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
 doordat		$2
@@ -1452,7 +1457,9 @@ eensgelijks	e:nsQ@l'EIks
 elfstedentocht	,Elf'ste:d@ntoQt
 embouchuur	A~buS'yr   // embouchure
 enorm		$2
+erosie		e:r'o:zi
 eucharistie	$4
+explosie	$2
 februari	fe:bry'a:ri
 fiche		fiS@
 franchise	frA'Si:z@
@@ -1470,10 +1477,12 @@ ingevolge	$3
 ingrediënt	$4
 ingenieur	Inzj@nj'Y:r
 informatie	$3
+invasie		$2
 januari		$3
 kadaster	$2
 mangat		$alt3
 materie		ma:t'e:ri
+maatregel	ma:tre:Q@l $alt2
 maxima		$1
 meteen		mEt'e:n
 metro		me:tro:

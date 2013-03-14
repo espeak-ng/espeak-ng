@@ -23,13 +23,15 @@
 // Text to phoneme rules for Farsi
 
 
-// replace Arabic character numbers with Latin character numbers
+// replacing unknown characters and Arabic   numbers with Farsi characters and Latin  numbers
 .replace
 		٪	%
 		ي	ی
 		ۍ	ی
 		ى	ی
 		ك	ک
+		ە	ه
+		ھ	ه
 		٠	0
 		۰	0
 		۱	1
@@ -59,12 +61,12 @@
 .L01  آ ا ی ي و
 
 // short vowels (commonly unwritten )
-.L02  َ ُ ِ ً ٌ ٍ ّ ؤ أ إ ء ۀ
+.L02  َ ُ ِ ْ ً ٌ ٍ ّ ؤ أ إ ء ۀ
 
 // All consonants
 .L03  ب پ ت ث ج چ ح خ د ذ ر ز ژ س ش ص ض ط ظ ع غ ف ق ک گ ل م ن ه ة ئ
 
-// all Farsi characters without ا آ
+// all Farsi characters without ا آ and Short vowels
 .L04  ض ص ث ق ف غ ع ه خ ح ج چ ش س ی ب ل ت ن م ک گ ۀ ظ ط ز ر ذ د ئ و ة ي ژ ؤ إ أ ء ؟ پ 
 
 // Group one of consonants
@@ -77,7 +79,7 @@
 .L07  ن م ت ش ک مان تان شان ند نده ندۀ ندگی ندگان گی گان گانه گانۀ ستان ست
 
 // All vowels (long + Short)
-.L08  آ ا ی ي و َ ُ ِ ً ٌ ٍ ّ ؤ أ إ ء ۀ
+.L08  آ ا ی ي و َ ُ ِ ْ ً ٌ ٍ ّ ؤ أ إ ء ۀ
 
 // all Farsi characters without short vowels
 .L09  ض ص ث ق ف غ ع ه خ ح ج چ ش س ی ب ل ا ت ن م ک گ ۀ آ ظ ط ز ر ذ د ئ و ة ي ژ پ ؤ إ أ ء ؟ ّ
@@ -100,6 +102,9 @@
 		L09L04) آلود (_Sm4	Alud
 		L09L04) آباد (_Sm4	AbAd
 		L09L04) آفرین (_Sm5	AfaRin
+		L09L09) آموخته (_Sm6	Amuxte:
+		L09L09) آموختۀ (_Sm6	Amuxteje
+		L09L09) آگاه (_Sm4	AgAh
 
 
 .group ا
@@ -108,7 +113,7 @@
 		-) ا (للّه_+	o
 	_) ا (L02_	alef?
 	_) ا (L02L09	
-	_) ا (L01	
+	_) ا (L01L03	
 	_) ا	'a:
 	_) ا (ع	e
 	ا	'A
@@ -346,6 +351,8 @@
 		L09L09) بخت (_Sm3	baxt
 		L09L09) باش (_Sm3	bAS
 		L09L09) بزرگ (_Sm4	bozoRg
+		L09L09) باور (_Sm4	bAvaR
+		L09L09) برانگیز (_Sm	baRangiz
 
 	// arabic form of words  (Babs) ب
 		//فواعل eg. جوامع
@@ -518,6 +525,7 @@
 		L09L09) پرداز (_Sm5	paRdAz
 		L09L09) پندار (_Sm5	pendAR
 		L09L09) پرست (_Sm4	paRast
+		L09L09) پناه (_Sm4	panAh
 
 	// arabic form of words  (Babs) پ
 		//فواعل eg. جوامع
@@ -1670,6 +1678,7 @@
 		L09L09) درد (_Sm3	daRd
 		L09L09) دوش (_Sm3	duS
 		L09L09) دهی (_Sm3	dehi
+		L09L09) دوست (_Sm4	dust
 
 	// arabic form of words  (Babs) د
 		//فواعل eg. جوامع
@@ -2473,6 +2482,7 @@
 	// suffixes س
 		L09L01) ست (_+NSm2	st
 		L09L03) ست (_+NSm2	ast
+		-) ست (_+NSm2	st	// eg. "کجا‌ست"
 		L09L03) ستان (_Sm4	estAn
 		L09L01) ستان (_Sm4	stAn
 		L09L09) سان (_Sm3	sAn
@@ -2826,7 +2836,7 @@
 	// Prefixes ص
 		_) صاحب (L04L09L09P4@	sAheb
 		_) صاحب (آL09L09P4@	sAheb
-		_) صدر (L04L09L09P5@	sadr
+		_) صدر (L04L09L09P3@	sadr
 		_) صدر (آL09L09P5@	sadr
 
 	// Suffixes ص
@@ -4663,6 +4673,7 @@
 			L09L01) مون (_Sm3	mun
 		L09L09) مردان (_Sm5	maRdAn
 		L09L09) منش (_Sm3	maneS
+		L09L09) مآب (_Sm3	maAb
 
 	// arabic form of words  (Babs) م
 		//فواعل eg. جوامع
@@ -5209,6 +5220,7 @@
 		// Plural pronoun ها
 			L09L09) های (_NSm3	h'Aje
 			L09L09) هایی (_NSm4	h'Ai:
+			L09L09) هائی (_NSm4	h'Ai:
 			L09L09) هاست (_NSm4	h'Ast
 		// Plural possessive pronouns for ها
 			L09L09) هایم (_NSm4	hAjam
@@ -5352,6 +5364,8 @@
 			_ا) ی (_+	i
 			L01) ی (_	je
 			L03) ی (_	i
+			ی	(ٰ_	
+			ی (ٰL04	j
 	_آ) ی (L03_	ja
 
 	// Prefixes ی
@@ -5439,6 +5453,7 @@
 			L09ع) یاتشان (_NSm6	ijjAteSAn
 		L09L09) یزاسیون (_Sm7	isAsion
 		L09L03) یافت (_Sm4	jAft
+		-) یست (_+NSm3	ist	// eg. "فردا‌یست"
 
 	// arabic form of words  (Babs) ی
 		//فواعل eg. جوامع
@@ -5518,6 +5533,8 @@
 
 
 .group ٔ
+	L04) ٔ	
+	ا) ٔ	a?
 	ٔ	
 
 	// suffixes ٔ
@@ -5530,6 +5547,7 @@
 
 
 .group ئ
+	ئی	i:
 	ئ (L01	?
 	ئ (L02	?
 	L02) ئ	?
@@ -5560,6 +5578,13 @@
 	//ة (L01	h
 	ة	t
 
+
+.group ٰ
+	ٰ (L04	A
+	ٰ (ا	
+	ٰ (آ	
+
+
 //short vowels that are not usually written:
 
 .group َ
@@ -5581,6 +5606,12 @@
 	_ا) ُ	'o:
 	// Suffixes "ُ"
 		L09L09) ُ (_Sm1	o
+
+
+.group ْ
+	ْ	
+	// Suffixes "ْ"
+		L09L09) ْ (_Sm1	
 
 
 .group ً

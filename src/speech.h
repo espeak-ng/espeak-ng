@@ -51,7 +51,7 @@
 #endif
 
 #ifdef _ESPEAKEDIT
-// USE_PORTAUDIO or USE_PULSEAUDIO are now defined in the makefile
+#define USE_PORTAUDIO
 #define USE_ASYNC
 #define LOG_FRAMES      // write keyframe info to log-espeakedit
 #endif
@@ -76,9 +76,9 @@ int LookupMnem(MNEM_TAB *table, const char *string);
 
 
 #ifdef PLATFORM_WINDOWS
-#define N_PATH_HOME  220
+#define N_PATH_HOME  230
 #else
-#define N_PATH_HOME  150
+#define N_PATH_HOME  160
 #endif
 
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory

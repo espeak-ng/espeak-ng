@@ -63,7 +63,7 @@ phoneme dz
   FMT(d/xdz) addWav(ustop/ts2, 140)
 endphoneme
 
-phoneme tsh
+phoneme ts#
   vls alv afr sibilant
   voicingswitch dz
   lengthmod 2
@@ -76,7 +76,7 @@ phoneme tsh
 endphoneme
 
 
-phoneme dzh
+phoneme dz#
   vcd alv afr sibilant
   voicingswitch ts
   lengthmod 5

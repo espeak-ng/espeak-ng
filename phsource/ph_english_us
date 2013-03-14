@@ -97,6 +97,7 @@ phoneme I#
   vowel  starttype #i  endtype #i
   unstressed
   length 160
+  ipa ᵻ
 //  FMT(vowel/@_fnt)
   FMT(vowel/ii#)
 endphoneme
@@ -151,7 +152,7 @@ endphoneme
 
 phoneme A@      // Used for [A:] when followed by 'r', becomes [A:]+[r] in American
   vowel  starttype #a  endtype #a
-  ipa ɑːɹ
+  ipa ɑː|ɹ
   IF nextPh(r-) THEN
     ipa ɑː
   ENDIF
@@ -192,7 +193,7 @@ endphoneme
 phoneme O@
   vowel  starttype #o  endtype #@
   length 250
-  ipa ɔːɹ
+  ipa ɔː|ɹ
   IF nextPhW(r) THEN
     ipa ɔː
   ENDIF
@@ -204,7 +205,7 @@ endphoneme
 phoneme o@
   vowel  starttype #o  endtype #@
   length 250
-  ipa oːɹ
+  ipa oː|ɹ
   IF nextPhW(r) THEN
     ipa oː
   ENDIF
@@ -269,7 +270,7 @@ endphoneme
 phoneme e@
   vowel  starttype #e  endtype #@
   length 280
-  ipa ɛɹ
+  ipa ɛ|ɹ
   IF nextPhW(r) THEN
     ipa ɛ
   ENDIF
@@ -288,7 +289,7 @@ endphoneme
 phoneme i@3
   vowel  starttype #i  endtype #@
   length 280
-  ipa ɪɹ
+  ipa ɪ|ɹ
   IF nextPhW(r) THEN
     ipa ɪ
   ENDIF
@@ -300,7 +301,7 @@ endphoneme
 phoneme U@
   vowel  starttype #@  endtype #@
   length 250
-  ipa ʊɹ
+  ipa ʊ|ɹ
   IF nextPhW(r-) THEN
     ipa ʊ
   ENDIF

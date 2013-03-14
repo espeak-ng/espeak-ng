@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.31
+AppVerName=eSpeak version 1.46.47
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -18,6 +18,11 @@ Name: "{group}\TTSApp"; Filename: "{app}\TTSApp.exe"; WorkingDir: "{app}"
 
 [InstallDelete]
 Type: files; Name: "{app}\espeak.dll"
+Type: files; Name: "{app}\espeak-data\voices\*"
+Type: filesandordirs; Name: "{app}\espeak-data\voices\en"
+Type: filesandordirs; Name: "{app}\espeak-data\voices\asia"
+Type: filesandordirs; Name: "{app}\espeak-data\voices\europe"
+Type: filesandordirs; Name: "{app}\espeak-data\voices\other"
 Type: filesandordirs; Name: "{app}\espeak-data\voices\test"
 Type: filesandordirs; Name: "{app}\docs"
 
@@ -144,29 +149,34 @@ begin
   $1c: Result := 'sq';
   $1d: Result := 'sv';
   $1f: Result := 'tr';
+  //$20: Result := 'ur';
   $21: Result := 'id';
   $25: Result := 'et';
-  //$26: Result := 'lv';
+  $26: Result := 'lv';
   $27: Result := 'lt';
+  $29: Result := 'fa';
   $2a: Result := 'vi';
   $2b: Result := 'hy';
   //$2c: Result := 'az';
   //$2d: Result := 'eu';
   $2f: Result := 'mk';
   $36: Result := 'af';
+  $37: Result := 'kn';
   $39: Result := 'hi';
   //$3a: Result := 'mt';
-  //$3c: Result := 'ga';
+  $3c: Result := 'ga';
   //$3f: Result := 'kk';
   $41: Result := 'sw';
   //$44: Result := 'tt';
+  $46: Result := 'pa';
   $49: Result := 'ta';
+  $46: Result := 'pa';
   $4b: Result := 'kn';
   $4c: Result := 'ml';
   //$50: Result := 'mn';
   $52: Result := 'cy';
   //$5e: Result := 'am';
-  //$61: Result := 'ne';
+  $61: Result := 'ne';
   //$87: Result := 'rw';
   //$88: Result := 'wo';
   end;
@@ -209,6 +219,7 @@ begin
   'an': value := $40a;   // Aragon, use code for Spanish
   'az': value := $42c;
   'bg': value := $402;
+  'bn': value := $445;
   'bs': value := $41a;   // should be $141a but Jaws crashes on startup
   'ca': value := $403;
   'cs': value := $405;
@@ -248,6 +259,7 @@ begin
   'ne': value := $461;
   'nl': value := $413;
   'no': value := $414;
+  'pa': value := $446;
   'pl': value := $415;
   'pt': value := $416;
   'ro': value := $418;

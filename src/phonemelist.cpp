@@ -1,5 +1,5 @@
 /***************************************************************************
- *   Copyright (C) 2005 to 2011 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -47,7 +47,6 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 	int replace_flags;
 	int n_plist_out = 0;
 	int word_end;
-	int switched_language = 0;
 	PHONEME_LIST2 *plist2;
 	PHONEME_TAB *next=NULL;
 
@@ -55,11 +54,8 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 	{
 		plist2 = &ph_list2[ix];
 
-		if(plist2->phcode == phonSWITCH)
-			switched_language ^= 1;
-
 		// don't do any substitution if the language has been temporarily changed
-		if(switched_language == 0)
+		if(!(plist2->synthflags & SFLAG_SWITCHED_LANG))
 		{
 			if(ix < (n_ph_list2 -1))
 				next = phoneme_tab[ph_list2[ix+1].phcode];
@@ -80,6 +76,9 @@ static int SubstitutePhonemes(Translator *tr, PHONEME_LIST *plist_out)
 
 					if((replace_flags & 2) && ((plist2->stresslevel & 0x7) > 3))
 						continue;     // this replacement doesn't occur in stressed syllables
+
+					if((replace_flags & 4) && (plist2->sourceix == 0))
+						continue;     // this replacement only occurs at the start of a word
 
 					// substitute the replacement phoneme
 					plist2->phcode = replace_phonemes[k].new_ph;
@@ -117,7 +116,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_TAB *next, *next2;
 	int unstress_count = 0;
 	int word_stress = 0;
-	int switched_language = 0;
+	int current_phoneme_tab;
 	int max_stress;
 	int voicing;
 	int regression;
@@ -133,7 +132,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	PHONEME_LIST2 *plist2;
 	WORD_PH_DATA worddata;
 
-    memset(&worddata, 0, sizeof(worddata));
+	memset(&worddata, 0, sizeof(worddata));
 	plist2 = ph_list2;
 	phlist = phoneme_list;
 	end_sourceix = plist2[n_ph_list2-1].sourceix;
@@ -142,7 +141,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	max_stress = 0;
 	for(j = n_ph_list2-3; j>=0; j--)
 	{
-		// start with the last phoneme (before the terminating pauses) and move forwards
+		// start with the last phoneme (before the terminating pauses) and move backwards
 		if((plist2[j].stresslevel & 0x7f) > max_stress)
 			max_stress = plist2[j].stresslevel & 0x7f;
 		if(plist2[j].sourceix != 0)
@@ -166,6 +165,20 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		}
 	}
 
+	// look for switch of phoneme tables
+	current_phoneme_tab = tr->phoneme_tab_ix;
+	for(j = 0; j < n_ph_list2; j++)
+	{
+		if(plist2[j].phcode == phonSWITCH)
+		{
+			current_phoneme_tab = plist2[j].tone_ph;
+		}
+		if(current_phoneme_tab != tr->phoneme_tab_ix)
+		{
+			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
+		}
+	}
+
 	if((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0)
 	{
 		// set consonant clusters to all voiced or all unvoiced
@@ -180,10 +193,14 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			if(ph == NULL)
 				continue;
 
-			if(ph->code == phonSWITCH)
-				switched_language ^= 1;
-			if(switched_language)
+			if(plist2[j].synthflags & SFLAG_SWITCHED_LANG)
+			{
+				stop_propagation = 0;
+				voicing = 0;
+				if(regression & 0x100)
+					voicing = 1;   // word-end devoicing
 				continue;
+			}
 
 			type = ph->type;
 
@@ -204,21 +221,18 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				{
 					voicing = 1;
 				}
-				else
-				if((voicing==2) && (ph->end_type != 0))  // use end_type field for voicing_switch for consonants
+				else if((voicing==2) && (ph->end_type != 0)) // use end_type field for voicing_switch for consonants
 				{
 					plist2[j].phcode = ph->end_type;  // change to voiced equivalent
 				}
 			}
-			else
-			if((type==phVSTOP) || type==(phVFRICATIVE))
+			else if((type==phVSTOP) || type==(phVFRICATIVE))
 			{
 				if((voicing==0) && (regression & 0xf))
 				{
 					voicing = 2;
 				}
-				else
-				if((voicing==1) && (ph->end_type != 0))
+				else if((voicing==1) && (ph->end_type != 0))
 				{
 					plist2[j].phcode = ph->end_type;  // change to unvoiced equivalent
 				}
@@ -298,8 +312,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	ph = phoneme_tab[phonPAUSE];
 	ph_list3[0].ph = ph;
 
-	switched_language = 0;
-
 	for(j=0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++)
 	{
 		plist3 = &ph_list3[j];
@@ -331,9 +343,14 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if(plist3->phcode == phonSWITCH)
 			{
+				if(!(plist3->synthflags & SFLAG_EMBEDDED))   // ?? phonSWITCH can't have SFLAG_EMBEDDED ??
+				{
+					if((plist3[1].phcode == phonSWITCH) || ((plist3[1].type == phPAUSE) && (plist3[2].phcode == phonSWITCH)))
+						continue;  // next phoneme is also a phonSWITCH, so ignore
+				}
+
 				// change phoneme table
 				SelectPhonemeTable(plist3->tone_ph);
-				switched_language ^= SFLAG_SWITCHED_LANG;
 			}
 			next = phoneme_tab[plist3[1].phcode];      // the phoneme after this one
 			plist3[1].ph = next;
@@ -428,7 +445,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 					{
 						// in a sequence of unstressed syllables, reduce alternate syllables to 'diminished'
 						// stress.  But not for the last phoneme of a stressed word
-						if((tr->langopts.stress_flags & 0x2) || ((word_stress > 3) && ((plist3+1)->sourceix!=0)))
+						if((tr->langopts.stress_flags & S_NO_DIM) || ((word_stress > 3) && ((plist3+1)->sourceix!=0)))
 						{
 							// An unstressed final vowel of a stressed word
 							unstress_count=1;    // try again for next syllable
@@ -534,7 +551,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		phlist[ix].ph = ph;
 		phlist[ix].type = ph->type;
 		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
-		phlist[ix].synthflags = plist3->synthflags | switched_language;
+		phlist[ix].synthflags = plist3->synthflags;
 		phlist[ix].stresslevel = plist3->stresslevel & 0xf;
 		phlist[ix].wordstress = plist3->wordstress;
 		phlist[ix].tone_ph = plist3->tone_ph;
@@ -580,18 +597,18 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	phlist[ix].newword = 2;     // end of clause
 
 	phlist[ix].phcode = phonPAUSE;
-   phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
+	phlist[ix].type = phPAUSE;  // terminate with 2 Pause phonemes
 	phlist[ix].length = post_pause;  // length of the pause, depends on the punctuation
 	phlist[ix].sourceix = end_sourceix;
 	phlist[ix].synthflags = 0;
-   phlist[ix++].ph = phoneme_tab[phonPAUSE];
+	phlist[ix++].ph = phoneme_tab[phonPAUSE];
 
 	phlist[ix].phcode = phonPAUSE;
-   phlist[ix].type = phPAUSE;
+	phlist[ix].type = phPAUSE;
 	phlist[ix].length = 0;
 	phlist[ix].sourceix=0;
 	phlist[ix].synthflags = 0;
-   phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
+	phlist[ix++].ph = phoneme_tab[phonPAUSE_SHORT];
 
 	n_phoneme_list = ix;
 }  // end of MakePhonemeList

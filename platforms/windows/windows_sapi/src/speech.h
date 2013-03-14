@@ -65,7 +65,7 @@ int LookupMnem(MNEM_TAB *table, const char *string);
 
 
 
-#define N_PATH_HOME  220
+#define N_PATH_HOME  230
 extern char path_home[N_PATH_HOME];    // this is the espeak-data directory
 
 extern void strncpy0(char *to,const char *from, int size);

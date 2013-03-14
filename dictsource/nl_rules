@@ -4,6 +4,7 @@
 // Suffix rule: SUFX_E  eg. S2e  means double the vowel before the final consonant
 
 .L01  g k
+.L02  _ t_ d_ de_ den_  // verb endings
 
 
 .group a
@@ -65,6 +66,7 @@
           &) bare (_S4    =ba:r@
           _) bij (C@P3    b'EI
              bij (zond    b%i
+          _) bijeen       bEI'e:n
           _) binnen (P6   b'In@n
           _) boven (P5    b'o:v@n
           _) brand        br'And
@@ -188,7 +190,8 @@
          ig) e (_+S1qd    @
 
              ea (_        'e:a:
-             eau          o: //words with French origin
+             eau          'o: //words with French origin
+//             eau (_       'o:
           @) ee (_        'e:
           @) ee (X_       'e:
           @) ee (r_       'I
@@ -214,6 +217,7 @@
           &) el (ingen_$p_alt =@l
 
           @) elen (_      'e:l@n
+          @) el (en_$p_alt2 @L
           &) elijks       @l@ks
           &) em (_        @m
           &) e (ment      @
@@ -244,18 +248,20 @@
           @) ent (st_     'Ent
           @) ent (ste_    'Ent
          ag) ent          'Ent
+          X) es (_        Es
          @j) es (_S1       s
          @z) es (_S1      s  
           @) es (_S2qd    'Es   // double the previous vowel
           @) es (_$w_alt2S1 s   // just remove 's'
         KAC) es (_S2e     @s
+             es (ie_      e:z
           @) essen (_S5qd 'Es@n
           @) eres (_S4qd  @r'Es
           @) eressen (_S7sq @r'Es@n
           @) etten (_S3   @n 
           @) es    (_$p_alt @s  // for wors which end on [@] with multiple on 's'.
-
-             eau (_       'o:
+          @) esisch      'e:zis
+             
              euille       @'y
              eum (_$w_alt 'e:8m
        @mus) eum (_       ,e:8m  // compounds
@@ -323,6 +329,7 @@
           _) ge (@P2      Q@
              ge (bied     Q@
           _) gee          Qe:
+          _) gei          QEI
              gener (aal   Q,e:n@r
           _) gelijk       Q@lEIk
           _) ge (rC       QE
@@ -358,11 +365,14 @@
              ie           i
              ieuw         iw
              iee          ie:
+             ii           i
 
           d) ie (_        'i
           g) ie (_        'i
           m) ie (_        'i
           p) ie (_        'i
+         ss) ie (_        =i
+          s) ië (_        =i@
              ieus (_      ij'Y:s
              ieuze (_     ij'Y:z@
              ieuzer (_    ij'Y:z@r
@@ -386,6 +396,9 @@
              ie (CtjeX_   'i
              ie (ren_     'i
              ie (rd_      'i
+             iën (_       'i@n
+       CAns) ie (_        =i
+       CAss) ie (_        =i
           @) ig (_S2dq    =@x
           @) ige (_S3dq   =@Q@
           @) igen (_      =@Q@n
@@ -402,9 +415,13 @@
           &) iko (_       =iko:
           _) in (C@P2     'In
 //        _) in (gP2      'In
+          _) in (do       In
+             ine (_       'in@
+             ines (_      'in@s
              io (nage     iO
              io (de_       i'o:
              iodes (_      i'o:d@s
+          _) in (scrip     In
              is (_        Is
           @) isch (_      =is
           @) ische (_     =is@
@@ -519,17 +536,18 @@ _) inn (@P2 'I    // ?? inneren
         @@C) o (_         =o:
              obsc (u      opsk
              oe (X_       'u
+             office       Of@s
              oir (_       'v#a:r
          pl) oi (t        v#A
           c) oi (ffu      v#A
          pr) o (gram      o:
-          _) on (@P2      %On
              oo (X        'o:
              oon          'o:n  // in compounds, eg. telefoongesprek
              oo (C_       'o:
           _) oost (@P4    o:st
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
+          _) op (enen     'o:p
           _) openings (P8 'o:p@nINs
           _) op (era      'o:p
           _) op (tion     Op
@@ -545,6 +563,7 @@ _) inn (@P2 'I    // ?? inneren
 
 
 .group on
+          _) on (@P2      %On
           _) onaan (@P5   On'a:n
           _) onder (@P5   'Ond@r
           _) onge (@P4    ,OnQ@
@@ -566,6 +585,7 @@ _) inn (@P2 'I    // ?? inneren
           _) onge (nade   OnQ@
           _) onge (rief   OnQ@
           _) onge (val    OnQ@
+
 
 
 
@@ -618,7 +638,8 @@ _) inn (@P2 'I    // ?? inneren
           A) s (A         z
              s (b         z
              s (d         z
-             sc           s
+             sc (e        s
+             sc (i        s
              sch          sx
              sch (_       s
              sch (e_      s
@@ -628,15 +649,21 @@ _) inn (@P2 'I    // ?? inneren
              sj           S
           @) sje (_       sj@
           @) s (_S1       s
+          a) s (_         s
           @) s (_$w_alt   =s
 
+          _) samen(@P5    s'a:m@n
+          _) scan (L02    skEn
+             science      saI@ns
              sc (oop      sk
              sc (opi      sk
           &) sel (_       =s@l
           &) selen (_     =s@l@n
+             service      s8v@s
           @) si (o        S
           A) si (o        Z
           @) ssi (o       S
+        CAr) sie (_       =zi
 
           _) standaard (@P9 st'Anda:rt
           @) straat (_S6 stra:t
@@ -711,6 +738,7 @@ _) inn (@P2 'I    // ?? inneren
              uw (_        yU
 
           _) uit (@P3      'Wyt
+             uul (_       'yl  // from -ule
              us (_        8s
              u (sie_      'y
           @) ute (_       'yt
