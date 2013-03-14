@@ -58,7 +58,6 @@ public class CheckVoiceData extends Activity {
         "phonindex",
         "phontab",
         "en_dict",
-        "voices/en/en-us"
     };
 
     public static File getDataPath(Context context) {
