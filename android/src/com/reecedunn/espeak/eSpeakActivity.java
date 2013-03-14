@@ -32,6 +32,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.EditText;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -63,6 +64,7 @@ public class eSpeakActivity extends Activity {
     private TextToSpeech mTts;
     private List<Pair<String,String>> mInformation;
     private InformationListAdapter mInformationView;
+    private EditText mText;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,9 +75,29 @@ public class eSpeakActivity extends Activity {
         mInformation = new ArrayList<Pair<String,String>>();
         mInformationView = new InformationListAdapter(this, mInformation);
         ((ListView)findViewById(R.id.properties)).setAdapter(mInformationView);
+        mText = (EditText)findViewById(R.id.editText1);
 
         setState(State.LOADING);
         checkVoiceData();
+
+        findViewById(R.id.speak).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTts.speak(mText.getText().toString(), TextToSpeech.QUEUE_ADD, null);
+            }
+        });
+
+        findViewById(R.id.ssml).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ssml =
+                    "<?xml version=\"1.0\"?>\n" +
+                    "<speak xmlns=\"http://www.w3.org/2001/10/synthesis\" version=\"1.0\">\n" +
+                    "\n" +
+                    "</speak>";
+                mText.setText(ssml);
+            }
+        });
     }
 
     @Override

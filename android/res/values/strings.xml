@@ -129,5 +129,8 @@
     </string-array>
         <string name="status">Status</string>
         <string name="tts_version">eSpeak version</string>
+        <string name="speak">Speak</string>
+        <string name="ssml">Load SSML Template</string>
+        <string name="synthesis_demo">Enter text to speak:</string>
 
 </resources>
