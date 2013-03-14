@@ -643,7 +643,7 @@ static const char *LookupCharName(Translator *tr, int c, int only)
 		}
 	}
 
-	if((only==0) && (phonemes[0] == 0) && (tr->translator_name != L('e','n')))
+	if((only==0) && ((phonemes[0] == 0) || (phonemes[0] == phonSWITCH)) && (tr->translator_name != L('e','n')))
 	{
 		// not found, try English
 		SetTranslator2("en");
