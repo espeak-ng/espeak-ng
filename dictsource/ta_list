@@ -49,7 +49,7 @@ U+bcd	ot.RU
 
 
 // speak Latin letters as English
-a	e:j
+a	e:j $atend
 b	bi:
 c	si:
 d	di:
@@ -57,7 +57,7 @@ e	i:
 f	Ef
 g	dZi:
 h	e:tS
-i	a:j
+i	a:j $atend
 j	dZe:j
 k	ke:j
 l	El
@@ -540,7 +540,7 @@ tamil	தமிழ்	$text
 கிர்	$alt
 கங்க	$alt
 காந்த	$alt
-
+கேம்	$alt
 
 
 

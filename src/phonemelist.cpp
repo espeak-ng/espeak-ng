@@ -122,6 +122,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int regression;
 	int end_sourceix;
 	int alternative;
+	int delete_count;
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -166,18 +167,40 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	}
 
 	// look for switch of phoneme tables
+	delete_count = 0;
 	current_phoneme_tab = tr->phoneme_tab_ix;
 	for(j = 0; j < n_ph_list2; j++)
 	{
-		if(plist2[j].phcode == phonSWITCH)
-		{
-			current_phoneme_tab = plist2[j].tone_ph;
-		}
 		if(current_phoneme_tab != tr->phoneme_tab_ix)
 		{
 			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
 		}
+
+		if(delete_count > 0)
+		{
+			memcpy(&plist2[j-delete_count], &plist2[j], sizeof(plist2[0]));
+		}
+
+		if(plist2[j].phcode == phonSWITCH)
+		{
+			if((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
+				(plist2[j].tone_ph == current_phoneme_tab) ||
+			    (plist2[j+1].phcode == phonSWITCH) ||
+				((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
+				))
+			{
+				// delete this phonSWITCH if it's switching to the current phoneme table, or
+				// delete this phonSWITCH if its followed by another phonSWITCH
+				delete_count++;
+			}
+			else
+			{
+				current_phoneme_tab = plist2[j].tone_ph;
+			}
+		}
+
 	}
+	n_ph_list2 -= delete_count;
 
 	if((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0)
 	{
@@ -343,12 +366,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if(plist3->phcode == phonSWITCH)
 			{
-				if(!(plist3->synthflags & SFLAG_EMBEDDED))   // ?? phonSWITCH can't have SFLAG_EMBEDDED ??
-				{
-					if((plist3[1].phcode == phonSWITCH) || ((plist3[1].type == phPAUSE) && (plist3[2].phcode == phonSWITCH)))
-						continue;  // next phoneme is also a phonSWITCH, so ignore
-				}
-
 				// change phoneme table
 				SelectPhonemeTable(plist3->tone_ph);
 			}

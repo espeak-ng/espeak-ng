@@ -1,7 +1,5 @@
- 
 // Aragon translation rules
 // This file is UTF-8 encoded
-
 
 .L01 l r y
 .L03 f h j s y z r      // allow [B] [D] [Q] before these consonants
@@ -10,18 +8,19 @@
 
 
 .group a
-        a        a
-        ai       aI
-        ai (X    'aI
-        ay (K    aI
-        ay (X    'aI
-        au       aU
-        au (X    'aU
+        a          a
+        aix        aS
+        ai         aI
+        ai (X      'aI
+        ay (K      aI
+        ay (X      'aI
+        au         aU
+        au (X      'aU
 
 
 .group b
         b          b
-     _) b          b  // phoneme definition may change it to [B]
+     _) b          b         // phoneme definition may change it to [B]
      _) b (A       b
         b (A       B
         b (cY      B
@@ -33,15 +32,15 @@
 
 
 .group c
-        c        k
-        c (Y     T       // ce  ci
-        cc       kT
-        ch       tS
+        c          k
+        c (Y       T         // ce  ci
+        ck         k         // Forano (Foreign)
+        ch         tS
 
 
 .group d
         d          d
-     _) d          d  // phoneme definition may change it to [D]
+     _) d          d         // phoneme definition may change it to [D]
      _) d (A       d
         d (A       D
         d (cY      D
@@ -51,138 +50,156 @@
      l) d          d
      r) d          d
 
-     n) d (_     =    // silent, but stress on last vowel
+     n) d (_       =         // silent, but stress on last vowel
 
 
 .group e
-        e        e
-        ei       eI
-        ei (X    'eI
-        ey (K    eI
-        ey (X    'eI
-        eu       eU
-        eu (X    'eU
-     i) e        E
-     u) e        E
-     y) e        E
+        e          e
+        eix        eS
+        ei         eI
+        ei (X      'eI
+        ey (K      eI
+        ey (X      'eI
+        eu         eU
+        eu (X      'eU
+     i) e          E
+     u) e          E
+     y) e          E
 
 
 .group f
-        f        f
+        f          f
 
 
 .group g
         g          g
-     _) g          g  // phoneme definition may change it to [Q]
-     _) gh (A      g  // allow _gh in foreign words
+        gü         gw
+     _) gh (A      g         // allow _gh in foreign words
      _) gn (A      n
-     _) g (A       g
+
         g (A       Q
         g (cY      Q
         g (L03     Q
      m) g          g
      n) g          g
-        g (Y+      x        // ge gi
-
-        gu (A    gw
-        gü       gw
-        gu (e    g
-        gu (i    g
+        g (Y+      x         // ge gi
+        gu (A      gw
+        gu (e      g
+        gu (i      g
+        gu (é      g
+        gu (í      g
 
 
 .group h
-        h                // silent
+        h                    // silent
 
 
 .group i
-        i        i
-        i (A     j
-     A) ix       S
-     _) ix       iS
+        i          i
+        i (u       i
+        i (A       j
 
 
 .group j
-        j        x
+        j          x
 
 
 .group k
-        k        k
+        k          k
 
 .group l
-        l        l
-        ll       l^
+        l          l
+        ll         l^
+        ll (_      l
 
 
 .group m
-        m        m
+        m          m
 
 
 .group n
-        n        n
-        n (L04   m
-        n (_L04  m
-        ny       n^
+        n          n
+        n (L04     m
+        n (_L04    m
+        ny         n^
 
 
 .group ñ
-        ñ        n^
+        ñ          n^
 
 
 .group o
-        o        o
-        oi       oI
-        oi (X    'oI
-        oy (K    oI
-        oy (X    'oI
-        ou       ow
-        ou (X    'ow
-     i) o        O
-     u) o        O
-     y) o        O
+        o          o
+        oix        oS
+        oi         oI
+        oi (X      'oI
+        oy (K      oI
+        oy (X      'oI
+        ou         ow
+        ou (X      'ow
+     i) o          O
+     u) o          O
+     y) o          O
 
 .group p
-        p        p
+        p          p
+     _) ps         s
 
 
 .group q
-        qu (A    kw
-        qü       kw
-        qu (e    k
-        qu (i    k
-
+        qu (A      kw
+        qü         kw
+        qu (e      k
+        qu (i      k
+        qu (é      k
+        qu (í      k
 
 .group r
-        r        r
-     _) r        R
-        rr       RR2
-     @) r (-     =      // followed by hyphen.  Silent, but stress on last vowel
-        rs (_    =s
-
+        r          r
+        r (_       r
+        r (t       r
+     A) r (A       r
+     C) r (A       r
+     _) r (A       R
+     l) r (A       R
+     m) r (A       R
+     n) r (A       R
+     s) r (A       R
+        rr         RR2
+     @) r (-       =         // followed by hyphen.  Silent, but stress on last vowel
+        rs (_      =s
 
 
 .group s
-        s        s
-     &) s (_S1   s 
+        s          s
+     &) s (_S1     s
 
 
 .group t
-        t        t
-     a) t (_     t#   // becomes silent in a stressed syllable
-     u) t (_     t#
-    ei) t (_     t#
-     n) t (_     =    // silent, but stress on last vowel
-        tz       T
+        t          t
+     a) t (_       t#        // becomes silent in a stressed syllable
+     u) t (_       t#
+    ei) t (_       t#
+     n) t (_       =         // silent, but stress on last vowel
+        tz         T
+    ue) t (_       t#
+    ui) t (_       t#
+     s) t (_       =         // silent, but stress on last vowel
 
 
 .group u
-        u        u
-        u (A     w
-     _) u (A     gw
+        u          u
+        u (u       u
+        u (i       u
+        u (A       w
+     _) u (A       gw
+        uix        uS
+
 
 
 .group v   // same as 'b'
         v          b
-     _) v          b  // phoneme definition may change it to [B]
+     _) v          b         // phoneme definition may change it to [B]
      _) v (A       b
         v (A       B
         v (cY      B
@@ -194,26 +211,26 @@
 
 
 .group w
-        w        w
+        w          B
 
 
 .group x
-        x        ks
-     _) x        S
-
+        x          ks
+     _) x          S
+     i) x          S
 
 .group y
-        y        j
-
+        y          j
+        y (_       i
 
 .group z
-        z        T
+        z          T
 
 
 .group
-        á        ''a
-        é        ''e
-        í        ''i
-        ó        ''o
-        ú        ''u
+        á          ''a
+        é          ''e
+        í          ''i
+        ó          ''o
+        ú          ''u
 
