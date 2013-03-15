@@ -586,7 +586,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	static const char *voices_asia =
 		"fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
 	static const char *voices_europe =
-		"bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
+		"an bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
 
 	strncpy0(voicename, vname, sizeof(voicename));

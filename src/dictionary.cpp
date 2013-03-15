@@ -3178,7 +3178,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				continue;
 		}
 
-		if((dictionary_flags2 & FLAG_ATEND) && (word_end < tr->clause_end))
+		if((dictionary_flags2 & FLAG_ATEND) && (word_end < translator->clause_end))
 		{
 			// only use this pronunciation if it's the last word of the clause
 			continue;
@@ -3190,7 +3190,7 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 			continue;
 		}
 
-		if((dictionary_flags2 & FLAG_SENTENCE) && !(tr->clause_terminator & CLAUSE_BIT_SENTENCE))
+		if((dictionary_flags2 & FLAG_SENTENCE) && !(translator->clause_terminator & CLAUSE_BIT_SENTENCE))
 		{
 			// only uis this clause is a sentence , i.e. terminator is {. ? !} not {, : :}
 			continue;
