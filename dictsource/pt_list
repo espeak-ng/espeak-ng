@@ -662,6 +662,7 @@ arroz		$alt2
 assembleia	$alt
 ateia		$alt
 aterro		$alt2 $noun
+aterros		$alt2
 atmosfera	$alt
 atrozes		$alt
 autora		$alt2
@@ -716,6 +717,7 @@ chovesse	$alt2
 chupeta		$alt2
 clamores	$alt2
 clero		$alt
+crepe		$alt
 coco		$alt2
 cofre		$alt
 cogumelo	$alt
@@ -754,11 +756,15 @@ desemprego	$alt $verb
 desespero	$alt2 $noun
 desfecho	$alt2
 desprezo	$alt2 $noun
+desse		$alt2
+desse		$alt $verb
+deste		$alt2
+deste		$alt $verb
+desterro	$alt2
 deveras		$alt
 dez		$alt
 diarreia	$alt
 discordo	$alt
-dissermos	$alt
 dobro		$alt2 $noun
 doce		$alt2
 doutora		$alt2
@@ -786,6 +792,7 @@ erros		$alt2
 esboço		$alt  $verb
 escopeta	$alt2
 escova		$alt2 $noun
+escovo		$alt
 escroto		$alt2
 esforço		$alt  $verb
 esforços	$alt
@@ -820,12 +827,13 @@ folga		$alt
 fogos		$alt
 foguete		$alt2
 foice		$alt2
+fora		$alt
+fora		$alt2 $verb
 forca		$alt2
 força		$alt2 $noun
 forças		$alt2
 forço		$alt
-fordes		$alt2
-fores		$alt2
+fossem		$alt2
 forro		$alt $verb
 fosse		$alt2
 frevo		$alt2
@@ -949,6 +957,7 @@ primavera	$alt
 provo		$alt
 quarteto	$alt2
 queda		$alt
+quede		$alt2
 quinteto	$alt2
 recomeço	$alt2 $noun
 recordo		$alt
@@ -969,6 +978,8 @@ rocha		$alt
 rock		$alt
 rola		$alt2 $noun
 rolo		$alt2 $noun
+rota		$alt2
+rota		$alt $noun
 rumores		$alt2
 saleta		$alt2
 sarjeta		$alt

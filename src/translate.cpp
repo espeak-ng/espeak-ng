@@ -1073,10 +1073,16 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 		{
 			if(word_length > 1)
 				return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
+			if(phonemes[0] == phonSWITCH)
+			{
+// problem with espeak -vbg "b.c.d.e.f"
+			}
 			return(0);
 		}
 		strcpy(word_phonemes, phonemes);
-		return(dictionary_flags[0] & FLAG_SKIPWORDS);  // ??
+		if(wflags & FLAG_TRANSLATOR2)
+			return(0);
+		return(dictionary_flags[0] & FLAG_SKIPWORDS);  // for "b.c.d"
 	}
 	else if(found == 0)
 	{

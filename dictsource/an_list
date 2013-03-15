@@ -1,7 +1,30 @@
- 
 // Aragon translation rules
 // This file is UTF-8 encoded
 
+// letters
+
+_cap	m'aJ^uskla   // should be after the letter
+_??	simb'Olo
+_#32	Esp'aTjo
+
+
+// accent names
+_lig	liQaD'ura
+_acu	akT'ento aQ'uDo
+_ac2	d'Ople||aQ'uDo	
+_brv	br'eu
+_ced	TeD'il^a
+_cir	Tirkumfl'ekso
+_dia	djEr'esi
+_dac	d'Ople||aQ'uDo	
+_dot	p'unto
+_grv	gr'iEu
+_hac	kar'On
+_mcn	makr'On
+_ogo	kod'eta
+_rng	an'iel^o
+_stk	b'aRR2a	 // ??
+_tld	t'il^a
 
 
 // letter names
@@ -31,6 +54,14 @@ z	Teta
 y	i  $u     // word 'and'
 _y	je
 y	je	$atend
+ch	tSe
+ll	'El^e
+á	'a||akTEntw'aDa
+é	'e||akTEntw'aDa
+í	'i||akTEntw'aDa
+_ó	'o||akTEntw'aDa
+ú	'u||akTEntw'aDa
+ü	,uDjEr'Esi
 
 
 // numbers
@@ -56,7 +87,7 @@ _2X	B,int
 _3X	tr'enta
 _4X	kwar'anta
 _5X	Tinkw'anta
-_6X	siks'anta
+_6X	siS'anta
 _7X	set'anta
 _8X	gwit'anta
 _9X	noB'anta
@@ -70,6 +101,7 @@ _7C	sjEteTj'Entos
 _8C	gwitoTj'Entos
 _9C	nowTj'Entos
 _0M1	m'il
+_1M1	m'il
 _0M2	mil^'ons
 _1M2	un||mil^'on
 _0M4	bil^'ons
@@ -79,7 +111,65 @@ _0and	i
 _dpt	kon
 
 
+// ordinal numbers
+_#º	'eno
+_#ª	'ena
+//_ord	eno
+
+_1o	un
+1o	prim'Er
+_2o	dos
+2o	seQ'und
+_3o	tres
+3o	tErT'Er
+_4o	kwatr
+_5o	Tink
+_6o	seIs
+_7o	sEt
+_8o	gwit
+_9o	n'U
+_10o	DET
+_11o	onT
+_12o	DoT
+_13o	tReT
+_14o	katorT
+_15o	kinT
+_16o	sET
+_1Xo	DeTi
+_20o	Bint
+_2Xo	Binti
+_30o	trent
+_3Xo	trentaI
+_40o	kwarant
+_4Xo	kwarantaI
+_50o	Tinkwant
+_5Xo	TinkwantaI
+_60o	siSant
+_6Xo	siSantaI
+_70o	sEtant
+_7Xo	sEtantaI
+_80o	gwitant
+_8Xo	gwitantaI
+_90o	noBant
+_9Xo	noBantaI
+_0Co	TEnt
+_1Co	TEnt
+_0M1o	mil
+_1M1	mil
+_0M2o	mil^on
+_1M2o	mil^on
+
+
 // unstressed words
+o	$u
+o	$atend
+a	$u
+a	$atend
+os	$u
+os	$atend
+as	$u
+as	$atend
+
 lo	$u
 la	$u
 los	$u
@@ -90,4 +180,44 @@ me	$u
 te	$u
 se	$u
 le	$u
+li	$u
+nos	$u
+mos	$u
+tos	$u
+vos	$u
+os	$u
 les	$u
+lis	$u
+
+// exceptions
+holio	x'olio
+jazz	dZ'as
+
+
+// Foreign words
+android	andr'oId
+apple	'apEl
+at	'at
+chat	tS'at
+chrome	kr'ome
+espeak	isp'ik
+(e speak) isp'ik
+facebook f'eIsbuk
+firefox	f'aIrfoks
+google	g'ugEl
+(i phone)	'aIfon
+iphone	'aIfon
+(i pod)	'aIpod
+ipod	'aIpod
+hardware x'ardwer
+live l'aIB
+messenger m'esendZer
+mozilla	moT'ila
+nvda	ene|be|de|'a
+office	'ofis
+skype	esk'aIp
+software	s'oftwer
+thunderbird	Tanderb'ird
+twitter	tw'iter
+whatsapp	was'app
+windows	w'indows
