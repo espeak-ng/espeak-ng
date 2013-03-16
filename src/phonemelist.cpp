@@ -123,6 +123,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int end_sourceix;
 	int alternative;
 	int delete_count;
+	int word_start;
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -334,10 +335,14 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	// transfer all the phonemes of the clause into phoneme_list
 	ph = phoneme_tab[phonPAUSE];
 	ph_list3[0].ph = ph;
+	word_start = 1;
 
 	for(j=0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++)
 	{
 		plist3 = &ph_list3[j];
+
+		if(plist3->sourceix != 0)
+			word_start = j;
 
 		if(insert_ph != 0)
 		{
@@ -345,12 +350,24 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			next = phoneme_tab[plist3->phcode];      // this phoneme, i.e. after the insert
 
 			// re-use the previous entry for the inserted phoneme.
-			// That's OK because we don't look backwards from plist3   *** but CountVowelPosiion() and isAfterStress does !!!
+			// That's OK because we don't look backwards from plist3   *** but CountVowelPosition() and isAfterStress does !!!
 			j--;
 			plist3 = plist3_inserted = &ph_list3[j];
 			if(j > 0)
 			{
-				memcpy(&plist3[-1], &plist3[0], sizeof(*plist3));
+				// move all previous phonemes in the word back one place
+				int k;
+				if(word_start > 0)
+				{
+					k = word_start;
+					word_start--;
+				}
+				else
+				{
+					k = 2;   // No more space, don't loose the start of word mark at ph_list2[word_start]
+				}
+				for(; k<=j; k++)
+					memcpy(&ph_list3[k-1], &ph_list3[k], sizeof(*plist3));
 			}
 			memset(&plist3[0], 0, sizeof(*plist3));
 			plist3->phcode = insert_ph;
