@@ -359,12 +359,11 @@
  _perd) e (L05_    e
  _quis) e (L05_    E
  _soub) e (L05_    E
-proteg) e (L05_    e         // des-
   diss) e (L06_    E         / contra-
   tend) e (L06_    e         // a- con- en- es-
+  vend) e (L06_    e         // re-
  _mord) e (L06_    e
  _rend) e (L06_    e
- _vend) e (L06_    e
  prend) e (L06_    e         // a- rea- des- desa-
 _arrepend) e (L06_ e
 _defend) e (L06_   e
@@ -373,7 +372,7 @@ _escond) e (L06_   e
 preend) e (L06_    e         // com- a- re- sur-
 respond) e (L06_   e         // cor-
    bat) e (L07_    e         // re- com-
-   ceb) e (L07_    e         / re- per- con-
+   ceb) e (L07_    e         // re- per- con-
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
    mov) e (L07_    e         // re- co-
@@ -388,6 +387,7 @@ respond) e (L06_   e         // cor-
   tend) e (L07_    e         // en-  con- a- es-
   torc) e (L07_    e         // con-
   venc) e (L07_    e         // con-
+  vend) e (L07_    e         // re-
   vert) e (L07_    e         // in- re- con-
   volv) e (L07_    e         // de- en- re-
  _eleg) e (L07_    e
@@ -401,7 +401,6 @@ respond) e (L06_   e         // cor-
  parec) e (L07_    e         // a- rea- com- desa-
  prend) e (L07_    e         // a- rea- des-
  screv) e (L07_    e         // e- in- ree- pre- de-
-_abastec) e (L07_  e
 _aborrec) e (L07_  e
 _absolv) e (L07_   e
 _adoec) e (L07_    e
@@ -434,6 +433,7 @@ _perec) e (L07_    e
 _rejuvenec) e (L07_ e
 _resolv) e (L07_   e
 _suspend) e (L07_  e
+abastec) e (L07_   e         / re-
 conhec) e (L07_    e         // & re- des-
 estabelec) e (L07_ e         // re-
 favorec) e (L07_   e         // des-
@@ -458,10 +458,11 @@ respond) e (L07_   e         // cor-
   _sev) e (rL03_   E
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
-     g) e (rL04_   E         // su- refri-
+    _g) e (rL04_   E
     qu) e (rL04_   E         // re-
    _op) e (rL04_   E
   _alt) e (rL04_   E
+  _sug) e (rL04_   E
   _sup) e (rL04_   E
   _tol) e (rL04_   E
   _ven) e (rL04_   E
@@ -469,6 +470,7 @@ respond) e (L07_   e         // cor-
  _coop) e (rL04_   E
  _temp) e (rL04_   E
 _recup) e (rL04_   E
+_refrig) e (rL04_  E
     _v) e (rbL03_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
@@ -503,11 +505,13 @@ _obsol) e (tL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
     _r) e (zL04_   E
-    pr) e (zL04_   E         / des- menos-
+   _pr) e (zL04_   E
+_despr) e (zL04_   E
 _embel) e (zL04_   E
+_menospr) e (zL04_ E
 _emagr) e (çL03 
     pr) e (çL03_   e         // a-
-   aqu) e (çL03_   e         / re-
+   aqu) e (çL03_   e         // re-
    mer) e (çL03_   e         // des-
    pad) e (çL03_   e         // com-
    par) e (çL03_   e         // a- re- com- rea- desa-

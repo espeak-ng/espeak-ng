@@ -745,6 +745,7 @@ static void CompileReport(void)
 	REF_HASH_TAB **list;
 	const char *data_path;
 	int prev_table;
+	int procedure_num;
 	int prev_mnemonic;
 
     if(f_report == NULL)
@@ -802,7 +803,17 @@ static void CompileReport(void)
 			j++;
 		}
 
-		fprintf(f_report,"  [%s] %s",WordToString(prev_mnemonic = list[ix]->ph_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
+		prev_mnemonic = list[ix]->ph_mnemonic;
+		if((prev_mnemonic >> 24) == 'P')
+		{
+			// a procedure, not a phoneme
+			procedure_num = atoi(WordToString(prev_mnemonic));
+			fprintf(f_report,"  %s  %s", phoneme_tab_list2[prev_table = list[ix]->ph_table].name, proc_names[procedure_num]);
+		}
+		else
+		{
+			fprintf(f_report,"  [%s] %s",WordToString(prev_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
+		}
 		fputc('\n',f_report);
 	}
 
@@ -2761,6 +2772,8 @@ int CompilePhoneme(int compile_phoneme)
 		}
 		strcpy(proc_names[n_procs], item_string);
 		phoneme_out = &phoneme_out2;
+		sprintf(number_buf,"%.3dP", n_procs);
+		phoneme_out->mnemonic = StringToWord(number_buf);
 	}
 
 	phoneme_out->code = phcode;

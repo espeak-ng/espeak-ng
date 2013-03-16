@@ -731,6 +731,7 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L('a','n'))
 			{
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+				tr->langopts.numbers2 = 0;
 			}
 			else
 			if(name2 == L_pap)

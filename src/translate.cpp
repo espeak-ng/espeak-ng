@@ -1938,6 +1938,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(ok)
 			{
 				*p2 = '-'; // replace next space by hyphen
+				wtab[0].flags &= ~FLAG_ALL_UPPER;  // prevent it being considered an abbreviation
 				flags = TranslateWord(translator, word, next_pause, wtab, NULL);  // translate the combined word
 				if((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f)))
 				{

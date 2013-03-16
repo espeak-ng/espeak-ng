@@ -4,13 +4,17 @@
 
 // words of one letter
 в	$combine
-а	$u $combine
+а	$u  $combine
 е	$u
-й i $u
+й	i $u
 и	$u $pause
-у  $u $combine
-с $combine
-г god'ina $hasdot
+у	$u $combine
+с	$combine
+г	god'ina $hasdot
+
+(а в)   %av
+(а с)   %as
+
 
 // letter names
 б	b@

@@ -107,57 +107,67 @@ _1M2	un||mil^'on
 _0M4	bil^'ons
 _1M4	un||bil^'on
 
-_0and	i
+_0and	%i
 _dpt	kon
 
 
 // ordinal numbers
-_#º	'eno
-_#ª	'ena
+_#º	o
+_#ª	a
 //_ord	eno
 
-_1o	un
-1o	prim'Er
-_2o	dos
-2o	seQ'und
-_3o	tres
-3o	tErT'Er
-_4o	kwatr
-_5o	Tink
-_6o	seIs
-_7o	sEt
-_8o	gwit
-_9o	n'U
-_10o	DET
-_11o	onT
-_12o	DoT
-_13o	tReT
-_14o	katorT
-_15o	kinT
-_16o	sET
+_1ox	prim'Er
+_2ox	seQ'und
+_3ox	tErT'Er
+
+_1o	un'en
+_2o	dos'en
+_3o	tres'en
+_4o	kwatr'en
+_5o	Tink'en
+_6o	seIs'en
+_7o	sEt'en
+_8o	gwit'en
+_9o	nU'en
+_11o	onT'en
+_12o	DoT'en
+_13o	tReT'en
+_14o	katorT'en
+_15o	kinT'en
+_16o	sET'en
+_10o	DET'en
+_20o	Bint'en
+_30o	trent'en
+_40o	kwarant'en
+_50o	Tinkwant'en
+_60o	siSant'en
+_70o	sEtant'en
+_80o	gwitant'en
+_90o	noBant'en
+
 _1Xo	DeTi
-_20o	Bint
 _2Xo	Binti
-_30o	trent
 _3Xo	trentaI
-_40o	kwarant
 _4Xo	kwarantaI
-_50o	Tinkwant
 _5Xo	TinkwantaI
-_60o	siSant
 _6Xo	siSantaI
-_70o	sEtant
 _7Xo	sEtantaI
-_80o	gwitant
 _8Xo	gwitantaI
-_90o	noBant
 _9Xo	noBantaI
-_0Co	TEnt
-_1Co	TEnt
-_0M1o	mil
-_1M1	mil
-_0M2o	mil^on
-_1M2o	mil^on
+_1Co	TEnt'en
+_2Co	dosTEnt'en
+_3Co	tresTEnt'en
+_4Co	kw,atroTEnt'en
+_5Co	T,inkoTEnt'en
+_6Co	seIsTEnt'en
+_7Co	sjEtTEnt'en
+_8Co	gw,eItoTEnt'en
+_9Co	nweUTEnt'en
+
+_0M1o	mil'en
+_1M1	mil'en
+_0M2o	mil^on'en
+_1M2o	mil^on'en
 
 
 // unstressed words
