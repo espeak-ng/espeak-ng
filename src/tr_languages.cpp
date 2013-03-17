@@ -455,6 +455,7 @@ Translator *SelectTranslator(const char *name)
 	static const short stress_lengths_sk[8] = {190,190, 210,210, 0,0, 210,210};
 
 	static const short stress_lengths_ta[8] = {200, 200,  210, 210,  0, 0,  230, 230};
+	static const short stress_lengths_ta2[8] = {230, 230,  240, 240,  0, 0,  260, 260};
 	static const unsigned char stress_amps_ta[8] = {18,18, 18,18, 20,20, 22,22 };
 
 	// convert name string into a word of up to 4 characters, for the switch()
@@ -1424,7 +1425,7 @@ SetLengthMods(tr,3);  // all equal
 	case L('m','r'):  // Marathi
 	case L('t','e'):  // Telugu
 		{
-			SetupTranslator(tr,stress_lengths_ta,stress_amps_ta);
+			SetupTranslator(tr,stress_lengths_ta2, stress_amps_ta);
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 
 			tr->langopts.stress_rule = STRESSPOSN_1L;
@@ -1434,9 +1435,12 @@ SetLengthMods(tr,3);  // all equal
 
 			if(name2 == L('t','a'))
 			{
+				SetupTranslator(tr,stress_lengths_ta, NULL);
 				tr->letter_bits_offset = OFFSET_TAMIL;
 				tr->langopts.numbers =  NUM_OMIT_1_THOUSAND ;
+				tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			}
+			else
 			if(name2 == L('m','r'))
 			{
 				tr->letter_bits_offset = OFFSET_DEVANAGARI;
@@ -1459,9 +1463,8 @@ SetLengthMods(tr,3);  // all equal
 				tr->letter_bits_offset = OFFSET_TELUGU;
 				tr->langopts.numbers = 0x1;
 			}
-			tr->langopts.param[LOPT_WORD_MERGE] = 1;   // don't break vowels betwen words
 			SetIndicLetters(tr);   // call this after setting OFFSET_
-				SetLetterBitsRange(tr,LETTERGP_B,0x4e,0x4e);   // chillu-virama (unofficial)
+			SetLetterBitsRange(tr,LETTERGP_B,0x4e,0x4e);   // chillu-virama (unofficial)
 		}
 		break;
 

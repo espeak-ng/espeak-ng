@@ -842,7 +842,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	char prefix_chars[0x3f + 2];
 	int found=0;
 	int end_flags;
-	char c_temp;   // save a character byte while we temporarily replace it with space
+	int c_temp;   // save a character byte while we temporarily replace it with space
 	int first_char;
 	int last_char = 0;
 	int add_plural_suffix = 0;
@@ -912,7 +912,9 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	if((word_length == 1) && (wflags & FLAG_TRANSLATOR2))
 	{
 		// retranslating a 1-character word using a different language, say its name
-		spell_word = 1;
+		utf8_in(&c_temp, wordx+1);  // the next character
+		if(!IsAlpha(c_temp) || (AlphabetFromChar(last_char) != AlphabetFromChar(c_temp)))
+			spell_word = 1;
 	}
 
 	if(option_sayas == SAYAS_KEY)

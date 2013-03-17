@@ -1867,7 +1867,7 @@ static int LoadWavefile(FILE *f, const char *fname)
         }
 
         sprintf(command,"sox \"%s%s.wav\" -r %d -c1 -t wav %s\n",path_source,fname2,samplerate_native, fname_temp);
-        if(system(command) < 0)
+        if(system(command) != 0)
         {
             failed = 1;
         }
@@ -3511,10 +3511,11 @@ static void CompilePhonemeData2(const char *source)
 make_envs();
 #endif
 
+	wxLogStatus(_T("Compiling phoneme data: ")+wxString(path_source,wxConvLocal));
 	n_envelopes = 0;
 	error_count = 0;
 	resample_count = 0;
-memset(markers_used,0,sizeof(markers_used));
+	memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
 
@@ -3679,7 +3680,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 
 	if(error_count > 0)
 	{
-		report += _T(" See file: 'phsource/error_log'.");
+		report += _T(" See file: '")+wxString(path_source,wxConvLocal)+_T("phsource/error_log'.");
 		wxLogError(report);
 	}
 	wxLogStatus(report + report_dict);
@@ -4149,7 +4150,11 @@ void CompilePhonemeData()
 void CompileSampleRate()
 {
     long value;
-    value = wxGetNumberFromUser(_T("Compile phoneme data with a specified sample rate"), _T("Sample rate"), _T("Resample (needs sox)"), 22050, 5000, 48000);
+#ifndef PLATFORM_POSIX
+	wxLogError(_T("Change Sample Rate needs the 'sox' program.  It probably doesn't work on Windows"));
+#endif
+
+    value = wxGetNumberFromUser(_T("Compile phoneme data with a specified sample rate"), _T("Sample rate"), _T("Resample (needs 'sox' program)"), 22050, 5000, 48000);
 
     if(value > 1000)
     {

@@ -359,7 +359,7 @@
  _perd) e (L05_    e
  _quis) e (L05_    E
  _soub) e (L05_    E
-  diss) e (L06_    E         / contra-
+  diss) e (L06_    E         // contra-
   tend) e (L06_    e         // a- con- en- es-
   vend) e (L06_    e         // re-
  _mord) e (L06_    e
@@ -433,7 +433,7 @@ _perec) e (L07_    e
 _rejuvenec) e (L07_ e
 _resolv) e (L07_   e
 _suspend) e (L07_  e
-abastec) e (L07_   e         / re-
+abastec) e (L07_   e         // re-
 conhec) e (L07_    e         // & re- des-
 estabelec) e (L07_ e         // re-
 favorec) e (L07_   e         // des-
@@ -461,6 +461,7 @@ respond) e (L07_   e         // cor-
     _g) e (rL04_   E
     qu) e (rL04_   E         // re-
    _op) e (rL04_   E
+   gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
   _sug) e (rL04_   E
   _sup) e (rL04_   E
@@ -863,6 +864,10 @@ _desabr) o (chL04_ O
   _ens) o (pL04_   O
     _s) o (prL04_  O
      _) o (ptL04_  O
+ _inod) o (rL03_   O
+_inson) o (rL03_   O
+_comem) o (rL04    O
+_remem) o (rL04_   O
   _enf) o (rquL02_ O
      c) o (rrL01_  o         // escorra, incorra, corra, recorra
     _m) o (rrL01_  o
