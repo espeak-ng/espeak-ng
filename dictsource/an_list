@@ -1,7 +1,30 @@
- 
 // Aragon translation rules
 // This file is UTF-8 encoded
 
+// letters
+
+_cap	m'aJ^uskla   // should be after the letter
+_??	simb'Olo
+_#32	Esp'aTjo
+
+
+// accent names
+_lig	liQaD'ura
+_acu	akT'ento aQ'uDo
+_ac2	d'Ople||aQ'uDo	
+_brv	br'eu
+_ced	TeD'il^a
+_cir	Tirkumfl'ekso
+_dia	djEr'esi
+_dac	d'Ople||aQ'uDo	
+_dot	p'unto
+_grv	gr'iEu
+_hac	kar'On
+_mcn	makr'On
+_ogo	kod'eta
+_rng	an'iel^o
+_stk	b'aRR2a	 // ??
+_tld	t'il^a
 
 
 // letter names
@@ -31,6 +54,14 @@ z	Teta
 y	i  $u     // word 'and'
 _y	je
 y	je	$atend
+ch	tSe
+ll	'El^e
+á	'a||akTEntw'aDa
+é	'e||akTEntw'aDa
+í	'i||akTEntw'aDa
+_ó	'o||akTEntw'aDa
+ú	'u||akTEntw'aDa
+ü	,uDjEr'Esi
 
 
 // numbers
@@ -56,7 +87,7 @@ _2X	B,int
 _3X	tr'enta
 _4X	kwar'anta
 _5X	Tinkw'anta
-_6X	siks'anta
+_6X	siS'anta
 _7X	set'anta
 _8X	gwit'anta
 _9X	noB'anta
@@ -70,16 +101,85 @@ _7C	sjEteTj'Entos
 _8C	gwitoTj'Entos
 _9C	nowTj'Entos
 _0M1	m'il
+_1M1	m'il
 _0M2	mil^'ons
 _1M2	un||mil^'on
 _0M4	bil^'ons
 _1M4	un||bil^'on
 
-_0and	i
+_0and	%i
 _dpt	kon
 
 
+// ordinal numbers
+_#º	o
+_#ª	a
+//_ord	eno
+
+_1ox	prim'Er
+_2ox	seQ'und
+_3ox	tErT'Er
+
+_1o	un'en
+_2o	dos'en
+_3o	tres'en
+_4o	kwatr'en
+_5o	Tink'en
+_6o	seIs'en
+_7o	sEt'en
+_8o	gwit'en
+_9o	nU'en
+_11o	onT'en
+_12o	DoT'en
+_13o	tReT'en
+_14o	katorT'en
+_15o	kinT'en
+_16o	sET'en
+_10o	DET'en
+_20o	Bint'en
+_30o	trent'en
+_40o	kwarant'en
+_50o	Tinkwant'en
+_60o	siSant'en
+_70o	sEtant'en
+_80o	gwitant'en
+_90o	noBant'en
+
+_1Xo	DeTi
+_2Xo	Binti
+_3Xo	trentaI
+_4Xo	kwarantaI
+_5Xo	TinkwantaI
+_6Xo	siSantaI
+_7Xo	sEtantaI
+_8Xo	gwitantaI
+_9Xo	noBantaI
+_1Co	TEnt'en
+_2Co	dosTEnt'en
+_3Co	tresTEnt'en
+_4Co	kw,atroTEnt'en
+_5Co	T,inkoTEnt'en
+_6Co	seIsTEnt'en
+_7Co	sjEtTEnt'en
+_8Co	gw,eItoTEnt'en
+_9Co	nweUTEnt'en
+
+_0M1o	mil'en
+_1M1	mil'en
+_0M2o	mil^on'en
+_1M2o	mil^on'en
+
+
 // unstressed words
+o	$u
+o	$atend
+a	$u
+a	$atend
+os	$u
+os	$atend
+as	$u
+as	$atend
+
 lo	$u
 la	$u
 los	$u
@@ -90,4 +190,44 @@ me	$u
 te	$u
 se	$u
 le	$u
+li	$u
+nos	$u
+mos	$u
+tos	$u
+vos	$u
+os	$u
 les	$u
+lis	$u
+
+// exceptions
+holio	x'olio
+jazz	dZ'as
+
+
+// Foreign words
+android	andr'oId
+apple	'apEl
+at	'at
+chat	tS'at
+chrome	kr'ome
+espeak	isp'ik
+(e speak) isp'ik
+facebook f'eIsbuk
+firefox	f'aIrfoks
+google	g'ugEl
+(i phone)	'aIfon
+iphone	'aIfon
+(i pod)	'aIpod
+ipod	'aIpod
+hardware x'ardwer
+live l'aIB
+messenger m'esendZer
+mozilla	moT'ila
+nvda	ene|be|de|'a
+office	'ofis
+skype	esk'aIp
+software	s'oftwer
+thunderbird	Tanderb'ird
+twitter	tw'iter
+whatsapp	was'app
+windows	w'indows

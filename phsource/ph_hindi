@@ -33,14 +33,12 @@ phoneme V
       ChangePhoneme(NULL)
     ENDIF
 
-    IF nextVowel(isFlag1) THEN
-    ELSE
+    IF NOT nextVowel(isFlag1) THEN
       IF thisPh(isSeqFlag1) THEN
         // delete the last inherent vowel of a sequence
         ChangePhoneme(NULL)
       ELSE
-        IF thisPh(isFirstVowel) THEN
-        ELSE
+        IF NOT thisPh(isFirstVowel) THEN
           // delete if not the first vowel, and is an isolated 'a'
           ChangePhoneme(NULL)
         ENDIF

@@ -122,6 +122,8 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int regression;
 	int end_sourceix;
 	int alternative;
+	int delete_count;
+	int word_start;
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -166,18 +168,40 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	}
 
 	// look for switch of phoneme tables
+	delete_count = 0;
 	current_phoneme_tab = tr->phoneme_tab_ix;
 	for(j = 0; j < n_ph_list2; j++)
 	{
-		if(plist2[j].phcode == phonSWITCH)
-		{
-			current_phoneme_tab = plist2[j].tone_ph;
-		}
 		if(current_phoneme_tab != tr->phoneme_tab_ix)
 		{
 			plist2[j].synthflags |= SFLAG_SWITCHED_LANG;
 		}
+
+		if(delete_count > 0)
+		{
+			memcpy(&plist2[j-delete_count], &plist2[j], sizeof(plist2[0]));
+		}
+
+		if(plist2[j].phcode == phonSWITCH)
+		{
+			if((!(plist2[j].synthflags & SFLAG_EMBEDDED)) && (
+				(plist2[j].tone_ph == current_phoneme_tab) ||
+			    (plist2[j+1].phcode == phonSWITCH) ||
+				((plist2[j+1].phcode == phonPAUSE) && (plist2[j+2].phcode == phonSWITCH))
+				))
+			{
+				// delete this phonSWITCH if it's switching to the current phoneme table, or
+				// delete this phonSWITCH if its followed by another phonSWITCH
+				delete_count++;
+			}
+			else
+			{
+				current_phoneme_tab = plist2[j].tone_ph;
+			}
+		}
+
 	}
+	n_ph_list2 -= delete_count;
 
 	if((regression = tr->langopts.param[LOPT_REGRESSIVE_VOICING]) != 0)
 	{
@@ -311,10 +335,14 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	// transfer all the phonemes of the clause into phoneme_list
 	ph = phoneme_tab[phonPAUSE];
 	ph_list3[0].ph = ph;
+	word_start = 1;
 
 	for(j=0; insert_ph || ((j < n_ph_list3) && (ix < N_PHONEME_LIST-3)); j++)
 	{
 		plist3 = &ph_list3[j];
+
+		if(plist3->sourceix != 0)
+			word_start = j;
 
 		if(insert_ph != 0)
 		{
@@ -322,12 +350,24 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			next = phoneme_tab[plist3->phcode];      // this phoneme, i.e. after the insert
 
 			// re-use the previous entry for the inserted phoneme.
-			// That's OK because we don't look backwards from plist3   *** but CountVowelPosiion() and isAfterStress does !!!
+			// That's OK because we don't look backwards from plist3   *** but CountVowelPosition() and isAfterStress does !!!
 			j--;
 			plist3 = plist3_inserted = &ph_list3[j];
 			if(j > 0)
 			{
-				memcpy(&plist3[-1], &plist3[0], sizeof(*plist3));
+				// move all previous phonemes in the word back one place
+				int k;
+				if(word_start > 0)
+				{
+					k = word_start;
+					word_start--;
+				}
+				else
+				{
+					k = 2;   // No more space, don't loose the start of word mark at ph_list2[word_start]
+				}
+				for(; k<=j; k++)
+					memcpy(&ph_list3[k-1], &ph_list3[k], sizeof(*plist3));
 			}
 			memset(&plist3[0], 0, sizeof(*plist3));
 			plist3->phcode = insert_ph;
@@ -343,12 +383,6 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 			if(plist3->phcode == phonSWITCH)
 			{
-				if(!(plist3->synthflags & SFLAG_EMBEDDED))   // ?? phonSWITCH can't have SFLAG_EMBEDDED ??
-				{
-					if((plist3[1].phcode == phonSWITCH) || ((plist3[1].type == phPAUSE) && (plist3[2].phcode == phonSWITCH)))
-						continue;  // next phoneme is also a phonSWITCH, so ignore
-				}
-
 				// change phoneme table
 				SelectPhonemeTable(plist3->tone_ph);
 			}

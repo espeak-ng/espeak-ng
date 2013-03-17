@@ -77,7 +77,7 @@ ỵ	ỵ
 //================================
 //  Consonants
 //================================
-.L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve 
+.L01 t c ne nd k x s nt ch th me te le ce ny ry e o u re nch de p pe ph sh v ve ge
 .L02 n
 
 
@@ -460,7 +460,7 @@ ỵ	ỵ
 
 .group i
         i          i
-        i (A       j
+        //i (A       j
         ia         i@
         ià         i@2
         iá         i@3
@@ -822,7 +822,7 @@ ỵ	ỵ
 
 .group y
         y          i
-        y (A       j
+       // y (A       j
         ya         i@
         yà         i@2
         yá         i@3
@@ -837,7 +837,7 @@ ỵ	ỵ
         yệ         i@6
       //  yêu        i@U
         
- 
+        y (L01     _^_EN
 
 .group ỳ
         ỳ          i2

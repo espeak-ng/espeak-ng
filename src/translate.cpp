@@ -846,7 +846,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	char prefix_chars[0x3f + 2];
 	int found=0;
 	int end_flags;
-	char c_temp;   // save a character byte while we temporarily replace it with space
+	int c_temp;   // save a character byte while we temporarily replace it with space
 	int first_char;
 	int last_char = 0;
 	int add_plural_suffix = 0;
@@ -916,7 +916,9 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 	if((word_length == 1) && (wflags & FLAG_TRANSLATOR2))
 	{
 		// retranslating a 1-character word using a different language, say its name
-		spell_word = 1;
+		utf8_in(&c_temp, wordx+1);  // the next character
+		if(!IsAlpha(c_temp) || (AlphabetFromChar(last_char) != AlphabetFromChar(c_temp)))
+			spell_word = 1;
 	}
 
 	if(option_sayas == SAYAS_KEY)
@@ -1077,10 +1079,16 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 		{
 			if(word_length > 1)
 				return(FLAG_SPELLWORD);  // a mixture of languages, retranslate as individual letters, separated by spaces
+			if(phonemes[0] == phonSWITCH)
+			{
+// problem with espeak -vbg "b.c.d.e.f"
+			}
 			return(0);
 		}
 		strcpy(word_phonemes, phonemes);
-		return(dictionary_flags[0] & FLAG_SKIPWORDS);  // ??
+		if(wflags & FLAG_TRANSLATOR2)
+			return(0);
+		return(dictionary_flags[0] & FLAG_SKIPWORDS);  // for "b.c.d"
 	}
 	else if(found == 0)
 	{
@@ -1936,6 +1944,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			if(ok)
 			{
 				*p2 = '-'; // replace next space by hyphen
+				wtab[0].flags &= ~FLAG_ALL_UPPER;  // prevent it being considered an abbreviation
 				flags = TranslateWord(translator, word, next_pause, wtab, NULL);  // translate the combined word
 				if((sylimit > 0) && (CountSyllables(p) > (sylimit & 0x1f)))
 				{
