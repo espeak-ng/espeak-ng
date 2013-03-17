@@ -91,8 +91,8 @@ wxMenuBar *MakeMenu(int type, const char *dict_name)
         data_menu = new wxMenu;
         data_menu->Append(MENU_COMPILE_DICT, _("Compile &dictionary"));
         data_menu->Append(MENU_COMPILE_DICT_DEBUG, _("Compile dictionary (debu&g)"));
-        data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data"));
-        data_menu->Append(MENU_COMPILE_PH2, _("Change sample &rate"));
+        data_menu->Append(MENU_COMPILE_PH, _("Compile &phoneme data 22050Hz"));
+        data_menu->Append(MENU_COMPILE_PH2, _("Compile at sample &rate"));
         data_menu->AppendSeparator();
         data_menu->Append(MENU_COMPILE_MBROLA, _("Compile &mbrola phonemes list..."));
         data_menu->Append(MENU_COMPILE_INTONATION, _("Compile &intonation data"));
