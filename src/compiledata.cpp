@@ -745,6 +745,7 @@ static void CompileReport(void)
 	REF_HASH_TAB **list;
 	const char *data_path;
 	int prev_table;
+	int procedure_num;
 	int prev_mnemonic;
 
     if(f_report == NULL)
@@ -802,7 +803,17 @@ static void CompileReport(void)
 			j++;
 		}
 
-		fprintf(f_report,"  [%s] %s",WordToString(prev_mnemonic = list[ix]->ph_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
+		prev_mnemonic = list[ix]->ph_mnemonic;
+		if((prev_mnemonic >> 24) == 'P')
+		{
+			// a procedure, not a phoneme
+			procedure_num = atoi(WordToString(prev_mnemonic));
+			fprintf(f_report,"  %s  %s", phoneme_tab_list2[prev_table = list[ix]->ph_table].name, proc_names[procedure_num]);
+		}
+		else
+		{
+			fprintf(f_report,"  [%s] %s",WordToString(prev_mnemonic), phoneme_tab_list2[prev_table = list[ix]->ph_table].name);
+		}
 		fputc('\n',f_report);
 	}
 
@@ -1856,7 +1867,7 @@ static int LoadWavefile(FILE *f, const char *fname)
         }
 
         sprintf(command,"sox \"%s%s.wav\" -r %d -c1 -t wav %s\n",path_source,fname2,samplerate_native, fname_temp);
-        if(system(command) < 0)
+        if(system(command) != 0)
         {
             failed = 1;
         }
@@ -2761,6 +2772,8 @@ int CompilePhoneme(int compile_phoneme)
 		}
 		strcpy(proc_names[n_procs], item_string);
 		phoneme_out = &phoneme_out2;
+		sprintf(number_buf,"%.3dP", n_procs);
+		phoneme_out->mnemonic = StringToWord(number_buf);
 	}
 
 	phoneme_out->code = phcode;
@@ -3498,10 +3511,11 @@ static void CompilePhonemeData2(const char *source)
 make_envs();
 #endif
 
+	wxLogStatus(_T("Compiling phoneme data: ")+wxString(path_source,wxConvLocal));
 	n_envelopes = 0;
 	error_count = 0;
 	resample_count = 0;
-memset(markers_used,0,sizeof(markers_used));
+	memset(markers_used,0,sizeof(markers_used));
 
 	f_errors = stderr;
 
@@ -3666,7 +3680,7 @@ fprintf(f_errors,"\nRefs %d,  Reused %d\n",count_references,duplicate_references
 
 	if(error_count > 0)
 	{
-		report += _T(" See file: 'phsource/error_log'.");
+		report += _T(" See file: '")+wxString(path_source,wxConvLocal)+_T("phsource/error_log'.");
 		wxLogError(report);
 	}
 	wxLogStatus(report + report_dict);
@@ -4136,7 +4150,11 @@ void CompilePhonemeData()
 void CompileSampleRate()
 {
     long value;
-    value = wxGetNumberFromUser(_T("Compile phoneme data with a specified sample rate"), _T("Sample rate"), _T("Resample (needs sox)"), 22050, 5000, 48000);
+#ifndef PLATFORM_POSIX
+	wxLogError(_T("Change Sample Rate needs the 'sox' program.  It probably doesn't work on Windows"));
+#endif
+
+    value = wxGetNumberFromUser(_T("Compile phoneme data with a specified sample rate"), _T("Sample rate"), _T("Resample (needs 'sox' program)"), 22050, 5000, 48000);
 
     if(value > 1000)
     {
