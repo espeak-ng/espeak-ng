@@ -1,6 +1,7 @@
-name russian_test
+name russian
 language ru
 gender male
 
 replace 03 a a#
 
+dict_min  20000
