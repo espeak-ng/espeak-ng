@@ -8,14 +8,35 @@
 import sys
 import os
 
+voices = set()
 dictionaries = {}
+
+# Map voice names to dictionaries when these do not match.
+special_voices = {
+	'zh-yue': 'zhy',
+}
+
+def find_voices(path):
+	for filename in os.listdir(path):
+		voice_path = os.path.join(path, filename)
+		if os.path.isdir(voice_path):
+			if not filename in ['!v', 'mb']:
+				find_voices(voice_path)
+		else:
+			if filename in special_voices.keys():
+				voices.add(special_voices[filename])
+			else:
+				voices.add(filename)
+
+find_voices('espeak-data/voices')
 
 for filename in os.listdir('dictsource'):
 	if filename.endswith('_rules') or filename.endswith('_list') or filename.endswith('_listx'):
 		dic, cat = filename.split('_')
-		if not dic in dictionaries.keys():
-			dictionaries[dic] = []
-		dictionaries[dic].append('dictsource/%s' % filename)
+		if dic in voices:
+			if not dic in dictionaries.keys():
+				dictionaries[dic] = []
+			dictionaries[dic].append('dictsource/%s' % filename)
 
 print '##### dictionaries:'
 print
