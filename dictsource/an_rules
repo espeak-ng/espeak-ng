@@ -17,6 +17,8 @@
         au         aU
         au (X      'aU
 
+     _) a'         %a
+
 
 .group b
         b          b
@@ -38,6 +40,10 @@
         ch         tS
 
 
+
+.group ç
+        ç          T
+
 .group d
         d          d
      _) d          d         // phoneme definition may change it to [D]
@@ -52,6 +58,9 @@
 
      n) d (_       =         // silent, but stress on last vowel
 
+     _) d' (AP2    d
+     _) de'        d%e
+
 
 .group e
         e          e
@@ -65,6 +74,9 @@
      i) e          E
      u) e          E
      y) e          E
+
+     _) ent' (AP4  ent
+     _) enta'      ,ent%a
 
 
 .group f
@@ -92,11 +104,12 @@
 
 .group h
         h                    // silent
-
+        hu (e      gw
+        hu (i      gw
 
 .group i
         i          i
-        i (u       i
+        i (u_      i
         i (A       j
 
 
@@ -115,6 +128,9 @@
 
 .group m
         m          m
+
+     _) m' (AP2    m
+     _) mo'        m%o
 
 
 .group n
@@ -141,9 +157,14 @@
      u) o          O
      y) o          O
 
+
 .group p
         p          p
      _) ps         s
+
+     _) p' (AP2    p
+     _) pa'        p%a
+     _) pe'        p%e
 
 
 .group q
@@ -174,6 +195,8 @@
         s          s
      &) s (_S1     s
 
+     _) s' (AP2    s
+
 
 .group t
         t          t
@@ -186,15 +209,20 @@
     ui) t (_       t#
      s) t (_       =         // silent, but stress on last vowel
 
+     _) t' (AP2    t
+     _) ta'        t%a
+     _) to'        t%o
+
 
 .group u
         u          u
+        uix        uS
         u (u       u
         u (i       u
+     r) uix        uS
+     r) u (A       u
         u (A       w
      _) u (A       gw
-        uix        uS
-
 
 
 .group v   // same as 'b'
@@ -234,3 +262,6 @@
         ó          ''o
         ú          ''u
 
+    __) - (_D       m'enos
+    D_) - (_D       m'enos
+    

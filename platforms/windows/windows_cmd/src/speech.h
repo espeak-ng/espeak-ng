@@ -30,6 +30,7 @@
 #define __WIN32__
 #define NEED_WCSTOF
 #define NEED_GETOPT
+#define USE_MBROLA_LIB
 
 #define PATHSEP '\\'
 #define USE_PORTAUDIO

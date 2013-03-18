@@ -134,11 +134,6 @@ endphoneme
 
 
 
-phoneme R    // for Portugal this is same the as [r]
-  import_phoneme pt/r
-endphoneme
-
-
 phoneme s#     // This is [s] for Brazil, [S] for Portugal
   CALL base/S
   ipa ʃ

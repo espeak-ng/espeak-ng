@@ -1603,9 +1603,9 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 			}
 
 			if(tr->langopts.numbers2 & 0x200)
-				sprintf(ph_thousands,"%s%s",ph_10T,ph_digits);  // say "thousands" before its number, not after
+				sprintf(ph_thousands,"%s%c%s%c",ph_10T,phonEND_WORD,ph_digits,phonEND_WORD);  // say "thousands" before its number, not after
 			else
-				sprintf(ph_thousands,"%s%s",ph_digits,ph_10T);
+				sprintf(ph_thousands,"%s%c%s%c",ph_digits,phonEND_WORD,ph_10T,phonEND_WORD);
 
 			hundreds %= 10;
 			if((hundreds == 0) && (say_zero_hundred == 0))
@@ -1738,7 +1738,7 @@ static int LookupNum3(Translator *tr, int value, char *ph_out, int suppress_null
 		}
 	}
 
-	sprintf(ph_out,"%s%s%s",buf1,ph_hundred_and,buf2);
+	sprintf(ph_out,"%s%s%c%s",buf1,ph_hundred_and,phonEND_WORD,buf2);
 
 	return(0);
 }  // end of LookupNum3
@@ -1786,6 +1786,7 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 	int suffix_ix;
 	int skipwords = 0;
 	int group_len;
+	int len;
 	char *p;
 	char string[32];  // for looking up entries in **_list
 	char buf1[100];
@@ -2062,9 +2063,9 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 
 	LookupNum3(tr, value, ph_buf, suppress_null, thousandplex, prev_thousands | ordinal | decimal_point);
 	if((thousandplex > 0) && (tr->langopts.numbers2 & 0x200))
-		sprintf(ph_out,"%s%s%s%s",ph_zeros,ph_append,ph_buf2,ph_buf);  // say "thousands" before its number
+		sprintf(ph_out,"%s%s%c%s%s",ph_zeros,ph_append,phonEND_WORD,ph_buf2,ph_buf);  // say "thousands" before its number
 	else
-		sprintf(ph_out,"%s%s%s%s",ph_zeros,ph_buf2,ph_buf,ph_append);
+		sprintf(ph_out,"%s%s%s%c%s",ph_zeros,ph_buf2,ph_buf,phonEND_WORD,ph_append);
 
 
 	while(decimal_point)
@@ -2147,7 +2148,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 			// speak any remaining decimal fraction digits individually
 			value = word[n_digits++] - '0';
 			LookupNum2(tr, value, 2, buf1);
-			strcat(ph_out,buf1);
+			len = strlen(ph_out);
+			sprintf(&ph_out[len],"%c%s", phonEND_WORD, buf1);
 		}
 
 		// something after the decimal part ?

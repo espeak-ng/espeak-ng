@@ -967,7 +967,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 				}
 			}
 		}
-		else if((found==0) && (dictionary_flags[0] & FLAG_SKIPWORDS))
+		else if((found==0) && (dictionary_flags[0] & FLAG_SKIPWORDS) && !(dictionary_flags[0] & FLAG_ABBREV))
 		{
 			// grouped words, but no translation.  Join the words with hyphens.
 			wordx = word1;
