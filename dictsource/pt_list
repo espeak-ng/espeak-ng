@@ -369,7 +369,7 @@ sua	$u+	$nounf
 ?2	nossas	$u+ $nounf	n'Os&s
 dele	dely	$u1+
 dela	$u+
-deles	$u+
+deles	delys	$u1+
 delas	$u+
 nele	nely	$u1+
 
@@ -654,7 +654,7 @@ apego		$alt2 $noun
 apelo		$alt  $verb
 aposto		$alt  $verb
 aperto		$alt2 $noun
-apoio		$alt  $verb
+apoio		$alt2 $noun
 aprovo		$alt
 arredores	$alt
 arremesso	$alt2 $noun
@@ -717,7 +717,6 @@ chovesse	$alt2
 chupeta		$alt2
 clamores	$alt2
 clero		$alt
-crepe		$alt
 coco		$alt2
 cofre		$alt
 cogumelo	$alt
@@ -732,6 +731,7 @@ colore		$alt
 começo		$alt2 $noun
 comodo		$alt2
 concerto	$alt2 $noun
+concertos	$alt2
 concordo	$alt
 conforto	$alt  $verb
 congelo		$alt
@@ -739,6 +739,7 @@ consolo		$alt2 $noun
 controle	$alt2 $noun
 controlo	$alt2 $noun
 coreia		$alt
+coreto		$alt2
 corneta		$alt2
 cornos		$alt
 corpos		$alt
@@ -748,6 +749,7 @@ corvos		$alt
 coto		$alt2
 cratera		$alt
 crede		$alt2
+crepe		$alt
 decore		$alt
 desapego	$alt2 $noun
 descabelo	$alt
@@ -775,6 +777,7 @@ dueto		$alt2
 elixir		eliSir
 elo		$alt
 emprego		$alt2 $noun
+empregos	$alt2
 encosto		$alt  $verb
 endereço	$alt2
 endereço	$alt  $verb
@@ -793,6 +796,7 @@ erros		$alt2
 esboço		$alt  $verb
 escopeta	$alt2
 escova		$alt2 $noun
+escovas	$alt2
 escovo		$alt
 escroto		$alt2
 esforço		$alt  $verb
@@ -834,9 +838,7 @@ forca		$alt2
 força		$alt2 $noun
 forças		$alt2
 forço		$alt
-fossem		$alt2
 forro		$alt $verb
-fosse		$alt2
 frevo		$alt2
 galera		$alt
 galileia	$alt
@@ -1019,6 +1021,7 @@ topo		$alt  $verb
 torno		$alt  $verb
 torre		$alt2 $noun
 torres		$alt2
+torro	$alt
 tortos		$alt
 traqueia	$alt
 travesso	$alt2
