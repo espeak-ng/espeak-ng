@@ -254,6 +254,10 @@
           @) es (_S2qd    'Es   // double the previous vowel
           @) es (_$w_alt2S1 s   // just remove 's'
         KAC) es (_S2e     @s
+         mb) es (_S1      s
+         nd) es (_S1      s
+         rd) es (_S1      s
+         gt) es (_S1      s
              es (ie_      e:z
           @) essen (_S5qd 'Es@n
           @) eres (_S4qd  @r'Es
