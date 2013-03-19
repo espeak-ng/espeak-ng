@@ -1084,6 +1084,7 @@ SetLengthMods(tr,3);  // all equal
 
 	case L('k','l'):   // Greenlandic
 		{
+			SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 			tr->langopts.stress_rule = 12;
 			tr->langopts.stress_flags = S_NO_AUTO_2;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_SWAP_TENS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_ORDINAL_DOT | NUM_1900 | NUM_ROMAN | NUM_ROMAN_CAPITALS | NUM_ROMAN_ORDINAL;

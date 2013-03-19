@@ -102,7 +102,6 @@ _7C	sjEteTj'Entos
 _8C	gwitoTj'Entos
 _9C	nowTj'Entos
 _0M1	m'il
-_1M1	m'il
 _0M2	mil^'ons
 _1M2	un||mil^'on
 _0M4	bil^'ons
@@ -115,7 +114,7 @@ _dpt	kon
 // ordinal numbers
 _#º	o
 _#ª	a
-//_ord	eno
+
 
 _1ox	prim'Er
 _2ox	seQ'und
@@ -166,7 +165,6 @@ _8Co	gw,eItoTEnt'en
 _9Co	nweUTEnt'en
 
 _0M1o	mil'en
-_1M1	mil'en
 _0M2o	mil^on'en
 _1M2o	mil^on'en
 

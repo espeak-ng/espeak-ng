@@ -510,6 +510,7 @@ agm	$abbrev
 ai	$abbrev
 amd	$abbrev
 aol	$abbrev
+aph	$abbrev
 api	$abbrev
 apr	apr@
 asap	$abbrev
@@ -1051,6 +1052,7 @@ caterer		keIt3r3
 cathedral	$alt3
 catholic	kaTlIk
 carotid		$alt3
+cartel		kA@t'El
 cavalier	$3
 caveat		kavIat
 ?3 caveat	kavIA:t
@@ -1156,6 +1158,7 @@ colonel		k3:n@L
 colosseum	k0l@s'i@m
 comanche	k@mantSi
 combat		k0mbat       // combating
+?3 combative	k@mbatIv
 combo		k0mboU
 comely		kVmlI    // comeliness
 comer		kVm3
@@ -1625,6 +1628,7 @@ goodday		$2
 goodnight	$2
 gorilla		g3rIl@
 gospel		g0sp@L
+gossamer	g0s@m3
 goto		goUtu:
 gourmand	gU@mA:nd
 gourmet		gU@meI
@@ -1780,6 +1784,7 @@ interim		$1
 intermediate	Int3m'i:di@t
 intern		Int3:n  $noun
 interrogatory	$3
+intestine	I2ntEstI#n
 inventory	Inv@ntri
 ?3 inventory	Inv@nto:ri
 interface	$1
@@ -1843,6 +1848,7 @@ laboratory	la#b'0r@trI
 labor		leIb3
 labored		leIb@d
 laborer		leIb@r3
+laborious	$alt3
 labyrinth	lab3rInT
 lager		lA:g3
 laity		leI@ti
@@ -1875,6 +1881,7 @@ lemonade	$3
 leo		li:oU
 leona		li:'oUn@
 leopard		lEp3d
+leprechaun	lEpr@kO:n
 lesion		li:Z@n
 lethal		li:T@L
 liaison		li:'eIz0n
@@ -1970,6 +1977,7 @@ mausoleum	mO:s@'li:@m
 mayhem		meIhEm
 meant		mEnt
 meadow		mEdoU
+medallion	$alt3
 mediaeval	mEdI'i:v@L
 medicine	mEds@n
 ?3 medicine	mEd@s@n
@@ -2380,6 +2388,7 @@ pythagoras	paIT'ag@r@s
 python		paIT@n
 pyramidal	pI2r'amId@L
 
+qaeda		kaId@
 quadrilateral	$3
 quash		kw0S
 quaternary	kw@t3:n@rI
@@ -2825,6 +2834,7 @@ trajectory	tr@dZEkt@rI
 traverse	$alt3
 travesty	trav@sti
 treatise	tri:tIz
+tremendous	$alt3
 triage		tri:A:Z
 tribunal	traIb'ju:n@L
 triceratops	traIs'Er@t0ps
@@ -3007,6 +3017,7 @@ yessir		jEss3:
 yoghurt		j0g3t
 ?3 yoghurt	joUg3t
 ?3 yogurt	joUg3t
+?3 youtube	ju:t2u:b
 yoyo		joUjoU
 
 zavala		$alt3
@@ -3203,6 +3214,7 @@ Korean		kOr'i:@n
 Kosovo		k0s@voU
 Kuala		kwA:la#
 Lagos		leIg0s
+Lebanon		lEba#n@n
 Leipzig		laIpsIg
 Leone		li:'oUn
 Lesotho		l@s'u:tu:

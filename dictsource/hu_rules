@@ -820,6 +820,12 @@ _megsz) í (vatta   i
 szabad) ítsz       its:
     sz) í (vemészt i:
   vesz) ítsz       i:ts:
+progressz) í (ve i:
+sz) í (vemel i:
+sz) í (vere i:
+sz) í (veré i:
+sz) í (verő i:
+sz) í (vevő i:
 
 .group j
         j          j
@@ -1171,6 +1177,7 @@ _tetszé) s         S
 kolbászo) s        S
 feldolgozá) s      S
    _ki) s (szín    S
+kérdé) s S
 
 .group ss
         ssz        ss2
@@ -1706,6 +1713,8 @@ szállodá) ssz      Ss
 visszaélé) ssz     Ss
    esé) ssz (erű   Ss
   webe) ssz        Ss
+beleve) ssz (en s:
+
 
 .group sz
         sz         s
