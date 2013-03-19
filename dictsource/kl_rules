@@ -52,8 +52,9 @@
 
 
 .group g
-        g        j
-        gg       j:
+        g        Q
+        gg       x:
+        gg (i    C:
 
 
 .group h
@@ -74,8 +75,8 @@
 
 
 .group k
-        k        g
-        kk       g:
+        k        k
+        kk       k:
 
 
 .group l
@@ -91,6 +92,7 @@
 .group n
         n        n
 	na	 na
+	naa      na:
         nn       n:
         ng       N
         nng      N:
@@ -104,8 +106,8 @@
 
 
 .group p
-        p        b
-        p        b:
+        p        p
+        pp       p:
 
 
 .group q
@@ -124,10 +126,10 @@
 
 
 .group t
-	t        d
-	ti	 ti
-	te	 te
-	tt       d
+	t        t
+	t (i	 ts
+     i) t (_     tS;
+	tt       t:
 	tl       tl#
 	ts       ts
 
