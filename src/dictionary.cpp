@@ -1495,8 +1495,8 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 			else
 			{
 				// no long vowels or consonant clusters
-				if(vowel_count > 4)
-					stressed_syllable = vowel_count - 3;
+				if(vowel_count > 5)
+					stressed_syllable = vowel_count - 3;  // more than 4 syllables
 				else
 					stressed_syllable = vowel_count - 1;
 			}

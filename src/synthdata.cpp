@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.47.01  18.Mar.13";
+const char *version_string = "1.47.02  19.Mar.13";
 const int version_phdata  = 0x014701;
 
 int option_device_number = -1;
