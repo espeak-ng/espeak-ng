@@ -61,6 +61,7 @@ a	eI	$atend
 // use the $accent attribute here to force the use of the
 // accent table when speaking the name of the character.
 à	$accent $atend  // this can be a word
+á	$accent $atend
 ç	$accent
 é	$accent
 ê	$accent
@@ -3214,7 +3215,7 @@ Korean		kOr'i:@n
 Kosovo		k0s@voU
 Kuala		kwA:la#
 Lagos		leIg0s
-Lebanon		lEba#n@n
+Lebanon		lEb@n0n
 Leipzig		laIpsIg
 Leone		li:'oUn
 Lesotho		l@s'u:tu:
@@ -3908,8 +3909,8 @@ would             $u+           $verbf $only $strend2
 (would have)     w%Udh%a#v      $pastf
 (would have)     wUdhav         $pastf $atend
 (would have to)  wUdhavt@5	$u2 $verbf $strend2
-(wouldn't have)  wUdnt@v	$u1 $pastf $strend2
-(wouldn't have to)  ,wUdntavt@5       $verbf $strend2
+(wouldn't have)  wUd@-nt@v	$u1 $pastf $strend2
+(wouldn't have to)  ,wUd@-ntavt@5       $verbf $strend2
 won't            woUnt		$u+ $verbf $strend2 $only
 wouldst           $u+
 (won't have)     woUnta#v	$pastf $u1
@@ -3920,18 +3921,18 @@ must                            $verbf
 (must have)      mVsta#v        $pastf $1
 (must have)      mVsthav        $pastf $atend
 (must have to)   m,Vstavt@5     $pastf
-mustn't          mVsnt          $verbf
-(mustn't have)   mVsntha#v      $pastf $u1+
-(mustn't have to) m'Vsnthavt@5  $pastf
+mustn't          mVs@-nt        $verbf
+(mustn't have)   mVs@-ntha#v    $pastf $u1+
+(mustn't have to) m'Vs@-nthavt@5  $pastf
 
 shall            ,Sal           $verbf $only $strend2
 shalt            ,Salt          $verbf $only
 should           ,SUd           $verbf $only $strend2
 (should have)    SUd@v          $pastf $u1+
 (should have to)  SUdhavt@5	$u2 $verbf $strend2
-shouldn't        ,SUdnt		$verbf $strend2 $only
-(shouldn't have) SUdnth@v	$pastf $u1+
-(shouldn't have to) 'SUdntavt@5	$verbf $strend2
+shouldn't        ,SUd@-nt	$verbf $strend2 $only
+(shouldn't have) SUd@-nth@v	$pastf $u1+
+(shouldn't have to) 'SUd@-ntavt@5	$verbf $strend2
 shalln't         ,SA:nt		$verbf $strend2
 shan't           ,SA:nt		$verbf $strend2
 
@@ -3947,9 +3948,9 @@ could            %kUd		$verbf $strend2 $only
 (could have)     ,kUda#v	$pastf
 (could have)     kUdhav		$pastf $atend
 (could have to)  kUdhavt@5	$u2 $verbf $strend2
-couldn't         ,kUd@nt        $verbf $strend2
-(couldn't have)  kUd@nt@v       $pastf $u1+
-(couldn't have to)  'kUd@ntavt@5     $verbf $strend2
+couldn't         ,kUd@-nt        $verbf $strend2
+(couldn't have)  kUd@-nt@v       $pastf $u1+
+(couldn't have to)  'kUd@-ntavt@5     $verbf $strend2
 
 may              meI		$verbf $strend2
 (may have)       meIha#v	$pastf $u1+
@@ -3980,9 +3981,9 @@ had              ,had		$atend
 (had it)         h,adI2t
 (had them)       h,adDEm
 having           ,havIN		$strend2 $pastf $only
-haven't          hav@nt		$pastf
-hadn't           had@nt		$pastf
-hasn't           haz@nt		$pastf
+haven't          hav@-nt	$pastf
+hadn't           had@-nt	$pastf
+hasn't           haz@-nt	$pastf
 
 get              %gEt		$strend2 $pastf $only
 getting          ,gEtIN		$strend2 $pastf $only
@@ -4088,8 +4089,8 @@ his              hIz		$u $nounf $only $strend2
 her              h3:		$u $nounf $only
 hers             h3:z		$u $strend2
 its              Its		$u $nounf
-our              aU@		$u $nounf $onlys
-?3  our          aU3		$u $nounf $onlys
+our              aU@		$u $nounf $only
+?3  our          aU3		$u $nounf $only
 your             jO@		$u $nounf $only
 ?6 your          jU@		$u $nounf $only
 their            De@		$u $nounf $only

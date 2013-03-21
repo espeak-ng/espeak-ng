@@ -83,6 +83,7 @@
 #define FLAG_STEM          0x10000  // must have a suffix
 #define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
 #define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
+#define FLAG_LOOKUP_SYMBOL 0x40000000  // to indicate called from Lookup()
 
 #define BITNUM_FLAG_ALLCAPS   0x2a
 #define BITNUM_FLAG_HYPHENATED  0x2c
@@ -542,9 +543,9 @@ typedef struct {
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
-	const char *ascii_language;  // switch to this language for Latin characters
+	char ascii_language[8];  // switch to this language for Latin characters
 	int alt_alphabet;       // offset for another language to recognize
-	const char *alt_alphabet_lang;  // language for the alt_alphabet
+	int alt_alphabet_lang;  // language for the alt_alphabet
 	int max_lengthmod;
 	int lengthen_tonic;   // lengthen the tonic syllable
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
@@ -713,6 +714,7 @@ int towlower2(unsigned int c);
 void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
+ALPHABET *AlphabetFromName(const char *name);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);

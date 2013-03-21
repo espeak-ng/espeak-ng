@@ -342,12 +342,12 @@ endphoneme
 
 
 
-phoneme iR
+phoneme iR  // TEST "vier" = [f'iR] not successful
   vowel starttype #i endtype #@
   ipa iɐ
   flag1
-  length 180
-  FMT(vdiph2/i@_2)
+  length 230
+  FMT(vdiph2/i@_3)
 endphoneme
 
 

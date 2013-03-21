@@ -13,7 +13,7 @@ consonants  11  119
    en-wi  30  156
       af  39  138
       cy  29  134
-      ga  29  133
+      ga  30  134
       de  40  140
       eo  13  116
      jbo   2  116
@@ -1090,7 +1090,7 @@ vdiph2/i@       [i@] en-n
                 [i@] ga
                 [i@] hy
 vdiph2/i@_2     [i@] en-wm
-                [iR] de
+vdiph2/i@_3     [iR] de
 vdiph2/ie       [i@] en-wi
                 [ie] fi
                 [ie] mt
@@ -1506,8 +1506,6 @@ voc/z_pzd_      [Z;] base
                 [z;] base
 vowel/@         [@] base
                 [@] en
-                [@2] en
-                [@5] en
                 [@] en-rp
                 [V] cy
                 [@/] ga
@@ -1558,8 +1556,6 @@ vowel/@_2       [@:] vi
 vowel/@_3       [@#] en
                 [@] en-sc
                 [I] en-sc
-                [@2] en-sc
-                [@5] en-sc
                 [@3] hi
                 [@3] ne
                 [@3] ur
@@ -2072,8 +2068,7 @@ vowel/ii_3      [I] cy
                 [I] no
                 [i] sl
 vowel/ii#_3     [I2] en-us
-vowel/ii_4      [@2] en
-                [I2] en
+vowel/ii_4      [I2] en
                 [I] en-us
                 [I2] tn
 vowel/ii_5      [i] ta

@@ -6,17 +6,17 @@
 phoneme @    //  Schwa, but always unstressed
   vowel   starttype #@  endtype #@
   unstressed
-  length 100
+  length 110
   IF nextPh(i:) THEN
-    Length 70
+    Length 80
     FMT(vwl_af/r@)
   ENDIF
   IF nextPh(I) THEN
-    Length 70
+    Length 80
     FMT(vwl_af/r@)
   ENDIF
   IF nextPh(e:) THEN
-    Length 70
+    Length 80
     FMT(vwl_af/r@)
   ENDIF
   FMT(vwl_af/@)
@@ -25,14 +25,14 @@ endphoneme
 
 phoneme @/
   vowel  starttype #@  endtype #@
-  length 120
+  length 130
   FMT(vowel/@)
 endphoneme
 
 
 phoneme a
   vowel starttype #a endtype #a
-  length 150
+  length 165
   FMT(vowel/a_4)
 endphoneme
 
@@ -40,7 +40,7 @@ endphoneme
 phoneme a#
   vowel starttype #@ endtype #@
   ipa ɐ
-  length 120
+  length 130
   ChangeIfStressed(a)
   FMT(vowel/a#_3)
 endphoneme
@@ -48,13 +48,13 @@ endphoneme
 
 phoneme E
   vowel  starttype #e  endtype #e
-  length 140
+  length 155
   FMT(vowel/e_mid)
 endphoneme
 
 phoneme E#
   vowel  starttype #@  endtype #@
-  length 120
+  length 130
   ChangeIfStressed(E)
   ChangePhoneme(@/)
 endphoneme
@@ -62,27 +62,27 @@ endphoneme
 
 phoneme I
   vowel  starttype #i  endtype #i
-  length 120
+  length 130
   FMT(vowel/ii_2)
 endphoneme
 
 phoneme i   // non syllabic i for end of words
   vowel  starttype #i  endtype #i
   ipa iU+032F
-  length 40
+  length 45
   FMT(vowel/ii_7)
 endphoneme
 
 
 phoneme O
   vowel  starttype #a  endtype #@
-  length 140
+  length 155
   FMT(vowel/V_4)
 endphoneme
 
 phoneme O#
   vowel starttype #@ endtype #@
-  length 120
+  length 130
   ChangeIfStressed(O)
   ChangePhoneme(a#)
 endphoneme
@@ -90,13 +90,13 @@ endphoneme
 
 phoneme U
   vowel starttype #u endtype #u
-  length 140
+  length 155
   FMT(vowel/uu)
 endphoneme
 
 phoneme U#
   vowel starttype #@ endtype #@
-  length 120
+  length 130
   ChangeIfStressed(U)
   ChangePhoneme(@/)
 endphoneme
@@ -104,20 +104,20 @@ endphoneme
 phoneme u1
   vowel starttype #u endtype #u
   ipa uU+0306
-  length 50
+  length 55
   FMT(vowel/u)
 endphoneme
 
 phoneme 0
   vowel  starttype #a   endtype #a
-  length 180
+  length 195
   ipa A
   FMT(vowel/aa_8)
 endphoneme
 
 phoneme 0#
   vowel starttype #@ endtype #@
-  length 120
+  length 130
   ChangeIfStressed(0)
   ChangePhoneme(a#)
 endphoneme
@@ -125,7 +125,7 @@ endphoneme
   
 phoneme o:
   vowel  starttype #o  endtype #o
-  length 190
+  length 210
   FMT(vowel/o)
 endphoneme
 
@@ -134,21 +134,21 @@ endphoneme
 
 phoneme A:
   vowel  starttype #a  endtype #a
-  length 200
+  length 220
   FMT(vowel/aa_2)
 endphoneme
 
 
 phoneme e:
   vowel  starttype #e  endtype #e
-  length 210
+  length 230
   FMT(vowel/e)
 endphoneme
 
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 210
+  length 230
   FMT(vowel/i)
 endphoneme
 
@@ -157,7 +157,7 @@ endphoneme
 
 phoneme u:
   vowel  starttype #u  endtype #u
-  length 210
+  length 230
   FMT(vowel/u_bck)
 endphoneme
 
@@ -167,44 +167,44 @@ endphoneme
 
 phoneme @U
   vowel starttype #@ endtype #u
-  length 240
+  length 260
   FMT(vdiph/@u_3)
 endphoneme
 
 phoneme i@
   vowel starttype #i endtype #@
-  length 240
+  length 260
   FMT(vdiph2/i@)
 endphoneme
 
 phoneme u@
   vowel starttype #u endtype #@
-  length 240
+  length 260
   FMT(vdiph2/u@)
 endphoneme
 
 phoneme aI
   vowel starttype #a endtype #i
-  length 250
+  length 275
   FMT(vdiph/ai)
 endphoneme
 
 phoneme aI#
   vowel starttype #@ endtype #@
-  length 120
+  length 130
   ChangeIfStressed(aI)
   ChangePhoneme(a#)
 endphoneme
 
 phoneme aU
   vowel starttype #a endtype #u
-  length 270
+  length 300
   FMT(vdiph/au_4)
 endphoneme
 
 phoneme aU#
   vowel starttype #@ endtype #@
-  length 120
+  length 130
   ChangeIfStressed(aU)
   FMT(vdiph/au_4)
 endphoneme
@@ -237,3 +237,7 @@ phoneme ;     // linking j, used between (i) vowels and a following vowel
   ENDIF
 endphoneme
 
+
+phoneme eI
+  import_phoneme en/eI
+endphoneme

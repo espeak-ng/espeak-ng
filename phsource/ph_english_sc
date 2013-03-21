@@ -36,7 +36,7 @@ phoneme @2   //  Schwa, changes to I before a vowel
   IF nextPh(isVowel) THEN
     ChangePhoneme(I2)
   ENDIF
-  FMT(vowel/@_3)
+  ChangePhoneme(@)
 endphoneme
 
 
@@ -47,7 +47,7 @@ phoneme @5   //  Schwa, changes to U before a vowel
   IF nextPh(isVowel) OR nextPh(isPause) THEN
     ChangePhoneme(U)
   ENDIF
-  FMT(vowel/@_3)
+  ChangePhoneme(@)
 endphoneme
 
 

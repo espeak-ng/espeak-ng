@@ -3827,7 +3827,8 @@
             nk           Nk
 ?7          nk           nk      // ?? Scottish
             n (kn        n
-            n't          nt
+            n't          @-nt
+         A) n't          nt
       E)    n (_         @n
          B) n (_         @n
          g) n (ing+      n
@@ -4847,7 +4848,7 @@
             pro (vid     pr@
             pro (viden   pr0
             pro (vis     pr@
-            pro (voc     pr@
+            pro (voc     pr%0#
             pro (vok     pr@
             pro (sec     pr0
             pro (fil     proU
@@ -6042,6 +6043,7 @@
 	χ	tS'aI_
 	ψ	ps'aI_
 	ω	'oUmIg@_
+?3	ω	oUm'eIg@_
 	ώ	'oUmIg@_
 	ό	'oUmIkr0n_
 
