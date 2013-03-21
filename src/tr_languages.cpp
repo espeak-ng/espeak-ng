@@ -103,6 +103,19 @@ ALPHABET alphabets [] = {
 };
 
 
+ALPHABET *AlphabetFromName(const char *name)
+{//==========================================
+	ALPHABET *alphabet;
+
+	for(alphabet=alphabets; alphabet->name != NULL; alphabet++)
+	{
+		if(strcmp(name, &alphabet->name[1]) == 0)
+			return(alphabet);
+	}
+	return(NULL);
+}
+
+
 ALPHABET *AlphabetFromChar(int c)
 {//===============================
 	// Find the alphabet from a character.
@@ -276,7 +289,7 @@ static const char transpose_map_latin[] = {
 	tr->langopts.param2[LOPT_BRACKET_PAUSE] = 2;    // pauses when announcing bracket names
 	tr->langopts.max_initial_consonants = 3;
 	tr->langopts.replace_chars = NULL;
-	tr->langopts.ascii_language = "";    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
+	tr->langopts.ascii_language[0] = 0;    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
 
 
 	SetLengthMods(tr,201);
@@ -828,6 +841,7 @@ Translator *SelectTranslator(const char *name)
 		{
 			tr->langopts.stress_rule = STRESSPOSN_1L;
 			tr->langopts.numbers = 1;
+			tr->langopts.accents = 2;  // 'capital' after letter name
 		}
 		break;
 
@@ -1054,7 +1068,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.numbers = NUM_VIGESIMAL | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED |NUM_OMIT_1_THOUSAND | NUM_DFRACTION_5 | NUM_ROMAN;
 
 			tr->langopts.alt_alphabet = OFFSET_CYRILLIC;
-			tr->langopts.alt_alphabet_lang = "ru";
+			tr->langopts.alt_alphabet_lang = L('r','u');
 		}
 		break;
 

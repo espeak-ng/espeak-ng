@@ -750,11 +750,22 @@ int main (int argc, char **argv)
 	init_path(argv[0],data_path);
 	initialise();
 
+	if(voicename[0] == 0)
+		strcpy(voicename,"default");
+
+	if(SetVoiceByName(voicename) != EE_OK)
+	{
+		memset(&voice_select,0,sizeof(voice_select));
+		voice_select.languages = voicename;
+		if(SetVoiceByProperties(&voice_select) != EE_OK)
+		{
+			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
+			exit(2);
+		}
+	}
 
 	if(flag_compile)
 	{
-		LoadVoice(voicename,5);
-
 #ifdef PLATFORM_DOS
 		char path_dsource[sizeof(path_home)+20];
 		strcpy(path_dsource,path_home);
@@ -775,20 +786,6 @@ int main (int argc, char **argv)
 		exit(0);
 	}
 
-
-	if(voicename[0] == 0)
-		strcpy(voicename,"default");
-
-	if(SetVoiceByName(voicename) != EE_OK)
-	{
-		memset(&voice_select,0,sizeof(voice_select));
-		voice_select.languages = voicename;
-		if(SetVoiceByProperties(&voice_select) != EE_OK)
-		{
-			fprintf(stderr,"%svoice '%s'\n",err_load,voicename);
-			exit(2);
-		}
-	}
 
 	SetParameter(espeakRATE,speed,0);
 	SetParameter(espeakVOLUME,amp,0);

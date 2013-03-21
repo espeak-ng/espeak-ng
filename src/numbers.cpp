@@ -691,6 +691,9 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 	if(ph_buf[0] == 0)
 	{
+		if(al_offset == translator->langopts.alt_alphabet)
+			language = translator->langopts.alt_alphabet_lang;
+		else
 		if((alphabet != NULL) && (alphabet->language != 0) && !(al_flags & AL_NOT_LETTERS))
 			language = alphabet->language;
 		else
@@ -793,7 +796,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 	len = strlen(phonemes);
 
-	if(tr->langopts.accents & 2)
+	if(tr->langopts.accents & 2)  // 'capital' before or after the word ?
 		sprintf(ph_buf2,"%c%s%s%s",0xff,ph_alphabet,ph_buf,capital);
 	else
 		sprintf(ph_buf2,"%c%s%s%s",0xff,ph_alphabet,capital,ph_buf);  // the 0xff marker will be removed or replaced in SetSpellingStress()

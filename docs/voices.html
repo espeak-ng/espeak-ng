@@ -17,6 +17,11 @@ The available voice files can be listed by:<pre>
    espeak --voices
 or
    espeak --voices=&lt;language&gt;</pre>
+also
+<pre>   espeak --voices=&lt;variant&gt;</pre>
+Lists voice variants which can be applied to eSpeak voices.
+<pre>   espeak --voices=&lt;mbrola&gt;</pre>
+Lists the Mbrola voices.
 <hr>
 <h3>5.2 Contents of Voice Files</h3>
 The <strong>language</strong> attribute is mandatory.  All the other attributes are optional.
@@ -141,6 +146,11 @@ don't have their own <strong>tone</strong> statement.
 <dd> 
    These values give bandwidths of the noise peaks of the <strong>breath</strong> attribute.  If <strong>breathw</strong> values are not given, then suitable default values will be used.
 <p>
+<dt>
+<strong>speed &nbsp;&lt;value&gt;</strong><br>
+<dd>   Default value 100.<br>
+   Adjusts the speaking speed by a percentage of the default rate.  This can be used if a language voice seems faster or slower compared to other voices.
+<p>
 </dl>
 </ul>
 <h4>Language Attributes</h4>
@@ -229,6 +239,22 @@ See <a href="dictionary.html">dictionary.html</a>.
 The ISO 8859 character set number. (not all are implemented).
 </dd>
 <p>
+<dt>
+<strong>dictmin &nbsp;&lt;value&gt;</strong><br>
+<dd> 
+   Used for some languages to detect if additional language data is installed.
+   If the size of the compiled dictionary data for the language (the file <code>espeak-data/*_dict</code>) is less than
+   this size then a warning is given.
+<p>
+<dt>
+<strong>alphabet2 &nbsp;&lt;alphabet&gt; &lt;language&gt;</strong><br>
+<dd> 
+Used to specify a language to be used to speak words which are written in a non-native alphabet. eg:
+<pre> alphabet2 cyr ru
+</pre>
+Alphabets names include: latin, cyr (cyrillic), ar (arabic).  The default language for latin alphabet is English.
+</dd>
+<p>
 Additional attributes are available to set various internal options which control how language is processed.  These would normally be set in the program code rather than in a voice file.
 </ul>
 <hr>
@@ -240,7 +266,7 @@ speak command.
 <dl>
 <dt>
 <strong>default</strong><br>
-<dd>   This voice is used if none is specified in the speak command.  Copy your preferred voice to "default" so you can use the speak command without the need to specify a voice.</dd>
+<dd>   This voice is used if none is specified in the speak command.  You can copy your preferred voice to "default" so you can use the speak command without the need to specify a voice.</dd>
 </dl>
 For a list of voices provided for English and other languages see <a href="languages.html">Languages</a>.
 
