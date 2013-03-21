@@ -29,22 +29,12 @@ Some Linux distrubitions (eg. SuSe 10) have version 19 of PortAudio which has a 
  The speak program may be compiled without using PortAudio, by removing the line<pre>   #define USE_PORTAUDIO
 </pre>in the file speech.h. 
 <p>&nbsp;<hr>
-<h3>2.1.2 Use with KDE Text-to-Speech (KTTS)</h3>
-To add to KDE-Text-to-Speech Manager (KTTSMgr), use it as a "Command" talker
-with "command for speaking texts" set to:<br>
-   <strong>cat %f | espeak --stdin -w %w -v en -s190</strong>
-<p>
-In this example, "en" is the voice name, "190" is the speed.
-<p>
-Note:
-<ul>
-<li>When used by the KTTS system, I noticed a slight background hiss with the speech, which is not present when I use <strong>espeak</strong> directly from the command line. This was because KDE sound default was set to "8 bits" rather than 16 bits.<p>
-<li>KTTSMgr breaks the text into sentences to pass to the speech engine, but it mistakenly assumes sentence breaks when dots follow abbreviations and therefore pauses after the dots in "eg. Mr. John B. Smith etc."  Speaking a text file directly with <strong>espeak</strong> gives better results in this respect.
 
-</ul>
-<p>&nbsp;<hr>
-<h3>2.1.3 Windows</h3>
-The installer: <strong>setup_espeak.exe</strong> installs the SAPI5 version of eSpeak.  It also installs a command line program <strong>espeak</strong> in the espeak directory.
+<h3>2.1.2 Windows</h3>
+The installer: <strong>setup_espeak.exe</strong> installs the SAPI5 version of eSpeak.
+During installation you need to specify which voices you want to appear in SAPI5 voice menus.
+<p>
+It also installs a command line program <strong>espeak</strong> in the espeak program directory.
 
 <p>&nbsp;<hr>
 <h2>2.2 COMMAND OPTIONS</h2>
@@ -176,7 +166,13 @@ The same as <strong>--compile</strong>, but source line numbers from the *_rules
 <p>
 <dt><strong>--ipa</strong><br>
 <dd>
-Writes phonemes to stdout, using the International Phonetic Alphabet (IPA).
+Writes phonemes to stdout, using the International Phonetic Alphabet (IPA).<br>
+If a phoneme name contains more than one letter (eg. [tS]) an optional parameter can be used to distinguish
+this from separate phonemes.
+<br>
+<code>--pho=1  </code> Use a tie character (U+0361) before subsequence letters.
+<br>
+<code>--pho=2  </code> Use a zero-width-joiner (U+200D) before subsequent letters.
 <p>
 <dt><strong>--path [="&lt;directory path&gt;"]</strong><br>
 <dd>

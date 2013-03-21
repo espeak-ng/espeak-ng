@@ -109,6 +109,7 @@ enum {
 	V_FAST,
 	V_SPEED,
 	V_DICTMIN,
+	V_ALPHABET2,
 
 // these need a phoneme table to have been specified
 	V_REPLACE,
@@ -160,6 +161,7 @@ static MNEM_TAB keyword_tab[] = {
 	{"fast_test2",  V_FAST},
 	{"speed",      V_SPEED},
 	{"dict_min",   V_DICTMIN},
+	{"alphabet2",  V_ALPHABET2},
 
 	// these just set a value in langopts.param[]
 	{"l_dieresis", 0x100+LOPT_DIERESES},
@@ -530,6 +532,21 @@ static int Read8Numbers(char *data_in,int *data)
 }
 
 
+static unsigned int StringToWord2(const char *string)
+{//======================================================
+// Convert a language name string to a word such as L('e','n')
+	int ix;
+	int c;
+	unsigned int value = 0;
+
+	for(ix=0; (ix<4) & ((c = string[ix]) != 0); ix++)
+	{
+		value = (value << 8) | (c & 0xff);
+	}
+	return(value);
+}
+
+
 voice_t *LoadVoice(const char *vname, int control)
 {//===============================================
 // control, bit 0  1= no_default
@@ -571,6 +588,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	int stress_lengths[8];
 	int stress_add[8];
 	char names[8][40];
+	char name1[40];
 	char name2[80];
 	const char *voice_dir;
 
@@ -581,11 +599,11 @@ voice_t *LoadVoice(const char *vname, int control)
 	static char voice_name[40];        // voice name for current_voice_selected
 	static char voice_languages[100];  // list of languages and priorities for current_voice_selected
 
-	// which directory to look for a named voice
+	// which directory to look for a named voice. List of voice names, must end in a space.
 	static const char *voices_asia =
 		"fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
 	static const char *voices_europe =
-		"an bg bs ca cs cy da el es et fi fr-be hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
+		"an bg bs ca cs cy da el es et fi fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
 
 	strncpy0(voicename, vname, sizeof(voicename));
@@ -960,12 +978,10 @@ voice_t *LoadVoice(const char *vname, int control)
 		case V_MBROLA:
 		{
 			int srate = 16000;
-			char name[40];
-			char phtrans[40];
 
-			phtrans[0] = 0;
-			sscanf(p,"%s %s %d",name,phtrans,&srate);
-			if(LoadMbrolaTable(name,phtrans,srate) != EE_OK)
+			name2[0] = 0;
+			sscanf(p,"%s %s %d",name1,name2,&srate);
+			if(LoadMbrolaTable(name1,name2,srate) != EE_OK)
 			{
 				fprintf(stderr,"mbrola voice not found\n");
 			}
@@ -986,6 +1002,28 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_DICTMIN:
 			sscanf(p,"%d",&dict_min);
+			break;
+
+		case V_ALPHABET2:
+			{
+				ALPHABET *alphabet;
+				name1[0] = name2[0] = 0;
+				sscanf(p, "%s %s", name1, name2);
+
+				if(strcmp(name1, "latin") == 0)
+				{
+					strncpy0(langopts->ascii_language,name2,sizeof(langopts->ascii_language));
+				}
+				else if((alphabet = AlphabetFromName(name1)) != 0)
+				{
+					langopts->alt_alphabet = alphabet->offset;
+					langopts->alt_alphabet_lang = StringToWord2(name2);
+				}
+				else
+				{
+					fprintf(stderr,"alphabet name '%s' not found\n", name1);
+				}
+			}
 			break;
 
 		default:
