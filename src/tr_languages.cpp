@@ -290,7 +290,7 @@ static const char transpose_map_latin[] = {
 	tr->langopts.max_initial_consonants = 3;
 	tr->langopts.replace_chars = NULL;
 	tr->langopts.ascii_language[0] = 0;    // Non-Latin alphabet languages, use this language to speak Latin words, default is English
-
+	tr->langopts.alt_alphabet_lang = L('e','n');
 
 	SetLengthMods(tr,201);
 //	tr->langopts.length_mods = length_mods_en;
@@ -679,7 +679,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 130;  // limit the shortening of sonorants before short vowels
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA;
-			tr->langopts.numbers2 = 0x2 | NUM2_MULTIPLE_ORDINAL;   // variant form of numbers before thousands
+			tr->langopts.numbers2 = 0x2 | NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND;   // variant form of numbers before thousands
 
 			if(name2 == L_grc)
 			{
@@ -733,7 +733,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.param[LOPT_SONORANT_MIN] = 120;  // limit the shortening of sonorants before short vowels
 
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_ROMAN | NUM_ROMAN_AFTER;
-			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL;
+			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_ORDINAL_NO_AND;
 
 			if(name2 == L('c','a'))
 			{
@@ -745,7 +745,7 @@ Translator *SelectTranslator(const char *name)
 			if(name2 == L('a','n'))
 			{
 				tr->langopts.stress_flags = S_FINAL_SPANISH | S_FINAL_DIM_ONLY | S_FINAL_NO_2;
-				tr->langopts.numbers2 = 0;
+				tr->langopts.numbers2 = NUM2_ORDINAL_NO_AND;
 			}
 			else
 			if(name2 == L_pap)
@@ -1278,7 +1278,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = STRESSPOSN_1R;        // stress on final syllable
 			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2 | S_INITIAL_2 | S_PRIORITY_STRESS;
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_DFRACTION_2 | NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_ROMAN;
-			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS;
+			tr->langopts.numbers2 = NUM2_MULTIPLE_ORDINAL | NUM2_NO_TEEN_ORDINALS | NUM2_ORDINAL_NO_AND;
 			SetLetterVowel(tr,'y');
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y

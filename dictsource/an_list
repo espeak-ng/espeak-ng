@@ -115,7 +115,6 @@ _dpt	kon
 _#º	o
 _#ª	a
 
-
 _1ox	prim'Er
 _2ox	seQ'und
 _3ox	tErT'Er
@@ -167,6 +166,9 @@ _9Co	nweUTEnt'en
 _0M1o	mil'en
 _0M2o	mil^on'en
 _1M2o	mil^on'en
+_0M4o	bil^on'en
+_1M4o	bil^on'en
+
 
 // characters
 $	d'olar
@@ -277,13 +279,6 @@ hu	$u
 sant	$u
 donya	$u
 don	$u
-he	$u
-has	$u
-ha	$u
-han	$u
-heba	$u
-hebas	$u
-heban	$u
 se'n    sen $u
 
 
@@ -519,4 +514,4 @@ unix	j'uniks
 whatsapp	was'app
 windows	w'indows
 
-mobile _^_EN
+//mobile _^_EN
