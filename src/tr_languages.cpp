@@ -539,9 +539,10 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_flags =  S_MID_DIM | S_FINAL_DIM;   // use 'diminished' for unstressed final syllable
 			tr->letter_bits_offset = OFFSET_BENGALI;
 			SetIndicLetters(tr);   // call this after setting OFFSET_BENGALI
+			SetLetterBitsRange(tr,LETTERGP_B,0x01,0x01);   // candranindu
 			SetLetterBitsRange(tr,LETTERGP_F,0x3e,0x4c);   // vowel signs, but not virama
 
-			tr->langopts.numbers = 0x1;
+			tr->langopts.numbers = NUM_SWAP_TENS;
 			tr->langopts.break_numbers = 0x24924aa8;  // for languages which have numbers for 100,000 and 100,00,000, eg Hindi
 		}
 		break;

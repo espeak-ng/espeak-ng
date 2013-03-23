@@ -603,7 +603,7 @@ voice_t *LoadVoice(const char *vname, int control)
 	static const char *voices_asia =
 		"fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
 	static const char *voices_europe =
-		"an bg bs ca cs cy da el es et fi fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
+		"an bg bs ca cs cy da de el en en-us es et fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
 
 	strncpy0(voicename, vname, sizeof(voicename));
@@ -1227,10 +1227,10 @@ static int ScoreVoice(espeak_VOICE *voice_spec, const char *spec_language, int s
 
 	p = voice->languages;  // list of languages+dialects for which this voice is suitable
 
-	if(strcmp(spec_language,"mbrola")==0)
+	if(spec_n_parts < 0)
 	{
-		// only list mbrola voices
-		if(memcmp(voice->identifier,"mb/",3) == 0)
+		// match on the subdirectory
+		if(memcmp(voice->identifier, spec_language, spec_lang_len) == 0)
 			return(100);
 		return(0);
 	}
@@ -1363,6 +1363,7 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 	int lang_len=0;
 	espeak_VOICE *vp;
 	char language[80];
+	char buf[sizeof(path_home)+80];
 
 	// count number of parts in the specified language
 	if((voice_select->languages != NULL) && (voice_select->languages[0] != 0))
@@ -1375,6 +1376,26 @@ static int SetVoiceScores(espeak_VOICE *voice_select, espeak_VOICE **voices, int
 				n_parts++;
 		}
 	}
+
+	if((n_parts == 1) && (control & 1))
+	{
+		if(strcmp(language, "mbrola") == 0)
+		{
+			language[2] = 0;  // truncate to "mb"
+			lang_len = 2;
+		}
+
+		sprintf(buf, "%s/voices/%s", path_home, language);
+		if(GetFileLength(buf) == -2)
+		{
+			// A subdirectory name has been specified.  List all the voices in that subdirectory
+			language[lang_len++] = PATHSEP;
+			language[lang_len] = 0;
+			n_parts = -1;
+		}
+
+	}
+
 	// select those voices which match the specified language
 	nv = 0;
 	for(ix=0; ix<n_voices_list; ix++)
@@ -1891,11 +1912,12 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	}
 	else
 	{
-		// list all: omit variant voices and mbrola voices
+		// list all: omit variant voices and mbrola voices and test voices
 		j = 0;
 		for(ix=0; (v = voices_list[ix]) != NULL; ix++)
 		{
-			if((v->languages[0] != 0) && (strcmp(&v->languages[1],"variant") != 0) && (memcmp(v->identifier,"mb/",3) != 0))
+			if((v->languages[0] != 0) && (strcmp(&v->languages[1],"variant") != 0)
+				&& (memcmp(v->identifier,"mb/",3) != 0) && (memcmp(v->identifier,"test/",5) != 0))
 			{
 				voices[j++] = v;
 			}
