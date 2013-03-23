@@ -1035,6 +1035,9 @@ szivárvá) ny (játsz n^
  haszo) n (jár     n
 boszorká) ny (jelet n^
   káno) n (jog     n
+  legé) ny (jár    n^
+   szé) n (jelek   n
+teljesítmé) ny (j  n^
 
 .group o
         o          o
@@ -2013,6 +2016,8 @@ _tisztele) tj (el  tj
   szen) tj (akab   tj
 közérze) tj (aví   tj
     ké) tj (átszm  tj
+szavaza) tj (og    tj
+szavaza) tj (eg    tj
 
 .group ts
         ts (_S2    tS        //general rule with word end of ts letters
@@ -2230,6 +2235,9 @@ felira) ts (áv     t|S
   _cha) tsz (ob    t|s
   robo) ts (of     t|S
 merényle) ts (or   t|S
+szavaza) ts (o     t|S
+ szige) ts (ej     t|S
+ szige) ts (o      t|S
 
 
 .group tt

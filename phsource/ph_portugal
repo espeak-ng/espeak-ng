@@ -133,6 +133,23 @@ phoneme w
 endphoneme
 
 
+phoneme x      // [r] for Portugal
+  liquid
+  trill
+  ipa ʁ
+  lengthmod 7
+  Vowelin f1=0  f2=1500 -400 400  f3=-400 80
+  IF nextPh(isNotVowel) THEN
+    ChangePhoneme(r/)
+  ENDIF
+  FMT(vwl_fr/@R) addWav(r3/rx, 120)
+endphoneme
+
+
+phoneme R    // for Portugal this is same the as [r]
+  import_phoneme pt/r
+endphoneme
+
 
 phoneme s#     // This is [s] for Brazil, [S] for Portugal
   CALL base/S

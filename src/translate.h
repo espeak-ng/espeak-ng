@@ -503,6 +503,7 @@ typedef struct {
 #define NUM2_THOUSANDS_VAR4     0x100
 #define NUM2_THOUSANDS_VAR5     0x140
 
+#define NUM2_ORDINAL_NO_AND     0x800
 #define NUM2_MULTIPLE_ORDINAL   0x1000
 #define NUM2_NO_TEEN_ORDINALS   0x2000
 #define NUM2_MYRIADS            0x4000
@@ -511,6 +512,7 @@ typedef struct {
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
+	// bit11=(LANG=es,an) don't say 'and' between tens and units for ordinal numbers
 	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
 	// bit13=(LANG=pt) don't use 11-19 numbers to make ordinals
 	// bit14=(LANG=ko)  use myriads (groups of 4 digits) not thousands (groups of 3)
