@@ -160,13 +160,16 @@ void DisplayVoices(FILE *f_out, char *language)
 	const char *p;
 	int len;
 	int count;
+	int c;
+	int j;
 	const espeak_VOICE *v;
 	const char *lang_name;
 	char age_buf[12];
+	char buf[80];
 	const espeak_VOICE **voices;
 	espeak_VOICE voice_select;
 
-	static char genders[4] = {' ','M','F',' '};
+	static char genders[4] = {'-','M','F','-'};
 
 	if((language != NULL) && (language[0] != 0))
 	{
@@ -182,7 +185,7 @@ void DisplayVoices(FILE *f_out, char *language)
 		voices = espeak_ListVoices(NULL);
 	}
 
-	fprintf(f_out,"Pty Language Age/Gender VoiceName       File        Other Langs\n");
+	fprintf(f_out,"Pty Language Age/Gender VoiceName          File          Other Languages\n");
 
 	for(ix=0; (v = voices[ix]) != NULL; ix++)
 	{
@@ -200,8 +203,16 @@ void DisplayVoices(FILE *f_out, char *language)
 
 			if(count==0)
 			{
-				fprintf(f_out,"%2d  %-12s%s%c  %-17s %-11s ",
-               p[0],lang_name,age_buf,genders[v->gender],v->name,v->identifier);
+				for(j=0; j < sizeof(buf); j++)
+				{
+					// replace spaces in the name
+					if((c = v->name[j]) == ' ')
+						c = '_';
+					if((buf[j] = c) == 0)
+						break;
+				}
+				fprintf(f_out,"%2d  %-12s%s%c  %-20s %-13s ",
+               p[0],lang_name,age_buf,genders[v->gender],buf,v->identifier);
 			}
 			else
 			{

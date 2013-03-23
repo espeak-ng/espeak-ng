@@ -1,0 +1,90 @@
+
+//====================================================
+//  Bengali, inherits from Hindi
+//====================================================
+
+
+phoneme V  // inherent vowel, can be [O] or [o]
+  vowel flag1 starttype #o  endtype #o
+  length 200
+
+  IF thisPh(isFirstVowel) THEN
+    IF nextVowel(i) OR nextVowel(u) THEN
+      ChangePhoneme(o)
+    ENDIF
+    
+    IF prevPhW(r) THEN
+      ChangePhoneme(o)
+    ENDIF  
+  ENDIF
+
+  ChangePhoneme(O)
+endphoneme
+
+
+phoneme a
+  vowel starttype #a endtype #a
+  length 225
+  FMT(vowel/aa_9)
+endphoneme
+
+
+phoneme i
+  vowel starttype #i endtype #i
+  length 200
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme u
+  vowel starttype #u endtype #u
+  length 200
+  FMT(vowel/u)
+endphoneme
+
+
+phoneme e
+  vowel starttype #e endtype #e
+  length 200
+  FMT(vowel/e)
+endphoneme
+
+
+phoneme &
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/&_2)
+endphoneme
+
+
+phoneme o
+  vowel starttype #o endtype #o
+  length 200
+  IF nextPhW(w) THEN
+    length 160
+  ENDIF
+  FMT(vowel/o)
+endphoneme
+
+
+phoneme O
+  vowel starttype #o endtype #o
+  length 200
+  FMT(vowel/oo_5)
+endphoneme
+
+
+phoneme tS
+  import_phoneme base/tS
+endphoneme
+
+
+phoneme tS#
+  import_phoneme base/tS
+endphoneme
+
+
+phoneme ~
+  virtual
+endphoneme
+

@@ -1,0 +1,263 @@
+// Translation rules for Bengali
+// This file is UTF8 encoded
+
+// Numbers
+ devanagari numbers are changed to latin characters before translation
+_0	S'unjO
+_1	'&k
+_2	duj
+_3	t'in
+_4	tS'ar
+_5	p'a~tS
+_6	tS#'Oj
+_7	S'at
+_8	'at.#
+_9	n'Oj
+
+_10	d'OS
+_11	'&garo
+_12	b'aro
+_13	t'ero
+_14	tS'owddo
+_15	p'Onero
+_16	S'olo
+_17	S'Otero
+_18	'at.#aro 
+_19	'uniS
+
+_20	b'iS   //  ??
+_21	'ekuS
+_22	b'ajS
+_23	t'ejS
+_24	tS'ObbiS
+_25	p'O~tSiS
+_26	tS#'ObbiS
+_27	S'ataS
+_28	'at.#aS
+_29	'untriS
+
+_30	t'iriS
+_31	'ektriS
+_32	b'OtriS
+_33	t'etriS
+_34	tSowtriS
+_35	pO~jtriS
+_36	tS#'OtriS
+_37	S'a~itriS
+_38	'at.riS
+_39	'unOtSOlliS
+
+_40	tS'OlliS
+_41	'ektSOlliS
+_42	b'ialliS
+_43	t'etalliS
+_44	tS'oalliS
+_45	p'O~jtalliS
+_46	tS'etSOlliS
+_47	S'atSOllis
+_48	'atSOlliS
+_49	'unOpO~tSaS
+
+// numbers above 50 need to be corrected
+_50	p'O~tSaS
+_5X	p'O~tSaS
+_59	'unOsat.
+
+_60	s'at.
+_6X	s'at.
+_69	'unOS'OttOr
+
+_70	S'OttOr
+_7X	S'OttOr
+_79	'unOaSi
+
+_80	'aSi
+_8X	'aSi
+_89	'unOnObbOj
+
+_90	n'ObbOj
+_9X	n'ObbOj
+
+_0C	S'o
+_0M1	h'ajar
+_0M2	l'ak#
+_0M3	k'ot.i
+_0M4	'Orbud
+_dpt	dOsomik
+
+
+// Single consonants
+ক	kO
+খ	k#O
+গ	gO
+ঘ	g#O
+ঙ	'uNO
+চ	tSO
+ছ	tShO    // [h] to distinguish from [tS]
+জ	JO
+ঝ	J#O
+ঞ	'iNO
+ট	t.O
+ঠ	t.#O
+ড	d.O
+ঢ	d.#O
+ণ	m'odd#ennO
+ত	tO
+থ	t#O
+দ	dO
+ধ	d#O
+ন	d'ontennO
+প	pO
+ফ	p#O
+ব	bO
+ভ	b#O
+ম	mO
+য়	Oj
+য	ontostedZ'O
+র	rO
+ঢ়	hrO
+ল	lO
+শ	taleboS:O
+ষ	mud#en:oS:O
+স	d'onteS:O
+হ	hO
+ৎ	kh'Ond.otO
+
+// full vowels
+অ	SOro'O
+আ	SOro'a
+ই	hrOS:o'i
+ঈ	dirg#o'i
+উ	hrOS:o'u
+ঊ	dirg#o'u
+ঋ	ri
+এ	e
+ঐ	oj
+ও	o
+ঔ	ow
+
+// combining vowel signs
+া	'akar
+ি	r'oS:ikar
+ী	d'irg#ikar
+ূ	r'oS:ukar
+ু	d'irg#ukar
+ৃ	r'ikar
+ে	'ekar
+ৈ	'ojkar
+ো	'okar
+ৌ	'owkar
+
+// signs
+্	h'OSonto
+ং	'OnuSSOr
+ঃ	b'iSOrgo
+ঁ	tS'Ondrobindu
+়	b'indu
+
+
+// Punctuation
+।	dVn.d.V
+
+
+// Pronouns
+আমি 	$u	// main: I
+আমায়	$u
+আমার 	$u
+
+আমরা 	$u	// we
+আমাদের	$u
+
+আপনি	$u	// you(formal)
+আপনাকে	$u
+আপনার 	$u
+
+তুমি	$u	// you (informal)
+তোমায় 	$u
+তোমার 	$u
+তোমাদের 	$u
+
+তুই	$u	// you (informal)
+তোকে 	$u
+তোর 	$u
+
+এ	$u	// he/she/it
+আপনি	$u
+এটার 	$u
+এর 	$u
+
+ইনি	$u	// they
+এনাকে	$u
+এনার 	$u
+
+ও	$u	// he/she/it
+সে 	$u
+ওর 	$u
+তার 	$u
+
+ওরা	$u	// they
+তারা	$u
+ওদের	$u	// unheṃ: them 
+তাদের	$u
+
+এই	$u	// e:I this/it
+এটা 	$u	// e:ta: this/it
+এটার 	$u	// e:ta:'r  this/it
+এর 	$u	// e:r  this/it
+
+ওটা	$u	// o:ta: that
+ওটাকে 	$u	// o:ta:ke: to that
+ওটার 	$u	// o:ta:'r  of that
+
+ওগুলো	$u	// o:gu:lo: those
+ওগুলোকে $u	// o:gu:lo:ke: to those
+ওগুলোর 	$u	// o:gu:lo:'r  of those
+
+
+
+// Prepositions/Postpositions
+মধ্যে	$u	// moddhe  in
+উপর	$u	// upor    on, above
+নীচে	$u	// niche   below
+
+পূর্ব্বে	$u	// purbe   before, prior
+পর্য্যন্ত 	$u	// parjonto  till
+অব্দি	$u 	// abdi      till
+বিনা	$u	// bina      without
+
+
+
+// Questions
+কেন	$u $pause	// kano why  interrogative particle
+কি	$u $pause	// ki  what
+কোথায়	$u $pause	// kothaay  where
+কখন	$u $pause	// kakhon   when
+কে	$u $pause	// ke       who
+
+// Conjunctions
+
+এবং	$u $pause	// ebong: and
+আর	$u $pause	// aar: and
+অথবা	$u $pause	// athoba: or
+কিন্তু	$u $pause	// kintu: but
+যদি	$pause	// jodi: if
+তবু	$pause	// tobu: still, yet
+তবে	$pause	// tabe: if...then
+অথচ	$u	// athacho: yet
+
+
+// Verbs
+
+হয়	$u
+
+
+ছিল	$u	// chilo: past aux
+ছিলেন 	$u	// chilen
+
+
+করছি 	$u	// korchi: continuous
+করছিলাম	$u	// korchilam: past indefinite
+করেছি 	$u	// korechi: past
+
+
+// Exceptions

@@ -24,7 +24,7 @@ consonants  11  119
    fr-ca  11  146
       nl  35  130
       hi  57  149
-      bn   5  149
+      bn  12  152
       ne  18  157
       ur   6  149
       pa  15  151
@@ -1554,6 +1554,7 @@ vowel/@_2       [@:] vi
                 [V] sq
                 [@/] sq
                 [V] tt
+vowel/&_2       [&] bn
 vowel/@_3       [@#] en
                 [@] en-sc
                 [I] en-sc
@@ -1748,14 +1749,13 @@ vowel/aa_8      [0] en-us
 vowel/aa_9      [a] fi
                 [a] et
                 [a:] hi
-                [a:] bn
+                [a] bn
                 [a] ne
                 [a] pa
                 [a] ak
                 [a] mt
                 [A] kk
 vowel/@_bck     [@] hi
-                [@] bn
                 [V] ne
                 [@/] ne
                 [@] ur
@@ -1772,6 +1772,7 @@ vowel/e         [e] base
                 [e:] af
                 [e:] cy
                 [e:] ga
+                [e] bn
                 [e] ne
                 [e] ta
                 [e:] ta
@@ -1998,6 +1999,7 @@ vowel/i#_5      [y] pt-pt
                 [i/] pt-pt
                 [y] ro
 vowel/i_6       [i] hi
+                [i] bn
                 [i] ta
                 [i] kn
                 [i] ml
@@ -2102,7 +2104,6 @@ vowel/@_low     [@] en-rp
                 [@] hi
                 [V] hi
                 [@2] hi
-                [@] bn
                 [V] ne
                 [@/] ne
                 [@] ur
@@ -2125,6 +2126,7 @@ vowel/o         [o] base2
                 [o:] et
                 [o] fr
                 [o] hi
+                [o] bn
                 [o:] pa
                 [o] ta
                 [o:] ta
@@ -2152,7 +2154,6 @@ vowel/o         [o] base2
                 [o] kl
 vowel/o_2       [o:] cy
                 [o:] hi
-                [o:] bn
                 [o:] hu
                 [o:] la
                 [o:] no
@@ -2257,7 +2258,8 @@ vowel/oo_4      [O] base2
                 [O] pa
                 [O] it
                 [O] an
-vowel/oo_5      [O] pl
+vowel/oo_5      [O] bn
+                [O] pl
                 [O] is
                 [O] sq
 vowel/oo_en     [O] en
@@ -2286,6 +2288,7 @@ vowel/u         [u] base
                 [u1] ga
                 [u:] de
                 [u] eo
+                [u] bn
                 [u] ml
                 [u:] ml
                 [U] lt

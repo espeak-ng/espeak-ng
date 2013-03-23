@@ -68,18 +68,16 @@ s;   t    t;   tS   ts   v    x    z
 Z    z;   
 
 
-Dictionary bn_dict  2013-03-09
+Dictionary bn_dict  2013-03-22
 
-@    a    a:   aI   a~   e    E    e:   
-E:   E~   i    I    i:   i~   o    O    
-o:   O:   O~   o~   r-   u    U    u:   
-u~   V    
+&    a    a~   e    e~   i    i~   l-   
+o    O    o:   O~   o~   u    u~   V    
 
-#X1  #X2  :    b    b#   c    c#   d    
-d#   d.   d.#  g    g#   h    H    j    
-J    J#   k    k#   l    m    n    N    
-n.   n^   p    p#   r    r.   s    S    
-s.   t    t#   t.   t.#  v    w    z    
+:    b    b#   d    d#   d.   d.#  dZ   
+f    g    g#   h    H    j    J    J#   
+k    k#   l    m    n    N    n.   p    
+p#   r    r.   s    S    t    t#   t.   
+t.#  tS   tS#  v    w    ~    
 
 
 Dictionary bo_dict  2013-03-09
@@ -185,7 +183,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-03-20
+Dictionary en_dict  2013-03-22
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -333,7 +331,7 @@ m    n    N    p    r    s    S    t
 tS   v    z    Z    
 
 
-Dictionary hu_dict  2013-03-21
+Dictionary hu_dict  2013-03-22
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
