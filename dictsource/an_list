@@ -83,8 +83,8 @@ _12	d'oTe
 _13	tr'eTe
 _14	kat'orTe
 _15	k'inTe
-_20	B'inte
-_2X	B,int
+_20	b'inte
+_2X	b,int
 _3X	tr'enta
 _4X	kwar'anta
 _5X	Tinkw'anta
@@ -112,40 +112,40 @@ _dpt	kon
 
 
 // ordinal numbers
-_#º	o
-_#ª	a
+_#º	%'eno
+_#ª	%'ena
+_x#º	%o   // for 1º 2º 3º
+_x#ª	%a
+º	orDin'al||maskul'in
+ª	orDin'al||femen'in
 
 _1ox	prim'Er
 _2ox	seQ'und
 _3ox	tErT'Er
 
-_1o	un'en
-_2o	dos'en
-_3o	tres'en
-_4o	kwatr'en
-_5o	Tink'en
-_6o	seIs'en
-_7o	sEt'en
-_8o	gwit'en
-_9o	nU'en
-_11o	onT'en
-_12o	DoT'en
-_13o	tReT'en
-_14o	katorT'en
-_15o	kinT'en
-_16o	sET'en
-_10o	DET'en
-_20o	Bint'en
-_30o	trent'en
-_40o	kwarant'en
-_50o	Tinkwant'en
-_60o	siSant'en
-_70o	sEtant'en
-_80o	gwitant'en
-_90o	noBant'en
+_4o	kwatr
+_5o	Tink
+_7o	sEt
+_8o	gwit
+_9o	nU
+_11o	onT
+_12o	doT
+_13o	tReT
+_14o	katorT
+_15o	kinT
+_16o	sET
+_10o	dET
+_20o	bint
+_30o	trent
+_40o	kwarant
+_50o	Tinkwant
+_60o	siSant
+_70o	sEtant
+_80o	gwitant
+_90o	noBant
 
-_1Xo	DeTi
-_2Xo	Binti
+_1Xo	deTi
+_2Xo	binti
 _3Xo	trentaI
 _4Xo	kwarantaI
 _5Xo	TinkwantaI
@@ -153,21 +153,16 @@ _6Xo	siSantaI
 _7Xo	sEtantaI
 _8Xo	gwitantaI
 _9Xo	noBantaI
-_1Co	TEnt'en
-_2Co	dosTEnt'en
-_3Co	tresTEnt'en
-_4Co	kw,atroTEnt'en
-_5Co	T,inkoTEnt'en
-_6Co	seIsTEnt'en
-_7Co	sjEtTEnt'en
-_8Co	gw,eItoTEnt'en
-_9Co	nweUTEnt'en
+_0Co	Tent
+_1Co	TEnt
+_2Co	dosTEnt
+_3Co	tresTEnt
+_6Co	seIsTEnt
+_7Co	sjEtTEnt
+_8Co	gw,eItoTEnt
+_9Co	nweUTEnt
 
-_0M1o	mil'en
-_0M2o	mil^on'en
-_1M2o	mil^on'en
-_0M4o	bil^on'en
-_1M4o	bil^on'en
+_0M1o	mil
 
 
 // characters
@@ -208,8 +203,13 @@ lo	$u
 la	$u
 los	$u
 las	$u
+ro	$u
+ra	$u
+ros	$u
+ras	$u
 ne	$u
 nes	$u
+
 me	$u
 te	$u
 se	$u
@@ -236,13 +236,10 @@ tu	$u
 sin	$u 
 su	$u
 ye	$u
-ro	$u
-ra	$u
-ros	$u
-ras	$u
 el	$u
 es	$u
 els	$u
+ers	$u
 mis	$u
 tus	$u
 sus	$u
@@ -250,6 +247,7 @@ bell	$u
 bel	$u
 bella	$u
 bells	$u
+bels	$u
 bellas	$u
 bellos	$u
 que	$u
@@ -261,25 +259,15 @@ quando	$u
 on	$u
 aon	$u
 porque	$u
-dende	$u
-entre	$u
-contra	$u
-enta	$u
-sinde	$u
 per	$u
 pus	$u
-dica	$u
-sino	$u
 ni	$u
-pero	$u
+ibi	$u
 bi	$u
 i	$u+
 ie	$u
 hu	$u
 sant	$u
-donya	$u
-don	$u
-se'n    sen $u
 
 
 //abbreviations

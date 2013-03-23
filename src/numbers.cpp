@@ -691,7 +691,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 
 	if(ph_buf[0] == 0)
 	{
-		if(al_offset == translator->langopts.alt_alphabet)
+		if((al_offset != 0) && (al_offset == translator->langopts.alt_alphabet))
 			language = translator->langopts.alt_alphabet_lang;
 		else
 		if((alphabet != NULL) && (alphabet->language != 0) && !(al_flags & AL_NOT_LETTERS))
@@ -876,6 +876,7 @@ void SetSpellingStress(Translator *tr, char *phonemes, int control, int n_chars)
 // Numbers
 
 static char ph_ordinal2[12];
+static char ph_ordinal2x[12];
 
 
 static int CheckDotOrdinal(Translator *tr, char *word, char *word_end, WORD_TAB *wtab, int roman)
@@ -1302,7 +1303,11 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 				if(control & 4)
 				{
 					sprintf(string,"_%d%cx",value,ord_type);  // LANG=hu, special word for 1. 2. when there are no higher digits
-					found = Lookup(tr, string, ph_digits);
+					if((found = Lookup(tr, string, ph_digits)) != 0)
+					{
+						if(ph_ordinal2x[0] != 0)
+							strcpy(ph_ordinal, ph_ordinal2x);  // alternate pronunciation (lang=an)
+					}
 				}
 				if(found == 0)
 				{
@@ -1362,8 +1367,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 			else
 			{
 
-				if((is_ordinal) &&
-						((units == 0) || (tr->langopts.numbers & NUM_SWAP_TENS) || (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL)))
+				if(is_ordinal)
 				{
 					sprintf(string,"_%dX%c", tens, ord_type);
 					if(Lookup(tr, string, ph_tens) != 0)
@@ -1457,7 +1461,7 @@ static int LookupNum2(Translator *tr, int value, const int control, char *ph_out
 		{
 			Lookup(tr, "_0and", ph_and);
 
-			if((is_ordinal) && (tr->langopts.numbers2 & NUM2_MULTIPLE_ORDINAL))
+			if((is_ordinal) && (tr->langopts.numbers2 & NUM2_ORDINAL_NO_AND))
 				ph_and[0] = 0;
 
 			if(tr->langopts.numbers & NUM_SWAP_TENS)
@@ -1884,6 +1888,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 					ordinal = 2;
 					flags[0] |= FLAG_SKIPWORDS;
 					skipwords = 1;
+					sprintf(string,"_x#%s",suffix);
+					Lookup(tr, string, ph_ordinal2x);  // is there an alternate pronunciation?
 				}
 			}
 		}
@@ -2179,7 +2185,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		if((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
 			utf8_in(&next_char,p);
 
-		if(!iswalpha(next_char) && !((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact != 0)))
+		if(!iswalpha(next_char) && (thousands_exact==0))
+//		if(!iswalpha(next_char) && !((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact != 0)))
 			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
 	}
 
