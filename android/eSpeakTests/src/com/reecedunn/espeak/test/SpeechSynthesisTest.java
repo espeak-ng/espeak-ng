@@ -206,7 +206,7 @@ public class SpeechSynthesisTest extends AndroidTestCase
     public void testRemovedVoices()
     {
         getVoices(); // Ensure that the voice data has been populated.
-        assertThat(mRemoved.toString(), is("[nci, prs]"));
+        assertThat(mRemoved.toString(), is("[]"));
     }
 
     public void testVoiceData()
