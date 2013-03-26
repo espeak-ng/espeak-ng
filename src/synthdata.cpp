@@ -35,7 +35,7 @@
 #include "translate.h"
 #include "wave.h"
 
-const char *version_string = "1.47.03b  22.Mar.13";
+const char *version_string = "1.47.03c  23.Mar.13";
 const int version_phdata  = 0x014701;
 
 int option_device_number = -1;
@@ -615,6 +615,7 @@ static int CountVowelPosition(PHONEME_LIST *plist)
 static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist, USHORT *p_prog, WORD_PH_DATA *worddata)
 {//========================================================================================================================
 	int which;
+	int ix;
 	unsigned int data;
 	int instn;
 	int instn2;
@@ -705,6 +706,21 @@ static bool InterpretCondition(Translator *tr, int control, PHONEME_LIST *plist,
                 return(false);   // no previous vowel
 				plist = &(worddata->prev_vowel);
             break;
+
+		case 9:  // next3PhW
+			for(ix=1; ix<=3; ix++)
+			{
+				if(plist[ix].sourceix)
+					return(false);
+			}
+			plist = &plist[3];
+			break;
+
+		case 10: // prev2PhW
+			if((plist[0].sourceix) || (plist[-1].sourceix))
+				return(false);
+			plist-=2;
+			break;
         }
 
 		if((which == 0) || (which == 5))

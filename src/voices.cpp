@@ -601,7 +601,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	// which directory to look for a named voice. List of voice names, must end in a space.
 	static const char *voices_asia =
-		"fa fa-pin hi hy hy-west id ka kn ku ml ne pa ta tr vi vi-hue zh zh-yue ";
+		"fa fa-pin hi hy hy-west id ka kn ku ml ms ne pa ta tr vi vi-hue zh zh-yue ";
 	static const char *voices_europe =
 		"an bg bs ca cs cy da de el en en-us es et fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
@@ -1134,7 +1134,7 @@ static char *ExtractVoiceVariantName(char *vname, int variant_num, int add_dir)
 			// The voice name has a +variant suffix
 			variant_num = 0;
 			*p++ = 0;   // delete the suffix from the voice name
-			if(isdigit(*p))
+			if(IsDigit09(*p))
 			{
 				variant_num = atoi(p);  // variant number
 			}

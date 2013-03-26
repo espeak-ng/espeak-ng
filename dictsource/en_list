@@ -150,12 +150,14 @@ _¨	daIa#r'i:sIs
 _ª	fEmI2nIn'O@dI2n@L
 _«	lEft'gIl@mEt
 _­	makr0n
+²	tu:
+³	Tri:
+_¹	su:p@skrIptw'0n
 _²	su:p@skrIptt'u:
 _³	su:p@skrIptT'ri:
 _´	a#kju:taksEnt
 _·	mId@Ld0t
 _¸	sEd'Il@
-_¹	su:p@skrIptw'0n
 //_º	maskjUlIn'O@dI2n@L
 _º	dI2gr'i:z
 _»	raIt'gIl@mEt
@@ -943,7 +945,7 @@ blancmange	bl@m0nZ
 blase		blA:z'eI
 blasé		blA:z'eI
 bleh		blEh
-blockade	$2
+blockade	bl0k'eId
 blouse		blaUz
 bluest		blu:@st
 blurry		bl3:rI
@@ -1279,6 +1281,7 @@ dais		deIIs
 dandelion	dandI2laI@n
 ddu		DI $only	// Welsh
 de		d@            $only
+(de jure)       deIdZ'U@ri
 debacle		deIb'A:k@L
 debrief		di:br'i:f
 debris		dEbri:
@@ -1429,6 +1432,8 @@ ember		Emb3
 emphasis	Emf@sIs   $only
 empire		$1
 emu		i:mju:
+(en masse)	0n||m'as
+(en route)	0n||r'u:t
 enroute		0nr'u:t
 ensemble	0ns'0mb@L
 entendre	0nt'0ndr@-
@@ -1674,6 +1679,7 @@ hello		h@loU
 henceforth	hEnsfo@T
 ?3 herb		3:b
 hercules	h3:kjUli:z
+?3 hereford	h3:f3d
 heretical	hI2rEtI2k@L
 hereto		hi@3'tu:
 heretofore	hi@3t2Ufo@
@@ -1697,6 +1703,7 @@ holme		hoUm
 holster		hoUlst3
 homeowner	hoUmoUn3
 homepage	hoUmpeIdZ
+homily		h0m@li
 hominem		h0mInEm
 ?3 hominem	h0m@n@m
 hooah		h'u:'A:
@@ -1802,6 +1809,8 @@ interven	Int3v'i:n	// for intervening
 intray		IntreI
 intro		$1
 ?3 investigative Inv,EstI2g'eItIv
+ipad		aIpad
+iphone		aIfoUn
 irate		aIr'eIt
 iris		aIrIs
 iron		aI3n
@@ -2822,6 +2831,7 @@ tonne		tVn
 torment		$1
 torment		$2            $verb
 tornado		tO@n'eIdoU
+torrential	t@rEnS@L
 tortilla	tO@t'i:a#
 touche		tu:SeI        $only
 toupee		tu:peI
@@ -2835,6 +2845,7 @@ trajectory	tr@dZEkt@rI
 traverse	$alt3
 travesty	trav@sti
 treatise	tri:tIz
+trebuchet	trEbUSeI
 tremendous	$alt3
 triage		tri:A:Z
 tribunal	traIb'ju:n@L
@@ -3337,6 +3348,7 @@ Tokyo		toUkIoU
 Topeka		toUp'i:k@
 Toronto		t@r0ntoU
 Toulouse	tu:l'u:z
+Trafalgar	$alt3
 ?3 Tunisia	tu:n'i:Z@
 Tripoli		trIp@li
 tuareg		twA@rEg
@@ -3500,6 +3512,7 @@ Evette		I2vEt
 Fainne		fan;@
 Freda		fri:d@
 Fírinne		fi:rIn;@
+Gareth		gar@T
 Gary		gari
 Geraint		gEraInt
 Gerhard		ge@hA@t
@@ -3672,6 +3685,7 @@ Susanne		$2
 Suzy		su:zi
 Tatiana		tatI'A:n@
 ?3 Tatiana	tA:tj'A:n@
+Terese		t@reIz
 Theresa		t@ri:z@
 Therese		t@ri:z
 Thomas		t0m@s
@@ -3762,9 +3776,7 @@ zhivago		ZI2vA:goU
 
 
 
-(de jure)        deIdZ'U@ri
-(en masse)       ,0n||m'as
-(en route)       ,0n||r'u:t
+
 (each of)        i:tS||@v          $pause
 (far more)       f'A@_m,o@
 (few more)       f'ju:m,o@
@@ -3775,9 +3787,9 @@ zhivago		ZI2vA:goU
 (most of)        moUst||@v
 (such as)        sVtS||_a#z        $pause
 
-(too few)        t'u:||f,ju:
-(too many)       t'u:||m,Eni
-(too much)       t'u:||m,VtS
+(too few)        t'u:||fju:
+(too many)       t'u:||mEni
+(too much)       t'u:||mVtS
 
 //*************************************************************************
 // COMMON WORDS

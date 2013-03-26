@@ -8,6 +8,10 @@ phoneme V  // inherent vowel, can be [O] or [o]
   vowel flag1 starttype #o  endtype #o
   length 200
 
+  IF thisPh(isWordEnd) AND prevPhW(isNotVowel) AND prev2PhW(isNotVowel) THEN
+    ChangePhoneme(NULL)
+  ENDIF
+
   IF thisPh(isFirstVowel) THEN
     IF nextVowel(i) OR nextVowel(u) THEN
       ChangePhoneme(o)

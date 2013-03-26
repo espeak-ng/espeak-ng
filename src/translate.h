@@ -709,6 +709,7 @@ void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);
 int IsDigit(unsigned int c);
+int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
 int isspace2(unsigned int c);

@@ -1,0 +1,784 @@
+// Last updated: 14 October 2010, Jason Ong (jason@portalgroove.com)
+// This file is UTF8 encoded 
+// Spelling-to-phoneme words for Malay
+
+a	e:
+b	bi:
+c	si:
+d	di:
+e	i:
+f	Ef
+g	dZi:
+h	etS
+i	aI
+j	dZe
+k	ke
+l	El
+m	Em
+n	En
+o	o:
+p	pi:
+q	kju:
+r	ar
+s	Es
+t	ti:
+u	ju:
+v	vi:
+w	d'ab@liu:
+x	Eks
+y	waI
+z	zEd
+
+
+// numeric 
+_0	k'osoN
+_1	s'atu
+_2	d'u@
+_3	t'ig@
+_4	'@mpat
+_5	l'im@
+_6	'@nam
+_7	t'udZ%oh
+_8	l'apan
+_9	s@mb'ilan
+_10	s@p'uluh
+_11	s'@b@las
+_12	d'u@b@las
+_13	t'ig@b@las
+_14	'@mpatb@las
+_15	l'im@b@las
+_16	'@namb@las
+_17	t'udZ%ohb@las
+_18	l'apanb@las
+_19	s@mb'ilanb@las
+_2X	d'u@puloh
+_3X	t'ig@puloh
+_4X	'Empatpuloh
+_5X	l'im@puloh
+_6X	'Enampuloh
+_7X	t'udZ%ohpuloh
+_8X	l'apanpuloh
+_9X	s@mb'ilanpuloh
+_0C	R'atus_|
+_1C	s@*'atus_|
+_0M1	R'ibu_
+_1M1	s@r'ibu_
+_0M2	dZ'ut@_
+_1M2	s@dZ'ut@_
+_0M3	b'ili@n
+_1M3	s@b'ili@n
+_dpt	_p'@rpul'uhan_
+
+
+_cap	b'EsaR    // after the letter
+_??	k,odeh'uR2uf
+
+// accented letters
+_lig	d'aIgRaf
+_acu	akj'ut
+_ac2	dub@lakj'ut
+_brv	bR2'i:v
+_ced	s@d'ila
+_cir	t'opi
+_dia	'umlaUt
+_dot	d'Ot
+_grv	gR2'av
+_hac	h'atSEk
+_mcn	m'akR2On
+_ogo	'OgonEk
+_rng	R2'iNg
+_stk	stR'ok
+_tld	t'ild@
+
+// punctuation
+_!	t,anda||s'ER2u
+_"	t,andak'utip
+£	ponst'E*RliN
+%	p@*Ratus
+^	t,andat'opi
+&	d'an
+_*	b'intaN
+_(	k,uR2uN||b'uk@
+_)	k,uR2uN||t'utup
+__	g,aR2is||b'awah
+_-	t,andah'ubuN
++	c'ampor
+=	s,am@||d'@Nan
+_{	k,uR2uN||kuR2'awal
+_}	k,uR2uN||kuR2,awal||t'utup
+_[	k,uR2uN||s'iku
+_]	k,uR2uN||s,iku||t'utup
+_:	t,iti?||d'u@
+_;	t,iti?||k'om@
+@	a||k'EOng
+_'	k,utip||t'uNgal
+~	t'ilde
+#	p'agaR
+_<	k,uR2aN||d'aR2i
+_>	l,Ebih||d'aR2i
+_,	k'om@
+_.	t'iti?
+_?	t,and@||t'an^@
+/	stR2'ok
+_\	'bEkslES
+
+
+
+
+
+// exceptions
+// (use phoneme [E2] for an unstressed 'e' which does not reduce to [@] )
+
+bebek		bEbE2?
+becek		bEtSE2?
+//bekas		$2
+perang		$2
+
+
+// ABBREVIATIONS
+//**************
+abd			'abdul $dot
+agenda		ag'enda
+bhd			b'@Rhad	$dot
+cimb		$abbrev
+cm			s@ntim'et@r
+com			d'Ot||kOm
+(co ltd)	k'amp@ni||lim'it@d
+dr			d'okt@R	$dot
+drp			daR2ip'ad@
+dun			d'un
+dymm		d'uli||jang||mah'a||m'uli@
+exco		'Eksko
+en			'intSek $dot
+felda		f'elda
+hb			h,arib'ulan
+hj			h'adZi $dot
+ir			$abbrev $dot
+klci		$abbrev
+km			kilom'et@r
+kol			kol'on@l $dot
+ltd			lim'it@d $dot
+m'sia		malaysia $text
+md			moh'amad $dot
+mm			milim'et@r
+mohd		moh'amad $dot
+mr			m'ist@r $dot
+mw			m'egawat
+pas			p'a:s
+pibg		$abbrev
+prof		prof'es@r $dot
+pte			p'raiv@t
+rm			R'iNget
+sdn			s@ndiR2'ian	$dot
+sdr			saUd'aR@ $dot
+umno		'amno:
+upm			$abbrev
+utk			unto?
+yab			jang||amat||b@rh'ormat
+yb			jang||b@rh'ormat
+ym			jang|m'uli@
+yg			jang
+
+
+// MAIN WORD DICTIONARY
+//*********************
+
+// e(pepet)-a
+banteras	bant'@Ras
+ membanteras	m@mbant'@Ras
+bedah		b'@dah
+bekas		b'@kas
+belah		b'@lah
+ perbelanjaan	p@Rb,@landZ'a|an
+ sebelah	s@b'@lah
+benar		b'@nar
+ sebenar	s@b'@nar
+benda		b'@nd@
+ kecelaruan		k@tS,@laR'uan
+berhad		b'@Rhad
+besar		b'@sar
+ membesar	m@mb'@sar
+ pembesar	p@mb'@sar
+ sebesar	s@b'@sar
+ terbesar	t@Rb'@sar
+cegah		tS'@gah
+ mencegah	m@ntS'@gah
+ pencegah	p@ntS'@gah
+cepat		tS'@pat
+ dipercepat dip@RtS'@pat
+ secepat	s@tS'@pat
+dekat		d'@kat
+ terdekat	t@Rd'@kat
+demam		d'@mam
+denda		d'@nd@
+ didenda	did'@nd@
+dengan		d'@Nan
+dengar		d'@Nar
+ didengar	did'@Nar
+ mendengar	m@nd'@Nar
+depan		d'@pan
+ berdepan	b@Rd'@pan
+dera		d'@R@
+ pendera	p@nd'@R@
+deras		d'@Ras
+desak		d'@sak
+ mendesak	m@nd'@sak
+ terdesak	t@Rd'@sak
+empat		'@mpat
+engkau		'@NkaU
+gelar		g'@lar
+ bergelar	b@Rg'@lar
+gemar		g'@mar
+ penggemar	p@Ng'@mar
+gesa		g'@s@
+ menggesa	m@Ng'@s@
+ tergesa	t@Rg'@s@
+hendak		h'@nda?
+ dikehendaki	dik,@h@nd'aki
+ kehendak	k@h'@nda?
+kelas		k'@las
+ sekelas	s@k'@las
+kemas		k'@mas
+keras		k'@Ras
+ berkeras	b@Rk'@Ras
+kertas		k'@Rtas
+kesan		k'@san
+ dikesan	dik'@san
+lembah		l'@mbah
+letak		l'@tak
+ diletak	dil'@tak
+emak		'@mak
+emas		'@mas
+enam		'@nam
+ keenam		k@'@nam
+enggan		'@Ngan
+gerak		g'@ra?
+ bergerak	b@Rg'@ra?
+ penggerak	p@Ng'@ra?
+jebak		dZ'@bak
+ terjebak	t@RdZ'@bak
+jejas		dZ'@dZas
+ terjejas	t@RdZ'@dZas
+jelas		dZ'@las
+kejar		k'@dZar
+ dikejar	dik'@dZar
+kekal		k'@kal
+kelam		k'@lam
+ mengembalikan m@N,@mbal'ikan
+kembang		k'@mbaN
+ mengembang	m@N'@mbaN
+ perkembangannya	p@Rk,@mbaN'ann^@
+kelak		k'@lak
+kena		k'@n@
+kenal		k'@nal
+ dikenal	dik'@nal
+ terkenal	t@Rk'@nal
+kerap		k@Rap
+kerja		k'@RdZ@
+ bekerja	b@k'@RdZ@
+ bekerjasama	b@k,@RdZ@s'am@
+ kerjasama	k@RdZ@s'am@
+ pekerja	p@k'@RdZ@
+ sekerja	s@k'@RdZ@
+kesal		k'@sal
+ menyesal	m@n^'@sal
+kesan		k'@san
+ berkesan	b@Rk'@san
+ keberkesanan	k@b,@Rk@s'anan
+kesat		k'@sat
+ mengesat	m@N'@sat
+lekas		l'@kas
+ lelakinya	l@lak'in^@
+lekat		l'@kat
+ melekat	m@l'@kat
+lemah		l'@mah
+lembaga		l@mb'aga
+ berperlembagaan	b@Rp@Rl,@mbag'a|an
+lengan		l'@Nan
+lepas		l'@pas
+ berlepas	b@Rl'@pas
+ terlepas	t@Rl'@pas
+letak		l'@ta?
+ peletakan	p@l@t'akan
+ terletak	t@Rl'@tak
+menang		m'@naN
+ pemenang	p@m'@naN
+mentah		m'@ntah
+mesra		m'@sR@
+pecah		p'@tSah
+ berpecah	b@Rp'@tSah
+peka		p'@k@
+pegang		p'@gaN
+ dipegang	dip'@gaN
+ memegang	m@m'@gaN
+pentas		p'@ntas
+pernah		p'@rnah
+pesat		p'@sat
+petang		p'@taN
+rendah		R'@ndah
+ terendah	t@R'@ndah
+rentak		R'@ntak
+ berentak	b@R'@ntak
+retak		r'@tak
+ keretakan	k@R@t'akan
+rentak		r'@ntak
+ serentak	s@r'@ntak
+sebak		s'@ba?
+ kesebakan	k@s@b'akan
+sebentar	s@b'@ntar
+sedang		s'@daN
+sedar		s'@dar
+ tersedar	t@Rs'@dar
+segera		s@g'@R@
+ disegerakan	dis@g@R'@kan
+ menyegerakan 	m@n^,@g@R'@kan
+sejahtera	s@dZaht'@R@
+ kesejahteraan k@s@dZ,aht@R'@an
+sejak		s'@dZak
+sekat		s'@kat
+ menyekat	m@n^'@kat
+selam		s'@lam
+ penyelam	p@n^'@lam
+ keselamatan 	k@s,@lam'atan
+selaras		s@l'aRas
+ keselarasan	k@s@laR'asan
+selepas		s@l'@pas
+ kesesuaian	k@s@su'aIan
+sembah		s'@mbah
+ persembahannya	p@Rs,@mbah'ann^@
+sempat		s'@mpat
+ berkesempatan	b@Rk,@s@mp'atan
+sempena		s@mp'@n@
+ beserta	b@s'@Rt@
+ peserta	p@s'@Rt@
+ sertai		s@Rt'a|i
+serang		s'@RaN
+ diserang	dis'@RaN
+ menyerang	m@n^'@raN
+ penyerang	p@n^'@raN
+serba		s'@Rb@
+tegang		t'@gaN
+ bertegang	b'@Rt@gaN
+tegas		t'@gas
+tekak		t'@kak
+ menekak	m@n'@kak
+tekan		t'@kan
+ menekan	m@n'@kan
+telah		t'@lah
+teman		t'@man
+tempa		t'@mp@
+ ditempa	dit'@mp@
+ menempa	m@n'@mp@
+tempah		t'@mpah
+ menempah	m@n'@mpah
+tempat		t'@mpat
+ bertempat	b@rt'@mpat
+tenang		t'@naN
+ bertenang	b@Rt'@naN
+tengah		t'@Nah
+ menengah	m@n'@Nah
+ sesetengah	s@s@t'@Nah
+tengkar		t'@Nkar
+ bertengkar b@Rt'@Nkar
+tentang		t'@ntaN
+ ditentang	dit'@ntaN
+ menentang	m@n'@ntaN
+ penentang	p@n'@ntaN
+tepat		t'@pat
+ juruterbang	dZuRut'@RbaN
+teram		t'@Ram
+ ketenteraman	k@t@nt@R'aman
+terkam		t'@Rkam
+ diterkam	dit'@Rkam
+ menerkam	m@n'@Rkam
+tetap		t'@tap
+ bertetap	b@Rt'@tap
+ menetap	m@n'@tap
+ 
+
+// exceptions
+kehebatan	k@heb'atan
+dibelenggu		dib@l'@Ngu
+perbendaharaan	p@Rb@nd,@haR'a|an
+kejayaan	k,@dZaj'a|an
+galakan	gal'akan
+setong	s@t'oN
+aneh	'anE2h
+menyelamatkan	m@n^,@lam'atkan
+//berbaur		b@Rb'aUr
+gementar	g@m'@ntar
+hebatnya	hEb'atn^@
+diedarkan	diEd'aRkan
+//berkeliaran 	b@Rk@li'aRan
+//bersebelahan	b@Rs@b@l'ahan
+//sebaik		s@b'aIk
+cedera		tS@d'@R@
+ kecederaan	k@tS,@d@r'a|an
+ tercedera	t@RtS@d'@R@
+//ekoran		Ek'oRan
+kekecewaan	k@k,@tSew'a|an
+//bermain		b@Rm'aIn
+//kedai		k'@daI
+ //pekedai	p@k'@daI
+disertai	dis@Rt'ai
+persediaan	p@Rs,@di'a|an
+//bergaul		b@Rg'aul
+elakkan		El'akkan
+kebanyakan	k@ban^'akan
+anda		'anda
+//berkepentingan	b@Rk,@p@nt'iNan
+//berleluasa	b@Rl@lu'as@
+iaitu		ja|'itu
+masalah		mas'alah
+masakan		mas'akan
+mengelakkan	m@NE2l'akkan
+menyelesaikan	m@n^,@l@s'aIkan
+pergolakan	p@Rgol'akan
+perempuan	p@R@mp'uan
+ perempuannya p@R,@mpu'ann^@
+pesta		p'esta
+ berpesta	b@Rp'esta
+ menyalah	m@n^'alah
+setengah	s@t'@Nah
+berpengalaman b@Rp@Nal'aman
+kesemuanya	k@s,@mu'@nn^@
+selesema	s@l@s'@m@
+tindakan	tind'akan
+pesalah		p@s'alah
+wanita		wan'ita
+bersalah	b@Rs'alah
+//persetujuan	p@Rs,@tudZ'uan
+//persetujuannya	p@Rs@tudZu'ann^@
+//keseluruhan	k@s,@luR'ohan
+memberitahu m@mb,@Rit'ahu
+//persekutuan	p@Rs,@kut'uan
+tema		t'Ema
+kepercayaan	k@p,@RtSaj'a|an
+dendangan	dEnd'aNan
+peperiksaan	p@p,@Reks'a|an
+kebebasan	k@bEb'asan
+//cerai		tS'@RaI
+//berbaik		b@Rb'aIk
+menyembunyikan	m@n^,@mbun^'ikan
+bermesyuarat b@Rm,@Su'aRat
+//pengetahuan	p@N,@tah'uan
+mengenai	m@N@n'ai
+penyelesaian	p@n^,@l@s'aIan
+diselesaikan	dis,@l@s'aIkan
+ditanya		dit'an^@
+prestasi	pREst'asi
+pembelajaran	p@mb,@ladZ'aRan
+kepong		k'@poN
+demikian	d@mik'ian
+piket		p'ikEt
+kempennya	kEmp'enn^@
+jentera		dZ@nt'@R@
+perlembagaan p@Rl,@mbag'a|an
+bersesuaian	b@Rs,@su'aIan
+bumiputera	bumip'ut?Ra
+kecemerlangan	k@tS,@Rm@l'aNan
+merdeka		m@Rd'eka
+ kemerdekaan	k@m,@Rdek'a|an
+kelewatan	k@lew'atan
+menyelesaikannya		m@n^@l@saIk'ann^@
+
+
+// english derived words
+akta		'akta
+album		'Elb@m
+aspek		'aspE2k
+balada		bal'ada
+digit		di'dZit
+digital		didZ'it@l
+doktor		d'okt@r
+dolar		d'Ol@r
+domestik	dOm'Estik
+entiti		Ent'iti
+flora		fl'ora
+frekuensi	fRiku'@nsi
+imej		'imedZ
+indeks		'indEks
+insentif	ins'E2ntif
+jean		dZ'in
+jeneral		dZEn'@R@l
+kabinet		kEb'in@t
+kamera		kEm'@R@
+kes			k'es
+komponen	komp'on@n
+komprehensif	kompRih'ensif
+koroner		koR'on@r
+laser		l'es@r
+majoriti	mEdZor'iti
+meter		m'it@r
+muzik		m'iuzek
+muzium		m'iuzi@m
+nasional	nESh'@n@l
+negatif		nEg'@tif
+nostalgia	nost'aldZja
+november	nov'Emb@r	
+oktober		okt'ob@r
+polis		p'olis
+personaliti	p@Rs,@nal'iti
+presiden	pRE2s'id@n
+profesor	pRof'E2s@r
+produk		pR'odak
+prospek		pR'ospE2k
+republik	Rip'abli?
+saintis		s'aIntis
+sesi		s'esi
+subjek		s'abdZE2k
+surcaj		s'@RtSadZ
+radio		R'edio
+realiti		Rial'iti
+sentimen	sEnt'im@n
+september	sEpt'@mb@r
+teater		ti'et@r
+teknik		t'Eknik
+teknikal	tEkn'ikal
+telefon		tel'ifon
+tenis		t'Enis
+tiara		ti'aRa
+unit		j'unit
+universiti	jun,iv@Rs'iti
+virus		v'aIR@s
+zoo			zu:
+
+// place names
+Australia	_^_EN
+Arsenal		_^_EN
+Asia		as'ia
+Barcelona	b'aRs@l'ona
+Borneo		_^_EN
+Britain		_^_EN
+Brunei		b'R2unaI
+Cheras		tS'@ras
+Coast		_^_EN
+Commonwealth 	_^_EN
+Denmark		_^_EN
+England		_^_EN
+Eropah		Er'opah
+France		_^_EN
+George		_^_EN
+Georgetown	_^_EN
+Indonesia	indon'eIsi@
+Ireland		_^_EN
+Jamaica		_^_EN
+Kingdom		_^_EN
+Korea		_^_EN
+Liverpool	_^_EN
+London		_^_EN
+New			_^_EN
+Nigeria		_^_EN
+Macau		_^_EN
+Malaysia	m@l'esi@
+Melbourne	_^_EN
+Guinea		_^_EN
+Penang		pin'EN
+Perak		p'erak
+Phuket		ph'ukEt
+Putrajaya	putR2@dZ'aj@
+Republic	_^_EN
+Scotland	_^_EN
+Seputeh		s@p'uteh
+Seremban	s@R'@mban
+Setar		s?tar
+Sydney		_^_EN
+Temerloh	t@m'@Rloh
+Tonga		t'onga
+Town		_^_EN
+United		_^_EN
+Valencia	vel'@nsia
+Zambia		z'ambia
+Zealand		_^_EN
+
+// person names
+Azura		az'uR2a
+Barack		_^_EN
+David		_^_EN
+Davidson	_^_EN
+Douglas 	_^_EN
+Edward		_^_EN
+Karen		_^_EN
+Jason		_^_EN
+Lee			_^_EN
+Leela		l'ila
+Linda		l'inda
+Mahathir	mah'ater
+Michael 	_^_EN
+Merican		m'erikan
+Ng			'@N
+Nora		n'oRa
+Nurhaliza	n,uRhal'iza
+Obama		ob'ama
+Ong			ON
+Ramlee		R'amli
+Saleh		s'aleh
+Seha		s'eha
+Shafie		Saf'i?i
+Sidek		s'idek
+Syed		s'aId
+Teresa		t@R2'isa
+Tony		_^_EN
+Yaacob 		j'a?kob
+Yew			jiu
+Zakaria		zak'aRja
+Zaleha		zal'eha
+
+
+// English words
+(& co)		En||k'amp@ni
+american	_^_EN
+bank		b'Enk
+banking		b'EnkiN
+commerce	_^_EN
+corp		_^_EN $dot
+city		_^_EN
+company		_^_EN
+consortium 	_^_EN
+daily		_^_EN
+distribution _^_EN
+east		_^_EN
+education	_^_EN
+engineering	_^_EN
+euro		_^_EN
+girl		_^_EN
+grand		gR2End
+genre		_^_EN
+government	_^_EN
+group		_^_EN
+hero		h'iR2o
+idea		'aIdi@
+island		_^_EN
+jazz		dZ'E:s
+international	_^_EN
+internet	_^_EN
+left		_^_EN
+land		lEnd
+malayan		_^_EN
+malaysian	m@l'esi@n
+media		_^_EN
+methodist	_^_EN
+multi		_^_EN
+north		_^_EN
+pound		_^_EN
+right		_^_EN
+school		_^_EN
+speaker		_^_EN
+south		_^_EN
+the			_^_EN
+enterprise	_^_EN
+omnibus		'omnibas
+online		_^_EN
+power		_^_EN
+punk		_^_EN
+serius		_^_EN
+service		_^_EN
+street		_^_EN
+technologies _^_EN
+tender		_^_EN
+trading		_^_EN
+trend		_^_EN
+unity		_^_EN
+union		_^_EN
+wall		_^_EN
+west		_^_EN
+
+
+// brands
+afp			$abbrev
+(air asia)	'E:_'e:si@_
+(air france)	_^_EN
+airbus		_^_EN
+boeing		_^_EN
+eon			'ion
+firefly		_^_EN
+iphone		aI||fon
+ipod		aI||pod
+malaysiakini m@l'esi@||k'ini
+maybank		m'eib'Enk
+reuters		_^_EN
+(sime darby) _^_EN
+toyota		toj'ota
+wikipedia	wik,ip'idja
+
+
+
+// unstressed words
+//suatu		$u
+dari		$u
+pada		$u
+daripada	$u
+ke		k@ $u
+di		$u
+si		$u
+sang		$u
+hang		$u
+yang		$u
+//dan		$u
+//atau		$u
+//untuk		$u
+ialah		$u
+adalah		$u
+sebagai		$u
+bahwa		$u
+per		p@r $u
+
+
+// conjunctions
+agar		$pause
+apabila		ap@bil@ $pause
+apatah		ap@t'ah $pause
+atau		$pause 
+ataupun		$pause
+bagi		$pause
+bahkan		$pause
+(bukan sahaja)	$pause
+dan			$pause $u
+(di mana)	$pause
+hanya		$pause
+jika		$pause
+kalau		$pause
+kerana		$pause
+ketika		$pause
+mahupun		$pause
+maka		$pause
+malah		$pause
+malahan		$pause
+manakala	$pause
+meskipun	$pause
+misalnya	$pause
+namun		$pause
+(sama ada)	$pause
+sambil		$pause
+sebab		s'@bab $pause
+sedangkan	$pause
+sehingga	$pause
+selain		s@l'ain $pause
+semasa		$pause
+serta		s'@rt@ $pause
+setelah		s@t'@lah $pause
+seperti		$pause
+sepertimana	s@p,@Rtim'an@ $pause
+supaya		$pause
+tapi		$pause
+tetapi		$pause
+walau		$pause
+walaupun	$pause
+untuk		$pause
+//yang		$pause $u
+(yang mana)	$pause
+
+
+// nuances
+anugerah	an'ug*Rah
+dilaksanakan dil,aksan'@kan
+kementerian	k@m,@ntR2'ian
+sebahagian	s@b'ah?gian
+mewarnai	m@warn'a|i
+mulai		mul'a|i
+meraikan	m@Ra|'ikan
+sibuk		s'ebok
+terengganu	tR2@Ng'anu
+dirasai		diRas'a|i
+direka		diR'ek@
+negeri		n'@gR2i

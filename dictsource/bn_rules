@@ -136,57 +136,47 @@
        ৌ        ow
        ৌঁ       o~w
   
-
-        
         
 // Consonants
 
 .group ক
         ক        kV
         ক (B     k
-        ক (_     k
 
         
 .group খ
         খ        k#V
         খ (B     k#
-        খ (_     k#
         
         
 .group গ
         গ        gV
         গ (B     g
-        গ (_     g
 
 
 .group ঘ
         ঘ        g#V
         ঘ (B     g#
-        ঘ (_     g#
 
         
 .group ঙ
         ঙ        NV
         ঙ্ (B     N
-        ঙ্ (_     N
 
 
 .group চ
         চ        tSV
         চ (B     tS
-        চ (_     tS
 
 
 .group ছ
         ছ        tS#V
         ছ  (B    tS#
-        ছ  (_    tS#
 
         
 .group জ
         জ        JV
         জ (B     J
-        জ (_     J
         
         জ্ব        JV
         জ্ব (B     J
@@ -197,142 +187,122 @@
 .group ঝ
         ঝ        J#V
         ঝ (B     J#
-        ঝ (_     J#
 
         
 .group ঞ
         ঞ        nV
         ঞ্ (B     n
-        ঞ্ (_     n
  
 
 .group ট
         ট         t.V
         ট (B      t.
-        ট (_      t.
 
 
 .group ঠ
         ঠ        t.#V
         ঠ (B     t.#
-        ঠ (_     t.#
        
 
 .group ড
         ড        d.V
         ড (B     d.
-        ড (_     d.
 
         ড়        r.V     // nukta
         ড় (B     r.
+
         
 .group ঢ
-       ঢ         d.#V
-       ঢ (B      d.#
-       ঢ (_      d.#
+        ঢ        d.#V
+        ঢ (B     d.#
+
+        ঢ়        hr.V
+        ঢ় (B     hr.
        
        
 .group ণ
         ণ        nV   // should be [n.] if adjacent to t. or d. ?
         ণ (B     n
-        ণ (_     n
 
 
 
 .group ত
         ত        tV
         ত (B     t
-        ত (_     t
 
         
 .group থ
         থ        t#V
         থ (B     t#
-        থ (_     t#
 
 
 .group দ
         দ        dV
         দ (B     d
-        দ (_     d
 
 
 .group ধ
         ধ        d#V
         ধ (B     d#
-        ধ (_     d#
 
 
 .group ন
         ন        nV
         ন (B     n
-        ন (_     n
 
         
 .group প
         প        pV
         প (B     p
-        প (_     p
 
   
 .group ফ
         ফ        fV    // or [p#] ?
         ফ (B     f
-        ফ (_     f
   
 
 .group ব
         ব        bV
         ব (B     b
-        ব (_     b
 
         
 .group ভ
         ভ        b#V
         ভ (B     b#
-        ভ (_     b#
 
         
 .group ম
         ম        mV
         ম (B     m
-        ম (_     m
 
         
 .group য়
         য়       jV
         য় (B    j    
-        য় (_    j    
 
         
 .group য
         য       dZV
         য (B    dZ
-        য (_    dZ
         
         য়	jV   // nukta
         য় (B	j
-     @) য় (_	j
 
         
 .group র
         র        rV
         র (B     r
-        র (_     r
-    ্) র (_     rV
 
     
 .group ল
         ল        lV
         ল  (B    l
-        ল  (_    l
 
 
 
 .group শ
         শ        SV  // or [s] ?
         শ (B     S
-        শ (_     S
         
         
         শ (্ল   s
@@ -341,7 +311,6 @@
 .group ষ
         ষ        SV   
         ষ (B     S
-        ষ (_     S
 
      
 .group স
@@ -358,26 +327,25 @@
 .group হ
         হ        hV  
         হ (B     h
-        হ (_     h
 
         
 .group হ্ব
         হ্ব       vV
         হ্ব (B    v
-        হ্ব (_    v
 
         
 .group ৎ
         ৎ        t
 
 
-.group ড়
-        ড়        r.V
-        ড় (B     r.
+.group ড়         // can be ড plus nukta
+        ড়        r.V
+        ড় (B     r.
+
        
-.group ঢ়
-        ঢ়        r.V
-        ঢ় (B     r.
+.group ঢ়         // can be ঢ plus nukta
+        ঢ়        hr.V
+        ঢ় (B     hr.
         
 
 
@@ -399,4 +367,14 @@
 
 
 
+.group
+       // obsolete letters
+        ঋ        r-
+        ৠ        r-
+        ঌ        l-
+        ৡ        l-
+        ৃ        r-
+        ৄ        r-
+        ৢ        l-
+        ৣ        l-
 

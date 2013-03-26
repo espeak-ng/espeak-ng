@@ -1,0 +1,233 @@
+// Last updated: 14 October 2010, Jason Ong (jason@portalgroove.com)
+// This file is UTF8 encoded 
+// Spelling-to-phoneme rules for Malay
+
+.group a
+        a        a
+     a) a        _|a
+    A_) a        _|a
+    au) a        _|a
+        ai       aI
+        au       aU
+		
+		
+	_) au	o		// (automatik)
+
+	@) a (_	@		// (pula)
+	@) a (kah_ '@	// (apakah)
+	@) a (kan_	'@	// (bukakan)
+	@) a (lah_ 	'@	// (mintalah)
+	@) a (nya_ '@	// (puncanya)
+	@) a (pun_ '@ 	// (bagaimanapun)
+
+
+.group b
+        b        b
+
+     _) be (@@   b@
+
+	 _) ber (@@		b@R		// (berdasarkan)
+	 _) ber (CaiX	b@R		// (bermain)
+	 _) ber (CauX	b@R		// (bergaul, berbaur)
+	 _) berke (@@	b@Rk@	// (berkeliaran, berkesempatan)
+	 _) berle (@@	b@Rl@	// (berleluasa)
+	 _) berper (@@  b@Rp@R	// 
+	 _) berse (@@ 	b@Rs@	// (bersebelahan)
+	 _) bh	b	// added (kota bharu)
+
+.group c
+        c       tS
+		
+		//*************
+		
+		ch		tS	// (kuching)
+		//**************
+
+.group d
+        d        d
+        dj       dZ     // Dutch
+
+.group e
+        e        E		//jason: E changed to E2
+     e) e        _|E
+    A_) e        _|E	// *** to check on this ***
+        e (_     e
+
+
+// *********************
+	 _) e (Co@	 E2		// e-o (ekoran)
+	 
+		e (CaiX	'@		// e-ai	(kedai, petai, belai, cerai)
+	
+		e (CiX	'@		// e-i (betik, ketil, lebih, kerisik, kesedihan, sering, seri, segi, seni)
+		e (CCiX '@		// e-i (penting, jentik)		
+		e (CCuX '@		// e-u (dibendung, bentuk)
+		e (CuX	'@		// e-u (belut, telur, perut, ketulan, bertemu)
+		e (CCuX '@		// e-u (perlu, merdu)
+		e (CCCuX '@		// e-u (tengku, tengkuk)
+
+		e (nyuX '@		// e-u (senyum)
+   eCC) e (X	e		// e-e (pendek, benteng)	
+	eC)	e (X	e		// e-e (belek, gelek, leceh, geleng)
+		e (Ce	e		// e-e (kelecehan)
+	oC) e (X	e		// o-e (oleh, boleh, celoteh, topeng)
+   oCC) e (X 	e		// o-e (ponteng)
+   
+     C) e (CCCoCkan_	e 	// (bengkokkan)
+     m) e (_	@		// (autisme) 
+	  
+ 
+
+// ******************
+		
+		
+.group f
+        f        f
+        ff       f
+
+.group g
+        g        g
+
+.group h
+        h        h
+
+.group i
+        i        i
+     i) i        _|i
+    A_) i        _|i
+	
+
+	@) i (CX	 e		// (tekik, masing, masin)
+	@) i (Cnya_ 'e		// (masinnya)
+	@) i (CCaan_ e		// (pemeriksaan)
+
+.group j
+        j        dZ
+
+.group k
+        k        k
+        k (_     ?
+        kh       x
+
+     _) ke (@@   k@
+	@@) k (annya_	k'
+	
+	_) kese (@@	 k@s@  // keseluruhannya
+	
+	
+
+.group l
+        l        l
+        ll       l
+
+.group m
+        m        m
+
+     _) me (@@   m@
+     _) mempe (@    m@mp@
+	 
+	 //*****************
+	 _) mem (@@	 m@m
+	 _) mene (@@ m@n@	// (menerajui)
+	 _) menge (@@ m@N@	// (mengenepikan)
+	 _) mempenge (@@ m@mp@N@	// (mempengerusikan)
+	 //****************
+
+.group n
+        n        n
+        ng       N
+        ny       n^
+//        nj       n^
+
+.group o
+        o        o
+     o) o        _|o
+    A_) o        _|o
+        o (r     O
+        oe       u        // Dutch spelling
+
+.group p
+        p        p
+        pp       p
+
+     _) pe (@@   p@
+
+	 
+	 _) pe (CaiX	p@			// (pemain, pesaing)
+	 _) peme (@@	p@m@		// (pemeriksaan)
+	 _) pene (@@	p@n@		// (penerokaan)
+	 _) penge (@@	p@N@		// (pengetahuan)
+	 _) penje (@@ 	p@ndZ@		// (penjenamaan)
+     _) perse (@@	p@Rs@		// (persetujuan) 
+
+
+.group q
+        q        k
+        qu       kw
+
+.group r
+        r        R  //(jason change: R2 to r)
+        r (K     r   //(jason change: R to r)
+     e) r (K     *r  //(jason change: *R to r)
+
+		r (_	 r	// jason: added (silent r at the end)
+
+.group s
+        s        s
+        ss       s
+        sy       S   // perhaps [S;] ??
+        sj       S
+
+     _) se (@@   s@
+	 
+	 //*************
+	 _) se (CaiX	s@	// (sebaik)	
+		sh		S
+	 //***************
+
+
+.group t
+        t        t
+        tj       tS      // Dutch
+
+     _) ter (@@  t@*R
+
+	 //***************
+	 _) ter (@ 	 t'@*R	// ter- (terbaik, teruk)
+	 //******************
+
+.group u
+        u        u
+     u) u        _|u
+    A_) u        _|u
+	
+	@) u (CX		 o		// (puluh, tudung)
+	@) u (Cnya_	 'o		// (bentuknya)
+	@) u (CCnya_ 'o		// (tudungnya)
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group x
+        x        ks
+     _) x        z
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+.group
+        $        dOl@R
+
+
+    __) - (_D    n'eg@tif
+
+        *        b'intaN
+     *) * (*
+        ** 
+    **) * (_         _::

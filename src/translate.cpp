@@ -374,6 +374,7 @@ void SetLengthMods(Translator *tr, int value)
 }
 
 
+
 int IsAlpha(unsigned int c)
 {//========================
 // Replacement for iswalph() which also checks for some in-word symbols
@@ -429,8 +430,8 @@ int IsAlpha(unsigned int c)
 	return(0);
 }
 
-static int IsDigit09(unsigned int c)
-{//=========================
+int IsDigit09(unsigned int c)
+{//============================
 	if((c >= '0') && (c <= '9'))
 		return(1);
 	return(0);
@@ -2311,10 +2312,10 @@ static int EmbeddedCommand(unsigned int &source_index)
 		source_index++;
 	}
 
-	if(isdigit(source[source_index]))
+	if(IsDigit09(source[source_index]))
 	{
 		value = atoi(&source[source_index]);
-		while(isdigit(source[source_index]))
+		while(IsDigit09(source[source_index]))
 			source_index++;
 	}
 
@@ -3331,7 +3332,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 			while(pn < &number_buf[sizeof(number_buf)-20])
 			{
-				if(!isdigit(c = *pw++) && (c != tr->langopts.decimal_sep))
+				if(!IsDigit09(c = *pw++) && (c != tr->langopts.decimal_sep))
 					break;
 
 				*pn++ = c;
