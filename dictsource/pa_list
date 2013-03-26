@@ -1,0 +1,246 @@
+﻿// This file is UTF8 encoded 		
+// Punjabi/Gurmukhi
+
+// Numbers
+_0	z'iRo
+_1	'Ik:
+_2	d'o
+_3	t'I~n
+_4	c'aR
+_5	p'VnJ
+_6	c#'e
+_7	s'Vt:
+_8	'Vt.#:
+_9	n'O~
+_10	d'Vs
+_11	gI'aRa~
+_12	b'aRa~
+_13	t'eRa~
+_14	c'Oda~
+_15	p'Vnd@Ra~
+_16	s'ol.a~
+_17	s@t'aRa~
+_18	Vt.#'aRa~
+_19	'Unni
+_20	v'iH
+_21	Ik:i
+_22	b'ai
+_23	t'ei
+_24	c'Ovi
+_25	p'Vc:i
+_26	c#'Vb:i
+_27	s@t'ai
+_28	Vt.#'ai
+_29	Un'Vt:i
+_30	t'iH
+_31	Ik'Vt:i
+_32	b'Vt:i
+_33	t'et:i
+_34	c'ONti
+_35	p'ENti
+_36	c#'Vt:i
+_37	s'ENti
+_38	Vt.#'Vt:i
+_39	U~Nt'ali
+_40	c'ali
+_41	Ik@t'ali
+_42	be'ali
+_43	t@R@t'ali
+_44	cUt'ali
+_45	p@nt'ali
+_46	c#I'ali
+_47	s@nt'ali
+_48	,@R2@t'ali
+_49	Un'VnJa
+_50	p@nJ'aH
+_51	,@k@v'VnJa
+_52	b@v'VnJa
+_53	t,@R@v'VnJa
+_54	cUR'VnJa
+_55	p,@c@v'VnJa
+_56	c#@p'VnJa
+_57	s,@t@v'VnJa
+_58	,@t.#@v'VnJa
+_59	Un.'at.#
+_60	s'Vt.#:
+_61	Ik'aH@t.
+_62	b'aH@t.
+_63	t@R'e~H@t.
+_64	c'O~H@t.
+_65	p'E~H@t.
+_66	c#e'aH@t.
+_67	s@t'aH@t.
+_68	,@t.#'aH@t.
+_69	Un.'Vt:@R
+_70	s'Vt:@R
+_71	Ik'Vt:@R
+_72	b@H'Vt:@R
+_73	t@H'et:@R
+_74	cOH'Vt:@R
+_75	p@J'Vt:@R
+_76	c#IH'Vt:@R
+_77	s@t'Vt:@R
+_78	Vt.#'Vt:@R
+_79	Un.'asi
+_80	'Vssi
+_81	,IkI;'asi
+_82	bI;'asi
+_83	t,@RI;'asi
+_84	cUR'asi
+_85	p@c'asi
+_86	c#I;'asi
+_87	s@t'asi
+_88	Vt.#'asi
+_89	Un'an@v,e~
+_90	n'Vb:e
+_91	Ik'an@v,e~
+_92	b'an@v,e~
+_93	t@R'a~n@v,e~
+_94	cUR'an@v,e~
+_95	p@c'an@v,e~
+_96	c#I'an@ve~
+_97	s@t'an@ve~
+_98	Vt.#'an@ve~
+_99	n@R2'I~n@v,e~
+
+_0C	s'O
+_0M1	H@J'aR
+_0M2	l'Vk#:	// 100,000
+_0M3	k'VRoR	// 10,000,000
+_0M4	'VR@b	// 1,000,000,000
+_0M5	k#'VR@b	// 100,000,000,000
+
+_dpt	_d@s@ml'o:
+
+
+// character names
+ਂ	bInd'i
+ੰ	tIpp'i
+ੱ	VddVk
+ਃ	visaRg
+੍	hVlVnt
+
+ਅ	'ERV
+ੲ	'IRI
+ੳ	'URV
+_ਆ	'ERV||kVnn'a
+_ਇ	'IRI||sIh'aRi
+_ਈ	'IRI||bIh'aRi
+_ਉ	'URV||'OnkaR
+_ਊ	'URV||dUl'EnkaR
+_ਏ	'IRI||l'avam
+_ਐ	'ERV||dUl'avam
+_ਓ	'URV||hoR'a
+_ਔ	'ERV||kVnOR'a
+
+ਾ	kVnn'a
+ਿ	sIh'aRi
+ੀ	bIh'aRi
+ੁ	OnkaR
+ੂ	dUl'EnkaR
+ੇ	l'ava~
+ੈ	d@l'ava~
+ੋ	hoR'a
+ੌ	kVn'ORa
+
+
+// Punctuation
+_??	'Vk#:@R
+।	d.'Vnd.i
++	J'Vuma
+=	b@R'ab@R
+%	pR'VtIS@t
+*	t'aRa
+
+
+// Pronouns
+// ਪੁਰਖਵਾਚੀ ਪੜਨਾਂਵ
+ਮੈਂ 	$u	// main: I
+ਮੈਨੂੰ 	$u
+ਮੇਰਾ 	$u
+ਮੇਰੀ 	$u
+ਮੇਰੇ 	$u
+
+ਅਸੀਂ 	$u	// we
+ਸਾਨੂੰ 	$u
+ਸਾਡਾ 	$u
+ਸਾਡੀ 	$u
+ਸਾਡੇ 	$u
+
+
+ਆਪ 	$u	// you(formal)
+ਆਪਨੂੰ 	$u
+ਆਪਦਾ 	$u
+ਆਪਦੀ 	$u
+ਆਪਦੇ 	$u
+
+ਤੂੰ 	$u	// you (informal)
+ਤੂਸੀਂ 	$u	// you(formal)
+ਤੁਹਾਨੂੰ 	$u
+ਤੁਹਾਡਾ 	$u
+ਤੁਹਾਡੀ 	$u
+ਤੁਹਾਡੇ 	$u
+
+ਤੂੰ 	$u	// you (informal)
+ਤੈਨੂੰ 	$u
+ਤੇਰਾ 	$u
+
+ਇਹ	$u	// he/she/it
+ਇਸਤੋਂ 	$u
+ਇਸਦਾ 	$u
+
+ਇਹ 	$u	// they
+ਇਨ੍ਹਾਂਨੂੰ 	$u
+ਇਨ੍ਹਾਂਦਾ 	$u
+
+ਉਹ	$u	// he/she/it
+ਉਸਤੋਂ 	$u
+ਉਸਦਾ 	$u
+ਉਸਦੀ 	$u
+ਉਸਦੇ 	$u
+
+ਉਹ	$u	// they
+ਉਨ੍ਹਾਂਨੂੰ	$u	// unhannu: them 
+ਉਨ੍ਹਾਂਦਾ	$u
+ਉਨ੍ਹਾਂਦੀ	$u
+ਉਨ੍ਹਾਂਦੇ	$u
+
+
+
+// Prepositions/Postpositions
+ਦਾ	$u	// dā:  of, possessive particle
+ਦੀ	$u	// dī
+ਦੇ	$u	// de
+
+ਨੂੰ 	$u	// nu: to
+ਤੱਕ 	$u	// tak: until, for(time)
+ਬਿਨਾ	$u $pause	// without (preposition)
+ਵਿਚ 	$u	// in
+ਵਿੱਚ 	$u	// in
+ਤੋਂ 	$u	// ton: from, with, by
+
+
+
+// Verbs
+ਹਾਂ 	$u	// to be
+ਹੋ 	$u
+ਹੈ 	$u
+ਹੈਂ 	$u
+ਹਨ 	$u
+
+ਸੀ 	$u	// si: past aux
+ਸਨ 	$u	// san: past aux
+
+ਰਹਾ 	$u	// rahā: continuous
+ਰਹੇ 	$u	// rahe
+ਰਹੀ 	$u	// rahī
+
+
+
+$textmode
+ਸੋਫਟਵਿਅਰ  software
+ਈਮੇਲ   email
+ਕੀਬੋਰਡ  keyboard
+ਬੋਰਡ    board
+$phonememode
+

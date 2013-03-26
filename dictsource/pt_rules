@@ -1,3 +1,4 @@
+	// translation rules Brazilian
 // translation rules Brazilian
 // translation rules Brazilian
 // This file is UTF-8 encoded
@@ -178,8 +179,6 @@
         e (co_     E
         e (ctA_    E
         e (ctAm_   E
-        e (çA_     E
-        e (çAm_    E
 
         e (de_     E
         e (dem_    E
@@ -447,17 +446,21 @@ proteg) e (L07_    e         // des-
 respond) e (L07_   e         // cor-
     qu) e (brL04_  E
   _cel) e (brL04_  E
+  _enr) e (dL01_   E
+  _arr) e (dL03_   E
+ _depr) e (dL03_   E
  _hosp) e (dL03_   E
    _gr) e (gL03_   e
   _gal) e (gL03_   e
     _n) e (grL03_  e
- _estr) ei (L03_   EI
+  estr) ei (L04_   EI
   _inv) e (jL04_   E
     tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
    _in) e (ptL03_  E
     _p) e (quL02_  E
     _s) e (quL02_  E
+    ad) e (quL04_  E
      l) e (que_    E
   _imp) e (rL03_   E
   _sev) e (rL03_   E
@@ -473,6 +476,7 @@ respond) e (L07_   e         // cor-
   _tol) e (rL04_   E
   _ven) e (rL04_   E
   acel) e (rL04_   E         // des-
+ _apod) e (rL04_   E
  _coop) e (rL04_   E
  _temp) e (rL04_   E
 _recup) e (rL04_   E
@@ -488,13 +492,14 @@ _refrig) e (rL04_  E
   _bez) e (rrL03_  e
   _inv) e (rtL03_  e
     _f) e (rvL03_  e
-    _p) e (sL01_   E
+ _refr) e (scL01_  E
     _d) e (scL02_  E
    _cr) e (scL02_  E
     _p) e (scL03_  E
     _m) e (sclL04  E
     _d) e (spL02_  E
     _p) e (squL02_ E
+ _refr) e (squL02_ E
     _l) e (ssL02_  e
   _esp) e (ssL03_  e
     _c) e (stL03_  e
@@ -515,43 +520,10 @@ _obsol) e (tL03_   e
 _despr) e (zL04_   E
 _embel) e (zL04_   E
 _menospr) e (zL04_ E
-_emagr) e (çL03 
-    pr) e (çL03_   e         // a-
-   aqu) e (çL03_   e         // re-
-   mer) e (çL03_   e         // des-
-   pad) e (çL03_   e         // com-
-   par) e (çL03_   e         // a- re- com- rea- desa-
-  _ado) e (çL03_   e
-  _car) e (çL03_   e
-  _per) e (çL03_   e_
-  conh) e (çL03_   e         // re-
-  obed) e (çL03_   e         // des-
- _esqu) e (çL03_   e
- _forn) e (çL03_   e
- _ofer) e (çL03_   e
- abast) e (çL03_   e         // re-
-_aborr) e (çL03_   e
-_acont) e (çL03_   e
-_agrad) e (çL03_   e
-_amanh) e (çL03_   e
-_amort) e (çL03_   e
-_anoit) e (çL03_   e
-_arref) e (çL03_   e
-_desguarn) e (çL03_ e
-_desguarnec) e (çL03_ e
-_enfraqu) e (çL03_ e
-_enlouqu) e (çL03_ e
-_enraiv) e (çL03_  e
-_enriqu) e (çL03_  e
-_entrist) e (çL03_ e
-_envaid) e (çL03_  e
-_envelh) e (çL03_  e
-_esclar) e (çL03_  e
-_espair) e (çL03_  e
-_estrem) e (çL03_  e
-_fortal) e (çL03_  e
-_rejuven) e (çL03_ e
-estabel) e (çL03_  e         // re-
+   com) e (çL01_   E
+     p) e (çL03_   E
+    _m) e (çL03_   E
+_entorp) e (çL03_  e
 //endsort
 
 
@@ -600,7 +572,12 @@ estabel) e (çL03_  e         // re-
 ?3      g (_C      g_
         g (Y       Z         // ge gi
         gu (Y      g
-?1      guen (C    gw'eIN    // aguenta, etc.
+     a) gu (ent    gw
+  enxa) gu (e      gw
+   lin) gu (e      gw
+   lin) gu (i      gw
+   san) gu (ín     gw
+   san) gu (in     gw
 ?1   n) gu (A      gw        // eg: língua, etc.
 ?1 man) gu (ei     g         // mangueira
 ?1      gu (ém_    g         // eg: alguém, ninguém, etc...
@@ -847,15 +824,19 @@ estabel) e (çL03_  e         // re-
  _engl) o (bL01_   O
     _s) o (bL02_   O
   _esn) o (bL04_   O
+    br) o (chL04_  O
   _deb) o (chL04_  O
-_desabr) o (chL04_ O
+    _m) o (fL01_   O
+    _m) o (fL02_   O
     _s) o (frL02_  O
      r) o (gL04_   O         // inter-
     _j) o (gL04_   O
    _af) o (gL04_   O
   _adv) o (gL04_   O
   _ref) o (gL04_   O
-   _ap) oi (L04_   OI
+   _ap) oi (L01_   OI
+   _ap) oi (L02_   OI
+    _b) oi (L04_   OI
     _t) o (lL03_   o
      c) o (lhL02_  O         // es- en- re-
     _t) o (lhL02_  O
@@ -870,10 +851,13 @@ _desabr) o (chL04_ O
   _ens) o (pL04_   O
     _s) o (prL04_  O
      _) o (ptL04_  O
+ _defl) o (rL02_   O
+ _impl) o (rL02_   O
  _inod) o (rL03_   O
 _inson) o (rL03_   O
 _comem) o (rL04    O
 _remem) o (rL04_   O
+     f) o (rmL03_  O
   _enf) o (rquL02_ O
   _ext) o (rquL02_ O
      c) o (rrL01_  o         // escorra, incorra, corra, recorra
@@ -882,8 +866,10 @@ _remem) o (rL04_   O
      t) o (rçL01_  O         // con-
     _r) o (snL04_  O
     _c) o (spL02_  O
+  _enr) o (squL02_ O
      p) ostos (_   Ost=Us#   // dispostos etc.
   _gar) o (tL03_   o
+    pr) o (vL03_   O
     _g) o (zL04_   O
   _esb) o (çL01_   O
     _r) o (çL03_   O
@@ -940,8 +926,16 @@ _remem) o (rL04_   O
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-?1   C) quen (C    kw'eIN    // cinquenta, etc.
-?1   A) quen (C    kw'eIN    // frequência, etc.
+     A) quên (C    kw'eIN    // frequência, etc.
+   ade) qu (e      kw
+     e) qu (estr   kw
+    _e) qu (in     kw
+   fre) qu (ent    kw
+    li) qu (id     kw
+    lí) qu (id     kw
+     n) qu (en     kw
+    se) qu (en     kw
+  tran) qu (il     kw
 ?1      quec       kes       // esquece, etc.
 ?1      queç       kes       // esqueça.
 ?1   A) que (nA_   ke        // pequeno, etc.

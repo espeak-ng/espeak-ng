@@ -104,9 +104,8 @@ static keywtab_t k_conditions[] = {
 	{"next2PhW",  tWHICH_PHONEME, 6},
 	{"nextVowel",tWHICH_PHONEME,  7},
 	{"prevVowel",tWHICH_PHONEME,  8},
-//	{"next2PhW", tWHICH_PHONEME,  0x800},
-
-//	{"numVowels",    tTEST,  0x000},
+	{"next3PhW", tWHICH_PHONEME,  9},
+	{"prev2PhW", tWHICH_PHONEME, 10},
 
 	{"PreVoicing",   tTEST,  0xf01},
 	{"KlattSynth",   tTEST,  0xf02},
@@ -1051,8 +1050,13 @@ static wxString CompileAllDictionaries()
 			fclose(f_in);
 		}
 
-		LoadVoice(voicename,0);
-
+		if(LoadVoice(voicename,1) == NULL)
+		{
+			wxLogError(wxString::Format(_T("Can't find voice '%s' for dictionary '%s'"), wxString(voicename, wxConvLocal).c_str(), dictstr.c_str()));
+			report = report + dictstr + _T(" No Voice, ");
+			errors ++;
+		}
+		else
 		if((err = CompileDictionary(path_dsource, dictname,log,NULL,0)) > 0)
 		{
 			report = report + dictstr + wxString::Format(_T(" %d, "),err);
@@ -2742,6 +2746,7 @@ int CompilePhoneme(int compile_phoneme)
 	int count;
 	int c;
 	char *p;
+	int vowel_length_factor = 100;  // for testing
 	char number_buf[12];
 	char ipa_buf[N_ITEM_STRING+1];
 	PHONEME_TAB phoneme_out2;
@@ -2844,6 +2849,11 @@ int CompilePhoneme(int compile_phoneme)
 
 			case i_SET_LENGTH:
 				value = NextItemMax(511);
+				if(phoneme_out->type == phVOWEL)
+				{
+					value = (value * vowel_length_factor)/100;
+				}
+
 				if(after_if == 0)
 				{
 					phoneme_out->std_length = value/2;

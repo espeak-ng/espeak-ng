@@ -1864,6 +1864,20 @@ include ph_georgian
 phonemetable fa base
 include ph_farsi
 
+// experimental 
+
+phonemetable ko base
+include ph_korean
+
+phonemetable kl base
+include ph_greenlandic
+
+phonemetable am base
+include ph_amhari
+
+phonemetable si hi
+include ph_sinhala
+
 
 //**************************************************************************************
 // The following lines are experimental, for future additions.
@@ -1882,61 +1896,49 @@ include ph_kinyarwanda
 //phonemetable mn base
 //include ph_mongolian
 
-phonemetable prs base
-include ph_dari
+//phonemetable prs base
+//include ph_dari
 
 phonemetable sl sk
 include ph_slovenian
 
-phonemetable gd base
-include ph_s_gaelic
+//phonemetable gd base
+//include ph_s_gaelic
 
-phonemetable nso base
-include ph_northern-sotho
+//phonemetable nso base
+//include ph_northern-sotho
 
-phonemetable ht fr
-include ph_haitian
+//phonemetable ht fr
+//include ph_haitian
 
-phonemetable az tr
-include ph_azerbaijani
+//phonemetable az tr
+//include ph_azerbaijani
 
-phonemetable ak base
-include ph_akan
+//phonemetable ak base
+//include ph_akan
 
-phonemetable am base
-include ph_amhari
+//phonemetable wo base
+//include ph_wolof
 
-phonemetable wo base
-include ph_wolof
+//phonemetable dv hi
+//include ph_divehi
 
-phonemetable dv hi
-include ph_divehi
+//phonemetable te hi
+//include ph_telugu
 
-phonemetable te hi
-include ph_telugu
-
-phonemetable si hi
-include ph_sinhala
-
-phonemetable tn base
-include ph_setswana
+//phonemetable tn base
+//include ph_setswana
 
 
-phonemetable mt base
-include ph_maltese
+//phonemetable mt base
+//include ph_maltese
 
-phonemetable bo hi
-include ph_tibetan
+//phonemetable bo hi
+//include ph_tibetan
 
-phonemetable kk base
-include ph_kazakh
+//phonemetable kk base
+//include ph_kazakh
 
-phonemetable tt base
-include ph_tatar
-
-phonemetable ko base
-include ph_korean
-
-phonemetable kl base
-include ph_greenlandic
+//phonemetable tt base
+//include ph_tatar
 

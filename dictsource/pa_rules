@@ -1,0 +1,469 @@
+﻿
+// Punjabi Gurmukhi script
+// This file is UTF8 encoded
+
+// letter groups:
+// A   vowel letters
+// B   vowel signs and virama ्
+// C   consonants
+// Y   vowel letters and vowel signs
+
+
+
+.replace
+ ੦	0
+ ੧	1
+ ੨	2
+ ੩	3
+ ੪	4
+ ੫	5
+ ੬	6
+ ੭	7
+ ੮	8
+ ੯	9
+
+ ૦	0
+ ૧	1
+ ૨	2
+ ૩	3
+ ૪	4
+ ૫	5
+ ૬	6
+ ૭	7
+ ૮	8
+ ૯	9
+
+
+// combine dot consonants into a single character
+ਸ਼	ਸ਼
+ਲ਼	ਲ਼	// l.
+ਖ਼	ਖ਼	// x
+ਗ਼	ਗ਼	// Q
+ਜ਼	ਜ਼	// z
+ਫ਼	ਫ਼	// f
+
+// combine base vowel+vowel sign into single vowel characters
+ਅੈ	ਐ	// aI
+ਅਾ	ਆ	// aa
+ਅੌ	ਔ	// aU
+ੲੀ	ਈ	// ii
+ੲਿ	ਇ	// i
+ੲੇ	ਏ	// e
+ੳੁ	ਉ	// u
+ੳੂ	ਊ	// uu
+
+
+
+// Vowels
+
+.group ੳ
+        ੳ          u
+
+.group ੲ
+        ੲ          i
+
+
+.group ਅ
+        ਅ          ,V
+        ਅਂ         V~
+        ਅੰ         V~
+
+.group ਆ
+        ਆ          a
+        ਆਂ         a~
+        ਆੰ         a~
+
+.group ਇ
+        ਇ          I
+        ਇਂ         I~
+        ਇੰ         I~
+
+.group ਈ
+        ਈ          i
+        ਈਂ         i~
+        ਈੰ         i~
+
+.group ਉ
+        ਉ          U
+        ਉਂ         U~
+        ਉੰ         U~
+
+.group ਊ
+        ਊ          u
+        ਊਂ         u~
+        ਊੰ         u~
+
+.group ਏ
+        ਏ          e
+        ਏਂ         e~
+        ਏੰ         e~
+
+.group ਐ
+        ਐ          E
+        ਐਂ         E~
+        ਐੰ         E~
+
+.group ਓ
+        ਓ          o
+        ਓਂ         o~
+        ਓੰ         o~
+
+.group ਔ
+        ਔ          O
+        ਔਂ         O~
+        ਔੰ         O~
+
+.group ૠ
+        ૠ          r-
+
+
+// Vowel Signs
+
+.group ਾ
+        ਾ          a
+        ਾਂ         a~
+        ਾੰ         a~
+
+.group ਿ
+        ਿ          I
+        ਿਂ         I~
+        ਿੰ         I~
+
+.group ੀ
+        ੀ          i
+        ੀਂ         i~
+        ੀੰ         i~
+
+.group ੁ
+        ੁ          U
+        ੁਂ         U~
+        ੁੰ         U~
+
+.group ੂ
+        ੂ          u
+        ੂਂ         u~
+        ੂੰ         u~
+
+.group ੇ
+        ੇ          e
+        ੇਂ         e~
+        ੇੰ         e~
+
+.group ੈ
+        ੈ          E         // aI
+        ੈਂ         E~
+        ੈੰ         E~
+
+.group ੋ
+        ੋ          o
+        ੋਂ         o~
+        ੋੰ         o~
+
+.group ੌ
+        ੌ          O         // aU
+        ੌਂ         O~
+        ੌੰ         O~
+
+
+// Consonants ਕે
+
+.group ਕ
+        ਕ          kV        // inherent vowel
+        ਕ (B       k         // no inherent vowel if vowel or virama follows
+     @) ਕ (_       k         // omit inherent vowel at end of word
+     ੱ) ਕ          k:V
+     ੱ) ਕ (B       k:
+     ੱ) ਕ (_       k:
+
+.group ਖ
+        ਖ          k#V
+        ਖ (B       k#
+     @) ਖ (_       k#
+     ੱ) ਖ          k#:V
+     ੱ) ਖ (B       k#:
+     ੱ) ਖ (_       k#:
+
+.group ਗ
+        ਗ          gV
+        ਗ (B       g
+     @) ਗ (_       g
+     ੱ) ਗ          g:V
+     ੱ) ਗ (B       g:
+     ੱ) ਗ (_       g:
+
+.group ਘ
+        ਘ          g#V
+        ਘ (B       g#
+     @) ਘ (_       g#
+     _) ਘ          k+V       // high tone
+     _) ਘ (B       k+
+
+.group ਙ
+        ਙ          NV
+        ਙ (B       N
+     @) ਙ (_       N
+     ੱ) ਙ          N:V
+     ੱ) ਙ (B       N:
+     ੱ) ਙ (_       N:
+
+.group ਚ
+        ਚ          cV
+        ਚ (B       c
+     @) ਚ (_       c
+     ੱ) ਚ          c:V
+     ੱ) ਚ (B       c:
+     ੱ) ਚ (_       c:
+
+.group ਛ
+        ਛ          c#V
+        ਛ (B       c#
+     @) ਛ (_       c#
+     ੱ) ਛ          c#:V
+     ੱ) ਛ (B       c#:
+     ੱ) ਛ (_       c#:
+
+.group ਜ
+        ਜ          JV
+        ਜ (B       J
+     @) ਜ (_       J
+     ੱ) ਜ          J:V
+     ੱ) ਜ (B       J:
+     ੱ) ਜ (_       J:
+
+.group ਝ
+        ਝ          J#V
+        ਝ (B       J#
+     @) ਝ (_       J#
+     _) ਝ          c+V
+     _) ਝ (B       c+
+
+.group ਞ
+        ਞ          n^V
+        ਞ (B       n^
+     @) ਞ (_       n^
+     ੱ) ਞ          n^:V
+     ੱ) ਞ (B       n^:
+     ੱ) ਞ (_       n^:
+
+.group ਟ
+        ਟ          t.V
+        ਟ (B       t.
+     @) ਟ (_       t.
+     ੱ) ਟ          t.:V
+     ੱ) ਟ (B       t.:
+     ੱ) ਟ (_       t.:
+
+.group ਠ
+        ਠ          t.#V
+        ਠ (B       t.#
+     @) ਠ (_       t.#
+     ੱ) ਠ          t.#:V
+     ੱ) ਠ (B       t.#:
+     ੱ) ਠ (_       t.#:
+
+.group ਡ
+        ਡ          d.V
+        ਡ (B       d.
+     @) ਡ (_       d.
+     ੱ) ਡ          d.:V
+     ੱ) ਡ (B       d.:
+     ੱ) ਡ (_       d.:
+
+.group ਢ
+        ਢ          d.#V
+        ਢ (B       d.#
+     @) ਢ (_       d.#
+     _) ਢ          t.+V
+     _) ਢ (B       t.
+
+.group ਣ
+        ਣ          n.V
+        ਣ (B       n.
+     @) ਣ (_       n.
+     ੱ) ਣ          n.:V
+     ੱ) ਣ (B       n.:
+     ੱ) ਣ (_       n.:
+
+.group ਤ
+        ਤ          tV
+        ਤ (B       t
+     @) ਤ (_       t
+     ੱ) ਤ          t:V
+     ੱ) ਤ (B       t:
+     ੱ) ਤ (_       t:
+
+.group ਥ
+        ਥ          t#V
+        ਥ (B       t#
+     @) ਥ (_       t#
+     ੱ) ਥ          t#:V
+     ੱ) ਥ (B       t#:
+     ੱ) ਥ (_       t#:
+
+.group ਦ
+        ਦ          dV
+        ਦ (B       d
+     @) ਦ (_       d
+     ੱ) ਦ          d:V
+     ੱ) ਦ (B       d:
+     ੱ) ਦ (_       d:
+
+.group ਧ
+        ਧ          d#V
+        ਧ (B       d#
+     @) ਧ (_       d#
+     _) ਧ          t+V
+     _) ਧ (B       t+
+
+.group ਨ
+        ਨ          nV
+        ਨ (B       n
+     @) ਨ (_       n
+     ੱ) ਨ          n:V
+     ੱ) ਨ (B       n:
+     ੱ) ਨ (_       n:
+
+.group ਪ
+        ਪ          pV
+        ਪ (B       p
+     @) ਪ (_       p
+     ੱ) ਪ          p:V
+     ੱ) ਪ (B       p:
+     ੱ) ਪ (_       p:
+
+.group ਫ
+        ਫ          p#V
+        ਫ (B       p#
+     @) ਫ (_       p#
+     ੱ) ਫ          p#:V
+     ੱ) ਫ (B       p#:
+     ੱ) ਫ (_       p#:
+
+.group ਬ
+        ਬ          bV
+        ਬ (B       b
+     @) ਬ (_       b
+     ੱ) ਬ          b:V
+     ੱ) ਬ (B       b:
+     ੱ) ਬ (_       b:
+
+.group ਭ
+        ਭ          b#V
+        ਭ (B       b#
+     @) ਭ (_       b#
+     _) ਭ          p+V
+     _) ਭ (B       p+
+
+.group ਮ
+        ਮ          mV
+        ਮ (B       m
+     @) ਮ (_       m
+     ੱ) ਮ          m:V
+     ੱ) ਮ (B       m:
+     ੱ) ਮ (_       m:
+
+.group ਯ
+        ਯ          jV
+        ਯ (B       j
+     @) ਯ (_       j
+     ੱ) ਯ          j:V
+     ੱ) ਯ (B       j:
+     ੱ) ਯ (_       j:
+
+.group ਰ
+        ਰ          RV
+        ਰ (B       R
+     @) ਰ (_       R
+     ੱ) ਰ          R:V
+     ੱ) ਰ (B       R:
+     ੱ) ਰ (_       R:
+
+.group ਲ
+        ਲ          lV
+        ਲ (B       l
+     @) ਲ (_       l
+     ੱ) ਲ          l:V
+     ੱ) ਲ (B       l:
+     ੱ) ਲ (_       l:
+
+.group ਲ਼
+        ਲ਼          l.V
+        ਲ਼ (B       l.
+     @) ਲ਼ (_       l.
+
+.group ਵ
+        ਵ          vV
+        ਵ (B       v
+     @) ਵ (_       v
+     ੱ) ਵ          v:V
+     ੱ) ਵ (B       v:
+     ੱ) ਵ (_       v:
+
+.group ਸ਼
+        ਸ਼          SV
+        ਸ਼ (B       S
+     @) ਸ਼ (_       S
+     ੱ) ਸ਼          S:V
+     ੱ) ਸ਼ (B       S:
+     ੱ) ਸ਼ (_       S:
+
+.group ਸ
+        ਸ          sV
+        ਸ (B       s
+     @) ਸ (_       s
+     ੱ) ਸ          s:V
+     ੱ) ਸ (B       s:
+     ੱ) ਸ (_       s:
+
+.group ਹ
+        ਹ          HV
+        ਹ (B       H
+     @) ਹ (_       H
+
+.group ਖ਼
+        ਖ਼          xV
+        ਖ਼ (B       x
+     @) ਖ਼ (_       x
+
+.group ਗ਼
+        ਗ਼          QV
+        ਗ਼ (B       Q
+     @) ਗ਼ (_       Q
+
+.group ਜ਼
+        ਜ਼          zV
+        ਜ਼ (B       z
+     @) ਜ਼ (_       z
+
+.group ੜ
+        ੜ          r.V
+        ੜ (B       r.
+     @) ੜ (_       r.
+
+.group ਫ਼
+        ਫ਼          fV
+        ਫ਼ (B       f
+     @) ਫ਼ (_       f
+
+
+.group ੍
+        ੍                    // virama
+
+.group ਼
+        ਼                    // nukta
+
+.group ੱ
+        ੱ                    // addak
+
+.group ਂ
+        ਂ          N         // bindi
+
+.group ੰ
+        ੰ          n         // tippi
+
+.group ਃ
+        ਃ          h
+
+.group
+        $          dOlVR     // TEST
+        %          pVsEnt    // TEST

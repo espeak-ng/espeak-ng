@@ -470,12 +470,12 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			}
 
 			ix = 0;
-			if(isdigit(*p))
+			if(IsDigit09(*p))
 			{
 				ix += (*p-'0');
 				p++;
 			}
-			if(isdigit(*p))
+			if(IsDigit09(*p))
 			{
 				ix = ix*10 + (*p-'0');
 				p++;
@@ -542,7 +542,7 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 		case 1:
 			if((c == '-') && multiple_words)
 			{
-				if(isdigit(word[0]))
+				if(IsDigit09(word[0]))
 				{
 					multiple_numeric_hyphen = 1;
 				}
@@ -1156,7 +1156,7 @@ static void copy_rule_string(char *string, int &state)
 							sxflags |= SUFX_M;
 							break;
 						default:
-							if(isdigit(c))
+							if(IsDigit09(c))
 								value = (value*10) + (c - '0');
 							break;
 						}
@@ -1575,7 +1575,7 @@ static int compile_lettergroup(char *input, FILE *f_out)
 	char item_length[N_LETTERGP_ITEMS];
 
 	p = input;
-	if(!isdigit(p[0]) || !isdigit(p[1]))
+	if(!IsDigit09(p[0]) || !IsDigit09(p[1]))
 	{
 		fprintf(f_log,"%5d: Expected 2 digits after '.L'\n",linenum);
 		error_count++;

@@ -16,22 +16,22 @@ _9	n'Oj
 
 _10	d'OS
 _11	'&garo
-_12	b'aro
-_13	t'ero
-_14	tS'owddo
-_15	p'Onero
-_16	S'olo
-_17	S'Otero
-_18	'at.#aro 
+_12	b'arO
+_13	t'erO
+_14	tS'owddO
+_15	p'OnerO
+_16	S'olO
+_17	S'OterO
+_18	'at.#arO 
 _19	'uniS
 
-_20	b'iS   //  ??
+_20	k'uri    // or b'iS   ??
 _21	'ekuS
 _22	b'ajS
 _23	t'ejS
 _24	tS'ObbiS
 _25	p'O~tSiS
-_26	tS#'ObbiS
+_26	tSh'ObbiS
 _27	S'ataS
 _28	'at.#aS
 _29	'untriS
@@ -108,14 +108,17 @@ _dpt	dOsomik
 ধ	d#O
 ন	d'ontennO
 প	pO
-ফ	p#O
+ফ	fO      // or [p#O] ?
 ব	bO
 ভ	b#O
 ম	mO
 য়	Oj
 য	ontostedZ'O
 র	rO
-ঢ়	hrO
+ড়       r.O
+ড়	r.O     // (d. + nukta)
+ঢ়	hr.O
+ঢ়	hr.O    // (d#. + nukta)
 ল	lO
 শ	taleboS:O
 ষ	mud#en:oS:O
@@ -124,8 +127,8 @@ _dpt	dOsomik
 ৎ	kh'Ond.otO
 
 // full vowels
-অ	SOro'O
-আ	SOro'a
+অ	O
+আ	a
 ই	hrOS:o'i
 ঈ	dirg#o'i
 উ	hrOS:o'u

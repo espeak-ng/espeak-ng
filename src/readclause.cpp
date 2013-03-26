@@ -1287,10 +1287,10 @@ static int attrnumber(const wchar_t *pw, int default_value, int type)
 {//==================================================================
 	int value = 0;
 
-	if((pw == NULL) || !isdigit(*pw))
+	if((pw == NULL) || !IsDigit09(*pw))
 		return(default_value);
 
-	while(isdigit(*pw))
+	while(IsDigit09(*pw))
 	{
 		value = value*10 + *pw++ - '0';
 	}

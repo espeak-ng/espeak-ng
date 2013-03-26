@@ -228,30 +228,49 @@ where the <code>ELSE</code> and multiple <code>ELSE</code> parts are optional.
 <p>
 Multiple conditions may be joined with <code>AND</code> or <code>OR</code>, but not a mixture of <code>AND</code>s and <code>OR</code>s.
 <p>
+A condition may be preceded by <code>NOT</code>.  For example:
+<pre>
+  IF &lt;condition&gt; AND NOT &lt;condition&gt; THEN
+    &lt;statements&gt;
+  ENDIF
+</pre>
+<p>
 <strong>Condition</strong>
 Can be:
 <ul>
 <dl>
+<dt>thisPh(&lt;attribute&gt;)
+<dd>Test this current phoneme
+<p>
 <dt>prevPh(&lt;attribute&gt;)
 <dd>Test the previous phoneme
 <p>
 <dt>prevPhW(&lt;attribute&gt;)
 <dd>Test the previous phoneme, but only within the same word. Returns false if there is no previous phoneme in the word.
 <p>
-<dt>thisPh(&lt;attribute&gt;)
-<dd>Test this current phoneme
+<dt>prev2PhW(&lt;attribute&gt;)
+<dd>Test the phoneme before the previous phoneme, but only within the same word. Returns false if it is not in this word.
 <p>
 <dt>nextPh(&lt;attribute&gt;)
 <dd>Test the following phoneme
 <p>
-<dt>nextPhW(&lt;attribute&gt;)
-<dd>Test the following phoneme, but only within the same word.  Returns false if there is no following phoneme in the word.
-<p>
 <dt>next2Ph(&lt;attribute&gt;)
 <dd>Test the phoneme after the next phoneme.
 <p>
+<dt>nextPhW(&lt;attribute&gt;)
+<dd>Test the next phoneme, but only within the same word.  Returns false if there is no following phoneme in the word.
+<p>
+<dt>next2PhW(&lt;attribute&gt;)
+<dd>Test the phoneme after the next phoneme, but only within the same word.  Returns false if not found before the word end.
+<p>
+<dt>next3PhW(&lt;attribute&gt;)
+<dd>Test the third phoneme after the current phoneme, but only within the same word.  Returns false if not found before the word end.
+<p>
 <dt>nextVowel(&lt;attribute&gt;)
 <dd>Test the next vowel after the current phoneme, but only within the same word.  Returns false if there is none.
+<p>
+<dt>prevVowel(&lt;attribute&gt;)
+<dd>Test the previous vowel before the current phoneme, but only within the same word.  Returns false if there is none.
 <p>
 <dt>PreVoicing()
 <dd>This is used as part of the instructions for voiced stop consonants (eg. [d] [g]).  If true then produce a voiced murmur before the stop.
@@ -263,6 +282,7 @@ Can be:
 <strong>Attributes</strong>
 <ul>
 Note: Additional attributes could be added to eSpeak if needed.
+<p>
 <dl>
 <dt>&lt;phoneme name&gt;
 <dd>True if the phoneme has this phoneme name.
@@ -294,8 +314,10 @@ Note: Additional attributes could be added to eSpeak if needed.
 <dt>isWordEnd
 <dd>True if this is the final phoneme in a word.
 <p>
+<dt>isFirstVowel
+<dt>isSecondVowel
 <dt>isFinalVowel
-<dd>True if this is the last vowel in a word.
+<dd>True if this is the First, Second, or Last vowel in a word.
 <p>
 <dt>isAfterStress
 <dd>True if this phoneme is after the stressed vowel in a word.

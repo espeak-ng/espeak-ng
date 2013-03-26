@@ -1,0 +1,182 @@
+
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Greenlandic
+
+
+// don't stress a vowel before these consonant clusters
+.L01  ng nng
+
+
+.group a
+        a        a
+	a (CC    'a
+	a (L01   a
+
+	ak (_	 &g
+	ap (_	 &p
+	at (_	 &t
+
+	aa	 a:
+        aar      a:
+	aaq	 a:
+
+	ai (_    aI
+
+
+
+.group b
+        b        b
+
+
+.group c
+        c        k
+        c (e     s
+        c (i     s
+
+
+.group d
+        d        d
+
+
+.group e
+        e        E
+        e (CC    'E   // a vowel before a consonant cluster is stressed
+        e (L01   E    // ... except for these consonants
+
+        ee       E:
+
+
+.group f
+        f        f
+        ff       f:
+
+
+.group g
+        g        Q
+        gg       x:
+        gg (i    C:
+
+
+.group h
+        h         h
+        hh        h:
+
+
+.group i
+        i        i
+        i (CC    'i
+        i (L01   i
+        ii       i:
+
+
+.group j
+        j        j
+        jj       j:
+
+
+.group k
+        k        k
+        kk       k:
+
+
+.group l
+        l        l
+        ll       l#
+
+
+.group m
+        m        m
+        mm       m:
+
+
+.group n
+        n        n
+	na	 na
+	naa      na:
+        nn       n:
+        ng       N
+        nng      N:
+
+
+.group o
+        o        o
+        o (CC    'o
+        o (L01   o
+        oo       o:
+
+
+.group p
+        p        p
+        pp       p:
+
+
+.group q
+        q        q
+        qq       qq
+
+
+.group r
+        r        r
+        rr       X:
+        rl	 rl#
+
+.group s
+        s        s
+        ss       s:
+
+
+.group t
+	t        t
+	t (i	 ts
+     i) t (_     tS;
+	tt       t:
+	tl       tl#
+	ts       ts
+
+
+.group u
+	u        u
+	u (CC    'u
+	u (L01   u
+	uu       u:
+
+
+.group v
+	v        v
+	vv       v:
+
+
+.group w
+	w        w
+
+
+.group x
+	x        ks
+
+
+.group y
+	y        j
+     K) y (K     i     // not before or after a vowel
+     K) y (CC    'i
+     K) y (L01   i
+
+
+.group z
+        z        z
+
+
+.group æ
+        æ        &
+
+
+.group ø
+        ø        W
+
+
+.group å
+        å        O
+
+
+.group
+        $        d'olar
+
