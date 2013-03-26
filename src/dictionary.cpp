@@ -607,7 +607,7 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 				break;   // # is subscript-h, but only for consonants
 
 			// ignore digits after the first character
-			if(!first && isdigit(c))
+			if(!first && IsDigit09(c))
 				continue;
 
 			if((c >= 0x20) && (c < 128))
@@ -3362,7 +3362,7 @@ int LookupDictList(Translator *tr, char **wordptr, char *ph_out, unsigned int *f
 		if(((c = *word1++)==0) || (c == ' '))
 			break;
 
-		if((c=='.') && (length > 0) && (isdigit(word[length-1])))
+		if((c=='.') && (length > 0) && (IsDigit09(word[length-1])))
 			break;  // needed for lang=hu, eg. "december 2.-ig"
 
 		word[length] = c;

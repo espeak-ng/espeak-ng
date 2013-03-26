@@ -975,6 +975,7 @@ SetLengthMods(tr,3);  // all equal
 		break;
 
 	case L('i','d'):   // Indonesian
+	case L('m','s'):   // Malay
 		{
 			static const short stress_lengths_id[8] = {160, 200,  180, 180,  0, 0,  220, 240};
 			static const unsigned char stress_amps_id[8] = {16,18, 18,18, 20,22, 22,21 };
@@ -1312,7 +1313,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 			tr->langopts.stress_flags = S_FINAL_DIM_ONLY | S_FINAL_NO_2;
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
-
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words.  Need to allow "bw'" prefix
 			tr->langopts.numbers = NUM_HUNDRED_AND | NUM_AND_UNITS | NUM_DFRACTION_2 | NUM_AND_HUNDRED;
 			tr->langopts.numbers2 = 0x200;  // say "thousands" before its number
 		}
@@ -1429,6 +1430,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.vowel_pause = 1;
 			tr->langopts.stress_rule = STRESSPOSN_2R;
 			tr->langopts.stress_flags =  S_FINAL_DIM_ONLY | S_FINAL_NO_2;
+ 			tr->langopts.max_initial_consonants = 4; // for example: mwngi
+
 
 			tr->langopts.numbers = NUM_AND_UNITS | NUM_HUNDRED_AND | NUM_SINGLE_AND | NUM_OMIT_1_HUNDRED;
 			tr->langopts.break_numbers = 0x49249268;  // for languages which have numbers for 100,000 and 1,000,000

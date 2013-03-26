@@ -337,7 +337,7 @@ la	$u
 lo	$u
 las	$u
 los	$u
-//se	$u
+se	$u
 
 ?2	este	$u+	$nounf	'estSi       // this
 ?2	estes	$u+	$nounf	'estSis       // these
@@ -637,7 +637,6 @@ acertos		$alt2
 acordo		$alt $verb
 acervo		$alt2
 adepto		$alt
-adereço		$alt2
 adore		$alt
 adorno		$alt  $verb
 albatrozes	$alt
@@ -654,8 +653,8 @@ apego		$alt2 $noun
 apelo		$alt  $verb
 aposto		$alt  $verb
 aperto		$alt2 $noun
-apoio		$alt2 $noun
-aprovo		$alt
+apneia		$alt
+apoio		$alt $verb
 arredores	$alt
 arremesso	$alt2 $noun
 arroz		$alt2
@@ -668,6 +667,8 @@ atrozes		$alt
 autora		$alt2
 avesso		$alt2
 axé		aSE
+azeda		$alt $verb
+azedo		$alt $verb
 baqueta		$alt2
 beco		$alt2
 belo		$alt
@@ -675,7 +676,6 @@ besta		$alt2
 bilhete		$alt2
 boca		$alt2
 bochecha	$alt2
-boio		$alt
 bojo		$alt2
 boleia		$alt
 bolero		$alt
@@ -683,13 +683,14 @@ bolo		$alt2
 bolo		$alt  $verb
 borboleta	$alt2
 bordo		$alt
+bosque		$alt
 boto		$alt2 $noun
 bromelha	$alt
-cabeça		$alt2
 cabresto	$alt2
 cacete		$alt2
 cachorra	$alt2
 caderneta	$alt2
+cadete		$alt2
 camiseta	$alt2
 cantora		$alt2
 capacete	$alt2
@@ -704,6 +705,7 @@ cateto		$alt2
 catorze		$alt2
 cebola		$alt2
 cefaleia	$alt
+centopeia		$alt
 cerca		$alt
 cerca		$alt2 $noun
 cerco		$alt $verb
@@ -728,7 +730,7 @@ colher		$alt $noun
 colheres	$alt $noun
 colmeia		$alt
 colore		$alt
-começo		$alt2 $noun
+começo		$alt $verb
 comodo		$alt2
 concerto	$alt2 $noun
 concertos	$alt2
@@ -758,12 +760,14 @@ desemprego	$alt2
 desemprego	$alt $verb
 desespero	$alt2 $noun
 desfecho	$alt2
+desmantelo		$alt $verb
 desprezo	$alt2 $noun
 desse		$alt2
 desse		$alt $verb
 deste		$alt2
 deste		$alt $verb
 desterro	$alt2
+destroem		$alt
 deveras		$alt
 dez		$alt
 diarreia	$alt
@@ -779,11 +783,11 @@ elo		$alt
 emprego		$alt2 $noun
 empregos	$alt2
 encosto		$alt  $verb
-endereço	$alt2
 endereço	$alt  $verb
 enforco		$alt
 engordo		$alt
 enredo		$alt  $verb
+enrosco		$alt $verb
 enterro		$alt2 $noun
 enumerem	$alt
 envelope	$alt
@@ -809,20 +813,23 @@ espiroqueta	$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
+estilete		$alt2
 estrela		$alt2
 estrofe		$alt
 estorno		$alt  $verb
 estorvo		$alt  $verb
 etiqueta	$alt2
 europa		$alt
+europeia		$alt
 exagero		$alt $verb
 explore		$alt
 faceta		$alt2
+fantoche		$alt
 farelo		$alt
 farofa		$alt
 febre		$alt
-feitora		$alt2
 fera		$alt
+feitora		$alt2
 ferozes		$alt
 fezes		$alt
 ?1 fixe		fiSy
@@ -867,11 +874,13 @@ ideia		$alt
 interesse	$alt2 $noun
 jogo		$alt2 $noun
 joguete		$alt2
+lagosta		$alt2
 lambreta	$alt2
 lebre		$alt
 lembrete	$alt2
 leste		$alt2 $verb
 lopes		$alt
+macete		$alt2
 maior		$alt
 maleta		$alt2
 marcelo		$alt
@@ -894,6 +903,7 @@ minueto		$alt2
 miolo		$alt2
 miolos		$alt
 moeda		$alt
+mofo	$alt $verb
 molho		$alt2 $noun
 monera		$alt
 morcego		$alt2
@@ -901,10 +911,10 @@ morda		$alt2
 moreia		$alt
 mortos		$alt
 motora		$alt2
-mulher		$alt
 mui		mwi
 muito		mw'iNtU	// -s is included as a suffix
 muita		mw'iNt&
+mulher		$alt
 mulheres	$alt
 mureta		$alt2
 mutreta		$alt2
@@ -917,11 +927,13 @@ obstetra	$alt
 odisseia	$alt
 onu		$1
 olho		$alt2 $noun
+onomatopeia		$alt
 opereta		$alt2
 ordens		$alt
 osso		$alt2
 ossos		$alt
 ostra		$alt2
+ovelha		$alt2
 ovos		$alt
 pachorra	$alt2
 paexa		paeSa
@@ -937,6 +949,7 @@ pastora		$alt2
 pedra		$alt
 pela		$alt $verb
 pelego		$alt2
+pela		$alt $verb
 pelo		$alt  $verb
 peso		$alt $verb
 piloto		$alt2 $noun
@@ -948,32 +961,32 @@ plateia		$alt
 plebeia		$alt
 polca		$alt
 porcos		$alt
-porrete		$alt2
 porra		$alt2
+porrete		$alt2
 porto		$alt2
 portos		$alt
 pose		$alt2
 povos		$alt
 poxa		p'oS&
 primavera	$alt
-provo		$alt
+prosopopeia		$alt
 quarteto	$alt2
 queda		$alt
 quede		$alt2
 quinteto	$alt2
-recomeço	$alt2 $noun
+raposa		$alt2
+recomeço	$alt $verb
 recordo		$alt
 recorto		$alt
 rede		$alt2
 redor		$alt
 reembolso	$alt  $verb
-reforços	$alt
 reforço		$alt  $verb
+reforços	$alt
 refresco	$alt  $verb
 reitora		$alt2
 relevo		$alt2 $noun
 remorso		$alt
-reprovo		$alt
 retorno		$alt $verb
 rixa		x'iS&
 rocha		$alt
@@ -984,7 +997,7 @@ rota		$alt2
 rota		$alt $noun
 rumores		$alt2
 saleta		$alt2
-sarjeta		$alt
+sarjeta		$alt2
 seborreia	$alt
 seca		$alt2 $noun
 secas		$alt2
