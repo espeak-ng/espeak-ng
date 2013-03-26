@@ -6,7 +6,7 @@ DATADIR=${PREFIX}/share/espeak-data
 
 # remove -fno-exceptions  if it causes problems with stdio library on some platforms (ARM)
 
-RELEASE = 1.46
+RELEASE = 1.47
 SPEAK = speak
 ESPEAK = espeak
 ESPEAKEDIT = espeakedit

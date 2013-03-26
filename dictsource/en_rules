@@ -1190,6 +1190,9 @@
             au (_        aU
          _) auch         %O:x
             aud (_       'O:d
+            audio        O:dI2oU
+         _) aud (iolo    O:d
+         _) aud (iom     O:d     
             augh         O:
          l) augh         aaf
         sl) augh         O:
@@ -3824,7 +3827,8 @@
             nk           Nk
 ?7          nk           nk      // ?? Scottish
             n (kn        n
-            n't          nt
+            n't          @-nt
+         A) n't          nt
       E)    n (_         @n
          B) n (_         @n
          g) n (ing+      n
@@ -4311,6 +4315,7 @@
          d) or (_        o@
         _f) or (@        O@
         _f) ore (A       O@
+        _f) ore (kn      O@,
          f) or (k        O@
         _f) or (s@       %O@
         ch) or (d        O@
@@ -4844,7 +4849,7 @@
             pro (vid     pr@
             pro (viden   pr0
             pro (vis     pr@
-            pro (voc     pr@
+            pro (voc     pr%0#
             pro (vok     pr@
             pro (sec     pr0
             pro (fil     proU
@@ -5248,7 +5253,7 @@
             te (rrest    t2@
          r) tga (g       gI
          @) t (ia        S
-         s) t (l         ?
+         s) t (l         
             to (morr     t@
          _) to (nn       tV
             t (ooth      t2
@@ -5403,6 +5408,8 @@
          s) uag          weIdZ
         @g) ua (ge       wI
             u (al_       ju:
+         g) u (al_       w
+         n) u (al_       ju:
          g) ua (rA       a
          g) uar (d       A@
             uary (_      ju:@ri
@@ -6037,6 +6044,7 @@
 	χ	tS'aI_
 	ψ	ps'aI_
 	ω	'oUmIg@_
+?3	ω	oUm'eIg@_
 	ώ	'oUmIg@_
 	ό	'oUmIkr0n_
 

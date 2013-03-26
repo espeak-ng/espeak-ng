@@ -1,6 +1,5 @@
 
-// CR1 doesn't like same phonemes twice
-0  e   E     5  e  _
+// ID1 and MS1 don't like same phonemes twice
 0  s   s     5  s  _
 0  ?   k     5  k  _
 0  t   t     5  t  _
@@ -8,6 +7,10 @@
 0  n   n     5  n  _
 0  p   p     5  p  _
 0  l/  l     5  l  _
+0  h   h     5  h  _
+0  k   k     5  k  _
+0  z   z     5  z  _
+0  D   D     5  z  _
 
 0  l/2 NULL  0  l
 0  l/ NULL   0  l
@@ -28,10 +31,13 @@
 
 0  a   NULL  0  V
 0  E   NULL  0  e
+0  E2  NULL  0  e
 0  i   NULL  0  I
 0  o   NULL  0  Q
 0  O   NULL  0  Q
 0  u   NULL  0  U
+// 'id1' has phonemes OI aI aU
+
 
 0  n^  NULL  0  nY
 0  ?   NULL  0  k
@@ -40,3 +46,35 @@
 0  R   NULL  0  r
 0  x   NULL  0  h
 
+// some English phonemes
+0  A:  NULL  60 V  r
+0  A@  NULL  60 V  r
+0  eI  NULL  0  e
+0  oU  NULL  60  Q  U
+0  u:  NULL  0  U
+0  i:  NULL  0  I
+0  I2  NULL  0  I
+0  I#  NULL  0  I
+0  3   NULL  0  @
+0  3:  NULL  0  @
+0  e@  NULL  0  e
+0  i@  NULL  60 I  @
+0  i@3 NULL  60 I  r
+0  o@  NULL  60 Q  @
+0  O@  NULL  60 Q  @
+0  O:  NULL  80 Q  @
+0  U@  NULL  60 U  @
+0  0   NULL  0  Q
+0  a#  NULL  0  @
+0  aa  NULL  0  V
+0  @L  NULL  50 @  l
+0  aI  @     5  aI _
+0  aI  3     5  aI _
+0  aU  @     5  aU _
+0  aI@ NULL  75 V  @
+0  aI3 NULL  75 V  r
+0  aU@ NULL  75 V  @
+
+0  Z   NULL  60 z j
+0  T   NULL  0  t
+0  D   NULL  0  z

@@ -8,28 +8,64 @@
 import sys
 import os
 
+voices = set()
 dictionaries = {}
+
+# Map voice names to dictionaries when these do not match.
+special_voices = {
+	'zh-yue': 'zhy',
+}
+
+def find_voices(path):
+	for filename in os.listdir(path):
+		voice_path = os.path.join(path, filename)
+		if os.path.isdir(voice_path):
+			if not filename in ['!v', 'mb']:
+				find_voices(voice_path)
+		else:
+			if filename in special_voices.keys():
+				voices.add(special_voices[filename])
+			else:
+				voices.add(filename)
+
+find_voices('espeak-data/voices')
 
 for filename in os.listdir('dictsource'):
 	if filename.endswith('_rules') or filename.endswith('_list') or filename.endswith('_listx'):
 		dic, cat = filename.split('_')
-		if not dic in dictionaries.keys():
-			dictionaries[dic] = []
-		dictionaries[dic].append('dictsource/%s' % filename)
+		if dic in voices:
+			if not dic in dictionaries.keys():
+				dictionaries[dic] = []
+			dictionaries[dic].append('dictsource/%s' % filename)
 
-print '##### dictionaries:'
-print
-print 'dictionaries: \\'
-for n, name in enumerate(sorted(dictionaries.keys())):
-	if not name in ['bo']: # espeak fails to read these voices
-		if n == len(dictionaries.keys()) - 1:
-			print '\tespeak-data/%s_dict' % name
-		else:
-			print '\tespeak-data/%s_dict \\' % name
-for name, files in sorted(dictionaries.items()):
-	print
-	print '%s: espeak-data/%s_dict' % (name, name)
-	print 'dictsource/%s_extra:' % name
-	print '\ttouch dictsource/%s_extra' % name
-	print 'espeak-data/%s_dict: src/espeak espeak-data/phontab %s dictsource/%s_extra' % (name, ' '.join(sorted(files)), name)
-	print '\tcd dictsource && ../src/espeak --compile=%s && cd ..' % name
+def write_dictionary_make_rules(f):
+	f.write('##### dictionaries:\n')
+	f.write('\n')
+	f.write('dictionaries: \\\n')
+	for n, name in enumerate(sorted(dictionaries.keys())):
+		if not name in ['bo']: # espeak fails to read these voices
+			if n == len(dictionaries.keys()) - 1:
+				f.write('\tespeak-data/%s_dict\n' % name)
+			else:
+				f.write('\tespeak-data/%s_dict \\\n' % name)
+	for name, files in sorted(dictionaries.items()):
+		f.write('\n')
+		f.write('%s: espeak-data/%s_dict\n' % (name, name))
+		f.write('dictsource/%s_extra:\n' % name)
+		f.write('\ttouch dictsource/%s_extra\n' % name)
+		f.write('espeak-data/%s_dict: src/espeak espeak-data/phontab %s dictsource/%s_extra\n' % (name, ' '.join(sorted(files)), name))
+		f.write('\tcd dictsource && ../src/espeak --compile=%s && cd ..\n' % name)
+
+try:
+	filename = sys.argv[1]
+except:
+	filename = None
+
+if filename:
+	with open(filename, 'r') as f:
+		prelude = f.read().split('##### dictionaries:\n')[0]
+	with open(filename, 'w') as f:
+		f.write(prelude)
+		write_dictionary_make_rules(f)
+else:
+	write_dictionary_make_rules(sys.stdout)

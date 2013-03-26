@@ -6,7 +6,7 @@
 
 phoneme @
   vowel  starttype #a  endtype #a
-  length 130
+  length 150
   FMT(vowel/@_low)
 endphoneme
 
@@ -14,7 +14,7 @@ endphoneme
 phoneme a
   vowel long starttype #a endtype #a
   ipa ɐ
-  length 130
+  length 150
   ChangeIfNotStressed(@)
   FMT(vowel/a#_2)
 endphoneme
@@ -29,42 +29,42 @@ endphoneme
 
 phoneme &
   vowel  starttype #e  endtype #e
-  length 130
+  length 150
   FMT(vowel/ee_6)
 endphoneme
 
 
 phoneme &:
   vowel  starttype #e  endtype #e
-  length 270
+  length 300
   FMT(vowel/ee_6)
 endphoneme
 
 
 phoneme e
   vowel  starttype #e  endtype #e
-  length 130
+  length 150
   FMT(vowel/e_mid)
 endphoneme
 
 
 phoneme e:
   vowel  starttype #e  endtype #e
-  length 270
+  length 300
   FMT(vowel/e_mid2)
 endphoneme
 
 
 phoneme i
   vowel  starttype #i  endtype #i
-  length 130
+  length 150
   FMT(vowel/i_6)
 endphoneme
 
 
 phoneme i:
   vowel  starttype #i  endtype #i
-  length 270
+  length 300
   FMT(vowel/i)
 endphoneme
 
@@ -72,7 +72,7 @@ endphoneme
 
 phoneme o
   vowel  starttype #o  endtype #o
-  length 130
+  length 150
   FMT(vowel/oo_1)
 endphoneme
 
@@ -86,13 +86,13 @@ endphoneme
 
 phoneme u
   vowel  starttype #u  endtype #u
-  length 110
+  length 130
   FMT(vowel/u_6)
 endphoneme
 
 phoneme u:
   vowel  starttype #u  endtype #u
-  length 280
+  length 300
   FMT(vowel/u_6)
 endphoneme
 
@@ -100,13 +100,13 @@ endphoneme
 
 phoneme aI
   vowel long starttype #a endtype #i
-  length 280
+  length 300
   FMT(vdiph/ai_8)
 endphoneme
 
 phoneme aU
   vowel long starttype #a endtype #u
-  length 270
+  length 300
   FMT(vdiph/au)
 endphoneme
 
@@ -130,21 +130,26 @@ endphoneme
 // temporary, map [n#] etc. to [n] etc.
 
 phoneme m#
-  import_phoneme base/m
+  ipa U+1D50
+  CALL base/m
 endphoneme
 
 phoneme n#
-  import_phoneme base/n
+  ipa U+207F
+  CALL base/n
 endphoneme
 
 phoneme n.#
-  import_phoneme base/n.
+  ipa U+1DAF
+  CALL base/n.
 endphoneme
 
 phoneme n^#
-  import_phoneme base/n^
+  ipa U+1DAE
+  CALL base/n^
 endphoneme
 
 phoneme N#
-  import_phoneme base/N
+  ipa U+1D51
+  CALL base/N
 endphoneme

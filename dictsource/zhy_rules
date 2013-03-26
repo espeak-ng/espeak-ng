@@ -3,7 +3,7 @@
 // condition ?1   Speak English letters as English words
 // condition ?2   Speak English letter as jyutping romanisation
 
-
+//voice=zh-yue    // to find the voice for this dictionary
 
 .group a
 ?1        a        _^_EN

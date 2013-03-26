@@ -141,17 +141,15 @@ android: android/res/raw/espeakdata.zip android/res/raw/espeakdata_version
 
 dictionaries: src/espeak \
 	espeak-data/af_dict \
-	espeak-data/ak_dict \
 	espeak-data/am_dict \
 	espeak-data/an_dict \
-	espeak-data/az_dict \
 	espeak-data/bg_dict \
+	espeak-data/bn_dict \
 	espeak-data/ca_dict \
 	espeak-data/cs_dict \
 	espeak-data/cy_dict \
 	espeak-data/da_dict \
 	espeak-data/de_dict \
-	espeak-data/dv_dict \
 	espeak-data/el_dict \
 	espeak-data/en_dict \
 	espeak-data/eo_dict \
@@ -162,9 +160,7 @@ dictionaries: src/espeak \
 	espeak-data/fr_dict \
 	espeak-data/ga_dict \
 	espeak-data/grc_dict \
-	espeak-data/hbs_dict \
 	espeak-data/hi_dict \
-	espeak-data/ht_dict \
 	espeak-data/hu_dict \
 	espeak-data/hy_dict \
 	espeak-data/id_dict \
@@ -172,7 +168,6 @@ dictionaries: src/espeak \
 	espeak-data/it_dict \
 	espeak-data/jbo_dict \
 	espeak-data/ka_dict \
-	espeak-data/kk_dict \
 	espeak-data/kl_dict \
 	espeak-data/kn_dict \
 	espeak-data/ko_dict \
@@ -182,20 +177,17 @@ dictionaries: src/espeak \
 	espeak-data/lv_dict \
 	espeak-data/mk_dict \
 	espeak-data/ml_dict \
-	espeak-data/mt_dict \
+	espeak-data/ms_dict \
 	espeak-data/nci_dict \
 	espeak-data/ne_dict \
 	espeak-data/nl_dict \
 	espeak-data/no_dict \
-	espeak-data/nso_dict \
 	espeak-data/pa_dict \
 	espeak-data/pap_dict \
 	espeak-data/pl_dict \
-	espeak-data/prs_dict \
 	espeak-data/pt_dict \
 	espeak-data/ro_dict \
 	espeak-data/ru_dict \
-	espeak-data/rw_dict \
 	espeak-data/si_dict \
 	espeak-data/sk_dict \
 	espeak-data/sl_dict \
@@ -203,13 +195,9 @@ dictionaries: src/espeak \
 	espeak-data/sv_dict \
 	espeak-data/sw_dict \
 	espeak-data/ta_dict \
-	espeak-data/te_dict \
-	espeak-data/tn_dict \
 	espeak-data/tr_dict \
-	espeak-data/tt_dict \
 	espeak-data/ur_dict \
 	espeak-data/vi_dict \
-	espeak-data/wo_dict \
 	espeak-data/zh_dict \
 	espeak-data/zhy_dict
 
@@ -218,12 +206,6 @@ dictsource/af_extra:
 	touch dictsource/af_extra
 espeak-data/af_dict: src/espeak espeak-data/phontab dictsource/af_list dictsource/af_rules dictsource/af_extra
 	cd dictsource && ../src/espeak --compile=af && cd ..
-
-ak: espeak-data/ak_dict
-dictsource/ak_extra:
-	touch dictsource/ak_extra
-espeak-data/ak_dict: src/espeak espeak-data/phontab dictsource/ak_rules dictsource/ak_extra
-	cd dictsource && ../src/espeak --compile=ak && cd ..
 
 am: espeak-data/am_dict
 dictsource/am_extra:
@@ -237,12 +219,6 @@ dictsource/an_extra:
 espeak-data/an_dict: src/espeak espeak-data/phontab dictsource/an_list dictsource/an_rules dictsource/an_extra
 	cd dictsource && ../src/espeak --compile=an && cd ..
 
-az: espeak-data/az_dict
-dictsource/az_extra:
-	touch dictsource/az_extra
-espeak-data/az_dict: src/espeak espeak-data/phontab dictsource/az_list dictsource/az_rules dictsource/az_extra
-	cd dictsource && ../src/espeak --compile=az && cd ..
-
 bg: espeak-data/bg_dict
 dictsource/bg_extra:
 	touch dictsource/bg_extra
@@ -254,12 +230,6 @@ dictsource/bn_extra:
 	touch dictsource/bn_extra
 espeak-data/bn_dict: src/espeak espeak-data/phontab dictsource/bn_list dictsource/bn_rules dictsource/bn_extra
 	cd dictsource && ../src/espeak --compile=bn && cd ..
-
-bo: espeak-data/bo_dict
-dictsource/bo_extra:
-	touch dictsource/bo_extra
-espeak-data/bo_dict: src/espeak espeak-data/phontab dictsource/bo_rules dictsource/bo_extra
-	cd dictsource && ../src/espeak --compile=bo && cd ..
 
 ca: espeak-data/ca_dict
 dictsource/ca_extra:
@@ -290,12 +260,6 @@ dictsource/de_extra:
 	touch dictsource/de_extra
 espeak-data/de_dict: src/espeak espeak-data/phontab dictsource/de_list dictsource/de_rules dictsource/de_extra
 	cd dictsource && ../src/espeak --compile=de && cd ..
-
-dv: espeak-data/dv_dict
-dictsource/dv_extra:
-	touch dictsource/dv_extra
-espeak-data/dv_dict: src/espeak espeak-data/phontab dictsource/dv_list dictsource/dv_rules dictsource/dv_extra
-	cd dictsource && ../src/espeak --compile=dv && cd ..
 
 el: espeak-data/el_dict
 dictsource/el_extra:
@@ -357,23 +321,11 @@ dictsource/grc_extra:
 espeak-data/grc_dict: src/espeak espeak-data/phontab dictsource/grc_list dictsource/grc_rules dictsource/grc_extra
 	cd dictsource && ../src/espeak --compile=grc && cd ..
 
-hbs: espeak-data/hbs_dict
-dictsource/hbs_extra:
-	touch dictsource/hbs_extra
-espeak-data/hbs_dict: src/espeak espeak-data/phontab dictsource/hbs_list dictsource/hbs_rules dictsource/hbs_extra
-	cd dictsource && ../src/espeak --compile=hbs && cd ..
-
 hi: espeak-data/hi_dict
 dictsource/hi_extra:
 	touch dictsource/hi_extra
 espeak-data/hi_dict: src/espeak espeak-data/phontab dictsource/hi_list dictsource/hi_rules dictsource/hi_extra
 	cd dictsource && ../src/espeak --compile=hi && cd ..
-
-ht: espeak-data/ht_dict
-dictsource/ht_extra:
-	touch dictsource/ht_extra
-espeak-data/ht_dict: src/espeak espeak-data/phontab dictsource/ht_list dictsource/ht_rules dictsource/ht_extra
-	cd dictsource && ../src/espeak --compile=ht && cd ..
 
 hu: espeak-data/hu_dict
 dictsource/hu_extra:
@@ -416,12 +368,6 @@ dictsource/ka_extra:
 	touch dictsource/ka_extra
 espeak-data/ka_dict: src/espeak espeak-data/phontab dictsource/ka_list dictsource/ka_rules dictsource/ka_extra
 	cd dictsource && ../src/espeak --compile=ka && cd ..
-
-kk: espeak-data/kk_dict
-dictsource/kk_extra:
-	touch dictsource/kk_extra
-espeak-data/kk_dict: src/espeak espeak-data/phontab dictsource/kk_list dictsource/kk_rules dictsource/kk_extra
-	cd dictsource && ../src/espeak --compile=kk && cd ..
 
 kl: espeak-data/kl_dict
 dictsource/kl_extra:
@@ -477,11 +423,11 @@ dictsource/ml_extra:
 espeak-data/ml_dict: src/espeak espeak-data/phontab dictsource/ml_list dictsource/ml_rules dictsource/ml_extra
 	cd dictsource && ../src/espeak --compile=ml && cd ..
 
-mt: espeak-data/mt_dict
-dictsource/mt_extra:
-	touch dictsource/mt_extra
-espeak-data/mt_dict: src/espeak espeak-data/phontab dictsource/mt_list dictsource/mt_rules dictsource/mt_extra
-	cd dictsource && ../src/espeak --compile=mt && cd ..
+ms: espeak-data/ms_dict
+dictsource/ms_extra:
+	touch dictsource/ms_extra
+espeak-data/ms_dict: src/espeak espeak-data/phontab dictsource/ms_list dictsource/ms_rules dictsource/ms_extra
+	cd dictsource && ../src/espeak --compile=ms && cd ..
 
 nci: espeak-data/nci_dict
 dictsource/nci_extra:
@@ -507,12 +453,6 @@ dictsource/no_extra:
 espeak-data/no_dict: src/espeak espeak-data/phontab dictsource/no_list dictsource/no_rules dictsource/no_extra
 	cd dictsource && ../src/espeak --compile=no && cd ..
 
-nso: espeak-data/nso_dict
-dictsource/nso_extra:
-	touch dictsource/nso_extra
-espeak-data/nso_dict: src/espeak espeak-data/phontab dictsource/nso_list dictsource/nso_rules dictsource/nso_extra
-	cd dictsource && ../src/espeak --compile=nso && cd ..
-
 pa: espeak-data/pa_dict
 dictsource/pa_extra:
 	touch dictsource/pa_extra
@@ -531,12 +471,6 @@ dictsource/pl_extra:
 espeak-data/pl_dict: src/espeak espeak-data/phontab dictsource/pl_list dictsource/pl_rules dictsource/pl_extra
 	cd dictsource && ../src/espeak --compile=pl && cd ..
 
-prs: espeak-data/prs_dict
-dictsource/prs_extra:
-	touch dictsource/prs_extra
-espeak-data/prs_dict: src/espeak espeak-data/phontab dictsource/prs_list dictsource/prs_rules dictsource/prs_extra
-	cd dictsource && ../src/espeak --compile=prs && cd ..
-
 pt: espeak-data/pt_dict
 dictsource/pt_extra:
 	touch dictsource/pt_extra
@@ -554,12 +488,6 @@ dictsource/ru_extra:
 	touch dictsource/ru_extra
 espeak-data/ru_dict: src/espeak espeak-data/phontab dictsource/ru_list dictsource/ru_rules dictsource/ru_extra
 	cd dictsource && ../src/espeak --compile=ru && cd ..
-
-rw: espeak-data/rw_dict
-dictsource/rw_extra:
-	touch dictsource/rw_extra
-espeak-data/rw_dict: src/espeak espeak-data/phontab dictsource/rw_list dictsource/rw_rules dictsource/rw_extra
-	cd dictsource && ../src/espeak --compile=rw && cd ..
 
 si: espeak-data/si_dict
 dictsource/si_extra:
@@ -603,29 +531,11 @@ dictsource/ta_extra:
 espeak-data/ta_dict: src/espeak espeak-data/phontab dictsource/ta_list dictsource/ta_rules dictsource/ta_extra
 	cd dictsource && ../src/espeak --compile=ta && cd ..
 
-te: espeak-data/te_dict
-dictsource/te_extra:
-	touch dictsource/te_extra
-espeak-data/te_dict: src/espeak espeak-data/phontab dictsource/te_list dictsource/te_rules dictsource/te_extra
-	cd dictsource && ../src/espeak --compile=te && cd ..
-
-tn: espeak-data/tn_dict
-dictsource/tn_extra:
-	touch dictsource/tn_extra
-espeak-data/tn_dict: src/espeak espeak-data/phontab dictsource/tn_list dictsource/tn_rules dictsource/tn_extra
-	cd dictsource && ../src/espeak --compile=tn && cd ..
-
 tr: espeak-data/tr_dict
 dictsource/tr_extra:
 	touch dictsource/tr_extra
 espeak-data/tr_dict: src/espeak espeak-data/phontab dictsource/tr_list dictsource/tr_rules dictsource/tr_extra
 	cd dictsource && ../src/espeak --compile=tr && cd ..
-
-tt: espeak-data/tt_dict
-dictsource/tt_extra:
-	touch dictsource/tt_extra
-espeak-data/tt_dict: src/espeak espeak-data/phontab dictsource/tt_list dictsource/tt_rules dictsource/tt_extra
-	cd dictsource && ../src/espeak --compile=tt && cd ..
 
 ur: espeak-data/ur_dict
 dictsource/ur_extra:
@@ -638,12 +548,6 @@ dictsource/vi_extra:
 	touch dictsource/vi_extra
 espeak-data/vi_dict: src/espeak espeak-data/phontab dictsource/vi_list dictsource/vi_rules dictsource/vi_extra
 	cd dictsource && ../src/espeak --compile=vi && cd ..
-
-wo: espeak-data/wo_dict
-dictsource/wo_extra:
-	touch dictsource/wo_extra
-espeak-data/wo_dict: src/espeak espeak-data/phontab dictsource/wo_list dictsource/wo_rules dictsource/wo_extra
-	cd dictsource && ../src/espeak --compile=wo && cd ..
 
 zh: espeak-data/zh_dict
 dictsource/zh_extra:

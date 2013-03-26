@@ -83,6 +83,7 @@
 #define FLAG_STEM          0x10000  // must have a suffix
 #define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
 #define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
+#define FLAG_LOOKUP_SYMBOL 0x40000000  // to indicate called from Lookup()
 
 #define BITNUM_FLAG_ALLCAPS   0x2a
 #define BITNUM_FLAG_HYPHENATED  0x2c
@@ -502,6 +503,7 @@ typedef struct {
 #define NUM2_THOUSANDS_VAR4     0x100
 #define NUM2_THOUSANDS_VAR5     0x140
 
+#define NUM2_ORDINAL_NO_AND     0x800
 #define NUM2_MULTIPLE_ORDINAL   0x1000
 #define NUM2_NO_TEEN_ORDINALS   0x2000
 #define NUM2_MYRIADS            0x4000
@@ -510,6 +512,7 @@ typedef struct {
 	// bits 1-4  use variant form of numbers before thousands,millions,etc.
 	// bits 6-8  use different forms of thousand, million, etc (M MA MB)
 	// bit9=(LANG=rw) say "thousand" and "million" before its number, not after
+	// bit11=(LANG=es,an) don't say 'and' between tens and units for ordinal numbers
 	// bit12=(LANG=el,es) use ordinal form of hundreds and tens as well as units
 	// bit13=(LANG=pt) don't use 11-19 numbers to make ordinals
 	// bit14=(LANG=ko)  use myriads (groups of 4 digits) not thousands (groups of 3)
@@ -542,9 +545,9 @@ typedef struct {
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
-	const char *ascii_language;  // switch to this language for Latin characters
+	char ascii_language[8];  // switch to this language for Latin characters
 	int alt_alphabet;       // offset for another language to recognize
-	const char *alt_alphabet_lang;  // language for the alt_alphabet
+	int alt_alphabet_lang;  // language for the alt_alphabet
 	int max_lengthmod;
 	int lengthen_tonic;   // lengthen the tonic syllable
 	int suffix_add_e;      // replace a suffix (which has the SUFX_E flag) with this character
@@ -706,6 +709,7 @@ void InitNamedata(void);
 void InitText(int flags);
 void InitText2(void);
 int IsDigit(unsigned int c);
+int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
 int isspace2(unsigned int c);
@@ -713,6 +717,7 @@ int towlower2(unsigned int c);
 void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
+ALPHABET *AlphabetFromName(const char *name);
 
 Translator *SelectTranslator(const char *name);
 int SetTranslator2(const char *name);

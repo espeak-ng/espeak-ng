@@ -1,8 +1,8 @@
-; This is the script for "Inno Setup 5" to create the setup_espeak.exe installer for Windows
+﻿; This is the script for "Inno Setup 5" to create the setup_espeak.exe installer for Windows
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.46.47
+AppVerName=eSpeak version 1.47.01
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -48,18 +48,24 @@ Root: HKLM; Subkey: "Software\Microsoft\Speech\PhoneConverters\Tokens\eSpeak"; F
 [Languages]
 Name: "en"; MessagesFile: "compiler:Default.isl"
 Name: "af"; MessagesFile: "compiler:Languages\Afrikaans.isl"
+Name: "bg"; MessagesFile: "compiler:Languages\Bulgarian.isl"
 Name: "bs"; MessagesFile: "compiler:Languages\Bosnian.isl"
 Name: "cs"; MessagesFile: "compiler:Languages\Czech.isl"
+Name: "da"; MessagesFile: "compiler:Languages\Danish.isl"
 Name: "de"; MessagesFile: "compiler:Languages\German.isl"
 Name: "el"; MessagesFile: "compiler:Languages\Greek.isl"
 Name: "es"; MessagesFile: "compiler:Languages\Spanish.isl"
+Name: "fa"; MessagesFile: "compiler:Languages\Farsi.isl"
 Name: "fi"; MessagesFile: "compiler:Languages\Finnish.isl"
 Name: "fr"; MessagesFile: "compiler:Languages\French.isl"
+Name: "hi"; MessagesFile: "compiler:Languages\Hindi.islu"
 Name: "hr"; MessagesFile: "compiler:Languages\Croatian.isl"
 Name: "hu"; MessagesFile: "compiler:Languages\Hungarian.isl"
 Name: "id"; MessagesFile: "compiler:Languages\Indonesian-5.1.11.isl"
 Name: "it"; MessagesFile: "compiler:Languages\Italian.isl"
-Name: "lv"; MessagesFile: "compiler:Languages\Latvian-1-5.1.11.isl"
+Name: "ka"; MessagesFile: "compiler:Languages\Georgian.islu"
+Name: "lv"; MessagesFile: "compiler:Languages\Latvian.isl"
+Name: "ne"; MessagesFile: "compiler:Languages\Nepali.islu"
 Name: "nl"; MessagesFile: "compiler:Languages\Dutch.isl"
 Name: "no"; MessagesFile: "compiler:Languages\Norwegian.isl"
 Name: "pl"; MessagesFile: "compiler:Languages\Polish.isl"
@@ -67,9 +73,9 @@ Name: "pt"; MessagesFile: "compiler:Languages\Portuguese.isl"
 Name: "ro"; MessagesFile: "compiler:Languages\Romanian.isl"
 Name: "ru"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "sk"; MessagesFile: "compiler:Languages\Slovak.isl"
-Name: "sq"; MessagesFile: "compiler:Languages\Albanian-2-5.1.11.isl"
 Name: "sr"; MessagesFile: "compiler:Languages\Serbian.isl"
 Name: "tr"; MessagesFile: "compiler:Languages\Turkish.isl"
+Name: "vi"; MessagesFile: "compiler:Languages\Vietnamese.isl"
 Name: "zh"; MessagesFile: "compiler:Languages\ChineseSimp-12-5.1.11.isl"
 
 [CustomMessages]
@@ -77,26 +83,29 @@ v1=Select which voices to install
 v2=or press Enter to accept defaults
 v3=Enter voice names, eg: (for Portuguese)   pt,  or with a variant, eg: pt+f3
 
-bs.v1=Odaberite jezik kojeg �elite instalirati
+bs.v1=Odaberite jezik kojeg želite instalirati
 bs.v2=ili pritisnite Enter za prihvat zadanih.
-bs.v3=Upi�ite, npr. bs (za Bosanski) ili s varjantom: bs+f3
+bs.v3=Upišite, npr. bs (za Bosanski) ili s varjantom: bs+f3
 
-fr.v1=S�lectionnez les voix � installer
-fr.v2=ou appuyez sur Entr�e pour accepter les valeurs par d�faut.
-fr.v3=Entrez le nom des voix, ex : (pour le Fran�ais) fr, ou avec une variante ex : fr+f3
+fr.v1=Sélectionnez les voix à installer
+fr.v2=ou appuyez sur Entrée pour accepter les valeurs par défaut.
+fr.v3=Entrez le nom des voix, ex : (pour le Français) fr, ou avec une variante ex : fr+f3
 
-hr.v1=Odaberite jezik kojeg �elite instalirati
+hr.v1=Odaberite jezik kojeg želite instalirati
 hr.v2=ili pritisnite Enter za prihvat zadanih.
-hr.v3=Upi�ite, npr. hr (za Hrvatski) ili s varjantom: hr+f3
+hr.v3=Upišite, npr. hr (za Hrvatski) ili s varjantom: hr+f3
 
 pt.v1=Seleccione as vozes que pretende instalar
 pt.v2=ou precione enter para aceitar as predefinidas.
 pt.v3=Introduza os nomes das vozes, ex: (Brazil) pt (ou Portugal) pt-pt, ou com outras caracter?sticas, ex: pt+f3
 
-sr.v1=Molimo vas da odaberete glasove, koje �elite da instalirate
+sr.v1=Molimo vas da odaberete glasove, koje želite da instalirate
 sr.v2=ili pritisnite Enter za instalaciju podrazumevanih glasova.
-sr.v3=Da odaberete glas, unesite ime glasa kojeg �elite instalirati, na primer sr, ili sr+f3
+sr.v3=Da odaberete glas, unesite ime glasa kojeg želite instalirati, na primer sr, ili sr+f3
 
+ne.v1=भित्र्याउन चाहेको आवाजको चयन गर्नु होस् ।
+ne.v2=अथवा यसमा निर्धारण गरिएको आवाजलाई नै चयन गर्ने हो भने ईन्टर कुञ्जीलाई दबाउनु होस् । 
+ne.v3=आवाजको नाम प्रविष्टी गर्नु होस् , जस्तै: नेपालीका लागि ne, अथवा स्वरको पनि चयन गर्ने हो भने ne+f3
 
 [Code]
 var

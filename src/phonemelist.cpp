@@ -124,6 +124,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int alternative;
 	int delete_count;
 	int word_start;
+	int inserted;
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -341,9 +342,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	{
 		plist3 = &ph_list3[j];
 
-		if(plist3->sourceix != 0)
-			word_start = j;
-
+		inserted = 0;
 		if(insert_ph != 0)
 		{
 			// we have a (linking) phoneme which we need to insert here
@@ -374,10 +373,14 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			ph = phoneme_tab[insert_ph];
 			plist3->ph = ph;
 			insert_ph = 0;
+			inserted = 1;    // don't insert the same phoneme repeatedly
 		}
 		else
 		{
 			// otherwise get the next phoneme from the list
+			if(plist3->sourceix != 0)
+				word_start = j;
+
 			ph = phoneme_tab[plist3->phcode];
 			plist3[0].ph = ph;
 
@@ -394,7 +397,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 
 		InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
 
-		if((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0)
+		if(((alternative = phdata.pd_param[pd_INSERTPHONEME]) > 0) && (inserted == 0))
 		{
 			// PROBLEM: if we insert a phoneme before a vowel then we loose the stress.
 			PHONEME_TAB *ph2;

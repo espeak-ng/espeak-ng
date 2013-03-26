@@ -61,6 +61,7 @@ a	eI	$atend
 // use the $accent attribute here to force the use of the
 // accent table when speaking the name of the character.
 à	$accent $atend  // this can be a word
+á	$accent $atend
 ç	$accent
 é	$accent
 ê	$accent
@@ -149,12 +150,14 @@ _¨	daIa#r'i:sIs
 _ª	fEmI2nIn'O@dI2n@L
 _«	lEft'gIl@mEt
 _­	makr0n
+²	tu:
+³	Tri:
+_¹	su:p@skrIptw'0n
 _²	su:p@skrIptt'u:
 _³	su:p@skrIptT'ri:
 _´	a#kju:taksEnt
 _·	mId@Ld0t
 _¸	sEd'Il@
-_¹	su:p@skrIptw'0n
 //_º	maskjUlIn'O@dI2n@L
 _º	dI2gr'i:z
 _»	raIt'gIl@mEt
@@ -510,6 +513,7 @@ agm	$abbrev
 ai	$abbrev
 amd	$abbrev
 aol	$abbrev
+aph	$abbrev
 api	$abbrev
 apr	apr@
 asap	$abbrev
@@ -941,7 +945,7 @@ blancmange	bl@m0nZ
 blase		blA:z'eI
 blasé		blA:z'eI
 bleh		blEh
-blockade	$2
+blockade	bl0k'eId
 blouse		blaUz
 bluest		blu:@st
 blurry		bl3:rI
@@ -1051,6 +1055,7 @@ caterer		keIt3r3
 cathedral	$alt3
 catholic	kaTlIk
 carotid		$alt3
+cartel		kA@t'El
 cavalier	$3
 caveat		kavIat
 ?3 caveat	kavIA:t
@@ -1156,6 +1161,7 @@ colonel		k3:n@L
 colosseum	k0l@s'i@m
 comanche	k@mantSi
 combat		k0mbat       // combating
+?3 combative	k@mbatIv
 combo		k0mboU
 comely		kVmlI    // comeliness
 comer		kVm3
@@ -1275,6 +1281,7 @@ dais		deIIs
 dandelion	dandI2laI@n
 ddu		DI $only	// Welsh
 de		d@            $only
+(de jure)       deIdZ'U@ri
 debacle		deIb'A:k@L
 debrief		di:br'i:f
 debris		dEbri:
@@ -1425,6 +1432,8 @@ ember		Emb3
 emphasis	Emf@sIs   $only
 empire		$1
 emu		i:mju:
+(en masse)	0n||m'as
+(en route)	0n||r'u:t
 enroute		0nr'u:t
 ensemble	0ns'0mb@L
 entendre	0nt'0ndr@-
@@ -1625,6 +1634,7 @@ goodday		$2
 goodnight	$2
 gorilla		g3rIl@
 gospel		g0sp@L
+gossamer	g0s@m3
 goto		goUtu:
 gourmand	gU@mA:nd
 gourmet		gU@meI
@@ -1669,6 +1679,7 @@ hello		h@loU
 henceforth	hEnsfo@T
 ?3 herb		3:b
 hercules	h3:kjUli:z
+?3 hereford	h3:f3d
 heretical	hI2rEtI2k@L
 hereto		hi@3'tu:
 heretofore	hi@3t2Ufo@
@@ -1692,6 +1703,7 @@ holme		hoUm
 holster		hoUlst3
 homeowner	hoUmoUn3
 homepage	hoUmpeIdZ
+homily		h0m@li
 hominem		h0mInEm
 ?3 hominem	h0m@n@m
 hooah		h'u:'A:
@@ -1780,6 +1792,7 @@ interim		$1
 intermediate	Int3m'i:di@t
 intern		Int3:n  $noun
 interrogatory	$3
+intestine	I2ntEstI#n
 inventory	Inv@ntri
 ?3 inventory	Inv@nto:ri
 interface	$1
@@ -1796,6 +1809,8 @@ interven	Int3v'i:n	// for intervening
 intray		IntreI
 intro		$1
 ?3 investigative Inv,EstI2g'eItIv
+ipad		aIpad
+iphone		aIfoUn
 irate		aIr'eIt
 iris		aIrIs
 iron		aI3n
@@ -1843,6 +1858,7 @@ laboratory	la#b'0r@trI
 labor		leIb3
 labored		leIb@d
 laborer		leIb@r3
+laborious	$alt3
 labyrinth	lab3rInT
 lager		lA:g3
 laity		leI@ti
@@ -1875,6 +1891,7 @@ lemonade	$3
 leo		li:oU
 leona		li:'oUn@
 leopard		lEp3d
+leprechaun	lEpr@kO:n
 lesion		li:Z@n
 lethal		li:T@L
 liaison		li:'eIz0n
@@ -1970,6 +1987,7 @@ mausoleum	mO:s@'li:@m
 mayhem		meIhEm
 meant		mEnt
 meadow		mEdoU
+medallion	$alt3
 mediaeval	mEdI'i:v@L
 medicine	mEds@n
 ?3 medicine	mEd@s@n
@@ -2380,6 +2398,7 @@ pythagoras	paIT'ag@r@s
 python		paIT@n
 pyramidal	pI2r'amId@L
 
+qaeda		kaId@
 quadrilateral	$3
 quash		kw0S
 quaternary	kw@t3:n@rI
@@ -2812,6 +2831,7 @@ tonne		tVn
 torment		$1
 torment		$2            $verb
 tornado		tO@n'eIdoU
+torrential	t@rEnS@L
 tortilla	tO@t'i:a#
 touche		tu:SeI        $only
 toupee		tu:peI
@@ -2825,6 +2845,8 @@ trajectory	tr@dZEkt@rI
 traverse	$alt3
 travesty	trav@sti
 treatise	tri:tIz
+trebuchet	trEbUSeI
+tremendous	$alt3
 triage		tri:A:Z
 tribunal	traIb'ju:n@L
 triceratops	traIs'Er@t0ps
@@ -3007,6 +3029,7 @@ yessir		jEss3:
 yoghurt		j0g3t
 ?3 yoghurt	joUg3t
 ?3 yogurt	joUg3t
+?3 youtube	ju:t2u:b
 yoyo		joUjoU
 
 zavala		$alt3
@@ -3020,6 +3043,7 @@ Altrincham	O:ltrIN@m
 Anglesey	aNg@Lsi
 Argyle		A@g'aIl
 Argyll		A@g;aIl
+Armagh		A@m'A:
 Bacup		beIk@p
 Berwick		bErIk
 Betws   	bEtUs
@@ -3203,6 +3227,7 @@ Korean		kOr'i:@n
 Kosovo		k0s@voU
 Kuala		kwA:la#
 Lagos		leIg0s
+Lebanon		lEb@n0n
 Leipzig		laIpsIg
 Leone		li:'oUn
 Lesotho		l@s'u:tu:
@@ -3323,6 +3348,7 @@ Tokyo		toUkIoU
 Topeka		toUp'i:k@
 Toronto		t@r0ntoU
 Toulouse	tu:l'u:z
+Trafalgar	$alt3
 ?3 Tunisia	tu:n'i:Z@
 Tripoli		trIp@li
 tuareg		twA@rEg
@@ -3486,6 +3512,7 @@ Evette		I2vEt
 Fainne		fan;@
 Freda		fri:d@
 Fírinne		fi:rIn;@
+Gareth		gar@T
 Gary		gari
 Geraint		gEraInt
 Gerhard		ge@hA@t
@@ -3658,6 +3685,7 @@ Susanne		$2
 Suzy		su:zi
 Tatiana		tatI'A:n@
 ?3 Tatiana	tA:tj'A:n@
+Terese		t@reIz
 Theresa		t@ri:z@
 Therese		t@ri:z
 Thomas		t0m@s
@@ -3748,9 +3776,7 @@ zhivago		ZI2vA:goU
 
 
 
-(de jure)        deIdZ'U@ri
-(en masse)       ,0n||m'as
-(en route)       ,0n||r'u:t
+
 (each of)        i:tS||@v          $pause
 (far more)       f'A@_m,o@
 (few more)       f'ju:m,o@
@@ -3761,9 +3787,9 @@ zhivago		ZI2vA:goU
 (most of)        moUst||@v
 (such as)        sVtS||_a#z        $pause
 
-(too few)        t'u:||f,ju:
-(too many)       t'u:||m,Eni
-(too much)       t'u:||m,VtS
+(too few)        t'u:||fju:
+(too many)       t'u:||mEni
+(too much)       t'u:||mVtS
 
 //*************************************************************************
 // COMMON WORDS
@@ -3896,8 +3922,8 @@ would             $u+           $verbf $only $strend2
 (would have)     w%Udh%a#v      $pastf
 (would have)     wUdhav         $pastf $atend
 (would have to)  wUdhavt@5	$u2 $verbf $strend2
-(wouldn't have)  wUdnt@v	$u1 $pastf $strend2
-(wouldn't have to)  ,wUdntavt@5       $verbf $strend2
+(wouldn't have)  wUd@-nt@v	$u1 $pastf $strend2
+(wouldn't have to)  ,wUd@-ntavt@5       $verbf $strend2
 won't            woUnt		$u+ $verbf $strend2 $only
 wouldst           $u+
 (won't have)     woUnta#v	$pastf $u1
@@ -3908,18 +3934,18 @@ must                            $verbf
 (must have)      mVsta#v        $pastf $1
 (must have)      mVsthav        $pastf $atend
 (must have to)   m,Vstavt@5     $pastf
-mustn't          mVsnt          $verbf
-(mustn't have)   mVsntha#v      $pastf $u1+
-(mustn't have to) m'Vsnthavt@5  $pastf
+mustn't          mVs@-nt        $verbf
+(mustn't have)   mVs@-ntha#v    $pastf $u1+
+(mustn't have to) m'Vs@-nthavt@5  $pastf
 
 shall            ,Sal           $verbf $only $strend2
 shalt            ,Salt          $verbf $only
 should           ,SUd           $verbf $only $strend2
 (should have)    SUd@v          $pastf $u1+
 (should have to)  SUdhavt@5	$u2 $verbf $strend2
-shouldn't        ,SUdnt		$verbf $strend2 $only
-(shouldn't have) SUdnth@v	$pastf $u1+
-(shouldn't have to) 'SUdntavt@5	$verbf $strend2
+shouldn't        ,SUd@-nt	$verbf $strend2 $only
+(shouldn't have) SUd@-nth@v	$pastf $u1+
+(shouldn't have to) 'SUd@-ntavt@5	$verbf $strend2
 shalln't         ,SA:nt		$verbf $strend2
 shan't           ,SA:nt		$verbf $strend2
 
@@ -3935,9 +3961,9 @@ could            %kUd		$verbf $strend2 $only
 (could have)     ,kUda#v	$pastf
 (could have)     kUdhav		$pastf $atend
 (could have to)  kUdhavt@5	$u2 $verbf $strend2
-couldn't         ,kUd@nt        $verbf $strend2
-(couldn't have)  kUd@nt@v       $pastf $u1+
-(couldn't have to)  'kUd@ntavt@5     $verbf $strend2
+couldn't         ,kUd@-nt        $verbf $strend2
+(couldn't have)  kUd@-nt@v       $pastf $u1+
+(couldn't have to)  'kUd@-ntavt@5     $verbf $strend2
 
 may              meI		$verbf $strend2
 (may have)       meIha#v	$pastf $u1+
@@ -3968,9 +3994,9 @@ had              ,had		$atend
 (had it)         h,adI2t
 (had them)       h,adDEm
 having           ,havIN		$strend2 $pastf $only
-haven't          hav@nt		$pastf
-hadn't           had@nt		$pastf
-hasn't           haz@nt		$pastf
+haven't          hav@-nt	$pastf
+hadn't           had@-nt	$pastf
+hasn't           haz@-nt	$pastf
 
 get              %gEt		$strend2 $pastf $only
 getting          ,gEtIN		$strend2 $pastf $only
@@ -4076,8 +4102,8 @@ his              hIz		$u $nounf $only $strend2
 her              h3:		$u $nounf $only
 hers             h3:z		$u $strend2
 its              Its		$u $nounf
-our              aU@		$u $nounf $onlys
-?3  our          aU3		$u $nounf $onlys
+our              aU@		$u $nounf $only
+?3  our          aU3		$u $nounf $only
 your             jO@		$u $nounf $only
 ?6 your          jU@		$u $nounf $only
 their            De@		$u $nounf $only
