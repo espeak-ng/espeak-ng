@@ -181,6 +181,7 @@ dictionaries: \
 	espeak-data/sv_dict \
 	espeak-data/sw_dict \
 	espeak-data/ta_dict \
+	espeak-data/te_dict \
 	espeak-data/tr_dict \
 	espeak-data/ur_dict \
 	espeak-data/vi_dict \
@@ -516,6 +517,12 @@ dictsource/ta_extra:
 	touch dictsource/ta_extra
 espeak-data/ta_dict: src/espeak espeak-data/phontab dictsource/ta_list dictsource/ta_rules dictsource/ta_extra
 	cd dictsource && ../src/espeak --compile=ta && cd ..
+
+te: espeak-data/te_dict
+dictsource/te_extra:
+	touch dictsource/te_extra
+espeak-data/te_dict: src/espeak espeak-data/phontab dictsource/te_list dictsource/te_rules dictsource/te_extra
+	cd dictsource && ../src/espeak --compile=te && cd ..
 
 tr: espeak-data/tr_dict
 dictsource/tr_extra:
