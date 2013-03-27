@@ -1927,23 +1927,6 @@
          h) e (sion_     'i:
         @)  e (tio       i:
      discr) e (tion      E
-            eu           ju:
-?3       n) eu           u:
-?3       n) eu (r        U@
-         r) eu (d        OI
-            eu (m_       'i:@
-         s) eu (m_       'i@
-         l) eur          3:
-?5          eur          VR
-            eur (_       '3:
-?3          eur (_       'U@
-?5          eur (_       'VR
-         _) euro         jU@roU
-         _) euro (pe     jU@r-@
-         &) eus (_       =I2@s
-         @) euse (_      '3:z
-?3       @) euse (_      'u:z
-         d) eu (ts       OI
             ew           ju:
         _s) ew           u:
 ?3       d) ew           u:
@@ -2599,6 +2582,27 @@
          m) etry (_        =@tr%I
          &) ett (_       I2t
 
+
+.group eu
+            eu           ju:
+?3       n) eu           u:
+?3       n) eu (r        U@
+         r) eu (d        OI
+            eu (m_       'i:@
+         s) eu (m_       'i@
+         l) eur          3:
+?5          eur          VR
+            eur (_       '3:
+?3          eur (_       'U@
+?5          eur (_       'VR
+         _) euro         jU@roU
+         _) euro (pe     jU@r-@
+         &) eus (_       =I2@s
+         @) euse (_      '3:z
+?3       @) euse (_      'u:z
+         d) eu (ts       OI
+
+
 .group ev
          _) ev           I2v
          _) eva (ne      Ev@
@@ -2915,40 +2919,10 @@
          n) ihi          aI|@
          _) i (h         aI
             ii (_        IaI
+            ij (C        eI   // Dutch
          f) i (j         i:
          h) i (j         aI
-        @b) il (_        @L
-       @Cc) il (_        @L
-        @p) il (_        @L
-        @r) il (_        @L
-        @s) il (_        @L
-        nt) il (_        @L
-        @v) il (_        @L
-         @) ila (_       'Il@
-?3       &) ile (_$w_alt2  @L
-        _C) i (lage      aI
-        _d) i (lat       %aI
-         l) il (ah_      aIl
-        _m) i (ld        aI
-        _w) i (ld        aI
-        ch) i (ld        aI
-         w) i (lderC     I
-        ch) i (ldr       I
-      sacr) ile          IlI
-            i (leA       I
-         &) ile (ge      @lI
-            il (ise      @l
-            il (ize      @l
-         s) i (len       aI
-         C) i (ler       aI
-         _) il (l@       %Il
-         @) illa (_      'Il@
-         &) illard (_    i:A:
-         _) il (ln       Il
          @) i (less      I
-         _) il (lust     Il
-        _C) i (lo        aI
-         &) ily (_S2i    l%I
          @) i (ness      I
             i (o         I2
          _) i (o         aI
@@ -3134,6 +3108,40 @@
         _m) ig (rat      %aIg
             igu (e       'i:g
             igu (_       'i:g
+
+.group il
+        @b) il (_        @L
+       @Cc) il (_        @L
+        @p) il (_        @L
+        @r) il (_        @L
+        @s) il (_        @L
+        nt) il (_        @L
+        @v) il (_        @L
+         @) ila (_       'Il@
+?3       &) ile (_$w_alt2  @L
+        _C) il (age      aIl
+        _d) il (at       %aIl
+         l) il (ah_      aIl
+        _m) il (d        aIl
+        _w) il (d        aIl
+        ch) il (d        aIl
+         w) il (derC     Il
+        ch) il (dr       Il
+      sacr) ile          IlI
+            il (eA       Il
+         &) ile (ge      @lI
+            il (ise      @l
+            il (ize      @l
+         s) il (en       aIl
+         C) il (er       aIl
+         _) il (l@       %Il
+         @) illa (_      'Il@
+         &) illard (_    i:A:
+         _) il (ln       Il
+         _) il (lust     Il
+        _C) il (o        aIl
+         &) ily (_S2i    l%I
+
 
 .group im
          &) im (_        I#m
@@ -5274,23 +5282,6 @@
          _) tsu          tsu:
          _) two          tu:
             ttu (r       t@
-         @) tu (al       tSu:
-         @) tu (at       tSu:
-      _sta) tu           tSu:
-?3    _sta) tu (to       tS@
-         c) tu (al_      =tSu:
-         r) tue (_       tSu:
-?3          tu (la_      tS@
-         @) tu (lat      =tSU
-?3          tu (Ant      tSu:
-?3          tu (Ancy     tSu:
-
-            tu (ous      tSu:
-         @) tur (A       tS@r
-         @) tur (al_     tS=@r
-         &) tur (y       tS@r
-         &) tur (_       tS3
-         &) ture (_      tS3
             tz           ts
             tze (_       tsi
 
@@ -5367,7 +5358,26 @@
          &) tious        S=@s
         AC) tive (_      =tIv
 
-        
+
+.group tu
+         @) tu (al       tSu:
+         @) tu (at       tSu:
+      _sta) tu           tSu:
+?3    _sta) tu (to       tS@
+         c) tu (al_      =tSu:
+         r) tue (_       tSu:
+?3          tu (la_      tS@
+         @) tu (lat      =tSU
+?3          tu (Ant      tSu:
+?3          tu (Ancy     tSu:
+            tu (ous      tSu:
+         @) tur (A       tS@r
+         @) tur (al_     tS=@r
+         &) tur (y       tS@r
+         &) tur (_       tS3
+         &) ture (_      tS3
+
+         
 .group u
             u            V
        man) u            ju:

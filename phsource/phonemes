@@ -1745,6 +1745,9 @@ include ph_kannada
 phonemetable ml hi
 include ph_malayalam
 
+phonemetable te hi
+include ph_telugu
+
 
 
 phonemetable hu base
@@ -1922,9 +1925,6 @@ include ph_slovenian
 
 //phonemetable dv hi
 //include ph_divehi
-
-//phonemetable te hi
-//include ph_telugu
 
 //phonemetable tn base
 //include ph_setswana

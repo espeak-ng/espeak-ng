@@ -24,8 +24,8 @@ _9X	g'u_!||s'ip_!
 _0C	p'Eq_!
 
 // Larger numbers
-_0M0	tS'h-@n       // 10^3
-_1M0	tS'h-@n
+_0M0	tS'h@n       // 10^3
+_1M0	tS'h@n
 _0M1	m'an          // 10^4
 _1M1	m'an
 _0M2	'@q           // 10^8
@@ -50,7 +50,7 @@ _1M4	gj'@N
 ᄋ	i;'u-N
 ᄌ	tS;i;'u-t
 ᄍ	's-aNdZ;,i;u-t
-ᄎ	tSh-'i;u-t
+ᄎ	tSh'i;u-t
 ᄏ	khi;'u-k
 ᄐ	thi;'u-t-
 ᄑ	phi;'u-p

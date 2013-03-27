@@ -95,6 +95,26 @@ phoneme dZ; //  voiced /ㅈ/
   FMT(dzh/dzh) addWav(x/dz_pzd)
 endphoneme
 
+phoneme s-
+  import_phoneme base/s        // temporary
+endphoneme
+
+phoneme q-
+  import_phoneme base/q        // temporary
+endphoneme
+
+phoneme tS;-
+  import_phoneme base/tS;      // temporary
+endphoneme
+
+phoneme d-
+  import_phoneme base/d
+endphoneme
+
+// phoneme tSh; ?? changed to [tS;h] in ko_rules
+// phoneme h- in ko_list (for 10^3)  ?? changed to [h]
+// phoneme tSh-  changed to tSh
+
 phoneme *   // r(ㄹ) at initial, medial
   vcd alv flp rhotic
   ipa ɾ
