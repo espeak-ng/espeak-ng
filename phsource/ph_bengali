@@ -29,7 +29,7 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 225
-  FMT(vowel/aa_9)
+  FMT(vowel/a_3)
 endphoneme
 
 

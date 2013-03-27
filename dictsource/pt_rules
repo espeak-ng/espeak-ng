@@ -573,9 +573,13 @@ _entorp) e (çL03_  e
         g (Y       Z         // ge gi
         gu (Y      g
      a) gu (ent    gw
+   _ar) gu (i      gw
   enxa) gu (e      gw
    lin) gu (e      gw
    lin) gu (i      gw
+  _pin) gu (im_    gw
+  _pin) gu (ins_   gw
+   _sa) gu         )i        gw
    san) gu (ín     gw
    san) gu (in     gw
 ?1   n) gu (A      gw        // eg: língua, etc.
@@ -851,6 +855,8 @@ _entorp) e (çL03_  e
   _ens) o (pL04_   O
     _s) o (prL04_  O
      _) o (ptL04_  O
+     p) o (rL02_   o
+  _dev) o (rL02_   O
  _defl) o (rL02_   O
  _impl) o (rL02_   O
  _inod) o (rL03_   O
@@ -926,14 +932,18 @@ _remem) o (rL04_   O
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-     A) quên (C    kw'eIN    // frequência, etc.
+     A) quên (C    kw'eN     // frequência, etc.
+     C) quên (C    kw'eN     // delinquência, etc.
+     C) quên (A    kw'eN     // quinquênio, etc.
    ade) qu (e      kw
      e) qu (estr   kw
+   ese) qu (ív     kw
     _e) qu (in     kw
    fre) qu (ent    kw
     li) qu (id     kw
     lí) qu (id     kw
      n) qu (en     kw
+     _) qu (inqu   kw
     se) qu (en     kw
   tran) qu (il     kw
 ?1      quec       kes       // esquece, etc.

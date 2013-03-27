@@ -27,7 +27,7 @@ s	Es
 t	t#i:
 u	ju:
 v	vi:
-w	dVbVlju:
+w	dabalju:
 x	Eks
 y	wa:j
 z	zEd
@@ -43,7 +43,7 @@ _3	mu:d.u
 _4	na:lgu
 _5	aIdu
 _6	a:ru
-_7	e:d.u
+_7	;e:d.u
 _8	;enimidi
 _9	tommidi
 _1X	padi
@@ -56,20 +56,20 @@ _16	padaha:ru
 _17	padihe:d.u
 _18	padd#enimidi
 _19	pamdommadi
-_2X	iravaI
+_2X	irav#aI
 _3X	muppaI
 _4X	nalub#aI
 _5X	ja:b#aI
-_6X	aravaI
+_6X	arav#aI
 _7X	d.eb#baI
 _8X	jenab#aI
 _9X	tomb#aI
-_0C	vandala
-_0C0	vandalu
-_1C	okavanda
-_0M1	vela
-_0M1x	velu
-_1M1	okavejji
+_0C	v#andala
+_0C0	v#andalu
+_1C	okav#anda
+_0M1	v#ela
+_0M1x	v#elu
+_1M1	okav#ejji
 _0M2	laks.ala
 _0M2x	laks.alu
 _1M2	laks.a
@@ -87,7 +87,7 @@ _??	aks.aram   // 'unknown character'
 \	bja:kasla:s.
 /	sla:s.
 ©	ka:pi:raIt.
-¶	ve:ra:
+¶	v#e:ra:
 
 _,	ka:ma:
 _;	semi:ko:lan
@@ -110,7 +110,7 @@ __	amd.ar||sko:r
 U+c01	am
 U+c02	an
 U+c03	ah
-U+c4d	vottu
+U+c4d	v#ottu
 
    // consonants with virama
 క్	ik
@@ -143,7 +143,7 @@ U+c4d	vottu
 ఱ్	ir
 ల్	il
 ళ్	il.
-వ్	iv
+వ్	iv#
 శ్	iS;
 ష్	is.
 స్	is

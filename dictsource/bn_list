@@ -2,7 +2,7 @@
 // This file is UTF8 encoded
 
 // Numbers
- devanagari numbers are changed to latin characters before translation
+// Bengali numbers are changed to latin characters before translation
 _0	S'unjO
 _1	'&k
 _2	duj
@@ -14,11 +14,16 @@ _7	S'at
 _8	'at.#
 _9	n'Oj
 
+_2a	d'u     // with hundreds etc.
+_6a	tS#'a
+_9a	n'O
+
+
 _10	d'OS
 _11	'&garo
 _12	b'arO
 _13	t'erO
-_14	tS'owddO
+_14	tS'oddO
 _15	p'OnerO
 _16	S'olO
 _17	S'OterO
@@ -26,57 +31,94 @@ _18	'at.#arO
 _19	'uniS
 
 _20	k'uri    // or b'iS   ??
-_21	'ekuS
+_21	ek'uS
 _22	b'ajS
 _23	t'ejS
 _24	tS'ObbiS
 _25	p'O~tSiS
-_26	tSh'ObbiS
-_27	S'ataS
+_26	tSh'abbiS
+_27	Sat'aS
 _28	'at.#aS
-_29	'untriS
+_29	unOtr'iS
 
-_30	t'iriS
-_31	'ektriS
-_32	b'OtriS
-_33	t'etriS
-_34	tSowtriS
-_35	pO~jtriS
-_36	tS#'OtriS
-_37	S'a~itriS
-_38	'at.riS
-_39	'unOtSOlliS
+_30	tr'iS
+_31	ekOtr'iS
+_32	bOtr'iS
+_33	tetr'iS
+_34	tSowtr'iS
+_35	pO~jtr'iS
+_36	tS#'Otr'iS
+_37	Sa~itr'iS
+_38	at.tr'iS
+_39	'unOtSOll'iS
 
-_40	tS'OlliS
-_41	'ektSOlliS
-_42	b'ialliS
-_43	t'etalliS
-_44	tS'oalliS
-_45	p'O~jtalliS
-_46	tS'etSOlliS
-_47	S'atSOllis
-_48	'atSOlliS
-_49	'unOpO~tSaS
+_40	tSOll'iS
+_41	ektSOll'iS
+_42	biall'iS
+_43	tetall'iS
+_44	tSoall'iS
+_45	pO~jtall'iS
+_46	tSetSOll'iS
+_47	SatSOll'is
+_48	atSOll'iS
+_49	unOpO~tSaS
 
-// numbers above 50 need to be corrected
-_50	p'O~tSaS
-_5X	p'O~tSaS
-_59	'unOsat.
+_50	pO~tS'aS
+_51	&kann'o
+_52	bajann'o
+_53	tepann'o
+_54	tSujann'o
+_55	pontSann'o
+_56	tS#apann'o
+_57	Satann'o
+_58	at.ann'o
+_59	unOS'at.
+
 
 _60	s'at.
-_6X	s'at.
-_69	'unOS'OttOr
+_61	ekSOt.t.'i
+_62	baSOt.t.'i
+_63	teSOt.t.'i
+_64	tSowSOt.t.'i
+_65	pojSOt.t.'i
+_66	SeSOt.t.'i
+_67	SatSOt.t.'i
+_68	at.SOt.t.'i
+_6X	sat.t.'i
+_69	unOSOtt'ur
 
-_70	S'OttOr
-_7X	S'OttOr
-_79	'unOaSi
+_70	SOtt'Or
+_71	ekatt'Or
+_72	bahatt'Or
+_73	tehatt'Or
+_74	tSuhatt'Or
+_75	pOtSatt'Or
+_76	tS#ijatt'Or
+_77	Satatt'Or
+_78	at.att'Or
+_79	unOaS'i
 
-_80	'aSi
-_8X	'aSi
-_89	'unOnObbOj
+_80	aS'i
+_81	&kaS'i
+_82	beraS'i
+_83	teraS'i
+_84	tSuraS'i
+_85	po~tSaS'i
+_86	tS#ijaS'i
+_87	SataS'i
+_88	at.aS'i
+_89	,unOnObb'oj
 
-_90	n'ObbOj
-_9X	n'ObbOj
+_90	nObb'oj
+_91	&kanObb'oj
+_92	beranObb'oj
+_93	teranObb'oj
+_94	tSuranObb'oj
+_95	pOtSanObb'oj
+_96	tS#ijanObb'oj
+_97	SatanObb'oj
+_98	at.anObb'oj
+_99	niranObb'oj
 
 _0C	S'o
 _0M1	h'ajar
@@ -264,3 +306,4 @@ _dpt	dOsomik
 
 
 // Exceptions
+এত	&to

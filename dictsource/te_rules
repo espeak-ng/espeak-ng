@@ -140,8 +140,8 @@
 	ళ (B	l.
 
 .group వ
-	వ	va
-	వ (B	v
+	వ	v#a
+	వ (B	v#
 
 .group శ
 	శ	S;a
@@ -263,12 +263,6 @@
 
 	ౕ	:   // length mark ??
 	ౖ	:   // ai length mark ??
-
-
-.group 0xe0a4  // devanagari
-	0xe0a4  _^_HI  // switch to hindi voice for devanagari characters
-.group 0xe0a5  // devanagari
-	0xe0a5  _^_HI
 
 
 .group
