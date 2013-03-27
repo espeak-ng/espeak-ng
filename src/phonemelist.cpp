@@ -619,7 +619,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			phlist[ix].length = option_wordgap*14;   // 10mS per unit at the default speed
 		}
 
-		if(ph->type==phVOWEL || ph->type==phLIQUID || ph->type==phNASAL || ph->type==phVSTOP || ph->type==phVFRICATIVE)
+		if(ph->type==phVOWEL || ph->type==phLIQUID || ph->type==phNASAL || ph->type==phVSTOP || ph->type==phVFRICATIVE || (ph->phflags & phPREVOICE))
 		{
 			phlist[ix].length = 128;  // length_mod
 			phlist[ix].env = PITCHfall;

@@ -25,7 +25,7 @@ phoneme a
   length 130
 
   IF thisPh(isStressed) OR thisPh(isFirstVowel) OR thisPh(isWordEnd) THEN
-    FMT(vowel/a#_2)
+    FMT(vowel/a#_4)
   ELSE
     ChangeIfUnstressed(@)
 
@@ -141,6 +141,124 @@ endphoneme
 
 phoneme d2   // 'rr' sounds like English 'd'
   import_phoneme base/d
+endphoneme
+
+
+// Aspirated voice stops, sound like aspirated unvoiced stops ?
+
+phoneme b#
+  vls blb stop prevoice
+  lengthmod 2
+  voicingswitch b
+  Vowelin  f1=0  f2=1000 -50 -100  f3=-200 80
+  Vowelout f1=0  f2=1000 -500 -350  f3=-300 80 rms=30
+  
+  IF PreVoicing THEN
+    IF prevPhW(isVowel) THEN
+      FMT(b/xb)
+    ELSE
+      FMT(voc/murmur1)
+    ENDIF
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/p_)
+  ENDIF
+  IF nextPh(l) THEN
+    WAV(ustop/pl)
+  ENDIF
+  WAV(ustop/p_asp)
+endphoneme
+
+
+phoneme d#
+  vls dnt stop prevoice
+  lengthmod 2
+  voicingswitch d
+  Vowelin f1=0  f2=1500 -300 300  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF PreVoicing THEN
+    IF prevPhW(isVowel) THEN
+      FMT(d/xd)
+    ELSE
+      FMT(voc/murmur1)
+    ENDIF
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt, 35)
+  ENDIF
+  WAV(ustop/t_dnt, 50)
+endphoneme
+
+
+phoneme d.#
+  vls rfx stop prevoice
+  lengthmod 2
+  ipa ʈU+02B0
+  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
+
+  IF PreVoicing THEN
+    IF prevPhW(isVowel) THEN
+      FMT(d/xdr)
+    ELSE
+      FMT(voc/murmur1)
+    ENDIF
+  ENDIF
+
+  voicingswitch d.#
+  WAV(ustop/t)
+endphoneme
+
+
+phoneme J#
+  vls pal afr sibilant palatal prevoice
+  voicingswitch c#
+  lengthmod 2
+  Vowelin f1=0  f2=2700 400 600  f3=300 80 rate len=70
+
+  IF PreVoicing THEN
+    IF prevPhW(isVowel) THEN
+      FMT(dzh/xdz_pzd)
+    ELSE
+      FMT(voc/murmur1)
+    ENDIF
+  ENDIF
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/ts_pzd)
+  ENDIF
+  WAV(ustop/ts_pzd)
+endphoneme
+
+
+phoneme g#
+  vls vel stop prevoice
+  lengthmod 2
+  Vowelin f1=1  f2=1400 -100 100  f3=-150 80
+  Vowelout f1=0 f2=2300 300 400  f3=-150 80  rms=20
+
+  IF PreVoicing THEN
+    IF prevPhW(isVowel) THEN
+      FMT(g/xg)
+    ELSE
+      FMT(voc/murmur1)
+    ENDIF
+  ENDIF
+
+  
+  IF nextPh(isPause2) THEN
+    WAV(ustop/k_asp, 40)
+  ENDIF
+  IF nextPhW(#e) OR nextPhW(#i) THEN
+    WAV(ustop/k_asp_e, 40)
+  ELIF nextPhW(#o) OR nextPhW(#u) THEN
+    WAV(ustop/k_asp_a, 25)
+  ELSE
+    WAV(ustop/k_asp_a, 30)
+  ENDIF
 endphoneme
 
 

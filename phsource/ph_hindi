@@ -439,7 +439,7 @@ endphoneme
 
 phoneme c#
   CALL base/tS;
-  ipa ch
+  ipa cU+02B0
 endphoneme
 
 

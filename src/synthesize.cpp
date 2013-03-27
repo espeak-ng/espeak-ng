@@ -1426,7 +1426,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		EndAmplitude();
 
-		if(p->prepause > 0)
+		if((p->prepause > 0) && !(p->ph->phflags & phPREVOICE))
 			DoPause(p->prepause,1);
 
 		done_phoneme_marker = 0;
@@ -1455,6 +1455,7 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 
 		case phSTOP:
 			released = 0;
+			ph = p->ph;
 			if(next->type==phVOWEL)
 			{
 				 released = 1;
@@ -1467,6 +1468,23 @@ int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume)
 			}
 			if(released == 0)
 				p->synthflags |= SFLAG_NEXT_PAUSE;
+
+			if(ph->phflags & phPREVOICE)
+			{
+				// a period of voicing before the release
+				memset(&fmtp, 0, sizeof(fmtp));
+				InterpretPhoneme(NULL, 0x01, p, &phdata, &worddata);
+				fmtp.fmt_addr = phdata.sound_addr[pd_FMT];
+				fmtp.fmt_amp = phdata.sound_param[pd_FMT];
+
+				if(last_pitch_cmd < 0)
+				{
+					DoAmplitude(next->amp,NULL);
+					DoPitch(envelope_data[p->env],next->pitch1,next->pitch2);
+				}
+
+				DoSpect2(ph, 0, &fmtp, p, 0);
+			}
 
 			InterpretPhoneme(NULL, 0, p, &phdata, &worddata);
 			phdata.pd_control |= pd_DONTLENGTHEN;

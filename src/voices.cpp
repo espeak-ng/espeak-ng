@@ -601,7 +601,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	// which directory to look for a named voice. List of voice names, must end in a space.
 	static const char *voices_asia =
-		"fa fa-pin hi hy hy-west id ka kn ku ml ms ne pa ta tr vi vi-hue zh zh-yue ";
+		"bn fa fa-pin hi hy hy-west id ka kn ku ml ms ne pa ta te tr vi vi-hue zh zh-yue ";
 	static const char *voices_europe =
 		"an bg bs ca cs cy da de el en en-us es et fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 

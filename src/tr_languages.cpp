@@ -79,7 +79,7 @@ ALPHABET alphabets [] = {
     {"_ar",    OFFSET_ARABIC,   0x600, 0x6ff,  0, 0},
     {"_dv",    OFFSET_THAANA,   0x780, 0x7bf,  0, 0},
     {"_hi",    OFFSET_DEVANAGARI, 0x900, 0x97f,L('h','i'), AL_WORDS},
-    {"_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, 0, 0},
+    {"_bn",    OFFSET_BENGALI,  0x0980, 0x9ff, L('b','n'), 0},
     {"_gur",   OFFSET_GURMUKHI, 0xa00, 0xa7f,  L('p','a'), AL_WORDS},
     {"_gu",    OFFSET_GUJARATI, 0xa80, 0xaff,  0, 0},
     {"_or",    OFFSET_ORIYA,    0xb00, 0xb7f,  0, 0},
