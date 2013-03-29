@@ -639,18 +639,19 @@ acervo		$alt2
 adepto		$alt
 adore		$alt
 adorno		$alt  $verb
+aeroporto	$alt2
+aeroportos	$alt
 albatrozes	$alt
 alcateia	$alt
 alferes		$alt
 algozes		$alt
 alicerce	$alt
 almoço		$alt $verb
-amarelo		$alt
 ameba		$alt
 amores		$alt2
 antonieta	$alt2
 apego		$alt2 $noun
-apelo		$alt  $verb
+apelo		$alt2  $noun
 aposto		$alt  $verb
 aperto		$alt2 $noun
 apneia		$alt
@@ -660,8 +661,8 @@ arremesso	$alt2 $noun
 arroz		$alt2
 assembleia	$alt
 ateia		$alt
-aterro		$alt2 $noun
-aterros		$alt2
+aterro		$alt2
+aterro		$alt $verb
 atmosfera	$alt
 atrozes		$alt
 autora		$alt2
@@ -671,7 +672,6 @@ azeda		$alt $verb
 azedo		$alt $verb
 baqueta		$alt2
 beco		$alt2
-belo		$alt
 besta		$alt2
 bilhete		$alt2
 boca		$alt2
@@ -685,22 +685,24 @@ borboleta	$alt2
 bordo		$alt
 bosque		$alt
 boto		$alt2 $noun
+brejo		$alt
 bromelha	$alt
+cabelo		$alt2
 cabresto	$alt2
 cacete		$alt2
 cachorra	$alt2
 caderneta	$alt2
 cadete		$alt2
+camelo		$alt2
 camiseta	$alt2
 cantora		$alt2
 capacete	$alt2
 caractere	$alt
-caramelo	$alt
+carbureto		$alt2
 careta		$alt2
 carreta		$alt2
 carroça		$alt
 casebre		$alt
-castelo		$alt
 cateto		$alt2
 catorze		$alt2
 cebola		$alt2
@@ -712,8 +714,6 @@ cerco		$alt $verb
 chamego		$alt2
 chefe		$alt
 checam		$alt
-cheque		$alt
-chinelo		$alt
 choro		$alt2 $noun
 chovesse	$alt2
 chupeta		$alt2
@@ -721,7 +721,6 @@ clamores	$alt2
 clero		$alt
 coco		$alt2
 cofre		$alt
-cogumelo	$alt
 coice		$alt2
 colabore	$alt
 colete		$alt2
@@ -736,7 +735,6 @@ concerto	$alt2 $noun
 concertos	$alt2
 concordo	$alt
 conforto	$alt  $verb
-congelo		$alt
 consolo		$alt2 $noun
 controle	$alt2 $noun
 controlo	$alt2 $noun
@@ -749,18 +747,21 @@ corto		$alt
 corveta		$alt2
 corvos		$alt
 coto		$alt2
+cotovelo		$alt2
 cratera		$alt
 crede		$alt2
 crepe		$alt
 decore		$alt
+degelo	$alt2
 desapego	$alt2 $noun
-descabelo	$alt
 descordo	$alt
 desemprego	$alt2
 desemprego	$alt $verb
 desespero	$alt2 $noun
 desfecho	$alt2
-desmantelo		$alt $verb
+desmantelo		$alt2 $noun
+desporto	$alt2
+desportos	$alt
 desprezo	$alt2 $noun
 desse		$alt2
 desse		$alt $verb
@@ -771,15 +772,14 @@ destroem		$alt
 deveras		$alt
 dez		$alt
 diarreia	$alt
+diego		$alt2
 discordo	$alt
 dobro		$alt2 $noun
 doce		$alt2
 doutora		$alt2
 droga		$alt
-duelo		$alt
 dueto		$alt2
 elixir		eliSir
-elo		$alt
 emprego		$alt2 $noun
 empregos	$alt2
 encosto		$alt  $verb
@@ -795,8 +795,8 @@ envolto		$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
 eritreia	$alt
-erro		$alt2 $noun
-erros		$alt2
+erro		$alt2
+erro		$alt $verb
 esboço		$alt  $verb
 escopeta	$alt2
 escova		$alt2 $noun
@@ -805,8 +805,8 @@ escovo		$alt
 escroto		$alt2
 esforço		$alt  $verb
 esforços	$alt
-esgoto		$alt2 $noun
-esgotos		$alt2
+esgoto		$alt2
+esgoto		$alt $verb
 esperma		$alt
 espeto		$alt2 $noun
 espiroqueta	$alt2
@@ -825,7 +825,6 @@ exagero		$alt $verb
 explore		$alt
 faceta		$alt2
 fantoche		$alt
-farelo		$alt
 farofa		$alt
 febre		$alt
 fera		$alt
@@ -834,26 +833,27 @@ ferozes		$alt
 fezes		$alt
 ?1 fixe		fiSy
 foda		$alt2 $verb
-folheto		$alt2
-folga		$alt
 fogos		$alt
 foguete		$alt2
 foice		$alt2
+folheto		$alt2
 fora		$alt
 fora		$alt2 $verb
 forca		$alt2
 força		$alt2 $noun
 forças		$alt2
 forço		$alt
+formos	$alt2
 forro		$alt $verb
 frevo		$alt2
+fulgores	$alt2
 galera		$alt
 galileia	$alt
 gameta		$alt2
 geleia		$alt
-gelo		$alt $verb
+gelo	$alt2
+gelo	$alt $verb
 genebra		$alt
-germe		$alt
 gesso		$alt2
 golpe		$alt
 gonorreia	$alt
@@ -878,22 +878,19 @@ lagosta		$alt2
 lambreta	$alt2
 lebre		$alt
 lembrete	$alt2
+lepra	$alt
 leste		$alt2 $verb
 lingueta		$alt2
 lopes		$alt
 macete		$alt2
 maior		$alt
 maleta		$alt2
-marcelo		$alt
-marmelo		$alt
 marreta		$alt2
-martelo		$alt
+megera		$alt
 melhor		$alt
 menor		$alt
-merda		$alt
-megera		$alt
-melo		$alt
 mentora		$alt2
+merda		$alt
 meta		$alt $noun
 meteoro		$alt
 metro		$alt
@@ -903,6 +900,8 @@ mexo		m'eSU
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
+modelo		$alt2
+modelo	$alt $verb
 moeda		$alt
 mofo	$alt $verb
 molho		$alt2 $noun
@@ -923,6 +922,7 @@ namoro		$alt2 $noun
 naquela		$nounf
 naquele		$alt2 $nounf
 nervo		$alt2
+novelo		$alt2
 novos		$alt
 obstetra	$alt
 odisseia	$alt
@@ -944,14 +944,14 @@ panfleto	$alt2
 pangeia		$alt
 panqueca	p,&~Nk'Ek&
 pantera		$alt
-paralelo	$alt
 parede		$alt2
 pastora		$alt2
 pedra		$alt
 pela		$alt $verb
 pelego		$alt2
 pela		$alt $verb
-pelo		$alt  $verb
+pelo		$alt2
+pelo		$alt $verb
 peso		$alt $verb
 piloto		$alt2 $noun
 pintora		$alt2
@@ -986,10 +986,13 @@ reforço		$alt  $verb
 reforços	$alt
 refresco	$alt  $verb
 reitora		$alt2
+rejo	$alt
 relevo		$alt2 $noun
 remorso		$alt
 renovo	$alt $verb
 retorno		$alt $verb
+reuva	$alt
+rigores	$alt2
 rixa		x'iS&
 rocha		$alt
 rock		$alt
@@ -1005,12 +1008,12 @@ seca		$alt2 $noun
 secas		$alt2
 seco		$alt2
 seco		$alt $verb
-selo		$alt  $verb
+selo		$alt2
+selo		$alt $verb
 selvagem	seUv'aZeIN
 sexteto		$alt2
 ?1 senhora	$alt2
 senhores	$alt2
-singelo		$alt
 sinopse		$alt
 soco		$alt2
 soco		$alt $verb
@@ -1034,6 +1037,7 @@ tocha		$alt
 toga		$alt
 topo		$alt  $verb
 torno		$alt  $verb
+tornozelo		$alt2
 torre		$alt2 $noun
 torres		$alt2
 torro	$alt
@@ -1049,16 +1053,13 @@ trombeta	$alt2
 tumores		$alt2
 valeta		$alt2
 vanessa		$alt2
-velo		$alt
 velozes		$alt
-verme		$alt
 violeta		$alt2
 violoncelo	$alt
 voga		$alt
 vozes		$alt
 xarope		$alt
-xeque		$alt
-zelo		$alt $verb
+zelo		$alt2 $noun
 zero		$alt
 zorra		$alt2
 

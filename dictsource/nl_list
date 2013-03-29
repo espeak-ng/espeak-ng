@@ -58,7 +58,7 @@ _tld	t'Ild@
 
 
 // punctuation
-.	p8nt		$max3
+.	p8nt
 _,	k'Oma:
 _:	d'8b@l@p,8nt
 _;	p'8ntkOm,a:
@@ -75,8 +75,9 @@ _)	h'a:kj@sl'Wyt@n
 _{	v'irkAnt@h,a:k
 _}	v'irkAnt@h,a:ksl'Wyt@n
 _-	k'OpElt,e:k@n
-+	pl'8s		$max3
-*	st'E*rEt;@	$max3
++	pl'8s
+*	st'E*rEt;@
+=	Q@l'EIkte:k@n
 __	l'IgEntst@-*'e:pj@
 €	'Y:*o:t,e:k@n
 
@@ -133,6 +134,7 @@ _0Co	h'OndErtst@
 
 // abbreviations
 be	$abbrev   // used as domain abbrev for Belgium and in a lot of other names
+ca	ka: $hasdot
 enz	Enzo:vo:rt
 bvb	bEIv'o:rbe:lt
 eu	e:_y: $abbrev
@@ -379,6 +381,7 @@ reken		$alt
 schepen		$alt
 steven		$alt
 teken		$alt
+volwassen	$alt
 wapen		$alt
 zegen		$alt
 trokken		$alt

@@ -102,19 +102,19 @@ _9	n'i
 _10	t'i
 _11	'Elv@
 _12	t'Vl
-_13	tR'?&#d@-n 
+_13	t*'?&#d@-n 
 _14	fj'ord@-n
 _15	 f'Emd@-n
-_16	s'ajsd@-n
-_17	s'Wd@-n 
+_16	s'Ajsd@-n
+_17	s'?Wd@-n 
 _18	'?&d@-n  
-_19	n'ed@-n
+_19	n'?ed@-n
 _2X	t'y:?u
-_3X	tR'&#Dv@              
+_3X	t*'&#Dv@              
 _4X	 f'?W:_|V             
 _5X	h&l't*Es             
 _6X	t*'Es                
-_7X	h&lfj'&rs
+_7X	h&lfj'Ers
 _8X	f'irs
 _9X	h&lf'Ems // PB a changed to &
 _0C	h'unRVD
@@ -131,32 +131,32 @@ _0M4	bilij'o:n3
 _0and	V
 _dpt	_k,Vm&:
 
-// PB a number followed by dot
+// A number followed by dot
 // ordinals are followed by a dot in Danish
-_ord      3  // 13. (trettende)
+_ord      @-  // 13. (trettende)
 
 // exceptions for ordinals
-_1o fWrsd3 // 1. første
+_1o fWrsd@- // 1. første
 _2o &n@n // 2. anden
-_3o trEdj3 // 3. tredje
+_3o trEdj@- // 3. tredje
 _4o fjeV // 4. fjerde
-_5o fEmt3 // 5. femte
-_6o sjEd3 // 6. sjette
-_7o syvn3 // 7. syvende
-_8o Vtn3 // 8. ottende
-_9o ni@n3 // 9. niende
-_10o ti@n3 // 10. tiende
-_11o Elfd3 // 11. elvte/ellevete
-_12o tVlfd3 // 12. tolvte
+_5o fEmt@- // 5. femte
+_6o sjEd@- // 6. sjette
+_7o syvn@- // 7. syvende
+_8o Vtn@- // 8. ottende
+_9o ni@-n@- // 9. niende
+_10o ti@-n@- // 10. tiende
+_11o Elfd@- // 11. elvte/ellevete
+_12o tVlfd@- // 12. tolvte
 
-_2Xo   t'yv@n@ // 25.
-_3Xo   tr'&#ft@ //36.
-_4Xo   fWV'tyv@n@ // 42.
-_5Xo   h&lt*'Esenstyv@n@ // 52.
-_6Xo   tr'Esenstyv@n@ // 62.
-_7Xo    h&lfj'&rsenstyv@n@ // 72.
-_8Xo    firsenstyv@n@ // 82.
-_9Xo   h&lf'Emsenstyv@n@ // 95.
+_2Xo   t'yv@n@- // 25.
+_3Xo   tr'&#ft@- //36.
+_4Xo   fWV'tyv@-n@- // 42.
+_5Xo   h&lt*'Esenstyv@-n@- // 52.
+_6Xo   tr'Esenstyv@-n@- // 62.
+_7Xo    h&lfj'&rsenstyv@-n@- // 72.
+_8Xo    firsenstyv@-n@- // 82.
+_9Xo   h&lf'Emsenstyv@-n@- // 95.
 
 // function words
 
@@ -187,10 +187,10 @@ fra			$u+	// from
 ved			$u+	// at
 om			$u+ $brk	// about, within
 med			$u+	// with
-af      &  	
-ad      &  
+af      &_!  	
+ad      &_!  
 ad &D $atend $sentence // "Det må ikke skille os ad."
-at		& $u 
+at		&_! $u 
 hos			
 som	sVm	 $u   // which / that 
 
@@ -203,7 +203,7 @@ hun	$u
 det	de $u
 dét de
 vi	vi $u
-i	_i $u+
+i	_i_! $u+
 mig	mAj	$u	// me
 dig	dAj	$u+
 dem	$u
@@ -220,10 +220,10 @@ hvis ves   $u+  // PB - whose
 // possessive pronouns
 min	min	$u
 mit	mit	$u
-mine	m'in3	
+mine	m'in@-	
 din	d'in $u+
 dit	d'it	$u
-dine	d'in3
+dine	d'in@-
 deres dE:Vs	$u
 hans	$u+
 hendes	$u+
@@ -1448,7 +1448,6 @@ elegance  $alt
 eminence  $alt
 excellence  $alt
 fajance  $alt
-hospice  $alt
 ignorance  $alt
 inspektrice  $alt
 intolerance  $alt
@@ -1846,6 +1845,7 @@ afrikan  $alt
 afrikaan  $alt
 aleksandrin  $alt
 amerikan  $alt
+austral $alt
 andorran  $alt
 anglikan  $alt
 angolan  $alt
@@ -5968,6 +5968,7 @@ dediker   $alt
 deducer   $alt
 defiler   $alt
 definer   $alt
+omdefiner   $alt
 deflorer   $alt
 deformer   $alt
 degrader   $alt
@@ -6547,6 +6548,7 @@ konstater   $alt
 konstituer   $alt
 konstringer   $alt
 konstruer   $alt
+rekonstruer   $alt
 konsulere   $alt
 konsulter   $alt
 konsumer   $alt
@@ -11121,7 +11123,7 @@ sinecure  $alt
 tournure  $alt
 
 // exceptions
-alene	&l'en@	// alone
+alene	&l'en@-	// alone
 egen _|aj@-n
 mc mak' $capital // PB McDonald
 egne	ajn@-
@@ -11150,48 +11152,48 @@ giv g'i                    // PB the v shouldn't be pronounced
 giver gir                  // PB the v shouldn't be pronounced
 opgiver Vpgir    // PB
 jaloux sj&'lu              // PB jaloux
-aficionado afisjo'na:do    // PB
-breakdance  brEig'da:ns    // PB breakdance
-breakdancen  brEig'da:ns@-n // PB breakdancen
-breakdancer  brEig'da:nsV   // PB breakdancer
-breakdancere  brEig'da:nsV3   // PB breakdancere
-breakdancerne  brEig'da:nsV-n@ // PB breakdancerne
-breakdancernes  brEig'da:nsV-n@s // PB breakdancernes
-squaredance  skw'e@da:ns    // PB squaredance
-squaredancer  skw'e@da:nsV  // PB squaredancer
-squaredancere  skw'e@da:nsV3  // PB squaredancere
-squaredancen  skw'e@da:ns@-n // PB squaredancen
-squaredancerne  skw'e@da:nsV-n@ // PB squaredancerne
-squaredancernes  skw'e@da:nsV-n@s // PB squaredancernes
-baguette b%a'get // French word used in Danish
-jambore djamboR'E             // PB English? word used in Danish - stressed e
-shampu Sjambo                // PB Danish pronunciation - oo has been replaced by u
-(en face)  aN||f'as           // PB 'en face' - French used in Danish
-(en bloc) aN||'blVk           // PB 'en bloc' - French used in Danish
+aficionado afisjo'nA:do    // PB
+breakdance  brEig'd&:ns    // PB breakdance
+breakdancen  brEig'd&:ns@-n // PB breakdancen
+breakdancer  brEig'd&:nsV   // PB breakdancer
+breakdancere  brEig'd&:nsV3   // PB breakdancere
+breakdancerne  brEig'd&:nsV-n@ // PB breakdancerne
+breakdancernes  brEig'd&:nsV-n@s // PB breakdancernes
+squaredance  skw'EVd&:ns    // PB squaredance
+squaredancer  skw'EVd&:nsV  // PB squaredancer
+squaredancere  skw'EVd&:nsV3  // PB squaredancere
+squaredancen  skw'EVd&:ns@-n // PB squaredancen
+squaredancerne  skw'EVd&:nsV-n@ // PB squaredancerne
+squaredancernes  skw'EVd&:nsV-n@s // PB squaredancernes
+baguette b?&'gEt // French word used in Danish
+jambore djAmboR'E             // PB English? word used in Danish - stressed e
+shampu SjAmbo                // PB Danish pronunciation - oo has been replaced by u
+(en face)  AN||f'as           // PB 'en face' - French used in Danish
+(en bloc) AN||'blVk           // PB 'en bloc' - French used in Danish
 (haute couture) %o:tku'ty:r   // PB - french word
-(par excellence) pa:egs@'la:Ns // PB - french word
-(public service) pVblek||s@:vis // PB
-(public servicen) pVblek||s@:vis@-n // PB
+(par excellence) pA:Egs@'la:Ns // PB - french word
+(public service) pVblek||sW:vis // PB
+(public servicen) pVblek||sW:vis@-n // PB
 (tour de force) tu:@d@||'fV:s  // PB
 (al qaeda) al||k'ajda          // PB
 (force majeure) fVrs||,ma'sjW:r // PB
-(diner transportable) din'e|trANspVt'abl@ // PB
+(diner transportable) din'e|trANspVt'abl@- // PB
 (quiche lorraine) kiS||lor'E:n:
-(fait accompli) fEtakVmpl'i // PB
+(fait accompli) fEt&kVmpl'i // PB
 (salt lake city) s'Vlt||lEjk||s'iti
 wien     v'i:n                  // PB Wien - the town of Vienna
-calais   kal'E                   // PB Calais - town in France 
-date dejt                      // PB date - stævnemøde
+calais   k&l'E                   // PB Calais - town in France 
+date dEjt                      // PB date - stævnemøde
 //siger sir                      // PB silent d
 (tids nok) tis||n'Vk             // PB silent d
-skateboardet  sk'eitbo@d3D      // PB
+skateboardet  sk'EitbO:d@-D      // PB
 (hole in one) h'oulinw,0n      // PB English golf expression used in Danish
 (en passant) AN||p&s'AN
 (coney island) 'kouni||'ajl3nd    // PB
 (union station) junj3n||steisj@n  // PB
 (secret service) sigred||s'Wvis
 (happy hour) h&pi||'AuV
-chevrolet sjEvrol'e
+chevrolet sjEvrol'E
 saigon sAjgVn                   // PB Saigon
 managua m&n'&:gw&
 (deja-vu) deSja||'vy
@@ -11246,32 +11248,37 @@ ikes ajks // PB
 // Try to catch errors
 
 (et kvarter) et||kvA'ter      // PB
-(mit kvarter) mit||kvA'ter      // PB
-(vores kvarter) vV:s||kvA'ter      // PB
-(deres kvarter) dE:Vs||kvA'ter      // PB
-(det kvarter) de||kvA'ter      // PB
+(mit kvarter) mit||kvA'ter  
+(vores kvarter) vV:s||kvA'ter  
+(deres kvarter) dE:Vs||kvA'ter
+(det kvarter) de||kvA'ter 
 (i kvarter) i||kv'A:dV
-(at have) &||h&                // PB the verb 'have', not the noun 'have' = garden
-(vil have) vel||h'&             // PB
-(ville have) v?il3||h'&             // PB
-(du have) du||h&               // PB
-(må have)  mO:||h&               // PB
-(skal have)  sk?&||h&               // PB
+// the verb 'have', not the noun 'have' = garden/oceans
+(at have) &||h&                
+(vil have) vel||h'& 
+(ville have) v?il3||h'& 
+(du have) du||h&_!
+(må have)  mO:||h&  
+(skal have)  sk?&||h&  
 (helst have) h'Elst||h&
 (gerne have) g'Ern3||h&
-(kan have) k?&n||h&        // PB
-(ikke have) ege||h&             // PB
+(kan have) k?&n||h& 
+(ikke have) eg@-||h& 
+(have ret) h&||R'&#d
+(måtte have) m'?Vt@-||h&
+(have været) h&||v'?E3-VD
+(have gjort) h&||gj'Ort
 // PB 'hav' = ocean - 'hav' = have (a nice day)
 (et hav) ed||hAu
 (stort hav) stord||hAu
 hav hAu $atend
-(et for) ed||'for              // PB for i jakke - lining
+(et for) ed||'for              // for i jakke - lining
+(et for dig) ed||fV||dAj       // vælge et for dig
 // PB problem with 'sig' [si] = "say" and 'sig' = "himself/herself" [saj]
-//(sig mig)  si||maj               // PB sig mig engang
-(sig hvad) si||v&                // PB sig hvad du mener 
-sig $atend $sentence saj        // end of a sentence - han vaskede sig.
-(gør sig til) g,Wr||saj||t'el    // PB
-(gav sig til) g&||saj||tel       // PB han gav sig til at ... 
+(sig hvad) si||v&                // sig hvad du mener 
+sig $atend $sentence sAj        // end of a sentence - han vaskede sig.
+(gør sig til) g,Wr||sAj||t'el    
+(gav sig til) g&||sAj||tel       // han gav sig til at ... 
 // PB avoid [staj] as in "flæskesteg"
 (han steg) h&n||st'e
 (hun steg) hOn||st'e
@@ -11280,7 +11287,7 @@ sig $atend $sentence saj        // end of a sentence - han vaskede sig.
 (alle steg) &l3||st'e
 (vandet steg) v&n@D||st'e
 steg sdaj $atend $sentence
-steget ste@d 
+//steget ste@d 
 // PB problem with noun "hav" = ocean and verb "hav(e)" = to have [hAu]/[h&v]
 (et hav) ed||h'Au              // PB "et hav" = an ocean - not "hav en god dag" - have a nice day
 // PB legende = legend/myth and = playing

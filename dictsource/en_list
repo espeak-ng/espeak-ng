@@ -70,6 +70,7 @@ a	eI	$atend
 ï	$accent
 ö	$accent
 ü	$accent
+û	$accent
 č	$accent
 š	$accent
 ş	$accent
@@ -754,6 +755,7 @@ ambassador	a#mbas@d3
 ambidextrous	$3
 amen		,A:m'En        $onlys
 ?3 amen		,eIm'En
+?3 amo		amoU
 amok		a#m0k
 amoral		eIm'0r@L
 amount		a#maUnt
@@ -767,8 +769,6 @@ analyses	an@laIzI#z    $verb
 analysis	a#nal@sIs
 anemone		a#nEm@ni
 angel		eIndZ@L
-anecdote	anIkdoUt
-anecdotal	anIkd'oUt@L
 anemometer	anIm'0mI2t3
 anew		a#nju:
 ?3 anew		a#nu:
@@ -829,7 +829,7 @@ arena		a#ri:n@
 argon		A@g0n
 argue		A@gju:
 aries		e@ri:z
-arithmetic	a#rITm@tIk
+arithmetic	a#rITm@tIk $onlys
 arise		a#raIz
 arisen		@rIz@n
 armslength	,A@mzl'ENT
@@ -877,6 +877,7 @@ average		av@-rI2dZ
 aviary		eIvi@ri
 awry		a#raI
 axes		aksI#z
+axon		aks0n
 
 backend		bak'End
 backstory	baksto@ri
@@ -1115,6 +1116,7 @@ circumference	$2
 circumvent	s3:k@mvEnt
 ?5 circumvent	sIRk@mvEnt
 citadel		sIt@dEl
+clandestine	$2
 clarinet	klar@n'Et
 cleanliness	klEnlIn@s
 cleanse		klEnz
@@ -1236,6 +1238,7 @@ coordinate	koU'O:dI2neIt   $verb
 copier		k0pi@3
 copilot		koUpaIl@t
 coral		k0r@L
+?3 cordial	kO@dZ@L
 coronet		k0r@nEt
 corollary	$2
 corporal	kO@pr@L
@@ -1291,6 +1294,7 @@ debut		deIbju:
 ?3 debut	deIb'ju:
 decade		dEkeId
 decent		di:s@nt
+decibel		dEsI#b@L
 declaration	dEkl@'reIS@n
 decolletage	deIk0lt'A:Z
 decor		deIkO@
@@ -1380,6 +1384,7 @@ doctrine	d0ktrI2n
 doctrinal	$alt1
 doer		du:3
 dogged		d0gI#d
+dogmatic	d0gm'atIk
 doin		du:In
 domino		$1
 donor		doUn3
@@ -1796,6 +1801,7 @@ intestine	I2ntEstI#n
 inventory	Inv@ntri
 ?3 inventory	Inv@nto:ri
 interface	$1
+interlude	$1
 intermin	Int'3:mIn	// interminable
 intern		$1  $onlys
 internee	Int'3:ni:
@@ -2056,6 +2062,7 @@ molybdenum	$2
 momentary	moUm@nt@ri
 ?3 momentary	moUm@nt2e@ri
 momentum	$2
+monarchic	m@nA@kIk
 monday		mVndeI
 monotone	m0n@toUn
 monsieur	m@sj3:
@@ -2251,6 +2258,7 @@ pear		pe@
 pecan		pi:k@n
 peculiar	pI2kju:lI3
 pedalo		pEd@loU
+pedestal	pEdI2st@L
 pedestrian	$alt3
 pegasus		pEg@s@s
 pejorative	p@dZ0r@tIv
@@ -2545,6 +2553,7 @@ ruby		ru:bi
 rugged		rVgI#d
 ruin		ru:I2n          // for ruining
 
+sabbatic	$alt3
 sabotage	sab@tA:Z
 saboteur	sab@t'3:
 ?5 saboteur	sab@t'VR
@@ -2552,6 +2561,7 @@ sabre		seIb3
 sachet		saSeI
 sacred		seIkr@d
 sacrifice	sakrI2faIs
+sadistic	$alt3
 safety		seIfti
 saga		sA:g@
 sahara		$alt3
@@ -2566,6 +2576,7 @@ saloon		$alt3
 san		,san $only
 sardine		$2
 satanic		$alt3
+satiric		$alt3
 saucepan	sO:sp@n
 saudi		saUdi
 saute		sO:teI
@@ -2706,6 +2717,7 @@ stagnate	$2
 stampede	$2
 starboard	stA@b3d
 starry		stA:rI
+statistic	$alt3
 stiletto	stI2lEtoU
 strychnine	str'Ikni:n
 sterile		stEraIl
@@ -2882,6 +2894,7 @@ unaware		Vn@w'e@
 uncle		VNk@L
 undeny		VndIn'aI
 underling	$1
+underlings	Vnd3lINz
 underworld	$1
 undies		Vndiz
 undo		Vnd'u:
@@ -3649,6 +3662,7 @@ Phoebe		fi:bi:
 Rachael		reItS@L
 Rachel		reItS@L
 Rafael		rA:faI'El
+Rashid		rA:S'i:d
 Raul		raU'u:l
 Rees		ri:s
 Reese		ri:s
@@ -3673,6 +3687,7 @@ Sebastian	$alt3
 Sheila		Si:l@
 Simon		saIm@n
 Sinead		SI2neId
+Sinéad		SI2neId
 Siobhan		S@vO:n
 Siobhán		S@vO:n
 Sonia		s0nj@

@@ -4,7 +4,7 @@
 // Suffix rule: SUFX_E  eg. S2e  means double the vowel before the final consonant
 
 .L01  g k
-.L02  _ t_ d_ de_ den_  // verb endings
+.L02  _ t_ d_ de_ den_  nen_ // verb endings ('nen' for 'scannen')
 
 
 .group a
@@ -330,13 +330,20 @@
              g            Q    // ph_dutch changes to [x] before unvoiced, NULL after [x]
              gg           Q
           s) g            x
+          
+          @) gi (eus      Z
+          @) gi (euz      Z
+       reli) gi (eu       Qij
 
+       
+.group ge
           _) ge (@P2      Q@
              ge (bied     Q@
           _) gee          Qe:
           _) gei          QEI
              gener (aal   Q,e:n@r
           _) gelijk       Q@lEIk
+          _) ge (lC       QE
           _) ge (rC       QE
           _) geu          QY:
           _) ge (ven      Qe:
@@ -346,10 +353,8 @@
 
              ge (sprek    Q@  // in compounds
 
-          @) gi (eus      Z
-          @) gi (euz      Z
-       reli) gi (eu       Qij
 
+             
 
 .group h
              h            h
@@ -360,6 +365,7 @@
           _) herinn       h%ErIn   // herinneren
           _) hersen       h'Ers@n
           &) heid (_S4    hEIt
+          _) hulp (@@P4   h'8lp
 
 
 .group i
@@ -546,13 +552,14 @@ _) inn (@P2 'I    // ?? inneren
          pl) oi (t        v#A
           c) oi (ffu      v#A
          pr) o (gram      o:
+             omgeving     OmQ'e:vIN
              oo (X        'o:
              oon          'o:n  // in compounds, eg. telefoongesprek
              oo (C_       'o:
           _) oost (@P4    o:st
           _) op (@@P2     'Op
           _) open (@P4    'o:p@n
-          _) op (enen     'o:p
+          _) op (enen+    'o:p
           _) openings (P8 'o:p@nINs
           _) op (era      'o:p
           _) op (tion     Op

@@ -198,7 +198,7 @@
         e (guem_   E
 
         e (lA_     E
-        e (lo_     e
+        e (lo_     E
         e (lAm_    E
 
      i) e (r_      E
@@ -220,8 +220,14 @@
      f) e (re_     E
      f) e (rem_    E
 
+        e (que_    E
+ e (quem_    E
+ 
         e (rgA_    E
         e (rgAm_   E
+
+e (rgue_    E
+e (rguem_    E
 
         e (rsA_    E
         e (rsAm_   E
@@ -235,6 +241,8 @@
         e (stA_    E
         e (stAm_   E
         e (strA_   E
+
+e (rme_    E
 
         e (rnA_    E
         e (rnAm_   E
@@ -458,10 +466,7 @@ respond) e (L07_   e         // cor-
     tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
    _in) e (ptL03_  E
-    _p) e (quL02_  E
-    _s) e (quL02_  E
     ad) e (quL04_  E
-     l) e (que_    E
   _imp) e (rL03_   E
   _sev) e (rL03_   E
  _reit) e (rL03_   E
@@ -483,13 +488,10 @@ _recup) e (rL04_   E
 _refrig) e (rL04_  E
     _v) e (rbL03_  E
     _p) e (rdL02_  E
+_ch) e (guL02_   e
     _l) e (rdL03_  E
     _h) e (rdL04_  E
-     _) e (rgL03_  e
-     _) e (rguL02_ E
-  _alb) e (rguL02_ E
-  _enx) e (rguL02_ E
-  _bez) e (rrL03_  e
+            _bez) e (rrL03_  e
   _inv) e (rtL03_  e
     _f) e (rvL03_  e
  _refr) e (scL01_  E
@@ -574,14 +576,18 @@ _entorp) e (çL03_  e
         gu (Y      g
      a) gu (ent    gw
    _ar) gu (i      gw
+   averi) gu (e   gw
   enxa) gu (e      gw
+  i) gu (idade   gw
    lin) gu (e      gw
    lin) gu (i      gw
+   _min) gu (e   gw
   _pin) gu (im_    gw
   _pin) gu (ins_   gw
-   _sa) gu         )i        gw
+   _sa) gu (i   gw     
    san) gu (ín     gw
    san) gu (in     gw
+   tin) gu (i   gw
 ?1   n) gu (A      gw        // eg: língua, etc.
 ?1 man) gu (ei     g         // mangueira
 ?1      gu (ém_    g         // eg: alguém, ninguém, etc...
@@ -825,9 +831,10 @@ _entorp) e (çL03_  e
 //sort
     _f) o (L05_    o
     _f) o (L07_    o
- _engl) o (bL01_   O
+ _engl) o (bL04_   O
     _s) o (bL02_   O
   _esn) o (bL04_   O
+  _af) o (bL04_   O
     br) o (chL04_  O
   _deb) o (chL04_  O
     _m) o (fL01_   O
@@ -835,6 +842,8 @@ _entorp) e (çL03_  e
     _s) o (frL02_  O
      r) o (gL04_   O         // inter-
     _j) o (gL04_   O
+_emp) o (lgL04_   O
+_f) o (lgL04_   O
    _af) o (gL04_   O
   _adv) o (gL04_   O
   _ref) o (gL04_   O

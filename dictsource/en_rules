@@ -504,6 +504,7 @@
      portr) ai (t        I#
 
 .group al
+       @ic) al (_S2      @L
          _) al (@        a#l
       gonz) al           'A:l
          _) alaba        al@b'a
@@ -720,6 +721,7 @@
          p) an (c        an
         @m) an (d        aan
         sl) an (d        aan
+         _) anecdo       anIkdoU
          C) an (t        aan
             an (ath      a#n
             ann (eal     a#n
@@ -1066,8 +1068,8 @@
             as (thm      as
             as (tral     as
             as (tro      as
-            as (trolog   a#s
-            as (trono    a#s
+         _) as (trolog   a#s
+         _) as (trono    a#s
          &) as (ty_      a#s
             ass (ym      as
      purch) as (e        Is
@@ -1093,11 +1095,12 @@
         _s) ata (n       eIt@
         _g) ator         eIt3
          &) ate (_$w_alt2    @t
+       der) ated (_      eItI#d
        pal) ate (_       @t
     consul) ate (_       @t
      macul) ate (_       @t
        tim) ate (_       @t
-       tim) ated (_      eItI2d
+       tim) ated (_      eItI#d
        tim) ating (_     eItIN
        din) ate (_       @t
        ion) ate (_       @t
@@ -1128,7 +1131,6 @@
             at (io_      eIS
             ati (aX      'eIS
          &) atism        @tIz@m
-        st) at (ist      @t
          w) at (t        0t
          @) ath (An_     @T
             athed (_     eIDd
@@ -1334,6 +1336,7 @@
             bi (nm       bI
             bi (noc      bI2
          _) bio (@P3     b,aIoU
+            bi (ol       baI
             bi (otic     baI
          @) bi (osA      baI
             bi (oC_      bI
@@ -1685,6 +1688,7 @@
             de (ft       dE
          _) de (g@       dI2
          _) de (hyd      ,di:
+         _) de (ist      deI
          _) de (j        dI2
          _) de (l@       dI2
             de (law      dE
@@ -1865,6 +1869,7 @@
         sp) e (cies      i:
       depr) ec (L02      i:S
          _) e (cl        %I
+         _) eccles (i    I2kli:z
             econo (m     Ik'0n@
             econo (mic   i:k@n'0
          _) eco (s       i:koU
@@ -2441,6 +2446,7 @@
             er (nal_     '3:
          &) er (n_       3
          c) er (n_       3:
+        _g) er (on       Er
          &) er (oCe_     =@r
             er (se       3:
          v) er (sal      '3:
@@ -2514,7 +2520,7 @@
         pr) es (ent      Ez
             es (iA       i:z
             es (ian_     'i:z
-            es (ic       'i:z
+         @) es (ic       'i:z
             esis (_      'i:sIs
         th) eses (_      @si:z
         th) esis (_      @sIs
@@ -2945,7 +2951,7 @@
             ize (_       aIz
        ial) ize (_S3     aIz
             ize (d_      aIz
-            i (zen       I2
+            i (zen       I
             iz (er_      aIz
             i (zon_     'aI
         _p) izz          i:t|s
@@ -3169,6 +3175,7 @@
             imm (in      Im
             immo (bi     Im'oU
             imm (unis    Im
+         _) immu (no     I2mju:
          @) imous (_     =Im@s
             im (pac      Im
             im (pecu     ,Im
@@ -3249,6 +3256,7 @@
             in (ga_      'IN
             in (got      IN
          _) in (gro      IN
+         _) in (im       I2n
          _) in (jur      In
          _) in (k        IN
          _) in (l        In
@@ -3501,7 +3509,7 @@
          @) istan (_     =Istan
          @) istani (_     Ist'A:nI
          @) iste (_      'i:st
-         @) is (tic      'Is
+         @) is (tic_     'Is
          r) is (y_       =@s
 
 
@@ -4082,7 +4090,6 @@
       betr) oth          oUD
 ?3      cl) o (th        O
         cl) othe         oUD
-        tr) othe         oUD
          b) o (ther      0
         _r) o (ther      0
             o (ther+     V
@@ -4220,7 +4227,7 @@
         dr) on (_        @n
         or) on (_        0n
         cr) on (_        0n
-         x) on (_+       0n
+        @x) on (_        @n
       phot) on           @n
       pers) on           @n
       pers) on (i        '0n
@@ -4303,6 +4310,7 @@
 .group or
             or           o@
          _) or           O@
+         _) organo (@P6  O@g,anoU
             or (ch_      O@
             or (m_       O@
         st) or (m        o@
@@ -5229,6 +5237,7 @@
 ?5       _) sur          sVR
          _) sure         SU@
             sur (anc     SU@
+            sur (g+      s3:
             sur (m       s3
             sur (pa      s3
             sur (pr      s3
@@ -5261,6 +5270,7 @@
             te (rrest    t2@
          r) tga (g       gI
          @) t (ia        S
+       _pi) t (ia        t
          s) t (l         
             to (morr     t@
          _) to (nn       tV
@@ -5273,6 +5283,7 @@
             tribe        traIb
          _) tri (bu      trI
          _) tri (g       trI
+         _) tri (gonA    trI
          _) tri (ni      trI
          _) tri (vi      trI
          _) tri (xA      trI
@@ -6079,6 +6090,7 @@
 	ö	3:
 	ör      3:
 	ü	u:
+	û	u:
 	ç	s
 	ß	s
 	č	tS
