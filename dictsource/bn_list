@@ -1,4 +1,4 @@
-// Translation rules for Bengali
+﻿// Translation rules for Bengali
 // This file is UTF8 encoded
 
 // Numbers
@@ -199,6 +199,8 @@ _dpt	dOsomik
 ঃ	b'iSOrgo
 ঁ	tS'Ondrobindu
 ়	b'indu
+
+_,	koma
 
 
 // Punctuation

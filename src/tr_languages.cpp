@@ -654,10 +654,10 @@ Translator *SelectTranslator(const char *name)
 
 			// character codes offset by 0x380
 			static const char el_vowels[] = {0x10,0x2c,0x2d,0x2e,0x2f,0x30,0x31,0x35,0x37,0x39,0x3f,0x45,0x49,0x4a,0x4b,0x4c,0x4d,0x4e,0x4f,0};
-			static const char el_fvowels[] = {0x2d,0x2e,0x2f,0x35,0x37,0x39,0x45,0x4d,0}; // ε η ι υ  έ ή ί ύ
-			static const char el_voiceless[]= {0x38,0x3a,0x3e,0x40,0x42,0x43,0x44,0x46,0x47,0};  // θ κ ξ π ς σ τ φ χ
+			static const char el_fvowels[] = {0x2d,0x2e,0x2f,0x35,0x37,0x39,0x45,0x4d,0}; // ε η ι υ  έ ή ί ύ _
+			static const char el_voiceless[]= {0x38,0x3a,0x3e,0x40,0x42,0x43,0x44,0x46,0x47,0};  // θ κ ξ π ς σ τ φ χ _
 			static const char el_consonants[]={0x32,0x33,0x34,0x36,0x38,0x3a,0x3b,0x3c,0x3d,0x3e,0x40,0x41,0x42,0x43,0x44,0x46,0x47,0x48,0};
-			static const wchar_t el_char_apostrophe[] = {0x3c3,0};  // σ
+			static const wchar_t el_char_apostrophe[] = {0x3c3,0};  // σ _
 
 			SetupTranslator(tr,stress_lengths_el,stress_amps_el);
 
@@ -670,7 +670,7 @@ Translator *SelectTranslator(const char *name)
 			SetLetterBits(tr,LETTERGP_VOWEL2,el_vowels);
 			SetLetterBits(tr,LETTERGP_B,el_voiceless);
 			SetLetterBits(tr,LETTERGP_C,el_consonants);
-			SetLetterBits(tr,LETTERGP_Y,el_fvowels);    // front vowels: ε η ι υ
+			SetLetterBits(tr,LETTERGP_Y,el_fvowels);    // front vowels: ε η ι υ _
 
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.stress_rule = STRESSPOSN_2R;
@@ -912,6 +912,7 @@ SetupTranslator(tr,stress_lengths_equal,stress_amps_equal);
 			tr->langopts.numbers = NUM_SINGLE_STRESS | NUM_HUNDRED_AND | NUM_OMIT_1_HUNDRED | NUM_DECIMAL_COMMA | NUM_THOUS_SPACE | NUM_DFRACTION_2 | NUM_ROMAN_CAPITALS;
 			tr->langopts.numbers2 = 0xa + NUM2_THOUSANDS_VAR5;  // variant numbers before thousands,milliards
 			tr->langopts.replace_chars = replace_cyrillic_latin;
+			tr->langopts.our_alphabet = OFFSET_CYRILLIC;   // don't say "cyrillic" before letter names
 
 			SetLetterVowel(tr,'y');
 			SetLetterVowel(tr,'r');
@@ -1113,6 +1114,7 @@ SetLengthMods(tr,3);  // all equal
 			static const unsigned char ko_voiced[] = {0x02,0x05,0x06,0xab,0xaf,0xb7,0xbc,0};  // voiced consonants, l,m,n,N
 
 			tr->letter_bits_offset = OFFSET_KOREAN;
+			tr->langopts.our_alphabet = 0xa700;
 			memset(tr->letter_bits,0,sizeof(tr->letter_bits));
 			SetLetterBitsRange(tr,LETTERGP_A,0x61,0x75);
 			SetLetterBits(tr,LETTERGP_Y,ko_ivowels);
@@ -1194,6 +1196,7 @@ SetLengthMods(tr,3);  // all equal
 			SetupTranslator(tr,stress_lengths_mk,stress_amps_mk);
 			tr->charset_a0 = charsets[5];   // ISO-8859-5
 			tr->letter_groups[0] = tr->letter_groups[7] = vowels_cyrillic;
+			tr->letter_bits_offset = OFFSET_CYRILLIC;
 
 			tr->langopts.stress_rule = STRESSPOSN_3R;   // antipenultimate
 			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_AND_UNITS | NUM_OMIT_1_HUNDRED | NUM_OMIT_1_THOUSAND | NUM_DFRACTION_2;
@@ -1608,6 +1611,7 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.length_mods0 = tr->langopts.length_mods;  // don't lengthen vowels in the last syllable
 			tr->langopts.tone_numbers = 1;   // a number after letters indicates a tone number (eg. pinyin or jyutping)
 			tr->langopts.ideographs = 1;
+			tr->langopts.our_alphabet = 0x3100;
 			tr->langopts.word_gap = 0x21;   // length of a final vowel is less dependent on the next consonant, don't merge consonant with next word
 			if(name2 == L('z','h'))
 			{

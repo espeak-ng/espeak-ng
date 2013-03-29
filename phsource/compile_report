@@ -1016,7 +1016,8 @@ vdiph2/ee@      [e@] en-n
 vdiph2/ee@_2    [e@] en-rp
 vdiph2/ei_2     [eI] en-rp
 vdiph2/ei_3     [i:] en-wm
-vdiph2/ei_4     [ei] zh
+vdiph2/ei_4     [eI] en-us
+                [ei] zh
                 [eI] sq
 vdiph2/eo       [eo] ro
 vdiph2/e_u      [e[u] ro
@@ -1169,7 +1170,6 @@ vdiph/eei_2     [eI] eo
 vdiph/eei_3     [eI] lt
                 [eI] sk
                 [eI] ku
-vdiph/eei_5     [eI] en-us
 vdiph/eeu       [EU] pt
                 [EU] grc
                 [EU] vi

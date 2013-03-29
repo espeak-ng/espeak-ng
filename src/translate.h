@@ -546,6 +546,7 @@ typedef struct {
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
 	char ascii_language[8];  // switch to this language for Latin characters
+	int our_alphabet;           // offset for main alphabet (if not set in letter_bits_offset)
 	int alt_alphabet;       // offset for another language to recognize
 	int alt_alphabet_lang;  // language for the alt_alphabet
 	int max_lengthmod;

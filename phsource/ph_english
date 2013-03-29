@@ -194,6 +194,11 @@ phoneme aa   //   'bath' etc.
   vowel  starttype #a  endtype #a
   ipa a
   length 185
+  
+  IF MbrolaSynth THEN
+    ChangePhoneme(A:)
+  ENDIF
+
   IfNextVowelAppend(r-)
   FMT(vowel/a)
 endphoneme
@@ -219,17 +224,29 @@ phoneme I2
   vowel  starttype #i  endtype #i
   unstressed
   length 130
+  
+  IF MbrolaSynth THEN
+    ChangePhoneme(I)
+  ENDIF
+
   IfNextVowelAppend(;)
   FMT(vowel/ii_4)
 endphoneme
+
 
 phoneme I#   // used for [I] which may be [@] in some accents
   vowel  starttype #i  endtype #i
   unstressed
   length 130
+  
+  IF MbrolaSynth THEN
+    ChangePhoneme(I)
+  ENDIF
+
   IfNextVowelAppend(;)
   ChangePhoneme(I2)
 endphoneme
+
 
 phoneme i   //  optional variant of [I] for end of words
   vowel  starttype #i  endtype #i
@@ -342,6 +359,11 @@ phoneme o@
   vowel  starttype #o  endtype #o
   ipa ɔː
   length 250
+  
+  IF MbrolaSynth THEN
+    ChangePhoneme(O@)
+  ENDIF
+
   IfNextVowelAppend(r-)
   FMT(vowel/oo_en)
 endphoneme
@@ -418,6 +440,11 @@ endphoneme
 phoneme i@3
   vowel  starttype #i  endtype #@
   length 250
+  
+  IF MbrolaSynth THEN
+    ChangePhoneme(i@)
+  ENDIF
+
   IfNextVowelAppend(r-)
   FMT(vdiph2/ii@)
 endphoneme
