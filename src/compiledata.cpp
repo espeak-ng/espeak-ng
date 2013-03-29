@@ -2866,8 +2866,8 @@ int CompilePhoneme(int compile_phoneme)
 				break;
 
 			case i_ADD_LENGTH:
-				value = NextItem(tSIGNEDNUMBER);
-				*prog_out++ = (i_ADD_LENGTH << 8) + value/2;
+				value = NextItem(tSIGNEDNUMBER) / 2;
+				*prog_out++ = (i_ADD_LENGTH << 8) + (value & 0xff);
 				DecThenCount();
 				break;
 

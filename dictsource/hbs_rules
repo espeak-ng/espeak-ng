@@ -1,4 +1,4 @@
-
+﻿
 // "hbs" is the ISO 639-3 code for Serbian/Croatian/Bosnian macrolanguage
 // This file is UTF-8 encoded
 
@@ -31,7 +31,9 @@
 .group d
         d        d
         dz       dz
+     _) dz (_    dz@
         dž       dZ
+     _) dž (_    dZ@
 
 .group đ
         đ        dZ;
@@ -67,6 +69,8 @@
 .group l
         l        l
      K) l (K     l-
+     
+     _) lj (_    l^@
         lj (+    l^
      v) lj       lj
 
@@ -79,6 +83,7 @@
         n (k     N
 
         nj       n^
+     _) nj (_    n^@
 
 .group o
         o        o

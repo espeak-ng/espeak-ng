@@ -69,7 +69,7 @@ endphoneme
 
 phoneme E
   vowel  starttype #e  endtype #e
-  length 195
+  length 190
   ChangeIfDiminished(I2)
   FMT(vwl_en_us/ee)
 endphoneme
@@ -181,7 +181,7 @@ endphoneme
 
 phoneme O:
   vowel  starttype #o  endtype #o
-  length 210
+  length 200
   ChangeIfDiminished(@)
   IF nextPh(r) THEN
     FMT(vwl_en_us/oor)
@@ -245,7 +245,7 @@ endphoneme
 
 phoneme aI
   vowel  starttype #a  endtype #i
-  length 250
+  length 240
   IF nextPh(#a) OR nextPh(#o) THEN
     AppendPhoneme(;)
   ENDIF
@@ -255,14 +255,15 @@ endphoneme
 
 phoneme eI
   vowel  starttype #e  endtype #i
-  length 230
-  FMT(vdiph/eei_5)
+  length 220
+  FMT(vdiph2/ei_4)
+//  FMT(vdiph/eei_5)
 endphoneme
 
 
 phoneme OI
   vowel  starttype #o  endtype #i
-  length 285
+  length 280
   FMT(vdiph/ooi_4)
 endphoneme
 

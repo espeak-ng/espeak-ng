@@ -651,7 +651,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		current_alphabet = alphabet;
 		if((alphabet != NULL) && !(al_flags & AL_DONT_NAME) && (al_offset != translator->letter_bits_offset))
 		{
-			if((al_flags & AL_DONT_NAME) || (al_offset == translator->langopts.alt_alphabet))
+			if((al_flags & AL_DONT_NAME) || (al_offset == translator->langopts.alt_alphabet) || (al_offset == translator->langopts.our_alphabet))
 			{
 				// don't say the alphabet name
 			}
