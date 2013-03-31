@@ -85,6 +85,7 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
   0x055e,  // Armenian question
   0x055b,  // Armenian emphasis mark
 
+  0x060c,  // Arabic ,
   0x061b,  // Arabic ;
   0x061f,  // Arabic ?
   0x06d4,  // Arabic .
@@ -132,6 +133,7 @@ static const unsigned int punct_attributes [] = { 0,
   CLAUSE_QUESTION | PUNCT_IN_WORD,  // Armenian question
   CLAUSE_PERIOD | PUNCT_IN_WORD,  // Armenian emphasis mark
 
+  CLAUSE_COMMA,      // Arabic ,
   CLAUSE_SEMICOLON,  // Arabic ;
   CLAUSE_QUESTION,   // Arabic question mark
   CLAUSE_PERIOD,     // Arabic full stop

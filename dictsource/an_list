@@ -1,4 +1,4 @@
-// Aragon translation rules
+﻿// Aragon translation rules
 // This file is UTF-8 encoded
 
 // letters
@@ -182,6 +182,7 @@ $	d'olar
 /	baRRa
 \	kontraBaRRa
 |	b'aRRaBertik'al
+°	graUs
 
 _-	gj'on
 !	TaRR'ar||eksklamaTj'on
