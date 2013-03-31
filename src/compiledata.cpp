@@ -3059,6 +3059,7 @@ int CompilePhoneme(int compile_phoneme)
 
 			case kRETURN:
 				*prog_out++ = i_RETURN;
+				DecThenCount();
 				break;
 
 			case kINCLUDE:

@@ -295,12 +295,5 @@
 
 
 
-.group 0xe0a4  // devanagari
-        0xe0a4     _^_HI     // switch to hindi voice
-
-.group 0xe0a5  // devanagari
-        0xe0a5     _^_HI
-
-
 .group
         $          do:l.ar

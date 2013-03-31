@@ -125,6 +125,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 	int delete_count;
 	int word_start;
 	int inserted;
+	int deleted;
 	PHONEME_DATA phdata;
 
 	int n_ph_list3;
@@ -343,6 +344,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 		plist3 = &ph_list3[j];
 
 		inserted = 0;
+		deleted = 0;
 		if(insert_ph != 0)
 		{
 			// we have a (linking) phoneme which we need to insert here
@@ -431,23 +433,27 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			plist3->phcode = alternative;
 
 			if(alternative == 1)
-				continue;    // NULL phoneme, discard
-
-			if(ph->type == phVOWEL)
 			{
-				plist3->synthflags |= SFLAG_SYLLABLE;
-				if(ph2->type != phVOWEL)
-					plist3->stresslevel = 0;   // change from non-vowel to vowel, make sure it's unstressed
+				deleted = 1;   // NULL phoneme, discard
 			}
 			else
-				plist3->synthflags &= ~SFLAG_SYLLABLE;
+			{
+				if(ph->type == phVOWEL)
+				{
+					plist3->synthflags |= SFLAG_SYLLABLE;
+					if(ph2->type != phVOWEL)
+						plist3->stresslevel = 0;   // change from non-vowel to vowel, make sure it's unstressed
+				}
+				else
+					plist3->synthflags &= ~SFLAG_SYLLABLE;
 
-			// re-interpret the changed phoneme
-			// But it doesn't obey a second ChangePhoneme()
-			InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
+				// re-interpret the changed phoneme
+				// But it doesn't obey a second ChangePhoneme()
+				InterpretPhoneme(tr, 0x100, plist3, &phdata, &worddata);
+			}
 		}
 
-		if(ph->type == phVOWEL)
+		if((ph->type == phVOWEL) && (deleted == 0))
 		{
 			PHONEME_LIST *p;
 
@@ -552,7 +558,7 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 				}
 			}
 
-			if(plist3 != plist3_inserted)
+			if((plist3 != plist3_inserted) && (ix > 0))
 			{
 				if((x = (tr->langopts.word_gap & 0x7)) != 0)
 				{
@@ -585,51 +591,54 @@ void MakePhonemeList(Translator *tr, int post_pause, int start_sentence)
 			// not yet implemented
 		}
 
-		phlist[ix].ph = ph;
-		phlist[ix].type = ph->type;
-		phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
-		phlist[ix].synthflags = plist3->synthflags;
-		phlist[ix].stresslevel = plist3->stresslevel & 0xf;
-		phlist[ix].wordstress = plist3->wordstress;
-		phlist[ix].tone_ph = plist3->tone_ph;
-		phlist[ix].sourceix = 0;
-		phlist[ix].phcode = ph->code;
-
-		if(plist3->sourceix != 0)
+		if(deleted == 0)
 		{
-			phlist[ix].sourceix = plist3->sourceix;
-			phlist[ix].newword = 1;     // this phoneme is the start of a word
+			phlist[ix].ph = ph;
+			phlist[ix].type = ph->type;
+			phlist[ix].env = PITCHfall;          // default, can be changed in the "intonation" module
+			phlist[ix].synthflags = plist3->synthflags;
+			phlist[ix].stresslevel = plist3->stresslevel & 0xf;
+			phlist[ix].wordstress = plist3->wordstress;
+			phlist[ix].tone_ph = plist3->tone_ph;
+			phlist[ix].sourceix = 0;
+			phlist[ix].phcode = ph->code;
 
-			if(start_sentence)
+			if(plist3->sourceix != 0)
 			{
-				phlist[ix].newword = 5;  // start of sentence + start of word
-				start_sentence = 0;
+				phlist[ix].sourceix = plist3->sourceix;
+				phlist[ix].newword = 1;     // this phoneme is the start of a word
+
+				if(start_sentence)
+				{
+					phlist[ix].newword = 5;  // start of sentence + start of word
+					start_sentence = 0;
+				}
 			}
-		}
-		else
-		{
-			phlist[ix].newword = 0;
-		}
+			else
+			{
+				phlist[ix].newword = 0;
+			}
 
-//		phlist[ix].length = ph->std_length;
-		phlist[ix].length = phdata.pd_param[i_SET_LENGTH]*2;
-		if((ph->code == phonPAUSE_LONG) && (option_wordgap > 0))
-		{
-			phlist[ix].ph = phoneme_tab[phonPAUSE_SHORT];
-			phlist[ix].length = option_wordgap*14;   // 10mS per unit at the default speed
-		}
+	//		phlist[ix].length = ph->std_length;
+			phlist[ix].length = phdata.pd_param[i_SET_LENGTH]*2;
+			if((ph->code == phonPAUSE_LONG) && (option_wordgap > 0) && (plist3[1].sourceix != 0))
+			{
+				phlist[ix].ph = phoneme_tab[phonPAUSE_SHORT];
+				phlist[ix].length = option_wordgap*14;   // 10mS per unit at the default speed
+			}
 
-		if(ph->type==phVOWEL || ph->type==phLIQUID || ph->type==phNASAL || ph->type==phVSTOP || ph->type==phVFRICATIVE || (ph->phflags & phPREVOICE))
-		{
-			phlist[ix].length = 128;  // length_mod
-			phlist[ix].env = PITCHfall;
-		}
+			if(ph->type==phVOWEL || ph->type==phLIQUID || ph->type==phNASAL || ph->type==phVSTOP || ph->type==phVFRICATIVE || (ph->phflags & phPREVOICE))
+			{
+				phlist[ix].length = 128;  // length_mod
+				phlist[ix].env = PITCHfall;
+			}
 
-		phlist[ix].prepause = 0;
-		phlist[ix].amp = 20;          // default, will be changed later
-		phlist[ix].pitch1 = 255;
-		phlist[ix].pitch2 = 255;
-		ix++;
+			phlist[ix].prepause = 0;
+			phlist[ix].amp = 20;          // default, will be changed later
+			phlist[ix].pitch1 = 255;
+			phlist[ix].pitch2 = 255;
+			ix++;
+		}
 	}
 	phlist[ix].newword = 2;     // end of clause
 

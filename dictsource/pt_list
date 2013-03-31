@@ -683,6 +683,7 @@ bolo		$alt2
 bolo		$alt  $verb
 borboleta	$alt2
 bordo		$alt
+borra		$alt2 $noun
 bosque		$alt
 boto		$alt2 $noun
 brejo		$alt
@@ -693,12 +694,13 @@ cacete		$alt2
 cachorra	$alt2
 caderneta	$alt2
 cadete		$alt2
+camelha		$alt
 camelo		$alt2
 camiseta	$alt2
 cantora		$alt2
 capacete	$alt2
 caractere	$alt
-carbureto		$alt2
+carbureto	$alt2
 careta		$alt2
 carreta		$alt2
 carroça		$alt
@@ -707,7 +709,7 @@ cateto		$alt2
 catorze		$alt2
 cebola		$alt2
 cefaleia	$alt
-centopeia		$alt
+centopeia	$alt
 cerca		$alt
 cerca		$alt2 $noun
 cerco		$alt $verb
@@ -735,8 +737,11 @@ concerto	$alt2 $noun
 concertos	$alt2
 concordo	$alt
 conforto	$alt  $verb
+console		$alt2 $noun
 consolo		$alt2 $noun
 controle	$alt2 $noun
+controles	$alt2
+controles	$alt $verb
 controlo	$alt2 $noun
 coreia		$alt
 coreto		$alt2
@@ -747,19 +752,19 @@ corto		$alt
 corveta		$alt2
 corvos		$alt
 coto		$alt2
-cotovelo		$alt2
+cotovelo	$alt2
 cratera		$alt
 crede		$alt2
 crepe		$alt
 decore		$alt
-degelo	$alt2
+degelo		$alt2
 desapego	$alt2 $noun
 descordo	$alt
 desemprego	$alt2
 desemprego	$alt $verb
 desespero	$alt2 $noun
 desfecho	$alt2
-desmantelo		$alt2 $noun
+desmantelo	$alt2 $noun
 desporto	$alt2
 desportos	$alt
 desprezo	$alt2 $noun
@@ -768,7 +773,7 @@ desse		$alt $verb
 deste		$alt2
 deste		$alt $verb
 desterro	$alt2
-destroem		$alt
+destroem	$alt
 deveras		$alt
 dez		$alt
 diarreia	$alt
@@ -787,11 +792,12 @@ endereço	$alt  $verb
 enforco		$alt
 engordo		$alt
 enredo		$alt  $verb
-enrosco		$alt $verb
+enrosco		$alt  $verb
 enterro		$alt2 $noun
 enumerem	$alt
 envelope	$alt
 envolto		$alt2
+enxaqueca	$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
 eritreia	$alt
@@ -800,7 +806,7 @@ erro		$alt $verb
 esboço		$alt  $verb
 escopeta	$alt2
 escova		$alt2 $noun
-escovas	$alt2
+escovas		$alt2
 escovo		$alt
 escroto		$alt2
 esforço		$alt  $verb
@@ -813,18 +819,18 @@ espiroqueta	$alt2
 espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
-estilete		$alt2
+estilete	$alt2
 estrela		$alt2
 estrofe		$alt
 estorno		$alt  $verb
 estorvo		$alt  $verb
 etiqueta	$alt2
 europa		$alt
-europeia		$alt
+europeia	$alt
 exagero		$alt $verb
 explore		$alt
 faceta		$alt2
-fantoche		$alt
+fantoche	$alt
 farofa		$alt
 febre		$alt
 fera		$alt
@@ -843,7 +849,7 @@ forca		$alt2
 força		$alt2 $noun
 forças		$alt2
 forço		$alt
-formos	$alt2
+formos		$alt2
 forro		$alt $verb
 frevo		$alt2
 fulgores	$alt2
@@ -851,8 +857,8 @@ galera		$alt
 galileia	$alt
 gameta		$alt2
 geleia		$alt
-gelo	$alt2
-gelo	$alt $verb
+gelo		$alt2
+gelo		$alt $verb
 genebra		$alt
 gesso		$alt2
 golpe		$alt
@@ -871,16 +877,18 @@ hemorroida	$alt
 hoje		$alt2
 horrores	$alt2
 ideia		$alt
-interesse	$alt2 $noun
+imberbe		$alt
+interesse	$alt2
+interesse	$alt $verb
 jogo		$alt2 $noun
 joguete		$alt2
 lagosta		$alt2
 lambreta	$alt2
 lebre		$alt
 lembrete	$alt2
-lepra	$alt
+lepra		$alt
 leste		$alt2 $verb
-lingueta		$alt2
+lingueta	$alt2
 lopes		$alt
 macete		$alt2
 maior		$alt
@@ -901,9 +909,9 @@ minueto		$alt2
 miolo		$alt2
 miolos		$alt
 modelo		$alt2
-modelo	$alt $verb
+modelo		$alt $verb
 moeda		$alt
-mofo	$alt $verb
+mofo		$alt $verb
 molho		$alt2 $noun
 monera		$alt
 morcego		$alt2
@@ -928,7 +936,7 @@ obstetra	$alt
 odisseia	$alt
 onu		$1
 olho		$alt2 $noun
-onomatopeia		$alt
+onomatopeia	$alt
 opereta		$alt2
 ordens		$alt
 osso		$alt2
@@ -942,7 +950,6 @@ palacete	$alt2
 palheta		$alt2
 panfleto	$alt2
 pangeia		$alt
-panqueca	p,&~Nk'Ek&
 pantera		$alt
 parede		$alt2
 pastora		$alt2
@@ -970,7 +977,7 @@ pose		$alt2
 povos		$alt
 poxa		p'oS&
 primavera	$alt
-prosopopeia		$alt
+prosopopeia	$alt
 quarteto	$alt2
 queda		$alt
 quede		$alt2
@@ -986,13 +993,13 @@ reforço		$alt  $verb
 reforços	$alt
 refresco	$alt  $verb
 reitora		$alt2
-rejo	$alt
+rejo		$alt
 relevo		$alt2 $noun
 remorso		$alt
-renovo	$alt $verb
+renovo		$alt $verb
 retorno		$alt $verb
-reuva	$alt
-rigores	$alt2
+reuva		$alt
+rigores		$alt2
 rixa		x'iS&
 rocha		$alt
 rock		$alt
@@ -1037,10 +1044,10 @@ tocha		$alt
 toga		$alt
 topo		$alt  $verb
 torno		$alt  $verb
-tornozelo		$alt2
+tornozelo	$alt2
 torre		$alt2 $noun
 torres		$alt2
-torro	$alt
+torro		$alt
 tortos		$alt
 traqueia	$alt
 travesso	$alt2
@@ -1054,6 +1061,7 @@ tumores		$alt2
 valeta		$alt2
 vanessa		$alt2
 velozes		$alt
+verbete		$alt2
 violeta		$alt2
 violoncelo	$alt
 voga		$alt
@@ -1070,7 +1078,8 @@ zorra		$alt2
 ?1 back       b'Ek
 ?2  backup        bEk'&p
 ?2  backups     bEk'&ps
-?1 blind      bl'aind
+blind      bl'aind
+book  buk
 ?1 braille    b:r'aily
 ?2        Braille        bR'aili
 ?1 cancel     k'&ns'El
@@ -1087,7 +1096,6 @@ zorra		$alt2
 ?2 download        daUNl'owd
 ?3 download        dau~Nl'owd
 ?1 end        'end
-?1 escape     Sk'eIpy
 ?2 esc     'Esk
 ?3 esc     'EskI
 ?1 explorer   ,ekspl'O:*&r-
@@ -1110,6 +1118,7 @@ zorra		$alt2
 ?2 Intranet   iNtRan'Et
 ?1 kernel     k'Ern,El
 ?2 kernel     k'Ern@l
+laptop lEptOp
 ?1 line       l'ain
    layout     l'eI,aUt
 ?2        logo        l'OgU
@@ -1140,14 +1149,12 @@ símbolo	s'imbolU
 ?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing
-?1 tab        t'ab
+ tab        t'aby
 ?1 telemóvel  t,El,Em'OvEl
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
 ?1 upload     &pl'oud
 ?2        web        w'Eb
-?2        verbete        verb'etSi
-?2        verbetes        verb'etSis
 ?1 yahoo      'i,ah'u
 ?2 yahoo      iah'u
 ?1 yes        j'Es
@@ -1161,14 +1168,16 @@ louis       _^_FR
 // foreign product names
 ?1 access      'aks,Es
 ?1 adobe       &d'Oby
+apple  'Epow
+chrome  kR'owmi
    debian      d'Ebj&~N
 ?1 excel       ,Eks'El
 ?1 express     ,Ekspr'Es
    espeak      isp'i:k
 ?1 espeakedit   isp'i:kEd,it
+facebook  feisybuk
 ?1 fedora      _^_EN
-?1   firefox     f'ai&rfOks
-?2    firefox     f'ai@fOks
+    firefox     f'ai@fOks
 ?1 front       fr'ont
 ?1 jaws        dZ'au:z
 ?1 linux       l,in'uks
@@ -1203,6 +1212,7 @@ playstation	_^_EN
    suse        z'u:ts@
 ?1 start       st'art // nero StartSmart
 ?1 time        t'aImy // nero show time
+twitter  tw'iter
    ubuntu      ub'untu
 ?1 unix        ,u:n'iks
 ?2 unix        j'uniks

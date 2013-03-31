@@ -1883,12 +1883,24 @@ void FreeVoiceList()
 
 ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {//========================================================================
-#ifndef PLATFORM_RISCOS
+	char path_voices[sizeof(path_home)+12];
+	
+	
+#ifdef PLATFORM_RISCOS
+	if(n_voices_list == 0)
+	{
+		sprintf(path_voices,"%s%cvoices",path_home,PATHSEP);
+		len_path_voices = strlen(path_voices)+1;
+		GetVoices(path_voices);
+		voices_list[n_voices_list] = NULL;  // voices list terminator
+	}
+	return((const espeak_VOICE **)voices_list);
+
+#else
 	int ix;
 	int j;
 	espeak_VOICE *v;
 	static espeak_VOICE **voices = NULL;
-	char path_voices[sizeof(path_home)+12];
 
 	// free previous voice list data
 	FreeVoiceList();
@@ -1926,7 +1938,6 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	}
 	return((const espeak_VOICE **)voices);
 #endif
-	return((const espeak_VOICE **)voices_list);
 }  //  end of espeak_ListVoices
 
 

@@ -35,37 +35,37 @@ endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
-  length 200
+  length 210
   FMT(vowel/i_6)
 endphoneme
 
 
 phoneme u
   vowel starttype #u endtype #u
-  length 200
+  length 210
   FMT(vowel/u)
 endphoneme
 
 
 phoneme e
   vowel starttype #e endtype #e
-  length 200
+  length 210
   FMT(vowel/e)
 endphoneme
 
 
 phoneme &
   vowel starttype #a endtype #a
-  length 200
+  length 210
   FMT(vowel/&_2)
 endphoneme
 
 
 phoneme o
   vowel starttype #o endtype #o
-  length 200
+  length 210
   IF nextPhW(w) THEN
-    length 160
+    length 170
   ENDIF
   FMT(vowel/o)
 endphoneme
