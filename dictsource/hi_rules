@@ -390,7 +390,7 @@
         ः          H         //  visarga
 
 .group ्		// virama
-् 
+	् 
 
 // Extra consonants
 
@@ -410,7 +410,7 @@
         ज़          zV
         ज़ (B       z
 
-.group ड़    // dddha   (should retroflex flap)
+.group ड़    // dddha   (should retroflex flap ?)
         ड़          r.V
         ड़ (B       r.
 
@@ -441,10 +441,5 @@
    D__) of (__D    me
 
 
-
-
-.group
-        $          dOlV
-        %          pVsEnt
 
 

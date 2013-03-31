@@ -159,3 +159,7 @@ phoneme #    // a NULL phoneme for 'virama'
   ChangePhoneme(NULL)
 endphoneme
 
+phoneme z.
+  CALL base/z.
+  ipa U+027B
+endphoneme

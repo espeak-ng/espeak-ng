@@ -22,7 +22,7 @@ n	En
 o	o:
 p	pi:
 q	kju:
-r	a:r
+r	a:rp
 s	Es
 t	t#i:
 u	ju:
@@ -40,7 +40,7 @@ _1	okat.i
 _1a	oka
 _2	rend.u
 _3	mu:d.u
-_4	na:lgu
+_4	na:lugu
 _5	aIdu
 _6	a:ru
 _7	;e:d.u
@@ -48,20 +48,20 @@ _8	;enimidi
 _9	tommidi
 _1X	padi
 _11	padakond.u
-_12	pannemd.u
-_13	padamu:d.u:
+_12	pannend.u
+_13	padammu:d.u:
 _14	pad#na:lugu
 _15	padihe:nu
 _16	padaha:ru
 _17	padihe:d.u
 _18	padd#enimidi
-_19	pamdommadi
+_19	pandommidi
 _2X	irav#aI
 _3X	muppaI
 _4X	nalub#aI
 _5X	ja:b#aI
 _6X	arav#aI
-_7X	d.eb#baI
+_7X	d.#eb#baI
 _8X	jenab#aI
 _9X	tomb#aI
 _0C	v#andala
@@ -85,7 +85,7 @@ _??	aks.aram   // 'unknown character'
 +	ku:d.ika
 *	naks.atra
 \	bja:kasla:s.
-/	sla:s.
+/	kudiva:lugi:ta
 ©	ka:pi:raIt.
 ¶	v#e:ra:
 
@@ -137,7 +137,7 @@ U+c4d	v#ottu
 ఫ్	ip#
 బ్	ib
 భ్	ib#
-మ్	im
+మ్	imu:
 య్	ij
 ర్	ir
 ఱ్	ir

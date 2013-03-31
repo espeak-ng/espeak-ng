@@ -322,7 +322,7 @@ endphoneme
 
 phoneme aI3
   vowel  starttype #a  endtype #@
-  length 300
+  length 310
   ipa aɪɚ
   IfNextVowelAppend(r-)
   FMT(vwl_en_us/ai3)

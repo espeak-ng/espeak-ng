@@ -5,7 +5,7 @@
 // Bengali numbers are changed to latin characters before translation
 _0	S'unjO
 _1	'&k
-_2	duj
+_2	d'uj
 _3	t'in
 _4	tS'ar
 _5	p'a~tS
@@ -125,7 +125,7 @@ _0M1	h'ajar
 _0M2	l'ak#
 _0M3	k'ot.i
 _0M4	'Orbud
-_dpt	dOsomik
+_dpt	_d'Osomik_
 
 
 // Single consonants
@@ -133,40 +133,42 @@ _dpt	dOsomik
 খ	k#O
 গ	gO
 ঘ	g#O
-ঙ	'uNO
+ঙ	'uNO~
 চ	tSO
 ছ	tShO    // [h] to distinguish from [tS]
 জ	JO
 ঝ	J#O
-ঞ	'iNO
+ঞ	'iNO~
 ট	t.O
 ঠ	t.#O
 ড	d.O
 ঢ	d.#O
-ণ	m'odd#ennO
+ণ	m,odd#en.n.'O
 ত	tO
 থ	t#O
 দ	dO
 ধ	d#O
-ন	d'ontennO
+ন	d,ontenn'O
 প	pO
 ফ	fO      // or [p#O] ?
 ব	bO
 ভ	b#O
 ম	mO
 য়	Oj
-য	ontostedZ'O
+য	,ontostedZ'O
 র	rO
 ড়       r.O
 ড়	r.O     // (d. + nukta)
 ঢ়	hr.O
 ঢ়	hr.O    // (d#. + nukta)
 ল	lO
-শ	taleboS:O
-ষ	mud#en:oS:O
-স	d'onteS:O
+শ	t,aleboS:'O
+ষ	m,ud#en:oS:'O
+স	d,onteS:'O
 হ	hO
-ৎ	kh'Ond.otO
+ৎ	kh,Ond.ot'O
+ক্ষ	k,ojmud#en:oS:'O
+
 
 // full vowels
 অ	O
@@ -176,10 +178,15 @@ _dpt	dOsomik
 উ	hrOS:o'u
 ঊ	dirg#o'u
 ঋ	ri
-এ	e
-ঐ	oj
-ও	o
 ঔ	ow
+
+এ	e  $u+   // word 'it'
+ঐ	oj $u+   // word 'that'
+ও	o  $u+ $brk  // 'and'
+_এ	e
+_ঐ	oj
+_ও	o
+
 
 // combining vowel signs
 া	'akar
@@ -200,12 +207,17 @@ _dpt	dOsomik
 ঁ	tS'Ondrobindu
 ়	b'indu
 
-_,	koma
+$	d.Olar
+%	SOtk'Ora
++	jOg
+=	SOman
+
 
 
 // Punctuation
 ।	dVn.d.V
-
+_,	koma
+_?	pr'oSnOtSihnO
 
 // Pronouns
 আমি 	$u	// main: I

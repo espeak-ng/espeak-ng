@@ -28,7 +28,7 @@ consonants  11  119
       ne  18  157
       ur   6  149
       pa  15  151
-      ta  23  153
+      ta  24  153
       kn  17  149
       ml  26  152
       te  16  149
@@ -429,7 +429,6 @@ l/l_            [l] base
                 [l/3] da
 l/l_@           [l/3] base
                 [l/] fr
-                [l/3] da
 l/l@            [l#] base
                 base  vowelstart_l
                 [l] fr
@@ -468,14 +467,12 @@ l/la            [l#] base
                 [l/2] fr
 l/l_a           [l/3] base
                 [l/] fr
-                [l/3] da
 l/le            [l#] base
                 base  vowelstart_l
                 [l] fr
                 [l/2] fr
 l/l_e           [l/3] base
                 [l/] fr
-                [l/3] da
 l/L_eL_af       [&] af
                 [&:] af
 l/l_front       [L] sq
@@ -488,7 +485,6 @@ l/li            [l#] base
 l/l_i           [l/3] base
                 [l/] fr
                 [i] sq
-                [l/3] da
 ll/ll           [L] base
 ll/_ll          [L] base
 l/l_long        [l] base
@@ -498,7 +494,6 @@ l/lo            [l#] base
                 [l/2] fr
 l/l_o           [l/3] base
                 [l/] fr
-                [l/3] da
 l^/l_rfx        [l.] base
                 [l;] lt
                 [l] ru
@@ -509,7 +504,6 @@ l/lu            [l#] base
                 [l/2] fr
 l/l_u           [l/3] base
                 [l/] fr
-                [l/3] da
 l/l_vi          [l] vi
 ll/xll          [L] base
 l/l_y           [l/] fr
