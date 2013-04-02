@@ -1,6 +1,6 @@
 
 /***************************************************************************
- *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
+ *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
@@ -26,6 +26,7 @@
 #include <ctype.h>
 #include <locale.h>
 #include "kernel.h"
+#include <math.h>
 
 #include "speech.h"
 #include "speak_lib.h"
@@ -221,6 +222,7 @@ void ReadVoiceNames2(char *directory)
 				voice_variant_names[n_voice_variant_files++] = p;
 			}
 			else
+			if(strcmp(p, "default") != 0)
 			{
 				if(n_voice_files >= (N_VOICE_NAMES-1))
 					continue;
@@ -233,11 +235,17 @@ void ReadVoiceNames2(char *directory)
 
 void ReadVoiceNames()
 {//===================
-	char directory[sizeof(path_home)+10];
+	char directory[sizeof(path_home)+20];
 
 	n_voice_files = 0;
 	n_voice_variant_files = 0;
 
+	sprintf(directory,"%s.voices.default", path_home);
+	if(GetFileLength(directory) > 0)
+	{
+		// put the 'default' voice at the start of the list
+		voice_names[n_voice_files++] = "default";
+	}
 	sprintf(directory,"%s.voices",path_home);
 
 	ReadVoiceNames2(directory);
@@ -400,11 +408,27 @@ void FillSoundBuf(int size)
 
 int initialise(void)
 {//=================
-	sprintf(path_home,"%s.espeak-data","<eSpeak$Dir>");
+	char buf[N_PATH_HOME];
+
+	_kernel_swi_regs regs;
+	_kernel_oserror *error;
+
+	buf[0] = 0;
+	regs.r[0] = (int)"eSpeak$Dir";
+	regs.r[1] = (int)buf;
+	regs.r[2] = sizeof(buf);
+	regs.r[3] = 0;
+	regs.r[4] = 0;
+	regs.r[5] = 0;
+
+	error = _kernel_swi(0x20023,&regs,&regs);  // OS_ReadVarVal
+	buf[regs.r[2]] = 0;
+
+	sprintf(path_home,"%s.espeak-data",buf);
 	if(GetFileLength(path_home) != -2)
 	{
 		// not found, try the 10 character version of the directory name
-		sprintf(path_home,"%s.espeak-dat","<eSpeak$Dir>");
+		sprintf(path_home,"%s.espeak-dat",buf);
 	}
 	if(GetFileLength(path_home) != -2)
 	{
@@ -414,7 +438,7 @@ int initialise(void)
 	}
 
 	WavegenInit(22050,0);
-	LoadPhData();
+	LoadPhData(NULL);
 	SetVoiceStack(NULL, "");
 	SynthesizeInit();
 	return(0);
@@ -453,7 +477,7 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 		static_length = 0;
 	else
 	{
-		strcat(&static_buf[static_length]," : ");
+		strcat(&static_buf[static_length]," \n ");
 		static_length+=3;
 	}
 
@@ -578,13 +602,14 @@ void set_say_options(int reg2, int reg3)
 void jsd_swi_functions(int *r)
 /****************************/
 {
+	int use_ipa;
 	espeak_VOICE voice_select;
 
 	switch(r[0])
 	{
 	case 0:    /* major version */
 		r[0] = 4;
-		r[1] = 331;
+		r[1] = 347;
 		break;
 
 	case 1:    /* register user */
@@ -594,7 +619,13 @@ void jsd_swi_functions(int *r)
 		break;
 
 	case 3:
-//      r[0] = (int)speech_to_phonemes((char *)r[1]);
+		// translate into phonemes
+		use_ipa = 0;
+		if((r[2] >= 1) && (use_ipa <= 3))
+			use_ipa = r[2];
+		TranslateClause(translator,NULL,(char *)r[1],NULL,NULL);
+		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
+		r[0] = (int)translator->phon_out;
 		break;
 
 	case 4:
@@ -642,6 +673,7 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 /*********************************************************/
 {
 	int  value;
+	int  value2;
 	int  q_length;
 	value = r[0];
 
@@ -650,21 +682,23 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 
 	case 0:   // ready ?
 		// returns the index into the source text of the currently speaking word
-       if(current_source_index > 0)
-          r[1] = current_source_index-1;
-       else
-          r[1] = current_source_index;      /* source index */
+		if(current_source_index > 0)
+			r[1] = current_source_index-1;
+		else
+			r[1] = current_source_index;      /* source index */
 		r[2] = 0;      /* source tag */
 		r[3] = 0;    /* for future expansion */
 		r[4] = 0;
 		r[5] = 0;
 
-		if(wcmdq_head == wcmdq_tail)
+		if(WcmdqUsed() < 5)
 		{
 			r[0] = -1;   /* ready, or nearly */
 		}
 		else
+		{
 			r[0] = 0;
+		}
 		break;
 
 	case 1:  /* restore old sound channel. DO NOTHING */
@@ -692,19 +726,32 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 		break;
 
 	case 7:   /* pitch */
-		// not implemented
+		value = (value * 50)/128;
+		SetParameter(espeakPITCH, value, 0);
 		break;
 
-	case 8:   /* speed */
-		SetParameter(espeakRATE,value,0);
+	case 8:   // speed, convert to range 80 to 400, mid-value=180
+		if(value < 128)
+			value2 = 80 + (value*100)/128;  // linear range for 0-127 -> 80-179
+		else
+			value2 = 80 + pow((float)value/128.0, 1.75)*100;
+
+		SetParameter(espeakRATE,value2,0);
 		break;
 
 	case 9:   /* word_gap */
+		if(value >= 128)
+			value = value - 128;
+
+		if(value > 1)
+			value = (value-1) * 5;
+
 		SetParameter(espeakWORDGAP,value,0);
 		break;
 
 	case 10:  /* pitch_range */
-		// not implemented
+		value = (value * 50)/128;
+		SetParameter(espeakRANGE, value, 0);
 		break;
 
 	case 12:  /* reset */
@@ -712,7 +759,22 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 		break;
 
 	case 13:  /* volume */
-		SetParameter(espeakVOLUME,value,0);
+		// convert to range 6-255 to 10-400, mid-value=100
+		if(value < 6)
+			value2 = value + 4;
+		else
+		if(value < 128)
+		{
+			value2 = pow((float)(value+40)/168.0, 1.75)*100;
+		}
+		else
+			value2 = pow((float)value/128.0, 2.0)*100;
+		SetParameter(espeakVOLUME,value2,0);
+		WavegenSetVoice(voice);
+		break;
+
+	case 14: // set voice by name
+		SetVoiceByName((char *)r[0]);
 		WavegenSetVoice(voice);
 		break;
 	}
@@ -835,6 +897,13 @@ int param_number(char **argp)
 	return(value);
 }
 
+void PrintVersion()
+{//================
+	char buf[120];
+	printf("\nspeak text-to-speech: %s  Data at: %s\n", version_string, path_home);
+}
+
+
 void command_line(char *arg_string, int wait)
 {//==========================================
 
@@ -854,6 +923,7 @@ void command_line(char *arg_string, int wait)
 	char command[80];
 	char *p;
 	int ix;
+	int quiet;
 
 	voicename[0] = 0;
 	wavefile[0] = 0;
@@ -861,7 +931,7 @@ void command_line(char *arg_string, int wait)
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
-	option_quiet = 0;
+	quiet = 0;
 	option_multibyte = 0;   // auto
 	option_capitals = 0;
 	option_punctuation = 0;
@@ -887,7 +957,8 @@ void command_line(char *arg_string, int wait)
 				break;
 
 			case 'h':
-				printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
+				PrintVersion();
+				printf("\n%s",help_text);
 				return;
 
 			case 'k':
@@ -912,7 +983,7 @@ void command_line(char *arg_string, int wait)
 				break;
 
 			case 'q':
-				option_quiet = 1;
+				quiet = 1;
 				break;
 
 			case 'f':
@@ -963,7 +1034,8 @@ void command_line(char *arg_string, int wait)
 				else
 				if(strcmp(command,"help")==0)
 				{
-					printf("\nspeak text-to-speech: %s\n%s",version_string,help_text);
+					PrintVersion();
+					printf("\n%s",help_text);
 					return;
 				}
 				else
@@ -978,6 +1050,17 @@ void command_line(char *arg_string, int wait)
 						option_punctuation = 2;
 					}
 					SetParameter(espeakPUNCTUATION,option_punctuation,0);
+				}
+				else
+				if(memcmp(command,"version",7)==0)
+				{
+					PrintVersion();
+					return;
+				}
+				else
+				if(memcmp(command,"ipa",3)==0)
+				{
+					option_phonemes = 3;
 				}
 				else
 				{
@@ -997,22 +1080,25 @@ void command_line(char *arg_string, int wait)
 		}
 	}
 
+	if((option_phonemes > 1) && !option_waveout)
+		quiet = 1;  // can't call sprintf() during callback
+
 	SetVoiceByName(voicename);
 
 	if((filename[0]==0) && (p[0]=='\r'))
 	{
 		// nothing to speak
-		if(option_quiet)
+		if(quiet)
 		{
 			SpeakNextClause(NULL,NULL,2);   // stop speaking
 			more_text = 0;
 		}
 	}
 
-	if(option_waveout || option_quiet)
+	if(option_waveout || quiet)
 	{
 		// write speech to a WAV file
-		if(option_quiet)
+		if(quiet)
 		{
 			OpenWaveFile(NULL,samplerate);
 			option_waveout = 2;

@@ -518,6 +518,7 @@ Translator *SelectTranslator(const char *name)
 		{
 			SetCyrillicLetters(tr);
 			SetLetterVowel(tr,0x2a);
+			tr->charset_a0 = charsets[5];   // ISO-8859-5
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x432;    // [v]  don't count this character at start of word
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x107;  // devoice at end of word, and change voicing to match a following consonant (except v)
 			tr->langopts.param[LOPT_REDUCE] = 2;

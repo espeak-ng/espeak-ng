@@ -329,8 +329,7 @@ vocês	$u2+	$verbf
 eles	$u+	$verbf
 elas	$u+	$verbf
 
-me	$u	// reflexive
-me	$u	$verbf
+me	$u	$verbf	// reflexive
 te	$u	$verbf
 nos	$u	$nounf
 la	$u
@@ -345,7 +344,7 @@ se	$u
 ?2	nesta	$u+	$nounf
 ?2	neste	$u+	$nounf	n'estSi      //in this
 ?2	esse	$u+	$nounf	'esi       // that
-essa	'Es&  $u+
+essa	'Es&  $u+	$noun
 desse	$u+	$nounf
 desta	$nounf
 nesse	n'esy	$u+ $nounf
@@ -384,7 +383,7 @@ duma	$u	$nounf
 duns	$u	$nounf
 dumas	$u	$nounf
 
-em	$u  // in,on,at
+em	$u	$noun  // in,on,at
 no	nu $u	$nounf
 na	$u	$nounf
 num	$u	$nounf
@@ -427,7 +426,7 @@ com	$u		// with
 // conjunctions
 ?1	e	i $u	// and
 ?2	e	i $u   // and
-se	$u		// if
+se	$u+	$verbf		// if
 
 
 ?2	mas	$u	// but
@@ -522,7 +521,7 @@ estão	$u
 
 estava	$u
 estávamos	$u
-astavam	$u
+estavam	$u
 
 estive	$u
 ?2 esteve	estevy	$u2
@@ -619,9 +618,14 @@ o       O $atend
 
 
 // some common adjectives and adverbs
-alguns		$u	// some
-algumas		$u	// some
-não		n,&U~ $strend	// not
+alguns		$u	$noun	// some
+algumas		$u	$noun	// some
+não		n,&U~	$verbf $strend	// not
+nunca	$u+	$verbf
+sempre	$u+	$verbf
+qualquer	$u	$nounf
+quaisquer	$u	$nounf
+jamais	$u+	$verbf
 
 
 // MAIN WORD DICTIONARY
@@ -643,9 +647,9 @@ aeroporto	$alt2
 aeroportos	$alt
 albatrozes	$alt
 alcateia	$alt
+alcova		$alt2
 alferes		$alt
 algozes		$alt
-alicerce	$alt
 almoço		$alt $verb
 ameba		$alt
 amores		$alt2
@@ -675,6 +679,7 @@ beco		$alt2
 besta		$alt2
 bilhete		$alt2
 boca		$alt2
+boceta		$alt2
 bochecha	$alt2
 bojo		$alt2
 boleia		$alt
@@ -686,6 +691,7 @@ bordo		$alt
 borra		$alt2 $noun
 bosque		$alt
 boto		$alt2 $noun
+boxe	$alt
 brejo		$alt
 bromelha	$alt
 cabelo		$alt2
@@ -696,6 +702,7 @@ caderneta	$alt2
 cadete		$alt2
 camelha		$alt
 camelo		$alt2
+caminhonete		$alt
 camiseta	$alt2
 cantora		$alt2
 capacete	$alt2
@@ -832,11 +839,13 @@ explore		$alt
 faceta		$alt2
 fantoche	$alt
 farofa		$alt
+farolete		$alt2
 febre		$alt
 fera		$alt
 feitora		$alt2
 ferozes		$alt
 fezes		$alt
+filete		$alt2
 ?1 fixe		fiSy
 foda		$alt2 $verb
 fogos		$alt
@@ -856,6 +865,7 @@ fulgores	$alt2
 galera		$alt
 galileia	$alt
 gameta		$alt2
+garçonete		$alt2
 geleia		$alt
 gelo		$alt2
 gelo		$alt $verb
@@ -884,6 +894,7 @@ jogo		$alt2 $noun
 joguete		$alt2
 lagosta		$alt2
 lambreta	$alt2
+lanchonete		$alt
 lebre		$alt
 lembrete	$alt2
 lepra		$alt
@@ -893,6 +904,7 @@ lopes		$alt
 macete		$alt2
 maior		$alt
 maleta		$alt2
+marionete		$alt
 marreta		$alt2
 megera		$alt
 melhor		$alt
@@ -911,6 +923,7 @@ miolos		$alt
 modelo		$alt2
 modelo		$alt $verb
 moeda		$alt
+moem	$alt
 mofo		$alt $verb
 molho		$alt2 $noun
 monera		$alt
@@ -930,12 +943,14 @@ namoro		$alt2 $noun
 naquela		$nounf
 naquele		$alt2 $nounf
 nervo		$alt2
+nojo		$alt2
 novelo		$alt2
 novos		$alt
 obstetra	$alt
 odisseia	$alt
 onu		$1
-olho		$alt2 $noun
+olho	$alt2 $noun
+olhos	$alt
 onomatopeia	$alt
 opereta		$alt2
 ordens		$alt
@@ -953,9 +968,8 @@ pangeia		$alt
 pantera		$alt
 parede		$alt2
 pastora		$alt2
+patinete		$alt
 pedra		$alt
-pela		$alt $verb
-pelego		$alt2
 pela		$alt $verb
 pelo		$alt2
 pelo		$alt $verb
@@ -998,11 +1012,12 @@ relevo		$alt2 $noun
 remorso		$alt
 renovo		$alt $verb
 retorno		$alt $verb
-reuva		$alt
+reuva	x'EUv&
 rigores		$alt2
 rixa		x'iS&
 rocha		$alt
 rock		$alt
+roem	$alt
 rola		$alt2 $noun
 rolo		$alt2 $noun
 rota		$alt2
@@ -1037,6 +1052,7 @@ suor		swOr
 tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
+tenores	$alt2
 terrores	$alt2
 teta		$alt2
 tetra		$alt
@@ -1068,7 +1084,6 @@ voga		$alt
 vozes		$alt
 xarope		$alt
 zelo		$alt2 $noun
-zero		$alt
 zorra		$alt2
 
 
@@ -1095,6 +1110,9 @@ book  buk
 ?1 download   d'a,wnl'oud
 ?2 download        daUNl'owd
 ?3 download        dau~Nl'owd
+drive  dR'aivy
+driver  dR'aiver
+drivers  dR'aiveRs
 ?1 end        'end
 ?2 esc     'Esk
 ?3 esc     'EskI
@@ -1135,6 +1153,7 @@ laptop lEptOp
 ?1 ovo        'ovu
 ?1 pause      p'au:z
    page       p'eIdZ
+   pizza  p'its&
 python     p'aIT&~N
 ?1 readme     r'i:dmi:
 ?1 sapi       s,ap'i
@@ -1150,6 +1169,7 @@ símbolo	s'imbolU
 ?1 space      sp'eIsy
 ?1 sporting   sp'Ort,ing
  tab        t'aby
+ tablet  t'ablet
 ?1 telemóvel  t,El,Em'OvEl
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
@@ -1190,7 +1210,8 @@ facebook  feisybuk
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
-?1 office      'Of,is
+/1 office      'Of,is
+?2 office  'Ofsy
    openoffice  'opeIN|'Ofis
 ?1 outlook     'autl'uk
 ?2        Outlook        ,aUtl'uk

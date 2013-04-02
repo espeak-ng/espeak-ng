@@ -47,7 +47,6 @@
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
         a (lh+     a
-
         a (m       &~
         a (mAr_    &
         a (mA@     &
@@ -274,7 +273,6 @@
         e (xA_     E
         e (xAm_    E
 ?2  _n) e (t       E
-
         em (C      eIm
         en (K      eIN
         enh        en^
@@ -368,6 +366,7 @@
  _perd) e (L05_    e
  _quis) e (L05_    E
  _soub) e (L05_    E
+ _talh) e (L05_    E
  _trem) e (L05_    e
   diss) e (L06_    E         // contra-
   fend) e (L06_    e         // de- o-
@@ -461,6 +460,7 @@ respond) e (L07_   e         // cor-
  _hosp) e (dL03_   E
    _gr) e (gL03_   e
   _gal) e (gL03_   e
+  _pel) e (gL03_   e
     _n) e (grL03_  e
    _ch) e (guL02_  e
   estr) ei (L04_   EI
@@ -474,10 +474,12 @@ respond) e (L07_   e         // cor-
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
     _g) e (rL04_   E
+    _z) e (rL04_   E
     qu) e (rL04_   E         // re-
    _op) e (rL04_   E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
+  _enc) e (rL04_   E
   _sug) e (rL04_   E
   _sup) e (rL04_   E
   _tol) e (rL04_   E
@@ -489,12 +491,16 @@ respond) e (L07_   e         // cor-
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
     _v) e (rbL03_  E
+ _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
     _h) e (rdL04_  E
   _bez) e (rrL03_  e
   _inv) e (rtL03_  e
     _f) e (rvL03_  e
+ _alic) e (rçL03_  E
+    _p) e (sL01_   E
+    _l) e (sL03_   E
  _refr) e (scL01_  E
     _d) e (scL02_  E
    _cr) e (scL02_  E
@@ -520,6 +526,7 @@ _obsol) e (tL03_   e
   _atr) e (vL03_   e
     _r) e (zL04_   E
    _pr) e (zL04_   E
+  _rev) e (zL04_   E
 _despr) e (zL04_   E
 _embel) e (zL04_   E
 _menospr) e (zL04_ E
@@ -688,9 +695,9 @@ _entorp) e (çL03_  e
      _) l (_       'Ele
         l          l
      l) l 
-        lh         l^
+        lh         lj
      A) lh         lj
-?1   A) lh         l^
+     A) lh         l^
 ?4   A) lh         l^
 
 
@@ -756,6 +763,9 @@ _entorp) e (çL03_  e
         o (lA_     O
         o (lAm_    O
 
+        o (lhe_    O
+        o (lhem_   O
+
         o (ltA_    O
         o (ltAm_   O
 
@@ -778,9 +788,7 @@ _entorp) e (çL03_  e
 
 ?1      o (l_      'O
 ?2      ol (_      Ow
-        o (lh      o
-?2   _) o (lhA_    O
-?2   _) o (lhAm_   O
+
         om (_      oN
         o (ma_     o
 
@@ -838,6 +846,7 @@ _entorp) e (çL03_  e
 
 //sort
     _f) o (L05_    o
+_pormen) o (L05_   O
     _f) o (L07_    o
     _s) o (bL02_   O
    _af) o (bL04_   O
@@ -859,9 +868,8 @@ _entorp) e (çL03_  e
     _t) o (lL03_   o
     _f) o (lgL04_  O
   _emp) o (lgL04_  O
-     c) o (lhL02_  O         // es- en- re-
-    _t) o (lhL02_  O
-    _m) o (lhL04_  O
+     _) o (lhL04_  O
+     m) o (lhL04_  O
    ent) o (pL02_   O
     _c) o (pL03_   O
   _ens) o (pL04_   O
@@ -1057,6 +1065,8 @@ _remem) o (rL04_   O
         u (iu      w
         u (iCK     u
         uy         uI
+        ul (K      uw
+        u (lh+     u
 
         um (_      u~N
         um (C      u~m

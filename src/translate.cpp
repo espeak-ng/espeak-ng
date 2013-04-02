@@ -3469,7 +3469,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 	prev_clause_pause = clause_pause;
 
-	*tone_out = tone;
+	if(tone_out != NULL)
+		*tone_out = tone;
 
 	new_sentence = 0;
 	if(terminator & CLAUSE_BIT_SENTENCE)
