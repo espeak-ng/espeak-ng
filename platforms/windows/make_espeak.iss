@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.47.03
+AppVerName=eSpeak version 1.47.04
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -146,7 +146,7 @@ begin
   $0e: Result := 'hu';
   $0f: Result := 'is';
   $10: Result := 'it';
-  //$12: Result := 'ko';
+  $12: Result := 'ko';
   $13: Result := 'nl';
   $14: Result := 'no';
   $15: Result := 'pl';
@@ -158,7 +158,7 @@ begin
   $1c: Result := 'sq';
   $1d: Result := 'sv';
   $1f: Result := 'tr';
-  //$20: Result := 'ur';
+  $20: Result := 'ur';
   $21: Result := 'id';
   $25: Result := 'et';
   $26: Result := 'lv';
@@ -174,6 +174,7 @@ begin
   $39: Result := 'hi';
   //$3a: Result := 'mt';
   $3c: Result := 'ga';
+  $3e: Result := 'ms';
   //$3f: Result := 'kk';
   $41: Result := 'sw';
   //$44: Result := 'tt';
@@ -263,6 +264,7 @@ begin
   'mk': value := $42f;
   'ml': value := $44c;
   'mn': value := $450;
+  'ms': value := $43e;
   'mt': value := $43a;
   'my': value := $455;
   'ne': value := $461;

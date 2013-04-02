@@ -325,37 +325,54 @@ _zh	tS'aIni:z
 // Arabic letters
 
 ء	h'amza
-آ	'Elifm,adda#
-أ	'Elifh,amza
-ا	'Elif
-ب	bE?
+آ	al'if_mamd'uda#
+أ	h'amza_taht_al'if
+ؤ	h'amza_?la_waw
+إ	al'if_taht_h'amza
+ئ	h'amza_?la_jE?
+ا	al'if
+ب	ba
 ة	t'E?maR2b'uta#
-ت	tE?
+ت	ta
 ث	TE?
-ج	ZIm
+ج	dZi:m
 ح	hE?
 خ	xE?
-د	dEl/1
-ذ	DEl/1
+د	dal/1
+ذ	Dal/1
 ر	R2A:?
 ز	zEjn
 س	si:n
 ش	Si:n
-ص	sO:d@-
-ض	dO:d@-
+ص	sa:d@-
+ض	da:d@-
 ط	thA:?
 ظ	DA:?
-ع	?ajn
-غ	Q"ajn
-ف	fE?
-ق	qO:f
-ك	kEf
-ل	lEm
+ع	'?Ein
+غ	'Q"Ein
+ف	fa
+ق	qa:f
+ك	kaf
+ل	lam
 م	mi:m
 ن	nu|:n
-ه	hE?
-و	wO:w
+ه	ha
+و	waw
+ى	al'if_maks'ura
 ي	jE?
+// Farsi
+پ	pa
+چ	tSa
+ژ	Za
+گ	ga:f
+ی	f'A@si||j'e
+ک	k'a:f
+// Urdu
+ٹ	te
+ڈ	de
+ڑ	z.e
+ے	barij'e
+ھ	h'@
 
 َ	a
 ِ	i
@@ -725,6 +742,7 @@ aka		aka#
 alas		a#l'as
 albeit		O:lb'i:It
 alfalfa		alf'alf@
+algebra		aldZI2br@
 alias		eIli@s
 alibi		al@baI
 alibis		al@baIz
@@ -2793,7 +2811,6 @@ tear		te@           $verb
 (tear apart)	t,e@||a#pA@t
 (tear off)	t'e@||'0f
 teargas		ti@3gas
-techy		tEki
 teddybear	t'EdIb,e@
 telemetry	t@lEm@tri
 telepathy	t@lEp@Ti
@@ -3255,8 +3272,9 @@ Lvov		l@-v0v
 ?5 Luxembourg	lVks@mbVRg
 Madagascar	mad@g'ask3
 Madras		m@draas
-Madrid		m@drId 
+Madrid		m@drId
 Malawi		$alt3
+Malayalam	maleI'A:l@m
 Maldives	mO:ld'i:v
 Mali		mA:li
 Mandalay	$3
@@ -3384,6 +3402,7 @@ Wisconsin	wI2sk'0nsI2n
 Wyoming		waI'oUmIN
 Xhosa		kO:s@
 Yemen		$alt2
+Yosemite	joUs'Em@ti
 zaire		zaI'i@3
 zimbabwe	zI2mbA:bwi
 zimbabwean	zI2mbA:bwI@n

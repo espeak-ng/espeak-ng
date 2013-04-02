@@ -1,5 +1,5 @@
 
-75 phoneme tables
+74 phoneme tables
           new total
     base 109  109
 consonants  11  119
@@ -74,7 +74,6 @@ consonants  11  119
       kl  18  119
       am  15  114
       si  24  155
-      rw  15  132
       sl  10  137
 
 Data file      Used by
@@ -218,7 +217,6 @@ dzh/xdz_pzd     [J] base
                 [J] tr
                 [J] ku
 envelope/i_risefall  [11] zh
-envelope/i_risefall2  [+2] rw
 envelope/p_214  [5] vi
                 [5] vi-hue
                 [214] zh
@@ -236,7 +234,6 @@ envelope/p_fall  [2] vi
                 [22] zh
                 [33] zh
                 [53] zh
-                [+] rw
 envelope/p_fallrise  [4] vi
 envelope/p_level  [1] vi
                 [1] vi-hue
@@ -1511,8 +1508,6 @@ vowel/a#        [a] base2
                 [a#] en-sc
                 [a#] en-wi
                 [&] sr
-                [a#] rw
-                [a/] rw
 vowel/a_2       [a] base2
                 [a] en-wi
                 [A:] en-wi
@@ -1524,7 +1519,6 @@ vowel/a_2       [a] base2
                 [a] pt-pt
                 [a] ro
                 [a] el
-                [a] rw
 vowel/a#_2      [A] nl
                 [a:] nl
                 [a] kn
@@ -1673,8 +1667,6 @@ vowel/e         [e] base
                 [e] da
                 [?e] da
                 [E] kl
-                [e] rw
-                [e#] rw
 vowel/e#        [I] en-sc
                 [e] et
                 [E] kl
@@ -1825,8 +1817,6 @@ vowel/i         [i] base
                 [i] fa
                 [i] kl
                 [i:] si
-                [i] rw
-                [i#] rw
 vowel/i#        [y:] cy
 vowel/i_2       [i2] de
                 [i:] de
@@ -1985,8 +1975,6 @@ vowel/o         [o] base2
                 [o] id
                 [o] hy
                 [o] kl
-                [o] rw
-                [o#] rw
 vowel/o_2       [o:] cy
                 [o:] hi
                 [o:] hu
@@ -2183,8 +2171,6 @@ vowel/u_bck     [u] base2
                 [?u] da
                 [u] ka
                 [u] ko
-                [u] rw
-                [u#] rw
 vowel/u_bck2    [u] et
                 [u] fr
                 [u:] fr

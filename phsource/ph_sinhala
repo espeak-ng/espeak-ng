@@ -1,0 +1,155 @@
+
+// Phonemes for Sinhala
+// This inherits from ph_hindi
+
+// (these are only guesses)
+
+phoneme @
+  vowel  starttype #a  endtype #a
+  length 150
+  FMT(vowel/@_low)
+endphoneme
+
+
+phoneme a
+  vowel long starttype #a endtype #a
+  ipa ɐ
+  length 150
+  ChangeIfNotStressed(@)
+  FMT(vowel/a#_2)
+endphoneme
+
+
+phoneme a:
+  vowel  starttype #a  endtype #a
+  length 300
+  FMT(vowel/a_3)
+endphoneme
+
+
+phoneme &
+  vowel  starttype #e  endtype #e
+  length 150
+  FMT(vowel/ee_6)
+endphoneme
+
+
+phoneme &:
+  vowel  starttype #e  endtype #e
+  length 300
+  FMT(vowel/ee_6)
+endphoneme
+
+
+phoneme e
+  vowel  starttype #e  endtype #e
+  length 150
+  FMT(vowel/e_mid)
+endphoneme
+
+
+phoneme e:
+  vowel  starttype #e  endtype #e
+  length 300
+  FMT(vowel/e_mid2)
+endphoneme
+
+
+phoneme i
+  vowel  starttype #i  endtype #i
+  length 150
+  FMT(vowel/i_6)
+endphoneme
+
+
+phoneme i:
+  vowel  starttype #i  endtype #i
+  length 300
+  FMT(vowel/i)
+endphoneme
+
+
+
+phoneme o
+  vowel  starttype #o  endtype #o
+  length 150
+  FMT(vowel/oo_1)
+endphoneme
+
+
+phoneme o:
+  vowel  starttype #o  endtype #o
+  length 300
+  FMT(vowel/oo_1)
+endphoneme
+
+
+phoneme u
+  vowel  starttype #u  endtype #u
+  length 130
+  FMT(vowel/u_6)
+endphoneme
+
+phoneme u:
+  vowel  starttype #u  endtype #u
+  length 300
+  FMT(vowel/u_6)
+endphoneme
+
+
+
+phoneme aI
+  vowel long starttype #a endtype #i
+  length 300
+  FMT(vdiph/ai_8)
+endphoneme
+
+phoneme aU
+  vowel long starttype #a endtype #u
+  length 300
+  FMT(vdiph/au)
+endphoneme
+
+
+
+// ?? This is standard [v].  Should be it [v] without the fricative noise?
+phoneme v
+  import_phoneme base/v
+endphoneme
+
+
+phoneme r
+  import_phoneme base/r
+endphoneme
+
+phoneme t
+  import_phoneme base2/t    // dental
+endphoneme
+
+
+// temporary, map [n#] etc. to [n] etc.
+
+phoneme m#
+  ipa U+1D50
+  CALL base/m
+endphoneme
+
+phoneme n#
+  ipa U+207F
+  CALL base/n
+endphoneme
+
+phoneme n.#
+  ipa U+1DAF
+  CALL base/n.
+endphoneme
+
+phoneme n^#
+  ipa U+1DAE
+  CALL base/n^
+endphoneme
+
+phoneme N#
+  ipa U+1D51
+  CALL base/N
+endphoneme
