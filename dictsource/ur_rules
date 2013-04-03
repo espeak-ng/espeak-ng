@@ -16,7 +16,7 @@
 ٨	8
 ٩	9
 ي	ی
-
+یٰ	ا
 
 
 // vowel signs, alif acts as consonants  at start of word if these follow
@@ -81,6 +81,26 @@ _) ای	e:
 	_) ایمان	i:m'a:n
 	_) اعت	'e:tI
 	_) اضاف	Iz'a:f
+	_) اختلاف	,IxtIl'a:f
+	_) اسمبلی	as'ambli:
+	_) اٹھت	'Ut.#t
+	_) اٹھن	'Ut.#n
+	_) اٹھات	Ut.#'a:t
+	اقلیت	,aqali:;'at
+	استثن	,Ist'asn
+	اندھیر	'and#e:R
+	انتالیس	,Unta:l'i:s
+	انتیس	,Unt'i:s
+	اکثر	,aks'aR
+	ایران	i:R'a:n
+	اجتماع	,IJtIm'a:
+	استحصال	,Ist,e:Hs.'a:l
+	_) امنگ	Um'ang
+	انعام	In'a:m
+	امتحان	,ImtIH'a:n
+	الزام	,Ilz'a:m
+	اشتہار	,IStIH'a:R
+	اصول	Us.'u:l
 
 .group آ
 	آ	a:
@@ -91,7 +111,8 @@ _) ای	e:
 	عا	a:
 	_) ع	a
 	_) عیس	'i:s
-
+	_) عید	'i:d
+	عنوان	Unv'a:n
 
 .group و
 	و	o:
@@ -116,6 +137,9 @@ _) ای	e:
 
 .group ے		// yeh barree
 	ے	e:
+
+.group ۂ
+	ۂ	'ae:
 
 // with hamza
 .group ئ
@@ -148,7 +172,14 @@ _) ای	e:
 	بھیک	bh'i:k
 	بھیگ	bh'i:g
 	بھول	bh'u:l
-
+	_) بیان	baj'a:n
+	_) بٹھا	b'It.#a:
+	بئی	b'ai:
+	بیوی	b'i:vi:
+	_) بیوا	b'e:va:
+	برسر	b,aRs'aR
+	بگاڑ	bIg'a:r.
+	بغاوت	b,aQa:v'at
 
 .group پ
 	پ	pV
@@ -160,7 +191,8 @@ _) ای	e:
 	_) پھر	ph'IR
 	پھول	ph'u:l
 	_) پہل (L01	p'e:Hl
-
+	پہنچ	paH'Unc
+	پوچھ	p'u:c#
 
 .group ت
 	ت	tV
@@ -169,6 +201,9 @@ _) ای	e:
 	تھ (L01	t#
 	تّ	ttV
 	تّ (L01	tt
+	_) تمہ	t'UmH
+	تحقیق	t,e:Hq'i:q
+	_) ترجم	t'aRJ,Um
 
 
 .group ٹ
@@ -178,6 +213,8 @@ _) ای	e:
 	ٹھ (L01	t.#
 	ٹّ	t.t.V
 	ٹّ (L01	t.t.
+	ٹریفک	t.R'e:fIk
+	_) ٹکڑ	t.'Ukr.
 
 
 .group ث
@@ -196,7 +233,10 @@ _) ای	e:
 	جّ (L01	JJ
 	_) جیت	J'i:t
 	_) جوا	J'ava:
-
+	جانب	J'a:nIb
+	_) جنس	J'Ins
+	جھوٹ	J#'u:t.
+	_) جمل	J'Uml
 
 .group چ
 	چ	cV
@@ -205,12 +245,19 @@ _) ای	e:
 	چھ (L01	c#
 	چّ	ccV
 	چّ (L01	cc
+	_) چکا	c'Uka:
 
 
 .group ح
 	ح	HV
 	ح (L01	H
-	ح (_	H
+	ح (_	'aH
+	L01) ح (_	H
+	حکومت	H,Uku:m'at
+	حکمران	H,UkmaR'a:n
+	_) حوال	Hav'a:l
+
+
 	حّ	HHV
 	حّ (L01	HH
 
@@ -218,7 +265,7 @@ _) ای	e:
 .group خ
 	خ	xV
 	خ (L01	x
-	خت(_	xt
+	@) خ (ت	x
 	خّ	xxV
 	خّ (L01	xx
 	_) خوش	x'US
@@ -233,7 +280,12 @@ _) ای	e:
 	دھ (L01	d#
 	دّ	ddV
 	دّ (L01	dd
-
+	درخواست	d,aRxv'a:st
+	دیا(_	d'i:;a:
+	درج	d'aRJ
+	دیوا	d'i:va:
+	_) دوسر	d'u:sR
+	دفاع	d'Ifa:
 
 .group ڈ
 	ڈ	d.V
@@ -242,6 +294,7 @@ _) ای	e:
 	ڈھ (L01	d.#
 	ڈّ	d.d.V
 	ڈّ (L01	d.d.
+	ڈھونڈ	d.#'u:nd.
 
 .group ذ
 	ذ	DV
@@ -254,6 +307,11 @@ _) ای	e:
 	ر (L01	R
 	رّ	RRV
 	رّ (l01	RR
+	@) ر (ٹ	R
+	@) ر (ڈ	R
+	_) رہت	R'e:Ht
+	@) ر (د	R
+	@) ر (چ	R
 
 .group ڑ
 	ڑ	r.V
@@ -268,6 +326,7 @@ _) ای	e:
 	ز (L01	z
 	زّ	zzV
 	زّ (L01	zz
+	_) زند	z'Ind
 
 .group ژ
 	ژ	ZV
@@ -284,18 +343,32 @@ _) ای	e:
 	_) سلجھ (L01	sUlJh
 	_) سدھر	sUdh'aR
 	_) سدھر (L01	sUdhR
+	_) سلسل	s'Ils,Il
+	_) ستار	sIt'a:R
+	@) س (ٹ	s
+	سندھ	s'Ind#
+	سیکھ	s'i:k#
+	@) س (ت	s
+	_) سپرد	sUp'URd
 
 .group ش
 	ش	SV
 	ش (L01	S
 	شّ	SSV
 	شّ (L01	SS
+	_) شعب	S'Ob
+	شاعر	Sa:'a:IR
+	_) شعرا	S'ORa:
+	_) شعل	S'Ol
+	@) ش (ت	S
+	_) شخص	S'axs.
 
 .group ص
 	ص	s.V
 	ص (L01	s.
 	صّ	ssV
 	صّ (L01	ss
+	صوب	s.'u:b
 
 .group ض
 	ض	zV
@@ -306,7 +379,7 @@ _) ای	e:
 .group ط
 	ط	tV
 	طھ	t#V
-	ط (L01	t
+		ط (L01	t
 	طھ (L01	t#
 	طّ	ttV
 	طّ (L01	tt
@@ -328,12 +401,14 @@ _) ای	e:
 	ف (L01	f
 	فّ	ffV
 	فّ (L01	ff
+	_) فکر	f'IkR
 
 .group ق
 	ق	qV
 	ق (L01	q
 	قّ	qqV
 	قّ (L01	qq
+	قاعد	q'a:jd
 
 .group ک
 	ک	kV
@@ -343,6 +418,9 @@ _) ای	e:
 	کّ	kkV
 	کّ (L01	kk
 	_) کتن	k'Itn
+	کوئل	k'o:Il
+	کتاب	kIt'a:b
+	کوشش	k'o:SIS
 
 .group گ
 	گ	gV
@@ -354,6 +432,10 @@ _) ای	e:
 	_) گرفت	g'IRIft
 	_) گزر	gUz'aR
 	_) گزر (L01	gUzR
+	گئے	g'ae:
+	گئی	g'ai:
+	گمشد	g'UmS,Ud
+	_) گھما	g#'Uma:
 
 .group ل
 	ل	lV
@@ -368,6 +450,29 @@ _) ای	e:
 	مّ	mmV
 	مّ (L01	mm
 	_) مشکل	m'USk,Il
+	محکم	me:He:km
+	مظاہر	mUz.'a:HIR
+	_) ملن (L01	m'Iln
+	مسجد	m'asJ,Id
+	مشرق	m'aSR,Iq
+	مقدم	mUq'adm
+	مسلم	m'Usl,Im
+	مسلما	mUs'alm,a:
+	@) م (پ	m
+	موجود	mo:J'u:d
+	منزل	m'anz,Il
+	@) م (ب	m
+	محقق	mUH'aqIq
+	منظر	m,anz.'aR
+	محفل	m'e:Hf,Il
+	مسکرا	m'Usk,URa:
+	مسکراہٹ	m,Usk,URa:H'at.
+	محسن	m'o:Hs,In
+	مجرم	m'UJR,Im
+	منظور	m,anz.'u:R
+	ملزم	m'Ulz,Im
+	مغرب	m'aQR,Ib
+	منسوخ	m'ansu:x
 
 .group ن
 	ن	nV
@@ -383,6 +488,14 @@ _) ای	e:
 	@) ن (چ	n
 	_) نکال	nIk'a:l
 	_) نگاہ	nIg'a:H
+	_) نمٹ	nIm'at.
+	_) نمٹ (L01	nImt.
+	@) ن (پ	n
+	@) نچل	n'Icl
+	نشان	nIS'a:n
+	@) ن (ڈ	n
+	_) نظر	naz.'aR
+	_) نظام	nIz.'a:m
 
 .group ں
 	ں	n    // this should nasalize the vowel

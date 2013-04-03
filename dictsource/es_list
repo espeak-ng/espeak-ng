@@ -29,6 +29,7 @@ _tld	t'ilde
 // names of symbols
 ª	a
 º	o 
+°	grados
 _.	punto
 _,	koma
 _;	p,untoik'oma
@@ -123,6 +124,9 @@ _dpt	koma
 _#º	o
 _#ª	a
 _ord	o
+ºc	gr'ados||T'e
+ºf	gr'ados||'Efe
+ºk	gr'ados||k'a
 
 _1o	prim'Er
 _2o	seQ'und

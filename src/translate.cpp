@@ -1736,6 +1736,7 @@ int SetTranslator2(const char *new_language)
 			translator2->phoneme_tab_ix = new_phoneme_tab;
 		}
 	}
+	translator2->phonemes_repeat[0] = 0;
 	return(new_phoneme_tab);
 }  // end of SetTranslator2
 
@@ -2444,6 +2445,35 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		0x72,0x73,0x74,0x75
 	};
 
+	// check for Korean Hangul letters
+	if(((code = c - 0xac00) >= 0) && (c <= 0xd7af))
+	{
+		// break a syllable hangul into 2 or 3 individual jamo
+		initial = (code/28)/21;
+		medial = (code/28) % 21;
+		final = code % 28;
+
+		if(initial == 11)
+		{
+			// null initial
+			c = medial + 0x1161;
+			if(final > 0)
+				*insert = final + 0x11a7;
+		}
+		else
+		{
+			// extact the initial and insert the remainder with a null initial
+			c = initial + 0x1100;
+			*insert = (11*28*21) + (medial*28) + final + 0xac00;
+		}
+		return(c);
+	}
+	else if(((code = c - 0x3130) >= 0) && (code < 0x34))
+	{
+		// Hangul compatibility jamo
+		return(hangul_compatibility[code] + 0x1100);
+	}
+
 	switch(tr->translator_name)
 	{
 	case L('a','f'):
@@ -2469,36 +2499,6 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 					return(0x0259); // replace  '  by  unicode schwa character
 				}
 			}
-		}
-		break;
-
-	case L('k','o'):
-		if(((code = c - 0xac00) >= 0) && (c <= 0xd7af))
-		{
-			// break a syllable hangul into 2 or 3 individual jamo
-			initial = (code/28)/21;
-			medial = (code/28) % 21;
-			final = code % 28;
-
-			if(initial == 11)
-			{
-				// null initial
-				c = medial + 0x1161;
-				if(final > 0)
-					*insert = final + 0x11a7;
-			}
-			else
-			{
-				// extact the initial and insert the remainder with a null initial
-				c = initial + 0x1100;
-				*insert = (11*28*21) + (medial*28) + final + 0xac00;
-			}
-			return(c);
-		}
-		else if(((code = c - 0x3130) >= 0) && (code < 0x34))
-		{
-			// Hangul compatibility jamo
-			return(hangul_compatibility[code] + 0x1100);
 		}
 		break;
 	}
@@ -2955,7 +2955,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 					else
 					{
-						if(iswlower(prev_in))
+						if((iswlower(prev_in)) && (prev_in != 0xba))  // Windows thinks masc.ordinal (0xba) is lower-case
 						{
 							// lower case followed by upper case in a word
 							if(UpperCaseInWord(tr, &sbuf[ix], c) == 1)
@@ -3473,7 +3473,8 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 
 	prev_clause_pause = clause_pause;
 
-	*tone_out = tone;
+	if(tone_out != NULL)
+		*tone_out = tone;
 
 	new_sentence = 0;
 	if(terminator & CLAUSE_BIT_SENTENCE)

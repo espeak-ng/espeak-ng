@@ -2,8 +2,8 @@
 
 
 # Toolflags:
-CCflags = -c -C90 -depend !Depend -IC: -throwback -zM
-C++flags = -c -depend !Depend -IC: -throwback -zM
+CCflags = -c -C90 -depend !Depend -IC: -throwback -memaccess -zM -L22-S22-L41
+C++flags = -c -depend !Depend -IC: -throwback -zM -L22-S22-L41
 Linkflags = -rmf -c++ -o $@
 ObjAsmflags = -throwback -NoCache -depend !Depend
 CMHGflags = 
@@ -61,3 +61,4 @@ Squeezeflags = -o $@
         objasm $(objasmflags) -from @.s.assemb -to @.o.assemb
 
 # Dynamic dependencies:
+

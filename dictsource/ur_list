@@ -36,7 +36,7 @@
 ل	la:m
 م	mi:m
  ن	nu:n
-و	va:O
+_و	va:O
 ہ	He:
 ں	g#Unna
 ﮨ	c#o:ti:||He:
@@ -45,10 +45,13 @@
 ی	c#o:t.i:||je:
 ے	bar.i:||je:
 ئ	h'amza
+ۂ	He:h'amza
+_ؤ	va:Oh'amza
 
 َ	z@b@R
 ِ	ze:R
 ُ	pe:S
+ٰ	,alIfmaqs'u:R,a
 ّ	t,aSd'i:d
 ً	d'o:zab'aR
 
@@ -166,8 +169,7 @@ _dpt	_ISaRI'Ia_
 
 
 // pronouns
-یہ	jE	$u
-کہ	kE	$u
+یہ	j'e:H	$u
 وہ	wo:	$u
 آپ 	$u
 تم  	tUm	$u
@@ -186,8 +188,8 @@ _dpt	_ISaRI'Ia_
 تجھے	t'UJ#e:
 جن	J'In
 جنھیں	J,InH'e:n
-انھوں	,UnH'o:n
-انھیں	,InH'e:n
+انہوں	,UnH'o:n
+انہیں	,UnH'e:n
 
 // unstressed prepositions
 کا	$u
@@ -196,6 +198,7 @@ _dpt	_ISaRI'Ia_
 سے 	$u
 
 اور 	OR	$u $brk
+کہ	k'e:H	$u
 
 // unstressed verbs
 ہے 	$u
@@ -206,7 +209,6 @@ _dpt	_ISaRI'Ia_
 
 // Pronunciation exceptions
 پاکستان	p'a:k'i:st'a:n
-سندھ	s'Ind#
 کچھ	k'Uc#
 لنکس	l'Ink,s
 لفظ	l'afz.
@@ -218,7 +220,6 @@ _dpt	_ISaRI'Ia_
 مسلح	m,Usal'aH
 متفق	mUt'afIq
 سابق	s'a:bIq
-برسر	b,aRs'aR
 اعلان	e:l'a:n
 سنئیے	sUn'i:;e:
 کلنگ	k'IlIn,g
@@ -226,7 +227,6 @@ _dpt	_ISaRI'Ia_
 جسٹس	J'ast.,Is
 شکایت	S,Ika:j'at
 شکست	SIk'ast
-منزل	m'anz,Il
 شعر	S'e:R
 فعل	f'e:l
 خصوصی	xUs.'u:s.i:
@@ -256,7 +256,6 @@ _dpt	_ISaRI'Ia_
 باہر	ba:H'aR
 دیا	d'i:;a:
 انڈیا	 ,Ind.'i:;a:
-مظاہرین	m,Uz.a:HIR'i:n
 فائرنگ	f'a:jIR,Ing
 ڈائریکٹر	d.,a:jIR,e:kt.'aR
 فرقہ	f'IRqa
@@ -303,7 +302,6 @@ _dpt	_ISaRI'Ia_
 بغیر	baQ'e:R
 ممکن	m'Umk,In
 ممکنہ	m'Unk,In,a
-طرح	taR'aH
 الیکشن	,Ile:kS'an
 ووٹنگ	vo:t.'Ing
 شواہد	Sav'a:HId
@@ -348,11 +346,188 @@ _dpt	_ISaRI'Ia_
 تعین	t'a:jUn
 باعث	b'a:jIs
 کتب	k'UtUb
-سلسلہ	s'Ils,Il,a
-سلسلے	s'Ils,Ile:
 بحث	be:He:s
 قسمت	q,Ism'at
 آور	a:v'aR
 بظاہر	baz.'a:HIR
 ظاہر	z.'a:HIR
 حکم	H'Ukm
+کورٹ	k'o:Rt.
+برطرف	b,aRtaR'af
+برطرفی	b,aRt'aRf,i:
+لئے	l'i:;e:
+نامزد	n,a:mz'ad
+نامزدگی	n,a:mz'adg,i:
+معطل	m,Oat'al
+معطلی	m,Oat'ali:
+تین	t'i:n
+تینوں	ti:n'o:n
+ڈاکٹر	d.,a:kt.'aR
+اقبال	,Iqb'a:l
+جرم	J'URm
+اقتدار	,IqtId'a:R
+عشرت	,ISR'at
+نگران	n,IgR'a:n
+نگرانی	n,IgR'a:ni:
+مستقل	m,Ust'aqIl
+مستقبل	m,Ust'aqb,Il
+میر	m'i:R
+چھ	c#'eh_!
+خفیہ	xUf'i:;a
+اٹھانا	Ut.#'a:na:
+اٹھانی	Ut.#'a:ni:
+اٹھانے	Ut.#'a:ne:
+اٹھا	'Ut.#a:
+اٹھی	'Ut.#i:
+اٹھے	'Ut.#e:
+قوت	qu:v'at
+اٹھایا	Ut.#'a:ja:
+اٹھائی	Ut.#'a:ji:
+اٹھائے	Ut.#'a:je:
+مدافعت	m,Uda:fI;'at
+خطرہ	x'atRa
+مظفر	m,Uz.af'aR
+کرکٹ	kRIk,It.
+انگلینڈ	,Ingl'e:nd.
+رنز	R'anz
+انسداد	,InsId'a:d
+نہیں	naH'i:n
+صحتِ	s.e:H'ate:
+متفقہ	mUt'afIqa
+تعلق	t'a:lUq
+متعلق	mUt'a:lIq
+متعلقہ	mUt'a:lIqa
+مسترد	m,UstaR'ad
+مثبت	m,Usb'at
+تاہم	ta:H'am
+پیشرفت	p,e:SR'aft
+تعطل	t'a:tUl
+متعدد	mUt'a:dId
+گیا	g'aja:
+(کیا گیا)	k'i:;a:||g'aja:
+(ہوا تھا)	H'u:a||t#a:
+(کیا ہوا)	kj'a:||H'u:a:
+اتحاد	,ItaH'a:d
+اننگز	In'Ingz
+بیٹنگ	be:t.'Ing
+منٹ	m'InIt.
+ناممکن	n'a:mUmkIn
+(کیا جائے)	k'i:;a:||J'a:je:
+جمعرات	J,Ume:R'a:t
+جمعہ	J'Uma:
+برسرِ	b,aRs'aRe:
+درجنوں	d,aRJan'o:n
+درجن	d,aRJ'an
+خلاف	xIl'a:f
+برخلاف	b,aRxIl'a:f
+کرکٹر	kRIkIt.'aR
+ذمہ	 D'Im,a
+دستخط	d,astx'at
+اجاگر	,UJa:g'aR
+فطرت	f,ItR'at
+فطرتاً	f,ItRat'an
+طاقتور	ta:q'atvaR
+دفتر	d,aft'aR
+مشرف	m,USaR'af
+سنگھ	s'Ing#
+کمپلیکس	k,ampl'e:ks
+مرتبہ	m,aRt'ab,a
+واقع	v'a:qe:
+یہیں	jaH'i:n
+کیونکہ	kj,u:nk'e:H
+گفتگو	g'Uft,Ugu:
+جستجو	J'Ust,UJu:
+بھانت	b#'a:nt
+چکے	c'Uke:
+مفت	m'Uft
+(تو نے)	t'u||n'e:
+پرسکون	p,URsUk'u:n
+منحصر	m,UnH'as.IR
+سکون	sUk'u:n
+گشت	g'aSt
+گذار	gUD'a:R
+پرور	p'aRvaR
+قصے	q'Is.e:
+قصہ	q'Is.,a
+قصوں	qIs.'o:n
+محفوظ	m,e:Hf'u:z.
+مقدس	m,Uqad'as
+و	o:
+انحراف	,InHIR'a:f
+مبینہ	m,Ubai:;'an,a
+متبادل	m,Utab'a:dIl
+گنا	g'Una:
+ملک	m'Ulk
+ملکی	m'Ulk,i:
+ملکوں	m,Ulk'o:n
+ممالک	mUm'a:lIk
+سنیچر	s,ani:c'aR
+اختر	,axt'aR
+ملا	m'Ila:
+سٹیڈیم	st.e:d.i:;'am
+مدت	mUd'at
+باکس	b'a:ks
+آفس	'a:fIs
+اشاعت	,ISa:'a:t
+اظہار	,Iz.H'a:R
+برقرار	b,aRqaR'a:R
+گھریلو	g#aR'e:lu:
+ٹھیک	t.#'i:k
+مشتمل	m,USt'amIl
+متلاشی	m,Utal'a:Si:
+ذکر	D'IkR
+محسوس	m,e:Hs'u:s
+برعکس	b,aR'aks
+بت	b'Ut
+بتوں	bUt'o:n
+سسٹم	sIst.'am
+معمر	m,Oam'aR
+حلیے	H'Ulje:
+ہلا	H'Ila:
+گذشتہ	gUD'aSta
+خطوط	xUt'u:t
+ہفتہ	H'afta
+مکرر	m,UkaR'aR
+چینی	c'i:ni:
+خیرمقدم	x,e:Rm,aqd'am
+محترمہ	m,UHt'aRma
+محترم	m,UHtaR'am
+ورزش	v'aRz,IS
+شروع	S'URu:
+انٹرنیٹ	,Int.,aRn'e:t.
+سروس	s'aRvIs
+سروسز	s'aRvIs,Iz
+لطف	l'Utf
+سامع	s'a:me:
+ہوائیں	H,ava:j'e:n
+سرے	s'IRe:
+طبیعت	t,abi:;'at
+سخن	sUx'an
+گہر	go:H'aR
+سست	s'Ust
+لیکن	l'e:kIn
+سیاست	sja:s'at
+ریاست	Rja:s'at
+منسلک	mUns'alIk
+داخل	d'a:xIl
+نجی	n'IJi:
+منہدم	m,UnH'adIm
+گم	g'Um
+محدود	m,e:Hd'u:d
+متحارب	m,UtaH'a:RIb
+جنت	Jan'at
+سفر	saf'aR
+(فیس بک)	f'e:s||b'Uk
+بینک	b'e:nk
+حقوق	HUq'u:q
+آئندہ	a:'Ind,a
+اہتمام	'e:HtIm,a:m
+قلت	qIl'at
+استحکام	,Iste:Hk'a:m
+حصول	HUs.'u:l
+منقطع	m,Unq'ata:
+مرتکب	m,URt'akIb
+منہ	m'u:n
+فتنہ	f'Itna
+ذرائع	DaR'a:e:
+مریم	m,aRi:;'am

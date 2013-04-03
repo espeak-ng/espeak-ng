@@ -1,4 +1,4 @@
-// Aragon translation rules
+﻿// Aragon translation rules
 // This file is UTF-8 encoded
 
 // letters
@@ -118,6 +118,9 @@ _x#º	%o   // for 1º 2º 3º
 _x#ª	%a
 º	orDin'al||maskul'in
 ª	orDin'al||femen'in
+ºc	gr'aUs||T'e
+ºf	gr'aUs||'Efe
+ºk	gr'aUs||k'a
 
 _1ox	prim'Er
 _2ox	seQ'und
@@ -179,6 +182,7 @@ $	d'olar
 /	baRRa
 \	kontraBaRRa
 |	b'aRRaBertik'al
+°	graUs
 
 _-	gj'on
 !	TaRR'ar||eksklamaTj'on
@@ -483,6 +487,7 @@ espeak	isp'ik
 facebook f'eIsbuk
 firefox	f'aIrfoks
 google	g'ugEl
+hotmail	xotm'eIl
 (i phone)	'aIfon
 iphone	'aIfon
 (i pod)	'aIpod

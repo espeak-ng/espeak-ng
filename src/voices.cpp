@@ -602,7 +602,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 	// which directory to look for a named voice. List of voice names, must end in a space.
 	static const char *voices_asia =
-		"fa fa-pin hi hy hy-west id ka kn ku ml ms ne pa ta tr vi vi-hue zh zh-yue ";
+		"bn fa fa-pin hi hy hy-west id ka kn ku ml ms ne pa ta te tr vi vi-hue zh zh-yue ";
 	static const char *voices_europe =
 		"an bg bs ca cs cy da de el en en-us es et fi fr fr-be ga hr hu is it lt lv mk nl no pl pt-pt ro ru sk sq sr sv ";
 
@@ -1894,12 +1894,24 @@ void FreeVoiceList()
 
 ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {//========================================================================
-#ifndef PLATFORM_RISCOS
+	char path_voices[sizeof(path_home)+12];
+	
+	
+#ifdef PLATFORM_RISCOS
+	if(n_voices_list == 0)
+	{
+		sprintf(path_voices,"%s%cvoices",path_home,PATHSEP);
+		len_path_voices = strlen(path_voices)+1;
+		GetVoices(path_voices);
+		voices_list[n_voices_list] = NULL;  // voices list terminator
+	}
+	return((const espeak_VOICE **)voices_list);
+
+#else
 	int ix;
 	int j;
 	espeak_VOICE *v;
 	static espeak_VOICE **voices = NULL;
-	char path_voices[sizeof(path_home)+12];
 
 	// free previous voice list data
 	FreeVoiceList();
@@ -1938,7 +1950,6 @@ ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 	}
 	return((const espeak_VOICE **)voices);
 #endif
-	return((const espeak_VOICE **)voices_list);
 }  //  end of espeak_ListVoices
 
 

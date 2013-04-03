@@ -83,7 +83,7 @@
 		ᄍ	'tS;-	// TODO: phoneme
 
 .group		ᄎ	// ㅊ
-		ᄎ	tSh-	// TODO: phoneme
+		ᄎ	tSh	// TODO: phoneme
 
 .group		ᄂ	// ㄴ
 		ᄂ	;n
@@ -198,7 +198,7 @@
 		ᇀᄂ		nn
 		ᇀᄆ		mm
 		ᇀ	(A	th
-		ᇀ	(L02	tSh;
+		ᇀ	(L02	tS;h
 
 .group		ᆸ	// ㅂ
 		ᆸ		p
@@ -236,7 +236,7 @@
 		ᆾ		t
 		ᆾᄂ		nn
 		ᆾᄆ		mm
-		ᆾ	(A	tSh;
+		ᆾ	(A	tS;h
 
 .group		ᆫ	// ㄴ
 		ᆫ		n

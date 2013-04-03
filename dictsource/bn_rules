@@ -1,4 +1,4 @@
-
+﻿
 // This file is UTF8 encoded 
 
 // letter groups:
@@ -28,6 +28,7 @@
 .group অ
        অ        V
        অঁ        O~
+       অ্যা       &          // V,ja in [æmiba]
       
 
 .group আ
@@ -74,6 +75,8 @@
 .group এ
         এ        e
         এঁ        e~
+        
+        এ্যা       &    // e,ja  [ækademi]
 
 
 .group ও
@@ -288,7 +291,10 @@
         য়	jV   // nukta
         য় (B	j
 
-        
+     ্) য (C    &   //  ব্যস্ত  [bæsto]
+     ্) যা      &    // ব্যাকরণ [bækɔron] 
+
+
 .group র
         র        rV
         র (B     r
@@ -378,3 +384,5 @@
         ৢ        l-
         ৣ        l-
 
+    __) - (_D    bij'og
+    D_) - (_D    bij'og

@@ -47,7 +47,6 @@
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
         a (lh+     a
-
         a (m       &~
         a (mAr_    &
         a (mA@     &
@@ -100,6 +99,7 @@
         ái (s      ''aI
         á (iCK     ''a
         áy         ''aI
+        ál (C      ''aU
         áu         ''aU
         áu (s      ''aU
 ?1      ál         ''Al
@@ -198,7 +198,7 @@
         e (guem_   E
 
         e (lA_     E
-        e (lo_     e
+        e (lo_     E
         e (lAm_    E
 
      i) e (r_      E
@@ -220,8 +220,14 @@
      f) e (re_     E
      f) e (rem_    E
 
+        e (que_    E
+        e (quem_   E
+
         e (rgA_    E
         e (rgAm_   E
+
+        e (rgue_   E
+        e (rguem_  E
 
         e (rsA_    E
         e (rsAm_   E
@@ -235,6 +241,8 @@
         e (stA_    E
         e (stAm_   E
         e (strA_   E
+
+        e (rme_    E
 
         e (rnA_    E
         e (rnAm_   E
@@ -265,7 +273,6 @@
         e (xA_     E
         e (xAm_    E
 ?2  _n) e (t       E
-
         em (C      eIm
         en (K      eIN
         enh        en^
@@ -359,6 +366,7 @@
  _perd) e (L05_    e
  _quis) e (L05_    E
  _soub) e (L05_    E
+ _talh) e (L05_    E
  _trem) e (L05_    e
   diss) e (L06_    E         // contra-
   fend) e (L06_    e         // de- o-
@@ -452,25 +460,26 @@ respond) e (L07_   e         // cor-
  _hosp) e (dL03_   E
    _gr) e (gL03_   e
   _gal) e (gL03_   e
+  _pel) e (gL03_   e
     _n) e (grL03_  e
+   _ch) e (guL02_  e
   estr) ei (L04_   EI
   _inv) e (jL04_   E
     tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
    _in) e (ptL03_  E
-    _p) e (quL02_  E
-    _s) e (quL02_  E
     ad) e (quL04_  E
-     l) e (que_    E
   _imp) e (rL03_   E
   _sev) e (rL03_   E
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
     _g) e (rL04_   E
+    _z) e (rL04_   E
     qu) e (rL04_   E         // re-
    _op) e (rL04_   E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
+  _enc) e (rL04_   E
   _sug) e (rL04_   E
   _sup) e (rL04_   E
   _tol) e (rL04_   E
@@ -482,16 +491,16 @@ respond) e (L07_   e         // cor-
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
     _v) e (rbL03_  E
+ _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
     _h) e (rdL04_  E
-     _) e (rgL03_  e
-     _) e (rguL02_ E
-  _alb) e (rguL02_ E
-  _enx) e (rguL02_ E
   _bez) e (rrL03_  e
   _inv) e (rtL03_  e
     _f) e (rvL03_  e
+ _alic) e (rçL03_  E
+    _p) e (sL01_   E
+    _l) e (sL03_   E
  _refr) e (scL01_  E
     _d) e (scL02_  E
    _cr) e (scL02_  E
@@ -517,6 +526,7 @@ _obsol) e (tL03_   e
   _atr) e (vL03_   e
     _r) e (zL04_   E
    _pr) e (zL04_   E
+  _rev) e (zL04_   E
 _despr) e (zL04_   E
 _embel) e (zL04_   E
 _menospr) e (zL04_ E
@@ -534,6 +544,7 @@ _entorp) e (çL03_  e
         éi (s      ''EI
         é (iCK     ''E
         éy         ''eI
+        él (C      ''EU
         éu         ''EU
         éu (s      ''EU
         é (uCK     ''E
@@ -573,11 +584,19 @@ _entorp) e (çL03_  e
         g (Y       Z         // ge gi
         gu (Y      g
      a) gu (ent    gw
+   _ar) gu (i      gw
+ averi) gu (e      gw
   enxa) gu (e      gw
+     i) gu (idade  gw
    lin) gu (e      gw
    lin) gu (i      gw
+  _min) gu (e      gw
+  _pin) gu (im_    gw
+  _pin) gu (ins_   gw
+   _sa) gu (i      gw
    san) gu (ín     gw
    san) gu (in     gw
+   tin) gu (i      gw
 ?1   n) gu (A      gw        // eg: língua, etc.
 ?1 man) gu (ei     g         // mangueira
 ?1      gu (ém_    g         // eg: alguém, ninguém, etc...
@@ -610,6 +629,8 @@ _entorp) e (çL03_  e
 
         i (A_      'i
         i (am_     'i
+        i (em_     'i
+
         io (_      iU
         io (s_     iU
         i (oCK     i
@@ -647,6 +668,7 @@ _entorp) e (çL03_  e
         ím (C      ''im
         ín (K      ''iN
         ính        ''in^
+        íl (C      ''IU
 
 
 .group j
@@ -673,9 +695,9 @@ _entorp) e (çL03_  e
      _) l (_       'Ele
         l          l
      l) l 
-        lh         l^
+        lh         lj
      A) lh         lj
-?1   A) lh         l^
+     A) lh         l^
 ?4   A) lh         l^
 
 
@@ -741,8 +763,14 @@ _entorp) e (çL03_  e
         o (lA_     O
         o (lAm_    O
 
+        o (lhe_    O
+        o (lhem_   O
+
         o (ltA_    O
         o (ltAm_   O
+
+        o (lve_    O
+        o (lvem_   O
 
         o (sA_     O
         o (so_N    o         // not for osos_
@@ -760,9 +788,7 @@ _entorp) e (çL03_  e
 
 ?1      o (l_      'O
 ?2      ol (_      Ow
-        o (lh      o
-?2   _) o (lhA_    O
-?2   _) o (lhAm_   O
+
         om (_      oN
         o (ma_     o
 
@@ -820,10 +846,12 @@ _entorp) e (çL03_  e
 
 //sort
     _f) o (L05_    o
+_pormen) o (L05_   O
     _f) o (L07_    o
- _engl) o (bL01_   O
     _s) o (bL02_   O
+   _af) o (bL04_   O
   _esn) o (bL04_   O
+ _engl) o (bL04_   O
     br) o (chL04_  O
   _deb) o (chL04_  O
     _m) o (fL01_   O
@@ -838,19 +866,17 @@ _entorp) e (çL03_  e
    _ap) oi (L02_   OI
     _b) oi (L04_   OI
     _t) o (lL03_   o
-     c) o (lhL02_  O         // es- en- re-
-    _t) o (lhL02_  O
-    _m) o (lhL04_  O
-   env) o (lvL02_  O         // des-
-  _abs) o (lvL02_  O
-  _dev) o (lvL02_  O
-  _res) o (lvL02_  O
-  _rev) o (lvL02_  O
-  _ent) o (pL02_   O
+    _f) o (lgL04_  O
+  _emp) o (lgL04_  O
+     _) o (lhL04_  O
+     m) o (lhL04_  O
+   ent) o (pL02_   O
     _c) o (pL03_   O
   _ens) o (pL04_   O
     _s) o (prL04_  O
      _) o (ptL04_  O
+     p) o (rL02_   o
+  _dev) o (rL02_   O
  _defl) o (rL02_   O
  _impl) o (rL02_   O
  _inod) o (rL03_   O
@@ -926,17 +952,21 @@ _remem) o (rL04_   O
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-     A) quên (C    kw'eIN    // frequência, etc.
+        quên       kw'eN     // quinquênio, etc.
    ade) qu (e      kw
+    _a) qu (idade_ kw
+    _a) qu (ífero_ kw
      e) qu (estr   kw
+   ese) qu (ív     kw
     _e) qu (in     kw
    fre) qu (ent    kw
+  _ini) qu (idade_ kw
     li) qu (id     kw
     lí) qu (id     kw
      n) qu (en     kw
+     _) qu (inqu   kw
     se) qu (en     kw
   tran) qu (il     kw
-?1      quec       kes       // esquece, etc.
 ?1      queç       kes       // esqueça.
 ?1   A) que (nA_   ke        // pequeno, etc.
 ?1   C) quê (_     ke        // porquê, etc.
@@ -994,6 +1024,14 @@ _remem) o (rL04_   O
 ?1   A) s (G+      Z
 ?1   A) s (_KS1    s#
 ?1   A) s (_G+S1   Z
+        s (b       z
+        s (d       z
+        s (g       z
+        s (l       z
+        s (m       z
+        s (n       z
+        sr         zx
+        s (v       z
 
      _) sobre (@P5 sob*e
 
@@ -1027,6 +1065,8 @@ _remem) o (rL04_   O
         u (iu      w
         u (iCK     u
         uy         uI
+        ul (K      uw
+        u (lh+     u
 
         um (_      u~N
         um (C      u~m

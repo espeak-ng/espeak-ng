@@ -575,6 +575,7 @@ void CalcLengths(Translator *tr)
 	int  last_pitch = 0;
 	int  pitch_start;
 	int  length_mod;
+	int  next2type;
 	int  len;
 	int  env2;
 	int  end_of_clause;
@@ -689,8 +690,19 @@ void CalcLengths(Translator *tr)
 
 				p->prepause = 40;
 
-				if((prev->type == phPAUSE) || (prev->type == phVOWEL)) // || (prev->ph->mnemonic == ('/'*256+'r')))
-					p->prepause = 0;
+				if(prev->type == phVOWEL)
+				{
+					p->prepause = 0;   // use murmur instead to link from the preceding vowel
+				}
+				else
+				if(prev->type == phPAUSE)
+				{
+					// reduce by the length of the preceding pause
+					if(prev->length < p->prepause)
+						p->prepause -= prev->length;
+					else
+						p->prepause = 0;
+				}
 				else
 				if(p->newword==0)
 				{
@@ -827,9 +839,17 @@ if(stress <= 1)
 				next3 = &phoneme_list[ix+4];
 			}
 
+			next2type = next2->ph->length_mod;
 			if(more_syllables==0)
 			{
-				len = tr->langopts.length_mods0[next2->ph->length_mod *10+ next->ph->length_mod];
+				if(next->newword || next2->newword)
+				{
+					// don't use 2nd phoneme over a word boundary, unless it's a pause
+					if(next2type != 1)
+						next2type = 0;
+				}
+
+				len = tr->langopts.length_mods0[next2type *10+ next->ph->length_mod];
 
 				if((next->newword) && (tr->langopts.word_gap & 0x20))
 				{
@@ -841,7 +861,7 @@ if(stress <= 1)
 			}
 			else
 			{
-				length_mod = tr->langopts.length_mods[next2->ph->length_mod *10+ next->ph->length_mod];
+				length_mod = tr->langopts.length_mods[next2type *10+ next->ph->length_mod];
 
 				if((next->type == phNASAL) && (next2->type == phSTOP || next2->type == phVSTOP) && (next3->ph->phflags & phFORTIS))
 					length_mod -= 15;

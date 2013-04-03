@@ -1745,6 +1745,9 @@ include ph_kannada
 phonemetable ml hi
 include ph_malayalam
 
+phonemetable te hi
+include ph_telugu
+
 
 
 phonemetable hu base
@@ -1875,17 +1878,20 @@ include ph_greenlandic
 phonemetable am base
 include ph_amhari
 
-phonemetable si hi
-include ph_sinhala
-
 
 //**************************************************************************************
 // The following lines are experimental, for future additions.
 // These langauges are not in a usable state.
 // These lines can be deleted.
 
-phonemetable rw base2
-include ph_kinyarwanda
+phonemetable si hi
+include ph_sinhala
+
+phonemetable sl sk
+include ph_slovenian
+
+//phonemetable rw base2
+//include ph_kinyarwanda
 
 //phonemetable mr hi
 //include ph_marathi
@@ -1898,9 +1904,6 @@ include ph_kinyarwanda
 
 //phonemetable prs base
 //include ph_dari
-
-phonemetable sl sk
-include ph_slovenian
 
 //phonemetable gd base
 //include ph_s_gaelic
@@ -1923,12 +1926,8 @@ include ph_slovenian
 //phonemetable dv hi
 //include ph_divehi
 
-//phonemetable te hi
-//include ph_telugu
-
 //phonemetable tn base
 //include ph_setswana
-
 
 //phonemetable mt base
 //include ph_maltese

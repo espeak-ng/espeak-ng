@@ -162,7 +162,7 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 श      S@
 ष      s.@   //  retroflex [S]
 स      s@
-ह      H@-
+ह      H@
 क़      q@
 ख़      x@
 ग़      Q@
@@ -196,9 +196,20 @@ _dpt      _d@s@ml'o:_        // ?? what is Hi for "." ?
 
 _??	Vks.@r
 
+// Alphabet names
+_ar	'Vrbi
+_cyr	sIrIk'Ik
+_zh	c'i@ni
 
 // Punctuation
 ।	dVn.d.V
+
+$	dOl@r
+%	pVt'IS@t
++	plVs
+=	bVr'a:b@r
+*	ta:r'a:Nk@n
+* 
 
 // Pronouns
 मैं 	$u	// main: IrI
@@ -262,7 +273,7 @@ _??	Vks.@r
 को 	$u	// ko: to
 तक 	$u	// tak: until, for(time)
 बिना	$u $pause	// without (preposition)
-में 	$u	// me: in
+में 	me~: $u+	// me: in
 से 	$u	// se: from, with, by
 
 
@@ -272,7 +283,7 @@ _??	Vks.@r
 
 // Conjunctions
 
-और	$u $pause	// aur: and
+और	$u $brk	// aur: and
 य	j@ $u $pause	// ja: or
 अगर	$u $pause	// agar: if
 यदि	$u $pause	// yadi: if, whether
@@ -299,5 +310,5 @@ _??	Vks.@r
 
 
 // Exceptions
-क्रिकेट        krIk'Et
+क्रिकेट        kr'IkIt
 सायबर        s'aIb@r
