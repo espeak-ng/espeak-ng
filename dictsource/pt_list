@@ -115,6 +115,7 @@ _[	,abRikowS'etSi
 _\	b,ax&,iNvertS'id&
 _]	f,ES&kowS'etSi
 _^	s,irku~Nfl'Eksu
+_´	as'eINtu,ag'udU
 __	s,ublin^'adu
 _`	gR'avi
 _{	,abRiS'avi
@@ -127,8 +128,8 @@ _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
 
 _"	'abRi;'asp&||d'upl&s#
-_º	Oz'in^U
-_ª	az'in^U
+_º	o*@-dZin'almaskul'i~nU
+_ª	o*@-dZin'alfemin'i~nU
 °	gR'aU
 
 
@@ -662,6 +663,7 @@ apneia		$alt
 apoio		$alt $verb
 arredores	$alt
 arremesso	$alt2 $noun
+arroto		$alt2 $noun
 arroz		$alt2
 assembleia	$alt
 ateia		$alt
@@ -691,7 +693,7 @@ bordo		$alt
 borra		$alt2 $noun
 bosque		$alt
 boto		$alt2 $noun
-boxe	$alt
+boxe		$alt
 brejo		$alt
 bromelha	$alt
 cabelo		$alt2
@@ -700,26 +702,30 @@ cacete		$alt2
 cachorra	$alt2
 caderneta	$alt2
 cadete		$alt2
+caibro		k'aIbRU
 camelha		$alt
 camelo		$alt2
-caminhonete		$alt
+caminhonete	$alt
 camiseta	$alt2
 cantora		$alt2
 capacete	$alt2
 caractere	$alt
 carbureto	$alt2
 careta		$alt2
+carrapeta	$alt2
 carreta		$alt2
 carroça		$alt
 casebre		$alt
 cateto		$alt2
 catorze		$alt2
 cebola		$alt2
+cedro		$alt
 cefaleia	$alt
 centopeia	$alt
 cerca		$alt
 cerca		$alt2 $noun
 cerco		$alt $verb
+cetro		$alt
 chamego		$alt2
 chefe		$alt
 checam		$alt
@@ -839,7 +845,7 @@ explore		$alt
 faceta		$alt2
 fantoche	$alt
 farofa		$alt
-farolete		$alt2
+farolete	$alt2
 febre		$alt
 fera		$alt
 feitora		$alt2
@@ -865,7 +871,7 @@ fulgores	$alt2
 galera		$alt
 galileia	$alt
 gameta		$alt2
-garçonete		$alt2
+garçonete	$alt2
 geleia		$alt
 gelo		$alt2
 gelo		$alt $verb
@@ -894,17 +900,18 @@ jogo		$alt2 $noun
 joguete		$alt2
 lagosta		$alt2
 lambreta	$alt2
-lanchonete		$alt
+lanchonete	$alt
 lebre		$alt
 lembrete	$alt2
 lepra		$alt
 leste		$alt2 $verb
+?2   lhe	ly
 lingueta	$alt2
 lopes		$alt
 macete		$alt2
 maior		$alt
 maleta		$alt2
-marionete		$alt
+marionete	$alt
 marreta		$alt2
 megera		$alt
 melhor		$alt
@@ -923,7 +930,7 @@ miolos		$alt
 modelo		$alt2
 modelo		$alt $verb
 moeda		$alt
-moem	$alt
+moem		$alt
 mofo		$alt $verb
 molho		$alt2 $noun
 monera		$alt
@@ -949,8 +956,8 @@ novos		$alt
 obstetra	$alt
 odisseia	$alt
 onu		$1
-olho	$alt2 $noun
-olhos	$alt
+olho		$alt2 $noun
+olhos		$alt
 onomatopeia	$alt
 opereta		$alt2
 ordens		$alt
@@ -968,7 +975,7 @@ pangeia		$alt
 pantera		$alt
 parede		$alt2
 pastora		$alt2
-patinete		$alt
+patinete	$alt
 pedra		$alt
 pela		$alt $verb
 pelo		$alt2
@@ -1012,17 +1019,18 @@ relevo		$alt2 $noun
 remorso		$alt
 renovo		$alt $verb
 retorno		$alt $verb
-reuva	x'EUv&
+reuva		x'EUv&
 rigores		$alt2
 rixa		x'iS&
 rocha		$alt
 rock		$alt
-roem	$alt
+roem		$alt
 rola		$alt2 $noun
 rolo		$alt2 $noun
 rota		$alt2
 rota		$alt $noun
 rumores		$alt2
+saibro		s'aIbRU
 saleta		$alt2
 sarjeta		$alt2
 seborreia	$alt
@@ -1047,12 +1055,13 @@ sossego     	$alt2 $noun
 suborno		$alt  $verb
 sufoco		$alt2 $noun
 sufocos		$alt2
+super		s'Uper
 suporto		$alt
 suor		swOr
 tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
-tenores	$alt2
+tenores		$alt2
 terrores	$alt2
 teta		$alt2
 tetra		$alt
@@ -1110,10 +1119,9 @@ book  buk
 ?1 download   d'a,wnl'oud
 ?2 download        daUNl'owd
 ?3 download        dau~Nl'owd
-drive  dR'aivy
-driver  dR'aiver
-drivers  dR'aiveRs
-?1 end        'end
+drive	dR'aIv
+driver	dR'aIver
+drivers  dR'aIveRs?1 end        'end
 ?2 esc     'Esk
 ?3 esc     'EskI
 ?1 explorer   ,ekspl'O:*&r-
@@ -1195,15 +1203,16 @@ chrome  kR'owmi
 ?1 express     ,Ekspr'Es
    espeak      isp'i:k
 ?1 espeakedit   isp'i:kEd,it
-facebook  feisybuk
+facebook  feIsybuk
 ?1 fedora      _^_EN
     firefox     f'ai@fOks
 ?1 front       fr'ont
 ?1 jaws        dZ'au:z
 ?1 linux       l,in'uks
 ?2 linux       l'inUks
-?1 live        l'aiv
+ live        l'aiv
 ?1 maker       m'eIk&r-
+mac  mEk
 ?1 media       m'Ed,i&
 ?1 messenger   m'Es&ndZ&r-
 ?1 microsoft   m,ik:r'os,Oft

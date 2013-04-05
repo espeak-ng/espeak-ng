@@ -57,6 +57,7 @@ _y	je
 y	je	$atend
 ch	tSe
 ll	'El^e
+ny	n^e
 á	'a||akTEntw'aDa
 é	'e||akTEntw'aDa
 í	'i||akTEntw'aDa
@@ -118,9 +119,10 @@ _x#º	%o   // for 1º 2º 3º
 _x#ª	%a
 º	orDin'al||maskul'in
 ª	orDin'al||femen'in
-ºc	gr'aUs||T'e
-ºf	gr'aUs||'Efe
-ºk	gr'aUs||k'a
+(1 ºc)	un||gr'aU||T'e
+ºc	gr'aUs||Tentigr'aUs
+ºf	gr'aUs||f'arEnxeI
+ºk	gr'aUs||k'elBin
 
 _1ox	prim'Er
 _2ox	seQ'und
@@ -183,6 +185,7 @@ $	d'olar
 \	kontraBaRRa
 |	b'aRRaBertik'al
 °	graUs
+(1 °)	un||gr'aU
 
 _-	gj'on
 !	TaRR'ar||eksklamaTj'on
@@ -471,40 +474,56 @@ witsa $abbrev
 
 
 // exceptions
-barça        b'arsa
-holio	x'olio
-jazz	dZ'as
+banjo		Banjo
+barça		barsa
+desenyermar	DesenjErmar
+halar		xalar
+halma		xalma
+harcia		xarTja
+hibo		xiBo
+hoder		xoDer
+holgorio	xolg'orio
+holio		x'olio
+hopar		xopar
+huerga		xuerga
+huerza		xuerTa
+jacuzzi		jakusi
+jazz		jas
+jet		jet
+judo		juDo
 
 
 // Foreign words
-android	andr'oId
-apple	'apEl
-at	'at
-chat	tS'at
-chrome	kr'ome
-espeak	isp'ik
-(e speak) isp'ik
-facebook f'eIsbuk
-firefox	f'aIrfoks
-google	g'ugEl
-hotmail	xotm'eIl
+android		androId
+apple		'apEl
+at		at
+chat		tSat
+chrome		krome
+espeak		ispik
+(e speak) 	ispik
+facebook 	f'eIsbuk
+firefox		f'aIrfoks
+google		g'ugEl
+hardware 	x'ardwer
+hockey		xokeI
+hotmail		xotmeIl
 (i phone)	'aIfon
-iphone	'aIfon
-(i pod)	'aIpod
-ipod	'aIpod
-hardware x'ardwer
-linux	$1
-live l'aIB
-messenger m'esendZer
-mozilla	moT'ila
-nvda	ene|be|de|'a
-office	'ofis
-skype	esk'aIp
+iphone		'aIfon
+(i pod)		'aIpod
+ipod		'aIpod
+junior		j'unior
+linux		$1
+live 		laIB
+messenger 	m'esendZer
+mozilla		moTila
+nvda		ene|be|de|'a
+office		ofis
+skype		eskaIp
 software	s'oftwer
-thunderbird	Tanderb'ird
-twitter	tw'iter
-unix	j'uniks
-whatsapp	was'app
-windows	w'indows
+thunderbird	Tanderbird
+twitter		tw'iter
+unix		j'uniks
+whatsapp	wasap
+windows		w'indows
 
 //mobile _^_EN

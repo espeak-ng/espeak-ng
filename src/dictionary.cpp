@@ -645,12 +645,20 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 	char *buf;
 	int count;
 	int flags;
+	int separate_phonemes = 0;
 	char phon_buf[30];
 	char phon_buf2[30];
 	PHONEME_LIST *plist;
 
 	static const char *stress_chars = "==,,''";
 	static const int char_tie[] = {0x0361, 0x200d};  // combining-double-inverted-breve, zero-width-joiner
+
+	if(use_ipa == 4)
+	{
+		// separate individual phonemes with underscores
+		use_ipa = 1;
+		separate_phonemes = '_';
+	}
 
 	if(phon_out != NULL)
 	{
@@ -661,6 +669,13 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 			plist = &phoneme_list[ix];
 			if(plist->newword)
 				*buf++ = ' ';
+			else
+			{
+				if((separate_phonemes != 0) && (ix > 1))
+				{
+					*buf++ = separate_phonemes;
+				}
+			}
 
 			if(plist->synthflags & SFLAG_SYLLABLE)
 			{
@@ -683,6 +698,8 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 					if(c != 0)
 					{
 						buf += utf8_out(c, buf);
+						if(separate_phonemes)
+							*buf++ = separate_phonemes;
 					}
 				}
 			}

@@ -421,7 +421,7 @@ void VoiceReset(int tone_only)
 	voice->n_harmonic_peaks = 5;
 	voice->peak_shape = 0;
 	voice->voicing = 64;
-	voice->consonant_amp = 90;  // change to 85 for v.1.47 was 100
+	voice->consonant_amp = 90;  // change from 100 to 90 for v.1.47
 	voice->consonant_ampv = 100;
 	voice->samplerate = samplerate_native;
 	memset(voice->klattv,0,sizeof(voice->klattv));
@@ -750,6 +750,7 @@ voice_t *LoadVoice(const char *vname, int control)
 
 				new_translator = SelectTranslator(translator_name);
 				langopts = &new_translator->langopts;
+				strncpy0(voice->language_name, language_name, sizeof(voice->language_name));
 			}
 		}
 		break;
@@ -1818,6 +1819,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 		}
 
 		DoVoiceChange(voice);
+		voice_selector.languages = voice->language_name;
 		SetVoiceStack(&voice_selector, variant_name);
 		return(EE_OK);
 	}
@@ -1834,6 +1836,7 @@ espeak_ERROR SetVoiceByName(const char *name)
 				LoadVoice(variant_name,2);
 			}
 			DoVoiceChange(voice);
+			voice_selector.languages = voice->language_name;
 			SetVoiceStack(&voice_selector, variant_name);
 			return(EE_OK);
 		}
@@ -1884,8 +1887,8 @@ void FreeVoiceList()
 ESPEAK_API const espeak_VOICE **espeak_ListVoices(espeak_VOICE *voice_spec)
 {//========================================================================
 	char path_voices[sizeof(path_home)+12];
-	
-	
+
+
 #ifdef PLATFORM_RISCOS
 	if(n_voices_list == 0)
 	{
