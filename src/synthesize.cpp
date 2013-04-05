@@ -1955,7 +1955,7 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 	{
 		int use_ipa = 0;
 		if(option_phonemes >= 3)
-			use_ipa = option_phonemes-2;   // 1=ipa, 2=ipa with tie, 3=ipa with ZWJ
+			use_ipa = option_phonemes-2;   // 1=ipa, 2=ipa with tie, 3=ipa with ZWJ, 4=ipa with separators
 
 		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
 		if(option_phonemes > 0)

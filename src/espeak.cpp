@@ -67,7 +67,7 @@ static const char *help_text =
 "\t   Compile pronunciation rules and dictionary from the current\n"
 "\t   directory. <voice name> specifies the language\n"
 "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
-"\t         --ipa=1 Use ties, --ipa=2 Use ZWJ\n" 
+"\t         --ipa=1 Use ties, --ipa=2 Use ZWJ, --ipa=3 Separate with _\n" 
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
 "--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
@@ -620,7 +620,7 @@ int main (int argc, char **argv)
 			{
 				value = -1;
 				sscanf(optarg2,"%d",&value);
-				if((value<0) || (value>2))
+				if((value<0) || (value>3))
 				{
 					fprintf(stderr,"Bad value for -ipa=\n");
 					value = 0;
