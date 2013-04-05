@@ -171,6 +171,9 @@
         क़         qV
         क़ (B      q
 
+        क्ष          kSV
+        क्ष (B       kS
+        
 .group ख
         ख          k#V
         ख (B       k#
@@ -206,15 +209,20 @@
         ज (B       J
         ज़         zV
         ज़ (B      z
+        
+         ज्ञ           gjV
+        ज्ञ (B       gj
 
 .group झ
         झ          J#V
         झ (B       J#
 
+
 .group ञ
         ञ          n^V
         ञ (B       n^
-     ्) ञ (_       n^
+     ्) ञ (_       n^@
+
 
 .group ट
         ट          t.V
@@ -239,7 +247,7 @@
         ढ़ (B      r.h       // nukta
 
 .group ण
-        ण          n.V       // (temporary) same as dental [n]
+        ण          n.V
         ण (B       n.
      ्) ण (_       n.@
 
@@ -304,10 +312,11 @@
 .group र
         र          rV
         र (B       r
+        र (_       r
      ्) र (_       r@
 
 .group ऱ             // rra
-        ऱ          rV        // (temporary) same as [r]
+        ऱ          rV        // (temporary) same as [r]  should this be [r.] or perhaps [z.] ?
         ऱ (B       r
      ्) ऱ (_       r@
 
@@ -338,15 +347,15 @@
         श (B       S
 
 .group ष
-        ष          s.V       //?? or retroflex [S]
-        ष (B       s.        //??
+        ष          s.V 
+        ष (B       s.
 
 .group स
         स          sV
         स (B       s
 
 .group ह
-        ह          H
+        ह          HV
         ह (B       H
 
 

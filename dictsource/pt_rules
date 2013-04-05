@@ -99,7 +99,7 @@
         ái (s      ''aI
         á (iCK     ''a
         áy         ''aI
-        ál (C      ''aU
+        ál (B      ''aU
         áu         ''aU
         áu (s      ''aU
 ?1      ál         ''Al
@@ -544,7 +544,7 @@ _entorp) e (çL03_  e
         éi (s      ''EI
         é (iCK     ''E
         éy         ''eI
-        él (C      ''EU
+        él (B      ''EU
         éu         ''EU
         éu (s      ''EU
         é (uCK     ''E
@@ -566,7 +566,7 @@ _entorp) e (çL03_  e
 .group f
 ?1   _) f (_W      Ef;       // within an acronym
 ?1   _) f (_       Ef        // individual letter or end-of-acronym
-     _) f (_       'Efe
+     _) f (_       'Efy
         f          f
         f (f 
 ?3      f (B       fI
@@ -668,7 +668,7 @@ _entorp) e (çL03_  e
         ím (C      ''im
         ín (K      ''iN
         ính        ''in^
-        íl (C      ''IU
+        íl (B      ''IU
 
 
 .group j
@@ -692,12 +692,10 @@ _entorp) e (çL03_  e
 .group l
 ?1   _) l (_W      El;       // within an acronym
 ?1   _) l (_       El
-     _) l (_       'Ele
+     _) l (_       'Ely
         l          l
      l) l 
-        lh         lj
-     A) lh         lj
-     A) lh         l^
+        lh         l^
 ?4   A) lh         l^
 
 
@@ -786,8 +784,8 @@ _entorp) e (çL03_  e
      m) o (vam_    o
         o (veCs_   O
 
-?1      o (l_      'O
-?2      ol (_      Ow
+        o (l_      'O
+?2      ol (B      ow
 
         om (_      oN
         o (ma_     o
@@ -852,6 +850,7 @@ _pormen) o (L05_   O
    _af) o (bL04_   O
   _esn) o (bL04_   O
  _engl) o (bL04_   O
+     _) o (cL03_   o
     br) o (chL04_  O
   _deb) o (chL04_  O
     _m) o (fL01_   O
@@ -895,6 +894,7 @@ _remem) o (rL04_   O
   _enr) o (squL02_ O
      p) ostos (_   Ost=Us#   // dispostos etc.
   _gar) o (tL03_   o
+  _mar) o (tL03_   O
     pr) o (vL03_   O
     _g) o (zL04_   O
   _esb) o (çL01_   O
@@ -935,7 +935,7 @@ _remem) o (rL04_   O
 ?3      p (s       p
 ?3      p (t       p
 ?3      p (_C      p_
-?1      ph         f         //Didn’t use in European Portuguese (eg: English)
+        ph         f
 ?1      ple (_     _^_EN
 
 
@@ -952,7 +952,8 @@ _remem) o (rL04_   O
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-        quên       kw'eN     // quinquênio, etc.
+     A) quên       kw'eN     // frequência, etc.
+     C) quên       kw'eN     // quinquênio, etc.
    ade) qu (e      kw
     _a) qu (idade_ kw
     _a) qu (ífero_ kw
@@ -990,7 +991,7 @@ _remem) o (rL04_   O
      A) r (_A      *
         rr         x
     XC) r (A       R
-     C) r (A       *
+     C) r (A       R
      _) r          x
      l) r          x
      n) r (+       x
@@ -1001,7 +1002,7 @@ _remem) o (rL04_   O
 .group s
 ?1   _) s (_W      Es|;      // within an acronym  [s]+[;] not [s;] phoneme
 ?1   _) s (_       Es
-?2   _) s (_       'Ese
+?2   _) s (_       'Esy
         s          s
         ss         s
         sc (Y      s
@@ -1024,14 +1025,8 @@ _remem) o (rL04_   O
 ?1   A) s (G+      Z
 ?1   A) s (_KS1    s#
 ?1   A) s (_G+S1   Z
-        s (b       z
-        s (d       z
-        s (g       z
-        s (l       z
-        s (m       z
-        s (n       z
+        s (G       z
         sr         zx
-        s (v       z
 
      _) sobre (@P5 sob*e
 

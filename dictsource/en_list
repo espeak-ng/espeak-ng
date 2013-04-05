@@ -593,6 +593,7 @@ oem	$abbrev
 ok	$abbrev
 omg	$abbrev
 os	$abbrev
+osx	$abbrev
 otoh    $abbrev
 pcie	$abbrev
 pcmcia	$abbrev
@@ -1641,6 +1642,7 @@ gentlemen	dZEnt@Lm@n
 genuine		dZEnju:I#n
 geode		dZi:oUd
 geologist	$2
+gettin		gEt#n-
 geyser		gi:z3
 ?3 geyser	gaIz3
 gibbon		gIb@n
@@ -1680,6 +1682,7 @@ gurus		gu:ru:z
 habitual	$alt3
 haggis		hagIs
 haha		hA:h'A:
+halation	$alt3  // in-
 halleluiah	halI2'lu:j@
 hallelujah	halI2'lu:j@
 halloween	$3
@@ -2419,6 +2422,7 @@ puny		pju:ni
 purist		pju:r-Ist
 purport		$2
 purportedly	$2
+puttin		pUt#n-
 pyjama		p@dZA:m@
 pyrites		paIr'aIti:z
 pythagoras	paIT'ag@r@s
@@ -3258,6 +3262,7 @@ Korean		kOr'i:@n
 Kosovo		k0s@voU
 Kuala		kwA:la#
 Lagos		leIg0s
+Lahore		$alt3
 Lebanon		lEb@n0n
 Leipzig		laIpsIg
 Leone		li:'oUn
@@ -3681,6 +3686,7 @@ Persephone	p3s'Ef@ni
 Phoebe		fi:bi:
 Rachael		reItS@L
 Rachel		reItS@L
+Rae		reI
 Rafael		rA:faI'El
 Rashid		rA:S'i:d
 Raul		raU'u:l
@@ -3713,6 +3719,7 @@ Siobhán		S@vO:n
 Sonia		s0nj@
 Sophie		soUfi
 Stephen		sti:v@n
+Stevie		sti:vi
 Stewart		stju:3t
 ?3 Stewart	stu:3t
 Stuart		stju:3t

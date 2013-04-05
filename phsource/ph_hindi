@@ -24,6 +24,11 @@ phoneme V
   vowel flag1 starttype #@  endtype #@
   length 130
 
+  IF thisPh(isWordStart) THEN
+    FMT(vowel/V_3)
+    RETURN
+  ENDIF
+
   IF thisPh(isNotStressed) THEN
     IF prevPh(H) THEN
       ChangePhoneme(@)
@@ -33,7 +38,7 @@ phoneme V
       ChangePhoneme(NULL)
     ENDIF
 
-    IF NOT nextVowel(isFlag1) THEN
+    IF prev2PhW(isVowel) AND NOT nextVowel(isFlag1) THEN
       IF thisPh(isSeqFlag1) THEN
         // delete the last inherent vowel of a sequence
         ChangePhoneme(NULL)
@@ -513,3 +518,22 @@ phoneme #X2  // click, use for indicating combining long vowels
 endphoneme
 
 
+phoneme r
+  liquid rhotic
+  lengthmod 3
+  
+  IF thisPh(isWordEnd) THEN
+    CALL base/r/
+  ELSE
+    IF prevPhW(isVowel) THEN
+      IF nextPhW(isNotVowel) OR nextPhW(V) THEN
+        ChangePhoneme(*)
+      ENDIF
+    ENDIF
+    
+    CALL base/r
+  ENDIF
+  ipa ɾ
+endphoneme
+
+  

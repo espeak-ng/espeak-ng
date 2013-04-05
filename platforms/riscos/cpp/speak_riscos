@@ -75,7 +75,7 @@ char path_home[N_PATH_HOME] = "";
 char wavefile[120];
 char textbuffile[L_tmpnam];
 int  sample_rate_index;  // current value
-int  current_voice_num=0;
+char current_voice_name[40] = {0};
 int n_voice_files = 0;
 int n_voice_variant_files = 0;
 
@@ -193,6 +193,9 @@ void ReadVoiceNames2(char *directory)
 	regs.r[6] = 0;
 
 	path_len = strlen(directory);
+
+	voice_variant_names[0] = "(none)";
+	n_voice_variant_files = 1;
 
 	while(regs.r[3] > 0)
 	{
@@ -452,6 +455,7 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 {
 	int  c;
 	int ix;
+	char *vname;
 	static static_length=0;
 	static int user_token=0;   /* increment for each call of translate() */
 	_kernel_swi_regs regs;
@@ -462,12 +466,13 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 
 	option_endpause = 1;
 
-	if((voice_num >= 0) && (voice_num != current_voice_num) && (voice_num < N_VOICE_NAMES))
+	vname = voice_names[voice_num];
+	if((voice_num >= 0) && (strcmp(vname, current_voice_name) != 0) && (voice_num < N_VOICE_NAMES))
 	{
 		SetVoiceByName(voice_names[voice_num]);
-	   WavegenSetVoice(voice);
+		WavegenSetVoice(voice);
 	}
-	current_voice_num = voice_num;
+	strcmp(current_voice_name, vname);
 
 	/* don't count CR as terminator if length is specified */
 	if(len > 0) terminator = 0;
@@ -593,8 +598,16 @@ void set_say_options(int reg2, int reg3)
 	option_waveout = 0;
 	option_multibyte = 0;    // auto
 	option_capitals = 0;
-	option_punctuation = 0;
-	option_punctlist[0] = 0;
+	if(reg2 >= 0)
+	{
+		// not using SWI_SPEAK+14 to set voice and punctiation option
+		option_punctuation = 0;
+		option_punctlist[0] = 0;
+	}
+	else
+	{
+		SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	}
 }   /* end of set_say_options */
 
 
@@ -621,7 +634,7 @@ void jsd_swi_functions(int *r)
 	case 3:
 		// translate into phonemes
 		use_ipa = 0;
-		if((r[2] >= 1) && (use_ipa <= 3))
+		if((r[2] >= 1) && (use_ipa <= 4))
 			use_ipa = r[2];
 		TranslateClause(translator,NULL,(char *)r[1],NULL,NULL);
 		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
@@ -641,7 +654,7 @@ void jsd_swi_functions(int *r)
 		if(r[1] < N_VOICE_NAMES)
 		{
 			SetVoiceByName(voice_names[r[1]]);
-			current_voice_num = r[1];
+			strcmp(current_voice_name, voice_names[r[1]]);
 			WavegenSetVoice(voice);
 		}
 		break;
@@ -675,6 +688,8 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 	int  value;
 	int  value2;
 	int  q_length;
+	char *p;
+	int ix;
 	value = r[0];
 
 	switch(swi_no)
@@ -682,16 +697,17 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 
 	case 0:   // ready ?
 		// returns the index into the source text of the currently speaking word
-		if(current_source_index > 0)
-			r[1] = current_source_index-1;
+		ix = current_source_index & 0x7ff;
+		if(ix > 0)
+			r[1] = ix-1;
 		else
-			r[1] = current_source_index;      /* source index */
+			r[1] = ix;      /* source index */
 		r[2] = 0;      /* source tag */
 		r[3] = 0;    /* for future expansion */
 		r[4] = 0;
 		r[5] = 0;
 
-		if(WcmdqUsed() < 5)
+		if((WcmdqUsed() < 5) && (more_text == 0))
 		{
 			r[0] = -1;   /* ready, or nearly */
 		}
@@ -774,8 +790,30 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 		break;
 
 	case 14: // set voice by name
-		SetVoiceByName((char *)r[0]);
-		WavegenSetVoice(voice);
+		p = (char *)r[0];
+		if(strcmp(p, current_voice_name) != 0)
+		{
+			SetVoiceByName(p);
+			WavegenSetVoice(voice);
+			strcpy(current_voice_name, p);
+		}
+		option_punctuation = 0;
+		if(r[1] != 0)
+		{
+			p = (char *)r[1];
+			if(p[0] == 0)
+				option_punctuation = 1;
+			else
+			{
+				for(ix=0; ix < N_PUNCTLIST; ix++)
+				{
+					if((option_punctlist[ix] = p[ix]) == 0)
+						break;
+				}
+				option_punctlist[N_PUNCTLIST-1] = 0;
+				option_punctuation = 2;
+			}
+		}
 		break;
 	}
 	return(NULL);
