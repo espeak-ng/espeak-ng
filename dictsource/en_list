@@ -1,4 +1,4 @@
-﻿
+
 // You can use the en_extra file, rather than this one
 // to add your own pronunciation definitions.
 
@@ -759,6 +759,7 @@ allover		O:l'oUv3
 alm		A:m
 almost		O:lmoUst
 allspice	$1
+alt		O:lt  //not abbrev
 alternate	O:lt'3:n@t     $only
 alternate	O:lt3neIt      $verb
 alternately	O:lt'3:n@tlI   $verbf
