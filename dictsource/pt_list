@@ -117,7 +117,7 @@ _]	f,ES&kowS'etSi
 _^	s,irku~Nfl'Eksu
 _´	as'eINtu,ag'udU
 __	s,ublin^'adu
-_`	gR'avi
+  _`	gR'avi
 _{	,abRiS'avi
 ?1   _|	b,ax&v,ertSik'al
 ?2   _|	b,ax&v,ertSik'aU
@@ -187,8 +187,8 @@ _1C0	s'eIN
 _1C	s'eINtu
 ?1_2C	duz'eINtus#
 ?2_2C	duz'eINtUz
-?1_3C	tryz'eNtus#
-?2_3C	tRez'eNtUz
+?1_3C	tryz'eINtus#
+?2_3C	tRez'eINtUz
 ?1_5C	kin^'eINtus#
 ?2_5C	kin^'eINtUz
 ?1_0M1	m'il_
@@ -654,6 +654,10 @@ algozes		$alt
 almoço		$alt $verb
 ameba		$alt
 amores		$alt2
+amorno		$alt
+ampola		$alt2
+ampulheta	$alt2
+andorra		$alt2
 antonieta	$alt2
 apego		$alt2 $noun
 apelo		$alt2  $noun
@@ -676,6 +680,7 @@ avesso		$alt2
 axé		aSE
 azeda		$alt $verb
 azedo		$alt $verb
+bairro		b'aIxU
 baqueta		$alt2
 beco		$alt2
 besta		$alt2
@@ -696,12 +701,14 @@ boto		$alt2 $noun
 boxe		$alt
 brejo		$alt
 bromelha	$alt
+broto		$alt2 $noun
 cabelo		$alt2
 cabresto	$alt2
 cacete		$alt2
 cachorra	$alt2
 caderneta	$alt2
 cadete		$alt2
+cãibra		k'&~IbR&
 caibro		k'aIbRU
 camelha		$alt
 camelo		$alt2
@@ -721,6 +728,7 @@ catorze		$alt2
 cebola		$alt2
 cedro		$alt
 cefaleia	$alt
+cerebelo	$alt2
 centopeia	$alt
 cerca		$alt
 cerca		$alt2 $noun
@@ -775,7 +783,8 @@ desapego	$alt2 $noun
 descordo	$alt
 desemprego	$alt2
 desemprego	$alt $verb
-desespero	$alt2 $noun
+desespero	$alt2
+desespero	$alt $verb
 desfecho	$alt2
 desmantelo	$alt2 $noun
 desporto	$alt2
@@ -792,6 +801,7 @@ dez		$alt
 diarreia	$alt
 diego		$alt2
 discordo	$alt
+dispneia	dZIspyn'EI&
 dobro		$alt2 $noun
 doce		$alt2
 doutora		$alt2
@@ -818,8 +828,8 @@ erro		$alt2
 erro		$alt $verb
 esboço		$alt  $verb
 escopeta	$alt2
-escova		$alt2 $noun
-escovas		$alt2
+escova		$alt2
+escova		$alt $verb
 escovo		$alt
 escroto		$alt2
 esforço		$alt  $verb
@@ -870,8 +880,8 @@ frevo		$alt2
 fulgores	$alt2
 galera		$alt
 galileia	$alt
-gameta		$alt2
-garçonete	$alt2
+gangorra	$alt2
+garçonete	$alt
 geleia		$alt
 gelo		$alt2
 gelo		$alt $verb
@@ -889,19 +899,24 @@ grelha		$alt
 groselha	$alt
 grosso		$alt2
 grozo		$alt $verb
+gueto		$alt2
 hemorroida	$alt
 hoje		$alt2
 horrores	$alt2
+humores		$alt2
 ideia		$alt
 imberbe		$alt
 interesse	$alt2
 interesse	$alt $verb
-jogo		$alt2 $noun
+jogo		$alt2
+jogo		$alt $verb
+jogos		$alt
 joguete		$alt2
 lagosta		$alt2
 lambreta	$alt2
 lanchonete	$alt
 lebre		$alt
+leitora		$alt2
 lembrete	$alt2
 lepra		$alt
 leste		$alt2 $verb
@@ -911,6 +926,7 @@ lopes		$alt
 macete		$alt2
 maior		$alt
 maleta		$alt2
+maniçoba	$alt
 marionete	$alt
 marreta		$alt2
 megera		$alt
@@ -921,9 +937,6 @@ merda		$alt
 meta		$alt $noun
 meteoro		$alt
 metro		$alt
-mexa		m'eS&
-mexi		meS'i
-mexo		m'eSU
 minueto		$alt2
 miolo		$alt2
 miolos		$alt
@@ -932,6 +945,7 @@ modelo		$alt $verb
 moeda		$alt
 moem		$alt
 mofo		$alt $verb
+moleta		$alt2
 molho		$alt2 $noun
 monera		$alt
 morcego		$alt2
@@ -968,6 +982,7 @@ ovelha		$alt2
 ovos		$alt
 pachorra	$alt2
 paexa		paeSa
+paella		pa'el^&
 palacete	$alt2
 palheta		$alt2
 panfleto	$alt2
@@ -980,6 +995,7 @@ pedra		$alt
 pela		$alt $verb
 pelo		$alt2
 pelo		$alt $verb
+peroba		$alt
 peso		$alt $verb
 piloto		$alt2 $noun
 pintora		$alt2
@@ -989,6 +1005,7 @@ plaqueta	$alt2
 plateia		$alt
 plebeia		$alt
 polca		$alt
+pompeia		$alt
 porcos		$alt
 porra		$alt2
 porrete		$alt2
@@ -998,6 +1015,7 @@ pose		$alt2
 povos		$alt
 poxa		p'oS&
 primavera	$alt
+primores	$alt2
 prosopopeia	$alt
 quarteto	$alt2
 queda		$alt
@@ -1013,15 +1031,14 @@ reembolso	$alt  $verb
 reforço		$alt  $verb
 reforços	$alt
 refresco	$alt  $verb
+rego		$alt2 $noun
 reitora		$alt2
-rejo		$alt
 relevo		$alt2 $noun
 remorso		$alt
 renovo		$alt $verb
 retorno		$alt $verb
 reuva		x'EUv&
 rigores		$alt2
-rixa		x'iS&
 rocha		$alt
 rock		$alt
 roem		$alt
@@ -1086,6 +1103,7 @@ tumores		$alt2
 valeta		$alt2
 vanessa		$alt2
 velozes		$alt
+vera		$alt
 verbete		$alt2
 violeta		$alt2
 violoncelo	$alt
@@ -1098,7 +1116,7 @@ zorra		$alt2
 
 // foreign words
 ?1 alt        'alt
-?2        agosto        &g'ostU
+?2        agosto        ag'ostU
 ?1 back       b'Ek
 ?2  backup        bEk'&p
 ?2  backups     bEk'&ps
@@ -1166,6 +1184,7 @@ python     p'aIT&~N
 ?1 readme     r'i:dmi:
 ?1 sapi       s,ap'i
 ?1 scanner    sk'En&r
+shake	S'eIk
 ?1 shift      S'ift
 ?1 scroll     sk:r'ol
 ?1 site       s'aIt
@@ -1196,6 +1215,7 @@ louis       _^_FR
 // foreign product names
 ?1 access      'aks,Es
 ?1 adobe       &d'Oby
+   android &ndR'Oid
 apple  'Epow
 chrome  kR'owmi
    debian      d'Ebj&~N
@@ -1254,7 +1274,7 @@ twitter  tw'iter
 ?2 window      w'iNdow
 
 
-// historical/famous person names
+// historical/famous person  s
 babbage       b'abidZ
 bernhard      bern'ard
 darwin        d'Arwin
@@ -1279,7 +1299,7 @@ oppenheimer   _!'Op@nh,aImar
 richard       x'iS&rd
 riemann       r'i:man
 rijndael      x'ain;d'al
-rousseau      Rus'o
+?2   rousseau      xus'o
 schrödinger   Sr'edinger
 stephen       st'i:v@n
 steve         st'i:v
@@ -1290,24 +1310,31 @@ von           f%On
 
 // foreign common names/surnames
 ?1   alison       &l'is&N
+anderson  '&ndersoN
+antonio	&~nt'onIU
 ?1   cleverson    kl'Evyrs&N
 ?2   cleverson    kl'EversoN
 ?1   elton        'Elt&N
+?2 elton	'EUton
+emerson 'emE*@-soN
 ?1   halison      &l'is&N
 klein       kl'aIn      // Very common on southern Brazil.
 ?1   kleverson       kl'Evers&N
 krueger     kR'iZer
 krüger      kR'iZer
 kühl        k'il
-?1   nelson       n'Els&N
+milton	m'Iwton
 mueler      m'iler
 mueller     m'iler
 müler       m'iler
 müller      m'iler
+?1   nelson       n'Els&N
 ronchi      r'OnCi:
+valter	v'aUter
 vogel       f'o:g@l
 volkmann    f'Olkman
-
+wellington	w'Elynton
+wilton	w'Iwton
 
 
 

@@ -263,8 +263,8 @@ endphoneme
 
 phoneme OI
   vowel  starttype #o  endtype #i
-  length 280
-  FMT(vdiph/ooi_4)
+  length 270
+  FMT(vdiph/ooi_3)
 endphoneme
 
 

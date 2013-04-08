@@ -2727,7 +2727,6 @@ static void DecThenCount()
 static void InstnPlusPhoneme(int instn)
 {//====================================
 	int phcode;
-	DecThenCount();
 
 	phcode = NextItemBrackets(tPHONEMEMNEM,0);
 	*prog_out++ = instn + phcode;
@@ -2835,16 +2834,19 @@ int CompilePhoneme(int compile_phoneme)
 			case i_CHANGE_IF+2:
 			case i_CHANGE_IF+3:
 				InstnPlusPhoneme(keyword << 8);
+				DecThenCount();
 				break;
 
 			case i_PAUSE_BEFORE:
 				value = NextItemMax(255);
 				*prog_out++ = (i_PAUSE_BEFORE << 8) + value;
+				DecThenCount();
 				break;
 
 			case i_PAUSE_AFTER:
 				value = NextItemMax(255);
 				*prog_out++ = (i_PAUSE_AFTER << 8) + value;
+				DecThenCount();
 				break;
 
 			case i_SET_LENGTH:
@@ -2936,6 +2938,7 @@ int CompilePhoneme(int compile_phoneme)
 				{
 					*prog_out++ = (ipa_buf[ix+start] << 8) + (ipa_buf[ix+start+1] & 0xff);
 				}
+				DecThenCount();
 				break;
 			}
 			break;
@@ -3018,6 +3021,7 @@ int CompilePhoneme(int compile_phoneme)
 
 			case kCALLPH:
 				CallPhoneme();
+				DecThenCount();
 				break;
 
 			case kFMT:
@@ -3049,6 +3053,7 @@ int CompilePhoneme(int compile_phoneme)
 				break;
 
 			case kTONESPEC:
+				DecThenCount();
 				endphoneme = CompileToneSpec();
 				break;
 

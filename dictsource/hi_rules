@@ -49,8 +49,8 @@
 
 .group ऊ
         ऊ          u
-        ऊं         u~        // + anusvara
-        ऊँ         u~        // + candrabinbu
+        ऊं (_       u~        // + anusvara
+        ऊँ (_       u~        // + candrabinbu
 
 .group ऋ
         ऋ          rI
@@ -63,14 +63,19 @@
 
 .group ऎ
         ऎ          e
+        ऎं (_       e~
+        ऎँ (_       e~
 
 .group ए
         ए          e:
+        एँ          e~:
+        एं (_       e~:
+    ा) एँ (_       j
 
 .group ऐ
         ऐ          E:        // ?? [aI] [E:] [&:]
-        ऐं         E~
-        ऐँ         E~
+        ऐं (_       E~
+        ऐँ (_       E~
 ?2      ऐ          aI        // ?? [aI] [E:] [&:]
 
 
@@ -79,16 +84,21 @@
 
 .group ऒ
         ऒ          o
+        ऒं (_       o~
+        ऒँ (_       o~
 
 .group ओ
         ओ          o:
-        ओं         o~        // +anusvara
-        ओँ         o~        // +candrabindu
+        ओं (_       o~        // +anusvara
+        ओँ (_       o~        // +candrabindu
+    ा) ओं (_       w        // +anusvara
+    ा) ओँ (_       w
+    
 
 .group औ
         औ          O:        // ?? [aU] [O:]
-        औं         O~        // +anusvara
-        औँ         O~        // +candrabindu
+        औं (_       O~        // +anusvara
+        औँ (_       O~        // +candrabindu
 ?3      औ          aU        // ?? [aU] [O:]
 
 
@@ -96,6 +106,8 @@
 
 .group ा
         ा          a:
+        ाँ (_      a~
+        ां (_      a~
         ाव         aU
 
 .group ि
@@ -106,14 +118,18 @@
 .group ी
         ी          i:
         ी (_       i
+        ीँ (_      i~
+        ीं (_      i~
 
 .group ु
-        ु          u
+        ु          U
+        ुं (_      u~
+        ुँ (_      u~
 
 .group ू
         ू          u:
-        ूं         u~        // or O~   ??
-        ूँ         u~
+        ूं (_      u~        // or O~   ??
+        ूँ (_      u~
 
 .group ृ
         ृ          rI
@@ -126,14 +142,18 @@
 
 .group ॆ
         ॆ          e
+        ॆं (_      e~
+        ॆँ (_      e~
 
 .group े
         े          e:
+        ें (_      e~:
+        ेँ (_      e~:
 
 .group ै
         ै          E:        // ?? [aI] [E:] [&:]
-        ैं         E~
-        ैँ         E~
+        ैं (_      E~
+        ैँ (_      E~
 ?2      ै          aI        // ?? [aI] [E:] [&:]
 
 .group ॉ
@@ -141,16 +161,18 @@
 
 .group ॊ
         ॊ          o
+        ॊं (_      o~
+        ॊँ (_      o~
 
 .group ो
         ो          o:
-        ों         o~
-        ोँ         o~
+        ों (_      o~
+        ोँ (_      o~
 
 .group ौ
         ौ          O:        //  [O:] or [aU] ??
-        ौं         O~
-        ौँ         O~
+        ौं (_      O~
+        ौँ (_      O~
 ?3      ौ          aU        //  [O:] or [aU] ??
 
 .group ॢ     // vowel sign l
@@ -305,8 +327,9 @@
     न्) म (_       m         // n +virama
 
 .group य
-        य          j@
+        य          jV
         य (B       j
+     C) य (_       Ej     // [Ej] not [@j]
      ्) य (_       j@
 
 .group र
@@ -341,6 +364,7 @@
      _) व          wV
      _) व (B       w
      _) व (्       v         // +virma
+        व (_       w
 
 .group श
         श          SV

@@ -653,13 +653,15 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 	static const char *stress_chars = "==,,''";
 	static const int char_tie[] = {0x0361, 0x200d};  // combining-double-inverted-breve, zero-width-joiner
 
-	if(use_ipa == 4)
+	if(use_ipa >= 4)
 	{
 		// separate individual phonemes with underscores
-		use_ipa = 1;
 		separate_phonemes = '_';
+		if(use_ipa == 5)
+			use_ipa = 0;
+		else
+			use_ipa = 1;
 	}
-
 	if(phon_out != NULL)
 	{
 		for(ix=1; ix<(n_phoneme_list-2); ix++)
@@ -698,8 +700,8 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 					if(c != 0)
 					{
 						buf += utf8_out(c, buf);
-						if(separate_phonemes)
-							*buf++ = separate_phonemes;
+//						if(separate_phonemes)
+//							*buf++ = separate_phonemes;
 					}
 				}
 			}
@@ -1637,8 +1639,11 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	if(!(control & 1) && ((ph = phoneme_tab[*p]) != NULL))
 	{
 
-		if(ph->type == phSTRESS)
-			ph = phoneme_tab[p[1]];
+		while((ph->type == phSTRESS) || (*p == phonEND_WORD))
+		{
+			p++;
+			ph = phoneme_tab[p[0]];
+		}
 
 #ifdef deleted
 		int gap = tr->langopts.word_gap & 0x700;

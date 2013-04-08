@@ -1,5 +1,3 @@
-	// translation rules Brazilian
-// translation rules Brazilian
 // translation rules Brazilian
 // This file is UTF-8 encoded
 
@@ -43,6 +41,7 @@
         a (r_      'a
 ?1   p) a (d_      =E
         a (CC_     &
+        a (h_      a
 ?1      a (l_      'A        // eg: Portugal, capital, etc.
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
@@ -51,6 +50,7 @@
         a (mAr_    &
         a (mA@     &
         a (n       &~
+        a (ñ       &~
         a (nA@     &
         a (nAr_    &
         am (_      =&~N
@@ -59,6 +59,8 @@
         an (K+     &~N
         anh (A     &~n^
         am (_      =&U~
+        a (t_      a
+        a (x_      a
         a (z_      'a        //eg: paz, rapaz, capaz, etc...
 ?1   C) acç        'a's      // eg: selecção, etc...
 
@@ -257,10 +259,22 @@
         e (rvAm_   E
 
         e (tA_     E
+     m) e (ta_     e
+     m) e (tam_    e
+     m) e (to_     e
     An) e (tA_     e
    gaz) e (ta_     e
         e (tAm_    E
 
+        e (gi_     e
+        e (gri_    e
+        e (li_     e
+        e (rgi_    e
+        e (sti_    e
+        e (ti_     e
+        e (rti_    e
+        e (rvi_    e
+        e (xi_     e
         e (vA_     E
      t) e (ve_     e
         e (vi_     e
@@ -368,6 +382,7 @@
  _soub) e (L05_    E
  _talh) e (L05_    E
  _trem) e (L05_    e
+_troux) e (L05_    E
   diss) e (L06_    E         // contra-
   fend) e (L06_    e         // de- o-
   tend) e (L06_    e         // a- con- en- es-
@@ -384,6 +399,7 @@ respond) e (L06_   e         // cor-
    ceb) e (L07_    e         // re- per- con-
    ced) e (L07_    e         // pro- con- su-
    met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
+   mex) e (L07_    e
    mov) e (L07_    e         // re- co-
    viv) e (L07_    e         // re-
   _beb) e (L07_    e
@@ -400,6 +416,7 @@ respond) e (L06_   e         // cor-
   vend) e (L07_    e         // re-
   vert) e (L07_    e         // in- re- con-
   volv) e (L07_    e         // de- en- re-
+ _desc) e (L07_    e
  _eleg) e (L07_    e
  _ergu) e (L07_    e
  _mord) e (L07_    e
@@ -414,12 +431,14 @@ respond) e (L06_   e         // cor-
  screv) e (L07_    e         // e- in- ree- pre- de-
 _aborrec) e (L07_  e
 _absolv) e (L07_   e
+_acontec) e (L07_  e
 _adoec) e (L07_    e
 _adormec) e (L07_  e
 _agradec) e (L07_  e
 _amanhec) e (L07_  e
 _amolec) e (L07_   e
 _anoitec) e (L07_  e
+_apodrec) e (L07_  e
 _arrepend) e (L07_ e
 _atrev) e (L07_    e
 _cresc) e (L07_    e
@@ -444,6 +463,7 @@ _perec) e (L07_    e
 _rejuvenec) e (L07_ e
 _resolv) e (L07_   e
 _suspend) e (L07_  e
+_troux) e (L07_    E
 abastec) e (L07_   e         // re-
 conhec) e (L07_    e         // & re- des-
 estabelec) e (L07_ e         // re-
@@ -454,6 +474,7 @@ proteg) e (L07_    e         // des-
 respond) e (L07_   e         // cor-
     qu) e (brL04_  E
   _cel) e (brL04_  E
+   _ex) e (crL04_  E
   _enr) e (dL01_   E
   _arr) e (dL03_   E
  _depr) e (dL03_   E
@@ -464,6 +485,7 @@ respond) e (L07_   e         // cor-
     _n) e (grL03_  e
    _ch) e (guL02_  e
   estr) ei (L04_   EI
+    _r) e (jL03_   E
   _inv) e (jL04_   E
     tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
@@ -491,6 +513,7 @@ respond) e (L07_   e         // cor-
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
     _v) e (rbL03_  E
+   _ex) e (rcL02_  E
  _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
@@ -512,11 +535,8 @@ _refrig) e (rL04_  E
     _l) e (ssL02_  e
   _esp) e (ssL03_  e
     _c) e (stL03_  e
-    _m) e (tL03_   e
    _pr) e (tL03_   e
-  _com) e (tL03_   e
   _rem) e (tL03_   e
-  prom) e (tL03_   e         // com-
  _derr) e (tL03_   e
 _obsol) e (tL03_   e
   _sol) e (trL03_  E
@@ -524,12 +544,12 @@ _obsol) e (tL03_   e
     _d) e (vL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
+     m) e (xL03_   e
     _r) e (zL04_   E
    _pr) e (zL04_   E
+   spr) e (zL04_   E
   _rev) e (zL04_   E
-_despr) e (zL04_   E
 _embel) e (zL04_   E
-_menospr) e (zL04_ E
    com) e (çL01_   E
      p) e (çL03_   E
     _m) e (çL03_   E
@@ -695,7 +715,8 @@ _entorp) e (çL03_  e
      _) l (_       'Ely
         l          l
      l) l 
-        lh         l^
+?1      lh         l^
+?2      lh         lj
 ?4   A) lh         l^
 
 
@@ -719,6 +740,12 @@ _entorp) e (çL03_  e
 ?3      n (_C      n_
         nh         n^
 ?1   A) nn         n         //drop “n” (eg: connosco).
+
+
+.group ñ
+     _) ñ (_       'En^e
+        ñ          n^
+
 
 
 .group o
@@ -770,6 +797,13 @@ _entorp) e (çL03_  e
         o (lve_    O
         o (lvem_   O
 
+        o (bri_    o
+        o (di_     o
+        o (li_     o
+        o (rci_    o
+        o (rdi_    o
+        o (rri_    o
+        o (rvi_    o
         o (sA_     O
         o (so_N    o         // not for osos_
         o (sAm_    O
@@ -872,6 +906,7 @@ _pormen) o (L05_   O
    ent) o (pL02_   O
     _c) o (pL03_   O
   _ens) o (pL04_   O
+  _gal) o (pL04_   O
     _s) o (prL04_  O
      _) o (ptL04_  O
      p) o (rL02_   o
@@ -881,6 +916,7 @@ _pormen) o (L05_   O
  _inod) o (rL03_   O
 _inson) o (rL03_   O
 _comem) o (rL04    O
+_aprim) o (rL04_   O
 _remem) o (rL04_   O
      f) o (rmL03_  O
   _enf) o (rquL02_ O
@@ -895,6 +931,7 @@ _remem) o (rL04_   O
      p) ostos (_   Ost=Us#   // dispostos etc.
   _gar) o (tL03_   o
   _mar) o (tL03_   O
+   _ch) o (vL01_   o
     pr) o (vL03_   O
     _g) o (zL04_   O
   _esb) o (çL01_   O
@@ -936,7 +973,6 @@ _remem) o (rL04_   O
 ?3      p (t       p
 ?3      p (_C      p_
         ph         f
-?1      ple (_     _^_EN
 
 
 .group q
@@ -989,9 +1025,8 @@ _remem) o (rL04_   O
         r (C       *@-
      A) r (A       *
      A) r (_A      *
-        rr         x
-    XC) r (A       R
      C) r (A       R
+        rr         x
      _) r          x
      l) r          x
      n) r (+       x
@@ -1012,11 +1047,12 @@ _remem) o (rL04_   O
      A) s (A       z
 ?1   @) s (_       s#
 ?2      s (_       s#
-     @) s (_A      z         // next word starts with vowel
+
 ?!4  @) s (_G      z         // next word starts with voiced consonant
 
      A) s (_S1     s
      A) s (_AS1    z         // next word starts with vowel
+
    ese) s (_       s
 ?!4  A) s (_GS1    z         // next word starts with voiced consonant
 
@@ -1026,9 +1062,11 @@ _remem) o (rL04_   O
 ?1   A) s (_KS1    s#
 ?1   A) s (_G+S1   Z
         s (G       z
+        s (w+      s
         sr         zx
 
      _) sobre (@P5 sob*e
+ _tran) s (A       z
 
 
 .group t
@@ -1101,6 +1139,7 @@ _remem) o (rL04_   O
     _e) x (A       z
     _ê) x (A       z
   _ine) x (A       z
+  _ine) x (oráv    ks
      e) x (A       ks
 ?1   e) x (CA      S
     ai) x (A       S
@@ -1131,6 +1170,7 @@ _remem) o (rL04_   O
   _fle) x (a       S
    gra) x (A       S
    _he) x (A       z
+?2 _he) x (A       ks
    _li) x (A       S
    _lu) x (A       S
   _mar) x          ks
@@ -1150,8 +1190,8 @@ _remem) o (rL04_   O
     ri) x (A       S
   rela) x (A       S
    _ro) x (A       S
+   _ta) x (e       S
  _trou) x (e       s
- _trou) xe (@      sE
    _ve) x (A       S
    _xi) x (A       S
 ?1   i) x (a_      S

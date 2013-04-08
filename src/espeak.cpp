@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #ifndef NEED_GETOPT
 #include <getopt.h>
 #endif
@@ -221,14 +222,17 @@ int OpenWavFile(char *path, int rate)
 	if(path == NULL)
 		return(2);
 
-	if(path[0] == 0)
-		return(0);
+	while(isspace(*path)) path++;
 
-	if(strcmp(path,"stdout")==0)
-		f_wavfile = stdout;
-	else
-		f_wavfile = fopen(path,"wb");
-
+	f_wavfile = NULL;
+	if(path[0] != 0)
+	{
+		if(strcmp(path,"stdout")==0)
+			f_wavfile = stdout;
+		else
+			f_wavfile = fopen(path,"wb");
+	}
+	
 	if(f_wavfile == NULL)
 	{
 		fprintf(stderr,"Can't write to: '%s'\n",path);
