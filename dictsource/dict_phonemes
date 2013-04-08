@@ -49,7 +49,7 @@ s    s.   S;   t    t#   t.   t.#  tS
 v    v#   w    z    
 
 
-Dictionary pt_dict  2013-04-05
+Dictionary pt_dict  2013-04-08
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -164,7 +164,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-04-05
+Dictionary en_dict  2013-04-08
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -288,12 +288,12 @@ N    n^   p    r    R    R2   s    S
 t    tS   ts   tS;  v    x    z    Z    
 
 
-Dictionary hi_dict  2013-04-05
+Dictionary hi_dict  2013-04-08
 
 @    @2   a    a:   aI   aU   a~   e    
 E    e:   E:   e~   E~   i    I    i:   
-l-   o    O    o:   O:   O~   o~   r-   
-u    U    u:   u~   V    
+i~   l-   o    O    o:   O:   O~   o~   
+r-   u    U    u:   u~   V    
 
 #X1  #X2  -    :    b    b#   c    c#   
 d    d#   d.   d.#  f    g    g#   h    
@@ -566,7 +566,7 @@ R2   s    S    t    t#   t.   t.#  v
 x    z    
 
 
-Dictionary pl_dict  2012-06-09
+Dictionary pl_dict  2013-04-06
 
 a    E    E#   E~   i    O    O~   u    
 y    

@@ -1351,7 +1351,7 @@
             bi (ry       bI
             bi (sc       bI
             bi (sec      b%aI
-            bi (sh       bI
+         _) bi (sh       bI
             bi (sm       bI
             bi (sq       bi:
             bi (str      bi:
@@ -2473,7 +2473,7 @@
          s) er (van      3:
             ery (_       @r%i
 ?3          ery (_++$w_alt2   @rI
-?3    @@AC) ery (_       e@ri
+?3    @@AC) ery (_       ,e@ri
             ery (A       3j
         _v) ery          ErI2
         qu) ery          i@rI
@@ -3055,7 +3055,6 @@
             ier          i@3
             ier (a       I'e@r
          &) ier (_NS2i   3
-         &) ier's (_NS4i   3z
         _h) ie (r        aI3
         pl) ier (_       aI3
        _Cr) ier          aI3
@@ -3269,7 +3268,6 @@
          _) inno (ce     In@
          _) inno (v      In@
          _) inn (um      %In
-         _) in (of       In
          _) in (org      In
          _) in (p        In
          _) in (que      In
@@ -3497,6 +3495,7 @@
             is (er+_     aIz
             iser (_      aIz3
          &) ish (_       I2S
+            ish (A_      'i:S
             is (ive      aIs
          _) island       aIl@nd
          _) is (le       aI
@@ -4423,7 +4422,7 @@
          w) or (e        o@
             or (um_      'o@r
          &) ory (_       @r%I
-?3    @@At) ory (_       o:ri
+?3    @@At) ory (_       ,o:ri
        _st) ory          o@rI
 
 .group os
@@ -4664,7 +4663,7 @@
       _all) ow           aU
      isall) ow           aU
         cl) ow           aU
-        fl) ow (er       aU
+        fl) ower         aU|3
         gl) ow (er       aU
         pl) ow           aU
         _n) ow (_        aU
@@ -5300,7 +5299,6 @@
             ttu (r       t@
             tz           ts
             tze (_       tsi
-?3     @@A) t (Ary_      t2
 
 .group th
             th           T
@@ -6014,18 +6012,18 @@
 
 .group '
             's (_S2m     z
-         f) 's (_S2      s
-         p) 's (_S2      s
-         t) 's (_S2      s
-         k) 's (_S2      s
-        se) 's (_S2      I2z
-         s) 's (_S2      I2z
-        ce) 's (_S2      I2z
-        ch) 's (_S2      I2z
-       och) 's (_S2      s
-        sh) 's (_S2      I2z
-         x) 's (_S2      I2z
-         z) 's (_S2      I2z
+         f) 's (_S2m      s
+         p) 's (_S2m      s
+         t) 's (_S2m      s
+         k) 's (_S2m      s
+        se) 's (_S2m      I2z
+         s) 's (_S2m      I2z
+        ce) 's (_S2m      I2z
+        ch) 's (_S2m      I2z
+       och) 's (_S2m      s
+        sh) 's (_S2m      I2z
+         x) 's (_S2m      I2z
+         z) 's (_S2m      I2z
         6_) 's (_        I2z
        16_) 's (_        z
             're (_S3     @

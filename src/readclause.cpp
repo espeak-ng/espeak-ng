@@ -71,6 +71,8 @@ static int ssml_ignore_l_angle = 0;
 
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {',','.','?','!',':',';',
+  0x00a1,  // inverted exclamation
+  0x00bf,  // inverted question
   0x2013,  // en-dash
   0x2014,  // em-dash
   0x2026,  // elipsis
@@ -119,6 +121,8 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
 // bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
 static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
+  CLAUSE_SEMICOLON | 0x8000,      // inverted exclamation
+  CLAUSE_SEMICOLON | 0x8000,      // inverted question
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash
   CLAUSE_SEMICOLON | PUNCT_SAY_NAME | 0x8000,      // elipsis
