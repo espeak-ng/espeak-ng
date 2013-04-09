@@ -16,7 +16,16 @@ nucleus0 fall-rise  80 18
 nucleus  fall-rise2 78 22 34 52
 endtune
 
-tune q1
+tune q1   // small change for version 1.47.05
+prehead   45 56
+headenv   fall 16
+head       3 75 43 -7 0
+headextend 20 60 35 11 0
+nucleus0 fall-rise  89 21
+nucleus  fall-rise2 86 21 34 68
+endtune
+
+tune q1a  // previous version
 prehead   46 57
 headenv   fall 16
 head       4 75 43 -7 0

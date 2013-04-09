@@ -616,8 +616,8 @@ phoneme w
 
     VowelEnding(w/xw, -30)
 
-    IF prevPh(isPause) THEN
-      FMT(w/_w)
+    IF prevPhW(isNasal) THEN
+      FMT(w/w)
     ELSE
       FMT(w/_w)
     ENDIF
@@ -1745,9 +1745,6 @@ include ph_kannada
 phonemetable ml hi
 include ph_malayalam
 
-phonemetable te hi
-include ph_telugu
-
 
 
 phonemetable hu base
@@ -1867,31 +1864,14 @@ include ph_georgian
 phonemetable fa base
 include ph_farsi
 
-// experimental 
-
-phonemetable ko base
-include ph_korean
-
-phonemetable kl base
-include ph_greenlandic
-
-phonemetable am base
-include ph_amhari
-
 
 //**************************************************************************************
 // The following lines are experimental, for future additions.
 // These langauges are not in a usable state.
 // These lines can be deleted.
 
-phonemetable si hi
-include ph_sinhala
-
-phonemetable sl sk
-include ph_slovenian
-
-//phonemetable rw base2
-//include ph_kinyarwanda
+phonemetable rw base2
+include ph_kinyarwanda
 
 //phonemetable mr hi
 //include ph_marathi
@@ -1902,42 +1882,67 @@ include ph_slovenian
 //phonemetable mn base
 //include ph_mongolian
 
-//phonemetable prs base
-//include ph_dari
+phonemetable prs base
+include ph_dari
 
-//phonemetable gd base
-//include ph_s_gaelic
+phonemetable sl sk
+include ph_slovenian
 
-//phonemetable nso base
-//include ph_northern-sotho
+phonemetable gd base
+include ph_s_gaelic
 
-//phonemetable ht fr
-//include ph_haitian
+phonemetable nso base
+include ph_northern-sotho
 
-//phonemetable az tr
-//include ph_azerbaijani
+phonemetable ht fr
+include ph_haitian
 
-//phonemetable ak base
-//include ph_akan
+phonemetable az tr
+include ph_azerbaijani
 
-//phonemetable wo base
-//include ph_wolof
+phonemetable ak base
+include ph_akan
 
-//phonemetable dv hi
-//include ph_divehi
+phonemetable am base
+include ph_amhari
 
-//phonemetable tn base
-//include ph_setswana
+phonemetable wo base
+include ph_wolof
 
-//phonemetable mt base
-//include ph_maltese
+phonemetable dv hi
+include ph_divehi
 
-//phonemetable bo hi
-//include ph_tibetan
+phonemetable te hi
+include ph_telugu
 
-//phonemetable kk base
-//include ph_kazakh
+phonemetable si hi
+include ph_sinhala
 
-//phonemetable tt base
-//include ph_tatar
+phonemetable tn base
+include ph_setswana
+
+
+phonemetable mt base
+include ph_maltese
+
+phonemetable bo hi
+include ph_tibetan
+
+phonemetable kk base
+include ph_kazakh
+
+phonemetable tt base
+include ph_tatar
+
+phonemetable ko base
+include ph_korean
+
+phonemetable kl base
+include ph_greenlandic
+
+phonemetable ar base
+include ph_arabic
+
+phonemetable gu hi
+include ph_gujarati
 

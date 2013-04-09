@@ -634,7 +634,7 @@ void jsd_swi_functions(int *r)
 	case 3:
 		// translate into phonemes
 		use_ipa = 0;
-		if((r[2] >= 1) && (use_ipa <= 4))
+		if((r[2] >= 1) && (r[2] <= 5))
 			use_ipa = r[2];
 		TranslateClause(translator,NULL,(char *)r[1],NULL,NULL);
 		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
