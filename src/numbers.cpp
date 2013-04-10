@@ -578,7 +578,32 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 }  // end of LookupLetter
 
 
-static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'Ef"};  // using phonemes available to all languages
+// unicode ranges for non-ascii digits 0-9
+static const int number_ranges[] = {
+	0x660, 0x6f0,  // arabic
+	0x966, 0x9e6, 0xa66, 0xae6, 0xb66, 0xbe6, 0xc66, 0xce6, 0xd66,  // indic
+	0xe50, 0xed0, 0xf20, 0x1040, 0x1090,
+	0 };  // these must be in ascending order
+
+
+int NonAsciiNumber(int letter)
+{//============================
+// Change non-ascii digit into ascii digit '0' to '9', (or -1 if not)
+	const int *p;
+	int base;
+
+	for(p=number_ranges; (base = *p) != 0; p++)
+	{
+		if(letter < base)
+			break;  // not found
+		if(letter < (base+10))
+			return(letter-base+'0');
+	}
+	return(-1);
+}
+
+
+static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'ef"};  // names, using phonemes available to all languages
 
 int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 {//=========================================================================
@@ -598,6 +623,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	int al_offset;
 	int al_flags;
 	int language;
+	int number;
 	int phontab_1;
 	int speak_letter_number;
 	char capital[20];
@@ -635,6 +661,12 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	{
 		strcpy(phonemes,ph_buf);
 		return(0);
+	}
+
+	if((ph_buf[0] == 0) && ((number = NonAsciiNumber(letter)) > 0))
+	{
+		// convert a non-ascii number to 0-9
+		LookupLetter(tr, number, 0, ph_buf, control & 1);
 	}
 
 	al_offset = 0;
@@ -780,8 +812,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 				speak_letter_number = 0;
 			}
 
-			if((ph_alphabet[0] != 0) && speak_letter_number)
-				ph_buf[0] = 0;  // don't speak "letter" if we speak alphabet name
+//			if((ph_alphabet[0] != 0) && speak_letter_number)
+//				ph_buf[0] = 0;  // don't speak "letter" if we speak alphabet name
 
 			if(speak_letter_number)
 			{

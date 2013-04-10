@@ -13,7 +13,7 @@ phoneme @
   length 130
 
   ChangeIfDiminished(@-)
-  IF nextPh(H) THEN
+  IF nextPh(H) OR prevPh(H) THEN
     FMT(vowel/@_low)
   ENDIF
   FMT(vowel/@_bck)
@@ -39,14 +39,10 @@ phoneme V
     ENDIF
 
     IF prev2PhW(isVowel) AND NOT nextVowel(isFlag1) THEN
-      IF thisPh(isSeqFlag1) THEN
-        // delete the last inherent vowel of a sequence
-        ChangePhoneme(NULL)
+      IF nextPhW(isNotVowel) AND nextPh(isWordEnd) THEN
+        // don't delete schwa before a word-final consonant
       ELSE
-        IF NOT thisPh(isFirstVowel) THEN
-          // delete if not the first vowel, and is an isolated 'a'
-          ChangePhoneme(NULL)
-        ENDIF
+        ChangePhoneme(NULL)
       ENDIF
     ENDIF
   ENDIF
@@ -60,7 +56,7 @@ phoneme V
       ChangePhoneme(@)
     ENDIF
 
-    IF nextPh(H) THEN
+    IF nextPh(H) OR prevPh(H) THEN
       FMT(vowel/@_low)
     ENDIF
   ENDIF
@@ -140,6 +136,9 @@ endphoneme
 phoneme a:
   vowel long starttype #a endtype #a
   length 190
+  IF nextPhW(j) THEN
+    FMT(vowel/a_5)
+  ENDIF
   FMT(vowel/aa_9)
 endphoneme
 
@@ -213,25 +212,25 @@ endphoneme
 
 phoneme E~
   vowel long starttype #e  endtype #e
-  length 230
+  length 220
   FMT(vnasal/ee_n2)
 endphoneme
 
 phoneme a~
   vowel long starttype #a endtype #a
-  length 250
-  FMT(vnasal/aa_n)
+  length 220
+  FMT(vnasal/&_n)
 endphoneme
 
 phoneme V~
   vowel long starttype #@ endtype #@
-  length 250
+  length 220
   FMT(vnasal/V_n)
 endphoneme
 
 phoneme O~
   vowel long starttype #o endtype #o
-  length 230
+  length 220
   FMT(vnasal/oo_n2)
 endphoneme
 
@@ -249,7 +248,7 @@ endphoneme
 
 phoneme u~
   vowel long starttype #u endtype #u
-  length 230
+  length 220
   FMT(vnasal/u_n)
 endphoneme
 

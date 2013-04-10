@@ -1398,7 +1398,6 @@ vietnam/ie_2    [iE] vi
 vietnam/oe      [o&] vi
 vietnam/th      [t] vi
 vietnam/tr      [cr] vi
-vnasal/aa_n     [a~] hi
 vnasal/aa_n2    [A~] en
 vnasal/aa_n3    [A~] af
 vnasal/aa_n4    [A~] de
@@ -1421,6 +1420,7 @@ vnasal/ii_n     [I~] hi
                 [i] vi
 vnasal/i_n      [i~] pt
 vnasal/i_n2     [i~] hi
+vnasal/&_n      [a~] hi
 vnasal/oi_n     [oI~] pt
 vnasal/o_n      [o~] hi
                 [o~] pt
@@ -1707,7 +1707,8 @@ vowel/a#_4      [a:] nl
                 [a] bg
                 [a/] it
                 [a] tr
-vowel/a_5       [a:] ta
+vowel/a_5       [a:] hi
+                [a:] ta
                 [a:] ml
                 [a/] it
                 [a] la

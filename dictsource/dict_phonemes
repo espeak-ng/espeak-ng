@@ -49,18 +49,18 @@ s    s.   S;   t    t#   t.   t.#  tS
 v    v#   w    z    
 
 
-Dictionary pt_dict  2013-04-08
+Dictionary pt_dict  2013-04-10
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
 i    I    i/   iU   i~   o    O    oI   
 OI   o~   u    U    uI   u~   y    
 
-*    :    ;    ?    b    c    C    d    
-dZ   f    g    h    j    k    l    l^   
-m    n    N    n^   p    Q    r    R    
-r-   s    S    s#   s;   t    T    tS   
-ts   v    w    x    z    Z    
+*    :    ;    b    c    C    d    dZ   
+f    g    h    j    k    l    l^   m    
+n    N    n^   p    Q    r    R    r-   
+s    S    s#   s;   t    T    tS   ts   
+v    w    x    z    Z    
 
 
 Dictionary bg_dict  2013-03-16
@@ -74,7 +74,7 @@ s;   t    t;   tS   ts   v    x    z
 Z    z;   
 
 
-Dictionary bn_dict  2013-03-31
+Dictionary bn_dict  2013-04-10
 
 &    a    a~   e    e~   i    i~   l-   
 o    O    o:   O~   o~   r-   u    u~   
@@ -164,7 +164,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-04-08
+Dictionary en_dict  2013-04-10
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -218,7 +218,7 @@ p    r    R    s    S    s2   s^   t
 t^   tS   v    w    z    Z    
 
 
-Dictionary fa_dict  2013-03-12
+Dictionary fa_dict  2013-04-10
 
 a    A    e    i    o    u    
 
@@ -288,7 +288,7 @@ N    n^   p    r    R    R2   s    S
 t    tS   ts   tS;  v    x    z    Z    
 
 
-Dictionary hi_dict  2013-04-08
+Dictionary hi_dict  2013-04-10
 
 @    @2   a    a:   aI   aU   a~   e    
 E    e:   E:   e~   E~   i    I    i:   
@@ -303,7 +303,7 @@ q    r    r.   s    S    s.   t    T
 t#   t.   t.#  v    w    x    z    
 
 
-Dictionary hu_dict  2013-03-22
+Dictionary hu_dict  2013-04-10
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
