@@ -539,7 +539,7 @@ static unsigned int StringToWord2(const char *string)
 	int c;
 	unsigned int value = 0;
 
-	for(ix=0; (ix<4) & ((c = string[ix]) != 0); ix++)
+	for(ix=0; (ix<4) && ((c = string[ix]) != 0); ix++)
 	{
 		value = (value << 8) | (c & 0xff);
 	}

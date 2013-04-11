@@ -298,7 +298,7 @@ dr	$dot
 dra	$dot
 mr	$dot
 mrs	$dot
-prof	pr'Of	$dot
+prof	pR'Of	$dot
 profº	pR,ofes'or
 profª	pR,ofes'o*&
 sr	$dot
@@ -646,11 +646,9 @@ adore		$alt
 adorno		$alt  $verb
 aeroporto	$alt2
 aeroportos	$alt
-albatrozes	$alt
 alcateia	$alt
 alcova		$alt2
 alferes		$alt
-algozes		$alt
 almoço		$alt $verb
 ameba		$alt
 amores		$alt2
@@ -674,7 +672,6 @@ ateia		$alt
 aterro		$alt2
 aterro		$alt $verb
 atmosfera	$alt
-atrozes		$alt
 autora		$alt2
 avesso		$alt2
 axé		aSE
@@ -712,7 +709,6 @@ cãibra		k'&~IbR&
 caibro		k'aIbRU
 camelha		$alt
 camelo		$alt2
-caminhonete	$alt
 camiseta	$alt2
 cantora		$alt2
 capacete	$alt2
@@ -733,6 +729,7 @@ centopeia	$alt
 cerca		$alt
 cerca		$alt2 $noun
 cerco		$alt $verb
+cerda		$alt
 cetro		$alt
 chamego		$alt2
 chefe		$alt
@@ -805,6 +802,7 @@ dispneia	dZIspyn'EI&
 dobro		$alt2 $noun
 doce		$alt2
 doutora		$alt2
+doze		$alt2
 droga		$alt
 dueto		$alt2
 elixir		eliSir
@@ -817,7 +815,6 @@ engordo		$alt
 enredo		$alt  $verb
 enrosco		$alt  $verb
 enterro		$alt2 $noun
-enumerem	$alt
 envelope	$alt
 envolto		$alt2
 enxaqueca	$alt2
@@ -859,7 +856,6 @@ farolete	$alt2
 febre		$alt
 fera		$alt
 feitora		$alt2
-ferozes		$alt
 fezes		$alt
 filete		$alt2
 ?1 fixe		fiSy
@@ -881,7 +877,6 @@ fulgores	$alt2
 galera		$alt
 galileia	$alt
 gangorra	$alt2
-garçonete	$alt
 geleia		$alt
 gelo		$alt2
 gelo		$alt $verb
@@ -890,9 +885,11 @@ gesso		$alt2
 golpe		$alt
 gonorreia	$alt
 gorda		$alt2
+gorjeta		$alt2
 gosto		$alt $verb
 gota		$alt2
-governo		$alt2 $noun
+governo		$alt2
+governo		$alt $verb
 gozo		$alt2 $noun
 graveto		$alt2
 grelha		$alt
@@ -914,7 +911,6 @@ jogos		$alt
 joguete		$alt2
 lagosta		$alt2
 lambreta	$alt2
-lanchonete	$alt
 lebre		$alt
 leitora		$alt2
 lembrete	$alt2
@@ -927,7 +923,6 @@ macete		$alt2
 maior		$alt
 maleta		$alt2
 maniçoba	$alt
-marionete	$alt
 marreta		$alt2
 megera		$alt
 melhor		$alt
@@ -954,10 +949,6 @@ moreia		$alt
 mortos		$alt
 motora		$alt2
 mui		mwi
-muito		mw'iNtU	// -s is included as a suffix
-muita		mw'iNt&
-mulher		$alt
-mulheres	$alt
 mureta		$alt2
 mutreta		$alt2
 namoro		$alt2 $noun
@@ -990,7 +981,6 @@ pangeia		$alt
 pantera		$alt
 parede		$alt2
 pastora		$alt2
-patinete	$alt
 pedra		$alt
 pela		$alt $verb
 pelo		$alt2
@@ -1034,6 +1024,7 @@ refresco	$alt  $verb
 rego		$alt2 $noun
 reitora		$alt2
 relevo		$alt2 $noun
+remoem		$alt
 remorso		$alt
 renovo		$alt $verb
 retorno		$alt $verb
@@ -1047,6 +1038,7 @@ rolo		$alt2 $noun
 rota		$alt2
 rota		$alt $noun
 rumores		$alt2
+sabonete	$alt2
 saibro		s'aIbRU
 saleta		$alt2
 sarjeta		$alt2
@@ -1102,13 +1094,11 @@ trombeta	$alt2
 tumores		$alt2
 valeta		$alt2
 vanessa		$alt2
-velozes		$alt
 vera		$alt
 verbete		$alt2
 violeta		$alt2
 violoncelo	$alt
 voga		$alt
-vozes		$alt
 xarope		$alt
 zelo		$alt2 $noun
 zorra		$alt2
@@ -1135,11 +1125,13 @@ book  buk
 ?1 dj         d,i:dZ'eI
 ?1 down       d'a,wn
 ?1 download   d'a,wnl'oud
-?2 download        daUNl'owd
+?2 download		daUNl'owd
+?2 downloads		daUNl'owds
 ?3 download        dau~Nl'owd
 drive	dR'aIv
 driver	dR'aIver
-drivers  dR'aIveRs?1 end        'end
+drivers  dR'aIveRs
+?1 end        'end
 ?2 esc     'Esk
 ?3 esc     'EskI
 ?1 explorer   ,ekspl'O:*&r-
@@ -1165,11 +1157,11 @@ drivers  dR'aIveRs?1 end        'end
 laptop lEptOp
 ?1 line       l'ain
    layout     l'eI,aUt
-?2        logo        l'OgU
+?2 logo        l'OgU
 ?1 lock       l'Ok
    mail       m'eIl
-        mails        m'eIls
-?2        mouse        m'aUzi
+   mails        m'eIls
+?2 mouse        m'aUzi
 ?1 menu       menu
 ?1 next       n'Ekst
    ok         Ok'eI
@@ -1280,9 +1272,10 @@ bernhard      bern'ard
 darwin        d'Arwin
 dijkstra      d'ijkstrA:
 einstein      _!'aInSt,aIn
+?2   einstein      _!'aInst,aIn
 feynman       f'ainm@n
-freud         fr'OId
-friedrich     fr'i:driS
+freud         fR'OId
+friedrich     fR'i:dRiS
 gauss         g'aUs
 geisel        g'aIzEU
 gottfried     g'Otfri:t
@@ -1333,14 +1326,8 @@ ronchi      r'OnCi:
 valter	v'aUter
 vogel       f'o:g@l
 volkmann    f'Olkman
+washington	w'OSinton
 wellington	w'Elynton
 wilton	w'Iwton
-
-
-
-
-
-
-
 
 
