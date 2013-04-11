@@ -263,6 +263,7 @@
      m) e (tam_    e
      m) e (to_     e
     An) e (tA_     e
+    on) e (te_     E
    gaz) e (ta_     e
         e (tAm_    E
 
@@ -367,111 +368,59 @@
 
 //sort
     _d) e (L05_    E
+    em) e (L05_    e         // temeram, etc.
+    rd) e (L05_    e         // perderam, etc.
    _vi) e (L05_    E
+   end) e (L05_    e         // entenderam, etc.
    fiz) e (L05_    E
    pus) e (L05_    E         // com- im- de-
    tiv) e (L05_    E         // es-
   _com) e (L05_    e
   _pud) e (L05_    E
-  _tem) e (L05_    e
  _coub) e (L05_    E
  _exag) e (L05_    E
  _houv) e (L05_    E
- _perd) e (L05_    e
+ _mulh) e (L05_    E
  _quis) e (L05_    E
  _soub) e (L05_    E
  _talh) e (L05_    E
- _trem) e (L05_    e
+_escond) e (L05_   e
 _troux) e (L05_    E
+respond) e (L05_   e
   diss) e (L06_    E         // contra-
-  fend) e (L06_    e         // de- o-
-  tend) e (L06_    e         // a- con- en- es-
-  vend) e (L06_    e         // re-
- _mord) e (L06_    e
- _rend) e (L06_    e
- prend) e (L06_    e         // a- rea- des- desa-
-_arrepend) e (L06_ e
-_depend) e (L06_   e
-_escond) e (L06_   e
-preend) e (L06_    e         // com- a- re- sur-
-respond) e (L06_   e         // cor-
+     m) e (L07_    e         // comeste, etc.
+    eb) e (L07_    e         // recebeste, etc.
+    ec) e (L07_    e         // pareceram, etc.
+    eg) e (L07_    e         // elegeste, etc.
+   _do) e (L07_    e
+   _mo) e (L07_    e
+   _ro) e (L07_    e
    bat) e (L07_    e         // re- com-
-   ceb) e (L07_    e         // re- per- con-
    ced) e (L07_    e         // pro- con- su-
+   end) e (L07_    e         // vendeste, etc.
+   esc) e (L07_    e         // cresceste, etc.
    met) e (L07_    e         // co- pro- arre- re- intro- compro- sub-
    mex) e (L07_    e
    mov) e (L07_    e         // re- co-
+   olv) e (L07_    e         // devolveste, etc.
+   ond) e (L07_    e         // escondeste, etc.
+   orr) e (L07_    e         // correste, etc.
    viv) e (L07_    e         // re-
-  _beb) e (L07_    e
-  _com) e (L07_    e
-  _tem) e (L07_    e
+  _ard) e (L07_    e
   colh) e (L07_    e         // & es-
-  corr) e (L07_    e         // per- con- in- so- dis-
   ench) e (L07_    e         // pre-
-  fend) e (L07_    e         // de- o-
   nasc) e (L07_    e         // re-
-  tend) e (L07_    e         // en-  con- a- es-
   torc) e (L07_    e         // con-
   venc) e (L07_    e         // con-
-  vend) e (L07_    e         // re-
   vert) e (L07_    e         // in- re- con-
-  volv) e (L07_    e         // de- en- re-
- _desc) e (L07_    e
- _eleg) e (L07_    e
  _ergu) e (L07_    e
  _mord) e (L07_    e
- _morr) e (L07_    e
  _perd) e (L07_    e
  _sofr) e (L07_    e
- _trem) e (L07_    e
- merec) e (L07_    e         // des-
- padec) e (L07_    e         // com-
- parec) e (L07_    e         // a- rea- com- desa-
- prend) e (L07_    e         // a- rea- des-
  screv) e (L07_    e         // e- in- ree- pre- de-
-_aborrec) e (L07_  e
-_absolv) e (L07_   e
-_acontec) e (L07_  e
-_adoec) e (L07_    e
-_adormec) e (L07_  e
-_agradec) e (L07_  e
-_amanhec) e (L07_  e
-_amolec) e (L07_   e
-_anoitec) e (L07_  e
-_apodrec) e (L07_  e
-_arrepend) e (L07_ e
 _atrev) e (L07_    e
-_cresc) e (L07_    e
-_depend) e (L07_   e
-_desguarnec) e (L07_ e
-_emagrec) e (L07_  e
-_endurec) e (L07_  e
-_enlouquec) e (L07_ e
-_enraivec) e (L07_ e
-_entorpec) e (L07_ e
-_entristec) e (L07_ e
-_envaidec) e (L07_ e
-_envelhec) e (L07_ e
-_esclarec) e (L07_ e
-_escond) e (L07_   e
-_escurec) e (L07_  e
-_espairec) e (L07_ e
-_esquec) e (L07_   e
-_estremec) e (L07_ e
 _interromp) e (L07_ e
-_perec) e (L07_    e
-_rejuvenec) e (L07_ e
-_resolv) e (L07_   e
-_suspend) e (L07_  e
 _troux) e (L07_    E
-abastec) e (L07_   e         // re-
-conhec) e (L07_    e         // & re- des-
-estabelec) e (L07_ e         // re-
-favorec) e (L07_   e         // des-
-obedec) e (L07_    e         // des-
-preend) e (L07_    e         // sur- com-
-proteg) e (L07_    e         // des-
-respond) e (L07_   e         // cor-
     qu) e (brL04_  E
   _cel) e (brL04_  E
    _ex) e (crL04_  E
@@ -509,6 +458,7 @@ respond) e (L07_   e         // cor-
   acel) e (rL04_   E         // des-
  _apod) e (rL04_   E
  _coop) e (rL04_   E
+ _enum) e (rL04_   E
  _temp) e (rL04_   E
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
@@ -853,7 +803,7 @@ _entorp) e (çL03_  e
 ?2      o (x_      O
 ?1      oz (_      Os#
 ?2      oz (_      Oz
-        o (zes_    O
+        o (ze_     O
         o (rA_     O
      b) o (re_     o
      c) o (re_     o
@@ -884,6 +834,7 @@ _pormen) o (L05_   O
    _af) o (bL04_   O
   _esn) o (bL04_   O
  _engl) o (bL04_   O
+  _sal) o (brL03_  o
      _) o (cL03_   o
     br) o (chL04_  O
   _deb) o (chL04_  O
@@ -1108,6 +1059,7 @@ _remem) o (rL04_   O
         unh        u~n^
 
      g) u (Y 
+    _m) ui (tA_    'wiN
 
 
 .group ú

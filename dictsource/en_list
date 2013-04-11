@@ -1,4 +1,4 @@
-
+﻿
 // You can use the en_extra file, rather than this one
 // to add your own pronunciation definitions.
 
@@ -16,7 +16,7 @@
 // ?7  Scottish
 // ?8  Use full vowel, not schwa in some word endings
 
-// $alt1   use strong ending (-table, -inal)
+// $alt1   use strong ending (-table, -inal, -ier)
 // $alt2   use weak ending
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
 // $alt6   'to'
@@ -567,6 +567,7 @@ ie	aIi:_!   $pause $only
 i.e	aIi:_!   $pause
 imo	$abbrev
 inlb	$abbrev
+ios	$abbrev
 irc	$abbrev
 irs	$abbrev
 itx	$abbrev
@@ -662,8 +663,7 @@ ability		a#bIl@ti
 ablaut		ablaUt
 aborigine	ab@r'IdZ@ni
 abracadabra	abr@k@d'abr@
-absence		abs@ns
-absent		$1
+absentee	$3
 absent		abs'Ent       $verb
 absentia	abs'Ent2i:@
 absinthe	absInT
@@ -759,7 +759,7 @@ allover		O:l'oUv3
 alm		A:m
 almost		O:lmoUst
 allspice	$1
-alt		0lt  //not abbrev
+alt		0lt   // not abbrev
 alternate	O:lt'3:n@t     $only
 alternate	O:lt3neIt      $verb
 alternately	O:lt'3:n@tlI   $verbf
@@ -876,6 +876,7 @@ attribute	atrIbju:t
 attribute	$alt3             $verb
 au		,oU
 aubergine	oUb3Zi:n
+audi		aUdi
 auger		O:g3
 augmentation O:gmEnt'eIS@n
 august		O:g@st
@@ -974,6 +975,7 @@ blurry		bl3:rI
 boing		bOIN
 bolognese	b0l@n'eIz
 bombard		$2
+bombardier	b0mb3d'i@3
 (bon voyage)	b0n||vOI'A:Z
 bonbon		b0nb0n
 bonhomie	b0n@mi:
@@ -1056,7 +1058,7 @@ capita		kapIt@
 capitol		kapIt@L
 caprice		ka#pri:s
 carafe		ka#raf
-caramel		kar@mEl
+?!3 caramel	kar@mEl $onlys
 caravan		kar@van
 carburetor	kA@b@r'Et3
 ?3 carburetor	kA@b@reIt3
@@ -1077,7 +1079,7 @@ cathedral	$alt3
 catholic	kaTlIk
 carotid		$alt3
 cartel		kA@t'El
-cavalier	$3
+cavalier	$alt1
 caveat		kavIat
 ?3 caveat	kavIA:t
 caviar		kavIA@
@@ -1091,6 +1093,7 @@ celebre		sEl'Ebr@
 censure		sEnS3
 ceres		si@ri:z
 certificate	s3tIfIk@t
+c'est		seI $u
 chagrin		SagrIn
 ?3 chagrin	Sa#grIn
 chalet		SaleI
@@ -1172,6 +1175,7 @@ coincide	koUIns'aId
 cojones		k@hoUneIs
 coliseum	k0l@s'i:@m
 collage		k0l'A:Z
+collarbone	k0l3boUn
 college		k0lI2dZ
 collegiate	k@li:dZI@t
 colloquial	k@loUkwI@L
@@ -1443,6 +1447,7 @@ edwardian	Edw'O@di@n
 efile		i:faIl
 egg		Eg	// egging 
 egregious	Igr'i:dZ@s
+?!3 egret	i:gr@t
 eh		eI
 eid		i:d
 el		,El $only
@@ -1684,6 +1689,7 @@ habitual	$alt3
 haggis		hagIs
 haha		hA:h'A:
 halation	$alt3  // in-
+halberdier	$alt1
 halleluiah	halI2'lu:j@
 hallelujah	halI2'lu:j@
 halloween	$3
@@ -1882,6 +1888,7 @@ kosher		koUS3
 kowtow		kaUt2aU
 
 la		,la           $only
+(la vie)	la||v'i:
 laboratory	la#b'0r@trI
 ?3 laboratory	labr@tO:ri
 labor		leIb3
@@ -2079,6 +2086,7 @@ modem		moUdEm
 ?3 modem		moUd@m
 moderate	m0d@reIt      $verb
 mogul		moUg@L
+moi		mwA:
 mojito		moUh'i:toU
 molass		$alt3
 molybdenum	$2
@@ -2300,6 +2308,7 @@ persona		p3:s'oUn@
 perspex		p3:spEks
 perus		p@ru:z
 peruse		p@ru:z
+petit		p@ti:
 petite		p@ti:t
 petroleum	p@troUli:@m
 petunia		$alt3
@@ -2340,6 +2349,7 @@ plethora	plET3r@
 plicate		$2
 plumber		plVm3
 plus		plVs
+pois		pwA:
 poly		p0lI
 politer		p@l'aIt3
 politic		p0l@tIk   $onlys
@@ -2657,6 +2667,7 @@ sesame		sEsa#mi
 settee		$2
 severe		sI2v'i@3        $only
 severely	sI2v'i@3lI      $verbf
+sewn		soUn
 sex		sEks		// sexism
 several		sEvr@L
 shallow		SaloU
@@ -2957,7 +2968,6 @@ useful		ju:sf@L
 utan		u:t'an
 utensil		ju:t'Ens@L
 
-valentine	val@ntaIn
 valet		valeI
 ?3 valet	val'eI
 valise		va#li:s
@@ -3215,6 +3225,7 @@ Egyptian	IdZ'IpS@n
 Eire		e@r@
 Elysee		eIl'i:zeI
 Elysée		eIl'i:zeI
+Erebus		ErI#b@s
 Erie		i@ri
 Euphrates	ju:fr'eIti:z
 Eyjafjalla	eIja#fjatla#
@@ -3426,6 +3437,7 @@ Ada		eId@  $onlys
 Andrea		$2
 Adrian		eIdri@n
 Agatha		aga#T@
+Angelika	$2
 Aggie		agi
 Agnes		agn@s
 Aguilera	agi:l'e@r@
@@ -3456,6 +3468,7 @@ Anthony		ant@ni
 Anton		ant0n
 Aoife		i:f@
 Aoiffe		i:f@
+Aphrodite	afr@d'aIti
 Archibald	A@tSIbO:ld
 Archie		A@tSi
 Ares		e@ri:z
@@ -3569,6 +3582,7 @@ Giovanni	dZ@v'A:ni
 Graeme		greI@m
 Graham		greI@m
 Guido		gwi:doU
+Guinevere	gwInI#vi@3
 Hadrian		heIdri:@n
 Hamish		heImIS
 Harriet		hari@t
