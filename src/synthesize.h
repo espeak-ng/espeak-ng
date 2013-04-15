@@ -192,23 +192,23 @@ typedef struct {
 
 // a clause translated into phoneme codes (first stage)
 typedef struct {
+	unsigned short synthflags;  // NOTE Put shorts on 32bit boundaries, because of RISC OS compiler bug?
 	unsigned char phcode;
 	unsigned char stresslevel;
-	unsigned char wordstress;
-	unsigned char tone_ph;    // tone phoneme to use with this vowel
-	unsigned short synthflags;
 	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
+	unsigned char wordstress;  // the highest level stress in this word
+	unsigned char tone_ph;    // tone phoneme to use with this vowel
 } PHONEME_LIST2;
 
 
 typedef struct {
 // The first section is a copy of PHONEME_LIST2
+	unsigned short synthflags;
 	unsigned char phcode;
 	unsigned char stresslevel;
+	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 	unsigned char wordstress;  // the highest level stress in this word
 	unsigned char tone_ph;    // tone phoneme to use with this vowel
-	unsigned short synthflags;
-	unsigned short sourceix;  // ix into the original source text string, only set at the start of a word
 
 	PHONEME_TAB *ph;
 	short length;  // length_mod

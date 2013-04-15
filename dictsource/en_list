@@ -16,9 +16,10 @@
 // ?7  Scottish
 // ?8  Use full vowel, not schwa in some word endings
 
-// $alt1   use strong ending (-table, -inal, -ier)
-// $alt2   use weak ending
+// $alt1   use strong ending (-an, -table, -inal, -ier)
+// $alt2   use weak ending (ate, ery, ess, ile, men)
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
+// $alt4   separate 'h', not 'th'
 // $alt6   'to'
 
 
@@ -570,6 +571,7 @@ inlb	$abbrev
 ios	$abbrev
 irc	$abbrev
 irs	$abbrev
+isbn	$abbrev
 itx	$abbrev
 (km ²)	skw,e@kIl'0mIt3z
 lapd	$abbrev
@@ -731,7 +733,7 @@ agog		a#g0g
 agressive	a#grEsIv     // misspell
 aground		a#graUnd
 ague		eIgju:
-aha		A:hA:
+aha		A:h'A:
 ahem		a#h'Em
 ahoy		a#hOI
 airbus		e@bVs
@@ -793,7 +795,6 @@ anemometer	anIm'0mI2t3
 anew		a#nju:
 ?3 anew		a#nu:
 anime		anImeI
-anion		aneI@n
 anise		anIs
 anniversary	anIv'3:s@ri
 anon		a#n0n
@@ -1156,6 +1157,7 @@ closely		kloUslI       $verbf // not kloUzlI
 closet		kl0zI2t
 cloth		kloUD         $verb
 c'mon		k@m0n
+coathanger	$alt4
 coauthor	koU'O:T3
 coaxial		koU'aksI@l
 cobol		koUb0l
@@ -1610,6 +1612,7 @@ fricassee	frIka#seI
 frigate		frIg@t
 fringer		frIndZ3	// infringer
 fringing	frIndZIN
+frisson		fri:s'O~
 frontend	fr'Vnt,End
 frontier	frVnti@3
 ?3 frontier	frVnt'i@3
@@ -1659,6 +1662,7 @@ gimme		gImi
 giraffe		dZI2raaf
 github		gIthVb
 glacier		gleIS3
+?3 goddess	$alt2
 goin		,goUI2n $only // for goin'
 gonna		g,@n@
 goodbye		$2
@@ -1680,6 +1684,7 @@ griffon		grIf@n
 grosvenor	groUv@n3
 groupie		gru:pi
 guacamole	gwA:ka#m'oUli:
+guarantee	$3
 gucci		gu:tSi
 gui		gu:i  $onlys
 guinea		gIni
@@ -2083,7 +2088,7 @@ mixer		mIks3
 moccasin	m0k@sI#n
 mocha		moUk@
 modem		moUdEm
-?3 modem		moUd@m
+?3 modem	moUd@m
 moderate	m0d@reIt      $verb
 mogul		moUg@L
 moi		mwA:
@@ -2166,10 +2171,11 @@ nothing		nVTIN
 notwithstanding	$3
 noway		noUweI
 nowhere		noUwe@
-?3 nuance		nu:0ns
+?3 nuance	nu:0ns
 
 oases		oU'eIsi:z
 oasis		oU'eIsI2s
+obdurate	$alt2
 obelisk		0b@lI2sk
 obesity		oUb'i:s@ti
 obey		oUb'eI
@@ -2392,6 +2398,7 @@ pretext		pri:t2Ekst
 pretrial	pri:tr'aI|@L
 pretty		prIti
 pretzel		prEts@L
+?3 priestess	$alt2
 primeval	praIm'i:v@L
 pristine	$2
 ?3 privacy      praIv@si
@@ -2457,6 +2464,7 @@ radish		radIS
 ragged		ragI#d
 raiment		reIm@nt
 rainforest	r'eInf,0rI2st
+(raison d'être)	reIz0n||d'Etr@-
 rajah		rA:dZA:
 rapier		reIpi@3
 rapport		rap'o@
@@ -2534,6 +2542,7 @@ rendevous	r0ndI2vu:
 rendezvous	r0ndI2vu:
 renegade	rEn@geId
 reo		ri:oU
+repartee	rEpA@t'eI
 repel		rI2pEl
 replay		ri:pleI
 reply		rI2plaI       // for replied
@@ -2843,9 +2852,7 @@ telephon	tElI2foUn     // for telephoning
 temperature	tEmprI2tS3
 ?!3 temporary	tEmpr@rI
 ?3 template	tEmpl@t
-thereof		,De@'0v
-thereon		,De@'0n
-thereto		,De@'tu:
+therefore	$1
 thermos		T3:m@s
 thermostable	$alt1
 thesis		Ti:sIs
@@ -3247,6 +3254,7 @@ Hawaiian	h@w'aI@n
 Hebrew		hi:bru:
 Hebrides	hEbr@di:z
 Honduras	h0nd'jU@r@s
+Honolulu	$3
 Houston		hju:st@n
 Idaho		$1
 Illinois	Il@n'OI
@@ -3545,6 +3553,7 @@ Duane		dweIn
 Duncan		dVnk@n
 Dvina		d@vi:n@
 Dylan		dIl@n
+Ebenezar	Eb@n'i:z3
 Edith		i:dIT
 Eduardo		Edw'A@doU
 Elijah		I2laIdZ@
@@ -3725,6 +3734,7 @@ Samantha	sa#manT@
 (Santa claus)	s'ant@||kl'O:z
 Saoirse		si@S@
 Sarah		se@r@
+Sarisa		$alt3
 Seamus		SeIm@s
 Sean		SO:n
 Sebastian	$alt3
@@ -3794,6 +3804,7 @@ Folger		foUldZ3
 Genghis		dZENgIs
 Gibson		gIbs@n
 Guinness	gInIs
+Gutierrez	gu:tj'ErEz
 Hades		heIdi:z
 Hamilton	ham@Lt@n
 Hoosier		hu:Z3
@@ -4244,6 +4255,7 @@ that             Dat		$u $nounf $strend2 $verbsf
 these            Di:z		$u $nounf $strend2 $only
 those            DoUz		$u $nounf $strend2 $only
 there            De@		$u $strend2 $only
+there've	 De@v		$u
 (there are)      D%e@,A@	$strend
 (there be)       De@b'i:
 (there were)     D%e@,w3:	$strend
