@@ -247,7 +247,7 @@
          b) ab (y        eIb
          b) ab (yl       ab
          &) able (_S4iev  @b@L         // suffix
-         &) able (_$w_alt eIb@L
+         &) able (_$w_alt1 eIb@L
         &c) able (_       @b@L
        @ct) able (_      =@b@L
          &) ability (S7iev    @b'IlI2t%i    // suffix
@@ -526,6 +526,7 @@
          k) alei (d      @laI
         _v) alen (t      al@n
             aleph        alEf
+       _op) al (es       @l
          _) alexan       alIgz'aan
          _) alfa         alf@
          _) al (g        al
@@ -757,8 +758,8 @@
        hum) an (_        @n
          &) an (ty_      @n
          &) an (t_       @n
-         &) an (t_$w_alt an
-?3       &) an (t_$w_alt A:n
+         &) an (t_$w_alt1 an
+?3       &) an (t_$w_alt1 A:n
 ?8       &) an (t_       a#n
         _f) an (at       a#n
         pl) an (t_       an
@@ -785,6 +786,8 @@
          &) an (ese      @n
          _) ane (s       anI
             an (gul      'an
+         _) ani          anI
+         _) ani (on      anaI
          &) ani (_       'A:nI
             an (ia       'eIn
             ania (c_     'eInIa
@@ -1019,6 +1022,7 @@
         _w) ar (d        O@
         sw) ar (d        O@
        chw) ar (d        O@
+         &) arye (_      3ri
 
 .group as
          _) as (@        a#s
@@ -1227,11 +1231,10 @@
             av (eng      a#v
          _) av (erC      a#v
             av (oA       a#v
-         d) av (en       av
          d) av (id       eIv
          j) av (a        A:v
          j) av (el       av
-         l) av (en       av
+        _B) av (en       av
         al) av (er       'A:v
         sc) av (en       av
          _) avi (A       eIvI
@@ -2487,6 +2490,7 @@
             err (_N      e@
 
 .group es
+            ess (_$w_alt2 @s
          &) es (_S1i     z
        &es) es (_        i:z
             ese (_       i:z
@@ -2653,6 +2657,8 @@
             ex (erc      Eks
          _) ex (A        %Egz
          _) exh          %Egz
+         _) ex (hal      %Eks
+         _) exh (ibiti   %Eks
 ?3       _) exhu         %Egzu:
          _) ex (it       Egz
             exor (c      Eks3
@@ -3044,7 +3050,7 @@
         &n) iel (_       j@L
         &r) iel (_       =i:@L
             ie (n        i@
-         &) ie (n_       =i@n
+         &) ie (n_       =i@
          d) iene (_      'aIi:n
             ie (ntal     I'E
          g) ie (n        i:
@@ -3328,7 +3334,7 @@
        adm) ini          InI
          m) iniatur      InItS3
          m) inera (l     In@r@
-            in (al_$w_alt 'aIn
+            in (al_$w_alt1 'aIn
         &m) in (al_      =In
          f) in (a        aIn
         @g) in (a_       aIn
@@ -4176,6 +4182,7 @@
             olt          oUlt
          w) olv          Ulv
        N_p) oly          ,0lI
+         _) ol (ym       @l
 
 .group om
          &) om (_        @m
@@ -5105,6 +5112,7 @@
          m) s (i         z
          a) s (el_       z
          m) s (y         z
+         n) s (y_        z
          a) s (e         s
        pha) s (e         z
         la) s (e         z
@@ -5280,6 +5288,7 @@
          _) t (sY        t
          _) t (wY        t
          _) tz (ar       ts
+            t (h$w_alt4  t
 
             tch          tS
          _) tele         tElI2
@@ -5308,6 +5317,7 @@
             tse (_       tsi
          _) tsk          t'@sk
          _) tsu          tsu:
+            tt (i_       =t
          _) two          tu:
             ttu (r       t@
             tz           ts
@@ -5361,6 +5371,7 @@
        ear) th (y        T
          _) there        De@
          _) them         D%Em
+         _) there (@     D%e@
          _) the (mA      Ti:
 
 .group ti
@@ -5382,7 +5393,8 @@
         &s) tion         tS@n
 ?8       &) tion         S=Vn
 ?8      &s) tion         tSVn
-            tion (al     S=@-n
+            tion (al_    S=@-n
+            tion (al     S@-n
          &) tious        S=@s
         AC) tive (_      =tIv
 

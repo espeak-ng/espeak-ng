@@ -609,7 +609,7 @@ arcüre) g (gyulladás g
  orszá) g (gyarapod g
   anya) g (gyár    g
   anya) g (gyűjt   g
-  végi) g (gya     g
+  végi) g (gy      g
     me) ggy (mag   J
     me) ggy (íz    J:
   bádo) g (gy      g
@@ -624,7 +624,7 @@ imádsá) g (gyűjt   g
     ro) ggyj (ék   J:
     rá) g (gyűjt   g         //for example virággyűjtés, virággyűjteményt words
    _lo) g (gyűjt   g         //for example loggyűjtemény word
-   dro) g (gyanú   g
+   dro) g (gy      g
     le) gg (roteszk g:
  _agya) g (gy      g
   anya) g (győz    g
@@ -649,6 +649,9 @@ csilla) g (gy      g
 hazugsá) g (gy     g
   tőze) g (gy      g
 doppin) g (gy      g
+baromsá) g (gy     g
+tehetsé) g (gy     g
+  bete) g (gy      g
 
 .group gy
         gy         J
@@ -828,6 +831,7 @@ progressz) í (ve   i:
     sz) í (veré    i:
     sz) í (verő    i:
     sz) í (vevő    i:
+expressz) í (v     i:
 
 .group j
         j          j
@@ -1041,6 +1045,7 @@ teljesítmé) ny (j  n^
         nem-lts    n'Em||_!'Ellt,e:,ES //without this rule Espeak spokening the nem LTS text with one word, because general in hu_list have a $combine attribute the nem word.
 
         n'Em       _!'Ellt,e:,ES
+porcelá) n (ny     n
 
 .group o
         o          o
@@ -1203,7 +1208,7 @@ juventu) ss        s:
 juventu) ssz       s:        //a radio station name
  farka) ssz (em    Ss
 villamo) ssz (ék   Ss
- titko) ssz (olgál Ss
+ titko) ssz (olg   Ss
   karo) ssz (ék    Ss
     hú) ssz (elet  Ss
   vörö) ssz (em    Ss
@@ -1722,6 +1727,29 @@ visszaélé) ssz     Ss
    esé) ssz (erű   Ss
   webe) ssz        Ss
 beleve) ssz (en    s:
+tengeré) ssz (ürk  s:
+hirdeté) ssz       S|s
+   _ki) ssz (éri   S|s
+   _ki) ssz (ersz  S|s
+ _fűté) ssz        S|s
+_kontaktu) ssz     S|s
+  _dió) ssz (ilá   S|s
+_konszenzu) ssz    S|s
+ forgá) ssz (er    S|s
+mérkőzé) ssz       S|s
+művelődé) ssz      S|s
+_nyomá) ssz (in    S|s
+  _oko) ssz        S|s
+oktatá) ssz (er    S|s
+pszichózi) ssz     S|s
+realitá) ssz       S|s
+szerződé) ssz      S|s
+születé) ssz (ám   S|s
+ tölté) ssz (ak    S|s
+ utazá) ssz (er    S|s
+zsarolá) ssz (er   S|s
+  dőlé) ssz (ab    S|s
+
 
 
 .group sz
