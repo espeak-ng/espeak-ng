@@ -687,6 +687,7 @@ wapper		$alt
 water		$alt
 wedijver	$alt
 wegwijzer	$alt
+weiger		$alt
 wester		$alt
 wijder		$alt
 wilder		$alt
@@ -1484,6 +1485,7 @@ informatie	$3
 invasie		$2
 januari		$3
 kadaster	$2
+leesregel	le:sre:Q@l
 mangat		$alt3
 materie		ma:t'e:ri
 maatregel	ma:tre:Q@l $alt2
@@ -1548,6 +1550,7 @@ spektakel	$2
 tegennatuur	$4
 travestie	$3
 verderop	$3
+vergezicht	vErQ@zIxt
 verre		vEr@
 verrekijker	vEr@kEIk@r
 verste		vErst@

@@ -23,8 +23,8 @@
 
 // accent names
 _lig	ligad'u*&
-_acu	&g'udU
-_ac2	&g'udUd'uplU	
+_acu	ag'udU
+_ac2	ag'udUd'uplU	
 _brv	bR'Evi
 _ced	sedZ'ilj&
 ?1 _ced	syd'il^&
@@ -301,6 +301,9 @@ mrs	$dot
 prof	pR'Of	$dot
 profº	pR,ofes'or
 profª	pR,ofes'o*&
+engº	eInZen^'eI*U
+engª	eInZen^'eI*&
+nº	n'u~me*U
 sr	$dot
 ?1 sra	,Es;'Errj'a	$dot
 ?2 sra	$dot
@@ -639,6 +642,7 @@ abordo		$alt
 aborto		$alt  $verb
 acerto		$alt2 $noun
 acertos		$alt2
+acocho		$alt2 $noun
 acordo		$alt $verb
 acervo		$alt2
 adepto		$alt
@@ -665,13 +669,13 @@ apneia		$alt
 apoio		$alt $verb
 arredores	$alt
 arremesso	$alt2 $noun
+arrocho		$alt2 $noun
 arroto		$alt2 $noun
 arroz		$alt2
 assembleia	$alt
 ateia		$alt
 aterro		$alt2
 aterro		$alt $verb
-atmosfera	$alt
 autora		$alt2
 avesso		$alt2
 axé		aSE
@@ -707,6 +711,7 @@ caderneta	$alt2
 cadete		$alt2
 cãibra		k'&~IbR&
 caibro		k'aIbRU
+caixeta		$alt2
 camelha		$alt
 camelo		$alt2
 camiseta	$alt2
@@ -731,7 +736,8 @@ cerca		$alt2 $noun
 cerco		$alt $verb
 cerda		$alt
 cetro		$alt
-chamego		$alt2
+chamego		$alt2 $verb
+chaveta		$alt2
 chefe		$alt
 checam		$alt
 choro		$alt2 $noun
@@ -739,10 +745,10 @@ chovesse	$alt2
 chupeta		$alt2
 clamores	$alt2
 clero		$alt
+coche		$alt2
 coco		$alt2
 cofre		$alt
 coice		$alt2
-colabore	$alt
 colete		$alt2
 colchete	$alt2
 colher		$alt $noun
@@ -765,6 +771,8 @@ coreia		$alt
 coreto		$alt2
 corneta		$alt2
 cornos		$alt
+coro		$alt2
+coro		$alt $verb
 corpos		$alt
 corto		$alt
 corveta		$alt2
@@ -773,8 +781,10 @@ coto		$alt2
 cotovelo	$alt2
 cratera		$alt
 crede		$alt2
+credo		$alt
 crepe		$alt
 decore		$alt
+decoro	$alt2 $noun
 degelo		$alt2
 desapego	$alt2 $noun
 descordo	$alt
@@ -815,6 +825,8 @@ engordo		$alt
 enredo		$alt  $verb
 enrosco		$alt  $verb
 enterro		$alt2 $noun
+entorto	$alt
+entroso	$alt
 envelope	$alt
 envolto		$alt2
 enxaqueca	$alt2
@@ -825,10 +837,10 @@ erro		$alt2
 erro		$alt $verb
 esboço		$alt  $verb
 escopeta	$alt2
+escore		$alt
 escova		$alt2
 escova		$alt $verb
 escovo		$alt
-escroto		$alt2
 esforço		$alt  $verb
 esforços	$alt
 esgoto		$alt2
@@ -840,17 +852,19 @@ espoleta	$alt2
 esposa		$alt2
 esqueleto	$alt2
 estilete	$alt2
-estrela		$alt2
-estrofe		$alt
 estorno		$alt  $verb
 estorvo		$alt  $verb
+estrela		$alt2
+estrofe		$alt
+estrogonofe	$alt
+eta	$alt2
 etiqueta	$alt2
 europa		$alt
 europeia	$alt
 exagero		$alt $verb
 explore		$alt
 faceta		$alt2
-fantoche	$alt
+falangeta		$alt2
 farofa		$alt
 farolete	$alt2
 febre		$alt
@@ -860,6 +874,7 @@ fezes		$alt
 filete		$alt2
 ?1 fixe		fiSy
 foda		$alt2 $verb
+fodo	$alt2
 fogos		$alt
 foguete		$alt2
 foice		$alt2
@@ -875,6 +890,8 @@ forro		$alt $verb
 frevo		$alt2
 fulgores	$alt2
 galera		$alt
+galeto		$alt2
+galhofa		$alt
 galileia	$alt
 gangorra	$alt2
 geleia		$alt
@@ -882,20 +899,22 @@ gelo		$alt2
 gelo		$alt $verb
 genebra		$alt
 gesso		$alt2
-golpe		$alt
+gloso	$alt
 gonorreia	$alt
+gol	gow
+golpe		$alt
 gorda		$alt2
 gorjeta		$alt2
 gosto		$alt $verb
 gota		$alt2
-governo		$alt2
+governo	$alt2
 governo		$alt $verb
 gozo		$alt2 $noun
 graveto		$alt2
 grelha		$alt
 groselha	$alt
 grosso		$alt2
-grozo		$alt $verb
+groso		$alt
 gueto		$alt2
 hemorroida	$alt
 hoje		$alt2
@@ -905,6 +924,8 @@ ideia		$alt
 imberbe		$alt
 interesse	$alt2
 interesse	$alt $verb
+iodo		$alt2
+ioga		$alt
 jogo		$alt2
 jogo		$alt $verb
 jogos		$alt
@@ -916,13 +937,16 @@ leitora		$alt2
 lembrete	$alt2
 lepra		$alt
 leste		$alt2 $verb
-?2   lhe	ly
+?2   lhe	l^y
 lingueta	$alt2
+lodo		$alt2
+logro	$alt
 lopes		$alt
 macete		$alt2
 maior		$alt
 maleta		$alt2
 maniçoba	$alt
+marieta	$alt2
 marreta		$alt2
 megera		$alt
 melhor		$alt
@@ -958,7 +982,6 @@ nervo		$alt2
 nojo		$alt2
 novelo		$alt2
 novos		$alt
-obstetra	$alt
 odisseia	$alt
 onu		$1
 olho		$alt2 $noun
@@ -997,6 +1020,7 @@ plebeia		$alt
 polca		$alt
 pompeia		$alt
 porcos		$alt
+porque	$alt2
 porra		$alt2
 porrete		$alt2
 porto		$alt2
@@ -1006,11 +1030,13 @@ povos		$alt
 poxa		p'oS&
 primavera	$alt
 primores	$alt2
+proso	$alt
 prosopopeia	$alt
 quarteto	$alt2
 queda		$alt
 quede		$alt2
 quinteto	$alt2
+ramalhete		$alt2
 raposa		$alt2
 recomeço	$alt $verb
 recordo		$alt
@@ -1024,21 +1050,22 @@ refresco	$alt  $verb
 rego		$alt2 $noun
 reitora		$alt2
 relevo		$alt2 $noun
-remoem		$alt
+remoem	$alt
 remorso		$alt
 renovo		$alt $verb
 retorno		$alt $verb
 reuva		x'EUv&
 rigores		$alt2
-rocha		$alt
 rock		$alt
 roem		$alt
 rola		$alt2 $noun
 rolo		$alt2 $noun
 rota		$alt2
 rota		$alt $noun
+rubores	$alt2
 rumores		$alt2
-sabonete	$alt2
+sabonete		$alt2
+sabores	$alt2
 saibro		s'aIbRU
 saleta		$alt2
 sarjeta		$alt2
@@ -1067,14 +1094,13 @@ sufocos		$alt2
 super		s'Uper
 suporto		$alt
 suor		swOr
+sutiã	sutSi'&~N
 tapete		$alt2
 temores		$alt2
 tempero		$alt2 $noun
 tenores		$alt2
 terrores	$alt2
 teta		$alt2
-tetra		$alt
-tocha		$alt
 toga		$alt
 topo		$alt  $verb
 torno		$alt  $verb
@@ -1083,6 +1109,8 @@ torre		$alt2 $noun
 torres		$alt2
 torro		$alt
 tortos		$alt
+toso	$alt
+transtorno		$alt $verb
 traqueia	$alt
 travesso	$alt2
 tremores	$alt2
@@ -1100,6 +1128,7 @@ violeta		$alt2
 violoncelo	$alt
 voga		$alt
 xarope		$alt
+xereta		$alt2
 zelo		$alt2 $noun
 zorra		$alt2
 
@@ -1110,6 +1139,8 @@ zorra		$alt2
 ?1 back       b'Ek
 ?2  backup        bEk'&p
 ?2  backups     bEk'&ps
+beatle  b'itow
+beatles  b'itows
 blind      bl'aind
 book  buk
 ?1 braille    b:r'aily
@@ -1157,11 +1188,11 @@ drivers  dR'aIveRs
 laptop lEptOp
 ?1 line       l'ain
    layout     l'eI,aUt
-?2 logo        l'OgU
+?2        logo        l'OgU
 ?1 lock       l'Ok
    mail       m'eIl
-   mails        m'eIls
-?2 mouse        m'aUzi
+        mails        m'eIls
+?2        mouse        m'aUzi
 ?1 menu       menu
 ?1 next       n'Ekst
    ok         Ok'eI
@@ -1181,6 +1212,7 @@ shake	S'eIk
 ?1 scroll     sk:r'ol
 ?1 site       s'aIt
 ?2 site       s'aItSi
+?2   shampoo  S&mpu
 ?1   software   s'Oft,w'Er-
 símbolo	s'imbolU
 ?4 símbolo	s'iNbolU
@@ -1231,7 +1263,11 @@ mac  mEk
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
-/1 office      'Of,is
+?2  netbook   nEtbUk
+?2  netbooks   nEtbUks
+?2  notebook   nowtbUk
+?2  notebooks   nowtbUks
+?1 office      'Of,is
 ?2 office  'Ofsy
    openoffice  'opeIN|'Ofis
 ?1 outlook     'autl'uk
@@ -1316,7 +1352,6 @@ klein       kl'aIn      // Very common on southern Brazil.
 krueger     kR'iZer
 krüger      kR'iZer
 kühl        k'il
-milton	m'Iwton
 mueler      m'iler
 mueller     m'iler
 müler       m'iler
@@ -1328,6 +1363,4 @@ vogel       f'o:g@l
 volkmann    f'Olkman
 washington	w'OSinton
 wellington	w'Elynton
-wilton	w'Iwton
-
 

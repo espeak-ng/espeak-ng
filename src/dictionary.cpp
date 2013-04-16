@@ -3523,9 +3523,9 @@ int LookupFlags(Translator *tr, const char *word)
 {//==============================================
 	char buf[100];
 	static unsigned int flags[2];
+	char *word1 = (char *)word;
 
 	flags[0] = flags[1] = 0;
-	char *word1 = (char *)word;
 	LookupDictList(tr, &word1, buf, flags, 0, NULL);
 	return(flags[0]);
 }

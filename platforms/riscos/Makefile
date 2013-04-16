@@ -2,8 +2,8 @@
 
 
 # Toolflags:
-CCflags = -c -C90 -depend !Depend -IC: -throwback -memaccess -zM -L22-S22-L41
-C++flags = -c -depend !Depend -IC: -throwback -zM -L22-S22-L41
+CCflags = -c -C90 -depend !Depend -IC: -throwback -zM -memaccess -L22-S22-L41
+C++flags = -c -depend !Depend -IC: -throwback -zM -memaccess -L22-S22-L41
 Linkflags = -rmf -c++ -o $@
 ObjAsmflags = -throwback -NoCache -depend !Depend
 CMHGflags = 
@@ -27,38 +27,64 @@ Squeezeflags = -o $@
 # User-editable dependencies:
 
 # Static dependencies:
-@.o.speak_riscos:   @.cpp.speak_riscos
-        c++ $(c++flags) -o @.o.speak_riscos @.cpp.speak_riscos 
-@.o.compiledict:   @.cpp.compiledict
-        c++ $(c++flags) -o @.o.compiledict @.cpp.compiledict 
-@.o.dictionary:   @.CPP.dictionary
-        c++ $(c++flags) -o @.o.dictionary @.CPP.dictionary 
-@.o.intonation:   @.CPP.intonation
-        c++ $(c++flags) -o @.o.intonation @.CPP.intonation
-@.o.numbers:   @.CPP.numbers
-        c++ $(c++flags) -o @.o.numbers @.CPP.numbers
-@.o.phonemelist:   @.CPP.phonemelist
-        c++ $(c++flags) -o @.o.phonemelist @.CPP.phonemelist
-@.o.readclause:   @.CPP.readclause
-        c++ $(c++flags) -o @.o.readclause @.CPP.readclause
-@.o.setlengths:   @.CPP.setlengths
-        c++ $(c++flags) -o @.o.setlengths @.CPP.setlengths 
-@.o.synthdata:   @.CPP.synthdata
-        c++ $(c++flags) -o @.o.synthdata @.CPP.synthdata 
-@.o.synth_mbrola:   @.CPP.synth_mbrola
-        c++ $(c++flags) -o @.o.synth_mbrola @.CPP.synth_mbrola 
-@.o.synthesize:   @.CPP.synthesize
-        c++ $(c++flags) -o @.o.synthesize @.CPP.synthesize 
-@.o.translate:   @.CPP.translate
-        c++ $(c++flags) -o @.o.translate @.CPP.translate 
-@.o.tr_languages:   @.CPP.tr_languages
-        c++ $(c++flags) -o @.o.tr_languages @.CPP.tr_languages 
-@.o.voices:   @.CPP.voices
-        c++ $(c++flags) -o @.o.voices @.CPP.voices 
-@.o.wavegen:   @.CPP.wavegen
-        c++ $(c++flags) -o @.o.wavegen @.CPP.wavegen 
+@.o.speak_riscos:   @.c.speak_riscos
+        cc $(ccflags) -o @.o.speak_riscos @.c.speak_riscos 
+@.o.compiledict:   @.c.compiledict
+        cc $(ccflags) -o @.o.compiledict @.c.compiledict 
+@.o.dictionary:   @.c.dictionary
+        cc $(ccflags) -o @.o.dictionary @.c.dictionary 
+@.o.intonation:   @.c.intonation
+        cc $(ccflags) -o @.o.intonation @.c.intonation
+@.o.numbers:   @.c.numbers
+        cc $(ccflags) -o @.o.numbers @.c.numbers
+@.o.phonemelist:   @.c.phonemelist
+        cc $(ccflags) -o @.o.phonemelist @.c.phonemelist
+@.o.readclause:   @.c.readclause
+        cc $(ccflags) -o @.o.readclause @.c.readclause
+@.o.setlengths:   @.c.setlengths
+        cc $(ccflags) -o @.o.setlengths @.c.setlengths 
+@.o.synthdata:   @.c.synthdata
+        cc $(ccflags) -o @.o.synthdata @.c.synthdata 
+@.o.synth_mbrola:   @.c.synth_mbrola
+        cc $(ccflags) -o @.o.synth_mbrola @.c.synth_mbrola 
+@.o.synthesize:   @.c.synthesize
+        cc $(ccflags) -o @.o.synthesize @.c.synthesize 
+@.o.translate:   @.c.translate
+        cc $(ccflags) -o @.o.translate @.c.translate 
+@.o.tr_languages:   @.c.tr_languages
+        cc $(ccflags) -o @.o.tr_languages @.c.tr_languages 
+@.o.voices:   @.c.voices
+        cc $(ccflags) -o @.o.voices @.c.voices 
+@.o.wavegen:   @.c.wavegen
+        cc $(ccflags) -o @.o.wavegen @.c.wavegen 
 @.o.assemb:   @.s.assemb
         objasm $(objasmflags) -from @.s.assemb -to @.o.assemb
 
 # Dynamic dependencies:
-
+o.wavegen:	c.wavegen
+o.wavegen:	h.StdAfx
+o.wavegen:	h.speak_lib
+o.wavegen:	h.speech
+o.wavegen:	h.phoneme
+o.wavegen:	h.synthesize
+o.wavegen:	h.voice
+o.wavegen:	h.sintab
+o.speak_riscos:	c.speak_riscos
+o.speak_riscos:	C:h.kernel
+o.speak_riscos:	h.speech
+o.speak_riscos:	h.speak_lib
+o.speak_riscos:	h.phoneme
+o.speak_riscos:	h.synthesize
+o.speak_riscos:	h.voice
+o.speak_riscos:	h.translate
+o.synthdata:	c.synthdata
+o.synthdata:	h.StdAfx
+o.synthdata:	h.wctype
+o.synthdata:	h.speak_lib
+o.synthdata:	h.speech
+o.synthdata:	h.phoneme
+o.synthdata:	h.synthesize
+o.synthdata:	h.voice
+o.synthdata:	h.translate
+o.synthdata:	h.wave
+o.synthdata:	C:h.stdint
