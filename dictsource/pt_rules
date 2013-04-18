@@ -343,6 +343,7 @@
      t) e (tra     E
 
     âC) e (CA_     e
+   âCC) e (CA_     e
     êC) e (CA_     e
    êCC) e (CA_     e
     ôC) e (CA_     e
@@ -420,6 +421,7 @@ _troux) e (L07_    E
   _cel) e (brL04_  E
    _ex) e (crL04_  E
   _enr) e (dL01_   E
+    _n) eu (trL03_ 'eU
     _v) e (dL03_   E
   _arr) e (dL03_   E
  _depr) e (dL03_   E
@@ -585,6 +587,10 @@ _entorp) e (çL03_  e
      _) i (_       i
         i          i
         i (A       j
+        i (a       i
+        i (ã       i
+        i (õ       i
+        i (ú       i
         i (o       i
     Cr) i          i
     Cl) i          i
@@ -711,8 +717,7 @@ _entorp) e (çL03_  e
         o (s_      =U
      _) o (_C      U
      _) o (_A      u
-    _d) o (_C      U
-    _d) o (_A      u
+
         ou         ow
         oi         oI
         oi ($w_alt OI
@@ -819,13 +824,13 @@ _entorp) e (çL03_  e
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
 ?1   v) o (lt      O
 
+        o (Cuem_   o
+        o (CCuem_  o
     êC) o (CA_     o
    êCC) o (CA_     o
     ôC) o (CA_     o
     áC) o (CA_     o
-     C) o (Cá_     o
-     C) o (CCá_    o
-     C) o (CCCá_   o
+
     éC) o (CA_     o
    éCC) o (CA_     o
      í) o (CA_     U
@@ -946,8 +951,8 @@ _remem) o (rL04_   O
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-     A) quên       kw'eN     // frequência, etc.
-     C) quên       kw'eN     // quinquênio, etc.
+     A) quên       kw'eIN    // frequência, etc.
+     C) quên       kw'eIN    // delinquência, etc.
    ade) qu (e      kw
      A) qu (idade_ kw
     _a) qu (ífero_ kw
@@ -1046,11 +1051,12 @@ _remem) o (rL04_   O
         u (A       w
         u (_A      w
      r) u (A       u
+        u (a       u
+     g) u (a+      w
+     q) u (a+      w
      r) u (_A      u
-        u (A_      'u
+        u (L04_    'u
 
-        u (am_     'u
-        u (em_     'u
         ui         uI
         ui (_      'uI
         u (iu      w
