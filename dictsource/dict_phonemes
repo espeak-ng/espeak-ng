@@ -47,11 +47,11 @@ s;   t    t;   tS   ts   v    x    z
 Z    z;   
 
 
-Dictionary bn_dict  2013-04-10
+Dictionary bn_dict  2013-04-18
 
-&    a    a~   e    e~   i    i~   l-   
-o    O    o:   O~   o~   r-   u    u~   
-V    
+&    a    a~   e    e~   i    i:   i~   
+l-   o    O    o:   O~   o~   r-   u    
+u~   V    
 
 :    b    b#   d    d#   d.   d.#  dZ   
 f    g    g#   h    H    j    J    J#   
@@ -137,7 +137,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-04-15
+Dictionary en_dict  2013-04-18
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -276,7 +276,7 @@ q    r    r.   s    S    s.   t    T
 t#   t.   t.#  v    w    x    z    
 
 
-Dictionary hu_dict  2013-04-15
+Dictionary hu_dict  2013-04-18
 
 a    A    a:   e    E    e:   i    i:   
 o    o:   u    u:   Y    y    y:   Y:   
@@ -562,7 +562,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-04-15
+Dictionary pt_dict  2013-04-18
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
