@@ -113,7 +113,7 @@ endphoneme
 phoneme U
   vowel starttype #u endtype #u
   length 130
-  IF nextPh(isVowel) THEN
+  IF thisPh(isWordEnd) AND thisPh(isAfterStress) AND nextPh(isVowel) THEN
     ChangePhoneme(w)
   ENDIF
   FMT(vowel/u_6)

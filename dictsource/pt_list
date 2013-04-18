@@ -128,8 +128,10 @@ _¡	,eskl&mas,&U~,iNvertS'id&
 _¿	,iNtex,ogas,&U~,iNvertS'id&
 
 _"	'abRi;'asp&||d'upl&s#
-_º	o*@-dZin'almaskul'i~nU
-_ª	o*@-dZin'alfemin'i~nU
+?1   _º	O*@-din'almaskul'i~nU
+?2   _º	o*@-dZin'almaskul'i~nU
+?1   _ª	O*@-din'alfemin'i~nU
+?2   _ª	o*@-dZin'alfemin'i~nU
 °	gR'aU
 
 
@@ -311,7 +313,7 @@ sr	$dot
 // articles
 o	$u+	$nounf
 a	$u+	$nounf
-os	$u+	$nounf
+os	Us	$u+	$nounf
 as	$u+	$nounf
 ?1 a    & $u+   $nounf
 
@@ -337,7 +339,7 @@ me	$u	$verbf	// reflexive
 te	$u	$verbf
 nos	$u	$nounf
 la	$u
-lo	$u
+lo	lU	$u
 las	$u
 los	$u
 se	$u
@@ -352,11 +354,10 @@ essa	'Es&  $u+	$noun
 desse	$u+	$nounf
 desta	$nounf
 nesse	n'esy	$u+ $nounf
-aquele	&k'ely	$u+	$nounf       // that
 aquela	$u+ $nounf
-daquele	d&k'ely	$u+	$nounf
+aquele	$alt2 $nounf
 daquela $u+ $nounf
-
+daquele	$alt2 $nounf
 	que	$u      // pronunciation is in pt_rules
 
 // possessive adjectives
@@ -378,7 +379,7 @@ nele	nely	$u1+
 
 // prepositions
 de	$u	$nounf // of,from
-do	$u	$nounf
+do	du	$u	$nounf
 da	$u	$nounf
 dos	$u	$nounf
 das	$u	$nounf
@@ -388,7 +389,7 @@ duns	$u	$nounf
 dumas	$u	$nounf
 
 em	$u	$noun  // in,on,at
-no	nu $u	$nounf
+no	nU	$u	$nounf
 na	$u	$nounf
 num	$u	$nounf
 numa	$u	$nounf
@@ -406,9 +407,9 @@ aos	$u	$nounf
 às	,a:s	$nounf
 
 para	$u		// for,to
-pro	$u	$nounf
+pro	pRU	$u	$nounf
 pra	$u	$nounf
-pros	$u	$nounf
+pros	pRUs	$u	$nounf
 pras	$u	$nounf
 prò	$u	$nounf
 prà	$u	$nounf
@@ -715,6 +716,7 @@ caixeta		$alt2
 camelha		$alt
 camelo		$alt2
 camiseta	$alt2
+canhoto		$alt2
 cantora		$alt2
 capacete	$alt2
 caractere	$alt
@@ -809,7 +811,8 @@ diarreia	$alt
 diego		$alt2
 discordo	$alt
 dispneia	dZIspyn'EI&
-dobro		$alt2 $noun
+dobro		$alt2
+dobro		$alt $verb
 doce		$alt2
 doutora		$alt2
 doze		$alt2

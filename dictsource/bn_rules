@@ -1,4 +1,5 @@
-﻿
+// Pronounciation rule for Bengali.
+// Improvement input by Him Prasad Gautam (Nepal).
 // This file is UTF8 encoded 
 
 // letter groups:
@@ -97,49 +98,48 @@
 // Vowel Signs
 
 .group া
-       া         a
-       াঁ        a~
-       
+	C) া	a
+	C) াঁ	a~
+
 .group ি
-       ি         i
-       িঁ        i~
-    
+	C) ি	i
+	C) িঁ	i~
+
 .group ী
-       ী         i
-       ীঁ        i~
+	C) ী	i
+	C) ীঁ	i~
 
 .group ূ
-       ূ         u
-       ূঁ        u~
+	C) ূ	u
+	C) ূঁ	u~
 
 .group ু
-       ু         u
-       ুঁ        u~
-     
+	C) ু	u
+	C) ুঁ	u~
+
 .group ৃ
-       ৃ         ri
-       ৃঁ        ri~
+	C) ৃ	r'i
+	C) ৃঁ	r'i~
 
-       
 .group ে
-       ে        e
-       েঁ       e~
-       েউ       ew
-
+	C) ে	e
+	C) েঁ	e~
+	C) েউ	ew
 
 .group ৈ
-       ৈ        oj
-       ৈঁ       o~j
-    
+	C) ৈ	oj
+	C) ৈঁ	o~j
+
 .group ো
-       ো        o
-       োঁ       o~
-  
+	C) ো	o
+	C) োঁ	o~
+
 .group ৌ
-       ৌ        ow
-       ৌঁ       o~w
-  
-        
+	C) ৌ	ow
+	C) ৌঁ	o~w
+
+
+       
 // Consonants
 
 .group ক
@@ -167,7 +167,7 @@
         
 .group ঙ
         ঙ        NV
-        ঙ্ (B     N
+        ঙ (B     N
 
 
 .group চ
@@ -176,8 +176,8 @@
 
 
 .group ছ
-        ছ        tS#V
-        ছ  (B    tS#
+        ছ        tShV
+        ছ  (B    tSh
 
         
 .group জ
@@ -197,7 +197,7 @@
         
 .group ঞ
         ঞ        nV
-        ঞ্ (B     n
+        ঞ (B     n
  
 
 .group ট
@@ -284,7 +284,8 @@
         
 .group য়
         য়       jV
-        য় (B    j    
+     _) য় (B    j    
+        য় (B        // used to separate 2 vowels    
 
         
 .group য
@@ -292,7 +293,8 @@
         য (B    dZ
         
         য়	jV   // nukta
-        য় (B	j
+     _) য় (B	j
+        য় (B	
 
      ্) য (C    &   //  ব্যস্ত  [bæsto]
      ্) যা      &    // ব্যাকরণ [bækɔron] 
@@ -359,17 +361,19 @@
 
 
 .group ঁ
-	ঁ	 O~     // candrabindu, nasalize the previous vowel
+	C) ঁ	 O~     // candrabindu, nasalize the previous vowel/Consonants
 
 .group ং
-       ং        N     //  anusvara/onushshor
-
+       A) ং        N     //  anusvara/onushshor
+       C) ং        N     //  anusvara/onushshor
+   
 .group ঃ              // visarga/bishorgo
         ঃ             // doubles the following consonant
         ঃ (_      H
 
 .group ্		// virama/hoshonto
-	্
+     C) ্
+
 
 .group ়
 	়		// nukta, modifies a consonant
