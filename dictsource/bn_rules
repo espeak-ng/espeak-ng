@@ -176,8 +176,8 @@
 
 
 .group ছ
-        ছ        tShV
-        ছ  (B    tSh
+        ছ        tS#V
+        ছ  (B    tS#
 
         
 .group জ
@@ -235,6 +235,7 @@
 .group ত
         ত        tV
         ত (B     t
+        ত (_     to
 
         
 .group থ
@@ -338,6 +339,7 @@
 .group হ
         হ        hV  
         হ (B     h
+        হ (_     ho
 
         
 .group হ্ব
@@ -357,6 +359,7 @@
 .group ঢ়         // can be ঢ plus nukta
         ঢ়        hr.V
         ঢ় (B     hr.
+        ঢ় (_     hr.o
         
 
 
