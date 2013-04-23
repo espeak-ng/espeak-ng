@@ -1,5 +1,5 @@
 
-90 phoneme tables
+91 phoneme tables
           new total
     base 109  109
 consonants  11  119
@@ -44,7 +44,7 @@ consonants  11  119
       bg  14  124
       it  19  129
       la  21  126
-      es  15  125
+      es  16  125
    es-la   1  125
       ca  11  127
       an   4  125
@@ -56,12 +56,13 @@ consonants  11  119
       sv  22  129
       no  28  134
       is  42  141
-      vi  53  147
-  vi-hue   8  147
+      vi  57  150
+  vi-hue  15  150
+  vi-sgn  17  150
      zhy  41  138
       zh  64  155
       sw   9  110
-      tr  19  128
+      tr  20  129
       ku  18  129
       id  16  128
       sq  33  127
@@ -243,15 +244,18 @@ dzh/xdz_pzd     [J] base
 envelope/i_risefall  [11] zh
 envelope/i_risefall2  [+2] rw
 envelope/p_214  [5] vi
-                [5] vi-hue
                 [214] zh
 envelope/p_512  [+] pa
                 [6] vi
                 [4] vi-hue
+                [5] vi-hue
                 [6] vi-hue
+                [6] vi-sgn
 envelope/p_fall  [2] vi
                 [7] vi
                 [2] vi-hue
+                [2] vi-sgn
+                [7] vi-sgn
                 [4] zhy
                 [7] zhy
                 [21] zh
@@ -261,23 +265,27 @@ envelope/p_fall  [2] vi
                 [53] zh
                 [+] rw
 envelope/p_fallrise  [4] vi
+                [3] vi-hue
 envelope/p_level  [1] vi
                 [1] vi-hue
                 [7] vi-hue
+                [1] vi-sgn
                 [1] zhy
                 [3] zhy
                 [6] zhy
                 [55] zh
 envelope/p_rise  [3] vi
-                [3] vi-hue
+                [3] vi-sgn
+                [4] vi-sgn
+                [5] vi-sgn
                 [2] zhy
                 [5] zhy
                 [44] zh
                 [35] zh
 envelope/vi_5amp  [5] vi
-                [5] vi-hue
 envelope/vi_6amp  [6] vi
                 [2] vi-hue
+                [5] vi-hue
                 [6] vi-hue
 g2/xg           [g#] hi
 g/g             [g] base
@@ -592,7 +600,6 @@ n/n@            [n] base
                 [n#] is
                 [n] zh
 n/n#_           [n#] is
-                [n] vi
 n^/n^a          [n^] base
                 [n;] lt
                 [n#] ru
@@ -655,6 +662,7 @@ n/no            [n] base
                 [n] zh
 n/_nr           [n.] base
 n/nr_           [n.] base
+                [n] vi
 n/nr@           [n.] base
 n/nra           [n.] base
 n/nre           [n.] base
@@ -1005,6 +1013,7 @@ ustop/t_dnt     [t] base
                 [t] hr
 ustop/t_dnt2    [t] base2
                 [d] kn
+                [t] es
 ustop/t_hi      [t[] base
                 [t] et
                 [t^] et
@@ -1080,7 +1089,6 @@ ustop/t_unasp2  [t] el
                 [t] zh
 vdiph/0i        [OI] pt
                 [OI] grc
-                [OI] vi
 vdiph/0i_2      [OI] en-sc
                 [OI] en-wi
                 [AI] no
@@ -1301,10 +1309,12 @@ vdiph/@i_2      [eI] af
                 [@I] cy
                 [@Y] cy
                 [@] am
+vdiph/&i_2      [aI] vi
 vdiph/i@_2      [e@] af
                 [e@] tn
 vdiph/@i_3      [eI] en-wm
                 [@I] ro
+                [@-] vi
                 [ai] zhy
 vdiph/ii        [iI] ro
 vdiph/i#i       [yI] ro
@@ -1330,9 +1340,13 @@ vdiph/ooi       [OI] en
                 [oi] mt
 vdiph/ooi_2     [OI] af
                 [oI] eo
+                [Oi] vi-hue
+                [Oi] vi-sgn
 vdiph/ooi_3     [OI] en-us
                 [OI] en-rp
                 [aI] en-wm
+                [OI] vi
+                [Oi] vi
 vdiph/ooi_4     [OI] sq
 vdiph/oou       [oU] cs
                 [OU] grc
@@ -1374,7 +1388,6 @@ vdiph/Vu        [@U] af
 vdiph/Vu_2      [oU] en-wm
 vdiph/&y        [&y] fi
                 [Wy] nl
-                [aI] vi
 vdiph/yi        [yi] fi
                 [yi] et
                 [yI] grc
@@ -1390,7 +1403,7 @@ vdiph/y#y       [Yy] fi
 vdiph/y#y_2     [Yy] af
                 [eoi] zhy
 vdiph/y#y_3     [Y:] nl
-vietnam/a       [a:] vi
+vietnam/a       [a:] vi-sgn
 vietnam/_c      [kh] vi
 vietnam/ch      [c] vi
 vietnam/dd      [d] vi
@@ -1422,6 +1435,7 @@ vnasal/i_n      [i~] pt
 vnasal/i_n2     [i~] hi
 vnasal/&_n      [a~] hi
 vnasal/oi_n     [oI~] pt
+                [O-] vi
 vnasal/o_n      [o~] hi
                 [o~] pt
                 [O~] ht
@@ -1436,7 +1450,6 @@ vnasal/&u_n     [O#] vi
 vnasal/u_n      [U~] hi
                 [u~] hi
                 [u~] pt
-                [u] vi
                 [u] zh
 vnasal/V_n      [V~] hi
 vnasal/W_n      [E~] fr
@@ -1553,8 +1566,11 @@ vowel/0         [0] en
                 [O] hi
                 [O] pt
                 [O] grc
+                [O] vi-hue
+                [O] vi-sgn
 vowel/0_2       [0] en-n
                 [O] pt-pt
+                [O] vi
                 [o] sw
                 [O] sl
                 [o] nso
@@ -1726,6 +1742,7 @@ vowel/a_7       [a] fr
                 [a] ht
 vowel/a_8       [a] en
                 [a] sk
+                [a:] vi
                 [A] da
                 [?A] da
 vowel/aa        [a:] et
@@ -1749,7 +1766,6 @@ vowel/aa_3      [A:] af
                 [A] sq
                 [A] prs
 vowel/aa_4      [A:] sv
-                [O] vi
 vowel/aa_5      [A:] en-n
                 [A@] en-n
                 [A:] en-wm
@@ -1883,6 +1899,7 @@ vowel/ee_5      [E] en
                 [E] ko
 vowel/ee_6      [&] sk
                 [E3] sv
+                [&] tr
                 [E] ku
                 [&] si
                 [&:] si
@@ -2158,6 +2175,7 @@ vowel/o         [o] base2
                 [o] pt-pt
                 [o] grc
                 [o:] sv
+                [o] vi
                 [o] id
                 [o] hy
                 [o] rw
@@ -2174,7 +2192,6 @@ vowel/o_2       [o:] cy
                 [o:] hu
                 [o:] la
                 [o:] no
-                [o] vi
                 [o] da
                 [?o] da
 vowel/o-_2      [V] en-n
@@ -2184,7 +2201,8 @@ vowel/o_3       [oU] en-sc
 vowel/o-_3      [U] en-rp
 vowel/o-_4      [o] ro
                 [o] am
-vowel/o_5       [O] da
+vowel/o_5       [o] vi-sgn
+                [O] da
                 [?O] da
 vowel/o_6       [O] nl
                 [O:] nl
@@ -2335,12 +2353,15 @@ vowel/u_2       [u1] fi
                 [u] am
                 [u] wo
 vowel/u#_2      [u-] sv
+vowel/u_3       [u-] vi
 vowel/u#_3      [U] ta
                 [U:] ta
 vowel/u#_4      [U] en-sc
                 [u:] en-sc
                 [y] ml
+                [y] vi-sgn
 vowel/u_5       [U1] et
+                [u] vi
                 [u] sw
                 [u] nso
                 [u] az

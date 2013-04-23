@@ -119,7 +119,7 @@ wxMenuBar *MakeMenu(int type, const char *dict_name)
         option_menu = new wxMenu;
         option_menu->Append(MENU_PATHS, _("Set &paths"), paths_menu);
         option_menu->Append(MENU_OPT_SPEED, _("Speed..."));
-        option_menu->Append(MENU_OPT_PUNCT, _("Speak punctiation"));
+        option_menu->Append(MENU_OPT_PUNCT, _("Speak punctuation"));
         option_menu->Append(MENU_OPT_SPELL, _("Speak character names"));
 
         // TOOLS

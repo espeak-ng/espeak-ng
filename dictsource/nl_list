@@ -112,7 +112,7 @@ _6X	z'Est@x
 _7X	z'e:v@nt@x
 _8X	t'Axt@x
 _9X	n'e:g@nt@x
-_0C	h'OndErt
+_0C	h'Ond@rt
 _0M1	d'WyzEnt
 _0M2	m'iljun
 _0M3	m'iljArt
@@ -377,6 +377,7 @@ keten		$alt
 loochen		$alt
 oefen		$alt
 open		$alt
+reden		$alt
 regen		$alt
 reken		$alt
 schepen		$alt
@@ -1098,6 +1099,7 @@ gijzel		$alt
 gispel		$alt
 gniffel		$alt
 goochel		$alt
+googel		$alt
 gorgel		$alt
 grabbel		$alt
 grendel		$alt
@@ -1404,6 +1406,7 @@ vondel		$alt
 accessoire      aksEsw'ar@
 accessoires     aksEsw'ar@s
 actiepunt	Aksip8nt
+actieve		Akt'iv@
 adhesie		Ath'e:zi
 agenda		$2
 aldus		Ald'8s
@@ -1453,6 +1456,7 @@ december	$2
 desillusie	dEsIlyzi
 dieet		$2
 diesel		diz@l
+diner		din'e:
 //discussie	$2
 divers		div'Ers
 diftongering    dIft,ON'e:rIN
@@ -1462,6 +1466,7 @@ eensgelijks	e:nsQ@l'EIks
 elfstedentocht	,Elf'ste:d@ntoQt
 embouchuur	A~buS'yr   // embouchure
 enorm		$2
+enquête		A~k'Et@ $alt2
 erosie		e:r'o:zi
 eucharistie	$4
 explosie	$2
@@ -1486,6 +1491,8 @@ invasie		$2
 januari		$3
 kadaster	$2
 leesregel	le:sre:Q@l
+lunch		l8nS
+lunches		l8nS@s
 mangat		$alt3
 materie		ma:t'e:ri
 maatregel	ma:tre:Q@l $alt2
@@ -1531,6 +1538,7 @@ ongerieflijk	$3
 partijvoorzitters $2
 periferie	pI:rifI:r'i
 pistache	pist'AS
+privilege	privil'e:Z@ $alt2
 proces		$2
 projectielen    $3
 renaissance	rEne:s'A~s@
@@ -1548,6 +1556,7 @@ serie		sI:ri
 sms'jes		EsEm'Es_j@s
 spektakel	$2
 tegennatuur	$4
+tralie		$1
 travestie	$3
 verderop	$3
 vergezicht	vErQ@zIxt
@@ -1556,6 +1565,7 @@ verrekijker	vEr@kEIk@r
 verste		vErst@
 verte		vErt@
 volledig	$2
+voordeel	$1
 vrouwengek	$alt3
 waarschijnlijk	$2
 wanen		v#a:n@n

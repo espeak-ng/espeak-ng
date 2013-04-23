@@ -2272,6 +2272,67 @@ void Test2()
 
 #endif
 
+#define MAX_WALPHA  0x24f
+void Make_walpha_tab()
+{//===================
+	int  ix;
+	int  value;
+	int  c;
+	short exceptions[40];
+	int  ex = 0;
+	FILE *f;
+
+	f = fopen("/home/jsd1/walpha_tab.txt","w");
+	for(ix=0x80; ix<=MAX_WALPHA; ix++)
+	{
+		value = 0;
+		if(iswalpha(ix))
+		{
+			value = 0xfe;  // no case
+			if(iswlower(ix))
+			{
+				value = 0xff;
+			}
+			else if(iswupper(ix))
+			{
+				c = towlower(ix);
+				if(c > 0)
+					value = c - ix;
+
+				if((value < 0) || (value > 0xfc))
+				{
+					exceptions[ex] = ix;
+					exceptions[ex+1] = c;
+					ex+=2;
+					value = 0xfd;
+				}
+			}
+
+		}
+
+		if(value > 0xfc)
+			fprintf(f," 0x%.2x,", value);
+		else
+			fprintf(f," %4d,", value);
+
+
+		if((ix % 16) == 15)
+		{
+			fprintf(f," // %.3x\n", ix & 0xfff0);
+		}
+
+	}
+
+	fprintf(f, "\nstatic const short wchar_tolower[] = {\n");
+	exceptions[ex] = 0;
+	exceptions[ex+1] = 0;
+	for(ix=0; ix<=ex; ix+=2)
+	{
+		fprintf(f,"\t0x%.3x, 0x%.3x,\n", exceptions[ix], exceptions[ix+1]);
+	}
+	fprintf(f, "};\n");
+	fclose(f);
+}
 
 
 const char* text1 = "Hello world. Testing.";
@@ -2319,9 +2380,16 @@ if(control==2)
 	espeak_SetSynthCallback(TestSynthCallback);
 	espeak_SetUriCallback(TestUriCallback);
 
-	espeak_SetVoiceByName("en");
+	voice.languages = "fr";
+	espeak_SetVoiceByProperties(&voice);
+//	espeak_SetVoiceByName("fr");
+	espeak_Synth("1", 5, 0,  POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
+
+//	voice.languages = "en";
+//	espeak_SetVoiceByProperties(&voice);
+	espeak_SetVoiceByName("de");
 	espeak_Synth(textbuf, strlen(textbuf)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)user_data);
-//  espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)(user_data+1));
+//    espeak_Synth(text1, strlen(text1)+1, 0, POS_CHARACTER, 0,  espeakSSML|espeakCHARS_UTF8, &unique_identifier, (void *)(user_data+1));
 
   espeak_SetParameter(espeakPUNCTUATION, 1, 0);
   espeak_Synchronize();

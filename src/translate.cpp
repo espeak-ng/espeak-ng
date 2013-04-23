@@ -384,8 +384,11 @@ int IsAlpha(unsigned int c)
 		0
 	};
 
-	if(iswalpha(c))
+	if(iswalpha2(c))
 		return(1);
+
+	if(c < 0x300)
+		return(0);
 
 	if((c >= 0x901) && (c <= 0xdf7))
 	{
@@ -2957,7 +2960,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 							if(UpperCaseInWord(tr, &sbuf[ix], c) == 1)
 							{
 								// convert to lower case and continue
-								c = towlower(c);
+								c = towlower2(c);
 							}
 							else
 							{

@@ -43,16 +43,16 @@ _?A	haRf
 //_lig	
 _acu	vURg'UimI
 _ac2	tS'IftvURg'UimI	
-_brv	k@s'altmaimI
+_brv	k@s'aLtmaimI
 _ced	h'aRf
 _cir	Sapk'a
-_dia	Umla'Ut
+_dia	UmLa'Ut
 _dot	YstnOkt'a
 _grv	'aksanimI
 _hac	t'ERsSapk'a
 _mcn	uz'atmaimI
 _ogo	ogon'Ek
-_rng	halk'a
+_rng	haLk'a
 //_stk	
 _tld	tIld'E
 
@@ -60,7 +60,7 @@ _tld	tIld'E
 // symbols
 _.	nOkt'a
 _,	vIRJ'Yl
-_;	nOktal'@vIRJ'Yl
+_;	nOktaL'@vIRJ'Yl
 _:	ik'InOkt'a
 _…	'YtSnOkt'a
 _?	soR'UiSa*et,I
@@ -73,7 +73,7 @@ _'	apOstR'Of
 _^	IndZ'EltmEiSa*et'I
 &	_!v'E
 _&	v'EiSa*et'I
-_@	kUjRUkl'U'a
+_@	kUjRUkL'U'a
 _\	t'ERs||ej,IktSIzg'I
 _(	atSpa*ant'Ez
 _)	kapapa*ant'Ez
@@ -84,9 +84,9 @@ _‘	tEkt@Rn'ak
 §	tSEnJ'El
 °	de*edZ'E
 _#	dij'Ez
-_~	jaklaS'@k
-__	,alttSIzg'I
-*	j'@ld@z		$max3
+_~	jakLaS'@k
+__	,aLttSIzg'I
+*	j'@Ld@z		$max3
 =	ESIt		$max3
 %	jYzdE		$max3
 +	aRt@		$max3
@@ -99,7 +99,7 @@ _2	ic'i
 _3	'ytS
 _4	d'WRt
 _5	b'ES
-_6	alt'@
+_6	aLt'@
 _7	jed'i
 _8	sec'Iz
 _9	d'okuz
@@ -111,7 +111,7 @@ _2X	jiRm'i
 _3X	ot'uz
 _4X	k'@Rk
 _5X	ell'i
-_6X	altm'@S
+_6X	aLtm'@S
 _7X	jetm'iS
 _8X	seks'En
 _9X	doks'an
@@ -260,13 +260,13 @@ Düzce $1
 Edirne $2
 Hakkari $1
 Hatay $1
-Iğdır $1
-İngiltere $3
-İskenderun $2 
+ığdır $1
+ingiltere $3
+iskenderun $2 
 Isparta $2
-İstanbul $2
-İsveç $1
-İzmir $1
+istanbul $2
+isveç $1
+izmir $1
 Kastamonu $1
 Kayseri $1
 Kilis $1

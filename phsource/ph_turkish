@@ -2,7 +2,7 @@
 
 phoneme i
   vowel starttype #i endtype #i
-  length 150
+  length 180
   IF thisPh(isTranslationGiven) THEN
     // don't reduce the vowel if phonemes are explicitly given
   ELSE
@@ -18,14 +18,14 @@ endphoneme
 
 phoneme I
   vowel starttype #i endtype #i
-  length 150
+  length 180
   FMT(vowel/ii_5)
 endphoneme
 
 
 phoneme y
   vowel starttype #u endtype #u
-  length 155
+  length 180
   IF thisPh(isTranslationGiven) THEN
     // don't reduce the vowel if phonemes are explicitly given
   ELSE
@@ -41,7 +41,7 @@ endphoneme
 
 phoneme Y
   vowel starttype #u endtype #u
-  length 155
+  length 180
   FMT(vowel/u#)
 endphoneme
 
@@ -49,10 +49,16 @@ endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 180
+  length 200
   IF thisPh(isTranslationGiven) THEN
     // don't reduce the vowel if phonemes are explicitly given
   ELSE
+    IF nextPh(isWordEnd) OR next2PhW(isNotVowel) THEN
+      IF nextPh(isRhotic) OR nextPh(isNasal) OR nextPh(l) OR nextPh(L) THEN
+        ChangePhoneme(&)
+      ENDIF
+    ENDIF
+
     IF thisPh(isFinalVowel) THEN
       ChangePhoneme(E)
     ENDIF
@@ -65,21 +71,27 @@ endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 180
+  length 200
   FMT(vowel/e_mid)
+endphoneme
+
+phoneme &
+  vowel starttype #a endtype #a
+  length 200
+  FMT(vowel/ee_6)
 endphoneme
 
 
 phoneme W
   vowel starttype #@ endtype #@
-  length 180
+  length 200
   FMT(vowel/y#)
 endphoneme
 
 
 phoneme a
   vowel starttype #a endtype #a
-  length 190
+  length 200
   FMT(vowel/a#_4)
 endphoneme
 
@@ -87,7 +99,7 @@ endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
-  length 150
+  length 180
   IF thisPh(isTranslationGiven) THEN
     // don't reduce the vowel if phonemes are explicitly given
   ELSE
@@ -103,7 +115,7 @@ endphoneme
 
 phoneme U
   vowel starttype #u endtype #u
-  length 150
+  length 180
   FMT(vowel/uu_2)
 endphoneme
 
@@ -111,7 +123,7 @@ endphoneme
 phoneme @
   vowel starttype #@ endtype #@
   ipa ɯ
-  length 150
+  length 180
   FMT(vowel/u#_7)
 endphoneme
 
@@ -119,7 +131,7 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 190
+  length 200
   IF thisPh(isTranslationGiven) THEN
     // don't reduce the vowel if phonemes are explicitly given
   ELSE
@@ -135,7 +147,7 @@ endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
-  length 190
+  length 200
   FMT(vowel/oo)
 endphoneme
 
@@ -179,12 +191,20 @@ phoneme J
 endphoneme
 
 
-phoneme l
-import_phoneme en/l
-endphoneme
-
 phoneme G
 import_phoneme en/r/
 lengthmod 7
 endphoneme
 
+
+phoneme R
+  vcd alv flp rhotic
+  IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
+    CALL base/*
+//  ELIF prevPhW(isNotVowel) THEN
+//    CALL base/R
+  ELSE
+    CALL base/r
+  ENDIF
+  ipa ɾ
+endphoneme

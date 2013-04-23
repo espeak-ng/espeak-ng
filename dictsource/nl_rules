@@ -20,14 +20,15 @@
 
         @@C) a (_         =a:
           _) aan (@P3     'a:n
-          @) aar (_S3    a:r
-          @) aard (_S4   a:rt
+          &) aar (_S3     a:r
+          &) aard (_S4    a:rt
              aa (rd_      'a:
              aa (C_       'a:
           z) aa (m_       a:
           t) a (bleau     a:
           @) abel (_      'a:b@l
           @) abele (_     'a:b@l@
+          @) ace (_       e:s       // ?? interface
           m) ach (in      %a:S
           _) actie (@P5   'Aksi
           _) af (C@P2     'Af
@@ -106,6 +107,7 @@
           _) be (zem      be:
           _) be (zig      be:
           _) beu          bY:
+          _) bezoekers (@P9 b@z'uk@rs
 
 
 .group c
@@ -120,10 +122,12 @@
           @) ci (ë        S
              ci (o        S
              ck           k
+             
+             ces (_       s'Es
              coach        ko:tS
-
           _) computer (@P8 kOmpj'ut@r 
           _) congres      kOnQr'Es
+          _) concentratie (@P12 kOnsEntr'a:tsi
              co (ncert    k%O
 
 
@@ -246,7 +250,7 @@
           &) end (_       @nd
           &) ende (_S1    @
           &) enden (_S2   @n
-             eden         e:d@n
+             eden (_        e:d@n  // ?? 
           @) ent (_       'Ent
           @) ent (e_      'Ent
           @) ent (en_     'Ent
@@ -260,6 +264,7 @@
          @z) es (_S1      s  
           @) es (_S2qd    'Es   // double the previous vowel
           @) es (_$w_alt2S1 s   // just remove 's'
+	  @) e (s_$p_alt2+S1 s
         KAC) es (_S2e     @s
          mb) es (_S1      s
          nd) es (_S1      s
@@ -280,6 +285,7 @@
           @) eur (_       'Y:r
 
           &) e (nB@       E2
+          &) e (ntig      @
          _p) e (nibel     e:
          id) e (nt        E
        pres) e (nt        E
@@ -322,11 +328,14 @@
              er (ij_      @r
         tol) er (abel     @r
         mis) er (abel     @r
+       hond) er (d_       @r
           _) erger        ErQ@r  // ergeren
           &) era (_       @ra:
           @) er (aar_     @r
           &) er (C@       E2r
 
+.group ê
+             ê            E
 
 .group f
              f            f
@@ -341,11 +350,13 @@
           @) gi (eus      Z
           @) gi (euz      Z
        reli) gi (eu       Qij
+          _) goog (el     gu:g
 
        
 .group ge
           _) ge (@P2      Q@
              ge (bied     Q@
+          _) gebruikers (@P10 Q@br'Wyk@rs
           _) gee          Qe:
           _) gei          QEI
              gener (aal   Q,e:n@r
@@ -435,10 +446,11 @@
           &) ika (_       =ika:
           &) iko (_       =iko:
           _) in (C@P2     'In
-//        _) in (gP2      'In
           _) in (do       In
              ine (_       'in@
              ines (_      'in@s
+          _) inn (@P2 'I    // ?? inneren
+          _) inter        Int@r
              io (nage     iO
              io (de_       i'o:
              iodes (_      i'o:d@s
@@ -449,10 +461,12 @@
           @) isme (_      'Ism@
           @) ist (_       'Ist
           @) isten (_     'Ist@n
-_) inn (@P2 'I    // ?? inneren
 
 .group j
              j            j
+             
+          _) jaar (@P4    j'a:r
+             jaar (lijk   ja:r
              jou (rna     Zu
 
 
@@ -478,6 +492,8 @@ _) inn (@P2 'I    // ?? inneren
           &) lijker (_S6  l@k@r
           &) lijkere (_S7  l@k@r@
           &) lijkheid (_S8 l@khEIt
+          &) lijkheden (_S9 l@khe:d@n
+//          &) lijks@ (_    l@ks@
           &) lijkst (_S6  l@kst
           &) lijkste (_S7  l@kst@
 
@@ -497,6 +513,7 @@ _) inn (@P2 'I    // ?? inneren
 
             management    ma:nIdZm@nt
          _) mee (@P3      m'e:
+         _) mee (rC       mI:
             menu (_       m@ny
          _) mi (cro       mi
          _) mi (s@        m%I
@@ -513,6 +530,7 @@ _) inn (@P2 'I    // ?? inneren
          _) mis (loP3     m'Is
          _) mis (tA       m'Is
          _) misver (@     m'Isf@r
+         _) muziek (@P6   myz'ik
 
 .group n
              n            n
@@ -527,6 +545,7 @@ _) inn (@P2 'I    // ?? inneren
           _) na (C@N      n'a:
           _) na (C%       nA
           _) na (cht      nA
+          _) najaars (@P7 n'a:ja:rs
           _) narci (s     n%ArsI
           _) na (rc       n%A
           _) na (der      na:
@@ -539,10 +558,11 @@ _) inn (@P2 'I    // ?? inneren
              na (vig      n%a:
           _) na (vr       na:
           _) na (volg@    n%a:
-          _) noord (@P5   no:rd
           _) nieuws (@P6  n'iws
          @@) nis (_S3    nIs
          @@) nisen (_S5  nIs@n
+          _) noord (@P5   no:rd
+          _) notitie (@P7 no:t'itsi
 
 
 .group o
@@ -586,6 +606,7 @@ _) inn (@P2 'I    // ?? inneren
          tr) ou (vail     u
              ouve (rtu    uvE
           _) over (@P4    ,o:v@r
+          _) overigen     o:v@r@Q@n
           _) overheid     'o:v@rhEIt
            t) ou  (r          u:
 
@@ -644,21 +665,25 @@ _) inn (@P2 'I    // ?? inneren
           C) r (A         r
              rr          *r
 
-             recherch     r@SErS
-             revanch      r@vA~nS
              route        rut@  // route(s)
 
 .group re
           _) re (geren    r@
           _) re (geer     r@
+          _) regel        re:Q@l
           _) re (cent     r@
           _) re (cept     r@
           _) re (ceptief  re:
+          _) re (ces      r@
           _) re (clam     r@
+          _) register     r@Q'Ist@r
+             reme (die    r@m'e:
           _) re (serve_   r@
           _) re (cord     re'
-	  _) regering     r@Q'I:rIN
+          _) regering     r@Q'I:rIN
              repre (saill re:pre:
+             recherch     r@SErS
+             revanch      r@vA~nS
 
 
 .group s
@@ -695,6 +720,7 @@ _) inn (@P2 'I    // ?? inneren
         CAr) sie (_       =zi
 
           _) stads (@P5   st'Ats
+          _) stage (@P5   st'a:Z@
           _) standaard (@P9 st'Anda:rt
           _) start (@P5   st'Art
           @) straat (_S6 stra:t
@@ -789,7 +815,9 @@ _) inn (@P2 'I    // ?? inneren
           _) verkeers (@P8 v@rk'I:rs
 //          _) verge (@P5   vErg@
 //          _) verge (le    v@rQ'e:
+          _) voorjaars (@P9 v'O:rja:rs
           _) voort (@P5   v'O:rt
+          _) vrijwilligers (@P13 vrEIv#'Il@Q@rs
 
 
 .group w
@@ -813,8 +841,10 @@ _) inn (@P2 'I    // ?? inneren
           _) weg (@P3     v#'EQ
           _) weg (en      v#e:Q
           _) weg (e_      v#e:Q  // bewegelijk
+          _) werk (@P4    v#'Erk
           _) west (@P4    v#Est
-          _) wr           vr
+          _) woon (@P4    v#'o:n
+          _) wr (@        vr
 
 
 .group x

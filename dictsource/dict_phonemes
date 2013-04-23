@@ -137,7 +137,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-04-18
+Dictionary en_dict  2013-04-23
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -166,7 +166,7 @@ s    S    t    T    tS   ts   v    w
 x    z    Z    
 
 
-Dictionary es_dict  2013-03-29
+Dictionary es_dict  2013-04-22
 
 @    a    aI   aU   e    E    eI   eU   
 i    o    O    oI   u    
@@ -500,7 +500,7 @@ r    r.   s    S    s.   t    t#   t.
 t.#  v    w    x    z    
 
 
-Dictionary nl_dict  2013-04-12
+Dictionary nl_dict  2013-04-23
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -562,7 +562,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-04-18
+Dictionary pt_dict  2013-04-23
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -701,15 +701,15 @@ s    s.   S;   t    t#   t.   t.#  tS
 v    v#   w    z    
 
 
-Dictionary tr_dict  2011-09-16
+Dictionary tr_dict  2013-04-20
 
 @    a    e    E    i    I    o    O    
 u    U    W    y    Y    
 
 *    :    b    c    d    dZ   f    g    
-G    h    j    J    k    l    m    n    
-p    Q    r    R    s    S    t    tS   
-v    w    z    Z    
+G    h    j    J    k    l    L    m    
+n    p    Q    r    R    s    S    t    
+tS   v    w    z    Z    
 
 
 Dictionary ur_dict  2013-03-28
@@ -726,18 +726,18 @@ s    S    s.   t    T    t#   t.   t.#
 v    w    x    z    Z    z.   
 
 
-Dictionary vi_dict  2013-03-16
+Dictionary vi_dict  2013-04-21
 
-@    @:   @:I  @:U  @I   @U   a    a:   
-a:I  a:U  aI   aU   e    E    eU   EU   
-i    i@   iE   iU   o    O    o#   O#   
-o&   o@   OI   oI   u    u@   uI   y    
-y@   yI   
+@    @-   @:   @:I  @:U  @I   @U   a    
+a:   a:I  a:U  aI   aU   e    E    eU   
+EU   i    i@   iE   iU   o    O    o#   
+O#   o&   O-   o@   OI   oI   Oi   u    
+u-   u@   uI   y    y@   yI   
 
 b    c    cr   d    D    f    g    h    
 j    J    J^   k    kh   l    m    n    
 N    n^   p    Q    s    s.   t    t[   
-v    w    x    z    Z    z.   
+tS   tS;  v    w    x    z    Z    z.   
 
 
 Dictionary zh_dict  2013-01-25
