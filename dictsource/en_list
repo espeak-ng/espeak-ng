@@ -17,7 +17,7 @@
 // ?8  Use full vowel, not schwa in some word endings
 
 // $alt1   use strong ending (-an, -table, -inal, -ier)
-// $alt2   use weak ending (ate, ery, ess, ile, men)
+// $alt2   use weak ending (ard, ate, ery, ess, ile, men)
 // $alt3   use weak first vowel, a->[a#], e->[@], o->[0#]
 // $alt4   separate 'h', not 'th'
 // $alt6   'to'
@@ -285,42 +285,42 @@ _ja	dZ'ap@ni:z
 _zh	tS'aIni:z
 
 // Cyrillic letters
-а	a
-б	bE
-в	vE
-г	gE
-д	dE
-е	jE
-ё	jo
-ж	ZE
-з	zE
-и	I
+а	a:
+б	bE:
+в	vE:
+г	gE:
+д	dE:
+е	jE:
+ё	jo:
+ж	ZE:
+з	zE:
+и	I:
 й	,Ik@-*'atkOji
-к	ka
+к	ka:
 л	El/1
 м	Em
 н	En
-о	o
-п	pE
+о	o:
+п	pE:
 р	Er
 с	Es
-т	tE
-у	u
+т	tE:
+у	u|:
 ф	Ef
-х	xa
-ц	tsE
-ч	tSE
-ш	Sa
-щ	StSa
+х	xa:
+ц	tsE:
+ч	tSE:
+ш	Sa:
+щ	StSa:
 ъ	jEr
 ы	j'Eru
 ь	j'eri
-э	E
-ю	ju
-я	ja
-ћ	tS;E
-ђ	djE
-ќ	kjE
+э	E:
+ю	ju|:
+я	ja:
+ћ	tS;E:
+ђ	djE:
+ќ	kjE:
 
 
 // Arabic letters
@@ -508,7 +508,7 @@ _3o	T'3:
 _5o	f'If
 _20o	tw'Enti@
 _30o	T'3:ti@
-?3 _30o T'IRti@
+?5 _30o T'IRti@
 _40o	f'o@ti@
 _50o	f'Ifti@
 _60o	s'Iksti@
@@ -697,6 +697,7 @@ adieu		a#dju:
 adieus		a#dju:z
 adieux		a#dju:z
 adios		aDj'o:s
+adjective	$1
 admirable	adm@r@b@L
 admirably	adm@r@bli
 admonition	adm@n'IS@n
@@ -807,7 +808,7 @@ antibody	$1
 antichrist	$1
 anticline	$1
 antidote	$1
-antifreze	$1
+antifreeze	$1
 antigen		$1
 antihero	$1
 antilog		$1
@@ -1274,6 +1275,7 @@ corral		k@r'al
 cosmos		k0zm0s
 ?3 cosmos	k0zmoUs
 cougar		ku:g3
+counteract	$3
 countered	kaUnt3d
 (coup de grâce)	ku:d@||gr'A:
 coupon		ku:p0n
@@ -1546,6 +1548,7 @@ eyrie		i@ri
 facade		f@sA:d
 façade		f@sA:d
 facetious	$alt3
+faculty		fak@Lt2i
 faeces		fi:si:z
 fahrenheit	far@nhaIt
 fairest		fe@r@st
@@ -1718,6 +1721,7 @@ hello		h@loU
 henceforth	hEnsfo@T
 ?3 herb		3:b
 hercules	h3:kjUli:z
+heredity	h3rEdI2ti
 ?3 hereford	h3:f3d
 heretical	hI2rEtI2k@L
 hereto		hi@3'tu:
@@ -3182,6 +3186,7 @@ Belgrade	$2
 Belize		bEl'i:z
 Bengal		b,Eng'O:l
 Benin		bEnIn
+Berkeley	b3:kli
 Bhutan		bu:t'an
 Bideford	bIdIf@d
 Bogota		b0g@t'A:
@@ -3218,6 +3223,7 @@ Cruz		kru:z
 Cyprus		saIpr@s
 Dahomey		$alt3
 Dallas		dal@s
+Dagestan	dA:gIst'A:n
 Damascus	$alt3
 Dakota		$alt3
 Danish		deInIS
@@ -3247,6 +3253,7 @@ Gomera		goUm'e@r@
 Gurmukhi	gU@mUki
 Harare		ha#rA:ri
 Hanoi		han'OI
+Harvard		$alt2
 Havana		ha#van@
 Hawaii		h@w'aIi:
 Hawai'i		h@w'aIi:
@@ -3283,6 +3290,8 @@ Korean		kOr'i:@n
 ?3 Korean	k3r'i:@n
 Kosovo		k0s@voU
 Kuala		kwA:la#
+Kyrgyz		k3:rgIz
+Kyrgyzstan	k3:rgIst'A:n
 Lagos		leIg0s
 Lahore		$alt3
 Lebanon		lEb@n0n
@@ -3590,6 +3599,7 @@ Giordino	dZO@d'i:noU
 Giovanni	dZ@v'A:ni
 Graeme		greI@m
 Graham		greI@m
+Gruffydd	grIfIT
 Guido		gwi:doU
 Guinevere	gwInI#vi@3
 Hadrian		heIdri:@n
@@ -3911,6 +3921,7 @@ at               at		$nounf $only $u
 (at once)        a#t_w0ns
 ?6 (at once)     a#t_wVns
 (at will)        a#t_w'Il
+(at & t)	'eIt2i:@nt'i:
 
 with             wID		$u
 (with the)       w%IDD@2	$nounf

@@ -844,6 +844,7 @@ Translator *SelectTranslator(const char *name)
 			tr->langopts.stress_rule = STRESSPOSN_1L;
 			tr->langopts.numbers = 1;
 			tr->langopts.accents = 2;  // 'capital' after letter name
+			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 3;  // don't count apostrophe
 		}
 		break;
 

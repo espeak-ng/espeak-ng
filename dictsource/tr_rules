@@ -9,8 +9,11 @@
 // ?1  mbrola voices
 
 
-// unvoiced consonants
-.L01 ç f h k p q s ş t 
+.L01 ç f h k p q s ş t   // unvoiced consonants
+
+.L02 ı a o u   // back vowels
+
+.L03 i e ö ü î â ô û  // not-back vowels
 
 .replace
 `	'
@@ -23,7 +26,7 @@
      @) acak (_S4  adZak
      @) acakmış (_S7   adZakm%@S
      @) ayım (_S4  aj@m
-     @) alım (_S4  al@m
+     @) alım (_S4  aL@m
      @) asın (_S4  as@n
 
      @) avru (pa avr'u
@@ -33,9 +36,11 @@
 
 .group c
         c        dZ
+        ce (_S2  dZ%E
 
 .group ç
         ç        tS
+        çe (_S2  tS%E
 
 .group d
         d        d
@@ -57,13 +62,13 @@
 	dın (_S3   d@n
 	dınız (_S5 d@n@z
 	dı (_S2    d@
-	dılar (_S5 d@laR
+	dılar (_S5 d@LaR
 	dum (_S3   dum
 	duk (_S3   duk
 	dun (_S3   dun
 	dunuz (_S5 dunuz
 	du (_S2    du
-	dular (_S5 dular
+	dular (_S5 duLar
 	düm (_S3   dym
 	dük (_S3   dyk
 	dün (_S3   dyn
@@ -96,18 +101,24 @@
 
 .group g
         g        g
-        g (i     J
-        g (e     J
-        g (ü     J
-        g (ö     J
+        g (L03   J
+   L03) g (K     J
+
 
 .group ğ
         ğ        Q
-     A) ğ        :||
-?1   A) ğ        G     // mbrola
+     A) ğ        : 
+?1   A) ğ (+     G     // mbrola
+
+     a) ğa       :
+     o) ğo       :
+     u) ğu       :
+     ö) ğö       :
+     ü) ğü       :
      i) ğ        j
      e) ğ        j
 
+     
 .group h
         h        h
 
@@ -135,37 +146,40 @@
      @) ıyor (_S4  @j%oR
      @) ın (_S2  @n
 
+.group î
+        î        @
 
+        
 .group j
         j        Z
 
 .group k
         k        k
-        k (i     c
-        k (e     c
-        k (ü     c
-        k (ö     c
+        k (L03   c
+   L03) k (K     c
 
 	ken (_S3  %cen
 
 
 .group l
         l        l
+        l (L02   L
+   L02) l (K     L
 
-	la (_S2  %la
+	la (_S2  %La
 	le (_S2  %le
 
-	lar (_S3  laR
+	lar (_S3  LaR
 	ler (_S3  leR
 
 	li (_S2  li
-	lı (_S2  l@
-	lu (_S2  lu
+	lı (_S2  L@
+	lu (_S2  Lu
 	lü (_S2  ly
 
 	lik (_S3  lik
-	lık (_S3  l@k
-	luk (_S3  luk
+	lık (_S3  L@k
+	luk (_S3  Luk
 	lük (_S3  lyk
 
 
@@ -308,7 +322,7 @@
 	yunuz (_S5  %junuz
 	yünüz (_S5  %jynyz
 
-	yla (_S3  %jla
+	yla (_S3  %jLa
 	yle (_S3  %jle
 
 	yacak (_S5  jadZak
@@ -317,7 +331,7 @@
 	yecekmiş (_S8   jedZekm%iS
 
 	yayım (_S5  jaj@m
-	yalım (_S5  jal@m
+	yalım (_S5  jaL@m
 	yasın (_S5  jas@n
 	yeyim (_S5  jejim
 	yelim (_S5  jelim

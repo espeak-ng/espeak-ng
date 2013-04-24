@@ -1,0 +1,12 @@
+name vietnam_sgn
+language vi-sgn
+phonemes vi-sgn
+dictrules 2
+gender male
+
+words 1
+pitch 82 118   //80 118
+//breath   75 75 60 40 15 10
+ //breathw  150 150 200 200 400 400
+ voicing 90  //18
+ flutter  20
