@@ -909,7 +909,13 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 
 		if(count==0)
 			c1 = c;
-		count++;
+
+		if((c == '\'') && (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 3))
+		{
+			// don't count apostrophe
+		}
+		else
+			count++;
 
 		if(IsVowel(tr, c))
 		{

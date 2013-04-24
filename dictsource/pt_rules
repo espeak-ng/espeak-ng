@@ -90,6 +90,8 @@
    óCC) a (CA_     &
     óC) a (CCA_    &
     úC) a (CA_     &
+?2      ation (_   'eIS&~N
+?2      action (_  'EkS&~N
 
 
 .group â
@@ -165,6 +167,7 @@
 ?2      d (i       dZ
 ?2      d (í       dZ
 ?2      d (e_      dZ
+?2   A) de (o_     dZj
 
 
 .group e
@@ -235,7 +238,8 @@
         e (sL02_   E
 
         e (ssL04_  E
-
+        e (ss_     E         // stress and english words
+?2      ection (_  'EkS&~N
         e (stL04_  E
 
         e (strL04_ E
@@ -340,6 +344,7 @@
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
     sf) e (ra_     E         // esfera, biosfera
+    ef) e (tuL02_  e
      t) e (tra     E
 
     âC) e (CA_     e
@@ -354,6 +359,7 @@
     óC) e (Ca_     e
    óCC) e (CA_     e
     úC) e (CA_     e
+    úC) el (_      eU
 
 //sort
     _d) e (L05_    E
@@ -417,11 +423,13 @@ _atrev) e (L07_    e
 _corro) e (L07_    e
 _interromp) e (L07_ e
 _troux) e (L07_    E
+  _ens) e (bL03_   E
+_amanc) e (bL03_   E
     qu) e (brL04_  E
   _cel) e (brL04_  E
+ _boch) e (chL04_  e
    _ex) e (crL04_  E
   _enr) e (dL01_   E
-    _n) eu (trL03_ 'eU
     _v) e (dL03_   E
   _arr) e (dL03_   E
  _depr) e (dL03_   E
@@ -430,15 +438,14 @@ _troux) e (L07_    E
   _gal) e (gL03_   e
   _pel) e (gL03_   e
     _n) e (grL03_  e
-   _ch) e (guL02_  e
   estr) ei (L04_   EI
     _r) e (jL03_   E
   _inv) e (jL04_   E
+?2      el (ton_   'EU
     tr) e (pL04_   E         // es-
   _dec) e (pL04_   E
    _in) e (ptL03_  E
     ad) e (quL04_  E
-  _imp) e (rL03_   E
   _sev) e (rL03_   E
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
@@ -449,6 +456,7 @@ _troux) e (L07_    E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
   _enc) e (rL04_   E
+  _imp) e (rL04_   E
   _min) e (rL04_   E
   _sug) e (rL04_   E
   _sup) e (rL04_   E
@@ -470,6 +478,7 @@ _refrig) e (rL04_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
     _h) e (rdL04_  E
+  _des) e (rdL04_  E
      _) e (rgL03_  e
    _re) e (rgL03_  e
   _bez) e (rrL03_  e
@@ -496,6 +505,7 @@ _refrig) e (rL04_  E
 _obsol) e (tL03_   e
   _sol) e (trL03_  E
   _pen) e (trL04_  E
+    _n) eu (trL03_ 'eU
     _d) e (vL03_   e
    scr) e (vL03_   e         // e- in- pre- ree- de-
   _atr) e (vL03_   e
@@ -639,7 +649,8 @@ _entorp) e (çL03_  e
 ?1   _) i (ntern   'i        //inter
 ?1   @) ing (_     _^_EN
 ?1   @) ings (_    _^_EN
-        ilton      'iUtoN
+?2      il (ton_   'iU
+?2      i (rton_   'i
 
 
 .group í
@@ -718,7 +729,9 @@ _entorp) e (çL03_  e
         o (s_      =U
      _) o (_C      U
      _) o (_A      u
-
+?2   _) os (_      Us
+?2   _) os (_A     Uz
+?2   _) os (_G     Uz
         ou         ow
         oi         oI
         oi ($w_alt OI
@@ -738,7 +751,6 @@ _entorp) e (çL03_  e
         o (quL02_  O
 
    A_l) o (_       U
-     p) o (dL04_   O
 
         o (g_      O
         o (gs_     O
@@ -824,8 +836,7 @@ _entorp) e (çL03_  e
 ?1 interr) o (g       u         // eg: interrogação
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
 ?1   v) o (lt      O
-
-        o (Cuem_   o
+        o (luem_   o
         o (CCuem_  o
     êC) o (CA_     o
    êCC) o (CA_     o
@@ -870,9 +881,12 @@ _pormen) o (L05_   O
      m) o (lhL04_  O
    ent) o (pL02_   O
     _c) o (pL03_   O
+    _t) o (pL04_   O
   _ens) o (pL04_   O
   _gal) o (pL04_   O
     _s) o (prL04_  O
+   _al) o (prL04_  O
+  _ass) o (prL04_  O
      _) o (ptL04_  O
      p) o (rL02_   o
   _dev) o (rL02_   O
@@ -881,19 +895,20 @@ _pormen) o (L05_   O
  _inod) o (rL03_   O
 _inson) o (rL03_   O
 _comem) o (rL04    O
+ _enam) o (rL04_   O
 _aprim) o (rL04_   O
 _remem) o (rL04_   O
      f) o (rmL03_  O
      c) o (rrL01_  o         // incorra, corra, etc.
     _m) o (rrL01_  o
      p) o (rtL03_  O         // im- trans- de- re- com- a- ex-
-     t) o (rçL01_  O         // con-
+     t) o (rçL03_  o         // con-
     _r) o (snL04_  O
     _c) o (spL02_  O
   _enr) o (squL02_ O
      p) ostos (_   Ost=Us#   // dispostos etc.
   _gar) o (tL03_   o
-  _mar) o (tL03_   O
+  _mar) o (tL03_   o
  _escr) o (tL03_   o
    _ch) o (vL01_   o
     pr) o (vL03_   O
@@ -902,6 +917,7 @@ _remem) o (rL04_   O
     _r) o (çL03_   O
     tr) o (çL03_   O         // des-
    _ad) o (çL03_   O
+  _emp) o (çL03_   O
   _end) o (çL03_   O
 //endsort
 
@@ -1044,6 +1060,7 @@ _remem) o (rL04_   O
 ?2      t (e_      tS
 ?1      th         _^_EN
 ?1      tion (_    _^_EN
+?2   A) te (o_     tSj
 
 
 .group u

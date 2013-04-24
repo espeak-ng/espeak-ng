@@ -6,44 +6,44 @@
 
 phoneme a
   vowel starttype #a endtype #a
-  length 180
+  length 200
   FMT(vowel/a_4)
 endphoneme
 
 phoneme e
   vowel starttype #e endtype #e
-  length 190
+  length 200
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
-  length 190
+  length 200
   FMT(vowel/e_mid2)
 endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
-  length 170
+  length 190
   IfNextVowelAppend(;)
   FMT(vowel/i)
 endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 190
+  length 200
   FMT(vowel/oo)
 endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
-  length 190
+  length 200
   FMT(vowel/oo)
 endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
-  length 180
+  length 200
   FMT(vowel/u_bck2)
 endphoneme
 
@@ -107,9 +107,24 @@ phoneme D
   voicingswitch T
   CALL base/D
   IF nextPh(isPause2) THEN
-    FMT(voc/dh_) addWav(vocw/dh, 40)   // weaker 
+    FMT(voc/dh_) addWav(vocw/dh, 35)   // weaker 
   ENDIF
 endphoneme
+
+phoneme t        // dental variant of /t/
+  vls dnt stop
+  voicingswitch d[
+  lengthmod 2
+  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
+  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/t_dnt2, 35)
+  ENDIF
+  WAV(ustop/t_dnt2, 70)
+
+endphoneme
+
 
 
 phoneme s

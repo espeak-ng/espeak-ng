@@ -213,50 +213,74 @@ const int param_defaults[N_SPEECH_PARAM] = {
    0,     // voice type
 };
 
-#ifdef NEED_WCHAR_FUNCTIONS
 
-// additional Latin characters beyond the Latin1 character set
-#define MAX_WALPHA  0x233
-// indexed by character - 0x100
-// 0=not alphabetic, 0xff=lower case, 0xfe=special case
+// additional Latin characters beyond the ascii character set
+#define MAX_WALPHA  0x24f
+// indexed by character - 0x80
+// 0=not alphabetic, 0xff=lower case, 0xfe=no case, 0xfd=use wchar_tolower
 //   other=value to add to upper case to convert to lower case
-static unsigned char walpha_tab[MAX_WALPHA-0xff] = {
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 100
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 110
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 120
-   0xfe,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,  // 130
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,  // 140
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 150
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 160
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,  // 170
-   0xff, 210,   1,0xff,   1,0xff, 206,   1,0xff, 205, 205,   1,0xff,0xff,  79, 202,  // 180
-    203,   1,0xff, 205, 207,0xff, 211, 209,   1,0xff,0xff,0xff, 211, 213,0xff, 214,  // 190
-      1,0xff,   1,0xff,   1,0xff, 218,   1,0xff, 218,0xff,0xff,   1,0xff, 218,   1,  // 1a0
-   0xff, 217, 217,   1,0xff,   1,0xff, 219,   1,0xff,0xff,0xff,   1,0xff,0xff,0xff,  // 1b0
-   0xff,0xff,0xff,0xff,   2,   1,0xff,   2,   1,0xff,   2,   1,0xff,   1,0xff,   1,  // 1c0
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,  // 1d0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1e0
-   0xff,   2,   1,0xff,   1,0xff,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1f0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 200
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 210
-   0xff,   0,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 220
-      1,0xff,   1,0xff };    // 230
+static unsigned char walpha_tab[MAX_WALPHA-0x7f] = {
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 080
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 090
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0a0
+    0,    0,    0,    0,    0, 0xff,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0b0
+   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32, // 0c0
+   32,   32,   32,   32,   32,   32,   32,    0,   32,   32,   32,   32,   32,   32,   32, 0xff, // 0d0
+ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0e0
+ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,    0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0f0
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 100
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 110
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 120
+ 0xfd, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, // 130
+ 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff, // 140
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 150
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 160
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff, 0xff, // 170
+ 0xff,  210,    1, 0xff,    1, 0xff,  206,    1, 0xff,  205,  205,    1, 0xff, 0xfe,   79,  202, // 180
+  203,    1, 0xff,  205,  207, 0xff,  211,  209,    1, 0xff, 0xff, 0xfe,  211,  213, 0xff,  214, // 190
+    1, 0xff,    1, 0xff,    1, 0xff,  218,    1, 0xff,  218, 0xfe, 0xfe,    1, 0xff,  218,    1, // 1a0
+ 0xff,  217,  217,    1, 0xff,    1, 0xff,  219,    1, 0xff, 0xfe, 0xfe,    1, 0xff, 0xfe, 0xff, // 1b0
+ 0xfe, 0xfe, 0xfe, 0xfe,    2, 0xff, 0xff,    2, 0xff, 0xff,    2, 0xff, 0xff,    1, 0xff,    1, // 1c0
+ 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xff,    1, 0xff, // 1d0
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1e0
+ 0xfe,    2, 0xff, 0xff,    1, 0xff, 0xfd, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1f0
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 200
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 210
+ 0xfd, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 220
+    1, 0xff,    1, 0xff, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfd,    1, 0xff, 0xfd, 0xfd, 0xfe, // 230
+ 0xfe,    1, 0xff, 0xfd,   69,   71,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff}; // 240
+
+static const short wchar_tolower[] = {
+	0x130, 0x069,
+	0x178, 0x0ff,
+	0x1f6, 0x195,
+	0x1f7, 0x1bf,
+	0x220, 0x19e,
+	0x23a, 0x2c65,
+	0x23d, 0x19a,
+	0x23e, 0x2c66,
+	0x243, 0x180,
+	0x000, 0x000,
+};
+
+
+#ifdef NEED_WCHAR_FUNCTIONS
 
 // use ctype.h functions for Latin1 (character < 0x100)
 int iswalpha(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isalpha(c));
 	if((c > 0x3040) && (c <= 0xa700))
 		return(1);  // japanese, chinese characters
 	if(c > MAX_WALPHA)
 		return(0);
-	return(walpha_tab[c-0x100]);
+	return(walpha_tab[c-0x80]);
 }
 
 int iswdigit(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isdigit(c));
 	return(0);
 }
@@ -271,50 +295,63 @@ int iswalnum(int c)
 int towlower(int c)
 {
 	int x;
-	if(c < 0x100)
+	int ix;
+
+	if(c < 0x80)
 		return(tolower(c));
-	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x100])==0xff))
-		return(c);  // already lower case
-	if(x == 0xfe)
+
+	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x80]) >= 0xfe))
+		return(c);
+
+	if(x == 0xfd)
 	{
-		// special cases
-		if(c == 0x130)   // uppercase i-dot
-			return('i');
+		// special cases, lookup translation table
+		for(ix=0; wchar_tolower[ix] != 0; ix+=2)
+		{
+			if(wchar_tolower[ix] == c)
+				return(wchar_tolower[ix+1]);
+		}
 	}
 	return(c + x);  // convert to lower case
 }
 
 int towupper(int c)
 {
-	// check whether the previous character code is the upper-case equivalent of this character
-	if(tolower(c-1) == c)
-		return(c-1);  // yes, use it
+	// check whether a previous character code is the upper-case equivalent of this character
+	if(towlower(c-32) == c)
+		return(c-32); // yes, use it
+	if(towlower(c-1) == c)
+		return(c-1);
+	if(towlower(c-2) == c)
+		return(c-2);
 	return(c);  // no
 }
 
 int iswupper(int c)
 {
 	int x;
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isupper(c));
-	if(((c > MAX_WALPHA) || (x = walpha_tab[c-0x100])==0) || (x == 0xff))
+	if(((c > MAX_WALPHA) || (x = walpha_tab[c-0x80])==0) || (x == 0xff))
 		return(0);
 	return(1);
 }
 
 int iswlower(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(islower(c));
-	if((c > MAX_WALPHA) || (walpha_tab[c-0x100] != 0xff))
+	if((c > MAX_WALPHA) || (walpha_tab[c-0x80] != 0xff))
 		return(0);
 	return(1);
 }
 
 int iswspace(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isspace(c));
+	if(c == 0xa0)
+		return(1);
 	return(0);
 }
 
@@ -366,8 +403,26 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
 }
 #endif
 
+
+// use internal data for iswalpha up to U+024F
+// iswalpha() on Windows is unreliable  (U+AA, U+BA).
+int iswalpha2(int c)
+{
+	if(c < 0x80)
+		return(isalpha(c));
+	if((c > 0x3040) && (c <= 0xa700))
+		return(1);  // japanese, chinese characters
+	if(c > MAX_WALPHA)
+		return(iswalpha(c));
+	return(walpha_tab[c-0x80]);
+}
+
+
 int towlower2(unsigned int c)
 {
+	int x;
+	int ix;
+
 	// check for non-standard upper to lower case conversions
 	if(c == 'I')
 	{
@@ -376,11 +431,26 @@ int towlower2(unsigned int c)
 			c = 0x131;   // I -> ı
 		}
 	}
-#ifdef __WIN32__
-	if(c == 0x130)   // uppercase i-dot
-		return('i');
-#endif
-	return(towlower(c));
+
+	if(c < 0x80)
+		return(tolower(c));
+
+	if(c > MAX_WALPHA)
+		return(towlower(c));
+
+	if((x = walpha_tab[c-0x80]) >= 0xfe)
+		return(c);   // this is not an upper case letter
+
+	if(x == 0xfd)
+	{
+		// special cases, lookup translation table
+		for(ix=0; wchar_tolower[ix] != 0; ix+=2)
+		{
+			if(wchar_tolower[ix] == (int)c)
+				return(wchar_tolower[ix+1]);
+		}
+	}
+	return(c + x);  // convert to lower case
 }
 
 

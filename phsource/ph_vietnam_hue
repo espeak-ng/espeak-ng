@@ -6,31 +6,31 @@
 
 phoneme 1   //  ngang tone: level
   stress
-  Tone(30, 2, envelope/p_level, NULL) // similar Hue dialect tone
+  Tone(40, 5, envelope/p_level, NULL) // similar Hue dialect tone
 endphoneme
 
 
 phoneme 2   //  huyền tone: low falling
   stress
-  Tone(20, 25, envelope/p_fall,envelope/vi_6amp) // NULL) //20 8
+  Tone(20, 25, envelope/p_fall,envelope/vi_6amp) // NULL) //20 25
 endphoneme
 
 
 phoneme 3   //  sắc Tone(rising
   stress
-  Tone(2, 10, envelope/p_rise, NULL) // 25 50 45 75
+  Tone(2, 10, envelope/p_fallrise, NULL) // 2 10
 endphoneme
 
 
 phoneme 4   //  hỏi Tone(curve (dipping rising)
   stress
-  Tone(20, 5, envelope/p_512,NULL) //Tone(55, 5, envelope/p_fallrise, NULL) //30 5 m 55 5
+  Tone(5, 10, envelope/p_512,NULL) //20 5
 endphoneme
 
 
 phoneme 5   //  ngã tone: broken (creaking rising)
   stress
-  Tone(50,2, envelope/p_214, envelope/vi_5amp) // 28,58 m20 85
+  Tone(10, 15, envelope/p_512, envelope/vi_6amp) // 40 20
 endphoneme
 
 
@@ -46,4 +46,41 @@ phoneme 7   //  Tone(1 (ngang) at end of clause
   Tone(5, 40, envelope/p_level, NULL) //Tone(99,  50, envelope/p_fall, NULL) // 40 20
 endphoneme
 
+// Redefine the length of vowels
 
+phoneme i
+ CALL vi/i
+ length 150
+endphoneme
+
+phoneme E
+ CALL vi/E
+ length 150
+endphoneme
+
+phoneme a:
+ CALL vi/a:
+ length 150
+endphoneme
+
+phoneme @
+ CALL vi/@
+ length 150
+endphoneme
+
+phoneme @:
+ CALL vi/@:
+ length 150
+endphoneme
+
+phoneme O
+ CALL vi/O
+ length 150
+ FMT(vowel/0)
+endphoneme
+
+phoneme Oi
+ CALL vi/Oi
+ length 100
+ FMT(vdiph/ooi_2)
+endphoneme

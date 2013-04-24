@@ -1830,6 +1830,9 @@ include ph_vietnam
 phonemetable vi-hue vi
 include ph_vietnam_hue
 
+phonemetable vi-sgn vi
+include ph_vietnam_sgn
+
 phonemetable zhy base
 include ph_zh_yue
 
