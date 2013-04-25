@@ -111,20 +111,10 @@ phoneme D
   ENDIF
 endphoneme
 
+
 phoneme t        // dental variant of /t/
-  vls dnt stop
-  voicingswitch d[
-  lengthmod 2
-  Vowelin f1=1  f2=1500 -250 250  f3=-100 80  amp=16
-  Vowelout f1=0 f2=1500 -300 250  f3=-100 80  rms=20
-
-  IF nextPh(isPause2) THEN
-    WAV(ustop/t_dnt2, 35)
-  ENDIF
-  WAV(ustop/t_dnt2, 70)
-
+  import_phoneme base/t[
 endphoneme
-
 
 
 phoneme s

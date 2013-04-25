@@ -624,7 +624,7 @@ int IsAllUpper(const char *word)
 	while((*word != 0) && !isspace2(*word))
 	{
 		word += utf8_in(&c, word);
-		if(!iswupper(c))
+		if(!iswupper2(c))
 			return(0);
 	}
 	return(1);
@@ -1053,7 +1053,7 @@ int TranslateWord(Translator *tr, char *word_start, int next_pause, WORD_TAB *wt
 			}
 		}
 
-		if((wflags & FLAG_ALL_UPPER) && (word_length > 1)&& iswalpha(first_char))
+		if((wflags & FLAG_ALL_UPPER) && (word_length > 1)&& iswalpha2(first_char))
 		{
 			if((option_tone_flags & OPTION_EMPHASIZE_ALLCAPS) && !(dictionary_flags[0] & FLAG_ABBREV))
 			{
@@ -1632,7 +1632,7 @@ if(end_type & SUFX_UNPRON)
 			tr->expect_past--;
 	}
 
-	if((word_length == 1) && (tr->translator_name == L('e','n')) && iswalpha(first_char) && (first_char != 'i'))
+	if((word_length == 1) && (tr->translator_name == L('e','n')) && iswalpha2(first_char) && (first_char != 'i'))
 	{
 // English Specific !!!!
 		// any single letter before a dot is an abbreviation, except 'I'
@@ -1908,7 +1908,7 @@ static int TranslateWord2(Translator *tr, char *word, WORD_TAB *wtab, int pre_pa
 			while(*p2 != ' ') p2++;
 
 			utf8_in(&c_word2, p2+1);   // first character of the next word;
-			if(!iswalpha(c_word2))
+			if(!iswalpha2(c_word2))
 			{
 				ok =0;
 			}
@@ -2376,9 +2376,9 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 
 	// there is a list of character codes to be substituted with alternative codes
 
-	if(iswupper(c_lower = c))
+	if(iswupper2(c_lower = c))
 	{
-		c_lower = towlower(c);
+		c_lower = towlower2(c);
 		upper_case = 1;
 	}
 
@@ -2392,7 +2392,7 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 				new_c = replace_chars[ix+1];
 				break;
 			}
-			if((word >> 16) == (unsigned int)towlower(next_in))
+			if((word >> 16) == (unsigned int)towlower2(next_in))
 			{
 				new_c = replace_chars[ix+1];
 				ignore_next = 1;
@@ -2409,14 +2409,14 @@ static int SubstituteChar(Translator *tr, unsigned int c, unsigned int next_in, 
 		// there is a second character to be inserted
 		// don't convert the case of the second character unless the next letter is also upper case
 		c2 = new_c >> 16;
-		if(upper_case && iswupper(next_in))
-			c2 = towupper(c2);
+		if(upper_case && iswupper2(next_in))
+			c2 = towupper2(c2);
 		*insert = c2;
 		new_c &= 0xffff;
 	}
 
 	if(upper_case)
-		new_c = towupper(new_c);
+		new_c = towupper2(new_c);
 
 	*wordflags |= FLAG_CHAR_REPLACED;
 	return(new_c);
@@ -2480,7 +2480,7 @@ static int TranslateChar(Translator *tr, char *ptr, int prev_in, unsigned int c,
 		// look for 'n  and replace by a special character (unicode: schwa)
 
 
-		if(!iswalpha(prev_in))
+		if(!iswalpha2(prev_in))
 		{
 			utf8_in(&next2, &ptr[1]);
 
@@ -2910,7 +2910,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 					else
 					{
-						if(iswupper(c))
+						if(iswupper2(c))
 							word_flags |= FLAG_FIRST_UPPER;
 
 						if((prev_out == ' ') && iswdigit(sbuf[ix-2]) && !iswdigit(prev_in))
@@ -2939,7 +2939,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 				}
 
-				if(iswupper(c))
+				if(iswupper2(c))
 				{
 					c = towlower2(c);
 
@@ -2954,7 +2954,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 					}
 					else
 					{
-						if((iswlower(prev_in)) && (prev_in != 0xba))  // Windows thinks masc.ordinal (0xba) is lower-case
+						if(iswlower2(prev_in))
 						{
 							// lower case followed by upper case in a word
 							if(UpperCaseInWord(tr, &sbuf[ix], c) == 1)
@@ -2970,7 +2970,7 @@ if((c == '/') && (tr->langopts.testing & 2) && IsDigit09(next_in) && IsAlpha(pre
 								//							next_word_flags |= FLAG_NOSPACE;  // problem: prevents FLAG_HAS_DOT being set
 							}
 						}
-						else if((c != ' ') && iswupper(prev_in) && iswlower(next_in))
+						else if((c != ' ') && iswupper2(prev_in) && iswlower2(next_in))
 						{
 							int next2_in;
 							utf8_in(&next2_in,&source[source_index + next_in_nbytes]);

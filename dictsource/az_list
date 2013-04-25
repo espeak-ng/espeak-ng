@@ -1,0 +1,110 @@
+ 
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Azerbaijani
+
+
+// Numbers
+_0	s@f'@R
+_1	b'iR
+_2	ic'i
+_3	'ytS
+_4	d'WRd
+_5	b'eS
+_6	alt'@
+_7	jedd'i
+_8	s&Cc'iz
+_9	dogg'uz
+_1X	'on
+_2X	ijiRm'i
+_3X	ot'uz
+_4X	g'@Rx
+_5X	&ll'i
+_6X	altm'@S
+_7X	jetm'iS
+_8X	s&Cs'&n
+_9X	doxs'an
+_0C	j'yz
+_0M1	m'in
+_0M2	milj'on
+_0M3	milj'aRd
+_dpt	_t,am_|   // ??
+
+
+// Function words
+  // personal pronouns
+mən	$u+
+sən	$u+
+o	$u+
+biz	$u+
+siz	$u+
+onlar	$u+
+
+  // possessive pronouns
+mənim	$u+
+sənin	$u+
+onun	$u+
+bizim	$u+
+sizin	$u+
+onların	$u+
+
+bu	$u+
+
+
+// conjunctions
+və	$u+
+isə	$u+
+də	$u+
+həm	$u+
+ya	$u+
+da	$u+
+
+// prepositions
+aid	$u+ // about
+ilə	$u+ // with, by, in
+dair	$u+ // about
+
+// postpositions
+ci	$u
+cı	$u
+cü	$u
+de	$u
+dir	$u
+li	$u
+in	$u
+nə	$u
+ya	$u
+yə	$u
+
+// Character names
+b	be
+c	dZe
+ç	tSe
+_ə	&
+d	de
+f	fe
+g	Je
+ğ	Qe
+h	he
+x	xe
+j	Ze
+k	ka
+q	ge
+l	el
+m	em
+n	en
+_o      o
+p	pe
+r	eR
+s	se
+ş	Se
+t	te
+v	ve
+w	dubElv'E
+y	je
+z	ze
+
+*	ulduz $text
+%	faiz $text
+
+
+

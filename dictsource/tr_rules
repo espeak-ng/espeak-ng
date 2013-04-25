@@ -12,7 +12,6 @@
 .L01 ç f h k p q s ş t   // unvoiced consonants
 
 .L02 ı a o u   // back vowels
-
 .L03 i e ö ü î â ô û  // not-back vowels
 
 .replace
@@ -218,6 +217,7 @@
 .group r
         r        R
      A) r (A     *
+     ğ) r (A     *
 
 	ra (_S2  %Ra
 	re (_S2  %Re

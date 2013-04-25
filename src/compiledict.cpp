@@ -700,9 +700,9 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			ix = utf8_in(&c2,p);
 			if(c2 == 0)
 				break;
-			if(iswupper(c2))
+			if(iswupper2(c2))
 			{
-				utf8_out(towlower(c2),p);
+				utf8_out(towlower2(c2),p);
 			}
 			else
 			{

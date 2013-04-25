@@ -69,6 +69,8 @@ v	ve       // not Roman numbers
 x	Sis#
 
 _cap	maI'uskulU
+_sub	||subskR'itU
+_sup	||sob*eskR'itU
 _?A	l'etR&_
 _??	s'imbolU_
 _#32	esp'asU
@@ -297,10 +299,10 @@ unts	$abbrev
 usb	$abbrev
 
 
-dr	$dot
-dra	$dot
-mr	$dot
-mrs	$dot
+dr	dowtor	$dot
+dra	dowt'o*&	$dot
+mr	m'ister	$dot
+mrs	m'irsys	$dot
 prof	pR'Of	$dot
 profº	pR,ofes'or
 profª	pR,ofes'o*&
@@ -642,6 +644,7 @@ jamais	$u+	$verbf
 abacaxi		abakaSy
 abordo		$alt
 aborto		$alt  $verb
+absorta		$alt2
 acerto		$alt2 $noun
 acertos		$alt2
 acocho		$alt2 $noun
@@ -847,7 +850,6 @@ enterro		$alt2 $noun
 entorto		$alt
 entroso		$alt
 envelope	$alt
-envolto		$alt2
 enxaqueca	$alt2
 enxerto		$alt2 $noun
 epopeia		$alt
@@ -941,7 +943,6 @@ hoje		$alt2
 horrores	$alt2
 humores		$alt2
 ideia		$alt
-imberbe		$alt
 interesse	$alt2
 interesse	$alt $verb
 iodo		$alt2
@@ -960,6 +961,7 @@ lepra		$alt
 leste		$alt2 $verb
 ?2   lhe	l^y
 lingueta	$alt2
+lisboeta		$alt2
 lodo		$alt2
 logro		$alt
 lopes		$alt
@@ -985,7 +987,6 @@ modelo		$alt $verb
 moeda		$alt
 moem		$alt
 mofo		$alt $verb
-moleta		$alt2
 molho		$alt2 $noun
 monera		$alt
 morcego		$alt2
@@ -994,6 +995,7 @@ moreia		$alt
 mortos		$alt
 motora		$alt2
 mui		mwi
+muleta		$alt2
 mureta		$alt2
 mutreta		$alt2
 namoro		$alt2 $noun
@@ -1091,6 +1093,8 @@ risoto		$alt2
 rock		$alt
 roem		$alt
 rola		$alt2 $noun
+roleta		$alt2
+rolete		$alt2
 rolo		$alt2 $noun
 rota		$alt2
 rota		$alt $noun
@@ -1148,6 +1152,7 @@ transtorno	$alt $verb
 traqueia	$alt
 travesso	$alt2
 tremores	$alt2
+treta		$alt2
 trevo		$alt2
 troco		$alt2 $noun
 tropa		$alt
@@ -1243,6 +1248,7 @@ python     p'aIT&~N
 ?1 readme     r'i:dmi:
 ?1 sapi       s,ap'i
 ?1 scanner    sk'En&r
+sky   sk'ay
 shake	S'eIk
 ?1 shift      S'ift
 ?1 scroll     sk:r'ol
@@ -1254,13 +1260,16 @@ símbolo	s'imbolU
 ?4 símbolo	s'iNbolU
 ?2   software   s'Oftwe@-
 ?1 space      sp'eIsy
+?2 space      sp'eIs
 ?1 sporting   sp'Ort,ing
  tab        t'aby
  tablet  t'ablet
 ?1 telemóvel  t,El,Em'OvEl
 ?1 telemóveis t,El,Em'OveIs#
 ?1 up         &p
-?1 upload     &pl'oud
+update		&pd'eIt
+upgrade		&pgR'eId
+upload		&pl'oud
 ?2        web        w'Eb
 ?1 yahoo      'i,ah'u
 ?2 yahoo      iah'u
@@ -1275,7 +1284,7 @@ louis       _^_FR
 // foreign product names
 ?1 access      'aks,Es
 ?1 adobe       &d'Oby
-   android &ndR'Oid
+   android &NdR'Oid
 apple  'Epow
 chrome  kR'owmi
    debian      d'Ebj&~N

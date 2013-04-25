@@ -1,8 +1,10 @@
 
 // translation rules for Irish Gaeilge
 // This file is UTF-8 encoded
-// written by Ronan McGuirk January 2013
-// Version 2.5B
+// written by Ronan McGuirk  2013
+// Version 2.6.1
+// Please send comments and suggestions to espeak.gaeilge@gmail.com
+
 
 // Conditional rules
 // ?1  allow eclipsis as 2 separate words
@@ -12,7 +14,7 @@
 .L03 b bh mb  c ch f m mh dh   // used for words likemuir or cuid
 .L04 b bh mb    // for words like beag
 .L05 nn nna nnas dh r s ntas nach nas nais dar mar rtha nta mh chas chais cht  chta nnach ntach llach d l  ll             // word endings where @ is to repleace ea or a
-.L06 aidh idh aí á eá eadh adh ad imid aimid imis aimis  ainn inn idís aidís éin     // word endings where f changes to h
+.L06 aidh idh aí á eá eadh adh ad adsa imid aimid imis aimis  ainn inn idís aidís éin      // word endings where f changes to h
 .L07 b c g ch bh gh mb
 .L08 lc ll nt bhse       // for words like cailc
 .L09 cl cr chr  f
@@ -21,14 +23,14 @@
 .L12 á é ó eo ua   // when followed by i
 .L13 oc omb
 .L14 río dún gnío        // followed with mh
-.L15 c ch  f  m d dh g gc  gh mh // aoi following
+.L15 c ch  f bhf  m d dh g gc  gh mh // aoi following
 .L16 b c bh ch gr ghr    // for inn word ending
 .L17 l le li niste nn
-.L18 n nt nte neann neadh ntear nim nfear nfinn
+.L18 n nt nte neann neadh ntear nim nfear nfinn nfidh nfidis neamar
 .L19 na nea ra rea la llea arga     // word endings with silent dh
 .L20 eo eoir eá eabh io iu iú               // slender m
 .L21 ll nn ndán nntán
-.L22  eadh eag eaga eagán eagáinín eo  io iu iú eall eabh ealtaine
+.L22  eadh eag eaga eagán eagáinín eo  io iu iú eall eabh ealtaine eann
 .L23 ea eo i
 .L24 b mb bh g gh p ph bp m mh
 
@@ -40,14 +42,16 @@
         abht       aU#t[
         amhr       aUr       //	words like amhras
      K) amhl       aUl
-        abhra      aUr@      //	words like slabhra
+        abh (C     aU        //	words like slabhra
         aghaidh    aIg
      t) abhair     u:@r
     th) abhair     u:@r
      t) abhar      u:@r
     th) abhar      u:@r
      _) an (sL01   @n
-     _) an (-      0n        // an prefix
+     _) a (nA      @
+     _) an (_      @n
+     _) an (-      '0n       // an prefix
      é) a          @         // words like féach
      X) a (nn_     aU#
      X) a (ll_     aU#
@@ -77,8 +81,9 @@
      _) ao         e:
         ae         e:
         amhna (_   aUn@
+        arraing    arIng
+     _) ath (@@P3  ,0_
 
-        
 .group á
         á          A:
      @) á          ,A:
@@ -89,7 +94,7 @@
         áinig      A:nIg
         ái         'A:i
 
-        
+
 .group ai
         ai         a#
    L04) ai (L17    0#
@@ -99,6 +104,7 @@
      m) ai (n      0#
      c) ai (th     0#
     ch) ai (th     0#
+        ai (tín    0#
         ai (d      0#
      p) ai (l      0#
      @) ai (L11_   I
@@ -112,8 +118,9 @@
      X) aigh       'aI
         aigh       aI#       L04)	aill	(_	wi:l
         aing (_    Ing
+        ai (llimh  '0        // words like Gaillimh
 
-        
+
 .group b
         b          b         // broad
    L01) b          b;        // slender
@@ -122,7 +129,7 @@
         bh (_      vv
         bh (L22    vj        // slender
    L01) bh         v
-?1 _m_) b (@
+?1 _m_) b (@ 
      _) bhf        v         // urú broad
      _) bhf (L22   v;        // urú slender
      _) bp         b         // urú broad
@@ -134,8 +141,10 @@
      a) bh (a      U         // for example cabhair
    ear) bha        u:        // words like Cearbhall
         bhfaigh    v'aI
+     _) beann (@   ba#n
+     _) bheann (@  va#n
+     _) bun (C@P3  b,Un
 
-        
 .group c
         c          k
         c (L01     k;        // slender
@@ -143,19 +152,20 @@
         ch (L01    C;
         ch (é+     C;
         ch (ei+    x;
-?1 _g_) c (@
-?1 _g_) c (L01
+?1 _g_) c (@ 
+?1 _g_) c (L01 
      _) cabhr      k'aUr
      _) chabhr     x'aUr
+     _) ceann (C@P5 k;,aUn
+     _) cheann (C@P6 C;,aUn
 
-     
 .group d
         d          d[        // broad
    L01) d          dZ        // slender
         d (L22     dZ        // slender
         d (L01     d;        // slender
      i) d (i       dZ
-?1 _n_) d (@
+?1 _n_) d (@ 
         dh         Q         // broad
         dh (ui     Q         // broad
         dh (ao     Q         // broad
@@ -165,6 +175,11 @@
 ?1   _) d (_t      d[
 ?1   _) d (_tL01   dZ
      _) d' (@P2    d
+
+     _) d'         d
+     _) d (_'fh    d
+
+        d'fh (L01  d
      i) dh (_      g
      a) dh (_      X
      o) dh (_      X
@@ -174,8 +189,9 @@
         dheartháir gr@h'A:r
         deirfiúr   d;r@f'u:r
         dheirfiúr  g;r@f'u:r
+     _) do (Ch@@P2 d[,U_
+     _) dí (@@P2   d,i:
 
-        
 .group e
         e          E#
         eá         A:
@@ -184,29 +200,39 @@
      r) ei (m      aI
         eighea     aI
         eighea     aI
+     s) ei (nn     aI
+    sh) ei (nn     aI
         eigh       aI
 
         eo         o:
-        eogh       o:
+        eoi        o:
+        eogha      o:
+        eoghai     o:
      d) eo (ch     O#
+    dh) eo (ch     O#
      _) eo (ch     O#
      s) eo (_      @
 
-     
+
 .group é
         é          'e:
         éi         'e:
+        éa         'e:
      _) éi (rig    aI        // words like éirigh
+    _h) éi (rí     aI
      _) éi (rí     aI        // words like éirí
      _) éireoidh   aIro:Ig
         éacs       e:@ks
 
-        
+
 .group ea
         ea         a#
+        eai        a#
      X) ea (L21_   aU
         ea (ltaine aU
      g) ea (ll     aU
+     l) eamh (n    aU
+    dr) ea (m      aU
      X) ea (ch     0
   _L04) ea (g      @
   _L04) ea (dh_    @
@@ -217,7 +243,7 @@
         eanbhean   'an@v,an
         eadhb      aIb
 
-        
+
 .group f
         f          f         // broad
         f (L22     f;        // slender
@@ -225,14 +251,16 @@
         fh (éin_   h
         fh (L22    ;         // slender
      @) f (L06_    h
-?1 _bh_) f (@
-?1 _bh_) f (L22    ;
+     _) fo (C@@P2  f,U
+     _) fogh       f'aU
+?1 _bh_) f (@ 
+?1 _bh_) f (L22     ;
 
-     
+
 .group g
         g          g         // broad
         g (L01     g;        // slender
-?1 _n_) g (@
+?1 _n_) g (@ 
      _) gh         Q"
      _) gh (L01    Q"j
      _) gc         g         // urú broad
@@ -245,19 +273,24 @@
         gh (n      X@
         gheobh     j'o:
         gabh       gaU
+     _) gearr (C@P5 g;,aR
+     _) ghearr (C@P6 Q"j,aR
 
-        
 .group h
         h          h         // silent
 
-        
+
 .group i
         i          I
      _) i          I
         ia         i@
         ia (tha    i:
         io         O#
+        io (dá     I
      _) io (nadh   u://      words like ionadh
+     s) io (mb     I
+    sh) io (mb     I
+
    _pr) io (n      u:
    L16) inn (_     i:n
         iai        i:i
@@ -266,12 +299,18 @@
    L12) i          i         // non syllabic short i after long vowel
         iú         u:
      m) i (d_      i:        // verb ending
+     _) in (@@P2   ,In_
+     _) ionad (C@@P5 ,Ona#d[
 
-     
 .group í
         í          'i:
+        íomh       'i:v
+        íochn      'i:xn
+        í (_       i:
+        ín (_      i:n
+        ío         i:@
 
-        
+
 .group l
         l          l         // broad
    L01) l          l;        // slender
@@ -280,8 +319,9 @@
         ll (L23    l;
         l (g       l@
         l (b       l@
+     _) lorg (@@P4 l,Or@g
+     _) lán (C@@P3 l,A:n
 
-        
 .group m
         m          m         // broad
         m (L20     m;        //slender
@@ -296,8 +336,8 @@
      _) mh (n      v@
   léir) mheas      vas
      r) m          @m        // words like gorm
+     _) mear (@@P4 m,ar
 
-     
 .group n
         n          n         // broad
         n (L01     n;        // slender
@@ -318,8 +358,8 @@
         n (ch      n@
      c) n          @n
     ch) n          @n
+     _) nasc (C@@  n,0sk
 
-    
 .group o
         o          O#
      _) o          'O
@@ -342,12 +382,13 @@
         odl (a     O#l
         oí         i:
 
-        
+
 .group ó
         ó          'o:
         ómhai      o:@
 
-        
+        ói (p@     'o:
+
 .group oi
         oi         O
   _L15) oi (+      @'I
@@ -369,15 +410,16 @@
      _) oi (leá    'I
         oidh       aI
         oir (_     'ERR
+   _sc) oi (r      O
         oigh (ea   aI
 
-        
+
 .group p
         p          p         // broad
         ph         f         // broad
         p (L22     p;        // slender
         ph (L20    f;        // slender
-?1 _b_) p (@
+?1 _b_) p (@ 
 
 
 .group r
@@ -388,13 +430,13 @@
   L12i) r (t_      Z
         rr         R
         rg         r@g
+        rgh        rQ"
    L01) rg         R@g       // slender
         r (bh      r@
-        ríomh      ri:@v
      s) r (A       R
      _) ramh       raU
 
-     
+
 .group s
         s          s         // broad
    L01) s          S         // slender
@@ -402,13 +444,14 @@
         s (cL01    S
         s (CCL01   S         // slender
         s (pCé     s         // broad
-?1 _t_) s (@
+?1 _t_) s (@ 
         sh         h
         sh (CL01   h
         sh (L01    h;
         s (lL01    S
+    _') s (_       s         // 's in poems etc
+     _) sain (@P4  s,an
 
-        
 .group t
         t          t[        // broad
    L01) t          c         // slender
@@ -418,7 +461,7 @@
 ?1   _) t (_L01    c
   L01C) t          tS        // slender after consonant
         t (CL01    tS        // slender with following consonant before vowels
-?1 _d_) t (@
+?1 _d_) t (@ 
         th         h
         th (L01    h;
   L01C) th         h
@@ -432,7 +475,7 @@
         thne (_    h@nE
      A) th (_                // silent th at word end
 
-     
+
 .group u
         u          U#
         ua         u@
@@ -441,11 +484,14 @@
         uai (d     ui
         uá         u:'A:
         ui         I
+        ui (s      U
+        ui (sce_   I
         uinn (_    'i:n
         uinti      U#'i:ntI
     _b) uí         wi:
    _bh) uí         wi:
      g) uí         wi:
+    gh) uí         wi:
         umh        u:
    L03) ui         @I
     _d) u (l_      O#
@@ -453,8 +499,9 @@
     gh) ui (gh_    @i:
         uí         i:
         uachai     'ux@
+     _) uimhir (C@P6 ,IvIR
 
-        
+
 .group ú
         ú          u:
         únmh       u:nv

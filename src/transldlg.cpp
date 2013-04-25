@@ -460,7 +460,7 @@ void TranslDlg::OnCommand(wxCommandEvent& event)
 		t_phonetic->SetDefaultStyle(style_phonetic_large);
 
 		translate_text = 3;
-		use_ipa = 1;
+		use_ipa = 0x10;
 		break;
 
 	case T_PROCESS:

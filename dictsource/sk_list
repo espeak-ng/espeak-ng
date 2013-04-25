@@ -69,6 +69,8 @@ _tld	s_v'l-novkoU
 
 // character names
 _cap	vel^ke:
+_sub	d,olni:||indeks||
+_sup	h,oRni:||indeks||
 _??	simbol
 _#9	t'ab
 _#32	'medzeRa
@@ -76,7 +78,7 @@ _?A	znak
 
 *	hviezda	$max3
 +	plus	$max3
-=	Rovna:sa	$max3
+=	Rovna:||sa	$max3
 @	zavina:tS
 &	ampeRsand
 #	kRi:Zik	$max3
@@ -88,64 +90,88 @@ _'	apostRof
 _(	za:tvoRka
 _)	zatvoRit;
 _,	tSiaRka
-_-	poml-tSka
-__	podtSiaRknutie
+_-	spojovn^i:k
+__	podtSiaRkovn^i:k
 _.	bodka
-_/	lomeno
+_/	lomka
 _:	dvojbodka
 _;	bodkotSiaRka
 _<	menSi:
-_>	vetSSi:
+_>	v&tSSi:
 _?	ota:zn^ik
 _[	hRanata:||za:tvoRka
-_\	opatSne:||lomeno
+_\	opatSna:||lomka
 _]	hRanata:||zatvoRit;
-_^	stRieZka
+_^	voka:n^
 _`	aktsent
 _{	zloZena:||za:tvoRka
 _|	zvisla:||tSiaRa
 _}	zloZena:||zatvoRit;
 _~	vl-novka
-_     tvr-da:m'edzeRa    // U+00A0  no-break-space
-_¡    obra:t;eni:v'i:kRitSn^i:k
-_¦    pReRuSena:'tSiaRa
-_ª    hoRni:indeks'a:
-_«    dvojita:lomena:||za:tvoRka
-_­    mekka:poml-tSka
-_²    nadRuhu:
-_³    natRetju
-_´    dl:Zen^
-_·    bodka'vpRostRjedku
-_¸    tsedila
-_¹    napRvu:
-_»    dvojita:lomena:||zatvoRit;
-_¿    obRa:t;eni:'ota:zn^ik
-_–    dl-ha:'poml-tSka
-_‘    l^ava:'u:vodzovka
-_’    prava:'u:vodzovka
-_“    horne:'u:vodzovki
-_”    dolne:'u:vodzovki
-_‡    dvojiti:kRi:Z
-_•    odRa:Zka
-_‣    tRojuholni:kova:'odRa:Zka
+_ 	tvr-da:||m'edzeRa    // U+00A0  no-break-space
+_¡	obra:t;eni:||v'i:kRitSn^i:k
+_¦	pReRuSena:||tSiaRa
+_¨	pRehla:ska
+_«	dvojita:||lomena:||za:tvoRka
+_­	Rozd;el^ovn^i:k
+_´	dl:Zen^
+_·	bodka||v||pRostRjedku
+_¸	tsedila
+_»	dvojita:||lomena:||zatvoRit;
+_¿	obRa:t;eni:||ota:zn^ik
+_–	poml-tSka
+_‘	hoRne:||jednoduche:||u:vodzovki
+_’	odsuvn^i:k
+_“	hoRne:||u:vodzovki
+_”	dvojita:||hoRna:||opatSna:||u:vodzovka
+_„	dolne:||u:vodzovki
+_‚	dolne:||jednoduche:||u:vodzovki
+_‡	dvojkRi:Z
+_•	odRa:Zka
+_‣	odRa:Zka||tRojuholni:k
+_⁃	odRa:Zka||v||tvaRe||poml-tSki
 ‰	pRomile
 €	euRo
 §	paRagRaf
 ÷	d;eleno
 ×	kRa:t
 °	stupn^ou
-¢	tsentou
-£	libjeR
-¤	znatSkameni
+¢	tsent
+£	libRa
+¤	mena
+©	kopiRajt
+®	Registrovane:
+¥	jen
 −	mi:nus
-±	plus'mi:nus
-µ	mu:
-¼	Stvr-tina
+±	plus||mi:nus
+µ	mi:
+¼	Stvr-t;ina
 ½	polovitsa
-¾	tri_Stvr-tini
-¬	logitske:not
-æ	a'e:
-þ	poml-tSkanad
+¾	tRi_||Stvr-t;ini
+¬	logitski:||za:poR
+æ	otvoRene:||e:
+þ	soRn
+¯	pRuh||nad
+ð	ed
+ƒ	floRe:n
+_†	kRi:Z
+_≈	pRibliZn^e||sa||Rovna:
+_≠	n^eRovna:||sa
+_≤	menSi:||alebo||sa||Rovna:
+_≥	v&tSSi:||alebo||sa||Rovna:
+_√	dRuha:||odmotsn^ina
+_∛	tRet;ia||odmotsn^ina
+_∞	n^ekon^etSno
+_■	tSieRni||StvoRets
+_□	bieli||StvoRets
+_◆	tSieRni||diamant
+_○	bieli||kRuh
+_●	tSieRni||kRuh
+_◦	odRa:Zka||v||tvaRe||bielej||bodki
+_✓	zaSkr-tnutie
+_✔	tutSne:||zaSkr-tnutie
+_➔	Si:pka||vpravo
+_➢	odRa:Zka||v||tvaRe||Si:pki
 
 
 // Numbers

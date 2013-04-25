@@ -2,6 +2,8 @@
 // This file is UTF8 encoded 
 // Spelling-to-phoneme words for Armenian
 
+// ?1  West Armenian
+
 // names of letters
 _ա	aIb
 բ	ben
@@ -20,7 +22,7 @@ _ը	'@t#
 կ	ken
 հ	ho
 ձ	dza
-ղ	r"ad
+ղ	r"at
 ճ	ce
 մ	men
 յ	hi
@@ -30,15 +32,16 @@ _ը	'@t#
 չ	tSa
 պ	pe
 ջ	dZe
-ռ	**a
+ռ	R2a
 ս	se
 վ	vev
 տ	tyn
 ր	re
-ց	tso
+ց	ts#o
 ւ	hyn
 փ	p#yr
 ք	k#e
+և	jev
 _օ	o
 ֆ	fe
 
@@ -52,6 +55,21 @@ d	di
 e	e
 f	ef
 
+// symbols
+$	dolar
+%	տոկոս $text
+*	աստղանիշ $text
++	գումարած $text
+=	հավասար $text
+
+
+_՝	b'ut#
+_՞	harts#ak'an
+_՛	S'eSt
+_։	verdZak'et  // U+0589
+_:	verdZak'et
+_,	storak'et
+_.	midZak'et
 
 
 // numbers
@@ -82,5 +100,41 @@ _dpt	_sto**ak'el_
 
 
 // function words
+ես	$u+  // pronouns
+դու	$u+
+եք	$u+
+Դուք	$u+
+նա	$u+
+այն	$u+
+մենք	$u+
+նրանք	$u+
+
+դուք	$u+
+ենք	$u+
+են	$u+
+
+այդ	$u+
+այս	$u+
+դա	$u+
+որ	$u+
+էր	$u+
+
+մի	$u+
+է	$u+
+
+հետ	$u+  // prepositions
+
+եվ	$u+  // and
+իսկ	$u+ $brk  // and, but
+կամ	$u+  // or
+որը	$u+  // which
+	
+կարող	$u+  // can
+
+	
 
 
+
+// exceptions
+ով	ov
+ովքեր	ovk#er

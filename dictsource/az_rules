@@ -1,0 +1,137 @@
+ 
+// This file is UTF8 encoded 
+// Spelling to phoneme rules for Azerbaijani
+
+// Stress rule: Right-most vowel, but stop before the vowel which is
+// marked as unstressed [%].
+
+.L02 ı a o u   // back vowels
+.L03 i e ö ü
+
+.group a
+        a        a
+        ai (K    aI
+     -) a (_     a
+
+.group b
+        b        b
+
+.group c
+        c        dZ
+
+.group ç
+        ç        tS
+
+.group d
+        d        d
+
+     -) dan (_   d%an
+     -) dən (_   d%&n
+     -) dək (_   d%&k
+     
+.group e
+        e        e
+
+.group ə
+        ə        &
+     @) ə (_     %&
+     -) ə (_     %&
+
+.group f
+        f        f
+
+.group g
+        g        J
+
+.group ğ
+        ğ        Q
+     A) ğ        : 
+     a) ğa       :
+     o) ğo       :
+     u) ğu       :
+     ö) ğö       :
+     ü) ğü       :
+     i) ğ        j
+     e) ğ        j
+
+.group h
+        h        h
+
+.group x
+        x        x
+
+.group ı
+        ı        @
+
+.group i
+        i        i
+        
+     @) iya (_   =i;a
+
+.group j
+        j        Z
+
+.group k
+        k        c
+        k (K     C
+
+.group q
+        q        g
+        q (_     x
+
+.group l
+        l        l
+        l (L02   L
+   L02) l (K     L
+
+.group m
+        m        m
+
+.group n
+        n        n
+
+.group o
+        o        o
+
+.group ö
+        ö        W
+
+.group p
+        p        p
+
+.group r
+        r        R
+     A) r (A     *
+     ğ) r (A     *
+     C) r (_     @-r
+
+.group s
+        s        s
+
+.group ş
+        ş        S
+
+.group t
+        t        t
+   L03) t (L03   ts
+
+.group u
+        u        u
+
+.group ü
+        ü        y
+
+.group v
+        v        v
+
+.group w
+        w        w
+
+.group y
+        y        j
+
+.group z
+        z        z
+
+.group
+        ä        &

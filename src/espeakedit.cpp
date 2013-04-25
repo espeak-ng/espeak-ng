@@ -632,7 +632,7 @@ void OnOptions2(int event_id)
 
 	case MENU_PATH0:
 		string = wxFileSelector(_T("Master phonemes file"),wxFileName(path_phfile).GetPath(),
-			_T(""),_T(""),_T("*"),wxOPEN);
+			_T("phonemes"),_T(""),_T("*"),wxOPEN);
 		if(!string.IsEmpty())
 		{
 			path_phfile = string;
