@@ -1564,8 +1564,8 @@ void CountWordFreq(wxString path, wcount **hashtab)
 		for(k=0; k<ix; )
 		{
 			k += utf8_in(&wc,&buf[k]);
-			wc = towlower(wc);       // convert to lower case
-			if(iswalpha(wc))
+			wc = towlower2(wc);       // convert to lower case
+			if(iswalpha2(wc))
 			{
 				j += utf8_out(wc,&wbuf[j]);
 				n_chars++;
@@ -2324,13 +2324,28 @@ void Make_walpha_tab()
 	}
 
 	fprintf(f, "\nstatic const short wchar_tolower[] = {\n");
-	exceptions[ex] = 0;
-	exceptions[ex+1] = 0;
-	for(ix=0; ix<=ex; ix+=2)
+
+	for(ix=0; ix<ex; ix+=2)
 	{
 		fprintf(f,"\t0x%.3x, 0x%.3x,\n", exceptions[ix], exceptions[ix+1]);
 	}
-	fprintf(f, "};\n");
+	fprintf(f, "\t0,0 };\n");
+
+	fprintf(f, "\nstatic const short wchar_toupper[] = {\n");
+	for(ix=0x80; ix<=MAX_WALPHA; ix++)
+	{
+		if(iswlower(ix))
+		{
+			c = towupper(ix);
+			value =  ix - c;
+			if((value != 32) && (value != 1))
+			{
+				fprintf(f,"\t0x%.3x, 0x%.3x,\n", ix, c);
+			}
+		}
+	}
+	fprintf(f, "\t0,0 };\n");
+
 	fclose(f);
 }
 
@@ -2350,6 +2365,7 @@ void TestTest(int control)
 
 //CharsetToUnicode("ISO-8859-4");
 //CharsetToUnicode("ISCII");
+
 
 if(control==2)
 {

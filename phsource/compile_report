@@ -857,7 +857,7 @@ ufric/tl#       [tl#] is
                 [tl#] kl
 ufric/tlh       [K] nso
                 [K] tn
-ufric/x         [x] base
+ufric/x_        [x] base
 ufric/x2        [x2] af
                 [x] ku
                 [Q2] ka
@@ -1013,7 +1013,6 @@ ustop/t_dnt     [t] base
                 [t] hr
 ustop/t_dnt2    [t] base2
                 [d] kn
-                [t] es
 ustop/t_hi      [t[] base
                 [t] et
                 [t^] et
@@ -1595,6 +1594,7 @@ vowel/@_3       [@#] en
                 [@3] ur
                 [@] da
                 [@] am
+vowel/&_3       [&] az
 vowel/3_2       [3:] en-n
                 [@] zh
 vowel/3_3       [3:] en-rp
@@ -1651,6 +1651,7 @@ vowel/a#        [a] base2
                 [&] sr
                 [a#] rw
                 [a/] rw
+                [a] az
                 [a] wo
                 [a] dv
                 [a:] dv
@@ -1751,7 +1752,6 @@ vowel/aa        [a:] et
                 [A:] no
                 [aa] zhy
                 [a] hy
-                [a] az
 vowel/aa#       [O] en-us
                 [0] en-wi
                 [a2] fi
@@ -1785,6 +1785,7 @@ vowel/aa_9      [a] fi
                 [a:] hi
                 [a] ne
                 [a] pa
+                [a] az
                 [a] ak
                 [a] mt
                 [A] kk
@@ -2227,12 +2228,12 @@ vowel/o_mid     [U@] en-rp
                 [o] bg
                 [o] tr
                 [o] fa
-                [o] az
                 [o] dv
                 [o:] dv
                 [o] tt
 vowel/o_mid2    [O] fr
                 [O] ht
+                [o] az
 vowel/oo        [o] base
                 [O:] en-sc
                 [O] en-wi
@@ -2350,6 +2351,7 @@ vowel/u_2       [u1] fi
                 [u] is
                 [u] tr
                 [u] sl
+                [u] az
                 [u] am
                 [u] wo
 vowel/u#_2      [u-] sv
@@ -2364,7 +2366,6 @@ vowel/u_5       [U1] et
                 [u] vi
                 [u] sw
                 [u] nso
-                [u] az
                 [u] tn
 vowel/u#_5      [y] vi
 vowel/u_6       [u] ta

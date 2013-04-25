@@ -972,7 +972,7 @@ SetLengthMods(tr,3);  // all equal
 			SetLetterBits(tr,LETTERGP_VOWEL2,hy_vowels);
 			SetLetterBits(tr,LETTERGP_C,hy_consonants);
 			tr->langopts.max_initial_consonants = 6;
-			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_OMIT_1_HUNDRED;
+			tr->langopts.numbers = NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_OMIT_1_HUNDRED;
 		//	tr->langopts.param[LOPT_UNPRONOUNCABLE] = 1;   // disable check for unpronouncable words
 		}
 		break;
@@ -1290,6 +1290,7 @@ SetLengthMods(tr,3);  // all equal
 			ResetLetterBits(tr,0x2);
 			SetLetterBits(tr,1,"bcdfgjkmnpqstvxz");      // B  hard consonants, excluding h,l,r,w,y
 			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
+			tr->langopts.accents = 2;  // 'capital' after letter name
 		}
 		break;
 
@@ -1521,6 +1522,7 @@ SetLengthMods(tr,3);  // all equal
 
 			tr->langopts.stress_rule = 7;   // stress on the last syllable, before any explicitly unstressed syllable
 			tr->langopts.stress_flags = S_NO_AUTO_2;  //no automatic secondary stress
+			tr->langopts.dotless_i = 1;
 			tr->langopts.param[LOPT_SUFFIX] = 1;
 
 			if(name2 == L('a','z'))

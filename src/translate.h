@@ -542,6 +542,7 @@ typedef struct {
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	char textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
+	char dotless_i;         // uses letter U+0131
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
@@ -715,8 +716,11 @@ int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
 int iswalpha2(int c);
 int isspace2(unsigned int c);
+int iswlower2(int c);
+int iswupper2(int c);
 int towlower2(unsigned int c);
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
+int towupper2(unsigned int c);
+void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
 ALPHABET *AlphabetFromName(const char *name);

@@ -36,6 +36,17 @@ Q    r    R    R2   s    S    t    T
 t#   tS   w    x    
 
 
+Dictionary az_dict  2013-04-25
+
+&    @    @-   a    aI   e    E    i    
+o    u    W    y    
+
+*    :    ;    b    c    C    d    dZ   
+f    g    h    j    J    k    l    L    
+m    n    p    Q    r    R    s    S    
+t    tS   ts   v    w    x    z    Z    
+
+
 Dictionary bg_dict  2013-03-16
 
 @    a    e    i    o    u    
@@ -47,7 +58,7 @@ s;   t    t;   tS   ts   v    x    z
 Z    z;   
 
 
-Dictionary bn_dict  2013-04-18
+Dictionary bn_dict  2013-04-25
 
 &    a    a~   e    e~   i    i:   i~   
 l-   o    O    o:   O~   o~   r-   u    
@@ -113,7 +124,7 @@ r    R    R3   s    S    t    T    tS
 v    w    x    z    Z    
 
 
-Dictionary de_dict  2013-03-10
+Dictionary de_dict  2013-04-25
 
 3    @    @-   a    A    A:   aI   aU   
 A~   E    E2   E:   e:   EI   i    I    
@@ -137,7 +148,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-04-23
+Dictionary en_dict  2013-04-25
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -225,7 +236,7 @@ p2   r    r2   s    S    t    t2   t3
 tS   v    z    Z    z2   z3   
 
 
-Dictionary ga_dict  2013-03-20
+Dictionary ga_dict  2013-04-25
 
 0    0#   @    a    a#   A:   aI   aI#  
 aU   aU#  e    E    E#   e:   eI   i    
@@ -288,15 +299,16 @@ S    s2   t    t2   tS   ts   v    w
 z    Z    
 
 
-Dictionary hy_dict  2008-12-22
+Dictionary hy_dict  2013-04-25
 
 @    a    aI   e    eI   i    i@   o    
 u    W    y    
 
-**   b    c    d    dZ   dz   f    g    
-h    j    k    k#   l    m    n    p    
-p#   r    R    r"   s    S    t    t#   
-tS   ts   ts#  v    X    z    Z    
+*    **   b    c    d    dZ   dz   f    
+g    h    j    k    k#   l    m    n    
+p    p#   r    R    r"   R2   s    S    
+t    t#   tS   ts   ts#  v    X    z    
+Z    
 
 
 Dictionary id_dict  2011-02-21
@@ -500,7 +512,7 @@ r    r.   s    S    s.   t    t#   t.
 t.#  v    w    x    z    
 
 
-Dictionary nl_dict  2013-04-23
+Dictionary nl_dict  2013-04-25
 
 8    @    @-   a    A    a:   A~   e    
 E    e#   E2   e:   EI   eU   i    I    
@@ -536,7 +548,7 @@ R    s    S    t    tS   v    w    x
 z    Z    
 
 
-Dictionary pa_dict  2013-03-17
+Dictionary pa_dict  2013-04-24
 
 @    a    a~   e    E    e~   E~   i    
 I    i~   I~   o    O    o:   O~   o~   
@@ -545,9 +557,9 @@ r-   u    U    U~   u~   V    V~
 :    ;    b    b#   c    c#   d    d#   
 d.   d.#  f    g    g#   h    H    j    
 J    J#   k    k#   l    l.   m    n    
-N    n.   n^   p    p#   Q    R    r.   
-R2   s    S    t    t#   t.   t.#  v    
-x    z    
+N    n.   n^   p    p#   Q    r    R    
+r.   R2   s    S    t    t#   t.   t.#  
+v    x    z    
 
 
 Dictionary pl_dict  2013-04-06
@@ -562,7 +574,7 @@ S    s;   S;   t    t;   tS   ts   tS;
 ts;  v    w    x    z    Z    Z;   
 
 
-Dictionary pt_dict  2013-04-23
+Dictionary pt_dict  2013-04-25
 
 &    &/   &U~  &~   @    @-   a    A    
 aI   aU   e    E    eI   EI   eU   EU   
@@ -616,17 +628,17 @@ n.#  n^   n^#  p    p#   r    s    S
 s.   t    t#   t.   t.#  tS   v    w    
 
 
-Dictionary sk_dict  2011-08-08
+Dictionary sk_dict  2013-04-25
 
 &    @-   a    a:   e    e:   i    i:   
 l-   l:   o    o:   oU   r-   r:   u    
 u:   
 
-*    ;    b    d    d;   dZ   dz   f    
-g    h    j    k    l    l^   m    n    
-N    n^   p    r    R    R^   R^/  s    
-S    t    t;   tS   ts   v    w    x    
-z    Z    
+*    ;    b    c    d    d;   dZ   dz   
+f    g    h    j    k    l    l^   m    
+n    N    n^   p    r    R    R^   R^/  
+s    S    t    t;   tS   ts   v    w    
+x    z    Z    
 
 
 Dictionary sl_dict  2013-01-30
@@ -701,7 +713,7 @@ s    s.   S;   t    t#   t.   t.#  tS
 v    v#   w    z    
 
 
-Dictionary tr_dict  2013-04-20
+Dictionary tr_dict  2013-04-25
 
 @    a    e    E    i    I    o    O    
 u    U    W    y    Y    
