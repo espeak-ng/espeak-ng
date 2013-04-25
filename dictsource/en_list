@@ -106,6 +106,8 @@ _hok	h'Uk
 
 // character names
 _cap	k,ap@-t@L
+_sub	s,VbskrIpt||
+_sup	s,u:p3skrIpt||
 _?A	l,Et3
 _??	sImb@L
 _braille br'eIl
@@ -2857,6 +2859,7 @@ temperature	tEmprI2tS3
 ?!3 temporary	tEmpr@rI
 ?3 template	tEmpl@t
 therefore	$1
+thereof		De@r'0v
 thermos		T3:m@s
 thermostable	$alt1
 thesis		Ti:sIs
@@ -3454,6 +3457,7 @@ Ada		eId@  $onlys
 Andrea		$2
 Adrian		eIdri@n
 Agatha		aga#T@
+Angela		andZ@l@
 Angelika	$2
 Aggie		agi
 Agnes		agn@s
@@ -3605,6 +3609,7 @@ Guinevere	gwInI#vi@3
 Hadrian		heIdri:@n
 Hamish		heImIS
 Harriet		hari@t
+Harvey		hA@vi
 Heidi		haIdi
 Hecate		hEk@teI
 Hekate		hEk@teI
@@ -3662,6 +3667,7 @@ Louise		lu:w'i:z
 Luigi		lu:'i:dZi
 Luis		lu:Is
 Lupe		lu:peI
+Luther		lu:T3
 Madeleine	mad@lI2n
 Madeline	mad@lI2n
 Maeve		meIv
@@ -3781,6 +3787,7 @@ Vanessa		$alt3
 Wallace		w0lI#s
 Wally		w0li
 ?3 William	wIlj@m
+Yerevan		jEr@v'an
 Yves		i:v
 Yvonne		$2
 Zoe		zoUi

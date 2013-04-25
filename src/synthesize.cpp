@@ -1953,20 +1953,14 @@ int SpeakNextClause(FILE *f_in, const void *text_in, int control)
 
 	if((option_phonemes > 0) || (phoneme_callback != NULL))
 	{
-		int use_ipa = 0;
+		int phoneme_mode = 0;
 		if(option_phonemes >= 3)
-			use_ipa = option_phonemes-2;   // 1=ipa, 2=ipa with tie, 3=ipa with ZWJ, 4=ipa with separators
+			phoneme_mode = 0x10 + option_phonemes-3;   // 0x10=ipa, 0x11=ipa with tie, 0x12=ipa with ZWJ, 0x13=ipa with separators
 
-		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
+		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), phoneme_mode);
 		if(option_phonemes > 0)
 		{
 			fprintf(f_trans,"%s\n",translator->phon_out);
-
-			if(!iswalpha(0x010d))
-			{
-				// check that c-caron is recognized as an alphabetic character
-				fprintf(stderr,"Warning: Accented letters are not recognized, eg: U+010D\nSet LC_CTYPE to a UTF-8 locale\n");
-			}
 		}
 		if(phoneme_callback != NULL)
 		{

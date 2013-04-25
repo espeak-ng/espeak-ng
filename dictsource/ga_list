@@ -1,7 +1,9 @@
 // Irish Gaeilge dictionary
 // written by Ronan McGuirk
-// January 2013
-// version 2.5
+//  2013
+// version 2.6.1
+// Please send comments and suggestions to espeak.gaeilge@gmail.com
+
 // This file is UTF8 encoded
 
 // letters
@@ -47,7 +49,7 @@ _cap    m'o:r
 // accent names
 
 // names of symbols
-ª_.	pO#nk
+_.	pO#nk
 _,	k0m@
 _;	semI
 _:	ko:l0n
@@ -152,22 +154,26 @@ amárach	@m'A:r@x
 amuigh	@mu1'I
 amháin @w'A:in
 am aUm
-an	@n
+anaithnid	'0nah@nIdZ
 anois	@nIS
 anonn @naUn
 ann aUn
 anseo	@nS'O
+anuas	a#n'u@s
 aodh e:
 aodha e:
 aon e:@n
 (ar ais) Er'aS
 arís	@r'i:S
 as 0s
+aschurtha	'0sxUrh@
+
 atá	@t['A:		$u
 baill	bu1'i:l
 bhaill	vu1'i:l
 beidh	bEg
 bhfuil w'Il
+bheas	v'e:@s
 bhuel	w'El
 ceithre kEr@
 cathair	k'0h@r
@@ -176,6 +182,7 @@ clainne	kl'InE
 chlainne	xl'InE
 chun	xUn		$u
 crainn kri:n
+chrainn	xri:n
 de	dE		$u+
 des	dEs		$u
 
@@ -184,6 +191,7 @@ di	dI		$u+
 do	dO#		$u
 domhnach d[aUn@x
 domhnaigh d[aUnig
+dúghorm	d['u:Q"Or@m
 eile	'El@
 euro ju:ro:
 faic f@ak
@@ -214,6 +222,7 @@ le	lE		$u
 (muigheo)	mu1'i:||'o:
 mhuigh	vu1'i:
 (mhaigh eo)	vu1'i:||'o:
+mhama	w'0m@
 maith m'0
 mhaith w'0
 	   mbeadh m;O#X
@@ -230,8 +239,10 @@ orthu O#rhu
 os	o:s
 rabh	raU
 raibh rEv
+raidió	r'adi:o:
 réamhrá r'e:@vr,a:
 réidh	re:
+'s	s
 samhain saUIn
 	  san s@n
 	  seo S@_

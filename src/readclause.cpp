@@ -260,8 +260,25 @@ static const short wchar_tolower[] = {
 	0x23d, 0x19a,
 	0x23e, 0x2c66,
 	0x243, 0x180,
-	0x000, 0x000,
-};
+	0,0 };
+
+static const short wchar_toupper[] = {
+	0x0b5, 0x39c,
+	0x0df, 0x0df,
+	0x0ff, 0x178,
+	0x131, 0x049,
+	0x17f, 0x053,
+	0x180, 0x243,
+	0x195, 0x1f6,
+	0x19a, 0x23d,
+	0x19e, 0x220,
+	0x1bf, 0x1f7,
+	0x1c6, 0x1c4,
+	0x1c9, 0x1c7,
+	0x1cc, 0x1ca,
+	0x1dd, 0x18e,
+	0x1f3, 0x1f1,
+	0,0 };
 
 
 #ifdef NEED_WCHAR_FUNCTIONS
@@ -317,13 +334,17 @@ int towlower(int c)
 
 int towupper(int c)
 {
+	int ix;
 	// check whether a previous character code is the upper-case equivalent of this character
 	if(towlower(c-32) == c)
 		return(c-32); // yes, use it
 	if(towlower(c-1) == c)
 		return(c-1);
-	if(towlower(c-2) == c)
-		return(c-2);
+	for(ix=0; wchar_toupper[ix] != 0; ix+=2)
+	{
+		if(wchar_toupper[ix] == c)
+			return(wchar_toupper[ix+1]);
+	}
 	return(c);  // no
 }
 
@@ -417,6 +438,28 @@ int iswalpha2(int c)
 	return(walpha_tab[c-0x80]);
 }
 
+int iswlower2(int c)
+{
+	if(c < 0x80)
+		return(islower(c));
+	if(c > MAX_WALPHA)
+		return(iswlower(c));
+	if(walpha_tab[c-0x80] == 0xff)
+		return(1);
+	return(0);
+}
+
+int iswupper2(int c)
+{
+	int x;
+	if(c < 0x80)
+		return(isupper(c));
+	if(c > MAX_WALPHA)
+		return(iswupper(c));
+	if(((x = walpha_tab[c-0x80]) > 0) && (x < 0xfe))
+		return(1);
+	return(0);
+}
 
 int towlower2(unsigned int c)
 {
@@ -426,7 +469,7 @@ int towlower2(unsigned int c)
 	// check for non-standard upper to lower case conversions
 	if(c == 'I')
 	{
-		if(translator->translator_name == L('t','r'))
+		if(translator->langopts.dotless_i)
 		{
 			c = 0x131;   // I -> ı
 		}
@@ -453,6 +496,24 @@ int towlower2(unsigned int c)
 	return(c + x);  // convert to lower case
 }
 
+int towupper2(unsigned int c)
+{
+	int ix;
+	if(c > MAX_WALPHA)
+		return(towupper(c));
+
+	// check whether a previous character code is the upper-case equivalent of this character
+	if(towlower2(c-32) == c)
+		return(c-32); // yes, use it
+	if(towlower2(c-1) == c)
+		return(c-1);
+	for(ix=0; wchar_toupper[ix] != 0; ix+=2)
+	{
+		if(wchar_toupper[ix] == c)
+			return(wchar_toupper[ix+1]);
+	}
+	return(c);  // no
+}
 
 static int IsRomanU(unsigned int c)
 {//================================
@@ -2330,7 +2391,7 @@ f_input = f_in;  // for GetC etc
 					c2 = ' ';
 				}
 				else
-				if((c2 == '/') || iswalpha(c2))
+				if((c2 == '/') || iswalpha2(c2))
 				{
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if(ix > (n_buf - 20))
@@ -2513,10 +2574,10 @@ f_input = f_in;  // for GetC etc
 			}
 		}
 
-		if(iswupper(c1))
+		if(iswupper2(c1))
 		{
 			tr->clause_upper_count++;
-			if((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev))
+			if((option_capitals == 2) && (sayas_mode == 0) && !iswupper2(cprev))
 			{
 				char text_buf[40];
 				char text_buf2[30];
@@ -2533,7 +2594,7 @@ f_input = f_in;  // for GetC etc
 			}
 		}
 		else
-		if(iswalpha(c1))
+		if(iswalpha2(c1))
 			tr->clause_lower_count++;
 
 		if(option_phoneme_input)
@@ -2602,8 +2663,8 @@ if(option_ssml) parag=1;
 
 				if(!iswspace(c1))
 				{
-					if(!IsAlpha(c1) || !iswlower(c1))
-//					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower(c1)))
+					if(!IsAlpha(c1) || !iswlower2(c1))
+//					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower2(c1)))
 					{
 						UngetC(c2);
 						ungot_char2 = c1;
@@ -2702,7 +2763,7 @@ if(option_ssml) parag=1;
 
 				if(nl_count==0)
 				{
-					if((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h','u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower(c_next))))
+					if((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h','u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower2(c_next))))
 					{
 						// lang=hu, fix for ordinal numbers, eg:  "december 2., szerda", ignore ',' after ordinal number
 						c1 = CHAR_COMMA_BREAK;
@@ -2721,7 +2782,7 @@ if(option_ssml) parag=1;
 							}
 							else
 							{
-								if (iswlower(c_next) || (c_next=='-'))     // hyphen is needed for lang-hu (eg. 2.-kal)
+								if (iswlower2(c_next) || (c_next=='-'))     // hyphen is needed for lang-hu (eg. 2.-kal)
 									is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
 							}
 						}
@@ -2730,7 +2791,7 @@ if(option_ssml) parag=1;
 						{
 							is_end_clause = 0;    // eg. u.s.a.'s
 						}
-						if(iswlower(c_next))
+						if(iswlower2(c_next))
 						{
 							// next word has no capital letter, this dot is probably from an abbreviation
 //							c1 = ' ';

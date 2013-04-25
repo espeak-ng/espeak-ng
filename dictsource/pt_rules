@@ -214,7 +214,7 @@
 
      i) e (r_      E
     @s) e (r_      E
-     u) e (r_      E
+     qu) e (r_      E
 
     ib) e (rL04_   E
      d) e (rL04_   E
@@ -226,11 +226,10 @@
     @s) e (rL04_   E
 
     sp) e (rL04_   E
-
      f) e (rL02_   E
 
         e (quL02_  E
-
+e (rbL04_   E
         e (rgL04_  E
 
         e (rsL04_  E
@@ -240,6 +239,7 @@
         e (ssL04_  E
         e (ss_     E         // stress and english words
 ?2      ection (_  'EkS&~N
+?2   ee (n_   i
         e (stL04_  E
 
         e (strL04_ E
@@ -372,6 +372,7 @@
    tiv) e (L05_    E         // es-
    viv) e (L05_    e
   _com) e (L05_    e
+  s_colh) e (res_   E
   _cos) e (L05_    e
   _pud) e (L05_    E
  _coub) e (L05_    E
@@ -424,11 +425,13 @@ _corro) e (L07_    e
 _interromp) e (L07_ e
 _troux) e (L07_    E
   _ens) e (bL03_   E
+  _enver) e (dL03_   E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
   _cel) e (brL04_  E
  _boch) e (chL04_  e
-   _ex) e (crL04_  E
+ _on) e (rL04_   E
+    _ex) e (crL04_  E
   _enr) e (dL01_   E
     _v) e (dL03_   E
   _arr) e (dL03_   E
@@ -472,14 +475,14 @@ _adult) e (rL04_   E
 _persev) e (rL04_  E
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
-    _v) e (rbL03_  E
-   _ex) e (rcL02_  E
+       _ex) e (rcL02_  E
  _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
     _h) e (rdL04_  E
   _des) e (rdL04_  E
      _) e (rgL03_  e
+_so) e (rgL03_   e 
    _re) e (rgL03_  e
   _bez) e (rrL03_  e
      v) e (rtL03_  e         // con- re- in-
@@ -837,7 +840,7 @@ _entorp) e (çL03_  e
 ?1   f) o (rmulá   u         // eg: formulário, formulários.
 ?1   v) o (lt      O
         o (luem_   o
-        o (CCuem_  o
+        o (ssuem_  o
     êC) o (CA_     o
    êCC) o (CA_     o
     ôC) o (CA_     o
@@ -852,7 +855,8 @@ _entorp) e (çL03_  e
    óCC) o (CA_     o
     úC) o (CA_     o
    úCC) o (CA_     o
-
+?2   otion (_   'owS&~N
+   
 //sort
     _f) o (L05_    o
 _pormen) o (L05_   O
@@ -862,6 +866,7 @@ _pormen) o (L05_   O
   _esn) o (bL04_   O
  _engl) o (bL04_   O
   _sal) o (brL03_  o
+  _env) o (ltL03_   o
      _) o (cL03_   o
     _m) o (fL01_   O
     _m) o (fL02_   O
@@ -1072,6 +1077,8 @@ _remem) o (rL04_   O
         u (a       u
      g) u (a+      w
      q) u (a+      w
+u (eC    u
+u (ei    u
      r) u (_A      u
         u (L04_    'u
 
@@ -1079,6 +1086,8 @@ _remem) o (rL04_   O
         ui (_      'uI
         u (iu      w
         u (iCK     u
+u (éC   u
+u (íC   u
         uy         uI
         ul (K      uw
         u (lh+     u
@@ -1091,6 +1100,7 @@ _remem) o (rL04_   O
 
      g) u (Y 
     _m) ui (tA_    'wiN
+?2   ution (_   'uS&~N
 
 
 .group ú

@@ -634,7 +634,7 @@ endphoneme
 
 
 phoneme j
-  liquid palatal
+  liquid palatal starttype #i
   lengthmod 7
 
   IF nextPhW(isVowel) THEN
@@ -1610,7 +1610,7 @@ phoneme x
   Vowelout f1=0 f2=2300 300 400  f3=-100 80  rms=20
 
   IF nextPh(isPause) THEN
-    WAV(ufric/x, 110)
+    WAV(ufric/x_, 60)
   ENDIF
   WAV(ufric/x_hr, 20)
 endphoneme
