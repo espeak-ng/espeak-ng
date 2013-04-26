@@ -151,19 +151,14 @@ _}	raItbreIs
 _¡	%Inv,3:tI2dEkskl@m'eIS@n
 _¦	broUk@nb'A@
 _¨	daIa#r'i:sIs
-_ª	fEmI2nIn'O@dI2n@L
 _«	lEft'gIl@mEt
 _­	makr0n
-²	tu:
-³	Tri:
-_¹	su:p@skrIptw'0n
-_²	su:p@skrIptt'u:
-_³	su:p@skrIptT'ri:
+²	tu:	$native
+³	Tri:	$native
+
 _´	a#kju:taksEnt
 _·	mId@Ld0t
 _¸	sEd'Il@
-//_º	maskjUlIn'O@dI2n@L
-_º	dI2gr'i:z
 _»	raIt'gIl@mEt
 _¿	%Inv,3:tI2dkw'EstS@n
 
@@ -1612,7 +1607,6 @@ fortune		fO@tSu:n
 foyer		fOIeI
 freelance	fri:laans
 freon		fri:0n
-frequent	frI2kwEnt $verb
 fricassee	frIka#seI
 frigate		frIg@t
 fringer		frIndZ3	// infringer
@@ -3483,7 +3477,7 @@ Amy		eImi
 Andre		0ndreI
 Andrea		andri@
 Andreas		A:ndr'eI@s
-Angela		$1
+Angela		ang@l@
 Anita		$alt3
 Anthony		ant@ni
 Anton		ant0n

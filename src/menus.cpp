@@ -119,8 +119,10 @@ wxMenuBar *MakeMenu(int type, const char *dict_name)
         option_menu = new wxMenu;
         option_menu->Append(MENU_PATHS, _("Set &paths"), paths_menu);
         option_menu->Append(MENU_OPT_SPEED, _("Speed..."));
+        option_menu->AppendSeparator();
         option_menu->Append(MENU_OPT_PUNCT, _("Speak punctuation"));
-        option_menu->Append(MENU_OPT_SPELL, _("Speak character names"));
+        option_menu->Append(MENU_OPT_SPELL, _("Speak characters"));
+        option_menu->Append(MENU_OPT_SPELL2, _("Speak character name"));
 
         // TOOLS
         vowelchart_menu = new wxMenu;

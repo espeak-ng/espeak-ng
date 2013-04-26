@@ -3275,6 +3275,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				continue;
 			}
 		}
+		if(dictionary_flags2 & FLAG_NATIVE)
+		{
+			if(tr != translator)
+				continue;    // don't use if we've switched translators
+		}
 		if(dictionary_flags & FLAG_ALT2_TRANS)
 		{
 			// language specific
