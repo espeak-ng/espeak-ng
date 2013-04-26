@@ -81,8 +81,9 @@
 #define FLAG_ONLY           0x4000
 #define FLAG_ONLY_S         0x8000
 #define FLAG_STEM          0x10000  // must have a suffix
-#define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
+#define FLAG_ATEND         0x20000  // use this pronunciation if at end of clause
 #define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
+#define FLAG_NATIVE        0x80000  // not if we've switched translators
 #define FLAG_LOOKUP_SYMBOL 0x40000000  // to indicate called from Lookup()
 
 #define BITNUM_FLAG_ALLCAPS   0x2a

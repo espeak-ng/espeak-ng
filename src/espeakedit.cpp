@@ -199,6 +199,7 @@ BEGIN_EVENT_TABLE(MyFrame, wxFrame)
    EVT_MENU(MENU_OPT_SPEED, MyFrame::OnOptions)
    EVT_MENU(MENU_OPT_PUNCT, MyFrame::OnOptions)
    EVT_MENU(MENU_OPT_SPELL, MyFrame::OnOptions)
+	EVT_MENU(MENU_OPT_SPELL2, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH0, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH1, MyFrame::OnOptions)
    EVT_MENU(MENU_PATH2, MyFrame::OnOptions)
@@ -625,6 +626,12 @@ void OnOptions2(int event_id)
 		break;
 
 	case MENU_OPT_SPELL:
+		transldlg->t_source->SetValue(_T("<say-as interpret-as=\"characters\">\n"));
+		transldlg->t_source->SetInsertionPointEnd();
+		notebook->SetSelection(1);
+		break;
+
+	case MENU_OPT_SPELL2:
 		transldlg->t_source->SetValue(_T("<say-as interpret-as=\"tts:char\">\n"));
 		transldlg->t_source->SetInsertionPointEnd();
 		notebook->SetSelection(1);

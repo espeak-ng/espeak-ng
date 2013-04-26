@@ -835,7 +835,6 @@ dobro		$alt $verb
 doce		$alt2
 doutora		$alt2
 doze		$alt2
-droga		$alt
 dueto		$alt2
 elixir		eliSir
 emprego		$alt2 $noun
@@ -1100,7 +1099,7 @@ rota		$alt2
 rota		$alt $noun
 rubores		$alt2
 rumores		$alt2
-sabonete		$alt2
+sabonete	$alt2
 sabores		$alt2
 saibro		s'aIbRU
 saleta		$alt2
@@ -1229,7 +1228,6 @@ laptop lEptOp
 ?1 line       l'ain
    layout     l'eI,aUt
    ?2   login  logiN
-?2        logo        l'OgU
 ?1 lock       l'Ok
    mail       m'eIl
         mails        m'eIls

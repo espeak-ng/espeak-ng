@@ -727,37 +727,41 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 		}
 	}
 	letter = towlower2(letter);
+	LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
 
-	// is this a subscript or superscript letter ?
-	for(ix=0; (c = derived_letters[ix]) != 0; ix+=2)
+	if(ph_buf[0] == 0)
 	{
-		if(c > letter)
-			break;
-		if(c == letter)
+		// is this a subscript or superscript letter ?
+		for(ix=0; (c = derived_letters[ix]) != 0; ix+=2)
 		{
-			c = derived_letters[ix+1];
-			letter = c & 0x3fff;
-			if((modifier = modifiers[c >> 14]) != NULL)
+			if(c > letter)
+				break;
+			if(c == letter)
 			{
-				Lookup(tr, modifier, capital);
-				if(capital[0] == 0)
+				c = derived_letters[ix+1];
+				letter = c & 0x3fff;
+				if((modifier = modifiers[c >> 14]) != NULL)
 				{
-					capital[2] = SetTranslator2("en");   // overwrites previous contents of translator2
-					Lookup(translator2, modifier, &capital[3]);
-					if(capital[3] != 0)
+					Lookup(tr, modifier, capital);
+					if(capital[0] == 0)
 					{
-						capital[0] = phonPAUSE;
-						capital[1] = phonSWITCH;
-						len = strlen(&capital[3]);
-						capital[len+3] = phonSWITCH;
-						capital[len+4] = phontab_1;
-						capital[len+5] = 0;
+						capital[2] = SetTranslator2("en");   // overwrites previous contents of translator2
+						Lookup(translator2, modifier, &capital[3]);
+						if(capital[3] != 0)
+						{
+							capital[0] = phonPAUSE;
+							capital[1] = phonSWITCH;
+							len = strlen(&capital[3]);
+							capital[len+3] = phonSWITCH;
+							capital[len+4] = phontab_1;
+							capital[len+5] = 0;
+						}
 					}
 				}
 			}
 		}
+		LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
 	}
-	LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
 
 	if(ph_buf[0] == phonSWITCH)
 	{

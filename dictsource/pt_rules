@@ -214,7 +214,7 @@
 
      i) e (r_      E
     @s) e (r_      E
-     qu) e (r_      E
+    qu) e (r_      E
 
     ib) e (rL04_   E
      d) e (rL04_   E
@@ -229,7 +229,7 @@
      f) e (rL02_   E
 
         e (quL02_  E
-e (rbL04_   E
+        e (rbL04_  E
         e (rgL04_  E
 
         e (rsL04_  E
@@ -239,7 +239,7 @@ e (rbL04_   E
         e (ssL04_  E
         e (ss_     E         // stress and english words
 ?2      ection (_  'EkS&~N
-?2   ee (n_   i
+?2      ee (n_     i
         e (stL04_  E
 
         e (strL04_ E
@@ -372,7 +372,6 @@ e (rbL04_   E
    tiv) e (L05_    E         // es-
    viv) e (L05_    e
   _com) e (L05_    e
-  s_colh) e (res_   E
   _cos) e (L05_    e
   _pud) e (L05_    E
  _coub) e (L05_    E
@@ -425,18 +424,17 @@ _corro) e (L07_    e
 _interromp) e (L07_ e
 _troux) e (L07_    E
   _ens) e (bL03_   E
-  _enver) e (dL03_   E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
   _cel) e (brL04_  E
  _boch) e (chL04_  e
- _on) e (rL04_   E
-    _ex) e (crL04_  E
+   _ex) e (crL04_  E
   _enr) e (dL01_   E
     _v) e (dL03_   E
   _arr) e (dL03_   E
  _depr) e (dL03_   E
  _hosp) e (dL03_   E
+_enver) e (dL03_   E
    _gr) e (gL03_   e
   _gal) e (gL03_   e
   _pel) e (gL03_   e
@@ -455,6 +453,7 @@ _amanc) e (bL03_   E
     _g) e (rL04_   E
     _z) e (rL04_   E
     qu) e (rL04_   E         // re-
+   _on) e (rL04_   E
    _op) e (rL04_   E
    gen) e (rL04_   E         // de- re-
   _alt) e (rL04_   E
@@ -475,15 +474,16 @@ _adult) e (rL04_   E
 _persev) e (rL04_  E
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
-       _ex) e (rcL02_  E
+   _ex) e (rcL02_  E
  _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
     _h) e (rdL04_  E
   _des) e (rdL04_  E
+s_colh) e (res_    E
      _) e (rgL03_  e
-_so) e (rgL03_   e 
    _re) e (rgL03_  e
+   _so) e (rgL03_  e
   _bez) e (rrL03_  e
      v) e (rtL03_  e         // con- re- in-
     _f) e (rvL03_  e
@@ -855,8 +855,8 @@ _entorp) e (çL03_  e
    óCC) o (CA_     o
     úC) o (CA_     o
    úCC) o (CA_     o
-?2   otion (_   'owS&~N
-   
+?2      otion (_   'owS&~N
+
 //sort
     _f) o (L05_    o
 _pormen) o (L05_   O
@@ -866,15 +866,15 @@ _pormen) o (L05_   O
   _esn) o (bL04_   O
  _engl) o (bL04_   O
   _sal) o (brL03_  o
-  _env) o (ltL03_   o
      _) o (cL03_   o
     _m) o (fL01_   O
     _m) o (fL02_   O
     _s) o (frL02_  O
+     l) o (gL04_   O         // dialoga, etc.
      r) o (gL04_   O         // inter-
+     v) o (gL04_   O         // advoga, etc.
     _j) o (gL04_   O
     af) o (gL04_   O         // des-
-  _adv) o (gL04_   O
   _ref) o (gL04_   O
    _ap) oi (L01_   OI
    _ap) oi (L02_   OI
@@ -884,6 +884,7 @@ _pormen) o (L05_   O
   _emp) o (lgL04_  O
      _) o (lhL04_  O
      m) o (lhL04_  O
+  _env) o (ltL03_  o
    ent) o (pL02_   O
     _c) o (pL03_   O
     _t) o (pL04_   O
@@ -1077,8 +1078,8 @@ _remem) o (rL04_   O
         u (a       u
      g) u (a+      w
      q) u (a+      w
-u (eC    u
-u (ei    u
+        u (eC      u
+        u (ei      u
      r) u (_A      u
         u (L04_    'u
 
@@ -1086,8 +1087,8 @@ u (ei    u
         ui (_      'uI
         u (iu      w
         u (iCK     u
-u (éC   u
-u (íC   u
+        u (éC      u
+        u (íC      u
         uy         uI
         ul (K      uw
         u (lh+     u
@@ -1100,7 +1101,7 @@ u (íC   u
 
      g) u (Y 
     _m) ui (tA_    'wiN
-?2   ution (_   'uS&~N
+?2      ution (_   'uS&~N
 
 
 .group ú
