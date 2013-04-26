@@ -3,6 +3,8 @@ language hy-west
 language hy  8
 gender male
 
+dictrules 1
+
 // change consonants for West Armenian pronunciation
 replace 00 b  p#
 replace 00 d  t#
@@ -16,5 +18,5 @@ replace 00 ts dz
 replace 00 c  dZ
 replace 00 k  g
 
-replace 00 ** R  // ??
-replace 00 r  R
+replace 00 R2 R  // ??
+
