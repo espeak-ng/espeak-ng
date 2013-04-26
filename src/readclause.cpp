@@ -503,13 +503,13 @@ int towupper2(unsigned int c)
 		return(towupper(c));
 
 	// check whether a previous character code is the upper-case equivalent of this character
-	if(towlower2(c-32) == c)
+	if(towlower2(c-32) == (int)c)
 		return(c-32); // yes, use it
-	if(towlower2(c-1) == c)
+	if(towlower2(c-1) == (int)c)
 		return(c-1);
 	for(ix=0; wchar_toupper[ix] != 0; ix+=2)
 	{
-		if(wchar_toupper[ix] == c)
+		if(wchar_toupper[ix] == (int)c)
 			return(wchar_toupper[ix+1]);
 	}
 	return(c);  // no
