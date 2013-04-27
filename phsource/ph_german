@@ -127,7 +127,7 @@ phoneme i:
   ENDIF
   
   IF nextPh(r) AND next2Ph(isNotVowel) THEN
-    ChangePhoneme(iR)
+//    ChangePhoneme(iR)
   ENDIF
   FMT(vowel/i_2)
 endphoneme
