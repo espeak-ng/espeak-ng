@@ -58,7 +58,7 @@ s;   t    t;   tS   ts   v    x    z
 Z    z;   
 
 
-Dictionary bn_dict  2013-04-25
+Dictionary bn_dict  2013-04-29
 
 &    a    a~   e    e~   i    i:   i~   
 l-   o    O    o:   O~   o~   r-   u    
@@ -124,7 +124,7 @@ r    R    R3   s    S    t    T    tS
 v    w    x    z    Z    
 
 
-Dictionary de_dict  2013-04-25
+Dictionary de_dict  2013-04-27
 
 3    @    @-   a    A    A:   aI   aU   
 A~   E    E2   E:   e:   EI   i    I    
@@ -148,7 +148,7 @@ p    Q    r    R    s    s;   t    T
 ts   v    x    z    
 
 
-Dictionary en_dict  2013-04-26
+Dictionary en_dict  2013-04-29
 
 0    0#   3    3:   @    @-   @2   @5   
 @L   a    a#   A:   A@   aa   aI   aI3  
@@ -272,18 +272,18 @@ N    n^   p    r    R    R2   s    S
 t    tS   ts   tS;  v    x    z    Z    
 
 
-Dictionary hi_dict  2013-04-10
+Dictionary hi_dict  2013-04-29
 
-@    @2   a    a:   aI   aU   a~   e    
+@    @-   a    a:   aI   aU   a~   e    
 E    e:   E:   e~   E~   i    I    i:   
 i~   l-   o    O    o:   O:   O~   o~   
 r-   u    U    u:   u~   V    
 
-#X1  #X2  -    :    b    b#   c    c#   
-d    d#   d.   d.#  f    g    g#   h    
-H    j    J    J#   k    k#   l    l.   
-m    n    N    n.   n^   p    p#   Q    
-q    r    r.   s    S    s.   t    T    
+#X1  #X2  *    -    :    b    b#   c    
+c#   d    d#   d.   d.#  f    g    g#   
+h    H    j    J    J#   k    k#   l    
+l.   m    n    N    n.   n^   p    p#   
+Q    q    r    r.   s    S    s.   t    
 t#   t.   t.#  v    w    x    z    
 
 
@@ -496,7 +496,7 @@ k    l    m    n    p    R    s    S
 t    tS   v    w    x    
 
 
-Dictionary ne_dict  2013-03-09
+Dictionary ne_dict  2013-04-28
 
 @    @/   @2   @3   a    a:   aI   aU   
 a~   e    E    e:   E:   eI   e~   E~   
@@ -641,15 +641,15 @@ s    S    t    t;   tS   ts   v    w
 x    z    Z    
 
 
-Dictionary sl_dict  2013-01-30
+Dictionary sl_dict  2013-04-28
 
 @    @-   a    a:   e    E    e:   i    
 i:   o    O    o:   u    u:   y    
 
-:    b    d    dZ   dz   f    g    h    
-j    k    l    l^   m    n    N    n^   
-p    R    R^   s    S    t    tS   ts   
-v    v#   w    x    z    Z    
+*    :    b    d    dZ   dz   f    g    
+h    j    k    l    l^   m    n    N    
+n^   p    R    R^   s    S    t    tS   
+ts   tS;  v    v#   w    x    z    Z    
 
 
 Dictionary sq_dict  2008-12-22

@@ -907,6 +907,10 @@ phoneme r.    //   retroflex
   lengthmod 3
   Vowelout f1=3 f2=1400 -400 300  f3=-400 80 rms=35 len=15 colr=2
   Vowelin f1=2  f2=1400 -400 300  f3=-400 80 len=20
+  
+  IF nextPh(isNotVowel) THEN
+    FMT(r3/@tap_rfx_)
+  ENDIF
   FMT(r3/@tap_rfx)
 endphoneme
 

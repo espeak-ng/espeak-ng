@@ -72,7 +72,7 @@ consonants  11  119
       fa   9  112
       rw  15  132
      prs   8  113
-      sl  10  137
+      sl  11  137
       gd   6  109
      nso  12  113
       ht  11  146
@@ -741,6 +741,7 @@ r3/@tap         [**] base
 r3/@tap2        [**] base
                 [*] ko
 r3/@tap_rfx     [r.] base
+r3/@tap_rfx_    [r.] base
 r/a_            [r] da
                 [3-] da
 r/aa            [R] da
@@ -987,7 +988,6 @@ ustop/q_u       [q] base
 ustop/t         [t] base
                 [t] en-us
                 [d.#] hi
-                [t.#] hi
                 [d.#] ml
                 [t] zhy
                 [t] da
@@ -1018,6 +1018,7 @@ ustop/t_hi      [t[] base
                 [t^] et
                 [t[] vi
                 [t`] am
+ustop/th_rfx    [t.#] hi
 ustop/t_pzd     [c] base
                 [t^] et
                 [t;] lt
@@ -1048,10 +1049,13 @@ ustop/tsh       [tS] base
                 [c] zhy
                 [tS] tn
 ustop/tsh_      [tS] base
+                [c] hi
+                [tS] bn
                 [c] zhy
                 [tS] tn
 ustop/tsh2      [tS] hr
                 [dZ] hr
+ustop/tsh_asp   [tS#] bn
 ustop/t_short   [t-] consonants
                 [t] fr
                 [t2] fr
@@ -1062,7 +1066,8 @@ ustop/t_short_  [t] fr
 ustop/tsh_pzd   [tS;h] zh
 ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
-ustop/tsh_unasp  [tS`] am
+ustop/tsh_unasp  [c] hi
+                [tS`] am
 ustop/ts_pzd    [tS;] base
                 [J#] hi
                 [J#] ml
@@ -1669,6 +1674,7 @@ vowel/a_2       [a] base2
                 [a] rw
 vowel/a#_2      [A] nl
                 [a:] nl
+                [a] bn
                 [a] kn
                 [a#] pl
                 [&] hr
@@ -1828,6 +1834,7 @@ vowel/e         [e] base
                 [?e] da
                 [e] rw
                 [e#] rw
+                [e:] sl
                 [e] wo
                 [e:] wo
                 [e] dv
@@ -2033,8 +2040,7 @@ vowel/i_5       [i:] en-sc
 vowel/i#_5      [y] pt-pt
                 [i/] pt-pt
                 [y] ro
-vowel/i_6       [i] hi
-                [i] bn
+vowel/i_6       [i] bn
                 [i] ta
                 [i] kn
                 [i] ml
@@ -2119,12 +2125,14 @@ vowel/ii_5      [i] ta
 vowel/ii_6      [I] en-wm
                 [I] en-wi
                 [I2] en-wi
+                [i] hi
                 [I] sr
                 [I] pt
                 [y] pt
                 [i/] pt
                 [i] is
                 [I] sq
+                [i] sl
                 [i] wo
 vowel/ii_7      [i] en
                 [i] ga
@@ -2466,12 +2474,14 @@ vowel/V_2       [V] en
                 [V#] ru
                 [V] ku
 vowel/V_3       [V] en-rp
+                [@] hi
                 [V] hi
                 [V] pa
                 [V] ta
                 [a] bg
 vowel/V_4       [V] en-sc
                 [O] ga
+                [V] hi
                 [V] da
                 [?V] da
 vowel/V_6       [V] en-us

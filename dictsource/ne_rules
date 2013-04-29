@@ -1,4 +1,5 @@
-﻿// Nepali Language.
+
+// Nepali Language.
 // This ne_rules file is prepared by Him Prasad Gautam < himjee@yahoo.com >.
 // This file is UTF-8 encoded.
 
@@ -402,9 +403,6 @@
 .group आ
 	आ	a:
 	आँ	a~''
-	आइ	a:I
-	आउ	a:U
-	आऊ	a:U'
 
 .group इ
 
@@ -480,7 +478,6 @@
 .group ा
 	ा	a:,k'a::r@ // If not followed to a Consonant.
 	C) ा	a:
-	ाव	aU
 	C) ाँ	a~'
 
 .group ि
@@ -1149,5 +1146,4 @@
 
 
 // The Latin letter a-z are automatically translated into English.
-
 

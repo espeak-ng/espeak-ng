@@ -566,6 +566,7 @@ i.e	aIi:_!   $pause
 imo	$abbrev
 inlb	$abbrev
 ios	$abbrev
+ipa	$abbrev
 irc	$abbrev
 irs	$abbrev
 isbn	$abbrev
@@ -1433,6 +1434,7 @@ duvet		du:veI
 d'ye		dj@
 dynamo		$1
 
+earlobe		i@3loUb
 early		3:lI
 eavesdrop	i:vzdr0p
 ebay		i:beI
@@ -2819,6 +2821,7 @@ taffeta		tafI#t@
 takel		tak@L
 talent		tal@nt
 tallyho		talI'hoU
+timbre		tamb3
 tampon		tamp0n
 tangerine	tandZ@r'i:n
 taoiseach	ti:S@x
@@ -3001,6 +3004,7 @@ vertices	v3:tIsi:z
 vestige		vEstI2dZ
 vex		vEks        // for vexed
 viagra		vaI'agr@
+vibrato		vI2brA:toU
 vicar		vIk3
 vigilante	vIdZI2l'anti
 vignette	vInj'Et
@@ -3448,11 +3452,8 @@ Abe		eIb
 Abu		abu:
 Abraham		eIbr@ham
 Ada		eId@  $onlys
-Andrea		$2
 Adrian		eIdri@n
 Agatha		aga#T@
-Angela		andZ@l@
-Angelika	$2
 Aggie		agi
 Agnes		agn@s
 Aguilera	agi:l'e@r@
@@ -3477,7 +3478,8 @@ Amy		eImi
 Andre		0ndreI
 Andrea		andri@
 Andreas		A:ndr'eI@s
-Angela		ang@l@
+Angela		andZ@l@
+Angelika	$2
 Anita		$alt3
 Anthony		ant@ni
 Anton		ant0n

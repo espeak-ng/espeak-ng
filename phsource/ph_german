@@ -126,9 +126,9 @@ phoneme i:
     VowelStart(w/wi2)
   ENDIF
   
-  IF nextPh(r) AND next2Ph(isNotVowel) THEN
+//  IF nextPh(r) AND next2Ph(isNotVowel) THEN
 //    ChangePhoneme(iR)
-  ENDIF
+//  ENDIF
   FMT(vowel/i_2)
 endphoneme
 
@@ -346,7 +346,7 @@ phoneme iR  // TEST "vier" = [f'iR] not successful
   vowel starttype #i endtype #@
   ipa iɐ
   flag1
-  length 230
+  length 240
   FMT(vdiph2/i@_3)
 endphoneme
 
