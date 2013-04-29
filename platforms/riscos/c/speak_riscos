@@ -38,7 +38,7 @@
 #define os_X  0x20000
 
 // interface to the assembler section
-extern "C" {
+//extern "C" {
 extern void DMA_Handler(void);
 
 
@@ -51,7 +51,7 @@ extern int callback_entry(_kernel_swi_regs *r, void *pw);
 extern int sound_handler(_kernel_swi_regs *r, void *pw);
 extern int sound_entry(_kernel_swi_regs *r, void *pw);
 
-}
+//}
 
 extern int Generate(PHONEME_LIST *phoneme_list, int *n_ph, int resume);
 extern void RiscosOpenSound();
@@ -75,12 +75,13 @@ char path_home[N_PATH_HOME] = "";
 char wavefile[120];
 char textbuffile[L_tmpnam];
 int  sample_rate_index;  // current value
-int  current_voice_num=0;
+int sample_rate_doubled = 0;   // 1= write audio data at 2x sample rate
+char current_voice_name[40] = {0};
 int n_voice_files = 0;
 int n_voice_variant_files = 0;
 
 // output sound buffer,  2 bytes per sample
-static unsigned short SoundBuf[4096];
+static short SoundBuf[4096];
 static void *module_data;
 static int callback_inhibit = 0;
 static int more_text=0;
@@ -131,9 +132,10 @@ static const char *help_text =
 "--punct=\"<characters>\"\n"
 "\t   Speak the names of punctuation characters during speaking.  If\n"
 "\t   =<characters> is omitted, all punctuation is spoken.\n"
-"--voices=<language>\n"
-"\t   List the available voices for the specified language.\n"
-"\t   If <language> is omitted, then list all voices.\n"
+"--voices=\n"
+"\t   List the available voices. (More voices can be installed from the main eSpeak distribution)\n"
+"--voices=variant\n"
+"\t   List the available voice variants which can be combined with voices, eg. en+f3\n"
 "-k <integer>\n"
 "\t   Indicate capital letters with: 1=sound, 2=the word \"capitals\",\n"
 "\t   higher values = a pitch increase (try -k20).\n";
@@ -169,9 +171,6 @@ int GetFileLength(const char *filename)
 }   /* end of GetFileLength */
 
 
-void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
-{
-}
 
 void ReadVoiceNames2(char *directory)
 {//==================================
@@ -193,6 +192,9 @@ void ReadVoiceNames2(char *directory)
 	regs.r[6] = 0;
 
 	path_len = strlen(directory);
+
+	voice_variant_names[0] = "(none)";
+	n_voice_variant_files = 1;
 
 	while(regs.r[3] > 0)
 	{
@@ -363,8 +365,8 @@ static void CloseWaveFile(int rate)
 
 
 
-void MarkerEvent(int type, unsigned int char_position, int value, unsigned char *out_ptr)
-{//======================================================================================
+void MarkerEvent(int type, unsigned int char_position, int value, int value2, unsigned char *out_ptr)
+{//=================================================================================================
 // Do nothing in the command-line version.
 }  // end of MarkerEvent
 
@@ -452,6 +454,7 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 {
 	int  c;
 	int ix;
+	char *vname;
 	static static_length=0;
 	static int user_token=0;   /* increment for each call of translate() */
 	_kernel_swi_regs regs;
@@ -462,12 +465,13 @@ void speak_text_string(char *data, int terminator, int len, int wait, int voice_
 
 	option_endpause = 1;
 
-	if((voice_num >= 0) && (voice_num != current_voice_num) && (voice_num < N_VOICE_NAMES))
+	vname = voice_names[voice_num];
+	if((voice_num >= 0) && (strcmp(vname, current_voice_name) != 0) && (voice_num < N_VOICE_NAMES))
 	{
 		SetVoiceByName(voice_names[voice_num]);
-	   WavegenSetVoice(voice);
+		WavegenSetVoice(voice);
 	}
-	current_voice_num = voice_num;
+	strcmp(current_voice_name, vname);
 
 	/* don't count CR as terminator if length is specified */
 	if(len > 0) terminator = 0;
@@ -593,8 +597,16 @@ void set_say_options(int reg2, int reg3)
 	option_waveout = 0;
 	option_multibyte = 0;    // auto
 	option_capitals = 0;
-	option_punctuation = 0;
-	option_punctlist[0] = 0;
+	if(reg2 >= 0)
+	{
+		// not using SWI_SPEAK+14 to set voice and punctiation option
+		option_punctuation = 0;
+		option_punctlist[0] = 0;
+	}
+	else
+	{
+		SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	}
 }   /* end of set_say_options */
 
 
@@ -621,7 +633,7 @@ void jsd_swi_functions(int *r)
 	case 3:
 		// translate into phonemes
 		use_ipa = 0;
-		if((r[2] >= 1) && (use_ipa <= 3))
+		if((r[2] >= 1) && (r[2] <= 5))
 			use_ipa = r[2];
 		TranslateClause(translator,NULL,(char *)r[1],NULL,NULL);
 		GetTranslatedPhonemeString(translator->phon_out, sizeof(translator->phon_out), use_ipa);
@@ -641,7 +653,7 @@ void jsd_swi_functions(int *r)
 		if(r[1] < N_VOICE_NAMES)
 		{
 			SetVoiceByName(voice_names[r[1]]);
-			current_voice_num = r[1];
+			strcmp(current_voice_name, voice_names[r[1]]);
 			WavegenSetVoice(voice);
 		}
 		break;
@@ -675,6 +687,8 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 	int  value;
 	int  value2;
 	int  q_length;
+	char *p;
+	int ix;
 	value = r[0];
 
 	switch(swi_no)
@@ -682,16 +696,17 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 
 	case 0:   // ready ?
 		// returns the index into the source text of the currently speaking word
-		if(current_source_index > 0)
-			r[1] = current_source_index-1;
+		ix = current_source_index & 0x7ff;
+		if(ix > 0)
+			r[1] = ix-1;
 		else
-			r[1] = current_source_index;      /* source index */
+			r[1] = ix;      /* source index */
 		r[2] = 0;      /* source tag */
 		r[3] = 0;    /* for future expansion */
 		r[4] = 0;
 		r[5] = 0;
 
-		if(WcmdqUsed() < 5)
+		if((WcmdqUsed() < 5) && (more_text == 0))
 		{
 			r[0] = -1;   /* ready, or nearly */
 		}
@@ -774,8 +789,30 @@ _kernel_oserror *swi_handler(int swi_no, int  *r, void *pw)
 		break;
 
 	case 14: // set voice by name
-		SetVoiceByName((char *)r[0]);
-		WavegenSetVoice(voice);
+		p = (char *)r[0];
+		if(strcmp(p, current_voice_name) != 0)
+		{
+			SetVoiceByName(p);
+			WavegenSetVoice(voice);
+			strcpy(current_voice_name, p);
+		}
+		option_punctuation = 0;
+		if(r[1] != 0)
+		{
+			p = (char *)r[1];
+			if(p[0] == 0)
+				option_punctuation = 1;
+			else
+			{
+				for(ix=0; ix < N_PUNCTLIST; ix++)
+				{
+					if((option_punctlist[ix] = p[ix]) == 0)
+						break;
+				}
+				option_punctlist[N_PUNCTLIST-1] = 0;
+				option_punctuation = 2;
+			}
+		}
 		break;
 	}
 	return(NULL);
@@ -814,7 +851,7 @@ void DisplayVoices(FILE *f_out, char *language)
 	const espeak_VOICE **voices;
 	espeak_VOICE voice_select;
 
-	static char genders[4] = {' ','M','F',' '};
+	static char genders[4] = {'-','M','F','-'};
 
 	if(language[0] == '=')
 	{
@@ -837,10 +874,23 @@ void DisplayVoices(FILE *f_out, char *language)
 	{
 		count = 0;
 		p = v->languages;
+		if(memcmp(language,"=variant",8)==0)
+		{
+			if(strcmp(p+1,"variant") != 0)
+				continue;
+		}
+		else
+		if(language[0] == 0)
+		{
+			if(strcmp(p+1,"variant") == 0)
+				continue;
+		}
+
 		while(*p != 0)
 		{
 			len = strlen(p+1);
 			lang_name = p+1;
+
 
 			if(v->age == 0)
 				strcpy(age_buf,"   ");
@@ -859,8 +909,6 @@ void DisplayVoices(FILE *f_out, char *language)
 			count++;
 			p += len+2;
 		}
-//		if(scores)
-//			fprintf(f_out,"%3d  ",v->score);
 		fputc('\n',f_out);
 	}
 }   //  end of DisplayVoices
@@ -910,9 +958,9 @@ void command_line(char *arg_string, int wait)
 	int option_index = 0;
 	int c;
 	int value;
-	int speed;
-	int amp;
-	int wordgap;
+	int speed = 175;
+	int amp = 100;
+	int wordgap = 0;
 	int speaking = 0;
 	int flag_stdin = 0;
 	int flag_compile = 0;
@@ -923,15 +971,15 @@ void command_line(char *arg_string, int wait)
 	char command[80];
 	char *p;
 	int ix;
-	int quiet;
+	int quiet = 0;
 
 	voicename[0] = 0;
 	wavefile[0] = 0;
 	filename[0] = 0;
+	option_ssml = 0;
 	option_linelength = 0;
 	option_phonemes = 0;
 	option_waveout = 0;
-	quiet = 0;
 	option_multibyte = 0;   // auto
 	option_capitals = 0;
 	option_punctuation = 0;
@@ -963,7 +1011,6 @@ void command_line(char *arg_string, int wait)
 
 			case 'k':
 				option_capitals = param_number(&p);
-				SetParameter(espeakCAPITALS,option_capitals,0);
 				break;
 
 			case 'x':
@@ -996,17 +1043,14 @@ void command_line(char *arg_string, int wait)
 
 			case 'a':
 				amp = param_number(&p);
-				SetParameter(espeakVOLUME,amp,0);
 				break;
 
 			case 's':
 				speed = param_number(&p);
-				SetParameter(espeakRATE,speed,0);
 				break;
 
 			case 'g':
 				wordgap = param_number(&p);
-				SetParameter(espeakWORDGAP,wordgap,0);
 				break;
 
 			case 'v':
@@ -1049,7 +1093,6 @@ void command_line(char *arg_string, int wait)
 						option_punctlist[N_PUNCTLIST-1] = 0;
 						option_punctuation = 2;
 					}
-					SetParameter(espeakPUNCTUATION,option_punctuation,0);
 				}
 				else
 				if(memcmp(command,"version",7)==0)
@@ -1079,6 +1122,12 @@ void command_line(char *arg_string, int wait)
 			break;
 		}
 	}
+
+	SetParameter(espeakCAPITALS,option_capitals,0);
+	SetParameter(espeakWORDGAP,wordgap,0);
+	SetParameter(espeakPUNCTUATION,option_punctuation,0);
+	SetParameter(espeakRATE,speed,0);
+	SetParameter(espeakVOLUME,amp,0);
 
 	if((option_phonemes > 1) && !option_waveout)
 		quiet = 1;  // can't call sprintf() during callback
@@ -1241,17 +1290,39 @@ int sound_handler(_kernel_swi_regs *r, void *pw)
 	int size;
 	int *dma_buf;
 	int x;
+	int x2;
 	int ix;
 
 	module_data = (int *)pw;
 	dma_buf = (int *)r->r[1];
 	size = (r->r[2] - r->r[1])/4;
-	FillSoundBuf(size);
-
-	for(ix=0; ix<size; ix++)
+	
+	if(sample_rate_doubled == 0)
 	{
-		x = SoundBuf[ix];
-		dma_buf[ix] = x + (x << 16);
+		FillSoundBuf(size);
+
+		for(ix=0; ix<size; ix++)
+		{
+			x = SoundBuf[ix] & 0xffff;
+			dma_buf[ix] = x + (x << 16);
+		}
+	}
+	else
+	{
+		// write audio data at 2x sample rate
+		size = size /2;
+		FillSoundBuf(size);
+
+		for(ix=0; ix<size; ix++)
+		{
+			x = SoundBuf[ix] & 0xffff;
+			dma_buf[ix*2] = x + (x << 16);
+			if((ix+1) < size)
+			{
+				x = ((SoundBuf[ix] + SoundBuf[ix+1]) / 2) & 0xffff;  // interpolate
+			}
+			dma_buf[ix*2 + 1] = x + (x << 16);
+		}
 	}
 
 	n_queue = WcmdqUsed();
@@ -1287,10 +1358,15 @@ int InitSound16(int sample_rate)
 	int  srate;
 	int  n_srix;
 	int  ix;
+	int  double_rate_ix = -1;
+	int  nearest_ix;
+	int  nearest_diff = 0x7fffffff;
+	int  diff;
 	_kernel_swi_regs regs;
 	_kernel_oserror *error;
 
 	sound_mode = 0;
+	sample_rate_doubled = 0;
 	regs.r[0] = 0;
 	error = _kernel_swi(0x40144+os_X,&regs,&regs);
 	sound_mode = regs.r[0];
@@ -1301,7 +1377,7 @@ int InitSound16(int sample_rate)
 		/* 16 bit sound, find sample rate index */
 		regs.r[0] = 0;
 		regs.r[1] = 0;
-		_kernel_swi(0x40146,&regs,&regs);
+		_kernel_swi(0x40146,&regs,&regs);   // Sound_SampleRate
 		n_srix = regs.r[1];
 
 		regs.r[0] = 1;
@@ -1314,14 +1390,32 @@ int InitSound16(int sample_rate)
 			regs.r[0] = 2;
 			regs.r[1] = ix;
 			_kernel_swi(0x40146,&regs,&regs);
-			srate = regs.r[2];
-			if(srate >= (sample_rate*1024))
+			srate = regs.r[2] / 1024;
+			if(srate == sample_rate)
 			{
 				return(ix);
 			}
+			if(srate == sample_rate*2)
+			{
+				double_rate_ix = ix;
+			}
+			if((diff = abs(sample_rate - srate)) < nearest_diff)
+			{
+				nearest_diff = diff;
+				nearest_ix = ix;
+			}
 		}
 	}
-	return(14);       // this was the index for 22050
+	if(double_rate_ix >= 0)
+	{
+		// matching sample rate is not available, but double this rate is.
+		sample_rate_doubled = 1;
+		return(double_rate_ix);
+	}
+	else
+	{
+		return(nearest_ix);
+	}
 }   //  end of InitSound16
 
 
@@ -1369,7 +1463,7 @@ _kernel_oserror *user_init(char *cmd_fail, int podule_base, void *pw)
 	// other characters give the correct results with iswalpha() etc.
 
 	static char *locale = "ISO8859-1";
-   setlocale(LC_CTYPE,locale);
+	setlocale(LC_CTYPE,locale);
 
 	module_data = pw;
 

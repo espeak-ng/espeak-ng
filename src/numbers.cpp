@@ -582,7 +582,103 @@ void LookupLetter(Translator *tr, unsigned int letter, int next_byte, char *ph_b
 }  // end of LookupLetter
 
 
-static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'Ef"};  // using phonemes available to all languages
+// unicode ranges for non-ascii digits 0-9
+static const int number_ranges[] = {
+	0x660, 0x6f0,  // arabic
+	0x966, 0x9e6, 0xa66, 0xae6, 0xb66, 0xbe6, 0xc66, 0xce6, 0xd66,  // indic
+	0xe50, 0xed0, 0xf20, 0x1040, 0x1090,
+	0 };  // these must be in ascending order
+
+
+int NonAsciiNumber(int letter)
+{//============================
+// Change non-ascii digit into ascii digit '0' to '9', (or -1 if not)
+	const int *p;
+	int base;
+
+	for(p=number_ranges; (base = *p) != 0; p++)
+	{
+		if(letter < base)
+			break;  // not found
+		if(letter < (base+10))
+			return(letter-base+'0');
+	}
+	return(-1);
+}
+
+#define L_SUB 0x4000   // subscript
+#define L_SUP 0x8000   // superscript
+
+static const char *modifiers[] = {NULL, "_sub", "_sup", NULL};
+
+// this list must be in ascending order
+static unsigned short derived_letters[] = {
+	0x00aa, 'a'+L_SUP,
+	0x00b2, '2'+L_SUP,
+	0x00b3, '3'+L_SUP,
+	0x00b9, '1'+L_SUP,
+	0x00ba, 'o'+L_SUP,
+	0x02b0, 'h'+L_SUP,
+	0x02b1, 0x266+L_SUP,
+	0x02b2, 'j'+L_SUP,
+	0x02b3, 'r'+L_SUP,
+	0x02b4, 0x279+L_SUP,
+	0x02b5, 0x27b+L_SUP,
+	0x02b6, 0x281+L_SUP,
+	0x02b7, 'w'+L_SUP,
+	0x02b8, 'y'+L_SUP,
+	0x02c0, 0x294+L_SUP,
+	0x02c1, 0x295+L_SUP,
+	0x02e0, 0x263+L_SUP,
+	0x02e1, 'l'+L_SUP,
+	0x02e2, 's'+L_SUP,
+	0x02e3, 'x'+L_SUP,
+	0x2070, '0'+L_SUP,
+	0x2071, 'i'+L_SUP,
+	0x2074, '4'+L_SUP,
+	0x2075, '5'+L_SUP,
+	0x2076, '6'+L_SUP,
+	0x2077, '7'+L_SUP,
+	0x2078, '8'+L_SUP,
+	0x2079, '9'+L_SUP,
+	0x207a, '+'+L_SUP,
+	0x207b, '-'+L_SUP,
+	0x207c, '='+L_SUP,
+	0x207d, '('+L_SUP,
+	0x207e, ')'+L_SUP,
+	0x207f, 'n'+L_SUP,
+	0x2080, '0'+L_SUB,
+	0x2081, '1'+L_SUB,
+	0x2082, '2'+L_SUB,
+	0x2083, '3'+L_SUB,
+	0x2084, '4'+L_SUB,
+	0x2085, '5'+L_SUB,
+	0x2086, '6'+L_SUB,
+	0x2087, '7'+L_SUB,
+	0x2088, '8'+L_SUB,
+	0x2089, '9'+L_SUB,
+	0x208a, '+'+L_SUB,
+	0x208b, '-'+L_SUB,
+	0x208c, '='+L_SUB,
+	0x208d, '('+L_SUB,
+	0x208e, ')'+L_SUB,
+	0x2090, 'a'+L_SUB,
+	0x2091, 'e'+L_SUB,
+	0x2092, 'o'+L_SUB,
+	0x2093, 'x'+L_SUB,
+	0x2094, 0x259+L_SUB,
+	0x2095, 'h'+L_SUB,
+	0x2096, 'k'+L_SUB,
+	0x2097, 'l'+L_SUB,
+	0x2098, 'm'+L_SUB,
+	0x2099, 'n'+L_SUB,
+	0x209a, 'p'+L_SUB,
+	0x209b, 's'+L_SUB,
+	0x209c, 't'+L_SUB,
+	0,0};
+
+
+static const char *hex_letters[] = {"'e:j","b'i:","s'i:","d'i:","'i:","'ef"};  // names, using phonemes available to all languages
 
 int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 {//=========================================================================
@@ -596,15 +692,18 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	int letter;
 	int len;
 	int ix;
+	int c;
 	char *p2;
 	char *pbuf;
+	const char *modifier;
 	ALPHABET *alphabet;
 	int al_offset;
 	int al_flags;
 	int language;
+	int number;
 	int phontab_1;
 	int speak_letter_number;
-	char capital[20];
+	char capital[30];
 	char ph_buf[80];
 	char ph_buf2[80];
 	char ph_alphabet[80];
@@ -626,19 +725,59 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 	if(control & 2)
 	{
 		// include CAPITAL information
-		if(iswupper(letter))
+		if(iswupper2(letter))
 		{
 			Lookup(tr, "_cap", capital);
 		}
 	}
 	letter = towlower2(letter);
-
 	LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
+
+	if(ph_buf[0] == 0)
+	{
+		// is this a subscript or superscript letter ?
+		for(ix=0; (c = derived_letters[ix]) != 0; ix+=2)
+		{
+			if(c > letter)
+				break;
+			if(c == letter)
+			{
+				c = derived_letters[ix+1];
+				letter = c & 0x3fff;
+				if((modifier = modifiers[c >> 14]) != NULL)
+				{
+					Lookup(tr, modifier, capital);
+					if(capital[0] == 0)
+					{
+						capital[2] = SetTranslator2("en");   // overwrites previous contents of translator2
+						Lookup(translator2, modifier, &capital[3]);
+						if(capital[3] != 0)
+						{
+							capital[0] = phonPAUSE;
+							capital[1] = phonSWITCH;
+							len = strlen(&capital[3]);
+							capital[len+3] = phonSWITCH;
+							capital[len+4] = phontab_1;
+							capital[len+5] = 0;
+						}
+					}
+				}
+			}
+		}
+		LookupLetter(tr, letter, word[n_bytes], ph_buf, control & 1);
+	}
 
 	if(ph_buf[0] == phonSWITCH)
 	{
 		strcpy(phonemes,ph_buf);
 		return(0);
+	}
+
+
+	if((ph_buf[0] == 0) && ((number = NonAsciiNumber(letter)) > 0))
+	{
+		// convert a non-ascii number to 0-9
+		LookupLetter(tr, number, 0, ph_buf, control & 1);
 	}
 
 	al_offset = 0;
@@ -766,7 +905,7 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 			speak_letter_number = 1;
 			if(!(al_flags & AL_NO_SYMBOL))
 			{
-				if(iswalpha(letter))
+				if(iswalpha2(letter))
 					Lookup(translator, "_?A", ph_buf);
 
 				if((ph_buf[0]==0) && !iswspace(letter))
@@ -784,8 +923,8 @@ int TranslateLetter(Translator *tr, char *word, char *phonemes, int control)
 				speak_letter_number = 0;
 			}
 
-			if((ph_alphabet[0] != 0) && speak_letter_number)
-				ph_buf[0] = 0;  // don't speak "letter" if we speak alphabet name
+//			if((ph_alphabet[0] != 0) && speak_letter_number)
+//				ph_buf[0] = 0;  // don't speak "letter" if we speak alphabet name
 
 			if(speak_letter_number)
 			{
@@ -2216,8 +2355,8 @@ static int TranslateNumber_1(Translator *tr, char *word, char *ph_out, unsigned 
 		if((tr->langopts.numbers & NUM_NOPAUSE) && (next_char == ' '))
 			utf8_in(&next_char,p);
 
-		if(!iswalpha(next_char) && (thousands_exact==0))
-//		if(!iswalpha(next_char) && !((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact != 0)))
+		if(!iswalpha2(next_char) && (thousands_exact==0))
+//		if(!iswalpha2(next_char) && !((wtab[thousandplex].flags & FLAG_HYPHEN_AFTER) && (thousands_exact != 0)))
 			strcat(ph_out,str_pause);  // don't add pause for 100s,  6th, etc.
 	}
 

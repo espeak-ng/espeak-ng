@@ -143,6 +143,7 @@ dictionaries: src/espeak \
 	espeak-data/af_dict \
 	espeak-data/am_dict \
 	espeak-data/an_dict \
+	espeak-data/az_dict \
 	espeak-data/bg_dict \
 	espeak-data/bn_dict \
 	espeak-data/ca_dict \
@@ -219,6 +220,12 @@ dictsource/an_extra:
 	touch dictsource/an_extra
 espeak-data/an_dict: src/espeak espeak-data/phontab dictsource/an_list dictsource/an_rules dictsource/an_extra
 	cd dictsource && ../src/espeak --compile=an && cd ..
+
+az: espeak-data/az_dict
+dictsource/az_extra:
+	touch dictsource/az_extra
+espeak-data/az_dict: src/espeak espeak-data/phontab dictsource/az_list dictsource/az_rules dictsource/az_extra
+	cd dictsource && ../src/espeak --compile=az && cd ..
 
 bg: espeak-data/bg_dict
 dictsource/bg_extra:

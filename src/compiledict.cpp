@@ -133,6 +133,7 @@ MNEM_TAB mnem_flags[] = {
 	{"$stem",    0x30},   // must have a suffix
 	{"$atend",   0x31},   // use this pronunciation if at end of clause
 	{"$atstart", 0x32},   // use this pronunciation at start of clause
+	{"$native",  0x33},   // not if we've switched translators
 
 	// doesn't set dictionary_flags
 	{"$?",        100},   // conditional rule, followed by byte giving the condition number
@@ -700,9 +701,9 @@ static int compile_line(char *linebuf, char *dict_line, int *hash)
 			ix = utf8_in(&c2,p);
 			if(c2 == 0)
 				break;
-			if(iswupper(c2))
+			if(iswupper2(c2))
 			{
-				utf8_out(towlower(c2),p);
+				utf8_out(towlower2(c2),p);
 			}
 			else
 			{

@@ -20,6 +20,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #ifndef NEED_GETOPT
 #include <getopt.h>
 #endif
@@ -67,7 +68,7 @@ static const char *help_text =
 "\t   Compile pronunciation rules and dictionary from the current\n"
 "\t   directory. <voice name> specifies the language\n"
 "--ipa      Write phonemes to stdout using International Phonetic Alphabet\n"
-"\t         --ipa=1 Use ties, --ipa=2 Use ZWJ\n" 
+"\t         --ipa=1 Use ties, --ipa=2 Use ZWJ, --ipa=3 Separate with _\n" 
 "--path=\"<path>\"\n"
 "\t   Specifies the directory containing the espeak-data directory\n"
 "--pho      Write mbrola phoneme data (.pho) to stdout or to the file in --phonout\n"
@@ -221,14 +222,17 @@ int OpenWavFile(char *path, int rate)
 	if(path == NULL)
 		return(2);
 
-	if(path[0] == 0)
-		return(0);
+	while(isspace(*path)) path++;
 
-	if(strcmp(path,"stdout")==0)
-		f_wavfile = stdout;
-	else
-		f_wavfile = fopen(path,"wb");
-
+	f_wavfile = NULL;
+	if(path[0] != 0)
+	{
+		if(strcmp(path,"stdout")==0)
+			f_wavfile = stdout;
+		else
+			f_wavfile = fopen(path,"wb");
+	}
+	
 	if(f_wavfile == NULL)
 	{
 		fprintf(stderr,"Can't write to: '%s'\n",path);
@@ -620,7 +624,7 @@ int main (int argc, char **argv)
 			{
 				value = -1;
 				sscanf(optarg2,"%d",&value);
-				if((value<0) || (value>2))
+				if((value<0) || (value>3))
 				{
 					fprintf(stderr,"Bad value for -ipa=\n");
 					value = 0;

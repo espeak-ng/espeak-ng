@@ -81,8 +81,9 @@
 #define FLAG_ONLY           0x4000
 #define FLAG_ONLY_S         0x8000
 #define FLAG_STEM          0x10000  // must have a suffix
-#define FLAG_ATEND         0x20000  /* use this pronunciation if at end of clause */
+#define FLAG_ATEND         0x20000  // use this pronunciation if at end of clause
 #define FLAG_ATSTART       0x40000  // use this pronunciation if at start of clause
+#define FLAG_NATIVE        0x80000  // not if we've switched translators
 #define FLAG_LOOKUP_SYMBOL 0x40000000  // to indicate called from Lookup()
 
 #define BITNUM_FLAG_ALLCAPS   0x2a
@@ -247,9 +248,9 @@ typedef struct {
 typedef struct{
 	unsigned int flags;
 	unsigned short start;
-	unsigned short sourceix;
 	unsigned char pre_pause;
 	unsigned char wmark;
+	unsigned short sourceix;
 	unsigned char length;
 } WORD_TAB;
 
@@ -542,6 +543,7 @@ typedef struct {
 	char tone_numbers;
 	char ideographs;      // treat as separate words
 	char textmode;          // the meaning of FLAG_TEXTMODE is reversed (to save data when *_list file is compiled)
+	char dotless_i;         // uses letter U+0131
 	int testing;            // testing options: bit 1= specify stressed syllable in the form:  "outdoor/2"
 	int listx;    // compile *_listx after *list
 	const unsigned int *replace_chars;      // characters to be substitutes
@@ -713,9 +715,13 @@ int IsDigit(unsigned int c);
 int IsDigit09(unsigned int c);
 int IsAlpha(unsigned int c);
 int IsVowel(Translator *tr, int c);
+int iswalpha2(int c);
 int isspace2(unsigned int c);
+int iswlower2(int c);
+int iswupper2(int c);
 int towlower2(unsigned int c);
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa);
+int towupper2(unsigned int c);
+void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode);
 const char *WordToString2(unsigned int word);
 ALPHABET *AlphabetFromChar(int c);
 ALPHABET *AlphabetFromName(const char *name);

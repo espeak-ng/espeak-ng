@@ -49,8 +49,8 @@
 
 .group ऊ
         ऊ          u
-        ऊं         u~        // + anusvara
-        ऊँ         u~        // + candrabinbu
+        ऊं (_       u~        // + anusvara
+        ऊँ (_       u~        // + candrabinbu
 
 .group ऋ
         ऋ          rI
@@ -63,14 +63,19 @@
 
 .group ऎ
         ऎ          e
+        ऎं (_       e~
+        ऎँ (_       e~
 
 .group ए
         ए          e:
+        एँ          e~:
+        एं (_       e~:
+    ा) एँ (_       j
 
 .group ऐ
         ऐ          E:        // ?? [aI] [E:] [&:]
-        ऐं         E~
-        ऐँ         E~
+        ऐं (_       E~
+        ऐँ (_       E~
 ?2      ऐ          aI        // ?? [aI] [E:] [&:]
 
 
@@ -79,16 +84,21 @@
 
 .group ऒ
         ऒ          o
+        ऒं (_       o~
+        ऒँ (_       o~
 
 .group ओ
         ओ          o:
-        ओं         o~        // +anusvara
-        ओँ         o~        // +candrabindu
+        ओं (_       o~        // +anusvara
+        ओँ (_       o~        // +candrabindu
+    ा) ओं (_       w        // +anusvara
+    ा) ओँ (_       w
+    
 
 .group औ
         औ          O:        // ?? [aU] [O:]
-        औं         O~        // +anusvara
-        औँ         O~        // +candrabindu
+        औं (_       O~        // +anusvara
+        औँ (_       O~        // +candrabindu
 ?3      औ          aU        // ?? [aU] [O:]
 
 
@@ -96,6 +106,9 @@
 
 .group ा
         ा          a:
+        ा (ँ       a~
+        ाँ (_      a~
+        ां (_      a~
         ाव         aU
 
 .group ि
@@ -106,14 +119,21 @@
 .group ी
         ी          i:
         ी (_       i
+        ी (ँ       i~
+        ीँ (_      i~
+        ीं (_      i~
 
 .group ु
-        ु          u
+        ु          U
+        ु (ँ       u~
+        ुं (_      u~
+        ुँ (_      u~
 
 .group ू
         ू          u:
-        ूं         u~        // or O~   ??
-        ूँ         u~
+        ू (ँ       u~
+        ूं (_      u~        // or O~   ??
+        ूँ (_      u~
 
 .group ृ
         ृ          rI
@@ -126,14 +146,21 @@
 
 .group ॆ
         ॆ          e
+        ॆ (ँ       e~
+        ॆं (_      e~
+        ॆँ (_      e~
 
 .group े
         े          e:
+        े (ँ       e~
+        ें (_      e~:
+        ेँ (_      e~:
 
 .group ै
         ै          E:        // ?? [aI] [E:] [&:]
-        ैं         E~
-        ैँ         E~
+        ै (ँ       E~ 
+        ैं (_      E~
+        ैँ (_      E~
 ?2      ै          aI        // ?? [aI] [E:] [&:]
 
 .group ॉ
@@ -141,16 +168,21 @@
 
 .group ॊ
         ॊ          o
+        ॊ (ँ       o~
+        ॊं (_      o~
+        ॊँ (_      o~
 
 .group ो
         ो          o:
-        ों         o~
-        ोँ         o~
+        ो (ँ       o~
+        ों (_      o~
+        ोँ (_      o~
 
 .group ौ
         ौ          O:        //  [O:] or [aU] ??
-        ौं         O~
-        ौँ         O~
+        ौ (ँ       O~        //  [O:] or [aU] ??
+        ौं (_      O~
+        ौँ (_      O~
 ?3      ौ          aU        //  [O:] or [aU] ??
 
 .group ॢ     // vowel sign l
@@ -171,6 +203,9 @@
         क़         qV
         क़ (B      q
 
+        क्ष          kSV
+        क्ष (B       kS
+        
 .group ख
         ख          k#V
         ख (B       k#
@@ -206,15 +241,20 @@
         ज (B       J
         ज़         zV
         ज़ (B      z
+        
+         ज्ञ           gjV
+        ज्ञ (B       gj
 
 .group झ
         झ          J#V
         झ (B       J#
 
+
 .group ञ
         ञ          n^V
         ञ (B       n^
-     ्) ञ (_       n^
+     ्) ञ (_       n^@
+
 
 .group ट
         ट          t.V
@@ -239,7 +279,7 @@
         ढ़ (B      r.h       // nukta
 
 .group ण
-        ण          n.V       // (temporary) same as dental [n]
+        ण          n.V
         ण (B       n.
      ्) ण (_       n.@
 
@@ -297,17 +337,19 @@
     न्) म (_       m         // n +virama
 
 .group य
-        य          j@
+        य          jV
         य (B       j
+     C) य (_       Ej     // [Ej] not [@j]
      ्) य (_       j@
 
 .group र
         र          rV
         र (B       r
+        र (_       r
      ्) र (_       r@
 
 .group ऱ             // rra
-        ऱ          rV        // (temporary) same as [r]
+        ऱ          rV        // (temporary) same as [r]  should this be [r.] or perhaps [z.] ?
         ऱ (B       r
      ्) ऱ (_       r@
 
@@ -332,21 +374,22 @@
      _) व          wV
      _) व (B       w
      _) व (्       v         // +virma
+        व (_       w
 
 .group श
         श          SV
         श (B       S
 
 .group ष
-        ष          s.V       //?? or retroflex [S]
-        ष (B       s.        //??
+        ष          s.V 
+        ष (B       s.
 
 .group स
         स          sV
         स (B       s
 
 .group ह
-        ह          H
+        ह          HV
         ह (B       H
 
 

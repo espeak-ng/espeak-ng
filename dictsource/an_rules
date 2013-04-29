@@ -1,3 +1,4 @@
+
 // Aragon translation rules
 // This file is UTF-8 encoded
 
@@ -111,6 +112,7 @@
         i          i
         i (u_      i
         i (A       j
+	
 
 
 .group j
@@ -168,6 +170,7 @@
 
 
 .group q
+q        k
         qu (A      kw
         qü         kw
         qu (e      k
@@ -204,6 +207,9 @@
      u) t (_       t#
     ei) t (_       t#
      n) t (_       =         // silent, but stress on last vowel
+     n) t (m       // Silent
+	 _pos) t (h        t
+	 _pos) t (C        // Silent
         tz         T
     ue) t (_       t#
     ui) t (_       t#

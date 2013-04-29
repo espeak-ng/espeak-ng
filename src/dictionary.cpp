@@ -524,7 +524,7 @@ void DecodePhonemes(const char *inptr, char *outptr)
 unsigned short ipa1[96] = {
 	0x20,0x21,0x22,0x2b0,0x24,0x25,0x0e6,0x2c8,0x28,0x27e,0x2a,0x2b,0x2cc,0x2d,0x2e,0x2f,
 	0x252,0x31,0x32,0x25c,0x34,0x35,0x36,0x37,0x275,0x39,0x2d0,0x2b2,0x3c,0x3d,0x3e,0x294,
-	0x259,0x251,0x3b2,0xe7,0xf0,0x25b,0x46,0x262,0x127,0x26a,0x25f,0x4b,0x29f,0x271,0x14b,0x254,
+	0x259,0x251,0x3b2,0xe7,0xf0,0x25b,0x46,0x262,0x127,0x26a,0x25f,0x4b,0x26b,0x271,0x14b,0x254,
 	0x3a6,0x263,0x280,0x283,0x3b8,0x28a,0x28c,0x153,0x3c7,0xf8,0x292,0x32a,0x5c,0x5d,0x5e,0x5f,
 	0x60,0x61,0x62,0x63,0x64,0x65,0x66,0x261,0x68,0x69,0x6a,0x6b,0x6c,0x6d,0x6e,0x6f,
 	0x70,0x71,0x72,0x73,0x74,0x75,0x76,0x77,0x78,0x79,0x7a,0x7b,0x7c,0x7d,0x303,0x7f
@@ -633,10 +633,13 @@ char *WritePhMnemonic(char *phon_out, PHONEME_TAB *ph, PHONEME_LIST *plist, int 
 
 
 
-void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
-{//=========================================================================
-	/* Can be called after a clause has been translated into phonemes, in order
+void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int phoneme_mode)
+{//===============================================================================
+	/* Called after a clause has been translated into phonemes, in order
 	   to display the clause in phoneme mnemonic form.
+
+	   phoneme_mode  bits 0-3: 0=only phoneme names, 1=ties, 2=ZWJ, 3=underscore separator
+	                 bit  4:   0=eSpeak phoneme names, 1=IPA
 	*/
 
 	int  ix;
@@ -649,12 +652,25 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 	char *buf;
 	int count;
 	int flags;
+	int use_ipa;
+	int use_tie;
+	int separate_phonemes = 0;
 	char phon_buf[30];
 	char phon_buf2[30];
 	PHONEME_LIST *plist;
 
 	static const char *stress_chars = "==,,''";
 	static const int char_tie[] = {0x0361, 0x200d};  // combining-double-inverted-breve, zero-width-joiner
+
+	use_ipa = phoneme_mode & 0x10;
+	use_tie = phoneme_mode & 0x0f;
+
+	if(use_tie >= 3)
+	{
+		// separate individual phonemes with underscores
+		separate_phonemes = '_';
+		use_tie = 0;
+	}
 
 	if(phon_out != NULL)
 	{
@@ -663,8 +679,21 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 			buf = phon_buf;
 
 			plist = &phoneme_list[ix];
+
+			WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
 			if(plist->newword)
 				*buf++ = ' ';
+			else
+			{
+				if((separate_phonemes != 0) && (ix > 1))
+				{
+					utf8_in(&c, phon_buf2);
+					if((c < 0x2b0) || (c > 0x36f))  // not if the phoneme starts with a superscript letter
+					{
+						*buf++ = separate_phonemes;
+					}
+				}
+			}
 
 			if(plist->synthflags & SFLAG_SYLLABLE)
 			{
@@ -687,22 +716,23 @@ void GetTranslatedPhonemeString(char *phon_out, int n_phon_out, int use_ipa)
 					if(c != 0)
 					{
 						buf += utf8_out(c, buf);
+//						if(separate_phonemes)
+//							*buf++ = separate_phonemes;
 					}
 				}
 			}
 
 			flags = 0;
-			WritePhMnemonic(phon_buf2, plist->ph, plist, use_ipa, &flags);
 			count = 0;
 			for(p=phon_buf2; *p != 0;)
 			{
 				p += utf8_in(&c, p);
-				if(use_ipa > 1)
+				if(use_tie > 0)
 				{
 					// look for non-inital alphabetic character, but not diacritic, superscript etc.
-					if((count>0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha(c))
+					if((count>0) && !(flags & (1 << (count-1))) && ((c < 0x2b0) || (c > 0x36f)) && iswalpha2(c))
 					{
-						buf += utf8_out(char_tie[use_ipa-2], buf);
+						buf += utf8_out(char_tie[use_tie-1], buf);
 					}
 				}
 				buf += utf8_out(c, buf);
@@ -894,7 +924,13 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 
 		if(count==0)
 			c1 = c;
-		count++;
+
+		if((c == '\'') && (tr->langopts.param[LOPT_UNPRONOUNCABLE] == 3))
+		{
+			// don't count apostrophe
+		}
+		else
+			count++;
 
 		if(IsVowel(tr, c))
 		{
@@ -902,7 +938,7 @@ int Unpronouncable(Translator *tr, char *word, int posn)
 			break;
 		}
 
-		if((c != '\'') && !iswalpha(c))
+		if((c != '\'') && !iswalpha2(c))
 			return(0);
 	}
 
@@ -1624,8 +1660,11 @@ void SetWordStress(Translator *tr, char *output, unsigned int *dictionary_flags,
 	if(!(control & 1) && ((ph = phoneme_tab[*p]) != NULL))
 	{
 
-		if(ph->type == phSTRESS)
-			ph = phoneme_tab[p[1]];
+		while((ph->type == phSTRESS) || (*p == phonEND_WORD))
+		{
+			p++;
+			ph = phoneme_tab[p[0]];
+		}
 
 #ifdef deleted
 		int gap = tr->langopts.word_gap & 0x700;
@@ -2078,7 +2117,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case RULE_NONALPHA:
-					if(!iswalpha(letter_w))
+					if(!iswalpha2(letter_w))
 					{
 						add_points = (21-distance_right);
 						post_ptr += letter_xbytes;
@@ -2322,7 +2361,7 @@ static void MatchRule(Translator *tr, char *word[], char *word_start, int group_
 					break;
 
 				case RULE_NONALPHA:
-					if(!iswalpha(letter_w))
+					if(!iswalpha2(letter_w))
 					{
 						add_points = (21-distance_right);
 						pre_ptr -= letter_xbytes;
@@ -2639,7 +2678,7 @@ int TranslateRules(Translator *tr, char *p_start, char *phonemes, int ph_size, c
 						if(tr->letter_bits_offset > 0)
 						{
 							// not a Latin alphabet, switch to the default Latin alphabet language
-							if((letter <= 0x241) && iswalpha(letter))
+							if((letter <= 0x241) && iswalpha2(letter))
 							{
 								sprintf(phonemes,"%c%s",phonSWITCH,tr->langopts.ascii_language);
 								return(0);
@@ -3240,6 +3279,11 @@ static const char *LookupDict2(Translator *tr, const char *word, const char *wor
 				continue;
 			}
 		}
+		if(dictionary_flags2 & FLAG_NATIVE)
+		{
+			if(tr != translator)
+				continue;    // don't use if we've switched translators
+		}
 		if(dictionary_flags & FLAG_ALT2_TRANS)
 		{
 			// language specific
@@ -3505,9 +3549,9 @@ int LookupFlags(Translator *tr, const char *word)
 {//==============================================
 	char buf[100];
 	static unsigned int flags[2];
+	char *word1 = (char *)word;
 
 	flags[0] = flags[1] = 0;
-	char *word1 = (char *)word;
 	LookupDictList(tr, &word1, buf, flags, 0, NULL);
 	return(flags[0]);
 }

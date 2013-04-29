@@ -7,7 +7,7 @@
 
 phoneme a
   vowel starttype #a endtype #a
-  length 180
+  length 190
   IF thisPh(isDiminished) THEN
     ChangePhoneme(a/)
     FMT(vowel/a#)
@@ -18,28 +18,28 @@ endphoneme
 
 phoneme a/
   vowel starttype #@ endtype #@
-  length 180
+  length 190
   FMT(vowel/a#)
 endphoneme
 
 
 phoneme e
   vowel starttype #e endtype #e
-  length 170
+  length 180
   FMT(vowel/e)
 endphoneme
 
 
 phoneme E
   vowel starttype #e endtype #e
-  length 170
+  length 180
   FMT(vowel/ee_1)
 endphoneme
 
 
 phoneme i
   vowel starttype #i endtype #i
-  length 150
+  length 170
   IfNextVowelAppend(;)
   FMT(vowel/i)
 endphoneme
@@ -47,42 +47,42 @@ endphoneme
 
 phoneme o
   vowel starttype #o endtype #o
-  length 170
+  length 180
   FMT(vowel/o)
 endphoneme
 
 
 phoneme O
   vowel starttype #o endtype #o
-  length 170
+  length 180
   FMT(vowel/oo_4)
 endphoneme
 
 
 phoneme u
   vowel starttype #u endtype #u
-  length 160
+  length 180
   FMT(vowel/u_bck)
 endphoneme
 
 
 phoneme U
   vowel starttype #u endtype #u
-  length 160
+  length 180
   FMT(vowel/uu_2)
 endphoneme
 
 
 phoneme y
   vowel starttype #i endtype #i
-  length 160
+  length 180
   FMT(vowel/y)
 endphoneme
 
 
 phoneme Y
   vowel starttype #@ endtype #@
-  length 160
+  length 180
   FMT(vowel/y#)
 endphoneme
 

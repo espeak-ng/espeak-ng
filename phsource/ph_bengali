@@ -17,8 +17,11 @@ phoneme V  // inherent vowel, can be [O] or [o]
       ChangePhoneme(o)
     ENDIF
     
-    IF prevPhW(r) THEN
-      ChangePhoneme(o)
+    IF prevPhW(r) AND nextVowel(isVowel) THEN
+      IF nextVowel(isWordEnd) AND nextVowel(V) THEN
+      ELSE
+        ChangePhoneme(o)
+      ENDIF
     ENDIF  
   ENDIF
 

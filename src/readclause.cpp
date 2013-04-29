@@ -76,6 +76,8 @@ static int ssml_ignore_l_angle = 0;
 
 // punctuations symbols that can end a clause
 static const unsigned short punct_chars[] = {',','.','?','!',':',';',
+  0x00a1,  // inverted exclamation
+  0x00bf,  // inverted question
   0x2013,  // en-dash
   0x2014,  // em-dash
   0x2026,  // elipsis
@@ -124,6 +126,8 @@ static const unsigned short punct_chars[] = {',','.','?','!',':',';',
 // bits 0-7 pause x 10mS, bits 12-14 intonation type, bit 15 don't need following space or bracket
 static const unsigned int punct_attributes [] = { 0,
   CLAUSE_COMMA, CLAUSE_PERIOD, CLAUSE_QUESTION, CLAUSE_EXCLAMATION, CLAUSE_COLON, CLAUSE_SEMICOLON,
+  CLAUSE_SEMICOLON | 0x8000,      // inverted exclamation
+  CLAUSE_SEMICOLON | 0x8000,      // inverted question
   CLAUSE_SEMICOLON,  // en-dash
   CLAUSE_SEMICOLON,  // em-dash
   CLAUSE_SEMICOLON | PUNCT_SAY_NAME | 0x8000,      // elipsis
@@ -214,50 +218,91 @@ const int param_defaults[N_SPEECH_PARAM] = {
    0,     // voice type
 };
 
-#ifdef NEED_WCHAR_FUNCTIONS
 
-// additional Latin characters beyond the Latin1 character set
-#define MAX_WALPHA  0x233
-// indexed by character - 0x100
-// 0=not alphabetic, 0xff=lower case, 0xfe=special case
+// additional Latin characters beyond the ascii character set
+#define MAX_WALPHA  0x24f
+// indexed by character - 0x80
+// 0=not alphabetic, 0xff=lower case, 0xfe=no case, 0xfd=use wchar_tolower
 //   other=value to add to upper case to convert to lower case
-static unsigned char walpha_tab[MAX_WALPHA-0xff] = {
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 100
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 110
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 120
-   0xfe,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,  // 130
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,  // 140
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 150
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 160
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,  // 170
-   0xff, 210,   1,0xff,   1,0xff, 206,   1,0xff, 205, 205,   1,0xff,0xff,  79, 202,  // 180
-    203,   1,0xff, 205, 207,0xff, 211, 209,   1,0xff,0xff,0xff, 211, 213,0xff, 214,  // 190
-      1,0xff,   1,0xff,   1,0xff, 218,   1,0xff, 218,0xff,0xff,   1,0xff, 218,   1,  // 1a0
-   0xff, 217, 217,   1,0xff,   1,0xff, 219,   1,0xff,0xff,0xff,   1,0xff,0xff,0xff,  // 1b0
-   0xff,0xff,0xff,0xff,   2,   1,0xff,   2,   1,0xff,   2,   1,0xff,   1,0xff,   1,  // 1c0
-   0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,0xff,   1,0xff,  // 1d0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1e0
-   0xff,   2,   1,0xff,   1,0xff,0xff,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 1f0
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 200
-      1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 210
-   0xff,   0,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,   1,0xff,  // 220
-      1,0xff,   1,0xff };    // 230
+static unsigned char walpha_tab[MAX_WALPHA-0x7f] = {
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 080
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, // 090
+    0,    0,    0,    0,    0,    0,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0a0
+    0,    0,    0,    0,    0, 0xff,    0,    0,    0,    0, 0xfe,    0,    0,    0,    0,    0, // 0b0
+   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32,   32, // 0c0
+   32,   32,   32,   32,   32,   32,   32,    0,   32,   32,   32,   32,   32,   32,   32, 0xff, // 0d0
+ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0e0
+ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff,    0, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, // 0f0
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 100
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 110
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 120
+ 0xfd, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, // 130
+ 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff, // 140
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 150
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 160
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff, 0xff, // 170
+ 0xff,  210,    1, 0xff,    1, 0xff,  206,    1, 0xff,  205,  205,    1, 0xff, 0xfe,   79,  202, // 180
+  203,    1, 0xff,  205,  207, 0xff,  211,  209,    1, 0xff, 0xff, 0xfe,  211,  213, 0xff,  214, // 190
+    1, 0xff,    1, 0xff,    1, 0xff,  218,    1, 0xff,  218, 0xfe, 0xfe,    1, 0xff,  218,    1, // 1a0
+ 0xff,  217,  217,    1, 0xff,    1, 0xff,  219,    1, 0xff, 0xfe, 0xfe,    1, 0xff, 0xfe, 0xff, // 1b0
+ 0xfe, 0xfe, 0xfe, 0xfe,    2, 0xff, 0xff,    2, 0xff, 0xff,    2, 0xff, 0xff,    1, 0xff,    1, // 1c0
+ 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, 0xff,    1, 0xff, // 1d0
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1e0
+ 0xfe,    2, 0xff, 0xff,    1, 0xff, 0xfd, 0xfd,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 1f0
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 200
+    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 210
+ 0xfd, 0xfe,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff, // 220
+    1, 0xff,    1, 0xff, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfe, 0xfd,    1, 0xff, 0xfd, 0xfd, 0xfe, // 230
+ 0xfe,    1, 0xff, 0xfd,   69,   71,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff,    1, 0xff}; // 240
+
+static const short wchar_tolower[] = {
+	0x130, 0x069,
+	0x178, 0x0ff,
+	0x1f6, 0x195,
+	0x1f7, 0x1bf,
+	0x220, 0x19e,
+	0x23a, 0x2c65,
+	0x23d, 0x19a,
+	0x23e, 0x2c66,
+	0x243, 0x180,
+	0,0 };
+
+static const short wchar_toupper[] = {
+	0x0b5, 0x39c,
+	0x0df, 0x0df,
+	0x0ff, 0x178,
+	0x131, 0x049,
+	0x17f, 0x053,
+	0x180, 0x243,
+	0x195, 0x1f6,
+	0x19a, 0x23d,
+	0x19e, 0x220,
+	0x1bf, 0x1f7,
+	0x1c6, 0x1c4,
+	0x1c9, 0x1c7,
+	0x1cc, 0x1ca,
+	0x1dd, 0x18e,
+	0x1f3, 0x1f1,
+	0,0 };
+
+
+#ifdef NEED_WCHAR_FUNCTIONS
 
 // use ctype.h functions for Latin1 (character < 0x100)
 int iswalpha(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isalpha(c));
 	if((c > 0x3040) && (c <= 0xa700))
 		return(1);  // japanese, chinese characters
 	if(c > MAX_WALPHA)
 		return(0);
-	return(walpha_tab[c-0x100]);
+	return(walpha_tab[c-0x80]);
 }
 
 int iswdigit(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isdigit(c));
 	return(0);
 }
@@ -272,50 +317,67 @@ int iswalnum(int c)
 int towlower(int c)
 {
 	int x;
-	if(c < 0x100)
+	int ix;
+
+	if(c < 0x80)
 		return(tolower(c));
-	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x100])==0xff))
-		return(c);  // already lower case
-	if(x == 0xfe)
+
+	if((c > MAX_WALPHA) || ((x = walpha_tab[c-0x80]) >= 0xfe))
+		return(c);
+
+	if(x == 0xfd)
 	{
-		// special cases
-		if(c == 0x130)   // uppercase i-dot
-			return('i');
+		// special cases, lookup translation table
+		for(ix=0; wchar_tolower[ix] != 0; ix+=2)
+		{
+			if(wchar_tolower[ix] == c)
+				return(wchar_tolower[ix+1]);
+		}
 	}
 	return(c + x);  // convert to lower case
 }
 
 int towupper(int c)
 {
-	// check whether the previous character code is the upper-case equivalent of this character
-	if(tolower(c-1) == c)
-		return(c-1);  // yes, use it
+	int ix;
+	// check whether a previous character code is the upper-case equivalent of this character
+	if(towlower(c-32) == c)
+		return(c-32); // yes, use it
+	if(towlower(c-1) == c)
+		return(c-1);
+	for(ix=0; wchar_toupper[ix] != 0; ix+=2)
+	{
+		if(wchar_toupper[ix] == c)
+			return(wchar_toupper[ix+1]);
+	}
 	return(c);  // no
 }
 
 int iswupper(int c)
 {
 	int x;
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isupper(c));
-	if(((c > MAX_WALPHA) || (x = walpha_tab[c-0x100])==0) || (x == 0xff))
+	if(((c > MAX_WALPHA) || (x = walpha_tab[c-0x80])==0) || (x == 0xff))
 		return(0);
 	return(1);
 }
 
 int iswlower(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(islower(c));
-	if((c > MAX_WALPHA) || (walpha_tab[c-0x100] != 0xff))
+	if((c > MAX_WALPHA) || (walpha_tab[c-0x80] != 0xff))
 		return(0);
 	return(1);
 }
 
 int iswspace(int c)
 {
-	if(c < 0x100)
+	if(c < 0x80)
 		return(isspace(c));
+	if(c == 0xa0)
+		return(1);
 	return(0);
 }
 
@@ -367,23 +429,96 @@ float wcstod(const wchar_t *str, wchar_t **tailptr)
 }
 #endif
 
+
+// use internal data for iswalpha up to U+024F
+// iswalpha() on Windows is unreliable  (U+AA, U+BA).
+int iswalpha2(int c)
+{
+	if(c < 0x80)
+		return(isalpha(c));
+	if((c > 0x3040) && (c <= 0xa700))
+		return(1);  // japanese, chinese characters
+	if(c > MAX_WALPHA)
+		return(iswalpha(c));
+	return(walpha_tab[c-0x80]);
+}
+
+int iswlower2(int c)
+{
+	if(c < 0x80)
+		return(islower(c));
+	if(c > MAX_WALPHA)
+		return(iswlower(c));
+	if(walpha_tab[c-0x80] == 0xff)
+		return(1);
+	return(0);
+}
+
+int iswupper2(int c)
+{
+	int x;
+	if(c < 0x80)
+		return(isupper(c));
+	if(c > MAX_WALPHA)
+		return(iswupper(c));
+	if(((x = walpha_tab[c-0x80]) > 0) && (x < 0xfe))
+		return(1);
+	return(0);
+}
+
 int towlower2(unsigned int c)
 {
+	int x;
+	int ix;
+
 	// check for non-standard upper to lower case conversions
 	if(c == 'I')
 	{
-		if(translator->translator_name == L('t','r'))
+		if(translator->langopts.dotless_i)
 		{
 			c = 0x131;   // I -> ı
 		}
 	}
-#ifdef __WIN32__
-	if(c == 0x130)   // uppercase i-dot
-		return('i');
-#endif
-	return(towlower(c));
+
+	if(c < 0x80)
+		return(tolower(c));
+
+	if(c > MAX_WALPHA)
+		return(towlower(c));
+
+	if((x = walpha_tab[c-0x80]) >= 0xfe)
+		return(c);   // this is not an upper case letter
+
+	if(x == 0xfd)
+	{
+		// special cases, lookup translation table
+		for(ix=0; wchar_tolower[ix] != 0; ix+=2)
+		{
+			if(wchar_tolower[ix] == (int)c)
+				return(wchar_tolower[ix+1]);
+		}
+	}
+	return(c + x);  // convert to lower case
 }
 
+int towupper2(unsigned int c)
+{
+	int ix;
+	if(c > MAX_WALPHA)
+		return(towupper(c));
+
+	// check whether a previous character code is the upper-case equivalent of this character
+	if(towlower2(c-32) == (int)c)
+		return(c-32); // yes, use it
+	if(towlower2(c-1) == (int)c)
+		return(c-1);
+	for(ix=0; wchar_toupper[ix] != 0; ix+=2)
+	{
+		if(wchar_toupper[ix] == (int)c)
+			return(wchar_toupper[ix+1]);
+	}
+	return(c);  // no
+}
 
 static int IsRomanU(unsigned int c)
 {//================================
@@ -2261,7 +2396,7 @@ f_input = f_in;  // for GetC etc
 					c2 = ' ';
 				}
 				else
-				if((c2 == '/') || iswalpha(c2))
+				if((c2 == '/') || iswalpha2(c2))
 				{
 					// check for space in the output buffer for embedded commands produced by the SSML tag
 					if(ix > (n_buf - 20))
@@ -2444,10 +2579,10 @@ f_input = f_in;  // for GetC etc
 			}
 		}
 
-		if(iswupper(c1))
+		if(iswupper2(c1))
 		{
 			tr->clause_upper_count++;
-			if((option_capitals == 2) && (sayas_mode == 0) && !iswupper(cprev))
+			if((option_capitals == 2) && (sayas_mode == 0) && !iswupper2(cprev))
 			{
 				char text_buf[40];
 				char text_buf2[30];
@@ -2464,7 +2599,7 @@ f_input = f_in;  // for GetC etc
 			}
 		}
 		else
-		if(iswalpha(c1))
+		if(iswalpha2(c1))
 			tr->clause_lower_count++;
 
 		if(option_phoneme_input)
@@ -2533,8 +2668,8 @@ if(option_ssml) parag=1;
 
 				if(!iswspace(c1))
 				{
-					if(!IsAlpha(c1) || !iswlower(c1))
-//					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower(c1)))
+					if(!IsAlpha(c1) || !iswlower2(c1))
+//					if(iswdigit(c1) || (IsAlpha(c1) && !iswlower2(c1)))
 					{
 						UngetC(c2);
 						ungot_char2 = c1;
@@ -2633,7 +2768,7 @@ if(option_ssml) parag=1;
 
 				if(nl_count==0)
 				{
-					if((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h','u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower(c_next))))
+					if((c1 == ',') && (cprev == '.') && (tr->translator_name == L('h','u')) && iswdigit(cprev2) && (iswdigit(c_next) || (iswlower2(c_next))))
 					{
 						// lang=hu, fix for ordinal numbers, eg:  "december 2., szerda", ignore ',' after ordinal number
 						c1 = CHAR_COMMA_BREAK;
@@ -2652,7 +2787,7 @@ if(option_ssml) parag=1;
 							}
 							else
 							{
-								if (iswlower(c_next) || (c_next=='-'))     // hyphen is needed for lang-hu (eg. 2.-kal)
+								if (iswlower2(c_next) || (c_next=='-'))     // hyphen is needed for lang-hu (eg. 2.-kal)
 									is_end_clause = 0;      // only if followed by lower-case, (or if there is a XML tag)
 							}
 						}
@@ -2661,7 +2796,7 @@ if(option_ssml) parag=1;
 						{
 							is_end_clause = 0;    // eg. u.s.a.'s
 						}
-						if(iswlower(c_next))
+						if(iswlower2(c_next))
 						{
 							// next word has no capital letter, this dot is probably from an abbreviation
 //							c1 = ' ';
