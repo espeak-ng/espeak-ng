@@ -2980,8 +2980,9 @@ int TransposeAlphabet(Translator *tr, char *text)
 			*p2++ = (acc << (8-bits));
 		}
 		*p2 = 0;
-		strcpy(text, buf);
-		return((p2 - buf) | 0x40);  // bit 6 indicates compressed characters
+		ix = p2 - buf;
+		memcpy(text, buf, ix);
+		return(ix | 0x40);  // bit 6 indicates compressed characters
 	}
 	else
 	{
