@@ -2,7 +2,7 @@
 
 [Setup]
 AppName=eSpeak
-AppVerName=eSpeak version 1.47.08
+AppVerName=eSpeak version 1.47.09
 AppCopyright=Licensed under GNU General Public License version 3.   (See file License.txt for details).
 WindowVisible=yes
 
@@ -106,6 +106,10 @@ sr.v3=Da odaberete glas, unesite ime glasa kojeg želite instalirati, na primer 
 ne.v1=भित्र्याउन चाहेको आवाजको चयन गर्नु होस् ।
 ne.v2=अथवा यसमा निर्धारण गरिएको आवाजलाई नै चयन गर्ने हो भने ईन्टर कुञ्जीलाई दबाउनु होस् । 
 ne.v3=आवाजको नाम प्रविष्टी गर्नु होस् , जस्तै: नेपालीका लागि ne, अथवा स्वरको पनि चयन गर्ने हो भने ne+f3
+
+hi.v1=स्थापना करने के लिए पसन्दिदा आवाजों को चयन करें ।
+hi.v2=अगर आप कि चयन इसमें निर्दारित आवाज हि  हो तो केवल  ईन्टर कुञ्जी दबाए । 
+hi.v3=आवाज कि   नाम प्रविष्टी करें, जैसा कि हिन्दी के लिए hi, और किसि स्वर भि चयन करना चाहते हो तो hi+f3
 
 [Code]
 var

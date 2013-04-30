@@ -32,6 +32,9 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 225
+  IF thisPh(isWordEnd) AND thisPh(isUnstressed) THEN
+    FMT(vowel/a#_2)
+  ENDIF
   FMT(vowel/a_3)
 endphoneme
 
@@ -82,13 +85,33 @@ endphoneme
 
 
 phoneme tS
-  import_phoneme base/tS
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_)
+  ENDIF
+  WAV(ustop/tsh_)
 endphoneme
 
 
 phoneme tS#
-  import_phoneme base/tS
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_asp)
+  ENDIF
+  WAV(ustop/tsh_asp, 120)
 endphoneme
+
+
+
+
 
 
 phoneme ~
