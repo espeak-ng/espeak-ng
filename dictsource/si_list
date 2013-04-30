@@ -1,0 +1,185 @@
+// Sinhala Language.
+// This SI_list file is written by Him Prasad Gautam <himjee@yahoo.com> [Kathmandu, nepal]
+// This file is UTF-8 encoded.
+
+// letter groups:
+// A - Alphabetical and Symbolic Vowels:
+//	0x0D85~0x0D16, 0x0DCA~0x0DF3
+// B - Symbolic  Vowels and Halkirima
+//	0x0DCA~0x0DF3
+// C - Consonants:
+//	0x0D9A~0x0DC2
+
+// speak Latin letters as English
+
+
+// numbers
+_0	b'induv@
+_1	'ek@
+_2	d'ek@
+_3	t'un@
+_4	h'at@r@
+_5	p'ah@
+_6	h'aj@
+_7	h'at@
+_8	'at.@
+_9	n'av@j@
+
+_0d	b'induv@i
+_1d	'eka,i 
+_2d	d'eka,i
+_3d	t'un,i
+_4d	h'at@r@i
+_5d	p'ah@i
+_6d	h'aj@i
+_7d	h'at@i
+_8d	'at.@i
+_9d	n'av@i
+
+
+_10	d'ah@j@
+_11	'ekol,@h@
+_12	d'ol@h@
+_13	d'ah@t,un@
+_14	d'ah@h,@t@r@
+_15	p'ah@l.,ov@
+_16	d'ah@s,@j@
+_17	d'ah@h,@t@
+_18	d'ah@,@t.@
+_19	d'ah@n,@v@j@
+_20	v'iss@
+_21	v'isiek@
+_22	v'isid,ek@
+_23	v'isit,un@
+_24	v'isih,@t@r@
+_25	v'isip,@h@
+_26	v'isih,@j@
+_27	v'isih,@t@
+_28	v'isi,@t.@
+_29	v'isin,@v@j@
+_30	t'ih@
+_31	t'isek@
+_32	t'isdek@
+_33	t'istun@
+_34	t'ish@t,@r@
+_35	t'isp@h@
+_36	t'ish@j@
+_37	t'ish@t@
+_38	t'is@t.@
+_39	t'isn@v,@j@
+_40	h'at@l,ih@
+_41	h'at@l,is'ek@
+_42	h'at@l,isdek@
+_43	h'at@l,istun@
+_44	h'at@l,ish@t,@r@
+_45	h'at@l,isp@h@
+_46	h'at@l,ish@j@
+_47	h'at@l,ish@t@
+_48	h'at@l,is@t.@
+_49	h'at@l,isn@v,@j@
+_5X	p'an@s
+_50	p'an@h@
+_6X	h'&t.@
+_60	h'&t.@
+_7X	h'&tt&:
+_70	h'&tt&:v@
+_8X	'asu:
+_80	'asu:v@
+_9X	'anu:
+_90	'anu:v@
+
+_1C	s'ij@j@
+_0C	s'ij@
+
+_0M1	d'ah@s
+_0M1x	'ah@s    // exact thousands
+_0M2	l'akS
+_0M2x	l'akS@j@
+_0M3	k'o:t.i
+_0M3x	k'o:t.ij@
+_0M4	v'il'ij@n
+
+_dpt	d'aS@m#@
+
+
+// Consonants
+
+ක	k@
+ඛ	k#@
+ග	g@
+ඝ	g#@
+ඞ	N@
+ඟ	N#g@
+ච	tS@
+ඡ	tS#@
+ජ	dZ@
+ඣ	dZ#@
+ඤ	n^@
+ඥ	gn@
+ඦ	n^#dZ@
+ට	t.@
+ඨ	t.#@
+ඩ	d.@
+ඪ	d.#@
+ණ	n.@
+ඬ	n.#d.@
+ත	t@
+ථ	t#@
+ද	d@
+ධ	d#@
+න	n@
+ඳ	n#d@
+ප	p@
+ඵ	p#@
+බ	b@
+භ	b#@
+ම	m@
+ඹ	m#b@
+ය	j@
+ර	r@
+ල	l@
+ව	w@
+ශ	S@
+ෂ	s.@
+ස	s@
+හ	h@
+ළ	l.@
+ෆ	f@
+
+ං	'anuswa:r@j@
+ඃ	'wisargaja
+
+// combining vowels, precede by a click so they can be distinguished from stand-alone vowels
+ා	#X2a::
+ැ	#X1&
+ෑ	#X2&::
+ි	#X1i
+ී	#X2i::
+ු	#X1u
+ූ	#X2u::
+ෘ	#X1ru
+ෙ	#X1e
+ෛ	#X2aI
+ෞ	#X2aU
+ේ	#X2e::
+ො	#X1o
+ෝ	#X2o::
+ෟ	#X1li
+ෲ	#X2ru:
+ෳ 	#X2li:
+
+
+
+// symbols
+_.	t'it@
+_,	k'oma:v@
+_෴	k'un.d.ali:j@
+?	pr'a:Sna:rt,@j@ 
+!	v'iSm#@j,a:rt@j@
+_“	'udrut,@pa:t.,@a:r,@mb@j@
+_”	 'ud#rut,@pa:t.#,@@w,@s.a:n,@j@
+_:	t'itkom,a:v@
+_;	d'etit@
+$	do:l.ar		$max3
+%	sij@j@t.@	$max3
+*	&st.@risk@j@    $max3

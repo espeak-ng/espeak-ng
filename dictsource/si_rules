@@ -1,0 +1,320 @@
+// Sinhala Language.
+// This SI_rules file is written by Him Prasad Gautam <himjee@yahoo.com> [Kathmandu, nepal]
+// This file is UTF-8 encoded.
+
+// letter groups:
+// A - Alphabetical and Symbolic Vowels:
+//	0x0D85~0x0D16, 0x0DCA~0x0DF3
+// B - Symbolic  Vowels and Halkirima
+//	0x0DCA~0x0DF3
+// C - Consonants:
+//	0x0D9A~0x0DC2
+
+.L01 ක ඛ ග ඝ හ
+.L02 ච ඡ ජ ඣ ඦ
+.L03 ට ඨ ඩ ඪ 
+
+
+.group ක
+	ක	ka
+	 ක (B	k
+
+.group ඛ
+	ඛ	k#a
+	ඛ (B	k#
+
+.group ග
+	ග	ga
+	ග (B	g
+
+.group ඝ
+	ඝ	g#a
+	ඝ (B	g#
+
+.group ඞ
+	ඞ	Na
+	ඞ (B	N
+
+.group ඟ
+	ඟ	N#ga
+	ඟ (B	N#g
+
+.group ච
+	ච	tSa
+	ච (B	tS
+
+.group ඡ
+	ඡ	tSha
+	ඡ (B	 tSh
+
+.group ජ
+	ජ	dZa
+	ජ (B	dZ
+
+.group ඣ
+	ඣ	dZha
+	ඣ (B	dZh
+
+.group ඤ
+        ඤ          n^a
+	ඤ (B	n^
+
+.group ඥ
+	ඥ	 gna
+	ඥ (B	gn
+
+.group ඦ
+	ඦ	n^#dZa
+	ඦ (B	n^#dZ
+
+.group ට
+	ට	t.a
+	ට (B	t.
+
+.group ඨ
+	ඨ	t.#a
+	ඨ (B	t.#
+
+.group ඩ
+        ඩ          d.a
+        ඩ (B       d.
+
+.group ඪ
+	ඪ	d.a
+	ඪ (B	d.
+
+.group ණ
+	ණ	n.a
+	ණ (B	n.
+
+.group ඬ
+	ඬ	n.#d.a
+	ඬ (B	n.#d.
+
+.group ත
+	ත	ta
+	ත (B	t
+
+.group ථ
+	ථ	t#a
+	ථ (B	t#
+
+.group ද
+	ද	da
+	ද (B	d
+
+.group ධ
+	ධ	d#a
+	ධ (B	d#
+
+.group න
+	න	na
+	න (B	n
+
+.group ඳ
+	ඳ	n#da
+	ඳ (B	n#d
+
+.group ප
+	ප	pa
+	ප (B	p
+
+.group ඵ
+	ඵ	p#a
+	ඵ (B	p#
+
+.group බ
+	බ	ba
+	බ (B	b
+
+.group භ
+	භ	b#a
+	භ (B	b#
+
+.group ම
+	ම	ma
+	ම (B	m
+
+.group ඹ 
+	ඹ	m#ba
+	ඹ (B	m#b
+
+.group ය
+	ය	ja
+	ය (B	j
+
+.group ර
+	ර	ra
+	ර (B	r
+
+.group ල
+	ල	la
+	ල (B	l
+
+.group ව
+	ව	wa
+	ව (B	w
+     @) ව (_	w   // ? word-final, after a vowel
+     ්) ව (_	wa
+
+.group ශ
+	ශ	sa
+	ශ (B	s
+
+.group ෂ
+        ෂ      Sa
+	ෂ (B   S
+
+.group ස
+	ස	sa
+	ස (B	s
+
+.group හ
+	හ	ha
+	හ (B	h
+
+.group ළ
+	ළ	l.a
+	ළ (B	l.
+
+.group ෆ
+	ෆ	fa
+	ෆ (B	f
+
+// The Vowel Alphabets
+
+.group අ
+	අ	a
+
+.group ආ
+	ආ	a:
+
+.group ඇ
+	ඇ	&
+
+.group ඈ
+	ඈ	&:
+
+.group ඉ
+	ඉ	i
+
+.group ඊ
+	ඊ	i:
+
+.group උ
+	උ	u
+
+.group ඌ
+	ඌ	u:
+
+.group ඍ
+	ඍ	ru
+
+.group ඎ
+	ඎ	ru:
+
+.group ඏ
+	ඏ	li
+
+.group ඐ
+	ඐ	li:
+
+.group එ
+	එ	e
+
+.group ඒ
+	ඒ	e:
+
+.group ඓ
+	ඓ	aI
+
+.group ඔ
+	ඔ	o
+
+.group ඕ
+	ඕ	o:
+
+.group ඖ
+	ඖ	aU
+
+
+
+.group ං 	// anusvaray@
+     ්) ං	'anus.w,a:r@j@
+	ං (L01	N
+	ං (L02	n^
+	ං (L03	n.
+	ං	m
+
+
+.group ඃ // visargaya
+    ්) ඃ	w'is.@rg,@j@
+	ඃ	h
+	ඃ	h
+
+// The Vowelic Symbols
+
+.group ා
+	ා	'&l@p,ill@
+	C) ා	a:
+
+.group ැ
+	ැ	'&d@j@
+	C) ැ	&
+
+.group ෑ
+	ෑ	d'i:rg@,&d@j@
+	C) ෑ	&:
+
+.group ි
+	ි	'ispill@
+	C) ි	i
+
+.group ී
+	ී	d'i:rg@,ispill@
+	C) ී	i:
+
+.group ු
+	ු	p'a:pill@
+	C) ු	u
+
+.group ූ
+	ූ	d'i:rg@p,a:pill@
+	C) ූ	u:
+
+.group ෘ
+	ෘ	g'&t.@p,ill@
+	C) ෘ          ru
+
+.group ෙ
+	ෙ	k'ombuv@
+	C) ෙ	e
+
+
+.group ෛ
+	ෛ	k'ombud,ek@
+	C) ෛ	aI
+
+.group ෞ
+	ෞ	g'ajan,ukitt@
+	C) ෞ	aU
+
+
+.group 0xe0b7   // More vowelic symbols b7]
+
+        ේ          e:
+        ො          o
+        ෝ          o:
+        ෟ          li
+        ෲ          ru:
+        ෳ          li:
+
+
+.group ්
+	්	h'alk'irim#@	// Halkirima
+	C) ්	
+
+
+.group
+	zස	za
+	zස (B	z

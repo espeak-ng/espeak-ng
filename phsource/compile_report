@@ -44,7 +44,7 @@ consonants  11  119
       bg  14  124
       it  19  129
       la  21  126
-      es  16  125
+      es  15  125
    es-la   1  125
       ca  11  127
       an   4  125
@@ -1046,16 +1046,17 @@ ustop/ts2       [ts] lv
                 [ts] bo
                 [dz] bo
 ustop/tsh       [tS] base
+                [tS#] bn
                 [c] zhy
                 [tS] tn
 ustop/tsh_      [tS] base
                 [c] hi
                 [tS] bn
+                [tS#] bn
                 [c] zhy
                 [tS] tn
 ustop/tsh2      [tS] hr
                 [dZ] hr
-ustop/tsh_asp   [tS#] bn
 ustop/t_short   [t-] consonants
                 [t] fr
                 [t2] fr
@@ -1067,6 +1068,7 @@ ustop/tsh_pzd   [tS;h] zh
 ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
 ustop/tsh_unasp  [c] hi
+                [tS] bn
                 [tS`] am
 ustop/ts_pzd    [tS;] base
                 [J#] hi
@@ -1196,6 +1198,7 @@ vdiph/aau_3     [aU] hi
                 [aU] kn
                 [aU] ml
                 [aU] te
+                [aU] si
 vdiph/aau_4     [aU] vi
 vdiph/aau_6     [aU] de
 vdiph/ae        [E:] fr-ca
@@ -1241,7 +1244,6 @@ vdiph/au        [aU] en
                 [aU] ta
                 [a:U] vi
                 [aU] prs
-                [aU] si
 vdiph/au#       [aU] en-sc
 vdiph/au_2      [au] zhy
 vdiph/au_3      [aU] en-rp
