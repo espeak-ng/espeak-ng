@@ -1,0 +1,632 @@
+﻿
+// This ur_rules file is written by Him Prasad Gautam (Kathmandu, Nepal).
+// This file is UTF8 encoded 
+//  phoneme rules for Urdu
+// Letter group - l01: Vowels
+
+.replace
+٠	0
+١	1
+٢	2
+٣	3
+٤	4
+٥	5
+٦	6
+٧	7
+٨	8
+٩	9
+ي	ی
+یٰ	ا
+
+
+// vowel signs, alif acts as consonants  at start of word if these follow
+.L01  َ ِ ُ و ی ع ا ے 
+
+// Consonants
+.L02  ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک گ ل م ن ہ ئ
+
+// VOWELS
+
+.group َ
+	َ	a
+	َی 	E
+	َے	E
+	َو 	O
+	َع	a:
+
+.group ِ
+	ِ	I
+	ِی	i:
+	ِع	i:
+	@) ِ (_S1	'e:
+
+.group ُ
+	ُ	U
+	ُو	u:
+	ُع	O
+
+.group ھ
+	ھ	HV 
+	ھ (_	H:
+ھ (l01	H
+
+.group ا
+	ا	a:
+	_) ا (L01   // Acts like Consonants if followed by a vowel but is silent.
+_) ا	a
+_) او	u:
+_) ای	e:
+	ائ (L02	a:I
+	اہ(_	a:H
+	_) اتن	'Itn
+	_) اتر	Ut'aR
+	_) اتر (L01	UtR
+	_) الٹ	Ul'at.
+	_) الٹ (L01	Ult.
+	_) الجھ	Ul'aJh
+	_) الجھ (L01	UlJh
+	_) ابھر	Ubh'aR
+	_) ابھر (L01	UbhR
+	_) اچھل	Uch'al
+	_) اچھل (L01	Uchl
+	_) اجڑ	UJ'ar.
+	_) اجڑ (L01	UJr.
+	افتتاح	,ItIt'a:H
+	اسلام	,Isl'a:m
+	_) انسان	Ins'a:n
+	_) انت (L02	'Int,a
+	_) امید	Um'i:d
+	اً(_S2	'an
+	_) امکان	,Imk'a:n
+	_) افسر	,afs'aR
+	_) اتفاق	,ItIf'a:q
+	_) ابتدا	'Ibt,Ida:
+	_) ایمان	i:m'a:n
+	_) اعت	'e:tI
+	_) اضاف	Iz'a:f
+	_) اختلاف	,IxtIl'a:f
+	_) اسمبلی	as'ambli:
+	_) اٹھت	'Ut.#t
+	_) اٹھن	'Ut.#n
+	_) اٹھات	Ut.#'a:t
+	اقلیت	,aqali:;'at
+	استثن	,Ist'asn
+	اندھیر	'and#e:R
+	انتالیس	,Unta:l'i:s
+	انتیس	,Unt'i:s
+	اکثر	,aks'aR
+	ایران	i:R'a:n
+	اجتماع	,IJtIm'a:
+	استحصال	,Ist,e:Hs.'a:l
+	_) امنگ	Um'ang
+	انعام	In'a:m
+	امتحان	,ImtIH'a:n
+	الزام	,Ilz'a:m
+	اشتہار	,IStIH'a:R
+	اصول	Us.'u:l
+	اعلان	e:l'a:n
+	اعزاز	e:z'a:z
+	انقلاب	,InqIl'a:b
+	اصلاح	,Is.l'a:H
+	امداد	,Imd'a:d
+	استعف	Ist'i:f
+	@) ات (_S2	'a:t
+	_) انتظ	'Int,Iz.
+	احمق	,EHm'aq
+
+.group آ
+	آ	a:
+	آتش	'a:tIS
+	آہست	a:H'Ist
+
+
+.group ع
+	ع	a:
+	عا	a:
+	_) ع	a
+	_) عیس	'i:s
+	_) عید	'i:d
+	عنوان	Unv'a:n
+	_) عمر	'UmR
+	L02) عی (_	'ai:
+
+.group و
+	و	o:
+	وُ	u:
+	وٗ	u:
+	و (L01	v
+	_) و	vV
+	 وع (_	u:
+	وّ	vv
+	L02L02L02) و (L02	u:
+	L02) ونکہ (_	u:nk'e:H
+
+.group ی
+	ی	e:
+	ی (L01	j
+	ی (_	i:
+	_) ی	jV
+	یع(_	i:
+	@) ی	i:
+	@) یں (_	e:n
+	یّ	jj
+	@) یت (_S2	i:;'at
+
+.group ے		// yeh barree
+	ے	e:
+
+.group ۂ
+	ۂ	'ae:
+
+// with hamza
+.group ئ
+	ئ
+
+.group ؤ
+	ؤ	aU   // ??
+
+.group أ
+	أ	// ??
+
+
+// CONSONANTS
+
+.group ب
+	ب	bV
+	بھ	b#V
+	بھ (L01	b#
+	ب (L01	b	
+	بّ	bbV
+	بّ (L01	bb
+	_) بگڑ	bIg'ar.
+	_) بگڑ (L01	b'Igr.
+	_) بکھر	bIkh'aR
+	_) بکھر (L01	b'IkhR
+	_) بچھڑ	bIch'ar.
+	_) بچھڑ (L01	bIchr.
+	_) بجھ	b'UJh
+	بھوک	bh'u:k
+	بھیک	bh'i:k
+	بھیگ	bh'i:g
+	بھول	bh'u:l
+	_) بیان	baj'a:n
+	_) بٹھا	b'It.#a:
+	بئی	b'ai:
+	بیوی	b'i:vi:
+	_) بیوا	b'e:va:
+	برسر	b,aRs'aR
+	بگاڑ	bIg'a:r.
+	بغاوت	b,aQa:v'at
+	_) بہ (L02	b'EH
+	بزرگ	b'UzUR,g
+	_) بدل (L02	bad'al
+	بوڑھ	b'u:r.h
+	_) بے (P2	b'e:
+	_) بھوت	b#'u:t
+
+
+.group پ
+	پ	pV
+	پھ	p#V
+	پ (L01	p
+	پھ (L01	p#
+	پّ	ppV
+	پّ (L01	pp
+	_) پھر	ph'IR
+	پھول	ph'u:l
+	_) پہ (L02	p'EH
+	پہنچ	paH'Unc
+	پوچھ	p'u:c#
+	پیچھ	p'i:c#
+	پھونک	p#'u:nk
+	_) پور (L01	p'u:R
+
+.group ت
+	ت	tV
+	تھ	t#V
+	ت (L01	t
+	تھ (L01	t#
+	تّ	ttV
+	تّ (L01	tt
+	_) تمہ	t'UmH
+	تحقیق	t,EHq'i:q
+	_) ترجم	t'aRJ,Um
+	_) تہ (L02	t'EH
+	_) تجز	t'aJz
+	تقرر	taq'aRUR
+	تجرب	taJ'aRb
+	_) تیار	t,ai:;'a:R
+	_) تیسر	t'i:sR
+
+.group ٹ
+	ٹ	t.V
+	ٹھ	t.#V
+	ٹ (L01	t.
+	ٹھ (L01	t.#
+	ٹّ	t.t.V
+	ٹّ (L01	t.t.
+	ٹریفک	t.R'e:fIk
+	_) ٹکڑ	t.'Ukr.
+	_) ٹہ (L02	t.'EH
+	ٹس(_	t.s
+	_) ٹیم	t.'i:m
+
+
+.group ث
+	ث	sV
+	ث (L01	s
+	ثّ	ssV
+ثّ (L01	ss
+
+
+.group ج
+	ج	JV
+	جھ	J#V
+	ج (L01	J
+	جھ (L01	J#
+	جّ	JJV
+	جّ (L01	JJ
+	_) جیت	J'i:t
+	_) جوا	J'ava:
+	جانب	J'a:nIb
+	_) جنس	J'Ins
+	جھوٹ	J#'u:t.
+	_) جمل	J'Uml
+	_) جہ (L02	J'EH
+	_) جدا	J'Uda:
+	_) جزب	J'azb
+	_) جذب	J'aDb
+
+.group چ
+	چ	cV
+	چھ	c#V
+	چ (L01	c
+	چھ (L01	c#
+	چّ	ccV
+	چّ (L01	cc
+	_) چکا	c'Uka:
+	_) چہ (L02	c'EH
+	_) چوم	c'u:m
+	_) چیز	c'i:z
+
+.group ح
+	ح	HV
+	ح (L01	H
+	ح (_	'aH
+	L01) ح (_	H
+	حکومت	H,Uku:m'at
+	حکمران	H,UkmaR'a:n
+	_) حوال	Hav'a:l
+
+
+	حّ	HHV
+	حّ (L01	HH
+
+.group خ
+	خ	xV
+	خ (L01	x
+	@) خ (ت	x
+	خّ	xxV
+	خّ (L01	xx
+	_) خوش	x'US
+	_) خود	x'Ud
+	_) خواہش	xv'a:HIS
+	_) خیا	x'aja:
+
+
+.group د
+	د	dV
+	دھ	d#V
+	د (L01	d
+	دھ (L01	d#
+	دّ	ddV
+	دّ (L01	dd
+	درخواست	d,aRxv'a:st
+	دیا(_	d'i:;a:
+	درج	d'aRJ
+	دیوا	d'i:va:
+	_) دوسر	d'u:sR
+	دفاع	d'Ifa:
+	_) دہ (L02	d'EH
+	دنیا	dUn'i:;a:
+	دہشت	d'EHS'at
+	دلچسپ	d,Ilc'asp
+	دھیم	d#'i:m
+
+.group ڈ
+	ڈ	d.V
+	ڈھ	d.#V
+	ڈ (L01	d.
+	ڈھ (L01	d.#
+	ڈّ	d.d.V
+	ڈّ (L01	d.d.
+	ڈھونڈ	d.#'u:nd.
+	ڈز(_	d.z
+
+.group ذ
+	ذ	DV
+	ذ (L01	D
+	ذّ	DDV
+	ذّ (L01	DD
+	_) ذہ (L02	D'EH
+
+.group ر
+	ر	RV
+	ر (L01	R
+	رّ	RRV
+	رّ (l01	RR
+	@) ر (ٹ	R
+	@) ر (ڈ	R
+	@) ردہ (_	Rd,a
+	@) ر (چ	R
+	_) رہ (L02	R'EH
+	_) رخ	R'Ux
+	_) رکن	R'Ukn
+	@) ر (د	R
+	_) رفت	R'af@t
+
+.group ڑ
+	ڑ	r.V
+	ڑ (L01	r.
+	ڑّ	r.r.V
+	ڑّ (L01	r.r.
+	ڑھ	r.hV
+	ڑھ (L01	r.h
+
+.group ز
+	ز	zV
+	ز (L01	z
+	زّ	zzV
+	زّ (L01	zz
+	_) زند	z'Ind
+	_) زہ (L02	z'EH
+	_) زلزل	z,alz'al
+
+.group ژ
+	ژ	ZV
+	ژ (L01	Z
+
+.group س
+	س	sV
+	س (L01	s
+	سّ	ssV
+	سّ (L01	ss
+	_) سرخ	s'URx
+	_) سن (L01	s'Un
+	_) سلجھ	sUl'aJh
+	_) سلجھ (L01	sUlJh
+	_) سدھر	sUdh'aR
+	_) سدھر (L01	sUdhR
+	_) سلسل	s'Ils,Il
+	_) ستار	sIt'a:R
+	@) س (ٹ	s
+	سندھ	s'Ind#
+	سیکھ	s'i:k#
+	@) س (ت	s
+	_) سپرد	sUp'URd
+	_) سہ (L02	s'EH
+	سیدھ	s'i:d#
+	سیاست	sja:s'at
+	سرگرم	s,aRg'aRm
+	ستہ(_	st,a
+
+.group ش
+	ش	SV
+	ش (L01	S
+	شّ	SSV
+	شّ (L01	SS
+	_) شعب	S'Ob
+	شاعر	Sa:'a:IR
+	_) شعرا	S'ORa:
+	_) شعل	S'Ol
+	@) ش (ت	S
+	_) شخص	S'axs.
+	_) شہ (L02	S'EH
+	شرمند	S,aRm'Ind
+
+.group ص
+	ص	s.V
+	ص (L01	s.
+	صّ	ssV
+	صّ (L01	ss
+	صوب	s.'u:b
+
+.group ض
+	ض	zV
+	ض (L01	z
+	ضّ	zzv
+	ضّ (L01	zz
+
+.group ط
+	ط	tV
+	طھ	t#V
+		ط (L01	t
+	طھ (L01	t#
+	طّ	ttV
+	طّ (L01	tt
+
+.group ظ
+	ظ	z.V
+	ظ (L01	z.
+	ظّ	z.z.V
+	ظّ (L01	z.z.
+
+.group غ
+	غ	QV
+	غ (L01	Q
+	غّ	QQV
+	غّ (L01	QQ
+
+.group ف
+	ف	fV
+	ف (L01	f
+	فّ	ffV
+	فّ (L01	ff
+	_) فکر	f'IkR
+	_) فہ (L02	f'EH
+	فلم	f'Ilm
+
+.group ق
+	ق	qV
+	ق (L01	q
+	قّ	qqV
+	قّ (L01	qq
+	قاعد	q'a:jd
+	_) قسط	q'Ist
+	_) قیا	q'aja:
+
+.group ک
+	ک	kV
+	کھ	k#V
+	ک (L01	k
+	کھ (L01	k#
+	کّ	kkV
+	کّ (L01	kk
+	_) کتن	k'Itn
+	کتاب	kIt'a:b
+	کوشش	k'o:SIS
+	_) کہ (L02	k'EH
+	کارکن	k'a:Rk,UUn
+
+.group گ
+	گ	gV
+	گھ	g#V
+	گ (L01	g
+	گھ (L01	g#
+	گّ	ggV
+	گّ (L01	gg
+	_) گرفت	g'IRIft
+	_) گزر	gUz'aR
+	_) گزر (L01	gUzR
+	گئے	g'ae:
+	گئی	g'ai:
+	گمشد	g'UmS,Ud
+	_) گھما	g#'Uma:
+	_) گہ (L02	g'EH
+	گزارش	gUz'a:RIS
+	_) گیت	g'i:t
+
+.group ل
+	ل	lV
+	ل (L01	l
+	لّ	llV
+	لّ (L01	ll
+	لکھ	l'Ik#
+	_) لہ (L02	l'EH
+
+.group م
+	م	mV
+	م (L01	m
+	مّ	mmV
+	مّ (L01	mm
+	_) مشکل	m'USk,Il
+	محکم	me:He:km
+	مظاہر	mUz.'a:HIR
+	_) ملن (L01	m'Iln
+	مسجد	m'asJ,Id
+	مشرق	m'aSR,Iq
+	مقدم	mUq'adm
+	مسلم	m'Usl,Im
+	مسلما	mUs'alm,a:
+	@) م (پ	m
+	منزل	m'anz,Il
+	@) م (ب	m
+	محقق	mUH'aqIq
+	منظر	m,anz.'aR
+	محفل	m'EHf,Il
+	مسکرا	m'Usk,URa:
+	مسکراہٹ	m,Usk,URa:H'at.
+	محسن	m'o:Hs,In
+	مجرم	m'UJR,Im
+	منظور	m,anz.'u:R
+	ملزم	m'Ulz,Im
+	مغرب	m'aQR,Ib
+	متحد	mUt'aHId
+	_) مہ (L02	m'EH
+	مخالف	mUx'a:lIf
+	مخالفت	m,Uxa:lIf'at
+	ممکن	m'Umk,In
+	مطالب	mUt'a:lIb
+	موجود	mo:J'u:d
+	متصل	mUt'as.Il
+	مخبر	m'Uxb,IR
+	ملحق	m'UlH,Iq
+	مذہب	m,aDH'ab
+	مرحل	m,aRH'al
+
+.group ن
+	ن	nV
+	ن (L01	n
+	@) ن (گ	n
+	@) ن (د	n
+	@) ن (ب	n
+	@) ن (س	n
+	نّ	nnV
+	نّ (L01	nn
+	_) نکل	nIk'al
+	_) نکل (L01	nIkl
+	@) ن (چ	n
+	_) نکال	nIk'a:l
+	_) نگاہ	nIg'a:H
+	_) نمٹ	nIm'at.
+	_) نمٹ (L01	nImt.
+	@) ن (پ	n
+	@) نچل	n'Icl
+	نشان	nIS'a:n
+	@) ن (ڈ	n
+	_) نظر	naz.'aR
+	_) نظام	nIz.'a:m
+	_) نہ (L02	n'H
+	L01) نٹ	n't.
+	نھ	nH
+	_) نکت	n'Ukt
+	_) نوا	n'ava:
+
+.group ں
+	ں	n    // this should nasalize the vowel
+
+.group ء
+	ء	
+
+.group ئ
+	ئ	
+	L01) ئ (L02	'I
+
+.group ہ 
+	ہ	H
+	_) ہ (L01	H
+	_) ہ (ند	HI
+	ہّ	HHV
+	ہّ (L01	HH
+
+	ہ (_	a
+	_) ہلن	H'Iln
+	ہ (L02	HV
+	@) ہ (L02L01	H
+	_) ہم (L02L02L02P2	H'am
+
+.group ّ
+	ّ
+
+.group ً
+	ً
+
+
+// Common symbols
+
+.group
+	$	do:l@R
+	,	sVkat.Vh	// 	Sakata سکتہ
+		!	f'iJa:ja	//Fijaya	فجائیہ
+	;	w'ak't'a	//Waqfa	وقفہ
+	:	r'a:b'tah//Rabtar 	رابطہ
+	?	saw'a:l'i:ja:n'is'a:nV	// Sawaliya Nishan	سوالیہ نشان
+	%	f'i:sVd	//Fisad	فیصد
+
+	
+
+.group 0xe0a4  // devanagari
+	0xe0a4  _^_NE  // switch to Nepali voice
+.group 0xe0a5  // devanagari
+	0xe0a5  _^_NE
+
