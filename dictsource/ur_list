@@ -177,19 +177,20 @@ _dpt	_ISaRI'Ia_
 اس	Is	$u
 ان	In	$u
 جس	J'Is	$u
-جسے	J'Ise:
-کس	k'Is
+جسے	J'Ise:	$u
+کس	k'Is	$u
 کسی	k'Isi:
-کسے	k'Ise:
+کسے	k'Ise:	$u
 اسی	'Isi:
-اسے	'Ise:
-مجھ	m'UJ#
-مجھے	m'UJ#e:
-تجھے	t'UJ#e:
-جن	J'In
-جنھیں	J,InH'e:n
-انہوں	,UnH'o:n
-انہیں	,UnH'e:n
+اسے	'Ise:	$u
+مجھ	m'UJ#	$u
+مجھے	m'UJ#e:	$u
+تجھے	t'UJ#e:	$u
+جن	J'In	$u
+جنھیں	J,InH'e:n	$u
+انہوں	,UnH'o:n	$u
+انہیں	,UnH'e:n	$u
+انھیں	,UnH'e:n	$u
 
 // unstressed prepositions
 کا	$u
@@ -199,28 +200,27 @@ _dpt	_ISaRI'Ia_
 
 اور 	OR	$u $brk
 کہ	k'e:H	$u
+نے	$u
 
 // unstressed verbs
-ہے 	$u
+ہے	H'E	$u
 ہیں 	$u
 تھا 	$u
 تھی 	$u
 تھے 	$u
+تھیں	t#'i:n	$u
 
 // Pronunciation exceptions
 پاکستان	p'a:k'i:st'a:n
-کچھ	k'Uc#
+کچھ	k'Uc#	$u
 لنکس	l'Ink,s
 لفظ	l'afz.
-سرچ	s'aRc
 وقت	v'aqt
 مبصرین	m,Ubas.IR'i:n
-متحدہ	mUt'aHIda
 جبکہ	J,abk'e:H
 مسلح	m,Usal'aH
 متفق	mUt'afIq
 سابق	s'a:bIq
-اعلان	e:l'a:n
 سنئیے	sUn'i:;e:
 کلنگ	k'IlIn,g
 چیف	c'i:f
@@ -235,8 +235,6 @@ _dpt	_ISaRI'Ia_
 مختلف	m,Uxt'alIf
 قوانین	q,ava:n'i:n
 ختم	x'atm
-بزرگ	b'UzUR,g
-بزرگوں	b,UzURg'o:n
 شامل	S'a:mIl
 شمولیت	S,Umu:li:;'at
 بہت	b'aHUt
@@ -245,15 +243,12 @@ _dpt	_ISaRI'Ia_
 مصر	m'Is.R
 مصری	m'Is.R,i:
 مختصر	m,Uxtas.'aR
-پھر	p#'IR
-پھرا	p#'IRa:
 منتخب	m,Unt'ax@b
 منتقل	m,Unt'aqIl
 نیا	n'aja:
 سرخی	s'URx,i:
 صفحہ	s.'afH,a:
 خالص	x'a:lIs.
-باہر	ba:H'aR
 دیا	d'i:;a:
 انڈیا	 ,Ind.'i:;a:
 فائرنگ	f'a:jIR,Ing
@@ -265,24 +260,19 @@ _dpt	_ISaRI'Ia_
 احتجاجی	 'e:Hte:J,a:Ji:
 احتجاج	'e:HtIJ,a:J
 بدھ	b'Ud#
-تجزیے	t,aJz'i:;e:
 دوست	 d'o:st
 زندگی	z,Ind'agi:
 دل	d'Il
 شعری	S'e:Ri:
-شہر	S'e:HIR
-اعزاز	e:z'a:z
+شہر	S'EHER
 صرف	s.'IRf
 طبی	t'Ibi:
 طب	t'Ib
 مقرر	m,UqaR'aR
-تقرری	taq'aRUR,i:
-تقرر	taq'aRUR
 مناسب	mUn'a:sIb
 مناسبت	m,Una:sIb'at
 اول	'avval
 جارحیت	J,a:RIHi:;'at
-متحد	mUt'aHId
 محبت	m,UHab'at
 محمد	m,UHam'ad
 مکمل	m,Ukam'al
@@ -300,27 +290,19 @@ _dpt	_ISaRI'Ia_
 حاصل	H'a:s.Il
 شدہ	S'Ud,a
 بغیر	baQ'e:R
-ممکن	m'Umk,In
-ممکنہ	m'Unk,In,a
 الیکشن	,Ile:kS'an
 ووٹنگ	vo:t.'Ing
 شواہد	Sav'a:HId
-محض	me:He:z
+محض	m'EHEz
 حزب	H'Izb
-مخالف	mUx'a:lIf
 استعمال	,Iste:m'a:l
-مخالفت	m,Uxa:lIf'at
-مخالفین	m,Uxa:lIf'i:n
 عشق	'ISq
 عمدہ	'Umda
 مارچ	m'a:Rc
 چرچ	c'aRc
-دہشت	d'e:HS'at
 وحشت	v,e:HS'at
 درست	d'URUst
 صحت	s.e:H'at
-فلم	f'Ilm
-فلمی	f'Ilm,i:
 مسلسل	m,Usals'al
 تسلسل	tas'als,Ul
 تشدد	taS'adUd
@@ -346,7 +328,7 @@ _dpt	_ISaRI'Ia_
 تعین	t'a:jUn
 باعث	b'a:jIs
 کتب	k'UtUb
-بحث	be:He:s
+بحث	bEHEs
 قسمت	q,Ism'at
 آور	a:v'aR
 بظاہر	baz.'a:HIR
@@ -355,7 +337,7 @@ _dpt	_ISaRI'Ia_
 کورٹ	k'o:Rt.
 برطرف	b,aRtaR'af
 برطرفی	b,aRt'aRf,i:
-لئے	l'i:;e:
+لئے	l'i:;e:	$u
 نامزد	n,a:mz'ad
 نامزدگی	n,a:mz'adg,i:
 معطل	m,Oat'al
@@ -403,7 +385,7 @@ _dpt	_ISaRI'Ia_
 پیشرفت	p,e:SR'aft
 تعطل	t'a:tUl
 متعدد	mUt'a:dId
-گیا	g'aja:
+گیا	g'aja:	$u
 (کیا گیا)	k'i:;a:||g'aja:
 (ہوا تھا)	H'u:a||t#a:
 (کیا ہوا)	kj'a:||H'u:a:
@@ -412,7 +394,7 @@ _dpt	_ISaRI'Ia_
 بیٹنگ	be:t.'Ing
 منٹ	m'InIt.
 ناممکن	n'a:mUmkIn
-(کیا جائے)	k'i:;a:||J'a:je:
+(کیا جائے)	k'i:;a:||J'a:e:	$u
 جمعرات	J,Ume:R'a:t
 جمعہ	J'Uma:
 برسرِ	b,aRs'aRe:
@@ -434,7 +416,7 @@ _dpt	_ISaRI'Ia_
 مرتبہ	m,aRt'ab,a
 واقع	v'a:qe:
 یہیں	jaH'i:n
-کیونکہ	kj,u:nk'e:H
+کیونکہ	kj,u:nk'EH
 گفتگو	g'Uft,Ugu:
 جستجو	J'Ust,UJu:
 بھانت	b#'a:nt
@@ -476,7 +458,7 @@ _dpt	_ISaRI'Ia_
 مشتمل	m,USt'amIl
 متلاشی	m,Utal'a:Si:
 ذکر	D'IkR
-محسوس	m,e:Hs'u:s
+محسوس	m,EHs'u:s
 برعکس	b,aR'aks
 بت	b'Ut
 بتوں	bUt'o:n
@@ -506,14 +488,13 @@ _dpt	_ISaRI'Ia_
 گہر	go:H'aR
 سست	s'Ust
 لیکن	l'e:kIn
-سیاست	sja:s'at
 ریاست	Rja:s'at
 منسلک	mUns'alIk
 داخل	d'a:xIl
 نجی	n'IJi:
 منہدم	m,UnH'adIm
 گم	g'Um
-محدود	m,e:Hd'u:d
+محدود	m,EHd'u:d
 متحارب	m,UtaH'a:RIb
 جنت	Jan'at
 سفر	saf'aR
@@ -521,9 +502,9 @@ _dpt	_ISaRI'Ia_
 بینک	b'e:nk
 حقوق	HUq'u:q
 آئندہ	a:'Ind,a
-اہتمام	'e:HtIm,a:m
+اہتمام	'EHtIm,a:m
 قلت	qIl'at
-استحکام	,Iste:Hk'a:m
+استحکام	,IstEHk'a:m
 حصول	HUs.'u:l
 منقطع	m,Unq'ata:
 مرتکب	m,URt'akIb
@@ -531,3 +512,135 @@ _dpt	_ISaRI'Ia_
 فتنہ	f'Itna
 ذرائع	DaR'a:e:
 مریم	m,aRi:;'am
+نہ	n'a
+گریز	gUR'e:z
+مفصل	m,Ufas.'al
+بطور	b'ato:R	$2
+پشاور	p,ISa:v'aR
+سہ	s'EH
+کیں	k'i:n	$u
+فرصت	f,URs.'at
+مہم	m'UHIm
+ملتوی	m,Ult'avi:
+ٹیکس	t.'e:ks
+توجہ	tav'aJo:
+حراست	H,IRa:s'at
+بجلی	b'IJl,i:
+اردگرد	,IRdg'IRd
+ارتکاب	,IRtIk'a:b
+مشترکہ	mUSt'aRka
+منتشر	m,Unt'aSIR
+مہذب	m,UHaD'ab
+مقررہ	mUq'aRIRa
+شدگان	S,Udg'a:n
+منفصل	m,Unf'as.Il
+بشرطیکہ	b,aSaRte:k'e:H
+متوقع	m,Utav'aqe:
+اولیت	,avali:;'at
+دلفریب	d,IlfaR'e:b
+کشش	k'aSIS
+پرکشش	p,URk'aSIS
+تحمل	taH'amUl
+پرہیز	p,aRH'e:z
+سرگزشت	s,aRgUz'aSt
+مماثلت	m,Uma:sIl'at
+مماثل	mUm'a:sIl
+مثلث	m,Usal'as
+روی	R'avi:
+عہدہ	'o:Hda
+عہدے	'o:Hd,e:
+عہدوں	,o:Hd'o:n
+موئثر	m,o:as'aR
+مشتبہ	mUSt'ab,a
+بالعموم	b,IlUm'u:m
+منتظر	m,Unt'az.IR
+شہرت	SUHR'at
+مہلک	m'UHlIk
+مصنف	mUs.'anIf
+توقع	tav'aqo:
+منعقد	mUn'a:qId
+بالکل	b'Ilk,Ul
+(فی الحال)	f,IlH'a:l
+المدتی	,UlmUd'ati:
+طویل	tav'i:l
+مرکز	m,aRk'az
+سفارش	sIf'a:RIS
+(کوڑا کرکٹ)	k'u:r.||k,aRk'at.
+مرکب	m,URak'ab
+منفرد	m,Unf'aRId
+شرکت	S,IRk'at
+زہر	ze:H'e:R
+متحرک	m,UtaH'aRIk
+متحمل	m,UtaH'amIl
+ابن	'Ibn
+توقعات	t,avaqo:'a:t
+اپریل	apR'e:l
+اتوار	Itv'a:R
+جمعے	J'Ume:
+منقسم	m,Unq'asIm
+والدین	v,a:lId'e:n
+احمد	,EHm'ad
+گلشن	g,UlS'an
+اسلوب	,Usl'u:b
+تحریک	t,e:HR'i:k
+بھرپور	b#,aRp'u:R
+انفرادیت	,Inf,IRa:di:;'at
+انفرادی	,InfIR'a:di:
+اطلاق	,Itl'a:q
+فطری	f'ItR,i:
+روایت	R,Iva:j'at
+قبول	qUb'u:l
+گونج	g'u:nJ
+زود	z'u:d
+متاثر	mUt'a:sIR
+بہر	baH'aR
+وجوہ	v'UJu:H
+منقلب	m,Unq'alIb
+بجز	b'aJUz
+تعیں	ta'i:n	$u
+بہ	b'a
+مسمار	m,Ism'a:R
+شکنی	S'Ikn,i:
+رہ	R'EH
+عہد	'EHEd
+انعقاد	,InIq'a:d
+اختتام	,IxtIt'a:m
+اختتامی	,IxtIt'a:mi:
+معتقدین	m,OtaqId'i:n
+معتقد	mOt'aqId
+لسٹ	l'Ist.
+دور	d'u:R
+دوری	d'u:Ri:
+پولنگ	po:l'Ing
+لہٰذا	lIH'a:Da:
+الحق	,UlH'aq
+حملہ	H'aml,a:
+مصنوعی	m,as.n'u:i:
+پیشکش	p,e:Sk'aS
+باطن	b'a:tIn
+انور	'anvaR
+پرنٹ	pRInt.
+جاوید	Ja:v'e:d
+قیمت	qi:m'at
+ناشر	n'a:SIR
+نسبت	n,Isb'at
+تناسب	tan'a:sUb
+نوع	n'O
+ایجاد	i:J'a:d
+وراثت	v,IRa:s'at
+وارث	v'a:RIs
+تناظر	tan'a:z.UR
+بینائی	bi:n'a:i:
+قابل	q'a:bIl
+سکتیں	s,akt'i:n
+مجموعہ	m,aJm'u:a:
+پراسرار	p,UR,asR'a:R
+مجموعے	m,aJm'u:e:
+اتصال	,ItIs.'a:l
+ورنہ	v'aRna
+علمی	'Ilm,i:
+فقدان	f,Uqd'a:n
+لسانی	lIs'a:ni:
+بازگشت	b,a:zg'aSt
+نقسان	n,Uqs'a:n
+شکستہ	SIk'ast,a

@@ -112,11 +112,6 @@ phoneme D
 endphoneme
 
 
-phoneme t        // dental variant of /t/
-  import_phoneme base/t[
-endphoneme
-
-
 phoneme s
   vls alv frc sibilant
   lengthmod 3

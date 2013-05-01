@@ -107,7 +107,7 @@ endphoneme
 phoneme aU
   vowel long starttype #a endtype #u
   length 300
-  FMT(vdiph/au)
+  FMT(vdiph/aau_3)
 endphoneme
 
 

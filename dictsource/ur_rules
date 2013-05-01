@@ -22,6 +22,8 @@
 // vowel signs, alif acts as consonants  at start of word if these follow
 .L01  َ ِ ُ و ی ع ا ے 
 
+// Consonants
+.L02  ب پ ت ٹ ث ج چ ح خ د ڈ ذ ر ڑ ز ژ س ش ص ض ط ظ غ ف ق ک گ ل م ن ہ ئ
 
 // VOWELS
 
@@ -36,6 +38,7 @@
 	ِ	I
 	ِی	i:
 	ِع	i:
+	@) ِ (_S1	'e:
 
 .group ُ
 	ُ	U
@@ -53,7 +56,7 @@
 _) ا	a
 _) او	u:
 _) ای	e:
-	ائ	a:j
+	ائ (L02	a:I
 	اہ(_	a:H
 	_) اتن	'Itn
 	_) اتر	Ut'aR
@@ -71,9 +74,9 @@ _) ای	e:
 	افتتاح	,ItIt'a:H
 	اسلام	,Isl'a:m
 	_) انسان	Ins'a:n
-	_) انت	'Int,a
+	_) انت (L02	'Int,a
 	_) امید	Um'i:d
-	اً(_	'an
+	اً(_S2	'an
 	_) امکان	,Imk'a:n
 	_) افسر	,afs'aR
 	_) اتفاق	,ItIf'a:q
@@ -101,9 +104,20 @@ _) ای	e:
 	الزام	,Ilz'a:m
 	اشتہار	,IStIH'a:R
 	اصول	Us.'u:l
+	اعلان	e:l'a:n
+	اعزاز	e:z'a:z
+	انقلاب	,InqIl'a:b
+	اصلاح	,Is.l'a:H
+	امداد	,Imd'a:d
+	استعف	Ist'i:f
+	@) ات (_S2	'a:t
+	_) انتظ	'Int,Iz.
+	احمق	,EHm'aq
 
 .group آ
 	آ	a:
+	آتش	'a:tIS
+	آہست	a:H'Ist
 
 
 .group ع
@@ -113,6 +127,8 @@ _) ای	e:
 	_) عیس	'i:s
 	_) عید	'i:d
 	عنوان	Unv'a:n
+	_) عمر	'UmR
+	L02) عی (_	'ai:
 
 .group و
 	و	o:
@@ -122,7 +138,8 @@ _) ای	e:
 	_) و	vV
 	 وع (_	u:
 	وّ	vv
-
+	L02L02L02) و (L02	u:
+	L02) ونکہ (_	u:nk'e:H
 
 .group ی
 	ی	e:
@@ -131,9 +148,9 @@ _) ای	e:
 	_) ی	jV
 	یع(_	i:
 	@) ی	i:
-	یں(_	e:n
+	@) یں (_	e:n
 	یّ	jj
-	@) یت(_	j'at
+	@) یت (_S2	i:;'at
 
 .group ے		// yeh barree
 	ے	e:
@@ -180,6 +197,13 @@ _) ای	e:
 	برسر	b,aRs'aR
 	بگاڑ	bIg'a:r.
 	بغاوت	b,aQa:v'at
+	_) بہ (L02	b'EH
+	بزرگ	b'UzUR,g
+	_) بدل (L02	bad'al
+	بوڑھ	b'u:r.h
+	_) بے (P2	b'e:
+	_) بھوت	b#'u:t
+
 
 .group پ
 	پ	pV
@@ -190,9 +214,12 @@ _) ای	e:
 	پّ (L01	pp
 	_) پھر	ph'IR
 	پھول	ph'u:l
-	_) پہل (L01	p'e:Hl
+	_) پہ (L02	p'EH
 	پہنچ	paH'Unc
 	پوچھ	p'u:c#
+	پیچھ	p'i:c#
+	پھونک	p#'u:nk
+	_) پور (L01	p'u:R
 
 .group ت
 	ت	tV
@@ -202,9 +229,14 @@ _) ای	e:
 	تّ	ttV
 	تّ (L01	tt
 	_) تمہ	t'UmH
-	تحقیق	t,e:Hq'i:q
+	تحقیق	t,EHq'i:q
 	_) ترجم	t'aRJ,Um
-
+	_) تہ (L02	t'EH
+	_) تجز	t'aJz
+	تقرر	taq'aRUR
+	تجرب	taJ'aRb
+	_) تیار	t,ai:;'a:R
+	_) تیسر	t'i:sR
 
 .group ٹ
 	ٹ	t.V
@@ -215,13 +247,16 @@ _) ای	e:
 	ٹّ (L01	t.t.
 	ٹریفک	t.R'e:fIk
 	_) ٹکڑ	t.'Ukr.
+	_) ٹہ (L02	t.'EH
+	ٹس(_	t.s
+	_) ٹیم	t.'i:m
 
 
 .group ث
 	ث	sV
 	ث (L01	s
 	ثّ	ssV
-	ثّ (L01	ss
+ثّ (L01	ss
 
 
 .group ج
@@ -237,6 +272,10 @@ _) ای	e:
 	_) جنس	J'Ins
 	جھوٹ	J#'u:t.
 	_) جمل	J'Uml
+	_) جہ (L02	J'EH
+	_) جدا	J'Uda:
+	_) جزب	J'azb
+	_) جذب	J'aDb
 
 .group چ
 	چ	cV
@@ -246,7 +285,9 @@ _) ای	e:
 	چّ	ccV
 	چّ (L01	cc
 	_) چکا	c'Uka:
-
+	_) چہ (L02	c'EH
+	_) چوم	c'u:m
+	_) چیز	c'i:z
 
 .group ح
 	ح	HV
@@ -261,7 +302,6 @@ _) ای	e:
 	حّ	HHV
 	حّ (L01	HH
 
-
 .group خ
 	خ	xV
 	خ (L01	x
@@ -271,6 +311,7 @@ _) ای	e:
 	_) خوش	x'US
 	_) خود	x'Ud
 	_) خواہش	xv'a:HIS
+	_) خیا	x'aja:
 
 
 .group د
@@ -286,6 +327,11 @@ _) ای	e:
 	دیوا	d'i:va:
 	_) دوسر	d'u:sR
 	دفاع	d'Ifa:
+	_) دہ (L02	d'EH
+	دنیا	dUn'i:;a:
+	دہشت	d'EHS'at
+	دلچسپ	d,Ilc'asp
+	دھیم	d#'i:m
 
 .group ڈ
 	ڈ	d.V
@@ -295,12 +341,14 @@ _) ای	e:
 	ڈّ	d.d.V
 	ڈّ (L01	d.d.
 	ڈھونڈ	d.#'u:nd.
+	ڈز(_	d.z
 
 .group ذ
 	ذ	DV
 	ذ (L01	D
 	ذّ	DDV
 	ذّ (L01	DD
+	_) ذہ (L02	D'EH
 
 .group ر
 	ر	RV
@@ -309,9 +357,13 @@ _) ای	e:
 	رّ (l01	RR
 	@) ر (ٹ	R
 	@) ر (ڈ	R
-	_) رہت	R'e:Ht
-	@) ر (د	R
+	@) ردہ (_	Rd,a
 	@) ر (چ	R
+	_) رہ (L02	R'EH
+	_) رخ	R'Ux
+	_) رکن	R'Ukn
+	@) ر (د	R
+	_) رفت	R'af@t
 
 .group ڑ
 	ڑ	r.V
@@ -327,6 +379,8 @@ _) ای	e:
 	زّ	zzV
 	زّ (L01	zz
 	_) زند	z'Ind
+	_) زہ (L02	z'EH
+	_) زلزل	z,alz'al
 
 .group ژ
 	ژ	ZV
@@ -350,6 +404,11 @@ _) ای	e:
 	سیکھ	s'i:k#
 	@) س (ت	s
 	_) سپرد	sUp'URd
+	_) سہ (L02	s'EH
+	سیدھ	s'i:d#
+	سیاست	sja:s'at
+	سرگرم	s,aRg'aRm
+	ستہ(_	st,a
 
 .group ش
 	ش	SV
@@ -362,6 +421,8 @@ _) ای	e:
 	_) شعل	S'Ol
 	@) ش (ت	S
 	_) شخص	S'axs.
+	_) شہ (L02	S'EH
+	شرمند	S,aRm'Ind
 
 .group ص
 	ص	s.V
@@ -402,6 +463,8 @@ _) ای	e:
 	فّ	ffV
 	فّ (L01	ff
 	_) فکر	f'IkR
+	_) فہ (L02	f'EH
+	فلم	f'Ilm
 
 .group ق
 	ق	qV
@@ -409,6 +472,8 @@ _) ای	e:
 	قّ	qqV
 	قّ (L01	qq
 	قاعد	q'a:jd
+	_) قسط	q'Ist
+	_) قیا	q'aja:
 
 .group ک
 	ک	kV
@@ -418,9 +483,10 @@ _) ای	e:
 	کّ	kkV
 	کّ (L01	kk
 	_) کتن	k'Itn
-	کوئل	k'o:Il
 	کتاب	kIt'a:b
 	کوشش	k'o:SIS
+	_) کہ (L02	k'EH
+	کارکن	k'a:Rk,UUn
 
 .group گ
 	گ	gV
@@ -436,6 +502,9 @@ _) ای	e:
 	گئی	g'ai:
 	گمشد	g'UmS,Ud
 	_) گھما	g#'Uma:
+	_) گہ (L02	g'EH
+	گزارش	gUz'a:RIS
+	_) گیت	g'i:t
 
 .group ل
 	ل	lV
@@ -443,6 +512,7 @@ _) ای	e:
 	لّ	llV
 	لّ (L01	ll
 	لکھ	l'Ik#
+	_) لہ (L02	l'EH
 
 .group م
 	م	mV
@@ -459,12 +529,11 @@ _) ای	e:
 	مسلم	m'Usl,Im
 	مسلما	mUs'alm,a:
 	@) م (پ	m
-	موجود	mo:J'u:d
 	منزل	m'anz,Il
 	@) م (ب	m
 	محقق	mUH'aqIq
 	منظر	m,anz.'aR
-	محفل	m'e:Hf,Il
+	محفل	m'EHf,Il
 	مسکرا	m'Usk,URa:
 	مسکراہٹ	m,Usk,URa:H'at.
 	محسن	m'o:Hs,In
@@ -472,7 +541,18 @@ _) ای	e:
 	منظور	m,anz.'u:R
 	ملزم	m'Ulz,Im
 	مغرب	m'aQR,Ib
-	منسوخ	m'ansu:x
+	متحد	mUt'aHId
+	_) مہ (L02	m'EH
+	مخالف	mUx'a:lIf
+	مخالفت	m,Uxa:lIf'at
+	ممکن	m'Umk,In
+	مطالب	mUt'a:lIb
+	موجود	mo:J'u:d
+	متصل	mUt'as.Il
+	مخبر	m'Uxb,IR
+	ملحق	m'UlH,Iq
+	مذہب	m,aDH'ab
+	مرحل	m,aRH'al
 
 .group ن
 	ن	nV
@@ -496,6 +576,11 @@ _) ای	e:
 	@) ن (ڈ	n
 	_) نظر	naz.'aR
 	_) نظام	nIz.'a:m
+	_) نہ (L02	n'H
+	L01) نٹ	n't.
+	نھ	nH
+	_) نکت	n'Ukt
+	_) نوا	n'ava:
 
 .group ں
 	ں	n    // this should nasalize the vowel
@@ -503,15 +588,22 @@ _) ای	e:
 .group ء
 	ء	
 
+.group ئ
+	ئ	
+	L01) ئ (L02	'I
+
 .group ہ 
 	ہ	H
-	_) ہ	Ha
 	_) ہ (L01	H
 	_) ہ (ند	HI
 	ہّ	HHV
 	ہّ (L01	HH
 
 	ہ (_	a
+	_) ہلن	H'Iln
+	ہ (L02	HV
+	@) ہ (L02L01	H
+	_) ہم (L02L02L02P2	H'am
 
 .group ّ
 	ّ
