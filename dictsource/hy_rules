@@ -14,7 +14,7 @@
 
 .group ա
         ա        a
-        այ (K    aI
+        այ       aI
         այ (_    a
 
 .group բ
@@ -43,7 +43,7 @@
 .group է
         է        e
         էօ       W
-        էյ (K    eI
+        էյ       eI
 
 .group ը
         ը        @
@@ -139,6 +139,7 @@
 .group ռ
         ռ        R2
      _) ռ (C     R2@
+?1 L02) ռ (L02   *
 
 .group ս
         ս        s
@@ -155,7 +156,7 @@
 
 .group ր
         ր        r
-   L02) ր (L02   *
+?!1  L02) ր (L02   r
      _) ր (C     r@
      C) ր (_     @r
    L02) ր (_     r

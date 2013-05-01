@@ -50,7 +50,7 @@ _zh	Sin'es
 
 // character names
 
-á	$accent
+_á	$accent
 _à	$accent   // à can be a word
 â	$accent
 ã	$accent
@@ -359,8 +359,12 @@ desta	$nounf
 nesse	n'esy	$u+ $nounf
 aquela	$u+ $nounf
 aquele	$alt2 $nounf
+àquela	$u+ $nounf
+àquele	$alt2 $nounf
 daquela $u+ $nounf
 daquele	$alt2 $nounf
+praquela $u+ $nounf
+praquele	$alt2 $nounf
 	que	$u      // pronunciation is in pt_rules
 
 // possessive adjectives
@@ -382,7 +386,7 @@ nele	nely	$u1+
 
 // prepositions
 de	$u	$nounf // of,from
-do	du	$u	$nounf
+do	dU	$u	$nounf
 da	$u	$nounf
 dos	$u	$nounf
 das	$u	$nounf
@@ -744,9 +748,8 @@ catorze		$alt2
 cebola		$alt2
 cedro		$alt
 cefaleia	$alt
-cerebelo	$alt2
 centopeia	$alt
-cerca		$alt
+cerebelo	$alt2
 cerca		$alt2 $noun
 cerco		$alt $verb
 cerda		$alt
@@ -827,6 +830,7 @@ deveras		$alt
 dez		$alt
 diarreia	$alt
 diego		$alt2
+diogo		$alt2
 discordo	$alt
 dissabores	$alt2
 dispneia	dZIspyn'EI&
@@ -837,8 +841,8 @@ doutora		$alt2
 doze		$alt2
 dueto		$alt2
 elixir		eliSir
+emprego		$alt2
 emprego		$alt2 $noun
-empregos	$alt2
 encosto		$alt  $verb
 endereço	$alt  $verb
 enforco		$alt
@@ -896,6 +900,7 @@ filete		$alt2
 flerte		$alt2 $noun
 foda		$alt2 $verb
 fodo		$alt2
+fogo		$alt2
 fogos		$alt
 foguete		$alt2
 foice		$alt2
@@ -960,7 +965,7 @@ lepra		$alt
 leste		$alt2 $verb
 ?2   lhe	l^y
 lingueta	$alt2
-lisboeta		$alt2
+lisboeta	$alt2
 lodo		$alt2
 logro		$alt
 lopes		$alt
@@ -1138,7 +1143,7 @@ tempero		$alt2 $noun
 tenores		$alt2
 terrores	$alt2
 teta		$alt2
-toga		$alt
+togo		$alt2
 topo		$alt2 $noun
 torno		$alt  $verb
 tornozelo	$alt2
@@ -1178,10 +1183,11 @@ zorra		$alt2
 ?1 back       b'Ek
 ?2  backup        bEk'&p
 ?2  backups     bEk'&ps
+bad  bEd
 beatle  b'itow
 beatles  b'itows
+black  blEk
 blind      bl'aind
-book  buk
 ?1 braille    b:r'aily
 ?2        Braille        bR'aili
 ?1 cancel     k'&ns'El
@@ -1207,6 +1213,7 @@ drivers  dR'aIveRs
 ?1 explorer   ,ekspl'O:*&r-
 ?2        Explorer        ekspl'O*er
 ?1 eyes       'aiz
+?2 eyes       'aIs
 ?1 frame      fr'eImy
 ?2 frame      fR'eImi
 ?1 gmail      g,em'eIl
@@ -1215,6 +1222,7 @@ drivers  dR'aIveRs
 ?2 google     g'ugol
 ?1 hardware   'ard,w'Er-
 ?2 hardware   h'ardwe@-
+happy  x'Epy
 ?1 home       'omy
 ?2 home       h'owmi
 ?1 hotmail    h'Otm'eIl
@@ -1306,7 +1314,6 @@ mac  mEk
 ?2 microsoft   m'aIkRows'Oft
 ?1 movie       m'uvi
 ?1 nero        n'Eru
-?2  netbook   nEtbUk
 ?2  netbooks   nEtbUks
 ?2  notebook   nowtbUk
 ?2  notebooks   nowtbUks

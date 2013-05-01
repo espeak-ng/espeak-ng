@@ -47,6 +47,7 @@
 ?1      a (lK      ,A        // Algarve, Almerinda, etc...
 ?2      al (K      aU
         a (lh+     a
+        a (ll+     a
         a (m       &~
         a (mAr_    &
         a (mA@     &
@@ -61,6 +62,7 @@
         anh (A     &~n^
         am (_      =&U~
         a (t_      a
+        a (ts_     a
         a (x_      a
         a (z_      'a        //eg: paz, rapaz, capaz, etc...
 ?1   C) acç        'a's      // eg: selecção, etc...
@@ -184,6 +186,7 @@
 
 ?2      el (K      EU
         e (lh+     e
+        e (ll+     E
      v) e (lhA_    E
 
         e (bL02_   E
@@ -239,7 +242,9 @@
         e (ssL04_  E
         e (ss_     E         // stress and english words
 ?2      ection (_  'EkS&~N
-?2      ee (n_     i
+?2   C) ee (_      i
+?2      ee (C_     i
+?2   C) e (em_     e
         e (stL04_  E
 
         e (strL04_ E
@@ -474,7 +479,12 @@ _adult) e (rL04_   E
 _persev) e (rL04_  E
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
+_incin) e (rL04_   E
    _ex) e (rcL02_  E
+    _c) e (rcL02_  E
+    _c) e (rquL02_ E
+  _ing) e (rL02_   E
+  _dig) e (rL02_   E
  _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
@@ -594,6 +604,7 @@ _entorp) e (çL03_  e
 .group h
      _) h (_       ag'a
         h                    // silent
+     _) hel (p     x'EU
 
 
 .group i
@@ -612,6 +623,7 @@ _entorp) e (çL03_  e
 
 ?2      il (K      iU
         i (lh+     i
+        i (ll+     i
 
         im (_      iN
         im (C      im
@@ -654,6 +666,9 @@ _entorp) e (çL03_  e
 ?1   @) ings (_    _^_EN
 ?2      il (ton_   'iU
 ?2      i (rton_   'i
+?2      iction (_  'ikS&~N
+?2      ight (_    aIt
+?2      ights (_   aIts
 
 
 .group í
@@ -744,6 +759,8 @@ _entorp) e (çL03_  e
         oi (de_    OI
         oi (s      oI
         o (iCK     o
+        oo (C_     U
+        o (os_     o
 ?1   C) oo (_      ow        // eg: voo, enjoo, etc...
         oy         OI
 
@@ -757,9 +774,8 @@ _entorp) e (çL03_  e
 
         o (g_      O
         o (gs_     O
-
-        o (gL02_   O
-
+        o (gL04_   O
+     g) o (gL03_   o
         o (jL04_   O
 
         o (ldL04_  O
@@ -864,18 +880,13 @@ _pormen) o (L05_   O
     _s) o (bL02_   O
    _af) o (bL04_   O
   _esn) o (bL04_   O
+   _af) o (fL04_   O
  _engl) o (bL04_   O
   _sal) o (brL03_  o
      _) o (cL03_   o
     _m) o (fL01_   O
     _m) o (fL02_   O
     _s) o (frL02_  O
-     l) o (gL04_   O         // dialoga, etc.
-     r) o (gL04_   O         // inter-
-     v) o (gL04_   O         // advoga, etc.
-    _j) o (gL04_   O
-    af) o (gL04_   O         // des-
-  _ref) o (gL04_   O
    _ap) oi (L01_   OI
    _ap) oi (L02_   OI
     _b) oi (L04_   OI
@@ -974,8 +985,7 @@ _remem) o (rL04_   O
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
 ?1   _) quei (C    k'eI      // queira, queima, etc
-     A) quên       kw'eIN    // frequência, etc.
-     C) quên       kw'eIN    // delinquência, etc.
+     @) quên       kw'eIN    // frequência, etc.
    ade) qu (e      kw
      A) qu (idade_ kw
     _a) qu (ífero_ kw
@@ -1092,7 +1102,7 @@ _remem) o (rL04_   O
         uy         uI
         ul (K      uw
         u (lh+     u
-
+        u (ll+     u
         um (_      u~N
         um (C      u~m
 ?4      um (C      u~N

@@ -31,6 +31,8 @@
         e (_     E      // ??
         e (C_    E
         e (l_    e
+     @) e (n_    @
+     @) e (r_    @
      _) e        E
 
 
@@ -94,9 +96,11 @@
 .group o
         o        o
      _) o        O
+     @) o (_     O
      _) o (l     o
      _) o (v     o
 
+     X) o (Co    O   // ??
 
 .group p
         p        p
@@ -110,7 +114,6 @@
 .group r
         r        R
         rr       R
-     A) r (A     *
 
      K) r (K     @R
 
