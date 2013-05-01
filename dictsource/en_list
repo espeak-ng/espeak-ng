@@ -2357,7 +2357,7 @@ plethora	plET3r@
 plicate		$2
 plumber		plVm3
 plus		plVs
-pois		pwA:
+pois		pwA:	$only
 poly		p0lI
 politer		p@l'aIt3
 politic		p0l@tIk   $onlys
@@ -3394,6 +3394,7 @@ Shanghai	$2
 Shiloh		SaIloU
 Siam		saI'am
 Sicily		sIsI2li
+Sinai		saInaI
 Slovak		sloUvak
 Soweto		s@wEtoU
 Spokane		spoUk'an

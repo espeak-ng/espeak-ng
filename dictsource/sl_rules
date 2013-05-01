@@ -30,6 +30,7 @@
         e        e
         e (_     E      // ??
         e (C_    E
+        e (l_    e
      _) e        E
 
 
@@ -64,6 +65,9 @@
         l        l
         l (K     w
      K) l (K     @l
+     K) l (rK    l
+     K) l (_     u
+     @) l (_     =w
         lj       l^
         lj (A    lj
         lj (i    l^
@@ -121,6 +125,7 @@
 
 .group t
         t        t
+   Krs) t (_     _|t
 
 
 .group u
@@ -169,7 +174,6 @@
 	ô	'O:
 	ò	O
 	ú	'u:
-        ć        tS
         đ        dZ
         ř        R^
         ä        E
