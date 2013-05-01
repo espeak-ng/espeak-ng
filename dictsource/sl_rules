@@ -17,6 +17,9 @@
 .group č
         č        tS
 
+.group ć
+        ć        tS;
+        
 .group d
         d        d
         dz       dz
@@ -27,6 +30,7 @@
         e        e
         e (_     E      // ??
         e (C_    E
+        e (l_    e
      _) e        E
 
 
@@ -61,6 +65,9 @@
         l        l
         l (K     w
      K) l (K     @l
+     K) l (rK    l
+     K) l (_     u
+     @) l (_     =w
         lj       l^
         lj (A    lj
         lj (i    l^
@@ -103,6 +110,7 @@
 .group r
         r        R
         rr       R
+     A) r (A     *
 
      K) r (K     @R
 
@@ -117,6 +125,7 @@
 
 .group t
         t        t
+   Krs) t (_     _|t
 
 
 .group u
@@ -130,6 +139,7 @@
         v (-A+   v    // preposition 'v' before a vowel
      A) v (K     w
      K) v (K     %u
+     K) v (r     v
    L01) v (A     v#
 
 
@@ -164,7 +174,6 @@
 	ô	'O:
 	ò	O
 	ú	'u:
-        ć        tS
         đ        dZ
         ř        R^
         ä        E

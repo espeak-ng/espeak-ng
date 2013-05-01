@@ -139,17 +139,41 @@ _dpt	d'aS@m#@
 ර	r@
 ල	l@
 ව	w@
-ශ	S'@
+ශ	S@
 ෂ	s.@
 ස	s@
 හ	h@
 ළ	l.@
 ෆ	f@
 
+ං	'anuswa:r@j@
+ඃ	'wisargaja
+
+// combining vowels, precede by a click so they can be distinguished from stand-alone vowels
+ා	#X2a::
+ැ	#X1&
+ෑ	#X2&::
+ි	#X1i
+ී	#X2i::
+ු	#X1u
+ූ	#X2u::
+ෘ	#X1ru
+ෙ	#X1e
+ෛ	#X2aI
+ෞ	#X2aU
+ේ	#X2e::
+ො	#X1o
+ෝ	#X2o::
+ෟ	#X1li
+ෲ	#X2ru:
+ෳ 	#X2li:
+
+
 
 // symbols
 _.	t'it@
 _,	k'oma:v@
+_෴	k'un.d.ali:j@
 ?	pr'a:Sna:rt,@j@ 
 !	v'iSm#@j,a:rt@j@
 _“	'udrut,@pa:t.,@a:r,@mb@j@

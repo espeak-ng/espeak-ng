@@ -1684,7 +1684,7 @@ void ConvertToUtf8()
 
 	while(!feof(f_in))
 	{
-		c = fgetc(f_in);
+		c = fgetc(f_in) & 0xff;
 		if(c >= 0xa0)
 			c = translator->charset_a0[c-0xa0];
 
@@ -1696,7 +1696,7 @@ void ConvertToUtf8()
 
 	wxLogStatus(_T("Written to: ")+fname+_T("_1"));
 
-}  // end of ConvertToItf8
+}  // end of ConvertToUtf8
 
 //******************************************************************************************************
 

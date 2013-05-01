@@ -10,8 +10,9 @@
 // C - Consonants:
 //	0x0D9A~0x0DC2
 
-// speak Latin letters as English
-
+.L01 ක ඛ ග ඝ හ
+.L02 ච ඡ ජ ඣ ඦ
+.L03 ට ඨ ඩ ඪ 
 
 
 .group ක
@@ -153,18 +154,20 @@
 .group ව
 	ව	wa
 	ව (B	w
+     @) ව (_	w   // ? word-final, after a vowel
+     ්) ව (_	wa
 
 .group ශ
 	ශ	sa
 	ශ (B	s
 
 .group ෂ
-        ෂ          Sa
-	ෂ (B	S
+        ෂ      Sa
+	ෂ (B   S
 
 .group ස
-	ස	s.a
-	ස (B	s.
+	ස	sa
+	ස (B	s
 
 .group හ
 	හ	ha
@@ -237,14 +240,17 @@
 
 
 .group ං 	// anusvaray@
-	ං	'anus.w,a:r@j@
-	A) ං	m
-	C) ං	m
+     ්) ං	'anus.w,a:r@j@
+	ං (L01	N
+	ං (L02	n^
+	ං (L03	n.
+	ං	m
+
 
 .group ඃ // visargaya
-	ඃ	w'is.@rg,@j@
-	A) ඃ	n
-	C) ඃ	n
+    ්) ඃ	w'is.@rg,@j@
+	ඃ	h
+	ඃ	h
 
 // The Vowelic Symbols
 
@@ -305,23 +311,10 @@
 
 
 .group ්
-	්	halk'ir'im#@	// Halkirima
+	්	h'alk'irim#@	// Halkirima
 	C) ්	
 
 
 .group
-	$	do:l.ar
-
-
-
-
-.group 0xe0a4  // devanagari
-	0xe0a4	_^_NE  // Nepali voice
-.group 0xe0a5  // devanagari
-	0xe0a5	_^_NE
-
-.group 0xe0ae  // Tamil
-	0xe0ae  _^_TA  // Tamil voice
-.group 0xe0af  // Tamil
-	0xe0af  _^_TA
-
+	zස	za
+	zස (B	z

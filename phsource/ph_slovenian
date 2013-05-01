@@ -9,6 +9,9 @@ phoneme i
   vowel starttype #i endtype #i
   length 140
   IfNextVowelAppend(;)
+  IF thisPh(isStressed) AND NOT nextPhW(isRhotic) THEN
+    FMT(vowel/ii_6)
+  ENDIF
   FMT(vowel/ii_3)
 endphoneme
 
@@ -31,6 +34,12 @@ phoneme e
   vowel starttype #e endtype #e
   length 160
   FMT(vowel/e_2)
+endphoneme
+
+phoneme e:
+  vowel starttype #e endtype #e
+  length 240
+  FMT(vowel/e)
 endphoneme
 
 
