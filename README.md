@@ -10,9 +10,16 @@ configured correctly:
 
 1.  Android SDK
 2.  Android NDK
-3.  Eclipse
-4.  Android Developer Tools (ADT) for Eclipse
-5.  wxWidgets 2.8 (for espeakedit when building `android/res/raw/espeakdata.zip`)
+3.  wxWidgets 2.8 (for espeakedit when building `android/res/raw/espeakdata.zip`)
+
+If you are building with Eclipse, you will also need:
+
+1.  Eclipse
+2.  Android Developer Tools (ADT) for Eclipse
+
+If you are building on the command line, you will also need:
+
+1.  ant (e.g. run `sudo apt-get install ant` on a Debian-based distribution)
 
 ## Fetching the Sources
 
@@ -21,7 +28,7 @@ The Android port uses the `ucd-tools` submodule. You can fetch this by running:
     $ git submodule init
     $ git submodule update
 
-## Building
+## Building eSpeak
 
 1.  Build the `libttsespeak.so` file by running:
 
@@ -32,15 +39,48 @@ The Android port uses the `ucd-tools` submodule. You can fetch this by running:
         $ ./autogen.sh
         $ ./configure --prefix=/usr
         $ make android
-3.  Open Eclipse.
-4.  Create a new workspace.
-5.  Import the espeak folder as an exising Android project.
-6.  Build the espeak apk within Eclipse.
 
-## Installing
+## Building the APK with Eclipse
+
+1.  Open Eclipse.
+2.  Create a new workspace.
+3.  Import the espeak folder as an exising Android project.
+4.  Build the espeak apk within Eclipse.
 
 The generated `eSpeakActivity.apk` can be installed like any other apk build
 via eclipse, such as by using the `Run` menu option.
+
+## Building the APK from the Command Line
+
+1.  Update the project using the Android utility which is part of the SDK:
+
+        $ cd android
+        $ android update project -s -t 1 -p .
+2.  Build the package.
+
+        $ ant release
+
+In order to install the built `bin/eSpeakActivity-release-unsigned.apk` APK,
+you need to self-sign the package. You can do this by:
+
+1.  Creating a certificate, if you do not already have one:
+
+        $ keytool -genkey -keystore [YOUR_CERTIFICATE] -alias [ALIAS]
+2. Sign the package using your certificate:
+
+        $ jarsigner -sigalg MD5withRSA -digestalg SHA1 \
+          -keystore [YOUR_CERTIFICATE] \
+          bin/eSpeakActivity-release-unsigned.apk [ALIAS]
+3. Align the apk using the zipalign tool.
+
+        $ zipalign 4 bin/eSpeakActivity-release-unsigned.apk \
+          bin/eSpeakActivity-release-signed.apk
+
+Now, you can install the APK using the `adb` tool:
+
+    $ adb install -r bin/eSpeakActivity-release-signed.apk
+
+## Enabling eSpeak on the Device
 
 After running, `eSpeakActivity` will extract the `espeakdata.zip` file into its
 own data directory to set up the available voices.
