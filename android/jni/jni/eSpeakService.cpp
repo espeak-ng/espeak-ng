@@ -289,44 +289,6 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetRate(
-    JNIEnv *env, jobject object, jint rate) {
-  const int wpm = ((float)rate / 100) * espeak_GetParameter(espeakRATE, 0);
-  if (DEBUG) LOGV("%s(rate=%d, wpm=%d)", __FUNCTION__, rate, wpm);
-
-  const espeak_ERROR result = espeak_SetParameter(espeakRATE, wpm, 0);
-
-  switch (result) {
-    case EE_OK:             return JNI_TRUE;
-    case EE_INTERNAL_ERROR: LOGE("espeak_SetParameter: internal error."); break;
-    case EE_BUFFER_FULL:    LOGE("espeak_SetParameter: buffer full."); break;
-    case EE_NOT_FOUND:      LOGE("espeak_SetParameter: not found."); break;
-  }
-
-  return JNI_FALSE;
-}
-
-JNIEXPORT jboolean
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetPitch(
-    JNIEnv *env, jobject object, jint pitch) {
-  // The values of pitch from android range from 50 - 200, with 100 being normal.
-  // The values espeak supports are from 0 - 100, with 50 being normal.
-  // Therefore, halve the value to get the value that espeak supports:
-  pitch = pitch / 2;
-  if (DEBUG) LOGV("%s(pitch=%d)", __FUNCTION__, pitch);
-  const espeak_ERROR result = espeak_SetParameter(espeakPITCH, (int) pitch, 0);
-
-  switch (result) {
-    case EE_OK:             return JNI_TRUE;
-    case EE_INTERNAL_ERROR: LOGE("espeak_SetParameter: internal error."); break;
-    case EE_BUFFER_FULL:    LOGE("espeak_SetParameter: buffer full."); break;
-    case EE_NOT_FOUND:      LOGE("espeak_SetParameter: not found."); break;
-  }
-
-  return JNI_FALSE;
-}
-
-JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetParameter(
     JNIEnv *env, jobject object, jint parameter, jint value) {
   if (DEBUG) LOGV("%s(parameter=%d, value=%d)", __FUNCTION__, parameter, value);

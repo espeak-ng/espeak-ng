@@ -183,14 +183,6 @@ public class SpeechSynthesis {
         }
     }
 
-    public void setRate(int rate) {
-        nativeSetRate(rate);
-    }
-
-    public void setPitch(int pitch) {
-        nativeSetPitch(pitch);
-    }
-
     /** Don't announce any punctuation characters. */
     public static int PUNCT_NONE = 0;
 
@@ -325,10 +317,6 @@ public class SpeechSynthesis {
     private native final boolean nativeSetVoiceByName(String name);
 
     private native final boolean nativeSetVoiceByProperties(String language, int gender, int age);
-
-    private native final boolean nativeSetRate(int rate);
-
-    private native final boolean nativeSetPitch(int pitch);
 
     private native final boolean nativeSetParameter(int parameter, int value);
 

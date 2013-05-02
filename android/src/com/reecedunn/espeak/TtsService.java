@@ -196,9 +196,9 @@ public class TtsService extends TextToSpeechService {
         if (text == null)
             return;
 
-        final int gender = getDefaultGender();
-        final int rate = scaleRate(request.getSpeechRate());
-        final int pitch = scalePitch(request.getPitch());
+        final int gender = getPreferenceValue("default_gender", 0);
+        final int rate = (getPreferenceValue("default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
+        final int pitch = getPreferenceValue("default_pitch", 100) / 2;
         final Bundle params = request.getParams();
 
         if (DEBUG) {
@@ -222,50 +222,18 @@ public class TtsService extends TextToSpeechService {
                 mEngine.getChannelCount());
 
         mEngine.setVoice(mMatchingVoice, null, gender, SpeechSynthesis.AGE_ANY);
-        mEngine.setRate(rate);
-        mEngine.setPitch(pitch);
+        mEngine.Rate.setValue(rate, request.getSpeechRate());
+        mEngine.Pitch.setValue(pitch, request.getPitch());
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
 
-    /**
-     * Scales the pitch by the user-specified value.
-     *
-     * @param pitch A pitch value.
-     * @return A scaled pitch value.
-     */
-    private int scalePitch(int pitch) {
+    private int getPreferenceValue(String preference, int defaultValue) {
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        final String defaultPitchString = prefs.getString("default_pitch", "100");
-        final int defaultPitch = Integer.parseInt(defaultPitchString);
-
-        return (pitch * defaultPitch / 100);
-    }
-
-    /**
-     * Returns user-specified gender.
-     *
-     * @return A gender value.
-     */
-    private int getDefaultGender() {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        final String defaultGenderString = prefs.getString("default_gender", "0");
-        final int defaultGender = Integer.parseInt(defaultGenderString);
-
-        return defaultGender;
-    }
-
-    /**
-     * Scales the rate by the user-specified value.
-     *
-     * @param rate A rate value.
-     * @return A scaled rate value.
-     */
-    private int scaleRate(int rate) {
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        final String defaultRateString = prefs.getString("default_rate", "100");
-        final int defaultRate = Integer.parseInt(defaultRateString);
-
-        return (rate * defaultRate / 100);
+        final String prefString = prefs.getString(preference, null);
+        if (prefString == null) {
+            return defaultValue;
+        }
+        return Integer.parseInt(prefString);
     }
 
     /**
