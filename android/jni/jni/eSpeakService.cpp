@@ -241,24 +241,20 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
-    JNIEnv *env, jobject object, jstring name, jstring languages, jint gender) {
-  const char *c_name = name ? env->GetStringUTFChars(name, NULL) : NULL;
-  const char *c_languages = languages ? env->GetStringUTFChars(languages, NULL) : NULL;
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoice(
+    JNIEnv *env, jobject object, jstring language, jint gender) {
+  const char *c_language = language ? env->GetStringUTFChars(language, NULL) : NULL;
 
-  if (DEBUG) LOGV("%s(name=%s, languages=%s)", __FUNCTION__, c_name, c_languages);
+  if (DEBUG) LOGV("%s(language=%s, gender=%d)", __FUNCTION__, c_language, gender);
 
   espeak_VOICE voice_select;
   memset(&voice_select, 0, sizeof(espeak_VOICE));
-
-  voice_select.name = c_name;
-  voice_select.languages = c_languages;
+  voice_select.languages = c_language;
   voice_select.gender = (int) gender;
 
   const espeak_ERROR result = espeak_SetVoiceByProperties(&voice_select);
 
-  if (c_name) env->ReleaseStringUTFChars(name, c_name);
-  if (c_languages) env->ReleaseStringUTFChars(languages, c_languages);
+  if (c_language) env->ReleaseStringUTFChars(language, c_language);
 
   switch (result) {
     case EE_OK:             return JNI_TRUE;
