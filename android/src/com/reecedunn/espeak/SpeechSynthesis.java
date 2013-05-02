@@ -200,7 +200,7 @@ public class SpeechSynthesis {
     /** Announce some of the punctuation characters. */
     public static int PUNCT_SOME = 2;
 
-    public enum ParameterType {
+    public enum Parameter {
         /** Speech rate in words per minute (80 - 450). */
         Rate(1),
         /** Audio volume in percent (0 - 200; normal = 100). */
@@ -212,31 +212,31 @@ public class SpeechSynthesis {
         /** Which punctuation characters to announce; see the PUNCT_* constants. */
         Punctuation(5);
 
-        private int value;
+        private int id;
 
-        private ParameterType(int value) {
-            this.value = value;
+        private Parameter(int id) {
+            this.id = id;
         }
 
-        public int getValue() {
-            return value;
+        public int getId() {
+            return id;
         }
     }
 
-    public void setParameterValue(ParameterType parameter, int value, int scale) {
-        setParameterValue(parameter, (value * scale) / 100);
+    public void setValue(Parameter parameter, int value, int scale) {
+        setValue(parameter, (value * scale) / 100);
     }
 
-    public void setParameterValue(ParameterType parameter, int value) {
-        nativeSetParameter(parameter.getValue(), value);
+    public void setValue(Parameter parameter, int value) {
+        nativeSetParameter(parameter.getId(), value);
     }
 
-    public int getParameterValue(ParameterType parameter) {
-        return nativeGetParameter(parameter.getValue(), 1);
+    public int getValue(Parameter parameter) {
+        return nativeGetParameter(parameter.getId(), 1);
     }
 
-    public int getParameterDefaultValue(ParameterType parameter) {
-        return nativeGetParameter(parameter.getValue(), 0);
+    public int getDefaultValue(Parameter parameter) {
+        return nativeGetParameter(parameter.getId(), 0);
     }
 
     public void synthesize(String text, boolean isSsml) {
