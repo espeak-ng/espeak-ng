@@ -45,6 +45,10 @@ public class SpeechSynthesis {
     public static final int GENDER_MALE = 1;
     public static final int GENDER_FEMALE = 2;
 
+    public static final int AGE_ANY = 0;
+    public static final int AGE_YOUNG = 12;
+    public static final int AGE_OLD = 60;
+
     static {
         System.loadLibrary("ttsespeak");
 
@@ -169,8 +173,14 @@ public class SpeechSynthesis {
         return voices;
     }
 
-    public void setVoice(String language, int gender) {
-        nativeSetVoice(language, gender);
+    public void setVoice(Voice voice, String variant, int gender, int age) {
+        // NOTE: espeak_SetVoiceByProperties does not support specifying the
+        // voice variant (e.g. klatt), but espeak_SetVoiceByName does.
+        if (variant == null) {
+            nativeSetVoiceByProperties(voice.name, gender, age);
+        } else {
+            nativeSetVoiceByName(voice.identifier + "+" + variant);
+        }
     }
 
     public void setRate(int rate) {
@@ -300,7 +310,9 @@ public class SpeechSynthesis {
 
     private native final String[] nativeGetAvailableVoices();
 
-    private native final boolean nativeSetVoice(String language, int gender);
+    private native final boolean nativeSetVoiceByName(String name);
+
+    private native final boolean nativeSetVoiceByProperties(String language, int gender, int age);
 
     private native final boolean nativeSetRate(int rate);
 

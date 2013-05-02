@@ -221,7 +221,7 @@ public class TtsService extends TextToSpeechService {
         mCallback.start(mEngine.getSampleRate(), mEngine.getAudioFormat(),
                 mEngine.getChannelCount());
 
-        mEngine.setVoice(mMatchingVoice.name, gender);
+        mEngine.setVoice(mMatchingVoice, null, gender, SpeechSynthesis.AGE_ANY);
         mEngine.setRate(rate);
         mEngine.setPitch(pitch);
         mEngine.synthesize(text, text.startsWith("<speak"));

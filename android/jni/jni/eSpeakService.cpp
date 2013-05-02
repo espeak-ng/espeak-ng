@@ -241,16 +241,38 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
 }
 
 JNIEXPORT jboolean
-JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoice(
-    JNIEnv *env, jobject object, jstring language, jint gender) {
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByName(
+    JNIEnv *env, jobject object, jstring name) {
+  const char *c_name = name ? env->GetStringUTFChars(name, NULL) : NULL;
+
+  if (DEBUG) LOGV("%s(name=%s)", __FUNCTION__, c_name);
+
+  const espeak_ERROR result = espeak_SetVoiceByName(c_name);
+
+  if (c_name) env->ReleaseStringUTFChars(name, c_name);
+
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetVoiceByName: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetVoiceByName: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetVoiceByName: not found."); break;
+  }
+
+  return JNI_FALSE;
+}
+
+JNIEXPORT jboolean
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
+    JNIEnv *env, jobject object, jstring language, jint gender, jint age) {
   const char *c_language = language ? env->GetStringUTFChars(language, NULL) : NULL;
 
-  if (DEBUG) LOGV("%s(language=%s, gender=%d)", __FUNCTION__, c_language, gender);
+  if (DEBUG) LOGV("%s(language=%s, gender=%d, age=%d)", __FUNCTION__, c_language, gender, age);
 
   espeak_VOICE voice_select;
   memset(&voice_select, 0, sizeof(espeak_VOICE));
   voice_select.languages = c_language;
   voice_select.gender = (int) gender;
+  voice_select.age = (int) age;
 
   const espeak_ERROR result = espeak_SetVoiceByProperties(&voice_select);
 
