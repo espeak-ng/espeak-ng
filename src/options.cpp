@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -118,7 +119,7 @@ void ConfigSetPaths()
 }
 
 
-void ConfigInit()
+void ConfigInit(bool use_defaults)
 {//==============
 	wxString string;
 	wxString basedir;
@@ -152,7 +153,10 @@ void ConfigInit()
 		sprintf(path_home,"%s\\espeak-data",path_base);
 	}
 #else
-	snprintf(path_home,sizeof(path_home),"%s/espeak-data",getenv("HOME"));
+        char *env;
+	if((env = getenv("ESPEAK_DATA_PATH")) == NULL)
+		env = getenv("HOME");
+	snprintf(path_home,sizeof(path_home),"%s/espeak-data",env);
 	path_base = path_home;
 #endif
 	mkdir(path_home,S_IRWXU);    // create if it doesn't already exist
@@ -161,6 +165,19 @@ void ConfigInit()
 	wxFileConfig::Set(pConfig);
 
 	basedir = wxString(path_base,wxConvLocal);  // this is only used to set defaults for other paths if they are not in the config file
+	if (use_defaults)
+	{
+		path_spectload = basedir + _T("/phsource");
+		path_spectload2 = basedir + _T("/phsource");
+		path_pitches = basedir + _T("/pitch");
+		path_phsource = basedir + _T("/phsource");
+		path_phfile = path_phsource + _T("/phonemes");
+		path_dictsource = basedir + _T("/dictsource");
+		path_modifiervoice = basedir;
+		path_dir1 = basedir;
+	}
+	else
+	{
 	pConfig->Read(_T("/spectload"),&path_spectload,basedir+_T("/phsource"));
 	pConfig->Read(_T("/spectload2"),&path_spectload2,basedir+_T("/phsource"));
 	pConfig->Read(_T("/pitchpath"),&path_pitches,basedir+_T("/pitch"));
@@ -179,6 +196,7 @@ void ConfigInit()
 	frame_y = pConfig->Read(_T("/windowy"), 0l);
 	frame_h = pConfig->Read(_T("/windowh"), 0l);
 	frame_w = pConfig->Read(_T("/windoww"), 0l);
+	}
 	ConfigSetPaths();
 }  // end of ConfigInit
 

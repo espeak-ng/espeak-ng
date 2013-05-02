@@ -27,6 +27,16 @@ __NOTE:__ The configure command detects various platform differences that
 the espeak makefiles don't cater for (e.g. different wxWidgets version)
 and detect the available audio setup to use automatically.
 
+## Testing
+
+Before installing, you can test the built espeak using the following command:
+
+    $ ESPEAK_DATA_PATH=`pwd` src/espeak hello
+
+The `ESPEAK_DATA_PATH` variable needs to be set to use the espeak data from
+the source tree. Otherwise, espeak will look in `$(HOME)` or
+`/usr/share/espeak-data`.
+
 ## Historical Releases
 
 1.24.02 is the first version of eSpeak to appear in the subversion

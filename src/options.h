@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2007 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -27,7 +28,7 @@
   *@author Jonathan Duddington
   */
 
-extern void ConfigInit();
+extern void ConfigInit(bool use_defaults);
 extern void ConfigSave(int end);
 extern void ConfigSetPaths();
 
