@@ -242,8 +242,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetAvailableVoices(
 
 JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
-    JNIEnv *env, jobject object, jstring name, jstring languages, jint gender, jint age,
-    jint variant) {
+    JNIEnv *env, jobject object, jstring name, jstring languages, jint gender) {
   const char *c_name = name ? env->GetStringUTFChars(name, NULL) : NULL;
   const char *c_languages = languages ? env->GetStringUTFChars(languages, NULL) : NULL;
 
@@ -254,9 +253,7 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetVoiceByProperties(
 
   voice_select.name = c_name;
   voice_select.languages = c_languages;
-  voice_select.age = (int) age;
   voice_select.gender = (int) gender;
-  voice_select.variant = (int) variant;
 
   const espeak_ERROR result = espeak_SetVoiceByProperties(&voice_select);
 

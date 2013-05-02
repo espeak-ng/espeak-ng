@@ -169,9 +169,8 @@ public class SpeechSynthesis {
         return voices;
     }
 
-    public void setVoiceByProperties(
-            String name, String languages, int gender, int age, int variant) {
-        nativeSetVoiceByProperties(name, languages, gender, age, variant);
+    public void setVoiceByProperties(String name, String languages, int gender) {
+        nativeSetVoiceByProperties(name, languages, gender);
     }
 
     public void setRate(int rate) {
@@ -301,8 +300,7 @@ public class SpeechSynthesis {
 
     private native final String[] nativeGetAvailableVoices();
 
-    private native final boolean nativeSetVoiceByProperties(
-            String name, String languages, int gender, int age, int variant);
+    private native final boolean nativeSetVoiceByProperties(String name, String languages, int gender);
 
     private native final boolean nativeSetRate(int rate);
 
