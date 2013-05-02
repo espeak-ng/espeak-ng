@@ -1,6 +1,6 @@
 /*
- * Copyright (C) 2011 Google Inc.
  * Copyright (C) 2012-2013 Reece H. Dunn
+ * Copyright (C) 2011 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +51,6 @@ enum synthesis_result {
   SYNTH_ABORT = 1
 };
 
-const int DEFAULT_SAMPLE_RATE = 22050;
 const int DEFAULT_CHANNEL_COUNT = CHANNEL_COUNT_MONO;
 const int DEFAULT_AUDIO_FORMAT = ENCODING_PCM_16BIT;
 const int DEFAULT_BUFFER_SIZE = 1000;
@@ -67,7 +66,7 @@ struct native_data_t {
   native_data_t() {
     env = NULL;
     object = NULL;
-    sampleRate = DEFAULT_SAMPLE_RATE;
+    sampleRate = 0;
     channelCount = DEFAULT_CHANNEL_COUNT;
     audioFormat = DEFAULT_AUDIO_FORMAT;
     bufferSizeInMillis = DEFAULT_BUFFER_SIZE;
