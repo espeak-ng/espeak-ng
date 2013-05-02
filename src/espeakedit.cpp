@@ -1,6 +1,7 @@
 /***************************************************************************
  *   Copyright (C) 2005 to 2013 by Jonathan Duddington                     *
  *   email: jonsd@users.sourceforge.net                                    *
+ *   Copyright (C) 2013 by Reece H. Dunn                                   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -139,7 +140,7 @@ if(argc > 1)
 		exit(0);
 	}
 
-	ConfigInit();
+	ConfigInit(true);
 
 	if(strcmp(param,"--compile")==0)
 	{
@@ -151,7 +152,7 @@ if(argc > 1)
     exit(0);
 }
 
-	ConfigInit();
+	ConfigInit(false);
 	gui_flag = 1;
 	// It seems that the wctype functions don't work until the locale has been set
 	// to something other than the default "C".  Then, not only Latin1 but also the
