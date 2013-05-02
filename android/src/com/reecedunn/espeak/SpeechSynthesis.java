@@ -200,44 +200,56 @@ public class SpeechSynthesis {
     /** Announce some of the punctuation characters. */
     public static int PUNCT_SOME = 2;
 
-    public enum Parameter {
-        /** Speech rate in words per minute (80 - 450). */
-        Rate(1),
-        /** Audio volume in percent (0 - 200; normal = 100). */
-        Volume(2),
-        /** Base pitch in percent (0 - 100; normal = 50). */
-        Pitch(3),
-        /** Pitch range in percent (0 - 100; normal = 50; monotone = 0). */
-        PitchRange(4),
-        /** Which punctuation characters to announce; see the PUNCT_* constants. */
-        Punctuation(5);
+    public class Parameter {
+        private final int id;
+        private final int min;
+        private final int max;
 
-        private int id;
-
-        private Parameter(int id) {
+        private Parameter(int id, int min, int max) {
             this.id = id;
+            this.min = min;
+            this.max = max;
         }
 
-        public int getId() {
-            return id;
+        public int getMinValue() {
+            return min;
+        }
+
+        public int getMaxValue() {
+            return max;
+        }
+
+        public int getDefaultValue() {
+            return nativeGetParameter(id, 0);
+        }
+
+        public int getValue() {
+            return nativeGetParameter(id, 1);
+        }
+
+        public void setValue(int value, int scale) {
+            setValue((value * scale) / 100);
+        }
+
+        public void setValue(int value) {
+            nativeSetParameter(id, value);
         }
     }
 
-    public void setValue(Parameter parameter, int value, int scale) {
-        setValue(parameter, (value * scale) / 100);
-    }
+    /** Speech rate in words per minute. */
+    public final Parameter Rate = new Parameter(1, 80, 450);
 
-    public void setValue(Parameter parameter, int value) {
-        nativeSetParameter(parameter.getId(), value);
-    }
+    /** Audio volume in percent. */
+    public final Parameter Volume = new Parameter(2, 0, 200);
 
-    public int getValue(Parameter parameter) {
-        return nativeGetParameter(parameter.getId(), 1);
-    }
+    /** Base pitch in percent. */
+    public final Parameter Pitch = new Parameter(3, 0, 100);
 
-    public int getDefaultValue(Parameter parameter) {
-        return nativeGetParameter(parameter.getId(), 0);
-    }
+    /** Pitch range in percent (monotone = 0). */
+    public final Parameter PitchRange = new Parameter(4, 0, 100);
+
+    /** Which punctuation characters to announce; see the PUNCT_* constants. */
+    public final Parameter Punctuation = new Parameter(5, 0, 2);
 
     public void synthesize(String text, boolean isSsml) {
         nativeSynthesize(text, isSsml);
