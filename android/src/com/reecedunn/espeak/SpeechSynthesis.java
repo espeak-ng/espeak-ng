@@ -182,6 +182,54 @@ public class SpeechSynthesis {
         nativeSetPitch(pitch);
     }
 
+    /** Don't announce any punctuation characters. */
+    public static int PUNCT_NONE = 0;
+
+    /** Announce every punctuation character. */
+    public static int PUNCT_ALL = 1;
+
+    /** Announce some of the punctuation characters. */
+    public static int PUNCT_SOME = 2;
+
+    public enum ParameterType {
+        /** Speech rate in words per minute (80 - 450). */
+        Rate(1),
+        /** Audio volume in percent (0 - 200; normal = 100). */
+        Volume(2),
+        /** Base pitch in percent (0 - 100; normal = 50). */
+        Pitch(3),
+        /** Pitch range in percent (0 - 100; normal = 50; monotone = 0). */
+        PitchRange(4),
+        /** Which punctuation characters to announce; see the PUNCT_* constants. */
+        Punctuation(5);
+
+        private int value;
+
+        private ParameterType(int value) {
+            this.value = value;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
+
+    public void setParameterValue(ParameterType parameter, int value, int scale) {
+        setParameterValue(parameter, (value * scale) / 100);
+    }
+
+    public void setParameterValue(ParameterType parameter, int value) {
+        nativeSetParameter(parameter.getValue(), value);
+    }
+
+    public int getParameterValue(ParameterType parameter) {
+        return nativeGetParameter(parameter.getValue(), 1);
+    }
+
+    public int getParameterDefaultValue(ParameterType parameter) {
+        return nativeGetParameter(parameter.getValue(), 0);
+    }
+
     public void synthesize(String text, boolean isSsml) {
         nativeSynthesize(text, isSsml);
     }
@@ -259,6 +307,10 @@ public class SpeechSynthesis {
     private native final boolean nativeSetRate(int rate);
 
     private native final boolean nativeSetPitch(int pitch);
+
+    private native final boolean nativeSetParameter(int parameter, int value);
+
+    private native final int nativeGetParameter(int parameter, int current);
 
     private native final boolean nativeSynthesize(String text, boolean isSsml);
 

@@ -312,6 +312,29 @@ JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetPitch(
 }
 
 JNIEXPORT jboolean
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSetParameter(
+    JNIEnv *env, jobject object, jint parameter, jint value) {
+  if (DEBUG) LOGV("%s(parameter=%d, value=%d)", __FUNCTION__, parameter, value);
+  const espeak_ERROR result = espeak_SetParameter((espeak_PARAMETER)parameter, (int)value, 0);
+
+  switch (result) {
+    case EE_OK:             return JNI_TRUE;
+    case EE_INTERNAL_ERROR: LOGE("espeak_SetParameter: internal error."); break;
+    case EE_BUFFER_FULL:    LOGE("espeak_SetParameter: buffer full."); break;
+    case EE_NOT_FOUND:      LOGE("espeak_SetParameter: not found."); break;
+  }
+
+  return JNI_FALSE;
+}
+
+JNIEXPORT jint
+JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeGetParameter(
+    JNIEnv *env, jobject object, jint parameter, jint current) {
+  if (DEBUG) LOGV("%s(parameter=%d, pitch=%d)", __FUNCTION__, parameter, current);
+  return espeak_GetParameter((espeak_PARAMETER)parameter, (int)current);
+}
+
+JNIEXPORT jboolean
 JNICALL Java_com_reecedunn_espeak_SpeechSynthesis_nativeSynthesize(
     JNIEnv *env, jobject object, jstring text, jboolean isSsml) {
   if (DEBUG) LOGV("%s", __FUNCTION__);
