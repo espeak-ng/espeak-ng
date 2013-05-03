@@ -143,6 +143,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     {
         String text = String.format(getFormatter(), Integer.toString(progress + mMin));
         mValueText.setText(text);
+        mSeekBar.setContentDescription(text);
     }
 
     @Override
