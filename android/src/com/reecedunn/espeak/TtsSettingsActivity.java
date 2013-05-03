@@ -17,6 +17,8 @@
 
 package com.reecedunn.espeak;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -25,6 +27,7 @@ import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceManager;
 
 public class TtsSettingsActivity extends PreferenceActivity {
     @Override
@@ -41,7 +44,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
         else
         {
             addPreferencesFromResource(R.xml.preferences);
-            fixListSummaries(getPreferenceScreen());
+            createPreferences(TtsSettingsActivity.this, getPreferenceScreen());
         }
     }
 
@@ -51,8 +54,32 @@ public class TtsSettingsActivity extends PreferenceActivity {
             super.onCreate(savedInstanceState);
 
             addPreferencesFromResource(R.xml.preferences);
-            fixListSummaries(getPreferenceScreen());
+            createPreferences(getActivity(), getPreferenceScreen());
         }
+    }
+
+    private static Preference createPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
+        final String title = context.getString(titleRes);
+
+        final SeekBarPreference pref = new SeekBarPreference(context);
+        pref.setTitle(title);
+        pref.setDialogTitle(title);
+        pref.setKey(key);
+        pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
+        pref.setPersistent(true);
+
+        pref.setMin(parameter.getMinValue());
+        pref.setMax(parameter.getMaxValue());
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final String prefString = prefs.getString(key, null);
+        if (prefString == null) {
+            pref.setProgress(parameter.getDefaultValue());
+        } else {
+            pref.setProgress(Integer.parseInt(prefString));
+        }
+
+        return pref;
     }
 
     /**
@@ -60,7 +87,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
      * change listener for all {@link ListPreference} views to fill in the
      * summary with the current entry value.
      */
-    private static void fixListSummaries(PreferenceGroup group) {
+    private static void createPreferences(Context context, PreferenceGroup group) {
         if (group == null) {
             return;
         }
@@ -71,34 +98,40 @@ public class TtsSettingsActivity extends PreferenceActivity {
             final Preference preference = group.getPreference(i);
 
             if (preference instanceof PreferenceGroup) {
-                fixListSummaries((PreferenceGroup) preference);
+                createPreferences(null, (PreferenceGroup) preference);
             } else if (preference instanceof ListPreference) {
-                preference.setOnPreferenceChangeListener(mPreferenceChangeListener);
+                preference.setOnPreferenceChangeListener(mOnPreferenceChanged);
             }
         }
+
+        if (context == null) {
+            return;
+        }
+
+        SpeechSynthesis engine = new SpeechSynthesis(context, null);
+
+        group.addPreference(createPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
     }
 
-    /**
-     * Listens for preference changes and updates the summary to reflect the
-     * current setting. This shouldn't be necessary, since preferences are
-     * supposed to automatically do this when the summary is set to "%s".
-     */
-    private static final OnPreferenceChangeListener mPreferenceChangeListener =
+    private static final OnPreferenceChangeListener mOnPreferenceChanged =
             new OnPreferenceChangeListener() {
                 @Override
                 public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    if (preference instanceof ListPreference && newValue instanceof String) {
-                        final ListPreference listPreference = (ListPreference) preference;
-                        final int index = listPreference.findIndexOfValue((String) newValue);
-                        final CharSequence[] entries = listPreference.getEntries();
+                    if (newValue instanceof String) {
+                        String summary = "";
+                        if (preference instanceof ListPreference) {
+                            final ListPreference listPreference = (ListPreference) preference;
+                            final int index = listPreference.findIndexOfValue((String) newValue);
+                            final CharSequence[] entries = listPreference.getEntries();
 
-                        if (index >= 0 && index < entries.length) {
-                            preference.setSummary(entries[index].toString().replaceAll("%", "%%"));
-                        } else {
-                            preference.setSummary("");
+                            if (index >= 0 && index < entries.length) {
+                                summary = entries[index].toString();
+                            }
+                        } else if (preference instanceof SeekBarPreference) {
+                            summary = (String)newValue;
                         }
+                        preference.setSummary(summary.replaceAll("%", "%%"));
                     }
-
                     return true;
                 }
             };

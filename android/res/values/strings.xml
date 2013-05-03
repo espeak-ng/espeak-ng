@@ -132,5 +132,6 @@
         <string name="speak">Speak</string>
         <string name="ssml">Load SSML Template</string>
         <string name="synthesis_demo">Enter text to speak:</string>
+        <string name="espeak_volume">Volume</string>
 
 </resources>

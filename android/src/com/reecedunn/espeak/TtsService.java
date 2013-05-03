@@ -224,6 +224,7 @@ public class TtsService extends TextToSpeechService {
         mEngine.setVoice(mMatchingVoice, null, gender, SpeechSynthesis.AGE_ANY);
         mEngine.Rate.setValue(rate, request.getSpeechRate());
         mEngine.Pitch.setValue(pitch, request.getPitch());
+        mEngine.Volume.setValue(getPreferenceValue("espeak_volume", mEngine.Volume.getDefaultValue()));
         mEngine.synthesize(text, text.startsWith("<speak"));
     }
 
