@@ -192,15 +192,24 @@ public class SpeechSynthesis {
     /** Announce some of the punctuation characters. */
     public static int PUNCT_SOME = 2;
 
+    public enum UnitType {
+        Percentage,
+        WordsPerMinute,
+        /** One of the PUNCT_* constants. */
+        Punctuation,
+    }
+
     public class Parameter {
         private final int id;
         private final int min;
         private final int max;
+        private final UnitType unitType;
 
-        private Parameter(int id, int min, int max) {
+        private Parameter(int id, int min, int max, UnitType unitType) {
             this.id = id;
             this.min = min;
             this.max = max;
+            this.unitType = unitType;
         }
 
         public int getMinValue() {
@@ -226,22 +235,26 @@ public class SpeechSynthesis {
         public void setValue(int value) {
             nativeSetParameter(id, value);
         }
+
+        public UnitType getUnitType() {
+            return unitType;
+        }
     }
 
-    /** Speech rate in words per minute. */
-    public final Parameter Rate = new Parameter(1, 80, 450);
+    /** Speech rate. */
+    public final Parameter Rate = new Parameter(1, 80, 450, UnitType.WordsPerMinute);
 
-    /** Audio volume in percent. */
-    public final Parameter Volume = new Parameter(2, 0, 200);
+    /** Audio volume. */
+    public final Parameter Volume = new Parameter(2, 0, 200, UnitType.Percentage);
 
-    /** Base pitch in percent. */
-    public final Parameter Pitch = new Parameter(3, 0, 100);
+    /** Base pitch. */
+    public final Parameter Pitch = new Parameter(3, 0, 100, UnitType.Percentage);
 
-    /** Pitch range in percent (monotone = 0). */
-    public final Parameter PitchRange = new Parameter(4, 0, 100);
+    /** Pitch range (monotone = 0). */
+    public final Parameter PitchRange = new Parameter(4, 0, 100, UnitType.Percentage);
 
-    /** Which punctuation characters to announce; see the PUNCT_* constants. */
-    public final Parameter Punctuation = new Parameter(5, 0, 2);
+    /** Which punctuation characters to announce. */
+    public final Parameter Punctuation = new Parameter(5, 0, 2, UnitType.Punctuation);
 
     public void synthesize(String text, boolean isSsml) {
         nativeSynthesize(text, isSsml);

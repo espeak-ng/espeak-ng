@@ -133,5 +133,7 @@
         <string name="ssml">Load SSML Template</string>
         <string name="synthesis_demo">Enter text to speak:</string>
         <string name="espeak_volume">Volume</string>
+        <string name="formatter_wpm">%s WPM</string>
+        <string name="formatter_percentage">%s%%</string>
 
 </resources>

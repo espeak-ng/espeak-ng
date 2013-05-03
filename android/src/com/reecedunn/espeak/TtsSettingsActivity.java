@@ -68,6 +68,18 @@ public class TtsSettingsActivity extends PreferenceActivity {
         pref.setOnPreferenceChangeListener(mOnPreferenceChanged);
         pref.setPersistent(true);
 
+        switch (parameter.getUnitType())
+        {
+            case Percentage:
+                pref.getExtras().putString("formatter", context.getString(R.string.formatter_percentage));
+                break;
+            case WordsPerMinute:
+                pref.getExtras().putString("formatter", context.getString(R.string.formatter_wpm));
+                break;
+            default:
+                throw new IllegalStateException("Unsupported unit type for the parameter.");
+        }
+
         pref.setMin(parameter.getMinValue());
         pref.setMax(parameter.getMaxValue());
 
@@ -128,9 +140,10 @@ public class TtsSettingsActivity extends PreferenceActivity {
                                 summary = entries[index].toString();
                             }
                         } else if (preference instanceof SeekBarPreference) {
-                            summary = (String)newValue;
+                            String formatter = preference.getExtras().getString("formatter");
+                            summary = String.format(formatter, (String)newValue);
                         }
-                        preference.setSummary(summary.replaceAll("%", "%%"));
+                        preference.setSummary(summary);
                     }
                     return true;
                 }
