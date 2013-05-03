@@ -135,5 +135,6 @@
         <string name="espeak_volume">Volume</string>
         <string name="formatter_wpm">%s WPM</string>
         <string name="formatter_percentage">%s%%</string>
+        <string name="resetToDefault">Set to default</string>
 
 </resources>

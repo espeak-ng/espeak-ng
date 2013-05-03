@@ -22,6 +22,7 @@ import android.content.SharedPreferences;
 import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -31,6 +32,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     private TextView mValueText;
 
     private int mProgress = 0;
+    private int mDefaultValue = 0;
     private int mMin = 0;
     private int mMax = 100;
     private String mFormatter = "%s";
@@ -51,6 +53,14 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         mProgress += mMin;
         String text = Integer.toString(mProgress);
         callChangeListener(text);
+    }
+
+    public void setDefaultValue(int defaultValue) {
+        mDefaultValue = defaultValue;
+    }
+
+    public int getDefaultValue() {
+        return mDefaultValue;
     }
 
     public int getMin() {
@@ -96,6 +106,15 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         View root = super.onCreateDialogView();
         mSeekBar = (SeekBar)root.findViewById(R.id.seekBar);
         mValueText = (TextView)root.findViewById(R.id.valueText);
+
+        Button reset = (Button)root.findViewById(R.id.resetToDefault);
+        reset.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v)
+            {
+                mSeekBar.setProgress(getDefaultValue());
+            }
+        });
         return root;
     }
 

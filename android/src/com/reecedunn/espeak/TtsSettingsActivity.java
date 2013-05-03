@@ -60,6 +60,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
     private static Preference createPreference(Context context, SpeechSynthesis.Parameter parameter, String key, int titleRes) {
         final String title = context.getString(titleRes);
+        final int defaultValue = parameter.getDefaultValue();
 
         final SeekBarPreference pref = new SeekBarPreference(context);
         pref.setTitle(title);
@@ -82,11 +83,12 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         pref.setMin(parameter.getMinValue());
         pref.setMax(parameter.getMaxValue());
+        pref.setDefaultValue(defaultValue);
 
         final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         final String prefString = prefs.getString(key, null);
         if (prefString == null) {
-            pref.setProgress(parameter.getDefaultValue());
+            pref.setProgress(defaultValue);
         } else {
             pref.setProgress(Integer.parseInt(prefString));
         }
