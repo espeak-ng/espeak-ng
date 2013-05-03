@@ -1,24 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="tts_settings_label" msgid="2696301846672491410">"Настройки за eSpeak TTS"</string>
-    <string name="setting_default_pitch" msgid="2063082697363767286">"Височина по подразбиране"</string>
-    <string name="setting_default_gender" msgid="8721577045178419807">"Пол на гласа"</string>
-    <string name="setting_default_rate" msgid="3255750767876184606">"Множител на скоростта на говора"</string>
-    <string name="installing_voice_data" msgid="1199950160686799120">"Гласовите данни се инсталират..."</string>
-    <string name="set_default_message" msgid="651325122612558377">"Не сте задали eSpeak като машината си по подразбиране за синтезиран говор."</string>
-    <string name="voice_data_failed_message" msgid="8631894446950552673">"Инсталирането на гласови данни от eSpeak не бе успешно. Моля, проверете SD картата си."</string>
-    <string name="error_message" msgid="7565522727556545634">"За съжаление стартирането на eSpeak не бе успешно."</string>
-    <string name="loading_failed_title" msgid="511566315504616423">"При зареждането на eSpeak възникна грешка"</string>
-    <string name="loading_failed_message" msgid="5873070263506367474">"При зареждането на eSpeak възникна грешка. Искате ли да изпратите сигнал до програмиста?"</string>
-    <string name="no_settings" msgid="1351437843962431135">"Няма налични настройки"</string>
-    <string name="current_tts_locale" msgid="3069242116489679835">"Глас по подразбиране"</string>
-    <string name="available_voices" msgid="1405969819028957410">"Инсталирани гласове"</string>
-    <string name="tts_settings" msgid="8094374695950898637">"Общи настройки за TTS"</string>
-    <string name="engine_settings" msgid="15960710549009350">"Настройки за eSpeak TTS"</string>
-    <string name="loading" msgid="1624831854302260352">"Зарежда се. Моля, изчакайте..."</string>
-    <string name="loading_failed" msgid="8965859207758593651">"За съжаление зареждането на eSpeak не бе успешно."</string>
-    <string name="sample_text" msgid="7870499751575948178">"Това е откъс от изговорен текст на <xliff:g id="ID_1">%s</xliff:g>"</string>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="tts_settings_label" msgid="2696301846672491410">"Настройки за eSpeak TTS"</string>
+  <string name="setting_default_pitch" msgid="2063082697363767286">"Височина по подразбиране"</string>
+  <string name="setting_default_gender" msgid="8721577045178419807">"Пол на гласа"</string>
+  <string name="setting_default_rate" msgid="3255750767876184606">"Множител на скоростта на говора"</string>
+  <string name="installing_voice_data" msgid="1199950160686799120">"Гласовите данни се инсталират..."</string>
+  <string name="set_default_message" msgid="651325122612558377">"Не сте задали eSpeak като машината си по подразбиране за синтезиран говор."</string>
+  <string name="voice_data_failed_message" msgid="8631894446950552673">"Инсталирането на гласови данни от eSpeak не бе успешно. Моля, проверете SD картата си."</string>
+  <string name="error_message" msgid="7565522727556545634">"За съжаление стартирането на eSpeak не бе успешно."</string>
+  <string name="loading_failed_title" msgid="511566315504616423">"При зареждането на eSpeak възникна грешка"</string>
+  <string name="loading_failed_message" msgid="5873070263506367474">"При зареждането на eSpeak възникна грешка. Искате ли да изпратите сигнал до програмиста?"</string>
+  <string name="no_settings" msgid="1351437843962431135">"Няма налични настройки"</string>
+  <string name="current_tts_locale" msgid="3069242116489679835">"Глас по подразбиране"</string>
+  <string name="available_voices" msgid="1405969819028957410">"Инсталирани гласове"</string>
+  <string name="tts_settings" msgid="8094374695950898637">"Общи настройки за TTS"</string>
+  <string name="engine_settings" msgid="15960710549009350">"Настройки за eSpeak TTS"</string>
+  <string name="loading" msgid="1624831854302260352">"Зарежда се. Моля, изчакайте..."</string>
+  <string name="loading_failed" msgid="8965859207758593651">"За съжаление зареждането на eSpeak не бе успешно."</string>
+  <string name="sample_text" msgid="7870499751575948178">"Това е откъс от изговорен текст на <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_pitch_entries">
     <item msgid="5761992954594669467">"Много ниско"</item>
     <item msgid="9160252712018935449">"Ниско"</item>
