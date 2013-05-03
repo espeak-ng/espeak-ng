@@ -38,7 +38,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     private String mFormatter = "%s";
 
     public void setProgress(int progress) {
-        mProgress = progress + mMin;
+        mProgress = progress;
         String text = Integer.toString(mProgress);
         callChangeListener(text);
     }
@@ -47,20 +47,16 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
         return mProgress;
     }
 
-    public void setMin(int min) {
-        mProgress -= mMin;
-        mMin =  min;
-        mProgress += mMin;
-        String text = Integer.toString(mProgress);
-        callChangeListener(text);
-    }
-
     public void setDefaultValue(int defaultValue) {
         mDefaultValue = defaultValue;
     }
 
     public int getDefaultValue() {
         return mDefaultValue;
+    }
+
+    public void setMin(int min) {
+        mMin =  min;
     }
 
     public int getMin() {
@@ -112,7 +108,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
             @Override
             public void onClick(View v)
             {
-                mSeekBar.setProgress(getDefaultValue());
+                mSeekBar.setProgress(getDefaultValue() - mMin);
             }
         });
         return root;
@@ -122,7 +118,7 @@ public class SeekBarPreference extends DialogPreference implements SeekBar.OnSee
     protected void onBindDialogView(View view) {
         mSeekBar.setOnSeekBarChangeListener(this);
         mSeekBar.setMax(mMax - mMin);
-        mSeekBar.setProgress(mProgress + mMin);
+        mSeekBar.setProgress(mProgress - mMin);
     }
 
     @Override
