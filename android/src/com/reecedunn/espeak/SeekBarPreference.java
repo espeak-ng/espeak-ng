@@ -23,10 +23,12 @@ import android.preference.DialogPreference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
-public class SeekBarPreference extends DialogPreference
+public class SeekBarPreference extends DialogPreference implements SeekBar.OnSeekBarChangeListener
 {
     private SeekBar mSeekBar;
+    private TextView mValueText;
 
     private int mProgress = 0;
     private int mMin = 0;
@@ -93,11 +95,13 @@ public class SeekBarPreference extends DialogPreference
     protected View onCreateDialogView() {
         View root = super.onCreateDialogView();
         mSeekBar = (SeekBar)root.findViewById(R.id.seekBar);
+        mValueText = (TextView)root.findViewById(R.id.valueText);
         return root;
     }
 
     @Override
     protected void onBindDialogView(View view) {
+        mSeekBar.setOnSeekBarChangeListener(this);
         mSeekBar.setMax(mMax - mMin);
         mSeekBar.setProgress(mProgress + mMin);
     }
@@ -117,5 +121,22 @@ public class SeekBarPreference extends DialogPreference
                 break;
         }
         super.onClick(dialog, which);
+    }
+
+    @Override
+    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser)
+    {
+        String text = String.format(getFormatter(), Integer.toString(progress + mMin));
+        mValueText.setText(text);
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar)
+    {
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar)
+    {
     }
 }
