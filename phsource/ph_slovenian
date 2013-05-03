@@ -1,13 +1,20 @@
 
+
+phoneme : //  lengthen previous vowel by "length"
+  virtual
+  length 40   // only a small increase for "long stress" because we probably put the stress on the wrong syllable
+endphoneme
+
+
 phoneme @    //  Schwa, can be stressed
   vowel   starttype #@  endtype #@
-  length 140
+  length 160
   FMT(vowel/@)
 endphoneme
 
 phoneme i
   vowel starttype #i endtype #i
-  length 140
+  length 160
   IfNextVowelAppend(;)
   IF thisPh(isStressed) AND NOT nextPhW(isRhotic) THEN
     FMT(vowel/ii_6)
@@ -17,31 +24,32 @@ endphoneme
 
 phoneme u
   vowel starttype #u endtype #u
-  length 140
+  length 160
   FMT(vowel/u_2)
 endphoneme
-
 
 
 phoneme a
   vowel starttype #a endtype #a
   length 170
+  IF thisPh(isUnstressed) THEN
+    FMT(vowel/a_8)
+  ENDIF
   FMT(vowel/a)
 endphoneme
 
 
 phoneme e
   vowel starttype #e endtype #e
-  length 160
+  length 170
+  ChangeIfUnstressed(E)
   FMT(vowel/e_2)
 endphoneme
 
-phoneme e:
+phoneme e+   // doesn't reduce to [e]
   vowel starttype #e endtype #e
-  length 240
-  FMT(vowel/e)
-endphoneme
-
+  ChangePhoneme(e)
+  endphoneme
 
 phoneme E
   vowel starttype #e endtype #e
@@ -49,14 +57,27 @@ phoneme E
   FMT(vowel/e_mid)
 endphoneme
 
+phoneme E#
+  vowel starttype #e endtype #e
+  length 160
+  IF thisPh(isNotStressed) THEN
+    ChangePhoneme(@)
+  ENDIF
+  FMT(vowel/e_mid)
+endphoneme
 
 
 phoneme o
   vowel starttype #o endtype #o
-  length 160
+  length 170
+  ChangeIfUnstressed(O)
   FMT(vowel/o_8)
 endphoneme
 
+phoneme o+   // doesn't reduce to [O]
+  vowel starttype #o endtype #o
+  ChangePhoneme(o)
+  endphoneme
 
 phoneme O
   vowel starttype #o endtype #o
@@ -69,3 +90,17 @@ endphoneme
 phoneme v
   import_phoneme base/v#
 endphoneme
+
+
+// for foreign letters
+phoneme y
+  vowel starttype #i endtype #i
+  length 170
+  FMT(vowel/y)
+endphoneme
+
+phoneme R^       // Czech r-caron
+  import_phoneme sk/R^
+endphoneme
+
+

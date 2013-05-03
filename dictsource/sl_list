@@ -2,7 +2,11 @@
 // translation rules for Slovenian
 // This file is UTF-8 encoded
  
+// $alt1  open vowel [E] or [O] in the stressed syllable
+// $alt2  open vowel [o] or [o] in the stressed syllable
+// $alt3  short stress on final syllable
 
+ 
 // letter names
 b	b@
 c	ts@
@@ -11,7 +15,7 @@ d	d@
 e	e
 f	f@
 g	g@
-h	h@
+_h	h@
 j	j@
 _k	k@
 l	l@
@@ -50,28 +54,28 @@ _2	dv#'a
 _3	tR'i
 _4	St'i*i
 _5	p'et
-_6	S'Est
-_7	s'edEm
-_8	'Os@m
-_9	d@v'Et
-_10	d@s'Et
-_11	'e'najst
+_6	S'est
+_7	s'ed@m
+_8	'os@m
+_9	dEv'et
+_10	dEs'et
+_11	'E'najst
 _12	dv#'anajst
 _13	tR'inajst
 _14	St'iRinajst
 _15	p'etnajst
 _16	S'estnajst
-_17	s'edemnajst
-_18	'Osemnajst
+_17	s'ed@mnajst
+_18	'os@mnajst
 _19	d'evEtnajst
-_2X	dv#'ajsEt
-_3X	tR'id@sEt
-_4X	St'i*id@sEt
-_5X	p'etd@sEt
-_6X	S'estd@sEt
-_7X	s'edemd@sEt
-_8X	'Os@md@sEt
-_9X	d'evEtd@sEt
+_2X	dv#'ajset
+_3X	tR'idEset
+_4X	St'i*idEset
+_5X	p'etdEset
+_6X	S'estdEset
+_7X	s'ed@mdEset
+_8X	'os@mdEset
+_9X	dEv'etdEset
 _2C	dv'esto
 _0C	sto
 _0M1	t'isotS
@@ -116,8 +120,18 @@ z	z@	$atend
 
 // Function words (unstressed)
 
-	// verb: to be
-sem	$u
+bom	bo+m $u   // example of unstressed [o]
+
+//pronouns
+
+
+// prepositions
+skozi	sko+zi $u+
+za	$u+
+
+
+// verb: to be
+sem	s@m $u
 si	$u
 je	$u
 sva	$u
@@ -129,4 +143,14 @@ so	$u
 bil	$u
 bila	$u
 bili	$u
+
+
+// exceptions
+
+deset	$2
+devet	$2
+dim	$alt3
+oba	$2
+žena	$alt1
+šel	S@w
 
