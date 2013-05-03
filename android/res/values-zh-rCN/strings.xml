@@ -22,11 +22,4 @@
     <item msgid="6629288844142484435">"男"</item>
     <item msgid="5166591510034679431">"女"</item>
   </string-array>
-  <string-array name="default_rate_entries">
-    <item msgid="2422192643694183245">"1 倍"</item>
-    <item msgid="7553786328764566293">"2 倍"</item>
-    <item msgid="7682118582350353919">"3 倍"</item>
-    <item msgid="5021322359195099970">"4 倍"</item>
-    <item msgid="6621008032814909392">"5 倍"</item>
-  </string-array>
 </resources>

@@ -197,8 +197,13 @@ public class TtsService extends TextToSpeechService {
             return;
 
         final int gender = getPreferenceValue("default_gender", 0);
-        final int rate = (getPreferenceValue("default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
         final Bundle params = request.getParams();
+
+        int rate = getPreferenceValue("espeak_rate", Integer.MIN_VALUE);
+        if (rate == Integer.MIN_VALUE) {
+            // Try the old eyes-free setting:
+            rate = (getPreferenceValue("default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
+        }
 
         int pitch = getPreferenceValue("espeak_pitch", Integer.MIN_VALUE);
         if (pitch == Integer.MIN_VALUE) {

@@ -22,11 +22,4 @@
     <item msgid="6629288844142484435">"Man"</item>
     <item msgid="5166591510034679431">"Kvinna"</item>
   </string-array>
-  <string-array name="default_rate_entries">
-    <item msgid="2422192643694183245">"x 1"</item>
-    <item msgid="7553786328764566293">"x 2"</item>
-    <item msgid="7682118582350353919">"x 3"</item>
-    <item msgid="5021322359195099970">"x 4"</item>
-    <item msgid="6621008032814909392">"x 5"</item>
-  </string-array>
 </resources>

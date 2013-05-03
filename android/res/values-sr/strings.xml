@@ -22,11 +22,4 @@
     <item msgid="6629288844142484435">"Мушки"</item>
     <item msgid="5166591510034679431">"Женски"</item>
   </string-array>
-  <string-array name="default_rate_entries">
-    <item msgid="2422192643694183245">"1x"</item>
-    <item msgid="7553786328764566293">"2x"</item>
-    <item msgid="7682118582350353919">"3x"</item>
-    <item msgid="5021322359195099970">"4x"</item>
-    <item msgid="6621008032814909392">"5x"</item>
-  </string-array>
 </resources>

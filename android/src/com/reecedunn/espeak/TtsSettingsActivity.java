@@ -37,7 +37,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         // Migrate old eyes-free settings to the new settings:
 
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(TtsSettingsActivity.this);
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         final SharedPreferences.Editor editor = prefs.edit();
 
         String pitch = prefs.getString("espeak_pitch", null);
@@ -46,6 +46,15 @@ public class TtsSettingsActivity extends PreferenceActivity {
             pitch = prefs.getString("default_pitch", "100");
             int pitchValue = Integer.parseInt(pitch) / 2;
             editor.putString("espeak_pitch", Integer.toString(pitchValue));
+        }
+
+        String rate = prefs.getString("espeak_rate", null);
+        if (rate == null) {
+            // Try the old eyes-free setting:
+            SpeechSynthesis engine = new SpeechSynthesis(this, null);
+            rate = prefs.getString("default_rate", "100");
+            int rateValue = (Integer.parseInt(rate) / 100) * engine.Rate.getDefaultValue();
+            editor.putString("espeak_rate", Integer.toString(rateValue));
         }
 
         String gender = prefs.getString("default_gender", "0");
@@ -147,6 +156,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         SpeechSynthesis engine = new SpeechSynthesis(context, null);
 
+        group.addPreference(createPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
         group.addPreference(createPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
         group.addPreference(createPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
     }

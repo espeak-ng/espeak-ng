@@ -22,9 +22,9 @@
   <string name="setting_default_gender">Voice gender</string>
   <!--
         Source: Preference title.
-        Description: Title for the preference that controls default speech rate multiplier.
+        Description: Title for the preference that controls default speech rate.
     -->
-  <string name="setting_default_rate">Speech rate multiplier</string>
+  <string name="setting_default_rate">Speech rate</string>
   <!--
         Source: Dialog text.
         Description: Status message shown when installing voice data.
@@ -111,13 +111,6 @@
         Source: Rate preference labels.
         Description: Labels for possible rate multiplier values.
     -->
-  <string-array name="default_rate_entries">
-    <item>1x</item>
-    <item>2x</item>
-    <item>3x</item>
-    <item>4x</item>
-    <item>5x</item>
-  </string-array>
   <string name="status">Status</string>
   <string name="tts_version">eSpeak version</string>
   <string name="speak">Speak</string>
