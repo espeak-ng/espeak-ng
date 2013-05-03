@@ -3,13 +3,6 @@
 
     <ListPreference
         android:defaultValue="100"
-        android:entries="@array/default_pitch_entries"
-        android:entryValues="@array/default_pitch_values"
-        android:key="default_pitch"
-        android:summary="%s"
-        android:title="@string/setting_default_pitch" />
-    <ListPreference
-        android:defaultValue="100"
         android:entries="@array/default_rate_entries"
         android:entryValues="@array/default_rate_values"
         android:key="default_rate"

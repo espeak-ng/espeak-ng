@@ -122,8 +122,26 @@ public class TtsSettingsActivity extends PreferenceActivity {
             return;
         }
 
+        // Migrate old eyes-free settings to the new settings:
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
+        final SharedPreferences.Editor editor = prefs.edit();
+
+        String pitch = prefs.getString("espeak_pitch", null);
+        if (pitch == null) {
+            // Try the old eyes-free setting:
+            pitch = prefs.getString("default_pitch", "100");
+            int pitchValue = Integer.parseInt(pitch) / 2;
+            editor.putString("espeak_pitch", Integer.toString(pitchValue));
+        }
+
+        editor.commit();
+
+        // Bind eSpeak parameters to preference settings:
+
         SpeechSynthesis engine = new SpeechSynthesis(context, null);
 
+        group.addPreference(createPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
         group.addPreference(createPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
     }
 

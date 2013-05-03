@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="default_pitch_values">
-        <item>50</item>
-        <item>75</item>
-        <item>100</item>
-        <item>150</item>
-        <item>200</item>
-    </string-array>
     <string-array name="default_rate_values">
         <item>100</item>
         <item>200</item>

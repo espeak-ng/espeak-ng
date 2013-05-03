@@ -198,8 +198,13 @@ public class TtsService extends TextToSpeechService {
 
         final int gender = getPreferenceValue("default_gender", 0);
         final int rate = (getPreferenceValue("default_rate", 100) / 100) * mEngine.Rate.getDefaultValue();
-        final int pitch = getPreferenceValue("default_pitch", 100) / 2;
         final Bundle params = request.getParams();
+
+        int pitch = getPreferenceValue("espeak_pitch", Integer.MIN_VALUE);
+        if (pitch == Integer.MIN_VALUE) {
+            // Try the old eyes-free setting:
+            pitch = getPreferenceValue("default_pitch", 100) / 2;
+        }
 
         if (DEBUG) {
             Log.i(TAG, "Received synthesis request: {language=\"" + mMatchingVoice.name + "\"}");

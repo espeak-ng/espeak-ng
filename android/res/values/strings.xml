@@ -15,7 +15,7 @@
         Source: Preference title.
         Description: Title for the preference that controls default voice pitch.
     -->
-    <string name="setting_default_pitch">Default pitch</string>
+    <string name="setting_default_pitch">Pitch</string>
     <!--
         Source: Preference title.
         Description: Title for the preference that controls default voice gender.
@@ -100,13 +100,6 @@
         Source: Pitch preference labels.
         Description: Labels for possible pitch values.
     -->
-    <string-array name="default_pitch_entries">
-        <item>Very low</item>
-        <item>Low</item>
-        <item>Normal</item>
-        <item>High</item>
-        <item>Very high</item>
-    </string-array>
     <!--
         Source: Gender preference labels.
         Description: Labels for possible gender values.
