@@ -66,7 +66,7 @@ consonants  11  119
       ku  18  129
       id  16  128
       sq  33  127
-      hy  23  119
+      hy  24  120
       da  45  138
       ka  20  115
       fa   9  112
@@ -154,6 +154,7 @@ d/dr            [*] base
                 [d^] et
                 [d] fr
                 [d.] hi
+                [d.#] hi
                 [d] kn
                 [d] hu
                 [d] lt
@@ -163,8 +164,7 @@ d/dr            [*] base
                 [d] hr
                 [d] sq
                 [d] mt
-d/dr2           [d.#] hi
-                [d.#] te
+d/dr2           [d.#] te
 d/tap           [*;] ro
 d/tap1          [*] base
 d/tap2          [t#] en
@@ -987,6 +987,7 @@ ustop/q         [q] base
 ustop/q_u       [q] base
 ustop/t         [t] base
                 [t] en-us
+                [d.#] hi
                 [t] zhy
                 [t] da
 ustop/t_        [t] base
@@ -1016,8 +1017,7 @@ ustop/t_hi      [t[] base
                 [t^] et
                 [t[] vi
                 [t`] am
-ustop/th_rfx    [t.#] hi
-ustop/th_rfx2   [d.#] hi
+ustop/th_rfx2   [t.#] hi
                 [d.#] ml
                 [t.#] ml
                 [d.#] te
@@ -1072,6 +1072,7 @@ ustop/tsh_pzd_unasp  [tS;] zh
 ustop/tsh_sr    [tS] sr
 ustop/tsh_unasp  [c] hi
                 [tS] bn
+                [tS] hy
                 [tS`] am
 ustop/ts_pzd    [tS;] base
                 [J#] hi

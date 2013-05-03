@@ -344,7 +344,7 @@ endphoneme
 
 
 phoneme R
-  liquid rhotic
+  liquid
   trill
   lengthmod 6
   ipa r
@@ -357,7 +357,7 @@ phoneme R
 endphoneme
 
 phoneme R2   // this is [R] from Slovak/Czech
-  liquid rhotic
+  liquid
   trill
   lengthmod 6
   ipa r
@@ -367,7 +367,7 @@ phoneme R2   // this is [R] from Slovak/Czech
 endphoneme
 
 phoneme R3  // Afrikaans
-  liquid rhotic
+  liquid
   trill  
   lengthmod 6
   length 60
@@ -394,7 +394,7 @@ endphoneme
 
 
 phoneme r"     // uvular trill
-  vcd uvl frc rhotic
+  vcd uvl frc
   ipa ʀ
   lengthmod 6
   IF nextPh(isNotVowel) THEN

@@ -186,7 +186,7 @@
 ?2      el (K      EU
         e (lh+     e
         e (ll+     E
-     v) e (lhA_    E
+
 
         e (bL02_   E
 
@@ -215,7 +215,7 @@
         e (lL04_   E
 
      i) e (r_      E
-    @s) e (r_      E
+
     qu) e (r_      E
 
     ib) e (rL04_   E
@@ -225,10 +225,11 @@
     iv) e (rL04_   E
    pod) e (rA_     e
 
-    @s) e (rL04_   E
+    @s) e (L05_    E
 
     sp) e (rL04_   E
-     f) e (rL02_   E
+
+     f) e (rL04_   E
 
         e (quL02_  E
         e (rbL04_  E
@@ -237,7 +238,6 @@
         e (rsL04_  E
 
         e (sL02_   E
-
         e (ssL04_  E
         e (ss_     E         // stress and english words
 ?2   C) ee (_      i
@@ -346,7 +346,6 @@
 ?1   v) e (l_      ,E        // eg: possível, amovível, disponível, etc...
 ?1   l) e (ta      'E        // eg: bicicleta, atleta.
 
-    sf) e (ra_     E         // esfera, biosfera
     ef) e (tuL02_  e
      t) e (tra     E
 
@@ -363,6 +362,7 @@
    óCC) e (CA_     e
     úC) e (CA_     e
     úC) el (_      eU
+        ection (_  'EkS&~N
 
 //sort
     _d) e (L05_    E
@@ -371,7 +371,6 @@
    _vi) e (L05_    E
    end) e (L05_    e         // entenderam, etc.
    fiz) e (L05_    E
-   pus) e (L05_    E         // com- im- de-
    tiv) e (L05_    E         // es-
    viv) e (L05_    e
   _com) e (L05_    e
@@ -381,7 +380,6 @@
  _exag) e (L05_    E
  _houv) e (L05_    E
  _mulh) e (L05_    E
- _quis) e (L05_    E
  _soub) e (L05_    E
  _talh) e (L05_    E
 _escond) e (L05_   e
@@ -427,6 +425,7 @@ _corro) e (L07_    e
 _interromp) e (L07_ e
 _troux) e (L07_    E
   _ens) e (bL03_   E
+    _v) e (lhL03_  E
 _amanc) e (bL03_   E
     qu) e (brL04_  E
   _cel) e (brL04_  E
