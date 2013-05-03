@@ -123,10 +123,21 @@ phoneme ts
 endphoneme
 
 
-phoneme c
-  import_phoneme consonants/c2
+phoneme tS
+  vls pla afr sibilant
+  voicingswitch dZ
+  lengthmod 2
+  Vowelin f1=0  f2=2300 200 400  f3=-100 80
+
+  IF nextPh(isPause2) THEN
+    WAV(ustop/tsh_unasp, 60)
+  ENDIF
+  WAV(ustop/tsh_unasp)
 endphoneme
 
+phoneme tS#
+  import_phoneme base/tS
+endphoneme
 
 phoneme k
   import_phoneme consonants/k-

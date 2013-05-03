@@ -1,11 +1,12 @@
 
 
 #define CASCADE_PARALLEL 1         /* Type of synthesis model */
-#define ALL_PARALLEL     2 
+#define ALL_PARALLEL     2
 
 #define IMPULSIVE        1         /* Type of voicing source */
 #define NATURAL          2
 #define SAMPLED          3
+#define SAMPLED2         4
 
 #define PI               3.1415927
 
@@ -96,7 +97,7 @@ typedef struct
   resonator_t rsn_next[N_RSN];
 
 } klatt_global_t, *klatt_global_ptr;
-  
+
 /* Structure for Klatt Parameters */
 
 #define F_NZ   0  // nasal zero formant

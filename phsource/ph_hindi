@@ -396,13 +396,13 @@ phoneme t.#
   lengthmod 2
   ipa ʈU+02B0
   voicingswitch d.#
-  Vowelin f1=0  f2=1800 -300 300  f3=-400 80
+  Vowelin f1=0  f2=1800 -300 300  f3=-200 80
   Vowelout f1=0 f2=1800 -300 250  f3=-400 80  rms=20 colr=2
   
   IF nextPhW(t.#) THEN
     ChangePhoneme(t.)
   ENDIF
-  WAV(ustop/th_rfx)
+  WAV(ustop/th_rfx2, 80)
 endphoneme
 
 phoneme d.
@@ -430,14 +430,15 @@ phoneme d.#
   lengthmod 5
   ipa ɖU+02B0
   voicingswitch t.#
-  Vowelin f1=1  f2=1800 -300 300  f3=-150 80
+  Vowelin f1=1  f2=1800 -300 300  f3=-400 80
   Vowelout f1=1 f2=1800 -300 300  f3=-400 80 colr=2
 
   IF PreVoicing THEN
     FMT(d/xdr)
   ENDIF
 
-  FMT(d/dr2, 50) addWav(ustop/th_rfx2, 80)
+  FMT(d/dr) addWav(ustop/t)
+//  FMT(d/dr) addWav(ustop/th_rfx)
 endphoneme
 
 
