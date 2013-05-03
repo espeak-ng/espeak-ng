@@ -100,9 +100,11 @@ public class SeekBarPreference extends DialogPreference
                 mProgress = mSeekBar.getProgress() + mMin;
                 String text = Integer.toString(mProgress);
                 callChangeListener(text);
-                SharedPreferences.Editor editor = getSharedPreferences().edit();
-                editor.putString(getKey(), text);
-                editor.commit();
+                if (shouldCommit()) {
+                    SharedPreferences.Editor editor = getEditor();
+                    editor.putString(getKey(), text);
+                    editor.commit();
+                }
                 break;
         }
         super.onClick(dialog, which);
