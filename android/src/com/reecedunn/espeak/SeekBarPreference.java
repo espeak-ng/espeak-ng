@@ -31,6 +31,7 @@ public class SeekBarPreference extends DialogPreference
     private int mProgress = 0;
     private int mMin = 0;
     private int mMax = 100;
+    private String mFormatter = "%s";
 
     public void setProgress(int progress) {
         mProgress = progress + mMin;
@@ -60,6 +61,14 @@ public class SeekBarPreference extends DialogPreference
 
     public int getMax() {
         return mMax;
+    }
+
+    public void setFormatter(String formatter) {
+        mFormatter = formatter;
+    }
+
+    public String getFormatter() {
+        return mFormatter;
     }
 
     public SeekBarPreference(Context context, AttributeSet attrs, int defStyle)
