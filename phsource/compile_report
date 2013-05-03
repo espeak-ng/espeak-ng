@@ -422,6 +422,7 @@ klatt/n^        [n^] base
 klatt/n^@       [n^] base
                 [n#] ru
 klatt/nn        [N] base
+klatt/nn_       [N] base
 klatt/nr        [n.] base
 klatt/n-syl     [n-] base
 klatt/qqh       [Q] base
@@ -2140,7 +2141,6 @@ vowel/ii_6      [I] en-wm
                 [i/] pt
                 [i] is
                 [I] sq
-                [i] sl
                 [i] wo
 vowel/ii_7      [i] en
                 [i] ga

@@ -2,7 +2,7 @@
 
 phoneme : //  lengthen previous vowel by "length"
   virtual
-  length 40   // only a small increase for "long stress" because we probably put the stress on the wrong syllable
+  length 50   // only a small increase for "long stress" because we probably put the stress on the wrong syllable
 endphoneme
 
 
@@ -15,10 +15,10 @@ endphoneme
 phoneme i
   vowel starttype #i endtype #i
   length 160
-  IfNextVowelAppend(;)
-  IF thisPh(isStressed) AND NOT nextPhW(isRhotic) THEN
-    FMT(vowel/ii_6)
-  ENDIF
+//  IfNextVowelAppend(;)
+//  IF thisPh(isStressed) AND NOT nextPhW(isRhotic) THEN
+//    FMT(vowel/ii_6)
+//  ENDIF
   FMT(vowel/ii_3)
 endphoneme
 
