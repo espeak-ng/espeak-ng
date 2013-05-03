@@ -120,4 +120,5 @@
   <string name="formatter_wpm">%s WPM</string>
   <string name="formatter_percentage">%s%%</string>
   <string name="resetToDefault">Set to default</string>
+  <string name="espeak_pitch_range">Pitch variation</string>
 </resources>

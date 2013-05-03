@@ -158,6 +158,7 @@ public class TtsSettingsActivity extends PreferenceActivity {
 
         group.addPreference(createPreference(context, engine.Rate, "espeak_rate", R.string.setting_default_rate));
         group.addPreference(createPreference(context, engine.Pitch, "espeak_pitch", R.string.setting_default_pitch));
+        group.addPreference(createPreference(context, engine.PitchRange, "espeak_pitch_range", R.string.espeak_pitch_range));
         group.addPreference(createPreference(context, engine.Volume, "espeak_volume", R.string.espeak_volume));
     }
 
