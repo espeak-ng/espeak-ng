@@ -5,7 +5,7 @@
 // ?1  West Armenian
 
 .L01 բ գ թ կ պ տ ք
-.L02 ու այ իւ իյ ոյ    ա ե ը ի ո օ     //  vowel sounds
+.L02 ու այ իւ իյ ոյ    ա ե ը ի ո օ  ույ   //  vowel sounds
 
 // ligature
 .replace
@@ -15,7 +15,7 @@
 .group ա
         ա        a
         այ       aI
-        այ (_    a
+?1      այ (_    a
 
 .group բ
         բ        b
@@ -122,7 +122,7 @@
         ու (A    v
         ոյ       uj   // ?? uj or uy
      A) ոյ       oj   // ?? oj or oy
-        ոյ (_    o
+?1      ոյ (_    o
 
 .group չ
         չ        tS
@@ -156,7 +156,7 @@
 
 .group ր
         ր        r
-?!1  L02) ր (L02   r
+?1 L02) ր (L02   r
      _) ր (C     r@
      C) ր (_     @r
    L02) ր (_     r

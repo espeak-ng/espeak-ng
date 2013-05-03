@@ -1389,6 +1389,8 @@ SetLengthMods(tr,3);  // all equal
 			tr->langopts.stress_flags = S_NO_AUTO_2;
 			tr->langopts.param[LOPT_REGRESSIVE_VOICING] = 0x103;
 			tr->langopts.param[LOPT_UNPRONOUNCABLE] = 0x76;    // [v]  don't count this character at start of word
+			tr->langopts.param[LOPT_ALT] = 2;      // call ApplySpecialAttributes2() if a word has $alt or $alt2
+			tr->langopts.param[LOPT_IT_LENGTHEN] = 1;    // remove lengthen indicator from unstressed syllables
 			tr->letter_bits['r'] |= 0x80;    // add 'r' to letter group 7, vowels for Unpronouncable test
 			tr->langopts.numbers =  NUM_DECIMAL_COMMA | NUM_ALLOW_SPACE | NUM_SWAP_TENS | NUM_OMIT_1_HUNDRED | NUM_DFRACTION_2 | NUM_ORDINAL_DOT | NUM_ROMAN;
 			tr->langopts.numbers2 = 0x100;   // plural forms of millions etc

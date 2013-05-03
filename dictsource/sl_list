@@ -2,7 +2,11 @@
 // translation rules for Slovenian
 // This file is UTF-8 encoded
  
+// $alt1  open vowel [E] or [O] in the stressed syllable
+// $alt2  open vowel [o] or [o] in the stressed syllable
+// $alt3  short stress on final syllable
 
+ 
 // letter names
 b	b@
 c	ts@
@@ -11,7 +15,7 @@ d	d@
 e	e
 f	f@
 g	g@
-h	h@
+_h	h@
 j	j@
 _k	k@
 l	l@
@@ -55,7 +59,7 @@ _7	s'ed@m
 _8	'os@m
 _9	dEv'et
 _10	dEs'et
-_11	'e'najst
+_11	'E'najst
 _12	dv#'anajst
 _13	tR'inajst
 _14	St'iRinajst
@@ -116,8 +120,18 @@ z	z@	$atend
 
 // Function words (unstressed)
 
-	// verb: to be
-sem	$u
+bom	bo+m $u   // example of unstressed [o]
+
+//pronouns
+
+
+// prepositions
+skozi	sko+zi $u+
+za	$u+
+
+
+// verb: to be
+sem	s@m $u
 si	$u
 je	$u
 sva	$u
@@ -129,4 +143,14 @@ so	$u
 bil	$u
 bila	$u
 bili	$u
+
+
+// exceptions
+
+deset	$2
+devet	$2
+dim	$alt3
+oba	$2
+žena	$alt1
+šel	S@w
 

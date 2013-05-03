@@ -92,7 +92,10 @@ endphoneme
 phoneme a
   vowel starttype #a endtype #a
   length 200
-  FMT(vowel/a#_4)
+  IF thisPh(isUnstressed) AND thisPh(isWordEnd) THEN
+    FMT(vowel/a#_2)
+  ENDIF
+  FMT(vowel/aa_6)
 endphoneme
 
 
@@ -198,13 +201,11 @@ endphoneme
 
 
 phoneme R
-  vcd alv flp rhotic
+  liquid trill rhotic
+  lengthmod 6
   IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
-    CALL base/*
-//  ELIF prevPhW(isNotVowel) THEN
-//    CALL base/R
-  ELSE
-    CALL base/r
+    ChangePhoneme(*)
   ENDIF
-  ipa ɾ
+  CALL base/R
 endphoneme
+

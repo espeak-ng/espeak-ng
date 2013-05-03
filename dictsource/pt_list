@@ -947,6 +947,7 @@ hoje		$alt2
 horrores	$alt2
 humores		$alt2
 ideia		$alt
+inovo		$alt
 interesse	$alt2
 interesse	$alt $verb
 iodo		$alt2
@@ -1178,6 +1179,7 @@ zorra		$alt2
 
 
 // foreign words
+?2 álcool	'aUkow
 ?1 alt        'alt
 ?2        agosto        ag'ostU
 ?1 back       b'Ek
@@ -1216,6 +1218,7 @@ drivers  dR'aIveRs
 ?2 eyes       'aIs
 ?1 frame      fr'eImy
 ?2 frame      fR'eImi
+game	g'eImy
 ?1 gmail      g,em'eIl
 ?2 Gmail      Zem'eIl
 ?1 google     g'u:g&l 
@@ -1324,8 +1327,9 @@ mac  mEk
 ?2        Outlook        ,aUtl'uk
 ?1 paint       p'aint
 ?1 player      pl'eI&r-
-playstation	_^_EN
-?1 point       p'oint
+?1   playstation	_^_EN
+?2   playstation	pleIst'eIS&~N
+ point       p'oint
 ?1 power       p'aU&r-
 ?1 product     p:r'&d&kt
 ?1 Publisher   p'&bl,iS&r-
@@ -1401,6 +1405,7 @@ klein       kl'aIn      // Very common on southern Brazil.
 krueger     kR'iZer
 krüger      kR'iZer
 kühl        k'il
+?2 juan  xu&~N
 mueler      m'iler
 mueller     m'iler
 müler       m'iler

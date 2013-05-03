@@ -1,5 +1,5 @@
 
-91 phoneme tables
+89 phoneme tables
           new total
     base 109  109
 consonants  11  119
@@ -30,7 +30,7 @@ consonants  11  119
       pa  15  151
       ta  24  153
       kn  17  149
-      ml  26  152
+      ml  27  152
       hu  25  124
       lt  44  139
       lv  29  127
@@ -72,7 +72,7 @@ consonants  11  119
       fa   9  112
       rw  15  132
      prs   8  113
-      sl  11  137
+      sl  16  125
       gd   6  109
      nso  12  113
       ht  11  146
@@ -81,7 +81,7 @@ consonants  11  119
       am  15  114
       wo  18  120
       dv  14  149
-      te  16  149
+      te  18  149
       si  24  155
       tn  27  121
       mt  32  129
@@ -90,8 +90,6 @@ consonants  11  119
       tt  23  120
       ko  19  120
       kl  18  119
-      ar   1  109
-      gu   1  149
 
 Data file      Used by
 b/b             [b] base
@@ -156,7 +154,6 @@ d/dr            [*] base
                 [d^] et
                 [d] fr
                 [d.] hi
-                [d.#] hi
                 [d] kn
                 [d] hu
                 [d] lt
@@ -166,6 +163,8 @@ d/dr            [*] base
                 [d] hr
                 [d] sq
                 [d] mt
+d/dr2           [d.#] hi
+                [d.#] te
 d/tap           [*;] ro
 d/tap1          [*] base
 d/tap2          [t#] en
@@ -200,6 +199,7 @@ d/xdr           [d] fr
                 [d.] hi
                 [d.#] hi
                 [d.#] ml
+                [d.#] te
 d/xdz           [dz] consonants
                 [dz] bo
                 [dz#] bo
@@ -987,8 +987,6 @@ ustop/q         [q] base
 ustop/q_u       [q] base
 ustop/t         [t] base
                 [t] en-us
-                [d.#] hi
-                [d.#] ml
                 [t] zhy
                 [t] da
 ustop/t_        [t] base
@@ -1019,6 +1017,11 @@ ustop/t_hi      [t[] base
                 [t[] vi
                 [t`] am
 ustop/th_rfx    [t.#] hi
+ustop/th_rfx2   [d.#] hi
+                [d.#] ml
+                [t.#] ml
+                [d.#] te
+                [t.#] te
 ustop/t_pzd     [c] base
                 [t^] et
                 [t;] lt
@@ -1683,6 +1686,7 @@ vowel/a#_2      [A] nl
                 [a] sv
                 [a] is
                 [a/] sw
+                [a] tr
                 [a] ka
                 [a] nso
                 [a] te
@@ -1731,7 +1735,6 @@ vowel/a#_4      [a:] nl
                 [a] ml
                 [a] bg
                 [a/] it
-                [a] tr
 vowel/a_5       [a:] hi
                 [a:] ta
                 [a:] ml
@@ -1754,6 +1757,7 @@ vowel/a_8       [a] en
                 [a:] vi
                 [A] da
                 [?A] da
+                [a] sl
 vowel/aa        [a:] et
                 [A] fr-ca
                 [A] no
@@ -1780,6 +1784,7 @@ vowel/aa_5      [A:] en-n
                 [A@] en-wm
 vowel/aa_6      [A] de
                 [A:] de
+                [a] tr
 vowel/aa_8      [0] en-us
                 [A:] en-us
                 [0] ga
@@ -1836,7 +1841,6 @@ vowel/e         [e] base
                 [?e] da
                 [e] rw
                 [e#] rw
-                [e:] sl
                 [e] wo
                 [e:] wo
                 [e] dv
@@ -1944,6 +1948,7 @@ vowel/e_mid     [E] en-rp
                 [e] ka
                 [E] prs
                 [E] sl
+                [E#] sl
                 [E] ht
                 [e] si
 vowel/e_mid2    [E] af
@@ -2502,6 +2507,7 @@ vowel/y         [y] base2
                 [y] sq
                 [y] da
                 [?y] da
+                [y] sl
                 [y] az
                 [y] mt
                 [y] tt

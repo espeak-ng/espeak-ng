@@ -4,9 +4,12 @@
 
 .L01 b d g j l m n v z ž   // voiced consonants
 
+.L04 l v
+
 
 .group a
-        a        a
+        a        a:
+        a (X$w_alt3+  'a
 
 .group b
         b        b
@@ -27,13 +30,13 @@
 
 
 .group e
-        e        e
-        e (_     E      // ??
-        e (C_    E
-        e (l_    e
-     @) e (n_    @
-     @) e (r_    @
-     _) e        E
+        e        e:
+        e (X$w_alt3+  'E
+        
+     @) e (n_    E#
+    @C) e (r_    E#
+
+     _) e (m@    E
 
 
 .group f
@@ -51,8 +54,10 @@
 
 
 .group i
-        i        i
+        i        i:
+        i (X$w_alt3+  'i
         i (A     j
+     @) i (ja_   =i
 
 
 .group j
@@ -69,7 +74,7 @@
      K) l (K     @l
      K) l (rK    l
      K) l (_     u
-     @) l (_     =w
+     @) l (_     w
         lj       l^
         lj (A    lj
         lj (i    l^
@@ -94,14 +99,14 @@
 
 
 .group o
-        o        o
-     _) o        O
-     @) o (_     O
-     _) o (l     o
-     _) o (v     o
+        o        o:
+        o (X$w_alt3+  'O
+        
+        o (Co    O:
+        o (CCo   O:
+        o (L04+  o:
 
-     X) o (Co    O   // ??
-
+        
 .group p
         p        p
 
@@ -132,7 +137,9 @@
 
 
 .group u
-        u        u
+        u        u:
+        u (X$w_alt3+  'u
+
         u (A     w
      A) u (K     w
 
@@ -171,17 +178,17 @@
 	á	'a:
 	é	'e:
 	ê	'E:
-	è	E
+	è	'E
 	í	'i:
 	ó	'o:
 	ô	'O:
-	ò	O
+	ò	'O
 	ú	'u:
         đ        dZ
         ř        R^
-        ä        E
+        ä        E:
         ö        @:
-        ü        y
+        ü        y:
         ß        _^_DE
 
         $        d'olaR

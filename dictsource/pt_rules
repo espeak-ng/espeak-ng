@@ -92,8 +92,7 @@
    óCC) a (CA_     &
     óC) a (CCA_    &
     úC) a (CA_     &
-?2      ation (_   'eIS&~N
-?2      action (_  'EkS&~N
+        ation (_   'eIS&~N
 
 
 .group â
@@ -241,7 +240,6 @@
 
         e (ssL04_  E
         e (ss_     E         // stress and english words
-?2      ection (_  'EkS&~N
 ?2   C) ee (_      i
 ?2      ee (C_     i
 ?2   C) e (em_     e
@@ -260,7 +258,7 @@
         e (rvL04_  E
 
         e (tL04_   E
-     m) e (tL04_   e
+     m) e (tL03_   e
     An) e (tA_     e
     on) e (te_     E
    gaz) e (ta_     e
@@ -452,6 +450,8 @@ _enver) e (dL03_   E
   _dec) e (pL04_   E
    _in) e (ptL03_  E
     ad) e (quL04_  E
+  _dig) e (rL02_   E
+  _ing) e (rL02_   E
   _sev) e (rL03_   E
  _reit) e (rL03_   E
  _sinc) e (rL03_   E
@@ -476,15 +476,12 @@ _enver) e (dL03_   E
  _exub) e (rL04_   E
  _temp) e (rL04_   E
 _adult) e (rL04_   E
+_incin) e (rL04_   E
 _persev) e (rL04_  E
 _recup) e (rL04_   E
 _refrig) e (rL04_  E
-_incin) e (rL04_   E
-   _ex) e (rcL02_  E
     _c) e (rcL02_  E
-    _c) e (rquL02_ E
-  _ing) e (rL02_   E
-  _dig) e (rL02_   E
+   _ex) e (rcL02_  E
  _alic) e (rcL02_  E
     _p) e (rdL02_  E
     _l) e (rdL03_  E
@@ -494,6 +491,7 @@ s_colh) e (res_    E
      _) e (rgL03_  e
    _re) e (rgL03_  e
    _so) e (rgL03_  e
+    _c) e (rquL02_ E
   _bez) e (rrL03_  e
      v) e (rtL03_  e         // con- re- in-
     _f) e (rvL03_  e
@@ -604,7 +602,8 @@ _entorp) e (çL03_  e
 .group h
      _) h (_       ag'a
         h                    // silent
-     _) hel (p     x'EU
+?1   _) help       _^_En
+?2   _) hel (p     x'EU
 
 
 .group i
@@ -666,9 +665,8 @@ _entorp) e (çL03_  e
 ?1   @) ings (_    _^_EN
 ?2      il (ton_   'iU
 ?2      i (rton_   'i
-?2      iction (_  'ikS&~N
-?2      ight (_    aIt
-?2      ights (_   aIts
+?1      ight (_    _^_EN
+?1      ights (_   _^_EN
 
 
 .group í
@@ -871,7 +869,6 @@ _entorp) e (çL03_  e
    óCC) o (CA_     o
     úC) o (CA_     o
    úCC) o (CA_     o
-?2      otion (_   'owS&~N
 
 //sort
     _f) o (L05_    o
@@ -880,12 +877,12 @@ _pormen) o (L05_   O
     _s) o (bL02_   O
    _af) o (bL04_   O
   _esn) o (bL04_   O
-   _af) o (fL04_   O
  _engl) o (bL04_   O
   _sal) o (brL03_  o
      _) o (cL03_   o
     _m) o (fL01_   O
     _m) o (fL02_   O
+   _af) o (fL04_   O
     _s) o (frL02_  O
    _ap) oi (L01_   OI
    _ap) oi (L02_   OI
@@ -980,7 +977,6 @@ _remem) o (rL04_   O
         qü         kw
         qu (Y      k
         qu (K      ku
-?2   _) que (_K    ke
      _) que (_     ky
 ?1   _) qua        kwa       // quatro, etc.
 ?1   _) que        ke        // quente, etc.
@@ -1063,6 +1059,7 @@ _remem) o (rL04_   O
 
      _) sobre (@P5 sob*e
  _tran) s (A       z
+?1      ssion (_   _^_EN
 
 
 .group t
@@ -1111,7 +1108,6 @@ _remem) o (rL04_   O
 
      g) u (Y 
     _m) ui (tA_    'wiN
-?2      ution (_   'uS&~N
 
 
 .group ú
