@@ -18,13 +18,6 @@
   <string name="loading" msgid="1624831854302260352">"Učitavanje. Pričekajte..."</string>
   <string name="loading_failed" msgid="8965859207758593651">"Žao nam je, ali učitavanje programa eSpeak nije uspjelo."</string>
   <string name="sample_text" msgid="7870499751575948178">"Ovo je primjer teksta izgovorenog na <xliff:g id="ID_1">%s</xliff:g>"</string>
-  <string-array name="default_pitch_entries">
-    <item msgid="5761992954594669467">"Vrlo niski"</item>
-    <item msgid="9160252712018935449">"Niska"</item>
-    <item msgid="6600217296998445656">"Uobičajena"</item>
-    <item msgid="224968018667112211">"Visoka"</item>
-    <item msgid="3676463174560550053">"Vrlo visoko"</item>
-  </string-array>
   <string-array name="default_gender_entries">
     <item msgid="6067066045311564033">"Zadano"</item>
     <item msgid="6629288844142484435">"Muško"</item>

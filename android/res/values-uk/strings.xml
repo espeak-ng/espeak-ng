@@ -18,13 +18,6 @@
   <string name="loading" msgid="1624831854302260352">"Триває завантаження. Зачекайте..."</string>
   <string name="loading_failed" msgid="8965859207758593651">"Не вдалося завантажити eSpeak."</string>
   <string name="sample_text" msgid="7870499751575948178">"Це зразок тексту такою мовою: <xliff:g id="ID_1">%s</xliff:g>"</string>
-  <string-array name="default_pitch_entries">
-    <item msgid="5761992954594669467">"Дуже низька"</item>
-    <item msgid="9160252712018935449">"Низька"</item>
-    <item msgid="6600217296998445656">"Звичайна"</item>
-    <item msgid="224968018667112211">"Висока"</item>
-    <item msgid="3676463174560550053">"Дуже висока"</item>
-  </string-array>
   <string-array name="default_gender_entries">
     <item msgid="6067066045311564033">"За умовчанням"</item>
     <item msgid="6629288844142484435">"Чоловіча"</item>

@@ -18,13 +18,6 @@
   <string name="loading" msgid="1624831854302260352">"लोड हो रहा है, कृपया प्रतीक्षा करें…"</string>
   <string name="loading_failed" msgid="8965859207758593651">"क्षमा करें, eSpeak प्रारंभ होने में विफल हुआ."</string>
   <string name="sample_text" msgid="7870499751575948178">"यह <xliff:g id="ID_1">%s</xliff:g> में बोले गए पाठ का नमूना है"</string>
-  <string-array name="default_pitch_entries">
-    <item msgid="5761992954594669467">"अत्‍यधिक कम"</item>
-    <item msgid="9160252712018935449">"कम"</item>
-    <item msgid="6600217296998445656">"सामान्य"</item>
-    <item msgid="224968018667112211">"उच्च"</item>
-    <item msgid="3676463174560550053">"अत्‍यधिक उच्‍च"</item>
-  </string-array>
   <string-array name="default_gender_entries">
     <item msgid="6067066045311564033">"डिफ़ॉल्ट"</item>
     <item msgid="6629288844142484435">"पुरुष"</item>

@@ -18,13 +18,6 @@
   <string name="loading" msgid="1624831854302260352">"Carregando. Aguarde…"</string>
   <string name="loading_failed" msgid="8965859207758593651">"Falha ao carregar o eSpeak."</string>
   <string name="sample_text" msgid="7870499751575948178">"Este é um exemplo de texto falado em <xliff:g id="ID_1">%s</xliff:g>"</string>
-  <string-array name="default_pitch_entries">
-    <item msgid="5761992954594669467">"Muito baixa"</item>
-    <item msgid="9160252712018935449">"Baixa"</item>
-    <item msgid="6600217296998445656">"Normal"</item>
-    <item msgid="224968018667112211">"Alta"</item>
-    <item msgid="3676463174560550053">"Muito alta"</item>
-  </string-array>
   <string-array name="default_gender_entries">
     <item msgid="6067066045311564033">"Padrão"</item>
     <item msgid="6629288844142484435">"Masculino"</item>

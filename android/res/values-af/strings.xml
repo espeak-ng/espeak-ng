@@ -18,13 +18,6 @@
   <string name="loading" msgid="1624831854302260352">"Laai tans, wag asseblief..."</string>
   <string name="loading_failed" msgid="8965859207758593651">"Jammer, eSpeak kon nie laai nie."</string>
   <string name="sample_text" msgid="7870499751575948178">"Hierdie is \'n voorbeeld van gesproke teks in <xliff:g id="ID_1">%s</xliff:g>"</string>
-  <string-array name="default_pitch_entries">
-    <item msgid="5761992954594669467">"Baie laag"</item>
-    <item msgid="9160252712018935449">"Laag"</item>
-    <item msgid="6600217296998445656">"Normaal"</item>
-    <item msgid="224968018667112211">"Hoog"</item>
-    <item msgid="3676463174560550053">"Baie hoog"</item>
-  </string-array>
   <string-array name="default_gender_entries">
     <item msgid="6067066045311564033">"Verstek"</item>
     <item msgid="6629288844142484435">"Manlik"</item>

@@ -18,13 +18,6 @@
   <string name="loading" msgid="1624831854302260352">"Yükleniyor, lütfen bekleyin..."</string>
   <string name="loading_failed" msgid="8965859207758593651">"Maalesef eSpeak yüklenemedi."</string>
   <string name="sample_text" msgid="7870499751575948178">"Bu, <xliff:g id="ID_1">%s</xliff:g> dilinde seslendirilen örnek bir metindir"</string>
-  <string-array name="default_pitch_entries">
-    <item msgid="5761992954594669467">"Çok kalın ses"</item>
-    <item msgid="9160252712018935449">"Kalın ses"</item>
-    <item msgid="6600217296998445656">"Normal"</item>
-    <item msgid="224968018667112211">"İnce ses"</item>
-    <item msgid="3676463174560550053">"Çok ince ses"</item>
-  </string-array>
   <string-array name="default_gender_entries">
     <item msgid="6067066045311564033">"Varsayılan"</item>
     <item msgid="6629288844142484435">"Erkek"</item>
