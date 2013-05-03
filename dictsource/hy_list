@@ -5,45 +5,88 @@
 // ?1  West Armenian
 
 // names of letters
-_ա	aIb
-բ	ben
-գ	gim
-դ	da
-ե	jetS
-զ	za
-_է	e
-_ը	'@t#
-թ	t#o
-ժ	Ze
-ի	ini
-լ	lyn
-խ	Xe
-ծ	tsa
-կ	ken
-հ	ho
-ձ	dza
-ղ	r"at
-ճ	ce
-մ	men
-յ	hi
-ն	nu
-շ	Sa
-ո	vo
-չ	tSa
-պ	pe
-ջ	dZe
-ռ	R2a
-ս	se
-վ	vev
-տ	tyn
-ր	re
-ց	ts#o
-ւ	hyn
-փ	p#yr
-ք	k#e
-և	jev
-_օ	o
-ֆ	fe
+
+_ա	a:
+բ	b'@
+գ	g'@
+դ	d'@
+ե	j'e
+զ	z'@
+_է	'e:
+_ը	'@:
+թ	t#'@
+ժ	Z'@
+ի	'i:
+լ	l'@
+խ	X'@
+ծ	ts'@
+կ	k'@
+հ	h'@
+ձ	dz'@
+ղ	r"'@
+ճ	tS'@
+մ	m'@
+յ	j'@
+ն	n'@
+շ	S'@
+ո	v'o
+չ	tS#'@
+պ	p'@
+ջ	dZ'@
+ռ	R2'@
+ս	s'@
+վ	v'@
+տ	t'@
+ր	r'@
+ց	ts#'@
+ւ	'u:
+փ	p#'@
+ք	k#'@
+և	j'ev
+_օ	'o:
+ֆ	f'@
+
+// Note: Western Armenian consonants are transformed in hy-west voice file
+?1 _ա	aIb
+?1 բ	ben
+?1 գ	gim
+?1 դ	da
+?1 ե	jetS
+?1 զ	za
+?1 _է	e
+?1 _ը	'@t#
+?1 թ	t#o
+?1 ժ	Ze
+?1 ի	ini
+?1 լ	lyn
+?1 խ	Xe
+?1 ծ	tsa
+?1 կ	ken
+?1 հ	ho
+?1 ձ	dza
+?1 ղ	r"at
+?1 ճ	tSe
+?1 մ	men
+?1 յ	hi
+?1 ն	nu
+?1 շ	Sa
+?1 ո	vo
+?1 չ	tS#a
+?1 պ	pe
+?1 ջ	dZe
+?1 ռ	R2a
+?1 ս	se
+?1 վ	vev
+?1 տ	tyn
+?1 ր	re
+?1 ց	ts#o
+?1 ւ	hyn
+?1 փ	p#yr
+?1 ք	k#e
+?1 և	jev
+?1 _օ	o
+?1 ֆ	fe
+
 
 _cap	m,ets_|
 _??	g,iR

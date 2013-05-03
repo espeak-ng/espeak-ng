@@ -201,7 +201,7 @@ endphoneme
 
 
 phoneme R
-  liquid trill rhotic
+  liquid trill
   lengthmod 6
   IF prevPhW(isVowel) AND nextPhW(isVowel) THEN
     ChangePhoneme(*)
