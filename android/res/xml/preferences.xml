@@ -9,7 +9,7 @@
         android:summary="%s"
         android:title="@string/setting_default_rate" />
     <ListPreference
-        android:defaultValue="0"
+        android:defaultValue="1"
         android:entries="@array/default_gender_entries"
         android:entryValues="@array/default_gender_values"
         android:key="default_gender"

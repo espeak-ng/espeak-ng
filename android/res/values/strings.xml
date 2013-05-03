@@ -104,7 +104,6 @@
         Description: Labels for possible gender values.
     -->
   <string-array name="default_gender_entries">
-    <item>Default</item>
     <item>Male</item>
     <item>Female</item>
   </string-array>

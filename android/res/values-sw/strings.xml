@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"Samahani, eSpeak imeshindwa kupakia."</string>
   <string name="sample_text" msgid="7870499751575948178">"Hii ni sampuli ya maandishi yaliyonenwa katika <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"Chaguo msingi"</item>
     <item msgid="6629288844142484435">"Mwanamume"</item>
     <item msgid="5166591510034679431">"Mwanamke"</item>
   </string-array>

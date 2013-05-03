@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"क्षमा करें, eSpeak प्रारंभ होने में विफल हुआ."</string>
   <string name="sample_text" msgid="7870499751575948178">"यह <xliff:g id="ID_1">%s</xliff:g> में बोले गए पाठ का नमूना है"</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"डिफ़ॉल्ट"</item>
     <item msgid="6629288844142484435">"पुरुष"</item>
     <item msgid="5166591510034679431">"महिला"</item>
   </string-array>

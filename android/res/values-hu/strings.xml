@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"Sajnos az eSpeak nem töltődött be."</string>
   <string name="sample_text" msgid="7870499751575948178">"Ez egy <xliff:g id="ID_1">%s</xliff:g> nyelven felolvasott szöveg mintája."</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"Alapértelmezett"</item>
     <item msgid="6629288844142484435">"Férfi"</item>
     <item msgid="5166591510034679431">"Nő"</item>
   </string-array>

@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"eSpeak konnte leider nicht geladen werden."</string>
   <string name="sample_text" msgid="7870499751575948178">"Dies ist ein Beispieltext auf <xliff:g id="ID_1">%s</xliff:g>."</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"Standard"</item>
     <item msgid="6629288844142484435">"Männlich"</item>
     <item msgid="5166591510034679431">"Weiblich"</item>
   </string-array>

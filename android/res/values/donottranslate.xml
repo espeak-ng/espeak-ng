@@ -9,7 +9,6 @@
         <item>500</item>
     </string-array>
     <string-array name="default_gender_values">
-        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>

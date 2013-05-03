@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"很抱歉，eSpeak 加载失败。"</string>
   <string name="sample_text" msgid="7870499751575948178">"正在朗读的是<xliff:g id="ID_1">%s</xliff:g>的语音示例"</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"默认"</item>
     <item msgid="6629288844142484435">"男"</item>
     <item msgid="5166591510034679431">"女"</item>
   </string-array>

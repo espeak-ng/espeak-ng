@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"متأسفیم، eSpeak بارگیری نشد."</string>
   <string name="sample_text" msgid="7870499751575948178">"این یک نمونه از نوشتار گفته شده در <xliff:g id="ID_1">%s</xliff:g> است"</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"پیش‌‏فرض"</item>
     <item msgid="6629288844142484435">"مذکر"</item>
     <item msgid="5166591510034679431">"مؤنث"</item>
   </string-array>

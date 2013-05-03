@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"Жао нам је, eSpeak није учитан."</string>
   <string name="sample_text" msgid="7870499751575948178">"Ово је пример текста који је изговорен на језику <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"Подразумевано"</item>
     <item msgid="6629288844142484435">"Мушки"</item>
     <item msgid="5166591510034679431">"Женски"</item>
   </string-array>

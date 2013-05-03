@@ -19,7 +19,6 @@
   <string name="loading_failed" msgid="8965859207758593651">"Не удалось загрузить eSpeak."</string>
   <string name="sample_text" msgid="7870499751575948178">"Так синтезатор речи озвучивает <xliff:g id="ID_1">%s</xliff:g> текст"</string>
   <string-array name="default_gender_entries">
-    <item msgid="6067066045311564033">"По умолчанию"</item>
     <item msgid="6629288844142484435">"Мужской"</item>
     <item msgid="5166591510034679431">"Женский"</item>
   </string-array>

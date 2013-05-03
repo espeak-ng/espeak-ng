@@ -35,6 +35,27 @@ public class TtsSettingsActivity extends PreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // Migrate old eyes-free settings to the new settings:
+
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(TtsSettingsActivity.this);
+        final SharedPreferences.Editor editor = prefs.edit();
+
+        String pitch = prefs.getString("espeak_pitch", null);
+        if (pitch == null) {
+            // Try the old eyes-free setting:
+            pitch = prefs.getString("default_pitch", "100");
+            int pitchValue = Integer.parseInt(pitch) / 2;
+            editor.putString("espeak_pitch", Integer.toString(pitchValue));
+        }
+
+        String gender = prefs.getString("default_gender", "0");
+        if (gender.equals("0")) {
+            // Convert the "Default" value to "Male":
+            editor.putString("default_gender", "1");
+        }
+
+        editor.commit();
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
         {
             getFragmentManager().beginTransaction().replace(
@@ -121,21 +142,6 @@ public class TtsSettingsActivity extends PreferenceActivity {
         if (context == null) {
             return;
         }
-
-        // Migrate old eyes-free settings to the new settings:
-
-        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        final SharedPreferences.Editor editor = prefs.edit();
-
-        String pitch = prefs.getString("espeak_pitch", null);
-        if (pitch == null) {
-            // Try the old eyes-free setting:
-            pitch = prefs.getString("default_pitch", "100");
-            int pitchValue = Integer.parseInt(pitch) / 2;
-            editor.putString("espeak_pitch", Integer.toString(pitchValue));
-        }
-
-        editor.commit();
 
         // Bind eSpeak parameters to preference settings:
 
