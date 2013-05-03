@@ -902,7 +902,8 @@ voice_t *LoadVoice(const char *vname, int control)
 
 		case V_OPTION:
 			value2 = 0;
-			if((sscanf(p,"%s %d %d",option_name,&value,&value2) >= 2) && ((ix = LookupMnem(options_tab, option_name)) >= 0))
+			if(((sscanf(p,"%s %d %d",option_name,&value,&value2) >= 2) && ((ix = LookupMnem(options_tab, option_name)) >= 0)) ||
+				((sscanf(p,"%d %d %d",&ix,&value,&value2) >= 2) && (ix < N_LOPTS)))
 			{
 				langopts->param[ix] = value;
 				langopts->param2[ix] = value2;

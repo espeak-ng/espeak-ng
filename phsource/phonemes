@@ -344,7 +344,7 @@ endphoneme
 
 
 phoneme R
-  liquid
+  liquid rhotic
   trill
   lengthmod 6
   ipa r
@@ -357,7 +357,7 @@ phoneme R
 endphoneme
 
 phoneme R2   // this is [R] from Slovak/Czech
-  liquid
+  liquid rhotic
   trill
   lengthmod 6
   ipa r
@@ -367,7 +367,7 @@ phoneme R2   // this is [R] from Slovak/Czech
 endphoneme
 
 phoneme R3  // Afrikaans
-  liquid
+  liquid rhotic
   trill  
   lengthmod 6
   length 60
@@ -394,7 +394,7 @@ endphoneme
 
 
 phoneme r"     // uvular trill
-  vcd uvl frc
+  vcd uvl frc rhotic
   ipa ʀ
   lengthmod 6
   IF nextPh(isNotVowel) THEN
@@ -1892,7 +1892,7 @@ include ph_kinyarwanda
 phonemetable prs base
 include ph_dari
 
-phonemetable sl sk
+phonemetable sl pl
 include ph_slovenian
 
 phonemetable gd base
@@ -1946,10 +1946,4 @@ include ph_korean
 
 phonemetable kl base
 include ph_greenlandic
-
-phonemetable ar base
-include ph_arabic
-
-phonemetable gu hi
-include ph_gujarati
 
