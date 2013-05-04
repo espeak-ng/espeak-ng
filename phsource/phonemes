@@ -829,6 +829,9 @@ phoneme N
 
   IF KlattSynth THEN
     Vowelin f1=0 f2=2100 50 300 f3=0 80
+    IF nextPh(isPause2) THEN
+      FMT(klatt/nn_)
+    ENDIF
     FMT(klatt/nn)
   ENDIF
 
