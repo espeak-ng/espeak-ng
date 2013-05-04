@@ -11,6 +11,8 @@
         a        a:
         a (X$w_alt3+  'a
 
+        a (č_    'a:
+
 .group b
         b        b
 
@@ -36,7 +38,7 @@
      @) e (n_    E#
     @C) e (r_    E#
 
-     _) e (m@    E
+     _) e (r     E:
 
 
 .group f
@@ -57,8 +59,9 @@
         i        i:
         i (X$w_alt3+  'i
         i (A     j
+        
      @) i (ja_   =i
-
+     r) i (ja_   i:
 
 .group j
         j        j
@@ -106,6 +109,7 @@
         o (CCo   O:
         o (L04+  o:
 
+        o (č_    'o:
         
 .group p
         p        p
