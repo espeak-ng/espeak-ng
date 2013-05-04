@@ -12,7 +12,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:gravity="center_horizontal"
-        android:textIsSelectable="true"
+        android:textIsSelectable="false"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <SeekBar
