@@ -1,20 +1,60 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="tts_settings_label" msgid="2696301846672491410">"Impostazioni di sintesi vocale eSpeak"</string>
-  <string name="setting_default_pitch" msgid="2063082697363767286">"Tono predefinito"</string>
-  <string name="setting_default_rate" msgid="3255750767876184606">"Moltiplicatore di velocità voce"</string>
-  <string name="installing_voice_data" msgid="1199950160686799120">"Installazione dati vocali..."</string>
-  <string name="set_default_message" msgid="651325122612558377">"eSpeak non è impostato come motore di sintesi vocale predefinito."</string>
-  <string name="voice_data_failed_message" msgid="8631894446950552673">"Installazione dei dati vocali in eSpeak non riuscita. Controlla la tua scheda SD."</string>
-  <string name="error_message" msgid="7565522727556545634">"Spiacenti, avvio di eSpeak non riuscito."</string>
-  <string name="current_tts_locale" msgid="3069242116489679835">"Voce predefinita"</string>
-  <string name="available_voices" msgid="1405969819028957410">"Voci installate"</string>
-  <string name="tts_settings" msgid="8094374695950898637">"Impostazioni generali di sintesi vocale"</string>
-  <string name="engine_settings" msgid="15960710549009350">"Impostazioni di sintesi vocale eSpeak"</string>
-  <string name="loading" msgid="1624831854302260352">"Caricamento, attendi..."</string>
-  <string name="sample_text" msgid="7870499751575948178">"Questo è un esempio di testo parlato in <xliff:g id="ID_1">%s</xliff:g>"</string>
-  <string-array name="default_gender_entries">
-    <item msgid="6629288844142484435">"Uomo"</item>
-    <item msgid="5166591510034679431">"Donna"</item>
-  </string-array>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: App icon label.
+        Description: The name of the application.-->
+  <string name="app_name" translatable="false">eSpeak</string>
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Impostazioni di sintesi vocale eSpeak</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Tono</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Velocità sintesi vocale</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Installazione dati sintesi vocale...</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak non è impostato come motore di sintesi vocale predefinito.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">Installazione dei dati di sintesi vocale eSpeak non riuscita. Controlla la tua scheda SD.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Spiacente, avvio di eSpeak non riuscito.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Voce predefinita</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Voci installate</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Impostazioni generali di sintesi vocale</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Impostazioni di sintesi vocale eSpeak</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Caricamento, attendere...</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text"></string>
+  <!--Source: Variant preference labels.
+        Description: Labels for possible voice variant/gender/age values.-->
+  <!--Source: Rate preference labels.
+        Description: Labels for possible rate multiplier values.-->
+  <string name="status">stato</string>
+  <string name="tts_version">Versione Espeak</string>
+  <string name="speak">Parla</string>
+  <string name="ssml">Carica modello SSML</string>
+  <string name="synthesis_demo">Inserisci il testo da pronunciare</string>
+  <string name="espeak_volume">Volume</string>
+  <string name="formatter_wpm">%s WPM</string>
+  <string name="formatter_percentage">%s%%</string>
+  <string name="resetToDefault">Imposta a predefinito</string>
+  <string name="espeak_pitch_range">Variazione tono</string>
+  <string name="espeak_variant">Voce variante</string>
 </resources>

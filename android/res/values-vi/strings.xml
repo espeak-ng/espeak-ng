@@ -1,20 +1,48 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-  <string name="tts_settings_label" msgid="2696301846672491410">"Cài đặt chuyển văn bản thành giọng nói eSpeak"</string>
-  <string name="setting_default_pitch" msgid="2063082697363767286">"Độ cao thấp mặc định"</string>
-  <string name="setting_default_rate" msgid="3255750767876184606">"Bội số tốc độ đọc"</string>
-  <string name="installing_voice_data" msgid="1199950160686799120">"Đang cài đặt dữ liệu thoại…"</string>
-  <string name="set_default_message" msgid="651325122612558377">"eSpeak chưa được thiết lập làm công cụ chuyển văn bản thành giọng nói mặc định của bạn."</string>
-  <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak không thể cài đặt dữ liệu thoại. Vui lòng kiểm tra thẻ SD của bạn."</string>
-  <string name="error_message" msgid="7565522727556545634">"Rất tiếc, không thể khởi động eSpeak."</string>
-  <string name="current_tts_locale" msgid="3069242116489679835">"Giọng nói mặc định"</string>
-  <string name="available_voices" msgid="1405969819028957410">"Số lượng thoại đã được cài đặt"</string>
-  <string name="tts_settings" msgid="8094374695950898637">"Cài đặt chung chuyển văn bản thành giọng nói"</string>
-  <string name="engine_settings" msgid="15960710549009350">"Cài đặt chuyển văn bản thành giọng nói eSpeak"</string>
-  <string name="loading" msgid="1624831854302260352">"Đang tải, vui lòng chờ…"</string>
-  <string name="sample_text" msgid="7870499751575948178">"Đây là mẫu văn bản được đọc bằng <xliff:g id="ID_1">%s</xliff:g>"</string>
-  <string-array name="default_gender_entries">
-    <item msgid="6629288844142484435">"Nam"</item>
-    <item msgid="5166591510034679431">"Nữ"</item>
-  </string-array>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+  <!--Source: App icon label.
+        Description: The name of the application.-->
+  <!--Source: Activity title.
+        Description: Title for the Settings activity.-->
+  <string name="tts_settings_label">Cài đặt chuyển văn bản thành giọng nói eSpeak</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default voice pitch.-->
+  <string name="setting_default_pitch">Độ cao thấp mặc định</string>
+  <!--Source: Preference title.
+        Description: Title for the preference that controls default speech rate.-->
+  <string name="setting_default_rate">Bội số tốc độ đọc</string>
+  <!--Source: Dialog text.
+        Description: Status message shown when installing voice data.-->
+  <string name="installing_voice_data">Đang cài đặt dữ liệu thoại…</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog prompting the user to set eSpeak as their default TTS engine.-->
+  <string name="set_default_message">eSpeak chưa được thiết lập làm công cụ chuyển văn bản thành giọng nói mặc định của bạn.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that voice data installation failed.-->
+  <string name="voice_data_failed_message">eSpeak không thể cài đặt dữ liệu thoại. Vui lòng kiểm tra thẻ SD của bạn.</string>
+  <!--Source: Dialog message.
+        Description: Alert dialog telling the user that an unknown error has occurred.-->
+  <string name="error_message">Rất tiếc, không thể khởi động eSpeak.</string>
+  <!--Source: Label text.
+        Description: Label informing the user of the current text-to-speech language.-->
+  <string name="current_tts_locale">Giọng nói mặc định</string>
+  <!--Source: Label text.
+        Description: Label informing the user of how many voices are installed.-->
+  <string name="available_voices">Số lượng thoại đã được cài đặt</string>
+  <!--Source: Button label.
+        Description: Button for launching general text-to-speech settings.-->
+  <string name="tts_settings">Cài đặt chung chuyển văn bản thành giọng nói</string>
+  <!--Source: Button label.
+        Description: Button for launching eSpeak-specific settings.-->
+  <string name="engine_settings">Cài đặt chuyển văn bản thành giọng nói eSpeak</string>
+  <!--Source: Label text.
+        Description: Label informing the user that eSpeak is loading resources.-->
+  <string name="loading">Đang tải, vui lòng chờ…</string>
+  <!--Source: Spoken aloud.
+        Description: Sample text spoken aloud when the user is trying out a language.-->
+  <string name="sample_text"></string>
+  <!--Source: Variant preference labels.
+        Description: Labels for possible voice variant/gender/age values.-->
+  <!--Source: Rate preference labels.
+        Description: Labels for possible rate multiplier values.-->
 </resources>
