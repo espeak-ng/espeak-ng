@@ -132,10 +132,10 @@ public class SpeechSynthesis {
                 locale = new Locale("hy", "", "arevmda");
             } else if (name.equals("vi-hue")) {
                 // 'hue' is for the Hue Province accent/dialect (Central Vietnamese).
-                locale = new Locale("vi", "", "hue");
+                locale = new Locale("vi", "VN", "hue");
             } else if (name.equals("vi-sgn")) {
                 // 'sgn' is for the Saigon accent/dialect (South Vietnamese).
-                locale = new Locale("vi", "", "saigon");
+                locale = new Locale("vi", "VN", "saigon");
             } else if (name.equals("zh-yue")) {
                 // Android/Java does not support macrolanguages.
                 locale = new Locale("zh", "HK");
@@ -531,5 +531,6 @@ public class SpeechSynthesis {
         mJavaToIanaCountryCode.put("GBR", "GB");
         mJavaToIanaCountryCode.put("PRT", "PT");
         mJavaToIanaCountryCode.put("USA", "US");
+        mJavaToIanaCountryCode.put("VNM", "VN");
     }
 }

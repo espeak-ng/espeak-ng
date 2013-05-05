@@ -191,8 +191,8 @@ public class VoiceData
         new Voice("tr",          "asia/tr",      "tr",  "tur", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Turkish",                          "tr",             "Bu, Türkçe dilinde seslendirilen örnek bir metindir"),
         new Voice("ur",          "test/ur",      "ur",  "urd", "",    "",    "",         SpeechSynthesis.GENDER_UNSPECIFIED, "Urdu",                             "ur",             "This is a sample of text spoken in Urdu"),
         new Voice("vi",          "asia/vi",      "vi",  "vie", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi",             "Đây là mẫu văn bản được đọc bằng Tiếng Việt"),
-        new Voice("vi-hue",      "asia/vi-hue",  "vi",  "vie", "",    "",    "hue",      SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi--hue",        "Đây là mẫu văn bản được đọc bằng Tiếng Việt (HUE)"),
-        new Voice("vi-sgn",      "asia/vi-sgn",  "vi",  "vie", "",    "",    "saigon",   SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi--saigon",     "Đây là mẫu văn bản được đọc bằng Tiếng Việt (SAIGON)"),
+        new Voice("vi-hue",      "asia/vi-hue",  "vi",  "vie", "VN",  "VNM", "hue",      SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi-VN-hue",      "Đây là mẫu văn bản được đọc bằng Tiếng Việt (Việt Nam,HUE)"),
+        new Voice("vi-sgn",      "asia/vi-sgn",  "vi",  "vie", "VN",  "VNM", "saigon",   SpeechSynthesis.GENDER_MALE,        "Vietnamese",                       "vi-VN-saigon",   "Đây là mẫu văn bản được đọc bằng Tiếng Việt (Việt Nam,SAIGON)"),
         new Voice("zh",          "asia/zh",      "zh",  "zho", "",    "",    "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Mandarin)",               "zh",             "This is a sample of text spoken in 中文"),
         new Voice("zh-yue",      "asia/zh-yue",  "zh",  "zho", "HK",  "HKG", "",         SpeechSynthesis.GENDER_MALE,        "Chinese (Cantonese)",              "zh-HK",          "This is a sample of text spoken in 中文 (中華人民共和國香港特別行政區)"),
     };
