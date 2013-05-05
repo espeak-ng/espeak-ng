@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"Mehanizem eSpeak ni nastavljen kot privzeti za pretvorbo besedila v govor."</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"Mehanizmu eSpeak ni uspelo namestiti glasovnih podatkov. Preverite kartico SD."</string>
   <string name="error_message" msgid="7565522727556545634">"Mehanizma eSpeak ni bilo mogoče zagnati."</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"Napaka pri nalaganju mehanizma eSpeak"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"V mehanizmu eSpeak je prišlo do napake med nalaganjem. Ali želite poslati poročilo razvijalcu?"</string>
-  <string name="no_settings" msgid="1351437843962431135">"Ni razpoložljivih nastavitev"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"Privzeti glas"</string>
   <string name="available_voices" msgid="1405969819028957410">"Št. nameščenih glasov"</string>
   <string name="tts_settings" msgid="8094374695950898637">"Splošne nastavitve pretvorbe besedila v govor"</string>
   <string name="engine_settings" msgid="15960710549009350">"Nastavitve pretvorbe besedila v govor v mehanizmu eSpeak"</string>
   <string name="loading" msgid="1624831854302260352">"Nalaganje, počakajte trenutek ..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"Mehanizma eSpeak ni bilo mogoče naložiti."</string>
   <string name="sample_text" msgid="7870499751575948178">"To je vzorec besedila, izgovorjen v <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"Moški"</item>

@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"Το eSpeak δεν έχει οριστεί ως η προεπιλεγμένη μηχανή μετατροπής κειμένου σε λόγο."</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"Το eSpeak απέτυχε να εγκαταστήσει τα δεδομένα φωνής. Ελέγξτε την κάρτα SD."</string>
   <string name="error_message" msgid="7565522727556545634">"Λυπούμαστε, η εκκίνηση του eSpeak απέτυχε."</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"Σφάλμα κατά τη φόρτωση του eSpeak"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"Το eSpeak αντιμετώπισε ένα σφάλμα κατά τη φόρτωση. Θέλετε να στείλετε αναφορά στον προγραμματιστή;"</string>
-  <string name="no_settings" msgid="1351437843962431135">"Δεν υπάρχουν διαθέσιμες ρυθμίσεις"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"Προεπιλεγμένη φωνή"</string>
   <string name="available_voices" msgid="1405969819028957410">"Φωνές που έχουν εγκατασταθεί"</string>
   <string name="tts_settings" msgid="8094374695950898637">"Γενικές ρυθμίσεις TTS"</string>
   <string name="engine_settings" msgid="15960710549009350">"Ρυθμίσεις eSpeak TTS"</string>
   <string name="loading" msgid="1624831854302260352">"Γίνεται φόρτωση. Περιμένετε..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"Λυπούμαστε, η φόρτωση του eSpeak απέτυχε."</string>
   <string name="sample_text" msgid="7870499751575948178">"Αυτό είναι ένα δείγμα κειμένου που εκφέρεται στα <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"Άντρας"</item>

@@ -41,21 +41,6 @@
     -->
   <string name="error_message">Sorry, eSpeak failed to start.</string>
   <!--
-        Source: Dialog title.
-        Description: Alert dialog telling the user that an error occurred while loading eSpeak.
-    -->
-  <string name="loading_failed_title">Error loading eSpeak</string>
-  <!--
-        Source: Dialog message.
-        Description: Alert dialog telling the user that an error occurred while loading eSpeak.
-    -->
-  <string name="loading_failed_message">eSpeak encountered an error while loading. Would you like to send a report to the developer?</string>
-  <!--
-        Source: Displayed in the Settings activity.
-        Description: Text shown when there are no settings available for the user to change.
-    -->
-  <string name="no_settings">No settings available</string>
-  <!--
         Source: Label text.
         Description: Label informing the user of the current text-to-speech language.
     -->
@@ -80,11 +65,6 @@
         Description: Label informing the user that eSpeak is loading resources.
     -->
   <string name="loading">Loading, please wait…</string>
-  <!--
-        Source: Label text.
-        Description: Label informing the user that eSpeak failed to load.
-    -->
-  <string name="loading_failed">Sorry, eSpeak failed to load.</string>
   <!--
         Source: Spoken aloud.
         Description: Sample text spoken aloud when the user is trying out a language.

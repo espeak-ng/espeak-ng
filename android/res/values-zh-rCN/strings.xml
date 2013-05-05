@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"未将 eSpeak 设置为文字转语音的默认引擎。"</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak 无法安装语音数据。请检查您的 SD 卡。"</string>
   <string name="error_message" msgid="7565522727556545634">"很抱歉，eSpeak 启动失败。"</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"加载 eSpeak 时出错"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"加载 eSpeak 时出错。要向开发人员发送报告吗？"</string>
-  <string name="no_settings" msgid="1351437843962431135">"无可用设置"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"默认语音"</string>
   <string name="available_voices" msgid="1405969819028957410">"已安装的语音库数量"</string>
   <string name="tts_settings" msgid="8094374695950898637">"文字转语音 (TTS) 常规设置"</string>
   <string name="engine_settings" msgid="15960710549009350">"eSpeak 文字转语音 (TTS) 设置"</string>
   <string name="loading" msgid="1624831854302260352">"正在加载，请稍候..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"很抱歉，eSpeak 加载失败。"</string>
   <string name="sample_text" msgid="7870499751575948178">"正在朗读的是<xliff:g id="ID_1">%s</xliff:g>的语音示例"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"男"</item>

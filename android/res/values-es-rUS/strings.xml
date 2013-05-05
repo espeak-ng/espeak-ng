@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"eSpeak no se definió como tu motor de texto a voz predeterminado."</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"eSpeak no pudo instalar los datos de voz. Verifica tu tarjeta SD."</string>
   <string name="error_message" msgid="7565522727556545634">"Se produjo un error al iniciar eSpeak."</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"Se produjo un error al cargar eSpeak."</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"Se produjo un error al cargar eSpeak. ¿Deseas enviar un informe al programador?"</string>
-  <string name="no_settings" msgid="1351437843962431135">"No hay parámetros de configuración disponibles"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"Voz predeterminada"</string>
   <string name="available_voices" msgid="1405969819028957410">"Voces instaladas"</string>
   <string name="tts_settings" msgid="8094374695950898637">"Configuración general de texto a voz"</string>
   <string name="engine_settings" msgid="15960710549009350">"Configuración de texto a voz de eSpeak"</string>
   <string name="loading" msgid="1624831854302260352">"Cargando recursos, aguarda..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"Se produjo un error al cargar eSpeak."</string>
   <string name="sample_text" msgid="7870499751575948178">"Este es un ejemplo de texto hablado en <xliff:g id="ID_1">%s</xliff:g>."</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"Masculino"</item>

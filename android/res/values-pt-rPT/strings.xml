@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"O eSpeak não está definido como o motor de síntese de voz predefinido."</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"Ocorreu uma falha ao instalar os dados de voz do eSpeak. Verifique o cartão SD."</string>
   <string name="error_message" msgid="7565522727556545634">"Ocorreu uma falha ao iniciar o eSpeak."</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"Erro ao carregar o eSpeak"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"O eSpeak encontrou um erro ao carregar. Pretende enviar um relatório para o programador?"</string>
-  <string name="no_settings" msgid="1351437843962431135">"Sem definições disponíveis"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"Voz predefinida"</string>
   <string name="available_voices" msgid="1405969819028957410">"Vozes instaladas"</string>
   <string name="tts_settings" msgid="8094374695950898637">"Definições gerais do TTS"</string>
   <string name="engine_settings" msgid="15960710549009350">"Definições do eSpeak TTS"</string>
   <string name="loading" msgid="1624831854302260352">"A carregar; aguarde..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"Ocorreu uma falha ao carregar o eSpeak."</string>
   <string name="sample_text" msgid="7870499751575948178">"Este é um exemplo de texto falado em <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"Masculina"</item>

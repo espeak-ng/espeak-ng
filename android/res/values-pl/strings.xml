@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"eSpeak nie jest ustawiony jako domyślny mechanizm odczytywania tekstu."</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"Zainstalowanie danych głosowych przez eSpeak nie powiodło się. Sprawdź kartę SD."</string>
   <string name="error_message" msgid="7565522727556545634">"Przepraszamy, uruchomienie eSpeak nie powiodło się."</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"Błąd podczas ładowania eSpeak"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"Podczas ładowania eSpeak wystąpił błąd. Czy chcesz wysłać raport do programisty?"</string>
-  <string name="no_settings" msgid="1351437843962431135">"Brak dostępnych ustawień"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"Domyślny głos"</string>
   <string name="available_voices" msgid="1405969819028957410">"Zainstalowane głosy"</string>
   <string name="tts_settings" msgid="8094374695950898637">"Ogólne ustawienia odczytywania tekstu"</string>
   <string name="engine_settings" msgid="15960710549009350">"Ustawienia eSpeak"</string>
   <string name="loading" msgid="1624831854302260352">"Wczytywanie. Czekaj..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"Przepraszamy, załadowanie eSpeak nie powiodło się."</string>
   <string name="sample_text" msgid="7870499751575948178">"To jest przykład tekstu mówionego przy ustawieniu <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"Mężczyzna"</item>

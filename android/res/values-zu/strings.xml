@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"I-eSpeak ayisethwanga njengenjini yombhalo-uya-enkulumweni oyithola ikhona."</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"I-eSpeak yehlulekile ukulayisha idatha yezwi. Uyacelwa ukuthi ubheke ikhadi lakho le-SD."</string>
   <string name="error_message" msgid="7565522727556545634">"Uxolo, i-eSpeak yehlulekile ukuqala."</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"Iphutha lokulayisha i-eSpeak"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"I-eSpeak ihlangabezane nenkinga ngesikhathi ilayisha. Ungathanda ukuthumelela umsunguli umbiko?"</string>
-  <string name="no_settings" msgid="1351437843962431135">"Azikho izilungiselelo ezikhona"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"Izwi olithola likhona"</string>
   <string name="available_voices" msgid="1405969819028957410">"Amazwi afakiwe"</string>
   <string name="tts_settings" msgid="8094374695950898637">"Izilungiselelo ze-TTS ezejwayelekile"</string>
   <string name="engine_settings" msgid="15960710549009350">"Izilungiselelo  ze-eSpeak TTS"</string>
   <string name="loading" msgid="1624831854302260352">"Iyalayisha, ucelwa ukuthi ulinde..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"Uxolo, i-eSpeak yehlulekile ukulayisha."</string>
   <string name="sample_text" msgid="7870499751575948178">"Lena yisampula yombhalo okhulunywa kwi <xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"Owesilisa"</item>

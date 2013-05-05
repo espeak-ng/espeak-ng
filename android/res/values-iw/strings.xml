@@ -7,15 +7,11 @@
   <string name="set_default_message" msgid="651325122612558377">"eSpeak אינו מוגדר כמנוע ברירת המחדל שלך לתכונת טקסט לדיבור. האם אתה רוצה להגדיר אותו כעת?"</string>
   <string name="voice_data_failed_message" msgid="8631894446950552673">"התקנת נתוני הקול של eSpeak נכשלה. בדוק את כרטיס ה-SD שלך."</string>
   <string name="error_message" msgid="7565522727556545634">"מצטערים. הפעלת eSpeak נכשלה. האם אתה רוצה לשלוח דוח שגיאה?"</string>
-  <string name="loading_failed_title" msgid="511566315504616423">"שגיאה בטעינת eSpeak"</string>
-  <string name="loading_failed_message" msgid="5873070263506367474">"אירעה שגיאה ב-eSpeak בעת הטעינה. האם אתה רוצה לשלוח דוח למפתח?"</string>
-  <string name="no_settings" msgid="1351437843962431135">"אין הגדרות זמינות"</string>
   <string name="current_tts_locale" msgid="3069242116489679835">"ברירת מחדל לקול"</string>
   <string name="available_voices" msgid="1405969819028957410">"קולות שהותקנו"</string>
   <string name="tts_settings" msgid="8094374695950898637">"הגדרות TTS כלליות"</string>
   <string name="engine_settings" msgid="15960710549009350">"הגדרות eSpeak TTS"</string>
   <string name="loading" msgid="1624831854302260352">"טוען. המתן..."</string>
-  <string name="loading_failed" msgid="8965859207758593651">"מצטערים. טעינת eSpeak נכשלה."</string>
   <string name="sample_text" msgid="7870499751575948178">"זוהי דוגמה לקריאת טקסט ב-<xliff:g id="ID_1">%s</xliff:g>"</string>
   <string-array name="default_gender_entries">
     <item msgid="6629288844142484435">"זכר"</item>
